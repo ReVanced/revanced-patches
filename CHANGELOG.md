@@ -1,3 +1,10 @@
+## [5.7.2-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.7.2-dev.1...v5.7.2-dev.2) (2024-12-23)
+
+
+### Bug Fixes
+
+* **YouTube - Hide layout components:** Don't hide Shorts channel bar when toggling for video player ([9af6412](https://github.com/ReVanced/revanced-patches/commit/9af6412d92ec31e612eaabba6578453da0fc61d6))
+
 ## [5.7.2-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.7.1...v5.7.2-dev.1) (2024-12-23)
 
 
