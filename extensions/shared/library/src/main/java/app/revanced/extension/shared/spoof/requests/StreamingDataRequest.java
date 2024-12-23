@@ -90,9 +90,8 @@ public class StreamingDataRequest {
     private static volatile ClientType lastSpoofedClientType;
 
     public static String getLastSpoofedClientName() {
-        return lastSpoofedClientType == null
-                ? "Unknown"
-                : lastSpoofedClientType.friendlyName;
+        ClientType client = lastSpoofedClientType;
+        return client == null ? "Unknown" : client.friendlyName;
     }
 
     private final String videoId;

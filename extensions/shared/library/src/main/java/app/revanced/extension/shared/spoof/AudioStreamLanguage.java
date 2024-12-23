@@ -63,6 +63,7 @@ public enum AudioStreamLanguage {
     OR,
     PA,
     PL,
+    PT,
     RO,
     RU,
     SI,

@@ -4,7 +4,6 @@ import android.os.Build;
 
 import androidx.annotation.Nullable;
 
-
 public enum ClientType {
     // https://dumps.tadiphone.dev/dumps/oculus/eureka
     ANDROID_VR_NO_AUTH( // Use as first fallback.
@@ -18,6 +17,17 @@ public enum ClientType {
             false,
             "Android VR (No auth)"
     ),
+    ANDROID_UNPLUGGED(
+            29,
+            "ANDROID_UNPLUGGED",
+            "Google TV Streamer",
+            "14",
+            "com.google.android.apps.youtube.unplugged/8.49.0 (Linux; U; Android 14; GB) gzip",
+            "34",
+            "8.49.0",
+            true,
+            "Android TV"
+    ), // Requires login.
     // Fall over to authenticated ('hl' is ignored and audio is same as language set in users Google account).
     ANDROID_VR(
             ANDROID_VR_NO_AUTH.id,
@@ -30,17 +40,6 @@ public enum ClientType {
             true,
             "Android VR"
     ),
-    ANDROID_UNPLUGGED(
-            29,
-            "ANDROID_UNPLUGGED",
-            "Google TV Streamer",
-            "14",
-            "com.google.android.apps.youtube.unplugged/8.49.0 (Linux; U; Android 14; GB) gzip",
-            "34",
-            "8.49.0",
-            true,
-            "Android TV"
-    ), // Requires login.
     IOS_UNPLUGGED(33,
             "IOS_UNPLUGGED",
             "iPhone16,2",

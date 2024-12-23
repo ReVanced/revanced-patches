@@ -21,7 +21,6 @@ public class SpoofVideoStreamsPatch {
     private static final boolean FIX_HLS_CURRENT_TIME = SPOOF_STREAMING_DATA
             && BaseSettings.SPOOF_VIDEO_STREAMS_CLIENT_TYPE.get() == ClientType.IOS_UNPLUGGED;
 
-
     /**
      * Any unreachable ip address.  Used to intentionally fail requests.
      */
@@ -218,7 +217,7 @@ public class SpoofVideoStreamsPatch {
                     && !TextUtils.isEmpty(videoFormat)) {
                 // Force LTR layout, to match the same LTR video time/length layout YouTube uses for all languages.
                 return "\u202D" + videoFormat + "\u2009(" // u202D = left to right override
-                        +StreamingDataRequest.getLastSpoofedClientName() + ")";
+                        + StreamingDataRequest.getLastSpoofedClientName() + ")";
             }
         } catch (Exception ex) {
             Logger.printException(() -> "appendSpoofedClient failure", ex);
