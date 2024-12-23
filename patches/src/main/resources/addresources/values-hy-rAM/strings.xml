@@ -1289,12 +1289,11 @@ Mini-player-ը կարող է գրավվել էկրանից դուրս՝ դեպի
   <string name="revanced_spoof_video_streams_user_dialog_message">Այս  կարգավորման  անջատումը  կարող է  առաջացնել  տեսանյութի  վերարտադրման  հետ  կապված  պրոբլեմներ</string>
   <string name="revanced_spoof_video_streams_client_type_title">Դեֆոլտ  կլիենտ</string>
   <string name="revanced_spoof_video_streams_about_title">Խաբեության կողմնակի ազդեցություններ</string>
-  <string name="revanced_spoof_video_streams_about_summary">"• Մանկական տեսանյութերը կարող են չնվագարկվել
-• Աուդիո ուղու ընտրացանկը բացակայում է
+  <string name="revanced_spoof_video_streams_about_summary">"• Ձայնային ուղու ընտրացանկը բացակայում է
 • Կայուն ծավալը հասանելի չէ
 • Պարտադրել բնօրինակ ձայնը հասանելի չէ"</string>
   <string name="revanced_spoof_video_streams_language_title">Ըստ նախապատվության, հնչյունային հոսքի լեզուն</string>
-  <string name="revanced_spoof_video_streams_language_DEFAULT">Ծրագրի լեզուն</string>
+  <string name="revanced_spoof_video_streams_language_DEFAULT">Հաշվի լեզու</string>
   <string name="revanced_spoof_video_streams_language_AR">Արաբերեն</string>
   <string name="revanced_spoof_video_streams_language_AZ">Ադրբեջաներեն</string>
   <string name="revanced_spoof_video_streams_language_BG">Բուլղարերեն</string>
@@ -1330,8 +1329,6 @@ Mini-player-ը կարող է գրավվել էկրանից դուրս՝ դեպի
   <string name="revanced_spoof_video_streams_language_OR">Օդիական</string>
   <string name="revanced_spoof_video_streams_language_PA">Փենջաբերեն</string>
   <string name="revanced_spoof_video_streams_language_PL">Լեհերեն</string>
-  <string name="revanced_spoof_video_streams_language_PT_BR">Պորտուգալերեն (Բրազիլիա)</string>
-  <string name="revanced_spoof_video_streams_language_PT_PT">Պորտուգալերեն (Պորտուգալիա)</string>
   <string name="revanced_spoof_video_streams_language_RO">Ռումիներեն</string>
   <string name="revanced_spoof_video_streams_language_RU">Ռուսերեն</string>
   <string name="revanced_spoof_video_streams_language_SK">Սլովակերեն</string>

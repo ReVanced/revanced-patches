@@ -1287,12 +1287,11 @@ Shikimi i videove mund të mos funksionojë"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Çaktivizimi i kësaj cilësimi mund të shkaktojë probleme me luajtjen e videos.</string>
   <string name="revanced_spoof_video_streams_client_type_title">Klient i përdoruesit</string>
   <string name="revanced_spoof_video_streams_about_title">Efekte anësore të spoofing</string>
-  <string name="revanced_spoof_video_streams_about_summary">"• Videot e fëmijëve mund të mos luhen
-• Mungon menyja e pjesës audio
+  <string name="revanced_spoof_video_streams_about_summary">"• Menya e pjesës audio mungon
 • Vëllimi i qëndrueshëm nuk disponohet
 • Forco audio origjinale nuk disponohet"</string>
   <string name="revanced_spoof_video_streams_language_title">Gjuha e rrjedhës së audios standarde</string>
-  <string name="revanced_spoof_video_streams_language_DEFAULT">Gjuha e aplikacionit</string>
+  <string name="revanced_spoof_video_streams_language_DEFAULT">Gjuha e llogarisë</string>
   <string name="revanced_spoof_video_streams_language_AR">Arabisht</string>
   <string name="revanced_spoof_video_streams_language_AZ">Azerbajxhanisht</string>
   <string name="revanced_spoof_video_streams_language_BG">Bullgarisht</string>
@@ -1328,8 +1327,6 @@ Shikimi i videove mund të mos funksionojë"</string>
   <string name="revanced_spoof_video_streams_language_OR">Odia</string>
   <string name="revanced_spoof_video_streams_language_PA">Punjabi</string>
   <string name="revanced_spoof_video_streams_language_PL">Polake</string>
-  <string name="revanced_spoof_video_streams_language_PT_BR">Portugeze (Brazili)</string>
-  <string name="revanced_spoof_video_streams_language_PT_PT">Portugeze (Portugali)</string>
   <string name="revanced_spoof_video_streams_language_RO">Rumune</string>
   <string name="revanced_spoof_video_streams_language_RU">Ruse</string>
   <string name="revanced_spoof_video_streams_language_SK">Sllovake</string>

@@ -1288,8 +1288,7 @@ Phát video có thể không hoạt động"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Desativar essa configuração pode causar problemas de reprodução de vídeo.</string>
   <string name="revanced_spoof_video_streams_client_type_title">Cliente padrão</string>
   <string name="revanced_spoof_video_streams_about_title">Efeito colateral de falsificação</string>
-  <string name="revanced_spoof_video_streams_about_summary">"• Os vídeos infantis podem não ser reproduzidos
-• O menu da faixa de áudio está ausente
+  <string name="revanced_spoof_video_streams_about_summary">"• O menu da faixa de áudio está ausente
 • O volume estável não está disponível
 • Forçar áudio original não está disponível"</string>
   <string name="revanced_spoof_video_streams_language_title">Idioma padrão do fluxo de áudio</string>
@@ -1329,8 +1328,6 @@ Phát video có thể không hoạt động"</string>
   <string name="revanced_spoof_video_streams_language_OR">Odia</string>
   <string name="revanced_spoof_video_streams_language_PA">Punjabi</string>
   <string name="revanced_spoof_video_streams_language_PL">Polonês</string>
-  <string name="revanced_spoof_video_streams_language_PT_BR">Português (Brasil)</string>
-  <string name="revanced_spoof_video_streams_language_PT_PT">Português (Portugal)</string>
   <string name="revanced_spoof_video_streams_language_RO">Romeno</string>
   <string name="revanced_spoof_video_streams_language_RU">Russo</string>
   <string name="revanced_spoof_video_streams_language_SK">Eslovaco</string>

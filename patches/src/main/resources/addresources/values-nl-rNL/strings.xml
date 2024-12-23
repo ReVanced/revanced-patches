@@ -1289,10 +1289,9 @@ Video-playback werkt mogelijk niet"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Het uitschakelen van deze instelling kan afspeelproblemen veroorzaken.</string>
   <string name="revanced_spoof_video_streams_client_type_title">Standaard client</string>
   <string name="revanced_spoof_video_streams_about_title">Bijkomende effecten vervalsen</string>
-  <string name="revanced_spoof_video_streams_about_summary">"• Kinderfilmpjes worden mogelijk niet afgespeeld
-• Menu voor audiotracks ontbreekt
+  <string name="revanced_spoof_video_streams_about_summary">"• Geluidsspoormenu ontbreekt
 • Stabiel volume is niet beschikbaar
-• Forceren van originele audio is niet beschikbaar"</string>
+• Orignieel geluid afdwingen is niet beschikbaar"</string>
   <string name="revanced_spoof_video_streams_language_title">Standaardtaal voor audiostream</string>
   <string name="revanced_spoof_video_streams_language_DEFAULT">App-taal</string>
   <string name="revanced_spoof_video_streams_language_AR">Arabisch</string>
@@ -1330,8 +1329,6 @@ Video-playback werkt mogelijk niet"</string>
   <string name="revanced_spoof_video_streams_language_OR">Odia</string>
   <string name="revanced_spoof_video_streams_language_PA">Punjabi</string>
   <string name="revanced_spoof_video_streams_language_PL">Pools</string>
-  <string name="revanced_spoof_video_streams_language_PT_BR">Portugees (Brazilië)</string>
-  <string name="revanced_spoof_video_streams_language_PT_PT">Portugees (Portugal)</string>
   <string name="revanced_spoof_video_streams_language_RO">Roemeens</string>
   <string name="revanced_spoof_video_streams_language_RU">Russisch</string>
   <string name="revanced_spoof_video_streams_language_SK">Slowaaks</string>

@@ -1287,8 +1287,7 @@ Video atskaņošana var nedarboties"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Šī iestatījuma atspējošana var izraisīt video atskaņošanas problēmas.</string>
   <string name="revanced_spoof_video_streams_client_type_title">Noklusētā klients</string>
   <string name="revanced_spoof_video_streams_about_title">Maldināšanas blakusparādības</string>
-  <string name="revanced_spoof_video_streams_about_summary">"• Bērnu videoklipi var netikt atskaņoti
-• Trūkst audio ierakstu izvēlnes
+  <string name="revanced_spoof_video_streams_about_summary">"• Audio ierakstu izvēlnes trūkst
 • Stabils skaļums nav pieejams
 • Force oriģinālais audio nav pieejams"</string>
   <string name="revanced_spoof_video_streams_language_title">Noklusētā audio straumes valoda</string>
@@ -1328,8 +1327,6 @@ Video atskaņošana var nedarboties"</string>
   <string name="revanced_spoof_video_streams_language_OR">Odija</string>
   <string name="revanced_spoof_video_streams_language_PA">Pendžabu</string>
   <string name="revanced_spoof_video_streams_language_PL">Poļu</string>
-  <string name="revanced_spoof_video_streams_language_PT_BR">Portugāļu (Brazīlija)</string>
-  <string name="revanced_spoof_video_streams_language_PT_PT">Portugāļu (Portugāle)</string>
   <string name="revanced_spoof_video_streams_language_RO">Rumāņu</string>
   <string name="revanced_spoof_video_streams_language_RU">Krievu</string>
   <string name="revanced_spoof_video_streams_language_SK">Slovāku</string>

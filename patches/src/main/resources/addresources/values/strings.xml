@@ -1298,12 +1298,11 @@ Video playback may not work"</string>
             <string name="revanced_spoof_video_streams_user_dialog_message">Turning off this setting may cause video playback issues.</string>
             <string name="revanced_spoof_video_streams_client_type_title">Default client</string>
             <string name="revanced_spoof_video_streams_about_title">Spoofing side effects</string>
-            <string name="revanced_spoof_video_streams_about_summary">"• Kids videos may not play
-• Audio track menu is missing
+            <string name="revanced_spoof_video_streams_about_summary">"• Audio track menu is missing
 • Stable volume is not available
 • Force original audio is not available"</string>
             <string name="revanced_spoof_video_streams_language_title">Default audio stream language</string>
-            <string name="revanced_spoof_video_streams_language_DEFAULT">App language</string>
+            <string name="revanced_spoof_video_streams_language_DEFAULT">Account language</string>
             <string name="revanced_spoof_video_streams_language_AR">Arabic</string>
             <string name="revanced_spoof_video_streams_language_AZ">Azerbaijani</string>
             <string name="revanced_spoof_video_streams_language_BG">Bulgarian</string>
@@ -1339,8 +1338,6 @@ Video playback may not work"</string>
             <string name="revanced_spoof_video_streams_language_OR">Odia</string>
             <string name="revanced_spoof_video_streams_language_PA">Punjabi</string>
             <string name="revanced_spoof_video_streams_language_PL">Polish</string>
-            <string name="revanced_spoof_video_streams_language_PT_BR">Portuguese (Brazil)</string>
-            <string name="revanced_spoof_video_streams_language_PT_PT">Portuguese (Portugal)</string>
             <string name="revanced_spoof_video_streams_language_RO">Romanian</string>
             <string name="revanced_spoof_video_streams_language_RU">Russian</string>
             <string name="revanced_spoof_video_streams_language_SK">Slovak</string>

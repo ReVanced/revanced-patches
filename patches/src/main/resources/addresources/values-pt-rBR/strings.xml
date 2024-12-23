@@ -1287,8 +1287,7 @@ A reprodução de vídeo pode não funcionar"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Desativar esta configuração pode causar problemas de reprodução de vídeo.</string>
   <string name="revanced_spoof_video_streams_client_type_title">Cliente padrão</string>
   <string name="revanced_spoof_video_streams_about_title">Simulando efeitos colaterais</string>
-  <string name="revanced_spoof_video_streams_about_summary">"• Vídeos infantis podem não ser reproduzidos
-• O menu da trilha de áudio está ausente
+  <string name="revanced_spoof_video_streams_about_summary">"• O menu da trilha de áudio está ausente
 • O volume estável não está disponível
 • Forçar áudio original não está disponível"</string>
   <string name="revanced_spoof_video_streams_language_title">Idioma do fluxo de áudio padrão</string>
@@ -1328,8 +1327,6 @@ A reprodução de vídeo pode não funcionar"</string>
   <string name="revanced_spoof_video_streams_language_OR">Oriá</string>
   <string name="revanced_spoof_video_streams_language_PA">Punjabi</string>
   <string name="revanced_spoof_video_streams_language_PL">Polonês</string>
-  <string name="revanced_spoof_video_streams_language_PT_BR">Português (Brasil)</string>
-  <string name="revanced_spoof_video_streams_language_PT_PT">Português (Portugal)</string>
   <string name="revanced_spoof_video_streams_language_RO">Romeno</string>
   <string name="revanced_spoof_video_streams_language_RU">Russo</string>
   <string name="revanced_spoof_video_streams_language_SK">Eslovaco</string>

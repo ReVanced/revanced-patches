@@ -1289,10 +1289,10 @@ DeArrowの詳細については、ここをタップしてください。"</stri
   <string name="revanced_spoof_video_streams_user_dialog_message">この設定をオフにすると、ビデオ再生の問題が発生する可能性があります。</string>
   <string name="revanced_spoof_video_streams_client_type_title">デフォルトのクライアント</string>
   <string name="revanced_spoof_video_streams_about_title">クライアントを偽装することによる副作用</string>
-  <string name="revanced_spoof_video_streams_about_summary">"• 子供向けビデオは再生できない場合があります
-• オーディオトラックメニューがありません
-• 安定したボリュームが利用できない
-• 強制的にオリジナルのオーディオを使用することはできません"</string>
+  <string name="revanced_spoof_video_streams_about_summary">"• 音声トラックメニューがありません
+• 安定したボリュームが利用できません
+• 強制的にオリジナルのオーディオを使用することはできません
+• 子供向けビデオは再生できない場合があります"</string>
   <string name="revanced_spoof_video_streams_language_title">デフォルトのオーディオストリーム言語</string>
   <string name="revanced_spoof_video_streams_language_DEFAULT">アプリの言語</string>
   <string name="revanced_spoof_video_streams_language_AR">アラビア文字</string>
@@ -1330,8 +1330,6 @@ DeArrowの詳細については、ここをタップしてください。"</stri
   <string name="revanced_spoof_video_streams_language_OR">オリヤー語</string>
   <string name="revanced_spoof_video_streams_language_PA">パンジャービー語</string>
   <string name="revanced_spoof_video_streams_language_PL">ポーランド語</string>
-  <string name="revanced_spoof_video_streams_language_PT_BR">ポルトガル語 (ブラジル)</string>
-  <string name="revanced_spoof_video_streams_language_PT_PT">ポルトガル語 (ポルトガル)</string>
   <string name="revanced_spoof_video_streams_language_RO">ルーマニア語</string>
   <string name="revanced_spoof_video_streams_language_RU">ロシア語</string>
   <string name="revanced_spoof_video_streams_language_SK">スロバキア語</string>

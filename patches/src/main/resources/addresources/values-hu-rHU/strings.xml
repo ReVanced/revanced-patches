@@ -1287,12 +1287,11 @@ A videólejátszás nem működhet"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">A beállítás kikapcsolása videolejátszási problémákat okozhat.</string>
   <string name="revanced_spoof_video_streams_client_type_title">Alapértelmezett kliens</string>
   <string name="revanced_spoof_video_streams_about_title">Hamisítás mellékhatásai</string>
-  <string name="revanced_spoof_video_streams_about_summary">"• Gyermekvideók előfordulhat, hogy nem játszódnak le
-• Hiányzik a hangsáv menü
-• A stabil hangerő nem elérhető
-• Az eredeti hang kényszerítése nem elérhető"</string>
+  <string name="revanced_spoof_video_streams_about_summary">"• Nincs hangsáv menü
+• Nem érhető el a stabil hangerő
+• Nem érhető el az eredeti hang kényszerítése"</string>
   <string name="revanced_spoof_video_streams_language_title">Alapértelmezett hangfolyam nyelve</string>
-  <string name="revanced_spoof_video_streams_language_DEFAULT">Alkalmazás nyelve</string>
+  <string name="revanced_spoof_video_streams_language_DEFAULT">Fiók nyelve</string>
   <string name="revanced_spoof_video_streams_language_AR">Arab</string>
   <string name="revanced_spoof_video_streams_language_AZ">Azerbajdzsáni</string>
   <string name="revanced_spoof_video_streams_language_BG">Bolgár</string>
@@ -1328,8 +1327,6 @@ A videólejátszás nem működhet"</string>
   <string name="revanced_spoof_video_streams_language_OR">odia</string>
   <string name="revanced_spoof_video_streams_language_PA">Pandzsábi</string>
   <string name="revanced_spoof_video_streams_language_PL">Lengyel</string>
-  <string name="revanced_spoof_video_streams_language_PT_BR">Portugál (Brazil)</string>
-  <string name="revanced_spoof_video_streams_language_PT_PT">Portugál (Portugália)</string>
   <string name="revanced_spoof_video_streams_language_RO">Román</string>
   <string name="revanced_spoof_video_streams_language_RU">Orosz</string>
   <string name="revanced_spoof_video_streams_language_SK">Szlovák</string>
