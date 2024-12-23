@@ -1,6 +1,19 @@
 <resources>
     <app id="youtube">
         <patch id="misc.fix.playback.spoofVideoStreamsPatch">
+            <string-array name="revanced_spoof_video_streams_client_type_entries">
+                <item>Android VR</item>
+                <item>@string/revanced_spoof_video_streams_client_type_android_vr_no_auth</item>
+                <item>Android TV</item>
+                <item>iOS TV</item>
+            </string-array>
+            <string-array name="revanced_spoof_video_streams_client_type_entry_values">
+                <!-- Enum names from extension -->
+                <item>ANDROID_VR</item>
+                <item>ANDROID_VR_NO_AUTH</item>
+                <item>ANDROID_UNPLUGGED</item>
+                <item>IOS_UNPLUGGED</item>
+            </string-array>
             <string-array name="revanced_spoof_video_streams_language_entries">
                 <item>@string/revanced_spoof_video_streams_language_DEFAULT</item>
                 <item>@string/revanced_spoof_video_streams_language_AR</item>

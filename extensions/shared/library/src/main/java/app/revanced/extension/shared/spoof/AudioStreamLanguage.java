@@ -2,18 +2,14 @@ package app.revanced.extension.shared.spoof;
 
 import java.util.Locale;
 
-import app.revanced.extension.shared.Utils;
-
 public enum AudioStreamLanguage {
     /**
-     * YouTube default.
-     * Can be the original language or can be app language,
-     * depending on what YouTube decides to pick as the default.
+     * The current app language.
      */
     DEFAULT,
 
     // Language codes found in locale_config.xml
-    // Region specific variants of Chinese/English/Spanish/French have been removed.
+    // All region specific variants have been removed.
     AF,
     AM,
     AR,
@@ -94,6 +90,9 @@ public enum AudioStreamLanguage {
         language = name().toLowerCase(Locale.US);
     }
 
+    /**
+     * @return The 2 letter ISO 639_1 language code.
+     */
     public String getLanguage() {
         // Changing the app language does not force the app to completely restart,
         // so the default needs to be the current language and not a static field.

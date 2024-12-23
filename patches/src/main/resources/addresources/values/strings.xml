@@ -1297,10 +1297,18 @@ Enabling this can unlock higher video qualities"</string>
 Video playback may not work"</string>
             <string name="revanced_spoof_video_streams_user_dialog_message">Turning off this setting may cause video playback issues.</string>
             <string name="revanced_spoof_video_streams_client_type_title">Default client</string>
-            <string name="revanced_spoof_video_streams_about_title">Spoofing side effects</string>
-            <string name="revanced_spoof_video_streams_about_summary">"• Audio track menu is missing
+            <!-- 'no auth' means no authentication -->
+            <string name="revanced_spoof_video_streams_client_type_android_vr_no_auth">Android VR (no auth)</string>
+            <string name="revanced_spoof_video_streams_about_ios_tv_title">iOS TV spoofing side effects</string>
+            <string name="revanced_spoof_video_streams_about_ios_tv_summary">"• Movies or paid videos may not play
+• Videos end 1 second early"</string>
+            <string name="revanced_spoof_video_streams_about_android_title">Android spoofing side effects</string>
+            <string name="revanced_spoof_video_streams_about_android_summary">"• Audio track menu is missing
 • Stable volume is not available
 • Force original audio is not available"</string>
+            <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Show in Stats for nerds</string>
+            <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Client type is shown in Stats for nerds</string>
+            <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Client is hidden in Stats for nerds</string>
             <string name="revanced_spoof_video_streams_language_title">Default audio stream language</string>
             <string name="revanced_spoof_video_streams_language_DEFAULT">Account language</string>
             <string name="revanced_spoof_video_streams_language_AR">Arabic</string>

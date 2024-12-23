@@ -1,6 +1,7 @@
 package app.revanced.extension.shared.spoof;
 
 import android.net.Uri;
+import android.text.TextUtils;
 
 import androidx.annotation.Nullable;
 
@@ -16,6 +17,10 @@ import app.revanced.extension.shared.spoof.requests.StreamingDataRequest;
 @SuppressWarnings("unused")
 public class SpoofVideoStreamsPatch {
     private static final boolean SPOOF_STREAMING_DATA = BaseSettings.SPOOF_VIDEO_STREAMS.get();
+
+    private static final boolean FIX_HLS_CURRENT_TIME = SPOOF_STREAMING_DATA
+            && BaseSettings.SPOOF_VIDEO_STREAMS_CLIENT_TYPE.get() == ClientType.IOS_UNPLUGGED;
+
 
     /**
      * Any unreachable ip address.  Used to intentionally fail requests.
@@ -34,10 +39,19 @@ public class SpoofVideoStreamsPatch {
         @Override
         public boolean isAvailable() {
             if (SpoofVideoStreamsPatch.isPatchIncluded()) {
-                return !BaseSettings.SPOOF_VIDEO_STREAMS.get();
+                return !BaseSettings.SPOOF_VIDEO_STREAMS.get()
+                        || BaseSettings.SPOOF_VIDEO_STREAMS_CLIENT_TYPE.get() == ClientType.IOS_UNPLUGGED;
             }
 
             return true;
+        }
+    }
+
+    public static final class AudioStreamLanguageOverrideAvailability implements Setting.Availability {
+        @Override
+        public boolean isAvailable() {
+            return !BaseSettings.SPOOF_VIDEO_STREAMS.get()
+                    || BaseSettings.SPOOF_VIDEO_STREAMS_CLIENT_TYPE.get() == ClientType.ANDROID_VR_NO_AUTH;
         }
     }
 
@@ -95,6 +109,17 @@ public class SpoofVideoStreamsPatch {
      */
     public static boolean isSpoofingEnabled() {
         return SPOOF_STREAMING_DATA;
+    }
+
+    /**
+     * Injection point.
+     * Only invoked when playing a livestream on an iOS client.
+     */
+    public static boolean fixHLSCurrentTime(boolean original) {
+        if (!SPOOF_STREAMING_DATA) {
+            return original;
+        }
+        return false;
     }
 
     /**
@@ -182,5 +207,23 @@ public class SpoofVideoStreamsPatch {
         }
 
         return postData;
+    }
+
+    /**
+     * Injection point.
+     */
+    public static String appendSpoofedClient(String videoFormat) {
+        try {
+            if (SPOOF_STREAMING_DATA && BaseSettings.SPOOF_STREAMING_DATA_STATS_FOR_NERDS.get()
+                    && !TextUtils.isEmpty(videoFormat)) {
+                // Force LTR layout, to match the same LTR video time/length layout YouTube uses for all languages.
+                return "\u202D" + videoFormat + "\u2009(" // u202D = left to right override
+                        +StreamingDataRequest.getLastSpoofedClientName() + ")";
+            }
+        } catch (Exception ex) {
+            Logger.printException(() -> "appendSpoofedClient failure", ex);
+        }
+
+        return videoFormat;
     }
 }

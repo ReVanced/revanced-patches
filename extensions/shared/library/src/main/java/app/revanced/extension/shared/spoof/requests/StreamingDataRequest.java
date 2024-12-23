@@ -22,7 +22,6 @@ import java.util.concurrent.TimeoutException;
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
 import app.revanced.extension.shared.settings.BaseSettings;
-import app.revanced.extension.shared.spoof.AudioStreamLanguage;
 import app.revanced.extension.shared.spoof.ClientType;
 
 /**
@@ -36,7 +35,22 @@ import app.revanced.extension.shared.spoof.ClientType;
  */
 public class StreamingDataRequest {
 
-    private static final ClientType[] CLIENT_ORDER_TO_USE = ClientType.values();
+    private static final ClientType[] CLIENT_ORDER_TO_USE;
+
+    static {
+        ClientType[] allClientTypes = ClientType.values();
+        ClientType preferredClient = BaseSettings.SPOOF_VIDEO_STREAMS_CLIENT_TYPE.get();
+
+        CLIENT_ORDER_TO_USE = new ClientType[allClientTypes.length];
+        CLIENT_ORDER_TO_USE[0] = preferredClient;
+
+        int i = 1;
+        for (ClientType c : allClientTypes) {
+            if (c != preferredClient) {
+                CLIENT_ORDER_TO_USE[i++] = c;
+            }
+        }
+    }
 
     private static final String AUTHORIZATION_HEADER = "Authorization";
 
@@ -72,6 +86,14 @@ public class StreamingDataRequest {
                     return size() > CACHE_LIMIT; // Evict the oldest entry if over the cache limit.
                 }
             });
+
+    private static volatile ClientType lastSpoofedClientType;
+
+    public static String getLastSpoofedClientName() {
+        return lastSpoofedClientType == null
+                ? "Unknown"
+                : lastSpoofedClientType.friendlyName;
+    }
 
     private final String videoId;
 
@@ -164,12 +186,6 @@ public class StreamingDataRequest {
             // Show an error if the last client type fails, or if the debug is enabled then show for all attempts.
             final boolean showErrorToast = (++i == CLIENT_ORDER_TO_USE.length) || debugEnabled;
 
-            if (clientType == ClientType.ANDROID_VR_NO_AUTH
-                    && BaseSettings.SPOOF_VIDEO_STREAMS_LANGUAGE.get() == AudioStreamLanguage.DEFAULT) {
-                // Only use no auth Android VR if a non default audio language is selected.
-                continue;
-            }
-
             HttpURLConnection connection = send(clientType, videoId, playerHeaders, showErrorToast);
             if (connection != null) {
                 try {
@@ -177,7 +193,7 @@ public class StreamingDataRequest {
                     // but empty response body does.
                     if (connection.getContentLength() == 0) {
                         if (BaseSettings.DEBUG.get()) {
-                            Logger.printException(() -> "Ignoring empty client response: " + clientType);
+                            Logger.printException(() -> "Ignoring empty client: " + clientType);
                         }
                     } else {
                         try (InputStream inputStream = new BufferedInputStream(connection.getInputStream());
@@ -188,6 +204,7 @@ public class StreamingDataRequest {
                             while ((bytesRead = inputStream.read(buffer)) >= 0) {
                                 baos.write(buffer, 0, bytesRead);
                             }
+                            lastSpoofedClientType = clientType;
 
                             return ByteBuffer.wrap(baos.toByteArray());
                         }
@@ -198,7 +215,8 @@ public class StreamingDataRequest {
             }
         }
 
-        handleConnectionError("Could not fetch any client streams", null, debugEnabled);
+        lastSpoofedClientType = null;
+        handleConnectionError("Could not fetch any client streams", null, true);
         return null;
     }
 
