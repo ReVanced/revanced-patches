@@ -55,7 +55,7 @@ Second \"item\" text"</string>
   </patch>
   <patch id="misc.gms.gmsCoreSupportResourcePatch">
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
-  <string name="gms_core_toast_not_installed_message">MicroG GmsCore n\'est pas installé. Installer .</string>
+  <string name="gms_core_toast_not_installed_message">MicroG GmsCore n\'est pas installé. Veuillez l’installer.</string>
   <string name="gms_core_dialog_title">Action requise</string>
   <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"MicroG GmsCore n'a pas la permission de s'exécuter en arrière-plan.
 
@@ -1009,9 +1009,9 @@ Déjà existant"</string>
   <string name="revanced_sb_about_api_sum">Les données sont fournies par l\'API SponsorBlock. Appuyez ici pour en savoir plus et voir les téléchargements pour d\'autres plates-formes</string>
   </patch>
   <patch id="layout.spoofappversion.spoofAppVersionPatch">
-  <string name="revanced_spoof_app_version_title">Spoof version de l\'application</string>
-  <string name="revanced_spoof_app_version_summary_on">Version falsifiée</string>
-  <string name="revanced_spoof_app_version_summary_off">Version non falsifiée</string>
+  <string name="revanced_spoof_app_version_title">Usurpation de la version de l\'appli</string>
+  <string name="revanced_spoof_app_version_summary_on">Version usurpée</string>
+  <string name="revanced_spoof_app_version_summary_off">Version non usurpée</string>
   <string name="revanced_spoof_app_version_user_dialog_message">"La version de l'application sera usurpée vers une ancienne version de YouTube.
 
 Cela modifiera l'apparence et les fonctionnalités de l'application, mais des effets secondaires inconnus peuvent se produire.
@@ -1019,13 +1019,13 @@ Cela modifiera l'apparence et les fonctionnalités de l'application, mais des ef
 Si cette option est désactivée par la suite, il est recommandé de vider les données de l'application pour éviter les bogues de l'interface utilisateur."</string>
   <!-- It is ideal, but not required, if the text here appears is alphabetically after the text used for 'revanced_spoof_app_version_title'.
                  This is because the 'General layout' menu uses alphabetic sorting, and it functionally works better if the spoof target selector appears below the 'Spoof app version' UI switch -->
-  <string name="revanced_spoof_app_version_target_title">Falsifier la cible de version de l\'application</string>
-  <string name="revanced_spoof_app_version_target_entry_1">19.35.36 - Restauration des anciennes icônes du lecteur de Shorts </string>
+  <string name="revanced_spoof_app_version_target_title">Cible pour usurper la version de l\'application</string>
+  <string name="revanced_spoof_app_version_target_entry_1">19.35.36 - Restaure les anciennes icônes du lecteur de Shorts </string>
   <!-- 'RYD' is 'Return YouTube Dislike' -->
-  <string name="revanced_spoof_app_version_target_legacy_entry_1">Falsifier la cible de version de l\'application</string>
-  <string name="revanced_spoof_app_version_target_legacy_entry_2">18.20.39 - Restaurer une grande vitesse vidéo &amp; menu qualité</string>
-  <string name="revanced_spoof_app_version_target_legacy_entry_3">Falsifier la cible de version de l\'application</string>
-  <string name="revanced_spoof_app_version_target_legacy_entry_4">17.33.42 - Retour à l\'ancienne étagère de liste de lecture</string>
+  <string name="revanced_spoof_app_version_target_legacy_entry_1">18.33.40 - Restaure RYD en mode Shorts incognito</string>
+  <string name="revanced_spoof_app_version_target_legacy_entry_2">18.20.39 - Restaure le menu de vitesse &amp; de qualité de la vidéo large</string>
+  <string name="revanced_spoof_app_version_target_legacy_entry_3">18.09.39 - Restaure l\'onglet bibliothèque</string>
+  <string name="revanced_spoof_app_version_target_legacy_entry_4">17.33.42 - Restaure l\'ancienne étagère de liste de lecture</string>
   </patch>
   <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">Définir la page de démarrage</string>
@@ -1196,18 +1196,18 @@ Appuyez ici pour en savoir plus sur DeArrow"</string>
   <string name="revanced_auto_repeat_summary_off">La répétition automatique est désactivée</string>
   </patch>
   <patch id="misc.dimensions.spoof.spoofDeviceDimensionsPatch">
-  <string name="revanced_spoof_device_dimensions_title">Falsifier les dimensions de l\'appareil</string>
+  <string name="revanced_spoof_device_dimensions_title">Usurper les dimensions de l\'appareil</string>
   <string name="revanced_spoof_device_dimensions_summary_on">"Dimensions de l'appareil usurpées
 
-Des qualités vidéo plus élevées peuvent être déverrouillées, mais vous risquez de rencontrer des saccades de lecture vidéo, une autonomie réduite et des effets secondaires inconnus"</string>
+Des qualités vidéo plus élevées peuvent être déverrouillées, mais vous risquez de rencontrer des saccades durant la lecture de vidéos, une autonomie réduite et des effets secondaires inconnus"</string>
   <string name="revanced_spoof_device_dimensions_summary_off">"Dimensions de l'appareil non usurpées
 
 L'activation de cette option peut déverrouiller des qualités vidéo plus élevées"</string>
-  <string name="revanced_spoof_device_dimensions_user_dialog_message">Activer cette option peut causer des problèmes de lecture vidéo, une dégradation de la durée de vie de la batterie et des effets secondaires inconnus.</string>
+  <string name="revanced_spoof_device_dimensions_user_dialog_message">Activer cette option peut causer des saccades durant la lecture de vidéos, une dégradation de la durée de vie de la batterie et des effets secondaires inconnus.</string>
   </patch>
   <patch id="misc.gms.gmsCoreSupportResourcePatch">
-  <string name="microg_settings_title">GmsCore Seçenekleri</string>
-  <string name="microg_settings_summary">GmsCore İçin Ayarlar</string>
+  <string name="microg_settings_title">Paramètres GmsCore</string>
+  <string name="microg_settings_summary">Paramètres de GmsCore</string>
   </patch>
   <patch id="misc.links.bypassURLRedirectsPatch">
   <string name="revanced_bypass_url_redirects_title">URL yönlendirmelerini atla</string>
@@ -1279,16 +1279,16 @@ L'activation de cette option peut déverrouiller des qualités vidéo plus élev
   <string name="revanced_slide_to_seek_summary_off">Glisser à chercher n\'est pas activé</string>
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
-  <string name="revanced_spoof_video_streams_screen_title">Spoof Video Streams</string>
-  <string name="revanced_spoof_video_streams_screen_summary">Falsifier les flux vidéo du client pour éviter les problèmes de lecture</string>
-  <string name="revanced_spoof_video_streams_title">Falsifier les flux vidéo</string>
-  <string name="revanced_spoof_video_streams_summary_on">Les flux vidéo sont falsifiés</string>
+  <string name="revanced_spoof_video_streams_screen_title">Usurpation des flux vidéos</string>
+  <string name="revanced_spoof_video_streams_screen_summary">Usurper les flux vidéo du client pour éviter les problèmes de lecture</string>
+  <string name="revanced_spoof_video_streams_title">Usurpation des flux vidéos</string>
+  <string name="revanced_spoof_video_streams_summary_on">Les flux vidéos sont usurpés</string>
   <string name="revanced_spoof_video_streams_summary_off">"Les flux vidéo ne sont pas usurpés
 
 La lecture vidéo peut ne pas fonctionner"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Désactiver ce paramètre peut causer des problèmes de lecture vidéo.</string>
   <string name="revanced_spoof_video_streams_client_type_title">Client par défaut</string>
-  <string name="revanced_spoof_video_streams_about_title">Effets inconnus de la falsification</string>
+  <string name="revanced_spoof_video_streams_about_title">Effets secondaires de l\'usurpation</string>
   <string name="revanced_spoof_video_streams_about_summary">"• Le menu de la piste audio est manquant
 • Le volume stable n'est pas disponible
 • Forcer l'audio d'origine n'est pas disponible"</string>
@@ -1329,8 +1329,6 @@ La lecture vidéo peut ne pas fonctionner"</string>
   <string name="revanced_spoof_video_streams_language_OR">Odia</string>
   <string name="revanced_spoof_video_streams_language_PA">Pendjabi</string>
   <string name="revanced_spoof_video_streams_language_PL">Polonais</string>
-  <string name="revanced_spoof_video_streams_language_PT_BR">Portugais (Brésil)</string>
-  <string name="revanced_spoof_video_streams_language_PT_PT">Portugais (Portugal)</string>
   <string name="revanced_spoof_video_streams_language_RO">Roumain</string>
   <string name="revanced_spoof_video_streams_language_RU">Russe</string>
   <string name="revanced_spoof_video_streams_language_SK">Slovaque</string>
