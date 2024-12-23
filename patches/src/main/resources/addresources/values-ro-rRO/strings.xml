@@ -1289,12 +1289,11 @@ Este posibil ca redarea video să nu funcționeze"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Dezactivarea acestei setări poate cauza probleme de redare video.</string>
   <string name="revanced_spoof_video_streams_client_type_title">Client implicit</string>
   <string name="revanced_spoof_video_streams_about_title">Efecte secundare de falsificare</string>
-  <string name="revanced_spoof_video_streams_about_summary">"• Este posibil ca videoclipurile pentru copii să nu fie redate
-• Lipsește meniul piesei audio
+  <string name="revanced_spoof_video_streams_about_summary">"• Meniul piesei audio lipsește
 • Volumul stabil nu este disponibil
 • Forțare sunetul original nu este disponibil"</string>
   <string name="revanced_spoof_video_streams_language_title">Limbă implicită flux audio</string>
-  <string name="revanced_spoof_video_streams_language_DEFAULT">Limba aplicației</string>
+  <string name="revanced_spoof_video_streams_language_DEFAULT">Limba contului</string>
   <string name="revanced_spoof_video_streams_language_AR">Arabă</string>
   <string name="revanced_spoof_video_streams_language_AZ">Azerbaidjan</string>
   <string name="revanced_spoof_video_streams_language_BG">Bulgară</string>
@@ -1330,8 +1329,6 @@ Este posibil ca redarea video să nu funcționeze"</string>
   <string name="revanced_spoof_video_streams_language_OR">Odia</string>
   <string name="revanced_spoof_video_streams_language_PA">Punjabi</string>
   <string name="revanced_spoof_video_streams_language_PL">Poloneză</string>
-  <string name="revanced_spoof_video_streams_language_PT_BR">Portugheză (Brazilia)</string>
-  <string name="revanced_spoof_video_streams_language_PT_PT">Portugheză (Portugalia)</string>
   <string name="revanced_spoof_video_streams_language_RO">Română</string>
   <string name="revanced_spoof_video_streams_language_RU">Rusă</string>
   <string name="revanced_spoof_video_streams_language_SK">Slovacă</string>

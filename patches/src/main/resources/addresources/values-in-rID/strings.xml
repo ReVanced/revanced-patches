@@ -1287,12 +1287,11 @@ Playback video mungkin tidak berfungsi"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Mematikan pengaturan ini dapat menyebabkan masalah pemutaran video.</string>
   <string name="revanced_spoof_video_streams_client_type_title">Klien bawaan</string>
   <string name="revanced_spoof_video_streams_about_title">Efek Samping Pemalsuan</string>
-  <string name="revanced_spoof_video_streams_about_summary">"• Video anak-anak mungkin tidak dapat diputar
-• Menu trek audio tidak ada
+  <string name="revanced_spoof_video_streams_about_summary">"• Menu trek audio tidak ada
 • Volume stabil tidak tersedia
 • Paksa audio asli tidak tersedia"</string>
   <string name="revanced_spoof_video_streams_language_title">Bahasa aliran audio bawaan</string>
-  <string name="revanced_spoof_video_streams_language_DEFAULT">Bahasa aplikasi</string>
+  <string name="revanced_spoof_video_streams_language_DEFAULT">Bahasa akun</string>
   <string name="revanced_spoof_video_streams_language_AR">Arab</string>
   <string name="revanced_spoof_video_streams_language_AZ">Azerbaijan</string>
   <string name="revanced_spoof_video_streams_language_BG">Bulgaria</string>
@@ -1328,8 +1327,6 @@ Playback video mungkin tidak berfungsi"</string>
   <string name="revanced_spoof_video_streams_language_OR">Oriya</string>
   <string name="revanced_spoof_video_streams_language_PA">Punjabi</string>
   <string name="revanced_spoof_video_streams_language_PL">Polandia</string>
-  <string name="revanced_spoof_video_streams_language_PT_BR">Portugis (Brasil)</string>
-  <string name="revanced_spoof_video_streams_language_PT_PT">Portugis (Portugal)</string>
   <string name="revanced_spoof_video_streams_language_RO">Rumania</string>
   <string name="revanced_spoof_video_streams_language_RU">Rusia</string>
   <string name="revanced_spoof_video_streams_language_SK">Slovakia</string>

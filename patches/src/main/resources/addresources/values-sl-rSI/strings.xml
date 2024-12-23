@@ -1289,10 +1289,9 @@ Predvajanje videa morda ne bo delovalo"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Izklop te nastavitve lahko povzroči težave s predvajanjem videoposnetkov.</string>
   <string name="revanced_spoof_video_streams_client_type_title">Privzeti odjemalec</string>
   <string name="revanced_spoof_video_streams_about_title">Stranski učinki zavajanja</string>
-  <string name="revanced_spoof_video_streams_about_summary">"• Videoposnetki za otroke se morda ne bodo predvajali
-• Meni zvočnih posnetkov manjka
-• Stabilen zvok ni na voljo
-• Prisilno izvirno zvočno posnetek ni na voljo"</string>
+  <string name="revanced_spoof_video_streams_about_summary">"• Manjka meni zvočnih posnetkov
+• Stabilna glasnost ni na voljo
+• Prisilno izvirno zvočno posnetke ni na voljo"</string>
   <string name="revanced_spoof_video_streams_language_title">Privzeti jezik zvočnega toka</string>
   <string name="revanced_spoof_video_streams_language_DEFAULT">Jezik aplikacije</string>
   <string name="revanced_spoof_video_streams_language_AR">Arabski</string>
@@ -1330,8 +1329,6 @@ Predvajanje videa morda ne bo delovalo"</string>
   <string name="revanced_spoof_video_streams_language_OR">Odia</string>
   <string name="revanced_spoof_video_streams_language_PA">Pandžabsko</string>
   <string name="revanced_spoof_video_streams_language_PL">Poljsko</string>
-  <string name="revanced_spoof_video_streams_language_PT_BR">Portugalsko (Brazilija)</string>
-  <string name="revanced_spoof_video_streams_language_PT_PT">Portugalsko (Portugalska)</string>
   <string name="revanced_spoof_video_streams_language_RO">Romunsko</string>
   <string name="revanced_spoof_video_streams_language_RU">Rusko</string>
   <string name="revanced_spoof_video_streams_language_SK">Slovaško</string>

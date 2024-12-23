@@ -38,8 +38,6 @@
                 <item>@string/revanced_spoof_video_streams_language_OR</item>
                 <item>@string/revanced_spoof_video_streams_language_PA</item>
                 <item>@string/revanced_spoof_video_streams_language_PL</item>
-                <item>@string/revanced_spoof_video_streams_language_PT_BR</item>
-                <item>@string/revanced_spoof_video_streams_language_PT_PT</item>
                 <item>@string/revanced_spoof_video_streams_language_RO</item>
                 <item>@string/revanced_spoof_video_streams_language_RU</item>
                 <item>@string/revanced_spoof_video_streams_language_SK</item>
@@ -93,8 +91,6 @@
                 <item>OR</item>
                 <item>PA</item>
                 <item>PL</item>
-                <item>PT_BR</item>
-                <item>PT_PT</item>
                 <item>RO</item>
                 <item>RU</item>
                 <item>SK</item>

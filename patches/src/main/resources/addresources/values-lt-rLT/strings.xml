@@ -1290,12 +1290,11 @@ Vaizdo įrašo atkūrimas gali neveikti"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Išjungus šį nustatymą, gali kilti vaizdo įrašų atkūrimo problemų.</string>
   <string name="revanced_spoof_video_streams_client_type_title">Numatytasis klientas</string>
   <string name="revanced_spoof_video_streams_about_title">Apsimetimo šalutinis poveikis</string>
-  <string name="revanced_spoof_video_streams_about_summary">"• Vaikų vaizdo įrašai gali būti nepaleidžiami
-• Nėra garso takelio meniu
+  <string name="revanced_spoof_video_streams_about_summary">"• Nėra garso takelio meniu
 • Stabilus garsumas nepasiekiamas
 • Priverstinis originalus garsas nepasiekiamas"</string>
   <string name="revanced_spoof_video_streams_language_title">Numatytoji garso srauto kalba</string>
-  <string name="revanced_spoof_video_streams_language_DEFAULT">Programėlės kalba</string>
+  <string name="revanced_spoof_video_streams_language_DEFAULT">Paskyros kalba</string>
   <string name="revanced_spoof_video_streams_language_AR">Arabų</string>
   <string name="revanced_spoof_video_streams_language_AZ">Azerbaidžaniečių</string>
   <string name="revanced_spoof_video_streams_language_BG">Bulgarų</string>
@@ -1331,8 +1330,6 @@ Vaizdo įrašo atkūrimas gali neveikti"</string>
   <string name="revanced_spoof_video_streams_language_OR">Odisų</string>
   <string name="revanced_spoof_video_streams_language_PA">Pandžabų</string>
   <string name="revanced_spoof_video_streams_language_PL">Lenkų</string>
-  <string name="revanced_spoof_video_streams_language_PT_BR">Portugalų (Brazilija)</string>
-  <string name="revanced_spoof_video_streams_language_PT_PT">Portugalų (Portugalija)</string>
   <string name="revanced_spoof_video_streams_language_RO">Rumunų</string>
   <string name="revanced_spoof_video_streams_language_RU">Rusų</string>
   <string name="revanced_spoof_video_streams_language_SK">Slovakų</string>

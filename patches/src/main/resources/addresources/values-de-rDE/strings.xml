@@ -1283,10 +1283,9 @@ Die Videowiedergabe funktioniert möglicherweise nicht"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Das Deaktivieren dieser Einstellung kann zu Videowiedergabeproblemen führen.</string>
   <string name="revanced_spoof_video_streams_client_type_title">Standard-Client</string>
   <string name="revanced_spoof_video_streams_about_title">Spoofing-Nebenwirkungen</string>
-  <string name="revanced_spoof_video_streams_about_summary">"• Kindervideos werden möglicherweise nicht abgespielt
-• Audiospurmenü fehlt
+  <string name="revanced_spoof_video_streams_about_summary">"• Audiospurmenü fehlt
 • Eine stabile Lautstärke ist nicht verfügbar
-• „Originalton erzwingen“ ist nicht verfügbar"</string>
+• \"Originalton erzwingen\" ist nicht verfügbar"</string>
   <string name="revanced_spoof_video_streams_language_title">Standard Audio Streamsprache</string>
   <string name="revanced_spoof_video_streams_language_DEFAULT">App-Sprache</string>
   <string name="revanced_spoof_video_streams_language_AR">Arabisch</string>
@@ -1324,8 +1323,6 @@ Die Videowiedergabe funktioniert möglicherweise nicht"</string>
   <string name="revanced_spoof_video_streams_language_OR">Odia</string>
   <string name="revanced_spoof_video_streams_language_PA">Pandschabi</string>
   <string name="revanced_spoof_video_streams_language_PL">Polnisch</string>
-  <string name="revanced_spoof_video_streams_language_PT_BR">Portugiesisch (Brasilien)</string>
-  <string name="revanced_spoof_video_streams_language_PT_PT">Portugiesisch (Portugal)</string>
   <string name="revanced_spoof_video_streams_language_RO">Rumänisch</string>
   <string name="revanced_spoof_video_streams_language_RU">Russisch</string>
   <string name="revanced_spoof_video_streams_language_SK">Slowakisch</string>

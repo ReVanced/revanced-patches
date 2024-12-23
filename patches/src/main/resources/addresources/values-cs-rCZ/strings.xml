@@ -1288,12 +1288,11 @@ Přehrávání videa nemusí fungovat"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Vypnutí tohoto nastavení může způsobit problémy s přehráváním videa.</string>
   <string name="revanced_spoof_video_streams_client_type_title">Výchozí klient</string>
   <string name="revanced_spoof_video_streams_about_title">Napodobování vedlejších účinků</string>
-  <string name="revanced_spoof_video_streams_about_summary">"• Dětská videa se nemusí přehrávat
-• Chybí nabídka zvukových stop
-• Stabilní hlasitost není k dispozici
-• Vynucení původního zvuku není k dispozici"</string>
+  <string name="revanced_spoof_video_streams_about_summary">"• Chybí nabídka zvukových stop
+• Není k dispozici stabilní hlasitost
+• Není k dispozici vynucení originálního zvuku"</string>
   <string name="revanced_spoof_video_streams_language_title">Výchozí jazyk zvukového streamu</string>
-  <string name="revanced_spoof_video_streams_language_DEFAULT">Jazyk aplikace</string>
+  <string name="revanced_spoof_video_streams_language_DEFAULT">Jazyk účtu</string>
   <string name="revanced_spoof_video_streams_language_AR">Arabsky</string>
   <string name="revanced_spoof_video_streams_language_AZ">Ázerbájdžánsky</string>
   <string name="revanced_spoof_video_streams_language_BG">Bulharsky</string>
@@ -1329,8 +1328,6 @@ Přehrávání videa nemusí fungovat"</string>
   <string name="revanced_spoof_video_streams_language_OR">Odijština</string>
   <string name="revanced_spoof_video_streams_language_PA">Paňdžábština</string>
   <string name="revanced_spoof_video_streams_language_PL">Polština</string>
-  <string name="revanced_spoof_video_streams_language_PT_BR">Portugalština (Brazílie)</string>
-  <string name="revanced_spoof_video_streams_language_PT_PT">Portugalština (Portugalsko)</string>
   <string name="revanced_spoof_video_streams_language_RO">Rumunština</string>
   <string name="revanced_spoof_video_streams_language_RU">Ruština</string>
   <string name="revanced_spoof_video_streams_language_SK">Slovenština</string>
