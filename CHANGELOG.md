@@ -1,3 +1,10 @@
+## [5.7.2-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.7.1...v5.7.2-dev.1) (2024-12-23)
+
+
+### Bug Fixes
+
+* **YouTube - Spoof video streams:** Add iOS TV client, restore iOS 'force AVC', show client type in stats for nerds ([#4202](https://github.com/ReVanced/revanced-patches/issues/4202)) ([ab29f80](https://github.com/ReVanced/revanced-patches/commit/ab29f808a9f55b5ab0055533c1a6de549b0631a6))
+
 ## [5.7.1](https://github.com/ReVanced/revanced-patches/compare/v5.7.0...v5.7.1) (2024-12-23)
 
 
