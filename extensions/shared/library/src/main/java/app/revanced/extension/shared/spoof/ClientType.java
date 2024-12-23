@@ -8,7 +8,7 @@ import app.revanced.extension.shared.settings.BaseSettings;
 
 public enum ClientType {
     // https://dumps.tadiphone.dev/dumps/oculus/eureka
-    ANDROID_VR_NO_AUTH( // Use as first fallback.
+    ANDROID_VR_NO_AUTH(
             28,
             "ANDROID_VR",
             "Quest 3",
@@ -17,7 +17,7 @@ public enum ClientType {
             "32", // Android 12.1
             "1.56.21",
             false,
-            "Android VR (No auth)"
+            "Android VR No auth"
     ),
     ANDROID_UNPLUGGED(
             29,
@@ -29,8 +29,7 @@ public enum ClientType {
             "8.49.0",
             true,
             "Android TV"
-    ), // Requires login.
-    // Fall over to authenticated ('hl' is ignored and audio is same as language set in users Google account).
+    ),
     ANDROID_VR(
             ANDROID_VR_NO_AUTH.id,
             ANDROID_VR_NO_AUTH.clientName,
@@ -47,7 +46,7 @@ public enum ClientType {
             forceAVC()
                     ? "iPhone12,5"  // 11 Pro Max (last device with iOS 13)
                     : "iPhone16,2", // 15 Pro Max
-            // iOS 13 and earlier uses only AVC.  14+ adds VP9 and AV1.
+            // iOS 13 and earlier uses only AVC. 14+ adds VP9 and AV1.
             forceAVC()
                     ? "13.7.17H35" // Last release of iOS 13.
                     : "18.1.1.22B91",
@@ -63,8 +62,14 @@ public enum ClientType {
                     ? "6.45"
                     : "8.33",
             true,
-            "iOS TV"
+            forceAVC()
+                    ? "iOS TV Force AVC"
+                    : "iOS TV"
     );
+
+    private static boolean forceAVC() {
+        return BaseSettings.SPOOF_VIDEO_STREAMS_IOS_FORCE_AVC.get();
+    }
 
     /**
      * YouTube
@@ -131,7 +136,4 @@ public enum ClientType {
         this.friendlyName = friendlyName;
     }
 
-    private static boolean forceAVC() {
-        return BaseSettings.SPOOF_VIDEO_STREAMS_IOS_FORCE_AVC.get();
-    }
 }
