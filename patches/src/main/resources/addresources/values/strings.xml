@@ -1305,8 +1305,9 @@ Video playback may not work"</string>
             <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">"Enabling this might improve battery life and fix playback stuttering.
 
 AVC has a maximum resolution of 1080p, Opus audio codec is not available, and video playback will use more internet data than VP9 or AV1."</string>
-            <string name="revanced_spoof_video_streams_about_ios_tv_title">iOS TV spoofing side effects</string>
+            <string name="revanced_spoof_video_streams_about_ios_tv_title">iOS spoofing side effects</string>
             <string name="revanced_spoof_video_streams_about_ios_tv_summary">"• Movies or paid videos may not play
+• Stable volume is not available
 • Videos end 1 second early"</string>
             <string name="revanced_spoof_video_streams_about_android_title">Android spoofing side effects</string>
             <string name="revanced_spoof_video_streams_about_android_summary">"• Audio track menu is missing
