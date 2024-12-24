@@ -324,20 +324,23 @@ public final class ShortsFilter extends Filter {
     }
 
     private static boolean shouldHideShortsFeedItems() {
+        // Known issue if hide home is on but at least one other hide is off:
+        //
+        // Shorts suggestions can load in the background if a video is opened and
+        // then immediately minimized before any suggestions are loaded.
+        // In this state the player type will show minimized, which cannot
+        // distinguish between Shorts suggestions loading in the player and between
+        // scrolling thru search/home/subscription tabs while a player is minimized.
         final boolean hideHome = Settings.HIDE_SHORTS_HOME.get();
         final boolean hideSubscriptions = Settings.HIDE_SHORTS_SUBSCRIPTIONS.get();
         final boolean hideSearch = Settings.HIDE_SHORTS_SEARCH.get();
+        final boolean hideHistory = Settings.HIDE_SHORTS_HISTORY.get();
 
-        if (hideHome && hideSubscriptions && hideSearch) {
-            // Shorts suggestions can load in the background if a video is opened and
-            // then immediately minimized before any suggestions are loaded.
-            // In this state the player type will show minimized, which makes it not possible to
-            // distinguish between Shorts suggestions loading in the player and between
-            // scrolling thru search/home/subscription tabs while a player is minimized.
-            //
-            // To avoid this situation for users that never want to show Shorts (all hide Shorts options are enabled)
-            // then hide all Shorts everywhere including the Library history and Library playlists.
+        if (hideHome && hideSubscriptions && hideSearch && hideHistory) {
             return true;
+        }
+        if (!hideHome && !hideSubscriptions && !hideSearch && !hideHistory) {
+            return false;
         }
 
         // Must check player type first, as search bar can be active behind the player.
@@ -352,24 +355,29 @@ public final class ShortsFilter extends Filter {
         }
 
         // Avoid checking navigation button status if all other Shorts should show.
-        if (!hideHome && !hideSubscriptions) {
+        if (!hideHome && !hideSubscriptions && !hideHistory) {
             return false;
         }
 
+        // Check navigation absolutely last since the check may block this thread.
         NavigationButton selectedNavButton = NavigationButton.getSelectedNavigationButton();
         if (selectedNavButton == null) {
             return hideHome; // Unknown tab, treat the same as home.
         }
-        if (selectedNavButton == NavigationButton.HOME) {
-            return hideHome;
-        }
-        if (selectedNavButton == NavigationButton.SUBSCRIPTIONS) {
-            return hideSubscriptions;
-        }
-        // User must be in the library tab.  Don't hide the history or any playlists here.
-        return false;
+
+        return switch (selectedNavButton) {
+            case HOME -> hideHome;
+            case SUBSCRIPTIONS -> hideSubscriptions;
+            case LIBRARY -> hideHistory;
+            default -> false;
+        };
     }
 
+    /**
+     * Injection point.  Only used if patching older than 19.03,
+     * and this hook may be obsolete even for those old versions
+     * as Shorts show using a litho Shorts shelf like newer versions.
+     */
     public static void hideShortsShelf(final View shortsShelfView) {
         if (shouldHideShortsFeedItems()) {
             Utils.hideViewByLayoutParams(shortsShelfView);
