@@ -297,7 +297,7 @@ public final class ShortsFilter extends Filter {
             if (matchedGroup == suggestedAction) {
                 // Skip searching the buffer if all suggested actions are set to hidden.
                 // This has a secondary effect of hiding all new un-identified actions
-                // under the assumption that the user wants all actions hidden.
+                // under the assumption that the user wants all suggestions hidden.
                 if (isEverySuggestedActionFilterEnabled()) {
                     return super.isFiltered(path, identifier, protobufBufferArray, matchedGroup, contentType, contentIndex);
                 }
@@ -326,8 +326,8 @@ public final class ShortsFilter extends Filter {
     private static boolean shouldHideShortsFeedItems() {
         // Known issue if hide home is on but at least one other hide is off:
         //
-        // Shorts suggestions can load in the background if a video is opened and
-        // then immediately minimized before any suggestions are loaded.
+        // Shorts suggestions will load in the background if a video is opened and
+        // immediately minimized before any suggestions are loaded.
         // In this state the player type will show minimized, which cannot
         // distinguish between Shorts suggestions loading in the player and between
         // scrolling thru search/home/subscription tabs while a player is minimized.
@@ -336,11 +336,11 @@ public final class ShortsFilter extends Filter {
         final boolean hideSearch = Settings.HIDE_SHORTS_SEARCH.get();
         final boolean hideHistory = Settings.HIDE_SHORTS_HISTORY.get();
 
-        if (hideHome && hideSubscriptions && hideSearch && hideHistory) {
-            return true;
-        }
         if (!hideHome && !hideSubscriptions && !hideSearch && !hideHistory) {
             return false;
+        }
+        if (hideHome && hideSubscriptions && hideSearch && hideHistory) {
+            return true;
         }
 
         // Must check player type first, as search bar can be active behind the player.
@@ -374,9 +374,9 @@ public final class ShortsFilter extends Filter {
     }
 
     /**
-     * Injection point.  Only used if patching older than 19.03,
-     * and this hook may be obsolete even for those old versions
-     * as Shorts show using a litho Shorts shelf like newer versions.
+     * Injection point.  Only used if patching older than 19.03.
+     * This hook may be obsolete even for old versions
+     * as they now use a litho layout like newer versions.
      */
     public static void hideShortsShelf(final View shortsShelfView) {
         if (shouldHideShortsFeedItems()) {
