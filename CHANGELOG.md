@@ -1,3 +1,10 @@
+# [5.8.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.7.2...v5.8.0-dev.1) (2024-12-24)
+
+
+### Features
+
+* **YouTube - Hide Shorts components:** Add option to hide Shorts in watch history ([#4214](https://github.com/ReVanced/revanced-patches/issues/4214)) ([19c2742](https://github.com/ReVanced/revanced-patches/commit/19c2742aa367367c77bb50ddad6f8a20fef8ea0a))
+
 ## [5.7.2](https://github.com/ReVanced/revanced-patches/compare/v5.7.1...v5.7.2) (2024-12-24)
 
 
