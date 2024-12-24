@@ -220,6 +220,7 @@ Second \"item\" text"</string>
   <patch id="interaction.seekbar.enableSlideToSeekPatch">
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
+  <!-- 'no auth' means no authentication -->
   </patch>
   </app>
   <app id="twitch">

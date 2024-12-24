@@ -1287,11 +1287,25 @@ Włączenie tego może odblokować wyższe jakości wideo"</string>
 Odtwarzanie wideo może nie działać"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Wyłączenie tej opcji może spowodować problemy z odtwarzaniem filmów.</string>
   <string name="revanced_spoof_video_streams_client_type_title">Domyślny klient</string>
-  <string name="revanced_spoof_video_streams_about_title">Fałszywe skutki uboczne</string>
-  <string name="revanced_spoof_video_streams_about_summary">"• Brak menu ścieżki dźwiękowej
+  <!-- 'no auth' means no authentication -->
+  <string name="revanced_spoof_video_streams_client_type_android_vr_no_auth">Android VR (bez uwierzytelniania)</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_title">Wymuszaj iOS AVC (H.264)</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Kodek wideo jest wymuszany na AVC (H.264)</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Kodek wideo jest określany automatycznie</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">"Włączenie tej opcji może poprawić żywotność baterii i naprawić zacinanie się odtwarzania.
+
+AVC ma maksymalną rozdzielczość 1080p, kodek audio Opus nie jest dostępny, a odtwarzanie wideo będzie zużywać więcej danych internetowych niż VP9 lub AV1."</string>
+  <string name="revanced_spoof_video_streams_about_ios_tv_title">Efekty uboczne podszywania się pod iOS TV</string>
+  <string name="revanced_spoof_video_streams_about_ios_tv_summary">"• Filmy lub płatne filmy mogą nie działać
+• Filmy kończą się 1 sekundę wcześniej"</string>
+  <string name="revanced_spoof_video_streams_about_android_title">Efekty uboczne podszywania się pod Androida</string>
+  <string name="revanced_spoof_video_streams_about_android_summary">"• Brakuje menu ścieżki audio
 • Stabilna głośność jest niedostępna
 • Wymuś oryginalny dźwięk jest niedostępny"</string>
-  <string name="revanced_spoof_video_streams_language_title">Domyślny język strumienia dźwięku</string>
+  <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Pokaż w statystykach dla nerdów</string>
+  <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Typ klienta jest wyświetlany w Statystykach dla nerdów</string>
+  <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Klient jest ukryty w statystykach dla nerdów</string>
+  <string name="revanced_spoof_video_streams_language_title">Język domyślnego strumienia audio VR</string>
   <string name="revanced_spoof_video_streams_language_DEFAULT">Język konta</string>
   <string name="revanced_spoof_video_streams_language_AR">Arabski</string>
   <string name="revanced_spoof_video_streams_language_AZ">Azerski</string>
@@ -1328,6 +1342,7 @@ Odtwarzanie wideo może nie działać"</string>
   <string name="revanced_spoof_video_streams_language_OR">Orija</string>
   <string name="revanced_spoof_video_streams_language_PA">pendżabski</string>
   <string name="revanced_spoof_video_streams_language_PL">polski</string>
+  <string name="revanced_spoof_video_streams_language_PT">Portugalski</string>
   <string name="revanced_spoof_video_streams_language_RO">rumuński</string>
   <string name="revanced_spoof_video_streams_language_RU">rosyjski</string>
   <string name="revanced_spoof_video_streams_language_SK">słowacki</string>

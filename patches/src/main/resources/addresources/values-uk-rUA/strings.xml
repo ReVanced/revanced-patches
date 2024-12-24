@@ -1286,11 +1286,25 @@ Second \"item\" text"</string>
 Відтворення відео може не працювати"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Вимкнення цього параметра може спричинити проблеми відтворення відео.</string>
   <string name="revanced_spoof_video_streams_client_type_title">Клієнт за замовчуванням</string>
-  <string name="revanced_spoof_video_streams_about_title">Побічні ефекти підробки</string>
-  <string name="revanced_spoof_video_streams_about_summary">"• Меню звукової доріжки відсутнє
-• Стабілізація гучності недоступна
-• Примусове відтворення оригінальної аудіо доріжки недоступне"</string>
-  <string name="revanced_spoof_video_streams_language_title">Стандартна мова аудіопотоку</string>
+  <!-- 'no auth' means no authentication -->
+  <string name="revanced_spoof_video_streams_client_type_android_vr_no_auth">Android VR (без автентифікації)</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_title">Примусовий iOS AVC (H.264)</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Відеокодек примусово встановлено на AVC (H.264)</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Відеокодек визначається автоматично</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">"Увімкнення цього може покращити час автономної роботи та усунути заїкання під час відтворення.
+
+AVC має максимальну роздільну здатність 1080p, аудіокодек Opus недоступний, а відтворення відео використовуватиме більше інтернет-даних, ніж VP9 або AV1."</string>
+  <string name="revanced_spoof_video_streams_about_ios_tv_title">Побічні ефекти підміни iOS TV</string>
+  <string name="revanced_spoof_video_streams_about_ios_tv_summary">"• Фільми та платні відео можуть не відтворюватися
+• Відео закінчуються на 1 секунду раніше"</string>
+  <string name="revanced_spoof_video_streams_about_android_title">Побочні ефекти Android</string>
+  <string name="revanced_spoof_video_streams_about_android_summary">"• Відсутнє меню аудіодоріжок
+• Немає стабільного регулювання гучності
+• Немає можливості примусово використовувати оригінальний звук"</string>
+  <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Показати в розділі «Статистика для ґіків»</string>
+  <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Тип клієнта відображається в розділі «Статистика для ґіків»</string>
+  <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Клієнт приховано в розділі «Статистика для ґіків»</string>
+  <string name="revanced_spoof_video_streams_language_title">Мова аудіопотоку за замовчуванням для VR</string>
   <string name="revanced_spoof_video_streams_language_DEFAULT">Мова облікового запису</string>
   <string name="revanced_spoof_video_streams_language_AR">Арабська</string>
   <string name="revanced_spoof_video_streams_language_AZ">Азербайджанська</string>
@@ -1327,6 +1341,7 @@ Second \"item\" text"</string>
   <string name="revanced_spoof_video_streams_language_OR">Одійська</string>
   <string name="revanced_spoof_video_streams_language_PA">Пенджабі</string>
   <string name="revanced_spoof_video_streams_language_PL">Польська</string>
+  <string name="revanced_spoof_video_streams_language_PT">Португальська</string>
   <string name="revanced_spoof_video_streams_language_RO">Румунська</string>
   <string name="revanced_spoof_video_streams_language_RU">Російська</string>
   <string name="revanced_spoof_video_streams_language_SK">Словацька</string>

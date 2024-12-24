@@ -1289,11 +1289,25 @@ Is féidir le seo caighdeáin físeáin níos airde a dhíghlasáil"</string>
 D'fhéadfadh nach n-oibreoidh athsheinm físeáin"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Seans go mbeidh fadhbanna athsheinm físe ag baint leis an socrú seo a mhúchadh.</string>
   <string name="revanced_spoof_video_streams_client_type_title">Cliant réamhshocraithe</string>
-  <string name="revanced_spoof_video_streams_about_title">Éifeachtaí taobheffects</string>
-  <string name="revanced_spoof_video_streams_about_summary">"• An fhuaimrian a eascraíodh
-• Níl an toirt fhuaime inbhuanaithe ar fáil
-• Níl an chumhacht an fhuaim bhunúsach ar fáil"</string>
-  <string name="revanced_spoof_video_streams_language_title">Teanga réamhshocraithe sruth fuaime</string>
+  <!-- 'no auth' means no authentication -->
+  <string name="revanced_spoof_video_streams_client_type_android_vr_no_auth">Android VR (gun fháil údarás)</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_title">Féach iOS AVC (H.264)</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Fórsaítear códú fhíseán chuig AVC (H.264)</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Chinntítear códú fhíseán go huathoibríoch</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">"D'fhéadfadh a chumasú seo saol na ceallraí a fheabhsú agus stotálú athsaithe a shocrú.
+
+Tá réiteach uasmhéideach 1080p ag AVC, níl códú fuaime Opus ar fáil, agus bainfear úsáid as tuilleadh sonraí Idirlín le haghaidh athsaithe físeán ná VP9 nó AV1."</string>
+  <string name="revanced_spoof_video_streams_about_ios_tv_title">Éifeachtaí taobh iOS TV a mhalartú</string>
+  <string name="revanced_spoof_video_streams_about_ios_tv_summary">"• B'fhéidir nach imreofar scannáin nó físeáin íocaíochta
+• Chríochnaíonn físeáin 1 soicind níos luaithe"</string>
+  <string name="revanced_spoof_video_streams_about_android_title">Éifeachtaí taobh Android a mhalartú</string>
+  <string name="revanced_spoof_video_streams_about_android_summary">"• Tá roghchlár na bhfuaimeanna ar iarraidh
+• Níl imfhálú cobhsaí ar fáil
+• Níl an fhuaim bhunúsach ar fáil"</string>
+  <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Taispeáin i Staitisticí do nerds</string>
+  <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Taispeántar cineál an chliaint i Staitisticí do nerds</string>
+  <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Tá an cliant curtha i bhfolach i Staitisticí do nerds</string>
+  <string name="revanced_spoof_video_streams_language_title">Teanga an sreafa fuaime réamhshocraithe VR</string>
   <string name="revanced_spoof_video_streams_language_DEFAULT">Teanga na feidhmchláir</string>
   <string name="revanced_spoof_video_streams_language_AR">Araibis</string>
   <string name="revanced_spoof_video_streams_language_AZ">Asarbaiseáinis</string>
@@ -1330,6 +1344,7 @@ D'fhéadfadh nach n-oibreoidh athsheinm físeáin"</string>
   <string name="revanced_spoof_video_streams_language_OR">Odais</string>
   <string name="revanced_spoof_video_streams_language_PA">Painseáibis</string>
   <string name="revanced_spoof_video_streams_language_PL">Polainnis</string>
+  <string name="revanced_spoof_video_streams_language_PT">Portaingéilis</string>
   <string name="revanced_spoof_video_streams_language_RO">Rúmáinis</string>
   <string name="revanced_spoof_video_streams_language_RU">Rúisis</string>
   <string name="revanced_spoof_video_streams_language_SK">Slovaicis</string>

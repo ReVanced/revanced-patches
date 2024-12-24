@@ -1286,11 +1286,25 @@ Var tikt atbloķētas augstākas video kvalitātes, taču var rasties video atsk
 Video atskaņošana var nedarboties"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Šī iestatījuma atspējošana var izraisīt video atskaņošanas problēmas.</string>
   <string name="revanced_spoof_video_streams_client_type_title">Noklusētā klients</string>
-  <string name="revanced_spoof_video_streams_about_title">Maldināšanas blakusparādības</string>
-  <string name="revanced_spoof_video_streams_about_summary">"• Audio ierakstu izvēlnes trūkst
-• Stabils skaļums nav pieejams
-• Force oriģinālais audio nav pieejams"</string>
-  <string name="revanced_spoof_video_streams_language_title">Noklusētā audio straumes valoda</string>
+  <!-- 'no auth' means no authentication -->
+  <string name="revanced_spoof_video_streams_client_type_android_vr_no_auth">Android VR (bez autentifikācijas)</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_title">Spēka iOS AVC (H.264)</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Video kodeks ir piespiests AVC (H.264)</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Video kodeks tiek automātiski noteikts</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">"Iespējojot to, var uzlabot akumulatora darbības laiku un novērst atskaņošanas aizķeršanos.
+
+AVC maksimālā izšķirtspēja ir 1080p, Opus audio kodeks nav pieejams, un video atskaņošanā tiks patērēts vairāk interneta datu nekā VP9 vai AV1."</string>
+  <string name="revanced_spoof_video_streams_about_ios_tv_title">iOS TV viltus straumēšanas blakus efekti</string>
+  <string name="revanced_spoof_video_streams_about_ios_tv_summary">"• Filmas vai maksas video var netikt atskaņoti
+• Video beidzas 1 sekundi iepriekš"</string>
+  <string name="revanced_spoof_video_streams_about_android_title">Android viltus straumēšanas blakus efekti</string>
+  <string name="revanced_spoof_video_streams_about_android_summary">"• Trūkst audio celiņa izvēlnes
+• Nav pieejams stabils skaļums
+• Nav pieejama oriģinālā audio piespiešana"</string>
+  <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Rādīt statistiskos datos entuziastiem</string>
+  <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Klienta tips tiek rādīts statistiskos datos entuziastiem</string>
+  <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Klients ir paslēpts statistiskos datos entuziastiem</string>
+  <string name="revanced_spoof_video_streams_language_title">VR noklusējuma audio straumes valoda</string>
   <string name="revanced_spoof_video_streams_language_DEFAULT">Lietotnes valoda</string>
   <string name="revanced_spoof_video_streams_language_AR">Arābu</string>
   <string name="revanced_spoof_video_streams_language_AZ">Azerbaidžāņu</string>
@@ -1327,6 +1341,7 @@ Video atskaņošana var nedarboties"</string>
   <string name="revanced_spoof_video_streams_language_OR">Odija</string>
   <string name="revanced_spoof_video_streams_language_PA">Pendžabu</string>
   <string name="revanced_spoof_video_streams_language_PL">Poļu</string>
+  <string name="revanced_spoof_video_streams_language_PT">Portugāļu</string>
   <string name="revanced_spoof_video_streams_language_RO">Rumāņu</string>
   <string name="revanced_spoof_video_streams_language_RU">Krievu</string>
   <string name="revanced_spoof_video_streams_language_SK">Slovāku</string>

@@ -1288,12 +1288,25 @@ DeArrowの詳細については、ここをタップしてください。"</stri
 動画再生が機能しない可能性があります"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">この設定をオフにすると、ビデオ再生の問題が発生する可能性があります。</string>
   <string name="revanced_spoof_video_streams_client_type_title">デフォルトのクライアント</string>
-  <string name="revanced_spoof_video_streams_about_title">クライアントを偽装することによる副作用</string>
-  <string name="revanced_spoof_video_streams_about_summary">"• 音声トラックメニューがありません
-• 安定したボリュームが利用できません
-• 強制的にオリジナルのオーディオを使用することはできません
-• 子供向けビデオは再生できない場合があります"</string>
-  <string name="revanced_spoof_video_streams_language_title">デフォルトのオーディオストリーム言語</string>
+  <!-- 'no auth' means no authentication -->
+  <string name="revanced_spoof_video_streams_client_type_android_vr_no_auth">Android VR（認証なし）</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_title">iOS AVC (H.264) を強制する</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">ビデオコーデックは AVC (H.264) に強制されています。</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">ビデオコーデックは自動的に決定されます。</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">"有効にすると、バッテリー寿命が延び、再生の途切れが改善される可能性があります。
+
+AVC の最大解像度は 1080p であり、Opus オーディオコーデックは使用できず、ビデオの再生は VP9 や AV1 より多くのインターネットデータを使用します。"</string>
+  <string name="revanced_spoof_video_streams_about_ios_tv_title">iOS TV スプーフィングの副作用</string>
+  <string name="revanced_spoof_video_streams_about_ios_tv_summary">"• 映画や有料動画が再生されない可能性があります。
+• 動画が 1 秒早く終了します。"</string>
+  <string name="revanced_spoof_video_streams_about_android_title">Android スプーフィングの副作用</string>
+  <string name="revanced_spoof_video_streams_about_android_summary">"• オーディオトラックメニューがありません
+• 安定した音量は使用できません
+• 強制的なオリジナル音声は使用できません"</string>
+  <string name="revanced_spoof_streaming_data_stats_for_nerds_title">統計情報（詳細）</string>
+  <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">クライアントの種類は統計情報（詳細）に表示されます</string>
+  <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">クライアントは統計情報（詳細）に表示されません</string>
+  <string name="revanced_spoof_video_streams_language_title">VRデフォルトオーディオストリーム言語</string>
   <string name="revanced_spoof_video_streams_language_DEFAULT">アプリの言語</string>
   <string name="revanced_spoof_video_streams_language_AR">アラビア文字</string>
   <string name="revanced_spoof_video_streams_language_AZ">アゼルバイジャン語</string>
@@ -1330,6 +1343,7 @@ DeArrowの詳細については、ここをタップしてください。"</stri
   <string name="revanced_spoof_video_streams_language_OR">オリヤー語</string>
   <string name="revanced_spoof_video_streams_language_PA">パンジャービー語</string>
   <string name="revanced_spoof_video_streams_language_PL">ポーランド語</string>
+  <string name="revanced_spoof_video_streams_language_PT">ポルトガル語</string>
   <string name="revanced_spoof_video_streams_language_RO">ルーマニア語</string>
   <string name="revanced_spoof_video_streams_language_RU">ロシア語</string>
   <string name="revanced_spoof_video_streams_language_SK">スロバキア語</string>

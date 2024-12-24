@@ -1289,12 +1289,26 @@ Second \"item\" text"</string>
 Воспроизведение видео может не работать"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Отключение этой настройки может вызвать проблемы с воспроизведением видео.</string>
   <string name="revanced_spoof_video_streams_client_type_title">Клиент по умолчанию</string>
-  <string name="revanced_spoof_video_streams_about_title">Побочные эффекты подмены</string>
-  <string name="revanced_spoof_video_streams_about_summary">"• Меню звуковой дорожки отсутствует
-• Постоянный уровень громкости недоступен
-• Принудительное использование оригинальной звуковой дорожки недоступно"</string>
-  <string name="revanced_spoof_video_streams_language_title">Язык аудио потока по умолчанию</string>
-  <string name="revanced_spoof_video_streams_language_DEFAULT">Язык приложения</string>
+  <!-- 'no auth' means no authentication -->
+  <string name="revanced_spoof_video_streams_client_type_android_vr_no_auth">Android VR (без аутентификации)</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_title">Принудительно iOS AVC (H.264)</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Видеокодек принудительно установлен на AVC (H.264)</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Видеокодек определяется автоматически</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">"Включение данной опции может улучшить время автономной работы и устранить прерывания при воспроизведении.
+
+Максимальное разрешение видео в формате AVC составляет 1080p. Аудиокодек Opus недоступен. Воспроизведение видео будет потреблять больше интернет трафика, чем VP9 или AV1."</string>
+  <string name="revanced_spoof_video_streams_about_ios_tv_title">Побочные эффекты подмены на iOS TV</string>
+  <string name="revanced_spoof_video_streams_about_ios_tv_summary">"• Фильмы и платные видео могут не воспроизводиться
+• Видео заканчиваются на 1 секунду раньше"</string>
+  <string name="revanced_spoof_video_streams_about_android_title">Побочные эффекты подмены на Android</string>
+  <string name="revanced_spoof_video_streams_about_android_summary">"• Меню выбора звуковой дорожки отсутствует
+• Функция воспроизведения видео с постоянной громкостью недоступна
+• Принудительное использование оригинального звука недоступно"</string>
+  <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Отображение в «Статистике для сисадминов»</string>
+  <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Тип клиента в «Статистике для сисадминов» отображен</string>
+  <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Тип клиента в «Статистике для сисадминов» скрыт</string>
+  <string name="revanced_spoof_video_streams_language_title">Язык аудиопотока по умолчанию для VR</string>
+  <string name="revanced_spoof_video_streams_language_DEFAULT">Язык учетной записи</string>
   <string name="revanced_spoof_video_streams_language_AR">Арабский</string>
   <string name="revanced_spoof_video_streams_language_AZ">Азербайджанский</string>
   <string name="revanced_spoof_video_streams_language_BG">Болгарский</string>
@@ -1330,6 +1344,7 @@ Second \"item\" text"</string>
   <string name="revanced_spoof_video_streams_language_OR">Одиа</string>
   <string name="revanced_spoof_video_streams_language_PA">Панджаби</string>
   <string name="revanced_spoof_video_streams_language_PL">Польский</string>
+  <string name="revanced_spoof_video_streams_language_PT">Португальский</string>
   <string name="revanced_spoof_video_streams_language_RO">Румынский</string>
   <string name="revanced_spoof_video_streams_language_RU">Русский</string>
   <string name="revanced_spoof_video_streams_language_SK">Словацкий</string>

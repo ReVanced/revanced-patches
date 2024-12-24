@@ -1289,11 +1289,25 @@ Ang pagpapagana nito ay maaaring magbukas ng mas mataas na kalidad ng video"</st
 Ang paglalaro ng video ay maaaring hindi gumana"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Ang pag-off sa setting na ito ay maaaring magdulot ng mga isyu sa pag-playback ng video.</string>
   <string name="revanced_spoof_video_streams_client_type_title">Default na kliyente</string>
-  <string name="revanced_spoof_video_streams_about_title">**Spoofing** ng mga side effect</string>
-  <string name="revanced_spoof_video_streams_about_summary">"• Kulang ang menu ng audio track
-• Hindi available ang matatag na volume
-• Hindi available ang piliting i-play ang orihinal na audio"</string>
-  <string name="revanced_spoof_video_streams_language_title">Default na wika ng audio stream</string>
+  <!-- 'no auth' means no authentication -->
+  <string name="revanced_spoof_video_streams_client_type_android_vr_no_auth">Android VR (walang awtorisasyon)</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_title">Pilitin ang iOS AVC (H.264)</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Ang codec ng video ay pinilit sa AVC (H.264)</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Ang codec ng video ay awtomatikong natutukoy</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">"Ang pagpapagana nito ay maaaring mapahaba ang buhay ng baterya at ayusin ang pagkautal ng playback.
+
+Ang AVC ay may pinakamataas na resolusyon na 1080p, ang codec ng audio ng Opus ay hindi available, at ang playback ng video ay gagamit ng mas maraming data sa internet kaysa sa VP9 o AV1."</string>
+  <string name="revanced_spoof_video_streams_about_ios_tv_title">Mga side effect ng spoofing ng iOS TV</string>
+  <string name="revanced_spoof_video_streams_about_ios_tv_summary">"• Maaaring hindi mailarawan ang mga pelikula o bayad na mga video
+• Magtatapos ang mga video ng 1 segundo nang maaga"</string>
+  <string name="revanced_spoof_video_streams_about_android_title">Mga side effect ng Android spoofing</string>
+  <string name="revanced_spoof_video_streams_about_android_summary">"• Nawawala ang menu ng audio track
+• Hindi magagamit ang stable na volume
+• Hindi magagamit ang pagpilit sa orihinal na audio"</string>
+  <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Ipakita sa Mga Istatistika para sa mga nerds</string>
+  <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Ipinapakita ang uri ng kliyente sa Mga Istatistika para sa mga nerds</string>
+  <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Nakatago ang kliyente sa Mga Istatistika para sa mga nerds</string>
+  <string name="revanced_spoof_video_streams_language_title">Wika ng default na audio stream ng VR</string>
   <string name="revanced_spoof_video_streams_language_DEFAULT">Wika ng account</string>
   <string name="revanced_spoof_video_streams_language_AR">Arabe</string>
   <string name="revanced_spoof_video_streams_language_AZ">Azerbaijani</string>
@@ -1330,6 +1344,7 @@ Ang paglalaro ng video ay maaaring hindi gumana"</string>
   <string name="revanced_spoof_video_streams_language_OR">Odia</string>
   <string name="revanced_spoof_video_streams_language_PA">Punjabi</string>
   <string name="revanced_spoof_video_streams_language_PL">Polish</string>
+  <string name="revanced_spoof_video_streams_language_PT">Portuges</string>
   <string name="revanced_spoof_video_streams_language_RO">Romanian</string>
   <string name="revanced_spoof_video_streams_language_RU">Ruso</string>
   <string name="revanced_spoof_video_streams_language_SK">Slovak</string>

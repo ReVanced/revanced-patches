@@ -1286,11 +1286,25 @@ Ez a beállítás lehetővé teszi a magasabb videóminőségek feloldását"</s
 A videólejátszás nem működhet"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">A beállítás kikapcsolása videolejátszási problémákat okozhat.</string>
   <string name="revanced_spoof_video_streams_client_type_title">Alapértelmezett kliens</string>
-  <string name="revanced_spoof_video_streams_about_title">Hamisítás mellékhatásai</string>
-  <string name="revanced_spoof_video_streams_about_summary">"• Nincs hangsáv menü
-• Nem érhető el a stabil hangerő
-• Nem érhető el az eredeti hang kényszerítése"</string>
-  <string name="revanced_spoof_video_streams_language_title">Alapértelmezett hangfolyam nyelve</string>
+  <!-- 'no auth' means no authentication -->
+  <string name="revanced_spoof_video_streams_client_type_android_vr_no_auth">Android VR (nincs hitelesítés)</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_title">Az iOS kényyszerített AVC (H.264) videokodeket használ</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">A videokodek AVC-re kényszerítve (H.264)</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">A videokodek meghatározása automatikusan történik</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">"Ennek engedélyezése javíthatja az akkumulátor élettartamát és kijavíthatja a lejátszás akadozását.
+
+Az AVC maximális felbontása 1080p, az Opus audiokodek nem érhető el, és a videolejátszás több internetes adatot használ, mint a VP9 vagy az AV1."</string>
+  <string name="revanced_spoof_video_streams_about_ios_tv_title">iOS TV-hamisítási mellékhatások</string>
+  <string name="revanced_spoof_video_streams_about_ios_tv_summary">"• Előfordulhat, hogy a filmeket és a fizetős videókat nem lehet lejátszani
+• A videók 1 másodperccel korábban érnek véget"</string>
+  <string name="revanced_spoof_video_streams_about_android_title">Android hamisítási mellékhatások</string>
+  <string name="revanced_spoof_video_streams_about_android_summary">"• Hiányzik a hangsáv menü
+• Nem áll rendelkezésre stabil hangerő
+• Az eredeti hang kényszerítése nem érhető el"</string>
+  <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Megjelenítés a Statisztikákban</string>
+  <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">A kliens típusa a Statisztikákban látható</string>
+  <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">A kliens el van rejtve a Statisztikákban</string>
+  <string name="revanced_spoof_video_streams_language_title">VR alapértelmezett audio adatfolyam nyelve</string>
   <string name="revanced_spoof_video_streams_language_DEFAULT">Fiók nyelve</string>
   <string name="revanced_spoof_video_streams_language_AR">Arab</string>
   <string name="revanced_spoof_video_streams_language_AZ">Azerbajdzsáni</string>
@@ -1327,6 +1341,7 @@ A videólejátszás nem működhet"</string>
   <string name="revanced_spoof_video_streams_language_OR">odia</string>
   <string name="revanced_spoof_video_streams_language_PA">Pandzsábi</string>
   <string name="revanced_spoof_video_streams_language_PL">Lengyel</string>
+  <string name="revanced_spoof_video_streams_language_PT">Portugál</string>
   <string name="revanced_spoof_video_streams_language_RO">Román</string>
   <string name="revanced_spoof_video_streams_language_RU">Orosz</string>
   <string name="revanced_spoof_video_streams_language_SK">Szlovák</string>

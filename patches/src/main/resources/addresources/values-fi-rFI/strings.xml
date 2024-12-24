@@ -1288,11 +1288,7 @@ Tämä voi avata korkealaatuisemmat videot"</string>
 Videon toisto ei välttämättä toimi"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Tämän asetuksen poistaminen käytöstä voi aiheuttaa ongelmia videotoistossa.</string>
   <string name="revanced_spoof_video_streams_client_type_title">Oletusasiakasohjelma</string>
-  <string name="revanced_spoof_video_streams_about_title">Naamioinnin haittavaikutukset</string>
-  <string name="revanced_spoof_video_streams_about_summary">"• Ääniraitavalikko puuttuu
-• Tasainen äänenvoimakkuus ei ole käytettävissä
-• Alkuperäisen äänen pakotus ei ole käytettävissä"</string>
-  <string name="revanced_spoof_video_streams_language_title">Äänivirran oletuskieli</string>
+  <!-- 'no auth' means no authentication -->
   <string name="revanced_spoof_video_streams_language_DEFAULT">Tilaus kieli</string>
   <string name="revanced_spoof_video_streams_language_AR">Arabia</string>
   <string name="revanced_spoof_video_streams_language_AZ">Azerbaidžan</string>
