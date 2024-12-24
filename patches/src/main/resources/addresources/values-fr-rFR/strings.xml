@@ -1288,11 +1288,25 @@ L'activation de cette option peut déverrouiller des qualités vidéo plus élev
 La lecture vidéo peut ne pas fonctionner"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Désactiver ce paramètre peut causer des problèmes de lecture vidéo.</string>
   <string name="revanced_spoof_video_streams_client_type_title">Client par défaut</string>
-  <string name="revanced_spoof_video_streams_about_title">Effets secondaires de l\'usurpation</string>
-  <string name="revanced_spoof_video_streams_about_summary">"• Le menu de la piste audio est manquant
-• Le volume stable n'est pas disponible
-• Forcer l'audio d'origine n'est pas disponible"</string>
-  <string name="revanced_spoof_video_streams_language_title">Langue du flux audio par défaut</string>
+  <!-- 'no auth' means no authentication -->
+  <string name="revanced_spoof_video_streams_client_type_android_vr_no_auth">Android VR (aucun auth)</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_title">Forcer iOS AVC (H.264)</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Le codec vidéo est forcé à AVC (H.264)</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Le codec vidéo est déterminé automatiquement</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">"L'activation de cette option pourrait améliorer l'autonomie de la batterie et corriger le bégaiement de la lecture.
+
+AVC a une résolution maximale de 1080p, le codec audio Opus n'est pas disponible et la lecture vidéo utilisera plus de données Internet que VP9 ou AV1."</string>
+  <string name="revanced_spoof_video_streams_about_ios_tv_title">Effets secondaires de l\'usurpation de l\'identité iOS TV</string>
+  <string name="revanced_spoof_video_streams_about_ios_tv_summary">"• Les films ou les vidéos payantes peuvent ne pas être lus
+• Les vidéos se terminent 1 seconde plus tôt"</string>
+  <string name="revanced_spoof_video_streams_about_android_title">Effets secondaires du hameçonnage Android</string>
+  <string name="revanced_spoof_video_streams_about_android_summary">"• Le menu des pistes audio est manquant
+ • Le volume stable n'est pas disponible
+ • Forcer l'audio d'origine n'est pas disponible"</string>
+  <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Afficher dans Stats pour les nerds</string>
+  <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Le type de client est affiché dans Stats pour les nerds</string>
+  <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Le client est caché dans Stats pour les nerds</string>
+  <string name="revanced_spoof_video_streams_language_title">Langue du flux audio par défaut VR</string>
   <string name="revanced_spoof_video_streams_language_DEFAULT">Langue de l\'application</string>
   <string name="revanced_spoof_video_streams_language_AR">Arabe</string>
   <string name="revanced_spoof_video_streams_language_AZ">Azerbaïdjanais</string>
@@ -1329,6 +1343,7 @@ La lecture vidéo peut ne pas fonctionner"</string>
   <string name="revanced_spoof_video_streams_language_OR">Odia</string>
   <string name="revanced_spoof_video_streams_language_PA">Pendjabi</string>
   <string name="revanced_spoof_video_streams_language_PL">Polonais</string>
+  <string name="revanced_spoof_video_streams_language_PT">Portugais</string>
   <string name="revanced_spoof_video_streams_language_RO">Roumain</string>
   <string name="revanced_spoof_video_streams_language_RU">Russe</string>
   <string name="revanced_spoof_video_streams_language_SK">Slovaque</string>

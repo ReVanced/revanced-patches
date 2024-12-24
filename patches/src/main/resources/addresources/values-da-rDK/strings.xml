@@ -1288,8 +1288,22 @@ Aktivering af dette kan låse op for højere videokvalitet"</string>
 Videoafspilning virker muligvis ikke"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">At slå denne indstilling fra kan forårsage problemer med videoafspilning.</string>
   <string name="revanced_spoof_video_streams_client_type_title">Standard klient</string>
-  <string name="revanced_spoof_video_streams_about_title">Overskrivning af bivirkninger</string>
-  <string name="revanced_spoof_video_streams_language_title">Standard lyd-stream sprog</string>
+  <!-- 'no auth' means no authentication -->
+  <string name="revanced_spoof_video_streams_client_type_android_vr_no_auth">Android VR (ingen godkendelse)</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_title">Forceer iOS AVC (H.264)</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Videokodec er tvunget til AVC (H.264)</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Videokodec bestemmes automatisk</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">"Aktivering af dette kan forbedre batterilevetiden og rette afspilningshakken.\n\nAVC har en maksimal opløsning på 1080p, Opus-lydkodec er ikke tilgængelig, og videoafspilning vil bruge mere internetdata end VP9 eller AV1."</string>
+  <string name="revanced_spoof_video_streams_about_ios_tv_title">Bivirkninger ved iOS TV-spoofing</string>
+  <string name="revanced_spoof_video_streams_about_ios_tv_summary">"• Film eller betalte videoer afspilles muligvis ikke\n• Videoer slutter 1 sekund for tidligt"</string>
+  <string name="revanced_spoof_video_streams_about_android_title">Bivirkninger ved Android-spoofing</string>
+  <string name="revanced_spoof_video_streams_about_android_summary">"• Lydspormenu mangler
+• Stabil lydstyrke er ikke tilgængelig
+• Gennemtving original lyd er ikke tilgængelig"</string>
+  <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Vis i Statistik for nørder</string>
+  <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Klienttypen vises i Statistik for nørder</string>
+  <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Klienten er skjult i Statistik for nørder</string>
+  <string name="revanced_spoof_video_streams_language_title">VR-standardsprog for lydstrømme</string>
   <string name="revanced_spoof_video_streams_language_AR">Arabisk</string>
   <string name="revanced_spoof_video_streams_language_AZ">Aserbajdsjansk</string>
   <string name="revanced_spoof_video_streams_language_BG">Bulgarsk</string>
@@ -1325,6 +1339,7 @@ Videoafspilning virker muligvis ikke"</string>
   <string name="revanced_spoof_video_streams_language_OR">Odia</string>
   <string name="revanced_spoof_video_streams_language_PA">Punjabi</string>
   <string name="revanced_spoof_video_streams_language_PL">Polsk</string>
+  <string name="revanced_spoof_video_streams_language_PT">Portugisisk</string>
   <string name="revanced_spoof_video_streams_language_RO">Rumænsk</string>
   <string name="revanced_spoof_video_streams_language_RU">Russisk</string>
   <string name="revanced_spoof_video_streams_language_SK">Slovakisk</string>

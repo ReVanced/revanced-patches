@@ -57,17 +57,17 @@ Second \"item\" text"</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="gms_core_toast_not_installed_message">MicroG GmsCore não está instalado. Instale-o.</string>
   <string name="gms_core_dialog_title">Ação necessária</string>
-  <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"MicroG GmsCore không có quyền chạy ngầm.
+  <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"O MicroG GmsCore não tem permissão para rodar em segundo plano.
 
-Vui lòng làm theo hướng dẫn \"Đừng tắt ứng dụng của tôi\" cho điện thoại của bạn, và áp dụng các hướng dẫn cho cài đặt MicroG của bạn.
+Siga o guia \"Não mate meu app\" para o seu telefone e aplique as instruções à sua instalação do MicroG.
 
-Điều này là cần thiết để ứng dụng hoạt động."</string>
+Isso é necessário para que o aplicativo funcione."</string>
   <string name="gms_core_dialog_open_website_text">Abrir site</string>
-  <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">"Việc tối ưu hóa pin của MicroG GmsCore phải được tắt để tránh sự cố.
+  <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">"As otimizações de bateria do MicroG GmsCore devem ser desativadas para evitar problemas.
 
-Việc tắt tối ưu hóa pin cho MicroG sẽ không ảnh hưởng tiêu cực đến việc sử dụng pin.
+A desativação das otimizações de bateria para o MicroG não afetará negativamente o uso da bateria.
 
-Nhấn nút tiếp tục và cho phép thay đổi tối ưu hóa."</string>
+Toque no botão continuar e permita as alterações de otimização."</string>
   <string name="gms_core_dialog_continue_text">Continuar</string>
   </patch>
   </app>
@@ -125,12 +125,12 @@ Bạn sẽ không được thông báo về bất kỳ sự kiện bất ngờ n
   <string name="revanced_hide_channel_watermark_summary_on">A marca d\'água está escondida</string>
   <string name="revanced_hide_channel_watermark_summary_off">A marca d\'água está visível</string>
   <string name="revanced_hide_horizontal_shelves_title">Esconder pategorias horizontais</string>
-  <string name="revanced_hide_horizontal_shelves_summary_on">"Các kệ được ẩn:
-• Tin tức nóng
-• Tiếp tục xem
-• Khám phá thêm kênh
-• Mua sắm
-• Xem lại"</string>
+  <string name="revanced_hide_horizontal_shelves_summary_on">"As prateleiras estão ocultas, tais como:
+• Últimas notícias
+• Continuar assistindo
+• Explorar mais canais
+• Compras
+• Assistir novamente"</string>
   <string name="revanced_hide_horizontal_shelves_summary_off">Categorias são visíveis</string>
   <!-- 'Join' should be translated using the same localized wording YouTube displays.
                  This appears in the video player for certain videos. -->
@@ -1153,11 +1153,11 @@ Bật tính năng này có thể sửa lỗi hình ảnh bị thiếu do bị ch
   <string name="revanced_alt_thumbnail_options_entry_2">DeArrow &amp; Miniaturas originais</string>
   <string name="revanced_alt_thumbnail_options_entry_3">DeArrow &amp; Ainda captura</string>
   <string name="revanced_alt_thumbnail_options_entry_4">Ainda captura</string>
-  <string name="revanced_alt_thumbnail_dearrow_about_summary">"DeArrow cung cấp hình thu nhỏ được cộng đồng đóng góp cho video YouTube. Các hình thu nhỏ này thường có liên quan hơn so với những hình thu nhỏ do YouTube cung cấp
+  <string name="revanced_alt_thumbnail_dearrow_about_summary">"O DeArrow fornece miniaturas coletivas para vídeos do YouTube. Essas miniaturas geralmente são mais relevantes do que aquelas fornecidas pelo YouTube
 
-Nếu bật, URL video sẽ được gửi đến máy chủ API và không có dữ liệu nào khác được gửi. Nếu video không có hình thu nhỏ DeArrow, hình thu nhỏ gốc hoặc ảnh chụp tĩnh sẽ được hiển thị
+Se ativado, os URLs dos vídeos serão enviados ao servidor da API e nenhum outro dado será enviado. Se um vídeo não tiver miniaturas DeArrow, as originais ou as capturas estáticas serão mostradas
 
-Nhấn vào đây để tìm hiểu thêm về DeArrow"</string>
+Toque aqui para saber mais sobre DeArrow"</string>
   <string name="revanced_alt_thumbnail_dearrow_connection_toast_title">Mostrar uma notificação flutuante se a API não estiver disponível</string>
   <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_on">Toast é visível se o Derow não está disponível</string>
   <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_off">Toast não é visível se o DeArrow não está disponível</string>
@@ -1287,11 +1287,25 @@ Bật tính năng này có thể mở khóa chất lượng video cao hơn"</str
 Phát video có thể không hoạt động"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Desativar essa configuração pode causar problemas de reprodução de vídeo.</string>
   <string name="revanced_spoof_video_streams_client_type_title">Cliente padrão</string>
-  <string name="revanced_spoof_video_streams_about_title">Efeito colateral de falsificação</string>
-  <string name="revanced_spoof_video_streams_about_summary">"• O menu da faixa de áudio está ausente
-• O volume estável não está disponível
+  <!-- 'no auth' means no authentication -->
+  <string name="revanced_spoof_video_streams_client_type_android_vr_no_auth">Android VR (sem autenticação)</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_title">Força AVC iOS (H.264)</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Codificação de vídeo forçada a AVC (H.264)</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Codificação de vídeo é automaticamente determinada</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">"Ativar pode melhorar bateria e resolver reprodução travando.
+
+A AVC tem resolução máxima de 1080p, Opus audio codec não está disponível, e reprodução de vídeo usará mais internet que VP9 ou AV1."</string>
+  <string name="revanced_spoof_video_streams_about_ios_tv_title">Efeitos colaterais da simulação de iOS na TV</string>
+  <string name="revanced_spoof_video_streams_about_ios_tv_summary">"• Filmes ou vídeos pagos podem não rodar
+• Vídeos terminam 1 segundo mais cedo"</string>
+  <string name="revanced_spoof_video_streams_about_android_title">Efeitos colaterais da falsificação do Android</string>
+  <string name="revanced_spoof_video_streams_about_android_summary">"• O menu da faixa de áudio está faltando
+• Volume estável não está disponível
 • Forçar áudio original não está disponível"</string>
-  <string name="revanced_spoof_video_streams_language_title">Idioma padrão do fluxo de áudio</string>
+  <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Mostrar em Estatísticas para nerds</string>
+  <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">O tipo de cliente é mostrado em Estatísticas para nerds</string>
+  <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">O cliente está oculto em Estatísticas para nerds</string>
+  <string name="revanced_spoof_video_streams_language_title">Idioma padrão do fluxo de áudio de VR</string>
   <string name="revanced_spoof_video_streams_language_DEFAULT">Idioma do aplicativo</string>
   <string name="revanced_spoof_video_streams_language_AR">Arábico</string>
   <string name="revanced_spoof_video_streams_language_AZ">Azerbaijanês</string>
@@ -1328,6 +1342,7 @@ Phát video có thể không hoạt động"</string>
   <string name="revanced_spoof_video_streams_language_OR">Odia</string>
   <string name="revanced_spoof_video_streams_language_PA">Punjabi</string>
   <string name="revanced_spoof_video_streams_language_PL">Polonês</string>
+  <string name="revanced_spoof_video_streams_language_PT">Português</string>
   <string name="revanced_spoof_video_streams_language_RO">Romeno</string>
   <string name="revanced_spoof_video_streams_language_RU">Russo</string>
   <string name="revanced_spoof_video_streams_language_SK">Eslovaco</string>

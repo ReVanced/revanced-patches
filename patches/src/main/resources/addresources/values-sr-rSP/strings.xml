@@ -887,8 +887,8 @@ Second \"item\" text"</string>
   <string name="revanced_sb_segments_highlight_sum">Део видеа који већина људи тражи</string>
   <string name="revanced_sb_segments_intro">Пауза/Уводна анимација</string>
   <string name="revanced_sb_segments_intro_sum">Интервал без стварног садржаја. Може бити пауза, статични кадар или понављајућа анимација. Не укључује прелазе који садрже информације</string>
-  <string name="revanced_sb_segments_outro">Завршне картице/Кредити</string>
-  <string name="revanced_sb_segments_outro_sum">Кредити или када се појаве YouTube завршне картице. Није за закључке са информацијама</string>
+  <string name="revanced_sb_segments_outro">Завршне картице/Заслуге</string>
+  <string name="revanced_sb_segments_outro_sum">Заслуге или када се појаве YouTube завршне картице. Није за закључке са информацијама</string>
   <string name="revanced_sb_segments_preview">Преглед/Рекапитулација/Најава</string>
   <string name="revanced_sb_segments_preview_sum">Колекција клипова који показују шта следи или шта се десило у видеу или у другим видеима серије, где се све информације понављају на другом месту</string>
   <string name="revanced_sb_segments_filler">Попуњавање/Шале</string>
@@ -1286,11 +1286,25 @@ Second \"item\" text"</string>
 Репродукција видеа можда неће радити"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Искључивање ове опције ће можда изазвати проблеме са репродукцијом видеа.</string>
   <string name="revanced_spoof_video_streams_client_type_title">Подразумевани клијент</string>
-  <string name="revanced_spoof_video_streams_about_title">Нежељени ефекти лажирања</string>
-  <string name="revanced_spoof_video_streams_about_summary">"• Мени „Аудио снимак” недостаје
+  <!-- 'no auth' means no authentication -->
+  <string name="revanced_spoof_video_streams_client_type_android_vr_no_auth">Android VR (без аутентификације)</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_title">Присили на AVC (H.264) на iOS-у</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Видео кодек је присилно подешен на AVC (H.264)</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Видео кодек се одређује аутоматски</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">"Омогућавање овога може побољшати трајање батерије и поправити застоје при репродукцији.
+
+AVC има максималну резолуцију од 1080p, аудио кодек Opus није доступан, а репродукција видеа ће користити више интернет података него VP9 или AV1."</string>
+  <string name="revanced_spoof_video_streams_about_ios_tv_title">Нежељени ефекти лажирања на iOS TV</string>
+  <string name="revanced_spoof_video_streams_about_ios_tv_summary">"• Филмови или плаћени видеи се можда неће пуштати
+• Видеи ће се завршавати 1 секунду раније"</string>
+  <string name="revanced_spoof_video_streams_about_android_title">Нежељени ефекти лажирања на Android</string>
+  <string name="revanced_spoof_video_streams_about_android_summary">"• Мени „Аудио снимак” недостаје
 • Уједначена јачина звука није доступна
-• Опција „Присили оригинални звук” није доступна"</string>
-  <string name="revanced_spoof_video_streams_language_title">Подразумевани језик аудио стрима</string>
+• Опција „Присили оригиналан звук” није доступна"</string>
+  <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Прикажи у „Статистици за зналце”</string>
+  <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Тип клијента је приказан у „Статистици за зналце”</string>
+  <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Тип клијента је скривен у „Статистици за зналце”</string>
+  <string name="revanced_spoof_video_streams_language_title">Подразумевани језик аудио стрима за ВР</string>
   <string name="revanced_spoof_video_streams_language_DEFAULT">Језик апликације</string>
   <string name="revanced_spoof_video_streams_language_AR">Арапски</string>
   <string name="revanced_spoof_video_streams_language_AZ">Азербејџански</string>
@@ -1327,6 +1341,7 @@ Second \"item\" text"</string>
   <string name="revanced_spoof_video_streams_language_OR">Одија</string>
   <string name="revanced_spoof_video_streams_language_PA">Панџапски</string>
   <string name="revanced_spoof_video_streams_language_PL">Пољски</string>
+  <string name="revanced_spoof_video_streams_language_PT">Португалски</string>
   <string name="revanced_spoof_video_streams_language_RO">Румунски</string>
   <string name="revanced_spoof_video_streams_language_RU">Руски</string>
   <string name="revanced_spoof_video_streams_language_SK">Словачки</string>

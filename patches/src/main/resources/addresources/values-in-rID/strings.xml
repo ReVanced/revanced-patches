@@ -1197,7 +1197,7 @@ Ketuk di sini untuk mempelajari lebih lanjut tentang DeArrow"</string>
   <string name="revanced_spoof_device_dimensions_title">Palsukan dimensi perangkat</string>
   <string name="revanced_spoof_device_dimensions_summary_on">"Dimensi perangkat dipalsukan
 
-Kualitas video yang lebih tinggi mungkin tidak terkunci, tetapi Anda mungkin mengalami masalah playback video, masa pakai baterai yang lebih buruk, dan efek samping yang tidak diketahui"</string>
+Kualitas video yang lebih tinggi mungkin tidak terkunci, tetapi Anda mungkin mengalami masalah pemutaran video, masa pakai baterai yang lebih buruk, dan efek samping yang tidak diketahui"</string>
   <string name="revanced_spoof_device_dimensions_summary_off">"Dimensi perangkat tidak dipalsukan
 
 Mengaktifkan ini dapat membuka kualitas video yang lebih tinggi"</string>
@@ -1253,10 +1253,10 @@ Mengaktifkan ini dapat membuka kualitas video yang lebih tinggi"</string>
   <string name="revanced_custom_speed_menu_title">Menu kecepatan pemutaran khusus</string>
   <string name="revanced_custom_speed_menu_summary_on">Menu kecepatan khusus ditampilkan</string>
   <string name="revanced_custom_speed_menu_summary_off">Menu kecepatan khusus tidak ditampilkan</string>
-  <string name="revanced_custom_playback_speeds_title">Kecepatan putar khusus</string>
+  <string name="revanced_custom_playback_speeds_title">Kecepatan pemutaran khusus</string>
   <string name="revanced_custom_playback_speeds_summary">Tambah atau ubah kecepatan pemutaran khusus</string>
-  <string name="revanced_custom_playback_speeds_invalid">Kecepatan kustom harus kurang dari %s</string>
-  <string name="revanced_custom_playback_speeds_parse_exception">Kecepatan playback kustom tidak valid</string>
+  <string name="revanced_custom_playback_speeds_invalid">Kecepatan khusus harus kurang dari %s</string>
+  <string name="revanced_custom_playback_speeds_parse_exception">Kecepatan pemutaran khusus tidak valid</string>
   <string name="revanced_custom_playback_speeds_auto">Otomatis</string>
   </patch>
   <patch id="video.speed.remember.rememberPlaybackSpeedPatch">
@@ -1283,14 +1283,28 @@ Mengaktifkan ini dapat membuka kualitas video yang lebih tinggi"</string>
   <string name="revanced_spoof_video_streams_summary_on">Aliran video dipalsukan</string>
   <string name="revanced_spoof_video_streams_summary_off">"Streaming video tidak dipalsukan
 
-Playback video mungkin tidak berfungsi"</string>
+Pemutaran video mungkin tidak berfungsi"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Mematikan pengaturan ini dapat menyebabkan masalah pemutaran video.</string>
   <string name="revanced_spoof_video_streams_client_type_title">Klien bawaan</string>
-  <string name="revanced_spoof_video_streams_about_title">Efek Samping Pemalsuan</string>
-  <string name="revanced_spoof_video_streams_about_summary">"• Menu trek audio tidak ada
+  <!-- 'no auth' means no authentication -->
+  <string name="revanced_spoof_video_streams_client_type_android_vr_no_auth">Android VR (tanpa otentikasi)</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_title">Paksa iOS AVC (H.264)</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Codec video dipaksa menjadi AVC (H.264)</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Codec video ditentukan secara otomatis</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">"Mengaktifkan ini mungkin dapat meningkatkan daya tahan baterai dan memperbaiki masalah pemutaran.
+
+AVC memiliki resolusi maksimum 1080p, codec audio Opus tidak tersedia, dan pemutaran video akan menggunakan lebih banyak data internet daripada VP9 atau AV1."</string>
+  <string name="revanced_spoof_video_streams_about_ios_tv_title">Efek samping pemalsuan iOS TV</string>
+  <string name="revanced_spoof_video_streams_about_ios_tv_summary">"• Film atau video yang berbayar mungkin tidak dapat diputar
+• Video berakhir 1 detik lebih awal"</string>
+  <string name="revanced_spoof_video_streams_about_android_title">Efek samping pemalsuan Android</string>
+  <string name="revanced_spoof_video_streams_about_android_summary">"• Menu trek audio tidak ada
 • Volume stabil tidak tersedia
 • Paksa audio asli tidak tersedia"</string>
-  <string name="revanced_spoof_video_streams_language_title">Bahasa aliran audio bawaan</string>
+  <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Tampilkan di Statistik untuk nerds</string>
+  <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Jenis klien ditampilkan di Statistik untuk nerds</string>
+  <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Klien disembunyikan di Statistik untuk nerds</string>
+  <string name="revanced_spoof_video_streams_language_title">Bahasa aliran audio bawaan VR</string>
   <string name="revanced_spoof_video_streams_language_DEFAULT">Bahasa akun</string>
   <string name="revanced_spoof_video_streams_language_AR">Arab</string>
   <string name="revanced_spoof_video_streams_language_AZ">Azerbaijan</string>
@@ -1327,6 +1341,7 @@ Playback video mungkin tidak berfungsi"</string>
   <string name="revanced_spoof_video_streams_language_OR">Oriya</string>
   <string name="revanced_spoof_video_streams_language_PA">Punjabi</string>
   <string name="revanced_spoof_video_streams_language_PL">Polandia</string>
+  <string name="revanced_spoof_video_streams_language_PT">Portugis</string>
   <string name="revanced_spoof_video_streams_language_RO">Rumania</string>
   <string name="revanced_spoof_video_streams_language_RU">Rusia</string>
   <string name="revanced_spoof_video_streams_language_SK">Slovakia</string>

@@ -888,8 +888,8 @@ Vaš korisnički ID je kao lozinka i nikada ga ne treba deliti."</string>
   <string name="revanced_sb_segments_highlight_sum">Deo videa koji većina ljudi traži</string>
   <string name="revanced_sb_segments_intro">Pauza/Uvodna animacija</string>
   <string name="revanced_sb_segments_intro_sum">Interval bez stvarnog sadržaja. Može biti pauza, statični kadar ili ponavljajuća animacija. Ne uključuje prelaze koji sadrže informacije</string>
-  <string name="revanced_sb_segments_outro">Završne kartice/Krediti</string>
-  <string name="revanced_sb_segments_outro_sum">Krediti ili kada se pojave YouTube završne kartice. Nije za zaključke sa informacijama</string>
+  <string name="revanced_sb_segments_outro">Završne kartice/Zasluge</string>
+  <string name="revanced_sb_segments_outro_sum">Zasluge ili kada se pojave YouTube završne kartice. Nije za zaključke sa informacijama</string>
   <string name="revanced_sb_segments_preview">Pregled/Rekapitulacija/Najava</string>
   <string name="revanced_sb_segments_preview_sum">Kolekcija klipova koji pokazuju šta sledi ili šta se desilo u videu ili u drugim videima serijе, gde se sve informacije ponavljaju na drugom mestu</string>
   <string name="revanced_sb_segments_filler">Popunjavanje/Šale</string>
@@ -1287,11 +1287,25 @@ Ako ovo omogućite, mogu biti otključani viši kvaliteti videa"</string>
 Reprodukcija videa možda neće raditi"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Isključivanje ove opcije će možda izazvati probleme sa reprodukcijom videa.</string>
   <string name="revanced_spoof_video_streams_client_type_title">Podrazumevani klijent</string>
-  <string name="revanced_spoof_video_streams_about_title">Neželjeni efekti lažiranja</string>
-  <string name="revanced_spoof_video_streams_about_summary">"• Meni „Audio snimak” nedostaje
+  <!-- 'no auth' means no authentication -->
+  <string name="revanced_spoof_video_streams_client_type_android_vr_no_auth">Android VR (bez autentifikacije)</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_title">Prisili na AVC (H.264) na iOS-u</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Video kodek je prisilno podešen na AVC (H.264)</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Video kodek se određuje automatski</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">"Omogućavanje ovoga može poboljšati trajanje baterije i popraviti zastoje pri reprodukciji.
+
+AVC ima maksimalnu rezoluciju od 1080p, audio kodek Opus nije dostupan, a reprodukcija videa će koristiti više internet podataka nego VP9 ili AV1."</string>
+  <string name="revanced_spoof_video_streams_about_ios_tv_title">Neželjeni efekti lažiranja na iOS TV</string>
+  <string name="revanced_spoof_video_streams_about_ios_tv_summary">"• Filmovi ili plaćeni videi se možda neće puštati
+• Videi će se završavati 1 sekundu ranije"</string>
+  <string name="revanced_spoof_video_streams_about_android_title">Neželjeni efekti lažiranja na Android</string>
+  <string name="revanced_spoof_video_streams_about_android_summary">"• Meni „Audio snimak” nedostaje
 • Ujednačena jačina zvuka nije dostupna
-• Opcija „Prisili originalni zvuk” nije dostupna"</string>
-  <string name="revanced_spoof_video_streams_language_title">Podrazumevani jezik audio strima</string>
+• Opcija „Prisili originalan zvuk” nije dostupna"</string>
+  <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Prikaži u „Statistici za znalce”</string>
+  <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Tip klijenta je prikazan u „Statistici za znalce”</string>
+  <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Tip klijenta je skriven u „Statistici za znalce”</string>
+  <string name="revanced_spoof_video_streams_language_title">Podrazumevani jezik audio strima za VR</string>
   <string name="revanced_spoof_video_streams_language_DEFAULT">Jezik aplikacije</string>
   <string name="revanced_spoof_video_streams_language_AR">Arapski</string>
   <string name="revanced_spoof_video_streams_language_AZ">Azerbejdžanski</string>
@@ -1328,6 +1342,7 @@ Reprodukcija videa možda neće raditi"</string>
   <string name="revanced_spoof_video_streams_language_OR">Odija</string>
   <string name="revanced_spoof_video_streams_language_PA">Pandžapski</string>
   <string name="revanced_spoof_video_streams_language_PL">Poljski</string>
+  <string name="revanced_spoof_video_streams_language_PT">Portugalski</string>
   <string name="revanced_spoof_video_streams_language_RO">Rumunski</string>
   <string name="revanced_spoof_video_streams_language_RU">Ruski</string>
   <string name="revanced_spoof_video_streams_language_SK">Slovački</string>
