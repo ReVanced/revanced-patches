@@ -632,15 +632,18 @@ Note: Enabling this also forcibly hides video ads"</string>
             <string name="revanced_shorts_player_screen_summary">Hide or show components in the Shorts player</string>
             <!-- 'home' should be translated using the same localized wording YouTube displays for the home tab. -->
             <string name="revanced_hide_shorts_home_title">Hide Shorts in home feed</string>
-            <string name="revanced_hide_shorts_home_summary_on">Shorts in home feed are hidden</string>
-            <string name="revanced_hide_shorts_home_summary_off">Shorts in home feed are shown</string>
+            <string name="revanced_hide_shorts_home_summary_on">Home feed and related videos are hidden</string>
+            <string name="revanced_hide_shorts_home_summary_off">Home feed and related videos are shown</string>
             <!-- 'subscription' should be translated using the same localized wording YouTube displays for the subscription tab. -->
             <string name="revanced_hide_shorts_subscriptions_title">Hide Shorts in subscription feed</string>
-            <string name="revanced_hide_shorts_subscriptions_summary_on">Shorts in subscription feed are hidden</string>
-            <string name="revanced_hide_shorts_subscriptions_summary_off">Shorts in subscription feed are shown</string>
+            <string name="revanced_hide_shorts_subscriptions_summary_on">Hidden in subscription feed</string>
+            <string name="revanced_hide_shorts_subscriptions_summary_off">Shown in subscription feed</string>
             <string name="revanced_hide_shorts_search_title">Hide Shorts in search results</string>
-            <string name="revanced_hide_shorts_search_summary_on">Shorts in search results are hidden</string>
-            <string name="revanced_hide_shorts_search_summary_off">Shorts in search results are shown</string>
+            <string name="revanced_hide_shorts_search_summary_on">Hidden in search results</string>
+            <string name="revanced_hide_shorts_search_summary_off">Shown in search results</string>
+            <string name="revanced_hide_shorts_history_title">Hide Shorts in watch history</string>
+            <string name="revanced_hide_shorts_history_summary_on">Hidden in watch history</string>
+            <string name="revanced_hide_shorts_history_summary_off">Shown in watch history</string>
             <!-- 'join' should be translated using the same localized wording YouTube displays for the button. -->
             <string name="revanced_hide_shorts_join_button_title">Hide join button</string>
             <string name="revanced_hide_shorts_join_button_summary_on">Join button is hidden</string>
