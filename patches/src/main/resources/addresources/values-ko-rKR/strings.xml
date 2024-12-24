@@ -633,15 +633,9 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_shorts_player_screen_summary">Shorts 플레이어에서 구성요소를 숨기거나 표시할 수 있습니다</string>
   <!-- 'home' should be translated using the same localized wording YouTube displays for the home tab. -->
   <string name="revanced_hide_shorts_home_title">홈 피드에서 Shorts 선반 숨기기</string>
-  <string name="revanced_hide_shorts_home_summary_on">홈 피드에서 Shorts 선반이 숨겨집니다</string>
-  <string name="revanced_hide_shorts_home_summary_off">홈 피드에서 Shorts 선반이 표시됩니다</string>
   <!-- 'subscription' should be translated using the same localized wording YouTube displays for the subscription tab. -->
   <string name="revanced_hide_shorts_subscriptions_title">구독 피드에서 Shorts 선반 숨기기</string>
-  <string name="revanced_hide_shorts_subscriptions_summary_on">구독 피드에서 Shorts 선반이 숨겨집니다</string>
-  <string name="revanced_hide_shorts_subscriptions_summary_off">구독 피드에서 Shorts 선반이 표시됩니다</string>
   <string name="revanced_hide_shorts_search_title">검색 결과에서 Shorts 선반 숨기기</string>
-  <string name="revanced_hide_shorts_search_summary_on">검색 결과에서 Shorts 선반이 숨겨집니다</string>
-  <string name="revanced_hide_shorts_search_summary_off">검색 결과에서 Shorts 선반이 표시됩니다</string>
   <!-- 'join' should be translated using the same localized wording YouTube displays for the button. -->
   <string name="revanced_hide_shorts_join_button_title">가입 버튼 숨기기</string>
   <string name="revanced_hide_shorts_join_button_summary_on">가입 버튼이 숨겨집니다</string>
@@ -1293,15 +1287,16 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요"</string>
   <!-- 'no auth' means no authentication -->
   <string name="revanced_spoof_video_streams_client_type_android_vr_no_auth">Android VR (인증 안됨)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_title">iOS AVC (H.264) 강제로 활성화하기</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">동영상 코덱을 AVC (H.264)로 강제로 활성화합니다</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">동영상 코덱을 자동으로 결정합니다</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">동영상 코덱을 AVC (H.264)로 강제로 활성화합니다\n\n• 일부 VP9 코덱 동영상에서 제거되었던 화질 값이 표시될 수 있습니다\n•최대 화질이 1080p이므로, 초고화질 동영상을 재생할 수 없습니다\n• HDR 동영상을 재생할 수 없습니다</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">동영상 코덱을 자동으로 결정합니다\n\n• 예전에 업로드된 동영상을 재생했는데 VP9 코덱 응답을 받았을 경우, 일부 화질값이 제거되어 360p와 1080p(Premium 기능)만 선택가능할 수 있거나 화질 메뉴를 선택불가능할 수 있습니다</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">"이 설정를 활성화하면 배터리 수명이 향상되고, 동영상 재생 끊김 문제가 해결될 수 있습니다
 
-AVC의 최대 해상도는 1080p이고, OPUS 코덱을 사용할 수 없으며, 동영상을 재생했을 경우에는 VP9 또는 AV1보다 더 많은 모바일 데이터를 사용되오니 주의하세요"</string>
-  <string name="revanced_spoof_video_streams_about_ios_tv_title">iOS TV 클라이언트 변경에 따른 문제점</string>
-  <string name="revanced_spoof_video_streams_about_ios_tv_summary">"• 동영상 또는 회원 전용 동영상과 같은 유료 동영상이 재생되지 않을 수 있습니다
+AVC의 최대 화질 값은 1080p이고, OPUS 코덱을 사용불가 및 HDR 동영상을 재생할 수 없으며, 동영상을 재생했을 경우에는 VP9 또는 AV1보다 더 많은 모바일 데이터를 사용되오니 주의하세요"</string>
+  <string name="revanced_spoof_video_streams_about_ios_tv_title">iOS TV로 변경에 따른 문제점</string>
+  <string name="revanced_spoof_video_streams_about_ios_tv_summary">"• 영화 또는 유료 동영상이 재생되지 않을 수 있습니다.
+• 안정적인 볼륨을 사용할 수 없습니다
 • 동영상이 1초 일찍 종료될 수 있습니다"</string>
-  <string name="revanced_spoof_video_streams_about_android_title">Android 계열 클라이언트 변경에 따른 문제점</string>
+  <string name="revanced_spoof_video_streams_about_android_title">Android 계열로 변경에 따른 문제점</string>
   <string name="revanced_spoof_video_streams_about_android_summary">"• 오디오 트랙 메뉴가 표시되지 않습니다
 • 안정적인 볼륨을 사용할 수 없습니다
 • 원본 오디오 트랙를 강제로 활성화할 수 없습니다."</string>

@@ -628,15 +628,9 @@ Second \"item\" text"</string>
   <string name="revanced_shorts_player_screen_summary">Скриване или показване на компоненти в Shorts плейъра</string>
   <!-- 'home' should be translated using the same localized wording YouTube displays for the home tab. -->
   <string name="revanced_hide_shorts_home_title">Скриване на Shorts в началната лента</string>
-  <string name="revanced_hide_shorts_home_summary_on">Shorts в началната лента са скрити</string>
-  <string name="revanced_hide_shorts_home_summary_off">Shorts в началната лента са показани</string>
   <!-- 'subscription' should be translated using the same localized wording YouTube displays for the subscription tab. -->
   <string name="revanced_hide_shorts_subscriptions_title">Shorts в раздел „Абонаменти“</string>
-  <string name="revanced_hide_shorts_subscriptions_summary_on">Shorts в раздел „Абонаменти“ са скрити</string>
-  <string name="revanced_hide_shorts_subscriptions_summary_off">Shorts в раздел „Абонаменти“ се показват</string>
   <string name="revanced_hide_shorts_search_title">Shorts в резултатите от търсенето</string>
-  <string name="revanced_hide_shorts_search_summary_on">Shorts в резултатите от търсенето са скрити</string>
-  <string name="revanced_hide_shorts_search_summary_off">Shorts в резултатите от търсенето се показват</string>
   <!-- 'join' should be translated using the same localized wording YouTube displays for the button. -->
   <string name="revanced_hide_shorts_join_button_title">Бутон за присъединяване</string>
   <string name="revanced_hide_shorts_join_button_summary_on">Бутона за присъединяване е скрит</string>
@@ -1288,15 +1282,16 @@ Second \"item\" text"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Деактивирането на тази настройка ще доведе до проблеми с възпроизвеждането на видео.</string>
   <string name="revanced_spoof_video_streams_client_type_title">Клиент по подразбиране</string>
   <!-- 'no auth' means no authentication -->
-  <string name="revanced_spoof_video_streams_client_type_android_vr_no_auth">VR Android (bez avtorizaciq)</string>
+  <string name="revanced_spoof_video_streams_client_type_android_vr_no_auth">Android VR (bez avtorizaciq)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_title">Принудително използване на AVC (H.264) на iOS</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Видео кодекът е принудително зададен на AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Видео кодекът се определя автоматично</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">"Включването на това може да подобри живота на батерията и да поправи заекването при възпроизвеждане.
 
 AVC има максимална резолюция от 1080p, Opus аудио кодек не е наличен и възпроизвеждането на видео ще използва повече интернет данни от VP9 или AV1."</string>
-  <string name="revanced_spoof_video_streams_about_ios_tv_title">Странни странични ефекти на фалшивото представяне като iOS TV</string>
-  <string name="revanced_spoof_video_streams_about_ios_tv_summary">"• Филмите или платените видеоклипове може да не се възпроизвеждат
+  <string name="revanced_spoof_video_streams_about_ios_tv_title">Ефекти на измамата в iOS</string>
+  <string name="revanced_spoof_video_streams_about_ios_tv_summary">"• Филми или платени видеоклипове може да не се възпроизвеждат
+• Стабилен звук не е наличен
 • Видеоклиповете завършват 1 секунда по-рано"</string>
   <string name="revanced_spoof_video_streams_about_android_title">Strani4ni efekti na fal6ivoto predstavqne na Android</string>
   <string name="revanced_spoof_video_streams_about_android_summary">"• Lipsva menju za audio pisti

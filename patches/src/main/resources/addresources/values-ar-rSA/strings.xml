@@ -628,15 +628,9 @@ Second \"item\" text"</string>
   <string name="revanced_shorts_player_screen_summary">إخفاء أو عرض المكونات في مشغل Shorts</string>
   <!-- 'home' should be translated using the same localized wording YouTube displays for the home tab. -->
   <string name="revanced_hide_shorts_home_title">إخفاء Shorts في موجز الصفحة الرئيسية</string>
-  <string name="revanced_hide_shorts_home_summary_on">تم إخفاء Shorts في موجز الصفحة الرئيسية</string>
-  <string name="revanced_hide_shorts_home_summary_off">يتم عرض Shorts في موجز الصفحة الرئيسية</string>
   <!-- 'subscription' should be translated using the same localized wording YouTube displays for the subscription tab. -->
   <string name="revanced_hide_shorts_subscriptions_title">إخفاء Shorts في موجز الاشتراكات</string>
-  <string name="revanced_hide_shorts_subscriptions_summary_on">تم إخفاء Shorts في موجز الاشتراكات</string>
-  <string name="revanced_hide_shorts_subscriptions_summary_off">يتم عرض Shorts في موجز الاشتراكات</string>
   <string name="revanced_hide_shorts_search_title">إخفاء Shorts في نتائج البحث</string>
-  <string name="revanced_hide_shorts_search_summary_on">تم إخفاء Shorts في نتائج البحث</string>
-  <string name="revanced_hide_shorts_search_summary_off">يتم عرض Shorts في نتائج البحث</string>
   <!-- 'join' should be translated using the same localized wording YouTube displays for the button. -->
   <string name="revanced_hide_shorts_join_button_title">إخفاء زر الانضمام</string>
   <string name="revanced_hide_shorts_join_button_summary_on">تم إخفاء زر الانضمام</string>
@@ -1295,9 +1289,10 @@ Second \"item\" text"</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">"قد يؤدي تمكين هذا إلى تحسين عمر البطارية وإصلاح تقطيع التشغيل.
 
 AVC لديه حد أقصى للدقة 1080 بكسل ، لا يتوفر ترميز الصوت Opus ، وسوف يستخدم تشغيل الفيديو بيانات إنترنت أكثر من VP9 أو AV1."</string>
-  <string name="revanced_spoof_video_streams_about_ios_tv_title">iOS TV تأثيرات الجانبية</string>
+  <string name="revanced_spoof_video_streams_about_ios_tv_title">آثار جانبية لتزييف iOS</string>
   <string name="revanced_spoof_video_streams_about_ios_tv_summary">"• قد لا يتم تشغيل الأفلام أو مقاطع الفيديو المدفوعة
-• تنتهي مقاطع الفيديو قبل ثانيه واحدة"</string>
+• مستوى الصوت الثابت غير متوفر
+• تنتهي مقاطع الفيديو قبل ثانية واحدة"</string>
   <string name="revanced_spoof_video_streams_about_android_title">تأثيرات نظام الجهاز الأندرويد</string>
   <string name="revanced_spoof_video_streams_about_android_summary">"• قائمة قائمة الصوت مفقودة
 • لا يتوفر بحجم الصوت متاح

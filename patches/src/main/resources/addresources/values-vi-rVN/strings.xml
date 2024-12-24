@@ -629,15 +629,9 @@ Lưu ý: Bật tính năng này cũng sẽ tự động ẩn quảng cáo video"
   <string name="revanced_shorts_player_screen_summary">Ẩn hoặc hiển thị các thành phần trong trình phát Shorts</string>
   <!-- 'home' should be translated using the same localized wording YouTube displays for the home tab. -->
   <string name="revanced_hide_shorts_home_title">Ẩn Shorts trong bảng tin trang chính</string>
-  <string name="revanced_hide_shorts_home_summary_on">Shorts trong bảng tin trang chính được ẩn</string>
-  <string name="revanced_hide_shorts_home_summary_off">Shorts trong bảng tin trang chính được hiện</string>
   <!-- 'subscription' should be translated using the same localized wording YouTube displays for the subscription tab. -->
   <string name="revanced_hide_shorts_subscriptions_title">Ẩn Shorts trong bảng tin đăng ký</string>
-  <string name="revanced_hide_shorts_subscriptions_summary_on">Shorts trong bảng tin đăng ký được ẩn</string>
-  <string name="revanced_hide_shorts_subscriptions_summary_off">Shorts trong bảng tin đăng ký được hiện</string>
   <string name="revanced_hide_shorts_search_title">Ẩn Shorts trong kết quả tìm kiếm</string>
-  <string name="revanced_hide_shorts_search_summary_on">Shorts trong kết quả tìm kiếm được ẩn</string>
-  <string name="revanced_hide_shorts_search_summary_off">Shorts trong kết quả tìm kiếm được hiện</string>
   <!-- 'join' should be translated using the same localized wording YouTube displays for the button. -->
   <string name="revanced_hide_shorts_join_button_title">Ẩn nút tham gia</string>
   <string name="revanced_hide_shorts_join_button_summary_on">Nút tham gia được ẩn</string>
@@ -1289,16 +1283,17 @@ Phát lại video có thể không hoạt động"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Việc tắt cài đặt này có thể gây ra sự cố phát nền video.</string>
   <string name="revanced_spoof_video_streams_client_type_title">Máy khách mặc định</string>
   <!-- 'no auth' means no authentication -->
-  <string name="revanced_spoof_video_streams_client_type_android_vr_no_auth">VR Android (không cần xác thực)</string>
+  <string name="revanced_spoof_video_streams_client_type_android_vr_no_auth">Android VR (không cần xác thực)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_title">Buộc iOS AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Bộ giải mã video bị buộc thành AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Bộ giải mã video được xác định tự động</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">"Bật tính năng này có thể cải thiện thời lượng pin và khắc phục tình trạng giật lag khi phát lại.
 
 AVC có độ phân giải tối đa là 1080p, bộ giải mã âm thanh Opus không khả dụng và phát lại video sẽ sử dụng nhiều dữ liệu internet hơn VP9 hoặc AV1."</string>
-  <string name="revanced_spoof_video_streams_about_ios_tv_title">Tác dụng phụ của việc giả mạo iOS TV</string>
-  <string name="revanced_spoof_video_streams_about_ios_tv_summary">"• Phim hoặc video trả phí có thể không phát
-• Video kết thúc sớm 1 giây"</string>
+  <string name="revanced_spoof_video_streams_about_ios_tv_title">Tạo cảc phượng phương định iOS</string>
+  <string name="revanced_spoof_video_streams_about_ios_tv_summary">"• Phim hoặc có phí trả không phát hày có thể chơi
+• Âm lượng ở ỗn định không có sử dụng
+• Video két thúc sớm hơn có 1 giây"</string>
   <string name="revanced_spoof_video_streams_about_android_title">Tác dụng phụ của việc giả mạo Android</string>
   <string name="revanced_spoof_video_streams_about_android_summary">"• Thiếu menu âm thanh
 • Không có âm lượng ổn định

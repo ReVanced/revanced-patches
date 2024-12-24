@@ -628,15 +628,9 @@ Nota: Abilitare questa opzione nasconde anche le pubblicità video"</string>
   <string name="revanced_shorts_player_screen_summary">Mostra o nascondi i componenti nel player Shorts</string>
   <!-- 'home' should be translated using the same localized wording YouTube displays for the home tab. -->
   <string name="revanced_hide_shorts_home_title">Nascondi Shorts nella scheda Home</string>
-  <string name="revanced_hide_shorts_home_summary_on">Gli Shorts nella schermata Home sono nascosti</string>
-  <string name="revanced_hide_shorts_home_summary_off">Gli Shorts nella schermata Home sono visibili</string>
   <!-- 'subscription' should be translated using the same localized wording YouTube displays for the subscription tab. -->
   <string name="revanced_hide_shorts_subscriptions_title">Nascondi gli Shorts nella scheda Iscrizioni</string>
-  <string name="revanced_hide_shorts_subscriptions_summary_on">Gli Shorts della schermata Iscrizioni sono nascosti</string>
-  <string name="revanced_hide_shorts_subscriptions_summary_off">Gli Shorts nella schermata Iscrizioni sono visibili</string>
   <string name="revanced_hide_shorts_search_title">Nascondi gli Shorts dei risultati di ricerca</string>
-  <string name="revanced_hide_shorts_search_summary_on">Gli Shorts nei risultati di ricerca sono nascosti</string>
-  <string name="revanced_hide_shorts_search_summary_off">Vengono visualizzati gli Shorts nei risultati di ricerca</string>
   <!-- 'join' should be translated using the same localized wording YouTube displays for the button. -->
   <string name="revanced_hide_shorts_join_button_title">Nascondi il pulsante Abbonati</string>
   <string name="revanced_hide_shorts_join_button_summary_on">Il pulsante Abbonati è nascosto</string>
@@ -1287,14 +1281,25 @@ La riproduzione video potrebbe non funzionare"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Disattivando questa impostazione potrebbe causare problemi di riproduzione video.</string>
   <string name="revanced_spoof_video_streams_client_type_title">Client predefinito</string>
   <!-- 'no auth' means no authentication -->
-  <string name="revanced_spoof_video_streams_ios_force_avc_title">Forzare AVC (H.264) iOS</string>
+  <string name="revanced_spoof_video_streams_client_type_android_vr_no_auth">Android VR (nessuna autenticazione)</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_title">Forza iOS AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Il codec video è forzato ad AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Il codec video è determinato automaticamente</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">"L'abilitazione di questa opzione potrebbe migliorare la durata della batteria e risolvere i problemi di stuttering durante la riproduzione.
 
 AVC ha una risoluzione massima di 1080p, il codec audio Opus non è disponibile e la riproduzione video utilizzerà più dati Internet rispetto a VP9 o AV1."</string>
-  <string name="revanced_spoof_video_streams_about_ios_tv_summary">"• I film o i video a pagamento potrebbero non essere riproducibili
+  <string name="revanced_spoof_video_streams_about_ios_tv_title">Effetti collaterali simulazione iOS</string>
+  <string name="revanced_spoof_video_streams_about_ios_tv_summary">"• I film o i video a pagamento potrebbero non riprodurre
+• Il volume stabile non è disponibile
 • I video terminano 1 secondo prima"</string>
+  <string name="revanced_spoof_video_streams_about_android_title">Effetti collaterali simulazione Android</string>
+  <string name="revanced_spoof_video_streams_about_android_summary">"• Il menu traccia audio è mancante
+• Il volume stabile non è disponibile
+• Forza l'audio originale non è disponibile"</string>
+  <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Mostra nelle statistiche per nerd</string>
+  <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Il tipo di client è mostrato nelle statistiche per nerd</string>
+  <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Il client è nascosto nelle statistiche per nerd</string>
+  <string name="revanced_spoof_video_streams_language_title">Lingua predefinita del flusso audio VR</string>
   <string name="revanced_spoof_video_streams_language_DEFAULT">Lingua dell\'account</string>
   <string name="revanced_spoof_video_streams_language_AR">Arabo</string>
   <string name="revanced_spoof_video_streams_language_AZ">Azerbaigiano</string>
@@ -1331,6 +1336,7 @@ AVC ha una risoluzione massima di 1080p, il codec audio Opus non è disponibile 
   <string name="revanced_spoof_video_streams_language_OR">Odia</string>
   <string name="revanced_spoof_video_streams_language_PA">Punjabi</string>
   <string name="revanced_spoof_video_streams_language_PL">Polacco</string>
+  <string name="revanced_spoof_video_streams_language_PT">Portoghese</string>
   <string name="revanced_spoof_video_streams_language_RO">Rumeno</string>
   <string name="revanced_spoof_video_streams_language_RU">Russo</string>
   <string name="revanced_spoof_video_streams_language_SK">Slovacco</string>

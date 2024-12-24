@@ -629,15 +629,9 @@ Shënim: Aktivizimi i kësaj gjëje gjithashtu fsheh me forcë reklamat video"</
   <string name="revanced_shorts_player_screen_summary">Fsheh ose shfaq komponentët në lojtarin e Shorts</string>
   <!-- 'home' should be translated using the same localized wording YouTube displays for the home tab. -->
   <string name="revanced_hide_shorts_home_title">Fsheh Shorts në ushqimin e shtëpisë</string>
-  <string name="revanced_hide_shorts_home_summary_on">Shorts në ushqimin e shtëpisë janë të fshehura</string>
-  <string name="revanced_hide_shorts_home_summary_off">Shorts në ushqimin e shtëpisë janë të dukshme</string>
   <!-- 'subscription' should be translated using the same localized wording YouTube displays for the subscription tab. -->
   <string name="revanced_hide_shorts_subscriptions_title">Fsheh Shorts në ushqimin e abonimeve</string>
-  <string name="revanced_hide_shorts_subscriptions_summary_on">Shorts në ushqimin e abonimeve janë të fshehura</string>
-  <string name="revanced_hide_shorts_subscriptions_summary_off">Shorts në ushqimin e abonimeve janë të dukshme</string>
   <string name="revanced_hide_shorts_search_title">Fsheh Shorts në rezultatet e kërkimit</string>
-  <string name="revanced_hide_shorts_search_summary_on">Shorts në rezultatet e kërkimit janë të fshehura</string>
-  <string name="revanced_hide_shorts_search_summary_off">Shorts në rezultatet e kërkimit janë të dukshme</string>
   <!-- 'join' should be translated using the same localized wording YouTube displays for the button. -->
   <string name="revanced_hide_shorts_join_button_title">Fsheh butonin \"Bashkohu\"</string>
   <string name="revanced_hide_shorts_join_button_summary_on">Butoni \"Bashkohu\" është i fshehur</string>
@@ -1294,9 +1288,10 @@ Shikimi i videove mund të mos funksionojë"</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">"Aktivizimi i kësaj mund të përmirësojë jetëgjatësinë e baterisë dhe të rregullojë ngecjet gjatë shfaqjes.
 
 AVC ka një rezolucion maksimal prej 1080p, kodeku audio Opus nuk është i disponueshëm dhe shfaqja e videos do të përdorë më shumë të dhëna interneti sesa VP9 ose AV1."</string>
-  <string name="revanced_spoof_video_streams_about_ios_tv_title">Efecte anësore të spoofinguit të iOS TV</string>
-  <string name="revanced_spoof_video_streams_about_ios_tv_summary">"• Filmat ose videot e paguara mund të mos luhen
-• Videot përfundojnë 1 sekondë më herët"</string>
+  <string name="revanced_spoof_video_streams_about_ios_tv_title">Efekte anësore të falsifikimit të iOS</string>
+  <string name="revanced_spoof_video_streams_about_ios_tv_summary">"• Filmat ose videot e paguara s'mund të luhen
+• Volumi i qëndrueshëm nuk është i disponueshëm
+• Videot përfundojnë 1 sekondë më parë"</string>
   <string name="revanced_spoof_video_streams_about_android_title">Efekte anësore të spoofinguit të Android</string>
   <string name="revanced_spoof_video_streams_about_android_summary">"• Menutë me audiot mungon
 • Vellimi i qëndrueshëm nuk është në dispozicion

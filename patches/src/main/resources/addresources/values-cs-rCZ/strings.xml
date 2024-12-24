@@ -629,15 +629,9 @@ Poznámka: Povolení této funkce také vynuceně skryje video reklamy"</string>
   <string name="revanced_shorts_player_screen_summary">Skrýt nebo zobrazit komponenty v přehrávači Shorts</string>
   <!-- 'home' should be translated using the same localized wording YouTube displays for the home tab. -->
   <string name="revanced_hide_shorts_home_title">Skrýt Shorts v Domů</string>
-  <string name="revanced_hide_shorts_home_summary_on">Shorts jsou schovány v Domů</string>
-  <string name="revanced_hide_shorts_home_summary_off">Shorts jsou zobrazeny v Domů</string>
   <!-- 'subscription' should be translated using the same localized wording YouTube displays for the subscription tab. -->
   <string name="revanced_hide_shorts_subscriptions_title">Schovat Shorts v odběrovém feedu</string>
-  <string name="revanced_hide_shorts_subscriptions_summary_on">Shorts jsou v odběrovém feedu schovány</string>
-  <string name="revanced_hide_shorts_subscriptions_summary_off">Shorts jsou v odběrovém feedu zobazeny</string>
   <string name="revanced_hide_shorts_search_title">Skrýt Shorts ve výsledcích vyhledávání</string>
-  <string name="revanced_hide_shorts_search_summary_on">Shorts jsou ve výsledcích vyhledávání skryté</string>
-  <string name="revanced_hide_shorts_search_summary_off">Shorts jsou ve výsledcích vyhledávání viditelné</string>
   <!-- 'join' should be translated using the same localized wording YouTube displays for the button. -->
   <string name="revanced_hide_shorts_join_button_title">Skrýt tlačítko Připojit se</string>
   <string name="revanced_hide_shorts_join_button_summary_on">Tlačítko Připojit se je skryto</string>
@@ -1295,8 +1289,9 @@ Přehrávání videa nemusí fungovat"</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">"Povolení této funkce může zlepšit výdrž baterie a opravit sekání videa.
 
 AVC má maximální rozlišení 1080p, zvukový kodek Opus není dostupný a přehrávání videa bude používat více dat než VP9 nebo AV1."</string>
-  <string name="revanced_spoof_video_streams_about_ios_tv_title">\"Spoofing\" v iOS TV je proces, který přesvědčí YouTube aplikaci, že váš telefon používá iOS s oficiální verzí.</string>
+  <string name="revanced_spoof_video_streams_about_ios_tv_title">iOS spoofing vedlejší účinky</string>
   <string name="revanced_spoof_video_streams_about_ios_tv_summary">"• Filmy nebo placená videa se nemusí přehrávat
+• Stabilní hlasitost není k dispozici
 • Videa končí o 1 sekundu dříve"</string>
   <string name="revanced_spoof_video_streams_about_android_title">Vedlejší účinky spoofingu Androidu</string>
   <string name="revanced_spoof_video_streams_about_android_summary">"• Chybí nabídka zvukových stop

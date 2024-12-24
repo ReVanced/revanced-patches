@@ -629,15 +629,9 @@ Second \"item\" text"</string>
   <string name="revanced_shorts_player_screen_summary">ซ่อนหรือแสดงส่วนประกอบใน Shorts Player</string>
   <!-- 'home' should be translated using the same localized wording YouTube displays for the home tab. -->
   <string name="revanced_hide_shorts_home_title">ซ่อน Shorts ในหน้าฟีด</string>
-  <string name="revanced_hide_shorts_home_summary_on">Shorts ในหน้าฟีดซ่อนอยู่</string>
-  <string name="revanced_hide_shorts_home_summary_off">Shorts ในหน้าฟีดแสดงอยู่</string>
   <!-- 'subscription' should be translated using the same localized wording YouTube displays for the subscription tab. -->
   <string name="revanced_hide_shorts_subscriptions_title">ซ่อน Shorts ในฟีดการสมัครรับข้อมูล</string>
-  <string name="revanced_hide_shorts_subscriptions_summary_on">Shorts ในฟีดการสมัครรับข้อมูลซ่อนอยู่</string>
-  <string name="revanced_hide_shorts_subscriptions_summary_off">Shorts ในฟีดการสมัครรับข้อมูลแสดงอยู่</string>
   <string name="revanced_hide_shorts_search_title">ซ่อน Shorts ในผลลัพธ์การค้นหา</string>
-  <string name="revanced_hide_shorts_search_summary_on">Shorts ในผลลัพธ์การค้นหาซ่อนอยู่</string>
-  <string name="revanced_hide_shorts_search_summary_off">Shorts ในผลลัพธ์การค้นหาแสดงอยู่</string>
   <!-- 'join' should be translated using the same localized wording YouTube displays for the button. -->
   <string name="revanced_hide_shorts_join_button_title">ซ่อนปุ่มเข้าร่วม</string>
   <string name="revanced_hide_shorts_join_button_summary_on">ปุ่มเข้าร่วมซ่อนอยู่</string>
@@ -1296,9 +1290,10 @@ User id ของคุณเหมือนกับรหัสผ่าน �
   <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">"การเปิดใช้งานฟีเจอร์นี้อาจช่วยยืดอายุแบตเตอรี่และแก้ไขปัญหาการกระตุกของวิดีโอ
 
 AVC มีความละเอียดสูงสุด 1080p, ตัวแปลงสัญญาณเสียง Opus ไม่พร้อมใช้งาน และการเล่นวิดีโอจะใช้ข้อมูลอินเทอร์เน็ตมากกว่า VP9 หรือ AV1"</string>
-  <string name="revanced_spoof_video_streams_about_ios_tv_title">ผลข้างเคียงของการปลอมแปลง iOS TV</string>
-  <string name="revanced_spoof_video_streams_about_ios_tv_summary">"• ภาพยนตร์หรือวิดีโอแบบชำระเงินอาจเล่นไม่ได้
-• วิดีโอจบก่อนเวลา 1 วินาที"</string>
+  <string name="revanced_spoof_video_streams_about_ios_tv_title">ผลข้างเคียงของการสปูฟ iOS</string>
+  <string name="revanced_spoof_video_streams_about_ios_tv_summary">"• ภาพยนตร์หรือวิดีโอแบบเสียเงินอาจไม่สามารถเล่นได้
+• ระดับเสียงที่คงที่จะไม่สามารถใช้งานได้
+• วิดีโอจะจบเร็วขึ้น 1 วินาที"</string>
   <string name="revanced_spoof_video_streams_about_android_title">ผลข้างเคียงของการปลอมแปลง Android</string>
   <string name="revanced_spoof_video_streams_about_android_summary">"• เมนูแทร็กเสียงหายไป
 • ปรับระดับเสียงอัตโนมัติใช้งานไม่ได้

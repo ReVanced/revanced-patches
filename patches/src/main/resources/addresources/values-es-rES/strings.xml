@@ -619,15 +619,9 @@ Nota: Habilitar esto también oculta a la fuerza los anuncios de vídeo"</string
   <string name="revanced_shorts_player_screen_summary">Oculta o muestra componentes en el reproductor de Shorts</string>
   <!-- 'home' should be translated using the same localized wording YouTube displays for the home tab. -->
   <string name="revanced_hide_shorts_home_title">Ocultar Shorts en el Inicio</string>
-  <string name="revanced_hide_shorts_home_summary_on">Los Shorts en el Inicio están ocultos</string>
-  <string name="revanced_hide_shorts_home_summary_off">Se muestran los Shorts en el Inicio</string>
   <!-- 'subscription' should be translated using the same localized wording YouTube displays for the subscription tab. -->
   <string name="revanced_hide_shorts_subscriptions_title">Ocultar Shorts en las suscripciones</string>
-  <string name="revanced_hide_shorts_subscriptions_summary_on">Los Shorts en las suscripciones están ocultos</string>
-  <string name="revanced_hide_shorts_subscriptions_summary_off">Se muestran los Shorts en las suscripciones</string>
   <string name="revanced_hide_shorts_search_title">Ocultar Shorts en los resultados de búsqueda</string>
-  <string name="revanced_hide_shorts_search_summary_on">Los Shorts en resultados de búsqueda están ocultos</string>
-  <string name="revanced_hide_shorts_search_summary_off">Se muestran Shorts en los resultados de búsqueda</string>
   <!-- 'join' should be translated using the same localized wording YouTube displays for the button. -->
   <string name="revanced_hide_shorts_join_button_title">Ocultar botón de unirse</string>
   <string name="revanced_hide_shorts_join_button_summary_on">Botón de unión oculto</string>
@@ -1270,15 +1264,16 @@ Es posible que la reproducción de vídeo no funcione"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Desactivar esta configuración puede causar problemas de reproducción de vídeo.</string>
   <string name="revanced_spoof_video_streams_client_type_title">Cliente por defecto</string>
   <!-- 'no auth' means no authentication -->
-  <string name="revanced_spoof_video_streams_client_type_android_vr_no_auth">VR Android (sin autenticación)</string>
+  <string name="revanced_spoof_video_streams_client_type_android_vr_no_auth">Android VR (sin autenticación)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_title">Forzar iOS AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">El códec de video se fuerza a AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">El códec de video se determina automáticamente</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">"Habilitar esto puede mejorar la duración de la batería y solucionar el tartamudeo de la reproducción.
 
 AVC tiene una resolución máxima de 1080p, el códec de audio Opus no está disponible y la reproducción de video utilizará más datos de Internet que VP9 o AV1."</string>
-  <string name="revanced_spoof_video_streams_about_ios_tv_title">Efectos secundarios de la suplantación de iOS TV</string>
+  <string name="revanced_spoof_video_streams_about_ios_tv_title">Efectos secundarios de la suplantación de iOS</string>
   <string name="revanced_spoof_video_streams_about_ios_tv_summary">"• Es posible que las películas o los videos pagos no se reproduzcan
+• El volumen estable no está disponible
 • Los videos terminan 1 segundo antes"</string>
   <string name="revanced_spoof_video_streams_about_android_title">Efectos secundarios de la suplantación de Android</string>
   <string name="revanced_spoof_video_streams_about_android_summary">"• Falta el menú de la pista de audio

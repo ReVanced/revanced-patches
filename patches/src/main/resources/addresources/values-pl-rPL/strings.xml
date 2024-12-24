@@ -628,15 +628,9 @@ Uwaga: Włączenie tej opcji również ukrywa reklamy wideo"</string>
   <string name="revanced_shorts_player_screen_summary">Ukryj lub pokaż przyciski w odtwarzaczu Shortsów</string>
   <!-- 'home' should be translated using the same localized wording YouTube displays for the home tab. -->
   <string name="revanced_hide_shorts_home_title">Shortsy na stronie głównej</string>
-  <string name="revanced_hide_shorts_home_summary_on">Shortsy na stronie głównej są ukryte</string>
-  <string name="revanced_hide_shorts_home_summary_off">Shortsy na stronie głównej są widoczne</string>
   <!-- 'subscription' should be translated using the same localized wording YouTube displays for the subscription tab. -->
   <string name="revanced_hide_shorts_subscriptions_title">Shortsy na stronie subskrypcji</string>
-  <string name="revanced_hide_shorts_subscriptions_summary_on">Shortsy na stronie subskrypcji są ukryte</string>
-  <string name="revanced_hide_shorts_subscriptions_summary_off">Shortsy na stronie subskrypcji są widoczne</string>
   <string name="revanced_hide_shorts_search_title">Shortsy w wynikach wyszukiwania</string>
-  <string name="revanced_hide_shorts_search_summary_on">Shortsy w wynikach wyszukiwania są ukryte</string>
-  <string name="revanced_hide_shorts_search_summary_off">Shortsy w wynikach wyszukiwania są widoczne</string>
   <!-- 'join' should be translated using the same localized wording YouTube displays for the button. -->
   <string name="revanced_hide_shorts_join_button_title">Przycisk od sponsorowania</string>
   <string name="revanced_hide_shorts_join_button_summary_on">Przycisk od sponsorowania jest ukryty</string>
@@ -1295,9 +1289,10 @@ Odtwarzanie wideo może nie działać"</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">"Włączenie tej opcji może poprawić żywotność baterii i naprawić zacinanie się odtwarzania.
 
 AVC ma maksymalną rozdzielczość 1080p, kodek audio Opus nie jest dostępny, a odtwarzanie wideo będzie zużywać więcej danych internetowych niż VP9 lub AV1."</string>
-  <string name="revanced_spoof_video_streams_about_ios_tv_title">Efekty uboczne podszywania się pod iOS TV</string>
-  <string name="revanced_spoof_video_streams_about_ios_tv_summary">"• Filmy lub płatne filmy mogą nie działać
-• Filmy kończą się 1 sekundę wcześniej"</string>
+  <string name="revanced_spoof_video_streams_about_ios_tv_title">Skutki uboczne podszywania się pod iOS</string>
+  <string name="revanced_spoof_video_streams_about_ios_tv_summary">"- Filmy lub płatne wideo mogą nie być odtwarzane
+- Stabilna głośność nie jest dostępna
+- Filmy kończą się o 1 sekundę za wcześnie"</string>
   <string name="revanced_spoof_video_streams_about_android_title">Efekty uboczne podszywania się pod Androida</string>
   <string name="revanced_spoof_video_streams_about_android_summary">"• Brakuje menu ścieżki audio
 • Stabilna głośność jest niedostępna

@@ -628,15 +628,9 @@ Catatan: Mengaktifkan ini juga akan memaksa menyembunyikan iklan video"</string>
   <string name="revanced_shorts_player_screen_summary">Sembunyikan atau tampilkan komponen di pemutar Shorts</string>
   <!-- 'home' should be translated using the same localized wording YouTube displays for the home tab. -->
   <string name="revanced_hide_shorts_home_title">Sembunyikan Shorts di feed beranda</string>
-  <string name="revanced_hide_shorts_home_summary_on">Shorts di feed beranda disembunyikan</string>
-  <string name="revanced_hide_shorts_home_summary_off">Shorts di feed beranda ditampilkan</string>
   <!-- 'subscription' should be translated using the same localized wording YouTube displays for the subscription tab. -->
   <string name="revanced_hide_shorts_subscriptions_title">Sembunyikan Shorts di feed langganan</string>
-  <string name="revanced_hide_shorts_subscriptions_summary_on">Shorts di feed langganan disembunyikan</string>
-  <string name="revanced_hide_shorts_subscriptions_summary_off">Shorts di feed langganan ditampilkan</string>
   <string name="revanced_hide_shorts_search_title">Sembunyikan Shorts di hasil pencarian</string>
-  <string name="revanced_hide_shorts_search_summary_on">Shorts di hasil pencarian disembunyikan</string>
-  <string name="revanced_hide_shorts_search_summary_off">Shorts di hasil pencarian ditampilkan</string>
   <!-- 'join' should be translated using the same localized wording YouTube displays for the button. -->
   <string name="revanced_hide_shorts_join_button_title">Sembunyikan tombol gabung</string>
   <string name="revanced_hide_shorts_join_button_summary_on">Tombol gabung disembunyikan</string>
@@ -1295,7 +1289,8 @@ Pemutaran video mungkin tidak berfungsi"</string>
 
 AVC memiliki resolusi maksimum 1080p, codec audio Opus tidak tersedia, dan pemutaran video akan menggunakan lebih banyak data internet daripada VP9 atau AV1."</string>
   <string name="revanced_spoof_video_streams_about_ios_tv_title">Efek samping pemalsuan iOS TV</string>
-  <string name="revanced_spoof_video_streams_about_ios_tv_summary">"• Film atau video yang berbayar mungkin tidak dapat diputar
+  <string name="revanced_spoof_video_streams_about_ios_tv_summary">"• Film atau video berbayar mungkin tidak dapat diputar
+• Volume stabil tidak tersedia
 • Video berakhir 1 detik lebih awal"</string>
   <string name="revanced_spoof_video_streams_about_android_title">Efek samping pemalsuan Android</string>
   <string name="revanced_spoof_video_streams_about_android_summary">"• Menu trek audio tidak ada

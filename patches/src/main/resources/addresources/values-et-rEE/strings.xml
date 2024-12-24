@@ -629,15 +629,9 @@ Märkus: selle lubamine peidab ka sunniviisiliselt video reklaamid"</string>
   <string name="revanced_shorts_player_screen_summary">Peida või näita komponente Shorts esitusprogrammis</string>
   <!-- 'home' should be translated using the same localized wording YouTube displays for the home tab. -->
   <string name="revanced_hide_shorts_home_title">Peida Shorts algmenüüs</string>
-  <string name="revanced_hide_shorts_home_summary_on">Shorts algmenüüs on peidetud</string>
-  <string name="revanced_hide_shorts_home_summary_off">Shorts algmenüüs on nähtavad</string>
   <!-- 'subscription' should be translated using the same localized wording YouTube displays for the subscription tab. -->
   <string name="revanced_hide_shorts_subscriptions_title">Peida Shorts tellimuste voogus</string>
-  <string name="revanced_hide_shorts_subscriptions_summary_on">Shorts on tellimuste voogus on peidetud</string>
-  <string name="revanced_hide_shorts_subscriptions_summary_off">Shorts on tellimuste voogus on nähtavad</string>
   <string name="revanced_hide_shorts_search_title">Peida Shorts otsingutulemustes</string>
-  <string name="revanced_hide_shorts_search_summary_on">Shorts on otsingutulemustes on peidetud</string>
-  <string name="revanced_hide_shorts_search_summary_off">Shorts on otsingutulemustes on nähtavad</string>
   <!-- 'join' should be translated using the same localized wording YouTube displays for the button. -->
   <string name="revanced_hide_shorts_join_button_title">Peida liitumisnupp</string>
   <string name="revanced_hide_shorts_join_button_summary_on">Liitumisnupp on peidetud</string>
@@ -1297,8 +1291,9 @@ Video taasesitus ei pruugi toimida"</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">"Funktsiooni sisselülitamine võib parandada aku kestvust ja videotaasesituse katkemist.
 
 AVC-l on maksimaalne eraldusvõime 1080p, Opus-i heli kodek pole saadaval ning video taasesitus kasutab rohkem internetiandmeid kui VP9 või AV1."</string>
-  <string name="revanced_spoof_video_streams_about_ios_tv_title">iOS TV pettuse kõrvalmõjud</string>
+  <string name="revanced_spoof_video_streams_about_ios_tv_title">iOS-i videovoogude võltsimine</string>
   <string name="revanced_spoof_video_streams_about_ios_tv_summary">"• Filmid või tasulised videod ei pruugi taasesitada
+• Stabiilne helitugevus pole saadaval
 • Videod lõpevad 1 sekund varem"</string>
   <string name="revanced_spoof_video_streams_about_android_title">Androidi pettuse kõrvalmõjud</string>
   <string name="revanced_spoof_video_streams_about_android_summary">"• Heliraja menüü puudub

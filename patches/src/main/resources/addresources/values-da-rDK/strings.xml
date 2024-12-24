@@ -629,15 +629,9 @@ Bemærk: Aktivering af dette skjuler også videoannoncer"</string>
   <string name="revanced_shorts_player_screen_summary">Skjul eller vis komponenter i Shorts-afspilleren</string>
   <!-- 'home' should be translated using the same localized wording YouTube displays for the home tab. -->
   <string name="revanced_hide_shorts_home_title">Skjul Shorts i hjemmefeed</string>
-  <string name="revanced_hide_shorts_home_summary_on">Shorts i hjemmet feed er skjult</string>
-  <string name="revanced_hide_shorts_home_summary_off">Shorts i hjemmet feed er vist</string>
   <!-- 'subscription' should be translated using the same localized wording YouTube displays for the subscription tab. -->
   <string name="revanced_hide_shorts_subscriptions_title">Skjul Shorts i abonnementsfeed</string>
-  <string name="revanced_hide_shorts_subscriptions_summary_on">Shorts i abonnementsfeed er skjult</string>
-  <string name="revanced_hide_shorts_subscriptions_summary_off">Shorts i abonnementsfeed vises</string>
   <string name="revanced_hide_shorts_search_title">Skjul Shorts i søgeresultater</string>
-  <string name="revanced_hide_shorts_search_summary_on">Shorts i søgeresultater er skjult</string>
-  <string name="revanced_hide_shorts_search_summary_off">Korte i søgeresultater vises</string>
   <!-- 'join' should be translated using the same localized wording YouTube displays for the button. -->
   <string name="revanced_hide_shorts_join_button_title">Skjul tilmeldingsknap</string>
   <string name="revanced_hide_shorts_join_button_summary_on">Deltag-knappen er skjult</string>
@@ -1294,8 +1288,10 @@ Videoafspilning virker muligvis ikke"</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Videokodec er tvunget til AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Videokodec bestemmes automatisk</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">"Aktivering af dette kan forbedre batterilevetiden og rette afspilningshakken.\n\nAVC har en maksimal opløsning på 1080p, Opus-lydkodec er ikke tilgængelig, og videoafspilning vil bruge mere internetdata end VP9 eller AV1."</string>
-  <string name="revanced_spoof_video_streams_about_ios_tv_title">Bivirkninger ved iOS TV-spoofing</string>
-  <string name="revanced_spoof_video_streams_about_ios_tv_summary">"• Film eller betalte videoer afspilles muligvis ikke\n• Videoer slutter 1 sekund for tidligt"</string>
+  <string name="revanced_spoof_video_streams_about_ios_tv_title">iOS-spoofing kan have følgende bivirkninger</string>
+  <string name="revanced_spoof_video_streams_about_ios_tv_summary">"• Film eller betalte videoer afspilles muligvis ikke
+• Stabil lydstyrke er ikke tilgængelig
+• Videoer slutter 1 sekund for tidligt"</string>
   <string name="revanced_spoof_video_streams_about_android_title">Bivirkninger ved Android-spoofing</string>
   <string name="revanced_spoof_video_streams_about_android_summary">"• Lydspormenu mangler
 • Stabil lydstyrke er ikke tilgængelig
