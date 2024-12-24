@@ -1,3 +1,10 @@
+# [5.8.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.8.0-dev.1...v5.8.0-dev.2) (2024-12-24)
+
+
+### Features
+
+* **YouTube - Spoof app version:** Add 'Restore old navigation and toolbar icons' ([f84e459](https://github.com/ReVanced/revanced-patches/commit/f84e459d3d54b3001586796ab4e114ebadf09043))
+
 # [5.8.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.7.2...v5.8.0-dev.1) (2024-12-24)
 
 
