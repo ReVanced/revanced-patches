@@ -1288,11 +1288,25 @@ User id ของคุณเหมือนกับรหัสผ่าน �
 การเล่นวิดีโออาจไม่ทํางาน"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">การปิดการตั้งค่านี้ อาจทำให้เกิดปัญหาในการเล่นวิดีโอ</string>
   <string name="revanced_spoof_video_streams_client_type_title">ไคลเอ็นต์เริ่มต้น</string>
-  <string name="revanced_spoof_video_streams_about_title">การปลอมแปลงผลข้างเคียง</string>
-  <string name="revanced_spoof_video_streams_about_summary">"• เมนูแทร็กเสียงหายไป
-• ปรับระดับเสียงไม่ได้
-• บังคับเสียงต้นฉบับไม่ได้"</string>
-  <string name="revanced_spoof_video_streams_language_title">ภาษาสตรีมเสียงเริ่มต้น</string>
+  <!-- 'no auth' means no authentication -->
+  <string name="revanced_spoof_video_streams_client_type_android_vr_no_auth">Android VR (ไม่มีการตรวจสอบสิทธิ์)</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_title">บังคับ AVC (H.264) ของ iOS</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">บังคับตัวแปลงสัญญาณวิดีโอเป็น AVC (H.264)</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">ตัวแปลงสัญญาณวิดีโอถูกกำหนดโดยอัตโนมัติ</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">"การเปิดใช้งานฟีเจอร์นี้อาจช่วยยืดอายุแบตเตอรี่และแก้ไขปัญหาการกระตุกของวิดีโอ
+
+AVC มีความละเอียดสูงสุด 1080p, ตัวแปลงสัญญาณเสียง Opus ไม่พร้อมใช้งาน และการเล่นวิดีโอจะใช้ข้อมูลอินเทอร์เน็ตมากกว่า VP9 หรือ AV1"</string>
+  <string name="revanced_spoof_video_streams_about_ios_tv_title">ผลข้างเคียงของการปลอมแปลง iOS TV</string>
+  <string name="revanced_spoof_video_streams_about_ios_tv_summary">"• ภาพยนตร์หรือวิดีโอแบบชำระเงินอาจเล่นไม่ได้
+• วิดีโอจบก่อนเวลา 1 วินาที"</string>
+  <string name="revanced_spoof_video_streams_about_android_title">ผลข้างเคียงของการปลอมแปลง Android</string>
+  <string name="revanced_spoof_video_streams_about_android_summary">"• เมนูแทร็กเสียงหายไป
+• ปรับระดับเสียงอัตโนมัติใช้งานไม่ได้
+• เปิดเสียงต้นฉบับใช้งานไม่ได้"</string>
+  <string name="revanced_spoof_streaming_data_stats_for_nerds_title">แสดงในสถิติสำหรับพวกเนิร์ด</string>
+  <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">แสดงชนิดไคลเอ็นต์ในสถิติสำหรับพวกเนิร์ด</string>
+  <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">ซ่อนไคลเอ็นต์ในสถิติสำหรับพวกเนิร์ด</string>
+  <string name="revanced_spoof_video_streams_language_title">ภาษาของสตรีมเสียงเริ่มต้นของ VR</string>
   <string name="revanced_spoof_video_streams_language_DEFAULT">ภาษาแอป</string>
   <string name="revanced_spoof_video_streams_language_AR">อาหรับ</string>
   <string name="revanced_spoof_video_streams_language_AZ">อาเซอร์ไบจาน</string>
@@ -1329,6 +1343,7 @@ User id ของคุณเหมือนกับรหัสผ่าน �
   <string name="revanced_spoof_video_streams_language_OR">โอเดีย</string>
   <string name="revanced_spoof_video_streams_language_PA">ปัญจาบ</string>
   <string name="revanced_spoof_video_streams_language_PL">โปแลนด์</string>
+  <string name="revanced_spoof_video_streams_language_PT">โปรตุเกส</string>
   <string name="revanced_spoof_video_streams_language_RO">โรมาเนีย</string>
   <string name="revanced_spoof_video_streams_language_RU">รัสเซีย</string>
   <string name="revanced_spoof_video_streams_language_SK">สโลวัก</string>

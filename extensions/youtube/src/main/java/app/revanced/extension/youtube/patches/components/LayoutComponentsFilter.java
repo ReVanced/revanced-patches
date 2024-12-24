@@ -161,9 +161,9 @@ public final class LayoutComponentsFilter extends Filter {
                 "inline_expander"
         );
 
-        final var channelBar = new StringFilterGroup(
+        final var compactChannelBar = new StringFilterGroup(
                 Settings.HIDE_CHANNEL_BAR,
-                "channel_bar"
+                "compact_channel_bar"
         );
 
         final var relatedVideos = new StringFilterGroup(
@@ -252,7 +252,7 @@ public final class LayoutComponentsFilter extends Filter {
                 inFeedSurvey,
                 notifyMe,
                 likeSubscribeGlow,
-                channelBar,
+                compactChannelBar,
                 communityPosts,
                 paidPromotion,
                 searchResultVideo,

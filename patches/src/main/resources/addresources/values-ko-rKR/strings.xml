@@ -63,11 +63,11 @@ Second \"item\" text"</string>
 
 앱이 실행하려면 이 과정이 필요합니다"</string>
   <string name="gms_core_dialog_open_website_text">웹사이트 열기</string>
-  <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">"MicroG GmsCore를 배터리 최적화 목록에서 제외하여 앱 문제를 방지할 수 있습니다
+  <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">"MicroG GmsCore 앱 배터리 최적화를 비활성화(제한 없음)하여 앱 문제를 방지할 수 있습니다.
 
-MicroG를 배터리 최적화 목록에서 제외하더라도, 배터리 사용량에 부정적인 영향을 미치지 않습니다
+MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배터리 사용량에 부정적인 영향을 미치지 않습니다.
 
-배터리 최적화 목록에서 제외하려면 '계속하기' 버튼을 누르세요"</string>
+앱 배터리 최적화를 비활성화(제한 없음)하려면 '계속하기' 버튼을 누르세요."</string>
   <string name="gms_core_dialog_continue_text">계속하기</string>
   </patch>
   </app>
@@ -1290,11 +1290,25 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요"</string>
 동영상 재생 문제가 발생할 수 있습니다"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">이 설정을 비활성화하면 동영상 재생 문제가 발생할 수 있습니다</string>
   <string name="revanced_spoof_video_streams_client_type_title">기본 클라이언트</string>
-  <string name="revanced_spoof_video_streams_about_title">변경에 따른 알려진 문제점</string>
-  <string name="revanced_spoof_video_streams_about_summary">"• 오디오 트랙 메뉴가 표시되지 않습니다
+  <!-- 'no auth' means no authentication -->
+  <string name="revanced_spoof_video_streams_client_type_android_vr_no_auth">Android VR (인증 안됨)</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_title">iOS AVC (H.264) 강제로 활성화하기</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">동영상 코덱을 AVC (H.264)로 강제로 활성화합니다</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">동영상 코덱을 자동으로 결정합니다</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">"이 설정를 활성화하면 배터리 수명이 향상되고, 동영상 재생 끊김 문제가 해결될 수 있습니다
+
+AVC의 최대 해상도는 1080p이고, OPUS 코덱을 사용할 수 없으며, 동영상을 재생했을 경우에는 VP9 또는 AV1보다 더 많은 모바일 데이터를 사용되오니 주의하세요"</string>
+  <string name="revanced_spoof_video_streams_about_ios_tv_title">iOS TV 클라이언트 변경에 따른 문제점</string>
+  <string name="revanced_spoof_video_streams_about_ios_tv_summary">"• 동영상 또는 회원 전용 동영상과 같은 유료 동영상이 재생되지 않을 수 있습니다
+• 동영상이 1초 일찍 종료될 수 있습니다"</string>
+  <string name="revanced_spoof_video_streams_about_android_title">Android 계열 클라이언트 변경에 따른 문제점</string>
+  <string name="revanced_spoof_video_streams_about_android_summary">"• 오디오 트랙 메뉴가 표시되지 않습니다
 • 안정적인 볼륨을 사용할 수 없습니다
-• 원본 오디오 트랙을 강제로 활성화할 수 없습니다"</string>
-  <string name="revanced_spoof_video_streams_language_title">기본 오디오 트랙 언어</string>
+• 원본 오디오 트랙를 강제로 활성화할 수 없습니다."</string>
+  <string name="revanced_spoof_streaming_data_stats_for_nerds_title">통계에서 표시하기</string>
+  <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">전문 통계에서 기본 클라이언트가 표시됩니다</string>
+  <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">전문 통계에서 기본 클라이언트가 표시되지 않습니다</string>
+  <string name="revanced_spoof_video_streams_language_title">Android VR 기본 오디오 스트림 언어</string>
   <string name="revanced_spoof_video_streams_language_DEFAULT">계정 언어</string>
   <string name="revanced_spoof_video_streams_language_AR">아랍어</string>
   <string name="revanced_spoof_video_streams_language_AZ">아제르바니잔어</string>
@@ -1331,6 +1345,7 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요"</string>
   <string name="revanced_spoof_video_streams_language_OR">오리야어</string>
   <string name="revanced_spoof_video_streams_language_PA">펀잡어</string>
   <string name="revanced_spoof_video_streams_language_PL">폴란드어</string>
+  <string name="revanced_spoof_video_streams_language_PT">포르투갈어</string>
   <string name="revanced_spoof_video_streams_language_RO">루마니아어</string>
   <string name="revanced_spoof_video_streams_language_RU">러시아어</string>
   <string name="revanced_spoof_video_streams_language_SK">슬로바키아어</string>

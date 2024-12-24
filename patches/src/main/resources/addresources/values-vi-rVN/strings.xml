@@ -1288,11 +1288,25 @@ Bật tính năng này có thể mở khóa chất lượng video cao hơn"</str
 Phát lại video có thể không hoạt động"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Việc tắt cài đặt này có thể gây ra sự cố phát nền video.</string>
   <string name="revanced_spoof_video_streams_client_type_title">Máy khách mặc định</string>
-  <string name="revanced_spoof_video_streams_about_title">Tác dụng phụ của Spoofing</string>
-  <string name="revanced_spoof_video_streams_about_summary">"• Thiếu menu bản nhạc
-• Âm lượng ổn định không khả dụng
-• Tùy chọn Bắt buộc âm thanh gốc không khả dụng"</string>
-  <string name="revanced_spoof_video_streams_language_title">Ngôn ngữ âm thanh mặc định</string>
+  <!-- 'no auth' means no authentication -->
+  <string name="revanced_spoof_video_streams_client_type_android_vr_no_auth">VR Android (không cần xác thực)</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_title">Buộc iOS AVC (H.264)</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Bộ giải mã video bị buộc thành AVC (H.264)</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Bộ giải mã video được xác định tự động</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">"Bật tính năng này có thể cải thiện thời lượng pin và khắc phục tình trạng giật lag khi phát lại.
+
+AVC có độ phân giải tối đa là 1080p, bộ giải mã âm thanh Opus không khả dụng và phát lại video sẽ sử dụng nhiều dữ liệu internet hơn VP9 hoặc AV1."</string>
+  <string name="revanced_spoof_video_streams_about_ios_tv_title">Tác dụng phụ của việc giả mạo iOS TV</string>
+  <string name="revanced_spoof_video_streams_about_ios_tv_summary">"• Phim hoặc video trả phí có thể không phát
+• Video kết thúc sớm 1 giây"</string>
+  <string name="revanced_spoof_video_streams_about_android_title">Tác dụng phụ của việc giả mạo Android</string>
+  <string name="revanced_spoof_video_streams_about_android_summary">"• Thiếu menu âm thanh
+• Không có âm lượng ổn định
+• Không có tùy chọn âm thanh gốc"</string>
+  <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Hiển thị trong Stats for nerds</string>
+  <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Loại máy khách được hiển thị trong Stats for nerds</string>
+  <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Máy khách bị ẩn trong Stats for nerds</string>
+  <string name="revanced_spoof_video_streams_language_title">Ngôn ngữ âm thanh mặc định của VR</string>
   <string name="revanced_spoof_video_streams_language_DEFAULT">Ngôn ngữ tài khoản</string>
   <string name="revanced_spoof_video_streams_language_AR">Tiếng Ả Rập</string>
   <string name="revanced_spoof_video_streams_language_AZ">Tiếng Azerbaijan</string>
@@ -1329,6 +1343,7 @@ Phát lại video có thể không hoạt động"</string>
   <string name="revanced_spoof_video_streams_language_OR">Tiếng Odia</string>
   <string name="revanced_spoof_video_streams_language_PA">Tiếng Punjab</string>
   <string name="revanced_spoof_video_streams_language_PL">Tiếng Ba Lan</string>
+  <string name="revanced_spoof_video_streams_language_PT">Tiếng Bồ Đào Nha</string>
   <string name="revanced_spoof_video_streams_language_RO">Tiếng Rumani</string>
   <string name="revanced_spoof_video_streams_language_RU">Tiếng Nga</string>
   <string name="revanced_spoof_video_streams_language_SK">Tiếng Slovak</string>

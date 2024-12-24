@@ -1288,11 +1288,25 @@ Si actives aquesta opció, es poden desbloquejar qualitats de vídeo més altes"
 La reproducció de vídeo pot no funcionar"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Desactivar aquesta configuració pot causar problemes de reproducció de vídeo.</string>
   <string name="revanced_spoof_video_streams_client_type_title">Client predeterminat</string>
-  <string name="revanced_spoof_video_streams_about_title">Efectes secundaris de suplantació</string>
-  <string name="revanced_spoof_video_streams_about_summary">"• Falta el menú de pista d'àudio
+  <!-- 'no auth' means no authentication -->
+  <string name="revanced_spoof_video_streams_client_type_android_vr_no_auth">Android VR (sense autorització)</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_title">Forza iOS AVC (H.264)</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">El còdec de vídeo es força a AVC (H.264)</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">El còdec de vídeo es determina automàticament.</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">"L'activació d'aquesta opció podria millorar la vida útil de la bateria i resoldre els problemes de reproducció irregular.
+
+L'AVC té una resolució màxima de 1080p, el còdec d'àudio Opus no està disponible i la reproducció de vídeo utilitzarà més dades d'Internet que VP9 o AV1."</string>
+  <string name="revanced_spoof_video_streams_about_ios_tv_title">Efectes secundaris de la suplantació d\'iOS TV</string>
+  <string name="revanced_spoof_video_streams_about_ios_tv_summary">"• És possible que les pel·lícules o els vídeos de pagament no es reprodueixin
+• Els vídeos finalitzen 1 segon abans"</string>
+  <string name="revanced_spoof_video_streams_about_android_title">Efectes secundaris de la suplantació d\'Android</string>
+  <string name="revanced_spoof_video_streams_about_android_summary">"• Menú de pistes d'àudio no disponible
 • El volum estable no està disponible
-• Força l'àudio original no està disponible"</string>
-  <string name="revanced_spoof_video_streams_language_title">Idioma de la transmissió d\'àudio per defecte</string>
+• Forçar l'àudio original no està disponible"</string>
+  <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Mostra a l\'apartat \'Dades per a experts\'</string>
+  <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">El tipus de client es mostra a l\'apartat \'Dades per a experts\'</string>
+  <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">El client s\'amaga a l\'apartat \'Dades per a experts\'</string>
+  <string name="revanced_spoof_video_streams_language_title">Idioma de l\'àudio per defecte a VR</string>
   <string name="revanced_spoof_video_streams_language_DEFAULT">Idioma de l\'aplicació</string>
   <string name="revanced_spoof_video_streams_language_AR">Àrab</string>
   <string name="revanced_spoof_video_streams_language_AZ">Azerbaidjanès</string>
@@ -1329,6 +1343,7 @@ La reproducció de vídeo pot no funcionar"</string>
   <string name="revanced_spoof_video_streams_language_OR">Odia</string>
   <string name="revanced_spoof_video_streams_language_PA">Punjabi</string>
   <string name="revanced_spoof_video_streams_language_PL">Polonès</string>
+  <string name="revanced_spoof_video_streams_language_PT">Portuguès</string>
   <string name="revanced_spoof_video_streams_language_RO">Romanès</string>
   <string name="revanced_spoof_video_streams_language_RU">Rus</string>
   <string name="revanced_spoof_video_streams_language_SK">Eslovac</string>

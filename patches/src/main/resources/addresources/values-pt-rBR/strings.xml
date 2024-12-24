@@ -1286,11 +1286,25 @@ Habilitar isso pode desbloquear qualidades de vídeo mais altas"</string>
 A reprodução de vídeo pode não funcionar"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Desativar esta configuração pode causar problemas de reprodução de vídeo.</string>
   <string name="revanced_spoof_video_streams_client_type_title">Cliente padrão</string>
-  <string name="revanced_spoof_video_streams_about_title">Simulando efeitos colaterais</string>
-  <string name="revanced_spoof_video_streams_about_summary">"• O menu da trilha de áudio está ausente
-• O volume estável não está disponível
+  <!-- 'no auth' means no authentication -->
+  <string name="revanced_spoof_video_streams_client_type_android_vr_no_auth">Android VR (sem autenticação)</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_title">Forçar iOS AVC (H.264)</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">O codec de vídeo é forçado para AVC (H.264)</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">O codec de vídeo é determinado automaticamente</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">"A ativação desta opção pode aumentar a vida útil da bateria e corrigir problemas de reprodução.
+
+A AVC tem uma resolução máxima de 1080p, o codec de áudio Opus não está disponível, e a reprodução de vídeo usará mais dados de internet do que VP9 ou AV1."</string>
+  <string name="revanced_spoof_video_streams_about_ios_tv_title">Efeitos colaterais da falsificação da iOS TV</string>
+  <string name="revanced_spoof_video_streams_about_ios_tv_summary">"• Filmes ou vídeos pagos podem não ser reproduzidos
+• Os vídeos terminam 1 segundo antes"</string>
+  <string name="revanced_spoof_video_streams_about_android_title">Efeitos colaterais da falsificação do Android</string>
+  <string name="revanced_spoof_video_streams_about_android_summary">"• Menu de faixa de áudio está faltando
+• Volume estável não está disponível
 • Forçar áudio original não está disponível"</string>
-  <string name="revanced_spoof_video_streams_language_title">Idioma do fluxo de áudio padrão</string>
+  <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Mostrar em Estatísticas para nerds</string>
+  <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">O tipo de cliente é mostrado em Estatísticas para nerds</string>
+  <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">O cliente está oculto em Estatísticas para nerds</string>
+  <string name="revanced_spoof_video_streams_language_title">Idioma do fluxo de áudio padrão de VR</string>
   <string name="revanced_spoof_video_streams_language_DEFAULT">Idioma do aplicativo</string>
   <string name="revanced_spoof_video_streams_language_AR">Árabe</string>
   <string name="revanced_spoof_video_streams_language_AZ">Azeri</string>
@@ -1327,6 +1341,7 @@ A reprodução de vídeo pode não funcionar"</string>
   <string name="revanced_spoof_video_streams_language_OR">Oriá</string>
   <string name="revanced_spoof_video_streams_language_PA">Punjabi</string>
   <string name="revanced_spoof_video_streams_language_PL">Polonês</string>
+  <string name="revanced_spoof_video_streams_language_PT">Português</string>
   <string name="revanced_spoof_video_streams_language_RO">Romeno</string>
   <string name="revanced_spoof_video_streams_language_RU">Russo</string>
   <string name="revanced_spoof_video_streams_language_SK">Eslovaco</string>

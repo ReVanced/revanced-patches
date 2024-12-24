@@ -381,17 +381,17 @@ Bu xüsusiyyət yalnız köhnə cihazlar üçün mövcuddur"</string>
   <string name="revanced_share_copy_url_success">URL buferə köçürüldü</string>
   <string name="revanced_share_copy_url_timestamp_success">Vaxt möhürlü URL köçürüldü</string>
   <string name="revanced_copy_video_url_title">Video URL-i köçürmə düyməsin göstər</string>
-  <string name="revanced_copy_video_url_summary_on">Düymə göstərilir. Video URL-sini köçürtmək üçün toxunun. Vaxt möhürlü video URL-sini köçürtmək üçün basılı tutun</string>
+  <string name="revanced_copy_video_url_summary_on">Düymə göstərilir. Video URL-sini köçürmək üçün toxun. Vaxt möhürlü video URL-sini köçürmək üçün basılı saxla</string>
   <string name="revanced_copy_video_url_summary_off">Düymə göstərilmir</string>
   <string name="revanced_copy_video_url_timestamp_title">Vaxt möhürü URL köçür düyməsi göstər</string>
-  <string name="revanced_copy_video_url_timestamp_summary_on">Düymə göstərilir. Vaxt möhürlü video URL-sini köçürtmək üçün toxunun. Vaxt möhürü olmadan köçürtmək üçün basılı tutun</string>
+  <string name="revanced_copy_video_url_timestamp_summary_on">Düymə göstərilir. Vaxt möhürlü video URL-sini köçürmək üçün toxun. Vaxt möhürü olmadan köçürmək üçün basılı saxla</string>
   <string name="revanced_copy_video_url_timestamp_summary_off">Düymə göstərilmir</string>
   </patch>
   <patch id="interaction.dialog.removeViewerDiscretionDialogPatch">
   <string name="revanced_remove_viewer_discretion_dialog_title">İzləyici mülahizə dialoqun sil</string>
   <string name="revanced_remove_viewer_discretion_dialog_summary_on">Dialoq silindi</string>
   <string name="revanced_remove_viewer_discretion_dialog_summary_off">Dialoq göstərilir</string>
-  <string name="revanced_remove_viewer_discretion_dialog_user_dialog_message">Bu, yaş məhdudiyyətini ötürmür. Sadəcə avtomatik qəbul edir.</string>
+  <string name="revanced_remove_viewer_discretion_dialog_user_dialog_message">Bu, yaş məhdudiyyətini ötürmür. Sadəcə birbaşa qəbul edir.</string>
   </patch>
   <patch id="interaction.downloads.downloadsResourcePatch">
   <string name="revanced_external_downloader_screen_title">Xarici yükləmələr</string>
@@ -401,25 +401,25 @@ Bu xüsusiyyət yalnız köhnə cihazlar üçün mövcuddur"</string>
   <string name="revanced_external_downloader_summary_off">Yükləmə düyməsi oynadıcıda göstərilmir</string>
   <!-- 'download action button' should be translated using the same wording as the translation of 'revanced_hide_download_button_title' -->
   <string name="revanced_external_downloader_action_button_title">Yükləmə fəaliyyət düyməsin qəbul etmə</string>
-  <string name="revanced_external_downloader_action_button_summary_on">Yükləmə düyməsi, xarici yükləyicini açır</string>
-  <string name="revanced_external_downloader_action_button_summary_off">Yükləmə düyməsi tətbiqdəki standart yükləyicini açır</string>
+  <string name="revanced_external_downloader_action_button_summary_on">Yükləmə düyməsi, xarici yükləyicinizi açır</string>
+  <string name="revanced_external_downloader_action_button_summary_off">Yükləmə düyməsi tətbiqə xas yükləyicini açır</string>
   <string name="revanced_external_downloader_name_title">Yükləyici paketi adı</string>
-  <string name="revanced_external_downloader_name_summary">NewPipe və ya Seal kimi quraşdırılmış xarici yükləmə tətbiqinizin paket adı</string>
+  <string name="revanced_external_downloader_name_summary">NewPipe və ya Seal kimi quraşdırılan xarici yükləmə tətbiqinizin paket adı</string>
   <string name="revanced_external_downloader_not_installed_warning">%s quraşdırılmayıb. Lütfən, bunu quraşdır.</string>
   </patch>
   <patch id="interaction.seekbar.disablePreciseSeekingGesturePatch">
-  <string name="revanced_disable_precise_seeking_gesture_title">Dəqiq axtarış jestini qeyri-aktiv edin</string>
+  <string name="revanced_disable_precise_seeking_gesture_title">Dəqiq axtarış jestini qapadın</string>
   <string name="revanced_disable_precise_seeking_gesture_summary_on">Jest qeyri-aktiv edilib</string>
   <string name="revanced_disable_precise_seeking_gesture_summary_off">Jest aktivləşdirilib</string>
   </patch>
   <patch id="interaction.seekbar.enableSeekbarTappingPatch">
-  <string name="revanced_seekbar_tapping_title">Axtarış çubuğuna toxunmanı aktivləşdir</string>
-  <string name="revanced_seekbar_tapping_summary_on">Axtarış çubuğuna toxunma aktivdir</string>
-  <string name="revanced_seekbar_tapping_summary_off">Axtarış çubuğuna toxunma qeyri-aktiv edilib</string>
+  <string name="revanced_seekbar_tapping_title">Axtarış çubuğu toxunmasını aktivləşdir</string>
+  <string name="revanced_seekbar_tapping_summary_on">Axtarış çubuğu toxunması aktivdir</string>
+  <string name="revanced_seekbar_tapping_summary_off">Axtarış çubuğu toxunması qapalıdır</string>
   </patch>
   <patch id="interaction.swipecontrols.swipeControlsResourcePatch">
   <string name="revanced_swipe_brightness_title">Parlaqlıq jestini aktivləşdir</string>
-  <string name="revanced_swipe_brightness_summary_on">Parlaqlıq sürüşdürməsi aktivləşdirilir</string>
+  <string name="revanced_swipe_brightness_summary_on">Parlaqlıq sürüşdürmə aktivdir</string>
   <string name="revanced_swipe_brightness_summary_off">Parlaqlıq sürüşdürmə qeyri-aktivdir</string>
   <string name="revanced_swipe_volume_title">Səs səviyyəsi jestini aktivləşdir</string>
   <string name="revanced_swipe_volume_summary_on">Səs səviyyəsin sürüşdürmə aktivdir</string>
@@ -434,9 +434,9 @@ Bu xüsusiyyət yalnız köhnə cihazlar üçün mövcuddur"</string>
   <string name="revanced_swipe_save_and_restore_brightness_summary_on">Tam ekrana keçərkən və ya çıxarkən parlaqlığı saxla və bərpa et</string>
   <string name="revanced_swipe_save_and_restore_brightness_summary_off">Tam ekrana keçərkən və ya çıxarkən parlaqlığı saxlama və bərpa etmə</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_title">Avto-parlaqlıq jestini aktivləşdir</string>
-  <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_on">Parlaqlığı ən aşağı dəyərə sürüşdürəndə avto-parlaqlıq aktivləşir</string>
+  <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_on">Parlaqlıq ən aşağı dəyərinə sürüşdürüləndə avto-parlaqlıq aktivləşir</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_off">Parlaqlığı ən aşağı dəyərə sürüşdürəndə avto-parlaqlıq aktivləşmir</string>
-  <string name="revanced_swipe_lowest_value_enable_auto_brightness_overlay_text">Avtomatik</string>
+  <string name="revanced_swipe_lowest_value_enable_auto_brightness_overlay_text">Birbaşa</string>
   <string name="revanced_swipe_overlay_timeout_title">Sürüşdürmə örtüyü müddəti</string>
   <string name="revanced_swipe_overlay_timeout_summary">Örtüyün göründüyü millisaniyələrin sayı</string>
   <string name="revanced_swipe_text_overlay_size_title">Örtük mətn ölçüsü dəyişdirmə</string>
@@ -449,7 +449,7 @@ Bu xüsusiyyət yalnız köhnə cihazlar üçün mövcuddur"</string>
   <patch id="layout.autocaptions.autoCaptionsPatch">
   <string name="revanced_auto_captions_title">Avtomatik titrləri qeyri-aktiv et</string>
   <string name="revanced_auto_captions_summary_on">Avtomatik titrlər qeyri-aktivdir</string>
-  <string name="revanced_auto_captions_summary_off">Avtomatik titrlər aktivləşdirilir</string>
+  <string name="revanced_auto_captions_summary_off">Avtomatik titrlər aktivdir</string>
   </patch>
   <patch id="layout.buttons.action.hideButtonsPatch">
   <string name="revanced_hide_buttons_screen_title">Fəaliyyət düymələri</string>
@@ -489,7 +489,7 @@ Bu xüsusiyyət yalnız köhnə cihazlar üçün mövcuddur"</string>
   </patch>
   <patch id="layout.buttons.navigation.navigationButtonsPatch">
   <string name="revanced_navigation_buttons_screen_title">Fəaliyyət düymələri</string>
-  <string name="revanced_navigation_buttons_screen_summary">Fəaliyyət çubuğundakı düymələri gizlət və ya dəyiş</string>
+  <string name="revanced_navigation_buttons_screen_summary">Fəaliyyət cərgəsindəki düymələri gizlət və ya dəyiş</string>
   <!-- 'Home' should be translated using the same localized wording YouTube displays for the tab. -->
   <string name="revanced_hide_home_button_title">\"Ev\"i gizlət</string>
   <string name="revanced_hide_home_button_summary_on">Əsas səhifə düyməsi gizlidir</string>
@@ -510,26 +510,26 @@ Bu xüsusiyyət yalnız köhnə cihazlar üçün mövcuddur"</string>
   <string name="revanced_switch_create_with_notifications_button_title">\"Yarat\"ı \"Bildirişlər\" ilə dəyişdir</string>
   <string name="revanced_switch_create_with_notifications_button_summary_on">"Yarat düyməsi Bildirişlər düyməsi ilə dəyişdirilir
 
-Qeyd: Bunu aktivləşdirmək video reklamları da məcburi olaraq gizlədir"</string>
-  <string name="revanced_switch_create_with_notifications_button_summary_off">\"Yarat\" düyməsi, \"Bildirişlər\" düyməsi ilə dəyişdirilmir</string>
+Qeyd: Bunu aktivləşdirmə video reklamları da məcburi olaraq gizlədir"</string>
+  <string name="revanced_switch_create_with_notifications_button_summary_off">\"Yarat\" düyməsi, \"Bildirişlər\" düyməsi ilə əvəzlənmir</string>
   <string name="revanced_hide_navigation_button_labels_title">Fəaliyyət düymə etiketlərini gizlət</string>
   <string name="revanced_hide_navigation_button_labels_summary_on">Etiketlər gizlidir</string>
   <string name="revanced_hide_navigation_button_labels_summary_off">Etiketlər göstərilir</string>
-  <string name="revanced_disable_translucent_status_bar_title">Yarımşəffaf status barı deaktiv et</string>
-  <string name="revanced_disable_translucent_status_bar_summary_on">Status çubuğu şəffaf deyil</string>
-  <string name="revanced_disable_translucent_status_bar_summary_off">Status çubuğu şəffaf və ya yarı şəffaf</string>
-  <string name="revanced_disable_translucent_navigation_bar_light_title">Açıq yarımşəffaf barı deaktiv et</string>
-  <string name="revanced_disable_translucent_navigation_bar_light_summary_on">Açıq rejim navigasiya barı qeyri-şəffafdır</string>
-  <string name="revanced_disable_translucent_navigation_bar_light_summary_off">Açıq rəngli naviqasiya çubuğu şəffaf və ya yarı şəffaf</string>
-  <string name="revanced_disable_translucent_navigation_bar_dark_title">Tünd şəffaf çubuğu deaktiv edin</string>
-  <string name="revanced_disable_translucent_navigation_bar_dark_summary_on">Tünd rejim navigasiya barı qeyri-şəffafdır</string>
-  <string name="revanced_disable_translucent_navigation_bar_dark_summary_off">Tünd rəngli naviqasiya çubuğu şəffaf və ya yarı şəffaf</string>
+  <string name="revanced_disable_translucent_status_bar_title">Yarımşəffaf mövqe cizgisin qapat</string>
+  <string name="revanced_disable_translucent_status_bar_summary_on">Mövqe cizgisi qeyri-şəffafdır</string>
+  <string name="revanced_disable_translucent_status_bar_summary_off">Mövqe cizgisi qeyri-şəffaf və ya şəffafdır</string>
+  <string name="revanced_disable_translucent_navigation_bar_light_title">Açıq temada şəffaf cizgini qapat</string>
+  <string name="revanced_disable_translucent_navigation_bar_light_summary_on">İşıqlı rejim fəaliyyət cərgəsi qeyri-şəffafdır</string>
+  <string name="revanced_disable_translucent_navigation_bar_light_summary_off">İşıqlı rejim fəaliyyət cərgəsi qeyri-şəffaf və ya şəffafdır</string>
+  <string name="revanced_disable_translucent_navigation_bar_dark_title">Qaranlıq rejimdə şəffaf cərgəni qapat</string>
+  <string name="revanced_disable_translucent_navigation_bar_dark_summary_on">Qaranlıq rejimdə fəaliyyət cərgəsi qeyri-şəffafdır</string>
+  <string name="revanced_disable_translucent_navigation_bar_dark_summary_off">Qaranlıq rejim fəaliyyət cərgəsi qeyri-şəffaf və ya şəffafdır</string>
   </patch>
   <patch id="layout.hide.player.flyoutmenupanel.hidePlayerFlyoutMenuPatch">
   <string name="revanced_hide_player_flyout_title">Açılan menyu</string>
   <string name="revanced_hide_player_flyout_summary">Oynadıcı açılan menyu elementlərini gizlət və ya göstər</string>
   <!-- 'Captions' should be translated using the same localized wording YouTube displays for the menu item. -->
-  <string name="revanced_hide_player_flyout_captions_title">Titrləri gizlət</string>
+  <string name="revanced_hide_player_flyout_captions_title">Titrləri Gizlət</string>
   <string name="revanced_hide_player_flyout_captions_summary_on">Titrlər menyusu gizlidir</string>
   <string name="revanced_hide_player_flyout_captions_summary_off">Titrlər menyusu göstərilir</string>
   <!-- 'Additional settings' should be translated using the same localized wording YouTube displays for the menu item. -->
@@ -537,11 +537,11 @@ Qeyd: Bunu aktivləşdirmək video reklamları da məcburi olaraq gizlədir"</st
   <string name="revanced_hide_player_flyout_additional_settings_summary_on">Əlavə ayarlar menyusu gizlidir</string>
   <string name="revanced_hide_player_flyout_additional_settings_summary_off">Əlavə ayarlar menyusu göstərilir</string>
   <!-- 'Sleep timer' should be translated using the same localized wording YouTube displays for the menu item. -->
-  <string name="revanced_hide_player_flyout_sleep_timer_title">Yuxu taymerini gizlət</string>
+  <string name="revanced_hide_player_flyout_sleep_timer_title">Yuxu Taymerini Gizlət</string>
   <string name="revanced_hide_player_flyout_sleep_timer_summary_on">Yuxu taymeri menyusu gizlidir</string>
   <string name="revanced_hide_player_flyout_sleep_timer_summary_off">Yuxu taymeri menyusu göstərilir</string>
   <!-- 'Loop video' should be translated using the same localized wording YouTube displays for the menu item. -->
-  <string name="revanced_hide_player_flyout_loop_video_title">Videonu təkrarlanı gizlət</string>
+  <string name="revanced_hide_player_flyout_loop_video_title">Videonu təkrarlanı, gizlət</string>
   <string name="revanced_hide_player_flyout_loop_video_summary_on">Təkrarlama video menyusu gizlidir</string>
   <string name="revanced_hide_player_flyout_loop_video_summary_off">Təkrarlama video menyusu göstərilir</string>
   <!-- 'Ambient mode' should be translated using the same localized wording YouTube displays for the menu item. -->
@@ -553,8 +553,8 @@ Qeyd: Bunu aktivləşdirmək video reklamları da məcburi olaraq gizlədir"</st
   <string name="revanced_hide_player_flyout_stable_volume_summary_on">Stabil səs menyusu gizlidir</string>
   <!-- 'Help & feedback' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_help_title">Kömək və əks əlaqəni gizlət</string>
-  <string name="revanced_hide_player_flyout_help_summary_on">Kömək &amp; rəy menyusu gizlidir</string>
-  <string name="revanced_hide_player_flyout_help_summary_off">Kömək &amp; rəy menyusu göstərilir</string>
+  <string name="revanced_hide_player_flyout_help_summary_on">Kömək və əks əlaqə, gizlidir</string>
+  <string name="revanced_hide_player_flyout_help_summary_off">Kömək və əks əlaqə göstərilir</string>
   <!-- 'Playback speed' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_speed_title">\"Oynatma sürəti\"ni gizlət</string>
   <string name="revanced_hide_player_flyout_speed_summary_on">Oynatma sürəti menyusu gizlidir</string>
@@ -601,7 +601,7 @@ Qeyd: Bunu aktivləşdirmək video reklamları da məcburi olaraq gizlədir"</st
   <string name="revanced_hide_endscreen_cards_summary_off">Son ekran kartları göstərilir</string>
   </patch>
   <patch id="layout.hide.fullscreenambientmode.disableFullscreenAmbientModePatch">
-  <string name="revanced_disable_fullscreen_ambient_mode_title">Tam ekranda ambient rejimin bağla</string>
+  <string name="revanced_disable_fullscreen_ambient_mode_title">Tam ekranda ambient rejimin qapat</string>
   <string name="revanced_disable_fullscreen_ambient_mode_summary_on">Ambient rejimi qeyri-aktiv edilib</string>
   <string name="revanced_disable_fullscreen_ambient_mode_summary_off">Ambient rejimi aktivləşdirildi</string>
   </patch>
@@ -682,8 +682,8 @@ Qeyd: Bunu aktivləşdirmək video reklamları da məcburi olaraq gizlədir"</st
   <string name="revanced_hide_shorts_stickers_summary_on">Stikerlər gizlidir</string>
   <string name="revanced_hide_shorts_stickers_summary_off">Stikerlər göstərilir</string>
   <string name="revanced_hide_shorts_like_fountain_title">Bəyən fəvvarəsini gizlət</string>
-  <string name="revanced_hide_shorts_like_fountain_summary_on">\"Bəyən\" fəvvarə animasiyası gizlidir</string>
-  <string name="revanced_hide_shorts_like_fountain_summary_off">\"Bəyən\" fəvvarə animasiyası göstərilir</string>
+  <string name="revanced_hide_shorts_like_fountain_summary_on">\"Bəyən\" fontan animasiyası gizlidir</string>
+  <string name="revanced_hide_shorts_like_fountain_summary_off">\"Bəyən\" fontan animasiyası göstərilir</string>
   <string name="revanced_hide_shorts_like_button_title">\"Bəyən\" düyməsini gizlət</string>
   <string name="revanced_hide_shorts_like_button_summary_on">Bəyənmə düyməsi gizlidir</string>
   <string name="revanced_hide_shorts_like_button_summary_off">Bəyənmə düyməsi göstərilir</string>
@@ -713,7 +713,7 @@ Qeyd: Bunu aktivləşdirmək video reklamları da məcburi olaraq gizlədir"</st
   <string name="revanced_hide_shorts_sound_metadata_label_title">Səs üst məlumat etiketini gizlət</string>
   <string name="revanced_hide_shorts_sound_metadata_label_summary_on">Üst məlumat etiketi gizlidir</string>
   <string name="revanced_hide_shorts_sound_metadata_label_summary_off">Üst məlumat etiketi göstərilir</string>
-  <string name="revanced_hide_shorts_full_video_link_label_title">Tam videonun bağlantısı etiketini gizlət</string>
+  <string name="revanced_hide_shorts_full_video_link_label_title">Tam video bağlantısı etiketini gizlət</string>
   <string name="revanced_hide_shorts_full_video_link_label_summary_on">Video linki etiketi gizlidir</string>
   <string name="revanced_hide_shorts_full_video_link_label_summary_off">Video link etiketi göstərilir</string>
   <string name="revanced_hide_shorts_sound_button_title">Səs düyməsini gizlət</string>
@@ -724,7 +724,7 @@ Qeyd: Bunu aktivləşdirmək video reklamları da məcburi olaraq gizlədir"</st
   <string name="revanced_hide_shorts_navigation_bar_summary_off">Fəaliyyət çubuğu göstərilir</string>
   </patch>
   <patch id="layout.hide.suggestedvideoendscreen.disableSuggestedVideoEndScreenResourcePatch">
-  <string name="revanced_disable_suggested_video_end_screen_title">Təklif edilən video bitiş ekranın ləğv et</string>
+  <string name="revanced_disable_suggested_video_end_screen_title">Təklif edilən video bitiş ekranın qapadın</string>
   <string name="revanced_disable_suggested_video_end_screen_summary_on">Təklif olunan videolar qeyri-aktiv ediləcək</string>
   <string name="revanced_disable_suggested_video_end_screen_summary_off">Təklif olunan videolar göstəriləcək</string>
   </patch>
@@ -739,20 +739,20 @@ Qeyd: Bunu aktivləşdirmək video reklamları da məcburi olaraq gizlədir"</st
   <string name="revanced_hide_player_popup_panels_summary_off">Oynadıcı açılan pəncərə panelləri göstərilir</string>
   </patch>
   <patch id="layout.player.fullscreen.openVideosFullscreen">
-  <string name="revanced_open_videos_fullscreen_portrait_title">Videoları tam ekran təsvirində aç</string>
+  <string name="revanced_open_videos_fullscreen_portrait_title">Videoları şaquli tam ekranda aç</string>
   <string name="revanced_open_videos_fullscreen_portrait_summary_on">Videolar tam ekranda açılır</string>
   <string name="revanced_open_videos_fullscreen_portrait_summary_off">Videolar tam ekranda açılmır</string>
   </patch>
   <patch id="layout.player.overlay.customPlayerOverlayOpacityResourcePatch">
   <string name="revanced_player_overlay_opacity_title">Oynadıcı örtüyünün qeyri-şəffaflığı</string>
-  <string name="revanced_player_overlay_opacity_summary">0-100 arasında qeyri-şəffaflıq dəyəri, burada 0 şəffafdır</string>
-  <string name="revanced_player_overlay_opacity_invalid_toast">Oynadıcı örtüyünün qeyri-şəffaflığı 0-100 arası olmalıdır</string>
+  <string name="revanced_player_overlay_opacity_summary">0-100 arası qeyri-şəffaflıq dəyəri, 0 şəffafdır</string>
+  <string name="revanced_player_overlay_opacity_invalid_toast">Oynadıcı örtüyü qeyri-şəffaflığı 0-100 arası olmalıdır</string>
   </patch>
   <patch id="layout.returnyoutubedislike.returnYouTubeDislikePatch">
   <!-- Toast shown if network connection times out. Translations of this should not be longer than the original English or the text can be clipped and not entirely shown. -->
-  <string name="revanced_ryd_failure_connection_timeout">\"Bəyənməmə\" müvəqqəti əlçatmazdır(API vaxtı bitdi)</string>
+  <string name="revanced_ryd_failure_connection_timeout">\"Bəyənməmə\" müvəqqəti əlçatmazdır (API vaxtı bitdi)</string>
   <string name="revanced_ryd_failure_connection_status_code">Bəyənməmə əlçatmazdır (status %d)</string>
-  <string name="revanced_ryd_failure_client_rate_limit_requested">Bəyənməmələr əlçatmazdır (qəbuledici API limitinə çatdı)</string>
+  <string name="revanced_ryd_failure_client_rate_limit_requested">Bəyənməmə əlçatmazdır (qəbuledici API limitinə çatdı)</string>
   <string name="revanced_ryd_failure_generic">Bəyənməmə əlçatmazdır (%s)</string>
   <!-- Toast shown if the user enables RYD while a video is opened, and then tries to vote for the video. -->
   <string name="revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted">Ryd ilə səsvermə üçün videonu yenidən yüklə</string>
@@ -760,13 +760,13 @@ Qeyd: Bunu aktivləşdirmək video reklamları da məcburi olaraq gizlədir"</st
   <string name="revanced_ryd_enable_summary_off">Bəyənməmələr göstərilmir</string>
   <string name="revanced_ryd_shorts_title">\"Shorts\"da bəyənməmə sayını göstər</string>
   <string name="revanced_ryd_shorts_summary_on">Bəyənməmə sayı \"Shorts\"da göstərilir</string>
-  <string name="revanced_ryd_shorts_summary_on_disclaimer">"Şortlarda görünən bəyənməmələr
+  <string name="revanced_ryd_shorts_summary_on_disclaimer">"Shorts-da görünən bəyənməmələr
 
-Məhdudiyyət: Bəyənməmələr gizli rejimdə görünə bilməz"</string>
+Məhdudiyyət: Bəyənməmələr gizli rejimdə görünmür"</string>
   <string name="revanced_ryd_shorts_summary_off">\"Bəyənməmə\"lər \"Shorts\"da gizlidir</string>
   <string name="revanced_ryd_dislike_percentage_title">\"Bəyənməmə\"lər faiz olaraq</string>
   <string name="revanced_ryd_dislike_percentage_summary_on">\"Bəyənməmə\"lər faiz olaraq göstərilir</string>
-  <string name="revanced_ryd_dislike_percentage_summary_off">\"Bəyənməmə\"lər sayla göstərilir</string>
+  <string name="revanced_ryd_dislike_percentage_summary_off">\"Bəyənməmə\"lər nömrəylə göstərilir</string>
   <!-- Translations should use language similar to 'revanced_sb_enable_compact_skip_button' -->
   <string name="revanced_ryd_compact_layout_title">Yığcam bəyən düyməsi</string>
   <string name="revanced_ryd_compact_layout_summary_on">Daha kiçik en üçün hazırlanmış Bəyən düyməsi</string>
@@ -783,21 +783,21 @@ Məhdudiyyət: Bəyənməmələr gizli rejimdə görünə bilməz"</string>
   <string name="revanced_ryd_statistics_getFetchCallResponseTimeMax_title">Ən yüksək API cavab müddəti</string>
   <string name="revanced_ryd_statistics_getFetchCallResponseTimeLast_title">Son video üzrə API cavab müddəti</string>
   <string name="revanced_ryd_statistics_getFetchCallResponseTimeLast_rate_limit_summary">Bəyənməmələr müvəqqəti olaraq əlçatmazdır - Qəbuledici API sürət limiti var</string>
-  <string name="revanced_ryd_statistics_getFetchCallCount_title">API qəbul edilən səsləri, oyanmaların sayı</string>
+  <string name="revanced_ryd_statistics_getFetchCallCount_title">API alınan səsvermədə zəng sayı</string>
   <string name="revanced_ryd_statistics_getFetchCallCount_zero_summary">Heç bir şəbəkə istəyi olmadı</string>
   <string name="revanced_ryd_statistics_getFetchCallCount_non_zero_summary">%d şəbəkə istəyi oldu</string>
-  <string name="revanced_ryd_statistics_getFetchCallNumberOfFailures_title">API gələn səs, vaxt bitmə sayı</string>
+  <string name="revanced_ryd_statistics_getFetchCallNumberOfFailures_title">API alınan səsvermədə bitən müddət</string>
   <string name="revanced_ryd_statistics_getFetchCallNumberOfFailures_zero_summary">Heç bir şəbəkə istəyi üçün vaxt bitmədi</string>
   <string name="revanced_ryd_statistics_getFetchCallNumberOfFailures_non_zero_summary">%d şəbəkə istəyi üçün vaxt bitdi</string>
   <string name="revanced_ryd_statistics_getNumberOfRateLimitRequestsEncountered_title">API qəbuledici sürət məhdudiyyətləri</string>
-  <string name="revanced_ryd_statistics_getNumberOfRateLimitRequestsEncountered_zero_summary">Heç bir sürət məhdudiyyəti olmadı</string>
+  <string name="revanced_ryd_statistics_getNumberOfRateLimitRequestsEncountered_zero_summary">Qəbuledici sürət məhdudiyyəti olmadı</string>
   <string name="revanced_ryd_statistics_getNumberOfRateLimitRequestsEncountered_non_zero_summary">Qəbuledici sürət limiti %d dəfə baş verdi</string>
   <string name="revanced_ryd_statistics_millisecond_text">%d millisaniyə</string>
   </patch>
   <patch id="layout.searchbar.wideSearchbarPatch">
-  <string name="revanced_wide_searchbar_title">Geniş axtarış çubuğunu aktivləşdir</string>
-  <string name="revanced_wide_searchbar_summary_on">Geniş axtarış çubuğu aktivləşdirilir</string>
-  <string name="revanced_wide_searchbar_summary_off">Geniş axtarış çubuğu qeyri-aktivdir</string>
+  <string name="revanced_wide_searchbar_title">Geniş axtarış cizgisin aktivləşdir</string>
+  <string name="revanced_wide_searchbar_summary_on">Geniş axtarış cizgisi aktivdir</string>
+  <string name="revanced_wide_searchbar_summary_off">Geniş axtarış cizgisi qeyri-aktivdir</string>
   </patch>
   <patch id="layout.seekbar.seekbarThumbnailsPatch">
   <string name="revanced_seekbar_thumbnails_high_quality_title">Yüksək keyfiyyətli miniatürləri aktivləşdir</string>
@@ -805,11 +805,11 @@ Məhdudiyyət: Bəyənməmələr gizli rejimdə görünə bilməz"</string>
   <string name="revanced_seekbar_thumbnails_high_quality_summary_off">Axtarış çubuğu miniatürləri orta keyfiyyətlidir</string>
   <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_on">Tam ekran axtarış çubuğu miniatürləri yüksək keyfiyyətlidir</string>
   <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_off">Tam ekran axtarış çubuğu miniatürləri orta keyfiyyətlidir</string>
-  <string name="revanced_seekbar_thumbnails_high_quality_dialog_message">"Bu, həmçinin axtarış çubuğu kiçik görüntüləri olmayan canlı yayımlarda kiçik şəkilləri bərpa edəcək.
+  <string name="revanced_seekbar_thumbnails_high_quality_dialog_message">"Bu, həmçinin axtarış çubuğu miniatürləri olmayan canlı yayımlarda miniatürləri bərpa edəcək.
 
-Axtarış çubuğu kiçik şəkilləri cari videonun keyfiyyəti ilə eyni keyfiyyətdən istifadə edəcək.
+Axtarış çubuğu miniatürləri cari video kimi eyni keyfiyyəti işlədəcək.
 
-Bu xüsusiyyət ən yaxşı 720p və ya daha aşağı video keyfiyyəti və çox sürətli internet bağlantısından istifadə edərkən işləyir."</string>
+Bu funksiya 720p və ya daha aşağı video keyfiyyəti ilə və çox sürətli internet bağlantısı işlədərkən yaxşı işləyir."</string>
   <string name="revanced_restore_old_seekbar_thumbnails_title">Köhnə axtarış çubuğu miniatürlərin al</string>
   <string name="revanced_restore_old_seekbar_thumbnails_summary_on">Axtarış çubuğu miniatürləri axtarış çubuğu üstündə görünəcək</string>
   <string name="revanced_restore_old_seekbar_thumbnails_summary_off">Axtarış çubuğu miniatürləri tam ekranda görünəcək</string>
@@ -1288,11 +1288,25 @@ Bunu aktivləşdirmə daha yüksək video keyfiyyətləri əngəlin silə bilər
 Video oynatma işləməyə bilər"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Bu seçimi bağlamaq, video oynatma problemlərinə səbəb olar.</string>
   <string name="revanced_spoof_video_streams_client_type_title">İlkin qəbuledici</string>
-  <string name="revanced_spoof_video_streams_about_title">Yan effektlərin spoof edilməsi</string>
-  <string name="revanced_spoof_video_streams_about_summary">"• Səs parçası menyusunda səhvlər var
-• Sabit səs səviyyəsi mövcud deyil
-• Məcburi orijinal səs mövcud deyil"</string>
-  <string name="revanced_spoof_video_streams_language_title">İlkin səs yayımı dili</string>
+  <!-- 'no auth' means no authentication -->
+  <string name="revanced_spoof_video_streams_client_type_android_vr_no_auth">Android VR (heç bir səlahiyyət tələb olunmur)</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_title">İOS AVC (H.264) kodlaşdırılmasını tələb edin</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Video kodeki AVC (H.264) olaraq məcburi edilir</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Video kodeki avtomatik olaraq müəyyən edilir</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">"Bunu aktivləşdirmək batareyanın ömrünü uzada bilər və oynatma problemlərini düzəldə bilər.
+
+Avc-nin maksimum qətnaməsi 1080p-dir, Opus audio kodeki mövcud deyil və video oynatma VP9 və ya AV1-dən daha çox internet məlumatı istifadə edəcək."</string>
+  <string name="revanced_spoof_video_streams_about_ios_tv_title">iOS TV spoofunun yan təsirləri</string>
+  <string name="revanced_spoof_video_streams_about_ios_tv_summary">"• Filmlər və ya pullu videolar oynanmaya bilər
+• Videolar 1 saniyə tez bitir"</string>
+  <string name="revanced_spoof_video_streams_about_android_title">Android spoofunun yan təsirləri</string>
+  <string name="revanced_spoof_video_streams_about_android_summary">"• Audio track menyusu yoxdur
+• Sabit səs mövcud deyil
+• İlkin səsi zorla təyin etmək mümkün deyil"</string>
+  <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Nördlər üçün statistikada göstər</string>
+  <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Müştəri tipi Nördlər üçün statistikada göstərilir</string>
+  <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Müştəri Nördlər üçün statistikada gizlidir</string>
+  <string name="revanced_spoof_video_streams_language_title">VR-da standart audio axını dili</string>
   <string name="revanced_spoof_video_streams_language_DEFAULT">Tətbiq dili</string>
   <string name="revanced_spoof_video_streams_language_AR">Ərəbcə</string>
   <string name="revanced_spoof_video_streams_language_AZ">Azərbaycanca</string>
@@ -1329,6 +1343,7 @@ Video oynatma işləməyə bilər"</string>
   <string name="revanced_spoof_video_streams_language_OR">Oriya dili</string>
   <string name="revanced_spoof_video_streams_language_PA">Pəncabca</string>
   <string name="revanced_spoof_video_streams_language_PL">Polyak dili</string>
+  <string name="revanced_spoof_video_streams_language_PT">Portuqal</string>
   <string name="revanced_spoof_video_streams_language_RO">Rumınca</string>
   <string name="revanced_spoof_video_streams_language_RU">Rusca</string>
   <string name="revanced_spoof_video_streams_language_SK">Slovak dili</string>
