@@ -629,15 +629,9 @@ Opmerking: Als u dit inschakelt, worden videoadvertenties ook geforceerd verborg
   <string name="revanced_shorts_player_screen_summary">Verberg of toon onderdelen in de Shorts-speler</string>
   <!-- 'home' should be translated using the same localized wording YouTube displays for the home tab. -->
   <string name="revanced_hide_shorts_home_title">Shorts verbergen in de homefeed</string>
-  <string name="revanced_hide_shorts_home_summary_on">Shorts in de thuisfeed zijn verborgen</string>
-  <string name="revanced_hide_shorts_home_summary_off">Shorts in de thuisfeed worden getoond</string>
   <!-- 'subscription' should be translated using the same localized wording YouTube displays for the subscription tab. -->
   <string name="revanced_hide_shorts_subscriptions_title">Verberg Shorts in de abonnementsfeed</string>
-  <string name="revanced_hide_shorts_subscriptions_summary_on">Shorts in de abonnementsfeed zijn verborgen</string>
-  <string name="revanced_hide_shorts_subscriptions_summary_off">Shorts in de abonnementsfeed worden weergegeven</string>
   <string name="revanced_hide_shorts_search_title">Verberg Shorts in zoekresultaten</string>
-  <string name="revanced_hide_shorts_search_summary_on">Shorts in zoekresultaten zijn verborgen</string>
-  <string name="revanced_hide_shorts_search_summary_off">Shorts zoekresultaten worden weergegeven</string>
   <!-- 'join' should be translated using the same localized wording YouTube displays for the button. -->
   <string name="revanced_hide_shorts_join_button_title">Verberg join-knop</string>
   <string name="revanced_hide_shorts_join_button_summary_on">Join-knop is verborgen</string>
@@ -1296,8 +1290,9 @@ Video-playback werkt mogelijk niet"</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">"Als u deze functie inschakelt, kan de batterijduur worden verlengd en kan schokkerig afspelen worden verholpen.
 
 AVC heeft een maximale resolutie van 1080p, de Opus-audiocodec is niet beschikbaar en videoweergave verbruikt meer internetgegevens dan VP9 of AV1."</string>
-  <string name="revanced_spoof_video_streams_about_ios_tv_title">Bijwerkingen van iOS TV-spoofing</string>
-  <string name="revanced_spoof_video_streams_about_ios_tv_summary">"• Films of betaalde video's kunnen niet worden afgespeeld
+  <string name="revanced_spoof_video_streams_about_ios_tv_title">iOS-spoofingeffects</string>
+  <string name="revanced_spoof_video_streams_about_ios_tv_summary">"• Films of betaalde video's worden mogelijk niet afgespeeld
+• Stabiel volume is niet beschikbaar
 • Video's eindigen 1 seconde te vroeg"</string>
   <string name="revanced_spoof_video_streams_about_android_title">Bijwerkingen van Android-spoofing</string>
   <string name="revanced_spoof_video_streams_about_android_summary">"• Het menu Audiotracks ontbreekt

@@ -629,15 +629,9 @@ Nota: si actives aquesta opció, també s'amaguen els anuncis de vídeo per for�
   <string name="revanced_shorts_player_screen_summary">Amaga o mostra components al reproductor de Shorts</string>
   <!-- 'home' should be translated using the same localized wording YouTube displays for the home tab. -->
   <string name="revanced_hide_shorts_home_title">Amaga els Shorts al feed d\'inici</string>
-  <string name="revanced_hide_shorts_home_summary_on">Els Shorts al feed d\'inici estan ocults</string>
-  <string name="revanced_hide_shorts_home_summary_off">Els Shorts al feed d\'inici es mostren</string>
   <!-- 'subscription' should be translated using the same localized wording YouTube displays for the subscription tab. -->
   <string name="revanced_hide_shorts_subscriptions_title">Amaga Shorts al feed de subscripcions</string>
-  <string name="revanced_hide_shorts_subscriptions_summary_on">Els Shorts al feed de subscripcions estan ocults</string>
-  <string name="revanced_hide_shorts_subscriptions_summary_off">Els Shorts al feed de subscripcions es mostren</string>
   <string name="revanced_hide_shorts_search_title">Amaga Shorts als resultats de la cerca</string>
-  <string name="revanced_hide_shorts_search_summary_on">Els Shorts als resultats de la cerca estan ocults</string>
-  <string name="revanced_hide_shorts_search_summary_off">Els Shorts als resultats de la cerca es mostren</string>
   <!-- 'join' should be translated using the same localized wording YouTube displays for the button. -->
   <string name="revanced_hide_shorts_join_button_title">Amaga el botó d\'unió</string>
   <string name="revanced_hide_shorts_join_button_summary_on">El botó d\'unió està ocult</string>
@@ -1296,9 +1290,10 @@ La reproducció de vídeo pot no funcionar"</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">"L'activació d'aquesta opció podria millorar la vida útil de la bateria i resoldre els problemes de reproducció irregular.
 
 L'AVC té una resolució màxima de 1080p, el còdec d'àudio Opus no està disponible i la reproducció de vídeo utilitzarà més dades d'Internet que VP9 o AV1."</string>
-  <string name="revanced_spoof_video_streams_about_ios_tv_title">Efectes secundaris de la suplantació d\'iOS TV</string>
-  <string name="revanced_spoof_video_streams_about_ios_tv_summary">"• És possible que les pel·lícules o els vídeos de pagament no es reprodueixin
-• Els vídeos finalitzen 1 segon abans"</string>
+  <string name="revanced_spoof_video_streams_about_ios_tv_title">Efectes secundaris de suplantació d\'iOS</string>
+  <string name="revanced_spoof_video_streams_about_ios_tv_summary">"• Les pel·lícules o vídeos de pagament poden no reproduir-se
+• El volum estable no està disponible
+• Els vídeos s'aturen 1 segon abans"</string>
   <string name="revanced_spoof_video_streams_about_android_title">Efectes secundaris de la suplantació d\'Android</string>
   <string name="revanced_spoof_video_streams_about_android_summary">"• Menú de pistes d'àudio no disponible
 • El volum estable no està disponible

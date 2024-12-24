@@ -629,15 +629,9 @@ Second \"item\" text"</string>
   <string name="revanced_shorts_player_screen_summary">Скрыть или отобразить компоненты в плеере Shorts</string>
   <!-- 'home' should be translated using the same localized wording YouTube displays for the home tab. -->
   <string name="revanced_hide_shorts_home_title">Shorts в ленте \"Главной\"</string>
-  <string name="revanced_hide_shorts_home_summary_on">Shorts в ленте \"Главной\" скрыты</string>
-  <string name="revanced_hide_shorts_home_summary_off">Shorts в ленте \"Главной\" отображены</string>
   <!-- 'subscription' should be translated using the same localized wording YouTube displays for the subscription tab. -->
   <string name="revanced_hide_shorts_subscriptions_title">Shorts в ленте \"Подписок\"</string>
-  <string name="revanced_hide_shorts_subscriptions_summary_on">Shorts в ленте \"Подписок\" скрыты</string>
-  <string name="revanced_hide_shorts_subscriptions_summary_off">Shorts в ленте \"Подписок\" отображены</string>
   <string name="revanced_hide_shorts_search_title">Shorts в результатах поиска</string>
-  <string name="revanced_hide_shorts_search_summary_on">Shorts в результатах поиска скрыты</string>
-  <string name="revanced_hide_shorts_search_summary_off">Shorts в результатах поиска отображены</string>
   <!-- 'join' should be translated using the same localized wording YouTube displays for the button. -->
   <string name="revanced_hide_shorts_join_button_title">Кнопка \"Присоединиться\"</string>
   <string name="revanced_hide_shorts_join_button_summary_on">Кнопка \"Присоединиться\" в Shorts скрыта</string>
@@ -1299,6 +1293,7 @@ Second \"item\" text"</string>
 Максимальное разрешение видео в формате AVC составляет 1080p. Аудиокодек Opus недоступен. Воспроизведение видео будет потреблять больше интернет трафика, чем VP9 или AV1."</string>
   <string name="revanced_spoof_video_streams_about_ios_tv_title">Побочные эффекты подмены на iOS TV</string>
   <string name="revanced_spoof_video_streams_about_ios_tv_summary">"• Фильмы и платные видео могут не воспроизводиться
+• Стабильный уровень громкости недоступен
 • Видео заканчиваются на 1 секунду раньше"</string>
   <string name="revanced_spoof_video_streams_about_android_title">Побочные эффекты подмены на Android</string>
   <string name="revanced_spoof_video_streams_about_android_summary">"• Меню выбора звуковой дорожки отсутствует

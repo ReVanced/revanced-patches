@@ -629,15 +629,15 @@ Napomena: Omogućavanje ovoga prisilno sakriva i video oglase"</string>
   <string name="revanced_shorts_player_screen_summary">Sakrijte ili prikažite komponente u Shorts plejeru</string>
   <!-- 'home' should be translated using the same localized wording YouTube displays for the home tab. -->
   <string name="revanced_hide_shorts_home_title">Sakrij Shorts videe u fidu „Početna”</string>
-  <string name="revanced_hide_shorts_home_summary_on">Shorts videi u fidu „Početna” su skriveni</string>
-  <string name="revanced_hide_shorts_home_summary_off">Shorts videi u fidu „Početna” su prikazani</string>
+  <string name="revanced_hide_shorts_home_summary_on">Početna stranica i srodni videozapisi su skriveni</string>
+  <string name="revanced_hide_shorts_home_summary_off">Početna stranica i srodni videozapisi su prikazani</string>
   <!-- 'subscription' should be translated using the same localized wording YouTube displays for the subscription tab. -->
   <string name="revanced_hide_shorts_subscriptions_title">Sakrij Shorts videe u fidu „Praćenja”</string>
-  <string name="revanced_hide_shorts_subscriptions_summary_on">Shorts videi u fidu „Praćenja” su skriveni</string>
-  <string name="revanced_hide_shorts_subscriptions_summary_off">Shorts videi u fidu „Praćenja” su prikazani</string>
+  <string name="revanced_hide_shorts_subscriptions_summary_on">Sakriveno u feedu pretplata</string>
+  <string name="revanced_hide_shorts_subscriptions_summary_off">Prikazano u feedu pretplata</string>
   <string name="revanced_hide_shorts_search_title">Sakrij Shorts videe u rezultatima pretrage</string>
-  <string name="revanced_hide_shorts_search_summary_on">Shorts videi u rezultatima pretrage su skriveni</string>
-  <string name="revanced_hide_shorts_search_summary_off">Shorts videi u rezultatima pretrage su prikazani</string>
+  <string name="revanced_hide_shorts_search_summary_off">Prikazano u rezultatima pretraživanja</string>
+  <string name="revanced_hide_shorts_history_summary_on">Sakriveno u istoriji gledanja</string>
   <!-- 'join' should be translated using the same localized wording YouTube displays for the button. -->
   <string name="revanced_hide_shorts_join_button_title">Sakrij dugme „Učlani me”</string>
   <string name="revanced_hide_shorts_join_button_summary_on">Dugme „Učlani me” je skriveno</string>
@@ -1297,6 +1297,7 @@ Reprodukcija videa možda neće raditi"</string>
 AVC ima maksimalnu rezoluciju od 1080p, audio kodek Opus nije dostupan, a reprodukcija videa će koristiti više internet podataka nego VP9 ili AV1."</string>
   <string name="revanced_spoof_video_streams_about_ios_tv_title">Neželjeni efekti lažiranja na iOS TV</string>
   <string name="revanced_spoof_video_streams_about_ios_tv_summary">"• Filmovi ili plaćeni videi se možda neće puštati
+• Stabilna jačina zvuka nije dostupna
 • Videi će se završavati 1 sekundu ranije"</string>
   <string name="revanced_spoof_video_streams_about_android_title">Neželjeni efekti lažiranja na Android</string>
   <string name="revanced_spoof_video_streams_about_android_summary">"• Meni „Audio snimak” nedostaje

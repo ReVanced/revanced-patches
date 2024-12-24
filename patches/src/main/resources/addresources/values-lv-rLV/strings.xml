@@ -628,15 +628,15 @@ Piezīme: Šī iestatījuma ieslēgšana arī piespiedu kārtā slēpj video rek
   <string name="revanced_shorts_player_screen_summary">Paslēpt vai rādīt komponentus Shorts atskaņotājā</string>
   <!-- 'home' should be translated using the same localized wording YouTube displays for the home tab. -->
   <string name="revanced_hide_shorts_home_title">Paslēpt Shorts sākumlapas plūsmā</string>
-  <string name="revanced_hide_shorts_home_summary_on">Shorts sākumlapas plūsmā ir paslēpti</string>
-  <string name="revanced_hide_shorts_home_summary_off">Shorts sākumlapas plūsmā ir redzami</string>
+  <string name="revanced_hide_shorts_home_summary_on">Mājas lapā un saistītajos videoklipos ir paslēpti šorti</string>
+  <string name="revanced_hide_shorts_home_summary_off">Mājas lapā un saistītajos videoklipos tiek rādīti šorti</string>
   <!-- 'subscription' should be translated using the same localized wording YouTube displays for the subscription tab. -->
   <string name="revanced_hide_shorts_subscriptions_title">Paslēpt Shorts abonementu plūsmā</string>
-  <string name="revanced_hide_shorts_subscriptions_summary_on">Shorts abonementu plūsmā ir paslēpti</string>
-  <string name="revanced_hide_shorts_subscriptions_summary_off">Shorts abonementu plūsmā ir redzami</string>
+  <string name="revanced_hide_shorts_subscriptions_summary_on">Slēpts abonementu plūsmā</string>
+  <string name="revanced_hide_shorts_subscriptions_summary_off">Parādīts abonementu plūsmā</string>
   <string name="revanced_hide_shorts_search_title">Paslēpt Shorts meklēšanas rezultātos</string>
-  <string name="revanced_hide_shorts_search_summary_on">Shorts meklēšanas rezultātos ir paslēpti</string>
-  <string name="revanced_hide_shorts_search_summary_off">Shorts meklēšanas rezultātos ir redzami</string>
+  <string name="revanced_hide_shorts_search_summary_off">Parādīts meklēšanas rezultātos</string>
+  <string name="revanced_hide_shorts_history_summary_on">Slēpts skatīšanās vēsturē</string>
   <!-- 'join' should be translated using the same localized wording YouTube displays for the button. -->
   <string name="revanced_hide_shorts_join_button_title">Paslēpt pievienošanās pogu</string>
   <string name="revanced_hide_shorts_join_button_summary_on">Pievienošanās poga ir paslēpta</string>
@@ -1294,9 +1294,10 @@ Video atskaņošana var nedarboties"</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">"Iespējojot to, var uzlabot akumulatora darbības laiku un novērst atskaņošanas aizķeršanos.
 
 AVC maksimālā izšķirtspēja ir 1080p, Opus audio kodeks nav pieejams, un video atskaņošanā tiks patērēts vairāk interneta datu nekā VP9 vai AV1."</string>
-  <string name="revanced_spoof_video_streams_about_ios_tv_title">iOS TV viltus straumēšanas blakus efekti</string>
-  <string name="revanced_spoof_video_streams_about_ios_tv_summary">"• Filmas vai maksas video var netikt atskaņoti
-• Video beidzas 1 sekundi iepriekš"</string>
+  <string name="revanced_spoof_video_streams_about_ios_tv_title">iOS izlikšanās blakusefekti</string>
+  <string name="revanced_spoof_video_streams_about_ios_tv_summary">"• Filmas vai apmaksāti video, iespējams, netiks atskaņoti
+• Nav pieejams stabils skaļums
+• Video beidzas 1 sekundi par ātru"</string>
   <string name="revanced_spoof_video_streams_about_android_title">Android viltus straumēšanas blakus efekti</string>
   <string name="revanced_spoof_video_streams_about_android_summary">"• Trūkst audio celiņa izvēlnes
 • Nav pieejams stabils skaļums

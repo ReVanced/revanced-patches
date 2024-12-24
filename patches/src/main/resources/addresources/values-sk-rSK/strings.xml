@@ -622,15 +622,9 @@ Poznámka: Povolením tejto možnosti sa tiež vynútene skryjú video reklamy"<
   <string name="revanced_shorts_player_screen_summary">Skryť alebo zobraziť komponenty v prehrávači Shorts</string>
   <!-- 'home' should be translated using the same localized wording YouTube displays for the home tab. -->
   <string name="revanced_hide_shorts_home_title">Skryť Shorts v domácom informačnom kanáli</string>
-  <string name="revanced_hide_shorts_home_summary_on">Shorts v domácom feede sú skryté</string>
-  <string name="revanced_hide_shorts_home_summary_off">Zobrazujú sa Shorts videá v domácom informačnom kanáli</string>
   <!-- 'subscription' should be translated using the same localized wording YouTube displays for the subscription tab. -->
   <string name="revanced_hide_shorts_subscriptions_title">Skryť Shorts videá vo feede odberov</string>
-  <string name="revanced_hide_shorts_subscriptions_summary_on">Shorts videá v informačnom kanáli odberov sú skryté</string>
-  <string name="revanced_hide_shorts_subscriptions_summary_off">Vo feede odberov sa zobrazujú Shorts videá</string>
   <string name="revanced_hide_shorts_search_title">Skryť Shorts videá vo výsledkoch vyhľadávania</string>
-  <string name="revanced_hide_shorts_search_summary_on">Shorts vo výsledkoch vyhľadávania sú skryté</string>
-  <string name="revanced_hide_shorts_search_summary_off">Vo výsledkoch vyhľadávania sa zobrazujú Shorts videá</string>
   <!-- 'join' should be translated using the same localized wording YouTube displays for the button. -->
   <string name="revanced_hide_shorts_join_button_title">Skryť tlačidlo pripojenia</string>
   <string name="revanced_hide_shorts_join_button_summary_on">Tlačidlo Pripojiť sa je skryté</string>
@@ -1284,9 +1278,10 @@ Prehrávanie videa nemusí fungovať"</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">"Povolenie tejto možnosti môže zlepšiť výdrž batérie a opraviť sekanie prehrávania.
 
 AVC má maximálne rozlíšenie 1080p, zvukový kodek Opus nie je k dispozícii a prehrávanie videa bude využívať viac internetových dát ako VP9 alebo AV1."</string>
-  <string name="revanced_spoof_video_streams_about_ios_tv_title">Vedľajšie účinky spoofingu televízie iOS</string>
-  <string name="revanced_spoof_video_streams_about_ios_tv_summary">"• Filmy alebo platené videá sa nemusia prehrávať
-• Videá končia o 1 sekundu skôr"</string>
+  <string name="revanced_spoof_video_streams_about_ios_tv_title">Vedľajšie účinky falošnej polohy iOS</string>
+  <string name="revanced_spoof_video_streams_about_ios_tv_summary">"• Filmy alebo platené videá sa nemusia prehrať
+• Stabilná hlasitosť nie je k dispozícii
+• Videá sa končia o 1 sekundu skôr"</string>
   <string name="revanced_spoof_video_streams_about_android_title">Vedľajšie účinky spoofingu Androidu</string>
   <string name="revanced_spoof_video_streams_about_android_summary">"• Chýba ponuka zvukových stôp
 • Nie je k dispozícii stabilná hlasitosť

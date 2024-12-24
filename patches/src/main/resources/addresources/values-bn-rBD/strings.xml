@@ -629,15 +629,9 @@ MicroG-এর জন্য ব্যাটারি অপ্টিমাইজ�
   <string name="revanced_shorts_player_screen_summary">Shorts প্লেয়ারে উপাদান লুকানো বা দেখানো</string>
   <!-- 'home' should be translated using the same localized wording YouTube displays for the home tab. -->
   <string name="revanced_hide_shorts_home_title">প্রধান ফিডে Shorts লুকান</string>
-  <string name="revanced_hide_shorts_home_summary_on">প্রধান ফিডে Shorts লুকিয়ে রয়েছে</string>
-  <string name="revanced_hide_shorts_home_summary_off">প্রধান ফিডে Shorts প্রদর্শিত হয়েছে</string>
   <!-- 'subscription' should be translated using the same localized wording YouTube displays for the subscription tab. -->
   <string name="revanced_hide_shorts_subscriptions_title">সদস্যতা ফিডে Shorts লুকান</string>
-  <string name="revanced_hide_shorts_subscriptions_summary_on">সদস্যতা ফিডে Shorts লুকিয়ে রয়েছে</string>
-  <string name="revanced_hide_shorts_subscriptions_summary_off">সদস্যতা ফিডে Shorts প্রদর্শিত হয়েছে</string>
   <string name="revanced_hide_shorts_search_title">অনুসন্ধান ফলাফলে Shorts লুকান</string>
-  <string name="revanced_hide_shorts_search_summary_on">অনুসন্ধান ফলাফলে Shorts লুকিয়ে রয়েছে</string>
-  <string name="revanced_hide_shorts_search_summary_off">অনুসন্ধান ফলাফলে Shorts প্রদর্শিত হয়েছে</string>
   <!-- 'join' should be translated using the same localized wording YouTube displays for the button. -->
   <string name="revanced_hide_shorts_join_button_title">জয়েন করুন বোতাম লুকান</string>
   <string name="revanced_hide_shorts_join_button_summary_on">জয়েন করুন বোতাম লুকিয়ে রয়েছে</string>
@@ -1297,9 +1291,10 @@ DeArrow সম্পর্কে আরও জানতে এখানে ট�
   <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">"এটি সক্ষম করলে ব্যাটারি লাইফ উন্নত হতে পারে এবং প্লেব্যাক স্টাটারিং সমস্যা সমাধান হতে পারে।
 
 AVC-এর সর্বোচ্চ রেজোলিউশন হল 1080p, Opus অডিও কোডেক পাওয়া যায় না এবং VP9 বা AV1-এর তুলনায় ভিডিও প্লেব্যাকে বেশি ইন্টারনেট ডেটা ব্যবহার করা হবে。"</string>
-  <string name="revanced_spoof_video_streams_about_ios_tv_title">iOS TV স্পুফিংয়ের পার্শ্বপ্রতিক্রিয়া</string>
-  <string name="revanced_spoof_video_streams_about_ios_tv_summary">"• চলচ্চিত্র বা পেইড ভিডিও চালু হতে পারে না
-• ভিডিও 1 সেকেন্ড আগে শেষ হয়"</string>
+  <string name="revanced_spoof_video_streams_about_ios_tv_title">আইওএস স্পুফিংয়ের পার্শ্ব প্রতিক্রিয়া</string>
+  <string name="revanced_spoof_video_streams_about_ios_tv_summary">"• মুভি বা অর্থ প্রদানের ভিডিও চালু নাও হতে পারে
+• স্থির ভলিউম পাওয়া যায় না
+• ভিডিওগুলি 1 সেকেন্ড আগে শেষ হয়ে যায়"</string>
   <string name="revanced_spoof_video_streams_about_android_title">Android স্পুফিংয়ের পার্শ্বপ্রতিক্রিয়া</string>
   <string name="revanced_spoof_video_streams_about_android_summary">"• অডিও ট্র্যাক মেনু নেই
 • স্থির ভলিউম পাওয়া যায় না

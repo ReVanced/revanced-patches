@@ -628,15 +628,9 @@ Megjegyzés: Ez a beállítás a videóhirdetések kényszerű elrejtését is m
   <string name="revanced_shorts_player_screen_summary">Összetevők elrejtése vagy megjelenítése a Shorts lejátszóban</string>
   <!-- 'home' should be translated using the same localized wording YouTube displays for the home tab. -->
   <string name="revanced_hide_shorts_home_title">Shorts elrejtése a Kezdőlap feedben</string>
-  <string name="revanced_hide_shorts_home_summary_on">A Shortsok elrejtve a Kezdőlap feedben</string>
-  <string name="revanced_hide_shorts_home_summary_off">A Shortsok megjelennek a Kezdőlap feedben</string>
   <!-- 'subscription' should be translated using the same localized wording YouTube displays for the subscription tab. -->
   <string name="revanced_hide_shorts_subscriptions_title">Shortsok elrejtése a Feliratkozások feedben</string>
-  <string name="revanced_hide_shorts_subscriptions_summary_on">A Shortsok megjelennek a Feliratkozások feedben</string>
-  <string name="revanced_hide_shorts_subscriptions_summary_off">A Shortsok megjelennek a Feliratkozások feedben</string>
   <string name="revanced_hide_shorts_search_title">Shortsok elrejtése a keresési eredményekben</string>
-  <string name="revanced_hide_shorts_search_summary_on">A Shortsok el vannak rejtve a keresési eredményekben</string>
-  <string name="revanced_hide_shorts_search_summary_off">A Shortsok megjelenek a keresési eredményekben</string>
   <!-- 'join' should be translated using the same localized wording YouTube displays for the button. -->
   <string name="revanced_hide_shorts_join_button_title">Csatlakozás gomb elrejtése</string>
   <string name="revanced_hide_shorts_join_button_summary_on">A csatlakozás gomb el van rejtve</string>
@@ -1294,7 +1288,7 @@ A videólejátszás nem működhet"</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">"Ennek engedélyezése javíthatja az akkumulátor élettartamát és kijavíthatja a lejátszás akadozását.
 
 Az AVC maximális felbontása 1080p, az Opus audiokodek nem érhető el, és a videolejátszás több internetes adatot használ, mint a VP9 vagy az AV1."</string>
-  <string name="revanced_spoof_video_streams_about_ios_tv_title">iOS TV-hamisítási mellékhatások</string>
+  <string name="revanced_spoof_video_streams_about_ios_tv_title">Az iOS-spoofing mellékhatásai</string>
   <string name="revanced_spoof_video_streams_about_ios_tv_summary">"• Előfordulhat, hogy a filmeket és a fizetős videókat nem lehet lejátszani
 • A videók 1 másodperccel korábban érnek véget"</string>
   <string name="revanced_spoof_video_streams_about_android_title">Android hamisítási mellékhatások</string>

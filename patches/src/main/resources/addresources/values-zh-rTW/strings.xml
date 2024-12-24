@@ -519,10 +519,10 @@ Second \"item\" text"</string>
   <string name="revanced_disable_translucent_status_bar_title">停用半透明狀態列</string>
   <string name="revanced_disable_translucent_status_bar_summary_on">狀態列為不透明</string>
   <string name="revanced_disable_translucent_status_bar_summary_off">狀態列為不透明或半透明</string>
-  <string name="revanced_disable_translucent_navigation_bar_light_title">禁用淺色半透明導覽列</string>
+  <string name="revanced_disable_translucent_navigation_bar_light_title">停用淺色半透明狀態列</string>
   <string name="revanced_disable_translucent_navigation_bar_light_summary_on">淺色模式導覽列為不透明</string>
-  <string name="revanced_disable_translucent_navigation_bar_light_summary_off">淺色模式導航列為不透明或半透明</string>
-  <string name="revanced_disable_translucent_navigation_bar_dark_title">停用深色半透明欄</string>
+  <string name="revanced_disable_translucent_navigation_bar_light_summary_off">淺色模式導覽列為不透明或半透明</string>
+  <string name="revanced_disable_translucent_navigation_bar_dark_title">停用深色半透明狀態列</string>
   <string name="revanced_disable_translucent_navigation_bar_dark_summary_on">深色模式導覽列為不透明</string>
   <string name="revanced_disable_translucent_navigation_bar_dark_summary_off">深色模式導覽列為不透明或半透明</string>
   </patch>
@@ -629,15 +629,9 @@ Second \"item\" text"</string>
   <string name="revanced_shorts_player_screen_summary">隱藏或顯示 Shorts 播放器的元件</string>
   <!-- 'home' should be translated using the same localized wording YouTube displays for the home tab. -->
   <string name="revanced_hide_shorts_home_title">隱藏 Shorts 首頁動態消息</string>
-  <string name="revanced_hide_shorts_home_summary_on">已在首頁動態影片中隱藏 Shorts</string>
-  <string name="revanced_hide_shorts_home_summary_off">已在首頁動態影片中顯示 Shorts</string>
   <!-- 'subscription' should be translated using the same localized wording YouTube displays for the subscription tab. -->
   <string name="revanced_hide_shorts_subscriptions_title">隱藏 Shorts 訂閱內容動態消息</string>
-  <string name="revanced_hide_shorts_subscriptions_summary_on">已在訂閱動態影片中隱藏 Shorts</string>
-  <string name="revanced_hide_shorts_subscriptions_summary_off">已在訂閱動態影片中顯示 Shorts</string>
   <string name="revanced_hide_shorts_search_title">隱藏 Shorts 搜尋結果</string>
-  <string name="revanced_hide_shorts_search_summary_on">已在搜尋結果中隱藏 Shorts</string>
-  <string name="revanced_hide_shorts_search_summary_off">已在搜尋結果中顯示 Shorts</string>
   <!-- 'join' should be translated using the same localized wording YouTube displays for the button. -->
   <string name="revanced_hide_shorts_join_button_title">隱藏加入按鈕</string>
   <string name="revanced_hide_shorts_join_button_summary_on">已隱藏加入按鈕</string>
@@ -1300,6 +1294,7 @@ Second \"item\" text"</string>
 A​VC 的最高解析度為 1080p，不支援 Opus 音訊解碼器，而且與 VP9 或 AV1 相比，影片播放會使用更多網際網路流量。"</string>
   <string name="revanced_spoof_video_streams_about_ios_tv_title">偽裝 iOS TV 的副作用</string>
   <string name="revanced_spoof_video_streams_about_ios_tv_summary">"• 電影或付費影片可能無法播放
+• 無法使用穩定音量控制
 • 影片提前 1 秒結束"</string>
   <string name="revanced_spoof_video_streams_about_android_title">偽裝 Android 的副作用</string>
   <string name="revanced_spoof_video_streams_about_android_summary">"• 音軌選單遺失
@@ -1345,7 +1340,7 @@ A​VC 的最高解析度為 1080p，不支援 Opus 音訊解碼器，而且與 
   <string name="revanced_spoof_video_streams_language_OR">奧利亞語</string>
   <string name="revanced_spoof_video_streams_language_PA">旁遮普語</string>
   <string name="revanced_spoof_video_streams_language_PL">波蘭語</string>
-  <string name="revanced_spoof_video_streams_language_PT">Portuguese</string>
+  <string name="revanced_spoof_video_streams_language_PT">葡萄牙語</string>
   <string name="revanced_spoof_video_streams_language_RO">羅馬尼亞語</string>
   <string name="revanced_spoof_video_streams_language_RU">俄語</string>
   <string name="revanced_spoof_video_streams_language_SK">斯洛伐克語</string>

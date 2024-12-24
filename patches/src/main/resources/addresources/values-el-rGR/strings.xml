@@ -631,15 +631,9 @@ Second \"item\" text"</string>
   <string name="revanced_shorts_player_screen_summary">Απόκρυψη ή εμφάνιση στοιχείων στην οθόνη αναπαραγωγής Shorts</string>
   <!-- 'home' should be translated using the same localized wording YouTube displays for the home tab. -->
   <string name="revanced_hide_shorts_home_title">Shorts στην αρχική σελίδα</string>
-  <string name="revanced_hide_shorts_home_summary_on">Κρυμμένα</string>
-  <string name="revanced_hide_shorts_home_summary_off">Εμφανίζονται</string>
   <!-- 'subscription' should be translated using the same localized wording YouTube displays for the subscription tab. -->
   <string name="revanced_hide_shorts_subscriptions_title">Shorts στην καρτέλα εγγραφών</string>
-  <string name="revanced_hide_shorts_subscriptions_summary_on">Κρυμμένα</string>
-  <string name="revanced_hide_shorts_subscriptions_summary_off">Εμφανίζονται</string>
   <string name="revanced_hide_shorts_search_title">Shorts στα αποτελέσματα αναζήτησης</string>
-  <string name="revanced_hide_shorts_search_summary_on">Κρυμμένα</string>
-  <string name="revanced_hide_shorts_search_summary_off">Εμφανίζονται</string>
   <!-- 'join' should be translated using the same localized wording YouTube displays for the button. -->
   <string name="revanced_hide_shorts_join_button_title">Κουμπί «Συμμετοχή»</string>
   <string name="revanced_hide_shorts_join_button_summary_on">Κρυμμένο</string>
@@ -1295,8 +1289,9 @@ Second \"item\" text"</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">"Η ενεργοποίηση αυτής της λειτουργίας ενδέχεται να βελτιώσει τη διάρκεια ζωής της μπαταρίας και να διορθώσει κολλήματα αναπαραγωγής.
 
 Ο AVC έχει μέγιστη ανάλυση 1080p, ο κωδικοποιητής ήχου Opus δεν είναι διαθέσιμος και η αναπαραγωγή βίντεο θα χρησιμοποιεί περισσότερα δεδομένα ίντερνετ από τον VP9 ή τον AV1."</string>
-  <string name="revanced_spoof_video_streams_about_ios_tv_title">Παρενέργειες παραποίησης σε iOS TV</string>
+  <string name="revanced_spoof_video_streams_about_ios_tv_title">Παρενέργειες παραποίησης iOS</string>
   <string name="revanced_spoof_video_streams_about_ios_tv_summary">"• Οι ταινίες ή τα επί πληρωμή βίντεο ενδέχεται να μην αναπαράγονται
+• Η λειτουργία «Σταθερή ένταση» δεν είναι διαθέσιμη
 • Τα βίντεο τελειώνουν 1 δευτερόλεπτο νωρίτερα"</string>
   <string name="revanced_spoof_video_streams_about_android_title">Παρενέργειες παραποίησης σε Android</string>
   <string name="revanced_spoof_video_streams_about_android_summary">"• Το μενού «Κομμάτι ήχου» λείπει

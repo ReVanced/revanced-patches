@@ -629,15 +629,9 @@ Huomaa: Tämä ottaa pakolla pois myös videomainokset"</string>
   <string name="revanced_shorts_player_screen_summary">Piilota tai näytä Shorts-soittimen osia</string>
   <!-- 'home' should be translated using the same localized wording YouTube displays for the home tab. -->
   <string name="revanced_hide_shorts_home_title">Piilota Shortsit koti-syötteessä</string>
-  <string name="revanced_hide_shorts_home_summary_on">Shorts on piilotettu koti-syötteessä</string>
-  <string name="revanced_hide_shorts_home_summary_off">Shorts näytetään koti-syötteessä</string>
   <!-- 'subscription' should be translated using the same localized wording YouTube displays for the subscription tab. -->
   <string name="revanced_hide_shorts_subscriptions_title">Piilota Shortsit tilaukset-syötteessä</string>
-  <string name="revanced_hide_shorts_subscriptions_summary_on">Shorts on piilotettu tilaukset-syötteessä</string>
-  <string name="revanced_hide_shorts_subscriptions_summary_off">Shorts näytetään tilaukset-syötteessä</string>
   <string name="revanced_hide_shorts_search_title">Piilota Shortsit hakutuloksissa</string>
-  <string name="revanced_hide_shorts_search_summary_on">Shorts on piilotettu hakutuloksissa</string>
-  <string name="revanced_hide_shorts_search_summary_off">Shorts näytetään hakutuloksissa</string>
   <!-- 'join' should be translated using the same localized wording YouTube displays for the button. -->
   <string name="revanced_hide_shorts_join_button_title">Piilota liity-painike</string>
   <string name="revanced_hide_shorts_join_button_summary_on">Liity-painike on piilotettu</string>
@@ -670,9 +664,9 @@ Huomaa: Tämä ottaa pakolla pois myös videomainokset"</string>
   <string name="revanced_hide_shorts_upcoming_button_title">Piilota tulossa-painike</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_on">Tulossa-painike on piilotettu</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_off">Tulossa-painike näytetään</string>
-  <string name="revanced_hide_shorts_green_screen_button_title">Piilota green screen -painike</string>
-  <string name="revanced_hide_shorts_green_screen_button_summary_on">Green screen -painike on piilotettu</string>
-  <string name="revanced_hide_shorts_green_screen_button_summary_off">Green screen -painike näytetään</string>
+  <string name="revanced_hide_shorts_green_screen_button_title">Piilota vihertausta-painike</string>
+  <string name="revanced_hide_shorts_green_screen_button_summary_on">Vihertausta-painike on piilotettu</string>
+  <string name="revanced_hide_shorts_green_screen_button_summary_off">Vihertausta-painike näytetään</string>
   <string name="revanced_hide_shorts_hashtag_button_title">Piilota aihetunnistepainike</string>
   <string name="revanced_hide_shorts_hashtag_button_summary_on">Hashtag painike on piilotettu</string>
   <string name="revanced_hide_shorts_hashtag_button_summary_off">Hashtag painike näytetään</string>
@@ -1283,12 +1277,27 @@ Tämä voi avata korkealaatuisemmat videot"</string>
   <string name="revanced_spoof_video_streams_screen_summary">Naamioi asiakasohjelman videovirrat toisto-ongelmien estämiseksi</string>
   <string name="revanced_spoof_video_streams_title">Naamioi videovirrat</string>
   <string name="revanced_spoof_video_streams_summary_on">Videovirrat naamioidaan</string>
-  <string name="revanced_spoof_video_streams_summary_off">"Videovirtoja ei väärennetä
+  <string name="revanced_spoof_video_streams_summary_off">"Videovirtoja ei naamioida
 
 Videon toisto ei välttämättä toimi"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Tämän asetuksen poistaminen käytöstä voi aiheuttaa ongelmia videotoistossa.</string>
   <string name="revanced_spoof_video_streams_client_type_title">Oletusasiakasohjelma</string>
   <!-- 'no auth' means no authentication -->
+  <string name="revanced_spoof_video_streams_client_type_android_vr_no_auth">Android VR (ei todennusta)</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_title">Pakota iOS AVC (H.264)</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Videokoodekiksi pakotetaan AVC (H.264)</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Videokoodekki määritetään automaattisesti</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">"Tämän käyttöönotto voi parantaa akun kestoa ja korjata toiston tökkimisen.
+
+AVC:n maksimiresoluutio on 1080p, Opus-äänikoodekki ei ole käytettävissä, ja videon toisto käyttää enemmän Internet-dataa kuin VP9 tai AV1."</string>
+  <string name="revanced_spoof_video_streams_about_android_title">Android-naamioinnin haittavaikutukset</string>
+  <string name="revanced_spoof_video_streams_about_android_summary">"• Ääniraitavalikko puuttuu
+• Tasainen äänenvoimakkuus ei ole käytettävissä
+• Alkuperäisen äänen pakotus ei ole käytettävissä"</string>
+  <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Näytä teknisissä tiedoissa</string>
+  <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Asiakastyyppi näytetään teknisissä tiedoissa</string>
+  <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Asiakastyyppi on piilotettu teknisissä tiedoissa</string>
+  <string name="revanced_spoof_video_streams_language_title">VR-äänivirran oletuskieli</string>
   <string name="revanced_spoof_video_streams_language_DEFAULT">Tilaus kieli</string>
   <string name="revanced_spoof_video_streams_language_AR">Arabia</string>
   <string name="revanced_spoof_video_streams_language_AZ">Azerbaidžan</string>
@@ -1325,6 +1334,7 @@ Videon toisto ei välttämättä toimi"</string>
   <string name="revanced_spoof_video_streams_language_OR">Odia</string>
   <string name="revanced_spoof_video_streams_language_PA">Punjabi</string>
   <string name="revanced_spoof_video_streams_language_PL">Puola</string>
+  <string name="revanced_spoof_video_streams_language_PT">Portugali</string>
   <string name="revanced_spoof_video_streams_language_RO">Romania</string>
   <string name="revanced_spoof_video_streams_language_RU">Venäjä</string>
   <string name="revanced_spoof_video_streams_language_SK">Slovakki</string>

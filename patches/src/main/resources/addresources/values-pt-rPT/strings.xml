@@ -628,15 +628,9 @@ Lưu ý: Bật tính năng này cũng buộc ẩn quảng cáo video"</string>
   <string name="revanced_shorts_player_screen_summary">Ocultar ou mostrar componentes no player Shorts</string>
   <!-- 'home' should be translated using the same localized wording YouTube displays for the home tab. -->
   <string name="revanced_hide_shorts_home_title">Esconder Shorts no feed inicial</string>
-  <string name="revanced_hide_shorts_home_summary_on">Os Shorts no feed inicial estão ocultos</string>
-  <string name="revanced_hide_shorts_home_summary_off">Os calções no feed inicial são exibidos</string>
   <!-- 'subscription' should be translated using the same localized wording YouTube displays for the subscription tab. -->
   <string name="revanced_hide_shorts_subscriptions_title">Esconder Shorts na assinatura do feed</string>
-  <string name="revanced_hide_shorts_subscriptions_summary_on">Shorts in subscrition feed are hidden</string>
-  <string name="revanced_hide_shorts_subscriptions_summary_off">Os calções no feed de inscrições são exibidos</string>
   <string name="revanced_hide_shorts_search_title">Esconder Shorts nos resultados de pesquisa</string>
-  <string name="revanced_hide_shorts_search_summary_on">Shorts nos resultados da pesquisa estão ocultos</string>
-  <string name="revanced_hide_shorts_search_summary_off">Shorts são mostrados nos resultados da pesquisa</string>
   <!-- 'join' should be translated using the same localized wording YouTube displays for the button. -->
   <string name="revanced_hide_shorts_join_button_title">Esconder botão \'Aderir\'</string>
   <string name="revanced_hide_shorts_join_button_summary_on">O botão \"Aderir\" está escondido</string>
@@ -1295,9 +1289,10 @@ Phát video có thể không hoạt động"</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">"Ativar pode melhorar bateria e resolver reprodução travando.
 
 A AVC tem resolução máxima de 1080p, Opus audio codec não está disponível, e reprodução de vídeo usará mais internet que VP9 ou AV1."</string>
-  <string name="revanced_spoof_video_streams_about_ios_tv_title">Efeitos colaterais da simulação de iOS na TV</string>
-  <string name="revanced_spoof_video_streams_about_ios_tv_summary">"• Filmes ou vídeos pagos podem não rodar
-• Vídeos terminam 1 segundo mais cedo"</string>
+  <string name="revanced_spoof_video_streams_about_ios_tv_title">Efeitos secundários de falsificação do iOS</string>
+  <string name="revanced_spoof_video_streams_about_ios_tv_summary">"• Filmes ou vídeos pagos podem não ser reproduzidos
+• Volume estável não está disponível
+• Os vídeos terminam 1 segundo mais cedo"</string>
   <string name="revanced_spoof_video_streams_about_android_title">Efeitos colaterais da falsificação do Android</string>
   <string name="revanced_spoof_video_streams_about_android_summary">"• O menu da faixa de áudio está faltando
 • Volume estável não está disponível

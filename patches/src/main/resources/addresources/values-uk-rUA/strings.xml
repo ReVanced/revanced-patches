@@ -628,15 +628,9 @@ Second \"item\" text"</string>
   <string name="revanced_shorts_player_screen_summary">Приховати або показувати компоненти у плеєрі Shorts</string>
   <!-- 'home' should be translated using the same localized wording YouTube displays for the home tab. -->
   <string name="revanced_hide_shorts_home_title">Приховати Shorts у стрічці</string>
-  <string name="revanced_hide_shorts_home_summary_on">Shorts у домашній стрічці приховано</string>
-  <string name="revanced_hide_shorts_home_summary_off">Shorts у домашній стрічці показуються</string>
   <!-- 'subscription' should be translated using the same localized wording YouTube displays for the subscription tab. -->
   <string name="revanced_hide_shorts_subscriptions_title">Приховати Shorts у підписках</string>
-  <string name="revanced_hide_shorts_subscriptions_summary_on">Shorts у підписках приховано</string>
-  <string name="revanced_hide_shorts_subscriptions_summary_off">Shorts у підписках показуються</string>
   <string name="revanced_hide_shorts_search_title">Приховати Shorts у пошуку</string>
-  <string name="revanced_hide_shorts_search_summary_on">Shorts у результатах пошуку приховано</string>
-  <string name="revanced_hide_shorts_search_summary_off">Shorts у результатах пошуку показуються</string>
   <!-- 'join' should be translated using the same localized wording YouTube displays for the button. -->
   <string name="revanced_hide_shorts_join_button_title">Приховати \"Спонсорувати\"</string>
   <string name="revanced_hide_shorts_join_button_summary_on">Кнопку \"Спонсорувати\" приховано</string>
@@ -1228,9 +1222,9 @@ Second \"item\" text"</string>
   <string name="revanced_disable_zoom_haptics_summary_off">Вібрації при масштабуванні ввімкнуто</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
-  <string name="revanced_force_original_audio_title">Примусово оригінальна аудіо доріжка</string>
-  <string name="revanced_force_original_audio_summary_on">Використовується оригінальна аудіо доріжка відео</string>
-  <string name="revanced_force_original_audio_summary_off">Використовується стандартна (регіональна) аудіо доріжка відео</string>
+  <string name="revanced_force_original_audio_title">Примусово оригінальна звукова доріжка</string>
+  <string name="revanced_force_original_audio_summary_on">Використовується оригінальна звукова доріжка відео</string>
+  <string name="revanced_force_original_audio_summary_off">Використовується стандартна (регіональна) звукова доріжка відео</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
@@ -1288,23 +1282,24 @@ Second \"item\" text"</string>
   <string name="revanced_spoof_video_streams_client_type_title">Клієнт за замовчуванням</string>
   <!-- 'no auth' means no authentication -->
   <string name="revanced_spoof_video_streams_client_type_android_vr_no_auth">Android VR (без автентифікації)</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_title">Примусовий iOS AVC (H.264)</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_title">Примусово iOS AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Відеокодек примусово встановлено на AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Відеокодек визначається автоматично</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">"Увімкнення цього може покращити час автономної роботи та усунути заїкання під час відтворення.
+  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">"Увімкнення цієї функції може подовжити термін автономної роботи батареї та усунути затримки відтворення. 
 
-AVC має максимальну роздільну здатність 1080p, аудіокодек Opus недоступний, а відтворення відео використовуватиме більше інтернет-даних, ніж VP9 або AV1."</string>
-  <string name="revanced_spoof_video_streams_about_ios_tv_title">Побічні ефекти підміни iOS TV</string>
+AVC має максимальну роздільну здатність 1080p, аудіокодек Opus недоступний, а для відтворення відео використовуватиметься більше Інтернет-даних, ніж VP9 або AV1."</string>
+  <string name="revanced_spoof_video_streams_about_ios_tv_title">Побічні ефекти підробки iOS TV</string>
   <string name="revanced_spoof_video_streams_about_ios_tv_summary">"• Фільми та платні відео можуть не відтворюватися
+• Стабільна гучність недоступна
 • Відео закінчуються на 1 секунду раніше"</string>
-  <string name="revanced_spoof_video_streams_about_android_title">Побочні ефекти Android</string>
-  <string name="revanced_spoof_video_streams_about_android_summary">"• Відсутнє меню аудіодоріжок
-• Немає стабільного регулювання гучності
-• Немає можливості примусово використовувати оригінальний звук"</string>
-  <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Показати в розділі «Статистика для ґіків»</string>
-  <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Тип клієнта відображається в розділі «Статистика для ґіків»</string>
-  <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Клієнт приховано в розділі «Статистика для ґіків»</string>
-  <string name="revanced_spoof_video_streams_language_title">Мова аудіопотоку за замовчуванням для VR</string>
+  <string name="revanced_spoof_video_streams_about_android_title">Побічні ефекти підробки Android</string>
+  <string name="revanced_spoof_video_streams_about_android_summary">"• Меню звукової доріжки відсутнє
+• Меню стабілізації гучності недоступне
+• Примусове використання оригінальний звукової доріжки недоступне"</string>
+  <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Показувати у \"Статистиці для сисадмінів\"</string>
+  <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Тип клієнта відображається у вікні \"Статистика для сисадмінів\"</string>
+  <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Тип клієнта приховано у вікні \"Статистика для сисадмінів\"</string>
+  <string name="revanced_spoof_video_streams_language_title">Звукова доріжка за замовчуванням для VR</string>
   <string name="revanced_spoof_video_streams_language_DEFAULT">Мова облікового запису</string>
   <string name="revanced_spoof_video_streams_language_AR">Арабська</string>
   <string name="revanced_spoof_video_streams_language_AZ">Азербайджанська</string>

@@ -629,15 +629,9 @@ MicroG-ի համար մարտկոցի օպտիմալացումը անջատել�
   <string name="revanced_shorts_player_screen_summary">Թաքցնել կամ ցույց տալ Shorts կրողի բաղադրիչները</string>
   <!-- 'home' should be translated using the same localized wording YouTube displays for the home tab. -->
   <string name="revanced_hide_shorts_home_title">Թաքցնել Shorts-ը գլխավոր էջում</string>
-  <string name="revanced_hide_shorts_home_summary_on">Shorts-ը գլխավոր էջում թաքցված են</string>
-  <string name="revanced_hide_shorts_home_summary_off">Shorts-ը գլխավոր էջում երևում են</string>
   <!-- 'subscription' should be translated using the same localized wording YouTube displays for the subscription tab. -->
   <string name="revanced_hide_shorts_subscriptions_title">Թաքցնել Shorts-ը բաժանորդագրության էջում</string>
-  <string name="revanced_hide_shorts_subscriptions_summary_on">Shorts-ը բաժանորդագրության էջում թաքցված են</string>
-  <string name="revanced_hide_shorts_subscriptions_summary_off">Shorts-ը բաժանորդագրության էջում երևում են</string>
   <string name="revanced_hide_shorts_search_title">Թաքցնել Shorts-ը որոնման արդյունքներում</string>
-  <string name="revanced_hide_shorts_search_summary_on">Shorts-ը որոնման արդյունքներում թաքցված են</string>
-  <string name="revanced_hide_shorts_search_summary_off">Shorts-ը որոնման արդյունքներում երևում են</string>
   <!-- 'join' should be translated using the same localized wording YouTube displays for the button. -->
   <string name="revanced_hide_shorts_join_button_title">Միանալու կոճակը թաքցնել</string>
   <string name="revanced_hide_shorts_join_button_summary_on">Միանալու կոճակը թաքցված է</string>
@@ -1296,9 +1290,10 @@ Mini-player-ը կարող է գրավվել էկրանից դուրս՝ դեպի
   <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">"Սա ակտիվացնելը կարող է բարելավել մարտկոցի աշխատանքի տևողությունը և վերացնել վերարտադրման խցկումները։
 
 AVC-ի առավելագույն թույլտվությունը 1080p է, Opus աուդիո կոդեկը հասանելի չէ, իսկ վիդեոյի վերարտադրումը VP9-ից կամ AV1-ից ավելի շատ ինտերնետ տվյալներ կօգտագործի։"</string>
-  <string name="revanced_spoof_video_streams_about_ios_tv_title">iOS TV խաբեության կողմնակի ազդեցություններ</string>
-  <string name="revanced_spoof_video_streams_about_ios_tv_summary">"• Ֆիլմերը կամ վճարովի տեսանյութերը կարող են չվերարտադրվել
-• Տեսանյութերն ավարտվում են 1 վայրկյան շուտ"</string>
+  <string name="revanced_spoof_video_streams_about_ios_tv_title">iOS խաբեության կողմնակի ազդեցություններ</string>
+  <string name="revanced_spoof_video_streams_about_ios_tv_summary">"• Ֆիլմերը կամ վճարովի տեսանյութերը չեն կարող աշխատել
+• Հասանելի չէ կայուն ձայնի ծավալը
+• Տեսանյութերը վերջանում են 1 վայրկյան վաղ"</string>
   <string name="revanced_spoof_video_streams_about_android_title">Android խաբեության կողմնակի ազդեցություններ</string>
   <string name="revanced_spoof_video_streams_about_android_summary">"• Ձայնի գրառման ընտրացանկը բացակայում է
 • Ստաբիլ ձայն չկա

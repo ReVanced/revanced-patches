@@ -627,15 +627,9 @@ MicroG のバッテリー最適化を無効にしても、バッテリーの使�
   <string name="revanced_shorts_player_screen_summary">Shorts プレーヤーのコンポーネントを非表示または表示</string>
   <!-- 'home' should be translated using the same localized wording YouTube displays for the home tab. -->
   <string name="revanced_hide_shorts_home_title">ハリーバーをシーンプルのミーティブラートに非表する</string>
-  <string name="revanced_hide_shorts_home_summary_on">ハリーバーはシーンプルのミーティブラートから非表されています</string>
-  <string name="revanced_hide_shorts_home_summary_off">ハリーバーはシーンプルのミーティブラートから表示されています</string>
   <!-- 'subscription' should be translated using the same localized wording YouTube displays for the subscription tab. -->
   <string name="revanced_hide_shorts_subscriptions_title">ハリーバーを計算・フィードブラックスのミーティブラートに非表する</string>
-  <string name="revanced_hide_shorts_subscriptions_summary_on">Shorts 在订阅源中隐藏</string>
-  <string name="revanced_hide_shorts_subscriptions_summary_off">Shorts 在订阅源中显示</string>
   <string name="revanced_hide_shorts_search_title">在搜索结果中隐藏 Shorts</string>
-  <string name="revanced_hide_shorts_search_summary_on">在搜索结果中隐藏 Shorts</string>
-  <string name="revanced_hide_shorts_search_summary_off">在搜索结果中显示 Shorts</string>
   <!-- 'join' should be translated using the same localized wording YouTube displays for the button. -->
   <string name="revanced_hide_shorts_join_button_title">参加ボタンを隠す</string>
   <string name="revanced_hide_shorts_join_button_summary_on">結合ボタンは非表示です</string>
@@ -1296,9 +1290,8 @@ DeArrowの詳細については、ここをタップしてください。"</stri
   <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">"有効にすると、バッテリー寿命が延び、再生の途切れが改善される可能性があります。
 
 AVC の最大解像度は 1080p であり、Opus オーディオコーデックは使用できず、ビデオの再生は VP9 や AV1 より多くのインターネットデータを使用します。"</string>
-  <string name="revanced_spoof_video_streams_about_ios_tv_title">iOS TV スプーフィングの副作用</string>
-  <string name="revanced_spoof_video_streams_about_ios_tv_summary">"• 映画や有料動画が再生されない可能性があります。
-• 動画が 1 秒早く終了します。"</string>
+  <string name="revanced_spoof_video_streams_about_ios_tv_title">iOS スプーフィングの副作用</string>
+  <string name="revanced_spoof_video_streams_about_ios_tv_summary">"• 映画や有料動画が再生されない場合があります&lt;br&gt;• 安定した音量が利用できません&lt;br&gt;• 動画が1秒早く終了します"</string>
   <string name="revanced_spoof_video_streams_about_android_title">Android スプーフィングの副作用</string>
   <string name="revanced_spoof_video_streams_about_android_summary">"• オーディオトラックメニューがありません
 • 安定した音量は使用できません
