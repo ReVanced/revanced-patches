@@ -1287,11 +1287,25 @@ Att aktivera detta kan låsa upp högre videokvalitet"</string>
 Videouppspelning kanske inte fungerar"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Att stänga av den här inställningen kan orsaka videouppspelningsproblem.</string>
   <string name="revanced_spoof_video_streams_client_type_title">Standard klient</string>
-  <string name="revanced_spoof_video_streams_about_title">Spoofing biverkningar</string>
-  <string name="revanced_spoof_video_streams_about_summary">"• Ljudspårmenyn saknas
-• Stabil volym är inte tillgänglig
-• Tvinga original ljud är inte tillgängligt"</string>
-  <string name="revanced_spoof_video_streams_language_title">Standard ljudströmningsspråk</string>
+  <!-- 'no auth' means no authentication -->
+  <string name="revanced_spoof_video_streams_client_type_android_vr_no_auth">Android VR (ingen autentisering)</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_title">Tvinga iOS AVC (H.264)</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Videokodek tvingas till AVC (H.264)</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Videokodeken bestäms automatiskt</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">"Att aktivera detta kan förbättra batteritiden och åtgärda hackande uppspelning.
+
+AVC har en maximal upplösning på 1080p, Opus-ljudkodek är inte tillgänglig och videouppspelning använder mer internetdata än VP9 eller AV1."</string>
+  <string name="revanced_spoof_video_streams_about_ios_tv_title">Bieffekter av iOS TV-förfalskning</string>
+  <string name="revanced_spoof_video_streams_about_ios_tv_summary">"• Filmer eller betalda videor kanske inte spelas
+• Videor avslutas 1 sekund för tidigt"</string>
+  <string name="revanced_spoof_video_streams_about_android_title">Biverkningar av Android-förfalskning</string>
+  <string name="revanced_spoof_video_streams_about_android_summary">"• Ljudspårsmenyn saknas
+• Stabilt ljud är inte tillgängligt
+• Tvinga originalspråk är inte tillgängligt"</string>
+  <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Visa i statistik för nördar</string>
+  <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Klienttyp visas i statistik för nördar</string>
+  <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Klienten är dold i statistik för nördar</string>
+  <string name="revanced_spoof_video_streams_language_title">VR standardinställningsspråk för ljudström</string>
   <string name="revanced_spoof_video_streams_language_DEFAULT">Appens språk</string>
   <string name="revanced_spoof_video_streams_language_AR">Arabiska</string>
   <string name="revanced_spoof_video_streams_language_AZ">Azerbajdzjanska</string>
@@ -1328,6 +1342,7 @@ Videouppspelning kanske inte fungerar"</string>
   <string name="revanced_spoof_video_streams_language_OR">Odia</string>
   <string name="revanced_spoof_video_streams_language_PA">Punjabi</string>
   <string name="revanced_spoof_video_streams_language_PL">Polska</string>
+  <string name="revanced_spoof_video_streams_language_PT">Portugisiska</string>
   <string name="revanced_spoof_video_streams_language_RO">Rumänska</string>
   <string name="revanced_spoof_video_streams_language_RU">Ryska</string>
   <string name="revanced_spoof_video_streams_language_SK">Slovakiska</string>

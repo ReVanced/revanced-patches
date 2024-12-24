@@ -1288,11 +1288,25 @@ Omogočanje tega lahko odklene višje kakovosti videa"</string>
 Predvajanje videa morda ne bo delovalo"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Izklop te nastavitve lahko povzroči težave s predvajanjem videoposnetkov.</string>
   <string name="revanced_spoof_video_streams_client_type_title">Privzeti odjemalec</string>
-  <string name="revanced_spoof_video_streams_about_title">Stranski učinki zavajanja</string>
-  <string name="revanced_spoof_video_streams_about_summary">"• Manjka meni zvočnih posnetkov
+  <!-- 'no auth' means no authentication -->
+  <string name="revanced_spoof_video_streams_client_type_android_vr_no_auth">Android VR (brez avtorizacije)</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_title">Sile iOS AVC (H.264)</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Kodek videa je prisiljen v AVC (H.264)</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Kodek videa je določen samodejno</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">"Omogočanje tega bi lahko izboljšalo življenjsko dobo baterije in odpravilo zatikanje predvajanja.
+
+AVC ima največjo ločljivost 1080p, avdio kodek Opus ni na voljo, predvajanje videa pa bo porabilo več internetnih podatkov kot VP9 ali AV1."</string>
+  <string name="revanced_spoof_video_streams_about_ios_tv_title">iOS TV Stranski učinki spoofing</string>
+  <string name="revanced_spoof_video_streams_about_ios_tv_summary">"• Filmi ali plačani videoposnetki se morda ne bodo predvajali
+• Videoposnetki se končajo 1 sekundo prej"</string>
+  <string name="revanced_spoof_video_streams_about_android_title">Android Stranski učinki spoofing</string>
+  <string name="revanced_spoof_video_streams_about_android_summary">"• Manjka meni za izbiro zvočnega posnetka 
 • Stabilna glasnost ni na voljo
-• Prisilno izvirno zvočno posnetke ni na voljo"</string>
-  <string name="revanced_spoof_video_streams_language_title">Privzeti jezik zvočnega toka</string>
+• Prisilno izvirno zvočno posnetek ni na voljo"</string>
+  <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Pokaži v statistiki za piflarje</string>
+  <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Vrsta odjemalca je prikazana v statistiki za piflarje</string>
+  <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Odjemalec je skrit v statistiki za piflarje</string>
+  <string name="revanced_spoof_video_streams_language_title">Privzeti jezik zvočnega posnetka za VR</string>
   <string name="revanced_spoof_video_streams_language_DEFAULT">Jezik aplikacije</string>
   <string name="revanced_spoof_video_streams_language_AR">Arabski</string>
   <string name="revanced_spoof_video_streams_language_AZ">Azerbajdžanski</string>
@@ -1329,6 +1343,7 @@ Predvajanje videa morda ne bo delovalo"</string>
   <string name="revanced_spoof_video_streams_language_OR">Odia</string>
   <string name="revanced_spoof_video_streams_language_PA">Pandžabsko</string>
   <string name="revanced_spoof_video_streams_language_PL">Poljsko</string>
+  <string name="revanced_spoof_video_streams_language_PT">Portugalščina</string>
   <string name="revanced_spoof_video_streams_language_RO">Romunsko</string>
   <string name="revanced_spoof_video_streams_language_RU">Rusko</string>
   <string name="revanced_spoof_video_streams_language_SK">Slovaško</string>

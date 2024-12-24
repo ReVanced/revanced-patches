@@ -31,8 +31,7 @@ private const val EXTENSION_CLASS_DESCRIPTOR =
 @Suppress("unused")
 val forceOriginalAudioPatch = bytecodePatch(
     name = "Force original audio",
-    description = "Adds an option to always use the original audio track. " +
-            "This patch does nothing if 'Spoof video streams' is enabled.",
+    description = "Adds an option to always use the original audio track.",
 ) {
     dependsOn(
         sharedExtensionPatch,

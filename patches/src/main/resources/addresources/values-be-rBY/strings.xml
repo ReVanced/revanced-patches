@@ -1289,10 +1289,25 @@ Second \"item\" text"</string>
 Прайграванне відэа можа не працаваць"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Адключэнне гэтай налады можа выклікаць праблемы з прайграваннем відэа.</string>
   <string name="revanced_spoof_video_streams_client_type_title">Клиент по умолчанию</string>
-  <string name="revanced_spoof_video_streams_about_title">Падробка пабочных эфектаў</string>
-  <string name="revanced_spoof_video_streams_about_summary">"• Аўдыёдарожкі, пазначаныя як арыгінальныя, могуць быць зменены на іншыя
-• Функцыя \"Стабільная гучнасць\" недаступная"</string>
-  <string name="revanced_spoof_video_streams_language_title">Язык потока аудио по умолчанию</string>
+  <!-- 'no auth' means no authentication -->
+  <string name="revanced_spoof_video_streams_client_type_android_vr_no_auth">Android VR (няма аўтэнтыфікацыі)</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_title">Вымусіць iOS AVC (H.264)</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Відэакaдэк зафіксаваны ў AVC (H.264)</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Відэакaдэк вызначаецца аўтаматычна</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">"Уключэнне гэтага можа палепшыць час аўтаномнай працы і выправіць заіканне прайгравання.
+
+AVC мае максімальнае дазвол 1080p, аўдыёкадэк Opus недаступны, а прайграванне відэа будзе выкарыстоўваць больш інтэрнэт-даных, чым VP9 або AV1."</string>
+  <string name="revanced_spoof_video_streams_about_ios_tv_title">Побічныя эфекты падробкі iOS TV</string>
+  <string name="revanced_spoof_video_streams_about_ios_tv_summary">"• Фільмы або платныя відэа могуць не прайгравацца
+• Відэа заканчваюцца на 1 секунду раней"</string>
+  <string name="revanced_spoof_video_streams_about_android_title">Побічныя эфекты падробкі Android</string>
+  <string name="revanced_spoof_video_streams_about_android_summary">"• Меню гукавой дарожкі адсутнічае
+• Стабільны гук недаступны
+• Прымусовае арыгінальнае аўдыё недаступна"</string>
+  <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Паказаць у статыстыцы для спецыялістаў</string>
+  <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Тып кліента адлюстроўваецца ў статыстыцы для спецыялістаў</string>
+  <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Кліент схаваны ў статыстыцы для спецыялістаў</string>
+  <string name="revanced_spoof_video_streams_language_title">Мова гукавой дарожкі па змаўчанні для VR</string>
   <string name="revanced_spoof_video_streams_language_DEFAULT">Мова акаўнта</string>
   <string name="revanced_spoof_video_streams_language_AR">Арабский</string>
   <string name="revanced_spoof_video_streams_language_AZ">Азербайджанский</string>
@@ -1329,6 +1344,7 @@ Second \"item\" text"</string>
   <string name="revanced_spoof_video_streams_language_OR">Орія</string>
   <string name="revanced_spoof_video_streams_language_PA">Панджабский</string>
   <string name="revanced_spoof_video_streams_language_PL">Польская</string>
+  <string name="revanced_spoof_video_streams_language_PT">Партугальская</string>
   <string name="revanced_spoof_video_streams_language_RO">Румынская</string>
   <string name="revanced_spoof_video_streams_language_RU">Русская</string>
   <string name="revanced_spoof_video_streams_language_SK">Словацкия</string>

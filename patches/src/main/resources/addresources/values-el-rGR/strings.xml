@@ -1287,11 +1287,25 @@ Second \"item\" text"</string>
 Η αναπαραγωγή βίντεο ενδέχεται να μην λειτουργεί"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Η απενεργοποίηση αυτής της ρύθμισης ενδέχεται να προκαλέσει προβλήματα αναπαραγωγής βίντεο.</string>
   <string name="revanced_spoof_video_streams_client_type_title">Προεπιλεγμένο πρόγραμμα πελάτη</string>
-  <string name="revanced_spoof_video_streams_about_title">Παρενέργειες παραποίησης</string>
-  <string name="revanced_spoof_video_streams_about_summary">"• Το μενού «Κομμάτι ήχου» λείπει
+  <!-- 'no auth' means no authentication -->
+  <string name="revanced_spoof_video_streams_client_type_android_vr_no_auth">Android VR (χωρίς auth)</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_title">Εξαναγκασμός iOS AVC (H.264)</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Ο κωδικοποιητής βίντεο είναι αναγκαστικά AVC (H.264)</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Ο κωδικοποιητής βίντεο ορίζεται αυτόματα</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">"Η ενεργοποίηση αυτής της λειτουργίας ενδέχεται να βελτιώσει τη διάρκεια ζωής της μπαταρίας και να διορθώσει κολλήματα αναπαραγωγής.
+
+Ο AVC έχει μέγιστη ανάλυση 1080p, ο κωδικοποιητής ήχου Opus δεν είναι διαθέσιμος και η αναπαραγωγή βίντεο θα χρησιμοποιεί περισσότερα δεδομένα ίντερνετ από τον VP9 ή τον AV1."</string>
+  <string name="revanced_spoof_video_streams_about_ios_tv_title">Παρενέργειες παραποίησης σε iOS TV</string>
+  <string name="revanced_spoof_video_streams_about_ios_tv_summary">"• Οι ταινίες ή τα επί πληρωμή βίντεο ενδέχεται να μην αναπαράγονται
+• Τα βίντεο τελειώνουν 1 δευτερόλεπτο νωρίτερα"</string>
+  <string name="revanced_spoof_video_streams_about_android_title">Παρενέργειες παραποίησης σε Android</string>
+  <string name="revanced_spoof_video_streams_about_android_summary">"• Το μενού «Κομμάτι ήχου» λείπει
 • Η λειτουργία «Σταθερή ένταση» δεν είναι διαθέσιμη
-• Η λειτουργία εξαναγκασμού αρχικού ήχου δεν είναι διαθέσιμη"</string>
-  <string name="revanced_spoof_video_streams_language_title">Προεπιλεγμένη γλώσσα ροής ήχου</string>
+• Η λειτουργία «Εξαναγκασμός αρχικού ήχου» δεν είναι διαθέσιμη"</string>
+  <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Εμφάνιση στο μενού «Στατιστικά για σπασίκλες»</string>
+  <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Το πρόγραμμα πελάτη εμφανίζεται στο μενού «Στατιστικά για σπασίκλες»</string>
+  <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Το πρόγραμμα πελάτη δεν εμφανίζεται στο μενού «Στατιστικά για σπασίκλες»</string>
+  <string name="revanced_spoof_video_streams_language_title">Προεπιλεγμένη γλώσσα ροής ήχου VR</string>
   <string name="revanced_spoof_video_streams_language_DEFAULT">Γλώσσα λογαριασμού</string>
   <string name="revanced_spoof_video_streams_language_AR">Αραβικά</string>
   <string name="revanced_spoof_video_streams_language_AZ">Αζερμπαϊτζανικά</string>
@@ -1328,6 +1342,7 @@ Second \"item\" text"</string>
   <string name="revanced_spoof_video_streams_language_OR">Όντια</string>
   <string name="revanced_spoof_video_streams_language_PA">Παντζάμπι</string>
   <string name="revanced_spoof_video_streams_language_PL">Πολωνικά</string>
+  <string name="revanced_spoof_video_streams_language_PT">Πορτογαλικά</string>
   <string name="revanced_spoof_video_streams_language_RO">Ρουμανικά</string>
   <string name="revanced_spoof_video_streams_language_RU">Ρωσικά</string>
   <string name="revanced_spoof_video_streams_language_SK">Σλοβακικά</string>

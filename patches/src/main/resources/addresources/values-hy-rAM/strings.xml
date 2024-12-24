@@ -1288,11 +1288,25 @@ Mini-player-ը կարող է գրավվել էկրանից դուրս՝ դեպի
 Տեսանյութի վերարտադրումը կարող է չաշխատել։"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Այս  կարգավորման  անջատումը  կարող է  առաջացնել  տեսանյութի  վերարտադրման  հետ  կապված  պրոբլեմներ</string>
   <string name="revanced_spoof_video_streams_client_type_title">Դեֆոլտ  կլիենտ</string>
-  <string name="revanced_spoof_video_streams_about_title">Խաբեության կողմնակի ազդեցություններ</string>
-  <string name="revanced_spoof_video_streams_about_summary">"• Ձայնային ուղու ընտրացանկը բացակայում է
-• Կայուն ծավալը հասանելի չէ
-• Պարտադրել բնօրինակ ձայնը հասանելի չէ"</string>
-  <string name="revanced_spoof_video_streams_language_title">Ըստ նախապատվության, հնչյունային հոսքի լեզուն</string>
+  <!-- 'no auth' means no authentication -->
+  <string name="revanced_spoof_video_streams_client_type_android_vr_no_auth">Android VR (առանց հաստատման)</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_title">iOS-ի համար AVC (H.264) պարտադիր ակտիվացում</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Վիդեո կոդեկը պարտադիր կերպով AVC (H.264) է</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Վիդեո կոդեկը որոշվում է ավտոմատ կերպով</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">"Սա ակտիվացնելը կարող է բարելավել մարտկոցի աշխատանքի տևողությունը և վերացնել վերարտադրման խցկումները։
+
+AVC-ի առավելագույն թույլտվությունը 1080p է, Opus աուդիո կոդեկը հասանելի չէ, իսկ վիդեոյի վերարտադրումը VP9-ից կամ AV1-ից ավելի շատ ինտերնետ տվյալներ կօգտագործի։"</string>
+  <string name="revanced_spoof_video_streams_about_ios_tv_title">iOS TV խաբեության կողմնակի ազդեցություններ</string>
+  <string name="revanced_spoof_video_streams_about_ios_tv_summary">"• Ֆիլմերը կամ վճարովի տեսանյութերը կարող են չվերարտադրվել
+• Տեսանյութերն ավարտվում են 1 վայրկյան շուտ"</string>
+  <string name="revanced_spoof_video_streams_about_android_title">Android խաբեության կողմնակի ազդեցություններ</string>
+  <string name="revanced_spoof_video_streams_about_android_summary">"• Ձայնի գրառման ընտրացանկը բացակայում է
+• Ստաբիլ ձայն չկա
+• Իրական ձայնի ընտրությունը հասանելի չէ"</string>
+  <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Ցուցադրել վիճակագրության ակնոցներում</string>
+  <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Հաճախորդի տեսակը ցուցադրվում է վիճակագրության ակնոցներում</string>
+  <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Հաճախորդը թաքնված է վիճակագրության ակնոցներում</string>
+  <string name="revanced_spoof_video_streams_language_title">VR-ի համար նախապես ընտրված ձայնի գրառման լեզու</string>
   <string name="revanced_spoof_video_streams_language_DEFAULT">Հաշվի լեզու</string>
   <string name="revanced_spoof_video_streams_language_AR">Արաբերեն</string>
   <string name="revanced_spoof_video_streams_language_AZ">Ադրբեջաներեն</string>
@@ -1329,6 +1343,7 @@ Mini-player-ը կարող է գրավվել էկրանից դուրս՝ դեպի
   <string name="revanced_spoof_video_streams_language_OR">Օդիական</string>
   <string name="revanced_spoof_video_streams_language_PA">Փենջաբերեն</string>
   <string name="revanced_spoof_video_streams_language_PL">Լեհերեն</string>
+  <string name="revanced_spoof_video_streams_language_PT">Պորտուգալերեն</string>
   <string name="revanced_spoof_video_streams_language_RO">Ռումիներեն</string>
   <string name="revanced_spoof_video_streams_language_RU">Ռուսերեն</string>
   <string name="revanced_spoof_video_streams_language_SK">Սլովակերեն</string>
