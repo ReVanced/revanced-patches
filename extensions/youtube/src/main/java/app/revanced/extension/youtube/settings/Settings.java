@@ -233,6 +233,7 @@ public class Settings extends BaseSettings {
     public static final BooleanSetting HIDE_SHORTS_FULL_VIDEO_LINK_LABEL = new BooleanSetting("revanced_hide_shorts_full_video_link_label", FALSE);
     public static final BooleanSetting HIDE_SHORTS_GREEN_SCREEN_BUTTON = new BooleanSetting("revanced_hide_shorts_green_screen_button", TRUE);
     public static final BooleanSetting HIDE_SHORTS_HASHTAG_BUTTON = new BooleanSetting("revanced_hide_shorts_hashtag_button", TRUE);
+    public static final BooleanSetting HIDE_SHORTS_HISTORY = new BooleanSetting("revanced_hide_shorts_history", FALSE);
     public static final BooleanSetting HIDE_SHORTS_HOME = new BooleanSetting("revanced_hide_shorts_home", FALSE);
     public static final BooleanSetting HIDE_SHORTS_INFO_PANEL = new BooleanSetting("revanced_hide_shorts_info_panel", TRUE);
     public static final BooleanSetting HIDE_SHORTS_JOIN_BUTTON = new BooleanSetting("revanced_hide_shorts_join_button", TRUE);
