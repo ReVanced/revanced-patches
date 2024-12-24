@@ -1289,11 +1289,25 @@ Gali būti atrakinta aukštesnės vaizdo įrašų kokybės, bet galite patirti v
 Vaizdo įrašo atkūrimas gali neveikti"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Išjungus šį nustatymą, gali kilti vaizdo įrašų atkūrimo problemų.</string>
   <string name="revanced_spoof_video_streams_client_type_title">Numatytasis klientas</string>
-  <string name="revanced_spoof_video_streams_about_title">Apsimetimo šalutinis poveikis</string>
-  <string name="revanced_spoof_video_streams_about_summary">"• Nėra garso takelio meniu
-• Stabilus garsumas nepasiekiamas
-• Priverstinis originalus garsas nepasiekiamas"</string>
-  <string name="revanced_spoof_video_streams_language_title">Numatytoji garso srauto kalba</string>
+  <!-- 'no auth' means no authentication -->
+  <string name="revanced_spoof_video_streams_client_type_android_vr_no_auth">Android VR (be leidimo)</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_title">Priverstinė iOS AVC (H.264)</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Vaizdo kodekas yra priverstinai nustatytas kaip AVC (H.264)</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Vaizdo kodekas nustatomas automatiškai</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">"Įjungus šią funkciją gali pagerėti baterijos veikimo laikas ir nebebus vaizdo strigimo.
+
+AVC didžiausia skiriamoji geba yra 1080 p, „Opus“ garso kodekas negalimas, o vaizdo įrašo atkūrimas sunaudos daugiau interneto duomenų nei naudojant VP9 arba AV1."</string>
+  <string name="revanced_spoof_video_streams_about_ios_tv_title">iOS TV apsimetinėjimo šalutiniai poveikiai</string>
+  <string name="revanced_spoof_video_streams_about_ios_tv_summary">"• Filmai arba mokami vaizdo įrašai gali būti nerodomi
+• Vaizdo įrašai baigiasi 1 sek. anksčiau"</string>
+  <string name="revanced_spoof_video_streams_about_android_title">Android apsimetinėjimo šalutiniai poveikiai</string>
+  <string name="revanced_spoof_video_streams_about_android_summary">"• Trūksta garso takelio meniu
+• Nėra stabilaus garso
+• Negalima priverstinai naudoti originalo garso"</string>
+  <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Rodyti statistinėje informacijoje \"tik profesionalams\"</string>
+  <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Kliento tipas rodomas statistinėje informacijoje \"tik profesionalams\"</string>
+  <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Klientas paslėptas statistinėje informacijoje \"tik profesionalams\"</string>
+  <string name="revanced_spoof_video_streams_language_title">VR numatytoji srautinio garso kalba</string>
   <string name="revanced_spoof_video_streams_language_DEFAULT">Paskyros kalba</string>
   <string name="revanced_spoof_video_streams_language_AR">Arabų</string>
   <string name="revanced_spoof_video_streams_language_AZ">Azerbaidžaniečių</string>
@@ -1330,6 +1344,7 @@ Vaizdo įrašo atkūrimas gali neveikti"</string>
   <string name="revanced_spoof_video_streams_language_OR">Odisų</string>
   <string name="revanced_spoof_video_streams_language_PA">Pandžabų</string>
   <string name="revanced_spoof_video_streams_language_PL">Lenkų</string>
+  <string name="revanced_spoof_video_streams_language_PT">Portugalų</string>
   <string name="revanced_spoof_video_streams_language_RO">Rumunų</string>
   <string name="revanced_spoof_video_streams_language_RU">Rusų</string>
   <string name="revanced_spoof_video_streams_language_SK">Slovakų</string>

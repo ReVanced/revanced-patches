@@ -1288,11 +1288,25 @@ Het inschakelen hiervan kan hogere videokwaliteiten ontgrendelen"</string>
 Video-playback werkt mogelijk niet"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Het uitschakelen van deze instelling kan afspeelproblemen veroorzaken.</string>
   <string name="revanced_spoof_video_streams_client_type_title">Standaard client</string>
-  <string name="revanced_spoof_video_streams_about_title">Bijkomende effecten vervalsen</string>
-  <string name="revanced_spoof_video_streams_about_summary">"• Geluidsspoormenu ontbreekt
+  <!-- 'no auth' means no authentication -->
+  <string name="revanced_spoof_video_streams_client_type_android_vr_no_auth">Android VR (geen authenticatie)</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_title">Forceer iOS AVC (H.264)</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">De videocodec is geforceerd naar AVC (H.264).</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">De videocodec wordt automatisch bepaald.</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">"Als u deze functie inschakelt, kan de batterijduur worden verlengd en kan schokkerig afspelen worden verholpen.
+
+AVC heeft een maximale resolutie van 1080p, de Opus-audiocodec is niet beschikbaar en videoweergave verbruikt meer internetgegevens dan VP9 of AV1."</string>
+  <string name="revanced_spoof_video_streams_about_ios_tv_title">Bijwerkingen van iOS TV-spoofing</string>
+  <string name="revanced_spoof_video_streams_about_ios_tv_summary">"• Films of betaalde video's kunnen niet worden afgespeeld
+• Video's eindigen 1 seconde te vroeg"</string>
+  <string name="revanced_spoof_video_streams_about_android_title">Bijwerkingen van Android-spoofing</string>
+  <string name="revanced_spoof_video_streams_about_android_summary">"• Het menu Audiotracks ontbreekt
 • Stabiel volume is niet beschikbaar
-• Orignieel geluid afdwingen is niet beschikbaar"</string>
-  <string name="revanced_spoof_video_streams_language_title">Standaardtaal voor audiostream</string>
+• Forceer originele audio is niet beschikbaar"</string>
+  <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Weergeven in Stats for nerds</string>
+  <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Het clienttype wordt getoond in Stats for nerds</string>
+  <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Client is verborgen in Stats for nerds</string>
+  <string name="revanced_spoof_video_streams_language_title">Standaardtaal van VR-audiostream</string>
   <string name="revanced_spoof_video_streams_language_DEFAULT">App-taal</string>
   <string name="revanced_spoof_video_streams_language_AR">Arabisch</string>
   <string name="revanced_spoof_video_streams_language_AZ">Azerbeidzjaans</string>
@@ -1329,6 +1343,7 @@ Video-playback werkt mogelijk niet"</string>
   <string name="revanced_spoof_video_streams_language_OR">Odia</string>
   <string name="revanced_spoof_video_streams_language_PA">Punjabi</string>
   <string name="revanced_spoof_video_streams_language_PL">Pools</string>
+  <string name="revanced_spoof_video_streams_language_PT">Portugees</string>
   <string name="revanced_spoof_video_streams_language_RO">Roemeens</string>
   <string name="revanced_spoof_video_streams_language_RU">Russisch</string>
   <string name="revanced_spoof_video_streams_language_SK">Slowaaks</string>

@@ -1289,11 +1289,25 @@ DeArrow সম্পর্কে আরও জানতে এখানে ট�
 ভিডিও প্লেব্যাক কাজ নাও করতে পারে"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">এই সেটিংটি বন্ধ করার ফলে ভিডিও প্লেব্যাক ত্রুটি হতে পারে।</string>
   <string name="revanced_spoof_video_streams_client_type_title">ডিফল্ট ক্লায়েন্ট</string>
-  <string name="revanced_spoof_video_streams_about_title">স্পুফিং এর পার্শ্বপ্রতিক্রিয়া</string>
-  <string name="revanced_spoof_video_streams_about_summary">"• অডিও ট্র্যাক মেনু অনুপস্থিত
-• স্থিতিশীল ভলিউম উপলব্ধ নয়
-• জোর করে মূল অডিও উপলব্ধ নয়৷"</string>
-  <string name="revanced_spoof_video_streams_language_title">ডিফল্ট অডিও স্ট্রিম ভাষা</string>
+  <!-- 'no auth' means no authentication -->
+  <string name="revanced_spoof_video_streams_client_type_android_vr_no_auth">Android VR (স্বীকৃতি ছাড়া)</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_title">iOS AVC (H.264) বাধ্যতামূলক করুন</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">ভিডিও কোডেক AVC (H.264) এ বাধ্যতামূলক করা হয়েছে</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">ভিডিও কোডেক স্বয়ংক্রিয়ভাবে নির্ধারিত হয়</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">"এটি সক্ষম করলে ব্যাটারি লাইফ উন্নত হতে পারে এবং প্লেব্যাক স্টাটারিং সমস্যা সমাধান হতে পারে।
+
+AVC-এর সর্বোচ্চ রেজোলিউশন হল 1080p, Opus অডিও কোডেক পাওয়া যায় না এবং VP9 বা AV1-এর তুলনায় ভিডিও প্লেব্যাকে বেশি ইন্টারনেট ডেটা ব্যবহার করা হবে。"</string>
+  <string name="revanced_spoof_video_streams_about_ios_tv_title">iOS TV স্পুফিংয়ের পার্শ্বপ্রতিক্রিয়া</string>
+  <string name="revanced_spoof_video_streams_about_ios_tv_summary">"• চলচ্চিত্র বা পেইড ভিডিও চালু হতে পারে না
+• ভিডিও 1 সেকেন্ড আগে শেষ হয়"</string>
+  <string name="revanced_spoof_video_streams_about_android_title">Android স্পুফিংয়ের পার্শ্বপ্রতিক্রিয়া</string>
+  <string name="revanced_spoof_video_streams_about_android_summary">"• অডিও ট্র্যাক মেনু নেই
+• স্থির ভলিউম পাওয়া যায় না
+• মূল অডিও জোর করে চালু করা যায় না"</string>
+  <string name="revanced_spoof_streaming_data_stats_for_nerds_title">স্ট্যাটস ফর নার্ডসে দেখান</string>
+  <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">স্ট্যাটস ফর নার্ডসে ক্লায়েন্ট প্রকার দেখানো হবে</string>
+  <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">স্ট্যাটস ফর নার্ডসে ক্লায়েন্ট লুকানো হবে</string>
+  <string name="revanced_spoof_video_streams_language_title">VR ডিফল্ট অডিও স্ট্রিম ভাষা</string>
   <string name="revanced_spoof_video_streams_language_DEFAULT">অ্যাপ ভাষা</string>
   <string name="revanced_spoof_video_streams_language_AR">আরবি</string>
   <string name="revanced_spoof_video_streams_language_AZ">আজারবাইজানি</string>
@@ -1330,6 +1344,7 @@ DeArrow সম্পর্কে আরও জানতে এখানে ট�
   <string name="revanced_spoof_video_streams_language_OR">ওড়িয়া</string>
   <string name="revanced_spoof_video_streams_language_PA">পঞ্জাবি</string>
   <string name="revanced_spoof_video_streams_language_PL">পোলিশ</string>
+  <string name="revanced_spoof_video_streams_language_PT">পর্তুগিজ</string>
   <string name="revanced_spoof_video_streams_language_RO">রোমানীয়</string>
   <string name="revanced_spoof_video_streams_language_RU">রাশিয়ান</string>
   <string name="revanced_spoof_video_streams_language_SK">স্লোভাক</string>

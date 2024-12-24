@@ -1286,11 +1286,15 @@ Abilitare questa opzione può sbloccare qualità video più elevate"</string>
 La riproduzione video potrebbe non funzionare"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Disattivando questa impostazione potrebbe causare problemi di riproduzione video.</string>
   <string name="revanced_spoof_video_streams_client_type_title">Client predefinito</string>
-  <string name="revanced_spoof_video_streams_about_title">Effetti collaterali della simulazione</string>
-  <string name="revanced_spoof_video_streams_about_summary">"• Il menu traccia audio è mancante
-• Il volume stabile non è disponibile
-• Forza l'audio originale non è disponibile"</string>
-  <string name="revanced_spoof_video_streams_language_title">Lingua predefinita del flusso audio</string>
+  <!-- 'no auth' means no authentication -->
+  <string name="revanced_spoof_video_streams_ios_force_avc_title">Forzare AVC (H.264) iOS</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Il codec video è forzato ad AVC (H.264)</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Il codec video è determinato automaticamente</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">"L'abilitazione di questa opzione potrebbe migliorare la durata della batteria e risolvere i problemi di stuttering durante la riproduzione.
+
+AVC ha una risoluzione massima di 1080p, il codec audio Opus non è disponibile e la riproduzione video utilizzerà più dati Internet rispetto a VP9 o AV1."</string>
+  <string name="revanced_spoof_video_streams_about_ios_tv_summary">"• I film o i video a pagamento potrebbero non essere riproducibili
+• I video terminano 1 secondo prima"</string>
   <string name="revanced_spoof_video_streams_language_DEFAULT">Lingua dell\'account</string>
   <string name="revanced_spoof_video_streams_language_AR">Arabo</string>
   <string name="revanced_spoof_video_streams_language_AZ">Azerbaigiano</string>
