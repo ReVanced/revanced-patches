@@ -629,15 +629,9 @@ Remarque : l'activation de cette option masque également de force les annonces
   <string name="revanced_shorts_player_screen_summary">Cacher ou afficher les composants dans le joueur Shorts</string>
   <!-- 'home' should be translated using the same localized wording YouTube displays for the home tab. -->
   <string name="revanced_hide_shorts_home_title">Cacher les Shorts dans la page d\'accueil</string>
-  <string name="revanced_hide_shorts_home_summary_on">Les courts dans le flux domestique sont cachés</string>
-  <string name="revanced_hide_shorts_home_summary_off">Les shorts dans le home feed sont affichés</string>
   <!-- 'subscription' should be translated using the same localized wording YouTube displays for the subscription tab. -->
   <string name="revanced_hide_shorts_subscriptions_title">Cacher les Shorts dans le flux d\'abonnement</string>
-  <string name="revanced_hide_shorts_subscriptions_summary_on">Les courts dans le flux d\'abonnement sont masqués</string>
-  <string name="revanced_hide_shorts_subscriptions_summary_off">Les courts dans le flux d\'abonnement sont affichés</string>
   <string name="revanced_hide_shorts_search_title">Cacher les Shorts dans les résultats de recherche</string>
-  <string name="revanced_hide_shorts_search_summary_on">Les courts dans les résultats de recherche sont masqués</string>
-  <string name="revanced_hide_shorts_search_summary_off">Les courts dans les résultats de recherche sont affichés</string>
   <!-- 'join' should be translated using the same localized wording YouTube displays for the button. -->
   <string name="revanced_hide_shorts_join_button_title">Masquer le bouton de jointure</string>
   <string name="revanced_hide_shorts_join_button_summary_on">Le bouton \"Rejoindre\" est masqué</string>
@@ -1296,8 +1290,9 @@ La lecture vidéo peut ne pas fonctionner"</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">"L'activation de cette option pourrait améliorer l'autonomie de la batterie et corriger le bégaiement de la lecture.
 
 AVC a une résolution maximale de 1080p, le codec audio Opus n'est pas disponible et la lecture vidéo utilisera plus de données Internet que VP9 ou AV1."</string>
-  <string name="revanced_spoof_video_streams_about_ios_tv_title">Effets secondaires de l\'usurpation de l\'identité iOS TV</string>
-  <string name="revanced_spoof_video_streams_about_ios_tv_summary">"• Les films ou les vidéos payantes peuvent ne pas être lus
+  <string name="revanced_spoof_video_streams_about_ios_tv_title">Effets secondaires de l\'usurpation d\'identité iOS</string>
+  <string name="revanced_spoof_video_streams_about_ios_tv_summary">"• Les films ou les vidéos payantes risquent de ne pas être lus
+• Le volume stable n'est pas disponible
 • Les vidéos se terminent 1 seconde plus tôt"</string>
   <string name="revanced_spoof_video_streams_about_android_title">Effets secondaires du hameçonnage Android</string>
   <string name="revanced_spoof_video_streams_about_android_summary">"• Le menu des pistes audio est manquant

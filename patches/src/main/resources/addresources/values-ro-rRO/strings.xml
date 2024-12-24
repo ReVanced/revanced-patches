@@ -629,15 +629,9 @@ Notă: Activarea acestei opțiuni ascunde, de asemenea, forțat reclamele video"
   <string name="revanced_shorts_player_screen_summary">Ascunde sau afișează componente în playerul Shorts</string>
   <!-- 'home' should be translated using the same localized wording YouTube displays for the home tab. -->
   <string name="revanced_hide_shorts_home_title">Ascunde Short din feed-ul de acasă</string>
-  <string name="revanced_hide_shorts_home_summary_on">Shorts în fluxul de acasă sunt ascunse</string>
-  <string name="revanced_hide_shorts_home_summary_off">Sunt afișate Shorts în fluxul de acasă</string>
   <!-- 'subscription' should be translated using the same localized wording YouTube displays for the subscription tab. -->
   <string name="revanced_hide_shorts_subscriptions_title">Ascundeți Shorts în fluxul de abonament</string>
-  <string name="revanced_hide_shorts_subscriptions_summary_on">Shorts din feed-ul abonamentelor sunt ascunse</string>
-  <string name="revanced_hide_shorts_subscriptions_summary_off">Shorts din feed-ul abonamentelor sunt afișate</string>
   <string name="revanced_hide_shorts_search_title">Ascunde Shorts în rezultatele căutării</string>
-  <string name="revanced_hide_shorts_search_summary_on">Shorts în rezultatele căutării sunt ascunse</string>
-  <string name="revanced_hide_shorts_search_summary_off">Sunt afișate Shorts în rezultatele căutării</string>
   <!-- 'join' should be translated using the same localized wording YouTube displays for the button. -->
   <string name="revanced_hide_shorts_join_button_title">Ascunde butonul de alăturare</string>
   <string name="revanced_hide_shorts_join_button_summary_on">Butonul de alăturare este ascuns</string>
@@ -1296,9 +1290,10 @@ Este posibil ca redarea video să nu funcționeze"</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">"Activarea acestei opțiuni ar putea îmbunătăți durata de viață a bateriei și remedia întreruperile redării.
 
 AVC are o rezoluție maximă de 1080p, codecul audio Opus nu este disponibil, iar redarea video va folosi mai multe date de internet decât VP9 sau AV1."</string>
-  <string name="revanced_spoof_video_streams_about_ios_tv_title">Efecte secundare spoofing iOS TV</string>
-  <string name="revanced_spoof_video_streams_about_ios_tv_summary">"• Filmele sau videoclipurile plătite s-ar putea să nu fie redate
-• Videoclipurile se termină cu 1 secundă mai devreme"</string>
+  <string name="revanced_spoof_video_streams_about_ios_tv_title">Efecte secundare ale falsificării iOS</string>
+  <string name="revanced_spoof_video_streams_about_ios_tv_summary">"• Este posibil ca filmele sau videoclipurile plătite să nu se redea.
+• Volumul stabil nu este disponibil.
+• Videoclipurile se termină cu 1 secundă mai devreme."</string>
   <string name="revanced_spoof_video_streams_about_android_title">Efecte secundare spoofing Android</string>
   <string name="revanced_spoof_video_streams_about_android_summary">"• Meniul cu piesele audio lipsește
 • Volumul stabil nu este disponibil

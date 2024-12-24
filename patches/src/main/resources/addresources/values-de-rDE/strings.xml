@@ -623,15 +623,9 @@ Hinweis: Durch Aktivieren dieser Option wird auch die Videowerbung zwangsweise a
   <string name="revanced_shorts_player_screen_summary">Komponenten im Shorts Spieler ausblenden oder anzeigen</string>
   <!-- 'home' should be translated using the same localized wording YouTube displays for the home tab. -->
   <string name="revanced_hide_shorts_home_title">Shorts im Home Feed ausblenden</string>
-  <string name="revanced_hide_shorts_home_summary_on">Shorts im Home Feed sind ausgeblendet</string>
-  <string name="revanced_hide_shorts_home_summary_off">Shorts im Home Feed werden angezeigt</string>
   <!-- 'subscription' should be translated using the same localized wording YouTube displays for the subscription tab. -->
   <string name="revanced_hide_shorts_subscriptions_title">Shorts im Abonnement-Feed ausblenden</string>
-  <string name="revanced_hide_shorts_subscriptions_summary_on">Shorts im Abonnement-Feed sind ausgeblendet</string>
-  <string name="revanced_hide_shorts_subscriptions_summary_off">Shorts im Abonnement-Feed werden angezeigt</string>
   <string name="revanced_hide_shorts_search_title">Shorts in den Suchergebnissen ausblenden</string>
-  <string name="revanced_hide_shorts_search_summary_on">Shorts in den Suchergebnissen sind ausgeblendet</string>
-  <string name="revanced_hide_shorts_search_summary_off">Shorts in den Suchergebnissen werden angezeigt</string>
   <!-- 'join' should be translated using the same localized wording YouTube displays for the button. -->
   <string name="revanced_hide_shorts_join_button_title">Beitritts-Button ausblenden</string>
   <string name="revanced_hide_shorts_join_button_summary_on">Join Button ist ausgeblendet</string>
@@ -1290,8 +1284,9 @@ Die Videowiedergabe funktioniert möglicherweise nicht"</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">"Aktivieren Sie dies, um die Akkulaufzeit zu verbessern und Ruckeln bei der Wiedergabe zu beheben.
 
 AVC hat eine maximale Auflösung von 1080p, Opus-Audiocodec ist nicht verfügbar und die Videowiedergabe verbraucht mehr Internetdaten als VP9 oder AV1."</string>
-  <string name="revanced_spoof_video_streams_about_ios_tv_title">iOS und TV-Spoofing-Nebenwirkungen</string>
-  <string name="revanced_spoof_video_streams_about_ios_tv_summary">"• Filme oder kostenpflichtige Videos werden möglicherweise nicht abgespielt
+  <string name="revanced_spoof_video_streams_about_ios_tv_title">iOS-Spoofing-Nebenwirkungen</string>
+  <string name="revanced_spoof_video_streams_about_ios_tv_summary">"• Filme oder kostenpflichtige Videos können möglicherweise nicht abgespielt werden
+• Eine stabile Lautstärke ist nicht verfügbar
 • Videos enden 1 Sekunde zu früh"</string>
   <string name="revanced_spoof_video_streams_about_android_title">Android-Spoofing-Nebenwirkungen</string>
   <string name="revanced_spoof_video_streams_about_android_summary">"• Audiospur-Menü fehlt

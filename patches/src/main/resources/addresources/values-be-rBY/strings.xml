@@ -629,15 +629,9 @@ Second \"item\" text"</string>
   <string name="revanced_shorts_player_screen_summary">Схаваць або паказаць кампаненты ў прайгравальніку Shorts</string>
   <!-- 'home' should be translated using the same localized wording YouTube displays for the home tab. -->
   <string name="revanced_hide_shorts_home_title">Схаваць шорты ў хатняй стужцы</string>
-  <string name="revanced_hide_shorts_home_summary_on">Shorts у стужцы хатняй старонкі схаваны</string>
-  <string name="revanced_hide_shorts_home_summary_off">Shorts у стужцы хатняй старонкі паказаны</string>
   <!-- 'subscription' should be translated using the same localized wording YouTube displays for the subscription tab. -->
   <string name="revanced_hide_shorts_subscriptions_title">Схаваць Shorts у стужцы падпіскі</string>
-  <string name="revanced_hide_shorts_subscriptions_summary_on">Shorts у стужцы падпіскі схаваны</string>
-  <string name="revanced_hide_shorts_subscriptions_summary_off">Shorts у стужцы падпіскі паказаны</string>
   <string name="revanced_hide_shorts_search_title">Схаваць Shorts у выніках пошуку</string>
-  <string name="revanced_hide_shorts_search_summary_on">Shorts у выніках пошуку схаваны</string>
-  <string name="revanced_hide_shorts_search_summary_off">Shorts у выніках пошуку паказаны</string>
   <!-- 'join' should be translated using the same localized wording YouTube displays for the button. -->
   <string name="revanced_hide_shorts_join_button_title">Схаваць кнопку далучыцца</string>
   <string name="revanced_hide_shorts_join_button_summary_on">Кнопка «Далучыцца» схавана</string>
@@ -1297,8 +1291,9 @@ Second \"item\" text"</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">"Уключэнне гэтага можа палепшыць час аўтаномнай працы і выправіць заіканне прайгравання.
 
 AVC мае максімальнае дазвол 1080p, аўдыёкадэк Opus недаступны, а прайграванне відэа будзе выкарыстоўваць больш інтэрнэт-даных, чым VP9 або AV1."</string>
-  <string name="revanced_spoof_video_streams_about_ios_tv_title">Побічныя эфекты падробкі iOS TV</string>
+  <string name="revanced_spoof_video_streams_about_ios_tv_title">Пабочныя эфекты падробкі iOS</string>
   <string name="revanced_spoof_video_streams_about_ios_tv_summary">"• Фільмы або платныя відэа могуць не прайгравацца
+• Стабільная гучнасць недаступная
 • Відэа заканчваюцца на 1 секунду раней"</string>
   <string name="revanced_spoof_video_streams_about_android_title">Побічныя эфекты падробкі Android</string>
   <string name="revanced_spoof_video_streams_about_android_summary">"• Меню гукавой дарожкі адсутнічае

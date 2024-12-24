@@ -628,15 +628,9 @@ Nota: Habilitar isso também oculta os anúncios em vídeo"</string>
   <string name="revanced_shorts_player_screen_summary">Ocultar ou mostrar componentes no reprodutor de Shorts</string>
   <!-- 'home' should be translated using the same localized wording YouTube displays for the home tab. -->
   <string name="revanced_hide_shorts_home_title">Ocultar Shorts na tela inicial</string>
-  <string name="revanced_hide_shorts_home_summary_on">Os Shorts no feed inicial estão ocultos</string>
-  <string name="revanced_hide_shorts_home_summary_off">Shorts no feed inicial são mostrados</string>
   <!-- 'subscription' should be translated using the same localized wording YouTube displays for the subscription tab. -->
   <string name="revanced_hide_shorts_subscriptions_title">Ocultar Shorts na tela inscrições</string>
-  <string name="revanced_hide_shorts_subscriptions_summary_on">Shorts na tela inscrições estão ocultos</string>
-  <string name="revanced_hide_shorts_subscriptions_summary_off">Shorts na tela inscrições não estão ocultos</string>
   <string name="revanced_hide_shorts_search_title">Ocultar Shorts nos resultados de pesquisa</string>
-  <string name="revanced_hide_shorts_search_summary_on">Os shorts no feed de assinatura são exibidos</string>
-  <string name="revanced_hide_shorts_search_summary_off">Shorts nos resultados da pesquisa são mostrados</string>
   <!-- 'join' should be translated using the same localized wording YouTube displays for the button. -->
   <string name="revanced_hide_shorts_join_button_title">Ocultar botão seja membro</string>
   <string name="revanced_hide_shorts_join_button_summary_on">Botão seja membro está oculto</string>
@@ -1294,8 +1288,9 @@ A reprodução de vídeo pode não funcionar"</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">"A ativação desta opção pode aumentar a vida útil da bateria e corrigir problemas de reprodução.
 
 A AVC tem uma resolução máxima de 1080p, o codec de áudio Opus não está disponível, e a reprodução de vídeo usará mais dados de internet do que VP9 ou AV1."</string>
-  <string name="revanced_spoof_video_streams_about_ios_tv_title">Efeitos colaterais da falsificação da iOS TV</string>
+  <string name="revanced_spoof_video_streams_about_ios_tv_title">Efeitos colaterais da falsificação do iOS</string>
   <string name="revanced_spoof_video_streams_about_ios_tv_summary">"• Filmes ou vídeos pagos podem não ser reproduzidos
+• O volume estável não está disponível
 • Os vídeos terminam 1 segundo antes"</string>
   <string name="revanced_spoof_video_streams_about_android_title">Efeitos colaterais da falsificação do Android</string>
   <string name="revanced_spoof_video_streams_about_android_summary">"• Menu de faixa de áudio está faltando

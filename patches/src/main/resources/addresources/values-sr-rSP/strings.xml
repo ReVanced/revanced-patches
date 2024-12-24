@@ -628,15 +628,9 @@ Second \"item\" text"</string>
   <string name="revanced_shorts_player_screen_summary">Сакријте или прикажите компоненте у Shorts плејеру</string>
   <!-- 'home' should be translated using the same localized wording YouTube displays for the home tab. -->
   <string name="revanced_hide_shorts_home_title">Сакриј Shorts видее у фиду „Почетна”</string>
-  <string name="revanced_hide_shorts_home_summary_on">Shorts видеи у фиду „Почетна” су скривени</string>
-  <string name="revanced_hide_shorts_home_summary_off">Shorts видеи у фиду „Почетна” су приказани</string>
   <!-- 'subscription' should be translated using the same localized wording YouTube displays for the subscription tab. -->
   <string name="revanced_hide_shorts_subscriptions_title">Сакриј Shorts видее у фиду „Праћења”</string>
-  <string name="revanced_hide_shorts_subscriptions_summary_on">Shorts видеи у фиду „Праћења” су скривени</string>
-  <string name="revanced_hide_shorts_subscriptions_summary_off">Shorts видеи у фиду „Праћења” су приказани</string>
   <string name="revanced_hide_shorts_search_title">Сакриј Shorts видее у резултатима претраге</string>
-  <string name="revanced_hide_shorts_search_summary_on">Shorts видеи у резултатима претраге су скривени</string>
-  <string name="revanced_hide_shorts_search_summary_off">Shorts видеи у резултатима претраге су приказани</string>
   <!-- 'join' should be translated using the same localized wording YouTube displays for the button. -->
   <string name="revanced_hide_shorts_join_button_title">Сакриј дугме „Учлани ме”</string>
   <string name="revanced_hide_shorts_join_button_summary_on">Дугме „Учлани ме” је скривено</string>
@@ -1294,9 +1288,10 @@ Second \"item\" text"</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">"Омогућавање овога може побољшати трајање батерије и поправити застоје при репродукцији.
 
 AVC има максималну резолуцију од 1080p, аудио кодек Opus није доступан, а репродукција видеа ће користити више интернет података него VP9 или AV1."</string>
-  <string name="revanced_spoof_video_streams_about_ios_tv_title">Нежељени ефекти лажирања на iOS TV</string>
+  <string name="revanced_spoof_video_streams_about_ios_tv_title">Нeжељени ефекти лажирања iOS TV</string>
   <string name="revanced_spoof_video_streams_about_ios_tv_summary">"• Филмови или плаћени видеи се можда неће пуштати
-• Видеи ће се завршавати 1 секунду раније"</string>
+• Стабилна јачина звука није доступна
+• Видео завршавају 1 секунду раније"</string>
   <string name="revanced_spoof_video_streams_about_android_title">Нежељени ефекти лажирања на Android</string>
   <string name="revanced_spoof_video_streams_about_android_summary">"• Мени „Аудио снимак” недостаје
 • Уједначена јачина звука није доступна

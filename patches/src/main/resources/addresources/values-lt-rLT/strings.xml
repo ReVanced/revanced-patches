@@ -628,15 +628,9 @@ Pastaba: įjungus šį nustatymą, vaizdo įrašų reklamos taip pat yra privers
   <string name="revanced_shorts_player_screen_summary">Slėpti arba rodyti komponentus Shorts grotuve</string>
   <!-- 'home' should be translated using the same localized wording YouTube displays for the home tab. -->
   <string name="revanced_hide_shorts_home_title">Slėpti Shorts namų kanale</string>
-  <string name="revanced_hide_shorts_home_summary_on">Shorts namų kanale yra paslėpti</string>
-  <string name="revanced_hide_shorts_home_summary_off">Shorts namų kanale yra rodomi</string>
   <!-- 'subscription' should be translated using the same localized wording YouTube displays for the subscription tab. -->
   <string name="revanced_hide_shorts_subscriptions_title">Slėpti Shorts prenumeratų kanale</string>
-  <string name="revanced_hide_shorts_subscriptions_summary_on">Shorts prenumeratų kanale yra paslėpti</string>
-  <string name="revanced_hide_shorts_subscriptions_summary_off">Shorts prenumeratų kanale yra rodomi</string>
   <string name="revanced_hide_shorts_search_title">Slėpti Shorts paieškos rezultatuose</string>
-  <string name="revanced_hide_shorts_search_summary_on">Shorts paieškos rezultatuose yra paslėpti</string>
-  <string name="revanced_hide_shorts_search_summary_off">Shorts paieškos rezultatuose yra rodomi</string>
   <!-- 'join' should be translated using the same localized wording YouTube displays for the button. -->
   <string name="revanced_hide_shorts_join_button_title">Slėpti prisijungimo mygtuką</string>
   <string name="revanced_hide_shorts_join_button_summary_on">Prisijungimo mygtukas yra paslėptas</string>
@@ -1297,9 +1291,10 @@ Vaizdo įrašo atkūrimas gali neveikti"</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">"Įjungus šią funkciją gali pagerėti baterijos veikimo laikas ir nebebus vaizdo strigimo.
 
 AVC didžiausia skiriamoji geba yra 1080 p, „Opus“ garso kodekas negalimas, o vaizdo įrašo atkūrimas sunaudos daugiau interneto duomenų nei naudojant VP9 arba AV1."</string>
-  <string name="revanced_spoof_video_streams_about_ios_tv_title">iOS TV apsimetinėjimo šalutiniai poveikiai</string>
-  <string name="revanced_spoof_video_streams_about_ios_tv_summary">"• Filmai arba mokami vaizdo įrašai gali būti nerodomi
-• Vaizdo įrašai baigiasi 1 sek. anksčiau"</string>
+  <string name="revanced_spoof_video_streams_about_ios_tv_title">„iOS“ apsimetinėjimo šalutiniai poveikiai</string>
+  <string name="revanced_spoof_video_streams_about_ios_tv_summary">"• Filmai ar mokami vaizdo įrašai gali būti neatkuriami
+• Stabilaus garso lygio nėra
+• Vaizdo įrašai baigiasi 1 sekunde anksčiau"</string>
   <string name="revanced_spoof_video_streams_about_android_title">Android apsimetinėjimo šalutiniai poveikiai</string>
   <string name="revanced_spoof_video_streams_about_android_summary">"• Trūksta garso takelio meniu
 • Nėra stabilaus garso

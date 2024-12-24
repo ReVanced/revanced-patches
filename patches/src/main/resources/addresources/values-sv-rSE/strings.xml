@@ -629,15 +629,9 @@ Obs: Genom att aktivera detta döljs även videoannonser"</string>
   <string name="revanced_shorts_player_screen_summary">Dölj eller visa komponenter i Shorts spelaren</string>
   <!-- 'home' should be translated using the same localized wording YouTube displays for the home tab. -->
   <string name="revanced_hide_shorts_home_title">Dölj Shorts i hemmatningsflödet</string>
-  <string name="revanced_hide_shorts_home_summary_on">Shorts i hemmatningsflödet är dolda</string>
-  <string name="revanced_hide_shorts_home_summary_off">Shorts i hemflödet är synliga</string>
   <!-- 'subscription' should be translated using the same localized wording YouTube displays for the subscription tab. -->
   <string name="revanced_hide_shorts_subscriptions_title">Dölj Shorts i prenumerationsflöde</string>
-  <string name="revanced_hide_shorts_subscriptions_summary_on">Shorts i prenumerationsflödet är dolda</string>
-  <string name="revanced_hide_shorts_subscriptions_summary_off">Shorts i prenumerationsflödet är synliga</string>
   <string name="revanced_hide_shorts_search_title">Dölj Shorts i sökresultat</string>
-  <string name="revanced_hide_shorts_search_summary_on">Shorts i sökresultat är dolda</string>
-  <string name="revanced_hide_shorts_search_summary_off">Shorts i sökresultat är synliga</string>
   <!-- 'join' should be translated using the same localized wording YouTube displays for the button. -->
   <string name="revanced_hide_shorts_join_button_title">Dölj knappen gå med</string>
   <string name="revanced_hide_shorts_join_button_summary_on">Knappen gå med är dold</string>
@@ -1295,9 +1289,10 @@ Videouppspelning kanske inte fungerar"</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">"Att aktivera detta kan förbättra batteritiden och åtgärda hackande uppspelning.
 
 AVC har en maximal upplösning på 1080p, Opus-ljudkodek är inte tillgänglig och videouppspelning använder mer internetdata än VP9 eller AV1."</string>
-  <string name="revanced_spoof_video_streams_about_ios_tv_title">Bieffekter av iOS TV-förfalskning</string>
-  <string name="revanced_spoof_video_streams_about_ios_tv_summary">"• Filmer eller betalda videor kanske inte spelas
-• Videor avslutas 1 sekund för tidigt"</string>
+  <string name="revanced_spoof_video_streams_about_ios_tv_title">Biverkningar av iOS-förfalskning</string>
+  <string name="revanced_spoof_video_streams_about_ios_tv_summary">"• Filmer eller betalda videor kanske inte spelas upp
+• Stabil volym är inte tillgänglig
+• Videor slutar 1 sekund för tidigt"</string>
   <string name="revanced_spoof_video_streams_about_android_title">Biverkningar av Android-förfalskning</string>
   <string name="revanced_spoof_video_streams_about_android_summary">"• Ljudspårsmenyn saknas
 • Stabilt ljud är inte tillgängligt

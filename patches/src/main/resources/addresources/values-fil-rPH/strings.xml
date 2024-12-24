@@ -629,15 +629,15 @@ Tandaan: Ang pagpapagana nito ay nagtatago rin ng mga ad ng video"</string>
   <string name="revanced_shorts_player_screen_summary">Itago o ipakita ang mga sangkap sa Shorts player</string>
   <!-- 'home' should be translated using the same localized wording YouTube displays for the home tab. -->
   <string name="revanced_hide_shorts_home_title">Itago ang Shorts sa home feed</string>
-  <string name="revanced_hide_shorts_home_summary_on">Nakatago ang Shorts sa home feed</string>
-  <string name="revanced_hide_shorts_home_summary_off">Ipinapakita ang Shorts sa home feed</string>
+  <string name="revanced_hide_shorts_home_summary_on">Nakatago ang home feed at mga kaugnay na video</string>
+  <string name="revanced_hide_shorts_home_summary_off">Ipinakita ang home feed at mga kaugnay na video</string>
   <!-- 'subscription' should be translated using the same localized wording YouTube displays for the subscription tab. -->
   <string name="revanced_hide_shorts_subscriptions_title">Itago ang Shorts sa feed ng subscription</string>
-  <string name="revanced_hide_shorts_subscriptions_summary_on">Nakatago ang mga Shorts sa feed ng subscription</string>
-  <string name="revanced_hide_shorts_subscriptions_summary_off">Ipinapakita ang mga Shorts sa feed ng subscription</string>
+  <string name="revanced_hide_shorts_subscriptions_summary_on">Nakatago sa feed ng subscription</string>
+  <string name="revanced_hide_shorts_subscriptions_summary_off">Ipinakita sa feed ng subscription</string>
   <string name="revanced_hide_shorts_search_title">Itago ang Shorts sa mga resulta ng paghahanap</string>
-  <string name="revanced_hide_shorts_search_summary_on">Nakatago ang mga Shorts sa mga resulta ng paghahanap</string>
-  <string name="revanced_hide_shorts_search_summary_off">Ang mga Shorts sa mga resulta ng paghahanap ay ipinapakita</string>
+  <string name="revanced_hide_shorts_search_summary_off">Ipinakita sa mga resulta ng paghahanap</string>
+  <string name="revanced_hide_shorts_history_summary_on">Nakatago sa kasaysayan ng panonood</string>
   <!-- 'join' should be translated using the same localized wording YouTube displays for the button. -->
   <string name="revanced_hide_shorts_join_button_title">Itago ang button na sumali</string>
   <string name="revanced_hide_shorts_join_button_summary_on">Nakatago ang button na sumali</string>
@@ -1297,9 +1297,10 @@ Ang paglalaro ng video ay maaaring hindi gumana"</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">"Ang pagpapagana nito ay maaaring mapahaba ang buhay ng baterya at ayusin ang pagkautal ng playback.
 
 Ang AVC ay may pinakamataas na resolusyon na 1080p, ang codec ng audio ng Opus ay hindi available, at ang playback ng video ay gagamit ng mas maraming data sa internet kaysa sa VP9 o AV1."</string>
-  <string name="revanced_spoof_video_streams_about_ios_tv_title">Mga side effect ng spoofing ng iOS TV</string>
-  <string name="revanced_spoof_video_streams_about_ios_tv_summary">"• Maaaring hindi mailarawan ang mga pelikula o bayad na mga video
-• Magtatapos ang mga video ng 1 segundo nang maaga"</string>
+  <string name="revanced_spoof_video_streams_about_ios_tv_title">Mga epekto ng iOS spoofing</string>
+  <string name="revanced_spoof_video_streams_about_ios_tv_summary">"• Maaaring hindi mai-play ang mga pelikula o binayarang video
+• Hindi magagamit ang stable na volume
+• Ang mga video ay magtatapos ng 1 segundo nang mas maaga"</string>
   <string name="revanced_spoof_video_streams_about_android_title">Mga side effect ng Android spoofing</string>
   <string name="revanced_spoof_video_streams_about_android_summary">"• Nawawala ang menu ng audio track
 • Hindi magagamit ang stable na volume

@@ -629,15 +629,9 @@ Opomba: Omogočanje tega tudi prisilno skrije video oglase"</string>
   <string name="revanced_shorts_player_screen_summary">Skrij ali prikaži komponente v predvajalniku Shorts</string>
   <!-- 'home' should be translated using the same localized wording YouTube displays for the home tab. -->
   <string name="revanced_hide_shorts_home_title">Skrij Shorts v domačem viru</string>
-  <string name="revanced_hide_shorts_home_summary_on">Shorts v domačem viru so skriti</string>
-  <string name="revanced_hide_shorts_home_summary_off">Shorts v domačem viru so prikazani</string>
   <!-- 'subscription' should be translated using the same localized wording YouTube displays for the subscription tab. -->
   <string name="revanced_hide_shorts_subscriptions_title">Skrij Shorts v viru naročnin</string>
-  <string name="revanced_hide_shorts_subscriptions_summary_on">Skrij Shorts v viru naročni</string>
-  <string name="revanced_hide_shorts_subscriptions_summary_off">Shorts v viru naročnin so prikazani.</string>
   <string name="revanced_hide_shorts_search_title">Skrij Shorts v rezultatih iskanja.</string>
-  <string name="revanced_hide_shorts_search_summary_on">Shorts v rezultatih iskanja so skriti.</string>
-  <string name="revanced_hide_shorts_search_summary_off">Shorts v rezultatih iskanja so prikazani.</string>
   <!-- 'join' should be translated using the same localized wording YouTube displays for the button. -->
   <string name="revanced_hide_shorts_join_button_title">Skrij gumb za pridružitev.</string>
   <string name="revanced_hide_shorts_join_button_summary_on">Gumb za pridružitev je skrit.</string>
@@ -1296,9 +1290,10 @@ Predvajanje videa morda ne bo delovalo"</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">"Omogočanje tega bi lahko izboljšalo življenjsko dobo baterije in odpravilo zatikanje predvajanja.
 
 AVC ima največjo ločljivost 1080p, avdio kodek Opus ni na voljo, predvajanje videa pa bo porabilo več internetnih podatkov kot VP9 ali AV1."</string>
-  <string name="revanced_spoof_video_streams_about_ios_tv_title">iOS TV Stranski učinki spoofing</string>
+  <string name="revanced_spoof_video_streams_about_ios_tv_title">iOS-ov pojav umetnega predvajanja posnetkov</string>
   <string name="revanced_spoof_video_streams_about_ios_tv_summary">"• Filmi ali plačani videoposnetki se morda ne bodo predvajali
-• Videoposnetki se končajo 1 sekundo prej"</string>
+• Stalna glasnost ni na voljo
+• Videi se končajo 1 sekundo prezgodaj"</string>
   <string name="revanced_spoof_video_streams_about_android_title">Android Stranski učinki spoofing</string>
   <string name="revanced_spoof_video_streams_about_android_summary">"• Manjka meni za izbiro zvočnega posnetka 
 • Stabilna glasnost ni na voljo

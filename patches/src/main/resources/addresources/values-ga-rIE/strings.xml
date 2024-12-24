@@ -629,15 +629,9 @@ Nóta: Trí é seo a chumasú, cuirtear fógraí físeáin i bhfolach freisin"</
   <string name="revanced_shorts_player_screen_summary">Folaigh nó taispeáin comhpháirteanna san seinnteoir Shorts</string>
   <!-- 'home' should be translated using the same localized wording YouTube displays for the home tab. -->
   <string name="revanced_hide_shorts_home_title">Folaigh Shorts i mbeatha baile</string>
-  <string name="revanced_hide_shorts_home_summary_on">Tá Shorts i mbeatha baile i bhfolach</string>
-  <string name="revanced_hide_shorts_home_summary_off">Taispeántar Shorts sa bheathú baile</string>
   <!-- 'subscription' should be translated using the same localized wording YouTube displays for the subscription tab. -->
   <string name="revanced_hide_shorts_subscriptions_title">Folaigh Shorts i mbeatha síntiúis</string>
-  <string name="revanced_hide_shorts_subscriptions_summary_on">Tá Shorts i mbeatha síntiúis i bhfolach</string>
-  <string name="revanced_hide_shorts_subscriptions_summary_off">Taispeántar Shorts i mbeatha síntiúis</string>
   <string name="revanced_hide_shorts_search_title">Folaigh Shorts i dtorthaí cuardaigh</string>
-  <string name="revanced_hide_shorts_search_summary_on">Tá Shorts i dtorthaí cuardaigh i bhfolach</string>
-  <string name="revanced_hide_shorts_search_summary_off">Taispeántar Shorts i dtorthaí cuardaigh</string>
   <!-- 'join' should be translated using the same localized wording YouTube displays for the button. -->
   <string name="revanced_hide_shorts_join_button_title">Folaigh cnaipe ceangail</string>
   <string name="revanced_hide_shorts_join_button_summary_on">Tá an cnaipe Bí i bhfolach</string>
@@ -1297,9 +1291,10 @@ D'fhéadfadh nach n-oibreoidh athsheinm físeáin"</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">"D'fhéadfadh a chumasú seo saol na ceallraí a fheabhsú agus stotálú athsaithe a shocrú.
 
 Tá réiteach uasmhéideach 1080p ag AVC, níl códú fuaime Opus ar fáil, agus bainfear úsáid as tuilleadh sonraí Idirlín le haghaidh athsaithe físeán ná VP9 nó AV1."</string>
-  <string name="revanced_spoof_video_streams_about_ios_tv_title">Éifeachtaí taobh iOS TV a mhalartú</string>
-  <string name="revanced_spoof_video_streams_about_ios_tv_summary">"• B'fhéidir nach imreofar scannáin nó físeáin íocaíochta
-• Chríochnaíonn físeáin 1 soicind níos luaithe"</string>
+  <string name="revanced_spoof_video_streams_about_ios_tv_title">Éifeachtaí taobheacha sceimhlitheoireachta iOS</string>
+  <string name="revanced_spoof_video_streams_about_ios_tv_summary">"• D’fhéadfadh sé nach imreodh scannáin nó físeáin íoctha
+• Ní bheidh an toirt éagothroime ar fáil
+• Críochnaíonn físeáin 1 soicind roimh am"</string>
   <string name="revanced_spoof_video_streams_about_android_title">Éifeachtaí taobh Android a mhalartú</string>
   <string name="revanced_spoof_video_streams_about_android_summary">"• Tá roghchlár na bhfuaimeanna ar iarraidh
 • Níl imfhálú cobhsaí ar fáil

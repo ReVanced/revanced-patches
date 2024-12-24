@@ -628,15 +628,9 @@ Not: Bunu etkinleştirmek aynı zamanda video reklamlarını zorla gizler"</stri
   <string name="revanced_shorts_player_screen_summary">Shorts oynatıcısındaki bileşenleri gizle veya göster</string>
   <!-- 'home' should be translated using the same localized wording YouTube displays for the home tab. -->
   <string name="revanced_hide_shorts_home_title">Ana Sayfa akışında Shorts videolarını gizle</string>
-  <string name="revanced_hide_shorts_home_summary_on">Ana Sayfa akışında Shorts videoları gizli</string>
-  <string name="revanced_hide_shorts_home_summary_off">Ana Sayfa akışında Shorts videoları görünür</string>
   <!-- 'subscription' should be translated using the same localized wording YouTube displays for the subscription tab. -->
   <string name="revanced_hide_shorts_subscriptions_title">Abonelikler akışında Shorts videolarını gizle</string>
-  <string name="revanced_hide_shorts_subscriptions_summary_on">Abonelikler akışında Shorts videoları gizli</string>
-  <string name="revanced_hide_shorts_subscriptions_summary_off">Abonelikler akışında Shorts videoları görünür</string>
   <string name="revanced_hide_shorts_search_title">Arama sonuçlarında Shorts videolarını gizle</string>
-  <string name="revanced_hide_shorts_search_summary_on">Arama sonuçlarında Shorts videoları gizli</string>
-  <string name="revanced_hide_shorts_search_summary_off">Arama sonuçlarında Shorts videoları görünür</string>
   <!-- 'join' should be translated using the same localized wording YouTube displays for the button. -->
   <string name="revanced_hide_shorts_join_button_title">\"Katıl\" düğmesini gizle</string>
   <string name="revanced_hide_shorts_join_button_summary_on">\"Katıl\" düğmesi gizli</string>
@@ -1295,8 +1289,9 @@ Video oynatma çalışmayabilir"</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">"Bu özelliği etkinleştirmek, pil ömrünü iyileştirebilir ve oynatma takılmalarını düzeltebilir.
 
 AVC'nin maksimum çözünürlüğü 1080p'dir, Opus ses kodeği kullanılamaz ve video oynatma VP9 veya AV1'den daha fazla internet verisi kullanır."</string>
-  <string name="revanced_spoof_video_streams_about_ios_tv_title">iOS TV taklidi yan etkileri</string>
+  <string name="revanced_spoof_video_streams_about_ios_tv_title">iOS taklidi yan etkileri</string>
   <string name="revanced_spoof_video_streams_about_ios_tv_summary">"• Filmler veya ücretli videolar oynatılamayabilir
+• Sabit ses özelliği kullanılamaz
 • Videolar 1 saniye erken biter"</string>
   <string name="revanced_spoof_video_streams_about_android_title">Android taklidi yan etkileri</string>
   <string name="revanced_spoof_video_streams_about_android_summary">"• Ses parçası menüsü eksik
