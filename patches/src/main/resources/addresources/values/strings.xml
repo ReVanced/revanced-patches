@@ -632,8 +632,8 @@ Note: Enabling this also forcibly hides video ads"</string>
             <string name="revanced_shorts_player_screen_summary">Hide or show components in the Shorts player</string>
             <!-- 'home' should be translated using the same localized wording YouTube displays for the home tab. -->
             <string name="revanced_hide_shorts_home_title">Hide Shorts in home feed</string>
-            <string name="revanced_hide_shorts_home_summary_on">Home feed and related videos are hidden</string>
-            <string name="revanced_hide_shorts_home_summary_off">Home feed and related videos are shown</string>
+            <string name="revanced_hide_shorts_home_summary_on">Hidden in home feed and related videos</string>
+            <string name="revanced_hide_shorts_home_summary_off">Shown in home feed and related videos</string>
             <!-- 'subscription' should be translated using the same localized wording YouTube displays for the subscription tab. -->
             <string name="revanced_hide_shorts_subscriptions_title">Hide Shorts in subscription feed</string>
             <string name="revanced_hide_shorts_subscriptions_summary_on">Hidden in subscription feed</string>
@@ -1321,7 +1321,7 @@ AVC has a maximum resolution of 1080p, Opus audio codec is not available, and vi
             <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Client type is shown in Stats for nerds</string>
             <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Client is hidden in Stats for nerds</string>
             <string name="revanced_spoof_video_streams_language_title">VR default audio stream language</string>
-            <string name="revanced_spoof_video_streams_language_DEFAULT">Account language</string>
+            <string name="revanced_spoof_video_streams_language_DEFAULT">App language</string>
             <string name="revanced_spoof_video_streams_language_AR">Arabic</string>
             <string name="revanced_spoof_video_streams_language_AZ">Azerbaijani</string>
             <string name="revanced_spoof_video_streams_language_BG">Bulgarian</string>
