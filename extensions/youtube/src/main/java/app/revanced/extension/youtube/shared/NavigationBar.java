@@ -250,6 +250,10 @@ public final class NavigationBar {
          * This tab will never be in a selected state, even if the create video UI is on screen.
          */
         CREATE("CREATION_TAB_LARGE", "CREATION_TAB_LARGE_CAIRO"),
+        /**
+         * Only shown to automotive layout.
+         */
+        EXPLORE("TAB_EXPLORE"),
         SUBSCRIPTIONS("PIVOT_SUBSCRIPTIONS", "TAB_SUBSCRIPTIONS_CAIRO"),
         /**
          * Notifications tab.  Only present when

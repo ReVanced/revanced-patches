@@ -176,14 +176,13 @@ public final class AlternativeThumbnailsPatch {
             // Unknown tab, treat as the home tab;
             return homeOption;
         }
-        if (selectedNavButton == NavigationButton.HOME) {
-            return homeOption;
-        }
-        if (selectedNavButton == NavigationButton.SUBSCRIPTIONS || selectedNavButton == NavigationButton.NOTIFICATIONS) {
-            return subscriptionsOption;
-        }
-        // A library tab variant is active.
-        return libraryOption;
+
+        return switch (selectedNavButton) {
+            case SUBSCRIPTIONS, NOTIFICATIONS -> subscriptionsOption;
+            case LIBRARY -> libraryOption;
+            // Home or explore tab.
+            default -> homeOption;
+        };
     }
 
     /**
