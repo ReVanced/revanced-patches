@@ -6,7 +6,6 @@ import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
 import app.revanced.extension.youtube.settings.Settings;
 import app.revanced.extension.youtube.shared.PlayerType;
-import app.revanced.extension.youtube.shared.VideoState;
 
 @SuppressWarnings("unused")
 public class ExitFullscreenPatch {
@@ -21,17 +20,14 @@ public class ExitFullscreenPatch {
     /**
      * Injection point.
      */
-    public static void setVideoTime(long millis) {
+    public static void endOfVideoReached() {
         try {
             FullscreenMode mode = Settings.EXIT_FULLSCREEN.get();
             if (mode == FullscreenMode.DISABLED) {
                 return;
             }
 
-            if (VideoInformation.isAtEndOfVideo()
-                    && VideoState.getCurrent() == VideoState.PLAYING
-                    && PlayerType.getCurrent() == PlayerType.WATCH_WHILE_FULLSCREEN) {
-
+            if (PlayerType.getCurrent() == PlayerType.WATCH_WHILE_FULLSCREEN) {
                 if (Utils.isLandscapeOrientation()) {
                     if (mode == FullscreenMode.PORTRAIT) {
                         return;
@@ -47,7 +43,7 @@ public class ExitFullscreenPatch {
                 }
             }
         } catch (Exception ex) {
-            Logger.printException(() -> "setVideoTime failure", ex);
+            Logger.printException(() -> "endOfVideoReached failure", ex);
         }
     }
 }

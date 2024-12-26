@@ -1,5 +1,6 @@
 package app.revanced.patches.youtube.layout.player.fullscreen
 
+import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
@@ -9,8 +10,8 @@ import app.revanced.patches.youtube.misc.playercontrols.playerControlsPatch
 import app.revanced.patches.youtube.misc.playertype.playerTypeHookPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
-import app.revanced.patches.youtube.video.information.videoInformationPatch
-import app.revanced.patches.youtube.video.information.videoTimeHook
+import app.revanced.patches.youtube.shared.autoRepeatFingerprint
+import app.revanced.patches.youtube.shared.autoRepeatParentFingerprint
 
 @Suppress("unused")
 internal val exitFullscreenPatch = bytecodePatch(
@@ -21,7 +22,6 @@ internal val exitFullscreenPatch = bytecodePatch(
         sharedExtensionPatch,
         settingsPatch,
         addResourcesPatch,
-        videoInformationPatch,
         playerTypeHookPatch,
         playerControlsPatch
     )
@@ -42,9 +42,9 @@ internal val exitFullscreenPatch = bytecodePatch(
             )
         )
 
-        videoTimeHook(
-            EXTENSION_CLASS_DESCRIPTOR,
-            "setVideoTime",
+        autoRepeatFingerprint.match(autoRepeatParentFingerprint.originalClassDef).method.addInstruction(
+            0,
+            "invoke-static {}, $EXTENSION_CLASS_DESCRIPTOR->endOfVideoReached()V",
         )
     }
 }
