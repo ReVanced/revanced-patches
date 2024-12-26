@@ -92,7 +92,7 @@ fun sharedExtensionPatch(
 }
 
 class ExtensionHook internal constructor(
-    val fingerprint: Fingerprint,
+    private val fingerprint: Fingerprint,
     private val insertIndexResolver: ((Method) -> Int),
     private val contextRegisterResolver: (Method) -> String,
 ) {

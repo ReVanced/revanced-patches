@@ -4,7 +4,7 @@ import app.revanced.patcher.fingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-fun baseClientIdFingerprint(string: String) = fingerprint {
+internal fun baseClientIdFingerprint(string: String) = fingerprint {
     strings("yyOCBp.RHJhDKd", string)
 }
 
