@@ -25,7 +25,7 @@ jobs:
           config: crowdin.yml
           upload_sources: false
           download_translations: true
-          localization_branch_name: feat/translations
+          crowdin_branch_name: feat/translations
           create_pull_request: false
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
