@@ -629,9 +629,18 @@ Second \"item\" text"</string>
   <string name="revanced_shorts_player_screen_summary">ซ่อนหรือแสดงส่วนประกอบใน Shorts Player</string>
   <!-- 'home' should be translated using the same localized wording YouTube displays for the home tab. -->
   <string name="revanced_hide_shorts_home_title">ซ่อน Shorts ในหน้าฟีด</string>
+  <string name="revanced_hide_shorts_home_summary_on">ซ่อนจากฟีดหน้าแรกและวิดีโอที่เกี่ยวข้อง</string>
+  <string name="revanced_hide_shorts_home_summary_off">แสดงในฟีดหน้าแรกและวิดีโอที่เกี่ยวข้อง</string>
   <!-- 'subscription' should be translated using the same localized wording YouTube displays for the subscription tab. -->
   <string name="revanced_hide_shorts_subscriptions_title">ซ่อน Shorts ในฟีดการสมัครรับข้อมูล</string>
+  <string name="revanced_hide_shorts_subscriptions_summary_on">ซ่อนอยู่ในฟีดการสมัครรับข้อมูล</string>
+  <string name="revanced_hide_shorts_subscriptions_summary_off">แสดงในฟีดการสมัครรับข้อมูล</string>
   <string name="revanced_hide_shorts_search_title">ซ่อน Shorts ในผลลัพธ์การค้นหา</string>
+  <string name="revanced_hide_shorts_search_summary_on">ซ่อนในการค้นหา</string>
+  <string name="revanced_hide_shorts_search_summary_off">แสดงในผลการค้นหา</string>
+  <string name="revanced_hide_shorts_history_title">ซ่อน \"shorts\" ในประวัติการรับชม</string>
+  <string name="revanced_hide_shorts_history_summary_on">ซ่อนอยู่ในประวัติการรับชม</string>
+  <string name="revanced_hide_shorts_history_summary_off">แสดงในการค้นหา</string>
   <!-- 'join' should be translated using the same localized wording YouTube displays for the button. -->
   <string name="revanced_hide_shorts_join_button_title">ซ่อนปุ่มเข้าร่วม</string>
   <string name="revanced_hide_shorts_join_button_summary_on">ปุ่มเข้าร่วมซ่อนอยู่</string>
@@ -1302,7 +1311,7 @@ AVC มีความละเอียดสูงสุด 1080p, ตัว�
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">แสดงชนิดไคลเอ็นต์ในสถิติสำหรับพวกเนิร์ด</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">ซ่อนไคลเอ็นต์ในสถิติสำหรับพวกเนิร์ด</string>
   <string name="revanced_spoof_video_streams_language_title">ภาษาของสตรีมเสียงเริ่มต้นของ VR</string>
-  <string name="revanced_spoof_video_streams_language_DEFAULT">ภาษาแอป</string>
+  <string name="revanced_spoof_video_streams_language_DEFAULT">ภาษาของแอป</string>
   <string name="revanced_spoof_video_streams_language_AR">อาหรับ</string>
   <string name="revanced_spoof_video_streams_language_AZ">อาเซอร์ไบจาน</string>
   <string name="revanced_spoof_video_streams_language_BG">บัลแกเรีย</string>

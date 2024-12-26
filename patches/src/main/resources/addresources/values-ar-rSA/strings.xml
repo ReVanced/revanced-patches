@@ -628,9 +628,18 @@ Second \"item\" text"</string>
   <string name="revanced_shorts_player_screen_summary">إخفاء أو عرض المكونات في مشغل Shorts</string>
   <!-- 'home' should be translated using the same localized wording YouTube displays for the home tab. -->
   <string name="revanced_hide_shorts_home_title">إخفاء Shorts في موجز الصفحة الرئيسية</string>
+  <string name="revanced_hide_shorts_home_summary_on">مخفي في الصفحة الرئيسية ومقاطع الفيديو ذات الصلة</string>
+  <string name="revanced_hide_shorts_home_summary_off">معروض في الصفحة الرئيسية ومقاطع الفيديو ذات الصلة</string>
   <!-- 'subscription' should be translated using the same localized wording YouTube displays for the subscription tab. -->
   <string name="revanced_hide_shorts_subscriptions_title">إخفاء Shorts في موجز الاشتراكات</string>
+  <string name="revanced_hide_shorts_subscriptions_summary_on">مخفية في موجز الاشتراكات</string>
+  <string name="revanced_hide_shorts_subscriptions_summary_off">معروضة في موجز الاشتراكات</string>
   <string name="revanced_hide_shorts_search_title">إخفاء Shorts في نتائج البحث</string>
+  <string name="revanced_hide_shorts_search_summary_on">مخفي في نتائج البحث</string>
+  <string name="revanced_hide_shorts_search_summary_off">معروضة في نتائج البحث</string>
+  <string name="revanced_hide_shorts_history_title">إخفاء Shorts في سجل المشاهدة</string>
+  <string name="revanced_hide_shorts_history_summary_on">مخفية في سجل المشاهدة</string>
+  <string name="revanced_hide_shorts_history_summary_off">مُظهَر في سجل المشاهدة</string>
   <!-- 'join' should be translated using the same localized wording YouTube displays for the button. -->
   <string name="revanced_hide_shorts_join_button_title">إخفاء زر الانضمام</string>
   <string name="revanced_hide_shorts_join_button_summary_on">تم إخفاء زر الانضمام</string>
@@ -1014,6 +1023,7 @@ Second \"item\" text"</string>
                  This is because the 'General layout' menu uses alphabetic sorting, and it functionally works better if the spoof target selector appears below the 'Spoof app version' UI switch -->
   <string name="revanced_spoof_app_version_target_title">الهدف من تغيير إصدار التطبيق</string>
   <string name="revanced_spoof_app_version_target_entry_1">19.35.36 - استعادة أيقونات مشغل Shorts القديمة</string>
+  <string name="revanced_spoof_app_version_target_entry_2">19.26.42 - \"إعادة الرموز القديمة للشريط والأدوات\"</string>
   <!-- 'RYD' is 'Return YouTube Dislike' -->
   <string name="revanced_spoof_app_version_target_legacy_entry_1">18.33.40 - استعادة RYD على Shorts بوضع التخفي</string>
   <string name="revanced_spoof_app_version_target_legacy_entry_2">18.20.39 - استعادة قائمة سرعة الفيديو العريضة &amp; الجودة</string>
@@ -1301,7 +1311,7 @@ AVC لديه حد أقصى للدقة 1080 بكسل ، لا يتوفر ترمي�
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">يظهر نوع العميل في الإحصائيات للنردز</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">يتم العميل مخفي في الإحصائيات للنردز</string>
   <string name="revanced_spoof_video_streams_language_title">لغة البث الإفتراضي القياسي لافتراضي الاهتداري</string>
-  <string name="revanced_spoof_video_streams_language_DEFAULT">لغة الحساب</string>
+  <string name="revanced_spoof_video_streams_language_DEFAULT">لغة التطبيق</string>
   <string name="revanced_spoof_video_streams_language_AR">العربية</string>
   <string name="revanced_spoof_video_streams_language_AZ">Azerbaijani</string>
   <string name="revanced_spoof_video_streams_language_BG">Bulgarian</string>

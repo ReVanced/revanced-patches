@@ -619,9 +619,18 @@ Nota: Habilitar esto también oculta a la fuerza los anuncios de vídeo"</string
   <string name="revanced_shorts_player_screen_summary">Oculta o muestra componentes en el reproductor de Shorts</string>
   <!-- 'home' should be translated using the same localized wording YouTube displays for the home tab. -->
   <string name="revanced_hide_shorts_home_title">Ocultar Shorts en el Inicio</string>
+  <string name="revanced_hide_shorts_home_summary_on">Oculto en el feed de inicio y videos relacionados</string>
+  <string name="revanced_hide_shorts_home_summary_off">Se muestra en el feed de inicio y videos relacionados</string>
   <!-- 'subscription' should be translated using the same localized wording YouTube displays for the subscription tab. -->
   <string name="revanced_hide_shorts_subscriptions_title">Ocultar Shorts en las suscripciones</string>
+  <string name="revanced_hide_shorts_subscriptions_summary_on">Ocultar</string>
+  <string name="revanced_hide_shorts_subscriptions_summary_off">Mostrar</string>
   <string name="revanced_hide_shorts_search_title">Ocultar Shorts en los resultados de búsqueda</string>
+  <string name="revanced_hide_shorts_search_summary_on">Ocultos en los resultados de búsqueda</string>
+  <string name="revanced_hide_shorts_search_summary_off">Mostrar en los resultados de búsqueda</string>
+  <string name="revanced_hide_shorts_history_title">Ocultar Shorts en el historial de visualización</string>
+  <string name="revanced_hide_shorts_history_summary_on">Oculto en el historial de visualización</string>
+  <string name="revanced_hide_shorts_history_summary_off">Mostrado en el historial de visualización</string>
   <!-- 'join' should be translated using the same localized wording YouTube displays for the button. -->
   <string name="revanced_hide_shorts_join_button_title">Ocultar botón de unirse</string>
   <string name="revanced_hide_shorts_join_button_summary_on">Botón de unión oculto</string>

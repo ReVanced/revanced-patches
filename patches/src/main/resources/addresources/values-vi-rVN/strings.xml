@@ -629,9 +629,18 @@ Lưu ý: Bật tính năng này cũng sẽ tự động ẩn quảng cáo video"
   <string name="revanced_shorts_player_screen_summary">Ẩn hoặc hiển thị các thành phần trong trình phát Shorts</string>
   <!-- 'home' should be translated using the same localized wording YouTube displays for the home tab. -->
   <string name="revanced_hide_shorts_home_title">Ẩn Shorts trong bảng tin trang chính</string>
+  <string name="revanced_hide_shorts_home_summary_on">Ẩn trong nguồn cấp dữ liệu trang chủ và video liên quan</string>
+  <string name="revanced_hide_shorts_home_summary_off">Hiển thị trong nguồn cấp dữ liệu trang chủ và video liên quan</string>
   <!-- 'subscription' should be translated using the same localized wording YouTube displays for the subscription tab. -->
   <string name="revanced_hide_shorts_subscriptions_title">Ẩn Shorts trong bảng tin đăng ký</string>
+  <string name="revanced_hide_shorts_subscriptions_summary_on">Bị ẩn trong nguồn đăng ký</string>
+  <string name="revanced_hide_shorts_subscriptions_summary_off">Được hiển thị trong nguồn đăng ký</string>
   <string name="revanced_hide_shorts_search_title">Ẩn Shorts trong kết quả tìm kiếm</string>
+  <string name="revanced_hide_shorts_search_summary_on">Bị ẩn trong kết quả tìm kiếm</string>
+  <string name="revanced_hide_shorts_search_summary_off">Được hiển thị trong kết quả tìm kiếm</string>
+  <string name="revanced_hide_shorts_history_title">Ẩn Shorts trong lịch sử xem</string>
+  <string name="revanced_hide_shorts_history_summary_on">Bị ẩn trong lịch sử xem</string>
+  <string name="revanced_hide_shorts_history_summary_off">Đã hiển thị trong lịch sử xem</string>
   <!-- 'join' should be translated using the same localized wording YouTube displays for the button. -->
   <string name="revanced_hide_shorts_join_button_title">Ẩn nút tham gia</string>
   <string name="revanced_hide_shorts_join_button_summary_on">Nút tham gia được ẩn</string>
@@ -1014,6 +1023,7 @@ Nếu sau này tắt đi, bạn nên xóa dữ liệu ứng dụng để tránh 
                  This is because the 'General layout' menu uses alphabetic sorting, and it functionally works better if the spoof target selector appears below the 'Spoof app version' UI switch -->
   <string name="revanced_spoof_app_version_target_title">Phiên bản giả mạo mục tiêu</string>
   <string name="revanced_spoof_app_version_target_entry_1">19.35.36 - Khôi phục biểu tượng trình phát Shorts cũ</string>
+  <string name="revanced_spoof_app_version_target_entry_2">19.26.42 - Khôi phục biểu tượng điều hướng và thanh công cụ cũ</string>
   <!-- 'RYD' is 'Return YouTube Dislike' -->
   <string name="revanced_spoof_app_version_target_legacy_entry_1">18.33.40 - Khôi phục RYD trong Shorts chế độ ẩn danh</string>
   <string name="revanced_spoof_app_version_target_legacy_entry_2">18.20.39 - Khôi phục trình đơn tốc độ &amp; chất lượng cho video rộng</string>
@@ -1302,7 +1312,7 @@ AVC có độ phân giải tối đa là 1080p, bộ giải mã âm thanh Opus k
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Loại máy khách được hiển thị trong Stats for nerds</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Máy khách bị ẩn trong Stats for nerds</string>
   <string name="revanced_spoof_video_streams_language_title">Ngôn ngữ âm thanh mặc định của VR</string>
-  <string name="revanced_spoof_video_streams_language_DEFAULT">Ngôn ngữ tài khoản</string>
+  <string name="revanced_spoof_video_streams_language_DEFAULT">Ngôn ngữ ứng dụng</string>
   <string name="revanced_spoof_video_streams_language_AR">Tiếng Ả Rập</string>
   <string name="revanced_spoof_video_streams_language_AZ">Tiếng Azerbaijan</string>
   <string name="revanced_spoof_video_streams_language_BG">Tiếng Bulgaria</string>
