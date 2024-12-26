@@ -629,15 +629,18 @@ Tandaan: Ang pagpapagana nito ay nagtatago rin ng mga ad ng video"</string>
   <string name="revanced_shorts_player_screen_summary">Itago o ipakita ang mga sangkap sa Shorts player</string>
   <!-- 'home' should be translated using the same localized wording YouTube displays for the home tab. -->
   <string name="revanced_hide_shorts_home_title">Itago ang Shorts sa home feed</string>
-  <string name="revanced_hide_shorts_home_summary_on">Nakatago ang home feed at mga kaugnay na video</string>
-  <string name="revanced_hide_shorts_home_summary_off">Ipinakita ang home feed at mga kaugnay na video</string>
+  <string name="revanced_hide_shorts_home_summary_on">Nakatago sa home feed at mga kaugnay na video</string>
+  <string name="revanced_hide_shorts_home_summary_off">Ipinakita sa home feed at mga kaugnay na video</string>
   <!-- 'subscription' should be translated using the same localized wording YouTube displays for the subscription tab. -->
   <string name="revanced_hide_shorts_subscriptions_title">Itago ang Shorts sa feed ng subscription</string>
   <string name="revanced_hide_shorts_subscriptions_summary_on">Nakatago sa feed ng subscription</string>
   <string name="revanced_hide_shorts_subscriptions_summary_off">Ipinakita sa feed ng subscription</string>
   <string name="revanced_hide_shorts_search_title">Itago ang Shorts sa mga resulta ng paghahanap</string>
+  <string name="revanced_hide_shorts_search_summary_on">Nakatago sa mga resulta ng paghahanap</string>
   <string name="revanced_hide_shorts_search_summary_off">Ipinakita sa mga resulta ng paghahanap</string>
+  <string name="revanced_hide_shorts_history_title">Itago ang Shorts sa watch history</string>
   <string name="revanced_hide_shorts_history_summary_on">Nakatago sa kasaysayan ng panonood</string>
+  <string name="revanced_hide_shorts_history_summary_off">Ipinapakita sa watch history</string>
   <!-- 'join' should be translated using the same localized wording YouTube displays for the button. -->
   <string name="revanced_hide_shorts_join_button_title">Itago ang button na sumali</string>
   <string name="revanced_hide_shorts_join_button_summary_on">Nakatago ang button na sumali</string>
@@ -1309,7 +1312,7 @@ Ang AVC ay may pinakamataas na resolusyon na 1080p, ang codec ng audio ng Opus a
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Ipinapakita ang uri ng kliyente sa Mga Istatistika para sa mga nerds</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Nakatago ang kliyente sa Mga Istatistika para sa mga nerds</string>
   <string name="revanced_spoof_video_streams_language_title">Wika ng default na audio stream ng VR</string>
-  <string name="revanced_spoof_video_streams_language_DEFAULT">Wika ng account</string>
+  <string name="revanced_spoof_video_streams_language_DEFAULT">Wika ng app</string>
   <string name="revanced_spoof_video_streams_language_AR">Arabe</string>
   <string name="revanced_spoof_video_streams_language_AZ">Azerbaijani</string>
   <string name="revanced_spoof_video_streams_language_BG">Bulgarian</string>

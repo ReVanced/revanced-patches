@@ -629,9 +629,18 @@ MicroG-এর জন্য ব্যাটারি অপ্টিমাইজ�
   <string name="revanced_shorts_player_screen_summary">Shorts প্লেয়ারে উপাদান লুকানো বা দেখানো</string>
   <!-- 'home' should be translated using the same localized wording YouTube displays for the home tab. -->
   <string name="revanced_hide_shorts_home_title">প্রধান ফিডে Shorts লুকান</string>
+  <string name="revanced_hide_shorts_home_summary_on">বাড়ির ফিড এবং সম্পর্কিত ভিডিওতে লুকানো হয়েছে</string>
+  <string name="revanced_hide_shorts_home_summary_off">বাড়ির ফিড এবং সম্পর্কিত ভিডিওতে দেখানো হয়েছে</string>
   <!-- 'subscription' should be translated using the same localized wording YouTube displays for the subscription tab. -->
   <string name="revanced_hide_shorts_subscriptions_title">সদস্যতা ফিডে Shorts লুকান</string>
+  <string name="revanced_hide_shorts_subscriptions_summary_on">সাবস্ক্রিপশন ফিডে লুকানো আছে</string>
+  <string name="revanced_hide_shorts_subscriptions_summary_off">সাবস্ক্রিপশন ফিডে দেখানো হয়েছে</string>
   <string name="revanced_hide_shorts_search_title">অনুসন্ধান ফলাফলে Shorts লুকান</string>
+  <string name="revanced_hide_shorts_search_summary_on">অনুসন্ধান ফলাফলে লুকানো</string>
+  <string name="revanced_hide_shorts_search_summary_off">সার্চ রেজাল্টে দেখানো হয়েছে</string>
+  <string name="revanced_hide_shorts_history_title">Shortsগুলিকে ওয়াচ ইতিহাসে লুকান</string>
+  <string name="revanced_hide_shorts_history_summary_on">ওয়াচ হিস্ট্রিতে লুকানো</string>
+  <string name="revanced_hide_shorts_history_summary_off">ওয়াচ ইতিহাসে দেখানো</string>
   <!-- 'join' should be translated using the same localized wording YouTube displays for the button. -->
   <string name="revanced_hide_shorts_join_button_title">জয়েন করুন বোতাম লুকান</string>
   <string name="revanced_hide_shorts_join_button_summary_on">জয়েন করুন বোতাম লুকিয়ে রয়েছে</string>
@@ -1015,6 +1024,7 @@ MicroG-এর জন্য ব্যাটারি অপ্টিমাইজ�
                  This is because the 'General layout' menu uses alphabetic sorting, and it functionally works better if the spoof target selector appears below the 'Spoof app version' UI switch -->
   <string name="revanced_spoof_app_version_target_title">স্পুফ অ্যাপ সংস্করণ লক্ষ্য</string>
   <string name="revanced_spoof_app_version_target_entry_1">19.35.36 - পুরনো Shorts প্লেয়ার আইকন পুনরুদ্ধার করুন</string>
+  <string name="revanced_spoof_app_version_target_entry_2">19.26.42 - পুরোনো নেভিগেশন এবং টুলবার আইকন পুনরুদ্ধার করুন</string>
   <!-- 'RYD' is 'Return YouTube Dislike' -->
   <string name="revanced_spoof_app_version_target_legacy_entry_1">18.33.40 - ছদ্মবেশি মোডে RYD পুনরুদ্ধার করে</string>
   <string name="revanced_spoof_app_version_target_legacy_entry_2">18.20.39 - প্রশ্বস্ত ভিডিও স্পিড এবং গুণমান মেনু পুনরুদ্ধার করে</string>

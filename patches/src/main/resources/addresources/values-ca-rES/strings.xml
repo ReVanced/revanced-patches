@@ -629,9 +629,15 @@ Nota: si actives aquesta opció, també s'amaguen els anuncis de vídeo per for�
   <string name="revanced_shorts_player_screen_summary">Amaga o mostra components al reproductor de Shorts</string>
   <!-- 'home' should be translated using the same localized wording YouTube displays for the home tab. -->
   <string name="revanced_hide_shorts_home_title">Amaga els Shorts al feed d\'inici</string>
+  <string name="revanced_hide_shorts_home_summary_on">Amagat al feed d\'inici i als vídeos relacionats</string>
+  <string name="revanced_hide_shorts_home_summary_off">Es mostra al feed d\'inici i als vídeos relacionats</string>
   <!-- 'subscription' should be translated using the same localized wording YouTube displays for the subscription tab. -->
   <string name="revanced_hide_shorts_subscriptions_title">Amaga Shorts al feed de subscripcions</string>
+  <string name="revanced_hide_shorts_subscriptions_summary_on">Amagat al feed de subscripcions</string>
+  <string name="revanced_hide_shorts_subscriptions_summary_off">Es mostra al feed de subscripcions</string>
   <string name="revanced_hide_shorts_search_title">Amaga Shorts als resultats de la cerca</string>
+  <string name="revanced_hide_shorts_search_summary_off">Es mostra als resultats de la cerca</string>
+  <string name="revanced_hide_shorts_history_summary_on">Amagat a l\'historial de visualitzacions</string>
   <!-- 'join' should be translated using the same localized wording YouTube displays for the button. -->
   <string name="revanced_hide_shorts_join_button_title">Amaga el botó d\'unió</string>
   <string name="revanced_hide_shorts_join_button_summary_on">El botó d\'unió està ocult</string>
@@ -1302,7 +1308,7 @@ L'AVC té una resolució màxima de 1080p, el còdec d'àudio Opus no està disp
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">El tipus de client es mostra a l\'apartat \'Dades per a experts\'</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">El client s\'amaga a l\'apartat \'Dades per a experts\'</string>
   <string name="revanced_spoof_video_streams_language_title">Idioma de l\'àudio per defecte a VR</string>
-  <string name="revanced_spoof_video_streams_language_DEFAULT">Idioma de l\'aplicació</string>
+  <string name="revanced_spoof_video_streams_language_DEFAULT">Llengua de l\'aplicació</string>
   <string name="revanced_spoof_video_streams_language_AR">Àrab</string>
   <string name="revanced_spoof_video_streams_language_AZ">Azerbaidjanès</string>
   <string name="revanced_spoof_video_streams_language_BG">Búlgar</string>

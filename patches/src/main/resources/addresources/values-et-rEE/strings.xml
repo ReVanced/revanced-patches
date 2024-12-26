@@ -629,9 +629,18 @@ Märkus: selle lubamine peidab ka sunniviisiliselt video reklaamid"</string>
   <string name="revanced_shorts_player_screen_summary">Peida või näita komponente Shorts esitusprogrammis</string>
   <!-- 'home' should be translated using the same localized wording YouTube displays for the home tab. -->
   <string name="revanced_hide_shorts_home_title">Peida Shorts algmenüüs</string>
+  <string name="revanced_hide_shorts_home_summary_on">Peidetud avalehe- ja seotud videotes</string>
+  <string name="revanced_hide_shorts_home_summary_off">Näidatud avalehe- ja seotud videotes</string>
   <!-- 'subscription' should be translated using the same localized wording YouTube displays for the subscription tab. -->
   <string name="revanced_hide_shorts_subscriptions_title">Peida Shorts tellimuste voogus</string>
+  <string name="revanced_hide_shorts_subscriptions_summary_on">Peidetud tellimuste voogudes</string>
+  <string name="revanced_hide_shorts_subscriptions_summary_off">Näidatud tellimuste voogudes</string>
   <string name="revanced_hide_shorts_search_title">Peida Shorts otsingutulemustes</string>
+  <string name="revanced_hide_shorts_search_summary_on">Peida otsingutulemustest</string>
+  <string name="revanced_hide_shorts_search_summary_off">Näidatud otsingutulemustes</string>
+  <string name="revanced_hide_shorts_history_title">Peida Shortsid vaatamisaegadust</string>
+  <string name="revanced_hide_shorts_history_summary_on">Peidetud vaatamise ajaloos</string>
+  <string name="revanced_hide_shorts_history_summary_off">Näidatud vaatamisaegadus</string>
   <!-- 'join' should be translated using the same localized wording YouTube displays for the button. -->
   <string name="revanced_hide_shorts_join_button_title">Peida liitumisnupp</string>
   <string name="revanced_hide_shorts_join_button_summary_on">Liitumisnupp on peidetud</string>

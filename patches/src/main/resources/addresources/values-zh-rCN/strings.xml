@@ -117,7 +117,7 @@ Second \"item\" text"</string>
   <string name="revanced_hide_album_cards_summary_on">专辑卡片已隐藏</string>
   <string name="revanced_hide_album_cards_summary_off">专辑卡片已显示</string>
   <string name="revanced_hide_crowdfunding_box_title">隐藏众筹框</string>
-  <string name="revanced_hide_crowdfunding_box_summary_on">众筹框已隐藏</string>
+  <string name="revanced_hide_crowdfunding_box_summary_on">众筹箱已隐藏</string>
   <string name="revanced_hide_crowdfunding_box_summary_off">众筹框已显示</string>
   <string name="revanced_hide_floating_microphone_button_title">隐藏悬浮麦克风按钮</string>
   <string name="revanced_hide_floating_microphone_button_summary_on">麦克风按钮已隐藏</string>
@@ -125,7 +125,7 @@ Second \"item\" text"</string>
   <string name="revanced_hide_channel_watermark_title">隐藏频道水印</string>
   <string name="revanced_hide_channel_watermark_summary_on">水印已隐藏</string>
   <string name="revanced_hide_channel_watermark_summary_off">水印已显示</string>
-  <string name="revanced_hide_horizontal_shelves_title">隐藏水平横排</string>
+  <string name="revanced_hide_horizontal_shelves_title">隐藏横排展示架</string>
   <string name="revanced_hide_horizontal_shelves_summary_on">"展示架已隐藏，例如：
 • 最新消息
 • 继续观看
@@ -162,7 +162,7 @@ Second \"item\" text"</string>
   <string name="revanced_hide_channel_guidelines_title">隐藏频道准则</string>
   <string name="revanced_hide_channel_guidelines_summary_on">频道准则已隐藏</string>
   <string name="revanced_hide_channel_guidelines_summary_off">频道准则已显示</string>
-  <string name="revanced_hide_chips_shelf_title">隐藏标签</string>
+  <string name="revanced_hide_chips_shelf_title">隐藏标签展示栏</string>
   <string name="revanced_hide_chips_shelf_summary_on">标签展示栏已隐藏</string>
   <string name="revanced_hide_chips_shelf_summary_off">标签展示栏已显示</string>
   <string name="revanced_hide_expandable_chip_title">隐藏视频下方的扩展面板</string>
@@ -183,7 +183,7 @@ Second \"item\" text"</string>
   <string name="revanced_hide_community_guidelines_title">隐藏社区准则</string>
   <string name="revanced_hide_community_guidelines_summary_on">社区准则已隐藏</string>
   <string name="revanced_hide_community_guidelines_summary_off">社区准则已显示</string>
-  <string name="revanced_hide_subscribers_community_guidelines_title">隐藏订阅社区指南</string>
+  <string name="revanced_hide_subscribers_community_guidelines_title">隐藏订阅者社区准则</string>
   <string name="revanced_hide_subscribers_community_guidelines_summary_on">订阅者社区准则已隐藏</string>
   <string name="revanced_hide_subscribers_community_guidelines_summary_off">订阅者社区准则已显示</string>
   <string name="revanced_hide_channel_member_shelf_title">隐藏频道会员列表</string>
@@ -244,7 +244,7 @@ Second \"item\" text"</string>
   <string name="revanced_hide_description_components_screen_summary">“隐藏或显示视频描述组件”</string>
   <string name="revanced_hide_filter_bar_screen_title">筛选栏</string>
   <string name="revanced_hide_filter_bar_screen_summary">隐藏或显示动态消息、搜索、相关视频中的筛选栏</string>
-  <string name="revanced_hide_filter_bar_feed_in_feed_title">隐藏在动态消息中</string>
+  <string name="revanced_hide_filter_bar_feed_in_feed_title">在动态消息中隐藏</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_summary_on">已隐藏在动态消息中</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_summary_off">已显示在动态消息中</string>
   <string name="revanced_hide_filter_bar_feed_in_search_title">隐藏在搜索结果中</string>
@@ -264,12 +264,12 @@ Second \"item\" text"</string>
   <string name="revanced_hide_comments_section_title">\'\'隐藏评论区\'\'</string>
   <string name="revanced_hide_comments_section_summary_on">\'\'评论区已隐藏\'\'</string>
   <string name="revanced_hide_comments_section_summary_off">\'\'评论区已显示\'\'</string>
-  <string name="revanced_hide_comments_create_a_short_button_title">隐藏“创建 Short按钮</string>
-  <string name="revanced_hide_comments_create_a_short_button_summary_on">“创建 Short 按钮被隐藏</string>
-  <string name="revanced_hide_comments_create_a_short_button_summary_off">显示“创建 Short”按钮</string>
-  <string name="revanced_hide_comments_preview_comment_title">\'\'隐藏预览评论\'\'</string>
-  <string name="revanced_hide_comments_preview_comment_summary_on">\'\'预览评论已隐藏\'\'</string>
-  <string name="revanced_hide_comments_preview_comment_summary_off">\'\'预览评论已显示\'\'</string>
+  <string name="revanced_hide_comments_create_a_short_button_title">隐藏「创建 Short」按钮</string>
+  <string name="revanced_hide_comments_create_a_short_button_summary_on">创建 Short 按钮被隐藏</string>
+  <string name="revanced_hide_comments_create_a_short_button_summary_off">显示创建 Short 按钮</string>
+  <string name="revanced_hide_comments_preview_comment_title">隐藏评论预览</string>
+  <string name="revanced_hide_comments_preview_comment_summary_on">评论预览已隐藏</string>
+  <string name="revanced_hide_comments_preview_comment_summary_off">评论预览已显示</string>
   <string name="revanced_hide_comments_thanks_button_title">隐藏“感谢”按钮</string>
   <string name="revanced_hide_comments_thanks_button_summary_on">“感谢”按钮已隐藏</string>
   <string name="revanced_hide_comments_thanks_button_summary_off">“感谢”按钮已显示</string>
@@ -279,15 +279,15 @@ Second \"item\" text"</string>
   <!-- https://logos.fandom.com/wiki/YouTube/Yoodles -->
   <string name="revanced_hide_doodles_title">隐藏 YouTube 涂鸦</string>
   <string name="revanced_hide_doodles_summary_on">搜索栏涂鸦已隐藏</string>
-  <string name="revanced_hide_doodles_summary_off">搜索栏 Doodles 已显示。</string>
+  <string name="revanced_hide_doodles_summary_off">搜索栏涂鸦已显示</string>
   <string name="revanced_hide_doodles_user_dialog_message">"YouTube Doodles 每年都会显示几天。
 
 如果您的地区当前正在显示 Doodle 并且此隐藏设置已开启，则搜索栏下方的筛选栏也将隐藏。"</string>
   <string name="revanced_custom_filter_screen_title">自定义过滤器</string>
   <string name="revanced_custom_filter_screen_summary">使用自定义过滤器隐藏组件</string>
   <string name="revanced_custom_filter_title">启用自定义筛选器</string>
-  <string name="revanced_custom_filter_summary_on">已启用自定义筛选器</string>
-  <string name="revanced_custom_filter_summary_off">已禁用自定义筛选器</string>
+  <string name="revanced_custom_filter_summary_on">自定义筛选器已启用</string>
+  <string name="revanced_custom_filter_summary_off">自定义筛选器已禁用</string>
   <string name="revanced_custom_filter_strings_title">自定义筛选器</string>
   <!-- 'Component path builder strings' is the technical name for identifying the Litho UI layout items to hide. This is an advanced feature and most users will never use this. -->
   <string name="revanced_custom_filter_strings_summary">用于过滤的组件路径生成器字符串的列表，按行分隔</string>
@@ -390,8 +390,8 @@ Second \"item\" text"</string>
   </patch>
   <patch id="interaction.dialog.removeViewerDiscretionDialogPatch">
   <string name="revanced_remove_viewer_discretion_dialog_title">移除「观看须知」对话框</string>
-  <string name="revanced_remove_viewer_discretion_dialog_summary_on">将移除「观看须知」对话框</string>
-  <string name="revanced_remove_viewer_discretion_dialog_summary_off">将显示「观看须知」对话框</string>
+  <string name="revanced_remove_viewer_discretion_dialog_summary_on">「观看须知」对话框将被移除</string>
+  <string name="revanced_remove_viewer_discretion_dialog_summary_off">「观看须知」对话框将会显示</string>
   <string name="revanced_remove_viewer_discretion_dialog_user_dialog_message">这并不会绕过年龄限制，只是自动按下接受按钮。</string>
   </patch>
   <patch id="interaction.downloads.downloadsResourcePatch">
@@ -629,9 +629,18 @@ Second \"item\" text"</string>
   <string name="revanced_shorts_player_screen_summary">隐藏或显示 Shorts 播放器组件</string>
   <!-- 'home' should be translated using the same localized wording YouTube displays for the home tab. -->
   <string name="revanced_hide_shorts_home_title">在主页动态中隐藏 Shorts</string>
+  <string name="revanced_hide_shorts_home_summary_on">隐藏在主页信息流和相关视频中</string>
+  <string name="revanced_hide_shorts_home_summary_off">显示在主页信息流和相关视频中</string>
   <!-- 'subscription' should be translated using the same localized wording YouTube displays for the subscription tab. -->
   <string name="revanced_hide_shorts_subscriptions_title">在订阅信息流中隐藏 Shorts</string>
+  <string name="revanced_hide_shorts_subscriptions_summary_on">隐藏在订阅中</string>
+  <string name="revanced_hide_shorts_subscriptions_summary_off">显示在订阅中</string>
   <string name="revanced_hide_shorts_search_title">在搜索结果中隐藏 Shorts 视频</string>
+  <string name="revanced_hide_shorts_search_summary_on">在搜索结果中隐藏</string>
+  <string name="revanced_hide_shorts_search_summary_off">显示在搜索结果中</string>
+  <string name="revanced_hide_shorts_history_title">在观看历史中隐藏 Shorts</string>
+  <string name="revanced_hide_shorts_history_summary_on">隐藏在观看历史记录中</string>
+  <string name="revanced_hide_shorts_history_summary_off">显示在观看历史中</string>
   <!-- 'join' should be translated using the same localized wording YouTube displays for the button. -->
   <string name="revanced_hide_shorts_join_button_title">隐藏加入按钮</string>
   <string name="revanced_hide_shorts_join_button_summary_on">加入按钮已隐藏</string>
@@ -1019,6 +1028,7 @@ Second \"item\" text"</string>
                  This is because the 'General layout' menu uses alphabetic sorting, and it functionally works better if the spoof target selector appears below the 'Spoof app version' UI switch -->
   <string name="revanced_spoof_app_version_target_title">伪装应用程序版本为</string>
   <string name="revanced_spoof_app_version_target_entry_1">19.35.36 - 恢复旧的 Shorts 播放器图标</string>
+  <string name="revanced_spoof_app_version_target_entry_2">19.26.42 - 恢复旧导航和工具栏图标</string>
   <!-- 'RYD' is 'Return YouTube Dislike' -->
   <string name="revanced_spoof_app_version_target_legacy_entry_1">18.33.40 - 在隐身模式下恢复 RYD</string>
   <string name="revanced_spoof_app_version_target_legacy_entry_2">18.20.39 - 还原宽视频速度 &amp; 画质菜单</string>
@@ -1268,9 +1278,9 @@ Second \"item\" text"</string>
   <string name="revanced_remember_playback_speed_toast">已更改默认速度为：%s</string>
   </patch>
   <patch id="video.videoqualitymenu.restoreOldVideoQualityMenuResourcePatch">
-  <string name="revanced_restore_old_video_quality_menu_title">恢复旧视频质量菜单</string>
-  <string name="revanced_restore_old_video_quality_menu_summary_on">已显示旧视频质量菜单</string>
-  <string name="revanced_restore_old_video_quality_menu_summary_off">未显示旧视频质量菜单</string>
+  <string name="revanced_restore_old_video_quality_menu_title">恢复旧的画质菜单</string>
+  <string name="revanced_restore_old_video_quality_menu_summary_on">旧的画质菜单已显示</string>
+  <string name="revanced_restore_old_video_quality_menu_summary_off">旧的画质菜单未显示</string>
   </patch>
   <patch id="interaction.seekbar.enableSlideToSeekPatch">
   <string name="revanced_slide_to_seek_title">启用滑动以寻求</string>
@@ -1307,7 +1317,7 @@ AVC 的最大分辨率为 1080p，Opus 音频编解码器不可用，视频播�
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">客户端类型显示在 Stats for nerds 中</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">客户端隐藏在 Stats for nerds 中</string>
   <string name="revanced_spoof_video_streams_language_title">VR 默认音频流语言</string>
-  <string name="revanced_spoof_video_streams_language_DEFAULT">应用语言</string>
+  <string name="revanced_spoof_video_streams_language_DEFAULT">应用程序语言</string>
   <string name="revanced_spoof_video_streams_language_AR">阿拉伯语</string>
   <string name="revanced_spoof_video_streams_language_AZ">阿塞拜疆语</string>
   <string name="revanced_spoof_video_streams_language_BG">保加利亚语</string>

@@ -628,9 +628,18 @@ Second \"item\" text"</string>
   <string name="revanced_shorts_player_screen_summary">Приховати або показувати компоненти у плеєрі Shorts</string>
   <!-- 'home' should be translated using the same localized wording YouTube displays for the home tab. -->
   <string name="revanced_hide_shorts_home_title">Приховати Shorts у стрічці</string>
+  <string name="revanced_hide_shorts_home_summary_on">Приховано в домашній стрічці та пов’язаних відео</string>
+  <string name="revanced_hide_shorts_home_summary_off">Показуються в домашній стрічці та пов’язаних відео</string>
   <!-- 'subscription' should be translated using the same localized wording YouTube displays for the subscription tab. -->
   <string name="revanced_hide_shorts_subscriptions_title">Приховати Shorts у підписках</string>
+  <string name="revanced_hide_shorts_subscriptions_summary_on">Приховано в стрічці підписок</string>
+  <string name="revanced_hide_shorts_subscriptions_summary_off">Показуються в стрічці підписок</string>
   <string name="revanced_hide_shorts_search_title">Приховати Shorts у пошуку</string>
+  <string name="revanced_hide_shorts_search_summary_on">Приховано в результатах пошуку</string>
+  <string name="revanced_hide_shorts_search_summary_off">Показуються в результатах пошуку</string>
+  <string name="revanced_hide_shorts_history_title">Приховати Shorts в історії</string>
+  <string name="revanced_hide_shorts_history_summary_on">Приховано в історії переглядів</string>
+  <string name="revanced_hide_shorts_history_summary_off">Показуються в історії переглядів</string>
   <!-- 'join' should be translated using the same localized wording YouTube displays for the button. -->
   <string name="revanced_hide_shorts_join_button_title">Приховати \"Спонсорувати\"</string>
   <string name="revanced_hide_shorts_join_button_summary_on">Кнопку \"Спонсорувати\" приховано</string>
@@ -1013,6 +1022,7 @@ Second \"item\" text"</string>
                  This is because the 'General layout' menu uses alphabetic sorting, and it functionally works better if the spoof target selector appears below the 'Spoof app version' UI switch -->
   <string name="revanced_spoof_app_version_target_title">Підробити версію програми на</string>
   <string name="revanced_spoof_app_version_target_entry_1">19.35.36 - Відновлення старих іконок плеєра Shorts</string>
+  <string name="revanced_spoof_app_version_target_entry_2">19.26.42 - Відновлення старих іконок навігації та панелі інструментів</string>
   <!-- 'RYD' is 'Return YouTube Dislike' -->
   <string name="revanced_spoof_app_version_target_legacy_entry_1">18.33.40 - Відновлення RYD в анонімному режимі Shorts</string>
   <string name="revanced_spoof_app_version_target_legacy_entry_2">18.20.39 - Відновлення розширеного меню швидкості та якості відео</string>
@@ -1288,9 +1298,9 @@ Second \"item\" text"</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">"Увімкнення цієї функції може подовжити термін автономної роботи батареї та усунути затримки відтворення. 
 
 AVC має максимальну роздільну здатність 1080p, аудіокодек Opus недоступний, а для відтворення відео використовуватиметься більше Інтернет-даних, ніж VP9 або AV1."</string>
-  <string name="revanced_spoof_video_streams_about_ios_tv_title">Побічні ефекти підробки iOS TV</string>
+  <string name="revanced_spoof_video_streams_about_ios_tv_title">Побічні ефекти підробки iOS</string>
   <string name="revanced_spoof_video_streams_about_ios_tv_summary">"• Фільми та платні відео можуть не відтворюватися
-• Стабільна гучність недоступна
+• Меню стабілізації гучності недоступне
 • Відео закінчуються на 1 секунду раніше"</string>
   <string name="revanced_spoof_video_streams_about_android_title">Побічні ефекти підробки Android</string>
   <string name="revanced_spoof_video_streams_about_android_summary">"• Меню звукової доріжки відсутнє
@@ -1300,7 +1310,7 @@ AVC має максимальну роздільну здатність 1080p, �
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Тип клієнта відображається у вікні \"Статистика для сисадмінів\"</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Тип клієнта приховано у вікні \"Статистика для сисадмінів\"</string>
   <string name="revanced_spoof_video_streams_language_title">Звукова доріжка за замовчуванням для VR</string>
-  <string name="revanced_spoof_video_streams_language_DEFAULT">Мова облікового запису</string>
+  <string name="revanced_spoof_video_streams_language_DEFAULT">Мова програми</string>
   <string name="revanced_spoof_video_streams_language_AR">Арабська</string>
   <string name="revanced_spoof_video_streams_language_AZ">Азербайджанська</string>
   <string name="revanced_spoof_video_streams_language_BG">Болгарська</string>
