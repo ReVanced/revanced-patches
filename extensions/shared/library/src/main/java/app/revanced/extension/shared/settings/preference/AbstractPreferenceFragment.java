@@ -137,6 +137,9 @@ public abstract class AbstractPreferenceFragment extends PreferenceFragment {
         updatePreferenceScreen(getPreferenceScreen(), false, false);
     }
 
+    /**
+     * @return If the preference is currently set to the default value of the Setting.
+     */
     protected boolean prefIsSetToDefault(Preference pref, Setting<?> setting) {
         if (pref instanceof SwitchPreference switchPref) {
             return switchPref.isChecked() == (Boolean) setting.defaultValue;
@@ -148,7 +151,8 @@ public abstract class AbstractPreferenceFragment extends PreferenceFragment {
             return listPref.getValue().equals(setting.defaultValue.toString());
         }
 
-        throw new IllegalStateException();
+        throw new IllegalStateException("Must override method to handle "
+                + "preference type: " + pref.getClass());
     }
 
     /**
