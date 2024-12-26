@@ -35,6 +35,33 @@ public abstract class AbstractPreferenceFragment extends PreferenceFragment {
     @Nullable
     protected static String restartDialogButtonText, restartDialogTitle, confirmDialogTitle;
 
+    private static boolean prefIsSetToDefault(Preference pref, Setting<?> setting) {
+        if (pref instanceof SwitchPreference switchPref) {
+            return switchPref.isChecked() == (Boolean) setting.defaultValue;
+        }
+        if (pref instanceof EditTextPreference editPreference) {
+            return editPreference.getText().equals(setting.defaultValue.toString());
+        }
+        if (pref instanceof ListPreference listPref) {
+            return listPref.getValue().equals(setting.defaultValue.toString());
+        }
+
+        throw new IllegalStateException();
+    }
+
+    /**
+     * Recursive call that also sets the Setting value.
+     */
+    private static void applyDefaultToPreference(Preference pref, Setting<?> setting) {
+        if (pref instanceof SwitchPreference switchPref) {
+            switchPref.setChecked((Boolean) setting.defaultValue);
+        } else if (pref instanceof EditTextPreference editPreference) {
+            editPreference.setText(setting.defaultValue.toString());
+        } else if (pref instanceof ListPreference listPref) {
+            listPref.setValue(setting.defaultValue.toString());
+        }
+    }
+
     /**
      * Used to prevent showing reboot dialog, if user cancels a setting user dialog.
      */
@@ -42,7 +69,7 @@ public abstract class AbstractPreferenceFragment extends PreferenceFragment {
 
     private final SharedPreferences.OnSharedPreferenceChangeListener listener = (sharedPreferences, str) -> {
         try {
-            Setting<?> setting = Setting.getSettingFromPath(str);
+            Setting<?> setting = Setting.getSettingFromPath(Objects.requireNonNull(str));
             if (setting == null) {
                 return;
             }
@@ -62,8 +89,8 @@ public abstract class AbstractPreferenceFragment extends PreferenceFragment {
             }
 
             if (!showingUserDialogMessage) {
-                if (setting.userDialogMessage != null && ((SwitchPreference) pref).isChecked() != (Boolean) setting.defaultValue) {
-                    showSettingUserDialogConfirmation((SwitchPreference) pref, (BooleanSetting) setting);
+                if (setting.userDialogMessage != null && !prefIsSetToDefault(pref, setting)) {
+                    showSettingUserDialogConfirmation(pref, setting);
                 } else if (setting.rebootApp) {
                     showRestartDialog(getContext());
                 }
@@ -92,7 +119,7 @@ public abstract class AbstractPreferenceFragment extends PreferenceFragment {
         Utils.setPreferenceTitlesToMultiLineIfNeeded(screen);
     }
 
-    private void showSettingUserDialogConfirmation(SwitchPreference switchPref, BooleanSetting setting) {
+    private void showSettingUserDialogConfirmation(Preference pref, Setting<?> setting) {
         Utils.verifyOnMainThread();
 
         final var context = getContext();
@@ -109,7 +136,7 @@ public abstract class AbstractPreferenceFragment extends PreferenceFragment {
                     }
                 })
                 .setNegativeButton(android.R.string.cancel, (dialog, id) -> {
-                    switchPref.setChecked(setting.defaultValue); // Recursive call that resets the Setting value.
+                    applyDefaultToPreference(pref, setting);
                 })
                 .setOnDismissListener(dialog -> {
                     showingUserDialogMessage = false;
@@ -170,23 +197,20 @@ public abstract class AbstractPreferenceFragment extends PreferenceFragment {
     protected void syncSettingWithPreference(@NonNull Preference pref,
                                              @NonNull Setting<?> setting,
                                              boolean applySettingToPreference) {
-        if (pref instanceof SwitchPreference) {
-            SwitchPreference switchPref = (SwitchPreference) pref;
+        if (pref instanceof SwitchPreference switchPref) {
             BooleanSetting boolSetting = (BooleanSetting) setting;
             if (applySettingToPreference) {
                 switchPref.setChecked(boolSetting.get());
             } else {
                 BooleanSetting.privateSetValue(boolSetting, switchPref.isChecked());
             }
-        } else if (pref instanceof EditTextPreference) {
-            EditTextPreference editPreference = (EditTextPreference) pref;
+        } else if (pref instanceof EditTextPreference editPreference) {
             if (applySettingToPreference) {
                 editPreference.setText(setting.get().toString());
             } else {
                 Setting.privateSetValueFromString(setting, editPreference.getText());
             }
-        } else if (pref instanceof ListPreference) {
-            ListPreference listPref = (ListPreference) pref;
+        } else if (pref instanceof ListPreference listPref) {
             if (applySettingToPreference) {
                 listPref.setValue(setting.get().toString());
             } else {
