@@ -239,6 +239,6 @@ class SwipeControlsHostActivity : Activity() {
          */
         @Suppress("unused")
         @JvmStatic
-        fun allowSwipeToChangeVideo(original: Boolean): Boolean = Settings.SWIPE_TO_CHANGE_VIDEO.get()
+        fun allowSwipeChangeVideo(original: Boolean): Boolean = Settings.SWIPE_CHANGE_VIDEO.get()
     }
 }

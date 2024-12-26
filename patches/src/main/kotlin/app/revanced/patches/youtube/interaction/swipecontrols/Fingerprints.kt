@@ -8,16 +8,16 @@ internal val swipeControlsHostActivityFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     parameters()
     custom { method, _ ->
-        method.definingClass == "Lapp/revanced/extension/youtube/swipecontrols/SwipeControlsHostActivity;"
+        method.definingClass == EXTENSION_CLASS_DESCRIPTOR
     }
 }
 
-internal const val SWIPE_TO_SWITCH_VIDEO_FEATURE_FLAG = 45631116L
+internal const val SWIPE_CHANGE_VIDEO_FEATURE_FLAG = 45631116L
 
-internal val swipeToSwitchVideoFingerprint = fingerprint {
+internal val swipeChangeVideoFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     parameters("L")
     literal {
-        SWIPE_TO_SWITCH_VIDEO_FEATURE_FLAG
+        SWIPE_CHANGE_VIDEO_FEATURE_FLAG
     }
 }
