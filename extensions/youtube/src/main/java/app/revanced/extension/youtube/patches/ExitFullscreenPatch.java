@@ -28,19 +28,19 @@ public class ExitFullscreenPatch {
                 return;
             }
 
-            if (Utils.isLandscapeOrientation()) {
-                if (mode == FullscreenMode.PORTRAIT) {
+            if (VideoInformation.isAtEndOfVideo()
+                    && VideoState.getCurrent() == VideoState.PLAYING
+                    && PlayerType.getCurrent() == PlayerType.WATCH_WHILE_FULLSCREEN) {
+
+                if (Utils.isLandscapeOrientation()) {
+                    if (mode == FullscreenMode.PORTRAIT) {
+                        return;
+                    }
+                } else if (mode == FullscreenMode.LANDSCAPE) {
                     return;
                 }
-            } else if (mode == FullscreenMode.LANDSCAPE) {
-                return;
-            }
 
-            if (PlayerType.getCurrent() == PlayerType.WATCH_WHILE_FULLSCREEN
-                    && VideoState.getCurrent() == VideoState.PLAYING
-                    && VideoInformation.isAtEndOfVideo()) {
                 ImageView fullscreenButton = PlayerControlsPatch.fullscreenButtonRef.get();
-
                 if (fullscreenButton != null) {
                     Logger.printDebug(() -> "Clicking fullscreen button");
                     fullscreenButton.performClick();
