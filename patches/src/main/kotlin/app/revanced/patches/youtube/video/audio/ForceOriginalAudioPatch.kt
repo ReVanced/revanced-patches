@@ -57,7 +57,10 @@ val forceOriginalAudioPatch = bytecodePatch(
         addResources("youtube", "video.audio.forceOriginalAudioPatch")
 
         PreferenceScreen.VIDEO.addPreferences(
-            SwitchPreference("revanced_force_original_audio")
+            SwitchPreference(
+                key = "revanced_force_original_audio",
+                tag = "app.revanced.extension.youtube.settings.preference.ForceOriginalAudioSwitchPreference"
+            )
         )
 
         fun Method.firstFormatStreamingModelCall(

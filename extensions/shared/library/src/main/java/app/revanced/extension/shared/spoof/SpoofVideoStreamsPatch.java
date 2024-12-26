@@ -34,6 +34,12 @@ public class SpoofVideoStreamsPatch {
         return false; // Modified during patching.
     }
 
+    public static boolean notSpoofingToAndroid() {
+        return !isPatchIncluded()
+                || !BaseSettings.SPOOF_VIDEO_STREAMS.get()
+                || BaseSettings.SPOOF_VIDEO_STREAMS_CLIENT_TYPE.get() == ClientType.IOS_UNPLUGGED;
+    }
+
     /**
      * Injection point.
      * Blocks /get_watch requests by returning an unreachable URI.
@@ -204,18 +210,6 @@ public class SpoofVideoStreamsPatch {
         }
 
         return videoFormat;
-    }
-
-    public static final class NotSpoofingAndroidAvailability implements Setting.Availability {
-        @Override
-        public boolean isAvailable() {
-            if (SpoofVideoStreamsPatch.isPatchIncluded()) {
-                return !BaseSettings.SPOOF_VIDEO_STREAMS.get()
-                        || BaseSettings.SPOOF_VIDEO_STREAMS_CLIENT_TYPE.get() == ClientType.IOS_UNPLUGGED;
-            }
-
-            return true;
-        }
     }
 
     public static final class AudioStreamLanguageOverrideAvailability implements Setting.Availability {
