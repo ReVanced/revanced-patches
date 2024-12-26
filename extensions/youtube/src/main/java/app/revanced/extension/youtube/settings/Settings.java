@@ -295,8 +295,8 @@ public class Settings extends BaseSettings {
 
     // Swipe controls
     public static final BooleanSetting SWIPE_CHANGE_VIDEO = new BooleanSetting("revanced_swipe_change_video", FALSE, true);
-    public static final BooleanSetting SWIPE_BRIGHTNESS = new BooleanSetting("revanced_swipe_brightness", TRUE);
-    public static final BooleanSetting SWIPE_VOLUME = new BooleanSetting("revanced_swipe_volume", TRUE);
+    public static final BooleanSetting SWIPE_BRIGHTNESS = new BooleanSetting("revanced_swipe_brightness", FALSE);
+    public static final BooleanSetting SWIPE_VOLUME = new BooleanSetting("revanced_swipe_volume", FALSE);
     public static final BooleanSetting SWIPE_PRESS_TO_ENGAGE = new BooleanSetting("revanced_swipe_press_to_engage", FALSE, true,
             parentsAny(SWIPE_BRIGHTNESS, SWIPE_VOLUME));
     public static final BooleanSetting SWIPE_HAPTIC_FEEDBACK = new BooleanSetting("revanced_swipe_haptic_feedback", TRUE, true,
