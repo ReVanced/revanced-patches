@@ -3,12 +3,15 @@ package app.revanced.extension.youtube.shared;
 import static app.revanced.extension.youtube.shared.NavigationBar.NavigationButton.CREATE;
 
 import android.app.Activity;
+import android.os.Build;
 import android.view.View;
 
 import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 
 import java.lang.ref.WeakReference;
 import java.util.Arrays;
+import java.util.EnumMap;
 import java.util.List;
 import java.util.Map;
 import java.util.WeakHashMap;
@@ -240,6 +243,30 @@ public final class NavigationBar {
     /** @noinspection EmptyMethod*/
     private static void navigationTabCreatedCallback(NavigationButton button, View tabView) {
         // Code is added during patching.
+    }
+
+    /**
+     * Use the bundled non cairo filled icon instead of a custom icon.
+     * Use the old non cairo filled icon, which is almost identical to
+     * the what would be the filled cairo icon.
+     */
+    private static final int fillBellCairoBlack = Utils.getResourceIdentifier(
+            "yt_fill_bell_black_24", "drawable");
+
+    /**
+     * Injection point.
+     * Fixes missing drawable.
+     */
+    @RequiresApi(api = Build.VERSION_CODES.N)
+    @SuppressWarnings({"unchecked", "rawtypes"})
+    public static void setCairoNotificationFilledIcon(EnumMap enumMap, Enum tabActivityCairo) {
+        if (fillBellCairoBlack != 0) {
+            // Show a popup informing this fix is no longer needed to those who might care.
+            if (BaseSettings.DEBUG.get() && enumMap.containsKey(tabActivityCairo)) {
+                Logger.printException(() -> "YouTube fixed the cairo notification icons");
+            }
+            enumMap.putIfAbsent(tabActivityCairo, fillBellCairoBlack);
+        }
     }
 
     public enum NavigationButton {

@@ -1,6 +1,7 @@
 package app.revanced.patches.youtube.misc.navigation
 
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
+import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.instructions
 import app.revanced.patcher.patch.PatchException
@@ -12,19 +13,24 @@ import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
 import app.revanced.patches.shared.misc.mapping.resourceMappings
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.playertype.playerTypeHookPatch
+import app.revanced.patches.youtube.misc.playservice.is_19_35_or_greater
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
+import app.revanced.util.indexOfFirstInstructionReversedOrThrow
 import app.revanced.util.indexOfFirstLiteralInstructionOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.Instruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import com.android.tools.smali.dexlib2.util.MethodUtil
 
 internal var imageOnlyTabResourceId = -1L
     private set
 internal var actionBarSearchResultsViewMicId = -1L
+    private set
+internal var ytFillBellId = -1L
     private set
 
 private val navigationBarHookResourcePatch = resourcePatch {
@@ -33,6 +39,7 @@ private val navigationBarHookResourcePatch = resourcePatch {
     execute {
         imageOnlyTabResourceId = resourceMappings["layout", "image_only_tab"]
         actionBarSearchResultsViewMicId = resourceMappings["layout", "action_bar_search_results_view_mic"]
+        ytFillBellId = resourceMappings["drawable", "yt_fill_bell_black_24"]
     }
 }
 
@@ -143,6 +150,36 @@ val navigationBarHookPatch = bytecodePatch(description = "Hooks the active navig
                     "$extensionClassDescriptor->navigationTabCreated" +
                     "(${EXTENSION_NAVIGATION_BUTTON_DESCRIPTOR}Landroid/view/View;)V",
             )
+        }
+
+        // Fix YT bug of notification tab missing the filled icon.
+        if (is_19_35_or_greater) {
+            val cairoNotificationEnumReference = with(imageEnumConstructorFingerprint) {
+                val stringIndex = stringMatches!!.first().index
+                val cairoNotificationEnumIndex = method.indexOfFirstInstructionOrThrow(stringIndex) {
+                    opcode == Opcode.SPUT_OBJECT
+                }
+                method.getInstruction<ReferenceInstruction>(cairoNotificationEnumIndex).reference
+            }
+
+            setEnumMapFingerprint.method.apply {
+                val enumMapIndex = indexOfFirstInstructionReversedOrThrow {
+                    val reference = getReference<MethodReference>()
+                    opcode == Opcode.INVOKE_VIRTUAL &&
+                            reference?.definingClass == "Ljava/util/EnumMap;" &&
+                            reference.name == "put" &&
+                            reference.parameterTypes.firstOrNull() == "Ljava/lang/Enum;"
+                }
+                val instruction = getInstruction<FiveRegisterInstruction>(enumMapIndex)
+
+                addInstructions(
+                    enumMapIndex + 1,
+                    """
+                        sget-object v${instruction.registerD}, $cairoNotificationEnumReference
+                        invoke-static { v${instruction.registerC}, v${instruction.registerD} }, $EXTENSION_CLASS_DESCRIPTOR->setCairoNotificationFilledIcon(Ljava/util/EnumMap;Ljava/lang/Enum;)V
+                    """
+                )
+            }
         }
     }
 }
