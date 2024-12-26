@@ -10,12 +10,15 @@ import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.shared.misc.settings.preference.TextPreference
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.playertype.playerTypeHookPatch
+import app.revanced.patches.youtube.misc.playservice.is_19_23_or_greater
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
 import app.revanced.patches.youtube.shared.mainActivityFingerprint
 import app.revanced.util.*
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
+
+private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/youtube/swipecontrols/SwipeControlsHostActivity;"
 
 private val swipeControlsResourcePatch = resourcePatch {
     dependsOn(
@@ -37,6 +40,7 @@ private val swipeControlsResourcePatch = resourcePatch {
             TextPreference("revanced_swipe_text_overlay_size", inputType = InputType.NUMBER),
             TextPreference("revanced_swipe_overlay_background_alpha", inputType = InputType.NUMBER),
             TextPreference("revanced_swipe_threshold", inputType = InputType.NUMBER),
+            SwitchPreference("revanced_swipe_to_change_video"),
         )
 
         copyResources(
@@ -101,5 +105,16 @@ val swipeControlsPatch = bytecodePatch(
                 ).toMutable()
             }
         }
+
+        // region patch for disable swipe to switch video
+
+        if (is_19_23_or_greater) {
+            swipeToSwitchVideoFingerprint.method.insertFeatureFlagBooleanOverride(
+                SWIPE_TO_SWITCH_VIDEO_FEATURE_FLAG,
+                "$EXTENSION_CLASS_DESCRIPTOR->allowSwipeToChangeVideo(Z)Z"
+            )
+        }
+
+        // endregion
     }
 }

@@ -8,6 +8,7 @@ import android.view.MotionEvent
 import android.view.ViewGroup
 import app.revanced.extension.shared.Logger.printDebug
 import app.revanced.extension.shared.Logger.printException
+import app.revanced.extension.youtube.settings.Settings
 import app.revanced.extension.youtube.shared.PlayerType
 import app.revanced.extension.youtube.swipecontrols.controller.AudioVolumeController
 import app.revanced.extension.youtube.swipecontrols.controller.ScreenBrightnessController
@@ -232,5 +233,12 @@ class SwipeControlsHostActivity : Activity() {
         @JvmStatic
         var currentHost: WeakReference<SwipeControlsHostActivity> = WeakReference(null)
             private set
+
+        /**
+         * Injection point.
+         */
+        @Suppress("unused")
+        @JvmStatic
+        fun allowSwipeToChangeVideo(original: Boolean): Boolean = Settings.SWIPE_TO_CHANGE_VIDEO.get()
     }
 }

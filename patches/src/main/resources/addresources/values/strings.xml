@@ -449,6 +449,9 @@ This feature is only available for older devices"</string>
             <string name="revanced_swipe_overlay_background_alpha_summary">The visibility of swipe overlay background</string>
             <string name="revanced_swipe_threshold_title">Swipe magnitude threshold</string>
             <string name="revanced_swipe_threshold_summary">The amount of threshold for swipe to occur</string>
+            <string name="revanced_swipe_to_change_video_title">Fullscreen swipe to change videos</string>
+            <string name="revanced_swipe_to_change_video_summary_on">Swiping up / down in fullscreen mode will change to the next/previous video</string>
+            <string name="revanced_swipe_to_change_video_summary_off">Swiping up / down in fullscreen mode will not change to the next/previous video</string>
         </patch>
         <patch id="layout.autocaptions.autoCaptionsPatch">
             <string name="revanced_auto_captions_title">Disable auto captions</string>

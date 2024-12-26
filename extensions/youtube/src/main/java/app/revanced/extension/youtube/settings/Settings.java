@@ -304,6 +304,7 @@ public class Settings extends BaseSettings {
             parentsAny(SWIPE_BRIGHTNESS, SWIPE_VOLUME));
     public static final IntegerSetting SWIPE_OVERLAY_BACKGROUND_ALPHA = new IntegerSetting("revanced_swipe_overlay_background_alpha", 127, true,
             parentsAny(SWIPE_BRIGHTNESS, SWIPE_VOLUME));
+    public static final BooleanSetting SWIPE_TO_CHANGE_VIDEO = new BooleanSetting("revanced_swipe_to_change_video", FALSE, true);
 
     // Debugging
     public static final IntegerSetting SWIPE_OVERLAY_TEXT_SIZE = new IntegerSetting("revanced_swipe_text_overlay_size", 22, true,
