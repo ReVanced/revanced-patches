@@ -14,9 +14,10 @@ public class ChangeFormFactorPatch {
          */
         DEFAULT(null),
         /**
+         * <pre>
          * Some changes include:
-         * - Explore tab is present
-         * - watch history is missing
+         * - Explore tab is present.
+         * - watch history is missing.
          * - feed thumbnails fade in.
          */
         UNKNOWN(0),

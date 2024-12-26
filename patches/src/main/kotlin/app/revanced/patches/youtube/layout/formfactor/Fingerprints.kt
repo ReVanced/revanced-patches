@@ -13,7 +13,8 @@ internal val formFactorEnumConstructorFingerprint = fingerprint {
     strings(
         "UNKNOWN_FORM_FACTOR",
         "SMALL_FORM_FACTOR",
-        "LARGE_FORM_FACTOR"
+        "LARGE_FORM_FACTOR",
+        "AUTOMOTIVE_FORM_FACTOR"
     )
 }
 

@@ -153,12 +153,14 @@
                 <item>@string/revanced_change_form_factor_entry_1</item>
                 <item>@string/revanced_change_form_factor_entry_2</item>
                 <item>@string/revanced_change_form_factor_entry_3</item>
+                <item>@string/revanced_change_form_factor_entry_4</item>
             </string-array>
             <string-array name="revanced_change_form_factor_entry_values">
                 <!-- Extension enum names. -->
                 <item>DEFAULT</item>
                 <item>SMALL</item>
                 <item>LARGE</item>
+                <item>AUTOMOTIVE</item>
             </string-array>
         </patch>
         <patch id="layout.miniplayer.miniplayerPatch">
