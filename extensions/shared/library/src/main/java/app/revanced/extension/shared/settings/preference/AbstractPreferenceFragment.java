@@ -35,33 +35,6 @@ public abstract class AbstractPreferenceFragment extends PreferenceFragment {
     @Nullable
     protected static String restartDialogButtonText, restartDialogTitle, confirmDialogTitle;
 
-    private static boolean prefIsSetToDefault(Preference pref, Setting<?> setting) {
-        if (pref instanceof SwitchPreference switchPref) {
-            return switchPref.isChecked() == (Boolean) setting.defaultValue;
-        }
-        if (pref instanceof EditTextPreference editPreference) {
-            return editPreference.getText().equals(setting.defaultValue.toString());
-        }
-        if (pref instanceof ListPreference listPref) {
-            return listPref.getValue().equals(setting.defaultValue.toString());
-        }
-
-        throw new IllegalStateException();
-    }
-
-    /**
-     * Recursive call that also sets the Setting value.
-     */
-    private static void applyDefaultToPreference(Preference pref, Setting<?> setting) {
-        if (pref instanceof SwitchPreference switchPref) {
-            switchPref.setChecked((Boolean) setting.defaultValue);
-        } else if (pref instanceof EditTextPreference editPreference) {
-            editPreference.setText(setting.defaultValue.toString());
-        } else if (pref instanceof ListPreference listPref) {
-            listPref.setValue(setting.defaultValue.toString());
-        }
-    }
-
     /**
      * Used to prevent showing reboot dialog, if user cancels a setting user dialog.
      */
@@ -79,23 +52,21 @@ public abstract class AbstractPreferenceFragment extends PreferenceFragment {
             }
             Logger.printDebug(() -> "Preference changed: " + setting.key);
 
-            // Apply 'Setting <- Preference', unless during importing when it needs to be 'Setting -> Preference'.
-            updatePreference(pref, setting, true, settingImportInProgress);
-            // Update any other preference availability that may now be different.
-            updateUIAvailability();
-
-            if (settingImportInProgress) {
-                return;
-            }
-
-            if (!showingUserDialogMessage) {
+            if (!settingImportInProgress && !showingUserDialogMessage) {
                 if (setting.userDialogMessage != null && !prefIsSetToDefault(pref, setting)) {
+                    // Do not change the setting yet, to allow preserving whatever
+                    // list/text value was previously set if it needs to be reverted.
                     showSettingUserDialogConfirmation(pref, setting);
+                    return;
                 } else if (setting.rebootApp) {
                     showRestartDialog(getContext());
                 }
             }
 
+            // Apply 'Setting <- Preference', unless during importing when it needs to be 'Setting -> Preference'.
+            updatePreference(pref, setting, true, settingImportInProgress);
+            // Update any other preference availability that may now be different.
+            updateUIAvailability();
         } catch (Exception ex) {
             Logger.printException(() -> "OnSharedPreferenceChangeListener failure", ex);
         }
@@ -131,12 +102,19 @@ public abstract class AbstractPreferenceFragment extends PreferenceFragment {
                 .setTitle(confirmDialogTitle)
                 .setMessage(Objects.requireNonNull(setting.userDialogMessage).toString())
                 .setPositiveButton(android.R.string.ok, (dialog, id) -> {
+                    // User confirmed, save to the Setting.
+                    updatePreference(pref, setting, true, false);
+
+                    // Update availability of other preferences that may be changed.
+                    updateUIAvailability();
+
                     if (setting.rebootApp) {
                         showRestartDialog(context);
                     }
                 })
                 .setNegativeButton(android.R.string.cancel, (dialog, id) -> {
-                    applyDefaultToPreference(pref, setting);
+                    // Restore whatever the setting was before the change.
+                    updatePreference(pref, setting, true, true);
                 })
                 .setOnDismissListener(dialog -> {
                     showingUserDialogMessage = false;
@@ -157,6 +135,20 @@ public abstract class AbstractPreferenceFragment extends PreferenceFragment {
      */
     protected void updateUIAvailability() {
         updatePreferenceScreen(getPreferenceScreen(), false, false);
+    }
+
+    protected boolean prefIsSetToDefault(Preference pref, Setting<?> setting) {
+        if (pref instanceof SwitchPreference switchPref) {
+            return switchPref.isChecked() == (Boolean) setting.defaultValue;
+        }
+        if (pref instanceof EditTextPreference editPreference) {
+            return editPreference.getText().equals(setting.defaultValue.toString());
+        }
+        if (pref instanceof ListPreference listPref) {
+            return listPref.getValue().equals(setting.defaultValue.toString());
+        }
+
+        throw new IllegalStateException();
     }
 
     /**

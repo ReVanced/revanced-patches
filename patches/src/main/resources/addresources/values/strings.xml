@@ -1031,11 +1031,10 @@ Tablet layout
 • Community posts are hidden
 
 Automotive layout
+• Watch history menu is hidden
 • Explore tab is restored
 • Shorts open in the regular player
-• Home feed is organized by topics
-• Subscriptions is organized by channel
-• Watch history menu is hidden"</string>
+• Feed is organized by topics and channel"</string>
         </patch>
         <patch id="layout.spoofappversion.spoofAppVersionPatch">
             <string name="revanced_spoof_app_version_title">Spoof app version</string>
