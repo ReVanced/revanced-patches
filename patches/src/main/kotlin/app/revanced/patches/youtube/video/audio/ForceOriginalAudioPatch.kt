@@ -59,7 +59,7 @@ val forceOriginalAudioPatch = bytecodePatch(
         PreferenceScreen.VIDEO.addPreferences(
             SwitchPreference(
                 key = "revanced_force_original_audio",
-                tag = "app.revanced.extension.youtube.settings.preference.ForceOriginalAudioPreference"
+                tag = "app.revanced.extension.youtube.settings.preference.ForceOriginalAudioSwitchPreference"
             )
         )
 

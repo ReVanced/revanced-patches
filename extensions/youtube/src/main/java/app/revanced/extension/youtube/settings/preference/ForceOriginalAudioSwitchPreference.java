@@ -9,7 +9,7 @@ import android.util.AttributeSet;
 import app.revanced.extension.youtube.patches.ForceOriginalAudioPatch;
 
 @SuppressWarnings({"deprecation", "unused"})
-public class ForceOriginalAudioPreference extends SwitchPreference {
+public class ForceOriginalAudioSwitchPreference extends SwitchPreference {
 
     {
         if (!ForceOriginalAudioPatch.PATCH_AVAILABLE) {
@@ -21,16 +21,16 @@ public class ForceOriginalAudioPreference extends SwitchPreference {
         }
     }
 
-    public ForceOriginalAudioPreference(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
+    public ForceOriginalAudioSwitchPreference(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
     }
-    public ForceOriginalAudioPreference(Context context, AttributeSet attrs, int defStyleAttr) {
+    public ForceOriginalAudioSwitchPreference(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
     }
-    public ForceOriginalAudioPreference(Context context, AttributeSet attrs) {
+    public ForceOriginalAudioSwitchPreference(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
-    public ForceOriginalAudioPreference(Context context) {
+    public ForceOriginalAudioSwitchPreference(Context context) {
         super(context);
     }
 }
