@@ -1,12 +1,28 @@
 package app.revanced.extension.youtube.patches;
 
 import app.revanced.extension.shared.Logger;
+import app.revanced.extension.shared.settings.Setting;
+import app.revanced.extension.shared.spoof.SpoofVideoStreamsPatch;
 import app.revanced.extension.youtube.settings.Settings;
 
 @SuppressWarnings("unused")
 public class ForceOriginalAudioPatch {
 
     private static final String DEFAULT_AUDIO_TRACKS_SUFFIX = ".4";
+
+    /**
+     * If the conditions to use this patch were present when the app launched.
+     */
+    public static boolean PATCH_AVAILABLE = SpoofVideoStreamsPatch.notSpoofingToAndroid();
+
+    public static final class ForceOriginalAudioAvailability implements Setting.Availability {
+        @Override
+        public boolean isAvailable() {
+            // Check conditions of launch and now. Otherwise if spoofing is changed
+            // without a restart the setting will show as available when it's not.
+            return PATCH_AVAILABLE && SpoofVideoStreamsPatch.notSpoofingToAndroid();
+        }
+    }
 
     /**
      * Injection point.

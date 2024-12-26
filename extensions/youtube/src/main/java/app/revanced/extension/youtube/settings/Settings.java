@@ -7,8 +7,8 @@ import static app.revanced.extension.shared.settings.Setting.migrateFromOldPrefe
 import static app.revanced.extension.shared.settings.Setting.migrateOldSettingToNew;
 import static app.revanced.extension.shared.settings.Setting.parent;
 import static app.revanced.extension.shared.settings.Setting.parentsAny;
-import static app.revanced.extension.shared.spoof.SpoofVideoStreamsPatch.NotSpoofingAndroidAvailability;
 import static app.revanced.extension.youtube.patches.ChangeStartPagePatch.StartPage;
+import static app.revanced.extension.youtube.patches.ForceOriginalAudioPatch.ForceOriginalAudioAvailability;
 import static app.revanced.extension.youtube.patches.MiniplayerPatch.MiniplayerHideExpandCloseAvailability;
 import static app.revanced.extension.youtube.patches.MiniplayerPatch.MiniplayerHorizontalDragAvailability;
 import static app.revanced.extension.youtube.patches.MiniplayerPatch.MiniplayerType;
@@ -54,7 +54,7 @@ public class Settings extends BaseSettings {
     public static final StringSetting CUSTOM_PLAYBACK_SPEEDS = new StringSetting("revanced_custom_playback_speeds",
             "0.25\n0.5\n0.75\n0.9\n0.95\n1.0\n1.05\n1.1\n1.25\n1.5\n1.75\n2.0\n3.0\n4.0\n5.0", true);
     // Audio
-    public static final BooleanSetting FORCE_ORIGINAL_AUDIO = new BooleanSetting("revanced_force_original_audio", FALSE, new NotSpoofingAndroidAvailability());
+    public static final BooleanSetting FORCE_ORIGINAL_AUDIO = new BooleanSetting("revanced_force_original_audio", FALSE, new ForceOriginalAudioAvailability());
 
     // Ads
     public static final BooleanSetting HIDE_BUTTONED_ADS = new BooleanSetting("revanced_hide_buttoned_ads", TRUE);

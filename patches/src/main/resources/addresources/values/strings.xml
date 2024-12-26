@@ -1246,6 +1246,7 @@ Enabling this can unlock higher video qualities"</string>
             <string name="revanced_force_original_audio_title">Force original audio</string>
             <string name="revanced_force_original_audio_summary_on">Using original audio</string>
             <string name="revanced_force_original_audio_summary_off">Using default audio</string>
+            <string name="revanced_force_original_audio_not_available">To use this feature change stream spoofing to iOS client type</string>
         </patch>
         <patch id="video.quality.rememberVideoQualityPatch">
             <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
