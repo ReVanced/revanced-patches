@@ -629,9 +629,18 @@ Shënim: Aktivizimi i kësaj gjëje gjithashtu fsheh me forcë reklamat video"</
   <string name="revanced_shorts_player_screen_summary">Fsheh ose shfaq komponentët në lojtarin e Shorts</string>
   <!-- 'home' should be translated using the same localized wording YouTube displays for the home tab. -->
   <string name="revanced_hide_shorts_home_title">Fsheh Shorts në ushqimin e shtëpisë</string>
+  <string name="revanced_hide_shorts_home_summary_on">E fshehur në rrjedhën e faqës kryesore dhe videot e lidhura</string>
+  <string name="revanced_hide_shorts_home_summary_off">Tregohet në rrjedhën e faqës kryesore dhe videot e lidhura</string>
   <!-- 'subscription' should be translated using the same localized wording YouTube displays for the subscription tab. -->
   <string name="revanced_hide_shorts_subscriptions_title">Fsheh Shorts në ushqimin e abonimeve</string>
+  <string name="revanced_hide_shorts_subscriptions_summary_on">Fshehur në rrjedhën e abonimit</string>
+  <string name="revanced_hide_shorts_subscriptions_summary_off">Shfaqen në rrjedhën e abonimit</string>
   <string name="revanced_hide_shorts_search_title">Fsheh Shorts në rezultatet e kërkimit</string>
+  <string name="revanced_hide_shorts_search_summary_on">E fshehur në rezultatet e kërkimit</string>
+  <string name="revanced_hide_shorts_search_summary_off">Shfaqen në rezultatet e kërkimit</string>
+  <string name="revanced_hide_shorts_history_title">Fsheh Shorts në historinë e shikimit</string>
+  <string name="revanced_hide_shorts_history_summary_on">Fshehur në historinë e shikimit</string>
+  <string name="revanced_hide_shorts_history_summary_off">Shfaqet në historinë e shikimit</string>
   <!-- 'join' should be translated using the same localized wording YouTube displays for the button. -->
   <string name="revanced_hide_shorts_join_button_title">Fsheh butonin \"Bashkohu\"</string>
   <string name="revanced_hide_shorts_join_button_summary_on">Butoni \"Bashkohu\" është i fshehur</string>
@@ -1013,6 +1022,7 @@ Nëse më vonë është çaktivizuar, është e rekomanduar të fshiheni të dh�
                  This is because the 'General layout' menu uses alphabetic sorting, and it functionally works better if the spoof target selector appears below the 'Spoof app version' UI switch -->
   <string name="revanced_spoof_app_version_target_title">Shënjestër e versionit të aplikacionit të mashtuar</string>
   <string name="revanced_spoof_app_version_target_entry_1">19.35.36 - Rikthe ikonat e vjetra të lojtarit Shorts</string>
+  <string name="revanced_spoof_app_version_target_entry_2">19.26.42 - Riktheh ikonat e navigimit dhe shiritit të mjeteve të vjetra</string>
   <!-- 'RYD' is 'Return YouTube Dislike' -->
   <string name="revanced_spoof_app_version_target_legacy_entry_1">18.33.40 - Rikthe RYD në modin incognito të Shorts</string>
   <string name="revanced_spoof_app_version_target_legacy_entry_2">18.20.39 - Rikthe menunë e shpejtësisë dhe cilësisë së videos së gjerë</string>
@@ -1300,7 +1310,7 @@ AVC ka një rezolucion maksimal prej 1080p, kodeku audio Opus nuk është i disp
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Lloji i klientit shfaqet në Statistikat për nerds</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Klienti është fshehur në statistikat për nerds</string>
   <string name="revanced_spoof_video_streams_language_title">Gjuha e rrjedhës audio VR</string>
-  <string name="revanced_spoof_video_streams_language_DEFAULT">Gjuha e llogarisë</string>
+  <string name="revanced_spoof_video_streams_language_DEFAULT">Gjuha e aplikacionit</string>
   <string name="revanced_spoof_video_streams_language_AR">Arabisht</string>
   <string name="revanced_spoof_video_streams_language_AZ">Azerbajxhanisht</string>
   <string name="revanced_spoof_video_streams_language_BG">Bullgarisht</string>

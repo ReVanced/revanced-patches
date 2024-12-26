@@ -629,9 +629,18 @@ Second \"item\" text"</string>
   <string name="revanced_shorts_player_screen_summary">Схаваць або паказаць кампаненты ў прайгравальніку Shorts</string>
   <!-- 'home' should be translated using the same localized wording YouTube displays for the home tab. -->
   <string name="revanced_hide_shorts_home_title">Схаваць шорты ў хатняй стужцы</string>
+  <string name="revanced_hide_shorts_home_summary_on">Схаваны ў стужцы і звязаных відэа</string>
+  <string name="revanced_hide_shorts_home_summary_off">Паказаны ў стужцы і звязаных відэа</string>
   <!-- 'subscription' should be translated using the same localized wording YouTube displays for the subscription tab. -->
   <string name="revanced_hide_shorts_subscriptions_title">Схаваць Shorts у стужцы падпіскі</string>
+  <string name="revanced_hide_shorts_subscriptions_summary_on">Схавана ў стужцы падпісак</string>
+  <string name="revanced_hide_shorts_subscriptions_summary_off">Паказана ў стужцы падпісак</string>
   <string name="revanced_hide_shorts_search_title">Схаваць Shorts у выніках пошуку</string>
+  <string name="revanced_hide_shorts_search_summary_on">Схаваны ў выніках пошуку</string>
+  <string name="revanced_hide_shorts_search_summary_off">Паказана ў выніках пошуку</string>
+  <string name="revanced_hide_shorts_history_title">Схаваць Shorts з гісторыі праглядаў</string>
+  <string name="revanced_hide_shorts_history_summary_on">Схавана ў гісторыі праглядаў</string>
+  <string name="revanced_hide_shorts_history_summary_off">Паказаны ў гісторыі праглядаў</string>
   <!-- 'join' should be translated using the same localized wording YouTube displays for the button. -->
   <string name="revanced_hide_shorts_join_button_title">Схаваць кнопку далучыцца</string>
   <string name="revanced_hide_shorts_join_button_summary_on">Кнопка «Далучыцца» схавана</string>
@@ -1303,7 +1312,7 @@ AVC мае максімальнае дазвол 1080p, аўдыёкадэк Opu
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Тып кліента адлюстроўваецца ў статыстыцы для спецыялістаў</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Кліент схаваны ў статыстыцы для спецыялістаў</string>
   <string name="revanced_spoof_video_streams_language_title">Мова гукавой дарожкі па змаўчанні для VR</string>
-  <string name="revanced_spoof_video_streams_language_DEFAULT">Мова акаўнта</string>
+  <string name="revanced_spoof_video_streams_language_DEFAULT">Мова праграмы</string>
   <string name="revanced_spoof_video_streams_language_AR">Арабский</string>
   <string name="revanced_spoof_video_streams_language_AZ">Азербайджанский</string>
   <string name="revanced_spoof_video_streams_language_BG">Болгарский</string>

@@ -1298,7 +1298,6 @@ AVC:n maksimiresoluutio on 1080p, Opus-äänikoodekki ei ole käytettävissä, j
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Asiakastyyppi näytetään teknisissä tiedoissa</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Asiakastyyppi on piilotettu teknisissä tiedoissa</string>
   <string name="revanced_spoof_video_streams_language_title">VR-äänivirran oletuskieli</string>
-  <string name="revanced_spoof_video_streams_language_DEFAULT">Tilaus kieli</string>
   <string name="revanced_spoof_video_streams_language_AR">Arabia</string>
   <string name="revanced_spoof_video_streams_language_AZ">Azerbaidžan</string>
   <string name="revanced_spoof_video_streams_language_BG">Bulgaria</string>

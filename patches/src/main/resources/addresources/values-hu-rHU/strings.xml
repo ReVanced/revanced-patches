@@ -628,9 +628,18 @@ Megjegyzés: Ez a beállítás a videóhirdetések kényszerű elrejtését is m
   <string name="revanced_shorts_player_screen_summary">Összetevők elrejtése vagy megjelenítése a Shorts lejátszóban</string>
   <!-- 'home' should be translated using the same localized wording YouTube displays for the home tab. -->
   <string name="revanced_hide_shorts_home_title">Shorts elrejtése a Kezdőlap feedben</string>
+  <string name="revanced_hide_shorts_home_summary_on">Elrejtve a főoldalon és a kapcsolódó videókban</string>
+  <string name="revanced_hide_shorts_home_summary_off">Megjelenítve a főoldalon és a kapcsolódó videókban</string>
   <!-- 'subscription' should be translated using the same localized wording YouTube displays for the subscription tab. -->
   <string name="revanced_hide_shorts_subscriptions_title">Shortsok elrejtése a Feliratkozások feedben</string>
+  <string name="revanced_hide_shorts_subscriptions_summary_on">Elrejtve az előfizetési hírfolyamban</string>
+  <string name="revanced_hide_shorts_subscriptions_summary_off">Megjelenik az előfizetési hírfolyamban</string>
   <string name="revanced_hide_shorts_search_title">Shortsok elrejtése a keresési eredményekben</string>
+  <string name="revanced_hide_shorts_search_summary_on">A keresési eredmények között elrejtve</string>
+  <string name="revanced_hide_shorts_search_summary_off">Megjelenik a keresési eredmények között</string>
+  <string name="revanced_hide_shorts_history_title">Shorts elrejtése a megtekintési előzményekben</string>
+  <string name="revanced_hide_shorts_history_summary_on">Elrejtve a megtekintési előzményekben</string>
+  <string name="revanced_hide_shorts_history_summary_off">Megjelenik a megtekintési előzményekben</string>
   <!-- 'join' should be translated using the same localized wording YouTube displays for the button. -->
   <string name="revanced_hide_shorts_join_button_title">Csatlakozás gomb elrejtése</string>
   <string name="revanced_hide_shorts_join_button_summary_on">A csatlakozás gomb el van rejtve</string>
@@ -1013,6 +1022,7 @@ Ha később kikapcsolja, akkor ajánlott az alkalmazás adatait törölni, hogy 
                  This is because the 'General layout' menu uses alphabetic sorting, and it functionally works better if the spoof target selector appears below the 'Spoof app version' UI switch -->
   <string name="revanced_spoof_app_version_target_title">Hamisított alkalmazásverzió célja</string>
   <string name="revanced_spoof_app_version_target_entry_1">19.35.36 - A régi Shorts lejátszó ikonok visszaállítása</string>
+  <string name="revanced_spoof_app_version_target_entry_2">19.26.42 - A régi navigációs és eszköztári ikonok visszaállítása</string>
   <!-- 'RYD' is 'Return YouTube Dislike' -->
   <string name="revanced_spoof_app_version_target_legacy_entry_1">18.33.40 - RYD visszaállítása Shorts inkognitó módban</string>
   <string name="revanced_spoof_app_version_target_legacy_entry_2">18.20.39 - Széles videósebesség és minőség menü visszaállítása</string>
@@ -1288,8 +1298,9 @@ A videólejátszás nem működhet"</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">"Ennek engedélyezése javíthatja az akkumulátor élettartamát és kijavíthatja a lejátszás akadozását.
 
 Az AVC maximális felbontása 1080p, az Opus audiokodek nem érhető el, és a videolejátszás több internetes adatot használ, mint a VP9 vagy az AV1."</string>
-  <string name="revanced_spoof_video_streams_about_ios_tv_title">Az iOS-spoofing mellékhatásai</string>
+  <string name="revanced_spoof_video_streams_about_ios_tv_title">iOS hamisítási mellékhatások</string>
   <string name="revanced_spoof_video_streams_about_ios_tv_summary">"• Előfordulhat, hogy a filmeket és a fizetős videókat nem lehet lejátszani
+• Nem áll rendelkezésre stabil hangerő
 • A videók 1 másodperccel korábban érnek véget"</string>
   <string name="revanced_spoof_video_streams_about_android_title">Android hamisítási mellékhatások</string>
   <string name="revanced_spoof_video_streams_about_android_summary">"• Hiányzik a hangsáv menü
@@ -1299,7 +1310,7 @@ Az AVC maximális felbontása 1080p, az Opus audiokodek nem érhető el, és a v
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">A kliens típusa a Statisztikákban látható</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">A kliens el van rejtve a Statisztikákban</string>
   <string name="revanced_spoof_video_streams_language_title">VR alapértelmezett audio adatfolyam nyelve</string>
-  <string name="revanced_spoof_video_streams_language_DEFAULT">Fiók nyelve</string>
+  <string name="revanced_spoof_video_streams_language_DEFAULT">Alkalmazás nyelve</string>
   <string name="revanced_spoof_video_streams_language_AR">Arab</string>
   <string name="revanced_spoof_video_streams_language_AZ">Azerbajdzsáni</string>
   <string name="revanced_spoof_video_streams_language_BG">Bolgár</string>
