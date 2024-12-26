@@ -1,3 +1,10 @@
+# [5.8.0-dev.3](https://github.com/ReVanced/revanced-patches/compare/v5.8.0-dev.2...v5.8.0-dev.3) (2024-12-26)
+
+
+### Bug Fixes
+
+* **YouTube - Force original audio:** If stream spoofing to Android then show a summary text why force audio is not available ([#4220](https://github.com/ReVanced/revanced-patches/issues/4220)) ([029aee8](https://github.com/ReVanced/revanced-patches/commit/029aee8023f096413fc80a2c583b4fe55ecb10ac))
+
 # [5.8.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.8.0-dev.1...v5.8.0-dev.2) (2024-12-24)
 
 
