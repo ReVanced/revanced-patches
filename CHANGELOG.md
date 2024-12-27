@@ -1,3 +1,10 @@
+# [5.8.0-dev.7](https://github.com/ReVanced/revanced-patches/compare/v5.8.0-dev.6...v5.8.0-dev.7) (2024-12-27)
+
+
+### Bug Fixes
+
+* **YouTube - Spoof video streams:** Ignore harmless error toast if hide ads is disabled ([c3423bb](https://github.com/ReVanced/revanced-patches/commit/c3423bb9e531cfa52f6d28e0b98bbe8ab8684c30))
+
 # [5.8.0-dev.6](https://github.com/ReVanced/revanced-patches/compare/v5.8.0-dev.5...v5.8.0-dev.6) (2024-12-27)
 
 
