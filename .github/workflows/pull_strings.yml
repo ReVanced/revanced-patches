@@ -17,7 +17,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
-          ref: dev
+          ref: feat/translations
 
       - name: Pull strings
         uses: crowdin/github-action@v2
@@ -25,7 +25,7 @@ jobs:
           config: crowdin.yml
           upload_sources: false
           download_translations: true
-          crowdin_branch_name: feat/translations
+          localization_branch_name: feat/translations
           create_pull_request: false
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
