@@ -1020,6 +1020,23 @@ Jste připraveni k odeslání?"</string>
   <string name="revanced_sb_about">O aplikaci</string>
   <string name="revanced_sb_about_api_sum">Data poskytuje rozhraní API SponsorBlock. Klepněte zde, abyste se dozvěděli více a zobrazili si soubory ke stažení pro další platformy</string>
   </patch>
+  <patch id="layout.formfactor.changeFormFactorPatch">
+  <string name="revanced_change_form_factor_title">Rozvržení formuláře</string>
+  <string name="revanced_change_form_factor_entry_1">Výchozí</string>
+  <string name="revanced_change_form_factor_entry_2">Telefon</string>
+  <string name="revanced_change_form_factor_entry_3">Tablet</string>
+  <string name="revanced_change_form_factor_entry_4">Automobilový</string>
+  <string name="revanced_change_form_factor_user_dialog_message">"Změny zahrnují:
+
+Rozložení tabletu
+• Příspěvky komunity jsou skryté
+
+Rozložení automobilu
+• Menu historie sledování je skryté
+• Karta Prozkoumat je obnovena
+• Shorts se otevírají v běžném přehrávači
+• Kanál je organizován podle témat a kanálu"</string>
+  </patch>
   <patch id="layout.spoofappversion.spoofAppVersionPatch">
   <string name="revanced_spoof_app_version_title">Napodobit verzi aplikace</string>
   <string name="revanced_spoof_app_version_summary_on">Verze napodobena</string>
@@ -1076,12 +1093,6 @@ Pokud bude později vypnuta, doporučujeme vymazat data aplikace, aby se zabrán
   <string name="revanced_shorts_autoplay_background_title">Automatické přehrávání Shorts v pozadí</string>
   <string name="revanced_shorts_autoplay_background_summary_on">Přehrávání Shorts v pozadí se bude automaticky přehrávat</string>
   <string name="revanced_shorts_autoplay_background_summary_off">Přehrávání Shorts v pozadí se bude opakovat</string>
-  </patch>
-  <patch id="layout.tablet.enableTabletLayoutPatch">
-  <string name="revanced_tablet_layout_title">Povolit rozvržení tabletu</string>
-  <string name="revanced_tablet_layout_summary_on">Rozvržení tabletu je povoleno</string>
-  <string name="revanced_tablet_layout_summary_off">Rozvržení tabletu je zakázáno</string>
-  <string name="revanced_tablet_layout_user_dialog_message">Příspěvky komunity se v rozvržení tabletu nezobrazují</string>
   </patch>
   <patch id="layout.miniplayer.miniplayerPatch">
   <string name="revanced_miniplayer_screen_title">Mini přehrávač</string>

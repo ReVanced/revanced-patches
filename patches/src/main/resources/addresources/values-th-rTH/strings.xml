@@ -1021,6 +1021,23 @@ User id ของคุณเหมือนกับรหัสผ่าน �
   <string name="revanced_sb_about">เกี่ยวกับ</string>
   <string name="revanced_sb_about_api_sum">ข้อมูลนี้มาจาก SponsorBlock API แตะที่นี่เพื่อเรียนรู้เพิ่มเติมและดูการดาวน์โหลดสำหรับแพลตฟอร์มอื่น ๆ</string>
   </patch>
+  <patch id="layout.formfactor.changeFormFactorPatch">
+  <string name="revanced_change_form_factor_title">รูปแบบเค้าโครง</string>
+  <string name="revanced_change_form_factor_entry_1">ค่าเริ่มต้น</string>
+  <string name="revanced_change_form_factor_entry_2">โทรศัพท์</string>
+  <string name="revanced_change_form_factor_entry_3">แท็บเล็ต</string>
+  <string name="revanced_change_form_factor_entry_4">ยานยนต์</string>
+  <string name="revanced_change_form_factor_user_dialog_message">"การเปลี่ยนแปลงรวม:
+
+เค้าโครงแท็บเล็ต
+• โพสต์ชุมชนถูกซ่อน
+
+เค้าโครงยานยนต์
+• เมนูดูประวัติถูกลบ
+• แท็บสำรวจได้รับการกู้คืน
+• ช็อตเปิดในเครื่องเล่นปกติ
+• ฟีดถูกจัดระเบียบตามหัวข้อและช่อง"</string>
+  </patch>
   <patch id="layout.spoofappversion.spoofAppVersionPatch">
   <string name="revanced_spoof_app_version_title">ปลอมแปลงเวอร์ชันแอป</string>
   <string name="revanced_spoof_app_version_summary_on">เวอร์ชันปลอมแปลง</string>
@@ -1077,12 +1094,6 @@ User id ของคุณเหมือนกับรหัสผ่าน �
   <string name="revanced_shorts_autoplay_background_title">เล่น Shorts อัตโนมัติแบบพื้นหลัง</string>
   <string name="revanced_shorts_autoplay_background_summary_on">การเล่น Shorts แบบพื้นหลังจะเล่นอัตโนมัติ</string>
   <string name="revanced_shorts_autoplay_background_summary_off">การเล่น Shorts แบบพื้นหลังจะวนซ้ำ</string>
-  </patch>
-  <patch id="layout.tablet.enableTabletLayoutPatch">
-  <string name="revanced_tablet_layout_title">เปิดใช้งานรูปแบบแท็บเล็ต</string>
-  <string name="revanced_tablet_layout_summary_on">รูปแบบแท็บเล็ตเปิดใช้งานแล้ว</string>
-  <string name="revanced_tablet_layout_summary_off">รูปแบบแท็บเล็ตปิดใช้งานแล้ว</string>
-  <string name="revanced_tablet_layout_user_dialog_message">โพสต์ชุมชนไม่แสดงในรูปแบบแท็บเล็ต</string>
   </patch>
   <patch id="layout.miniplayer.miniplayerPatch">
   <string name="revanced_miniplayer_screen_title">มินิเพลเยอร์</string>

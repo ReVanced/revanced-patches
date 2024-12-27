@@ -1019,6 +1019,23 @@ Vai esat gatavs iesniegt?"</string>
   <string name="revanced_sb_about">Par</string>
   <string name="revanced_sb_about_api_sum">Dati tiek sniegti no SponsorBlock API. Pieskarieties šeit, lai uzzinātu vairāk un skatītu lejupielādes citām platformām</string>
   </patch>
+  <patch id="layout.formfactor.changeFormFactorPatch">
+  <string name="revanced_change_form_factor_title">Izmēģinājuma formāts</string>
+  <string name="revanced_change_form_factor_entry_1">Noklusējums</string>
+  <string name="revanced_change_form_factor_entry_2">Tālrunis</string>
+  <string name="revanced_change_form_factor_entry_3">Planšetdators</string>
+  <string name="revanced_change_form_factor_entry_4">Automobiļu</string>
+  <string name="revanced_change_form_factor_user_dialog_message">"Izmaiņas iekļauj:
+
+Planšetdatora izkārtojums
+• Kopienas ieraksti ir paslēpti
+
+Automobiļu izkārtojums
+• Skatīšanās vēstures izvēlne ir paslēpta
+• Izpētes cilne ir atjaunota
+• Īsie videoklipi tiek atvērti parastajā atskaņotājā
+• Lentē ir organizēta pēc tēmām un kanāliem"</string>
+  </patch>
   <patch id="layout.spoofappversion.spoofAppVersionPatch">
   <string name="revanced_spoof_app_version_title">Vilto lietotnes versiju</string>
   <string name="revanced_spoof_app_version_summary_on">Versija viltota</string>
@@ -1075,12 +1092,6 @@ Ja vēlāk tiks izslēgts, ieteicams notīrīt lietotnes datus, lai novērstu li
   <string name="revanced_shorts_autoplay_background_title">Autoplay Shorts fonā atskaņošana</string>
   <string name="revanced_shorts_autoplay_background_summary_on">Shorts fonā atskaņošana tiks atskaņota automātiski</string>
   <string name="revanced_shorts_autoplay_background_summary_off">Shorts fonā atskaņošana tiks atkārtota</string>
-  </patch>
-  <patch id="layout.tablet.enableTabletLayoutPatch">
-  <string name="revanced_tablet_layout_title">Iespējot planšetdatora izkārtojumu</string>
-  <string name="revanced_tablet_layout_summary_on">Planšetdatora izkārtojums ir iespējots</string>
-  <string name="revanced_tablet_layout_summary_off">Planšetdatora izkārtojums ir atspējots</string>
-  <string name="revanced_tablet_layout_user_dialog_message">Kopienas ziņas neparādās planšetdatora izkārtojumos</string>
   </patch>
   <patch id="layout.miniplayer.miniplayerPatch">
   <string name="revanced_miniplayer_screen_title">Minispēlētājs</string>

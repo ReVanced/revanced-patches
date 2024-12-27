@@ -444,7 +444,7 @@ Bu özellik yalnızca eski cihazlarda kullanılabilir"</string>
   <string name="revanced_swipe_overlay_background_alpha_summary">Kaydırma paneli arka planının görünürlüğü</string>
   <string name="revanced_swipe_threshold_title">Kaydırma büyüklük eşiği</string>
   <string name="revanced_swipe_threshold_summary">Kaydırma işleminin gerçekleşmesi için eşik miktarı</string>
-  <string name="revanced_swipe_change_video_title">Videoları değiştirmek için kaydırmayı etkinleştir</string>
+  <string name="revanced_swipe_change_video_title">Kaydırarak video değiştirmeyi etkinleştir</string>
   <string name="revanced_swipe_change_video_summary_on">Tam ekran modunda kaydırma, bir sonraki/önceki videoya geçecektir</string>
   <string name="revanced_swipe_change_video_summary_off">Tam ekran modunda kaydırma bir sonraki/önceki videoya geçmeyecektir</string>
   </patch>
@@ -744,8 +744,8 @@ Not: Bunu etkinleştirmek aynı zamanda video reklamlarını zorla gizler"</stri
   <string name="revanced_hide_player_popup_panels_summary_off">Oynatıcı açılır panelleri görünür</string>
   </patch>
   <patch id="layout.player.fullscreen.exitFullscreenPatch">
-  <string name="revanced_exit_fullscreen_title">Videonun sonunda tam ekran modundan Çıkış</string>
-  <string name="revanced_exit_fullscreen_entry_1">Devre Dışı</string>
+  <string name="revanced_exit_fullscreen_title">Video sonunda tam ekran modundan çık</string>
+  <string name="revanced_exit_fullscreen_entry_1">Devre dışı</string>
   <string name="revanced_exit_fullscreen_entry_2">Dikey</string>
   <string name="revanced_exit_fullscreen_entry_3">Yatay</string>
   <string name="revanced_exit_fullscreen_entry_4">Dikey ve yatay</string>
@@ -1019,6 +1019,23 @@ Göndermeye hazır mısınız?"</string>
   <string name="revanced_sb_about">Hakkında</string>
   <string name="revanced_sb_about_api_sum">Veri, SponsorBlock API\'sinden sağlanır. Daha fazla bilgi ve diğer platformlar için indirmeleri görmek için dokunun</string>
   </patch>
+  <patch id="layout.formfactor.changeFormFactorPatch">
+  <string name="revanced_change_form_factor_title">Düzen form faktörü</string>
+  <string name="revanced_change_form_factor_entry_1">Varsayılan</string>
+  <string name="revanced_change_form_factor_entry_2">Telefon</string>
+  <string name="revanced_change_form_factor_entry_3">Tablet</string>
+  <string name="revanced_change_form_factor_entry_4">Otomotiv</string>
+  <string name="revanced_change_form_factor_user_dialog_message">"Değişiklikler şunları içerir:
+
+Tablet düzeni
+• Topluluk yayınları gizlenir
+
+Otomotiv düzeni
+• İzleme geçmişi menüsü gizlenir
+• Keşfet sekmesi geri getirilir
+• Shorts normal oynatıcıda açılır
+• Akış, konulara ve kanala göre düzenlenir"</string>
+  </patch>
   <patch id="layout.spoofappversion.spoofAppVersionPatch">
   <string name="revanced_spoof_app_version_title">Uygulama sürümünü taklit et</string>
   <string name="revanced_spoof_app_version_summary_on">Sürüm taklit ediliyor</string>
@@ -1075,12 +1092,6 @@ Daha sonra kapatılırsa, arayüz hatalarını önlemek için uygulama verilerin
   <string name="revanced_shorts_autoplay_background_title">Arka planda Shorts\'u otomatik oynat</string>
   <string name="revanced_shorts_autoplay_background_summary_on">Shorts arka planda otomatik oynatılacak</string>
   <string name="revanced_shorts_autoplay_background_summary_off">Shorts arka planda döngüde olacak</string>
-  </patch>
-  <patch id="layout.tablet.enableTabletLayoutPatch">
-  <string name="revanced_tablet_layout_title">Tablet düzenini etkinleştir</string>
-  <string name="revanced_tablet_layout_summary_on">Tablet düzeni etkin</string>
-  <string name="revanced_tablet_layout_summary_off">Tablet düzeni devre dışı</string>
-  <string name="revanced_tablet_layout_user_dialog_message">Topluluk gönderileri tablet düzeninde görünmez</string>
   </patch>
   <patch id="layout.miniplayer.miniplayerPatch">
   <string name="revanced_miniplayer_screen_title">Mini oynatıcı</string>

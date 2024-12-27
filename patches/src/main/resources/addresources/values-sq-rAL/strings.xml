@@ -1019,6 +1019,23 @@ Gati per te dhene?"</string>
   <string name="revanced_sb_about">Rreth</string>
   <string name="revanced_sb_about_api_sum">Të dhënat janë siguruar nga API e SponsorBlock. Prekni këtu për të mësuar më shumë dhe për të parë shkarkimet për platformat e tjera</string>
   </patch>
+  <patch id="layout.formfactor.changeFormFactorPatch">
+  <string name="revanced_change_form_factor_title">Faktor i formularit të shtrirjes</string>
+  <string name="revanced_change_form_factor_entry_1">Paradrejtuar</string>
+  <string name="revanced_change_form_factor_entry_2">Telefon</string>
+  <string name="revanced_change_form_factor_entry_3">Tabletë</string>
+  <string name="revanced_change_form_factor_entry_4">Automjet</string>
+  <string name="revanced_change_form_factor_user_dialog_message">"Ndryshimet përfshijnë:&#13;
+
+Pamje në format tabletë&#13;
+• Postimet e komunitetit janë të fshehura&#13;
+
+Pamje automotive&#13;
+• Menua e historisë së shikimit është e fshehur&#13;
+• Seksioni Shfleto është rikthyer&#13;
+• Shorts hapen në oynën e zakonshme&#13;
+• Ushtrimi është i organizuar sipas temave dhe kanaleve"</string>
+  </patch>
   <patch id="layout.spoofappversion.spoofAppVersionPatch">
   <string name="revanced_spoof_app_version_title">Mashtro versionin e aplikacionit</string>
   <string name="revanced_spoof_app_version_summary_on">Versioni i mashtuar</string>
@@ -1075,12 +1092,6 @@ Nëse më vonë është çaktivizuar, është e rekomanduar të fshiheni të dh�
   <string name="revanced_shorts_autoplay_background_title">Autoplay Shorts luaj në sfond</string>
   <string name="revanced_shorts_autoplay_background_summary_on">Luaj në sfond Shorts do të luajë automatikisht</string>
   <string name="revanced_shorts_autoplay_background_summary_off">Luaj në sfond Shorts do të përsëritet</string>
-  </patch>
-  <patch id="layout.tablet.enableTabletLayoutPatch">
-  <string name="revanced_tablet_layout_title">Aktivizo pamjen e tabletës</string>
-  <string name="revanced_tablet_layout_summary_on">Pamja e tabletës është e aktivizuar</string>
-  <string name="revanced_tablet_layout_summary_off">Pamja e tabletës është e çaktivizuar</string>
-  <string name="revanced_tablet_layout_user_dialog_message">Postimet e komunitetit nuk shfaqen në pamjet e tabletës</string>
   </patch>
   <patch id="layout.miniplayer.miniplayerPatch">
   <string name="revanced_miniplayer_screen_title">Miniplayer</string>

@@ -1021,6 +1021,23 @@ Klaar om in te dienen?"</string>
   <string name="revanced_sb_about">Over</string>
   <string name="revanced_sb_about_api_sum">Gegevens worden geleverd door de SponsorBlock API. Tik hier om meer te weten te komen en downloads te bekijken voor andere platforms</string>
   </patch>
+  <patch id="layout.formfactor.changeFormFactorPatch">
+  <string name="revanced_change_form_factor_title">Indelingsvormfactor</string>
+  <string name="revanced_change_form_factor_entry_1">Standaard</string>
+  <string name="revanced_change_form_factor_entry_2">Telefoon</string>
+  <string name="revanced_change_form_factor_entry_3">Tablet</string>
+  <string name="revanced_change_form_factor_entry_4">Automobiel</string>
+  <string name="revanced_change_form_factor_user_dialog_message">"De wijzigingen omvatten:
+
+Tablet-indeling
+• Community-berichten zijn verborgen
+
+Automobielindeling
+• Het menu \"Wachthistorie\" is verborgen
+• Het tabblad \"Verkennen\" is hersteld
+• Shorts openen in de gewone speler
+• De feed is georganiseerd op onderwerpen en kanaal"</string>
+  </patch>
   <patch id="layout.spoofappversion.spoofAppVersionPatch">
   <string name="revanced_spoof_app_version_title">App-versie vervalsen</string>
   <string name="revanced_spoof_app_version_summary_on">Versie vervalst</string>
@@ -1077,12 +1094,6 @@ Als het later wordt uitgeschakeld, wordt aanbevolen om de app-gegevens te wissen
   <string name="revanced_shorts_autoplay_background_title">Automatisch afspelen van Shorts op de achtergrond</string>
   <string name="revanced_shorts_autoplay_background_summary_on">Shorts op de achtergrond worden automatisch afgespeeld</string>
   <string name="revanced_shorts_autoplay_background_summary_off">Shorts op de achtergrond worden herhaald</string>
-  </patch>
-  <patch id="layout.tablet.enableTabletLayoutPatch">
-  <string name="revanced_tablet_layout_title">Tablet-indeling inschakelen</string>
-  <string name="revanced_tablet_layout_summary_on">Tablet-indeling is ingeschakeld</string>
-  <string name="revanced_tablet_layout_summary_off">Tablet-indeling is uitgeschakeld</string>
-  <string name="revanced_tablet_layout_user_dialog_message">Berichten van de community worden niet weergegeven in tablet-indelingen</string>
   </patch>
   <patch id="layout.miniplayer.miniplayerPatch">
   <string name="revanced_miniplayer_screen_title">Minispeler</string>
