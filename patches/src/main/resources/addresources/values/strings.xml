@@ -42,8 +42,10 @@ Second \"item\" text"</string>
             <string name="revanced_settings_import_reset">ReVanced settings reset to default</string>
             <string name="revanced_settings_import_success">Imported %d settings</string>
             <string name="revanced_settings_import_failure_parse">Import failed: %s</string>
-
             <string name="revanced_language_title">ReVanced language</string>
+            <string name="revanced_language_user_dialog_message">"Translations for some languages may be missing or incomplete.
+
+Help translate ReVanced by visiting: translate.revanced.app"</string>
             <string name="revanced_language_DEFAULT">App language</string>
             <string name="revanced_language_AR">Arabic</string>
             <string name="revanced_language_AZ">Azerbaijani</string>
@@ -96,9 +98,6 @@ Second \"item\" text"</string>
             <string name="revanced_language_UR">Urdu</string>
             <string name="revanced_language_VI">Vietnamese</string>
             <string name="revanced_language_ZH">Chinese</string>
-
-
-
             <string name="revanced_pref_import_export_title">Import / Export</string>
             <string name="revanced_pref_import_export_summary">Import / Export ReVanced settings</string>
             <!-- Settings about dialog. -->
