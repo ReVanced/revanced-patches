@@ -1238,6 +1238,7 @@ Gali būti atrakinta aukštesnės vaizdo įrašų kokybės, bet galite patirti v
   <string name="revanced_force_original_audio_title">Priversti originalų garsą</string>
   <string name="revanced_force_original_audio_summary_on">Naudojamas originalus garsas</string>
   <string name="revanced_force_original_audio_summary_off">Naudojamas numatytasis garsas</string>
+  <string name="revanced_force_original_audio_not_available">Norėdami naudoti šią funkciją, pakeiskite srauto imitavimą į „iOS“ kliento tipą</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->

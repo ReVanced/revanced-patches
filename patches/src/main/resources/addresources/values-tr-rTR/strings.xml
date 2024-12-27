@@ -1236,6 +1236,7 @@ Bunu etkinleştirmek daha yüksek video kalitelerini açabilir"</string>
   <string name="revanced_force_original_audio_title">Orijinal sesi zorla</string>
   <string name="revanced_force_original_audio_summary_on">Orijinal ses kullanılıyor</string>
   <string name="revanced_force_original_audio_summary_off">Varsayılan ses kullanılıyor</string>
+  <string name="revanced_force_original_audio_not_available">Bu özelliği kullanmak için, video akışı taklidi özelliğini iOS istemci türüne değiştirin</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->

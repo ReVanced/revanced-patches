@@ -1235,6 +1235,7 @@ Second \"item\" text"</string>
   <string name="revanced_force_original_audio_title">Присили оригинални звук</string>
   <string name="revanced_force_original_audio_summary_on">Коришћење оригиналног звука</string>
   <string name="revanced_force_original_audio_summary_off">Коришћење подразумеваног звука</string>
+  <string name="revanced_force_original_audio_not_available">Да бисте користили ову функцију, промените лажирање стрима на тип клијента iOS</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->

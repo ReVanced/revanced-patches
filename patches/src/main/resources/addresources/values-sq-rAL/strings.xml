@@ -1235,6 +1235,7 @@ Aktivizimi i kësaj mund të zhbllokojë cilësi më të larta video"</string>
   <string name="revanced_force_original_audio_title">Forco Zërin Origjinal</string>
   <string name="revanced_force_original_audio_summary_on">Përdorimi i Zërit Origjinal</string>
   <string name="revanced_force_original_audio_summary_off">Përdorimi i Zërit Parazgjedhur</string>
+  <string name="revanced_force_original_audio_not_available">Për të përdorur këtë funksion, ndrysho rrymën spoofing në llojin e klientit iOS</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->

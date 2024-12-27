@@ -1237,6 +1237,7 @@ L'activation de cette option peut déverrouiller des qualités vidéo plus élev
   <string name="revanced_force_original_audio_title">Force audio d’origine</string>
   <string name="revanced_force_original_audio_summary_on">Utilisation de la piste audio d\'origine</string>
   <string name="revanced_force_original_audio_summary_off">Utilisation de l\'audio par défaut</string>
+  <string name="revanced_force_original_audio_not_available">Pour utiliser cette fonction, changez le type d\'usurpation du flux en type client iOS</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->

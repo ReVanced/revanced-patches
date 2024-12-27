@@ -1237,6 +1237,7 @@ Omogočanje tega lahko odklene višje kakovosti videa"</string>
   <string name="revanced_force_original_audio_title">Izsili izvirni zvok</string>
   <string name="revanced_force_original_audio_summary_on">Uporaba izvirnega zvoka</string>
   <string name="revanced_force_original_audio_summary_off">Uporaba privzetega zvoka</string>
+  <string name="revanced_force_original_audio_not_available">Za uporabo te funkcije spremenite odjemalce pretakanja na vrsto odjemalca iOS</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->

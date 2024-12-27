@@ -1236,6 +1236,7 @@ Włączenie tego może odblokować wyższe jakości wideo"</string>
   <string name="revanced_force_original_audio_title">Wymuś oryginalny dźwięk</string>
   <string name="revanced_force_original_audio_summary_on">Używanie oryginalnego dźwięku</string>
   <string name="revanced_force_original_audio_summary_off">Używanie domyślnego dźwięku</string>
+  <string name="revanced_force_original_audio_not_available">Aby użyć tej funkcji, zmień podszywanie strumienia na typ klienta iOS</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->

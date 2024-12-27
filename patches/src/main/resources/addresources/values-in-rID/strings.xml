@@ -1235,6 +1235,7 @@ Mengaktifkan ini dapat membuka kualitas video yang lebih tinggi"</string>
   <string name="revanced_force_original_audio_title">Paksa audio asli</string>
   <string name="revanced_force_original_audio_summary_on">Menggunakan audio asli</string>
   <string name="revanced_force_original_audio_summary_off">Menggunakan audio bawaan</string>
+  <string name="revanced_force_original_audio_not_available">Untuk menggunakan fitur ini, ubah pemalsuan aliran ke jenis klien iOS</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
