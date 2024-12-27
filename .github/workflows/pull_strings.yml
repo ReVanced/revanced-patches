@@ -16,8 +16,8 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         with:
+          ref: dev
           fetch-depth: 0
-          ref: feat/translations
 
       - name: Pull strings
         uses: crowdin/github-action@v2
