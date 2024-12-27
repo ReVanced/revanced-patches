@@ -153,7 +153,6 @@ public abstract class Setting<T> {
 
     /**
      * Confirmation message to display, if the user tries to change the setting from the default value.
-     * Currently this works only for Boolean setting types.
      */
     @Nullable
     public final StringRef userDialogMessage;
@@ -244,6 +243,7 @@ public abstract class Setting<T> {
      *
      * This method will be deleted in the future.
      */
+    @SuppressWarnings("rawtypes")
     public static void migrateFromOldPreferences(@NonNull SharedPrefCategory oldPrefs, @NonNull Setting setting, String settingKey) {
         if (!oldPrefs.preferences.contains(settingKey)) {
             return; // Nothing to do.
@@ -419,6 +419,7 @@ public abstract class Setting<T> {
 
             boolean rebootSettingChanged = false;
             int numberOfSettingsImported = 0;
+            //noinspection rawtypes
             for (Setting setting : SETTINGS) {
                 String key = setting.getImportExportKey();
                 if (json.has(key)) {
