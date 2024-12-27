@@ -445,6 +445,9 @@ Apribojimai
   <string name="revanced_swipe_overlay_background_alpha_summary">Slinkties peržiūros fono matomumas</string>
   <string name="revanced_swipe_threshold_title">Slinkties dydžio slenkstis</string>
   <string name="revanced_swipe_threshold_summary">Slenkstis, reikalingas slinkčiai</string>
+  <string name="revanced_swipe_change_video_title">Braukimas norint pakeisti vaizdo įrašus</string>
+  <string name="revanced_swipe_change_video_summary_on">Braukimas viso ekrano režimu pakeis į kitą/ankstesnį vaizdo įrašą</string>
+  <string name="revanced_swipe_change_video_summary_off">Braukimas viso ekrano režimu nepakeis į kitą/ankstesnį vaizdo įrašą</string>
   </patch>
   <patch id="layout.autocaptions.autoCaptionsPatch">
   <string name="revanced_auto_captions_title">Išjungti automatinius antraštus</string>
@@ -740,6 +743,13 @@ Pastaba: įjungus šį nustatymą, vaizdo įrašų reklamos taip pat yra privers
   <string name="revanced_hide_player_popup_panels_title">Slėpti grotuvo iššokančius skydelius</string>
   <string name="revanced_hide_player_popup_panels_summary_on">Grotuvo iššokančius skydelius paslėpti</string>
   <string name="revanced_hide_player_popup_panels_summary_off">Grotuvo iššokančius skydelius rodyti</string>
+  </patch>
+  <patch id="layout.player.fullscreen.exitFullscreenPatch">
+  <string name="revanced_exit_fullscreen_title">Išeiti iš viso ekrano režimo pasibaigus vaizdo įrašui</string>
+  <string name="revanced_exit_fullscreen_entry_1">Išjungta</string>
+  <string name="revanced_exit_fullscreen_entry_2">Portreto</string>
+  <string name="revanced_exit_fullscreen_entry_3">Kraštovaizdžio</string>
+  <string name="revanced_exit_fullscreen_entry_4">Portreto ir kraštovaizdžio</string>
   </patch>
   <patch id="layout.player.fullscreen.openVideosFullscreen">
   <string name="revanced_open_videos_fullscreen_portrait_title">Atidaryti vaizdo įrašus pilno ekrano vertikalioje orientacijoje</string>

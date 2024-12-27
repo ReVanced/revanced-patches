@@ -445,6 +445,9 @@ Ta funkcja jest dostępna tylko dla starszych urządzeń"</string>
   <string name="revanced_swipe_overlay_background_alpha_summary">Widoczność tła nakładki przy przesunięciu</string>
   <string name="revanced_swipe_threshold_title">Minimalna długość przesunięcia</string>
   <string name="revanced_swipe_threshold_summary">Wartość wymagana do wykonania gestu przesunięcia</string>
+  <string name="revanced_swipe_change_video_title">Włącz przesuwanie palcem, aby zmienić filmy</string>
+  <string name="revanced_swipe_change_video_summary_on">Przesunięcie palcem w trybie pełnoekranowym spowoduje przejście do następnego lub poprzedniego filmu</string>
+  <string name="revanced_swipe_change_video_summary_off">Przesunięcie palcem w trybie pełnoekranowym nie spowoduje przejścia do następnego lub poprzedniego filmu</string>
   </patch>
   <patch id="layout.autocaptions.autoCaptionsPatch">
   <string name="revanced_auto_captions_title">Automatyczne napisy</string>
@@ -740,6 +743,13 @@ Uwaga: Włączenie tej opcji również ukrywa reklamy wideo"</string>
   <string name="revanced_hide_player_popup_panels_title">Wyskakujące panele</string>
   <string name="revanced_hide_player_popup_panels_summary_on">Wyskakujące panele odtwarzacza są ukryte</string>
   <string name="revanced_hide_player_popup_panels_summary_off">Wyskakujące panele odtwarzacza są widoczne</string>
+  </patch>
+  <patch id="layout.player.fullscreen.exitFullscreenPatch">
+  <string name="revanced_exit_fullscreen_title">Wyjdź z trybu pełnoekranowego pod koniec filmu</string>
+  <string name="revanced_exit_fullscreen_entry_1">Wyłączone</string>
+  <string name="revanced_exit_fullscreen_entry_2">Portret</string>
+  <string name="revanced_exit_fullscreen_entry_3">Pejzaż</string>
+  <string name="revanced_exit_fullscreen_entry_4">Portret i pejzaż</string>
   </patch>
   <patch id="layout.player.fullscreen.openVideosFullscreen">
   <string name="revanced_open_videos_fullscreen_portrait_title">Filmy w trybie pełnoekranowym</string>

@@ -446,6 +446,9 @@ Second \"item\" text"</string>
   <string name="revanced_swipe_overlay_background_alpha_summary">滑動覆蓋背景透明度</string>
   <string name="revanced_swipe_threshold_title">滑動幅度臨界點</string>
   <string name="revanced_swipe_threshold_summary">滑動幅度臨界點</string>
+  <string name="revanced_swipe_change_video_title">啟用滑動以變更影片</string>
+  <string name="revanced_swipe_change_video_summary_on">在全螢幕模式下滑動會切換到下一個/上一個影片</string>
+  <string name="revanced_swipe_change_video_summary_off">在全螢幕模式下滑動不會切換到下一個/上一個影片</string>
   </patch>
   <patch id="layout.autocaptions.autoCaptionsPatch">
   <string name="revanced_auto_captions_title">停用自動產生字幕</string>
@@ -741,6 +744,13 @@ Second \"item\" text"</string>
   <string name="revanced_hide_player_popup_panels_title">隱藏播放器彈出面板</string>
   <string name="revanced_hide_player_popup_panels_summary_on">已隱藏播放器彈出面板</string>
   <string name="revanced_hide_player_popup_panels_summary_off">已顯示播放器彈出面板</string>
+  </patch>
+  <patch id="layout.player.fullscreen.exitFullscreenPatch">
+  <string name="revanced_exit_fullscreen_title">視窗模式結束後退出全螢幕</string>
+  <string name="revanced_exit_fullscreen_entry_1">停用</string>
+  <string name="revanced_exit_fullscreen_entry_2">直立</string>
+  <string name="revanced_exit_fullscreen_entry_3">橫向</string>
+  <string name="revanced_exit_fullscreen_entry_4">直立和橫向</string>
   </patch>
   <patch id="layout.player.fullscreen.openVideosFullscreen">
   <string name="revanced_open_videos_fullscreen_portrait_title">以全螢幕開啟影片</string>

@@ -446,6 +446,9 @@ Cette fonctionnalité est uniquement disponible pour les appareils plus anciens"
   <string name="revanced_swipe_overlay_background_alpha_summary">La visibilité de l\'overlay en arrière-plan lors des gestes</string>
   <string name="revanced_swipe_threshold_title">Intensité des gestes</string>
   <string name="revanced_swipe_threshold_summary">L\'intensité du mouvement à effectuer pour que les gestes se produise</string>
+  <string name="revanced_swipe_change_video_title">Activer glisser pour changer de vidéo</string>
+  <string name="revanced_swipe_change_video_summary_on">En mode plein écran, le glissement permet de passer à la vidéo suivante/précédente</string>
+  <string name="revanced_swipe_change_video_summary_off">En mode plein écran, le glissement ne permet pas de passer à la vidéo suivante/précédente</string>
   </patch>
   <patch id="layout.autocaptions.autoCaptionsPatch">
   <string name="revanced_auto_captions_title">Désactiver les sous-titres automatiques</string>
@@ -741,6 +744,13 @@ Remarque : l'activation de cette option masque également de force les annonces
   <string name="revanced_hide_player_popup_panels_title">Masquer les panneaux contextuels du lecteur</string>
   <string name="revanced_hide_player_popup_panels_summary_on">Les panneaux contextuels du lecteur sont masqués</string>
   <string name="revanced_hide_player_popup_panels_summary_off">Les panneaux contextuels du lecteur sont affichés</string>
+  </patch>
+  <patch id="layout.player.fullscreen.exitFullscreenPatch">
+  <string name="revanced_exit_fullscreen_title">Sortir du mode plein écran à la fin de la vidéo</string>
+  <string name="revanced_exit_fullscreen_entry_1">Désactivé</string>
+  <string name="revanced_exit_fullscreen_entry_2">Quitter le mode plein écran</string>
+  <string name="revanced_exit_fullscreen_entry_3">Paysage</string>
+  <string name="revanced_exit_fullscreen_entry_4">Portrait et paysage</string>
   </patch>
   <patch id="layout.player.fullscreen.openVideosFullscreen">
   <string name="revanced_open_videos_fullscreen_portrait_title">Ouvrir les vidéos en plein écran en mode portrait</string>

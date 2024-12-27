@@ -446,6 +446,9 @@ Aquesta funció només està disponible per a dispositius antics"</string>
   <string name="revanced_swipe_overlay_background_alpha_summary">La visibilitat del fons de la superposició lliscant</string>
   <string name="revanced_swipe_threshold_title">Llindar de magnitud de lliscament</string>
   <string name="revanced_swipe_threshold_summary">La quantitat de llindar per a què es produeixi el desplaçament</string>
+  <string name="revanced_swipe_change_video_title">Activa la funció de lliscament per canviar vídeos</string>
+  <string name="revanced_swipe_change_video_summary_on">Lliscar en mode de pantalla completa canviarà al vídeo següent/anterior</string>
+  <string name="revanced_swipe_change_video_summary_off">Lliscar en mode de pantalla completa no canviarà al vídeo següent/anterior</string>
   </patch>
   <patch id="layout.autocaptions.autoCaptionsPatch">
   <string name="revanced_auto_captions_title">Desactiva els subtítols automàtics</string>
@@ -738,6 +741,13 @@ Nota: si actives aquesta opció, també s'amaguen els anuncis de vídeo per for�
   <string name="revanced_hide_player_popup_panels_title">Amagar panells emergents del reproductor</string>
   <string name="revanced_hide_player_popup_panels_summary_on">Els panells emergents del reproductor estan ocults</string>
   <string name="revanced_hide_player_popup_panels_summary_off">Els panells emergents del reproductor estan visibles</string>
+  </patch>
+  <patch id="layout.player.fullscreen.exitFullscreenPatch">
+  <string name="revanced_exit_fullscreen_title">Surt del mode de pantalla completa al final del vídeo</string>
+  <string name="revanced_exit_fullscreen_entry_1">Desactivat</string>
+  <string name="revanced_exit_fullscreen_entry_2">Vertical</string>
+  <string name="revanced_exit_fullscreen_entry_3">Horitzontal</string>
+  <string name="revanced_exit_fullscreen_entry_4">Vertical i horitzontal</string>
   </patch>
   <patch id="layout.player.fullscreen.openVideosFullscreen">
   <string name="revanced_open_videos_fullscreen_portrait_title">Obrir vídeos en pantalla completa en format vertical</string>

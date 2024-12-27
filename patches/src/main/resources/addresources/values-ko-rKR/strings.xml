@@ -449,6 +449,9 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_swipe_overlay_background_alpha_summary">오버레이 투명도 값을 지정할 수 있습니다 (0–255)</string>
   <string name="revanced_swipe_threshold_title">스와이프 한계치</string>
   <string name="revanced_swipe_threshold_summary">제스처 인식을 위해 얼마나 스와이프를 해야 할지를 지정할 수 있으며, 원하지 않은 제스처 인식을 방지할 수 있습니다</string>
+  <string name="revanced_swipe_change_video_title">비디오를 변경하려면 밀어 올리기 활성화</string>
+  <string name="revanced_swipe_change_video_summary_on">전체 화면 모드에서 밀면 다음/이전 비디오로 변경됩니다.</string>
+  <string name="revanced_swipe_change_video_summary_off">전체 화면 모드에서 밀면 다음/이전 비디오로 변경되지 않습니다.</string>
   </patch>
   <patch id="layout.autocaptions.autoCaptionsPatch">
   <string name="revanced_auto_captions_title">자동 자막 비활성화하기</string>
@@ -745,6 +748,13 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_hide_player_popup_panels_title">플레이어 팝업 패널 숨기기</string>
   <string name="revanced_hide_player_popup_panels_summary_on">플레이어 팝업 패널이 숨겨집니다\n• 재생목록, 실시간 채팅, etc.</string>
   <string name="revanced_hide_player_popup_panels_summary_off">플레이어 팝업 패널이 표시됩니다\n• 재생목록, 실시간 채팅, etc.</string>
+  </patch>
+  <patch id="layout.player.fullscreen.exitFullscreenPatch">
+  <string name="revanced_exit_fullscreen_title">영상 종료 시 전체 화면 모드 종료</string>
+  <string name="revanced_exit_fullscreen_entry_1">비활성화됨</string>
+  <string name="revanced_exit_fullscreen_entry_2">세로</string>
+  <string name="revanced_exit_fullscreen_entry_3">가로</string>
+  <string name="revanced_exit_fullscreen_entry_4">세로 및 가로</string>
   </patch>
   <patch id="layout.player.fullscreen.openVideosFullscreen">
   <string name="revanced_open_videos_fullscreen_portrait_title">동영상을 전체 화면 세로 모드로 열기</string>

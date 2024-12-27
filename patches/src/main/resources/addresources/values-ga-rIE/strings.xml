@@ -446,6 +446,9 @@ Níl an ghné seo ar fáil ach do ghléasanna níos sine"</string>
   <string name="revanced_swipe_overlay_background_alpha_summary">Infheictheacht an chúlra forleagan swipe</string>
   <string name="revanced_swipe_threshold_title">Tairseach méid swipe</string>
   <string name="revanced_swipe_threshold_summary">Méid an tairseach le haghaidh sruthú tarlú</string>
+  <string name="revanced_swipe_change_video_title">Cumasaigh swipe chun físeáin a athrú</string>
+  <string name="revanced_swipe_change_video_summary_on">Achlaigh i mód lán-scáile chun athrú go dtí an físeán chéanna/arís</string>
+  <string name="revanced_swipe_change_video_summary_off">Ní athróidh achlaigh i mód lán-scáile go dtí an físeán chéanna/arís</string>
   </patch>
   <patch id="layout.autocaptions.autoCaptionsPatch">
   <string name="revanced_auto_captions_title">Díchumasaigh fotheidil uathoibríoch</string>
@@ -741,6 +744,13 @@ Nóta: Trí é seo a chumasú, cuirtear fógraí físeáin i bhfolach freisin"</
   <string name="revanced_hide_player_popup_panels_title">Folaigh painéil aníos imreoir</string>
   <string name="revanced_hide_player_popup_panels_summary_on">Tá painéil aníos imreoirí i bhfolach</string>
   <string name="revanced_hide_player_popup_panels_summary_off">Taispeántar painéil aníos imreoirí</string>
+  </patch>
+  <patch id="layout.player.fullscreen.exitFullscreenPatch">
+  <string name="revanced_exit_fullscreen_title">Baint á âmód éadaéin iomlán lán iomlán ar deireadh na físe</string>
+  <string name="revanced_exit_fullscreen_entry_1">Déchumasaithe</string>
+  <string name="revanced_exit_fullscreen_entry_2">Portait</string>
+  <string name="revanced_exit_fullscreen_entry_3">Téacscaoileadh</string>
+  <string name="revanced_exit_fullscreen_entry_4">Portait agus téacscaoileadh</string>
   </patch>
   <patch id="layout.player.fullscreen.openVideosFullscreen">
   <string name="revanced_open_videos_fullscreen_portrait_title">Oscail físeáin i módh scáileáin iomláin portráit</string>

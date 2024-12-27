@@ -79,7 +79,6 @@ Tapnite gumb Nadaljuj in dovolite spremembe optimizacije."</string>
   <string name="revanced_settings_screen_03_feed_title">Zbirka</string>
   <string name="revanced_settings_screen_04_player_title">Predvajalnik</string>
   <string name="revanced_settings_screen_05_general_title">Splošna postavitev</string>
-  <string name="revanced_settings_screen_06_shorts_title">Kratki posnetki</string>
   <string name="revanced_settings_screen_07_seekbar_title">Drsnik</string>
   <string name="revanced_settings_screen_08_swipe_controls_title">Ukazi s potegom</string>
   <string name="revanced_settings_screen_11_misc_title">Razno</string>
@@ -446,6 +445,9 @@ Ta funkcija je na voljo samo za starejše naprave"</string>
   <string name="revanced_swipe_overlay_background_alpha_summary">Vidnost ozadja prekrivanja pomikanja</string>
   <string name="revanced_swipe_threshold_title">Prazg prag za pomikanje</string>
   <string name="revanced_swipe_threshold_summary">Vrednost praga za pomikanje</string>
+  <string name="revanced_swipe_change_video_title">Omogoči menjavanje videoposnetkov z drsenjem</string>
+  <string name="revanced_swipe_change_video_summary_on">Drsenje v celozaslonskem načinu bo prešlo na naslednji/prejšnji videoposnetek.</string>
+  <string name="revanced_swipe_change_video_summary_off">Drsenje v celozaslonskem načinu ne bo prešlo na naslednji/prejšnji videoposnetek.</string>
   </patch>
   <patch id="layout.autocaptions.autoCaptionsPatch">
   <string name="revanced_auto_captions_title">Onemogoči samodejne podnapise</string>
@@ -741,6 +743,13 @@ Opomba: Omogočanje tega tudi prisilno skrije video oglase"</string>
   <string name="revanced_hide_player_popup_panels_title">Skrij pojavna okna predvajalnika</string>
   <string name="revanced_hide_player_popup_panels_summary_on">Pojavna okna predvajalnika so skrita</string>
   <string name="revanced_hide_player_popup_panels_summary_off">Pojavna okna predvajalnika so prikazana</string>
+  </patch>
+  <patch id="layout.player.fullscreen.exitFullscreenPatch">
+  <string name="revanced_exit_fullscreen_title">Zapusti način celotnega zaslona ob koncu videoposnetka</string>
+  <string name="revanced_exit_fullscreen_entry_1">Onemogočeno</string>
+  <string name="revanced_exit_fullscreen_entry_2">Portret</string>
+  <string name="revanced_exit_fullscreen_entry_3">Ležeće</string>
+  <string name="revanced_exit_fullscreen_entry_4">Portret in ležeće</string>
   </patch>
   <patch id="layout.player.fullscreen.openVideosFullscreen">
   <string name="revanced_open_videos_fullscreen_portrait_title">Odpri videoposnetke v celozaslonskem načinu v portretni orientaciji</string>

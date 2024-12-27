@@ -445,6 +445,9 @@ Second \"item\" text"</string>
   <string name="revanced_swipe_overlay_background_alpha_summary">Видљивост позадине за покрет превлачења</string>
   <string name="revanced_swipe_threshold_title">Праг трајања превлачења</string>
   <string name="revanced_swipe_threshold_summary">Износ прага трајања превлачења</string>
+  <string name="revanced_swipe_change_video_title">Омогућите превлачење да бисте променили видео</string>
+  <string name="revanced_swipe_change_video_summary_on">Превлачење у режиму преко целог екрана промениће на следећи/претходни видео</string>
+  <string name="revanced_swipe_change_video_summary_off">Превлачење у режиму преко целог екрана неће променити на следећи/претходни видео</string>
   </patch>
   <patch id="layout.autocaptions.autoCaptionsPatch">
   <string name="revanced_auto_captions_title">Онемогући аутоматске титлове</string>
@@ -740,6 +743,13 @@ Second \"item\" text"</string>
   <string name="revanced_hide_player_popup_panels_title">Сакриј искачуће табле у плејеру</string>
   <string name="revanced_hide_player_popup_panels_summary_on">Искачуће табле у плејеру су скривене</string>
   <string name="revanced_hide_player_popup_panels_summary_off">Искачуће табле у плејеру су приказане</string>
+  </patch>
+  <patch id="layout.player.fullscreen.exitFullscreenPatch">
+  <string name="revanced_exit_fullscreen_title">Izađi iz fullscreen moda na kraju videa</string>
+  <string name="revanced_exit_fullscreen_entry_1">Onemogućeno</string>
+  <string name="revanced_exit_fullscreen_entry_2">Portret</string>
+  <string name="revanced_exit_fullscreen_entry_3">Pejzaž</string>
+  <string name="revanced_exit_fullscreen_entry_4">Portret i pejzaž</string>
   </patch>
   <patch id="layout.player.fullscreen.openVideosFullscreen">
   <string name="revanced_open_videos_fullscreen_portrait_title">Отвори видее преко целог екрана усправно</string>

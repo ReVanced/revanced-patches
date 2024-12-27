@@ -136,6 +136,8 @@ Second \"item\" text"</string>
   </patch>
   <patch id="layout.panels.popup.playerPopupPanelsPatch">
   </patch>
+  <patch id="layout.player.fullscreen.exitFullscreenPatch">
+  </patch>
   <patch id="layout.player.fullscreen.openVideosFullscreen">
   </patch>
   <patch id="layout.player.overlay.customPlayerOverlayOpacityResourcePatch">

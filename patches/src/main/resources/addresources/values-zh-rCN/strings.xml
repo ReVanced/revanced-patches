@@ -33,7 +33,6 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">APK 构建日期已损坏</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
-  <string name="revanced_settings_title">\"重制版\"</string>
   <string name="revanced_settings_confirm_user_dialog_title">您想要继续吗？</string>
   <string name="revanced_settings_reset">重置</string>
   <string name="revanced_settings_restart_title">刷新并重启</string>
@@ -446,6 +445,9 @@ Second \"item\" text"</string>
   <string name="revanced_swipe_overlay_background_alpha_summary">滑动叠加层的背景透明度</string>
   <string name="revanced_swipe_threshold_title">滑动幅度阈值</string>
   <string name="revanced_swipe_threshold_summary">防误触的滑动幅度阈值</string>
+  <string name="revanced_swipe_change_video_title">启用滑动切换视频</string>
+  <string name="revanced_swipe_change_video_summary_on">在全屏模式下滑动将切换到下一个/上一个视频</string>
+  <string name="revanced_swipe_change_video_summary_off">在全屏模式下滑动将不会切换到下一个/上一个视频</string>
   </patch>
   <patch id="layout.autocaptions.autoCaptionsPatch">
   <string name="revanced_auto_captions_title">禁用自动字幕</string>
@@ -741,6 +743,13 @@ Second \"item\" text"</string>
   <string name="revanced_hide_player_popup_panels_title">隐藏播放器弹出面板</string>
   <string name="revanced_hide_player_popup_panels_summary_on">播放器弹出面板已隐藏</string>
   <string name="revanced_hide_player_popup_panels_summary_off">播放器弹出面板已显示</string>
+  </patch>
+  <patch id="layout.player.fullscreen.exitFullscreenPatch">
+  <string name="revanced_exit_fullscreen_title">视频结尾时退出全屏模式</string>
+  <string name="revanced_exit_fullscreen_entry_1">已禁用</string>
+  <string name="revanced_exit_fullscreen_entry_2">纵向显示</string>
+  <string name="revanced_exit_fullscreen_entry_3">横向显示</string>
+  <string name="revanced_exit_fullscreen_entry_4">纵向和横向显示</string>
   </patch>
   <patch id="layout.player.fullscreen.openVideosFullscreen">
   <string name="revanced_open_videos_fullscreen_portrait_title">以全屏纵向模式打开视频</string>
@@ -1242,6 +1251,7 @@ Second \"item\" text"</string>
   <string name="revanced_force_original_audio_title">强制使用原始音频</string>
   <string name="revanced_force_original_audio_summary_on">正在使用原始音频</string>
   <string name="revanced_force_original_audio_summary_off">正在使用默认音频</string>
+  <string name="revanced_force_original_audio_not_available">要使用此功能，请将流伪装更改为 iOS 客户端类型</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
