@@ -1239,6 +1239,7 @@ Second \"item\" text"</string>
   <string name="revanced_force_original_audio_title">強制使用原始音訊</string>
   <string name="revanced_force_original_audio_summary_on">使用原始音訊</string>
   <string name="revanced_force_original_audio_summary_off">使用預設音訊</string>
+  <string name="revanced_force_original_audio_not_available">如欲使用此功能，請變更串流欺騙至 iOS 客戶端類型</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->

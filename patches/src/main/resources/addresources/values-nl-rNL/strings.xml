@@ -1237,6 +1237,7 @@ Het inschakelen hiervan kan hogere videokwaliteiten ontgrendelen"</string>
   <string name="revanced_force_original_audio_title">Forceer originele audio</string>
   <string name="revanced_force_original_audio_summary_on">Originele audio gebruiken</string>
   <string name="revanced_force_original_audio_summary_off">Standaard audio gebruiken</string>
+  <string name="revanced_force_original_audio_not_available">Als je deze functie wilt gebruiken, zet stream-spoofing op iOS-clienttype</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->

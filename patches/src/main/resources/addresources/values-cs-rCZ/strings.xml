@@ -1236,6 +1236,7 @@ Povolením této funkce lze odemknout vyšší kvality videa"</string>
   <string name="revanced_force_original_audio_title">Vynutit původní zvuk</string>
   <string name="revanced_force_original_audio_summary_on">Používání původního zvuku</string>
   <string name="revanced_force_original_audio_summary_off">Používání výchozího zvuku</string>
+  <string name="revanced_force_original_audio_not_available">Pro použití této funkce změňte typ klienta streamu na iOS</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->

@@ -1236,6 +1236,7 @@ Second \"item\" text"</string>
   <string name="revanced_force_original_audio_title">فرض الصوت الأصلي</string>
   <string name="revanced_force_original_audio_summary_on">استخدام الصوت الأصلي</string>
   <string name="revanced_force_original_audio_summary_off">استخدام الصوت الافتراضي</string>
+  <string name="revanced_force_original_audio_not_available">لاستخدام هذه الميزة، غيّر تقليد تدفقات البيانات إلى نوع عميل iOS</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->

@@ -1237,6 +1237,7 @@ Second \"item\" text"</string>
   <string name="revanced_force_original_audio_title">Вымушанае арыгінальнае аўдыё</string>
   <string name="revanced_force_original_audio_summary_on">Выкарыстанне арыгінальнага аўдыё</string>
   <string name="revanced_force_original_audio_summary_off">Выкарыстанне аўдыё па змаўчанні</string>
+  <string name="revanced_force_original_audio_not_available">Каб выкарыстоўваць гэтую функцыю, зменіце спафінг патоку на тып кліента iOS</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
