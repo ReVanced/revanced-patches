@@ -445,9 +445,9 @@ Questa funzione è disponibile solo per i dispositivi più vecchi"</string>
   <string name="revanced_swipe_overlay_background_alpha_summary">La visibilità dello sfondo in sovrapposizione durante lo scorrimento</string>
   <string name="revanced_swipe_threshold_title">Ampiezza limite della soglia di scorrimento</string>
   <string name="revanced_swipe_threshold_summary">Il limite di ampiezza entro cui deve avvenire lo scorrimento</string>
-  <string name="revanced_swipe_change_video_title">Abilita scorrimento rapido per cambiare video</string>
-  <string name="revanced_swipe_change_video_summary_on">Lo scorrimento veloce in modalità a schermo intero passerà al video successivo/precedente</string>
-  <string name="revanced_swipe_change_video_summary_off">Lo scorrimento veloce in modalità a schermo intero non passerà al prossimo/precedente video</string>
+  <string name="revanced_swipe_change_video_title">Attiva il gesto per cambiare video</string>
+  <string name="revanced_swipe_change_video_summary_on">Lo scorrimento in modalità a schermo intero passerà al video successivo/precedente</string>
+  <string name="revanced_swipe_change_video_summary_off">Lo scorrimento in modalità schermo intero non cambierà al video successivo/precedente</string>
   </patch>
   <patch id="layout.autocaptions.autoCaptionsPatch">
   <string name="revanced_auto_captions_title">Disabilita i sottotitoli automatici </string>
@@ -747,9 +747,9 @@ Nota: Abilitare questa opzione nasconde anche le pubblicità video"</string>
   <patch id="layout.player.fullscreen.exitFullscreenPatch">
   <string name="revanced_exit_fullscreen_title">Esci dalla modalità schermo intero al termine del video</string>
   <string name="revanced_exit_fullscreen_entry_1">Disabilitato</string>
-  <string name="revanced_exit_fullscreen_entry_2">Ritratto</string>
-  <string name="revanced_exit_fullscreen_entry_3">Paesaggio</string>
-  <string name="revanced_exit_fullscreen_entry_4">Ritratto e paesaggio</string>
+  <string name="revanced_exit_fullscreen_entry_2">Verticale</string>
+  <string name="revanced_exit_fullscreen_entry_3">Orizzontale</string>
+  <string name="revanced_exit_fullscreen_entry_4">Verticale e orizzontale</string>
   </patch>
   <patch id="layout.player.fullscreen.openVideosFullscreen">
   <string name="revanced_open_videos_fullscreen_portrait_title">Apri i video in verticale a schermo intero</string>
@@ -1019,6 +1019,23 @@ Pronto per l'invio?"</string>
   <string name="revanced_sb_about">Informazioni</string>
   <string name="revanced_sb_about_api_sum">I dati sono forniti dall\'API di SponsorBlock. Tocca qui per saperne di più e vedere i download per altre piattaforme</string>
   </patch>
+  <patch id="layout.formfactor.changeFormFactorPatch">
+  <string name="revanced_change_form_factor_title">Fattore di forma del layout</string>
+  <string name="revanced_change_form_factor_entry_1">Predefinito</string>
+  <string name="revanced_change_form_factor_entry_2">Telefono</string>
+  <string name="revanced_change_form_factor_entry_3">Tablet</string>
+  <string name="revanced_change_form_factor_entry_4">Automotive</string>
+  <string name="revanced_change_form_factor_user_dialog_message">"Le modifiche includono:
+
+Layout tablet
+• I post della community sono nascosti
+
+Layout automotive
+• Il menu della cronologia è nascosto
+• La scheda Esplora è ripristinata
+• Gli Shorts si aprono nel lettore normale
+• Il feed è organizzato per argomenti e canali"</string>
+  </patch>
   <patch id="layout.spoofappversion.spoofAppVersionPatch">
   <string name="revanced_spoof_app_version_title">Simula la versione dell\'app</string>
   <string name="revanced_spoof_app_version_summary_on">La simulazione della versione dell\'app è attivata</string>
@@ -1075,12 +1092,6 @@ Se in seguito verrà disattivato, si consiglia di cancellare i dati dell'app per
   <string name="revanced_shorts_autoplay_background_title">Riproduzione automatica di Shorts in background</string>
   <string name="revanced_shorts_autoplay_background_summary_on">Gli Short in background verranno riprodotti automaticamente</string>
   <string name="revanced_shorts_autoplay_background_summary_off">Gli Short in background si ripeteranno</string>
-  </patch>
-  <patch id="layout.tablet.enableTabletLayoutPatch">
-  <string name="revanced_tablet_layout_title">Attiva l\'interfaccia da tablet</string>
-  <string name="revanced_tablet_layout_summary_on">Il layout da tablet è abilitato</string>
-  <string name="revanced_tablet_layout_summary_off">Il layout del tablet è disabilitato</string>
-  <string name="revanced_tablet_layout_user_dialog_message">I post della comunità non vengono visualizzati sui layout dei tablet</string>
   </patch>
   <patch id="layout.miniplayer.miniplayerPatch">
   <string name="revanced_miniplayer_screen_title">Miniplayer</string>
@@ -1245,7 +1256,7 @@ Abilitare questa opzione può sbloccare qualità video più elevate"</string>
   <string name="revanced_force_original_audio_title">Forza l\'audio originale</string>
   <string name="revanced_force_original_audio_summary_on">Utilizzo audio originale</string>
   <string name="revanced_force_original_audio_summary_off">Utilizzo audio predefinito</string>
-  <string name="revanced_force_original_audio_not_available">Per utilizzare questa funzione, cambia lo spoofing dello stream in tipo di client iOS</string>
+  <string name="revanced_force_original_audio_not_available">Per utilizzare questa funzione, cambia la simulazione dello stream nel tipo di client iOS</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->

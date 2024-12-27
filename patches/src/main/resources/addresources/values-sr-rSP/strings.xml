@@ -1019,6 +1019,23 @@ Second \"item\" text"</string>
   <string name="revanced_sb_about">О програму</string>
   <string name="revanced_sb_about_api_sum">Податке обезбеђује SponsorBlock API. Додирните овде да сазнате више и видите преузимања за друге платформе</string>
   </patch>
+  <patch id="layout.formfactor.changeFormFactorPatch">
+  <string name="revanced_change_form_factor_title">Распоред фактора обрасца</string>
+  <string name="revanced_change_form_factor_entry_1">Подразумевано</string>
+  <string name="revanced_change_form_factor_entry_2">Телефон</string>
+  <string name="revanced_change_form_factor_entry_3">Таблет</string>
+  <string name="revanced_change_form_factor_entry_4">Аутомобилски</string>
+  <string name="revanced_change_form_factor_user_dialog_message">"Промене укључују:
+
+Изглед таблета
+• Објаве заједнице су сакривене
+
+Изглед аутомобила
+• Мени историје гледања је сакривен
+• Картица Истражи је враћена
+• Шортсеви се отварају у редовном плејеру
+• Фид је организован по темама и каналу"</string>
+  </patch>
   <patch id="layout.spoofappversion.spoofAppVersionPatch">
   <string name="revanced_spoof_app_version_title">Лажирана верзија апликације</string>
   <string name="revanced_spoof_app_version_summary_on">Верзија је лажирана</string>
@@ -1075,12 +1092,6 @@ Second \"item\" text"</string>
   <string name="revanced_shorts_autoplay_background_title">Аутоплеј Shorts видеа у позадини</string>
   <string name="revanced_shorts_autoplay_background_summary_on">Shorts видеи ће се аутоматски пуштати у позадини</string>
   <string name="revanced_shorts_autoplay_background_summary_off">Shorts видеи ће се понављати у позадини</string>
-  </patch>
-  <patch id="layout.tablet.enableTabletLayoutPatch">
-  <string name="revanced_tablet_layout_title">Омогући кориснички интерфејс таблета</string>
-  <string name="revanced_tablet_layout_summary_on">Кориснички интерфејс таблета је омогућен</string>
-  <string name="revanced_tablet_layout_summary_off">Кориснички интерфејс таблета је онемогућен</string>
-  <string name="revanced_tablet_layout_user_dialog_message">Објаве заједнице се не приказују у корисничком интерфејсу таблета</string>
   </patch>
   <patch id="layout.miniplayer.miniplayerPatch">
   <string name="revanced_miniplayer_screen_title">Мини-плејер</string>

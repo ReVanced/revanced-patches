@@ -1002,6 +1002,23 @@ Ya existe"</string>
   <string name="revanced_sb_about">Acerca de</string>
   <string name="revanced_sb_about_api_sum">Los datos son proporcionados por la API de SponsorBlock. Pulsa aquí para aprender más y ver las descargas para otras plataformas</string>
   </patch>
+  <patch id="layout.formfactor.changeFormFactorPatch">
+  <string name="revanced_change_form_factor_title">Diseño del diseño factor</string>
+  <string name="revanced_change_form_factor_entry_1">Defecto</string>
+  <string name="revanced_change_form_factor_entry_2">Teléfono</string>
+  <string name="revanced_change_form_factor_entry_3">Tableta</string>
+  <string name="revanced_change_form_factor_entry_4">Automotriz</string>
+  <string name="revanced_change_form_factor_user_dialog_message">"Los cambios incluyen:
+
+Diseño para tablets
+• Las publicaciones de la comunidad están ocultas
+
+Diseño para automóviles
+• El menú del historial de reproducciones está oculto
+• Se restauró la pestaña de Explorar
+• Se abren los Shorts en el reproductor normal
+• El feed está organizado por temas y canal"</string>
+  </patch>
   <patch id="layout.spoofappversion.spoofAppVersionPatch">
   <string name="revanced_spoof_app_version_title">Versión de la aplicación Spoof</string>
   <string name="revanced_spoof_app_version_summary_on">Versión falseada</string>
@@ -1058,12 +1075,6 @@ Si se desactiva posteriormente, se recomienda borrar los datos de la aplicación
   <string name="revanced_shorts_autoplay_background_title">Reproducción automática de Shorts en segundo plano</string>
   <string name="revanced_shorts_autoplay_background_summary_on">Los Shorts se reproducirán automáticamente en segundo plano</string>
   <string name="revanced_shorts_autoplay_background_summary_off">Los Shorts se repetirán en segundo plano</string>
-  </patch>
-  <patch id="layout.tablet.enableTabletLayoutPatch">
-  <string name="revanced_tablet_layout_title">Habilitar diseño de tablet</string>
-  <string name="revanced_tablet_layout_summary_on">Diseño de tablet habilitado</string>
-  <string name="revanced_tablet_layout_summary_off">Diseño de tablet deshabilitado</string>
-  <string name="revanced_tablet_layout_user_dialog_message">Los mensajes de la comunidad no se muestran en los diseños de tablet</string>
   </patch>
   <patch id="layout.miniplayer.miniplayerPatch">
   <string name="revanced_miniplayer_screen_title">Minireproductor</string>

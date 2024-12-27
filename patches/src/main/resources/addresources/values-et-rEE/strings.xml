@@ -1021,6 +1021,23 @@ Kas olete esitamiseks valmis?"</string>
   <string name="revanced_sb_about">Teave</string>
   <string name="revanced_sb_about_api_sum">Andmed on pärit SponsorBlock API-st. Puudutage siia, et saada lisateavet ja vaadata allalaadimisi teistele platvormidele</string>
   </patch>
+  <patch id="layout.formfactor.changeFormFactorPatch">
+  <string name="revanced_change_form_factor_title">Paigutuse vormitegur</string>
+  <string name="revanced_change_form_factor_entry_1">Vaikimisi</string>
+  <string name="revanced_change_form_factor_entry_2">Telefon</string>
+  <string name="revanced_change_form_factor_entry_3">Tahvelarvuti</string>
+  <string name="revanced_change_form_factor_entry_4">Automotiiv</string>
+  <string name="revanced_change_form_factor_user_dialog_message">"Muudatused hõlmavad:
+
+Tahvelarvuti paigutus
+• Ühenduse postitused on peidetud
+
+Automotiivi paigutus
+• Vaatamisloendi menüü on peidetud
+• Uudista vaheleht on taastatud
+• Lühivideod avanevad tavalises pleieris
+• Sööt on korraldatud teemade ja kanalite kaupa"</string>
+  </patch>
   <patch id="layout.spoofappversion.spoofAppVersionPatch">
   <string name="revanced_spoof_app_version_title">Võltsitud rakenduse versioon</string>
   <string name="revanced_spoof_app_version_summary_on">Versioon on võltsitud</string>
@@ -1077,12 +1094,6 @@ Kui see hiljem välja lülitatakse, on soovitatav rakenduse andmed kustutada, et
   <string name="revanced_shorts_autoplay_background_title">Shortsi automaatne esitus taustal</string>
   <string name="revanced_shorts_autoplay_background_summary_on">Shortsi taustal esitamine toimub automaatselt</string>
   <string name="revanced_shorts_autoplay_background_summary_off">Shortsi taustal esitamine korratakse</string>
-  </patch>
-  <patch id="layout.tablet.enableTabletLayoutPatch">
-  <string name="revanced_tablet_layout_title">Lülita tahvelarvuti paigutus sisse</string>
-  <string name="revanced_tablet_layout_summary_on">Tahvelarvuti paigutus on lubatud</string>
-  <string name="revanced_tablet_layout_summary_off">Tahvelarvuti paigutus on keelatud</string>
-  <string name="revanced_tablet_layout_user_dialog_message">Kogukonna postitused ei kuvata tahvelarvuti paigutustes</string>
   </patch>
   <patch id="layout.miniplayer.miniplayerPatch">
   <string name="revanced_miniplayer_screen_title">Minimängija</string>

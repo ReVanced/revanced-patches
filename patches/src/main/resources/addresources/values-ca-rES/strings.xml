@@ -1017,6 +1017,23 @@ Preparat per enviar?"</string>
   <string name="revanced_sb_about">Quant a</string>
   <string name="revanced_sb_about_api_sum">Les dades són proporcionades per l\'API de SponsorBlock. Toca aquí per a saber-ne més i veure les descàrregues per a altres plataformes</string>
   </patch>
+  <patch id="layout.formfactor.changeFormFactorPatch">
+  <string name="revanced_change_form_factor_title">Factor de forma del disseny</string>
+  <string name="revanced_change_form_factor_entry_1">Predeterminat</string>
+  <string name="revanced_change_form_factor_entry_2">Telèfon</string>
+  <string name="revanced_change_form_factor_entry_3">Tauleta</string>
+  <string name="revanced_change_form_factor_entry_4">Automoció</string>
+  <string name="revanced_change_form_factor_user_dialog_message">"Els canvis inclouen:
+
+Presentació de la tauleta
+• Les publicacions de la comunitat estan amagades
+
+Presentació de l'automòbil
+• El menú d'historial del rellotge està ocult
+• La pestanya Explora s'ha restaurat
+• Els curts s'obren al reproductor normal
+• La font d'informació s'organitza per temes i canals"</string>
+  </patch>
   <patch id="layout.spoofappversion.spoofAppVersionPatch">
   <string name="revanced_spoof_app_version_title">Falsa la versió de l\'aplicació</string>
   <string name="revanced_spoof_app_version_summary_on">Versió falsificada</string>
@@ -1072,12 +1089,6 @@ Si després es desactiva, es recomana esborrar les dades de l'aplicació per evi
   <string name="revanced_shorts_autoplay_background_title">Reprodueix automàticament els Shorts en mode de reproducció en segon pla</string>
   <string name="revanced_shorts_autoplay_background_summary_on">La reproducció en segon pla dels Shorts es reproduirà automàticament</string>
   <string name="revanced_shorts_autoplay_background_summary_off">La reproducció en segon pla dels Shorts es repetirà</string>
-  </patch>
-  <patch id="layout.tablet.enableTabletLayoutPatch">
-  <string name="revanced_tablet_layout_title">Habilita el disseny de tauleta</string>
-  <string name="revanced_tablet_layout_summary_on">El disseny de tauleta està habilitat</string>
-  <string name="revanced_tablet_layout_summary_off">El disseny de tauleta està deshabilitat</string>
-  <string name="revanced_tablet_layout_user_dialog_message">Les publicacions de la comunitat no apareixen en els dissenys de tauleta</string>
   </patch>
   <patch id="layout.miniplayer.miniplayerPatch">
   <string name="revanced_miniplayer_screen_title">Minireproductor</string>

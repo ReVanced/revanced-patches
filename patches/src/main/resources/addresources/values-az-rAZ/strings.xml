@@ -1019,6 +1019,23 @@ Təqdim etməyə hazırdır?"</string>
   <string name="revanced_sb_about">Haqqında</string>
   <string name="revanced_sb_about_api_sum">Məlumat SponsorBlock API tərəfindən təqdim edilir. Daha ətraflı öyrənmək və digər platformalar üzrə yükləmələrə baxmaq üçün bura toxunun</string>
   </patch>
+  <patch id="layout.formfactor.changeFormFactorPatch">
+  <string name="revanced_change_form_factor_title">Tərtibat forma göstəricisi</string>
+  <string name="revanced_change_form_factor_entry_1">İlkin</string>
+  <string name="revanced_change_form_factor_entry_2">Telefon</string>
+  <string name="revanced_change_form_factor_entry_3">Planşet</string>
+  <string name="revanced_change_form_factor_entry_4">Avtomobil</string>
+  <string name="revanced_change_form_factor_user_dialog_message">"Dəyişikliklərə daxildir:
+
+Planşet tərtibatı
+• İcma elanları gizlidir
+
+Avtomobil tərtibatı
+• Baxış tarixçəsi seçimi gizlidir
+• \"Kəşf et\" bölməsi qaytarılıb
+• Shorts daimi oynadıcıda açılır
+• Axın mövzulara və kanala görə hazırlanıb"</string>
+  </patch>
   <patch id="layout.spoofappversion.spoofAppVersionPatch">
   <string name="revanced_spoof_app_version_title">Tətbiq versiyasını saxtalaşdır</string>
   <string name="revanced_spoof_app_version_summary_on">Versiya saxtalaşdırıldı</string>
@@ -1075,12 +1092,6 @@ Sonradan qapadılarsa, UI səhvlərin önləmək üçün tətbiq məlumatların 
   <string name="revanced_shorts_autoplay_background_title">Shorts-ları arxa planda avto-oynat</string>
   <string name="revanced_shorts_autoplay_background_summary_on">Shorts-lar arxa planda avto-oynadılacaq</string>
   <string name="revanced_shorts_autoplay_background_summary_off">Shorts-lar arxa planda təkrarlanacaq</string>
-  </patch>
-  <patch id="layout.tablet.enableTabletLayoutPatch">
-  <string name="revanced_tablet_layout_title">Planşet tərtibatını aktiv et</string>
-  <string name="revanced_tablet_layout_summary_on">Planşet tərtibatı aktiv edilib</string>
-  <string name="revanced_tablet_layout_summary_off">Planşet tərtibatı qeyri-aktivdir</string>
-  <string name="revanced_tablet_layout_user_dialog_message">İcma elanları planşet tərtibatında göstərilmir</string>
   </patch>
   <patch id="layout.miniplayer.miniplayerPatch">
   <string name="revanced_miniplayer_screen_title">Kiçik oynadıcı</string>

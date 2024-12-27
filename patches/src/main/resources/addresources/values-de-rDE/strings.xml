@@ -1015,6 +1015,23 @@ Bereit zum Einreichen?"</string>
   <string name="revanced_sb_about">Über</string>
   <string name="revanced_sb_about_api_sum">Daten werden von der SponsorBlock API bereitgestellt. Tippe hier, um mehr zu erfahren und Downloads für andere Plattformen zu sehen</string>
   </patch>
+  <patch id="layout.formfactor.changeFormFactorPatch">
+  <string name="revanced_change_form_factor_title">Anordnungsformfactor</string>
+  <string name="revanced_change_form_factor_entry_1">Standard</string>
+  <string name="revanced_change_form_factor_entry_2">Telefon</string>
+  <string name="revanced_change_form_factor_entry_3">Tablet</string>
+  <string name="revanced_change_form_factor_entry_4">Automobil</string>
+  <string name="revanced_change_form_factor_user_dialog_message">"Änderungen umfassen:
+
+Tablet-Layout
+• Community-Beiträge werden ausgeblendet
+
+Auto-Layout
+• Der Verlaufsmenü ist ausgeblendet
+• Der Explore-Tab wird wiederhergestellt
+• Shorts werden im regulären Player geöffnet
+• Der Feed ist nach Themen und Kanälen organisiert"</string>
+  </patch>
   <patch id="layout.spoofappversion.spoofAppVersionPatch">
   <string name="revanced_spoof_app_version_title">Spoof-App-Version</string>
   <string name="revanced_spoof_app_version_summary_on">Version gefälscht</string>
@@ -1071,12 +1088,6 @@ Wenn Sie die Funktion später deaktivieren, wird empfohlen, die App-Daten zu lö
   <string name="revanced_shorts_autoplay_background_title">Autoplay Shorts Hintergrund spielen</string>
   <string name="revanced_shorts_autoplay_background_summary_on">Shorts-Hintergrund spielen wird automatisch abgespielt</string>
   <string name="revanced_shorts_autoplay_background_summary_off">Shorts-Hintergrundwiedergabe wiederholt sich</string>
-  </patch>
-  <patch id="layout.tablet.enableTabletLayoutPatch">
-  <string name="revanced_tablet_layout_title">Tablet Layout aktivieren</string>
-  <string name="revanced_tablet_layout_summary_on">Tablet Layout ist aktiviert</string>
-  <string name="revanced_tablet_layout_summary_off">Tablet Layout ist deaktiviert</string>
-  <string name="revanced_tablet_layout_user_dialog_message">Community-Beiträge werden nicht auf Tablet Layouts angezeigt</string>
   </patch>
   <patch id="layout.miniplayer.miniplayerPatch">
   <string name="revanced_miniplayer_screen_title">Miniplayer</string>

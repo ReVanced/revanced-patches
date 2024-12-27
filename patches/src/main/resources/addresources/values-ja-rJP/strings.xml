@@ -1021,6 +1021,23 @@ MicroG のバッテリー最適化を無効にしても、バッテリーの使�
   <string name="revanced_sb_about">このアプリについて</string>
   <string name="revanced_sb_about_api_sum">SponsorBlock APIによって提供されるデータです。詳細はこちらをタップしてください。</string>
   </patch>
+  <patch id="layout.formfactor.changeFormFactorPatch">
+  <string name="revanced_change_form_factor_title">レイアウトフォームファクター</string>
+  <string name="revanced_change_form_factor_entry_1">デフォルト</string>
+  <string name="revanced_change_form_factor_entry_2">電話</string>
+  <string name="revanced_change_form_factor_entry_3">タブレット</string>
+  <string name="revanced_change_form_factor_entry_4">自動車</string>
+  <string name="revanced_change_form_factor_user_dialog_message">"変更内容:
+
+タブレットレイアウト
+• コミュニティ投稿は非表示
+
+自動車レイアウト
+• 視聴履歴メニューを非表示
+• 「閲覧」タブを復元
+• Shorts は通常のプレーヤーで開きます
+• フィードはトピックとチャンネル別に整理"</string>
+  </patch>
   <patch id="layout.spoofappversion.spoofAppVersionPatch">
   <string name="revanced_spoof_app_version_title">アプリのバージョンを偽装する</string>
   <string name="revanced_spoof_app_version_summary_on">バージョン偽装済み</string>
@@ -1077,12 +1094,6 @@ MicroG のバッテリー最適化を無効にしても、バッテリーの使�
   <string name="revanced_shorts_autoplay_background_title">ショート動画の自動再生 (バックグラウンド)</string>
   <string name="revanced_shorts_autoplay_background_summary_on">ショート動画の自動再生 (バックグラウンド) を有効にします</string>
   <string name="revanced_shorts_autoplay_background_summary_off">ショート動画をバックグラウンド再生を繰り返しにします</string>
-  </patch>
-  <patch id="layout.tablet.enableTabletLayoutPatch">
-  <string name="revanced_tablet_layout_title">タブレットのレイアウトを有効にする</string>
-  <string name="revanced_tablet_layout_summary_on">タブレットのレイアウトは有効です</string>
-  <string name="revanced_tablet_layout_summary_off">タブレットのレイアウトは無効です</string>
-  <string name="revanced_tablet_layout_user_dialog_message">タブレットのレイアウトではコミュニティ投稿は表示されません</string>
   </patch>
   <patch id="layout.miniplayer.miniplayerPatch">
   <string name="revanced_miniplayer_screen_title">ミニプレイヤー</string>

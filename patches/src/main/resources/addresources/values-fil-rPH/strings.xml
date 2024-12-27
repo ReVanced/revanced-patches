@@ -1021,6 +1021,24 @@ Isumite na ba?"</string>
   <string name="revanced_sb_about">Tungkol</string>
   <string name="revanced_sb_about_api_sum">Ang data ay ibinibigay ng SponsorBlock API. Mag-tap dito para matuto pa at makakita ng mga download para sa iba pang platform</string>
   </patch>
+  <patch id="layout.formfactor.changeFormFactorPatch">
+  <string name="revanced_change_form_factor_entry_4">Awtomatiko</string>
+  <string name="revanced_change_form_factor_user_dialog_message">"Kasama sa mga pagbabago:
+
+Layout ng tablet
+
+Nakatago ang mga post ng komunidad
+
+Layout ng Automotive
+
+Nakatago ang menu ng history ng panonood
+
+Ibinabalik ang tab ng pagtuklas
+
+Bubukas ang Shorts sa regular na manlalaro
+
+Inaayos ang feed ayon sa mga paksa at channel"</string>
+  </patch>
   <patch id="layout.spoofappversion.spoofAppVersionPatch">
   <string name="revanced_spoof_app_version_title">Spoof na bersyon ng app</string>
   <string name="revanced_spoof_app_version_summary_on">Na-spoof ang bersyon</string>
@@ -1077,12 +1095,6 @@ Kung mamaya ay patayin, inirerekumenda na i-clear ang data ng app upang maiwasan
   <string name="revanced_shorts_autoplay_background_title">Awtomatikong pag-play ng Shorts sa background</string>
   <string name="revanced_shorts_autoplay_background_summary_on">Awtomatikong magpa-play ang mga Shorts sa background</string>
   <string name="revanced_shorts_autoplay_background_summary_off">Uulitin ang mga Shorts sa background</string>
-  </patch>
-  <patch id="layout.tablet.enableTabletLayoutPatch">
-  <string name="revanced_tablet_layout_title">Paganahin ang layout ng tablet</string>
-  <string name="revanced_tablet_layout_summary_on">Naka-enable ang layout ng tablet</string>
-  <string name="revanced_tablet_layout_summary_off">Naka-disable ang layout ng tablet</string>
-  <string name="revanced_tablet_layout_user_dialog_message">Hindi lumalabas ang mga post sa komunidad sa mga layout ng tablet</string>
   </patch>
   <patch id="layout.miniplayer.miniplayerPatch">
   <string name="revanced_miniplayer_screen_title">Miniplayer</string>

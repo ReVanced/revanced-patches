@@ -1020,6 +1020,23 @@ Pronto para enviar?"</string>
   <string name="revanced_sb_about">Sobre</string>
   <string name="revanced_sb_about_api_sum">Os dados são fornecidos pela API do SponsorBlock. Toque aqui para aprender mais e ver downloads para outras plataformas</string>
   </patch>
+  <patch id="layout.formfactor.changeFormFactorPatch">
+  <string name="revanced_change_form_factor_title">Fator de forma do layout</string>
+  <string name="revanced_change_form_factor_entry_1">Padrão</string>
+  <string name="revanced_change_form_factor_entry_2">Telefone</string>
+  <string name="revanced_change_form_factor_entry_3">Tablet</string>
+  <string name="revanced_change_form_factor_entry_4">Automotivo</string>
+  <string name="revanced_change_form_factor_user_dialog_message">"As alterações incluem:
+
+Layout do tablet
+• As postagens da comunidade estão ocultas
+
+Layout automotivo
+• O menu do histórico de exibição está oculto
+• A guia Explorar foi restaurada
+• Shorts abrem no reprodutor normal
+• O feed é organizado por tópicos e canal"</string>
+  </patch>
   <patch id="layout.spoofappversion.spoofAppVersionPatch">
   <string name="revanced_spoof_app_version_title">Versão do Spoof app</string>
   <string name="revanced_spoof_app_version_summary_on">Versão falsificada</string>
@@ -1076,12 +1093,6 @@ Nếu sau này tắt, bạn nên xóa dữ liệu ứng dụng để tránh lỗ
   <string name="revanced_shorts_autoplay_background_title">Reprodução automática de Shorts no fundo</string>
   <string name="revanced_shorts_autoplay_background_summary_on">Reprodução de fundo de Shorts irá reproduzir automaticamente</string>
   <string name="revanced_shorts_autoplay_background_summary_off">Reprodução de fundo de Shorts irá repetir</string>
-  </patch>
-  <patch id="layout.tablet.enableTabletLayoutPatch">
-  <string name="revanced_tablet_layout_title">Habilitar layout do tablet</string>
-  <string name="revanced_tablet_layout_summary_on">O layout do tablet está ativado</string>
-  <string name="revanced_tablet_layout_summary_off">Layout de tablet desativado</string>
-  <string name="revanced_tablet_layout_user_dialog_message">Postagens da comunidade não aparecem nos layouts do tablet</string>
   </patch>
   <patch id="layout.miniplayer.miniplayerPatch">
   <string name="revanced_miniplayer_screen_title">Miniplayer</string>

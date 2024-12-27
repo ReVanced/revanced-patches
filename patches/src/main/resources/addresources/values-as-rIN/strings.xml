@@ -157,6 +157,8 @@ Second \"item\" text"</string>
   <!-- Toast shown if network connection times out. Translations of this should not be longer than the original English or the text can be clipped and not entirely shown. -->
   <!-- Shown in the settings preferences, and translations can be any text length. -->
   </patch>
+  <patch id="layout.formfactor.changeFormFactorPatch">
+  </patch>
   <patch id="layout.spoofappversion.spoofAppVersionPatch">
   <!-- It is ideal, but not required, if the text here appears is alphabetically after the text used for 'revanced_spoof_app_version_title'.
                  This is because the 'General layout' menu uses alphabetic sorting, and it functionally works better if the spoof target selector appears below the 'Spoof app version' UI switch -->
@@ -169,8 +171,6 @@ Second \"item\" text"</string>
   <patch id="layout.shortsplayer.shortsPlayerTypePatch">
   </patch>
   <patch id="layout.shortsautoplay.shortsAutoplayPatch">
-  </patch>
-  <patch id="layout.tablet.enableTabletLayoutPatch">
   </patch>
   <patch id="layout.miniplayer.miniplayerPatch">
   </patch>

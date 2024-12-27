@@ -448,9 +448,9 @@ Second \"item\" text"</string>
   <string name="revanced_swipe_overlay_background_alpha_summary">Η ορατότητα του πλαισίου σάρωσης στο παρασκήνιο</string>
   <string name="revanced_swipe_threshold_title">Κατώτατο όριο μεγέθους σάρωσης</string>
   <string name="revanced_swipe_threshold_summary">Η ελάχιστη απόσταση που θα διανύσετε με το δάκτυλο σας για να είναι αναγνωρίσιμη η χειρονομία σάρωσης</string>
-  <string name="revanced_swipe_change_video_title">Ενεργοποίηση αλλαγής βίντεο με σάρωση</string>
-  <string name="revanced_swipe_change_video_summary_on">Η σάρωση σε λειτουργία πλήρους οθόνης θα αλλάξει στο επόμενο/προηγούμενο βίντεο</string>
-  <string name="revanced_swipe_change_video_summary_off">Η σάρωση σε λειτουργία πλήρους οθόνης δεν θα αλλάξει στο επόμενο/προηγούμενο βίντεο</string>
+  <string name="revanced_swipe_change_video_title">Χειρονομία εναλλαγής βίντεο στην πλήρη οθόνη</string>
+  <string name="revanced_swipe_change_video_summary_on">Σάρωση αριστερά/δεξιά κατά τη λειτουργία πλήρους οθόνης για αλλαγή σε επόμενο/προηγούμενο βίντεο</string>
+  <string name="revanced_swipe_change_video_summary_off">Η χειρονομία αλλαγής βίντεο κατά τη λειτουργία πλήρους οθόνης είναι ανενεργή</string>
   </patch>
   <patch id="layout.autocaptions.autoCaptionsPatch">
   <string name="revanced_auto_captions_title">Απενεργοποίηση αυτόματων υπότιτλων</string>
@@ -749,10 +749,10 @@ Second \"item\" text"</string>
   </patch>
   <patch id="layout.player.fullscreen.exitFullscreenPatch">
   <string name="revanced_exit_fullscreen_title">Έξοδος από την λειτουργία πλήρους οθόνης στο τέλος του βίντεο</string>
-  <string name="revanced_exit_fullscreen_entry_1">Απενεργοποιημένη</string>
-  <string name="revanced_exit_fullscreen_entry_2">Κατακόρυφο</string>
-  <string name="revanced_exit_fullscreen_entry_3">Οριζόντιο</string>
-  <string name="revanced_exit_fullscreen_entry_4">Κατακόρυφο και οριζόντιο</string>
+  <string name="revanced_exit_fullscreen_entry_1">Ανενεργή</string>
+  <string name="revanced_exit_fullscreen_entry_2">Κατακόρυφα</string>
+  <string name="revanced_exit_fullscreen_entry_3">Οριζόντια</string>
+  <string name="revanced_exit_fullscreen_entry_4">Κατακόρυφα και οριζόντια</string>
   </patch>
   <patch id="layout.player.fullscreen.openVideosFullscreen">
   <string name="revanced_open_videos_fullscreen_portrait_title">Άνοιγμα των βίντεο σε πλήρη οθόνη με κατακόρυφη προβολή</string>
@@ -1022,6 +1022,23 @@ Second \"item\" text"</string>
   <string name="revanced_sb_about">Σχετικά με</string>
   <string name="revanced_sb_about_api_sum">Τα δεδομένα παρέχονται από το SponsorBlock API. Πατήστε για να μάθετε περισσότερα και να δείτε λήψεις για άλλες πλατφόρμες</string>
   </patch>
+  <patch id="layout.formfactor.changeFormFactorPatch">
+  <string name="revanced_change_form_factor_title">Αλλαγή μορφής διάταξης</string>
+  <string name="revanced_change_form_factor_entry_1">Προεπιλογή</string>
+  <string name="revanced_change_form_factor_entry_2">Τηλέφωνο</string>
+  <string name="revanced_change_form_factor_entry_3">Ταμπλετ</string>
+  <string name="revanced_change_form_factor_entry_4">Αυτοκίνητο</string>
+  <string name="revanced_change_form_factor_user_dialog_message">"Αλλαγές στη διάταξη περιλαμβάνουν τα παρακάτω:
+
+Διάταξη ταμπλετ
+• Οι αναρτήσεις της κοινότητας είναι κρυφές
+
+Διάταξη αυτοκινήτου
+• Το μενού ιστορικού παρακολούθησης είναι κρυφό
+• Η κάρτα Εξερεύνηση έχει επαναφερθεί
+• Τα Shorts ανοίγουν στο συνηθισμένο πρόγραμμα αναπαραγωγής
+• Η τροφοδοσία οργανώνεται ανά θέματα και κανάλι"</string>
+  </patch>
   <patch id="layout.spoofappversion.spoofAppVersionPatch">
   <string name="revanced_spoof_app_version_title">Τροποποίηση έκδοσης εφαρμογής</string>
   <string name="revanced_spoof_app_version_summary_on">Η έκδοση τροποποιείται</string>
@@ -1078,12 +1095,6 @@ Second \"item\" text"</string>
   <string name="revanced_shorts_autoplay_background_title">Αυτόματη αναπαραγωγή Shorts στο παρασκήνιο</string>
   <string name="revanced_shorts_autoplay_background_summary_on">Τα επόμενα Shorts θα αναπαράγονται αυτόματα στο παρασκήνιο</string>
   <string name="revanced_shorts_autoplay_background_summary_off">Τα Shorts στο παρασκήνιο θα επαναλαμβάνονται</string>
-  </patch>
-  <patch id="layout.tablet.enableTabletLayoutPatch">
-  <string name="revanced_tablet_layout_title">Λειτουργία διεπαφής τάμπλετ</string>
-  <string name="revanced_tablet_layout_summary_on">Η διεπαφή τάμπλετ είναι ενεργοποιημένη</string>
-  <string name="revanced_tablet_layout_summary_off">Η διεπαφή τάμπλετ είναι απενεργοποιημένη</string>
-  <string name="revanced_tablet_layout_user_dialog_message">Οι δημοσιεύσεις κοινότητας δεν εμφανίζονται στη διεπαφή τάμπλετ</string>
   </patch>
   <patch id="layout.miniplayer.miniplayerPatch">
   <string name="revanced_miniplayer_screen_title">Ελαχιστοποιημένη οθόνη αναπαραγωγής</string>

@@ -1020,6 +1020,23 @@ Spreman za podnošenje?"</string>
   <string name="revanced_sb_about">O programu</string>
   <string name="revanced_sb_about_api_sum">Podatke obezbeđuje SponsorBlock API. Dodirnite ovde da saznate više i vidite preuzimanja za druge platforme</string>
   </patch>
+  <patch id="layout.formfactor.changeFormFactorPatch">
+  <string name="revanced_change_form_factor_title">Faktor oblika izgleda</string>
+  <string name="revanced_change_form_factor_entry_1">Podrazumevano</string>
+  <string name="revanced_change_form_factor_entry_2">Telefon</string>
+  <string name="revanced_change_form_factor_entry_3">Tablet</string>
+  <string name="revanced_change_form_factor_entry_4">Automobilski</string>
+  <string name="revanced_change_form_factor_user_dialog_message">"Promene uključuju:
+
+Izgled tabletu
+• Objavljivanje u zajednici su skrivena
+
+Izgled za automobile
+• Meni istorije gledanja je skriven
+• Kartica 'Istraži' je vraćena
+• Šorcovi se otvaraju u uobičajenom plejeru
+• Feed je organizovan po temama i kanalima"</string>
+  </patch>
   <patch id="layout.spoofappversion.spoofAppVersionPatch">
   <string name="revanced_spoof_app_version_title">Lažirana verzija aplikacije</string>
   <string name="revanced_spoof_app_version_summary_on">Verzija je lažirana</string>
@@ -1076,12 +1093,6 @@ Ako se kasnije isključi, preporučuje se da izbrišete podatke aplikacije da bi
   <string name="revanced_shorts_autoplay_background_title">Autoplej Shorts videa u pozadini</string>
   <string name="revanced_shorts_autoplay_background_summary_on">Shorts videi će se automatski puštati u pozadini</string>
   <string name="revanced_shorts_autoplay_background_summary_off">Shorts videi će se ponavljati u pozadini</string>
-  </patch>
-  <patch id="layout.tablet.enableTabletLayoutPatch">
-  <string name="revanced_tablet_layout_title">Omogući korisnički interfejs tableta</string>
-  <string name="revanced_tablet_layout_summary_on">Korisnički interfejs tableta je omogućen</string>
-  <string name="revanced_tablet_layout_summary_off">Korisnički interfejs tableta je onemogućen</string>
-  <string name="revanced_tablet_layout_user_dialog_message">Objave zajednice se ne prikazuju u korisničkom interfejsu tableta</string>
   </patch>
   <patch id="layout.miniplayer.miniplayerPatch">
   <string name="revanced_miniplayer_screen_title">Mini-plejer</string>

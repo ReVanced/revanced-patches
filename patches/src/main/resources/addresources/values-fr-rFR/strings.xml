@@ -1021,6 +1021,23 @@ Déjà existant"</string>
   <string name="revanced_sb_about">À propos</string>
   <string name="revanced_sb_about_api_sum">Les données sont fournies par l\'API SponsorBlock. Appuyez ici pour en savoir plus et voir les téléchargements pour d\'autres plates-formes</string>
   </patch>
+  <patch id="layout.formfactor.changeFormFactorPatch">
+  <string name="revanced_change_form_factor_title">Facteur de forme de la mise en page</string>
+  <string name="revanced_change_form_factor_entry_1">Défaut</string>
+  <string name="revanced_change_form_factor_entry_2">Téléphone</string>
+  <string name="revanced_change_form_factor_entry_3">Tablette</string>
+  <string name="revanced_change_form_factor_entry_4">Automobile</string>
+  <string name="revanced_change_form_factor_user_dialog_message">"Les modifications incluent :
+
+Disposition pour tablette
+• Les publications de la communauté sont masquées
+
+Disposition pour automobile
+• Le menu de l’historique de visionnement est masqué
+• L’onglet Explorer est restauré
+• Les Shorts s’ouvrent dans le lecteur habituel
+• Le fil d’actualité est organisé par sujet et par chaîne"</string>
+  </patch>
   <patch id="layout.spoofappversion.spoofAppVersionPatch">
   <string name="revanced_spoof_app_version_title">Usurpation de la version de l\'appli</string>
   <string name="revanced_spoof_app_version_summary_on">Version usurpée</string>
@@ -1077,12 +1094,6 @@ Si cette option est désactivée par la suite, il est recommandé de vider les d
   <string name="revanced_shorts_autoplay_background_title">Lecture automatique des Shorts en arrière-plan</string>
   <string name="revanced_shorts_autoplay_background_summary_on">La lecture en arrière-plan des Shorts sera automatique</string>
   <string name="revanced_shorts_autoplay_background_summary_off">La lecture en arrière-plan des Shorts se répétera</string>
-  </patch>
-  <patch id="layout.tablet.enableTabletLayoutPatch">
-  <string name="revanced_tablet_layout_title">Activer la disposition de la tablette</string>
-  <string name="revanced_tablet_layout_summary_on">La mise en page tablette est activée</string>
-  <string name="revanced_tablet_layout_summary_off">La disposition de la tablette est désactivée</string>
-  <string name="revanced_tablet_layout_user_dialog_message">Les messages de la communauté n\'apparaissent pas sur la disposition de la tablette</string>
   </patch>
   <patch id="layout.miniplayer.miniplayerPatch">
   <string name="revanced_miniplayer_screen_title">Lecteur réduit</string>

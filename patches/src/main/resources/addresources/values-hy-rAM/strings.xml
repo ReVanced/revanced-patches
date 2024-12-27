@@ -1019,6 +1019,23 @@ Seekbar thumbnails-ները կօգտագործեն նույն որակը, ինչ
   <string name="revanced_sb_about">Ծրագրի մասին</string>
   <string name="revanced_sb_about_api_sum">Տվյալները մատուցվում են SponsorBlock API-ի կողմից։ Սեղմեք այստեղ՝ ավելի շատ իմանալու և այլ հարթակների համար ներբեռնումները տեսնելու</string>
   </patch>
+  <patch id="layout.formfactor.changeFormFactorPatch">
+  <string name="revanced_change_form_factor_title">Ձևաչափի փոփոխություն</string>
+  <string name="revanced_change_form_factor_entry_1">Ընտրված</string>
+  <string name="revanced_change_form_factor_entry_2">Հեռախոս</string>
+  <string name="revanced_change_form_factor_entry_3">Պլանշետ</string>
+  <string name="revanced_change_form_factor_entry_4">Ավտոմոբիլային</string>
+  <string name="revanced_change_form_factor_user_dialog_message">"Փոփոխությունները ներառում են. 
+
+Պլանշետի ինտերֆեյս
+• Թաքցված են համայնքի հրապարակումները
+
+Ավտոմոբիլային ինտերֆեյս
+• Թաքցված է դիտումների պատմության ընտրանին
+• Վերականգնված է ուսումնասիրել  էջը
+• Հոլովակները բացվում են ստանդարտ նվագարկչում
+• Նորությունները կազմակերպված են ըստ թեմաների և ալիքների"</string>
+  </patch>
   <patch id="layout.spoofappversion.spoofAppVersionPatch">
   <string name="revanced_spoof_app_version_title">Կեղծել հավելվածի տարբերակը</string>
   <string name="revanced_spoof_app_version_summary_on">Տարբերակը կեղծված է</string>
@@ -1075,12 +1092,6 @@ Seekbar thumbnails-ները կօգտագործեն նույն որակը, ինչ
   <string name="revanced_shorts_autoplay_background_title">Autoplay Shorts ֆոնային վերարտադրում</string>
   <string name="revanced_shorts_autoplay_background_summary_on">Shorts-ի ֆոնային վերարտադրումը կվերարտադրվի ավտոմատ կերպով</string>
   <string name="revanced_shorts_autoplay_background_summary_off">Shorts-ի ֆոնային վերարտադրումը կկրկնվի</string>
-  </patch>
-  <patch id="layout.tablet.enableTabletLayoutPatch">
-  <string name="revanced_tablet_layout_title">Աктиվացնել планшетի կառուցվածքը</string>
-  <string name="revanced_tablet_layout_summary_on">Планшетի կառուցվածքը ակտիվացված է</string>
-  <string name="revanced_tablet_layout_summary_off">Планшетի կառուցվածքը անջատված է</string>
-  <string name="revanced_tablet_layout_user_dialog_message">Համայնքի հրապարակումները չեն ցուցադրվում планшетի կառուցվածքներում</string>
   </patch>
   <patch id="layout.miniplayer.miniplayerPatch">
   <string name="revanced_miniplayer_screen_title">Մինի նվագարկիչ</string>

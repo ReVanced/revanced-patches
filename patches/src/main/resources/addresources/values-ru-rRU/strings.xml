@@ -746,11 +746,11 @@ Second \"item\" text"</string>
   <string name="revanced_hide_player_popup_panels_summary_off">Автоматически всплывающие панели в плеере отображены</string>
   </patch>
   <patch id="layout.player.fullscreen.exitFullscreenPatch">
-  <string name="revanced_exit_fullscreen_title">Выйти из полноэкранного режима по окончании видео</string>
+  <string name="revanced_exit_fullscreen_title">Выход из полного экрана в конце видео</string>
   <string name="revanced_exit_fullscreen_entry_1">Отключено</string>
-  <string name="revanced_exit_fullscreen_entry_2">Портретный</string>
-  <string name="revanced_exit_fullscreen_entry_3">Пейзажный</string>
-  <string name="revanced_exit_fullscreen_entry_4">Портретный и пейзажный</string>
+  <string name="revanced_exit_fullscreen_entry_2">Портретная ориентация</string>
+  <string name="revanced_exit_fullscreen_entry_3">Альбомная ориентация</string>
+  <string name="revanced_exit_fullscreen_entry_4">Портретная и альбомная ориентации</string>
   </patch>
   <patch id="layout.player.fullscreen.openVideosFullscreen">
   <string name="revanced_open_videos_fullscreen_portrait_title">Видео в полноэкранном портрете</string>
@@ -1021,6 +1021,23 @@ Second \"item\" text"</string>
   <string name="revanced_sb_about">Информация</string>
   <string name="revanced_sb_about_api_sum">Данные предоставлены SponsorBlock API. Нажмите для получения дополнительной информации и просмотра загрузок для других платформ</string>
   </patch>
+  <patch id="layout.formfactor.changeFormFactorPatch">
+  <string name="revanced_change_form_factor_title">Форм-фактор макета</string>
+  <string name="revanced_change_form_factor_entry_1">По умолчанию</string>
+  <string name="revanced_change_form_factor_entry_2">Телефон</string>
+  <string name="revanced_change_form_factor_entry_3">Планшет</string>
+  <string name="revanced_change_form_factor_entry_4">Автомобильный</string>
+  <string name="revanced_change_form_factor_user_dialog_message">"Изменения включают:
+
+Планшетная разметка
+• Скрыты посты сообщества
+
+Автомобильная разметка
+• Скрыто меню истории просмотров
+• Восстановлена вкладка \"Обзор\"
+• Shorts открываются в обычном проигрывателе
+• Лента организована по темам и каналам"</string>
+  </patch>
   <patch id="layout.spoofappversion.spoofAppVersionPatch">
   <string name="revanced_spoof_app_version_title">Подмена версии приложения</string>
   <string name="revanced_spoof_app_version_summary_on">Версия приложения подменена</string>
@@ -1077,12 +1094,6 @@ Second \"item\" text"</string>
   <string name="revanced_shorts_autoplay_background_title">Автопроигрывание Shorts в фоне</string>
   <string name="revanced_shorts_autoplay_background_summary_on">Shorts будут автоматически воспроизводиться одно за другим в фоновом режиме</string>
   <string name="revanced_shorts_autoplay_background_summary_off">Shorts будут повторяться в фоновом режиме</string>
-  </patch>
-  <patch id="layout.tablet.enableTabletLayoutPatch">
-  <string name="revanced_tablet_layout_title">Планшетный интерфейс</string>
-  <string name="revanced_tablet_layout_summary_on">Планшетный интерфейс включен</string>
-  <string name="revanced_tablet_layout_summary_off">Планшетный интерфейс отключен</string>
-  <string name="revanced_tablet_layout_user_dialog_message">Публикации сообщества не отображаются в планшетном интерфейсе</string>
   </patch>
   <patch id="layout.miniplayer.miniplayerPatch">
   <string name="revanced_miniplayer_screen_title">Мини-плеер</string>

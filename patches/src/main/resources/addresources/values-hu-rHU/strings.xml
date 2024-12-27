@@ -1019,6 +1019,23 @@ Készen állsz a beküldésre?"</string>
   <string name="revanced_sb_about">Rólunk</string>
   <string name="revanced_sb_about_api_sum">Az adatokat a SponsorBlock API biztosítja. Koppintson ide, ha többet szeretne megtudni és megtekintené a letöltéseket más platformokra</string>
   </patch>
+  <patch id="layout.formfactor.changeFormFactorPatch">
+  <string name="revanced_change_form_factor_title">Elrendezési űrlap faktor</string>
+  <string name="revanced_change_form_factor_entry_1">Alapértelmezett</string>
+  <string name="revanced_change_form_factor_entry_2">Telefon</string>
+  <string name="revanced_change_form_factor_entry_3">Tablet</string>
+  <string name="revanced_change_form_factor_entry_4">Autóipari</string>
+  <string name="revanced_change_form_factor_user_dialog_message">"Módosítások:
+
+Tablet elrendezés
+• A közösségi bejegyzések el vannak rejtve
+
+Autóipari elrendezés
+• Az előzmények menü el van rejtve
+• A Felfedezés fül visszaáll
+• A Shorts a szokásos lejátszóban nyílik meg
+• A feed témák és csatornák szerint van rendezve"</string>
+  </patch>
   <patch id="layout.spoofappversion.spoofAppVersionPatch">
   <string name="revanced_spoof_app_version_title">Alkalmazásverzió hamisítása</string>
   <string name="revanced_spoof_app_version_summary_on">A verzió hamisítva</string>
@@ -1075,12 +1092,6 @@ Ha később kikapcsolja, akkor ajánlott az alkalmazás adatait törölni, hogy 
   <string name="revanced_shorts_autoplay_background_title">Shorts automatikus lejátszása a háttérben</string>
   <string name="revanced_shorts_autoplay_background_summary_on">Shorts automatikusan elindul a háttérben</string>
   <string name="revanced_shorts_autoplay_background_summary_off">Shorts háttérben történő lejátszása megismétlődik</string>
-  </patch>
-  <patch id="layout.tablet.enableTabletLayoutPatch">
-  <string name="revanced_tablet_layout_title">Táblagépes elrendezés engedélyezése</string>
-  <string name="revanced_tablet_layout_summary_on">Táblagépes elrendezés engedélyezve</string>
-  <string name="revanced_tablet_layout_summary_off">Táblagépes elrendezés letiltva</string>
-  <string name="revanced_tablet_layout_user_dialog_message">A közösségi posztok nem jelennek meg táblagépes elrendezésben</string>
   </patch>
   <patch id="layout.miniplayer.miniplayerPatch">
   <string name="revanced_miniplayer_screen_title">Minilejátszó</string>
