@@ -1236,6 +1236,7 @@ Att aktivera detta kan låsa upp högre videokvalitet"</string>
   <string name="revanced_force_original_audio_title">Forcera originalljud</string>
   <string name="revanced_force_original_audio_summary_on">Använder original ljudeffekter</string>
   <string name="revanced_force_original_audio_summary_off">Använder standardljud</string>
+  <string name="revanced_force_original_audio_not_available">För att använda den här funktionen, ändra strömningsförfalskning till iOS-klienttyp</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->

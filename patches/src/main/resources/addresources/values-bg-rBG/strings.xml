@@ -1236,6 +1236,7 @@ Second \"item\" text"</string>
   <string name="revanced_force_original_audio_title">Принудително оригинално аудио</string>
   <string name="revanced_force_original_audio_summary_on">Използване на оригинално аудио</string>
   <string name="revanced_force_original_audio_summary_off">Използване на аудио по подразбиране</string>
+  <string name="revanced_force_original_audio_not_available">За да използвате тази функция, променете имитацията на поточно предаване на тип клиент на iOS</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->

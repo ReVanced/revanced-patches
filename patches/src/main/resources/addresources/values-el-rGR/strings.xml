@@ -1236,6 +1236,7 @@ Second \"item\" text"</string>
   <string name="revanced_force_original_audio_title">Εξαναγκασμός αρχικού ήχου</string>
   <string name="revanced_force_original_audio_summary_on">Χρήση αρχικού ήχου</string>
   <string name="revanced_force_original_audio_summary_off">Χρήση προεπιλεγμένου ήχου</string>
+  <string name="revanced_force_original_audio_not_available">Για να χρησιμοποιήσετε αυτήν τη δυνατότητα, αλλάξτε την παραποίηση πελάτη σε iOS</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->

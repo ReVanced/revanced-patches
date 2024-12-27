@@ -1237,6 +1237,7 @@ Ang pagpapagana nito ay maaaring magbukas ng mas mataas na kalidad ng video"</st
   <string name="revanced_force_original_audio_title">Pilitin ang original audio</string>
   <string name="revanced_force_original_audio_summary_on">Gumagamit ng original audio</string>
   <string name="revanced_force_original_audio_summary_off">Gumagamit ng default audio</string>
+  <string name="revanced_force_original_audio_not_available">Upang magamit ang tampok na ito, baguhin ang stream spoofing sa uri ng kliyente ng iOS</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->

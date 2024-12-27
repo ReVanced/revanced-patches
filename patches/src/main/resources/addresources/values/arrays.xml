@@ -163,6 +163,21 @@
                 <item>AUTOMOTIVE</item>
             </string-array>
         </patch>
+        <patch id="layout.player.fullscreen.exitFullscreenPatch">
+            <string-array name="revanced_exit_fullscreen_entries">
+                <item>@string/revanced_exit_fullscreen_entry_1</item>
+                <item>@string/revanced_exit_fullscreen_entry_2</item>
+                <item>@string/revanced_exit_fullscreen_entry_3</item>
+                <item>@string/revanced_exit_fullscreen_entry_4</item>
+            </string-array>
+            <string-array name="revanced_exit_fullscreen_entry_values">
+                <!-- Enum names from the extension. -->
+                <item>DISABLED</item>
+                <item>PORTRAIT</item>
+                <item>LANDSCAPE</item>
+                <item>PORTRAIT_LANDSCAPE</item>
+            </string-array>
+        </patch>
         <patch id="layout.miniplayer.miniplayerPatch">
             <string-array name="revanced_miniplayer_type_entries">
                 <item>@string/revanced_miniplayer_type_entry_0</item>
