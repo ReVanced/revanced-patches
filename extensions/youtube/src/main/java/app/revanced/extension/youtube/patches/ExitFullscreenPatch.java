@@ -28,16 +28,20 @@ public class ExitFullscreenPatch {
             }
 
             if (PlayerType.getCurrent() == PlayerType.WATCH_WHILE_FULLSCREEN) {
-                if (Utils.isLandscapeOrientation()) {
-                    if (mode == FullscreenMode.PORTRAIT) {
+                if (mode != FullscreenMode.PORTRAIT_LANDSCAPE) {
+                    if (Utils.isLandscapeOrientation()) {
+                        if (mode == FullscreenMode.PORTRAIT) {
+                            return;
+                        }
+                    } else if (mode == FullscreenMode.LANDSCAPE) {
                         return;
                     }
-                } else if (mode == FullscreenMode.LANDSCAPE) {
-                    return;
                 }
 
                 ImageView fullscreenButton = PlayerControlsPatch.fullscreenButtonRef.get();
-                if (fullscreenButton != null) {
+                if (fullscreenButton == null) {
+                    Logger.printDebug(() -> "Fullscreen button is null, cannot click");
+                } else {
                     Logger.printDebug(() -> "Clicking fullscreen button");
                     fullscreenButton.performClick();
                 }

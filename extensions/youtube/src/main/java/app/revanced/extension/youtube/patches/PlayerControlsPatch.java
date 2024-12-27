@@ -22,6 +22,7 @@ public class PlayerControlsPatch {
      */
     public static void setFullscreenCloseButton(ImageView imageButton) {
         fullscreenButtonRef = new WeakReference<>(imageButton);
+        Logger.printDebug(() -> "Fullscreen button set");
 
         if (!fullscreenButtonVisibilityCallbacksExist()) {
             return;
