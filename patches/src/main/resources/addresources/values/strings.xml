@@ -748,6 +748,13 @@ Note: Enabling this also forcibly hides video ads"</string>
             <string name="revanced_hide_player_popup_panels_summary_on">Player popup panels are hidden</string>
             <string name="revanced_hide_player_popup_panels_summary_off">Player popup panels are shown</string>
         </patch>
+        <patch id="layout.player.fullscreen.exitFullscreenPatch">
+            <string name="revanced_exit_fullscreen_title">Exit fullscreen mode at end of video</string>
+            <string name="revanced_exit_fullscreen_entry_1">Disabled</string>
+            <string name="revanced_exit_fullscreen_entry_2">Portrait</string>
+            <string name="revanced_exit_fullscreen_entry_3">Landscape</string>
+            <string name="revanced_exit_fullscreen_entry_4">Portrait and landscape</string>
+        </patch>
         <patch id="layout.player.fullscreen.openVideosFullscreen">
             <string name="revanced_open_videos_fullscreen_portrait_title">Open videos in fullscreen portrait</string>
             <string name="revanced_open_videos_fullscreen_portrait_summary_on">Videos open fullscreen</string>

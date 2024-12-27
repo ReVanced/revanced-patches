@@ -4,15 +4,29 @@ import android.view.View;
 import android.view.ViewTreeObserver;
 import android.widget.ImageView;
 
+import java.lang.ref.WeakReference;
+
 import app.revanced.extension.shared.Logger;
 
 @SuppressWarnings("unused")
 public class PlayerControlsPatch {
 
+    public static WeakReference<ImageView> fullscreenButtonRef = new WeakReference<>(null);
+
+    private static boolean fullscreenButtonVisibilityCallbacksExist() {
+        return false; // Modified during patching if needed.
+    }
+
     /**
      * Injection point.
      */
     public static void setFullscreenCloseButton(ImageView imageButton) {
+        fullscreenButtonRef = new WeakReference<>(imageButton);
+
+        if (!fullscreenButtonVisibilityCallbacksExist()) {
+            return;
+        }
+
         // Add a global listener, since the protected method
         // View#onVisibilityChanged() does not have any call backs.
         imageButton.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
@@ -39,7 +53,7 @@ public class PlayerControlsPatch {
     }
 
     // noinspection EmptyMethod
-    public static void fullscreenButtonVisibilityChanged(boolean isVisible) {
+    private static void fullscreenButtonVisibilityChanged(boolean isVisible) {
         // Code added during patching.
     }
 

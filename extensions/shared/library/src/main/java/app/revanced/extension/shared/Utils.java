@@ -523,6 +523,11 @@ public class Utils {
         return currentNightMode == Configuration.UI_MODE_NIGHT_YES;
     }
 
+    public static boolean isLandscapeOrientation() {
+        final int orientation = context.getResources().getConfiguration().orientation;
+        return orientation == Configuration.ORIENTATION_LANDSCAPE;
+    }
+
     /**
      * Automatically logs any exceptions the runnable throws.
      *
@@ -595,7 +600,7 @@ public class Utils {
                 || networkType == NetworkType.OTHER;
     }
 
-    @SuppressLint("MissingPermission") // permission already included in YouTube
+    @SuppressLint({"MissingPermission", "deprecation"}) // Permission already included in YouTube.
     public static NetworkType getNetworkType() {
         Context networkContext = getContext();
         if (networkContext == null) {

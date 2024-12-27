@@ -46,6 +46,7 @@ enum class VideoState {
                 currentVideoState = value
             }
 
+        @Volatile // Read/write from different threads.
         private var currentVideoState: VideoState? = null
     }
 }
