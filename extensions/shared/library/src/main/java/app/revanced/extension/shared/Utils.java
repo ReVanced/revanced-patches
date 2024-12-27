@@ -777,8 +777,8 @@ public class Utils {
             return;
         }
 
-        String deviceLanguage = Utils.getContext().getResources().getConfiguration().locale.getLanguage();
-        if (deviceLanguage.equals("en")) {
+        String revancedLocale = Utils.getContext().getResources().getConfiguration().locale.getLanguage();
+        if (revancedLocale.equals(Locale.ENGLISH.getLanguage())) {
             return;
         }
 
@@ -786,8 +786,8 @@ public class Utils {
             Preference pref = group.getPreference(i);
             pref.setSingleLineTitle(false);
 
-            if (pref instanceof PreferenceGroup) {
-                setPreferenceTitlesToMultiLineIfNeeded((PreferenceGroup) pref);
+            if (pref instanceof PreferenceGroup subGroup) {
+                setPreferenceTitlesToMultiLineIfNeeded(subGroup);
             }
         }
     }

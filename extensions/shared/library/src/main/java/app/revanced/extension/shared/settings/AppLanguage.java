@@ -109,6 +109,6 @@ public enum AppLanguage {
             return Locale.getDefault();
         }
 
-        return Locale.forLanguageTag(getLanguage());
+        return Locale.forLanguageTag(language);
     }
 }
