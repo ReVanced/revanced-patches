@@ -4,7 +4,7 @@ import app.revanced.patches.shared.misc.checks.checkEnvironmentPatch
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.shared.mainActivityOnCreateFingerprint
 
-val checkEnvironmentPatch = checkEnvironmentPatch(
+internal val checkEnvironmentPatch = checkEnvironmentPatch(
     mainActivityOnCreateFingerprint = mainActivityOnCreateFingerprint,
     extensionPatch = sharedExtensionPatch,
     "com.google.android.youtube",

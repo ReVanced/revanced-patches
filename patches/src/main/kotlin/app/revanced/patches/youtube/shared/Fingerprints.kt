@@ -51,7 +51,7 @@ internal val mainActivityOnCreateFingerprint = fingerprint {
     }
 }
 
-val rollingNumberTextViewAnimationUpdateFingerprint = fingerprint {
+internal val rollingNumberTextViewAnimationUpdateFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("V")
     parameters("Landroid/graphics/Bitmap;")

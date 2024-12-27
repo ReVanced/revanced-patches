@@ -461,10 +461,6 @@ public final class app/revanced/patches/reddit/customclients/joeyforreddit/detec
 	public static final fun getDisablePiracyDetectionPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/reddit/customclients/redditisfun/api/FingerprintsKt {
-	public static final fun baseClientIdFingerprint (Ljava/lang/String;)Lapp/revanced/patcher/Fingerprint;
-}
-
 public final class app/revanced/patches/reddit/customclients/redditisfun/api/SpoofClientPatchKt {
 	public static final fun getSpoofClientPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
@@ -548,7 +544,6 @@ public final class app/revanced/patches/shared/misc/checks/BaseCheckEnvironmentP
 }
 
 public final class app/revanced/patches/shared/misc/extension/ExtensionHook {
-	public final fun getFingerprint ()Lapp/revanced/patcher/Fingerprint;
 	public final fun invoke (Lapp/revanced/patcher/patch/BytecodePatchContext;Ljava/lang/String;)V
 }
 
@@ -1268,10 +1263,6 @@ public final class app/revanced/patches/youtube/misc/backgroundplayback/Backgrou
 	public static final fun getBackgroundPlaybackPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/youtube/misc/check/CheckEnvironmentPatchKt {
-	public static final fun getCheckEnvironmentPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
-}
-
 public final class app/revanced/patches/youtube/misc/debugging/EnableDebuggingPatchKt {
 	public static final fun getEnableDebuggingPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
@@ -1406,10 +1397,6 @@ public final class app/revanced/patches/youtube/misc/spoof/UserAgentClientSpoofP
 
 public final class app/revanced/patches/youtube/misc/zoomhaptics/ZoomHapticsPatchKt {
 	public static final fun getZoomHapticsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
-}
-
-public final class app/revanced/patches/youtube/shared/FingerprintsKt {
-	public static final fun getRollingNumberTextViewAnimationUpdateFingerprint ()Lapp/revanced/patcher/Fingerprint;
 }
 
 public final class app/revanced/patches/youtube/video/audio/ForceOriginalAudioPatchKt {
