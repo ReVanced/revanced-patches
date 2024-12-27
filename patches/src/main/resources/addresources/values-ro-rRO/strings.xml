@@ -1237,6 +1237,7 @@ Activarea acestei opțiuni poate debloca calități video mai mari"</string>
   <string name="revanced_force_original_audio_title">Forțați sunetul original</string>
   <string name="revanced_force_original_audio_summary_on">Utilizează audio original</string>
   <string name="revanced_force_original_audio_summary_off">Utilizează audio implicit</string>
+  <string name="revanced_force_original_audio_not_available">Pentru a utiliza această funcție, schimbați opțiunea de streaming în modul client iOS</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->

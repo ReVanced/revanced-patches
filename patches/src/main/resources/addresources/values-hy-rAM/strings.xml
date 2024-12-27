@@ -1235,6 +1235,7 @@ Mini-player-ը կարող է գրավվել էկրանից դուրս՝ դեպի
   <string name="revanced_force_original_audio_title">Բնօրինակ ձայն օգտագործել</string>
   <string name="revanced_force_original_audio_summary_on">Բնօրինակ ձայն օգտագործվում է</string>
   <string name="revanced_force_original_audio_summary_off">Վերջնական ձայն օգտագործվում է</string>
+  <string name="revanced_force_original_audio_not_available">Անեի սյօւյր դա ժյրդեք ռասրունաքն ամ Java զեմե, սիուի կյադ եյ չոն մաiOS</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->

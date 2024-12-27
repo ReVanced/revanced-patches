@@ -1237,6 +1237,7 @@ Bật tính năng này có thể mở khóa chất lượng video cao hơn"</str
   <string name="revanced_force_original_audio_title">Buộc sử dụng âm thanh gốc</string>
   <string name="revanced_force_original_audio_summary_on">Sử dụng âm thanh gốc</string>
   <string name="revanced_force_original_audio_summary_off">Sử dụng âm thanh mặc định</string>
+  <string name="revanced_force_original_audio_not_available">Để sử dụng tính năng này, hãy thay đổi kiểu khách hàng iOS cho chế độ giả mạo luồng</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->

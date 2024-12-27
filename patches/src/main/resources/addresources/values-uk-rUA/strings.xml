@@ -1235,6 +1235,7 @@ Second \"item\" text"</string>
   <string name="revanced_force_original_audio_title">Примусово оригінальна звукова доріжка</string>
   <string name="revanced_force_original_audio_summary_on">Використовується оригінальна звукова доріжка відео</string>
   <string name="revanced_force_original_audio_summary_off">Використовується стандартна (регіональна) звукова доріжка відео</string>
+  <string name="revanced_force_original_audio_not_available">Щоб скористатися цією функцією, змініть тип клієнта підробки відеопотоку на iOS</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
