@@ -1,3 +1,10 @@
+# [5.8.0-dev.6](https://github.com/ReVanced/revanced-patches/compare/v5.8.0-dev.5...v5.8.0-dev.6) (2024-12-27)
+
+
+### Bug Fixes
+
+* **YouTube - Exit fullscreen mode:** Exit fullscreen mode of first video opened after cold start ([be5cf2e](https://github.com/ReVanced/revanced-patches/commit/be5cf2e834d87d51b5d3061d46bd7154d6306787))
+
 # [5.8.0-dev.5](https://github.com/ReVanced/revanced-patches/compare/v5.8.0-dev.4...v5.8.0-dev.5) (2024-12-27)
 
 
