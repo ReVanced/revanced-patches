@@ -1,8 +1,8 @@
-package app.revanced.extension.shared.spoof;
+package app.revanced.extension.shared.settings;
 
 import java.util.Locale;
 
-public enum AudioStreamLanguage {
+public enum AppLanguage {
     /**
      * The current app language.
      */
@@ -34,7 +34,7 @@ public enum AudioStreamLanguage {
     GL,
     GU,
     HI,
-    HE, // App uses obsolete 'IW' and 'HE' is modern ISO code.
+    HE, // App uses obsolete 'IW' and not the modern 'HE' ISO code.
     HR,
     HU,
     HY,
@@ -87,7 +87,7 @@ public enum AudioStreamLanguage {
 
     private final String language;
 
-    AudioStreamLanguage() {
+    AppLanguage() {
         language = name().toLowerCase(Locale.US);
     }
 
@@ -102,5 +102,13 @@ public enum AudioStreamLanguage {
         }
 
         return language;
+    }
+
+    public Locale getLocale() {
+        if (this == DEFAULT) {
+            return Locale.getDefault();
+        }
+
+        return Locale.forLanguageTag(getLanguage());
     }
 }
