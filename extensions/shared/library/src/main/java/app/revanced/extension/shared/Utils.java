@@ -46,7 +46,7 @@ import app.revanced.extension.shared.settings.preference.ReVancedAboutPreference
 public class Utils {
 
     @SuppressLint("StaticFieldLeak")
-    private static Context context;
+    private static volatile Context context;
 
     private static String versionName;
     private static String applicationLabel;
