@@ -33,7 +33,6 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">APK qurulma vaxtı pozulub</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
-  <string name="revanced_settings_title">\"ReVanced\"</string>
   <string name="revanced_settings_confirm_user_dialog_title">Davam etmək istəyirsiniz?</string>
   <string name="revanced_settings_reset">Sıfırla</string>
   <string name="revanced_settings_restart_title">Yenilə və yenidən başlat</string>
@@ -445,6 +444,9 @@ Bu xüsusiyyət yalnız köhnə cihazlar üçün mövcuddur"</string>
   <string name="revanced_swipe_overlay_background_alpha_summary">Sürüşdürmə örtüyü arxa fonunun görünməsi</string>
   <string name="revanced_swipe_threshold_title">Sürüşdürmə böyüklük həddi</string>
   <string name="revanced_swipe_threshold_summary">Sürüşdürmənin icra edilməsi üçün son dəyər</string>
+  <string name="revanced_swipe_change_video_title">Videoları ötürmək üçün sürüşdürməni aktiv et</string>
+  <string name="revanced_swipe_change_video_summary_on">Tam ekran rejimində sürüşdürmə növbəti/əvvəlki videoya ötürəcək</string>
+  <string name="revanced_swipe_change_video_summary_off">Tam ekran rejimində sürüşdürmə növbəti/əvvəlki videoya ötürməyəcək</string>
   </patch>
   <patch id="layout.autocaptions.autoCaptionsPatch">
   <string name="revanced_auto_captions_title">Avtomatik titrləri qeyri-aktiv et</string>
@@ -740,6 +742,13 @@ Qeyd: Bunu aktivləşdirmə video reklamları da məcburi olaraq gizlədir"</str
   <string name="revanced_hide_player_popup_panels_title">Oynadıcı açılan pəncərə panellərin gizlə</string>
   <string name="revanced_hide_player_popup_panels_summary_on">Oynadıcı açılan pəncərə panelləri gizlidir</string>
   <string name="revanced_hide_player_popup_panels_summary_off">Oynadıcı açılan pəncərə panelləri göstərilir</string>
+  </patch>
+  <patch id="layout.player.fullscreen.exitFullscreenPatch">
+  <string name="revanced_exit_fullscreen_title">Video sonunda tam ekran rejimindən çıx</string>
+  <string name="revanced_exit_fullscreen_entry_1">Qapalı</string>
+  <string name="revanced_exit_fullscreen_entry_2">Şaquli</string>
+  <string name="revanced_exit_fullscreen_entry_3">Üfüqi</string>
+  <string name="revanced_exit_fullscreen_entry_4">Şaquli və üfüqi</string>
   </patch>
   <patch id="layout.player.fullscreen.openVideosFullscreen">
   <string name="revanced_open_videos_fullscreen_portrait_title">Videoları şaquli tam ekranda aç</string>

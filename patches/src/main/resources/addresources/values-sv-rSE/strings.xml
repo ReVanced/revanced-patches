@@ -446,6 +446,9 @@ Den här funktionen är endast tillgänglig för äldre enheter"</string>
   <string name="revanced_swipe_overlay_background_alpha_summary">Synligheten av svep överlägg bakgrund</string>
   <string name="revanced_swipe_threshold_title">Svep magnitud tröskel</string>
   <string name="revanced_swipe_threshold_summary">Mängden tröskel för att svepa ska uppstå</string>
+  <string name="revanced_swipe_change_video_title">Aktivera svepning för att byta video</string>
+  <string name="revanced_swipe_change_video_summary_on">Svepning i helskärmsläge ändrar till följande/föregående video</string>
+  <string name="revanced_swipe_change_video_summary_off">Svepning i helskärmsläge ändrar inte till följande/föregående video</string>
   </patch>
   <patch id="layout.autocaptions.autoCaptionsPatch">
   <string name="revanced_auto_captions_title">Inaktivera automatisk bildtext</string>
@@ -741,6 +744,13 @@ Obs: Genom att aktivera detta döljs även videoannonser"</string>
   <string name="revanced_hide_player_popup_panels_title">Dölj popup-paneler för spelare</string>
   <string name="revanced_hide_player_popup_panels_summary_on">Spelare popup-paneler är dolda</string>
   <string name="revanced_hide_player_popup_panels_summary_off">Spelarens popup-paneler visas</string>
+  </patch>
+  <patch id="layout.player.fullscreen.exitFullscreenPatch">
+  <string name="revanced_exit_fullscreen_title">Åvsluta helägesläge i slutet av videon</string>
+  <string name="revanced_exit_fullscreen_entry_1">Inaktiverad</string>
+  <string name="revanced_exit_fullscreen_entry_2">Porträtt</string>
+  <string name="revanced_exit_fullscreen_entry_3">Liggande</string>
+  <string name="revanced_exit_fullscreen_entry_4">Porträtt och liggande</string>
   </patch>
   <patch id="layout.player.fullscreen.openVideosFullscreen">
   <string name="revanced_open_videos_fullscreen_portrait_title">Öppna videor i helskärmsporträtt</string>

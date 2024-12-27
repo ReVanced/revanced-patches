@@ -446,6 +446,9 @@ Second \"item\" text"</string>
   <string name="revanced_swipe_overlay_background_alpha_summary">Видимость фона оверлея при выполнении жестов</string>
   <string name="revanced_swipe_threshold_title">Порог величины жеста</string>
   <string name="revanced_swipe_threshold_summary">Минимальная амплитуда движения, распознаваемого как жест</string>
+  <string name="revanced_swipe_change_video_title">Переключение видео жестом</string>
+  <string name="revanced_swipe_change_video_summary_on">Жест в полноэкранном режиме переключит на следующее/предыдущее видео</string>
+  <string name="revanced_swipe_change_video_summary_off">Жест в полноэкранном режиме не переключит на следующее/предыдущее видео</string>
   </patch>
   <patch id="layout.autocaptions.autoCaptionsPatch">
   <string name="revanced_auto_captions_title">Автоматические субтитры</string>
@@ -741,6 +744,13 @@ Second \"item\" text"</string>
   <string name="revanced_hide_player_popup_panels_title">Всплывающие панели плеера</string>
   <string name="revanced_hide_player_popup_panels_summary_on">Автоматически всплывающие панели в плеере скрыты</string>
   <string name="revanced_hide_player_popup_panels_summary_off">Автоматически всплывающие панели в плеере отображены</string>
+  </patch>
+  <patch id="layout.player.fullscreen.exitFullscreenPatch">
+  <string name="revanced_exit_fullscreen_title">Выйти из полноэкранного режима по окончании видео</string>
+  <string name="revanced_exit_fullscreen_entry_1">Отключено</string>
+  <string name="revanced_exit_fullscreen_entry_2">Портретный</string>
+  <string name="revanced_exit_fullscreen_entry_3">Пейзажный</string>
+  <string name="revanced_exit_fullscreen_entry_4">Портретный и пейзажный</string>
   </patch>
   <patch id="layout.player.fullscreen.openVideosFullscreen">
   <string name="revanced_open_videos_fullscreen_portrait_title">Видео в полноэкранном портрете</string>

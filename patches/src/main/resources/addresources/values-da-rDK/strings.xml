@@ -446,6 +446,9 @@ Denne funktion er kun tilgængelig for ældre enheder"</string>
   <string name="revanced_swipe_overlay_background_alpha_summary">Synligheden af swipe overlay baggrund</string>
   <string name="revanced_swipe_threshold_title">Stryg størrelse tærskel</string>
   <string name="revanced_swipe_threshold_summary">Beløbet for tærskelværdi for stryg der skal ske</string>
+  <string name="revanced_swipe_change_video_title">Aktivér swipe for at skifte videoer</string>
+  <string name="revanced_swipe_change_video_summary_on">Strygning i fuldskærmstilstand vil ændre til den næste/forrige video</string>
+  <string name="revanced_swipe_change_video_summary_off">Strygning i fuldskærmstilstand vil ikke ændre til den næste/forrige video</string>
   </patch>
   <patch id="layout.autocaptions.autoCaptionsPatch">
   <string name="revanced_auto_captions_title">Deaktivér auto-billedtekster</string>
@@ -741,6 +744,13 @@ Bemærk: Aktivering af dette skjuler også videoannoncer"</string>
   <string name="revanced_hide_player_popup_panels_title">Skjul pop op- paneler</string>
   <string name="revanced_hide_player_popup_panels_summary_on">Spiller popup paneler er skjult</string>
   <string name="revanced_hide_player_popup_panels_summary_off">Spiller popup paneler vises</string>
+  </patch>
+  <patch id="layout.player.fullscreen.exitFullscreenPatch">
+  <string name="revanced_exit_fullscreen_title">Afslut fuldskærmstilstand ved videoens afslutning</string>
+  <string name="revanced_exit_fullscreen_entry_1">Deaktiveret</string>
+  <string name="revanced_exit_fullscreen_entry_2">Portræt</string>
+  <string name="revanced_exit_fullscreen_entry_3">Landskab</string>
+  <string name="revanced_exit_fullscreen_entry_4">Portræt og landskab</string>
   </patch>
   <patch id="layout.player.fullscreen.openVideosFullscreen">
   <string name="revanced_open_videos_fullscreen_portrait_title">Åbn videoer i fuldskærm portræt</string>

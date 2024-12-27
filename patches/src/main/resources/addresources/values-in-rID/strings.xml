@@ -437,14 +437,17 @@ Fitur ini hanya tersedia untuk perangkat yang lebih lama"</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_on">Mengusap ke bawah ke nilai terendah dari gerakan kecerahan akan menyalakan kecerahan otomatis</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_off">Mengusap ke bawah ke nilai terendah tidak mengaktifkan kecerahan otomatis</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_overlay_text">Otomatis</string>
-  <string name="revanced_swipe_overlay_timeout_title">Batas waktu hamparan geser</string>
+  <string name="revanced_swipe_overlay_timeout_title">Batas waktu hamparan usap</string>
   <string name="revanced_swipe_overlay_timeout_summary">Jumlah milidetik hamparan terlihat</string>
-  <string name="revanced_swipe_text_overlay_size_title">Ukuran teks hamparan geser</string>
-  <string name="revanced_swipe_text_overlay_size_summary">Ukuran teks untuk hamparan geser</string>
-  <string name="revanced_swipe_overlay_background_alpha_title">Visibilitas latar belakang geser</string>
+  <string name="revanced_swipe_text_overlay_size_title">Ukuran teks hamparan usap</string>
+  <string name="revanced_swipe_text_overlay_size_summary">Ukuran teks untuk hamparan usap</string>
+  <string name="revanced_swipe_overlay_background_alpha_title">Visibilitas latar belakang usap</string>
   <string name="revanced_swipe_overlay_background_alpha_summary">Visibilitas latar belakang hamparan geser</string>
   <string name="revanced_swipe_threshold_title">Ambang batas magnitudo geser</string>
   <string name="revanced_swipe_threshold_summary">Jumlah ambang batas untuk terjadinya geser</string>
+  <string name="revanced_swipe_change_video_title">Aktifkan gesekan untuk beralih video</string>
+  <string name="revanced_swipe_change_video_summary_on">Menggesek dalam mode layar penuh akan beralih ke video berikutnya/sebelumnya</string>
+  <string name="revanced_swipe_change_video_summary_off">Menggesek dalam mode layar penuh tidak akan beralih ke video berikutnya/sebelumnya</string>
   </patch>
   <patch id="layout.autocaptions.autoCaptionsPatch">
   <string name="revanced_auto_captions_title">Matikan teks otomatis</string>
@@ -740,6 +743,13 @@ Catatan: Mengaktifkan ini juga akan memaksa menyembunyikan iklan video"</string>
   <string name="revanced_hide_player_popup_panels_title">Sembunyikan panel popup pemutar</string>
   <string name="revanced_hide_player_popup_panels_summary_on">Panel popup pemutar disembunyikan</string>
   <string name="revanced_hide_player_popup_panels_summary_off">Panel popup pemutar ditampilkan</string>
+  </patch>
+  <patch id="layout.player.fullscreen.exitFullscreenPatch">
+  <string name="revanced_exit_fullscreen_title">Keluar dari mode layar penuh di akhir video</string>
+  <string name="revanced_exit_fullscreen_entry_1">Nonaktif</string>
+  <string name="revanced_exit_fullscreen_entry_2">Potret</string>
+  <string name="revanced_exit_fullscreen_entry_3">Lanskap</string>
+  <string name="revanced_exit_fullscreen_entry_4">Potret dan lanskap</string>
   </patch>
   <patch id="layout.player.fullscreen.openVideosFullscreen">
   <string name="revanced_open_videos_fullscreen_portrait_title">Buka video dalam potret layar penuh</string>

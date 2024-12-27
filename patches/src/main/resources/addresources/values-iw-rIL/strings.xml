@@ -279,6 +279,8 @@ Mלות עם אותיות גדולות באמצע צריכות להיכנס עם
   </patch>
   <patch id="layout.panels.popup.playerPopupPanelsPatch">
   </patch>
+  <patch id="layout.player.fullscreen.exitFullscreenPatch">
+  </patch>
   <patch id="layout.player.fullscreen.openVideosFullscreen">
   </patch>
   <patch id="layout.player.overlay.customPlayerOverlayOpacityResourcePatch">

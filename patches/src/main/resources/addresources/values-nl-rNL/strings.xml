@@ -446,6 +446,9 @@ Deze functie is alleen beschikbaar voor oudere apparaten"</string>
   <string name="revanced_swipe_overlay_background_alpha_summary">De zichtbaarheid van de swipe-overlay achtergrond</string>
   <string name="revanced_swipe_threshold_title">Drempelwaarde swipe-sterkte</string>
   <string name="revanced_swipe_threshold_summary">De hoeveelheid drempelwaarde voor swipe om te gebeuren</string>
+  <string name="revanced_swipe_change_video_title">Schakel vegen in om te wisselen tussen video\'s</string>
+  <string name="revanced_swipe_change_video_summary_on">Vegen in de modus volledig scherm weergegeven, verandert naar de volgende/vorige video</string>
+  <string name="revanced_swipe_change_video_summary_off">Vegen in de modus volledig scherm weergegeven, verandert niet naar de volgende/vorige video</string>
   </patch>
   <patch id="layout.autocaptions.autoCaptionsPatch">
   <string name="revanced_auto_captions_title">Automatische ondertitels uitschakelen</string>
@@ -741,6 +744,13 @@ Opmerking: Als u dit inschakelt, worden videoadvertenties ook geforceerd verborg
   <string name="revanced_hide_player_popup_panels_title">Verberg de pop-upvensters van de speler</string>
   <string name="revanced_hide_player_popup_panels_summary_on">De pop-upvensters van de speler zijn verborgen</string>
   <string name="revanced_hide_player_popup_panels_summary_off">De pop-upvensters van de speler zijn zichtbaar</string>
+  </patch>
+  <patch id="layout.player.fullscreen.exitFullscreenPatch">
+  <string name="revanced_exit_fullscreen_title">Afsluiten van volledig scherm modus bij einde van de video</string>
+  <string name="revanced_exit_fullscreen_entry_1">Uitgeschakeld</string>
+  <string name="revanced_exit_fullscreen_entry_2">Portret</string>
+  <string name="revanced_exit_fullscreen_entry_3">Landschap</string>
+  <string name="revanced_exit_fullscreen_entry_4">Portret en landschap</string>
   </patch>
   <patch id="layout.player.fullscreen.openVideosFullscreen">
   <string name="revanced_open_videos_fullscreen_portrait_title">Open video\'s in volledig schermmodus (portret)</string>

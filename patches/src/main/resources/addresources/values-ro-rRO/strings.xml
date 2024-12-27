@@ -446,6 +446,9 @@ Această funcție este disponibilă numai pentru dispozitivele mai vechi"</strin
   <string name="revanced_swipe_overlay_background_alpha_summary">Vizibilitatea fundalului de glisare suprapus</string>
   <string name="revanced_swipe_threshold_title">Pragul mărimii glisării</string>
   <string name="revanced_swipe_threshold_summary">Cantitatea de prag pentru a glisa</string>
+  <string name="revanced_swipe_change_video_title">Activați glisarea pentru a schimba videoclipurile</string>
+  <string name="revanced_swipe_change_video_summary_on">Glisarea în modul pe ecran complet va trece la următorul/anteriorul videoclip</string>
+  <string name="revanced_swipe_change_video_summary_off">Glisarea în modul pe ecran complet nu va trece la următorul/anteriorul videoclip</string>
   </patch>
   <patch id="layout.autocaptions.autoCaptionsPatch">
   <string name="revanced_auto_captions_title">Dezactivează subtitrările automate</string>
@@ -741,6 +744,13 @@ Notă: Activarea acestei opțiuni ascunde, de asemenea, forțat reclamele video"
   <string name="revanced_hide_player_popup_panels_title">Ascunde panourile pop-up jucător</string>
   <string name="revanced_hide_player_popup_panels_summary_on">Panourile pop-up ale jucătorilor sunt ascunse</string>
   <string name="revanced_hide_player_popup_panels_summary_off">Panourile pop-up ale jucătorului sunt afișate</string>
+  </patch>
+  <patch id="layout.player.fullscreen.exitFullscreenPatch">
+  <string name="revanced_exit_fullscreen_title">Ieșiți din modul ecran complet la sfârșitul videoclipului</string>
+  <string name="revanced_exit_fullscreen_entry_1">Dezactivat</string>
+  <string name="revanced_exit_fullscreen_entry_2">Portret</string>
+  <string name="revanced_exit_fullscreen_entry_3">Peisaj</string>
+  <string name="revanced_exit_fullscreen_entry_4">Portret și peisaj</string>
   </patch>
   <patch id="layout.player.fullscreen.openVideosFullscreen">
   <string name="revanced_open_videos_fullscreen_portrait_title">Deschide videoclipurile în modul ecran complet</string>

@@ -446,6 +446,9 @@ Second \"item\" text"</string>
   <string name="revanced_swipe_overlay_background_alpha_summary">Бачнасць фону накладання пальцам</string>
   <string name="revanced_swipe_threshold_title">Парог велічыні пальцам</string>
   <string name="revanced_swipe_threshold_summary">Велічыня парогавага значэння для правядзення пальцам</string>
+  <string name="revanced_swipe_change_video_title">Уключыць зьмену відэа праз правядзенне пальцам</string>
+  <string name="revanced_swipe_change_video_summary_on">Правядзенне пальцам у рэжыме поўнага экрана зьменіць відэа на наступнае/папярэдняе</string>
+  <string name="revanced_swipe_change_video_summary_off">Правядзенне пальцам у рэжыме поўнага экрана не зьменіць відэа на наступнае/папярэдняе</string>
   </patch>
   <patch id="layout.autocaptions.autoCaptionsPatch">
   <string name="revanced_auto_captions_title">Адключыць аўтаматычныя цітры</string>
@@ -741,6 +744,13 @@ Second \"item\" text"</string>
   <string name="revanced_hide_player_popup_panels_title">Схаваць усплывальныя панэлі прайгравальніка</string>
   <string name="revanced_hide_player_popup_panels_summary_on">Усплывальныя панэлі прайгравальніка схаваныя</string>
   <string name="revanced_hide_player_popup_panels_summary_off">Паказваюцца ўсплывальныя панэлі прайгравальніка</string>
+  </patch>
+  <patch id="layout.player.fullscreen.exitFullscreenPatch">
+  <string name="revanced_exit_fullscreen_title">Выйсці з поўнаэкраннага рэжыму ў канцы відэа</string>
+  <string name="revanced_exit_fullscreen_entry_1">Адключана</string>
+  <string name="revanced_exit_fullscreen_entry_2">Партрэт</string>
+  <string name="revanced_exit_fullscreen_entry_3">Ландшафт</string>
+  <string name="revanced_exit_fullscreen_entry_4">Партрэт і ландшафт</string>
   </patch>
   <patch id="layout.player.fullscreen.openVideosFullscreen">
   <string name="revanced_open_videos_fullscreen_portrait_title">Открывать видео на весь экран в портретном режиме</string>

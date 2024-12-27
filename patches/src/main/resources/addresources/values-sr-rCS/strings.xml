@@ -446,6 +446,9 @@ Ova funkcija je dostupna samo za starije uređaje"</string>
   <string name="revanced_swipe_overlay_background_alpha_summary">Vidljivost pozadine za pokret prevlačenja</string>
   <string name="revanced_swipe_threshold_title">Prag trajanja prevlačenja</string>
   <string name="revanced_swipe_threshold_summary">Iznos praga trajanja prevlačenja</string>
+  <string name="revanced_swipe_change_video_title">Povuci da promeniš video</string>
+  <string name="revanced_swipe_change_video_summary_on">Povlačenje u režimu celog ekrana promeniće na sledeći/prethodni video.</string>
+  <string name="revanced_swipe_change_video_summary_off">Povlačenje u režimu celog ekrana neće promeniti na sledeći/prethodni video.</string>
   </patch>
   <patch id="layout.autocaptions.autoCaptionsPatch">
   <string name="revanced_auto_captions_title">Onemogući automatske titlove</string>
@@ -741,6 +744,13 @@ Napomena: Omogućavanje ovoga prisilno sakriva i video oglase"</string>
   <string name="revanced_hide_player_popup_panels_title">Sakrij iskačuće table u plejeru</string>
   <string name="revanced_hide_player_popup_panels_summary_on">Iskačuće table u plejeru su skrivene</string>
   <string name="revanced_hide_player_popup_panels_summary_off">Iskačući paneli plejera su prikazani</string>
+  </patch>
+  <patch id="layout.player.fullscreen.exitFullscreenPatch">
+  <string name="revanced_exit_fullscreen_title">Izađi iz režima celog ekrana na kraju videa</string>
+  <string name="revanced_exit_fullscreen_entry_1">Onemogućeno</string>
+  <string name="revanced_exit_fullscreen_entry_2">Portret</string>
+  <string name="revanced_exit_fullscreen_entry_3">Pejzaž</string>
+  <string name="revanced_exit_fullscreen_entry_4">Portret i pejzaž</string>
   </patch>
   <patch id="layout.player.fullscreen.openVideosFullscreen">
   <string name="revanced_open_videos_fullscreen_portrait_title">Otvori videe preko celog ekrana uspravno</string>

@@ -445,6 +445,9 @@ Ez a funkció csak régebbi eszközökön érhető el"</string>
   <string name="revanced_swipe_overlay_background_alpha_summary">A csúsztatási átfedés hátterének láthatósága</string>
   <string name="revanced_swipe_threshold_title">A csúsztatás küszöbértéke</string>
   <string name="revanced_swipe_threshold_summary">A csúsztatáshoz szükséges küszöbérték</string>
+  <string name="revanced_swipe_change_video_title">Engedélyezze az ujjbegyújtással történő videóváltást</string>
+  <string name="revanced_swipe_change_video_summary_on">Teljes képernyős módban történő ujjbegyújtás megváltoztatja a következő/előző videóra</string>
+  <string name="revanced_swipe_change_video_summary_off">Teljes képernyős módban történő ujjbegyújtás nem változtatja meg a következő/előző videóra</string>
   </patch>
   <patch id="layout.autocaptions.autoCaptionsPatch">
   <string name="revanced_auto_captions_title">Automatikus feliratok letiltása</string>
@@ -740,6 +743,13 @@ Megjegyzés: Ez a beállítás a videóhirdetések kényszerű elrejtését is m
   <string name="revanced_hide_player_popup_panels_title">Lejátszó előugró paneleinek elrejtése</string>
   <string name="revanced_hide_player_popup_panels_summary_on">A lejátszó előugró panelei el vannak rejtve</string>
   <string name="revanced_hide_player_popup_panels_summary_off">A lejátszó előugró panelei megjelennek</string>
+  </patch>
+  <patch id="layout.player.fullscreen.exitFullscreenPatch">
+  <string name="revanced_exit_fullscreen_title">Kilépés a teljes képernyőből</string>
+  <string name="revanced_exit_fullscreen_entry_1">Letiltva</string>
+  <string name="revanced_exit_fullscreen_entry_2">Portré</string>
+  <string name="revanced_exit_fullscreen_entry_3">Tájkép</string>
+  <string name="revanced_exit_fullscreen_entry_4">Portré és tájkép</string>
   </patch>
   <patch id="layout.player.fullscreen.openVideosFullscreen">
   <string name="revanced_open_videos_fullscreen_portrait_title">Nyissa meg a videókat teljes képernyős portréban</string>

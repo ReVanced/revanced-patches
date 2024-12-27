@@ -440,6 +440,9 @@ Diese Funktion ist nur für ältere Geräte verfügbar"</string>
   <string name="revanced_swipe_overlay_background_alpha_summary">Die Sichtbarkeit des Wischüberlagerhintergrunds</string>
   <string name="revanced_swipe_threshold_title">Wischgrößenschwelle</string>
   <string name="revanced_swipe_threshold_summary">Der Schwellenwert für Wischen</string>
+  <string name="revanced_swipe_change_video_title">Mit Wischen wechseln Sie zu den Videos</string>
+  <string name="revanced_swipe_change_video_summary_on">Im Vollbildmodus wischen, um zum nächsten/vorherigen Video zu wechseln</string>
+  <string name="revanced_swipe_change_video_summary_off">Im Vollbildmodus wischen, um nicht zum nächsten/vorherigen Video zu wechseln</string>
   </patch>
   <patch id="layout.autocaptions.autoCaptionsPatch">
   <string name="revanced_auto_captions_title">Autounterschriften deaktivieren</string>
@@ -735,6 +738,13 @@ Hinweis: Durch Aktivieren dieser Option wird auch die Videowerbung zwangsweise a
   <string name="revanced_hide_player_popup_panels_title">Player-Popup-Panels ausblenden</string>
   <string name="revanced_hide_player_popup_panels_summary_on">Player-Popup-Fenster sind ausgeblendet</string>
   <string name="revanced_hide_player_popup_panels_summary_off">Player-Popup-Fenster werden angezeigt</string>
+  </patch>
+  <patch id="layout.player.fullscreen.exitFullscreenPatch">
+  <string name="revanced_exit_fullscreen_title">Beenden Sie den Vollbildmodus am Ende des Videos</string>
+  <string name="revanced_exit_fullscreen_entry_1">Deaktiviert</string>
+  <string name="revanced_exit_fullscreen_entry_2">Hochformat</string>
+  <string name="revanced_exit_fullscreen_entry_3">Querformat</string>
+  <string name="revanced_exit_fullscreen_entry_4">Hoch- und Querformat</string>
   </patch>
   <patch id="layout.player.fullscreen.openVideosFullscreen">
   <string name="revanced_open_videos_fullscreen_portrait_title">Videos im Vollbild-Hochformat öffnen</string>
