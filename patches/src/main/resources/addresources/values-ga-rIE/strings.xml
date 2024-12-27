@@ -1021,6 +1021,23 @@ Maithe chun cur isteach?"</string>
   <string name="revanced_sb_about">Maidir</string>
   <string name="revanced_sb_about_api_sum">Soláthraíonn an API SponsorBlock sonraí. Tapáil anseo chun níos mó a fhoghlaim agus íoslódálacha a fheiceáil d\'ardáin eile</string>
   </patch>
+  <patch id="layout.formfactor.changeFormFactorPatch">
+  <string name="revanced_change_form_factor_title">Fábos fóirmeanna foirmiúin</string>
+  <string name="revanced_change_form_factor_entry_1">Réamhshocrúch</string>
+  <string name="revanced_change_form_factor_entry_2">Fón</string>
+  <string name="revanced_change_form_factor_entry_3">Táibhléad</string>
+  <string name="revanced_change_form_factor_entry_4">Gluaisrothar</string>
+  <string name="revanced_change_form_factor_user_dialog_message">"Áirítear na hathruithe seo a leanas:
+
+Leagan amach na táibléad
+• Tá poist an phobail curtha i bhfolach
+
+Leagan amach na ngluaisteán
+• Tá roghchlár stair féachana curtha i bhfolach
+• Tá an táb eolais arís ann
+• Osclóidh Shorts sa seinnteoir gnáth
+• Tá an foraois eagraithe de réir ábhar agus cainéal"</string>
+  </patch>
   <patch id="layout.spoofappversion.spoofAppVersionPatch">
   <string name="revanced_spoof_app_version_title">Leagan aip spoof</string>
   <string name="revanced_spoof_app_version_summary_on">Leagan spoofed</string>
@@ -1077,12 +1094,6 @@ Má dhiúltaítear é níos déanaí, moltar sonraí an aip a ghlanadh chun buga
   <string name="revanced_shorts_autoplay_background_title">Cluiche Cúlra Shorts Autoplay</string>
   <string name="revanced_shorts_autoplay_background_summary_on">Déanfar súgradh cúlra Shorts go huathoibríoch</string>
   <string name="revanced_shorts_autoplay_background_summary_off">Athdhéanfar súgradh cúlra Shorts</string>
-  </patch>
-  <patch id="layout.tablet.enableTabletLayoutPatch">
-  <string name="revanced_tablet_layout_title">Cumasaigh leagan amach na táibléad</string>
-  <string name="revanced_tablet_layout_summary_on">Tá leagan amach an táibléad cumasaithe</string>
-  <string name="revanced_tablet_layout_summary_off">Tá leagan amach an táibléad díchumasaithe</string>
-  <string name="revanced_tablet_layout_user_dialog_message">Ní thaispeánann poist phobail ar leagan amach táibléad</string>
   </patch>
   <patch id="layout.miniplayer.miniplayerPatch">
   <string name="revanced_miniplayer_screen_title">Minipléir</string>

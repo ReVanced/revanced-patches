@@ -80,7 +80,7 @@ Ketuk tombol lanjutkan dan izinkan perubahan pengoptimalan."</string>
   <string name="revanced_settings_screen_04_player_title">Pemutar</string>
   <string name="revanced_settings_screen_05_general_title">Layout umum</string>
   <string name="revanced_settings_screen_07_seekbar_title">Seekbar</string>
-  <string name="revanced_settings_screen_08_swipe_controls_title">Kontrol geser</string>
+  <string name="revanced_settings_screen_08_swipe_controls_title">Kontrol usap</string>
   <string name="revanced_settings_screen_11_misc_title">Lain-lain</string>
   <string name="revanced_settings_screen_12_video_title">Video</string>
   </patch>
@@ -424,9 +424,9 @@ Fitur ini hanya tersedia untuk perangkat yang lebih lama"</string>
   <string name="revanced_swipe_volume_title">Aktifkan gerakan volume</string>
   <string name="revanced_swipe_volume_summary_on">Sapuan volume diaktifkan</string>
   <string name="revanced_swipe_volume_summary_off">Sapuan volume dinonaktifkan</string>
-  <string name="revanced_swipe_press_to_engage_title">Aktifkan gerakan tekan-untuk-menggeser</string>
-  <string name="revanced_swipe_press_to_engage_summary_on">Tekan-untuk-menggeser diaktifkan</string>
-  <string name="revanced_swipe_press_to_engage_summary_off">Tekan-untuk-menggeser dinonaktifkan</string>
+  <string name="revanced_swipe_press_to_engage_title">Aktifkan gerakan tekan-untuk-mengusap</string>
+  <string name="revanced_swipe_press_to_engage_summary_on">Tekan-untuk-mengusap diaktifkan</string>
+  <string name="revanced_swipe_press_to_engage_summary_off">Tekan-untuk-mengusap dinonaktifkan</string>
   <string name="revanced_swipe_haptic_feedback_title">Aktifkan umpan balik sentuhan</string>
   <string name="revanced_swipe_haptic_feedback_summary_on">Umpan balik sentuhan diaktifkan</string>
   <string name="revanced_swipe_haptic_feedback_summary_off">Umpan balik sentuhan dinonaktifkan</string>
@@ -442,12 +442,12 @@ Fitur ini hanya tersedia untuk perangkat yang lebih lama"</string>
   <string name="revanced_swipe_text_overlay_size_title">Ukuran teks hamparan usap</string>
   <string name="revanced_swipe_text_overlay_size_summary">Ukuran teks untuk hamparan usap</string>
   <string name="revanced_swipe_overlay_background_alpha_title">Visibilitas latar belakang usap</string>
-  <string name="revanced_swipe_overlay_background_alpha_summary">Visibilitas latar belakang hamparan geser</string>
+  <string name="revanced_swipe_overlay_background_alpha_summary">Visibilitas latar belakang hamparan usap</string>
   <string name="revanced_swipe_threshold_title">Ambang batas magnitudo geser</string>
-  <string name="revanced_swipe_threshold_summary">Jumlah ambang batas untuk terjadinya geser</string>
-  <string name="revanced_swipe_change_video_title">Aktifkan gesekan untuk beralih video</string>
-  <string name="revanced_swipe_change_video_summary_on">Menggesek dalam mode layar penuh akan beralih ke video berikutnya/sebelumnya</string>
-  <string name="revanced_swipe_change_video_summary_off">Menggesek dalam mode layar penuh tidak akan beralih ke video berikutnya/sebelumnya</string>
+  <string name="revanced_swipe_threshold_summary">Jumlah ambang batas untuk terjadinya usapan</string>
+  <string name="revanced_swipe_change_video_title">Aktifkan usapan untuk beralih video</string>
+  <string name="revanced_swipe_change_video_summary_on">Mengusap dalam mode layar penuh akan beralih ke video berikutnya/sebelumnya</string>
+  <string name="revanced_swipe_change_video_summary_off">Mengusap dalam mode layar penuh tidak akan beralih ke video berikutnya/sebelumnya</string>
   </patch>
   <patch id="layout.autocaptions.autoCaptionsPatch">
   <string name="revanced_auto_captions_title">Matikan teks otomatis</string>
@@ -1019,6 +1019,23 @@ Siap mengirim?"</string>
   <string name="revanced_sb_about">Tentang</string>
   <string name="revanced_sb_about_api_sum">Data disediakan oleh API SponsorBlock. Tekan di sini untuk mempelajari lebih lanjut dan melihat hasil pengunduhan untuk platform lain</string>
   </patch>
+  <patch id="layout.formfactor.changeFormFactorPatch">
+  <string name="revanced_change_form_factor_title">Faktor bentuk tata letak</string>
+  <string name="revanced_change_form_factor_entry_1">Bawaan</string>
+  <string name="revanced_change_form_factor_entry_2">Ponsel</string>
+  <string name="revanced_change_form_factor_entry_3">Tablet</string>
+  <string name="revanced_change_form_factor_entry_4">Otomotif</string>
+  <string name="revanced_change_form_factor_user_dialog_message">"Perubahan meliputi:
+
+Tata letak Tablet
+• Postingan Komunitas disembunyikan
+
+Tata letak Otomotif
+• Menu riwayat tontonan disembunyikan
+• Tab Jelajahi dipulihkan
+• Shorts terbuka di pemutar reguler
+• Umpan diatur menurut topik dan saluran"</string>
+  </patch>
   <patch id="layout.spoofappversion.spoofAppVersionPatch">
   <string name="revanced_spoof_app_version_title">Palsukan versi app</string>
   <string name="revanced_spoof_app_version_summary_on">Versi yang dipalsukan</string>
@@ -1076,12 +1093,6 @@ Jika kemudian dimatikan, disarankan untuk menghapus data aplikasi untuk mencegah
   <string name="revanced_shorts_autoplay_background_summary_on">Pemutaran latar belakang Shorts akan diputar otomatis</string>
   <string name="revanced_shorts_autoplay_background_summary_off">Pemutaran latar belakang Shorts akan diulangi</string>
   </patch>
-  <patch id="layout.tablet.enableTabletLayoutPatch">
-  <string name="revanced_tablet_layout_title">Aktifkan tata letak tablet</string>
-  <string name="revanced_tablet_layout_summary_on">Tata letak tablet diaktifkan</string>
-  <string name="revanced_tablet_layout_summary_off">Tata letak tablet dinonaktifkan</string>
-  <string name="revanced_tablet_layout_user_dialog_message">Postingan komunitas tidak muncul pada tata letak tablet</string>
-  </patch>
   <patch id="layout.miniplayer.miniplayerPatch">
   <string name="revanced_miniplayer_screen_title">Pemutar Mini</string>
   <string name="revanced_miniplayer_screen_summary">Mengubah gaya pemutar aplikasi saat diciuitkan</string>
@@ -1118,7 +1129,7 @@ Miniplayer dapat diseret keluar layar ke kiri atau kanan"</string>
   <string name="revanced_miniplayer_hide_expand_close_legacy_title">Sembunyikan perbesar dan tutup</string>
   <string name="revanced_miniplayer_hide_expand_close_legacy_summary_on">"Tombol disembunyikan
 
-Geser untuk memperluas atau menutup"</string>
+Usap untuk memperluas atau menutup"</string>
   <string name="revanced_miniplayer_hide_expand_close_legacy_summary_off">Tombol bentang dan tutup ditampilkan</string>
   <string name="revanced_miniplayer_hide_subtext_title">Sembunyikan subteks</string>
   <string name="revanced_miniplayer_hide_subtext_summary_on">Subteks disembunyikan</string>

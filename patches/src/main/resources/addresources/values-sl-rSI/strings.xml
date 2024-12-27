@@ -1019,6 +1019,23 @@ Ali ste pripravljeni na oddajo?"</string>
   <string name="revanced_sb_about">O programu</string>
   <string name="revanced_sb_about_api_sum">Podatki so zagotovljeni s strani SponsorBlock API. Tapnite tukaj, da izveste več in si ogledate prenose za druge platforme</string>
   </patch>
+  <patch id="layout.formfactor.changeFormFactorPatch">
+  <string name="revanced_change_form_factor_title">Postavitev obrazca</string>
+  <string name="revanced_change_form_factor_entry_1">Privzeto</string>
+  <string name="revanced_change_form_factor_entry_2">Telefon</string>
+  <string name="revanced_change_form_factor_entry_3">Tablični računalnik</string>
+  <string name="revanced_change_form_factor_entry_4">Avtomobilska</string>
+  <string name="revanced_change_form_factor_user_dialog_message">"Spremembe vključujejo:
+
+Postavitev tabličnega računalnika
+• Objave skupnosti so skrite
+
+Postavitev za vozila
+• Meni zgodovine ogledov je skrit
+• Zavihek Raziskovanje je obnovljen
+• Posnetki Shorts se odprejo v običajnem predvajalniku
+• Vir je organiziran po temah in kanalih"</string>
+  </patch>
   <patch id="layout.spoofappversion.spoofAppVersionPatch">
   <string name="revanced_spoof_app_version_title">Spoof različice aplikacije</string>
   <string name="revanced_spoof_app_version_summary_on">Različica spoofana</string>
@@ -1075,12 +1092,6 @@ To bo spremenilo videz in funkcije aplikacije, vendar se lahko pojavijo neznani 
   <string name="revanced_shorts_autoplay_background_title">Samodejno predvajanje Shorts v ozadju</string>
   <string name="revanced_shorts_autoplay_background_summary_on">Samodejno predvajanje Shorts v ozadju se bo samodejno predvajalo</string>
   <string name="revanced_shorts_autoplay_background_summary_off">Samodejno predvajanje Shorts v ozadju se bo ponovilo</string>
-  </patch>
-  <patch id="layout.tablet.enableTabletLayoutPatch">
-  <string name="revanced_tablet_layout_title">Omogoči postavitev za tablične računalnike</string>
-  <string name="revanced_tablet_layout_summary_on">Postavitev za tablične računalnike je omogočena</string>
-  <string name="revanced_tablet_layout_summary_off">Postavitev za tablične računalnike je onemogočena</string>
-  <string name="revanced_tablet_layout_user_dialog_message">Objave skupnosti se ne prikazujejo v postavitvah za tablične računalnike</string>
   </patch>
   <patch id="layout.miniplayer.miniplayerPatch">
   <string name="revanced_miniplayer_screen_title">\"Miniplayer\"</string>

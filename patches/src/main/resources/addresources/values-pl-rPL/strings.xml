@@ -1020,6 +1020,23 @@ Gotowy do przesłania?"</string>
   <string name="revanced_sb_about">O aplikacji</string>
   <string name="revanced_sb_about_api_sum">Dane są dostarczane przez API SponsorBlock. Dotknij tutaj, aby dowiedzieć się więcej i pobrać na inne platformy</string>
   </patch>
+  <patch id="layout.formfactor.changeFormFactorPatch">
+  <string name="revanced_change_form_factor_title">Współczynnik kształtu</string>
+  <string name="revanced_change_form_factor_entry_1">Domyślny</string>
+  <string name="revanced_change_form_factor_entry_2">Telefon</string>
+  <string name="revanced_change_form_factor_entry_3">Tablet</string>
+  <string name="revanced_change_form_factor_entry_4">Motoryzacja</string>
+  <string name="revanced_change_form_factor_user_dialog_message">"Zmianami są:
+
+Układ tabletu
+• Wspólne posty są ukryte
+
+Układ samochodowy
+• Menu historii oglądania jest ukryte
+• Karta Eksploruj zostaje przywrócona
+• Shortsy otwierają się w standardowym odtwarzaczu
+• Kanał jest zorganizowany wg tematów i kanałów"</string>
+  </patch>
   <patch id="layout.spoofappversion.spoofAppVersionPatch">
   <string name="revanced_spoof_app_version_title">Oszukiwanie wersji aplikacji</string>
   <string name="revanced_spoof_app_version_summary_on">Oszukiwanie wersji jest włączone</string>
@@ -1076,12 +1093,6 @@ Jeśli później zostanie wyłączony, zaleca się wyczyszczenie danych aplikacj
   <string name="revanced_shorts_autoplay_background_title">Autoodtwarzanie Shortsów w tle</string>
   <string name="revanced_shorts_autoplay_background_summary_on">Odtwarzanie w tle Shortsów będzie automatyczne</string>
   <string name="revanced_shorts_autoplay_background_summary_off">Odtwarzanie w tle Shortsów będzie się powtarzać</string>
-  </patch>
-  <patch id="layout.tablet.enableTabletLayoutPatch">
-  <string name="revanced_tablet_layout_title">Układ tabletu</string>
-  <string name="revanced_tablet_layout_summary_on">Układ tabletu jest włączony</string>
-  <string name="revanced_tablet_layout_summary_off">Układ tabletu jest wyłączony</string>
-  <string name="revanced_tablet_layout_user_dialog_message">Posty społeczności nie pojawiają się w układach tabletu</string>
   </patch>
   <patch id="layout.miniplayer.miniplayerPatch">
   <string name="revanced_miniplayer_screen_title">Miniodtwarzacz</string>

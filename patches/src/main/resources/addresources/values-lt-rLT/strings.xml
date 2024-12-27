@@ -1021,6 +1021,23 @@ Ar paruošta pateikti?"</string>
   <string name="revanced_sb_about">Apie</string>
   <string name="revanced_sb_about_api_sum">Duomenys pateikiami per \"SponsorBlock\" API. Bakstelėkite čia, kad sužinotumėte daugiau ir pamatytumėte atsisiuntimus kitoms platformoms</string>
   </patch>
+  <patch id="layout.formfactor.changeFormFactorPatch">
+  <string name="revanced_change_form_factor_title">Išdėstymas: formos faktorius</string>
+  <string name="revanced_change_form_factor_entry_1">Numatyta</string>
+  <string name="revanced_change_form_factor_entry_2">Telefonas</string>
+  <string name="revanced_change_form_factor_entry_3">Planšetė</string>
+  <string name="revanced_change_form_factor_entry_4">Automobilių</string>
+  <string name="revanced_change_form_factor_user_dialog_message">"Pakeitimai apima:
+
+Planšetinio kompiuterio išdėstymas
+• Bendruomenės įrašai paslėpti
+
+Automobilių išdėstymas
+• Paslėptas žiūrėjimo istorijos meniu
+• Atkurtas skirtukas \"Naršyti\"
+• Trumpieji filmai atidaromi įprastame grotuve
+• Kanalas organizuotas pagal temas ir kanalą"</string>
+  </patch>
   <patch id="layout.spoofappversion.spoofAppVersionPatch">
   <string name="revanced_spoof_app_version_title">Programėlės versijos apsimetinėjimas</string>
   <string name="revanced_spoof_app_version_summary_on">Versija apsimeta</string>
@@ -1077,12 +1094,6 @@ Jei vėliau išjungta, rekomenduojama išvalyti programos duomenis, kad būtų i
   <string name="revanced_shorts_autoplay_background_title">\"Autoplay\" Shorts foninis atkūrimas</string>
   <string name="revanced_shorts_autoplay_background_summary_on">\"Shorts\" foninis atkūrimas bus atliekama \"Autoplay\"</string>
   <string name="revanced_shorts_autoplay_background_summary_off">\"Shorts\" foninis atkūrimas bus kartojamas</string>
-  </patch>
-  <patch id="layout.tablet.enableTabletLayoutPatch">
-  <string name="revanced_tablet_layout_title">Įgalinti planšetinio kompiuterio išdėstymą</string>
-  <string name="revanced_tablet_layout_summary_on">Planšetinio kompiuterio išdėstymas įjungtas</string>
-  <string name="revanced_tablet_layout_summary_off">Planšetinio kompiuterio išdėstymas išjungtas</string>
-  <string name="revanced_tablet_layout_user_dialog_message">Bendruomenės įrašai nerodomi planšetinio kompiuterio išdėstymuose</string>
   </patch>
   <patch id="layout.miniplayer.miniplayerPatch">
   <string name="revanced_miniplayer_screen_title">Mažas grotuvas</string>

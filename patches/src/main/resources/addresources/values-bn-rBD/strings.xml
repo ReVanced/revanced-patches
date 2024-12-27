@@ -446,7 +446,7 @@ MicroG-এর জন্য ব্যাটারি অপ্টিমাইজ�
   <string name="revanced_swipe_overlay_background_alpha_summary">সোয়াইপ ওভারলে ব্যাকগ্রাউন্ডের দৃশ্যমানতা</string>
   <string name="revanced_swipe_threshold_title">সোয়াইপ থ্রেশহোল্ড এর মাত্রা</string>
   <string name="revanced_swipe_threshold_summary">সোয়াইপ করার থ্রেশহোল্ডের পরিমাণ</string>
-  <string name="revanced_swipe_change_video_title">ভিডিও পরিবর্তন করতে সোয়াইপ কর সক্ষম করুন</string>
+  <string name="revanced_swipe_change_video_title">ভিডিও পরিবর্তন করতে সোয়াইপ করে সক্ষম করুন</string>
   <string name="revanced_swipe_change_video_summary_on">ফুলস্ক্রিন মোডে সোয়াইপ করলে পরবর্তী/পূর্ববর্তী ভিডিওতে পরিবর্তন হবে</string>
   <string name="revanced_swipe_change_video_summary_off">ফুলস্ক্রিন মোডে সোয়াইপ করলে পরবর্তী /পূর্ববর্তী ভিডিওতে পরিবর্তন হবে না</string>
   </patch>
@@ -746,7 +746,7 @@ MicroG-এর জন্য ব্যাটারি অপ্টিমাইজ�
   <string name="revanced_hide_player_popup_panels_summary_off">প্লেয়ার পপআপ প্যানেলগুলো প্রদর্শিত হয়েছে</string>
   </patch>
   <patch id="layout.player.fullscreen.exitFullscreenPatch">
-  <string name="revanced_exit_fullscreen_title">ভিডিও শেষ হওয়ার সময় পূর্ণ পর্দা মোড থেকে বেরিয়ে যাও</string>
+  <string name="revanced_exit_fullscreen_title">ভিডিও শেষ হওয়ার সময় পূর্ণ পর্দা মোড থেকে বেরিয়ে যান</string>
   <string name="revanced_exit_fullscreen_entry_1">নিষ্ক্রিয়</string>
   <string name="revanced_exit_fullscreen_entry_2">আনুভূমিক</string>
   <string name="revanced_exit_fullscreen_entry_3">ল্যান্ডস্কেপ</string>
@@ -1021,6 +1021,23 @@ MicroG-এর জন্য ব্যাটারি অপ্টিমাইজ�
   <string name="revanced_sb_about">সম্পর্কিত</string>
   <string name="revanced_sb_about_api_sum">ডেটা SponsorBlock API দ্বারা সরবরাহ করা হয়। আরও জানতে এবং অন্যান্য প্ল্যাটফর্মের ডাউনলোড দেখতে এখানে ট্যাপ করুন</string>
   </patch>
+  <patch id="layout.formfactor.changeFormFactorPatch">
+  <string name="revanced_change_form_factor_title">লেআউট ফর্ম ফ্যাক্টর</string>
+  <string name="revanced_change_form_factor_entry_1">ডিফল্ট</string>
+  <string name="revanced_change_form_factor_entry_2">ফোন</string>
+  <string name="revanced_change_form_factor_entry_3">ট্যাবলেট</string>
+  <string name="revanced_change_form_factor_entry_4">স্বয়ংচালিত</string>
+  <string name="revanced_change_form_factor_user_dialog_message">"পরিবর্তনগুলো হল:
+
+ট্যাবলেট লেআউট
+• কমিউনিটি পোস্ট গোপন
+
+স্বয়ংচালিত লেআউট
+• ঘড়ির ইতিহাস মেনু গোপন
+• এক্সপ্লোর ট্যাব পুনরুদ্ধার করা হয়েছে
+• শর্টস নিয়মিত প্লেয়ারে খোলে
+• ফিড বিষয় এবং চ্যানেল দ্বারা সংগঠিত হয়"</string>
+  </patch>
   <patch id="layout.spoofappversion.spoofAppVersionPatch">
   <string name="revanced_spoof_app_version_title">অ্যাপ সংস্করণ স্পুফ করুন</string>
   <string name="revanced_spoof_app_version_summary_on">সংস্করণ স্পুফ করা হয়েছে</string>
@@ -1077,12 +1094,6 @@ MicroG-এর জন্য ব্যাটারি অপ্টিমাইজ�
   <string name="revanced_shorts_autoplay_background_title">পটভূমিতে Shorts অটোপ্লে</string>
   <string name="revanced_shorts_autoplay_background_summary_on">পটভূমিতে Shorts অটোপ্লে হবে</string>
   <string name="revanced_shorts_autoplay_background_summary_off">পটভূমিতে Shorts পুনরাবৃত্তি হবে</string>
-  </patch>
-  <patch id="layout.tablet.enableTabletLayoutPatch">
-  <string name="revanced_tablet_layout_title">ট্যাবলেট লেআউট সক্রিয় করুন</string>
-  <string name="revanced_tablet_layout_summary_on">ট্যাবলেট লেআউট সক্রিয় হয়েছে</string>
-  <string name="revanced_tablet_layout_summary_off">ট্যাবলেট লেআউট নিষ্ক্রিয় হয়েছে</string>
-  <string name="revanced_tablet_layout_user_dialog_message">ট্যাবলেট লেআউটে কমিউনিটি পোস্ট দেখাবে না</string>
   </patch>
   <patch id="layout.miniplayer.miniplayerPatch">
   <string name="revanced_miniplayer_screen_title">মিনিপ্লেয়ার</string>

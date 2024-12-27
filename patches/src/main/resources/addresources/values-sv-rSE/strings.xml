@@ -1020,6 +1020,23 @@ Redo att skicka in?"</string>
   <string name="revanced_sb_about">Om</string>
   <string name="revanced_sb_about_api_sum">Data tillhandahålls av SponsorBlock API. Tryck här för att läsa mer och se nedladdningar för andra plattformar</string>
   </patch>
+  <patch id="layout.formfactor.changeFormFactorPatch">
+  <string name="revanced_change_form_factor_title">Formulärformfaktor</string>
+  <string name="revanced_change_form_factor_entry_1">Standard</string>
+  <string name="revanced_change_form_factor_entry_2">Telefon</string>
+  <string name="revanced_change_form_factor_entry_3">Platta</string>
+  <string name="revanced_change_form_factor_entry_4">Bil</string>
+  <string name="revanced_change_form_factor_user_dialog_message">"Ändringar inkluderar:
+
+Surfplatta-layout
+• Community-inlägg är dolda
+
+Billautomation
+• Tittningshistorikmenyn är dold
+• Utforska-fliken är återställd
+• Shorts öppnas i den vanliga spelaren
+• Flödet är organiserat efter ämnen och kanal"</string>
+  </patch>
   <patch id="layout.spoofappversion.spoofAppVersionPatch">
   <string name="revanced_spoof_app_version_title">Spoof app-version</string>
   <string name="revanced_spoof_app_version_summary_on">Version förfalskad</string>
@@ -1076,12 +1093,6 @@ Om det senare stängs av rekommenderas det att rensa appens data för att förhi
   <string name="revanced_shorts_autoplay_background_title">Autoplay Shorts bakgrund spela</string>
   <string name="revanced_shorts_autoplay_background_summary_on">Shorts bakgrundsuppspelning kommer automatiskt spela</string>
   <string name="revanced_shorts_autoplay_background_summary_off">Shorts bakgrundsuppspelning upprepas</string>
-  </patch>
-  <patch id="layout.tablet.enableTabletLayoutPatch">
-  <string name="revanced_tablet_layout_title">Aktivera surfplattans layout</string>
-  <string name="revanced_tablet_layout_summary_on">Surfplattans layout är aktiverad</string>
-  <string name="revanced_tablet_layout_summary_off">Surfplattans layout är inaktiverad</string>
-  <string name="revanced_tablet_layout_user_dialog_message">Gemenskapsinlägg visas inte på surfplattans layouter</string>
   </patch>
   <patch id="layout.miniplayer.miniplayerPatch">
   <string name="revanced_miniplayer_screen_title">Minispelare</string>

@@ -1013,6 +1013,8 @@ Haluatko lähettää?"</string>
   <string name="revanced_sb_about">Tietoja</string>
   <string name="revanced_sb_about_api_sum">Tiedot tarjoaa SponsorBlock API. Napauta tätä saadaksesi lisätietoja ja nähdäksesi lataukset muille alustoille</string>
   </patch>
+  <patch id="layout.formfactor.changeFormFactorPatch">
+  </patch>
   <patch id="layout.spoofappversion.spoofAppVersionPatch">
   <string name="revanced_spoof_app_version_title">Naamioi sovellusversio</string>
   <string name="revanced_spoof_app_version_summary_on">Versio on naamioitu</string>
@@ -1069,12 +1071,6 @@ Jos tämä ominaisuus kytketään myöhemmin pois, on suositeltavaa tyhjentää 
   <string name="revanced_shorts_autoplay_background_title">Toista Shortsit automaattisesti taustalla</string>
   <string name="revanced_shorts_autoplay_background_summary_on">Shortsit toistetaan automaattisesti myös taustalla</string>
   <string name="revanced_shorts_autoplay_background_summary_off">Shortsit toistuvat uudelleen taustatoiston aikana</string>
-  </patch>
-  <patch id="layout.tablet.enableTabletLayoutPatch">
-  <string name="revanced_tablet_layout_title">Ota tablettiasettelu käyttöön</string>
-  <string name="revanced_tablet_layout_summary_on">Tablettiasettelu on käytössä</string>
-  <string name="revanced_tablet_layout_summary_off">Tablettiasettelu ei ole käytössä</string>
-  <string name="revanced_tablet_layout_user_dialog_message">Yhteisöpostaukset eivät näy tablettiasettelussa</string>
   </patch>
   <patch id="layout.miniplayer.miniplayerPatch">
   <string name="revanced_miniplayer_screen_title">Minisoitin</string>

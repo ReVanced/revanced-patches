@@ -1024,6 +1024,23 @@ Second \"item\" text"</string>
   <string name="revanced_sb_about">关于</string>
   <string name="revanced_sb_about_api_sum">数据由 SponsorBlock API 提供。点击这里了解更多信息并查看其他平台的下载内容</string>
   </patch>
+  <patch id="layout.formfactor.changeFormFactorPatch">
+  <string name="revanced_change_form_factor_title">布局格式因子</string>
+  <string name="revanced_change_form_factor_entry_1">默认</string>
+  <string name="revanced_change_form_factor_entry_2">手机</string>
+  <string name="revanced_change_form_factor_entry_3">平板电脑</string>
+  <string name="revanced_change_form_factor_entry_4">汽车</string>
+  <string name="revanced_change_form_factor_user_dialog_message">"更改包括：
+
+平板电脑布局
+• 社区帖子隐藏
+
+汽车布局
+• 观看历史菜单隐藏
+• 探索选项卡已恢复
+• 短片在常规播放器中打开
+• 时间轴按主题和频道排序"</string>
+  </patch>
   <patch id="layout.spoofappversion.spoofAppVersionPatch">
   <string name="revanced_spoof_app_version_title">伪装应用程序版本</string>
   <string name="revanced_spoof_app_version_summary_on">客户端版本已伪装</string>
@@ -1080,12 +1097,6 @@ Second \"item\" text"</string>
   <string name="revanced_shorts_autoplay_background_title">自动播放 Shorts 背景播放</string>
   <string name="revanced_shorts_autoplay_background_summary_on">Shorts 背景播放将自动播放</string>
   <string name="revanced_shorts_autoplay_background_summary_off">Shorts 背景播放将重复播放</string>
-  </patch>
-  <patch id="layout.tablet.enableTabletLayoutPatch">
-  <string name="revanced_tablet_layout_title">启用平板电脑布局</string>
-  <string name="revanced_tablet_layout_summary_on">已启用平板电脑布局</string>
-  <string name="revanced_tablet_layout_summary_off">已禁用平板电脑布局</string>
-  <string name="revanced_tablet_layout_user_dialog_message">社区帖子不会在平板电脑布局中显示</string>
   </patch>
   <patch id="layout.miniplayer.miniplayerPatch">
   <string name="revanced_miniplayer_screen_title">小型播放器</string>

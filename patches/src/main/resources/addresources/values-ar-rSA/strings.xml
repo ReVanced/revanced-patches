@@ -1020,6 +1020,12 @@ Second \"item\" text"</string>
   <string name="revanced_sb_about">لمحة</string>
   <string name="revanced_sb_about_api_sum">يتم توفير البيانات بواسطة SponsorBlock API. انقر هنا لمعرفة المزيد ومشاهدة التنزيلات لمنصات أخرى</string>
   </patch>
+  <patch id="layout.formfactor.changeFormFactorPatch">
+  <string name="revanced_change_form_factor_title">شكل نموذج التخطيط</string>
+  <string name="revanced_change_form_factor_entry_1">الافتراضي</string>
+  <string name="revanced_change_form_factor_entry_2">الهاتف</string>
+  <string name="revanced_change_form_factor_entry_3">الكمبيوتر اللوحي</string>
+  </patch>
   <patch id="layout.spoofappversion.spoofAppVersionPatch">
   <string name="revanced_spoof_app_version_title">خِداع إصدار التطبيق</string>
   <string name="revanced_spoof_app_version_summary_on">تم تغيير اصدار التطبيق</string>
@@ -1076,12 +1082,6 @@ Second \"item\" text"</string>
   <string name="revanced_shorts_autoplay_background_title">تشغيل فيديوهات Shorts تلقائيًا في الخلفية</string>
   <string name="revanced_shorts_autoplay_background_summary_on">سيتم تشغيل فيديوهات Shorts تلقائيًا في الخلفية</string>
   <string name="revanced_shorts_autoplay_background_summary_off">سيتم تكرار فيديوهات Shorts في الخلفية</string>
-  </patch>
-  <patch id="layout.tablet.enableTabletLayoutPatch">
-  <string name="revanced_tablet_layout_title">تمكين تصميم الجهاز اللوحي</string>
-  <string name="revanced_tablet_layout_summary_on">تم تمكين تصميم الجهاز اللوحي</string>
-  <string name="revanced_tablet_layout_summary_off">تم تعطيل تصميم الجهاز اللوحي</string>
-  <string name="revanced_tablet_layout_user_dialog_message">لا تظهر منشورات المجتمع على تخطيطات الجهاز اللوحي</string>
   </patch>
   <patch id="layout.miniplayer.miniplayerPatch">
   <string name="revanced_miniplayer_screen_title">المشغل المصغر</string>

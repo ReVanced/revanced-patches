@@ -1022,6 +1022,23 @@ Second \"item\" text"</string>
   <string name="revanced_sb_about">Пра праграму</string>
   <string name="revanced_sb_about_api_sum">Дадзеныя прадастаўляюцца API SponsorBlock. Націсніце тут, каб даведацца больш і паглядзець спампоўкі для іншых платформаў</string>
   </patch>
+  <patch id="layout.formfactor.changeFormFactorPatch">
+  <string name="revanced_change_form_factor_title">Фармат экрана</string>
+  <string name="revanced_change_form_factor_entry_1">Па змаўчанню</string>
+  <string name="revanced_change_form_factor_entry_2">Тэлефон</string>
+  <string name="revanced_change_form_factor_entry_3">Планшэт</string>
+  <string name="revanced_change_form_factor_entry_4">Аўтамабільны</string>
+  <string name="revanced_change_form_factor_user_dialog_message">"Змены ўключаюць:
+
+Раскладка планшэта
+• Паведамленні супольнасці схаваны
+
+Раскладка аўтамабіля
+• Меню гісторыі праглядаў схавана
+• Адноўлена ўкладка «Даследаваць»
+• Ролікі Shorts адкрываюцца ў звычайным прайгравальніку
+• Стужка арганізавана па тэмах і каналах"</string>
+  </patch>
   <patch id="layout.spoofappversion.spoofAppVersionPatch">
   <string name="revanced_spoof_app_version_title">Версія праграмы Spoof</string>
   <string name="revanced_spoof_app_version_summary_on">Версія падробленая</string>
@@ -1077,12 +1094,6 @@ Second \"item\" text"</string>
   <string name="revanced_shorts_autoplay_background_title">Автовоспроизведение Shorts в фоновом режиме</string>
   <string name="revanced_shorts_autoplay_background_summary_on">Shorts в фоновом режиме будут воспроизводиться автоматически</string>
   <string name="revanced_shorts_autoplay_background_summary_off">Shorts в фоновом режиме будут повторяться</string>
-  </patch>
-  <patch id="layout.tablet.enableTabletLayoutPatch">
-  <string name="revanced_tablet_layout_title">Уключыць макет планшэта</string>
-  <string name="revanced_tablet_layout_summary_on">Макет планшэта ўключаны</string>
-  <string name="revanced_tablet_layout_summary_off">Макет планшэта адключаны</string>
-  <string name="revanced_tablet_layout_user_dialog_message">Паведамленні ў супольнасці не адлюстроўваюцца на планшэце</string>
   </patch>
   <patch id="layout.miniplayer.miniplayerPatch">
   <string name="revanced_miniplayer_screen_title">Міні-плэер</string>
