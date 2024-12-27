@@ -1,3 +1,10 @@
+# [5.8.0-dev.5](https://github.com/ReVanced/revanced-patches/compare/v5.8.0-dev.4...v5.8.0-dev.5) (2024-12-27)
+
+
+### Features
+
+* **YouTube:** Add `Change form factor` patch ([#4217](https://github.com/ReVanced/revanced-patches/issues/4217)) ([644ac5b](https://github.com/ReVanced/revanced-patches/commit/644ac5baa68b209a32300149a2efa009b776f9a7))
+
 # [5.8.0-dev.4](https://github.com/ReVanced/revanced-patches/compare/v5.8.0-dev.3...v5.8.0-dev.4) (2024-12-27)
 
 
