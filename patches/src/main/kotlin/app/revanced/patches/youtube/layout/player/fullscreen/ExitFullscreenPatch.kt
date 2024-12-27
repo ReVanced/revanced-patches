@@ -1,6 +1,5 @@
 package app.revanced.patches.youtube.layout.player.fullscreen
 
-import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
@@ -12,6 +11,7 @@ import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
 import app.revanced.patches.youtube.shared.autoRepeatFingerprint
 import app.revanced.patches.youtube.shared.autoRepeatParentFingerprint
+import app.revanced.util.addInstructionsAtControlFlowLabel
 
 @Suppress("unused")
 internal val exitFullscreenPatch = bytecodePatch(
@@ -57,9 +57,11 @@ internal val exitFullscreenPatch = bytecodePatch(
             )
         )
 
-        autoRepeatFingerprint.match(autoRepeatParentFingerprint.originalClassDef).method.addInstruction(
-            0,
-            "invoke-static {}, $EXTENSION_CLASS_DESCRIPTOR->endOfVideoReached()V",
-        )
+        autoRepeatFingerprint.match(autoRepeatParentFingerprint.originalClassDef).method.apply {
+            addInstructionsAtControlFlowLabel(
+                implementation!!.instructions.lastIndex,
+                "invoke-static {}, $EXTENSION_CLASS_DESCRIPTOR->endOfVideoReached()V",
+            )
+        }
     }
 }
