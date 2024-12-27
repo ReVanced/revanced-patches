@@ -1,3 +1,16 @@
+# [5.8.0-dev.4](https://github.com/ReVanced/revanced-patches/compare/v5.8.0-dev.3...v5.8.0-dev.4) (2024-12-27)
+
+
+### Bug Fixes
+
+* **GmsCore support:** Do not show battery optimization error on Android Automotive devices (Google built-in) ([#4218](https://github.com/ReVanced/revanced-patches/issues/4218)) ([d6e389c](https://github.com/ReVanced/revanced-patches/commit/d6e389cc43bc40724f032b230f70048276349a19))
+
+
+### Features
+
+* **Swipe controls:** Add option to enable/disable fullscreen swipe to next video ([#4222](https://github.com/ReVanced/revanced-patches/issues/4222)) ([119092f](https://github.com/ReVanced/revanced-patches/commit/119092fafa4129849246df15fe8076ed3b491b85))
+* **YouTube:** Add `Exit fullscreen mode` patch ([#4223](https://github.com/ReVanced/revanced-patches/issues/4223)) ([bb5d03b](https://github.com/ReVanced/revanced-patches/commit/bb5d03bd89a3f932c77e4e9de90174c374933688))
+
 # [5.8.0-dev.3](https://github.com/ReVanced/revanced-patches/compare/v5.8.0-dev.2...v5.8.0-dev.3) (2024-12-26)
 
 
