@@ -1101,6 +1101,10 @@ public final class app/revanced/patches/youtube/layout/buttons/overlay/HidePlaye
 	public static final fun getHidePlayerOverlayButtonsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
+public final class app/revanced/patches/youtube/layout/formfactor/ChangeFormFactorPatchKt {
+	public static final fun getChangeFormFactorPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
 public final class app/revanced/patches/youtube/layout/hide/endscreencards/HideEndscreenCardsPatchKt {
 	public static final fun getHideEndscreenCardsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
@@ -1230,7 +1234,6 @@ public final class app/revanced/patches/youtube/layout/startupshortsreset/Disabl
 }
 
 public final class app/revanced/patches/youtube/layout/tablet/EnableTabletLayoutPatchKt {
-	public static final field EXTENSION_CLASS_DESCRIPTOR Ljava/lang/String;
 	public static final fun getEnableTabletLayoutPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 

@@ -8,7 +8,7 @@
                 <item>iOS TV</item>
             </string-array>
             <string-array name="revanced_spoof_video_streams_client_type_entry_values">
-                <!-- Enum names from extension -->
+                <!-- Extension enum names. -->
                 <item>ANDROID_VR</item>
                 <item>ANDROID_VR_NO_AUTH</item>
                 <item>ANDROID_UNPLUGGED</item>
@@ -148,6 +148,21 @@
                 <item>17.33.42</item>
             </string-array>
         </patch>
+        <patch id="layout.formfactor.changeFormFactorPatch">
+            <string-array name="revanced_change_form_factor_entries">
+                <item>@string/revanced_change_form_factor_entry_1</item>
+                <item>@string/revanced_change_form_factor_entry_2</item>
+                <item>@string/revanced_change_form_factor_entry_3</item>
+                <item>@string/revanced_change_form_factor_entry_4</item>
+            </string-array>
+            <string-array name="revanced_change_form_factor_entry_values">
+                <!-- Extension enum names. -->
+                <item>DEFAULT</item>
+                <item>SMALL</item>
+                <item>LARGE</item>
+                <item>AUTOMOTIVE</item>
+            </string-array>
+        </patch>
         <patch id="layout.player.fullscreen.exitFullscreenPatch">
             <string-array name="revanced_exit_fullscreen_entries">
                 <item>@string/revanced_exit_fullscreen_entry_1</item>
@@ -174,7 +189,7 @@
                 <item>@string/revanced_miniplayer_type_entry_6</item>
             </string-array>
             <string-array name="revanced_miniplayer_type_entry_values">
-                <!-- Enum names from the extension. -->
+                <!-- Extension enum names. -->
                 <item>DISABLED</item>
                 <item>DEFAULT</item>
                 <item>MINIMAL</item>
@@ -192,7 +207,7 @@
                 <item>@string/revanced_miniplayer_type_entry_6</item>
             </string-array>
             <string-array name="revanced_miniplayer_type_legacy_entry_values">
-                <!-- Enum names from the extension. -->
+                <!-- Extension enum names. -->
                 <item>DEFAULT</item>
                 <item>MINIMAL</item>
                 <item>TABLET</item>
@@ -221,7 +236,7 @@
                 <item>@string/revanced_change_start_page_entry_browse</item>
             </string-array>
             <string-array name="revanced_change_start_page_entry_values">
-                <!-- Enum names from extension -->
+                <!-- Extension enum names. -->
                 <item>DEFAULT</item>
                 <!-- Intent Action -->
                 <item>SEARCH</item>
@@ -248,7 +263,7 @@
                 <item>@string/revanced_shorts_player_type_regular_player</item>
             </string-array>
             <string-array name="revanced_shorts_player_type_legacy_entry_values">
-                <!-- Enum names from extension -->
+                <!-- Extension enum names. -->
                 <item>SHORTS_PLAYER</item>
                 <item>REGULAR_PLAYER</item>
             </string-array>
@@ -272,7 +287,7 @@
                 <item>@string/revanced_alt_thumbnail_options_entry_4</item>
             </string-array>
             <string-array name="revanced_alt_thumbnail_options_entry_values">
-                <!-- Enum names from the extension -->
+                <!-- Extension enum names. -->
                 <item>ORIGINAL</item>
                 <item>DEARROW</item>
                 <item>DEARROW_STILL_IMAGES</item>

@@ -1029,6 +1029,23 @@ Ready to submit?"</string>
             <string name="revanced_sb_about_api">sponsor.ajay.app</string>
             <string name="revanced_sb_about_api_sum">Data is provided by the SponsorBlock API. Tap here to learn more and see downloads for other platforms</string>
         </patch>
+        <patch id="layout.formfactor.changeFormFactorPatch">
+            <string name="revanced_change_form_factor_title">Layout form factor</string>
+            <string name="revanced_change_form_factor_entry_1">Default</string>
+            <string name="revanced_change_form_factor_entry_2">Phone</string>
+            <string name="revanced_change_form_factor_entry_3">Tablet</string>
+            <string name="revanced_change_form_factor_entry_4">Automotive</string>
+            <string name="revanced_change_form_factor_user_dialog_message">"Changes include:
+
+Tablet layout
+• Community posts are hidden
+
+Automotive layout
+• Watch history menu is hidden
+• Explore tab is restored
+• Shorts open in the regular player
+• Feed is organized by topics and channel"</string>
+        </patch>
         <patch id="layout.spoofappversion.spoofAppVersionPatch">
             <string name="revanced_spoof_app_version_title">Spoof app version</string>
             <string name="revanced_spoof_app_version_summary_on">Version spoofed</string>
@@ -1086,12 +1103,6 @@ If later turned off, it is recommended to clear the app data to prevent UI bugs.
             <string name="revanced_shorts_autoplay_background_summary_on">Shorts background play will autoplay</string>
             <string name="revanced_shorts_autoplay_background_summary_off">Shorts background play will repeat</string>
         </patch>
-        <patch id="layout.tablet.enableTabletLayoutPatch">
-            <string name="revanced_tablet_layout_title">Enable tablet layout</string>
-            <string name="revanced_tablet_layout_summary_on">Tablet layout is enabled</string>
-            <string name="revanced_tablet_layout_summary_off">Tablet layout is disabled</string>
-            <string name="revanced_tablet_layout_user_dialog_message">Community posts do not show up on tablet layouts</string>
-        </patch>x
         <patch id="layout.miniplayer.miniplayerPatch">
             <string name="revanced_miniplayer_screen_title">Miniplayer</string>
             <string name="revanced_miniplayer_screen_summary">Change the style of the in app minimized player</string>

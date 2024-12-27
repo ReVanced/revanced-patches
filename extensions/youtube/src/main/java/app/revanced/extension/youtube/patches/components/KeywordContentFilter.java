@@ -528,14 +528,13 @@ final class KeywordContentFilter extends Filter {
         if (selectedNavButton == null) {
             return hideHome; // Unknown tab, treat the same as home.
         }
-        if (selectedNavButton == NavigationButton.HOME) {
-            return hideHome;
-        }
-        if (selectedNavButton == NavigationButton.SUBSCRIPTIONS) {
-            return hideSubscriptions;
-        }
-        // User is in the Library or Notifications tab.
-        return false;
+
+        return switch (selectedNavButton) {
+            case HOME, EXPLORE -> hideHome;
+            case SUBSCRIPTIONS -> hideSubscriptions;
+            // User is in the Library or notifications.
+            default -> false;
+        };
     }
 
     private void updateStats(boolean videoWasHidden, @Nullable String keyword) {
