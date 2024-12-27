@@ -446,6 +446,9 @@ Tính năng này chỉ khả dụng cho các thiết bị cũ hơn"</string>
   <string name="revanced_swipe_overlay_background_alpha_summary">Độ trong suốt của nền lớp phủ vuốt</string>
   <string name="revanced_swipe_threshold_title">Độ rộng ngưỡng vuốt</string>
   <string name="revanced_swipe_threshold_summary">Độ rộng của ngưỡng vuốt để thực hiện cử chỉ vuốt</string>
+  <string name="revanced_swipe_change_video_title">**Bật** vuốt để thay đổi video</string>
+  <string name="revanced_swipe_change_video_summary_on">Vuốt trong chế độ toàn màn hình sẽ chuyển sang video tiếp theo/trước</string>
+  <string name="revanced_swipe_change_video_summary_off">Vuốt trong chế độ toàn màn hình sẽ không chuyển sang video tiếp theo/trước</string>
   </patch>
   <patch id="layout.autocaptions.autoCaptionsPatch">
   <string name="revanced_auto_captions_title">Tắt phụ đề tự động</string>
@@ -741,6 +744,13 @@ Lưu ý: Bật tính năng này cũng sẽ tự động ẩn quảng cáo video"
   <string name="revanced_hide_player_popup_panels_title">Ẩn bảng tự bật lên trên trình phát</string>
   <string name="revanced_hide_player_popup_panels_summary_on">Bảng bật lên trên trình phát được ẩn</string>
   <string name="revanced_hide_player_popup_panels_summary_off">Bảng bật lên trên trình phát được hiện</string>
+  </patch>
+  <patch id="layout.player.fullscreen.exitFullscreenPatch">
+  <string name="revanced_exit_fullscreen_title">Thoát chế độ toàn màn hình khi kết thúc video</string>
+  <string name="revanced_exit_fullscreen_entry_1">Đã tắt</string>
+  <string name="revanced_exit_fullscreen_entry_2">Chân dung</string>
+  <string name="revanced_exit_fullscreen_entry_3">Phong cảnh</string>
+  <string name="revanced_exit_fullscreen_entry_4">Chân dung và phong cảnh</string>
   </patch>
   <patch id="layout.player.fullscreen.openVideosFullscreen">
   <string name="revanced_open_videos_fullscreen_portrait_title">Mở video ở chế độ toàn màn hình dọc</string>

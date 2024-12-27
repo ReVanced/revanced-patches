@@ -446,6 +446,9 @@ Tato funkce je dostupná pouze pro starší zařízení"</string>
   <string name="revanced_swipe_overlay_background_alpha_summary">Viditelnost pozadí překrytí gesta</string>
   <string name="revanced_swipe_threshold_title">Práh vynucení gesta</string>
   <string name="revanced_swipe_threshold_summary">Velikost prahu pro provedení gesta</string>
+  <string name="revanced_swipe_change_video_title">Povolit přejetí prstem pro změnu videa</string>
+  <string name="revanced_swipe_change_video_summary_on">Přejetí prstem v režimu celé obrazovky změní video na další/předchozí</string>
+  <string name="revanced_swipe_change_video_summary_off">Přejetí prstem v režimu celé obrazovky nebude video měnit na další/předchozí</string>
   </patch>
   <patch id="layout.autocaptions.autoCaptionsPatch">
   <string name="revanced_auto_captions_title">Zakázat automatické titulky</string>
@@ -741,6 +744,13 @@ Poznámka: Povolení této funkce také vynuceně skryje video reklamy"</string>
   <string name="revanced_hide_player_popup_panels_title">Skrýt vyskakovací panely přehrávače</string>
   <string name="revanced_hide_player_popup_panels_summary_on">Vyskakovací panely přehrávače jsou skryté</string>
   <string name="revanced_hide_player_popup_panels_summary_off">Vyskakovací panely přehrávače jsou zobrazeny</string>
+  </patch>
+  <patch id="layout.player.fullscreen.exitFullscreenPatch">
+  <string name="revanced_exit_fullscreen_title">Ukončete režim celé obrazovky na konci videa</string>
+  <string name="revanced_exit_fullscreen_entry_1">Zakázáno</string>
+  <string name="revanced_exit_fullscreen_entry_2">Na výšku</string>
+  <string name="revanced_exit_fullscreen_entry_3">Na šířku</string>
+  <string name="revanced_exit_fullscreen_entry_4">Na výšku i na šířku</string>
   </patch>
   <patch id="layout.player.fullscreen.openVideosFullscreen">
   <string name="revanced_open_videos_fullscreen_portrait_title">Otevřít videa v režimu na celou obrazovku na výšku</string>

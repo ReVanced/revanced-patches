@@ -448,6 +448,9 @@ Second \"item\" text"</string>
   <string name="revanced_swipe_overlay_background_alpha_summary">Η ορατότητα του πλαισίου σάρωσης στο παρασκήνιο</string>
   <string name="revanced_swipe_threshold_title">Κατώτατο όριο μεγέθους σάρωσης</string>
   <string name="revanced_swipe_threshold_summary">Η ελάχιστη απόσταση που θα διανύσετε με το δάκτυλο σας για να είναι αναγνωρίσιμη η χειρονομία σάρωσης</string>
+  <string name="revanced_swipe_change_video_title">Ενεργοποίηση αλλαγής βίντεο με σάρωση</string>
+  <string name="revanced_swipe_change_video_summary_on">Η σάρωση σε λειτουργία πλήρους οθόνης θα αλλάξει στο επόμενο/προηγούμενο βίντεο</string>
+  <string name="revanced_swipe_change_video_summary_off">Η σάρωση σε λειτουργία πλήρους οθόνης δεν θα αλλάξει στο επόμενο/προηγούμενο βίντεο</string>
   </patch>
   <patch id="layout.autocaptions.autoCaptionsPatch">
   <string name="revanced_auto_captions_title">Απενεργοποίηση αυτόματων υπότιτλων</string>
@@ -743,6 +746,13 @@ Second \"item\" text"</string>
   <string name="revanced_hide_player_popup_panels_title">Αναδυόμενα παράθυρα οθόνης αναπαραγωγής</string>
   <string name="revanced_hide_player_popup_panels_summary_on">Κρυμμένα</string>
   <string name="revanced_hide_player_popup_panels_summary_off">Εμφανίζονται</string>
+  </patch>
+  <patch id="layout.player.fullscreen.exitFullscreenPatch">
+  <string name="revanced_exit_fullscreen_title">Έξοδος από την λειτουργία πλήρους οθόνης στο τέλος του βίντεο</string>
+  <string name="revanced_exit_fullscreen_entry_1">Απενεργοποιημένη</string>
+  <string name="revanced_exit_fullscreen_entry_2">Κατακόρυφο</string>
+  <string name="revanced_exit_fullscreen_entry_3">Οριζόντιο</string>
+  <string name="revanced_exit_fullscreen_entry_4">Κατακόρυφο και οριζόντιο</string>
   </patch>
   <patch id="layout.player.fullscreen.openVideosFullscreen">
   <string name="revanced_open_videos_fullscreen_portrait_title">Άνοιγμα των βίντεο σε πλήρη οθόνη με κατακόρυφη προβολή</string>

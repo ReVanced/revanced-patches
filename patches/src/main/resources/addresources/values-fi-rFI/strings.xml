@@ -742,6 +742,8 @@ Huomaa: Tämä ottaa pakolla pois myös videomainokset"</string>
   <string name="revanced_hide_player_popup_panels_summary_on">Soittimen ponnahdusikkunat on piilotettu</string>
   <string name="revanced_hide_player_popup_panels_summary_off">Soittimen ponnahdusikkunat näytetään</string>
   </patch>
+  <patch id="layout.player.fullscreen.exitFullscreenPatch">
+  </patch>
   <patch id="layout.player.fullscreen.openVideosFullscreen">
   <string name="revanced_open_videos_fullscreen_portrait_title">Avaa videot koko näytöllä pystyasennossa</string>
   <string name="revanced_open_videos_fullscreen_portrait_summary_on">Videot avataan kokoruututilassa</string>

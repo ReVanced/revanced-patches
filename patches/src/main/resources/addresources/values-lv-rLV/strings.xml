@@ -445,6 +445,9 @@ Ierobežojumi
   <string name="revanced_swipe_overlay_background_alpha_summary">Slīdēšanas pārklājuma fona redzamība</string>
   <string name="revanced_swipe_threshold_title">Slīdēšanas lieluma slieksnis</string>
   <string name="revanced_swipe_threshold_summary">Slieksnis, lai slīdēšana varētu notikt</string>
+  <string name="revanced_swipe_change_video_title">Iespējot pārvilkšanu, lai mainītu videoklipus</string>
+  <string name="revanced_swipe_change_video_summary_on">Pārvelkot pilnekrāna režīmā, tiks mainīts nākamais/iepriekšējais videoklips</string>
+  <string name="revanced_swipe_change_video_summary_off">Pārvelkot pilnekrāna režīmā, nākamais/iepriekšējais videoklips netiks mainīts</string>
   </patch>
   <patch id="layout.autocaptions.autoCaptionsPatch">
   <string name="revanced_auto_captions_title">Atslēgt automātiskos titrus</string>
@@ -740,6 +743,13 @@ Piezīme: Šī iestatījuma ieslēgšana arī piespiedu kārtā slēpj video rek
   <string name="revanced_hide_player_popup_panels_title">Paslēpt atskaņotāja uznirstošos paneļus</string>
   <string name="revanced_hide_player_popup_panels_summary_on">Atskaņotāja uznirstošie paneļi ir paslēpti</string>
   <string name="revanced_hide_player_popup_panels_summary_off">Atskaņotāja uznirstošie paneļi ir redzami</string>
+  </patch>
+  <patch id="layout.player.fullscreen.exitFullscreenPatch">
+  <string name="revanced_exit_fullscreen_title">Iziet no pilnekrāna režīma video beigās</string>
+  <string name="revanced_exit_fullscreen_entry_1">Atspējots</string>
+  <string name="revanced_exit_fullscreen_entry_2">Portrets</string>
+  <string name="revanced_exit_fullscreen_entry_3">Ainava</string>
+  <string name="revanced_exit_fullscreen_entry_4">Portrets un ainava</string>
   </patch>
   <patch id="layout.player.fullscreen.openVideosFullscreen">
   <string name="revanced_open_videos_fullscreen_portrait_title">Atvērt video pilnekrāna portreta režīmā</string>

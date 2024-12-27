@@ -445,6 +445,9 @@ Questa funzione è disponibile solo per i dispositivi più vecchi"</string>
   <string name="revanced_swipe_overlay_background_alpha_summary">La visibilità dello sfondo in sovrapposizione durante lo scorrimento</string>
   <string name="revanced_swipe_threshold_title">Ampiezza limite della soglia di scorrimento</string>
   <string name="revanced_swipe_threshold_summary">Il limite di ampiezza entro cui deve avvenire lo scorrimento</string>
+  <string name="revanced_swipe_change_video_title">Abilita scorrimento rapido per cambiare video</string>
+  <string name="revanced_swipe_change_video_summary_on">Lo scorrimento veloce in modalità a schermo intero passerà al video successivo/precedente</string>
+  <string name="revanced_swipe_change_video_summary_off">Lo scorrimento veloce in modalità a schermo intero non passerà al prossimo/precedente video</string>
   </patch>
   <patch id="layout.autocaptions.autoCaptionsPatch">
   <string name="revanced_auto_captions_title">Disabilita i sottotitoli automatici </string>
@@ -740,6 +743,13 @@ Nota: Abilitare questa opzione nasconde anche le pubblicità video"</string>
   <string name="revanced_hide_player_popup_panels_title">Nascondi i pannelli popup del player</string>
   <string name="revanced_hide_player_popup_panels_summary_on">I pannelli popup del player sono nascosti</string>
   <string name="revanced_hide_player_popup_panels_summary_off">I pannelli popup del player sono visibili</string>
+  </patch>
+  <patch id="layout.player.fullscreen.exitFullscreenPatch">
+  <string name="revanced_exit_fullscreen_title">Esci dalla modalità schermo intero al termine del video</string>
+  <string name="revanced_exit_fullscreen_entry_1">Disabilitato</string>
+  <string name="revanced_exit_fullscreen_entry_2">Ritratto</string>
+  <string name="revanced_exit_fullscreen_entry_3">Paesaggio</string>
+  <string name="revanced_exit_fullscreen_entry_4">Ritratto e paesaggio</string>
   </patch>
   <patch id="layout.player.fullscreen.openVideosFullscreen">
   <string name="revanced_open_videos_fullscreen_portrait_title">Apri i video in verticale a schermo intero</string>

@@ -446,6 +446,9 @@ Kjo veçori është e disponueshme vetëm për pajisje më të vjetra"</string>
   <string name="revanced_swipe_overlay_background_alpha_summary">Dukshmëria e sfondit të mbivendosjes së shërbimit</string>
   <string name="revanced_swipe_threshold_title">Pragu i madhësisë së shërbimit</string>
   <string name="revanced_swipe_threshold_summary">Sasia e pragut për të ndodhur shërbimi</string>
+  <string name="revanced_swipe_change_video_title">Aktivizoni lëshimin për të ndryshuar videot</string>
+  <string name="revanced_swipe_change_video_summary_on">Lëvizja në modalitetin në ekran të plotë do të ndryshojë në videon e ardhshme/të mëparshme</string>
+  <string name="revanced_swipe_change_video_summary_off">Lëvizja në modalitetin në ekran të plotë nuk do të ndryshojë në videon e ardhshme/të mëparshme</string>
   </patch>
   <patch id="layout.autocaptions.autoCaptionsPatch">
   <string name="revanced_auto_captions_title">Çaktivizo titrat automatikë</string>
@@ -741,6 +744,13 @@ Shënim: Aktivizimi i kësaj gjëje gjithashtu fsheh me forcë reklamat video"</
   <string name="revanced_hide_player_popup_panels_title">Fsheh panelet pop-up të riprodhuesit</string>
   <string name="revanced_hide_player_popup_panels_summary_on">Panelet pop-up të riprodhuesit janë të fshehura</string>
   <string name="revanced_hide_player_popup_panels_summary_off">Panelet pop-up të riprodhuesit janë të dukshme</string>
+  </patch>
+  <patch id="layout.player.fullscreen.exitFullscreenPatch">
+  <string name="revanced_exit_fullscreen_title">Dilni nga gjithëshkëmbja në fund të videos</string>
+  <string name="revanced_exit_fullscreen_entry_1">Çaktivizuar</string>
+  <string name="revanced_exit_fullscreen_entry_2">Portret</string>
+  <string name="revanced_exit_fullscreen_entry_3">Peisazh</string>
+  <string name="revanced_exit_fullscreen_entry_4">Portret dhe peisazh</string>
   </patch>
   <patch id="layout.player.fullscreen.openVideosFullscreen">
   <string name="revanced_open_videos_fullscreen_portrait_title">Hap videot në ekran të plotë portret</string>

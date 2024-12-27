@@ -445,6 +445,9 @@ Second \"item\" text"</string>
   <string name="revanced_swipe_overlay_background_alpha_summary">قيمة شفافية خلفية واجهة التمرير</string>
   <string name="revanced_swipe_threshold_title">مقدار حد التمرير</string>
   <string name="revanced_swipe_threshold_summary">الحد الأدنى من التمرير قبل اكتشاف الإيماءة</string>
+  <string name="revanced_swipe_change_video_title">تفعيل السحب لتغيير مقاطع الفيديو</string>
+  <string name="revanced_swipe_change_video_summary_on">سيؤدي التمرير في وضع ملء الشاشة إلى التغيير إلى الفيديو التالي/السابق</string>
+  <string name="revanced_swipe_change_video_summary_off">لن يؤدي التمرير في وضع ملء الشاشة إلى التغيير إلى الفيديو التالي/السابق</string>
   </patch>
   <patch id="layout.autocaptions.autoCaptionsPatch">
   <string name="revanced_auto_captions_title">تعطيل التَّرْجَمَة التلقائية</string>
@@ -740,6 +743,13 @@ Second \"item\" text"</string>
   <string name="revanced_hide_player_popup_panels_title">إخفاء لوحات المشغل المنبثقة</string>
   <string name="revanced_hide_player_popup_panels_summary_on">تم إخفاء لوحات المشغل المنبثقة</string>
   <string name="revanced_hide_player_popup_panels_summary_off">يتم عرض لوحات المشغل المنبثقة</string>
+  </patch>
+  <patch id="layout.player.fullscreen.exitFullscreenPatch">
+  <string name="revanced_exit_fullscreen_title">الخروج من وضع ملء الشاشة عند نهاية الفيديو</string>
+  <string name="revanced_exit_fullscreen_entry_1">معطل</string>
+  <string name="revanced_exit_fullscreen_entry_2">عمودي</string>
+  <string name="revanced_exit_fullscreen_entry_3">أفقي</string>
+  <string name="revanced_exit_fullscreen_entry_4">عمودي وأفقي</string>
   </patch>
   <patch id="layout.player.fullscreen.openVideosFullscreen">
   <string name="revanced_open_videos_fullscreen_portrait_title">فتح مقاطع الفيديو في ملء الشاشة</string>

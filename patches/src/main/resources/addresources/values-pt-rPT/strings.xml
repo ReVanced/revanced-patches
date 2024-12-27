@@ -445,6 +445,9 @@ Tính năng này chỉ khả dụng cho các thiết bị cũ"</string>
   <string name="revanced_swipe_overlay_background_alpha_summary">A visibilidade do fundo da sobreposição de deslize</string>
   <string name="revanced_swipe_threshold_title">Limite de magnitude</string>
   <string name="revanced_swipe_threshold_summary">A quantidade limite para deslizar irá ocorrer</string>
+  <string name="revanced_swipe_change_video_title">Ativar deslizar para mudar de vídeo</string>
+  <string name="revanced_swipe_change_video_summary_on">Deslizar no modo de ecrã inteiro mudará para o vídeo seguinte/anterior</string>
+  <string name="revanced_swipe_change_video_summary_off">Deslizar no modo de ecrã inteiro não mudará para o vídeo seguinte/anterior</string>
   </patch>
   <patch id="layout.autocaptions.autoCaptionsPatch">
   <string name="revanced_auto_captions_title">Desativar legendas automáticas</string>
@@ -740,6 +743,13 @@ Lưu ý: Bật tính năng này cũng buộc ẩn quảng cáo video"</string>
   <string name="revanced_hide_player_popup_panels_title">Esconder painéis popup do player</string>
   <string name="revanced_hide_player_popup_panels_summary_on">Painéis pop-up do jogador estão escondidos</string>
   <string name="revanced_hide_player_popup_panels_summary_off">Painéis pop-up do jogador são visíveis</string>
+  </patch>
+  <patch id="layout.player.fullscreen.exitFullscreenPatch">
+  <string name="revanced_exit_fullscreen_title">Sair do modo de ecrã inteiro no final do vídeo</string>
+  <string name="revanced_exit_fullscreen_entry_1">Desativado</string>
+  <string name="revanced_exit_fullscreen_entry_2">Retrato</string>
+  <string name="revanced_exit_fullscreen_entry_3">Paisagem</string>
+  <string name="revanced_exit_fullscreen_entry_4">Retrato e paisagem</string>
   </patch>
   <patch id="layout.player.fullscreen.openVideosFullscreen">
   <string name="revanced_open_videos_fullscreen_portrait_title">Abrir vídeos em retrato em tela cheia</string>

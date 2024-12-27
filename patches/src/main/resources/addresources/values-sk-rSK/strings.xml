@@ -33,7 +33,6 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">Dátum zostavenia APK je poškodený</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
-  <string name="revanced_settings_title">ReVanced</string>
   <string name="revanced_settings_confirm_user_dialog_title">Chcete pokračovať?</string>
   <string name="revanced_settings_reset">Resetovať</string>
   <string name="revanced_settings_restart_title">Obnovte a reštartujte</string>
@@ -77,7 +76,6 @@ Vypnutie optimalizácie batérie pre MicroG nebude mať negatívny vplyv na spot
   <string name="revanced_settings_screen_03_feed_title">Feed</string>
   <string name="revanced_settings_screen_04_player_title">Hráč</string>
   <string name="revanced_settings_screen_05_general_title">Všeobecné rozloženie</string>
-  <string name="revanced_settings_screen_06_shorts_title">Kanály</string>
   <string name="revanced_settings_screen_07_seekbar_title">Panel vyhľadávania</string>
   <string name="revanced_settings_screen_08_swipe_controls_title">Ovládanie potiahnutím</string>
   <string name="revanced_settings_screen_11_misc_title">Rôzne</string>
@@ -439,6 +437,9 @@ Táto funkcia je dostupná len pre staršie zariadenia"</string>
   <string name="revanced_swipe_overlay_background_alpha_summary">Viditeľnosť pozadia prekrytia potiahnutím prstom</string>
   <string name="revanced_swipe_threshold_title">Prahová hodnota potiahnutia</string>
   <string name="revanced_swipe_threshold_summary">Hodnota prahu, ktorý sa má vykonať potiahnutím prstom</string>
+  <string name="revanced_swipe_change_video_title">Potiahnite prstom a zmeňte videá</string>
+  <string name="revanced_swipe_change_video_summary_on">Potiahnutie prstom v režime celej obrazovky prepne na predchádzajúce/nasledujúce video</string>
+  <string name="revanced_swipe_change_video_summary_off">Potiahnutie prstom v režime celej obrazovky neprepne na predchádzajúce/nasledujúce video</string>
   </patch>
   <patch id="layout.autocaptions.autoCaptionsPatch">
   <string name="revanced_auto_captions_title">Zakázať automatické titulky</string>
@@ -734,6 +735,13 @@ Poznámka: Povolením tejto možnosti sa tiež vynútene skryjú video reklamy"<
   <string name="revanced_hide_player_popup_panels_title">Skryť vyskakovacie panely prehrávača</string>
   <string name="revanced_hide_player_popup_panels_summary_on">Vyskakovacie panely prehrávača sú skryté</string>
   <string name="revanced_hide_player_popup_panels_summary_off">Zobrazia sa vyskakovacie panely prehrávača</string>
+  </patch>
+  <patch id="layout.player.fullscreen.exitFullscreenPatch">
+  <string name="revanced_exit_fullscreen_title">Ukončiť režim celej obrazovky na konci videa</string>
+  <string name="revanced_exit_fullscreen_entry_1">Zakázané</string>
+  <string name="revanced_exit_fullscreen_entry_2">Na výšku</string>
+  <string name="revanced_exit_fullscreen_entry_3">Na šírku</string>
+  <string name="revanced_exit_fullscreen_entry_4">Na výšku a na šírku</string>
   </patch>
   <patch id="layout.player.fullscreen.openVideosFullscreen">
   <string name="revanced_open_videos_fullscreen_portrait_title">Otvoriť videá v celoobrazovkovom portréte</string>

@@ -446,6 +446,9 @@ MicroG-এর জন্য ব্যাটারি অপ্টিমাইজ�
   <string name="revanced_swipe_overlay_background_alpha_summary">সোয়াইপ ওভারলে ব্যাকগ্রাউন্ডের দৃশ্যমানতা</string>
   <string name="revanced_swipe_threshold_title">সোয়াইপ থ্রেশহোল্ড এর মাত্রা</string>
   <string name="revanced_swipe_threshold_summary">সোয়াইপ করার থ্রেশহোল্ডের পরিমাণ</string>
+  <string name="revanced_swipe_change_video_title">ভিডিও পরিবর্তন করতে সোয়াইপ কর সক্ষম করুন</string>
+  <string name="revanced_swipe_change_video_summary_on">ফুলস্ক্রিন মোডে সোয়াইপ করলে পরবর্তী/পূর্ববর্তী ভিডিওতে পরিবর্তন হবে</string>
+  <string name="revanced_swipe_change_video_summary_off">ফুলস্ক্রিন মোডে সোয়াইপ করলে পরবর্তী /পূর্ববর্তী ভিডিওতে পরিবর্তন হবে না</string>
   </patch>
   <patch id="layout.autocaptions.autoCaptionsPatch">
   <string name="revanced_auto_captions_title">স্বয়ংক্রিয় ক্যাপশন বন্ধ করুন</string>
@@ -741,6 +744,13 @@ MicroG-এর জন্য ব্যাটারি অপ্টিমাইজ�
   <string name="revanced_hide_player_popup_panels_title">প্লেয়ার পপআপ প্যানেলগুলো লুকান</string>
   <string name="revanced_hide_player_popup_panels_summary_on">প্লেয়ার পপআপ প্যানেলগুলো লুকিয়ে রয়েছে</string>
   <string name="revanced_hide_player_popup_panels_summary_off">প্লেয়ার পপআপ প্যানেলগুলো প্রদর্শিত হয়েছে</string>
+  </patch>
+  <patch id="layout.player.fullscreen.exitFullscreenPatch">
+  <string name="revanced_exit_fullscreen_title">ভিডিও শেষ হওয়ার সময় পূর্ণ পর্দা মোড থেকে বেরিয়ে যাও</string>
+  <string name="revanced_exit_fullscreen_entry_1">নিষ্ক্রিয়</string>
+  <string name="revanced_exit_fullscreen_entry_2">আনুভূমিক</string>
+  <string name="revanced_exit_fullscreen_entry_3">ল্যান্ডস্কেপ</string>
+  <string name="revanced_exit_fullscreen_entry_4">আনুভূমিক এবং ল্যান্ডস্কেপ</string>
   </patch>
   <patch id="layout.player.fullscreen.openVideosFullscreen">
   <string name="revanced_open_videos_fullscreen_portrait_title">পূর্ণ পর্দায় ভিডিও খুলুন</string>

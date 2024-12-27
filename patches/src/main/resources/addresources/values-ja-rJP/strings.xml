@@ -444,6 +444,9 @@ MicroG のバッテリー最適化を無効にしても、バッテリーの使�
   <string name="revanced_swipe_overlay_background_alpha_summary">オーバーレイの背景をスワイプ表示する</string>
   <string name="revanced_swipe_threshold_title">スワイプの大きさのしきい値</string>
   <string name="revanced_swipe_threshold_summary">スワイプとして検出する量のしきい値</string>
+  <string name="revanced_swipe_change_video_title">スワイプして動画を変更する</string>
+  <string name="revanced_swipe_change_video_summary_on">全画面モードでスワイプすると、次の/前の動画に切り替わります</string>
+  <string name="revanced_swipe_change_video_summary_off">全画面モードでスワイプしても、次の/前の動画には切り替わりません</string>
   </patch>
   <patch id="layout.autocaptions.autoCaptionsPatch">
   <string name="revanced_auto_captions_title">自動字幕を無効にする</string>
@@ -739,6 +742,13 @@ MicroG のバッテリー最適化を無効にしても、バッテリーの使�
   <string name="revanced_hide_player_popup_panels_title">プレーヤーのポップアップパネルを隠す</string>
   <string name="revanced_hide_player_popup_panels_summary_on">プレーヤーのポップアップパネルが非表示になります</string>
   <string name="revanced_hide_player_popup_panels_summary_off">プレーヤーのポップアップパネルが表示されます</string>
+  </patch>
+  <patch id="layout.player.fullscreen.exitFullscreenPatch">
+  <string name="revanced_exit_fullscreen_title">ビデオの最後に全画面表示モードを終了する</string>
+  <string name="revanced_exit_fullscreen_entry_1">無効</string>
+  <string name="revanced_exit_fullscreen_entry_2">ポートレート</string>
+  <string name="revanced_exit_fullscreen_entry_3">風景</string>
+  <string name="revanced_exit_fullscreen_entry_4">ポートレートと風景</string>
   </patch>
   <patch id="layout.player.fullscreen.openVideosFullscreen">
   <string name="revanced_open_videos_fullscreen_portrait_title">全画面表示で動画を開く</string>
@@ -1237,6 +1247,7 @@ DeArrowの詳細については、ここをタップしてください。"</stri
   <string name="revanced_force_original_audio_title">元の音声を強制的に使用する</string>
   <string name="revanced_force_original_audio_summary_on">元の音声をを使用中</string>
   <string name="revanced_force_original_audio_summary_off">デフォルトの音声をを使用中</string>
+  <string name="revanced_force_original_audio_not_available">この機能を使用するには、ストリームスポーフィングをiOSクライアントタイプに変更してください</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->

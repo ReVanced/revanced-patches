@@ -446,6 +446,9 @@ MicroG-ի համար մարտկոցի օպտիմալացումը անջատել�
   <string name="revanced_swipe_overlay_background_alpha_summary">Սահմանման վերածման ֆոնի տեսանելիությունը</string>
   <string name="revanced_swipe_threshold_title">Սահմանման վերածման չափը</string>
   <string name="revanced_swipe_threshold_summary">Սահմանման վերածման չափը</string>
+  <string name="revanced_swipe_change_video_title">Վայրէջքով տեսանյութերը փոխելու ակտիվացում</string>
+  <string name="revanced_swipe_change_video_summary_on">Լիարժեք ռեժիմով վայրէջքը կփոխվի հաջորդ / նախորդ տեսանյութին</string>
+  <string name="revanced_swipe_change_video_summary_off">Լիարժեք ռեժիմով վայրէջքը չի փոխվի հաջորդ / նախորդ տեսանյութին</string>
   </patch>
   <patch id="layout.autocaptions.autoCaptionsPatch">
   <string name="revanced_auto_captions_title">Անջատել ավտոմատ ենթագրերը</string>
@@ -739,6 +742,13 @@ MicroG-ի համար մարտկոցի օպտիմալացումը անջատել�
   <string name="revanced_hide_player_popup_panels_title">Թաքցնել հաղորդակցման վահանակների ելնող պատուհանները</string>
   <string name="revanced_hide_player_popup_panels_summary_on">Հաղորդակցման վահանակների ելնող պատուհանները թաքցված են</string>
   <string name="revanced_hide_player_popup_panels_summary_off">Հաղորդակցման վահանակների ելնող պատուհանները երևում են</string>
+  </patch>
+  <patch id="layout.player.fullscreen.exitFullscreenPatch">
+  <string name="revanced_exit_fullscreen_title">Տեսանյութի ավարտին դուրս գալ լիաէկրան ռեժիմից</string>
+  <string name="revanced_exit_fullscreen_entry_1">Անջատված</string>
+  <string name="revanced_exit_fullscreen_entry_2">Դիմանկար</string>
+  <string name="revanced_exit_fullscreen_entry_3">Լանդշաֆտ</string>
+  <string name="revanced_exit_fullscreen_entry_4">Դիմանկար և լանդշաֆտ</string>
   </patch>
   <patch id="layout.player.fullscreen.openVideosFullscreen">
   <string name="revanced_open_videos_fullscreen_portrait_title">Բացել տեսանյութերը լի էկրանի պորտրետային ռեժիմով</string>

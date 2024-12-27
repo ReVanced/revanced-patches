@@ -33,7 +33,6 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">APK derleme tarihi bozuk</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
-  <string name="revanced_settings_title">ReVanced Ayarları</string>
   <string name="revanced_settings_confirm_user_dialog_title">Devam etmek istiyor musunuz?</string>
   <string name="revanced_settings_reset">Sıfırla</string>
   <string name="revanced_settings_restart_title">Yenile ve yeniden başlat</string>
@@ -445,6 +444,9 @@ Bu özellik yalnızca eski cihazlarda kullanılabilir"</string>
   <string name="revanced_swipe_overlay_background_alpha_summary">Kaydırma paneli arka planının görünürlüğü</string>
   <string name="revanced_swipe_threshold_title">Kaydırma büyüklük eşiği</string>
   <string name="revanced_swipe_threshold_summary">Kaydırma işleminin gerçekleşmesi için eşik miktarı</string>
+  <string name="revanced_swipe_change_video_title">Videoları değiştirmek için kaydırmayı etkinleştir</string>
+  <string name="revanced_swipe_change_video_summary_on">Tam ekran modunda kaydırma, bir sonraki/önceki videoya geçecektir</string>
+  <string name="revanced_swipe_change_video_summary_off">Tam ekran modunda kaydırma bir sonraki/önceki videoya geçmeyecektir</string>
   </patch>
   <patch id="layout.autocaptions.autoCaptionsPatch">
   <string name="revanced_auto_captions_title">Altyazıların kendiliğinden açılmasını devre dışı bırak</string>
@@ -740,6 +742,13 @@ Not: Bunu etkinleştirmek aynı zamanda video reklamlarını zorla gizler"</stri
   <string name="revanced_hide_player_popup_panels_title">Oynatıcı açılır panellerini gizle</string>
   <string name="revanced_hide_player_popup_panels_summary_on">Oynatıcı açılır panelleri gizli</string>
   <string name="revanced_hide_player_popup_panels_summary_off">Oynatıcı açılır panelleri görünür</string>
+  </patch>
+  <patch id="layout.player.fullscreen.exitFullscreenPatch">
+  <string name="revanced_exit_fullscreen_title">Videonun sonunda tam ekran modundan Çıkış</string>
+  <string name="revanced_exit_fullscreen_entry_1">Devre Dışı</string>
+  <string name="revanced_exit_fullscreen_entry_2">Dikey</string>
+  <string name="revanced_exit_fullscreen_entry_3">Yatay</string>
+  <string name="revanced_exit_fullscreen_entry_4">Dikey ve yatay</string>
   </patch>
   <patch id="layout.player.fullscreen.openVideosFullscreen">
   <string name="revanced_open_videos_fullscreen_portrait_title">Videoları tam ekran portre modunda aç</string>
