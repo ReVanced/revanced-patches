@@ -47,8 +47,11 @@ val spoofVideoStreamsPatch = spoofVideoStreamsPatch({
                     tag = "app.revanced.extension.youtube.settings.preference.SpoofStreamingDataSideEffectsPreference"
                 ),
                 ListPreference(
-                    "revanced_spoof_video_streams_language",
-                    summaryKey = null
+                    key = "revanced_spoof_video_streams_language",
+                    summaryKey = null,
+                    // Language strings are declared in Setting patch.
+                    entriesKey = "revanced_language_entries",
+                    entryValuesKey = "revanced_language_entry_values"
                 ),
                 SwitchPreference("revanced_spoof_video_streams_ios_force_avc"),
                 SwitchPreference("revanced_spoof_streaming_data_stats_for_nerds"),

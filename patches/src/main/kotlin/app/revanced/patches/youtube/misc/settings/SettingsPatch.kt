@@ -6,6 +6,7 @@ import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.resourcePatch
+import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
 import app.revanced.patches.all.misc.packagename.setOrGetFallbackPackageName
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
@@ -20,8 +21,12 @@ import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.fix.cairo.disableCairoSettingsPatch
 import app.revanced.patches.youtube.misc.fix.playbackspeed.fixPlaybackSpeedWhilePlayingPatch
 import app.revanced.util.*
+import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.builder.MutableMethodImplementation
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
+import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
+import com.android.tools.smali.dexlib2.immutable.ImmutableMethodParameter
 import com.android.tools.smali.dexlib2.util.MethodUtil
 
 // Used by a fingerprint() from SettingsPatch.
@@ -150,6 +155,10 @@ val settingsPatch = bytecodePatch(
                 inputType = InputType.TEXT_MULTI_LINE,
                 tag = "app.revanced.extension.shared.settings.preference.ImportExportPreference",
             ),
+            ListPreference(
+                key = "revanced_language",
+                summaryKey = null
+            )
         )
 
         setThemeFingerprint.method.let { setThemeMethod ->
@@ -189,6 +198,32 @@ val settingsPatch = bytecodePatch(
         licenseActivityOnCreateFingerprint.classDef.apply {
             methods.removeIf { it.name != "onCreate" && !MethodUtil.isConstructor(it) }
         }
+
+        // Add context override to force a specific settings language.
+        licenseActivityOnCreateFingerprint.classDef.apply {
+            val attachBaseContext = ImmutableMethod(
+                type,
+                "attachBaseContext",
+                listOf(ImmutableMethodParameter("Landroid/content/Context;", null, null)),
+                "V",
+                AccessFlags.PROTECTED.value,
+                null,
+                null,
+                MutableMethodImplementation(3),
+            ).toMutable().apply {
+                addInstructions(
+                    """
+                        invoke-static { p1 }, $activityHookClassDescriptor->getAttachBaseContext(Landroid/content/Context;)Landroid/content/Context;
+                        move-result-object p1
+                        invoke-super { p0, p1 }, $superclass->attachBaseContext(Landroid/content/Context;)V
+                        return-void
+                    """
+                )
+            }
+
+            methods.add(attachBaseContext)
+        }
+
     }
 
     finalize {

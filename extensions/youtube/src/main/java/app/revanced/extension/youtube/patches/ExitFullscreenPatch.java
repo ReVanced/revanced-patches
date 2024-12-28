@@ -49,7 +49,10 @@ public class ExitFullscreenPatch {
                         Logger.printDebug(() -> "Fullscreen button is null, cannot click");
                     } else {
                         Logger.printDebug(() -> "Clicking fullscreen button");
+                        final boolean soundEffectsEnabled = button.isSoundEffectsEnabled();
+                        button.setSoundEffectsEnabled(false);
                         button.performClick();
+                        button.setSoundEffectsEnabled(soundEffectsEnabled);
                     }
                 });
             }
