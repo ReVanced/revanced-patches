@@ -1,3 +1,10 @@
+# [5.8.0-dev.8](https://github.com/ReVanced/revanced-patches/compare/v5.8.0-dev.7...v5.8.0-dev.8) (2024-12-28)
+
+
+### Features
+
+* **YouTube:** Add in app option to select a preferred language for ReVanced specific text ([#4231](https://github.com/ReVanced/revanced-patches/issues/4231)) ([3932af3](https://github.com/ReVanced/revanced-patches/commit/3932af397ae89a0b30191cd870bd6cddb7a078db))
+
 # [5.8.0-dev.7](https://github.com/ReVanced/revanced-patches/compare/v5.8.0-dev.6...v5.8.0-dev.7) (2024-12-27)
 
 
