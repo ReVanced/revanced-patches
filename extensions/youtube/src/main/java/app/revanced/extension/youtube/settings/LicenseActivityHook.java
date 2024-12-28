@@ -2,11 +2,15 @@ package app.revanced.extension.youtube.settings;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.content.Context;
 import android.preference.PreferenceFragment;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import app.revanced.extension.shared.Logger;
+import app.revanced.extension.shared.Utils;
+import app.revanced.extension.shared.settings.AppLanguage;
+import app.revanced.extension.shared.settings.BaseSettings;
 import app.revanced.extension.youtube.ThemeHelper;
 import app.revanced.extension.youtube.settings.preference.ReVancedPreferenceFragment;
 import app.revanced.extension.youtube.settings.preference.ReturnYouTubeDislikePreferenceFragment;
@@ -24,6 +28,19 @@ import static app.revanced.extension.shared.Utils.getResourceIdentifier;
  */
 @SuppressWarnings("unused")
 public class LicenseActivityHook {
+
+    /**
+     * Injection point.
+     * Overrides the ReVanced settings language.
+     */
+    public static Context getAttachBaseContext(Context original) {
+        AppLanguage language = BaseSettings.REVANCED_LANGUAGE.get();
+        if (language == AppLanguage.DEFAULT) {
+            return original;
+        }
+
+        return Utils.getContext();
+    }
 
     /**
      * Injection point.

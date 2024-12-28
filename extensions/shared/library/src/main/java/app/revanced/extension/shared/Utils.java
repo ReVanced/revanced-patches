@@ -40,6 +40,8 @@ import java.util.concurrent.SynchronousQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
+import app.revanced.extension.shared.settings.AppLanguage;
+import app.revanced.extension.shared.settings.BaseSettings;
 import app.revanced.extension.shared.settings.BooleanSetting;
 import app.revanced.extension.shared.settings.preference.ReVancedAboutPreference;
 
@@ -360,7 +362,17 @@ public class Utils {
     }
 
     public static void setContext(Context appContext) {
+        // Must initially set context as the language settings needs it.
         context = appContext;
+
+        AppLanguage language = BaseSettings.REVANCED_LANGUAGE.get();
+        if (language != AppLanguage.DEFAULT) {
+            // Create a new context with the desired language.
+            Configuration config = appContext.getResources().getConfiguration();
+            config.setLocale(language.getLocale());
+            context = appContext.createConfigurationContext(config);
+        }
+
         // In some apps like TikTok, the Setting classes can load in weird orders due to cyclic class dependencies.
         // Calling the regular printDebug method here can cause a Settings context null pointer exception,
         // even though the context is already set before the call.
@@ -765,8 +777,8 @@ public class Utils {
             return;
         }
 
-        String deviceLanguage = Utils.getContext().getResources().getConfiguration().locale.getLanguage();
-        if (deviceLanguage.equals("en")) {
+        String revancedLocale = Utils.getContext().getResources().getConfiguration().locale.getLanguage();
+        if (revancedLocale.equals(Locale.ENGLISH.getLanguage())) {
             return;
         }
 
@@ -774,8 +786,8 @@ public class Utils {
             Preference pref = group.getPreference(i);
             pref.setSingleLineTitle(false);
 
-            if (pref instanceof PreferenceGroup) {
-                setPreferenceTitlesToMultiLineIfNeeded((PreferenceGroup) pref);
+            if (pref instanceof PreferenceGroup subGroup) {
+                setPreferenceTitlesToMultiLineIfNeeded(subGroup);
             }
         }
     }

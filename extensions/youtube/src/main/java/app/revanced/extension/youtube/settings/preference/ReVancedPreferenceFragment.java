@@ -25,6 +25,8 @@ import java.util.List;
 
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
+import app.revanced.extension.shared.settings.BaseSettings;
+import app.revanced.extension.shared.settings.EnumSetting;
 import app.revanced.extension.shared.settings.preference.AbstractPreferenceFragment;
 import app.revanced.extension.youtube.ThemeHelper;
 import app.revanced.extension.youtube.patches.playback.speed.CustomPlaybackSpeedPatch;
@@ -109,12 +111,17 @@ public class ReVancedPreferenceFragment extends AbstractPreferenceFragment {
                 CustomPlaybackSpeedPatch.initializeListPreference(playbackPreference);
             }
 
-            preference = findPreference(Settings.SPOOF_VIDEO_STREAMS_LANGUAGE.key);
-            if (preference instanceof ListPreference languagePreference) {
-                sortListPreferenceByValues(languagePreference, 1);
-            }
+            sortPreferenceListMenu(Settings.SPOOF_VIDEO_STREAMS_LANGUAGE);
+            sortPreferenceListMenu(BaseSettings.REVANCED_LANGUAGE);
         } catch (Exception ex) {
             Logger.printException(() -> "initialize failure", ex);
+        }
+    }
+
+    private void sortPreferenceListMenu(EnumSetting<?> setting) {
+        Preference preference = findPreference(setting.key);
+        if (preference instanceof ListPreference languagePreference) {
+            sortListPreferenceByValues(languagePreference, 1);
         }
     }
 
