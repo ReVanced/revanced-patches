@@ -19,6 +19,12 @@ jobs:
           ref: dev
           fetch-depth: 0
 
+      - name: Reset translations branch to dev
+        uses: nicksnell/action-reset-repo@main
+        with:
+          base_branch: dev
+          reset_branch: feat/translations
+
       - name: Pull strings
         uses: crowdin/github-action@v2
         with:
