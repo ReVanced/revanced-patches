@@ -43,6 +43,62 @@ Second \"item\" text"</string>
   <string name="revanced_settings_import_reset">إعادة تعيين إعدادات ReVanced إلى الوضع الافتراضي</string>
   <string name="revanced_settings_import_success">تم استيراد %d إعدادات</string>
   <string name="revanced_settings_import_failure_parse">فشل الاستيراد: %s</string>
+  <string name="revanced_language_title">لغة ReVanced</string>
+  <string name="revanced_language_user_dialog_message">"قد تكون الترجمات لبعض اللغات مفقودة أو غير مكتملة.
+
+لترجمة لغات جديدة، تفضل بزيارة translate.revanced.app"</string>
+  <string name="revanced_language_DEFAULT">لغة التطبيق</string>
+  <string name="revanced_language_AR">العربية</string>
+  <string name="revanced_language_AZ">Azerbaijani</string>
+  <string name="revanced_language_BG">Bulgarian</string>
+  <string name="revanced_language_BN">Bengali</string>
+  <string name="revanced_language_CA">Catalan</string>
+  <string name="revanced_language_CS">Czech</string>
+  <string name="revanced_language_DA">Danish</string>
+  <string name="revanced_language_DE">German</string>
+  <string name="revanced_language_EL">Greek</string>
+  <string name="revanced_language_EN">English</string>
+  <string name="revanced_language_ES">Spanish</string>
+  <string name="revanced_language_ET">Estonian</string>
+  <string name="revanced_language_FA">فارسى</string>
+  <string name="revanced_language_FI">Finnish</string>
+  <string name="revanced_language_FR">French - Français</string>
+  <string name="revanced_language_GU">Gujarati</string>
+  <string name="revanced_language_HI">Hindi</string>
+  <string name="revanced_language_HR">Croatian</string>
+  <string name="revanced_language_HU">Hungarian</string>
+  <string name="revanced_language_ID">Indonesian</string>
+  <string name="revanced_language_IT">Italian</string>
+  <string name="revanced_language_JA">Japanese</string>
+  <string name="revanced_language_KK">Kazakh</string>
+  <string name="revanced_language_KO">Korean</string>
+  <string name="revanced_language_LT">Lithuanian</string>
+  <string name="revanced_language_LV">Latvian</string>
+  <string name="revanced_language_MK">Macedonian</string>
+  <string name="revanced_language_MN">Mongolian</string>
+  <string name="revanced_language_MR">Marathi</string>
+  <string name="revanced_language_MS">Malay</string>
+  <string name="revanced_language_MY">Burmese</string>
+  <string name="revanced_language_NL">Dutch</string>
+  <string name="revanced_language_OR">Odia</string>
+  <string name="revanced_language_PA">Punjabi</string>
+  <string name="revanced_language_PL">Polish</string>
+  <string name="revanced_language_PT">Portugese</string>
+  <string name="revanced_language_RO">Romanian</string>
+  <string name="revanced_language_RU">Russian - Русский</string>
+  <string name="revanced_language_SK">Slovak</string>
+  <string name="revanced_language_SL">Slovene</string>
+  <string name="revanced_language_SR">Serbian</string>
+  <string name="revanced_language_SV">Swedish</string>
+  <string name="revanced_language_SW">Swahili</string>
+  <string name="revanced_language_TA">Tamil</string>
+  <string name="revanced_language_TE">Telugu</string>
+  <string name="revanced_language_TH">Thai</string>
+  <string name="revanced_language_TR">Turkish</string>
+  <string name="revanced_language_UK">Ukrainian</string>
+  <string name="revanced_language_UR">Urdu</string>
+  <string name="revanced_language_VI">Vietnamese</string>
+  <string name="revanced_language_ZH">Chinese</string>
   <string name="revanced_pref_import_export_title">استيراد / تصدير</string>
   <string name="revanced_pref_import_export_summary">استيراد / تصدير إعدادات ReVanced</string>
   <!-- Settings about dialog. -->
@@ -138,12 +194,12 @@ Second \"item\" text"</string>
   <string name="revanced_hide_join_membership_button_summary_on">تم إخفاء الزر</string>
   <string name="revanced_hide_join_membership_button_summary_off">يتم عرض الزر</string>
   <!-- 'For you' should be translated using the same localized wording YouTube displays. -->
-  <string name="revanced_hide_for_you_shelf_title">إخفاء رف \"من أجلك\" في صفحة القناة</string>
+  <string name="revanced_hide_for_you_shelf_title">إخفاء رف \"لـك\" في صفحة القناة</string>
   <string name="revanced_hide_for_you_shelf_summary_on">تم إخفاء الرف</string>
   <string name="revanced_hide_for_you_shelf_summary_off">يتم عرض الرف</string>
   <!-- 'Notify me' should be translated using the same localized wording YouTube displays.
                  This item appear in the subscription feed for future livestreams or unreleased videos. -->
-  <string name="revanced_hide_notify_me_button_title">إخفاء زر \'نبهني\'</string>
+  <string name="revanced_hide_notify_me_button_title">إخفاء زر \'تنبيهي\'</string>
   <string name="revanced_hide_notify_me_button_summary_on">تم إخفاء الزر</string>
   <string name="revanced_hide_notify_me_button_summary_off">يتم عرض الزر</string>
   <!-- 'People also watch' should be translated using the same localized wording YouTube displays. -->
@@ -164,9 +220,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_chips_shelf_title">إخفاء رف الشرائح</string>
   <string name="revanced_hide_chips_shelf_summary_on">تم إخفاء رف الشرائح</string>
   <string name="revanced_hide_chips_shelf_summary_off">يتم عرض رف الشرائح</string>
-  <string name="revanced_hide_expandable_chip_title">إخفاء الشريحة القابلة للتوسيع تحت مقاطع الفيديو</string>
-  <string name="revanced_hide_expandable_chip_summary_on">تم إخفاء الرقائق القابلة للتوسيع</string>
-  <string name="revanced_hide_expandable_chip_summary_off">يتم عرض الرقائق القابلة للتوسيع</string>
+  <string name="revanced_hide_expandable_chip_title">إخفاء الشريحة القابلة للتوسيع تحت الفيديوهات</string>
+  <string name="revanced_hide_expandable_chip_summary_on">تم إخفاء الشرائح القابلة للتوسيع</string>
+  <string name="revanced_hide_expandable_chip_summary_off">يتم عرض الشرائح القابلة للتوسيع</string>
   <string name="revanced_hide_community_posts_title">إخفاء مشاركات المجتمع</string>
   <string name="revanced_hide_community_posts_summary_on">تم إخفاء مشاركات المجتمع</string>
   <string name="revanced_hide_community_posts_summary_off">يتم عرض مشاركات المجتمع</string>
@@ -207,8 +263,8 @@ Second \"item\" text"</string>
   <string name="revanced_hide_quick_actions_summary_on">تم إخفاء الإجراءات السريعة</string>
   <string name="revanced_hide_quick_actions_summary_off">يتم عرض الإجراءات السريعة</string>
   <string name="revanced_hide_related_videos_title">إخفاء الفيديوهات ذات الصلة في الإجراءات السريعة</string>
-  <string name="revanced_hide_related_videos_summary_on">تم إخفاء مقاطع الفيديو ذات الصلة</string>
-  <string name="revanced_hide_related_videos_summary_off">يتم عرض مقاطع الفيديو ذات الصلة</string>
+  <string name="revanced_hide_related_videos_summary_on">تم إخفاء الفيديوهات ذات الصلة</string>
+  <string name="revanced_hide_related_videos_summary_off">يتم عرض الفيديوهات ذات الصلة</string>
   <string name="revanced_hide_image_shelf_title">إخفاء رفوف الصور في نتائج البحث</string>
   <string name="revanced_hide_image_shelf_summary_on">تم إخفاء رفوف الصورة</string>
   <string name="revanced_hide_image_shelf_summary_off">يتم عرض رفوف الصورة</string>
@@ -242,7 +298,7 @@ Second \"item\" text"</string>
   <string name="revanced_hide_description_components_screen_title">وصف الفيديو</string>
   <string name="revanced_hide_description_components_screen_summary">إخفاء أو عرض مكونات وصف الفيديو</string>
   <string name="revanced_hide_filter_bar_screen_title">شريط التصفية</string>
-  <string name="revanced_hide_filter_bar_screen_summary">إخفاء شريط التصفية أو عرضه في الموجز والبحث ومقاطع الفيديو ذات الصلة</string>
+  <string name="revanced_hide_filter_bar_screen_summary">إخفاء شريط التصفية أو عرضه في الموجز والبحث الفيديوهات ذات الصلة</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_title">إخفاء في الموجز</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_summary_on">مخفي في الموجز</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_summary_off">يعرض في الموجز</string>
@@ -293,10 +349,10 @@ Second \"item\" text"</string>
   <string name="revanced_custom_filter_toast_invalid_syntax">فلتر مخصص غير صالح: %s</string>
   <string name="revanced_hide_keyword_content_screen_title">إخفاء محتوى الكلمات الرئيسية</string>
   <string name="revanced_hide_keyword_content_screen_summary">إخفاء فيديوهات البحث والموجز باستخدام فلاتر الكلمات المفتاحية</string>
-  <string name="revanced_hide_keyword_content_home_title">إخفاء مقاطع فيديو الصفحة الرئيسية بواسطة الكلمات المفتاحية</string>
-  <string name="revanced_hide_keyword_content_home_summary_on">تتم تصفية مقاطع الفيديو في علامة التبويب \"الصفحة الرئيسية\" حسب الكلمات المفتاحية</string>
-  <string name="revanced_hide_keyword_content_home_summary_off">لا تتم تصفية مقاطع الفيديو في علامة التبويب \"الصفحة الرئيسية\" حسب الكلمات المفتاحية</string>
-  <string name="revanced_hide_keyword_content_subscriptions_title">إخفاء مقاطع الفيديو الخاصة بالاشتراك عن طريق الكلمات المفتاحية</string>
+  <string name="revanced_hide_keyword_content_home_title">إخفاء فيديوهات الصفحة الرئيسية بواسطة الكلمات المفتاحية</string>
+  <string name="revanced_hide_keyword_content_home_summary_on">تتم تصفية الفيديوهات في علامة التبويب \"الصفحة الرئيسية\" حسب الكلمات المفتاحية</string>
+  <string name="revanced_hide_keyword_content_home_summary_off">لا تتم تصفية الفيديوهات في علامة التبويب \"الصفحة الرئيسية\" حسب الكلمات المفتاحية</string>
+  <string name="revanced_hide_keyword_content_subscriptions_title">إخفاء الفيديوهات الخاصة بالاشتراك عن طريق الكلمات المفتاحية</string>
   <string name="revanced_hide_keyword_content_subscriptions_summary_on">يتم تصفية الفيديوهات في علامة التبويب الاشتراكات حسب الكلمات المفتاحية</string>
   <string name="revanced_hide_keyword_content_subscriptions_summary_off">لا يتم تصفية الفيديوهات في علامة التبويب الاشتراكات حسب الكلمات المفتاحية</string>
   <string name="revanced_hide_keyword_content_search_title">إخفاء نتائج البحث عن طريق الكلمات المفتاحية</string>
@@ -445,9 +501,9 @@ Second \"item\" text"</string>
   <string name="revanced_swipe_overlay_background_alpha_summary">قيمة شفافية خلفية واجهة التمرير</string>
   <string name="revanced_swipe_threshold_title">مقدار حد التمرير</string>
   <string name="revanced_swipe_threshold_summary">الحد الأدنى من التمرير قبل اكتشاف الإيماءة</string>
-  <string name="revanced_swipe_change_video_title">تفعيل السحب لتغيير مقاطع الفيديو</string>
-  <string name="revanced_swipe_change_video_summary_on">سيؤدي التمرير في وضع ملء الشاشة إلى التغيير إلى الفيديو التالي/السابق</string>
-  <string name="revanced_swipe_change_video_summary_off">لن يؤدي التمرير في وضع ملء الشاشة إلى التغيير إلى الفيديو التالي/السابق</string>
+  <string name="revanced_swipe_change_video_title">تمكين إيماءة التمرير لتغيير الفيديو</string>
+  <string name="revanced_swipe_change_video_summary_on">سيؤدي التمرير في وضع ملء الشاشة إلى التغيير للفيديو التالي/السابق</string>
+  <string name="revanced_swipe_change_video_summary_off">لن يؤدي التمرير في وضع ملء الشاشة إلى التغيير للفيديو التالي/السابق</string>
   </patch>
   <patch id="layout.autocaptions.autoCaptionsPatch">
   <string name="revanced_auto_captions_title">تعطيل التَّرْجَمَة التلقائية</string>
@@ -519,14 +575,14 @@ Second \"item\" text"</string>
   <string name="revanced_hide_navigation_button_labels_summary_on">تم إخفاء التسميات</string>
   <string name="revanced_hide_navigation_button_labels_summary_off">يتم عرض التسميات</string>
   <string name="revanced_disable_translucent_status_bar_title">تعطيل شريط الحالة الشفاف</string>
-  <string name="revanced_disable_translucent_status_bar_summary_on">شريط الحالة غير معتمة</string>
-  <string name="revanced_disable_translucent_status_bar_summary_off">شريط الحالة غير شفافة أو عميقة</string>
-  <string name="revanced_disable_translucent_navigation_bar_light_title">تعطيل شريط التنقل الشفاف الفاتح</string>
-  <string name="revanced_disable_translucent_navigation_bar_light_summary_on">شريط التنقل في الوضع الفاتح معتم</string>
-  <string name="revanced_disable_translucent_navigation_bar_light_summary_off">يكون شريط التنقل في الوضع الفاتح معتمًا أو نصف شفاف</string>
-  <string name="revanced_disable_translucent_navigation_bar_dark_title">تعطيل الشريط الداكنة</string>
-  <string name="revanced_disable_translucent_navigation_bar_dark_summary_on">شريط التنقل في الوضع الداكن معتم</string>
-  <string name="revanced_disable_translucent_navigation_bar_dark_summary_off">شريط التطبيق المصوري الشفاف غير عميقة أو عميقة</string>
+  <string name="revanced_disable_translucent_status_bar_summary_on">شريط الحالة غير شفاف</string>
+  <string name="revanced_disable_translucent_status_bar_summary_off">شريط الحالة معتم أو شفاف</string>
+  <string name="revanced_disable_translucent_navigation_bar_light_title">تعطيل الشريط الشفاف الفاتح</string>
+  <string name="revanced_disable_translucent_navigation_bar_light_summary_on">شريط التنقل في الوضع الفاتح غير شفاف</string>
+  <string name="revanced_disable_translucent_navigation_bar_light_summary_off">شريط التنقل في الوضع الفاتح معتم او شفاف</string>
+  <string name="revanced_disable_translucent_navigation_bar_dark_title">تعطيل الشريط الشفاف الداكن</string>
+  <string name="revanced_disable_translucent_navigation_bar_dark_summary_on">شريط التنقل في الوضع الداكن غير شفاف</string>
+  <string name="revanced_disable_translucent_navigation_bar_dark_summary_off">شريط التنقل في الوضع الداكن معتم او شفاف</string>
   </patch>
   <patch id="layout.hide.player.flyoutmenupanel.hidePlayerFlyoutMenuPatch">
   <string name="revanced_hide_player_flyout_title">القائمة المنبثقة</string>
@@ -631,18 +687,18 @@ Second \"item\" text"</string>
   <string name="revanced_shorts_player_screen_summary">إخفاء أو عرض المكونات في مشغل Shorts</string>
   <!-- 'home' should be translated using the same localized wording YouTube displays for the home tab. -->
   <string name="revanced_hide_shorts_home_title">إخفاء Shorts في موجز الصفحة الرئيسية</string>
-  <string name="revanced_hide_shorts_home_summary_on">مخفي في الصفحة الرئيسية ومقاطع الفيديو ذات الصلة</string>
-  <string name="revanced_hide_shorts_home_summary_off">معروض في الصفحة الرئيسية ومقاطع الفيديو ذات الصلة</string>
+  <string name="revanced_hide_shorts_home_summary_on">مخفية في الصفحة الرئيسية والفيديوهات ذات الصلة</string>
+  <string name="revanced_hide_shorts_home_summary_off">تعرض في الصفحة الرئيسية والفيديوهات ذات الصلة</string>
   <!-- 'subscription' should be translated using the same localized wording YouTube displays for the subscription tab. -->
   <string name="revanced_hide_shorts_subscriptions_title">إخفاء Shorts في موجز الاشتراكات</string>
   <string name="revanced_hide_shorts_subscriptions_summary_on">مخفية في موجز الاشتراكات</string>
-  <string name="revanced_hide_shorts_subscriptions_summary_off">معروضة في موجز الاشتراكات</string>
+  <string name="revanced_hide_shorts_subscriptions_summary_off">تعرض في موجز الاشتراكات</string>
   <string name="revanced_hide_shorts_search_title">إخفاء Shorts في نتائج البحث</string>
-  <string name="revanced_hide_shorts_search_summary_on">مخفي في نتائج البحث</string>
-  <string name="revanced_hide_shorts_search_summary_off">معروضة في نتائج البحث</string>
+  <string name="revanced_hide_shorts_search_summary_on">مخفية في نتائج البحث</string>
+  <string name="revanced_hide_shorts_search_summary_off">تعرض في نتائج البحث</string>
   <string name="revanced_hide_shorts_history_title">إخفاء Shorts في سجل المشاهدة</string>
   <string name="revanced_hide_shorts_history_summary_on">مخفية في سجل المشاهدة</string>
-  <string name="revanced_hide_shorts_history_summary_off">مُظهَر في سجل المشاهدة</string>
+  <string name="revanced_hide_shorts_history_summary_off">تعرض في سجل المشاهدة</string>
   <!-- 'join' should be translated using the same localized wording YouTube displays for the button. -->
   <string name="revanced_hide_shorts_join_button_title">إخفاء زر الانضمام</string>
   <string name="revanced_hide_shorts_join_button_summary_on">تم إخفاء زر الانضمام</string>
@@ -745,14 +801,14 @@ Second \"item\" text"</string>
   <string name="revanced_hide_player_popup_panels_summary_off">يتم عرض لوحات المشغل المنبثقة</string>
   </patch>
   <patch id="layout.player.fullscreen.exitFullscreenPatch">
-  <string name="revanced_exit_fullscreen_title">الخروج من وضع ملء الشاشة عند نهاية الفيديو</string>
+  <string name="revanced_exit_fullscreen_title">الخروج من وضع ملء الشاشة عند انتهاء الفيديو</string>
   <string name="revanced_exit_fullscreen_entry_1">معطل</string>
-  <string name="revanced_exit_fullscreen_entry_2">عمودي</string>
-  <string name="revanced_exit_fullscreen_entry_3">أفقي</string>
-  <string name="revanced_exit_fullscreen_entry_4">عمودي وأفقي</string>
+  <string name="revanced_exit_fullscreen_entry_2">بالطول</string>
+  <string name="revanced_exit_fullscreen_entry_3">بالعرض</string>
+  <string name="revanced_exit_fullscreen_entry_4">بالطول والعرض</string>
   </patch>
   <patch id="layout.player.fullscreen.openVideosFullscreen">
-  <string name="revanced_open_videos_fullscreen_portrait_title">فتح مقاطع الفيديو في ملء الشاشة</string>
+  <string name="revanced_open_videos_fullscreen_portrait_title">فتح الفيديوهات في ملء الشاشة</string>
   <string name="revanced_open_videos_fullscreen_portrait_summary_on">يتم فتح الفيديوهات في وضع ملء الشاشة</string>
   <string name="revanced_open_videos_fullscreen_portrait_summary_off">لا يتم فتح الفيديوهات في وضع ملء الشاشة</string>
   </patch>
@@ -771,12 +827,12 @@ Second \"item\" text"</string>
   <string name="revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted">أعد تحميل الفيديو للتصويت بـ Return YouTube Dislike</string>
   <string name="revanced_ryd_enable_summary_on">يتم عرض لم يعجبني</string>
   <string name="revanced_ryd_enable_summary_off">لا يتم عرض لم يعجبني</string>
-  <string name="revanced_ryd_shorts_title">عرض لم يعجني في مقاطع Shorts</string>
-  <string name="revanced_ryd_shorts_summary_on">يتم عرض لم يعجني في مقاطع Shorts</string>
+  <string name="revanced_ryd_shorts_title">عرض لم يعجني في فيديوهات Shorts</string>
+  <string name="revanced_ryd_shorts_summary_on">يتم عرض لم يعجني في فيديوهات Shorts</string>
   <string name="revanced_ryd_shorts_summary_on_disclaimer">"إبداءات لم يعجبني التي تظهر على فيديوهات Shorts
 
 التقييد: قد لا تظهر إبداءات لم يعجبني في وضع التصفح المتخفي"</string>
-  <string name="revanced_ryd_shorts_summary_off">تم إخفاء لم يعجني في مقاطع Shorts</string>
+  <string name="revanced_ryd_shorts_summary_off">تم إخفاء لم يعجني في فيديوهات Shorts</string>
   <string name="revanced_ryd_dislike_percentage_title">لم يعجبني كــ نسبة مئوية</string>
   <string name="revanced_ryd_dislike_percentage_summary_on">يعرض عدد لم يعجبني كـ نسبة مئوية</string>
   <string name="revanced_ryd_dislike_percentage_summary_off">يعرض عدد لم يعجبني كـ رَقَم</string>
@@ -829,7 +885,7 @@ Second \"item\" text"</string>
   </patch>
   <patch id="layout.sponsorblock.sponsorBlockResourcePatch">
   <string name="revanced_sb_enable_sb">تمكين SponsorBlock</string>
-  <string name="revanced_sb_enable_sb_sum">مانِع الرُعَاة هو نظام جماعي لتخطي الأجزاء المُمِلَّة في مقاطع YouTube</string>
+  <string name="revanced_sb_enable_sb_sum">SponsorBlock مانِع الرُعَاة هو نظام جماعي لتخطي الأجزاء المُمِلَّة في مقاطع YouTube</string>
   <string name="revanced_sb_appearance_category">المظهر</string>
   <string name="revanced_sb_enable_voting">عرض زر التصويت</string>
   <string name="revanced_sb_enable_voting_sum_on">يتم عرض زر التصويت على المقطع</string>
@@ -908,7 +964,7 @@ Second \"item\" text"</string>
   <string name="revanced_sb_segments_filler">خارج الموضوع/النكات</string>
   <string name="revanced_sb_segments_filler_sum">تم إضافة مشاهد ملتقطة خارج الموضوع أو الفكاهة التي ليست مطلوبة لفهم المحتوى الرئيسي للفيديو. لا تتضمن مقاطع توفر تَعبِير أو تفاصيل الخلفية</string>
   <string name="revanced_sb_segments_nomusic">الموسيقى: مقطع غير موسيقي</string>
-  <string name="revanced_sb_segments_nomusic_sum">فقط للاستخدام في مقاطع الفيديو الموسيقية. أقسام مقاطع الفيديو الموسيقية بدون موسيقى، والتي لم يتم تغطيتها بالفعل من قبل فئة أخرى</string>
+  <string name="revanced_sb_segments_nomusic_sum">فقط للاستخدام في المقاطع الموسيقية. أقسام المقاطع الموسيقية بدون موسيقى، والتي لم يتم تغطيتها بالفعل من قبل فئة أخرى</string>
   <string name="revanced_sb_skip_button_compact">تخطي</string>
   <string name="revanced_sb_skip_button_compact_highlight">الأبرز</string>
   <string name="revanced_sb_skip_button_sponsor">تخطي الراعي</string>
@@ -1023,8 +1079,19 @@ Second \"item\" text"</string>
   <patch id="layout.formfactor.changeFormFactorPatch">
   <string name="revanced_change_form_factor_title">شكل نموذج التخطيط</string>
   <string name="revanced_change_form_factor_entry_1">الافتراضي</string>
-  <string name="revanced_change_form_factor_entry_2">الهاتف</string>
-  <string name="revanced_change_form_factor_entry_3">الكمبيوتر اللوحي</string>
+  <string name="revanced_change_form_factor_entry_2">الجوّال</string>
+  <string name="revanced_change_form_factor_entry_3">الجهاز اللوحي</string>
+  <string name="revanced_change_form_factor_entry_4">Automotive</string>
+  <string name="revanced_change_form_factor_user_dialog_message">"تتضمن التغييرات:
+
+تخطيط الجهاز اللوحي
+• إخفاء منشورات المجتمع
+
+تخطيط Automotive
+• إخفاء قائمة سجل المشاهدة
+• استعادة علامة التبويب \"استكشاف\"
+• فتح فيديوهات Shorts في المشغل العادي
+• تنظيم الخلاصة حسب الموضوعات والقناة"</string>
   </patch>
   <patch id="layout.spoofappversion.spoofAppVersionPatch">
   <string name="revanced_spoof_app_version_title">خِداع إصدار التطبيق</string>
@@ -1039,7 +1106,7 @@ Second \"item\" text"</string>
                  This is because the 'General layout' menu uses alphabetic sorting, and it functionally works better if the spoof target selector appears below the 'Spoof app version' UI switch -->
   <string name="revanced_spoof_app_version_target_title">الهدف من تغيير إصدار التطبيق</string>
   <string name="revanced_spoof_app_version_target_entry_1">19.35.36 - استعادة أيقونات مشغل Shorts القديمة</string>
-  <string name="revanced_spoof_app_version_target_entry_2">19.26.42 - \"إعادة الرموز القديمة للشريط والأدوات\"</string>
+  <string name="revanced_spoof_app_version_target_entry_2">19.26.42 - استعادة أيقونات التنقل وشريط الأدوات القديمة</string>
   <!-- 'RYD' is 'Return YouTube Dislike' -->
   <string name="revanced_spoof_app_version_target_legacy_entry_1">18.33.40 - استعادة RYD على Shorts بوضع التخفي</string>
   <string name="revanced_spoof_app_version_target_legacy_entry_2">18.20.39 - استعادة قائمة سرعة الفيديو العريضة &amp; الجودة</string>
@@ -1070,10 +1137,10 @@ Second \"item\" text"</string>
   <string name="revanced_disable_resuming_shorts_player_summary_off">سيتم استئناف تشغيل مشغل Shorts عند بدء تشغيل التطبيق</string>
   </patch>
   <patch id="layout.shortsplayer.shortsPlayerTypePatch">
-  <string name="revanced_shorts_player_type_title">فتح مقاطع الـShorts باستخدام</string>
+  <string name="revanced_shorts_player_type_title">فتح فيديوهات Shorts باستخدام</string>
   <string name="revanced_shorts_player_type_shorts">مشغل Shorts</string>
-  <string name="revanced_shorts_player_type_regular_player">مشغل عادي</string>
-  <string name="revanced_shorts_player_type_regular_player_fullscreen">شاشة كاملة - مشغل عادي</string>
+  <string name="revanced_shorts_player_type_regular_player">المشغل العادي</string>
+  <string name="revanced_shorts_player_type_regular_player_fullscreen">المشغل العادي في وضع ملء الشاشة</string>
   </patch>
   <patch id="layout.shortsautoplay.shortsAutoplayPatch">
   <string name="revanced_shorts_autoplay_title">التشغيل التلقائي لفيديوهات Shorts</string>
@@ -1180,7 +1247,7 @@ Second \"item\" text"</string>
   <string name="revanced_alt_thumbnail_stills_about_title">لقطات الفيديو الثابتة</string>
   <string name="revanced_alt_thumbnail_stills_about_summary">يتم التقاط اللقطات الثابتة من بداية/وسط/نهاية كل فيديو. هذه الصور مدمجة في YouTube ولا يتم استخدام أي واجهة برمجة تطبيقات خارجية</string>
   <string name="revanced_alt_thumbnail_stills_fast_title">استخدم اللقطات الثابتة السريعة</string>
-  <string name="revanced_alt_thumbnail_stills_fast_summary_on">استخدام اللقطات متوسطة الجودة. سيتم تحميل المُصغَّرات بشكل أسرع، ولكن البث المباشر و المقاطع التي لم يتم إصدارها أو القديمة جدًا قد تعرض مُصغَّرات فارغة</string>
+  <string name="revanced_alt_thumbnail_stills_fast_summary_on">استخدام اللقطات متوسطة الجودة. سيتم تحميل المُصغَّرات بشكل أسرع، ولكن البث المباشر و الفيديوهات التي لم يتم إصدارها أو القديمة جدًا قد تعرض مُصغَّرات فارغة</string>
   <string name="revanced_alt_thumbnail_stills_fast_summary_off">استخدام لقطات الفيديو الثابتة بجودة عالية</string>
   <string name="revanced_alt_thumbnail_stills_time_title">وقت الفيديو لأخذ اللقطات الثابتة منه</string>
   <string name="revanced_alt_thumbnail_stills_time_entry_1">بداية الفيديو</string>
@@ -1246,13 +1313,13 @@ Second \"item\" text"</string>
   <string name="revanced_force_original_audio_title">فرض الصوت الأصلي</string>
   <string name="revanced_force_original_audio_summary_on">استخدام الصوت الأصلي</string>
   <string name="revanced_force_original_audio_summary_off">استخدام الصوت الافتراضي</string>
-  <string name="revanced_force_original_audio_not_available">لاستخدام هذه الميزة، غيّر تقليد تدفقات البيانات إلى نوع عميل iOS</string>
+  <string name="revanced_force_original_audio_not_available">لاستخدام هذه الميزة، قم بتغيير محاكاة بث المحتوى إلى نوع العميل iOS</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
   <string name="revanced_video_quality_default_entry_1">تلقائي</string>
   <string name="revanced_remember_video_quality_last_selected_title">تذكر تغييرات جودة الفيديو</string>
-  <string name="revanced_remember_video_quality_last_selected_summary_on">تنطبق تغييرات الجودة على جميع مقاطع الفيديو</string>
+  <string name="revanced_remember_video_quality_last_selected_summary_on">تنطبق تغييرات الجودة على جميع الفيديوهات</string>
   <string name="revanced_remember_video_quality_last_selected_summary_off">تنطبق تغييرات الجودة على الفيديو الحالي فقط</string>
   <string name="revanced_video_quality_default_wifi_title">جودة الفيديو الافتراضية على شبكة Wi-Fi</string>
   <string name="revanced_video_quality_default_mobile_title">جودة الفيديو الافتراضية على شبكة الجوَّال</string>
@@ -1303,77 +1370,25 @@ Second \"item\" text"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">إيقاف تشغيل هذا الإعداد قد يسبب مشاكل في تشغيل الفيديو.</string>
   <string name="revanced_spoof_video_streams_client_type_title">العميل الافتراضي</string>
   <!-- 'no auth' means no authentication -->
-  <string name="revanced_spoof_video_streams_client_type_android_vr_no_auth">Android VR (no auth)</string>
+  <string name="revanced_spoof_video_streams_client_type_android_vr_no_auth">Android VR (بدون مصادقة)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_title">فرض iOS AVC (H.264)</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">يتم إجبار ترميز فيديو على AVC (H.264)</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">يتم تحديد ترميز فيديو تلقائيًا</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">يتم فرض ترميز فيديو على AVC (H.264)</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">يتم تحديد ترميز الفيديو تلقائيًا</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">"قد يؤدي تمكين هذا إلى تحسين عمر البطارية وإصلاح تقطيع التشغيل.
 
-AVC لديه حد أقصى للدقة 1080 بكسل ، لا يتوفر ترميز الصوت Opus ، وسوف يستخدم تشغيل الفيديو بيانات إنترنت أكثر من VP9 أو AV1."</string>
-  <string name="revanced_spoof_video_streams_about_ios_tv_title">آثار جانبية لتزييف iOS</string>
-  <string name="revanced_spoof_video_streams_about_ios_tv_summary">"• قد لا يتم تشغيل الأفلام أو مقاطع الفيديو المدفوعة
+AVC لديه حد أقصى للدقة 1080p، لا يتوفر ترميز الصوت Opus، وسوف يستخدم تشغيل الفيديو بيانات إنترنت أكثر من VP9 أو AV1."</string>
+  <string name="revanced_spoof_video_streams_about_ios_tv_title">الآثار الجانبية لمحاكاة هوية iOS</string>
+  <string name="revanced_spoof_video_streams_about_ios_tv_summary">"• قد لا يتم تشغيل الأفلام أو الفيديوهات المدفوعة
 • مستوى الصوت الثابت غير متوفر
-• تنتهي مقاطع الفيديو قبل ثانية واحدة"</string>
-  <string name="revanced_spoof_video_streams_about_android_title">تأثيرات نظام الجهاز الأندرويد</string>
-  <string name="revanced_spoof_video_streams_about_android_summary">"• قائمة قائمة الصوت مفقودة
-• لا يتوفر بحجم الصوت متاح
-• تثبيت الصوت الأصلي ليس غير متوافر"</string>
-  <string name="revanced_spoof_streaming_data_stats_for_nerds_title">اطلاع في الإحصائيات للنردز</string>
-  <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">يظهر نوع العميل في الإحصائيات للنردز</string>
-  <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">يتم العميل مخفي في الإحصائيات للنردز</string>
-  <string name="revanced_spoof_video_streams_language_title">لغة البث الإفتراضي القياسي لافتراضي الاهتداري</string>
-  <string name="revanced_spoof_video_streams_language_DEFAULT">لغة التطبيق</string>
-  <string name="revanced_spoof_video_streams_language_AR">العربية</string>
-  <string name="revanced_spoof_video_streams_language_AZ">Azerbaijani</string>
-  <string name="revanced_spoof_video_streams_language_BG">Bulgarian</string>
-  <string name="revanced_spoof_video_streams_language_BN">Bengali</string>
-  <string name="revanced_spoof_video_streams_language_CA">Catalan</string>
-  <string name="revanced_spoof_video_streams_language_CS">Czech</string>
-  <string name="revanced_spoof_video_streams_language_DA">Danish</string>
-  <string name="revanced_spoof_video_streams_language_DE">German</string>
-  <string name="revanced_spoof_video_streams_language_EL">Greek</string>
-  <string name="revanced_spoof_video_streams_language_EN">English</string>
-  <string name="revanced_spoof_video_streams_language_ES">Spanish</string>
-  <string name="revanced_spoof_video_streams_language_ET">Estonian</string>
-  <string name="revanced_spoof_video_streams_language_FA">فارسى</string>
-  <string name="revanced_spoof_video_streams_language_FI">Finnish</string>
-  <string name="revanced_spoof_video_streams_language_FR">French</string>
-  <string name="revanced_spoof_video_streams_language_GU">Gujarati</string>
-  <string name="revanced_spoof_video_streams_language_HI">Hindi</string>
-  <string name="revanced_spoof_video_streams_language_HR">Croatian</string>
-  <string name="revanced_spoof_video_streams_language_HU">Hungarian</string>
-  <string name="revanced_spoof_video_streams_language_ID"> Indonesian</string>
-  <string name="revanced_spoof_video_streams_language_IT">Italian</string>
-  <string name="revanced_spoof_video_streams_language_JA">Japanese</string>
-  <string name="revanced_spoof_video_streams_language_KK">Kazakh</string>
-  <string name="revanced_spoof_video_streams_language_KO">Korean</string>
-  <string name="revanced_spoof_video_streams_language_LT">Lithuanian</string>
-  <string name="revanced_spoof_video_streams_language_LV">Latvian</string>
-  <string name="revanced_spoof_video_streams_language_MK">Macedonian</string>
-  <string name="revanced_spoof_video_streams_language_MN">Mongolian</string>
-  <string name="revanced_spoof_video_streams_language_MR">Marathi</string>
-  <string name="revanced_spoof_video_streams_language_MS">Malay</string>
-  <string name="revanced_spoof_video_streams_language_MY">Burmese</string>
-  <string name="revanced_spoof_video_streams_language_NL">Dutch</string>
-  <string name="revanced_spoof_video_streams_language_OR">Odia</string>
-  <string name="revanced_spoof_video_streams_language_PA">Punjabi</string>
-  <string name="revanced_spoof_video_streams_language_PL">Polish</string>
-  <string name="revanced_spoof_video_streams_language_PT">البرتغالية</string>
-  <string name="revanced_spoof_video_streams_language_RO">Romanian</string>
-  <string name="revanced_spoof_video_streams_language_RU">Russian</string>
-  <string name="revanced_spoof_video_streams_language_SK">Slovak</string>
-  <string name="revanced_spoof_video_streams_language_SL">Slovene</string>
-  <string name="revanced_spoof_video_streams_language_SR">Serbian</string>
-  <string name="revanced_spoof_video_streams_language_SV">Swedish</string>
-  <string name="revanced_spoof_video_streams_language_SW">Swahili</string>
-  <string name="revanced_spoof_video_streams_language_TA">Tamil</string>
-  <string name="revanced_spoof_video_streams_language_TE">Telugu</string>
-  <string name="revanced_spoof_video_streams_language_TH">Thai</string>
-  <string name="revanced_spoof_video_streams_language_TR">Turkish</string>
-  <string name="revanced_spoof_video_streams_language_UK">Ukrainian</string>
-  <string name="revanced_spoof_video_streams_language_UR">Urdu</string>
-  <string name="revanced_spoof_video_streams_language_VI">Vietnamese</string>
-  <string name="revanced_spoof_video_streams_language_ZH">Chinese</string>
+• تنتهي الفيديوهات قبل ب 1 ثانية"</string>
+  <string name="revanced_spoof_video_streams_about_android_title">الآثار الجانبية لمحاكاة هوية Android</string>
+  <string name="revanced_spoof_video_streams_about_android_summary">"• قائمة المقطع الصوتي مفقودة
+• مستوى الصوت الثابت غير متاح
+• فرض الصوت الأصلي غير متوفر"</string>
+  <string name="revanced_spoof_streaming_data_stats_for_nerds_title">عرض في إحصاءات تقنية</string>
+  <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">يتم عرض نوع العميل في إحصاءات تقنية</string>
+  <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">تم إخفاء نوع العميل في إحصاءات تقنية</string>
+  <string name="revanced_spoof_video_streams_language_title">لغة البث الصوتي الافتراضية للواقع الافتراضي VR</string>
   </patch>
   </app>
   <app id="twitch">

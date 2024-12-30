@@ -43,6 +43,62 @@ Second \"item\" text"</string>
   <string name="revanced_settings_import_reset">Подешавања ReVanced-а су враћена на подразумеване вредности</string>
   <string name="revanced_settings_import_success">Увезено %d подешавања</string>
   <string name="revanced_settings_import_failure_parse">Неуспешан увоз: %s</string>
+  <string name="revanced_language_title">Језик ReVanced-a</string>
+  <string name="revanced_language_user_dialog_message">"Преводи за неке језике могу недостајати или бити непотпуни.
+
+Да бисте превели нове језике, посетите translate.revanced.app"</string>
+  <string name="revanced_language_DEFAULT">Језик апликације</string>
+  <string name="revanced_language_AR">Арапски</string>
+  <string name="revanced_language_AZ">Азербејџански</string>
+  <string name="revanced_language_BG">Бугарски</string>
+  <string name="revanced_language_BN">Бенгалски</string>
+  <string name="revanced_language_CA">Каталонски</string>
+  <string name="revanced_language_CS">Чешки</string>
+  <string name="revanced_language_DA">Дански</string>
+  <string name="revanced_language_DE">Немачки</string>
+  <string name="revanced_language_EL">Грчки</string>
+  <string name="revanced_language_EN">Енглески</string>
+  <string name="revanced_language_ES">Шпански</string>
+  <string name="revanced_language_ET">Естонски</string>
+  <string name="revanced_language_FA">Персијски</string>
+  <string name="revanced_language_FI">Фински</string>
+  <string name="revanced_language_FR">Француски</string>
+  <string name="revanced_language_GU">Гуџарати</string>
+  <string name="revanced_language_HI">Хинди</string>
+  <string name="revanced_language_HR">Хрватски</string>
+  <string name="revanced_language_HU">Мађарски</string>
+  <string name="revanced_language_ID">Индонежански</string>
+  <string name="revanced_language_IT">Италијански</string>
+  <string name="revanced_language_JA">Јапански</string>
+  <string name="revanced_language_KK">Казахстански</string>
+  <string name="revanced_language_KO">Корејски</string>
+  <string name="revanced_language_LT">Литвански</string>
+  <string name="revanced_language_LV">Летонски</string>
+  <string name="revanced_language_MK">Македонски</string>
+  <string name="revanced_language_MN">Монголски</string>
+  <string name="revanced_language_MR">Марати</string>
+  <string name="revanced_language_MS">Малајски</string>
+  <string name="revanced_language_MY">Бурмански</string>
+  <string name="revanced_language_NL">Холандски</string>
+  <string name="revanced_language_OR">Одија</string>
+  <string name="revanced_language_PA">Панџапски</string>
+  <string name="revanced_language_PL">Пољски</string>
+  <string name="revanced_language_PT">Португалски</string>
+  <string name="revanced_language_RO">Румунски</string>
+  <string name="revanced_language_RU">Руски</string>
+  <string name="revanced_language_SK">Словачки</string>
+  <string name="revanced_language_SL">Словеначки</string>
+  <string name="revanced_language_SR">Српски</string>
+  <string name="revanced_language_SV">Шведски</string>
+  <string name="revanced_language_SW">Свахили</string>
+  <string name="revanced_language_TA">Тамилски</string>
+  <string name="revanced_language_TE">Телугу</string>
+  <string name="revanced_language_TH">Тајландски</string>
+  <string name="revanced_language_TR">Турски</string>
+  <string name="revanced_language_UK">Украјински</string>
+  <string name="revanced_language_UR">Урду</string>
+  <string name="revanced_language_VI">Вијетнамски</string>
+  <string name="revanced_language_ZH">Кинески</string>
   <string name="revanced_pref_import_export_title">Увоз / Извоз</string>
   <string name="revanced_pref_import_export_summary">Увоз / Извоз подешавања ReVanced-а</string>
   <!-- Settings about dialog. -->
@@ -445,9 +501,9 @@ Second \"item\" text"</string>
   <string name="revanced_swipe_overlay_background_alpha_summary">Видљивост позадине за покрет превлачења</string>
   <string name="revanced_swipe_threshold_title">Праг трајања превлачења</string>
   <string name="revanced_swipe_threshold_summary">Износ прага трајања превлачења</string>
-  <string name="revanced_swipe_change_video_title">Омогућите превлачење да бисте променили видео</string>
-  <string name="revanced_swipe_change_video_summary_on">Превлачење у режиму преко целог екрана промениће на следећи/претходни видео</string>
-  <string name="revanced_swipe_change_video_summary_off">Превлачење у режиму преко целог екрана неће променити на следећи/претходни видео</string>
+  <string name="revanced_swipe_change_video_title">Омогући превлачење за промену видеа</string>
+  <string name="revanced_swipe_change_video_summary_on">Превлачење у режиму целог екрана ће променити на следећи/претходни видео</string>
+  <string name="revanced_swipe_change_video_summary_off">Превлачење у режиму целог екрана неће променити на следећи/претходни видео</string>
   </patch>
   <patch id="layout.autocaptions.autoCaptionsPatch">
   <string name="revanced_auto_captions_title">Онемогући аутоматске титлове</string>
@@ -745,11 +801,11 @@ Second \"item\" text"</string>
   <string name="revanced_hide_player_popup_panels_summary_off">Искачуће табле у плејеру су приказане</string>
   </patch>
   <patch id="layout.player.fullscreen.exitFullscreenPatch">
-  <string name="revanced_exit_fullscreen_title">Izađi iz fullscreen moda na kraju videa</string>
-  <string name="revanced_exit_fullscreen_entry_1">Onemogućeno</string>
-  <string name="revanced_exit_fullscreen_entry_2">Portret</string>
-  <string name="revanced_exit_fullscreen_entry_3">Pejzaž</string>
-  <string name="revanced_exit_fullscreen_entry_4">Portret i pejzaž</string>
+  <string name="revanced_exit_fullscreen_title">Изађи из режима целог екрана на крају видеа</string>
+  <string name="revanced_exit_fullscreen_entry_1">Онемогућено</string>
+  <string name="revanced_exit_fullscreen_entry_2">Усправно</string>
+  <string name="revanced_exit_fullscreen_entry_3">Водоравно</string>
+  <string name="revanced_exit_fullscreen_entry_4">Усправно и водоравно</string>
   </patch>
   <patch id="layout.player.fullscreen.openVideosFullscreen">
   <string name="revanced_open_videos_fullscreen_portrait_title">Отвори видее преко целог екрана усправно</string>
@@ -1020,21 +1076,21 @@ Second \"item\" text"</string>
   <string name="revanced_sb_about_api_sum">Податке обезбеђује SponsorBlock API. Додирните овде да сазнате више и видите преузимања за друге платформе</string>
   </patch>
   <patch id="layout.formfactor.changeFormFactorPatch">
-  <string name="revanced_change_form_factor_title">Распоред фактора обрасца</string>
-  <string name="revanced_change_form_factor_entry_1">Подразумевано</string>
+  <string name="revanced_change_form_factor_title">Фактор форме изгледа</string>
+  <string name="revanced_change_form_factor_entry_1">Подразумевани</string>
   <string name="revanced_change_form_factor_entry_2">Телефон</string>
   <string name="revanced_change_form_factor_entry_3">Таблет</string>
   <string name="revanced_change_form_factor_entry_4">Аутомобилски</string>
   <string name="revanced_change_form_factor_user_dialog_message">"Промене укључују:
 
-Изглед таблета
-• Објаве заједнице су сакривене
+Изглед „Таблет”
+• Објаве заједнице су скривене
 
-Изглед аутомобила
-• Мени историје гледања је сакривен
-• Картица Истражи је враћена
-• Шортсеви се отварају у редовном плејеру
-• Фид је организован по темама и каналу"</string>
+Изглед „Аутомобилски”
+• Мени „Историја гледања” је скривен
+• Картица „Истражите” је враћена
+• Shorts видеи се отварају у обичном плејеру
+• Фид је организован по темама и каналима"</string>
   </patch>
   <patch id="layout.spoofappversion.spoofAppVersionPatch">
   <string name="revanced_spoof_app_version_title">Лажирана верзија апликације</string>
@@ -1332,58 +1388,6 @@ AVC има максималну резолуцију од 1080p, аудио ко
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Тип клијента је приказан у „Статистици за зналце”</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Тип клијента је скривен у „Статистици за зналце”</string>
   <string name="revanced_spoof_video_streams_language_title">Подразумевани језик аудио стрима за ВР</string>
-  <string name="revanced_spoof_video_streams_language_DEFAULT">Језик апликације</string>
-  <string name="revanced_spoof_video_streams_language_AR">Арапски</string>
-  <string name="revanced_spoof_video_streams_language_AZ">Азербејџански</string>
-  <string name="revanced_spoof_video_streams_language_BG">Бугарски</string>
-  <string name="revanced_spoof_video_streams_language_BN">Бенгалски</string>
-  <string name="revanced_spoof_video_streams_language_CA">Каталонски</string>
-  <string name="revanced_spoof_video_streams_language_CS">Чешки</string>
-  <string name="revanced_spoof_video_streams_language_DA">Дански</string>
-  <string name="revanced_spoof_video_streams_language_DE">Немачки</string>
-  <string name="revanced_spoof_video_streams_language_EL">Грчки</string>
-  <string name="revanced_spoof_video_streams_language_EN">Енглески</string>
-  <string name="revanced_spoof_video_streams_language_ES">Шпански</string>
-  <string name="revanced_spoof_video_streams_language_ET">Естонски</string>
-  <string name="revanced_spoof_video_streams_language_FA">Персијски</string>
-  <string name="revanced_spoof_video_streams_language_FI">Фински</string>
-  <string name="revanced_spoof_video_streams_language_FR">Француски</string>
-  <string name="revanced_spoof_video_streams_language_GU">Гуџарати</string>
-  <string name="revanced_spoof_video_streams_language_HI">Хинди</string>
-  <string name="revanced_spoof_video_streams_language_HR">Хрватски</string>
-  <string name="revanced_spoof_video_streams_language_HU">Мађарски</string>
-  <string name="revanced_spoof_video_streams_language_ID">Индонежански</string>
-  <string name="revanced_spoof_video_streams_language_IT">Италијански</string>
-  <string name="revanced_spoof_video_streams_language_JA">Јапански</string>
-  <string name="revanced_spoof_video_streams_language_KK">Казашки</string>
-  <string name="revanced_spoof_video_streams_language_KO">Корејски</string>
-  <string name="revanced_spoof_video_streams_language_LT">Литвански</string>
-  <string name="revanced_spoof_video_streams_language_LV">Летонски</string>
-  <string name="revanced_spoof_video_streams_language_MK">Македонски</string>
-  <string name="revanced_spoof_video_streams_language_MN">Монголски</string>
-  <string name="revanced_spoof_video_streams_language_MR">Марати</string>
-  <string name="revanced_spoof_video_streams_language_MS">Малајски</string>
-  <string name="revanced_spoof_video_streams_language_MY">Бурмански</string>
-  <string name="revanced_spoof_video_streams_language_NL">Холандски</string>
-  <string name="revanced_spoof_video_streams_language_OR">Одија</string>
-  <string name="revanced_spoof_video_streams_language_PA">Панџапски</string>
-  <string name="revanced_spoof_video_streams_language_PL">Пољски</string>
-  <string name="revanced_spoof_video_streams_language_PT">Португалски</string>
-  <string name="revanced_spoof_video_streams_language_RO">Румунски</string>
-  <string name="revanced_spoof_video_streams_language_RU">Руски</string>
-  <string name="revanced_spoof_video_streams_language_SK">Словачки</string>
-  <string name="revanced_spoof_video_streams_language_SL">Словеначки</string>
-  <string name="revanced_spoof_video_streams_language_SR">Српски</string>
-  <string name="revanced_spoof_video_streams_language_SV">Шведски</string>
-  <string name="revanced_spoof_video_streams_language_SW">Свахили</string>
-  <string name="revanced_spoof_video_streams_language_TA">Тамилски</string>
-  <string name="revanced_spoof_video_streams_language_TE">Телугу</string>
-  <string name="revanced_spoof_video_streams_language_TH">Тајски</string>
-  <string name="revanced_spoof_video_streams_language_TR">Турски</string>
-  <string name="revanced_spoof_video_streams_language_UK">Украјински</string>
-  <string name="revanced_spoof_video_streams_language_UR">Урду</string>
-  <string name="revanced_spoof_video_streams_language_VI">Вијетнамски</string>
-  <string name="revanced_spoof_video_streams_language_ZH">Кинески</string>
   </patch>
   </app>
   <app id="twitch">

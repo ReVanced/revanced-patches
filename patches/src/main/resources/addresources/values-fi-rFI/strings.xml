@@ -43,6 +43,62 @@ Second \"item\" text"</string>
   <string name="revanced_settings_import_reset">Revanced-asetukset nollattiin</string>
   <string name="revanced_settings_import_success">Tuodut %d-asetukset</string>
   <string name="revanced_settings_import_failure_parse">Tuonti epäonnistui: %s</string>
+  <string name="revanced_language_title">ReVancedin kieli</string>
+  <string name="revanced_language_user_dialog_message">"Joidenkin kielten käännökset saattavat puuttua tai olla puutteellisia.
+
+Voit auttaa uusien kielten kääntämisessä osoitteessa translate.revanced.app"</string>
+  <string name="revanced_language_DEFAULT">Sovelluksen kieli</string>
+  <string name="revanced_language_AR">Arabia</string>
+  <string name="revanced_language_AZ">Azeri</string>
+  <string name="revanced_language_BG">Bulgaria</string>
+  <string name="revanced_language_BN">Bengali</string>
+  <string name="revanced_language_CA">Katalaani</string>
+  <string name="revanced_language_CS">Tšekki</string>
+  <string name="revanced_language_DA">Tanska</string>
+  <string name="revanced_language_DE">Saksa</string>
+  <string name="revanced_language_EL">Kreikka</string>
+  <string name="revanced_language_EN">Englanti</string>
+  <string name="revanced_language_ES">Espanja</string>
+  <string name="revanced_language_ET">Viro</string>
+  <string name="revanced_language_FA">Persia</string>
+  <string name="revanced_language_FI">Suomi</string>
+  <string name="revanced_language_FR">Ranska</string>
+  <string name="revanced_language_GU">Gudžarati</string>
+  <string name="revanced_language_HI">Hindi</string>
+  <string name="revanced_language_HR">Kroatia</string>
+  <string name="revanced_language_HU">Unkari</string>
+  <string name="revanced_language_ID">Indonesia</string>
+  <string name="revanced_language_IT">Italia</string>
+  <string name="revanced_language_JA">Japani</string>
+  <string name="revanced_language_KK">Kazakki</string>
+  <string name="revanced_language_KO">Korea</string>
+  <string name="revanced_language_LT">Liettua</string>
+  <string name="revanced_language_LV">Latvia</string>
+  <string name="revanced_language_MK">Makedonia</string>
+  <string name="revanced_language_MN">Mongolia</string>
+  <string name="revanced_language_MR">Marathi</string>
+  <string name="revanced_language_MS">Malaiji</string>
+  <string name="revanced_language_MY">Burma</string>
+  <string name="revanced_language_NL">Hollanti</string>
+  <string name="revanced_language_OR">Orija</string>
+  <string name="revanced_language_PA">Pandžabi</string>
+  <string name="revanced_language_PL">Puola</string>
+  <string name="revanced_language_PT">Portugali</string>
+  <string name="revanced_language_RO">Romania</string>
+  <string name="revanced_language_RU">Venäjä</string>
+  <string name="revanced_language_SK">Slovakki</string>
+  <string name="revanced_language_SL">Sloveeni</string>
+  <string name="revanced_language_SR">Serbia</string>
+  <string name="revanced_language_SV">Ruotsi</string>
+  <string name="revanced_language_SW">Swahili</string>
+  <string name="revanced_language_TA">Tamili</string>
+  <string name="revanced_language_TE">Telugu</string>
+  <string name="revanced_language_TH">Thai</string>
+  <string name="revanced_language_TR">Turkki</string>
+  <string name="revanced_language_UK">Ukraina</string>
+  <string name="revanced_language_UR">Urdu</string>
+  <string name="revanced_language_VI">Vietnam</string>
+  <string name="revanced_language_ZH">Kiina</string>
   <string name="revanced_pref_import_export_title">Tuonti/vienti</string>
   <string name="revanced_pref_import_export_summary">Tuo/vie ReVanced-asetukset</string>
   <!-- Settings about dialog. -->
@@ -446,6 +502,9 @@ Tämä ominaisuus on saatavilla vain vanhemmissa laitteissa"</string>
   <string name="revanced_swipe_overlay_background_alpha_summary">Pyyhkäisyikkunan taustan näkyvyys</string>
   <string name="revanced_swipe_threshold_title">Pyyhkäisyn kynnysraja</string>
   <string name="revanced_swipe_threshold_summary">Pyyhkäisyä varten tarvittavan kynnyksen määrä</string>
+  <string name="revanced_swipe_change_video_title">Ota käyttöön videon vaihto pyyhkäisemällä</string>
+  <string name="revanced_swipe_change_video_summary_on">Pyyhkäisemällä kokoruututilassa siirrytään seuraavaan/edelliseen videoon</string>
+  <string name="revanced_swipe_change_video_summary_off">Pyyhkäisemällä kokoruututilassa ei siirrytä seuraavaan/edelliseen videoon</string>
   </patch>
   <patch id="layout.autocaptions.autoCaptionsPatch">
   <string name="revanced_auto_captions_title">Poista automaattiset tekstitykset käytöstä</string>
@@ -743,6 +802,11 @@ Huomaa: Tämä ottaa pakolla pois myös videomainokset"</string>
   <string name="revanced_hide_player_popup_panels_summary_off">Soittimen ponnahdusikkunat näytetään</string>
   </patch>
   <patch id="layout.player.fullscreen.exitFullscreenPatch">
+  <string name="revanced_exit_fullscreen_title">Poistu kokoruututilasta videon lopussa</string>
+  <string name="revanced_exit_fullscreen_entry_1">Pois käytöstä</string>
+  <string name="revanced_exit_fullscreen_entry_2">Pysty</string>
+  <string name="revanced_exit_fullscreen_entry_3">Vaaka</string>
+  <string name="revanced_exit_fullscreen_entry_4">Pysty ja vaaka</string>
   </patch>
   <patch id="layout.player.fullscreen.openVideosFullscreen">
   <string name="revanced_open_videos_fullscreen_portrait_title">Avaa videot koko näytöllä pystyasennossa</string>
@@ -774,7 +838,7 @@ Rajoitus: Ei pidätyksiä ei ehkä näy inkognitotilassa"</string>
   <string name="revanced_ryd_dislike_percentage_summary_on">Ei-tykkäykset näytetään prosenttina</string>
   <string name="revanced_ryd_dislike_percentage_summary_off">Ei-tykkäykset näytetään numerona</string>
   <!-- Translations should use language similar to 'revanced_sb_enable_compact_skip_button' -->
-  <string name="revanced_ryd_compact_layout_title">Kompakti tykkäyspainike</string>
+  <string name="revanced_ryd_compact_layout_title">Kompakti tykkää-painike</string>
   <string name="revanced_ryd_compact_layout_summary_on">Tykkää-painike on muotoiltu mahdollisimman kapeaksi</string>
   <string name="revanced_ryd_compact_layout_summary_off">Tykkää-painike on muotoiltu parhaan näköiseksi</string>
   <string name="revanced_ryd_toast_on_connection_error_title">Näytä ponnahdusilmoitus, jos API ei ole käytettävissä</string>
@@ -828,12 +892,12 @@ Tämä ominaisuus toimii parhaiten 720p tai alhaisemman laatuisilla videoilla ja
   <string name="revanced_sb_enable_voting_sum_on">Osion äänestyspainike näytetään</string>
   <string name="revanced_sb_enable_voting_sum_off">Osion äänestyspainiketta ei näytetä</string>
   <!-- Translations should use language similar to 'revanced_ryd_compact_layout_title' -->
-  <string name="revanced_sb_enable_compact_skip_button">Käytä pientä ohituspainiketta</string>
-  <string name="revanced_sb_enable_compact_skip_button_sum_on">Ohituspainike on muotoiltu mahdollisimman kapeaksi</string>
-  <string name="revanced_sb_enable_compact_skip_button_sum_off">Ohituspainike on muotoiltu parhaan näköiseksi</string>
-  <string name="revanced_sb_enable_auto_hide_skip_segment_button">Piilota ohituspainike automaattisesti</string>
-  <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_on">Ohituspainike piiloutuu muutaman sekunnin jälkeen</string>
-  <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_off">Ohituspainike näytetään koko osion ajan</string>
+  <string name="revanced_sb_enable_compact_skip_button">Käytä kompaktia ohita-painiketta</string>
+  <string name="revanced_sb_enable_compact_skip_button_sum_on">Ohita-painike on muotoiltu mahdollisimman kapeaksi</string>
+  <string name="revanced_sb_enable_compact_skip_button_sum_off">Ohita-painike on muotoiltu parhaan näköiseksi</string>
+  <string name="revanced_sb_enable_auto_hide_skip_segment_button">Piilota ohita-painike automaattisesti</string>
+  <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_on">Ohita-painike piiloutuu muutaman sekunnin kuluttua</string>
+  <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_off">Ohita-painike näytetään koko osion ajan</string>
   <string name="revanced_sb_general_skiptoast">Näytä ponnahdusilmoitus automaattisesti ohitettaessa</string>
   <string name="revanced_sb_general_skiptoast_sum_on">Ponnahdusilmoitus näytetään, kun osio ohitetaan automaattisesti. Napauta tästä nähdäksesi esimerkin</string>
   <string name="revanced_sb_general_skiptoast_sum_off">Ponnahdusilmoitusta ei näytetä. Napauta tästä nähdäksesi esimerkin</string>
@@ -935,7 +999,7 @@ Käyttäjätunnus on kuin salasana, eikä sitä pidä jakaa kenellekään.
   <string name="revanced_sb_skipped_multiple_segments">Ohitettiin useita osioita</string>
   <string name="revanced_sb_skip_automatically">Ohita automaattisesti</string>
   <string name="revanced_sb_skip_automatically_once">Ohita automaattisesti kerran</string>
-  <string name="revanced_sb_skip_showbutton">Näytä ohituspainike</string>
+  <string name="revanced_sb_skip_showbutton">Näytä ohita-painike</string>
   <string name="revanced_sb_skip_seekbaronly">Näytä liukusäätimessä</string>
   <string name="revanced_sb_skip_ignore">Poista käytöstä</string>
   <string name="revanced_sb_submit_failed_invalid">Osiota ei voitu lähettää: %s</string>
@@ -1014,6 +1078,21 @@ Haluatko lähettää?"</string>
   <string name="revanced_sb_about_api_sum">Tiedot tarjoaa SponsorBlock API. Napauta tätä saadaksesi lisätietoja ja nähdäksesi lataukset muille alustoille</string>
   </patch>
   <patch id="layout.formfactor.changeFormFactorPatch">
+  <string name="revanced_change_form_factor_title">Ulkoasun asettelu</string>
+  <string name="revanced_change_form_factor_entry_1">Oletus</string>
+  <string name="revanced_change_form_factor_entry_2">Puhelin</string>
+  <string name="revanced_change_form_factor_entry_3">Tabletti</string>
+  <string name="revanced_change_form_factor_entry_4">Ajoneuvo</string>
+  <string name="revanced_change_form_factor_user_dialog_message">"Muutokset sisältävät:
+
+Tabletti-asettelu
+• Yhteisöpostaukset on piilotettu
+
+Ajoneuvo-asettelu
+• Katseluhistoriavalikko on piilotettu
+• Tutustu-välilehti on palautettu
+• Shortsit avautuvat tavallisessa soittimessa
+• Syöte on järjestetty aiheiden ja kanavien mukaan"</string>
   </patch>
   <patch id="layout.spoofappversion.spoofAppVersionPatch">
   <string name="revanced_spoof_app_version_title">Naamioi sovellusversio</string>
@@ -1311,58 +1390,6 @@ AVC:n maksimiresoluutio on 1080p, Opus-äänikoodekki ei ole käytettävissä, j
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Asiakastyyppi näytetään teknisissä tiedoissa</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Asiakastyyppi on piilotettu teknisissä tiedoissa</string>
   <string name="revanced_spoof_video_streams_language_title">VR-äänivirran oletuskieli</string>
-  <string name="revanced_spoof_video_streams_language_DEFAULT">Sovelluksen kieli</string>
-  <string name="revanced_spoof_video_streams_language_AR">Arabia</string>
-  <string name="revanced_spoof_video_streams_language_AZ">Azerbaidžan</string>
-  <string name="revanced_spoof_video_streams_language_BG">Bulgaria</string>
-  <string name="revanced_spoof_video_streams_language_BN">Bengalin</string>
-  <string name="revanced_spoof_video_streams_language_CA">Katalaani</string>
-  <string name="revanced_spoof_video_streams_language_CS">Tšekki</string>
-  <string name="revanced_spoof_video_streams_language_DA">Tanska</string>
-  <string name="revanced_spoof_video_streams_language_DE">Saksa</string>
-  <string name="revanced_spoof_video_streams_language_EL">Kreikka</string>
-  <string name="revanced_spoof_video_streams_language_EN">Englanti</string>
-  <string name="revanced_spoof_video_streams_language_ES">Espanja</string>
-  <string name="revanced_spoof_video_streams_language_ET">Viro</string>
-  <string name="revanced_spoof_video_streams_language_FA">Persia</string>
-  <string name="revanced_spoof_video_streams_language_FI">Suomi</string>
-  <string name="revanced_spoof_video_streams_language_FR">Ranska</string>
-  <string name="revanced_spoof_video_streams_language_GU">Gudžarati</string>
-  <string name="revanced_spoof_video_streams_language_HI">Hindi</string>
-  <string name="revanced_spoof_video_streams_language_HR">Kroatia</string>
-  <string name="revanced_spoof_video_streams_language_HU">Unkari</string>
-  <string name="revanced_spoof_video_streams_language_ID">Indonesialainen</string>
-  <string name="revanced_spoof_video_streams_language_IT">Italia</string>
-  <string name="revanced_spoof_video_streams_language_JA">Japani</string>
-  <string name="revanced_spoof_video_streams_language_KK">Kazakki</string>
-  <string name="revanced_spoof_video_streams_language_KO">Korealainen</string>
-  <string name="revanced_spoof_video_streams_language_LT">Liettua</string>
-  <string name="revanced_spoof_video_streams_language_LV">Latvia</string>
-  <string name="revanced_spoof_video_streams_language_MK">Makedonia</string>
-  <string name="revanced_spoof_video_streams_language_MN">Mongolia</string>
-  <string name="revanced_spoof_video_streams_language_MR">Marathi</string>
-  <string name="revanced_spoof_video_streams_language_MS">Malaiji</string>
-  <string name="revanced_spoof_video_streams_language_MY">Myanmar</string>
-  <string name="revanced_spoof_video_streams_language_NL">Hollanti</string>
-  <string name="revanced_spoof_video_streams_language_OR">Odia</string>
-  <string name="revanced_spoof_video_streams_language_PA">Punjabi</string>
-  <string name="revanced_spoof_video_streams_language_PL">Puola</string>
-  <string name="revanced_spoof_video_streams_language_PT">Portugali</string>
-  <string name="revanced_spoof_video_streams_language_RO">Romania</string>
-  <string name="revanced_spoof_video_streams_language_RU">Venäjä</string>
-  <string name="revanced_spoof_video_streams_language_SK">Slovakki</string>
-  <string name="revanced_spoof_video_streams_language_SL">Sloveeni</string>
-  <string name="revanced_spoof_video_streams_language_SR">Serbia</string>
-  <string name="revanced_spoof_video_streams_language_SV">Ruotsi</string>
-  <string name="revanced_spoof_video_streams_language_SW">Swahili</string>
-  <string name="revanced_spoof_video_streams_language_TA">Tamili</string>
-  <string name="revanced_spoof_video_streams_language_TE">Telugu</string>
-  <string name="revanced_spoof_video_streams_language_TH">Thaimaalainen</string>
-  <string name="revanced_spoof_video_streams_language_TR">Turkki</string>
-  <string name="revanced_spoof_video_streams_language_UK">Ukraina</string>
-  <string name="revanced_spoof_video_streams_language_UR">Urdu</string>
-  <string name="revanced_spoof_video_streams_language_VI">Vietnam</string>
-  <string name="revanced_spoof_video_streams_language_ZH">Kiina</string>
   </patch>
   </app>
   <app id="twitch">
