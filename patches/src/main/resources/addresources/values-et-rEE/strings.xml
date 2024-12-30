@@ -44,9 +44,9 @@ Second \"item\" text"</string>
   <string name="revanced_settings_import_success">Imporditi %d seadet</string>
   <string name="revanced_settings_import_failure_parse">Importimine ebaõnnestus: %s</string>
   <string name="revanced_language_title">Revancedi keel</string>
-  <string name="revanced_language_user_dialog_message">"Mõnede keelte tõlked võivad olla puudulikud või ebatäielikud.&lt;br&gt;
+  <string name="revanced_language_user_dialog_message">"Mõnede keelte tõlked võivad olla puudulikud või ebatäielikud.
 
-Uute keelte tõlkimiseks külastage saiti &lt;a href="https://translate.revanced.app"&gt;translate.revanced.app&lt;/a&gt;."</string>
+Uute keelte tõlkimiseks külastage saiti translate.revanced.app"</string>
   <string name="revanced_language_DEFAULT">Rakenduse keel</string>
   <string name="revanced_language_AR">Araabia</string>
   <string name="revanced_language_AZ">Aserbaidžaani</string>
