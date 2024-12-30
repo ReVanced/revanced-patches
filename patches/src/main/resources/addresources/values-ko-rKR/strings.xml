@@ -43,6 +43,62 @@ Second \"item\" text"</string>
   <string name="revanced_settings_import_reset">ReVanced 설정을 기본값으로 초기화합니다</string>
   <string name="revanced_settings_import_success">%d 설정을 가져왔습니다</string>
   <string name="revanced_settings_import_failure_parse">설정을 가져올 수 없습니다: %s</string>
+  <string name="revanced_language_title">ReVanced 언어</string>
+  <string name="revanced_language_user_dialog_message">"일부 언어의 번역이 누락되었거나 완료되지 않았을 수 있습니다
+
+새로운 언어를 번역하려면 translate.revanced.app를 방문하세요"</string>
+  <string name="revanced_language_DEFAULT">앱 언어</string>
+  <string name="revanced_language_AR">아랍어</string>
+  <string name="revanced_language_AZ">아제르바이잔어</string>
+  <string name="revanced_language_BG">불가리아어</string>
+  <string name="revanced_language_BN">벵골어</string>
+  <string name="revanced_language_CA">카탈루냐어</string>
+  <string name="revanced_language_CS">체코어</string>
+  <string name="revanced_language_DA">덴마크어</string>
+  <string name="revanced_language_DE">독일어</string>
+  <string name="revanced_language_EL">그리스어</string>
+  <string name="revanced_language_EN">영어</string>
+  <string name="revanced_language_ES">스페인어</string>
+  <string name="revanced_language_ET">에스토니아어</string>
+  <string name="revanced_language_FA">페르시아어</string>
+  <string name="revanced_language_FI">핀란드어</string>
+  <string name="revanced_language_FR">프랑스어</string>
+  <string name="revanced_language_GU">구자라트어</string>
+  <string name="revanced_language_HI">힌디어</string>
+  <string name="revanced_language_HR">크로아티아어</string>
+  <string name="revanced_language_HU">헝가리어</string>
+  <string name="revanced_language_ID">인도네시아어</string>
+  <string name="revanced_language_IT">이탈리아어</string>
+  <string name="revanced_language_JA">일본어</string>
+  <string name="revanced_language_KK">카자흐어</string>
+  <string name="revanced_language_KO">한국어</string>
+  <string name="revanced_language_LT">리투아니아어</string>
+  <string name="revanced_language_LV">라트비아어</string>
+  <string name="revanced_language_MK">마케도니아어</string>
+  <string name="revanced_language_MN">몽골어</string>
+  <string name="revanced_language_MR">마라티어</string>
+  <string name="revanced_language_MS">말레이어</string>
+  <string name="revanced_language_MY">버마어</string>
+  <string name="revanced_language_NL">네덜란드어</string>
+  <string name="revanced_language_OR">오리야어</string>
+  <string name="revanced_language_PA">펀자브어</string>
+  <string name="revanced_language_PL">폴란드어</string>
+  <string name="revanced_language_PT">포르투갈어</string>
+  <string name="revanced_language_RO">루마니아어</string>
+  <string name="revanced_language_RU">러시아어</string>
+  <string name="revanced_language_SK">슬로바키아어</string>
+  <string name="revanced_language_SL">슬로베니아어</string>
+  <string name="revanced_language_SR">세르비아어</string>
+  <string name="revanced_language_SV">스웨덴어</string>
+  <string name="revanced_language_SW">스와힐리어</string>
+  <string name="revanced_language_TA">타밀어</string>
+  <string name="revanced_language_TE">텔루구어</string>
+  <string name="revanced_language_TH">태국어</string>
+  <string name="revanced_language_TR">터키어</string>
+  <string name="revanced_language_UK">우크라이나어</string>
+  <string name="revanced_language_UR">우르두어</string>
+  <string name="revanced_language_VI">베트남어</string>
+  <string name="revanced_language_ZH">중국어</string>
   <string name="revanced_pref_import_export_title">가져오기 / 내보내기</string>
   <string name="revanced_pref_import_export_summary">ReVanced 설정을 가져오거나 내보낼 수 있습니다</string>
   <!-- Settings about dialog. -->
@@ -751,10 +807,10 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   </patch>
   <patch id="layout.player.fullscreen.exitFullscreenPatch">
   <string name="revanced_exit_fullscreen_title">동영상이 종료할 때, 전체 화면에서 나가기</string>
-  <string name="revanced_exit_fullscreen_entry_1">사용안함</string>
-  <string name="revanced_exit_fullscreen_entry_2">세로모드</string>
-  <string name="revanced_exit_fullscreen_entry_3">가로모드</string>
-  <string name="revanced_exit_fullscreen_entry_4">세로 및 가로모드</string>
+  <string name="revanced_exit_fullscreen_entry_1">사용 안함</string>
+  <string name="revanced_exit_fullscreen_entry_2">세로 모드</string>
+  <string name="revanced_exit_fullscreen_entry_3">가로 모드</string>
+  <string name="revanced_exit_fullscreen_entry_4">세로 및 가로 모드</string>
   </patch>
   <patch id="layout.player.fullscreen.openVideosFullscreen">
   <string name="revanced_open_videos_fullscreen_portrait_title">동영상을 전체 화면 세로 모드로 열기</string>
@@ -1030,13 +1086,13 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_change_form_factor_entry_1">기기 기본값 사용</string>
   <string name="revanced_change_form_factor_entry_2">폰</string>
   <string name="revanced_change_form_factor_entry_3">태블릿</string>
-  <string name="revanced_change_form_factor_entry_4">자동차</string>
+  <string name="revanced_change_form_factor_entry_4">오토모티브</string>
   <string name="revanced_change_form_factor_user_dialog_message">"변경 사항:
 
 태블릿 레이아웃
 • 커뮤니티 게시물이 숨겨집니다
 
-자동차 레이아웃
+오토모티브 레이아웃
 • 시청 기록 메뉴가 숨겨집니다
 • 탐색 탭이 복원됩니다
 • Shorts가 일반 플레이어에서 재생됩니다
@@ -1339,58 +1395,6 @@ AVC의 최대 화질 값은 1080p이고, OPUS 코덱을 사용불가 및 HDR 동
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">전문 통계에서 기본 클라이언트가 표시됩니다</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">전문 통계에서 기본 클라이언트가 표시되지 않습니다</string>
   <string name="revanced_spoof_video_streams_language_title">Android VR 기본 오디오 스트림 언어</string>
-  <string name="revanced_spoof_video_streams_language_DEFAULT">앱 언어</string>
-  <string name="revanced_spoof_video_streams_language_AR">아랍어</string>
-  <string name="revanced_spoof_video_streams_language_AZ">아제르바니잔어</string>
-  <string name="revanced_spoof_video_streams_language_BG">불가리아어</string>
-  <string name="revanced_spoof_video_streams_language_BN">뱅골어</string>
-  <string name="revanced_spoof_video_streams_language_CA">카타로니아어</string>
-  <string name="revanced_spoof_video_streams_language_CS">체코어</string>
-  <string name="revanced_spoof_video_streams_language_DA">덴마크어</string>
-  <string name="revanced_spoof_video_streams_language_DE">독일어</string>
-  <string name="revanced_spoof_video_streams_language_EL">그리스어</string>
-  <string name="revanced_spoof_video_streams_language_EN">영어</string>
-  <string name="revanced_spoof_video_streams_language_ES">스페인어</string>
-  <string name="revanced_spoof_video_streams_language_ET">에스토니아어</string>
-  <string name="revanced_spoof_video_streams_language_FA">페르시아어</string>
-  <string name="revanced_spoof_video_streams_language_FI">핀란드어</string>
-  <string name="revanced_spoof_video_streams_language_FR">프랑스어</string>
-  <string name="revanced_spoof_video_streams_language_GU">구자라트어</string>
-  <string name="revanced_spoof_video_streams_language_HI">힌디어</string>
-  <string name="revanced_spoof_video_streams_language_HR">크로아티아어</string>
-  <string name="revanced_spoof_video_streams_language_HU">헝가리어</string>
-  <string name="revanced_spoof_video_streams_language_ID">인도네시아어</string>
-  <string name="revanced_spoof_video_streams_language_IT">이틸리아어</string>
-  <string name="revanced_spoof_video_streams_language_JA">일본어</string>
-  <string name="revanced_spoof_video_streams_language_KK">키자흐스탄어</string>
-  <string name="revanced_spoof_video_streams_language_KO">한국어</string>
-  <string name="revanced_spoof_video_streams_language_LT">리투아니아어</string>
-  <string name="revanced_spoof_video_streams_language_LV">라트비아어</string>
-  <string name="revanced_spoof_video_streams_language_MK">마케도니아어</string>
-  <string name="revanced_spoof_video_streams_language_MN">몽골어</string>
-  <string name="revanced_spoof_video_streams_language_MR">마라티어</string>
-  <string name="revanced_spoof_video_streams_language_MS">말레이어</string>
-  <string name="revanced_spoof_video_streams_language_MY">버마어</string>
-  <string name="revanced_spoof_video_streams_language_NL">네덜란드어</string>
-  <string name="revanced_spoof_video_streams_language_OR">오리야어</string>
-  <string name="revanced_spoof_video_streams_language_PA">펀잡어</string>
-  <string name="revanced_spoof_video_streams_language_PL">폴란드어</string>
-  <string name="revanced_spoof_video_streams_language_PT">포르투갈어</string>
-  <string name="revanced_spoof_video_streams_language_RO">루마니아어</string>
-  <string name="revanced_spoof_video_streams_language_RU">러시아어</string>
-  <string name="revanced_spoof_video_streams_language_SK">슬로바키아어</string>
-  <string name="revanced_spoof_video_streams_language_SL">슬로베니아어</string>
-  <string name="revanced_spoof_video_streams_language_SR">세르비아어</string>
-  <string name="revanced_spoof_video_streams_language_SV">스웨덴어</string>
-  <string name="revanced_spoof_video_streams_language_SW">스와힐리어</string>
-  <string name="revanced_spoof_video_streams_language_TA">타밀어</string>
-  <string name="revanced_spoof_video_streams_language_TE">텔루구어</string>
-  <string name="revanced_spoof_video_streams_language_TH">태국어</string>
-  <string name="revanced_spoof_video_streams_language_TR">터키어</string>
-  <string name="revanced_spoof_video_streams_language_UK">우크라이나어</string>
-  <string name="revanced_spoof_video_streams_language_UR">우르두어</string>
-  <string name="revanced_spoof_video_streams_language_VI">베트남어</string>
-  <string name="revanced_spoof_video_streams_language_ZH">중국어</string>
   </patch>
   </app>
   <app id="twitch">
