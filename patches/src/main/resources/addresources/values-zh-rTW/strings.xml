@@ -43,6 +43,62 @@ Second \"item\" text"</string>
   <string name="revanced_settings_import_reset">重設 ReVanced 設定為預設值</string>
   <string name="revanced_settings_import_success">已匯入設定 %d</string>
   <string name="revanced_settings_import_failure_parse">匯入失敗：%s</string>
+  <string name="revanced_language_title">ReVanced 語言</string>
+  <string name="revanced_language_user_dialog_message">"某些語言的譯詞可能遺失或尚未完成。
+
+如要為尚無翻譯的語言進行翻譯，請造訪 translate.revanced.app。"</string>
+  <string name="revanced_language_DEFAULT">應用程式語言</string>
+  <string name="revanced_language_AR">Arabic</string>
+  <string name="revanced_language_AZ">Azerbaijani</string>
+  <string name="revanced_language_BG">Bulgarian</string>
+  <string name="revanced_language_BN">Bengali</string>
+  <string name="revanced_language_CA">Catalan</string>
+  <string name="revanced_language_CS">Czech</string>
+  <string name="revanced_language_DA">Danish</string>
+  <string name="revanced_language_DE">German</string>
+  <string name="revanced_language_EL">Greek</string>
+  <string name="revanced_language_EN">English</string>
+  <string name="revanced_language_ES">Spanish</string>
+  <string name="revanced_language_ET">Estonian</string>
+  <string name="revanced_language_FA">Persian</string>
+  <string name="revanced_language_FI">Finnish</string>
+  <string name="revanced_language_FR">French</string>
+  <string name="revanced_language_GU">Gujarati</string>
+  <string name="revanced_language_HI">Hindi</string>
+  <string name="revanced_language_HR">Croatian</string>
+  <string name="revanced_language_HU">Hungarian</string>
+  <string name="revanced_language_ID">Indonesian</string>
+  <string name="revanced_language_IT">Italian</string>
+  <string name="revanced_language_JA">Japanese</string>
+  <string name="revanced_language_KK">Kazakh</string>
+  <string name="revanced_language_KO">Korean</string>
+  <string name="revanced_language_LT">Lithuanian</string>
+  <string name="revanced_language_LV">Latvian</string>
+  <string name="revanced_language_MK">Macedonian</string>
+  <string name="revanced_language_MN">Mongolian</string>
+  <string name="revanced_language_MR">Marathi</string>
+  <string name="revanced_language_MS">Malay</string>
+  <string name="revanced_language_MY">Burmese</string>
+  <string name="revanced_language_NL">Dutch</string>
+  <string name="revanced_language_OR">Odia</string>
+  <string name="revanced_language_PA">Punjabi</string>
+  <string name="revanced_language_PL">Polish</string>
+  <string name="revanced_language_PT">Portuguese</string>
+  <string name="revanced_language_RO">Romanian</string>
+  <string name="revanced_language_RU">Russian</string>
+  <string name="revanced_language_SK">Slovak</string>
+  <string name="revanced_language_SL">Slovene</string>
+  <string name="revanced_language_SR">Serbian</string>
+  <string name="revanced_language_SV">Swedish</string>
+  <string name="revanced_language_SW">Swahili</string>
+  <string name="revanced_language_TA">Tamil</string>
+  <string name="revanced_language_TE">Telugu</string>
+  <string name="revanced_language_TH">Thai</string>
+  <string name="revanced_language_TR">Turkish</string>
+  <string name="revanced_language_UK">Ukrainian</string>
+  <string name="revanced_language_UR">Urdu</string>
+  <string name="revanced_language_VI">Vietnamese</string>
+  <string name="revanced_language_ZH">中文</string>
   <string name="revanced_pref_import_export_title">匯入 / 匯出</string>
   <string name="revanced_pref_import_export_summary">匯入 / 匯出 ReVanced 設定</string>
   <!-- Settings about dialog. -->
@@ -446,6 +502,9 @@ Second \"item\" text"</string>
   <string name="revanced_swipe_overlay_background_alpha_summary">滑動覆蓋背景透明度</string>
   <string name="revanced_swipe_threshold_title">滑動幅度臨界點</string>
   <string name="revanced_swipe_threshold_summary">滑動幅度臨界點</string>
+  <string name="revanced_swipe_change_video_title">啟用滑動以變更影片</string>
+  <string name="revanced_swipe_change_video_summary_on">在全螢幕模式下滑動會切換到下一個/上一個影片</string>
+  <string name="revanced_swipe_change_video_summary_off">在全螢幕模式下滑動不會切換到下一個/上一個影片</string>
   </patch>
   <patch id="layout.autocaptions.autoCaptionsPatch">
   <string name="revanced_auto_captions_title">停用自動產生字幕</string>
@@ -519,10 +578,10 @@ Second \"item\" text"</string>
   <string name="revanced_disable_translucent_status_bar_title">停用半透明狀態列</string>
   <string name="revanced_disable_translucent_status_bar_summary_on">狀態列為不透明</string>
   <string name="revanced_disable_translucent_status_bar_summary_off">狀態列為不透明或半透明</string>
-  <string name="revanced_disable_translucent_navigation_bar_light_title">禁用淺色半透明導覽列</string>
+  <string name="revanced_disable_translucent_navigation_bar_light_title">停用淺色半透明狀態列</string>
   <string name="revanced_disable_translucent_navigation_bar_light_summary_on">淺色模式導覽列為不透明</string>
-  <string name="revanced_disable_translucent_navigation_bar_light_summary_off">淺色模式導航列為不透明或半透明</string>
-  <string name="revanced_disable_translucent_navigation_bar_dark_title">停用深色半透明欄</string>
+  <string name="revanced_disable_translucent_navigation_bar_light_summary_off">淺色模式導覽列為不透明或半透明</string>
+  <string name="revanced_disable_translucent_navigation_bar_dark_title">停用深色半透明狀態列</string>
   <string name="revanced_disable_translucent_navigation_bar_dark_summary_on">深色模式導覽列為不透明</string>
   <string name="revanced_disable_translucent_navigation_bar_dark_summary_off">深色模式導覽列為不透明或半透明</string>
   </patch>
@@ -629,15 +688,18 @@ Second \"item\" text"</string>
   <string name="revanced_shorts_player_screen_summary">隱藏或顯示 Shorts 播放器的元件</string>
   <!-- 'home' should be translated using the same localized wording YouTube displays for the home tab. -->
   <string name="revanced_hide_shorts_home_title">隱藏 Shorts 首頁動態消息</string>
-  <string name="revanced_hide_shorts_home_summary_on">已在首頁動態影片中隱藏 Shorts</string>
-  <string name="revanced_hide_shorts_home_summary_off">已在首頁動態影片中顯示 Shorts</string>
+  <string name="revanced_hide_shorts_home_summary_on">隱藏在首頁饋送和相關影片中</string>
+  <string name="revanced_hide_shorts_home_summary_off">顯示在首頁饋送和相關影片中</string>
   <!-- 'subscription' should be translated using the same localized wording YouTube displays for the subscription tab. -->
   <string name="revanced_hide_shorts_subscriptions_title">隱藏 Shorts 訂閱內容動態消息</string>
-  <string name="revanced_hide_shorts_subscriptions_summary_on">已在訂閱動態影片中隱藏 Shorts</string>
-  <string name="revanced_hide_shorts_subscriptions_summary_off">已在訂閱動態影片中顯示 Shorts</string>
+  <string name="revanced_hide_shorts_subscriptions_summary_on">已隱藏在訂閱動態</string>
+  <string name="revanced_hide_shorts_subscriptions_summary_off">已顯示在訂閱動態</string>
   <string name="revanced_hide_shorts_search_title">隱藏 Shorts 搜尋結果</string>
-  <string name="revanced_hide_shorts_search_summary_on">已在搜尋結果中隱藏 Shorts</string>
-  <string name="revanced_hide_shorts_search_summary_off">已在搜尋結果中顯示 Shorts</string>
+  <string name="revanced_hide_shorts_search_summary_on">隱藏於搜尋結果中</string>
+  <string name="revanced_hide_shorts_search_summary_off">已顯示在搜尋結果</string>
+  <string name="revanced_hide_shorts_history_title">隱藏 Shorts 於觀看紀錄中</string>
+  <string name="revanced_hide_shorts_history_summary_on">已隱藏在觀看記錄</string>
+  <string name="revanced_hide_shorts_history_summary_off">顯示於觀看紀錄中</string>
   <!-- 'join' should be translated using the same localized wording YouTube displays for the button. -->
   <string name="revanced_hide_shorts_join_button_title">隱藏加入按鈕</string>
   <string name="revanced_hide_shorts_join_button_summary_on">已隱藏加入按鈕</string>
@@ -738,6 +800,13 @@ Second \"item\" text"</string>
   <string name="revanced_hide_player_popup_panels_title">隱藏播放器彈出面板</string>
   <string name="revanced_hide_player_popup_panels_summary_on">已隱藏播放器彈出面板</string>
   <string name="revanced_hide_player_popup_panels_summary_off">已顯示播放器彈出面板</string>
+  </patch>
+  <patch id="layout.player.fullscreen.exitFullscreenPatch">
+  <string name="revanced_exit_fullscreen_title">視窗模式結束後退出全螢幕</string>
+  <string name="revanced_exit_fullscreen_entry_1">停用</string>
+  <string name="revanced_exit_fullscreen_entry_2">直立</string>
+  <string name="revanced_exit_fullscreen_entry_3">橫向</string>
+  <string name="revanced_exit_fullscreen_entry_4">直立和橫向</string>
   </patch>
   <patch id="layout.player.fullscreen.openVideosFullscreen">
   <string name="revanced_open_videos_fullscreen_portrait_title">以全螢幕開啟影片</string>
@@ -1009,6 +1078,23 @@ Second \"item\" text"</string>
   <string name="revanced_sb_about">關於</string>
   <string name="revanced_sb_about_api_sum">資料由 SponsorBlock API 提供。點擊此處來瞭解更多資訊和查看其他平台的下載</string>
   </patch>
+  <patch id="layout.formfactor.changeFormFactorPatch">
+  <string name="revanced_change_form_factor_title">修改排版形式係數</string>
+  <string name="revanced_change_form_factor_entry_1">預設</string>
+  <string name="revanced_change_form_factor_entry_2">手機</string>
+  <string name="revanced_change_form_factor_entry_3">平板</string>
+  <string name="revanced_change_form_factor_entry_4">汽車</string>
+  <string name="revanced_change_form_factor_user_dialog_message">"變更包括：
+
+平板電腦版面
+• 社群貼文隱藏
+
+汽車版面
+• 觀看記錄選單隱藏
+• 探索分頁還原
+• Shorts 在一般播放器中開啟
+• 資訊流按主題和頻道整理"</string>
+  </patch>
   <patch id="layout.spoofappversion.spoofAppVersionPatch">
   <string name="revanced_spoof_app_version_title">欺騙應用程式版本</string>
   <string name="revanced_spoof_app_version_summary_on">已欺騙版本</string>
@@ -1022,6 +1108,7 @@ Second \"item\" text"</string>
                  This is because the 'General layout' menu uses alphabetic sorting, and it functionally works better if the spoof target selector appears below the 'Spoof app version' UI switch -->
   <string name="revanced_spoof_app_version_target_title">欺騙應用程式版本目標</string>
   <string name="revanced_spoof_app_version_target_entry_1">19.35.36 - 還原舊版 Shorts 播放圖標</string>
+  <string name="revanced_spoof_app_version_target_entry_2">19.26.42 - 恢復舊版導覽和工具列圖示</string>
   <!-- 'RYD' is 'Return YouTube Dislike' -->
   <string name="revanced_spoof_app_version_target_legacy_entry_1">18.33.40 - 在 Shorts 無痕模式中還原 RYD</string>
   <string name="revanced_spoof_app_version_target_legacy_entry_2">18.20.39 - 還原寬影片速度 &amp; 畫質選單</string>
@@ -1064,12 +1151,6 @@ Second \"item\" text"</string>
   <string name="revanced_shorts_autoplay_background_title">在背景自動播放 Shorts</string>
   <string name="revanced_shorts_autoplay_background_summary_on">Shorts 將在背景自動播放</string>
   <string name="revanced_shorts_autoplay_background_summary_off">Shorts 將在背景重複播放</string>
-  </patch>
-  <patch id="layout.tablet.enableTabletLayoutPatch">
-  <string name="revanced_tablet_layout_title">啟用平板介面</string>
-  <string name="revanced_tablet_layout_summary_on">已啟用平板介面</string>
-  <string name="revanced_tablet_layout_summary_off">已停用平板介面</string>
-  <string name="revanced_tablet_layout_user_dialog_message">社群貼文不會顯示在平板介面上</string>
   </patch>
   <patch id="layout.miniplayer.miniplayerPatch">
   <string name="revanced_miniplayer_screen_title">迷你播放器</string>
@@ -1235,6 +1316,7 @@ Second \"item\" text"</string>
   <string name="revanced_force_original_audio_title">強制使用原始音訊</string>
   <string name="revanced_force_original_audio_summary_on">使用原始音訊</string>
   <string name="revanced_force_original_audio_summary_off">使用預設音訊</string>
+  <string name="revanced_force_original_audio_not_available">如欲使用此功能，請變更串流欺騙至 iOS 客戶端類型</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
@@ -1298,8 +1380,9 @@ Second \"item\" text"</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">"啟用此功能可能會改善電池壽命並修復播放卡頓問題。
 
 A​VC 的最高解析度為 1080p，不支援 Opus 音訊解碼器，而且與 VP9 或 AV1 相比，影片播放會使用更多網際網路流量。"</string>
-  <string name="revanced_spoof_video_streams_about_ios_tv_title">偽裝 iOS TV 的副作用</string>
+  <string name="revanced_spoof_video_streams_about_ios_tv_title">偽裝 iOS 的副作用</string>
   <string name="revanced_spoof_video_streams_about_ios_tv_summary">"• 電影或付費影片可能無法播放
+• 無法使用穩定音量控制
 • 影片提前 1 秒結束"</string>
   <string name="revanced_spoof_video_streams_about_android_title">偽裝 Android 的副作用</string>
   <string name="revanced_spoof_video_streams_about_android_summary">"• 音軌選單遺失
@@ -1309,58 +1392,6 @@ A​VC 的最高解析度為 1080p，不支援 Opus 音訊解碼器，而且與 
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">於統計資料中顯示客戶端類型</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">於統計資料中隱藏客戶端類型</string>
   <string name="revanced_spoof_video_streams_language_title">預設 VR 音訊串流語言</string>
-  <string name="revanced_spoof_video_streams_language_DEFAULT">應用程式語言</string>
-  <string name="revanced_spoof_video_streams_language_AR">阿拉伯語</string>
-  <string name="revanced_spoof_video_streams_language_AZ">亞塞拜然語</string>
-  <string name="revanced_spoof_video_streams_language_BG">保加利亞語</string>
-  <string name="revanced_spoof_video_streams_language_BN">孟加拉語</string>
-  <string name="revanced_spoof_video_streams_language_CA">卡塔蘭語</string>
-  <string name="revanced_spoof_video_streams_language_CS">捷克語</string>
-  <string name="revanced_spoof_video_streams_language_DA">丹麥語</string>
-  <string name="revanced_spoof_video_streams_language_DE">德語</string>
-  <string name="revanced_spoof_video_streams_language_EL">希臘語</string>
-  <string name="revanced_spoof_video_streams_language_EN">英文</string>
-  <string name="revanced_spoof_video_streams_language_ES">西班牙語</string>
-  <string name="revanced_spoof_video_streams_language_ET">愛沙尼亞語</string>
-  <string name="revanced_spoof_video_streams_language_FA">波斯語</string>
-  <string name="revanced_spoof_video_streams_language_FI">芬蘭語</string>
-  <string name="revanced_spoof_video_streams_language_FR">法語</string>
-  <string name="revanced_spoof_video_streams_language_GU">古吉拉特語</string>
-  <string name="revanced_spoof_video_streams_language_HI">印地語</string>
-  <string name="revanced_spoof_video_streams_language_HR">克羅埃西亞語</string>
-  <string name="revanced_spoof_video_streams_language_HU">匈牙利語</string>
-  <string name="revanced_spoof_video_streams_language_ID">印尼語</string>
-  <string name="revanced_spoof_video_streams_language_IT">義大利語</string>
-  <string name="revanced_spoof_video_streams_language_JA">日語</string>
-  <string name="revanced_spoof_video_streams_language_KK">哈薩克語</string>
-  <string name="revanced_spoof_video_streams_language_KO">韓語</string>
-  <string name="revanced_spoof_video_streams_language_LT">立陶宛語</string>
-  <string name="revanced_spoof_video_streams_language_LV">拉脫維亞語</string>
-  <string name="revanced_spoof_video_streams_language_MK">馬其頓語</string>
-  <string name="revanced_spoof_video_streams_language_MN">蒙古語</string>
-  <string name="revanced_spoof_video_streams_language_MR">馬拉提文</string>
-  <string name="revanced_spoof_video_streams_language_MS">馬來語</string>
-  <string name="revanced_spoof_video_streams_language_MY">緬甸語</string>
-  <string name="revanced_spoof_video_streams_language_NL">荷蘭語</string>
-  <string name="revanced_spoof_video_streams_language_OR">奧利亞語</string>
-  <string name="revanced_spoof_video_streams_language_PA">旁遮普語</string>
-  <string name="revanced_spoof_video_streams_language_PL">波蘭語</string>
-  <string name="revanced_spoof_video_streams_language_PT">Portuguese</string>
-  <string name="revanced_spoof_video_streams_language_RO">羅馬尼亞語</string>
-  <string name="revanced_spoof_video_streams_language_RU">俄語</string>
-  <string name="revanced_spoof_video_streams_language_SK">斯洛伐克語</string>
-  <string name="revanced_spoof_video_streams_language_SL">斯洛維尼亞語</string>
-  <string name="revanced_spoof_video_streams_language_SR">塞爾維亞語</string>
-  <string name="revanced_spoof_video_streams_language_SV">瑞典語</string>
-  <string name="revanced_spoof_video_streams_language_SW">斯瓦希里語</string>
-  <string name="revanced_spoof_video_streams_language_TA">泰米爾語</string>
-  <string name="revanced_spoof_video_streams_language_TE">泰盧固語</string>
-  <string name="revanced_spoof_video_streams_language_TH">泰語</string>
-  <string name="revanced_spoof_video_streams_language_TR">土耳其語</string>
-  <string name="revanced_spoof_video_streams_language_UK">烏克蘭語</string>
-  <string name="revanced_spoof_video_streams_language_UR">烏爾都語</string>
-  <string name="revanced_spoof_video_streams_language_VI">越南語</string>
-  <string name="revanced_spoof_video_streams_language_ZH">中文</string>
   </patch>
   </app>
   <app id="twitch">

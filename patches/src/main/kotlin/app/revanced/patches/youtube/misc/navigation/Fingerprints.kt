@@ -105,3 +105,15 @@ internal val pivotBarConstructorFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     strings("com.google.android.apps.youtube.app.endpoint.flags")
 }
+
+internal val imageEnumConstructorFingerprint = fingerprint {
+    accessFlags(AccessFlags.STATIC, AccessFlags.CONSTRUCTOR)
+    strings("TAB_ACTIVITY_CAIRO")
+}
+
+internal val setEnumMapFingerprint = fingerprint {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
+    literal {
+        ytFillBellId
+    }
+}

@@ -43,6 +43,62 @@ Second \"item\" text"</string>
   <string name="revanced_settings_import_reset">Nastavení ReVanced obnoveno do výchozího stavu</string>
   <string name="revanced_settings_import_success">Importováno %d nastavení</string>
   <string name="revanced_settings_import_failure_parse">Importováni selhalo: %s</string>
+  <string name="revanced_language_title">Jazyk ReVanced</string>
+  <string name="revanced_language_user_dialog_message">"Překlady pro některé jazyky mohou chybět nebo být neúplné.
+
+Nové jazyky přeložíte na translate.revanced.app"</string>
+  <string name="revanced_language_DEFAULT">Jazyk aplikace</string>
+  <string name="revanced_language_AR">Arabština</string>
+  <string name="revanced_language_AZ">Ázerbájdžánština</string>
+  <string name="revanced_language_BG">Bulharština</string>
+  <string name="revanced_language_BN">Bengálština</string>
+  <string name="revanced_language_CA">Katalánština</string>
+  <string name="revanced_language_CS">Čeština</string>
+  <string name="revanced_language_DA">Dánština</string>
+  <string name="revanced_language_DE">Němčina</string>
+  <string name="revanced_language_EL">Řečtina</string>
+  <string name="revanced_language_EN">Angličtina</string>
+  <string name="revanced_language_ES">Španělština</string>
+  <string name="revanced_language_ET">Estonština</string>
+  <string name="revanced_language_FA">Perština</string>
+  <string name="revanced_language_FI">Finština</string>
+  <string name="revanced_language_FR">Francouzština</string>
+  <string name="revanced_language_GU">Gujarati</string>
+  <string name="revanced_language_HI">Hindština</string>
+  <string name="revanced_language_HR">Chorvatština</string>
+  <string name="revanced_language_HU">Maďarština</string>
+  <string name="revanced_language_ID">Indonéština</string>
+  <string name="revanced_language_IT">Italština</string>
+  <string name="revanced_language_JA">Japonština</string>
+  <string name="revanced_language_KK">Kazachština</string>
+  <string name="revanced_language_KO">Korejština</string>
+  <string name="revanced_language_LT">Litevština</string>
+  <string name="revanced_language_LV">Lotyština</string>
+  <string name="revanced_language_MK">Makedonština</string>
+  <string name="revanced_language_MN">Mongolština</string>
+  <string name="revanced_language_MR">Maráthština</string>
+  <string name="revanced_language_MS">Malajština</string>
+  <string name="revanced_language_MY">Barmština</string>
+  <string name="revanced_language_NL">Nizozemština</string>
+  <string name="revanced_language_OR">Uríjština</string>
+  <string name="revanced_language_PA">Paňdžábština</string>
+  <string name="revanced_language_PL">Polština</string>
+  <string name="revanced_language_PT">Portugalština</string>
+  <string name="revanced_language_RO">Rumunština</string>
+  <string name="revanced_language_RU">Ruština</string>
+  <string name="revanced_language_SK">Slovenština</string>
+  <string name="revanced_language_SL">Slověnština</string>
+  <string name="revanced_language_SR">Srbština</string>
+  <string name="revanced_language_SV">Švédština</string>
+  <string name="revanced_language_SW">Svahilština</string>
+  <string name="revanced_language_TA">Tamilština</string>
+  <string name="revanced_language_TE">Telugština</string>
+  <string name="revanced_language_TH">Thajština</string>
+  <string name="revanced_language_TR">Turečtina</string>
+  <string name="revanced_language_UK">Ukrajinština</string>
+  <string name="revanced_language_UR">Urdština</string>
+  <string name="revanced_language_VI">Vietnamština</string>
+  <string name="revanced_language_ZH">Čínština</string>
   <string name="revanced_pref_import_export_title">Importovat / Exportovat</string>
   <string name="revanced_pref_import_export_summary">Importovat/exportovat nastavení ReVanced</string>
   <!-- Settings about dialog. -->
@@ -446,6 +502,9 @@ Tato funkce je dostupná pouze pro starší zařízení"</string>
   <string name="revanced_swipe_overlay_background_alpha_summary">Viditelnost pozadí překrytí gesta</string>
   <string name="revanced_swipe_threshold_title">Práh vynucení gesta</string>
   <string name="revanced_swipe_threshold_summary">Velikost prahu pro provedení gesta</string>
+  <string name="revanced_swipe_change_video_title">Povolit přejetí prstem pro změnu videa</string>
+  <string name="revanced_swipe_change_video_summary_on">Přejetí prstem v režimu celé obrazovky změní video na další/předchozí</string>
+  <string name="revanced_swipe_change_video_summary_off">Přejetí prstem v režimu celé obrazovky nebude video měnit na další/předchozí</string>
   </patch>
   <patch id="layout.autocaptions.autoCaptionsPatch">
   <string name="revanced_auto_captions_title">Zakázat automatické titulky</string>
@@ -629,15 +688,18 @@ Poznámka: Povolení této funkce také vynuceně skryje video reklamy"</string>
   <string name="revanced_shorts_player_screen_summary">Skrýt nebo zobrazit komponenty v přehrávači Shorts</string>
   <!-- 'home' should be translated using the same localized wording YouTube displays for the home tab. -->
   <string name="revanced_hide_shorts_home_title">Skrýt Shorts v Domů</string>
-  <string name="revanced_hide_shorts_home_summary_on">Shorts jsou schovány v Domů</string>
-  <string name="revanced_hide_shorts_home_summary_off">Shorts jsou zobrazeny v Domů</string>
+  <string name="revanced_hide_shorts_home_summary_on">Skryto v domovskom kanáli a súvisiacich videách</string>
+  <string name="revanced_hide_shorts_home_summary_off">Zobrazené v domovskom kanáli a súvisiacich videách</string>
   <!-- 'subscription' should be translated using the same localized wording YouTube displays for the subscription tab. -->
   <string name="revanced_hide_shorts_subscriptions_title">Schovat Shorts v odběrovém feedu</string>
-  <string name="revanced_hide_shorts_subscriptions_summary_on">Shorts jsou v odběrovém feedu schovány</string>
-  <string name="revanced_hide_shorts_subscriptions_summary_off">Shorts jsou v odběrovém feedu zobazeny</string>
+  <string name="revanced_hide_shorts_subscriptions_summary_on">Skryté v odběrech</string>
+  <string name="revanced_hide_shorts_subscriptions_summary_off">Zobrazeno v odběrech</string>
   <string name="revanced_hide_shorts_search_title">Skrýt Shorts ve výsledcích vyhledávání</string>
-  <string name="revanced_hide_shorts_search_summary_on">Shorts jsou ve výsledcích vyhledávání skryté</string>
-  <string name="revanced_hide_shorts_search_summary_off">Shorts jsou ve výsledcích vyhledávání viditelné</string>
+  <string name="revanced_hide_shorts_search_summary_on">Skryté ve výsledcích vyhledávání</string>
+  <string name="revanced_hide_shorts_search_summary_off">Zobrazeno ve výsledcích vyhledávání</string>
+  <string name="revanced_hide_shorts_history_title">Skrýt Shorts z historie sledování</string>
+  <string name="revanced_hide_shorts_history_summary_on">Skryté v historii sledování</string>
+  <string name="revanced_hide_shorts_history_summary_off">Zobrazené v historii sledování</string>
   <!-- 'join' should be translated using the same localized wording YouTube displays for the button. -->
   <string name="revanced_hide_shorts_join_button_title">Skrýt tlačítko Připojit se</string>
   <string name="revanced_hide_shorts_join_button_summary_on">Tlačítko Připojit se je skryto</string>
@@ -738,6 +800,13 @@ Poznámka: Povolení této funkce také vynuceně skryje video reklamy"</string>
   <string name="revanced_hide_player_popup_panels_title">Skrýt vyskakovací panely přehrávače</string>
   <string name="revanced_hide_player_popup_panels_summary_on">Vyskakovací panely přehrávače jsou skryté</string>
   <string name="revanced_hide_player_popup_panels_summary_off">Vyskakovací panely přehrávače jsou zobrazeny</string>
+  </patch>
+  <patch id="layout.player.fullscreen.exitFullscreenPatch">
+  <string name="revanced_exit_fullscreen_title">Ukončete režim celé obrazovky na konci videa</string>
+  <string name="revanced_exit_fullscreen_entry_1">Zakázáno</string>
+  <string name="revanced_exit_fullscreen_entry_2">Na výšku</string>
+  <string name="revanced_exit_fullscreen_entry_3">Na šířku</string>
+  <string name="revanced_exit_fullscreen_entry_4">Na výšku i na šířku</string>
   </patch>
   <patch id="layout.player.fullscreen.openVideosFullscreen">
   <string name="revanced_open_videos_fullscreen_portrait_title">Otevřít videa v režimu na celou obrazovku na výšku</string>
@@ -1007,6 +1076,23 @@ Jste připraveni k odeslání?"</string>
   <string name="revanced_sb_about">O aplikaci</string>
   <string name="revanced_sb_about_api_sum">Data poskytuje rozhraní API SponsorBlock. Klepněte zde, abyste se dozvěděli více a zobrazili si soubory ke stažení pro další platformy</string>
   </patch>
+  <patch id="layout.formfactor.changeFormFactorPatch">
+  <string name="revanced_change_form_factor_title">Rozvržení formuláře</string>
+  <string name="revanced_change_form_factor_entry_1">Výchozí</string>
+  <string name="revanced_change_form_factor_entry_2">Telefon</string>
+  <string name="revanced_change_form_factor_entry_3">Tablet</string>
+  <string name="revanced_change_form_factor_entry_4">Automobilový</string>
+  <string name="revanced_change_form_factor_user_dialog_message">"Změny zahrnují:
+
+Rozložení tabletu
+• Příspěvky komunity jsou skryté
+
+Rozložení automobilu
+• Menu historie sledování je skryté
+• Karta Prozkoumat je obnovena
+• Shorts se otevírají v běžném přehrávači
+• Kanál je organizován podle témat a kanálu"</string>
+  </patch>
   <patch id="layout.spoofappversion.spoofAppVersionPatch">
   <string name="revanced_spoof_app_version_title">Napodobit verzi aplikace</string>
   <string name="revanced_spoof_app_version_summary_on">Verze napodobena</string>
@@ -1020,6 +1106,7 @@ Pokud bude později vypnuta, doporučujeme vymazat data aplikace, aby se zabrán
                  This is because the 'General layout' menu uses alphabetic sorting, and it functionally works better if the spoof target selector appears below the 'Spoof app version' UI switch -->
   <string name="revanced_spoof_app_version_target_title">Cíl napodobení verze aplikace</string>
   <string name="revanced_spoof_app_version_target_entry_1">19.35.36 - Obnovuje staré ikony Shorts přehrávače</string>
+  <string name="revanced_spoof_app_version_target_entry_2">19.26.42 - Obnovit ikony staré navigace a panelu nástrojů</string>
   <!-- 'RYD' is 'Return YouTube Dislike' -->
   <string name="revanced_spoof_app_version_target_legacy_entry_1">18.33.40 - Obnovení RYD v režimu inkognito Shorts</string>
   <string name="revanced_spoof_app_version_target_legacy_entry_2">18.20.39 - Obnovení široké nabídky rychlosti a kvality videa</string>
@@ -1062,12 +1149,6 @@ Pokud bude později vypnuta, doporučujeme vymazat data aplikace, aby se zabrán
   <string name="revanced_shorts_autoplay_background_title">Automatické přehrávání Shorts v pozadí</string>
   <string name="revanced_shorts_autoplay_background_summary_on">Přehrávání Shorts v pozadí se bude automaticky přehrávat</string>
   <string name="revanced_shorts_autoplay_background_summary_off">Přehrávání Shorts v pozadí se bude opakovat</string>
-  </patch>
-  <patch id="layout.tablet.enableTabletLayoutPatch">
-  <string name="revanced_tablet_layout_title">Povolit rozvržení tabletu</string>
-  <string name="revanced_tablet_layout_summary_on">Rozvržení tabletu je povoleno</string>
-  <string name="revanced_tablet_layout_summary_off">Rozvržení tabletu je zakázáno</string>
-  <string name="revanced_tablet_layout_user_dialog_message">Příspěvky komunity se v rozvržení tabletu nezobrazují</string>
   </patch>
   <patch id="layout.miniplayer.miniplayerPatch">
   <string name="revanced_miniplayer_screen_title">Mini přehrávač</string>
@@ -1232,6 +1313,7 @@ Povolením této funkce lze odemknout vyšší kvality videa"</string>
   <string name="revanced_force_original_audio_title">Vynutit původní zvuk</string>
   <string name="revanced_force_original_audio_summary_on">Používání původního zvuku</string>
   <string name="revanced_force_original_audio_summary_off">Používání výchozího zvuku</string>
+  <string name="revanced_force_original_audio_not_available">Pro použití této funkce změňte typ klienta streamu na iOS</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
@@ -1295,8 +1377,9 @@ Přehrávání videa nemusí fungovat"</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">"Povolení této funkce může zlepšit výdrž baterie a opravit sekání videa.
 
 AVC má maximální rozlišení 1080p, zvukový kodek Opus není dostupný a přehrávání videa bude používat více dat než VP9 nebo AV1."</string>
-  <string name="revanced_spoof_video_streams_about_ios_tv_title">\"Spoofing\" v iOS TV je proces, který přesvědčí YouTube aplikaci, že váš telefon používá iOS s oficiální verzí.</string>
+  <string name="revanced_spoof_video_streams_about_ios_tv_title">iOS spoofing vedlejší účinky</string>
   <string name="revanced_spoof_video_streams_about_ios_tv_summary">"• Filmy nebo placená videa se nemusí přehrávat
+• Stabilní hlasitost není k dispozici
 • Videa končí o 1 sekundu dříve"</string>
   <string name="revanced_spoof_video_streams_about_android_title">Vedlejší účinky spoofingu Androidu</string>
   <string name="revanced_spoof_video_streams_about_android_summary">"• Chybí nabídka zvukových stop
@@ -1306,58 +1389,6 @@ AVC má maximální rozlišení 1080p, zvukový kodek Opus není dostupný a př
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Typ klienta se zobrazuje ve statistikách pro nadšence</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Klient je skrytý ve statistikách pro nadšence</string>
   <string name="revanced_spoof_video_streams_language_title">Výchozí jazyk zvukového streamu ve VR</string>
-  <string name="revanced_spoof_video_streams_language_DEFAULT">Jazyk účtu</string>
-  <string name="revanced_spoof_video_streams_language_AR">Arabsky</string>
-  <string name="revanced_spoof_video_streams_language_AZ">Ázerbájdžánsky</string>
-  <string name="revanced_spoof_video_streams_language_BG">Bulharsky</string>
-  <string name="revanced_spoof_video_streams_language_BN">Bengálsky</string>
-  <string name="revanced_spoof_video_streams_language_CA">Katalánsky</string>
-  <string name="revanced_spoof_video_streams_language_CS">Česky</string>
-  <string name="revanced_spoof_video_streams_language_DA">Dánsky</string>
-  <string name="revanced_spoof_video_streams_language_DE">Německy</string>
-  <string name="revanced_spoof_video_streams_language_EL">Řecky</string>
-  <string name="revanced_spoof_video_streams_language_EN">Angličtina</string>
-  <string name="revanced_spoof_video_streams_language_ES">Španělsky</string>
-  <string name="revanced_spoof_video_streams_language_ET">Estonsky</string>
-  <string name="revanced_spoof_video_streams_language_FA">Peršsky</string>
-  <string name="revanced_spoof_video_streams_language_FI">Finský</string>
-  <string name="revanced_spoof_video_streams_language_FR">Francouzština</string>
-  <string name="revanced_spoof_video_streams_language_GU">Gudžarátština</string>
-  <string name="revanced_spoof_video_streams_language_HI">Hindština</string>
-  <string name="revanced_spoof_video_streams_language_HR">Chorvatština</string>
-  <string name="revanced_spoof_video_streams_language_HU">Maďarština</string>
-  <string name="revanced_spoof_video_streams_language_ID">Indonéština</string>
-  <string name="revanced_spoof_video_streams_language_IT">Italština</string>
-  <string name="revanced_spoof_video_streams_language_JA">Japonština</string>
-  <string name="revanced_spoof_video_streams_language_KK">Kazaština</string>
-  <string name="revanced_spoof_video_streams_language_KO">Korejština</string>
-  <string name="revanced_spoof_video_streams_language_LT">Litevština</string>
-  <string name="revanced_spoof_video_streams_language_LV">Lotyština</string>
-  <string name="revanced_spoof_video_streams_language_MK">Makedonština</string>
-  <string name="revanced_spoof_video_streams_language_MN">Mongolština</string>
-  <string name="revanced_spoof_video_streams_language_MR">Maráthština</string>
-  <string name="revanced_spoof_video_streams_language_MS">Malajština</string>
-  <string name="revanced_spoof_video_streams_language_MY">Barmánština</string>
-  <string name="revanced_spoof_video_streams_language_NL">Nizozemština</string>
-  <string name="revanced_spoof_video_streams_language_OR">Odijština</string>
-  <string name="revanced_spoof_video_streams_language_PA">Paňdžábština</string>
-  <string name="revanced_spoof_video_streams_language_PL">Polština</string>
-  <string name="revanced_spoof_video_streams_language_PT">Portugalština</string>
-  <string name="revanced_spoof_video_streams_language_RO">Rumunština</string>
-  <string name="revanced_spoof_video_streams_language_RU">Ruština</string>
-  <string name="revanced_spoof_video_streams_language_SK">Slovenština</string>
-  <string name="revanced_spoof_video_streams_language_SL">Slovinština</string>
-  <string name="revanced_spoof_video_streams_language_SR">Srbština</string>
-  <string name="revanced_spoof_video_streams_language_SV">Švédština</string>
-  <string name="revanced_spoof_video_streams_language_SW">Svahilština</string>
-  <string name="revanced_spoof_video_streams_language_TA">Tamilština</string>
-  <string name="revanced_spoof_video_streams_language_TE">Telugu</string>
-  <string name="revanced_spoof_video_streams_language_TH">Thajština</string>
-  <string name="revanced_spoof_video_streams_language_TR">Turečtina</string>
-  <string name="revanced_spoof_video_streams_language_UK">Ukrajinština</string>
-  <string name="revanced_spoof_video_streams_language_UR">Urdu</string>
-  <string name="revanced_spoof_video_streams_language_VI">Vietnamština</string>
-  <string name="revanced_spoof_video_streams_language_ZH">Čínština</string>
   </patch>
   </app>
   <app id="twitch">

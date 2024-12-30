@@ -43,6 +43,62 @@ Second \"item\" text"</string>
   <string name="revanced_settings_import_reset">Pengaturan ReVanced diatur ke setelan awal</string>
   <string name="revanced_settings_import_success">Mengimpor setelan %d</string>
   <string name="revanced_settings_import_failure_parse">Impor gagal: %s</string>
+  <string name="revanced_language_title">Bahasa ReVanced</string>
+  <string name="revanced_language_user_dialog_message">"Terjemahan untuk beberapa bahasa mungkin hilang atau tidak lengkap.
+
+Untuk menerjemahkan bahasa baru kunjungi translate.revanced.app"</string>
+  <string name="revanced_language_DEFAULT">Bahasa Aplikasi</string>
+  <string name="revanced_language_AR">Arab</string>
+  <string name="revanced_language_AZ">Azerbaijan</string>
+  <string name="revanced_language_BG">Bulgaria</string>
+  <string name="revanced_language_BN">Benggala</string>
+  <string name="revanced_language_CA">Katalan</string>
+  <string name="revanced_language_CS">Ceko</string>
+  <string name="revanced_language_DA">Denmark</string>
+  <string name="revanced_language_DE">Jerman</string>
+  <string name="revanced_language_EL">Yunani</string>
+  <string name="revanced_language_EN">Inggris</string>
+  <string name="revanced_language_ES">Spanyol</string>
+  <string name="revanced_language_ET">Estonia</string>
+  <string name="revanced_language_FA">Persia</string>
+  <string name="revanced_language_FI">Finlandia</string>
+  <string name="revanced_language_FR">Prancis</string>
+  <string name="revanced_language_GU">Gujarat</string>
+  <string name="revanced_language_HI">Hindi</string>
+  <string name="revanced_language_HR">Kroasia</string>
+  <string name="revanced_language_HU">Hungaria</string>
+  <string name="revanced_language_ID">Indonesia</string>
+  <string name="revanced_language_IT">Italia</string>
+  <string name="revanced_language_JA">Jepang</string>
+  <string name="revanced_language_KK">Kazakh</string>
+  <string name="revanced_language_KO">Korea</string>
+  <string name="revanced_language_LT">Lituania</string>
+  <string name="revanced_language_LV">Latvia</string>
+  <string name="revanced_language_MK">Makedonia</string>
+  <string name="revanced_language_MN">Mongolia</string>
+  <string name="revanced_language_MR">Marathi</string>
+  <string name="revanced_language_MS">Melayu</string>
+  <string name="revanced_language_MY">Burma</string>
+  <string name="revanced_language_NL">Belanda</string>
+  <string name="revanced_language_OR">Oriya</string>
+  <string name="revanced_language_PA">Punjab</string>
+  <string name="revanced_language_PL">Polandia</string>
+  <string name="revanced_language_PT">Portugis</string>
+  <string name="revanced_language_RO">Rumania</string>
+  <string name="revanced_language_RU">Rusia</string>
+  <string name="revanced_language_SK">Slovakia</string>
+  <string name="revanced_language_SL">Slovenia</string>
+  <string name="revanced_language_SR">Serbia</string>
+  <string name="revanced_language_SV">Swedia</string>
+  <string name="revanced_language_SW">Swahili</string>
+  <string name="revanced_language_TA">Tamil</string>
+  <string name="revanced_language_TE">Telugu</string>
+  <string name="revanced_language_TH">Thai</string>
+  <string name="revanced_language_TR">Turki</string>
+  <string name="revanced_language_UK">Ukraina</string>
+  <string name="revanced_language_UR">Urdu</string>
+  <string name="revanced_language_VI">Vietnam</string>
+  <string name="revanced_language_ZH">Tiongkok</string>
   <string name="revanced_pref_import_export_title">Impor / Ekspor</string>
   <string name="revanced_pref_import_export_summary">Impor / Ekspor setelan ReVanced</string>
   <!-- Settings about dialog. -->
@@ -80,7 +136,7 @@ Ketuk tombol lanjutkan dan izinkan perubahan pengoptimalan."</string>
   <string name="revanced_settings_screen_04_player_title">Pemutar</string>
   <string name="revanced_settings_screen_05_general_title">Layout umum</string>
   <string name="revanced_settings_screen_07_seekbar_title">Seekbar</string>
-  <string name="revanced_settings_screen_08_swipe_controls_title">Kontrol geser</string>
+  <string name="revanced_settings_screen_08_swipe_controls_title">Kontrol usap</string>
   <string name="revanced_settings_screen_11_misc_title">Lain-lain</string>
   <string name="revanced_settings_screen_12_video_title">Video</string>
   </patch>
@@ -424,9 +480,9 @@ Fitur ini hanya tersedia untuk perangkat yang lebih lama"</string>
   <string name="revanced_swipe_volume_title">Aktifkan gerakan volume</string>
   <string name="revanced_swipe_volume_summary_on">Sapuan volume diaktifkan</string>
   <string name="revanced_swipe_volume_summary_off">Sapuan volume dinonaktifkan</string>
-  <string name="revanced_swipe_press_to_engage_title">Aktifkan gerakan tekan-untuk-menggeser</string>
-  <string name="revanced_swipe_press_to_engage_summary_on">Tekan-untuk-menggeser diaktifkan</string>
-  <string name="revanced_swipe_press_to_engage_summary_off">Tekan-untuk-menggeser dinonaktifkan</string>
+  <string name="revanced_swipe_press_to_engage_title">Aktifkan gerakan tekan-untuk-mengusap</string>
+  <string name="revanced_swipe_press_to_engage_summary_on">Tekan-untuk-mengusap diaktifkan</string>
+  <string name="revanced_swipe_press_to_engage_summary_off">Tekan-untuk-mengusap dinonaktifkan</string>
   <string name="revanced_swipe_haptic_feedback_title">Aktifkan umpan balik sentuhan</string>
   <string name="revanced_swipe_haptic_feedback_summary_on">Umpan balik sentuhan diaktifkan</string>
   <string name="revanced_swipe_haptic_feedback_summary_off">Umpan balik sentuhan dinonaktifkan</string>
@@ -437,14 +493,17 @@ Fitur ini hanya tersedia untuk perangkat yang lebih lama"</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_on">Mengusap ke bawah ke nilai terendah dari gerakan kecerahan akan menyalakan kecerahan otomatis</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_off">Mengusap ke bawah ke nilai terendah tidak mengaktifkan kecerahan otomatis</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_overlay_text">Otomatis</string>
-  <string name="revanced_swipe_overlay_timeout_title">Batas waktu hamparan geser</string>
+  <string name="revanced_swipe_overlay_timeout_title">Batas waktu hamparan usap</string>
   <string name="revanced_swipe_overlay_timeout_summary">Jumlah milidetik hamparan terlihat</string>
-  <string name="revanced_swipe_text_overlay_size_title">Ukuran teks hamparan geser</string>
-  <string name="revanced_swipe_text_overlay_size_summary">Ukuran teks untuk hamparan geser</string>
-  <string name="revanced_swipe_overlay_background_alpha_title">Visibilitas latar belakang geser</string>
-  <string name="revanced_swipe_overlay_background_alpha_summary">Visibilitas latar belakang hamparan geser</string>
+  <string name="revanced_swipe_text_overlay_size_title">Ukuran teks hamparan usap</string>
+  <string name="revanced_swipe_text_overlay_size_summary">Ukuran teks untuk hamparan usap</string>
+  <string name="revanced_swipe_overlay_background_alpha_title">Visibilitas latar belakang usap</string>
+  <string name="revanced_swipe_overlay_background_alpha_summary">Visibilitas latar belakang hamparan usap</string>
   <string name="revanced_swipe_threshold_title">Ambang batas magnitudo geser</string>
-  <string name="revanced_swipe_threshold_summary">Jumlah ambang batas untuk terjadinya geser</string>
+  <string name="revanced_swipe_threshold_summary">Jumlah ambang batas untuk terjadinya usapan</string>
+  <string name="revanced_swipe_change_video_title">Aktifkan usapan untuk beralih video</string>
+  <string name="revanced_swipe_change_video_summary_on">Mengusap dalam mode layar penuh akan beralih ke video berikutnya/sebelumnya</string>
+  <string name="revanced_swipe_change_video_summary_off">Mengusap dalam mode layar penuh tidak akan beralih ke video berikutnya/sebelumnya</string>
   </patch>
   <patch id="layout.autocaptions.autoCaptionsPatch">
   <string name="revanced_auto_captions_title">Matikan teks otomatis</string>
@@ -628,15 +687,18 @@ Catatan: Mengaktifkan ini juga akan memaksa menyembunyikan iklan video"</string>
   <string name="revanced_shorts_player_screen_summary">Sembunyikan atau tampilkan komponen di pemutar Shorts</string>
   <!-- 'home' should be translated using the same localized wording YouTube displays for the home tab. -->
   <string name="revanced_hide_shorts_home_title">Sembunyikan Shorts di feed beranda</string>
-  <string name="revanced_hide_shorts_home_summary_on">Shorts di feed beranda disembunyikan</string>
-  <string name="revanced_hide_shorts_home_summary_off">Shorts di feed beranda ditampilkan</string>
+  <string name="revanced_hide_shorts_home_summary_on">Tersembunyi di beranda dan video terkait</string>
+  <string name="revanced_hide_shorts_home_summary_off">Ditampilkan di beranda dan video terkait</string>
   <!-- 'subscription' should be translated using the same localized wording YouTube displays for the subscription tab. -->
   <string name="revanced_hide_shorts_subscriptions_title">Sembunyikan Shorts di feed langganan</string>
-  <string name="revanced_hide_shorts_subscriptions_summary_on">Shorts di feed langganan disembunyikan</string>
-  <string name="revanced_hide_shorts_subscriptions_summary_off">Shorts di feed langganan ditampilkan</string>
+  <string name="revanced_hide_shorts_subscriptions_summary_on">Disembunyikan dalam umpan langganan</string>
+  <string name="revanced_hide_shorts_subscriptions_summary_off">Ditampilkan dalam umpan langganan</string>
   <string name="revanced_hide_shorts_search_title">Sembunyikan Shorts di hasil pencarian</string>
-  <string name="revanced_hide_shorts_search_summary_on">Shorts di hasil pencarian disembunyikan</string>
-  <string name="revanced_hide_shorts_search_summary_off">Shorts di hasil pencarian ditampilkan</string>
+  <string name="revanced_hide_shorts_search_summary_on">Disembunyikan dalam hasil penelusuran</string>
+  <string name="revanced_hide_shorts_search_summary_off">Ditampilkan dalam hasil penelusuran</string>
+  <string name="revanced_hide_shorts_history_title">Sembunyikan Shorts dalam riwayat tontonan</string>
+  <string name="revanced_hide_shorts_history_summary_on">Disembunyikan dalam riwayat tontonan</string>
+  <string name="revanced_hide_shorts_history_summary_off">Ditampilkan dalam riwayat tontonan</string>
   <!-- 'join' should be translated using the same localized wording YouTube displays for the button. -->
   <string name="revanced_hide_shorts_join_button_title">Sembunyikan tombol gabung</string>
   <string name="revanced_hide_shorts_join_button_summary_on">Tombol gabung disembunyikan</string>
@@ -738,6 +800,13 @@ Catatan: Mengaktifkan ini juga akan memaksa menyembunyikan iklan video"</string>
   <string name="revanced_hide_player_popup_panels_summary_on">Panel popup pemutar disembunyikan</string>
   <string name="revanced_hide_player_popup_panels_summary_off">Panel popup pemutar ditampilkan</string>
   </patch>
+  <patch id="layout.player.fullscreen.exitFullscreenPatch">
+  <string name="revanced_exit_fullscreen_title">Keluar dari mode layar penuh di akhir video</string>
+  <string name="revanced_exit_fullscreen_entry_1">Nonaktif</string>
+  <string name="revanced_exit_fullscreen_entry_2">Potret</string>
+  <string name="revanced_exit_fullscreen_entry_3">Lanskap</string>
+  <string name="revanced_exit_fullscreen_entry_4">Potret dan lanskap</string>
+  </patch>
   <patch id="layout.player.fullscreen.openVideosFullscreen">
   <string name="revanced_open_videos_fullscreen_portrait_title">Buka video dalam potret layar penuh</string>
   <string name="revanced_open_videos_fullscreen_portrait_summary_on">Video terbuka dalam layar penuh</string>
@@ -810,7 +879,7 @@ Keterbatasan: Dislike mungkin tidak muncul dalam mode penyamaran"</string>
 Thumbnail seekbar akan menggunakan kualitas yang sama dengan video saat ini.
 
 Fitur ini bekerja paling baik dengan kualitas video 720p atau lebih rendah dan saat menggunakan sambungan internet yang sangat cepat."</string>
-  <string name="revanced_restore_old_seekbar_thumbnails_title">Kembalikan thumbnail seekbar yang lama</string>
+  <string name="revanced_restore_old_seekbar_thumbnails_title">Pulihkan thumbnail seekbar yang lama</string>
   <string name="revanced_restore_old_seekbar_thumbnails_summary_on">Thumbnail seekbar akan muncul di atas seekbar</string>
   <string name="revanced_restore_old_seekbar_thumbnails_summary_off">Thumbnail seekbar akan muncul di layar penuh</string>
   </patch>
@@ -1006,6 +1075,23 @@ Siap mengirim?"</string>
   <string name="revanced_sb_about">Tentang</string>
   <string name="revanced_sb_about_api_sum">Data disediakan oleh API SponsorBlock. Tekan di sini untuk mempelajari lebih lanjut dan melihat hasil pengunduhan untuk platform lain</string>
   </patch>
+  <patch id="layout.formfactor.changeFormFactorPatch">
+  <string name="revanced_change_form_factor_title">Faktor bentuk tata letak</string>
+  <string name="revanced_change_form_factor_entry_1">Bawaan</string>
+  <string name="revanced_change_form_factor_entry_2">Ponsel</string>
+  <string name="revanced_change_form_factor_entry_3">Tablet</string>
+  <string name="revanced_change_form_factor_entry_4">Otomotif</string>
+  <string name="revanced_change_form_factor_user_dialog_message">"Perubahan meliputi:
+
+Tata letak Tablet
+• Postingan Komunitas disembunyikan
+
+Tata letak Otomotif
+• Menu riwayat tontonan disembunyikan
+• Tab Jelajahi dipulihkan
+• Shorts terbuka di pemutar reguler
+• Umpan diatur menurut topik dan saluran"</string>
+  </patch>
   <patch id="layout.spoofappversion.spoofAppVersionPatch">
   <string name="revanced_spoof_app_version_title">Palsukan versi app</string>
   <string name="revanced_spoof_app_version_summary_on">Versi yang dipalsukan</string>
@@ -1019,6 +1105,7 @@ Jika kemudian dimatikan, disarankan untuk menghapus data aplikasi untuk mencegah
                  This is because the 'General layout' menu uses alphabetic sorting, and it functionally works better if the spoof target selector appears below the 'Spoof app version' UI switch -->
   <string name="revanced_spoof_app_version_target_title">Target versi app yang dipalsukan</string>
   <string name="revanced_spoof_app_version_target_entry_1">19.35.36 - Pulihkan ikon pemutar Shorts lama</string>
+  <string name="revanced_spoof_app_version_target_entry_2">19.26.42 - Pulihkan ikon navigasi dan bilah alat lama</string>
   <!-- 'RYD' is 'Return YouTube Dislike' -->
   <string name="revanced_spoof_app_version_target_legacy_entry_1">18.33.40 - Pulihkan RYD pada mode penyamaran Shorts</string>
   <string name="revanced_spoof_app_version_target_legacy_entry_2">18.20.39 - Pulihkan menu kecepatan &amp; kualitas video lebar</string>
@@ -1062,12 +1149,6 @@ Jika kemudian dimatikan, disarankan untuk menghapus data aplikasi untuk mencegah
   <string name="revanced_shorts_autoplay_background_summary_on">Pemutaran latar belakang Shorts akan diputar otomatis</string>
   <string name="revanced_shorts_autoplay_background_summary_off">Pemutaran latar belakang Shorts akan diulangi</string>
   </patch>
-  <patch id="layout.tablet.enableTabletLayoutPatch">
-  <string name="revanced_tablet_layout_title">Aktifkan tata letak tablet</string>
-  <string name="revanced_tablet_layout_summary_on">Tata letak tablet diaktifkan</string>
-  <string name="revanced_tablet_layout_summary_off">Tata letak tablet dinonaktifkan</string>
-  <string name="revanced_tablet_layout_user_dialog_message">Postingan komunitas tidak muncul pada tata letak tablet</string>
-  </patch>
   <patch id="layout.miniplayer.miniplayerPatch">
   <string name="revanced_miniplayer_screen_title">Pemutar Mini</string>
   <string name="revanced_miniplayer_screen_summary">Mengubah gaya pemutar aplikasi saat diciuitkan</string>
@@ -1104,7 +1185,7 @@ Miniplayer dapat diseret keluar layar ke kiri atau kanan"</string>
   <string name="revanced_miniplayer_hide_expand_close_legacy_title">Sembunyikan perbesar dan tutup</string>
   <string name="revanced_miniplayer_hide_expand_close_legacy_summary_on">"Tombol disembunyikan
 
-Geser untuk memperluas atau menutup"</string>
+Usap untuk memperluas atau menutup"</string>
   <string name="revanced_miniplayer_hide_expand_close_legacy_summary_off">Tombol bentang dan tutup ditampilkan</string>
   <string name="revanced_miniplayer_hide_subtext_title">Sembunyikan subteks</string>
   <string name="revanced_miniplayer_hide_subtext_summary_on">Subteks disembunyikan</string>
@@ -1231,6 +1312,7 @@ Mengaktifkan ini dapat membuka kualitas video yang lebih tinggi"</string>
   <string name="revanced_force_original_audio_title">Paksa audio asli</string>
   <string name="revanced_force_original_audio_summary_on">Menggunakan audio asli</string>
   <string name="revanced_force_original_audio_summary_off">Menggunakan audio bawaan</string>
+  <string name="revanced_force_original_audio_not_available">Untuk menggunakan fitur ini, ubah pemalsuan aliran ke jenis klien iOS</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
@@ -1294,8 +1376,9 @@ Pemutaran video mungkin tidak berfungsi"</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">"Mengaktifkan ini mungkin dapat meningkatkan daya tahan baterai dan memperbaiki masalah pemutaran.
 
 AVC memiliki resolusi maksimum 1080p, codec audio Opus tidak tersedia, dan pemutaran video akan menggunakan lebih banyak data internet daripada VP9 atau AV1."</string>
-  <string name="revanced_spoof_video_streams_about_ios_tv_title">Efek samping pemalsuan iOS TV</string>
-  <string name="revanced_spoof_video_streams_about_ios_tv_summary">"• Film atau video yang berbayar mungkin tidak dapat diputar
+  <string name="revanced_spoof_video_streams_about_ios_tv_title">Efek samping pemalsuan iOS</string>
+  <string name="revanced_spoof_video_streams_about_ios_tv_summary">"• Film atau video berbayar mungkin tidak dapat diputar
+• Volume stabil tidak tersedia
 • Video berakhir 1 detik lebih awal"</string>
   <string name="revanced_spoof_video_streams_about_android_title">Efek samping pemalsuan Android</string>
   <string name="revanced_spoof_video_streams_about_android_summary">"• Menu trek audio tidak ada
@@ -1305,58 +1388,6 @@ AVC memiliki resolusi maksimum 1080p, codec audio Opus tidak tersedia, dan pemut
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Jenis klien ditampilkan di Statistik untuk nerds</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Klien disembunyikan di Statistik untuk nerds</string>
   <string name="revanced_spoof_video_streams_language_title">Bahasa aliran audio bawaan VR</string>
-  <string name="revanced_spoof_video_streams_language_DEFAULT">Bahasa akun</string>
-  <string name="revanced_spoof_video_streams_language_AR">Arab</string>
-  <string name="revanced_spoof_video_streams_language_AZ">Azerbaijan</string>
-  <string name="revanced_spoof_video_streams_language_BG">Bulgaria</string>
-  <string name="revanced_spoof_video_streams_language_BN">Bengali</string>
-  <string name="revanced_spoof_video_streams_language_CA">Katalan</string>
-  <string name="revanced_spoof_video_streams_language_CS">Ceko</string>
-  <string name="revanced_spoof_video_streams_language_DA">Denmark</string>
-  <string name="revanced_spoof_video_streams_language_DE">Jerman</string>
-  <string name="revanced_spoof_video_streams_language_EL">Yunani</string>
-  <string name="revanced_spoof_video_streams_language_EN">Inggris</string>
-  <string name="revanced_spoof_video_streams_language_ES">Spanyol</string>
-  <string name="revanced_spoof_video_streams_language_ET">Estonia</string>
-  <string name="revanced_spoof_video_streams_language_FA">Persia</string>
-  <string name="revanced_spoof_video_streams_language_FI">Finlandia</string>
-  <string name="revanced_spoof_video_streams_language_FR">Perancis</string>
-  <string name="revanced_spoof_video_streams_language_GU">Gujarat</string>
-  <string name="revanced_spoof_video_streams_language_HI">Hindi</string>
-  <string name="revanced_spoof_video_streams_language_HR">Kroasia</string>
-  <string name="revanced_spoof_video_streams_language_HU">Hungaria</string>
-  <string name="revanced_spoof_video_streams_language_ID">Indonesia</string>
-  <string name="revanced_spoof_video_streams_language_IT">Italia</string>
-  <string name="revanced_spoof_video_streams_language_JA">Jepang</string>
-  <string name="revanced_spoof_video_streams_language_KK">Kazakh</string>
-  <string name="revanced_spoof_video_streams_language_KO">Korea</string>
-  <string name="revanced_spoof_video_streams_language_LT">Lithuania</string>
-  <string name="revanced_spoof_video_streams_language_LV">Latvia</string>
-  <string name="revanced_spoof_video_streams_language_MK">Makedonia</string>
-  <string name="revanced_spoof_video_streams_language_MN">Mongolia</string>
-  <string name="revanced_spoof_video_streams_language_MR">Marathi</string>
-  <string name="revanced_spoof_video_streams_language_MS">Melayu</string>
-  <string name="revanced_spoof_video_streams_language_MY">Myanmar</string>
-  <string name="revanced_spoof_video_streams_language_NL">Belanda</string>
-  <string name="revanced_spoof_video_streams_language_OR">Oriya</string>
-  <string name="revanced_spoof_video_streams_language_PA">Punjabi</string>
-  <string name="revanced_spoof_video_streams_language_PL">Polandia</string>
-  <string name="revanced_spoof_video_streams_language_PT">Portugis</string>
-  <string name="revanced_spoof_video_streams_language_RO">Rumania</string>
-  <string name="revanced_spoof_video_streams_language_RU">Rusia</string>
-  <string name="revanced_spoof_video_streams_language_SK">Slovakia</string>
-  <string name="revanced_spoof_video_streams_language_SL">Slovenia</string>
-  <string name="revanced_spoof_video_streams_language_SR">Serbia</string>
-  <string name="revanced_spoof_video_streams_language_SV">Swedia</string>
-  <string name="revanced_spoof_video_streams_language_SW">Swahili</string>
-  <string name="revanced_spoof_video_streams_language_TA">Tamil</string>
-  <string name="revanced_spoof_video_streams_language_TE">Telugu</string>
-  <string name="revanced_spoof_video_streams_language_TH">Thai</string>
-  <string name="revanced_spoof_video_streams_language_TR">Turki</string>
-  <string name="revanced_spoof_video_streams_language_UK">Ukraina</string>
-  <string name="revanced_spoof_video_streams_language_UR">Urdu</string>
-  <string name="revanced_spoof_video_streams_language_VI">Vietnam</string>
-  <string name="revanced_spoof_video_streams_language_ZH">China</string>
   </patch>
   </app>
   <app id="twitch">

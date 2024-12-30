@@ -33,7 +33,6 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">APK derleme tarihi bozuk</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
-  <string name="revanced_settings_title">ReVanced Ayarları</string>
   <string name="revanced_settings_confirm_user_dialog_title">Devam etmek istiyor musunuz?</string>
   <string name="revanced_settings_reset">Sıfırla</string>
   <string name="revanced_settings_restart_title">Yenile ve yeniden başlat</string>
@@ -43,6 +42,62 @@ Second \"item\" text"</string>
   <string name="revanced_settings_import_reset">ReVanced ayarları varsayılanlara sıfırlandı</string>
   <string name="revanced_settings_import_success">%d ayar içe aktarıldı</string>
   <string name="revanced_settings_import_failure_parse">İçe aktarılamadı: %s</string>
+  <string name="revanced_language_title">ReVanced dili</string>
+  <string name="revanced_language_user_dialog_message">"Bazı diller için çeviriler eksik veya tamamlanmamış olabilir. 
+
+Yeni dilleri çevirmek için translate.revanced.app adresini ziyaret edin"</string>
+  <string name="revanced_language_DEFAULT">Uygulama dili</string>
+  <string name="revanced_language_AR">Arapça</string>
+  <string name="revanced_language_AZ">Azerice</string>
+  <string name="revanced_language_BG">Bulgarca</string>
+  <string name="revanced_language_BN">Bengalce</string>
+  <string name="revanced_language_CA">Katalanca</string>
+  <string name="revanced_language_CS">Çekçe</string>
+  <string name="revanced_language_DA">Danca</string>
+  <string name="revanced_language_DE">Almanca</string>
+  <string name="revanced_language_EL">Yunanca</string>
+  <string name="revanced_language_EN">İngilizce</string>
+  <string name="revanced_language_ES">İspanyolca</string>
+  <string name="revanced_language_ET">Estonca</string>
+  <string name="revanced_language_FA">Farsça</string>
+  <string name="revanced_language_FI">Fince</string>
+  <string name="revanced_language_FR">Fransızca</string>
+  <string name="revanced_language_GU">Gujarati</string>
+  <string name="revanced_language_HI">Hintçe</string>
+  <string name="revanced_language_HR">Hırvatça</string>
+  <string name="revanced_language_HU">Macarca</string>
+  <string name="revanced_language_ID">Endonezya Dili</string>
+  <string name="revanced_language_IT">İtalyanca</string>
+  <string name="revanced_language_JA">Japonca</string>
+  <string name="revanced_language_KK">Kazakça</string>
+  <string name="revanced_language_KO">Korece</string>
+  <string name="revanced_language_LT">Litvanyaca</string>
+  <string name="revanced_language_LV">Letonca</string>
+  <string name="revanced_language_MK">Makedonca</string>
+  <string name="revanced_language_MN">Moğolca</string>
+  <string name="revanced_language_MR">Marathi</string>
+  <string name="revanced_language_MS">Malayca</string>
+  <string name="revanced_language_MY">Birmanca</string>
+  <string name="revanced_language_NL">Hollandaca</string>
+  <string name="revanced_language_OR">Odia</string>
+  <string name="revanced_language_PA">Pencapça</string>
+  <string name="revanced_language_PL">Lehçe</string>
+  <string name="revanced_language_PT">Portekizce</string>
+  <string name="revanced_language_RO">Romence</string>
+  <string name="revanced_language_RU">Rusça</string>
+  <string name="revanced_language_SK">Slovakça</string>
+  <string name="revanced_language_SL">Slovence</string>
+  <string name="revanced_language_SR">Sırpça</string>
+  <string name="revanced_language_SV">İsveççe</string>
+  <string name="revanced_language_SW">Svahili</string>
+  <string name="revanced_language_TA">Tamilce</string>
+  <string name="revanced_language_TE">Telugu</string>
+  <string name="revanced_language_TH">Tayca</string>
+  <string name="revanced_language_TR">Türkçe</string>
+  <string name="revanced_language_UK">Ukraynaca</string>
+  <string name="revanced_language_UR">Urduca</string>
+  <string name="revanced_language_VI">Vietnamca</string>
+  <string name="revanced_language_ZH">Çince</string>
   <string name="revanced_pref_import_export_title">İçe / Dışa aktar</string>
   <string name="revanced_pref_import_export_summary">ReVanced ayarlarını içe / dışa aktar</string>
   <!-- Settings about dialog. -->
@@ -445,6 +500,9 @@ Bu özellik yalnızca eski cihazlarda kullanılabilir"</string>
   <string name="revanced_swipe_overlay_background_alpha_summary">Kaydırma paneli arka planının görünürlüğü</string>
   <string name="revanced_swipe_threshold_title">Kaydırma büyüklük eşiği</string>
   <string name="revanced_swipe_threshold_summary">Kaydırma işleminin gerçekleşmesi için eşik miktarı</string>
+  <string name="revanced_swipe_change_video_title">Kaydırarak video değiştirmeyi etkinleştir</string>
+  <string name="revanced_swipe_change_video_summary_on">Tam ekran modunda kaydırma, bir sonraki/önceki videoya geçecektir</string>
+  <string name="revanced_swipe_change_video_summary_off">Tam ekran modunda kaydırma bir sonraki/önceki videoya geçmeyecektir</string>
   </patch>
   <patch id="layout.autocaptions.autoCaptionsPatch">
   <string name="revanced_auto_captions_title">Altyazıların kendiliğinden açılmasını devre dışı bırak</string>
@@ -628,15 +686,18 @@ Not: Bunu etkinleştirmek aynı zamanda video reklamlarını zorla gizler"</stri
   <string name="revanced_shorts_player_screen_summary">Shorts oynatıcısındaki bileşenleri gizle veya göster</string>
   <!-- 'home' should be translated using the same localized wording YouTube displays for the home tab. -->
   <string name="revanced_hide_shorts_home_title">Ana Sayfa akışında Shorts videolarını gizle</string>
-  <string name="revanced_hide_shorts_home_summary_on">Ana Sayfa akışında Shorts videoları gizli</string>
-  <string name="revanced_hide_shorts_home_summary_off">Ana Sayfa akışında Shorts videoları görünür</string>
+  <string name="revanced_hide_shorts_home_summary_on">Ana sayfada ve ilgili videolarda gizli</string>
+  <string name="revanced_hide_shorts_home_summary_off">Ana sayfada ve ilgili videolarda görünür</string>
   <!-- 'subscription' should be translated using the same localized wording YouTube displays for the subscription tab. -->
   <string name="revanced_hide_shorts_subscriptions_title">Abonelikler akışında Shorts videolarını gizle</string>
-  <string name="revanced_hide_shorts_subscriptions_summary_on">Abonelikler akışında Shorts videoları gizli</string>
-  <string name="revanced_hide_shorts_subscriptions_summary_off">Abonelikler akışında Shorts videoları görünür</string>
+  <string name="revanced_hide_shorts_subscriptions_summary_on">Abonelik akışında gizli</string>
+  <string name="revanced_hide_shorts_subscriptions_summary_off">Abonelik akışında görünür</string>
   <string name="revanced_hide_shorts_search_title">Arama sonuçlarında Shorts videolarını gizle</string>
-  <string name="revanced_hide_shorts_search_summary_on">Arama sonuçlarında Shorts videoları gizli</string>
-  <string name="revanced_hide_shorts_search_summary_off">Arama sonuçlarında Shorts videoları görünür</string>
+  <string name="revanced_hide_shorts_search_summary_on">Arama sonuçlarında gizli</string>
+  <string name="revanced_hide_shorts_search_summary_off">Arama sonuçlarında görünür</string>
+  <string name="revanced_hide_shorts_history_title">Shorts\'u izleme geçmişinde gizle</string>
+  <string name="revanced_hide_shorts_history_summary_on">İzleme geçmişinde gizli</string>
+  <string name="revanced_hide_shorts_history_summary_off">İzleme geçmişinde görünür</string>
   <!-- 'join' should be translated using the same localized wording YouTube displays for the button. -->
   <string name="revanced_hide_shorts_join_button_title">\"Katıl\" düğmesini gizle</string>
   <string name="revanced_hide_shorts_join_button_summary_on">\"Katıl\" düğmesi gizli</string>
@@ -737,6 +798,13 @@ Not: Bunu etkinleştirmek aynı zamanda video reklamlarını zorla gizler"</stri
   <string name="revanced_hide_player_popup_panels_title">Oynatıcı açılır panellerini gizle</string>
   <string name="revanced_hide_player_popup_panels_summary_on">Oynatıcı açılır panelleri gizli</string>
   <string name="revanced_hide_player_popup_panels_summary_off">Oynatıcı açılır panelleri görünür</string>
+  </patch>
+  <patch id="layout.player.fullscreen.exitFullscreenPatch">
+  <string name="revanced_exit_fullscreen_title">Video sonunda tam ekran modundan çık</string>
+  <string name="revanced_exit_fullscreen_entry_1">Devre dışı</string>
+  <string name="revanced_exit_fullscreen_entry_2">Dikey</string>
+  <string name="revanced_exit_fullscreen_entry_3">Yatay</string>
+  <string name="revanced_exit_fullscreen_entry_4">Dikey ve yatay</string>
   </patch>
   <patch id="layout.player.fullscreen.openVideosFullscreen">
   <string name="revanced_open_videos_fullscreen_portrait_title">Videoları tam ekran portre modunda aç</string>
@@ -1007,6 +1075,23 @@ Göndermeye hazır mısınız?"</string>
   <string name="revanced_sb_about">Hakkında</string>
   <string name="revanced_sb_about_api_sum">Veri, SponsorBlock API\'sinden sağlanır. Daha fazla bilgi ve diğer platformlar için indirmeleri görmek için dokunun</string>
   </patch>
+  <patch id="layout.formfactor.changeFormFactorPatch">
+  <string name="revanced_change_form_factor_title">Düzen form faktörü</string>
+  <string name="revanced_change_form_factor_entry_1">Varsayılan</string>
+  <string name="revanced_change_form_factor_entry_2">Telefon</string>
+  <string name="revanced_change_form_factor_entry_3">Tablet</string>
+  <string name="revanced_change_form_factor_entry_4">Otomotiv</string>
+  <string name="revanced_change_form_factor_user_dialog_message">"Değişiklikler şunları içerir:
+
+Tablet düzeni
+• Topluluk yayınları gizlenir
+
+Otomotiv düzeni
+• İzleme geçmişi menüsü gizlenir
+• Keşfet sekmesi geri getirilir
+• Shorts normal oynatıcıda açılır
+• Akış, konulara ve kanala göre düzenlenir"</string>
+  </patch>
   <patch id="layout.spoofappversion.spoofAppVersionPatch">
   <string name="revanced_spoof_app_version_title">Uygulama sürümünü taklit et</string>
   <string name="revanced_spoof_app_version_summary_on">Sürüm taklit ediliyor</string>
@@ -1020,6 +1105,7 @@ Daha sonra kapatılırsa, arayüz hatalarını önlemek için uygulama verilerin
                  This is because the 'General layout' menu uses alphabetic sorting, and it functionally works better if the spoof target selector appears below the 'Spoof app version' UI switch -->
   <string name="revanced_spoof_app_version_target_title">Uygulama sürümü taklidi hedefi</string>
   <string name="revanced_spoof_app_version_target_entry_1">19.35.36 - Eski Shorts oynatıcı simgelerini geri getir</string>
+  <string name="revanced_spoof_app_version_target_entry_2">19.26.42 - Eski gezinme ve araç çubuğu simgelerini geri getir</string>
   <!-- 'RYD' is 'Return YouTube Dislike' -->
   <string name="revanced_spoof_app_version_target_legacy_entry_1">18.33.40 - Gizli modda Shorts için RYD\'yi onar</string>
   <string name="revanced_spoof_app_version_target_legacy_entry_2">18.20.39 - Geniş video hızı &amp; kalitesi menüsünü geri getir</string>
@@ -1062,12 +1148,6 @@ Daha sonra kapatılırsa, arayüz hatalarını önlemek için uygulama verilerin
   <string name="revanced_shorts_autoplay_background_title">Arka planda Shorts\'u otomatik oynat</string>
   <string name="revanced_shorts_autoplay_background_summary_on">Shorts arka planda otomatik oynatılacak</string>
   <string name="revanced_shorts_autoplay_background_summary_off">Shorts arka planda döngüde olacak</string>
-  </patch>
-  <patch id="layout.tablet.enableTabletLayoutPatch">
-  <string name="revanced_tablet_layout_title">Tablet düzenini etkinleştir</string>
-  <string name="revanced_tablet_layout_summary_on">Tablet düzeni etkin</string>
-  <string name="revanced_tablet_layout_summary_off">Tablet düzeni devre dışı</string>
-  <string name="revanced_tablet_layout_user_dialog_message">Topluluk gönderileri tablet düzeninde görünmez</string>
   </patch>
   <patch id="layout.miniplayer.miniplayerPatch">
   <string name="revanced_miniplayer_screen_title">Mini oynatıcı</string>
@@ -1232,6 +1312,7 @@ Bunu etkinleştirmek daha yüksek video kalitelerini açabilir"</string>
   <string name="revanced_force_original_audio_title">Orijinal sesi zorla</string>
   <string name="revanced_force_original_audio_summary_on">Orijinal ses kullanılıyor</string>
   <string name="revanced_force_original_audio_summary_off">Varsayılan ses kullanılıyor</string>
+  <string name="revanced_force_original_audio_not_available">Bu özelliği kullanmak için, video akışı taklidi özelliğini iOS istemci türüne değiştirin</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
@@ -1295,8 +1376,9 @@ Video oynatma çalışmayabilir"</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">"Bu özelliği etkinleştirmek, pil ömrünü iyileştirebilir ve oynatma takılmalarını düzeltebilir.
 
 AVC'nin maksimum çözünürlüğü 1080p'dir, Opus ses kodeği kullanılamaz ve video oynatma VP9 veya AV1'den daha fazla internet verisi kullanır."</string>
-  <string name="revanced_spoof_video_streams_about_ios_tv_title">iOS TV taklidi yan etkileri</string>
+  <string name="revanced_spoof_video_streams_about_ios_tv_title">iOS taklidi yan etkileri</string>
   <string name="revanced_spoof_video_streams_about_ios_tv_summary">"• Filmler veya ücretli videolar oynatılamayabilir
+• Sabit ses özelliği kullanılamaz
 • Videolar 1 saniye erken biter"</string>
   <string name="revanced_spoof_video_streams_about_android_title">Android taklidi yan etkileri</string>
   <string name="revanced_spoof_video_streams_about_android_summary">"• Ses parçası menüsü eksik
@@ -1306,58 +1388,6 @@ AVC'nin maksimum çözünürlüğü 1080p'dir, Opus ses kodeği kullanılamaz ve
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">İstemci tipi meraklısı için istatistiklerde gösterilir</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">İstemci, meraklısı için istatistiklerde gizli</string>
   <string name="revanced_spoof_video_streams_language_title">VR varsayılan ses akışı dili</string>
-  <string name="revanced_spoof_video_streams_language_DEFAULT">Hesap dili</string>
-  <string name="revanced_spoof_video_streams_language_AR">Arapça</string>
-  <string name="revanced_spoof_video_streams_language_AZ">Azerice</string>
-  <string name="revanced_spoof_video_streams_language_BG">Bulgarca</string>
-  <string name="revanced_spoof_video_streams_language_BN">Bengalce</string>
-  <string name="revanced_spoof_video_streams_language_CA">Katalanca</string>
-  <string name="revanced_spoof_video_streams_language_CS">Çekçe</string>
-  <string name="revanced_spoof_video_streams_language_DA">Danca</string>
-  <string name="revanced_spoof_video_streams_language_DE">Almanca</string>
-  <string name="revanced_spoof_video_streams_language_EL">Yunanca</string>
-  <string name="revanced_spoof_video_streams_language_EN">İngilizce</string>
-  <string name="revanced_spoof_video_streams_language_ES">İspanyolca</string>
-  <string name="revanced_spoof_video_streams_language_ET">Estonca</string>
-  <string name="revanced_spoof_video_streams_language_FA">Farsça</string>
-  <string name="revanced_spoof_video_streams_language_FI">Fince</string>
-  <string name="revanced_spoof_video_streams_language_FR">Fransızca</string>
-  <string name="revanced_spoof_video_streams_language_GU">Guceratça</string>
-  <string name="revanced_spoof_video_streams_language_HI">Hintçe</string>
-  <string name="revanced_spoof_video_streams_language_HR">Hırvatça</string>
-  <string name="revanced_spoof_video_streams_language_HU">Macarca</string>
-  <string name="revanced_spoof_video_streams_language_ID">Endonezce</string>
-  <string name="revanced_spoof_video_streams_language_IT">İtalyanca</string>
-  <string name="revanced_spoof_video_streams_language_JA">Japonca</string>
-  <string name="revanced_spoof_video_streams_language_KK">Kazakça</string>
-  <string name="revanced_spoof_video_streams_language_KO">Korece</string>
-  <string name="revanced_spoof_video_streams_language_LT">Litvanca</string>
-  <string name="revanced_spoof_video_streams_language_LV">Letonca</string>
-  <string name="revanced_spoof_video_streams_language_MK">Makedonca</string>
-  <string name="revanced_spoof_video_streams_language_MN">Moğolca</string>
-  <string name="revanced_spoof_video_streams_language_MR">Marathice</string>
-  <string name="revanced_spoof_video_streams_language_MS">Malayca</string>
-  <string name="revanced_spoof_video_streams_language_MY">Burmaca</string>
-  <string name="revanced_spoof_video_streams_language_NL">Flemenkçe</string>
-  <string name="revanced_spoof_video_streams_language_OR">Odiyaca</string>
-  <string name="revanced_spoof_video_streams_language_PA">Pencapça</string>
-  <string name="revanced_spoof_video_streams_language_PL">Lehçe</string>
-  <string name="revanced_spoof_video_streams_language_PT">Portekizce</string>
-  <string name="revanced_spoof_video_streams_language_RO">Romence</string>
-  <string name="revanced_spoof_video_streams_language_RU">Rusça</string>
-  <string name="revanced_spoof_video_streams_language_SK">Slovakça</string>
-  <string name="revanced_spoof_video_streams_language_SL">Slovence</string>
-  <string name="revanced_spoof_video_streams_language_SR">Sırpça</string>
-  <string name="revanced_spoof_video_streams_language_SV">İsveççe</string>
-  <string name="revanced_spoof_video_streams_language_SW">Svahilice</string>
-  <string name="revanced_spoof_video_streams_language_TA">Tamilce</string>
-  <string name="revanced_spoof_video_streams_language_TE">Teluguca</string>
-  <string name="revanced_spoof_video_streams_language_TH">Taylandca</string>
-  <string name="revanced_spoof_video_streams_language_TR">Türkçe</string>
-  <string name="revanced_spoof_video_streams_language_UK">Ukraynaca</string>
-  <string name="revanced_spoof_video_streams_language_UR">Urduca</string>
-  <string name="revanced_spoof_video_streams_language_VI">Vietnamca</string>
-  <string name="revanced_spoof_video_streams_language_ZH">Çince</string>
   </patch>
   </app>
   <app id="twitch">

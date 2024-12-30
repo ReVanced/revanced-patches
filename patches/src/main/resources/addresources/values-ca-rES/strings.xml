@@ -43,6 +43,62 @@ Second \"item\" text"</string>
   <string name="revanced_settings_import_reset">La configuració de ReVanced s\'ha restablert als valors predeterminats</string>
   <string name="revanced_settings_import_success">S\'han importat %d configuracions</string>
   <string name="revanced_settings_import_failure_parse">No s\'ha pogut importar: %s</string>
+  <string name="revanced_language_title">Llenguatge de ReVanced</string>
+  <string name="revanced_language_user_dialog_message">"Les traduccions per a algunes llengües poden faltar o ser incompletes.
+
+Per traduir nous idiomes, visiteu translate.revanced.app"</string>
+  <string name="revanced_language_DEFAULT">Llengua de l\'aplicació</string>
+  <string name="revanced_language_AR">Àrab</string>
+  <string name="revanced_language_AZ">Azerbaidjanès</string>
+  <string name="revanced_language_BG">Búlgaro</string>
+  <string name="revanced_language_BN">Bengalí</string>
+  <string name="revanced_language_CA">Català</string>
+  <string name="revanced_language_CS">Txec</string>
+  <string name="revanced_language_DA">Danès</string>
+  <string name="revanced_language_DE">Alemany</string>
+  <string name="revanced_language_EL">Grec</string>
+  <string name="revanced_language_EN">Anglès</string>
+  <string name="revanced_language_ES">Espanyol</string>
+  <string name="revanced_language_ET">Estonià</string>
+  <string name="revanced_language_FA">Persa</string>
+  <string name="revanced_language_FI">Finès</string>
+  <string name="revanced_language_FR">Francès</string>
+  <string name="revanced_language_GU">Gujarati</string>
+  <string name="revanced_language_HI">Hindi</string>
+  <string name="revanced_language_HR">Croat</string>
+  <string name="revanced_language_HU">Hongarès</string>
+  <string name="revanced_language_ID">Indonesi</string>
+  <string name="revanced_language_IT">Italià</string>
+  <string name="revanced_language_JA">Japonès</string>
+  <string name="revanced_language_KK">Kazakh</string>
+  <string name="revanced_language_KO">Coreà</string>
+  <string name="revanced_language_LT">Lituà</string>
+  <string name="revanced_language_LV">Letó</string>
+  <string name="revanced_language_MK">Macedoni</string>
+  <string name="revanced_language_MN">Mongol</string>
+  <string name="revanced_language_MR">Marathi</string>
+  <string name="revanced_language_MS">Malai</string>
+  <string name="revanced_language_MY">Birmà</string>
+  <string name="revanced_language_NL">Neerlandès</string>
+  <string name="revanced_language_OR">Odia</string>
+  <string name="revanced_language_PA">Punjabi</string>
+  <string name="revanced_language_PL">Polonès</string>
+  <string name="revanced_language_PT">Portuguès</string>
+  <string name="revanced_language_RO">Romanès</string>
+  <string name="revanced_language_RU">Rus</string>
+  <string name="revanced_language_SK">Eslovac</string>
+  <string name="revanced_language_SL">Eslovè</string>
+  <string name="revanced_language_SR">Serbi</string>
+  <string name="revanced_language_SV">Suec</string>
+  <string name="revanced_language_SW">Swahili</string>
+  <string name="revanced_language_TA">Tàmil</string>
+  <string name="revanced_language_TE">Telugu</string>
+  <string name="revanced_language_TH">Tailandès</string>
+  <string name="revanced_language_TR">Turc</string>
+  <string name="revanced_language_UK">Ucraïnès</string>
+  <string name="revanced_language_UR">Urdu</string>
+  <string name="revanced_language_VI">Vietnamita</string>
+  <string name="revanced_language_ZH">Xinès</string>
   <string name="revanced_pref_import_export_title">Importa / Exporta</string>
   <string name="revanced_pref_import_export_summary">Importa / Exporta els ajustos de ReVanced</string>
   <!-- Settings about dialog. -->
@@ -446,6 +502,9 @@ Aquesta funció només està disponible per a dispositius antics"</string>
   <string name="revanced_swipe_overlay_background_alpha_summary">La visibilitat del fons de la superposició lliscant</string>
   <string name="revanced_swipe_threshold_title">Llindar de magnitud de lliscament</string>
   <string name="revanced_swipe_threshold_summary">La quantitat de llindar per a què es produeixi el desplaçament</string>
+  <string name="revanced_swipe_change_video_title">Activa la funció de lliscament per canviar vídeos</string>
+  <string name="revanced_swipe_change_video_summary_on">Lliscar en mode de pantalla completa canviarà al vídeo següent/anterior</string>
+  <string name="revanced_swipe_change_video_summary_off">Lliscar en mode de pantalla completa no canviarà al vídeo següent/anterior</string>
   </patch>
   <patch id="layout.autocaptions.autoCaptionsPatch">
   <string name="revanced_auto_captions_title">Desactiva els subtítols automàtics</string>
@@ -629,15 +688,15 @@ Nota: si actives aquesta opció, també s'amaguen els anuncis de vídeo per for�
   <string name="revanced_shorts_player_screen_summary">Amaga o mostra components al reproductor de Shorts</string>
   <!-- 'home' should be translated using the same localized wording YouTube displays for the home tab. -->
   <string name="revanced_hide_shorts_home_title">Amaga els Shorts al feed d\'inici</string>
-  <string name="revanced_hide_shorts_home_summary_on">Els Shorts al feed d\'inici estan ocults</string>
-  <string name="revanced_hide_shorts_home_summary_off">Els Shorts al feed d\'inici es mostren</string>
+  <string name="revanced_hide_shorts_home_summary_on">Amagat al feed d\'inici i als vídeos relacionats</string>
+  <string name="revanced_hide_shorts_home_summary_off">Es mostra al feed d\'inici i als vídeos relacionats</string>
   <!-- 'subscription' should be translated using the same localized wording YouTube displays for the subscription tab. -->
   <string name="revanced_hide_shorts_subscriptions_title">Amaga Shorts al feed de subscripcions</string>
-  <string name="revanced_hide_shorts_subscriptions_summary_on">Els Shorts al feed de subscripcions estan ocults</string>
-  <string name="revanced_hide_shorts_subscriptions_summary_off">Els Shorts al feed de subscripcions es mostren</string>
+  <string name="revanced_hide_shorts_subscriptions_summary_on">Amagat al feed de subscripcions</string>
+  <string name="revanced_hide_shorts_subscriptions_summary_off">Es mostra al feed de subscripcions</string>
   <string name="revanced_hide_shorts_search_title">Amaga Shorts als resultats de la cerca</string>
-  <string name="revanced_hide_shorts_search_summary_on">Els Shorts als resultats de la cerca estan ocults</string>
-  <string name="revanced_hide_shorts_search_summary_off">Els Shorts als resultats de la cerca es mostren</string>
+  <string name="revanced_hide_shorts_search_summary_off">Es mostra als resultats de la cerca</string>
+  <string name="revanced_hide_shorts_history_summary_on">Amagat a l\'historial de visualitzacions</string>
   <!-- 'join' should be translated using the same localized wording YouTube displays for the button. -->
   <string name="revanced_hide_shorts_join_button_title">Amaga el botó d\'unió</string>
   <string name="revanced_hide_shorts_join_button_summary_on">El botó d\'unió està ocult</string>
@@ -738,6 +797,13 @@ Nota: si actives aquesta opció, també s'amaguen els anuncis de vídeo per for�
   <string name="revanced_hide_player_popup_panels_title">Amagar panells emergents del reproductor</string>
   <string name="revanced_hide_player_popup_panels_summary_on">Els panells emergents del reproductor estan ocults</string>
   <string name="revanced_hide_player_popup_panels_summary_off">Els panells emergents del reproductor estan visibles</string>
+  </patch>
+  <patch id="layout.player.fullscreen.exitFullscreenPatch">
+  <string name="revanced_exit_fullscreen_title">Surt del mode de pantalla completa al final del vídeo</string>
+  <string name="revanced_exit_fullscreen_entry_1">Desactivat</string>
+  <string name="revanced_exit_fullscreen_entry_2">Vertical</string>
+  <string name="revanced_exit_fullscreen_entry_3">Horitzontal</string>
+  <string name="revanced_exit_fullscreen_entry_4">Vertical i horitzontal</string>
   </patch>
   <patch id="layout.player.fullscreen.openVideosFullscreen">
   <string name="revanced_open_videos_fullscreen_portrait_title">Obrir vídeos en pantalla completa en format vertical</string>
@@ -1007,6 +1073,23 @@ Preparat per enviar?"</string>
   <string name="revanced_sb_about">Quant a</string>
   <string name="revanced_sb_about_api_sum">Les dades són proporcionades per l\'API de SponsorBlock. Toca aquí per a saber-ne més i veure les descàrregues per a altres plataformes</string>
   </patch>
+  <patch id="layout.formfactor.changeFormFactorPatch">
+  <string name="revanced_change_form_factor_title">Factor de forma del disseny</string>
+  <string name="revanced_change_form_factor_entry_1">Predeterminat</string>
+  <string name="revanced_change_form_factor_entry_2">Telèfon</string>
+  <string name="revanced_change_form_factor_entry_3">Tauleta</string>
+  <string name="revanced_change_form_factor_entry_4">Automoció</string>
+  <string name="revanced_change_form_factor_user_dialog_message">"Els canvis inclouen:
+
+Presentació de la tauleta
+• Les publicacions de la comunitat estan amagades
+
+Presentació de l'automòbil
+• El menú d'historial del rellotge està ocult
+• La pestanya Explora s'ha restaurat
+• Els curts s'obren al reproductor normal
+• La font d'informació s'organitza per temes i canals"</string>
+  </patch>
   <patch id="layout.spoofappversion.spoofAppVersionPatch">
   <string name="revanced_spoof_app_version_title">Falsa la versió de l\'aplicació</string>
   <string name="revanced_spoof_app_version_summary_on">Versió falsificada</string>
@@ -1062,12 +1145,6 @@ Si després es desactiva, es recomana esborrar les dades de l'aplicació per evi
   <string name="revanced_shorts_autoplay_background_title">Reprodueix automàticament els Shorts en mode de reproducció en segon pla</string>
   <string name="revanced_shorts_autoplay_background_summary_on">La reproducció en segon pla dels Shorts es reproduirà automàticament</string>
   <string name="revanced_shorts_autoplay_background_summary_off">La reproducció en segon pla dels Shorts es repetirà</string>
-  </patch>
-  <patch id="layout.tablet.enableTabletLayoutPatch">
-  <string name="revanced_tablet_layout_title">Habilita el disseny de tauleta</string>
-  <string name="revanced_tablet_layout_summary_on">El disseny de tauleta està habilitat</string>
-  <string name="revanced_tablet_layout_summary_off">El disseny de tauleta està deshabilitat</string>
-  <string name="revanced_tablet_layout_user_dialog_message">Les publicacions de la comunitat no apareixen en els dissenys de tauleta</string>
   </patch>
   <patch id="layout.miniplayer.miniplayerPatch">
   <string name="revanced_miniplayer_screen_title">Minireproductor</string>
@@ -1233,6 +1310,7 @@ Si actives aquesta opció, es poden desbloquejar qualitats de vídeo més altes"
   <string name="revanced_force_original_audio_title">Forçar àudio original</string>
   <string name="revanced_force_original_audio_summary_on">Utilitzant àudio original</string>
   <string name="revanced_force_original_audio_summary_off">Utilitzant àudio predeterminat</string>
+  <string name="revanced_force_original_audio_not_available">Per utilitzar aquesta funció, canvia la suplantació de flux al tipus de client iOS</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
@@ -1296,9 +1374,10 @@ La reproducció de vídeo pot no funcionar"</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">"L'activació d'aquesta opció podria millorar la vida útil de la bateria i resoldre els problemes de reproducció irregular.
 
 L'AVC té una resolució màxima de 1080p, el còdec d'àudio Opus no està disponible i la reproducció de vídeo utilitzarà més dades d'Internet que VP9 o AV1."</string>
-  <string name="revanced_spoof_video_streams_about_ios_tv_title">Efectes secundaris de la suplantació d\'iOS TV</string>
-  <string name="revanced_spoof_video_streams_about_ios_tv_summary">"• És possible que les pel·lícules o els vídeos de pagament no es reprodueixin
-• Els vídeos finalitzen 1 segon abans"</string>
+  <string name="revanced_spoof_video_streams_about_ios_tv_title">Efectes secundaris de suplantació d\'iOS</string>
+  <string name="revanced_spoof_video_streams_about_ios_tv_summary">"• Les pel·lícules o vídeos de pagament poden no reproduir-se
+• El volum estable no està disponible
+• Els vídeos s'aturen 1 segon abans"</string>
   <string name="revanced_spoof_video_streams_about_android_title">Efectes secundaris de la suplantació d\'Android</string>
   <string name="revanced_spoof_video_streams_about_android_summary">"• Menú de pistes d'àudio no disponible
 • El volum estable no està disponible
@@ -1307,58 +1386,6 @@ L'AVC té una resolució màxima de 1080p, el còdec d'àudio Opus no està disp
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">El tipus de client es mostra a l\'apartat \'Dades per a experts\'</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">El client s\'amaga a l\'apartat \'Dades per a experts\'</string>
   <string name="revanced_spoof_video_streams_language_title">Idioma de l\'àudio per defecte a VR</string>
-  <string name="revanced_spoof_video_streams_language_DEFAULT">Idioma de l\'aplicació</string>
-  <string name="revanced_spoof_video_streams_language_AR">Àrab</string>
-  <string name="revanced_spoof_video_streams_language_AZ">Azerbaidjanès</string>
-  <string name="revanced_spoof_video_streams_language_BG">Búlgar</string>
-  <string name="revanced_spoof_video_streams_language_BN">Bengalí</string>
-  <string name="revanced_spoof_video_streams_language_CA">Català</string>
-  <string name="revanced_spoof_video_streams_language_CS">Txec</string>
-  <string name="revanced_spoof_video_streams_language_DA">Danès</string>
-  <string name="revanced_spoof_video_streams_language_DE">Alemany</string>
-  <string name="revanced_spoof_video_streams_language_EL">Grec</string>
-  <string name="revanced_spoof_video_streams_language_EN">Anglès</string>
-  <string name="revanced_spoof_video_streams_language_ES">Espanyol</string>
-  <string name="revanced_spoof_video_streams_language_ET">Estonià</string>
-  <string name="revanced_spoof_video_streams_language_FA">Persa</string>
-  <string name="revanced_spoof_video_streams_language_FI">Finès</string>
-  <string name="revanced_spoof_video_streams_language_FR">Francès</string>
-  <string name="revanced_spoof_video_streams_language_GU">Gujarati</string>
-  <string name="revanced_spoof_video_streams_language_HI">Hindi</string>
-  <string name="revanced_spoof_video_streams_language_HR">Croat</string>
-  <string name="revanced_spoof_video_streams_language_HU">Hongarès</string>
-  <string name="revanced_spoof_video_streams_language_ID">Indonesi</string>
-  <string name="revanced_spoof_video_streams_language_IT">Italià</string>
-  <string name="revanced_spoof_video_streams_language_JA">Japonès</string>
-  <string name="revanced_spoof_video_streams_language_KK">Kazakhstanès</string>
-  <string name="revanced_spoof_video_streams_language_KO">Coreà</string>
-  <string name="revanced_spoof_video_streams_language_LT">Lituà</string>
-  <string name="revanced_spoof_video_streams_language_LV">Letó</string>
-  <string name="revanced_spoof_video_streams_language_MK">Macedoni</string>
-  <string name="revanced_spoof_video_streams_language_MN">Mongol</string>
-  <string name="revanced_spoof_video_streams_language_MR">Marathi</string>
-  <string name="revanced_spoof_video_streams_language_MS">Malai</string>
-  <string name="revanced_spoof_video_streams_language_MY">Birmano</string>
-  <string name="revanced_spoof_video_streams_language_NL">Neerlandès</string>
-  <string name="revanced_spoof_video_streams_language_OR">Odia</string>
-  <string name="revanced_spoof_video_streams_language_PA">Punjabi</string>
-  <string name="revanced_spoof_video_streams_language_PL">Polonès</string>
-  <string name="revanced_spoof_video_streams_language_PT">Portuguès</string>
-  <string name="revanced_spoof_video_streams_language_RO">Romanès</string>
-  <string name="revanced_spoof_video_streams_language_RU">Rus</string>
-  <string name="revanced_spoof_video_streams_language_SK">Eslovac</string>
-  <string name="revanced_spoof_video_streams_language_SL">Eslovè</string>
-  <string name="revanced_spoof_video_streams_language_SR">Serbi</string>
-  <string name="revanced_spoof_video_streams_language_SV">Suec</string>
-  <string name="revanced_spoof_video_streams_language_SW">Suahili</string>
-  <string name="revanced_spoof_video_streams_language_TA">Tàmils</string>
-  <string name="revanced_spoof_video_streams_language_TE">Telugu</string>
-  <string name="revanced_spoof_video_streams_language_TH">Tailandès</string>
-  <string name="revanced_spoof_video_streams_language_TR">Turc</string>
-  <string name="revanced_spoof_video_streams_language_UK">Ucraïnès</string>
-  <string name="revanced_spoof_video_streams_language_UR">Urdu</string>
-  <string name="revanced_spoof_video_streams_language_VI">Vietnamita</string>
-  <string name="revanced_spoof_video_streams_language_ZH">Xinès</string>
   </patch>
   </app>
   <app id="twitch">

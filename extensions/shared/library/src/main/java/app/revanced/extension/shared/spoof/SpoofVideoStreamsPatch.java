@@ -34,6 +34,12 @@ public class SpoofVideoStreamsPatch {
         return false; // Modified during patching.
     }
 
+    public static boolean notSpoofingToAndroid() {
+        return !isPatchIncluded()
+                || !BaseSettings.SPOOF_VIDEO_STREAMS.get()
+                || BaseSettings.SPOOF_VIDEO_STREAMS_CLIENT_TYPE.get() == ClientType.IOS_UNPLUGGED;
+    }
+
     /**
      * Injection point.
      * Blocks /get_watch requests by returning an unreachable URI.
@@ -109,20 +115,25 @@ public class SpoofVideoStreamsPatch {
             try {
                 Uri uri = Uri.parse(url);
                 String path = uri.getPath();
+                if (path == null || !path.contains("player")) {
+                    return;
+                }
 
                 // 'heartbeat' has no video id and appears to be only after playback has started.
                 // 'refresh' has no video id and appears to happen when waiting for a livestream to start.
-                if (path != null && path.contains("player") && !path.contains("heartbeat")
-                        && !path.contains("refresh")) {
-                    String id = uri.getQueryParameter("id");
-                    if (id == null) {
-                        Logger.printException(() -> "Ignoring request that has no video id." +
-                                " Url: " + url + " headers: " + requestHeaders);
-                        return;
-                    }
-
-                    StreamingDataRequest.fetchRequest(id, requestHeaders);
+                // 'ad_break' has no video id.
+                if (path.contains("heartbeat") || path.contains("refresh") || path.contains("ad_break")) {
+                    Logger.printDebug(() -> "Ignoring path: " + path);
+                    return;
                 }
+
+                String id = uri.getQueryParameter("id");
+                if (id == null) {
+                    Logger.printException(() -> "Ignoring request with no id. Url: " + url);
+                    return;
+                }
+
+                StreamingDataRequest.fetchRequest(id, requestHeaders);
             } catch (Exception ex) {
                 Logger.printException(() -> "buildRequest failure", ex);
             }
@@ -204,18 +215,6 @@ public class SpoofVideoStreamsPatch {
         }
 
         return videoFormat;
-    }
-
-    public static final class NotSpoofingAndroidAvailability implements Setting.Availability {
-        @Override
-        public boolean isAvailable() {
-            if (SpoofVideoStreamsPatch.isPatchIncluded()) {
-                return !BaseSettings.SPOOF_VIDEO_STREAMS.get()
-                        || BaseSettings.SPOOF_VIDEO_STREAMS_CLIENT_TYPE.get() == ClientType.IOS_UNPLUGGED;
-            }
-
-            return true;
-        }
     }
 
     public static final class AudioStreamLanguageOverrideAvailability implements Setting.Availability {

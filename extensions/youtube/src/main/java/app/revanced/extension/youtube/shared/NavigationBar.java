@@ -3,12 +3,15 @@ package app.revanced.extension.youtube.shared;
 import static app.revanced.extension.youtube.shared.NavigationBar.NavigationButton.CREATE;
 
 import android.app.Activity;
+import android.os.Build;
 import android.view.View;
 
 import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 
 import java.lang.ref.WeakReference;
 import java.util.Arrays;
+import java.util.EnumMap;
 import java.util.List;
 import java.util.Map;
 import java.util.WeakHashMap;
@@ -54,20 +57,21 @@ public final class NavigationBar {
      * How long to wait for the set nav button latch to be released.  Maximum wait time must
      * be as small as possible while still allowing enough time for the nav bar to update.
      *
-     * YT calls it's back button handlers out of order,
-     * and litho starts filtering before the navigation bar is updated.
+     * YT calls it's back button handlers out of order, and litho starts filtering before the
+     * navigation bar is updated. Fixing this situation and not needlessly waiting requires
+     * somehow detecting if a back button key/gesture will not change the active tab.
      *
-     * Fixing this situation and not needlessly waiting requires somehow
-     * detecting if a back button key-press will cause a tab change.
+     * On average the time between pressing the back button and the first litho event is
+     * about 10-20ms.  Waiting up to 75-150ms should be enough time to handle normal use cases
+     * and not be noticeable, since YT typically takes 100-200ms (or more) to update the view.
      *
-     * Typically after pressing the back button, the time between the first litho event and
-     * when the nav button is updated is about 10-20ms. Using 50-100ms here should be enough time
-     * and not noticeable, since YT typically takes 100-200ms (or more) to update the view anyways.
+     * This delay is only noticeable when the device back button/gesture will not
+     * change the current navigation tab, such as backing out of the watch history.
      *
      * This issue can also be avoided on a patch by patch basis, by avoiding calls to
      * {@link NavigationButton#getSelectedNavigationButton()} unless absolutely necessary.
      */
-    private static final long LATCH_AWAIT_TIMEOUT_MILLISECONDS = 75;
+    private static final long LATCH_AWAIT_TIMEOUT_MILLISECONDS = 120;
 
     /**
      * Used as a workaround to fix the issue of YT calling back button handlers out of order.
@@ -113,7 +117,8 @@ public final class NavigationBar {
             // The latch is released from the main thread, and waiting from the main thread will always timeout.
             // This situation has only been observed when navigating out of a submenu and not changing tabs.
             // and for that use case the nav bar does not change so it's safe to return here.
-            Logger.printDebug(() -> "Cannot block main thread waiting for nav button. Using last known navbar button status.");
+            Logger.printDebug(() -> "Cannot block main thread waiting for nav button. " +
+                    "Using last known navbar button status.");
             return;
         }
 
@@ -131,7 +136,9 @@ public final class NavigationBar {
             Logger.printDebug(() -> "Latch wait timed out");
 
         } catch (InterruptedException ex) {
-            Logger.printException(() -> "Latch wait interrupted failure", ex); // Will never happen.
+            // Calling YouTube thread was interrupted.
+            Logger.printException(() -> "Latch wait interrupted", ex);
+            Thread.currentThread().interrupt(); // Restore interrupt status flag.
         }
     }
 
@@ -238,6 +245,30 @@ public final class NavigationBar {
         // Code is added during patching.
     }
 
+    /**
+     * Use the bundled non cairo filled icon instead of a custom icon.
+     * Use the old non cairo filled icon, which is almost identical to
+     * the what would be the filled cairo icon.
+     */
+    private static final int fillBellCairoBlack = Utils.getResourceIdentifier(
+            "yt_fill_bell_black_24", "drawable");
+
+    /**
+     * Injection point.
+     * Fixes missing drawable.
+     */
+    @RequiresApi(api = Build.VERSION_CODES.N)
+    @SuppressWarnings({"unchecked", "rawtypes"})
+    public static void setCairoNotificationFilledIcon(EnumMap enumMap, Enum tabActivityCairo) {
+        if (fillBellCairoBlack != 0) {
+            // Show a popup informing this fix is no longer needed to those who might care.
+            if (BaseSettings.DEBUG.get() && enumMap.containsKey(tabActivityCairo)) {
+                Logger.printException(() -> "YouTube fixed the cairo notification icons");
+            }
+            enumMap.putIfAbsent(tabActivityCairo, fillBellCairoBlack);
+        }
+    }
+
     public enum NavigationButton {
         HOME("PIVOT_HOME", "TAB_HOME_CAIRO"),
         SHORTS("TAB_SHORTS", "TAB_SHORTS_CAIRO"),
@@ -246,6 +277,10 @@ public final class NavigationBar {
          * This tab will never be in a selected state, even if the create video UI is on screen.
          */
         CREATE("CREATION_TAB_LARGE", "CREATION_TAB_LARGE_CAIRO"),
+        /**
+         * Only shown to automotive layout.
+         */
+        EXPLORE("TAB_EXPLORE"),
         SUBSCRIPTIONS("PIVOT_SUBSCRIPTIONS", "TAB_SUBSCRIPTIONS_CAIRO"),
         /**
          * Notifications tab.  Only present when
@@ -283,8 +318,8 @@ public final class NavigationBar {
          *
          * All code calling this method should handle a null return value.
          *
-         * <b>Due to issues with how YT processes physical back button events,
-         * this patch uses workarounds that can cause this method to take up to 75ms
+         * <b>Due to issues with how YT processes physical back button/gesture events,
+         * this patch uses workarounds that can cause this method to take up to 120ms
          * if the device back button was recently pressed.</b>
          *
          * @return The active navigation tab.

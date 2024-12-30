@@ -12,13 +12,23 @@ internal val playerTopControlsInflateFingerprint = fingerprint {
     literal { controlsLayoutStub }
 }
 
+internal val playerControlsExtensionHookListenersExistFingerprint = fingerprint {
+    accessFlags(AccessFlags.PRIVATE, AccessFlags.STATIC)
+    returns("Z")
+    parameters()
+    custom { methodDef, classDef ->
+        methodDef.name == "fullscreenButtonVisibilityCallbacksExist" &&
+                classDef.type == EXTENSION_CLASS_DESCRIPTOR
+    }
+}
+
 internal val playerControlsExtensionHookFingerprint = fingerprint {
-    accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
+    accessFlags(AccessFlags.PRIVATE, AccessFlags.STATIC)
     returns("V")
     parameters("Z")
     custom { methodDef, classDef ->
         methodDef.name == "fullscreenButtonVisibilityChanged" &&
-            classDef.type == "Lapp/revanced/extension/youtube/patches/PlayerControlsPatch;"
+            classDef.type == EXTENSION_CLASS_DESCRIPTOR
     }
 }
 

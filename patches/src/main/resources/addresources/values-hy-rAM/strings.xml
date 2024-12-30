@@ -43,6 +43,62 @@ Second \"item\" text"</string>
   <string name="revanced_settings_import_reset">ReVanced կարգավորումները վերադրվել են դեֆոլտային</string>
   <string name="revanced_settings_import_success">Import %d կարգավորում</string>
   <string name="revanced_settings_import_failure_parse">Import-ը ձախողվել է։ %s</string>
+  <string name="revanced_language_title">ReVanced լեզվի</string>
+  <string name="revanced_language_user_dialog_message">"Որոշ լեզուների թարգմանությունները կարող են լինել բացակայուն կամ անավարտ:
+
+Նոր լեզուներ թարգմանելու համար այցելեք translate.revanced.app"</string>
+  <string name="revanced_language_DEFAULT">Հավելվածի լեզու</string>
+  <string name="revanced_language_AR">Արաբերեն</string>
+  <string name="revanced_language_AZ">Ադրբեջաներեն</string>
+  <string name="revanced_language_BG">Բուլղարերեն</string>
+  <string name="revanced_language_BN">Բենգալերեն</string>
+  <string name="revanced_language_CA">Կատալաներեն</string>
+  <string name="revanced_language_CS">Չեխերեն</string>
+  <string name="revanced_language_DA">Դանիերեն</string>
+  <string name="revanced_language_DE">Գերմաներեն</string>
+  <string name="revanced_language_EL">Հունարեն</string>
+  <string name="revanced_language_EN">Անգլերեն</string>
+  <string name="revanced_language_ES">Իսպաներեն</string>
+  <string name="revanced_language_ET">Էստոներեն</string>
+  <string name="revanced_language_FA">Պարսկերեն</string>
+  <string name="revanced_language_FI">Ֆիններեն</string>
+  <string name="revanced_language_FR">Ֆրանսերեն</string>
+  <string name="revanced_language_GU">Գուջարաթի</string>
+  <string name="revanced_language_HI">Հինդի</string>
+  <string name="revanced_language_HR">Խորվաթերեն</string>
+  <string name="revanced_language_HU">Հունգարերեն</string>
+  <string name="revanced_language_ID">Ինդոնեզերեն</string>
+  <string name="revanced_language_IT">Իտալերեն</string>
+  <string name="revanced_language_JA">Ճապոներեն</string>
+  <string name="revanced_language_KK">Ղազախերեն</string>
+  <string name="revanced_language_KO">Կորեերեն</string>
+  <string name="revanced_language_LT">Լիտվերեն</string>
+  <string name="revanced_language_LV">Լատվիերեն</string>
+  <string name="revanced_language_MK">Մակեդոներեն</string>
+  <string name="revanced_language_MN">Մոնղոլերեն</string>
+  <string name="revanced_language_MR">Մարաթի</string>
+  <string name="revanced_language_MS">Մալայերեն</string>
+  <string name="revanced_language_MY">Բիրմաներեն</string>
+  <string name="revanced_language_NL">Նիդերլանդերեն</string>
+  <string name="revanced_language_OR">Օդիա</string>
+  <string name="revanced_language_PA">Փանջաբի</string>
+  <string name="revanced_language_PL">Լեհերեն</string>
+  <string name="revanced_language_PT">Պորտուգալերեն</string>
+  <string name="revanced_language_RO">Ռումիներեն</string>
+  <string name="revanced_language_RU">Ռուսերեն</string>
+  <string name="revanced_language_SK">Սլովակերեն</string>
+  <string name="revanced_language_SL">Սլովեներեն</string>
+  <string name="revanced_language_SR">Սերբերեն</string>
+  <string name="revanced_language_SV">Շվեդերեն</string>
+  <string name="revanced_language_SW">Սվահիլի</string>
+  <string name="revanced_language_TA">Թամիլերեն</string>
+  <string name="revanced_language_TE">Թելուգու</string>
+  <string name="revanced_language_TH">Թաիլանդերեն</string>
+  <string name="revanced_language_TR">Թուրքերեն</string>
+  <string name="revanced_language_UK">Ուկրաիներեն</string>
+  <string name="revanced_language_UR">Ուրդու</string>
+  <string name="revanced_language_VI">Վիետնամերեն</string>
+  <string name="revanced_language_ZH">Չինարեն</string>
   <string name="revanced_pref_import_export_title">Ներմուծում/Արտահանում</string>
   <string name="revanced_pref_import_export_summary">Import / Export ReVanced կարգավորումներ</string>
   <!-- Settings about dialog. -->
@@ -446,6 +502,9 @@ MicroG-ի համար մարտկոցի օպտիմալացումը անջատել�
   <string name="revanced_swipe_overlay_background_alpha_summary">Սահմանման վերածման ֆոնի տեսանելիությունը</string>
   <string name="revanced_swipe_threshold_title">Սահմանման վերածման չափը</string>
   <string name="revanced_swipe_threshold_summary">Սահմանման վերածման չափը</string>
+  <string name="revanced_swipe_change_video_title">Վայրէջքով տեսանյութերը փոխելու ակտիվացում</string>
+  <string name="revanced_swipe_change_video_summary_on">Լիարժեք ռեժիմով վայրէջքը կփոխվի հաջորդ / նախորդ տեսանյութին</string>
+  <string name="revanced_swipe_change_video_summary_off">Լիարժեք ռեժիմով վայրէջքը չի փոխվի հաջորդ / նախորդ տեսանյութին</string>
   </patch>
   <patch id="layout.autocaptions.autoCaptionsPatch">
   <string name="revanced_auto_captions_title">Անջատել ավտոմատ ենթագրերը</string>
@@ -629,15 +688,16 @@ MicroG-ի համար մարտկոցի օպտիմալացումը անջատել�
   <string name="revanced_shorts_player_screen_summary">Թաքցնել կամ ցույց տալ Shorts կրողի բաղադրիչները</string>
   <!-- 'home' should be translated using the same localized wording YouTube displays for the home tab. -->
   <string name="revanced_hide_shorts_home_title">Թաքցնել Shorts-ը գլխավոր էջում</string>
-  <string name="revanced_hide_shorts_home_summary_on">Shorts-ը գլխավոր էջում թաքցված են</string>
-  <string name="revanced_hide_shorts_home_summary_off">Shorts-ը գլխավոր էջում երևում են</string>
   <!-- 'subscription' should be translated using the same localized wording YouTube displays for the subscription tab. -->
   <string name="revanced_hide_shorts_subscriptions_title">Թաքցնել Shorts-ը բաժանորդագրության էջում</string>
-  <string name="revanced_hide_shorts_subscriptions_summary_on">Shorts-ը բաժանորդագրության էջում թաքցված են</string>
-  <string name="revanced_hide_shorts_subscriptions_summary_off">Shorts-ը բաժանորդագրության էջում երևում են</string>
+  <string name="revanced_hide_shorts_subscriptions_summary_on">Թաքնված է բաժանորդագրման կերակրման մեջ</string>
+  <string name="revanced_hide_shorts_subscriptions_summary_off">Ցուցադրված է բաժանորդագրման կերակրման մեջ</string>
   <string name="revanced_hide_shorts_search_title">Թաքցնել Shorts-ը որոնման արդյունքներում</string>
-  <string name="revanced_hide_shorts_search_summary_on">Shorts-ը որոնման արդյունքներում թաքցված են</string>
-  <string name="revanced_hide_shorts_search_summary_off">Shorts-ը որոնման արդյունքներում երևում են</string>
+  <string name="revanced_hide_shorts_search_summary_on">Որոնման արդյունքներում թաքնված է</string>
+  <string name="revanced_hide_shorts_search_summary_off">Ցուցադրված է որոնման արդյունքներում</string>
+  <string name="revanced_hide_shorts_history_title">Թաքցնել շորտերը դիտման պատմության մեջ</string>
+  <string name="revanced_hide_shorts_history_summary_on">Թաքնված է դիտման պատմության մեջ</string>
+  <string name="revanced_hide_shorts_history_summary_off">Ցուցադրվում է դիտման պատմության մեջ</string>
   <!-- 'join' should be translated using the same localized wording YouTube displays for the button. -->
   <string name="revanced_hide_shorts_join_button_title">Միանալու կոճակը թաքցնել</string>
   <string name="revanced_hide_shorts_join_button_summary_on">Միանալու կոճակը թաքցված է</string>
@@ -738,6 +798,13 @@ MicroG-ի համար մարտկոցի օպտիմալացումը անջատել�
   <string name="revanced_hide_player_popup_panels_title">Թաքցնել հաղորդակցման վահանակների ելնող պատուհանները</string>
   <string name="revanced_hide_player_popup_panels_summary_on">Հաղորդակցման վահանակների ելնող պատուհանները թաքցված են</string>
   <string name="revanced_hide_player_popup_panels_summary_off">Հաղորդակցման վահանակների ելնող պատուհանները երևում են</string>
+  </patch>
+  <patch id="layout.player.fullscreen.exitFullscreenPatch">
+  <string name="revanced_exit_fullscreen_title">Տեսանյութի ավարտին դուրս գալ լիաէկրան ռեժիմից</string>
+  <string name="revanced_exit_fullscreen_entry_1">Անջատված</string>
+  <string name="revanced_exit_fullscreen_entry_2">Դիմանկար</string>
+  <string name="revanced_exit_fullscreen_entry_3">Լանդշաֆտ</string>
+  <string name="revanced_exit_fullscreen_entry_4">Դիմանկար և լանդշաֆտ</string>
   </patch>
   <patch id="layout.player.fullscreen.openVideosFullscreen">
   <string name="revanced_open_videos_fullscreen_portrait_title">Բացել տեսանյութերը լի էկրանի պորտրետային ռեժիմով</string>
@@ -1008,6 +1075,23 @@ Seekbar thumbnails-ները կօգտագործեն նույն որակը, ինչ
   <string name="revanced_sb_about">Ծրագրի մասին</string>
   <string name="revanced_sb_about_api_sum">Տվյալները մատուցվում են SponsorBlock API-ի կողմից։ Սեղմեք այստեղ՝ ավելի շատ իմանալու և այլ հարթակների համար ներբեռնումները տեսնելու</string>
   </patch>
+  <patch id="layout.formfactor.changeFormFactorPatch">
+  <string name="revanced_change_form_factor_title">Ձևաչափի փոփոխություն</string>
+  <string name="revanced_change_form_factor_entry_1">Ընտրված</string>
+  <string name="revanced_change_form_factor_entry_2">Հեռախոս</string>
+  <string name="revanced_change_form_factor_entry_3">Պլանշետ</string>
+  <string name="revanced_change_form_factor_entry_4">Ավտոմոբիլային</string>
+  <string name="revanced_change_form_factor_user_dialog_message">"Փոփոխությունները ներառում են. 
+
+Պլանշետի ինտերֆեյս
+• Թաքցված են համայնքի հրապարակումները
+
+Ավտոմոբիլային ինտերֆեյս
+• Թաքցված է դիտումների պատմության ընտրանին
+• Վերականգնված է ուսումնասիրել  էջը
+• Հոլովակները բացվում են ստանդարտ նվագարկչում
+• Նորությունները կազմակերպված են ըստ թեմաների և ալիքների"</string>
+  </patch>
   <patch id="layout.spoofappversion.spoofAppVersionPatch">
   <string name="revanced_spoof_app_version_title">Կեղծել հավելվածի տարբերակը</string>
   <string name="revanced_spoof_app_version_summary_on">Տարբերակը կեղծված է</string>
@@ -1021,6 +1105,7 @@ Seekbar thumbnails-ները կօգտագործեն նույն որակը, ինչ
                  This is because the 'General layout' menu uses alphabetic sorting, and it functionally works better if the spoof target selector appears below the 'Spoof app version' UI switch -->
   <string name="revanced_spoof_app_version_target_title">Spoof-ի կիրառության տարբերակի նպատակ</string>
   <string name="revanced_spoof_app_version_target_entry_1">19.35.36 - Վերականգնել հին Shorts պլեյերի պատկերակները</string>
+  <string name="revanced_spoof_app_version_target_entry_2">19.26.42 - Հին նավիգացիայի և գործիքների պատկերներ վերականգնել</string>
   <!-- 'RYD' is 'Return YouTube Dislike' -->
   <string name="revanced_spoof_app_version_target_legacy_entry_1">18.33.40 - Վերականգնել RYD-ը Shorts անանուն ռեժիմում</string>
   <string name="revanced_spoof_app_version_target_legacy_entry_2">18.20.39 - Վերականգնել լայն տեսանյութի արագության &amp; որակի ընտրացանկը</string>
@@ -1063,12 +1148,6 @@ Seekbar thumbnails-ները կօգտագործեն նույն որակը, ինչ
   <string name="revanced_shorts_autoplay_background_title">Autoplay Shorts ֆոնային վերարտադրում</string>
   <string name="revanced_shorts_autoplay_background_summary_on">Shorts-ի ֆոնային վերարտադրումը կվերարտադրվի ավտոմատ կերպով</string>
   <string name="revanced_shorts_autoplay_background_summary_off">Shorts-ի ֆոնային վերարտադրումը կկրկնվի</string>
-  </patch>
-  <patch id="layout.tablet.enableTabletLayoutPatch">
-  <string name="revanced_tablet_layout_title">Աктиվացնել планшетի կառուցվածքը</string>
-  <string name="revanced_tablet_layout_summary_on">Планшетի կառուցվածքը ակտիվացված է</string>
-  <string name="revanced_tablet_layout_summary_off">Планшетի կառուցվածքը անջատված է</string>
-  <string name="revanced_tablet_layout_user_dialog_message">Համայնքի հրապարակումները չեն ցուցադրվում планшетի կառուցվածքներում</string>
   </patch>
   <patch id="layout.miniplayer.miniplayerPatch">
   <string name="revanced_miniplayer_screen_title">Մինի նվագարկիչ</string>
@@ -1233,6 +1312,7 @@ Mini-player-ը կարող է գրավվել էկրանից դուրս՝ դեպի
   <string name="revanced_force_original_audio_title">Բնօրինակ ձայն օգտագործել</string>
   <string name="revanced_force_original_audio_summary_on">Բնօրինակ ձայն օգտագործվում է</string>
   <string name="revanced_force_original_audio_summary_off">Վերջնական ձայն օգտագործվում է</string>
+  <string name="revanced_force_original_audio_not_available">Անեի սյօւյր դա ժյրդեք ռասրունաքն ամ Java զեմե, սիուի կյադ եյ չոն մաiOS</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
@@ -1296,9 +1376,10 @@ Mini-player-ը կարող է գրավվել էկրանից դուրս՝ դեպի
   <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">"Սա ակտիվացնելը կարող է բարելավել մարտկոցի աշխատանքի տևողությունը և վերացնել վերարտադրման խցկումները։
 
 AVC-ի առավելագույն թույլտվությունը 1080p է, Opus աուդիո կոդեկը հասանելի չէ, իսկ վիդեոյի վերարտադրումը VP9-ից կամ AV1-ից ավելի շատ ինտերնետ տվյալներ կօգտագործի։"</string>
-  <string name="revanced_spoof_video_streams_about_ios_tv_title">iOS TV խաբեության կողմնակի ազդեցություններ</string>
-  <string name="revanced_spoof_video_streams_about_ios_tv_summary">"• Ֆիլմերը կամ վճարովի տեսանյութերը կարող են չվերարտադրվել
-• Տեսանյութերն ավարտվում են 1 վայրկյան շուտ"</string>
+  <string name="revanced_spoof_video_streams_about_ios_tv_title">iOS խաբեության կողմնակի ազդեցություններ</string>
+  <string name="revanced_spoof_video_streams_about_ios_tv_summary">"• Ֆիլմերը կամ վճարովի տեսանյութերը չեն կարող աշխատել
+• Հասանելի չէ կայուն ձայնի ծավալը
+• Տեսանյութերը վերջանում են 1 վայրկյան վաղ"</string>
   <string name="revanced_spoof_video_streams_about_android_title">Android խաբեության կողմնակի ազդեցություններ</string>
   <string name="revanced_spoof_video_streams_about_android_summary">"• Ձայնի գրառման ընտրացանկը բացակայում է
 • Ստաբիլ ձայն չկա
@@ -1307,58 +1388,6 @@ AVC-ի առավելագույն թույլտվությունը 1080p է, Opus ա
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Հաճախորդի տեսակը ցուցադրվում է վիճակագրության ակնոցներում</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Հաճախորդը թաքնված է վիճակագրության ակնոցներում</string>
   <string name="revanced_spoof_video_streams_language_title">VR-ի համար նախապես ընտրված ձայնի գրառման լեզու</string>
-  <string name="revanced_spoof_video_streams_language_DEFAULT">Հաշվի լեզու</string>
-  <string name="revanced_spoof_video_streams_language_AR">Արաբերեն</string>
-  <string name="revanced_spoof_video_streams_language_AZ">Ադրբեջաներեն</string>
-  <string name="revanced_spoof_video_streams_language_BG">Բուլղարերեն</string>
-  <string name="revanced_spoof_video_streams_language_BN">Բենգալերեն</string>
-  <string name="revanced_spoof_video_streams_language_CA">Կատալաներեն</string>
-  <string name="revanced_spoof_video_streams_language_CS">Չեխերեն</string>
-  <string name="revanced_spoof_video_streams_language_DA">Դանիերեն</string>
-  <string name="revanced_spoof_video_streams_language_DE">Գերմաներեն</string>
-  <string name="revanced_spoof_video_streams_language_EL">Հունարեն</string>
-  <string name="revanced_spoof_video_streams_language_EN">Անգլերեն</string>
-  <string name="revanced_spoof_video_streams_language_ES">Իսպաներեն</string>
-  <string name="revanced_spoof_video_streams_language_ET">Էստոներեն</string>
-  <string name="revanced_spoof_video_streams_language_FA">Պարսկերեն</string>
-  <string name="revanced_spoof_video_streams_language_FI">Ֆիննական</string>
-  <string name="revanced_spoof_video_streams_language_FR">Ֆրանսերեն</string>
-  <string name="revanced_spoof_video_streams_language_GU">Գուջարերեն</string>
-  <string name="revanced_spoof_video_streams_language_HI">Հնդկերեն</string>
-  <string name="revanced_spoof_video_streams_language_HR">Խորվաթերեն</string>
-  <string name="revanced_spoof_video_streams_language_HU">Հունգարերեն</string>
-  <string name="revanced_spoof_video_streams_language_ID">Ինդոնեզերեն</string>
-  <string name="revanced_spoof_video_streams_language_IT">Իտալերեն</string>
-  <string name="revanced_spoof_video_streams_language_JA">Ճապոներեն</string>
-  <string name="revanced_spoof_video_streams_language_KK">Ղազախերեն</string>
-  <string name="revanced_spoof_video_streams_language_KO">Կորեերեն</string>
-  <string name="revanced_spoof_video_streams_language_LT">Լիտվական</string>
-  <string name="revanced_spoof_video_streams_language_LV">Լատվիական</string>
-  <string name="revanced_spoof_video_streams_language_MK">Մակեդոնական</string>
-  <string name="revanced_spoof_video_streams_language_MN">Մոնղոլերեն</string>
-  <string name="revanced_spoof_video_streams_language_MR">Մարաթի</string>
-  <string name="revanced_spoof_video_streams_language_MS">Մալայերեն</string>
-  <string name="revanced_spoof_video_streams_language_MY">Բիրմայերեն</string>
-  <string name="revanced_spoof_video_streams_language_NL">Հոլանդերեն</string>
-  <string name="revanced_spoof_video_streams_language_OR">Օդիական</string>
-  <string name="revanced_spoof_video_streams_language_PA">Փենջաբերեն</string>
-  <string name="revanced_spoof_video_streams_language_PL">Լեհերեն</string>
-  <string name="revanced_spoof_video_streams_language_PT">Պորտուգալերեն</string>
-  <string name="revanced_spoof_video_streams_language_RO">Ռումիներեն</string>
-  <string name="revanced_spoof_video_streams_language_RU">Ռուսերեն</string>
-  <string name="revanced_spoof_video_streams_language_SK">Սլովակերեն</string>
-  <string name="revanced_spoof_video_streams_language_SL">Սլովենական</string>
-  <string name="revanced_spoof_video_streams_language_SR">Սերբերեն</string>
-  <string name="revanced_spoof_video_streams_language_SV">Շվեդերեն</string>
-  <string name="revanced_spoof_video_streams_language_SW">Սուահիլի</string>
-  <string name="revanced_spoof_video_streams_language_TA">Թամիլերեն</string>
-  <string name="revanced_spoof_video_streams_language_TE">Թելուգու</string>
-  <string name="revanced_spoof_video_streams_language_TH">Թաիլանդերեն</string>
-  <string name="revanced_spoof_video_streams_language_TR">Թուրքերեն</string>
-  <string name="revanced_spoof_video_streams_language_UK">Ուկրաինական</string>
-  <string name="revanced_spoof_video_streams_language_UR">Ուրդու</string>
-  <string name="revanced_spoof_video_streams_language_VI">Վիետնամերեն</string>
-  <string name="revanced_spoof_video_streams_language_ZH">Չինական</string>
   </patch>
   </app>
   <app id="twitch">

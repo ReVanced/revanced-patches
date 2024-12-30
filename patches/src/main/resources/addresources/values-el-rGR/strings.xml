@@ -43,6 +43,62 @@ Second \"item\" text"</string>
   <string name="revanced_settings_import_reset">Επαναφέρθηκαν οι προεπιλεγμένες ρυθμίσεις ReVanced</string>
   <string name="revanced_settings_import_success">Έγινε εισαγωγή %d ρυθμίσεων</string>
   <string name="revanced_settings_import_failure_parse">Η εισαγωγή απέτυχε: %s</string>
+  <string name="revanced_language_title">Γλώσσα ReVanced</string>
+  <string name="revanced_language_user_dialog_message">"Οι μεταφράσεις για κάποιες γλώσσες ενδέχεται να λείπουν ή να είναι ελλιπείς. 
+
+Για να μεταφράσετε νέες γλώσσες, επισκεφθείτε τη διεύθυνση translate.revanced.app"</string>
+  <string name="revanced_language_DEFAULT">Γλώσσα εφαρμογής</string>
+  <string name="revanced_language_AR">Αραβικά</string>
+  <string name="revanced_language_AZ">Αζερμπαϊτζάν</string>
+  <string name="revanced_language_BG">Βουλγαρικά</string>
+  <string name="revanced_language_BN">Βεγγαλικά</string>
+  <string name="revanced_language_CA">Καταλανικά</string>
+  <string name="revanced_language_CS">Τσεχικά</string>
+  <string name="revanced_language_DA">Δανικά</string>
+  <string name="revanced_language_DE">Γερμανικά</string>
+  <string name="revanced_language_EL">Ελληνικά</string>
+  <string name="revanced_language_EN">Αγγλικά</string>
+  <string name="revanced_language_ES">Ισπανικά</string>
+  <string name="revanced_language_ET">Εσθονικά</string>
+  <string name="revanced_language_FA">Περσικά</string>
+  <string name="revanced_language_FI">Φινλανδικά</string>
+  <string name="revanced_language_FR">Γαλλικά</string>
+  <string name="revanced_language_GU">Γκουτζαρατί</string>
+  <string name="revanced_language_HI">Χίντι</string>
+  <string name="revanced_language_HR">Κροατικά</string>
+  <string name="revanced_language_HU">Ουγγρικά</string>
+  <string name="revanced_language_ID">Ινδονησιακά</string>
+  <string name="revanced_language_IT">Ιταλικά</string>
+  <string name="revanced_language_JA">Ιαπωνικά</string>
+  <string name="revanced_language_KK">Καζακικά</string>
+  <string name="revanced_language_KO">Κορεάτικα</string>
+  <string name="revanced_language_LT">Λιθουανικά</string>
+  <string name="revanced_language_LV">Λετονικά</string>
+  <string name="revanced_language_MK">Σλαβομακεδονικά</string>
+  <string name="revanced_language_MN">Μογγολικά</string>
+  <string name="revanced_language_MR">Μαράτι</string>
+  <string name="revanced_language_MS">Μαλαισιανά</string>
+  <string name="revanced_language_MY">Βιρμανικά</string>
+  <string name="revanced_language_NL">Ολλανδικά</string>
+  <string name="revanced_language_OR">Οντία</string>
+  <string name="revanced_language_PA">Παντζάμπι</string>
+  <string name="revanced_language_PL">Πολωνικά</string>
+  <string name="revanced_language_PT">Πορτογαλικά</string>
+  <string name="revanced_language_RO">Ρουμανικά</string>
+  <string name="revanced_language_RU">Ρωσικά</string>
+  <string name="revanced_language_SK">Σλοβακικά</string>
+  <string name="revanced_language_SL">Σλοβενικά</string>
+  <string name="revanced_language_SR">Σερβικά</string>
+  <string name="revanced_language_SV">Σουηδικά</string>
+  <string name="revanced_language_SW">Σουαχίλι</string>
+  <string name="revanced_language_TA">Ταμίλ</string>
+  <string name="revanced_language_TE">Τελούγκου</string>
+  <string name="revanced_language_TH">Ταϊλανδικά</string>
+  <string name="revanced_language_TR">Τουρκικά</string>
+  <string name="revanced_language_UK">Ουκρανικά</string>
+  <string name="revanced_language_UR">Ουρντού</string>
+  <string name="revanced_language_VI">Βιετναμέζικα</string>
+  <string name="revanced_language_ZH">Κινέζικα</string>
   <string name="revanced_pref_import_export_title">Εισαγωγή / Εξαγωγή</string>
   <string name="revanced_pref_import_export_summary">Εισαγωγή / Εξαγωγή ρυθμίσεων ReVanced</string>
   <!-- Settings about dialog. -->
@@ -448,6 +504,9 @@ Second \"item\" text"</string>
   <string name="revanced_swipe_overlay_background_alpha_summary">Η ορατότητα του πλαισίου σάρωσης στο παρασκήνιο</string>
   <string name="revanced_swipe_threshold_title">Κατώτατο όριο μεγέθους σάρωσης</string>
   <string name="revanced_swipe_threshold_summary">Η ελάχιστη απόσταση που θα διανύσετε με το δάκτυλο σας για να είναι αναγνωρίσιμη η χειρονομία σάρωσης</string>
+  <string name="revanced_swipe_change_video_title">Χειρονομία εναλλαγής βίντεο στην πλήρη οθόνη</string>
+  <string name="revanced_swipe_change_video_summary_on">Σάρωση αριστερά/δεξιά κατά τη λειτουργία πλήρους οθόνης για αλλαγή σε επόμενο/προηγούμενο βίντεο</string>
+  <string name="revanced_swipe_change_video_summary_off">Η χειρονομία αλλαγής βίντεο κατά τη λειτουργία πλήρους οθόνης είναι ανενεργή</string>
   </patch>
   <patch id="layout.autocaptions.autoCaptionsPatch">
   <string name="revanced_auto_captions_title">Απενεργοποίηση αυτόματων υπότιτλων</string>
@@ -640,6 +699,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_shorts_search_title">Shorts στα αποτελέσματα αναζήτησης</string>
   <string name="revanced_hide_shorts_search_summary_on">Κρυμμένα</string>
   <string name="revanced_hide_shorts_search_summary_off">Εμφανίζονται</string>
+  <string name="revanced_hide_shorts_history_title">Shorts στο ιστορικό παρακολούθησης</string>
+  <string name="revanced_hide_shorts_history_summary_on">Κρυμμένα</string>
+  <string name="revanced_hide_shorts_history_summary_off">Εμφανίζονται</string>
   <!-- 'join' should be translated using the same localized wording YouTube displays for the button. -->
   <string name="revanced_hide_shorts_join_button_title">Κουμπί «Συμμετοχή»</string>
   <string name="revanced_hide_shorts_join_button_summary_on">Κρυμμένο</string>
@@ -740,6 +802,13 @@ Second \"item\" text"</string>
   <string name="revanced_hide_player_popup_panels_title">Αναδυόμενα παράθυρα οθόνης αναπαραγωγής</string>
   <string name="revanced_hide_player_popup_panels_summary_on">Κρυμμένα</string>
   <string name="revanced_hide_player_popup_panels_summary_off">Εμφανίζονται</string>
+  </patch>
+  <patch id="layout.player.fullscreen.exitFullscreenPatch">
+  <string name="revanced_exit_fullscreen_title">Έξοδος από την λειτουργία πλήρους οθόνης στο τέλος του βίντεο</string>
+  <string name="revanced_exit_fullscreen_entry_1">Ανενεργό</string>
+  <string name="revanced_exit_fullscreen_entry_2">Κατακόρυφα</string>
+  <string name="revanced_exit_fullscreen_entry_3">Οριζόντια</string>
+  <string name="revanced_exit_fullscreen_entry_4">Κατακόρυφα και οριζόντια</string>
   </patch>
   <patch id="layout.player.fullscreen.openVideosFullscreen">
   <string name="revanced_open_videos_fullscreen_portrait_title">Άνοιγμα των βίντεο σε πλήρη οθόνη με κατακόρυφη προβολή</string>
@@ -1009,6 +1078,23 @@ Second \"item\" text"</string>
   <string name="revanced_sb_about">Σχετικά με</string>
   <string name="revanced_sb_about_api_sum">Τα δεδομένα παρέχονται από το SponsorBlock API. Πατήστε για να μάθετε περισσότερα και να δείτε λήψεις για άλλες πλατφόρμες</string>
   </patch>
+  <patch id="layout.formfactor.changeFormFactorPatch">
+  <string name="revanced_change_form_factor_title">Αλλαγή μορφής διάταξης</string>
+  <string name="revanced_change_form_factor_entry_1">Προεπιλογή</string>
+  <string name="revanced_change_form_factor_entry_2">Τηλέφωνο</string>
+  <string name="revanced_change_form_factor_entry_3">Ταμπλετ</string>
+  <string name="revanced_change_form_factor_entry_4">Αυτοκίνητο</string>
+  <string name="revanced_change_form_factor_user_dialog_message">"Οι αλλαγές στη διάταξη περιλαμβάνουν τα παρακάτω:
+
+Διάταξη ταμπλετ
+• Οι δημοσιεύσεις κοινότητας είναι κρυμμένες
+
+Διάταξη αυτοκινήτου
+• Το μενού ιστορικού παρακολούθησης είναι κρυμμένο
+• Η καρτέλα «Εξερεύνηση» επαναφέρεται
+• Τα Shorts ανοίγουν στην κανονική οθόνη αναπαραγωγής
+• Η ροή οργανώνεται ανά θέματα και κανάλι"</string>
+  </patch>
   <patch id="layout.spoofappversion.spoofAppVersionPatch">
   <string name="revanced_spoof_app_version_title">Τροποποίηση έκδοσης εφαρμογής</string>
   <string name="revanced_spoof_app_version_summary_on">Η έκδοση τροποποιείται</string>
@@ -1022,6 +1108,7 @@ Second \"item\" text"</string>
                  This is because the 'General layout' menu uses alphabetic sorting, and it functionally works better if the spoof target selector appears below the 'Spoof app version' UI switch -->
   <string name="revanced_spoof_app_version_target_title">Έκδοση τροποποίησης της εφαρμογής</string>
   <string name="revanced_spoof_app_version_target_entry_1">19.35.36 - Επαναφορά των παλιών εικονιδίων της οθόνης αναπαραγωγής Shorts</string>
+  <string name="revanced_spoof_app_version_target_entry_2">19.26.42 - Επαναφορά παλιών εικονιδίων πλοήγησης και γραμμής εργαλείων</string>
   <!-- 'RYD' is 'Return YouTube Dislike' -->
   <string name="revanced_spoof_app_version_target_legacy_entry_1">18.33.40 - Επαναφορά λειτουργικότητας του RYD στα Shorts σε λειτουργία ανώνυμης περιήγησης</string>
   <string name="revanced_spoof_app_version_target_legacy_entry_2">18.20.39 - Επαναφορά ευρύτερου μενού ταχύτητας &amp; ποιότητας βίντεο</string>
@@ -1037,7 +1124,7 @@ Second \"item\" text"</string>
   <string name="revanced_change_start_page_entry_history">Ιστορικό</string>
   <string name="revanced_change_start_page_entry_library">Βιβλιοθήκη</string>
   <string name="revanced_change_start_page_entry_liked_videos">Βίντεο που σας αρέσουν</string>
-  <string name="revanced_change_start_page_entry_live">Άμεση</string>
+  <string name="revanced_change_start_page_entry_live">Live</string>
   <string name="revanced_change_start_page_entry_movies">Ταινίες</string>
   <string name="revanced_change_start_page_entry_music">Μουσική</string>
   <string name="revanced_change_start_page_entry_search">Αναζήτηση</string>
@@ -1065,17 +1152,11 @@ Second \"item\" text"</string>
   <string name="revanced_shorts_autoplay_background_summary_on">Τα επόμενα Shorts θα αναπαράγονται αυτόματα στο παρασκήνιο</string>
   <string name="revanced_shorts_autoplay_background_summary_off">Τα Shorts στο παρασκήνιο θα επαναλαμβάνονται</string>
   </patch>
-  <patch id="layout.tablet.enableTabletLayoutPatch">
-  <string name="revanced_tablet_layout_title">Λειτουργία διεπαφής τάμπλετ</string>
-  <string name="revanced_tablet_layout_summary_on">Η διεπαφή τάμπλετ είναι ενεργοποιημένη</string>
-  <string name="revanced_tablet_layout_summary_off">Η διεπαφή τάμπλετ είναι απενεργοποιημένη</string>
-  <string name="revanced_tablet_layout_user_dialog_message">Οι δημοσιεύσεις κοινότητας δεν εμφανίζονται στη διεπαφή τάμπλετ</string>
-  </patch>
   <patch id="layout.miniplayer.miniplayerPatch">
   <string name="revanced_miniplayer_screen_title">Ελαχιστοποιημένη οθόνη αναπαραγωγής</string>
   <string name="revanced_miniplayer_screen_summary">Αλλάξτε το στυλ της ελαχιστοποιημένης οθόνης αναπαραγωγής</string>
   <string name="revanced_miniplayer_type_title">Τύπος ελαχιστοποιημένης οθόνης αναπαραγωγής</string>
-  <string name="revanced_miniplayer_type_entry_0">Ανενεργή</string>
+  <string name="revanced_miniplayer_type_entry_0">Απενεργοποιημένη</string>
   <string name="revanced_miniplayer_type_entry_1">Προεπιλογή</string>
   <string name="revanced_miniplayer_type_entry_2">Ελάχιστη</string>
   <string name="revanced_miniplayer_type_entry_3">Ταμπλετ</string>
@@ -1232,6 +1313,7 @@ Second \"item\" text"</string>
   <string name="revanced_force_original_audio_title">Εξαναγκασμός αρχικού ήχου</string>
   <string name="revanced_force_original_audio_summary_on">Χρήση αρχικού ήχου</string>
   <string name="revanced_force_original_audio_summary_off">Χρήση προεπιλεγμένου ήχου</string>
+  <string name="revanced_force_original_audio_not_available">Για να χρησιμοποιήσετε αυτήν τη δυνατότητα, αλλάξτε τον τύπο παραποίησης ροών βίντεο σε iOS</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
@@ -1295,8 +1377,9 @@ Second \"item\" text"</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">"Η ενεργοποίηση αυτής της λειτουργίας ενδέχεται να βελτιώσει τη διάρκεια ζωής της μπαταρίας και να διορθώσει κολλήματα αναπαραγωγής.
 
 Ο AVC έχει μέγιστη ανάλυση 1080p, ο κωδικοποιητής ήχου Opus δεν είναι διαθέσιμος και η αναπαραγωγή βίντεο θα χρησιμοποιεί περισσότερα δεδομένα ίντερνετ από τον VP9 ή τον AV1."</string>
-  <string name="revanced_spoof_video_streams_about_ios_tv_title">Παρενέργειες παραποίησης σε iOS TV</string>
+  <string name="revanced_spoof_video_streams_about_ios_tv_title">Παρενέργειες παραποίησης σε iOS</string>
   <string name="revanced_spoof_video_streams_about_ios_tv_summary">"• Οι ταινίες ή τα επί πληρωμή βίντεο ενδέχεται να μην αναπαράγονται
+• Η λειτουργία «Σταθερή ένταση» δεν είναι διαθέσιμη
 • Τα βίντεο τελειώνουν 1 δευτερόλεπτο νωρίτερα"</string>
   <string name="revanced_spoof_video_streams_about_android_title">Παρενέργειες παραποίησης σε Android</string>
   <string name="revanced_spoof_video_streams_about_android_summary">"• Το μενού «Κομμάτι ήχου» λείπει
@@ -1306,58 +1389,6 @@ Second \"item\" text"</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Το πρόγραμμα πελάτη εμφανίζεται στο μενού «Στατιστικά για σπασίκλες»</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Το πρόγραμμα πελάτη δεν εμφανίζεται στο μενού «Στατιστικά για σπασίκλες»</string>
   <string name="revanced_spoof_video_streams_language_title">Προεπιλεγμένη γλώσσα ροής ήχου VR</string>
-  <string name="revanced_spoof_video_streams_language_DEFAULT">Γλώσσα λογαριασμού</string>
-  <string name="revanced_spoof_video_streams_language_AR">Αραβικά</string>
-  <string name="revanced_spoof_video_streams_language_AZ">Αζερμπαϊτζανικά</string>
-  <string name="revanced_spoof_video_streams_language_BG">Βουλγαρικά</string>
-  <string name="revanced_spoof_video_streams_language_BN">Βεγγαλικά</string>
-  <string name="revanced_spoof_video_streams_language_CA">Καταλανικά</string>
-  <string name="revanced_spoof_video_streams_language_CS">Τσέχικα</string>
-  <string name="revanced_spoof_video_streams_language_DA">Δανέζικα</string>
-  <string name="revanced_spoof_video_streams_language_DE">Γερμανικά</string>
-  <string name="revanced_spoof_video_streams_language_EL">Ελληνικά</string>
-  <string name="revanced_spoof_video_streams_language_EN">Αγγλικά</string>
-  <string name="revanced_spoof_video_streams_language_ES">Ισπανικά</string>
-  <string name="revanced_spoof_video_streams_language_ET">Εσθονικά</string>
-  <string name="revanced_spoof_video_streams_language_FA">Περσικά</string>
-  <string name="revanced_spoof_video_streams_language_FI">Φινλανδικά</string>
-  <string name="revanced_spoof_video_streams_language_FR">Γαλλικά</string>
-  <string name="revanced_spoof_video_streams_language_GU">Γκουτζαρατικά</string>
-  <string name="revanced_spoof_video_streams_language_HI">Χίντι</string>
-  <string name="revanced_spoof_video_streams_language_HR">Κροατικά</string>
-  <string name="revanced_spoof_video_streams_language_HU">Ουγγρικά</string>
-  <string name="revanced_spoof_video_streams_language_ID">Ινδονησιακά</string>
-  <string name="revanced_spoof_video_streams_language_IT">Ιταλικά</string>
-  <string name="revanced_spoof_video_streams_language_JA">Ιαπωνικά</string>
-  <string name="revanced_spoof_video_streams_language_KK">Καζακικά</string>
-  <string name="revanced_spoof_video_streams_language_KO">Κορεάτικα</string>
-  <string name="revanced_spoof_video_streams_language_LT">Λιθουανικά</string>
-  <string name="revanced_spoof_video_streams_language_LV">Λετονικά</string>
-  <string name="revanced_spoof_video_streams_language_MK">Μακεδονικά</string>
-  <string name="revanced_spoof_video_streams_language_MN">Μογγολικά</string>
-  <string name="revanced_spoof_video_streams_language_MR">Μαράτι</string>
-  <string name="revanced_spoof_video_streams_language_MS">Μαλαισιανά</string>
-  <string name="revanced_spoof_video_streams_language_MY">Βιρμανικά</string>
-  <string name="revanced_spoof_video_streams_language_NL">Ολλανδικά</string>
-  <string name="revanced_spoof_video_streams_language_OR">Όντια</string>
-  <string name="revanced_spoof_video_streams_language_PA">Παντζάμπι</string>
-  <string name="revanced_spoof_video_streams_language_PL">Πολωνικά</string>
-  <string name="revanced_spoof_video_streams_language_PT">Πορτογαλικά</string>
-  <string name="revanced_spoof_video_streams_language_RO">Ρουμανικά</string>
-  <string name="revanced_spoof_video_streams_language_RU">Ρωσικά</string>
-  <string name="revanced_spoof_video_streams_language_SK">Σλοβακικά</string>
-  <string name="revanced_spoof_video_streams_language_SL">Σλοβενικά</string>
-  <string name="revanced_spoof_video_streams_language_SR">Σερβικά</string>
-  <string name="revanced_spoof_video_streams_language_SV">Σουηδικά</string>
-  <string name="revanced_spoof_video_streams_language_SW">Σουαχίλι</string>
-  <string name="revanced_spoof_video_streams_language_TA">Ταμιλικά</string>
-  <string name="revanced_spoof_video_streams_language_TE">Τελούγκου</string>
-  <string name="revanced_spoof_video_streams_language_TH">Ταϊλανδικά</string>
-  <string name="revanced_spoof_video_streams_language_TR">Τουρκικά</string>
-  <string name="revanced_spoof_video_streams_language_UK">Ουκρανικά</string>
-  <string name="revanced_spoof_video_streams_language_UR">Ουρντού</string>
-  <string name="revanced_spoof_video_streams_language_VI">Βιετναμέζικα</string>
-  <string name="revanced_spoof_video_streams_language_ZH">Κινέζικα</string>
   </patch>
   </app>
   <app id="twitch">
