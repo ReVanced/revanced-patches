@@ -189,13 +189,18 @@ fun injectVisibilityCheckCall(descriptor: String) {
         "invoke-static { p1 , p2 }, $descriptor->changeVisibility(ZZ)V",
     )
 
+    if (!visibilityImmediateCallbacksExistModified) {
+        visibilityImmediateCallbacksExistModified = true
+        visibilityImmediateCallbacksExistMethod.returnEarly(true)
+    }
+
     visibilityImmediateMethod.addInstruction(
         visibilityImmediateInsertIndex++,
         "invoke-static { p0 }, $descriptor->changeVisibilityImmediate(Z)V",
     )
 }
 
-private const val EXTENSION_CLASS_DESCRIPTOR =
+internal const val EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/youtube/patches/PlayerControlsPatch;"
 
 private lateinit var inflateTopControlMethod: MutableMethod
@@ -208,6 +213,9 @@ private var inflateBottomControlRegister: Int = -1
 
 private lateinit var visibilityMethod: MutableMethod
 private var visibilityInsertIndex: Int = 0
+
+private var visibilityImmediateCallbacksExistModified = false
+private lateinit var visibilityImmediateCallbacksExistMethod : MutableMethod
 
 private lateinit var visibilityImmediateMethod: MutableMethod
 private var visibilityImmediateInsertIndex: Int = 0
@@ -266,6 +274,7 @@ val playerControlsPatch = bytecodePatch(
             )
         }
 
+        visibilityImmediateCallbacksExistMethod = playerControlsExtensionHookListenersExistFingerprint.method
         visibilityImmediateMethod = playerControlsExtensionHookFingerprint.method
 
         // A/B test for a slightly different bottom overlay controls,

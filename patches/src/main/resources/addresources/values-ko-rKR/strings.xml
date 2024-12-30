@@ -43,6 +43,62 @@ Second \"item\" text"</string>
   <string name="revanced_settings_import_reset">ReVanced 설정을 기본값으로 초기화합니다</string>
   <string name="revanced_settings_import_success">%d 설정을 가져왔습니다</string>
   <string name="revanced_settings_import_failure_parse">설정을 가져올 수 없습니다: %s</string>
+  <string name="revanced_language_title">ReVanced 언어</string>
+  <string name="revanced_language_user_dialog_message">"일부 언어의 번역이 누락되었거나 완료되지 않았을 수 있습니다
+
+새로운 언어를 번역하려면 translate.revanced.app를 방문하세요"</string>
+  <string name="revanced_language_DEFAULT">앱 언어</string>
+  <string name="revanced_language_AR">아랍어</string>
+  <string name="revanced_language_AZ">아제르바이잔어</string>
+  <string name="revanced_language_BG">불가리아어</string>
+  <string name="revanced_language_BN">벵골어</string>
+  <string name="revanced_language_CA">카탈루냐어</string>
+  <string name="revanced_language_CS">체코어</string>
+  <string name="revanced_language_DA">덴마크어</string>
+  <string name="revanced_language_DE">독일어</string>
+  <string name="revanced_language_EL">그리스어</string>
+  <string name="revanced_language_EN">영어</string>
+  <string name="revanced_language_ES">스페인어</string>
+  <string name="revanced_language_ET">에스토니아어</string>
+  <string name="revanced_language_FA">페르시아어</string>
+  <string name="revanced_language_FI">핀란드어</string>
+  <string name="revanced_language_FR">프랑스어</string>
+  <string name="revanced_language_GU">구자라트어</string>
+  <string name="revanced_language_HI">힌디어</string>
+  <string name="revanced_language_HR">크로아티아어</string>
+  <string name="revanced_language_HU">헝가리어</string>
+  <string name="revanced_language_ID">인도네시아어</string>
+  <string name="revanced_language_IT">이탈리아어</string>
+  <string name="revanced_language_JA">일본어</string>
+  <string name="revanced_language_KK">카자흐어</string>
+  <string name="revanced_language_KO">한국어</string>
+  <string name="revanced_language_LT">리투아니아어</string>
+  <string name="revanced_language_LV">라트비아어</string>
+  <string name="revanced_language_MK">마케도니아어</string>
+  <string name="revanced_language_MN">몽골어</string>
+  <string name="revanced_language_MR">마라티어</string>
+  <string name="revanced_language_MS">말레이어</string>
+  <string name="revanced_language_MY">버마어</string>
+  <string name="revanced_language_NL">네덜란드어</string>
+  <string name="revanced_language_OR">오리야어</string>
+  <string name="revanced_language_PA">펀자브어</string>
+  <string name="revanced_language_PL">폴란드어</string>
+  <string name="revanced_language_PT">포르투갈어</string>
+  <string name="revanced_language_RO">루마니아어</string>
+  <string name="revanced_language_RU">러시아어</string>
+  <string name="revanced_language_SK">슬로바키아어</string>
+  <string name="revanced_language_SL">슬로베니아어</string>
+  <string name="revanced_language_SR">세르비아어</string>
+  <string name="revanced_language_SV">스웨덴어</string>
+  <string name="revanced_language_SW">스와힐리어</string>
+  <string name="revanced_language_TA">타밀어</string>
+  <string name="revanced_language_TE">텔루구어</string>
+  <string name="revanced_language_TH">태국어</string>
+  <string name="revanced_language_TR">터키어</string>
+  <string name="revanced_language_UK">우크라이나어</string>
+  <string name="revanced_language_UR">우르두어</string>
+  <string name="revanced_language_VI">베트남어</string>
+  <string name="revanced_language_ZH">중국어</string>
   <string name="revanced_pref_import_export_title">가져오기 / 내보내기</string>
   <string name="revanced_pref_import_export_summary">ReVanced 설정을 가져오거나 내보낼 수 있습니다</string>
   <!-- Settings about dialog. -->
@@ -449,6 +505,9 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_swipe_overlay_background_alpha_summary">오버레이 투명도 값을 지정할 수 있습니다 (0–255)</string>
   <string name="revanced_swipe_threshold_title">스와이프 한계치</string>
   <string name="revanced_swipe_threshold_summary">제스처 인식을 위해 얼마나 스와이프를 해야 할지를 지정할 수 있으며, 원하지 않은 제스처 인식을 방지할 수 있습니다</string>
+  <string name="revanced_swipe_change_video_title">스와이프 제스처로 동영상 전환 활성화하기</string>
+  <string name="revanced_swipe_change_video_summary_on">스와이프 제스처로 다음/이전 동영상으로 전환합니다</string>
+  <string name="revanced_swipe_change_video_summary_off">스와이프 제스처로 다음/이전 동영상으로 전환하지 않습니다</string>
   </patch>
   <patch id="layout.autocaptions.autoCaptionsPatch">
   <string name="revanced_auto_captions_title">자동 자막 비활성화하기</string>
@@ -632,9 +691,9 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_shorts_player_screen_title">Shorts 플레이어</string>
   <string name="revanced_shorts_player_screen_summary">Shorts 플레이어에서 구성요소를 숨기거나 표시할 수 있습니다</string>
   <!-- 'home' should be translated using the same localized wording YouTube displays for the home tab. -->
-  <string name="revanced_hide_shorts_home_title">홈 피드에서 Shorts 선반 숨기기</string>
-  <string name="revanced_hide_shorts_home_summary_on">홈 피드에서 Shorts 선반이 숨겨집니다</string>
-  <string name="revanced_hide_shorts_home_summary_off">홈 피드에서 Shorts 선반이 표시됩니다</string>
+  <string name="revanced_hide_shorts_home_title">홈 피드 및 관련 동영상에서 Shorts 선반 숨기기</string>
+  <string name="revanced_hide_shorts_home_summary_on">홈 피드 및 관련 동영상에서 Shorts 선반이 숨겨집니다</string>
+  <string name="revanced_hide_shorts_home_summary_off">홈 피드 및 관련 동영상에서 Shorts 선반이 표시됩니다</string>
   <!-- 'subscription' should be translated using the same localized wording YouTube displays for the subscription tab. -->
   <string name="revanced_hide_shorts_subscriptions_title">구독 피드에서 Shorts 선반 숨기기</string>
   <string name="revanced_hide_shorts_subscriptions_summary_on">구독 피드에서 Shorts 선반이 숨겨집니다</string>
@@ -642,6 +701,9 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_hide_shorts_search_title">검색 결과에서 Shorts 선반 숨기기</string>
   <string name="revanced_hide_shorts_search_summary_on">검색 결과에서 Shorts 선반이 숨겨집니다</string>
   <string name="revanced_hide_shorts_search_summary_off">검색 결과에서 Shorts 선반이 표시됩니다</string>
+  <string name="revanced_hide_shorts_history_title">시청 기록에서 Shorts 숨기기</string>
+  <string name="revanced_hide_shorts_history_summary_on">시청 기록에서 Shorts가 숨겨집니다</string>
+  <string name="revanced_hide_shorts_history_summary_off">시청 기록에서 Shorts가 표시됩니다</string>
   <!-- 'join' should be translated using the same localized wording YouTube displays for the button. -->
   <string name="revanced_hide_shorts_join_button_title">가입 버튼 숨기기</string>
   <string name="revanced_hide_shorts_join_button_summary_on">가입 버튼이 숨겨집니다</string>
@@ -743,6 +805,13 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_hide_player_popup_panels_summary_on">플레이어 팝업 패널이 숨겨집니다\n• 재생목록, 실시간 채팅, etc.</string>
   <string name="revanced_hide_player_popup_panels_summary_off">플레이어 팝업 패널이 표시됩니다\n• 재생목록, 실시간 채팅, etc.</string>
   </patch>
+  <patch id="layout.player.fullscreen.exitFullscreenPatch">
+  <string name="revanced_exit_fullscreen_title">동영상이 종료할 때, 전체 화면에서 나가기</string>
+  <string name="revanced_exit_fullscreen_entry_1">사용 안함</string>
+  <string name="revanced_exit_fullscreen_entry_2">세로 모드</string>
+  <string name="revanced_exit_fullscreen_entry_3">가로 모드</string>
+  <string name="revanced_exit_fullscreen_entry_4">세로 및 가로 모드</string>
+  </patch>
   <patch id="layout.player.fullscreen.openVideosFullscreen">
   <string name="revanced_open_videos_fullscreen_portrait_title">동영상을 전체 화면 세로 모드로 열기</string>
   <string name="revanced_open_videos_fullscreen_portrait_summary_on">동영상을 전체 화면으로 엽니다</string>
@@ -767,7 +836,8 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_ryd_shorts_summary_on">Shorts에서 싫어요 수를 표시합니다</string>
   <string name="revanced_ryd_shorts_summary_on_disclaimer">"Shorts에서 싫어요 수를 표시합니다
 
-알려진 문제점: 사용자가 로그인을 하지 않았거나 시크릿 모드에서는 싫어요 수가 표시되지 않을 수 있습니다"</string>
+알려진 문제점: 
+• 사용자가 로그인을 하지 않았거나 시크릿 모드에서는 싫어요 수가 표시되지 않을 수 있습니다"</string>
   <string name="revanced_ryd_shorts_summary_off">Shorts에서 싫어요 수를 표시하지 않습니다</string>
   <string name="revanced_ryd_dislike_percentage_title">싫어요 수를 퍼센트로 표시하기</string>
   <string name="revanced_ryd_dislike_percentage_summary_on">싫어요 수를 퍼센트로 표시합니다</string>
@@ -1011,6 +1081,23 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_sb_about">정보</string>
   <string name="revanced_sb_about_api_sum">건너뛸 구간의 데이터는 SponsorBlock API에 의해 제공됩니다. 자세한 내용을 보려면 여기를 누르세요</string>
   </patch>
+  <patch id="layout.formfactor.changeFormFactorPatch">
+  <string name="revanced_change_form_factor_title">레이아웃 폼 팩터 변경하기</string>
+  <string name="revanced_change_form_factor_entry_1">기기 기본값 사용</string>
+  <string name="revanced_change_form_factor_entry_2">폰</string>
+  <string name="revanced_change_form_factor_entry_3">태블릿</string>
+  <string name="revanced_change_form_factor_entry_4">오토모티브</string>
+  <string name="revanced_change_form_factor_user_dialog_message">"변경 사항:
+
+태블릿 레이아웃
+• 커뮤니티 게시물이 숨겨집니다
+
+오토모티브 레이아웃
+• 시청 기록 메뉴가 숨겨집니다
+• 탐색 탭이 복원됩니다
+• Shorts가 일반 플레이어에서 재생됩니다
+• 피드가 주제와 채널별로 구성됩니다"</string>
+  </patch>
   <patch id="layout.spoofappversion.spoofAppVersionPatch">
   <string name="revanced_spoof_app_version_title">앱 버전 변경하기</string>
   <string name="revanced_spoof_app_version_summary_on">앱 버전을 변경합니다</string>
@@ -1024,6 +1111,7 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
                  This is because the 'General layout' menu uses alphabetic sorting, and it functionally works better if the spoof target selector appears below the 'Spoof app version' UI switch -->
   <string name="revanced_spoof_app_version_target_title">변경할 앱 버전</string>
   <string name="revanced_spoof_app_version_target_entry_1">19.35.36 - 이전 Shorts 플레이어 아이콘을 복원합니다</string>
+  <string name="revanced_spoof_app_version_target_entry_2">19.26.42 - 이전 하단바 및 툴바를 복원합니다</string>
   <!-- 'RYD' is 'Return YouTube Dislike' -->
   <string name="revanced_spoof_app_version_target_legacy_entry_1">18.33.40 - 시크릿 모드에서 Shorts RYD를 복원합니다</string>
   <string name="revanced_spoof_app_version_target_legacy_entry_2">18.20.39 - 넓은 동영상 재생 속도 &amp; 화질 메뉴를 복원합니다</string>
@@ -1067,12 +1155,6 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_shorts_autoplay_background_summary_on">Shorts 동영상 백그라운드 재생이 자동넘김됩니다</string>
   <string name="revanced_shorts_autoplay_background_summary_off">Shorts 동영상 백그라운드 재생이 반복재생됩니다</string>
   </patch>
-  <patch id="layout.tablet.enableTabletLayoutPatch">
-  <string name="revanced_tablet_layout_title">태블릿 레이아웃 활성화하기</string>
-  <string name="revanced_tablet_layout_summary_on">일부 레이아웃을 태블릿 레이아웃으로 활성화합니다</string>
-  <string name="revanced_tablet_layout_summary_off">일부 레이아웃을 태블릿 레이아웃으로 활성화하지 않습니다</string>
-  <string name="revanced_tablet_layout_user_dialog_message">태블릿 레이아웃에서는 커뮤니티 게시물을 표시되지 않습니다</string>
-  </patch>
   <patch id="layout.miniplayer.miniplayerPatch">
   <string name="revanced_miniplayer_screen_title">미니 플레이어</string>
   <string name="revanced_miniplayer_screen_summary">앱 내에서 최소화된 플레이어의 스타일을 변경할 수 있습니다</string>
@@ -1104,13 +1186,15 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
 • 미니 플레이어 절반 정도를 왼쪽 밖 또는 오른쪽 밖으로 드래그하여 숨길 수 있습니다"</string>
   <string name="revanced_miniplayer_horizontal_drag_summary_off">수평 드래그 제스처를 비활성화합니다</string>
   <string name="revanced_miniplayer_hide_expand_close_title">\'닫기\' 버튼 숨기기</string>
-  <string name="revanced_miniplayer_hide_expand_close_summary_on">\'닫기\' 버튼이 숨겨집니다</string>
-  <string name="revanced_miniplayer_hide_expand_close_summary_off">\'닫기\' 버튼이 표시됩니다</string>
+  <string name="revanced_miniplayer_hide_expand_close_summary_on">\'닫기\' 버튼이 숨겨집니다\n\n• YouTube v19.24.xx까지 모던 스타일 1, 3에서 \'펼치기 &amp; 닫기 버튼 숨기기\' 기능이 작동됩니다\n• YouTube v19.34.xx부터 모던 스타일 3에서만 \'닫기 버튼 숨기기\' 기능이 작동됩니다</string>
+  <string name="revanced_miniplayer_hide_expand_close_summary_off">\'닫기\' 버튼이 표시됩니다\n\n• YouTube v19.24.xx까지 모던 스타일 1, 3에서 \'펼치기 &amp; 닫기 버튼 숨기기\' 기능이 작동됩니다\n• YouTube v19.34.xx부터 모던 스타일 3에서만 \'닫기 버튼 숨기기\' 기능이 작동됩니다</string>
   <string name="revanced_miniplayer_hide_expand_close_legacy_title">\'펼치기\' &amp; \'닫기\' 버튼 숨기기</string>
   <string name="revanced_miniplayer_hide_expand_close_legacy_summary_on">"'펼치기' &amp; '닫기' 버튼이 숨겨집니다
 
+• YouTube v19.24.xx까지 모던 스타일 1, 3에서 '펼치기 &amp; 닫기 버튼 숨기기' 기능이 작동됩니다
+• YouTube v19.34.xx부터 모던 스타일 3에서만 '닫기 버튼 숨기기' 기능이 작동됩니다
 • 미니 플레이어를 스와이프하여 펼치거나 닫을 수 있습니다"</string>
-  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_off">\'펼치기\' &amp; \'닫기\' 버튼이 표시됩니다</string>
+  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_off">\'펼치기\' &amp; \'닫기\' 버튼이 표시됩니다\n\n• YouTube v19.24.xx까지 모던 스타일 1, 3에서 \'펼치기 &amp; 닫기 버튼 숨기기\' 기능이 작동됩니다\n• YouTube v19.34.xx부터 모던 스타일 3에서만 \'닫기 버튼 숨기기\' 기능이 작동됩니다</string>
   <string name="revanced_miniplayer_hide_subtext_title">서브텍스트 숨기기</string>
   <string name="revanced_miniplayer_hide_subtext_summary_on">서브텍스트가 숨겨집니다\n\n• 왼쪽 하단에서 표시되는 \'유료 광고 포함\'과 같은 라벨</string>
   <string name="revanced_miniplayer_hide_subtext_summary_off">서브텍스트가 표시됩니다\n\n• 왼쪽 하단에서 표시되는 \'유료 광고 포함\'과 같은 라벨</string>
@@ -1236,6 +1320,7 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요"</string>
   <string name="revanced_force_original_audio_title">원본 오디오 트랙 강제로 활성화하기</string>
   <string name="revanced_force_original_audio_summary_on">원본 오디오 트랙을 사용 중입니다</string>
   <string name="revanced_force_original_audio_summary_off">기본 오디오 트랙을 사용 중입니다</string>
+  <string name="revanced_force_original_audio_not_available">이 기능을 사용하려면, \'스트리밍 데이터 변경하기\' 설정에서 기본 클라이언트를 iOS TV로 변경하세요</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
@@ -1291,17 +1376,18 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">이 설정을 비활성화하면 동영상 재생 문제가 발생할 수 있습니다</string>
   <string name="revanced_spoof_video_streams_client_type_title">기본 클라이언트</string>
   <!-- 'no auth' means no authentication -->
-  <string name="revanced_spoof_video_streams_client_type_android_vr_no_auth">Android VR (인증 안됨)</string>
+  <string name="revanced_spoof_video_streams_client_type_android_vr_no_auth">Android VR (미인증)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_title">iOS AVC (H.264) 강제로 활성화하기</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">동영상 코덱을 AVC (H.264)로 강제로 활성화합니다</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">동영상 코덱을 자동으로 결정합니다</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">동영상 코덱을 AVC (H.264)로 강제로 활성화합니다\n\n• 일부 VP9 코덱 동영상에서 제거되었던 화질 값이 표시될 수 있습니다\n• 최대 화질 값이 1080p이므로, 초고화질 동영상을 재생할 수 없습니다\n• HDR 동영상을 재생할 수 없습니다</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">동영상 코덱을 자동으로 결정합니다\n\n• 예전에 업로드된 동영상을 재생했는데 VP9 코덱 응답을 받았을 경우, 일부 화질값이 제거되어 360p와 1080p(Premium 기능)만 선택가능할 수 있거나 화질 메뉴를 선택불가능할 수 있습니다</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">"이 설정를 활성화하면 배터리 수명이 향상되고, 동영상 재생 끊김 문제가 해결될 수 있습니다
 
-AVC의 최대 해상도는 1080p이고, OPUS 코덱을 사용할 수 없으며, 동영상을 재생했을 경우에는 VP9 또는 AV1보다 더 많은 모바일 데이터를 사용되오니 주의하세요"</string>
-  <string name="revanced_spoof_video_streams_about_ios_tv_title">iOS TV 클라이언트 변경에 따른 문제점</string>
-  <string name="revanced_spoof_video_streams_about_ios_tv_summary">"• 동영상 또는 회원 전용 동영상과 같은 유료 동영상이 재생되지 않을 수 있습니다
+AVC의 최대 화질 값은 1080p이고, OPUS 코덱을 사용불가 및 HDR 동영상을 재생할 수 없으며, 동영상을 재생했을 경우에는 VP9 또는 AV1보다 더 많은 모바일 데이터를 사용되오니 주의하세요"</string>
+  <string name="revanced_spoof_video_streams_about_ios_tv_title">iOS TV로 변경에 따른 문제점</string>
+  <string name="revanced_spoof_video_streams_about_ios_tv_summary">"• 영화 또는 유료 동영상이 재생되지 않을 수 있습니다.
+• 안정적인 볼륨을 사용할 수 없습니다
 • 동영상이 1초 일찍 종료될 수 있습니다"</string>
-  <string name="revanced_spoof_video_streams_about_android_title">Android 계열 클라이언트 변경에 따른 문제점</string>
+  <string name="revanced_spoof_video_streams_about_android_title">Android 계열로 변경에 따른 문제점</string>
   <string name="revanced_spoof_video_streams_about_android_summary">"• 오디오 트랙 메뉴가 표시되지 않습니다
 • 안정적인 볼륨을 사용할 수 없습니다
 • 원본 오디오 트랙를 강제로 활성화할 수 없습니다."</string>
@@ -1309,58 +1395,6 @@ AVC의 최대 해상도는 1080p이고, OPUS 코덱을 사용할 수 없으며, 
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">전문 통계에서 기본 클라이언트가 표시됩니다</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">전문 통계에서 기본 클라이언트가 표시되지 않습니다</string>
   <string name="revanced_spoof_video_streams_language_title">Android VR 기본 오디오 스트림 언어</string>
-  <string name="revanced_spoof_video_streams_language_DEFAULT">계정 언어</string>
-  <string name="revanced_spoof_video_streams_language_AR">아랍어</string>
-  <string name="revanced_spoof_video_streams_language_AZ">아제르바니잔어</string>
-  <string name="revanced_spoof_video_streams_language_BG">불가리아어</string>
-  <string name="revanced_spoof_video_streams_language_BN">뱅골어</string>
-  <string name="revanced_spoof_video_streams_language_CA">카타로니아어</string>
-  <string name="revanced_spoof_video_streams_language_CS">체코어</string>
-  <string name="revanced_spoof_video_streams_language_DA">덴마크어</string>
-  <string name="revanced_spoof_video_streams_language_DE">독일어</string>
-  <string name="revanced_spoof_video_streams_language_EL">그리스어</string>
-  <string name="revanced_spoof_video_streams_language_EN">영어</string>
-  <string name="revanced_spoof_video_streams_language_ES">스페인어</string>
-  <string name="revanced_spoof_video_streams_language_ET">에스토니아어</string>
-  <string name="revanced_spoof_video_streams_language_FA">페르시아어</string>
-  <string name="revanced_spoof_video_streams_language_FI">핀란드어</string>
-  <string name="revanced_spoof_video_streams_language_FR">프랑스어</string>
-  <string name="revanced_spoof_video_streams_language_GU">구자라트어</string>
-  <string name="revanced_spoof_video_streams_language_HI">힌디어</string>
-  <string name="revanced_spoof_video_streams_language_HR">크로아티아어</string>
-  <string name="revanced_spoof_video_streams_language_HU">헝가리어</string>
-  <string name="revanced_spoof_video_streams_language_ID">인도네시아어</string>
-  <string name="revanced_spoof_video_streams_language_IT">이틸리아어</string>
-  <string name="revanced_spoof_video_streams_language_JA">일본어</string>
-  <string name="revanced_spoof_video_streams_language_KK">키자흐스탄어</string>
-  <string name="revanced_spoof_video_streams_language_KO">한국어</string>
-  <string name="revanced_spoof_video_streams_language_LT">리투아니아어</string>
-  <string name="revanced_spoof_video_streams_language_LV">라트비아어</string>
-  <string name="revanced_spoof_video_streams_language_MK">마케도니아어</string>
-  <string name="revanced_spoof_video_streams_language_MN">몽골어</string>
-  <string name="revanced_spoof_video_streams_language_MR">마라티어</string>
-  <string name="revanced_spoof_video_streams_language_MS">말레이어</string>
-  <string name="revanced_spoof_video_streams_language_MY">버마어</string>
-  <string name="revanced_spoof_video_streams_language_NL">네덜란드어</string>
-  <string name="revanced_spoof_video_streams_language_OR">오리야어</string>
-  <string name="revanced_spoof_video_streams_language_PA">펀잡어</string>
-  <string name="revanced_spoof_video_streams_language_PL">폴란드어</string>
-  <string name="revanced_spoof_video_streams_language_PT">포르투갈어</string>
-  <string name="revanced_spoof_video_streams_language_RO">루마니아어</string>
-  <string name="revanced_spoof_video_streams_language_RU">러시아어</string>
-  <string name="revanced_spoof_video_streams_language_SK">슬로바키아어</string>
-  <string name="revanced_spoof_video_streams_language_SL">슬로베니아어</string>
-  <string name="revanced_spoof_video_streams_language_SR">세르비아어</string>
-  <string name="revanced_spoof_video_streams_language_SV">스웨덴어</string>
-  <string name="revanced_spoof_video_streams_language_SW">스와힐리어</string>
-  <string name="revanced_spoof_video_streams_language_TA">타밀어</string>
-  <string name="revanced_spoof_video_streams_language_TE">텔루구어</string>
-  <string name="revanced_spoof_video_streams_language_TH">태국어</string>
-  <string name="revanced_spoof_video_streams_language_TR">터키어</string>
-  <string name="revanced_spoof_video_streams_language_UK">우크라이나어</string>
-  <string name="revanced_spoof_video_streams_language_UR">우르두어</string>
-  <string name="revanced_spoof_video_streams_language_VI">베트남어</string>
-  <string name="revanced_spoof_video_streams_language_ZH">중국어</string>
   </patch>
   </app>
   <app id="twitch">

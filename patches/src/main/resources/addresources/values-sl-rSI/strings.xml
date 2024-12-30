@@ -43,6 +43,62 @@ Second \"item\" text"</string>
   <string name="revanced_settings_import_reset">Nastavitve ReVanced so ponastavljene na privzete</string>
   <string name="revanced_settings_import_success">Uvoženih %d nastavitev</string>
   <string name="revanced_settings_import_failure_parse">Uvoz neuspešen: %s</string>
+  <string name="revanced_language_title">Jezik ReVanced-a</string>
+  <string name="revanced_language_user_dialog_message">"Prevodi za nekatere jezike so lahko manjkajoči ali nepopolni.
+
+Za prevajanje novih jezikov obiščite translate.revanced.app"</string>
+  <string name="revanced_language_DEFAULT">Jezik aplikacije</string>
+  <string name="revanced_language_AR">Arabski</string>
+  <string name="revanced_language_AZ">Azerbajdžanščina</string>
+  <string name="revanced_language_BG">Bolgarski</string>
+  <string name="revanced_language_BN">Bengalski</string>
+  <string name="revanced_language_CA">Katalonski</string>
+  <string name="revanced_language_CS">Češčina</string>
+  <string name="revanced_language_DA">Danščina</string>
+  <string name="revanced_language_DE">Nemščina</string>
+  <string name="revanced_language_EL">Grščina</string>
+  <string name="revanced_language_EN">Angleščina</string>
+  <string name="revanced_language_ES">Španščina</string>
+  <string name="revanced_language_ET">Estonski</string>
+  <string name="revanced_language_FA">Perzijščina</string>
+  <string name="revanced_language_FI">Finščina</string>
+  <string name="revanced_language_FR">Francoščina</string>
+  <string name="revanced_language_GU">Gudžarati</string>
+  <string name="revanced_language_HI">Hindujščina</string>
+  <string name="revanced_language_HR">Hrvaščina</string>
+  <string name="revanced_language_HU">Madžarščina</string>
+  <string name="revanced_language_ID">Indonezijščina</string>
+  <string name="revanced_language_IT">Italijanščina</string>
+  <string name="revanced_language_JA">Japonščina</string>
+  <string name="revanced_language_KK">Kazahstanščina</string>
+  <string name="revanced_language_KO">Korejščina</string>
+  <string name="revanced_language_LT">Litovščina</string>
+  <string name="revanced_language_LV">Latvijščina</string>
+  <string name="revanced_language_MK">Makedonščina</string>
+  <string name="revanced_language_MN">Mongolščina</string>
+  <string name="revanced_language_MR">Marati</string>
+  <string name="revanced_language_MS">Malajščina</string>
+  <string name="revanced_language_MY">Burmanščina</string>
+  <string name="revanced_language_NL">Nizozemščina</string>
+  <string name="revanced_language_OR">Orija</string>
+  <string name="revanced_language_PA">Pandžabščina</string>
+  <string name="revanced_language_PL">Poljščina</string>
+  <string name="revanced_language_PT">Portugalščina</string>
+  <string name="revanced_language_RO">Romunščina</string>
+  <string name="revanced_language_RU">Ruščina</string>
+  <string name="revanced_language_SK">Slovaščina</string>
+  <string name="revanced_language_SL">Slovenščina</string>
+  <string name="revanced_language_SR">Srbščina</string>
+  <string name="revanced_language_SV">Švedščina</string>
+  <string name="revanced_language_SW">Svahili</string>
+  <string name="revanced_language_TA">Tamilščina</string>
+  <string name="revanced_language_TE">Telugu</string>
+  <string name="revanced_language_TH">Tajščina</string>
+  <string name="revanced_language_TR">Turščina</string>
+  <string name="revanced_language_UK">Ukrajinščina</string>
+  <string name="revanced_language_UR">Urdujščina</string>
+  <string name="revanced_language_VI">Vietnamščina</string>
+  <string name="revanced_language_ZH">Kitajščina</string>
   <string name="revanced_pref_import_export_title">Uvoz / Izvoz</string>
   <string name="revanced_pref_import_export_summary">Uvozi / izvozi nastavitve ReVanced</string>
   <!-- Settings about dialog. -->
@@ -79,7 +135,6 @@ Tapnite gumb Nadaljuj in dovolite spremembe optimizacije."</string>
   <string name="revanced_settings_screen_03_feed_title">Zbirka</string>
   <string name="revanced_settings_screen_04_player_title">Predvajalnik</string>
   <string name="revanced_settings_screen_05_general_title">Splošna postavitev</string>
-  <string name="revanced_settings_screen_06_shorts_title">Kratki posnetki</string>
   <string name="revanced_settings_screen_07_seekbar_title">Drsnik</string>
   <string name="revanced_settings_screen_08_swipe_controls_title">Ukazi s potegom</string>
   <string name="revanced_settings_screen_11_misc_title">Razno</string>
@@ -446,6 +501,9 @@ Ta funkcija je na voljo samo za starejše naprave"</string>
   <string name="revanced_swipe_overlay_background_alpha_summary">Vidnost ozadja prekrivanja pomikanja</string>
   <string name="revanced_swipe_threshold_title">Prazg prag za pomikanje</string>
   <string name="revanced_swipe_threshold_summary">Vrednost praga za pomikanje</string>
+  <string name="revanced_swipe_change_video_title">Omogoči menjavanje videoposnetkov z drsenjem</string>
+  <string name="revanced_swipe_change_video_summary_on">Drsenje v celozaslonskem načinu bo prešlo na naslednji/prejšnji videoposnetek.</string>
+  <string name="revanced_swipe_change_video_summary_off">Drsenje v celozaslonskem načinu ne bo prešlo na naslednji/prejšnji videoposnetek.</string>
   </patch>
   <patch id="layout.autocaptions.autoCaptionsPatch">
   <string name="revanced_auto_captions_title">Onemogoči samodejne podnapise</string>
@@ -629,15 +687,18 @@ Opomba: Omogočanje tega tudi prisilno skrije video oglase"</string>
   <string name="revanced_shorts_player_screen_summary">Skrij ali prikaži komponente v predvajalniku Shorts</string>
   <!-- 'home' should be translated using the same localized wording YouTube displays for the home tab. -->
   <string name="revanced_hide_shorts_home_title">Skrij Shorts v domačem viru</string>
-  <string name="revanced_hide_shorts_home_summary_on">Shorts v domačem viru so skriti</string>
-  <string name="revanced_hide_shorts_home_summary_off">Shorts v domačem viru so prikazani</string>
+  <string name="revanced_hide_shorts_home_summary_on">Skrito v domačem viru in sorodnih videoposnetkih</string>
+  <string name="revanced_hide_shorts_home_summary_off">Prikazano v domačem viru in sorodnih videoposnetkih</string>
   <!-- 'subscription' should be translated using the same localized wording YouTube displays for the subscription tab. -->
   <string name="revanced_hide_shorts_subscriptions_title">Skrij Shorts v viru naročnin</string>
-  <string name="revanced_hide_shorts_subscriptions_summary_on">Skrij Shorts v viru naročni</string>
-  <string name="revanced_hide_shorts_subscriptions_summary_off">Shorts v viru naročnin so prikazani.</string>
+  <string name="revanced_hide_shorts_subscriptions_summary_on">Skrito v viru naročnine</string>
+  <string name="revanced_hide_shorts_subscriptions_summary_off">Prikazano v viru naročnine</string>
   <string name="revanced_hide_shorts_search_title">Skrij Shorts v rezultatih iskanja.</string>
-  <string name="revanced_hide_shorts_search_summary_on">Shorts v rezultatih iskanja so skriti.</string>
-  <string name="revanced_hide_shorts_search_summary_off">Shorts v rezultatih iskanja so prikazani.</string>
+  <string name="revanced_hide_shorts_search_summary_on">Skrito v rezultatih iskanja</string>
+  <string name="revanced_hide_shorts_search_summary_off">Prikazano v rezultatih iskanja</string>
+  <string name="revanced_hide_shorts_history_title">Skrij kratke posnetke v zgodovini ogledov</string>
+  <string name="revanced_hide_shorts_history_summary_on">Skrito v zgodovini ogledov</string>
+  <string name="revanced_hide_shorts_history_summary_off">Prikazano v zgodovini ogledov</string>
   <!-- 'join' should be translated using the same localized wording YouTube displays for the button. -->
   <string name="revanced_hide_shorts_join_button_title">Skrij gumb za pridružitev.</string>
   <string name="revanced_hide_shorts_join_button_summary_on">Gumb za pridružitev je skrit.</string>
@@ -738,6 +799,13 @@ Opomba: Omogočanje tega tudi prisilno skrije video oglase"</string>
   <string name="revanced_hide_player_popup_panels_title">Skrij pojavna okna predvajalnika</string>
   <string name="revanced_hide_player_popup_panels_summary_on">Pojavna okna predvajalnika so skrita</string>
   <string name="revanced_hide_player_popup_panels_summary_off">Pojavna okna predvajalnika so prikazana</string>
+  </patch>
+  <patch id="layout.player.fullscreen.exitFullscreenPatch">
+  <string name="revanced_exit_fullscreen_title">Zapusti način celotnega zaslona ob koncu videoposnetka</string>
+  <string name="revanced_exit_fullscreen_entry_1">Onemogočeno</string>
+  <string name="revanced_exit_fullscreen_entry_2">Portret</string>
+  <string name="revanced_exit_fullscreen_entry_3">Ležeće</string>
+  <string name="revanced_exit_fullscreen_entry_4">Portret in ležeće</string>
   </patch>
   <patch id="layout.player.fullscreen.openVideosFullscreen">
   <string name="revanced_open_videos_fullscreen_portrait_title">Odpri videoposnetke v celozaslonskem načinu v portretni orientaciji</string>
@@ -1007,6 +1075,23 @@ Ali ste pripravljeni na oddajo?"</string>
   <string name="revanced_sb_about">O programu</string>
   <string name="revanced_sb_about_api_sum">Podatki so zagotovljeni s strani SponsorBlock API. Tapnite tukaj, da izveste več in si ogledate prenose za druge platforme</string>
   </patch>
+  <patch id="layout.formfactor.changeFormFactorPatch">
+  <string name="revanced_change_form_factor_title">Postavitev obrazca</string>
+  <string name="revanced_change_form_factor_entry_1">Privzeto</string>
+  <string name="revanced_change_form_factor_entry_2">Telefon</string>
+  <string name="revanced_change_form_factor_entry_3">Tablični računalnik</string>
+  <string name="revanced_change_form_factor_entry_4">Avtomobilska</string>
+  <string name="revanced_change_form_factor_user_dialog_message">"Spremembe vključujejo:
+
+Postavitev tabličnega računalnika
+• Objave skupnosti so skrite
+
+Postavitev za vozila
+• Meni zgodovine ogledov je skrit
+• Zavihek Raziskovanje je obnovljen
+• Posnetki Shorts se odprejo v običajnem predvajalniku
+• Vir je organiziran po temah in kanalih"</string>
+  </patch>
   <patch id="layout.spoofappversion.spoofAppVersionPatch">
   <string name="revanced_spoof_app_version_title">Spoof različice aplikacije</string>
   <string name="revanced_spoof_app_version_summary_on">Različica spoofana</string>
@@ -1020,6 +1105,7 @@ To bo spremenilo videz in funkcije aplikacije, vendar se lahko pojavijo neznani 
                  This is because the 'General layout' menu uses alphabetic sorting, and it functionally works better if the spoof target selector appears below the 'Spoof app version' UI switch -->
   <string name="revanced_spoof_app_version_target_title">Cilj spoofa različice aplikacije</string>
   <string name="revanced_spoof_app_version_target_entry_1">19.35.36 - Obnovi stare ikone predvajalnika Shorts</string>
+  <string name="revanced_spoof_app_version_target_entry_2">19.26.42 - Obnovi stare ikone za krmarjenje in orodno vrstico</string>
   <!-- 'RYD' is 'Return YouTube Dislike' -->
   <string name="revanced_spoof_app_version_target_legacy_entry_1">18.33.40 - Obnovi RYD v načinu inkognito za Shorts</string>
   <string name="revanced_spoof_app_version_target_legacy_entry_2">18.20.39 - Obnovi meni hitrosti in kakovosti videa</string>
@@ -1062,12 +1148,6 @@ To bo spremenilo videz in funkcije aplikacije, vendar se lahko pojavijo neznani 
   <string name="revanced_shorts_autoplay_background_title">Samodejno predvajanje Shorts v ozadju</string>
   <string name="revanced_shorts_autoplay_background_summary_on">Samodejno predvajanje Shorts v ozadju se bo samodejno predvajalo</string>
   <string name="revanced_shorts_autoplay_background_summary_off">Samodejno predvajanje Shorts v ozadju se bo ponovilo</string>
-  </patch>
-  <patch id="layout.tablet.enableTabletLayoutPatch">
-  <string name="revanced_tablet_layout_title">Omogoči postavitev za tablične računalnike</string>
-  <string name="revanced_tablet_layout_summary_on">Postavitev za tablične računalnike je omogočena</string>
-  <string name="revanced_tablet_layout_summary_off">Postavitev za tablične računalnike je onemogočena</string>
-  <string name="revanced_tablet_layout_user_dialog_message">Objave skupnosti se ne prikazujejo v postavitvah za tablične računalnike</string>
   </patch>
   <patch id="layout.miniplayer.miniplayerPatch">
   <string name="revanced_miniplayer_screen_title">\"Miniplayer\"</string>
@@ -1233,6 +1313,7 @@ Omogočanje tega lahko odklene višje kakovosti videa"</string>
   <string name="revanced_force_original_audio_title">Izsili izvirni zvok</string>
   <string name="revanced_force_original_audio_summary_on">Uporaba izvirnega zvoka</string>
   <string name="revanced_force_original_audio_summary_off">Uporaba privzetega zvoka</string>
+  <string name="revanced_force_original_audio_not_available">Za uporabo te funkcije spremenite odjemalce pretakanja na vrsto odjemalca iOS</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
@@ -1296,9 +1377,10 @@ Predvajanje videa morda ne bo delovalo"</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">"Omogočanje tega bi lahko izboljšalo življenjsko dobo baterije in odpravilo zatikanje predvajanja.
 
 AVC ima največjo ločljivost 1080p, avdio kodek Opus ni na voljo, predvajanje videa pa bo porabilo več internetnih podatkov kot VP9 ali AV1."</string>
-  <string name="revanced_spoof_video_streams_about_ios_tv_title">iOS TV Stranski učinki spoofing</string>
+  <string name="revanced_spoof_video_streams_about_ios_tv_title">iOS-ov pojav umetnega predvajanja posnetkov</string>
   <string name="revanced_spoof_video_streams_about_ios_tv_summary">"• Filmi ali plačani videoposnetki se morda ne bodo predvajali
-• Videoposnetki se končajo 1 sekundo prej"</string>
+• Stalna glasnost ni na voljo
+• Videi se končajo 1 sekundo prezgodaj"</string>
   <string name="revanced_spoof_video_streams_about_android_title">Android Stranski učinki spoofing</string>
   <string name="revanced_spoof_video_streams_about_android_summary">"• Manjka meni za izbiro zvočnega posnetka 
 • Stabilna glasnost ni na voljo
@@ -1307,58 +1389,6 @@ AVC ima največjo ločljivost 1080p, avdio kodek Opus ni na voljo, predvajanje v
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Vrsta odjemalca je prikazana v statistiki za piflarje</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Odjemalec je skrit v statistiki za piflarje</string>
   <string name="revanced_spoof_video_streams_language_title">Privzeti jezik zvočnega posnetka za VR</string>
-  <string name="revanced_spoof_video_streams_language_DEFAULT">Jezik aplikacije</string>
-  <string name="revanced_spoof_video_streams_language_AR">Arabski</string>
-  <string name="revanced_spoof_video_streams_language_AZ">Azerbajdžanski</string>
-  <string name="revanced_spoof_video_streams_language_BG">Bolgarski</string>
-  <string name="revanced_spoof_video_streams_language_BN">Bengalski</string>
-  <string name="revanced_spoof_video_streams_language_CA">Katalonski</string>
-  <string name="revanced_spoof_video_streams_language_CS">Češki</string>
-  <string name="revanced_spoof_video_streams_language_DA">Danski</string>
-  <string name="revanced_spoof_video_streams_language_DE">Nemški</string>
-  <string name="revanced_spoof_video_streams_language_EL">Grški</string>
-  <string name="revanced_spoof_video_streams_language_EN">Angleški</string>
-  <string name="revanced_spoof_video_streams_language_ES">Španski</string>
-  <string name="revanced_spoof_video_streams_language_ET">Estonski</string>
-  <string name="revanced_spoof_video_streams_language_FA">Perzijski</string>
-  <string name="revanced_spoof_video_streams_language_FI">Finska</string>
-  <string name="revanced_spoof_video_streams_language_FR">Francosko</string>
-  <string name="revanced_spoof_video_streams_language_GU">Gujarati</string>
-  <string name="revanced_spoof_video_streams_language_HI">Hindi</string>
-  <string name="revanced_spoof_video_streams_language_HR">Hrvaško</string>
-  <string name="revanced_spoof_video_streams_language_HU">Madžarsko</string>
-  <string name="revanced_spoof_video_streams_language_ID">Indonezijsko</string>
-  <string name="revanced_spoof_video_streams_language_IT">Italijansko</string>
-  <string name="revanced_spoof_video_streams_language_JA">Japonsko</string>
-  <string name="revanced_spoof_video_streams_language_KK">Kazahstanski</string>
-  <string name="revanced_spoof_video_streams_language_KO">Korejsko</string>
-  <string name="revanced_spoof_video_streams_language_LT">Litovsko</string>
-  <string name="revanced_spoof_video_streams_language_LV">Latvijsko</string>
-  <string name="revanced_spoof_video_streams_language_MK">Makedonsko</string>
-  <string name="revanced_spoof_video_streams_language_MN">Mongolsko</string>
-  <string name="revanced_spoof_video_streams_language_MR">Marathi</string>
-  <string name="revanced_spoof_video_streams_language_MS">Malezijsko</string>
-  <string name="revanced_spoof_video_streams_language_MY">Burmansko</string>
-  <string name="revanced_spoof_video_streams_language_NL">Nizozemsko</string>
-  <string name="revanced_spoof_video_streams_language_OR">Odia</string>
-  <string name="revanced_spoof_video_streams_language_PA">Pandžabsko</string>
-  <string name="revanced_spoof_video_streams_language_PL">Poljsko</string>
-  <string name="revanced_spoof_video_streams_language_PT">Portugalščina</string>
-  <string name="revanced_spoof_video_streams_language_RO">Romunsko</string>
-  <string name="revanced_spoof_video_streams_language_RU">Rusko</string>
-  <string name="revanced_spoof_video_streams_language_SK">Slovaško</string>
-  <string name="revanced_spoof_video_streams_language_SL">Slovensko</string>
-  <string name="revanced_spoof_video_streams_language_SR">Srbsko</string>
-  <string name="revanced_spoof_video_streams_language_SV">Švedsko</string>
-  <string name="revanced_spoof_video_streams_language_SW">Svahili</string>
-  <string name="revanced_spoof_video_streams_language_TA">Tamil</string>
-  <string name="revanced_spoof_video_streams_language_TE">Telugu</string>
-  <string name="revanced_spoof_video_streams_language_TH">Tajsko</string>
-  <string name="revanced_spoof_video_streams_language_TR">Turško</string>
-  <string name="revanced_spoof_video_streams_language_UK">Ukrajinsko</string>
-  <string name="revanced_spoof_video_streams_language_UR">Urdu</string>
-  <string name="revanced_spoof_video_streams_language_VI">Vietnamsko</string>
-  <string name="revanced_spoof_video_streams_language_ZH">Kitajsko</string>
   </patch>
   </app>
   <app id="twitch">

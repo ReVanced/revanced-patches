@@ -182,7 +182,7 @@ public class StreamingDataRequest {
         // Retry with different client if empty response body is received.
         int i = 0;
         for (ClientType clientType : CLIENT_ORDER_TO_USE) {
-            // Show an error if the last client type fails, or if the debug is enabled then show for all attempts.
+            // Show an error if the last client type fails, or if debug is enabled then show for all attempts.
             final boolean showErrorToast = (++i == CLIENT_ORDER_TO_USE.length) || debugEnabled;
 
             HttpURLConnection connection = send(clientType, videoId, playerHeaders, showErrorToast);

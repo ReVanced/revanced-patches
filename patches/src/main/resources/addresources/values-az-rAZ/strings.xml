@@ -33,7 +33,6 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">APK qurulma vaxtı pozulub</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
-  <string name="revanced_settings_title">\"ReVanced\"</string>
   <string name="revanced_settings_confirm_user_dialog_title">Davam etmək istəyirsiniz?</string>
   <string name="revanced_settings_reset">Sıfırla</string>
   <string name="revanced_settings_restart_title">Yenilə və yenidən başlat</string>
@@ -43,6 +42,62 @@ Second \"item\" text"</string>
   <string name="revanced_settings_import_reset">ReVanced tənzimləmələr standarta təyin edildi</string>
   <string name="revanced_settings_import_success">%d tənzimləmə idxal edildi</string>
   <string name="revanced_settings_import_failure_parse">Uğursuz idxal prosesi: %s</string>
+  <string name="revanced_language_title">ReVanced dili</string>
+  <string name="revanced_language_user_dialog_message">"Bəzi dillər üçün tərcümələr əskik və ya səhv ola bilər.
+
+Yeni dilləri tərcümə etmək üçün translate.revanced.app 'ə daxil olun"</string>
+  <string name="revanced_language_DEFAULT">Tətbiq dili</string>
+  <string name="revanced_language_AR">Ərəbcə</string>
+  <string name="revanced_language_AZ">Azərbaycanca</string>
+  <string name="revanced_language_BG">Bolqarca</string>
+  <string name="revanced_language_BN">Benqalca</string>
+  <string name="revanced_language_CA">Katalan dili</string>
+  <string name="revanced_language_CS">Çexcə</string>
+  <string name="revanced_language_DA">Dan dili</string>
+  <string name="revanced_language_DE">Almanca</string>
+  <string name="revanced_language_EL">Yunanca</string>
+  <string name="revanced_language_EN">İngiliscə</string>
+  <string name="revanced_language_ES">İspanca</string>
+  <string name="revanced_language_ET">Estonca</string>
+  <string name="revanced_language_FA">Farsca</string>
+  <string name="revanced_language_FI">Fincə</string>
+  <string name="revanced_language_FR">Fransızca</string>
+  <string name="revanced_language_GU">Qücərat dili</string>
+  <string name="revanced_language_HI">Hindcə</string>
+  <string name="revanced_language_HR">Xorvatca</string>
+  <string name="revanced_language_HU">Macarca</string>
+  <string name="revanced_language_ID">İndoneziya dili</string>
+  <string name="revanced_language_IT">İtalyanca</string>
+  <string name="revanced_language_JA">Yaponca</string>
+  <string name="revanced_language_KK">Qazax dili</string>
+  <string name="revanced_language_KO">Koreya dili</string>
+  <string name="revanced_language_LT">Litva Dili</string>
+  <string name="revanced_language_LV">Letonca</string>
+  <string name="revanced_language_MK">Makedon Dili</string>
+  <string name="revanced_language_MN">Monqolca</string>
+  <string name="revanced_language_MR">Marathi dili</string>
+  <string name="revanced_language_MS">Malay dili</string>
+  <string name="revanced_language_MY">Birmanca</string>
+  <string name="revanced_language_NL">Hollandca</string>
+  <string name="revanced_language_OR">Oriya dili</string>
+  <string name="revanced_language_PA">Pəncabca</string>
+  <string name="revanced_language_PL">Polyak dili</string>
+  <string name="revanced_language_PT">Portuqal dili</string>
+  <string name="revanced_language_RO">Rumınca</string>
+  <string name="revanced_language_RU">Rusca</string>
+  <string name="revanced_language_SK">Slovak dili</string>
+  <string name="revanced_language_SL">Slovencə</string>
+  <string name="revanced_language_SR">Serbcə</string>
+  <string name="revanced_language_SV">İsveçcə</string>
+  <string name="revanced_language_SW">Suahili dili</string>
+  <string name="revanced_language_TA">Tamilcə</string>
+  <string name="revanced_language_TE">Teluqu dili</string>
+  <string name="revanced_language_TH">Tayca</string>
+  <string name="revanced_language_TR">Türkcə</string>
+  <string name="revanced_language_UK">Ukrayna dili</string>
+  <string name="revanced_language_UR">Urdu dili</string>
+  <string name="revanced_language_VI">Vyetnamca</string>
+  <string name="revanced_language_ZH">Çincə</string>
   <string name="revanced_pref_import_export_title">İdxal/İxrac et</string>
   <string name="revanced_pref_import_export_summary">ReVanced tənzimləmələrin idxal/ixrac et</string>
   <!-- Settings about dialog. -->
@@ -445,6 +500,9 @@ Bu xüsusiyyət yalnız köhnə cihazlar üçün mövcuddur"</string>
   <string name="revanced_swipe_overlay_background_alpha_summary">Sürüşdürmə örtüyü arxa fonunun görünməsi</string>
   <string name="revanced_swipe_threshold_title">Sürüşdürmə böyüklük həddi</string>
   <string name="revanced_swipe_threshold_summary">Sürüşdürmənin icra edilməsi üçün son dəyər</string>
+  <string name="revanced_swipe_change_video_title">Videoları ötürmək üçün sürüşdürməni aktiv et</string>
+  <string name="revanced_swipe_change_video_summary_on">Tam ekran rejimində sürüşdürmə növbəti/əvvəlki videoya ötürəcək</string>
+  <string name="revanced_swipe_change_video_summary_off">Tam ekran rejimində sürüşdürmə növbəti/əvvəlki videoya ötürməyəcək</string>
   </patch>
   <patch id="layout.autocaptions.autoCaptionsPatch">
   <string name="revanced_auto_captions_title">Avtomatik titrləri qeyri-aktiv et</string>
@@ -628,15 +686,18 @@ Qeyd: Bunu aktivləşdirmə video reklamları da məcburi olaraq gizlədir"</str
   <string name="revanced_shorts_player_screen_summary">Shorts oynadıcıda hissəcikləri gizlət və ya göstər</string>
   <!-- 'home' should be translated using the same localized wording YouTube displays for the home tab. -->
   <string name="revanced_hide_shorts_home_title">Ev axınında \"Shorts\"u gizlət</string>
-  <string name="revanced_hide_shorts_home_summary_on">Ev axınındakı Shorts gizlidir</string>
-  <string name="revanced_hide_shorts_home_summary_off">Ev axınında Shorts göstərilir</string>
+  <string name="revanced_hide_shorts_home_summary_on">Ev axınında və əlaqəli videolarda gizlədilib</string>
+  <string name="revanced_hide_shorts_home_summary_off">Ev axınında və əlaqəli videolarda göstərilir</string>
   <!-- 'subscription' should be translated using the same localized wording YouTube displays for the subscription tab. -->
   <string name="revanced_hide_shorts_subscriptions_title">Abunəlik axınında \"Shorts\"u gizlət</string>
-  <string name="revanced_hide_shorts_subscriptions_summary_on">Abunəlik axınındakı Shorts gizlidir</string>
-  <string name="revanced_hide_shorts_subscriptions_summary_off">Abunəlik axınında Shorts göstərilir</string>
+  <string name="revanced_hide_shorts_subscriptions_summary_on">Abunəlik axınında gizlidir</string>
+  <string name="revanced_hide_shorts_subscriptions_summary_off">Abunəlik axınında göstərilir</string>
   <string name="revanced_hide_shorts_search_title">Axtarış nəticələrindəki \"Shorts\"u gizlət</string>
-  <string name="revanced_hide_shorts_search_summary_on">Axtarış nəticələrində Shorts gizlədilib</string>
-  <string name="revanced_hide_shorts_search_summary_off">Axtarış nəticələrində Shorts göstərilir</string>
+  <string name="revanced_hide_shorts_search_summary_on">Axtarış nəticələrində gizlidir</string>
+  <string name="revanced_hide_shorts_search_summary_off">Axtarış nəticələrində görünür</string>
+  <string name="revanced_hide_shorts_history_title">Baxış tarixçəsində Shorts-u gizlət</string>
+  <string name="revanced_hide_shorts_history_summary_on">Baxış tarixçəsində gizlidir</string>
+  <string name="revanced_hide_shorts_history_summary_off">Baxış tarixçəsində göstərilib</string>
   <!-- 'join' should be translated using the same localized wording YouTube displays for the button. -->
   <string name="revanced_hide_shorts_join_button_title">Qoşul düyməsini gizlət</string>
   <string name="revanced_hide_shorts_join_button_summary_on">Qoşulma düyməsi gizlidir</string>
@@ -738,6 +799,13 @@ Qeyd: Bunu aktivləşdirmə video reklamları da məcburi olaraq gizlədir"</str
   <string name="revanced_hide_player_popup_panels_summary_on">Oynadıcı açılan pəncərə panelləri gizlidir</string>
   <string name="revanced_hide_player_popup_panels_summary_off">Oynadıcı açılan pəncərə panelləri göstərilir</string>
   </patch>
+  <patch id="layout.player.fullscreen.exitFullscreenPatch">
+  <string name="revanced_exit_fullscreen_title">Video sonunda tam ekran rejimindən çıx</string>
+  <string name="revanced_exit_fullscreen_entry_1">Qapalı</string>
+  <string name="revanced_exit_fullscreen_entry_2">Şaquli</string>
+  <string name="revanced_exit_fullscreen_entry_3">Üfüqi</string>
+  <string name="revanced_exit_fullscreen_entry_4">Şaquli və üfüqi</string>
+  </patch>
   <patch id="layout.player.fullscreen.openVideosFullscreen">
   <string name="revanced_open_videos_fullscreen_portrait_title">Videoları şaquli tam ekranda aç</string>
   <string name="revanced_open_videos_fullscreen_portrait_summary_on">Videolar tam ekranda açılır</string>
@@ -827,8 +895,8 @@ Bu funksiya 720p və ya daha aşağı video keyfiyyəti ilə və çox sürətli 
   <string name="revanced_sb_enable_compact_skip_button_sum_off">Ən yaxşı görünüş üçün hazırlanan ötürmə düyməsi</string>
   <string name="revanced_sb_enable_auto_hide_skip_segment_button">Ötürmə düyməsini avtomatik gizlət</string>
   <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_on">Ötürmə düyməsi bir neçə saniyə sonra gizlənir</string>
-  <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_off">Bütöv bölüm üçün göstərilən ötürmə düyməsi</string>
-  <string name="revanced_sb_general_skiptoast">Avtomatik ötürüləndə ani bildiriş göstər</string>
+  <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_off">Tam bölüm üçün göstərilən ötürmə düyməsi</string>
+  <string name="revanced_sb_general_skiptoast">Birbaşa ötürüləndə ani bildiriş göstər</string>
   <string name="revanced_sb_general_skiptoast_sum_on">Bölüm avto-ötürüləndə bildiriş göstərilir. Nümunə görmək üçün bura toxun</string>
   <string name="revanced_sb_general_skiptoast_sum_off">Bildiriş göstərilmir. Nümunə görmək üçün bura toxun</string>
   <string name="revanced_sb_general_time_without">Bölümsüz video uzunluğun göstər</string>
@@ -839,7 +907,7 @@ Bu funksiya 720p və ya daha aşağı video keyfiyyəti ilə və çox sürətli 
   <string name="revanced_sb_enable_create_segment_sum_on">Yeni bölüm yarat düyməsi göstərilir</string>
   <string name="revanced_sb_enable_create_segment_sum_off">Yeni bölüm yarat düyməsi göstərilmir</string>
   <string name="revanced_sb_general_adjusting">Yeni bölüm irəliləyişini tənzimlə</string>
-  <string name="revanced_sb_general_adjusting_sum">Yeni bölüm yaradarkən vaxt tənzimləmə düymələrinin hərəkət etdiyi millisaniyə sayı</string>
+  <string name="revanced_sb_general_adjusting_sum">Yeni bölüm yaradarkən vaxt qurma düymələrinin sərf etdiyi millisaniyə sayı</string>
   <string name="revanced_sb_general_adjusting_invalid">Dəyər, müsbət rəqəm olmalıdır</string>
   <string name="revanced_sb_guidelines_preference_title">Təlimatlara bax</string>
   <string name="revanced_sb_guidelines_preference_sum">Təlimatlar, yeni bölümlərin yaradılması üçün qaydalar və məsləhətlər ehtiva edir</string>
@@ -857,7 +925,7 @@ Bu funksiya 720p və ya daha aşağı video keyfiyyəti ilə və çox sürətli 
   <string name="revanced_sb_general_min_duration">Minimum bölüm müddəti</string>
   <string name="revanced_sb_general_min_duration_sum">Bölümlər bu dəyərdən (saniyə olaraq) daha qısadırsa göstərilməyəcək və ya ötürülməyəcək</string>
   <string name="revanced_sb_general_min_duration_invalid">Etibarsız vaxt müddəti</string>
-  <string name="revanced_sb_general_uuid">Şəxsi istifadəçi kimliyiniz</string>
+  <string name="revanced_sb_general_uuid">Şəxsi istifadəçi id</string>
   <string name="revanced_sb_general_uuid_sum">Bu gizli saxlanılmalıdır. Bu, parol kimidir və heç kimlə paylaşılmamalıdır. Kimsə bunu bilsə, onlar sizi təqlid edə bilər</string>
   <string name="revanced_sb_general_uuid_invalid">Şəxsi istifadəçi kimliyiniz ən az 30 simvol uzunluğunda olmalıdır</string>
   <string name="revanced_sb_general_api_url">API URL-ni dəyişdirin</string>
@@ -867,39 +935,39 @@ Bu funksiya 720p və ya daha aşağı video keyfiyyəti ilə və çox sürətli 
   <string name="revanced_sb_api_url_changed">API URL dəyişdirildi</string>
   <string name="revanced_sb_settings_ie">İdxal/İxrac etmə tənzimləmələri</string>
   <string name="revanced_sb_settings_copy">Köçür</string>
-  <string name="revanced_sb_settings_ie_sum">ReVanced və digər SponsorBlock platformalarına idxal/ixrac edilə bilən SponsorBlock JSON konfiqurasiyanız</string>
-  <string name="revanced_sb_settings_ie_sum_warning">ReVanced və digər SponsorBlock platformalarına idxal/ixrac edilə bilən SponsorBlock JSON konfiqurasiyanız. Bura şəxsi istifadəçi kimliyiniz daxildir. Bunu düzgün şəkildə paylaşdığınıza əmin olun</string>
+  <string name="revanced_sb_settings_ie_sum">ReVanced və digər SponsorBlock platformalarına idxal/ixrac edilə bilən SponsorBlock JSON qurmanız</string>
+  <string name="revanced_sb_settings_ie_sum_warning">ReVanced və digər SponsorBlock platformalarına idxal/ixrac edilə bilən SponsorBlock JSON qurmanız. Bu şəxsi istifadəçi kimliyinizi saxlayır. Bunu düzgün şəkildə paylaşdığınıza əmin olun</string>
   <string name="revanced_sb_settings_import_successful">Tənzimləmələr uğurla idxal edildi</string>
   <string name="revanced_sb_settings_import_failed">%s idxal uğursuz</string>
   <string name="revanced_sb_settings_export_failed">%s ixrac uğursuz</string>
-  <string name="revanced_sb_settings_revanced_export_user_id_warning">"Parametrlərdə özəl SponsorBlock istifadəçi IDniz var.
+  <string name="revanced_sb_settings_revanced_export_user_id_warning">"Tənzimləmələrdə şəxsi SponsorBlock istifadəçi Id-niz var.
 
-Sizə istifadəçi IDniz parol kimidir və heç vaxt başqasına verilməməlidir.
+Sizin istifadəçi Id-niz parol kimidir və heç vaxt paylaşmaq olmaz.
 "</string>
   <string name="revanced_sb_settings_revanced_export_user_id_warning_dismiss">Təkrar göstərmə</string>
   <string name="revanced_sb_diff_segments">Bölüm davranışını dəyişdir</string>
   <string name="revanced_sb_segments_sponsor">Sponsor</string>
-  <string name="revanced_sb_segments_sponsor_sum">Ödənişli tanıtım, ödənişli yönləndirmələr və birbaşa reklamlar. Öz-tanıtım və ya bəyəndikləri səbəblərə/yaradıcılara/veb saytlara/məhsullara ödənişsiz çağırışlar etmək üçün deyil</string>
+  <string name="revanced_sb_segments_sponsor_sum">Ödənişli tanıtım, ödənişli yönləndirmələr və birbaşa reklamlar. Öz reklamı və ya bəyəndikləri səbəblərə/yaradıcılara/veb saytlara/məhsullara ödənişsiz çağırışlar etmək üçün deyil</string>
   <string name="revanced_sb_segments_selfpromo">Ödənişsiz/Öz reklamı</string>
-  <string name="revanced_sb_segments_selfpromo_sum">Ödənişsiz və ya özünü tanıtmaq istisna olmaqla, \"Sponsor\"a bənzəyir. Mallar, ianələr və ya onların kiminlə əməkdaşlıq etdiyi barədə məlumatlar haqqında bölmələr daxildir</string>
-  <string name="revanced_sb_segments_interaction">Qarşılıqlı əlaqə xatırlatma (Abunə ol)</string>
-  <string name="revanced_sb_segments_interaction_sum">Məzmunun ortasında onları bəyənməyiniz, izləməyiniz və ya abunə olmağınız üçün qısa xatırlatma. Əgər uzundursa və ya konkret bir şey haqqındadırsa, bu əvəzində öz reklamı olmalıdır</string>
+  <string name="revanced_sb_segments_selfpromo_sum">Ödənişsiz və ya öz reklamı istisna olmaqla, \"Sponsor\"a bənzəyir. Mallar, ianələr və ya onların kiminlə əməkdaşlıq etdiyi məzmunda məlumatlar haqqında bölmələr daxildir</string>
+  <string name="revanced_sb_segments_interaction">Qarşılıqlı Əlaqə Xatırlatma (Abunə ol)</string>
+  <string name="revanced_sb_segments_interaction_sum">Məzmun ortasında onları bəyənmək, izləmək və ya abunə olmaq üçün qısa xatırlatma. Əgər uzun və ya xüsusi bir şey haqqındadırsa, bu əvəzində öz reklamı olmalıdır</string>
   <string name="revanced_sb_segments_highlight">Vurğulama</string>
-  <string name="revanced_sb_segments_highlight_sum">Videonun əksər insanlar tərəfindən axtarılan hissəsi</string>
+  <string name="revanced_sb_segments_highlight_sum">Əksər insanların axtardığı video bölümü</string>
   <string name="revanced_sb_segments_intro">Fasilə/Giriş Animasiyası</string>
-  <string name="revanced_sb_segments_intro_sum">Həqiqi bir məzmunu olmayan bir aralıq. Fasilə, statik kadr və ya təkrarlanan animasiya ola bilər. Məlumat ehtiva edən keçidlər daxil deyil</string>
-  <string name="revanced_sb_segments_outro">Son kartlar/Kreditlər</string>
-  <string name="revanced_sb_segments_outro_sum">Kreditlər və ya YouTube bitiş kartları görünəndə. Məlumat daxil olan nəticələr üçün deyil</string>
+  <string name="revanced_sb_segments_intro_sum">Həqiqi məzmunu olmayan aralıq. Fasilə, statik kadr və ya təkrarlanan animasiya ola bilər. Məlumat ehtiva edən keçidlər daxil deyil</string>
+  <string name="revanced_sb_segments_outro">Son kartlar/Zaminlər</string>
+  <string name="revanced_sb_segments_outro_sum">Zaminlər və ya YouTube bitiş kartları görünəndə. Məlumat daxil olan nəticələr üçün deyil</string>
   <string name="revanced_sb_segments_preview">Önizləmə/Anons/Qısa</string>
-  <string name="revanced_sb_segments_preview_sum">Videoda və ya seriyanın digər videolarında nə gözləndiyini və ya baş verdiyini göstərən, bütün məlumatların başqa yerdə təkrarlandığı bölüm toplusu</string>
+  <string name="revanced_sb_segments_preview_sum">Videoda və ya seriyanın digər videolarında nə gözlənildiyini və ya baş verdiyini göstərən, bütün məlumatların başqa yerdə təkrarlandığı bölüm toplusu</string>
   <string name="revanced_sb_segments_filler">Əlaqəsiz/Zarafatlar</string>
-  <string name="revanced_sb_segments_filler_sum">Videonun əsas məzmununu başa düşmək tələb olunmayan yalnız əlaqəsiz və ya yumor üçün əlavə edilmiş tangensial səhnələr. Məzmun və ya arxa plan detallarını təqdim edən bölümlər daxil deyil</string>
+  <string name="revanced_sb_segments_filler_sum">Videonun əsas məzmununu başa düşmək tələb olunmayan yalnız əlaqəsiz və ya yumor üçün əlavə edilmiş təsiredici səhnələr. Məzmun və ya arxa plan detallarını təqdim edən bölümlər daxil deyil</string>
   <string name="revanced_sb_segments_nomusic">Musiqi: Musiqi olmayan bölmə</string>
   <string name="revanced_sb_segments_nomusic_sum">Yalnız musiqi videolarında istifadə üçün. Artıq başqa kateqoriyaya aid edilməyən musiqisiz musiqi videoları bölmələri</string>
   <string name="revanced_sb_skip_button_compact">Ötür</string>
   <string name="revanced_sb_skip_button_compact_highlight">Vurğulama</string>
   <string name="revanced_sb_skip_button_sponsor">Sponsoru ötür</string>
-  <string name="revanced_sb_skip_button_selfpromo">Tanıtımı ötür</string>
+  <string name="revanced_sb_skip_button_selfpromo">Öz reklamın ötür</string>
   <string name="revanced_sb_skip_button_interaction">Əlaqələndirməni ötür</string>
   <string name="revanced_sb_skip_button_highlight">Vurğulanana keç</string>
   <string name="revanced_sb_skip_button_intro_beginning">Girişi ötür</string>
@@ -910,12 +978,12 @@ Sizə istifadəçi IDniz parol kimidir və heç vaxt başqasına verilməməlidi
   <string name="revanced_sb_skip_button_preview_middle">Önizləməni ötür</string>
   <string name="revanced_sb_skip_button_preview_end">Anonsu ötür</string>
   <string name="revanced_sb_skip_button_filler">Əlaqəsiz hissəni ötür</string>
-  <string name="revanced_sb_skip_button_nomusic">Musiqi olmayan hissəni ötür</string>
+  <string name="revanced_sb_skip_button_nomusic">Musiqisiz hissəni ötür</string>
   <string name="revanced_sb_skip_button_unsubmitted">Bölümü ötür</string>
   <string name="revanced_sb_skipped_sponsor">Sponsorlu hissə ötürüldü</string>
   <string name="revanced_sb_skipped_selfpromo">Öz reklamı, ötürüldü</string>
   <string name="revanced_sb_skipped_interaction">Cansıxıcı xatırlatma ötürüldü</string>
-  <string name="revanced_sb_skipped_highlight">Vurğulanan hissə ötürüldü</string>
+  <string name="revanced_sb_skipped_highlight">Vurğulanan hissəyə keçildi</string>
   <string name="revanced_sb_skipped_intro_beginning">Giriş ötürüldü</string>
   <string name="revanced_sb_skipped_intro_middle">Fasilə ötürüldü</string>
   <string name="revanced_sb_skipped_intro_end">Fasilə ötürüldü</string>
@@ -927,24 +995,24 @@ Sizə istifadəçi IDniz parol kimidir və heç vaxt başqasına verilməməlidi
   <string name="revanced_sb_skipped_nomusic">Musiqi olmayan bölmə ötürüldü</string>
   <string name="revanced_sb_skipped_unsubmitted">Göndərilməmiş bölüm ötürüldü</string>
   <string name="revanced_sb_skipped_multiple_segments">Çoxlu bölümlər ötürüldü</string>
-  <string name="revanced_sb_skip_automatically">Avtomatik ötür</string>
+  <string name="revanced_sb_skip_automatically">Birbaşa ötür</string>
   <string name="revanced_sb_skip_automatically_once">Bir dəfə avtomatik ötür</string>
   <string name="revanced_sb_skip_showbutton">Ötürmə düyməsini göstər</string>
   <string name="revanced_sb_skip_seekbaronly">Axtarma çubuğunda göstər</string>
-  <string name="revanced_sb_skip_ignore">Qeyri-aktiv et</string>
+  <string name="revanced_sb_skip_ignore">Qapadın</string>
   <string name="revanced_sb_submit_failed_invalid">Bölüm göndərilmir: %s</string>
-  <string name="revanced_sb_submit_failed_timeout">SponsorBlock müvəqqəti olaraq cavab vermir</string>
+  <string name="revanced_sb_submit_failed_timeout">SponsorBlock müvəqqəti olaraq zəifləyir</string>
   <string name="revanced_sb_submit_failed_unknown_error">Bölüm göndərilmir (status: %1$d %2$s)</string>
-  <string name="revanced_sb_submit_failed_rate_limit">Segment təqdim edə bilmədiniz. Həddən artıq istifadə (eyni istifadəçi və ya IP ünvanından çox)</string>
+  <string name="revanced_sb_submit_failed_rate_limit">Bölüm təqdim etmək olmur. Sürət Məhduddur (eyni istifadəçi və ya IP-dən artıq)</string>
   <string name="revanced_sb_submit_failed_forbidden">Bölüm göndərilmir: %s</string>
-  <string name="revanced_sb_submit_failed_duplicate">"Segment təqdim edə bilmirsiniz.
+  <string name="revanced_sb_submit_failed_duplicate">"Bölüm təqdim etmək olmur.
 Artıq mövcuddur"</string>
   <string name="revanced_sb_submit_succeeded">Bölüm uğurla göndərildi</string>
   <!-- Toast shown if network connection times out. Translations of this should not be longer than the original English or the text can be clipped and not entirely shown. -->
   <string name="revanced_sb_sponsorblock_connection_failure_timeout">SponsorBlock müvəqqəti əlçatmazdır (API vaxtı bitdi)</string>
   <string name="revanced_sb_sponsorblock_connection_failure_status">SponsorBlock müvəqqəti olaraq əlçatan deyil (status %d)</string>
   <string name="revanced_sb_sponsorblock_connection_failure_generic">SponsorBlock müvəqqəti olaraq əlçatan deyil</string>
-  <string name="revanced_sb_vote_failed_timeout">Bölüm üçün səsvermə mümkün olmur (API vaxtı bitdi)</string>
+  <string name="revanced_sb_vote_failed_timeout">Bölüm üçün səsvermə alınmır (API vaxtı bitdi)</string>
   <string name="revanced_sb_vote_failed_unknown_error">Bölüm üçün səsvermə alınmır (status: %1$d %2$s)</string>
   <string name="revanced_sb_vote_failed_forbidden">Bölüm üçün səsvermə alınmır: %s</string>
   <string name="revanced_sb_vote_upvote">Müsbət səs</string>
@@ -971,7 +1039,7 @@ ilə
 
 Təqdim etməyə hazırdır?"</string>
   <string name="revanced_sb_new_segment_start_is_before_end">Başlanğıc sondan əvvəl olmalıdır</string>
-  <string name="revanced_sb_new_segment_mark_locations_first">Əvvəlcə vaxt çubuğunda iki yeri doldur</string>
+  <string name="revanced_sb_new_segment_mark_locations_first">Əvvəlcə vaxt cizgisində iki yeri doldur</string>
   <string name="revanced_sb_new_segment_preview_segment_first">Bölümü izləyin, rahatlıqla ötürdüyünə əmin olun</string>
   <string name="revanced_sb_new_segment_edit_by_hand_title">Bölüm vaxtına əl ilə düzəliş et</string>
   <string name="revanced_sb_new_segment_edit_by_hand_content">Bölümün başlanğıc və ya bitiş vaxtlarına düzəliş etmək istəyirsiniz?</string>
@@ -980,18 +1048,18 @@ Təqdim etməyə hazırdır?"</string>
   <!-- Shown in the settings preferences, and translations can be any text length. -->
   <string name="revanced_sb_stats_connection_failure">Statistikalar müvəqqəti olaraq əlçatmazdır (API zəifdir)</string>
   <string name="revanced_sb_stats_loading">Yüklənir...</string>
-  <string name="revanced_sb_stats_sb_disabled">SponsorBlock qeyri-aktiv edildi</string>
+  <string name="revanced_sb_stats_sb_disabled">SponsorBlock qapadıldı</string>
   <string name="revanced_sb_stats_username">İstifadəçi adınız: &lt;b&gt;%s&lt;/b&gt;</string>
   <string name="revanced_sb_stats_username_change">İstifadəçi adınızı dəyişdirmək üçün bura toxunun</string>
   <string name="revanced_sb_stats_username_change_unknown_error">İstifadəçi adı dəyişdirilə bilmir: Status: %1$d %2$s</string>
   <string name="revanced_sb_stats_username_changed">İstifadəçi adı uğurla dəyişdirildi</string>
-  <string name="revanced_sb_stats_reputation">Nüfuzunuz &lt;b&gt;%.2f&lt;/b&gt;</string>
+  <string name="revanced_sb_stats_reputation">Nüfuzunuz: &lt;b&gt;%.2f&lt;/b&gt;</string>
   <string name="revanced_sb_stats_submissions">&lt;b&gt;%s&lt;/b&gt; bölüm yaratdınız</string>
   <string name="revanced_sb_stats_submissions_sum">Bölümlərinizə baxmaq üçün bura toxunun</string>
   <string name="revanced_sb_stats_saved_zero">SponsorBlock liderlik lövhəsi</string>
-  <string name="revanced_sb_stats_saved">İnsanları &lt;b&gt;%s&lt;/b&gt; bölümdən xilas etdiniz</string>
+  <string name="revanced_sb_stats_saved">İnsanları &lt;b&gt;%s&lt;/b&gt; bölümdən azad etdiniz</string>
   <string name="revanced_sb_stats_saved_sum_zero">Qlobal statistikaları və başlıca töhfəçiləri görmək üçün bura toxunun</string>
-  <string name="revanced_sb_stats_saved_sum">Bu, həyatlarının &lt;b&gt;%s&lt;/b&gt; qədəridir.&lt;br&gt;Liderlik lövhəsinə baxmaq üçün toxunun</string>
+  <string name="revanced_sb_stats_saved_sum">Bu, həyatlarının &lt;b&gt;%s&lt;/b&gt; qədəridir. &lt;br&gt;Liderlik lövhəsinə baxmaq üçün toxunun</string>
   <string name="revanced_sb_stats_self_saved">&lt;b&gt;%s&lt;/b&gt; bölümü ötürdünüz</string>
   <string name="revanced_sb_stats_self_saved_sum">Bu, &lt;b&gt;%s&lt;/b&gt; deməkdir</string>
   <string name="revanced_sb_stats_self_saved_reset_title">Ötürülən bölüm hesablayıcı sıfırlansın?</string>
@@ -1007,19 +1075,37 @@ Təqdim etməyə hazırdır?"</string>
   <string name="revanced_sb_about">Haqqında</string>
   <string name="revanced_sb_about_api_sum">Məlumat SponsorBlock API tərəfindən təqdim edilir. Daha ətraflı öyrənmək və digər platformalar üzrə yükləmələrə baxmaq üçün bura toxunun</string>
   </patch>
+  <patch id="layout.formfactor.changeFormFactorPatch">
+  <string name="revanced_change_form_factor_title">Tərtibat forma göstəricisi</string>
+  <string name="revanced_change_form_factor_entry_1">İlkin</string>
+  <string name="revanced_change_form_factor_entry_2">Telefon</string>
+  <string name="revanced_change_form_factor_entry_3">Planşet</string>
+  <string name="revanced_change_form_factor_entry_4">Avtomobil</string>
+  <string name="revanced_change_form_factor_user_dialog_message">"Dəyişikliklərə daxildir:
+
+Planşet tərtibatı
+• İcma elanları gizlidir
+
+Avtomobil tərtibatı
+• Baxış tarixçəsi seçimi gizlidir
+• \"Kəşf et\" bölməsi qaytarılıb
+• Shorts daimi oynadıcıda açılır
+• Axın mövzulara və kanala görə hazırlanıb"</string>
+  </patch>
   <patch id="layout.spoofappversion.spoofAppVersionPatch">
   <string name="revanced_spoof_app_version_title">Tətbiq versiyasını saxtalaşdır</string>
   <string name="revanced_spoof_app_version_summary_on">Versiya saxtalaşdırıldı</string>
   <string name="revanced_spoof_app_version_summary_off">Versiya saxtalaşdırılmadı</string>
-  <string name="revanced_spoof_app_version_user_dialog_message">"Tətbiq versiyası köhnə bir YouTube versiyasına oxşayacaq.
+  <string name="revanced_spoof_app_version_user_dialog_message">"Tətbiq versiyası köhnə YouTube versiyasına saxtalaşdırılacaq.
 
-Bu tətbiqin görünüşünü və xüsusiyyətlərini dəyişdirəcək, lakin bilinməyən yan təsirlər yarana bilər.
+Bu tətbiqin görünüşün və xüsusiyyətlərin dəyişdirəcək, lakin bilinməyən yan təsirlər ola bilər.
 
-Sonradan söndürülərsə, UI səhvlərini qarşısını almaq üçün tətbiqin məlumatlarını silmək tövsiyə olunur."</string>
+Sonradan qapadılarsa, UI səhvlərin önləmək üçün tətbiq məlumatların silmək tövsiyə olunur."</string>
   <!-- It is ideal, but not required, if the text here appears is alphabetically after the text used for 'revanced_spoof_app_version_title'.
                  This is because the 'General layout' menu uses alphabetic sorting, and it functionally works better if the spoof target selector appears below the 'Spoof app version' UI switch -->
   <string name="revanced_spoof_app_version_target_title">Saxta tətbiq versiyası hədəfi</string>
   <string name="revanced_spoof_app_version_target_entry_1">19.35.36 - Köhnə Shorts oynadıcı işarələrin bərpa et</string>
+  <string name="revanced_spoof_app_version_target_entry_2">19.26.42 - Köhnə fəaliyyət və cihaz cizgisi işarələrin bərpa et</string>
   <!-- 'RYD' is 'Return YouTube Dislike' -->
   <string name="revanced_spoof_app_version_target_legacy_entry_1">18.33.40 - Shorts gizli rejimində RYD-ni bərpa et</string>
   <string name="revanced_spoof_app_version_target_legacy_entry_2">18.20.39 - Geniş video sürəti &amp; keyfiyyət menyusunu bərpa et</string>
@@ -1027,7 +1113,7 @@ Sonradan söndürülərsə, UI səhvlərini qarşısını almaq üçün tətbiqi
   <string name="revanced_spoof_app_version_target_legacy_entry_4">17.33.42 - Köhnə pleylist bölməsin bərpa et</string>
   </patch>
   <patch id="layout.startpage.changeStartPagePatch">
-  <string name="revanced_change_start_page_title">Başlanğıc səhifəsini tənzimlə</string>
+  <string name="revanced_change_start_page_title">Başlanğıc səhifəsini təyin et</string>
   <string name="revanced_change_start_page_entry_default">İlkin</string>
   <string name="revanced_change_start_page_entry_browse">Kanallara nəzər yetir</string>
   <string name="revanced_change_start_page_entry_explore">Kəşf et</string>
@@ -1038,22 +1124,22 @@ Sonradan söndürülərsə, UI səhvlərini qarşısını almaq üçün tətbiqi
   <string name="revanced_change_start_page_entry_live">Canlı</string>
   <string name="revanced_change_start_page_entry_movies">Filmlər</string>
   <string name="revanced_change_start_page_entry_music">Musiqi</string>
-  <string name="revanced_change_start_page_entry_search">Axtar</string>
+  <string name="revanced_change_start_page_entry_search">Axtarış</string>
   <string name="revanced_change_start_page_entry_sports">İdman</string>
   <string name="revanced_change_start_page_entry_subscriptions">Abunəliklər</string>
   <string name="revanced_change_start_page_entry_trending">Trendlər</string>
   <string name="revanced_change_start_page_entry_watch_later">Sonra izlə</string>
   </patch>
   <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch">
-  <string name="revanced_disable_resuming_shorts_player_title">Shorts oynadıcı başladıcını bağla</string>
+  <string name="revanced_disable_resuming_shorts_player_title">Shorts oynadıcı başladıcını qapat</string>
   <string name="revanced_disable_resuming_shorts_player_summary_on">Tətbiq açılanda Shorts oynadıcı davam etməyəcək</string>
   <string name="revanced_disable_resuming_shorts_player_summary_off">Tətbiq açılanda Shorts oynadıcı davam edəcək</string>
   </patch>
   <patch id="layout.shortsplayer.shortsPlayerTypePatch">
-  <string name="revanced_shorts_player_type_title">Shorts ilə</string>
+  <string name="revanced_shorts_player_type_title">Shorts-u bununla aç</string>
   <string name="revanced_shorts_player_type_shorts">Shorts oynadıcı</string>
-  <string name="revanced_shorts_player_type_regular_player">Adi oynatıcı</string>
-  <string name="revanced_shorts_player_type_regular_player_fullscreen">Adi oynatıcı tam ekran</string>
+  <string name="revanced_shorts_player_type_regular_player">Müntəzəm oynadıcı</string>
+  <string name="revanced_shorts_player_type_regular_player_fullscreen">Müntəzəm oynadıcı tam ekran</string>
   </patch>
   <patch id="layout.shortsautoplay.shortsAutoplayPatch">
   <string name="revanced_shorts_autoplay_title">Shorts-ları avto-oynatma</string>
@@ -1062,12 +1148,6 @@ Sonradan söndürülərsə, UI səhvlərini qarşısını almaq üçün tətbiqi
   <string name="revanced_shorts_autoplay_background_title">Shorts-ları arxa planda avto-oynat</string>
   <string name="revanced_shorts_autoplay_background_summary_on">Shorts-lar arxa planda avto-oynadılacaq</string>
   <string name="revanced_shorts_autoplay_background_summary_off">Shorts-lar arxa planda təkrarlanacaq</string>
-  </patch>
-  <patch id="layout.tablet.enableTabletLayoutPatch">
-  <string name="revanced_tablet_layout_title">Planşet tərtibatını aktiv et</string>
-  <string name="revanced_tablet_layout_summary_on">Planşet tərtibatı aktiv edilib</string>
-  <string name="revanced_tablet_layout_summary_off">Planşet tərtibatı qeyri-aktivdir</string>
-  <string name="revanced_tablet_layout_user_dialog_message">İcma elanları planşet tərtibatında göstərilmir</string>
   </patch>
   <patch id="layout.miniplayer.miniplayerPatch">
   <string name="revanced_miniplayer_screen_title">Kiçik oynadıcı</string>
@@ -1083,21 +1163,21 @@ Sonradan söndürülərsə, UI səhvlərini qarşısını almaq üçün tətbiqi
   <string name="revanced_miniplayer_rounded_corners_title">Dairəvi küncləri aktivləşdir</string>
   <string name="revanced_miniplayer_rounded_corners_summary_on">Künclər dairəvidir</string>
   <string name="revanced_miniplayer_rounded_corners_summary_off">Künclər kvadratdır</string>
-  <string name="revanced_miniplayer_double_tap_action_title">Ölçüsünü dəyişmək üçün cüt toxunmanı və çimdikləməni aktivləşdir</string>
-  <string name="revanced_miniplayer_double_tap_action_summary_on">"İkiqat vuruş hərəkəti və çimdikleyərək yenidən ölçmək aktivdir
+  <string name="revanced_miniplayer_double_tap_action_title">Ölçüsünü dəyişmək üçün cüt toxunmanı və çimdikləməni aktiv et</string>
+  <string name="revanced_miniplayer_double_tap_action_summary_on">"Ölçüsün dəyişmək üçün cüt kliklə və çimdiklə
 
-• Miniplayer ölçüsünü artırmaq üçün iki dəfə vurun
-• Orijinal ölçüsünə qayıtmaq üçün yenidən iki dəfə vurun"</string>
+• Kiçik oynadıcı ölçüsün artırmaq üçün cüt toxun
+• Orijinal ölçünü bərpa etmək üçün təkrar cüt toxun"</string>
   <string name="revanced_miniplayer_double_tap_action_summary_off">Ölçüsünü dəyişdirmək üçün cüt toxunma fəaliyyəti və çimdikləmə yoxdur</string>
   <string name="revanced_miniplayer_drag_and_drop_title">\"Sürüklə və burax\"ı aktivləşdir</string>
   <string name="revanced_miniplayer_drag_and_drop_summary_on">"Sürüklə və burax aktivdir
 
-Miniplayer ekranın istənilən küncünə sürüklənə bilər"</string>
+Kiçik oynadıcı ekranın istənilən küncünə sürüklənə bilər"</string>
   <string name="revanced_miniplayer_drag_and_drop_summary_off">\"Sürüklə və burax\" aktiv deyil</string>
   <string name="revanced_miniplayer_horizontal_drag_title">Üfüqi sürükləmə jestini aktivləşdir</string>
   <string name="revanced_miniplayer_horizontal_drag_summary_on">"Üfüqi sürükləmə jesti aktivdir
 
-Miniplayer ekrandan sola və ya sağa sürüklənə bilər"</string>
+Kiçik oynadıcı ekrandan sola və ya sağa sürüklənə bilər"</string>
   <string name="revanced_miniplayer_horizontal_drag_summary_off">Üfüqi sürükləmə jesti qapatıldı</string>
   <string name="revanced_miniplayer_hide_expand_close_title">\"Bağla\" düyməsini gizlət</string>
   <string name="revanced_miniplayer_hide_expand_close_summary_on">\"Bağla\" düyməsi gizlidir</string>
@@ -1105,7 +1185,7 @@ Miniplayer ekrandan sola və ya sağa sürüklənə bilər"</string>
   <string name="revanced_miniplayer_hide_expand_close_legacy_title">Genişləndir və bağla düymələrini gizlət</string>
   <string name="revanced_miniplayer_hide_expand_close_legacy_summary_on">"Düymələr gizlidir
 
-Açmaq və ya bağlamaq barmaqla sürüşdürün"</string>
+Genişləndirmək və ya bağlamaq üçün sürüşdür"</string>
   <string name="revanced_miniplayer_hide_expand_close_legacy_summary_off">Genişləndir və bağla düymələri göstərilir</string>
   <string name="revanced_miniplayer_hide_subtext_title">Alt mətnləri gizlət</string>
   <string name="revanced_miniplayer_hide_subtext_summary_on">Alt mətnlər gizlədilir</string>
@@ -1117,12 +1197,12 @@ Açmaq və ya bağlamaq barmaqla sürüşdürün"</string>
   <string name="revanced_miniplayer_width_dip_summary">Piksel olaraq ekranda ilkin ölçü</string>
   <string name="revanced_miniplayer_width_dip_invalid_toast">Piksel ölçüsü, %1$s - %2$s arası olmalıdır</string>
   <string name="revanced_miniplayer_opacity_title">Örtük qeyri-şəffaflığı</string>
-  <string name="revanced_miniplayer_opacity_summary">0-100 arasında qeyri-şəffaflıq dəyəri, burada 0 şəffafdır</string>
+  <string name="revanced_miniplayer_opacity_summary">0-100 arası qeyri-şəffaflıq dəyəri, 0 şəffafdır</string>
   <string name="revanced_miniplayer_opacity_invalid_toast">Kiçik Oynadıcı örtük qeyri-şəffaflığı 0-100 arası olmalıdır</string>
   </patch>
   <patch id="layout.theme.themePatch">
-  <string name="revanced_gradient_loading_screen_title">Rəngbərəng yükləmə ekranını aktivləşdir</string>
-  <string name="revanced_gradient_loading_screen_summary_on">Yükləmə ekranı, rəngbərəng arxa plana malik olacaq</string>
+  <string name="revanced_gradient_loading_screen_title">Dəyişkən yükləmə ekranını aktivləşdir</string>
+  <string name="revanced_gradient_loading_screen_summary_on">Yükləmə ekranı, dəyişkən arxa plana malik olacaq</string>
   <string name="revanced_gradient_loading_screen_summary_off">Yükləmə ekranı, vahid arxa plana malik olacaq</string>
   </patch>
   <patch id="layout.theme.themeResourcePatch">
@@ -1135,10 +1215,10 @@ Açmaq və ya bağlamaq barmaqla sürüşdürün"</string>
   </patch>
   <patch id="layout.thumbnails.bypassImageRegionRestrictionsPatch">
   <string name="revanced_bypass_image_region_restrictions_title">Təsvir bölgə məhdudiyyətlərini ötür</string>
-  <string name="revanced_bypass_image_region_restrictions_summary_on">yt4.ggpht.com təsvir host-u istifadə edilir</string>
-  <string name="revanced_bypass_image_region_restrictions_summary_off">"Orijinal şəkil hostundan istifadə
+  <string name="revanced_bypass_image_region_restrictions_summary_on">Yt4.ggpht.com təsvir serveri istifadə edilir</string>
+  <string name="revanced_bypass_image_region_restrictions_summary_off">"Orijinal şəkil təminatçısın işlətmə
 
-Bunu aktivləşdirmək, bəzi regionlarda bloklanmışdırılmış itkin şəkilləri düzəldə bilər"</string>
+Bunu aktivləşdirmə, bəzi regionlarda əngəllənib silinən şəkilləri düzəldə bilər"</string>
   </patch>
   <patch id="layout.thumbnails.alternativeThumbnailsPatch">
   <!-- 'Home' should be translated using the same localized wording YouTube displays for the home tab. -->
@@ -1154,22 +1234,22 @@ Bunu aktivləşdirmək, bəzi regionlarda bloklanmışdırılmış itkin şəkil
   <string name="revanced_alt_thumbnail_options_entry_3">DeArrow &amp; Kadr çəkilişlər</string>
   <string name="revanced_alt_thumbnail_options_entry_4">Kadr çəkilişləri</string>
   <string name="revanced_alt_thumbnail_dearrow_about_title">DeArrow</string>
-  <string name="revanced_alt_thumbnail_dearrow_about_summary">"DeArrow, YouTube videoları üçün kütlədən alınan kiçik görüntülər təqdim edir. Bu kiçik görüntülər YouTube tərəfindən təqdim edilənlərdən daha uyğun ola bilər
+  <string name="revanced_alt_thumbnail_dearrow_about_summary">"DeArrow YouTube videoları üçün izdiham mənbəli miniatürlər təqdim edir. Bu miniatürlər YouTube tərəfindən təqdim edilənlərdən dəfələrlə daha uyğundur.
 
-Aktivləşdirilərsə, video URLləri API serverinə göndəriləcək və başqa heç bir məlumat göndərilməyəcək. Bir videoda DeArrow kiçik şəkilləri yoxdursa, onda orijinal və ya hərəkətsiz çəkilişlər göstərilir
+Aktivləşdirilərsə, video URL-lər API alıcısına göndəriləcək və başqa məlumat göndərilməyəcək. Videonun DeArrow miniatürləri yoxdursa, orijinal və ya hələ də çəkilişlər göstərilir.
 
-DeArrow haqqında ətraflı məlumat üçün buraya vurun"</string>
+DeArrow haqqında ətraflı öyrənmək üçün bura toxun"</string>
   <string name="revanced_alt_thumbnail_dearrow_connection_toast_title">API əlçatan deyilsə ani bildiriş göstər</string>
   <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_on">DeArrow əlçatan deyilsə bildiriş göstərilir</string>
   <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_off">DeArrow əlçatan deyilsə bildiriş göstərilmir</string>
   <string name="revanced_alt_thumbnail_dearrow_api_url_title">DeArrow API\'nin sonuncu əlaqəsi</string>
   <string name="revanced_alt_thumbnail_dearrow_api_url_summary">DeArrow miniatür keşinin son əlaqəsinin URL-si</string>
-  <string name="revanced_alt_thumbnail_stills_about_title">Durğun video kadrları</string>
-  <string name="revanced_alt_thumbnail_stills_about_summary">Durğun kadrlar, hər videonun əvvəlindən/ortasından/sonundan götürülür. Bu təsvirlər YouTube-da qurulu gəlir və heç bir xarici API istifadə edilmir</string>
+  <string name="revanced_alt_thumbnail_stills_about_title">Statik video kadrları</string>
+  <string name="revanced_alt_thumbnail_stills_about_summary">Durğun kadrlar, hər videonun əvvəlindən/ortasından/sonundan götürülür. Bu təsvirlər YouTube-da qurulu gəlir və xarici API istifadə edilmir</string>
   <string name="revanced_alt_thumbnail_stills_fast_title">Sürətli kadr çəkilişləri istifadə et</string>
   <string name="revanced_alt_thumbnail_stills_fast_summary_on">Orta keyfiyyətli durğun kadrlar istifadə edilir. Miniatürlər, daha sürətli yüklənəcək, ancaq canlı yayımlar, buraxılmayan və ya çox köhnə videolar boş miniatürləri göstərə bilər</string>
   <string name="revanced_alt_thumbnail_stills_fast_summary_off">Yüksək keyfiyyətli durğun kadrlar istifadə edilir</string>
-  <string name="revanced_alt_thumbnail_stills_time_title">Durğun kadrın götürələcəyi video vaxtı</string>
+  <string name="revanced_alt_thumbnail_stills_time_title">Durğun kadrın götürüləcəyi video müddəti</string>
   <string name="revanced_alt_thumbnail_stills_time_entry_1">Videonun başlanğıcı</string>
   <string name="revanced_alt_thumbnail_stills_time_entry_2">Videonun ortası</string>
   <string name="revanced_alt_thumbnail_stills_time_entry_3">Videonun sonu</string>
@@ -1199,7 +1279,7 @@ DeArrow haqqında ətraflı məlumat üçün buraya vurun"</string>
   <string name="revanced_spoof_device_dimensions_title">Cihaz ölçülərini saxtalaşdır</string>
   <string name="revanced_spoof_device_dimensions_summary_on">"Cihaz ölçüləri saxtalaşdırıldı
 
-Yüksək video keyfiyyətlər görünə bilər, ancaq videonun oynadılmasında qırılma, daha pis batareya ömrü və bilinməyən yan təsirləri sezə bilərsiniz"</string>
+Yüksək video keyfiyyətlər görünə bilər, ancaq video oynadılmasında qırılma, daha pis batareya ömrü və bilinməyən yan təsirləri sezə bilərsiniz"</string>
   <string name="revanced_spoof_device_dimensions_summary_off">"Cihaz ölçüləri saxtalaşdırılmayıb
 
 Bunu aktivləşdirmə daha yüksək video keyfiyyətləri əngəlin silə bilər"</string>
@@ -1216,7 +1296,7 @@ Bunu aktivləşdirmə daha yüksək video keyfiyyətləri əngəlin silə bilər
   </patch>
   <patch id="misc.links.openLinksExternallyPatch">
   <string name="revanced_external_browser_title">Bağlantıları brauzerdə aç</string>
-  <string name="revanced_external_browser_summary_on">Bağlantılar xarici brauzerdə açılır</string>
+  <string name="revanced_external_browser_summary_on">Bağlantılar xarici yolla açılır</string>
   <string name="revanced_external_browser_summary_off">Bağlantılar tətbiqdə açılır</string>
   </patch>
   <patch id="misc.privacy.removeTrackingQueryParameterPatch">
@@ -1226,13 +1306,14 @@ Bunu aktivləşdirmə daha yüksək video keyfiyyətləri əngəlin silə bilər
   </patch>
   <patch id="misc.zoomhaptics.zoomHapticsPatch">
   <string name="revanced_disable_zoom_haptics_title">Yaxınlaşdırma əks-əlaqəsini bağla</string>
-  <string name="revanced_disable_zoom_haptics_summary_on">Toxunuş əks-əlaqəsi bağlandı</string>
-  <string name="revanced_disable_zoom_haptics_summary_off">Toxunuş əks-əlaqəsi aktivdir</string>
+  <string name="revanced_disable_zoom_haptics_summary_on">Əks-əlaqə bağlandı</string>
+  <string name="revanced_disable_zoom_haptics_summary_off">Əks-əlaqə aktivdir</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
   <string name="revanced_force_original_audio_title">Orijinal səsi tələb et</string>
   <string name="revanced_force_original_audio_summary_on">Orijinal səs istifadəsi</string>
   <string name="revanced_force_original_audio_summary_off">İlkin səs istifadəsi</string>
+  <string name="revanced_force_original_audio_not_available">Bu xüsusiyyəti işlətmək üçün yayım saxtalaşdırmanı iOS ötürücü növünə dəyiş</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
@@ -1289,76 +1370,25 @@ Video oynatma işləməyə bilər"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Bu seçimi bağlamaq, video oynatma problemlərinə səbəb olar.</string>
   <string name="revanced_spoof_video_streams_client_type_title">İlkin qəbuledici</string>
   <!-- 'no auth' means no authentication -->
-  <string name="revanced_spoof_video_streams_client_type_android_vr_no_auth">Android VR (heç bir səlahiyyət tələb olunmur)</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_title">İOS AVC (H.264) kodlaşdırılmasını tələb edin</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Video kodeki AVC (H.264) olaraq məcburi edilir</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Video kodeki avtomatik olaraq müəyyən edilir</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">"Bunu aktivləşdirmək batareyanın ömrünü uzada bilər və oynatma problemlərini düzəldə bilər.
+  <string name="revanced_spoof_video_streams_client_type_android_vr_no_auth">Android VR (təsdiqlənmə yoxdur)</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_title">IOS-da AVC (H.264)-ni məcbur et</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Video kodlama AVC (H.264)-yə məcbur edilir</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Video kodlayıcı avtomatik müəyyən edilir</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">"Bunu aktivləşdirmə, batareya ömrün yaxşılaşdıra və oynatma qırılmasın düzəldə bilər.
 
-Avc-nin maksimum qətnaməsi 1080p-dir, Opus audio kodeki mövcud deyil və video oynatma VP9 və ya AV1-dən daha çox internet məlumatı istifadə edəcək."</string>
-  <string name="revanced_spoof_video_streams_about_ios_tv_title">iOS TV spoofunun yan təsirləri</string>
-  <string name="revanced_spoof_video_streams_about_ios_tv_summary">"• Filmlər və ya pullu videolar oynanmaya bilər
+AVC maksimum 1080p görüntü imkanına malikdir, Opus audio kodlama olmur və video oynatma VP9 və ya AV1-dən daha çox internet məlumatı sərf edəcək."</string>
+  <string name="revanced_spoof_video_streams_about_ios_tv_title">iOS saxtalaşdırma yan təsirləri</string>
+  <string name="revanced_spoof_video_streams_about_ios_tv_summary">"• Filmlər və ya ödənişli videolar oynadıla bilməz
+• Stabil səs səviyyəsi mövcud deyil
 • Videolar 1 saniyə tez bitir"</string>
-  <string name="revanced_spoof_video_streams_about_android_title">Android spoofunun yan təsirləri</string>
-  <string name="revanced_spoof_video_streams_about_android_summary">"• Audio track menyusu yoxdur
-• Sabit səs mövcud deyil
-• İlkin səsi zorla təyin etmək mümkün deyil"</string>
-  <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Nördlər üçün statistikada göstər</string>
-  <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Müştəri tipi Nördlər üçün statistikada göstərilir</string>
-  <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Müştəri Nördlər üçün statistikada gizlidir</string>
-  <string name="revanced_spoof_video_streams_language_title">VR-da standart audio axını dili</string>
-  <string name="revanced_spoof_video_streams_language_DEFAULT">Tətbiq dili</string>
-  <string name="revanced_spoof_video_streams_language_AR">Ərəbcə</string>
-  <string name="revanced_spoof_video_streams_language_AZ">Azərbaycanca</string>
-  <string name="revanced_spoof_video_streams_language_BG">Bolqarca</string>
-  <string name="revanced_spoof_video_streams_language_BN">Benqalca</string>
-  <string name="revanced_spoof_video_streams_language_CA">Katalanca</string>
-  <string name="revanced_spoof_video_streams_language_CS">Çexcə</string>
-  <string name="revanced_spoof_video_streams_language_DA">Danimarka dili</string>
-  <string name="revanced_spoof_video_streams_language_DE">Almanca</string>
-  <string name="revanced_spoof_video_streams_language_EL">Yunanca</string>
-  <string name="revanced_spoof_video_streams_language_EN">İngiliscə</string>
-  <string name="revanced_spoof_video_streams_language_ES">İspanca</string>
-  <string name="revanced_spoof_video_streams_language_ET">Estonca</string>
-  <string name="revanced_spoof_video_streams_language_FA">Farsca</string>
-  <string name="revanced_spoof_video_streams_language_FI">Fincə</string>
-  <string name="revanced_spoof_video_streams_language_FR">Fransızca</string>
-  <string name="revanced_spoof_video_streams_language_GU">Qücərat dili</string>
-  <string name="revanced_spoof_video_streams_language_HI">Hindcə</string>
-  <string name="revanced_spoof_video_streams_language_HR">Xorvatca</string>
-  <string name="revanced_spoof_video_streams_language_HU">Macarca</string>
-  <string name="revanced_spoof_video_streams_language_ID">İndoneziya dili</string>
-  <string name="revanced_spoof_video_streams_language_IT">İtalyanca</string>
-  <string name="revanced_spoof_video_streams_language_JA">Yaponca</string>
-  <string name="revanced_spoof_video_streams_language_KK">Qazaxca</string>
-  <string name="revanced_spoof_video_streams_language_KO">Koreyaca</string>
-  <string name="revanced_spoof_video_streams_language_LT">Litvaca</string>
-  <string name="revanced_spoof_video_streams_language_LV">Letonca</string>
-  <string name="revanced_spoof_video_streams_language_MK">Makedon Dili</string>
-  <string name="revanced_spoof_video_streams_language_MN">Monqolca</string>
-  <string name="revanced_spoof_video_streams_language_MR">Marathi dili</string>
-  <string name="revanced_spoof_video_streams_language_MS">Malay dili</string>
-  <string name="revanced_spoof_video_streams_language_MY">Birman dili</string>
-  <string name="revanced_spoof_video_streams_language_NL">Hollandca</string>
-  <string name="revanced_spoof_video_streams_language_OR">Oriya dili</string>
-  <string name="revanced_spoof_video_streams_language_PA">Pəncabca</string>
-  <string name="revanced_spoof_video_streams_language_PL">Polyak dili</string>
-  <string name="revanced_spoof_video_streams_language_PT">Portuqal</string>
-  <string name="revanced_spoof_video_streams_language_RO">Rumınca</string>
-  <string name="revanced_spoof_video_streams_language_RU">Rusca</string>
-  <string name="revanced_spoof_video_streams_language_SK">Slovak dili</string>
-  <string name="revanced_spoof_video_streams_language_SL">Sloven dili</string>
-  <string name="revanced_spoof_video_streams_language_SR">Serbcə</string>
-  <string name="revanced_spoof_video_streams_language_SV">İsveçcə</string>
-  <string name="revanced_spoof_video_streams_language_SW">Suahili dili</string>
-  <string name="revanced_spoof_video_streams_language_TA">Tamilcə</string>
-  <string name="revanced_spoof_video_streams_language_TE">Teluquca</string>
-  <string name="revanced_spoof_video_streams_language_TH">Tay dili</string>
-  <string name="revanced_spoof_video_streams_language_TR">Türkcə</string>
-  <string name="revanced_spoof_video_streams_language_UK">Ukrayna dili</string>
-  <string name="revanced_spoof_video_streams_language_UR">Urduca</string>
-  <string name="revanced_spoof_video_streams_language_VI">Vyetnamca</string>
-  <string name="revanced_spoof_video_streams_language_ZH">Çincə</string>
+  <string name="revanced_spoof_video_streams_about_android_title">Android saxtalaşdırma yan təsirləri</string>
+  <string name="revanced_spoof_video_streams_about_android_summary">"• Səs treki menyusu yoxdur
+• Sabit səs səviyyəsi yoxdur
+• İlkin səsi məcbur etmə mümkün deyil"</string>
+  <string name="revanced_spoof_streaming_data_stats_for_nerds_title">İstək üçün Statistikada göstər</string>
+  <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Qəbuledici növü Nerdlər üçün statistikada göstərilir</string>
+  <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Qəbuledici nerd üçün Statistikada gizlidir</string>
+  <string name="revanced_spoof_video_streams_language_title">VR-da ilkin səs yayımı dili</string>
   </patch>
   </app>
   <app id="twitch">
@@ -1368,11 +1398,11 @@ Avc-nin maksimum qətnaməsi 1080p-dir, Opus audio kodeki mövcud deyil və vide
   <string name="revanced_block_audio_ads_summary_off">Səsli reklamlar bloklanmayıb</string>
   </patch>
   <patch id="ad.embedded.embeddedAdsPatch">
-  <string name="revanced_embedded_ads_service_unavailable">%s əlçatmazdır, reklamlar göstərilə bilər. Ayarlarda reklam əngəlləmə xidmətini dəyişdirməyə çalışın.</string>
-  <string name="revanced_embedded_ads_service_failed">%s bir xəta qaytardı, reklamlar göstərilə bilər. Ayarlarda reklam əngəlləmə xidmətini dəyişdirməyə çalışın.</string>
+  <string name="revanced_embedded_ads_service_unavailable">%s əlçatmazdır, reklamlar göstərilə bilər. Tənzimləmədə reklam əngəlləmə xidmətin dəyişməyə çalışın.</string>
+  <string name="revanced_embedded_ads_service_failed">%s xəta qaytardı, reklamlar görünə bilər. Tənzimləmədə reklam əngəlləmə xidmətin dəyişməyə çalışın.</string>
   <string name="revanced_block_embedded_ads_title">Yerləşdirilən video reklamlarını əngəllə</string>
   <string name="revanced_block_embedded_ads_entry_1">Qeyri-aktiv edildi</string>
-  <string name="revanced_block_embedded_ads_entry_2">Dəqiq proksi</string>
+  <string name="revanced_block_embedded_ads_entry_2">Luminous proxy</string>
   <string name="revanced_block_embedded_ads_entry_3">PurpleAdBlock proksi</string>
   </patch>
   <patch id="ad.video.videoAdsPatch">
@@ -1385,7 +1415,7 @@ Avc-nin maksimum qətnaməsi 1080p-dir, Opus audio kodeki mövcud deyil və vide
   <string name="revanced_show_deleted_messages_title">Silinən mesajları göstər</string>
   <string name="revanced_show_deleted_messages_entry_1">Silinən mesajlar göstərilməsin</string>
   <string name="revanced_show_deleted_messages_entry_2">Silinmiş mesajları boz panel arxasında gizlət</string>
-  <string name="revanced_show_deleted_messages_entry_3">Silinən mesajları qaralanmış mətn kimi göstər</string>
+  <string name="revanced_show_deleted_messages_entry_3">Silinən mesajları cızılmış mətn kimi göstər</string>
   </patch>
   <patch id="chat.autoclaim.autoClaimChannelPointsPatch">
   <string name="revanced_auto_claim_channel_points_title">Kanal Xallarını avtomatik təsdiqlə</string>
@@ -1401,7 +1431,7 @@ Avc-nin maksimum qətnaməsi 1080p-dir, Opus audio kodeki mövcud deyil və vide
   <patch id="misc.settings.settingsPatch">
   <string name="revanced_settings">ReVanced Tənzimləmələri</string>
   <string name="revanced_about_title">Haqqında</string>
-  <string name="revanced_about_summary">ReVanced haqqında</string>
+  <string name="revanced_about_summary">ReVanced Haqqında</string>
   <string name="revanced_ads_screen_title">Reklamlar</string>
   <string name="revanced_ads_screen_summary">Reklam əngəlləmə tənzimləmələri</string>
   <string name="revanced_chat_screen_title">Söhbət</string>
@@ -1411,7 +1441,7 @@ Avc-nin maksimum qətnaməsi 1080p-dir, Opus audio kodeki mövcud deyil və vide
   <string name="revanced_general_category_title">Ümumi tənzimləmələr</string>
   <string name="revanced_other_category_title">Digər tənzimləmələr</string>
   <string name="revanced_client_ads_category_title">Qəbuledici dəstəkli reklamlar</string>
-  <string name="revanced_surestream_ads_category_title">Server dəstəkli surestream reklamlar</string>
+  <string name="revanced_surestream_ads_category_title">Server dəstəkli dəqiq yayım reklamları</string>
   <string name="revanced_twitch_debug_title">Sazlama jurnalı</string>
   <string name="revanced_twitch_debug_summary_on">Sazlama jurnalları aktivləşdirilib</string>
   <string name="revanced_twitch_debug_summary_off">Sazlama jurnalları qeyri-aktiv edilib</string>

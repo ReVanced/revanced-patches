@@ -22,15 +22,15 @@ Second \"item\" text"</string>
 <resources>
   <app id="shared">
   <patch id="misc.checks.checkEnvironmentPatch">
-  <string name="revanced_check_environment_failed_title">Verificări eșuate</string>
+  <string name="revanced_check_environment_failed_title">Verificările au eșuat</string>
   <string name="revanced_check_environment_dialog_open_official_source_button">Deschide site-ul oficial</string>
   <string name="revanced_check_environment_dialog_ignore_button">Ignoră</string>
   <string name="revanced_check_environment_failed_message">&lt;h5&gt;Această aplicație nu pare a fi modificată de dumneavoastră.&lt;/h5&gt;&lt;br&gt;Această aplicație s-ar putea să nu funcționeze corect, &lt;b&gt;ar putea fi dăunătoare sau chiar periculoasă de utilizat&lt;/b&gt;.&lt;br&gt;&lt;br&gt;Aceste verificări indică faptul că aplicația este pre-modificată sau obținută de la altcineva:&lt;br&gt;&lt;br&gt;&lt;small&gt;%1$s&lt;/small&gt;&lt;br&gt;Se recomandă insistent &lt;b&gt;dezinstalarea acestei aplicații și modificarea ei personal&lt;/b&gt; pentru a vă asigura că utilizați o aplicație validată și securizată.&lt;p&gt;&lt;br&gt;Dacă ignorați acest avertisment, acesta va fi afișat doar de două ori.</string>
-  <string name="revanced_check_environment_not_same_patching_device">Patchat pe un alt dispozitiv</string>
-  <string name="revanced_check_environment_manager_not_expected_installer">Nu este instalat de ReVanced Manager</string>
-  <string name="revanced_check_environment_not_near_patch_time">Patchat acum mai mult de 10 minute</string>
-  <string name="revanced_check_environment_not_near_patch_time_days">Patchat %s zile în urmă</string>
-  <string name="revanced_check_environment_not_near_patch_time_invalid">Data construcției APK este coruptă</string>
+  <string name="revanced_check_environment_not_same_patching_device">Patch-at de pe un alt dispozitiv</string>
+  <string name="revanced_check_environment_manager_not_expected_installer">Nu este instalat de către ReVanced Manager</string>
+  <string name="revanced_check_environment_not_near_patch_time">Patch-at acum mai mult de 10 minute</string>
+  <string name="revanced_check_environment_not_near_patch_time_days">Patch-at acum %s zile în urmă</string>
+  <string name="revanced_check_environment_not_near_patch_time_invalid">Data construirii APK-ului este coruptă</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_title">ReVanced</string>
@@ -40,13 +40,69 @@ Second \"item\" text"</string>
   <string name="revanced_settings_restart">Repornire</string>
   <string name="revanced_settings_import">Importare</string>
   <string name="revanced_settings_import_copy">Copiere</string>
-  <string name="revanced_settings_import_reset">Setările revizuite se resetează la valorile implicite</string>
-  <string name="revanced_settings_import_success">Setări %d importate</string>
-  <string name="revanced_settings_import_failure_parse">Importul a eșuat: %s</string>
+  <string name="revanced_settings_import_reset">Setările ReVanced au fost resetate la valorile implicite</string>
+  <string name="revanced_settings_import_success">Au fost importate %d setări</string>
+  <string name="revanced_settings_import_failure_parse">Importare eșuată: %s</string>
+  <string name="revanced_language_title">Limba ReVanced</string>
+  <string name="revanced_language_user_dialog_message">"Traducerile pentru unele limbi pot lipsi sau pot fi incomplete.
+
+Pentru a traduce noi limbi, vizitați translate.revanced.app"</string>
+  <string name="revanced_language_DEFAULT">Limba aplicației</string>
+  <string name="revanced_language_AR">Arabă</string>
+  <string name="revanced_language_AZ">Azerbaidjană</string>
+  <string name="revanced_language_BG">Bulgară</string>
+  <string name="revanced_language_BN">Bengaleză</string>
+  <string name="revanced_language_CA">Catalană</string>
+  <string name="revanced_language_CS">Cehă</string>
+  <string name="revanced_language_DA">Daneză</string>
+  <string name="revanced_language_DE">Germană</string>
+  <string name="revanced_language_EL">Greacă</string>
+  <string name="revanced_language_EN">Engleză</string>
+  <string name="revanced_language_ES">Spaniolă</string>
+  <string name="revanced_language_ET">Estoniană</string>
+  <string name="revanced_language_FA">Persană</string>
+  <string name="revanced_language_FI">Finlandeză</string>
+  <string name="revanced_language_FR">Franceză</string>
+  <string name="revanced_language_GU">Gujarati</string>
+  <string name="revanced_language_HI">Hindi</string>
+  <string name="revanced_language_HR">Croată</string>
+  <string name="revanced_language_HU">Maghiară</string>
+  <string name="revanced_language_ID">Indoneziană</string>
+  <string name="revanced_language_IT">Italiană</string>
+  <string name="revanced_language_JA">Japoneză</string>
+  <string name="revanced_language_KK">Kazahă</string>
+  <string name="revanced_language_KO">Coreeană</string>
+  <string name="revanced_language_LT">Lituaniană</string>
+  <string name="revanced_language_LV">Letonă</string>
+  <string name="revanced_language_MK">Macedoneană</string>
+  <string name="revanced_language_MN">Mongolă</string>
+  <string name="revanced_language_MR">Marathi</string>
+  <string name="revanced_language_MS">Malaeză</string>
+  <string name="revanced_language_MY">Birmană</string>
+  <string name="revanced_language_NL">Olandeză</string>
+  <string name="revanced_language_OR">Odia</string>
+  <string name="revanced_language_PA">Punjabi</string>
+  <string name="revanced_language_PL">Poloneză</string>
+  <string name="revanced_language_PT">Portugheză</string>
+  <string name="revanced_language_RO">Română</string>
+  <string name="revanced_language_RU">Rusă</string>
+  <string name="revanced_language_SK">Slovacă</string>
+  <string name="revanced_language_SL">Slovenă</string>
+  <string name="revanced_language_SR">Sârbă</string>
+  <string name="revanced_language_SV">Suedeză</string>
+  <string name="revanced_language_SW">Swahili</string>
+  <string name="revanced_language_TA">Tamil</string>
+  <string name="revanced_language_TE">Telugu</string>
+  <string name="revanced_language_TH">Thailandeză</string>
+  <string name="revanced_language_TR">Turcă</string>
+  <string name="revanced_language_UK">Ucraineană</string>
+  <string name="revanced_language_UR">Urdu</string>
+  <string name="revanced_language_VI">Vietnameză</string>
+  <string name="revanced_language_ZH">Chineză</string>
   <string name="revanced_pref_import_export_title">Importă / Exportă</string>
-  <string name="revanced_pref_import_export_summary">Setări Import / Export ReVanced</string>
+  <string name="revanced_pref_import_export_summary">Import/Export setări ReVanced</string>
   <!-- Settings about dialog. -->
-  <string name="revanced_settings_about_links_body">Folosiți ReVanced Patch-uri versiunea &lt;i&gt;%s&lt;/i&gt;</string>
+  <string name="revanced_settings_about_links_body">Utilizați versiunea &lt;i&gt;%s&lt;/i&gt; a patch-urilor ReVanced</string>
   <string name="revanced_settings_about_links_dev_header">Notă</string>
   <string name="revanced_settings_about_links_dev_body">Această versiune este o pre-lansare și este posibil să întâmpinați probleme neașteptate</string>
   <string name="revanced_settings_about_links_header">Link-uri oficiale</string>
@@ -55,32 +111,32 @@ Second \"item\" text"</string>
   </patch>
   <patch id="misc.gms.gmsCoreSupportResourcePatch">
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
-  <string name="gms_core_toast_not_installed_message">MicroG GmsCore nu este instalat. Instalați-o.</string>
-  <string name="gms_core_dialog_title">Acțiuni necesare</string>
+  <string name="gms_core_toast_not_installed_message">MicroG GmsCore nu este instalat. Instalați-l.</string>
+  <string name="gms_core_dialog_title">Acțiune necesară</string>
   <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"MicroG GmsCore nu are permisiunea de a rula în fundal.
 
-Urmați ghidul \"Nu ucideți aplicația mea\" pentru telefonul dvs. și aplicați instrucțiunile în instalarea MicroG.
+Urmați ghidul \"Don't kill my app\" pentru telefonul dvs. și aplicați instrucțiunile pentru instalarea MicroG.
 
-Acest lucru este necesar pentru funcționarea aplicației."</string>
-  <string name="gms_core_dialog_open_website_text">Deschide site-ul</string>
-  <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">"Optimizările bateriei MicroG GmsCore trebuie dezactivate pentru a preveni probleme.
+Acest lucru este necesar pentru ca aplicația să funcționeze."</string>
+  <string name="gms_core_dialog_open_website_text">Deschide website </string>
+  <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">"Optimizările bateriei pentru MicroG GmsCore trebuie dezactivate pentru a preveni problemele.
 
-Dezactivezrea optimizărilor bateriei pentru MicroG nu va afecta negativ utilizarea bateriei.
+Dezactivare optimizărilor bateriei pentru MicroG nu va afecta negativ utilizarea bateriei.
 
-Atingeți butonul de continuare și permiteți modificările de optimizare."</string>
+Apăsați butonul continuare și permiteți modificările de optimizare."</string>
   <string name="gms_core_dialog_continue_text">Continuă</string>
   </patch>
   </app>
   <app id="youtube">
   <patch id="misc.settings.settingsPatch">
   <string name="revanced_settings_screen_00_about_title">Despre</string>
-  <string name="revanced_settings_screen_01_ads_title">Anunţuri</string>
+  <string name="revanced_settings_screen_01_ads_title">Reclame</string>
   <string name="revanced_settings_screen_02_alt_thumbnails_title">Miniaturi alternative</string>
   <string name="revanced_settings_screen_03_feed_title">Flux</string>
-  <string name="revanced_settings_screen_04_player_title">Jucător</string>
-  <string name="revanced_settings_screen_05_general_title">Structura generală</string>
+  <string name="revanced_settings_screen_04_player_title">Player</string>
+  <string name="revanced_settings_screen_05_general_title">Aspect general</string>
   <string name="revanced_settings_screen_06_shorts_title">Shorts</string>
-  <string name="revanced_settings_screen_07_seekbar_title">Bară de căutare</string>
+  <string name="revanced_settings_screen_07_seekbar_title">Bară de progres</string>
   <string name="revanced_settings_screen_08_swipe_controls_title">Controale glisare</string>
   <string name="revanced_settings_screen_11_misc_title">Diverse</string>
   <string name="revanced_settings_screen_12_video_title">Video</string>
@@ -88,7 +144,7 @@ Atingeți butonul de continuare și permiteți modificările de optimizare."</st
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
   <string name="revanced_shorts_disable_background_playback_title">Dezactivează redarea în fundal a Shorts</string>
   <string name="revanced_shorts_disable_background_playback_summary_on">Redarea în fundal a Shorts este dezactivată</string>
-  <string name="revanced_shorts_disable_background_playback_summary_off">Redarea în fundal a Shorts este activată</string>
+  <string name="revanced_shorts_disable_background_playback_summary_off">Redarea Shorts în fundal este activată</string>
   </patch>
   <patch id="misc.debugging.enableDebuggingPatch">
   <string name="revanced_debug_screen_title">Depanare</string>
@@ -96,13 +152,13 @@ Atingeți butonul de continuare și permiteți modificările de optimizare."</st
   <string name="revanced_debug_title">Jurnal depanare</string>
   <string name="revanced_debug_summary_on">Jurnalele de depanare sunt activate</string>
   <string name="revanced_debug_summary_off">Jurnalele de depanare sunt dezactivate</string>
-  <string name="revanced_debug_protobuffer_title">Log protocol tampon</string>
-  <string name="revanced_debug_protobuffer_summary_on">Jurnalele de depanare includ depanare</string>
+  <string name="revanced_debug_protobuffer_title">Jurnal protocol buffer</string>
+  <string name="revanced_debug_protobuffer_summary_on">Jurnalele de depanare includ bufferul de protocol</string>
   <string name="revanced_debug_protobuffer_summary_off">Jurnalele de depanare nu includ memoria tampon</string>
   <string name="revanced_debug_stacktrace_title">Urme stive de jurnal</string>
   <string name="revanced_debug_stacktrace_summary_on">Jurnalele depanării includ urmărirea stivelor</string>
   <string name="revanced_debug_stacktrace_summary_off">Jurnalele de depanare nu includ urmărirea stivelor</string>
-  <string name="revanced_debug_toast_on_error_title">Arată toast la eroare reVanced</string>
+  <string name="revanced_debug_toast_on_error_title">Arată toast la eroare ReVanced</string>
   <string name="revanced_debug_toast_on_error_summary_on">Toast afișat dacă apare o eroare</string>
   <string name="revanced_debug_toast_on_error_summary_off">Toast nu este afișat dacă apare o eroare</string>
   <string name="revanced_debug_toast_on_error_user_dialog_message">"Oprirea toasturilor de eroare ascunde toate notificările de eroare ReVanced.
@@ -116,31 +172,31 @@ Nu veți fi notificat de niciun eveniment neașteptat."</string>
   <string name="revanced_hide_album_cards_title">Ascundeți cardurile de album</string>
   <string name="revanced_hide_album_cards_summary_on">Cardurile de album sunt ascunse</string>
   <string name="revanced_hide_album_cards_summary_off">Cardurile de album sunt afișate</string>
-  <string name="revanced_hide_crowdfunding_box_title">Ascunde caseta de crowdfunding</string>
-  <string name="revanced_hide_crowdfunding_box_summary_on">Caseta multifinanțare este ascunsă</string>
-  <string name="revanced_hide_crowdfunding_box_summary_off">Cutia multifinanțare este afișată</string>
-  <string name="revanced_hide_floating_microphone_button_title">Ascunde butonul de microfon plutitor</string>
+  <string name="revanced_hide_crowdfunding_box_title">Ascunderea casetei de tip crowdfunding</string>
+  <string name="revanced_hide_crowdfunding_box_summary_on">Caseta de tip crowdfunding este ascunsă</string>
+  <string name="revanced_hide_crowdfunding_box_summary_off">Caseta de tip crowdfunding este afișată</string>
+  <string name="revanced_hide_floating_microphone_button_title">Ascunderea butonului microfon plutitor</string>
   <string name="revanced_hide_floating_microphone_button_summary_on">Butonul microfon ascuns</string>
-  <string name="revanced_hide_floating_microphone_button_summary_off">Butonul Microfon afișat</string>
+  <string name="revanced_hide_floating_microphone_button_summary_off">Butonul microfon afișat</string>
   <string name="revanced_hide_channel_watermark_title">Ascunde watermark canal</string>
-  <string name="revanced_hide_channel_watermark_summary_on">Marcajul este ascuns</string>
-  <string name="revanced_hide_channel_watermark_summary_off">Se afișează filigran</string>
+  <string name="revanced_hide_channel_watermark_summary_on">Watermark-ul este ascuns</string>
+  <string name="revanced_hide_channel_watermark_summary_off">Watermark-ul este afișat </string>
   <string name="revanced_hide_horizontal_shelves_title">Ascunde rafturile orizontale</string>
   <string name="revanced_hide_horizontal_shelves_summary_on">"Rafturile sunt ascunse, cum ar fi:
 • Știri de ultimă oră
-• Continuă să urmărești
+• Continuă vizionarea
 • Explorează mai multe canale
 • Cumpărături
-• Urmărește din nou"</string>
-  <string name="revanced_hide_horizontal_shelves_summary_off">Se afişează rafturi</string>
+• Vizionează din nou"</string>
+  <string name="revanced_hide_horizontal_shelves_summary_off">Rafturile sunt afișate</string>
   <!-- 'Join' should be translated using the same localized wording YouTube displays.
                  This appears in the video player for certain videos. -->
-  <string name="revanced_hide_join_membership_button_title">Ascunde butonul \'Înscriere\'</string>
+  <string name="revanced_hide_join_membership_button_title">Ascunde butonul „Alătură-te”</string>
   <string name="revanced_hide_join_membership_button_summary_on">Butonul este ascuns</string>
   <string name="revanced_hide_join_membership_button_summary_off">Butonul este afișat</string>
   <!-- 'For you' should be translated using the same localized wording YouTube displays. -->
-  <string name="revanced_hide_for_you_shelf_title">Ascunde \"Pentru tine\" raft în pagina canalului</string>
-  <string name="revanced_hide_for_you_shelf_summary_on">Shelf este ascuns</string>
+  <string name="revanced_hide_for_you_shelf_title">Ascunde raftul \"Pentru tine\"  în pagina canalului</string>
+  <string name="revanced_hide_for_you_shelf_summary_on">Raftul este ascuns</string>
   <string name="revanced_hide_for_you_shelf_summary_off">Se afișează runda</string>
   <!-- 'Notify me' should be translated using the same localized wording YouTube displays.
                  This item appear in the subscription feed for future livestreams or unreleased videos. -->
@@ -153,10 +209,10 @@ Nu veți fi notificat de niciun eveniment neașteptat."</string>
   <string name="revanced_hide_search_result_recommendations_summary_off">Recomandările sunt afișate</string>
   <!-- 'Show more' should be translated with the same localized wording that YouTube displays.
                   This button usually appears when searching for a YT creator. -->
-  <string name="revanced_hide_show_more_button_title">Ascunde butonul \'Arată mai mult\'</string>
+  <string name="revanced_hide_show_more_button_title">Ascunderea butonului „Afișează mai multe”</string>
   <string name="revanced_hide_show_more_button_summary_on">Butonul este ascuns</string>
   <string name="revanced_hide_show_more_button_summary_off">Butonul este afișat</string>
-  <string name="revanced_hide_timed_reactions_title">Ascunde reacţiile cronizate</string>
+  <string name="revanced_hide_timed_reactions_title">Ascunde reacţiile cronologie </string>
   <string name="revanced_hide_timed_reactions_summary_on">Reacţiile cronologice sunt ascunse</string>
   <string name="revanced_hide_timed_reactions_summary_off">Reacţiile cronologice sunt evidenţiate</string>
   <string name="revanced_hide_channel_guidelines_title">Ascunde ghidurile canalelor</string>
@@ -446,6 +502,9 @@ Această funcție este disponibilă numai pentru dispozitivele mai vechi"</strin
   <string name="revanced_swipe_overlay_background_alpha_summary">Vizibilitatea fundalului de glisare suprapus</string>
   <string name="revanced_swipe_threshold_title">Pragul mărimii glisării</string>
   <string name="revanced_swipe_threshold_summary">Cantitatea de prag pentru a glisa</string>
+  <string name="revanced_swipe_change_video_title">Activați glisarea pentru a schimba videoclipurile</string>
+  <string name="revanced_swipe_change_video_summary_on">Glisarea în modul pe ecran complet va trece la următorul/anteriorul videoclip</string>
+  <string name="revanced_swipe_change_video_summary_off">Glisarea în modul pe ecran complet nu va trece la următorul/anteriorul videoclip</string>
   </patch>
   <patch id="layout.autocaptions.autoCaptionsPatch">
   <string name="revanced_auto_captions_title">Dezactivează subtitrările automate</string>
@@ -629,15 +688,18 @@ Notă: Activarea acestei opțiuni ascunde, de asemenea, forțat reclamele video"
   <string name="revanced_shorts_player_screen_summary">Ascunde sau afișează componente în playerul Shorts</string>
   <!-- 'home' should be translated using the same localized wording YouTube displays for the home tab. -->
   <string name="revanced_hide_shorts_home_title">Ascunde Short din feed-ul de acasă</string>
-  <string name="revanced_hide_shorts_home_summary_on">Shorts în fluxul de acasă sunt ascunse</string>
-  <string name="revanced_hide_shorts_home_summary_off">Sunt afișate Shorts în fluxul de acasă</string>
+  <string name="revanced_hide_shorts_home_summary_on">Ascuns în fluxul de start și videoclipurile corelate</string>
+  <string name="revanced_hide_shorts_home_summary_off">Afișat în fluxul de start și videoclipurile corelate</string>
   <!-- 'subscription' should be translated using the same localized wording YouTube displays for the subscription tab. -->
   <string name="revanced_hide_shorts_subscriptions_title">Ascundeți Shorts în fluxul de abonament</string>
-  <string name="revanced_hide_shorts_subscriptions_summary_on">Shorts din feed-ul abonamentelor sunt ascunse</string>
-  <string name="revanced_hide_shorts_subscriptions_summary_off">Shorts din feed-ul abonamentelor sunt afișate</string>
+  <string name="revanced_hide_shorts_subscriptions_summary_on">Ascuns în fluxul de abonamente</string>
+  <string name="revanced_hide_shorts_subscriptions_summary_off">Afișat în fluxul de abonamente</string>
   <string name="revanced_hide_shorts_search_title">Ascunde Shorts în rezultatele căutării</string>
-  <string name="revanced_hide_shorts_search_summary_on">Shorts în rezultatele căutării sunt ascunse</string>
-  <string name="revanced_hide_shorts_search_summary_off">Sunt afișate Shorts în rezultatele căutării</string>
+  <string name="revanced_hide_shorts_search_summary_on">Ascunse în rezultatele căutării</string>
+  <string name="revanced_hide_shorts_search_summary_off">Afișat în rezultatele căutării</string>
+  <string name="revanced_hide_shorts_history_title">Ascunde Shorts în istoricul vizionărilor</string>
+  <string name="revanced_hide_shorts_history_summary_on">Ascuns în istoricul vizionărilor</string>
+  <string name="revanced_hide_shorts_history_summary_off">Afișate în istoricul vizionărilor</string>
   <!-- 'join' should be translated using the same localized wording YouTube displays for the button. -->
   <string name="revanced_hide_shorts_join_button_title">Ascunde butonul de alăturare</string>
   <string name="revanced_hide_shorts_join_button_summary_on">Butonul de alăturare este ascuns</string>
@@ -738,6 +800,13 @@ Notă: Activarea acestei opțiuni ascunde, de asemenea, forțat reclamele video"
   <string name="revanced_hide_player_popup_panels_title">Ascunde panourile pop-up jucător</string>
   <string name="revanced_hide_player_popup_panels_summary_on">Panourile pop-up ale jucătorilor sunt ascunse</string>
   <string name="revanced_hide_player_popup_panels_summary_off">Panourile pop-up ale jucătorului sunt afișate</string>
+  </patch>
+  <patch id="layout.player.fullscreen.exitFullscreenPatch">
+  <string name="revanced_exit_fullscreen_title">Ieșiți din modul ecran complet la sfârșitul videoclipului</string>
+  <string name="revanced_exit_fullscreen_entry_1">Dezactivat</string>
+  <string name="revanced_exit_fullscreen_entry_2">Portret</string>
+  <string name="revanced_exit_fullscreen_entry_3">Peisaj</string>
+  <string name="revanced_exit_fullscreen_entry_4">Portret și peisaj</string>
   </patch>
   <patch id="layout.player.fullscreen.openVideosFullscreen">
   <string name="revanced_open_videos_fullscreen_portrait_title">Deschide videoclipurile în modul ecran complet</string>
@@ -1007,6 +1076,23 @@ Ești gata să trimiți?"</string>
   <string name="revanced_sb_about">Despre</string>
   <string name="revanced_sb_about_api_sum">Datele sunt furnizate de API-ul SponsorBlock. Apasă aici pentru a afla mai multe și a vedea descărcările pentru alte platforme</string>
   </patch>
+  <patch id="layout.formfactor.changeFormFactorPatch">
+  <string name="revanced_change_form_factor_title">Formatul aspectului formularului</string>
+  <string name="revanced_change_form_factor_entry_1">Implicit</string>
+  <string name="revanced_change_form_factor_entry_2">Telefon</string>
+  <string name="revanced_change_form_factor_entry_3">Tabletă</string>
+  <string name="revanced_change_form_factor_entry_4">Automatizări</string>
+  <string name="revanced_change_form_factor_user_dialog_message">"Modificările includ:
+
+Aspect tabletă
+• Postările comunității sunt ascunse
+
+Aspect auto
+• Meniul Istoric vizionări este ascuns
+• Fila Explore este restaurată
+• Shorts-urile se deschid în playerul obișnuit
+• Feed-ul este organizat pe subiecte și canal"</string>
+  </patch>
   <patch id="layout.spoofappversion.spoofAppVersionPatch">
   <string name="revanced_spoof_app_version_title">Falsifică versiunea aplicației</string>
   <string name="revanced_spoof_app_version_summary_on">Versiune falsificată</string>
@@ -1020,6 +1106,7 @@ Dacă este dezactivat ulterior, se recomandă să ștergeți datele aplicației 
                  This is because the 'General layout' menu uses alphabetic sorting, and it functionally works better if the spoof target selector appears below the 'Spoof app version' UI switch -->
   <string name="revanced_spoof_app_version_target_title">Țintă versiune falsificată a aplicației</string>
   <string name="revanced_spoof_app_version_target_entry_1">19.35.36 - Restaurează pictogramele vechi ale playerului Shorts</string>
+  <string name="revanced_spoof_app_version_target_entry_2">19.26.42 - Restaurează vechile pictograme pentru navigare și bara de instrumente</string>
   <!-- 'RYD' is 'Return YouTube Dislike' -->
   <string name="revanced_spoof_app_version_target_legacy_entry_1">18.33.40 - Restaurează RYD în modul incognito Shorts</string>
   <string name="revanced_spoof_app_version_target_legacy_entry_2">18.20.39 - Restaurare viteză video mare &amp; meniu calitate</string>
@@ -1062,12 +1149,6 @@ Dacă este dezactivat ulterior, se recomandă să ștergeți datele aplicației 
   <string name="revanced_shorts_autoplay_background_title">Redare automată Shorts în fundal</string>
   <string name="revanced_shorts_autoplay_background_summary_on">Redarea în fundal a Shorts-urilor se va reda automat</string>
   <string name="revanced_shorts_autoplay_background_summary_off">Redarea în fundal a Shorts-urilor se va repeta</string>
-  </patch>
-  <patch id="layout.tablet.enableTabletLayoutPatch">
-  <string name="revanced_tablet_layout_title">Activează aspectul tabletei</string>
-  <string name="revanced_tablet_layout_summary_on">Aspectul tabletei este activat</string>
-  <string name="revanced_tablet_layout_summary_off">Aspectul tabletei este dezactivat</string>
-  <string name="revanced_tablet_layout_user_dialog_message">Posturile comunitare nu apar pe tablete</string>
   </patch>
   <patch id="layout.miniplayer.miniplayerPatch">
   <string name="revanced_miniplayer_screen_title">Minijucător</string>
@@ -1233,6 +1314,7 @@ Activarea acestei opțiuni poate debloca calități video mai mari"</string>
   <string name="revanced_force_original_audio_title">Forțați sunetul original</string>
   <string name="revanced_force_original_audio_summary_on">Utilizează audio original</string>
   <string name="revanced_force_original_audio_summary_off">Utilizează audio implicit</string>
+  <string name="revanced_force_original_audio_not_available">Pentru a utiliza această funcție, schimbați opțiunea de streaming în modul client iOS</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
@@ -1296,9 +1378,10 @@ Este posibil ca redarea video să nu funcționeze"</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">"Activarea acestei opțiuni ar putea îmbunătăți durata de viață a bateriei și remedia întreruperile redării.
 
 AVC are o rezoluție maximă de 1080p, codecul audio Opus nu este disponibil, iar redarea video va folosi mai multe date de internet decât VP9 sau AV1."</string>
-  <string name="revanced_spoof_video_streams_about_ios_tv_title">Efecte secundare spoofing iOS TV</string>
-  <string name="revanced_spoof_video_streams_about_ios_tv_summary">"• Filmele sau videoclipurile plătite s-ar putea să nu fie redate
-• Videoclipurile se termină cu 1 secundă mai devreme"</string>
+  <string name="revanced_spoof_video_streams_about_ios_tv_title">Efecte secundare ale falsificării iOS</string>
+  <string name="revanced_spoof_video_streams_about_ios_tv_summary">"• Este posibil ca filmele sau videoclipurile plătite să nu se redea.
+• Volumul stabil nu este disponibil.
+• Videoclipurile se termină cu 1 secundă mai devreme."</string>
   <string name="revanced_spoof_video_streams_about_android_title">Efecte secundare spoofing Android</string>
   <string name="revanced_spoof_video_streams_about_android_summary">"• Meniul cu piesele audio lipsește
 • Volumul stabil nu este disponibil
@@ -1307,58 +1390,6 @@ AVC are o rezoluție maximă de 1080p, codecul audio Opus nu este disponibil, ia
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Tipul clientului este afișat în Statistici pentru pasionați</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Clientul este ascuns în Statistici pentru pasionați</string>
   <string name="revanced_spoof_video_streams_language_title">Limba implicită a fluxului audio VR</string>
-  <string name="revanced_spoof_video_streams_language_DEFAULT">Limba contului</string>
-  <string name="revanced_spoof_video_streams_language_AR">Arabă</string>
-  <string name="revanced_spoof_video_streams_language_AZ">Azerbaidjan</string>
-  <string name="revanced_spoof_video_streams_language_BG">Bulgară</string>
-  <string name="revanced_spoof_video_streams_language_BN">Bengaleză</string>
-  <string name="revanced_spoof_video_streams_language_CA">Catalană</string>
-  <string name="revanced_spoof_video_streams_language_CS">Cehă</string>
-  <string name="revanced_spoof_video_streams_language_DA">Daneză</string>
-  <string name="revanced_spoof_video_streams_language_DE">Germană</string>
-  <string name="revanced_spoof_video_streams_language_EL">Greacă</string>
-  <string name="revanced_spoof_video_streams_language_EN">Engleză</string>
-  <string name="revanced_spoof_video_streams_language_ES">Spaniolă</string>
-  <string name="revanced_spoof_video_streams_language_ET">Estonă</string>
-  <string name="revanced_spoof_video_streams_language_FA">persană</string>
-  <string name="revanced_spoof_video_streams_language_FI">Finlandeză</string>
-  <string name="revanced_spoof_video_streams_language_FR">Franceză</string>
-  <string name="revanced_spoof_video_streams_language_GU">Gujarati</string>
-  <string name="revanced_spoof_video_streams_language_HI">Hindi</string>
-  <string name="revanced_spoof_video_streams_language_HR">Croată</string>
-  <string name="revanced_spoof_video_streams_language_HU">Maghiară</string>
-  <string name="revanced_spoof_video_streams_language_ID">Indoneziană</string>
-  <string name="revanced_spoof_video_streams_language_IT">Italiană</string>
-  <string name="revanced_spoof_video_streams_language_JA">Japoneză</string>
-  <string name="revanced_spoof_video_streams_language_KK">Kazahă</string>
-  <string name="revanced_spoof_video_streams_language_KO">Coreeană</string>
-  <string name="revanced_spoof_video_streams_language_LT">Lituaniană</string>
-  <string name="revanced_spoof_video_streams_language_LV">Letonă</string>
-  <string name="revanced_spoof_video_streams_language_MK">Macedoneană</string>
-  <string name="revanced_spoof_video_streams_language_MN">Mongolie</string>
-  <string name="revanced_spoof_video_streams_language_MR">Marati</string>
-  <string name="revanced_spoof_video_streams_language_MS">Malaeză</string>
-  <string name="revanced_spoof_video_streams_language_MY">Birmană</string>
-  <string name="revanced_spoof_video_streams_language_NL">Olandeză</string>
-  <string name="revanced_spoof_video_streams_language_OR">Odia</string>
-  <string name="revanced_spoof_video_streams_language_PA">Punjabi</string>
-  <string name="revanced_spoof_video_streams_language_PL">Poloneză</string>
-  <string name="revanced_spoof_video_streams_language_PT">Portugheză</string>
-  <string name="revanced_spoof_video_streams_language_RO">Română</string>
-  <string name="revanced_spoof_video_streams_language_RU">Rusă</string>
-  <string name="revanced_spoof_video_streams_language_SK">Slovacă</string>
-  <string name="revanced_spoof_video_streams_language_SL">Slovenă</string>
-  <string name="revanced_spoof_video_streams_language_SR">Sârbă</string>
-  <string name="revanced_spoof_video_streams_language_SV">Suedeză</string>
-  <string name="revanced_spoof_video_streams_language_SW">Asteapta</string>
-  <string name="revanced_spoof_video_streams_language_TA">Tamilă</string>
-  <string name="revanced_spoof_video_streams_language_TE">Telugu</string>
-  <string name="revanced_spoof_video_streams_language_TH">Tailandeză</string>
-  <string name="revanced_spoof_video_streams_language_TR">Turcă</string>
-  <string name="revanced_spoof_video_streams_language_UK">Ucraineană</string>
-  <string name="revanced_spoof_video_streams_language_UR">Urdu</string>
-  <string name="revanced_spoof_video_streams_language_VI">Vietnameză</string>
-  <string name="revanced_spoof_video_streams_language_ZH">Chineză</string>
   </patch>
   </app>
   <app id="twitch">

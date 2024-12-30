@@ -43,6 +43,62 @@ Second \"item\" text"</string>
   <string name="revanced_settings_import_reset">ReVanced instellingen hersteld naar standaard</string>
   <string name="revanced_settings_import_success">%d instellingen geïmporteerd</string>
   <string name="revanced_settings_import_failure_parse">Importeren mislukt: %s</string>
+  <string name="revanced_language_title">Taal van ReVanced</string>
+  <string name="revanced_language_user_dialog_message">"Vertalingen voor sommige talen kunnen ontbreken of onvolledig zijn.
+
+Bezoek translate.revanced.app om nieuwe talen te vertalen"</string>
+  <string name="revanced_language_DEFAULT">App-taal</string>
+  <string name="revanced_language_AR">Arabisch</string>
+  <string name="revanced_language_AZ">Azerbeidzjaans</string>
+  <string name="revanced_language_BG">Bulgaars</string>
+  <string name="revanced_language_BN">Bengaals</string>
+  <string name="revanced_language_CA">Catalaans</string>
+  <string name="revanced_language_CS">Tsjechisch</string>
+  <string name="revanced_language_DA">Deens</string>
+  <string name="revanced_language_DE">Duits</string>
+  <string name="revanced_language_EL">Grieks</string>
+  <string name="revanced_language_EN">Engels</string>
+  <string name="revanced_language_ES">Spaans</string>
+  <string name="revanced_language_ET">Estlands</string>
+  <string name="revanced_language_FA">Perzisch</string>
+  <string name="revanced_language_FI">Fins</string>
+  <string name="revanced_language_FR">Frans</string>
+  <string name="revanced_language_GU">Gujarati</string>
+  <string name="revanced_language_HI">Hindi</string>
+  <string name="revanced_language_HR">Kroatisch</string>
+  <string name="revanced_language_HU">Hongaars</string>
+  <string name="revanced_language_ID">Indonesisch</string>
+  <string name="revanced_language_IT">Italiaans</string>
+  <string name="revanced_language_JA">Japans</string>
+  <string name="revanced_language_KK">Kazachs</string>
+  <string name="revanced_language_KO">Koreaans</string>
+  <string name="revanced_language_LT">Litouws</string>
+  <string name="revanced_language_LV">Lets</string>
+  <string name="revanced_language_MK">Macedonisch</string>
+  <string name="revanced_language_MN">Mongools</string>
+  <string name="revanced_language_MR">Marathi</string>
+  <string name="revanced_language_MS">Maleis</string>
+  <string name="revanced_language_MY">Birmees</string>
+  <string name="revanced_language_NL">Nederlands</string>
+  <string name="revanced_language_OR">Odia</string>
+  <string name="revanced_language_PA">Punjabi</string>
+  <string name="revanced_language_PL">Pools</string>
+  <string name="revanced_language_PT">Portugees</string>
+  <string name="revanced_language_RO">Roemeens</string>
+  <string name="revanced_language_RU">Russisch</string>
+  <string name="revanced_language_SK">Slowaaks</string>
+  <string name="revanced_language_SL">Sloveens</string>
+  <string name="revanced_language_SR">Servisch</string>
+  <string name="revanced_language_SV">Zweeds</string>
+  <string name="revanced_language_SW">Swahili</string>
+  <string name="revanced_language_TA">Tamil</string>
+  <string name="revanced_language_TE">Telugu</string>
+  <string name="revanced_language_TH">Thais</string>
+  <string name="revanced_language_TR">Turks</string>
+  <string name="revanced_language_UK">Oekraïens</string>
+  <string name="revanced_language_UR">Urdu</string>
+  <string name="revanced_language_VI">Vietnamees</string>
+  <string name="revanced_language_ZH">Chinees</string>
   <string name="revanced_pref_import_export_title">Importeren / Exporteren</string>
   <string name="revanced_pref_import_export_summary">Importeer / Exporteer ReVanced instellingen</string>
   <!-- Settings about dialog. -->
@@ -446,6 +502,9 @@ Deze functie is alleen beschikbaar voor oudere apparaten"</string>
   <string name="revanced_swipe_overlay_background_alpha_summary">De zichtbaarheid van de swipe-overlay achtergrond</string>
   <string name="revanced_swipe_threshold_title">Drempelwaarde swipe-sterkte</string>
   <string name="revanced_swipe_threshold_summary">De hoeveelheid drempelwaarde voor swipe om te gebeuren</string>
+  <string name="revanced_swipe_change_video_title">Schakel vegen in om te wisselen tussen video\'s</string>
+  <string name="revanced_swipe_change_video_summary_on">Vegen in de modus volledig scherm weergegeven, verandert naar de volgende/vorige video</string>
+  <string name="revanced_swipe_change_video_summary_off">Vegen in de modus volledig scherm weergegeven, verandert niet naar de volgende/vorige video</string>
   </patch>
   <patch id="layout.autocaptions.autoCaptionsPatch">
   <string name="revanced_auto_captions_title">Automatische ondertitels uitschakelen</string>
@@ -629,15 +688,18 @@ Opmerking: Als u dit inschakelt, worden videoadvertenties ook geforceerd verborg
   <string name="revanced_shorts_player_screen_summary">Verberg of toon onderdelen in de Shorts-speler</string>
   <!-- 'home' should be translated using the same localized wording YouTube displays for the home tab. -->
   <string name="revanced_hide_shorts_home_title">Shorts verbergen in de homefeed</string>
-  <string name="revanced_hide_shorts_home_summary_on">Shorts in de thuisfeed zijn verborgen</string>
-  <string name="revanced_hide_shorts_home_summary_off">Shorts in de thuisfeed worden getoond</string>
+  <string name="revanced_hide_shorts_home_summary_on">Verborgen in startfeed en gerelateerde video\'s</string>
+  <string name="revanced_hide_shorts_home_summary_off">Getoond in startfeed en gerelateerde video\'s</string>
   <!-- 'subscription' should be translated using the same localized wording YouTube displays for the subscription tab. -->
   <string name="revanced_hide_shorts_subscriptions_title">Verberg Shorts in de abonnementsfeed</string>
-  <string name="revanced_hide_shorts_subscriptions_summary_on">Shorts in de abonnementsfeed zijn verborgen</string>
-  <string name="revanced_hide_shorts_subscriptions_summary_off">Shorts in de abonnementsfeed worden weergegeven</string>
+  <string name="revanced_hide_shorts_subscriptions_summary_on">Verborgen in abonnementsfeed</string>
+  <string name="revanced_hide_shorts_subscriptions_summary_off">Wordt weergegeven in abonnementsfeed</string>
   <string name="revanced_hide_shorts_search_title">Verberg Shorts in zoekresultaten</string>
-  <string name="revanced_hide_shorts_search_summary_on">Shorts in zoekresultaten zijn verborgen</string>
-  <string name="revanced_hide_shorts_search_summary_off">Shorts zoekresultaten worden weergegeven</string>
+  <string name="revanced_hide_shorts_search_summary_on">Verborgen in zoekresultaten</string>
+  <string name="revanced_hide_shorts_search_summary_off">Wordt weergegeven in zoekresultaten</string>
+  <string name="revanced_hide_shorts_history_title">Verberg Shorts in geschiedenis bekijken</string>
+  <string name="revanced_hide_shorts_history_summary_on">Verborgen in de kijkgeschiedenis</string>
+  <string name="revanced_hide_shorts_history_summary_off">Getoond in geschiedenis bekijken</string>
   <!-- 'join' should be translated using the same localized wording YouTube displays for the button. -->
   <string name="revanced_hide_shorts_join_button_title">Verberg join-knop</string>
   <string name="revanced_hide_shorts_join_button_summary_on">Join-knop is verborgen</string>
@@ -738,6 +800,13 @@ Opmerking: Als u dit inschakelt, worden videoadvertenties ook geforceerd verborg
   <string name="revanced_hide_player_popup_panels_title">Verberg de pop-upvensters van de speler</string>
   <string name="revanced_hide_player_popup_panels_summary_on">De pop-upvensters van de speler zijn verborgen</string>
   <string name="revanced_hide_player_popup_panels_summary_off">De pop-upvensters van de speler zijn zichtbaar</string>
+  </patch>
+  <patch id="layout.player.fullscreen.exitFullscreenPatch">
+  <string name="revanced_exit_fullscreen_title">Afsluiten van volledig scherm modus bij einde van de video</string>
+  <string name="revanced_exit_fullscreen_entry_1">Uitgeschakeld</string>
+  <string name="revanced_exit_fullscreen_entry_2">Portret</string>
+  <string name="revanced_exit_fullscreen_entry_3">Landschap</string>
+  <string name="revanced_exit_fullscreen_entry_4">Portret en landschap</string>
   </patch>
   <patch id="layout.player.fullscreen.openVideosFullscreen">
   <string name="revanced_open_videos_fullscreen_portrait_title">Open video\'s in volledig schermmodus (portret)</string>
@@ -1008,6 +1077,23 @@ Klaar om in te dienen?"</string>
   <string name="revanced_sb_about">Over</string>
   <string name="revanced_sb_about_api_sum">Gegevens worden geleverd door de SponsorBlock API. Tik hier om meer te weten te komen en downloads te bekijken voor andere platforms</string>
   </patch>
+  <patch id="layout.formfactor.changeFormFactorPatch">
+  <string name="revanced_change_form_factor_title">Indelingsvormfactor</string>
+  <string name="revanced_change_form_factor_entry_1">Standaard</string>
+  <string name="revanced_change_form_factor_entry_2">Telefoon</string>
+  <string name="revanced_change_form_factor_entry_3">Tablet</string>
+  <string name="revanced_change_form_factor_entry_4">Automobiel</string>
+  <string name="revanced_change_form_factor_user_dialog_message">"De wijzigingen omvatten:
+
+Tablet-indeling
+• Community-berichten zijn verborgen
+
+Automobielindeling
+• Het menu \"Wachthistorie\" is verborgen
+• Het tabblad \"Verkennen\" is hersteld
+• Shorts openen in de gewone speler
+• De feed is georganiseerd op onderwerpen en kanaal"</string>
+  </patch>
   <patch id="layout.spoofappversion.spoofAppVersionPatch">
   <string name="revanced_spoof_app_version_title">App-versie vervalsen</string>
   <string name="revanced_spoof_app_version_summary_on">Versie vervalst</string>
@@ -1021,6 +1107,7 @@ Als het later wordt uitgeschakeld, wordt aanbevolen om de app-gegevens te wissen
                  This is because the 'General layout' menu uses alphabetic sorting, and it functionally works better if the spoof target selector appears below the 'Spoof app version' UI switch -->
   <string name="revanced_spoof_app_version_target_title">Doel voor vervalsen app-versie</string>
   <string name="revanced_spoof_app_version_target_entry_1">19.35.36 - Herstel oude pictogrammen voor Shorts-speler</string>
+  <string name="revanced_spoof_app_version_target_entry_2">19.26.42 - Herstel oude navigatie- en werkbalkpictogrammen</string>
   <!-- 'RYD' is 'Return YouTube Dislike' -->
   <string name="revanced_spoof_app_version_target_legacy_entry_1">18.33.40 - Herstel RYD op Shorts incognitomodus</string>
   <string name="revanced_spoof_app_version_target_legacy_entry_2">18.20.39 - Herstel breed snelheids- en kwaliteitsmenu voor video\'s</string>
@@ -1063,12 +1150,6 @@ Als het later wordt uitgeschakeld, wordt aanbevolen om de app-gegevens te wissen
   <string name="revanced_shorts_autoplay_background_title">Automatisch afspelen van Shorts op de achtergrond</string>
   <string name="revanced_shorts_autoplay_background_summary_on">Shorts op de achtergrond worden automatisch afgespeeld</string>
   <string name="revanced_shorts_autoplay_background_summary_off">Shorts op de achtergrond worden herhaald</string>
-  </patch>
-  <patch id="layout.tablet.enableTabletLayoutPatch">
-  <string name="revanced_tablet_layout_title">Tablet-indeling inschakelen</string>
-  <string name="revanced_tablet_layout_summary_on">Tablet-indeling is ingeschakeld</string>
-  <string name="revanced_tablet_layout_summary_off">Tablet-indeling is uitgeschakeld</string>
-  <string name="revanced_tablet_layout_user_dialog_message">Berichten van de community worden niet weergegeven in tablet-indelingen</string>
   </patch>
   <patch id="layout.miniplayer.miniplayerPatch">
   <string name="revanced_miniplayer_screen_title">Minispeler</string>
@@ -1233,6 +1314,7 @@ Het inschakelen hiervan kan hogere videokwaliteiten ontgrendelen"</string>
   <string name="revanced_force_original_audio_title">Forceer originele audio</string>
   <string name="revanced_force_original_audio_summary_on">Originele audio gebruiken</string>
   <string name="revanced_force_original_audio_summary_off">Standaard audio gebruiken</string>
+  <string name="revanced_force_original_audio_not_available">Als je deze functie wilt gebruiken, zet stream-spoofing op iOS-clienttype</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
@@ -1296,8 +1378,9 @@ Video-playback werkt mogelijk niet"</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">"Als u deze functie inschakelt, kan de batterijduur worden verlengd en kan schokkerig afspelen worden verholpen.
 
 AVC heeft een maximale resolutie van 1080p, de Opus-audiocodec is niet beschikbaar en videoweergave verbruikt meer internetgegevens dan VP9 of AV1."</string>
-  <string name="revanced_spoof_video_streams_about_ios_tv_title">Bijwerkingen van iOS TV-spoofing</string>
-  <string name="revanced_spoof_video_streams_about_ios_tv_summary">"• Films of betaalde video's kunnen niet worden afgespeeld
+  <string name="revanced_spoof_video_streams_about_ios_tv_title">iOS-spoofingeffects</string>
+  <string name="revanced_spoof_video_streams_about_ios_tv_summary">"• Films of betaalde video's worden mogelijk niet afgespeeld
+• Stabiel volume is niet beschikbaar
 • Video's eindigen 1 seconde te vroeg"</string>
   <string name="revanced_spoof_video_streams_about_android_title">Bijwerkingen van Android-spoofing</string>
   <string name="revanced_spoof_video_streams_about_android_summary">"• Het menu Audiotracks ontbreekt
@@ -1307,58 +1390,6 @@ AVC heeft een maximale resolutie van 1080p, de Opus-audiocodec is niet beschikba
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Het clienttype wordt getoond in Stats for nerds</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Client is verborgen in Stats for nerds</string>
   <string name="revanced_spoof_video_streams_language_title">Standaardtaal van VR-audiostream</string>
-  <string name="revanced_spoof_video_streams_language_DEFAULT">App-taal</string>
-  <string name="revanced_spoof_video_streams_language_AR">Arabisch</string>
-  <string name="revanced_spoof_video_streams_language_AZ">Azerbeidzjaans</string>
-  <string name="revanced_spoof_video_streams_language_BG">Bulgaars</string>
-  <string name="revanced_spoof_video_streams_language_BN">Bengaals</string>
-  <string name="revanced_spoof_video_streams_language_CA">Catalaans</string>
-  <string name="revanced_spoof_video_streams_language_CS">Tsjechisch</string>
-  <string name="revanced_spoof_video_streams_language_DA">Deens</string>
-  <string name="revanced_spoof_video_streams_language_DE">Duits</string>
-  <string name="revanced_spoof_video_streams_language_EL">Grieks</string>
-  <string name="revanced_spoof_video_streams_language_EN">Engels</string>
-  <string name="revanced_spoof_video_streams_language_ES">Spaans</string>
-  <string name="revanced_spoof_video_streams_language_ET">Estisch</string>
-  <string name="revanced_spoof_video_streams_language_FA">Perzisch</string>
-  <string name="revanced_spoof_video_streams_language_FI">Fins</string>
-  <string name="revanced_spoof_video_streams_language_FR">Frans</string>
-  <string name="revanced_spoof_video_streams_language_GU">Gujarati</string>
-  <string name="revanced_spoof_video_streams_language_HI">Hindi</string>
-  <string name="revanced_spoof_video_streams_language_HR">Kroatisch</string>
-  <string name="revanced_spoof_video_streams_language_HU">Hongaars</string>
-  <string name="revanced_spoof_video_streams_language_ID">Indonesisch</string>
-  <string name="revanced_spoof_video_streams_language_IT">Italiaans</string>
-  <string name="revanced_spoof_video_streams_language_JA">Japans</string>
-  <string name="revanced_spoof_video_streams_language_KK">Kazachs</string>
-  <string name="revanced_spoof_video_streams_language_KO">Koreaans</string>
-  <string name="revanced_spoof_video_streams_language_LT">Litouws</string>
-  <string name="revanced_spoof_video_streams_language_LV">Lets</string>
-  <string name="revanced_spoof_video_streams_language_MK">Macedonisch</string>
-  <string name="revanced_spoof_video_streams_language_MN">Mongools</string>
-  <string name="revanced_spoof_video_streams_language_MR">Marathi</string>
-  <string name="revanced_spoof_video_streams_language_MS">Maleis</string>
-  <string name="revanced_spoof_video_streams_language_MY">Birmaans</string>
-  <string name="revanced_spoof_video_streams_language_NL">Nederlands</string>
-  <string name="revanced_spoof_video_streams_language_OR">Odia</string>
-  <string name="revanced_spoof_video_streams_language_PA">Punjabi</string>
-  <string name="revanced_spoof_video_streams_language_PL">Pools</string>
-  <string name="revanced_spoof_video_streams_language_PT">Portugees</string>
-  <string name="revanced_spoof_video_streams_language_RO">Roemeens</string>
-  <string name="revanced_spoof_video_streams_language_RU">Russisch</string>
-  <string name="revanced_spoof_video_streams_language_SK">Slowaaks</string>
-  <string name="revanced_spoof_video_streams_language_SL">Sloveens</string>
-  <string name="revanced_spoof_video_streams_language_SR">Servisch</string>
-  <string name="revanced_spoof_video_streams_language_SV">Zweeds</string>
-  <string name="revanced_spoof_video_streams_language_SW">Swahili</string>
-  <string name="revanced_spoof_video_streams_language_TA">Tamil</string>
-  <string name="revanced_spoof_video_streams_language_TE">Telugu</string>
-  <string name="revanced_spoof_video_streams_language_TH">Thais</string>
-  <string name="revanced_spoof_video_streams_language_TR">Turks</string>
-  <string name="revanced_spoof_video_streams_language_UK">Oekraïens</string>
-  <string name="revanced_spoof_video_streams_language_UR">Urdu</string>
-  <string name="revanced_spoof_video_streams_language_VI">Vietnamees</string>
-  <string name="revanced_spoof_video_streams_language_ZH">Chinees</string>
   </patch>
   </app>
   <app id="twitch">

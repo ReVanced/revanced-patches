@@ -43,6 +43,62 @@ Second \"item\" text"</string>
   <string name="revanced_settings_import_reset">Khôi phục mặc định cài đặt ReVanced</string>
   <string name="revanced_settings_import_success">Đã nhập cài đặt %d</string>
   <string name="revanced_settings_import_failure_parse">Nhập thất bại: %s</string>
+  <string name="revanced_language_title">Ngôn ngữ ReVanced</string>
+  <string name="revanced_language_user_dialog_message">"Dịch cho một số ngôn ngữ có thể bị thiếu hoặc không đầy đủ.
+
+Để dịch các ngôn ngữ mới, hãy truy cập translate.revanced.app"</string>
+  <string name="revanced_language_DEFAULT">Ngôn ngữ ứng dụng</string>
+  <string name="revanced_language_AR">Tiếng Ả Rập</string>
+  <string name="revanced_language_AZ">Tiếng Azerbaijan</string>
+  <string name="revanced_language_BG">Tiếng Bulgaria</string>
+  <string name="revanced_language_BN">Tiếng Bengal</string>
+  <string name="revanced_language_CA">Tiếng Catalan</string>
+  <string name="revanced_language_CS">Tiếng Séc</string>
+  <string name="revanced_language_DA">Tiếng Đan Mạch</string>
+  <string name="revanced_language_DE">Tiếng Đức</string>
+  <string name="revanced_language_EL">Tiếng Hy Lạp</string>
+  <string name="revanced_language_EN">Tiếng Anh</string>
+  <string name="revanced_language_ES">Tiếng Tây Ban Nha</string>
+  <string name="revanced_language_ET">Tiếng Estonia</string>
+  <string name="revanced_language_FA">Tiếng Ba Tư</string>
+  <string name="revanced_language_FI">Tiếng Phần Lan</string>
+  <string name="revanced_language_FR">Tiếng Pháp</string>
+  <string name="revanced_language_GU">Tiếng Gujarati</string>
+  <string name="revanced_language_HI">Tiếng Hindi</string>
+  <string name="revanced_language_HR">Tiếng Croatia</string>
+  <string name="revanced_language_HU">Tiếng Hungary</string>
+  <string name="revanced_language_ID">Tiếng Indonesia</string>
+  <string name="revanced_language_IT">Tiếng Ý</string>
+  <string name="revanced_language_JA">Tiếng Nhật</string>
+  <string name="revanced_language_KK">Tiếng Kazakh</string>
+  <string name="revanced_language_KO">Tiếng Hàn</string>
+  <string name="revanced_language_LT">Tiếng Litva</string>
+  <string name="revanced_language_LV">Tiếng Latvia</string>
+  <string name="revanced_language_MK">Tiếng Macedonia</string>
+  <string name="revanced_language_MN">Tiếng Mông Cổ</string>
+  <string name="revanced_language_MR">Tiếng Marathi</string>
+  <string name="revanced_language_MS">Tiếng Mã Lai</string>
+  <string name="revanced_language_MY">Tiếng Miến Điện</string>
+  <string name="revanced_language_NL">Tiếng Hà Lan</string>
+  <string name="revanced_language_OR">Tiếng Odia</string>
+  <string name="revanced_language_PA">Tiếng Punjabi</string>
+  <string name="revanced_language_PL">Tiếng Ba Lan</string>
+  <string name="revanced_language_PT">Tiếng Bồ Đào Nha</string>
+  <string name="revanced_language_RO">Tiếng Romania</string>
+  <string name="revanced_language_RU">Tiếng Nga</string>
+  <string name="revanced_language_SK">Tiếng Slovak</string>
+  <string name="revanced_language_SL">Tiếng Slovenia</string>
+  <string name="revanced_language_SR">Tiếng Serbia</string>
+  <string name="revanced_language_SV">Tiếng Thụy Điển</string>
+  <string name="revanced_language_SW">Tiếng Swahili</string>
+  <string name="revanced_language_TA">Tiếng Tamil</string>
+  <string name="revanced_language_TE">Tiếng Telugu</string>
+  <string name="revanced_language_TH">Tiếng Thái</string>
+  <string name="revanced_language_TR">Tiếng Thổ Nhĩ Kỳ</string>
+  <string name="revanced_language_UK">Tiếng Ukraina</string>
+  <string name="revanced_language_UR">Tiếng Urdu</string>
+  <string name="revanced_language_VI">Tiếng Việt</string>
+  <string name="revanced_language_ZH">Tiếng Trung</string>
   <string name="revanced_pref_import_export_title">Nhập / Xuất</string>
   <string name="revanced_pref_import_export_summary">Nhập / Xuất cài đặt ReVanced</string>
   <!-- Settings about dialog. -->
@@ -446,6 +502,9 @@ Tính năng này chỉ khả dụng cho các thiết bị cũ hơn"</string>
   <string name="revanced_swipe_overlay_background_alpha_summary">Độ trong suốt của nền lớp phủ vuốt</string>
   <string name="revanced_swipe_threshold_title">Độ rộng ngưỡng vuốt</string>
   <string name="revanced_swipe_threshold_summary">Độ rộng của ngưỡng vuốt để thực hiện cử chỉ vuốt</string>
+  <string name="revanced_swipe_change_video_title">**Bật** vuốt để thay đổi video</string>
+  <string name="revanced_swipe_change_video_summary_on">Vuốt trong chế độ toàn màn hình sẽ chuyển sang video tiếp theo/trước</string>
+  <string name="revanced_swipe_change_video_summary_off">Vuốt trong chế độ toàn màn hình sẽ không chuyển sang video tiếp theo/trước</string>
   </patch>
   <patch id="layout.autocaptions.autoCaptionsPatch">
   <string name="revanced_auto_captions_title">Tắt phụ đề tự động</string>
@@ -629,15 +688,18 @@ Lưu ý: Bật tính năng này cũng sẽ tự động ẩn quảng cáo video"
   <string name="revanced_shorts_player_screen_summary">Ẩn hoặc hiển thị các thành phần trong trình phát Shorts</string>
   <!-- 'home' should be translated using the same localized wording YouTube displays for the home tab. -->
   <string name="revanced_hide_shorts_home_title">Ẩn Shorts trong bảng tin trang chính</string>
-  <string name="revanced_hide_shorts_home_summary_on">Shorts trong bảng tin trang chính được ẩn</string>
-  <string name="revanced_hide_shorts_home_summary_off">Shorts trong bảng tin trang chính được hiện</string>
+  <string name="revanced_hide_shorts_home_summary_on">Ẩn trong nguồn cấp dữ liệu trang chủ và video liên quan</string>
+  <string name="revanced_hide_shorts_home_summary_off">Hiển thị trong nguồn cấp dữ liệu trang chủ và video liên quan</string>
   <!-- 'subscription' should be translated using the same localized wording YouTube displays for the subscription tab. -->
   <string name="revanced_hide_shorts_subscriptions_title">Ẩn Shorts trong bảng tin đăng ký</string>
-  <string name="revanced_hide_shorts_subscriptions_summary_on">Shorts trong bảng tin đăng ký được ẩn</string>
-  <string name="revanced_hide_shorts_subscriptions_summary_off">Shorts trong bảng tin đăng ký được hiện</string>
+  <string name="revanced_hide_shorts_subscriptions_summary_on">Bị ẩn trong nguồn đăng ký</string>
+  <string name="revanced_hide_shorts_subscriptions_summary_off">Được hiển thị trong nguồn đăng ký</string>
   <string name="revanced_hide_shorts_search_title">Ẩn Shorts trong kết quả tìm kiếm</string>
-  <string name="revanced_hide_shorts_search_summary_on">Shorts trong kết quả tìm kiếm được ẩn</string>
-  <string name="revanced_hide_shorts_search_summary_off">Shorts trong kết quả tìm kiếm được hiện</string>
+  <string name="revanced_hide_shorts_search_summary_on">Bị ẩn trong kết quả tìm kiếm</string>
+  <string name="revanced_hide_shorts_search_summary_off">Được hiển thị trong kết quả tìm kiếm</string>
+  <string name="revanced_hide_shorts_history_title">Ẩn Shorts trong lịch sử xem</string>
+  <string name="revanced_hide_shorts_history_summary_on">Bị ẩn trong lịch sử xem</string>
+  <string name="revanced_hide_shorts_history_summary_off">Đã hiển thị trong lịch sử xem</string>
   <!-- 'join' should be translated using the same localized wording YouTube displays for the button. -->
   <string name="revanced_hide_shorts_join_button_title">Ẩn nút tham gia</string>
   <string name="revanced_hide_shorts_join_button_summary_on">Nút tham gia được ẩn</string>
@@ -738,6 +800,13 @@ Lưu ý: Bật tính năng này cũng sẽ tự động ẩn quảng cáo video"
   <string name="revanced_hide_player_popup_panels_title">Ẩn bảng tự bật lên trên trình phát</string>
   <string name="revanced_hide_player_popup_panels_summary_on">Bảng bật lên trên trình phát được ẩn</string>
   <string name="revanced_hide_player_popup_panels_summary_off">Bảng bật lên trên trình phát được hiện</string>
+  </patch>
+  <patch id="layout.player.fullscreen.exitFullscreenPatch">
+  <string name="revanced_exit_fullscreen_title">Thoát chế độ toàn màn hình khi kết thúc video</string>
+  <string name="revanced_exit_fullscreen_entry_1">Đã tắt</string>
+  <string name="revanced_exit_fullscreen_entry_2">Chân dung</string>
+  <string name="revanced_exit_fullscreen_entry_3">Phong cảnh</string>
+  <string name="revanced_exit_fullscreen_entry_4">Chân dung và phong cảnh</string>
   </patch>
   <patch id="layout.player.fullscreen.openVideosFullscreen">
   <string name="revanced_open_videos_fullscreen_portrait_title">Mở video ở chế độ toàn màn hình dọc</string>
@@ -1007,6 +1076,23 @@ Bạn đã sẵn sàng gửi?"</string>
   <string name="revanced_sb_about">Giới thiệu</string>
   <string name="revanced_sb_about_api_sum">Dữ liệu được cung cấp bởi API SponsorBlock. Nhấn vào đây để tìm hiểu thêm và xem các bản tải cho các nền tảng khác</string>
   </patch>
+  <patch id="layout.formfactor.changeFormFactorPatch">
+  <string name="revanced_change_form_factor_title">Layout form factor</string>
+  <string name="revanced_change_form_factor_entry_1">Mặc định</string>
+  <string name="revanced_change_form_factor_entry_2">Điện thoại</string>
+  <string name="revanced_change_form_factor_entry_3">Máy tính bảng</string>
+  <string name="revanced_change_form_factor_entry_4">Ô tô</string>
+  <string name="revanced_change_form_factor_user_dialog_message">"Thay đổi bao gồm:
+
+Bố cục máy tính bảng
+• 隱藏社區貼文
+
+Bố cục ô tô
+• 隱藏观看历史菜单
+• 恢复探索标签
+• Shorts 在常规播放器中打开
+• 以主题和频道组织 Feed"</string>
+  </patch>
   <patch id="layout.spoofappversion.spoofAppVersionPatch">
   <string name="revanced_spoof_app_version_title">Giả mạo phiên bản ứng dụng</string>
   <string name="revanced_spoof_app_version_summary_on">Phiên bản đã được giả mạo</string>
@@ -1020,6 +1106,7 @@ Nếu sau này tắt đi, bạn nên xóa dữ liệu ứng dụng để tránh 
                  This is because the 'General layout' menu uses alphabetic sorting, and it functionally works better if the spoof target selector appears below the 'Spoof app version' UI switch -->
   <string name="revanced_spoof_app_version_target_title">Phiên bản giả mạo mục tiêu</string>
   <string name="revanced_spoof_app_version_target_entry_1">19.35.36 - Khôi phục biểu tượng trình phát Shorts cũ</string>
+  <string name="revanced_spoof_app_version_target_entry_2">19.26.42 - Khôi phục biểu tượng điều hướng và thanh công cụ cũ</string>
   <!-- 'RYD' is 'Return YouTube Dislike' -->
   <string name="revanced_spoof_app_version_target_legacy_entry_1">18.33.40 - Khôi phục RYD trong Shorts chế độ ẩn danh</string>
   <string name="revanced_spoof_app_version_target_legacy_entry_2">18.20.39 - Khôi phục trình đơn tốc độ &amp; chất lượng cho video rộng</string>
@@ -1062,12 +1149,6 @@ Nếu sau này tắt đi, bạn nên xóa dữ liệu ứng dụng để tránh 
   <string name="revanced_shorts_autoplay_background_title">Tự động phát nền cho Shorts</string>
   <string name="revanced_shorts_autoplay_background_summary_on">Phát nền cho Shorts được phát tự động</string>
   <string name="revanced_shorts_autoplay_background_summary_off">Phát nền cho Shorts được phát lặp lại</string>
-  </patch>
-  <patch id="layout.tablet.enableTabletLayoutPatch">
-  <string name="revanced_tablet_layout_title">Bật bố cục máy tính bảng</string>
-  <string name="revanced_tablet_layout_summary_on">Bố cục máy tính bảng được bật</string>
-  <string name="revanced_tablet_layout_summary_off">Bố cục máy tính bảng được tắt</string>
-  <string name="revanced_tablet_layout_user_dialog_message">Bài đăng của cộng đồng không hiển thị trên bố cục máy tính bảng</string>
   </patch>
   <patch id="layout.miniplayer.miniplayerPatch">
   <string name="revanced_miniplayer_screen_title">Trình phát thu nhỏ</string>
@@ -1233,6 +1314,7 @@ Bật tính năng này có thể mở khóa chất lượng video cao hơn"</str
   <string name="revanced_force_original_audio_title">Buộc sử dụng âm thanh gốc</string>
   <string name="revanced_force_original_audio_summary_on">Sử dụng âm thanh gốc</string>
   <string name="revanced_force_original_audio_summary_off">Sử dụng âm thanh mặc định</string>
+  <string name="revanced_force_original_audio_not_available">Để sử dụng tính năng này, hãy thay đổi kiểu khách hàng iOS cho chế độ giả mạo luồng</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
@@ -1289,16 +1371,17 @@ Phát lại video có thể không hoạt động"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Việc tắt cài đặt này có thể gây ra sự cố phát nền video.</string>
   <string name="revanced_spoof_video_streams_client_type_title">Máy khách mặc định</string>
   <!-- 'no auth' means no authentication -->
-  <string name="revanced_spoof_video_streams_client_type_android_vr_no_auth">VR Android (không cần xác thực)</string>
+  <string name="revanced_spoof_video_streams_client_type_android_vr_no_auth">Android VR (không cần xác thực)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_title">Buộc iOS AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Bộ giải mã video bị buộc thành AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Bộ giải mã video được xác định tự động</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">"Bật tính năng này có thể cải thiện thời lượng pin và khắc phục tình trạng giật lag khi phát lại.
 
 AVC có độ phân giải tối đa là 1080p, bộ giải mã âm thanh Opus không khả dụng và phát lại video sẽ sử dụng nhiều dữ liệu internet hơn VP9 hoặc AV1."</string>
-  <string name="revanced_spoof_video_streams_about_ios_tv_title">Tác dụng phụ của việc giả mạo iOS TV</string>
-  <string name="revanced_spoof_video_streams_about_ios_tv_summary">"• Phim hoặc video trả phí có thể không phát
-• Video kết thúc sớm 1 giây"</string>
+  <string name="revanced_spoof_video_streams_about_ios_tv_title">Tạo cảc phượng phương định iOS</string>
+  <string name="revanced_spoof_video_streams_about_ios_tv_summary">"• Phim hoặc có phí trả không phát hày có thể chơi
+• Âm lượng ở ỗn định không có sử dụng
+• Video két thúc sớm hơn có 1 giây"</string>
   <string name="revanced_spoof_video_streams_about_android_title">Tác dụng phụ của việc giả mạo Android</string>
   <string name="revanced_spoof_video_streams_about_android_summary">"• Thiếu menu âm thanh
 • Không có âm lượng ổn định
@@ -1307,58 +1390,6 @@ AVC có độ phân giải tối đa là 1080p, bộ giải mã âm thanh Opus k
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Loại máy khách được hiển thị trong Stats for nerds</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Máy khách bị ẩn trong Stats for nerds</string>
   <string name="revanced_spoof_video_streams_language_title">Ngôn ngữ âm thanh mặc định của VR</string>
-  <string name="revanced_spoof_video_streams_language_DEFAULT">Ngôn ngữ tài khoản</string>
-  <string name="revanced_spoof_video_streams_language_AR">Tiếng Ả Rập</string>
-  <string name="revanced_spoof_video_streams_language_AZ">Tiếng Azerbaijan</string>
-  <string name="revanced_spoof_video_streams_language_BG">Tiếng Bulgaria</string>
-  <string name="revanced_spoof_video_streams_language_BN">Tiếng Bengal</string>
-  <string name="revanced_spoof_video_streams_language_CA">Tiếng Catalan</string>
-  <string name="revanced_spoof_video_streams_language_CS">Tiếng Séc</string>
-  <string name="revanced_spoof_video_streams_language_DA">Tiếng Đan Mạch</string>
-  <string name="revanced_spoof_video_streams_language_DE">Tiếng Đức</string>
-  <string name="revanced_spoof_video_streams_language_EL">Tiếng Hy Lạp</string>
-  <string name="revanced_spoof_video_streams_language_EN">Tiếng Anh</string>
-  <string name="revanced_spoof_video_streams_language_ES">Tiếng Tây Ban Nha</string>
-  <string name="revanced_spoof_video_streams_language_ET">Tiếng Estonia</string>
-  <string name="revanced_spoof_video_streams_language_FA">Tiếng Ba Tư</string>
-  <string name="revanced_spoof_video_streams_language_FI">Phện Lan Đà</string>
-  <string name="revanced_spoof_video_streams_language_FR">Tiếng Pháp</string>
-  <string name="revanced_spoof_video_streams_language_GU">Tiếng Gujarati</string>
-  <string name="revanced_spoof_video_streams_language_HI">Tiếng Hindi</string>
-  <string name="revanced_spoof_video_streams_language_HR">Ngôn ngữ Ngôn</string>
-  <string name="revanced_spoof_video_streams_language_HU">Tiếng Hungary</string>
-  <string name="revanced_spoof_video_streams_language_ID">Tiếng Indonesia</string>
-  <string name="revanced_spoof_video_streams_language_IT">Tiếng Ý</string>
-  <string name="revanced_spoof_video_streams_language_JA">Tiếng Nhật Bản</string>
-  <string name="revanced_spoof_video_streams_language_KK">Tiếng Kazakhstan</string>
-  <string name="revanced_spoof_video_streams_language_KO">Tiếng Hàn Quốc</string>
-  <string name="revanced_spoof_video_streams_language_LT">Tiếng Litva</string>
-  <string name="revanced_spoof_video_streams_language_LV">Tiếng Latvia</string>
-  <string name="revanced_spoof_video_streams_language_MK">Tiếng Macedonia</string>
-  <string name="revanced_spoof_video_streams_language_MN">Tiếng Mông Cố</string>
-  <string name="revanced_spoof_video_streams_language_MR">Tiếng Marathi</string>
-  <string name="revanced_spoof_video_streams_language_MS">Tiếng Malaysia</string>
-  <string name="revanced_spoof_video_streams_language_MY">Tiếng Miến Điện</string>
-  <string name="revanced_spoof_video_streams_language_NL">Tiếng Hà Lan</string>
-  <string name="revanced_spoof_video_streams_language_OR">Tiếng Odia</string>
-  <string name="revanced_spoof_video_streams_language_PA">Tiếng Punjab</string>
-  <string name="revanced_spoof_video_streams_language_PL">Tiếng Ba Lan</string>
-  <string name="revanced_spoof_video_streams_language_PT">Tiếng Bồ Đào Nha</string>
-  <string name="revanced_spoof_video_streams_language_RO">Tiếng Rumani</string>
-  <string name="revanced_spoof_video_streams_language_RU">Tiếng Nga</string>
-  <string name="revanced_spoof_video_streams_language_SK">Tiếng Slovak</string>
-  <string name="revanced_spoof_video_streams_language_SL">Tiếng Slovenia</string>
-  <string name="revanced_spoof_video_streams_language_SR">Tiếng Serbia</string>
-  <string name="revanced_spoof_video_streams_language_SV">Tiếng Thủy Điển</string>
-  <string name="revanced_spoof_video_streams_language_SW">Tiếng Swahili</string>
-  <string name="revanced_spoof_video_streams_language_TA">Tiếng Tamil</string>
-  <string name="revanced_spoof_video_streams_language_TE">Tiếng Telugu</string>
-  <string name="revanced_spoof_video_streams_language_TH">Tiếng Thái</string>
-  <string name="revanced_spoof_video_streams_language_TR">Tiếng Thổ Nhĩ Kỳ</string>
-  <string name="revanced_spoof_video_streams_language_UK">Tiếng Ukraina</string>
-  <string name="revanced_spoof_video_streams_language_UR">Tiếng Urdu</string>
-  <string name="revanced_spoof_video_streams_language_VI">Tiếng Việt</string>
-  <string name="revanced_spoof_video_streams_language_ZH">Tiếng Trung</string>
   </patch>
   </app>
   <app id="twitch">

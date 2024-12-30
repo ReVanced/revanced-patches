@@ -279,6 +279,8 @@ Mלות עם אותיות גדולות באמצע צריכות להיכנס עם
   </patch>
   <patch id="layout.panels.popup.playerPopupPanelsPatch">
   </patch>
+  <patch id="layout.player.fullscreen.exitFullscreenPatch">
+  </patch>
   <patch id="layout.player.fullscreen.openVideosFullscreen">
   </patch>
   <patch id="layout.player.overlay.customPlayerOverlayOpacityResourcePatch">
@@ -384,6 +386,8 @@ Mלות עם אותיות גדולות באמצע צריכות להיכנס עם
   <string name="revanced_sb_reset">איפוס</string>
   <string name="revanced_sb_about">אודות</string>
   </patch>
+  <patch id="layout.formfactor.changeFormFactorPatch">
+  </patch>
   <patch id="layout.spoofappversion.spoofAppVersionPatch">
   <string name="revanced_spoof_app_version_user_dialog_message">"גרסת האפליקציה תזויף לגרסה ישנה יותר של YouTube.
 
@@ -402,8 +406,6 @@ Mלות עם אותיות גדולות באמצע צריכות להיכנס עם
   <patch id="layout.shortsplayer.shortsPlayerTypePatch">
   </patch>
   <patch id="layout.shortsautoplay.shortsAutoplayPatch">
-  </patch>
-  <patch id="layout.tablet.enableTabletLayoutPatch">
   </patch>
   <patch id="layout.miniplayer.miniplayerPatch">
   <string name="revanced_miniplayer_type_entry_0">הושבת</string>
@@ -492,8 +494,6 @@ Mלות עם אותיות גדולות באמצע צריכות להיכנס עם
 
 ייתכן שהשמעת וידאו לא תעבוד"</string>
   <!-- 'no auth' means no authentication -->
-  <string name="revanced_spoof_video_streams_language_EN">אנגלית</string>
-  <string name="revanced_spoof_video_streams_language_FR">צרפתית</string>
   </patch>
   </app>
   <app id="twitch">
