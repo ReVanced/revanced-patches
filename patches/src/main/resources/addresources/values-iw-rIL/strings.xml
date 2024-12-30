@@ -494,8 +494,6 @@ Mלות עם אותיות גדולות באמצע צריכות להיכנס עם
 
 ייתכן שהשמעת וידאו לא תעבוד"</string>
   <!-- 'no auth' means no authentication -->
-  <string name="revanced_spoof_video_streams_language_EN">אנגלית</string>
-  <string name="revanced_spoof_video_streams_language_FR">צרפתית</string>
   </patch>
   </app>
   <app id="twitch">
