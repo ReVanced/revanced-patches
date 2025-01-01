@@ -4,9 +4,7 @@ import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import app.revanced.patcher.fingerprint
 
-internal val timeCounterFingerprint = fingerprint(
-    fuzzyPatternScanThreshold = 1,
-) {
+internal val timeCounterFingerprint = fingerprint {
     returns("V")
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     parameters()

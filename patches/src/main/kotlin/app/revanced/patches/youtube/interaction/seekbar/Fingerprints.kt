@@ -1,5 +1,6 @@
 package app.revanced.patches.youtube.interaction.seekbar
 
+import app.revanced.patcher.LiteralFilter
 import app.revanced.patcher.fingerprint
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstruction
@@ -128,5 +129,7 @@ internal val fullscreenSeekbarThumbnailsQualityFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("Z")
     parameters()
-    literal { 45399684L }
+    instructions (
+        LiteralFilter(45399684L)
+    )
 }

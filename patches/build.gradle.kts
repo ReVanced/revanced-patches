@@ -12,6 +12,12 @@ patches {
     }
 }
 
+repositories {
+    mavenLocal()
+    gradlePluginPortal()
+    google()
+}
+
 dependencies {
     // Used by JsonGenerator.
     implementation(libs.gson)

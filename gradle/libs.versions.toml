@@ -1,8 +1,8 @@
 [versions]
-revanced-patcher = "21.0.0"
+revanced-patcher = "22.0.0"
 # Tracking https://github.com/google/smali/issues/64.
 #noinspection GradleDependency
-smali = "3.0.5"
+smali = "3.0.8"
 gson = "2.11.0"
 # 8.3.0 causes java verifier error: https://github.com/ReVanced/revanced-patches/issues/2818.
 #noinspection GradleDependency

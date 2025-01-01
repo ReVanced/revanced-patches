@@ -22,7 +22,6 @@ import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
-import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethodParameter
 
@@ -85,21 +84,20 @@ fun spoofVideoStreamsPatch(
 
         // region Get replacement streams at player requests.
 
-        buildRequestFingerprint.method.apply {
-            val newRequestBuilderIndex = indexOfFirstInstructionOrThrow {
-                opcode == Opcode.INVOKE_VIRTUAL &&
-                    getReference<MethodReference>()?.name == "newUrlRequestBuilder"
-            }
-            val urlRegister = getInstruction<FiveRegisterInstruction>(newRequestBuilderIndex).registerD
-            val freeRegister = getInstruction<OneRegisterInstruction>(newRequestBuilderIndex + 1).registerA
+        buildRequestFingerprint.let {
+            it.method.apply {
+                val builderIndex = it.filterMatch.first().index
+                val urlRegister = getInstruction<FiveRegisterInstruction>(builderIndex).registerD
+                val freeRegister = getInstruction<OneRegisterInstruction>(builderIndex + 1).registerA
 
-            addInstructions(
-                newRequestBuilderIndex,
-                """
-                move-object v$freeRegister, p1
-                invoke-static { v$urlRegister, v$freeRegister }, $EXTENSION_CLASS_DESCRIPTOR->fetchStreams(Ljava/lang/String;Ljava/util/Map;)V
-            """,
-            )
+                addInstructions(
+                    builderIndex,
+                    """
+                        move-object v$freeRegister, p1
+                        invoke-static { v$urlRegister, v$freeRegister }, $EXTENSION_CLASS_DESCRIPTOR->fetchStreams(Ljava/lang/String;Ljava/util/Map;)V
+                    """
+                )
+            }
         }
 
         // endregion

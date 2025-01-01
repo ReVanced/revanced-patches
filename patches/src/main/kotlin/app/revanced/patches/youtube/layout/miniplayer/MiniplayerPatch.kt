@@ -26,7 +26,6 @@ import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.builder.MutableMethodImplementation
 import com.android.tools.smali.dexlib2.iface.Method
-import com.android.tools.smali.dexlib2.iface.instruction.NarrowLiteralInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
@@ -53,8 +52,6 @@ var modernMiniplayerRewindButton = -1L
 var modernMiniplayerForwardButton = -1L
     private set
 var playerOverlays = -1L
-    private set
-var miniplayerMaxSize = -1L
     private set
 
 private val miniplayerResourcePatch = resourcePatch {
@@ -117,13 +114,6 @@ private val miniplayerResourcePatch = resourcePatch {
                 ytOutlineXWhite24 = resourceMappings[
                     "drawable",
                     "yt_outline_x_white_24",
-                ]
-            }
-
-            if (is_19_26_or_greater) {
-                miniplayerMaxSize = resourceMappings[
-                    "dimen",
-                    "miniplayer_max_size",
                 ]
             }
         }
@@ -396,7 +386,6 @@ val miniplayerPatch = bytecodePatch(
                     MINIPLAYER_INITIAL_SIZE_FEATURE_KEY,
                 )
                 val targetIndex = indexOfFirstInstructionOrThrow(literalIndex, Opcode.LONG_TO_INT)
-
                 val register = getInstruction<OneRegisterInstruction>(targetIndex).registerA
 
                 addInstructions(
@@ -409,16 +398,16 @@ val miniplayerPatch = bytecodePatch(
             }
 
             // Override a minimum size constant.
-            miniplayerMinimumSizeFingerprint.method.apply {
-                val index = indexOfFirstInstructionOrThrow {
-                    opcode == Opcode.CONST_16 && (this as NarrowLiteralInstruction).narrowLiteral == 192
-                }
-                val register = getInstruction<OneRegisterInstruction>(index).registerA
+            miniplayerMinimumSizeFingerprint.let {
+                it.method.apply {
+                    val index = it.filterMatch[1].index
+                    val register = getInstruction<OneRegisterInstruction>(index).registerA
 
-                // Smaller sizes can be used, but the miniplayer will always start in size 170 if set any smaller.
-                // The 170 initial limit probably could be patched to allow even smaller initial sizes,
-                // but 170 is already half the horizontal space and smaller does not seem useful.
-                replaceInstruction(index, "const/16 v$register, 170")
+                    // Smaller sizes can be used, but the miniplayer will always start in size 170 if set any smaller.
+                    // The 170 initial limit probably could be patched to allow even smaller initial sizes,
+                    // but 170 is already half the horizontal space and smaller does not seem useful.
+                    replaceInstruction(index, "const/16 v$register, 170")
+                }
             }
         }
 

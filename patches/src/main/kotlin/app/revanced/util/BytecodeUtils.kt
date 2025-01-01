@@ -405,6 +405,10 @@ fun Method.findInstructionIndicesReversedOrThrow(opcode: Opcode): List<Int> {
 
 internal fun MutableMethod.insertFeatureFlagBooleanOverride(literal: Long, extensionsMethod: String) {
     val literalIndex = indexOfFirstLiteralInstructionOrThrow(literal)
+    insertFeatureFlagBooleanOverride(literalIndex, extensionsMethod)
+}
+
+internal fun MutableMethod.insertFeatureFlagBooleanOverride(literalIndex: Int, extensionsMethod: String) {
     val index = indexOfFirstInstructionOrThrow(literalIndex, Opcode.MOVE_RESULT)
     val register = getInstruction<OneRegisterInstruction>(index).registerA
 
