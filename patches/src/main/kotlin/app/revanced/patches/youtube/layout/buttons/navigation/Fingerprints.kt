@@ -1,14 +1,15 @@
 package app.revanced.patches.youtube.layout.buttons.navigation
 
-import com.android.tools.smali.dexlib2.Opcode
-import com.android.tools.smali.dexlib2.AccessFlags
+import app.revanced.patcher.LastInstructionFilter
+import app.revanced.patcher.LiteralFilter
+import app.revanced.patcher.MethodFilter
+import app.revanced.patcher.OpcodeFilter
 import app.revanced.patcher.fingerprint
-import app.revanced.util.literal
-
-internal const val ANDROID_AUTOMOTIVE_STRING = "Android Automotive"
+import com.android.tools.smali.dexlib2.AccessFlags
+import com.android.tools.smali.dexlib2.Opcode
 
 internal val addCreateButtonViewFingerprint = fingerprint {
-    strings("Android Wear", ANDROID_AUTOMOTIVE_STRING)
+    strings("Android Automotive", "Android Wear")
 }
 
 internal val createPivotBarFingerprint = fingerprint {
@@ -19,35 +20,38 @@ internal val createPivotBarFingerprint = fingerprint {
         "Landroid/widget/TextView;",
         "Ljava/lang/CharSequence;",
     )
-    opcodes(
-        Opcode.INVOKE_VIRTUAL,
-        Opcode.RETURN_VOID,
+    instructions(
+        MethodFilter(definingClass = "Landroid/widget/TextView;", methodName = "setText"),
+        LastInstructionFilter(OpcodeFilter(Opcode.RETURN_VOID))
     )
 }
-
-internal const val TRANSLUCENT_NAVIGATION_STATUS_BAR_FEATURE_FLAG = 45400535L
 
 internal val translucentNavigationStatusBarFeatureFlagFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("Z")
-    literal { TRANSLUCENT_NAVIGATION_STATUS_BAR_FEATURE_FLAG }
-}
-
-internal const val TRANSLUCENT_NAVIGATION_BUTTONS_FEATURE_FLAG = 45630927L
-
-internal val translucentNavigationButtonsFeatureFlagFingerprint = fingerprint {
-    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("V")
-    literal { TRANSLUCENT_NAVIGATION_BUTTONS_FEATURE_FLAG }
+    instructions(
+        LiteralFilter(45400535L)
+    )
 }
 
 /**
- * The device on screen back/home/recent buttons.
+ * YouTube nav buttons.
  */
-internal const val TRANSLUCENT_NAVIGATION_BUTTONS_SYSTEM_FEATURE_FLAG = 45632194L
+internal val translucentNavigationButtonsFeatureFlagFingerprint = fingerprint {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
+    returns("V")
+    instructions(
+        LiteralFilter(45630927L)
+    )
+}
 
+/**
+ * Device on screen back/home/recent buttons.
+ */
 internal val translucentNavigationButtonsSystemFeatureFlagFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("Z")
-    literal { TRANSLUCENT_NAVIGATION_BUTTONS_SYSTEM_FEATURE_FLAG }
+    instructions(
+        LiteralFilter(45632194L)
+    )
 }

@@ -18,7 +18,6 @@ import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.litho.filter.addLithoFilter
 import app.revanced.patches.youtube.misc.litho.filter.lithoFilterPatch
 import app.revanced.patches.youtube.misc.navigation.navigationBarHookPatch
-import app.revanced.patches.youtube.misc.playservice.is_19_03_or_greater
 import app.revanced.patches.youtube.misc.playservice.is_19_41_or_greater
 import app.revanced.patches.youtube.misc.playservice.versionCheckPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
@@ -27,17 +26,9 @@ import app.revanced.util.*
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
-import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
-internal var reelMultipleItemShelfId = -1L
-    private set
-internal var reelPlayerRightCellButtonHeight = -1L
-    private set
-internal var bottomBarContainer = -1L
-    private set
-internal var reelPlayerRightPivotV2Size = -1L
-    private set
+private var reelPlayerRightPivotV2Size = -1L
 
 internal val hideShortsAppShortcutOption = booleanOption(
     key = "hideShortsAppShortcut",
@@ -141,27 +132,10 @@ private val hideShortsComponentsResourcePatch = resourcePatch {
             }
         }
 
-        reelPlayerRightCellButtonHeight = resourceMappings[
-            "dimen",
-            "reel_player_right_cell_button_height",
-        ]
-
-        bottomBarContainer = resourceMappings[
-            "id",
-            "bottom_bar_container",
-        ]
-
         reelPlayerRightPivotV2Size = resourceMappings[
             "dimen",
             "reel_player_right_pivot_v2_size",
         ]
-
-        if (!is_19_03_or_greater) {
-            reelMultipleItemShelfId = resourceMappings[
-                "dimen",
-                "reel_player_right_cell_button_height",
-            ]
-        }
     }
 }
 
@@ -199,25 +173,6 @@ val hideShortsComponentsPatch = bytecodePatch(
     hideShortsWidgetOption()
 
     execute {
-        // region Hide the Shorts shelf.
-
-        // This patch point is not present in 19.03.x and greater.
-        if (!is_19_03_or_greater && reelConstructorFingerprint.methodOrNull != null) {
-            reelConstructorFingerprint.method.apply {
-                val insertIndex = reelConstructorFingerprint.patternMatch!!.startIndex + 2
-                val viewRegister = getInstruction<TwoRegisterInstruction>(insertIndex).registerA
-
-                injectHideViewCall(
-                    insertIndex,
-                    viewRegister,
-                    FILTER_CLASS_DESCRIPTOR,
-                    "hideShortsShelf",
-                )
-            }
-        }
-
-        // endregion
-
         // region Hide the Shorts buttons in older versions of YouTube.
 
         // Some Shorts buttons are views, hide them by setting their visibility to GONE.
@@ -256,7 +211,7 @@ val hideShortsComponentsPatch = bytecodePatch(
             setPivotBarVisibilityParentFingerprint.originalClassDef,
         ).let { result ->
             result.method.apply {
-                val insertIndex = result.patternMatch!!.endIndex
+                val insertIndex = result.patternMatch.endIndex
                 val viewRegister = getInstruction<OneRegisterInstruction>(insertIndex - 1).registerA
                 addInstruction(
                     insertIndex,
@@ -279,22 +234,19 @@ val hideShortsComponentsPatch = bytecodePatch(
         )
 
         // Hide the bottom bar container of the Shorts player.
-        shortsBottomBarContainerFingerprint.method.apply {
-            val resourceIndex = indexOfFirstLiteralInstruction(bottomBarContainer)
+        shortsBottomBarContainerFingerprint.let {
+            it.method.apply {
+                val targetIndex = it.filterMatch.last().index
+                val heightRegister = getInstruction<OneRegisterInstruction>(targetIndex).registerA
 
-            val targetIndex = indexOfFirstInstructionOrThrow(resourceIndex) {
-                getReference<MethodReference>()?.name == "getHeight"
-            } + 1
-
-            val heightRegister = getInstruction<OneRegisterInstruction>(targetIndex).registerA
-
-            addInstructions(
-                targetIndex + 1,
-                """
-                    invoke-static { v$heightRegister }, $FILTER_CLASS_DESCRIPTOR->getNavigationBarHeight(I)I
-                    move-result v$heightRegister
-                """,
-            )
+                addInstructions(
+                    targetIndex + 1,
+                    """
+                        invoke-static { v$heightRegister }, $FILTER_CLASS_DESCRIPTOR->getNavigationBarHeight(I)I
+                        move-result v$heightRegister
+                    """
+                )
+            }
         }
 
         // endregion
@@ -306,8 +258,7 @@ private enum class ShortsButtons(private val resourceName: String, private val m
     DISLIKE("reel_dyn_dislike", "hideDislikeButton"),
     COMMENTS("reel_dyn_comment", "hideShortsCommentsButton"),
     REMIX("reel_dyn_remix", "hideShortsRemixButton"),
-    SHARE("reel_dyn_share", "hideShortsShareButton"),
-    ;
+    SHARE("reel_dyn_share", "hideShortsShareButton");
 
     fun injectHideCall(method: MutableMethod) {
         val referencedIndex = method.indexOfFirstResourceIdOrThrow(resourceName)

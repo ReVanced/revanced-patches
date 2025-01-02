@@ -6,18 +6,13 @@ import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.instructions
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patcher.patch.resourcePatch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
-import app.revanced.patches.shared.misc.mapping.get
-import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
-import app.revanced.patches.shared.misc.mapping.resourceMappings
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.playertype.playerTypeHookPatch
 import app.revanced.patches.youtube.misc.playservice.is_19_35_or_greater
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
 import app.revanced.util.indexOfFirstInstructionReversedOrThrow
-import app.revanced.util.indexOfFirstLiteralInstructionOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.Instruction
@@ -25,23 +20,6 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import com.android.tools.smali.dexlib2.util.MethodUtil
-
-internal var imageOnlyTabResourceId = -1L
-    private set
-internal var actionBarSearchResultsViewMicId = -1L
-    private set
-internal var ytFillBellId = -1L
-    private set
-
-private val navigationBarHookResourcePatch = resourcePatch {
-    dependsOn(resourceMappingPatch)
-
-    execute {
-        imageOnlyTabResourceId = resourceMappings["layout", "image_only_tab"]
-        actionBarSearchResultsViewMicId = resourceMappings["layout", "action_bar_search_results_view_mic"]
-        ytFillBellId = resourceMappings["drawable", "yt_fill_bell_black_24"]
-    }
-}
 
 internal const val EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/youtube/shared/NavigationBar;"
@@ -53,7 +31,6 @@ lateinit var hookNavigationButtonCreated: (String) -> Unit
 val navigationBarHookPatch = bytecodePatch(description = "Hooks the active navigation or search bar.") {
     dependsOn(
         sharedExtensionPatch,
-        navigationBarHookResourcePatch,
         playerTypeHookPatch, // Required to detect the search bar in all situations.
     )
 
@@ -99,17 +76,19 @@ val navigationBarHookPatch = bytecodePatch(description = "Hooks the active navig
             }
         }
 
-        pivotBarButtonsViewSetSelectedFingerprint.method.apply {
-            val index = indexOfSetViewSelectedInstruction(this)
-            val instruction = getInstruction<FiveRegisterInstruction>(index)
-            val viewRegister = instruction.registerC
-            val isSelectedRegister = instruction.registerD
+        pivotBarButtonsViewSetSelectedFingerprint.let {
+            it.method.apply {
+                val index = it.filterMatch.first().index
+                val instruction = getInstruction<FiveRegisterInstruction>(index)
+                val viewRegister = instruction.registerC
+                val isSelectedRegister = instruction.registerD
 
-            addInstruction(
-                index + 1,
-                "invoke-static { v$viewRegister, v$isSelectedRegister }, " +
-                    "$EXTENSION_CLASS_DESCRIPTOR->navigationTabSelected(Landroid/view/View;Z)V",
-            )
+                addInstruction(
+                    index + 1,
+                    "invoke-static { v$viewRegister, v$isSelectedRegister }, " +
+                            "$EXTENSION_CLASS_DESCRIPTOR->navigationTabSelected(Landroid/view/View;Z)V",
+                )
+            }
         }
 
         // Hook onto back button pressed.  Needed to fix race problem with
@@ -125,22 +104,17 @@ val navigationBarHookPatch = bytecodePatch(description = "Hooks the active navig
         // Two different layouts are used at the hooked code.
         // Insert before the first ViewGroup method call after inflating,
         // so this works regardless which layout is used.
-        actionBarSearchResultsFingerprint.method.apply {
-            val searchBarResourceId = indexOfFirstLiteralInstructionOrThrow(
-                actionBarSearchResultsViewMicId,
-            )
+        actionBarSearchResultsFingerprint.let {
+            it.method.apply {
+                val instructionIndex = it.filterMatch.last().index
+                val viewRegister = getInstruction<FiveRegisterInstruction>(instructionIndex).registerC
 
-            val instructionIndex = indexOfFirstInstructionOrThrow(searchBarResourceId) {
-                opcode == Opcode.INVOKE_VIRTUAL && getReference<MethodReference>()?.name == "setLayoutDirection"
+                addInstruction(
+                    instructionIndex,
+                    "invoke-static { v$viewRegister }, " +
+                            "$EXTENSION_CLASS_DESCRIPTOR->searchBarResultsViewLoaded(Landroid/view/View;)V",
+                )
             }
-
-            val viewRegister = getInstruction<FiveRegisterInstruction>(instructionIndex).registerC
-
-            addInstruction(
-                instructionIndex,
-                "invoke-static { v$viewRegister }, " +
-                    "$EXTENSION_CLASS_DESCRIPTOR->searchBarResultsViewLoaded(Landroid/view/View;)V",
-            )
         }
 
         hookNavigationButtonCreated = { extensionClassDescriptor ->
@@ -155,7 +129,7 @@ val navigationBarHookPatch = bytecodePatch(description = "Hooks the active navig
         // Fix YT bug of notification tab missing the filled icon.
         if (is_19_35_or_greater) {
             val cairoNotificationEnumReference = with(imageEnumConstructorFingerprint) {
-                val stringIndex = stringMatches!!.first().index
+                val stringIndex = stringMatches.first().index
                 val cairoNotificationEnumIndex = method.indexOfFirstInstructionOrThrow(stringIndex) {
                     opcode == Opcode.SPUT_OBJECT
                 }

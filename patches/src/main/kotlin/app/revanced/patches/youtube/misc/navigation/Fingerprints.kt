@@ -1,19 +1,18 @@
 package app.revanced.patches.youtube.misc.navigation
 
+import app.revanced.patcher.MethodFilter
 import app.revanced.patcher.fingerprint
+import app.revanced.patches.shared.misc.mapping.ResourceMappingFilter
 import app.revanced.patches.youtube.layout.buttons.navigation.navigationButtonsPatch
-import app.revanced.util.getReference
-import app.revanced.util.indexOfFirstInstruction
-import app.revanced.util.literal
 import com.android.tools.smali.dexlib2.AccessFlags
-import com.android.tools.smali.dexlib2.Opcode
-import com.android.tools.smali.dexlib2.iface.Method
-import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 internal val actionBarSearchResultsFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("Landroid/view/View;")
-    literal { actionBarSearchResultsViewMicId }
+    instructions(
+        ResourceMappingFilter("layout", "action_bar_search_results_view_mic"),
+        MethodFilter(methodName = "setLayoutDirection")
+    )
 }
 
 /**
@@ -22,7 +21,9 @@ internal val actionBarSearchResultsFingerprint = fingerprint {
 internal val initializeButtonsFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("V")
-    literal { imageOnlyTabResourceId }
+    instructions(
+        ResourceMappingFilter("layout", "image_only_tab")
+    )
 }
 
 internal val mainActivityOnBackPressedFingerprint = fingerprint {
@@ -87,17 +88,15 @@ internal val pivotBarButtonsCreateResourceViewFingerprint = fingerprint {
     }
 }
 
-internal fun indexOfSetViewSelectedInstruction(method: Method) = method.indexOfFirstInstruction {
-    opcode == Opcode.INVOKE_VIRTUAL && getReference<MethodReference>()?.name == "setSelected"
-}
-
 internal val pivotBarButtonsViewSetSelectedFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("V")
     parameters("I", "Z")
+    instructions(
+        MethodFilter(methodName = "setSelected")
+    )
     custom { method, _ ->
-        indexOfSetViewSelectedInstruction(method) >= 0 &&
-            method.definingClass == "Lcom/google/android/libraries/youtube/rendering/ui/pivotbar/PivotBar;"
+        method.definingClass == "Lcom/google/android/libraries/youtube/rendering/ui/pivotbar/PivotBar;"
     }
 }
 
@@ -113,7 +112,7 @@ internal val imageEnumConstructorFingerprint = fingerprint {
 
 internal val setEnumMapFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
-    literal {
-        ytFillBellId
-    }
+    instructions(
+        ResourceMappingFilter("drawable", "yt_fill_bell_black_24")
+    )
 }

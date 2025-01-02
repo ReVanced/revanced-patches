@@ -1,16 +1,16 @@
 package app.revanced.patches.shared.misc.mapping
 
 import app.revanced.patcher.InstructionFilter
-import app.revanced.patcher.InstructionFilter.Companion.METHOD_MAX_INSTRUCTIONS
 import app.revanced.patcher.LiteralFilter
+import app.revanced.patcher.patch.BytecodePatchContext
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.resourcePatch
-import com.android.tools.smali.dexlib2.iface.ClassDef
 import com.android.tools.smali.dexlib2.iface.Method
 import com.android.tools.smali.dexlib2.iface.instruction.Instruction
 import com.android.tools.smali.dexlib2.iface.instruction.WideLiteralInstruction
 import org.w3c.dom.Element
-import java.util.*
+import java.lang.Runtime
+import java.util.Collections
 import java.util.concurrent.Executors
 import java.util.concurrent.TimeUnit
 
@@ -24,8 +24,8 @@ lateinit var resourceMappings: List<ResourceElement>
 class ResourceMappingFilter(
     private val type: String,
     private val name: String,
-    override val maxInstructionsBefore: Int = METHOD_MAX_INSTRUCTIONS,
-) : InstructionFilter {
+    maxInstructionsBefore: Int = METHOD_MAX_INSTRUCTIONS,
+) : InstructionFilter(maxInstructionsBefore) {
 
     private val resourceId by lazy {
         resourceMappings[
@@ -34,8 +34,8 @@ class ResourceMappingFilter(
         ]
     }
 
+    context(BytecodePatchContext)
     override fun matches(
-        classDef: ClassDef,
         method: Method,
         instruction: Instruction,
         methodIndex: Int
