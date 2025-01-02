@@ -48,7 +48,7 @@ fun spoofVideoStreamsPatch(
 
         // region Block /initplayback requests to fall back to /get_watch requests.
 
-        val moveUriStringIndex = buildInitPlaybackRequestFingerprint.patternMatch!!.startIndex
+        val moveUriStringIndex = buildInitPlaybackRequestFingerprint.patternMatch.startIndex
 
         buildInitPlaybackRequestFingerprint.method.apply {
             val targetRegister = getInstruction<OneRegisterInstruction>(moveUriStringIndex).registerA
@@ -66,7 +66,7 @@ fun spoofVideoStreamsPatch(
 
         // region Block /get_watch requests to fall back to /player requests.
 
-        val invokeToStringIndex = buildPlayerRequestURIFingerprint.patternMatch!!.startIndex
+        val invokeToStringIndex = buildPlayerRequestURIFingerprint.patternMatch.startIndex
 
         buildPlayerRequestURIFingerprint.method.apply {
             val uriRegister = getInstruction<FiveRegisterInstruction>(invokeToStringIndex).registerC
@@ -107,7 +107,7 @@ fun spoofVideoStreamsPatch(
         createStreamingDataFingerprint.method.apply {
             val setStreamDataMethodName = "patch_setStreamingData"
             val resultMethodType = createStreamingDataFingerprint.classDef.type
-            val videoDetailsIndex = createStreamingDataFingerprint.patternMatch!!.endIndex
+            val videoDetailsIndex = createStreamingDataFingerprint.patternMatch.endIndex
             val videoDetailsRegister = getInstruction<TwoRegisterInstruction>(videoDetailsIndex).registerA
             val videoDetailsClass = getInstruction(videoDetailsIndex).getReference<FieldReference>()!!.type
 
@@ -118,7 +118,7 @@ fun spoofVideoStreamsPatch(
             )
 
             val protobufClass = protobufClassParseByteBufferFingerprint.method.definingClass
-            val setStreamingDataIndex = createStreamingDataFingerprint.patternMatch!!.startIndex
+            val setStreamingDataIndex = createStreamingDataFingerprint.patternMatch.startIndex
 
             val playerProtoClass = getInstruction(setStreamingDataIndex + 1)
                 .getReference<FieldReference>()!!.definingClass
@@ -229,10 +229,12 @@ fun spoofVideoStreamsPatch(
 
         // region Fix iOS livestream current time.
 
-        hlsCurrentTimeFingerprint.method.insertFeatureFlagBooleanOverride(
-            HLS_CURRENT_TIME_FEATURE_FLAG,
-            "$EXTENSION_CLASS_DESCRIPTOR->fixHLSCurrentTime(Z)Z"
-        )
+        hlsCurrentTimeFingerprint.let {
+            it.method.insertFeatureFlagBooleanOverride(
+                it.filterMatch.first().index,
+                "$EXTENSION_CLASS_DESCRIPTOR->fixHLSCurrentTime(Z)Z"
+            )
+        }
 
         // endregion
 

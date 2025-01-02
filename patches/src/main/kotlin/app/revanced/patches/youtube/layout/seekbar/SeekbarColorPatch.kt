@@ -182,6 +182,7 @@ val seekbarColorPatch = bytecodePatch(
         sharedExtensionPatch,
         lithoColorHookPatch,
         seekbarColorResourcePatch,
+        resourceMappingPatch,
     )
 
     execute {
@@ -207,7 +208,7 @@ val seekbarColorPatch = bytecodePatch(
         }
 
         setSeekbarClickedColorFingerprint.originalMethod.let {
-            val setColorMethodIndex = setSeekbarClickedColorFingerprint.patternMatch!!.startIndex + 1
+            val setColorMethodIndex = setSeekbarClickedColorFingerprint.patternMatch.startIndex + 1
 
             navigate(it).to(setColorMethodIndex).stop().apply {
                 val colorRegister = getInstruction<TwoRegisterInstruction>(0).registerA
@@ -229,10 +230,12 @@ val seekbarColorPatch = bytecodePatch(
 
         // 19.25+ changes
 
-        playerSeekbarGradientConfigFingerprint.method.insertFeatureFlagBooleanOverride(
-            PLAYER_SEEKBAR_GRADIENT_FEATURE_FLAG,
-            "$EXTENSION_CLASS_DESCRIPTOR->playerSeekbarGradientEnabled(Z)Z"
-        )
+        playerSeekbarGradientConfigFingerprint.let {
+            it.method.insertFeatureFlagBooleanOverride(
+                it.filterMatch.first().index,
+                "$EXTENSION_CLASS_DESCRIPTOR->playerSeekbarGradientEnabled(Z)Z"
+            )
+        }
 
         lithoLinearGradientFingerprint.method.addInstruction(
             0,

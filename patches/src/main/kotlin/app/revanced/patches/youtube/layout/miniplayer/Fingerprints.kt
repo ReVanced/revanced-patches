@@ -13,7 +13,9 @@ internal val miniplayerDimensionsCalculatorParentFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("V")
     parameters("L")
-    literal { floatyBarButtonTopMargin }
+    instructions(
+        ResourceMappingFilter("dimen", "floaty_bar_button_top_margin")
+    )
 }
 
 /**

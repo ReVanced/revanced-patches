@@ -1,5 +1,6 @@
 package app.revanced.patches.youtube.layout.seekbar
 
+import app.revanced.patcher.LiteralFilter
 import app.revanced.patcher.fingerprint
 import app.revanced.util.containsLiteralInstruction
 import app.revanced.util.literal
@@ -10,7 +11,9 @@ internal val fullscreenSeekbarThumbnailsFingerprint = fingerprint {
     returns("Z")
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     parameters()
-    literal { 45398577 }
+    instructions(
+        LiteralFilter(45398577)
+    )
 }
 
 internal val playerSeekbarColorFingerprint = fingerprint {
@@ -34,13 +37,13 @@ internal val shortsSeekbarColorFingerprint = fingerprint {
     literal { reelTimeBarPlayedColorId }
 }
 
-internal const val PLAYER_SEEKBAR_GRADIENT_FEATURE_FLAG = 45617850L
-
 internal val playerSeekbarGradientConfigFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("Z")
     parameters()
-    literal { PLAYER_SEEKBAR_GRADIENT_FEATURE_FLAG }
+    instructions(
+        LiteralFilter(45617850L)
+    )
 }
 
 internal val lithoLinearGradientFingerprint = fingerprint {

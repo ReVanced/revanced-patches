@@ -33,25 +33,22 @@ import com.android.tools.smali.dexlib2.iface.reference.TypeReference
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethodParameter
 
-var floatyBarButtonTopMargin = -1L
-    private set
-
 // Only available in 19.15 and upwards.
-var ytOutlineXWhite24 = -1L
+internal var ytOutlineXWhite24 = -1L
     private set
-var ytOutlinePictureInPictureWhite24 = -1L
+internal var ytOutlinePictureInPictureWhite24 = -1L
     private set
-var scrimOverlay = -1L
+internal var scrimOverlay = -1L
     private set
-var modernMiniplayerClose = -1L
+internal var modernMiniplayerClose = -1L
     private set
-var modernMiniplayerExpand = -1L
+internal var modernMiniplayerExpand = -1L
     private set
-var modernMiniplayerRewindButton = -1L
+internal var modernMiniplayerRewindButton = -1L
     private set
-var modernMiniplayerForwardButton = -1L
+internal var modernMiniplayerForwardButton = -1L
     private set
-var playerOverlays = -1L
+internal var playerOverlays = -1L
     private set
 
 private val miniplayerResourcePatch = resourcePatch {
@@ -61,11 +58,6 @@ private val miniplayerResourcePatch = resourcePatch {
     )
 
     execute {
-        floatyBarButtonTopMargin = resourceMappings[
-            "dimen",
-            "floaty_bar_button_top_margin",
-        ]
-
         scrimOverlay = resourceMappings[
             "id",
             "scrim_overlay",
@@ -329,13 +321,13 @@ val miniplayerPatch = bytecodePatch(
         // endregion
 
         // region Legacy tablet miniplayer hooks.
-        val appNameStringIndex = miniplayerOverrideFingerprint.stringMatches!!.first().index + 2
+        val appNameStringIndex = miniplayerOverrideFingerprint.stringMatches.first().index + 2
         navigate(miniplayerOverrideFingerprint.originalMethod).to(appNameStringIndex).stop().apply {
             findReturnIndicesReversed().forEach { index -> insertLegacyTabletMiniplayerOverride(index) }
         }
 
         miniplayerResponseModelSizeCheckFingerprint.let {
-            it.method.insertLegacyTabletMiniplayerOverride(it.patternMatch!!.endIndex)
+            it.method.insertLegacyTabletMiniplayerOverride(it.patternMatch.endIndex)
         }
 
         // endregion
