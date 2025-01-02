@@ -7,6 +7,7 @@ import app.revanced.patcher.extensions.InstructionExtensions.instructions
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
+import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.playertype.playerTypeHookPatch
 import app.revanced.patches.youtube.misc.playservice.is_19_35_or_greater
@@ -32,6 +33,7 @@ val navigationBarHookPatch = bytecodePatch(description = "Hooks the active navig
     dependsOn(
         sharedExtensionPatch,
         playerTypeHookPatch, // Required to detect the search bar in all situations.
+        resourceMappingPatch // Used by fingerprints
     )
 
     execute {
