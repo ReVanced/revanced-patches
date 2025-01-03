@@ -34,8 +34,8 @@ class ResourceMappingFilter(
         ]
     }
 
-    context(BytecodePatchContext)
     override fun matches(
+        context: BytecodePatchContext,
         method: Method,
         instruction: Instruction,
         methodIndex: Int

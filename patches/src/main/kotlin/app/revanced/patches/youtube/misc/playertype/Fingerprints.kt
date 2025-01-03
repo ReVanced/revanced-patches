@@ -1,6 +1,9 @@
 package app.revanced.patches.youtube.misc.playertype
 
+import app.revanced.patcher.FieldFilter
+import app.revanced.patcher.LiteralFilter
 import app.revanced.patcher.fingerprint
+import app.revanced.patcher.patch.BytecodePatchContext
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
@@ -15,14 +18,31 @@ internal val playerTypeFingerprint by fingerprint {
     custom { _, classDef -> classDef.endsWith("/YouTubePlayerOverlaysLayout;") }
 }
 
+internal val videoStateEnumFingerprint by fingerprint {
+    accessFlags(AccessFlags.STATIC, AccessFlags.CONSTRUCTOR)
+    parameters()
+    strings(
+        "NEW",
+        "PLAYING",
+        "PAUSED",
+        "RECOVERABLE_ERROR",
+        "UNRECOVERABLE_ERROR",
+        "ENDED"
+    )
+}
+
 internal val videoStateFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("V")
     parameters("Lcom/google/android/libraries/youtube/player/features/overlay/controls/ControlsState;")
-    opcodes(
-        Opcode.CONST_4,
-        Opcode.IF_EQZ,
-        Opcode.IF_EQZ,
-        Opcode.IGET_OBJECT, // obfuscated parameter field name
+    instructions(
+        LiteralFilter(1),
+        LiteralFilter(0),
+        // Obfuscated parameter field name.
+        FieldFilter(
+            definingClass = { "Lcom/google/android/libraries/youtube/player/features/overlay/controls/ControlsState;"},
+            type = { context: BytecodePatchContext -> with(context) { videoStateEnumFingerprint.originalClassDef.type } },
+            maxInstructionsBefore = 5
+        )
     )
 }
