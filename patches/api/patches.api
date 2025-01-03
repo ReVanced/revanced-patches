@@ -599,7 +599,7 @@ public final class app/revanced/patches/shared/misc/mapping/ResourceElement {
 public final class app/revanced/patches/shared/misc/mapping/ResourceMappingFilter : app/revanced/patcher/InstructionFilter {
 	public fun <init> (Ljava/lang/String;Ljava/lang/String;I)V
 	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;IILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public fun matches (Lapp/revanced/patcher/patch/BytecodePatchContext;Lcom/android/tools/smali/dexlib2/iface/Method;Lcom/android/tools/smali/dexlib2/iface/instruction/Instruction;I)Z
+	public fun matches (Lcom/android/tools/smali/dexlib2/iface/Method;Lcom/android/tools/smali/dexlib2/iface/instruction/Instruction;I)Z
 }
 
 public final class app/revanced/patches/shared/misc/mapping/ResourceMappingPatchKt {

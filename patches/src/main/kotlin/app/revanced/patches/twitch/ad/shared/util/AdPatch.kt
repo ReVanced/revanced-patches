@@ -3,7 +3,7 @@ package app.revanced.patches.twitch.ad.shared.util
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatchBuilder
-import app.revanced.patcher.patch.BytecodePatchContext
+import app.revanced.patcher.patch.BytecodePatchContext.classBy
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.util.smali.ExternalLabel
 
@@ -12,7 +12,7 @@ fun adPatch(
     skipLabelName: String,
     block: BytecodePatchBuilder.(
         createConditionInstructions: (register: String) -> String,
-        blockMethods: BytecodePatchContext.(
+        blockMethods: (
             clazz: String,
             methodNames: Set<String>,
             returnMethod: ReturnMethod,
@@ -25,7 +25,7 @@ fun adPatch(
         if-eqz $register, :$skipLabelName
     """
 
-    fun BytecodePatchContext.blockMethods(
+    fun blockMethods(
         classDefType: String,
         methodNames: Set<String>,
         returnMethod: ReturnMethod,
@@ -57,7 +57,7 @@ fun adPatch(
         true
     }
 
-    block(::createConditionInstructions, BytecodePatchContext::blockMethods)
+    block(::createConditionInstructions, ::blockMethods)
 }
 
 class ReturnMethod(val returnType: Char, val value: String) {
