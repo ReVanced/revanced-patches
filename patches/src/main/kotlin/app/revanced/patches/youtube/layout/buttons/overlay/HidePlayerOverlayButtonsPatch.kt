@@ -63,7 +63,7 @@ val hidePlayerOverlayButtonsPatch = bytecodePatch(
 
         playerControlsPreviousNextOverlayTouchFingerprint.let {
             it.method.apply {
-                val insertIndex = it.filterMatch.last().index
+                val insertIndex = it.filterMatches.last().index
                 val viewRegister = getInstruction<FiveRegisterInstruction>(insertIndex).registerC
 
                 addInstruction(

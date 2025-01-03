@@ -32,7 +32,7 @@ internal val disableCairoSettingsPatch = bytecodePatch(
          */
         cairoFragmentConfigFingerprint.let{
             it.method.apply {
-                val resultIndex = it.filterMatch.last().index
+                val resultIndex = it.filterMatches.last().index
                 val register = getInstruction<OneRegisterInstruction>(resultIndex).registerA
 
                 addInstruction(

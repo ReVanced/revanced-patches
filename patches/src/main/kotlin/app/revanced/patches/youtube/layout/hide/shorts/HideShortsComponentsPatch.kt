@@ -236,7 +236,7 @@ val hideShortsComponentsPatch = bytecodePatch(
         // Hide the bottom bar container of the Shorts player.
         shortsBottomBarContainerFingerprint.let {
             it.method.apply {
-                val targetIndex = it.filterMatch.last().index
+                val targetIndex = it.filterMatches.last().index
                 val heightRegister = getInstruction<OneRegisterInstruction>(targetIndex).registerA
 
                 addInstructions(

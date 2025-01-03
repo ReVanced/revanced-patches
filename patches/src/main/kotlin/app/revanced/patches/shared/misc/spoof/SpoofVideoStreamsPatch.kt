@@ -86,7 +86,7 @@ fun spoofVideoStreamsPatch(
 
         buildRequestFingerprint.let {
             it.method.apply {
-                val builderIndex = it.filterMatch.first().index
+                val builderIndex = it.filterMatches.first().index
                 val urlRegister = getInstruction<FiveRegisterInstruction>(builderIndex).registerD
                 val freeRegister = getInstruction<OneRegisterInstruction>(builderIndex + 1).registerA
 
@@ -231,7 +231,7 @@ fun spoofVideoStreamsPatch(
 
         hlsCurrentTimeFingerprint.let {
             it.method.insertFeatureFlagBooleanOverride(
-                it.filterMatch.first().index,
+                it.filterMatches.first().index,
                 "$EXTENSION_CLASS_DESCRIPTOR->fixHLSCurrentTime(Z)Z"
             )
         }

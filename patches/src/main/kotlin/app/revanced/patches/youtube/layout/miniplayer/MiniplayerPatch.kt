@@ -392,7 +392,7 @@ val miniplayerPatch = bytecodePatch(
             // Override a minimum size constant.
             miniplayerMinimumSizeFingerprint.let {
                 it.method.apply {
-                    val index = it.filterMatch[1].index
+                    val index = it.filterMatches[1].index
                     val register = getInstruction<OneRegisterInstruction>(index).registerA
 
                     // Smaller sizes can be used, but the miniplayer will always start in size 170 if set any smaller.

@@ -232,7 +232,7 @@ val seekbarColorPatch = bytecodePatch(
 
         playerSeekbarGradientConfigFingerprint.let {
             it.method.insertFeatureFlagBooleanOverride(
-                it.filterMatch.first().index,
+                it.filterMatches.first().index,
                 "$EXTENSION_CLASS_DESCRIPTOR->playerSeekbarGradientEnabled(Z)Z"
             )
         }
