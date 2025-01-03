@@ -39,7 +39,7 @@ val spoofClientPatch = bytecodePatch(
         val createPlayerRequestBodyMatch = createPlayerRequestBodyFingerprint.match(playerRequestClass)
 
         val clientInfoContainerClass = createPlayerRequestBodyMatch.method
-            .getInstruction(createPlayerRequestBodyMatch.patternMatch!!.startIndex)
+            .getInstruction(createPlayerRequestBodyMatch.filterMatches.first().index)
             .getReference<TypeReference>()!!.type
 
         val clientInfoField = setClientInfoClientVersionFingerprint.method.instructions.first {
@@ -96,7 +96,7 @@ val spoofClientPatch = bytecodePatch(
         }
 
         createPlayerRequestBodyMatch.method.apply {
-            val checkCastIndex = createPlayerRequestBodyMatch.patternMatch!!.startIndex
+            val checkCastIndex = createPlayerRequestBodyMatch.filterMatches.first().index
             val clientInfoContainerRegister = getInstruction<OneRegisterInstruction>(checkCastIndex).registerA
 
             addInstruction(checkCastIndex + 1, "invoke-static {v$clientInfoContainerRegister}, $spoofClientInfoMethod")

@@ -48,7 +48,7 @@ fun spoofVideoStreamsPatch(
 
         // region Block /initplayback requests to fall back to /get_watch requests.
 
-        val moveUriStringIndex = buildInitPlaybackRequestFingerprint.patternMatch.startIndex
+        val moveUriStringIndex = buildInitPlaybackRequestFingerprint.filterMatches.first().index
 
         buildInitPlaybackRequestFingerprint.method.apply {
             val targetRegister = getInstruction<OneRegisterInstruction>(moveUriStringIndex).registerA

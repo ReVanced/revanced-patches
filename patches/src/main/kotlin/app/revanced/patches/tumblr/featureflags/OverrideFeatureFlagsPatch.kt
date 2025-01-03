@@ -69,7 +69,7 @@ val overrideFeatureFlagsPatch = bytecodePatch(
         // This is equivalent to
         //   String forcedValue = getValueOverride(feature)
         //   if (forcedValue != null) return forcedValue
-        val getFeatureIndex = getFeatureValueFingerprint.patternMatch!!.startIndex
+        val getFeatureIndex = getFeatureValueFingerprint.filterMatches.first().index
         getFeatureValueFingerprint.method.addInstructionsWithLabels(
             getFeatureIndex,
             """

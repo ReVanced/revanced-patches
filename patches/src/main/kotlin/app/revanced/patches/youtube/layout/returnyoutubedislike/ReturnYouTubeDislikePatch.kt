@@ -172,7 +172,7 @@ val returnYouTubeDislikePatch = bytecodePatch(
 
         // region Hook for non-litho Short videos.
         shortsTextViewFingerprint.method.apply {
-            val insertIndex = shortsTextViewFingerprint.patternMatch!!.endIndex + 1
+            val insertIndex = shortsTextViewFingerprint.filterMatches.last().index + 1
 
             // If the field is true, the TextView is for a dislike button.
             val isDisLikesBooleanInstruction = instructions.first { instruction ->
@@ -229,7 +229,7 @@ val returnYouTubeDislikePatch = bytecodePatch(
         // Do this last to allow patching old unsupported versions (if the user really wants),
         // On older unsupported version this will fail to match and throw an exception,
         // but everything will still work correctly anyway.
-        val dislikesIndex = rollingNumberSetterFingerprint.patternMatch!!.endIndex
+        val dislikesIndex = rollingNumberSetterFingerprint.filterMatches.last().index
 
         rollingNumberSetterFingerprint.method.apply {
             val insertIndex = 1
@@ -279,7 +279,7 @@ val returnYouTubeDislikePatch = bytecodePatch(
         rollingNumberMeasureStaticLabelFingerprint.match(
             rollingNumberMeasureStaticLabelParentFingerprint.originalClassDef,
         ).let {
-            val measureTextIndex = it.patternMatch!!.startIndex + 1
+            val measureTextIndex = it.filterMatches.first().index + 1
             it.method.apply {
                 val freeRegister = getInstruction<TwoRegisterInstruction>(0).registerA
 

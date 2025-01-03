@@ -85,7 +85,7 @@ val hideInfoCardsPatch = bytecodePatch(
 
         val hideInfoCardsCallMethod = infocardsMethodCallFingerprint.method
 
-        val invokeInterfaceIndex = infocardsMethodCallFingerprint.patternMatch!!.endIndex
+        val invokeInterfaceIndex = infocardsMethodCallFingerprint.filterMatches.last().index
         val toggleRegister = infocardsMethodCallFingerprint.method.implementation!!.registerCount - 1
 
         hideInfoCardsCallMethod.addInstructionsWithLabels(

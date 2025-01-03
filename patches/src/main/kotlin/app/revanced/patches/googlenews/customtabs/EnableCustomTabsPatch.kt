@@ -14,7 +14,7 @@ val enableCustomTabsPatch = bytecodePatch(
 
     execute {
         launchCustomTabFingerprint.method.apply {
-            val checkIndex = launchCustomTabFingerprint.patternMatch!!.endIndex + 1
+            val checkIndex = launchCustomTabFingerprint.filterMatches.last().index + 1
             val register = getInstruction<OneRegisterInstruction>(checkIndex).registerA
 
             replaceInstruction(checkIndex, "const/4 v$register, 0x1")

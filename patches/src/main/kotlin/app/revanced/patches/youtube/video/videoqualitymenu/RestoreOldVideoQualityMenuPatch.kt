@@ -92,7 +92,7 @@ val restoreOldVideoQualityMenuPatch = bytecodePatch(
         // and for the Shorts quality flyout on newer app versions.
 
         videoQualityMenuViewInflateFingerprint.method.apply {
-            val checkCastIndex = videoQualityMenuViewInflateFingerprint.patternMatch!!.endIndex
+            val checkCastIndex = videoQualityMenuViewInflateFingerprint.filterMatches.last().index
             val listViewRegister = getInstruction<OneRegisterInstruction>(checkCastIndex).registerA
 
             addInstruction(
