@@ -8,7 +8,7 @@ import com.android.tools.smali.dexlib2.AccessFlags
  * Purpose of this method is not clear, and it's only used to identify
  * the obfuscated name of the videoId() method in PlaybackStartDescriptor.
  */
-internal val playbackStartFeatureFlagFingerprint = fingerprint {
+internal val playbackStartFeatureFlagFingerprint by fingerprint {
     returns("Z")
     parameters(
         "Lcom/google/android/libraries/youtube/player/model/PlaybackStartDescriptor;",
@@ -19,7 +19,7 @@ internal val playbackStartFeatureFlagFingerprint = fingerprint {
 }
 
 // Pre 19.25
-internal val shortsPlaybackIntentLegacyFingerprint = fingerprint {
+internal val shortsPlaybackIntentLegacyFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("V")
     parameters(
@@ -38,7 +38,7 @@ internal val shortsPlaybackIntentLegacyFingerprint = fingerprint {
     )
 }
 
-internal val shortsPlaybackIntentFingerprint = fingerprint {
+internal val shortsPlaybackIntentFingerprint by fingerprint {
     accessFlags(AccessFlags.PROTECTED, AccessFlags.FINAL)
     returns("V")
     parameters(

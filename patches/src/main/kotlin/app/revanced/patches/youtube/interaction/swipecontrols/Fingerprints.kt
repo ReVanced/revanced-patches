@@ -4,7 +4,7 @@ import app.revanced.patcher.fingerprint
 import app.revanced.util.literal
 import com.android.tools.smali.dexlib2.AccessFlags
 
-internal val swipeControlsHostActivityFingerprint = fingerprint {
+internal val swipeControlsHostActivityFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     parameters()
     custom { method, _ ->
@@ -14,7 +14,7 @@ internal val swipeControlsHostActivityFingerprint = fingerprint {
 
 internal const val SWIPE_CHANGE_VIDEO_FEATURE_FLAG = 45631116L
 
-internal val swipeChangeVideoFingerprint = fingerprint {
+internal val swipeChangeVideoFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     parameters("L")
     literal {

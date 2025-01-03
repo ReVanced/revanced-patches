@@ -4,7 +4,7 @@ import app.revanced.patcher.FieldFilter
 import app.revanced.patcher.fingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 
-internal val formFactorEnumConstructorFingerprint = fingerprint {
+internal val formFactorEnumConstructorFingerprint by fingerprint {
     accessFlags(AccessFlags.STATIC, AccessFlags.CONSTRUCTOR)
     strings(
         "UNKNOWN_FORM_FACTOR",
@@ -14,7 +14,7 @@ internal val formFactorEnumConstructorFingerprint = fingerprint {
     )
 }
 
-internal val createPlayerRequestBodyWithModelFingerprint = fingerprint {
+internal val createPlayerRequestBodyWithModelFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("L")
     parameters()

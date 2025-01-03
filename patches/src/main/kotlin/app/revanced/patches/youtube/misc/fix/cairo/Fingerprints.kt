@@ -12,7 +12,7 @@ import com.android.tools.smali.dexlib2.Opcode
  * When this value is true, Cairo Fragment is used.
  * In this case, some of the patches may be broken, so set this value to FALSE.
  */
-internal val cairoFragmentConfigFingerprint = fingerprint {
+internal val cairoFragmentConfigFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("Z")
     instructions(

@@ -4,7 +4,7 @@ import app.revanced.patcher.LiteralFilter
 import app.revanced.patcher.fingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 
-internal val openVideosFullscreenPortraitFingerprint = fingerprint {
+internal val openVideosFullscreenPortraitFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("V")
     parameters("L", "Lj\$/util/Optional;")
@@ -16,7 +16,7 @@ internal val openVideosFullscreenPortraitFingerprint = fingerprint {
 /**
  * Used to enable opening regular videos fullscreen.
  */
-internal val openVideosFullscreenHookPatchExtensionFingerprint = fingerprint {
+internal val openVideosFullscreenHookPatchExtensionFingerprint by fingerprint {
     accessFlags(AccessFlags.PRIVATE, AccessFlags.STATIC)
     returns("Z")
     parameters()

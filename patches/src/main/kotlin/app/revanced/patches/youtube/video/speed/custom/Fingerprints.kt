@@ -5,20 +5,20 @@ import app.revanced.util.literal
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal val getOldPlaybackSpeedsFingerprint = fingerprint {
+internal val getOldPlaybackSpeedsFingerprint by fingerprint {
     parameters("[L", "I")
     strings("menu_item_playback_speed")
 }
 
-internal val showOldPlaybackSpeedMenuFingerprint = fingerprint {
+internal val showOldPlaybackSpeedMenuFingerprint by fingerprint {
     literal { speedUnavailableId }
 }
 
-internal val showOldPlaybackSpeedMenuExtensionFingerprint = fingerprint {
+internal val showOldPlaybackSpeedMenuExtensionFingerprint by fingerprint {
     custom { method, _ -> method.name == "showOldPlaybackSpeedMenu" }
 }
 
-internal val speedArrayGeneratorFingerprint = fingerprint {
+internal val speedArrayGeneratorFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
     returns("[L")
     parameters("Lcom/google/android/libraries/youtube/innertube/model/player/PlayerResponseModel;")
@@ -33,7 +33,7 @@ internal val speedArrayGeneratorFingerprint = fingerprint {
     strings("0.0#")
 }
 
-internal val speedLimiterFingerprint = fingerprint {
+internal val speedLimiterFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("V")
     parameters("F")

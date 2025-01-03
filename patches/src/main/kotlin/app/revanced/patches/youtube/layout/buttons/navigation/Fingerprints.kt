@@ -8,11 +8,11 @@ import app.revanced.patcher.fingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal val addCreateButtonViewFingerprint = fingerprint {
+internal val addCreateButtonViewFingerprint by fingerprint {
     strings("Android Automotive", "Android Wear")
 }
 
-internal val createPivotBarFingerprint = fingerprint {
+internal val createPivotBarFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     returns("V")
     parameters(
@@ -26,7 +26,7 @@ internal val createPivotBarFingerprint = fingerprint {
     )
 }
 
-internal val translucentNavigationStatusBarFeatureFlagFingerprint = fingerprint {
+internal val translucentNavigationStatusBarFeatureFlagFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("Z")
     instructions(
@@ -37,7 +37,7 @@ internal val translucentNavigationStatusBarFeatureFlagFingerprint = fingerprint 
 /**
  * YouTube nav buttons.
  */
-internal val translucentNavigationButtonsFeatureFlagFingerprint = fingerprint {
+internal val translucentNavigationButtonsFeatureFlagFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("V")
     instructions(
@@ -48,7 +48,7 @@ internal val translucentNavigationButtonsFeatureFlagFingerprint = fingerprint {
 /**
  * Device on screen back/home/recent buttons.
  */
-internal val translucentNavigationButtonsSystemFeatureFlagFingerprint = fingerprint {
+internal val translucentNavigationButtonsSystemFeatureFlagFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("Z")
     instructions(

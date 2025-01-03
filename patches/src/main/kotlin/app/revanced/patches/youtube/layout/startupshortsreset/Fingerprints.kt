@@ -4,7 +4,7 @@ import app.revanced.patcher.fingerprint
 import app.revanced.util.literal
 import com.android.tools.smali.dexlib2.AccessFlags
 
-internal val userWasInShortsFingerprint = fingerprint {
+internal val userWasInShortsFingerprint by fingerprint {
     returns("V")
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     parameters("Ljava/lang/Object;")
@@ -14,7 +14,7 @@ internal val userWasInShortsFingerprint = fingerprint {
 /**
  * 18.15.40+
  */
-internal val userWasInShortsConfigFingerprint = fingerprint {
+internal val userWasInShortsConfigFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("Z")
     literal {

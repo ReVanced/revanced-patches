@@ -3,12 +3,9 @@ package app.revanced.patches.youtube.layout.sponsorblock
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
-import app.revanced.patcher.extensions.InstructionExtensions.instructions
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
-import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.resourcePatch
-import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
@@ -30,7 +27,6 @@ import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.*
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
-import com.android.tools.smali.dexlib2.iface.reference.StringReference
 
 private val sponsorBlockResourcePatch = resourcePatch {
     dependsOn(
@@ -84,7 +80,7 @@ private val sponsorBlockResourcePatch = resourcePatch {
     }
 }
 
-private const val EXTENSION_SEGMENT_PLAYBACK_CONTROLLER_CLASS_DESCRIPTOR =
+internal const val EXTENSION_SEGMENT_PLAYBACK_CONTROLLER_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/youtube/sponsorblock/SegmentPlaybackController;"
 private const val EXTENSION_CREATE_SEGMENT_BUTTON_CONTROLLER_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/youtube/sponsorblock/ui/CreateSegmentButtonController;"
@@ -210,35 +206,26 @@ val sponsorBlockPatch = bytecodePatch(
         }
 
         // Set seekbar draw rectangle.
-        rectangleFieldInvalidatorFingerprint.match(seekbarOnDrawFingerprint.originalClassDef).method.apply {
-            val fieldIndex = instructions.count() - 3
-            val fieldReference = getInstruction<ReferenceInstruction>(fieldIndex).reference as FieldReference
+        rectangleFieldInvalidatorFingerprint.match(seekbarFingerprint.originalClassDef).method.apply {
+            val invalidateIndex = indexOfInvalidateInstruction(this)
+            val rectangleIndex = indexOfFirstInstructionReversedOrThrow(invalidateIndex + 1) {
+                getReference<FieldReference>()?.type == "Landroid/graphics/Rect;"
+            }
+            val rectangleFieldName =
+                (getInstruction<ReferenceInstruction>(rectangleIndex).reference as FieldReference).name
 
-            // replace the "replaceMeWith*" strings
-            proxy(classes.first { it.type.endsWith("SegmentPlaybackController;") })
-                .mutableClass
-                .methods
-                .find { it.name == "setSponsorBarRect" }
-                ?.let { method ->
-                    fun MutableMethod.replaceStringInstruction(index: Int, instruction: Instruction, with: String) {
-                        val register = (instruction as OneRegisterInstruction).registerA
-                        this.replaceInstruction(
-                            index,
-                            "const-string v$register, \"$with\"",
-                        )
-                    }
-                    for ((index, it) in method.instructions.withIndex()) {
-                        if (it.opcode.ordinal != Opcode.CONST_STRING.ordinal) continue
+            segmentPlaybackControllerFingerprint.let {
+                it.method.apply {
+                    val replaceIndex = it.patternMatch.startIndex
+                    val replaceRegister =
+                        getInstruction<OneRegisterInstruction>(replaceIndex).registerA
 
-                        when (((it as ReferenceInstruction).reference as StringReference).string) {
-                            "replaceMeWithsetSponsorBarRect" -> method.replaceStringInstruction(
-                                index,
-                                it,
-                                fieldReference.name,
-                            )
-                        }
-                    }
-                } ?: throw PatchException("Could not find the method which contains the replaceMeWith* strings")
+                    replaceInstruction(
+                        replaceIndex,
+                        "const-string v$replaceRegister, \"$rectangleFieldName\""
+                    )
+                }
+            }
         }
 
         // The vote and create segment buttons automatically change their visibility when appropriate,

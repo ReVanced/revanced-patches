@@ -3,7 +3,7 @@ package app.revanced.patches.reddit.customclients.sync.syncforreddit.fix.video
 import app.revanced.patcher.fingerprint
 import com.android.tools.smali.dexlib2.Opcode
 
-internal val parseRedditVideoNetworkResponseFingerprint = fingerprint {
+internal val parseRedditVideoNetworkResponseFingerprint by fingerprint {
     opcodes(
         Opcode.NEW_INSTANCE,
         Opcode.IGET_OBJECT,

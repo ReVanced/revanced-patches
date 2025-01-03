@@ -4,7 +4,7 @@ import app.revanced.patcher.fingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal val hideGetPremiumFingerprint = fingerprint {
+internal val hideGetPremiumFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("V")
     parameters()
@@ -16,7 +16,7 @@ internal val hideGetPremiumFingerprint = fingerprint {
     strings("FEmusic_history", "FEmusic_offline")
 }
 
-internal val membershipSettingsFingerprint = fingerprint {
+internal val membershipSettingsFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("Ljava/lang/CharSequence;")
     opcodes(

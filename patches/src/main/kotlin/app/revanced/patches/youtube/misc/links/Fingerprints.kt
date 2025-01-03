@@ -7,7 +7,7 @@ import com.android.tools.smali.dexlib2.Opcode
 /**
  * Target 19.33+
  */
-internal val abUriParserFingerprint = fingerprint {
+internal val abUriParserFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("Ljava/lang/Object")
     parameters("Ljava/lang/Object")
@@ -20,7 +20,7 @@ internal val abUriParserFingerprint = fingerprint {
     }
 }
 
-internal val abUriParserLegacyFingerprint = fingerprint {
+internal val abUriParserLegacyFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("Ljava/lang/Object")
     parameters("Ljava/lang/Object")
@@ -50,7 +50,7 @@ internal val abUriParserLegacyFingerprint = fingerprint {
 /**
  * Target 19.33+
  */
-internal val httpUriParserFingerprint = fingerprint {
+internal val httpUriParserFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
     returns("Landroid/net/Uri")
     parameters("Ljava/lang/String")
@@ -60,7 +60,7 @@ internal val httpUriParserFingerprint = fingerprint {
     }
 }
 
-internal val httpUriParserLegacyFingerprint = fingerprint {
+internal val httpUriParserLegacyFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
     returns("Landroid/net/Uri")
     parameters("Ljava/lang/String")

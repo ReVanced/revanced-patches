@@ -4,7 +4,7 @@ import com.android.tools.smali.dexlib2.AccessFlags
 import app.revanced.patcher.fingerprint
 
 // This method is responsible for loading and displaying the visual Layout of the Gift Message Popup.
-internal val showGiftMessagePopupFingerprint = fingerprint {
+internal val showGiftMessagePopupFingerprint by fingerprint {
     accessFlags(AccessFlags.FINAL, AccessFlags.PUBLIC)
     returns("V")
     strings("activity", "anchorView", "textMessage")

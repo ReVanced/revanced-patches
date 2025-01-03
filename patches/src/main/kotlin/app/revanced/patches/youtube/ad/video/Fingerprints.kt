@@ -2,7 +2,7 @@ package app.revanced.patches.youtube.ad.video
 
 import app.revanced.patcher.fingerprint
 
-internal val loadVideoAdsFingerprint = fingerprint {
+internal val loadVideoAdsFingerprint by fingerprint {
     strings(
         "TriggerBundle doesn't have the required metadata specified by the trigger ",
         "Tried to enter slot with no assigned slotAdapter",

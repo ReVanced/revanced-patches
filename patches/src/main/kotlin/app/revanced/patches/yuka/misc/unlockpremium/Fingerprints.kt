@@ -4,7 +4,7 @@ import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.AccessFlags
 import app.revanced.patcher.fingerprint
 
-internal val isPremiumFingerprint = fingerprint {
+internal val isPremiumFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("Z")
     opcodes(
@@ -13,7 +13,7 @@ internal val isPremiumFingerprint = fingerprint {
     )
 }
 
-internal val yukaUserConstructorFingerprint = fingerprint {
+internal val yukaUserConstructorFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     returns("V")
     strings("premiumProvider")

@@ -5,7 +5,7 @@ import app.revanced.patcher.fingerprint
 import app.revanced.patches.shared.misc.mapping.ResourceMappingFilter
 import com.android.tools.smali.dexlib2.AccessFlags
 
-internal val playerControlsPreviousNextOverlayTouchFingerprint = fingerprint {
+internal val playerControlsPreviousNextOverlayTouchFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("V")
     strings("1.0x")
@@ -16,7 +16,7 @@ internal val playerControlsPreviousNextOverlayTouchFingerprint = fingerprint {
     )
 }
 
-internal val mediaRouteButtonFingerprint = fingerprint {
+internal val mediaRouteButtonFingerprint by fingerprint {
     parameters("I")
     custom { methodDef, _ ->
         methodDef.definingClass.endsWith("/MediaRouteButton;") && methodDef.name == "setVisibility"

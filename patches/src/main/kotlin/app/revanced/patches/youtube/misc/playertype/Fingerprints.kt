@@ -4,7 +4,7 @@ import app.revanced.patcher.fingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal val playerTypeFingerprint = fingerprint {
+internal val playerTypeFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("V")
     parameters("L")
@@ -15,7 +15,7 @@ internal val playerTypeFingerprint = fingerprint {
     custom { _, classDef -> classDef.endsWith("/YouTubePlayerOverlaysLayout;") }
 }
 
-internal val videoStateFingerprint = fingerprint {
+internal val videoStateFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("V")
     parameters("Lcom/google/android/libraries/youtube/player/features/overlay/controls/ControlsState;")

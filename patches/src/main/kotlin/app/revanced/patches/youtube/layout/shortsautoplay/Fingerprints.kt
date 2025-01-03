@@ -4,7 +4,7 @@ import app.revanced.patcher.fingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal val reelEnumConstructorFingerprint = fingerprint {
+internal val reelEnumConstructorFingerprint by fingerprint {
     accessFlags(AccessFlags.STATIC, AccessFlags.CONSTRUCTOR)
     opcodes(Opcode.RETURN_VOID)
     strings(
@@ -15,7 +15,7 @@ internal val reelEnumConstructorFingerprint = fingerprint {
     )
 }
 
-internal val reelPlaybackRepeatFingerprint = fingerprint {
+internal val reelPlaybackRepeatFingerprint by fingerprint {
     returns("V")
     parameters("L")
     strings("YoutubePlayerState is in throwing an Error.")

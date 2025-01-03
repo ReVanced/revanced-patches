@@ -12,7 +12,7 @@ import com.android.tools.smali.dexlib2.iface.reference.FieldReference
  * This method is usually used to set the initial speed (1.0x) when playback starts from the feed.
  * For some reason, in the latest YouTube, it is invoked even after the video has already started.
  */
-internal val playbackSpeedInFeedsFingerprint = fingerprint {
+internal val playbackSpeedInFeedsFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("V")
     parameters("L")

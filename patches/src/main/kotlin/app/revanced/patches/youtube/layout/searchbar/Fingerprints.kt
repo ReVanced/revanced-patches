@@ -4,7 +4,7 @@ import app.revanced.patcher.fingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal val createSearchSuggestionsFingerprint = fingerprint {
+internal val createSearchSuggestionsFingerprint by fingerprint {
     opcodes(
         Opcode.INVOKE_STATIC,
         Opcode.MOVE_RESULT,
@@ -13,7 +13,7 @@ internal val createSearchSuggestionsFingerprint = fingerprint {
     strings("ss_rds")
 }
 
-internal val setWordmarkHeaderFingerprint = fingerprint {
+internal val setWordmarkHeaderFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("V")
     parameters("Landroid/widget/ImageView;")

@@ -5,7 +5,7 @@ import app.revanced.util.literal
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal val createEndScreenViewFingerprint = fingerprint {
+internal val createEndScreenViewFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("Landroid/view/View;")
     parameters("Landroid/content/Context;")

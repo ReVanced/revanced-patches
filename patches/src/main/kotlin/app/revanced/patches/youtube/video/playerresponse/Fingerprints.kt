@@ -6,7 +6,7 @@ import com.android.tools.smali.dexlib2.AccessFlags
 /**
  * For targets 19.25 and later.
  */
-internal val playerParameterBuilderFingerprint = fingerprint {
+internal val playerParameterBuilderFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("L")
     parameters(
@@ -31,7 +31,7 @@ internal val playerParameterBuilderFingerprint = fingerprint {
 /**
  * For targets 19.24 and earlier.
  */
-internal val playerParameterBuilderLegacyFingerprint = fingerprint {
+internal val playerParameterBuilderLegacyFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("L")
     parameters(

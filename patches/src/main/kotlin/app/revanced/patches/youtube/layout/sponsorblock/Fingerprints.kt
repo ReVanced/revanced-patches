@@ -1,12 +1,14 @@
 package app.revanced.patches.youtube.layout.sponsorblock
 
 import app.revanced.patcher.fingerprint
+import app.revanced.util.getReference
+import app.revanced.util.indexOfFirstInstructionReversed
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
-import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
+import com.android.tools.smali.dexlib2.iface.Method
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
-internal val appendTimeFingerprint = fingerprint {
+internal val appendTimeFingerprint by fingerprint {
     returns("V")
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     parameters("Ljava/lang/CharSequence;", "Ljava/lang/CharSequence;", "Ljava/lang/CharSequence;")
@@ -29,7 +31,7 @@ internal val appendTimeFingerprint = fingerprint {
     )
 }
 
-internal val controlsOverlayFingerprint = fingerprint {
+internal val controlsOverlayFingerprint by fingerprint {
     returns("V")
     accessFlags(AccessFlags.PRIVATE, AccessFlags.FINAL)
     parameters()
@@ -47,18 +49,26 @@ internal val controlsOverlayFingerprint = fingerprint {
     )
 }
 
-internal val rectangleFieldInvalidatorFingerprint = fingerprint {
+internal val rectangleFieldInvalidatorFingerprint by fingerprint {
     returns("V")
-    custom { method, _ ->
-        val instructions = method.implementation?.instructions!!
-        val instructionCount = instructions.count()
-
-        // the method has definitely more than 5 instructions
-        if (instructionCount < 5) return@custom false
-
-        val referenceInstruction = instructions.elementAt(instructionCount - 2) // the second to last instruction
-        val reference = ((referenceInstruction as? ReferenceInstruction)?.reference as? MethodReference)
-
-        reference?.parameterTypes?.size == 1 && reference.name == "invalidate" // the reference is the invalidate(..) method
+    parameters()
+    custom  { method, _ ->
+        indexOfInvalidateInstruction(method) >= 0
     }
 }
+
+internal val segmentPlaybackControllerFingerprint by fingerprint {
+    returns("V")
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
+    parameters("Ljava/lang/Object;")
+    opcodes(Opcode.CONST_STRING)
+    custom { method, _ ->
+        method.definingClass == EXTENSION_SEGMENT_PLAYBACK_CONTROLLER_CLASS_DESCRIPTOR
+                && method.name == "setSponsorBarRect"
+    }
+}
+
+internal fun indexOfInvalidateInstruction(method: Method) =
+    method.indexOfFirstInstructionReversed {
+        getReference<MethodReference>()?.name == "invalidate"
+    }

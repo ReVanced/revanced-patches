@@ -3,12 +3,12 @@ package app.revanced.patches.youtube.layout.startpage
 import app.revanced.patcher.fingerprint
 import com.android.tools.smali.dexlib2.Opcode
 
-internal val intentActionFingerprint = fingerprint {
+internal val intentActionFingerprint by fingerprint {
     parameters("Landroid/content/Intent;")
     strings("has_handled_intent")
 }
 
-internal val browseIdFingerprint = fingerprint {
+internal val browseIdFingerprint by fingerprint {
     returns("Lcom/google/android/apps/youtube/app/common/ui/navigation/PaneDescriptor;")
     parameters()
     opcodes(

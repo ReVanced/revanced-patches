@@ -7,7 +7,7 @@ import app.revanced.util.literal
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal val videoIdFingerprint = fingerprint {
+internal val videoIdFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("V")
     parameters("L")
@@ -22,7 +22,7 @@ internal val videoIdFingerprint = fingerprint {
     )
 }
 
-internal val videoIdBackgroundPlayFingerprint = fingerprint {
+internal val videoIdBackgroundPlayFingerprint by fingerprint {
     accessFlags(AccessFlags.DECLARED_SYNCHRONIZED, AccessFlags.FINAL, AccessFlags.PUBLIC)
     returns("V")
     parameters("L")
@@ -46,7 +46,7 @@ internal val videoIdBackgroundPlayFingerprint = fingerprint {
     }
 }
 
-internal val videoIdParentFingerprint = fingerprint {
+internal val videoIdParentFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("[L")
     parameters("L")
