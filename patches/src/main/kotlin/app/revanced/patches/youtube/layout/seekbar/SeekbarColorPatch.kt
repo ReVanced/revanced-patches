@@ -10,8 +10,8 @@ import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patches.shared.misc.mapping.get
 import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
 import app.revanced.patches.shared.misc.mapping.resourceMappings
-import app.revanced.patches.youtube.layout.theme.lithoColorHookPatch
-import app.revanced.patches.youtube.layout.theme.lithoColorOverrideHook
+import app.revanced.patches.shared.layout.theme.lithoColorHookPatch
+import app.revanced.patches.shared.layout.theme.lithoColorOverrideHook
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.playservice.is_19_25_or_greater
 import app.revanced.patches.youtube.misc.playservice.is_19_46_or_greater

@@ -1,4 +1,4 @@
-package app.revanced.patches.youtube.layout.theme
+package app.revanced.patches.shared.layout.theme
 
 import app.revanced.patcher.fingerprint
 import app.revanced.util.literal
@@ -37,7 +37,7 @@ internal val themeHelperDarkColorFingerprint = fingerprint {
     parameters()
     custom { method, _ ->
         method.name == "darkThemeResourceName" &&
-            method.definingClass == "Lapp/revanced/extension/youtube/ThemeHelper;"
+            method.definingClass == "Lapp/revanced/extension/shared/ThemeHelper;"
     }
 }
 
@@ -47,7 +47,7 @@ internal val themeHelperLightColorFingerprint = fingerprint {
     parameters()
     custom { method, _ ->
         method.name == "lightThemeResourceName" &&
-            method.definingClass == "Lapp/revanced/extension/youtube/ThemeHelper;"
+            method.definingClass == "Lapp/revanced/extension/shared/ThemeHelper;"
     }
 }
 
