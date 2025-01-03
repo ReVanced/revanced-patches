@@ -76,7 +76,7 @@ val wideSearchbarPatch = bytecodePatch(
 
         mapOf(
             setWordmarkHeaderFingerprint to 1,
-            createSearchSuggestionsFingerprint to createSearchSuggestionsFingerprint.patternMatch!!.startIndex,
+            createSearchSuggestionsFingerprint to createSearchSuggestionsFingerprint.filterMatches.first().index,
         ).forEach { (fingerprint, callIndex) ->
             walkMutable(callIndex, fingerprint).injectSearchBarHook()
         }

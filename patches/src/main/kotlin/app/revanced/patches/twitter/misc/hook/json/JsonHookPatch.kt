@@ -22,7 +22,7 @@ fun addJsonHook(
 
     jsonHookPatchFingerprint.method.apply {
         // Insert hooks right before calling buildList.
-        val insertIndex = jsonHookPatchFingerprint.patternMatch!!.endIndex
+        val insertIndex = jsonHookPatchFingerprint.filterMatches.last().index
 
         addInstructions(
             insertIndex,
@@ -77,7 +77,7 @@ val jsonHookPatch = bytecodePatch(
     finalize {
         // Remove hooks.add(dummyHook).
         jsonHookPatchFingerprint.method.apply {
-            val addDummyHookIndex = jsonHookPatchFingerprint.patternMatch!!.endIndex - 2
+            val addDummyHookIndex = jsonHookPatchFingerprint.filterMatches.last().index - 2
 
             removeInstructions(addDummyHookIndex, 2)
         }

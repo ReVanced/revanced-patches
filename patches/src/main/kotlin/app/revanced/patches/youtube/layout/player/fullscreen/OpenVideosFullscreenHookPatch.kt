@@ -24,9 +24,11 @@ internal val openVideosFullscreenHookPatch = bytecodePatch {
             return@execute
         }
 
-        openVideosFullscreenPortraitFingerprint.method.insertFeatureFlagBooleanOverride(
-            OPEN_VIDEOS_FULLSCREEN_PORTRAIT_FEATURE_FLAG,
-            "$EXTENSION_CLASS_DESCRIPTOR->openVideoFullscreenPortrait(Z)Z"
-        )
+        openVideosFullscreenPortraitFingerprint.let {
+            it.method.insertFeatureFlagBooleanOverride(
+                it.filterMatches.first().index,
+                "$EXTENSION_CLASS_DESCRIPTOR->openVideoFullscreenPortrait(Z)Z"
+            )
+        }
     }
 }

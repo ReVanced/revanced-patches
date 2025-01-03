@@ -1,19 +1,22 @@
 package app.revanced.patches.youtube.layout.seekbar
 
+import app.revanced.patcher.LiteralFilter
 import app.revanced.patcher.fingerprint
 import app.revanced.util.containsLiteralInstruction
 import app.revanced.util.literal
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal val fullscreenSeekbarThumbnailsFingerprint = fingerprint {
+internal val fullscreenSeekbarThumbnailsFingerprint by fingerprint {
     returns("Z")
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     parameters()
-    literal { 45398577 }
+    instructions(
+        LiteralFilter(45398577)
+    )
 }
 
-internal val playerSeekbarColorFingerprint = fingerprint {
+internal val playerSeekbarColorFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     custom { method, _ ->
         method.containsLiteralInstruction(inlineTimeBarColorizedBarPlayedColorDarkId) &&
@@ -21,7 +24,7 @@ internal val playerSeekbarColorFingerprint = fingerprint {
     }
 }
 
-internal val setSeekbarClickedColorFingerprint = fingerprint {
+internal val setSeekbarClickedColorFingerprint by fingerprint {
     opcodes(Opcode.CONST_HIGH16)
     strings("YOUTUBE", "PREROLL", "POSTROLL")
     custom { _, classDef ->
@@ -29,21 +32,21 @@ internal val setSeekbarClickedColorFingerprint = fingerprint {
     }
 }
 
-internal val shortsSeekbarColorFingerprint = fingerprint {
+internal val shortsSeekbarColorFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     literal { reelTimeBarPlayedColorId }
 }
 
-internal const val PLAYER_SEEKBAR_GRADIENT_FEATURE_FLAG = 45617850L
-
-internal val playerSeekbarGradientConfigFingerprint = fingerprint {
+internal val playerSeekbarGradientConfigFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("Z")
     parameters()
-    literal { PLAYER_SEEKBAR_GRADIENT_FEATURE_FLAG }
+    instructions(
+        LiteralFilter(45617850L)
+    )
 }
 
-internal val lithoLinearGradientFingerprint = fingerprint {
+internal val lithoLinearGradientFingerprint by fingerprint {
     accessFlags(AccessFlags.STATIC)
     returns("Landroid/graphics/LinearGradient;")
     parameters("F", "F", "F", "F", "[I", "[F")
@@ -51,7 +54,7 @@ internal val lithoLinearGradientFingerprint = fingerprint {
 
 internal const val launchScreenLayoutTypeLotteFeatureFlag = 268507948L
 
-internal val launchScreenLayoutTypeFingerprint = fingerprint {
+internal val launchScreenLayoutTypeFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     returns("V")
     custom { method, _ ->

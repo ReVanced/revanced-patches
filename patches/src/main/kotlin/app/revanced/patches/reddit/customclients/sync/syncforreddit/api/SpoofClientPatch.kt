@@ -26,7 +26,7 @@ val spoofClientPatch = spoofClientPatch(
     execute {
         // region Patch client id.
 
-        getBearerTokenFingerprint.match(getAuthorizationStringFingerprint.originalClassDef).method.apply {
+        getBearerTokenFingerprint.method.apply {
             val auth = Base64.getEncoder().encodeToString("$clientId:".toByteArray(Charsets.UTF_8))
             addInstructions(
                 0,
@@ -36,7 +36,7 @@ val spoofClientPatch = spoofClientPatch(
                 """,
             )
             val occurrenceIndex =
-                getAuthorizationStringFingerprint.stringMatches!!.first().index
+                getAuthorizationStringFingerprint.stringMatches.first().index
 
             getAuthorizationStringFingerprint.method.apply {
                 val authorizationStringInstruction = getInstruction<ReferenceInstruction>(occurrenceIndex)
@@ -75,7 +75,7 @@ val spoofClientPatch = spoofClientPatch(
 
         // region Patch Imgur API URL.
 
-        val apiUrlIndex = imgurImageAPIFingerprint.stringMatches!!.first().index
+        val apiUrlIndex = imgurImageAPIFingerprint.stringMatches.first().index
         imgurImageAPIFingerprint.method.replaceInstruction(
             apiUrlIndex,
             "const-string v1, \"https://api.imgur.com/3/image\"",

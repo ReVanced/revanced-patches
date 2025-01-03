@@ -20,17 +20,20 @@ val playerTypeHookPatch = bytecodePatch(
             "invoke-static {p1}, $EXTENSION_CLASS_DESCRIPTOR->setPlayerType(Ljava/lang/Enum;)V",
         )
 
-        videoStateFingerprint.method.apply {
-            val endIndex = videoStateFingerprint.patternMatch!!.endIndex
-            val videoStateFieldName = getInstruction<ReferenceInstruction>(endIndex).reference
+        videoStateFingerprint.let {
+            it.method.apply {
+                val videoStateFieldName = getInstruction<ReferenceInstruction>(
+                    it.filterMatches.last().index
+                ).reference
 
-            addInstructions(
-                0,
-                """
+                addInstructions(
+                    0,
+                    """
                         iget-object v0, p1, $videoStateFieldName  # copy VideoState parameter field
                         invoke-static {v0}, $EXTENSION_CLASS_DESCRIPTOR->setVideoState(Ljava/lang/Enum;)V
-                    """,
-            )
+                    """
+                )
+            }
         }
     }
 }

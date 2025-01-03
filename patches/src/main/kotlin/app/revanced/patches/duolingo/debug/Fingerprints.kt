@@ -11,7 +11,7 @@ import com.android.tools.smali.dexlib2.Opcode
  * - `isDebug`: compares "release" with "debug" <-- we want to force this to `true`
  */
 
-internal val initializeBuildConfigProviderFingerprint = fingerprint {
+internal val initializeBuildConfigProviderFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     returns("V")
     opcodes(Opcode.IPUT_BOOLEAN)

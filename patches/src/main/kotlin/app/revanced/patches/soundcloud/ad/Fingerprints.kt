@@ -4,7 +4,7 @@ import app.revanced.patcher.fingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal val interceptFingerprint = fingerprint {
+internal val interceptFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC)
     returns("L")
     parameters("L")
@@ -16,7 +16,7 @@ internal val interceptFingerprint = fingerprint {
     strings("SC-Mob-UserPlan", "Configuration")
 }
 
-internal val userConsumerPlanConstructorFingerprint = fingerprint {
+internal val userConsumerPlanConstructorFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     returns("V")
     parameters(

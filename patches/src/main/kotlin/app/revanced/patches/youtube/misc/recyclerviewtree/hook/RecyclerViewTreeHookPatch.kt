@@ -13,7 +13,7 @@ val recyclerViewTreeHookPatch = bytecodePatch {
     execute {
 
         recyclerViewTreeObserverFingerprint.method.apply {
-            val insertIndex = recyclerViewTreeObserverFingerprint.patternMatch!!.startIndex + 1
+            val insertIndex = recyclerViewTreeObserverFingerprint.filterMatches.first().index + 1
             val recyclerViewParameter = 2
 
             addRecyclerViewTreeHook = { classDescriptor ->

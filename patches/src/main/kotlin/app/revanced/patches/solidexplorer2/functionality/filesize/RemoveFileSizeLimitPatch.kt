@@ -14,7 +14,7 @@ val removeFileSizeLimitPatch = bytecodePatch(
 
     execute {
         onReadyFingerprint.method.apply {
-            val cmpIndex = onReadyFingerprint.patternMatch!!.startIndex + 1
+            val cmpIndex = onReadyFingerprint.filterMatches.first().index + 1
             val cmpResultRegister = getInstruction<ThreeRegisterInstruction>(cmpIndex).registerA
 
             replaceInstruction(cmpIndex, "const/4 v$cmpResultRegister, 0x0")

@@ -4,7 +4,7 @@ import app.revanced.patcher.fingerprint
 import app.revanced.util.literal
 import com.android.tools.smali.dexlib2.Opcode
 
-internal val layoutCircleFingerprint = fingerprint {
+internal val layoutCircleFingerprint by fingerprint {
     returns("Landroid/view/View;")
     opcodes(
         Opcode.CONST,
@@ -16,7 +16,7 @@ internal val layoutCircleFingerprint = fingerprint {
     literal { layoutCircle }
 }
 
-internal val layoutIconFingerprint = fingerprint {
+internal val layoutIconFingerprint by fingerprint {
     returns("Landroid/view/View;")
     opcodes(
         Opcode.INVOKE_VIRTUAL,
@@ -27,7 +27,7 @@ internal val layoutIconFingerprint = fingerprint {
     literal { layoutIcon }
 }
 
-internal val layoutVideoFingerprint = fingerprint {
+internal val layoutVideoFingerprint by fingerprint {
     returns("Landroid/view/View;")
     opcodes(
         Opcode.CONST,

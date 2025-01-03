@@ -1,15 +1,46 @@
 package app.revanced.patches.shared.misc.mapping
 
+import app.revanced.patcher.InstructionFilter
+import app.revanced.patcher.LiteralFilter
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.resourcePatch
+import com.android.tools.smali.dexlib2.iface.Method
+import com.android.tools.smali.dexlib2.iface.instruction.Instruction
+import com.android.tools.smali.dexlib2.iface.instruction.WideLiteralInstruction
 import org.w3c.dom.Element
-import java.util.*
+import java.lang.Runtime
+import java.util.Collections
 import java.util.concurrent.Executors
 import java.util.concurrent.TimeUnit
 
 // TODO: Probably renaming the patch/this is a good idea.
 lateinit var resourceMappings: List<ResourceElement>
     private set
+
+/**
+ * Identical to [LiteralFilter] except uses the literal resource value.
+ */
+class ResourceMappingFilter(
+    private val type: String,
+    private val name: String,
+    maxInstructionsBefore: Int = METHOD_MAX_INSTRUCTIONS,
+) : InstructionFilter(maxInstructionsBefore) {
+
+    private val resourceId by lazy {
+        resourceMappings[
+            type,
+            name,
+        ]
+    }
+
+    override fun matches(
+        method: Method,
+        instruction: Instruction,
+        methodIndex: Int
+    ): Boolean {
+        return (instruction as? WideLiteralInstruction)?.wideLiteral == resourceId
+    }
+}
 
 val resourceMappingPatch = resourcePatch {
     val resourceMappings = Collections.synchronizedList(mutableListOf<ResourceElement>())

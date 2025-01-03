@@ -4,7 +4,6 @@ import app.revanced.patcher.Fingerprint
 import app.revanced.patcher.FingerprintBuilder
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
-import app.revanced.patcher.fingerprint
 import app.revanced.patcher.patch.BytecodePatchContext
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.bytecodePatch
@@ -113,4 +112,10 @@ fun extensionHook(
     insertIndexResolver: ((Method) -> Int) = { 0 },
     contextRegisterResolver: (Method) -> String = { "p0" },
     fingerprintBuilderBlock: FingerprintBuilder.() -> Unit,
-) = ExtensionHook(fingerprint(block = fingerprintBuilderBlock), insertIndexResolver, contextRegisterResolver)
+) = ExtensionHook(
+    FingerprintBuilder("extension").also {
+        it.fingerprintBuilderBlock()
+    }.build(),
+    insertIndexResolver,
+    contextRegisterResolver
+)

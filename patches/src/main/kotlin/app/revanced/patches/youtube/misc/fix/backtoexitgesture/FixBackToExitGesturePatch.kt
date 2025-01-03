@@ -14,17 +14,16 @@ internal val fixBackToExitGesturePatch = bytecodePatch(
 ) {
 
     execute {
-        recyclerViewTopScrollingFingerprint.match(recyclerViewTopScrollingParentFingerprint.originalClassDef)
-            .let {
-                it.method.addInstruction(
-                    it.patternMatch!!.endIndex,
-                    "invoke-static { }, $EXTENSION_CLASS_DESCRIPTOR->onTopView()V"
-                )
-            }
+        recyclerViewTopScrollingFingerprint.let {
+            it.method.addInstruction(
+                it.filterMatches.last().index,
+                "invoke-static { }, $EXTENSION_CLASS_DESCRIPTOR->onTopView()V"
+            )
+        }
 
         scrollPositionFingerprint.let {
             navigate(it.originalMethod)
-                .to(it.patternMatch!!.startIndex + 1)
+                .to(it.filterMatches.first().index + 1)
                 .stop().apply {
                     val index = indexOfFirstInstructionOrThrow {
                         opcode == Opcode.INVOKE_VIRTUAL && getReference<MethodReference>()?.definingClass ==
@@ -41,7 +40,7 @@ internal val fixBackToExitGesturePatch = bytecodePatch(
 
         onBackPressedFingerprint.let {
             it.method.addInstruction(
-                it.patternMatch!!.endIndex,
+                it.filterMatches.last().index,
                 "invoke-static { p0 }, $EXTENSION_CLASS_DESCRIPTOR->onBackPressed(Landroid/app/Activity;)V"
             )
         }

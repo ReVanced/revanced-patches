@@ -49,7 +49,7 @@ val changeLinkSharingDomainPatch = bytecodePatch(
 
     execute {
         val replacementIndex =
-            linkSharingDomainFingerprint.stringMatches!!.first().index
+            linkSharingDomainFingerprint.stringMatches.first().index
         val domainRegister =
             linkSharingDomainFingerprint.method.getInstruction<OneRegisterInstruction>(replacementIndex).registerA
 

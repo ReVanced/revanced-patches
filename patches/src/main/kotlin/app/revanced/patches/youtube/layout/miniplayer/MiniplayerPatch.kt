@@ -26,7 +26,6 @@ import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.builder.MutableMethodImplementation
 import com.android.tools.smali.dexlib2.iface.Method
-import com.android.tools.smali.dexlib2.iface.instruction.NarrowLiteralInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
@@ -34,27 +33,22 @@ import com.android.tools.smali.dexlib2.iface.reference.TypeReference
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethodParameter
 
-var floatyBarButtonTopMargin = -1L
-    private set
-
 // Only available in 19.15 and upwards.
-var ytOutlineXWhite24 = -1L
+internal var ytOutlineXWhite24 = -1L
     private set
-var ytOutlinePictureInPictureWhite24 = -1L
+internal var ytOutlinePictureInPictureWhite24 = -1L
     private set
-var scrimOverlay = -1L
+internal var scrimOverlay = -1L
     private set
-var modernMiniplayerClose = -1L
+internal var modernMiniplayerClose = -1L
     private set
-var modernMiniplayerExpand = -1L
+internal var modernMiniplayerExpand = -1L
     private set
-var modernMiniplayerRewindButton = -1L
+internal var modernMiniplayerRewindButton = -1L
     private set
-var modernMiniplayerForwardButton = -1L
+internal var modernMiniplayerForwardButton = -1L
     private set
-var playerOverlays = -1L
-    private set
-var miniplayerMaxSize = -1L
+internal var playerOverlays = -1L
     private set
 
 private val miniplayerResourcePatch = resourcePatch {
@@ -64,11 +58,6 @@ private val miniplayerResourcePatch = resourcePatch {
     )
 
     execute {
-        floatyBarButtonTopMargin = resourceMappings[
-            "dimen",
-            "floaty_bar_button_top_margin",
-        ]
-
         scrimOverlay = resourceMappings[
             "id",
             "scrim_overlay",
@@ -117,13 +106,6 @@ private val miniplayerResourcePatch = resourcePatch {
                 ytOutlineXWhite24 = resourceMappings[
                     "drawable",
                     "yt_outline_x_white_24",
-                ]
-            }
-
-            if (is_19_26_or_greater) {
-                miniplayerMaxSize = resourceMappings[
-                    "dimen",
-                    "miniplayer_max_size",
                 ]
             }
         }
@@ -330,22 +312,20 @@ val miniplayerPatch = bytecodePatch(
 
         // region Enable tablet miniplayer.
 
-        miniplayerOverrideNoContextFingerprint.match(
-            miniplayerDimensionsCalculatorParentFingerprint.originalClassDef,
-        ).method.apply {
+        miniplayerOverrideNoContextFingerprint.method.apply {
             findReturnIndicesReversed().forEach { index -> insertLegacyTabletMiniplayerOverride(index) }
         }
 
         // endregion
 
         // region Legacy tablet miniplayer hooks.
-        val appNameStringIndex = miniplayerOverrideFingerprint.stringMatches!!.first().index + 2
+        val appNameStringIndex = miniplayerOverrideFingerprint.stringMatches.first().index + 2
         navigate(miniplayerOverrideFingerprint.originalMethod).to(appNameStringIndex).stop().apply {
             findReturnIndicesReversed().forEach { index -> insertLegacyTabletMiniplayerOverride(index) }
         }
 
         miniplayerResponseModelSizeCheckFingerprint.let {
-            it.method.insertLegacyTabletMiniplayerOverride(it.patternMatch!!.endIndex)
+            it.method.insertLegacyTabletMiniplayerOverride(it.filterMatches.last().index)
         }
 
         // endregion
@@ -396,7 +376,6 @@ val miniplayerPatch = bytecodePatch(
                     MINIPLAYER_INITIAL_SIZE_FEATURE_KEY,
                 )
                 val targetIndex = indexOfFirstInstructionOrThrow(literalIndex, Opcode.LONG_TO_INT)
-
                 val register = getInstruction<OneRegisterInstruction>(targetIndex).registerA
 
                 addInstructions(
@@ -409,16 +388,16 @@ val miniplayerPatch = bytecodePatch(
             }
 
             // Override a minimum size constant.
-            miniplayerMinimumSizeFingerprint.method.apply {
-                val index = indexOfFirstInstructionOrThrow {
-                    opcode == Opcode.CONST_16 && (this as NarrowLiteralInstruction).narrowLiteral == 192
-                }
-                val register = getInstruction<OneRegisterInstruction>(index).registerA
+            miniplayerMinimumSizeFingerprint.let {
+                it.method.apply {
+                    val index = it.filterMatches[1].index
+                    val register = getInstruction<OneRegisterInstruction>(index).registerA
 
-                // Smaller sizes can be used, but the miniplayer will always start in size 170 if set any smaller.
-                // The 170 initial limit probably could be patched to allow even smaller initial sizes,
-                // but 170 is already half the horizontal space and smaller does not seem useful.
-                replaceInstruction(index, "const/16 v$register, 170")
+                    // Smaller sizes can be used, but the miniplayer will always start in size 170 if set any smaller.
+                    // The 170 initial limit probably could be patched to allow even smaller initial sizes,
+                    // but 170 is already half the horizontal space and smaller does not seem useful.
+                    replaceInstruction(index, "const/16 v$register, 170")
+                }
             }
         }
 
@@ -447,9 +426,7 @@ val miniplayerPatch = bytecodePatch(
         // YT fixed this mistake in 19.17.
         // Fix this, by swapping the drawable resource values with each other.
         if (ytOutlinePictureInPictureWhite24 >= 0) {
-            miniplayerModernExpandCloseDrawablesFingerprint.match(
-                miniplayerModernViewParentFingerprint.originalClassDef,
-            ).method.apply {
+            miniplayerModernExpandCloseDrawablesFingerprint.method.apply {
                 listOf(
                     ytOutlinePictureInPictureWhite24 to ytOutlineXWhite24,
                     ytOutlineXWhite24 to ytOutlinePictureInPictureWhite24,
@@ -493,18 +470,14 @@ val miniplayerPatch = bytecodePatch(
                 "adjustMiniplayerOpacity",
             ),
         ).forEach { (fingerprint, literalValue, methodName) ->
-            fingerprint.match(
-                miniplayerModernViewParentFingerprint.classDef,
-            ).method.hookInflatedView(
+            fingerprint.method.hookInflatedView(
                 literalValue,
                 "Landroid/widget/ImageView;",
                 "$EXTENSION_CLASS_DESCRIPTOR->$methodName(Landroid/widget/ImageView;)V",
             )
         }
 
-        miniplayerModernAddViewListenerFingerprint.match(
-            miniplayerModernViewParentFingerprint.classDef,
-        ).method.addInstruction(
+        miniplayerModernAddViewListenerFingerprint.method.addInstruction(
             0,
             "invoke-static { p1 }, $EXTENSION_CLASS_DESCRIPTOR->" +
                 "hideMiniplayerSubTexts(Landroid/view/View;)V",

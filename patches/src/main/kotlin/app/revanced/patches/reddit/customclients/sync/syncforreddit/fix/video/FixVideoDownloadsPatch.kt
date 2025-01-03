@@ -24,7 +24,7 @@ val fixVideoDownloadsPatch = bytecodePatch(
     )
 
     execute {
-        val scanResult = parseRedditVideoNetworkResponseFingerprint.patternMatch!!
+        val scanResult = parseRedditVideoNetworkResponseFingerprint.patternMatch
         val newInstanceIndex = scanResult.startIndex
         val invokeDirectIndex = scanResult.endIndex - 1
 

@@ -6,9 +6,6 @@ import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.youtube.misc.backgroundplayback.backgroundPlaybackPatch
 import app.revanced.patches.youtube.misc.playservice.is_19_04_or_greater
 import app.revanced.patches.youtube.misc.playservice.versionCheckPatch
-import app.revanced.util.indexOfFirstInstructionOrThrow
-import app.revanced.util.indexOfFirstLiteralInstructionOrThrow
-import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 internal val disableCairoSettingsPatch = bytecodePatch(
@@ -33,15 +30,16 @@ internal val disableCairoSettingsPatch = bytecodePatch(
          * Screenshots of the Cairo Fragment:
          * <a href="https://github.com/qnblackcat/uYouPlus/issues/1468">uYouPlus#1468</a>.
          */
-        cairoFragmentConfigFingerprint.method.apply {
-            val literalIndex = indexOfFirstLiteralInstructionOrThrow(CAIRO_CONFIG_LITERAL_VALUE)
-            val resultIndex = indexOfFirstInstructionOrThrow(literalIndex, Opcode.MOVE_RESULT)
-            val register = getInstruction<OneRegisterInstruction>(resultIndex).registerA
+        cairoFragmentConfigFingerprint.let{
+            it.method.apply {
+                val resultIndex = it.filterMatches.last().index
+                val register = getInstruction<OneRegisterInstruction>(resultIndex).registerA
 
-            addInstruction(
-                resultIndex + 1,
-                "const/16 v$register, 0x0",
-            )
+                addInstruction(
+                    resultIndex + 1,
+                    "const/16 v$register, 0x0",
+                )
+            }
         }
     }
 }

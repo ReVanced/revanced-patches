@@ -5,7 +5,7 @@ import app.revanced.util.literal
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal val lithoThemeFingerprint = fingerprint {
+internal val lithoThemeFingerprint by fingerprint {
     accessFlags(AccessFlags.PROTECTED, AccessFlags.FINAL)
     returns("V")
     parameters("Landroid/graphics/Rect;")
@@ -31,7 +31,7 @@ internal val lithoThemeFingerprint = fingerprint {
     }
 }
 
-internal val themeHelperDarkColorFingerprint = fingerprint {
+internal val themeHelperDarkColorFingerprint by fingerprint {
     accessFlags(AccessFlags.PRIVATE, AccessFlags.STATIC)
     returns("Ljava/lang/String;")
     parameters()
@@ -41,7 +41,7 @@ internal val themeHelperDarkColorFingerprint = fingerprint {
     }
 }
 
-internal val themeHelperLightColorFingerprint = fingerprint {
+internal val themeHelperLightColorFingerprint by fingerprint {
     accessFlags(AccessFlags.PRIVATE, AccessFlags.STATIC)
     returns("Ljava/lang/String;")
     parameters()
@@ -51,6 +51,6 @@ internal val themeHelperLightColorFingerprint = fingerprint {
     }
 }
 
-internal val useGradientLoadingScreenFingerprint = fingerprint {
+internal val useGradientLoadingScreenFingerprint by fingerprint {
     literal { GRADIENT_LOADING_SCREEN_AB_CONSTANT }
 }

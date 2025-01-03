@@ -75,7 +75,7 @@ val hideEndscreenCardsPatch = bytecodePatch(
             layoutVideoFingerprint,
         ).forEach { fingerprint ->
             fingerprint.method.apply {
-                val insertIndex = fingerprint.patternMatch!!.endIndex + 1
+                val insertIndex = fingerprint.filterMatches.last().index + 1
                 val viewRegister = getInstruction<OneRegisterInstruction>(insertIndex - 1).registerA
 
                 addInstruction(

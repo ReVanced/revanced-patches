@@ -4,7 +4,8 @@ import app.revanced.patcher.fingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal val autoRepeatFingerprint = fingerprint {
+internal val autoRepeatFingerprint by fingerprint {
+    classFingerprint(autoRepeatParentFingerprint)
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("V")
     parameters()
@@ -13,7 +14,7 @@ internal val autoRepeatFingerprint = fingerprint {
     }
 }
 
-internal val autoRepeatParentFingerprint = fingerprint {
+internal val autoRepeatParentFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("V")
     strings(
@@ -22,14 +23,14 @@ internal val autoRepeatParentFingerprint = fingerprint {
     )
 }
 
-internal val layoutConstructorFingerprint = fingerprint {
+internal val layoutConstructorFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("V")
     parameters()
     strings("1.0x")
 }
 
-internal val mainActivityFingerprint = fingerprint {
+internal val mainActivityFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     parameters()
     custom { _, classDef ->
@@ -38,7 +39,7 @@ internal val mainActivityFingerprint = fingerprint {
     }
 }
 
-internal val mainActivityOnCreateFingerprint = fingerprint {
+internal val mainActivityOnCreateFingerprint by fingerprint {
     returns("V")
     parameters("Landroid/os/Bundle;")
     custom { method, classDef ->
@@ -51,7 +52,7 @@ internal val mainActivityOnCreateFingerprint = fingerprint {
     }
 }
 
-internal val rollingNumberTextViewAnimationUpdateFingerprint = fingerprint {
+internal val rollingNumberTextViewAnimationUpdateFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("V")
     parameters("Landroid/graphics/Bitmap;")
@@ -77,16 +78,18 @@ internal val rollingNumberTextViewAnimationUpdateFingerprint = fingerprint {
     }
 }
 
-internal val seekbarFingerprint = fingerprint {
+internal val seekbarFingerprint by fingerprint {
     returns("V")
     strings("timed_markers_width")
 }
 
-internal val seekbarOnDrawFingerprint = fingerprint {
+internal val seekbarOnDrawFingerprint by fingerprint {
+    classFingerprint(seekbarFingerprint)
+    classFingerprint(seekbarFingerprint)
     custom { method, _ -> method.name == "onDraw" }
 }
 
-internal val subtitleButtonControllerFingerprint = fingerprint {
+internal val subtitleButtonControllerFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("V")
     parameters("Lcom/google/android/libraries/youtube/player/subtitles/model/SubtitleTrack;")
@@ -103,7 +106,7 @@ internal val subtitleButtonControllerFingerprint = fingerprint {
     )
 }
 
-internal val newVideoQualityChangedFingerprint = fingerprint {
+internal val newVideoQualityChangedFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("L")
     parameters("L")

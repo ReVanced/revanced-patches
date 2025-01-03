@@ -12,7 +12,7 @@ val unlockSubscriptionPatch = bytecodePatch(
 
     execute {
         getSubscribedFingerprint.method.replaceInstruction(
-            getSubscribedFingerprint.patternMatch!!.startIndex,
+            getSubscribedFingerprint.filterMatches.first().index,
             "const/4 v0, 0x1",
         )
     }

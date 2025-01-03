@@ -139,9 +139,7 @@ internal val customPlaybackSpeedPatch = bytecodePatch(
 
         // Get the "showOldPlaybackSpeedMenu" method.
         // This is later called on the field INSTANCE.
-        val showOldPlaybackSpeedMenuMethod = showOldPlaybackSpeedMenuFingerprint.match(
-            getOldPlaybackSpeedsFingerprint.classDef,
-        ).method.toString()
+        val showOldPlaybackSpeedMenuMethod = showOldPlaybackSpeedMenuFingerprint.method.toString()
 
         // Insert the call to the "showOldPlaybackSpeedMenu" method on the field INSTANCE.
         showOldPlaybackSpeedMenuExtensionFingerprint.method.apply {

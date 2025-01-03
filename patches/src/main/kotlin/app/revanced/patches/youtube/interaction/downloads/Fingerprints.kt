@@ -3,7 +3,7 @@ package app.revanced.patches.youtube.interaction.downloads
 import com.android.tools.smali.dexlib2.AccessFlags
 import app.revanced.patcher.fingerprint
 
-internal val offlineVideoEndpointFingerprint = fingerprint {
+internal val offlineVideoEndpointFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("V")
     parameters(

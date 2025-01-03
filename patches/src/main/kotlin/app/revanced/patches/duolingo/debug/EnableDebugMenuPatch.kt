@@ -14,7 +14,7 @@ val enableDebugMenuPatch = bytecodePatch(
 
     execute {
         initializeBuildConfigProviderFingerprint.method.apply {
-            val insertIndex = initializeBuildConfigProviderFingerprint.patternMatch!!.startIndex
+            val insertIndex = initializeBuildConfigProviderFingerprint.filterMatches.first().index
             val register = getInstruction<TwoRegisterInstruction>(insertIndex).registerA
 
             addInstructions(

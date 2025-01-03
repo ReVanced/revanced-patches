@@ -21,7 +21,7 @@ val fixOldVersionsPatch = bytecodePatch(
         // Remove the live query parameters from the path when it's specified via a @METHOD annotation.
         for (liveQueryParameter in liveQueryParameters) {
             httpPathParserFingerprint.method.addInstructions(
-                httpPathParserFingerprint.patternMatch!!.endIndex + 1,
+                httpPathParserFingerprint.filterMatches.last().index + 1,
                 """
                     # urlPath = urlPath.replace(liveQueryParameter, "")
                     const-string p1, "$liveQueryParameter"

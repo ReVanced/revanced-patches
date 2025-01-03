@@ -4,7 +4,7 @@ import app.revanced.patcher.fingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal val featureConstructorFingerprint = fingerprint {
+internal val featureConstructorFingerprint by fingerprint {
     returns("V")
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     parameters("Ljava/lang/String;", "Z", "Ljava/util/List;")

@@ -596,6 +596,12 @@ public final class app/revanced/patches/shared/misc/mapping/ResourceElement {
 	public fun toString ()Ljava/lang/String;
 }
 
+public final class app/revanced/patches/shared/misc/mapping/ResourceMappingFilter : app/revanced/patcher/InstructionFilter {
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;I)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;IILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun matches (Lcom/android/tools/smali/dexlib2/iface/Method;Lcom/android/tools/smali/dexlib2/iface/instruction/Instruction;I)Z
+}
+
 public final class app/revanced/patches/shared/misc/mapping/ResourceMappingPatchKt {
 	public static final fun get (Ljava/util/List;Ljava/lang/String;Ljava/lang/String;)J
 	public static final fun getResourceMappingPatch ()Lapp/revanced/patcher/patch/ResourcePatch;
@@ -1154,17 +1160,7 @@ public final class app/revanced/patches/youtube/layout/hide/time/HideTimestampPa
 }
 
 public final class app/revanced/patches/youtube/layout/miniplayer/MiniplayerPatchKt {
-	public static final fun getFloatyBarButtonTopMargin ()J
-	public static final fun getMiniplayerMaxSize ()J
 	public static final fun getMiniplayerPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
-	public static final fun getModernMiniplayerClose ()J
-	public static final fun getModernMiniplayerExpand ()J
-	public static final fun getModernMiniplayerForwardButton ()J
-	public static final fun getModernMiniplayerRewindButton ()J
-	public static final fun getPlayerOverlays ()J
-	public static final fun getScrimOverlay ()J
-	public static final fun getYtOutlinePictureInPictureWhite24 ()J
-	public static final fun getYtOutlineXWhite24 ()J
 }
 
 public final class app/revanced/patches/youtube/layout/panels/popup/PlayerPopupPanelsPatchKt {

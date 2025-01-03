@@ -1,24 +1,22 @@
 package app.revanced.patches.youtube.layout.player.fullscreen
 
+import app.revanced.patcher.LiteralFilter
 import app.revanced.patcher.fingerprint
-import app.revanced.util.literal
 import com.android.tools.smali.dexlib2.AccessFlags
 
-internal const val OPEN_VIDEOS_FULLSCREEN_PORTRAIT_FEATURE_FLAG = 45666112L
-
-internal val openVideosFullscreenPortraitFingerprint = fingerprint {
+internal val openVideosFullscreenPortraitFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("V")
     parameters("L", "Lj\$/util/Optional;")
-    literal {
-        OPEN_VIDEOS_FULLSCREEN_PORTRAIT_FEATURE_FLAG
-    }
+    instructions(
+        LiteralFilter(45666112L)
+    )
 }
 
 /**
  * Used to enable opening regular videos fullscreen.
  */
-internal val openVideosFullscreenHookPatchExtensionFingerprint = fingerprint {
+internal val openVideosFullscreenHookPatchExtensionFingerprint by fingerprint {
     accessFlags(AccessFlags.PRIVATE, AccessFlags.STATIC)
     returns("Z")
     parameters()

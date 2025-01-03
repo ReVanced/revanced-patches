@@ -1,11 +1,12 @@
 package app.revanced.patches.shared.misc.spoof
 
+import app.revanced.patcher.LiteralFilter
+import app.revanced.patcher.MethodFilter
 import app.revanced.patcher.fingerprint
-import app.revanced.util.literal
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal val buildInitPlaybackRequestFingerprint = fingerprint {
+internal val buildInitPlaybackRequestFingerprint by fingerprint {
     returns("Lorg/chromium/net/UrlRequest\$Builder;")
     opcodes(
         Opcode.MOVE_RESULT_OBJECT,
@@ -17,7 +18,7 @@ internal val buildInitPlaybackRequestFingerprint = fingerprint {
     )
 }
 
-internal val buildPlayerRequestURIFingerprint = fingerprint {
+internal val buildPlayerRequestURIFingerprint by fingerprint {
     returns("Ljava/lang/String;")
     opcodes(
         Opcode.INVOKE_VIRTUAL, // Register holds player request URI.
@@ -33,9 +34,12 @@ internal val buildPlayerRequestURIFingerprint = fingerprint {
     )
 }
 
-internal val buildRequestFingerprint = fingerprint {
+internal val buildRequestFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
     returns("Lorg/chromium/net/UrlRequest;")
+    instructions(
+        MethodFilter(methodName = "newUrlRequestBuilder")
+    )
     custom { methodDef, _ ->
         // Different targets have slightly different parameters
 
@@ -64,7 +68,7 @@ internal val buildRequestFingerprint = fingerprint {
     }
 }
 
-internal val protobufClassParseByteBufferFingerprint = fingerprint {
+internal val protobufClassParseByteBufferFingerprint by fingerprint {
     accessFlags(AccessFlags.PROTECTED, AccessFlags.STATIC)
     returns("L")
     parameters("L", "Ljava/nio/ByteBuffer;")
@@ -77,7 +81,7 @@ internal val protobufClassParseByteBufferFingerprint = fingerprint {
     custom { method, _ -> method.name == "parseFrom" }
 }
 
-internal val createStreamingDataFingerprint = fingerprint {
+internal val createStreamingDataFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     returns("V")
     parameters("L")
@@ -95,7 +99,7 @@ internal val createStreamingDataFingerprint = fingerprint {
     }
 }
 
-internal val buildMediaDataSourceFingerprint = fingerprint {
+internal val buildMediaDataSourceFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     returns("V")
     parameters(
@@ -112,24 +116,22 @@ internal val buildMediaDataSourceFingerprint = fingerprint {
     )
 }
 
-internal const val HLS_CURRENT_TIME_FEATURE_FLAG = 45355374L
-
-internal val hlsCurrentTimeFingerprint = fingerprint {
+internal val hlsCurrentTimeFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     parameters("Z", "L")
-    literal {
-        HLS_CURRENT_TIME_FEATURE_FLAG
-    }
+    instructions(
+        LiteralFilter(45355374L)
+    )
 }
 
-internal val nerdsStatsVideoFormatBuilderFingerprint = fingerprint {
+internal val nerdsStatsVideoFormatBuilderFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
     returns("Ljava/lang/String;")
     parameters("L")
     strings("codecs=\"")
 }
 
-internal val patchIncludedExtensionMethodFingerprint = fingerprint {
+internal val patchIncludedExtensionMethodFingerprint by fingerprint {
     accessFlags(AccessFlags.PRIVATE, AccessFlags.STATIC)
     returns("Z")
     parameters()
