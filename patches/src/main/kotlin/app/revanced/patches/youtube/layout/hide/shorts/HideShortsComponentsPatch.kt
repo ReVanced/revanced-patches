@@ -207,11 +207,9 @@ val hideShortsComponentsPatch = bytecodePatch(
         // region Hide the navigation bar.
 
         // Hook to get the pivotBar view.
-        setPivotBarVisibilityFingerprint.match(
-            setPivotBarVisibilityParentFingerprint.originalClassDef,
-        ).let { result ->
-            result.method.apply {
-                val insertIndex = result.patternMatch.endIndex
+        setPivotBarVisibilityFingerprint.let {
+            it.method.apply {
+                val insertIndex = it.filterMatches.last().index
                 val viewRegister = getInstruction<OneRegisterInstruction>(insertIndex - 1).registerA
                 addInstruction(
                     insertIndex,

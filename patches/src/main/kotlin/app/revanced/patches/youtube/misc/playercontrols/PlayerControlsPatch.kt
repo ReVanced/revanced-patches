@@ -251,9 +251,7 @@ val playerControlsPatch = bytecodePatch(
             inflateTopControlInsertIndex = inflateReturnObjectIndex + 1
         }
 
-        visibilityMethod = controlsOverlayVisibilityFingerprint.match(
-            playerTopControlsInflateFingerprint.originalClassDef,
-        ).method
+        visibilityMethod = controlsOverlayVisibilityFingerprint.method
 
         // Hook the fullscreen close button.  Used to fix visibility
         // when seeking and other situations.

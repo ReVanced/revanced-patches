@@ -19,6 +19,7 @@ internal val actionBarSearchResultsFingerprint by fingerprint {
  * Matches to the class found in [pivotBarConstructorFingerprint].
  */
 internal val initializeButtonsFingerprint by fingerprint {
+    classFingerprint(pivotBarConstructorFingerprint)
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("V")
     instructions(

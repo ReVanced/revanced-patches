@@ -36,27 +36,26 @@ val spoofClientPatch = bytecodePatch(
     execute {
         val playerRequestClass = playerRequestConstructorFingerprint.classDef
 
-        val createPlayerRequestBodyMatch = createPlayerRequestBodyFingerprint.match(playerRequestClass)
-
-        val clientInfoContainerClass = createPlayerRequestBodyMatch.method
-            .getInstruction(createPlayerRequestBodyMatch.filterMatches.first().index)
+        val clientInfoContainerClass = createPlayerRequestBodyFingerprint.method
+            .getInstruction(createPlayerRequestBodyFingerprint.filterMatches.first().index)
             .getReference<TypeReference>()!!.type
 
         val clientInfoField = setClientInfoClientVersionFingerprint.method.instructions.first {
             it.opcode == Opcode.IPUT_OBJECT && it.getReference<FieldReference>()!!.definingClass == clientInfoContainerClass
         }.getReference<FieldReference>()!!
 
-        val setClientInfoFieldInstructions = setClientInfoFieldsFingerprint.method.instructions.filter {
-            (it.opcode == Opcode.IPUT_OBJECT || it.opcode == Opcode.IPUT) &&
-                it.getReference<FieldReference>()!!.definingClass == clientInfoField.type
-        }.map { it.getReference<FieldReference>()!! }
+        val setClientInfoFieldInstructions =
+            setClientInfoFieldsFingerprint.method.instructions.filter {
+                (it.opcode == Opcode.IPUT_OBJECT || it.opcode == Opcode.IPUT) &&
+                        it.getReference<FieldReference>()!!.definingClass == clientInfoField.type
+            }.map { it.getReference<FieldReference>()!! }
 
         // Offsets are known for the fields in the clientInfo object.
         val clientIdField = setClientInfoFieldInstructions[0]
         val clientModelField = setClientInfoFieldInstructions[5]
         val osVersionField = setClientInfoFieldInstructions[7]
         val clientVersionField = setClientInfoClientVersionFingerprint.method
-            .getInstruction(setClientInfoClientVersionFingerprint.stringMatches!!.first().index + 1)
+            .getInstruction(setClientInfoClientVersionFingerprint.stringMatches.first().index + 1)
             .getReference<FieldReference>()
 
         // Helper method to spoof the client info.
@@ -95,11 +94,15 @@ val spoofClientPatch = bytecodePatch(
             )
         }
 
-        createPlayerRequestBodyMatch.method.apply {
-            val checkCastIndex = createPlayerRequestBodyMatch.filterMatches.first().index
-            val clientInfoContainerRegister = getInstruction<OneRegisterInstruction>(checkCastIndex).registerA
+        createPlayerRequestBodyFingerprint.method.apply {
+            val checkCastIndex = createPlayerRequestBodyFingerprint.filterMatches.first().index
+            val clientInfoContainerRegister =
+                getInstruction<OneRegisterInstruction>(checkCastIndex).registerA
 
-            addInstruction(checkCastIndex + 1, "invoke-static {v$clientInfoContainerRegister}, $spoofClientInfoMethod")
+            addInstruction(
+                checkCastIndex + 1,
+                "invoke-static {v$clientInfoContainerRegister}, $spoofClientInfoMethod"
+            )
         }
     }
 }

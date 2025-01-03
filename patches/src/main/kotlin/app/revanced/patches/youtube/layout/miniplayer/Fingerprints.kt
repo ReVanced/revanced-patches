@@ -22,6 +22,7 @@ internal val miniplayerDimensionsCalculatorParentFingerprint by fingerprint {
  * Matches using the class found in [miniplayerModernViewParentFingerprint].
  */
 internal val miniplayerModernAddViewListenerFingerprint by fingerprint {
+    classFingerprint(miniplayerModernViewParentFingerprint)
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("V")
     parameters("Landroid/view/View;")
@@ -32,6 +33,7 @@ internal val miniplayerModernAddViewListenerFingerprint by fingerprint {
  */
 
 internal val miniplayerModernCloseButtonFingerprint by fingerprint {
+    classFingerprint(miniplayerModernViewParentFingerprint)
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("Landroid/widget/ImageView;")
     parameters()
@@ -64,6 +66,7 @@ internal val miniplayerOnCloseHandlerFingerprint by fingerprint {
  * Matches using the class found in [miniplayerModernViewParentFingerprint].
  */
 internal val miniplayerModernExpandButtonFingerprint by fingerprint {
+    classFingerprint(miniplayerModernViewParentFingerprint)
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("Landroid/widget/ImageView;")
     parameters()
@@ -74,6 +77,7 @@ internal val miniplayerModernExpandButtonFingerprint by fingerprint {
  * Matches using the class found in [miniplayerModernViewParentFingerprint].
  */
 internal val miniplayerModernExpandCloseDrawablesFingerprint by fingerprint {
+    classFingerprint(miniplayerModernViewParentFingerprint)
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("V")
     parameters("L")
@@ -84,6 +88,7 @@ internal val miniplayerModernExpandCloseDrawablesFingerprint by fingerprint {
  * Matches using the class found in [miniplayerModernViewParentFingerprint].
  */
 internal val miniplayerModernForwardButtonFingerprint by fingerprint {
+    classFingerprint(miniplayerModernViewParentFingerprint)
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("Landroid/widget/ImageView;")
     parameters()
@@ -94,6 +99,7 @@ internal val miniplayerModernForwardButtonFingerprint by fingerprint {
  * Matches using the class found in [miniplayerModernViewParentFingerprint].
  */
 internal val miniplayerModernOverlayViewFingerprint by fingerprint {
+    classFingerprint(miniplayerModernViewParentFingerprint)
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("V")
     parameters()
@@ -104,6 +110,7 @@ internal val miniplayerModernOverlayViewFingerprint by fingerprint {
  * Matches using the class found in [miniplayerModernViewParentFingerprint].
  */
 internal val miniplayerModernRewindButtonFingerprint by fingerprint {
+    classFingerprint(miniplayerModernViewParentFingerprint)
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("Landroid/widget/ImageView;")
     parameters()
@@ -133,6 +140,7 @@ internal val miniplayerOverrideFingerprint by fingerprint {
 }
 
 internal val miniplayerOverrideNoContextFingerprint by fingerprint {
+    classFingerprint(miniplayerDimensionsCalculatorParentFingerprint)
     accessFlags(AccessFlags.PRIVATE, AccessFlags.FINAL)
     returns("Z")
     opcodes(Opcode.IGET_BOOLEAN) // Anchor to insert the instruction.

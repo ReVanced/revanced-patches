@@ -26,7 +26,7 @@ val spoofClientPatch = spoofClientPatch(redirectUri = "dbrady://relay") {
             getLoggedOutBearerTokenFingerprint,
             getRefreshTokenFingerprint,
         ).forEach { fingerprint ->
-            val clientIdIndex = fingerprint.stringMatches!!.first().index
+            val clientIdIndex = fingerprint.stringMatches.first().index
             fingerprint.method.apply {
                 val clientIdRegister = getInstruction<OneRegisterInstruction>(clientIdIndex).registerA
 

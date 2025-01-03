@@ -132,7 +132,7 @@ val sponsorBlockPatch = bytecodePatch(
         )
 
         // Seekbar drawing
-        seekbarOnDrawFingerprint.match(seekbarFingerprint.originalClassDef).method.apply {
+        seekbarOnDrawFingerprint.method.apply {
             // Get left and right of seekbar rectangle.
             val moveRectangleToRegisterIndex = indexOfFirstInstructionOrThrow(Opcode.MOVE_OBJECT_FROM16)
 
@@ -194,7 +194,7 @@ val sponsorBlockPatch = bytecodePatch(
         onCreateHook(EXTENSION_SEGMENT_PLAYBACK_CONTROLLER_CLASS_DESCRIPTOR, "initialize")
 
         // Initialize the SponsorBlock view.
-        controlsOverlayFingerprint.match(layoutConstructorFingerprint.originalClassDef).let {
+        controlsOverlayFingerprint.let {
             val startIndex = it.filterMatches.first().index
             it.method.apply {
                 val frameLayoutRegister = (getInstruction(startIndex + 2) as OneRegisterInstruction).registerA
@@ -206,7 +206,7 @@ val sponsorBlockPatch = bytecodePatch(
         }
 
         // Set seekbar draw rectangle.
-        rectangleFieldInvalidatorFingerprint.match(seekbarFingerprint.originalClassDef).method.apply {
+        rectangleFieldInvalidatorFingerprint.method.apply {
             val invalidateIndex = indexOfInvalidateInstruction(this)
             val rectangleIndex = indexOfFirstInstructionReversedOrThrow(invalidateIndex + 1) {
                 getReference<FieldReference>()?.type == "Landroid/graphics/Rect;"
@@ -216,7 +216,7 @@ val sponsorBlockPatch = bytecodePatch(
 
             segmentPlaybackControllerFingerprint.let {
                 it.method.apply {
-                    val replaceIndex = it.patternMatch.startIndex
+                    val replaceIndex = it.filterMatches.first().index
                     val replaceRegister =
                         getInstruction<OneRegisterInstruction>(replaceIndex).registerA
 
@@ -231,7 +231,7 @@ val sponsorBlockPatch = bytecodePatch(
         // The vote and create segment buttons automatically change their visibility when appropriate,
         // but if buttons are showing when the end of the video is reached then they will not automatically hide.
         // Add a hook to forcefully hide when the end of the video is reached.
-        autoRepeatFingerprint.match(autoRepeatParentFingerprint.originalClassDef).method.addInstruction(
+        autoRepeatFingerprint.method.addInstruction(
             0,
             "invoke-static {}, $EXTENSION_SPONSORBLOCK_VIEW_CONTROLLER_CLASS_DESCRIPTOR->endOfVideoReached()V",
         )

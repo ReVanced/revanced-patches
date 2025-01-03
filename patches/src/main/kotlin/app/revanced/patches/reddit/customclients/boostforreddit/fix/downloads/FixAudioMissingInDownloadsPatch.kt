@@ -19,7 +19,7 @@ val fixAudioMissingInDownloadsPatch = bytecodePatch(
         )
 
         downloadAudioFingerprint.method.apply {
-            downloadAudioFingerprint.stringMatches!!.forEach { match ->
+            downloadAudioFingerprint.stringMatches.forEach { match ->
                 val replacement = endpointReplacements[match.string]
                 val register = getInstruction<OneRegisterInstruction>(match.index).registerA
 

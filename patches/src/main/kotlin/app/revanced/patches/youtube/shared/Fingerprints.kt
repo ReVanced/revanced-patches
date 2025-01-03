@@ -5,6 +5,7 @@ import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
 internal val autoRepeatFingerprint by fingerprint {
+    classFingerprint(autoRepeatParentFingerprint)
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("V")
     parameters()
@@ -83,6 +84,8 @@ internal val seekbarFingerprint by fingerprint {
 }
 
 internal val seekbarOnDrawFingerprint by fingerprint {
+    classFingerprint(seekbarFingerprint)
+    classFingerprint(seekbarFingerprint)
     custom { method, _ -> method.name == "onDraw" }
 }
 

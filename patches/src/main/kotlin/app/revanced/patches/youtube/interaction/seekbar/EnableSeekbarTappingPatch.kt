@@ -46,7 +46,7 @@ val enableSeekbarTappingPatch = bytecodePatch(
         )
 
         // Find the required methods to tap the seekbar.
-        val patternMatch = onTouchEventHandlerFingerprint.patternMatch!!
+        val patternMatch = onTouchEventHandlerFingerprint.patternMatch
 
         fun getReference(index: Int) = onTouchEventHandlerFingerprint.method.getInstruction<ReferenceInstruction>(index)
             .reference as MethodReference

@@ -52,6 +52,7 @@ internal val overlayViewInflateFingerprint by fingerprint {
  * Resolves to the class found in [playerTopControlsInflateFingerprint].
  */
 internal val controlsOverlayVisibilityFingerprint by fingerprint {
+    classFingerprint(playerTopControlsInflateFingerprint)
     accessFlags(AccessFlags.PRIVATE, AccessFlags.FINAL)
     returns("V")
     parameters("Z", "Z")

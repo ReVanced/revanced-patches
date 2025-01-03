@@ -115,7 +115,6 @@ val returnYouTubeDislikePatch = bytecodePatch(
             it.type == conversionContextFingerprint.originalClassDef.type
         } ?: throw PatchException("Could not find conversion context field")
 
-        textComponentLookupFingerprint.match(textComponentConstructorFingerprint.originalClassDef)
         textComponentLookupFingerprint.method.apply {
             // Find the instruction for creating the text data object.
             val textDataClassType = textComponentDataFingerprint.originalClassDef.type
@@ -258,7 +257,7 @@ val returnYouTubeDislikePatch = bytecodePatch(
 
         // Rolling Number text views use the measured width of the raw string for layout.
         // Modify the measure text calculation to include the left drawable separator if needed.
-        val patternMatch = rollingNumberMeasureAnimatedTextFingerprint.patternMatch!!
+        val patternMatch = rollingNumberMeasureAnimatedTextFingerprint.patternMatch
         // Additional check to verify the opcodes are at the start of the method
         if (patternMatch.startIndex != 0) throw PatchException("Unexpected opcode location")
         val endIndex = patternMatch.endIndex
@@ -276,9 +275,7 @@ val returnYouTubeDislikePatch = bytecodePatch(
 
         // Additional text measurement method. Used if YouTube decides not to animate the likes count
         // and sometimes used for initial video load.
-        rollingNumberMeasureStaticLabelFingerprint.match(
-            rollingNumberMeasureStaticLabelParentFingerprint.originalClassDef,
-        ).let {
+        rollingNumberMeasureStaticLabelFingerprint.let {
             val measureTextIndex = it.filterMatches.first().index + 1
             it.method.apply {
                 val freeRegister = getInstruction<TwoRegisterInstruction>(0).registerA

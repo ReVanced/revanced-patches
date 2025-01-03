@@ -14,7 +14,7 @@ val restoreHiddenBackUpWhileChargingTogglePatch = bytecodePatch(
 
     execute {
         // Patches 'backup_prefs_had_backup_only_when_charging_enabled' to always be true.
-        val chargingPrefStringIndex = backupPreferencesFingerprint.stringMatches!!.first().index
+        val chargingPrefStringIndex = backupPreferencesFingerprint.stringMatches.first().index
         backupPreferencesFingerprint.method.apply {
             // Get the register of move-result.
             val resultRegister = getInstruction<OneRegisterInstruction>(chargingPrefStringIndex + 2).registerA
