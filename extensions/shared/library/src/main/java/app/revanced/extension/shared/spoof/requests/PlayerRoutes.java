@@ -50,7 +50,9 @@ final class PlayerRoutes {
             client.put("hl", language.getLanguage());
             client.put("clientName", clientType.clientName);
             client.put("clientVersion", clientType.clientVersion);
+            client.put("deviceMake", clientType.deviceMake);
             client.put("deviceModel", clientType.deviceModel);
+            client.put("osName", clientType.osName);
             client.put("osVersion", clientType.osVersion);
             if (clientType.androidSdkVersion != null) {
                 client.put("androidSdkVersion", clientType.androidSdkVersion);
@@ -76,6 +78,7 @@ final class PlayerRoutes {
 
         connection.setRequestProperty("Content-Type", "application/json");
         connection.setRequestProperty("User-Agent", clientType.userAgent);
+        connection.setRequestProperty("X-YouTube-Client-Version", String.valueOf(clientType.id));
 
         connection.setUseCaches(false);
         connection.setDoOutput(true);

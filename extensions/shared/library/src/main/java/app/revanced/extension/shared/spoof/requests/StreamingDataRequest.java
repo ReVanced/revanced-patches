@@ -192,7 +192,7 @@ public class StreamingDataRequest {
                     // but empty response body does.
                     if (connection.getContentLength() == 0) {
                         if (BaseSettings.DEBUG.get()) {
-                            Logger.printException(() -> "Ignoring empty client: " + clientType);
+                            Logger.printException(() -> "Skipping client: " + clientType);
                         }
                     } else {
                         try (InputStream inputStream = new BufferedInputStream(connection.getInputStream());
