@@ -56,14 +56,14 @@ public enum ClientType {
             forceAVC()
                     ? "iPhone12,5"  // 11 Pro Max (last device with iOS 13)
                     : "iPhone16,2", // 15 Pro Max
+            "iOS",
             // iOS 13 and earlier uses only AVC. 14+ adds VP9 and AV1.
-            "iPhone",
             forceAVC()
                     ? "13.7.17H35" // Last release of iOS 13.
-                    : "18.1.1.22B91",
+                    : "18.2.22C152",
             forceAVC()
-                    ? "com.google.ios.youtubeunplugged/6.45 (iPhone; U; CPU iOS 13_7 like Mac OS X)"
-                    : "com.google.ios.youtubeunplugged/8.33 (iPhone; U; CPU iOS 18_1_1 like Mac OS X)",
+                    ? "com.google.ios.youtubeunplugged/6.45 (iPhone12,5; U; CPU iOS 13_7 like Mac OS X)"
+                    : "com.google.ios.youtubeunplugged/8.49 (iPhone16,2; U; CPU iOS 18_2_22 like Mac OS X)",
             null,
             // Version number should be a valid iOS release.
             // https://www.ipa4fun.com/history/152043/
@@ -71,7 +71,7 @@ public enum ClientType {
             // but 6.45 is the last version that supports iOS 13.
             forceAVC()
                     ? "6.45"
-                    : "8.33",
+                    : "8.49",
             true,
             forceAVC()
                     ? "iOS TV Force AVC"
