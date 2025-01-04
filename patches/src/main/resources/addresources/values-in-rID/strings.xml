@@ -499,7 +499,7 @@ Fitur ini hanya tersedia untuk perangkat yang lebih lama"</string>
   <string name="revanced_swipe_text_overlay_size_summary">Ukuran teks untuk hamparan usap</string>
   <string name="revanced_swipe_overlay_background_alpha_title">Visibilitas latar belakang usap</string>
   <string name="revanced_swipe_overlay_background_alpha_summary">Visibilitas latar belakang hamparan usap</string>
-  <string name="revanced_swipe_threshold_title">Ambang batas magnitudo geser</string>
+  <string name="revanced_swipe_threshold_title">Ambang batas magnitudo usap</string>
   <string name="revanced_swipe_threshold_summary">Jumlah ambang batas untuk terjadinya usapan</string>
   <string name="revanced_swipe_change_video_title">Aktifkan usapan untuk beralih video</string>
   <string name="revanced_swipe_change_video_summary_on">Mengusap dalam mode layar penuh akan beralih ke video berikutnya/sebelumnya</string>

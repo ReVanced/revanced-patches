@@ -25,7 +25,7 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_failed_title">Sprawdzanie nie powiodło się</string>
   <string name="revanced_check_environment_dialog_open_official_source_button">Otwórz oficjalną stronę internetową</string>
   <string name="revanced_check_environment_dialog_ignore_button">Ignoruj</string>
-  <string name="revanced_check_environment_failed_message">&lt;h5&gt;Ta aplikacja nie wydaje się być przez ciebie załatana.&lt;/h5&gt;&lt;br&gt;Ta aplikacja może nie działać poprawnie, &lt;b&gt;może być szkodliwa lub nawet niebezpieczna dla użycia&lt;/b&gt;.&lt;br&gt;&lt;br&gt;Te sprawdzenia oznaczają, że ta aplikacja jest wstępnie przygotowana lub uzyskana od kogoś innego:&lt;br&gt;&lt;br&gt;&lt;small&gt;%1$s&lt;/small&gt;&lt;br&gt;Zdecydowanie zaleca się odinstalować aplikację &lt;b&gt;i zaktualizować ją samodzielnie&lt;/b&gt;, aby upewnić się, że używasz zweryfikowanej i bezpiecznej aplikacji.&lt;p&gt;&lt;br&gt;Jeśli zostanie to zignorowane, ostrzeżenie wyskoczy tylko dwukrotnie.</string>
+  <string name="revanced_check_environment_failed_message">&lt;h5&gt;Ta aplikacja nie wydaje się być przez ciebie załatana.&lt;/h5&gt;&lt;br&gt;Ta aplikacja może nie działać poprawnie, &lt;b&gt;może być szkodliwa lub nawet niebezpieczna dla użycia&lt;/b&gt;.&lt;br&gt;&lt;br&gt;Te sprawdzenia oznaczają, że ta aplikacja jest wstępnie przygotowana lub uzyskana od kogoś innego:&lt;br&gt;&lt;br&gt;&lt;small&gt;%1$s&lt;/small&gt;&lt;br&gt;Zdecydowanie zaleca się odinstalować aplikację &lt;b&gt;i załatać ją samodzielnie&lt;/b&gt;, aby upewnić się, że używasz zweryfikowanej i bezpiecznej aplikacji.&lt;p&gt;&lt;br&gt;Jeśli zostanie to zignorowane, ostrzeżenie wyskoczy tylko dwukrotnie.</string>
   <string name="revanced_check_environment_not_same_patching_device">Załatano na innym urządzeniu</string>
   <string name="revanced_check_environment_manager_not_expected_installer">Nie zainstalowany przez ReVanced Manager</string>
   <string name="revanced_check_environment_not_near_patch_time">Załatano ponad 10 minut temu</string>
@@ -115,7 +115,7 @@ Aby przetłumaczyć nowe języki, odwiedź stronę translate.revanced.app"</stri
   <string name="gms_core_dialog_title">Wymagane działanie</string>
   <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"MicroG GmsCore nie posiada uprawnień do działania w tle.
 
-Postępuj zgodnie z instrukcją \"Nie zabijaj mojej aplikacji\" dla swojego telefonu i zastosuj instrukcje do swojej instalacji MicroG.
+Postępuj zgodnie z instrukcją \"Don't kill my app\" dla swojego telefonu i zastosuj instrukcje do swojej instalacji MicroG.
 
 Jest to wymagane do działania aplikacji."</string>
   <string name="gms_core_dialog_open_website_text">Otwórz stronę</string>
@@ -165,134 +165,134 @@ Naciśnij przycisk Kontynuuj i zezwól na zmiany optymalizacji."</string>
 Nie będziesz informowany o żadnych nieoczekiwanych zdarzeniach."</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
-  <string name="revanced_disable_like_subscribe_glow_title">Poświata przycisków polubienia i subskrypcji</string>
+  <string name="revanced_disable_like_subscribe_glow_title">Wyłącz poświatę przycisków polubienia i subskrypcji</string>
   <string name="revanced_disable_like_subscribe_glow_summary_on">Poświata przycisku polubienia i subskrypcji jest ukryta</string>
   <string name="revanced_disable_like_subscribe_glow_summary_off">Poświata przycisku polubienia i subskrypcji jest widoczna</string>
-  <string name="revanced_hide_album_cards_title">Karty albumów</string>
+  <string name="revanced_hide_album_cards_title">Ukryj karty albumów</string>
   <string name="revanced_hide_album_cards_summary_on">Karty albumów są ukryte</string>
   <string name="revanced_hide_album_cards_summary_off">Karty albumów są widoczne</string>
-  <string name="revanced_hide_crowdfunding_box_title">Ramki ze zbiórkami</string>
-  <string name="revanced_hide_crowdfunding_box_summary_on">Ramki ze zbiórkami są ukryte</string>
-  <string name="revanced_hide_crowdfunding_box_summary_off">Ramki ze zbiórkami są widoczne</string>
-  <string name="revanced_hide_floating_microphone_button_title">Dolny przycisk od mikrofonu</string>
+  <string name="revanced_hide_crowdfunding_box_title">Ukryj ramki ze zbiórkami</string>
+  <string name="revanced_hide_crowdfunding_box_summary_on">Ramki ze zbiórkami pieniędzy są ukryte</string>
+  <string name="revanced_hide_crowdfunding_box_summary_off">Ramki ze zbiórkami pieniędzy są widoczne</string>
+  <string name="revanced_hide_floating_microphone_button_title">Ukryj pływający przycisk mikrofonu</string>
   <string name="revanced_hide_floating_microphone_button_summary_on">Przycisk mikrofonu jest ukryty</string>
   <string name="revanced_hide_floating_microphone_button_summary_off">Przycisk mikrofonu jest widoczny</string>
-  <string name="revanced_hide_channel_watermark_title">Znaki wodne kanałów</string>
+  <string name="revanced_hide_channel_watermark_title">Ukryj znaki wodne kanałów</string>
   <string name="revanced_hide_channel_watermark_summary_on">Znaki wodne są ukryte</string>
   <string name="revanced_hide_channel_watermark_summary_off">Znaki wodne są widoczne</string>
-  <string name="revanced_hide_horizontal_shelves_title">Poziome półki</string>
+  <string name="revanced_hide_horizontal_shelves_title">Ukryj poziome półki</string>
   <string name="revanced_hide_horizontal_shelves_summary_on">"Półki są ukryte, takie jak:
-• Wiadomości
+• Najważniejsze wiadomości
 • Kontynuuj oglądanie
 • Odkryj więcej kanałów
 • Zakupy
 • Obejrzyj ponownie"</string>
-  <string name="revanced_hide_horizontal_shelves_summary_off">Pociski są widoczne</string>
+  <string name="revanced_hide_horizontal_shelves_summary_off">Półki są widoczne</string>
   <!-- 'Join' should be translated using the same localized wording YouTube displays.
                  This appears in the video player for certain videos. -->
-  <string name="revanced_hide_join_membership_button_title">Przycisk od sponsorowania</string>
-  <string name="revanced_hide_join_membership_button_summary_on">Przycisk jest ukryty</string>
-  <string name="revanced_hide_join_membership_button_summary_off">Przycisk jest widoczny</string>
+  <string name="revanced_hide_join_membership_button_title">Ukryj przycisk \"Dołącz\"</string>
+  <string name="revanced_hide_join_membership_button_summary_on">Przycisk do sponsorowania kanałów jest ukryty</string>
+  <string name="revanced_hide_join_membership_button_summary_off">Przycisk do sponsorowania kanałów jest widoczny</string>
   <!-- 'For you' should be translated using the same localized wording YouTube displays. -->
-  <string name="revanced_hide_for_you_shelf_title">Półka \'Dla ciebie\' na stronach kanałów</string>
+  <string name="revanced_hide_for_you_shelf_title">Ukryj półkę \'Dla ciebie\' na stronach kanałów</string>
   <string name="revanced_hide_for_you_shelf_summary_on">Półka jest ukryta</string>
   <string name="revanced_hide_for_you_shelf_summary_off">Półka jest widoczna</string>
   <!-- 'Notify me' should be translated using the same localized wording YouTube displays.
                  This item appear in the subscription feed for future livestreams or unreleased videos. -->
-  <string name="revanced_hide_notify_me_button_title">Przycisk \'Powiadom mnie\'</string>
+  <string name="revanced_hide_notify_me_button_title">Ukryj przycisk \'Powiadom mnie\'</string>
   <string name="revanced_hide_notify_me_button_summary_on">Przycisk jest ukryty</string>
   <string name="revanced_hide_notify_me_button_summary_off">Przycisk jest widoczny</string>
   <!-- 'People also watch' should be translated using the same localized wording YouTube displays. -->
-  <string name="revanced_hide_search_result_recommendations_title">Rekomendacje \'Inne osoby również obejrzały\'</string>
+  <string name="revanced_hide_search_result_recommendations_title">Ukryj rekomendacje \'Inne osoby również obejrzały\'</string>
   <string name="revanced_hide_search_result_recommendations_summary_on">Rekomendacje są ukryte</string>
   <string name="revanced_hide_search_result_recommendations_summary_off">Rekomendacje są widoczne</string>
   <!-- 'Show more' should be translated with the same localized wording that YouTube displays.
                   This button usually appears when searching for a YT creator. -->
-  <string name="revanced_hide_show_more_button_title">Przycisk \'Pokaż więcej\'</string>
+  <string name="revanced_hide_show_more_button_title">Ukryj przycisk \'Pokaż więcej\'</string>
   <string name="revanced_hide_show_more_button_summary_on">Przycisk jest ukryty</string>
   <string name="revanced_hide_show_more_button_summary_off">Przycisk jest widoczny</string>
-  <string name="revanced_hide_timed_reactions_title">Reakcje czasowe</string>
+  <string name="revanced_hide_timed_reactions_title">Ukryj reakcje czasowe</string>
   <string name="revanced_hide_timed_reactions_summary_on">Reakcje czasowe są ukryte</string>
   <string name="revanced_hide_timed_reactions_summary_off">Reakcje czasowe są widoczne</string>
-  <string name="revanced_hide_channel_guidelines_title">Wytyczne kanału</string>
+  <string name="revanced_hide_channel_guidelines_title">Ukryj wytyczne kanału</string>
   <string name="revanced_hide_channel_guidelines_summary_on">Wytyczne kanału są ukryte</string>
   <string name="revanced_hide_channel_guidelines_summary_off">Wytyczne kanału są widoczne</string>
-  <string name="revanced_hide_chips_shelf_title">Paski z kategoriami</string>
+  <string name="revanced_hide_chips_shelf_title">Ukryj paski z kategoriami</string>
   <string name="revanced_hide_chips_shelf_summary_on">Paski z kategoriami są ukryte</string>
   <string name="revanced_hide_chips_shelf_summary_off">Paski z kategoriami są widoczne</string>
-  <string name="revanced_hide_expandable_chip_title">Produkty i rozdziały pod filmami</string>
+  <string name="revanced_hide_expandable_chip_title">Ukryj produkty i rozdziały pod filmami</string>
   <string name="revanced_hide_expandable_chip_summary_on">Produkty i rozdziały są ukryte</string>
   <string name="revanced_hide_expandable_chip_summary_off">Produkty i rozdziały są widoczne</string>
-  <string name="revanced_hide_community_posts_title">Posty społeczności</string>
+  <string name="revanced_hide_community_posts_title">Ukryj posty społeczności</string>
   <string name="revanced_hide_community_posts_summary_on">Posty społeczności są ukryte</string>
   <string name="revanced_hide_community_posts_summary_off">Posty społeczności są widoczne</string>
-  <string name="revanced_hide_compact_banner_title">Kompaktowe banery</string>
+  <string name="revanced_hide_compact_banner_title">Ukryj kompaktowe banery</string>
   <string name="revanced_hide_compact_banner_summary_on">Kompaktowe banery są ukryte</string>
   <string name="revanced_hide_compact_banner_summary_off">Kompaktowe banery są widoczne</string>
-  <string name="revanced_hide_movies_section_title">Sekcja filmów kinowych</string>
+  <string name="revanced_hide_movies_section_title">Ukryj sekcję filmów kinowych</string>
   <string name="revanced_hide_movies_section_summary_on">Sekcja filmów kinowych jest ukryta</string>
   <string name="revanced_hide_movies_section_summary_off">Sekcja filmów kinowych jest widoczna</string>
-  <string name="revanced_hide_feed_survey_title">Ankiety na stronie głównej</string>
+  <string name="revanced_hide_feed_survey_title">Ukryj ankiety na stronie głównej</string>
   <string name="revanced_hide_feed_survey_summary_on">Ankiety na stronie głównej są ukryte</string>
   <string name="revanced_hide_feed_survey_summary_off">Ankiety na stronie głównej są widoczne</string>
-  <string name="revanced_hide_community_guidelines_title">Wytyczne społeczności</string>
+  <string name="revanced_hide_community_guidelines_title">Ukryj wytyczne społeczności</string>
   <string name="revanced_hide_community_guidelines_summary_on">Wytyczne społeczności są ukryte</string>
   <string name="revanced_hide_community_guidelines_summary_off">Wytyczne społeczności są widoczne</string>
-  <string name="revanced_hide_subscribers_community_guidelines_title">Wytyczne społeczności subskrybentów</string>
+  <string name="revanced_hide_subscribers_community_guidelines_title">Ukryj wytyczne społeczności subskrybentów</string>
   <string name="revanced_hide_subscribers_community_guidelines_summary_on">Wytyczne społeczności subskrybentów są widoczne</string>
   <string name="revanced_hide_subscribers_community_guidelines_summary_off">Wytyczne społeczności subskrybentów są widoczne</string>
-  <string name="revanced_hide_channel_member_shelf_title">Półki ze sponsorami</string>
+  <string name="revanced_hide_channel_member_shelf_title">Ukryj półki ze sponsorami</string>
   <string name="revanced_hide_channel_member_shelf_summary_on">Półki ze sponsorami są ukryte</string>
   <string name="revanced_hide_channel_member_shelf_summary_off">Półki ze sponsorami są widoczne</string>
-  <string name="revanced_hide_emergency_box_title">Ramki alarmowe</string>
+  <string name="revanced_hide_emergency_box_title">Ukryj ramki alarmowe</string>
   <string name="revanced_hide_emergency_box_summary_on">Ramki alarmowe są ukryte</string>
   <string name="revanced_hide_emergency_box_summary_off">Ramki alarmowe są widoczne</string>
-  <string name="revanced_hide_info_panels_title">Panele informacyjne</string>
+  <string name="revanced_hide_info_panels_title">Ukryj panele informacyjne</string>
   <string name="revanced_hide_info_panels_summary_on">Panele informacyjne są ukryte</string>
   <string name="revanced_hide_info_panels_summary_off">Panele informacyjne są widoczne</string>
-  <string name="revanced_hide_medical_panels_title">Panele medyczne</string>
+  <string name="revanced_hide_medical_panels_title">Ukryj panele medyczne</string>
   <string name="revanced_hide_medical_panels_summary_on">Panele medyczne są ukryte</string>
   <string name="revanced_hide_medical_panels_summary_off">Panele medyczne są widoczne</string>
-  <string name="revanced_hide_channel_bar_title">Pasek kanału</string>
+  <string name="revanced_hide_channel_bar_title">Ukryj pasek kanału</string>
   <string name="revanced_hide_channel_bar_summary_on">Pasek kanału jest ukryty</string>
   <string name="revanced_hide_channel_bar_summary_off">Pasek kanału jest widoczny</string>
-  <string name="revanced_hide_playables_title">Pokój gier</string>
+  <string name="revanced_hide_playables_title">Ukryj pokój gier</string>
   <string name="revanced_hide_playables_summary_on">Pokój gier jest widoczny</string>
   <string name="revanced_hide_playables_summary_off">Pokój gier jest ukryty</string>
-  <string name="revanced_hide_quick_actions_title">Szybkie akcje na pełnym ekranie</string>
+  <string name="revanced_hide_quick_actions_title">Ukryj szybkie akcje na pełnym ekranie</string>
   <string name="revanced_hide_quick_actions_summary_on">Szybkie akcje są ukryte</string>
   <string name="revanced_hide_quick_actions_summary_off">Szybkie akcje są widoczne</string>
-  <string name="revanced_hide_related_videos_title">Powiązane filmy w szybkich akcjach</string>
+  <string name="revanced_hide_related_videos_title">Ukryj powiązane filmy w szybkich akcjach</string>
   <string name="revanced_hide_related_videos_summary_on">Powiązane filmy są ukryte</string>
   <string name="revanced_hide_related_videos_summary_off">Powiązane filmy są widoczne</string>
-  <string name="revanced_hide_image_shelf_title">Półka ze zdjeciami w wynikach wyszukiwania</string>
+  <string name="revanced_hide_image_shelf_title">Ukryj półkę ze zdjęciami w wynikach wyszukiwania</string>
   <string name="revanced_hide_image_shelf_summary_on">Półka ze zdjęciami jest ukryta</string>
   <string name="revanced_hide_image_shelf_summary_off">Półka ze zdjęciami jest widoczna</string>
-  <string name="revanced_hide_latest_posts_ads_title">Najnowsze posty</string>
+  <string name="revanced_hide_latest_posts_ads_title">Ukryj najnowsze posty</string>
   <string name="revanced_hide_latest_posts_ads_summary_on">Najnowsze posty są ukryte</string>
   <string name="revanced_hide_latest_posts_ads_summary_off">Najnowsze posty są widoczne</string>
-  <string name="revanced_hide_mix_playlists_title">Playlisty mix</string>
-  <string name="revanced_hide_mix_playlists_summary_on">Playlisty mix są ukryte</string>
-  <string name="revanced_hide_mix_playlists_summary_off">Playlisty mix są widoczne</string>
-  <string name="revanced_hide_artist_cards_title">Karty artystów</string>
+  <string name="revanced_hide_mix_playlists_title">Ukryj składanki</string>
+  <string name="revanced_hide_mix_playlists_summary_on">Składanki są ukryte</string>
+  <string name="revanced_hide_mix_playlists_summary_off">Składanki są widoczne</string>
+  <string name="revanced_hide_artist_cards_title">Ukryj karty artystów</string>
   <string name="revanced_hide_artist_cards_summary_on">Karty artystów są ukryte</string>
   <string name="revanced_hide_artist_cards_summary_off">Karty artystów są widoczne</string>
-  <string name="revanced_hide_attributes_section_title">Sekcja atrybutów</string>
+  <string name="revanced_hide_attributes_section_title">Ukryj sekcję atrybutów</string>
   <string name="revanced_hide_attributes_section_summary_on">Sekcje wyróżnionych miejsc, gier i muzyki są ukryte</string>
   <string name="revanced_hide_attributes_section_summary_off">Sekcje wyróżnionych miejsc, gier i muzyki są widoczne</string>
-  <string name="revanced_hide_chapters_section_title">Sekcja rozdziałów</string>
+  <string name="revanced_hide_chapters_section_title">Ukryj sekcję rozdziałów</string>
   <string name="revanced_hide_chapters_section_summary_on">Sekcja rozdziałów jest ukryta</string>
   <string name="revanced_hide_chapters_section_summary_off">Sekcja rozdziałów jest widoczna</string>
-  <string name="revanced_hide_podcast_section_title">Sekcja eksplorowania podcastów</string>
-  <string name="revanced_hide_podcast_section_summary_on">Sekcje eksplorowania podcastów jest ukryta</string>
-  <string name="revanced_hide_podcast_section_summary_off">Sekcje eksplorowania podcastów jest widoczna</string>
-  <string name="revanced_hide_info_cards_section_title">Sekcja kart informacyjnych</string>
+  <string name="revanced_hide_podcast_section_title">Ukryj sekcję \'Poznaj podcast\'</string>
+  <string name="revanced_hide_podcast_section_summary_on">Sekcje \'Poznaj podcast\' jest ukryta</string>
+  <string name="revanced_hide_podcast_section_summary_off">Sekcje \'Poznaj podcast\' jest widoczna</string>
+  <string name="revanced_hide_info_cards_section_title">Ukryj sekcję kart informacyjnych</string>
   <string name="revanced_hide_info_cards_section_summary_on">Sekcja kart informacyjnych jest ukryta</string>
   <string name="revanced_hide_info_cards_section_summary_off">Sekcja kart informacyjnych jest widoczna</string>
-  <string name="revanced_hide_key_concepts_section_title">Sekcja kluczowych pojęć</string>
+  <string name="revanced_hide_key_concepts_section_title">Ukryj sekcję kluczowych pojęć</string>
   <string name="revanced_hide_key_concepts_section_summary_on">Sekcja kluczowych pojęć jest ukryta</string>
   <string name="revanced_hide_key_concepts_section_summary_off">Sekcja kluczowych pojęć jest widoczna</string>
-  <string name="revanced_hide_transcript_section_title">Sekcja transkrypcji</string>
+  <string name="revanced_hide_transcript_section_title">Ukryj sekcję transkrypcji</string>
   <string name="revanced_hide_transcript_section_summary_on">Sekcja transkrypcji jest ukryta</string>
   <string name="revanced_hide_transcript_section_summary_off">Sekcja transkrypcji jest widoczna</string>
   <string name="revanced_hide_description_components_screen_title">Opis filmu</string>
@@ -313,66 +313,66 @@ Nie będziesz informowany o żadnych nieoczekiwanych zdarzeniach."</string>
   <string name="revanced_hide_comments_chat_summary_title">Ukryj \'Podsumowanie czatu\' </string>
   <string name="revanced_hide_comments_chat_summary_summary_on">\'Podsumowanie czatu\' jest ukryte</string>
   <string name="revanced_hide_comments_chat_summary_summary_off">\'Podsumowanie czatu\' jest widoczne</string>
-  <string name="revanced_hide_comments_by_members_header_title">Nagłówki z komentarzami sponsorów</string>
+  <string name="revanced_hide_comments_by_members_header_title">Ukryj nagłówki komentarzy sponsorów</string>
   <string name="revanced_hide_comments_by_members_header_summary_on">Nagłówki z komentarzami sponsorów są ukryte</string>
   <string name="revanced_hide_comments_by_members_header_summary_off">Nagłówki z komentarzami sponsorów są widoczne</string>
-  <string name="revanced_hide_comments_section_title">Sekcja komentarzy</string>
+  <string name="revanced_hide_comments_section_title">Ukryj sekcję komentarzy</string>
   <string name="revanced_hide_comments_section_summary_on">Sekcja komentarzy jest ukryta</string>
   <string name="revanced_hide_comments_section_summary_off">Sekcja komentarzy jest widoczna</string>
   <string name="revanced_hide_comments_create_a_short_button_title">Przycisk od tworzenia Shortsów</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_on">Przycisk od tworzenia Shortsów jest ukryty</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_off">Przycisk od tworzenia Shortsów jest widoczny</string>
-  <string name="revanced_hide_comments_preview_comment_title">Wyróżnione komentarze</string>
-  <string name="revanced_hide_comments_preview_comment_summary_on">Wyróżnione komentarze są ukryte</string>
-  <string name="revanced_hide_comments_preview_comment_summary_off">Wyróżnione komentarze są widoczne</string>
-  <string name="revanced_hide_comments_thanks_button_title">Przycisk od dziękowania</string>
-  <string name="revanced_hide_comments_thanks_button_summary_on">Przycisk od dziękowania jest ukryty</string>
-  <string name="revanced_hide_comments_thanks_button_summary_off">Przycisk od dziękowania jest widoczny</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_title">Czas i przyciski od emotikon</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_on">Czas i przyciski od emotikon są ukryte</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_off">Czas i przyciski od emotikon są widoczne</string>
+  <string name="revanced_hide_comments_preview_comment_title">Ukryj podgląd komentarzy</string>
+  <string name="revanced_hide_comments_preview_comment_summary_on">Podgląd komentarzy jest ukryty</string>
+  <string name="revanced_hide_comments_preview_comment_summary_off">Podgląd komentarzy jest widoczny</string>
+  <string name="revanced_hide_comments_thanks_button_title">Ukryj przycisk superpodziękowania</string>
+  <string name="revanced_hide_comments_thanks_button_summary_on">Przycisk superpodziękowania jest ukryty</string>
+  <string name="revanced_hide_comments_thanks_button_summary_off">Przycisk superpodziękowania jest widoczny</string>
+  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_title">Ukryj przyciski znacznika czasu i emotikon</string>
+  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_on">Przyciski czasu i emotikon są ukryte</string>
+  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_off">Przyciski czasu i emotikon są widoczne</string>
   <!-- https://logos.fandom.com/wiki/YouTube/Yoodles -->
-  <string name="revanced_hide_doodles_title">YouTube Doodles</string>
-  <string name="revanced_hide_doodles_summary_on">YouTube Doodles jest ukryty</string>
-  <string name="revanced_hide_doodles_summary_off">YouTube Doodles jest widoczny</string>
-  <string name="revanced_hide_doodles_user_dialog_message">"Gryzmoły YouTube są wyświetlane kilka dni w roku.
+  <string name="revanced_hide_doodles_title">Ukryj YouTube Doodles</string>
+  <string name="revanced_hide_doodles_summary_on">Doodle w pasku wyszukiwania są ukryte</string>
+  <string name="revanced_hide_doodles_summary_off">Doodle w pasku wyszukiwania są widoczne</string>
+  <string name="revanced_hide_doodles_user_dialog_message">"'YouTube Doodles' są wyświetlane kilka dni w roku.
 
-Jeśli Gryzmół jest obecnie wyświetlany w Twoim regionie, a to ustawienie ukrycia jest włączone, pasek filtrów pod paskiem wyszukiwania również zostanie ukryty."</string>
+Jeśli Doodle jest obecnie wyświetlany w Twoim regionie, a to ustawienie ukrycia jest włączone, pasek filtrów pod paskiem wyszukiwania również zostanie ukryty."</string>
   <string name="revanced_custom_filter_screen_title">Własny filtr</string>
   <string name="revanced_custom_filter_screen_summary">Ukryj komponenty za pomocą własnego filtra</string>
-  <string name="revanced_custom_filter_title">Własny filtr</string>
+  <string name="revanced_custom_filter_title">Włącz własny filtr</string>
   <string name="revanced_custom_filter_summary_on">Filtr niestandardowy jest włączony</string>
   <string name="revanced_custom_filter_summary_off">Filtr niestandardowy jest wyłączony</string>
   <string name="revanced_custom_filter_strings_title">Własny filtr</string>
   <!-- 'Component path builder strings' is the technical name for identifying the Litho UI layout items to hide. This is an advanced feature and most users will never use this. -->
-  <string name="revanced_custom_filter_strings_summary">Lista tekstów tworzących ścieżkę komponentów do filtrowania, która musi być oddzielona nowymi liniami</string>
+  <string name="revanced_custom_filter_strings_summary">Lista tekstów tworzących ścieżkę komponentów do filtrowania, oddzielone nowymi wierszami</string>
   <string name="revanced_custom_filter_toast_invalid_syntax">Nieprawidłowy niestandardowy filtr: %s</string>
   <string name="revanced_hide_keyword_content_screen_title">Filtrowanie słów</string>
   <string name="revanced_hide_keyword_content_screen_summary">Ukryj wyszukiwanie i filmy na stronie głównej za pomocą filtrów słów</string>
-  <string name="revanced_hide_keyword_content_home_title">Filmy na stronie głównej</string>
+  <string name="revanced_hide_keyword_content_home_title">Filtruj filmy na stronie głównej</string>
   <string name="revanced_hide_keyword_content_home_summary_on">Filmy na stronie głównej są filtrowane przez słowa</string>
   <string name="revanced_hide_keyword_content_home_summary_off">Filmy na stronie głównej nie są filtrowane przez słowa</string>
-  <string name="revanced_hide_keyword_content_subscriptions_title">Filmy na stronie subskrypcji</string>
+  <string name="revanced_hide_keyword_content_subscriptions_title">Filtruj filmy na stronie subskrypcji</string>
   <string name="revanced_hide_keyword_content_subscriptions_summary_on">Filmy na stronie subskrypcji są filtrowane przez słowa</string>
   <string name="revanced_hide_keyword_content_subscriptions_summary_off">Filmy na stronie subskrypcji nie są filtrowane przez słowa</string>
-  <string name="revanced_hide_keyword_content_search_title">W wynikach wyszukiwania</string>
+  <string name="revanced_hide_keyword_content_search_title">Filtruj wyniki wyszukiwania</string>
   <string name="revanced_hide_keyword_content_search_summary_on">Wyniki wyszukiwania są filtrowane przez słowa</string>
   <string name="revanced_hide_keyword_content_search_summary_off">Wyniki wyszukiwania nie są filtrowane przez słowa</string>
   <string name="revanced_hide_keyword_content_phrases_title">Słowa do ukrycia</string>
   <!-- For localization it is preferred, but not required, if 'LeBlanc' is replaced with a localized name or a familiar word that has upper case letters in the middle of the word.
                  This is because keywords can be in any language, and showing an example in the localized script helps convey this. -->
-  <string name="revanced_hide_keyword_content_phrases_summary">"Słowa kluczowe i wyrażenia do ukrycia, oddzielone nowymi liniami
+  <string name="revanced_hide_keyword_content_phrases_summary">"Słowa kluczowe i wyrażenia do ukrycia, oddzielone nowymi wierszami
 
 Słowa kluczowe mogą być nazwami kanałów lub dowolnym tekstem wyświetlanym w tytułach filmów
 
 Słowa zawierające duże litery w środku muszą być wprowadzane z wielkością liter (np. iPhone, TikTok, LeBlanc)"</string>
   <string name="revanced_hide_keyword_content_about_title">O filtrowaniu słów</string>
-  <string name="revanced_hide_keyword_content_about_summary">"Home/Subscription/Search results are filtered to hide content that matches keyword phrases
+  <string name="revanced_hide_keyword_content_about_summary">"Strona główna/Subskrybcje/Wyniki wyszukiwania są filtrowane, by ukryć zawartość, która pasuje do fraz kluczowych
 
 Ograniczenia
-• Shorts cannot be hidden by channel name
-• Some UI components may not be hidden
-• Searching for a keyword may show no results"</string>
+• Filmy Shorts nie mogą być ukrywane przez nazwę kanału
+• Niektóre komponenty interfejsu mogą nie zostać ukryte
+• Wpisanie słowa kluczowego do pola wyszukiwania może nie pokazać żadnych wyników"</string>
   <string name="revanced_hide_keyword_content_about_whole_words_title">Uwzględnij całe wyrazy</string>
   <!-- Translations _must_ use a localized example.  For languages that do not use spaces between words (Chinese, Japanese, etc) the English AI example should be used since no localized examples exist.  Or if using machine translations, or if nobody wants to think of a localized example, then the English 'ai' example should be left as-is. -->
   <string name="revanced_hide_keyword_content_about_whole_words_summary">Otoczenie słowa/frazy podwójnym cudzysłowem może zapobiec częściowemu dopasowywaniu tytułów filmów i nazw kanałów&lt;br&gt;&lt;br&gt;Dla przykładu,&lt;br&gt;&lt;b&gt;\"ai\"&lt;/b&gt; ukryje film: &lt;b&gt;Jak działa AI?&lt;/b&gt;&lt;br&gt;lecz nie ukryje: &lt;b&gt;Co oznacza aikido?&lt;/b&gt;</string>

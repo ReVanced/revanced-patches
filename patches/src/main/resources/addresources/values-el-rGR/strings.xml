@@ -43,7 +43,7 @@ Second \"item\" text"</string>
   <string name="revanced_settings_import_reset">Επαναφέρθηκαν οι προεπιλεγμένες ρυθμίσεις ReVanced</string>
   <string name="revanced_settings_import_success">Έγινε εισαγωγή %d ρυθμίσεων</string>
   <string name="revanced_settings_import_failure_parse">Η εισαγωγή απέτυχε: %s</string>
-  <string name="revanced_language_title">Γλώσσα ReVanced</string>
+  <string name="revanced_language_title">Γλώσσα ρυθμίσεων ReVanced</string>
   <string name="revanced_language_user_dialog_message">"Οι μεταφράσεις για κάποιες γλώσσες ενδέχεται να λείπουν ή να είναι ελλιπείς. 
 
 Για να μεταφράσετε νέες γλώσσες, επισκεφθείτε τη διεύθυνση translate.revanced.app"</string>
@@ -1372,7 +1372,7 @@ Second \"item\" text"</string>
   <!-- 'no auth' means no authentication -->
   <string name="revanced_spoof_video_streams_client_type_android_vr_no_auth">Android VR (χωρίς auth)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_title">Εξαναγκασμός iOS AVC (H.264)</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Ο κωδικοποιητής βίντεο είναι αναγκαστικά AVC (H.264)</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Ο κωδικοποιητής βίντεο έχει οριστεί υποχρεωτικά σε AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Ο κωδικοποιητής βίντεο ορίζεται αυτόματα</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">"Η ενεργοποίηση αυτής της λειτουργίας ενδέχεται να βελτιώσει τη διάρκεια ζωής της μπαταρίας και να διορθώσει κολλήματα αναπαραγωγής.
 

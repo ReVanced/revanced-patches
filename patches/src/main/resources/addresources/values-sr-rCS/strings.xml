@@ -802,7 +802,7 @@ Napomena: Omogućavanje ovoga prisilno sakriva i video oglase"</string>
   <string name="revanced_hide_player_popup_panels_summary_off">Iskačući paneli plejera su prikazani</string>
   </patch>
   <patch id="layout.player.fullscreen.exitFullscreenPatch">
-  <string name="revanced_exit_fullscreen_title">Izađi iz režima celog ekrana na kraju videa</string>
+  <string name="revanced_exit_fullscreen_title">Izlaz iz režima celog ekrana na kraju videa</string>
   <string name="revanced_exit_fullscreen_entry_1">Onemogućeno</string>
   <string name="revanced_exit_fullscreen_entry_2">Uspravno</string>
   <string name="revanced_exit_fullscreen_entry_3">Vodoravno</string>
@@ -938,7 +938,7 @@ Ova funkcija najbolje radi sa kvalitetom videa od 720p ili nižim i kada koristi
   <string name="revanced_sb_settings_ie">Uvoz/Izvoz podešavanja</string>
   <string name="revanced_sb_settings_copy">Kopiraj</string>
   <string name="revanced_sb_settings_ie_sum">Vaša SponsorBlock JSON konfiguracija koja može da se uveze/izveze u ReVanced i druge SponsorBlock platforme</string>
-  <string name="revanced_sb_settings_ie_sum_warning">Vaša SponsorBlock JSON konfiguracija koja može da se uveze/izveze u ReVanced i druge SponsorBlock platforme. Ovo uključuje vaš privatni korisnički ID. Delite ovo mudro</string>
+  <string name="revanced_sb_settings_ie_sum_warning">Vaša SponsorBlock JSON konfiguracija koja može da se uveze/izveze u ReVanced i druge SponsorBlock platforme. Ovo uključuje vaš privatni korisnički ID. Budite pažljivi pri deljenju ovoga</string>
   <string name="revanced_sb_settings_import_successful">Podešavanja su uspešno uvezena</string>
   <string name="revanced_sb_settings_import_failed">Neuspešan uvoz: %s</string>
   <string name="revanced_sb_settings_export_failed">Neuspešan izvoz: %s</string>

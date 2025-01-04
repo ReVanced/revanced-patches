@@ -47,7 +47,7 @@ Second \"item\" text"</string>
   <string name="revanced_language_user_dialog_message">"D'fhéadfadh aistriúcháin do roinnt teangacha a bheith ar iarraidh nó mí-iomlán.
 
 Chun teangacha nua a aistriú, tabhair cuairt ar translate.revanced.app"</string>
-  <string name="revanced_language_DEFAULT">Teanga Feidhméire</string>
+  <string name="revanced_language_DEFAULT">Teanga aip</string>
   <string name="revanced_language_AR">Araibis</string>
   <string name="revanced_language_AZ">Asarbaiseáinis</string>
   <string name="revanced_language_BG">Bulgáiris</string>
@@ -271,7 +271,7 @@ Ní bheidh a fhios agat faoi aon imeachtaí neamhghnácha."</string>
   <string name="revanced_hide_image_shelf_summary_off">Taispeántar seilf íomhá</string>
   <string name="revanced_hide_latest_posts_ads_title">Folaigh na postanna is déanaí</string>
   <string name="revanced_hide_latest_posts_ads_summary_on">Tá postanna is déanaí i bhfolach</string>
-  <string name="revanced_hide_latest_posts_ads_summary_off">Taispeántar na poist is déanaí</string>
+  <string name="revanced_hide_latest_posts_ads_summary_off">Taispeántar na postálacha is déanaí</string>
   <string name="revanced_hide_mix_playlists_title">Folaigh seinmliostaí meascán</string>
   <string name="revanced_hide_mix_playlists_summary_on">Tá seinmliostaí measctha i bhfolach</string>
   <string name="revanced_hide_mix_playlists_summary_off">Taispeántar seinmliostaí measctha</string>
@@ -335,7 +335,7 @@ Ní bheidh a fhios agat faoi aon imeachtaí neamhghnácha."</string>
   <!-- https://logos.fandom.com/wiki/YouTube/Yoodles -->
   <string name="revanced_hide_doodles_title">Folaigh YouTube Doodles</string>
   <string name="revanced_hide_doodles_summary_on">Barra cuardaigh Tá Doodles i bhfolach</string>
-  <string name="revanced_hide_doodles_summary_off">Barra cuardaigh Taispeántar Doodles</string>
+  <string name="revanced_hide_doodles_summary_off">Taispeántar Doodles an bharra cuardaigh</string>
   <string name="revanced_hide_doodles_user_dialog_message">"Taispeántar Doodles ó YouTube cúpla lá gach bliain.
 
 Má tá Doodle á thaispeáint faoi láthair i do réigiún agus má tá an tsuíomh seo a chumasc, ansin cuirfear an barra scagaire faoin bharra cuardaigh i bhfolach freisin."</string>
@@ -353,10 +353,10 @@ Má tá Doodle á thaispeáint faoi láthair i do réigiún agus má tá an tsu�
   <string name="revanced_hide_keyword_content_home_title">Folaigh físeáin bhaile de réir eochair</string>
   <string name="revanced_hide_keyword_content_home_summary_on">Scagtar físeáin sa chluaisín baile de réir eochairfhocail</string>
   <string name="revanced_hide_keyword_content_home_summary_off">Ní scagtar físeáin sa chluaisín baile de réir eochairfhocail</string>
-  <string name="revanced_hide_keyword_content_subscriptions_title">Folaigh físeáin síntiúis ag eochair</string>
+  <string name="revanced_hide_keyword_content_subscriptions_title">Folaigh físeáin síntiúis de réir eochairfhocail</string>
   <string name="revanced_hide_keyword_content_subscriptions_summary_on">Déantar físeáin sa chluaisín síntiús a scagadh de réir eochairfhocail</string>
   <string name="revanced_hide_keyword_content_subscriptions_summary_off">Ní scagtar físeáin sa chluaisín síntiúis ag eochairfhocail</string>
-  <string name="revanced_hide_keyword_content_search_title">Folaigh torthaí cuardaigh de réir eochair</string>
+  <string name="revanced_hide_keyword_content_search_title">Folaigh torthaí cuardaigh de réir eochairfhocail</string>
   <string name="revanced_hide_keyword_content_search_summary_on">Déantar torthaí cuardaigh a scagadh de réir eochairfhocail</string>
   <string name="revanced_hide_keyword_content_search_summary_off">Ní scagtar torthaí cuardaigh ag eochairfhocail</string>
   <string name="revanced_hide_keyword_content_phrases_title">Eochairfhocail le cur i bhfolach</string>
@@ -379,9 +379,9 @@ Teorainneacha
   <string name="revanced_hide_keyword_content_about_whole_words_summary">Má bhaineann tú eochairfhocal/frása le comharthaí athfhriotail dhúbailte, cuirfear cosc ​​ar mheaitseáil pháirteach de theidil físeáin agus ainmneacha cainéal&lt;br&gt;&lt;br&gt;Mar shampla,&lt;br&gt;&lt;b&gt;\"ai\"&lt;/b&gt; ceilteoidh sé an físeán: &lt;b&gt;Conas a oibríonn AI?&lt;/b&gt;&lt;br&gt;ach ní cheiltfidh sé: &lt;b&gt;Cad is brí le hainm féinig?&lt;/b&gt;</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_hide_keyword_toast_invalid_common">Ní féidir eochairfhocal a úsáid: %s</string>
-  <string name="revanced_hide_keyword_toast_invalid_common_whole_word_required">Cuir comharthaí athfhriotail leis le húsáid eochairfhocal: %s</string>
+  <string name="revanced_hide_keyword_toast_invalid_common_whole_word_required">Cuir luachana leis chun an eochairfhocal a úsáid: %s</string>
   <string name="revanced_hide_keyword_toast_invalid_conflicting">Tá dearbhuithe contrártha ag eochairfhocal: %s</string>
-  <string name="revanced_hide_keyword_toast_invalid_length">Tá an eochairfhocal ró-ghearr agus teastaíonn comharthaí athfhriotail: %s</string>
+  <string name="revanced_hide_keyword_toast_invalid_length">Eochairfhocal ró-ghearr, teastaíonn luachana: %s</string>
   <string name="revanced_hide_keyword_toast_invalid_broad">Folaigh eochairfhocal gach físeán: %s</string>
   </patch>
   <patch id="ad.general.hideAdsResourcePatch">
