@@ -1395,6 +1395,8 @@ AVC has a maximum resolution of 1080p, Opus audio codec is not available, and vi
             <string name="revanced_spoof_video_streams_about_android_summary">"• Audio track menu is missing
 • Stable volume is not available
 • Force original audio is not available"</string>
+            <string name="revanced_spoof_video_streams_about_no_av1">• No AV1 video codec</string>
+            <string name="revanced_spoof_video_streams_about_no_hdr">• No HDR video</string>
             <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Show in Stats for nerds</string>
             <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Client type is shown in Stats for nerds</string>
             <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Client is hidden in Stats for nerds</string>
