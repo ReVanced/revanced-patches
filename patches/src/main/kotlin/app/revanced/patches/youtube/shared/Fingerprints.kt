@@ -1,5 +1,8 @@
 package app.revanced.patches.youtube.shared
 
+import app.revanced.patcher.FieldFilter
+import app.revanced.patcher.NewInstanceFilter
+import app.revanced.patcher.OpcodeFilter
 import app.revanced.patcher.fingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
@@ -110,24 +113,11 @@ internal val newVideoQualityChangedFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("L")
     parameters("L")
-    opcodes(
-        Opcode.IGET, // Video resolution (human readable).
-        Opcode.IGET_OBJECT,
-        Opcode.IGET_BOOLEAN,
-        Opcode.IGET_OBJECT,
-        Opcode.INVOKE_STATIC,
-        Opcode.MOVE_RESULT_OBJECT,
-        Opcode.INVOKE_DIRECT,
-        Opcode.IGET_OBJECT,
-        Opcode.INVOKE_INTERFACE,
-        Opcode.MOVE_RESULT_OBJECT,
-        Opcode.INVOKE_VIRTUAL,
-        Opcode.GOTO,
-        Opcode.CONST_4,
-        Opcode.IF_NE,
-        Opcode.IGET_OBJECT,
-        Opcode.INVOKE_INTERFACE,
-        Opcode.MOVE_RESULT_OBJECT,
-        Opcode.IGET,
+    instructions(
+        NewInstanceFilter("Lcom/google/android/libraries/youtube/innertube/model/media/VideoQuality;"),
+        OpcodeFilter(Opcode.IGET_OBJECT),
+        OpcodeFilter(Opcode.CHECK_CAST),
+        FieldFilter(type = "I", opcode = Opcode.IGET, maxInstructionsBefore = 0), // Video resolution (human readable).
+        FieldFilter(type = "Ljava/lang/String;", opcode = Opcode.IGET_OBJECT, maxInstructionsBefore = 0),
     )
 }
