@@ -221,9 +221,7 @@ fun gmsCoreSupportPatch(
         }
 
         // Change the vendor of GmsCore in the extension.
-        gmsCoreSupportFingerprint.classDef.methods
-            .single { it.name == GET_GMS_CORE_VENDOR_GROUP_ID_METHOD_NAME }
-            .replaceInstruction(0, "const-string v0, \"$gmsCoreVendorGroupId\"")
+        gmsCoreSupportFingerprint.method.replaceInstruction(0, "const-string v0, \"$gmsCoreVendorGroupId\"")
 
         executeBlock()
     }

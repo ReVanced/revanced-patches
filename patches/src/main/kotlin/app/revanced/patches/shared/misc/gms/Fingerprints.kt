@@ -3,11 +3,11 @@ package app.revanced.patches.shared.misc.gms
 import app.revanced.patcher.fingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 
-const val GET_GMS_CORE_VENDOR_GROUP_ID_METHOD_NAME = "getGmsCoreVendorGroupId"
-
 internal val gmsCoreSupportFingerprint by fingerprint {
-    custom { _, classDef ->
-        classDef.endsWith("GmsCoreSupport;")
+    accessFlags(AccessFlags.PRIVATE, AccessFlags.STATIC)
+    custom { method, classDef ->
+        method.name == "getGmsCoreVendorGroupId"
+                && classDef.endsWith("/GmsCoreSupport;")
     }
 }
 
