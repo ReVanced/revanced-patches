@@ -1,18 +1,22 @@
 package app.revanced.patches.youtube.layout.hide.general
 
+import app.revanced.patcher.MethodFilter
+import app.revanced.patcher.OpcodeFilter
 import app.revanced.patcher.fingerprint
+import app.revanced.patches.shared.misc.mapping.ResourceMappingFilter
 import app.revanced.util.literal
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
 internal val hideShowMoreButtonFingerprint by fingerprint {
-    opcodes(
-        Opcode.CONST,
-        Opcode.CONST_4,
-        Opcode.INVOKE_STATIC,
-        Opcode.MOVE_RESULT_OBJECT,
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
+    instructions(
+        ResourceMappingFilter("layout", "expand_button_down"),
+        MethodFilter.parseJvmMethodCall(
+            "Landroid/view/View;->inflate(Landroid/content/Context;ILandroid/view/ViewGroup;)Landroid/view/View;",
+        ),
+        OpcodeFilter(Opcode.MOVE_RESULT_OBJECT)
     )
-    literal { expandButtonDownId }
 }
 
 internal val parseElementFromBufferFingerprint by fingerprint {
@@ -42,7 +46,9 @@ internal val yoodlesImageViewFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("Landroid/view/View;")
     parameters("L", "L")
-    literal { youTubeLogo }
+    instructions(
+        ResourceMappingFilter("id", "youtube_logo")
+    )
 }
 
 internal val crowdfundingBoxFingerprint by fingerprint {

@@ -48,7 +48,7 @@ private val customPlaybackSpeedResourcePatch = resourcePatch {
 private const val FILTER_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/youtube/patches/components/PlaybackSpeedMenuFilterPatch;"
 
-private const val EXTENSION_CLASS_DESCRIPTOR =
+internal const val EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/youtube/patches/playback/speed/CustomPlaybackSpeedPatch;"
 
 internal val customPlaybackSpeedPatch = bytecodePatch(

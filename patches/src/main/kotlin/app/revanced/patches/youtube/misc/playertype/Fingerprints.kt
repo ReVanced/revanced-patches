@@ -36,7 +36,7 @@ internal val videoStateFingerprint by fingerprint {
     parameters("Lcom/google/android/libraries/youtube/player/features/overlay/controls/ControlsState;")
     instructions(
         LiteralFilter(1),
-        LiteralFilter(0),
+        LiteralFilter(literal = 0, maxInstructionsBefore = 10),
         // Obfuscated parameter field name.
         FieldFilter(
             definingClass = { "Lcom/google/android/libraries/youtube/player/features/overlay/controls/ControlsState;" },

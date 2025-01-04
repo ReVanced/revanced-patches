@@ -18,8 +18,6 @@ internal val videoIdFingerprint by fingerprint {
             returnType = "Ljava/lang/String;"
         ),
         OpcodeFilter(Opcode.MOVE_RESULT_OBJECT),
-        OpcodeFilter(Opcode.IGET_OBJECT),
-        OpcodeFilter(Opcode.INVOKE_INTERFACE),
     )
 }
 

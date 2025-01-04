@@ -1,5 +1,6 @@
 package app.revanced.patches.youtube.layout.theme
 
+import app.revanced.patcher.LiteralFilter
 import app.revanced.patcher.fingerprint
 import app.revanced.util.literal
 import com.android.tools.smali.dexlib2.AccessFlags
@@ -52,5 +53,7 @@ internal val themeHelperLightColorFingerprint by fingerprint {
 }
 
 internal val useGradientLoadingScreenFingerprint by fingerprint {
-    literal { GRADIENT_LOADING_SCREEN_AB_CONSTANT }
+    instructions(
+        LiteralFilter(45412406L)
+    )
 }

@@ -1123,12 +1123,10 @@ public final class app/revanced/patches/youtube/layout/hide/general/HideLayoutCo
 	public static final fun getAlbumCardId ()J
 	public static final fun getBarContainerHeightId ()J
 	public static final fun getCrowdfundingBoxId ()J
-	public static final fun getExpandButtonDownId ()J
 	public static final fun getFabButtonId ()J
 	public static final fun getFilterBarHeightId ()J
 	public static final fun getHideLayoutComponentsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 	public static final fun getRelatedChipCloudMarginId ()J
-	public static final fun getYouTubeLogo ()J
 }
 
 public final class app/revanced/patches/youtube/layout/hide/infocards/HideInfoCardsPatchKt {

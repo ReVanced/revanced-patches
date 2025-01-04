@@ -33,15 +33,10 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
-var expandButtonDownId = -1L
-    private set
 var albumCardId = -1L
     private set
 var crowdfundingBoxId = -1L
     private set
-var youTubeLogo = -1L
-    private set
-
 var filterBarHeightId = -1L
     private set
 var relatedChipCloudMarginId = -1L
@@ -56,11 +51,6 @@ private val hideLayoutComponentsResourcePatch = resourcePatch {
     dependsOn(resourceMappingPatch)
 
     execute {
-        expandButtonDownId = resourceMappings[
-            "layout",
-            "expand_button_down",
-        ]
-
         albumCardId = resourceMappings[
             "layout",
             "album_card",
@@ -69,11 +59,6 @@ private val hideLayoutComponentsResourcePatch = resourcePatch {
         crowdfundingBoxId = resourceMappings[
             "layout",
             "donation_companion",
-        ]
-
-        youTubeLogo = resourceMappings[
-            "id",
-            "youtube_logo",
         ]
 
         relatedChipCloudMarginId = resourceMappings[

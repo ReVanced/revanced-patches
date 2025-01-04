@@ -16,7 +16,9 @@ internal val showOldPlaybackSpeedMenuFingerprint by fingerprint {
 }
 
 internal val showOldPlaybackSpeedMenuExtensionFingerprint by fingerprint {
-    custom { method, _ -> method.name == "showOldPlaybackSpeedMenu" }
+    custom { method, classDef ->
+        method.name == "showOldPlaybackSpeedMenu" && classDef.type == EXTENSION_CLASS_DESCRIPTOR
+    }
 }
 
 internal val speedArrayGeneratorFingerprint by fingerprint {
