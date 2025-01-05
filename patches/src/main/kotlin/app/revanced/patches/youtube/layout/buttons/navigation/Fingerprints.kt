@@ -2,7 +2,7 @@ package app.revanced.patches.youtube.layout.buttons.navigation
 
 import app.revanced.patcher.LastInstructionFilter
 import app.revanced.patcher.LiteralFilter
-import app.revanced.patcher.MethodFilter
+import app.revanced.patcher.MethodCallFilter
 import app.revanced.patcher.OpcodeFilter
 import app.revanced.patcher.fingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
@@ -21,7 +21,7 @@ internal val createPivotBarFingerprint by fingerprint {
         "Ljava/lang/CharSequence;",
     )
     instructions(
-        MethodFilter(definingClass = "Landroid/widget/TextView;", methodName = "setText"),
+        MethodCallFilter(definingClass = "Landroid/widget/TextView;", methodName = "setText"),
         LastInstructionFilter(OpcodeFilter(Opcode.RETURN_VOID))
     )
 }

@@ -1,6 +1,6 @@
 package app.revanced.patches.youtube.misc.navigation
 
-import app.revanced.patcher.MethodFilter
+import app.revanced.patcher.MethodCallFilter
 import app.revanced.patcher.fingerprint
 import app.revanced.patches.shared.misc.mapping.ResourceMappingFilter
 import app.revanced.patches.youtube.layout.buttons.navigation.navigationButtonsPatch
@@ -11,7 +11,7 @@ internal val actionBarSearchResultsFingerprint by fingerprint {
     returns("Landroid/view/View;")
     instructions(
         ResourceMappingFilter("layout", "action_bar_search_results_view_mic"),
-        MethodFilter(methodName = "setLayoutDirection")
+        MethodCallFilter(methodName = "setLayoutDirection")
     )
 }
 
@@ -94,7 +94,7 @@ internal val pivotBarButtonsViewSetSelectedFingerprint by fingerprint {
     returns("V")
     parameters("I", "Z")
     instructions(
-        MethodFilter(methodName = "setSelected")
+        MethodCallFilter(methodName = "setSelected")
     )
     custom { method, _ ->
         method.definingClass == "Lcom/google/android/libraries/youtube/rendering/ui/pivotbar/PivotBar;"

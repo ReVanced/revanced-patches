@@ -1,6 +1,6 @@
 package app.revanced.patches.youtube.layout.hide.general
 
-import app.revanced.patcher.MethodFilter
+import app.revanced.patcher.MethodCallFilter
 import app.revanced.patcher.OpcodeFilter
 import app.revanced.patcher.fingerprint
 import app.revanced.patches.shared.misc.mapping.ResourceMappingFilter
@@ -12,7 +12,7 @@ internal val hideShowMoreButtonFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     instructions(
         ResourceMappingFilter("layout", "expand_button_down"),
-        MethodFilter.parseJvmMethodCall(
+        MethodCallFilter.parseJvmMethodCall(
             "Landroid/view/View;->inflate(Landroid/content/Context;ILandroid/view/ViewGroup;)Landroid/view/View;",
         ),
         OpcodeFilter(Opcode.MOVE_RESULT_OBJECT)

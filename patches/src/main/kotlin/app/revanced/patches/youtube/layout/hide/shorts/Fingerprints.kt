@@ -1,6 +1,6 @@
 package app.revanced.patches.youtube.layout.hide.shorts
 
-import app.revanced.patcher.MethodFilter
+import app.revanced.patcher.MethodCallFilter
 import app.revanced.patcher.OpcodeFilter
 import app.revanced.patcher.fingerprint
 import app.revanced.patches.shared.misc.mapping.ResourceMappingFilter
@@ -26,7 +26,7 @@ internal val shortsBottomBarContainerFingerprint by fingerprint {
     strings("r_pfvc")
     instructions(
         ResourceMappingFilter("id", "bottom_bar_container"),
-        MethodFilter(methodName = "getHeight"),
+        MethodCallFilter(methodName = "getHeight"),
         OpcodeFilter(Opcode.MOVE_RESULT)
     )
 }

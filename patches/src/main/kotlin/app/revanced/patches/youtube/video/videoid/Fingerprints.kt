@@ -1,6 +1,6 @@
 package app.revanced.patches.youtube.video.videoid
 
-import app.revanced.patcher.MethodFilter
+import app.revanced.patcher.MethodCallFilter
 import app.revanced.patcher.OpcodeFilter
 import app.revanced.patcher.fingerprint
 import app.revanced.util.literal
@@ -13,7 +13,7 @@ internal val videoIdFingerprint by fingerprint {
     returns("V")
     parameters("L")
     instructions(
-        MethodFilter(
+        MethodCallFilter(
             definingClass = "Lcom/google/android/libraries/youtube/innertube/model/player/PlayerResponseModel;",
             returnType = "Ljava/lang/String;"
         ),
@@ -26,7 +26,7 @@ internal val videoIdBackgroundPlayFingerprint by fingerprint {
     returns("V")
     parameters("L")
     instructions(
-        MethodFilter(
+        MethodCallFilter(
             definingClass = "Lcom/google/android/libraries/youtube/innertube/model/player/PlayerResponseModel;",
             returnType = "Ljava/lang/String;"
         ),

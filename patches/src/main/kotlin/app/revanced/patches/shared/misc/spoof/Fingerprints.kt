@@ -1,7 +1,7 @@
 package app.revanced.patches.shared.misc.spoof
 
 import app.revanced.patcher.LiteralFilter
-import app.revanced.patcher.MethodFilter
+import app.revanced.patcher.MethodCallFilter
 import app.revanced.patcher.fingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
@@ -38,7 +38,7 @@ internal val buildRequestFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
     returns("Lorg/chromium/net/UrlRequest;")
     instructions(
-        MethodFilter(methodName = "newUrlRequestBuilder")
+        MethodCallFilter(methodName = "newUrlRequestBuilder")
     )
     custom { methodDef, _ ->
         // Different targets have slightly different parameters
