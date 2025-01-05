@@ -66,7 +66,7 @@ fun spoofVideoStreamsPatch(
 
         // region Block /get_watch requests to fall back to /player requests.
 
-        val invokeToStringIndex = buildPlayerRequestURIFingerprint.filterMatches.first().index
+        val invokeToStringIndex = buildPlayerRequestURIFingerprint.patternMatch.startIndex
 
         buildPlayerRequestURIFingerprint.method.apply {
             val uriRegister = getInstruction<FiveRegisterInstruction>(invokeToStringIndex).registerC
@@ -107,7 +107,7 @@ fun spoofVideoStreamsPatch(
         createStreamingDataFingerprint.method.apply {
             val setStreamDataMethodName = "patch_setStreamingData"
             val resultMethodType = createStreamingDataFingerprint.classDef.type
-            val videoDetailsIndex = createStreamingDataFingerprint.filterMatches.last().index
+            val videoDetailsIndex = createStreamingDataFingerprint.patternMatch.endIndex
             val videoDetailsRegister = getInstruction<TwoRegisterInstruction>(videoDetailsIndex).registerA
             val videoDetailsClass = getInstruction(videoDetailsIndex).getReference<FieldReference>()!!.type
 
@@ -118,7 +118,7 @@ fun spoofVideoStreamsPatch(
             )
 
             val protobufClass = protobufClassParseByteBufferFingerprint.method.definingClass
-            val setStreamingDataIndex = createStreamingDataFingerprint.filterMatches.first().index
+            val setStreamingDataIndex = createStreamingDataFingerprint.patternMatch.startIndex
 
             val playerProtoClass = getInstruction(setStreamingDataIndex + 1)
                 .getReference<FieldReference>()!!.definingClass

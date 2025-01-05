@@ -13,7 +13,6 @@ internal val playerRequestConstructorFingerprint by fingerprint {
  * Matches using the class found in [playerRequestConstructorFingerprint].
  */
 internal val createPlayerRequestBodyFingerprint by fingerprint {
-    classFingerprint(playerRequestConstructorFingerprint)
     parameters("L")
     returns("V")
     opcodes(

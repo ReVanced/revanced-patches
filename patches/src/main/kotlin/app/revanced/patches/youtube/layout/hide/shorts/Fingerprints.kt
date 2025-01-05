@@ -74,7 +74,6 @@ internal val renderBottomNavigationBarParentFingerprint by fingerprint {
 }
 
 internal val setPivotBarVisibilityFingerprint by fingerprint {
-    classFingerprint(setPivotBarVisibilityParentFingerprint)
     accessFlags(AccessFlags.PRIVATE, AccessFlags.FINAL)
     returns("V")
     parameters("Z")

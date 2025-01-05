@@ -38,7 +38,6 @@ internal val playerInitFingerprint by fingerprint {
  * Matched using class found in [playerInitFingerprint].
  */
 internal val seekFingerprint by fingerprint {
-    classFingerprint(playerInitFingerprint)
     strings("Attempting to seek during an ad")
 }
 
@@ -63,7 +62,6 @@ internal val videoLengthFingerprint by fingerprint {
  * Matches using class found in [mdxPlayerDirectorSetVideoStageFingerprint].
  */
 internal val mdxSeekFingerprint by fingerprint {
-    classFingerprint(mdxPlayerDirectorSetVideoStageFingerprint)
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("Z")
     parameters("J", "L")
@@ -88,7 +86,6 @@ internal val mdxPlayerDirectorSetVideoStageFingerprint by fingerprint {
  * Matches using class found in [mdxPlayerDirectorSetVideoStageFingerprint].
  */
 internal val mdxSeekRelativeFingerprint by fingerprint {
-    classFingerprint(mdxPlayerDirectorSetVideoStageFingerprint)
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     // Return type is boolean up to 19.39, and void with 19.39+.
     parameters("J", "L")
@@ -103,7 +100,6 @@ internal val mdxSeekRelativeFingerprint by fingerprint {
  * Matches using class found in [playerInitFingerprint].
  */
 internal val seekRelativeFingerprint by fingerprint {
-    classFingerprint(playerInitFingerprint)
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     // Return type is boolean up to 19.39, and void with 19.39+.
     parameters("J", "L")
@@ -117,7 +113,6 @@ internal val seekRelativeFingerprint by fingerprint {
  * Resolves with the class found in [newVideoQualityChangedFingerprint].
  */
 internal val playbackSpeedMenuSpeedChangedFingerprint by fingerprint {
-    classFingerprint(newVideoQualityChangedFingerprint)
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("L")
     parameters("L")

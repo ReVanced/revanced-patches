@@ -30,9 +30,14 @@ val cronetImageUrlHookPatch = bytecodePatch(
     dependsOn(sharedExtensionPatch)
 
     execute {
-        loadImageUrlMethod = messageDigestImageUrlFingerprint.method
-        loadImageSuccessCallbackMethod = onSucceededFingerprint.method
-        loadImageErrorCallbackMethod = onFailureFingerprint.method
+        loadImageUrlMethod = messageDigestImageUrlFingerprint
+            .match(messageDigestImageUrlParentFingerprint.originalClassDef).method
+
+        loadImageSuccessCallbackMethod = onSucceededFingerprint
+            .match(onResponseStartedFingerprint.originalClassDef).method
+
+        loadImageErrorCallbackMethod = onFailureFingerprint
+            .match(onResponseStartedFingerprint.originalClassDef).method
 
         // The URL is required for the failure callback hook, but the URL field is obfuscated.
         // Add a helper get method that returns the URL field.

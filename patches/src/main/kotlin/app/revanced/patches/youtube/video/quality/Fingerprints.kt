@@ -8,7 +8,6 @@ import com.android.tools.smali.dexlib2.Opcode
  * Matches with the class found in [videoQualitySetterFingerprint].
  */
 internal val setQualityByIndexMethodClassFieldReferenceFingerprint by fingerprint {
-    classFingerprint(videoQualitySetterFingerprint)
     returns("V")
     parameters("L")
     opcodes(

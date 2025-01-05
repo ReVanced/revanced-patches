@@ -19,7 +19,6 @@ internal val swipingUpGestureParentFingerprint by fingerprint {
  * Resolves using the class found in [swipingUpGestureParentFingerprint].
  */
 internal val showSwipingUpGuideFingerprint by fingerprint {
-    classFingerprint(swipingUpGestureParentFingerprint)
     accessFlags(AccessFlags.FINAL)
     returns("Z")
     parameters()
@@ -30,7 +29,6 @@ internal val showSwipingUpGuideFingerprint by fingerprint {
  * Resolves using the class found in [swipingUpGestureParentFingerprint].
  */
 internal val allowSwipingUpGestureFingerprint by fingerprint {
-    classFingerprint(swipingUpGestureParentFingerprint)
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("V")
     parameters("L")

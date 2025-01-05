@@ -104,7 +104,7 @@ val restoreOldVideoQualityMenuPatch = bytecodePatch(
         }
 
         // Force YT to add the 'advanced' quality menu for Shorts.
-        val patternMatch = videoQualityMenuOptionsFingerprint.patternMatch
+        val patternMatch = videoQualityMenuOptionsFingerprint.patternMatch!!
         val startIndex = patternMatch.startIndex
         if (startIndex != 0) throw PatchException("Unexpected opcode start index: $startIndex")
         val insertIndex = patternMatch.endIndex

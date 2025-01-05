@@ -28,7 +28,6 @@ internal val scrollPositionFingerprint by fingerprint {
 }
 
 internal val recyclerViewTopScrollingFingerprint by fingerprint {
-    classFingerprint(recyclerViewTopScrollingParentFingerprint)
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("V")
     parameters()

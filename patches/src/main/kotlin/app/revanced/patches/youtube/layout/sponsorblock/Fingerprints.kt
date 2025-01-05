@@ -1,8 +1,6 @@
 package app.revanced.patches.youtube.layout.sponsorblock
 
 import app.revanced.patcher.fingerprint
-import app.revanced.patches.youtube.shared.layoutConstructorFingerprint
-import app.revanced.patches.youtube.shared.seekbarFingerprint
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionReversed
 import com.android.tools.smali.dexlib2.AccessFlags
@@ -34,7 +32,6 @@ internal val appendTimeFingerprint by fingerprint {
 }
 
 internal val controlsOverlayFingerprint by fingerprint {
-    classFingerprint(layoutConstructorFingerprint)
     returns("V")
     accessFlags(AccessFlags.PRIVATE, AccessFlags.FINAL)
     parameters()
@@ -53,7 +50,6 @@ internal val controlsOverlayFingerprint by fingerprint {
 }
 
 internal val rectangleFieldInvalidatorFingerprint by fingerprint {
-    classFingerprint(seekbarFingerprint)
     returns("V")
     parameters()
     custom  { method, _ ->

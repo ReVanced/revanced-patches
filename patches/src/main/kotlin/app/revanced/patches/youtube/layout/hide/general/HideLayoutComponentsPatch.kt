@@ -261,7 +261,9 @@ val hideLayoutComponentsPatch = bytecodePatch(
 
         // region Watermark (legacy code for old versions of YouTube)
 
-        showWatermarkFingerprint.method.apply {
+        showWatermarkFingerprint.match(
+            playerOverlayFingerprint.originalClassDef,
+        ).method.apply {
             val index = implementation!!.instructions.size - 5
 
             removeInstruction(index)
@@ -382,7 +384,8 @@ val hideLayoutComponentsPatch = bytecodePatch(
             hookRegisterOffset: Int = 0,
             instructions: (Int) -> String,
         ) = method.apply {
-            val endIndex = patternMatch.endIndex
+            val endIndex = patternMatch!!.endIndex
+
             val insertIndex = endIndex + insertIndexOffset
             val register =
                 getInstruction<RegisterInstruction>(endIndex + hookRegisterOffset).registerA

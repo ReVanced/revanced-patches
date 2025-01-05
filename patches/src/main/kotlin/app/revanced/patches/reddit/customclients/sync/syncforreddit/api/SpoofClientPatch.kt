@@ -26,7 +26,7 @@ val spoofClientPatch = spoofClientPatch(
     execute {
         // region Patch client id.
 
-        getBearerTokenFingerprint.method.apply {
+        getBearerTokenFingerprint.match(getAuthorizationStringFingerprint.originalClassDef).method.apply {
             val auth = Base64.getEncoder().encodeToString("$clientId:".toByteArray(Charsets.UTF_8))
             addInstructions(
                 0,

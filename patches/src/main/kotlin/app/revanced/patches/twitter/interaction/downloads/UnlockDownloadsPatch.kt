@@ -27,7 +27,7 @@ val unlockDownloadsPatch = bytecodePatch(
 
         // Allow downloads for non-premium users.
         showDownloadVideoUpsellBottomSheetFingerprint.patch {
-            val checkIndex = patternMatch.startIndex
+            val checkIndex = patternMatch!!.startIndex
             val register = method.getInstruction<OneRegisterInstruction>(checkIndex).registerA
 
             checkIndex to register
@@ -42,7 +42,7 @@ val unlockDownloadsPatch = bytecodePatch(
         }
 
         // Make GIFs downloadable.
-        val patternMatch = buildMediaOptionsSheetFingerprint.patternMatch
+        val patternMatch = buildMediaOptionsSheetFingerprint.patternMatch!!
         buildMediaOptionsSheetFingerprint.method.apply {
             val checkMediaTypeIndex = patternMatch.startIndex
             val checkMediaTypeInstruction = getInstruction<TwoRegisterInstruction>(checkMediaTypeIndex)

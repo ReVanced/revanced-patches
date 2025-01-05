@@ -53,7 +53,6 @@ internal val rollingNumberMeasureAnimatedTextFingerprint by fingerprint {
  * Matches to class found in [rollingNumberMeasureStaticLabelParentFingerprint].
  */
 internal val rollingNumberMeasureStaticLabelFingerprint by fingerprint {
-    classFingerprint(rollingNumberMeasureStaticLabelParentFingerprint)
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("F")
     parameters("Ljava/lang/String;")
@@ -131,7 +130,6 @@ internal val textComponentDataFingerprint by fingerprint {
  * Matches against the same class found in [textComponentConstructorFingerprint].
  */
 internal val textComponentLookupFingerprint by fingerprint {
-    classFingerprint(textComponentConstructorFingerprint)
     accessFlags(AccessFlags.PROTECTED, AccessFlags.FINAL)
     returns("L")
     parameters("L")

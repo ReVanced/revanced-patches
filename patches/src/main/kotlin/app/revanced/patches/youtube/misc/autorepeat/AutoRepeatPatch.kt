@@ -43,7 +43,7 @@ val autoRepeatPatch = bytecodePatch(
             SwitchPreference("revanced_auto_repeat"),
         )
 
-        autoRepeatFingerprint.method.apply {
+        autoRepeatFingerprint.match(autoRepeatParentFingerprint.originalClassDef).method.apply {
             val playMethod = autoRepeatParentFingerprint.method
             val index = instructions.lastIndex
 

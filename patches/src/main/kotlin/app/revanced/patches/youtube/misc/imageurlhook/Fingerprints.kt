@@ -4,7 +4,6 @@ import app.revanced.patcher.fingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 
 internal val onFailureFingerprint by fingerprint {
-    classFingerprint(onResponseStartedFingerprint)
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("V")
     parameters(
@@ -34,7 +33,6 @@ internal val onResponseStartedFingerprint by fingerprint {
 }
 
 internal val onSucceededFingerprint by fingerprint {
-    classFingerprint(onResponseStartedFingerprint)
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("V")
     parameters("Lorg/chromium/net/UrlRequest;", "Lorg/chromium/net/UrlResponseInfo;")
@@ -54,7 +52,6 @@ internal val requestFingerprint by fingerprint {
 }
 
 internal val messageDigestImageUrlFingerprint by fingerprint {
-    classFingerprint(messageDigestImageUrlParentFingerprint)
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     parameters("Ljava/lang/String;", "L")
 }

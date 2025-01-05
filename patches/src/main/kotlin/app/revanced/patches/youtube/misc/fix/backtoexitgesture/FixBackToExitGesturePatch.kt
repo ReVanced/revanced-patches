@@ -14,12 +14,13 @@ internal val fixBackToExitGesturePatch = bytecodePatch(
 ) {
 
     execute {
-        recyclerViewTopScrollingFingerprint.let {
-            it.method.addInstruction(
-                it.filterMatches.last().index,
-                "invoke-static { }, $EXTENSION_CLASS_DESCRIPTOR->onTopView()V"
-            )
-        }
+        recyclerViewTopScrollingFingerprint.match(recyclerViewTopScrollingParentFingerprint.originalClassDef)
+            .let {
+                it.method.addInstruction(
+                    it.filterMatches.last().index,
+                    "invoke-static { }, $EXTENSION_CLASS_DESCRIPTOR->onTopView()V"
+                )
+            }
 
         scrollPositionFingerprint.let {
             navigate(it.originalMethod)

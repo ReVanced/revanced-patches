@@ -44,7 +44,9 @@ val disablePreciseSeekingGesturePatch = bytecodePatch(
         val extensionMethodDescriptor =
             "Lapp/revanced/extension/youtube/patches/DisablePreciseSeekingGesturePatch;"
 
-        allowSwipingUpGestureFingerprint.method.apply{
+        allowSwipingUpGestureFingerprint.match(
+            swipingUpGestureParentFingerprint.originalClassDef,
+        ).method.apply {
             addInstructionsWithLabels(
                 0,
                 """
@@ -57,8 +59,9 @@ val disablePreciseSeekingGesturePatch = bytecodePatch(
             )
         }
 
-
-        showSwipingUpGuideFingerprint.method.apply {
+        showSwipingUpGuideFingerprint.match(
+            swipingUpGestureParentFingerprint.originalClassDef,
+        ).method.apply {
             addInstructionsWithLabels(
                 0,
                 """

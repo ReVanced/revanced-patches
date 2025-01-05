@@ -312,7 +312,9 @@ val miniplayerPatch = bytecodePatch(
 
         // region Enable tablet miniplayer.
 
-        miniplayerOverrideNoContextFingerprint.method.apply {
+        miniplayerOverrideNoContextFingerprint.match(
+            miniplayerDimensionsCalculatorParentFingerprint.originalClassDef,
+        ).method.apply {
             findReturnIndicesReversed().forEach { index -> insertLegacyTabletMiniplayerOverride(index) }
         }
 
@@ -325,7 +327,7 @@ val miniplayerPatch = bytecodePatch(
         }
 
         miniplayerResponseModelSizeCheckFingerprint.let {
-            it.method.insertLegacyTabletMiniplayerOverride(it.filterMatches.last().index)
+            it.method.insertLegacyTabletMiniplayerOverride(it.patternMatch.endIndex)
         }
 
         // endregion
@@ -426,7 +428,9 @@ val miniplayerPatch = bytecodePatch(
         // YT fixed this mistake in 19.17.
         // Fix this, by swapping the drawable resource values with each other.
         if (ytOutlinePictureInPictureWhite24 >= 0) {
-            miniplayerModernExpandCloseDrawablesFingerprint.method.apply {
+            miniplayerModernExpandCloseDrawablesFingerprint.match(
+                miniplayerModernViewParentFingerprint.originalClassDef,
+            ).method.apply {
                 listOf(
                     ytOutlinePictureInPictureWhite24 to ytOutlineXWhite24,
                     ytOutlineXWhite24 to ytOutlinePictureInPictureWhite24,
@@ -470,14 +474,18 @@ val miniplayerPatch = bytecodePatch(
                 "adjustMiniplayerOpacity",
             ),
         ).forEach { (fingerprint, literalValue, methodName) ->
-            fingerprint.method.hookInflatedView(
+            fingerprint.match(
+                miniplayerModernViewParentFingerprint.classDef,
+            ).method.hookInflatedView(
                 literalValue,
                 "Landroid/widget/ImageView;",
                 "$EXTENSION_CLASS_DESCRIPTOR->$methodName(Landroid/widget/ImageView;)V",
             )
         }
 
-        miniplayerModernAddViewListenerFingerprint.method.addInstruction(
+        miniplayerModernAddViewListenerFingerprint.match(
+            miniplayerModernViewParentFingerprint.classDef,
+        ).method.addInstruction(
             0,
             "invoke-static { p1 }, $EXTENSION_CLASS_DESCRIPTOR->" +
                 "hideMiniplayerSubTexts(Landroid/view/View;)V",

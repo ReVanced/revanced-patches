@@ -11,7 +11,6 @@ internal val getOldPlaybackSpeedsFingerprint by fingerprint {
 }
 
 internal val showOldPlaybackSpeedMenuFingerprint by fingerprint {
-    classFingerprint(getOldPlaybackSpeedsFingerprint)
     literal { speedUnavailableId }
 }
 

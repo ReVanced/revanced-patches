@@ -76,7 +76,9 @@ val rememberVideoQualityPatch = bytecodePatch(
         onCreateHook(EXTENSION_CLASS_DESCRIPTOR, "newVideoStarted")
 
         // Inject a call to set the remembered quality once a video loads.
-        setQualityByIndexMethodClassFieldReferenceFingerprint.let { match ->
+        setQualityByIndexMethodClassFieldReferenceFingerprint.match(
+            videoQualitySetterFingerprint.originalClassDef,
+        ).let { match ->
             // This instruction refers to the field with the type that contains the setQualityByIndex method.
             val instructions = match.method.implementation!!.instructions
 

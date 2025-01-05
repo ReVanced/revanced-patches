@@ -7,7 +7,6 @@ internal val getAuthorizationStringFingerprint by fingerprint {
 }
 
 internal val getBearerTokenFingerprint by fingerprint {
-    classFingerprint(getAuthorizationStringFingerprint)
     strings("Basic")
 }
 

@@ -36,7 +36,6 @@ internal val playerOverlayFingerprint by fingerprint {
 }
 
 internal val showWatermarkFingerprint by fingerprint {
-    classFingerprint(playerOverlayFingerprint)
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("V")
     parameters("L", "L")
