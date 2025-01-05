@@ -2,6 +2,7 @@ package app.revanced.patches.shared.misc.mapping
 
 import app.revanced.patcher.InstructionFilter
 import app.revanced.patcher.LiteralFilter
+import app.revanced.patcher.patch.BytecodePatchContext
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.resourcePatch
 import com.android.tools.smali.dexlib2.iface.Method
@@ -34,6 +35,7 @@ class ResourceMappingFilter(
     }
 
     override fun matches(
+        context: BytecodePatchContext,
         method: Method,
         instruction: Instruction,
         methodIndex: Int

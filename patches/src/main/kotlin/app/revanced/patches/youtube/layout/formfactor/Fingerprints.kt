@@ -22,7 +22,7 @@ internal val createPlayerRequestBodyWithModelFingerprint by fingerprint {
     instructions(
         FieldFilter("Landroid/os/Build;", "MODEL", "Ljava/lang/String;"),
         FieldFilter(
-            definingClass = { formFactorEnumConstructorFingerprint.originalClassDef.type },
+            definingClass = { context -> with(context) { formFactorEnumConstructorFingerprint.originalClassDef.type } },
             type = { "I" },
             maxInstructionsBefore = 50
         )

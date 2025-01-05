@@ -3,6 +3,7 @@ package app.revanced.patches.youtube.misc.playertype
 import app.revanced.patcher.FieldFilter
 import app.revanced.patcher.LiteralFilter
 import app.revanced.patcher.fingerprint
+import app.revanced.patcher.patch.BytecodePatchContext
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
@@ -39,8 +40,8 @@ internal val videoStateFingerprint by fingerprint {
         LiteralFilter(literal = 0, maxInstructionsBefore = 10),
         // Obfuscated parameter field name.
         FieldFilter(
-            definingClass = { "Lcom/google/android/libraries/youtube/player/features/overlay/controls/ControlsState;" },
-            type = { videoStateEnumFingerprint.originalClassDef.type },
+            definingClass = { "Lcom/google/android/libraries/youtube/player/features/overlay/controls/ControlsState;"},
+            type = { context: BytecodePatchContext -> with(context) { videoStateEnumFingerprint.originalClassDef.type } },
             maxInstructionsBefore = 5
         )
     )
