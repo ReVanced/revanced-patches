@@ -119,17 +119,19 @@ public class SpoofVideoStreamsPatch {
                     return;
                 }
 
+                // 'get_drm_license' has no video id and appears to happen when waiting for a paid video to start.
                 // 'heartbeat' has no video id and appears to be only after playback has started.
                 // 'refresh' has no video id and appears to happen when waiting for a livestream to start.
                 // 'ad_break' has no video id.
-                if (path.contains("heartbeat") || path.contains("refresh") || path.contains("ad_break")) {
+                if (path.contains("get_drm_license") || path.contains("heartbeat")
+                        || path.contains("refresh") || path.contains("ad_break")) {
                     Logger.printDebug(() -> "Ignoring path: " + path);
                     return;
                 }
 
                 String id = uri.getQueryParameter("id");
                 if (id == null) {
-                    Logger.printException(() -> "Ignoring request with no id. Url: " + url);
+                    Logger.printException(() -> "Ignoring request with no id: " + url);
                     return;
                 }
 
