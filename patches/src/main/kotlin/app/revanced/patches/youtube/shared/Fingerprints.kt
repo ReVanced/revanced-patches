@@ -1,6 +1,6 @@
 package app.revanced.patches.youtube.shared
 
-import app.revanced.patcher.FieldCallFilter
+import app.revanced.patcher.FieldAccessFilter
 import app.revanced.patcher.NewInstanceFilter
 import app.revanced.patcher.OpcodeFilter
 import app.revanced.patcher.fingerprint
@@ -114,7 +114,7 @@ internal val newVideoQualityChangedFingerprint by fingerprint {
         NewInstanceFilter("Lcom/google/android/libraries/youtube/innertube/model/media/VideoQuality;"),
         OpcodeFilter(Opcode.IGET_OBJECT),
         OpcodeFilter(Opcode.CHECK_CAST),
-        FieldCallFilter(type = "I", opcode = Opcode.IGET, maxInstructionsBefore = 0), // Video resolution (human readable).
-        FieldCallFilter(type = "Ljava/lang/String;", opcode = Opcode.IGET_OBJECT, maxInstructionsBefore = 0),
+        FieldAccessFilter(type = "I", opcode = Opcode.IGET, maxInstructionsBefore = 0), // Video resolution (human readable).
+        FieldAccessFilter(type = "Ljava/lang/String;", opcode = Opcode.IGET_OBJECT, maxInstructionsBefore = 0),
     )
 }
