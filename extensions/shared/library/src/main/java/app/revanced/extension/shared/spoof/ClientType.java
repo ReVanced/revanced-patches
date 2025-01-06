@@ -11,7 +11,9 @@ public enum ClientType {
     ANDROID_VR_NO_AUTH(
             28,
             "ANDROID_VR",
+            "Oculus",
             "Quest 3",
+            "Android",
             "12",
             "com.google.android.apps.youtube.vr.oculus/1.56.21 (Linux; U; Android 12; GB) gzip",
             "32", // Android 12.1
@@ -19,10 +21,14 @@ public enum ClientType {
             false,
             "Android VR No auth"
     ),
+    // Chromecast with Google TV 4K.
+    // https://dumps.tadiphone.dev/dumps/google/kirkwood
     ANDROID_UNPLUGGED(
             29,
             "ANDROID_UNPLUGGED",
+            "Google",
             "Google TV Streamer",
+            "Android",
             "14",
             "com.google.android.apps.youtube.unplugged/8.49.0 (Linux; U; Android 14; GB) gzip",
             "34",
@@ -33,7 +39,9 @@ public enum ClientType {
     ANDROID_VR(
             ANDROID_VR_NO_AUTH.id,
             ANDROID_VR_NO_AUTH.clientName,
+            ANDROID_VR_NO_AUTH.deviceMake,
             ANDROID_VR_NO_AUTH.deviceModel,
+            ANDROID_VR_NO_AUTH.osName,
             ANDROID_VR_NO_AUTH.osVersion,
             ANDROID_VR_NO_AUTH.userAgent,
             ANDROID_VR_NO_AUTH.androidSdkVersion,
@@ -41,18 +49,21 @@ public enum ClientType {
             true,
             "Android VR"
     ),
-    IOS_UNPLUGGED(33,
+    IOS_UNPLUGGED(
+            33,
             "IOS_UNPLUGGED",
+            "Apple",
             forceAVC()
                     ? "iPhone12,5"  // 11 Pro Max (last device with iOS 13)
                     : "iPhone16,2", // 15 Pro Max
+            "iOS",
             // iOS 13 and earlier uses only AVC. 14+ adds VP9 and AV1.
             forceAVC()
                     ? "13.7.17H35" // Last release of iOS 13.
-                    : "18.1.1.22B91",
+                    : "18.2.22C152",
             forceAVC()
-                    ? "com.google.ios.youtubeunplugged/6.45 (iPhone; U; CPU iOS 13_7 like Mac OS X)"
-                    : "com.google.ios.youtubeunplugged/8.33 (iPhone; U; CPU iOS 18_1_1 like Mac OS X)",
+                    ? "com.google.ios.youtubeunplugged/6.45 (iPhone12,5; U; CPU iOS 13_7 like Mac OS X)"
+                    : "com.google.ios.youtubeunplugged/8.49 (iPhone16,2; U; CPU iOS 18_2_22 like Mac OS X)",
             null,
             // Version number should be a valid iOS release.
             // https://www.ipa4fun.com/history/152043/
@@ -60,11 +71,24 @@ public enum ClientType {
             // but 6.45 is the last version that supports iOS 13.
             forceAVC()
                     ? "6.45"
-                    : "8.33",
+                    : "8.49",
             true,
             forceAVC()
                     ? "iOS TV Force AVC"
                     : "iOS TV"
+    ),
+    ANDROID_CREATOR(
+            14,
+            "ANDROID_CREATOR",
+            Build.MANUFACTURER,
+            Build.MODEL,
+            "Android",
+            "11",
+            "com.google.android.apps.youtube.creator/24.45.100 (Linux; U; Android 11) gzip",
+            "30",
+            "24.45.100",
+            true,
+            "Android Creator"
     );
 
     private static boolean forceAVC() {
@@ -80,9 +104,19 @@ public enum ClientType {
     public final String clientName;
 
     /**
-     * Device model, equivalent to {@link Build#MODEL} (System property: ro.product.model)
+     * Device model, equivalent to {@link Build#MANUFACTURER} (System property: ro.product.vendor.manufacturer)
+     */
+    public final String deviceMake;
+
+    /**
+     * Device model, equivalent to {@link Build#MODEL} (System property: ro.product.vendor.model)
      */
     public final String deviceModel;
+
+    /**
+     * Device OS name.
+     */
+    public final String osName;
 
     /**
      * Device OS version.
@@ -118,7 +152,9 @@ public enum ClientType {
 
     ClientType(int id,
                String clientName,
+               String deviceMake,
                String deviceModel,
+               String osName,
                String osVersion,
                String userAgent,
                @Nullable String androidSdkVersion,
@@ -127,7 +163,9 @@ public enum ClientType {
                String friendlyName) {
         this.id = id;
         this.clientName = clientName;
+        this.deviceMake = deviceMake;
         this.deviceModel = deviceModel;
+        this.osName = osName;
         this.osVersion = osVersion;
         this.userAgent = userAgent;
         this.androidSdkVersion = androidSdkVersion;
