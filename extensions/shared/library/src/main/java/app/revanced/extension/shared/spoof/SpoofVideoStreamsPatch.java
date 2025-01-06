@@ -222,8 +222,8 @@ public class SpoofVideoStreamsPatch {
     public static final class AudioStreamLanguageOverrideAvailability implements Setting.Availability {
         @Override
         public boolean isAvailable() {
-            return !BaseSettings.SPOOF_VIDEO_STREAMS.get()
-                    || BaseSettings.SPOOF_VIDEO_STREAMS_CLIENT_TYPE.get() == ClientType.ANDROID_VR_NO_AUTH;
+            return BaseSettings.SPOOF_VIDEO_STREAMS.get()
+                    && BaseSettings.SPOOF_VIDEO_STREAMS_CLIENT_TYPE.get() == ClientType.ANDROID_VR_NO_AUTH;
         }
     }
 
