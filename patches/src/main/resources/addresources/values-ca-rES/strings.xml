@@ -1382,6 +1382,8 @@ L'AVC té una resolució màxima de 1080p, el còdec d'àudio Opus no està disp
   <string name="revanced_spoof_video_streams_about_android_summary">"• Menú de pistes d'àudio no disponible
 • El volum estable no està disponible
 • Forçar l'àudio original no està disponible"</string>
+  <string name="revanced_spoof_video_streams_about_no_av1">• Sense còdec de vídeo AV1</string>
+  <string name="revanced_spoof_video_streams_about_no_hdr">• Sense vídeo HDR</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Mostra a l\'apartat \'Dades per a experts\'</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">El tipus de client es mostra a l\'apartat \'Dades per a experts\'</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">El client s\'amaga a l\'apartat \'Dades per a experts\'</string>

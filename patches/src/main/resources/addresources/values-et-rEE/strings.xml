@@ -1387,6 +1387,8 @@ AVC-l on maksimaalne eraldusvõime 1080p, Opus-i heli kodek pole saadaval ning v
   <string name="revanced_spoof_video_streams_about_android_summary">"• Heliraja menüü puudub
 • Stabiilset helitugevust pole saadaval
 • Sunnitud originaalheli pole saadaval"</string>
+  <string name="revanced_spoof_video_streams_about_no_av1">• Puuduv AV1 videokoodek</string>
+  <string name="revanced_spoof_video_streams_about_no_hdr">• Puuduv HDR video</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Kuva statistikas \"Nerdide jaoks\"</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Klienditüüp on statistikas \"Nerdide jaoks\" nähtav</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Klient on statistikas \"Nerdide jaoks\" peidetud</string>

@@ -1384,6 +1384,8 @@ AVC-ի առավելագույն թույլտվությունը 1080p է, Opus ա
   <string name="revanced_spoof_video_streams_about_android_summary">"• Ձայնի գրառման ընտրացանկը բացակայում է
 • Ստաբիլ ձայն չկա
 • Իրական ձայնի ընտրությունը հասանելի չէ"</string>
+  <string name="revanced_spoof_video_streams_about_no_av1">• Հեռացված բոլոր AV1 վիդեո կոդեկները</string>
+  <string name="revanced_spoof_video_streams_about_no_hdr">• Հեռացված բոլոր HDR վիդեոները</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Ցուցադրել վիճակագրության ակնոցներում</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Հաճախորդի տեսակը ցուցադրվում է վիճակագրության ակնոցներում</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Հաճախորդը թաքնված է վիճակագրության ակնոցներում</string>

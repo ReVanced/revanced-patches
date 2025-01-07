@@ -1385,6 +1385,8 @@ AVC má maximální rozlišení 1080p, zvukový kodek Opus není dostupný a př
   <string name="revanced_spoof_video_streams_about_android_summary">"• Chybí nabídka zvukových stop
 • Není k dispozici stabilní hlasitost
 • Není k dispozici možnost vynucení originálního zvuku"</string>
+  <string name="revanced_spoof_video_streams_about_no_av1">• Žádný video kodek AV1</string>
+  <string name="revanced_spoof_video_streams_about_no_hdr">• Žádné HDR video</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Zobrazit ve statistikách pro nadšence</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Typ klienta se zobrazuje ve statistikách pro nadšence</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Klient je skrytý ve statistikách pro nadšence</string>

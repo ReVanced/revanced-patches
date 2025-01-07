@@ -1384,6 +1384,8 @@ AVC maksimālā izšķirtspēja ir 1080p, Opus audio kodeks nav pieejams, un vid
   <string name="revanced_spoof_video_streams_about_android_summary">"• Trūkst audio celiņa izvēlnes
 • Nav pieejams stabils skaļums
 • Nav pieejama oriģinālā audio piespiešana"</string>
+  <string name="revanced_spoof_video_streams_about_no_av1">• Nav pieejams AV1 video kodeks</string>
+  <string name="revanced_spoof_video_streams_about_no_hdr">• Bez HDR video</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Rādīt statistiskos datos entuziastiem</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Klienta tips tiek rādīts statistiskos datos entuziastiem</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Klients ir paslēpts statistiskos datos entuziastiem</string>

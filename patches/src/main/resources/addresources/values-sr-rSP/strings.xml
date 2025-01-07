@@ -801,7 +801,7 @@ Second \"item\" text"</string>
   <string name="revanced_hide_player_popup_panels_summary_off">Искачуће табле у плејеру су приказане</string>
   </patch>
   <patch id="layout.player.fullscreen.exitFullscreenPatch">
-  <string name="revanced_exit_fullscreen_title">Изађи из режима целог екрана на крају видеа</string>
+  <string name="revanced_exit_fullscreen_title">Излаз из режима целог екрана на крају видеа</string>
   <string name="revanced_exit_fullscreen_entry_1">Онемогућено</string>
   <string name="revanced_exit_fullscreen_entry_2">Усправно</string>
   <string name="revanced_exit_fullscreen_entry_3">Водоравно</string>
@@ -937,7 +937,7 @@ Second \"item\" text"</string>
   <string name="revanced_sb_settings_ie">Увоз/Извоз подешавања</string>
   <string name="revanced_sb_settings_copy">Копирај</string>
   <string name="revanced_sb_settings_ie_sum">Ваша SponsorBlock JSON конфигурација која може да се увезе/извезе у ReVanced и друге SponsorBlock платформе</string>
-  <string name="revanced_sb_settings_ie_sum_warning">Ваша SponsorBlock JSON конфигурација која може да се увезе/извезе у ReVanced и друге SponsorBlock платформе. Ово укључује ваш приватни кориснички ID. Делите ово мудро</string>
+  <string name="revanced_sb_settings_ie_sum_warning">Ваша SponsorBlock JSON конфигурација која може да се увезе/извезе у ReVanced и друге SponsorBlock платформе. Ово укључује ваш приватни кориснички ID. Будите пажљиви при дељењу овога</string>
   <string name="revanced_sb_settings_import_successful">Подешавања су успешно увезена</string>
   <string name="revanced_sb_settings_import_failed">Неуспешан увоз: %s</string>
   <string name="revanced_sb_settings_export_failed">Неуспешан извоз: %s</string>
@@ -1384,6 +1384,8 @@ AVC има максималну резолуцију од 1080p, аудио ко
   <string name="revanced_spoof_video_streams_about_android_summary">"• Мени „Аудио снимак” недостаје
 • Уједначена јачина звука није доступна
 • Опција „Присили оригиналан звук” није доступна"</string>
+  <string name="revanced_spoof_video_streams_about_no_av1">• Нема видео кодека AV1</string>
+  <string name="revanced_spoof_video_streams_about_no_hdr">• Нема HDR видеа</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Прикажи у „Статистици за зналце”</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Тип клијента је приказан у „Статистици за зналце”</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Тип клијента је скривен у „Статистици за зналце”</string>
