@@ -1386,6 +1386,8 @@ AVC heeft een maximale resolutie van 1080p, de Opus-audiocodec is niet beschikba
   <string name="revanced_spoof_video_streams_about_android_summary">"• Het menu Audiotracks ontbreekt
 • Stabiel volume is niet beschikbaar
 • Forceer originele audio is niet beschikbaar"</string>
+  <string name="revanced_spoof_video_streams_about_no_av1">• Geen AV1-videocodec</string>
+  <string name="revanced_spoof_video_streams_about_no_hdr">• Geen HDR-video</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Weergeven in Stats for nerds</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Het clienttype wordt getoond in Stats for nerds</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Client is verborgen in Stats for nerds</string>

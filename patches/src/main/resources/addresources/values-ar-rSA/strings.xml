@@ -1385,6 +1385,8 @@ AVC لديه حد أقصى للدقة 1080p، لا يتوفر ترميز الص�
   <string name="revanced_spoof_video_streams_about_android_summary">"• قائمة المقطع الصوتي مفقودة
 • مستوى الصوت الثابت غير متاح
 • فرض الصوت الأصلي غير متوفر"</string>
+  <string name="revanced_spoof_video_streams_about_no_av1">• لا يوجد ترميز الفيديو AV1</string>
+  <string name="revanced_spoof_video_streams_about_no_hdr">• لا يوجد فيديو HDR</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_title">عرض في إحصاءات تقنية</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">يتم عرض نوع العميل في إحصاءات تقنية</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">تم إخفاء نوع العميل في إحصاءات تقنية</string>

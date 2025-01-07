@@ -1386,6 +1386,8 @@ AVC có độ phân giải tối đa là 1080p, bộ giải mã âm thanh Opus k
   <string name="revanced_spoof_video_streams_about_android_summary">"• Thiếu menu âm thanh
 • Không có âm lượng ổn định
 • Không có tùy chọn âm thanh gốc"</string>
+  <string name="revanced_spoof_video_streams_about_no_av1">• Không có bộ giải mã video AV1</string>
+  <string name="revanced_spoof_video_streams_about_no_hdr">• Không có video HDR</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Hiển thị trong Stats for nerds</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Loại máy khách được hiển thị trong Stats for nerds</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Máy khách bị ẩn trong Stats for nerds</string>

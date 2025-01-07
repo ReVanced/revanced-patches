@@ -43,10 +43,10 @@ Second \"item\" text"</string>
   <string name="revanced_settings_import_success">%d の設定をインポートしました</string>
   <string name="revanced_settings_import_failure_parse">インポート失敗: %s</string>
   <string name="revanced_language_title">ReVancedの言語</string>
-  <string name="revanced_language_user_dialog_message">"これのことは一部の言語が残るが、うれる記憶があります。
+  <string name="revanced_language_user_dialog_message">"一部の言語に対する翻訳は欠落しているか、または不完全な可能性があります。
 
 新しい言語を翻訳するには
-translate.revanced.appを情報してください。"</string>
+translate.revanced.appにアクセスしてください。"</string>
   <string name="revanced_language_DEFAULT">アプリの言語</string>
   <string name="revanced_language_AR">アラビア語</string>
   <string name="revanced_language_AZ">アルバードルアー</string>
@@ -686,23 +686,23 @@ MicroG のバッテリー最適化を無効にしても、バッテリーの使�
   <string name="revanced_shorts_player_screen_title">Shortsプレイヤー</string>
   <string name="revanced_shorts_player_screen_summary">Shorts プレーヤーのコンポーネントを非表示または表示</string>
   <!-- 'home' should be translated using the same localized wording YouTube displays for the home tab. -->
-  <string name="revanced_hide_shorts_home_title">ハリーバーをシーンプルのミーティブラートに非表する</string>
-  <string name="revanced_hide_shorts_home_summary_on">ホーム フィードと関連動画に表示されない</string>
-  <string name="revanced_hide_shorts_home_summary_off">ホーム フィードと関連動画に表示される</string>
+  <string name="revanced_hide_shorts_home_title">ホーム画面でショート動画を非表示</string>
+  <string name="revanced_hide_shorts_home_summary_on">ホーム画面にショート動画は表示されません</string>
+  <string name="revanced_hide_shorts_home_summary_off">ホーム画面にショート動画が表示されます</string>
   <!-- 'subscription' should be translated using the same localized wording YouTube displays for the subscription tab. -->
-  <string name="revanced_hide_shorts_subscriptions_title">ハリーバーを計算・フィードブラックスのミーティブラートに非表する</string>
-  <string name="revanced_hide_shorts_subscriptions_summary_on">登録済みフィードに非表示にする</string>
-  <string name="revanced_hide_shorts_subscriptions_summary_off">登録済みフィードに表示する</string>
-  <string name="revanced_hide_shorts_search_title">在搜索结果中隐藏 Shorts</string>
-  <string name="revanced_hide_shorts_search_summary_on">検索結果でフェイテを非表示</string>
-  <string name="revanced_hide_shorts_search_summary_off">検索結果に表示する</string>
-  <string name="revanced_hide_shorts_history_title">フェイテを見連史名巻で隠し</string>
-  <string name="revanced_hide_shorts_history_summary_on">視聴履歴に非表示にする</string>
-  <string name="revanced_hide_shorts_history_summary_off">見連史名巻で表示</string>
+  <string name="revanced_hide_shorts_subscriptions_title">登録チャンネル画面でショート動画を非表示</string>
+  <string name="revanced_hide_shorts_subscriptions_summary_on">登録チャンネル画面にショート動画は表示されません</string>
+  <string name="revanced_hide_shorts_subscriptions_summary_off">登録チャンネル画面にショート動画が表示されます</string>
+  <string name="revanced_hide_shorts_search_title">検索結果でショート動画を非表示</string>
+  <string name="revanced_hide_shorts_search_summary_on">検索結果にショート動画は表示されません</string>
+  <string name="revanced_hide_shorts_search_summary_off">検索結果にショート動画が表示されます</string>
+  <string name="revanced_hide_shorts_history_title">視聴履歴でショート動画を非表示</string>
+  <string name="revanced_hide_shorts_history_summary_on">視聴履歴にショート動画は表示されません</string>
+  <string name="revanced_hide_shorts_history_summary_off">視聴履歴にショート動画が表示されます</string>
   <!-- 'join' should be translated using the same localized wording YouTube displays for the button. -->
   <string name="revanced_hide_shorts_join_button_title">参加ボタンを隠す</string>
-  <string name="revanced_hide_shorts_join_button_summary_on">結合ボタンは非表示です</string>
-  <string name="revanced_hide_shorts_join_button_summary_off">結合ボタンが表示されます</string>
+  <string name="revanced_hide_shorts_join_button_summary_on">参加ボタンは非表示です</string>
+  <string name="revanced_hide_shorts_join_button_summary_off">参加ボタンが表示されます</string>
   <!-- 'subscribe' should be translated using the same localized wording YouTube displays for the button. -->
   <string name="revanced_hide_shorts_subscribe_button_title">購読ボタンを隠す</string>
   <string name="revanced_hide_shorts_subscribe_button_summary_on">購読ボタンは非表示です</string>
@@ -713,8 +713,8 @@ MicroG のバッテリー最適化を無効にしても、バッテリーの使�
   <string name="revanced_hide_shorts_shop_button_title">ショップボタンを隠す</string>
   <string name="revanced_hide_shorts_shop_button_summary_on">ショップボタンは非表示です</string>
   <string name="revanced_hide_shorts_shop_button_summary_off">ショップボタンが表示されます</string>
-  <string name="revanced_hide_shorts_super_thanks_button_title">感謝ボタンを隠す</string>
-  <string name="revanced_hide_shorts_super_thanks_button_summary_on">超级感谢按钮已隐藏</string>
+  <string name="revanced_hide_shorts_super_thanks_button_title">Super thanks ボタンを隠す</string>
+  <string name="revanced_hide_shorts_super_thanks_button_summary_on">Super thanks ボタンは表示されません</string>
   <string name="revanced_hide_shorts_super_thanks_button_summary_off">Super thanks ボタンが表示されます</string>
   <string name="revanced_hide_shorts_tagged_products_title">タグ付き製品を非表示</string>
   <string name="revanced_hide_shorts_tagged_products_summary_on">タグ付けされた商品は非表示です</string>
@@ -1248,11 +1248,11 @@ DeArrowの詳細については、ここをタップしてください。"</stri
   <string name="revanced_alt_thumbnail_dearrow_api_url_summary">DeArrowサムネイルキャッシュエンドポイントのURL</string>
   <string name="revanced_alt_thumbnail_stills_about_title">静止画サムネイル</string>
   <string name="revanced_alt_thumbnail_stills_about_summary">静止画は各動画の最初/中間/最後から取得されます。これらの画像はYouTubeに組み込まれており、外部 API は使用されていません。</string>
-  <string name="revanced_alt_thumbnail_stills_fast_title">高速静止画を使用する</string>
-  <string name="revanced_alt_thumbnail_stills_fast_summary_on">中品質の静止画キャプチャを使用します。サムネイルの読み込みは速くなりますが、ライブ、未公開、または非常に古い動画には空白のサムネイルが表示されることがあります。</string>
-  <string name="revanced_alt_thumbnail_stills_fast_summary_off">高画質の静止画を使用する</string>
+  <string name="revanced_alt_thumbnail_stills_fast_title">高速な静止画サムネイルを使用する</string>
+  <string name="revanced_alt_thumbnail_stills_fast_summary_on">中品質の静止画サムネイルを使用します。サムネイルの読み込みは速くなりますが、ライブ、未公開、または非常に古い動画には空白のサムネイルが表示されることがあります。</string>
+  <string name="revanced_alt_thumbnail_stills_fast_summary_off">高画質の静止画サムネイルを使用します</string>
   <string name="revanced_alt_thumbnail_stills_time_title">取得する静止画サムネイルの時間</string>
-  <string name="revanced_alt_thumbnail_stills_time_entry_1">ビデオの始まり</string>
+  <string name="revanced_alt_thumbnail_stills_time_entry_1">ビデオの最初</string>
   <string name="revanced_alt_thumbnail_stills_time_entry_2">ビデオの中間</string>
   <string name="revanced_alt_thumbnail_stills_time_entry_3">ビデオの最後</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
@@ -1303,7 +1303,7 @@ DeArrowの詳細については、ここをタップしてください。"</stri
   </patch>
   <patch id="misc.privacy.removeTrackingQueryParameterPatch">
   <string name="revanced_remove_tracking_query_parameter_title">トラッキングクエリパラメータを削除</string>
-  <string name="revanced_remove_tracking_query_parameter_summary_on">トラッキングクエリパラメータがリンクから削除されました</string>
+  <string name="revanced_remove_tracking_query_parameter_summary_on">トラッキングクエリパラメータがリンクから削除されます</string>
   <string name="revanced_remove_tracking_query_parameter_summary_off">トラッキングクエリパラメータはリンクから削除されません</string>
   </patch>
   <patch id="misc.zoomhaptics.zoomHapticsPatch">
@@ -1340,7 +1340,7 @@ DeArrowの詳細については、ここをタップしてください。"</stri
   <string name="revanced_custom_speed_menu_summary_off">カスタムスピードメニューは表示されません</string>
   <string name="revanced_custom_playback_speeds_title">カスタム再生速度</string>
   <string name="revanced_custom_playback_speeds_summary">再生速度を追加または変更する</string>
-  <string name="revanced_custom_playback_speeds_invalid">カスタム速度は%s未満である必要があります</string>
+  <string name="revanced_custom_playback_speeds_invalid">カスタム再生速度の数値は%s未満である必要があります</string>
   <string name="revanced_custom_playback_speeds_parse_exception">無効なカスタム再生速度</string>
   <string name="revanced_custom_playback_speeds_auto">自動</string>
   </patch>
@@ -1357,7 +1357,7 @@ DeArrowの詳細については、ここをタップしてください。"</stri
   <string name="revanced_restore_old_video_quality_menu_summary_off">古いビデオ品質のメニューは表示されません</string>
   </patch>
   <patch id="interaction.seekbar.enableSlideToSeekPatch">
-  <string name="revanced_slide_to_seek_title">シークするスライドを有効にする</string>
+  <string name="revanced_slide_to_seek_title">スライドしてシークする機能を有効にする</string>
   <string name="revanced_slide_to_seek_summary_on">スライドしてシークする機能が有効になっています</string>
   <string name="revanced_slide_to_seek_summary_off">スライドしてシークする機能は無効になっています</string>
   </patch>
@@ -1380,15 +1380,19 @@ DeArrowの詳細については、ここをタップしてください。"</stri
 
 AVC の最大解像度は 1080p であり、Opus オーディオコーデックは使用できず、ビデオの再生は VP9 や AV1 より多くのインターネットデータを使用します。"</string>
   <string name="revanced_spoof_video_streams_about_ios_tv_title">iOS スプーフィングの副作用</string>
-  <string name="revanced_spoof_video_streams_about_ios_tv_summary">"• 映画や有料動画が再生されない場合があります&lt;br&gt;• 安定した音量が利用できません&lt;br&gt;• 動画が1秒早く終了します"</string>
+  <string name="revanced_spoof_video_streams_about_ios_tv_summary">"• 映画や有料動画が再生されない場合があります
+• 一定音量は利用できません
+• 動画が1秒早く終了します"</string>
   <string name="revanced_spoof_video_streams_about_android_title">Android スプーフィングの副作用</string>
   <string name="revanced_spoof_video_streams_about_android_summary">"• オーディオトラックメニューがありません
 • 安定した音量は使用できません
 • 強制的なオリジナル音声は使用できません"</string>
+  <string name="revanced_spoof_video_streams_about_no_av1">• AV1 ビデオコーデックなし</string>
+  <string name="revanced_spoof_video_streams_about_no_hdr">• HDR ビデオなし</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_title">統計情報（詳細）</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">クライアントの種類は統計情報（詳細）に表示されます</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">クライアントは統計情報（詳細）に表示されません</string>
-  <string name="revanced_spoof_video_streams_language_title">VRデフォルトオーディオストリーム言語</string>
+  <string name="revanced_spoof_video_streams_language_title">Android VRをクライアントに設定した時にデフォルトで使用するオーディオの言語</string>
   </patch>
   </app>
   <app id="twitch">
@@ -1402,7 +1406,7 @@ AVC の最大解像度は 1080p であり、Opus オーディオコーデック�
   <string name="revanced_embedded_ads_service_failed">%sエラーが発生しました。広告が表示される可能性があります。設定で広告ブロックサービスを変更してみてください。</string>
   <string name="revanced_block_embedded_ads_title">埋め込みビデオ広告をブロック</string>
   <string name="revanced_block_embedded_ads_entry_1">無効</string>
-  <string name="revanced_block_embedded_ads_entry_2">光沢のあるプロキシ</string>
+  <string name="revanced_block_embedded_ads_entry_2">Luminous プロキシ</string>
   <string name="revanced_block_embedded_ads_entry_3">PurpleAdBlock プロキシ</string>
   </patch>
   <patch id="ad.video.videoAdsPatch">
