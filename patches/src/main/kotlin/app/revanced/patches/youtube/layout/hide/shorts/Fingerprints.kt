@@ -1,9 +1,9 @@
 package app.revanced.patches.youtube.layout.hide.shorts
 
-import app.revanced.patcher.MethodCallFilter
-import app.revanced.patcher.OpcodeFilter
 import app.revanced.patcher.fingerprint
-import app.revanced.patches.shared.misc.mapping.ResourceMappingFilter
+import app.revanced.patcher.methodCall
+import app.revanced.patcher.opcode
+import app.revanced.patches.shared.misc.mapping.ResourceLiteralFilter.Companion.resourceLiteral
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
@@ -25,16 +25,16 @@ internal val shortsBottomBarContainerFingerprint by fingerprint {
     parameters("Landroid/view/View;", "Landroid/os/Bundle;")
     strings("r_pfvc")
     instructions(
-        ResourceMappingFilter("id", "bottom_bar_container"),
-        MethodCallFilter(methodName = "getHeight"),
-        OpcodeFilter(Opcode.MOVE_RESULT)
+        resourceLiteral("id", "bottom_bar_container"),
+        methodCall(name = "getHeight"),
+        opcode(Opcode.MOVE_RESULT)
     )
 }
 
 internal val createShortsButtonsFingerprint by fingerprint {
     returns("V")
     instructions(
-        ResourceMappingFilter("dimen", "reel_player_right_cell_button_height")
+        resourceLiteral("dimen", "reel_player_right_cell_button_height")
     )
 }
 

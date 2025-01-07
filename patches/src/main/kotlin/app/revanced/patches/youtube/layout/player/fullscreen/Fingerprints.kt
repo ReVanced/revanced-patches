@@ -1,7 +1,7 @@
 package app.revanced.patches.youtube.layout.player.fullscreen
 
-import app.revanced.patcher.LiteralFilter
 import app.revanced.patcher.fingerprint
+import app.revanced.patcher.literal
 import com.android.tools.smali.dexlib2.AccessFlags
 
 internal val openVideosFullscreenPortraitFingerprint by fingerprint {
@@ -9,7 +9,7 @@ internal val openVideosFullscreenPortraitFingerprint by fingerprint {
     returns("V")
     parameters("L", "Lj\$/util/Optional;")
     instructions(
-        LiteralFilter(45666112L)
+        literal(45666112L)
     )
 }
 

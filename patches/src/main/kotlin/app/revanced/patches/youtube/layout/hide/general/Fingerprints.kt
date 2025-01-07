@@ -1,9 +1,9 @@
 package app.revanced.patches.youtube.layout.hide.general
 
-import app.revanced.patcher.MethodCallFilter
-import app.revanced.patcher.OpcodeFilter
 import app.revanced.patcher.fingerprint
-import app.revanced.patches.shared.misc.mapping.ResourceMappingFilter
+import app.revanced.patcher.methodCall
+import app.revanced.patcher.opcode
+import app.revanced.patches.shared.misc.mapping.ResourceLiteralFilter.Companion.resourceLiteral
 import app.revanced.util.literal
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
@@ -11,11 +11,9 @@ import com.android.tools.smali.dexlib2.Opcode
 internal val hideShowMoreButtonFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     instructions(
-        ResourceMappingFilter("layout", "expand_button_down"),
-        MethodCallFilter.parseJvmMethodCall(
-            "Landroid/view/View;->inflate(Landroid/content/Context;ILandroid/view/ViewGroup;)Landroid/view/View;",
-        ),
-        OpcodeFilter(Opcode.MOVE_RESULT_OBJECT)
+        resourceLiteral("layout", "expand_button_down"),
+        methodCall(smaliString = "Landroid/view/View;->inflate(Landroid/content/Context;ILandroid/view/ViewGroup;)Landroid/view/View;"),
+        opcode(Opcode.MOVE_RESULT_OBJECT)
     )
 }
 
@@ -46,7 +44,7 @@ internal val yoodlesImageViewFingerprint by fingerprint {
     returns("Landroid/view/View;")
     parameters("L", "L")
     instructions(
-        ResourceMappingFilter("id", "youtube_logo")
+        resourceLiteral("id", "youtube_logo")
     )
 }
 

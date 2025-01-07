@@ -27,7 +27,7 @@ val unlockDownloadsPatch = bytecodePatch(
 
         // Allow downloads for non-premium users.
         showDownloadVideoUpsellBottomSheetFingerprint.patch {
-            val checkIndex = patternMatch!!.startIndex
+            val checkIndex = instructionMatches.first().index
             val register = method.getInstruction<OneRegisterInstruction>(checkIndex).registerA
 
             checkIndex to register
@@ -42,25 +42,26 @@ val unlockDownloadsPatch = bytecodePatch(
         }
 
         // Make GIFs downloadable.
-        val patternMatch = buildMediaOptionsSheetFingerprint.patternMatch!!
-        buildMediaOptionsSheetFingerprint.method.apply {
-            val checkMediaTypeIndex = patternMatch.startIndex
-            val checkMediaTypeInstruction = getInstruction<TwoRegisterInstruction>(checkMediaTypeIndex)
+        buildMediaOptionsSheetFingerprint.let {
+            it.method.apply {
+                val checkMediaTypeIndex = it.instructionMatches.first().index
+                val checkMediaTypeInstruction = getInstruction<TwoRegisterInstruction>(checkMediaTypeIndex)
 
-            // Treat GIFs as videos.
-            addInstructionsWithLabels(
-                checkMediaTypeIndex + 1,
-                """
+                // Treat GIFs as videos.
+                addInstructionsWithLabels(
+                    checkMediaTypeIndex + 1,
+                    """
                         const/4 v${checkMediaTypeInstruction.registerB}, 0x2 # GIF
                         if-eq v${checkMediaTypeInstruction.registerA}, v${checkMediaTypeInstruction.registerB}, :video
                     """,
-                ExternalLabel("video", getInstruction(patternMatch.endIndex)),
-            )
+                    ExternalLabel("video", getInstruction(it.instructionMatches.last().index)),
+                )
 
-            // Remove media.isDownloadable check.
-            removeInstruction(
-                instructions.first { it.opcode == Opcode.IGET_BOOLEAN }.location.index + 1,
-            )
+                // Remove media.isDownloadable check.
+                removeInstruction(
+                    instructions.first { it.opcode == Opcode.IGET_BOOLEAN }.location.index + 1,
+                )
+            }
         }
     }
 }

@@ -1,8 +1,8 @@
 package app.revanced.patches.youtube.layout.buttons.overlay
 
-import app.revanced.patcher.MethodCallFilter
 import app.revanced.patcher.fingerprint
-import app.revanced.patches.shared.misc.mapping.ResourceMappingFilter
+import app.revanced.patcher.methodCall
+import app.revanced.patches.shared.misc.mapping.ResourceLiteralFilter.Companion.resourceLiteral
 import com.android.tools.smali.dexlib2.AccessFlags
 
 internal val playerControlsPreviousNextOverlayTouchFingerprint by fingerprint {
@@ -10,9 +10,9 @@ internal val playerControlsPreviousNextOverlayTouchFingerprint by fingerprint {
     returns("V")
     strings("1.0x")
     instructions(
-        ResourceMappingFilter("id", "player_control_previous_button_touch_area"),
-        ResourceMappingFilter("id", "player_control_next_button_touch_area"),
-        MethodCallFilter(parameters = listOf("Landroid/view/View;", "I"))
+        resourceLiteral("id", "player_control_previous_button_touch_area"),
+        resourceLiteral("id", "player_control_next_button_touch_area"),
+        methodCall(parameters = listOf("Landroid/view/View;", "I"))
     )
 }
 

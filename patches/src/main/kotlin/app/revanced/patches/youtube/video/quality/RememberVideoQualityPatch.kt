@@ -133,7 +133,7 @@ val rememberVideoQualityPatch = bytecodePatch(
 
         // Remember video quality if not using old layout menu.
         newVideoQualityChangedFingerprint.method.apply {
-            val index = newVideoQualityChangedFingerprint.filterMatches[3].index
+            val index = newVideoQualityChangedFingerprint.instructionMatches[3].index
             val qualityRegister = getInstruction<TwoRegisterInstruction>(index).registerA
 
             addInstruction(

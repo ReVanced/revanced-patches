@@ -592,10 +592,15 @@ public final class app/revanced/patches/shared/misc/mapping/ResourceElement {
 	public fun toString ()Ljava/lang/String;
 }
 
-public final class app/revanced/patches/shared/misc/mapping/ResourceMappingFilter : app/revanced/patcher/InstructionFilter {
-	public fun <init> (Ljava/lang/String;Ljava/lang/String;I)V
-	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;IILkotlin/jvm/internal/DefaultConstructorMarker;)V
+public final class app/revanced/patches/shared/misc/mapping/ResourceLiteralFilter : app/revanced/patcher/InstructionFilter {
+	public static final field Companion Lapp/revanced/patches/shared/misc/mapping/ResourceLiteralFilter$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public fun matches (Lapp/revanced/patcher/patch/BytecodePatchContext;Lcom/android/tools/smali/dexlib2/iface/Method;Lcom/android/tools/smali/dexlib2/iface/instruction/Instruction;I)Z
+}
+
+public final class app/revanced/patches/shared/misc/mapping/ResourceLiteralFilter$Companion {
+	public final fun resourceLiteral (Ljava/lang/String;Ljava/lang/String;I)Lapp/revanced/patches/shared/misc/mapping/ResourceLiteralFilter;
+	public static synthetic fun resourceLiteral$default (Lapp/revanced/patches/shared/misc/mapping/ResourceLiteralFilter$Companion;Ljava/lang/String;Ljava/lang/String;IILjava/lang/Object;)Lapp/revanced/patches/shared/misc/mapping/ResourceLiteralFilter;
 }
 
 public final class app/revanced/patches/shared/misc/mapping/ResourceMappingPatchKt {
@@ -1390,6 +1395,10 @@ public final class app/revanced/patches/youtube/misc/spoof/UserAgentClientSpoofP
 
 public final class app/revanced/patches/youtube/misc/zoomhaptics/ZoomHapticsPatchKt {
 	public static final fun getZoomHapticsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
+public final class app/revanced/patches/youtube/shared/FingerprintsKt {
+	public static final fun getHideAdsFingerprint ()Lapp/revanced/patcher/Fingerprint;
 }
 
 public final class app/revanced/patches/youtube/video/audio/ForceOriginalAudioPatchKt {

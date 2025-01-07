@@ -211,7 +211,7 @@ val hideShortsComponentsPatch = bytecodePatch(
             setPivotBarVisibilityParentFingerprint.originalClassDef,
         ).let { result ->
             result.method.apply {
-                val insertIndex = result.patternMatch.endIndex
+                val insertIndex = result.instructionMatches.last().index
                 val viewRegister = getInstruction<OneRegisterInstruction>(insertIndex - 1).registerA
                 addInstruction(
                     insertIndex,
@@ -236,7 +236,7 @@ val hideShortsComponentsPatch = bytecodePatch(
         // Hide the bottom bar container of the Shorts player.
         shortsBottomBarContainerFingerprint.let {
             it.method.apply {
-                val targetIndex = it.filterMatches.last().index
+                val targetIndex = it.instructionMatches.last().index
                 val heightRegister = getInstruction<OneRegisterInstruction>(targetIndex).registerA
 
                 addInstructions(

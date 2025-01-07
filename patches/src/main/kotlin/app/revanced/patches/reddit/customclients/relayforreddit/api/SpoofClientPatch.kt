@@ -45,7 +45,7 @@ val spoofClientPatch = spoofClientPatch(redirectUri = "dbrady://relay") {
         setRemoteConfigFingerprint.method.addInstructions(0, "return-void")
 
         // Prevent OAuth login being disabled remotely.
-        val checkIsOAuthRequestIndex = redditCheckDisableAPIFingerprint.filterMatches.first().index
+        val checkIsOAuthRequestIndex = redditCheckDisableAPIFingerprint.instructionMatches.first().index
 
         redditCheckDisableAPIFingerprint.method.apply {
             val returnNextChain = getInstruction<BuilderInstruction21t>(checkIsOAuthRequestIndex).target

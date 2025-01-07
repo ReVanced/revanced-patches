@@ -1,8 +1,8 @@
 package app.revanced.patches.youtube.misc.navigation
 
-import app.revanced.patcher.MethodCallFilter
 import app.revanced.patcher.fingerprint
-import app.revanced.patches.shared.misc.mapping.ResourceMappingFilter
+import app.revanced.patcher.methodCall
+import app.revanced.patches.shared.misc.mapping.ResourceLiteralFilter.Companion.resourceLiteral
 import app.revanced.patches.youtube.layout.buttons.navigation.navigationButtonsPatch
 import com.android.tools.smali.dexlib2.AccessFlags
 
@@ -10,8 +10,8 @@ internal val actionBarSearchResultsFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("Landroid/view/View;")
     instructions(
-        ResourceMappingFilter("layout", "action_bar_search_results_view_mic"),
-        MethodCallFilter(methodName = "setLayoutDirection")
+        resourceLiteral("layout", "action_bar_search_results_view_mic"),
+        methodCall(name = "setLayoutDirection")
     )
 }
 
@@ -22,7 +22,7 @@ internal val initializeButtonsFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("V")
     instructions(
-        ResourceMappingFilter("layout", "image_only_tab")
+        resourceLiteral("layout", "image_only_tab")
     )
 }
 
@@ -93,7 +93,7 @@ internal val pivotBarButtonsViewSetSelectedFingerprint by fingerprint {
     returns("V")
     parameters("I", "Z")
     instructions(
-        MethodCallFilter(methodName = "setSelected")
+        methodCall(name = "setSelected")
     )
     custom { method, _ ->
         method.definingClass == "Lcom/google/android/libraries/youtube/rendering/ui/pivotbar/PivotBar;"
@@ -113,6 +113,6 @@ internal val imageEnumConstructorFingerprint by fingerprint {
 internal val setEnumMapFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     instructions(
-        ResourceMappingFilter("drawable", "yt_fill_bell_black_24")
+        resourceLiteral("drawable", "yt_fill_bell_black_24")
     )
 }

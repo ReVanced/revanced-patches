@@ -52,7 +52,7 @@ val disableSubscriptionSuggestionsPatch = bytecodePatch(
             },
         )
 
-        val getModulesIndex = getModulesFingerprint.filterMatches.first().index
+        val getModulesIndex = getModulesFingerprint.instructionMatches.first().index
         with(originalMethod) {
             removeInstruction(getModulesIndex)
             addInstructions(

@@ -95,7 +95,7 @@ val navigationButtonsPatch = bytecodePatch(
         // Hide navigation button labels.
         createPivotBarFingerprint.let {
             it.method.apply {
-                val setTextIndex = it.filterMatches.first().index
+                val setTextIndex = it.instructionMatches.first().index
                 val targetRegister = getInstruction<FiveRegisterInstruction>(setTextIndex).registerC
 
                 addInstruction(
@@ -114,21 +114,21 @@ val navigationButtonsPatch = bytecodePatch(
         if (is_19_25_or_greater) {
             translucentNavigationStatusBarFeatureFlagFingerprint.let {
                 it.method.insertFeatureFlagBooleanOverride(
-                    it.filterMatches.first().index,
+                    it.instructionMatches.first().index,
                     "$EXTENSION_CLASS_DESCRIPTOR->useTranslucentNavigationStatusBar(Z)Z",
                 )
             }
 
             translucentNavigationButtonsFeatureFlagFingerprint.let {
                 it.method.insertFeatureFlagBooleanOverride(
-                    it.filterMatches.first().index,
+                    it.instructionMatches.first().index,
                     "$EXTENSION_CLASS_DESCRIPTOR->useTranslucentNavigationButtons(Z)Z",
                 )
             }
 
             translucentNavigationButtonsSystemFeatureFlagFingerprint.let {
                 it.method.insertFeatureFlagBooleanOverride(
-                    it.filterMatches.first().index,
+                    it.instructionMatches.first().index,
                     "$EXTENSION_CLASS_DESCRIPTOR->useTranslucentNavigationButtons(Z)Z",
                 )
             }

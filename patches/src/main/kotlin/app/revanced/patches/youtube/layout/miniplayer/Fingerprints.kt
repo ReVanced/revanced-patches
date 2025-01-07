@@ -2,9 +2,9 @@
 
 package app.revanced.patches.youtube.layout.miniplayer
 
-import app.revanced.patcher.LiteralFilter
 import app.revanced.patcher.fingerprint
-import app.revanced.patches.shared.misc.mapping.ResourceMappingFilter
+import app.revanced.patcher.literal
+import app.revanced.patches.shared.misc.mapping.ResourceLiteralFilter.Companion.resourceLiteral
 import app.revanced.util.literal
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
@@ -14,7 +14,7 @@ internal val miniplayerDimensionsCalculatorParentFingerprint by fingerprint {
     returns("V")
     parameters("L")
     instructions(
-        ResourceMappingFilter("dimen", "floaty_bar_button_top_margin")
+        resourceLiteral("dimen", "floaty_bar_button_top_margin")
     )
 }
 
@@ -120,9 +120,9 @@ internal val miniplayerModernViewParentFingerprint by fingerprint {
 internal val miniplayerMinimumSizeFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     instructions(
-        ResourceMappingFilter("dimen", "miniplayer_max_size"),
-        LiteralFilter(192),
-        LiteralFilter(128)
+        resourceLiteral("dimen", "miniplayer_max_size"),
+        literal(192),
+        literal(128)
     )
 }
 

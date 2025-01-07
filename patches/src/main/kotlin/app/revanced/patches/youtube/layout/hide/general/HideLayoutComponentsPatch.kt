@@ -233,7 +233,7 @@ val hideLayoutComponentsPatch = bytecodePatch(
         // region Mix playlists
 
         parseElementFromBufferFingerprint.method.apply {
-            val startIndex = parseElementFromBufferFingerprint.filterMatches.first().index
+            val startIndex = parseElementFromBufferFingerprint.instructionMatches.first().index
             // Target code is a mess with a lot of register moves.
             // There is no simple way to find a free register for all versions so this is hard coded.
             val freeRegister = if (is_19_47_or_greater) 6 else 0
@@ -281,7 +281,7 @@ val hideLayoutComponentsPatch = bytecodePatch(
         // region Show more button
 
         hideShowMoreButtonFingerprint.method.apply {
-            val moveRegisterIndex = hideShowMoreButtonFingerprint.filterMatches.last().index
+            val moveRegisterIndex = hideShowMoreButtonFingerprint.instructionMatches.last().index
             val viewRegister = getInstruction<OneRegisterInstruction>(moveRegisterIndex).registerA
 
             val insertIndex = moveRegisterIndex + 1
@@ -297,7 +297,7 @@ val hideLayoutComponentsPatch = bytecodePatch(
         // region crowdfunding box
         crowdfundingBoxFingerprint.let {
             it.method.apply {
-                val insertIndex = it.filterMatches.last().index
+                val insertIndex = it.instructionMatches.last().index
                 val objectRegister = getInstruction<TwoRegisterInstruction>(insertIndex).registerA
 
                 addInstruction(
@@ -314,7 +314,7 @@ val hideLayoutComponentsPatch = bytecodePatch(
 
         albumCardsFingerprint.let {
             it.method.apply {
-                val checkCastAnchorIndex = it.filterMatches.last().index
+                val checkCastAnchorIndex = it.instructionMatches.last().index
                 val insertIndex = checkCastAnchorIndex + 1
                 val register = getInstruction<OneRegisterInstruction>(checkCastAnchorIndex).registerA
 
@@ -332,7 +332,7 @@ val hideLayoutComponentsPatch = bytecodePatch(
 
         showFloatingMicrophoneButtonFingerprint.let {
             it.method.apply {
-                val startIndex = it.filterMatches.first().index
+                val startIndex = it.instructionMatches.first().index
                 val register = getInstruction<TwoRegisterInstruction>(startIndex).registerA
 
                 addInstructions(
@@ -384,11 +384,9 @@ val hideLayoutComponentsPatch = bytecodePatch(
             hookRegisterOffset: Int = 0,
             instructions: (Int) -> String,
         ) = method.apply {
-            val endIndex = patternMatch!!.endIndex
-
+            val endIndex = instructionMatches.last().index
             val insertIndex = endIndex + insertIndexOffset
-            val register =
-                getInstruction<RegisterInstruction>(endIndex + hookRegisterOffset).registerA
+            val register = getInstruction<RegisterInstruction>(endIndex + hookRegisterOffset).registerA
 
             addInstructions(insertIndex, instructions(register))
         }

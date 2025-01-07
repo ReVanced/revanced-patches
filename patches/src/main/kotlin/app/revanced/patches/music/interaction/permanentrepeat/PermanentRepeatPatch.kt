@@ -15,7 +15,7 @@ val permanentRepeatPatch = bytecodePatch(
 
     execute {
 
-        val startIndex = repeatTrackFingerprint.filterMatches.last().index
+        val startIndex = repeatTrackFingerprint.instructionMatches.last().index
         val repeatIndex = startIndex + 1
 
         repeatTrackFingerprint.method.apply {

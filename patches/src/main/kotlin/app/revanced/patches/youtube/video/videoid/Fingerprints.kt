@@ -1,8 +1,8 @@
 package app.revanced.patches.youtube.video.videoid
 
-import app.revanced.patcher.MethodCallFilter
-import app.revanced.patcher.OpcodeFilter
 import app.revanced.patcher.fingerprint
+import app.revanced.patcher.methodCall
+import app.revanced.patcher.opcode
 import app.revanced.util.literal
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
@@ -12,11 +12,11 @@ internal val videoIdFingerprint by fingerprint {
     returns("V")
     parameters("L")
     instructions(
-        MethodCallFilter(
+        methodCall(
             definingClass = "Lcom/google/android/libraries/youtube/innertube/model/player/PlayerResponseModel;",
             returnType = "Ljava/lang/String;"
         ),
-        OpcodeFilter(Opcode.MOVE_RESULT_OBJECT),
+        opcode(Opcode.MOVE_RESULT_OBJECT),
     )
 }
 
@@ -25,16 +25,16 @@ internal val videoIdBackgroundPlayFingerprint by fingerprint {
     returns("V")
     parameters("L")
     instructions(
-        MethodCallFilter(
+        methodCall(
             definingClass = "Lcom/google/android/libraries/youtube/innertube/model/player/PlayerResponseModel;",
             returnType = "Ljava/lang/String;"
         ),
-        OpcodeFilter(Opcode.MOVE_RESULT_OBJECT),
-        OpcodeFilter(Opcode.IPUT_OBJECT),
-        OpcodeFilter(Opcode.MONITOR_EXIT),
-        OpcodeFilter(Opcode.RETURN_VOID),
-        OpcodeFilter(Opcode.MONITOR_EXIT),
-        OpcodeFilter(Opcode.RETURN_VOID)
+        opcode(Opcode.MOVE_RESULT_OBJECT),
+        opcode(Opcode.IPUT_OBJECT),
+        opcode(Opcode.MONITOR_EXIT),
+        opcode(Opcode.RETURN_VOID),
+        opcode(Opcode.MONITOR_EXIT),
+        opcode(Opcode.RETURN_VOID)
     )
     // The target snippet of code is buried in a huge switch block and the target method
     // has been changed many times by YT which makes identifying it more difficult than usual.

@@ -177,7 +177,7 @@ val sponsorBlockPatch = bytecodePatch(
         injectVisibilityCheckCall(EXTENSION_VOTING_BUTTON_CONTROLLER_CLASS_DESCRIPTOR)
 
         // Append the new time to the player layout.
-        val appendTimePatternScanStartIndex = appendTimeFingerprint.filterMatches.first().index
+        val appendTimePatternScanStartIndex = appendTimeFingerprint.instructionMatches.first().index
         appendTimeFingerprint.method.apply {
             val register = getInstruction<OneRegisterInstruction>(appendTimePatternScanStartIndex + 1).registerA
 
@@ -195,7 +195,7 @@ val sponsorBlockPatch = bytecodePatch(
 
         // Initialize the SponsorBlock view.
         controlsOverlayFingerprint.match(layoutConstructorFingerprint.originalClassDef).let {
-            val startIndex = it.filterMatches.first().index
+            val startIndex = it.instructionMatches.first().index
             it.method.apply {
                 val frameLayoutRegister = (getInstruction(startIndex + 2) as OneRegisterInstruction).registerA
                 addInstruction(
@@ -216,9 +216,8 @@ val sponsorBlockPatch = bytecodePatch(
 
             segmentPlaybackControllerFingerprint.let {
                 it.method.apply {
-                    val replaceIndex = it.patternMatch.startIndex
-                    val replaceRegister =
-                        getInstruction<OneRegisterInstruction>(replaceIndex).registerA
+                    val replaceIndex = it.instructionMatches.first().index
+                    val replaceRegister = getInstruction<OneRegisterInstruction>(replaceIndex).registerA
 
                     replaceInstruction(
                         replaceIndex,

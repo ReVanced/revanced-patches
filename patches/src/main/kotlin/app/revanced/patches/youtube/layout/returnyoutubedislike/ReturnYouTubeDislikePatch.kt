@@ -172,7 +172,7 @@ val returnYouTubeDislikePatch = bytecodePatch(
 
         // region Hook for non-litho Short videos.
         shortsTextViewFingerprint.method.apply {
-            val insertIndex = shortsTextViewFingerprint.filterMatches.last().index + 1
+            val insertIndex = shortsTextViewFingerprint.instructionMatches.last().index + 1
 
             // If the field is true, the TextView is for a dislike button.
             val isDisLikesBooleanInstruction = instructions.first { instruction ->
@@ -229,7 +229,7 @@ val returnYouTubeDislikePatch = bytecodePatch(
         // Do this last to allow patching old unsupported versions (if the user really wants),
         // On older unsupported version this will fail to match and throw an exception,
         // but everything will still work correctly anyway.
-        val dislikesIndex = rollingNumberSetterFingerprint.filterMatches.last().index
+        val dislikesIndex = rollingNumberSetterFingerprint.instructionMatches.last().index
 
         rollingNumberSetterFingerprint.method.apply {
             val insertIndex = 1
@@ -258,20 +258,22 @@ val returnYouTubeDislikePatch = bytecodePatch(
 
         // Rolling Number text views use the measured width of the raw string for layout.
         // Modify the measure text calculation to include the left drawable separator if needed.
-        val patternMatch = rollingNumberMeasureAnimatedTextFingerprint.patternMatch!!
-        // Additional check to verify the opcodes are at the start of the method
-        if (patternMatch.startIndex != 0) throw PatchException("Unexpected opcode location")
-        val endIndex = patternMatch.endIndex
-        rollingNumberMeasureAnimatedTextFingerprint.method.apply {
-            val measuredTextWidthRegister = getInstruction<OneRegisterInstruction>(endIndex).registerA
+        rollingNumberMeasureAnimatedTextFingerprint.let {
+            // Additional check to verify the opcodes are at the start of the method
+            if (it.instructionMatches.first().index != 0) throw PatchException("Unexpected opcode location")
+            val endIndex = it.instructionMatches.last().index
 
-            addInstructions(
-                endIndex + 1,
-                """
-                    invoke-static {p1, v$measuredTextWidthRegister}, $EXTENSION_CLASS_DESCRIPTOR->onRollingNumberMeasured(Ljava/lang/String;F)F
-                    move-result v$measuredTextWidthRegister
-                """,
-            )
+            it.method.apply {
+                val measuredTextWidthRegister = getInstruction<OneRegisterInstruction>(endIndex).registerA
+
+                addInstructions(
+                    endIndex + 1,
+                    """
+                        invoke-static {p1, v$measuredTextWidthRegister}, $EXTENSION_CLASS_DESCRIPTOR->onRollingNumberMeasured(Ljava/lang/String;F)F
+                        move-result v$measuredTextWidthRegister
+                    """
+                )
+            }
         }
 
         // Additional text measurement method. Used if YouTube decides not to animate the likes count
@@ -279,7 +281,7 @@ val returnYouTubeDislikePatch = bytecodePatch(
         rollingNumberMeasureStaticLabelFingerprint.match(
             rollingNumberMeasureStaticLabelParentFingerprint.originalClassDef,
         ).let {
-            val measureTextIndex = it.filterMatches.first().index + 1
+            val measureTextIndex = it.instructionMatches.first().index + 1
             it.method.apply {
                 val freeRegister = getInstruction<TwoRegisterInstruction>(0).registerA
 

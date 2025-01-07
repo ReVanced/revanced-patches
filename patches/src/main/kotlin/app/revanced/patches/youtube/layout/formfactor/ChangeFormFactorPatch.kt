@@ -50,7 +50,7 @@ val changeFormFactorPatch = bytecodePatch(
 
         createPlayerRequestBodyWithModelFingerprint.let {
             it.method.apply {
-                val index = it.filterMatches.last().index
+                val index = it.instructionMatches.last().index
                 val register = getInstruction<TwoRegisterInstruction>(index).registerA
 
                 addInstructions(

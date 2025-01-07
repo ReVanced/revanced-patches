@@ -125,12 +125,12 @@ val videoInformationPatch = bytecodePatch(
             val videoLengthMethodMatch = videoLengthFingerprint.match(originalClassDef)
 
             videoLengthMethodMatch.method.apply {
-                val videoLengthRegisterIndex = videoLengthMethodMatch.filterMatches.last().index - 2
+                val videoLengthRegisterIndex = videoLengthMethodMatch.instructionMatches.last().index - 2
                 val videoLengthRegister = getInstruction<OneRegisterInstruction>(videoLengthRegisterIndex).registerA
                 val dummyRegisterForLong = videoLengthRegister + 1 // required for long values since they are wide
 
                 addInstruction(
-                    videoLengthMethodMatch.filterMatches.last().index,
+                    videoLengthMethodMatch.instructionMatches.last().index,
                     "invoke-static {v$videoLengthRegister, v$dummyRegisterForLong}, " +
                         "$EXTENSION_CLASS_DESCRIPTOR->setVideoLength(J)V",
                 )
@@ -159,7 +159,7 @@ val videoInformationPatch = bytecodePatch(
          * Set the video time method
          */
         timeMethod = navigate(playerControllerSetTimeReferenceFingerprint.originalMethod)
-            .to(playerControllerSetTimeReferenceFingerprint.filterMatches.first().index)
+            .to(playerControllerSetTimeReferenceFingerprint.instructionMatches.first().index)
             .stop()
 
         /*

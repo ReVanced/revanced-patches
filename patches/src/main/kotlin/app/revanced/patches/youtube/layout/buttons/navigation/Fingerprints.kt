@@ -1,10 +1,10 @@
 package app.revanced.patches.youtube.layout.buttons.navigation
 
-import app.revanced.patcher.LastInstructionFilter
-import app.revanced.patcher.LiteralFilter
-import app.revanced.patcher.MethodCallFilter
-import app.revanced.patcher.OpcodeFilter
 import app.revanced.patcher.fingerprint
+import app.revanced.patcher.lastInstruction
+import app.revanced.patcher.literal
+import app.revanced.patcher.methodCall
+import app.revanced.patcher.opcode
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
@@ -21,8 +21,8 @@ internal val createPivotBarFingerprint by fingerprint {
         "Ljava/lang/CharSequence;",
     )
     instructions(
-        MethodCallFilter(definingClass = "Landroid/widget/TextView;", methodName = "setText"),
-        LastInstructionFilter(OpcodeFilter(Opcode.RETURN_VOID))
+        methodCall(definingClass = "Landroid/widget/TextView;", name = "setText"),
+        lastInstruction(opcode(Opcode.RETURN_VOID))
     )
 }
 
@@ -30,7 +30,7 @@ internal val translucentNavigationStatusBarFeatureFlagFingerprint by fingerprint
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("Z")
     instructions(
-        LiteralFilter(45400535L)
+        literal(45400535L)
     )
 }
 
@@ -41,7 +41,7 @@ internal val translucentNavigationButtonsFeatureFlagFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("V")
     instructions(
-        LiteralFilter(45630927L)
+        literal(45630927L)
     )
 }
 
@@ -52,6 +52,6 @@ internal val translucentNavigationButtonsSystemFeatureFlagFingerprint by fingerp
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("Z")
     instructions(
-        LiteralFilter(45632194L)
+        literal(45632194L)
     )
 }

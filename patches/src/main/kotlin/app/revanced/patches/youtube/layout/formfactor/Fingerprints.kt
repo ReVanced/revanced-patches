@@ -1,6 +1,6 @@
 package app.revanced.patches.youtube.layout.formfactor
 
-import app.revanced.patcher.FieldAccessFilter
+import app.revanced.patcher.fieldAccess
 import app.revanced.patcher.fingerprint
 import app.revanced.patches.youtube.layout.formfactor.formFactorEnumConstructorFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
@@ -20,8 +20,8 @@ internal val createPlayerRequestBodyWithModelFingerprint by fingerprint {
     returns("L")
     parameters()
     instructions(
-        FieldAccessFilter("Landroid/os/Build;", "MODEL", "Ljava/lang/String;"),
-        FieldAccessFilter(
+        fieldAccess("Landroid/os/Build;", "MODEL", "Ljava/lang/String;"),
+        fieldAccess(
             definingClass = { context -> with(context) { formFactorEnumConstructorFingerprint.originalClassDef.type } },
             type = { "I" },
             maxInstructionsBefore = 50

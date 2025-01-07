@@ -48,7 +48,7 @@ fun spoofVideoStreamsPatch(
 
         // region Block /initplayback requests to fall back to /get_watch requests.
 
-        val moveUriStringIndex = buildInitPlaybackRequestFingerprint.filterMatches.first().index
+        val moveUriStringIndex = buildInitPlaybackRequestFingerprint.instructionMatches.first().index
 
         buildInitPlaybackRequestFingerprint.method.apply {
             val targetRegister = getInstruction<OneRegisterInstruction>(moveUriStringIndex).registerA
@@ -66,18 +66,19 @@ fun spoofVideoStreamsPatch(
 
         // region Block /get_watch requests to fall back to /player requests.
 
-        val invokeToStringIndex = buildPlayerRequestURIFingerprint.patternMatch.startIndex
+        buildPlayerRequestURIFingerprint.let {
+            val invokeToStringIndex = it.instructionMatches.first().index
+            it.method.apply {
+                val uriRegister = getInstruction<FiveRegisterInstruction>(invokeToStringIndex).registerC
 
-        buildPlayerRequestURIFingerprint.method.apply {
-            val uriRegister = getInstruction<FiveRegisterInstruction>(invokeToStringIndex).registerC
-
-            addInstructions(
-                invokeToStringIndex,
-                """
-                    invoke-static { v$uriRegister }, $EXTENSION_CLASS_DESCRIPTOR->blockGetWatchRequest(Landroid/net/Uri;)Landroid/net/Uri;
-                    move-result-object v$uriRegister
-                """,
-            )
+                addInstructions(
+                    invokeToStringIndex,
+                    """
+                        invoke-static { v$uriRegister }, $EXTENSION_CLASS_DESCRIPTOR->blockGetWatchRequest(Landroid/net/Uri;)Landroid/net/Uri;
+                        move-result-object v$uriRegister
+                    """
+                )
+            }
         }
 
         // endregion
@@ -86,7 +87,7 @@ fun spoofVideoStreamsPatch(
 
         buildRequestFingerprint.let {
             it.method.apply {
-                val builderIndex = it.filterMatches.first().index
+                val builderIndex = it.instructionMatches.first().index
                 val urlRegister = getInstruction<FiveRegisterInstruction>(builderIndex).registerD
                 val freeRegister = getInstruction<OneRegisterInstruction>(builderIndex + 1).registerA
 
@@ -107,7 +108,7 @@ fun spoofVideoStreamsPatch(
         createStreamingDataFingerprint.method.apply {
             val setStreamDataMethodName = "patch_setStreamingData"
             val resultMethodType = createStreamingDataFingerprint.classDef.type
-            val videoDetailsIndex = createStreamingDataFingerprint.patternMatch.endIndex
+            val videoDetailsIndex = createStreamingDataFingerprint.instructionMatches.last().index
             val videoDetailsRegister = getInstruction<TwoRegisterInstruction>(videoDetailsIndex).registerA
             val videoDetailsClass = getInstruction(videoDetailsIndex).getReference<FieldReference>()!!.type
 
@@ -118,7 +119,7 @@ fun spoofVideoStreamsPatch(
             )
 
             val protobufClass = protobufClassParseByteBufferFingerprint.method.definingClass
-            val setStreamingDataIndex = createStreamingDataFingerprint.patternMatch.startIndex
+            val setStreamingDataIndex = createStreamingDataFingerprint.instructionMatches.first().index
 
             val playerProtoClass = getInstruction(setStreamingDataIndex + 1)
                 .getReference<FieldReference>()!!.definingClass
@@ -231,7 +232,7 @@ fun spoofVideoStreamsPatch(
 
         hlsCurrentTimeFingerprint.let {
             it.method.insertFeatureFlagBooleanOverride(
-                it.filterMatches.first().index,
+                it.instructionMatches.first().index,
                 "$EXTENSION_CLASS_DESCRIPTOR->fixHLSCurrentTime(Z)Z"
             )
         }

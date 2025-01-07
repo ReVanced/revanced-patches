@@ -23,7 +23,7 @@ val playerTypeHookPatch = bytecodePatch(
         videoStateFingerprint.let {
             it.method.apply {
                 val videoStateFieldName = getInstruction<ReferenceInstruction>(
-                    it.filterMatches.last().index
+                    it.instructionMatches.last().index
                 ).reference
 
                 addInstructions(

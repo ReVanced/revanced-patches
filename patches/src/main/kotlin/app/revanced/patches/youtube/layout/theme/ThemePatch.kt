@@ -218,7 +218,7 @@ val themePatch = bytecodePatch(
 
         useGradientLoadingScreenFingerprint.let {
             it.method.insertFeatureFlagBooleanOverride(
-                it.filterMatches.first().index,
+                it.instructionMatches.first().index,
                 "$EXTENSION_CLASS_DESCRIPTOR->gradientLoadingScreenEnabled(Z)Z"
             )
         }

@@ -67,7 +67,7 @@ val shortsAutoplayPatch = bytecodePatch(
         val reelEnumClass = reelEnumConstructorFingerprint.originalClassDef.type
 
         reelEnumConstructorFingerprint.method.apply {
-            val insertIndex = reelEnumConstructorFingerprint.filterMatches.first().index
+            val insertIndex = reelEnumConstructorFingerprint.instructionMatches.first().index
 
             addInstructions(
                 insertIndex,

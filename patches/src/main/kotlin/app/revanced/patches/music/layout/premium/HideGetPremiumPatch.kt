@@ -15,7 +15,7 @@ val hideGetPremiumPatch = bytecodePatch(
 
     execute {
         hideGetPremiumFingerprint.method.apply {
-            val insertIndex = hideGetPremiumFingerprint.filterMatches.last().index
+            val insertIndex = hideGetPremiumFingerprint.instructionMatches.last().index
 
             val setVisibilityInstruction = getInstruction<FiveRegisterInstruction>(insertIndex)
             val getPremiumViewRegister = setVisibilityInstruction.registerC

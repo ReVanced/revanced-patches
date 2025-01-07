@@ -3,7 +3,6 @@ package app.revanced.patches.youtube.video.videoqualitymenu
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
-import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.resourcePatch
 import app.revanced.patches.all.misc.resources.addResources
@@ -92,7 +91,7 @@ val restoreOldVideoQualityMenuPatch = bytecodePatch(
         // and for the Shorts quality flyout on newer app versions.
 
         videoQualityMenuViewInflateFingerprint.method.apply {
-            val checkCastIndex = videoQualityMenuViewInflateFingerprint.filterMatches.last().index
+            val checkCastIndex = videoQualityMenuViewInflateFingerprint.instructionMatches.last().index
             val listViewRegister = getInstruction<OneRegisterInstruction>(checkCastIndex).registerA
 
             addInstruction(
@@ -104,10 +103,9 @@ val restoreOldVideoQualityMenuPatch = bytecodePatch(
         }
 
         // Force YT to add the 'advanced' quality menu for Shorts.
-        val patternMatch = videoQualityMenuOptionsFingerprint.patternMatch!!
-        val startIndex = patternMatch.startIndex
-        if (startIndex != 0) throw PatchException("Unexpected opcode start index: $startIndex")
-        val insertIndex = patternMatch.endIndex
+        val instructionMatches = videoQualityMenuOptionsFingerprint.instructionMatches
+        val startIndex = instructionMatches.first().index
+        val insertIndex = instructionMatches.last().index
 
         videoQualityMenuOptionsFingerprint.method.apply {
             val register = getInstruction<OneRegisterInstruction>(insertIndex).registerA

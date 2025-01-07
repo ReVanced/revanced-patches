@@ -1,7 +1,7 @@
 package app.revanced.patches.youtube.layout.seekbar
 
-import app.revanced.patcher.LiteralFilter
 import app.revanced.patcher.fingerprint
+import app.revanced.patcher.literal
 import app.revanced.util.containsLiteralInstruction
 import app.revanced.util.literal
 import com.android.tools.smali.dexlib2.AccessFlags
@@ -12,7 +12,7 @@ internal val fullscreenSeekbarThumbnailsFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     parameters()
     instructions(
-        LiteralFilter(45398577)
+        literal(45398577)
     )
 }
 
@@ -42,7 +42,7 @@ internal val playerSeekbarGradientConfigFingerprint by fingerprint {
     returns("Z")
     parameters()
     instructions(
-        LiteralFilter(45617850L)
+        literal(45617850L)
     )
 }
 

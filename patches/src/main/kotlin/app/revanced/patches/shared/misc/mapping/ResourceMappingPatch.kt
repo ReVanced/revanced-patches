@@ -18,13 +18,10 @@ import java.util.concurrent.TimeUnit
 lateinit var resourceMappings: List<ResourceElement>
     private set
 
-/**
- * Identical to [LiteralFilter] except uses the literal resource value.
- */
-class ResourceMappingFilter(
+class ResourceLiteralFilter private constructor(
     private val type: String,
     private val name: String,
-    maxInstructionsBefore: Int = METHOD_MAX_INSTRUCTIONS,
+    maxInstructionsBefore: Int,
 ) : InstructionFilter(maxInstructionsBefore) {
 
     private val resourceId by lazy {
@@ -42,7 +39,19 @@ class ResourceMappingFilter(
     ): Boolean {
         return (instruction as? WideLiteralInstruction)?.wideLiteral == resourceId
     }
+
+    companion object {
+        /**
+         * Identical to [LiteralFilter] except uses a decoded resource literal value.
+         */
+        fun resourceLiteral(
+            type: String,
+            name: String,
+            maxInstructionsBefore: Int = METHOD_MAX_INSTRUCTIONS,
+        ) = ResourceLiteralFilter(type, name, maxInstructionsBefore)
+    }
 }
+
 
 val resourceMappingPatch = resourcePatch {
     val resourceMappings = Collections.synchronizedList(mutableListOf<ResourceElement>())

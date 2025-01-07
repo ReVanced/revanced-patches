@@ -1,11 +1,45 @@
 package app.revanced.patches.youtube.shared
 
-import app.revanced.patcher.FieldAccessFilter
-import app.revanced.patcher.NewInstanceFilter
-import app.revanced.patcher.OpcodeFilter
+import app.revanced.patcher.fieldAccess
 import app.revanced.patcher.fingerprint
+import app.revanced.patcher.literal
+import app.revanced.patcher.methodCall
+import app.revanced.patcher.newInstance
+import app.revanced.patcher.opcode
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
+
+
+val hideAdsFingerprint by fingerprint {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
+    returns("Z")
+    parameters("Ljava/lang/String;", "I")
+    strings("showBannerAds")
+    instructions(
+        // Filter 1
+        fieldAccess(
+            definingClass = "this",
+            type = "Ljava/util/Map;"
+        ),
+
+        // Filter 2
+        methodCall(
+            definingClass = "Ljava/lang/String;",
+            name = "equals",
+            parameters = listOf("Ljava/lang/Object;"),
+            returnType = "Z"
+        ),
+
+        // Filter 3
+        opcode(Opcode.MOVE_RESULT),
+
+        // Filter 4
+        literal(1337)
+    )
+    custom { method, classDef ->
+        classDef.type == "Lapp/revanced/extension/shared/AdsLoader;"
+    }
+}
 
 internal val autoRepeatFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
@@ -111,10 +145,10 @@ internal val newVideoQualityChangedFingerprint by fingerprint {
     returns("L")
     parameters("L")
     instructions(
-        NewInstanceFilter("Lcom/google/android/libraries/youtube/innertube/model/media/VideoQuality;"),
-        OpcodeFilter(Opcode.IGET_OBJECT),
-        OpcodeFilter(Opcode.CHECK_CAST),
-        FieldAccessFilter(type = "I", opcode = Opcode.IGET, maxInstructionsBefore = 0), // Video resolution (human readable).
-        FieldAccessFilter(type = "Ljava/lang/String;", opcode = Opcode.IGET_OBJECT, maxInstructionsBefore = 0),
+        newInstance("Lcom/google/android/libraries/youtube/innertube/model/media/VideoQuality;"),
+        opcode(Opcode.IGET_OBJECT),
+        opcode(Opcode.CHECK_CAST),
+        fieldAccess(type = "I", opcode = Opcode.IGET, maxInstructionsBefore = 0), // Video resolution (human readable).
+        fieldAccess(type = "Ljava/lang/String;", opcode = Opcode.IGET_OBJECT, maxInstructionsBefore = 0),
     )
 }

@@ -80,7 +80,7 @@ val navigationBarHookPatch = bytecodePatch(description = "Hooks the active navig
 
         pivotBarButtonsViewSetSelectedFingerprint.let {
             it.method.apply {
-                val index = it.filterMatches.first().index
+                val index = it.instructionMatches.first().index
                 val instruction = getInstruction<FiveRegisterInstruction>(index)
                 val viewRegister = instruction.registerC
                 val isSelectedRegister = instruction.registerD
@@ -108,7 +108,7 @@ val navigationBarHookPatch = bytecodePatch(description = "Hooks the active navig
         // so this works regardless which layout is used.
         actionBarSearchResultsFingerprint.let {
             it.method.apply {
-                val instructionIndex = it.filterMatches.last().index
+                val instructionIndex = it.instructionMatches.last().index
                 val viewRegister = getInstruction<FiveRegisterInstruction>(instructionIndex).registerC
 
                 addInstruction(
