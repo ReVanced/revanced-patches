@@ -1,7 +1,7 @@
 package app.revanced.patches.youtube.layout.shortsplayer
 
 import app.revanced.patcher.fingerprint
-import app.revanced.util.literal
+import app.revanced.patcher.literal
 import com.android.tools.smali.dexlib2.AccessFlags
 
 /**
@@ -13,9 +13,9 @@ internal val playbackStartFeatureFlagFingerprint by fingerprint {
     parameters(
         "Lcom/google/android/libraries/youtube/player/model/PlaybackStartDescriptor;",
     )
-    literal {
-        45380134L
-    }
+    instructions(
+        literal(45380134L)
+    )
 }
 
 // Pre 19.25

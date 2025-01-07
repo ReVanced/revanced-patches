@@ -321,7 +321,7 @@ val miniplayerPatch = bytecodePatch(
         // endregion
 
         // region Legacy tablet miniplayer hooks.
-        val appNameStringIndex = miniplayerOverrideFingerprint.stringMatches.first().index + 2
+        val appNameStringIndex = miniplayerOverrideFingerprint.instructionMatches.first().index + 2
         navigate(miniplayerOverrideFingerprint.originalMethod).to(appNameStringIndex).stop().apply {
             findReturnIndicesReversed().forEach { index -> insertLegacyTabletMiniplayerOverride(index) }
         }

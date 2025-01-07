@@ -1,6 +1,7 @@
 package app.revanced.patches.youtube.video.quality
 
 import app.revanced.patcher.fingerprint
+import app.revanced.patcher.string
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
@@ -19,7 +20,9 @@ internal val setQualityByIndexMethodClassFieldReferenceFingerprint by fingerprin
 
 internal val videoQualityItemOnClickParentFingerprint by fingerprint {
     returns("V")
-    strings("VIDEO_QUALITIES_MENU_BOTTOM_SHEET_FRAGMENT")
+    instructions(
+        string("VIDEO_QUALITIES_MENU_BOTTOM_SHEET_FRAGMENT"),
+    )
 }
 
 internal val videoQualitySetterFingerprint by fingerprint {

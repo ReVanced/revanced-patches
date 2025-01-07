@@ -1,6 +1,7 @@
 package app.revanced.patches.youtube.layout.returnyoutubedislike
 
 import app.revanced.patcher.fingerprint
+import app.revanced.patcher.string
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
@@ -18,17 +19,23 @@ internal val conversionContextFingerprint by fingerprint {
 
 internal val dislikeFingerprint by fingerprint {
     returns("V")
-    strings("like/dislike")
+    instructions(
+        string("like/dislike")
+    )
 }
 
 internal val likeFingerprint by fingerprint {
     returns("V")
-    strings("like/like")
+    instructions(
+        string("like/like")
+    )
 }
 
 internal val removeLikeFingerprint by fingerprint {
     returns("V")
-    strings("like/removelike")
+    instructions(
+        string("like/removelike")
+    )
 }
 
 internal val rollingNumberMeasureAnimatedTextFingerprint by fingerprint {
@@ -68,7 +75,9 @@ internal val rollingNumberMeasureStaticLabelParentFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("Ljava/lang/String;")
     parameters()
-    strings("RollingNumberFontProperties{paint=")
+    instructions(
+        string("RollingNumberFontProperties{paint=")
+    )
 }
 
 internal val rollingNumberSetterFingerprint by fingerprint {
@@ -114,13 +123,17 @@ internal val shortsTextViewFingerprint by fingerprint {
 
 internal val textComponentConstructorFingerprint by fingerprint {
     accessFlags(AccessFlags.CONSTRUCTOR, AccessFlags.PRIVATE)
-    strings("TextComponent")
+    instructions(
+        string("TextComponent")
+    )
 }
 
 internal val textComponentDataFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     parameters("L", "L")
-    strings("text")
+    instructions(
+        string("text")
+    )
     custom { _, classDef ->
         classDef.fields.find { it.type == "Ljava/util/BitSet;" } != null
     }
@@ -133,5 +146,7 @@ internal val textComponentLookupFingerprint by fingerprint {
     accessFlags(AccessFlags.PROTECTED, AccessFlags.FINAL)
     returns("L")
     parameters("L")
-    strings("…")
+    instructions(
+        string("…")
+    )
 }

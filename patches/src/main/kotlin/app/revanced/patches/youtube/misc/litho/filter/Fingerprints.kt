@@ -1,7 +1,8 @@
 package app.revanced.patches.youtube.misc.litho.filter
 
 import app.revanced.patcher.fingerprint
-import app.revanced.util.literal
+import app.revanced.patcher.literal
+import app.revanced.patcher.string
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
@@ -10,7 +11,9 @@ import com.android.tools.smali.dexlib2.Opcode
  * In 19.18+ this resolves to a different method.
  */
 internal val componentContextParserFingerprint by fingerprint {
-    strings("Component was not found %s because it was removed due to duplicate converter bindings.")
+    instructions(
+        string("Component was not found %s because it was removed due to duplicate converter bindings."),
+    )
 }
 
 internal val lithoFilterFingerprint by fingerprint {
@@ -38,13 +41,17 @@ internal val protobufBufferReferenceFingerprint by fingerprint {
 * In 19.18+ this resolves to a different method.
 */
 internal val readComponentIdentifierFingerprint by fingerprint {
-    strings("Number of bits must be positive")
+    instructions(
+        string("Number of bits must be positive")
+    )
 }
 
 internal val emptyComponentFingerprint by fingerprint {
     accessFlags(AccessFlags.PRIVATE, AccessFlags.CONSTRUCTOR)
     parameters()
-    strings("EmptyComponent")
+    instructions(
+        string("EmptyComponent")
+    )
     custom { _, classDef ->
         classDef.methods.filter { AccessFlags.STATIC.isSet(it.accessFlags) }.size == 1
     }
@@ -54,12 +61,16 @@ internal val lithoComponentNameUpbFeatureFlagFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("Z")
     parameters()
-    literal { 45631264L }
+    instructions(
+        literal(45631264L )
+    )
 }
 
 internal val lithoConverterBufferUpbFeatureFlagFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
     returns("L")
     parameters("L")
-    literal { 45419603L }
+    instructions(
+        literal(45419603L)
+    )
 }

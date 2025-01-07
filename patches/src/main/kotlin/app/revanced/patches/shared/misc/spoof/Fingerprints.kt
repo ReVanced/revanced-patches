@@ -3,6 +3,7 @@ package app.revanced.patches.shared.misc.spoof
 import app.revanced.patcher.fingerprint
 import app.revanced.patcher.literal
 import app.revanced.patcher.methodCall
+import app.revanced.patcher.string
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
@@ -128,7 +129,9 @@ internal val nerdsStatsVideoFormatBuilderFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
     returns("Ljava/lang/String;")
     parameters("L")
-    strings("codecs=\"")
+    instructions(
+        string("codecs=\"")
+    )
 }
 
 internal val patchIncludedExtensionMethodFingerprint by fingerprint {

@@ -1,6 +1,7 @@
 package app.revanced.patches.youtube.misc.links
 
 import app.revanced.patcher.fingerprint
+import app.revanced.patcher.string
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
@@ -68,5 +69,7 @@ internal val httpUriParserLegacyFingerprint by fingerprint {
         Opcode.INVOKE_STATIC,
         Opcode.MOVE_RESULT_OBJECT,
     )
-    strings("://")
+    instructions(
+        string("://"),
+    )
 }

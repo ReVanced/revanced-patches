@@ -1397,10 +1397,6 @@ public final class app/revanced/patches/youtube/misc/zoomhaptics/ZoomHapticsPatc
 	public static final fun getZoomHapticsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/youtube/shared/FingerprintsKt {
-	public static final fun getHideAdsFingerprint ()Lapp/revanced/patcher/Fingerprint;
-}
-
 public final class app/revanced/patches/youtube/video/audio/ForceOriginalAudioPatchKt {
 	public static final fun getForceOriginalAudioPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }

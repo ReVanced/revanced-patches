@@ -1,6 +1,5 @@
 package app.revanced.patches.youtube.misc.autorepeat
 
-import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.instructions
 import app.revanced.patcher.extensions.InstructionExtensions.removeInstruction
@@ -12,8 +11,6 @@ import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.shared.autoRepeatFingerprint
 import app.revanced.patches.youtube.shared.autoRepeatParentFingerprint
-import app.revanced.patches.youtube.shared.hideAdsFingerprint
-import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 // TODO: Rename this patch to AlwaysRepeatPatch (as well as strings and references in the extension).
 val autoRepeatPatch = bytecodePatch(
@@ -45,17 +42,6 @@ val autoRepeatPatch = bytecodePatch(
         PreferenceScreen.MISC.addPreferences(
             SwitchPreference("revanced_auto_repeat"),
         )
-
-        hideAdsFingerprint.match(hideAdsFingerprint.originalClassDef)
-
-        hideAdsFingerprint.let {
-            val filter3 = it.instructionMatches[2]
-
-            val moveResultIndex = filter3.index
-            val moveResultRegister = filter3.getInstruction<OneRegisterInstruction>().registerA
-
-            it.method.addInstruction(moveResultIndex + 1, "const/4 v$moveResultRegister, 0x0")
-        }
 
         autoRepeatFingerprint.match(autoRepeatParentFingerprint.originalClassDef).method.apply {
             val playMethod = autoRepeatParentFingerprint.method

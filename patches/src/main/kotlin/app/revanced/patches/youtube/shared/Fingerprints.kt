@@ -2,44 +2,12 @@ package app.revanced.patches.youtube.shared
 
 import app.revanced.patcher.fieldAccess
 import app.revanced.patcher.fingerprint
-import app.revanced.patcher.literal
-import app.revanced.patcher.methodCall
 import app.revanced.patcher.newInstance
 import app.revanced.patcher.opcode
+import app.revanced.patcher.string
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-
-val hideAdsFingerprint by fingerprint {
-    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("Z")
-    parameters("Ljava/lang/String;", "I")
-    strings("showBannerAds")
-    instructions(
-        // Filter 1
-        fieldAccess(
-            definingClass = "this",
-            type = "Ljava/util/Map;"
-        ),
-
-        // Filter 2
-        methodCall(
-            definingClass = "Ljava/lang/String;",
-            name = "equals",
-            parameters = listOf("Ljava/lang/Object;"),
-            returnType = "Z"
-        ),
-
-        // Filter 3
-        opcode(Opcode.MOVE_RESULT),
-
-        // Filter 4
-        literal(1337)
-    )
-    custom { method, classDef ->
-        classDef.type == "Lapp/revanced/extension/shared/AdsLoader;"
-    }
-}
 
 internal val autoRepeatFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
@@ -63,7 +31,9 @@ internal val layoutConstructorFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("V")
     parameters()
-    strings("1.0x")
+    instructions(
+        string("1.0x"),
+    )
 }
 
 internal val mainActivityFingerprint by fingerprint {
@@ -116,7 +86,9 @@ internal val rollingNumberTextViewAnimationUpdateFingerprint by fingerprint {
 
 internal val seekbarFingerprint by fingerprint {
     returns("V")
-    strings("timed_markers_width")
+    instructions(
+        string("timed_markers_width"),
+    )
 }
 
 internal val seekbarOnDrawFingerprint by fingerprint {

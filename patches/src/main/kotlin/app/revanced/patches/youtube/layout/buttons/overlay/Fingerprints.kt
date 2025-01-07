@@ -8,12 +8,12 @@ import com.android.tools.smali.dexlib2.AccessFlags
 internal val playerControlsPreviousNextOverlayTouchFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("V")
-    strings("1.0x")
     instructions(
         resourceLiteral("id", "player_control_previous_button_touch_area"),
         resourceLiteral("id", "player_control_next_button_touch_area"),
         methodCall(parameters = listOf("Landroid/view/View;", "I"))
     )
+    strings("1.0x")
 }
 
 internal val mediaRouteButtonFingerprint by fingerprint {

@@ -473,7 +473,7 @@ fun MutableMethod.returnEarly(bool: Boolean = false) {
  *
  * @param literalSupplier The supplier for the literal value to check for.
  */
-// TODO: add a way for subclasses to also use their own custom fingerprint.
+@Deprecated("Instead use instruction filters and `literal()`")
 fun FingerprintBuilder.literal(literalSupplier: () -> Long) {
     custom { method, _ ->
         method.containsLiteralInstruction(literalSupplier())

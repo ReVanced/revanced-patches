@@ -1,13 +1,16 @@
 package app.revanced.patches.youtube.misc.debugging
 
 import app.revanced.patcher.fingerprint
+import app.revanced.patcher.string
 import com.android.tools.smali.dexlib2.AccessFlags
 
 internal val experimentalFeatureFlagParentFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
     returns("L")
     parameters("L", "J", "[B")
-    strings("Unable to parse proto typed experiment flag: ")
+    instructions(
+        string("Unable to parse proto typed experiment flag: ")
+    )
 }
 
 internal val experimentalBooleanFeatureFlagFingerprint by fingerprint {

@@ -1,6 +1,7 @@
 package app.revanced.patches.youtube.video.information
 
 import app.revanced.patcher.fingerprint
+import app.revanced.patcher.string
 import app.revanced.patches.youtube.shared.newVideoQualityChangedFingerprint
 import app.revanced.util.getReference
 import com.android.tools.smali.dexlib2.AccessFlags
@@ -9,7 +10,9 @@ import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 
 internal val createVideoPlayerSeekbarFingerprint by fingerprint {
     returns("V")
-    strings("timed_markers_width")
+    instructions(
+        string("timed_markers_width"),
+    )
 }
 
 internal val onPlaybackSpeedItemClickFingerprint by fingerprint {
@@ -31,14 +34,18 @@ internal val playerControllerSetTimeReferenceFingerprint by fingerprint {
 }
 
 internal val playerInitFingerprint by fingerprint {
-    strings("playVideo called on player response with no videoStreamingData.")
+    instructions(
+        string("playVideo called on player response with no videoStreamingData."),
+    )
 }
 
 /**
  * Matched using class found in [playerInitFingerprint].
  */
 internal val seekFingerprint by fingerprint {
-    strings("Attempting to seek during an ad")
+    instructions(
+        string("Attempting to seek during an ad"),
+    )
 }
 
 internal val videoLengthFingerprint by fingerprint {
@@ -79,7 +86,9 @@ internal val mdxSeekFingerprint by fingerprint {
 }
 
 internal val mdxPlayerDirectorSetVideoStageFingerprint by fingerprint {
-    strings("MdxDirector setVideoStage ad should be null when videoStage is not an Ad state ")
+    instructions(
+        string("MdxDirector setVideoStage ad should be null when videoStage is not an Ad state "),
+    )
 }
 
 /**
@@ -90,7 +99,6 @@ internal val mdxSeekRelativeFingerprint by fingerprint {
     // Return type is boolean up to 19.39, and void with 19.39+.
     parameters("J", "L")
     opcodes(
-
         Opcode.IGET_OBJECT,
         Opcode.INVOKE_INTERFACE,
     )

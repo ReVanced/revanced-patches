@@ -1,9 +1,9 @@
 package app.revanced.patches.youtube.video.videoid
 
 import app.revanced.patcher.fingerprint
+import app.revanced.patcher.literal
 import app.revanced.patcher.methodCall
 import app.revanced.patcher.opcode
-import app.revanced.util.literal
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
@@ -48,5 +48,7 @@ internal val videoIdParentFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("[L")
     parameters("L")
-    literal { 524288L }
+    instructions(
+        literal(524288L)
+    )
 }

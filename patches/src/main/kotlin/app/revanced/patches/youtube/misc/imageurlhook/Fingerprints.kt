@@ -1,6 +1,7 @@
 package app.revanced.patches.youtube.misc.imageurlhook
 
 import app.revanced.patcher.fingerprint
+import app.revanced.patcher.string
 import com.android.tools.smali.dexlib2.AccessFlags
 
 internal val onFailureFingerprint by fingerprint {
@@ -60,5 +61,7 @@ internal val messageDigestImageUrlParentFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("Ljava/lang/String;")
     parameters()
-    strings("@#&=*+-_.,:!?()/~'%;\$")
+    instructions(
+        string("@#&=*+-_.,:!?()/~'%;\$"),
+    )
 }

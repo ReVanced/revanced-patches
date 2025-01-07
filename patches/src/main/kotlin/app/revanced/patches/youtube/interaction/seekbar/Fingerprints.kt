@@ -12,7 +12,9 @@ import com.android.tools.smali.dexlib2.iface.reference.StringReference
 internal val swipingUpGestureParentFingerprint by fingerprint {
     returns("Z")
     parameters()
-    literal { 45379021 }
+    instructions(
+        literal(45379021)
+    )
 }
 
 /**
@@ -22,7 +24,9 @@ internal val showSwipingUpGuideFingerprint by fingerprint {
     accessFlags(AccessFlags.FINAL)
     returns("Z")
     parameters()
-    literal { 1 }
+    instructions(
+        literal(1)
+    )
 }
 
 /**
@@ -38,7 +42,10 @@ internal val disableFastForwardLegacyFingerprint by fingerprint {
     returns("Z")
     parameters()
     opcodes(Opcode.MOVE_RESULT)
-    literal { 45411330 }
+    instructions(
+        // Intent start flag only used in the subscription activity
+       literal(45411330)
+    )
 }
 
 internal val disableFastForwardGestureFingerprint by fingerprint {
@@ -129,7 +136,7 @@ internal val fullscreenSeekbarThumbnailsQualityFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("Z")
     parameters()
-    instructions (
+    instructions(
         literal(45399684L)
     )
 }

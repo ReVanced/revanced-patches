@@ -4,6 +4,7 @@ package app.revanced.patches.youtube.layout.miniplayer
 
 import app.revanced.patcher.fingerprint
 import app.revanced.patcher.literal
+import app.revanced.patcher.string
 import app.revanced.patches.shared.misc.mapping.ResourceLiteralFilter.Companion.resourceLiteral
 import app.revanced.util.literal
 import com.android.tools.smali.dexlib2.AccessFlags
@@ -35,7 +36,9 @@ internal val miniplayerModernCloseButtonFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("Landroid/widget/ImageView;")
     parameters()
-    literal { modernMiniplayerClose }
+    instructions(
+        literal(modernMiniplayerClose)
+    )
 }
 
 internal const val MINIPLAYER_MODERN_FEATURE_KEY = 45622882L
@@ -51,13 +54,17 @@ internal const val MINIPLAYER_DISABLED_FEATURE_KEY = 45657015L
 internal val miniplayerModernConstructorFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     parameters("L")
-    literal { 45623000L }
+    instructions(
+        literal(45623000L)
+    )
 }
 
 internal val miniplayerOnCloseHandlerFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("Z")
-    literal { MINIPLAYER_DISABLED_FEATURE_KEY  }
+    instructions(
+        literal(MINIPLAYER_DISABLED_FEATURE_KEY)
+    )
 }
 
 /**
@@ -114,7 +121,9 @@ internal val miniplayerModernViewParentFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("Ljava/lang/String;")
     parameters()
-    strings("player_overlay_modern_mini_player_controls")
+    instructions(
+        string("player_overlay_modern_mini_player_controls")
+    )
 }
 
 internal val miniplayerMinimumSizeFingerprint by fingerprint {
@@ -129,7 +138,9 @@ internal val miniplayerMinimumSizeFingerprint by fingerprint {
 internal val miniplayerOverrideFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("L")
-    strings("appName")
+    instructions(
+        string("appName")
+    )
 }
 
 internal val miniplayerOverrideNoContextFingerprint by fingerprint {

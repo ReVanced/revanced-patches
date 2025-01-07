@@ -1,6 +1,7 @@
 package app.revanced.patches.youtube.video.playerresponse
 
 import app.revanced.patcher.fingerprint
+import app.revanced.patcher.string
 import com.android.tools.smali.dexlib2.AccessFlags
 
 /**
@@ -25,7 +26,9 @@ internal val playerParameterBuilderFingerprint by fingerprint {
         "Z",
         "Z",
     )
-    strings("psps")
+    instructions(
+        string("psps"),
+    )
 }
 
 /**

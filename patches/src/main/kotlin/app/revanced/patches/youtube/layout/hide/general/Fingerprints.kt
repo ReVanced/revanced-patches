@@ -3,6 +3,7 @@ package app.revanced.patches.youtube.layout.hide.general
 import app.revanced.patcher.fingerprint
 import app.revanced.patcher.methodCall
 import app.revanced.patcher.opcode
+import app.revanced.patcher.string
 import app.revanced.patches.shared.misc.mapping.ResourceLiteralFilter.Companion.resourceLiteral
 import app.revanced.util.literal
 import com.android.tools.smali.dexlib2.AccessFlags
@@ -30,7 +31,9 @@ internal val parseElementFromBufferFingerprint by fingerprint {
 internal val playerOverlayFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("L")
-    strings("player_overlay_in_video_programming")
+    instructions(
+        string("player_overlay_in_video_programming")
+    )
 }
 
 internal val showWatermarkFingerprint by fingerprint {

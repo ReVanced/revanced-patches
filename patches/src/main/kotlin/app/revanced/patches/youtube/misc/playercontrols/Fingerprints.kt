@@ -61,13 +61,17 @@ internal val playerBottomControlsExploderFeatureFlagFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("Z")
     parameters()
-    literal { 45643739L }
+    instructions(
+        app.revanced.patcher.literal(45643739L)
+    )
 }
 
 internal val playerTopControlsExperimentalLayoutFeatureFlagFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("I")
     parameters()
-    literal { 45629424L }
+    instructions(
+        app.revanced.patcher.literal(45629424L)
+    )
 }
 

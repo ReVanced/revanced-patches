@@ -75,12 +75,16 @@ internal val backgroundPlaybackManagerShortsFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
     returns("Z")
     parameters("L")
-    literal { 151635310 }
+    instructions(
+        app.revanced.patcher.literal(151635310)
+    )
 }
 
 internal val shortsBackgroundPlaybackFeatureFlagFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("Z")
     parameters()
-    literal { 45415425 }
+    instructions(
+        app.revanced.patcher.literal(45415425)
+    )
 }

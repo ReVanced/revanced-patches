@@ -3,6 +3,7 @@ package app.revanced.patches.youtube.layout.hide.shorts
 import app.revanced.patcher.fingerprint
 import app.revanced.patcher.methodCall
 import app.revanced.patcher.opcode
+import app.revanced.patcher.string
 import app.revanced.patches.shared.misc.mapping.ResourceLiteralFilter.Companion.resourceLiteral
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
@@ -16,15 +17,17 @@ internal val legacyRenderBottomNavigationBarParentFingerprint by fingerprint {
         "J",
         "L",
     )
-    strings("aa")
+    instructions(
+        string("aa")
+    )
 }
 
 internal val shortsBottomBarContainerFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("V")
     parameters("Landroid/view/View;", "Landroid/os/Bundle;")
-    strings("r_pfvc")
     instructions(
+        string("r_pfvc"),
         resourceLiteral("id", "bottom_bar_container"),
         methodCall(name = "getHeight"),
         opcode(Opcode.MOVE_RESULT)
@@ -70,7 +73,9 @@ internal val renderBottomNavigationBarParentFingerprint by fingerprint {
         "Ljava/lang/String;",
         "L",
     )
-    strings("aa")
+    instructions(
+        string("aa")
+    )
 }
 
 internal val setPivotBarVisibilityFingerprint by fingerprint {
@@ -85,5 +90,7 @@ internal val setPivotBarVisibilityFingerprint by fingerprint {
 
 internal val setPivotBarVisibilityParentFingerprint by fingerprint {
     parameters("Z")
-    strings("FEnotifications_inbox")
+    instructions(
+        string("FEnotifications_inbox")
+    )
 }

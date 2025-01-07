@@ -2,6 +2,7 @@ package app.revanced.patches.youtube.misc.navigation
 
 import app.revanced.patcher.fingerprint
 import app.revanced.patcher.methodCall
+import app.revanced.patcher.string
 import app.revanced.patches.shared.misc.mapping.ResourceLiteralFilter.Companion.resourceLiteral
 import app.revanced.patches.youtube.layout.buttons.navigation.navigationButtonsPatch
 import com.android.tools.smali.dexlib2.AccessFlags
@@ -102,12 +103,16 @@ internal val pivotBarButtonsViewSetSelectedFingerprint by fingerprint {
 
 internal val pivotBarConstructorFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
-    strings("com.google.android.apps.youtube.app.endpoint.flags")
+    instructions(
+        string("com.google.android.apps.youtube.app.endpoint.flags"),
+    )
 }
 
 internal val imageEnumConstructorFingerprint by fingerprint {
     accessFlags(AccessFlags.STATIC, AccessFlags.CONSTRUCTOR)
-    strings("TAB_ACTIVITY_CAIRO")
+    instructions(
+        string("TAB_ACTIVITY_CAIRO"),
+    )
 }
 
 internal val setEnumMapFingerprint by fingerprint {
