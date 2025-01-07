@@ -221,7 +221,7 @@ Et saa ilmoitusta odottamattomista tapahtumista."</string>
   <string name="revanced_hide_chips_shelf_title">Piilota siruhylly</string>
   <string name="revanced_hide_chips_shelf_summary_on">Siruhylly on piilotettu</string>
   <string name="revanced_hide_chips_shelf_summary_off">Siruhylly näytetään</string>
-  <string name="revanced_hide_expandable_chip_title">Piilota laajennettava osio videoiden alle</string>
+  <string name="revanced_hide_expandable_chip_title">Piilota laajennettava osio videoiden alla</string>
   <string name="revanced_hide_expandable_chip_summary_on">Laajennettavat osiot on piilotettu</string>
   <string name="revanced_hide_expandable_chip_summary_off">Laajennettavat osiot näytetään</string>
   <string name="revanced_hide_community_posts_title">Piilota yhteisöpostaukset</string>
@@ -787,7 +787,7 @@ Huomaa: Tämä ottaa pakolla pois myös videomainokset"</string>
   <string name="revanced_hide_shorts_navigation_bar_summary_off">Navigointipalkki näytetään</string>
   </patch>
   <patch id="layout.hide.suggestedvideoendscreen.disableSuggestedVideoEndScreenResourcePatch">
-  <string name="revanced_disable_suggested_video_end_screen_title">Poista videoehdotukset-loppunäyttö käytöstä</string>
+  <string name="revanced_disable_suggested_video_end_screen_title">Poista loppunäytön videoehdotukset käytöstä</string>
   <string name="revanced_disable_suggested_video_end_screen_summary_on">Ehdotetut videot on piilotettu</string>
   <string name="revanced_disable_suggested_video_end_screen_summary_off">Ehdotetut videot näytetään</string>
   </patch>

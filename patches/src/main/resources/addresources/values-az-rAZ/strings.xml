@@ -1385,6 +1385,8 @@ AVC maksimum 1080p görüntü imkanına malikdir, Opus audio kodlama olmur və v
   <string name="revanced_spoof_video_streams_about_android_summary">"• Səs treki menyusu yoxdur
 • Sabit səs səviyyəsi yoxdur
 • İlkin səsi məcbur etmə mümkün deyil"</string>
+  <string name="revanced_spoof_video_streams_about_no_av1">• AV1 video kodlayıcı yoxdur</string>
+  <string name="revanced_spoof_video_streams_about_no_hdr">• HDR video yoxdur</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_title">İstək üçün Statistikada göstər</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Qəbuledici növü Nerdlər üçün statistikada göstərilir</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Qəbuledici nerd üçün Statistikada gizlidir</string>

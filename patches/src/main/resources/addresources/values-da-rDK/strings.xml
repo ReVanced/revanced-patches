@@ -1382,6 +1382,8 @@ Videoafspilning virker muligvis ikke"</string>
   <string name="revanced_spoof_video_streams_about_android_summary">"• Lydspormenu mangler
 • Stabil lydstyrke er ikke tilgængelig
 • Gennemtving original lyd er ikke tilgængelig"</string>
+  <string name="revanced_spoof_video_streams_about_no_av1">• Intet AV1-videokodek</string>
+  <string name="revanced_spoof_video_streams_about_no_hdr">• Intet HDR-video</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Vis i Statistik for nørder</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Klienttypen vises i Statistik for nørder</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Klienten er skjult i Statistik for nørder</string>

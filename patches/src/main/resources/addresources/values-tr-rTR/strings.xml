@@ -1384,6 +1384,8 @@ AVC'nin maksimum çözünürlüğü 1080p'dir, Opus ses kodeği kullanılamaz ve
   <string name="revanced_spoof_video_streams_about_android_summary">"• Ses parçası menüsü eksik
 • Sabit ses özelliği kullanılamaz
 • Orijinal sesi zorlama kullanılamaz"</string>
+  <string name="revanced_spoof_video_streams_about_no_av1">• AV1 video kodeği yok</string>
+  <string name="revanced_spoof_video_streams_about_no_hdr">• HDR video yok</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Meraklısı için istatistiklerde göster</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">İstemci tipi meraklısı için istatistiklerde gösterilir</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">İstemci, meraklısı için istatistiklerde gizli</string>

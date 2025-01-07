@@ -30,7 +30,7 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_manager_not_expected_installer">不是由 ReVanced Manager 安裝</string>
   <string name="revanced_check_environment_not_near_patch_time">修補時間超過 10 分鐘</string>
   <string name="revanced_check_environment_not_near_patch_time_days">修補於 %s 天前</string>
-  <string name="revanced_check_environment_not_near_patch_time_invalid">APK 構建日期已損壞</string>
+  <string name="revanced_check_environment_not_near_patch_time_invalid">APK 建構日期已損壞</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_title">ReVanced</string>
@@ -40,11 +40,11 @@ Second \"item\" text"</string>
   <string name="revanced_settings_restart">重新啟動</string>
   <string name="revanced_settings_import">匯入</string>
   <string name="revanced_settings_import_copy">複製</string>
-  <string name="revanced_settings_import_reset">重設 ReVanced 設定為預設值</string>
+  <string name="revanced_settings_import_reset">將 ReVanced 設定重設為預設值</string>
   <string name="revanced_settings_import_success">已匯入設定 %d</string>
-  <string name="revanced_settings_import_failure_parse">匯入失敗：%s</string>
+  <string name="revanced_settings_import_failure_parse">無法匯入：%s</string>
   <string name="revanced_language_title">ReVanced 語言</string>
-  <string name="revanced_language_user_dialog_message">"某些語言的譯詞可能遺失或尚未完成。
+  <string name="revanced_language_user_dialog_message">"某些語言的翻譯可能遺失或尚未完成。
 
 如要為尚無翻譯的語言進行翻譯，請造訪 translate.revanced.app。"</string>
   <string name="revanced_language_DEFAULT">應用程式語言</string>
@@ -104,7 +104,7 @@ Second \"item\" text"</string>
   <!-- Settings about dialog. -->
   <string name="revanced_settings_about_links_body">您正在使用 ReVanced 修補版本 &lt;i&gt;%s&lt;/i&gt;</string>
   <string name="revanced_settings_about_links_dev_header">說明</string>
-  <string name="revanced_settings_about_links_dev_body">此版本是預覽版，您可能會遇到意外問題</string>
+  <string name="revanced_settings_about_links_dev_body">這個版本為預先發布版，您可能會遇到非預期的問題。</string>
   <string name="revanced_settings_about_links_header">官方連結</string>
   <!-- NOTE: the about strings above are duplicated in the TikTok about screen code,
                  and changes made here must also be made there. -->
@@ -113,9 +113,9 @@ Second \"item\" text"</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="gms_core_toast_not_installed_message">未安裝 MicroG GmsCore。請前往安裝。</string>
   <string name="gms_core_dialog_title">需要採取行動</string>
-  <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"MicroG GmsCore 沒有在後台運作的權限。
+  <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"MicroG GmsCore 沒有權限在背景執行。
 
-根據您手機的「不要關閉我的應用程式」指南，將這些說明應用於您的 MicroG 安裝。
+請按照您手機的「不要關閉我的應用程式」指南，並將說明套用於您的 MicroG 安裝。
 
 這項設定是應用程式運作的必要條件。"</string>
   <string name="gms_core_dialog_open_website_text">開啟網站</string>
@@ -149,7 +149,7 @@ Second \"item\" text"</string>
   <patch id="misc.debugging.enableDebuggingPatch">
   <string name="revanced_debug_screen_title">偵錯</string>
   <string name="revanced_debug_screen_summary">啟用或停用偵錯選項</string>
-  <string name="revanced_debug_title">偵錯記錄檔</string>
+  <string name="revanced_debug_title">偵錯記錄</string>
   <string name="revanced_debug_summary_on">已啟用偵錯記錄檔</string>
   <string name="revanced_debug_summary_off">已停用偵錯記錄檔</string>
   <string name="revanced_debug_protobuffer_title">記錄檔協議緩衝區</string>
@@ -261,9 +261,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_playables_summary_on">已隱藏遊戲角落</string>
   <string name="revanced_hide_playables_summary_off">已顯示遊戲角落</string>
   <string name="revanced_hide_quick_actions_title">隱藏全螢幕快捷功能欄</string>
-  <string name="revanced_hide_quick_actions_summary_on">已顯示快速操作</string>
-  <string name="revanced_hide_quick_actions_summary_off">已顯示快捷功能欄</string>
-  <string name="revanced_hide_related_videos_title">隱藏快捷功能欄相關影片</string>
+  <string name="revanced_hide_quick_actions_summary_on">已隱藏快速操作</string>
+  <string name="revanced_hide_quick_actions_summary_off">已顯示快速操作</string>
+  <string name="revanced_hide_related_videos_title">隱藏快速操作相關影片</string>
   <string name="revanced_hide_related_videos_summary_on">已隱藏相關影片</string>
   <string name="revanced_hide_related_videos_summary_off">已開啟顯示近期影片</string>
   <string name="revanced_hide_image_shelf_title">在搜尋結果中隱藏 [圖片匣]</string>
@@ -773,9 +773,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_shorts_video_title_title">隱藏影片標題</string>
   <string name="revanced_hide_shorts_video_title_summary_on">已隱藏標題</string>
   <string name="revanced_hide_shorts_video_title_summary_off">已顯示標題</string>
-  <string name="revanced_hide_shorts_sound_metadata_label_title">隱藏聲音元資料標籤</string>
-  <string name="revanced_hide_shorts_sound_metadata_label_summary_on">已隱藏元資料標籤</string>
-  <string name="revanced_hide_shorts_sound_metadata_label_summary_off">已顯示元資料標籤</string>
+  <string name="revanced_hide_shorts_sound_metadata_label_title">隱藏聲音中繼資料標籤</string>
+  <string name="revanced_hide_shorts_sound_metadata_label_summary_on">已隱藏中繼資料標籤</string>
+  <string name="revanced_hide_shorts_sound_metadata_label_summary_off">已顯示中繼資料標籤</string>
   <string name="revanced_hide_shorts_full_video_link_label_title">隱藏完整影片連結標籤</string>
   <string name="revanced_hide_shorts_full_video_link_label_summary_on">已隱藏影片連結標籤</string>
   <string name="revanced_hide_shorts_full_video_link_label_summary_off">已顯示影片連結標籤</string>
@@ -940,8 +940,8 @@ Second \"item\" text"</string>
   <string name="revanced_sb_settings_ie_sum">您的 SponsorBlock JSON 設定可以匯入 / 匯出到 ReVanced 和其他 SponsorBlock 平台</string>
   <string name="revanced_sb_settings_ie_sum_warning">您的 SponsorBlock JSON 設定可以匯入 / 匯出到 ReVanced 和其他 SponsorBlock 平台。此檔案將包含您的個人使用者 ID。請小心使用。</string>
   <string name="revanced_sb_settings_import_successful">已成功地匯入設定</string>
-  <string name="revanced_sb_settings_import_failed">匯入失敗：%s</string>
-  <string name="revanced_sb_settings_export_failed">匯出失敗：%s</string>
+  <string name="revanced_sb_settings_import_failed">無法匯入：%s</string>
+  <string name="revanced_sb_settings_export_failed">無法匯出：%s</string>
   <string name="revanced_sb_settings_revanced_export_user_id_warning">"您的設定包含私人 SponsorBlock 使用者 ID。
 
 您的使用者 ID 就像密碼，絕不要與他人分享。"</string>
@@ -1061,7 +1061,7 @@ Second \"item\" text"</string>
   <string name="revanced_sb_stats_submissions_sum">點擊這裡查看您的片段</string>
   <string name="revanced_sb_stats_saved_zero">SponsorBlock 排行榜</string>
   <string name="revanced_sb_stats_saved">您已為人們省下了觀看 &lt;b&gt;%s&lt;/b&gt; 個片段的時間</string>
-  <string name="revanced_sb_stats_saved_sum_zero">點擊此處查看全球統計數據和最佳貢獻者</string>
+  <string name="revanced_sb_stats_saved_sum_zero">輕觸這裡查看全球統計資料和最佳貢獻者</string>
   <string name="revanced_sb_stats_saved_sum">那可是他們生命中寶貴的 &lt;b&gt;%s&lt;/b&gt;。&lt;br&gt;點選檢視排行榜</string>
   <string name="revanced_sb_stats_self_saved">您已跳過 &lt;b&gt;%s&lt;/b&gt; 個片段</string>
   <string name="revanced_sb_stats_self_saved_sum">總共 &lt;b&gt;%s&lt;/b&gt;</string>
@@ -1221,7 +1221,7 @@ Second \"item\" text"</string>
   <string name="revanced_bypass_image_region_restrictions_summary_on">使用圖片主機 yt4.ggpht.com</string>
   <string name="revanced_bypass_image_region_restrictions_summary_off">"使用原圖主機
 
-啟用此設定可以修復某些地區封鎖的遺失圖片"</string>
+啟用此設定可以修正某些被封鎖地區的遺失圖片"</string>
   </patch>
   <patch id="layout.thumbnails.alternativeThumbnailsPatch">
   <!-- 'Home' should be translated using the same localized wording YouTube displays for the home tab. -->
@@ -1316,7 +1316,7 @@ Second \"item\" text"</string>
   <string name="revanced_force_original_audio_title">強制使用原始音訊</string>
   <string name="revanced_force_original_audio_summary_on">使用原始音訊</string>
   <string name="revanced_force_original_audio_summary_off">使用預設音訊</string>
-  <string name="revanced_force_original_audio_not_available">如欲使用此功能，請變更串流欺騙至 iOS 客戶端類型</string>
+  <string name="revanced_force_original_audio_not_available">如欲使用此功能，請變更串流欺騙至 iOS 用戶端類型</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
@@ -1371,13 +1371,13 @@ Second \"item\" text"</string>
 
 影片播放可能無法正常運作"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">關閉此設定可能會導致影片播放發生問題</string>
-  <string name="revanced_spoof_video_streams_client_type_title">預設客戶端</string>
+  <string name="revanced_spoof_video_streams_client_type_title">預設用戶端</string>
   <!-- 'no auth' means no authentication -->
   <string name="revanced_spoof_video_streams_client_type_android_vr_no_auth">Android VR (無驗證)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_title">強制 iOS AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">影片解碼器強制為 AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">已自動選定影片解碼器</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">"啟用此功能可能會改善電池壽命並修復播放卡頓問題。
+  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">"啟用此功能或許可以提升電池壽命並修正播放不順暢的問題。
 
 A​VC 的最高解析度為 1080p，不支援 Opus 音訊解碼器，而且與 VP9 或 AV1 相比，影片播放會使用更多網際網路流量。"</string>
   <string name="revanced_spoof_video_streams_about_ios_tv_title">偽裝 iOS 的副作用</string>
@@ -1388,9 +1388,11 @@ A​VC 的最高解析度為 1080p，不支援 Opus 音訊解碼器，而且與 
   <string name="revanced_spoof_video_streams_about_android_summary">"• 音軌選單遺失
 • 無法使用穩定音量
 • 無法強制使用原始音訊"</string>
+  <string name="revanced_spoof_video_streams_about_no_av1">• 沒有 AV1 影片解碼器</string>
+  <string name="revanced_spoof_video_streams_about_no_hdr">• 沒有 HDR 影片</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_title">顯示統計資料</string>
-  <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">於統計資料中顯示客戶端類型</string>
-  <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">於統計資料中隱藏客戶端類型</string>
+  <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">於統計資料中顯示用戶端類型</string>
+  <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">於統計資料中隱藏用戶端類型</string>
   <string name="revanced_spoof_video_streams_language_title">預設 VR 音訊串流語言</string>
   </patch>
   </app>
@@ -1443,7 +1445,7 @@ A​VC 的最高解析度為 1080p，不支援 Opus 音訊解碼器，而且與 
   <string name="revanced_misc_screen_summary">其他設定</string>
   <string name="revanced_general_category_title">一般設定</string>
   <string name="revanced_other_category_title">其他設定</string>
-  <string name="revanced_client_ads_category_title">客戶端廣告</string>
+  <string name="revanced_client_ads_category_title">用戶端廣告</string>
   <string name="revanced_surestream_ads_category_title">伺服端 Surestream 廣告</string>
   <string name="revanced_twitch_debug_title">偵錯記錄檔</string>
   <string name="revanced_twitch_debug_summary_on">已啟用偵錯記錄檔</string>
