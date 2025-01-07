@@ -1383,6 +1383,8 @@ Ang AVC ay may pinakamataas na resolusyon na 1080p, ang codec ng audio ng Opus a
   <string name="revanced_spoof_video_streams_about_android_summary">"• Nawawala ang menu ng audio track
 • Hindi magagamit ang stable na volume
 • Hindi magagamit ang pagpilit sa orihinal na audio"</string>
+  <string name="revanced_spoof_video_streams_about_no_av1">• Walang AV1 video codec</string>
+  <string name="revanced_spoof_video_streams_about_no_hdr">• Walang HDR video</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Ipakita sa Mga Istatistika para sa mga nerds</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Ipinapakita ang uri ng kliyente sa Mga Istatistika para sa mga nerds</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Nakatago ang kliyente sa Mga Istatistika para sa mga nerds</string>

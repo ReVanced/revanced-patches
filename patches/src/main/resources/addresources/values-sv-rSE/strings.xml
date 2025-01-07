@@ -1385,6 +1385,8 @@ AVC har en maximal upplösning på 1080p, Opus-ljudkodek är inte tillgänglig o
   <string name="revanced_spoof_video_streams_about_android_summary">"• Ljudspårsmenyn saknas
 • Stabilt ljud är inte tillgängligt
 • Tvinga originalspråk är inte tillgängligt"</string>
+  <string name="revanced_spoof_video_streams_about_no_av1">• Ingen AV1-videocodec</string>
+  <string name="revanced_spoof_video_streams_about_no_hdr">• Ingen HDR-video</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Visa i statistik för nördar</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Klienttyp visas i statistik för nördar</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Klienten är dold i statistik för nördar</string>

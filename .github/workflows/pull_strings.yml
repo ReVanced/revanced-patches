@@ -18,6 +18,7 @@ jobs:
         with:
           ref: dev
           fetch-depth: 0
+          clean: true
 
       - name: Pull strings
         uses: crowdin/github-action@v2

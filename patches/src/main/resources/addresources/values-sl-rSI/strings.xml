@@ -1385,6 +1385,8 @@ AVC ima največjo ločljivost 1080p, avdio kodek Opus ni na voljo, predvajanje v
   <string name="revanced_spoof_video_streams_about_android_summary">"• Manjka meni za izbiro zvočnega posnetka 
 • Stabilna glasnost ni na voljo
 • Prisilno izvirno zvočno posnetek ni na voljo"</string>
+  <string name="revanced_spoof_video_streams_about_no_av1">• Brez kodeka videa AV1</string>
+  <string name="revanced_spoof_video_streams_about_no_hdr">• Brez videa HDR</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Pokaži v statistiki za piflarje</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Vrsta odjemalca je prikazana v statistiki za piflarje</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Odjemalec je skrit v statistiki za piflarje</string>
