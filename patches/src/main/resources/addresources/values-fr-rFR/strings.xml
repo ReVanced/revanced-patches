@@ -1291,7 +1291,7 @@ L'activation de cette option peut déverrouiller des qualités vidéo plus élev
   <string name="microg_settings_summary">Paramètres de GmsCore</string>
   </patch>
   <patch id="misc.links.bypassURLRedirectsPatch">
-  <string name="revanced_bypass_url_redirects_title">URL yönlendirmelerini atla</string>
+  <string name="revanced_bypass_url_redirects_title">Contourner les redirections d\'URL</string>
   <string name="revanced_bypass_url_redirects_summary_on">Les redirections d\'URL sont contournées</string>
   <string name="revanced_bypass_url_redirects_summary_off">Les redirections d\'URL ne sont pas contournées</string>
   </patch>
@@ -1386,6 +1386,8 @@ AVC a une résolution maximale de 1080p, le codec audio Opus n'est pas disponibl
   <string name="revanced_spoof_video_streams_about_android_summary">"• Le menu des pistes audio est manquant
  • Le volume stable n'est pas disponible
  • Forcer l'audio d'origine n'est pas disponible"</string>
+  <string name="revanced_spoof_video_streams_about_no_av1">• Aucun codec vidéo AV1</string>
+  <string name="revanced_spoof_video_streams_about_no_hdr">• Pas de vidéo HDR</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Afficher les Stats pour les nerds</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Le type de client est affiché dans les Stats pour les nerds</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Le client est caché dans les Stats pour les nerds</string>

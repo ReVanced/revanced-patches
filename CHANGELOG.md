@@ -1,3 +1,10 @@
+## [5.8.1-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.8.0...v5.8.1-dev.1) (2025-01-06)
+
+
+### Bug Fixes
+
+* **YouTube - Spoof video streams:** Add 'Android Creator' ([#4262](https://github.com/ReVanced/revanced-patches/issues/4262)) ([0479dd2](https://github.com/ReVanced/revanced-patches/commit/0479dd265e09b0accdf6ff6b00c8e938dc5b96c7))
+
 # [5.8.0](https://github.com/ReVanced/revanced-patches/compare/v5.7.2...v5.8.0) (2024-12-30)
 
 

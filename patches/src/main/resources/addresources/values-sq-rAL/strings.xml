@@ -1384,6 +1384,8 @@ AVC ka një rezolucion maksimal prej 1080p, kodeku audio Opus nuk është i disp
   <string name="revanced_spoof_video_streams_about_android_summary">"• Menutë me audiot mungon
 • Vellimi i qëndrueshëm nuk është në dispozicion
 • Zbatimi i audio origjinalit nuk është në dispozicion"</string>
+  <string name="revanced_spoof_video_streams_about_no_av1">• Nuk ka codec video AV1</string>
+  <string name="revanced_spoof_video_streams_about_no_hdr">• Nuk ka video HDR</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Shfaqni në Statistikat për nerdës</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Lloji i klientit shfaqet në Statistikat për nerds</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Klienti është fshehur në statistikat për nerds</string>

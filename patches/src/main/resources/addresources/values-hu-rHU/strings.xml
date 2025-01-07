@@ -1384,6 +1384,8 @@ Az AVC maximális felbontása 1080p, az Opus audiokodek nem érhető el, és a v
   <string name="revanced_spoof_video_streams_about_android_summary">"• Hiányzik a hangsáv menü
 • Nem áll rendelkezésre stabil hangerő
 • Az eredeti hang kényszerítése nem érhető el"</string>
+  <string name="revanced_spoof_video_streams_about_no_av1">• Nincs AV1 videokodek</string>
+  <string name="revanced_spoof_video_streams_about_no_hdr">• Nincs HDR videó</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Megjelenítés a Statisztikákban</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">A kliens típusa a Statisztikákban látható</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">A kliens el van rejtve a Statisztikákban</string>

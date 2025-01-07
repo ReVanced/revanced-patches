@@ -1386,6 +1386,8 @@ AVC мае максімальнае дазвол 1080p, аўдыёкадэк Opu
   <string name="revanced_spoof_video_streams_about_android_summary">"• Меню гукавой дарожкі адсутнічае
 • Стабільны гук недаступны
 • Прымусовае арыгінальнае аўдыё недаступна"</string>
+  <string name="revanced_spoof_video_streams_about_no_av1">• Няма відэакідавання AV1</string>
+  <string name="revanced_spoof_video_streams_about_no_hdr">• Няма відэа HDR</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Паказаць у статыстыцы для спецыялістаў</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Тып кліента адлюстроўваецца ў статыстыцы для спецыялістаў</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Кліент схаваны ў статыстыцы для спецыялістаў</string>
