@@ -77,9 +77,9 @@ public class SpoofVideoStreamsPatch {
                 String path = originalUri.getPath();
 
                 if (path != null && path.contains("initplayback")) {
-                    Logger.printDebug(() -> "Blocking 'initplayback' by returning unreachable url");
+                    Logger.printDebug(() -> "Blocking 'initplayback' by clearing query");
 
-                    return UNREACHABLE_HOST_URI_STRING;
+                    return originalUri.buildUpon().clearQuery().build().toString();
                 }
             } catch (Exception ex) {
                 Logger.printException(() -> "blockInitPlaybackRequest failure", ex);
