@@ -2,10 +2,12 @@ package app.revanced.patches.youtube.misc.navigation
 
 import app.revanced.patcher.fingerprint
 import app.revanced.patcher.methodCall
+import app.revanced.patcher.opcode
 import app.revanced.patcher.string
 import app.revanced.patches.shared.misc.mapping.ResourceLiteralFilter.Companion.resourceLiteral
 import app.revanced.patches.youtube.layout.buttons.navigation.navigationButtonsPatch
 import com.android.tools.smali.dexlib2.AccessFlags
+import com.android.tools.smali.dexlib2.Opcode
 
 internal val actionBarSearchResultsFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
@@ -112,6 +114,7 @@ internal val imageEnumConstructorFingerprint by fingerprint {
     accessFlags(AccessFlags.STATIC, AccessFlags.CONSTRUCTOR)
     instructions(
         string("TAB_ACTIVITY_CAIRO"),
+        opcode(Opcode.SPUT_OBJECT)
     )
 }
 

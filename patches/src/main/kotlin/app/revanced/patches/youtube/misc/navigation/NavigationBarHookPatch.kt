@@ -12,7 +12,6 @@ import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.playertype.playerTypeHookPatch
 import app.revanced.patches.youtube.misc.playservice.is_19_35_or_greater
 import app.revanced.util.getReference
-import app.revanced.util.indexOfFirstInstructionOrThrow
 import app.revanced.util.indexOfFirstInstructionReversedOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
@@ -130,13 +129,8 @@ val navigationBarHookPatch = bytecodePatch(description = "Hooks the active navig
 
         // Fix YT bug of notification tab missing the filled icon.
         if (is_19_35_or_greater) {
-            val cairoNotificationEnumReference = with(imageEnumConstructorFingerprint) {
-                val stringIndex = stringMatches.first().index
-                val cairoNotificationEnumIndex = method.indexOfFirstInstructionOrThrow(stringIndex) {
-                    opcode == Opcode.SPUT_OBJECT
-                }
-                method.getInstruction<ReferenceInstruction>(cairoNotificationEnumIndex).reference
-            }
+            val cairoNotificationEnumReference = imageEnumConstructorFingerprint
+                .instructionMatches.last().getInstruction<ReferenceInstruction>().reference
 
             setEnumMapFingerprint.method.apply {
                 val enumMapIndex = indexOfFirstInstructionReversedOrThrow {
