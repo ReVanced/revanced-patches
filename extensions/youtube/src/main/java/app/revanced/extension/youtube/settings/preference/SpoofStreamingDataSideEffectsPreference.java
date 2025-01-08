@@ -87,11 +87,6 @@ public class SpoofStreamingDataSideEffectsPreference extends Preference {
         // Android VR supports AV1 but all other clients do not.
         if (clientType != ClientType.ANDROID_VR && clientType != ClientType.ANDROID_VR_NO_AUTH) {
             summary += '\n' + str("revanced_spoof_video_streams_about_no_av1");
-
-            // Android Creator does not support HDR.
-            if (clientType == ClientType.ANDROID_CREATOR) {
-                summary += '\n' + str("revanced_spoof_video_streams_about_no_hdr");
-            }
         }
 
         setTitle(title);
