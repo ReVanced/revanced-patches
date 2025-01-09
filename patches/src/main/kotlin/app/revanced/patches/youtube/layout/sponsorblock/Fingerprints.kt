@@ -1,6 +1,7 @@
 package app.revanced.patches.youtube.layout.sponsorblock
 
 import app.revanced.patcher.fingerprint
+import app.revanced.patches.youtube.shared.seekbarFingerprint
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionReversed
 import com.android.tools.smali.dexlib2.AccessFlags
@@ -49,6 +50,9 @@ internal val controlsOverlayFingerprint by fingerprint {
     )
 }
 
+/**
+ * Resolves to the class found in [seekbarFingerprint].
+ */
 internal val rectangleFieldInvalidatorFingerprint by fingerprint {
     returns("V")
     parameters()
@@ -63,8 +67,8 @@ internal val segmentPlaybackControllerFingerprint by fingerprint {
     parameters("Ljava/lang/Object;")
     opcodes(Opcode.CONST_STRING)
     custom { method, _ ->
-        method.definingClass == EXTENSION_SEGMENT_PLAYBACK_CONTROLLER_CLASS_DESCRIPTOR
-                && method.name == "setSponsorBarRect"
+        method.name == "setSponsorBarRect" &&
+                method.definingClass == EXTENSION_SEGMENT_PLAYBACK_CONTROLLER_CLASS_DESCRIPTOR
     }
 }
 

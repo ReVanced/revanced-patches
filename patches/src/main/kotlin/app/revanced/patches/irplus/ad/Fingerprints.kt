@@ -5,7 +5,6 @@ import app.revanced.patcher.fingerprint
 
 internal val irplusAdsFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
-    returns("V")
     parameters("L", "Z")
     strings("TAGGED")
 }

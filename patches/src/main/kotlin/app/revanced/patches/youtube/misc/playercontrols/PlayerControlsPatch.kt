@@ -40,10 +40,6 @@ internal lateinit var addTopControl: (String) -> Unit
 lateinit var addBottomControl: (String) -> Unit
     private set
 
-internal var bottomUiContainerResourceId = -1L
-    private set
-internal var controlsLayoutStub = -1L
-    private set
 internal var heatseekerViewstub = -1L
     private set
 internal var fullscreenButton = -1L
@@ -65,8 +61,6 @@ val playerControlsResourcePatch = resourcePatch {
     execute {
         val targetResourceName = "youtube_controls_bottom_ui_container.xml"
 
-        bottomUiContainerResourceId = resourceMappings["id", "bottom_ui_container_stub"]
-        controlsLayoutStub = resourceMappings["id", "controls_layout_stub"]
         heatseekerViewstub = resourceMappings["id", "heatseeker_viewstub"]
         fullscreenButton = resourceMappings["id", "fullscreen_button"]
 

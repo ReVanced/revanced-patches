@@ -4,7 +4,7 @@ import app.revanced.patcher.fingerprint
 import app.revanced.patcher.methodCall
 import app.revanced.patcher.opcode
 import app.revanced.patcher.string
-import app.revanced.patches.shared.misc.mapping.ResourceLiteralFilter.Companion.resourceLiteral
+import app.revanced.patches.shared.misc.mapping.resourceLiteral
 import app.revanced.util.literal
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
@@ -13,7 +13,7 @@ internal val hideShowMoreButtonFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     instructions(
         resourceLiteral("layout", "expand_button_down"),
-        methodCall(smaliString = "Landroid/view/View;->inflate(Landroid/content/Context;ILandroid/view/ViewGroup;)Landroid/view/View;"),
+        methodCall(smali = "Landroid/view/View;->inflate(Landroid/content/Context;ILandroid/view/ViewGroup;)Landroid/view/View;"),
         opcode(Opcode.MOVE_RESULT_OBJECT)
     )
 }
@@ -76,7 +76,6 @@ internal val albumCardsFingerprint by fingerprint {
 
 internal val filterBarHeightFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
-    returns("V")
     opcodes(
         Opcode.CONST,
         Opcode.INVOKE_VIRTUAL,
@@ -88,7 +87,6 @@ internal val filterBarHeightFingerprint by fingerprint {
 
 internal val relatedChipCloudFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
-    returns("V")
     opcodes(
         Opcode.CONST,
         Opcode.INVOKE_VIRTUAL,
@@ -99,7 +97,6 @@ internal val relatedChipCloudFingerprint by fingerprint {
 
 internal val searchResultsChipBarFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
-    returns("V")
     opcodes(
         Opcode.CONST,
         Opcode.INVOKE_VIRTUAL,

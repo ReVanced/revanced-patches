@@ -6,7 +6,6 @@ import app.revanced.patcher.fingerprint
 
 internal val pivotBarConstructorFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
-    returns("V")
     parameters("L", "Z")
     opcodes(
         Opcode.CHECK_CAST,

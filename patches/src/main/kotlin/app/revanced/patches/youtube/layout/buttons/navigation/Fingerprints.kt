@@ -14,7 +14,6 @@ internal val addCreateButtonViewFingerprint by fingerprint {
 
 internal val createPivotBarFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
-    returns("V")
     parameters(
         "Lcom/google/android/libraries/youtube/rendering/ui/pivotbar/PivotBar;",
         "Landroid/widget/TextView;",

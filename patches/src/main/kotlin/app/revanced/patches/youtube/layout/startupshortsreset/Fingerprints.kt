@@ -20,6 +20,7 @@ internal val userWasInShortsFingerprint by fingerprint {
 internal val userWasInShortsConfigFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("Z")
+    parameters()
     instructions(
         literal(45358360L)
     )

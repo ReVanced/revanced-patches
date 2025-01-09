@@ -1,15 +1,18 @@
 package app.revanced.patches.youtube.misc.playercontrols
 
 import app.revanced.patcher.fingerprint
+import app.revanced.patcher.literal
+import app.revanced.patches.shared.misc.mapping.resourceLiteral
 import app.revanced.util.containsLiteralInstruction
-import app.revanced.util.literal
 import com.android.tools.smali.dexlib2.AccessFlags
 
 internal val playerTopControlsInflateFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("V")
     parameters()
-    literal { controlsLayoutStub }
+    instructions(
+        resourceLiteral("id", "controls_layout_stub")
+    )
 }
 
 internal val playerControlsExtensionHookListenersExistFingerprint by fingerprint {
@@ -35,7 +38,9 @@ internal val playerControlsExtensionHookFingerprint by fingerprint {
 internal val playerBottomControlsInflateFingerprint by fingerprint {
     returns("Ljava/lang/Object;")
     parameters()
-    literal { bottomUiContainerResourceId }
+    instructions(
+        resourceLiteral("id", "bottom_ui_container_stub")
+    )
 }
 
 internal val overlayViewInflateFingerprint by fingerprint {
@@ -62,7 +67,7 @@ internal val playerBottomControlsExploderFeatureFlagFingerprint by fingerprint {
     returns("Z")
     parameters()
     instructions(
-        app.revanced.patcher.literal(45643739L)
+        literal(45643739L)
     )
 }
 
@@ -71,7 +76,7 @@ internal val playerTopControlsExperimentalLayoutFeatureFlagFingerprint by finger
     returns("I")
     parameters()
     instructions(
-        app.revanced.patcher.literal(45629424L)
+        literal(45629424L)
     )
 }
 

@@ -211,13 +211,13 @@ val sponsorBlockPatch = bytecodePatch(
             val rectangleIndex = indexOfFirstInstructionReversedOrThrow(invalidateIndex + 1) {
                 getReference<FieldReference>()?.type == "Landroid/graphics/Rect;"
             }
-            val rectangleFieldName =
-                (getInstruction<ReferenceInstruction>(rectangleIndex).reference as FieldReference).name
+            val rectangleFieldName = (getInstruction<ReferenceInstruction>(rectangleIndex).reference as FieldReference).name
 
             segmentPlaybackControllerFingerprint.let {
                 it.method.apply {
                     val replaceIndex = it.instructionMatches.first().index
-                    val replaceRegister = getInstruction<OneRegisterInstruction>(replaceIndex).registerA
+                    val replaceRegister =
+                        getInstruction<OneRegisterInstruction>(replaceIndex).registerA
 
                     replaceInstruction(
                         replaceIndex,

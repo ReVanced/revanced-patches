@@ -1,7 +1,7 @@
 package app.revanced.patches.youtube.interaction.swipecontrols
 
 import app.revanced.patcher.fingerprint
-import app.revanced.util.literal
+import app.revanced.patcher.literal
 import com.android.tools.smali.dexlib2.AccessFlags
 
 internal val swipeControlsHostActivityFingerprint by fingerprint {
@@ -12,12 +12,9 @@ internal val swipeControlsHostActivityFingerprint by fingerprint {
     }
 }
 
-internal const val SWIPE_CHANGE_VIDEO_FEATURE_FLAG = 45631116L
-
 internal val swipeChangeVideoFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
-    parameters("L")
-    literal {
-        SWIPE_CHANGE_VIDEO_FEATURE_FLAG
-    }
+    instructions(
+        literal(45631116L)
+    )
 }

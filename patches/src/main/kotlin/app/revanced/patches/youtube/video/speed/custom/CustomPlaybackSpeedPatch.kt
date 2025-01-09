@@ -7,13 +7,10 @@ import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.instructions
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patcher.patch.resourcePatch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableField.Companion.toMutable
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
-import app.revanced.patches.shared.misc.mapping.get
 import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
-import app.revanced.patches.shared.misc.mapping.resourceMappings
 import app.revanced.patches.shared.misc.settings.preference.InputType
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.shared.misc.settings.preference.TextPreference
@@ -31,20 +28,6 @@ import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import com.android.tools.smali.dexlib2.immutable.ImmutableField
 
-var speedUnavailableId = -1L
-    internal set
-
-private val customPlaybackSpeedResourcePatch = resourcePatch {
-    dependsOn(resourceMappingPatch)
-
-    execute {
-        speedUnavailableId = resourceMappings[
-            "string",
-            "varispeed_unavailable_message",
-        ]
-    }
-}
-
 private const val FILTER_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/youtube/patches/components/PlaybackSpeedMenuFilterPatch;"
 
@@ -59,8 +42,8 @@ internal val customPlaybackSpeedPatch = bytecodePatch(
         lithoFilterPatch,
         settingsPatch,
         recyclerViewTreeHookPatch,
-        customPlaybackSpeedResourcePatch,
         addResourcesPatch,
+        resourceMappingPatch,
     )
 
     execute {

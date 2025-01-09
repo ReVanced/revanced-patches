@@ -5,7 +5,7 @@ package app.revanced.patches.youtube.layout.miniplayer
 import app.revanced.patcher.fingerprint
 import app.revanced.patcher.literal
 import app.revanced.patcher.string
-import app.revanced.patches.shared.misc.mapping.ResourceLiteralFilter.Companion.resourceLiteral
+import app.revanced.patches.shared.misc.mapping.resourceLiteral
 import app.revanced.util.literal
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
@@ -53,7 +53,6 @@ internal const val MINIPLAYER_DISABLED_FEATURE_KEY = 45657015L
 
 internal val miniplayerModernConstructorFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
-    parameters("L")
     instructions(
         literal(45623000L)
     )

@@ -4,7 +4,7 @@ import app.revanced.patcher.fingerprint
 import app.revanced.patcher.methodCall
 import app.revanced.patcher.opcode
 import app.revanced.patcher.string
-import app.revanced.patches.shared.misc.mapping.ResourceLiteralFilter.Companion.resourceLiteral
+import app.revanced.patches.shared.misc.mapping.resourceLiteral
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 

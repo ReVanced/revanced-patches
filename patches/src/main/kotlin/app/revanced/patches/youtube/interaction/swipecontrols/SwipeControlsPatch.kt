@@ -115,10 +115,12 @@ val swipeControlsPatch = bytecodePatch(
         // region patch to enable/disable swipe to change video.
 
         if (is_19_43_or_greater) {
-            swipeChangeVideoFingerprint.method.insertFeatureFlagBooleanOverride(
-                SWIPE_CHANGE_VIDEO_FEATURE_FLAG,
-                "$EXTENSION_CLASS_DESCRIPTOR->allowSwipeChangeVideo(Z)Z"
-            )
+            swipeChangeVideoFingerprint.let {
+                it.method.insertFeatureFlagBooleanOverride(
+                    it.instructionMatches.last().index,
+                    "$EXTENSION_CLASS_DESCRIPTOR->allowSwipeChangeVideo(Z)Z"
+                )
+            }
         }
 
         // endregion

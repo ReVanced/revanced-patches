@@ -18,7 +18,6 @@ internal val interceptFingerprint by fingerprint {
 
 internal val userConsumerPlanConstructorFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
-    returns("V")
     parameters(
         "Ljava/lang/String;",
         "Z",

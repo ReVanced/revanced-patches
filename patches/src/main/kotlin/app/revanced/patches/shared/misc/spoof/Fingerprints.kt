@@ -84,7 +84,6 @@ internal val protobufClassParseByteBufferFingerprint by fingerprint {
 
 internal val createStreamingDataFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
-    returns("V")
     parameters("L")
     opcodes(
         Opcode.IPUT_OBJECT,
@@ -102,7 +101,6 @@ internal val createStreamingDataFingerprint by fingerprint {
 
 internal val buildMediaDataSourceFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
-    returns("V")
     parameters(
         "Landroid/net/Uri;",
         "J",
@@ -139,6 +137,6 @@ internal val patchIncludedExtensionMethodFingerprint by fingerprint {
     returns("Z")
     parameters()
     custom { method, classDef ->
-        classDef.type == EXTENSION_CLASS_DESCRIPTOR && method.name == "isPatchIncluded"
+        method.name == "isPatchIncluded" && classDef.type == EXTENSION_CLASS_DESCRIPTOR
     }
 }

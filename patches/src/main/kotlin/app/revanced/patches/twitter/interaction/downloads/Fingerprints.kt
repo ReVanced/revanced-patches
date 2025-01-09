@@ -16,7 +16,6 @@ internal val buildMediaOptionsSheetFingerprint by fingerprint {
 
 internal val constructMediaOptionsSheetFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
-    returns("V")
     strings("captionsState")
 }
 

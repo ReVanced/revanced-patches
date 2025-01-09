@@ -2,7 +2,7 @@ package app.revanced.patches.youtube.layout.buttons.overlay
 
 import app.revanced.patcher.fingerprint
 import app.revanced.patcher.methodCall
-import app.revanced.patches.shared.misc.mapping.ResourceLiteralFilter.Companion.resourceLiteral
+import app.revanced.patches.shared.misc.mapping.resourceLiteral
 import com.android.tools.smali.dexlib2.AccessFlags
 
 internal val playerControlsPreviousNextOverlayTouchFingerprint by fingerprint {

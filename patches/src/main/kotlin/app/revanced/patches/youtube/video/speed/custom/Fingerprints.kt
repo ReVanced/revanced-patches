@@ -2,7 +2,7 @@ package app.revanced.patches.youtube.video.speed.custom
 
 import app.revanced.patcher.fingerprint
 import app.revanced.patcher.string
-import app.revanced.util.literal
+import app.revanced.patches.shared.misc.mapping.resourceLiteral
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
@@ -14,10 +14,15 @@ internal val getOldPlaybackSpeedsFingerprint by fingerprint {
 }
 
 internal val showOldPlaybackSpeedMenuFingerprint by fingerprint {
-    literal { speedUnavailableId }
+    instructions(
+        resourceLiteral("string", "varispeed_unavailable_message")
+    )
 }
 
 internal val showOldPlaybackSpeedMenuExtensionFingerprint by fingerprint {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
+    returns("V")
+    parameters()
     custom { method, classDef ->
         method.name == "showOldPlaybackSpeedMenu" && classDef.type == EXTENSION_CLASS_DESCRIPTOR
     }

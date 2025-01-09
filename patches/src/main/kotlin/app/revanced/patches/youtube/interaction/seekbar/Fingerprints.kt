@@ -42,10 +42,8 @@ internal val disableFastForwardLegacyFingerprint by fingerprint {
     returns("Z")
     parameters()
     opcodes(Opcode.MOVE_RESULT)
-    instructions(
-        // Intent start flag only used in the subscription activity
-       literal(45411330)
-    )
+    // Intent start flag only used in the subscription activity
+    literal {45411330}
 }
 
 internal val disableFastForwardGestureFingerprint by fingerprint {

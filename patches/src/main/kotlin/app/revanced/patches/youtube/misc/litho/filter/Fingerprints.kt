@@ -18,7 +18,6 @@ internal val componentContextParserFingerprint by fingerprint {
 
 internal val lithoFilterFingerprint by fingerprint {
     accessFlags(AccessFlags.STATIC, AccessFlags.CONSTRUCTOR)
-    returns("V")
     custom { _, classDef ->
         classDef.endsWith("LithoFilterPatch;")
     }

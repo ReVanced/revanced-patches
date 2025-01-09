@@ -56,7 +56,6 @@ internal const val launchScreenLayoutTypeLotteFeatureFlag = 268507948L
 
 internal val launchScreenLayoutTypeFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
-    returns("V")
     custom { method, _ ->
         val firstParameter = method.parameterTypes.firstOrNull()
         // 19.25 - 19.45

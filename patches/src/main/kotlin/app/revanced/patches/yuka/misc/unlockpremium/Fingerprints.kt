@@ -16,7 +16,6 @@ internal val isPremiumFingerprint by fingerprint {
 
 internal val yukaUserConstructorFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
-    returns("V")
     instructions(
         string("premiumProvider"),
     )

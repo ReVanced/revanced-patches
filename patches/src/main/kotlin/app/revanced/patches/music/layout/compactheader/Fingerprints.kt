@@ -6,7 +6,6 @@ import app.revanced.patcher.fingerprint
 
 internal val constructCategoryBarFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
-    returns("V")
     parameters("Landroid/content/Context;", "L", "L", "L")
     opcodes(
         Opcode.IPUT_OBJECT,

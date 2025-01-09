@@ -1,7 +1,7 @@
 package app.revanced.patches.spotify.navbar
 
 import app.revanced.patcher.fingerprint
-import app.revanced.patches.shared.misc.mapping.ResourceLiteralFilter.Companion.resourceLiteral
+import app.revanced.patches.shared.misc.mapping.resourceLiteral
 import com.android.tools.smali.dexlib2.AccessFlags
 
 internal val addNavBarItemFingerprint by fingerprint {

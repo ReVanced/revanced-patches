@@ -592,21 +592,12 @@ public final class app/revanced/patches/shared/misc/mapping/ResourceElement {
 	public fun toString ()Ljava/lang/String;
 }
 
-public final class app/revanced/patches/shared/misc/mapping/ResourceLiteralFilter : app/revanced/patcher/InstructionFilter {
-	public static final field Companion Lapp/revanced/patches/shared/misc/mapping/ResourceLiteralFilter$Companion;
-	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public fun matches (Lapp/revanced/patcher/patch/BytecodePatchContext;Lcom/android/tools/smali/dexlib2/iface/Method;Lcom/android/tools/smali/dexlib2/iface/instruction/Instruction;I)Z
-}
-
-public final class app/revanced/patches/shared/misc/mapping/ResourceLiteralFilter$Companion {
-	public final fun resourceLiteral (Ljava/lang/String;Ljava/lang/String;I)Lapp/revanced/patches/shared/misc/mapping/ResourceLiteralFilter;
-	public static synthetic fun resourceLiteral$default (Lapp/revanced/patches/shared/misc/mapping/ResourceLiteralFilter$Companion;Ljava/lang/String;Ljava/lang/String;IILjava/lang/Object;)Lapp/revanced/patches/shared/misc/mapping/ResourceLiteralFilter;
-}
-
 public final class app/revanced/patches/shared/misc/mapping/ResourceMappingPatchKt {
 	public static final fun get (Ljava/util/List;Ljava/lang/String;Ljava/lang/String;)J
 	public static final fun getResourceMappingPatch ()Lapp/revanced/patcher/patch/ResourcePatch;
 	public static final fun getResourceMappings ()Ljava/util/List;
+	public static final fun resourceLiteral (Ljava/lang/String;Ljava/lang/String;I)Lapp/revanced/patcher/LiteralFilter;
+	public static synthetic fun resourceLiteral$default (Ljava/lang/String;Ljava/lang/String;IILjava/lang/Object;)Lapp/revanced/patcher/LiteralFilter;
 }
 
 public final class app/revanced/patches/shared/misc/settings/SettingsPatchKt {
@@ -1440,10 +1431,6 @@ public final class app/revanced/patches/youtube/video/speed/PlaybackSpeedPatchKt
 
 public final class app/revanced/patches/youtube/video/speed/button/PlaybackSpeedButtonPatchKt {
 	public static final fun getPlaybackSpeedButtonPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
-}
-
-public final class app/revanced/patches/youtube/video/speed/custom/CustomPlaybackSpeedPatchKt {
-	public static final fun getSpeedUnavailableId ()J
 }
 
 public final class app/revanced/patches/youtube/video/videoid/VideoIdPatchKt {

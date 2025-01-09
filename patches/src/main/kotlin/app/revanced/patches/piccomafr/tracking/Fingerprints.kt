@@ -11,7 +11,6 @@ internal val appMeasurementFingerprint by fingerprint {
 
 internal val facebookSDKFingerprint by fingerprint {
     accessFlags(AccessFlags.STATIC, AccessFlags.CONSTRUCTOR)
-    returns("V")
     strings("instagram.com", "facebook.com")
 }
 

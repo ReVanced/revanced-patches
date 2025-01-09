@@ -13,7 +13,6 @@ import com.android.tools.smali.dexlib2.Opcode
 
 internal val initializeBuildConfigProviderFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
-    returns("V")
     opcodes(Opcode.IPUT_BOOLEAN)
     strings("debug", "release", "china")
 }

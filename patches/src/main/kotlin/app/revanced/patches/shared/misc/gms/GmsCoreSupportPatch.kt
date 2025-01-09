@@ -89,12 +89,12 @@ fun gmsCoreSupportPatch(
                     mutableClass.methods.first { MethodUtil.methodSignaturesMatch(it, method) }
                 }
 
-                implementation.instructions.forEachIndexed insnLoop@{ index, instruction ->
+                implementation.instructions.forEachIndexed { index, instruction ->
                     val string = ((instruction as? Instruction21c)?.reference as? StringReference)?.string
-                        ?: return@insnLoop
+                        ?: return@forEachIndexed
 
                     // Apply transformation.
-                    val transformedString = transform(string) ?: return@insnLoop
+                    val transformedString = transform(string) ?: return@forEachIndexed
 
                     mutableMethod.replaceInstruction(
                         index,
