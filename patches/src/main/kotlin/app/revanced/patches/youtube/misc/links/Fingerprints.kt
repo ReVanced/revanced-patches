@@ -1,72 +1,36 @@
 package app.revanced.patches.youtube.misc.links
 
+import app.revanced.patcher.checkCast
+import app.revanced.patcher.fieldAccess
 import app.revanced.patcher.fingerprint
+import app.revanced.patcher.methodCall
+import app.revanced.patcher.string
 import com.android.tools.smali.dexlib2.AccessFlags
-import com.android.tools.smali.dexlib2.Opcode
 
-/**
- * Target 19.33+
- */
 internal val abUriParserFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("Ljava/lang/Object")
-    parameters("Ljava/lang/Object")
-    strings(
-        "Found entityKey=`",
-        "` that does not contain a PlaylistVideoEntityId message as it's identifier.",
+    returns("Ljava/lang/Object;")
+    parameters("Ljava/lang/Object;")
+    instructions(
+        methodCall(smali = "Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;"),
+        fieldAccess(
+            definingClass = "Lcom/google/protos/youtube/api/innertube/WebviewEndpointOuterClass${'$'}WebviewEndpoint;",
+            name = "webviewEndpoint"
+        ),
+        checkCast("Lcom/google/protos/youtube/api/innertube/WebviewEndpointOuterClass${'$'}WebviewEndpoint;"),
+        methodCall(smali = "Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;")
     )
-    custom { method, _ ->
-        method.findUriParseIndex() >= 0
-    }
 }
 
-internal val abUriParserLegacyFingerprint by fingerprint {
-    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("Ljava/lang/Object")
-    parameters("Ljava/lang/Object")
-    opcodes(
-        Opcode.RETURN_OBJECT,
-        Opcode.CHECK_CAST,
-        Opcode.INVOKE_VIRTUAL,
-        Opcode.MOVE_RESULT_OBJECT,
-        Opcode.CHECK_CAST,
-        Opcode.RETURN_OBJECT,
-        Opcode.CHECK_CAST,
-        Opcode.INVOKE_STATIC,
-        Opcode.MOVE_RESULT_OBJECT,
-        Opcode.RETURN_OBJECT,
-        Opcode.CHECK_CAST,
-    )
-    custom { methodDef, classDef ->
-        // This method is always called "a" because this kind of class always has a single (non-synthetic) method.
-
-        if (methodDef.name != "a") return@custom false
-
-        val count = classDef.methods.count()
-        count == 2 || count == 3
-    }
-}
-
-/**
- * Target 19.33+
- */
 internal val httpUriParserFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
-    returns("Landroid/net/Uri")
-    parameters("Ljava/lang/String")
-    strings("https", "https:", "://")
-    custom { methodDef, _ ->
-        methodDef.findUriParseIndex() >= 0
-    }
+    returns("Landroid/net/Uri;")
+    parameters("Ljava/lang/String;")
+    instructions(
+        methodCall(smali = "Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;"),
+        string("https"),
+        string("://"),
+        string("https:"),
+    )
 }
 
-internal val httpUriParserLegacyFingerprint by fingerprint {
-    accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
-    returns("Landroid/net/Uri")
-    parameters("Ljava/lang/String")
-    opcodes(
-        Opcode.INVOKE_STATIC,
-        Opcode.MOVE_RESULT_OBJECT,
-    )
-    strings("://")
-}
