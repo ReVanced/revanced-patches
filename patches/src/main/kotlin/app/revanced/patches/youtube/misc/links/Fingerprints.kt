@@ -14,11 +14,10 @@ internal val abUriParserFingerprint by fingerprint {
     instructions(
         methodCall(smali = "Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;"),
         fieldAccess(
-            definingClass = "Lcom/google/protos/youtube/api/innertube/WebviewEndpointOuterClass${'$'}WebviewEndpoint;",
+            definingClass = "/WebviewEndpointOuterClass${'$'}WebviewEndpoint;",
             name = "webviewEndpoint"
         ),
-        checkCast("Lcom/google/protos/youtube/api/innertube/WebviewEndpointOuterClass${'$'}WebviewEndpoint;"),
-        methodCall(smali = "Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;")
+        checkCast("/WebviewEndpointOuterClass${'$'}WebviewEndpoint;"),
     )
 }
 
