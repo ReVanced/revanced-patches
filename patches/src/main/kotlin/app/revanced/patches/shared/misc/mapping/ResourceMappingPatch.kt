@@ -17,6 +17,9 @@ lateinit var resourceMappings: List<ResourceElement>
 
 /**
  * Identical to [LiteralFilter] except uses a decoded resource literal value.
+ *
+ * Any patch with fingerprints of this filter must
+ * also declare [resourceMappingPatch] as a dependency.
  */
 fun resourceLiteral(
     type: String,

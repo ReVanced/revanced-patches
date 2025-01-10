@@ -1112,13 +1112,7 @@ public final class app/revanced/patches/youtube/layout/hide/fullscreenambientmod
 }
 
 public final class app/revanced/patches/youtube/layout/hide/general/HideLayoutComponentsPatchKt {
-	public static final fun getAlbumCardId ()J
-	public static final fun getBarContainerHeightId ()J
-	public static final fun getCrowdfundingBoxId ()J
-	public static final fun getFabButtonId ()J
-	public static final fun getFilterBarHeightId ()J
 	public static final fun getHideLayoutComponentsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
-	public static final fun getRelatedChipCloudMarginId ()J
 }
 
 public final class app/revanced/patches/youtube/layout/hide/infocards/HideInfoCardsPatchKt {
@@ -1344,6 +1338,7 @@ public final class app/revanced/patches/youtube/misc/playservice/VersionCheckPat
 	public static final fun is_19_43_or_greater ()Z
 	public static final fun is_19_46_or_greater ()Z
 	public static final fun is_19_47_or_greater ()Z
+	public static final fun is_20_02_or_greater ()Z
 }
 
 public final class app/revanced/patches/youtube/misc/privacy/RemoveTrackingQueryParameterPatchKt {

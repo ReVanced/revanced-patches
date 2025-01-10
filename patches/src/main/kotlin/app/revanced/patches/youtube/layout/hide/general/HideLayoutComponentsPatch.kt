@@ -33,18 +33,15 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
-var albumCardId = -1L
+internal var albumCardId = -1L
     private set
-var crowdfundingBoxId = -1L
+internal var crowdfundingBoxId = -1L
     private set
-var filterBarHeightId = -1L
+internal var filterBarHeightId = -1L
     private set
-var relatedChipCloudMarginId = -1L
+internal var relatedChipCloudMarginId = -1L
     private set
-var barContainerHeightId = -1L
-    private set
-
-var fabButtonId = -1L
+internal var barContainerHeightId = -1L
     private set
 
 private val hideLayoutComponentsResourcePatch = resourcePatch {
@@ -75,11 +72,6 @@ private val hideLayoutComponentsResourcePatch = resourcePatch {
             "dimen",
             "bar_container_height",
         ]
-
-        fabButtonId = resourceMappings[
-            "id",
-            "fab",
-        ]
     }
 }
 
@@ -105,7 +97,8 @@ val hideLayoutComponentsPatch = bytecodePatch(
         addResourcesPatch,
         hideLayoutComponentsResourcePatch,
         navigationBarHookPatch,
-        versionCheckPatch
+        versionCheckPatch,
+        resourceMappingPatch
     )
 
     compatibleWith(
@@ -332,15 +325,15 @@ val hideLayoutComponentsPatch = bytecodePatch(
 
         showFloatingMicrophoneButtonFingerprint.let {
             it.method.apply {
-                val startIndex = it.instructionMatches.first().index
-                val register = getInstruction<TwoRegisterInstruction>(startIndex).registerA
+                val index = it.instructionMatches.last().index
+                val register = getInstruction<TwoRegisterInstruction>(index).registerA
 
                 addInstructions(
-                    startIndex + 1,
+                    index + 1,
                     """
-                    invoke-static { v$register }, $LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR->hideFloatingMicrophoneButton(Z)Z
-                    move-result v$register
-                """,
+                        invoke-static { v$register }, $LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR->hideFloatingMicrophoneButton(Z)Z
+                        move-result v$register
+                    """,
                 )
             }
         }

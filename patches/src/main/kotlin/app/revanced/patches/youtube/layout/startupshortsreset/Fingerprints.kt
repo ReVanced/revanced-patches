@@ -5,7 +5,10 @@ import app.revanced.patcher.literal
 import app.revanced.patcher.string
 import com.android.tools.smali.dexlib2.AccessFlags
 
-internal val userWasInShortsFingerprint by fingerprint {
+/**
+ * Pre 20.02.
+ */
+internal val userWasInShortsLegacyFingerprint by fingerprint {
     returns("V")
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     parameters("Ljava/lang/Object;")

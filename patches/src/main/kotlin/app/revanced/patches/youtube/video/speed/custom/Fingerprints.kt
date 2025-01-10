@@ -1,6 +1,11 @@
 package app.revanced.patches.youtube.video.speed.custom
 
+import app.revanced.patcher.fieldAccess
 import app.revanced.patcher.fingerprint
+import app.revanced.patcher.literal
+import app.revanced.patcher.methodCall
+import app.revanced.patcher.newInstance
+import app.revanced.patcher.opcode
 import app.revanced.patcher.string
 import app.revanced.patches.shared.misc.mapping.resourceLiteral
 import com.android.tools.smali.dexlib2.AccessFlags
@@ -32,15 +37,14 @@ internal val speedArrayGeneratorFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
     returns("[L")
     parameters("Lcom/google/android/libraries/youtube/innertube/model/player/PlayerResponseModel;")
-    opcodes(
-        Opcode.IF_NEZ,
-        Opcode.SGET_OBJECT,
-        Opcode.GOTO_16,
-        Opcode.INVOKE_INTERFACE,
-        Opcode.MOVE_RESULT_OBJECT,
-        Opcode.IGET_OBJECT,
+    instructions(
+        methodCall(name = "size", returnType = "I"),
+        newInstance("Ljava/text/DecimalFormat;"),
+        string("0.0#"),
+        literal(7),
+        opcode(Opcode.NEW_ARRAY),
+        fieldAccess(definingClass = "/PlayerConfigModel;", type = "[F")
     )
-    strings("0.0#")
 }
 
 internal val speedLimiterFingerprint by fingerprint {

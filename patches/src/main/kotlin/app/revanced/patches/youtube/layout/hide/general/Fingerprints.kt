@@ -1,5 +1,6 @@
 package app.revanced.patches.youtube.layout.hide.general
 
+import app.revanced.patcher.checkCast
 import app.revanced.patcher.fingerprint
 import app.revanced.patcher.methodCall
 import app.revanced.patcher.opcode
@@ -111,10 +112,9 @@ internal val showFloatingMicrophoneButtonFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("V")
     parameters()
-    opcodes(
-        Opcode.IGET_BOOLEAN,
-        Opcode.IF_EQZ,
-        Opcode.RETURN_VOID,
+    instructions(
+        resourceLiteral("id", "fab"),
+        checkCast("/FloatingActionButton;", maxInstructionsBefore = 10),
+        opcode(Opcode.IGET_BOOLEAN, maxInstructionsBefore = 10)
     )
-    literal { fabButtonId }
 }
