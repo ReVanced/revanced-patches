@@ -1375,15 +1375,25 @@ Enabling this can unlock higher video qualities"</string>
         </patch>
         <patch id="video.quality.rememberVideoQualityPatch">
             <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
+            <string name="revanced_video_quality_screen_title">Video quality</string>
             <string name="revanced_video_quality_default_entry_1">Auto</string>
             <string name="revanced_remember_video_quality_last_selected_title">Remember video quality changes</string>
             <string name="revanced_remember_video_quality_last_selected_summary_on">Quality changes apply to all videos</string>
             <string name="revanced_remember_video_quality_last_selected_summary_off">Quality changes only apply to the current video</string>
             <string name="revanced_video_quality_default_wifi_title">Default video quality on Wi-Fi network</string>
             <string name="revanced_video_quality_default_mobile_title">Default video quality on mobile network</string>
+            <string name="revanced_video_quality_separate_shorts_title">Separate Shorts quality settings</string>
+            <string name="revanced_video_quality_separate_shorts_summary_on">Shorts quality settings are saved separately</string>
+            <string name="revanced_video_quality_separate_shorts_summary_off">Shorts and regular videos use the same settings</string>
+            <string name="revanced_remember_shorts_quality_last_selected_title">Remember Shorts quality changes</string>
+            <string name="revanced_remember_shorts_quality_last_selected_summary_on">Quality changes apply to all Shorts videos</string>
+            <string name="revanced_remember_shorts_quality_last_selected_summary_off">Quality changes only apply to the current Shorts video</string>
+            <string name="revanced_video_quality_default_wifi_shorts_title">Default Shorts quality on Wi-Fi network</string>
+            <string name="revanced_video_quality_default_mobile_shorts_title">Default Shorts quality on mobile network</string>
             <string name="revanced_remember_video_quality_mobile">mobile</string>
             <string name="revanced_remember_video_quality_wifi">wifi</string>
             <string name="revanced_remember_video_quality_toast">Changed default %1$s quality to: %2$s</string>
+            <string name="revanced_remember_video_quality_toast_shorts">Changed Shorts %1$s quality to: %2$s</string>
         </patch>
         <patch id="video.speed.button.playbackSpeedButtonPatch">
             <string name="revanced_playback_speed_dialog_button_title">Show speed dialog button</string>

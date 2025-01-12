@@ -8,8 +8,11 @@ import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.shared.misc.settings.preference.ListPreference
+import app.revanced.patches.shared.misc.settings.preference.PreferenceScreenPreference
+import app.revanced.patches.shared.misc.settings.preference.PreferenceScreenPreference.Sorting
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
+import app.revanced.patches.youtube.misc.playertype.playerTypeHookPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
 import app.revanced.patches.youtube.shared.newVideoQualityChangedFingerprint
@@ -29,6 +32,7 @@ val rememberVideoQualityPatch = bytecodePatch(
     dependsOn(
         sharedExtensionPatch,
         videoInformationPatch,
+        playerTypeHookPatch,
         settingsPatch,
         addResourcesPatch,
     )
@@ -49,19 +53,40 @@ val rememberVideoQualityPatch = bytecodePatch(
         addResources("youtube", "video.quality.rememberVideoQualityPatch")
 
         PreferenceScreen.VIDEO.addPreferences(
-            SwitchPreference("revanced_remember_video_quality_last_selected"),
-            ListPreference(
-                key = "revanced_video_quality_default_wifi",
+            PreferenceScreenPreference(
+                key = "revanced_video_quality_screen",
                 summaryKey = null,
-                entriesKey = "revanced_video_quality_default_entries",
-                entryValuesKey = "revanced_video_quality_default_entry_values",
-            ),
-            ListPreference(
-                key = "revanced_video_quality_default_mobile",
-                summaryKey = null,
-                entriesKey = "revanced_video_quality_default_entries",
-                entryValuesKey = "revanced_video_quality_default_entry_values",
-            ),
+                sorting = Sorting.UNSORTED,
+                preferences = setOf(
+                    SwitchPreference("revanced_remember_video_quality_last_selected"),
+                    ListPreference(
+                        key = "revanced_video_quality_default_wifi",
+                        summaryKey = null,
+                        entriesKey = "revanced_video_quality_default_entries",
+                        entryValuesKey = "revanced_video_quality_default_entry_values",
+                    ),
+                    ListPreference(
+                        key = "revanced_video_quality_default_mobile",
+                        summaryKey = null,
+                        entriesKey = "revanced_video_quality_default_entries",
+                        entryValuesKey = "revanced_video_quality_default_entry_values",
+                    ),
+                    SwitchPreference("revanced_video_quality_separate_shorts"),
+                    SwitchPreference("revanced_remember_shorts_quality_last_selected"),
+                    ListPreference(
+                        key = "revanced_video_quality_default_wifi_shorts",
+                        summaryKey = null,
+                        entriesKey = "revanced_video_quality_default_entries",
+                        entryValuesKey = "revanced_video_quality_default_entry_values",
+                    ),
+                    ListPreference(
+                        key = "revanced_video_quality_default_mobile_shorts",
+                        summaryKey = null,
+                        entriesKey = "revanced_video_quality_default_entries",
+                        entryValuesKey = "revanced_video_quality_default_entry_values",
+                    ),
+                )
+            )
         )
 
         /*

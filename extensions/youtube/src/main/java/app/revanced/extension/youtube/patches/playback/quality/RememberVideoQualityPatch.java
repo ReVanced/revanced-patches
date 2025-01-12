@@ -12,15 +12,20 @@ import java.util.List;
 
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
+import app.revanced.extension.shared.settings.BooleanSetting;
 import app.revanced.extension.shared.settings.IntegerSetting;
 import app.revanced.extension.youtube.patches.VideoInformation;
 import app.revanced.extension.youtube.settings.Settings;
+import app.revanced.extension.youtube.shared.PlayerType;
 
 @SuppressWarnings("unused")
 public class RememberVideoQualityPatch {
     private static final int AUTOMATIC_VIDEO_QUALITY_VALUE = -2;
     private static final IntegerSetting wifiQualitySetting = Settings.VIDEO_QUALITY_DEFAULT_WIFI;
     private static final IntegerSetting mobileQualitySetting = Settings.VIDEO_QUALITY_DEFAULT_MOBILE;
+    private static final BooleanSetting separateShortsQuality = Settings.VIDEO_QUALITY_SEPARATE_SHORTS;
+    private static final IntegerSetting wifiShortsQualitySetting = Settings.VIDEO_QUALITY_DEFAULT_WIFI_SHORTS;
+    private static final IntegerSetting mobileShortsQualitySetting = Settings.VIDEO_QUALITY_DEFAULT_MOBILE_SHORTS;
 
     private static boolean qualityNeedsUpdating;
 
@@ -41,17 +46,34 @@ public class RememberVideoQualityPatch {
     @Nullable
     private static List<Integer> videoQualities;
 
+    private static boolean shouldUseShortsPreference() {
+        return separateShortsQuality.get() && PlayerType.getCurrent().isNoneHiddenOrSlidingMinimized();
+    }
+
+    private static boolean shouldRememberVideoQuality() {
+        boolean useShortsPreference = shouldUseShortsPreference();
+        BooleanSetting preference = useShortsPreference ?
+                Settings.REMEMBER_SHORTS_QUALITY_LAST_SELECTED
+                : Settings.REMEMBER_VIDEO_QUALITY_LAST_SELECTED;
+        return preference.get();
+    }
+
     private static void changeDefaultQuality(int defaultQuality) {
         String networkTypeMessage;
+        boolean useShortsPreference = shouldUseShortsPreference();
         if (Utils.getNetworkType() == NetworkType.MOBILE) {
-            mobileQualitySetting.save(defaultQuality);
+            if (useShortsPreference) mobileShortsQualitySetting.save(defaultQuality);
+            else mobileQualitySetting.save(defaultQuality);
             networkTypeMessage = str("revanced_remember_video_quality_mobile");
         } else {
-            wifiQualitySetting.save(defaultQuality);
+            if (useShortsPreference) wifiShortsQualitySetting.save(defaultQuality);
+            else wifiQualitySetting.save(defaultQuality);
             networkTypeMessage = str("revanced_remember_video_quality_wifi");
         }
-        Utils.showToastShort(
-                str("revanced_remember_video_quality_toast", networkTypeMessage, (defaultQuality + "p")));
+        Utils.showToastShort(str(
+                useShortsPreference ? "revanced_remember_video_quality_toast_shorts" : "revanced_remember_video_quality_toast",
+                networkTypeMessage, (defaultQuality + "p")
+        ));
     }
 
     /**
@@ -62,9 +84,10 @@ public class RememberVideoQualityPatch {
      */
     public static int setVideoQuality(Object[] qualities, final int originalQualityIndex, Object qInterface, String qIndexMethod) {
         try {
+            boolean useShortsPreference = shouldUseShortsPreference();
             final int preferredQuality = Utils.getNetworkType() == NetworkType.MOBILE
-                    ? mobileQualitySetting.get()
-                    : wifiQualitySetting.get();
+                    ? (useShortsPreference ? mobileShortsQualitySetting : mobileQualitySetting).get()
+                    : (useShortsPreference ? wifiShortsQualitySetting : wifiQualitySetting).get();
 
             if (!userChangedDefaultQuality && preferredQuality == AUTOMATIC_VIDEO_QUALITY_VALUE) {
                 return originalQualityIndex; // Nothing to do.
@@ -141,7 +164,7 @@ public class RememberVideoQualityPatch {
      * Injection point.  Old quality menu.
      */
     public static void userChangedQuality(int selectedQualityIndex) {
-        if (!Settings.REMEMBER_VIDEO_QUALITY_LAST_SELECTED.get()) return;
+        if (!shouldRememberVideoQuality()) return;
 
         userSelectedQualityIndex = selectedQualityIndex;
         userChangedDefaultQuality = true;
@@ -151,7 +174,7 @@ public class RememberVideoQualityPatch {
      * Injection point.  New quality menu.
      */
     public static void userChangedQualityInNewFlyout(int selectedQuality) {
-        if (!Settings.REMEMBER_VIDEO_QUALITY_LAST_SELECTED.get()) return;
+        if (!shouldRememberVideoQuality()) return;
 
         changeDefaultQuality(selectedQuality); // Quality is human readable resolution (ie: 1080).
     }
