@@ -76,20 +76,20 @@ val navigationButtonsPatch = bytecodePatch(
         )
 
         // Switch create with notifications button.
-        addCreateButtonViewFingerprint.method.apply {
-            val stringIndex = addCreateButtonViewFingerprint.stringMatches.first().index
+        addCreateButtonViewFingerprint.let {
+            it.method.apply {
+                val conditionalCheckIndex = it.instructionMatches[1].index
+                val conditionRegister =
+                    getInstruction<OneRegisterInstruction>(conditionalCheckIndex).registerA
 
-            val conditionalCheckIndex = stringIndex - 1
-            val conditionRegister =
-                getInstruction<OneRegisterInstruction>(conditionalCheckIndex).registerA
-
-            addInstructions(
-                conditionalCheckIndex,
-                """
-                    invoke-static { }, $EXTENSION_CLASS_DESCRIPTOR->switchCreateWithNotificationButton()Z
-                    move-result v$conditionRegister
-                """,
-            )
+                addInstructions(
+                    conditionalCheckIndex,
+                    """
+                        invoke-static { }, $EXTENSION_CLASS_DESCRIPTOR->switchCreateWithNotificationButton()Z
+                        move-result v$conditionRegister
+                    """,
+                )
+            }
         }
 
         // Hide navigation button labels.

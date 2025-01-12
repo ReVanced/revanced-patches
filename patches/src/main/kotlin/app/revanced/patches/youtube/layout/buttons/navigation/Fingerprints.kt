@@ -5,11 +5,16 @@ import app.revanced.patcher.lastInstruction
 import app.revanced.patcher.literal
 import app.revanced.patcher.methodCall
 import app.revanced.patcher.opcode
+import app.revanced.patcher.string
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
 internal val addCreateButtonViewFingerprint by fingerprint {
-    strings("Android Automotive", "Android Wear")
+    instructions(
+        string("Android Wear"),
+        opcode(Opcode.IF_EQZ),
+        string("Android Automotive", maxInstructionsBefore = 0),
+    )
 }
 
 internal val createPivotBarFingerprint by fingerprint {
