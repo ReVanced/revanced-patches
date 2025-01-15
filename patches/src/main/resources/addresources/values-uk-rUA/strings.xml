@@ -1384,6 +1384,8 @@ AVC має максимальну роздільну здатність 1080p, �
   <string name="revanced_spoof_video_streams_about_android_summary">"• Меню звукової доріжки відсутнє
 • Меню стабілізації гучності недоступне
 • Примусове використання оригінальний звукової доріжки недоступне"</string>
+  <string name="revanced_spoof_video_streams_about_no_av1">• Відсутній відеокодек AV1</string>
+  <string name="revanced_spoof_video_streams_about_no_hdr">• Немає HDR відео</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Показувати у \"Статистиці для сисадмінів\"</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Тип клієнта відображається у вікні \"Статистика для сисадмінів\"</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Тип клієнта приховано у вікні \"Статистика для сисадмінів\"</string>

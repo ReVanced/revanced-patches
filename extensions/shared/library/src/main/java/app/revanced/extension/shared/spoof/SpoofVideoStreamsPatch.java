@@ -77,9 +77,9 @@ public class SpoofVideoStreamsPatch {
                 String path = originalUri.getPath();
 
                 if (path != null && path.contains("initplayback")) {
-                    Logger.printDebug(() -> "Blocking 'initplayback' by returning unreachable url");
+                    Logger.printDebug(() -> "Blocking 'initplayback' by clearing query");
 
-                    return UNREACHABLE_HOST_URI_STRING;
+                    return originalUri.buildUpon().clearQuery().build().toString();
                 }
             } catch (Exception ex) {
                 Logger.printException(() -> "blockInitPlaybackRequest failure", ex);
@@ -222,8 +222,8 @@ public class SpoofVideoStreamsPatch {
     public static final class AudioStreamLanguageOverrideAvailability implements Setting.Availability {
         @Override
         public boolean isAvailable() {
-            return !BaseSettings.SPOOF_VIDEO_STREAMS.get()
-                    || BaseSettings.SPOOF_VIDEO_STREAMS_CLIENT_TYPE.get() == ClientType.ANDROID_VR_NO_AUTH;
+            return BaseSettings.SPOOF_VIDEO_STREAMS.get()
+                    && BaseSettings.SPOOF_VIDEO_STREAMS_CLIENT_TYPE.get() == ClientType.ANDROID_VR_NO_AUTH;
         }
     }
 

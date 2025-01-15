@@ -1,3 +1,17 @@
+## [5.8.2-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.8.1...v5.8.2-dev.1) (2025-01-09)
+
+
+### Bug Fixes
+
+* **YouTube - Spoof video streams:** Resolve playback issues after changing from cellular to wifi ([#4277](https://github.com/ReVanced/revanced-patches/issues/4277)) ([e93e1c8](https://github.com/ReVanced/revanced-patches/commit/e93e1c8ec3367e941034e9c4e3725ec1db429a60))
+
+## [5.8.1](https://github.com/ReVanced/revanced-patches/compare/v5.8.0...v5.8.1) (2025-01-07)
+
+
+### Bug Fixes
+
+* **YouTube - Spoof video streams:** Add 'Android Creator' ([#4262](https://github.com/ReVanced/revanced-patches/issues/4262)) ([0479dd2](https://github.com/ReVanced/revanced-patches/commit/0479dd265e09b0accdf6ff6b00c8e938dc5b96c7))
+
 ## [5.8.1-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.8.0...v5.8.1-dev.1) (2025-01-06)
 
 

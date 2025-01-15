@@ -1385,6 +1385,8 @@ AVC има максимална резолюция от 1080p, Opus аудио �
   <string name="revanced_spoof_video_streams_about_android_summary">"• Lipsva menju za audio pisti
 • Ne e nali4na stabilna glasnost
 • Ne e nali4na forsirana originalna audio pista"</string>
+  <string name="revanced_spoof_video_streams_about_no_av1">• Без AV1 видео кодек</string>
+  <string name="revanced_spoof_video_streams_about_no_hdr">• Без HDR видео</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Poka6i v Statistiki za nerds</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Tipът na klienta se poka6va v Statistiki za nerds</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Klientът e skriт v Statistiki za nerds</string>

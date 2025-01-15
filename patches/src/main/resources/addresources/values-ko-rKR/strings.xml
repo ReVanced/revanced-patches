@@ -506,8 +506,8 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_swipe_threshold_title">스와이프 한계치</string>
   <string name="revanced_swipe_threshold_summary">제스처 인식을 위해 얼마나 스와이프를 해야 할지를 지정할 수 있으며, 원하지 않은 제스처 인식을 방지할 수 있습니다</string>
   <string name="revanced_swipe_change_video_title">스와이프 제스처로 동영상 전환 활성화하기</string>
-  <string name="revanced_swipe_change_video_summary_on">스와이프 제스처로 다음/이전 동영상으로 전환합니다</string>
-  <string name="revanced_swipe_change_video_summary_off">스와이프 제스처로 다음/이전 동영상으로 전환하지 않습니다</string>
+  <string name="revanced_swipe_change_video_summary_on">전체 화면 모드에서 위로/아래로 스와이프하여 다음/이전 동영상으로 전환합니다.</string>
+  <string name="revanced_swipe_change_video_summary_off">전체 화면 모드에서 위로/아래로 스와이프하여 다음/이전 동영상으로 전환하지 않습니다.</string>
   </patch>
   <patch id="layout.autocaptions.autoCaptionsPatch">
   <string name="revanced_auto_captions_title">자동 자막 비활성화하기</string>
@@ -1383,17 +1383,19 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요"</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">"이 설정를 활성화하면 배터리 수명이 향상되고, 동영상 재생 끊김 문제가 해결될 수 있습니다
 
 AVC의 최대 화질 값은 1080p이고, OPUS 코덱을 사용불가 및 HDR 동영상을 재생할 수 없으며, 동영상을 재생했을 경우에는 VP9 또는 AV1보다 더 많은 모바일 데이터를 사용되오니 주의하세요"</string>
-  <string name="revanced_spoof_video_streams_about_ios_tv_title">iOS TV로 변경에 따른 문제점</string>
+  <string name="revanced_spoof_video_streams_about_ios_tv_title">알려진 문제점</string>
   <string name="revanced_spoof_video_streams_about_ios_tv_summary">"• 영화 또는 유료 동영상이 재생되지 않을 수 있습니다.
 • 안정적인 볼륨을 사용할 수 없습니다
 • 동영상이 1초 일찍 종료될 수 있습니다"</string>
-  <string name="revanced_spoof_video_streams_about_android_title">Android 계열로 변경에 따른 문제점</string>
+  <string name="revanced_spoof_video_streams_about_android_title">알려진 문제점</string>
   <string name="revanced_spoof_video_streams_about_android_summary">"• 오디오 트랙 메뉴가 표시되지 않습니다
 • 안정적인 볼륨을 사용할 수 없습니다
 • 원본 오디오 트랙를 강제로 활성화할 수 없습니다."</string>
+  <string name="revanced_spoof_video_streams_about_no_av1">• AV1 코덱이 지원되지 않습니다</string>
+  <string name="revanced_spoof_video_streams_about_no_hdr">• HDR 동영상을 재생할 수 없습니다</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_title">통계에서 표시하기</string>
-  <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">전문 통계에서 기본 클라이언트가 표시됩니다</string>
-  <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">전문 통계에서 기본 클라이언트가 표시되지 않습니다</string>
+  <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">\'스트리밍 데이터를 가져오는 데 사용되는 클라이언트\'가 전문 통계에서 표시됩니다</string>
+  <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">\'스트리밍 데이터를 가져오는 데 사용되는 클라이언트\'가 전문 통계에서 표시되지 않습니다</string>
   <string name="revanced_spoof_video_streams_language_title">Android VR 기본 오디오 스트림 언어</string>
   </patch>
   </app>

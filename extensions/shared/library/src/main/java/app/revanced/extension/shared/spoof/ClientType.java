@@ -36,6 +36,20 @@ public enum ClientType {
             true,
             "Android TV"
     ),
+    // Cannot play livestreams and lacks HDR, but can play videos with music and labeled "for children".
+    ANDROID_CREATOR(
+            14,
+            "ANDROID_CREATOR",
+            Build.MANUFACTURER,
+            Build.MODEL,
+            "Android",
+            "11",
+            "com.google.android.apps.youtube.creator/24.45.100 (Linux; U; Android 11) gzip",
+            "30",
+            "24.45.100",
+            true,
+            "Android Creator"
+    ),
     ANDROID_VR(
             ANDROID_VR_NO_AUTH.id,
             ANDROID_VR_NO_AUTH.clientName,
@@ -76,19 +90,6 @@ public enum ClientType {
             forceAVC()
                     ? "iOS TV Force AVC"
                     : "iOS TV"
-    ),
-    ANDROID_CREATOR(
-            14,
-            "ANDROID_CREATOR",
-            Build.MANUFACTURER,
-            Build.MODEL,
-            "Android",
-            "11",
-            "com.google.android.apps.youtube.creator/24.45.100 (Linux; U; Android 11) gzip",
-            "30",
-            "24.45.100",
-            true,
-            "Android Creator"
     );
 
     private static boolean forceAVC() {
