@@ -6,13 +6,12 @@ import org.json.JSONObject;
 import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.util.Date;
+import java.util.Locale;
 import java.util.TimeZone;
 
 import app.revanced.extension.shared.Logger;
-import app.revanced.extension.shared.Utils;
 import app.revanced.extension.shared.requests.Requester;
 import app.revanced.extension.shared.requests.Route;
-import app.revanced.extension.shared.settings.AppLanguage;
 import app.revanced.extension.shared.settings.BaseSettings;
 import app.revanced.extension.shared.spoof.ClientType;
 
@@ -45,9 +44,9 @@ final class PlayerRoutes {
             // but if this is a fall over client it will set the language even though
             // the audio language is not selectable in the UI.
             ClientType userSelectedClient = BaseSettings.SPOOF_VIDEO_STREAMS_CLIENT_TYPE.get();
-            AppLanguage language = userSelectedClient == ClientType.ANDROID_VR_NO_AUTH
-                    ? BaseSettings.SPOOF_VIDEO_STREAMS_LANGUAGE.get()
-                    : AppLanguage.DEFAULT;
+            Locale streamLocale = userSelectedClient == ClientType.ANDROID_VR_NO_AUTH
+                    ? BaseSettings.SPOOF_VIDEO_STREAMS_LANGUAGE.get().getLocale()
+                    : Locale.getDefault();
 
             JSONObject client = new JSONObject();
             client.put("deviceMake", clientType.deviceMake);
@@ -65,8 +64,8 @@ final class PlayerRoutes {
                     client.put("chipset", clientType.chipset);
                 }
             }
-            client.put("hl", language.getLanguage());
-            client.put("gl", Utils.getContext().getResources().getConfiguration().locale.getCountry());
+            client.put("hl", streamLocale.getLanguage());
+            client.put("gl", streamLocale.getCountry());
             TimeZone zone = TimeZone.getDefault();
             client.put("timeZone", zone.getID());
             client.put("utcOffsetMinutes", zone.getOffset(new Date().getTime()) / 60000);
@@ -91,7 +90,9 @@ final class PlayerRoutes {
 
         connection.setRequestProperty("Content-Type", "application/json");
         connection.setRequestProperty("User-Agent", clientType.userAgent);
-        connection.setRequestProperty("X-YouTube-Client-Version", String.valueOf(clientType.id));
+        // Not a typo. "Client-Name" uses the client type id.
+        connection.setRequestProperty("X-YouTube-Client-Name", String.valueOf(clientType.id));
+        connection.setRequestProperty("X-YouTube-Client-Version", clientType.clientVersion);
 
         connection.setUseCaches(false);
         connection.setDoOutput(true);
