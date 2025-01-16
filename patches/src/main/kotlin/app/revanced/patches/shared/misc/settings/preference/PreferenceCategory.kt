@@ -9,6 +9,7 @@ import org.w3c.dom.Document
  * @param key The key of the preference. If null, other parameters must be specified.
  * @param titleKey The key of the preference title.
  * @param icon The preference icon resource name.
+ * @param layout Layout declaration.
  * @param tag The tag or full class name of the preference.
  * @param preferences The preferences in this category.
  */
@@ -17,9 +18,10 @@ open class PreferenceCategory(
     key: String? = null,
     titleKey: String = "${key}_title",
     icon: String? = null,
+    layout: String? = null,
     tag: String = "PreferenceCategory",
     val preferences: Set<BasePreference>
-) : BasePreference(key, titleKey, null, icon, tag) {
+) : BasePreference(key, titleKey, null, icon, layout, tag) {
 
     override fun serialize(ownerDocument: Document, resourceCallback: (BaseResource) -> Unit) =
         super.serialize(ownerDocument, resourceCallback).apply {

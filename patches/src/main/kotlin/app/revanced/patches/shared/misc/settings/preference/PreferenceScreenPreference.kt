@@ -10,6 +10,7 @@ import org.w3c.dom.Document
  * @param titleKey The key of the preference title.
  * @param summaryKey The key of the preference summary.
  * @param icon The preference icon resource name.
+ * @param layout Layout declaration.
  * @param sorting Sorting to use. If the sorting is not [Sorting.UNSORTED],
  *                then the key parameter will be modified to include the sort type.
  * @param tag The tag or full class name of the preference.
@@ -21,6 +22,7 @@ open class PreferenceScreenPreference(
     titleKey: String = "${key}_title",
     summaryKey: String? = "${key}_summary",
     icon: String? = null,
+    layout: String? = null,
     sorting: Sorting = Sorting.BY_TITLE,
     tag: String = "PreferenceScreen",
     val preferences: Set<BasePreference>,
@@ -30,7 +32,7 @@ open class PreferenceScreenPreference(
     // or adding new attributes to the attrs.xml file.
     // Since the key value is not currently used by the extensions,
     // for now it's much simpler to modify the key to include the sort parameter.
-) : BasePreference(if (sorting == Sorting.UNSORTED) key else (key + sorting.keySuffix), titleKey, summaryKey, icon, tag) {
+) : BasePreference(if (sorting == Sorting.UNSORTED) key else (key + sorting.keySuffix), titleKey, summaryKey, icon, layout, tag) {
     override fun serialize(ownerDocument: Document, resourceCallback: (BaseResource) -> Unit) =
         super.serialize(ownerDocument, resourceCallback).apply {
             preferences.forEach {

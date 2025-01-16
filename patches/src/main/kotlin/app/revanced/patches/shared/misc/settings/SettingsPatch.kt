@@ -28,7 +28,7 @@ fun settingsPatch (
  * @param preferences A set of preferences to add to the ReVanced fragment.
  */
 fun settingsPatch (
-    rootPreferences: List<Pair<IntentPreference, String>>? = null,
+    rootPreferences: List<Pair<BasePreference, String>>? = null,
     preferences: Set<BasePreference>,
 ) = resourcePatch {
     dependsOn(addResourcesPatch)

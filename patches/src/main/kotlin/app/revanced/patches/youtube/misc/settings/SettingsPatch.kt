@@ -51,15 +51,22 @@ private val settingsResourcePatch = resourcePatch {
                     summaryKey = null,
                     intent = newIntent("revanced_settings_intent"),
                 ) to "settings_fragment",
-                IntentPreference(
-                    titleKey = "revanced_settings_title",
-                    summaryKey = null,
-                    icon = "@drawable/revanced_settings_icon",
-                    intent = newIntent("revanced_settings_intent"),
+                PreferenceCategory(
+                    titleKey = "revanced_settings_category_title",
+                    layout = "@layout/preference_group_title",
+                    preferences = setOf(
+                        IntentPreference(
+                            titleKey = "revanced_settings_title",
+                            summaryKey = null,
+                            icon = "@drawable/revanced_settings_icon",
+                            layout = "@layout/preference_with_icon",
+                            intent = newIntent("revanced_settings_intent"),
+                        )
+                    )
                 ) to "settings_fragment_cairo",
             ),
-            preferences,
-        ),
+            preferences
+        )
     )
 
     execute {

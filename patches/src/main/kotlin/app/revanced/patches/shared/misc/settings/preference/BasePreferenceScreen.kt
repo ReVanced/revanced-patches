@@ -1,6 +1,7 @@
 package app.revanced.patches.shared.misc.settings.preference
 
 import app.revanced.patches.shared.misc.settings.preference.PreferenceScreenPreference.Sorting
+import org.checkerframework.checker.units.qual.m
 import java.io.Closeable
 
 abstract class BasePreferenceScreen(
@@ -25,10 +26,11 @@ abstract class BasePreferenceScreen(
         titleKey: String = "${key}_title",
         private val summaryKey: String? = "${key}_summary",
         icon: String? = null,
+        layout: String? = null,
         preferences: MutableSet<BasePreference> = mutableSetOf(),
         val categories: MutableSet<Category> = mutableSetOf(),
         private val sorting: Sorting = Sorting.BY_TITLE,
-    ) : BasePreferenceCollection(key, titleKey, icon, preferences) {
+    ) : BasePreferenceCollection(key, titleKey, icon, layout, preferences) {
 
         override fun transform(): PreferenceScreenPreference {
             return PreferenceScreenPreference(
@@ -36,6 +38,7 @@ abstract class BasePreferenceScreen(
                 titleKey,
                 summaryKey,
                 icon,
+                layout,
                 sorting,
                 // Screens and preferences are sorted at runtime by extension code,
                 // so title sorting uses the localized language in use.
@@ -59,8 +62,9 @@ abstract class BasePreferenceScreen(
             key: String? = null,
             titleKey: String = "${key}_title",
             icon: String? = null,
+            layout: String? = null,
             preferences: MutableSet<BasePreference> = mutableSetOf(),
-        ) : BasePreferenceCollection(key, titleKey, icon, preferences) {
+        ) : BasePreferenceCollection(key, titleKey, icon, layout, preferences) {
             override fun transform(): PreferenceCategory {
                 return PreferenceCategory(
                     key,
@@ -87,6 +91,7 @@ abstract class BasePreferenceScreen(
         val key: String? = null,
         val titleKey: String = "${key}_title",
         val icon: String? = null,
+        val layout: String? = null,
         val preferences: MutableSet<BasePreference> = mutableSetOf(),
     ) {
         abstract fun transform(): BasePreference
