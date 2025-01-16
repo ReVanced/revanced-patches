@@ -282,12 +282,12 @@ object PreferenceScreen : BasePreferenceScreen() {
         key = "revanced_settings_screen_03_feed",
         summaryKey = null,
     )
-    val PLAYER = Screen(
-        key = "revanced_settings_screen_04_player",
+    val GENERAL_LAYOUT = Screen(
+        key = "revanced_settings_screen_04_general",
         summaryKey = null,
     )
-    val GENERAL_LAYOUT = Screen(
-        key = "revanced_settings_screen_05_general",
+    val PLAYER = Screen(
+        key = "revanced_settings_screen_05_player",
         summaryKey = null,
     )
 
