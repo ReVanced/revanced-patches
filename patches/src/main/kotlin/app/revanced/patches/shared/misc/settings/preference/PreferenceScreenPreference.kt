@@ -25,8 +25,14 @@ open class PreferenceScreenPreference(
     layout: String? = null,
     sorting: Sorting = Sorting.BY_TITLE,
     tag: String = "PreferenceScreen",
-    preferences: Set<BasePreference>,
-) : PreferenceCategory(key, titleKey, summaryKey, icon, layout, sorting, tag, preferences) {
+    val preferences: Set<BasePreference>,
+    // Alternatively, instead of repurposing the key for sorting,
+    // an extra bundle parameter can be added to the preferences XML declaration.
+    // This would require bundling and referencing an additional XML file
+    // or adding new attributes to the attrs.xml file.
+    // Since the key value is not currently used by the extensions,
+    // for now it's much simpler to modify the key to include the sort parameter.
+) : BasePreference(sorting.appendSortType(key), titleKey, summaryKey, icon, layout, tag) {
     override fun serialize(ownerDocument: Document, resourceCallback: (BaseResource) -> Unit) =
         super.serialize(ownerDocument, resourceCallback).apply {
             preferences.forEach {
@@ -34,10 +40,8 @@ open class PreferenceScreenPreference(
             }
         }
 
-    // DEPRECATED TODO: move this to PreferenceCategory.
-
     /**
-     * How a PreferenceCategory should be sorted.
+     * How a PreferenceScreen should be sorted.
      */
     enum class Sorting(val keySuffix: String) {
         /**
@@ -53,7 +57,16 @@ open class PreferenceScreenPreference(
         /**
          * Unspecified sorting.
          */
-        UNSORTED("_sort_by_unsorted"),
+        UNSORTED("_sort_by_unsorted");
+
+        /**
+         * @return The key with this sort type appended to to the end,
+         *         or if key is null then null is returned.
+         */
+        fun appendSortType(key: String?): String? {
+            if (key == null) return null
+            if (this == UNSORTED) return key
+            return key + keySuffix
+        }
     }
 }
-

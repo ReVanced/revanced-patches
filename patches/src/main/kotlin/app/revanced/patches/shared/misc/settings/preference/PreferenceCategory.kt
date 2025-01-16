@@ -15,39 +15,15 @@ import org.w3c.dom.Document
  * @param preferences The preferences in this category.
  */
 @Suppress("MemberVisibilityCanBePrivate")
-open class PreferenceCategory protected constructor(
+open class PreferenceCategory(
     key: String? = null,
     titleKey: String = "${key}_title",
-    summaryKey: String? = "${key}_summary",
     icon: String? = null,
     layout: String? = null,
     sorting: Sorting = Sorting.BY_TITLE,
     tag: String = "PreferenceCategory",
     val preferences: Set<BasePreference>
-) : BasePreference(
-    // Alternatively, instead of repurposing the key for sorting,
-    // an extra bundle parameter can be added to the preferences XML declaration.
-    // This would require bundling and referencing an additional XML file
-    // or adding new attributes to the attrs.xml file.
-    // Since the key value is not currently used by the extensions,
-    // for now it's much simpler to modify the key to include the sort parameter.
-    if (sorting == Sorting.UNSORTED) key else (key + sorting.keySuffix),
-    titleKey,
-    summaryKey,
-    icon,
-    layout,
-    tag
-) {
-
-    constructor(
-        key: String? = null,
-        titleKey: String = "${key}_title",
-        icon: String? = null,
-        layout: String? = null,
-        sorting: Sorting = Sorting.BY_TITLE,
-        tag: String = "PreferenceCategory",
-        preferences: Set<BasePreference>
-    ) : this(key, titleKey, null, icon, layout, sorting, tag, preferences)
+) : BasePreference(sorting.appendSortType(key), titleKey, null, icon, layout, tag) {
 
     override fun serialize(ownerDocument: Document, resourceCallback: (BaseResource) -> Unit) =
         super.serialize(ownerDocument, resourceCallback).apply {

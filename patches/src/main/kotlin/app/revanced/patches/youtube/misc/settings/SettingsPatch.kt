@@ -298,8 +298,6 @@ object PreferenceScreen : BasePreferenceScreen() {
         summaryKey = null,
     )
 
-    // Don't sort, as related preferences are scattered apart.
-    // Can use title sorting after PreferenceCategory support is added.
     val SHORTS = Screen(
         key = "revanced_settings_screen_06_shorts",
         summaryKey = null,

@@ -69,6 +69,8 @@ abstract class BasePreferenceScreen(
                     key,
                     titleKey,
                     icon,
+                    layout,
+                    sorting,
                     preferences = preferences,
                 )
             }
