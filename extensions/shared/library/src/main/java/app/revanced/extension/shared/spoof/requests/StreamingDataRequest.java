@@ -120,7 +120,8 @@ public class StreamingDataRequest {
     }
 
     @Nullable
-    private static HttpURLConnection send(ClientType clientType, String videoId,
+    private static HttpURLConnection send(ClientType clientType,
+                                          String videoId,
                                           Map<String, String> playerHeaders,
                                           boolean showErrorToasts) {
         Objects.requireNonNull(clientType);
@@ -150,7 +151,7 @@ public class StreamingDataRequest {
                 }
             }
 
-            String innerTubeBody = String.format(PlayerRoutes.createInnertubeBody(clientType), videoId);
+            String innerTubeBody = PlayerRoutes.createInnertubeBody(clientType, videoId);
             byte[] requestBody = innerTubeBody.getBytes(StandardCharsets.UTF_8);
             connection.setFixedLengthStreamingMode(requestBody.length);
             connection.getOutputStream().write(requestBody);

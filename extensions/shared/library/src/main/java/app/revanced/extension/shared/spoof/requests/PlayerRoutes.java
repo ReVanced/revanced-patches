@@ -5,12 +5,15 @@ import org.json.JSONObject;
 
 import java.io.IOException;
 import java.net.HttpURLConnection;
+import java.util.Date;
+import java.util.TimeZone;
 
 import app.revanced.extension.shared.Logger;
+import app.revanced.extension.shared.Utils;
 import app.revanced.extension.shared.requests.Requester;
 import app.revanced.extension.shared.requests.Route;
-import app.revanced.extension.shared.settings.BaseSettings;
 import app.revanced.extension.shared.settings.AppLanguage;
+import app.revanced.extension.shared.settings.BaseSettings;
 import app.revanced.extension.shared.spoof.ClientType;
 
 final class PlayerRoutes {
@@ -31,7 +34,7 @@ final class PlayerRoutes {
     private PlayerRoutes() {
     }
 
-    static String createInnertubeBody(ClientType clientType) {
+    static String createInnertubeBody(ClientType clientType, String videoId) {
         JSONObject innerTubeBody = new JSONObject();
 
         try {
@@ -47,22 +50,32 @@ final class PlayerRoutes {
                     : AppLanguage.DEFAULT;
 
             JSONObject client = new JSONObject();
-            client.put("hl", language.getLanguage());
-            client.put("clientName", clientType.clientName);
-            client.put("clientVersion", clientType.clientVersion);
             client.put("deviceMake", clientType.deviceMake);
             client.put("deviceModel", clientType.deviceModel);
+            client.put("clientName", clientType.clientName);
+            client.put("clientVersion", clientType.clientVersion);
             client.put("osName", clientType.osName);
             client.put("osVersion", clientType.osVersion);
             if (clientType.androidSdkVersion != null) {
                 client.put("androidSdkVersion", clientType.androidSdkVersion);
+                if (clientType.gmscoreVersionCode != null) {
+                    client.put("gmscoreVersionCode", clientType.gmscoreVersionCode);
+                }
+                if (clientType.chipset != null) {
+                    client.put("chipset", clientType.chipset);
+                }
             }
+            client.put("hl", language.getLanguage());
+            client.put("gl", Utils.getContext().getResources().getConfiguration().locale.getCountry());
+            TimeZone zone = TimeZone.getDefault();
+            client.put("timeZone", zone.getID());
+            client.put("utcOffsetMinutes", zone.getOffset(new Date().getTime()) / 60000);
             context.put("client", client);
 
             innerTubeBody.put("context", context);
             innerTubeBody.put("contentCheckOk", true);
             innerTubeBody.put("racyCheckOk", true);
-            innerTubeBody.put("videoId", "%s");
+            innerTubeBody.put("videoId", videoId);
         } catch (JSONException e) {
             Logger.printException(() -> "Failed to create innerTubeBody", e);
         }
