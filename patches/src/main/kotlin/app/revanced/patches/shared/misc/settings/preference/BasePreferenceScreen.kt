@@ -1,7 +1,6 @@
 package app.revanced.patches.shared.misc.settings.preference
 
 import app.revanced.patches.shared.misc.settings.preference.PreferenceScreenPreference.Sorting
-import org.checkerframework.checker.units.qual.m
 import java.io.Closeable
 
 abstract class BasePreferenceScreen(
