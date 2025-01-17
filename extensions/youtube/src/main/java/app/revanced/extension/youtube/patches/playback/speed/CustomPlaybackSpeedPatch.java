@@ -33,6 +33,11 @@ public class CustomPlaybackSpeedPatch {
     public static final float PLAYBACK_SPEED_MAXIMUM = 8;
 
     /**
+     * Tap and hold speed.
+     */
+    private static final float TAP_AND_HOLD_SPEED;
+
+    /**
      * Custom playback speeds.
      */
     public static float[] customPlaybackSpeeds;
@@ -48,7 +53,23 @@ public class CustomPlaybackSpeedPatch {
     private static String[] preferenceListEntries, preferenceListEntryValues;
 
     static {
+        final float holdSpeed = Settings.SPEED_TAP_AND_HOLD.get();
+        if (holdSpeed > 0 && holdSpeed <= PLAYBACK_SPEED_MAXIMUM) {
+            TAP_AND_HOLD_SPEED = holdSpeed;
+        } else {
+            Settings.SPEED_TAP_AND_HOLD.resetToDefault();
+            TAP_AND_HOLD_SPEED = Settings.SPEED_TAP_AND_HOLD.get();
+            Utils.showToastLong(str("revanced_speed_tap_and_hold_invalid_toast"));
+        }
+
         loadCustomSpeeds();
+    }
+
+    /**
+     * Injection point.
+     */
+    public static float tapAndHoldSpeed() {
+        return TAP_AND_HOLD_SPEED;
     }
 
     private static void resetCustomSpeeds(@NonNull String toastMessage) {
