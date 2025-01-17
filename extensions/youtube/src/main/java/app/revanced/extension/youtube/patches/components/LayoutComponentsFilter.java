@@ -106,7 +106,8 @@ public final class LayoutComponentsFilter extends Filter {
         inFeedSurvey = new StringFilterGroup(
                 Settings.HIDE_FEED_SURVEY,
                 "in_feed_survey",
-                "slimline_survey"
+                "slimline_survey",
+                "feed_nudge"
         );
 
         final var medicalPanel = new StringFilterGroup(
