@@ -51,7 +51,15 @@ public class LicenseActivityHook {
         if (!VersionCheckPatch.IS_19_34_OR_GREATER) {
             return false;
         }
-        return !Settings.RESTORE_OLD_SETTINGS_MENUS.get();
+        if (Settings.RESTORE_OLD_SETTINGS_MENUS.get()) {
+            return false;
+        }
+
+        // On the first launch of a clean install, forcing the cairo menu can give a
+        // half broken appearance because all the preference icons may not be available yet.
+        // 19.34+ cairo settings are always on, so it doesn't need to be forced anyway.
+        // Cairo setting will show on the next launch of the app.
+        return original;
     }
 
     /**
