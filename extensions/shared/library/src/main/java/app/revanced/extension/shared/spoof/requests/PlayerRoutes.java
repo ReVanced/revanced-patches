@@ -5,9 +5,7 @@ import org.json.JSONObject;
 
 import java.io.IOException;
 import java.net.HttpURLConnection;
-import java.util.Date;
 import java.util.Locale;
-import java.util.TimeZone;
 
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.requests.Requester;
@@ -57,18 +55,9 @@ final class PlayerRoutes {
             client.put("osVersion", clientType.osVersion);
             if (clientType.androidSdkVersion != null) {
                 client.put("androidSdkVersion", clientType.androidSdkVersion);
-                if (clientType.gmscoreVersionCode != null) {
-                    client.put("gmscoreVersionCode", clientType.gmscoreVersionCode);
-                }
-                if (clientType.chipset != null) {
-                    client.put("chipset", clientType.chipset);
-                }
             }
             client.put("hl", streamLocale.getLanguage());
             client.put("gl", streamLocale.getCountry());
-            TimeZone zone = TimeZone.getDefault();
-            client.put("timeZone", zone.getID());
-            client.put("utcOffsetMinutes", zone.getOffset(new Date().getTime()) / 60000);
             context.put("client", client);
 
             innerTubeBody.put("context", context);

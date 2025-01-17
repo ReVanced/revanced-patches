@@ -5,6 +5,7 @@ import android.os.Build;
 import androidx.annotation.Nullable;
 
 import java.util.Locale;
+import java.util.Objects;
 
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.settings.BaseSettings;
@@ -17,13 +18,13 @@ public enum ClientType {
             "com.google.android.apps.youtube.vr.oculus",
             "Oculus",
             "Quest 3",
-            "Qualcomm;SXR2230P",
-            null,
             "Android",
             "12",
-            "32", // Android 12.1
+            // Android 12.1
+            "32",
             "SQ3A.220605.009.A1",
-            "1.56.21",
+            "1.61.48",
+            "132.0.6808.3",
             false,
             "Android VR No auth"
     ),
@@ -35,13 +36,12 @@ public enum ClientType {
             "com.google.android.apps.youtube.unplugged",
             "Google",
             "Google TV Streamer",
-            "Mediatek;MT8696",
-            "244336107",
             "Android",
             "14",
             "34",
             "UTT3.240625.001.K5",
             "8.49.0",
+            "132.0.6808.3",
             true,
             "Android TV"
     ),
@@ -54,13 +54,12 @@ public enum ClientType {
             "com.google.android.apps.youtube.creator",
             "Google",
             "Pixel 9 Pro Fold",
-            "Google;Tensor G4",
-            "244738035",
             "Android",
             "15",
             "35",
             "AP3A.241005.015.A2",
             "23.47.101",
+            "132.0.6779.0",
             true,
             "Android Creator"
     ),
@@ -70,13 +69,12 @@ public enum ClientType {
             ANDROID_VR_NO_AUTH.packageName,
             ANDROID_VR_NO_AUTH.deviceMake,
             ANDROID_VR_NO_AUTH.deviceModel,
-            ANDROID_VR_NO_AUTH.chipset,
-            ANDROID_VR_NO_AUTH.gmscoreVersionCode,
             ANDROID_VR_NO_AUTH.osName,
             ANDROID_VR_NO_AUTH.osVersion,
             ANDROID_VR_NO_AUTH.androidSdkVersion,
             ANDROID_VR_NO_AUTH.buildId,
             ANDROID_VR_NO_AUTH.clientVersion,
+            ANDROID_VR_NO_AUTH.cronetVersion,
             true,
             "Android VR"
     ),
@@ -86,24 +84,26 @@ public enum ClientType {
             "com.google.ios.youtubeunplugged",
             "Apple",
             forceAVC()
-                    ? "iPhone12,5"  // 11 Pro Max (last device with iOS 13)
-                    : "iPhone16,2", // 15 Pro Max
-            null,
-            null,
+                    // 11 Pro Max (last device with iOS 13)
+                    ? "iPhone12,5"
+                    // 15 Pro Max
+                    : "iPhone16,2",
             "iOS",
             // iOS 13 and earlier uses only AVC. 14+ adds VP9 and AV1.
+            // Some newer versions can also force AVC,
+            // but 6.45 is the last version that supports iOS 13.
             forceAVC()
-                    ? "13.7.17H35" // Last release of iOS 13.
+                    // Last release of iOS 13.
+                    ? "13.7.17H35"
                     : "18.2.22C152",
             null,
             null,
             // Version number should be a valid iOS release.
             // https://www.ipa4fun.com/history/152043/
-            // Some newer versions can also force AVC,
-            // but 6.45 is the last version that supports iOS 13.
             forceAVC()
                     ? "6.45"
                     : "8.49",
+            null,
             true,
             forceAVC()
                     ? "iOS TV Force AVC"
@@ -128,6 +128,11 @@ public enum ClientType {
     public final String packageName;
 
     /**
+     * Player user-agent.
+     */
+    public final String userAgent;
+
+    /**
      * Device model, equivalent to {@link Build#MANUFACTURER} (System property: ro.product.vendor.manufacturer)
      */
     public final String deviceMake;
@@ -138,20 +143,6 @@ public enum ClientType {
     public final String deviceModel;
 
     /**
-     * Android chipset.
-     * Field is null if not applicable.
-     */
-    @Nullable
-    public final String chipset;
-
-    /**
-     * GmsCore versionCode.
-     * Field is null if not applicable.
-     */
-    @Nullable
-    public final String gmscoreVersionCode; // JSON field does not use 'gmsCore' casing.
-
-    /**
      * Device OS name.
      */
     public final String osName;
@@ -160,11 +151,6 @@ public enum ClientType {
      * Device OS version.
      */
     public final String osVersion;
-
-    /**
-     * Player user-agent.
-     */
-    public final String userAgent;
 
     /**
      * Android SDK version, equivalent to {@link Build.VERSION#SDK} (System property: ro.build.version.sdk)
@@ -186,6 +172,13 @@ public enum ClientType {
     public final String clientVersion;
 
     /**
+     * Cronet release version, as found in decompiled client apk.
+     * Field is null if not applicable.
+     */
+    @Nullable
+    public final String cronetVersion;
+
+    /**
      * If the client can access the API logged in.
      */
     public final boolean canLogin;
@@ -201,13 +194,11 @@ public enum ClientType {
                String packageName,
                String deviceMake,
                String deviceModel,
-               @Nullable String chipset,
-               @Nullable String gmscoreVersionCode,
-               String osName,
-               String osVersion,
+               String osName, String osVersion,
                @Nullable String androidSdkVersion,
                @Nullable String buildId,
                String clientVersion,
+               @Nullable String cronetVersion,
                boolean canLogin,
                String friendlyName) {
         this.id = id;
@@ -215,30 +206,31 @@ public enum ClientType {
         this.packageName = packageName;
         this.deviceMake = deviceMake;
         this.deviceModel = deviceModel;
-        this.chipset = chipset;
-        this.gmscoreVersionCode = gmscoreVersionCode;
         this.osName = osName;
         this.osVersion = osVersion;
         this.androidSdkVersion = androidSdkVersion;
         this.buildId = buildId;
+        this.clientVersion = clientVersion;
+        this.cronetVersion = cronetVersion;
+        this.canLogin = canLogin;
+        this.friendlyName = friendlyName;
+
         Locale defaultLocale = Locale.getDefault();
-        if (androidSdkVersion != null) {
-            // https://whatmyuseragent.com/apps/youtube
-            this.userAgent = packageName + "/" + clientVersion + "(Linux; U; Android " + osVersion + "; "
-                    + defaultLocale + "; " + deviceModel + " " + "Build/" + buildId + ") gzip";
-        } else {
-            // https://github.com/mitmproxy/mitmproxy/issues/4836
+        if (androidSdkVersion == null) {
             // Convert version from '18.2.22C152' into '18_2_22'
             String userAgentOsVersion = osVersion
                     .replaceAll("(\\d+\\.\\d+\\.\\d+).*", "$1")
                     .replace(".", "_");
-            this.userAgent = packageName + "/" + clientVersion + "(" + deviceModel + "; U; CPU " +
-                    userAgentOsVersion + " like Mac OS X; " + defaultLocale + ")";
+            // https://github.com/mitmproxy/mitmproxy/issues/4836
+            this.userAgent = packageName + "/" + clientVersion + " (" + deviceModel + "; U; CPU iOS "
+                    + userAgentOsVersion + " like Mac OS X; " + defaultLocale + ")";
+        } else {
+            Objects.requireNonNull(buildId);
+            Objects.requireNonNull(cronetVersion);
+            this.userAgent = packageName + "/" + clientVersion + " (Linux; U; Android " + osVersion + "; "
+                    + defaultLocale + "; " + deviceModel + "; Build/" + buildId + "; Cronet/" + cronetVersion +")";
         }
-        Logger.printDebug(() -> "user agent: " + this.userAgent);
-        this.clientVersion = clientVersion;
-        this.canLogin = canLogin;
-        this.friendlyName = friendlyName;
+        Logger.printDebug(() -> "userAgent: " + this.userAgent);
     }
 
 }
