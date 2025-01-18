@@ -36,6 +36,7 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import com.android.tools.smali.dexlib2.immutable.ImmutableField
 
 internal var speedUnavailableId = -1L
+    private set
 
 private val customPlaybackSpeedResourcePatch = resourcePatch {
     dependsOn(resourceMappingPatch)
