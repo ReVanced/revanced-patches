@@ -33,6 +33,11 @@ public class CustomPlaybackSpeedPatch {
     public static final float PLAYBACK_SPEED_MAXIMUM = 8;
 
     /**
+     * Tap and hold speed.
+     */
+    private static final float TAP_AND_HOLD_SPEED;
+
+    /**
      * Custom playback speeds.
      */
     public static float[] customPlaybackSpeeds;
@@ -48,12 +53,27 @@ public class CustomPlaybackSpeedPatch {
     private static String[] preferenceListEntries, preferenceListEntryValues;
 
     static {
+        final float holdSpeed = Settings.SPEED_TAP_AND_HOLD.get();
+        if (holdSpeed > 0 && holdSpeed <= PLAYBACK_SPEED_MAXIMUM) {
+            TAP_AND_HOLD_SPEED = holdSpeed;
+        } else {
+            showInvalidCustomSpeedToast();
+            Settings.SPEED_TAP_AND_HOLD.resetToDefault();
+            TAP_AND_HOLD_SPEED = Settings.SPEED_TAP_AND_HOLD.get();
+        }
+
         loadCustomSpeeds();
     }
 
-    private static void resetCustomSpeeds(@NonNull String toastMessage) {
-        Utils.showToastLong(toastMessage);
-        Settings.CUSTOM_PLAYBACK_SPEEDS.resetToDefault();
+    /**
+     * Injection point.
+     */
+    public static float tapAndHoldSpeed() {
+        return TAP_AND_HOLD_SPEED;
+    }
+
+    private static void showInvalidCustomSpeedToast() {
+        Utils.showToastLong(str("revanced_custom_playback_speeds_invalid", PLAYBACK_SPEED_MAXIMUM));
     }
 
     private static void loadCustomSpeeds() {
@@ -74,17 +94,18 @@ public class CustomPlaybackSpeedPatch {
                 }
 
                 if (speedFloat >= PLAYBACK_SPEED_MAXIMUM) {
-                    resetCustomSpeeds(str("revanced_custom_playback_speeds_invalid", PLAYBACK_SPEED_MAXIMUM));
+                    showInvalidCustomSpeedToast();
+                    Settings.CUSTOM_PLAYBACK_SPEEDS.resetToDefault();
                     loadCustomSpeeds();
                     return;
                 }
 
-                customPlaybackSpeeds[i] = speedFloat;
-                i++;
+                customPlaybackSpeeds[i++] = speedFloat;
             }
         } catch (Exception ex) {
             Logger.printInfo(() -> "parse error", ex);
-            resetCustomSpeeds(str("revanced_custom_playback_speeds_parse_exception"));
+            Utils.showToastLong(str("revanced_custom_playback_speeds_parse_exception"));
+            Settings.CUSTOM_PLAYBACK_SPEEDS.resetToDefault();
             loadCustomSpeeds();
         }
     }
