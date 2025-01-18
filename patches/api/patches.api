@@ -660,6 +660,7 @@ public class app/revanced/patches/shared/misc/settings/preference/BasePreference
 
 public final class app/revanced/patches/shared/misc/settings/preference/InputType : java/lang/Enum {
 	public static final field NUMBER Lapp/revanced/patches/shared/misc/settings/preference/InputType;
+	public static final field NUMBER_DECIMAL Lapp/revanced/patches/shared/misc/settings/preference/InputType;
 	public static final field TEXT Lapp/revanced/patches/shared/misc/settings/preference/InputType;
 	public static final field TEXT_CAP_CHARACTERS Lapp/revanced/patches/shared/misc/settings/preference/InputType;
 	public static final field TEXT_MULTI_LINE Lapp/revanced/patches/shared/misc/settings/preference/InputType;

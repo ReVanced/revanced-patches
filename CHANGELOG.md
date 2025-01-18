@@ -1,3 +1,10 @@
+# [5.9.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.8.2-dev.1...v5.9.0-dev.1) (2025-01-17)
+
+
+### Features
+
+* **YouTube - Hide feed components:** Handle new type of surveys ([#4295](https://github.com/ReVanced/revanced-patches/issues/4295)) ([c770e03](https://github.com/ReVanced/revanced-patches/commit/c770e03f3801367cb531af860fbdfa43dca89af0))
+
 ## [5.8.2-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.8.1...v5.8.2-dev.1) (2025-01-09)
 
 
