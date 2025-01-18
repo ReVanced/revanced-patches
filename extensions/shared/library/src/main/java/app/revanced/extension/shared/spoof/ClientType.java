@@ -23,8 +23,8 @@ public enum ClientType {
             // Android 12.1
             "32",
             "SQ3A.220605.009.A1",
-            "1.61.48",
             "132.0.6808.3",
+            "1.61.48",
             false,
             "Android VR No auth"
     ),
@@ -40,8 +40,8 @@ public enum ClientType {
             "14",
             "34",
             "UTT3.240625.001.K5",
-            "8.49.0",
             "132.0.6808.3",
+            "8.49.0",
             true,
             "Android TV"
     ),
@@ -58,8 +58,8 @@ public enum ClientType {
             "15",
             "35",
             "AP3A.241005.015.A2",
-            "23.47.101",
             "132.0.6779.0",
+            "23.47.101",
             true,
             "Android Creator"
     ),
@@ -73,8 +73,8 @@ public enum ClientType {
             ANDROID_VR_NO_AUTH.osVersion,
             ANDROID_VR_NO_AUTH.androidSdkVersion,
             ANDROID_VR_NO_AUTH.buildId,
-            ANDROID_VR_NO_AUTH.clientVersion,
             ANDROID_VR_NO_AUTH.cronetVersion,
+            ANDROID_VR_NO_AUTH.clientVersion,
             true,
             "Android VR"
     ),
@@ -89,21 +89,20 @@ public enum ClientType {
                     // 15 Pro Max
                     : "iPhone16,2",
             "iOS",
-            // iOS 13 and earlier uses only AVC. 14+ adds VP9 and AV1.
-            // Some newer versions can also force AVC,
-            // but 6.45 is the last version that supports iOS 13.
             forceAVC()
-                    // Last release of iOS 13.
+                    // iOS 13 and earlier uses only AVC. 14+ adds VP9 and AV1.
                     ? "13.7.17H35"
                     : "18.2.22C152",
+            null,
             null,
             null,
             // Version number should be a valid iOS release.
             // https://www.ipa4fun.com/history/152043/
             forceAVC()
+                    // Some newer versions can also force AVC,
+                    // but 6.45 is the last version that supports iOS 13.
                     ? "6.45"
                     : "8.49",
-            null,
             true,
             forceAVC()
                     ? "iOS TV Force AVC"
@@ -167,16 +166,16 @@ public enum ClientType {
     public final String buildId;
 
     /**
-     * App version.
-     */
-    public final String clientVersion;
-
-    /**
      * Cronet release version, as found in decompiled client apk.
      * Field is null if not applicable.
      */
     @Nullable
     public final String cronetVersion;
+
+    /**
+     * App version.
+     */
+    public final String clientVersion;
 
     /**
      * If the client can access the API logged in.
@@ -197,8 +196,8 @@ public enum ClientType {
                String osName, String osVersion,
                @Nullable String androidSdkVersion,
                @Nullable String buildId,
-               String clientVersion,
                @Nullable String cronetVersion,
+               String clientVersion,
                boolean canLogin,
                String friendlyName) {
         this.id = id;
@@ -210,8 +209,8 @@ public enum ClientType {
         this.osVersion = osVersion;
         this.androidSdkVersion = androidSdkVersion;
         this.buildId = buildId;
-        this.clientVersion = clientVersion;
         this.cronetVersion = cronetVersion;
+        this.clientVersion = clientVersion;
         this.canLogin = canLogin;
         this.friendlyName = friendlyName;
 
