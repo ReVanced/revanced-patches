@@ -1355,6 +1355,8 @@ Enabling this can unlock higher video qualities"</string>
             <string name="revanced_custom_playback_speeds_invalid">Custom speeds must be less than %s</string>
             <string name="revanced_custom_playback_speeds_parse_exception">Invalid custom playback speeds</string>
             <string name="revanced_custom_playback_speeds_auto">Auto</string>
+            <string name="revanced_speed_tap_and_hold_title">Custom tap and hold speed</string>
+            <string name="revanced_speed_tap_and_hold_summary">Playback speed between 0-8</string>
         </patch>
         <patch id="video.speed.remember.rememberPlaybackSpeedPatch">
             <string name="revanced_remember_playback_speed_last_selected_title">Remember playback speed changes</string>

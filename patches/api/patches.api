@@ -667,6 +667,7 @@ public class app/revanced/patches/shared/misc/settings/preference/BasePreference
 
 public final class app/revanced/patches/shared/misc/settings/preference/InputType : java/lang/Enum {
 	public static final field NUMBER Lapp/revanced/patches/shared/misc/settings/preference/InputType;
+	public static final field NUMBER_DECIMAL Lapp/revanced/patches/shared/misc/settings/preference/InputType;
 	public static final field TEXT Lapp/revanced/patches/shared/misc/settings/preference/InputType;
 	public static final field TEXT_CAP_CHARACTERS Lapp/revanced/patches/shared/misc/settings/preference/InputType;
 	public static final field TEXT_MULTI_LINE Lapp/revanced/patches/shared/misc/settings/preference/InputType;
@@ -1451,10 +1452,6 @@ public final class app/revanced/patches/youtube/video/speed/PlaybackSpeedPatchKt
 
 public final class app/revanced/patches/youtube/video/speed/button/PlaybackSpeedButtonPatchKt {
 	public static final fun getPlaybackSpeedButtonPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
-}
-
-public final class app/revanced/patches/youtube/video/speed/custom/CustomPlaybackSpeedPatchKt {
-	public static final fun getSpeedUnavailableId ()J
 }
 
 public final class app/revanced/patches/youtube/video/videoid/VideoIdPatchKt {
