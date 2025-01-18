@@ -17,22 +17,26 @@ import app.revanced.patches.shared.misc.mapping.resourceMappings
 import app.revanced.patches.shared.misc.settings.preference.InputType
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.shared.misc.settings.preference.TextPreference
+import app.revanced.patches.youtube.interaction.seekbar.disableFastForwardNoticeFingerprint
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.litho.filter.addLithoFilter
 import app.revanced.patches.youtube.misc.litho.filter.lithoFilterPatch
+import app.revanced.patches.youtube.misc.playservice.is_19_25_or_greater
+import app.revanced.patches.youtube.misc.playservice.versionCheckPatch
 import app.revanced.patches.youtube.misc.recyclerviewtree.hook.addRecyclerViewTreeHook
 import app.revanced.patches.youtube.misc.recyclerviewtree.hook.recyclerViewTreeHookPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
 import app.revanced.util.*
 import com.android.tools.smali.dexlib2.AccessFlags
+import com.android.tools.smali.dexlib2.iface.instruction.NarrowLiteralInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import com.android.tools.smali.dexlib2.immutable.ImmutableField
 
-var speedUnavailableId = -1L
-    internal set
+internal var speedUnavailableId = -1L
+    private set
 
 private val customPlaybackSpeedResourcePatch = resourcePatch {
     dependsOn(resourceMappingPatch)
@@ -61,6 +65,7 @@ internal val customPlaybackSpeedPatch = bytecodePatch(
         recyclerViewTreeHookPatch,
         customPlaybackSpeedResourcePatch,
         addResourcesPatch,
+        versionCheckPatch
     )
 
     execute {
@@ -70,6 +75,12 @@ internal val customPlaybackSpeedPatch = bytecodePatch(
             SwitchPreference("revanced_custom_speed_menu"),
             TextPreference("revanced_custom_playback_speeds", inputType = InputType.TEXT_MULTI_LINE),
         )
+
+        if (is_19_25_or_greater) {
+            PreferenceScreen.VIDEO.addPreferences(
+                TextPreference("revanced_speed_tap_and_hold", inputType = InputType.NUMBER_DECIMAL),
+            )
+        }
 
         // Replace the speeds float array with custom speeds.
         speedArrayGeneratorFingerprint.method.apply {
@@ -164,6 +175,28 @@ internal val customPlaybackSpeedPatch = bytecodePatch(
 
         // Required to check if the playback speed menu is currently shown.
         addLithoFilter(FILTER_CLASS_DESCRIPTOR)
+
+        // endregion
+
+
+        // region Custom tap and hold 2x speed.
+
+        if (is_19_25_or_greater) {
+            disableFastForwardNoticeFingerprint.method.apply {
+                val index = indexOfFirstInstructionOrThrow {
+                    (this as? NarrowLiteralInstruction)?.narrowLiteral == 2.0f.toRawBits()
+                }
+                val register = getInstruction<OneRegisterInstruction>(index).registerA
+
+                addInstructions(
+                    index + 1,
+                    """
+                        invoke-static {}, $EXTENSION_CLASS_DESCRIPTOR->tapAndHoldSpeed()F
+                        move-result v$register
+                    """
+                )
+            }
+        }
 
         // endregion
     }
