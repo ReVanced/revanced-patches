@@ -1,3 +1,10 @@
+# [5.9.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.9.0-dev.1...v5.9.0-dev.2) (2025-01-18)
+
+
+### Features
+
+* **YouTube - Playback speed:** Add option to change 2x tap and hold speed ([#4307](https://github.com/ReVanced/revanced-patches/issues/4307)) ([02fb26e](https://github.com/ReVanced/revanced-patches/commit/02fb26e9458fb8635d497e6e78f964055244d738))
+
 # [5.9.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.8.2-dev.1...v5.9.0-dev.1) (2025-01-17)
 
 
