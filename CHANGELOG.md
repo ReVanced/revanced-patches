@@ -1,3 +1,10 @@
+# [5.9.0-dev.3](https://github.com/ReVanced/revanced-patches/compare/v5.9.0-dev.2...v5.9.0-dev.3) (2025-01-19)
+
+
+### Features
+
+* **YouTube - Settings:** Add option to use new Cairo settings menus ([#4305](https://github.com/ReVanced/revanced-patches/issues/4305)) ([7b8a2a2](https://github.com/ReVanced/revanced-patches/commit/7b8a2a2721ab5351f8c0251401aceddf0c5327df))
+
 # [5.9.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.9.0-dev.1...v5.9.0-dev.2) (2025-01-18)
 
 
