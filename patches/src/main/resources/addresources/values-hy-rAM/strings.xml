@@ -1340,6 +1340,8 @@ Mini-player-ը կարող է գրավվել էկրանից դուրս՝ դեպի
   <string name="revanced_custom_playback_speeds_invalid">Պատրաստված արագությունները պետք է լինեն ավելի քիչ քան %s</string>
   <string name="revanced_custom_playback_speeds_parse_exception">Չի աշխատում պատրաստված վերարտադրման արագությունները։</string>
   <string name="revanced_custom_playback_speeds_auto">Ավտո</string>
+  <string name="revanced_speed_tap_and_hold_title">Զգայական վերահսկում՝ անվանափոխման համար</string>
+  <string name="revanced_speed_tap_and_hold_summary">Վերարտադրման արագությունը 0-8 միջակայքում</string>
   </patch>
   <patch id="video.speed.remember.rememberPlaybackSpeedPatch">
   <string name="revanced_remember_playback_speed_last_selected_title">Հիշել  տեսանյութի  վերարտադրման  արագության  փոփոխությունները</string>
@@ -1385,7 +1387,6 @@ AVC-ի առավելագույն թույլտվությունը 1080p է, Opus ա
 • Ստաբիլ ձայն չկա
 • Իրական ձայնի ընտրությունը հասանելի չէ"</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Հեռացված բոլոր AV1 վիդեո կոդեկները</string>
-  <string name="revanced_spoof_video_streams_about_no_hdr">• Հեռացված բոլոր HDR վիդեոները</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Ցուցադրել վիճակագրության ակնոցներում</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Հաճախորդի տեսակը ցուցադրվում է վիճակագրության ակնոցներում</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Հաճախորդը թաքնված է վիճակագրության ակնոցներում</string>

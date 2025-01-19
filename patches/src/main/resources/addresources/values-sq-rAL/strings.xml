@@ -1340,6 +1340,8 @@ Aktivizimi i kësaj mund të zhbllokojë cilësi më të larta video"</string>
   <string name="revanced_custom_playback_speeds_invalid">Shpejtësitë e personalizuara duhet të jenë më të vogla se %s</string>
   <string name="revanced_custom_playback_speeds_parse_exception">Shpejtësi të pavlefshme të personalizuar të riprodhimit</string>
   <string name="revanced_custom_playback_speeds_auto">Automatik</string>
+  <string name="revanced_speed_tap_and_hold_title">Shpejtësia sipas dëshirës së përdoruesit gjatë përdorimit</string>
+  <string name="revanced_speed_tap_and_hold_summary">Shpejtësi e riprodhimit midis 0 dhe 8</string>
   </patch>
   <patch id="video.speed.remember.rememberPlaybackSpeedPatch">
   <string name="revanced_remember_playback_speed_last_selected_title">Mbani mend ndryshimet e shpejtësisë së përsëritjes</string>
@@ -1385,7 +1387,6 @@ AVC ka një rezolucion maksimal prej 1080p, kodeku audio Opus nuk është i disp
 • Vellimi i qëndrueshëm nuk është në dispozicion
 • Zbatimi i audio origjinalit nuk është në dispozicion"</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Nuk ka codec video AV1</string>
-  <string name="revanced_spoof_video_streams_about_no_hdr">• Nuk ka video HDR</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Shfaqni në Statistikat për nerdës</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Lloji i klientit shfaqet në Statistikat për nerds</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Klienti është fshehur në statistikat për nerds</string>

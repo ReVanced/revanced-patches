@@ -1341,6 +1341,8 @@ Ako ovo omogućite, mogu biti otključani viši kvaliteti videa"</string>
   <string name="revanced_custom_playback_speeds_invalid">Prilagođene brzine moraju biti manje od %s</string>
   <string name="revanced_custom_playback_speeds_parse_exception">Nevažeće prilagođene brzine reprodukcije</string>
   <string name="revanced_custom_playback_speeds_auto">Automatski</string>
+  <string name="revanced_speed_tap_and_hold_title">Prilagođena brzina dodirivanja i zadržavanja</string>
+  <string name="revanced_speed_tap_and_hold_summary">Brzina reprodukcije između 0 i 8</string>
   </patch>
   <patch id="video.speed.remember.rememberPlaybackSpeedPatch">
   <string name="revanced_remember_playback_speed_last_selected_title">Zapamti promene brzine reprodukcije</string>
@@ -1386,7 +1388,6 @@ AVC ima maksimalnu rezoluciju od 1080p, audio kodek Opus nije dostupan, a reprod
 • Ujednačena jačina zvuka nije dostupna
 • Opcija „Prisili originalan zvuk” nije dostupna"</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Nema video kodeka AV1</string>
-  <string name="revanced_spoof_video_streams_about_no_hdr">• Nema HDR videa</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Prikaži u „Statistici za znalce”</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Tip klijenta je prikazan u „Statistici za znalce”</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Tip klijenta je skriven u „Statistici za znalce”</string>

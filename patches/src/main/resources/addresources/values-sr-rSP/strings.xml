@@ -1340,6 +1340,8 @@ Second \"item\" text"</string>
   <string name="revanced_custom_playback_speeds_invalid">Прилагођене брзине морају бити мање од %s</string>
   <string name="revanced_custom_playback_speeds_parse_exception">Неважеће прилагођене брзине репродукције</string>
   <string name="revanced_custom_playback_speeds_auto">Аутоматски</string>
+  <string name="revanced_speed_tap_and_hold_title">Прилагођена брзина додиривања и задржавања</string>
+  <string name="revanced_speed_tap_and_hold_summary">Брзина репродукције између 0 и 8</string>
   </patch>
   <patch id="video.speed.remember.rememberPlaybackSpeedPatch">
   <string name="revanced_remember_playback_speed_last_selected_title">Запамти промене брзине репродукције</string>
@@ -1385,7 +1387,6 @@ AVC има максималну резолуцију од 1080p, аудио ко
 • Уједначена јачина звука није доступна
 • Опција „Присили оригиналан звук” није доступна"</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Нема видео кодека AV1</string>
-  <string name="revanced_spoof_video_streams_about_no_hdr">• Нема HDR видеа</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Прикажи у „Статистици за зналце”</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Тип клијента је приказан у „Статистици за зналце”</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Тип клијента је скривен у „Статистици за зналце”</string>

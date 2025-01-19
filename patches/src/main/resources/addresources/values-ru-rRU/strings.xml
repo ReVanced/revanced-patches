@@ -43,11 +43,11 @@ Second \"item\" text"</string>
   <string name="revanced_settings_import_reset">Настройки ReVanced сброшены по умолчанию</string>
   <string name="revanced_settings_import_success">Импортировано %d настроек</string>
   <string name="revanced_settings_import_failure_parse">Не удалось импортировать: %s</string>
-  <string name="revanced_language_title">Язык ReVanced</string>
+  <string name="revanced_language_title">Локализация ReVanced</string>
   <string name="revanced_language_user_dialog_message">"Переводы для некоторых языков могут отсутствовать или быть неполными.
 
 Чтобы перевести новые языки, посетите translate.revanced.app"</string>
-  <string name="revanced_language_DEFAULT">Язык приложения</string>
+  <string name="revanced_language_DEFAULT">Языковая локализация приложения</string>
   <string name="revanced_language_AR">Арабский</string>
   <string name="revanced_language_AZ">Азербайджанский</string>
   <string name="revanced_language_BG">Болгарский</string>
@@ -684,7 +684,7 @@ Second \"item\" text"</string>
   <string name="revanced_hide_seekbar_thumbnail_summary_off">Полоса прогресса в миниатюрах отображена</string>
   </patch>
   <patch id="layout.hide.shorts.hideShortsComponentsResourcePatch">
-  <string name="revanced_shorts_player_screen_title">Плеер Shorts</string>
+  <string name="revanced_shorts_player_screen_title">Компоненты плеера Shorts</string>
   <string name="revanced_shorts_player_screen_summary">Скрыть или отобразить компоненты в плеере Shorts</string>
   <!-- 'home' should be translated using the same localized wording YouTube displays for the home tab. -->
   <string name="revanced_hide_shorts_home_title">Shorts в ленте \"Главной\"</string>
@@ -695,11 +695,11 @@ Second \"item\" text"</string>
   <string name="revanced_hide_shorts_subscriptions_summary_on">Shorts в ленте \"Подписок\" скрыты</string>
   <string name="revanced_hide_shorts_subscriptions_summary_off">Shorts в ленте \"Подписок\" отображены</string>
   <string name="revanced_hide_shorts_search_title">Shorts в результатах поиска</string>
-  <string name="revanced_hide_shorts_search_summary_on">Скрыты в результатах поиска</string>
-  <string name="revanced_hide_shorts_search_summary_off">Отображены в результатах поиска</string>
+  <string name="revanced_hide_shorts_search_summary_on">Shorts в результатах поиска скрыты</string>
+  <string name="revanced_hide_shorts_search_summary_off">Shorts в результатах поиска отображены</string>
   <string name="revanced_hide_shorts_history_title">Shorts в истории просмотров</string>
-  <string name="revanced_hide_shorts_history_summary_on">Скрыты в истории просмотров</string>
-  <string name="revanced_hide_shorts_history_summary_off">Отображены в истории просмотров</string>
+  <string name="revanced_hide_shorts_history_summary_on">Shorts в истории просмотров скрыты</string>
+  <string name="revanced_hide_shorts_history_summary_off">Shorts в истории просмотров отображены</string>
   <!-- 'join' should be translated using the same localized wording YouTube displays for the button. -->
   <string name="revanced_hide_shorts_join_button_title">Кнопка \"Присоединиться\"</string>
   <string name="revanced_hide_shorts_join_button_summary_on">Кнопка \"Присоединиться\" в Shorts скрыта</string>
@@ -709,14 +709,14 @@ Second \"item\" text"</string>
   <string name="revanced_hide_shorts_subscribe_button_summary_on">Кнопка \"Подписаться\" в Shorts скрыта</string>
   <string name="revanced_hide_shorts_subscribe_button_summary_off">Кнопка \"Подписаться\" в Shorts отображена</string>
   <string name="revanced_hide_shorts_paused_overlay_buttons_title">Оверлей кнопок при паузе</string>
-  <string name="revanced_hide_shorts_paused_overlay_buttons_summary_on">Оверлей кнопок при паузе скрыт</string>
-  <string name="revanced_hide_shorts_paused_overlay_buttons_summary_off">Оверлей кнопок при паузе отображен</string>
+  <string name="revanced_hide_shorts_paused_overlay_buttons_summary_on">Оверлей кнопок при паузе в Shorts скрыт</string>
+  <string name="revanced_hide_shorts_paused_overlay_buttons_summary_off">Оверлей кнопок при паузе в Shorts отображен</string>
   <string name="revanced_hide_shorts_shop_button_title">Кнопка \"Магазин\"</string>
   <string name="revanced_hide_shorts_shop_button_summary_on">Кнопка \"Магазин\" в Shorts скрыта</string>
   <string name="revanced_hide_shorts_shop_button_summary_off">Кнопка \"Магазин\" в Shorts отображена</string>
   <string name="revanced_hide_shorts_super_thanks_button_title">Кнопка \"Супер спасибо\"</string>
-  <string name="revanced_hide_shorts_super_thanks_button_summary_on">Кнопка \"Супер спасибо\" скрыта</string>
-  <string name="revanced_hide_shorts_super_thanks_button_summary_off">Кнопка \"Супер спасибо\" отображена</string>
+  <string name="revanced_hide_shorts_super_thanks_button_summary_on">Кнопка \"Супер спасибо\" в Shorts скрыта</string>
+  <string name="revanced_hide_shorts_super_thanks_button_summary_off">Кнопка \"Супер спасибо\" в Shorts отображена</string>
   <string name="revanced_hide_shorts_tagged_products_title">Товары с тегом</string>
   <string name="revanced_hide_shorts_tagged_products_summary_on">Товары с тегом в Shorts скрыты</string>
   <string name="revanced_hide_shorts_tagged_products_summary_off">Товары с тегом в Shorts отображены</string>
@@ -724,29 +724,29 @@ Second \"item\" text"</string>
   <string name="revanced_hide_shorts_location_label_summary_on">Метка местоположения в Shorts скрыта</string>
   <string name="revanced_hide_shorts_location_label_summary_off">Метка местоположения в Shorts отображена</string>
   <string name="revanced_hide_shorts_save_sound_button_title">Кнопка \"Сохранить музыку\"</string>
-  <string name="revanced_hide_shorts_save_sound_button_summary_on">Кнопка \"Сохранить музыку\" скрыта</string>
-  <string name="revanced_hide_shorts_save_sound_button_summary_off">Кнопка \"Сохранить музыку\" отображена</string>
+  <string name="revanced_hide_shorts_save_sound_button_summary_on">Кнопка \"Сохранить музыку\" в Shorts скрыта</string>
+  <string name="revanced_hide_shorts_save_sound_button_summary_off">Кнопка \"Сохранить музыку\" в Shorts отображена</string>
   <string name="revanced_hide_shorts_use_template_button_title">Кнопка \"Использовать шаблон\"</string>
-  <string name="revanced_hide_shorts_use_template_button_summary_on">Кнопка \"Использовать шаблон\" скрыта</string>
-  <string name="revanced_hide_shorts_use_template_button_summary_off">Кнопка \"Использовать шаблон\" отображена</string>
+  <string name="revanced_hide_shorts_use_template_button_summary_on">Кнопка \"Использовать шаблон\" в Shorts скрыта</string>
+  <string name="revanced_hide_shorts_use_template_button_summary_off">Кнопка \"Использовать шаблон\" в Shorts отображена</string>
   <string name="revanced_hide_shorts_upcoming_button_title">Кнопка \"Предстоящие события\"</string>
-  <string name="revanced_hide_shorts_upcoming_button_summary_on">Кнопка \"Предстоящие события\" скрыта</string>
-  <string name="revanced_hide_shorts_upcoming_button_summary_off">Кнопка \"Предстоящие события\" отображена</string>
+  <string name="revanced_hide_shorts_upcoming_button_summary_on">Кнопка \"Предстоящие события\" в Shorts скрыта</string>
+  <string name="revanced_hide_shorts_upcoming_button_summary_off">Кнопка \"Предстоящие события\" в Shorts отображена</string>
   <string name="revanced_hide_shorts_green_screen_button_title">Кнопка \"Зеленый экран\"</string>
-  <string name="revanced_hide_shorts_green_screen_button_summary_on">Кнопка \"Зеленый экран\" скрыта</string>
-  <string name="revanced_hide_shorts_green_screen_button_summary_off">Кнопка \"Зеленый экран\" отображена</string>
+  <string name="revanced_hide_shorts_green_screen_button_summary_on">Кнопка \"Зеленый экран\" в Shorts скрыта</string>
+  <string name="revanced_hide_shorts_green_screen_button_summary_off">Кнопка \"Зеленый экран\" в Shorts отображена</string>
   <string name="revanced_hide_shorts_hashtag_button_title">Кнопка хэштега</string>
-  <string name="revanced_hide_shorts_hashtag_button_summary_on">Кнопка хэштега скрыта</string>
-  <string name="revanced_hide_shorts_hashtag_button_summary_off">Кнопка хэштега отображена</string>
+  <string name="revanced_hide_shorts_hashtag_button_summary_on">Кнопка хэштега в Shorts скрыта</string>
+  <string name="revanced_hide_shorts_hashtag_button_summary_off">Кнопка хэштега в Shorts отображена</string>
   <string name="revanced_hide_shorts_search_suggestions_title">Поисковые подсказки</string>
-  <string name="revanced_hide_shorts_search_suggestions_summary_on">Поисковые подсказки скрыты</string>
-  <string name="revanced_hide_shorts_search_suggestions_summary_off">Поисковые подсказки отображены</string>
+  <string name="revanced_hide_shorts_search_suggestions_summary_on">Поисковые подсказки в Shorts скрыты</string>
+  <string name="revanced_hide_shorts_search_suggestions_summary_off">Поисковые подсказки в Shorts отображены</string>
   <string name="revanced_hide_shorts_stickers_title">Стикеры</string>
-  <string name="revanced_hide_shorts_stickers_summary_on">Стикеры скрыты</string>
-  <string name="revanced_hide_shorts_stickers_summary_off">Стикеры отображены</string>
+  <string name="revanced_hide_shorts_stickers_summary_on">Стикеры в Shorts скрыты</string>
+  <string name="revanced_hide_shorts_stickers_summary_off">Стикеры в Shorts отображены</string>
   <string name="revanced_hide_shorts_like_fountain_title">Анимация кнопки \"Лайк\"</string>
-  <string name="revanced_hide_shorts_like_fountain_summary_on">Анимация кнопки \"Лайк\" скрыта</string>
-  <string name="revanced_hide_shorts_like_fountain_summary_off">Анимация кнопки \"Лайк\" отображена</string>
+  <string name="revanced_hide_shorts_like_fountain_summary_on">Анимация кнопки \"Лайк\" в Shorts скрыта</string>
+  <string name="revanced_hide_shorts_like_fountain_summary_off">Анимация кнопки \"Лайк\" в Shorts отображена</string>
   <string name="revanced_hide_shorts_like_button_title">Кнопка \"Лайк\"</string>
   <string name="revanced_hide_shorts_like_button_summary_on">Кнопка \"Лайк\" в Shorts скрыта</string>
   <string name="revanced_hide_shorts_like_button_summary_off">Кнопка \"Лайк\" в Shorts отображена</string>
@@ -1138,7 +1138,7 @@ Second \"item\" text"</string>
   <string name="revanced_disable_resuming_shorts_player_summary_off">Возобновление плеера Shorts при запуске приложения включено</string>
   </patch>
   <patch id="layout.shortsplayer.shortsPlayerTypePatch">
-  <string name="revanced_shorts_player_type_title">Открывать Shorts с</string>
+  <string name="revanced_shorts_player_type_title">Плеер для открытия Shorts</string>
   <string name="revanced_shorts_player_type_shorts">Плеер Shorts</string>
   <string name="revanced_shorts_player_type_regular_player">Стандартный плеер</string>
   <string name="revanced_shorts_player_type_regular_player_fullscreen">Стандартный полноэкранный плеер</string>
@@ -1343,6 +1343,8 @@ Second \"item\" text"</string>
   <string name="revanced_custom_playback_speeds_invalid">Пользовательские скорости должны быть меньше, чем %s</string>
   <string name="revanced_custom_playback_speeds_parse_exception">Недопустимые пользовательские скорости воспроизведения</string>
   <string name="revanced_custom_playback_speeds_auto">Автоматически</string>
+  <string name="revanced_speed_tap_and_hold_title">Пользовательская скорость нажатия и удержания</string>
+  <string name="revanced_speed_tap_and_hold_summary">Скорость воспроизведения между 0 и 8</string>
   </patch>
   <patch id="video.speed.remember.rememberPlaybackSpeedPatch">
   <string name="revanced_remember_playback_speed_last_selected_title">Запоминание изменений скорости</string>
@@ -1387,8 +1389,7 @@ Second \"item\" text"</string>
   <string name="revanced_spoof_video_streams_about_android_summary">"• Меню выбора звуковой дорожки отсутствует
 • Функция воспроизведения видео с постоянной громкостью недоступна
 • Принудительное использование оригинального звука недоступно"</string>
-  <string name="revanced_spoof_video_streams_about_no_av1">• Нет видеокодека AV1</string>
-  <string name="revanced_spoof_video_streams_about_no_hdr">• Нет HDR-видео</string>
+  <string name="revanced_spoof_video_streams_about_no_av1">• Отсутствует видеокодек AV1</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Отображение в «Статистике для сисадминов»</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Тип клиента в «Статистике для сисадминов» отображен</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Тип клиента в «Статистике для сисадминов» скрыт</string>

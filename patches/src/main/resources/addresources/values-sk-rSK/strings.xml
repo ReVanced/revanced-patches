@@ -1328,6 +1328,8 @@ Povolením tejto možnosti môžete odomknúť vyššie kvality videa"</string>
   <string name="revanced_custom_playback_speeds_invalid">Vlastné rýchlosti musia byť menšie ako %s</string>
   <string name="revanced_custom_playback_speeds_parse_exception">Neplatné vlastné rýchlosti prehrávania</string>
   <string name="revanced_custom_playback_speeds_auto">Automaticky</string>
+  <string name="revanced_speed_tap_and_hold_title">Vlastná rýchlosť ťuknutia a podržania</string>
+  <string name="revanced_speed_tap_and_hold_summary">Rýchlosť prehrávania medzi 0-8</string>
   </patch>
   <patch id="video.speed.remember.rememberPlaybackSpeedPatch">
   <string name="revanced_remember_playback_speed_last_selected_title">Pamätajte na zmeny rýchlosti prehrávania</string>
@@ -1373,7 +1375,6 @@ AVC má maximálne rozlíšenie 1080p, zvukový kodek Opus nie je k dispozícii 
 • Nie je k dispozícii stabilná hlasitosť
 • Výber originálneho zvuku nie je k dispozícii"</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Žiadny video kodek AV1</string>
-  <string name="revanced_spoof_video_streams_about_no_hdr">• Žiadne video HDR</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Zobraziť v štatistike pre expertov</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Typ klienta sa zobrazuje v štatistikách pre expertov</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Klient je skrytý v štatistikách pre expertov</string>

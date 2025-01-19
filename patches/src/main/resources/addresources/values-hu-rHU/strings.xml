@@ -1340,6 +1340,8 @@ Ez a beállítás lehetővé teszi a magasabb videóminőségek feloldását"</s
   <string name="revanced_custom_playback_speeds_invalid">Az egyéni sebességeknek kevesebbnek kell lenniük, mint %s</string>
   <string name="revanced_custom_playback_speeds_parse_exception">Érvénytelen egyéni lejátszási sebességek</string>
   <string name="revanced_custom_playback_speeds_auto">Automatikus</string>
+  <string name="revanced_speed_tap_and_hold_title">Egyéni koppintás és tartás sebesség</string>
+  <string name="revanced_speed_tap_and_hold_summary">Lejátszási sebesség 0-8 között</string>
   </patch>
   <patch id="video.speed.remember.rememberPlaybackSpeedPatch">
   <string name="revanced_remember_playback_speed_last_selected_title">Lejátszási sebesség módosításainak megjegyzése</string>
@@ -1385,7 +1387,6 @@ Az AVC maximális felbontása 1080p, az Opus audiokodek nem érhető el, és a v
 • Nem áll rendelkezésre stabil hangerő
 • Az eredeti hang kényszerítése nem érhető el"</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Nincs AV1 videokodek</string>
-  <string name="revanced_spoof_video_streams_about_no_hdr">• Nincs HDR videó</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Megjelenítés a Statisztikákban</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">A kliens típusa a Statisztikákban látható</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">A kliens el van rejtve a Statisztikákban</string>

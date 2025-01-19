@@ -1339,6 +1339,8 @@ Ang pagpapagana nito ay maaaring magbukas ng mas mataas na kalidad ng video"</st
   <string name="revanced_custom_playback_speeds_invalid">Ang mga custom na bilis ay dapat na mas mababa sa %s</string>
   <string name="revanced_custom_playback_speeds_parse_exception">Hindi wastong custom na bilis ng paglalaro</string>
   <string name="revanced_custom_playback_speeds_auto">Awtomatik</string>
+  <string name="revanced_speed_tap_and_hold_title">Custom speed para sa pag-tap at pag-hold</string>
+  <string name="revanced_speed_tap_and_hold_summary">Tugtugin ang bilis ng playback sa pagitan ng 0-8</string>
   </patch>
   <patch id="video.speed.remember.rememberPlaybackSpeedPatch">
   <string name="revanced_remember_playback_speed_last_selected_title">Tandaan ang mga pagbabago sa bilis ng pag-playback</string>
@@ -1384,7 +1386,6 @@ Ang AVC ay may pinakamataas na resolusyon na 1080p, ang codec ng audio ng Opus a
 • Hindi magagamit ang stable na volume
 • Hindi magagamit ang pagpilit sa orihinal na audio"</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Walang AV1 video codec</string>
-  <string name="revanced_spoof_video_streams_about_no_hdr">• Walang HDR video</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Ipakita sa Mga Istatistika para sa mga nerds</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Ipinapakita ang uri ng kliyente sa Mga Istatistika para sa mga nerds</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Nakatago ang kliyente sa Mga Istatistika para sa mga nerds</string>

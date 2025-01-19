@@ -1338,6 +1338,8 @@ Si actives aquesta opció, es poden desbloquejar qualitats de vídeo més altes"
   <string name="revanced_custom_playback_speeds_invalid">Les velocitats personalitzades han de ser inferiors a %s</string>
   <string name="revanced_custom_playback_speeds_parse_exception">Velocitats de reproducció personalitzades no vàlides</string>
   <string name="revanced_custom_playback_speeds_auto">Automàtic</string>
+  <string name="revanced_speed_tap_and_hold_title">Velocitat personalitzada de mantenir premut</string>
+  <string name="revanced_speed_tap_and_hold_summary">Velocitat de reproducció entre 0 i 8</string>
   </patch>
   <patch id="video.speed.remember.rememberPlaybackSpeedPatch">
   <string name="revanced_remember_playback_speed_last_selected_title">Recorda els canvis de velocitat de reproducció</string>
@@ -1383,7 +1385,6 @@ L'AVC té una resolució màxima de 1080p, el còdec d'àudio Opus no està disp
 • El volum estable no està disponible
 • Forçar l'àudio original no està disponible"</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Sense còdec de vídeo AV1</string>
-  <string name="revanced_spoof_video_streams_about_no_hdr">• Sense vídeo HDR</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Mostra a l\'apartat \'Dades per a experts\'</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">El tipus de client es mostra a l\'apartat \'Dades per a experts\'</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">El client s\'amaga a l\'apartat \'Dades per a experts\'</string>
