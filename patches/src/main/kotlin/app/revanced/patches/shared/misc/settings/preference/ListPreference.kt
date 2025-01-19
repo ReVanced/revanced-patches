@@ -10,6 +10,8 @@ import org.w3c.dom.Document
  * @param key The preference key. If null, other parameters must be specified.
  * @param titleKey The preference title key.
  * @param summaryKey The preference summary key.
+ * @param icon The preference icon resource name.
+ * @param layout Layout declaration.
  * @param tag The preference tag.
  * @param entriesKey The entries array key.
  * @param entryValuesKey The entry values array key.
@@ -19,10 +21,12 @@ class ListPreference(
     key: String? = null,
     titleKey: String = "${key}_title",
     summaryKey: String? = "${key}_summary",
+    icon: String? = null,
+    layout: String? = null,
     tag: String = "ListPreference",
     val entriesKey: String? = "${key}_entries",
     val entryValuesKey: String? = "${key}_entry_values"
-) : BasePreference(key, titleKey, summaryKey, tag) {
+) : BasePreference(key, titleKey, summaryKey, icon, layout, tag) {
     var entries: ArrayResource? = null
         private set
     var entryValues: ArrayResource? = null

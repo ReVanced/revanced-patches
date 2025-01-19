@@ -1,25 +1,30 @@
 package app.revanced.extension.youtube.settings;
 
+import static app.revanced.extension.shared.Utils.getResourceIdentifier;
+
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
+import android.os.Build;
 import android.preference.PreferenceFragment;
+import android.util.TypedValue;
 import android.view.ViewGroup;
-import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toolbar;
+
+import androidx.annotation.RequiresApi;
+
+import java.util.Objects;
+
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
 import app.revanced.extension.shared.settings.AppLanguage;
 import app.revanced.extension.shared.settings.BaseSettings;
 import app.revanced.extension.youtube.ThemeHelper;
+import app.revanced.extension.youtube.patches.VersionCheckPatch;
 import app.revanced.extension.youtube.settings.preference.ReVancedPreferenceFragment;
 import app.revanced.extension.youtube.settings.preference.ReturnYouTubeDislikePreferenceFragment;
 import app.revanced.extension.youtube.settings.preference.SponsorBlockPreferenceFragment;
-
-import java.util.Objects;
-
-import static app.revanced.extension.shared.Utils.getChildView;
-import static app.revanced.extension.shared.Utils.getResourceIdentifier;
 
 /**
  * Hooks LicenseActivity.
@@ -28,6 +33,14 @@ import static app.revanced.extension.shared.Utils.getResourceIdentifier;
  */
 @SuppressWarnings("unused")
 public class LicenseActivityHook {
+
+    private static ViewGroup.LayoutParams toolbarLayoutParams;
+
+    public static void setToolbarLayoutParams(Toolbar toolbar) {
+        if (toolbarLayoutParams != null) {
+            toolbar.setLayoutParams(toolbarLayoutParams);
+        }
+    }
 
     /**
      * Injection point.
@@ -44,15 +57,34 @@ public class LicenseActivityHook {
 
     /**
      * Injection point.
+     */
+    public static boolean useCairoSettingsFragment(boolean original) {
+        // Early targets have layout issues and it's better to always force off.
+        if (!VersionCheckPatch.IS_19_34_OR_GREATER) {
+            return false;
+        }
+        if (Settings.RESTORE_OLD_SETTINGS_MENUS.get()) {
+            return false;
+        }
+
+        // On the first launch of a clean install, forcing the cairo menu can give a
+        // half broken appearance because all the preference icons may not be available yet.
+        // 19.34+ cairo settings are always on, so it doesn't need to be forced anyway.
+        // Cairo setting will show on the next launch of the app.
+        return original;
+    }
+
+    /**
+     * Injection point.
      * <p>
      * Hooks LicenseActivity#onCreate in order to inject our own fragment.
      */
+    @RequiresApi(api = Build.VERSION_CODES.N)
     public static void initialize(Activity licenseActivity) {
         try {
             ThemeHelper.setActivityTheme(licenseActivity);
-            licenseActivity.setContentView(
-                    getResourceIdentifier("revanced_settings_with_toolbar", "layout"));
-            setBackButton(licenseActivity);
+            licenseActivity.setContentView(getResourceIdentifier(
+                    "revanced_settings_with_toolbar", "layout"));
 
             PreferenceFragment fragment;
             String toolbarTitleResourceName;
@@ -75,7 +107,7 @@ public class LicenseActivityHook {
                     return;
             }
 
-            setToolbarTitle(licenseActivity, toolbarTitleResourceName);
+            createToolbar(licenseActivity, toolbarTitleResourceName);
 
             //noinspection deprecation
             licenseActivity.getFragmentManager()
@@ -87,28 +119,36 @@ public class LicenseActivityHook {
         }
     }
 
-    private static void setToolbarTitle(Activity activity, String toolbarTitleResourceName) {
-        ViewGroup toolbar = activity.findViewById(getToolbarResourceId());
-        TextView toolbarTextView = Objects.requireNonNull(getChildView(toolbar, false,
-                view -> view instanceof TextView));
-        toolbarTextView.setText(getResourceIdentifier(toolbarTitleResourceName, "string"));
-    }
-
+    @RequiresApi(api = Build.VERSION_CODES.N)
     @SuppressLint("UseCompatLoadingForDrawables")
-    private static void setBackButton(Activity activity) {
-        ViewGroup toolbar = activity.findViewById(getToolbarResourceId());
-        ImageButton imageButton = Objects.requireNonNull(getChildView(toolbar, false,
-                view -> view instanceof ImageButton));
-        imageButton.setImageDrawable(ReVancedPreferenceFragment.getBackButtonDrawable());
-        imageButton.setOnClickListener(view -> activity.onBackPressed());
-    }
+    private static void createToolbar(Activity activity, String toolbarTitleResourceName) {
+        // Replace dummy placeholder toolbar.
+        // This is required to fix submenu title alignment issue with Android ASOP 15+
+        ViewGroup toolBarParent = activity.findViewById(
+                getResourceIdentifier("revanced_toolbar_parent", "id"));
+        ViewGroup dummyToolbar = toolBarParent.findViewById(getResourceIdentifier(
+                "revanced_toolbar", "id"));
+        toolbarLayoutParams = dummyToolbar.getLayoutParams();
+        toolBarParent.removeView(dummyToolbar);
 
-    private static int getToolbarResourceId() {
-        final int toolbarResourceId = getResourceIdentifier("revanced_toolbar", "id");
-        if (toolbarResourceId == 0) {
-            throw new IllegalStateException("Could not find back button resource");
+        Toolbar toolbar = new Toolbar(toolBarParent.getContext());
+        toolbar.setBackgroundColor(ThemeHelper.getToolbarBackgroundColor());
+        toolbar.setNavigationIcon(ReVancedPreferenceFragment.getBackButtonDrawable());
+        toolbar.setNavigationOnClickListener(view -> activity.onBackPressed());
+        toolbar.setTitle(getResourceIdentifier(toolbarTitleResourceName, "string"));
+
+        final int margin = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 16,
+                Utils.getContext().getResources().getDisplayMetrics());
+        toolbar.setTitleMarginStart(margin);
+        toolbar.setTitleMarginEnd(margin);
+        TextView toolbarTextView = Utils.getChildView(toolbar, false,
+                view -> view instanceof TextView);
+        if (toolbarTextView != null) {
+            toolbarTextView.setTextColor(ThemeHelper.getForegroundColor());
         }
-        return toolbarResourceId;
+        setToolbarLayoutParams(toolbar);
+
+        toolBarParent.addView(toolbar, 0);
     }
 
 }
