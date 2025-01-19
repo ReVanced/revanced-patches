@@ -63,7 +63,7 @@ Second \"item\" text"</string>
   <string name="revanced_language_FA">Περσικά</string>
   <string name="revanced_language_FI">Φινλανδικά</string>
   <string name="revanced_language_FR">Γαλλικά</string>
-  <string name="revanced_language_GU">Γκουτζαρατί</string>
+  <string name="revanced_language_GU">Γκουτζαρατικά</string>
   <string name="revanced_language_HI">Χίντι</string>
   <string name="revanced_language_HR">Κροατικά</string>
   <string name="revanced_language_HU">Ουγγρικά</string>
@@ -85,10 +85,10 @@ Second \"item\" text"</string>
   <string name="revanced_language_PL">Πολωνικά</string>
   <string name="revanced_language_PT">Πορτογαλικά</string>
   <string name="revanced_language_RO">Ρουμανικά</string>
-  <string name="revanced_language_RU">Ρωσικά</string>
+  <string name="revanced_language_RU">Ρώσικα</string>
   <string name="revanced_language_SK">Σλοβακικά</string>
   <string name="revanced_language_SL">Σλοβενικά</string>
-  <string name="revanced_language_SR">Σερβικά</string>
+  <string name="revanced_language_SR">Σέρβικα</string>
   <string name="revanced_language_SV">Σουηδικά</string>
   <string name="revanced_language_SW">Σουαχίλι</string>
   <string name="revanced_language_TA">Ταμίλ</string>
@@ -262,7 +262,7 @@ Second \"item\" text"</string>
   <string name="revanced_hide_playables_title">Παιχνίδια YouTube</string>
   <string name="revanced_hide_playables_summary_on">Κρυμμένα</string>
   <string name="revanced_hide_playables_summary_off">Εμφανίζονται</string>
-  <string name="revanced_hide_quick_actions_title">Γρήγορες ενέργειες σε πλήρη οθόνη</string>
+  <string name="revanced_hide_quick_actions_title">Γρήγορες ενέργειες στην πλήρη οθόνη</string>
   <string name="revanced_hide_quick_actions_summary_on">Εμφανίζονται</string>
   <string name="revanced_hide_quick_actions_summary_off">Εμφανίζονται</string>
   <string name="revanced_hide_related_videos_title">Σχετικά βίντεο στις γρήγορες ενέργειες</string>
@@ -313,7 +313,7 @@ Second \"item\" text"</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">Εμφανίζεται</string>
   <string name="revanced_comments_screen_title">Σχόλια</string>
   <string name="revanced_comments_screen_summary">Απόκρυψη ή εμφάνιση στοιχείων στα σχόλια</string>
-  <string name="revanced_hide_comments_chat_summary_title">Σύνοψη συνομιλίας</string>
+  <string name="revanced_hide_comments_chat_summary_title">Σύνοψη συζήτησης</string>
   <string name="revanced_hide_comments_chat_summary_summary_on">Κρυμμένη</string>
   <string name="revanced_hide_comments_chat_summary_summary_off">Εμφανίζεται</string>
   <string name="revanced_hide_comments_by_members_header_title">Ετικέτα «Σχόλια από μέλη»</string>
@@ -1341,6 +1341,8 @@ Second \"item\" text"</string>
   <string name="revanced_custom_playback_speeds_invalid">Οι ταχύτητες πρέπει να είναι μικρότερες από %sx</string>
   <string name="revanced_custom_playback_speeds_parse_exception">Μη έγκυρες προσαρμοσμένες ταχύτητες αναπαραγωγής</string>
   <string name="revanced_custom_playback_speeds_auto">Αυτόματη</string>
+  <string name="revanced_speed_tap_and_hold_title">Προσαρμοσμένη ταχύτητα παρατεταμένου πατήματος</string>
+  <string name="revanced_speed_tap_and_hold_summary">Ταχύτητα αναπαραγωγής μεταξύ 0-8</string>
   </patch>
   <patch id="video.speed.remember.rememberPlaybackSpeedPatch">
   <string name="revanced_remember_playback_speed_last_selected_title">Απομνημόνευση αλλαγών ταχύτητας αναπαραγωγής</string>
@@ -1386,7 +1388,6 @@ Second \"item\" text"</string>
 • Η λειτουργία «Σταθερή ένταση» δεν είναι διαθέσιμη
 • Η λειτουργία «Εξαναγκασμός αρχικού ήχου» δεν είναι διαθέσιμη"</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Δεν υπάρχει ο κωδικοποιητής βίντεο AV1</string>
-  <string name="revanced_spoof_video_streams_about_no_hdr">• Δεν υπάρχει ποιότητα βίντεο HDR</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Εμφάνιση στο μενού «Στατιστικά για σπασίκλες»</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Το πρόγραμμα πελάτη εμφανίζεται στο μενού «Στατιστικά για σπασίκλες»</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Το πρόγραμμα πελάτη δεν εμφανίζεται στο μενού «Στατιστικά για σπασίκλες»</string>

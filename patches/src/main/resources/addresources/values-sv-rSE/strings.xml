@@ -1341,6 +1341,8 @@ Att aktivera detta kan låsa upp högre videokvalitet"</string>
   <string name="revanced_custom_playback_speeds_invalid">Anpassade hastigheter måste vara mindre än %s</string>
   <string name="revanced_custom_playback_speeds_parse_exception">Ogiltiga anpassade uppspelningshastigheter</string>
   <string name="revanced_custom_playback_speeds_auto">Automatiskt</string>
+  <string name="revanced_speed_tap_and_hold_title">Anpassad hastighet vid tryck och håll</string>
+  <string name="revanced_speed_tap_and_hold_summary">Uppspelningshastighet mellan 0 och 8.</string>
   </patch>
   <patch id="video.speed.remember.rememberPlaybackSpeedPatch">
   <string name="revanced_remember_playback_speed_last_selected_title">Kom ihåg ändringar i uppspelningshastighet</string>
@@ -1386,7 +1388,6 @@ AVC har en maximal upplösning på 1080p, Opus-ljudkodek är inte tillgänglig o
 • Stabilt ljud är inte tillgängligt
 • Tvinga originalspråk är inte tillgängligt"</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Ingen AV1-videocodec</string>
-  <string name="revanced_spoof_video_streams_about_no_hdr">• Ingen HDR-video</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Visa i statistik för nördar</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Klienttyp visas i statistik för nördar</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Klienten är dold i statistik för nördar</string>

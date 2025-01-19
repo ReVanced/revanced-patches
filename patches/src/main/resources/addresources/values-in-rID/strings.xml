@@ -1340,6 +1340,8 @@ Mengaktifkan ini dapat membuka kualitas video yang lebih tinggi"</string>
   <string name="revanced_custom_playback_speeds_invalid">Kecepatan khusus harus kurang dari %s</string>
   <string name="revanced_custom_playback_speeds_parse_exception">Kecepatan pemutaran khusus tidak valid</string>
   <string name="revanced_custom_playback_speeds_auto">Otomatis</string>
+  <string name="revanced_speed_tap_and_hold_title">Kecepatan ketuk dan tahan khusus</string>
+  <string name="revanced_speed_tap_and_hold_summary">Kecepatan pemutaran antara 0-8</string>
   </patch>
   <patch id="video.speed.remember.rememberPlaybackSpeedPatch">
   <string name="revanced_remember_playback_speed_last_selected_title">Ingat perubahan kecepatan pemutaran</string>
@@ -1384,8 +1386,7 @@ AVC memiliki resolusi maksimum 1080p, codec audio Opus tidak tersedia, dan pemut
   <string name="revanced_spoof_video_streams_about_android_summary">"• Menu trek audio tidak ada
 • Volume stabil tidak tersedia
 • Paksa audio asli tidak tersedia"</string>
-  <string name="revanced_spoof_video_streams_about_no_av1">• Tidak ada video codec AV1</string>
-  <string name="revanced_spoof_video_streams_about_no_hdr">• Tidak ada video HDR</string>
+  <string name="revanced_spoof_video_streams_about_no_av1">• Tidak ada codec video AV1</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Tampilkan di Statistik untuk nerds</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Jenis klien ditampilkan di Statistik untuk nerds</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Klien disembunyikan di Statistik untuk nerds</string>

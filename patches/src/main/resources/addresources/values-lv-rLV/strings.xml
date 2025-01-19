@@ -1340,6 +1340,8 @@ Var tikt atbloķētas augstākas video kvalitātes, taču var rasties video atsk
   <string name="revanced_custom_playback_speeds_invalid">Pielāgoti ātrumi ir jābūt mazākiem par %s</string>
   <string name="revanced_custom_playback_speeds_parse_exception">Nederīgi pielāgoti video atskaņošanas ātrumi</string>
   <string name="revanced_custom_playback_speeds_auto">Automātiski</string>
+  <string name="revanced_speed_tap_and_hold_title">Pielāgots pieskaršanās un turēšanas ātrums</string>
+  <string name="revanced_speed_tap_and_hold_summary">Atskaņošanas ātrums no 0 līdz 8</string>
   </patch>
   <patch id="video.speed.remember.rememberPlaybackSpeedPatch">
   <string name="revanced_remember_playback_speed_last_selected_title">Atcerēties atskaņošanas ātruma izmaiņas</string>
@@ -1385,7 +1387,6 @@ AVC maksimālā izšķirtspēja ir 1080p, Opus audio kodeks nav pieejams, un vid
 • Nav pieejams stabils skaļums
 • Nav pieejama oriģinālā audio piespiešana"</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Nav pieejams AV1 video kodeks</string>
-  <string name="revanced_spoof_video_streams_about_no_hdr">• Bez HDR video</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Rādīt statistiskos datos entuziastiem</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Klienta tips tiek rādīts statistiskos datos entuziastiem</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Klients ir paslēpts statistiskos datos entuziastiem</string>

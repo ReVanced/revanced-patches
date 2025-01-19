@@ -1342,6 +1342,8 @@ Tämä voi avata korkealaatuisemmat videot"</string>
   <string name="revanced_custom_playback_speeds_invalid">Mukautetut nopeudet on oltava alle %s</string>
   <string name="revanced_custom_playback_speeds_parse_exception">Virheelliset mukautetut toiston nopeudet</string>
   <string name="revanced_custom_playback_speeds_auto">Automaattinen</string>
+  <string name="revanced_speed_tap_and_hold_title">Mukautettu napauta ja pidä pohjassa -nopeus</string>
+  <string name="revanced_speed_tap_and_hold_summary">Toistonopeus 0–8 välillä</string>
   </patch>
   <patch id="video.speed.remember.rememberPlaybackSpeedPatch">
   <string name="revanced_remember_playback_speed_last_selected_title">Muista toistonopeuden muutokset</string>
@@ -1386,6 +1388,7 @@ AVC:n maksimiresoluutio on 1080p, Opus-äänikoodekki ei ole käytettävissä, j
   <string name="revanced_spoof_video_streams_about_android_summary">"• Ääniraitavalikko puuttuu
 • Tasainen äänenvoimakkuus ei ole käytettävissä
 • Alkuperäisen äänen pakotus ei ole käytettävissä"</string>
+  <string name="revanced_spoof_video_streams_about_no_av1">• Ei AV1-videokoodekkia</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Näytä teknisissä tiedoissa</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Asiakastyyppi näytetään teknisissä tiedoissa</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Asiakastyyppi on piilotettu teknisissä tiedoissa</string>

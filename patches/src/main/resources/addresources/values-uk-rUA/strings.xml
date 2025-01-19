@@ -1340,6 +1340,8 @@ Second \"item\" text"</string>
   <string name="revanced_custom_playback_speeds_invalid">Користувацькі швидкості повинні бути менші ніж %s</string>
   <string name="revanced_custom_playback_speeds_parse_exception">Неправильні користувацькі швидкості відтворення</string>
   <string name="revanced_custom_playback_speeds_auto">Авто</string>
+  <string name="revanced_speed_tap_and_hold_title">Користувацька швидкість при натисканні та утриманні</string>
+  <string name="revanced_speed_tap_and_hold_summary">Швидкість відтворення від 0 до 8</string>
   </patch>
   <patch id="video.speed.remember.rememberPlaybackSpeedPatch">
   <string name="revanced_remember_playback_speed_last_selected_title">Запам\'ятовувати зміни швидкості</string>
@@ -1385,7 +1387,6 @@ AVC має максимальну роздільну здатність 1080p, �
 • Меню стабілізації гучності недоступне
 • Примусове використання оригінальний звукової доріжки недоступне"</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Відсутній відеокодек AV1</string>
-  <string name="revanced_spoof_video_streams_about_no_hdr">• Немає HDR відео</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Показувати у \"Статистиці для сисадмінів\"</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Тип клієнта відображається у вікні \"Статистика для сисадмінів\"</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Тип клієнта приховано у вікні \"Статистика для сисадмінів\"</string>

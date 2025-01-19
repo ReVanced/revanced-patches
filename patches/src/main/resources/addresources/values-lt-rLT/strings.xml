@@ -1343,6 +1343,8 @@ Gali būti atrakinta aukštesnės vaizdo įrašų kokybės, bet galite patirti v
   <string name="revanced_custom_playback_speeds_invalid">Pasirinktinis greitis turi būti mažesnis nei %s</string>
   <string name="revanced_custom_playback_speeds_parse_exception">Netinkamas pasirinktinis atkūrimo greitis</string>
   <string name="revanced_custom_playback_speeds_auto">Automatinis</string>
+  <string name="revanced_speed_tap_and_hold_title">Pritaikytas bakstelėjimo ir laikymo greitis</string>
+  <string name="revanced_speed_tap_and_hold_summary">Atkūrimo greitis: nuo 0 iki 8</string>
   </patch>
   <patch id="video.speed.remember.rememberPlaybackSpeedPatch">
   <string name="revanced_remember_playback_speed_last_selected_title">Atsiminti atkūrimo greičio pakeitimus</string>
@@ -1388,7 +1390,6 @@ AVC didžiausia skiriamoji geba yra 1080 p, „Opus“ garso kodekas negalimas,
 • Nėra stabilaus garso
 • Negalima priverstinai naudoti originalo garso"</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Nėra AV1 vaizdo kodeko</string>
-  <string name="revanced_spoof_video_streams_about_no_hdr">• Nėra HDR vaizdo įrašo</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Rodyti statistinėje informacijoje \"tik profesionalams\"</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Kliento tipas rodomas statistinėje informacijoje \"tik profesionalams\"</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Klientas paslėptas statistinėje informacijoje \"tik profesionalams\"</string>

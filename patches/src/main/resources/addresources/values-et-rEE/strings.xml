@@ -1343,6 +1343,8 @@ Selle lubamine võib avada kõrgema video kvaliteedi"</string>
   <string name="revanced_custom_playback_speeds_invalid">Kohandatud kiirused peavad olema alla %s</string>
   <string name="revanced_custom_playback_speeds_parse_exception">Kehtetud kohandatud video taasesituse kiirused</string>
   <string name="revanced_custom_playback_speeds_auto">Auto</string>
+  <string name="revanced_speed_tap_and_hold_title">Kohandatud puuduta ja hoia kiiruse tase</string>
+  <string name="revanced_speed_tap_and_hold_summary">Taasesituse kiirus vahemikus 0-8</string>
   </patch>
   <patch id="video.speed.remember.rememberPlaybackSpeedPatch">
   <string name="revanced_remember_playback_speed_last_selected_title">Määle taasesituse kiiruse muudatused meelde</string>
@@ -1388,7 +1390,6 @@ AVC-l on maksimaalne eraldusvõime 1080p, Opus-i heli kodek pole saadaval ning v
 • Stabiilset helitugevust pole saadaval
 • Sunnitud originaalheli pole saadaval"</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Puuduv AV1 videokoodek</string>
-  <string name="revanced_spoof_video_streams_about_no_hdr">• Puuduv HDR video</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Kuva statistikas \"Nerdide jaoks\"</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Klienditüüp on statistikas \"Nerdide jaoks\" nähtav</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Klient on statistikas \"Nerdide jaoks\" peidetud</string>
