@@ -44,7 +44,9 @@ Second \"item\" text"</string>
   <string name="revanced_settings_import_success">Importerede %d indstillinger</string>
   <string name="revanced_settings_import_failure_parse">Import mislykkedes: %s</string>
   <string name="revanced_language_title">ReVanced-sprog</string>
-  <string name="revanced_language_user_dialog_message">"Oversættelser for nogle sprog mangler muligvis eller er ufuldstændige.\n\nFor at oversætte til nye sprog skal du besøge translate.revanced.app"</string>
+  <string name="revanced_language_user_dialog_message">"Oversættelser for nogle sprog mangler muligvis eller er ufuldstændige.
+
+For at oversætte til nye sprog skal du besøge translate.revanced.app"</string>
   <string name="revanced_language_DEFAULT">App-sprog</string>
   <string name="revanced_language_AR">Arabisk</string>
   <string name="revanced_language_AZ">Aserbajdsjansk</string>
@@ -1340,6 +1342,8 @@ Aktivering af dette kan låse op for højere videokvalitet"</string>
   <string name="revanced_custom_playback_speeds_invalid">Brugerdefinerede hastigheder skal være mindre end %s</string>
   <string name="revanced_custom_playback_speeds_parse_exception">Ugyldige brugerdefinerede afspilningshastigheder</string>
   <string name="revanced_custom_playback_speeds_auto">Automatisk</string>
+  <string name="revanced_speed_tap_and_hold_title">Brugerdefineret hastighed, når du holder den nede</string>
+  <string name="revanced_speed_tap_and_hold_summary">Afspilningshastighed mellem 0-8</string>
   </patch>
   <patch id="video.speed.remember.rememberPlaybackSpeedPatch">
   <string name="revanced_remember_playback_speed_last_selected_title">Husk ændringer i afspilningshastighed</string>
@@ -1383,7 +1387,6 @@ Videoafspilning virker muligvis ikke"</string>
 • Stabil lydstyrke er ikke tilgængelig
 • Gennemtving original lyd er ikke tilgængelig"</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Intet AV1-videokodek</string>
-  <string name="revanced_spoof_video_streams_about_no_hdr">• Intet HDR-video</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Vis i Statistik for nørder</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Klienttypen vises i Statistik for nørder</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Klienten er skjult i Statistik for nørder</string>

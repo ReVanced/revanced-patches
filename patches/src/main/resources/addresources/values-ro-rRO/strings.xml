@@ -1342,6 +1342,8 @@ Activarea acestei opțiuni poate debloca calități video mai mari"</string>
   <string name="revanced_custom_playback_speeds_invalid">Vitezele personalizate trebuie să fie mai mici de %s</string>
   <string name="revanced_custom_playback_speeds_parse_exception">Viteze de redare personalizate nevalide</string>
   <string name="revanced_custom_playback_speeds_auto">Automat</string>
+  <string name="revanced_speed_tap_and_hold_title">Viteză personalizată de apăsare și menținere</string>
+  <string name="revanced_speed_tap_and_hold_summary">Viteză de redare între 0-8</string>
   </patch>
   <patch id="video.speed.remember.rememberPlaybackSpeedPatch">
   <string name="revanced_remember_playback_speed_last_selected_title">Memorează schimbările vitezei de redare</string>
@@ -1387,7 +1389,6 @@ AVC are o rezoluție maximă de 1080p, codecul audio Opus nu este disponibil, ia
 • Volumul stabil nu este disponibil
 • Forțarea sunetului original nu este disponibilă"</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Fara codec video AV1</string>
-  <string name="revanced_spoof_video_streams_about_no_hdr">• Fara video HDR</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Afișează în Statistici pentru pasionați</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Tipul clientului este afișat în Statistici pentru pasionați</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Clientul este ascuns în Statistici pentru pasionați</string>

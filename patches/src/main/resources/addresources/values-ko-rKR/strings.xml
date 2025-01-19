@@ -181,7 +181,7 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_hide_channel_watermark_title">동영상 하단에서 채널 워터마크 숨기기</string>
   <string name="revanced_hide_channel_watermark_summary_on">워터마크가 숨겨집니다</string>
   <string name="revanced_hide_channel_watermark_summary_off">워터마크가 표시됩니다</string>
-  <string name="revanced_hide_horizontal_shelves_title">좌우 슬라이드 선반 숨기기</string>
+  <string name="revanced_hide_horizontal_shelves_title">회전형 선반 숨기기</string>
   <string name="revanced_hide_horizontal_shelves_summary_on">"다음 선반이 숨겨집니다:
 • 다시 듣기
 • 다시 시청하기
@@ -1348,6 +1348,8 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요"</string>
   <string name="revanced_custom_playback_speeds_invalid">재생 속도 값은 %s배속보다 작아야 합니다</string>
   <string name="revanced_custom_playback_speeds_parse_exception">잘못된 사용자 정의 재생 속도 값입니다</string>
   <string name="revanced_custom_playback_speeds_auto">자동</string>
+  <string name="revanced_speed_tap_and_hold_title">사용자 정의 \'길게 눌러서 재생 속도\'</string>
+  <string name="revanced_speed_tap_and_hold_summary">\'화면을 길게 누르는 동안에 변경되는 재생 속도\'를 0-8 사이에서 지정할 수 있습니다</string>
   </patch>
   <patch id="video.speed.remember.rememberPlaybackSpeedPatch">
   <string name="revanced_remember_playback_speed_last_selected_title">동영상 재생 속도 저장 활성화하기</string>
@@ -1392,7 +1394,6 @@ AVC의 최대 화질 값은 1080p이고, OPUS 코덱을 사용불가 및 HDR 동
 • 안정적인 볼륨을 사용할 수 없습니다
 • 원본 오디오 트랙를 강제로 활성화할 수 없습니다."</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• AV1 코덱이 지원되지 않습니다</string>
-  <string name="revanced_spoof_video_streams_about_no_hdr">• HDR 동영상을 재생할 수 없습니다</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_title">통계에서 표시하기</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">\'스트리밍 데이터를 가져오는 데 사용되는 클라이언트\'가 전문 통계에서 표시됩니다</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">\'스트리밍 데이터를 가져오는 데 사용되는 클라이언트\'가 전문 통계에서 표시되지 않습니다</string>

@@ -1341,6 +1341,8 @@ Bunu aktivləşdirmə daha yüksək video keyfiyyətləri əngəlin silə bilər
   <string name="revanced_custom_playback_speeds_invalid">Fərdi sürətlər %s dəyərindən az olmalıdır</string>
   <string name="revanced_custom_playback_speeds_parse_exception">Fərdi oynatma sürətləri etibarsızdır</string>
   <string name="revanced_custom_playback_speeds_auto">Avtomatik</string>
+  <string name="revanced_speed_tap_and_hold_title">Xüsusi toxunma və saxlanma sürəti</string>
+  <string name="revanced_speed_tap_and_hold_summary">0-8 arası oynatma sürəti</string>
   </patch>
   <patch id="video.speed.remember.rememberPlaybackSpeedPatch">
   <string name="revanced_remember_playback_speed_last_selected_title">Oynatma sürəti dəyişikliklərin xatırla</string>
@@ -1386,7 +1388,6 @@ AVC maksimum 1080p görüntü imkanına malikdir, Opus audio kodlama olmur və v
 • Sabit səs səviyyəsi yoxdur
 • İlkin səsi məcbur etmə mümkün deyil"</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• AV1 video kodlayıcı yoxdur</string>
-  <string name="revanced_spoof_video_streams_about_no_hdr">• HDR video yoxdur</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_title">İstək üçün Statistikada göstər</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Qəbuledici növü Nerdlər üçün statistikada göstərilir</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Qəbuledici nerd üçün Statistikada gizlidir</string>

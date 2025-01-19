@@ -1308,7 +1308,7 @@ Durch Aktivieren dieser Option können höhere Videoqualitäten freigeschaltet w
   <string name="revanced_force_original_audio_title">Original Audio erzwingen</string>
   <string name="revanced_force_original_audio_summary_on">Originales Audio verwenden</string>
   <string name="revanced_force_original_audio_summary_off">Standardaudio verwenden</string>
-  <string name="revanced_force_original_audio_not_available">Um diese Funktion zu nutzen, ändern Sie das Stream-Spoofing auf den iOS-Clienttyp</string>
+  <string name="revanced_force_original_audio_not_available">Um diese Funktion zu nutzen, ändern Sie das Stream-Spoofing auf den iOS-Clienttyp.</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
@@ -1336,6 +1336,8 @@ Durch Aktivieren dieser Option können höhere Videoqualitäten freigeschaltet w
   <string name="revanced_custom_playback_speeds_invalid">Benutzerdefinierte Geschwindigkeiten müssen kleiner als %s sein</string>
   <string name="revanced_custom_playback_speeds_parse_exception">Ungültige benutzerdefinierte Wiedergabegeschwindigkeiten</string>
   <string name="revanced_custom_playback_speeds_auto">Autom</string>
+  <string name="revanced_speed_tap_and_hold_title">Benutzerdefinierte Geschwindigkeit bei Tippen und Halten</string>
+  <string name="revanced_speed_tap_and_hold_summary">Abspielgeschwindigkeit zwischen 0-8x</string>
   </patch>
   <patch id="video.speed.remember.rememberPlaybackSpeedPatch">
   <string name="revanced_remember_playback_speed_last_selected_title">Änderungen der Wiedergabegeschwindigkeit merken</string>
@@ -1381,7 +1383,6 @@ AVC hat eine maximale Auflösung von 1080p, Opus-Audiocodec ist nicht verfügbar
 • Stabile Lautstärke ist nicht verfügbar
 • Original-Audio erzwingen ist nicht verfügbar"</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Kein AV1-Videocodec</string>
-  <string name="revanced_spoof_video_streams_about_no_hdr">• Keine HDR-Videos</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_title">In Statistiken für Nerds anzeigen</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Der Client-Typ wird in den Statistiken für Nerds angezeigt</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Der Client wird in den Statistiken für Nerds ausgeblendet</string>

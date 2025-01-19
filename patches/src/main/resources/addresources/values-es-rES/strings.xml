@@ -1323,6 +1323,8 @@ Habilitar esto puede desbloquear calidades de vídeo más altas"</string>
   <string name="revanced_custom_playback_speeds_invalid">Las velocidades personalizadas deben ser menores que %s</string>
   <string name="revanced_custom_playback_speeds_parse_exception">Velocidades de reproducción personalizadas no válidas</string>
   <string name="revanced_custom_playback_speeds_auto">Automático</string>
+  <string name="revanced_speed_tap_and_hold_title">Velocidad personalizada al tocar y mantener</string>
+  <string name="revanced_speed_tap_and_hold_summary">Velocidad de reproducción entre 0-8</string>
   </patch>
   <patch id="video.speed.remember.rememberPlaybackSpeedPatch">
   <string name="revanced_remember_playback_speed_last_selected_title">Recordar cambios de velocidad de reproducción</string>
@@ -1368,7 +1370,6 @@ AVC tiene una resolución máxima de 1080p, el códec de audio Opus no está dis
 • El volumen estable no está disponible
 • Forzar el audio original no está disponible"</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• No AV1 códec de vídeo</string>
-  <string name="revanced_spoof_video_streams_about_no_hdr">• No HDR vídeo</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Mostrar en Estadísticas para nerds</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">El tipo de cliente se muestra en Estadísticas para nerds</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">El cliente está oculto en Estadísticas para nerds</string>

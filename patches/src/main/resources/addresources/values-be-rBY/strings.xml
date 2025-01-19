@@ -1342,6 +1342,8 @@ Second \"item\" text"</string>
   <string name="revanced_custom_playback_speeds_invalid">Нестандартныя хуткасці павінны быць менш за %s</string>
   <string name="revanced_custom_playback_speeds_parse_exception">Несапраўдныя нестандартныя хуткасці прайгравання</string>
   <string name="revanced_custom_playback_speeds_auto">Аўто</string>
+  <string name="revanced_speed_tap_and_hold_title">Уласны хуткасць націску і ўтрымання</string>
+  <string name="revanced_speed_tap_and_hold_summary">Хуткасць прайгравання між 0-8</string>
   </patch>
   <patch id="video.speed.remember.rememberPlaybackSpeedPatch">
   <string name="revanced_remember_playback_speed_last_selected_title">Запомніце змены хуткасці прайгравання</string>
@@ -1387,7 +1389,6 @@ AVC мае максімальнае дазвол 1080p, аўдыёкадэк Opu
 • Стабільны гук недаступны
 • Прымусовае арыгінальнае аўдыё недаступна"</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Няма відэакідавання AV1</string>
-  <string name="revanced_spoof_video_streams_about_no_hdr">• Няма відэа HDR</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Паказаць у статыстыцы для спецыялістаў</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Тып кліента адлюстроўваецца ў статыстыцы для спецыялістаў</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Кліент схаваны ў статыстыцы для спецыялістаў</string>

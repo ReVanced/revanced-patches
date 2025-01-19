@@ -1342,6 +1342,8 @@ User id ของคุณเหมือนกับรหัสผ่าน �
   <string name="revanced_custom_playback_speeds_invalid">ความเร็วที่กําหนดเองต้องน้อยกว่า %s</string>
   <string name="revanced_custom_playback_speeds_parse_exception">ความเร็วในการเล่นที่กําหนดเองไม่ถูกต้อง</string>
   <string name="revanced_custom_playback_speeds_auto">อัตโนมัติ</string>
+  <string name="revanced_speed_tap_and_hold_title">**Custom tap and hold speed**</string>
+  <string name="revanced_speed_tap_and_hold_summary">ความเร็วในการเล่นระหว่าง 0-8</string>
   </patch>
   <patch id="video.speed.remember.rememberPlaybackSpeedPatch">
   <string name="revanced_remember_playback_speed_last_selected_title">จำการเปลี่ยนแปลงความเร็วในการเล่น</string>
@@ -1387,7 +1389,6 @@ AVC มีความละเอียดสูงสุด 1080p, ตัว�
 • ปรับระดับเสียงอัตโนมัติใช้งานไม่ได้
 • เปิดเสียงต้นฉบับใช้งานไม่ได้"</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• ไม่มีตัวแปลงสัญญาณวิดีโอ AV1</string>
-  <string name="revanced_spoof_video_streams_about_no_hdr">• ไม่มีวิดีโอ HDR</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_title">แสดงในสถิติสำหรับพวกเนิร์ด</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">แสดงชนิดไคลเอ็นต์ในสถิติสำหรับพวกเนิร์ด</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">ซ่อนไคลเอ็นต์ในสถิติสำหรับพวกเนิร์ด</string>
