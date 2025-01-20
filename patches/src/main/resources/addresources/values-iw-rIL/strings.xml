@@ -33,6 +33,7 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">תאריך בניית ה-APK שגוי</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
+  <string name="revanced_settings_submenu_title">הגדרות</string>
   <string name="revanced_settings_confirm_user_dialog_title">האם תרצה להמשיך?</string>
   <string name="revanced_settings_reset">איפוס</string>
   <string name="revanced_settings_restart_title">רענן והפעל מחדש</string>
@@ -66,8 +67,8 @@ Second \"item\" text"</string>
   <string name="revanced_settings_screen_01_ads_title">מודעות</string>
   <string name="revanced_settings_screen_02_alt_thumbnails_title">תמונות ממוזערות חלופיות</string>
   <string name="revanced_settings_screen_03_feed_title">פיד</string>
-  <string name="revanced_settings_screen_04_player_title">נגן</string>
-  <string name="revanced_settings_screen_05_general_title">פריסה כללית</string>
+  <string name="revanced_settings_screen_04_general_title">כללי</string>
+  <string name="revanced_settings_screen_05_player_title">שחקן</string>
   <string name="revanced_settings_screen_07_seekbar_title">סרגל חיפוש</string>
   <string name="revanced_settings_screen_08_swipe_controls_title">פקדי החלקה</string>
   <string name="revanced_settings_screen_11_misc_title">שונות</string>

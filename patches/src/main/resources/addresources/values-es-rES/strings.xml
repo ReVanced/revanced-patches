@@ -33,6 +33,7 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">La fecha de compilación del APK está dañada</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
+  <string name="revanced_settings_submenu_title">Ajustes</string>
   <string name="revanced_settings_title">ReVanced</string>
   <string name="revanced_settings_confirm_user_dialog_title">¿Desea continuar?</string>
   <string name="revanced_settings_reset">Restablecer</string>
@@ -125,13 +126,16 @@ Para traducir nuevos idiomas, visita translate.revanced.app"</string>
   <string name="revanced_settings_screen_01_ads_title">Anuncios</string>
   <string name="revanced_settings_screen_02_alt_thumbnails_title">Miniaturas alternativas</string>
   <string name="revanced_settings_screen_03_feed_title">Fuente</string>
-  <string name="revanced_settings_screen_04_player_title">Reproductor</string>
-  <string name="revanced_settings_screen_05_general_title">Diseño general</string>
+  <string name="revanced_settings_screen_04_general_title">General</string>
+  <string name="revanced_settings_screen_05_player_title">Reproductor</string>
   <string name="revanced_settings_screen_06_shorts_title">Shorts</string>
   <string name="revanced_settings_screen_07_seekbar_title">Barra</string>
   <string name="revanced_settings_screen_08_swipe_controls_title">Controles de deslizamiento</string>
   <string name="revanced_settings_screen_11_misc_title">Miscelánea</string>
   <string name="revanced_settings_screen_12_video_title">Video</string>
+  <string name="revanced_restore_old_settings_menus_title">Restaurar los menús de configuración antiguos</string>
+  <string name="revanced_restore_old_settings_menus_summary_on">Se muestran los menús de configuración antiguos</string>
+  <string name="revanced_restore_old_settings_menus_summary_off">No se muestran los menús de configuración antiguos</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
   <string name="revanced_shorts_disable_background_playback_title">Desactivar la reproducción en segundo plano de Shorts</string>

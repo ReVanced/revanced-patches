@@ -33,6 +33,7 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">La data di compilazione dell\'APK è corrotta</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
+  <string name="revanced_settings_submenu_title">Impostazioni</string>
   <string name="revanced_settings_title">ReVanced</string>
   <string name="revanced_settings_confirm_user_dialog_title">Sei sicuro di voler continuare?</string>
   <string name="revanced_settings_reset">Reimposta</string>
@@ -133,12 +134,15 @@ Tocca il pulsante Continua e consenti le modifiche di ottimizzazione."</string>
   <string name="revanced_settings_screen_01_ads_title">Pubblicità</string>
   <string name="revanced_settings_screen_02_alt_thumbnails_title">Miniature alternative</string>
   <string name="revanced_settings_screen_03_feed_title">Feed</string>
-  <string name="revanced_settings_screen_04_player_title">Lettore</string>
-  <string name="revanced_settings_screen_05_general_title">Interfaccia generale</string>
+  <string name="revanced_settings_screen_04_general_title">Generale</string>
+  <string name="revanced_settings_screen_05_player_title">Player</string>
   <string name="revanced_settings_screen_07_seekbar_title">Barra di avanzamento</string>
   <string name="revanced_settings_screen_08_swipe_controls_title">Controlli a gesti</string>
   <string name="revanced_settings_screen_11_misc_title">Varie</string>
   <string name="revanced_settings_screen_12_video_title">Video</string>
+  <string name="revanced_restore_old_settings_menus_title">Ripristina vecchi menu impostazioni</string>
+  <string name="revanced_restore_old_settings_menus_summary_on">I vecchi menu delle impostazioni vengono mostrati</string>
+  <string name="revanced_restore_old_settings_menus_summary_off">I vecchi menu delle impostazioni non vengono mostrati</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
   <string name="revanced_shorts_disable_background_playback_title">Disattiva riproduzione Shorts in background</string>

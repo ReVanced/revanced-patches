@@ -33,6 +33,7 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">Dátum zostavenia APK je poškodený</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
+  <string name="revanced_settings_submenu_title">Nastavenia</string>
   <string name="revanced_settings_confirm_user_dialog_title">Chcete pokračovať?</string>
   <string name="revanced_settings_reset">Resetovať</string>
   <string name="revanced_settings_restart_title">Obnovte a reštartujte</string>
@@ -130,12 +131,15 @@ Vypnutie optimalizácie batérie pre MicroG nebude mať negatívny vplyv na spot
   <string name="revanced_settings_screen_01_ads_title">Reklamy</string>
   <string name="revanced_settings_screen_02_alt_thumbnails_title">Alternatívne miniatúry</string>
   <string name="revanced_settings_screen_03_feed_title">Feed</string>
-  <string name="revanced_settings_screen_04_player_title">Hráč</string>
-  <string name="revanced_settings_screen_05_general_title">Všeobecné rozloženie</string>
+  <string name="revanced_settings_screen_04_general_title">Všeobecné</string>
+  <string name="revanced_settings_screen_05_player_title">Prehrávač</string>
   <string name="revanced_settings_screen_07_seekbar_title">Panel vyhľadávania</string>
   <string name="revanced_settings_screen_08_swipe_controls_title">Ovládanie potiahnutím</string>
   <string name="revanced_settings_screen_11_misc_title">Rôzne</string>
   <string name="revanced_settings_screen_12_video_title">Video</string>
+  <string name="revanced_restore_old_settings_menus_title">Obnoviť staré ponuky nastavení</string>
+  <string name="revanced_restore_old_settings_menus_summary_on">Staré ponuky nastavení sa zobrazujú</string>
+  <string name="revanced_restore_old_settings_menus_summary_off">Staré ponuky nastavení sa nezobrazujú</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
   <string name="revanced_shorts_disable_background_playback_title">Zakázať prehrávanie Shorts na pozadí</string>

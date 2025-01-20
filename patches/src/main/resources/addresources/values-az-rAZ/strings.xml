@@ -132,11 +132,9 @@ Davam et düyməsinə toxun və optimallaşdırma dəyişikliklərin qəbul et."
   <string name="revanced_settings_screen_01_ads_title">Reklamlar</string>
   <string name="revanced_settings_screen_02_alt_thumbnails_title">Seçmə miniatürlər</string>
   <string name="revanced_settings_screen_03_feed_title">Axın</string>
-  <string name="revanced_settings_screen_04_player_title">Oynadıcı</string>
-  <string name="revanced_settings_screen_05_general_title">Ümumi tərtibat</string>
+  <string name="revanced_settings_screen_04_general_title">Ümumi</string>
   <string name="revanced_settings_screen_07_seekbar_title">Axtarış çubuğu</string>
   <string name="revanced_settings_screen_08_swipe_controls_title">Sürüşdürmə nəzarətçiləri</string>
-  <string name="revanced_settings_screen_11_misc_title">Müxtəlif</string>
   <string name="revanced_settings_screen_12_video_title">Video</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">

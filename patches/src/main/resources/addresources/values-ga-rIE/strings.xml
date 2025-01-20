@@ -33,6 +33,7 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">Tá dáta tógála APK truaillithe</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
+  <string name="revanced_settings_submenu_title">Socruithe</string>
   <string name="revanced_settings_title">ReVanced</string>
   <string name="revanced_settings_confirm_user_dialog_title">Ar mhaith leat dul ar aghaidh?</string>
   <string name="revanced_settings_reset">Athshocraigh</string>
@@ -133,13 +134,16 @@ Brúigh an cnaipe leanúnaí agus ligean athruithe optúimíochta."</string>
   <string name="revanced_settings_screen_01_ads_title">Fógraí</string>
   <string name="revanced_settings_screen_02_alt_thumbnails_title">Mionsamhlacha malartacha</string>
   <string name="revanced_settings_screen_03_feed_title">Fotha</string>
-  <string name="revanced_settings_screen_04_player_title">Seinnteoir</string>
-  <string name="revanced_settings_screen_05_general_title">Leagan amach ginearálta</string>
+  <string name="revanced_settings_screen_04_general_title">Ginearálta</string>
+  <string name="revanced_settings_screen_05_player_title">Seinnteoir</string>
   <string name="revanced_settings_screen_06_shorts_title">Shorts</string>
   <string name="revanced_settings_screen_07_seekbar_title">Barra Cuardaigh</string>
   <string name="revanced_settings_screen_08_swipe_controls_title">Rialuithe Svaidhpeála</string>
-  <string name="revanced_settings_screen_11_misc_title">Ilchineálach</string>
+  <string name="revanced_settings_screen_11_misc_title">Éagsúla</string>
   <string name="revanced_settings_screen_12_video_title">Físeán</string>
+  <string name="revanced_restore_old_settings_menus_title">Athshocraigh roghanna seanghléasanna</string>
+  <string name="revanced_restore_old_settings_menus_summary_on">Féachann roghanna seanmhéid</string>
+  <string name="revanced_restore_old_settings_menus_summary_off">Ní féachann roghanna seanmhéid</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
   <string name="revanced_shorts_disable_background_playback_title">Díchumasaigh seinnte Cúlra Shorts</string>
