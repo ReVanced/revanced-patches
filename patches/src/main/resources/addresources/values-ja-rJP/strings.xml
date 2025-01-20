@@ -33,6 +33,7 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">APKビルド日付が破損しています</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
+  <string name="revanced_settings_submenu_title">セットゥンス</string>
   <string name="revanced_settings_confirm_user_dialog_title">続行しますか？</string>
   <string name="revanced_settings_reset">リセット</string>
   <string name="revanced_settings_restart_title">更新して再起動</string>
@@ -132,12 +133,15 @@ GmsCore の電池の最適化を無効にしても、バッテリーの使用に
   <string name="revanced_settings_screen_01_ads_title">広告</string>
   <string name="revanced_settings_screen_02_alt_thumbnails_title">代替サムネイル</string>
   <string name="revanced_settings_screen_03_feed_title">フィード</string>
-  <string name="revanced_settings_screen_04_player_title">動画プレーヤー</string>
-  <string name="revanced_settings_screen_05_general_title">全般レイアウト</string>
+  <string name="revanced_settings_screen_04_general_title">一般</string>
+  <string name="revanced_settings_screen_05_player_title">動画プレーヤー</string>
   <string name="revanced_settings_screen_07_seekbar_title">シークバー</string>
   <string name="revanced_settings_screen_08_swipe_controls_title">スワイプコントロール</string>
   <string name="revanced_settings_screen_11_misc_title">その他</string>
   <string name="revanced_settings_screen_12_video_title">動画</string>
+  <string name="revanced_restore_old_settings_menus_title">以前の設定メニューを復元する</string>
+  <string name="revanced_restore_old_settings_menus_summary_on">色シットサイズを表示する</string>
+  <string name="revanced_restore_old_settings_menus_summary_off">色シットサイズを表示しない</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
   <string name="revanced_shorts_disable_background_playback_title">ショート動画のバックグラウンド再生を無効にする</string>
@@ -1246,8 +1250,7 @@ DeArrow の詳細については、ここをタップしてください。"</str
   <string name="revanced_alt_thumbnail_stills_about_title">静止画サムネイル</string>
   <string name="revanced_alt_thumbnail_stills_about_summary">静止画は各動画の序盤/中盤/終盤から取得されます。これらの画像はYouTubeに組み込まれており、外部 API は使用されません</string>
   <string name="revanced_alt_thumbnail_stills_fast_title">高速な静止画サムネイルを使用する</string>
-  <string name="revanced_alt_thumbnail_stills_fast_summary_on">中画質の静止画サムネイルを使用します。
-サムネイルの読み込みは速くなりますが、ライブ、未公開、または非常に古い動画には空白のサムネイルが表示されることがあります</string>
+  <string name="revanced_alt_thumbnail_stills_fast_summary_on">中画質の静止画サムネイルを使用します。サムネイルの読み込みは速くなりますが、ライブ、未公開、または非常に古い動画には空白のサムネイルが表示されることがあります</string>
   <string name="revanced_alt_thumbnail_stills_fast_summary_off">高画質の静止画を使用します</string>
   <string name="revanced_alt_thumbnail_stills_time_title">静止画サムネイルを取得する位置</string>
   <string name="revanced_alt_thumbnail_stills_time_entry_1">動画の序盤</string>

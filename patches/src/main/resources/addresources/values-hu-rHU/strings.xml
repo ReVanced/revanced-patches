@@ -33,6 +33,7 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">Az APK build dátuma sérült</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
+  <string name="revanced_settings_submenu_title">Beállítások</string>
   <string name="revanced_settings_title">ReVanced</string>
   <string name="revanced_settings_confirm_user_dialog_title">Szeretné folytatni?</string>
   <string name="revanced_settings_reset">Visszaállítás</string>
@@ -133,12 +134,15 @@ Kattintson a folytatás gombra, és engedélyezze az optimalizálási módosít�
   <string name="revanced_settings_screen_01_ads_title">Hirdetések</string>
   <string name="revanced_settings_screen_02_alt_thumbnails_title">Alternatív indexképek</string>
   <string name="revanced_settings_screen_03_feed_title">Hírfolyam</string>
-  <string name="revanced_settings_screen_04_player_title">Lejátszó</string>
-  <string name="revanced_settings_screen_05_general_title">Általános elrendezés</string>
+  <string name="revanced_settings_screen_04_general_title">Általános</string>
+  <string name="revanced_settings_screen_05_player_title">Lejátszó</string>
   <string name="revanced_settings_screen_07_seekbar_title">Keresősáv</string>
   <string name="revanced_settings_screen_08_swipe_controls_title">Csúsztatási vezérlők</string>
   <string name="revanced_settings_screen_11_misc_title">Egyéb</string>
   <string name="revanced_settings_screen_12_video_title">Videó</string>
+  <string name="revanced_restore_old_settings_menus_title">Régi beállítási menük visszaállítása</string>
+  <string name="revanced_restore_old_settings_menus_summary_on">A régi beállítások menüpontok megjelennek</string>
+  <string name="revanced_restore_old_settings_menus_summary_off">A régi beállítások menüpontok nem jelennek meg</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
   <string name="revanced_shorts_disable_background_playback_title">A Shorts háttérben történő lejátszásának letiltása</string>

@@ -33,6 +33,7 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">APK 빌드 날짜가 손상됨</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
+  <string name="revanced_settings_submenu_title">설정</string>
   <string name="revanced_settings_title">ReVanced</string>
   <string name="revanced_settings_confirm_user_dialog_title">계속하시겠습니까?</string>
   <string name="revanced_settings_reset">초기화</string>
@@ -133,13 +134,16 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_settings_screen_01_ads_title">광고</string>
   <string name="revanced_settings_screen_02_alt_thumbnails_title">대체 썸네일</string>
   <string name="revanced_settings_screen_03_feed_title">피드</string>
-  <string name="revanced_settings_screen_04_player_title">플레이어</string>
-  <string name="revanced_settings_screen_05_general_title">일반</string>
+  <string name="revanced_settings_screen_04_general_title">일반</string>
+  <string name="revanced_settings_screen_05_player_title">플레이어</string>
   <string name="revanced_settings_screen_06_shorts_title">Shorts</string>
   <string name="revanced_settings_screen_07_seekbar_title">재생바</string>
   <string name="revanced_settings_screen_08_swipe_controls_title">스와이프 제스처</string>
   <string name="revanced_settings_screen_11_misc_title">기타</string>
   <string name="revanced_settings_screen_12_video_title">동영상</string>
+  <string name="revanced_restore_old_settings_menus_title">이전 설정 메뉴 복원하기</string>
+  <string name="revanced_restore_old_settings_menus_summary_on">이전 설정 메뉴를 표시합니다</string>
+  <string name="revanced_restore_old_settings_menus_summary_off">이전 설정 메뉴를 표시하지 않습니다</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
   <string name="revanced_shorts_disable_background_playback_title">Shorts 백그라운드 재생 비활성화하기</string>
@@ -1348,8 +1352,8 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요"</string>
   <string name="revanced_custom_playback_speeds_invalid">재생 속도 값은 %s배속보다 작아야 합니다</string>
   <string name="revanced_custom_playback_speeds_parse_exception">잘못된 사용자 정의 재생 속도 값입니다</string>
   <string name="revanced_custom_playback_speeds_auto">자동</string>
-  <string name="revanced_speed_tap_and_hold_title">사용자 정의 \'길게 눌러서 재생 속도\'</string>
-  <string name="revanced_speed_tap_and_hold_summary">\'화면을 길게 누르는 동안에 변경되는 재생 속도\'를 0-8 사이에서 지정할 수 있습니다</string>
+  <string name="revanced_speed_tap_and_hold_title">사용자 정의 길게 눌러서 동영상 재생 속도</string>
+  <string name="revanced_speed_tap_and_hold_summary">화면을 길게 누르는 동안에 변경되는 동영상 재생 속도를 0-8 사이에서 지정할 수 있습니다</string>
   </patch>
   <patch id="video.speed.remember.rememberPlaybackSpeedPatch">
   <string name="revanced_remember_playback_speed_last_selected_title">동영상 재생 속도 저장 활성화하기</string>

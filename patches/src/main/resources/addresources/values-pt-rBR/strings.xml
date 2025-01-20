@@ -33,6 +33,7 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">Data de compilação do APK está corrompida</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
+  <string name="revanced_settings_submenu_title">Configurações</string>
   <string name="revanced_settings_title">ReVanced</string>
   <string name="revanced_settings_confirm_user_dialog_title">Você deseja prosseguir?</string>
   <string name="revanced_settings_reset">Resetar</string>
@@ -131,12 +132,15 @@ Toque no botão continuar e permita as mudanças de otimização. "</string>
   <string name="revanced_settings_screen_01_ads_title">Anúncios</string>
   <string name="revanced_settings_screen_02_alt_thumbnails_title">Miniaturas alternativas</string>
   <string name="revanced_settings_screen_03_feed_title">Feed</string>
-  <string name="revanced_settings_screen_04_player_title">Reprodutor</string>
-  <string name="revanced_settings_screen_05_general_title">Layout geral</string>
+  <string name="revanced_settings_screen_04_general_title">Geral</string>
+  <string name="revanced_settings_screen_05_player_title">Jogador</string>
   <string name="revanced_settings_screen_07_seekbar_title">Barra de busca</string>
   <string name="revanced_settings_screen_08_swipe_controls_title">Controles deslizantes</string>
-  <string name="revanced_settings_screen_11_misc_title">Outras configurações</string>
+  <string name="revanced_settings_screen_11_misc_title">Diversos</string>
   <string name="revanced_settings_screen_12_video_title">Vídeo</string>
+  <string name="revanced_restore_old_settings_menus_title">Restaurar menus de configurações antigos</string>
+  <string name="revanced_restore_old_settings_menus_summary_on">Os menus de configurações antigos são mostrados.</string>
+  <string name="revanced_restore_old_settings_menus_summary_off">Os menus de configurações antigos não são mostrados.</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
   <string name="revanced_shorts_disable_background_playback_title">Desativar reprodução de fundo dos Shorts</string>

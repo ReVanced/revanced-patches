@@ -33,6 +33,7 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">Data e ndërtimit të APK është e korruptuar</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
+  <string name="revanced_settings_submenu_title">Cilësimet</string>
   <string name="revanced_settings_title">ReVanced</string>
   <string name="revanced_settings_confirm_user_dialog_title">Dëshironi të vazhdoni?</string>
   <string name="revanced_settings_reset">Rivendos</string>
@@ -133,13 +134,16 @@ Prekni butonin vazhdo dhe lejoni ndryshimet e optimizimit."</string>
   <string name="revanced_settings_screen_01_ads_title">Anunet</string>
   <string name="revanced_settings_screen_02_alt_thumbnails_title">Miniatura alternative</string>
   <string name="revanced_settings_screen_03_feed_title">Ushtrimi</string>
-  <string name="revanced_settings_screen_04_player_title">Lujtësi</string>
-  <string name="revanced_settings_screen_05_general_title">Dizajni i përgjithshëm</string>
+  <string name="revanced_settings_screen_04_general_title">Përgjithshëm</string>
+  <string name="revanced_settings_screen_05_player_title">Lojtari</string>
   <string name="revanced_settings_screen_06_shorts_title">Shorts</string>
   <string name="revanced_settings_screen_07_seekbar_title">Shiriti i kërkimit</string>
   <string name="revanced_settings_screen_08_swipe_controls_title">Kontrolluesit e rrëshqitjes</string>
   <string name="revanced_settings_screen_11_misc_title">Të ndryshme</string>
   <string name="revanced_settings_screen_12_video_title">Video</string>
+  <string name="revanced_restore_old_settings_menus_title">Rikthe menutë e vjetër të konfigurimeve</string>
+  <string name="revanced_restore_old_settings_menus_summary_on">Menutë e vjetër të cilësimeve shfaqen</string>
+  <string name="revanced_restore_old_settings_menus_summary_off">Menutë e vjetër të cilësimeve nuk shfaqen</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
   <string name="revanced_shorts_disable_background_playback_title">Çaktivizo luajtjen në sfond të Shorts</string>

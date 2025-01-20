@@ -33,6 +33,7 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">Дата сборки APK повреждена</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
+  <string name="revanced_settings_submenu_title">Настройки</string>
   <string name="revanced_settings_title">ReVanced</string>
   <string name="revanced_settings_confirm_user_dialog_title">Вы хотите продолжить?</string>
   <string name="revanced_settings_reset">Сбросить</string>
@@ -133,13 +134,16 @@ Second \"item\" text"</string>
   <string name="revanced_settings_screen_01_ads_title">Реклама</string>
   <string name="revanced_settings_screen_02_alt_thumbnails_title">Альтернативные миниатюры</string>
   <string name="revanced_settings_screen_03_feed_title">Лента</string>
-  <string name="revanced_settings_screen_04_player_title">Плеер</string>
-  <string name="revanced_settings_screen_05_general_title">Основной интерфейс</string>
+  <string name="revanced_settings_screen_04_general_title">Общие</string>
+  <string name="revanced_settings_screen_05_player_title">Плеер</string>
   <string name="revanced_settings_screen_06_shorts_title">Shorts</string>
   <string name="revanced_settings_screen_07_seekbar_title">Полоса прогресса</string>
   <string name="revanced_settings_screen_08_swipe_controls_title">Управление жестами</string>
-  <string name="revanced_settings_screen_11_misc_title">Прочие</string>
+  <string name="revanced_settings_screen_11_misc_title">Разное</string>
   <string name="revanced_settings_screen_12_video_title">Видео</string>
+  <string name="revanced_restore_old_settings_menus_title">Восстановить старое меню настроек</string>
+  <string name="revanced_restore_old_settings_menus_summary_on">Отображается старое меню настроек</string>
+  <string name="revanced_restore_old_settings_menus_summary_off">Отображается новое меню настроек</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
   <string name="revanced_shorts_disable_background_playback_title">Фоновое воспроизведение Shorts</string>
@@ -1343,7 +1347,7 @@ Second \"item\" text"</string>
   <string name="revanced_custom_playback_speeds_invalid">Пользовательские скорости должны быть меньше, чем %s</string>
   <string name="revanced_custom_playback_speeds_parse_exception">Недопустимые пользовательские скорости воспроизведения</string>
   <string name="revanced_custom_playback_speeds_auto">Автоматически</string>
-  <string name="revanced_speed_tap_and_hold_title">Пользовательская скорость нажатия и удержания</string>
+  <string name="revanced_speed_tap_and_hold_title">Пользовательская скорость при нажатии и удержания</string>
   <string name="revanced_speed_tap_and_hold_summary">Скорость воспроизведения между 0 и 8</string>
   </patch>
   <patch id="video.speed.remember.rememberPlaybackSpeedPatch">

@@ -33,6 +33,7 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">Ngày dựng APK bị hỏng</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
+  <string name="revanced_settings_submenu_title">Thiết lập</string>
   <string name="revanced_settings_title">ReVanced</string>
   <string name="revanced_settings_confirm_user_dialog_title">Bạn có muốn tiếp tục không?</string>
   <string name="revanced_settings_reset">Đặt lại</string>
@@ -133,13 +134,16 @@ Nhấn nút tiếp tục và cho phép thay đổi tối ưu hóa."</string>
   <string name="revanced_settings_screen_01_ads_title">Quảng cáo</string>
   <string name="revanced_settings_screen_02_alt_thumbnails_title">Hình thu nhỏ thay thế</string>
   <string name="revanced_settings_screen_03_feed_title">Bảng tin</string>
-  <string name="revanced_settings_screen_04_player_title">Trình phát</string>
-  <string name="revanced_settings_screen_05_general_title">Bố cục chung</string>
+  <string name="revanced_settings_screen_04_general_title">Chung</string>
+  <string name="revanced_settings_screen_05_player_title">Nghe nhạc</string>
   <string name="revanced_settings_screen_06_shorts_title">Shorts</string>
   <string name="revanced_settings_screen_07_seekbar_title">Thanh tiến trình</string>
   <string name="revanced_settings_screen_08_swipe_controls_title">Cử chỉ vuốt</string>
-  <string name="revanced_settings_screen_11_misc_title">Cài đặt khác</string>
+  <string name="revanced_settings_screen_11_misc_title">Khác</string>
   <string name="revanced_settings_screen_12_video_title">Video</string>
+  <string name="revanced_restore_old_settings_menus_title">Khôi phục menu cài đặt cũ</string>
+  <string name="revanced_restore_old_settings_menus_summary_on">Hiển thị các menu Cài đặt cũ</string>
+  <string name="revanced_restore_old_settings_menus_summary_off">Không hiển thị các menu Cài đặt cũ</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
   <string name="revanced_shorts_disable_background_playback_title">Tắt phát nền cho Shorts</string>

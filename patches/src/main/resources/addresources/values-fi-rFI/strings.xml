@@ -133,12 +133,9 @@ Napauta jatka-painiketta ja salli optimoinnin muutokset."</string>
   <string name="revanced_settings_screen_01_ads_title">Mainokset</string>
   <string name="revanced_settings_screen_02_alt_thumbnails_title">Vaihtoehtoiset pikkukuvat</string>
   <string name="revanced_settings_screen_03_feed_title">Syöte</string>
-  <string name="revanced_settings_screen_04_player_title">Soitin</string>
-  <string name="revanced_settings_screen_05_general_title">Yleinen asettelu</string>
   <string name="revanced_settings_screen_06_shorts_title">Shorts</string>
   <string name="revanced_settings_screen_07_seekbar_title">Liukusäädin</string>
   <string name="revanced_settings_screen_08_swipe_controls_title">Pyyhkäisyohjaus</string>
-  <string name="revanced_settings_screen_11_misc_title">Sekalaiset</string>
   <string name="revanced_settings_screen_12_video_title">Video</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">

@@ -33,6 +33,7 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">Byggdatum för APK är skadat</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
+  <string name="revanced_settings_submenu_title">Inställningar</string>
   <string name="revanced_settings_title">ReVanced</string>
   <string name="revanced_settings_confirm_user_dialog_title">Vill du fortsätta?</string>
   <string name="revanced_settings_reset">Återställ</string>
@@ -133,13 +134,16 @@ Tryck på Fortsätt-knappen och tillåt optimeringsändringar."</string>
   <string name="revanced_settings_screen_01_ads_title">Annonser</string>
   <string name="revanced_settings_screen_02_alt_thumbnails_title">Alternativa miniatyrbilder</string>
   <string name="revanced_settings_screen_03_feed_title">Flöde</string>
-  <string name="revanced_settings_screen_04_player_title">Spelare</string>
-  <string name="revanced_settings_screen_05_general_title">Allmänt utseende</string>
+  <string name="revanced_settings_screen_04_general_title">Generell</string>
+  <string name="revanced_settings_screen_05_player_title">Spelare</string>
   <string name="revanced_settings_screen_06_shorts_title">Shorts</string>
   <string name="revanced_settings_screen_07_seekbar_title">Sökfält</string>
   <string name="revanced_settings_screen_08_swipe_controls_title">Dragkontroller</string>
-  <string name="revanced_settings_screen_11_misc_title">Övrigt</string>
+  <string name="revanced_settings_screen_11_misc_title">Diverse</string>
   <string name="revanced_settings_screen_12_video_title">Video</string>
+  <string name="revanced_restore_old_settings_menus_title">Återställ gamla inställningsmenyer</string>
+  <string name="revanced_restore_old_settings_menus_summary_on">Gamla inställningsmenyer visas</string>
+  <string name="revanced_restore_old_settings_menus_summary_off">Gamla inställningsmenyer visas inte</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
   <string name="revanced_shorts_disable_background_playback_title">Inaktivera Shorts bakgrundsuppspelning</string>
