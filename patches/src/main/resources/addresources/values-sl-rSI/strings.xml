@@ -33,6 +33,7 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">Datum izgradnje APK je poškodovan</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
+  <string name="revanced_settings_submenu_title">Nastavitve</string>
   <string name="revanced_settings_title">ReVanced</string>
   <string name="revanced_settings_confirm_user_dialog_title">Želite nadaljevati?</string>
   <string name="revanced_settings_reset">Ponastavi</string>
@@ -133,12 +134,15 @@ Tapnite gumb Nadaljuj in dovolite spremembe optimizacije."</string>
   <string name="revanced_settings_screen_01_ads_title">Oglasi</string>
   <string name="revanced_settings_screen_02_alt_thumbnails_title">Nadomestni sličice</string>
   <string name="revanced_settings_screen_03_feed_title">Zbirka</string>
-  <string name="revanced_settings_screen_04_player_title">Predvajalnik</string>
-  <string name="revanced_settings_screen_05_general_title">Splošna postavitev</string>
+  <string name="revanced_settings_screen_04_general_title">**Splošno**</string>
+  <string name="revanced_settings_screen_05_player_title">**Predvajalnik**</string>
   <string name="revanced_settings_screen_07_seekbar_title">Drsnik</string>
   <string name="revanced_settings_screen_08_swipe_controls_title">Ukazi s potegom</string>
-  <string name="revanced_settings_screen_11_misc_title">Razno</string>
+  <string name="revanced_settings_screen_11_misc_title">**Razno**</string>
   <string name="revanced_settings_screen_12_video_title">Videoposnetki</string>
+  <string name="revanced_restore_old_settings_menus_title">**Obnovi stare menije z nastavitvami**</string>
+  <string name="revanced_restore_old_settings_menus_summary_on">Stari meniji z nastavitvami so prikazani</string>
+  <string name="revanced_restore_old_settings_menus_summary_off">Stari meniji z nastavitvami niso prikazani</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
   <string name="revanced_shorts_disable_background_playback_title">Onemogoči predvajanje Shorts v ozadju</string>
@@ -1341,6 +1345,8 @@ Omogočanje tega lahko odklene višje kakovosti videa"</string>
   <string name="revanced_custom_playback_speeds_invalid">Hitrosti predvajanja po meri morajo biti manjše od %s</string>
   <string name="revanced_custom_playback_speeds_parse_exception">Neveljavne hitrosti predvajanja po meri</string>
   <string name="revanced_custom_playback_speeds_auto">Samodejno</string>
+  <string name="revanced_speed_tap_and_hold_title">Hitrost pritiska in pridržanja po meri</string>
+  <string name="revanced_speed_tap_and_hold_summary">Hitrost predvajanja med 0 in 8</string>
   </patch>
   <patch id="video.speed.remember.rememberPlaybackSpeedPatch">
   <string name="revanced_remember_playback_speed_last_selected_title">Zapomni si spremembe hitrosti predvajanja</string>
@@ -1386,7 +1392,6 @@ AVC ima največjo ločljivost 1080p, avdio kodek Opus ni na voljo, predvajanje v
 • Stabilna glasnost ni na voljo
 • Prisilno izvirno zvočno posnetek ni na voljo"</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Brez kodeka videa AV1</string>
-  <string name="revanced_spoof_video_streams_about_no_hdr">• Brez videa HDR</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Pokaži v statistiki za piflarje</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Vrsta odjemalca je prikazana v statistiki za piflarje</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Odjemalec je skrit v statistiki za piflarje</string>

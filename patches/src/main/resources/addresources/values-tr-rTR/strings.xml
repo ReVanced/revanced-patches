@@ -33,6 +33,7 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">APK derleme tarihi bozuk</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
+  <string name="revanced_settings_submenu_title">Ayarlar</string>
   <string name="revanced_settings_confirm_user_dialog_title">Devam etmek istiyor musunuz?</string>
   <string name="revanced_settings_reset">Sıfırla</string>
   <string name="revanced_settings_restart_title">Yenile ve yeniden başlat</string>
@@ -132,12 +133,15 @@ Devam düğmesine dokunun ve optimizasyon değişikliklerine izin verin."</strin
   <string name="revanced_settings_screen_01_ads_title">Reklamlar</string>
   <string name="revanced_settings_screen_02_alt_thumbnails_title">Alternatif kapak fotoğrafları</string>
   <string name="revanced_settings_screen_03_feed_title">Akış</string>
-  <string name="revanced_settings_screen_04_player_title">Oynatıcı</string>
-  <string name="revanced_settings_screen_05_general_title">Genel düzen</string>
+  <string name="revanced_settings_screen_04_general_title">Genel</string>
+  <string name="revanced_settings_screen_05_player_title">Oyuncu</string>
   <string name="revanced_settings_screen_07_seekbar_title">Zaman çubuğu</string>
   <string name="revanced_settings_screen_08_swipe_controls_title">Kaydırma kontrolleri</string>
   <string name="revanced_settings_screen_11_misc_title">Çeşitli</string>
   <string name="revanced_settings_screen_12_video_title">Video</string>
+  <string name="revanced_restore_old_settings_menus_title">Eski ayar menülerini geri yükle</string>
+  <string name="revanced_restore_old_settings_menus_summary_on">Eski ayar menüleri gösteriliyor</string>
+  <string name="revanced_restore_old_settings_menus_summary_off">Eski ayar menüleri gösterilmiyor</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
   <string name="revanced_shorts_disable_background_playback_title">Shorts\'un arka planda oynatılmasını devre dışı bırak</string>
@@ -1340,6 +1344,8 @@ Bunu etkinleştirmek daha yüksek video kalitelerini açabilir"</string>
   <string name="revanced_custom_playback_speeds_invalid">Özel hızlar %s\'den az olmalıdır</string>
   <string name="revanced_custom_playback_speeds_parse_exception">Geçersiz özel oynatma hızları</string>
   <string name="revanced_custom_playback_speeds_auto">Oto</string>
+  <string name="revanced_speed_tap_and_hold_title">Dokunup basılı tutma özel hızı</string>
+  <string name="revanced_speed_tap_and_hold_summary">0-8 arası oynatma hızı</string>
   </patch>
   <patch id="video.speed.remember.rememberPlaybackSpeedPatch">
   <string name="revanced_remember_playback_speed_last_selected_title">Oynatma hızı değişikliklerini hatırla</string>
@@ -1385,7 +1391,6 @@ AVC'nin maksimum çözünürlüğü 1080p'dir, Opus ses kodeği kullanılamaz ve
 • Sabit ses özelliği kullanılamaz
 • Orijinal sesi zorlama kullanılamaz"</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• AV1 video kodeği yok</string>
-  <string name="revanced_spoof_video_streams_about_no_hdr">• HDR video yok</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Meraklısı için istatistiklerde göster</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">İstemci tipi meraklısı için istatistiklerde gösterilir</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">İstemci, meraklısı için istatistiklerde gizli</string>

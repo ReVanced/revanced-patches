@@ -33,6 +33,7 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">Datum sestavení souboru APK je poškozeno</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
+  <string name="revanced_settings_submenu_title">Nastavení</string>
   <string name="revanced_settings_title">ReVanced</string>
   <string name="revanced_settings_confirm_user_dialog_title">Přejete si pokračovat?</string>
   <string name="revanced_settings_reset">Výchozí</string>
@@ -133,13 +134,16 @@ Klepněte na tlačítko Pokračovat a povolte změny optimalizace."</string>
   <string name="revanced_settings_screen_01_ads_title">Reklamy</string>
   <string name="revanced_settings_screen_02_alt_thumbnails_title">Alternativní náhledy</string>
   <string name="revanced_settings_screen_03_feed_title">Přísun</string>
-  <string name="revanced_settings_screen_04_player_title">Přehrávač</string>
-  <string name="revanced_settings_screen_05_general_title">Celkové rozložení</string>
+  <string name="revanced_settings_screen_04_general_title">Obecné</string>
+  <string name="revanced_settings_screen_05_player_title">Přehrávač</string>
   <string name="revanced_settings_screen_06_shorts_title">Shorts</string>
   <string name="revanced_settings_screen_07_seekbar_title">Lišta</string>
   <string name="revanced_settings_screen_08_swipe_controls_title">Ovládání gesty</string>
-  <string name="revanced_settings_screen_11_misc_title">Ostatní</string>
+  <string name="revanced_settings_screen_11_misc_title">Různé</string>
   <string name="revanced_settings_screen_12_video_title">Video</string>
+  <string name="revanced_restore_old_settings_menus_title">Obnovit staré menu nastavení</string>
+  <string name="revanced_restore_old_settings_menus_summary_on">Staré menu nastavení se zobrazují</string>
+  <string name="revanced_restore_old_settings_menus_summary_off">Staré menu nastavení se nezobrazují</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
   <string name="revanced_shorts_disable_background_playback_title">Zakázat automatické přehrávání Shorts v pozadí</string>
@@ -1341,6 +1345,8 @@ Povolením této funkce lze odemknout vyšší kvality videa"</string>
   <string name="revanced_custom_playback_speeds_invalid">Vlastní rychlosti musí být menší než %s</string>
   <string name="revanced_custom_playback_speeds_parse_exception">Neplatné vlastní rychlosti přehrávání</string>
   <string name="revanced_custom_playback_speeds_auto">Automaticky</string>
+  <string name="revanced_speed_tap_and_hold_title">Vlastní rychlost stisknutí a podržení</string>
+  <string name="revanced_speed_tap_and_hold_summary">Rychlost přehrávání 0 až 8</string>
   </patch>
   <patch id="video.speed.remember.rememberPlaybackSpeedPatch">
   <string name="revanced_remember_playback_speed_last_selected_title">Pamatovat si změny rychlosti přehrávání</string>
@@ -1386,7 +1392,6 @@ AVC má maximální rozlišení 1080p, zvukový kodek Opus není dostupný a př
 • Není k dispozici stabilní hlasitost
 • Není k dispozici možnost vynucení originálního zvuku"</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Žádný video kodek AV1</string>
-  <string name="revanced_spoof_video_streams_about_no_hdr">• Žádné HDR video</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Zobrazit ve statistikách pro nadšence</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Typ klienta se zobrazuje ve statistikách pro nadšence</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Klient je skrytý ve statistikách pro nadšence</string>

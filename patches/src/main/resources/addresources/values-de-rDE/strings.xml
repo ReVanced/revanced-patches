@@ -33,6 +33,7 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">APK-Erstellungsdatum ist beschädigt</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
+  <string name="revanced_settings_submenu_title">Einstellungen</string>
   <string name="revanced_settings_title">ReVanced</string>
   <string name="revanced_settings_confirm_user_dialog_title">Möchtest du fortfahren?</string>
   <string name="revanced_settings_reset">Zurücksetzen</string>
@@ -129,13 +130,16 @@ Tippen Sie auf die Schaltfläche \"Fortfahren\" und erlauben Sie die Optimierung
   <string name="revanced_settings_screen_01_ads_title">Werbung</string>
   <string name="revanced_settings_screen_02_alt_thumbnails_title">Alternative Thumbnails</string>
   <string name="revanced_settings_screen_03_feed_title">Feed</string>
-  <string name="revanced_settings_screen_04_player_title">Player</string>
-  <string name="revanced_settings_screen_05_general_title">Generelles Layout</string>
+  <string name="revanced_settings_screen_04_general_title">Allgemein</string>
+  <string name="revanced_settings_screen_05_player_title">Spieler</string>
   <string name="revanced_settings_screen_06_shorts_title">Shorts</string>
   <string name="revanced_settings_screen_07_seekbar_title">Suchleiste</string>
   <string name="revanced_settings_screen_08_swipe_controls_title">Wischgesten</string>
-  <string name="revanced_settings_screen_11_misc_title">Sonstiges</string>
+  <string name="revanced_settings_screen_11_misc_title">Verschiedenes</string>
   <string name="revanced_settings_screen_12_video_title">Video</string>
+  <string name="revanced_restore_old_settings_menus_title">Alte Einstellungsmenüs wiederherstellen</string>
+  <string name="revanced_restore_old_settings_menus_summary_on">Alte Einstellungsmenüs werden angezeigt</string>
+  <string name="revanced_restore_old_settings_menus_summary_off">Alte Einstellungsmenüs werden nicht angezeigt</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
   <string name="revanced_shorts_disable_background_playback_title">Shorts-Hintergrundwiedergabe deaktivieren</string>
@@ -1308,7 +1312,7 @@ Durch Aktivieren dieser Option können höhere Videoqualitäten freigeschaltet w
   <string name="revanced_force_original_audio_title">Original Audio erzwingen</string>
   <string name="revanced_force_original_audio_summary_on">Originales Audio verwenden</string>
   <string name="revanced_force_original_audio_summary_off">Standardaudio verwenden</string>
-  <string name="revanced_force_original_audio_not_available">Um diese Funktion zu nutzen, ändern Sie das Stream-Spoofing auf den iOS-Clienttyp</string>
+  <string name="revanced_force_original_audio_not_available">Um diese Funktion zu nutzen, ändern Sie das Stream-Spoofing auf den iOS-Clienttyp.</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
@@ -1336,6 +1340,8 @@ Durch Aktivieren dieser Option können höhere Videoqualitäten freigeschaltet w
   <string name="revanced_custom_playback_speeds_invalid">Benutzerdefinierte Geschwindigkeiten müssen kleiner als %s sein</string>
   <string name="revanced_custom_playback_speeds_parse_exception">Ungültige benutzerdefinierte Wiedergabegeschwindigkeiten</string>
   <string name="revanced_custom_playback_speeds_auto">Autom</string>
+  <string name="revanced_speed_tap_and_hold_title">Benutzerdefinierte Geschwindigkeit bei Tippen und Halten</string>
+  <string name="revanced_speed_tap_and_hold_summary">Abspielgeschwindigkeit zwischen 0-8x</string>
   </patch>
   <patch id="video.speed.remember.rememberPlaybackSpeedPatch">
   <string name="revanced_remember_playback_speed_last_selected_title">Änderungen der Wiedergabegeschwindigkeit merken</string>
@@ -1381,7 +1387,6 @@ AVC hat eine maximale Auflösung von 1080p, Opus-Audiocodec ist nicht verfügbar
 • Stabile Lautstärke ist nicht verfügbar
 • Original-Audio erzwingen ist nicht verfügbar"</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Kein AV1-Videocodec</string>
-  <string name="revanced_spoof_video_streams_about_no_hdr">• Keine HDR-Videos</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_title">In Statistiken für Nerds anzeigen</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Der Client-Typ wird in den Statistiken für Nerds angezeigt</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Der Client wird in den Statistiken für Nerds ausgeblendet</string>

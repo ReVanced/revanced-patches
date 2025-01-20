@@ -33,6 +33,7 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">APK-bouwdatum is beschadigd</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
+  <string name="revanced_settings_submenu_title">Instellingen</string>
   <string name="revanced_settings_title">ReVanced</string>
   <string name="revanced_settings_confirm_user_dialog_title">Wilt u doorgaan?</string>
   <string name="revanced_settings_reset">Herstellen naar standaard</string>
@@ -133,13 +134,16 @@ Tik op de knop Doorgaan en sta optimalisatieveranderingen toe."</string>
   <string name="revanced_settings_screen_01_ads_title">Advertenties</string>
   <string name="revanced_settings_screen_02_alt_thumbnails_title">Alternatieve miniaturen</string>
   <string name="revanced_settings_screen_03_feed_title">Feed</string>
-  <string name="revanced_settings_screen_04_player_title">Speler</string>
-  <string name="revanced_settings_screen_05_general_title">Algemene lay-out</string>
+  <string name="revanced_settings_screen_04_general_title">Algemeen</string>
+  <string name="revanced_settings_screen_05_player_title">Speler</string>
   <string name="revanced_settings_screen_06_shorts_title">Shorts</string>
   <string name="revanced_settings_screen_07_seekbar_title">Zoekbalk</string>
   <string name="revanced_settings_screen_08_swipe_controls_title">Veegbediening</string>
-  <string name="revanced_settings_screen_11_misc_title">Diversen</string>
+  <string name="revanced_settings_screen_11_misc_title">Overige</string>
   <string name="revanced_settings_screen_12_video_title">Video</string>
+  <string name="revanced_restore_old_settings_menus_title">Oude instellingenmenu\'s herstellen</string>
+  <string name="revanced_restore_old_settings_menus_summary_on">Oude instellingenmenu\'s worden weergegeven</string>
+  <string name="revanced_restore_old_settings_menus_summary_off">Oude instellingenmenu\'s worden niet weergegeven</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
   <string name="revanced_shorts_disable_background_playback_title">Uitschakelen achtergrondweergave Shorts</string>
@@ -1342,6 +1346,8 @@ Het inschakelen hiervan kan hogere videokwaliteiten ontgrendelen"</string>
   <string name="revanced_custom_playback_speeds_invalid">Aangepaste snelheden moeten lager zijn dan %s</string>
   <string name="revanced_custom_playback_speeds_parse_exception">Ongeldige aangepaste afspeelsnelheden</string>
   <string name="revanced_custom_playback_speeds_auto">Automatisch</string>
+  <string name="revanced_speed_tap_and_hold_title">De snelheid van aangepast tikken en vasthouden</string>
+  <string name="revanced_speed_tap_and_hold_summary">Afspeelsnelheid tussen 0-8</string>
   </patch>
   <patch id="video.speed.remember.rememberPlaybackSpeedPatch">
   <string name="revanced_remember_playback_speed_last_selected_title">Onthoud wijzigingen in afspeelsnelheid</string>
@@ -1387,7 +1393,6 @@ AVC heeft een maximale resolutie van 1080p, de Opus-audiocodec is niet beschikba
 • Stabiel volume is niet beschikbaar
 • Forceer originele audio is niet beschikbaar"</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Geen AV1-videocodec</string>
-  <string name="revanced_spoof_video_streams_about_no_hdr">• Geen HDR-video</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Weergeven in Stats for nerds</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Het clienttype wordt getoond in Stats for nerds</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Client is verborgen in Stats for nerds</string>

@@ -10,6 +10,7 @@
         android:transitionGroup="true">
 
         <FrameLayout
+            android:id="@+id/revanced_toolbar_parent"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/yt_white1"

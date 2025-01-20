@@ -33,6 +33,7 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">APK sukurties data yra sugadinta</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
+  <string name="revanced_settings_submenu_title">Nustatymai</string>
   <string name="revanced_settings_title">ReVanced</string>
   <string name="revanced_settings_confirm_user_dialog_title">Ar norite tęsti?</string>
   <string name="revanced_settings_reset">Atstatyti</string>
@@ -133,12 +134,15 @@ Palieskite mygtuką Tęsti ir leiskite optimizavimo pakeitimus."</string>
   <string name="revanced_settings_screen_01_ads_title">Skelbimai</string>
   <string name="revanced_settings_screen_02_alt_thumbnails_title">Alternatyvūs miniatiūrai</string>
   <string name="revanced_settings_screen_03_feed_title">Naujienos</string>
-  <string name="revanced_settings_screen_04_player_title">Grotuvas</string>
-  <string name="revanced_settings_screen_05_general_title">Bendras išdėstymas</string>
+  <string name="revanced_settings_screen_04_general_title">Bendra</string>
+  <string name="revanced_settings_screen_05_player_title">Grotuvas</string>
   <string name="revanced_settings_screen_07_seekbar_title">Paieškos juosta</string>
   <string name="revanced_settings_screen_08_swipe_controls_title">Braukimo valdikliai</string>
   <string name="revanced_settings_screen_11_misc_title">Įvairūs</string>
   <string name="revanced_settings_screen_12_video_title">Vaizdo įrašas</string>
+  <string name="revanced_restore_old_settings_menus_title">Atkurti senus nustatymų meniu</string>
+  <string name="revanced_restore_old_settings_menus_summary_on">Rodomi seni nustatymų meniu</string>
+  <string name="revanced_restore_old_settings_menus_summary_off">Seni nustatymų meniu nerodomi</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
   <string name="revanced_shorts_disable_background_playback_title">Išjungti \"Shorts\" foninį atkūrimą</string>
@@ -1343,6 +1347,8 @@ Gali būti atrakinta aukštesnės vaizdo įrašų kokybės, bet galite patirti v
   <string name="revanced_custom_playback_speeds_invalid">Pasirinktinis greitis turi būti mažesnis nei %s</string>
   <string name="revanced_custom_playback_speeds_parse_exception">Netinkamas pasirinktinis atkūrimo greitis</string>
   <string name="revanced_custom_playback_speeds_auto">Automatinis</string>
+  <string name="revanced_speed_tap_and_hold_title">Pritaikytas bakstelėjimo ir laikymo greitis</string>
+  <string name="revanced_speed_tap_and_hold_summary">Atkūrimo greitis: nuo 0 iki 8</string>
   </patch>
   <patch id="video.speed.remember.rememberPlaybackSpeedPatch">
   <string name="revanced_remember_playback_speed_last_selected_title">Atsiminti atkūrimo greičio pakeitimus</string>
@@ -1388,7 +1394,6 @@ AVC didžiausia skiriamoji geba yra 1080 p, „Opus“ garso kodekas negalimas,
 • Nėra stabilaus garso
 • Negalima priverstinai naudoti originalo garso"</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Nėra AV1 vaizdo kodeko</string>
-  <string name="revanced_spoof_video_streams_about_no_hdr">• Nėra HDR vaizdo įrašo</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Rodyti statistinėje informacijoje \"tik profesionalams\"</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Kliento tipas rodomas statistinėje informacijoje \"tik profesionalams\"</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Klientas paslėptas statistinėje informacijoje \"tik profesionalams\"</string>

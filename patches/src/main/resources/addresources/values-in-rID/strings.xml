@@ -33,6 +33,7 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">Tanggal pembuatan APK rusak</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
+  <string name="revanced_settings_submenu_title">Pengaturan</string>
   <string name="revanced_settings_title">ReVanced</string>
   <string name="revanced_settings_confirm_user_dialog_title">Apakah Anda ingin melanjutkan?</string>
   <string name="revanced_settings_reset">Setel ulang</string>
@@ -133,12 +134,15 @@ Ketuk tombol lanjutkan dan izinkan perubahan pengoptimalan."</string>
   <string name="revanced_settings_screen_01_ads_title">Iklan</string>
   <string name="revanced_settings_screen_02_alt_thumbnails_title">Thumbnail alternatif</string>
   <string name="revanced_settings_screen_03_feed_title">Umpan</string>
-  <string name="revanced_settings_screen_04_player_title">Pemutar</string>
-  <string name="revanced_settings_screen_05_general_title">Layout umum</string>
+  <string name="revanced_settings_screen_04_general_title">Umum</string>
+  <string name="revanced_settings_screen_05_player_title">Pemutar</string>
   <string name="revanced_settings_screen_07_seekbar_title">Seekbar</string>
   <string name="revanced_settings_screen_08_swipe_controls_title">Kontrol usap</string>
-  <string name="revanced_settings_screen_11_misc_title">Lain-lain</string>
+  <string name="revanced_settings_screen_11_misc_title">Lainnya</string>
   <string name="revanced_settings_screen_12_video_title">Video</string>
+  <string name="revanced_restore_old_settings_menus_title">Pulihkan menu pengaturan lama</string>
+  <string name="revanced_restore_old_settings_menus_summary_on">Menu pengaturan lama ditampilkan</string>
+  <string name="revanced_restore_old_settings_menus_summary_off">Menu pengaturan lama tidak ditampilkan</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
   <string name="revanced_shorts_disable_background_playback_title">Nonaktifkan pemutaran Shorts di latar belakang</string>
@@ -1340,6 +1344,8 @@ Mengaktifkan ini dapat membuka kualitas video yang lebih tinggi"</string>
   <string name="revanced_custom_playback_speeds_invalid">Kecepatan khusus harus kurang dari %s</string>
   <string name="revanced_custom_playback_speeds_parse_exception">Kecepatan pemutaran khusus tidak valid</string>
   <string name="revanced_custom_playback_speeds_auto">Otomatis</string>
+  <string name="revanced_speed_tap_and_hold_title">Kecepatan ketuk dan tahan khusus</string>
+  <string name="revanced_speed_tap_and_hold_summary">Kecepatan pemutaran antara 0-8</string>
   </patch>
   <patch id="video.speed.remember.rememberPlaybackSpeedPatch">
   <string name="revanced_remember_playback_speed_last_selected_title">Ingat perubahan kecepatan pemutaran</string>
@@ -1384,8 +1390,7 @@ AVC memiliki resolusi maksimum 1080p, codec audio Opus tidak tersedia, dan pemut
   <string name="revanced_spoof_video_streams_about_android_summary">"• Menu trek audio tidak ada
 • Volume stabil tidak tersedia
 • Paksa audio asli tidak tersedia"</string>
-  <string name="revanced_spoof_video_streams_about_no_av1">• Tidak ada video codec AV1</string>
-  <string name="revanced_spoof_video_streams_about_no_hdr">• Tidak ada video HDR</string>
+  <string name="revanced_spoof_video_streams_about_no_av1">• Tidak ada codec video AV1</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Tampilkan di Statistik untuk nerds</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Jenis klien ditampilkan di Statistik untuk nerds</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Klien disembunyikan di Statistik untuk nerds</string>

@@ -23,9 +23,9 @@ Second \"item\" text"</string>
   <app id="shared">
   <patch id="misc.checks.checkEnvironmentPatch">
   <string name="revanced_check_environment_failed_title">Verificările au eșuat</string>
-  <string name="revanced_check_environment_dialog_open_official_source_button">Deschide site-ul oficial</string>
-  <string name="revanced_check_environment_dialog_ignore_button">Ignoră</string>
-  <string name="revanced_check_environment_failed_message">&lt;h5&gt;Această aplicație nu pare a fi modificată de dumneavoastră.&lt;/h5&gt;&lt;br&gt;Această aplicație s-ar putea să nu funcționeze corect, &lt;b&gt;ar putea fi dăunătoare sau chiar periculoasă de utilizat&lt;/b&gt;.&lt;br&gt;&lt;br&gt;Aceste verificări indică faptul că aplicația este pre-modificată sau obținută de la altcineva:&lt;br&gt;&lt;br&gt;&lt;small&gt;%1$s&lt;/small&gt;&lt;br&gt;Se recomandă insistent &lt;b&gt;dezinstalarea acestei aplicații și modificarea ei personal&lt;/b&gt; pentru a vă asigura că utilizați o aplicație validată și securizată.&lt;p&gt;&lt;br&gt;Dacă ignorați acest avertisment, acesta va fi afișat doar de două ori.</string>
+  <string name="revanced_check_environment_dialog_open_official_source_button">Deschidere site oficial</string>
+  <string name="revanced_check_environment_dialog_ignore_button">Ignorare</string>
+  <string name="revanced_check_environment_failed_message">&lt;h5&gt;Această aplicație nu pare să fie modificată de tine.&lt;/h5&gt;&lt;br&gt;Această aplicație ar putea să nu funcționeze corect, &lt;b&gt;ar putea fi dăunătoare sau chiar periculoasă de utilizat&lt;/b&gt;.&lt;br&gt;&lt;br&gt;Aceste verificări implică faptul că această aplicație este modificată anterior sau a fost obținută de la altcineva:&lt;br&gt;&lt;br&gt;&lt;small&gt;%1$s&lt;/small&gt;&lt;br&gt;Este recomandat cu tărie să &lt;b&gt;dezinstalați această aplicație și să o modificați singuri&lt;/b&gt; pentru a vă asigura că utilizați o aplicație validată și sigură.&lt;p&gt;&lt;br&gt;Dacă este ignorat, acest avertisment va fi afișat doar de două ori.</string>
   <string name="revanced_check_environment_not_same_patching_device">Patch-at de pe un alt dispozitiv</string>
   <string name="revanced_check_environment_manager_not_expected_installer">Nu este instalat de către ReVanced Manager</string>
   <string name="revanced_check_environment_not_near_patch_time">Patch-at acum mai mult de 10 minute</string>
@@ -33,10 +33,11 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">Data construirii APK-ului este coruptă</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
+  <string name="revanced_settings_submenu_title">Setări</string>
   <string name="revanced_settings_title">ReVanced</string>
   <string name="revanced_settings_confirm_user_dialog_title">Doriți să continuați?</string>
-  <string name="revanced_settings_reset">Resetează</string>
-  <string name="revanced_settings_restart_title">Reîmprospătați și reporniți</string>
+  <string name="revanced_settings_reset">Resetare</string>
+  <string name="revanced_settings_restart_title">Reîmprospătare și repornire</string>
   <string name="revanced_settings_restart">Repornire</string>
   <string name="revanced_settings_import">Importare</string>
   <string name="revanced_settings_import_copy">Copiere</string>
@@ -133,13 +134,16 @@ Apăsați butonul continuare și permiteți modificările de optimizare."</strin
   <string name="revanced_settings_screen_01_ads_title">Reclame</string>
   <string name="revanced_settings_screen_02_alt_thumbnails_title">Miniaturi alternative</string>
   <string name="revanced_settings_screen_03_feed_title">Flux</string>
-  <string name="revanced_settings_screen_04_player_title">Player</string>
-  <string name="revanced_settings_screen_05_general_title">Aspect general</string>
+  <string name="revanced_settings_screen_04_general_title">General</string>
+  <string name="revanced_settings_screen_05_player_title">Player</string>
   <string name="revanced_settings_screen_06_shorts_title">Shorts</string>
   <string name="revanced_settings_screen_07_seekbar_title">Bară de progres</string>
   <string name="revanced_settings_screen_08_swipe_controls_title">Controale glisare</string>
   <string name="revanced_settings_screen_11_misc_title">Diverse</string>
   <string name="revanced_settings_screen_12_video_title">Video</string>
+  <string name="revanced_restore_old_settings_menus_title">Restaurare meniuri setări vechi</string>
+  <string name="revanced_restore_old_settings_menus_summary_on">Meniurile de setări vechi sunt afișate</string>
+  <string name="revanced_restore_old_settings_menus_summary_off">Meniurile de setări vechi nu sunt afișate</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
   <string name="revanced_shorts_disable_background_playback_title">Dezactivează redarea în fundal a Shorts</string>
@@ -1342,6 +1346,8 @@ Activarea acestei opțiuni poate debloca calități video mai mari"</string>
   <string name="revanced_custom_playback_speeds_invalid">Vitezele personalizate trebuie să fie mai mici de %s</string>
   <string name="revanced_custom_playback_speeds_parse_exception">Viteze de redare personalizate nevalide</string>
   <string name="revanced_custom_playback_speeds_auto">Automat</string>
+  <string name="revanced_speed_tap_and_hold_title">Viteză personalizată de apăsare și menținere</string>
+  <string name="revanced_speed_tap_and_hold_summary">Viteză de redare între 0-8</string>
   </patch>
   <patch id="video.speed.remember.rememberPlaybackSpeedPatch">
   <string name="revanced_remember_playback_speed_last_selected_title">Memorează schimbările vitezei de redare</string>
@@ -1387,7 +1393,6 @@ AVC are o rezoluție maximă de 1080p, codecul audio Opus nu este disponibil, ia
 • Volumul stabil nu este disponibil
 • Forțarea sunetului original nu este disponibilă"</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Fara codec video AV1</string>
-  <string name="revanced_spoof_video_streams_about_no_hdr">• Fara video HDR</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Afișează în Statistici pentru pasionați</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Tipul clientului este afișat în Statistici pentru pasionați</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Clientul este ascuns în Statistici pentru pasionați</string>
