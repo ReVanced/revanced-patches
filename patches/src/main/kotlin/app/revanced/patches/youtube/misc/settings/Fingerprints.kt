@@ -20,8 +20,9 @@ internal val setThemeFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("L")
     parameters()
-    opcodes(Opcode.RETURN_OBJECT)
-    literal { appearanceStringId }
+    instructions(
+        resourceLiteral("string", "app_theme_appearance_dark"),
+    )
 }
 
 /**
