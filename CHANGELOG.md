@@ -1,3 +1,10 @@
+# [5.9.0-dev.4](https://github.com/ReVanced/revanced-patches/compare/v5.9.0-dev.3...v5.9.0-dev.4) (2025-01-20)
+
+
+### Bug Fixes
+
+* **YouTube - Spoof video streams:** Update client user-agent ([#4304](https://github.com/ReVanced/revanced-patches/issues/4304)) ([7917871](https://github.com/ReVanced/revanced-patches/commit/7917871f510b6b805370ef98a0cf8a4e2df0e900))
+
 # [5.9.0-dev.3](https://github.com/ReVanced/revanced-patches/compare/v5.9.0-dev.2...v5.9.0-dev.3) (2025-01-19)
 
 
