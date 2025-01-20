@@ -129,7 +129,7 @@ public enum ClientType {
     /**
      * App package name.
      */
-    public final String packageName;
+    private final String packageName;
 
     /**
      * Player user-agent.
@@ -168,14 +168,14 @@ public enum ClientType {
      * Field is null if not applicable.
      */
     @Nullable
-    public final String buildId;
+    private final String buildId;
 
     /**
      * Cronet release version, as found in decompiled client apk.
      * Field is null if not applicable.
      */
     @Nullable
-    public final String cronetVersion;
+    private final String cronetVersion;
 
     /**
      * App version.
@@ -204,7 +204,8 @@ public enum ClientType {
                String packageName,
                String deviceMake,
                String deviceModel,
-               String osName, String osVersion,
+               String osName,
+               String osVersion,
                @Nullable String androidSdkVersion,
                @Nullable String buildId,
                @Nullable String cronetVersion,
@@ -234,13 +235,23 @@ public enum ClientType {
                     .replaceAll("(\\d+\\.\\d+\\.\\d+).*", "$1")
                     .replace(".", "_");
             // https://github.com/mitmproxy/mitmproxy/issues/4836
-            this.userAgent = packageName + "/" + clientVersion + " (" + deviceModel + "; U; CPU iOS "
-                    + userAgentOsVersion + " like Mac OS X; " + defaultLocale + ")";
+            this.userAgent = String.format("%s/%s (%s; U; CPU iOS %s like Mac OS X; %s)",
+                    packageName,
+                    clientVersion,
+                    deviceModel,
+                    userAgentOsVersion,
+                    defaultLocale
+            );
         } else {
-            Objects.requireNonNull(buildId);
-            Objects.requireNonNull(cronetVersion);
-            this.userAgent = packageName + "/" + clientVersion + " (Linux; U; Android " + osVersion + "; "
-                    + defaultLocale + "; " + deviceModel + "; Build/" + buildId + "; Cronet/" + cronetVersion +")";
+            this.userAgent = String.format("%s/%s (Linux; U; Android %s; %s; %s; Build/%s; Cronet/%s)",
+                    packageName,
+                    clientVersion,
+                    osVersion,
+                    defaultLocale,
+                    deviceModel,
+                    Objects.requireNonNull(buildId),
+                    Objects.requireNonNull(cronetVersion)
+            );
         }
         Logger.printDebug(() -> "userAgent: " + this.userAgent);
     }
