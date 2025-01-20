@@ -33,6 +33,7 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">Datum izrade APK-a je oštećen</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
+  <string name="revanced_settings_submenu_title">Podešavanja</string>
   <string name="revanced_settings_title">ReVanced</string>
   <string name="revanced_settings_confirm_user_dialog_title">Želite li da nastavite?</string>
   <string name="revanced_settings_reset">Resetuj</string>
@@ -133,13 +134,16 @@ Dodirnite dugme „Nastavi” i dozvolite promene optimizacije."</string>
   <string name="revanced_settings_screen_01_ads_title">Oglasi</string>
   <string name="revanced_settings_screen_02_alt_thumbnails_title">Alternativne sličice</string>
   <string name="revanced_settings_screen_03_feed_title">Fid</string>
-  <string name="revanced_settings_screen_04_player_title">Plejer</string>
-  <string name="revanced_settings_screen_05_general_title">Opšti izgled</string>
+  <string name="revanced_settings_screen_04_general_title">Generalno</string>
+  <string name="revanced_settings_screen_05_player_title">Plejer</string>
   <string name="revanced_settings_screen_06_shorts_title">Shorts</string>
   <string name="revanced_settings_screen_07_seekbar_title">Traka za premotavanje</string>
   <string name="revanced_settings_screen_08_swipe_controls_title">Kontrole prevlačenja</string>
   <string name="revanced_settings_screen_11_misc_title">Razno</string>
   <string name="revanced_settings_screen_12_video_title">Video</string>
+  <string name="revanced_restore_old_settings_menus_title">Vrati stare meni-je sa podešavanjima</string>
+  <string name="revanced_restore_old_settings_menus_summary_on">Prikazuju se stari meniji podešavanja</string>
+  <string name="revanced_restore_old_settings_menus_summary_off">Ne prikazuju se stari meniji podešavanja</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
   <string name="revanced_shorts_disable_background_playback_title">Onemogući puštanje Shorts videa u pozadini</string>
@@ -1341,6 +1345,8 @@ Ako ovo omogućite, mogu biti otključani viši kvaliteti videa"</string>
   <string name="revanced_custom_playback_speeds_invalid">Prilagođene brzine moraju biti manje od %s</string>
   <string name="revanced_custom_playback_speeds_parse_exception">Nevažeće prilagođene brzine reprodukcije</string>
   <string name="revanced_custom_playback_speeds_auto">Automatski</string>
+  <string name="revanced_speed_tap_and_hold_title">Prilagođena brzina dodirivanja i zadržavanja</string>
+  <string name="revanced_speed_tap_and_hold_summary">Brzina reprodukcije između 0 i 8</string>
   </patch>
   <patch id="video.speed.remember.rememberPlaybackSpeedPatch">
   <string name="revanced_remember_playback_speed_last_selected_title">Zapamti promene brzine reprodukcije</string>
@@ -1386,7 +1392,6 @@ AVC ima maksimalnu rezoluciju od 1080p, audio kodek Opus nije dostupan, a reprod
 • Ujednačena jačina zvuka nije dostupna
 • Opcija „Prisili originalan zvuk” nije dostupna"</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Nema video kodeka AV1</string>
-  <string name="revanced_spoof_video_streams_about_no_hdr">• Nema HDR videa</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Prikaži u „Statistici za znalce”</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Tip klijenta je prikazan u „Statistici za znalce”</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Tip klijenta je skriven u „Statistici za znalce”</string>

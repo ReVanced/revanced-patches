@@ -133,12 +133,13 @@ Second \"item\" text"</string>
   <string name="revanced_settings_screen_01_ads_title">الإعلانات</string>
   <string name="revanced_settings_screen_02_alt_thumbnails_title">مُصغَّرات فيديو بديلة</string>
   <string name="revanced_settings_screen_03_feed_title">الموجز</string>
-  <string name="revanced_settings_screen_04_player_title">المشغل</string>
-  <string name="revanced_settings_screen_05_general_title">التصميم العام</string>
+  <string name="revanced_settings_screen_04_general_title">عام</string>
+  <string name="revanced_settings_screen_05_player_title">مشغل</string>
   <string name="revanced_settings_screen_07_seekbar_title">شريط تقدم الفيديو</string>
   <string name="revanced_settings_screen_08_swipe_controls_title">التحكم عن طريق إيماءة التمرير</string>
-  <string name="revanced_settings_screen_11_misc_title">إعدادات متنوعة</string>
+  <string name="revanced_settings_screen_11_misc_title">متنوع</string>
   <string name="revanced_settings_screen_12_video_title">الفيديو</string>
+  <string name="revanced_restore_old_settings_menus_title">إعادة قوائم إعدادات قديمة</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
   <string name="revanced_shorts_disable_background_playback_title">تعطيل تشغيل فيديوهات Shorts في الخلفية</string>
@@ -1341,6 +1342,8 @@ Second \"item\" text"</string>
   <string name="revanced_custom_playback_speeds_invalid">يجب أن تكون سرعات التشغيل المخصصة أقل من %s</string>
   <string name="revanced_custom_playback_speeds_parse_exception">سرعة التشغيل المخصصة غير صالحة</string>
   <string name="revanced_custom_playback_speeds_auto">تلقائي</string>
+  <string name="revanced_speed_tap_and_hold_title">\"سرعة النقر مع الاستمرار المخصصة\"</string>
+  <string name="revanced_speed_tap_and_hold_summary">سرعة التشغيل بين 0-8</string>
   </patch>
   <patch id="video.speed.remember.rememberPlaybackSpeedPatch">
   <string name="revanced_remember_playback_speed_last_selected_title">تذكر التغيرات في سرعة التشغيل</string>
@@ -1386,7 +1389,6 @@ AVC لديه حد أقصى للدقة 1080p، لا يتوفر ترميز الص�
 • مستوى الصوت الثابت غير متاح
 • فرض الصوت الأصلي غير متوفر"</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• لا يوجد ترميز الفيديو AV1</string>
-  <string name="revanced_spoof_video_streams_about_no_hdr">• لا يوجد فيديو HDR</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_title">عرض في إحصاءات تقنية</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">يتم عرض نوع العميل في إحصاءات تقنية</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">تم إخفاء نوع العميل في إحصاءات تقنية</string>

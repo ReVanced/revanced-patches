@@ -33,6 +33,7 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">Tá dáta tógála APK truaillithe</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
+  <string name="revanced_settings_submenu_title">Socruithe</string>
   <string name="revanced_settings_title">ReVanced</string>
   <string name="revanced_settings_confirm_user_dialog_title">Ar mhaith leat dul ar aghaidh?</string>
   <string name="revanced_settings_reset">Athshocraigh</string>
@@ -133,13 +134,16 @@ Brúigh an cnaipe leanúnaí agus ligean athruithe optúimíochta."</string>
   <string name="revanced_settings_screen_01_ads_title">Fógraí</string>
   <string name="revanced_settings_screen_02_alt_thumbnails_title">Mionsamhlacha malartacha</string>
   <string name="revanced_settings_screen_03_feed_title">Fotha</string>
-  <string name="revanced_settings_screen_04_player_title">Seinnteoir</string>
-  <string name="revanced_settings_screen_05_general_title">Leagan amach ginearálta</string>
+  <string name="revanced_settings_screen_04_general_title">Ginearálta</string>
+  <string name="revanced_settings_screen_05_player_title">Seinnteoir</string>
   <string name="revanced_settings_screen_06_shorts_title">Shorts</string>
   <string name="revanced_settings_screen_07_seekbar_title">Barra Cuardaigh</string>
   <string name="revanced_settings_screen_08_swipe_controls_title">Rialuithe Svaidhpeála</string>
-  <string name="revanced_settings_screen_11_misc_title">Ilchineálach</string>
+  <string name="revanced_settings_screen_11_misc_title">Éagsúla</string>
   <string name="revanced_settings_screen_12_video_title">Físeán</string>
+  <string name="revanced_restore_old_settings_menus_title">Athshocraigh roghanna seanghléasanna</string>
+  <string name="revanced_restore_old_settings_menus_summary_on">Féachann roghanna seanmhéid</string>
+  <string name="revanced_restore_old_settings_menus_summary_off">Ní féachann roghanna seanmhéid</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
   <string name="revanced_shorts_disable_background_playback_title">Díchumasaigh seinnte Cúlra Shorts</string>
@@ -283,7 +287,7 @@ Ní bheidh a fhios agat faoi aon imeachtaí neamhghnácha."</string>
   <string name="revanced_hide_attributes_section_summary_off">Taispeántar \'Áiteanna faoi Thrácht\', rannóga Cluichí agus Ceoil</string>
   <string name="revanced_hide_chapters_section_title">Folaigh alt na gCaibidlí</string>
   <string name="revanced_hide_chapters_section_summary_on">Tá an chuid Caibidil i bhfolach</string>
-  <string name="revanced_hide_chapters_section_summary_off">Taispeántar cuid na Caibidlí</string>
+  <string name="revanced_hide_chapters_section_summary_off">Taispeántar alt na gcaibidlí</string>
   <string name="revanced_hide_podcast_section_title">Folaigh an chuid \'Déan iniúchadh ar an bpodchraoladh \'</string>
   <string name="revanced_hide_podcast_section_summary_on">Tá an chuid \'Iniúchadh ar an podchraoladh \'i bhfolach</string>
   <string name="revanced_hide_podcast_section_summary_off">Taispeántar an chuid \'Déan iniúchadh ar an bpodchraoladh \'</string>
@@ -295,7 +299,7 @@ Ní bheidh a fhios agat faoi aon imeachtaí neamhghnácha."</string>
   <string name="revanced_hide_key_concepts_section_summary_off">Taispeántar alt ‘Príomhchoincheapa’</string>
   <string name="revanced_hide_transcript_section_title">Folaigh an chuid Trasscríbhinne</string>
   <string name="revanced_hide_transcript_section_summary_on">Tá an chuid trasscríbhinne i bhfolach</string>
-  <string name="revanced_hide_transcript_section_summary_off">Taispeántar alt an tras-scríbhinn</string>
+  <string name="revanced_hide_transcript_section_summary_off">Taispeántar alt an trasscríbhinne</string>
   <string name="revanced_hide_description_components_screen_title">Cur síos físeán</string>
   <string name="revanced_hide_description_components_screen_summary">Folaigh nó taispeáint comhpháirteanna tuairisc</string>
   <string name="revanced_hide_filter_bar_screen_title">Barra scagaire</string>
@@ -311,9 +315,9 @@ Ní bheidh a fhios agat faoi aon imeachtaí neamhghnácha."</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">Taispeántar i bhfíseáin ghaolmhara</string>
   <string name="revanced_comments_screen_title">Tuairimí</string>
   <string name="revanced_comments_screen_summary">Folaigh nó taispeáin comhpháirteanna na rannóige tuairimí</string>
-  <string name="revanced_hide_comments_chat_summary_title">Cuir \'Achoimre tráchta\' i bhfolach</string>
-  <string name="revanced_hide_comments_chat_summary_summary_on">\'\'Folaíodh \'Achoimre cainte\'</string>
-  <string name="revanced_hide_comments_chat_summary_summary_off">\'\'Taispeántar \'Achoimre cainte\'</string>
+  <string name="revanced_hide_comments_chat_summary_title">Folaigh \'achoimre comhrá\'</string>
+  <string name="revanced_hide_comments_chat_summary_summary_on">Tá ‘achoimre comhrá’ i bhfolach</string>
+  <string name="revanced_hide_comments_chat_summary_summary_off">Taispeántar ‘achoimre comhrá’</string>
   <string name="revanced_hide_comments_by_members_header_title">Folaigh ceanntásc \'Tuairimí ag baill \'</string>
   <string name="revanced_hide_comments_by_members_header_summary_on">Tá ceanntásc \'Tuairimí ag comhaltaí \'i bhfolach</string>
   <string name="revanced_hide_comments_by_members_header_summary_off">Taispeántar ceanntásc \'Tuairimí ag comhaltaí\'</string>
@@ -1343,6 +1347,8 @@ Is féidir le seo caighdeáin físeáin níos airde a dhíghlasáil"</string>
   <string name="revanced_custom_playback_speeds_invalid">Ní mór luas saincheaptha a bheith níos lú ná %s</string>
   <string name="revanced_custom_playback_speeds_parse_exception">Luasanna athsheinm saincheaptha neamhbhailí</string>
   <string name="revanced_custom_playback_speeds_auto">Uathoibríoch</string>
+  <string name="revanced_speed_tap_and_hold_title">Luas tap is agus greim</string>
+  <string name="revanced_speed_tap_and_hold_summary">Luas athsheinm eatarthu 0-8</string>
   </patch>
   <patch id="video.speed.remember.rememberPlaybackSpeedPatch">
   <string name="revanced_remember_playback_speed_last_selected_title">Cuimhnigh athruithe ar luas athsheinm</string>
@@ -1388,7 +1394,6 @@ Tá réiteach uasmhéideach 1080p ag AVC, níl códú fuaime Opus ar fáil, agus
 • Níl imfhálú cobhsaí ar fáil
 • Níl an fhuaim bhunúsach ar fáil"</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Níl aon chóidéir físe AV1</string>
-  <string name="revanced_spoof_video_streams_about_no_hdr">• Níl aon físe HDR</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Taispeáin i Staitisticí do nerds</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Taispeántar cineál an chliaint i Staitisticí do nerds</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Tá an cliant curtha i bhfolach i Staitisticí do nerds</string>

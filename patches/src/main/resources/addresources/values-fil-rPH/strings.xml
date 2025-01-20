@@ -33,6 +33,7 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">Ang petsa ng pagbuo ng APK ay sira</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
+  <string name="revanced_settings_submenu_title">Mga Setting</string>
   <string name="revanced_settings_title">ReVanced</string>
   <string name="revanced_settings_confirm_user_dialog_title">Gusto mo bang magpatuloy?</string>
   <string name="revanced_settings_reset">I-reset</string>
@@ -133,13 +134,16 @@ Tapikin ang pindutan ng pagpapatuloy at payagan ang mga pagbabago sa pag-optimiz
   <string name="revanced_settings_screen_01_ads_title">Mga ad</string>
   <string name="revanced_settings_screen_02_alt_thumbnails_title">Mga alternatibong thumbnail</string>
   <string name="revanced_settings_screen_03_feed_title">Magpakain</string>
-  <string name="revanced_settings_screen_04_player_title">Manlalaro</string>
-  <string name="revanced_settings_screen_05_general_title">Pangkalahatang layout</string>
+  <string name="revanced_settings_screen_04_general_title">Pangkalahatan</string>
+  <string name="revanced_settings_screen_05_player_title">Manlalaro</string>
   <string name="revanced_settings_screen_06_shorts_title">Shorts</string>
   <string name="revanced_settings_screen_07_seekbar_title">Seekbar</string>
   <string name="revanced_settings_screen_08_swipe_controls_title">Mga kontrol sa pag-swipe</string>
   <string name="revanced_settings_screen_11_misc_title">Iba pa</string>
   <string name="revanced_settings_screen_12_video_title">Video</string>
+  <string name="revanced_restore_old_settings_menus_title">Ibalik ang dating mga menu ng setting</string>
+  <string name="revanced_restore_old_settings_menus_summary_on">Ipinapakita ang mga lumang menu ng setting</string>
+  <string name="revanced_restore_old_settings_menus_summary_off">Hindi ipinapakita ang mga lumang menu ng setting</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
   <string name="revanced_shorts_disable_background_playback_title">I-disable ang pag-playback ng Shorts sa background</string>
@@ -1339,6 +1343,8 @@ Ang pagpapagana nito ay maaaring magbukas ng mas mataas na kalidad ng video"</st
   <string name="revanced_custom_playback_speeds_invalid">Ang mga custom na bilis ay dapat na mas mababa sa %s</string>
   <string name="revanced_custom_playback_speeds_parse_exception">Hindi wastong custom na bilis ng paglalaro</string>
   <string name="revanced_custom_playback_speeds_auto">Awtomatik</string>
+  <string name="revanced_speed_tap_and_hold_title">Custom speed para sa pag-tap at pag-hold</string>
+  <string name="revanced_speed_tap_and_hold_summary">Tugtugin ang bilis ng playback sa pagitan ng 0-8</string>
   </patch>
   <patch id="video.speed.remember.rememberPlaybackSpeedPatch">
   <string name="revanced_remember_playback_speed_last_selected_title">Tandaan ang mga pagbabago sa bilis ng pag-playback</string>
@@ -1384,7 +1390,6 @@ Ang AVC ay may pinakamataas na resolusyon na 1080p, ang codec ng audio ng Opus a
 • Hindi magagamit ang stable na volume
 • Hindi magagamit ang pagpilit sa orihinal na audio"</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Walang AV1 video codec</string>
-  <string name="revanced_spoof_video_streams_about_no_hdr">• Walang HDR video</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Ipakita sa Mga Istatistika para sa mga nerds</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Ipinapakita ang uri ng kliyente sa Mga Istatistika para sa mga nerds</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Nakatago ang kliyente sa Mga Istatistika para sa mga nerds</string>

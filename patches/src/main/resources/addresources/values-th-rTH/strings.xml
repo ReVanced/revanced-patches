@@ -33,6 +33,7 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">วันที่สร้าง APK เสียหาย</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
+  <string name="revanced_settings_submenu_title">การตั้งค่า</string>
   <string name="revanced_settings_title">ReVanced</string>
   <string name="revanced_settings_confirm_user_dialog_title">คุณต้องการดำเนินการต่อหรือไม่?</string>
   <string name="revanced_settings_reset">รีเซ็ต</string>
@@ -133,13 +134,16 @@ Second \"item\" text"</string>
   <string name="revanced_settings_screen_01_ads_title">โฆษณา</string>
   <string name="revanced_settings_screen_02_alt_thumbnails_title">รูปขนาดย่อทางเลือก</string>
   <string name="revanced_settings_screen_03_feed_title">ฟีด</string>
-  <string name="revanced_settings_screen_04_player_title">เครื่องเล่น</string>
-  <string name="revanced_settings_screen_05_general_title">เค้าโครงทั่วไป</string>
+  <string name="revanced_settings_screen_04_general_title">ทั่วไป</string>
+  <string name="revanced_settings_screen_05_player_title">เครื่องเล่น</string>
   <string name="revanced_settings_screen_06_shorts_title">Shorts</string>
   <string name="revanced_settings_screen_07_seekbar_title">แถบเลื่อน</string>
   <string name="revanced_settings_screen_08_swipe_controls_title">ปัดเพื่อควบคุม</string>
-  <string name="revanced_settings_screen_11_misc_title">อื่นๆ</string>
+  <string name="revanced_settings_screen_11_misc_title">เบ็ดเตล็ด</string>
   <string name="revanced_settings_screen_12_video_title">วิดีโอ</string>
+  <string name="revanced_restore_old_settings_menus_title">กู้คืนเมนูการตั้งค่าแบบเก่า</string>
+  <string name="revanced_restore_old_settings_menus_summary_on">แสดงเมนูการตั้งค่าแบบเก่า</string>
+  <string name="revanced_restore_old_settings_menus_summary_off">ไม่แสดงเมนูการตั้งค่าแบบเก่า</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
   <string name="revanced_shorts_disable_background_playback_title">ปิดการเล่นพื้นหลัง Shorts</string>
@@ -1342,6 +1346,8 @@ User id ของคุณเหมือนกับรหัสผ่าน �
   <string name="revanced_custom_playback_speeds_invalid">ความเร็วที่กําหนดเองต้องน้อยกว่า %s</string>
   <string name="revanced_custom_playback_speeds_parse_exception">ความเร็วในการเล่นที่กําหนดเองไม่ถูกต้อง</string>
   <string name="revanced_custom_playback_speeds_auto">อัตโนมัติ</string>
+  <string name="revanced_speed_tap_and_hold_title">**Custom tap and hold speed**</string>
+  <string name="revanced_speed_tap_and_hold_summary">ความเร็วในการเล่นระหว่าง 0-8</string>
   </patch>
   <patch id="video.speed.remember.rememberPlaybackSpeedPatch">
   <string name="revanced_remember_playback_speed_last_selected_title">จำการเปลี่ยนแปลงความเร็วในการเล่น</string>
@@ -1387,7 +1393,6 @@ AVC มีความละเอียดสูงสุด 1080p, ตัว�
 • ปรับระดับเสียงอัตโนมัติใช้งานไม่ได้
 • เปิดเสียงต้นฉบับใช้งานไม่ได้"</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• ไม่มีตัวแปลงสัญญาณวิดีโอ AV1</string>
-  <string name="revanced_spoof_video_streams_about_no_hdr">• ไม่มีวิดีโอ HDR</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_title">แสดงในสถิติสำหรับพวกเนิร์ด</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">แสดงชนิดไคลเอ็นต์ในสถิติสำหรับพวกเนิร์ด</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">ซ่อนไคลเอ็นต์ในสถิติสำหรับพวกเนิร์ด</string>

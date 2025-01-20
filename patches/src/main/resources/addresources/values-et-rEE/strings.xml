@@ -33,6 +33,7 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">APK ehituskuupäev on rikutud</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
+  <string name="revanced_settings_submenu_title">Seaded</string>
   <string name="revanced_settings_title">ReVanced</string>
   <string name="revanced_settings_confirm_user_dialog_title">Kas soovite jätkata?</string>
   <string name="revanced_settings_reset">Lähtesta</string>
@@ -133,13 +134,16 @@ Vajutage jätkamise nuppu ja lubage optimeerimismuutused."</string>
   <string name="revanced_settings_screen_01_ads_title">Reklaamid</string>
   <string name="revanced_settings_screen_02_alt_thumbnails_title">Alternatiivsed pisipildid</string>
   <string name="revanced_settings_screen_03_feed_title">Voog</string>
-  <string name="revanced_settings_screen_04_player_title">Mängija</string>
-  <string name="revanced_settings_screen_05_general_title">Üldine paigutus</string>
+  <string name="revanced_settings_screen_04_general_title">Üldine</string>
+  <string name="revanced_settings_screen_05_player_title">Mängija</string>
   <string name="revanced_settings_screen_06_shorts_title">Shorts</string>
   <string name="revanced_settings_screen_07_seekbar_title">Otsinguriba</string>
   <string name="revanced_settings_screen_08_swipe_controls_title">Pühkimisjuhtimine</string>
-  <string name="revanced_settings_screen_11_misc_title">Muud</string>
+  <string name="revanced_settings_screen_11_misc_title">Mitmesugused</string>
   <string name="revanced_settings_screen_12_video_title">Video</string>
+  <string name="revanced_restore_old_settings_menus_title">Taasta vanad seadete menüüd</string>
+  <string name="revanced_restore_old_settings_menus_summary_on">Vanad seadete menüüd on kuvatud</string>
+  <string name="revanced_restore_old_settings_menus_summary_off">Vanad seadete menüüd ei ole kuvatud</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
   <string name="revanced_shorts_disable_background_playback_title">Shorts taustavideo esitamine lülitada</string>
@@ -1343,6 +1347,8 @@ Selle lubamine võib avada kõrgema video kvaliteedi"</string>
   <string name="revanced_custom_playback_speeds_invalid">Kohandatud kiirused peavad olema alla %s</string>
   <string name="revanced_custom_playback_speeds_parse_exception">Kehtetud kohandatud video taasesituse kiirused</string>
   <string name="revanced_custom_playback_speeds_auto">Auto</string>
+  <string name="revanced_speed_tap_and_hold_title">Kohandatud puuduta ja hoia kiiruse tase</string>
+  <string name="revanced_speed_tap_and_hold_summary">Taasesituse kiirus vahemikus 0-8</string>
   </patch>
   <patch id="video.speed.remember.rememberPlaybackSpeedPatch">
   <string name="revanced_remember_playback_speed_last_selected_title">Määle taasesituse kiiruse muudatused meelde</string>
@@ -1388,7 +1394,6 @@ AVC-l on maksimaalne eraldusvõime 1080p, Opus-i heli kodek pole saadaval ning v
 • Stabiilset helitugevust pole saadaval
 • Sunnitud originaalheli pole saadaval"</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Puuduv AV1 videokoodek</string>
-  <string name="revanced_spoof_video_streams_about_no_hdr">• Puuduv HDR video</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Kuva statistikas \"Nerdide jaoks\"</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Klienditüüp on statistikas \"Nerdide jaoks\" nähtav</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Klient on statistikas \"Nerdide jaoks\" peidetud</string>

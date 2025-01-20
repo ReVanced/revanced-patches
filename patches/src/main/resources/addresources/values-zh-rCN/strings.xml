@@ -33,6 +33,7 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">APK 构建日期已损坏</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
+  <string name="revanced_settings_submenu_title">设置</string>
   <string name="revanced_settings_confirm_user_dialog_title">您想要继续吗？</string>
   <string name="revanced_settings_reset">重置</string>
   <string name="revanced_settings_restart_title">刷新并重启</string>
@@ -132,13 +133,16 @@ Second \"item\" text"</string>
   <string name="revanced_settings_screen_01_ads_title">广告</string>
   <string name="revanced_settings_screen_02_alt_thumbnails_title">可选缩略图</string>
   <string name="revanced_settings_screen_03_feed_title">推荐</string>
-  <string name="revanced_settings_screen_04_player_title">播放器</string>
-  <string name="revanced_settings_screen_05_general_title">通用布局</string>
+  <string name="revanced_settings_screen_04_general_title">常规</string>
+  <string name="revanced_settings_screen_05_player_title">播放器</string>
   <string name="revanced_settings_screen_06_shorts_title">Shorts</string>
   <string name="revanced_settings_screen_07_seekbar_title">进度条</string>
   <string name="revanced_settings_screen_08_swipe_controls_title">滑动控制</string>
-  <string name="revanced_settings_screen_11_misc_title">杂项</string>
+  <string name="revanced_settings_screen_11_misc_title">其他</string>
   <string name="revanced_settings_screen_12_video_title">视频</string>
+  <string name="revanced_restore_old_settings_menus_title">恢复旧设置菜单</string>
+  <string name="revanced_restore_old_settings_menus_summary_on">旧版设置菜单已显示</string>
+  <string name="revanced_restore_old_settings_menus_summary_off">旧版设置菜单未显示</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
   <string name="revanced_shorts_disable_background_playback_title">禁用 Shorts 后台播放</string>
@@ -321,7 +325,7 @@ Second \"item\" text"</string>
   <string name="revanced_hide_comments_section_summary_off">评论区已显示</string>
   <string name="revanced_hide_comments_create_a_short_button_title">隐藏「创建 Short」按钮</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_on">创建 Short 按钮被隐藏</string>
-  <string name="revanced_hide_comments_create_a_short_button_summary_off">显示创建 Short 按钮</string>
+  <string name="revanced_hide_comments_create_a_short_button_summary_off">创建 Shorts 按钮已显示</string>
   <string name="revanced_hide_comments_preview_comment_title">隐藏评论预览</string>
   <string name="revanced_hide_comments_preview_comment_summary_on">评论预览已隐藏</string>
   <string name="revanced_hide_comments_preview_comment_summary_off">评论预览已显示</string>
@@ -686,7 +690,7 @@ Second \"item\" text"</string>
   <string name="revanced_shorts_player_screen_title">Shorts 播放器</string>
   <string name="revanced_shorts_player_screen_summary">隐藏或显示 Shorts 播放器组件</string>
   <!-- 'home' should be translated using the same localized wording YouTube displays for the home tab. -->
-  <string name="revanced_hide_shorts_home_title">在主页动态中隐藏 Shorts</string>
+  <string name="revanced_hide_shorts_home_title">在首页动态中隐藏 Shorts</string>
   <string name="revanced_hide_shorts_home_summary_on">隐藏在主页信息流和相关视频中</string>
   <string name="revanced_hide_shorts_home_summary_off">显示在主页信息流和相关视频中</string>
   <!-- 'subscription' should be translated using the same localized wording YouTube displays for the subscription tab. -->
@@ -1391,7 +1395,6 @@ AVC 的最大分辨率为 1080p，Opus 音频编解码器不可用，视频播�
 • 稳定音量不可用
 • 强制原始音频不可用"</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• 不支持 AV1 视频编解码器</string>
-  <string name="revanced_spoof_video_streams_about_no_hdr">• 不支持 HDR 视频</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_title">显示在 Stats for nerds 中</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">客户端类型显示在 Stats for nerds 中</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">客户端隐藏在 Stats for nerds 中</string>

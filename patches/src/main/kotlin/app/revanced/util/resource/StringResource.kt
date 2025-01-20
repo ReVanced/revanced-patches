@@ -24,31 +24,31 @@ class StringResource(
                 if (value.startsWith('"') && value.endsWith('"')) {
                     // Raw strings allow unescaped single quote but not double quote.
                     if (!value.substring(1, value.length - 1).contains(Regex("(?<!\\\\)[\"]"))) {
-                        return this;
+                        return this
                     }
                 } else {
                     if (value.contains('\n')) {
                         // Don't throw an exception, otherwise unnoticed mistakes
                         // in Crowdin can cause patching failures.
                         // Incorrectly escaped strings still work but do not display as intended.
-                        Logger.getLogger(StringResource.javaClass.name).severe(
+                        Logger.getLogger(StringResource.javaClass.name).warning(
                             "String $name is not raw but contains encoded new line characters: $value")
                     }
                     if (!value.contains(Regex("(?<!\\\\)['\"]"))) {
-                        return this;
+                        return this
                     }
                 }
 
-                Logger.getLogger(StringResource.javaClass.name).severe(
+                Logger.getLogger(StringResource.javaClass.name).warning(
                     "String $name cannot contain unescaped quotes in value: $value")
 
-                return this;
+                return this
             }
 
             // if the string is un-formatted, explicitly add the formatted attribute
             if (!formatted) setAttribute("formatted", "false")
 
-            textContent = value.validateAndroidStringEscaping();
+            textContent = value.validateAndroidStringEscaping()
         }
 
     companion object {

@@ -33,6 +33,7 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">APK তৈরির তারিখ ত্রুটিপূর্ণ</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
+  <string name="revanced_settings_submenu_title">সেটিংস</string>
   <string name="revanced_settings_title">ReVanced</string>
   <string name="revanced_settings_confirm_user_dialog_title">আপনি কি এগিয়ে যেতে ইচ্ছুক?</string>
   <string name="revanced_settings_reset">আবার সেট করুন</string>
@@ -133,13 +134,16 @@ MicroG-এর জন্য ব্যাটারি অপ্টিমাইজ�
   <string name="revanced_settings_screen_01_ads_title">বিজ্ঞাপন</string>
   <string name="revanced_settings_screen_02_alt_thumbnails_title">বিকল্প থাম্বনেইল</string>
   <string name="revanced_settings_screen_03_feed_title">ফিড</string>
-  <string name="revanced_settings_screen_04_player_title">প্লেয়ার</string>
-  <string name="revanced_settings_screen_05_general_title">সাধারণ লে-আউট</string>
+  <string name="revanced_settings_screen_04_general_title">সাধারণ</string>
+  <string name="revanced_settings_screen_05_player_title">প্লেয়ার</string>
   <string name="revanced_settings_screen_06_shorts_title">Shorts</string>
   <string name="revanced_settings_screen_07_seekbar_title">সিকবার</string>
   <string name="revanced_settings_screen_08_swipe_controls_title">সোয়াইপ কন্ট্রোল</string>
   <string name="revanced_settings_screen_11_misc_title">বিবিধ</string>
   <string name="revanced_settings_screen_12_video_title">ভিডিও</string>
+  <string name="revanced_restore_old_settings_menus_title">পুরানো সেটিংস মেনু পুনরুদ্ধার করুন</string>
+  <string name="revanced_restore_old_settings_menus_summary_on">পুরাতন সেটিংস মেনু দেখানো হচ্ছে</string>
+  <string name="revanced_restore_old_settings_menus_summary_off">পুরাতন সেটিংস মেনু দেখানো হচ্ছে না</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
   <string name="revanced_shorts_disable_background_playback_title">Shorts ব্যাকগ্রাউন্ড প্লে অক্ষম করুন</string>
@@ -1343,6 +1347,8 @@ DeArrow সম্পর্কে আরও জানতে এখানে ট�
   <string name="revanced_custom_playback_speeds_invalid">কাস্টম গতি %s এর চেয়ে কম হতে হবে</string>
   <string name="revanced_custom_playback_speeds_parse_exception">অবৈধ কাস্টম প্লেব্যাক গতি</string>
   <string name="revanced_custom_playback_speeds_auto">স্বতস্ফূর্তভাবে</string>
+  <string name="revanced_speed_tap_and_hold_title">কাস্টম ট্যাপ এন্ড হোল্ড স্পিড</string>
+  <string name="revanced_speed_tap_and_hold_summary">০-৮ এর মধ্যে প্লেব্যাক স্পিড</string>
   </patch>
   <patch id="video.speed.remember.rememberPlaybackSpeedPatch">
   <string name="revanced_remember_playback_speed_last_selected_title">প্লেব্যাকের স্পিড পরিবর্তন মনে রাখুন</string>
@@ -1388,7 +1394,6 @@ AVC-এর সর্বোচ্চ রেজোলিউশন হল 1080p, Op
 • স্থির ভলিউম পাওয়া যায় না
 • মূল অডিও জোর করে চালু করা যায় না"</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• কোনো AV1 ভিডিও কোডেক নেই</string>
-  <string name="revanced_spoof_video_streams_about_no_hdr">• কোনো HDR ভিডিও নেই</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_title">স্ট্যাটস ফর নার্ডসে দেখান</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">স্ট্যাটস ফর নার্ডসে ক্লায়েন্ট প্রকার দেখানো হবে</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">স্ট্যাটস ফর নার্ডসে ক্লায়েন্ট লুকানো হবে</string>

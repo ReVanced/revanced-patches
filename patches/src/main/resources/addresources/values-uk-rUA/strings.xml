@@ -33,6 +33,7 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">Дата збірки APK пошкоджена</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
+  <string name="revanced_settings_submenu_title">Налаштування</string>
   <string name="revanced_settings_title">ReVanced</string>
   <string name="revanced_settings_confirm_user_dialog_title">Бажаєте продовжити?</string>
   <string name="revanced_settings_reset">Скинути</string>
@@ -133,12 +134,15 @@ Second \"item\" text"</string>
   <string name="revanced_settings_screen_01_ads_title">Реклама</string>
   <string name="revanced_settings_screen_02_alt_thumbnails_title">Альтернативні прев\'ю</string>
   <string name="revanced_settings_screen_03_feed_title">Стрічка</string>
-  <string name="revanced_settings_screen_04_player_title">Плеєр</string>
-  <string name="revanced_settings_screen_05_general_title">Загальні налаштування</string>
+  <string name="revanced_settings_screen_04_general_title">Загальні</string>
+  <string name="revanced_settings_screen_05_player_title">Плеєр</string>
   <string name="revanced_settings_screen_07_seekbar_title">Панель прогресу</string>
   <string name="revanced_settings_screen_08_swipe_controls_title">Керування жестами</string>
   <string name="revanced_settings_screen_11_misc_title">Різне</string>
   <string name="revanced_settings_screen_12_video_title">Відео</string>
+  <string name="revanced_restore_old_settings_menus_title">Відновити старе меню налаштувань</string>
+  <string name="revanced_restore_old_settings_menus_summary_on">Показується старе меню налаштувань</string>
+  <string name="revanced_restore_old_settings_menus_summary_off">Показується нове меню налаштувань</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
   <string name="revanced_shorts_disable_background_playback_title">Вимкнути фонове відтворення Shorts</string>
@@ -1340,6 +1344,8 @@ Second \"item\" text"</string>
   <string name="revanced_custom_playback_speeds_invalid">Користувацькі швидкості повинні бути менші ніж %s</string>
   <string name="revanced_custom_playback_speeds_parse_exception">Неправильні користувацькі швидкості відтворення</string>
   <string name="revanced_custom_playback_speeds_auto">Авто</string>
+  <string name="revanced_speed_tap_and_hold_title">Користувацька швидкість при натисканні та утриманні</string>
+  <string name="revanced_speed_tap_and_hold_summary">Швидкість відтворення від 0 до 8</string>
   </patch>
   <patch id="video.speed.remember.rememberPlaybackSpeedPatch">
   <string name="revanced_remember_playback_speed_last_selected_title">Запам\'ятовувати зміни швидкості</string>
@@ -1385,7 +1391,6 @@ AVC має максимальну роздільну здатність 1080p, �
 • Меню стабілізації гучності недоступне
 • Примусове використання оригінальний звукової доріжки недоступне"</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Відсутній відеокодек AV1</string>
-  <string name="revanced_spoof_video_streams_about_no_hdr">• Немає HDR відео</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Показувати у \"Статистиці для сисадмінів\"</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Тип клієнта відображається у вікні \"Статистика для сисадмінів\"</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Тип клієнта приховано у вікні \"Статистика для сисадмінів\"</string>
