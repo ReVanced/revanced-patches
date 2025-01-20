@@ -227,9 +227,13 @@ public final class MiniplayerPatch {
     /**
      * Injection point.
      */
-    public static void adjustMiniplayerOpacity(ImageView view) {
+    public static void adjustMiniplayerOpacity(View view) {
         if (CURRENT_TYPE == MODERN_1) {
-            view.setImageAlpha(OPACITY_LEVEL);
+            if (view instanceof ImageView imageView) {
+                imageView.setImageAlpha(OPACITY_LEVEL);
+            } else {
+                Logger.printException(() -> "Unknown miniplayer overlay view: " + view);
+            }
         }
     }
 
@@ -304,14 +308,14 @@ public final class MiniplayerPatch {
     /**
      * Injection point.
      */
-    public static void hideMiniplayerExpandClose(ImageView view) {
+    public static void hideMiniplayerExpandClose(View view) {
         Utils.hideViewByRemovingFromParentUnderCondition(HIDE_EXPAND_CLOSE_ENABLED, view);
     }
 
     /**
      * Injection point.
      */
-    public static void hideMiniplayerRewindForward(ImageView view) {
+    public static void hideMiniplayerRewindForward(View view) {
         Utils.hideViewByRemovingFromParentUnderCondition(HIDE_REWIND_FORWARD_ENABLED, view);
     }
 

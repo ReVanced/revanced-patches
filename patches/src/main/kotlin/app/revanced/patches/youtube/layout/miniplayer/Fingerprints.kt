@@ -2,11 +2,12 @@
 
 package app.revanced.patches.youtube.layout.miniplayer
 
+import app.revanced.patcher.checkCast
 import app.revanced.patcher.fingerprint
 import app.revanced.patcher.literal
+import app.revanced.patcher.opcode
 import app.revanced.patcher.string
 import app.revanced.patches.shared.misc.mapping.resourceLiteral
-import app.revanced.util.literal
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
@@ -31,13 +32,13 @@ internal val miniplayerModernAddViewListenerFingerprint by fingerprint {
 /**
  * Matches using the class found in [miniplayerModernViewParentFingerprint].
  */
-
 internal val miniplayerModernCloseButtonFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("Landroid/widget/ImageView;")
+    returns("L")
     parameters()
     instructions(
-        literal(modernMiniplayerClose)
+        resourceLiteral("id", "modern_miniplayer_close"),
+        checkCast("Landroid/widget/ImageView;")
     )
 }
 
@@ -54,7 +55,7 @@ internal const val MINIPLAYER_DISABLED_FEATURE_KEY = 45657015L
 internal val miniplayerModernConstructorFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     instructions(
-        literal(45623000L)
+        literal(45623000L) // Magic number found in the constructor.
     )
 }
 
@@ -71,9 +72,12 @@ internal val miniplayerOnCloseHandlerFingerprint by fingerprint {
  */
 internal val miniplayerModernExpandButtonFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("Landroid/widget/ImageView;")
+    returns("L")
     parameters()
-    literal { modernMiniplayerExpand }
+    instructions(
+        resourceLiteral("id", "modern_miniplayer_expand"),
+        checkCast("Landroid/widget/ImageView;")
+    )
 }
 
 /**
@@ -83,7 +87,9 @@ internal val miniplayerModernExpandCloseDrawablesFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("V")
     parameters("L")
-    literal { ytOutlinePictureInPictureWhite24 }
+    instructions(
+        literal(ytOutlinePictureInPictureWhite24)
+    )
 }
 
 /**
@@ -91,19 +97,21 @@ internal val miniplayerModernExpandCloseDrawablesFingerprint by fingerprint {
  */
 internal val miniplayerModernForwardButtonFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("Landroid/widget/ImageView;")
+    returns("L")
     parameters()
-    literal { modernMiniplayerForwardButton }
+    instructions(
+        resourceLiteral("id", "modern_miniplayer_forward_button"),
+        opcode(Opcode.MOVE_RESULT_OBJECT, maxInstructionsBefore = 5)
+    )
 }
 
-/**
- * Matches using the class found in [miniplayerModernViewParentFingerprint].
- */
 internal val miniplayerModernOverlayViewFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("V")
     parameters()
-    literal { scrimOverlay }
+    instructions(
+        resourceLiteral("id", "scrim_overlay"),
+        opcode(Opcode.MOVE_RESULT_OBJECT, maxInstructionsBefore = 5)
+    )
 }
 
 /**
@@ -111,9 +119,12 @@ internal val miniplayerModernOverlayViewFingerprint by fingerprint {
  */
 internal val miniplayerModernRewindButtonFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("Landroid/widget/ImageView;")
+    returns("L")
     parameters()
-    literal { modernMiniplayerRewindButton }
+    instructions(
+        resourceLiteral("id", "modern_miniplayer_rewind_button"),
+        opcode(Opcode.MOVE_RESULT_OBJECT, maxInstructionsBefore = 5)
+    )
 }
 
 internal val miniplayerModernViewParentFingerprint by fingerprint {
@@ -145,7 +156,9 @@ internal val miniplayerOverrideFingerprint by fingerprint {
 internal val miniplayerOverrideNoContextFingerprint by fingerprint {
     accessFlags(AccessFlags.PRIVATE, AccessFlags.FINAL)
     returns("Z")
-    opcodes(Opcode.IGET_BOOLEAN) // Anchor to insert the instruction.
+    instructions(
+        opcode(Opcode.IGET_BOOLEAN) // Anchor to insert the instruction.
+    )
 }
 
 internal val miniplayerResponseModelSizeCheckFingerprint by fingerprint {

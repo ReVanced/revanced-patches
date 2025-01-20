@@ -29,7 +29,6 @@ import com.android.tools.smali.dexlib2.iface.Method
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
-import com.android.tools.smali.dexlib2.iface.reference.TypeReference
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethodParameter
 
@@ -37,18 +36,6 @@ import com.android.tools.smali.dexlib2.immutable.ImmutableMethodParameter
 internal var ytOutlineXWhite24 = -1L
     private set
 internal var ytOutlinePictureInPictureWhite24 = -1L
-    private set
-internal var scrimOverlay = -1L
-    private set
-internal var modernMiniplayerClose = -1L
-    private set
-internal var modernMiniplayerExpand = -1L
-    private set
-internal var modernMiniplayerRewindButton = -1L
-    private set
-internal var modernMiniplayerForwardButton = -1L
-    private set
-internal var playerOverlays = -1L
     private set
 
 private val miniplayerResourcePatch = resourcePatch {
@@ -58,37 +45,7 @@ private val miniplayerResourcePatch = resourcePatch {
     )
 
     execute {
-        scrimOverlay = resourceMappings[
-            "id",
-            "scrim_overlay",
-        ]
-
-        playerOverlays = resourceMappings[
-            "layout",
-            "player_overlays",
-        ]
-
         if (is_19_16_or_greater) {
-            modernMiniplayerClose = resourceMappings[
-                "id",
-                "modern_miniplayer_close",
-            ]
-
-            modernMiniplayerExpand = resourceMappings[
-                "id",
-                "modern_miniplayer_expand",
-            ]
-
-            modernMiniplayerRewindButton = resourceMappings[
-                "id",
-                "modern_miniplayer_rewind_button",
-            ]
-
-            modernMiniplayerForwardButton = resourceMappings[
-                "id",
-                "modern_miniplayer_forward_button",
-            ]
-
             // Resource id is not used during patching, but is used by extension.
             // Verify the resource is present while patching.
             resourceMappings[
@@ -147,7 +104,6 @@ val miniplayerPatch = bytecodePatch(
             // 19.30.39 // Modern 3 is less broken when double tap expand is enabled, but cannot swipe to expand when double tap is off.
             // 19.31.36 // All Modern 1 buttons are missing. Unusable.
             // 19.32.36 // 19.32+ and beyond all work without issues.
-            // 19.33.35
             "19.34.42",
             "19.43.41",
             "19.45.38",
@@ -292,24 +248,6 @@ val miniplayerPatch = bytecodePatch(
             )
         }
 
-        fun MutableMethod.hookInflatedView(
-            literalValue: Long,
-            hookedClassType: String,
-            extensionMethodName: String,
-        ) {
-            val imageViewIndex = indexOfFirstInstructionOrThrow(
-                indexOfFirstLiteralInstructionOrThrow(literalValue),
-            ) {
-                opcode == Opcode.CHECK_CAST && getReference<TypeReference>()?.type == hookedClassType
-            }
-
-            val register = getInstruction<OneRegisterInstruction>(imageViewIndex).registerA
-            addInstruction(
-                imageViewIndex + 1,
-                "invoke-static { v$register }, $extensionMethodName",
-            )
-        }
-
         // region Enable tablet miniplayer.
 
         miniplayerOverrideNoContextFingerprint.match(
@@ -427,7 +365,7 @@ val miniplayerPatch = bytecodePatch(
         // region Fix 19.16 using mixed up drawables for tablet modern.
         // YT fixed this mistake in 19.17.
         // Fix this, by swapping the drawable resource values with each other.
-        if (ytOutlinePictureInPictureWhite24 >= 0) {
+        if (!is_19_17_or_greater) {
             miniplayerModernExpandCloseDrawablesFingerprint.match(
                 miniplayerModernViewParentFingerprint.originalClassDef,
             ).method.apply {
@@ -448,39 +386,23 @@ val miniplayerPatch = bytecodePatch(
         // region Add hooks to hide modern miniplayer buttons.
 
         listOf(
-            Triple(
-                miniplayerModernExpandButtonFingerprint,
-                modernMiniplayerExpand,
-                "hideMiniplayerExpandClose",
-            ),
-            Triple(
-                miniplayerModernCloseButtonFingerprint,
-                modernMiniplayerClose,
-                "hideMiniplayerExpandClose",
-            ),
-            Triple(
-                miniplayerModernRewindButtonFingerprint,
-                modernMiniplayerRewindButton,
-                "hideMiniplayerRewindForward",
-            ),
-            Triple(
-                miniplayerModernForwardButtonFingerprint,
-                modernMiniplayerForwardButton,
-                "hideMiniplayerRewindForward",
-            ),
-            Triple(
-                miniplayerModernOverlayViewFingerprint,
-                scrimOverlay,
-                "adjustMiniplayerOpacity",
-            ),
-        ).forEach { (fingerprint, literalValue, methodName) ->
+            miniplayerModernExpandButtonFingerprint to "hideMiniplayerExpandClose",
+            miniplayerModernCloseButtonFingerprint to "hideMiniplayerExpandClose",
+            miniplayerModernRewindButtonFingerprint to "hideMiniplayerRewindForward",
+            miniplayerModernForwardButtonFingerprint to "hideMiniplayerRewindForward",
+            miniplayerModernOverlayViewFingerprint to "adjustMiniplayerOpacity"
+        ).forEach { (fingerprint, methodName) ->
             fingerprint.match(
                 miniplayerModernViewParentFingerprint.classDef,
-            ).method.hookInflatedView(
-                literalValue,
-                "Landroid/widget/ImageView;",
-                "$EXTENSION_CLASS_DESCRIPTOR->$methodName(Landroid/widget/ImageView;)V",
-            )
+            ).method.apply {
+                val index = fingerprint.instructionMatches.last().index
+                val register = getInstruction<OneRegisterInstruction>(index).registerA
+
+                addInstruction(
+                    index + 1,
+                    "invoke-static { v$register }, $EXTENSION_CLASS_DESCRIPTOR->$methodName(Landroid/view/View;)V",
+                )
+            }
         }
 
         miniplayerModernAddViewListenerFingerprint.match(

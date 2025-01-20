@@ -2,11 +2,29 @@ package app.revanced.patches.youtube.layout.startupshortsreset
 
 import app.revanced.patcher.fingerprint
 import app.revanced.patcher.literal
+import app.revanced.patcher.methodCall
+import app.revanced.patcher.opcode
 import app.revanced.patcher.string
 import com.android.tools.smali.dexlib2.AccessFlags
+import com.android.tools.smali.dexlib2.Opcode
 
 /**
- * Pre 20.02.
+ * 20.02+
+ */
+internal val userWasInShortsAlternativeFingerprint by fingerprint {
+    returns("V")
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
+    parameters("Ljava/lang/Object;")
+    instructions(
+        methodCall(smali = "Ljava/lang/Boolean;->booleanValue()Z"),
+        methodCall(smali = "Ljava/lang/Boolean;->booleanValue()Z"),
+        opcode(Opcode.MOVE_RESULT, maxInstructionsBefore = 0),
+        string("userIsInShorts: ", maxInstructionsBefore = 5)
+    )
+}
+
+/**
+ * Pre 20.02
  */
 internal val userWasInShortsLegacyFingerprint by fingerprint {
     returns("V")

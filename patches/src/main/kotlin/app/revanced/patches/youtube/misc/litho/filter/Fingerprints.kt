@@ -12,14 +12,16 @@ import com.android.tools.smali.dexlib2.Opcode
  */
 internal val componentContextParserFingerprint by fingerprint {
     instructions(
-        string("Component was not found %s because it was removed due to duplicate converter bindings."),
+        string("TreeNode result must be set."),
+        // String changed slightly in 20.03+
+        string("it was removed due to duplicate converter bindings.", partialMatch = true)
     )
 }
 
 internal val lithoFilterFingerprint by fingerprint {
     accessFlags(AccessFlags.STATIC, AccessFlags.CONSTRUCTOR)
     custom { _, classDef ->
-        classDef.endsWith("LithoFilterPatch;")
+        classDef.endsWith("/LithoFilterPatch;")
     }
 }
 

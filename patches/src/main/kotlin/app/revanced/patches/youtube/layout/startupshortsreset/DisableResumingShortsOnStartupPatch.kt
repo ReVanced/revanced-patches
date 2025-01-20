@@ -53,7 +53,23 @@ val disableResumingShortsOnStartupPatch = bytecodePatch(
             SwitchPreference("revanced_disable_resuming_shorts_player"),
         )
 
-        if (!is_20_02_or_greater) {
+        if (is_20_02_or_greater) {
+            userWasInShortsAlternativeFingerprint.let {
+                it.method.apply {
+                    val match = it.instructionMatches[2]
+                    val insertIndex = match.index + 1
+                    val register = match.getInstruction<OneRegisterInstruction>().registerA
+
+                    addInstructions(
+                        insertIndex,
+                        """
+                            invoke-static { v$register }, $EXTENSION_CLASS_DESCRIPTOR->disableResumingStartupShortsPlayer(Z)Z
+                            move-result v$register
+                        """
+                    )
+                }
+            }
+        } else {
             userWasInShortsLegacyFingerprint.method.apply {
                 val listenableInstructionIndex = indexOfFirstInstructionOrThrow {
                     opcode == Opcode.INVOKE_INTERFACE &&
