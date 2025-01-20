@@ -26,6 +26,7 @@ public enum ClientType {
             "132.0.6808.3",
             "1.61.48",
             false,
+            false,
             "Android VR No auth"
     ),
     // Chromecast with Google TV 4K.
@@ -42,6 +43,7 @@ public enum ClientType {
             "UTT3.240625.001.K5",
             "132.0.6808.3",
             "8.49.0",
+            true,
             true,
             "Android TV"
     ),
@@ -61,6 +63,7 @@ public enum ClientType {
             "132.0.6779.0",
             "23.47.101",
             true,
+            true,
             "Android Creator"
     ),
     ANDROID_VR(
@@ -75,6 +78,7 @@ public enum ClientType {
             ANDROID_VR_NO_AUTH.buildId,
             ANDROID_VR_NO_AUTH.cronetVersion,
             ANDROID_VR_NO_AUTH.clientVersion,
+            ANDROID_VR_NO_AUTH.requiresAuth,
             true,
             "Android VR"
     ),
@@ -103,6 +107,7 @@ public enum ClientType {
                     // but 6.45 is the last version that supports iOS 13.
                     ? "6.45"
                     : "8.49",
+            true,
             true,
             forceAVC()
                     ? "iOS TV Force AVC"
@@ -178,9 +183,15 @@ public enum ClientType {
     public final String clientVersion;
 
     /**
-     * If the client can access the API logged in.
+     * If this client requires authentication and does not work
+     * if logged out or in incognito mode.
      */
-    public final boolean canLogin;
+    public final boolean requiresAuth;
+
+    /**
+     * If the client should use authentication if available.
+     */
+    public final boolean useAuth;
 
     /**
      * Friendly name displayed in stats for nerds.
@@ -198,7 +209,8 @@ public enum ClientType {
                @Nullable String buildId,
                @Nullable String cronetVersion,
                String clientVersion,
-               boolean canLogin,
+               boolean requiresAuth,
+               boolean useAuth,
                String friendlyName) {
         this.id = id;
         this.clientName = clientName;
@@ -211,7 +223,8 @@ public enum ClientType {
         this.buildId = buildId;
         this.cronetVersion = cronetVersion;
         this.clientVersion = clientVersion;
-        this.canLogin = canLogin;
+        this.requiresAuth = requiresAuth;
+        this.useAuth = useAuth;
         this.friendlyName = friendlyName;
 
         Locale defaultLocale = Locale.getDefault();
