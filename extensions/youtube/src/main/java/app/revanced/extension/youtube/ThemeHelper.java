@@ -90,4 +90,12 @@ public class ThemeHelper {
     public static int getForegroundColor() {
         return isDarkTheme() ? getLightThemeColor() : getDarkThemeColor();
     }
+
+    public static int getToolbarBackgroundColor() {
+        final String colorName = isDarkTheme()
+                ? "yt_black3"
+                : "yt_white1";
+
+        return getColorInt(colorName);
+    }
 }

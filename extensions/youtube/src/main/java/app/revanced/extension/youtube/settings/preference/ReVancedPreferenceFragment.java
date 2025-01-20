@@ -30,6 +30,7 @@ import app.revanced.extension.shared.settings.EnumSetting;
 import app.revanced.extension.shared.settings.preference.AbstractPreferenceFragment;
 import app.revanced.extension.youtube.ThemeHelper;
 import app.revanced.extension.youtube.patches.playback.speed.CustomPlaybackSpeedPatch;
+import app.revanced.extension.youtube.settings.LicenseActivityHook;
 import app.revanced.extension.youtube.settings.Settings;
 
 /**
@@ -140,9 +141,6 @@ public class ReVancedPreferenceFragment extends AbstractPreferenceFragment {
                                     .getParent();
 
                             // Fix required for Android 15 and YT 19.45+
-                            // FIXME:
-                            // On Android 15 the text layout is not aligned the same as the parent
-                            // screen and it looks a little off.  Otherwise this works.
                             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
                                 rootView.setOnApplyWindowInsetsListener((v, insets) -> {
                                     Insets statusInsets = insets.getInsets(WindowInsets.Type.statusBars());
@@ -168,6 +166,8 @@ public class ReVancedPreferenceFragment extends AbstractPreferenceFragment {
                             if (toolbarTextView != null) {
                                 toolbarTextView.setTextColor(ThemeHelper.getForegroundColor());
                             }
+
+                            LicenseActivityHook.setToolbarLayoutParams(toolbar);
 
                             rootView.addView(toolbar, 0);
                             return false;

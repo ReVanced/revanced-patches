@@ -33,6 +33,7 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">APK veidošanas datums ir bojāts</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
+  <string name="revanced_settings_submenu_title">Iestatījumi</string>
   <string name="revanced_settings_title">ReVanced</string>
   <string name="revanced_settings_confirm_user_dialog_title">Vai vēlaties turpināt?</string>
   <string name="revanced_settings_reset">Atiestatīt</string>
@@ -133,12 +134,15 @@ Nospiediet turpināt pogu un atļaujiet optimizācijas izmaiņas."</string>
   <string name="revanced_settings_screen_01_ads_title">Reklāmas</string>
   <string name="revanced_settings_screen_02_alt_thumbnails_title">Alternatīvi sīktēli</string>
   <string name="revanced_settings_screen_03_feed_title">Lente</string>
-  <string name="revanced_settings_screen_04_player_title">Atskaņotājs</string>
-  <string name="revanced_settings_screen_05_general_title">Vispārīga izkārtojums</string>
+  <string name="revanced_settings_screen_04_general_title">Vispārīgi</string>
+  <string name="revanced_settings_screen_05_player_title">Atskaņotājs</string>
   <string name="revanced_settings_screen_07_seekbar_title">Slīdņu skala</string>
   <string name="revanced_settings_screen_08_swipe_controls_title">Pārvelciet vadīklas</string>
   <string name="revanced_settings_screen_11_misc_title">Dažādi</string>
   <string name="revanced_settings_screen_12_video_title">Video</string>
+  <string name="revanced_restore_old_settings_menus_title">Atjaunot vecās iestatījumu izvēlnes</string>
+  <string name="revanced_restore_old_settings_menus_summary_on">Tiek rādītas vecās iestatījumu izvēlnes</string>
+  <string name="revanced_restore_old_settings_menus_summary_off">Vecās iestatījumu izvēlnes netiek rādītas</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
   <string name="revanced_shorts_disable_background_playback_title">Atspējot Shorts fonu atskaņošanu</string>
@@ -1340,6 +1344,8 @@ Var tikt atbloķētas augstākas video kvalitātes, taču var rasties video atsk
   <string name="revanced_custom_playback_speeds_invalid">Pielāgoti ātrumi ir jābūt mazākiem par %s</string>
   <string name="revanced_custom_playback_speeds_parse_exception">Nederīgi pielāgoti video atskaņošanas ātrumi</string>
   <string name="revanced_custom_playback_speeds_auto">Automātiski</string>
+  <string name="revanced_speed_tap_and_hold_title">Pielāgots pieskaršanās un turēšanas ātrums</string>
+  <string name="revanced_speed_tap_and_hold_summary">Atskaņošanas ātrums no 0 līdz 8</string>
   </patch>
   <patch id="video.speed.remember.rememberPlaybackSpeedPatch">
   <string name="revanced_remember_playback_speed_last_selected_title">Atcerēties atskaņošanas ātruma izmaiņas</string>
@@ -1385,7 +1391,6 @@ AVC maksimālā izšķirtspēja ir 1080p, Opus audio kodeks nav pieejams, un vid
 • Nav pieejams stabils skaļums
 • Nav pieejama oriģinālā audio piespiešana"</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Nav pieejams AV1 video kodeks</string>
-  <string name="revanced_spoof_video_streams_about_no_hdr">• Bez HDR video</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Rādīt statistiskos datos entuziastiem</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Klienta tips tiek rādīts statistiskos datos entuziastiem</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Klients ir paslēpts statistiskos datos entuziastiem</string>

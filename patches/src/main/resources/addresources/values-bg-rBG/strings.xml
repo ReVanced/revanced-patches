@@ -33,6 +33,7 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">Датата на компилация на APK е повредена</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
+  <string name="revanced_settings_submenu_title">Настройки</string>
   <string name="revanced_settings_title">ReVanced</string>
   <string name="revanced_settings_confirm_user_dialog_title">Искате ли да продължите?</string>
   <string name="revanced_settings_reset">Възстанови</string>
@@ -133,12 +134,15 @@ Second \"item\" text"</string>
   <string name="revanced_settings_screen_01_ads_title">Реклами</string>
   <string name="revanced_settings_screen_02_alt_thumbnails_title">Алтернативни миниатюри</string>
   <string name="revanced_settings_screen_03_feed_title">Поток</string>
-  <string name="revanced_settings_screen_04_player_title">Плейър</string>
-  <string name="revanced_settings_screen_05_general_title">Общо оформление</string>
+  <string name="revanced_settings_screen_04_general_title">Общ</string>
+  <string name="revanced_settings_screen_05_player_title">Плеър</string>
   <string name="revanced_settings_screen_07_seekbar_title">Лента за прогрес на видеото</string>
   <string name="revanced_settings_screen_08_swipe_controls_title">Контроли с плъзгане</string>
   <string name="revanced_settings_screen_11_misc_title">Разни</string>
   <string name="revanced_settings_screen_12_video_title">Видео</string>
+  <string name="revanced_restore_old_settings_menus_title">Възстановяване на старите менюта за настройки</string>
+  <string name="revanced_restore_old_settings_menus_summary_on">Старите менюта с настройки се показват</string>
+  <string name="revanced_restore_old_settings_menus_summary_off">Старите менюта с настройки не се показват</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
   <string name="revanced_shorts_disable_background_playback_title">Възпроизвеждане на  Shorts в фонов режим</string>
@@ -1077,7 +1081,7 @@ Second \"item\" text"</string>
   <string name="revanced_sb_about_api_sum">Данните са предоставени от SponsorBlock API. Докоснете тук за повече информация и изтеглияния</string>
   </patch>
   <patch id="layout.formfactor.changeFormFactorPatch">
-  <string name="revanced_change_form_factor_title">Форм фактор на оформлението</string>
+  <string name="revanced_change_form_factor_title">Формат на екрана /Таблет, Телфон, .../</string>
   <string name="revanced_change_form_factor_entry_1">По подразбиране</string>
   <string name="revanced_change_form_factor_entry_2">Телефон</string>
   <string name="revanced_change_form_factor_entry_3">Таблет</string>
@@ -1341,6 +1345,8 @@ Second \"item\" text"</string>
   <string name="revanced_custom_playback_speeds_invalid">Персонализираните скорости трябва да са по-малки от %s</string>
   <string name="revanced_custom_playback_speeds_parse_exception">Невалидни персонализирани скорости на възпроизвеждане</string>
   <string name="revanced_custom_playback_speeds_auto">Авто</string>
+  <string name="revanced_speed_tap_and_hold_title">Персонализирана скорост при докосване и задържане</string>
+  <string name="revanced_speed_tap_and_hold_summary">Скорост на възпроизвеждане между 0-8</string>
   </patch>
   <patch id="video.speed.remember.rememberPlaybackSpeedPatch">
   <string name="revanced_remember_playback_speed_last_selected_title">Запомни промените в скоростта на възпроизвеждане</string>
@@ -1386,7 +1392,6 @@ AVC има максимална резолюция от 1080p, Opus аудио �
 • Ne e nali4na stabilna glasnost
 • Ne e nali4na forsirana originalna audio pista"</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Без AV1 видео кодек</string>
-  <string name="revanced_spoof_video_streams_about_no_hdr">• Без HDR видео</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Poka6i v Statistiki za nerds</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Tipът na klienta se poka6va v Statistiki za nerds</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Klientът e skriт v Statistiki za nerds</string>

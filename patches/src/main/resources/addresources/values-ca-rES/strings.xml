@@ -33,6 +33,7 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">La data de creació de l\'APK està corrupta</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
+  <string name="revanced_settings_submenu_title">Configuració</string>
   <string name="revanced_settings_title">ReVanced</string>
   <string name="revanced_settings_confirm_user_dialog_title">Vols continuar?</string>
   <string name="revanced_settings_reset">Restablir</string>
@@ -133,13 +134,16 @@ Toca el botó Continua i permet els canvis d'optimització."</string>
   <string name="revanced_settings_screen_01_ads_title">Anuncis</string>
   <string name="revanced_settings_screen_02_alt_thumbnails_title">Miniatures alternatives</string>
   <string name="revanced_settings_screen_03_feed_title">Canal</string>
-  <string name="revanced_settings_screen_04_player_title">Reproductor</string>
-  <string name="revanced_settings_screen_05_general_title">Disposició general</string>
+  <string name="revanced_settings_screen_04_general_title">General</string>
+  <string name="revanced_settings_screen_05_player_title">Reproductor</string>
   <string name="revanced_settings_screen_06_shorts_title">Shorts</string>
   <string name="revanced_settings_screen_07_seekbar_title">Barra de cerca</string>
   <string name="revanced_settings_screen_08_swipe_controls_title">Controls de gestos</string>
-  <string name="revanced_settings_screen_11_misc_title">Misc</string>
+  <string name="revanced_settings_screen_11_misc_title">Altres</string>
   <string name="revanced_settings_screen_12_video_title">Vídeo</string>
+  <string name="revanced_restore_old_settings_menus_title">Restaurar els menús de configuració antics</string>
+  <string name="revanced_restore_old_settings_menus_summary_on">Es mostren els menús de configuració antics</string>
+  <string name="revanced_restore_old_settings_menus_summary_off">No es mostren els menús de configuració antics</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
   <string name="revanced_shorts_disable_background_playback_title">Desactivar la reproducció en segon pla de Shorts</string>
@@ -695,8 +699,11 @@ Nota: si actives aquesta opció, també s'amaguen els anuncis de vídeo per for�
   <string name="revanced_hide_shorts_subscriptions_summary_on">Amagat al feed de subscripcions</string>
   <string name="revanced_hide_shorts_subscriptions_summary_off">Es mostra al feed de subscripcions</string>
   <string name="revanced_hide_shorts_search_title">Amaga Shorts als resultats de la cerca</string>
+  <string name="revanced_hide_shorts_search_summary_on">Ocult als resultats de la cerca</string>
   <string name="revanced_hide_shorts_search_summary_off">Es mostra als resultats de la cerca</string>
+  <string name="revanced_hide_shorts_history_title">Amaga els curts a l\'historial de visualitzacions</string>
   <string name="revanced_hide_shorts_history_summary_on">Amagat a l\'historial de visualitzacions</string>
+  <string name="revanced_hide_shorts_history_summary_off">Es mostra a l\'historial de visualitzacions</string>
   <!-- 'join' should be translated using the same localized wording YouTube displays for the button. -->
   <string name="revanced_hide_shorts_join_button_title">Amaga el botó d\'unió</string>
   <string name="revanced_hide_shorts_join_button_summary_on">El botó d\'unió està ocult</string>
@@ -1103,6 +1110,7 @@ Si després es desactiva, es recomana esborrar les dades de l'aplicació per evi
                  This is because the 'General layout' menu uses alphabetic sorting, and it functionally works better if the spoof target selector appears below the 'Spoof app version' UI switch -->
   <string name="revanced_spoof_app_version_target_title">Objectiu de la versió falsa de l\'aplicació</string>
   <string name="revanced_spoof_app_version_target_entry_1">19.35.36 - Restaura els icones vells del reproductor de Shorts</string>
+  <string name="revanced_spoof_app_version_target_entry_2">26.19.42 - restaura les icones de navegació antigues</string>
   <!-- 'RYD' is 'Return YouTube Dislike' -->
   <string name="revanced_spoof_app_version_target_legacy_entry_1">18.33.40 - Restaura RYD al mode d\'incògnit de Shorts</string>
   <string name="revanced_spoof_app_version_target_legacy_entry_2">18.20.39 - Restaura la velocitat àmplia del vídeo &amp; menú de qualitat</string>
@@ -1338,6 +1346,8 @@ Si actives aquesta opció, es poden desbloquejar qualitats de vídeo més altes"
   <string name="revanced_custom_playback_speeds_invalid">Les velocitats personalitzades han de ser inferiors a %s</string>
   <string name="revanced_custom_playback_speeds_parse_exception">Velocitats de reproducció personalitzades no vàlides</string>
   <string name="revanced_custom_playback_speeds_auto">Automàtic</string>
+  <string name="revanced_speed_tap_and_hold_title">Velocitat personalitzada de mantenir premut</string>
+  <string name="revanced_speed_tap_and_hold_summary">Velocitat de reproducció entre 0 i 8</string>
   </patch>
   <patch id="video.speed.remember.rememberPlaybackSpeedPatch">
   <string name="revanced_remember_playback_speed_last_selected_title">Recorda els canvis de velocitat de reproducció</string>
@@ -1383,7 +1393,6 @@ L'AVC té una resolució màxima de 1080p, el còdec d'àudio Opus no està disp
 • El volum estable no està disponible
 • Forçar l'àudio original no està disponible"</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Sense còdec de vídeo AV1</string>
-  <string name="revanced_spoof_video_streams_about_no_hdr">• Sense vídeo HDR</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Mostra a l\'apartat \'Dades per a experts\'</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">El tipus de client es mostra a l\'apartat \'Dades per a experts\'</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">El client s\'amaga a l\'apartat \'Dades per a experts\'</string>

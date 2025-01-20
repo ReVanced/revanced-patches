@@ -33,6 +33,7 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">La date de construction de l\'APK est corrompue</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
+  <string name="revanced_settings_submenu_title">Paramètres</string>
   <string name="revanced_settings_title">ReVanced</string>
   <string name="revanced_settings_confirm_user_dialog_title">Voulez-vous continuer ?</string>
   <string name="revanced_settings_reset">Réinitialiser</string>
@@ -133,13 +134,16 @@ Appuyez sur le bouton Continuer et autorisez les modifications d'optimisation."<
   <string name="revanced_settings_screen_01_ads_title">Annonces</string>
   <string name="revanced_settings_screen_02_alt_thumbnails_title">Miniatures alternatives</string>
   <string name="revanced_settings_screen_03_feed_title">Flux</string>
-  <string name="revanced_settings_screen_04_player_title">Lecteur</string>
-  <string name="revanced_settings_screen_05_general_title">Présentation générale</string>
+  <string name="revanced_settings_screen_04_general_title">Général</string>
+  <string name="revanced_settings_screen_05_player_title">Lecteur</string>
   <string name="revanced_settings_screen_06_shorts_title">Shorts</string>
   <string name="revanced_settings_screen_07_seekbar_title">Barre de recherche</string>
   <string name="revanced_settings_screen_08_swipe_controls_title">Commandes de balayage</string>
   <string name="revanced_settings_screen_11_misc_title">Divers</string>
   <string name="revanced_settings_screen_12_video_title">Vidéo</string>
+  <string name="revanced_restore_old_settings_menus_title">Restaurer les anciens menus des paramètres</string>
+  <string name="revanced_restore_old_settings_menus_summary_on">Les anciens menus de paramètres sont affichés</string>
+  <string name="revanced_restore_old_settings_menus_summary_off">Les anciens menus de paramètres ne sont pas affichés</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
   <string name="revanced_shorts_disable_background_playback_title">Désactiver la lecture en arrière-plan des Shorts</string>
@@ -1248,7 +1252,7 @@ Appuyez ici pour en savoir plus sur DeArrow"</string>
   <string name="revanced_alt_thumbnail_stills_about_title">Captures vidéo</string>
   <string name="revanced_alt_thumbnail_stills_about_summary">Des captures d\'écran immobiles sont toujours prises au début, au milieu et à la fin de chaque vidéo. Ces images sont intégrées à YouTube et aucune API externe n\'est utilisée</string>
   <string name="revanced_alt_thumbnail_stills_fast_title">Utiliser des captures instantanées</string>
-  <string name="revanced_alt_thumbnail_stills_fast_summary_on">Utiliser des captures fixes de qualité moyenne</string>
+  <string name="revanced_alt_thumbnail_stills_fast_summary_on">Utilisez des captures d\'écran de qualité moyenne. Les vignettes se chargeront plus rapidement, mais les flux en direct, les vidéos inédites ou très anciennes peuvent afficher des vignettes vides</string>
   <string name="revanced_alt_thumbnail_stills_fast_summary_off">Utiliser des captures fixes de haute qualité</string>
   <string name="revanced_alt_thumbnail_stills_time_title">Datation de la vidéo pour prendre des captures</string>
   <string name="revanced_alt_thumbnail_stills_time_entry_1">Début de la vidéo</string>
@@ -1342,6 +1346,8 @@ L'activation de cette option peut déverrouiller des qualités vidéo plus élev
   <string name="revanced_custom_playback_speeds_invalid">Les vitesses personnalisées doivent être inférieures à %s</string>
   <string name="revanced_custom_playback_speeds_parse_exception">Vitesses de lecture personnalisées non valides</string>
   <string name="revanced_custom_playback_speeds_auto">Automatique</string>
+  <string name="revanced_speed_tap_and_hold_title">Vitesse de la lecture tactile</string>
+  <string name="revanced_speed_tap_and_hold_summary">Vitesse de lecture entre 0-8</string>
   </patch>
   <patch id="video.speed.remember.rememberPlaybackSpeedPatch">
   <string name="revanced_remember_playback_speed_last_selected_title">Se souvenir des changements de vitesse de lecture</string>
@@ -1387,7 +1393,6 @@ AVC a une résolution maximale de 1080p, le codec audio Opus n'est pas disponibl
  • Le volume stable n'est pas disponible
  • Forcer l'audio d'origine n'est pas disponible"</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Aucun codec vidéo AV1</string>
-  <string name="revanced_spoof_video_streams_about_no_hdr">• Pas de vidéo HDR</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Afficher les Stats pour les nerds</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Le type de client est affiché dans les Stats pour les nerds</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Le client est caché dans les Stats pour les nerds</string>

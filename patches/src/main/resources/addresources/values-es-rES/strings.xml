@@ -33,6 +33,7 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">La fecha de compilación del APK está dañada</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
+  <string name="revanced_settings_submenu_title">Ajustes</string>
   <string name="revanced_settings_title">ReVanced</string>
   <string name="revanced_settings_confirm_user_dialog_title">¿Desea continuar?</string>
   <string name="revanced_settings_reset">Restablecer</string>
@@ -125,13 +126,16 @@ Para traducir nuevos idiomas, visita translate.revanced.app"</string>
   <string name="revanced_settings_screen_01_ads_title">Anuncios</string>
   <string name="revanced_settings_screen_02_alt_thumbnails_title">Miniaturas alternativas</string>
   <string name="revanced_settings_screen_03_feed_title">Fuente</string>
-  <string name="revanced_settings_screen_04_player_title">Reproductor</string>
-  <string name="revanced_settings_screen_05_general_title">Diseño general</string>
+  <string name="revanced_settings_screen_04_general_title">General</string>
+  <string name="revanced_settings_screen_05_player_title">Reproductor</string>
   <string name="revanced_settings_screen_06_shorts_title">Shorts</string>
   <string name="revanced_settings_screen_07_seekbar_title">Barra</string>
   <string name="revanced_settings_screen_08_swipe_controls_title">Controles de deslizamiento</string>
   <string name="revanced_settings_screen_11_misc_title">Miscelánea</string>
   <string name="revanced_settings_screen_12_video_title">Video</string>
+  <string name="revanced_restore_old_settings_menus_title">Restaurar los menús de configuración antiguos</string>
+  <string name="revanced_restore_old_settings_menus_summary_on">Se muestran los menús de configuración antiguos</string>
+  <string name="revanced_restore_old_settings_menus_summary_off">No se muestran los menús de configuración antiguos</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
   <string name="revanced_shorts_disable_background_playback_title">Desactivar la reproducción en segundo plano de Shorts</string>
@@ -1323,6 +1327,8 @@ Habilitar esto puede desbloquear calidades de vídeo más altas"</string>
   <string name="revanced_custom_playback_speeds_invalid">Las velocidades personalizadas deben ser menores que %s</string>
   <string name="revanced_custom_playback_speeds_parse_exception">Velocidades de reproducción personalizadas no válidas</string>
   <string name="revanced_custom_playback_speeds_auto">Automático</string>
+  <string name="revanced_speed_tap_and_hold_title">Velocidad personalizada al tocar y mantener</string>
+  <string name="revanced_speed_tap_and_hold_summary">Velocidad de reproducción entre 0-8</string>
   </patch>
   <patch id="video.speed.remember.rememberPlaybackSpeedPatch">
   <string name="revanced_remember_playback_speed_last_selected_title">Recordar cambios de velocidad de reproducción</string>
@@ -1368,7 +1374,6 @@ AVC tiene una resolución máxima de 1080p, el códec de audio Opus no está dis
 • El volumen estable no está disponible
 • Forzar el audio original no está disponible"</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• No AV1 códec de vídeo</string>
-  <string name="revanced_spoof_video_streams_about_no_hdr">• No HDR vídeo</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Mostrar en Estadísticas para nerds</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">El tipo de cliente se muestra en Estadísticas para nerds</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">El cliente está oculto en Estadísticas para nerds</string>

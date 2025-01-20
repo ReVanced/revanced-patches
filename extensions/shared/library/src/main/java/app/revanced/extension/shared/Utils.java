@@ -722,8 +722,8 @@ public class Utils {
             Preference preference = group.getPreference(i);
 
             final Sort preferenceSort;
-            if (preference instanceof PreferenceGroup) {
-                sortPreferenceGroups((PreferenceGroup) preference);
+            if (preference instanceof PreferenceGroup subGroup) {
+                sortPreferenceGroups(subGroup);
                 preferenceSort = groupSort; // Sort value for groups is for it's content, not itself.
             } else {
                 // Allow individual preferences to set a key sorting.

@@ -120,7 +120,8 @@ public class StreamingDataRequest {
     }
 
     @Nullable
-    private static HttpURLConnection send(ClientType clientType, String videoId,
+    private static HttpURLConnection send(ClientType clientType,
+                                          String videoId,
                                           Map<String, String> playerHeaders,
                                           boolean showErrorToasts) {
         Objects.requireNonNull(clientType);
@@ -128,21 +129,24 @@ public class StreamingDataRequest {
         Objects.requireNonNull(playerHeaders);
 
         final long startTime = System.currentTimeMillis();
-        Logger.printDebug(() -> "Fetching video streams for: " + videoId + " using client: " + clientType);
 
         try {
             HttpURLConnection connection = PlayerRoutes.getPlayerResponseConnectionFromRoute(GET_STREAMING_DATA, clientType);
             connection.setConnectTimeout(HTTP_TIMEOUT_MILLISECONDS);
             connection.setReadTimeout(HTTP_TIMEOUT_MILLISECONDS);
 
+            boolean authHeadersIncludes = false;
+
             for (String key : REQUEST_HEADER_KEYS) {
                 String value = playerHeaders.get(key);
+
                 if (value != null) {
                     if (key.equals(AUTHORIZATION_HEADER)) {
-                        if (!clientType.canLogin) {
+                        if (!clientType.useAuth) {
                             Logger.printDebug(() -> "Not including request header: " + key);
                             continue;
                         }
+                        authHeadersIncludes = true;
                     }
 
                     Logger.printDebug(() -> "Including request header: " + key);
@@ -150,7 +154,15 @@ public class StreamingDataRequest {
                 }
             }
 
-            String innerTubeBody = String.format(PlayerRoutes.createInnertubeBody(clientType), videoId);
+            if (!authHeadersIncludes && clientType.requiresAuth) {
+                Logger.printDebug(() -> "Skipping client since user is not logged in: " + clientType
+                        + " videoId: " + videoId);
+                return null;
+            }
+
+            Logger.printDebug(() -> "Fetching video streams for: " + videoId + " using client: " + clientType);
+
+            String innerTubeBody = PlayerRoutes.createInnertubeBody(clientType, videoId);
             byte[] requestBody = innerTubeBody.getBytes(StandardCharsets.UTF_8);
             connection.setFixedLengthStreamingMode(requestBody.length);
             connection.getOutputStream().write(requestBody);
