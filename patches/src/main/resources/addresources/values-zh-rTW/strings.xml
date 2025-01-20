@@ -25,7 +25,7 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_failed_title">檢查失敗</string>
   <string name="revanced_check_environment_dialog_open_official_source_button">開啟官方網站</string>
   <string name="revanced_check_environment_dialog_ignore_button">忽略</string>
-  <string name="revanced_check_environment_failed_message">&lt;h5&gt;這個應用程式似乎並非由您修補。&lt;/h5&gt;&lt;br&gt;這個應用程式可能無法正常運作，&lt;b&gt;可能有害甚至存在危險。&lt;/b&gt;&lt;br&gt;&lt;br&gt;這些檢查表明該應用程式是預先修補的或來自其他來源：&lt;br&gt;&lt;br&gt;&lt;small&gt;%1$s&lt;/small&gt;&lt;br&gt;強烈建議&lt;b&gt;解除安裝此應用程式並自行修補&lt;/b&gt;，以確保您使用的是經過驗證且安全的應用程式。&lt;p&gt;&lt;br&gt;如果忽略，此警告僅會顯示兩次。&lt;2&gt;</string>
+  <string name="revanced_check_environment_failed_message">&lt;h5&gt;這個應用程式似乎並非由你修補。&lt;/h5&gt;&lt;br&gt;這個應用程式可能無法正常運作，&lt;b&gt;可能有害甚至存在危險。&lt;/b&gt;&lt;br&gt;&lt;br&gt;這些檢查表明該應用程式是預先修補的或來自其他來源：&lt;br&gt;&lt;br&gt;&lt;small&gt;%1$s&lt;/small&gt;&lt;br&gt;強烈建議&lt;b&gt;解除安裝此應用程式並自行修補&lt;/b&gt;，以確保你使用的是經過驗證且安全的應用程式。&lt;p&gt;&lt;br&gt;如果忽略，此警告僅會顯示兩次。&lt;2&gt;</string>
   <string name="revanced_check_environment_not_same_patching_device">在其他裝置上修補</string>
   <string name="revanced_check_environment_manager_not_expected_installer">不是由 ReVanced Manager 安裝</string>
   <string name="revanced_check_environment_not_near_patch_time">修補時間超過 10 分鐘</string>
@@ -105,7 +105,7 @@ Second \"item\" text"</string>
   <!-- Settings about dialog. -->
   <string name="revanced_settings_about_links_body">您正在使用 ReVanced 修補版本 &lt;i&gt;%s&lt;/i&gt;</string>
   <string name="revanced_settings_about_links_dev_header">注意</string>
-  <string name="revanced_settings_about_links_dev_body">這個版本為預先發布版，您可能會遇到非預期的問題。</string>
+  <string name="revanced_settings_about_links_dev_body">這個版本為預先發布版，你可能會遇到非預期的問題。</string>
   <string name="revanced_settings_about_links_header">官方連結</string>
   <!-- NOTE: the about strings above are duplicated in the TikTok about screen code,
                  and changes made here must also be made there. -->
@@ -116,7 +116,7 @@ Second \"item\" text"</string>
   <string name="gms_core_dialog_title">需要採取行動</string>
   <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"MicroG GmsCore 沒有權限在背景執行。
 
-請按照您手機的「不要關閉我的應用程式」指南，並將說明套用於您的 MicroG 安裝。
+請按照你手機的「不要關閉我的應用程式」指南，並將說明套用於你的 MicroG 安裝。
 
 這項設定是應用程式運作的必要條件。"</string>
   <string name="gms_core_dialog_open_website_text">開啟網站</string>
@@ -167,7 +167,7 @@ Second \"item\" text"</string>
   <string name="revanced_debug_toast_on_error_summary_off">若發生錯誤，不顯示提示</string>
   <string name="revanced_debug_toast_on_error_user_dialog_message">"關閉錯誤訊息提示會隱藏所有 ReVanced 的錯誤通知。
 
-您將不會收到任何非預期事件的通知。"</string>
+你將不會收到任何非預期事件的通知。"</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
   <string name="revanced_disable_like_subscribe_glow_title">停用「喜歡」和「訂閱」按鈕的發光效果</string>
@@ -342,7 +342,7 @@ Second \"item\" text"</string>
   <string name="revanced_hide_doodles_summary_off">已顯示位於搜尋欄的 Doodles </string>
   <string name="revanced_hide_doodles_user_dialog_message">"YouTube Doodles 每年會顯示幾天。
 
-如果塗鴉目前在您所在國家/地區顯示，而且此隱藏設定處於啟用狀態，搜尋列下方顯示的篩選列也會隱藏。"</string>
+如果塗鴉目前在你所在國家/地區顯示，而且此隱藏設定處於啟用狀態，搜尋列下方顯示的篩選列也會隱藏。"</string>
   <string name="revanced_custom_filter_screen_title">自訂篩選器</string>
   <string name="revanced_custom_filter_screen_summary">使用自訂篩選器隱藏元件</string>
   <string name="revanced_custom_filter_title">啟用自訂篩選器</string>
@@ -942,7 +942,7 @@ Second \"item\" text"</string>
   <string name="revanced_sb_settings_ie">匯入/匯出設定</string>
   <string name="revanced_sb_settings_copy">複製</string>
   <string name="revanced_sb_settings_ie_sum">您的 SponsorBlock JSON 設定可以匯入/匯出到 ReVanced 和其他 SponsorBlock 平台</string>
-  <string name="revanced_sb_settings_ie_sum_warning">您的 SponsorBlock JSON 設定可以匯入/匯出到 ReVanced 和其他 SponsorBlock 平台。這個檔案包含您的個人使用者 ID。請小心使用。</string>
+  <string name="revanced_sb_settings_ie_sum_warning">你的 SponsorBlock JSON 設定可以匯入/匯出到 ReVanced 和其他 SponsorBlock 平台。這個檔案包含你的個人使用者 ID。請小心使用。</string>
   <string name="revanced_sb_settings_import_successful">已成功匯入設定</string>
   <string name="revanced_sb_settings_import_failed">無法匯入：%s</string>
   <string name="revanced_sb_settings_export_failed">無法匯出：%s</string>
@@ -1061,7 +1061,7 @@ Second \"item\" text"</string>
   <string name="revanced_sb_stats_username_changed">使用者名稱變更成功</string>
   <string name="revanced_sb_stats_reputation">你的評價是 &lt;b&gt;%.2f&lt;/b&gt;</string>
   <string name="revanced_sb_stats_submissions">你已建立 &lt;b&gt;%s&lt;/b&gt; 個片段</string>
-  <string name="revanced_sb_stats_submissions_sum">輕觸這裡查看您的片段</string>
+  <string name="revanced_sb_stats_submissions_sum">輕觸這裡查看你的片段</string>
   <string name="revanced_sb_stats_saved_zero">SponsorBlock 排行榜</string>
   <string name="revanced_sb_stats_saved">您已為人們省下了觀看 &lt;b&gt;%s&lt;/b&gt; 個片段的時間</string>
   <string name="revanced_sb_stats_saved_sum_zero">輕觸這裡查看全球統計資料和最佳貢獻者</string>
