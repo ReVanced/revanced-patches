@@ -33,6 +33,7 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">APK byggedato er ødelagt</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
+  <string name="revanced_settings_submenu_title">Indstillinger</string>
   <string name="revanced_settings_title">ReVanced</string>
   <string name="revanced_settings_confirm_user_dialog_title">Ønsker du at fortsætte?</string>
   <string name="revanced_settings_reset">Nulstil</string>
@@ -133,13 +134,16 @@ Tryk på fortsætknappen, og tillad ændringer af optimering."</string>
   <string name="revanced_settings_screen_01_ads_title">Annoncer</string>
   <string name="revanced_settings_screen_02_alt_thumbnails_title">Alternative miniaturer</string>
   <string name="revanced_settings_screen_03_feed_title">Fodring</string>
-  <string name="revanced_settings_screen_04_player_title">Spiller</string>
-  <string name="revanced_settings_screen_05_general_title">Generelt layout</string>
+  <string name="revanced_settings_screen_04_general_title">Generelt</string>
+  <string name="revanced_settings_screen_05_player_title">Afspiller</string>
   <string name="revanced_settings_screen_06_shorts_title">Shorts</string>
   <string name="revanced_settings_screen_07_seekbar_title">Søgebjælke</string>
   <string name="revanced_settings_screen_08_swipe_controls_title">Stryg kontrolelementer</string>
   <string name="revanced_settings_screen_11_misc_title">Diverse</string>
   <string name="revanced_settings_screen_12_video_title">Videoer</string>
+  <string name="revanced_restore_old_settings_menus_title">Gendan gamle indstillingsmenuer</string>
+  <string name="revanced_restore_old_settings_menus_summary_on">Gamle indstillingsmenuer vises</string>
+  <string name="revanced_restore_old_settings_menus_summary_off">Gamle indstillingsmenuer vises ikke</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
   <string name="revanced_shorts_disable_background_playback_title">Deaktiver afspilning af Shorts i baggrunden</string>

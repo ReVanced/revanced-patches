@@ -33,6 +33,7 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">APK 构建日期已损坏</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
+  <string name="revanced_settings_submenu_title">设置</string>
   <string name="revanced_settings_confirm_user_dialog_title">您想要继续吗？</string>
   <string name="revanced_settings_reset">重置</string>
   <string name="revanced_settings_restart_title">刷新并重启</string>
@@ -132,13 +133,16 @@ Second \"item\" text"</string>
   <string name="revanced_settings_screen_01_ads_title">广告</string>
   <string name="revanced_settings_screen_02_alt_thumbnails_title">可选缩略图</string>
   <string name="revanced_settings_screen_03_feed_title">推荐</string>
-  <string name="revanced_settings_screen_04_player_title">播放器</string>
-  <string name="revanced_settings_screen_05_general_title">通用布局</string>
+  <string name="revanced_settings_screen_04_general_title">常规</string>
+  <string name="revanced_settings_screen_05_player_title">播放器</string>
   <string name="revanced_settings_screen_06_shorts_title">Shorts</string>
   <string name="revanced_settings_screen_07_seekbar_title">进度条</string>
   <string name="revanced_settings_screen_08_swipe_controls_title">滑动控制</string>
-  <string name="revanced_settings_screen_11_misc_title">杂项</string>
+  <string name="revanced_settings_screen_11_misc_title">其他</string>
   <string name="revanced_settings_screen_12_video_title">视频</string>
+  <string name="revanced_restore_old_settings_menus_title">恢复旧设置菜单</string>
+  <string name="revanced_restore_old_settings_menus_summary_on">旧版设置菜单已显示</string>
+  <string name="revanced_restore_old_settings_menus_summary_off">旧版设置菜单未显示</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
   <string name="revanced_shorts_disable_background_playback_title">禁用 Shorts 后台播放</string>

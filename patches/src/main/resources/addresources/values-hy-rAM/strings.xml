@@ -33,6 +33,7 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">APK-ի ստեղծման ամսաթիվը հնացած է</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
+  <string name="revanced_settings_submenu_title">Կարգավորումներ</string>
   <string name="revanced_settings_title">ReVanced</string>
   <string name="revanced_settings_confirm_user_dialog_title">Դուք ցանկանում եք շարունակել?</string>
   <string name="revanced_settings_reset">Վերականգնել</string>
@@ -133,13 +134,16 @@ MicroG-ի համար մարտկոցի օպտիմալացումը անջատել�
   <string name="revanced_settings_screen_01_ads_title">Գովազդներ</string>
   <string name="revanced_settings_screen_02_alt_thumbnails_title">Ալտերնատիվ մանրապատկերներ</string>
   <string name="revanced_settings_screen_03_feed_title">Լրակազմ</string>
-  <string name="revanced_settings_screen_04_player_title">Պլեյեր</string>
-  <string name="revanced_settings_screen_05_general_title">Ընդհանուր  կառուցվածք</string>
+  <string name="revanced_settings_screen_04_general_title">Ընդհանուր</string>
+  <string name="revanced_settings_screen_05_player_title">Կատարող</string>
   <string name="revanced_settings_screen_06_shorts_title">Shorts</string>
   <string name="revanced_settings_screen_07_seekbar_title">Վազքի գիծ</string>
   <string name="revanced_settings_screen_08_swipe_controls_title">Սահելի  վերահսկում</string>
-  <string name="revanced_settings_screen_11_misc_title">Միջին</string>
+  <string name="revanced_settings_screen_11_misc_title">Տարբեր</string>
   <string name="revanced_settings_screen_12_video_title">Տեսանյութ</string>
+  <string name="revanced_restore_old_settings_menus_title">Վերականգնել հին սահմանումների մենյուները</string>
+  <string name="revanced_restore_old_settings_menus_summary_on">Նախկին կարգավորումների մենյուները ցուցադրվում են</string>
+  <string name="revanced_restore_old_settings_menus_summary_off">Նախկին կարգավորումների մենյուները չեն ցուցադրվում</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
   <string name="revanced_shorts_disable_background_playback_title">Անջատել  Shorts-ի  ֆոնային  վերարտադրությունը</string>
@@ -688,6 +692,8 @@ MicroG-ի համար մարտկոցի օպտիմալացումը անջատել�
   <string name="revanced_shorts_player_screen_summary">Թաքցնել կամ ցույց տալ Shorts կրողի բաղադրիչները</string>
   <!-- 'home' should be translated using the same localized wording YouTube displays for the home tab. -->
   <string name="revanced_hide_shorts_home_title">Թաքցնել Shorts-ը գլխավոր էջում</string>
+  <string name="revanced_hide_shorts_home_summary_on">Թաքնված է տնային լրահոսում և հարակից տեսանյութերում</string>
+  <string name="revanced_hide_shorts_home_summary_off">Ցուցադրված է հիմնական լրահոսում և հարակից տեսանյութերում</string>
   <!-- 'subscription' should be translated using the same localized wording YouTube displays for the subscription tab. -->
   <string name="revanced_hide_shorts_subscriptions_title">Թաքցնել Shorts-ը բաժանորդագրության էջում</string>
   <string name="revanced_hide_shorts_subscriptions_summary_on">Թաքնված է բաժանորդագրման կերակրման մեջ</string>
@@ -1246,7 +1252,7 @@ Mini-player-ը կարող է գրավվել էկրանից դուրս՝ դեպի
   <string name="revanced_alt_thumbnail_stills_about_title">Կանգնած տեսանյութերի կադրեր</string>
   <string name="revanced_alt_thumbnail_stills_about_summary">Կանգնած կադրերը վերցվում են յուրաքանչյուր տեսանյութի սկզբից, կենտրոնից կամ վերջից: Այս պատկերները ներկառուցված են YouTube-ում և արտաքին API չի օգտագործվում</string>
   <string name="revanced_alt_thumbnail_stills_fast_title">Օգտագործել արագ կանգնած կադրեր</string>
-  <string name="revanced_alt_thumbnail_stills_fast_summary_on">Միջին որակի կանգնած կադրեր օգտագործելով: Մանրապատկերները ավելի արագ կբեռնվեն, բայց  прямые эфиры,  невыпущенные  կամ շատ հին տեսանյութերը կարող են ցույց տալ դատարկ մանրապատկերներ</string>
+  <string name="revanced_alt_thumbnail_stills_fast_summary_on">Օգտագործելով միջին որակի նկարահանումներ:  Մանրապատկերներն ավելի արագ կբեռնվեն, սակայն ուղիղ հեռարձակումները, չհրապարակված կամ շատ հին տեսանյութերը կարող են ցույց տալ դատարկ մանրապատկերներ</string>
   <string name="revanced_alt_thumbnail_stills_fast_summary_off">Օգտագործել բարձր որակի կանգնած կադրեր</string>
   <string name="revanced_alt_thumbnail_stills_time_title">Տեսանյութի ժամանակը, որից կանգնած կադրերը պետք է վերցվեն</string>
   <string name="revanced_alt_thumbnail_stills_time_entry_1">Տեսանյութի սկիզբը</string>

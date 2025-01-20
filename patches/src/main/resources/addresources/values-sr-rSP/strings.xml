@@ -33,6 +33,7 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">Датум израде APK-а је оштећен</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
+  <string name="revanced_settings_submenu_title">Подешавања</string>
   <string name="revanced_settings_title">ReVanced</string>
   <string name="revanced_settings_confirm_user_dialog_title">Желите ли да наставите?</string>
   <string name="revanced_settings_reset">Ресетуј</string>
@@ -133,12 +134,15 @@ Second \"item\" text"</string>
   <string name="revanced_settings_screen_01_ads_title">Огласи</string>
   <string name="revanced_settings_screen_02_alt_thumbnails_title">Алтернативне сличице</string>
   <string name="revanced_settings_screen_03_feed_title">Фид</string>
-  <string name="revanced_settings_screen_04_player_title">Плејер</string>
-  <string name="revanced_settings_screen_05_general_title">Општи изглед</string>
+  <string name="revanced_settings_screen_04_general_title">Опште</string>
+  <string name="revanced_settings_screen_05_player_title">Претварач</string>
   <string name="revanced_settings_screen_07_seekbar_title">Трака за премотавање</string>
   <string name="revanced_settings_screen_08_swipe_controls_title">Контроле превлачења</string>
   <string name="revanced_settings_screen_11_misc_title">Разно</string>
   <string name="revanced_settings_screen_12_video_title">Видео</string>
+  <string name="revanced_restore_old_settings_menus_title">Врати старе меније са подешавањима</string>
+  <string name="revanced_restore_old_settings_menus_summary_on">Стари менији са подешавањима су приказани</string>
+  <string name="revanced_restore_old_settings_menus_summary_off">Стари менији са подешавањима се не приказују</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
   <string name="revanced_shorts_disable_background_playback_title">Онемогући пуштање Shorts видеа у позадини</string>

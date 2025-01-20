@@ -22,8 +22,8 @@ Second \"item\" text"</string>
 <resources>
   <app id="shared">
   <patch id="misc.checks.checkEnvironmentPatch">
-  <string name="revanced_check_environment_failed_title">\"Правядзенне праверкі асяроддзя не ўдалося\"</string>
-  <string name="revanced_check_environment_dialog_open_official_source_button">\"Адкрыць афіцыйны вэб-сайт\"</string>
+  <string name="revanced_check_environment_failed_title">Праверкі не пройдзены</string>
+  <string name="revanced_check_environment_dialog_open_official_source_button">Адкрыць афіцыйны вэб-сайт</string>
   <string name="revanced_check_environment_dialog_ignore_button">Ігнараваць</string>
   <string name="revanced_check_environment_failed_message">&lt;h5&gt;Гэта дадатак відавочна не з\'яўляецца патчам.&lt;/h5&gt;&lt;br&gt;Гэта дадатак можа працаваць няправільна, а таксама можа быць &lt;b&gt;небяспечным або нават небяспечным у выкарыстанні&lt;/b&gt;.&lt;br&gt;&lt;br&gt;Гэтыя праверкі азначаюць, што гэта дадатак было загаддзя перароблена або атрымана ад кагосьці іншага:&lt;br&gt;&lt;br&gt;&lt;small&gt;%1$s&lt;/small&gt;&lt;br&gt;Настойліва рэкамендуецца &lt;b&gt;выдаліць гэты дадатак і перарабіць яго самастойна&lt;/b&gt;, каб пераканацца, што вы выкарыстоўваеце правераны і бяспечны дадатак.&lt;p&gt;&lt;br&gt;Калі ігнараваць, гэта папярэджанне будзе паказана толькі два разы.</string>
   <string name="revanced_check_environment_not_same_patching_device">Адкарэктавана на іншай прыладзе</string>
@@ -33,6 +33,7 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">Дата стварэння APK пашкоджана</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
+  <string name="revanced_settings_submenu_title">Налады</string>
   <string name="revanced_settings_title">ReVanced</string>
   <string name="revanced_settings_confirm_user_dialog_title">Вы хочаце працягнуць?</string>
   <string name="revanced_settings_reset">Скінуць</string>
@@ -133,13 +134,16 @@ Second \"item\" text"</string>
   <string name="revanced_settings_screen_01_ads_title">Аб\"явы</string>
   <string name="revanced_settings_screen_02_alt_thumbnails_title">Альтэрнатыўныя мініяцюры</string>
   <string name="revanced_settings_screen_03_feed_title">Карміць</string>
-  <string name="revanced_settings_screen_04_player_title">Гулец</string>
-  <string name="revanced_settings_screen_05_general_title">Генеральная планіроўка</string>
+  <string name="revanced_settings_screen_04_general_title">Агульнае</string>
+  <string name="revanced_settings_screen_05_player_title">Плэер</string>
   <string name="revanced_settings_screen_06_shorts_title">Shorts</string>
   <string name="revanced_settings_screen_07_seekbar_title">Панэль пошуку</string>
   <string name="revanced_settings_screen_08_swipe_controls_title">Элементы кіравання пальцам</string>
   <string name="revanced_settings_screen_11_misc_title">Рознае</string>
   <string name="revanced_settings_screen_12_video_title">Відэа</string>
+  <string name="revanced_restore_old_settings_menus_title">Аднавіць старое меню налад</string>
+  <string name="revanced_restore_old_settings_menus_summary_on">Старыя меню налад паказваюцца</string>
+  <string name="revanced_restore_old_settings_menus_summary_off">Старыя меню налад не паказваюцца</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
   <string name="revanced_shorts_disable_background_playback_title">Адключыць прайграванне Shorts у фонавым</string>
@@ -1108,6 +1112,7 @@ Second \"item\" text"</string>
                  This is because the 'General layout' menu uses alphabetic sorting, and it functionally works better if the spoof target selector appears below the 'Spoof app version' UI switch -->
   <string name="revanced_spoof_app_version_target_title">Падробка мэтавай версіі праграмы</string>
   <string name="revanced_spoof_app_version_target_entry_1">19.35.36 — Восстановить старые значки плеера Shorts</string>
+  <string name="revanced_spoof_app_version_target_entry_2">19.26.42 - Аднаўленне старых значкоў навігацыі</string>
   <!-- 'RYD' is 'Return YouTube Dislike' -->
   <string name="revanced_spoof_app_version_target_legacy_entry_1">18.33.40 - Аднаўленне RYD на Shorts у рэжыме інкогніта</string>
   <string name="revanced_spoof_app_version_target_legacy_entry_2">18.20.39 - Аднавіць хуткасць шырокага відэа &amp; якаснае меню</string>
