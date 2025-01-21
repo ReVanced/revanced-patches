@@ -39,6 +39,8 @@ internal var inlineTimeBarColorizedBarPlayedColorDarkId = -1L
     private set
 internal var inlineTimeBarPlayedNotHighlightedColorId = -1L
     private set
+internal var ytYoutubeMagentaColorId = -1L
+    private set
 
 internal const val splashSeekbarColorAttributeName = "splash_custom_seekbar_color"
 
@@ -61,6 +63,10 @@ private val seekbarColorResourcePatch = resourcePatch {
         inlineTimeBarPlayedNotHighlightedColorId = resourceMappings[
             "color",
             "inline_time_bar_played_not_highlighted_color",
+        ]
+        ytYoutubeMagentaColorId = resourceMappings[
+            "color",
+            "yt_youtube_magenta",
         ]
 
         // Modify the resume playback drawable and replace the progress bar with a custom drawable.
@@ -230,18 +236,26 @@ val seekbarColorPatch = bytecodePatch(
 
         // 19.25+ changes
 
-        playerSeekbarGradientConfigFingerprint.let {
-            it.method.insertFeatureFlagBooleanOverride(
-                it.instructionMatches.first().index,
-                "$EXTENSION_CLASS_DESCRIPTOR->playerSeekbarGradientEnabled(Z)Z"
-            )
-        }
-
         lithoLinearGradientFingerprint.method.addInstruction(
             0,
             "invoke-static/range { p4 .. p5 },  $EXTENSION_CLASS_DESCRIPTOR->setLinearGradient([I[F)V"
         )
 
+        // TODO: add 20.03 support
+        playerLinearGradientLegacyFingerprint.let {
+            it.method.apply {
+                val index = it.patternMatch!!.endIndex
+                val register = getInstruction<OneRegisterInstruction>(index).registerA
+
+                addInstructions(
+                    index + 1,
+                    """
+                       invoke-static { v$register },  $EXTENSION_CLASS_DESCRIPTOR->getLinearGradient([I)[I
+                       move-result-object v$register
+                    """
+                )
+            }
+        }
 
         // region apply seekbar custom color to splash screen animation.
 

@@ -37,19 +37,40 @@ internal val shortsSeekbarColorFingerprint by fingerprint {
     literal { reelTimeBarPlayedColorId }
 }
 
-internal val playerSeekbarGradientConfigFingerprint by fingerprint {
-    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("Z")
-    parameters()
-    instructions(
-        literal(45617850L)
-    )
-}
-
 internal val lithoLinearGradientFingerprint by fingerprint {
     accessFlags(AccessFlags.STATIC)
     returns("Landroid/graphics/LinearGradient;")
     parameters("F", "F", "F", "F", "[I", "[F")
+}
+
+/**
+ * 29.25 - 19.50
+ */
+internal val playerLinearGradientLegacyFingerprint by fingerprint {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
+    parameters("I", "I", "I", "I")
+    returns("V")
+    opcodes(
+        Opcode.FILLED_NEW_ARRAY,
+        Opcode.MOVE_RESULT_OBJECT
+    )
+    custom { method, _ ->
+        method.name == "setBounds" && method.containsLiteralInstruction(ytYoutubeMagentaColorId)
+    }
+}
+
+/**
+ * 20.03+
+ */
+internal val playerLinearGradientFingerprint by fingerprint {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
+    parameters("I", "I", "I", "I", "Landroid/content/Context;", "I")
+    returns("Landroid/graphics/LinearGradient;")
+    opcodes(
+        Opcode.FILLED_NEW_ARRAY,
+        Opcode.MOVE_RESULT_OBJECT
+    )
+    literal { ytYoutubeMagentaColorId }
 }
 
 internal const val launchScreenLayoutTypeLotteFeatureFlag = 268507948L
