@@ -1,3 +1,10 @@
+## [5.9.1-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.9.0...v5.9.1-dev.1) (2025-01-21)
+
+
+### Bug Fixes
+
+* **YouTube - Theme:** Replace custom seekbar gradient colors instead of disabling ([#4329](https://github.com/ReVanced/revanced-patches/issues/4329)) ([f03da98](https://github.com/ReVanced/revanced-patches/commit/f03da983051021e0c372557a5354d5d967409564))
+
 # [5.9.0](https://github.com/ReVanced/revanced-patches/compare/v5.8.1...v5.9.0) (2025-01-20)
 
 
