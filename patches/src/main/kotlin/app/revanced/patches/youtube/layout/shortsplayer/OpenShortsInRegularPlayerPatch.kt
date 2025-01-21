@@ -36,7 +36,6 @@ val openShortsInRegularPlayerPatch = bytecodePatch(
         addResourcesPatch,
         openVideosFullscreenHookPatch,
         navigationBarHookPatch,
-        versionCheckPatch
     )
 
     compatibleWith(
@@ -57,19 +56,10 @@ val openShortsInRegularPlayerPatch = bytecodePatch(
         addResources("youtube", "layout.shortsplayer.shortsPlayerTypePatch")
 
         PreferenceScreen.SHORTS.addPreferences(
-            if (is_19_46_or_greater) {
-                ListPreference(
-                    key = "revanced_shorts_player_type",
-                    summaryKey = null,
-                )
-            } else {
-                ListPreference(
-                    key = "revanced_shorts_player_type",
-                    summaryKey = null,
-                    entriesKey = "revanced_shorts_player_type_legacy_entries",
-                    entryValuesKey = "revanced_shorts_player_type_legacy_entry_values"
-                )
-            }
+            ListPreference(
+                key = "revanced_shorts_player_type",
+                summaryKey = null
+            )
         )
 
         // Activity is used as the context to launch an Intent.
@@ -103,7 +93,15 @@ val openShortsInRegularPlayerPatch = bytecodePatch(
                 nop
             """
 
-        if (!is_19_25_or_greater) {
+        if (is_19_25_or_greater) {
+            shortsPlaybackIntentFingerprint.method.addInstructionsWithLabels(
+                0,
+                """
+                    move-object/from16 v0, p1
+                    ${extensionInstructions(0, 1)}
+                """
+            )
+        } else {
             shortsPlaybackIntentLegacyFingerprint.method.apply {
                 val index = indexOfFirstInstructionOrThrow {
                     getReference<MethodReference>()?.returnType ==
@@ -117,16 +115,6 @@ val openShortsInRegularPlayerPatch = bytecodePatch(
                     extensionInstructions(playbackStartRegister, freeRegister)
                 )
             }
-
-            return@execute
         }
-
-        shortsPlaybackIntentFingerprint.method.addInstructionsWithLabels(
-            0,
-            """
-                move-object/from16 v0, p1
-                ${extensionInstructions(0, 1)}
-            """
-        )
     }
 }

@@ -2,14 +2,43 @@ package app.revanced.patches.youtube.layout.player.fullscreen
 
 import app.revanced.patcher.fingerprint
 import app.revanced.patcher.literal
+import app.revanced.patcher.opcode
 import com.android.tools.smali.dexlib2.AccessFlags
+import com.android.tools.smali.dexlib2.Opcode
 
+/**
+ * 19.46+
+ */
 internal val openVideosFullscreenPortraitFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("V")
     parameters("L", "Lj\$/util/Optional;")
     instructions(
-        literal(45666112L)
+        opcode(Opcode.MOVE_RESULT), // Conditional check to modify.
+        literal(45666112L, maxInstructionsBefore = 5), // Cannot be more than 5.
+        opcode(Opcode.MOVE_RESULT, maxInstructionsBefore = 10),
+    )
+}
+
+/**
+ * Pre 19.46.
+ */
+internal val openVideosFullscreenPortraitLegacyFingerprint by fingerprint {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
+    returns("V")
+    parameters("L", "Lj\$/util/Optional;")
+    opcodes(
+        Opcode.GOTO,
+        Opcode.SGET_OBJECT,
+        Opcode.GOTO,
+        Opcode.SGET_OBJECT,
+        Opcode.INVOKE_VIRTUAL,
+        Opcode.MOVE_RESULT,
+        Opcode.IF_EQ,
+        Opcode.IF_EQ,
+        Opcode.IGET_OBJECT,
+        Opcode.INVOKE_VIRTUAL,
+        Opcode.MOVE_RESULT  // Conditional check to modify.
     )
 }
 
