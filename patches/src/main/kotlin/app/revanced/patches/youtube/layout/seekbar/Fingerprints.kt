@@ -2,8 +2,9 @@ package app.revanced.patches.youtube.layout.seekbar
 
 import app.revanced.patcher.fingerprint
 import app.revanced.patcher.literal
+import app.revanced.patcher.opcode
+import app.revanced.patches.shared.misc.mapping.resourceLiteral
 import app.revanced.util.containsLiteralInstruction
-import app.revanced.util.literal
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
@@ -34,7 +35,9 @@ internal val setSeekbarClickedColorFingerprint by fingerprint {
 
 internal val shortsSeekbarColorFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
-    literal { reelTimeBarPlayedColorId }
+    instructions(
+        literal(reelTimeBarPlayedColorId)
+    )
 }
 
 internal val lithoLinearGradientFingerprint by fingerprint {
@@ -44,33 +47,50 @@ internal val lithoLinearGradientFingerprint by fingerprint {
 }
 
 /**
- * 29.25 - 19.50
- */
-internal val playerLinearGradientLegacyFingerprint by fingerprint {
-    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    parameters("I", "I", "I", "I")
-    returns("V")
-    opcodes(
-        Opcode.FILLED_NEW_ARRAY,
-        Opcode.MOVE_RESULT_OBJECT
-    )
-    custom { method, _ ->
-        method.name == "setBounds" && method.containsLiteralInstruction(ytYoutubeMagentaColorId)
-    }
-}
-
-/**
- * 20.03+
+ * 19.49+
  */
 internal val playerLinearGradientFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
     parameters("I", "I", "I", "I", "Landroid/content/Context;", "I")
     returns("Landroid/graphics/LinearGradient;")
-    opcodes(
-        Opcode.FILLED_NEW_ARRAY,
-        Opcode.MOVE_RESULT_OBJECT
+    instructions(
+        resourceLiteral("color", "yt_youtube_magenta"),
+
+        opcode(Opcode.FILLED_NEW_ARRAY, maxInstructionsBefore = 5),
+        opcode(Opcode.MOVE_RESULT_OBJECT, maxInstructionsBefore = 0)
     )
-    literal { ytYoutubeMagentaColorId }
+}
+
+/**
+ * 19.46 - 19.47
+ */
+internal val playerLinearGradientLegacy1946Fingerprint by fingerprint {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
+    parameters("I", "I", "I", "I")
+    returns("V")
+    instructions(
+        resourceLiteral("color", "yt_youtube_magenta"),
+
+        opcode(Opcode.FILLED_NEW_ARRAY),
+        opcode(Opcode.MOVE_RESULT_OBJECT, maxInstructionsBefore = 0),
+    )
+    custom { method, _ ->
+        method.name == "setBounds"
+    }
+}
+
+/**
+ * 19.25 - 19.45
+ */
+internal val playerLinearGradientLegacy1925Fingerprint by fingerprint {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
+    parameters("Landroid/content/Context;")
+    instructions(
+        resourceLiteral("color", "yt_youtube_magenta"),
+
+        opcode(Opcode.FILLED_NEW_ARRAY, maxInstructionsBefore = 10),
+        opcode(Opcode.MOVE_RESULT_OBJECT, maxInstructionsBefore = 0),
+    )
 }
 
 internal const val launchScreenLayoutTypeLotteFeatureFlag = 268507948L

@@ -15,6 +15,7 @@ import app.revanced.patches.youtube.layout.theme.lithoColorOverrideHook
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.playservice.is_19_25_or_greater
 import app.revanced.patches.youtube.misc.playservice.is_19_46_or_greater
+import app.revanced.patches.youtube.misc.playservice.is_19_49_or_greater
 import app.revanced.patches.youtube.misc.playservice.versionCheckPatch
 import app.revanced.patches.youtube.misc.settings.settingsPatch
 import app.revanced.patches.youtube.shared.mainActivityOnCreateFingerprint
@@ -39,8 +40,6 @@ internal var inlineTimeBarColorizedBarPlayedColorDarkId = -1L
     private set
 internal var inlineTimeBarPlayedNotHighlightedColorId = -1L
     private set
-internal var ytYoutubeMagentaColorId = -1L
-    private set
 
 internal const val splashSeekbarColorAttributeName = "splash_custom_seekbar_color"
 
@@ -63,10 +62,6 @@ private val seekbarColorResourcePatch = resourcePatch {
         inlineTimeBarPlayedNotHighlightedColorId = resourceMappings[
             "color",
             "inline_time_bar_played_not_highlighted_color",
-        ]
-        ytYoutubeMagentaColorId = resourceMappings[
-            "color",
-            "yt_youtube_magenta",
         ]
 
         // Modify the resume playback drawable and replace the progress bar with a custom drawable.
@@ -189,6 +184,7 @@ val seekbarColorPatch = bytecodePatch(
         lithoColorHookPatch,
         seekbarColorResourcePatch,
         resourceMappingPatch,
+        versionCheckPatch
     )
 
     execute {
@@ -241,10 +237,18 @@ val seekbarColorPatch = bytecodePatch(
             "invoke-static/range { p4 .. p5 },  $EXTENSION_CLASS_DESCRIPTOR->setLinearGradient([I[F)V"
         )
 
-        // TODO: add 20.03 support
-        playerLinearGradientLegacyFingerprint.let {
+        val playerFingerprint =
+            if (is_19_49_or_greater) {
+                playerLinearGradientFingerprint
+            } else if (is_19_46_or_greater) {
+                playerLinearGradientLegacy1946Fingerprint
+            } else {
+                playerLinearGradientLegacy1925Fingerprint
+            }
+
+        playerFingerprint.let {
             it.method.apply {
-                val index = it.patternMatch!!.endIndex
+                val index = it.instructionMatches.last().index
                 val register = getInstruction<OneRegisterInstruction>(index).registerA
 
                 addInstructions(

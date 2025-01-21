@@ -7,7 +7,7 @@ import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
-import app.revanced.patches.youtube.misc.playservice.is_20_02_or_greater
+import app.revanced.patches.youtube.misc.playservice.is_20_03_or_greater
 import app.revanced.patches.youtube.misc.playservice.versionCheckPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
@@ -53,7 +53,7 @@ val disableResumingShortsOnStartupPatch = bytecodePatch(
             SwitchPreference("revanced_disable_resuming_shorts_player"),
         )
 
-        if (is_20_02_or_greater) {
+        if (is_20_03_or_greater) {
             userWasInShortsAlternativeFingerprint.let {
                 it.method.apply {
                     val match = it.instructionMatches[2]
