@@ -15,6 +15,7 @@ import app.revanced.patches.youtube.layout.theme.lithoColorOverrideHook
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.playservice.is_19_25_or_greater
 import app.revanced.patches.youtube.misc.playservice.is_19_46_or_greater
+import app.revanced.patches.youtube.misc.playservice.is_19_49_or_greater
 import app.revanced.patches.youtube.misc.playservice.versionCheckPatch
 import app.revanced.patches.youtube.misc.settings.settingsPatch
 import app.revanced.patches.youtube.shared.mainActivityOnCreateFingerprint
@@ -188,6 +189,7 @@ val seekbarColorPatch = bytecodePatch(
         sharedExtensionPatch,
         lithoColorHookPatch,
         seekbarColorResourcePatch,
+        versionCheckPatch
     )
 
     execute {
@@ -240,8 +242,16 @@ val seekbarColorPatch = bytecodePatch(
             "invoke-static/range { p4 .. p5 },  $EXTENSION_CLASS_DESCRIPTOR->setLinearGradient([I[F)V"
         )
 
-        // TODO: add 20.03 support
-        playerLinearGradientLegacyFingerprint.let {
+        val playerFingerprint =
+            if (is_19_49_or_greater) {
+                playerLinearGradientFingerprint
+            } else if (is_19_46_or_greater) {
+                playerLinearGradientLegacy1946Fingerprint
+            } else {
+                playerLinearGradientLegacy1925Fingerprint
+            }
+
+        playerFingerprint.let {
             it.method.apply {
                 val index = it.patternMatch!!.endIndex
                 val register = getInstruction<OneRegisterInstruction>(index).registerA
