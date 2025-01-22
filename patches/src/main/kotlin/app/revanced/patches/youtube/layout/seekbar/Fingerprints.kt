@@ -41,9 +41,23 @@ internal val lithoLinearGradientFingerprint = fingerprint {
 }
 
 /**
- * 29.25 - 19.50
+ * 19.49+
  */
-internal val playerLinearGradientLegacyFingerprint = fingerprint {
+internal val playerLinearGradientFingerprint = fingerprint {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
+    parameters("I", "I", "I", "I", "Landroid/content/Context;", "I")
+    returns("Landroid/graphics/LinearGradient;")
+    opcodes(
+        Opcode.FILLED_NEW_ARRAY,
+        Opcode.MOVE_RESULT_OBJECT
+    )
+    literal { ytYoutubeMagentaColorId }
+}
+
+/**
+ * 19.46 - 19.47
+ */
+internal val playerLinearGradientLegacy1946Fingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     parameters("I", "I", "I", "I")
     returns("V")
@@ -57,12 +71,11 @@ internal val playerLinearGradientLegacyFingerprint = fingerprint {
 }
 
 /**
- * 20.03+
+ * 19.25 - 19.45
  */
-internal val playerLinearGradientFingerprint = fingerprint {
-    accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
-    parameters("I", "I", "I", "I", "Landroid/content/Context;", "I")
-    returns("Landroid/graphics/LinearGradient;")
+internal val playerLinearGradientLegacy1925Fingerprint = fingerprint {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
+    parameters("Landroid/content/Context;")
     opcodes(
         Opcode.FILLED_NEW_ARRAY,
         Opcode.MOVE_RESULT_OBJECT
