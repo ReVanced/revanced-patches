@@ -280,9 +280,12 @@ val seekbarColorPatch = bytecodePatch(
             }
         }
 
-        lithoLinearGradientFingerprint.method.addInstruction(
+        lithoLinearGradientFingerprint.method.addInstructions(
             0,
-            "invoke-static/range { p4 .. p5 },  $EXTENSION_CLASS_DESCRIPTOR->setLinearGradient([I[F)V"
+            """
+                invoke-static/range { p4 .. p5 },  $EXTENSION_CLASS_DESCRIPTOR->setLinearGradient([I[F)[I
+                move-result-object p4   
+            """
         )
 
         val playerFingerprint =

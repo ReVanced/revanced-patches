@@ -267,18 +267,18 @@ public class Settings extends BaseSettings {
     public static final BooleanSetting SHORTS_AUTOPLAY_BACKGROUND = new BooleanSetting("revanced_shorts_autoplay_background", TRUE);
 
     // Seekbar
-
     public static final BooleanSetting DISABLE_PRECISE_SEEKING_GESTURE = new BooleanSetting("revanced_disable_precise_seeking_gesture", TRUE);
     public static final BooleanSetting HIDE_SEEKBAR = new BooleanSetting("revanced_hide_seekbar", FALSE, true);
     public static final BooleanSetting HIDE_SEEKBAR_THUMBNAIL = new BooleanSetting("revanced_hide_seekbar_thumbnail", FALSE, true);
     public static final BooleanSetting HIDE_TIMESTAMP = new BooleanSetting("revanced_hide_timestamp", FALSE);
     public static final BooleanSetting RESTORE_OLD_SEEKBAR_THUMBNAILS = new BooleanSetting("revanced_restore_old_seekbar_thumbnails", TRUE);
-    public static final BooleanSetting SEEKBAR_CUSTOM_COLOR = new BooleanSetting("revanced_seekbar_custom_color", FALSE, true);
     public static final BooleanSetting SEEKBAR_TAPPING = new BooleanSetting("revanced_seekbar_tapping", TRUE);
     public static final BooleanSetting SEEKBAR_THUMBNAILS_HIGH_QUALITY = new BooleanSetting("revanced_seekbar_thumbnails_high_quality", FALSE, true,
             "revanced_seekbar_thumbnails_high_quality_dialog_message", new SeekbarThumbnailsHighQualityAvailability());
     public static final BooleanSetting SLIDE_TO_SEEK = new BooleanSetting("revanced_slide_to_seek", FALSE, true);
+    public static final BooleanSetting SEEKBAR_CUSTOM_COLOR = new BooleanSetting("revanced_seekbar_custom_color", FALSE, true);
     public static final StringSetting SEEKBAR_CUSTOM_COLOR_VALUE = new StringSetting("revanced_seekbar_custom_color_value", "#FF0033", true, parent(SEEKBAR_CUSTOM_COLOR));
+    public static final StringSetting SEEKBAR_CUSTOM_COLOR_ACCENT_VALUE = new StringSetting("revanced_seekbar_custom_color_accent_value", "#FF2791", true, parent(SEEKBAR_CUSTOM_COLOR));
 
     // Misc
     public static final BooleanSetting ANNOUNCEMENTS = new BooleanSetting("revanced_announcements", TRUE);
