@@ -18,6 +18,8 @@ public final class SeekbarColorPatch {
 
     private static final boolean SEEKBAR_CUSTOM_COLOR_ENABLED = Settings.SEEKBAR_CUSTOM_COLOR.get();
 
+    private static final boolean HIDE_SEEKBAR_THUMBNAIL_ENABLED = Settings.HIDE_SEEKBAR_THUMBNAIL.get();
+
     /**
      * Default color of the litho seekbar.
      * Differs slightly from the default custom seekbar color setting.
@@ -38,11 +40,6 @@ public final class SeekbarColorPatch {
      * Default YouTube seekbar color brightness.
      */
     private static final float ORIGINAL_SEEKBAR_COLOR_BRIGHTNESS;
-
-    /**
-     * Empty seekbar gradient, if hide seekbar in feed is enabled.
-     */
-    private static final int[] HIDDEN_SEEKBAR_GRADIENT_COLORS = { 0x00000000, 0x00000000 };
 
     /**
      * If {@link Settings#SEEKBAR_CUSTOM_COLOR} is enabled,
@@ -151,6 +148,22 @@ public final class SeekbarColorPatch {
 
     /**
      * Injection point.
+     */
+    public static boolean showWatchHistoryProgressDrawable(boolean original) {
+        return !HIDE_SEEKBAR_THUMBNAIL_ENABLED && original;
+    }
+
+    /**
+     * Injection point.
+     */
+    public static int getSeekbarScrubHandleColor(int colorValue) {
+        return SEEKBAR_CUSTOM_COLOR_ENABLED
+                ? seekbarColor
+                : colorValue;
+    }
+
+    /**
+     * Injection point.
      *
      * Overrides all Litho components that use the YouTube seekbar color.
      * Used only for the video thumbnails seekbar.
@@ -159,7 +172,7 @@ public final class SeekbarColorPatch {
      */
     public static int getLithoColor(int colorValue) {
         if (colorValue == ORIGINAL_SEEKBAR_COLOR) {
-            if (Settings.HIDE_SEEKBAR_THUMBNAIL.get()) {
+            if (HIDE_SEEKBAR_THUMBNAIL_ENABLED) {
                 return 0x00000000;
             }
 
@@ -172,10 +185,6 @@ public final class SeekbarColorPatch {
      * Injection point.
      */
     public static int[] getLinearGradient(int[] original) {
-        if (Settings.HIDE_SEEKBAR_THUMBNAIL.get()) {
-            return HIDDEN_SEEKBAR_GRADIENT_COLORS;
-        }
-
         return SEEKBAR_CUSTOM_COLOR_ENABLED
                 ? customSeekbarColorInt
                 : original;
@@ -183,7 +192,7 @@ public final class SeekbarColorPatch {
 
     private static String colorArrayToHex(int[] colors) {
         final int length = colors.length;
-        StringBuilder builder = new StringBuilder(length * 10);
+        StringBuilder builder = new StringBuilder(length * 12);
         builder.append("[");
 
         int i = 0;
@@ -202,14 +211,12 @@ public final class SeekbarColorPatch {
      * Injection point.
      */
     public static void setLinearGradient(int[] colors, float[] positions) {
-        final boolean hideSeekbar = Settings.HIDE_SEEKBAR_THUMBNAIL.get();
-
-        if (SEEKBAR_CUSTOM_COLOR_ENABLED || hideSeekbar) {
+        if (SEEKBAR_CUSTOM_COLOR_ENABLED || HIDE_SEEKBAR_THUMBNAIL_ENABLED) {
             // Most litho usage of linear gradients is hooked here,
             // so must only change if the values are those for the seekbar.
             if ((Arrays.equals(FEED_ORIGINAL_SEEKBAR_GRADIENT_COLORS, colors)
                     && Arrays.equals(FEED_ORIGINAL_SEEKBAR_GRADIENT_POSITIONS, positions))) {
-                Arrays.fill(colors, hideSeekbar
+                Arrays.fill(colors, HIDE_SEEKBAR_THUMBNAIL_ENABLED
                         ? 0x00000000
                         : seekbarColor);
                 return;
