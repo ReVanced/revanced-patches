@@ -14,6 +14,7 @@ import app.revanced.patches.youtube.layout.theme.lithoColorHookPatch
 import app.revanced.patches.youtube.layout.theme.lithoColorOverrideHook
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.playservice.is_19_25_or_greater
+import app.revanced.patches.youtube.misc.playservice.is_19_34_or_greater
 import app.revanced.patches.youtube.misc.playservice.is_19_46_or_greater
 import app.revanced.patches.youtube.misc.playservice.is_19_49_or_greater
 import app.revanced.patches.youtube.misc.playservice.versionCheckPatch
@@ -40,6 +41,8 @@ internal var inlineTimeBarColorizedBarPlayedColorDarkId = -1L
     private set
 internal var inlineTimeBarPlayedNotHighlightedColorId = -1L
     private set
+internal var ytStaticBrandRedId = -1L
+    private set
 
 internal const val splashSeekbarColorAttributeName = "splash_custom_seekbar_color"
 
@@ -62,6 +65,10 @@ private val seekbarColorResourcePatch = resourcePatch {
         inlineTimeBarPlayedNotHighlightedColorId = resourceMappings[
             "color",
             "inline_time_bar_played_not_highlighted_color",
+        ]
+        ytStaticBrandRedId = resourceMappings[
+            "attr",
+            "ytStaticBrandRed",
         ]
 
         // Modify the resume playback drawable and replace the progress bar with a custom drawable.
@@ -232,6 +239,42 @@ val seekbarColorPatch = bytecodePatch(
 
         // 19.25+ changes
 
+        playerSeekbarHandleColorFingerprint.method.apply {
+            val index = indexOfFirstLiteralInstructionOrThrow(ytStaticBrandRedId)
+            val insertIndex = indexOfFirstInstructionOrThrow(index, Opcode.MOVE_RESULT)
+            val register = getInstruction<OneRegisterInstruction>(insertIndex).registerA
+
+            addInstructions(
+                insertIndex + 1,
+                """
+                    invoke-static { v$register }, $EXTENSION_CLASS_DESCRIPTOR->getSeekbarScrubHandleColor(I)I
+                    move-result v$register
+                """
+            )
+        }
+
+        // If hiding feed seekbar thumbnails, then turn off the cairo gradient
+        // of the watch history menu items as they use the same gradient as the
+        // player and there is no easy way to distinguish which to use a transparent color.
+        if (is_19_34_or_greater) {
+            watchHistoryMenuUseProgressDrawableFingerprint.method.apply {
+                val progressIndex = indexOfFirstInstructionOrThrow {
+                    val reference = getReference<MethodReference>()
+                    reference?.definingClass == "Landroid/widget/ProgressBar;" && reference.name == "setMax"
+                }
+                val index = indexOfFirstInstructionOrThrow(progressIndex, Opcode.MOVE_RESULT)
+                val register = getInstruction<OneRegisterInstruction>(index).registerA
+
+                addInstructions(
+                    index + 1,
+                    """
+                    invoke-static { v$register }, $EXTENSION_CLASS_DESCRIPTOR->showWatchHistoryProgressDrawable(Z)Z
+                    move-result v$register            
+                """
+                )
+            }
+        }
+
         lithoLinearGradientFingerprint.method.addInstruction(
             0,
             "invoke-static/range { p4 .. p5 },  $EXTENSION_CLASS_DESCRIPTOR->setLinearGradient([I[F)V"
@@ -254,7 +297,7 @@ val seekbarColorPatch = bytecodePatch(
                 addInstructions(
                     index + 1,
                     """
-                       invoke-static { v$register },  $EXTENSION_CLASS_DESCRIPTOR->getLinearGradient([I)[I
+                       invoke-static { v$register }, $EXTENSION_CLASS_DESCRIPTOR->getLinearGradient([I)[I
                        move-result-object v$register
                     """
                 )
