@@ -39,7 +39,7 @@ public final class SeekbarColorPatch {
     /**
      * Empty seekbar gradient, if hide seekbar in feed is enabled.
      */
-    private static final int[] HIDDEN_SEEKBAR_GRADIENT_COLORS = { 0x00000000, 0x00000000 };
+    private static final int[] HIDDEN_SEEKBAR_GRADIENT_COLORS = { 0x0, 0x0 };
 
     /**
      * Default YouTube seekbar color brightness.
@@ -182,11 +182,12 @@ public final class SeekbarColorPatch {
     public static int getLithoColor(int colorValue) {
         if (colorValue == ORIGINAL_SEEKBAR_COLOR) {
             if (HIDE_SEEKBAR_THUMBNAIL_ENABLED) {
-                return 0x00000000;
+                return 0x0;
             }
 
-            return getSeekbarColorValue(ORIGINAL_SEEKBAR_COLOR);
+            return seekbarColor;
         }
+
         return colorValue;
     }
 
@@ -248,7 +249,7 @@ public final class SeekbarColorPatch {
         }
 
         return colorValue == ORIGINAL_SEEKBAR_COLOR
-                ? getSeekbarColorValue(ORIGINAL_SEEKBAR_COLOR)
+                ? seekbarColor
                 : colorValue;
     }
 
