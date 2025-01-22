@@ -48,7 +48,7 @@ public final class SeekbarColorPatch {
 
     /**
      * If {@link Settings#SEEKBAR_CUSTOM_COLOR} is enabled,
-     * this is the color value of {@link Settings#SEEKBAR_CUSTOM_COLOR_VALUE}.
+     * this is the color value of {@link Settings#SEEKBAR_CUSTOM_COLOR_PRIMARY}.
      * Otherwise this is {@link #ORIGINAL_SEEKBAR_COLOR}.
      */
     private static int seekbarColor = ORIGINAL_SEEKBAR_COLOR;
@@ -75,16 +75,16 @@ public final class SeekbarColorPatch {
 
     private static void loadCustomSeekbarColor() {
         try {
-            seekbarColor = Color.parseColor(Settings.SEEKBAR_CUSTOM_COLOR_VALUE.get());
+            seekbarColor = Color.parseColor(Settings.SEEKBAR_CUSTOM_COLOR_PRIMARY.get());
             Color.colorToHSV(seekbarColor, customSeekbarColorHSV);
 
             customSeekbarColorGradient[0] = seekbarColor;
             customSeekbarColorGradient[1] = Color.parseColor(
-                    Settings.SEEKBAR_CUSTOM_COLOR_ACCENT_VALUE.get());
+                    Settings.SEEKBAR_CUSTOM_COLOR_ACCENT.get());
         } catch (Exception ex) {
             Utils.showToastShort(str("revanced_seekbar_custom_color_invalid"));
-            Settings.SEEKBAR_CUSTOM_COLOR_VALUE.resetToDefault();
-            Settings.SEEKBAR_CUSTOM_COLOR_ACCENT_VALUE.resetToDefault();
+            Settings.SEEKBAR_CUSTOM_COLOR_PRIMARY.resetToDefault();
+            Settings.SEEKBAR_CUSTOM_COLOR_ACCENT.resetToDefault();
 
             loadCustomSeekbarColor();
         }

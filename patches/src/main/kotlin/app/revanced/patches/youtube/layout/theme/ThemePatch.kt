@@ -86,12 +86,12 @@ val themePatch = bytecodePatch(
 
                 PreferenceScreen.SEEKBAR.addPreferences(
                     SwitchPreference("revanced_seekbar_custom_color"),
-                    TextPreference("revanced_seekbar_custom_color_value", inputType = InputType.TEXT_CAP_CHARACTERS),
+                    TextPreference("revanced_seekbar_custom_color_primary", inputType = InputType.TEXT_CAP_CHARACTERS),
                 )
 
                 if (is_19_25_or_greater) {
                     PreferenceScreen.SEEKBAR.addPreferences(
-                        TextPreference("revanced_seekbar_custom_color_accent_value", inputType = InputType.TEXT_CAP_CHARACTERS),
+                        TextPreference("revanced_seekbar_custom_color_accent", inputType = InputType.TEXT_CAP_CHARACTERS),
                     )
                 }
 
