@@ -1,3 +1,10 @@
+## [5.9.1-dev.3](https://github.com/ReVanced/revanced-patches/compare/v5.9.1-dev.2...v5.9.1-dev.3) (2025-01-22)
+
+
+### Bug Fixes
+
+* **YouTube - Hide seekbar:** Do not hide player seekbar if hide feed seekbar is enabled ([#4333](https://github.com/ReVanced/revanced-patches/issues/4333)) ([f5cf6f2](https://github.com/ReVanced/revanced-patches/commit/f5cf6f2a445492d33815a9772f49deac2d70eba9))
+
 ## [5.9.1-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.9.1-dev.1...v5.9.1-dev.2) (2025-01-22)
 
 
