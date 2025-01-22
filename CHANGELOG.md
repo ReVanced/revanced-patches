@@ -1,3 +1,10 @@
+## [5.9.1-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.9.1-dev.1...v5.9.1-dev.2) (2025-01-22)
+
+
+### Bug Fixes
+
+* **YouTube - Theme:** Fix 19.25 - 19.45 patch error ([5b47a5f](https://github.com/ReVanced/revanced-patches/commit/5b47a5f0f6299daaae209341064fd85f16ca18a6))
+
 ## [5.9.1-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.9.0...v5.9.1-dev.1) (2025-01-21)
 
 
