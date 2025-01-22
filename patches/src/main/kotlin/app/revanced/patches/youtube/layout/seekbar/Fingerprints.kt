@@ -2,6 +2,7 @@ package app.revanced.patches.youtube.layout.seekbar
 
 import app.revanced.patcher.fingerprint
 import app.revanced.patcher.literal
+import app.revanced.patcher.methodCall
 import app.revanced.patcher.opcode
 import app.revanced.patches.shared.misc.mapping.resourceLiteral
 import app.revanced.util.containsLiteralInstruction
@@ -40,17 +41,24 @@ internal val shortsSeekbarColorFingerprint by fingerprint {
     )
 }
 
-internal val playerSeekbarHandleColorFingerprint = fingerprint {
+internal val playerSeekbarHandleColorFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     parameters("Landroid/content/Context;")
-    literal { ytStaticBrandRedId }
+    instructions(
+        resourceLiteral("attr", "ytStaticBrandRed"),
+        opcode(Opcode.MOVE_RESULT)
+    )
 }
 
-internal val watchHistoryMenuUseProgressDrawableFingerprint = fingerprint {
+internal val watchHistoryMenuUseProgressDrawableFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("V")
     parameters("L")
-    literal { -1712394514 }
+    instructions(
+        methodCall("Landroid/widget/ProgressBar;", "setMax"),
+        opcode(Opcode.MOVE_RESULT),
+        literal(-1712394514)
+    )
 }
 
 internal val lithoLinearGradientFingerprint by fingerprint {
