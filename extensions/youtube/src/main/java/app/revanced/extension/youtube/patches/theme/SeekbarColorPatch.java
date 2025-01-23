@@ -182,15 +182,6 @@ public final class SeekbarColorPatch {
         return colorValue;
     }
 
-    /**
-     * Injection point.
-     */
-    public static int[] getLinearGradient(int[] original) {
-        return SEEKBAR_CUSTOM_COLOR_ENABLED
-                ? customSeekbarColorGradient
-                : original;
-    }
-
     private static String colorArrayToHex(int[] colors) {
         final int length = colors.length;
         StringBuilder builder = new StringBuilder(length * 12);
@@ -211,12 +202,23 @@ public final class SeekbarColorPatch {
     /**
      * Injection point.
      */
-    public static int[] getLinearGradient(int[] colors, float[] positions) {
+    public static int[] getPlayerLinearGradient(int[] original) {
+        return SEEKBAR_CUSTOM_COLOR_ENABLED
+                ? customSeekbarColorGradient
+                : original;
+    }
+
+    /**
+     * Injection point.
+     */
+    public static int[] getLithoLinearGradient(int[] colors, float[] positions) {
         if (SEEKBAR_CUSTOM_COLOR_ENABLED || HIDE_SEEKBAR_THUMBNAIL_ENABLED) {
             // Most litho usage of linear gradients is hooked here,
             // so must only change if the values are those for the seekbar.
             if ((Arrays.equals(FEED_ORIGINAL_SEEKBAR_GRADIENT_COLORS, colors)
                     && Arrays.equals(FEED_ORIGINAL_SEEKBAR_GRADIENT_POSITIONS, positions))) {
+                Logger.printDebug(() -> "Replacing gradient colors: " + colorArrayToHex(colors)
+                        + " positions: " + Arrays.toString(positions));
                 return HIDE_SEEKBAR_THUMBNAIL_ENABLED
                         ? HIDDEN_SEEKBAR_GRADIENT_COLORS
                         : customSeekbarColorGradient;
