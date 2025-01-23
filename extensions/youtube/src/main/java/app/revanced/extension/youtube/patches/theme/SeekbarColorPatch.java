@@ -17,8 +17,7 @@ import app.revanced.extension.youtube.settings.Settings;
 public final class SeekbarColorPatch {
 
     private static final boolean SEEKBAR_CUSTOM_COLOR_ENABLED = Settings.SEEKBAR_CUSTOM_COLOR.get();
-    private static final boolean SEEKBAR_CUSTOM_COLOR_DARK_MODE_ENABLED = SEEKBAR_CUSTOM_COLOR_ENABLED
-            && Settings.SEEKBAR_CUSTOM_COLOR_DARK_MODE.get();
+
     private static final boolean HIDE_SEEKBAR_THUMBNAIL_ENABLED = Settings.HIDE_SEEKBAR_THUMBNAIL.get();
 
     /**
@@ -251,17 +250,6 @@ public final class SeekbarColorPatch {
      */
     public static int getVideoPlayerSeekbarColor(int originalColor) {
         return SEEKBAR_CUSTOM_COLOR_ENABLED
-                ? getSeekbarColorValue(originalColor)
-                : originalColor;
-    }
-
-    /**
-     * Injection point.
-     *
-     * Overrides color used for the video player seekbar in dark mode.
-     */
-    public static int getVideoPlayerSeekbarDarkModeColor(int originalColor) {
-        return SEEKBAR_CUSTOM_COLOR_DARK_MODE_ENABLED
                 ? getSeekbarColorValue(originalColor)
                 : originalColor;
     }
