@@ -164,15 +164,6 @@ public final class SeekbarColorPatch {
 
     /**
      * Injection point.
-     */
-    public static int getSeekbarScrubHandleColor(int colorValue) {
-        return SEEKBAR_CUSTOM_COLOR_ENABLED
-                ? seekbarColor
-                : colorValue;
-    }
-
-    /**
-     * Injection point.
      *
      * Overrides all Litho components that use the YouTube seekbar color.
      * Used only for the video thumbnails seekbar.
@@ -180,8 +171,6 @@ public final class SeekbarColorPatch {
      * If {@link Settings#HIDE_SEEKBAR_THUMBNAIL} is enabled, this returns a fully transparent color.
      */
     public static int getLithoColor(int colorValue) {
-        /* FIXME */ if (colorValue == 0xFFFF0033) { return seekbarColor; }
-
         if (colorValue == ORIGINAL_SEEKBAR_COLOR) {
             if (HIDE_SEEKBAR_THUMBNAIL_ENABLED) {
                 return 0x0;
@@ -222,7 +211,7 @@ public final class SeekbarColorPatch {
     /**
      * Injection point.
      */
-    public static int[] setLinearGradient(int[] colors, float[] positions) {
+    public static int[] getLinearGradient(int[] colors, float[] positions) {
         if (SEEKBAR_CUSTOM_COLOR_ENABLED || HIDE_SEEKBAR_THUMBNAIL_ENABLED) {
             // Most litho usage of linear gradients is hooked here,
             // so must only change if the values are those for the seekbar.
