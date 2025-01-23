@@ -170,10 +170,6 @@ public final class SeekbarColorPatch {
      * If {@link Settings#HIDE_SEEKBAR_THUMBNAIL} is enabled, this returns a fully transparent color.
      */
     public static int getLithoColor(int colorValue) {
-        /* FIXME */ if (colorValue == 0xCCFFFFFF) {
-            return getSeekbarColorValue(colorValue);
-        }
-
         if (colorValue == ORIGINAL_SEEKBAR_COLOR) {
             if (HIDE_SEEKBAR_THUMBNAIL_ENABLED) {
                 return 0x0;
