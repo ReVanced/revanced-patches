@@ -51,7 +51,7 @@ public final class SeekbarColorPatch {
      * this is the color value of {@link Settings#SEEKBAR_CUSTOM_COLOR_PRIMARY}.
      * Otherwise this is {@link #ORIGINAL_SEEKBAR_COLOR}.
      */
-    private static int seekbarColor = ORIGINAL_SEEKBAR_COLOR;
+    private static int customSeekbarColor = ORIGINAL_SEEKBAR_COLOR;
 
     /**
      * Custom seekbar hue, saturation, and brightness values.
@@ -75,10 +75,10 @@ public final class SeekbarColorPatch {
 
     private static void loadCustomSeekbarColor() {
         try {
-            seekbarColor = Color.parseColor(Settings.SEEKBAR_CUSTOM_COLOR_PRIMARY.get());
-            Color.colorToHSV(seekbarColor, customSeekbarColorHSV);
+            customSeekbarColor = Color.parseColor(Settings.SEEKBAR_CUSTOM_COLOR_PRIMARY.get());
+            Color.colorToHSV(customSeekbarColor, customSeekbarColorHSV);
 
-            customSeekbarColorGradient[0] = seekbarColor;
+            customSeekbarColorGradient[0] = customSeekbarColor;
             customSeekbarColorGradient[1] = Color.parseColor(
                     Settings.SEEKBAR_CUSTOM_COLOR_ACCENT.get());
         } catch (Exception ex) {
@@ -91,7 +91,7 @@ public final class SeekbarColorPatch {
     }
 
     public static int getSeekbarColor() {
-        return seekbarColor;
+        return customSeekbarColor;
     }
 
     /**
@@ -135,7 +135,7 @@ public final class SeekbarColorPatch {
         // Even if the seekbar color xml value is changed to a completely different color (such as green),
         // a color filter still cannot be selectively applied when the drawable has more than 1 color.
         try {
-            String seekbarStyle = get9BitStyleIdentifier(seekbarColor);
+            String seekbarStyle = get9BitStyleIdentifier(customSeekbarColor);
             Logger.printDebug(() -> "Using splash seekbar style: " + seekbarStyle);
 
             final int styleIdentifierDefault = Utils.getResourceIdentifier(
@@ -176,7 +176,7 @@ public final class SeekbarColorPatch {
                 return 0x0;
             }
 
-            return seekbarColor;
+            return customSeekbarColor;
         }
 
         return colorValue;
@@ -242,7 +242,7 @@ public final class SeekbarColorPatch {
         }
 
         return colorValue == ORIGINAL_SEEKBAR_COLOR
-                ? seekbarColor
+                ? customSeekbarColor
                 : colorValue;
     }
 
@@ -265,7 +265,7 @@ public final class SeekbarColorPatch {
      */
     private static int getSeekbarColorValue(int originalColor) {
         try {
-            if (!SEEKBAR_CUSTOM_COLOR_ENABLED || originalColor == seekbarColor) {
+            if (!SEEKBAR_CUSTOM_COLOR_ENABLED || originalColor == customSeekbarColor) {
                 return originalColor; // nothing to do
             }
 
@@ -281,7 +281,7 @@ public final class SeekbarColorPatch {
             hsv[1] = customSeekbarColorHSV[1];
             hsv[2] = clamp(customSeekbarColorHSV[2] + brightnessDifference, 0, 1);
 
-            final int replacementAlpha = clamp(Color.alpha(seekbarColor) + alphaDifference, 0, 255);
+            final int replacementAlpha = clamp(Color.alpha(customSeekbarColor) + alphaDifference, 0, 255);
             final int replacementColor = Color.HSVToColor(replacementAlpha, hsv);
             Logger.printDebug(() -> String.format("Original color: #%08X  replacement color: #%08X",
                             originalColor, replacementColor));
