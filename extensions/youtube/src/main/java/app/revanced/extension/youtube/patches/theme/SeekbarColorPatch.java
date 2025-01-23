@@ -32,6 +32,11 @@ public final class SeekbarColorPatch {
     private static final int[] FEED_ORIGINAL_SEEKBAR_GRADIENT_COLORS = { 0xFFFF0033, 0xFFFF2791 };
 
     /**
+     * Feed default positions of the gradient seekbar.
+     */
+    private static final float[] FEED_ORIGINAL_SEEKBAR_GRADIENT_POSITIONS = { 0.8f, 1.0f };
+
+    /**
      * Empty seekbar gradient, if hide seekbar in feed is enabled.
      */
     private static final int[] HIDDEN_SEEKBAR_GRADIENT_COLORS = { 0x0, 0x0 };
@@ -210,7 +215,8 @@ public final class SeekbarColorPatch {
         if (SEEKBAR_CUSTOM_COLOR_ENABLED || HIDE_SEEKBAR_THUMBNAIL_ENABLED) {
             // Most litho usage of linear gradients is hooked here,
             // so must only change if the values are those for the seekbar.
-            if (Arrays.equals(FEED_ORIGINAL_SEEKBAR_GRADIENT_COLORS, colors)) {
+            if ((Arrays.equals(FEED_ORIGINAL_SEEKBAR_GRADIENT_COLORS, colors)
+                    && Arrays.equals(FEED_ORIGINAL_SEEKBAR_GRADIENT_POSITIONS, positions))) {
                 Logger.printDebug(() -> "Replacing gradient colors: " + colorArrayToHex(colors)
                         + " positions: " + Arrays.toString(positions));
                 return HIDE_SEEKBAR_THUMBNAIL_ENABLED
