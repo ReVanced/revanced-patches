@@ -1223,8 +1223,10 @@ Swipe to expand or close"</string>
             <string name="revanced_seekbar_custom_color_title">Enable custom seekbar color</string>
             <string name="revanced_seekbar_custom_color_summary_on">Custom seekbar color is shown</string>
             <string name="revanced_seekbar_custom_color_summary_off">Original seekbar color is shown</string>
-            <string name="revanced_seekbar_custom_color_value_title">Custom seekbar color</string>
-            <string name="revanced_seekbar_custom_color_value_summary">The color of the seekbar</string>
+            <string name="revanced_seekbar_custom_color_primary_title">Custom seekbar color</string>
+            <string name="revanced_seekbar_custom_color_primary_summary">The color of the seekbar</string>
+            <string name="revanced_seekbar_custom_color_accent_title">Custom seekbar accent color</string>
+            <string name="revanced_seekbar_custom_color_accent_summary">The accent color of the seekbar</string>
             <string name="revanced_seekbar_custom_color_invalid">Invalid seekbar color value</string>
         </patch>
         <patch id="layout.thumbnails.bypassImageRegionRestrictionsPatch">
