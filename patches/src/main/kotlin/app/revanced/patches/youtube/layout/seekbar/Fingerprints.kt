@@ -20,24 +20,24 @@ internal val fullscreenSeekbarThumbnailsFingerprint by fingerprint {
 
 internal val playerSeekbarColorFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
-    custom { method, _ ->
-        method.containsLiteralInstruction(inlineTimeBarColorizedBarPlayedColorDarkId) &&
-            method.containsLiteralInstruction(inlineTimeBarPlayedNotHighlightedColorId)
-    }
+    instructions(
+        resourceLiteral("color", "inline_time_bar_played_not_highlighted_color"),
+        resourceLiteral("color", "inline_time_bar_colorized_bar_played_color_dark")
+    )
 }
 
 internal val setSeekbarClickedColorFingerprint by fingerprint {
     opcodes(Opcode.CONST_HIGH16)
     strings("YOUTUBE", "PREROLL", "POSTROLL")
     custom { _, classDef ->
-        classDef.endsWith("ControlsOverlayStyle;")
+        classDef.endsWith("/ControlsOverlayStyle;")
     }
 }
 
 internal val shortsSeekbarColorFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     instructions(
-        literal(reelTimeBarPlayedColorId)
+        resourceLiteral("color", "reel_time_bar_played_color")
     )
 }
 
@@ -46,7 +46,6 @@ internal val playerSeekbarHandleColorFingerprint by fingerprint {
     parameters("Landroid/content/Context;")
     instructions(
         resourceLiteral("attr", "ytStaticBrandRed"),
-        opcode(Opcode.MOVE_RESULT)
     )
 }
 

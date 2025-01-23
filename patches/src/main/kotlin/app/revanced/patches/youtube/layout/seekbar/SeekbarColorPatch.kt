@@ -7,9 +7,7 @@ import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.resourcePatch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
-import app.revanced.patches.shared.misc.mapping.get
 import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
-import app.revanced.patches.shared.misc.mapping.resourceMappings
 import app.revanced.patches.youtube.layout.theme.lithoColorHookPatch
 import app.revanced.patches.youtube.layout.theme.lithoColorOverrideHook
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
@@ -18,13 +16,11 @@ import app.revanced.patches.youtube.misc.playservice.is_19_34_or_greater
 import app.revanced.patches.youtube.misc.playservice.is_19_46_or_greater
 import app.revanced.patches.youtube.misc.playservice.is_19_49_or_greater
 import app.revanced.patches.youtube.misc.playservice.versionCheckPatch
-import app.revanced.patches.youtube.misc.settings.settingsPatch
 import app.revanced.patches.youtube.shared.mainActivityOnCreateFingerprint
 import app.revanced.util.copyXmlNode
 import app.revanced.util.findElementByAttributeValueOrThrow
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
-import app.revanced.util.indexOfFirstLiteralInstructionOrThrow
 import app.revanced.util.inputStreamFromBundledResource
 import app.revanced.util.insertFeatureFlagBooleanOverride
 import com.android.tools.smali.dexlib2.Opcode
@@ -35,36 +31,15 @@ import org.w3c.dom.Element
 import java.io.ByteArrayInputStream
 import kotlin.use
 
-internal var reelTimeBarPlayedColorId = -1L
-    private set
-internal var inlineTimeBarColorizedBarPlayedColorDarkId = -1L
-    private set
-internal var inlineTimeBarPlayedNotHighlightedColorId = -1L
-    private set
-
-internal const val splashSeekbarColorAttributeName = "splash_custom_seekbar_color"
+private const val splashSeekbarColorAttributeName = "splash_custom_seekbar_color"
 
 private val seekbarColorResourcePatch = resourcePatch {
     dependsOn(
-        settingsPatch,
         resourceMappingPatch,
         versionCheckPatch,
     )
 
     execute {
-        reelTimeBarPlayedColorId = resourceMappings[
-            "color",
-            "reel_time_bar_played_color",
-        ]
-        inlineTimeBarColorizedBarPlayedColorDarkId = resourceMappings[
-            "color",
-            "inline_time_bar_colorized_bar_played_color_dark",
-        ]
-        inlineTimeBarPlayedNotHighlightedColorId = resourceMappings[
-            "color",
-            "inline_time_bar_played_not_highlighted_color",
-        ]
-
         // Modify the resume playback drawable and replace the progress bar with a custom drawable.
         document("res/drawable/resume_playback_progressbar_drawable.xml").use { document ->
             val layerList = document.getElementsByTagName("layer-list").item(0) as Element
@@ -189,27 +164,28 @@ val seekbarColorPatch = bytecodePatch(
     )
 
     execute {
-        fun MutableMethod.addColorChangeInstructions(resourceId: Long) {
-            val index = indexOfFirstLiteralInstructionOrThrow(resourceId)
-            val insertIndex = indexOfFirstInstructionOrThrow(index, Opcode.MOVE_RESULT)
-            val register = getInstruction<OneRegisterInstruction>(insertIndex).registerA
+        fun MutableMethod.addColorChangeInstructions(resourceIndex: Int) {
+            val moveResultIndex = indexOfFirstInstructionOrThrow(resourceIndex, Opcode.MOVE_RESULT)
+            val register = getInstruction<OneRegisterInstruction>(moveResultIndex).registerA
 
             addInstructions(
-                insertIndex + 1,
+                moveResultIndex + 1,
                 """
-                    invoke-static { v$register }, $EXTENSION_CLASS_DESCRIPTOR->"getVideoPlayerSeekbarColor"(I)I
+                    invoke-static { v$register }, $EXTENSION_CLASS_DESCRIPTOR->getVideoPlayerSeekbarColor(I)I
                     move-result v$register
                 """
             )
         }
 
-        playerSeekbarColorFingerprint.method.apply {
-            addColorChangeInstructions(inlineTimeBarColorizedBarPlayedColorDarkId)
-            addColorChangeInstructions(inlineTimeBarPlayedNotHighlightedColorId)
+        playerSeekbarColorFingerprint.let {
+            it.method.apply {
+                addColorChangeInstructions(it.instructionMatches.last().index)
+                addColorChangeInstructions(it.instructionMatches.first().index)
+            }
         }
 
-        shortsSeekbarColorFingerprint.method.apply {
-            addColorChangeInstructions(reelTimeBarPlayedColorId)
+        shortsSeekbarColorFingerprint.let {
+            it.method.addColorChangeInstructions(it.instructionMatches.first().index)
         }
 
         setSeekbarClickedColorFingerprint.originalMethod.let {
@@ -222,7 +198,7 @@ val seekbarColorPatch = bytecodePatch(
                     """
                         invoke-static { v$colorRegister }, $EXTENSION_CLASS_DESCRIPTOR->getVideoPlayerSeekbarClickedColor(I)I
                         move-result v$colorRegister
-                    """,
+                    """
                 )
             }
         }
@@ -236,18 +212,7 @@ val seekbarColorPatch = bytecodePatch(
         // 19.25+ changes
 
         playerSeekbarHandleColorFingerprint.let {
-            it.method.apply {
-                val insertIndex = it.instructionMatches.last().index
-                val register = getInstruction<OneRegisterInstruction>(insertIndex).registerA
-
-                addInstructions(
-                    insertIndex + 1,
-                    """
-                        invoke-static { v$register }, $EXTENSION_CLASS_DESCRIPTOR->getSeekbarScrubHandleColor(I)I
-                        move-result v$register
-                    """
-                )
-            }
+            it.method.addColorChangeInstructions(it.instructionMatches.last().index)
         }
 
         // If hiding feed seekbar thumbnails, then turn off the cairo gradient
