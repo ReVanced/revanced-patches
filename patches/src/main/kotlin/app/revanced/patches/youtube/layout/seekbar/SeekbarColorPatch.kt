@@ -190,14 +190,16 @@ val seekbarColorPatch = bytecodePatch(
 
     execute {
         fun MutableMethod.addColorChangeInstructions(resourceId: Long) {
-            val registerIndex = indexOfFirstLiteralInstructionOrThrow(resourceId) + 2
-            val colorRegister = getInstruction<OneRegisterInstruction>(registerIndex).registerA
+            val index = indexOfFirstLiteralInstructionOrThrow(resourceId)
+            val insertIndex = indexOfFirstInstructionOrThrow(index, Opcode.MOVE_RESULT)
+            val register = getInstruction<OneRegisterInstruction>(insertIndex).registerA
+
             addInstructions(
-                registerIndex + 1,
+                insertIndex + 1,
                 """
-                    invoke-static { v$colorRegister }, $EXTENSION_CLASS_DESCRIPTOR->getVideoPlayerSeekbarColor(I)I
-                    move-result v$colorRegister
-                """,
+                    invoke-static { v$register }, $EXTENSION_CLASS_DESCRIPTOR->"getVideoPlayerSeekbarColor"(I)I
+                    move-result v$register
+                """
             )
         }
 
@@ -268,9 +270,12 @@ val seekbarColorPatch = bytecodePatch(
             }
         }
 
-        lithoLinearGradientFingerprint.method.addInstruction(
+        lithoLinearGradientFingerprint.method.addInstructions(
             0,
-            "invoke-static/range { p4 .. p5 },  $EXTENSION_CLASS_DESCRIPTOR->setLinearGradient([I[F)V"
+            """
+                invoke-static/range { p4 .. p5 },  $EXTENSION_CLASS_DESCRIPTOR->getLithoLinearGradient([I[F)[I
+                move-result-object p4   
+            """
         )
 
         val playerFingerprint =
@@ -290,7 +295,7 @@ val seekbarColorPatch = bytecodePatch(
                 addInstructions(
                     index + 1,
                     """
-                       invoke-static { v$register }, $EXTENSION_CLASS_DESCRIPTOR->getLinearGradient([I)[I
+                       invoke-static { v$register }, $EXTENSION_CLASS_DESCRIPTOR->getPlayerLinearGradient([I)[I
                        move-result-object v$register
                     """
                 )

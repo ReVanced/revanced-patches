@@ -13,6 +13,8 @@ import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.shared.misc.settings.preference.TextPreference
 import app.revanced.patches.youtube.layout.seekbar.seekbarColorPatch
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
+import app.revanced.patches.youtube.misc.playservice.is_19_25_or_greater
+import app.revanced.patches.youtube.misc.playservice.versionCheckPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
 import app.revanced.util.forEachChildElement
@@ -69,6 +71,7 @@ val themePatch = bytecodePatch(
     dependsOn(
         lithoColorHookPatch,
         seekbarColorPatch,
+        versionCheckPatch,
         resourcePatch {
             dependsOn(
                 settingsPatch,
@@ -81,8 +84,14 @@ val themePatch = bytecodePatch(
 
                 PreferenceScreen.SEEKBAR.addPreferences(
                     SwitchPreference("revanced_seekbar_custom_color"),
-                    TextPreference("revanced_seekbar_custom_color_value", inputType = InputType.TEXT_CAP_CHARACTERS),
+                    TextPreference("revanced_seekbar_custom_color_primary", inputType = InputType.TEXT_CAP_CHARACTERS),
                 )
+
+                if (is_19_25_or_greater) {
+                    PreferenceScreen.SEEKBAR.addPreferences(
+                        TextPreference("revanced_seekbar_custom_color_accent", inputType = InputType.TEXT_CAP_CHARACTERS),
+                    )
+                }
 
                 // Edit theme colors via resources.
                 document("res/values/colors.xml").use { document ->
