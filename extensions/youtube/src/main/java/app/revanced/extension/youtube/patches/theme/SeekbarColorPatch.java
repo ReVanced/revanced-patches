@@ -17,7 +17,8 @@ import app.revanced.extension.youtube.settings.Settings;
 public final class SeekbarColorPatch {
 
     private static final boolean SEEKBAR_CUSTOM_COLOR_ENABLED = Settings.SEEKBAR_CUSTOM_COLOR.get();
-
+    private static final boolean SEEKBAR_CUSTOM_COLOR_DARK_MODE_ENABLED = SEEKBAR_CUSTOM_COLOR_ENABLED
+            && Settings.SEEKBAR_CUSTOM_COLOR_DARK_MODE.get();
     private static final boolean HIDE_SEEKBAR_THUMBNAIL_ENABLED = Settings.HIDE_SEEKBAR_THUMBNAIL.get();
 
     /**
@@ -79,8 +80,7 @@ public final class SeekbarColorPatch {
             Color.colorToHSV(customSeekbarColor, customSeekbarColorHSV);
 
             customSeekbarColorGradient[0] = customSeekbarColor;
-            customSeekbarColorGradient[1] = Color.parseColor(
-                    Settings.SEEKBAR_CUSTOM_COLOR_ACCENT.get());
+            customSeekbarColorGradient[1] = Color.parseColor(Settings.SEEKBAR_CUSTOM_COLOR_ACCENT.get());
         } catch (Exception ex) {
             Utils.showToastShort(str("revanced_seekbar_custom_color_invalid"));
             Settings.SEEKBAR_CUSTOM_COLOR_PRIMARY.resetToDefault();
@@ -217,8 +217,6 @@ public final class SeekbarColorPatch {
             // so must only change if the values are those for the seekbar.
             if ((Arrays.equals(FEED_ORIGINAL_SEEKBAR_GRADIENT_COLORS, colors)
                     && Arrays.equals(FEED_ORIGINAL_SEEKBAR_GRADIENT_POSITIONS, positions))) {
-                Logger.printDebug(() -> "Replacing gradient colors: " + colorArrayToHex(colors)
-                        + " positions: " + Arrays.toString(positions));
                 return HIDE_SEEKBAR_THUMBNAIL_ENABLED
                         ? HIDDEN_SEEKBAR_GRADIENT_COLORS
                         : customSeekbarColorGradient;
@@ -252,11 +250,20 @@ public final class SeekbarColorPatch {
      * Overrides color used for the video player seekbar.
      */
     public static int getVideoPlayerSeekbarColor(int originalColor) {
-        if (!SEEKBAR_CUSTOM_COLOR_ENABLED) {
-            return originalColor;
-        }
+        return SEEKBAR_CUSTOM_COLOR_ENABLED
+                ? getSeekbarColorValue(originalColor)
+                : originalColor;
+    }
 
-        return getSeekbarColorValue(originalColor);
+    /**
+     * Injection point.
+     *
+     * Overrides color used for the video player seekbar in dark mode.
+     */
+    public static int getVideoPlayerSeekbarDarkModeColor(int originalColor) {
+        return SEEKBAR_CUSTOM_COLOR_DARK_MODE_ENABLED
+                ? getSeekbarColorValue(originalColor)
+                : originalColor;
     }
 
     /**
@@ -265,7 +272,7 @@ public final class SeekbarColorPatch {
      */
     private static int getSeekbarColorValue(int originalColor) {
         try {
-            if (!SEEKBAR_CUSTOM_COLOR_ENABLED || originalColor == customSeekbarColor) {
+            if (originalColor == customSeekbarColor) {
                 return originalColor; // nothing to do
             }
 

@@ -213,7 +213,16 @@ val seekbarColorPatch = bytecodePatch(
         }
 
         playerSeekbarColorFingerprint.method.apply {
-            addColorChangeInstructions(inlineTimeBarColorizedBarPlayedColorDarkId)
+            val index = indexOfFirstLiteralInstructionOrThrow(inlineTimeBarColorizedBarPlayedColorDarkId) + 2
+            val register = getInstruction<OneRegisterInstruction>(index).registerA
+            addInstructions(
+                index + 1,
+                """
+                    invoke-static { v$register }, $EXTENSION_CLASS_DESCRIPTOR->getVideoPlayerSeekbarDarkModeColor(I)I
+                    move-result v$register
+                """
+            )
+
             addColorChangeInstructions(inlineTimeBarPlayedNotHighlightedColorId)
         }
 

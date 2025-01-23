@@ -1220,9 +1220,12 @@ Swipe to expand or close"</string>
             <string name="revanced_gradient_loading_screen_summary_off">Loading screen will have a solid background</string>
         </patch>
         <patch id="layout.theme.themeResourcePatch">
-            <string name="revanced_seekbar_custom_color_title">Enable custom seekbar color</string>
+            <string name="revanced_seekbar_custom_color_title">Custom seekbar color</string>
             <string name="revanced_seekbar_custom_color_summary_on">Custom seekbar color is shown</string>
             <string name="revanced_seekbar_custom_color_summary_off">Original seekbar color is shown</string>
+            <string name="revanced_seekbar_custom_color_dark_mode_title">Custom seekbar color dark mode</string>
+            <string name="revanced_seekbar_custom_color_dark_mode_summary_on">Dark mode seekbar uses custom color</string>
+            <string name="revanced_seekbar_custom_color_dark_mode_summary_off">Dark mode seekbar uses white color</string>
             <string name="revanced_seekbar_custom_color_primary_title">Custom seekbar color</string>
             <string name="revanced_seekbar_custom_color_primary_summary">The color of the seekbar</string>
             <string name="revanced_seekbar_custom_color_accent_title">Custom seekbar accent color</string>
