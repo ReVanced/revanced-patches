@@ -1,3 +1,10 @@
+# [5.10.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.9.1-dev.4...v5.10.0-dev.1) (2025-01-23)
+
+
+### Features
+
+* **YouTube - Theme:** Add option to use custom seekbar accent color ([#4337](https://github.com/ReVanced/revanced-patches/issues/4337)) ([952b4fc](https://github.com/ReVanced/revanced-patches/commit/952b4fc4c9291e1a3e71437b503857763c973dd4))
+
 ## [5.9.1-dev.4](https://github.com/ReVanced/revanced-patches/compare/v5.9.1-dev.3...v5.9.1-dev.4) (2025-01-22)
 
 
