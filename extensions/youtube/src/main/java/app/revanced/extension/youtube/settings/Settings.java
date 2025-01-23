@@ -419,12 +419,13 @@ public class Settings extends BaseSettings {
 
                 final float brightnessScale = 1.3f;
                 final int accentColor = Color.argb(
-                        255,
+                        0, // Save without alpha channel.
                         Math.min(255, (int) (brightnessScale * Color.red(oldPrimaryColor))),
                         Math.min(255, (int) (brightnessScale * Color.green(oldPrimaryColor))),
                         Math.min(255, (int) (brightnessScale * Color.blue(oldPrimaryColor)))
                 );
-                SEEKBAR_CUSTOM_COLOR_ACCENT.save(String.format("#%08X", accentColor));
+
+                SEEKBAR_CUSTOM_COLOR_ACCENT.save(String.format("#%06X", accentColor));
             } catch (Exception ex) {
                 Logger.printException(() -> "Could not parse old seekbar color", ex);
             }
