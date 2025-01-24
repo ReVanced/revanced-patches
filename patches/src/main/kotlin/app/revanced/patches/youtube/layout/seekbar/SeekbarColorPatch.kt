@@ -68,14 +68,6 @@ private val seekbarColorResourcePatch = resourcePatch {
             "color",
             "inline_time_bar_played_not_highlighted_color",
         ]
-        ytYoutubeMagentaColorId = resourceMappings[
-            "color",
-            "yt_youtube_magenta",
-        ]
-        ytStaticBrandRedId = resourceMappings[
-            "attr",
-            "ytStaticBrandRed",
-        ]
 
         // Modify the resume playback drawable and replace the progress bar with a custom drawable.
         document("res/drawable/resume_playback_progressbar_drawable.xml").use { document ->
@@ -96,6 +88,15 @@ private val seekbarColorResourcePatch = resourcePatch {
         if (!is_19_25_or_greater) {
             return@execute
         }
+
+        ytYoutubeMagentaColorId = resourceMappings[
+            "color",
+            "yt_youtube_magenta",
+        ]
+        ytStaticBrandRedId = resourceMappings[
+            "attr",
+            "ytStaticBrandRed",
+        ]
 
         // Add attribute and styles for splash screen custom color.
         // Using a style is the only way to selectively change just the seekbar fill color.
