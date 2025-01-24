@@ -27,6 +27,9 @@ public final class AdsFilter extends Filter {
     private final StringFilterGroup playerShoppingShelf;
     private final ByteArrayFilterGroup playerShoppingShelfBuffer;
 
+    private final StringFilterGroup fullscreenOverlay;
+    private final ByteArrayFilterGroup endScreenStoreAdBuffer;
+
     private final StringFilterGroup channelProfile;
     private final ByteArrayFilterGroup visitStoreButton;
 
@@ -112,11 +115,6 @@ public final class AdsFilter extends Filter {
                 "expandable_list"
         );
 
-        channelProfile = new StringFilterGroup(
-                null,
-                "channel_profile.eml"
-        );
-
         playerShoppingShelf = new StringFilterGroup(
                 null,
                 "horizontal_shelf.eml"
@@ -125,6 +123,21 @@ public final class AdsFilter extends Filter {
         playerShoppingShelfBuffer = new ByteArrayFilterGroup(
                 Settings.HIDE_PLAYER_STORE_SHELF,
                 "shopping_item_card_list.eml"
+        );
+
+        fullscreenOverlay = new StringFilterGroup(
+                null,
+                "fullscreen_overlay.eml"
+        );
+
+        endScreenStoreAdBuffer = new ByteArrayFilterGroup(
+                Settings.HIDE_END_SCREEN_STORE_AD,
+                "gstatic.com/shopping"
+        );
+
+        channelProfile = new StringFilterGroup(
+                null,
+                "channel_profile.eml"
         );
 
         visitStoreButton = new ByteArrayFilterGroup(
@@ -154,6 +167,7 @@ public final class AdsFilter extends Filter {
                 viewProducts,
                 selfSponsor,
                 fullscreenAd,
+                fullscreenOverlay,
                 channelProfile,
                 webLinkPanel,
                 shoppingLinks,
@@ -167,6 +181,13 @@ public final class AdsFilter extends Filter {
                        StringFilterGroup matchedGroup, FilterContentType contentType, int contentIndex) {
         if (matchedGroup == playerShoppingShelf) {
             if (contentIndex == 0 && playerShoppingShelfBuffer.check(protobufBufferArray).isFiltered()) {
+                return super.isFiltered(identifier, path, protobufBufferArray, matchedGroup, contentType, contentIndex);
+            }
+            return false;
+        }
+
+        if (matchedGroup == fullscreenOverlay) {
+            if (contentIndex == 0 && endScreenStoreAdBuffer.check(protobufBufferArray).isFiltered()) {
                 return super.isFiltered(identifier, path, protobufBufferArray, matchedGroup, contentType, contentIndex);
             }
             return false;
