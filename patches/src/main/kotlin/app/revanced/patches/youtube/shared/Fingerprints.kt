@@ -29,15 +29,6 @@ internal val layoutConstructorFingerprint = fingerprint {
     strings("1.0x")
 }
 
-internal val mainActivityFingerprint = fingerprint {
-    accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
-    parameters()
-    custom { _, classDef ->
-        // Old versions of YouTube called this class "WatchWhileActivity" instead.
-        classDef.endsWith("MainActivity;") || classDef.endsWith("WatchWhileActivity;")
-    }
-}
-
 internal val mainActivityOnCreateFingerprint = fingerprint {
     returns("V")
     parameters("Landroid/os/Bundle;")
