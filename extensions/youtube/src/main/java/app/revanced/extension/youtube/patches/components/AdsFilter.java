@@ -126,12 +126,12 @@ public final class AdsFilter extends Filter {
         );
 
         fullscreenOverlay = new StringFilterGroup(
-                null,
+                Settings.HIDE_END_SCREEN_STORE_AD,
                 "fullscreen_overlay.eml"
         );
 
         endScreenStoreAdBuffer = new ByteArrayFilterGroup(
-                Settings.HIDE_END_SCREEN_STORE_AD,
+                null,
                 "gstatic.com/shopping"
         );
 
