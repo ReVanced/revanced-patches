@@ -1126,6 +1126,11 @@ If later turned off, it is recommended to clear the app data to prevent UI bugs.
             <string name="revanced_spoof_app_version_target_legacy_entry_3">18.09.39 - Restore library tab</string>
             <string name="revanced_spoof_app_version_target_legacy_entry_4">17.33.42 - Restore old playlist shelf</string>
         </patch>
+        <patch id="layout.splashscreen.disableStartupAnimationPatch">
+            <string name="revanced_disable_startup_animation_title">Disable startup animation</string>
+            <string name="revanced_disable_startup_animation_summary_on">Animation is not shown on app startup</string>
+            <string name="revanced_disable_startup_animation_summary_off">Animation is shown on app startup</string>
+        </patch>
         <patch id="layout.startpage.changeStartPagePatch">
             <string name="revanced_change_start_page_title">Set start page</string>
             <string name="revanced_change_start_page_entry_default">Default</string>

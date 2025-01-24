@@ -1224,6 +1224,10 @@ public final class app/revanced/patches/youtube/layout/shortsplayer/OpenShortsIn
 	public static final fun getOpenShortsInRegularPlayerPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
+public final class app/revanced/patches/youtube/layout/splashscreen/DisableStartupAnimationPatchKt {
+	public static final fun getDisableStartupAnimationPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
 public final class app/revanced/patches/youtube/layout/sponsorblock/SponsorBlockPatchKt {
 	public static final fun getSponsorBlockPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
