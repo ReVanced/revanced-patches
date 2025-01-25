@@ -1414,6 +1414,10 @@ public final class app/revanced/patches/youtube/video/audio/ForceOriginalAudioPa
 	public static final fun getForceOriginalAudioPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
+public final class app/revanced/patches/youtube/video/hdr/DisableHdrPatchKt {
+	public static final fun getDisableHdrPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
 public final class app/revanced/patches/youtube/video/information/VideoInformationPatchKt {
 	public static final fun getVideoInformationPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 	public static final fun userSelectedPlaybackSpeedHook (Ljava/lang/String;Ljava/lang/String;)V

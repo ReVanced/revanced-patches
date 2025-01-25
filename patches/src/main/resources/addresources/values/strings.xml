@@ -1367,6 +1367,11 @@ Enabling this can unlock higher video qualities"</string>
             <string name="revanced_playback_speed_default_title">Default playback speed</string>
             <string name="revanced_remember_playback_speed_toast">Changed default speed to: %s</string>
         </patch>
+        <patch id="video.hdr.disableHdrPatch">
+            <string name="revanced_disable_hdr_video_title">Disable HDR video</string>
+            <string name="revanced_disable_hdr_video_summary_on">HDR video is disabled</string>
+            <string name="revanced_disable_hdr_video_summary_off">HDR video is enabled</string>
+        </patch>
         <patch id="video.videoqualitymenu.restoreOldVideoQualityMenuResourcePatch">
             <string name="revanced_restore_old_video_quality_menu_title">Restore old video quality menu</string>
             <string name="revanced_restore_old_video_quality_menu_summary_on">Old video quality menu is shown</string>
