@@ -28,7 +28,7 @@ public final class AdsFilter extends Filter {
     private final ByteArrayFilterGroup playerShoppingShelfBuffer;
 
     private final StringFilterGroup fullscreenOverlay;
-    private final ByteArrayFilterGroup endScreenStoreAdBuffer;
+    private final ByteArrayFilterGroup endScreenStoreBannerBuffer;
 
     private final StringFilterGroup channelProfile;
     private final ByteArrayFilterGroup visitStoreButton;
@@ -126,7 +126,7 @@ public final class AdsFilter extends Filter {
         );
 
         fullscreenOverlay = new StringFilterGroup(
-                Settings.HIDE_END_SCREEN_STORE_AD,
+                Settings.HIDE_END_SCREEN_STORE_BANNER,
                 "fullscreen_overlay.eml"
         );
 
@@ -187,7 +187,7 @@ public final class AdsFilter extends Filter {
         }
 
         if (matchedGroup == fullscreenOverlay) {
-            if (contentIndex == 0 && endScreenStoreAdBuffer.check(protobufBufferArray).isFiltered()) {
+            if (contentIndex == 0 && endScreenStoreBannerBuffer.check(protobufBufferArray).isFiltered()) {
                 return super.isFiltered(identifier, path, protobufBufferArray, matchedGroup, contentType, contentIndex);
             }
             return false;
