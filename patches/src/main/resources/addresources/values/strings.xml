@@ -224,9 +224,9 @@ You will not be notified of any unexpected events."</string>
             <string name="revanced_hide_chips_shelf_title">Hide chips shelf</string>
             <string name="revanced_hide_chips_shelf_summary_on">Chips shelf is hidden</string>
             <string name="revanced_hide_chips_shelf_summary_off">Chips shelf is shown</string>
-            <string name="revanced_hide_expandable_chip_title">Hide expandable cards under videos</string>
-            <string name="revanced_hide_expandable_chip_summary_on">Expandable cards are hidden</string>
-            <string name="revanced_hide_expandable_chip_summary_off">Expandable cards are shown</string>
+            <string name="revanced_hide_expandable_chip_title">Hide expandable card under videos</string>
+            <string name="revanced_hide_expandable_chip_summary_on">Expandable card is hidden</string>
+            <string name="revanced_hide_expandable_chip_summary_off">Expandable card is shown</string>
             <string name="revanced_hide_community_posts_title">Hide community posts</string>
             <string name="revanced_hide_community_posts_summary_on">Community posts are hidden</string>
             <string name="revanced_hide_community_posts_summary_off">Community posts are shown</string>
