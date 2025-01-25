@@ -37,7 +37,7 @@ private val hideAdsResourcePatch = resourcePatch {
 
         PreferenceScreen.ADS.addPreferences(
             SwitchPreference("revanced_hide_general_ads"),
-            SwitchPreference("revanced_hide_end_screen_store_ad"),
+            SwitchPreference("revanced_hide_end_screen_store_banner"),
             SwitchPreference("revanced_hide_fullscreen_ads"),
             SwitchPreference("revanced_hide_buttoned_ads"),
             SwitchPreference("revanced_hide_paid_promotion_label"),
