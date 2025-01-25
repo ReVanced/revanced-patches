@@ -5,7 +5,6 @@ import app.revanced.patcher.literal
 import app.revanced.patcher.methodCall
 import app.revanced.patcher.opcode
 import app.revanced.patches.shared.misc.mapping.resourceLiteral
-import app.revanced.util.containsLiteralInstruction
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
@@ -117,11 +116,25 @@ internal const val launchScreenLayoutTypeLotteFeatureFlag = 268507948L
 
 internal val launchScreenLayoutTypeFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
+    instructions(
+        literal(launchScreenLayoutTypeLotteFeatureFlag)
+    )
     custom { method, _ ->
         val firstParameter = method.parameterTypes.firstOrNull()
         // 19.25 - 19.45
-        (firstParameter == "Lcom/google/android/apps/youtube/app/watchwhile/MainActivity;"
-                || firstParameter == "Landroid/app/Activity;") // 19.46+
-                && method.containsLiteralInstruction(launchScreenLayoutTypeLotteFeatureFlag)
+        firstParameter == "Lcom/google/android/apps/youtube/app/watchwhile/MainActivity;"
+                || firstParameter == "Landroid/app/Activity;" // 19.46+
+    }
+}
+
+internal val mainActivityOnCreateSplashScreenImageViewFingerprint by fingerprint {
+    returns("V")
+    parameters("Landroid/os/Bundle;")
+    instructions(
+        methodCall(definingClass = "Landroid/widget/ImageView;", name = "getDrawable"),
+        opcode(Opcode.CHECK_CAST)
+    )
+    custom { method, classDef ->
+        method.name == "onCreate" && classDef.endsWith("/MainActivity;")
     }
 }

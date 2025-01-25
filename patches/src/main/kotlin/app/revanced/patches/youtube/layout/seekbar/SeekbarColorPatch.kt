@@ -16,17 +16,14 @@ import app.revanced.patches.youtube.misc.playservice.is_19_34_or_greater
 import app.revanced.patches.youtube.misc.playservice.is_19_46_or_greater
 import app.revanced.patches.youtube.misc.playservice.is_19_49_or_greater
 import app.revanced.patches.youtube.misc.playservice.versionCheckPatch
-import app.revanced.patches.youtube.shared.mainActivityOnCreateFingerprint
 import app.revanced.util.copyXmlNode
 import app.revanced.util.findElementByAttributeValueOrThrow
-import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
 import app.revanced.util.inputStreamFromBundledResource
 import app.revanced.util.insertFeatureFlagBooleanOverride
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
-import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import org.w3c.dom.Element
 import java.io.ByteArrayInputStream
 import kotlin.use
@@ -269,31 +266,28 @@ val seekbarColorPatch = bytecodePatch(
 
         // region apply seekbar custom color to splash screen animation.
 
+        // Hook the splash animation drawable to set the a seekbar color theme.
+        mainActivityOnCreateSplashScreenImageViewFingerprint.let {
+            it.method.apply {
+                val checkCastIndex = it.instructionMatches.last().index
+                val drawableRegister = getInstruction<OneRegisterInstruction>(checkCastIndex).registerA
+
+                addInstruction(
+                    checkCastIndex + 1,
+                    "invoke-static { v$drawableRegister }, $EXTENSION_CLASS_DESCRIPTOR->" +
+                            "setSplashAnimationDrawableTheme(Landroid/graphics/drawable/AnimatedVectorDrawable;)V"
+                )
+            }
+        }
+
         // Don't use the lotte splash screen layout if using custom seekbar.
         arrayOf(
             launchScreenLayoutTypeFingerprint,
-            mainActivityOnCreateFingerprint
+            mainActivityOnCreateSplashScreenImageViewFingerprint
         ).forEach { fingerprint ->
             fingerprint.method.insertFeatureFlagBooleanOverride(
                 launchScreenLayoutTypeLotteFeatureFlag,
                 "$EXTENSION_CLASS_DESCRIPTOR->useLotteLaunchSplashScreen(Z)Z"
-            )
-        }
-
-        // Hook the splash animation drawable to set the a seekbar color theme.
-        mainActivityOnCreateFingerprint.method.apply {
-            val drawableIndex = indexOfFirstInstructionOrThrow {
-                val reference = getReference<MethodReference>()
-                reference?.definingClass == "Landroid/widget/ImageView;"
-                        && reference.name == "getDrawable"
-            }
-            val checkCastIndex = indexOfFirstInstructionOrThrow(drawableIndex, Opcode.CHECK_CAST)
-            val drawableRegister = getInstruction<OneRegisterInstruction>(checkCastIndex).registerA
-
-            addInstruction(
-                checkCastIndex + 1,
-                "invoke-static { v$drawableRegister }, $EXTENSION_CLASS_DESCRIPTOR->" +
-                        "setSplashAnimationDrawableTheme(Landroid/graphics/drawable/AnimatedVectorDrawable;)V"
             )
         }
 
