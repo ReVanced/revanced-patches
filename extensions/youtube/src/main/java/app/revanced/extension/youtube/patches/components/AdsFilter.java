@@ -130,7 +130,7 @@ public final class AdsFilter extends Filter {
                 "fullscreen_overlay.eml"
         );
 
-        endScreenStoreAdBuffer = new ByteArrayFilterGroup(
+        endScreenStoreBannerBuffer = new ByteArrayFilterGroup(
                 null,
                 "gstatic.com/shopping"
         );
