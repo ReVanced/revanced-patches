@@ -412,9 +412,9 @@ This feature is only available for older devices"</string>
             <string name="revanced_hide_products_banner_title">Hide view products banner</string>
             <string name="revanced_hide_products_banner_summary_on">Banner is hidden</string>
             <string name="revanced_hide_products_banner_summary_off">Banner is shown</string>
-            <string name="revanced_hide_end_screen_store_ad_title">Hide end screen store ad</string>
-            <string name="revanced_hide_end_screen_store_ad_summary_on">Store ad is hidden</string>
-            <string name="revanced_hide_end_screen_store_ad_summary_off">Store ad is shown</string>
+            <string name="revanced_hide_end_screen_store_banner_title">Hide end screen store banner</string>
+            <string name="revanced_hide_end_screen_store_banner_summary_on">Store banner is hidden</string>
+            <string name="revanced_hide_end_screen_store_banner_summary_off">Store banner is shown</string>
             <string name="revanced_hide_player_store_shelf_title">Hide player shopping shelf</string>
             <string name="revanced_hide_player_store_shelf_summary_on">Shopping shelf is hidden</string>
             <string name="revanced_hide_player_store_shelf_summary_off">Shopping shelf is shown</string>
@@ -697,17 +697,17 @@ Note: Enabling this also forcibly hides video ads"</string>
             <string name="revanced_shorts_player_screen_title">Shorts player</string>
             <string name="revanced_shorts_player_screen_summary">Hide or show components in the Shorts player</string>
             <!-- 'home' should be translated using the same localized wording YouTube displays for the home tab. -->
-            <string name="revanced_hide_shorts_home_title">Hide in home feed</string>
+            <string name="revanced_hide_shorts_home_title">Hide Shorts in home feed</string>
             <string name="revanced_hide_shorts_home_summary_on">Hidden in home feed and related videos</string>
             <string name="revanced_hide_shorts_home_summary_off">Shown in home feed and related videos</string>
             <!-- 'subscription' should be translated using the same localized wording YouTube displays for the subscription tab. -->
-            <string name="revanced_hide_shorts_subscriptions_title">Hide in subscription feed</string>
+            <string name="revanced_hide_shorts_subscriptions_title">Hide Shorts in subscription feed</string>
             <string name="revanced_hide_shorts_subscriptions_summary_on">Hidden in subscription feed</string>
             <string name="revanced_hide_shorts_subscriptions_summary_off">Shown in subscription feed</string>
-            <string name="revanced_hide_shorts_search_title">Hide in search results</string>
+            <string name="revanced_hide_shorts_search_title">Hide Shorts in search results</string>
             <string name="revanced_hide_shorts_search_summary_on">Hidden in search results</string>
             <string name="revanced_hide_shorts_search_summary_off">Shown in search results</string>
-            <string name="revanced_hide_shorts_history_title">Hide in watch history</string>
+            <string name="revanced_hide_shorts_history_title">Hide Shorts in watch history</string>
             <string name="revanced_hide_shorts_history_summary_on">Hidden in watch history</string>
             <string name="revanced_hide_shorts_history_summary_off">Shown in watch history</string>
             <!-- 'join' should be translated using the same localized wording YouTube displays for the button. -->
