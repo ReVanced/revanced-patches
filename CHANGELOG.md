@@ -1,3 +1,10 @@
+# [5.10.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.10.0-dev.1...v5.10.0-dev.2) (2025-01-25)
+
+
+### Features
+
+* **YouTube:** Add patch `Disable HDR video` ([#4347](https://github.com/ReVanced/revanced-patches/issues/4347)) ([0528f7c](https://github.com/ReVanced/revanced-patches/commit/0528f7cad856a2b1347e41944167b0583fc4a3d9))
+
 # [5.10.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.9.1-dev.4...v5.10.0-dev.1) (2025-01-23)
 
 
