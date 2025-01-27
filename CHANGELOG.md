@@ -1,3 +1,10 @@
+# [5.10.0-dev.4](https://github.com/ReVanced/revanced-patches/compare/v5.10.0-dev.3...v5.10.0-dev.4) (2025-01-27)
+
+
+### Features
+
+* **YouTube - Hide video description components:** Add `Hide How this content was made section` ([#4355](https://github.com/ReVanced/revanced-patches/issues/4355)) ([68ec54e](https://github.com/ReVanced/revanced-patches/commit/68ec54ef850ae8d6461dd0ef2846e6efbb59e482))
+
 # [5.10.0-dev.3](https://github.com/ReVanced/revanced-patches/compare/v5.10.0-dev.2...v5.10.0-dev.3) (2025-01-27)
 
 
