@@ -111,8 +111,8 @@ public final class AdsFilter extends Filter {
                 Settings.HIDE_SHOPPING_LINKS,
                 "expandable_list"
         );
-
-                playerShoppingShelf = new StringFilterGroup(
+        
+        playerShoppingShelf = new StringFilterGroup(
                 null,
                 "horizontal_shelf.eml"
         );
