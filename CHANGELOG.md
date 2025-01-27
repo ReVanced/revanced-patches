@@ -1,3 +1,10 @@
+# [5.10.0-dev.3](https://github.com/ReVanced/revanced-patches/compare/v5.10.0-dev.2...v5.10.0-dev.3) (2025-01-27)
+
+
+### Features
+
+* **YouTube - Hide ads:** Add `Hide end screen store banner` ([#4351](https://github.com/ReVanced/revanced-patches/issues/4351)) ([5505087](https://github.com/ReVanced/revanced-patches/commit/55050878028fed82b0f583a9f7ba06b8f267f8ec))
+
 # [5.10.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.10.0-dev.1...v5.10.0-dev.2) (2025-01-25)
 
 
