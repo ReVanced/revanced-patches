@@ -1,3 +1,10 @@
+# [5.10.0-dev.5](https://github.com/ReVanced/revanced-patches/compare/v5.10.0-dev.4...v5.10.0-dev.5) (2025-01-27)
+
+
+### Bug Fixes
+
+* **YouTube - Hide video description components:** Use correct string key names ([0f28c2b](https://github.com/ReVanced/revanced-patches/commit/0f28c2b44c0051ea7ab3136433b84c73321cf5bd))
+
 # [5.10.0-dev.4](https://github.com/ReVanced/revanced-patches/compare/v5.10.0-dev.3...v5.10.0-dev.4) (2025-01-27)
 
 
