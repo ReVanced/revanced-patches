@@ -287,6 +287,9 @@ You will not be notified of any unexpected events."</string>
             <string name="revanced_hide_chapters_section_title">Hide Chapters section</string>
             <string name="revanced_hide_chapters_section_summary_on">Chapters section is hidden</string>
             <string name="revanced_hide_chapters_section_summary_off">Chapters section is shown</string>
+            <string name="revanced_hide_content_section_title">Hide \'How this content was made\' section</string>
+            <string name="revanced_hide_content_section_summary_on">\'How this content was made\' section is hidden</string>
+            <string name="revanced_hide_content_section_summary_off">\'How this content was made\' section is shown</string>
             <string name="revanced_hide_podcast_section_title">Hide \'Explore the podcast\' section</string>
             <string name="revanced_hide_podcast_section_summary_on">\'Explore the podcast\' section is hidden</string>
             <string name="revanced_hide_podcast_section_summary_off">\'Explore the podcast\' section is shown</string>

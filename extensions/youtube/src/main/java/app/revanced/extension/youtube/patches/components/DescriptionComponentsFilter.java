@@ -45,6 +45,11 @@ final class DescriptionComponentsFilter extends Filter {
                 "transcript_section"
         );
 
+        final StringFilterGroup howThisWasMadeSection = new StringFilterGroup(
+                Settings.HIDE_HOW_THIS_WAS_MADE_SECTION,
+                "how_this_was_made_section"
+        );
+
         macroMarkersCarousel = new StringFilterGroup(
                 null,
                 "macro_markers_carousel.eml"
@@ -64,6 +69,7 @@ final class DescriptionComponentsFilter extends Filter {
         addPathCallbacks(
                 attributesSection,
                 infoCardsSection,
+                howThisWasMadeSection,
                 podcastSection,
                 transcriptSection,
                 macroMarkersCarousel
