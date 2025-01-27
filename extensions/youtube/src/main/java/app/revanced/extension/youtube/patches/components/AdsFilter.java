@@ -112,13 +112,7 @@ public final class AdsFilter extends Filter {
                 "expandable_list"
         );
 
-        channelProfile = new StringFilterGroup(
-                null,
-                "channel_profile.eml",
-                "page_header.eml"
-        );
-
-        playerShoppingShelf = new StringFilterGroup(
+                playerShoppingShelf = new StringFilterGroup(
                 null,
                 "horizontal_shelf.eml"
         );
@@ -126,6 +120,12 @@ public final class AdsFilter extends Filter {
         playerShoppingShelfBuffer = new ByteArrayFilterGroup(
                 Settings.HIDE_PLAYER_STORE_SHELF,
                 "shopping_item_card_list.eml"
+        );
+
+        channelProfile = new StringFilterGroup(
+                null,
+                "channel_profile.eml",
+                "page_header.eml"
         );
 
         visitStoreButton = new ByteArrayFilterGroup(
