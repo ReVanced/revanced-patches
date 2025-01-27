@@ -1,6 +1,5 @@
 package app.revanced.patches.youtube.layout.seekbar
 
-import app.revanced.patcher.checkCast
 import app.revanced.patcher.fingerprint
 import app.revanced.patcher.literal
 import app.revanced.patcher.methodCall
@@ -133,8 +132,7 @@ internal val mainActivityOnCreateSplashScreenImageViewFingerprint by fingerprint
     parameters("Landroid/os/Bundle;")
     instructions(
         methodCall(definingClass = "Landroid/widget/ImageView;", name = "getDrawable"),
-        opcode(Opcode.MOVE_RESULT_OBJECT, maxInstructionsBefore = 0),
-        checkCast("Landroid/graphics/drawable/AnimatedVectorDrawable;", maxInstructionsBefore = 0)
+        opcode(Opcode.CHECK_CAST)
     )
     custom { method, classDef ->
         method.name == "onCreate" && classDef.endsWith("/MainActivity;")
