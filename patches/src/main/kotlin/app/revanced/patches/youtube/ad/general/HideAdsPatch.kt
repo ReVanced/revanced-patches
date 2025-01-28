@@ -1,5 +1,7 @@
 package app.revanced.patches.youtube.ad.general
 
+import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
+import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.resourcePatch
 import app.revanced.patches.all.misc.resources.addResources
@@ -18,11 +20,16 @@ import app.revanced.patches.youtube.misc.settings.settingsPatch
 import app.revanced.util.findMutableMethodOf
 import app.revanced.util.injectHideViewCall
 import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction31i
 import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction35c
 
 internal var adAttributionId = -1L
     private set
+internal var fullScreenEngagementAdContainer = -1L
+    private set
+
+private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/youtube/patches/components/AdsFilter;"
 
 private val hideAdsResourcePatch = resourcePatch {
     dependsOn(
@@ -53,6 +60,7 @@ private val hideAdsResourcePatch = resourcePatch {
         addLithoFilter("Lapp/revanced/extension/youtube/patches/components/AdsFilter;")
 
         adAttributionId = resourceMappings["id", "ad_attribution"]
+        fullScreenEngagementAdContainer = resourceMappings["id", "fullscreen_engagement_ad_container"]
     }
 }
 
@@ -83,6 +91,23 @@ val hideAdsPatch = bytecodePatch(
     )
 
     execute {
+        // Hide end screen store banner
+
+        fullScreenEngagementAdContainerFingerprint.method.apply {
+            val addListIndex = indexOfAddListInstruction(this)
+            val addListInstruction = getInstruction<FiveRegisterInstruction>(addListIndex)
+            val listRegister = addListInstruction.registerC
+            val objectRegister = addListInstruction.registerD
+
+            replaceInstruction(
+                addListIndex,
+                "invoke-static { v$listRegister, v$objectRegister }, $EXTENSION_CLASS_DESCRIPTOR" +
+                        "->hideEndScreenStoreBanner(Ljava/util/List;Ljava/lang/Object;)V"
+            )
+        }
+
+        // Hide ad views
+
         classes.forEach { classDef ->
             classDef.methods.forEach { method ->
                 with(method.implementation) {
@@ -111,7 +136,7 @@ val hideAdsPatch = bytecodePatch(
                                 .injectHideViewCall(
                                     insertIndex,
                                     viewRegister,
-                                    "Lapp/revanced/extension/youtube/patches/components/AdsFilter;",
+                                    EXTENSION_CLASS_DESCRIPTOR,
                                     "hideAdAttributionView",
                                 )
                         }

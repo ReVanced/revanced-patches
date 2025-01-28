@@ -8,10 +8,12 @@ import android.view.View;
 
 import androidx.annotation.Nullable;
 
-import app.revanced.extension.youtube.settings.Settings;
+import java.util.List;
+
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
 import app.revanced.extension.youtube.StringTrieSearch;
+import app.revanced.extension.youtube.settings.Settings;
 
 @SuppressWarnings("unused")
 public final class AdsFilter extends Filter {
@@ -22,13 +24,15 @@ public final class AdsFilter extends Filter {
 
     // endregion
 
+    // https://encrypted-tbn0.gstatic.com/shopping?q=abc
+    private static final String STORE_BANNER_DOMAIN = "gstatic.com/shopping";
+    private static final boolean HIDE_END_SCREEN_STORE_BANNER =
+            Settings.HIDE_END_SCREEN_STORE_BANNER.get();
+
     private final StringTrieSearch exceptions = new StringTrieSearch();
 
     private final StringFilterGroup playerShoppingShelf;
     private final ByteArrayFilterGroup playerShoppingShelfBuffer;
-
-    private final StringFilterGroup fullscreenOverlay;
-    private final ByteArrayFilterGroup endScreenStoreBannerBuffer;
 
     private final StringFilterGroup channelProfile;
     private final ByteArrayFilterGroup visitStoreButton;
@@ -125,16 +129,6 @@ public final class AdsFilter extends Filter {
                 "shopping_item_card_list.eml"
         );
 
-        fullscreenOverlay = new StringFilterGroup(
-                Settings.HIDE_END_SCREEN_STORE_BANNER,
-                "fullscreen_overlay.eml"
-        );
-
-        endScreenStoreBannerBuffer = new ByteArrayFilterGroup(
-                null,
-                "gstatic.com/shopping"
-        );
-
         channelProfile = new StringFilterGroup(
                 null,
                 "channel_profile.eml"
@@ -167,7 +161,6 @@ public final class AdsFilter extends Filter {
                 viewProducts,
                 selfSponsor,
                 fullscreenAd,
-                fullscreenOverlay,
                 channelProfile,
                 webLinkPanel,
                 shoppingLinks,
@@ -181,13 +174,6 @@ public final class AdsFilter extends Filter {
                        StringFilterGroup matchedGroup, FilterContentType contentType, int contentIndex) {
         if (matchedGroup == playerShoppingShelf) {
             if (contentIndex == 0 && playerShoppingShelfBuffer.check(protobufBufferArray).isFiltered()) {
-                return super.isFiltered(identifier, path, protobufBufferArray, matchedGroup, contentType, contentIndex);
-            }
-            return false;
-        }
-
-        if (matchedGroup == fullscreenOverlay) {
-            if (contentIndex == 0 && endScreenStoreBannerBuffer.check(protobufBufferArray).isFiltered()) {
                 return super.isFiltered(identifier, path, protobufBufferArray, matchedGroup, contentType, contentIndex);
             }
             return false;
@@ -215,6 +201,22 @@ public final class AdsFilter extends Filter {
 
         return super.isFiltered(identifier, path, protobufBufferArray, matchedGroup, contentType, contentIndex);
     }
+
+    /**
+     * Injection point.
+     *
+     * @param elementsList List of components of the end screen container.
+     * @param protobufList Component (ProtobufList).
+     */
+    public static void hideEndScreenStoreBanner(List<Object> elementsList, Object protobufList) {
+        if (HIDE_END_SCREEN_STORE_BANNER && protobufList.toString().contains(STORE_BANNER_DOMAIN)) {
+            Logger.printDebug(() -> "Hiding store banner");
+            return;
+        }
+
+        elementsList.add(protobufList);
+    }
+
 
     /**
      * Hide the view, which shows ads in the homepage.
