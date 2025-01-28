@@ -120,22 +120,22 @@ public final class AdsFilter extends Filter {
         );
 
         playerShoppingShelf = new StringFilterGroup(
-                null,
+                Settings.HIDE_PLAYER_STORE_SHELF,
                 "horizontal_shelf.eml"
         );
 
         playerShoppingShelfBuffer = new ByteArrayFilterGroup(
-                Settings.HIDE_PLAYER_STORE_SHELF,
+                null,
                 "shopping_item_card_list.eml"
         );
 
         channelProfile = new StringFilterGroup(
-                null,
+                Settings.HIDE_VISIT_STORE_BUTTON,
                 "channel_profile.eml"
         );
 
         visitStoreButton = new ByteArrayFilterGroup(
-                Settings.HIDE_VISIT_STORE_BUTTON,
+                null,
                 "header_store_button"
         );
 
@@ -179,6 +179,11 @@ public final class AdsFilter extends Filter {
             return false;
         }
 
+        // Check for the index because of likelihood of false positives.
+        if (matchedGroup == shoppingLinks && contentIndex != 0) {
+            return false;
+        }
+
         if (exceptions.matches(path))
             return false;
 
@@ -194,10 +199,6 @@ public final class AdsFilter extends Filter {
             }
             return false;
         }
-
-        // Check for the index because of likelihood of false positives.
-        if (matchedGroup == shoppingLinks && contentIndex != 0)
-            return false;
 
         return super.isFiltered(identifier, path, protobufBufferArray, matchedGroup, contentType, contentIndex);
     }
