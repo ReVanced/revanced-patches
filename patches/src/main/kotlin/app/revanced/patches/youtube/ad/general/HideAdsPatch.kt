@@ -104,7 +104,7 @@ val hideAdsPatch = bytecodePatch(
 
                             // Hide the view
                             val viewRegister = (this as Instruction35c).registerC
-                            proxy(classDef)
+                            mutableClassBy(classDef)
                                 .findMutableMethodOf(method)
                                 .injectHideViewCall(
                                     insertIndex,

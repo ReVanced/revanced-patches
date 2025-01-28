@@ -90,8 +90,7 @@ val rememberVideoQualityPatch = bytecodePatch(
             val setQualityByIndexMethodClassFieldReference =
                 getSetQualityByIndexMethodClassFieldReference as FieldReference
 
-            val setQualityByIndexMethodClass = classes
-                .find { classDef -> classDef.type == setQualityByIndexMethodClassFieldReference.type }!!
+            val setQualityByIndexMethodClass = classBy(setQualityByIndexMethodClassFieldReference.type)!!
 
             // Get the name of the setQualityByIndex method.
             val setQualityByIndexMethod = setQualityByIndexMethodClass.methods

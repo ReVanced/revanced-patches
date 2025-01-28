@@ -79,7 +79,7 @@ fun gmsCoreSupportPatch(
     execute {
         fun transformStringReferences(transform: (str: String) -> String?) = classes.forEach {
             val mutableClass by lazy {
-                proxy(it)
+                mutableClassBy(it)
             }
 
             it.methods.forEach classLoop@{ method ->

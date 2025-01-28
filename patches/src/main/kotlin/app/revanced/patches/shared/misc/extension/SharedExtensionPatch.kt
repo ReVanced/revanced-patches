@@ -39,7 +39,7 @@ fun sharedExtensionPatch(
     extendWith("extensions/shared.rve")
 
     execute {
-        if (classes.none { EXTENSION_CLASS_DESCRIPTOR == it.type }) {
+        if (classes.classBy(EXTENSION_CLASS_DESCRIPTOR) == null) {
             throw PatchException(
                 "Shared extension has not been merged yet. This patch can not succeed without merging it.",
             )

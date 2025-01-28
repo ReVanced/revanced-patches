@@ -126,7 +126,7 @@ val lithoFilterPatch = bytecodePatch(
             AccessFlags.STATIC.isSet(method.accessFlags)
         }
         // Only one field.
-        val emptyComponentField = classBy { classDef ->
+        val emptyComponentField = mutableClassBy { classDef ->
             builderMethodDescriptor.returnType == classDef.type
         }!!.fields.single()
 

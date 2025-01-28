@@ -186,7 +186,7 @@ val videoInformationPatch = bytecodePatch(
                 getInstruction<ReferenceInstruction>(indexOfFirstInstructionOrThrow(Opcode.IF_EQZ) - 1).reference as FieldReference
 
             setPlaybackSpeedMethod =
-                proxy(classes.first { it.type == setPlaybackSpeedMethodReference.definingClass })
+                mutableClassBy(setPlaybackSpeedMethodReference.definingClass)
                     .methods.first { it.name == setPlaybackSpeedMethodReference.name }
             setPlaybackSpeedMethodIndex = 0
         }

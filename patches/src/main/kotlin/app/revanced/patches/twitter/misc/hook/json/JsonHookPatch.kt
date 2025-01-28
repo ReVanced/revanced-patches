@@ -49,7 +49,7 @@ val jsonHookPatch = bytecodePatch(
     execute {
         jsonHookPatchFingerprint.apply {
             // Make sure the extension is present.
-            val jsonHookPatch = classBy { classDef -> classDef.type == JSON_HOOK_PATCH_CLASS_DESCRIPTOR }
+            val jsonHookPatch = classBy(JSON_HOOK_PATCH_CLASS_DESCRIPTOR)
                 ?: throw PatchException("Could not find the extension.")
 
             matchOrNull(jsonHookPatch)
@@ -61,7 +61,7 @@ val jsonHookPatch = bytecodePatch(
                 .fields
                 .firstOrNull { it.name == "JSON_FACTORY" }
                 ?.type
-                .let { type -> classes.find { it.type == type } }
+                ?.let { type -> classes.classBy(type) }
                 ?: throw PatchException("Could not find required class.")
 
         // Hook the methods first parameter.
@@ -99,7 +99,7 @@ class JsonHook(
     internal var added = false
 
     init {
-        classBy { it.type == descriptor }?.let {
+        mutableClassBy(descriptor).let {
             it.also { classDef ->
                 if (
                     classDef.superclass != JSON_HOOK_CLASS_DESCRIPTOR ||
@@ -108,6 +108,6 @@ class JsonHook(
                     throw InvalidClassException(classDef.type, "Not a hook class")
                 }
             }
-        } ?: throw ClassNotFoundException("Failed to find hook class $descriptor")
+        }
     }
 }
