@@ -128,7 +128,7 @@ val lithoFilterPatch = bytecodePatch(
         // Only one field.
         val emptyComponentField = classBy { classDef ->
             builderMethodDescriptor.returnType == classDef.type
-        }!!.immutableClass.fields.single()
+        }!!.fields.single()
 
         // Returns an empty component instead of the original component.
         fun createReturnEmptyComponentInstructions(register: Int): String =

@@ -83,7 +83,7 @@ val forceOriginalAudioPatch = bytecodePatch(
         val audioTrackDisplayNameMethod = audioStreamingTypeSelector.originalMethod.firstFormatStreamingModelCall()
         val formatStreamModelClass = proxy(classes.first {
             it.type == audioTrackIdMethod.definingClass
-        }).mutableClass
+        })
 
         formatStreamModelClass.apply {
             // Add a new field to store the override.

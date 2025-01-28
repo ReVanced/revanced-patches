@@ -29,7 +29,7 @@ fun adPatch(
         classDefType: String,
         methodNames: Set<String>,
         returnMethod: ReturnMethod,
-    ) = with(classBy { classDefType == it.type }?.mutableClass) {
+    ) = with(classBy { classDefType == it.type }) {
         this ?: return false
 
         methods.filter { it.name in methodNames }.forEach {

@@ -187,7 +187,7 @@ val videoInformationPatch = bytecodePatch(
 
             setPlaybackSpeedMethod =
                 proxy(classes.first { it.type == setPlaybackSpeedMethodReference.definingClass })
-                    .mutableClass.methods.first { it.name == setPlaybackSpeedMethodReference.name }
+                    .methods.first { it.name == setPlaybackSpeedMethodReference.name }
             setPlaybackSpeedMethodIndex = 0
         }
 

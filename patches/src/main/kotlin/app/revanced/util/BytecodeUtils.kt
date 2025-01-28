@@ -192,7 +192,7 @@ fun BytecodePatchContext.traverseClassHierarchy(targetClass: MutableClass, callb
 
     targetClass.superclass ?: return
 
-    classBy { targetClass.superclass == it.type }?.mutableClass?.let {
+    classBy { targetClass.superclass == it.type }?.let {
         traverseClassHierarchy(it, callback)
     }
 }
@@ -434,7 +434,7 @@ fun BytecodePatchContext.forEachLiteralValueInstruction(
                 if (instruction.opcode == Opcode.CONST &&
                     (instruction as WideLiteralInstruction).wideLiteral == literal
                 ) {
-                    val mutableMethod = proxy(classDef).mutableClass.findMutableMethodOf(method)
+                    val mutableMethod = proxy(classDef).findMutableMethodOf(method)
                     block.invoke(mutableMethod, index)
                 }
             }

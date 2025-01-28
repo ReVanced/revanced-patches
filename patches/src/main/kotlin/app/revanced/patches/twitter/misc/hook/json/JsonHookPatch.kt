@@ -52,7 +52,7 @@ val jsonHookPatch = bytecodePatch(
             val jsonHookPatch = classBy { classDef -> classDef.type == JSON_HOOK_PATCH_CLASS_DESCRIPTOR }
                 ?: throw PatchException("Could not find the extension.")
 
-            matchOrNull(jsonHookPatch.immutableClass)
+            matchOrNull(jsonHookPatch)
                 ?: throw PatchException("Unexpected extension.")
         }
 
@@ -100,7 +100,7 @@ class JsonHook(
 
     init {
         classBy { it.type == descriptor }?.let {
-            it.mutableClass.also { classDef ->
+            it.also { classDef ->
                 if (
                     classDef.superclass != JSON_HOOK_CLASS_DESCRIPTOR ||
                     !classDef.fields.any { field -> field.name == "INSTANCE" }
