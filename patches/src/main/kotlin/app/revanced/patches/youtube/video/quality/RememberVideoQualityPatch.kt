@@ -90,10 +90,9 @@ val rememberVideoQualityPatch = bytecodePatch(
             val setQualityByIndexMethodClassFieldReference =
                 getSetQualityByIndexMethodClassFieldReference as FieldReference
 
-            val setQualityByIndexMethodClass = classBy(setQualityByIndexMethodClassFieldReference.type)!!
-
             // Get the name of the setQualityByIndex method.
-            val setQualityByIndexMethod = setQualityByIndexMethodClass.methods
+            val setQualityByIndexMethod = classBy(setQualityByIndexMethodClassFieldReference.type)
+                .methods
                 .find { method -> method.parameterTypes.first() == "I" }
                 ?: throw PatchException("Could not find setQualityByIndex method")
 

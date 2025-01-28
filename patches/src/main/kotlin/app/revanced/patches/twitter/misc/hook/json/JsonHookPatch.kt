@@ -48,9 +48,7 @@ val jsonHookPatch = bytecodePatch(
 
     execute {
         jsonHookPatchFingerprint.apply {
-            // Make sure the extension is present.
             val jsonHookPatch = classBy(JSON_HOOK_PATCH_CLASS_DESCRIPTOR)
-                ?: throw PatchException("Could not find the extension.")
 
             matchOrNull(jsonHookPatch)
                 ?: throw PatchException("Unexpected extension.")

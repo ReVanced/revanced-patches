@@ -192,7 +192,7 @@ fun BytecodePatchContext.traverseClassHierarchy(targetClass: MutableClass, callb
 
     targetClass.superclass ?: return
 
-    mutableClassBy { targetClass.superclass == it.type }?.let {
+    mutableClassByOrNull(targetClass.superclass!!)?.let {
         traverseClassHierarchy(it, callback)
     }
 }
