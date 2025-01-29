@@ -191,6 +191,7 @@
                 <item>@string/revanced_miniplayer_type_entry_4</item>
                 <item>@string/revanced_miniplayer_type_entry_5</item>
                 <item>@string/revanced_miniplayer_type_entry_6</item>
+                <item>@string/revanced_miniplayer_type_entry_7</item>
             </string-array>
             <string-array name="revanced_miniplayer_type_entry_values">
                 <!-- Extension enum names. -->
@@ -201,8 +202,10 @@
                 <item>MODERN_1</item>
                 <item>MODERN_2</item>
                 <item>MODERN_3</item>
+                <item>MODERN_4</item>
             </string-array>
-            <string-array name="revanced_miniplayer_type_legacy_entries">
+            <string-array name="revanced_miniplayer_type_legacy_19_43_entries">
+                <item>@string/revanced_miniplayer_type_entry_0</item>
                 <item>@string/revanced_miniplayer_type_entry_1</item>
                 <item>@string/revanced_miniplayer_type_entry_2</item>
                 <item>@string/revanced_miniplayer_type_entry_3</item>
@@ -210,8 +213,24 @@
                 <item>@string/revanced_miniplayer_type_entry_5</item>
                 <item>@string/revanced_miniplayer_type_entry_6</item>
             </string-array>
-            <string-array name="revanced_miniplayer_type_legacy_entry_values">
-                <!-- Extension enum names. -->
+            <string-array name="revanced_miniplayer_type_legacy_19_43_entry_values">
+                <item>DISABLED</item>
+                <item>DEFAULT</item>
+                <item>MINIMAL</item>
+                <item>TABLET</item>
+                <item>MODERN_1</item>
+                <item>MODERN_2</item>
+                <item>MODERN_3</item>
+            </string-array>
+            <string-array name="revanced_miniplayer_type_legacy_19_16_entries">
+                <item>@string/revanced_miniplayer_type_entry_1</item>
+                <item>@string/revanced_miniplayer_type_entry_2</item>
+                <item>@string/revanced_miniplayer_type_entry_3</item>
+                <item>@string/revanced_miniplayer_type_entry_4</item>
+                <item>@string/revanced_miniplayer_type_entry_5</item>
+                <item>@string/revanced_miniplayer_type_entry_6</item>
+            </string-array>
+            <string-array name="revanced_miniplayer_type_legacy_19_16_entry_values">
                 <item>DEFAULT</item>
                 <item>MINIMAL</item>
                 <item>TABLET</item>

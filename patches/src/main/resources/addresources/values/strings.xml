@@ -1174,6 +1174,7 @@ If later turned off, it is recommended to clear the app data to prevent UI bugs.
             <string name="revanced_miniplayer_type_entry_4">Modern 1</string>
             <string name="revanced_miniplayer_type_entry_5">Modern 2</string>
             <string name="revanced_miniplayer_type_entry_6">Modern 3</string>
+            <string name="revanced_miniplayer_type_entry_7">Modern 4</string>
             <string name="revanced_miniplayer_rounded_corners_title">Enable rounded corners</string>
             <string name="revanced_miniplayer_rounded_corners_summary_on">Corners are rounded</string>
             <string name="revanced_miniplayer_rounded_corners_summary_off">Corners are square</string>

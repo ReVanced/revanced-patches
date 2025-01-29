@@ -119,17 +119,24 @@ val miniplayerPatch = bytecodePatch(
 
 
         preferences +=
-            if (is_19_43_or_greater) {
+            if (is_20_03_or_greater) {
                 ListPreference(
                     "revanced_miniplayer_type",
                     summaryKey = null,
+                )
+            } else if (is_19_43_or_greater) {
+                ListPreference(
+                    "revanced_miniplayer_type",
+                    summaryKey = null,
+                    entriesKey = "revanced_miniplayer_type_legacy_19_43_entries",
+                    entryValuesKey = "revanced_miniplayer_type_legacy_19_43_entry_values",
                 )
             } else {
                 ListPreference(
                     "revanced_miniplayer_type",
                     summaryKey = null,
-                    entriesKey = "revanced_miniplayer_type_legacy_entries",
-                    entryValuesKey = "revanced_miniplayer_type_legacy_entry_values",
+                    entriesKey = "revanced_miniplayer_type_legacy_19_16_entries",
+                    entryValuesKey = "revanced_miniplayer_type_legacy_19_16_entry_values",
                 )
             }
 
@@ -289,7 +296,7 @@ val miniplayerPatch = bytecodePatch(
         if (is_19_23_or_greater) {
             miniplayerModernConstructorFingerprint.insertMiniplayerFeatureFlagBooleanOverride(
                 MINIPLAYER_DRAG_DROP_FEATURE_KEY,
-                "enableMiniplayerDragAndDrop",
+                "getMiniplayerDragAndDrop",
             )
         }
 
@@ -306,7 +313,7 @@ val miniplayerPatch = bytecodePatch(
 
             miniplayerModernConstructorFingerprint.insertMiniplayerFeatureFlagBooleanOverride(
                 MINIPLAYER_DOUBLE_TAP_FEATURE_KEY,
-                "enableMiniplayerDoubleTapAction",
+                "getMiniplayerDoubleTapAction",
             )
         }
 
@@ -321,7 +328,7 @@ val miniplayerPatch = bytecodePatch(
                 addInstructions(
                     targetIndex + 1,
                     """
-                        invoke-static { v$register }, $EXTENSION_CLASS_DESCRIPTOR->setMiniplayerDefaultSize(I)I
+                        invoke-static { v$register }, $EXTENSION_CLASS_DESCRIPTOR->getMiniplayerDefaultSize(I)I
                         move-result v$register
                     """,
                 )
@@ -344,7 +351,7 @@ val miniplayerPatch = bytecodePatch(
         if (is_19_36_or_greater) {
             miniplayerModernConstructorFingerprint.insertMiniplayerFeatureFlagBooleanOverride(
                 MINIPLAYER_ROUNDED_CORNERS_FEATURE_KEY,
-                "setRoundedCorners",
+                "getRoundedCorners",
             )
         }
 
@@ -356,7 +363,12 @@ val miniplayerPatch = bytecodePatch(
 
             miniplayerModernConstructorFingerprint.insertMiniplayerFeatureFlagBooleanOverride(
                 MINIPLAYER_HORIZONTAL_DRAG_FEATURE_KEY,
-                "setHorizontalDrag",
+                "getHorizontalDrag",
+            )
+
+            miniplayerModernConstructorFingerprint.insertMiniplayerFeatureFlagBooleanOverride(
+                MINIPLAYER_ANIMATED_EXPAND_FEATURE_KEY,
+                "getMaximizeAnimation",
             )
         }
 

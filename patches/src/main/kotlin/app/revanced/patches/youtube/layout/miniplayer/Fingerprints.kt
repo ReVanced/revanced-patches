@@ -51,6 +51,7 @@ internal const val MINIPLAYER_HORIZONTAL_DRAG_FEATURE_KEY = 45658112L
 internal const val MINIPLAYER_ROUNDED_CORNERS_FEATURE_KEY = 45652224L
 internal const val MINIPLAYER_INITIAL_SIZE_FEATURE_KEY = 45640023L
 internal const val MINIPLAYER_DISABLED_FEATURE_KEY = 45657015L
+internal const val MINIPLAYER_ANIMATED_EXPAND_FEATURE_KEY = 45644360L
 
 internal val miniplayerModernConstructorFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)

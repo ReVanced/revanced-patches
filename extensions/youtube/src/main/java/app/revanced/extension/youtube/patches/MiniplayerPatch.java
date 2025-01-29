@@ -43,10 +43,13 @@ public final class MiniplayerPatch {
         MODERN_2(null, 2),
         MODERN_3(null, 3),
         /**
-         * Half broken miniplayer, that might be work in progress or left over abandoned code.
-         * Can force this type by editing the import/export settings.
+         * Works and is functional with 20.03+
          */
-        MODERN_4(null, 4);
+        MODERN_4(null, 4),
+        /**
+         * Half broken miniplayer, and in 20.02 and earlier is declared as type 4.
+         */
+        MODERN_5(null, 5);
 
         /**
          * Legacy tablet hook value.
@@ -139,7 +142,7 @@ public final class MiniplayerPatch {
             && (VersionCheckPatch.IS_19_34_OR_GREATER || Settings.MINIPLAYER_HIDE_REWIND_FORWARD.get());
 
     private static final boolean MINIPLAYER_ROUNDED_CORNERS_ENABLED =
-            Settings.MINIPLAYER_ROUNDED_CORNERS.get();
+            CURRENT_TYPE.isModern() && Settings.MINIPLAYER_ROUNDED_CORNERS.get();
 
     private static final boolean MINIPLAYER_HORIZONTAL_DRAG_ENABLED =
             DRAG_AND_DROP_ENABLED && Settings.MINIPLAYER_HORIZONTAL_DRAG.get();
@@ -176,7 +179,8 @@ public final class MiniplayerPatch {
         @Override
         public boolean isAvailable() {
             MiniplayerType type = Settings.MINIPLAYER_TYPE.get();
-            return (!IS_19_20_OR_GREATER && (type == MODERN_1 || type == MODERN_3))
+            return type == MODERN_4
+                    || (!IS_19_20_OR_GREATER && (type == MODERN_1 || type == MODERN_3))
                     || (!IS_19_26_OR_GREATER && type == MODERN_1
                     && !Settings.MINIPLAYER_DOUBLE_TAP_ACTION.get() && !Settings.MINIPLAYER_DRAG_AND_DROP.get())
                     || (IS_19_29_OR_GREATER && type == MODERN_3);
@@ -251,7 +255,7 @@ public final class MiniplayerPatch {
     /**
      * Injection point.
      */
-    public static boolean enableMiniplayerDoubleTapAction(boolean original) {
+    public static boolean getMiniplayerDoubleTapAction(boolean original) {
         if (CURRENT_TYPE == DEFAULT) {
             return original;
         }
@@ -262,7 +266,7 @@ public final class MiniplayerPatch {
     /**
      * Injection point.
      */
-    public static boolean enableMiniplayerDragAndDrop(boolean original) {
+    public static boolean getMiniplayerDragAndDrop(boolean original) {
         if (CURRENT_TYPE == DEFAULT) {
             return original;
         }
@@ -270,13 +274,36 @@ public final class MiniplayerPatch {
         return DRAG_AND_DROP_ENABLED;
     }
 
+    /**
+     * Injection point.
+     */
+    public static boolean getRoundedCorners(boolean original) {
+        if (CURRENT_TYPE == DEFAULT) {
+            return original;
+        }
+
+        return MINIPLAYER_ROUNDED_CORNERS_ENABLED;
+    }
 
     /**
      * Injection point.
      */
-    public static boolean setRoundedCorners(boolean original) {
-        if (CURRENT_TYPE.isModern()) {
-            return MINIPLAYER_ROUNDED_CORNERS_ENABLED;
+    public static boolean getHorizontalDrag(boolean original) {
+        if (CURRENT_TYPE == DEFAULT) {
+            return original;
+        }
+
+        return MINIPLAYER_HORIZONTAL_DRAG_ENABLED;
+    }
+
+    /**
+     * Injection point.
+     */
+    public static boolean getMaximizeAnimation(boolean original) {
+        // This must be forced on if horizontal drag is enabled,
+        // otherwise the UI has visual glitches when maximizing the miniplayer.
+        if (MINIPLAYER_HORIZONTAL_DRAG_ENABLED) {
+            return true;
         }
 
         return original;
@@ -285,21 +312,9 @@ public final class MiniplayerPatch {
     /**
      * Injection point.
      */
-    public static int setMiniplayerDefaultSize(int original) {
+    public static int getMiniplayerDefaultSize(int original) {
         if (CURRENT_TYPE.isModern()) {
             return MINIPLAYER_SIZE;
-        }
-
-        return original;
-    }
-
-
-    /**
-     * Injection point.
-     */
-    public static boolean setHorizontalDrag(boolean original) {
-        if (CURRENT_TYPE.isModern()) {
-            return MINIPLAYER_HORIZONTAL_DRAG_ENABLED;
         }
 
         return original;
