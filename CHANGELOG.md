@@ -1,3 +1,10 @@
+# [5.10.0-dev.6](https://github.com/ReVanced/revanced-patches/compare/v5.10.0-dev.5...v5.10.0-dev.6) (2025-01-29)
+
+
+### Bug Fixes
+
+* **YouTube - Hide Ads:** Hide end screen store banner without leaving empty space ([#4367](https://github.com/ReVanced/revanced-patches/issues/4367)) ([7e68390](https://github.com/ReVanced/revanced-patches/commit/7e683906418434dd4e2104337d73a2292415c615))
+
 # [5.10.0-dev.5](https://github.com/ReVanced/revanced-patches/compare/v5.10.0-dev.4...v5.10.0-dev.5) (2025-01-27)
 
 
