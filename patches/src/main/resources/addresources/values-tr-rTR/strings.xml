@@ -23,26 +23,26 @@ Second \"item\" text"</string>
   <app id="shared">
   <patch id="misc.checks.checkEnvironmentPatch">
   <string name="revanced_check_environment_failed_title">Kontroller başarısız</string>
-  <string name="revanced_check_environment_dialog_open_official_source_button">Resmi internet sitesini aç</string>
-  <string name="revanced_check_environment_dialog_ignore_button">Yok say</string>
-  <string name="revanced_check_environment_failed_message">&lt;h5&gt;Bu uygulama sizin tarafınızdan yamalanmış gibi görünmüyor.&lt;/h5&gt;&lt;br&gt;Bu uygulama düzgün çalışmayabilir, &lt;b&gt;kullanması zararlı veya tehlikeli bile olabilir&lt;/b&gt;.&lt;br&gt;&lt;br&gt;Şu kontroller, bu uygulamanın hali hazırda yamalanmış olduğunu veya başka birinden edinildiğini gösteriyor:&lt;br&gt;&lt;br&gt;&lt;small&gt;%1$s&lt;/small&gt;&lt;br&gt;Doğrulanmış ve güvenli bir uygulama kullandığınızdan emin olmak için, &lt;b&gt;bu uygulamayı kaldırmanız ve kendiniz yamalamanız&lt;/b&gt; şiddetle tavsiye edilir.&lt;p&gt;&lt;br&gt;Bu uyarı yok sayıldığında sadece iki kez gösterilecektir.</string>
+  <string name="revanced_check_environment_dialog_open_official_source_button">Resmî web sitesini aç</string>
+  <string name="revanced_check_environment_dialog_ignore_button">Yoksay</string>
+  <string name="revanced_check_environment_failed_message">Bu uygulamanın sizin tarafınızdan yamalı görünmüyor. Bu uygulama doğru çalışmayabilir, hatta zararlı veya tehlikeli bile olabilir. Bu denetimler bu uygulamanın önceden yamanmış veya başka birinden alınmış olduğunu gösterir: %1$s Geçerli ve güvenli bir uygulama kullandığınızdan emin olmak için bu uygulamayı kaldırmanız ve kendiniz yamalmanız şiddetle tavsiye edilir.&lt;p&gt;&lt;br&gt;Yoksayılırsa, bu uyarı yalnızca iki kez gösterilecektir.</string>
   <string name="revanced_check_environment_not_same_patching_device">Başka bir cihazda yamalanmış</string>
   <string name="revanced_check_environment_manager_not_expected_installer">ReVanced Manager tarafından yüklenmemiş</string>
   <string name="revanced_check_environment_not_near_patch_time">10 dakikadan daha uzun bir süre önce yamalanmış</string>
-  <string name="revanced_check_environment_not_near_patch_time_days">%s gün önce yamalanmış</string>
+  <string name="revanced_check_environment_not_near_patch_time_days">Yama %s gün önce yapıldı</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">APK derleme tarihi bozuk</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_submenu_title">Ayarlar</string>
-  <string name="revanced_settings_confirm_user_dialog_title">Devam etmek istiyor musunuz?</string>
+  <string name="revanced_settings_confirm_user_dialog_title">İşleme devam etmek istiyor musunuz?</string>
   <string name="revanced_settings_reset">Sıfırla</string>
   <string name="revanced_settings_restart_title">Yenile ve yeniden başlat</string>
-  <string name="revanced_settings_restart">Yeniden başlat</string>
-  <string name="revanced_settings_import">İçe aktar</string>
+  <string name="revanced_settings_restart">Yeniden Başlat</string>
+  <string name="revanced_settings_import">İçe Aktar</string>
   <string name="revanced_settings_import_copy">Kopyala</string>
-  <string name="revanced_settings_import_reset">ReVanced ayarları varsayılanlara sıfırlandı</string>
+  <string name="revanced_settings_import_reset">ReVanced ayarları varsayılana sıfırlandı</string>
   <string name="revanced_settings_import_success">%d ayar içe aktarıldı</string>
-  <string name="revanced_settings_import_failure_parse">İçe aktarılamadı: %s</string>
+  <string name="revanced_settings_import_failure_parse">İçe Aktarma başarısız: %s</string>
   <string name="revanced_language_title">ReVanced dili</string>
   <string name="revanced_language_user_dialog_message">"Bazı diller için çeviriler eksik veya tamamlanmamış olabilir. 
 
@@ -99,44 +99,44 @@ Yeni dilleri çevirmek için translate.revanced.app adresini ziyaret edin"</stri
   <string name="revanced_language_UR">Urduca</string>
   <string name="revanced_language_VI">Vietnamca</string>
   <string name="revanced_language_ZH">Çince</string>
-  <string name="revanced_pref_import_export_title">İçe / Dışa aktar</string>
+  <string name="revanced_pref_import_export_title">İçe / Dışa Aktar</string>
   <string name="revanced_pref_import_export_summary">ReVanced ayarlarını içe / dışa aktar</string>
   <!-- Settings about dialog. -->
-  <string name="revanced_settings_about_links_body">ReVanced Patches &lt;i&gt;%s&lt;/i&gt; sürümünü kullanıyorsunuz</string>
+  <string name="revanced_settings_about_links_body">&lt;i&gt;%s&lt;/i&gt; sürümünü kullanıyorsunuz</string>
   <string name="revanced_settings_about_links_dev_header">Not</string>
-  <string name="revanced_settings_about_links_dev_body">Bu bir ön-sürümdür ve beklenmeyen sorunlar yaşayabilirsiniz</string>
-  <string name="revanced_settings_about_links_header">Resmi bağlantılar</string>
+  <string name="revanced_settings_about_links_dev_body">Bu sürüm ön sürüm niteliğindedir ve beklenmedik sorunlarla karşılaşabilirsiniz</string>
+  <string name="revanced_settings_about_links_header">Resmî Linkler</string>
   <!-- NOTE: the about strings above are duplicated in the TikTok about screen code,
                  and changes made here must also be made there. -->
   </patch>
   <patch id="misc.gms.gmsCoreSupportResourcePatch">
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="gms_core_toast_not_installed_message">MicroG GmsCore yüklü değil. Yükleyin.</string>
-  <string name="gms_core_dialog_title">Eylem gerekiyor</string>
-  <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"MicroG GmsCore'nin arka planda çalışma izni yok.
+  <string name="gms_core_dialog_title">İşlem gerekebilir</string>
+  <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"MicroG GmsCore uygulamasının arka planda çalışması için izin yok.
 
-Telefonunuz için \"Uygulamamı sonlandırma\" kılavuzunu izleyin ve talimatları MicroG kurulumunuza uygulayın.
+Telefonunuzun \"Uygulamamı sonlandırma\" talimatlarını izleyin ve talimatları MicroG yüklemenize uygulayın.
 
-Bu, uygulamanın çalışması için gereklidir."</string>
-  <string name="gms_core_dialog_open_website_text">Websitesini aç</string>
-  <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">"Sorunları önlemek için MicroG GmsCore pil optimizasyonları devre dışı bırakılmalıdır.
+Uygulamanın çalışması için bu gereklidir."</string>
+  <string name="gms_core_dialog_open_website_text">Web sitesini aç</string>
+  <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">"MicroG GmsCore pil optimizasyonları sorunları önlemek için devre dışı bırakılmalıdır.
 
-MicroG için pil optimizasyonlarını devre dışı bırakmak, pil kullanımını olumsuz etkilemeyecektir.
+MicroG için pil optimizasyonlarını devre dışı bırakmak pil kullanımını olumsuz etkilemez.
 
 Devam düğmesine dokunun ve optimizasyon değişikliklerine izin verin."</string>
-  <string name="gms_core_dialog_continue_text">Devam et</string>
+  <string name="gms_core_dialog_continue_text">Devam</string>
   </patch>
   </app>
   <app id="youtube">
   <patch id="misc.settings.settingsPatch">
   <string name="revanced_settings_screen_00_about_title">Hakkında</string>
   <string name="revanced_settings_screen_01_ads_title">Reklamlar</string>
-  <string name="revanced_settings_screen_02_alt_thumbnails_title">Alternatif kapak fotoğrafları</string>
+  <string name="revanced_settings_screen_02_alt_thumbnails_title">Alternatif küçük resimler</string>
   <string name="revanced_settings_screen_03_feed_title">Akış</string>
   <string name="revanced_settings_screen_04_general_title">Genel</string>
   <string name="revanced_settings_screen_05_player_title">Oyuncu</string>
-  <string name="revanced_settings_screen_07_seekbar_title">Zaman çubuğu</string>
-  <string name="revanced_settings_screen_08_swipe_controls_title">Kaydırma kontrolleri</string>
+  <string name="revanced_settings_screen_07_seekbar_title">Oynatma Çubuğu</string>
+  <string name="revanced_settings_screen_08_swipe_controls_title">Kaydırma Kontrolleri</string>
   <string name="revanced_settings_screen_11_misc_title">Çeşitli</string>
   <string name="revanced_settings_screen_12_video_title">Video</string>
   <string name="revanced_restore_old_settings_menus_title">Eski ayar menülerini geri yükle</string>
@@ -144,88 +144,88 @@ Devam düğmesine dokunun ve optimizasyon değişikliklerine izin verin."</strin
   <string name="revanced_restore_old_settings_menus_summary_off">Eski ayar menüleri gösterilmiyor</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
-  <string name="revanced_shorts_disable_background_playback_title">Shorts\'un arka planda oynatılmasını devre dışı bırak</string>
-  <string name="revanced_shorts_disable_background_playback_summary_on">Shorts\'un arka planda oynatılması devre dışı</string>
-  <string name="revanced_shorts_disable_background_playback_summary_off">Shorts\'un arka planda oynatılması etkin</string>
+  <string name="revanced_shorts_disable_background_playback_title">Shorts arka plan oynatmasını devre dışı bırak</string>
+  <string name="revanced_shorts_disable_background_playback_summary_on">Shorts arka plan oynatma devre dışı bırakıldı</string>
+  <string name="revanced_shorts_disable_background_playback_summary_off">Shorts arka plan oynatma etkin</string>
   </patch>
   <patch id="misc.debugging.enableDebuggingPatch">
-  <string name="revanced_debug_screen_title">Hata ayıklama</string>
-  <string name="revanced_debug_screen_summary">Hata ayıklama seçeneklerini etkinleştir veya devre dışı bırak</string>
-  <string name="revanced_debug_title">Hata ayıklama kayıtları</string>
-  <string name="revanced_debug_summary_on">Hata ayıklama kayıtları etkin</string>
-  <string name="revanced_debug_summary_off">Hata ayıklama kayıtları devre dışı</string>
-  <string name="revanced_debug_protobuffer_title">Protocol buffer\'ın kaydını tut</string>
-  <string name="revanced_debug_protobuffer_summary_on">Hata ayıklama kayıtları proto buffer\'ı içeriyor</string>
-  <string name="revanced_debug_protobuffer_summary_off">Hata ayıklama kayıtları proto buffer\'ı içermiyor</string>
-  <string name="revanced_debug_stacktrace_title">Stack traces\'in kaydını tut</string>
-  <string name="revanced_debug_stacktrace_summary_on">Hata ayıklama kayıtları stack traces\'i içeriyor</string>
-  <string name="revanced_debug_stacktrace_summary_off">Hata ayıklama kayıtları stack traces\'i içermiyor</string>
-  <string name="revanced_debug_toast_on_error_title">ReVanced hatası oluştuğunda tost bildirimi göster</string>
-  <string name="revanced_debug_toast_on_error_summary_on">Hata oluştuğunda tost bildirimi gösteriliyor</string>
-  <string name="revanced_debug_toast_on_error_summary_off">Hata oluştuğunda tost bildirimi gösterilmiyor</string>
-  <string name="revanced_debug_toast_on_error_user_dialog_message">"Hata bildirimlerini kapatmak, tüm ReVanced hata bildirimlerini gizler.
+  <string name="revanced_debug_screen_title">Hata Ayıklama</string>
+  <string name="revanced_debug_screen_summary">Hata ayıklama seçeneklerini etkinleştirin veya devre dışı bırakın</string>
+  <string name="revanced_debug_title">Hata ayıklama günlüğü</string>
+  <string name="revanced_debug_summary_on">Hata ayıklama günlükleri etkin</string>
+  <string name="revanced_debug_summary_off">Hata ayıklama günlükleri devre dışı</string>
+  <string name="revanced_debug_protobuffer_title">Günlük protokolü arabelleği</string>
+  <string name="revanced_debug_protobuffer_summary_on">Hata ayıklama günlükleri protokolü arabelleği içeriyor</string>
+  <string name="revanced_debug_protobuffer_summary_off">Hata ayıklama günlükleri protokolü arabelleği içermiyor</string>
+  <string name="revanced_debug_stacktrace_title">Yığın izlerini kaydet</string>
+  <string name="revanced_debug_stacktrace_summary_on">Hata ayıklama günlükleri yığın izlerini içerir</string>
+  <string name="revanced_debug_stacktrace_summary_off">Hata ayıklama günlükleri yığın izlerini içermez</string>
+  <string name="revanced_debug_toast_on_error_title">ReVanced hatası durumunda uyarı göster</string>
+  <string name="revanced_debug_toast_on_error_summary_on">Hata oluşursa uyarı gösterilir</string>
+  <string name="revanced_debug_toast_on_error_summary_off">Hata oluşursa uyarı gösterilmez</string>
+  <string name="revanced_debug_toast_on_error_user_dialog_message">"Hata uyarılarını kapatmak, tüm ReVanced hata bildirimlerini gizler.
 
 Beklenmedik olaylar hakkında bilgilendirilmeyeceksiniz."</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
-  <string name="revanced_disable_like_subscribe_glow_title">Beğen / Abone ol düğmesi parlamasını devre dışı bırak</string>
-  <string name="revanced_disable_like_subscribe_glow_summary_on">Beğen ve abone ol düğmesi, bahsedildiğinde parlamayacak</string>
-  <string name="revanced_disable_like_subscribe_glow_summary_off">Beğen ve abone ol düğmesi, bahsedildiğinde parlayacak</string>
+  <string name="revanced_disable_like_subscribe_glow_title">Beğen ve Abone Ol düğmesi parlaklığını devre dışı bırak</string>
+  <string name="revanced_disable_like_subscribe_glow_summary_on">Beğen ve Abone Ol düğmesi belirtildiğinde parlama yapmayacak</string>
+  <string name="revanced_disable_like_subscribe_glow_summary_off">Beğen ve Abone Ol düğmesi belirtildiğinde parlayacak</string>
   <string name="revanced_hide_album_cards_title">Albüm kartlarını gizle</string>
-  <string name="revanced_hide_album_cards_summary_on">Albüm kartları gizli</string>
-  <string name="revanced_hide_album_cards_summary_off">Albüm kartları görünür</string>
-  <string name="revanced_hide_crowdfunding_box_title">Bağış etkinliği kutularını gizle</string>
-  <string name="revanced_hide_crowdfunding_box_summary_on">Bağış etkinliği kutuları gizli</string>
-  <string name="revanced_hide_crowdfunding_box_summary_off">Bağış etkinliği kutuları görünür</string>
-  <string name="revanced_hide_floating_microphone_button_title">Alttaki mikrofon düğmesini gizle</string>
-  <string name="revanced_hide_floating_microphone_button_summary_on">Mikrofon düğmesi gizli</string>
-  <string name="revanced_hide_floating_microphone_button_summary_off">Mikrofon düğmesi görünür</string>
+  <string name="revanced_hide_album_cards_summary_on">Albüm kartları gizlendi</string>
+  <string name="revanced_hide_album_cards_summary_off">Albüm kartları gösterildi</string>
+  <string name="revanced_hide_crowdfunding_box_title">Kitle fonlaması kutusunu gizle</string>
+  <string name="revanced_hide_crowdfunding_box_summary_on">Kitle fonlaması kutusu gizlendi</string>
+  <string name="revanced_hide_crowdfunding_box_summary_off">Kitle fonlaması kutusu gösterildi</string>
+  <string name="revanced_hide_floating_microphone_button_title">Kayan mikrofon düğmesini gizle</string>
+  <string name="revanced_hide_floating_microphone_button_summary_on">Mikrofon düğmesi gizlendi</string>
+  <string name="revanced_hide_floating_microphone_button_summary_off">Mikrofon düğmesi gösterildi</string>
   <string name="revanced_hide_channel_watermark_title">Kanal filigranını gizle</string>
-  <string name="revanced_hide_channel_watermark_summary_on">Filigran gizli</string>
-  <string name="revanced_hide_channel_watermark_summary_off">Filigran görünür</string>
+  <string name="revanced_hide_channel_watermark_summary_on">Filigran gizlendi</string>
+  <string name="revanced_hide_channel_watermark_summary_off">Filigran gösterildi</string>
   <string name="revanced_hide_horizontal_shelves_title">Yatay rafları gizle</string>
-  <string name="revanced_hide_horizontal_shelves_summary_on">"Şunlar gibi raflar gizlenir:
-• Son dakika haberleri
+  <string name="revanced_hide_horizontal_shelves_summary_on">"Şunlar gibi raflar gizlendi:
+• Son Dakika
 • İzlemeye devam et
 • Daha fazla kanal keşfet
 • Alışveriş
 • Tekrar izle"</string>
-  <string name="revanced_hide_horizontal_shelves_summary_off">Raflar görünür</string>
+  <string name="revanced_hide_horizontal_shelves_summary_off">Raflar gösterildi</string>
   <!-- 'Join' should be translated using the same localized wording YouTube displays.
                  This appears in the video player for certain videos. -->
   <string name="revanced_hide_join_membership_button_title">\'Katıl\' düğmesini gizle</string>
-  <string name="revanced_hide_join_membership_button_summary_on">Düğme gizli</string>
-  <string name="revanced_hide_join_membership_button_summary_off">Düğme görünür</string>
+  <string name="revanced_hide_join_membership_button_summary_on">Düğme gizlendi</string>
+  <string name="revanced_hide_join_membership_button_summary_off">Düğme gösterildi</string>
   <!-- 'For you' should be translated using the same localized wording YouTube displays. -->
-  <string name="revanced_hide_for_you_shelf_title">Kanal sayfasındaki \'Sizin için\' rafını gizle</string>
-  <string name="revanced_hide_for_you_shelf_summary_on">Raf gizli</string>
-  <string name="revanced_hide_for_you_shelf_summary_off">Raf görünür</string>
+  <string name="revanced_hide_for_you_shelf_title">Kanal sayfasındaki \'Sizin İçin\' rafını gizle</string>
+  <string name="revanced_hide_for_you_shelf_summary_on">Raf gizlendi</string>
+  <string name="revanced_hide_for_you_shelf_summary_off">Raf gösterildi</string>
   <!-- 'Notify me' should be translated using the same localized wording YouTube displays.
                  This item appear in the subscription feed for future livestreams or unreleased videos. -->
-  <string name="revanced_hide_notify_me_button_title">\'Hatırlatma oluştur\' düğmesini gizle</string>
-  <string name="revanced_hide_notify_me_button_summary_on">Düğme gizli</string>
-  <string name="revanced_hide_notify_me_button_summary_off">Düğme görünür</string>
+  <string name="revanced_hide_notify_me_button_title">\'Bildir\' düğmesini gizle</string>
+  <string name="revanced_hide_notify_me_button_summary_on">Düğme gizlendi</string>
+  <string name="revanced_hide_notify_me_button_summary_off">Düğme gösterildi</string>
   <!-- 'People also watch' should be translated using the same localized wording YouTube displays. -->
-  <string name="revanced_hide_search_result_recommendations_title">\'İnsanlar şunu da izledi\' önerilerini gizle</string>
-  <string name="revanced_hide_search_result_recommendations_summary_on">Öneriler gizli</string>
-  <string name="revanced_hide_search_result_recommendations_summary_off">Öneriler görünür</string>
+  <string name="revanced_hide_search_result_recommendations_title">\'Başkaları da izledi\' önerilerini gizle</string>
+  <string name="revanced_hide_search_result_recommendations_summary_on">Öneriler gizlendi</string>
+  <string name="revanced_hide_search_result_recommendations_summary_off">Öneriler gösterildi</string>
   <!-- 'Show more' should be translated with the same localized wording that YouTube displays.
                   This button usually appears when searching for a YT creator. -->
-  <string name="revanced_hide_show_more_button_title">\'Daha fazla göster\' düğmesini gizle</string>
-  <string name="revanced_hide_show_more_button_summary_on">Düğme gizli</string>
-  <string name="revanced_hide_show_more_button_summary_off">Düğme görünür</string>
-  <string name="revanced_hide_timed_reactions_title">Süreli tepkileri gizle</string>
-  <string name="revanced_hide_timed_reactions_summary_on">Süreli tepkiler gizli</string>
-  <string name="revanced_hide_timed_reactions_summary_off">Süreli tepkiler görünür</string>
+  <string name="revanced_hide_show_more_button_title">\'Daha Fazla Göster\' düğmesini gizle</string>
+  <string name="revanced_hide_show_more_button_summary_on">Düğme gizlendi</string>
+  <string name="revanced_hide_show_more_button_summary_off">Düğme gösterildi</string>
+  <string name="revanced_hide_timed_reactions_title">Zamanlanmış reaksiyonları gizle</string>
+  <string name="revanced_hide_timed_reactions_summary_on">Zamanlanmış reaksiyonlar gizlendi</string>
+  <string name="revanced_hide_timed_reactions_summary_off">Zamanlanmış reaksiyonlar gösterildi</string>
   <string name="revanced_hide_channel_guidelines_title">Kanal yönergelerini gizle</string>
   <string name="revanced_hide_channel_guidelines_summary_on">Kanal yönergeleri gizli</string>
   <string name="revanced_hide_channel_guidelines_summary_off">Kanal yönergeleri görünür</string>
   <string name="revanced_hide_chips_shelf_title">Çip rafını gizle</string>
   <string name="revanced_hide_chips_shelf_summary_on">Çip rafı gizli</string>
   <string name="revanced_hide_chips_shelf_summary_off">Çip rafı görünür</string>
-  <string name="revanced_hide_expandable_chip_title">Videoların altındaki genişletilebilir çipi gizle</string>
-  <string name="revanced_hide_expandable_chip_summary_on">Genişletilebilir çipler gizli</string>
-  <string name="revanced_hide_expandable_chip_summary_off">Genişletilebilir çipler görünür</string>
+  <string name="revanced_hide_expandable_chip_title">Videolar Altında Açılabilir Kartı Gizle</string>
+  <string name="revanced_hide_expandable_chip_summary_on">Açılabilir kartlar gizli</string>
+  <string name="revanced_hide_expandable_chip_summary_off">Açılabilir kartlar gösteriliyor</string>
   <string name="revanced_hide_community_posts_title">Topluluk gönderilerini gizle</string>
   <string name="revanced_hide_community_posts_summary_on">Topluluk gönderileri gizli</string>
   <string name="revanced_hide_community_posts_summary_off">Topluluk gönderileri görünür</string>
@@ -286,6 +286,9 @@ Beklenmedik olaylar hakkında bilgilendirilmeyeceksiniz."</string>
   <string name="revanced_hide_chapters_section_title">Bölümler kısmını gizle</string>
   <string name="revanced_hide_chapters_section_summary_on">Bölümler kısmı gizli</string>
   <string name="revanced_hide_chapters_section_summary_off">Bölümler kısmı görünür</string>
+  <string name="revanced_hide_how_this_was_made_section_title">\'Bu içeriğin nasıl yapıldığı\' bölümünü gizle</string>
+  <string name="revanced_hide_how_this_was_made_section_summary_on">\'Bu içeriğin nasıl yapıldığı\' bölümü gizlendi</string>
+  <string name="revanced_hide_how_this_was_made_section_summary_off">\'Bu içeriğin nasıl yapıldığı\' bölümü gösteriliyor</string>
   <string name="revanced_hide_podcast_section_title">\"Podcast\'i keşfedin\" bölümünü gizle</string>
   <string name="revanced_hide_podcast_section_summary_on">\"Podcast\'ı keşfedin\" bölümü gizli</string>
   <string name="revanced_hide_podcast_section_summary_off">\"Podcast\'ı keşfedin\" bölümü görünür</string>
@@ -328,7 +331,7 @@ Beklenmedik olaylar hakkında bilgilendirilmeyeceksiniz."</string>
   <string name="revanced_hide_comments_preview_comment_title">Önizlenen yorumu gizle</string>
   <string name="revanced_hide_comments_preview_comment_summary_on">Önizlenen yorum gizli</string>
   <string name="revanced_hide_comments_preview_comment_summary_off">Önizlenen yorum görünür</string>
-  <string name="revanced_hide_comments_thanks_button_title">Teşekkürler düğmesini gizle</string>
+  <string name="revanced_hide_comments_thanks_button_title">Teşekkür Düğmesini Gizle</string>
   <string name="revanced_hide_comments_thanks_button_summary_on">Teşekkürler düğmesi gizli</string>
   <string name="revanced_hide_comments_thanks_button_summary_off">Teşekkürler düğmesi görünür</string>
   <string name="revanced_hide_comments_timestamp_and_emoji_buttons_title">Zaman ve emoji düğmelerini gizle</string>
@@ -355,12 +358,12 @@ Bir Doodle şu anda bölgenizde gösteriliyorsa ve bu gizleme ayarı açıksa, a
   <string name="revanced_hide_keyword_content_home_title">Ana sayfadaki videoları anahtar kelimelerle gizle</string>
   <string name="revanced_hide_keyword_content_home_summary_on">Ana sayfa sekmesindeki videolar anahtar kelimelerle filtrelenir</string>
   <string name="revanced_hide_keyword_content_home_summary_off">Ana sayfa sekmesindeki videolar anahtar kelimelerle filtrelenmez</string>
-  <string name="revanced_hide_keyword_content_subscriptions_title">Aboneliklerdeki videoları anahtar kelimelerle gizle</string>
-  <string name="revanced_hide_keyword_content_subscriptions_summary_on">Abonelikler sekmesindeki videolar anahtar kelimelerle filtrelenir</string>
-  <string name="revanced_hide_keyword_content_subscriptions_summary_off">Abonelikler sekmesindeki videolar anahtar kelimelerle filtrelenmez</string>
   <string name="revanced_hide_keyword_content_search_title">Arama sonuçlarını anahtar kelimelerle filtrele</string>
   <string name="revanced_hide_keyword_content_search_summary_on">Arama sonuçları anahtar kelimelerle filtrelenir</string>
   <string name="revanced_hide_keyword_content_search_summary_off">Arama sonuçları anahtar kelimelerle filtrelenmez</string>
+  <string name="revanced_hide_keyword_content_subscriptions_title">Aboneliklerdeki videoları anahtar kelimelerle gizle</string>
+  <string name="revanced_hide_keyword_content_subscriptions_summary_on">Abonelikler sekmesindeki videolar anahtar kelimelerle filtrelenir</string>
+  <string name="revanced_hide_keyword_content_subscriptions_summary_off">Abonelikler sekmesindeki videolar anahtar kelimelerle filtrelenmez</string>
   <string name="revanced_hide_keyword_content_phrases_title">Gizlenecek anahtar kelimeler</string>
   <!-- For localization it is preferred, but not required, if 'LeBlanc' is replaced with a localized name or a familiar word that has upper case letters in the middle of the word.
                  This is because keywords can be in any language, and showing an example in the localized script helps convey this. -->
@@ -407,6 +410,9 @@ Bu özellik yalnızca eski cihazlarda kullanılabilir"</string>
   <string name="revanced_hide_products_banner_title">Ürünleri görme afişini gizle</string>
   <string name="revanced_hide_products_banner_summary_on">Afiş gizli</string>
   <string name="revanced_hide_products_banner_summary_off">Afiş görünür</string>
+  <string name="revanced_hide_end_screen_store_banner_title">Son ekran mağazası mağaza bayrağını gizle</string>
+  <string name="revanced_hide_end_screen_store_banner_summary_on">Mağaza reklam panosu gizlenmiş</string>
+  <string name="revanced_hide_end_screen_store_banner_summary_off">Mağaza reklam panosu gösteriliyor</string>
   <string name="revanced_hide_player_store_shelf_title">Oynatıcı alışveriş rafını gizle</string>
   <string name="revanced_hide_player_store_shelf_summary_on">Alışveriş rafı gizli</string>
   <string name="revanced_hide_player_store_shelf_summary_off">Alışveriş rafı görünür</string>
@@ -459,7 +465,7 @@ Bu özellik yalnızca eski cihazlarda kullanılabilir"</string>
   <string name="revanced_external_downloader_summary_on">İndirme düğmesi oynatıcıda gösterilir</string>
   <string name="revanced_external_downloader_summary_off">İndirme düğmesi oynatıcıda gösterilmez</string>
   <!-- 'download action button' should be translated using the same wording as the translation of 'revanced_hide_download_button_title' -->
-  <string name="revanced_external_downloader_action_button_title">İndirme eylem düğmesini kullan</string>
+  <string name="revanced_external_downloader_action_button_title">İndirme eylemi düğmesini geçersiz kıl</string>
   <string name="revanced_external_downloader_action_button_summary_on">İndirme düğmesi harici indiricinizi açar</string>
   <string name="revanced_external_downloader_action_button_summary_off">İndirme düğmesi yerel uygulama içi indiriciyi açar</string>
   <string name="revanced_external_downloader_name_title">İndirici paket adı</string>
@@ -646,11 +652,11 @@ Not: Bunu etkinleştirmek aynı zamanda video reklamlarını zorla gizler"</stri
   <string name="revanced_hide_player_previous_next_buttons_title">Önceki &amp; Sonraki video düğmelerini gizle</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_on">Düğmeler gizli</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">Düğmeler görünür</string>
-  <string name="revanced_hide_cast_button_title">\"Yayınla\" düğmesini gizle</string>
+  <string name="revanced_hide_cast_button_title">Yayın düğmesini gizle</string>
   <string name="revanced_hide_cast_button_summary_on">\"Yayınla\" düğmesi gizli</string>
   <string name="revanced_hide_cast_button_summary_off">\"Yayınla\" düğmesi görünür</string>
   <!-- This button does not display any text, but 'captions' should be translated using the same wording used as the translation of 'revanced_hide_player_flyout_captions_title' -->
-  <string name="revanced_hide_captions_button_title">Altyazı düğmesini gizle</string>
+  <string name="revanced_hide_captions_button_title">Altyazılar düğmesini gizle</string>
   <string name="revanced_hide_captions_button_summary_on">Altyazı düğmesi gizli</string>
   <string name="revanced_hide_captions_button_summary_off">Altyazı düğmesi görünür</string>
   <string name="revanced_hide_autoplay_button_title">Otomatik oynatma düğmesini gizle</string>
@@ -663,7 +669,7 @@ Not: Bunu etkinleştirmek aynı zamanda video reklamlarını zorla gizler"</stri
   <string name="revanced_hide_endscreen_cards_summary_off">Bitiş ekranı kartları görünür</string>
   </patch>
   <patch id="layout.hide.fullscreenambientmode.disableFullscreenAmbientModePatch">
-  <string name="revanced_disable_fullscreen_ambient_mode_title">Tam ekranda ambiyans modunu devre dışı bırak</string>
+  <string name="revanced_disable_fullscreen_ambient_mode_title">Ortam Modunu tam ekranda devre dışı bırak</string>
   <string name="revanced_disable_fullscreen_ambient_mode_summary_on">Tam ekranda ambiyans modu devre dışı</string>
   <string name="revanced_disable_fullscreen_ambient_mode_summary_off">Tam ekranda ambiyans modu etkin</string>
   </patch>
@@ -703,35 +709,35 @@ Not: Bunu etkinleştirmek aynı zamanda video reklamlarını zorla gizler"</stri
   <string name="revanced_hide_shorts_history_summary_on">İzleme geçmişinde gizli</string>
   <string name="revanced_hide_shorts_history_summary_off">İzleme geçmişinde görünür</string>
   <!-- 'join' should be translated using the same localized wording YouTube displays for the button. -->
-  <string name="revanced_hide_shorts_join_button_title">\"Katıl\" düğmesini gizle</string>
+  <string name="revanced_hide_shorts_join_button_title">Katıl düğmesini gizle</string>
   <string name="revanced_hide_shorts_join_button_summary_on">\"Katıl\" düğmesi gizli</string>
   <string name="revanced_hide_shorts_join_button_summary_off">\"Katıl\" düğmesi görünür</string>
   <!-- 'subscribe' should be translated using the same localized wording YouTube displays for the button. -->
-  <string name="revanced_hide_shorts_subscribe_button_title">\"Abone ol\" düğmesini gizle</string>
+  <string name="revanced_hide_shorts_subscribe_button_title">Abone ol düğmesini gizle</string>
   <string name="revanced_hide_shorts_subscribe_button_summary_on">\"Abone ol\" düğmesi gizli</string>
   <string name="revanced_hide_shorts_subscribe_button_summary_off">\"Abone ol\" düğmesi görünür</string>
   <string name="revanced_hide_shorts_paused_overlay_buttons_title">Duraklama katmanı düğmelerini gizle</string>
   <string name="revanced_hide_shorts_paused_overlay_buttons_summary_on">Duraklama katmanı düğmeleri gizli</string>
   <string name="revanced_hide_shorts_paused_overlay_buttons_summary_off">Duraklama katmanı düğmeleri görünür</string>
-  <string name="revanced_hide_shorts_shop_button_title">Mağaza düğmesini gizle</string>
+  <string name="revanced_hide_shorts_shop_button_title">Alışveriş düğmesini gizle</string>
   <string name="revanced_hide_shorts_shop_button_summary_on">Mağaza düğmesi gizli</string>
   <string name="revanced_hide_shorts_shop_button_summary_off">Mağaza düğmesi görünür</string>
-  <string name="revanced_hide_shorts_super_thanks_button_title">Teşekkürler düğmesini gizle</string>
-  <string name="revanced_hide_shorts_super_thanks_button_summary_on">Teşekkürler düğmesi gizli</string>
-  <string name="revanced_hide_shorts_super_thanks_button_summary_off">Teşekkürler düğmesi görünür</string>
+  <string name="revanced_hide_shorts_super_thanks_button_title">Süper Teşekkürler düğmesini gizle</string>
+  <string name="revanced_hide_shorts_super_thanks_button_summary_on">Süper Teşekkürler düğmesi gizlenmiş</string>
+  <string name="revanced_hide_shorts_super_thanks_button_summary_off">Süper Teşekkürler düğmesi gösteriliyor</string>
   <string name="revanced_hide_shorts_tagged_products_title">Etiketli ürünleri gizle</string>
   <string name="revanced_hide_shorts_tagged_products_summary_on">Etiketli ürünler gizli</string>
   <string name="revanced_hide_shorts_tagged_products_summary_off">Etiketli ürünler görünür</string>
   <string name="revanced_hide_shorts_location_label_title">Konum etiketini gizle</string>
   <string name="revanced_hide_shorts_location_label_summary_on">Konum etiketi gizli</string>
   <string name="revanced_hide_shorts_location_label_summary_off">Konum etiketi görünür</string>
-  <string name="revanced_hide_shorts_save_sound_button_title">Müziği kaydet düğmesini gizle</string>
+  <string name="revanced_hide_shorts_save_sound_button_title">Müzik kaydet düğmesini gizle</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_on">Müziği kaydet düğmesi gizli</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_off">Müziği kaydet düğmesi görünür</string>
-  <string name="revanced_hide_shorts_use_template_button_title">Şablonu kullan düğmesini gizle</string>
+  <string name="revanced_hide_shorts_use_template_button_title">Şablon kullan düğmesini gizle</string>
   <string name="revanced_hide_shorts_use_template_button_summary_on">Şablonu kullan düğmesi gizli</string>
   <string name="revanced_hide_shorts_use_template_button_summary_off">Şablonu kullan düğmesi görünür</string>
-  <string name="revanced_hide_shorts_upcoming_button_title">\"Gelecek\" düğmesini gizle</string>
+  <string name="revanced_hide_shorts_upcoming_button_title">Yaklaşanlar düğmesini gizle</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_on">\"Gelecek\" düğmesi gizli</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_off">\"Gelecek\" düğmesi görünür</string>
   <string name="revanced_hide_shorts_green_screen_button_title">Yeşil ekran düğmesini gizle</string>
@@ -746,24 +752,24 @@ Not: Bunu etkinleştirmek aynı zamanda video reklamlarını zorla gizler"</stri
   <string name="revanced_hide_shorts_stickers_title">Çıkartmaları gizle</string>
   <string name="revanced_hide_shorts_stickers_summary_on">Çıkartmalar gizli</string>
   <string name="revanced_hide_shorts_stickers_summary_off">Çıkartmalar görünür</string>
-  <string name="revanced_hide_shorts_like_fountain_title">Beğeni çeşmesini gizle</string>
+  <string name="revanced_hide_shorts_like_fountain_title">Beğen düğmesi çeşme animasyonunu gizle</string>
   <string name="revanced_hide_shorts_like_fountain_summary_on">Beğeni düğmesi çeşme animasyonu gizli</string>
   <string name="revanced_hide_shorts_like_fountain_summary_off">Beğeni düğmesi çeşme animasyonu görünür</string>
-  <string name="revanced_hide_shorts_like_button_title">\"Beğen\" düğmesini gizle</string>
+  <string name="revanced_hide_shorts_like_button_title">Beğen düğmesini gizle</string>
   <string name="revanced_hide_shorts_like_button_summary_on">\"Beğen\" düğmesi gizli</string>
   <string name="revanced_hide_shorts_like_button_summary_off">\"Beğen\" butonu görünür</string>
-  <string name="revanced_hide_shorts_dislike_button_title">\"Beğenme\" düğmesini gizle</string>
+  <string name="revanced_hide_shorts_dislike_button_title">Beğenmeme düğmesini gizle</string>
   <string name="revanced_hide_shorts_dislike_button_summary_on">\"Beğenme\" düğmesi gizli</string>
   <string name="revanced_hide_shorts_dislike_button_summary_off">\"Beğenme\" düğmesi görünür</string>
-  <string name="revanced_hide_shorts_comments_button_title">\"Yorumlar\" düğmesini gizle</string>
+  <string name="revanced_hide_shorts_comments_button_title">Yorumlar düğmesini gizle</string>
   <string name="revanced_hide_shorts_comments_button_summary_on">\"Yorumlar\" düğmesi gizli</string>
   <string name="revanced_hide_shorts_comments_button_summary_off">\"Yorumlar\" düğmesi görünür</string>
   <!-- 'remix' should be translated using the same localized wording YouTube displays for the button. -->
-  <string name="revanced_hide_shorts_remix_button_title">\"Remix\" düğmesini gizle</string>
+  <string name="revanced_hide_shorts_remix_button_title">Remix düğmesini gizle</string>
   <string name="revanced_hide_shorts_remix_button_summary_on">\"Remix\" düğmesi gizli</string>
   <string name="revanced_hide_shorts_remix_button_summary_off">\"Remix\" düğmesi görünür</string>
   <!-- 'share' should be translated using the same localized wording YouTube displays for the button. -->
-  <string name="revanced_hide_shorts_share_button_title">\"Paylaş\" düğmesini gizle</string>
+  <string name="revanced_hide_shorts_share_button_title">Paylaş düğmesini gizle</string>
   <string name="revanced_hide_shorts_share_button_summary_on">\"Paylaş\" düğmesi gizli</string>
   <string name="revanced_hide_shorts_share_button_summary_off">\"Paylaş\" düğmesi görünür</string>
   <string name="revanced_hide_shorts_info_panel_title">Bilgi panelini gizle</string>
@@ -840,7 +846,7 @@ Sınırlama: Beğenmemeler gizli modda görünmeyebilir"</string>
   <string name="revanced_ryd_dislike_percentage_summary_on">Beğenmeme sayıları yüzdelik dilim olarak gösteriliyor</string>
   <string name="revanced_ryd_dislike_percentage_summary_off">Beğenmeme sayıları sayı olarak gösterilir</string>
   <!-- Translations should use language similar to 'revanced_sb_enable_compact_skip_button' -->
-  <string name="revanced_ryd_compact_layout_title">Kompakt beğen düğmesi</string>
+  <string name="revanced_ryd_compact_layout_title">Sıkıştırılmış Beğen Düğmesi</string>
   <string name="revanced_ryd_compact_layout_summary_on">En az genişlik için tasarlanmış beğen düğmesi</string>
   <string name="revanced_ryd_compact_layout_summary_off">En iyi görünüm için tasarlanmış beğen düğmesi</string>
   <string name="revanced_ryd_toast_on_connection_error_title">API kullanılamadığında bir tost bildirimi göster</string>
@@ -888,7 +894,7 @@ Bu özellik, 720p veya daha düşük video kalitesi ve çok hızlı bir internet
   </patch>
   <patch id="layout.sponsorblock.sponsorBlockResourcePatch">
   <string name="revanced_sb_enable_sb">SponsorBlock\'u etkinleştir</string>
-  <string name="revanced_sb_enable_sb_sum">SponsorBlock, YouTube videolarındaki sıkıcı bölümleri atlamaya yarayan topluluk kaynaklı bir sistemdir</string>
+  <string name="revanced_sb_enable_sb_sum">SponsorBlock, YouTube videolarının sinir bozucu bölümlerini atlamak için bir kitle kaynaklı sistemdir</string>
   <string name="revanced_sb_appearance_category">Görünüm</string>
   <string name="revanced_sb_enable_voting">Oylama düğmesini göster</string>
   <string name="revanced_sb_enable_voting_sum_on">Kısım oylama düğmesi gösterilir</string>
@@ -953,7 +959,7 @@ Kullanıcı kimliğiniz bir şifre gibidir ve asla paylaşılmamalıdır.
   <string name="revanced_sb_segments_sponsor">Sponsor</string>
   <string name="revanced_sb_segments_sponsor_sum">Ücretli tanıtım, ücretli yönlendirmeler ve doğrudan reklamlar. Kendi reklamı veya beğendiği amaçlara/üreticilere/sitelere/ürünlere atıfta bulunmalar için değil</string>
   <string name="revanced_sb_segments_selfpromo">Karşılıksız/Kendi Reklamı</string>
-  <string name="revanced_sb_segments_selfpromo_sum">Karşılıksız veya kendi reklamı olması dışında \'Sponsor\' gibidir. Kendi ürünleri, bağışlar, veya iş birliği yaptıkları kişiler hakkında bilgiler içeren kısımları içerir</string>
+  <string name="revanced_sb_segments_selfpromo_sum">Sponsor\'a Benzer, ancak ücretsiz veya kendi reklamı için geçerlidir. Ürünler, bağışlar veya kimlerle birlikte çalıştıkları hakkında bölümler içerir</string>
   <string name="revanced_sb_segments_interaction">Etkileşim Hatırlatıcısı (Abone Ol)</string>
   <string name="revanced_sb_segments_interaction_sum">İçeriğin ortasında beğenme, abone olma veya takip etme için hatırlatmalar. Eğer uzunsa veya belirli birşey hakkındaysa kendi reklamı kategorisinde olmalıdır</string>
   <string name="revanced_sb_segments_highlight">Vurgu</string>
@@ -1213,8 +1219,10 @@ Genişletmek veya kapatmak için kaydırın"</string>
   <string name="revanced_seekbar_custom_color_title">Özel zaman çubuğu rengini etkinleştir</string>
   <string name="revanced_seekbar_custom_color_summary_on">Özel zaman çubuğu rengi gösterilir</string>
   <string name="revanced_seekbar_custom_color_summary_off">Orijinal zaman çubuğu rengi gösterilir</string>
-  <string name="revanced_seekbar_custom_color_value_title">Özel zaman çubuğu rengi</string>
-  <string name="revanced_seekbar_custom_color_value_summary">Zaman çubuğunun rengi</string>
+  <string name="revanced_seekbar_custom_color_primary_title">Özel kaydırma çubuğu rengi</string>
+  <string name="revanced_seekbar_custom_color_primary_summary">Kaydırma çubuğunun rengi</string>
+  <string name="revanced_seekbar_custom_color_accent_title">Özel kaydırma çubuğu vurgu rengi</string>
+  <string name="revanced_seekbar_custom_color_accent_summary">Kaydırma çubuğunun vurgu rengi</string>
   <string name="revanced_seekbar_custom_color_invalid">Geçersiz zaman çubuğu renk değeri</string>
   </patch>
   <patch id="layout.thumbnails.bypassImageRegionRestrictionsPatch">
@@ -1354,6 +1362,11 @@ Bunu etkinleştirmek daha yüksek video kalitelerini açabilir"</string>
   <string name="revanced_playback_speed_default_title">Varsayılan oynatma hızı</string>
   <string name="revanced_remember_playback_speed_toast">Varsayılan hız %s olarak değiştirildi</string>
   </patch>
+  <patch id="video.hdr.disableHdrPatch">
+  <string name="revanced_disable_hdr_video_title">HDR videoyu devre dışı bırak</string>
+  <string name="revanced_disable_hdr_video_summary_on">HDR video devre dışı bırakıldı</string>
+  <string name="revanced_disable_hdr_video_summary_off">HDR video etkinleştirildi</string>
+  </patch>
   <patch id="video.videoqualitymenu.restoreOldVideoQualityMenuResourcePatch">
   <string name="revanced_restore_old_video_quality_menu_title">Eski video kalite menüsünü geri getir</string>
   <string name="revanced_restore_old_video_quality_menu_summary_on">Eski video kalite menüsü gösterilir</string>
@@ -1391,6 +1404,7 @@ AVC'nin maksimum çözünürlüğü 1080p'dir, Opus ses kodeği kullanılamaz ve
 • Sabit ses özelliği kullanılamaz
 • Orijinal sesi zorlama kullanılamaz"</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• AV1 video kodeği yok</string>
+  <string name="revanced_spoof_video_streams_about_kids_videos">• Çocuk videoları oturum açılmadığında veya gizli modda oynatılamayabilir</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Meraklısı için istatistiklerde göster</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">İstemci tipi meraklısı için istatistiklerde gösterilir</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">İstemci, meraklısı için istatistiklerde gizli</string>

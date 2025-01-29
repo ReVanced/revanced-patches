@@ -96,9 +96,6 @@ Second \"item\" text"</string>
   <string name="revanced_debug_toast_on_error_summary_off">טוסט אינו מוצג במקרה של שגיאה</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
-  <string name="revanced_disable_like_subscribe_glow_title">השבת זוהר כפתור לייק / הרשמה</string>
-  <string name="revanced_disable_like_subscribe_glow_summary_on">כפתור לייק והרשמה לא יזהרו כאשר יוזכרו</string>
-  <string name="revanced_disable_like_subscribe_glow_summary_off">כפתור לייק והרשמה יזהרו כאשר יוזכרו</string>
   <string name="revanced_hide_album_cards_title">הסתר כרטיסי אלבום</string>
   <string name="revanced_hide_album_cards_summary_on">כרטיסי אלבום מוסתרים</string>
   <string name="revanced_hide_album_cards_summary_off">כרטיסי אלבום מוצגים</string>
@@ -145,9 +142,6 @@ Second \"item\" text"</string>
   <string name="revanced_hide_chips_shelf_title">הסתר מדף צ\'יפים</string>
   <string name="revanced_hide_chips_shelf_summary_on">מדף צ\'יפים מוסתר</string>
   <string name="revanced_hide_chips_shelf_summary_off">מדף צ\'יפים מוצג</string>
-  <string name="revanced_hide_expandable_chip_title">הסתר צ\'יפ ניתן להרחבה מתחת לסרטונים</string>
-  <string name="revanced_hide_expandable_chip_summary_on">צ\'יפים הניתנים להרחבה מוסתרים</string>
-  <string name="revanced_hide_expandable_chip_summary_off">צ\'יפים הניתנים להרחבה מוצגים</string>
   <string name="revanced_hide_community_posts_title">הסתר פוסטים קהילתיים</string>
   <string name="revanced_hide_community_posts_summary_on">פוסטים קהילתיים מוסתרים</string>
   <string name="revanced_hide_community_posts_summary_off">פוסטים קהילתיים מוצגים</string>
@@ -308,7 +302,6 @@ Mלות עם אותיות גדולות באמצע צריכות להיכנס עם
   </patch>
   <patch id="layout.sponsorblock.sponsorBlockResourcePatch">
   <string name="revanced_sb_enable_sb">הפעל את SponsorBlock</string>
-  <string name="revanced_sb_enable_sb_sum">SponsorBlock היא מערכת מיקור המונים לדילוג על חלקים מטרידים בסרטוני יוטיוב</string>
   <string name="revanced_sb_appearance_category">מראה</string>
   <!-- Translations should use language similar to 'revanced_ryd_compact_layout_title' -->
   <string name="revanced_sb_guidelines_preference_title">ראה הנחיות</string>
@@ -327,7 +320,6 @@ Mלות עם אותיות גדולות באמצע צריכות להיכנס עם
   <string name="revanced_sb_settings_revanced_export_user_id_warning_dismiss">אל תציג שוב</string>
   <string name="revanced_sb_segments_sponsor">חסות</string>
   <string name="revanced_sb_segments_selfpromo">קידום עצמי / לא ממומן</string>
-  <string name="revanced_sb_segments_selfpromo_sum">דומה ל\"חסות\" חוץ מקידום לא ממומן או קידום עצמי. זה כולל קטעים על מכירת מוצרים של הערוץ, תרומות, או מידע על שיתופי פעולה</string>
   <string name="revanced_sb_segments_interaction">תזכורת למעקב (הירשם כמנוי)</string>
   <string name="revanced_sb_segments_highlight">הדגשה</string>
   <string name="revanced_sb_segments_intro">אנימציית פתיח/אינטרו</string>
@@ -485,6 +477,8 @@ Mלות עם אותיות גדולות באמצע צריכות להיכנס עם
   <string name="revanced_custom_playback_speeds_parse_exception">מהירויות הפעלה מותאמות אישית לא חוקיות</string>
   </patch>
   <patch id="video.speed.remember.rememberPlaybackSpeedPatch">
+  </patch>
+  <patch id="video.hdr.disableHdrPatch">
   </patch>
   <patch id="video.videoqualitymenu.restoreOldVideoQualityMenuResourcePatch">
   </patch>
