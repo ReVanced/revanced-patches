@@ -73,7 +73,9 @@ public final class AdsFilter extends Filter {
                 "full_width_square_image_layout",
                 "video_display_button_group_layout",
                 "landscape_image_wide_button_layout",
-                "video_display_carousel_button_group_layout"
+                "video_display_carousel_button_group_layout",
+                "compact_landscape_image_layout", // Tablet layout search results.
+                "text_image_no_button_layout" // Tablet layout search results.
         );
 
         final var generalAds = new StringFilterGroup(
