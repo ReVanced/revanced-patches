@@ -13,7 +13,7 @@ internal val swipingUpGestureParentFingerprint by fingerprint {
     returns("Z")
     parameters()
     instructions(
-        literal(45379021)
+        literal(45379021) // Swipe up fullscreen feature flag
     )
 }
 
@@ -135,6 +135,6 @@ internal val fullscreenSeekbarThumbnailsQualityFingerprint by fingerprint {
     returns("Z")
     parameters()
     instructions(
-        literal(45399684L)
+        literal(45399684L) // Video stream seekbar thumbnails feature flag.
     )
 }

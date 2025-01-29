@@ -9,7 +9,6 @@ internal val billingClientOnServiceConnectedFingerprint by fingerprint {
 
 internal val startSubscriptionActivityFingerprint by fingerprint {
     instructions(
-        // Intent start flag only used in the subscription activity
-        literal(0x10008000)
+        literal(0x10008000) // Intent start flag only used in the subscription activity
     )
 }

@@ -34,7 +34,7 @@ internal val translucentNavigationStatusBarFeatureFlagFingerprint by fingerprint
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("Z")
     instructions(
-        literal(45400535L)
+        literal(45400535L) // Translucent status bar feature flag.
     )
 }
 
@@ -45,7 +45,7 @@ internal val translucentNavigationButtonsFeatureFlagFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("V")
     instructions(
-        literal(45630927L)
+        literal(45630927L) // Translucent navigation bar buttons feature flag.
     )
 }
 
@@ -56,6 +56,6 @@ internal val translucentNavigationButtonsSystemFeatureFlagFingerprint by fingerp
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("Z")
     instructions(
-        literal(45632194L)
+        literal(45632194L) // Translucent system buttons feature flag.
     )
 }

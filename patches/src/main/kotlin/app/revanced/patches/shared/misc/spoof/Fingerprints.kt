@@ -119,7 +119,7 @@ internal val hlsCurrentTimeFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     parameters("Z", "L")
     instructions(
-        literal(45355374L)
+        literal(45355374L) // HLS current time feature flag.
     )
 }
 

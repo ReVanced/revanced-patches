@@ -141,8 +141,8 @@ internal val miniplayerMinimumSizeFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     instructions(
         resourceLiteral("dimen", "miniplayer_max_size"),
-        literal(192),
-        literal(128)
+        literal(192), // Default miniplayer width constant.
+        literal(128)  // Default miniplayer height constant.
     )
 }
 

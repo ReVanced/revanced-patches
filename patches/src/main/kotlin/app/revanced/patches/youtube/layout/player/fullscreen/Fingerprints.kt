@@ -15,6 +15,7 @@ internal val openVideosFullscreenPortraitFingerprint by fingerprint {
     parameters("L", "Lj\$/util/Optional;")
     instructions(
         opcode(Opcode.MOVE_RESULT), // Conditional check to modify.
+        // Open videos fullscreen portrait feature flag.
         literal(45666112L, maxInstructionsBefore = 5), // Cannot be more than 5.
         opcode(Opcode.MOVE_RESULT, maxInstructionsBefore = 10),
     )
