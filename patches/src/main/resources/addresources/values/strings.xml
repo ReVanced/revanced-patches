@@ -185,7 +185,7 @@ You will not be notified of any unexpected events."</string>
             <string name="revanced_hide_channel_watermark_summary_on">Watermark is hidden</string>
             <string name="revanced_hide_channel_watermark_summary_off">Watermark is shown</string>
             <string name="revanced_hide_horizontal_shelves_title">Hide horizontal shelves</string>
-            <string name="revanced_hide_horizontal_shelves_summary_on">"Shelves are hidden such as:
+            <string name="revanced_hide_horizontal_shelves_summary_on">"Shelves are hidden, such as:
 • Breaking news
 • Continue watching
 • Explore more channels
@@ -194,25 +194,25 @@ You will not be notified of any unexpected events."</string>
             <string name="revanced_hide_horizontal_shelves_summary_off">Shelves are shown</string>
             <!-- 'Join' should be translated using the same localized wording YouTube displays.
                  This appears in the video player for certain videos. -->
-            <string name="revanced_hide_join_membership_button_title">Hide \'Join\' button</string>
+            <string name="revanced_hide_join_membership_button_title">Hide Join button</string>
             <string name="revanced_hide_join_membership_button_summary_on">Button is hidden</string>
             <string name="revanced_hide_join_membership_button_summary_off">Button is shown</string>
             <!-- 'For you' should be translated using the same localized wording YouTube displays. -->
-            <string name="revanced_hide_for_you_shelf_title">Hide \'For you\' shelf in channel page</string>
-            <string name="revanced_hide_for_you_shelf_summary_on">Shelf is hidden</string>
-            <string name="revanced_hide_for_you_shelf_summary_off">Shelf is shown</string>
+            <string name="revanced_hide_for_you_shelf_title">Hide For you shelf</string>
+            <string name="revanced_hide_for_you_shelf_summary_on">Shelf in channel page is hidden</string>
+            <string name="revanced_hide_for_you_shelf_summary_off">Shelf in channel page is shown</string>
             <!-- 'Notify me' should be translated using the same localized wording YouTube displays.
                  This item appear in the subscription feed for future livestreams or unreleased videos. -->
-            <string name="revanced_hide_notify_me_button_title">Hide \'Notify me\' button</string>
+            <string name="revanced_hide_notify_me_button_title">Hide Notify me button</string>
             <string name="revanced_hide_notify_me_button_summary_on">Button is hidden</string>
             <string name="revanced_hide_notify_me_button_summary_off">Button is shown</string>
             <!-- 'People also watch' should be translated using the same localized wording YouTube displays. -->
-            <string name="revanced_hide_search_result_recommendations_title">Hide \'People also watched\' recommendations</string>
+            <string name="revanced_hide_search_result_recommendations_title">Hide People also watched recommendations</string>
             <string name="revanced_hide_search_result_recommendations_summary_on">Recommendations are hidden</string>
             <string name="revanced_hide_search_result_recommendations_summary_off">Recommendations are shown</string>
             <!-- 'Show more' should be translated with the same localized wording that YouTube displays.
                   This button usually appears when searching for a YT creator. -->
-            <string name="revanced_hide_show_more_button_title">Hide \'Show more\' button</string>
+            <string name="revanced_hide_show_more_button_title">Hide Show more button</string>
             <string name="revanced_hide_show_more_button_summary_on">Button is hidden</string>
             <string name="revanced_hide_show_more_button_summary_off">Button is shown</string>
             <string name="revanced_hide_timed_reactions_title">Hide timed reactions</string>
@@ -225,8 +225,8 @@ You will not be notified of any unexpected events."</string>
             <string name="revanced_hide_chips_shelf_summary_on">Chips shelf is hidden</string>
             <string name="revanced_hide_chips_shelf_summary_off">Chips shelf is shown</string>
             <string name="revanced_hide_expandable_chip_title">Hide expandable card under videos</string>
-            <string name="revanced_hide_expandable_chip_summary_on">Expandable cards are hidden</string>
-            <string name="revanced_hide_expandable_chip_summary_off">Expandable cards are shown</string>
+            <string name="revanced_hide_expandable_chip_summary_on">Expandable card is hidden</string>
+            <string name="revanced_hide_expandable_chip_summary_off">Expandable card is shown</string>
             <string name="revanced_hide_community_posts_title">Hide community posts</string>
             <string name="revanced_hide_community_posts_summary_on">Community posts are hidden</string>
             <string name="revanced_hide_community_posts_summary_off">Community posts are shown</string>
@@ -281,24 +281,24 @@ You will not be notified of any unexpected events."</string>
             <string name="revanced_hide_artist_cards_title">Hide artist cards</string>
             <string name="revanced_hide_artist_cards_summary_on">Artist cards are hidden</string>
             <string name="revanced_hide_artist_cards_summary_off">Artist cards are shown</string>
-            <string name="revanced_hide_attributes_section_title">Hide attributes section</string>
-            <string name="revanced_hide_attributes_section_summary_on">\'Featured places\', Games and Music sections are hidden</string>
-            <string name="revanced_hide_attributes_section_summary_off">\'Featured places\', Games and Music sections are shown</string>
+            <string name="revanced_hide_attributes_section_title">Hide Attributes section</string>
+            <string name="revanced_hide_attributes_section_summary_on">Featured places, Games, Music, and People mentioned sections are hidden</string>
+            <string name="revanced_hide_attributes_section_summary_off">Featured places, Games, Music, and People mentioned sections are shown</string>
             <string name="revanced_hide_chapters_section_title">Hide Chapters section</string>
             <string name="revanced_hide_chapters_section_summary_on">Chapters section is hidden</string>
             <string name="revanced_hide_chapters_section_summary_off">Chapters section is shown</string>
-            <string name="revanced_hide_how_this_was_made_section_title">Hide \'How this content was made\' section</string>
-            <string name="revanced_hide_how_this_was_made_section_summary_on">\'How this content was made\' section is hidden</string>
-            <string name="revanced_hide_how_this_was_made_section_summary_off">\'How this content was made\' section is shown</string>
-            <string name="revanced_hide_podcast_section_title">Hide \'Explore the podcast\' section</string>
-            <string name="revanced_hide_podcast_section_summary_on">\'Explore the podcast\' section is hidden</string>
-            <string name="revanced_hide_podcast_section_summary_off">\'Explore the podcast\' section is shown</string>
-            <string name="revanced_hide_info_cards_section_title">Hide info cards section</string>
+            <string name="revanced_hide_how_this_was_made_section_title">Hide How this content was made section</string>
+            <string name="revanced_hide_how_this_was_made_section_summary_on">How this content was made section is hidden</string>
+            <string name="revanced_hide_how_this_was_made_section_summary_off">How this content was made section is shown</string>
+            <string name="revanced_hide_podcast_section_title">Hide Explore the podcast section</string>
+            <string name="revanced_hide_podcast_section_summary_on">Explore the podcast section is hidden</string>
+            <string name="revanced_hide_podcast_section_summary_off">Explore the podcast section is shown</string>
+            <string name="revanced_hide_info_cards_section_title">Hide Info cards section</string>
             <string name="revanced_hide_info_cards_section_summary_on">Info cards section is hidden</string>
             <string name="revanced_hide_info_cards_section_summary_off">Info cards section is shown</string>
-            <string name="revanced_hide_key_concepts_section_title">Hide \'Key concepts\' section</string>
-            <string name="revanced_hide_key_concepts_section_summary_on">\'Key concepts\' section is hidden</string>
-            <string name="revanced_hide_key_concepts_section_summary_off">\'Key concepts\' section is shown</string>
+            <string name="revanced_hide_key_concepts_section_title">Hide Key concepts section</string>
+            <string name="revanced_hide_key_concepts_section_summary_on">Key concepts section is hidden</string>
+            <string name="revanced_hide_key_concepts_section_summary_off">Key concepts section is shown</string>
             <string name="revanced_hide_transcript_section_title">Hide Transcript section</string>
             <string name="revanced_hide_transcript_section_summary_on">Transcript section is hidden</string>
             <string name="revanced_hide_transcript_section_summary_off">Transcript section is shown</string>
@@ -319,27 +319,27 @@ You will not be notified of any unexpected events."</string>
 
             <string name="revanced_comments_screen_title">Comments</string>
             <string name="revanced_comments_screen_summary">Hide or show comments section components</string>
-            <string name="revanced_hide_comments_chat_summary_title">Hide \'Chat summary\' </string>
-            <string name="revanced_hide_comments_chat_summary_summary_on">\'Chat summary\' is hidden</string>
-            <string name="revanced_hide_comments_chat_summary_summary_off">\'Chat summary\' is shown</string>
-            <string name="revanced_hide_comments_by_members_header_title">Hide \'Comments by members\' header</string>
-            <string name="revanced_hide_comments_by_members_header_summary_on">\'Comments by members\' header is hidden</string>
-            <string name="revanced_hide_comments_by_members_header_summary_off">\'Comments by members\' header is shown</string>
-            <string name="revanced_hide_comments_section_title">Hide comments section</string>
+            <string name="revanced_hide_comments_chat_summary_title">Hide Chat summary </string>
+            <string name="revanced_hide_comments_chat_summary_summary_on">Chat summary is hidden</string>
+            <string name="revanced_hide_comments_chat_summary_summary_off">Chat summary is shown</string>
+            <string name="revanced_hide_comments_by_members_header_title">Hide Comments by members header</string>
+            <string name="revanced_hide_comments_by_members_header_summary_on">Comments by members header is hidden</string>
+            <string name="revanced_hide_comments_by_members_header_summary_off">Comments by members header is shown</string>
+            <string name="revanced_hide_comments_section_title">Hide Comments section</string>
             <string name="revanced_hide_comments_section_summary_on">Comments section is hidden</string>
             <string name="revanced_hide_comments_section_summary_off">Comments section is shown</string>
-            <string name="revanced_hide_comments_create_a_short_button_title">Hide \'Create a Short\' button</string>
-            <string name="revanced_hide_comments_create_a_short_button_summary_on">\'Create a Short\' button is hidden</string>
-            <string name="revanced_hide_comments_create_a_short_button_summary_off">\'Create a Short\' button is shown</string>
+            <string name="revanced_hide_comments_create_a_short_button_title">Hide Create a Short button</string>
+            <string name="revanced_hide_comments_create_a_short_button_summary_on">Create a Short button is hidden</string>
+            <string name="revanced_hide_comments_create_a_short_button_summary_off">Create a Short button is shown</string>
+            <string name="revanced_hide_comments_timestamp_and_emoji_buttons_title">Hide emoji and timestamp buttons</string>
+            <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_on">Emoji and timestamp buttons are hidden</string>
+            <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_off">Emoji and timestamp buttons are shown</string>
             <string name="revanced_hide_comments_preview_comment_title">Hide preview comment</string>
             <string name="revanced_hide_comments_preview_comment_summary_on">Preview comment is hidden</string>
             <string name="revanced_hide_comments_preview_comment_summary_off">Preview comment is shown</string>
             <string name="revanced_hide_comments_thanks_button_title">Hide Thanks button</string>
             <string name="revanced_hide_comments_thanks_button_summary_on">Thanks button is hidden</string>
             <string name="revanced_hide_comments_thanks_button_summary_off">Thanks button is shown</string>
-            <string name="revanced_hide_comments_timestamp_and_emoji_buttons_title">Hide timestamp and emoji buttons</string>
-            <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_on">Timestamp and emoji buttons are hidden</string>
-            <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_off">Timestamp and emoji buttons are shown</string>
 
             <!-- https://logos.fandom.com/wiki/YouTube/Yoodles -->
             <string name="revanced_hide_doodles_title">Hide YouTube Doodles</string>
@@ -412,7 +412,7 @@ This feature is only available for older devices"</string>
             <string name="revanced_hide_self_sponsor_ads_title">Hide self sponsored cards</string>
             <string name="revanced_hide_self_sponsor_ads_summary_on">Self sponsored cards are hidden</string>
             <string name="revanced_hide_self_sponsor_ads_summary_off">Self sponsored cards are shown</string>
-            <string name="revanced_hide_products_banner_title">Hide banner to view products</string>
+            <string name="revanced_hide_products_banner_title">Hide View products banner</string>
             <string name="revanced_hide_products_banner_summary_on">Banner is hidden</string>
             <string name="revanced_hide_products_banner_summary_off">Banner is shown</string>
             <string name="revanced_hide_end_screen_store_banner_title">Hide end screen store banner</string>
@@ -422,12 +422,12 @@ This feature is only available for older devices"</string>
             <string name="revanced_hide_player_store_shelf_summary_on">Shopping shelf is hidden</string>
             <string name="revanced_hide_player_store_shelf_summary_off">Shopping shelf is shown</string>
             <string name="revanced_hide_shopping_links_title">Hide shopping links</string>
-            <string name="revanced_hide_shopping_links_summary_on">Video description shopping links are hidden</string>
-            <string name="revanced_hide_shopping_links_summary_off">Video description shopping links are shown</string>
+            <string name="revanced_hide_shopping_links_summary_on">Shopping links in video description are hidden</string>
+            <string name="revanced_hide_shopping_links_summary_off">Shopping links in video description are shown</string>
             <!-- 'Visit store' should be translated with the same localized wording that YouTube displays. -->
-            <string name="revanced_hide_visit_store_button_title">Hide \'Visit store\' button</string>
-            <string name="revanced_hide_visit_store_button_summary_on">Button is hidden on channel page</string>
-            <string name="revanced_hide_visit_store_button_summary_off">Button is shown on channel page</string>
+            <string name="revanced_hide_visit_store_button_title">Hide Visit store button</string>
+            <string name="revanced_hide_visit_store_button_summary_on">Button in channel page is hidden</string>
+            <string name="revanced_hide_visit_store_button_summary_off">Button in channel page is shown</string>
             <string name="revanced_hide_web_search_results_title">Hide web search results</string>
             <string name="revanced_hide_web_search_results_summary_on">Web search results are hidden</string>
             <string name="revanced_hide_web_search_results_summary_off">Web search results are shown</string>
@@ -844,14 +844,14 @@ Note: Enabling this also forcibly hides video ads"</string>
             <string name="revanced_ryd_enable_summary_on">Dislikes are shown</string>
             <string name="revanced_ryd_enable_summary_off">Dislikes are not shown</string>
             <string name="revanced_ryd_shorts_title">Show dislikes on Shorts</string>
-            <string name="revanced_ryd_shorts_summary_on">Dislikes shown on Shorts</string>
-            <string name="revanced_ryd_shorts_summary_on_disclaimer">"Dislikes shown on Shorts
+            <string name="revanced_ryd_shorts_summary_on">Dislikes are shown on Shorts</string>
+            <string name="revanced_ryd_shorts_summary_on_disclaimer">"Dislikes are shown on Shorts
 
 Limitation: Dislikes may not appear in incognito mode"</string>
-            <string name="revanced_ryd_shorts_summary_off">Dislikes hidden on Shorts</string>
+            <string name="revanced_ryd_shorts_summary_off">Dislikes are hidden on Shorts</string>
             <string name="revanced_ryd_dislike_percentage_title">Dislikes as percentage</string>
-            <string name="revanced_ryd_dislike_percentage_summary_on">Dislikes shown as percentage</string>
-            <string name="revanced_ryd_dislike_percentage_summary_off">Dislikes shown as number</string>
+            <string name="revanced_ryd_dislike_percentage_summary_on">Dislikes are shown as a percentage</string>
+            <string name="revanced_ryd_dislike_percentage_summary_off">Dislikes are shown as a number</string>
             <!-- Translations should use language similar to 'revanced_sb_enable_compact_skip_button' -->
             <string name="revanced_ryd_compact_layout_title">Compact Like button</string>
             <string name="revanced_ryd_compact_layout_summary_on">Like button styled for minimum width</string>
@@ -909,10 +909,10 @@ This feature works best with a video quality of 720p or lower and when using a v
             <string name="revanced_sb_enable_voting_sum_on">Segment voting button is shown</string>
             <string name="revanced_sb_enable_voting_sum_off">Segment voting button is not shown</string>
             <!-- Translations should use language similar to 'revanced_ryd_compact_layout_title' -->
-            <string name="revanced_sb_enable_compact_skip_button">Use compact skip button</string>
+            <string name="revanced_sb_enable_compact_skip_button">Use compact Skip button</string>
             <string name="revanced_sb_enable_compact_skip_button_sum_on">Skip button styled for minimum width</string>
             <string name="revanced_sb_enable_compact_skip_button_sum_off">Skip button styled for best appearance</string>
-            <string name="revanced_sb_enable_auto_hide_skip_segment_button">Automatically hide skip button</string>
+            <string name="revanced_sb_enable_auto_hide_skip_segment_button">Automatically hide Skip button</string>
             <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_on">Skip button hides after a few seconds</string>
             <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_off">Skip button displayed for entire segment</string>
             <string name="revanced_sb_general_skiptoast">Show a toast when skipping automatically</string>
@@ -922,7 +922,7 @@ This feature works best with a video quality of 720p or lower and when using a v
             <string name="revanced_sb_general_time_without_sum_on">Video length minus all segments, shown in parentheses next to the full video length</string>
             <string name="revanced_sb_general_time_without_sum_off">Full video length shown</string>
             <string name="revanced_sb_create_segment_category">Creating new segments</string>
-            <string name="revanced_sb_enable_create_segment">Show create new segment button</string>
+            <string name="revanced_sb_enable_create_segment">Show Create new segment button</string>
             <string name="revanced_sb_enable_create_segment_sum_on">Create new segment button is shown</string>
             <string name="revanced_sb_enable_create_segment_sum_off">Create new segment button is not shown</string>
             <string name="revanced_sb_general_adjusting">Adjust new segment step</string>
@@ -1016,7 +1016,7 @@ Your user id is like a password and it should never be shared.
             <string name="revanced_sb_skipped_multiple_segments">Skipped multiple segments</string>
             <string name="revanced_sb_skip_automatically">Skip automatically</string>
             <string name="revanced_sb_skip_automatically_once">Skip automatically once</string>
-            <string name="revanced_sb_skip_showbutton">Show a skip button</string>
+            <string name="revanced_sb_skip_showbutton">Show a Skip button</string>
             <string name="revanced_sb_skip_seekbaronly">Show in seek bar</string>
             <string name="revanced_sb_skip_ignore">Disable</string>
             <string name="revanced_sb_submit_failed_invalid">Unable to submit segment: %s</string>
@@ -1042,9 +1042,9 @@ Already exists"</string>
             <string name="revanced_sb_new_segment_disabled_category">Category is disabled in settings. Enable category to submit.</string>
             <string name="revanced_sb_new_segment_title">New SponsorBlock segment</string>
             <string name="revanced_sb_new_segment_mark_time_as_question">Set %s as the start or end of a new segment?</string>
-            <string name="revanced_sb_new_segment_mark_start">start</string>
-            <string name="revanced_sb_new_segment_mark_end">end</string>
-            <string name="revanced_sb_new_segment_now">now</string>
+            <string name="revanced_sb_new_segment_mark_start">Start</string>
+            <string name="revanced_sb_new_segment_mark_end">End</string>
+            <string name="revanced_sb_new_segment_now">Now</string>
             <string name="revanced_sb_new_segment_time_start">Time the segment begins at</string>
             <string name="revanced_sb_new_segment_time_end">Time the segment ends at</string>
             <string name="revanced_sb_new_segment_confirm_title">Are the times correct?</string>
