@@ -34,7 +34,6 @@ Second \"item\" text"</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_submenu_title">সেটিংস</string>
-  <string name="revanced_settings_title">ReVanced</string>
   <string name="revanced_settings_confirm_user_dialog_title">আপনি কি এগিয়ে যেতে ইচ্ছুক?</string>
   <string name="revanced_settings_reset">আবার সেট করুন</string>
   <string name="revanced_settings_restart_title">রিফ্রেশ করুন এবং আবার চালু করুন</string>
@@ -136,7 +135,6 @@ MicroG-এর জন্য ব্যাটারি অপ্টিমাইজ�
   <string name="revanced_settings_screen_03_feed_title">ফিড</string>
   <string name="revanced_settings_screen_04_general_title">সাধারণ</string>
   <string name="revanced_settings_screen_05_player_title">প্লেয়ার</string>
-  <string name="revanced_settings_screen_06_shorts_title">Shorts</string>
   <string name="revanced_settings_screen_07_seekbar_title">সিকবার</string>
   <string name="revanced_settings_screen_08_swipe_controls_title">সোয়াইপ কন্ট্রোল</string>
   <string name="revanced_settings_screen_11_misc_title">বিবিধ</string>
@@ -170,9 +168,9 @@ MicroG-এর জন্য ব্যাটারি অপ্টিমাইজ�
 আপনি কোনও অপ্রত্যাশিত ঘটনার বিষয়ে অবহিত হবেন না।"</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
-  <string name="revanced_disable_like_subscribe_glow_title">পছন্দ / সদস্যতা বোতামের উজ্জ্বলতা নিষ্ক্রিয় করুন</string>
-  <string name="revanced_disable_like_subscribe_glow_summary_on">পছন্দ এবং সদস্যতা বোতাম যখন উল্লেখ করা হবে উজ্জ্বলতা দিবে না</string>
-  <string name="revanced_disable_like_subscribe_glow_summary_off">পছন্দ এবং সদস্যতা বোতাম যখন উল্লেখ করা হবে উজ্জ্বলতা দিবে</string>
+  <string name="revanced_disable_like_subscribe_glow_title">সক্রিয়করন বোতাম গ্লো বন্ধ করুন</string>
+  <string name="revanced_disable_like_subscribe_glow_summary_on">উল্লেখ করলে সক্রিয়করন এবং সাবস্ক্রাইব বোতাম উজ্জ্বল হবে না</string>
+  <string name="revanced_disable_like_subscribe_glow_summary_off">উল্লেখ করলে সক্রিয়করন এবং সাবস্ক্রাইব বোতাম উজ্জ্বল হবে</string>
   <string name="revanced_hide_album_cards_title">অ্যালবাম কার্ড লুকান</string>
   <string name="revanced_hide_album_cards_summary_on">অ্যালবাম কার্ড লুকিয়ে রয়েছে</string>
   <string name="revanced_hide_album_cards_summary_off">অ্যালবাম কার্ড প্রদর্শিত হয়েছে</string>
@@ -225,9 +223,9 @@ MicroG-এর জন্য ব্যাটারি অপ্টিমাইজ�
   <string name="revanced_hide_chips_shelf_title">চিপ শেলপ লুকান</string>
   <string name="revanced_hide_chips_shelf_summary_on">চিপ শেলপ লুকিয়ে রয়েছে</string>
   <string name="revanced_hide_chips_shelf_summary_off">চিপ শেলপ প্রদর্শিত হয়েছে</string>
-  <string name="revanced_hide_expandable_chip_title">ভিডিওর নিচের সম্প্রসারণযোগ্য চিপস লুকান</string>
-  <string name="revanced_hide_expandable_chip_summary_on">সম্প্রসারণযোগ্য চিপস লুকিয়ে রয়েছে</string>
-  <string name="revanced_hide_expandable_chip_summary_off">সম্প্রসারণযোগ্য চিপস প্রদর্শিত হয়েছে</string>
+  <string name="revanced_hide_expandable_chip_title">ভিডিওর নীচে সম্প্রসারণযোগ্য কার্ড লুকান</string>
+  <string name="revanced_hide_expandable_chip_summary_on">সম্প্রসারণযোগ্য কার্ডগুলি লুকানো আছে</string>
+  <string name="revanced_hide_expandable_chip_summary_off">সম্প্রসারণযোগ্য কার্ডগুলি প্রদর্শিত হচ্ছে</string>
   <string name="revanced_hide_community_posts_title">সম্প্রদায় পোস্ট লুকান</string>
   <string name="revanced_hide_community_posts_summary_on">সম্প্রদায় পোস্ট লুকিয়ে রয়েছে</string>
   <string name="revanced_hide_community_posts_summary_off">সম্প্রদায় পোস্ট প্রদর্শিত হয়েছে</string>
@@ -288,6 +286,9 @@ MicroG-এর জন্য ব্যাটারি অপ্টিমাইজ�
   <string name="revanced_hide_chapters_section_title">চ্যাপ্টার বিভাগ লুকান</string>
   <string name="revanced_hide_chapters_section_summary_on">চ্যাপ্টার বিভাগ লুকিয়ে রয়েছে</string>
   <string name="revanced_hide_chapters_section_summary_off">চ্যাপ্টার বিভাগ প্রদর্শিত হয়েছে</string>
+  <string name="revanced_hide_how_this_was_made_section_title">\'এই কীভাবে তৈরি হল কনটেন্ট\' সেকশনটি লুকান</string>
+  <string name="revanced_hide_how_this_was_made_section_summary_on">\'এই কীভাবে তৈরি হল কনটেন্ট\' সেকশনটি লুকানো আছে</string>
+  <string name="revanced_hide_how_this_was_made_section_summary_off">\'এই কীভাবে তৈরি হল কনটেন্ট\' সেকশনটি প্রদর্শিত হচ্ছে</string>
   <string name="revanced_hide_podcast_section_title">‘পডকাস্ট বিভাগ লুকান’</string>
   <string name="revanced_hide_podcast_section_summary_on">‘পডকাস্ট বিভাগ’ লুকানো আছে</string>
   <string name="revanced_hide_podcast_section_summary_off">‘পডকাস্ট বিভাগ’ প্রদর্শিত হয়েছে</string>
@@ -330,7 +331,7 @@ MicroG-এর জন্য ব্যাটারি অপ্টিমাইজ�
   <string name="revanced_hide_comments_preview_comment_title">মন্তব্যের পূর্বরূপ লুকান</string>
   <string name="revanced_hide_comments_preview_comment_summary_on">মন্তব্যের পূর্বরূপ লুকিয়ে রয়েছে</string>
   <string name="revanced_hide_comments_preview_comment_summary_off">মন্তব্যের পূর্বরূপ প্রদর্শিত হয়েছে</string>
-  <string name="revanced_hide_comments_thanks_button_title">ধন্যবাদ বোতাম লুকান</string>
+  <string name="revanced_hide_comments_thanks_button_title">ধন্যবাদ বাটন লুকান</string>
   <string name="revanced_hide_comments_thanks_button_summary_on">ধন্যবাদ বোতাম লুকিয়ে রয়েছে</string>
   <string name="revanced_hide_comments_thanks_button_summary_off">ধন্যবাদ বোতাম প্রদর্শিত হয়েছে</string>
   <string name="revanced_hide_comments_timestamp_and_emoji_buttons_title">টাইমস্ট্যাম্প ও ইমোজি বোতাম লুকান</string>
@@ -357,12 +358,12 @@ MicroG-এর জন্য ব্যাটারি অপ্টিমাইজ�
   <string name="revanced_hide_keyword_content_home_title">কীওয়ার্ড ব্যবহার করে প্রধান পাতার ভিডিও লুকান</string>
   <string name="revanced_hide_keyword_content_home_summary_on">প্রধান পাতার ভিডিও কীওয়ার্ড দ্বারা ফিল্টার করা হয়েছে</string>
   <string name="revanced_hide_keyword_content_home_summary_off">প্রধান পাতার ভিডিও কীওয়ার্ড দ্বারা ফিল্টার করা হয়নি</string>
-  <string name="revanced_hide_keyword_content_subscriptions_title">কীওয়ার্ড ব্যবহার করে সাবস্ক্রিপশন ভিডিও লুকান</string>
-  <string name="revanced_hide_keyword_content_subscriptions_summary_on">সাবস্ক্রিপশন পাতার ভিডিও কীওয়ার্ড দ্বারা ফিল্টার করা হয়েছে</string>
-  <string name="revanced_hide_keyword_content_subscriptions_summary_off">সাবস্ক্রিপশন পাতার ভিডিও কীওয়ার্ড দ্বারা ফিল্টার করা হয়নি</string>
   <string name="revanced_hide_keyword_content_search_title">কীওয়ার্ড ব্যবহার করে অনুসন্ধান ফলাফল লুকান</string>
   <string name="revanced_hide_keyword_content_search_summary_on">অনুসন্ধান ফলাফল কীওয়ার্ড দ্বারা ফিল্টার করা হয়েছে</string>
   <string name="revanced_hide_keyword_content_search_summary_off">অনুসন্ধান ফলাফল কীওয়ার্ড দ্বারা ফিল্টার করা হয়নি</string>
+  <string name="revanced_hide_keyword_content_subscriptions_title">কীওয়ার্ড ব্যবহার করে সাবস্ক্রিপশন ভিডিও লুকান</string>
+  <string name="revanced_hide_keyword_content_subscriptions_summary_on">সাবস্ক্রিপশন পাতার ভিডিও কীওয়ার্ড দ্বারা ফিল্টার করা হয়েছে</string>
+  <string name="revanced_hide_keyword_content_subscriptions_summary_off">সাবস্ক্রিপশন পাতার ভিডিও কীওয়ার্ড দ্বারা ফিল্টার করা হয়নি</string>
   <string name="revanced_hide_keyword_content_phrases_title">লুকানোর জন্য কীওয়ার্ড</string>
   <!-- For localization it is preferred, but not required, if 'LeBlanc' is replaced with a localized name or a familiar word that has upper case letters in the middle of the word.
                  This is because keywords can be in any language, and showing an example in the localized script helps convey this. -->
@@ -409,6 +410,9 @@ MicroG-এর জন্য ব্যাটারি অপ্টিমাইজ�
   <string name="revanced_hide_products_banner_title">প্রোডাক্ট দেখার ব্যানার লুকান</string>
   <string name="revanced_hide_products_banner_summary_on">ব্যানার লুকিয়ে রয়েছে</string>
   <string name="revanced_hide_products_banner_summary_off">ব্যানার প্রদর্শিত হয়েছে</string>
+  <string name="revanced_hide_end_screen_store_banner_title">শেষ পর্দার স্টোর ব্যানার লুকান</string>
+  <string name="revanced_hide_end_screen_store_banner_summary_on">স্টোর ব্যানারটি লুকানো আছে</string>
+  <string name="revanced_hide_end_screen_store_banner_summary_off">স্টোর ব্যানারটি প্রদর্শন করা হবে</string>
   <string name="revanced_hide_player_store_shelf_title">প্লেয়ার শপিং শেলফ লুকান</string>
   <string name="revanced_hide_player_store_shelf_summary_on">শপিং শেলফ লুকানো আছে</string>
   <string name="revanced_hide_player_store_shelf_summary_off">শপিং শেলফ দেখানো হচ্ছে</string>
@@ -461,7 +465,7 @@ MicroG-এর জন্য ব্যাটারি অপ্টিমাইজ�
   <string name="revanced_external_downloader_summary_on">প্লেয়ারে ডাউনলোড বোতাম প্রদর্শিত হয়েছে</string>
   <string name="revanced_external_downloader_summary_off">প্লেয়ারে ডাউনলোড বোতাম প্রদর্শিত হয়নি</string>
   <!-- 'download action button' should be translated using the same wording as the translation of 'revanced_hide_download_button_title' -->
-  <string name="revanced_external_downloader_action_button_title">ডাউনলোড অ্যাকশন বোতাম ওভাররাইড করুন</string>
+  <string name="revanced_external_downloader_action_button_title">ডাউনলোড অ্যাকশন বোতামটি ওভাররাইড করুন</string>
   <string name="revanced_external_downloader_action_button_summary_on">ডাউনলোড বোতামটি আপনার বাহিরের ডাউনলোডার খুলবে</string>
   <string name="revanced_external_downloader_action_button_summary_off">ডাউনলোড বোতামটি নেটিভ ইন-অ্যাপ ডাউনলোডার খুলবে</string>
   <string name="revanced_external_downloader_name_title">ডাউনলোডারের প্যাকেজ নাম</string>
@@ -648,14 +652,14 @@ MicroG-এর জন্য ব্যাটারি অপ্টিমাইজ�
   <string name="revanced_hide_player_previous_next_buttons_title">পূর্ববর্তী লুকান &amp; পরবর্তী ভিডিও বোতাম</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_on">বোতাম লুকানো হয়</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">বোতাম দেখানো হয়</string>
-  <string name="revanced_hide_cast_button_title">কাস্ট বাটন লুকান</string>
+  <string name="revanced_hide_cast_button_title">কাস্ট বোতামটি লুকান</string>
   <string name="revanced_hide_cast_button_summary_on">কাস্ট বাটন লুকিয়ে রয়েছে</string>
   <string name="revanced_hide_cast_button_summary_off">কাস্ট বাটন প্রদর্শিত হয়েছে</string>
   <!-- This button does not display any text, but 'captions' should be translated using the same wording used as the translation of 'revanced_hide_player_flyout_captions_title' -->
-  <string name="revanced_hide_captions_button_title">ক্যাপশন বোতাম লুকান</string>
+  <string name="revanced_hide_captions_button_title">ক্যাপশন বোতামটি লুকান</string>
   <string name="revanced_hide_captions_button_summary_on">ক্যাপশন বোতাম লুকানো আছে</string>
   <string name="revanced_hide_captions_button_summary_off">ক্যাপশন বোতাম দেখানো হচ্ছে</string>
-  <string name="revanced_hide_autoplay_button_title">autoplay বোতাম লুকান</string>
+  <string name="revanced_hide_autoplay_button_title">অটোপ্লে বোতামটি লুকান</string>
   <string name="revanced_hide_autoplay_button_summary_on">autoplay বোতাম লুকানো আছে</string>
   <string name="revanced_hide_autoplay_button_summary_off">autoplay বোতাম দেখানো হচ্ছে</string>
   </patch>
@@ -665,7 +669,7 @@ MicroG-এর জন্য ব্যাটারি অপ্টিমাইজ�
   <string name="revanced_hide_endscreen_cards_summary_off">শেষ স্ক্রীন কার্ড প্রদর্শিত হয়েছে</string>
   </patch>
   <patch id="layout.hide.fullscreenambientmode.disableFullscreenAmbientModePatch">
-  <string name="revanced_disable_fullscreen_ambient_mode_title">পূর্ণ স্ক্রীনে অ্যাম্বিয়েন্ট মোড নিষ্ক্রিয় করুন</string>
+  <string name="revanced_disable_fullscreen_ambient_mode_title">ফুলস্ক্রিনে অ্যাম্বিয়েন্ট মোডটি অক্ষম করুন</string>
   <string name="revanced_disable_fullscreen_ambient_mode_summary_on">অ্যাম্বিয়েন্ট মোড নিষ্ক্রিয় করা হয়েছে</string>
   <string name="revanced_disable_fullscreen_ambient_mode_summary_off">অ্যাম্বিয়েন্ট মোড সক্রিয় করা হয়েছে</string>
   </patch>
@@ -705,38 +709,38 @@ MicroG-এর জন্য ব্যাটারি অপ্টিমাইজ�
   <string name="revanced_hide_shorts_history_summary_on">ওয়াচ হিস্ট্রিতে লুকানো</string>
   <string name="revanced_hide_shorts_history_summary_off">ওয়াচ ইতিহাসে দেখানো</string>
   <!-- 'join' should be translated using the same localized wording YouTube displays for the button. -->
-  <string name="revanced_hide_shorts_join_button_title">জয়েন করুন বোতাম লুকান</string>
+  <string name="revanced_hide_shorts_join_button_title">সামিল হও বোতামটি লুকান</string>
   <string name="revanced_hide_shorts_join_button_summary_on">জয়েন করুন বোতাম লুকিয়ে রয়েছে</string>
   <string name="revanced_hide_shorts_join_button_summary_off">জয়েন করুন বোতাম প্রদর্শিত হয়েছে</string>
   <!-- 'subscribe' should be translated using the same localized wording YouTube displays for the button. -->
-  <string name="revanced_hide_shorts_subscribe_button_title">সদস্যতা নিন বোতাম লুকান</string>
+  <string name="revanced_hide_shorts_subscribe_button_title">সাবস্ক্রাইব  বোতামটি লুকান</string>
   <string name="revanced_hide_shorts_subscribe_button_summary_on">সদস্যতা নিন বোতাম লুকিয়ে রয়েছে</string>
   <string name="revanced_hide_shorts_subscribe_button_summary_off">সদস্যতা নিন বোতাম প্রদর্শিত হয়েছে</string>
   <string name="revanced_hide_shorts_paused_overlay_buttons_title">থেমে থাকা ওভারলে বোতাম লুকান</string>
   <string name="revanced_hide_shorts_paused_overlay_buttons_summary_on">থেমে থাকা ওভারলে বোতাম লুকিয়ে রয়েছে</string>
   <string name="revanced_hide_shorts_paused_overlay_buttons_summary_off">থেমে থাকা ওভারলে বোতাম প্রদর্শিত হয়েছে</string>
-  <string name="revanced_hide_shorts_shop_button_title">কেনাকাটা বাটন লুকান</string>
+  <string name="revanced_hide_shorts_shop_button_title">শপ বোতামটি লুকান</string>
   <string name="revanced_hide_shorts_shop_button_summary_on">কেনাকাটা বোতাম লুকিয়ে রয়েছে</string>
   <string name="revanced_hide_shorts_shop_button_summary_off">কেনাকাটা বোতাম প্রদর্শিত হয়েছে</string>
-  <string name="revanced_hide_shorts_super_thanks_button_title">সুপার ধন্যবাদ বোতাম লুকান</string>
-  <string name="revanced_hide_shorts_super_thanks_button_summary_on">সুপার ধন্যবাদ বোতাম লুকিয়ে রয়েছে</string>
-  <string name="revanced_hide_shorts_super_thanks_button_summary_off">সুপার ধন্যবাদ বোতাম প্রদর্শিত হয়েছে</string>
+  <string name="revanced_hide_shorts_super_thanks_button_title">সুপার থ্যাঙ্কস বোতামটি লুকান</string>
+  <string name="revanced_hide_shorts_super_thanks_button_summary_on">বোতামটি লুকানো আছে</string>
+  <string name="revanced_hide_shorts_super_thanks_button_summary_off">সুপার থ্যাঙ্কস বোতামটি প্রদর্শিত হচ্ছে</string>
   <string name="revanced_hide_shorts_tagged_products_title">ট্যাগ করা প্রোডাক্টগুলি লুকান</string>
   <string name="revanced_hide_shorts_tagged_products_summary_on">ট্যাগ করা প্রোডাক্টগুলি লুকিয়ে রয়েছে</string>
   <string name="revanced_hide_shorts_tagged_products_summary_off">ট্যাগ করা প্রোডাক্টগুলি প্রদর্শিত হয়েছে</string>
   <string name="revanced_hide_shorts_location_label_title">অবস্থান লেবেল লুকান</string>
   <string name="revanced_hide_shorts_location_label_summary_on">অবস্থান লেবেল লুকিয়ে রয়েছে</string>
   <string name="revanced_hide_shorts_location_label_summary_off">অবস্থান লেবেল প্রদর্শিত হয়েছে</string>
-  <string name="revanced_hide_shorts_save_sound_button_title">সঙ্গীত সেভ করুন বোতাম লুকান</string>
+  <string name="revanced_hide_shorts_save_sound_button_title">সেভ মিউজিক বোতামটি লুকান</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_on">Save music বোতাম লুকানো আছে</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_off">Save music বোতাম দেখানো হচ্ছে</string>
-  <string name="revanced_hide_shorts_use_template_button_title">Use template বোতাম লুকান</string>
+  <string name="revanced_hide_shorts_use_template_button_title">টেমপ্লেট ব্যবহার করুন বোতামটি লুকান</string>
   <string name="revanced_hide_shorts_use_template_button_summary_on">Use template বোতাম লুকানো আছে</string>
   <string name="revanced_hide_shorts_use_template_button_summary_off">Use template বোতাম দেখানো হচ্ছে</string>
-  <string name="revanced_hide_shorts_upcoming_button_title">Upcoming বোতাম লুকান</string>
+  <string name="revanced_hide_shorts_upcoming_button_title">আসন্ন বোতামটি লুকান</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_on">আগামী বোতাম লুকানো আছে</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_off">আগামী বোতাম দেখানো হচ্ছে</string>
-  <string name="revanced_hide_shorts_green_screen_button_title">সবুজ পর্দা বোতাম লুকান</string>
+  <string name="revanced_hide_shorts_green_screen_button_title">গ্রিন স্ক্রিন বোতামটি লুকান</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_on">সবুজ পর্দা বোতাম লুকানো আছে</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_off">সবুজ পর্দা বোতাম দেখানো হচ্ছে</string>
   <string name="revanced_hide_shorts_hashtag_button_title">হ্যাশট্যাগ বোতাম লুকান</string>
@@ -748,24 +752,24 @@ MicroG-এর জন্য ব্যাটারি অপ্টিমাইজ�
   <string name="revanced_hide_shorts_stickers_title">স্টিকার লুকান</string>
   <string name="revanced_hide_shorts_stickers_summary_on">স্টিকার লুকিয়ে রয়েছে</string>
   <string name="revanced_hide_shorts_stickers_summary_off">স্টিকার প্রদর্শিত হয়েছে</string>
-  <string name="revanced_hide_shorts_like_fountain_title">পছন্দ বোতাম ঝর্ণা লুকান</string>
+  <string name="revanced_hide_shorts_like_fountain_title">লাইক বোতাম ফাউন্টেন অ্যানিমেশনটি লুকান</string>
   <string name="revanced_hide_shorts_like_fountain_summary_on">পছন্দ বোতাম ঝর্ণা অ্যানিমেশন লুকিয়ে রয়েছে</string>
   <string name="revanced_hide_shorts_like_fountain_summary_off">পছন্দ বোতাম ঝর্ণা অ্যানিমেশন প্রদর্শিত হয়েছে</string>
-  <string name="revanced_hide_shorts_like_button_title">পছন্দ বোতাম লুকান</string>
+  <string name="revanced_hide_shorts_like_button_title">লাইক বোতামটি লুকান</string>
   <string name="revanced_hide_shorts_like_button_summary_on">পছন্দ বোতাম লুকিয়ে রয়েছে</string>
   <string name="revanced_hide_shorts_like_button_summary_off">পছন্দ বোতাম প্রদর্শিত হয়েছে</string>
-  <string name="revanced_hide_shorts_dislike_button_title">অপছন্দ বোতাম লুকান</string>
+  <string name="revanced_hide_shorts_dislike_button_title">ডিসলাইক বোতামটি লুকান</string>
   <string name="revanced_hide_shorts_dislike_button_summary_on">অপছন্দ বোতাম লুকিয়ে রয়েছে</string>
   <string name="revanced_hide_shorts_dislike_button_summary_off">অপছন্দ বোতাম প্রদর্শিত হয়েছে</string>
-  <string name="revanced_hide_shorts_comments_button_title">মন্তব্য বোতাম লুকান</string>
+  <string name="revanced_hide_shorts_comments_button_title">কমেন্টস বোতামটি লুকান</string>
   <string name="revanced_hide_shorts_comments_button_summary_on">মন্তব্য বোতাম লুকিয়ে রয়েছে</string>
   <string name="revanced_hide_shorts_comments_button_summary_off">মন্তব্য বোতাম প্রদর্শিত হয়েছে</string>
   <!-- 'remix' should be translated using the same localized wording YouTube displays for the button. -->
-  <string name="revanced_hide_shorts_remix_button_title">রিমিক্স করুন বোতাম লুকান</string>
+  <string name="revanced_hide_shorts_remix_button_title">রিমিক্স বোতামটি লুকান</string>
   <string name="revanced_hide_shorts_remix_button_summary_on">রিমিক্স করুন বোতাম লুকিয়ে রয়েছে</string>
   <string name="revanced_hide_shorts_remix_button_summary_off">রিমিক্স করুন বোতাম প্রদর্শিত হয়েছে</string>
   <!-- 'share' should be translated using the same localized wording YouTube displays for the button. -->
-  <string name="revanced_hide_shorts_share_button_title">শেয়ার করুন বোতাম লুকান</string>
+  <string name="revanced_hide_shorts_share_button_title">শেয়ার বোতামটি লুকান</string>
   <string name="revanced_hide_shorts_share_button_summary_on">শেয়ার করুন বোতাম লুকিয়ে রয়েছে</string>
   <string name="revanced_hide_shorts_share_button_summary_off">শেয়ার করুন বোতাম প্রদর্শিত হয়েছে</string>
   <string name="revanced_hide_shorts_info_panel_title">তথ্য প্যানেল লুকান</string>
@@ -842,7 +846,7 @@ MicroG-এর জন্য ব্যাটারি অপ্টিমাইজ�
   <string name="revanced_ryd_dislike_percentage_summary_on">অপছন্দগুলো শতাংশ অনুযায়ী প্রদর্শিত হয়েছে</string>
   <string name="revanced_ryd_dislike_percentage_summary_off">অপছন্দগুলো সংখ্যা অনুযায়ী প্রদর্শিত হয়েছে</string>
   <!-- Translations should use language similar to 'revanced_sb_enable_compact_skip_button' -->
-  <string name="revanced_ryd_compact_layout_title">সংক্ষিপ্ত পছন্দ বোতাম</string>
+  <string name="revanced_ryd_compact_layout_title">কম্প্যাক্ট লাইক বোতাম</string>
   <string name="revanced_ryd_compact_layout_summary_on">পছন্দ বোতামটি ন্যূনতম প্রস্থের জন্য সাজানো হয়েছে</string>
   <string name="revanced_ryd_compact_layout_summary_off">পছন্দ বোতামটি সেরা চেহারার জন্য সাজানো হয়েছে</string>
   <string name="revanced_ryd_toast_on_connection_error_title">API উপলভ্য না থাকলে একটি টোস্ট দেখান</string>
@@ -890,7 +894,7 @@ MicroG-এর জন্য ব্যাটারি অপ্টিমাইজ�
   </patch>
   <patch id="layout.sponsorblock.sponsorBlockResourcePatch">
   <string name="revanced_sb_enable_sb">SponsorBlock সক্রিয় করুন</string>
-  <string name="revanced_sb_enable_sb_sum">SponsorBlock হল ইউটিউব ভিডিওতে বিরক্তিকর অংশ গুলো এড়িয়ে যাওয়ার জন্য একটি ক্রাউড-সোর্স পদ্ধতি</string>
+  <string name="revanced_sb_enable_sb_sum">SponsorBlock হল YouTube ভিডিওর বিরক্তিকর অংশগুলি স্কিপ করার জন্য একটি ক্রাউডসোর্সড সিস্টেম</string>
   <string name="revanced_sb_appearance_category">রূপ</string>
   <string name="revanced_sb_enable_voting">ভোটিং বাটন দেখান</string>
   <string name="revanced_sb_enable_voting_sum_on">সেগমেন্ট ভোটিং বাটন প্রদর্শিত রয়েছে</string>
@@ -954,7 +958,7 @@ MicroG-এর জন্য ব্যাটারি অপ্টিমাইজ�
   <string name="revanced_sb_segments_sponsor">স্পন্সর</string>
   <string name="revanced_sb_segments_sponsor_sum">পেইড প্রমোশন, পেইড রেফারেল এবং সরাসরি বিজ্ঞাপন। নিজের পছন্দসই কারণ/স্রষ্টা/ওয়েবসাইট/পণ্যগুলিতে স্ব-প্রচার বা বিনামূল্যে প্রচারের জন্য নয়।</string>
   <string name="revanced_sb_segments_selfpromo">বিনা অর্থপ্রাপ্ত/স্ব-প্রচার</string>
-  <string name="revanced_sb_segments_selfpromo_sum">\'স্পন্সর\' এর মতো কিন্তু বিনা বেতন বা স্ব-প্রচার ব্যতীত। এর মধ্যে পণ্যদ্রব্য, অনুদান, বা কার সাথে সহযোগিতা করেছে সে সম্পর্কে তথ্য অন্তর্ভুক্ত রয়েছে</string>
+  <string name="revanced_sb_segments_selfpromo_sum">অর্থপ্রদান না করা বা নিজের প্রচার ছাড়া স্পনসরের মতো। পণ্য, অনুদান বা তারা কার সাথে সহযোগিতা করেছে সে সম্পর্কিত বিভাগ অন্তর্ভুক্ত করে</string>
   <string name="revanced_sb_segments_interaction">কথোপথন অনুস্মারক (সাবস্ক্রাইব)</string>
   <string name="revanced_sb_segments_interaction_sum">যখন সামগ্রীর মাঝখানে তাদেরকে লাইক, সাবস্ক্রাইব বা ফলো করার জন্য একটি সংক্ষিপ্ত অনুস্মারক থাকে। যদি এটি দীর্ঘ বা নির্দিষ্ট কিছু সম্পর্কে হয় তবে পরিবর্তে এটি স্ব -প্রচারের অধীনে থাকা উচিত</string>
   <string name="revanced_sb_segments_highlight">লক্ষণীয় করা</string>
@@ -1215,8 +1219,10 @@ Miniplayer স্ক্রিন থেকে বামে বা ডানে �
   <string name="revanced_seekbar_custom_color_title">সিকবারে নিজস্ব রং সক্রিয় করুন</string>
   <string name="revanced_seekbar_custom_color_summary_on">সিকবারে নিজস্ব রং প্রদর্শিত হয়েছে</string>
   <string name="revanced_seekbar_custom_color_summary_off">সিকবারে মূল রং প্রদর্শিত হয়েছে</string>
-  <string name="revanced_seekbar_custom_color_value_title">নিজস্ব সিকবার রং</string>
-  <string name="revanced_seekbar_custom_color_value_summary">সিকবারের রং</string>
+  <string name="revanced_seekbar_custom_color_primary_title">সিলেক্ট কাস্টম সিকবার কালার</string>
+  <string name="revanced_seekbar_custom_color_primary_summary">সিকবারের রঙ</string>
+  <string name="revanced_seekbar_custom_color_accent_title">সিলেক্ট কাস্টম সিকবার এক্সেন্ট কালার</string>
+  <string name="revanced_seekbar_custom_color_accent_summary">সিকবারের এক্সেন্ট রঙ</string>
   <string name="revanced_seekbar_custom_color_invalid">অবৈধ সিকবার রঙ মান</string>
   </patch>
   <patch id="layout.thumbnails.bypassImageRegionRestrictionsPatch">
@@ -1239,7 +1245,6 @@ Miniplayer স্ক্রিন থেকে বামে বা ডানে �
   <string name="revanced_alt_thumbnail_options_entry_2">DeArrow এবং মূল থাম্বনেইল</string>
   <string name="revanced_alt_thumbnail_options_entry_3">DeArrow এবং স্থির ছবি</string>
   <string name="revanced_alt_thumbnail_options_entry_4">স্থির ছবি</string>
-  <string name="revanced_alt_thumbnail_dearrow_about_title">DeArrow</string>
   <string name="revanced_alt_thumbnail_dearrow_about_summary">"DeArrow YouTube ভিডিওগুলির জন্য জনগণের উৎস থেকে তৈরি থাম্বনেইল সরবরাহ করে। এই থাম্বনেইলগুলি প্রায়শই YouTube দ্বারা সরবরাহ করা থাম্বনেইলগুলির চেয়ে আরও প্রাসঙ্গিক।
 
 যদি সক্রিয় করা হয়, তাহলে ভিডিও URLগুলি API সার্ভারে পাঠানো হবে এবং অন্য কোনও ডেটা পাঠানো হবে না। যদি কোনও ভিডিওতে DeArrow থাম্বনেইল না থাকে, তাহলে মূল বা স্থির ক্যাপচার দেখানো হবে
@@ -1357,6 +1362,11 @@ DeArrow সম্পর্কে আরও জানতে এখানে ট�
   <string name="revanced_playback_speed_default_title">প্লেব্যাকের মূল স্পিড</string>
   <string name="revanced_remember_playback_speed_toast">মূল স্পিড পরিবর্তন হচ্ছে: %s</string>
   </patch>
+  <patch id="video.hdr.disableHdrPatch">
+  <string name="revanced_disable_hdr_video_title">HDR ভিডিও নিষ্ক্রিয় করুন</string>
+  <string name="revanced_disable_hdr_video_summary_on">HDR ভিডিও নিষ্ক্রিয় করা হয়েছে</string>
+  <string name="revanced_disable_hdr_video_summary_off">HDR ভিডিও সক্রিয় হয়েছে</string>
+  </patch>
   <patch id="video.videoqualitymenu.restoreOldVideoQualityMenuResourcePatch">
   <string name="revanced_restore_old_video_quality_menu_title">পুরোনো ভিডিও গুণমান উদ্ধার করুন</string>
   <string name="revanced_restore_old_video_quality_menu_summary_on">পুরোনো ভিডিও গুণমান মেনু প্রদর্শিত হয়েছে</string>
@@ -1394,6 +1404,7 @@ AVC-এর সর্বোচ্চ রেজোলিউশন হল 1080p, Op
 • স্থির ভলিউম পাওয়া যায় না
 • মূল অডিও জোর করে চালু করা যায় না"</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• কোনো AV1 ভিডিও কোডেক নেই</string>
+  <string name="revanced_spoof_video_streams_about_kids_videos">• Kids videos may not play when logged out or in incognito mode</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_title">স্ট্যাটস ফর নার্ডসে দেখান</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">স্ট্যাটস ফর নার্ডসে ক্লায়েন্ট প্রকার দেখানো হবে</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">স্ট্যাটস ফর নার্ডসে ক্লায়েন্ট লুকানো হবে</string>

@@ -34,7 +34,6 @@ Second \"item\" text"</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_submenu_title">Impostazioni</string>
-  <string name="revanced_settings_title">ReVanced</string>
   <string name="revanced_settings_confirm_user_dialog_title">Sei sicuro di voler continuare?</string>
   <string name="revanced_settings_reset">Reimposta</string>
   <string name="revanced_settings_restart_title">Aggiorna e riavvia</string>
@@ -94,7 +93,7 @@ Per tradurre nuove lingue visita translate.revanced.app"</string>
   <string name="revanced_language_SW">Swahili</string>
   <string name="revanced_language_TA">Tamil</string>
   <string name="revanced_language_TE">Telugu</string>
-  <string name="revanced_language_TH">Thai</string>
+  <string name="revanced_language_TH">Tailandese</string>
   <string name="revanced_language_TR">Turco</string>
   <string name="revanced_language_UK">Ucraino</string>
   <string name="revanced_language_UR">Urdu</string>
@@ -135,12 +134,12 @@ Tocca il pulsante Continua e consenti le modifiche di ottimizzazione."</string>
   <string name="revanced_settings_screen_02_alt_thumbnails_title">Miniature alternative</string>
   <string name="revanced_settings_screen_03_feed_title">Feed</string>
   <string name="revanced_settings_screen_04_general_title">Generale</string>
-  <string name="revanced_settings_screen_05_player_title">Player</string>
+  <string name="revanced_settings_screen_05_player_title">Lettore</string>
   <string name="revanced_settings_screen_07_seekbar_title">Barra di avanzamento</string>
   <string name="revanced_settings_screen_08_swipe_controls_title">Controlli a gesti</string>
   <string name="revanced_settings_screen_11_misc_title">Varie</string>
   <string name="revanced_settings_screen_12_video_title">Video</string>
-  <string name="revanced_restore_old_settings_menus_title">Ripristina vecchi menu impostazioni</string>
+  <string name="revanced_restore_old_settings_menus_title">Ripristina i vecchi menu delle impostazioni</string>
   <string name="revanced_restore_old_settings_menus_summary_on">I vecchi menu delle impostazioni vengono mostrati</string>
   <string name="revanced_restore_old_settings_menus_summary_off">I vecchi menu delle impostazioni non vengono mostrati</string>
   </patch>
@@ -169,9 +168,9 @@ Tocca il pulsante Continua e consenti le modifiche di ottimizzazione."</string>
 Non sarai notificato di eventi imprevisti."</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
-  <string name="revanced_disable_like_subscribe_glow_title">Disabilita il bagliore del pulsante mi piace / iscriviti</string>
-  <string name="revanced_disable_like_subscribe_glow_summary_on">Mi piace ed il pulsante Iscriviti non si illuminerà quando menzionato</string>
-  <string name="revanced_disable_like_subscribe_glow_summary_off">Mi piace ed il pulsante Iscriviti si illuminerà quando menzionato</string>
+  <string name="revanced_disable_like_subscribe_glow_title">Disabilita l\'effetto di bagliore dei pulsanti Mi piace e Iscriviti</string>
+  <string name="revanced_disable_like_subscribe_glow_summary_on">I pulsanti Mi piace e Iscriviti non saranno evidenziati quando menzionati</string>
+  <string name="revanced_disable_like_subscribe_glow_summary_off">I pulsanti Mi piace e Iscriviti saranno evidenziati quando menzionati</string>
   <string name="revanced_hide_album_cards_title">Nascondi le schede degli album</string>
   <string name="revanced_hide_album_cards_summary_on">Le schede album sono nascoste</string>
   <string name="revanced_hide_album_cards_summary_off">Le schede degli album sono visibili</string>
@@ -224,9 +223,9 @@ Non sarai notificato di eventi imprevisti."</string>
   <string name="revanced_hide_chips_shelf_title">Nascondi la sezione chip</string>
   <string name="revanced_hide_chips_shelf_summary_on">La sezione dei chip è nascosta</string>
   <string name="revanced_hide_chips_shelf_summary_off">La sezione dei chip è visibile</string>
-  <string name="revanced_hide_expandable_chip_title">Nascondi i chip espandibili sotto i video</string>
-  <string name="revanced_hide_expandable_chip_summary_on">I chip espandibili sono nascosti</string>
-  <string name="revanced_hide_expandable_chip_summary_off">I chip espandibili sono visibili</string>
+  <string name="revanced_hide_expandable_chip_title">Nascondi la scheda espandibile sotto i video</string>
+  <string name="revanced_hide_expandable_chip_summary_on">Le schede espandibili sono nascoste</string>
+  <string name="revanced_hide_expandable_chip_summary_off">Le schede espandibili sono visibili</string>
   <string name="revanced_hide_community_posts_title">Nascondi i post della community</string>
   <string name="revanced_hide_community_posts_summary_on">I post della community sono nascosti</string>
   <string name="revanced_hide_community_posts_summary_off">I post della community sono visibili</string>
@@ -287,6 +286,9 @@ Non sarai notificato di eventi imprevisti."</string>
   <string name="revanced_hide_chapters_section_title">Nascondi la sezione Capitoli</string>
   <string name="revanced_hide_chapters_section_summary_on">La sezione Capitoli è nascosta</string>
   <string name="revanced_hide_chapters_section_summary_off">La sezione Capitoli è visibile</string>
+  <string name="revanced_hide_how_this_was_made_section_title">Nascondi la sezione \"Com\'è stato realizzato questo contenuto\"</string>
+  <string name="revanced_hide_how_this_was_made_section_summary_on">La sezione \"Com\'è stato realizzato questo contenuto\" è nascosta</string>
+  <string name="revanced_hide_how_this_was_made_section_summary_off">La sezione \"Com\'è stato realizzato questo contenuto\" è visibile</string>
   <string name="revanced_hide_podcast_section_title">Nascondi la sezione \'Esplora il podcast\'</string>
   <string name="revanced_hide_podcast_section_summary_on">La sezione \'Esplora il podcast\' è nascosta</string>
   <string name="revanced_hide_podcast_section_summary_off">La sezione \'Esplora il podcast\' è visibile</string>
@@ -356,12 +358,12 @@ Se al momento un Doodle è visibile nella tua regione e questa impostazione nasc
   <string name="revanced_hide_keyword_content_home_title">Nascondi i video della Home in base alle parole chiave</string>
   <string name="revanced_hide_keyword_content_home_summary_on">I video nella scheda Home sono filtrati per parole chiave</string>
   <string name="revanced_hide_keyword_content_home_summary_off">I video nella scheda Home non sono filtrati per parole chiave</string>
-  <string name="revanced_hide_keyword_content_subscriptions_title">Nascondi i video della scheda Iscrizioni in base alle parole chiave</string>
-  <string name="revanced_hide_keyword_content_subscriptions_summary_on">I video nella scheda Iscrizioni sono filtrati per parole chiave</string>
-  <string name="revanced_hide_keyword_content_subscriptions_summary_off">I video nella scheda Iscrizioni non sono filtrati per parole chiave</string>
   <string name="revanced_hide_keyword_content_search_title">Nascondi i risultati della ricerca per parole chiave</string>
   <string name="revanced_hide_keyword_content_search_summary_on">I risultati della ricerca sono filtrati per parole chiave</string>
   <string name="revanced_hide_keyword_content_search_summary_off">I risultati della ricerca non sono filtrati per parole chiave</string>
+  <string name="revanced_hide_keyword_content_subscriptions_title">Nascondi i video della scheda Iscrizioni in base alle parole chiave</string>
+  <string name="revanced_hide_keyword_content_subscriptions_summary_on">I video nella scheda Iscrizioni sono filtrati per parole chiave</string>
+  <string name="revanced_hide_keyword_content_subscriptions_summary_off">I video nella scheda Iscrizioni non sono filtrati per parole chiave</string>
   <string name="revanced_hide_keyword_content_phrases_title">Parole chiave da nascondere</string>
   <!-- For localization it is preferred, but not required, if 'LeBlanc' is replaced with a localized name or a familiar word that has upper case letters in the middle of the word.
                  This is because keywords can be in any language, and showing an example in the localized script helps convey this. -->
@@ -408,6 +410,9 @@ Questa funzione è disponibile solo per i dispositivi più vecchi"</string>
   <string name="revanced_hide_products_banner_title">Nascondi banner per visualizzare i prodotti</string>
   <string name="revanced_hide_products_banner_summary_on">Il banner è nascosto</string>
   <string name="revanced_hide_products_banner_summary_off">Il banner è visibile</string>
+  <string name="revanced_hide_end_screen_store_banner_title">Nascondi banner del negozio della schermata finale</string>
+  <string name="revanced_hide_end_screen_store_banner_summary_on">Il banner del negozio è nascosto</string>
+  <string name="revanced_hide_end_screen_store_banner_summary_off">Il banner del negozio è visibile</string>
   <string name="revanced_hide_player_store_shelf_title">Nascondi la sezione Negozio</string>
   <string name="revanced_hide_player_store_shelf_summary_on">Lo scaffale è nascosto</string>
   <string name="revanced_hide_player_store_shelf_summary_off">La sezione negozio è visibile</string>
@@ -460,7 +465,7 @@ Questa funzione è disponibile solo per i dispositivi più vecchi"</string>
   <string name="revanced_external_downloader_summary_on">Il pulsante Scarica è visibile nel player</string>
   <string name="revanced_external_downloader_summary_off">Il pulsante Scarica non è visibile nel player</string>
   <!-- 'download action button' should be translated using the same wording as the translation of 'revanced_hide_download_button_title' -->
-  <string name="revanced_external_downloader_action_button_title">Sovrascrivi il pulsante azione Scarica</string>
+  <string name="revanced_external_downloader_action_button_title">Sovrascrivi il pulsante azione Download</string>
   <string name="revanced_external_downloader_action_button_summary_on">Il pulsante Scarica apre il tuo downloader esterno</string>
   <string name="revanced_external_downloader_action_button_summary_off">Il pulsante Scarica apre il nativo in-app downloader</string>
   <string name="revanced_external_downloader_name_title">Nome pacchetto downloader</string>
@@ -664,7 +669,7 @@ Nota: Abilitare questa opzione nasconde anche le pubblicità video"</string>
   <string name="revanced_hide_endscreen_cards_summary_off">Le schede della schermata finale sono visibili</string>
   </patch>
   <patch id="layout.hide.fullscreenambientmode.disableFullscreenAmbientModePatch">
-  <string name="revanced_disable_fullscreen_ambient_mode_title">Disabilita la Modalità Ambient a schermo intero</string>
+  <string name="revanced_disable_fullscreen_ambient_mode_title">Disattiva la modalità Ambient a schermo intero</string>
   <string name="revanced_disable_fullscreen_ambient_mode_summary_on">Modalità Ambient disabilitata</string>
   <string name="revanced_disable_fullscreen_ambient_mode_summary_off">Modalità Ambient abilitata</string>
   </patch>
@@ -717,7 +722,7 @@ Nota: Abilitare questa opzione nasconde anche le pubblicità video"</string>
   <string name="revanced_hide_shorts_shop_button_title">Nascondi il pulsante Negozio</string>
   <string name="revanced_hide_shorts_shop_button_summary_on">Il pulsante Negozio è nascosto</string>
   <string name="revanced_hide_shorts_shop_button_summary_off">Il pulsante Negozio è visibile</string>
-  <string name="revanced_hide_shorts_super_thanks_button_title">Nascondi il pulsante Super Grazie</string>
+  <string name="revanced_hide_shorts_super_thanks_button_title">Nascondi il pulsante Acquista Super Grazie</string>
   <string name="revanced_hide_shorts_super_thanks_button_summary_on">Il pulsante Super Grazie è nascosto</string>
   <string name="revanced_hide_shorts_super_thanks_button_summary_off">Il pulsante Super Grazie è visibile</string>
   <string name="revanced_hide_shorts_tagged_products_title">Nascondi i prodotti etichettati</string>
@@ -726,16 +731,16 @@ Nota: Abilitare questa opzione nasconde anche le pubblicità video"</string>
   <string name="revanced_hide_shorts_location_label_title">Nascondi etichetta di posizione</string>
   <string name="revanced_hide_shorts_location_label_summary_on">L\'etichetta di posizione è nascosta</string>
   <string name="revanced_hide_shorts_location_label_summary_off">L\'etichetta di posizione è visibile</string>
-  <string name="revanced_hide_shorts_save_sound_button_title">Nascondi il pulsante Salva traccia</string>
+  <string name="revanced_hide_shorts_save_sound_button_title">Nascondi il pulsante Salva Musica</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_on">Il pulsante Salva traccia è nascosto</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_off">Il pulsante Salva traccia è visibile</string>
-  <string name="revanced_hide_shorts_use_template_button_title">Nascondi il pulsante Utilizza modello</string>
+  <string name="revanced_hide_shorts_use_template_button_title">Nascondi il pulsante Usa modello</string>
   <string name="revanced_hide_shorts_use_template_button_summary_on">Il pulsante Utilizza modello è nascosto</string>
   <string name="revanced_hide_shorts_use_template_button_summary_off">Il pulsante Utilizza modello è visibile</string>
-  <string name="revanced_hide_shorts_upcoming_button_title">Nascondi il pulsante Imminente</string>
+  <string name="revanced_hide_shorts_upcoming_button_title">Nascondi il pulsante Prossimamente</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_on">Il pulsante Imminente è nascosto</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_off">Il pulsante Imminente è visibile</string>
-  <string name="revanced_hide_shorts_green_screen_button_title">Nascondi il pulsante Schermo verde</string>
+  <string name="revanced_hide_shorts_green_screen_button_title">Nascondi il pulsante Green Screen</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_on">Il pulsante Schermo verde è nascosto</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_off">Il pulsante Schermo verde è visibile</string>
   <string name="revanced_hide_shorts_hashtag_button_title">Nascondi il pulsante Hashtag</string>
@@ -747,13 +752,13 @@ Nota: Abilitare questa opzione nasconde anche le pubblicità video"</string>
   <string name="revanced_hide_shorts_stickers_title">Nascondi adesivi</string>
   <string name="revanced_hide_shorts_stickers_summary_on">Gli adesivi sono nascosti</string>
   <string name="revanced_hide_shorts_stickers_summary_off">Gli adesivi sono visibili</string>
-  <string name="revanced_hide_shorts_like_fountain_title">Nascondi fontana di Mi Piace</string>
+  <string name="revanced_hide_shorts_like_fountain_title">Nascondi animazione fontana Mi piace</string>
   <string name="revanced_hide_shorts_like_fountain_summary_on">L\'animazione della fontana di Mi Piace è nascosta</string>
   <string name="revanced_hide_shorts_like_fountain_summary_off">L\'animazione della fontana di Mi Piace è visibile</string>
-  <string name="revanced_hide_shorts_like_button_title">Nascondi il pulsante Mi Piace</string>
+  <string name="revanced_hide_shorts_like_button_title">Nascondi il pulsante Mi piace</string>
   <string name="revanced_hide_shorts_like_button_summary_on">Il pulsante Mi Piace è nascosto</string>
   <string name="revanced_hide_shorts_like_button_summary_off">Il pulsante Mi Piace è visibile</string>
-  <string name="revanced_hide_shorts_dislike_button_title">Nascondi il pulsante Non Mi Piace</string>
+  <string name="revanced_hide_shorts_dislike_button_title">Nascondi il pulsante Non mi piace</string>
   <string name="revanced_hide_shorts_dislike_button_summary_on">Il pulsante Non Mi Piace è nascosto</string>
   <string name="revanced_hide_shorts_dislike_button_summary_off">Il pulsante Non Mi Piace è visibile</string>
   <string name="revanced_hide_shorts_comments_button_title">Nascondi il pulsante Commenti</string>
@@ -841,7 +846,7 @@ Limitazione: i Non mi piace potrebbero non apparire in modalità di navigazione 
   <string name="revanced_ryd_dislike_percentage_summary_on">I Non Mi Piace sono mostrati come percentuale</string>
   <string name="revanced_ryd_dislike_percentage_summary_off">I Non Mi Piace sono mostrati come numero</string>
   <!-- Translations should use language similar to 'revanced_sb_enable_compact_skip_button' -->
-  <string name="revanced_ryd_compact_layout_title">Pulsante compatto</string>
+  <string name="revanced_ryd_compact_layout_title">Attiva il pulsante Mi piace compatto</string>
   <string name="revanced_ryd_compact_layout_summary_on">Pulsante Mi Piace riadattato per una larghezza minima</string>
   <string name="revanced_ryd_compact_layout_summary_off">Pulsante Mi Piace riadattato per la migliore visualizzazione</string>
   <string name="revanced_ryd_toast_on_connection_error_title">Mostra un toast se l\'API non è disponibile</string>
@@ -1213,8 +1218,10 @@ Scorrere per espandere o chiudere"</string>
   <string name="revanced_seekbar_custom_color_title">Abilita colore personalizzato della barra di avanzamento</string>
   <string name="revanced_seekbar_custom_color_summary_on">Il colore personalizzato della barra di avanzamento è visibile</string>
   <string name="revanced_seekbar_custom_color_summary_off">Il colore originale della barra di avanzamento è visibile</string>
-  <string name="revanced_seekbar_custom_color_value_title">Colore della barra di avanzamento personalizzato</string>
-  <string name="revanced_seekbar_custom_color_value_summary">Il colore della barra di avanzamento</string>
+  <string name="revanced_seekbar_custom_color_primary_title">Colore personalizzato della barra di avanzamento</string>
+  <string name="revanced_seekbar_custom_color_primary_summary">Il colore della barra di avanzamento </string>
+  <string name="revanced_seekbar_custom_color_accent_title">Colore primario personalizzato per la barra di avanzamento</string>
+  <string name="revanced_seekbar_custom_color_accent_summary">Il colore primario della barra di avanzamento</string>
   <string name="revanced_seekbar_custom_color_invalid">Valore colore barra di avanzamento non valido</string>
   </patch>
   <patch id="layout.thumbnails.bypassImageRegionRestrictionsPatch">
@@ -1354,6 +1361,11 @@ Abilitare questa opzione può sbloccare qualità video più elevate"</string>
   <string name="revanced_playback_speed_default_title">Velocità di riproduzione predefinita</string>
   <string name="revanced_remember_playback_speed_toast">Cambiato la velocità predefinita a: %s</string>
   </patch>
+  <patch id="video.hdr.disableHdrPatch">
+  <string name="revanced_disable_hdr_video_title">Disattiva video in HDR</string>
+  <string name="revanced_disable_hdr_video_summary_on">I video in HDR sono disabilitati</string>
+  <string name="revanced_disable_hdr_video_summary_off">I video in HDR sono abilitati</string>
+  </patch>
   <patch id="video.videoqualitymenu.restoreOldVideoQualityMenuResourcePatch">
   <string name="revanced_restore_old_video_quality_menu_title">Ripristina il vecchio menu di qualità video</string>
   <string name="revanced_restore_old_video_quality_menu_summary_on">Il vecchio menu di qualità video è visibile</string>
@@ -1391,6 +1403,7 @@ AVC ha una risoluzione massima di 1080p, il codec audio Opus non è disponibile 
 • Il volume stabile non è disponibile
 • Forza l'audio originale non è disponibile"</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Nessun codec video AV1</string>
+  <string name="revanced_spoof_video_streams_about_kids_videos">• I video dei bambini potrebbero non essere riprodotti quando si è disconnessi o in modalità di navigazione in incognito</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Mostra nelle statistiche per nerd</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Il tipo di client è mostrato nelle statistiche per nerd</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Il client è nascosto nelle statistiche per nerd</string>
