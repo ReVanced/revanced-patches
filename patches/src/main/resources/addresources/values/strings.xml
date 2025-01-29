@@ -421,13 +421,13 @@ This feature is only available for older devices"</string>
             <string name="revanced_hide_player_store_shelf_title">Hide player shopping shelf</string>
             <string name="revanced_hide_player_store_shelf_summary_on">Shopping shelf is hidden</string>
             <string name="revanced_hide_player_store_shelf_summary_off">Shopping shelf is shown</string>
-            <string name="revanced_hide_shopping_links_title">Hide shopping links in video description</string>
-            <string name="revanced_hide_shopping_links_summary_on">Shopping links are hidden</string>
-            <string name="revanced_hide_shopping_links_summary_off">Shopping links are shown</string>
+            <string name="revanced_hide_shopping_links_title">Hide shopping links</string>
+            <string name="revanced_hide_shopping_links_summary_on">Video description shopping links are hidden</string>
+            <string name="revanced_hide_shopping_links_summary_off">Video description shopping links are shown</string>
             <!-- 'Visit store' should be translated with the same localized wording that YouTube displays. -->
-            <string name="revanced_hide_visit_store_button_title">Hide the \'Visit store\' button on channel pages</string>
-            <string name="revanced_hide_visit_store_button_summary_on">Button is hidden</string>
-            <string name="revanced_hide_visit_store_button_summary_off">Button is shown</string>
+            <string name="revanced_hide_visit_store_button_title">Hide \'Visit store\' button</string>
+            <string name="revanced_hide_visit_store_button_summary_on">Button is hidden on channel page</string>
+            <string name="revanced_hide_visit_store_button_summary_off">Button is shown on channel page</string>
             <string name="revanced_hide_web_search_results_title">Hide web search results</string>
             <string name="revanced_hide_web_search_results_summary_on">Web search results are hidden</string>
             <string name="revanced_hide_web_search_results_summary_off">Web search results are shown</string>
@@ -1415,6 +1415,7 @@ AVC has a maximum resolution of 1080p, Opus audio codec is not available, and vi
 • Stable volume is not available
 • Force original audio is not available"</string>
             <string name="revanced_spoof_video_streams_about_no_av1">• No AV1 video codec</string>
+            <string name="revanced_spoof_video_streams_about_kids_videos">• Kids videos may not play when logged out or in incognito mode</string>
             <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Show in Stats for nerds</string>
             <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Client type is shown in Stats for nerds</string>
             <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Client is hidden in Stats for nerds</string>

@@ -1,3 +1,24 @@
+# [5.10.0-dev.8](https://github.com/ReVanced/revanced-patches/compare/v5.10.0-dev.7...v5.10.0-dev.8) (2025-01-29)
+
+
+### Bug Fixes
+
+* **YouTube - Spoof video streams:** Update settings side effects summary text ([#4369](https://github.com/ReVanced/revanced-patches/issues/4369)) ([e5b3aa1](https://github.com/ReVanced/revanced-patches/commit/e5b3aa1cc6a2465cb006487d528de888bc7cd430))
+
+# [5.10.0-dev.7](https://github.com/ReVanced/revanced-patches/compare/v5.10.0-dev.6...v5.10.0-dev.7) (2025-01-29)
+
+
+### Bug Fixes
+
+* **YouTube - Hide ads:** fix 'Hide the Visit store button on channel pages' not working ([#4364](https://github.com/ReVanced/revanced-patches/issues/4364)) ([9d63ea9](https://github.com/ReVanced/revanced-patches/commit/9d63ea9a10ab5128ce18a1f53a946e84550da258))
+
+# [5.10.0-dev.6](https://github.com/ReVanced/revanced-patches/compare/v5.10.0-dev.5...v5.10.0-dev.6) (2025-01-29)
+
+
+### Bug Fixes
+
+* **YouTube - Hide Ads:** Hide end screen store banner without leaving empty space ([#4367](https://github.com/ReVanced/revanced-patches/issues/4367)) ([7e68390](https://github.com/ReVanced/revanced-patches/commit/7e683906418434dd4e2104337d73a2292415c615))
+
 # [5.10.0-dev.5](https://github.com/ReVanced/revanced-patches/compare/v5.10.0-dev.4...v5.10.0-dev.5) (2025-01-27)
 
 
