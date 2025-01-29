@@ -1,3 +1,10 @@
+# [5.10.0-dev.7](https://github.com/ReVanced/revanced-patches/compare/v5.10.0-dev.6...v5.10.0-dev.7) (2025-01-29)
+
+
+### Bug Fixes
+
+* **YouTube - Hide ads:** fix 'Hide the Visit store button on channel pages' not working ([#4364](https://github.com/ReVanced/revanced-patches/issues/4364)) ([9d63ea9](https://github.com/ReVanced/revanced-patches/commit/9d63ea9a10ab5128ce18a1f53a946e84550da258))
+
 # [5.10.0-dev.6](https://github.com/ReVanced/revanced-patches/compare/v5.10.0-dev.5...v5.10.0-dev.6) (2025-01-29)
 
 
