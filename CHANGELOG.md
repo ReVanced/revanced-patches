@@ -1,3 +1,10 @@
+# [5.10.0-dev.8](https://github.com/ReVanced/revanced-patches/compare/v5.10.0-dev.7...v5.10.0-dev.8) (2025-01-29)
+
+
+### Bug Fixes
+
+* **YouTube - Spoof video streams:** Update settings side effects summary text ([#4369](https://github.com/ReVanced/revanced-patches/issues/4369)) ([e5b3aa1](https://github.com/ReVanced/revanced-patches/commit/e5b3aa1cc6a2465cb006487d528de888bc7cd430))
+
 # [5.10.0-dev.7](https://github.com/ReVanced/revanced-patches/compare/v5.10.0-dev.6...v5.10.0-dev.7) (2025-01-29)
 
 
