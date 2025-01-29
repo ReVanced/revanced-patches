@@ -129,12 +129,13 @@ public final class MiniplayerPatch {
     private static final boolean DRAG_AND_DROP_ENABLED =
             CURRENT_TYPE.isModern() && Settings.MINIPLAYER_DRAG_AND_DROP.get();
 
-    private static final boolean HIDE_EXPAND_CLOSE_ENABLED =
-            Settings.MINIPLAYER_HIDE_EXPAND_CLOSE.get()
-                    && Settings.MINIPLAYER_HIDE_EXPAND_CLOSE.isAvailable();
+    private static final boolean HIDE_OVERLAY_BUTTONS_ENABLED =
+            Settings.MINIPLAYER_HIDE_OVERLAY_BUTTONS.get()
+                    && Settings.MINIPLAYER_HIDE_OVERLAY_BUTTONS.isAvailable();
 
     private static final boolean HIDE_SUBTEXT_ENABLED =
-            (CURRENT_TYPE == MODERN_1 || CURRENT_TYPE == MODERN_3) && Settings.MINIPLAYER_HIDE_SUBTEXT.get();
+            (CURRENT_TYPE == MODERN_1 || CURRENT_TYPE == MODERN_3 || CURRENT_TYPE == MODERN_4)
+                    && Settings.MINIPLAYER_HIDE_SUBTEXT.get();
 
     // 19.25 is last version that has forward/back buttons for phones,
     // but buttons still show for tablets/foldable devices and they don't work well so always hide.
@@ -175,7 +176,7 @@ public final class MiniplayerPatch {
         }
     }
 
-    public static final class MiniplayerHideExpandCloseAvailability implements Setting.Availability {
+    public static final class MiniplayerHideOverlayButtonsAvailability implements Setting.Availability {
         @Override
         public boolean isAvailable() {
             MiniplayerType type = Settings.MINIPLAYER_TYPE.get();
@@ -324,7 +325,16 @@ public final class MiniplayerPatch {
      * Injection point.
      */
     public static void hideMiniplayerExpandClose(View view) {
-        Utils.hideViewByRemovingFromParentUnderCondition(HIDE_EXPAND_CLOSE_ENABLED, view);
+        Utils.hideViewByRemovingFromParentUnderCondition(HIDE_OVERLAY_BUTTONS_ENABLED, view);
+    }
+
+    /**
+     * Injection point.
+     */
+    public static void hideMiniplayerActionButton(View view) {
+        if (CURRENT_TYPE == MODERN_4) {
+            Utils.hideViewByRemovingFromParentUnderCondition(HIDE_OVERLAY_BUTTONS_ENABLED, view);
+        }
     }
 
     /**

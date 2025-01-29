@@ -158,13 +158,13 @@ val miniplayerPatch = bytecodePatch(
         preferences += SwitchPreference("revanced_miniplayer_hide_subtext")
 
         preferences += if (is_19_26_or_greater) {
-            SwitchPreference("revanced_miniplayer_hide_expand_close")
+            SwitchPreference("revanced_miniplayer_hide_overlay_buttons")
         } else {
             SwitchPreference(
-                key = "revanced_miniplayer_hide_expand_close",
-                titleKey = "revanced_miniplayer_hide_expand_close_legacy_title",
-                summaryOnKey = "revanced_miniplayer_hide_expand_close_legacy_summary_on",
-                summaryOffKey = "revanced_miniplayer_hide_expand_close_legacy_summary_off",
+                key = "revanced_miniplayer_hide_overlay_buttons",
+                titleKey = "revanced_miniplayer_hide_overlay_buttons_legacy_title",
+                summaryOnKey = "revanced_miniplayer_hide_overlay_buttons_legacy_summary_on",
+                summaryOffKey = "revanced_miniplayer_hide_overlay_buttons_legacy_summary_off",
             )
         }
 
@@ -400,6 +400,7 @@ val miniplayerPatch = bytecodePatch(
         listOf(
             miniplayerModernExpandButtonFingerprint to "hideMiniplayerExpandClose",
             miniplayerModernCloseButtonFingerprint to "hideMiniplayerExpandClose",
+            miniplayerModernActionButtonFingerprint to "hideMiniplayerActionButton",
             miniplayerModernRewindButtonFingerprint to "hideMiniplayerRewindForward",
             miniplayerModernForwardButtonFingerprint to "hideMiniplayerRewindForward",
             miniplayerModernOverlayViewFingerprint to "adjustMiniplayerOpacity"
@@ -429,33 +430,40 @@ val miniplayerPatch = bytecodePatch(
         // Modern 2 uses the same overlay controls as the regular video player,
         // and the overlay views are added at runtime.
         // Add a hook to the overlay class, and pass the added views to extension.
+        // Problem is fixed in 19.21+
         //
         // NOTE: Modern 2 uses the same video UI as the regular player except resized to smaller.
         // This patch code could be used to hide other player overlays that do not use Litho.
-        playerOverlaysLayoutFingerprint.classDef.methods.add(
-            ImmutableMethod(
-                YOUTUBE_PLAYER_OVERLAYS_LAYOUT_CLASS_NAME,
-                "addView",
-                listOf(
-                    ImmutableMethodParameter("Landroid/view/View;", null, null),
-                    ImmutableMethodParameter("I", null, null),
-                    ImmutableMethodParameter("Landroid/view/ViewGroup\$LayoutParams;", null, null),
-                ),
-                "V",
-                AccessFlags.PUBLIC.value,
-                null,
-                null,
-                MutableMethodImplementation(4),
-            ).toMutable().apply {
-                addInstructions(
-                    """
+        if (!is_19_17_or_greater) {
+            playerOverlaysLayoutFingerprint.classDef.methods.add(
+                ImmutableMethod(
+                    YOUTUBE_PLAYER_OVERLAYS_LAYOUT_CLASS_NAME,
+                    "addView",
+                    listOf(
+                        ImmutableMethodParameter("Landroid/view/View;", null, null),
+                        ImmutableMethodParameter("I", null, null),
+                        ImmutableMethodParameter(
+                            "Landroid/view/ViewGroup\$LayoutParams;",
+                            null,
+                            null
+                        ),
+                    ),
+                    "V",
+                    AccessFlags.PUBLIC.value,
+                    null,
+                    null,
+                    MutableMethodImplementation(4),
+                ).toMutable().apply {
+                    addInstructions(
+                        """
                         invoke-super { p0, p1, p2, p3 }, Landroid/view/ViewGroup;->addView(Landroid/view/View;ILandroid/view/ViewGroup${'$'}LayoutParams;)V
                         invoke-static { p1 }, $EXTENSION_CLASS_DESCRIPTOR->playerOverlayGroupCreated(Landroid/view/View;)V
                         return-void
                     """
-                )
-            }
-        )
+                    )
+                }
+            )
+        }
 
         // endregion
     }

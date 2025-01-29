@@ -11,12 +11,40 @@ import app.revanced.patches.shared.misc.mapping.resourceLiteral
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
+internal const val MINIPLAYER_MODERN_FEATURE_KEY = 45622882L
+// In later targets this feature flag does nothing and is dead code.
+internal const val MINIPLAYER_MODERN_FEATURE_LEGACY_KEY = 45630429L
+internal const val MINIPLAYER_DOUBLE_TAP_FEATURE_KEY = 45628823L
+internal const val MINIPLAYER_DRAG_DROP_FEATURE_KEY = 45628752L
+internal const val MINIPLAYER_HORIZONTAL_DRAG_FEATURE_KEY = 45658112L
+internal const val MINIPLAYER_ROUNDED_CORNERS_FEATURE_KEY = 45652224L
+internal const val MINIPLAYER_INITIAL_SIZE_FEATURE_KEY = 45640023L
+internal const val MINIPLAYER_DISABLED_FEATURE_KEY = 45657015L
+internal const val MINIPLAYER_ANIMATED_EXPAND_FEATURE_KEY = 45644360L
+
+internal val miniplayerModernConstructorFingerprint by fingerprint {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
+    instructions(
+        literal(45623000L) // Magic number found in the constructor.
+    )
+}
+
 internal val miniplayerDimensionsCalculatorParentFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("V")
     parameters("L")
     instructions(
         resourceLiteral("dimen", "floaty_bar_button_top_margin")
+    )
+}
+
+
+internal val miniplayerModernViewParentFingerprint by fingerprint {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
+    returns("Ljava/lang/String;")
+    parameters()
+    instructions(
+        string("player_overlay_modern_mini_player_controls")
     )
 }
 
@@ -39,32 +67,6 @@ internal val miniplayerModernCloseButtonFingerprint by fingerprint {
     instructions(
         resourceLiteral("id", "modern_miniplayer_close"),
         checkCast("Landroid/widget/ImageView;")
-    )
-}
-
-internal const val MINIPLAYER_MODERN_FEATURE_KEY = 45622882L
-// In later targets this feature flag does nothing and is dead code.
-internal const val MINIPLAYER_MODERN_FEATURE_LEGACY_KEY = 45630429L
-internal const val MINIPLAYER_DOUBLE_TAP_FEATURE_KEY = 45628823L
-internal const val MINIPLAYER_DRAG_DROP_FEATURE_KEY = 45628752L
-internal const val MINIPLAYER_HORIZONTAL_DRAG_FEATURE_KEY = 45658112L
-internal const val MINIPLAYER_ROUNDED_CORNERS_FEATURE_KEY = 45652224L
-internal const val MINIPLAYER_INITIAL_SIZE_FEATURE_KEY = 45640023L
-internal const val MINIPLAYER_DISABLED_FEATURE_KEY = 45657015L
-internal const val MINIPLAYER_ANIMATED_EXPAND_FEATURE_KEY = 45644360L
-
-internal val miniplayerModernConstructorFingerprint by fingerprint {
-    accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
-    instructions(
-        literal(45623000L) // Magic number found in the constructor.
-    )
-}
-
-internal val miniplayerOnCloseHandlerFingerprint by fingerprint {
-    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("Z")
-    instructions(
-        literal(MINIPLAYER_DISABLED_FEATURE_KEY)
     )
 }
 
@@ -128,12 +130,16 @@ internal val miniplayerModernRewindButtonFingerprint by fingerprint {
     )
 }
 
-internal val miniplayerModernViewParentFingerprint by fingerprint {
+/**
+ * Matches using the class found in [miniplayerModernViewParentFingerprint].
+ */
+internal val miniplayerModernActionButtonFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("Ljava/lang/String;")
+    returns("L")
     parameters()
     instructions(
-        string("player_overlay_modern_mini_player_controls")
+        resourceLiteral("id", "modern_miniplayer_overlay_action_button"),
+        opcode(Opcode.MOVE_RESULT_OBJECT, maxInstructionsBefore = 5)
     )
 }
 
@@ -173,6 +179,14 @@ internal val miniplayerResponseModelSizeCheckFingerprint by fingerprint {
         Opcode.INVOKE_STATIC,
         Opcode.MOVE_RESULT,
         Opcode.IF_NEZ,
+    )
+}
+
+internal val miniplayerOnCloseHandlerFingerprint by fingerprint {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
+    returns("Z")
+    instructions(
+        literal(MINIPLAYER_DISABLED_FEATURE_KEY)
     )
 }
 
