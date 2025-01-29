@@ -131,7 +131,8 @@ public final class AdsFilter extends Filter {
 
         channelProfile = new StringFilterGroup(
                 Settings.HIDE_VISIT_STORE_BUTTON,
-                "channel_profile.eml"
+                "channel_profile.eml",
+                "page_header.eml"
         );
 
         visitStoreButton = new ByteArrayFilterGroup(
