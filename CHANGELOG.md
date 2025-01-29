@@ -1,3 +1,10 @@
+# [5.10.0-dev.10](https://github.com/ReVanced/revanced-patches/compare/v5.10.0-dev.9...v5.10.0-dev.10) (2025-01-29)
+
+
+### Bug Fixes
+
+* **YouTube - Hide ads:** Hide new types of tablet ads ([574bcc8](https://github.com/ReVanced/revanced-patches/commit/574bcc844746b7445ec3e93b47daceafefad85e7))
+
 # [5.10.0-dev.9](https://github.com/ReVanced/revanced-patches/compare/v5.10.0-dev.8...v5.10.0-dev.9) (2025-01-29)
 
 
