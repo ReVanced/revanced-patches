@@ -40,10 +40,20 @@ internal val shortsSeekbarColorFingerprint by fingerprint {
     )
 }
 
-internal val playerSeekbarHandleColorFingerprint by fingerprint {
+internal val playerSeekbarHandle1ColorFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     parameters("Landroid/content/Context;")
     instructions(
+        resourceLiteral("attr", "ytTextSecondary"),
+        resourceLiteral("attr", "ytStaticBrandRed"),
+    )
+}
+
+internal val playerSeekbarHandle2ColorFingerprint by fingerprint {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
+    parameters("Landroid/content/Context;")
+    instructions(
+        resourceLiteral("color", "inline_time_bar_live_seekable_range"),
         resourceLiteral("attr", "ytStaticBrandRed"),
     )
 }

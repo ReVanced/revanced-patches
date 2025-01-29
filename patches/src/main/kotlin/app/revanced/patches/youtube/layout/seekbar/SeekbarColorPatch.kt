@@ -208,7 +208,10 @@ val seekbarColorPatch = bytecodePatch(
 
         // 19.25+ changes
 
-        playerSeekbarHandleColorFingerprint.let {
+        arrayOf(
+            playerSeekbarHandle1ColorFingerprint,
+            playerSeekbarHandle2ColorFingerprint
+        ).forEach {
             it.method.addColorChangeInstructions(it.instructionMatches.last().index)
         }
 
