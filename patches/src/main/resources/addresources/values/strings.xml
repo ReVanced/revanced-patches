@@ -162,8 +162,8 @@ Tap the continue button and allow optimization changes."</string>
             <string name="revanced_debug_stacktrace_summary_on">Debug logs include stack trace</string>
             <string name="revanced_debug_stacktrace_summary_off">Debug logs do not include stack trace</string>
             <string name="revanced_debug_toast_on_error_title">Show toast on ReVanced error</string>
-            <string name="revanced_debug_toast_on_error_summary_on">Toast shown if error occurs</string>
-            <string name="revanced_debug_toast_on_error_summary_off">Toast not shown if error occurs</string>
+            <string name="revanced_debug_toast_on_error_summary_on">Toast is shown if error occurs</string>
+            <string name="revanced_debug_toast_on_error_summary_off">Toast is hidden if error occurs</string>
             <string name="revanced_debug_toast_on_error_user_dialog_message">"Turning off error toasts hides all ReVanced error notifications.
 
 You will not be notified of any unexpected events."</string>
@@ -185,7 +185,7 @@ You will not be notified of any unexpected events."</string>
             <string name="revanced_hide_channel_watermark_summary_on">Watermark is hidden</string>
             <string name="revanced_hide_channel_watermark_summary_off">Watermark is shown</string>
             <string name="revanced_hide_horizontal_shelves_title">Hide horizontal shelves</string>
-            <string name="revanced_hide_horizontal_shelves_summary_on">"Shelves are hidden such as:
+            <string name="revanced_hide_horizontal_shelves_summary_on">"Shelves are hidden, such as:
 • Breaking news
 • Continue watching
 • Explore more channels
@@ -194,25 +194,25 @@ You will not be notified of any unexpected events."</string>
             <string name="revanced_hide_horizontal_shelves_summary_off">Shelves are shown</string>
             <!-- 'Join' should be translated using the same localized wording YouTube displays.
                  This appears in the video player for certain videos. -->
-            <string name="revanced_hide_join_membership_button_title">Hide \'Join\' button</string>
+            <string name="revanced_hide_join_membership_button_title">Hide Join button</string>
             <string name="revanced_hide_join_membership_button_summary_on">Button is hidden</string>
             <string name="revanced_hide_join_membership_button_summary_off">Button is shown</string>
             <!-- 'For you' should be translated using the same localized wording YouTube displays. -->
-            <string name="revanced_hide_for_you_shelf_title">Hide \'For you\' shelf in channel page</string>
-            <string name="revanced_hide_for_you_shelf_summary_on">Shelf is hidden</string>
-            <string name="revanced_hide_for_you_shelf_summary_off">Shelf is shown</string>
+            <string name="revanced_hide_for_you_shelf_title">Hide For you shelf</string>
+            <string name="revanced_hide_for_you_shelf_summary_on">Shelf in channel page is hidden</string>
+            <string name="revanced_hide_for_you_shelf_summary_off">Shelf in channel page is shown</string>
             <!-- 'Notify me' should be translated using the same localized wording YouTube displays.
                  This item appear in the subscription feed for future livestreams or unreleased videos. -->
-            <string name="revanced_hide_notify_me_button_title">Hide \'Notify me\' button</string>
+            <string name="revanced_hide_notify_me_button_title">Hide Notify me button</string>
             <string name="revanced_hide_notify_me_button_summary_on">Button is hidden</string>
             <string name="revanced_hide_notify_me_button_summary_off">Button is shown</string>
             <!-- 'People also watch' should be translated using the same localized wording YouTube displays. -->
-            <string name="revanced_hide_search_result_recommendations_title">Hide \'People also watched\' recommendations</string>
+            <string name="revanced_hide_search_result_recommendations_title">Hide People also watched recommendations</string>
             <string name="revanced_hide_search_result_recommendations_summary_on">Recommendations are hidden</string>
             <string name="revanced_hide_search_result_recommendations_summary_off">Recommendations are shown</string>
             <!-- 'Show more' should be translated with the same localized wording that YouTube displays.
                   This button usually appears when searching for a YT creator. -->
-            <string name="revanced_hide_show_more_button_title">Hide \'Show more\' button</string>
+            <string name="revanced_hide_show_more_button_title">Hide Show more button</string>
             <string name="revanced_hide_show_more_button_summary_on">Button is hidden</string>
             <string name="revanced_hide_show_more_button_summary_off">Button is shown</string>
             <string name="revanced_hide_timed_reactions_title">Hide timed reactions</string>
@@ -225,8 +225,8 @@ You will not be notified of any unexpected events."</string>
             <string name="revanced_hide_chips_shelf_summary_on">Chips shelf is hidden</string>
             <string name="revanced_hide_chips_shelf_summary_off">Chips shelf is shown</string>
             <string name="revanced_hide_expandable_chip_title">Hide expandable card under videos</string>
-            <string name="revanced_hide_expandable_chip_summary_on">Expandable cards are hidden</string>
-            <string name="revanced_hide_expandable_chip_summary_off">Expandable cards are shown</string>
+            <string name="revanced_hide_expandable_chip_summary_on">Expandable card is hidden</string>
+            <string name="revanced_hide_expandable_chip_summary_off">Expandable card is shown</string>
             <string name="revanced_hide_community_posts_title">Hide community posts</string>
             <string name="revanced_hide_community_posts_summary_on">Community posts are hidden</string>
             <string name="revanced_hide_community_posts_summary_off">Community posts are shown</string>
@@ -282,23 +282,23 @@ You will not be notified of any unexpected events."</string>
             <string name="revanced_hide_artist_cards_summary_on">Artist cards are hidden</string>
             <string name="revanced_hide_artist_cards_summary_off">Artist cards are shown</string>
             <string name="revanced_hide_attributes_section_title">Hide attributes section</string>
-            <string name="revanced_hide_attributes_section_summary_on">\'Featured places\', Games and Music sections are hidden</string>
-            <string name="revanced_hide_attributes_section_summary_off">\'Featured places\', Games and Music sections are shown</string>
+            <string name="revanced_hide_attributes_section_summary_on">Featured places, Games, Music, and People mentioned sections are hidden</string>
+            <string name="revanced_hide_attributes_section_summary_off">Featured places, Games, Music, and People mentioned sections are shown</string>
             <string name="revanced_hide_chapters_section_title">Hide Chapters section</string>
             <string name="revanced_hide_chapters_section_summary_on">Chapters section is hidden</string>
             <string name="revanced_hide_chapters_section_summary_off">Chapters section is shown</string>
-            <string name="revanced_hide_how_this_was_made_section_title">Hide \'How this content was made\' section</string>
-            <string name="revanced_hide_how_this_was_made_section_summary_on">\'How this content was made\' section is hidden</string>
-            <string name="revanced_hide_how_this_was_made_section_summary_off">\'How this content was made\' section is shown</string>
-            <string name="revanced_hide_podcast_section_title">Hide \'Explore the podcast\' section</string>
-            <string name="revanced_hide_podcast_section_summary_on">\'Explore the podcast\' section is hidden</string>
-            <string name="revanced_hide_podcast_section_summary_off">\'Explore the podcast\' section is shown</string>
+            <string name="revanced_hide_how_this_was_made_section_title">Hide How this content was made section</string>
+            <string name="revanced_hide_how_this_was_made_section_summary_on">How this content was made section is hidden</string>
+            <string name="revanced_hide_how_this_was_made_section_summary_off">How this content was made section is shown</string>
+            <string name="revanced_hide_podcast_section_title">Hide Explore the podcast section</string>
+            <string name="revanced_hide_podcast_section_summary_on">Explore the podcast section is hidden</string>
+            <string name="revanced_hide_podcast_section_summary_off">Explore the podcast section is shown</string>
             <string name="revanced_hide_info_cards_section_title">Hide info cards section</string>
             <string name="revanced_hide_info_cards_section_summary_on">Info cards section is hidden</string>
             <string name="revanced_hide_info_cards_section_summary_off">Info cards section is shown</string>
-            <string name="revanced_hide_key_concepts_section_title">Hide \'Key concepts\' section</string>
-            <string name="revanced_hide_key_concepts_section_summary_on">\'Key concepts\' section is hidden</string>
-            <string name="revanced_hide_key_concepts_section_summary_off">\'Key concepts\' section is shown</string>
+            <string name="revanced_hide_key_concepts_section_title">Hide Key concepts section</string>
+            <string name="revanced_hide_key_concepts_section_summary_on">Key concepts section is hidden</string>
+            <string name="revanced_hide_key_concepts_section_summary_off">Key concepts section is shown</string>
             <string name="revanced_hide_transcript_section_title">Hide Transcript section</string>
             <string name="revanced_hide_transcript_section_summary_on">Transcript section is hidden</string>
             <string name="revanced_hide_transcript_section_summary_off">Transcript section is shown</string>
@@ -319,27 +319,27 @@ You will not be notified of any unexpected events."</string>
 
             <string name="revanced_comments_screen_title">Comments</string>
             <string name="revanced_comments_screen_summary">Hide or show comments section components</string>
-            <string name="revanced_hide_comments_chat_summary_title">Hide \'Chat summary\' </string>
-            <string name="revanced_hide_comments_chat_summary_summary_on">\'Chat summary\' is hidden</string>
-            <string name="revanced_hide_comments_chat_summary_summary_off">\'Chat summary\' is shown</string>
-            <string name="revanced_hide_comments_by_members_header_title">Hide \'Comments by members\' header</string>
-            <string name="revanced_hide_comments_by_members_header_summary_on">\'Comments by members\' header is hidden</string>
-            <string name="revanced_hide_comments_by_members_header_summary_off">\'Comments by members\' header is shown</string>
+            <string name="revanced_hide_comments_chat_summary_title">Hide Chat summary </string>
+            <string name="revanced_hide_comments_chat_summary_summary_on">Chat summary is hidden</string>
+            <string name="revanced_hide_comments_chat_summary_summary_off">Chat summary is shown</string>
+            <string name="revanced_hide_comments_by_members_header_title">Hide Comments by members header</string>
+            <string name="revanced_hide_comments_by_members_header_summary_on">Comments by members header is hidden</string>
+            <string name="revanced_hide_comments_by_members_header_summary_off">Comments by members header is shown</string>
             <string name="revanced_hide_comments_section_title">Hide comments section</string>
             <string name="revanced_hide_comments_section_summary_on">Comments section is hidden</string>
             <string name="revanced_hide_comments_section_summary_off">Comments section is shown</string>
-            <string name="revanced_hide_comments_create_a_short_button_title">Hide \'Create a Short\' button</string>
-            <string name="revanced_hide_comments_create_a_short_button_summary_on">\'Create a Short\' button is hidden</string>
-            <string name="revanced_hide_comments_create_a_short_button_summary_off">\'Create a Short\' button is shown</string>
+            <string name="revanced_hide_comments_create_a_short_button_title">Hide Create a Short button</string>
+            <string name="revanced_hide_comments_create_a_short_button_summary_on">Create a Short button is hidden</string>
+            <string name="revanced_hide_comments_create_a_short_button_summary_off">Create a Short button is shown</string>
+            <string name="revanced_hide_comments_timestamp_and_emoji_buttons_title">Hide emoji and timestamp buttons</string>
+            <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_on">Emoji and timestamp buttons are hidden</string>
+            <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_off">Emoji and timestamp buttons are shown</string>
             <string name="revanced_hide_comments_preview_comment_title">Hide preview comment</string>
             <string name="revanced_hide_comments_preview_comment_summary_on">Preview comment is hidden</string>
             <string name="revanced_hide_comments_preview_comment_summary_off">Preview comment is shown</string>
             <string name="revanced_hide_comments_thanks_button_title">Hide Thanks button</string>
             <string name="revanced_hide_comments_thanks_button_summary_on">Thanks button is hidden</string>
             <string name="revanced_hide_comments_thanks_button_summary_off">Thanks button is shown</string>
-            <string name="revanced_hide_comments_timestamp_and_emoji_buttons_title">Hide timestamp and emoji buttons</string>
-            <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_on">Timestamp and emoji buttons are hidden</string>
-            <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_off">Timestamp and emoji buttons are shown</string>
 
             <!-- https://logos.fandom.com/wiki/YouTube/Yoodles -->
             <string name="revanced_hide_doodles_title">Hide YouTube Doodles</string>
@@ -422,12 +422,12 @@ This feature is only available for older devices"</string>
             <string name="revanced_hide_player_store_shelf_summary_on">Shopping shelf is hidden</string>
             <string name="revanced_hide_player_store_shelf_summary_off">Shopping shelf is shown</string>
             <string name="revanced_hide_shopping_links_title">Hide shopping links</string>
-            <string name="revanced_hide_shopping_links_summary_on">Video description shopping links are hidden</string>
-            <string name="revanced_hide_shopping_links_summary_off">Video description shopping links are shown</string>
+            <string name="revanced_hide_shopping_links_summary_on">Shopping links in video description is hidden</string>
+            <string name="revanced_hide_shopping_links_summary_off">Shopping links in video description is shown</string>
             <!-- 'Visit store' should be translated with the same localized wording that YouTube displays. -->
-            <string name="revanced_hide_visit_store_button_title">Hide \'Visit store\' button</string>
-            <string name="revanced_hide_visit_store_button_summary_on">Button is hidden on channel page</string>
-            <string name="revanced_hide_visit_store_button_summary_off">Button is shown on channel page</string>
+            <string name="revanced_hide_visit_store_button_title">Hide Visit store button</string>
+            <string name="revanced_hide_visit_store_button_summary_on">Button in channel page is hidden</string>
+            <string name="revanced_hide_visit_store_button_summary_off">Button in channel page is shown</string>
             <string name="revanced_hide_web_search_results_title">Hide web search results</string>
             <string name="revanced_hide_web_search_results_summary_on">Web search results are hidden</string>
             <string name="revanced_hide_web_search_results_summary_off">Web search results are shown</string>
@@ -452,10 +452,10 @@ This feature is only available for older devices"</string>
             <string name="revanced_share_copy_url_timestamp_success">URL with timestamp copied</string>
             <string name="revanced_copy_video_url_title">Show copy video URL button</string>
             <string name="revanced_copy_video_url_summary_on">Button is shown. Tap to copy video URL. Tap and hold to copy video URL with timestamp</string>
-            <string name="revanced_copy_video_url_summary_off">Button is not shown</string>
+            <string name="revanced_copy_video_url_summary_off">Button is hidden</string>
             <string name="revanced_copy_video_url_timestamp_title">Show copy timestamp URL button</string>
             <string name="revanced_copy_video_url_timestamp_summary_on">Button is shown. Tap to copy video URL with timestamp. Tap and hold to copy video without timestamp</string>
-            <string name="revanced_copy_video_url_timestamp_summary_off">Button is not shown</string>
+            <string name="revanced_copy_video_url_timestamp_summary_off">Button is hidden</string>
         </patch>
         <patch id="interaction.dialog.removeViewerDiscretionDialogPatch">
             <string name="revanced_remove_viewer_discretion_dialog_title">Remove viewer discretion dialog</string>
@@ -467,8 +467,8 @@ This feature is only available for older devices"</string>
             <string name="revanced_external_downloader_screen_title">External downloads</string>
             <string name="revanced_external_downloader_screen_summary">Settings for using an external downloader</string>
             <string name="revanced_external_downloader_title">Show external download button</string>
-            <string name="revanced_external_downloader_summary_on">Download button shown in player</string>
-            <string name="revanced_external_downloader_summary_off">Download button not shown in player</string>
+            <string name="revanced_external_downloader_summary_on">Download button is shown in player</string>
+            <string name="revanced_external_downloader_summary_off">Download button is hidden in player</string>
             <!-- 'download action button' should be translated using the same wording as the translation of 'revanced_hide_download_button_title' -->
             <string name="revanced_external_downloader_action_button_title">Override Download action button</string>
             <string name="revanced_external_downloader_action_button_summary_on">Download button opens your external downloader</string>
@@ -834,31 +834,31 @@ Note: Enabling this also forcibly hides video ads"</string>
         <patch id="layout.returnyoutubedislike.returnYouTubeDislikePatch">
             <string name="revanced_ryd_settings_title">Return YouTube Dislike</string>
             <!-- Toast shown if network connection times out. Translations of this should not be longer than the original English or the text can be clipped and not entirely shown. -->
-            <string name="revanced_ryd_failure_connection_timeout">Dislikes temporarily not available (API timed out)</string>
-            <string name="revanced_ryd_failure_connection_status_code">Dislikes not available (status %d)</string>
-            <string name="revanced_ryd_failure_client_rate_limit_requested">Dislikes not available (client API limit reached)</string>
-            <string name="revanced_ryd_failure_generic">Dislikes not available (%s)</string>
+            <string name="revanced_ryd_failure_connection_timeout">Dislikes are temporarily unavailable (API timed out)</string>
+            <string name="revanced_ryd_failure_connection_status_code">Dislikes are unavailable (status %d)</string>
+            <string name="revanced_ryd_failure_client_rate_limit_requested">Dislikes are unavailable (client API limit reached)</string>
+            <string name="revanced_ryd_failure_generic">Dislikes are unavailable (%s)</string>
             <!-- Toast shown if the user enables RYD while a video is opened, and then tries to vote for the video. -->
             <string name="revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted">Reload video to vote using Return YouTube Dislike</string>
             <string name="revanced_ryd_enable_title">Return YouTube Dislike</string>
             <string name="revanced_ryd_enable_summary_on">Dislikes are shown</string>
-            <string name="revanced_ryd_enable_summary_off">Dislikes are not shown</string>
+            <string name="revanced_ryd_enable_summary_off">Dislikes are hidden</string>
             <string name="revanced_ryd_shorts_title">Show dislikes on Shorts</string>
-            <string name="revanced_ryd_shorts_summary_on">Dislikes shown on Shorts</string>
-            <string name="revanced_ryd_shorts_summary_on_disclaimer">"Dislikes shown on Shorts
+            <string name="revanced_ryd_shorts_summary_on">Dislikes are shown on Shorts</string>
+            <string name="revanced_ryd_shorts_summary_on_disclaimer">"Dislikes are shown on Shorts
 
 Limitation: Dislikes may not appear in incognito mode"</string>
-            <string name="revanced_ryd_shorts_summary_off">Dislikes hidden on Shorts</string>
+            <string name="revanced_ryd_shorts_summary_off">Dislikes are hidden on Shorts</string>
             <string name="revanced_ryd_dislike_percentage_title">Dislikes as percentage</string>
-            <string name="revanced_ryd_dislike_percentage_summary_on">Dislikes shown as percentage</string>
-            <string name="revanced_ryd_dislike_percentage_summary_off">Dislikes shown as number</string>
+            <string name="revanced_ryd_dislike_percentage_summary_on">Dislikes are shown as a percentage</string>
+            <string name="revanced_ryd_dislike_percentage_summary_off">Dislikes are shown as a number</string>
             <!-- Translations should use language similar to 'revanced_sb_enable_compact_skip_button' -->
             <string name="revanced_ryd_compact_layout_title">Compact Like button</string>
             <string name="revanced_ryd_compact_layout_summary_on">Like button styled for minimum width</string>
             <string name="revanced_ryd_compact_layout_summary_off">Like button styled for best appearance</string>
-            <string name="revanced_ryd_toast_on_connection_error_title">Show a toast if API is not available</string>
-            <string name="revanced_ryd_toast_on_connection_error_summary_on">Toast is shown if Return YouTube Dislike is not available</string>
-            <string name="revanced_ryd_toast_on_connection_error_summary_off">Toast is not shown if Return YouTube Dislike is not available</string>
+            <string name="revanced_ryd_toast_on_connection_error_title">Show a toast if API is unavailable</string>
+            <string name="revanced_ryd_toast_on_connection_error_summary_on">Toast is shown if Return YouTube Dislike is unavailable</string>
+            <string name="revanced_ryd_toast_on_connection_error_summary_off">Toast is hidden if Return YouTube Dislike is unavailable</string>
             <string name="revanced_ryd_about">About</string>
             <string name="revanced_ryd_attribution_title">ReturnYouTubeDislike.com</string>
             <string name="revanced_ryd_attribution_summary">Data is provided by the Return YouTube Dislike API. Tap here to learn more</string>
@@ -868,7 +868,7 @@ Limitation: Dislikes may not appear in incognito mode"</string>
             <string name="revanced_ryd_statistics_getFetchCallResponseTimeMin_title">API response time, minimum</string>
             <string name="revanced_ryd_statistics_getFetchCallResponseTimeMax_title">API response time, maximum</string>
             <string name="revanced_ryd_statistics_getFetchCallResponseTimeLast_title">API response time, last video</string>
-            <string name="revanced_ryd_statistics_getFetchCallResponseTimeLast_rate_limit_summary">Dislikes temporarily not available - Client API rate limit in effect</string>
+            <string name="revanced_ryd_statistics_getFetchCallResponseTimeLast_rate_limit_summary">Dislikes are temporarily unavailable - Client API rate limit in effect</string>
             <string name="revanced_ryd_statistics_getFetchCallCount_title">API fetch votes, number of calls</string>
             <string name="revanced_ryd_statistics_getFetchCallCount_zero_summary">No network calls made</string>
             <string name="revanced_ryd_statistics_getFetchCallCount_non_zero_summary">%d network calls made</string>
@@ -907,24 +907,24 @@ This feature works best with a video quality of 720p or lower and when using a v
             <string name="revanced_sb_appearance_category">Appearance</string>
             <string name="revanced_sb_enable_voting">Show voting button</string>
             <string name="revanced_sb_enable_voting_sum_on">Segment voting button is shown</string>
-            <string name="revanced_sb_enable_voting_sum_off">Segment voting button is not shown</string>
+            <string name="revanced_sb_enable_voting_sum_off">Segment voting button is hidden</string>
             <!-- Translations should use language similar to 'revanced_ryd_compact_layout_title' -->
-            <string name="revanced_sb_enable_compact_skip_button">Use compact skip button</string>
+            <string name="revanced_sb_enable_compact_skip_button">Use compact Skip button</string>
             <string name="revanced_sb_enable_compact_skip_button_sum_on">Skip button styled for minimum width</string>
             <string name="revanced_sb_enable_compact_skip_button_sum_off">Skip button styled for best appearance</string>
-            <string name="revanced_sb_enable_auto_hide_skip_segment_button">Automatically hide skip button</string>
-            <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_on">Skip button hides after a few seconds</string>
-            <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_off">Skip button displayed for entire segment</string>
+            <string name="revanced_sb_enable_auto_hide_skip_segment_button">Automatically hide Skip button</string>
+            <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_on">Skip button is hidden after a few seconds</string>
+            <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_off">Skip button is shown for the entire segment</string>
             <string name="revanced_sb_general_skiptoast">Show a toast when skipping automatically</string>
             <string name="revanced_sb_general_skiptoast_sum_on">Toast is shown when a segment is automatically skipped. Tap here to see an example</string>
-            <string name="revanced_sb_general_skiptoast_sum_off">Toast is not shown. Tap here to see an example</string>
+            <string name="revanced_sb_general_skiptoast_sum_off">Toast is hidden. Tap here to see an example</string>
             <string name="revanced_sb_general_time_without">Show video length without segments</string>
             <string name="revanced_sb_general_time_without_sum_on">Video length minus all segments, shown in parentheses next to the full video length</string>
             <string name="revanced_sb_general_time_without_sum_off">Full video length shown</string>
             <string name="revanced_sb_create_segment_category">Creating new segments</string>
-            <string name="revanced_sb_enable_create_segment">Show create new segment button</string>
+            <string name="revanced_sb_enable_create_segment">Show Create new segment button</string>
             <string name="revanced_sb_enable_create_segment_sum_on">Create new segment button is shown</string>
-            <string name="revanced_sb_enable_create_segment_sum_off">Create new segment button is not shown</string>
+            <string name="revanced_sb_enable_create_segment_sum_off">Create new segment button is hidden</string>
             <string name="revanced_sb_general_adjusting">Adjust new segment step</string>
             <string name="revanced_sb_general_adjusting_sum">Number of milliseconds the time adjustment buttons move when creating new segments</string>
             <string name="revanced_sb_general_adjusting_invalid">Value must be a positive number</string>
@@ -935,9 +935,9 @@ This feature works best with a video quality of 720p or lower and when using a v
             <string name="revanced_sb_guidelines_popup_already_read">Already read</string>
             <string name="revanced_sb_guidelines_popup_open">Show me</string>
             <string name="revanced_sb_general">General</string>
-            <string name="revanced_sb_toast_on_connection_error_title">Show a toast if API is not available</string>
-            <string name="revanced_sb_toast_on_connection_error_summary_on">Toast is shown if SponsorBlock is not available</string>
-            <string name="revanced_sb_toast_on_connection_error_summary_off">Toast is not shown if SponsorBlock is not available</string>
+            <string name="revanced_sb_toast_on_connection_error_title">Show a toast if API is unavailable</string>
+            <string name="revanced_sb_toast_on_connection_error_summary_on">Toast is shown if SponsorBlock is unavailable</string>
+            <string name="revanced_sb_toast_on_connection_error_summary_off">Toast is hidden if SponsorBlock is unavailable</string>
             <string name="revanced_sb_general_skipcount">Enable skip count tracking</string>
             <string name="revanced_sb_general_skipcount_sum_on">Lets the SponsorBlock leaderboard know how much time is saved. A message is sent to the leaderboard each time a segment is skipped</string>
             <string name="revanced_sb_general_skipcount_sum_off">Skip count tracking is not enabled</string>
@@ -1016,7 +1016,7 @@ Your user id is like a password and it should never be shared.
             <string name="revanced_sb_skipped_multiple_segments">Skipped multiple segments</string>
             <string name="revanced_sb_skip_automatically">Skip automatically</string>
             <string name="revanced_sb_skip_automatically_once">Skip automatically once</string>
-            <string name="revanced_sb_skip_showbutton">Show a skip button</string>
+            <string name="revanced_sb_skip_showbutton">Show a Skip button</string>
             <string name="revanced_sb_skip_seekbaronly">Show in seek bar</string>
             <string name="revanced_sb_skip_ignore">Disable</string>
             <string name="revanced_sb_submit_failed_invalid">Unable to submit segment: %s</string>
@@ -1028,9 +1028,9 @@ Your user id is like a password and it should never be shared.
 Already exists"</string>
             <string name="revanced_sb_submit_succeeded">Segment submitted successfully</string>
             <!-- Toast shown if network connection times out. Translations of this should not be longer than the original English or the text can be clipped and not entirely shown. -->
-            <string name="revanced_sb_sponsorblock_connection_failure_timeout">SponsorBlock temporarily not available (API timed out)</string>
-            <string name="revanced_sb_sponsorblock_connection_failure_status">SponsorBlock temporarily not available (status %d)</string>
-            <string name="revanced_sb_sponsorblock_connection_failure_generic">SponsorBlock temporarily not available</string>
+            <string name="revanced_sb_sponsorblock_connection_failure_timeout">SponsorBlock is temporarily unavailable (API timed out)</string>
+            <string name="revanced_sb_sponsorblock_connection_failure_status">SponsorBlock is temporarily unavailable (status %d)</string>
+            <string name="revanced_sb_sponsorblock_connection_failure_generic">SponsorBlock is temporarily unavailable</string>
             <string name="revanced_sb_vote_failed_timeout">Unable to vote for segment (API timed out)</string>
             <string name="revanced_sb_vote_failed_unknown_error">Unable to vote for segment (status: %1$d %2$s)</string>
             <string name="revanced_sb_vote_failed_forbidden">Unable to vote for segment: %s</string>
@@ -1042,9 +1042,9 @@ Already exists"</string>
             <string name="revanced_sb_new_segment_disabled_category">Category is disabled in settings. Enable category to submit.</string>
             <string name="revanced_sb_new_segment_title">New SponsorBlock segment</string>
             <string name="revanced_sb_new_segment_mark_time_as_question">Set %s as the start or end of a new segment?</string>
-            <string name="revanced_sb_new_segment_mark_start">start</string>
-            <string name="revanced_sb_new_segment_mark_end">end</string>
-            <string name="revanced_sb_new_segment_now">now</string>
+            <string name="revanced_sb_new_segment_mark_start">Start</string>
+            <string name="revanced_sb_new_segment_mark_end">End</string>
+            <string name="revanced_sb_new_segment_now">Now</string>
             <string name="revanced_sb_new_segment_time_start">Time the segment begins at</string>
             <string name="revanced_sb_new_segment_time_end">Time the segment ends at</string>
             <string name="revanced_sb_new_segment_confirm_title">Are the times correct?</string>
@@ -1065,7 +1065,7 @@ Ready to submit?"</string>
             <string name="revanced_sb_new_segment_edit_by_hand_parse_error">Invalid time given</string>
             <string name="revanced_sb_stats">Stats</string>
             <!-- Shown in the settings preferences, and translations can be any text length. -->
-            <string name="revanced_sb_stats_connection_failure">Stats temporarily not available (API is down)</string>
+            <string name="revanced_sb_stats_connection_failure">Stats are temporarily unavailable (API is down)</string>
             <string name="revanced_sb_stats_loading">Loading...</string>
             <string name="revanced_sb_stats_sb_disabled">SponsorBlock is disabled</string>
             <string name="revanced_sb_stats_username">Your username: &lt;b>%s&lt;/b></string>
@@ -1261,9 +1261,9 @@ Enabling this can fix missing images that are blocked in some regions"</string>
 If enabled, video URLs will be sent to the API server and no other data is sent. If a video does not have DeArrow thumbnails, then the original or still captures are shown
 
 Tap here to learn more about DeArrow"</string>
-            <string name="revanced_alt_thumbnail_dearrow_connection_toast_title">Show a toast if API is not available</string>
-            <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_on">Toast is shown if DeArrow is not available</string>
-            <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_off">Toast is not shown if DeArrow is not available</string>
+            <string name="revanced_alt_thumbnail_dearrow_connection_toast_title">Show a toast if API is unavailable</string>
+            <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_on">Toast is shown if DeArrow is unavailable</string>
+            <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_off">Toast is hidden if DeArrow is unavailable</string>
             <string name="revanced_alt_thumbnail_dearrow_api_url_title">DeArrow API endpoint</string>
             <string name="revanced_alt_thumbnail_dearrow_api_url_summary">The URL of the DeArrow thumbnail cache endpoint</string>
             <string name="revanced_alt_thumbnail_stills_about_title">Still video captures</string>
@@ -1276,13 +1276,13 @@ Tap here to learn more about DeArrow"</string>
             <string name="revanced_alt_thumbnail_stills_time_entry_2">Middle of video</string>
             <string name="revanced_alt_thumbnail_stills_time_entry_3">End of video</string>
             <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
-            <string name="revanced_alt_thumbnail_dearrow_error">DeArrow temporarily not available (status code: %s)</string>
-            <string name="revanced_alt_thumbnail_dearrow_error_generic">DeArrow temporarily not available</string>
+            <string name="revanced_alt_thumbnail_dearrow_error">DeArrow is temporarily unavailable (status code: %s)</string>
+            <string name="revanced_alt_thumbnail_dearrow_error_generic">DeArrow is temporarily unavailable</string>
         </patch>
         <patch id="misc.announcements.announcementsPatch">
             <string name="revanced_announcements_title">Show ReVanced announcements</string>
-            <string name="revanced_announcements_summary_on">Announcements are shown on startup</string>
-            <string name="revanced_announcements_summary_off">Announcements are not shown on startup</string>
+            <string name="revanced_announcements_summary_on">Announcements on startup are shown</string>
+            <string name="revanced_announcements_summary_off">Announcements on startup are hidden</string>
             <string name="revanced_announcements_enabled_summary">Show announcements on startup</string>
             <string name="revanced_announcements_connection_failed">Failed connecting to announcements provider</string>
             <string name="revanced_announcements_dialog_dismiss">Dismiss</string>
@@ -1352,12 +1352,12 @@ Enabling this can unlock higher video qualities"</string>
         <patch id="video.speed.button.playbackSpeedButtonPatch">
             <string name="revanced_playback_speed_dialog_button_title">Show speed dialog button</string>
             <string name="revanced_playback_speed_dialog_button_summary_on">Button is shown</string>
-            <string name="revanced_playback_speed_dialog_button_summary_off">Button is not shown</string>
+            <string name="revanced_playback_speed_dialog_button_summary_off">Button is hidden</string>
         </patch>
         <patch id="video.speed.custom.customPlaybackSpeedPatch">
             <string name="revanced_custom_speed_menu_title">Custom playback speed menu</string>
             <string name="revanced_custom_speed_menu_summary_on">Custom speed menu is shown</string>
-            <string name="revanced_custom_speed_menu_summary_off">Custom speed menu is not shown</string>
+            <string name="revanced_custom_speed_menu_summary_off">Custom speed menu is hidden</string>
             <string name="revanced_custom_playback_speeds_title">Custom playback speeds</string>
             <string name="revanced_custom_playback_speeds_summary">Add or change the custom playback speeds</string>
             <string name="revanced_custom_playback_speeds_invalid">Custom speeds must be less than %s</string>
