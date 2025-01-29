@@ -1,3 +1,10 @@
+# [5.10.0-dev.9](https://github.com/ReVanced/revanced-patches/compare/v5.10.0-dev.8...v5.10.0-dev.9) (2025-01-29)
+
+
+### Bug Fixes
+
+* **SwissId - Play integrity Removal:** Add recommended app version ([#4370](https://github.com/ReVanced/revanced-patches/issues/4370)) ([d8ed474](https://github.com/ReVanced/revanced-patches/commit/d8ed474b165f094fdedc32caaae1f82ebc99eb3d))
+
 # [5.10.0-dev.8](https://github.com/ReVanced/revanced-patches/compare/v5.10.0-dev.7...v5.10.0-dev.8) (2025-01-29)
 
 
