@@ -20,13 +20,21 @@ jobs:
           fetch-depth: 0
           clean: true
 
+      - name: Determine branch to pull to
+        run: |
+          if [ "$GITHUB_EVENT_NAME" = "workflow_dispatch" ]; then
+            echo "BRANCH_NAME=feat/translations" >> $GITHUB_ENV
+          else
+            echo "BRANCH_NAME=feat/translations_backup" >> $GITHUB_ENV
+          fi
+
       - name: Pull strings
         uses: crowdin/github-action@v2
         with:
           config: crowdin.yml
           upload_sources: false
           download_translations: true
-          localization_branch_name: feat/translations
+          localization_branch_name: ${{ env.BRANCH_NAME }}
           create_pull_request: false
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
