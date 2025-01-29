@@ -9,14 +9,23 @@ import app.revanced.extension.shared.settings.BaseSettings;
 @SuppressWarnings("unused")
 public final class EnableDebuggingPatch {
 
-    private static final ConcurrentMap<Long, Boolean> featureFlags
-            = new ConcurrentHashMap<>(300, 0.75f, 1);
+    /**
+     * Only log if debugging is enabled on startup.
+     * This prevents enabling debugging
+     * while the app is running then failing to restart
+     * resulting in an incomplete log.
+     */
+    private static final boolean LOG_FEATURE_FLAGS = BaseSettings.DEBUG.get();
+
+    private static final ConcurrentMap<Long, Boolean> featureFlags = LOG_FEATURE_FLAGS
+            ? new ConcurrentHashMap<>(800, 0.5f, 1)
+            : null;
 
     /**
      * Injection point.
      */
     public static boolean isBooleanFeatureFlagEnabled(boolean value, long flag) {
-        if (value && BaseSettings.DEBUG.get()) {
+        if (LOG_FEATURE_FLAGS && value) {
             if (featureFlags.putIfAbsent(flag, true) == null) {
                 Logger.printDebug(() -> "boolean feature is enabled: " + flag);
             }
@@ -29,7 +38,7 @@ public final class EnableDebuggingPatch {
      * Injection point.
      */
     public static double isDoubleFeatureFlagEnabled(double value, long flag, double defaultValue) {
-        if (defaultValue != value && BaseSettings.DEBUG.get()) {
+        if (LOG_FEATURE_FLAGS && defaultValue != value) {
             if (featureFlags.putIfAbsent(flag, true) == null) {
                 // Align the log outputs to make post processing easier.
                 Logger.printDebug(() -> " double feature is enabled: " + flag
@@ -44,7 +53,7 @@ public final class EnableDebuggingPatch {
      * Injection point.
      */
     public static long isLongFeatureFlagEnabled(long value, long flag, long defaultValue) {
-        if (defaultValue != value && BaseSettings.DEBUG.get()) {
+        if (LOG_FEATURE_FLAGS && defaultValue != value) {
             if (featureFlags.putIfAbsent(flag, true) == null) {
                 Logger.printDebug(() -> "   long feature is enabled: " + flag
                         + " value: " + value + (defaultValue == 0 ? "" : " default: " + defaultValue));
@@ -58,7 +67,7 @@ public final class EnableDebuggingPatch {
      * Injection point.
      */
     public static String isStringFeatureFlagEnabled(String value, long flag, String defaultValue) {
-        if (BaseSettings.DEBUG.get() && !defaultValue.equals(value)) {
+        if (LOG_FEATURE_FLAGS && !defaultValue.equals(value)) {
             if (featureFlags.putIfAbsent(flag, true) == null) {
                 Logger.printDebug(() -> " string feature is enabled: " + flag
                         + " value: " + value +  (defaultValue.isEmpty() ? "" : " default: " + defaultValue));
