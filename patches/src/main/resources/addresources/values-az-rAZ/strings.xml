@@ -138,6 +138,7 @@ Davam et düyməsinə toxun və optimallaşdırma dəyişikliklərin qəbul et."
   <string name="revanced_settings_screen_07_seekbar_title">İrəliləyiş cizgisi</string>
   <string name="revanced_settings_screen_08_swipe_controls_title">Sürüşdürmə nəzarətçiləri</string>
   <string name="revanced_settings_screen_11_misc_title">Çoxvariantlı</string>
+  <string name="revanced_settings_screen_12_video_title">Video</string>
   <string name="revanced_restore_old_settings_menus_title">Köhnə tənzimləmələr bölmələrin bərpa et</string>
   <string name="revanced_restore_old_settings_menus_summary_on">Köhnə tənzimləmələr bölmələri göstərilir</string>
   <string name="revanced_restore_old_settings_menus_summary_off">Köhnə tənzimləmələr bölmələri göstərilmir</string>
@@ -955,6 +956,7 @@ Sizin istifadəçi Id-niz parol kimidir və heç vaxt paylaşmaq olmaz.
 "</string>
   <string name="revanced_sb_settings_revanced_export_user_id_warning_dismiss">Təkrar göstərmə</string>
   <string name="revanced_sb_diff_segments">Bölüm davranışını dəyişdir</string>
+  <string name="revanced_sb_segments_sponsor">Sponsor</string>
   <string name="revanced_sb_segments_sponsor_sum">Ödənişli tanıtım, ödənişli yönləndirmələr və birbaşa reklamlar. Öz reklamı və ya bəyəndikləri səbəblərə/yaradıcılara/veb saytlara/məhsullara ödənişsiz çağırışlar etmək üçün deyil</string>
   <string name="revanced_sb_segments_selfpromo">Ödənişsiz/Öz reklamı</string>
   <string name="revanced_sb_segments_selfpromo_sum">Ödənişsiz və ya öz reklamı istisna olmaqla, Sponsor-a bənzər. Mallar, ianələr və ya onların kiminlə əməkdaşlıq etdiyi məzmunda məlumatlar haqqında bölmələr daxildir</string>
@@ -1048,7 +1050,7 @@ ilə
 Təqdim etməyə hazırdır?"</string>
   <string name="revanced_sb_new_segment_start_is_before_end">Başlanğıc sondan əvvəl olmalıdır</string>
   <string name="revanced_sb_new_segment_mark_locations_first">Əvvəlcə vaxt cizgisində iki yeri doldur</string>
-  <string name="revanced_sb_new_segment_preview_segment_first">Bölümü izləyin, rahatlıqla ötürdüyünə əmin olun</string>
+  <string name="revanced_sb_new_segment_preview_segment_first">Bölümü izləyin, düzgün ötürüldüyünə əmin olun</string>
   <string name="revanced_sb_new_segment_edit_by_hand_title">Bölüm vaxtına əl ilə düzəliş et</string>
   <string name="revanced_sb_new_segment_edit_by_hand_content">Bölümün başlanğıc və ya bitiş vaxtlarına düzəliş etmək istəyirsiniz?</string>
   <string name="revanced_sb_new_segment_edit_by_hand_parse_error">Yanlış vaxt verilmişdir</string>
@@ -1402,6 +1404,7 @@ AVC maksimum 1080p görüntü imkanına malikdir, Opus audio kodlama olmur və v
 • Sabit səs səviyyəsi yoxdur
 • İlkin səsi məcbur etmə mümkün deyil"</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• AV1 video kodlayıcı yoxdur</string>
+  <string name="revanced_spoof_video_streams_about_kids_videos">• Giriş edilməyəndə və ya gizli rejimdə uşaq videoları oynadıla bilməz</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_title">İstək üçün Statistikada göstər</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Qəbuledici növü İstək üçün statistikada göstərilir</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Qəbuledici nerd üçün Statistikada gizlidir</string>

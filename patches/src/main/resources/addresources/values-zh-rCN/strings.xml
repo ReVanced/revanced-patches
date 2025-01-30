@@ -25,7 +25,7 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_failed_title">检测失败</string>
   <string name="revanced_check_environment_dialog_open_official_source_button">打开官方网站</string>
   <string name="revanced_check_environment_dialog_ignore_button">忽略</string>
-  <string name="revanced_check_environment_failed_message">&lt;h5&gt;此应用似乎不是您修补的。&lt;/h5&gt;&lt;h4&gt;此应用可能无法正常运行，&lt;b&gt;使用可能会有害甚至危险&lt;/b&gt;。&lt;/h4&gt;&lt;h4&gt;&lt;br&gt;以下检查暗示此应用是预先修补的或从其他人处获得的：&lt;br&gt;&lt;br&gt;&lt;small&gt;%1$s&lt;/small&gt;&lt;br&gt;&lt;br&gt;强烈建议您&lt;b&gt;卸载此应用并自行修补&lt;/b&gt;，以确保您使用的是经过验证和安全的应用。&lt;p&gt;&lt;br&gt;如果忽略此警告，此警告只会显示两次。</string>
+  <string name="revanced_check_environment_failed_message">&lt;h5&gt;此应用程序似乎未由您修补。&lt;/h5&gt;&lt;br&gt;此应用程序可能无法正常运行，&lt;b&gt;可能存在安全风险或使用起来甚至存在危险&lt;/b&gt;。&lt;br&gt;&lt;br&gt;这些检查表明此应用程序是预先修补的或从其他人那里获得的：&lt;br&gt;&lt;br&gt;&lt;small&gt;%1$s&lt;/small&gt;&lt;br&gt;强烈建议您&lt;b&gt;卸载此应用程序并自行修补&lt;/b&gt;，以确保您使用的是经过验证的安全的应用。&lt;p&gt;&lt;br&gt;如果忽略，此警告只会显示两次。</string>
   <string name="revanced_check_environment_not_same_patching_device">已在另一台设备上修补过</string>
   <string name="revanced_check_environment_manager_not_expected_installer">未通过 ReVanced 管理器安装</string>
   <string name="revanced_check_environment_not_near_patch_time">上次修补在10分钟前</string>
