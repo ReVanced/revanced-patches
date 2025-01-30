@@ -29,7 +29,9 @@ fun adPatch(
         classDefType: String,
         methodNames: Set<String>,
         returnMethod: ReturnMethod,
-    ) = with(mutableClassBy(classDefType)) {
+    ) = with(mutableClassByOrNull(classDefType)) {
+        this ?: return false
+
         methods.filter { it.name in methodNames }.forEach {
             val retInstruction = when (returnMethod.returnType) {
                 'V' -> "return-void"
