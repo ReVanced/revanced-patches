@@ -1,3 +1,10 @@
+# [5.10.0-dev.11](https://github.com/ReVanced/revanced-patches/compare/v5.10.0-dev.10...v5.10.0-dev.11) (2025-01-30)
+
+
+### Bug Fixes
+
+* Use correct path to fix invalid file paths ([5ff4ee8](https://github.com/ReVanced/revanced-patches/commit/5ff4ee823da55c7b135eab8b62e07be465612b55))
+
 # [5.10.0-dev.10](https://github.com/ReVanced/revanced-patches/compare/v5.10.0-dev.9...v5.10.0-dev.10) (2025-01-29)
 
 
