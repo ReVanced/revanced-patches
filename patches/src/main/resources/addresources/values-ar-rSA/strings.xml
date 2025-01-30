@@ -33,7 +33,7 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">تاريخ إنشاء APK تالف</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
-  <string name="revanced_settings_title">ReVanced</string>
+  <string name="revanced_settings_submenu_title">الإعدادات</string>
   <string name="revanced_settings_confirm_user_dialog_title">هل ترغب في المتابعة؟</string>
   <string name="revanced_settings_reset">إعادة التعيين</string>
   <string name="revanced_settings_restart_title">تحديث وإعادة تشغيل</string>
@@ -134,12 +134,14 @@ Second \"item\" text"</string>
   <string name="revanced_settings_screen_02_alt_thumbnails_title">مُصغَّرات فيديو بديلة</string>
   <string name="revanced_settings_screen_03_feed_title">الموجز</string>
   <string name="revanced_settings_screen_04_general_title">عام</string>
-  <string name="revanced_settings_screen_05_player_title">مشغل</string>
+  <string name="revanced_settings_screen_05_player_title">المشغل</string>
   <string name="revanced_settings_screen_07_seekbar_title">شريط تقدم الفيديو</string>
   <string name="revanced_settings_screen_08_swipe_controls_title">التحكم عن طريق إيماءة التمرير</string>
-  <string name="revanced_settings_screen_11_misc_title">متنوع</string>
+  <string name="revanced_settings_screen_11_misc_title">خيارات متنوعة</string>
   <string name="revanced_settings_screen_12_video_title">الفيديو</string>
-  <string name="revanced_restore_old_settings_menus_title">إعادة قوائم إعدادات قديمة</string>
+  <string name="revanced_restore_old_settings_menus_title">استعادة قوائم الإعدادات القديمة</string>
+  <string name="revanced_restore_old_settings_menus_summary_on">يتم عرض قوائم الإعدادات القديمة</string>
+  <string name="revanced_restore_old_settings_menus_summary_off">لا يتم عرض قوائم الإعدادات القديمة</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
   <string name="revanced_shorts_disable_background_playback_title">تعطيل تشغيل فيديوهات Shorts في الخلفية</string>
@@ -166,9 +168,9 @@ Second \"item\" text"</string>
 لن يتم إعلامك بأي أخطاء غير متوقعة."</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
-  <string name="revanced_disable_like_subscribe_glow_title">تعطيل توهج زر أعجبني / اشتراك</string>
-  <string name="revanced_disable_like_subscribe_glow_summary_on">لن يتوهج زر أعجبني واشتراك عند ذكره</string>
-  <string name="revanced_disable_like_subscribe_glow_summary_off">أعجبني واشتراك سوف يتوهج عند الإشارة</string>
+  <string name="revanced_disable_like_subscribe_glow_title">تعطيل توهُّج زِرّي أعجبني واشتراك</string>
+  <string name="revanced_disable_like_subscribe_glow_summary_on">لن يتوهَّج زرّي أعجبني واشتراك عند ذكرهما</string>
+  <string name="revanced_disable_like_subscribe_glow_summary_off">سيتوهَّج زرّي أعجبني واشتراك عند ذكرهما</string>
   <string name="revanced_hide_album_cards_title">إخفاء بطاقات الألبوم</string>
   <string name="revanced_hide_album_cards_summary_on">تم إخفاء بطاقات الألبوم</string>
   <string name="revanced_hide_album_cards_summary_off">يتم عرض بطاقات الألبوم</string>
@@ -284,6 +286,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_chapters_section_title">إخفاء قسم الفصول</string>
   <string name="revanced_hide_chapters_section_summary_on">تم إخفاء قسم الفصول</string>
   <string name="revanced_hide_chapters_section_summary_off">يتم عرض قسم الفصول</string>
+  <string name="revanced_hide_how_this_was_made_section_title">إخفاء قسم \"كيف تم إنشاء هذا المحتوى\"</string>
+  <string name="revanced_hide_how_this_was_made_section_summary_on">تم إخفاء قسم \"كيف تم إنشاء هذا المحتوى\"</string>
+  <string name="revanced_hide_how_this_was_made_section_summary_off">يتم عرض قسم \"كيف تم إنشاء هذا المحتوى\"</string>
   <string name="revanced_hide_podcast_section_title">إخفاء قسم \'استكشاف البودكاست\'</string>
   <string name="revanced_hide_podcast_section_summary_on">تم إخفاء قسم \"استكشاف البودكاست\"</string>
   <string name="revanced_hide_podcast_section_summary_off">يتم عرض قسم \"استكشاف البودكاست\"</string>
@@ -353,12 +358,12 @@ Second \"item\" text"</string>
   <string name="revanced_hide_keyword_content_home_title">إخفاء فيديوهات الصفحة الرئيسية بواسطة الكلمات المفتاحية</string>
   <string name="revanced_hide_keyword_content_home_summary_on">تتم تصفية الفيديوهات في علامة التبويب \"الصفحة الرئيسية\" حسب الكلمات المفتاحية</string>
   <string name="revanced_hide_keyword_content_home_summary_off">لا تتم تصفية الفيديوهات في علامة التبويب \"الصفحة الرئيسية\" حسب الكلمات المفتاحية</string>
-  <string name="revanced_hide_keyword_content_subscriptions_title">إخفاء الفيديوهات الخاصة بالاشتراك عن طريق الكلمات المفتاحية</string>
-  <string name="revanced_hide_keyword_content_subscriptions_summary_on">يتم تصفية الفيديوهات في علامة التبويب الاشتراكات حسب الكلمات المفتاحية</string>
-  <string name="revanced_hide_keyword_content_subscriptions_summary_off">لا يتم تصفية الفيديوهات في علامة التبويب الاشتراكات حسب الكلمات المفتاحية</string>
   <string name="revanced_hide_keyword_content_search_title">إخفاء نتائج البحث عن طريق الكلمات المفتاحية</string>
   <string name="revanced_hide_keyword_content_search_summary_on">يتم تصفية نتائج البحث حسب الكلمات المفتاحية</string>
   <string name="revanced_hide_keyword_content_search_summary_off">لا يتم تصفية نتائج البحث حسب الكلمات المفتاحية</string>
+  <string name="revanced_hide_keyword_content_subscriptions_title">إخفاء الفيديوهات الخاصة بالاشتراك عن طريق الكلمات المفتاحية</string>
+  <string name="revanced_hide_keyword_content_subscriptions_summary_on">يتم تصفية الفيديوهات في علامة التبويب الاشتراكات حسب الكلمات المفتاحية</string>
+  <string name="revanced_hide_keyword_content_subscriptions_summary_off">لا يتم تصفية الفيديوهات في علامة التبويب الاشتراكات حسب الكلمات المفتاحية</string>
   <string name="revanced_hide_keyword_content_phrases_title">الكلمات المفتاحية المراد إخفاؤها</string>
   <!-- For localization it is preferred, but not required, if 'LeBlanc' is replaced with a localized name or a familiar word that has upper case letters in the middle of the word.
                  This is because keywords can be in any language, and showing an example in the localized script helps convey this. -->
@@ -405,6 +410,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_products_banner_title">إخفاء لافتة لعرض المنتجات</string>
   <string name="revanced_hide_products_banner_summary_on">تم إخفاء البانر</string>
   <string name="revanced_hide_products_banner_summary_off">يتم عرض البانر</string>
+  <string name="revanced_hide_end_screen_store_banner_title">إخفاء لافتة شاشة المتجر النهائية</string>
+  <string name="revanced_hide_end_screen_store_banner_summary_on">تم إخفاء لافتة المتجر</string>
+  <string name="revanced_hide_end_screen_store_banner_summary_off">يتم عرض لافتة المتجر</string>
   <string name="revanced_hide_player_store_shelf_title">إخفاء رف مشغل التسوق</string>
   <string name="revanced_hide_player_store_shelf_summary_on">تم إخفاء رفوف التسوق</string>
   <string name="revanced_hide_player_store_shelf_summary_off">يتم عرض رفوف التسوق</string>
@@ -744,7 +752,7 @@ Second \"item\" text"</string>
   <string name="revanced_hide_shorts_stickers_title">إخفاء الملصقات</string>
   <string name="revanced_hide_shorts_stickers_summary_on">تم إخفاء الملصقات</string>
   <string name="revanced_hide_shorts_stickers_summary_off">يتم عرض الملصقات</string>
-  <string name="revanced_hide_shorts_like_fountain_title">إخفاء فوران أعجبني</string>
+  <string name="revanced_hide_shorts_like_fountain_title">إخفاء التأثير الفوّار لـزر أعجبني</string>
   <string name="revanced_hide_shorts_like_fountain_summary_on">تم إخفاء التأثير الفوّار لـزر أعجبني</string>
   <string name="revanced_hide_shorts_like_fountain_summary_off">يتم عرض التأثير الفوّار لـزر أعجبني</string>
   <string name="revanced_hide_shorts_like_button_title">إخفاء زر أعجبني</string>
@@ -951,7 +959,7 @@ Second \"item\" text"</string>
   <string name="revanced_sb_segments_sponsor">الراعي</string>
   <string name="revanced_sb_segments_sponsor_sum">الترويج المدفوع الأجر، والإحالات المدفوعة الأجر والإعلانات المباشرة. ليس للترويج الذاتي أو لصراعات مجانية للقضايا/المبدعين/المواقع الإلكترونية/المنتجات التي يحبون الحصول عليها</string>
   <string name="revanced_sb_segments_selfpromo">ترويج شخصي/غير مدفوع الأجر</string>
-  <string name="revanced_sb_segments_selfpromo_sum">شبيهة بـ \"الراعي\" باستثناء ما يتعلق بالإعلانات غير المدفوعة الأجر أو الذاتية. ويشمل ذلك أقسام عن السلع أو التبرعات أو المعلومات المتعلقة بمن تعاونوا مع ناشر المحتوى</string>
+  <string name="revanced_sb_segments_selfpromo_sum">مشابهة لـ \"الراعي\" باستثناء ما يتعلق بالإعلانات غير المدفوعة الأجر أو الذاتية. ويشمل ذلك أقسام عن السلع أو التبرعات أو المعلومات المتعلقة بمن تعاونوا مع ناشر المحتوى</string>
   <string name="revanced_sb_segments_interaction">تذكير بالتفاعل (اشتراك)</string>
   <string name="revanced_sb_segments_interaction_sum">تذكير قصير للإعجاب أو الاشتراك أو المتابعة في منتصف المحتوى. إذا كانت طويلة أو تتعلق بشيء محدد، فيجب أن تكون خاضعة للترويج الشخصي بدلاً من ذلك</string>
   <string name="revanced_sb_segments_highlight">الأبرز</string>
@@ -1211,8 +1219,10 @@ Second \"item\" text"</string>
   <string name="revanced_seekbar_custom_color_title">تمكين لون شريط تقدم الفيديو المخصص</string>
   <string name="revanced_seekbar_custom_color_summary_on">يتم عرض لون شريط تقدم الفيديو المخصص</string>
   <string name="revanced_seekbar_custom_color_summary_off">يتم عرض لون شريط تقدم الفيديو الاصلي</string>
-  <string name="revanced_seekbar_custom_color_value_title">لون شريط تقدم الفيديو المخصص</string>
-  <string name="revanced_seekbar_custom_color_value_summary">لون شريط التقدم</string>
+  <string name="revanced_seekbar_custom_color_primary_title">لون شريط تقدم الفيديو المخصص</string>
+  <string name="revanced_seekbar_custom_color_primary_summary">لون شريط التقدم</string>
+  <string name="revanced_seekbar_custom_color_accent_title">لون مميز لشريط التقدم المخصص</string>
+  <string name="revanced_seekbar_custom_color_accent_summary">اللون المميز لشريط التقدم</string>
   <string name="revanced_seekbar_custom_color_invalid">لون شريط التقدم غير صالح</string>
   </patch>
   <patch id="layout.thumbnails.bypassImageRegionRestrictionsPatch">
@@ -1342,7 +1352,7 @@ Second \"item\" text"</string>
   <string name="revanced_custom_playback_speeds_invalid">يجب أن تكون سرعات التشغيل المخصصة أقل من %s</string>
   <string name="revanced_custom_playback_speeds_parse_exception">سرعة التشغيل المخصصة غير صالحة</string>
   <string name="revanced_custom_playback_speeds_auto">تلقائي</string>
-  <string name="revanced_speed_tap_and_hold_title">\"سرعة النقر مع الاستمرار المخصصة\"</string>
+  <string name="revanced_speed_tap_and_hold_title">سرعة النقر مع الاستمرار المخصصة</string>
   <string name="revanced_speed_tap_and_hold_summary">سرعة التشغيل بين 0-8</string>
   </patch>
   <patch id="video.speed.remember.rememberPlaybackSpeedPatch">
@@ -1351,6 +1361,11 @@ Second \"item\" text"</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_off">تطبيق تغييرات سرعة التشغيل فقط على الفيديو الحالي</string>
   <string name="revanced_playback_speed_default_title">سرعة التشغيل الافتراضية</string>
   <string name="revanced_remember_playback_speed_toast">تغيير السرعة الافتراضية إلى: %s</string>
+  </patch>
+  <patch id="video.hdr.disableHdrPatch">
+  <string name="revanced_disable_hdr_video_title">تعطيل فيديو HDR</string>
+  <string name="revanced_disable_hdr_video_summary_on">تم تعطيل فيديو HDR</string>
+  <string name="revanced_disable_hdr_video_summary_off">تم تمكين فيديو HDR</string>
   </patch>
   <patch id="video.videoqualitymenu.restoreOldVideoQualityMenuResourcePatch">
   <string name="revanced_restore_old_video_quality_menu_title">استعادة قائمة جودة الفيديو القديمة</string>
@@ -1389,6 +1404,7 @@ AVC لديه حد أقصى للدقة 1080p، لا يتوفر ترميز الص�
 • مستوى الصوت الثابت غير متاح
 • فرض الصوت الأصلي غير متوفر"</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• لا يوجد ترميز الفيديو AV1</string>
+  <string name="revanced_spoof_video_streams_about_kids_videos">• الفيديوات العربية لا يمكن تشغيل أو في وضع التشغيل أو في حالة الخفية</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_title">عرض في إحصاءات تقنية</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">يتم عرض نوع العميل في إحصاءات تقنية</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">تم إخفاء نوع العميل في إحصاءات تقنية</string>

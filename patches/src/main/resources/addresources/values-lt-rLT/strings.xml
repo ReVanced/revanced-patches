@@ -34,7 +34,6 @@ Second \"item\" text"</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_submenu_title">Nustatymai</string>
-  <string name="revanced_settings_title">ReVanced</string>
   <string name="revanced_settings_confirm_user_dialog_title">Ar norite tęsti?</string>
   <string name="revanced_settings_reset">Atstatyti</string>
   <string name="revanced_settings_restart_title">Atnaujinti ir paleisti iš naujo</string>
@@ -65,7 +64,7 @@ Norėdami išversti naujomis kalbomis apsilankykite translate.revanced.app"</str
   <string name="revanced_language_FI">Suomių</string>
   <string name="revanced_language_FR">Prancūzų</string>
   <string name="revanced_language_GU">Gudžaratų</string>
-  <string name="revanced_language_HI">Hindi</string>
+  <string name="revanced_language_HI">Hindų</string>
   <string name="revanced_language_HR">Kroatų</string>
   <string name="revanced_language_HU">Vengrų</string>
   <string name="revanced_language_ID">Indoneziečių</string>
@@ -169,9 +168,9 @@ Palieskite mygtuką Tęsti ir leiskite optimizavimo pakeitimus."</string>
 Apie netikėtus įvykius nebus pranešta."</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
-  <string name="revanced_disable_like_subscribe_glow_title">Išjungti mygtuko \"Patinka\" / \"Prenumeruoti\" švytėjimą</string>
-  <string name="revanced_disable_like_subscribe_glow_summary_on">Mygtukas \"Patinka\" ir \"Prenumeruoti\" nešvies, kai bus paminėtas</string>
-  <string name="revanced_disable_like_subscribe_glow_summary_off">Mygtukas \"Patinka\" ir \"Prenumeruoti\" švies, kai bus paminėtas</string>
+  <string name="revanced_disable_like_subscribe_glow_title">Uždrausti mygtukų \"Patinka\" ir \"Prenumeruoti\" švytėjimą</string>
+  <string name="revanced_disable_like_subscribe_glow_summary_on">Paminėti mygtukai \"Patinka\" ir \"Prenumeruoti\" nešvytės</string>
+  <string name="revanced_disable_like_subscribe_glow_summary_off">Paminėti mygtukai \"Patinka\" ir \"Prenumeruoti\" švytės</string>
   <string name="revanced_hide_album_cards_title">Slėpti albumo korteles</string>
   <string name="revanced_hide_album_cards_summary_on">Albumo kortelės yra paslėptos</string>
   <string name="revanced_hide_album_cards_summary_off">Albumo kortelės yra rodomos</string>
@@ -224,9 +223,9 @@ Apie netikėtus įvykius nebus pranešta."</string>
   <string name="revanced_hide_chips_shelf_title">Slėpti lustų lentyną</string>
   <string name="revanced_hide_chips_shelf_summary_on">Lustų lenta yra paslėpta</string>
   <string name="revanced_hide_chips_shelf_summary_off">Lustų lenta yra rodoma</string>
-  <string name="revanced_hide_expandable_chip_title">Slėpti išplečiamą lustą po vaizdo įrašais</string>
-  <string name="revanced_hide_expandable_chip_summary_on">Išplečiamieji lustai yra paslėpti</string>
-  <string name="revanced_hide_expandable_chip_summary_off">Išplečiamieji lustai yra rodomi</string>
+  <string name="revanced_hide_expandable_chip_title">PaslĖpti iĹĄskleidÅ¾iamÄ… kortelÄ™ po vaizdo Ä¯raÅ¡ais</string>
+  <string name="revanced_hide_expandable_chip_summary_on">IĹĄskleidÅ¾iamos kortelÄ—s yra paslÄ—ptos</string>
+  <string name="revanced_hide_expandable_chip_summary_off">IĹĄskleidÅ¾iamos kortelÄ—s yra rodomos</string>
   <string name="revanced_hide_community_posts_title">Slėpti bendruomenės įrašus</string>
   <string name="revanced_hide_community_posts_summary_on">Bendruomenės įrašai yra paslėpti</string>
   <string name="revanced_hide_community_posts_summary_off">Bendruomenės įrašai yra rodomi</string>
@@ -287,6 +286,9 @@ Apie netikėtus įvykius nebus pranešta."</string>
   <string name="revanced_hide_chapters_section_title">Slėpti skyrių \"Skyriai\"</string>
   <string name="revanced_hide_chapters_section_summary_on">Skyrius \"Skyriai\" yra paslėptas</string>
   <string name="revanced_hide_chapters_section_summary_off">Skyrius \"Skyriai\" yra rodomas</string>
+  <string name="revanced_hide_how_this_was_made_section_title">Paslėpti skiltį „Kaip sukurtas šis turinys\"</string>
+  <string name="revanced_hide_how_this_was_made_section_summary_on">Skiltis „Kaip sukurtas šis turinys\" paslėpta</string>
+  <string name="revanced_hide_how_this_was_made_section_summary_off">Skiltis „Kaip sukurtas šis turinys\" rodoma</string>
   <string name="revanced_hide_podcast_section_title">Slėpti skyrių \"Ištirkite podcast\'ą\"</string>
   <string name="revanced_hide_podcast_section_summary_on">Skyrius \"Ištirkite podcast\'ą\" yra paslėptas</string>
   <string name="revanced_hide_podcast_section_summary_off">Skyrius \"Ištirkite podcast\'ą\" yra rodomas</string>
@@ -329,7 +331,7 @@ Apie netikėtus įvykius nebus pranešta."</string>
   <string name="revanced_hide_comments_preview_comment_title">Slėpti peržiūros komentarą</string>
   <string name="revanced_hide_comments_preview_comment_summary_on">Peržiūros komentaras yra paslėptas</string>
   <string name="revanced_hide_comments_preview_comment_summary_off">Peržiūros komentaras yra rodomas</string>
-  <string name="revanced_hide_comments_thanks_button_title">Slėpti \"Ačiū\" mygtuką</string>
+  <string name="revanced_hide_comments_thanks_button_title">PaslÄ—pti „AÄiÅ³“ mygtukÄ…</string>
   <string name="revanced_hide_comments_thanks_button_summary_on">\"Ačiū\" mygtukas yra paslėptas</string>
   <string name="revanced_hide_comments_thanks_button_summary_off">\"Ačiū\" mygtukas yra rodomas</string>
   <string name="revanced_hide_comments_timestamp_and_emoji_buttons_title">Slėpti laiko žymą ir emocijų mygtukus</string>
@@ -356,12 +358,12 @@ Jei „Doodle“ šiuo metu rodomas jūsu regione ir šis paslėpimo nustatymas 
   <string name="revanced_hide_keyword_content_home_title">Slėpti namų vaizdo įrašus pagal raktinius žodžius</string>
   <string name="revanced_hide_keyword_content_home_summary_on">Vaizdo įrašai namų skirtuke yra filtruojami pagal raktinius žodžius</string>
   <string name="revanced_hide_keyword_content_home_summary_off">Vaizdo įrašai namų skirtuke nėra filtruojami pagal raktinius žodžius</string>
-  <string name="revanced_hide_keyword_content_subscriptions_title">Slėpti prenumeratos vaizdo įrašus pagal raktinius žodžius</string>
-  <string name="revanced_hide_keyword_content_subscriptions_summary_on">Vaizdo įrašai prenumeratos skirtuke yra filtruojami pagal raktinius žodžius</string>
-  <string name="revanced_hide_keyword_content_subscriptions_summary_off">Vaizdo įrašai prenumeratos skirtuke nėra filtruojami pagal raktinius žodžius</string>
   <string name="revanced_hide_keyword_content_search_title">Slėpti paieškos rezultatus pagal raktinius žodžius</string>
   <string name="revanced_hide_keyword_content_search_summary_on">Paieškos rezultatai yra filtruojami pagal raktinius žodžius</string>
   <string name="revanced_hide_keyword_content_search_summary_off">Paieškos rezultatai nėra filtruojami pagal raktinius žodžius</string>
+  <string name="revanced_hide_keyword_content_subscriptions_title">Slėpti prenumeratos vaizdo įrašus pagal raktinius žodžius</string>
+  <string name="revanced_hide_keyword_content_subscriptions_summary_on">Vaizdo įrašai prenumeratos skirtuke yra filtruojami pagal raktinius žodžius</string>
+  <string name="revanced_hide_keyword_content_subscriptions_summary_off">Vaizdo įrašai prenumeratos skirtuke nėra filtruojami pagal raktinius žodžius</string>
   <string name="revanced_hide_keyword_content_phrases_title">Raktinių žodžių slėpimas</string>
   <!-- For localization it is preferred, but not required, if 'LeBlanc' is replaced with a localized name or a familiar word that has upper case letters in the middle of the word.
                  This is because keywords can be in any language, and showing an example in the localized script helps convey this. -->
@@ -408,6 +410,9 @@ Apribojimai
   <string name="revanced_hide_products_banner_title">Slėpti banerį, kad būtų galima peržiūrėti produktus</string>
   <string name="revanced_hide_products_banner_summary_on">Baneris yra paslėptas</string>
   <string name="revanced_hide_products_banner_summary_off">Baneris yra rodomas</string>
+  <string name="revanced_hide_end_screen_store_banner_title">PaslĖpti pabaigos ekrano parduotuvÄ—s reklaminÄ¯ juostelÄ™</string>
+  <string name="revanced_hide_end_screen_store_banner_summary_on">Parduotuvės reklaminis skydelis paslėptas</string>
+  <string name="revanced_hide_end_screen_store_banner_summary_off">Parduotuvės reklaminis skydelis rodomas</string>
   <string name="revanced_hide_player_store_shelf_title">Slėpti žaidėjo parduotuvės lentyną</string>
   <string name="revanced_hide_player_store_shelf_summary_on">Parduotuvės lentyna yra paslėpta</string>
   <string name="revanced_hide_player_store_shelf_summary_off">Parduotuvės lentyna yra rodoma</string>
@@ -460,7 +465,7 @@ Apribojimai
   <string name="revanced_external_downloader_summary_on">Atsisiuntimo mygtukas rodomas grotuve</string>
   <string name="revanced_external_downloader_summary_off">Atsisiuntimo mygtukas nerodomas grotuve</string>
   <!-- 'download action button' should be translated using the same wording as the translation of 'revanced_hide_download_button_title' -->
-  <string name="revanced_external_downloader_action_button_title">Pakeisti atsisiuntimo veiksmo mygtuką</string>
+  <string name="revanced_external_downloader_action_button_title">Perrašyti atsisiuntimo veiksmo mygtuką</string>
   <string name="revanced_external_downloader_action_button_summary_on">Atsisiuntimo mygtukas atidaro jūsų išorinį atsisiuntimo įrankį</string>
   <string name="revanced_external_downloader_action_button_summary_off">Atsisiuntimo mygtukas atidaro gimtąjį programėlės atsisiuntimo įrankį</string>
   <string name="revanced_external_downloader_name_title">Atsisiuntimo įrankio paketo pavadinimas</string>
@@ -647,14 +652,14 @@ Pastaba: įjungus šį nustatymą, vaizdo įrašų reklamos taip pat yra privers
   <string name="revanced_hide_player_previous_next_buttons_title">Slėpti ankstesnius &amp; kitus vaizdo įrašų mygtukus</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_on">Mygtukai yra paslėpti</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">Mygtukai yra rodomi</string>
-  <string name="revanced_hide_cast_button_title">Slėpti transliacijos mygtuką</string>
+  <string name="revanced_hide_cast_button_title">Paslėpti mygtuką \"Transliuoti\"</string>
   <string name="revanced_hide_cast_button_summary_on">Transliacijos mygtukas yra paslėptas</string>
   <string name="revanced_hide_cast_button_summary_off">Transliacijos mygtukas yra rodomas</string>
   <!-- This button does not display any text, but 'captions' should be translated using the same wording used as the translation of 'revanced_hide_player_flyout_captions_title' -->
-  <string name="revanced_hide_captions_button_title">Slėpti titrų mygtuką</string>
+  <string name="revanced_hide_captions_button_title">Paslėpti mygtuką „Titrai\"</string>
   <string name="revanced_hide_captions_button_summary_on">Titrų mygtukas yra paslėptas</string>
   <string name="revanced_hide_captions_button_summary_off">Titrų mygtukas yra rodomas</string>
-  <string name="revanced_hide_autoplay_button_title">Slėpti automatinio paleidimo mygtuką</string>
+  <string name="revanced_hide_autoplay_button_title">Paslėpti mygtuką „Automatinis atkūrimas\"</string>
   <string name="revanced_hide_autoplay_button_summary_on">Automatinio paleidimo mygtukas yra paslėptas</string>
   <string name="revanced_hide_autoplay_button_summary_off">Automatinio paleidimo mygtukas yra rodomas</string>
   </patch>
@@ -704,38 +709,38 @@ Pastaba: įjungus šį nustatymą, vaizdo įrašų reklamos taip pat yra privers
   <string name="revanced_hide_shorts_history_summary_on">Paslėpta žiūrėjimo istorijoje</string>
   <string name="revanced_hide_shorts_history_summary_off">Rodoma žiūrėjimo istorijoje</string>
   <!-- 'join' should be translated using the same localized wording YouTube displays for the button. -->
-  <string name="revanced_hide_shorts_join_button_title">Slėpti prisijungimo mygtuką</string>
+  <string name="revanced_hide_shorts_join_button_title">Paslėpti mygtuką „Prisijungti\"</string>
   <string name="revanced_hide_shorts_join_button_summary_on">Prisijungimo mygtukas yra paslėptas</string>
   <string name="revanced_hide_shorts_join_button_summary_off">Prisijungimo mygtukas rodomas</string>
   <!-- 'subscribe' should be translated using the same localized wording YouTube displays for the button. -->
-  <string name="revanced_hide_shorts_subscribe_button_title">Slėpti prenumeratos mygtuką</string>
+  <string name="revanced_hide_shorts_subscribe_button_title">Paslėpti mygtuką „Prenumeruoti\"</string>
   <string name="revanced_hide_shorts_subscribe_button_summary_on">Prenumeratos mygtukas paslėptas</string>
   <string name="revanced_hide_shorts_subscribe_button_summary_off">Prenumeratos mygtukas rodomas</string>
   <string name="revanced_hide_shorts_paused_overlay_buttons_title">Slėpti sustabdyto vaizdo mygtukus</string>
   <string name="revanced_hide_shorts_paused_overlay_buttons_summary_on">Sustabdyto vaizdo mygtukai paslėpti</string>
   <string name="revanced_hide_shorts_paused_overlay_buttons_summary_off">Sustabdyto vaizdo mygtukai rodomi</string>
-  <string name="revanced_hide_shorts_shop_button_title">Slėpti parduotuvės mygtuką</string>
+  <string name="revanced_hide_shorts_shop_button_title">Paslėpti mygtuką „Parduotuvė\"</string>
   <string name="revanced_hide_shorts_shop_button_summary_on">Parduotuvės mygtukas paslėptas</string>
   <string name="revanced_hide_shorts_shop_button_summary_off">Parduotuvės mygtukas rodomas</string>
-  <string name="revanced_hide_shorts_super_thanks_button_title">Slėpti \"Super dėkui\" mygtuką</string>
-  <string name="revanced_hide_shorts_super_thanks_button_summary_on">\"Super dėkui\" mygtukas paslėptas</string>
-  <string name="revanced_hide_shorts_super_thanks_button_summary_off">\"Super dėkui\" mygtukas rodomas</string>
+  <string name="revanced_hide_shorts_super_thanks_button_title">Paslėpti mygtuką „Nupirkti „Super Padėką“\"</string>
+  <string name="revanced_hide_shorts_super_thanks_button_summary_on">Mygtukas „Super Padėka“ paslėptas</string>
+  <string name="revanced_hide_shorts_super_thanks_button_summary_off">Mygtukas „Super Padėka“ rodomas</string>
   <string name="revanced_hide_shorts_tagged_products_title">Slėpti pažymėtus produktus</string>
   <string name="revanced_hide_shorts_tagged_products_summary_on">Pažymėti produktai paslėpti</string>
   <string name="revanced_hide_shorts_tagged_products_summary_off">Pažymėti produktai rodomi</string>
   <string name="revanced_hide_shorts_location_label_title">Slėpti vietovės etiketę</string>
   <string name="revanced_hide_shorts_location_label_summary_on">Vietovės etiketė paslėpta</string>
   <string name="revanced_hide_shorts_location_label_summary_off">Vietovės etiketė rodoma</string>
-  <string name="revanced_hide_shorts_save_sound_button_title">Slėpti \"Išsaugoti muziką\" mygtuką</string>
+  <string name="revanced_hide_shorts_save_sound_button_title">Paslėpti mygtuką „Įrašyti muziką\"</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_on">\"Išsaugoti muziką\" mygtukas paslėptas</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_off">\"Išsaugoti muziką\" mygtukas rodomas</string>
-  <string name="revanced_hide_shorts_use_template_button_title">Slėpti \"Naudoti šabloną\" mygtuką</string>
+  <string name="revanced_hide_shorts_use_template_button_title">Paslėpti mygtuką „Naudoti šabloną\"</string>
   <string name="revanced_hide_shorts_use_template_button_summary_on">\"Naudoti šabloną\" mygtukas paslėptas</string>
   <string name="revanced_hide_shorts_use_template_button_summary_off">\"Naudoti šabloną\" mygtukas rodomas</string>
-  <string name="revanced_hide_shorts_upcoming_button_title">Slėpti \"Artėjantys\" mygtuką</string>
+  <string name="revanced_hide_shorts_upcoming_button_title">Paslėpti mygtuką „Ateina\"</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_on">\"Ateinančių\" mygtukas paslėptas</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_off">\"Ateinančių\" mygtukas rodomas</string>
-  <string name="revanced_hide_shorts_green_screen_button_title">Slėpti \"Žaliojo ekrano\" mygtuką</string>
+  <string name="revanced_hide_shorts_green_screen_button_title">Paslėpti mygtuką „Žalias ekranas\"</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_on">\"Žaliojo ekrano\" mygtukas paslėptas</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_off">\"Žaliojo ekrano\" mygtukas rodomas</string>
   <string name="revanced_hide_shorts_hashtag_button_title">Slėpti grotažymės mygtuką</string>
@@ -747,24 +752,24 @@ Pastaba: įjungus šį nustatymą, vaizdo įrašų reklamos taip pat yra privers
   <string name="revanced_hide_shorts_stickers_title">Slėpti lipdukus</string>
   <string name="revanced_hide_shorts_stickers_summary_on">Lipdukai paslėpti</string>
   <string name="revanced_hide_shorts_stickers_summary_off">Lipdukai rodomi</string>
-  <string name="revanced_hide_shorts_like_fountain_title">Slėpti \"Patinka\" fontaną</string>
+  <string name="revanced_hide_shorts_like_fountain_title">Paslėpti mygtuko „Patinka“ fontaną</string>
   <string name="revanced_hide_shorts_like_fountain_summary_on">\"Patinka\" mygtuko fontano animacija paslėpta</string>
   <string name="revanced_hide_shorts_like_fountain_summary_off">\"Patinka\" mygtuko fontano animacija rodoma</string>
-  <string name="revanced_hide_shorts_like_button_title">Slėpti \"Patinka\" mygtuką</string>
+  <string name="revanced_hide_shorts_like_button_title">Paslėpti mygtuką „Patinka\"</string>
   <string name="revanced_hide_shorts_like_button_summary_on">\"Patinka\" mygtukas paslėptas</string>
   <string name="revanced_hide_shorts_like_button_summary_off">\"Patinka\" mygtukas rodomas</string>
-  <string name="revanced_hide_shorts_dislike_button_title">Slėpti \"Nepatinka\" mygtuką</string>
+  <string name="revanced_hide_shorts_dislike_button_title">Paslėpti mygtuką „Nepatinka\"</string>
   <string name="revanced_hide_shorts_dislike_button_summary_on">\"Nepatinka\" mygtukas paslėptas</string>
   <string name="revanced_hide_shorts_dislike_button_summary_off">\"Nepatinka\" mygtukas rodomas</string>
-  <string name="revanced_hide_shorts_comments_button_title">Slėpti komentarų mygtuką</string>
+  <string name="revanced_hide_shorts_comments_button_title">Paslėpti mygtuką „Komentarai\"</string>
   <string name="revanced_hide_shorts_comments_button_summary_on">Komentarų mygtukas paslėptas</string>
   <string name="revanced_hide_shorts_comments_button_summary_off">Komentarų mygtukas rodomas</string>
   <!-- 'remix' should be translated using the same localized wording YouTube displays for the button. -->
-  <string name="revanced_hide_shorts_remix_button_title">Slėpti \"Remix\" mygtuką</string>
+  <string name="revanced_hide_shorts_remix_button_title">Paslėpti mygtuką „Remixuoti\"</string>
   <string name="revanced_hide_shorts_remix_button_summary_on">\"Remix\" mygtukas paslėptas</string>
   <string name="revanced_hide_shorts_remix_button_summary_off">\"Remix\" mygtukas rodomas</string>
   <!-- 'share' should be translated using the same localized wording YouTube displays for the button. -->
-  <string name="revanced_hide_shorts_share_button_title">Slėpti \"Dalintis\" mygtuką</string>
+  <string name="revanced_hide_shorts_share_button_title">Paslėpti mygtuką „Dalintis\"</string>
   <string name="revanced_hide_shorts_share_button_summary_on">\"Dalintis\" mygtukas paslėptas</string>
   <string name="revanced_hide_shorts_share_button_summary_off">\"Dalintis\" mygtukas rodomas</string>
   <string name="revanced_hide_shorts_info_panel_title">Slėpti informacijos skydelį</string>
@@ -841,7 +846,7 @@ Apribojimas: „Nepatinka“ gali nepasirodyti inkognito režimu"</string>
   <string name="revanced_ryd_dislike_percentage_summary_on">\"Nepatinka\" rodomi procentais</string>
   <string name="revanced_ryd_dislike_percentage_summary_off">\"Nepatinka\" rodomi skaičiais</string>
   <!-- Translations should use language similar to 'revanced_sb_enable_compact_skip_button' -->
-  <string name="revanced_ryd_compact_layout_title">Kompaktiškas \"Patinka\" mygtukas</string>
+  <string name="revanced_ryd_compact_layout_title">Kompaktiškas mygtukas „Patinka\"</string>
   <string name="revanced_ryd_compact_layout_summary_on">\"Patinka\" mygtukas suformuotas minimaliam pločiui</string>
   <string name="revanced_ryd_compact_layout_summary_off">\"Patinka\" mygtukas suformuotas geriausiam vaizdui</string>
   <string name="revanced_ryd_toast_on_connection_error_title">Rodyti pranešimą, jei API nepasiekiamas</string>
@@ -889,7 +894,7 @@ Paieškos juostos miniatiūros bus naudojamos tos pačios kokybės kaip dabartin
   </patch>
   <patch id="layout.sponsorblock.sponsorBlockResourcePatch">
   <string name="revanced_sb_enable_sb">Įjungti SponsorBlock</string>
-  <string name="revanced_sb_enable_sb_sum">SponsorBlock - tai bendruomenės sukurta sistema, skirta praleisti nepageidaujamas YouTube vaizdo įrašų dalis</string>
+  <string name="revanced_sb_enable_sb_sum">SponsorBlock – tai sutelktinė sistema, skirta praleisti erzinamam YouTube vaizdo įrašo dalims</string>
   <string name="revanced_sb_appearance_category">Išvaizda</string>
   <string name="revanced_sb_enable_voting">Rodyti balsavimo mygtuką</string>
   <string name="revanced_sb_enable_voting_sum_on">Segmento balsavimo mygtukas rodomas</string>
@@ -955,7 +960,7 @@ Jūsų vartotojo ID yra kaip slaptažodis ir jo niekada nereikėtų dalintis.
   <string name="revanced_sb_segments_sponsor">Rėmėjas</string>
   <string name="revanced_sb_segments_sponsor_sum">Mokesčių reklama, mokama rekomendacija ir tiesioginė reklama. Ne skirta savireklamos tikslams ar nemokamai paminėti priežastims/kūrėjams/svetainėms/produktams, kurie jiems patinka</string>
   <string name="revanced_sb_segments_selfpromo">Nemokama/Savireklama</string>
-  <string name="revanced_sb_segments_selfpromo_sum">Panašu į „Rėmėjas“, išskyrus nemokamą arba savireklamą. Apima skyrius apie prekes, dovanas ar informaciją apie tai, su kuo jie bendradarbiavo</string>
+  <string name="revanced_sb_segments_selfpromo_sum">Panašiai kaip rėmėjas, išskyrus nemokamas arba asmenines reklamas. Apima skirsnius apie prekes, aukas arba informaciją apie asmenis, su kuriais bendradarbiavo</string>
   <string name="revanced_sb_segments_interaction">Sąveikos priminimas (Prenumerata)</string>
   <string name="revanced_sb_segments_interaction_sum">Trumpas priminimas, kad turinys būtų patikęs, prenumeruojamas arba sekama. Jei jis ilgas arba susijęs su kažkuo specifiniu, vietoj to jis turėtų būti savireklama</string>
   <string name="revanced_sb_segments_highlight">Akcentas</string>
@@ -1215,8 +1220,10 @@ Braukite, kad išplėstumėte arba uždarytumėte"</string>
   <string name="revanced_seekbar_custom_color_title">Įgalinti pritaikytą slankiklio spalvą</string>
   <string name="revanced_seekbar_custom_color_summary_on">Rodoma pritaikyta slankiklio spalva</string>
   <string name="revanced_seekbar_custom_color_summary_off">Rodoma originali slankiklio spalva</string>
-  <string name="revanced_seekbar_custom_color_value_title">Pritaikyta slankiklio spalva</string>
-  <string name="revanced_seekbar_custom_color_value_summary">Slankiklio spalva</string>
+  <string name="revanced_seekbar_custom_color_primary_title">Individualizuota ieškojimo juostos spalva</string>
+  <string name="revanced_seekbar_custom_color_primary_summary">Ieškojimo juostos spalva</string>
+  <string name="revanced_seekbar_custom_color_accent_title">Individualizuota ieškojimo juostos akcento spalva</string>
+  <string name="revanced_seekbar_custom_color_accent_summary">Ieškojimo juostos akcento spalva</string>
   <string name="revanced_seekbar_custom_color_invalid">Netinkama slankiklio spalvos vertė</string>
   </patch>
   <patch id="layout.thumbnails.bypassImageRegionRestrictionsPatch">
@@ -1239,7 +1246,6 @@ Braukite, kad išplėstumėte arba uždarytumėte"</string>
   <string name="revanced_alt_thumbnail_options_entry_2">DeArrow &amp; Originalūs miniatiūriniai vaizdai</string>
   <string name="revanced_alt_thumbnail_options_entry_3">DeArrow &amp; Nejudantys kadrai</string>
   <string name="revanced_alt_thumbnail_options_entry_4">Nejudantys kadrai</string>
-  <string name="revanced_alt_thumbnail_dearrow_about_title">DeArrow</string>
   <string name="revanced_alt_thumbnail_dearrow_about_summary">"DeArrow pateikia miniatiūras, surinktas iš bendruomenės, „YouTube“ vaizdo įrašams. Šios miniatiūros dažnai yra tinkamesnės nei tos, kurias pateikia „YouTube“
 
 Įjungus šį nustatymą, vaizdo įrašų URL bus siunčiami į API serverį ir kiti duomenys nebus siunčiami. Jei vaizdo įraše nėra DeArrow miniatiūrų, tada rodomos originalios arba fiksuotos miniatiūros
@@ -1357,6 +1363,11 @@ Gali būti atrakinta aukštesnės vaizdo įrašų kokybės, bet galite patirti v
   <string name="revanced_playback_speed_default_title">Numatytasis atkūrimo greitis</string>
   <string name="revanced_remember_playback_speed_toast">Pakeistas numatytasis greitis į: %s</string>
   </patch>
+  <patch id="video.hdr.disableHdrPatch">
+  <string name="revanced_disable_hdr_video_title">Išjungti HDR vaizdo įrašą</string>
+  <string name="revanced_disable_hdr_video_summary_on">HDR vaizdo įrašas išjungtas</string>
+  <string name="revanced_disable_hdr_video_summary_off">HDR vaizdo įrašas įjungtas</string>
+  </patch>
   <patch id="video.videoqualitymenu.restoreOldVideoQualityMenuResourcePatch">
   <string name="revanced_restore_old_video_quality_menu_title">Atkurti senąjį vaizdo įrašų kokybės meniu</string>
   <string name="revanced_restore_old_video_quality_menu_summary_on">Senasis vaizdo įrašų kokybės meniu rodomas</string>
@@ -1394,6 +1405,7 @@ AVC didžiausia skiriamoji geba yra 1080 p, „Opus“ garso kodekas negalimas,
 • Nėra stabilaus garso
 • Negalima priverstinai naudoti originalo garso"</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Nėra AV1 vaizdo kodeko</string>
+  <string name="revanced_spoof_video_streams_about_kids_videos">• Vaikų vaizdo įrašai gali būti neatkuriami, kai atsijungiama arba naudojamas inkognito režimas</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Rodyti statistinėje informacijoje \"tik profesionalams\"</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Kliento tipas rodomas statistinėje informacijoje \"tik profesionalams\"</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Klientas paslėptas statistinėje informacijoje \"tik profesionalams\"</string>

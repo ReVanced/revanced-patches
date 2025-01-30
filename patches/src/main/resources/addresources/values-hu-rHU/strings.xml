@@ -34,7 +34,6 @@ Second \"item\" text"</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_submenu_title">Beállítások</string>
-  <string name="revanced_settings_title">ReVanced</string>
   <string name="revanced_settings_confirm_user_dialog_title">Szeretné folytatni?</string>
   <string name="revanced_settings_reset">Visszaállítás</string>
   <string name="revanced_settings_restart_title">Frissítés és újraindítás</string>
@@ -169,9 +168,9 @@ Kattintson a folytatás gombra, és engedélyezze az optimalizálási módosít�
 Nem fog értesülni semmilyen váratlan eseményről."</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
-  <string name="revanced_disable_like_subscribe_glow_title">Like / feliratkozás gomb ragyogásának kikapcsolása</string>
-  <string name="revanced_disable_like_subscribe_glow_summary_on">Like / feliratkozás gomb nem fog ragyogni mikor megemlítik</string>
-  <string name="revanced_disable_like_subscribe_glow_summary_off">Like / feliratkozás gomb ragyogni fog mikor megemlítik</string>
+  <string name="revanced_disable_like_subscribe_glow_title">A Tetszik és Iratkozz fel gombok fényének kikapcsolása</string>
+  <string name="revanced_disable_like_subscribe_glow_summary_on">A Tetszik és Iratkozz fel gombok nem világítanak, ha megemlítik őket</string>
+  <string name="revanced_disable_like_subscribe_glow_summary_off">A Tetszik és Iratkozz fel gombok világítanak, ha megemlítik őket</string>
   <string name="revanced_hide_album_cards_title">Album kártyák elrejtése</string>
   <string name="revanced_hide_album_cards_summary_on">Az album kártyák el vannak rejtve</string>
   <string name="revanced_hide_album_cards_summary_off">Az album kártyák láthatóak</string>
@@ -224,9 +223,9 @@ Nem fog értesülni semmilyen váratlan eseményről."</string>
   <string name="revanced_hide_chips_shelf_title">Vágások polc elrejtése</string>
   <string name="revanced_hide_chips_shelf_summary_on">A vágások polc el van rejtve</string>
   <string name="revanced_hide_chips_shelf_summary_off">A részletek polc meg van jelenítve</string>
-  <string name="revanced_hide_expandable_chip_title">Kiterjeszthető részletek elrejtése a videók alatt</string>
-  <string name="revanced_hide_expandable_chip_summary_on">A bővíthető chipek el vannak rejtve</string>
-  <string name="revanced_hide_expandable_chip_summary_off">A bővíthető chipek meg vannak jelenítve</string>
+  <string name="revanced_hide_expandable_chip_title">Rejtse el a bővíthető kártyát a videók alatt</string>
+  <string name="revanced_hide_expandable_chip_summary_on">A bővíthető kártyák el vannak rejtve</string>
+  <string name="revanced_hide_expandable_chip_summary_off">A bővíthető kártyák láthatóak</string>
   <string name="revanced_hide_community_posts_title">Közösségi posztok elrejtése</string>
   <string name="revanced_hide_community_posts_summary_on">A közösségi bejegyzések el vannak rejtve</string>
   <string name="revanced_hide_community_posts_summary_off">A közösségi bejegyzések meg vannak jelenítve</string>
@@ -287,6 +286,9 @@ Nem fog értesülni semmilyen váratlan eseményről."</string>
   <string name="revanced_hide_chapters_section_title">Fejezetek elrejtése</string>
   <string name="revanced_hide_chapters_section_summary_on">A fejezetcó szakasz el van rejtve</string>
   <string name="revanced_hide_chapters_section_summary_off">A fejezetcó szakasz meg van jelenítve</string>
+  <string name="revanced_hide_how_this_was_made_section_title">„A tartalom elkészítésének módja” szakasz elrejtése</string>
+  <string name="revanced_hide_how_this_was_made_section_summary_on">A „A tartalom elkészítésének módja” szakasz rejtett</string>
+  <string name="revanced_hide_how_this_was_made_section_summary_off">A „A tartalom elkészítésének módja” szakasz megjelenik</string>
   <string name="revanced_hide_podcast_section_title">A „Podcast felfedezése” szakasz elrejtése</string>
   <string name="revanced_hide_podcast_section_summary_on">\"A podcast felfedezése\" szakasz el van rejtve</string>
   <string name="revanced_hide_podcast_section_summary_off">\"A podcast felfedezése\" szakasz meg van jelenítve</string>
@@ -356,12 +358,12 @@ Ha a Doodle jelenleg a régiódában látható, és ez a rejtés beállítás be
   <string name="revanced_hide_keyword_content_home_title">Videók elrejtése a kezdőlapon kulcsszavak alapján</string>
   <string name="revanced_hide_keyword_content_home_summary_on">A videók a kezdőlapon kulcsszavak alapján szűrve</string>
   <string name="revanced_hide_keyword_content_home_summary_off">A videók a kezdőlapon nincsenek szűrve</string>
-  <string name="revanced_hide_keyword_content_subscriptions_title">Videók elrejtése a feliratkozások lapon kulcsszavak alapján</string>
-  <string name="revanced_hide_keyword_content_subscriptions_summary_on">A videók a feliratkozások lapon kulcsszavak alapján szűrve</string>
-  <string name="revanced_hide_keyword_content_subscriptions_summary_off">A videók a feliratkozások lapon nincsenek szűrve</string>
   <string name="revanced_hide_keyword_content_search_title">Keresési eredmények elrejtése kulcsszavak alapján</string>
   <string name="revanced_hide_keyword_content_search_summary_on">A keresési eredmények kulcsszavak alapján szűrve</string>
   <string name="revanced_hide_keyword_content_search_summary_off">A keresési eredmények nincsenek szűrve</string>
+  <string name="revanced_hide_keyword_content_subscriptions_title">Videók elrejtése a feliratkozások lapon kulcsszavak alapján</string>
+  <string name="revanced_hide_keyword_content_subscriptions_summary_on">A videók a feliratkozások lapon kulcsszavak alapján szűrve</string>
+  <string name="revanced_hide_keyword_content_subscriptions_summary_off">A videók a feliratkozások lapon nincsenek szűrve</string>
   <string name="revanced_hide_keyword_content_phrases_title">Elrejtendő kulcsszavak</string>
   <!-- For localization it is preferred, but not required, if 'LeBlanc' is replaced with a localized name or a familiar word that has upper case letters in the middle of the word.
                  This is because keywords can be in any language, and showing an example in the localized script helps convey this. -->
@@ -408,6 +410,9 @@ Ez a funkció csak régebbi eszközökön érhető el"</string>
   <string name="revanced_hide_products_banner_title">Szalagkép elrejtése a termékek megtekintéséhez</string>
   <string name="revanced_hide_products_banner_summary_on">A szalagkép rejtett</string>
   <string name="revanced_hide_products_banner_summary_off">A szalagkép megjelenik</string>
+  <string name="revanced_hide_end_screen_store_banner_title">A befejező képernyőn lévő üzletbanner elrejtése</string>
+  <string name="revanced_hide_end_screen_store_banner_summary_on">Az áruház banner rejtett</string>
+  <string name="revanced_hide_end_screen_store_banner_summary_off">Az áruház banner megjelenik</string>
   <string name="revanced_hide_player_store_shelf_title">A lejátszó bevásárlópolcának elrejtése</string>
   <string name="revanced_hide_player_store_shelf_summary_on">A bevásárlópolc el van rejtve</string>
   <string name="revanced_hide_player_store_shelf_summary_off">Megjelenik a bevásárlópolc</string>
@@ -460,7 +465,7 @@ Ez a funkció csak régebbi eszközökön érhető el"</string>
   <string name="revanced_external_downloader_summary_on">A letöltés gomb látható a lejátszóban</string>
   <string name="revanced_external_downloader_summary_off">A letöltés gomb nem látható a lejátszóban</string>
   <!-- 'download action button' should be translated using the same wording as the translation of 'revanced_hide_download_button_title' -->
-  <string name="revanced_external_downloader_action_button_title">Letöltés művelet gomb felülbírálása</string>
+  <string name="revanced_external_downloader_action_button_title">A Letöltés művelet gomb felülírása</string>
   <string name="revanced_external_downloader_action_button_summary_on">A letöltés gomb a külső letöltőt nyitja meg</string>
   <string name="revanced_external_downloader_action_button_summary_off">A letöltés gomb az alkalmazáson belüli letöltőt használja</string>
   <string name="revanced_external_downloader_name_title">Letöltő csomag neve</string>
@@ -647,11 +652,11 @@ Megjegyzés: Ez a beállítás a videóhirdetések kényszerű elrejtését is m
   <string name="revanced_hide_player_previous_next_buttons_title">Az előző és következő videó gombok elrejtése</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_on">A gombok elrejtve</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">A gombok megjelennek</string>
-  <string name="revanced_hide_cast_button_title">Átküldés gomb elrejtése</string>
+  <string name="revanced_hide_cast_button_title">Küldés gomb elrejtése</string>
   <string name="revanced_hide_cast_button_summary_on">Az átküldés gomb rejtve van</string>
   <string name="revanced_hide_cast_button_summary_off">Az átküldés gomb látható</string>
   <!-- This button does not display any text, but 'captions' should be translated using the same wording used as the translation of 'revanced_hide_player_flyout_captions_title' -->
-  <string name="revanced_hide_captions_button_title">Feliratok gomb elrejtése</string>
+  <string name="revanced_hide_captions_button_title">Felirat gomb elrejtése</string>
   <string name="revanced_hide_captions_button_summary_on">A feliratok gomb el van rejtve</string>
   <string name="revanced_hide_captions_button_summary_off">A feliratok gomb látható</string>
   <string name="revanced_hide_autoplay_button_title">Automatikus lejátszás gomb elrejtése</string>
@@ -664,7 +669,7 @@ Megjegyzés: Ez a beállítás a videóhirdetések kényszerű elrejtését is m
   <string name="revanced_hide_endscreen_cards_summary_off">A záróképernyő kártyák megjelennek</string>
   </patch>
   <patch id="layout.hide.fullscreenambientmode.disableFullscreenAmbientModePatch">
-  <string name="revanced_disable_fullscreen_ambient_mode_title">Mozifilmes világítás letiltása teljes képernyős módban</string>
+  <string name="revanced_disable_fullscreen_ambient_mode_title">Ambient mód letiltása teljes képernyős módban</string>
   <string name="revanced_disable_fullscreen_ambient_mode_summary_on">Mozifilmes világítás kikapcsolva</string>
   <string name="revanced_disable_fullscreen_ambient_mode_summary_off">Mozifilmes világítás engedélyezve</string>
   </patch>
@@ -714,28 +719,28 @@ Megjegyzés: Ez a beállítás a videóhirdetések kényszerű elrejtését is m
   <string name="revanced_hide_shorts_paused_overlay_buttons_title">Szüneteltetett fedő gombok elrejtése</string>
   <string name="revanced_hide_shorts_paused_overlay_buttons_summary_on">A szüneteltetett fedő gombok el vannak rejtve</string>
   <string name="revanced_hide_shorts_paused_overlay_buttons_summary_off">A szüneteltetett fedő gombok megjelennek</string>
-  <string name="revanced_hide_shorts_shop_button_title">Vásárlás gomb elrejtése</string>
+  <string name="revanced_hide_shorts_shop_button_title">Shop gomb elrejtése</string>
   <string name="revanced_hide_shorts_shop_button_summary_on">A vásárlás gomb el van rejtve</string>
   <string name="revanced_hide_shorts_shop_button_summary_off">A vásárlás gomb látható</string>
-  <string name="revanced_hide_shorts_super_thanks_button_title">Szuper köszönöm gomb elrejtése</string>
-  <string name="revanced_hide_shorts_super_thanks_button_summary_on">A szuper köszönöm gomb el van rejtve</string>
-  <string name="revanced_hide_shorts_super_thanks_button_summary_off">A szuper köszönöm gomb megjelenik</string>
+  <string name="revanced_hide_shorts_super_thanks_button_title">Szuperköszönet gomb elrejtése</string>
+  <string name="revanced_hide_shorts_super_thanks_button_summary_on">A Szuperköszönet gomb rejtett</string>
+  <string name="revanced_hide_shorts_super_thanks_button_summary_off">A Szuperköszönet gomb megjelenik</string>
   <string name="revanced_hide_shorts_tagged_products_title">Címkézett termékek elrejtése</string>
   <string name="revanced_hide_shorts_tagged_products_summary_on">A megjelölt termékek el vannak rejtve</string>
   <string name="revanced_hide_shorts_tagged_products_summary_off">A megjelölt termékek meg vannak jelenítve</string>
   <string name="revanced_hide_shorts_location_label_title">Helycímke elrejtése</string>
   <string name="revanced_hide_shorts_location_label_summary_on">A helycízke címke el van rejtve</string>
   <string name="revanced_hide_shorts_location_label_summary_off">A helycízke címke meg van jelenítve</string>
-  <string name="revanced_hide_shorts_save_sound_button_title">Zene mentés gomb elrejtése</string>
+  <string name="revanced_hide_shorts_save_sound_button_title">Zene mentése gomb elrejtése</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_on">A zene mentés gomb el van rejtve</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_off">A zene mentés gomb látható</string>
-  <string name="revanced_hide_shorts_use_template_button_title">A sablon használata gomb elrejtése</string>
+  <string name="revanced_hide_shorts_use_template_button_title">Sablon használata gomb elrejtése</string>
   <string name="revanced_hide_shorts_use_template_button_summary_on">A Sablon használata gomb el van rejtve</string>
   <string name="revanced_hide_shorts_use_template_button_summary_off">A sablon használata gomb látható</string>
-  <string name="revanced_hide_shorts_upcoming_button_title">Közelgő gomb elrejtése</string>
+  <string name="revanced_hide_shorts_upcoming_button_title">Következő videó gomb elrejtése</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_on">A közelgő gomb el van rejtve</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_off">Megjelenik a Közelgő gomb</string>
-  <string name="revanced_hide_shorts_green_screen_button_title">A zöld képernyőgomb elrejtése</string>
+  <string name="revanced_hide_shorts_green_screen_button_title">Zöld háttér gomb elrejtése</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_on">A zöld képernyő gomb el van rejtve</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_off">A zöld képernyő gomb látható</string>
   <string name="revanced_hide_shorts_hashtag_button_title">A hashtag gomb elrejtése</string>
@@ -747,7 +752,7 @@ Megjegyzés: Ez a beállítás a videóhirdetések kényszerű elrejtését is m
   <string name="revanced_hide_shorts_stickers_title">Matricák elrejtése</string>
   <string name="revanced_hide_shorts_stickers_summary_on">A matricák el vannak rejtve</string>
   <string name="revanced_hide_shorts_stickers_summary_off">A matricák láthatóak</string>
-  <string name="revanced_hide_shorts_like_fountain_title">Tetszik szökőkút elrejtése</string>
+  <string name="revanced_hide_shorts_like_fountain_title">Tetszik gomb szökőkút animációjának elrejtése</string>
   <string name="revanced_hide_shorts_like_fountain_summary_on">A Like gomb szökőkút animáció el van rejtve</string>
   <string name="revanced_hide_shorts_like_fountain_summary_off">A Like gomb szökőkút animáció látható</string>
   <string name="revanced_hide_shorts_like_button_title">Tetszik gomb elrejtése</string>
@@ -756,7 +761,7 @@ Megjegyzés: Ez a beállítás a videóhirdetések kényszerű elrejtését is m
   <string name="revanced_hide_shorts_dislike_button_title">Nem tetszik gomb elrejtése</string>
   <string name="revanced_hide_shorts_dislike_button_summary_on">A nem tetszik gomb elrejtve</string>
   <string name="revanced_hide_shorts_dislike_button_summary_off">A nem tetszik gomb látható</string>
-  <string name="revanced_hide_shorts_comments_button_title">Megjegyzések gomb elrejtése</string>
+  <string name="revanced_hide_shorts_comments_button_title">Hozzászólások gomb elrejtése</string>
   <string name="revanced_hide_shorts_comments_button_summary_on">A megjegyzések gomb el van rejtve</string>
   <string name="revanced_hide_shorts_comments_button_summary_off">A megjegyzések gomb megjelenik</string>
   <!-- 'remix' should be translated using the same localized wording YouTube displays for the button. -->
@@ -841,7 +846,7 @@ Korlátozás: A Nem tetszik jelzések nem jelennek meg inkognitó módban"</stri
   <string name="revanced_ryd_dislike_percentage_summary_on">A nem tetszések százalékban jelennek meg</string>
   <string name="revanced_ryd_dislike_percentage_summary_off">A nem tetszések számként jelennek meg</string>
   <!-- Translations should use language similar to 'revanced_sb_enable_compact_skip_button' -->
-  <string name="revanced_ryd_compact_layout_title">Kompakt tetszik gomb</string>
+  <string name="revanced_ryd_compact_layout_title">Tömör Tetszik gomb</string>
   <string name="revanced_ryd_compact_layout_summary_on">A tetszik gomb minimális szélességre formázva</string>
   <string name="revanced_ryd_compact_layout_summary_off">A tetszik gomb a legjobb megjelenésre formázva</string>
   <string name="revanced_ryd_toast_on_connection_error_title">Üzenet megjelenítése, ha az API nem elérhető</string>
@@ -889,7 +894,7 @@ Ez a funkció a legjobban 720p vagy annál alacsonyabb videóminőség mellett �
   </patch>
   <patch id="layout.sponsorblock.sponsorBlockResourcePatch">
   <string name="revanced_sb_enable_sb">SponsorBlock bekapcsolása</string>
-  <string name="revanced_sb_enable_sb_sum">A SponsorBlock egy közösségi rendszer a zavaró részek kihagyására a YouTube videókon</string>
+  <string name="revanced_sb_enable_sb_sum">A SponsorBlock egy közösségi finanszírozású rendszer, amellyel kihagyhatod a YouTube videók idegesítő részeit</string>
   <string name="revanced_sb_appearance_category">Megjelenés</string>
   <string name="revanced_sb_enable_voting">Szavazás gomb megjelenítése</string>
   <string name="revanced_sb_enable_voting_sum_on">Szegmens szavazás gomb megjelenítve</string>
@@ -954,7 +959,7 @@ A felhasználói azonosítója olyan, mint egy jelszó, és soha nem szabad mego
   <string name="revanced_sb_segments_sponsor">Szponzor</string>
   <string name="revanced_sb_segments_sponsor_sum">Fizetett promóció, vagy közvetlen reklám. Nem önpromóció, vagy ingyenes említése ügyeknek/tartalomkészítőknek/weboldalaknak/termékeknek amik tetszenek nekik</string>
   <string name="revanced_sb_segments_selfpromo">Nem fizetett hirdetés/önpromóció</string>
-  <string name="revanced_sb_segments_selfpromo_sum">Hasonló a „szponzorhoz”, csak ez nem fizetett, vagy saját promóció. Beletartoznak a saját árucikkek, adományok, illetve információk azokról, akikkel együttműködtek</string>
+  <string name="revanced_sb_segments_selfpromo_sum">Hasonló a szponzoráláshoz, de a nem fizetett vagy önreklámokhoz. Olyan részeket tartalmaz, amelyek a kereskedelmi termékekről, adományokról vagy együttműködő partnerekről szólnak</string>
   <string name="revanced_sb_segments_interaction">Interakció emlékeztető (Feliratkozás)</string>
   <string name="revanced_sb_segments_interaction_sum">Egy rövid emlékeztető arról, hogy like-oljunk, iratkozzunk fel, vagy kövessük a tartalom közben. Ha hosszabb szakasz, vagy egy adott témáról van, inkább az önpromóció alá tartozik</string>
   <string name="revanced_sb_segments_highlight">Kiemelt</string>
@@ -1083,7 +1088,7 @@ Készen állsz a beküldésre?"</string>
   <string name="revanced_change_form_factor_title">Elrendezési űrlap faktor</string>
   <string name="revanced_change_form_factor_entry_1">Alapértelmezett</string>
   <string name="revanced_change_form_factor_entry_2">Telefon</string>
-  <string name="revanced_change_form_factor_entry_3">Tablet</string>
+  <string name="revanced_change_form_factor_entry_3">Táblagép</string>
   <string name="revanced_change_form_factor_entry_4">Autóipari</string>
   <string name="revanced_change_form_factor_user_dialog_message">"Módosítások:
 
@@ -1213,8 +1218,10 @@ Húzza el a képernyőt a kibontáshoz vagy bezáráshoz"</string>
   <string name="revanced_seekbar_custom_color_title">Egyéni keresősáv szín engedélyezése</string>
   <string name="revanced_seekbar_custom_color_summary_on">Az egyéni keresősáv szín megjelenik</string>
   <string name="revanced_seekbar_custom_color_summary_off">Az egyéni keresősáv szín nem jelenik meg</string>
-  <string name="revanced_seekbar_custom_color_value_title">Egyéni keresősáv színe</string>
-  <string name="revanced_seekbar_custom_color_value_summary">A keresősáv színe</string>
+  <string name="revanced_seekbar_custom_color_primary_title">Egyéni keresősáv színe</string>
+  <string name="revanced_seekbar_custom_color_primary_summary">A keresősáv színe</string>
+  <string name="revanced_seekbar_custom_color_accent_title">Egyéni keresősáv kiemelő színe</string>
+  <string name="revanced_seekbar_custom_color_accent_summary">A keresősáv kiemelõ színe</string>
   <string name="revanced_seekbar_custom_color_invalid">Érvénytelen keresősáv színértéke</string>
   </patch>
   <patch id="layout.thumbnails.bypassImageRegionRestrictionsPatch">
@@ -1327,7 +1334,7 @@ Ez a beállítás lehetővé teszi a magasabb videóminőségek feloldását"</s
   <string name="revanced_video_quality_default_wifi_title">Alapértelmezett videó minőség Wi-Fi hálózaton</string>
   <string name="revanced_video_quality_default_mobile_title">Alapértelmezett videó minőség mobilhálózaton</string>
   <string name="revanced_remember_video_quality_mobile">mobil</string>
-  <string name="revanced_remember_video_quality_wifi">wifi</string>
+  <string name="revanced_remember_video_quality_wifi">wi-fi</string>
   <string name="revanced_remember_video_quality_toast">A(z) %1$s alapértelmezett felbontása erre módosult: %2$s</string>
   </patch>
   <patch id="video.speed.button.playbackSpeedButtonPatch">
@@ -1353,6 +1360,11 @@ Ez a beállítás lehetővé teszi a magasabb videóminőségek feloldását"</s
   <string name="revanced_remember_playback_speed_last_selected_summary_off">A lejátszási sebesség módosítása csak a jelenlegi videóra érvényes</string>
   <string name="revanced_playback_speed_default_title">Alapértelmezett lejátszási sebesség</string>
   <string name="revanced_remember_playback_speed_toast">Alapértelmezett sebesség módosítva: %s</string>
+  </patch>
+  <patch id="video.hdr.disableHdrPatch">
+  <string name="revanced_disable_hdr_video_title">Az HDR videó letiltása</string>
+  <string name="revanced_disable_hdr_video_summary_on">Az HDR videó le van tiltva</string>
+  <string name="revanced_disable_hdr_video_summary_off">Az HDR videó engedélyezve van</string>
   </patch>
   <patch id="video.videoqualitymenu.restoreOldVideoQualityMenuResourcePatch">
   <string name="revanced_restore_old_video_quality_menu_title">Régi videóminőség menü visszaállítása</string>
@@ -1391,6 +1403,7 @@ Az AVC maximális felbontása 1080p, az Opus audiokodek nem érhető el, és a v
 • Nem áll rendelkezésre stabil hangerő
 • Az eredeti hang kényszerítése nem érhető el"</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Nincs AV1 videokodek</string>
+  <string name="revanced_spoof_video_streams_about_kids_videos">• A gyermekeknek szóló videók nem játszódnak le, ha a felhasználó kijelentkezett, vagy inkognitómódban van.</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Megjelenítés a Statisztikákban</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">A kliens típusa a Statisztikákban látható</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">A kliens el van rejtve a Statisztikákban</string>
