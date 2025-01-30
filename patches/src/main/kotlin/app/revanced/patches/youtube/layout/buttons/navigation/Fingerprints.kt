@@ -13,7 +13,7 @@ internal val addCreateButtonViewFingerprint by fingerprint {
     instructions(
         string("Android Wear"),
         opcode(Opcode.IF_EQZ),
-        string("Android Automotive", maxInstructionsBefore = 0),
+        string("Android Automotive", maxBefore = 0),
     )
 }
 

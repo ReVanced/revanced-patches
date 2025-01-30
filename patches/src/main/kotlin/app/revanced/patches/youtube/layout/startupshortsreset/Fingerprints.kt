@@ -18,8 +18,8 @@ internal val userWasInShortsAlternativeFingerprint by fingerprint {
     instructions(
         methodCall(smali = "Ljava/lang/Boolean;->booleanValue()Z"),
         methodCall(smali = "Ljava/lang/Boolean;->booleanValue()Z"),
-        opcode(Opcode.MOVE_RESULT, maxInstructionsBefore = 0),
-        string("userIsInShorts: ", maxInstructionsBefore = 5)
+        opcode(Opcode.MOVE_RESULT, maxBefore = 0),
+        string("userIsInShorts: ", maxBefore = 5)
     )
 }
 

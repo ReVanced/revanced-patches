@@ -24,8 +24,8 @@ lateinit var resourceMappings: List<ResourceElement>
 fun resourceLiteral(
     type: String,
     name: String,
-    maxInstructionsBefore: Int = METHOD_MAX_INSTRUCTIONS,
-) = literal({ resourceMappings[type, name] }, null, maxInstructionsBefore)
+    maxBefore: Int = METHOD_MAX_INSTRUCTIONS,
+) = literal({ resourceMappings[type, name] }, null, maxBefore)
 
 
 val resourceMappingPatch = resourcePatch {

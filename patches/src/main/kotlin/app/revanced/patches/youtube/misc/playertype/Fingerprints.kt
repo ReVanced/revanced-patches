@@ -37,12 +37,12 @@ internal val videoStateFingerprint by fingerprint {
     parameters("Lcom/google/android/libraries/youtube/player/features/overlay/controls/ControlsState;")
     instructions(
         literal(1),
-        literal(literal = 0, maxInstructionsBefore = 10),
+        literal(literal = 0, maxBefore = 10),
         // Obfuscated parameter field name.
         fieldAccess(
             definingClass = { "Lcom/google/android/libraries/youtube/player/features/overlay/controls/ControlsState;"},
             type = { context: BytecodePatchContext -> with(context) { videoStateEnumFingerprint.originalClassDef.type } },
-            maxInstructionsBefore = 5
+            maxBefore = 5
         )
     )
 }

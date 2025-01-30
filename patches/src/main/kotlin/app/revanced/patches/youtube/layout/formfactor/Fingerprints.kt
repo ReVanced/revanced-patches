@@ -24,7 +24,7 @@ internal val createPlayerRequestBodyWithModelFingerprint by fingerprint {
         fieldAccess(
             definingClass = { context -> with(context) { formFactorEnumConstructorFingerprint.originalClassDef.type } },
             type = { "I" },
-            maxInstructionsBefore = 50
+            maxBefore = 50
         )
     )
 }
