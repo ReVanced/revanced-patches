@@ -1237,9 +1237,7 @@ Automotive レイアウト
   </patch>
   <patch id="layout.thumbnails.bypassImageRegionRestrictionsPatch">
   <string name="revanced_bypass_image_region_restrictions_title">画像表示の地域制限を回避する</string>
-  <string name="revanced_bypass_image_region_restrictions_summary_on">yt4.ggpht.com から画像を取得します
-
-これにより、一部の地域でブロックされている画像が表示されない問題が解決する場合があります</string>
+  <string name="revanced_bypass_image_region_restrictions_summary_on">画像表示の地域制限を回避するために yt4.ggpht.com から画像を取得します</string>
   <string name="revanced_bypass_image_region_restrictions_summary_off">"オリジナルの画像ホストから画像を取得します
 
 この機能を有効にすると、一部の地域でブロックされている画像が表示されない問題が解決する場合があります"</string>
