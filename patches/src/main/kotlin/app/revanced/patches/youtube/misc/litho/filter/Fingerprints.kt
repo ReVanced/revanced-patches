@@ -63,7 +63,7 @@ internal val lithoComponentNameUpbFeatureFlagFingerprint by fingerprint {
     returns("Z")
     parameters()
     instructions(
-        literal(45631264L )
+        literal(45631264L)
     )
 }
 
