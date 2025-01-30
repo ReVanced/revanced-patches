@@ -192,13 +192,7 @@ GmsCore の電池の最適化を無効にしても、バッテリーの使用に
 • ショッピング
 • もう一度見る
 • 他の人はこちらも検索"</string>
-  <string name="revanced_hide_horizontal_shelves_summary_off">以下のリストが表示されます
-• 緊急ニュース
-• 続きを見る
-• 他のチャンネルを探す
-• ショッピング
-• もう一度見る
-• 他の人はこちらも検索</string>
+  <string name="revanced_hide_horizontal_shelves_summary_off">棚が表示されます</string>
   <!-- 'Join' should be translated using the same localized wording YouTube displays.
                  This appears in the video player for certain videos. -->
   <string name="revanced_hide_join_membership_button_title">「メンバーになる」ボタンを非表示</string>

@@ -111,8 +111,7 @@ Second \"item\" text"</string>
   </patch>
   <patch id="misc.gms.gmsCoreSupportResourcePatch">
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
-  <string name="gms_core_toast_not_installed_message">MicroG GmsCore ще не встановлено.
-Встановіть його.</string>
+  <string name="gms_core_toast_not_installed_message">MicroG GmsCore не встановлено. Встановіть його.</string>
   <string name="gms_core_dialog_title">Дію необхідно</string>
   <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"MicroG GmsCore не має дозволу працювати у фоновому режимі.
 Виконайте інструкції \"Не закривайте мій додаток\" на своєму телефоні та
