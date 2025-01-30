@@ -416,13 +416,13 @@ Fitur ini hanya tersedia untuk perangkat yang lebih lama"</string>
   <string name="revanced_hide_player_store_shelf_title">Sembunyikan rak belanja pemutar</string>
   <string name="revanced_hide_player_store_shelf_summary_on">Rak belanja disembunyikan</string>
   <string name="revanced_hide_player_store_shelf_summary_off">Rak belanja ditampilkan</string>
-  <string name="revanced_hide_shopping_links_title">Sembunyikan tautan belanja dalam keterangan video</string>
-  <string name="revanced_hide_shopping_links_summary_on">Tautan belanja disembunyikan</string>
-  <string name="revanced_hide_shopping_links_summary_off">Tautan belanja ditampilkan</string>
+  <string name="revanced_hide_shopping_links_title">Sembunyikan tautan belanja</string>
+  <string name="revanced_hide_shopping_links_summary_on">Tautan belanja deskripsi video disembunyikan</string>
+  <string name="revanced_hide_shopping_links_summary_off">Tautan belanja deskripsi video ditampilkan</string>
   <!-- 'Visit store' should be translated with the same localized wording that YouTube displays. -->
-  <string name="revanced_hide_visit_store_button_title">Sembunyikan tombol \'Kunjungi toko\' di laman saluran</string>
-  <string name="revanced_hide_visit_store_button_summary_on">Tombol disembunyikan</string>
-  <string name="revanced_hide_visit_store_button_summary_off">Tombol ditampilkan</string>
+  <string name="revanced_hide_visit_store_button_title">Sembunyikan tombol \'Kunjungi toko\'</string>
+  <string name="revanced_hide_visit_store_button_summary_on">Tombol disembunyikan pada laman saluran</string>
+  <string name="revanced_hide_visit_store_button_summary_off">Tombol ditampilkan pada laman saluran</string>
   <string name="revanced_hide_web_search_results_title">Sembunyikan hasil pencarian web</string>
   <string name="revanced_hide_web_search_results_summary_on">Hasil pencarian web disembunyikan</string>
   <string name="revanced_hide_web_search_results_summary_off">Hasil pencarian web ditampilkan</string>
@@ -1403,7 +1403,7 @@ AVC memiliki resolusi maksimum 1080p, codec audio Opus tidak tersedia, dan pemut
 • Volume stabil tidak tersedia
 • Paksa audio asli tidak tersedia"</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Tidak ada codec video AV1</string>
-  <string name="revanced_spoof_video_streams_about_kids_videos">• Video anak-anak mungkin tidak diputar saat keluar atau dalam mode penyamaran</string>
+  <string name="revanced_spoof_video_streams_about_kids_videos">• Video anak-anak mungkin tidak dapat diputar saat keluar atau dalam mode penyamaran</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Tampilkan di Statistik untuk nerds</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Jenis klien ditampilkan di Statistik untuk nerds</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Klien disembunyikan di Statistik untuk nerds</string>

@@ -302,6 +302,7 @@ Mלות עם אותיות גדולות באמצע צריכות להיכנס עם
   </patch>
   <patch id="layout.sponsorblock.sponsorBlockResourcePatch">
   <string name="revanced_sb_enable_sb">הפעל את SponsorBlock</string>
+  <string name="revanced_sb_enable_sb_sum">SponsorBlock היא מערכת מיקור המונים לדילוג על חלקים מטרידים בסרטוני יוטיוב</string>
   <string name="revanced_sb_appearance_category">מראה</string>
   <!-- Translations should use language similar to 'revanced_ryd_compact_layout_title' -->
   <string name="revanced_sb_guidelines_preference_title">ראה הנחיות</string>
@@ -309,6 +310,7 @@ Mלות עם אותיות גדולות באמצע צריכות להיכנס עם
   <string name="revanced_sb_guidelines_popup_open">הראו לי</string>
   <string name="revanced_sb_general">הגדרות כלליות</string>
   <string name="revanced_sb_toast_on_connection_error_title">הצג הודעה אם הממשק לא זמין</string>
+  <string name="revanced_sb_general_skipcount_sum_on">מאפשר ללוח המובילים של SponsorBlock לדעת כמה זמן נחסך. הודעה נשלחת ל-Leaderboard בכל פעם שמדלגים על קטע</string>
   <string name="revanced_sb_general_api_url">שנה כתובת API</string>
   <string name="revanced_sb_api_url_reset">כתובת API אופסה</string>
   <string name="revanced_sb_api_url_changed">כתובת API שונתה</string>
