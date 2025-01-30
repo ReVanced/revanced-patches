@@ -8,7 +8,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction11x
 @Suppress("unused")
 val hideAdsPatch = bytecodePatch(
     name = "Hide ads",
-    use = true
+    description = "Hide ads and sponsored articles in list pages and remove pre-roll ads on videos.",
 ) {
     extendWith("extensions/nunl.rve")
 
