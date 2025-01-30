@@ -25,7 +25,7 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_failed_title">Провере нису успеле</string>
   <string name="revanced_check_environment_dialog_open_official_source_button">Otvori zvaničnu veb stranicu</string>
   <string name="revanced_check_environment_dialog_ignore_button">Ignoriši</string>
-  <string name="revanced_check_environment_failed_message">&lt;h5&gt;Ova aplikacija ne izgleda da je pobolj&scaron;ana od strane vas.&lt;/h5&gt;&lt;br&gt;Ova aplikacija možda neće raditi ispravno, &lt;b&gt;može biti &scaron;tetna ili čak opasna za kori&scaron;ćenje&lt;/b&gt;.&lt;br&gt;&lt;br&gt;Ove provere podrazumevaju da je ova aplikacija prethodno pobolj&scaron;ana ili dobijena od nekog drugog:&lt;br&gt;&lt;br&gt;&lt;small&gt;%1$s&lt;/small&gt;&lt;br&gt;Preporučuje se da &lt;b&gt;deinstalira&scaron; ovu aplikaciju i sam je pobolj&scaron;a&scaron;&lt;/b&gt; kako bi bio siguran da koristi&scaron; validiranu i bezbednu aplikaciju.&lt;p&gt;&lt;br&gt;Ako se ignori&scaron;e, ovo upozorenje će biti prikazano samo dva puta.</string>
+  <string name="revanced_check_environment_failed_message">&lt;h5&gt;Изгледа да нисте ви печовали ову апликацију.&lt;/h5&gt;&lt;br&gt;Ова апликација можда неће исправно радити, &lt;b&gt;може бити штетна или чак опасна за коришћење.&lt;/b&gt;&lt;br&gt;&lt;br&gt;Ове провере подразумевају да је ова апликација унапред печована или добијена од неког другог:&lt;br&gt;&lt;br&gt;&lt;small&gt;%1$s&lt;/small&gt;&lt;br&gt;Изричито се препоручује да &lt;b&gt;деинсталирате ову апликацију и сами је печујете&lt;/b&gt; да бисте били сигурни да користите проверену и безбедну апликацију.&lt;p&gt;&lt;br&gt;Ако се занемари, ово упозорење ће бити приказано само два пута.</string>
   <string name="revanced_check_environment_not_same_patching_device">Печовано на другом уређају</string>
   <string name="revanced_check_environment_manager_not_expected_installer">Nije instaliran od strane ReVanced Managera</string>
   <string name="revanced_check_environment_not_near_patch_time">Печовано пре више од 10 минута</string>
@@ -34,7 +34,7 @@ Second \"item\" text"</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_submenu_title">Podešavanja</string>
-  <string name="revanced_settings_confirm_user_dialog_title">Želi&scaron; li nastaviti?</string>
+  <string name="revanced_settings_confirm_user_dialog_title">Желите ли да наставите?</string>
   <string name="revanced_settings_reset">Resetovanje</string>
   <string name="revanced_settings_restart_title">Osvježi i restartuj</string>
   <string name="revanced_settings_restart">Restartuj</string>
@@ -133,7 +133,7 @@ Tap the continue button and allow optimization changes."</string>
   <string name="revanced_settings_screen_01_ads_title">Oglasi</string>
   <string name="revanced_settings_screen_02_alt_thumbnails_title">Alternativne miniature</string>
   <string name="revanced_settings_screen_03_feed_title">Feed</string>
-  <string name="revanced_settings_screen_04_general_title">Op&scaron;te</string>
+  <string name="revanced_settings_screen_04_general_title">Опште</string>
   <string name="revanced_settings_screen_05_player_title">Плејер</string>
   <string name="revanced_settings_screen_07_seekbar_title">Traka za pretraživanje</string>
   <string name="revanced_settings_screen_08_swipe_controls_title">Kontrole povlačenja</string>
@@ -160,12 +160,12 @@ Tap the continue button and allow optimization changes."</string>
   <string name="revanced_debug_stacktrace_title">Logiraj stack tragove</string>
   <string name="revanced_debug_stacktrace_summary_on">Debugovanje logova uključuje stack trag</string>
   <string name="revanced_debug_stacktrace_summary_off">Debugovanje logova ne uključuje stack trag</string>
-  <string name="revanced_debug_toast_on_error_title">Prikaži toast obavještenje pri ReVanced gre&scaron;ci</string>
-  <string name="revanced_debug_toast_on_error_summary_on">Toast obavještenje se prikazuje ako dođe do gre&scaron;ke</string>
-  <string name="revanced_debug_toast_on_error_summary_off">Toast obavještenje se ne prikazuje ako dođe do gre&scaron;ke</string>
-  <string name="revanced_debug_toast_on_error_user_dialog_message">"Isključivanje obavje&scaron;tenja o gre&scaron;kama sakriva sva ReVanced obavje&scaron;tenja o gre&scaron;kama. 
+  <string name="revanced_debug_toast_on_error_title">Прикажи искачуће обавештење при грешци с ReVanced-ом</string>
+  <string name="revanced_debug_toast_on_error_summary_on">Искачуће обавештење се приказује ако дође до грешке</string>
+  <string name="revanced_debug_toast_on_error_summary_off">Искачуће обавештење се не приказује ако дође до грешке</string>
+  <string name="revanced_debug_toast_on_error_user_dialog_message">"Искључивање искачућих обавештења о грешкама сакрива сва обавештења о грешкама у ReVanced-у.
 
-Nećete biti obavije&scaron;teni o nepredviđenim događajima."</string>
+Нећете бити обавештени ни о каквим неочекиваним догађајима."</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
   <string name="revanced_disable_like_subscribe_glow_title">Онемогући сјај дугмади „Свиђање” и „Запрати”</string>
