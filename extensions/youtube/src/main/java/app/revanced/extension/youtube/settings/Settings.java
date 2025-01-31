@@ -314,8 +314,9 @@ public class Settings extends BaseSettings {
             parentsAny(SWIPE_BRIGHTNESS, SWIPE_VOLUME));
     public static final IntegerSetting SWIPE_MAGNITUDE_THRESHOLD = new IntegerSetting("revanced_swipe_threshold", 30, true,
             parentsAny(SWIPE_BRIGHTNESS, SWIPE_VOLUME));
-    public static final IntegerSetting SWIPE_OVERLAY_BACKGROUND_ALPHA = new IntegerSetting("revanced_swipe_overlay_background_alpha", 127, true,
+    public static final IntegerSetting SWIPE_OVERLAY_OPACITY = new IntegerSetting("revanced_swipe_overlay_background_opacity", 50, true,
             parentsAny(SWIPE_BRIGHTNESS, SWIPE_VOLUME));
+    private static final IntegerSetting DEPRECATED_SWIPE_OVERLAY_BACKGROUND_ALPHA = new IntegerSetting("revanced_swipe_overlay_background_alpha", 127);
 
     // Debugging
     public static final IntegerSetting SWIPE_OVERLAY_TEXT_SIZE = new IntegerSetting("revanced_swipe_text_overlay_size", 22, true,
@@ -434,6 +435,11 @@ public class Settings extends BaseSettings {
             }
 
             DEPRECATED_SEEKBAR_CUSTOM_COLOR_PRIMARY.resetToDefault();
+        }
+
+        if (!DEPRECATED_SWIPE_OVERLAY_BACKGROUND_ALPHA.isSetToDefault()) {
+            SWIPE_OVERLAY_OPACITY.save(DEPRECATED_SWIPE_OVERLAY_BACKGROUND_ALPHA.get() / 255);
+            DEPRECATED_SWIPE_OVERLAY_BACKGROUND_ALPHA.resetToDefault();
         }
 
         // endregion
