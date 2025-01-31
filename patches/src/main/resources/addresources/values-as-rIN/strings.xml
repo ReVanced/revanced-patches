@@ -217,6 +217,8 @@ Second \"item\" text"</string>
   </patch>
   <patch id="video.speed.remember.rememberPlaybackSpeedPatch">
   </patch>
+  <patch id="video.hdr.disableHdrPatch">
+  </patch>
   <patch id="video.videoqualitymenu.restoreOldVideoQualityMenuResourcePatch">
   </patch>
   <patch id="interaction.seekbar.enableSlideToSeekPatch">

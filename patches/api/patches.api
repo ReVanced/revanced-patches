@@ -1365,6 +1365,7 @@ public final class app/revanced/patches/youtube/misc/playservice/VersionCheckPat
 	public static final fun is_19_43_or_greater ()Z
 	public static final fun is_19_46_or_greater ()Z
 	public static final fun is_19_47_or_greater ()Z
+	public static final fun is_19_49_or_greater ()Z
 }
 
 public final class app/revanced/patches/youtube/misc/privacy/RemoveTrackingQueryParameterPatchKt {
@@ -1411,6 +1412,10 @@ public final class app/revanced/patches/youtube/misc/zoomhaptics/ZoomHapticsPatc
 
 public final class app/revanced/patches/youtube/video/audio/ForceOriginalAudioPatchKt {
 	public static final fun getForceOriginalAudioPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
+public final class app/revanced/patches/youtube/video/hdr/DisableHdrPatchKt {
+	public static final fun getDisableHdrPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
 public final class app/revanced/patches/youtube/video/information/VideoInformationPatchKt {

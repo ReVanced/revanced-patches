@@ -15,7 +15,7 @@ val removeGooglePlayIntegrityCheckPatch = bytecodePatch(
     description = "Removes the Google Play Integrity check. With this it's possible to use SwissID on custom ROMS." +
         "If the device is rooted, root permissions must be hidden from the app.",
 ) {
-    compatibleWith("com.swisssign.swissid.mobile")
+    compatibleWith("com.swisssign.swissid.mobile"("5.2.9"))
 
     execute {
         checkIntegrityFingerprint.method.addInstructions(

@@ -34,7 +34,6 @@ Second \"item\" text"</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_submenu_title">Pengaturan</string>
-  <string name="revanced_settings_title">ReVanced</string>
   <string name="revanced_settings_confirm_user_dialog_title">Apakah Anda ingin melanjutkan?</string>
   <string name="revanced_settings_reset">Setel ulang</string>
   <string name="revanced_settings_restart_title">Segarkan dan mulai ulang</string>
@@ -136,9 +135,9 @@ Ketuk tombol lanjutkan dan izinkan perubahan pengoptimalan."</string>
   <string name="revanced_settings_screen_03_feed_title">Umpan</string>
   <string name="revanced_settings_screen_04_general_title">Umum</string>
   <string name="revanced_settings_screen_05_player_title">Pemutar</string>
-  <string name="revanced_settings_screen_07_seekbar_title">Seekbar</string>
+  <string name="revanced_settings_screen_07_seekbar_title">Bilah Pencarian</string>
   <string name="revanced_settings_screen_08_swipe_controls_title">Kontrol usap</string>
-  <string name="revanced_settings_screen_11_misc_title">Lainnya</string>
+  <string name="revanced_settings_screen_11_misc_title">Lain-lain</string>
   <string name="revanced_settings_screen_12_video_title">Video</string>
   <string name="revanced_restore_old_settings_menus_title">Pulihkan menu pengaturan lama</string>
   <string name="revanced_restore_old_settings_menus_summary_on">Menu pengaturan lama ditampilkan</string>
@@ -169,9 +168,9 @@ Ketuk tombol lanjutkan dan izinkan perubahan pengoptimalan."</string>
 Anda tidak akan diberi tahu tentang kejadian yang tidak terduga."</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
-  <string name="revanced_disable_like_subscribe_glow_title">Nonaktifkan kilau tombol suka / langganan</string>
-  <string name="revanced_disable_like_subscribe_glow_summary_on">Tombol suka dan langganan tidak akan berkilau saat ditekan</string>
-  <string name="revanced_disable_like_subscribe_glow_summary_off">Tombol suka dan langganan akan berkilau saat ditekan</string>
+  <string name="revanced_disable_like_subscribe_glow_title">Nonaktifkan kilau tombol Suka dan Berlangganan</string>
+  <string name="revanced_disable_like_subscribe_glow_summary_on">Tombol Suka dan Berlangganan tidak akan berkilau saat disebut</string>
+  <string name="revanced_disable_like_subscribe_glow_summary_off">Tombol Suka dan Berlangganan akan berkilau saat disebut</string>
   <string name="revanced_hide_album_cards_title">Sembunyikan kartu album</string>
   <string name="revanced_hide_album_cards_summary_on">Kartu album disembunyikan</string>
   <string name="revanced_hide_album_cards_summary_off">Kartu album ditampilkan</string>
@@ -224,9 +223,9 @@ Anda tidak akan diberi tahu tentang kejadian yang tidak terduga."</string>
   <string name="revanced_hide_chips_shelf_title">Sembunyikan kepingan rak</string>
   <string name="revanced_hide_chips_shelf_summary_on">Kepingan rak disembunyikan</string>
   <string name="revanced_hide_chips_shelf_summary_off">Kepingan rak ditampilkan</string>
-  <string name="revanced_hide_expandable_chip_title">Sembunyikan kepingan deret di bawah video</string>
-  <string name="revanced_hide_expandable_chip_summary_on">Kepingan deret disembunyikan</string>
-  <string name="revanced_hide_expandable_chip_summary_off">Kepingan yang dapat diperluas ditampilkan</string>
+  <string name="revanced_hide_expandable_chip_title">Sembunyikan kartu yang dapat diperluas di bawah video</string>
+  <string name="revanced_hide_expandable_chip_summary_on">Kartu yang dapat diperluas disembunyikan</string>
+  <string name="revanced_hide_expandable_chip_summary_off">Kartu yang dapat diperluas ditampilkan</string>
   <string name="revanced_hide_community_posts_title">Sembunyikan postingan komunitas</string>
   <string name="revanced_hide_community_posts_summary_on">Postingan komunitas disembunyikan</string>
   <string name="revanced_hide_community_posts_summary_off">Postingan komunitas ditampilkan</string>
@@ -287,6 +286,9 @@ Anda tidak akan diberi tahu tentang kejadian yang tidak terduga."</string>
   <string name="revanced_hide_chapters_section_title">Sembunyikan bagian Bab</string>
   <string name="revanced_hide_chapters_section_summary_on">Bagian Bab disembunyikan</string>
   <string name="revanced_hide_chapters_section_summary_off">Bagian Bab ditampilkan</string>
+  <string name="revanced_hide_how_this_was_made_section_title">Sembunyikan bagian \'Bagaimana konten ini dibuat\'</string>
+  <string name="revanced_hide_how_this_was_made_section_summary_on">Bagian \'Bagaimana konten ini dibuat\' disembunyikan</string>
+  <string name="revanced_hide_how_this_was_made_section_summary_off">Bagian \'Bagaimana konten ini dibuat\' ditampilkan</string>
   <string name="revanced_hide_podcast_section_title">Sembunyikan bagian \'Jelajahi podcast\'</string>
   <string name="revanced_hide_podcast_section_summary_on">Bagian \'Jelajahi podcast\' disembunyikan</string>
   <string name="revanced_hide_podcast_section_summary_off">Bagian \'Jelajahi podcast\' ditampilkan</string>
@@ -329,7 +331,7 @@ Anda tidak akan diberi tahu tentang kejadian yang tidak terduga."</string>
   <string name="revanced_hide_comments_preview_comment_title">Sembunyikan pratinjau komentar</string>
   <string name="revanced_hide_comments_preview_comment_summary_on">Pratinjau komentar disembunyikan</string>
   <string name="revanced_hide_comments_preview_comment_summary_off">Pratinjau komentar ditampilkan</string>
-  <string name="revanced_hide_comments_thanks_button_title">Sembunyikan tombol terima kasih</string>
+  <string name="revanced_hide_comments_thanks_button_title">Sembunyikan tombol Terima Kasih</string>
   <string name="revanced_hide_comments_thanks_button_summary_on">Tombol terima kasih disembunyikan</string>
   <string name="revanced_hide_comments_thanks_button_summary_off">Tombol terima kasih ditampilkan</string>
   <string name="revanced_hide_comments_timestamp_and_emoji_buttons_title">Sembunyikan timestamp dan tombol emoji</string>
@@ -356,12 +358,12 @@ Jika Gambar kecil saat ini ditampilkan di wilayah Anda dan pengaturan sembunyi i
   <string name="revanced_hide_keyword_content_home_title">Sembunyikan video beranda dengan kata kunci</string>
   <string name="revanced_hide_keyword_content_home_summary_on">Video di tab beranda disaring berdasarkan kata kunci</string>
   <string name="revanced_hide_keyword_content_home_summary_off">Video di tab beranda tidak disaring berdasarkan kata kunci</string>
-  <string name="revanced_hide_keyword_content_subscriptions_title">Sembunyikan video langganan dengan kata kunci</string>
-  <string name="revanced_hide_keyword_content_subscriptions_summary_on">Video di tab langganan disaring berdasarkan kata kunci</string>
-  <string name="revanced_hide_keyword_content_subscriptions_summary_off">Video di tab langganan tidak disaring berdasarkan kata kunci</string>
   <string name="revanced_hide_keyword_content_search_title">Sembunyikan hasil pencarian berdasarkan kata kunci</string>
   <string name="revanced_hide_keyword_content_search_summary_on">Hasil pencarian disaring berdasarkan kata kunci</string>
   <string name="revanced_hide_keyword_content_search_summary_off">Hasil pencarian tidak disaring berdasarkan kata kunci</string>
+  <string name="revanced_hide_keyword_content_subscriptions_title">Sembunyikan video langganan dengan kata kunci</string>
+  <string name="revanced_hide_keyword_content_subscriptions_summary_on">Video di tab langganan disaring berdasarkan kata kunci</string>
+  <string name="revanced_hide_keyword_content_subscriptions_summary_off">Video di tab langganan tidak disaring berdasarkan kata kunci</string>
   <string name="revanced_hide_keyword_content_phrases_title">Kata kunci yang ingin disembunyikan</string>
   <!-- For localization it is preferred, but not required, if 'LeBlanc' is replaced with a localized name or a familiar word that has upper case letters in the middle of the word.
                  This is because keywords can be in any language, and showing an example in the localized script helps convey this. -->
@@ -408,16 +410,19 @@ Fitur ini hanya tersedia untuk perangkat yang lebih lama"</string>
   <string name="revanced_hide_products_banner_title">Sembunyikan banner untuk melihat produk</string>
   <string name="revanced_hide_products_banner_summary_on">Banner disembunyikan</string>
   <string name="revanced_hide_products_banner_summary_off">Banner ditampilkan</string>
+  <string name="revanced_hide_end_screen_store_banner_title">Sembunyikan spanduk toko di layar akhir</string>
+  <string name="revanced_hide_end_screen_store_banner_summary_on">Spanduk toko disembunyikan</string>
+  <string name="revanced_hide_end_screen_store_banner_summary_off">Spanduk toko ditampilkan</string>
   <string name="revanced_hide_player_store_shelf_title">Sembunyikan rak belanja pemutar</string>
   <string name="revanced_hide_player_store_shelf_summary_on">Rak belanja disembunyikan</string>
   <string name="revanced_hide_player_store_shelf_summary_off">Rak belanja ditampilkan</string>
-  <string name="revanced_hide_shopping_links_title">Sembunyikan tautan belanja dalam keterangan video</string>
-  <string name="revanced_hide_shopping_links_summary_on">Tautan belanja disembunyikan</string>
-  <string name="revanced_hide_shopping_links_summary_off">Tautan belanja ditampilkan</string>
+  <string name="revanced_hide_shopping_links_title">Sembunyikan tautan belanja</string>
+  <string name="revanced_hide_shopping_links_summary_on">Tautan belanja deskripsi video disembunyikan</string>
+  <string name="revanced_hide_shopping_links_summary_off">Tautan belanja deskripsi video ditampilkan</string>
   <!-- 'Visit store' should be translated with the same localized wording that YouTube displays. -->
-  <string name="revanced_hide_visit_store_button_title">Sembunyikan tombol \'Kunjungi toko\' di laman saluran</string>
-  <string name="revanced_hide_visit_store_button_summary_on">Tombol disembunyikan</string>
-  <string name="revanced_hide_visit_store_button_summary_off">Tombol ditampilkan</string>
+  <string name="revanced_hide_visit_store_button_title">Sembunyikan tombol \'Kunjungi toko\'</string>
+  <string name="revanced_hide_visit_store_button_summary_on">Tombol disembunyikan pada laman saluran</string>
+  <string name="revanced_hide_visit_store_button_summary_off">Tombol ditampilkan pada laman saluran</string>
   <string name="revanced_hide_web_search_results_title">Sembunyikan hasil pencarian web</string>
   <string name="revanced_hide_web_search_results_summary_on">Hasil pencarian web disembunyikan</string>
   <string name="revanced_hide_web_search_results_summary_off">Hasil pencarian web ditampilkan</string>
@@ -460,7 +465,7 @@ Fitur ini hanya tersedia untuk perangkat yang lebih lama"</string>
   <string name="revanced_external_downloader_summary_on">Tombol unduh ditampilkan di pemutar</string>
   <string name="revanced_external_downloader_summary_off">Tombol unduh tidak ditampilkan di pemutar</string>
   <!-- 'download action button' should be translated using the same wording as the translation of 'revanced_hide_download_button_title' -->
-  <string name="revanced_external_downloader_action_button_title">Ganti tombol tindakan pengunduhan</string>
+  <string name="revanced_external_downloader_action_button_title">Gantikan tombol tindakan Unduh</string>
   <string name="revanced_external_downloader_action_button_summary_on">Tombol unduh membuka pengunduh eksternal Anda</string>
   <string name="revanced_external_downloader_action_button_summary_off">Tombol unduh membuka pengunduh asli di dalam aplikasi</string>
   <string name="revanced_external_downloader_name_title">Nama paket pengunduh</string>
@@ -592,9 +597,9 @@ Catatan: Mengaktifkan ini juga akan memaksa menyembunyikan iklan video"</string>
   <string name="revanced_hide_player_flyout_title">Menu flyout</string>
   <string name="revanced_hide_player_flyout_summary">Sembunyikan atau tampilkan item menu pemutar flyout</string>
   <!-- 'Captions' should be translated using the same localized wording YouTube displays for the menu item. -->
-  <string name="revanced_hide_player_flyout_captions_title">Sembunyikan Caption</string>
-  <string name="revanced_hide_player_flyout_captions_summary_on">Menu caption disembunyikan</string>
-  <string name="revanced_hide_player_flyout_captions_summary_off">Menu caption ditampilkan</string>
+  <string name="revanced_hide_player_flyout_captions_title">Sembunyikan Teks</string>
+  <string name="revanced_hide_player_flyout_captions_summary_on">Menu teks disembunyikan</string>
+  <string name="revanced_hide_player_flyout_captions_summary_off">Menu teks ditampilkan</string>
   <!-- 'Additional settings' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_additional_settings_title">Sembunyikan Pengaturan tambahan</string>
   <string name="revanced_hide_player_flyout_additional_settings_summary_on">Menu pengaturan tambahan disembunyikan</string>
@@ -647,14 +652,14 @@ Catatan: Mengaktifkan ini juga akan memaksa menyembunyikan iklan video"</string>
   <string name="revanced_hide_player_previous_next_buttons_title">Sembunyikan tombol video sebelumnya &amp; berikutnya</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_on">Tombol disembunyikan</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">Tombol ditampilkan</string>
-  <string name="revanced_hide_cast_button_title">Sembunyikan tombol transmisi</string>
+  <string name="revanced_hide_cast_button_title">Sembunyikan tombol Transmisi</string>
   <string name="revanced_hide_cast_button_summary_on">Tombol transmisi disembunyikan</string>
   <string name="revanced_hide_cast_button_summary_off">Tombol transmisi ditampilkan</string>
   <!-- This button does not display any text, but 'captions' should be translated using the same wording used as the translation of 'revanced_hide_player_flyout_captions_title' -->
-  <string name="revanced_hide_captions_button_title">Sembunyikan tombol teks</string>
+  <string name="revanced_hide_captions_button_title">Sembunyikan tombol Teks</string>
   <string name="revanced_hide_captions_button_summary_on">Tombol teks disembunyikan</string>
   <string name="revanced_hide_captions_button_summary_off">Tombol teks ditampilkan</string>
-  <string name="revanced_hide_autoplay_button_title">Sembunyikan tombol putar otomatis</string>
+  <string name="revanced_hide_autoplay_button_title">Sembunyikan tombol Putar Otomatis</string>
   <string name="revanced_hide_autoplay_button_summary_on">Tombol putar otomatis disembunyikan</string>
   <string name="revanced_hide_autoplay_button_summary_off">Tombol putar otomatis ditampilkan</string>
   </patch>
@@ -664,7 +669,7 @@ Catatan: Mengaktifkan ini juga akan memaksa menyembunyikan iklan video"</string>
   <string name="revanced_hide_endscreen_cards_summary_off">Kartu layar akhir ditampilkan</string>
   </patch>
   <patch id="layout.hide.fullscreenambientmode.disableFullscreenAmbientModePatch">
-  <string name="revanced_disable_fullscreen_ambient_mode_title">Nonaktifkan mode sinematik di layar penuh</string>
+  <string name="revanced_disable_fullscreen_ambient_mode_title">Nonaktifkan mode Ambient dalam layar penuh</string>
   <string name="revanced_disable_fullscreen_ambient_mode_summary_on">Mode sinematik dinonaktifkan</string>
   <string name="revanced_disable_fullscreen_ambient_mode_summary_off">Mode sinematik diaktifkan</string>
   </patch>
@@ -704,38 +709,38 @@ Catatan: Mengaktifkan ini juga akan memaksa menyembunyikan iklan video"</string>
   <string name="revanced_hide_shorts_history_summary_on">Disembunyikan dalam riwayat tontonan</string>
   <string name="revanced_hide_shorts_history_summary_off">Ditampilkan dalam riwayat tontonan</string>
   <!-- 'join' should be translated using the same localized wording YouTube displays for the button. -->
-  <string name="revanced_hide_shorts_join_button_title">Sembunyikan tombol gabung</string>
+  <string name="revanced_hide_shorts_join_button_title">Sembunyikan tombol Gabung</string>
   <string name="revanced_hide_shorts_join_button_summary_on">Tombol gabung disembunyikan</string>
   <string name="revanced_hide_shorts_join_button_summary_off">Tombol gabung ditampilkan</string>
   <!-- 'subscribe' should be translated using the same localized wording YouTube displays for the button. -->
-  <string name="revanced_hide_shorts_subscribe_button_title">Sembunyikan tombol berlangganan</string>
+  <string name="revanced_hide_shorts_subscribe_button_title">Sembunyikan tombol Berlangganan</string>
   <string name="revanced_hide_shorts_subscribe_button_summary_on">Tombol berlangganan disembunyikan</string>
   <string name="revanced_hide_shorts_subscribe_button_summary_off">Tombol berlangganan ditampilkan</string>
   <string name="revanced_hide_shorts_paused_overlay_buttons_title">Sembunyikan tombol hamparan terjeda</string>
   <string name="revanced_hide_shorts_paused_overlay_buttons_summary_on">Tombol hamparan terjeda disembunyikan</string>
   <string name="revanced_hide_shorts_paused_overlay_buttons_summary_off">Tombol hamparan terjeda ditampilkan</string>
-  <string name="revanced_hide_shorts_shop_button_title">Sembunyikan tombol belanja</string>
+  <string name="revanced_hide_shorts_shop_button_title">Sembunyikan tombol Toko</string>
   <string name="revanced_hide_shorts_shop_button_summary_on">Tombol belanja disembunyikan</string>
   <string name="revanced_hide_shorts_shop_button_summary_off">Tombol belanja ditampilkan</string>
-  <string name="revanced_hide_shorts_super_thanks_button_title">Sembunyikan tombol super thanks</string>
-  <string name="revanced_hide_shorts_super_thanks_button_summary_on">Tombol super thanks disembunyikan</string>
-  <string name="revanced_hide_shorts_super_thanks_button_summary_off">Tombol super thanks ditampilkan</string>
+  <string name="revanced_hide_shorts_super_thanks_button_title">Sembunyikan tombol Beli Super Thanks</string>
+  <string name="revanced_hide_shorts_super_thanks_button_summary_on">Tombol Super Thanks disembunyikan</string>
+  <string name="revanced_hide_shorts_super_thanks_button_summary_off">Tombol Super Thanks ditampilkan</string>
   <string name="revanced_hide_shorts_tagged_products_title">Sembunyikan produk yang ditandai</string>
   <string name="revanced_hide_shorts_tagged_products_summary_on">Produk yang ditandai disembunyikan</string>
   <string name="revanced_hide_shorts_tagged_products_summary_off">Produk yang ditandai ditampilkan</string>
   <string name="revanced_hide_shorts_location_label_title">Sembunyikan label lokasi</string>
   <string name="revanced_hide_shorts_location_label_summary_on">Label lokasi disembunyikan</string>
   <string name="revanced_hide_shorts_location_label_summary_off">Label lokasi ditampilkan</string>
-  <string name="revanced_hide_shorts_save_sound_button_title">Sembunyikan tombol simpan musik</string>
+  <string name="revanced_hide_shorts_save_sound_button_title">Sembunyikan Simpan musik</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_on">Tombol simpan musik disembunyikan</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_off">Tombol simpan musik ditampilkan</string>
-  <string name="revanced_hide_shorts_use_template_button_title">Sembunyikan tombol gunakan templat</string>
+  <string name="revanced_hide_shorts_use_template_button_title">Sembunyikan tombol Gunakan template</string>
   <string name="revanced_hide_shorts_use_template_button_summary_on">Tombol gunakan templat disembunyikan</string>
   <string name="revanced_hide_shorts_use_template_button_summary_off">Tombol gunakan templat ditampilkan</string>
-  <string name="revanced_hide_shorts_upcoming_button_title">Sembunyikan tombol yang akan datang</string>
+  <string name="revanced_hide_shorts_upcoming_button_title">Sembunyikan tombol Mendatang</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_on">Tombol yang akan datang disembunyikan</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_off">Tombol yang akan datang ditampilkan</string>
-  <string name="revanced_hide_shorts_green_screen_button_title">Sembunyikan tombol layar hijau</string>
+  <string name="revanced_hide_shorts_green_screen_button_title">Sembunyikan tombol Layar Hijau</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_on">Tombol layar hijau disembunyikan</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_off">Tombol layar hijau ditampilkan</string>
   <string name="revanced_hide_shorts_hashtag_button_title">Sembunyikan tombol tagar</string>
@@ -747,24 +752,24 @@ Catatan: Mengaktifkan ini juga akan memaksa menyembunyikan iklan video"</string>
   <string name="revanced_hide_shorts_stickers_title">Sembunyikan stiker</string>
   <string name="revanced_hide_shorts_stickers_summary_on">Stiker disembunyikan</string>
   <string name="revanced_hide_shorts_stickers_summary_off">Stiker ditampilkan</string>
-  <string name="revanced_hide_shorts_like_fountain_title">Sembunyikan tombol suka yang memancar</string>
+  <string name="revanced_hide_shorts_like_fountain_title">Sembunyikan tombol Suka yang memancar</string>
   <string name="revanced_hide_shorts_like_fountain_summary_on">Animasi tombol suka yang memancar disembunyikan</string>
   <string name="revanced_hide_shorts_like_fountain_summary_off">Animasi tombol suka yang memancar ditampilkan</string>
-  <string name="revanced_hide_shorts_like_button_title">Sembunyikan tombol suka</string>
+  <string name="revanced_hide_shorts_like_button_title">Sembunyikan tombol Suka</string>
   <string name="revanced_hide_shorts_like_button_summary_on">Tombol suka disembunyikan</string>
   <string name="revanced_hide_shorts_like_button_summary_off">Tombol suka ditampilkan</string>
-  <string name="revanced_hide_shorts_dislike_button_title">Sembunyikan tombol tidak suka </string>
+  <string name="revanced_hide_shorts_dislike_button_title">Sembunyikan tombol Tidak Suka</string>
   <string name="revanced_hide_shorts_dislike_button_summary_on">Tombol tidak suka disembunyikan</string>
   <string name="revanced_hide_shorts_dislike_button_summary_off">Tombol tidak suka ditampilkan</string>
-  <string name="revanced_hide_shorts_comments_button_title">Sembunyikan tombol komentar</string>
+  <string name="revanced_hide_shorts_comments_button_title">Sembunyikan tombol Komentar</string>
   <string name="revanced_hide_shorts_comments_button_summary_on">Tombol komentar disembunyikan</string>
   <string name="revanced_hide_shorts_comments_button_summary_off">Tombol komentar ditampilkan</string>
   <!-- 'remix' should be translated using the same localized wording YouTube displays for the button. -->
-  <string name="revanced_hide_shorts_remix_button_title">Sembunyikan tombol remix</string>
+  <string name="revanced_hide_shorts_remix_button_title">Sembunyikan tombol Remix</string>
   <string name="revanced_hide_shorts_remix_button_summary_on">Tombol remix disembunyikan</string>
   <string name="revanced_hide_shorts_remix_button_summary_off">Tombol remix ditampilkan</string>
   <!-- 'share' should be translated using the same localized wording YouTube displays for the button. -->
-  <string name="revanced_hide_shorts_share_button_title">Sembunyikan tombol bagikan</string>
+  <string name="revanced_hide_shorts_share_button_title">Sembunyikan tombol Bagikan</string>
   <string name="revanced_hide_shorts_share_button_summary_on">Tombol bagikan disembunyikan</string>
   <string name="revanced_hide_shorts_share_button_summary_off">Tombol bagikan ditampilkan</string>
   <string name="revanced_hide_shorts_info_panel_title">Sembunyikan panel info</string>
@@ -841,7 +846,7 @@ Keterbatasan: Dislike mungkin tidak muncul dalam mode penyamaran"</string>
   <string name="revanced_ryd_dislike_percentage_summary_on">Dislike ditampilkan sebagai persentase</string>
   <string name="revanced_ryd_dislike_percentage_summary_off">Dislike ditampilkan sebagai angka</string>
   <!-- Translations should use language similar to 'revanced_sb_enable_compact_skip_button' -->
-  <string name="revanced_ryd_compact_layout_title">Tombol suka ringkas</string>
+  <string name="revanced_ryd_compact_layout_title">Tombol Suka Ringkas</string>
   <string name="revanced_ryd_compact_layout_summary_on">Tombol suka ditata untuk lebar minimum</string>
   <string name="revanced_ryd_compact_layout_summary_off">Tombol suka ditata untuk tampilan terbaik</string>
   <string name="revanced_ryd_toast_on_connection_error_title">Tampilkan pesan timbul jika API tidak tersedia</string>
@@ -953,7 +958,7 @@ Id pengguna Anda seperti kata sandi dan jangan pernah dibagikan."</string>
   <string name="revanced_sb_segments_sponsor">Sponsor</string>
   <string name="revanced_sb_segments_sponsor_sum">Promosi berbayar, rujukan berbayar, dan iklan langsung. Bukan untuk promosi diri atau promosi gratis untuk gerakan/kreator/situs web/produk yang mereka sukai</string>
   <string name="revanced_sb_segments_selfpromo">Tidak Dibayar/Promosi Diri Sendiri</string>
-  <string name="revanced_sb_segments_selfpromo_sum">Serupa dengan \'Sponsor\' namun untuk yang tidak bebayar atau promosi diri. Ini termasuk bagian tentang merchandise, donasi, atau informasi mengenai mitra kolaborasi</string>
+  <string name="revanced_sb_segments_selfpromo_sum">Serupa dengan Sponsor kecuali tidak dibayar atau promosi diri sendiri. Termasuk bagian merchandise, donasi, atau informasi tentang siapa yang berkolaborasi dengan mereka</string>
   <string name="revanced_sb_segments_interaction">Pengingat Interaksi (Berlangganan)</string>
   <string name="revanced_sb_segments_interaction_sum">Pengingat singkat untuk suka, berlangganan, atau ikuti di tengah konten. Jika berdurasi panjang atau mengenai sesuatu yang spesifik, sebaiknya termasuk kategori promosi diri sendiri</string>
   <string name="revanced_sb_segments_highlight">Sorotan</string>
@@ -1213,8 +1218,10 @@ Usap untuk memperluas atau menutup"</string>
   <string name="revanced_seekbar_custom_color_title">Aktifkan warna seekbar khusus</string>
   <string name="revanced_seekbar_custom_color_summary_on">Warna seekbar khusus ditampilkan</string>
   <string name="revanced_seekbar_custom_color_summary_off">Warna seekbar asli ditampilkan</string>
-  <string name="revanced_seekbar_custom_color_value_title">Warna seekbar khusus</string>
-  <string name="revanced_seekbar_custom_color_value_summary">Warna dari seekbar</string>
+  <string name="revanced_seekbar_custom_color_primary_title">Warna seekbar khusus</string>
+  <string name="revanced_seekbar_custom_color_primary_summary">Warna seekbar</string>
+  <string name="revanced_seekbar_custom_color_accent_title">Warna aksen seekbar khusus</string>
+  <string name="revanced_seekbar_custom_color_accent_summary">Warna aksen seekbar</string>
   <string name="revanced_seekbar_custom_color_invalid">Nilai warna seekbar tidak sah</string>
   </patch>
   <patch id="layout.thumbnails.bypassImageRegionRestrictionsPatch">
@@ -1354,6 +1361,11 @@ Mengaktifkan ini dapat membuka kualitas video yang lebih tinggi"</string>
   <string name="revanced_playback_speed_default_title">Kecepatan pemutaran bawaan</string>
   <string name="revanced_remember_playback_speed_toast">Mengubah kecepatan bawaan menjadi: %s</string>
   </patch>
+  <patch id="video.hdr.disableHdrPatch">
+  <string name="revanced_disable_hdr_video_title">Nonaktifkan video HDR</string>
+  <string name="revanced_disable_hdr_video_summary_on">Video HDR dinonaktifkan</string>
+  <string name="revanced_disable_hdr_video_summary_off">Video HDR diaktifkan</string>
+  </patch>
   <patch id="video.videoqualitymenu.restoreOldVideoQualityMenuResourcePatch">
   <string name="revanced_restore_old_video_quality_menu_title">Pulihkan menu kualitas video lawas</string>
   <string name="revanced_restore_old_video_quality_menu_summary_on">Menu kualitas video lawas ditampilkan</string>
@@ -1391,6 +1403,7 @@ AVC memiliki resolusi maksimum 1080p, codec audio Opus tidak tersedia, dan pemut
 • Volume stabil tidak tersedia
 • Paksa audio asli tidak tersedia"</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Tidak ada codec video AV1</string>
+  <string name="revanced_spoof_video_streams_about_kids_videos">• Video anak-anak mungkin tidak dapat diputar saat keluar atau dalam mode penyamaran</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Tampilkan di Statistik untuk nerds</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Jenis klien ditampilkan di Statistik untuk nerds</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Klien disembunyikan di Statistik untuk nerds</string>
