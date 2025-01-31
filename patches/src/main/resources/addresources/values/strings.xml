@@ -33,7 +33,7 @@ Second \"item\" text"</string>
         </patch>
         <patch id="misc.settings.settingsResourcePatch">
             <string name="revanced_settings_submenu_title">Settings</string>
-            <string name="revanced_settings_title">ReVanced</string>
+            <string name="revanced_settings_title" translatable="false">ReVanced</string>
             <string name="revanced_settings_confirm_user_dialog_title">Do you wish to proceed?</string>
             <string name="revanced_settings_reset">Reset</string>
             <string name="revanced_settings_restart_title">Refresh and restart</string>
@@ -832,7 +832,7 @@ Note: Enabling this also forcibly hides video ads"</string>
             <string name="revanced_player_overlay_opacity_invalid_toast">Player overlay opacity must be between 0-100</string>
         </patch>
         <patch id="layout.returnyoutubedislike.returnYouTubeDislikePatch">
-            <string name="revanced_ryd_settings_title">Return YouTube Dislike</string>
+            <string name="revanced_ryd_settings_title" translatable="false">Return YouTube Dislike</string>
             <!-- Toast shown if network connection times out. Translations of this should not be longer than the original English or the text can be clipped and not entirely shown. -->
             <string name="revanced_ryd_failure_connection_timeout">Dislikes temporarily not available (API timed out)</string>
             <string name="revanced_ryd_failure_connection_status_code">Dislikes not available (status %d)</string>
@@ -840,7 +840,7 @@ Note: Enabling this also forcibly hides video ads"</string>
             <string name="revanced_ryd_failure_generic">Dislikes not available (%s)</string>
             <!-- Toast shown if the user enables RYD while a video is opened, and then tries to vote for the video. -->
             <string name="revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted">Reload video to vote using Return YouTube Dislike</string>
-            <string name="revanced_ryd_enable_title">Return YouTube Dislike</string>
+            <string name="revanced_ryd_enable_title" translatable="false">Return YouTube Dislike</string>
             <string name="revanced_ryd_enable_summary_on">Dislikes are shown</string>
             <string name="revanced_ryd_enable_summary_off">Dislikes are not shown</string>
             <string name="revanced_ryd_shorts_title">Show dislikes on Shorts</string>
@@ -860,7 +860,7 @@ Limitation: Dislikes may not appear in incognito mode"</string>
             <string name="revanced_ryd_toast_on_connection_error_summary_on">Toast is shown if Return YouTube Dislike is not available</string>
             <string name="revanced_ryd_toast_on_connection_error_summary_off">Toast is not shown if Return YouTube Dislike is not available</string>
             <string name="revanced_ryd_about">About</string>
-            <string name="revanced_ryd_attribution_title">ReturnYouTubeDislike.com</string>
+            <string name="revanced_ryd_attribution_title" translatable="false">ReturnYouTubeDislike.com</string>
             <string name="revanced_ryd_attribution_summary">Data is provided by the Return YouTube Dislike API. Tap here to learn more</string>
             <!-- Statistic strings are shown in the settings only when ReVanced debug mode is enabled. Typical users will never see these. -->
             <string name="revanced_ryd_statistics_category_title">ReturnYouTubeDislike API statistics of this device</string>
@@ -901,7 +901,7 @@ This feature works best with a video quality of 720p or lower and when using a v
             <string name="revanced_restore_old_seekbar_thumbnails_summary_off">Seekbar thumbnails will appear in fullscreen</string>
         </patch>
         <patch id="layout.sponsorblock.sponsorBlockResourcePatch">
-            <string name="revanced_sb_settings_title">SponsorBlock</string>
+            <string name="revanced_sb_settings_title" translatable="false">SponsorBlock</string>
             <string name="revanced_sb_enable_sb">Enable SponsorBlock</string>
             <string name="revanced_sb_enable_sb_sum">SponsorBlock is a crowdsourced system for skipping annoying parts of YouTube videos</string>
             <string name="revanced_sb_appearance_category">Appearance</string>
@@ -1092,7 +1092,7 @@ Ready to submit?"</string>
             <string name="revanced_sb_reset_color">Reset color</string>
             <string name="revanced_sb_reset">Reset</string>
             <string name="revanced_sb_about">About</string>
-            <string name="revanced_sb_about_api">sponsor.ajay.app</string>
+            <string name="revanced_sb_about_api" translatable="false">sponsor.ajay.app</string>
             <string name="revanced_sb_about_api_sum">Data is provided by the SponsorBlock API. Tap here to learn more and see downloads for other platforms</string>
         </patch>
         <patch id="layout.formfactor.changeFormFactorPatch">
@@ -1256,7 +1256,7 @@ Enabling this can fix missing images that are blocked in some regions"</string>
             <string name="revanced_alt_thumbnail_options_entry_2">DeArrow &amp; Original thumbnails</string>
             <string name="revanced_alt_thumbnail_options_entry_3">DeArrow &amp; Still captures</string>
             <string name="revanced_alt_thumbnail_options_entry_4">Still captures</string>
-            <string name="revanced_alt_thumbnail_dearrow_about_title">DeArrow</string>
+            <string name="revanced_alt_thumbnail_dearrow_about_title" translatable="false">DeArrow</string>
             <string name="revanced_alt_thumbnail_dearrow_about_summary">"DeArrow provides crowd-sourced thumbnails for YouTube videos. These thumbnails are often more relevant than those provided by YouTube
 
 If enabled, video URLs will be sent to the API server and no other data is sent. If a video does not have DeArrow thumbnails, then the original or still captures are shown

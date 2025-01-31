@@ -22,27 +22,27 @@ Second \"item\" text"</string>
 <resources>
   <app id="shared">
   <patch id="misc.checks.checkEnvironmentPatch">
-  <string name="revanced_check_environment_failed_title">Kontroller başarısız</string>
+  <string name="revanced_check_environment_failed_title">Denetimler başarısız oldu</string>
   <string name="revanced_check_environment_dialog_open_official_source_button">Resmî web sitesini aç</string>
   <string name="revanced_check_environment_dialog_ignore_button">Yoksay</string>
   <string name="revanced_check_environment_failed_message">&lt;h5&gt;Bu uygulama sizin tarafınızdan yamalanmış gibi görünmüyor.&lt;/h5&gt;&lt;br&gt;Bu uygulama düzgün çalışmayabilir, &lt;b&gt;kullanması zararlı veya tehlikeli bile olabilir&lt;/b&gt;.&lt;br&gt;&lt;br&gt;Şu kontroller, bu uygulamanın hali hazırda yamalanmış olduğunu veya başka birinden edinildiğini gösteriyor:&lt;br&gt;&lt;br&gt;&lt;small&gt;%1$s&lt;/small&gt;&lt;br&gt;Doğrulanmış ve güvenli bir uygulama kullandığınızdan emin olmak için, &lt;b&gt;bu uygulamayı kaldırmanız ve kendiniz yamalamanız&lt;/b&gt; şiddetle tavsiye edilir.&lt;p&gt;&lt;br&gt;Bu uyarı yok sayıldığında sadece iki kez gösterilecektir.</string>
-  <string name="revanced_check_environment_not_same_patching_device">Başka bir cihazda yamalanmış</string>
+  <string name="revanced_check_environment_not_same_patching_device">Farklı bir cihazda yamalanmış</string>
   <string name="revanced_check_environment_manager_not_expected_installer">ReVanced Manager tarafından yüklenmemiş</string>
   <string name="revanced_check_environment_not_near_patch_time">10 dakikadan daha uzun bir süre önce yamalanmış</string>
-  <string name="revanced_check_environment_not_near_patch_time_days">Yama %s gün önce yapıldı</string>
-  <string name="revanced_check_environment_not_near_patch_time_invalid">APK derleme tarihi bozuk</string>
+  <string name="revanced_check_environment_not_near_patch_time_days">%s gün önce yamalanmış</string>
+  <string name="revanced_check_environment_not_near_patch_time_invalid">APK oluşturma tarihi bozulmuş</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_submenu_title">Ayarlar</string>
-  <string name="revanced_settings_confirm_user_dialog_title">İşleme devam etmek istiyor musunuz?</string>
+  <string name="revanced_settings_confirm_user_dialog_title">İşleme devam etmek ister misiniz?</string>
   <string name="revanced_settings_reset">Sıfırla</string>
   <string name="revanced_settings_restart_title">Yenile ve yeniden başlat</string>
-  <string name="revanced_settings_restart">Yeniden Başlat</string>
-  <string name="revanced_settings_import">İçe Aktar</string>
+  <string name="revanced_settings_restart">Yeniden başlat</string>
+  <string name="revanced_settings_import">İçe aktar</string>
   <string name="revanced_settings_import_copy">Kopyala</string>
   <string name="revanced_settings_import_reset">ReVanced ayarları varsayılana sıfırlandı</string>
   <string name="revanced_settings_import_success">%d ayar içe aktarıldı</string>
-  <string name="revanced_settings_import_failure_parse">İçe Aktarma başarısız: %s</string>
+  <string name="revanced_settings_import_failure_parse">İçe aktarma başarısız oldu: %s</string>
   <string name="revanced_language_title">ReVanced dili</string>
   <string name="revanced_language_user_dialog_message">"Bazı diller için çeviriler eksik veya tamamlanmamış olabilir. 
 
@@ -99,23 +99,23 @@ Yeni dilleri çevirmek için translate.revanced.app adresini ziyaret edin"</stri
   <string name="revanced_language_UR">Urduca</string>
   <string name="revanced_language_VI">Vietnamca</string>
   <string name="revanced_language_ZH">Çince</string>
-  <string name="revanced_pref_import_export_title">İçe / Dışa Aktar</string>
+  <string name="revanced_pref_import_export_title">İçe / Dışa aktar</string>
   <string name="revanced_pref_import_export_summary">ReVanced ayarlarını içe / dışa aktar</string>
   <!-- Settings about dialog. -->
-  <string name="revanced_settings_about_links_body">&lt;i&gt;%s&lt;/i&gt; sürümünü kullanıyorsunuz</string>
+  <string name="revanced_settings_about_links_body">ReVanced Patches &lt;i&gt;%s&lt;/i&gt; sürümünü kullanıyorsunuz</string>
   <string name="revanced_settings_about_links_dev_header">Not</string>
-  <string name="revanced_settings_about_links_dev_body">Bu sürüm ön sürüm niteliğindedir ve beklenmedik sorunlarla karşılaşabilirsiniz</string>
-  <string name="revanced_settings_about_links_header">Resmî Linkler</string>
+  <string name="revanced_settings_about_links_dev_body">Bu sürüm ön yayımdır ve beklenmeyen sorunlar yaşayabilirsiniz</string>
+  <string name="revanced_settings_about_links_header">Resmî bağlantılar</string>
   <!-- NOTE: the about strings above are duplicated in the TikTok about screen code,
                  and changes made here must also be made there. -->
   </patch>
   <patch id="misc.gms.gmsCoreSupportResourcePatch">
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="gms_core_toast_not_installed_message">MicroG GmsCore yüklü değil. Yükleyin.</string>
-  <string name="gms_core_dialog_title">İşlem gerekebilir</string>
-  <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"MicroG GmsCore uygulamasının arka planda çalışması için izin yok.
+  <string name="gms_core_dialog_title">Eylem gerekli</string>
+  <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"MicroG GmsCore uygulamasının arka planda çalışma izin yok.
 
-Telefonunuzun \"Uygulamamı sonlandırma\" talimatlarını izleyin ve talimatları MicroG yüklemenize uygulayın.
+Telefonunuzun \"Uygulamamı sonlandırma\" talimatlarını izleyin ve talimatları MicroG kurulumunuza uygulayın.
 
 Uygulamanın çalışması için bu gereklidir."</string>
   <string name="gms_core_dialog_open_website_text">Web sitesini aç</string>
@@ -134,17 +134,17 @@ Devam düğmesine dokunun ve optimizasyon değişikliklerine izin verin."</strin
   <string name="revanced_settings_screen_02_alt_thumbnails_title">Alternatif küçük resimler</string>
   <string name="revanced_settings_screen_03_feed_title">Akış</string>
   <string name="revanced_settings_screen_04_general_title">Genel</string>
-  <string name="revanced_settings_screen_05_player_title">Oyuncu</string>
-  <string name="revanced_settings_screen_07_seekbar_title">Oynatma Çubuğu</string>
-  <string name="revanced_settings_screen_08_swipe_controls_title">Kaydırma Kontrolleri</string>
+  <string name="revanced_settings_screen_05_player_title">Oynatıcı</string>
+  <string name="revanced_settings_screen_07_seekbar_title">Arama çubuğu</string>
+  <string name="revanced_settings_screen_08_swipe_controls_title">Kaydırma denetimleri</string>
   <string name="revanced_settings_screen_11_misc_title">Çeşitli</string>
   <string name="revanced_settings_screen_12_video_title">Video</string>
-  <string name="revanced_restore_old_settings_menus_title">Eski ayar menülerini geri yükle</string>
-  <string name="revanced_restore_old_settings_menus_summary_on">Eski ayar menüleri gösteriliyor</string>
-  <string name="revanced_restore_old_settings_menus_summary_off">Eski ayar menüleri gösterilmiyor</string>
+  <string name="revanced_restore_old_settings_menus_title">Eski ayarlar menülerini geri yükle</string>
+  <string name="revanced_restore_old_settings_menus_summary_on">Eski ayarlar menüleri gösteriliyor</string>
+  <string name="revanced_restore_old_settings_menus_summary_off">Eski ayarlar menüleri gösterilmiyor</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
-  <string name="revanced_shorts_disable_background_playback_title">Shorts arka plan oynatmasını devre dışı bırak</string>
+  <string name="revanced_shorts_disable_background_playback_title">Shorts\'un arka planda oynatılmasını devre dışı bırak</string>
   <string name="revanced_shorts_disable_background_playback_summary_on">Shorts arka plan oynatma devre dışı bırakıldı</string>
   <string name="revanced_shorts_disable_background_playback_summary_off">Shorts arka plan oynatma etkin</string>
   </patch>
@@ -216,25 +216,25 @@ Beklenmedik olaylar hakkında bilgilendirilmeyeceksiniz."</string>
   <string name="revanced_hide_show_more_button_summary_off">Düğme gösterildi</string>
   <string name="revanced_hide_timed_reactions_title">Zamanlanmış reaksiyonları gizle</string>
   <string name="revanced_hide_timed_reactions_summary_on">Zamanlanmış reaksiyonlar gizlendi</string>
-  <string name="revanced_hide_timed_reactions_summary_off">Zamanlanmış reaksiyonlar gösterildi</string>
+  <string name="revanced_hide_timed_reactions_summary_off">Süreli tepkiler gösterildi</string>
   <string name="revanced_hide_channel_guidelines_title">Kanal yönergelerini gizle</string>
   <string name="revanced_hide_channel_guidelines_summary_on">Kanal yönergeleri gizli</string>
   <string name="revanced_hide_channel_guidelines_summary_off">Kanal yönergeleri görünür</string>
   <string name="revanced_hide_chips_shelf_title">Çip rafını gizle</string>
   <string name="revanced_hide_chips_shelf_summary_on">Çip rafı gizli</string>
   <string name="revanced_hide_chips_shelf_summary_off">Çip rafı görünür</string>
-  <string name="revanced_hide_expandable_chip_title">Videolar Altında Açılabilir Kartı Gizle</string>
-  <string name="revanced_hide_expandable_chip_summary_on">Açılabilir kartlar gizli</string>
-  <string name="revanced_hide_expandable_chip_summary_off">Açılabilir kartlar gösteriliyor</string>
+  <string name="revanced_hide_expandable_chip_title">Videolar altındaki genişletilebilir kartı gizle</string>
+  <string name="revanced_hide_expandable_chip_summary_on">Genişletilebilir kartlar gizlendi</string>
+  <string name="revanced_hide_expandable_chip_summary_off">Genişletilebilir kartlar gösterildi</string>
   <string name="revanced_hide_community_posts_title">Topluluk gönderilerini gizle</string>
-  <string name="revanced_hide_community_posts_summary_on">Topluluk gönderileri gizli</string>
-  <string name="revanced_hide_community_posts_summary_off">Topluluk gönderileri görünür</string>
-  <string name="revanced_hide_compact_banner_title">Kompakt afişleri gizle</string>
-  <string name="revanced_hide_compact_banner_summary_on">Kompakt afişler gizli</string>
-  <string name="revanced_hide_compact_banner_summary_off">Kompakt afişler görünür</string>
-  <string name="revanced_hide_movies_section_title">Filmler kısmını gizle</string>
-  <string name="revanced_hide_movies_section_summary_on">Filmler kısmı gizli</string>
-  <string name="revanced_hide_movies_section_summary_off">Filmler kısmı görünür</string>
+  <string name="revanced_hide_community_posts_summary_on">Topluluk gönderileri gizlendi</string>
+  <string name="revanced_hide_community_posts_summary_off">Topluluk gönderileri gösterildi</string>
+  <string name="revanced_hide_compact_banner_title">Sıkışık afişleri gizle</string>
+  <string name="revanced_hide_compact_banner_summary_on">Sıkışık afişler gizlendi</string>
+  <string name="revanced_hide_compact_banner_summary_off">Sıkışık afişler gösterildi</string>
+  <string name="revanced_hide_movies_section_title">Filmler bölümünü gizle</string>
+  <string name="revanced_hide_movies_section_summary_on">Filmler bölümü gizlendi</string>
+  <string name="revanced_hide_movies_section_summary_off">Filmler bölümü gösterildi</string>
   <string name="revanced_hide_feed_survey_title">Akış anketlerini gizle</string>
   <string name="revanced_hide_feed_survey_summary_on">Akış anketleri gizli</string>
   <string name="revanced_hide_feed_survey_summary_off">Akış anketleri görünür</string>
@@ -259,15 +259,15 @@ Beklenmedik olaylar hakkında bilgilendirilmeyeceksiniz."</string>
   <string name="revanced_hide_channel_bar_title">Kanal çubuğunu gizle</string>
   <string name="revanced_hide_channel_bar_summary_on">Kanal çubuğu gizli</string>
   <string name="revanced_hide_channel_bar_summary_off">Kanal çubuğu görünür</string>
-  <string name="revanced_hide_playables_title">Hazır Oyunlar\'ı gizle</string>
-  <string name="revanced_hide_playables_summary_on">Hazır Oyunlar gizli</string>
-  <string name="revanced_hide_playables_summary_off">Hazır Oyunlar görünür</string>
+  <string name="revanced_hide_playables_title">Oynatılabilirleri gizle</string>
+  <string name="revanced_hide_playables_summary_on">Oynatılabilirler gizlendi</string>
+  <string name="revanced_hide_playables_summary_off">Oynatılabilirler gösterildi</string>
   <string name="revanced_hide_quick_actions_title">Tam ekrandaki hızlı eylemleri gizle</string>
   <string name="revanced_hide_quick_actions_summary_on">Hızlı eylemler gizli</string>
   <string name="revanced_hide_quick_actions_summary_off">Hızlı eylemler görünür</string>
   <string name="revanced_hide_related_videos_title">Hızlı eylemlerdeki alâkalı videoları gizle</string>
-  <string name="revanced_hide_related_videos_summary_on">Alâkalı videolar gizli</string>
-  <string name="revanced_hide_related_videos_summary_off">Alâkalı videolar görünür</string>
+  <string name="revanced_hide_related_videos_summary_on">İlgili videolar gizlendi</string>
+  <string name="revanced_hide_related_videos_summary_off">İlgili videolar gösterildi</string>
   <string name="revanced_hide_image_shelf_title">Arama sonuçlarındaki resim rafını gizle</string>
   <string name="revanced_hide_image_shelf_summary_on">Resim rafı gizli</string>
   <string name="revanced_hide_image_shelf_summary_off">Resim rafı görünür</string>
@@ -275,12 +275,12 @@ Beklenmedik olaylar hakkında bilgilendirilmeyeceksiniz."</string>
   <string name="revanced_hide_latest_posts_ads_summary_on">Son gönderiler gizli</string>
   <string name="revanced_hide_latest_posts_ads_summary_off">Son gönderiler görünür</string>
   <string name="revanced_hide_mix_playlists_title">Mix oynatma listelerini gizle</string>
-  <string name="revanced_hide_mix_playlists_summary_on">Mix oynatma listeleri gizli</string>
-  <string name="revanced_hide_mix_playlists_summary_off">Mix oynatma listeleri görünür</string>
+  <string name="revanced_hide_mix_playlists_summary_on">Karışık oynatma listeleri gizlendi</string>
+  <string name="revanced_hide_mix_playlists_summary_off">Karışık oynatma listeleri gösterildi</string>
   <string name="revanced_hide_artist_cards_title">Sanatçı kartlarını gizle</string>
-  <string name="revanced_hide_artist_cards_summary_on">Sanatçı kartları gizli</string>
-  <string name="revanced_hide_artist_cards_summary_off">Sanatçı kartları görünür</string>
-  <string name="revanced_hide_attributes_section_title">Nitelikler bölümünü gizle</string>
+  <string name="revanced_hide_artist_cards_summary_on">Sanatçı kartları gizlendi</string>
+  <string name="revanced_hide_artist_cards_summary_off">Sanatçı kartları gösterildi</string>
+  <string name="revanced_hide_attributes_section_title">Öznitelikler bölümünü gizle</string>
   <string name="revanced_hide_attributes_section_summary_on">Öne çıkan yerler, Oyunlar ve Müzik bölümleri gizli</string>
   <string name="revanced_hide_attributes_section_summary_off">Öne çıkan yerler, Oyunlar ve Müzik bölümleri görünür</string>
   <string name="revanced_hide_chapters_section_title">Bölümler kısmını gizle</string>
