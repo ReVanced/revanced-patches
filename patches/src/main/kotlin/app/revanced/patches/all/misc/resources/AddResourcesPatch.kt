@@ -359,15 +359,15 @@ val addResourcesPatch = resourcePatch(
                 }
 
             getOrPut(resourceFileName) {
-                val targetFile = this@finalize["res/$value/$resourceFileName.xml"].also {
+                this@finalize["res/$value/$resourceFileName.xml"].also {
                     it.parentFile?.mkdirs()
 
                     if (it.createNewFile()) {
                         it.writeText("<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<resources>\n</resources>")
                     }
                 }
-
-                document(targetFile.path).let { document ->
+ 
+                document("res/$value/$resourceFileName.xml").let { document ->
 
                     // Save the target node here as well
                     // in order to avoid having to call document.getNode("resources")

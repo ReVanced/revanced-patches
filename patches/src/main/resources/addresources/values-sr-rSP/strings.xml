@@ -34,7 +34,6 @@ Second \"item\" text"</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_submenu_title">Подешавања</string>
-  <string name="revanced_settings_title">ReVanced</string>
   <string name="revanced_settings_confirm_user_dialog_title">Желите ли да наставите?</string>
   <string name="revanced_settings_reset">Ресетуј</string>
   <string name="revanced_settings_restart_title">Освежите и рестартујте</string>
@@ -71,7 +70,7 @@ Second \"item\" text"</string>
   <string name="revanced_language_ID">Индонежански</string>
   <string name="revanced_language_IT">Италијански</string>
   <string name="revanced_language_JA">Јапански</string>
-  <string name="revanced_language_KK">Казахстански</string>
+  <string name="revanced_language_KK">Казашки</string>
   <string name="revanced_language_KO">Корејски</string>
   <string name="revanced_language_LT">Литвански</string>
   <string name="revanced_language_LV">Летонски</string>
@@ -135,14 +134,14 @@ Second \"item\" text"</string>
   <string name="revanced_settings_screen_02_alt_thumbnails_title">Алтернативне сличице</string>
   <string name="revanced_settings_screen_03_feed_title">Фид</string>
   <string name="revanced_settings_screen_04_general_title">Опште</string>
-  <string name="revanced_settings_screen_05_player_title">Претварач</string>
+  <string name="revanced_settings_screen_05_player_title">Плејер</string>
   <string name="revanced_settings_screen_07_seekbar_title">Трака за премотавање</string>
   <string name="revanced_settings_screen_08_swipe_controls_title">Контроле превлачења</string>
   <string name="revanced_settings_screen_11_misc_title">Разно</string>
   <string name="revanced_settings_screen_12_video_title">Видео</string>
-  <string name="revanced_restore_old_settings_menus_title">Врати старе меније са подешавањима</string>
-  <string name="revanced_restore_old_settings_menus_summary_on">Стари менији са подешавањима су приказани</string>
-  <string name="revanced_restore_old_settings_menus_summary_off">Стари менији са подешавањима се не приказују</string>
+  <string name="revanced_restore_old_settings_menus_title">Врати старе меније подешавања</string>
+  <string name="revanced_restore_old_settings_menus_summary_on">Приказују се стари менији подешавања</string>
+  <string name="revanced_restore_old_settings_menus_summary_off">Не приказују се стари менији подешавања</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
   <string name="revanced_shorts_disable_background_playback_title">Онемогући пуштање Shorts видеа у позадини</string>
@@ -169,9 +168,9 @@ Second \"item\" text"</string>
 Нећете бити обавештени ни о каквим неочекиваним догађајима."</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
-  <string name="revanced_disable_like_subscribe_glow_title">Онемогући сјај дугмади „Свиђање” / „Запрати”</string>
-  <string name="revanced_disable_like_subscribe_glow_summary_on">Дугмад „Свиђање” и „Запрати” неће светлети када се притисну</string>
-  <string name="revanced_disable_like_subscribe_glow_summary_off">Дугмад „Свиђање” и „Запрати” ће светлети када се притисну</string>
+  <string name="revanced_disable_like_subscribe_glow_title">Онемогући сјај дугмади „Свиђање” и „Запрати”</string>
+  <string name="revanced_disable_like_subscribe_glow_summary_on">Дугмад „Свиђање” и „Запрати” неће светлети при додиру</string>
+  <string name="revanced_disable_like_subscribe_glow_summary_off">Дугмад „Свиђање” и „Запрати” ће светлети при додиру</string>
   <string name="revanced_hide_album_cards_title">Сакриј картице албума</string>
   <string name="revanced_hide_album_cards_summary_on">Картице албума су скривене</string>
   <string name="revanced_hide_album_cards_summary_off">Картице албума су приказане</string>
@@ -224,9 +223,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_chips_shelf_title">Сакриј полицу ознака сличних видеа</string>
   <string name="revanced_hide_chips_shelf_summary_on">Полица ознака сличних видеа је скривена</string>
   <string name="revanced_hide_chips_shelf_summary_off">Полица ознака сличних видеа је приказана</string>
-  <string name="revanced_hide_expandable_chip_title">Сакриј прошириви део испод видеа</string>
-  <string name="revanced_hide_expandable_chip_summary_on">Прошириви делови су скривени</string>
-  <string name="revanced_hide_expandable_chip_summary_off">Прошириви делови су приказани</string>
+  <string name="revanced_hide_expandable_chip_title">Сакриј прошириву картицу испод видео снимака</string>
+  <string name="revanced_hide_expandable_chip_summary_on">Прошириве картице су скривене</string>
+  <string name="revanced_hide_expandable_chip_summary_off">Прошириве картице су приказане</string>
   <string name="revanced_hide_community_posts_title">Сакриј објаве заједнице</string>
   <string name="revanced_hide_community_posts_summary_on">Објаве заједнице су скривене</string>
   <string name="revanced_hide_community_posts_summary_off">Објаве заједнице су приказане</string>
@@ -287,6 +286,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_chapters_section_title">Сакриј одељак за поглавља</string>
   <string name="revanced_hide_chapters_section_summary_on">Одељак за поглавља је скривен</string>
   <string name="revanced_hide_chapters_section_summary_off">Одељак за поглавља је приказан</string>
+  <string name="revanced_hide_how_this_was_made_section_title">Сакриј одељак „Како је направљен овај садржај”</string>
+  <string name="revanced_hide_how_this_was_made_section_summary_on">Одељак „Како је направљен овај садржај” је скривен</string>
+  <string name="revanced_hide_how_this_was_made_section_summary_off">Одељак „Како је направљен овај садржај” је приказан</string>
   <string name="revanced_hide_podcast_section_title">Сакриј одељак „Истражите подкаст”</string>
   <string name="revanced_hide_podcast_section_summary_on">Одељак „Истражите подкаст” је скривен</string>
   <string name="revanced_hide_podcast_section_summary_off">Одељак „Истражите подкаст” је приказан</string>
@@ -356,12 +358,12 @@ Second \"item\" text"</string>
   <string name="revanced_hide_keyword_content_home_title">Сакриј видее на картици „Почетна” према кључним речима</string>
   <string name="revanced_hide_keyword_content_home_summary_on">Видеи на картици „Почетна” су филтрирани према кључним речима</string>
   <string name="revanced_hide_keyword_content_home_summary_off">Видеи на картици „Почетна” нису филтрирани према кључним речима</string>
-  <string name="revanced_hide_keyword_content_subscriptions_title">Сакриј видее на картици „Праћења” према кључним речима</string>
-  <string name="revanced_hide_keyword_content_subscriptions_summary_on">Видеи на картици „Праћења” су филтрирани према кључним речима</string>
-  <string name="revanced_hide_keyword_content_subscriptions_summary_off">Видеи на картици „Праћења” нису филтрирани према кључним речима</string>
   <string name="revanced_hide_keyword_content_search_title">Сакриј резултате претраге према кључним речима</string>
   <string name="revanced_hide_keyword_content_search_summary_on">Резултати претраге су филтрирани према кључним речима</string>
   <string name="revanced_hide_keyword_content_search_summary_off">Резултати претраге нису филтрирани према кључним речима</string>
+  <string name="revanced_hide_keyword_content_subscriptions_title">Сакриј видее на картици „Праћења” према кључним речима</string>
+  <string name="revanced_hide_keyword_content_subscriptions_summary_on">Видеи на картици „Праћења” су филтрирани према кључним речима</string>
+  <string name="revanced_hide_keyword_content_subscriptions_summary_off">Видеи на картици „Праћења” нису филтрирани према кључним речима</string>
   <string name="revanced_hide_keyword_content_phrases_title">Кључне речи за сакривање</string>
   <!-- For localization it is preferred, but not required, if 'LeBlanc' is replaced with a localized name or a familiar word that has upper case letters in the middle of the word.
                  This is because keywords can be in any language, and showing an example in the localized script helps convey this. -->
@@ -408,6 +410,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_products_banner_title">Сакриј банер за гледање производа</string>
   <string name="revanced_hide_products_banner_summary_on">Банер за гледање производа је скривен</string>
   <string name="revanced_hide_products_banner_summary_off">Банер за гледање производа је приказан</string>
+  <string name="revanced_hide_end_screen_store_banner_title">Сакриј банер продавнице на завршном екрану</string>
+  <string name="revanced_hide_end_screen_store_banner_summary_on">Банер продавнице на завршном екрану је скривен</string>
+  <string name="revanced_hide_end_screen_store_banner_summary_off">Банер продавнице на завршном екрану је приказан</string>
   <string name="revanced_hide_player_store_shelf_title">Сакриј полицу „Куповина” у плејеру</string>
   <string name="revanced_hide_player_store_shelf_summary_on">Полица „Куповина” у плејеру је скривена</string>
   <string name="revanced_hide_player_store_shelf_summary_off">Полица „Куповина” у плејеру је приказана</string>
@@ -460,7 +465,7 @@ Second \"item\" text"</string>
   <string name="revanced_external_downloader_summary_on">Дугме за спољно преузимање је приказано у плејеру</string>
   <string name="revanced_external_downloader_summary_off">Дугме за спољно преузимање није приказано у плејеру</string>
   <!-- 'download action button' should be translated using the same wording as the translation of 'revanced_hide_download_button_title' -->
-  <string name="revanced_external_downloader_action_button_title">Замени изворно дугме „Преузми”</string>
+  <string name="revanced_external_downloader_action_button_title">Замени дугме радње „Преузми”</string>
   <string name="revanced_external_downloader_action_button_summary_on">Дугме „Преузми” отвара спољни програм за преузимање</string>
   <string name="revanced_external_downloader_action_button_summary_off">Дугме „Преузми” отвара изворни програм за преузимање у апликацији</string>
   <string name="revanced_external_downloader_name_title">Назив пакета програма за преузимање</string>
@@ -664,7 +669,7 @@ Second \"item\" text"</string>
   <string name="revanced_hide_endscreen_cards_summary_off">Картице завршног екрана су приказане</string>
   </patch>
   <patch id="layout.hide.fullscreenambientmode.disableFullscreenAmbientModePatch">
-  <string name="revanced_disable_fullscreen_ambient_mode_title">Онемогући амбијентални режим у режиму целог екрана</string>
+  <string name="revanced_disable_fullscreen_ambient_mode_title">Онемогући „Амбијентални режим” у режиму преко целог екрана</string>
   <string name="revanced_disable_fullscreen_ambient_mode_summary_on">Амбијентални режим у режиму целог екрана је онемогућен</string>
   <string name="revanced_disable_fullscreen_ambient_mode_summary_off">Амбијентални режим у режиму целог екрана је омогућен</string>
   </patch>
@@ -714,10 +719,10 @@ Second \"item\" text"</string>
   <string name="revanced_hide_shorts_paused_overlay_buttons_title">Сакриј дугмад у плејеру при паузи</string>
   <string name="revanced_hide_shorts_paused_overlay_buttons_summary_on">Дугмад у плејеру при паузи су скривена</string>
   <string name="revanced_hide_shorts_paused_overlay_buttons_summary_off">Дугмад у плејеру при паузи су приказана</string>
-  <string name="revanced_hide_shorts_shop_button_title">Сакриј дугме „Куповина”</string>
+  <string name="revanced_hide_shorts_shop_button_title">Сакриј дугме „Продавница”</string>
   <string name="revanced_hide_shorts_shop_button_summary_on">Дугме „Куповина” је скривено</string>
   <string name="revanced_hide_shorts_shop_button_summary_off">Дугме „Куповина” је приказано</string>
-  <string name="revanced_hide_shorts_super_thanks_button_title">Сакриј дугме „Суперхвала”</string>
+  <string name="revanced_hide_shorts_super_thanks_button_title">Сакриј дугме за куповину „Суперхвала”</string>
   <string name="revanced_hide_shorts_super_thanks_button_summary_on">Дугме „Суперхвала” је скривено</string>
   <string name="revanced_hide_shorts_super_thanks_button_summary_off">Дугме „Суперхвала” је приказано</string>
   <string name="revanced_hide_shorts_tagged_products_title">Сакриј означене производе</string>
@@ -726,7 +731,7 @@ Second \"item\" text"</string>
   <string name="revanced_hide_shorts_location_label_title">Сакриј ознаку локације</string>
   <string name="revanced_hide_shorts_location_label_summary_on">Ознака локације је скривена</string>
   <string name="revanced_hide_shorts_location_label_summary_off">Ознака локације је приказана</string>
-  <string name="revanced_hide_shorts_save_sound_button_title">Сакриј дугме „Сачувај звук”</string>
+  <string name="revanced_hide_shorts_save_sound_button_title">Сакриј дугме „Сачувај музику”</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_on">Дугме „Сачувај звук” је скривено</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_off">Дугме „Сачувај звук” је приказано</string>
   <string name="revanced_hide_shorts_use_template_button_title">Сакриј дугме „Користи шаблон”</string>
@@ -735,7 +740,7 @@ Second \"item\" text"</string>
   <string name="revanced_hide_shorts_upcoming_button_title">Сакриј дугме „Предстојеће”</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_on">Дугме „Предстојеће” је скривено</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_off">Дугме „Предстојеће” је приказано</string>
-  <string name="revanced_hide_shorts_green_screen_button_title">Сакриј дугме „Green Screen”</string>
+  <string name="revanced_hide_shorts_green_screen_button_title">Сакриј дугме „Зелени екран”</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_on">Дугме „Green Screen” је скривено</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_off">Дугме „Green Screen” је приказано</string>
   <string name="revanced_hide_shorts_hashtag_button_title">Сакриј дугме хеш-ознаке</string>
@@ -889,7 +894,7 @@ Second \"item\" text"</string>
   </patch>
   <patch id="layout.sponsorblock.sponsorBlockResourcePatch">
   <string name="revanced_sb_enable_sb">Омогући SponsorBlock</string>
-  <string name="revanced_sb_enable_sb_sum">SponsorBlock је систем направљен од заједнице корисника и служи за прескакање досадних делова YouTube видеа</string>
+  <string name="revanced_sb_enable_sb_sum">SponsorBlock је систем заснован на доприносима корисника и служи за прескакање досадних делова YouTube видеа</string>
   <string name="revanced_sb_appearance_category">Изглед</string>
   <string name="revanced_sb_enable_voting">Прикажи дугме за гласање</string>
   <string name="revanced_sb_enable_voting_sum_on">Дугме за гласање за сегмент је приказано</string>
@@ -953,7 +958,7 @@ Second \"item\" text"</string>
   <string name="revanced_sb_segments_sponsor">Спонзор</string>
   <string name="revanced_sb_segments_sponsor_sum">Плаћене промоције, плаћене препоруке и директне рекламе. Није за самопромоцију или бесплатно позивање на циљеве/креаторе/веб-сајтове/производе који им се допадају</string>
   <string name="revanced_sb_segments_selfpromo">Неплаћена промоција/Самопромоција</string>
-  <string name="revanced_sb_segments_selfpromo_sum">Слично као „Спонзор”, осим за неплаћену промоцију или самопромоцију. Укључује одељке о роби, донацијама или информацијама о томе са ким су сарађивали</string>
+  <string name="revanced_sb_segments_selfpromo_sum">Слично као „Спонзор”, искључујући неплаћену промоцију или самопромоцију. Укључује одељке о роби, донацијама или информацијама о томе са ким су сарађивали</string>
   <string name="revanced_sb_segments_interaction">Подсетник о интеракцији (праћење)</string>
   <string name="revanced_sb_segments_interaction_sum">Кратак подсетник да лајкујете, претплатите се или их запратите усред садржаја. Ако је дугачак или о нечему конкретном, требало би да буде под самопромоцијом</string>
   <string name="revanced_sb_segments_highlight">Истакнуто</string>
@@ -1213,8 +1218,10 @@ Second \"item\" text"</string>
   <string name="revanced_seekbar_custom_color_title">Омогући прилагођену боју траке за премотавање</string>
   <string name="revanced_seekbar_custom_color_summary_on">Прилагођена боја траке за премотавање је приказана</string>
   <string name="revanced_seekbar_custom_color_summary_off">Оригинална боја траке за премотавање је приказана</string>
-  <string name="revanced_seekbar_custom_color_value_title">Прилагођена боја траке за премотавање</string>
-  <string name="revanced_seekbar_custom_color_value_summary">Боја траке за премотавање</string>
+  <string name="revanced_seekbar_custom_color_primary_title">Прилагођена боја траке за премотавање</string>
+  <string name="revanced_seekbar_custom_color_primary_summary">Боја траке за премотавање</string>
+  <string name="revanced_seekbar_custom_color_accent_title">Прилагођена боја наглашавања траке за премотавање</string>
+  <string name="revanced_seekbar_custom_color_accent_summary">Боја наглашавања траке за премотавање</string>
   <string name="revanced_seekbar_custom_color_invalid">Неважећа вредност боје траке за премотавање</string>
   </patch>
   <patch id="layout.thumbnails.bypassImageRegionRestrictionsPatch">
@@ -1354,6 +1361,11 @@ Second \"item\" text"</string>
   <string name="revanced_playback_speed_default_title">Подразумевана брзина репродукције</string>
   <string name="revanced_remember_playback_speed_toast">Брзина репродукције промењена на: %s</string>
   </patch>
+  <patch id="video.hdr.disableHdrPatch">
+  <string name="revanced_disable_hdr_video_title">Онемогући HDR видео</string>
+  <string name="revanced_disable_hdr_video_summary_on">HDR видео је онемогућен</string>
+  <string name="revanced_disable_hdr_video_summary_off">HDR видео је омогућен</string>
+  </patch>
   <patch id="video.videoqualitymenu.restoreOldVideoQualityMenuResourcePatch">
   <string name="revanced_restore_old_video_quality_menu_title">Врати стари мени квалитета видеа</string>
   <string name="revanced_restore_old_video_quality_menu_summary_on">Стари мени квалитета видеа је приказан</string>
@@ -1391,6 +1403,7 @@ AVC има максималну резолуцију од 1080p, аудио ко
 • Уједначена јачина звука није доступна
 • Опција „Присили оригиналан звук” није доступна"</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Нема видео кодека AV1</string>
+  <string name="revanced_spoof_video_streams_about_kids_videos">• Видеи за децу се можда неће пуштати када сте одјављени или у режиму без архивирања</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Прикажи у „Статистици за зналце”</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Тип клијента је приказан у „Статистици за зналце”</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Тип клијента је скривен у „Статистици за зналце”</string>

@@ -23,26 +23,25 @@ Second \"item\" text"</string>
   <app id="shared">
   <patch id="misc.checks.checkEnvironmentPatch">
   <string name="revanced_check_environment_failed_title">Kontrol mislykkedes</string>
-  <string name="revanced_check_environment_dialog_open_official_source_button">Åbn officielle hjemmeside</string>
+  <string name="revanced_check_environment_dialog_open_official_source_button">Åbn officiel hjemmeside</string>
   <string name="revanced_check_environment_dialog_ignore_button">Ignorer</string>
-  <string name="revanced_check_environment_failed_message">&lt;h5&gt;Denne app ser ikke ud til at være lappet af dig.&lt;/h5&gt;&lt;br&gt;Denne app fungerer muligvis ikke korrekt, &lt;b&gt;kan være skadeligt eller endda farligt at bruge&lt;/b&gt;.&lt;br&gt;&lt;br&gt;Disse kontroller antyder, at denne app er pre-lappet eller opnået fra en anden:&lt;br&gt;&lt;br&gt;&lt;small&gt;%1$s&lt;/small&gt;&lt;br&gt;Det anbefales kraftigt at &lt;b&gt;afinstallere denne app og lappe den selv&lt;/b&gt; for at sikre, at du bruger en valideret og sikker app.&lt;p&gt;&lt;br&gt;Hvis ignoreret, vil denne advarsel kun blive vist to gange.</string>
+  <string name="revanced_check_environment_failed_message">&lt;h5&gt;Denne app ser ikke ud til at være blevet patcht af dig.&lt;/h5&gt;&lt;br&gt;Denne app fungerer muligvis ikke korrekt, og den &lt;b style=\"color: red;\">kan være skadelig eller endda farlig at bruge.&lt;/b&gt;&lt;br&gt;&lt;br&gt;Disse kontroller indikerer, at denne app er for-patched eller erhvervet fra en anden person:&lt;br&gt;&lt;br&gt;&lt;small&gt;%1$s&lt;/small&gt;&lt;br&gt;Det anbefales kraftigt at &lt;b style=\"color: blue;\">afinstallere denne app og patche den selv&lt;/b&gt; for at sikre, at du bruger en valideret og sikker app.&lt;p&gt;&lt;br&gt;Hvis det ignoreres, vises denne advarsel kun to gange.</string>
   <string name="revanced_check_environment_not_same_patching_device">Rettet på en anden enhed</string>
   <string name="revanced_check_environment_manager_not_expected_installer">Ikke installeret af ReVanced Manager</string>
   <string name="revanced_check_environment_not_near_patch_time">Patched mere end 10 minutter siden</string>
-  <string name="revanced_check_environment_not_near_patch_time_days">Patched %s dage siden</string>
+  <string name="revanced_check_environment_not_near_patch_time_days">Patched for %s dage siden</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">APK byggedato er ødelagt</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_submenu_title">Indstillinger</string>
-  <string name="revanced_settings_title">ReVanced</string>
   <string name="revanced_settings_confirm_user_dialog_title">Ønsker du at fortsætte?</string>
   <string name="revanced_settings_reset">Nulstil</string>
   <string name="revanced_settings_restart_title">Opdater og genstart</string>
   <string name="revanced_settings_restart">Genstart</string>
-  <string name="revanced_settings_import">Importér</string>
-  <string name="revanced_settings_import_copy">Kopiér</string>
-  <string name="revanced_settings_import_reset">ReVanced indstillinger nulstillet til standard</string>
-  <string name="revanced_settings_import_success">Importerede %d indstillinger</string>
+  <string name="revanced_settings_import">Importer</string>
+  <string name="revanced_settings_import_copy">Kopier</string>
+  <string name="revanced_settings_import_reset">ReVanced-indstillinger nulstillet til standard</string>
+  <string name="revanced_settings_import_success">%d indstillinger importeret</string>
   <string name="revanced_settings_import_failure_parse">Import mislykkedes: %s</string>
   <string name="revanced_language_title">ReVanced-sprog</string>
   <string name="revanced_language_user_dialog_message">"Oversættelser for nogle sprog mangler muligvis eller er ufuldstændige.
@@ -53,7 +52,7 @@ For at oversætte til nye sprog skal du besøge translate.revanced.app"</string>
   <string name="revanced_language_AZ">Aserbajdsjansk</string>
   <string name="revanced_language_BG">Bulgarsk</string>
   <string name="revanced_language_BN">Bengalsk</string>
-  <string name="revanced_language_CA">Katalansk</string>
+  <string name="revanced_language_CA">Catalansk</string>
   <string name="revanced_language_CS">Tjekkisk</string>
   <string name="revanced_language_DA">Dansk</string>
   <string name="revanced_language_DE">Tysk</string>
@@ -91,40 +90,40 @@ For at oversætte til nye sprog skal du besøge translate.revanced.app"</string>
   <string name="revanced_language_SL">Slovensk</string>
   <string name="revanced_language_SR">Serbisk</string>
   <string name="revanced_language_SV">Svensk</string>
-  <string name="revanced_language_SW">Kiswahili</string>
-  <string name="revanced_language_TA">Kithamil</string>
+  <string name="revanced_language_SW">Swahili</string>
+  <string name="revanced_language_TA">Tamil</string>
   <string name="revanced_language_TE">Telugu</string>
-  <string name="revanced_language_TH">Thailandsk</string>
+  <string name="revanced_language_TH">Thai</string>
   <string name="revanced_language_TR">Tyrkisk</string>
-  <string name="revanced_language_UK">Ukrainsk</string>
+  <string name="revanced_language_UK">Ukrainisk</string>
   <string name="revanced_language_UR">Urdu</string>
   <string name="revanced_language_VI">Vietnamesisk</string>
   <string name="revanced_language_ZH">Kinesisk</string>
-  <string name="revanced_pref_import_export_title">Import / Eksport</string>
-  <string name="revanced_pref_import_export_summary">Importer / Eksport ReVanced indstillinger</string>
+  <string name="revanced_pref_import_export_title">Importér/Eksportér</string>
+  <string name="revanced_pref_import_export_summary">Importér/Eksportér ReVanced-indstillinger</string>
   <!-- Settings about dialog. -->
-  <string name="revanced_settings_about_links_body">Du bruger ReVanced Patches version &lt;i&gt;%s&lt;/i&gt;</string>
-  <string name="revanced_settings_about_links_dev_header">Bemærkning</string>
-  <string name="revanced_settings_about_links_dev_body">Denne version er en pre-release og du kan opleve uventede problemer</string>
+  <string name="revanced_settings_about_links_body">Du bruger ReVanced-patches version &lt;i&gt;%s&lt;/i&gt;</string>
+  <string name="revanced_settings_about_links_dev_header">Bemærk</string>
+  <string name="revanced_settings_about_links_dev_body">Denne version er en pre-release, og du kan opleve uventede problemer</string>
   <string name="revanced_settings_about_links_header">Officielle links</string>
   <!-- NOTE: the about strings above are duplicated in the TikTok about screen code,
                  and changes made here must also be made there. -->
   </patch>
   <patch id="misc.gms.gmsCoreSupportResourcePatch">
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
-  <string name="gms_core_toast_not_installed_message">MicroG GmsCore er ikke installeret. Installér den.</string>
-  <string name="gms_core_dialog_title">Behov for handling</string>
+  <string name="gms_core_toast_not_installed_message">MicroG GmsCore er ikke installeret. Installer det.</string>
+  <string name="gms_core_dialog_title">Handling påkrævet</string>
   <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"MicroG GmsCore har ikke tilladelse til at køre i baggrunden.
 
-Følg guiden \"Dræb ikke min app\" for din telefon, og følg vejledningen for din MicroG-installation.
+Følg \"Dræb ikke min app\"-vejledningen til din telefon, og anvend instruktionerne på din MicroG-installation.
 
-Dette er påkrævet, for at appen kan fungere."</string>
+Dette er påkrævet for, at appen fungerer."</string>
   <string name="gms_core_dialog_open_website_text">Åbn hjemmeside</string>
-  <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">"MicroG GmsCores batterioptimering skal deaktiveres for at forhindre problemer.
+  <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">"MicroG GmsCore-batterioptimeringer skal deaktiveres for at forhindre problemer.
 
-Deaktivering af batterioptimering for MicroG vil ikke påvirke batteriforbruget negativt.
+Deaktivering af batterioptimeringer for MicroG vil ikke påvirke batteriforbruget negativt.
 
-Tryk på fortsætknappen, og tillad ændringer af optimering."</string>
+Tap på knappen Fortsæt, og tillad optimeringsændringer."</string>
   <string name="gms_core_dialog_continue_text">Fortsæt</string>
   </patch>
   </app>
@@ -132,102 +131,101 @@ Tryk på fortsætknappen, og tillad ændringer af optimering."</string>
   <patch id="misc.settings.settingsPatch">
   <string name="revanced_settings_screen_00_about_title">Om</string>
   <string name="revanced_settings_screen_01_ads_title">Annoncer</string>
-  <string name="revanced_settings_screen_02_alt_thumbnails_title">Alternative miniaturer</string>
-  <string name="revanced_settings_screen_03_feed_title">Fodring</string>
+  <string name="revanced_settings_screen_02_alt_thumbnails_title">Alternative miniaturebilleder</string>
+  <string name="revanced_settings_screen_03_feed_title">Feed</string>
   <string name="revanced_settings_screen_04_general_title">Generelt</string>
   <string name="revanced_settings_screen_05_player_title">Afspiller</string>
-  <string name="revanced_settings_screen_06_shorts_title">Shorts</string>
-  <string name="revanced_settings_screen_07_seekbar_title">Søgebjælke</string>
-  <string name="revanced_settings_screen_08_swipe_controls_title">Stryg kontrolelementer</string>
+  <string name="revanced_settings_screen_07_seekbar_title">Søg i videon</string>
+  <string name="revanced_settings_screen_08_swipe_controls_title">Strygekontroller</string>
   <string name="revanced_settings_screen_11_misc_title">Diverse</string>
-  <string name="revanced_settings_screen_12_video_title">Videoer</string>
+  <string name="revanced_settings_screen_12_video_title">Video</string>
   <string name="revanced_restore_old_settings_menus_title">Gendan gamle indstillingsmenuer</string>
-  <string name="revanced_restore_old_settings_menus_summary_on">Gamle indstillingsmenuer vises</string>
-  <string name="revanced_restore_old_settings_menus_summary_off">Gamle indstillingsmenuer vises ikke</string>
+  <string name="revanced_restore_old_settings_menus_summary_on">Gamle indstillingsmenuer er vist</string>
+  <string name="revanced_restore_old_settings_menus_summary_off">Gamle indstillingsmenuer er ikke vist</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
-  <string name="revanced_shorts_disable_background_playback_title">Deaktiver afspilning af Shorts i baggrunden</string>
-  <string name="revanced_shorts_disable_background_playback_summary_on">Afspilning af Shorts i baggrunden er deaktiveret</string>
-  <string name="revanced_shorts_disable_background_playback_summary_off">Afspilning af Shorts i baggrunden er aktiveret</string>
+  <string name="revanced_shorts_disable_background_playback_title">Deaktiver baggrundsafspilning af Shorts</string>
+  <string name="revanced_shorts_disable_background_playback_summary_on">Baggrundsafspilning af Shorts er deaktiveret</string>
+  <string name="revanced_shorts_disable_background_playback_summary_off">Baggrundsafspilning af Shorts er aktiveret</string>
   </patch>
   <patch id="misc.debugging.enableDebuggingPatch">
   <string name="revanced_debug_screen_title">Fejlfinding</string>
-  <string name="revanced_debug_screen_summary">Aktiver eller deaktiver fejlfindingsindstillinger</string>
-  <string name="revanced_debug_title">Debug logning</string>
-  <string name="revanced_debug_summary_on">Debug logs er aktiveret</string>
-  <string name="revanced_debug_summary_off">Debug logs er deaktiveret</string>
-  <string name="revanced_debug_protobuffer_title">Log protokol buffer</string>
-  <string name="revanced_debug_protobuffer_summary_on">Debug logs indeholder proto buffer</string>
-  <string name="revanced_debug_protobuffer_summary_off">Debug logs indeholder ikke proto buffer</string>
-  <string name="revanced_debug_stacktrace_title">Log stak spor</string>
-  <string name="revanced_debug_stacktrace_summary_on">Debug logs omfatter stack trace</string>
-  <string name="revanced_debug_stacktrace_summary_off">Debug logs indeholder ikke stack trace</string>
-  <string name="revanced_debug_toast_on_error_title">Vis toast på ReVanced fejl</string>
-  <string name="revanced_debug_toast_on_error_summary_on">Toast vist, hvis der opstår fejl</string>
-  <string name="revanced_debug_toast_on_error_summary_off">Toast ikke vist, hvis der opstår fejl</string>
-  <string name="revanced_debug_toast_on_error_user_dialog_message">"Deaktivering af fejl-toasts skjuler alle ReVanced-fejlmeddelelser.
+  <string name="revanced_debug_screen_summary">Aktivér eller deaktiver fejlfindingsindstillinger</string>
+  <string name="revanced_debug_title">Fejlfindingslogning</string>
+  <string name="revanced_debug_summary_on">Fejlfindingslogge er aktiveret</string>
+  <string name="revanced_debug_summary_off">Fejlfindingslogge er deaktiveret</string>
+  <string name="revanced_debug_protobuffer_title">Logprotokolbuffer</string>
+  <string name="revanced_debug_protobuffer_summary_on">Fejlfindingslogge inkluderer protobuffer</string>
+  <string name="revanced_debug_protobuffer_summary_off">Fejlfindingslogge inkluderer ikke protobuffer</string>
+  <string name="revanced_debug_stacktrace_title">Logstakspor</string>
+  <string name="revanced_debug_stacktrace_summary_on">Fejlfindingslogge inkluderer stakspor</string>
+  <string name="revanced_debug_stacktrace_summary_off">Fejlfindingslogge inkluderer ikke stakspor</string>
+  <string name="revanced_debug_toast_on_error_title">Vis toastbesked ved ReVanced-fejl</string>
+  <string name="revanced_debug_toast_on_error_summary_on">Toast vist, hvis der opstår en fejl</string>
+  <string name="revanced_debug_toast_on_error_summary_off">Toast vises ikke, hvis der opstår en fejl</string>
+  <string name="revanced_debug_toast_on_error_user_dialog_message">"Hvis du deaktiverer fejl-toasts, skjules alle ReVanced-fejlmeddelelser.
 
-Du vil ikke blive underrettet om uventede hændelser."</string>
+Du modtager ikke notifikationer om uventede hændelser."</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
-  <string name="revanced_disable_like_subscribe_glow_title">Deaktivér som / abonnér knap glow</string>
-  <string name="revanced_disable_like_subscribe_glow_summary_on">Ligesom og abonnér knap vil ikke gløde når nævnt</string>
-  <string name="revanced_disable_like_subscribe_glow_summary_off">Ligesom og abonnér knappen vil gløde, når nævnt</string>
+  <string name="revanced_disable_like_subscribe_glow_title">Deaktiver lykke- og abonnér-knappens glød</string>
+  <string name="revanced_disable_like_subscribe_glow_summary_on">Lykke- og abonnér-knappen gløder ikke, når den nævnes</string>
+  <string name="revanced_disable_like_subscribe_glow_summary_off">Lykke- og abonnér-knappen gløder, når den nævnes</string>
   <string name="revanced_hide_album_cards_title">Skjul albumkort</string>
   <string name="revanced_hide_album_cards_summary_on">Albumkort er skjult</string>
   <string name="revanced_hide_album_cards_summary_off">Albumkort vises</string>
-  <string name="revanced_hide_crowdfunding_box_title">Skjul crowdfunding boks</string>
-  <string name="revanced_hide_crowdfunding_box_summary_on">Crowdfunding boks er skjult</string>
-  <string name="revanced_hide_crowdfunding_box_summary_off">Crowdfunding boks er vist</string>
-  <string name="revanced_hide_floating_microphone_button_title">Skjul flydende mikrofon knap</string>
-  <string name="revanced_hide_floating_microphone_button_summary_on">Mikrofon knap skjult</string>
-  <string name="revanced_hide_floating_microphone_button_summary_off">Mikrofon knap vist</string>
+  <string name="revanced_hide_crowdfunding_box_title">Skjul crowdfunding-boks</string>
+  <string name="revanced_hide_crowdfunding_box_summary_on">Crowdfunding-boks er skjult</string>
+  <string name="revanced_hide_crowdfunding_box_summary_off">Crowdfunding-boks er vist</string>
+  <string name="revanced_hide_floating_microphone_button_title">Skjul flydende mikrofonknap</string>
+  <string name="revanced_hide_floating_microphone_button_summary_on">Mikrofonknap er skjult</string>
+  <string name="revanced_hide_floating_microphone_button_summary_off">Mikrofonknap er vist</string>
   <string name="revanced_hide_channel_watermark_title">Skjul kanalvandmærke</string>
   <string name="revanced_hide_channel_watermark_summary_on">Vandmærke er skjult</string>
   <string name="revanced_hide_channel_watermark_summary_off">Vandmærke er vist</string>
   <string name="revanced_hide_horizontal_shelves_title">Skjul vandrette hylder</string>
   <string name="revanced_hide_horizontal_shelves_summary_on">"Hylder er skjult, f.eks.:
-• Nye nyheder
-• Se videre
+• Seneste nyheder
+• Fortsæt med at se
 • Udforsk flere kanaler
-• Indkøb
-• Se det igen"</string>
+• Shopping
+• Se igen"</string>
   <string name="revanced_hide_horizontal_shelves_summary_off">Hylder er vist</string>
   <!-- 'Join' should be translated using the same localized wording YouTube displays.
                  This appears in the video player for certain videos. -->
-  <string name="revanced_hide_join_membership_button_title">Skjul \'Tilmeld\' knap</string>
-  <string name="revanced_hide_join_membership_button_summary_on">Knap er skjult</string>
-  <string name="revanced_hide_join_membership_button_summary_off">Knap vises</string>
+  <string name="revanced_hide_join_membership_button_title">Skjul knappen \'Tilmeld\'</string>
+  <string name="revanced_hide_join_membership_button_summary_on">Knappen er skjult</string>
+  <string name="revanced_hide_join_membership_button_summary_off">Knappen er vist</string>
   <!-- 'For you' should be translated using the same localized wording YouTube displays. -->
-  <string name="revanced_hide_for_you_shelf_title">Skjul \'For dig\' hylde på kanalsiden</string>
-  <string name="revanced_hide_for_you_shelf_summary_on">Hylden er skjult</string>
+  <string name="revanced_hide_for_you_shelf_title">Skjul hylden \'Til dig\' på kanalsiden</string>
+  <string name="revanced_hide_for_you_shelf_summary_on">Hylde er skjult</string>
   <string name="revanced_hide_for_you_shelf_summary_off">Hylde er vist</string>
   <!-- 'Notify me' should be translated using the same localized wording YouTube displays.
                  This item appear in the subscription feed for future livestreams or unreleased videos. -->
-  <string name="revanced_hide_notify_me_button_title">Skjul knappen \'Meddel mig\'</string>
-  <string name="revanced_hide_notify_me_button_summary_on">Knap er skjult</string>
-  <string name="revanced_hide_notify_me_button_summary_off">Knap vises</string>
+  <string name="revanced_hide_notify_me_button_title">Skjul knappen \'Underret mig\'</string>
+  <string name="revanced_hide_notify_me_button_summary_on">Knappen er skjult</string>
+  <string name="revanced_hide_notify_me_button_summary_off">Knappen er vist</string>
   <!-- 'People also watch' should be translated using the same localized wording YouTube displays. -->
-  <string name="revanced_hide_search_result_recommendations_title">Skjul \'Folk kiggede også på\' anbefalinger</string>
+  <string name="revanced_hide_search_result_recommendations_title">Skjul anbefalingerne \'Andre så også\'</string>
   <string name="revanced_hide_search_result_recommendations_summary_on">Anbefalinger er skjult</string>
-  <string name="revanced_hide_search_result_recommendations_summary_off">Anbefalinger er vist</string>
+  <string name="revanced_hide_search_result_recommendations_summary_off">Anbefalinger vises</string>
   <!-- 'Show more' should be translated with the same localized wording that YouTube displays.
                   This button usually appears when searching for a YT creator. -->
-  <string name="revanced_hide_show_more_button_title">Skjul \'Vis mere\'-knap</string>
-  <string name="revanced_hide_show_more_button_summary_on">Knap er skjult</string>
-  <string name="revanced_hide_show_more_button_summary_off">Knap vises</string>
-  <string name="revanced_hide_timed_reactions_title">Skjul tidsrelaterede reaktioner</string>
-  <string name="revanced_hide_timed_reactions_summary_on">Tidsbegrænsede reaktioner er skjult</string>
-  <string name="revanced_hide_timed_reactions_summary_off">Tidsbegrænsede reaktioner er vist</string>
+  <string name="revanced_hide_show_more_button_title">Skjul knappen \'Vis mere\'</string>
+  <string name="revanced_hide_show_more_button_summary_on">Knappen er skjult</string>
+  <string name="revanced_hide_show_more_button_summary_off">Knappen er vist</string>
+  <string name="revanced_hide_timed_reactions_title">Skjul tidsreaktioner</string>
+  <string name="revanced_hide_timed_reactions_summary_on">Tidsreaktioner skjules</string>
+  <string name="revanced_hide_timed_reactions_summary_off">Tidsreaktioner vises</string>
   <string name="revanced_hide_channel_guidelines_title">Skjul kanalretningslinjer</string>
   <string name="revanced_hide_channel_guidelines_summary_on">Kanalretningslinjer er skjult</string>
   <string name="revanced_hide_channel_guidelines_summary_off">Kanalretningslinjer er vist</string>
   <string name="revanced_hide_chips_shelf_title">Skjul chips hylde</string>
   <string name="revanced_hide_chips_shelf_summary_on">Chips hylde er skjult</string>
   <string name="revanced_hide_chips_shelf_summary_off">Chips hylde er vist</string>
-  <string name="revanced_hide_expandable_chip_title">Skjul udvidelig chip under videoer</string>
-  <string name="revanced_hide_expandable_chip_summary_on">Kan udvides chips er skjult</string>
-  <string name="revanced_hide_expandable_chip_summary_off">Udvidede jetoner vises</string>
+  <string name="revanced_hide_expandable_chip_title">Skjul udvidelige kort under videoer</string>
+  <string name="revanced_hide_expandable_chip_summary_on">Udvidelige kort er skjult</string>
+  <string name="revanced_hide_expandable_chip_summary_off">Udvidelige kort er vist</string>
   <string name="revanced_hide_community_posts_title">Skjul fællesskabs indlæg</string>
   <string name="revanced_hide_community_posts_summary_on">Fællesskabs indlæg er skjult</string>
   <string name="revanced_hide_community_posts_summary_off">Fællesskabs indlæg er vist</string>
@@ -288,6 +286,9 @@ Du vil ikke blive underrettet om uventede hændelser."</string>
   <string name="revanced_hide_chapters_section_title">Skjul kapitler afsnit</string>
   <string name="revanced_hide_chapters_section_summary_on">Kapitler sektion er skjult</string>
   <string name="revanced_hide_chapters_section_summary_off">Kapitel afsnit er vist</string>
+  <string name="revanced_hide_how_this_was_made_section_title">Skjul sektionen \"Sådan blev dette indhold lavet\"</string>
+  <string name="revanced_hide_how_this_was_made_section_summary_on">Sektionen \"Sådan blev dette indhold lavet\" er skjult</string>
+  <string name="revanced_hide_how_this_was_made_section_summary_off">Sektionen \"Sådan blev dette indhold lavet\" vises</string>
   <string name="revanced_hide_podcast_section_title">Skjul \'Udforsk podcast\'-sektionen</string>
   <string name="revanced_hide_podcast_section_summary_on">\'Udforsk podcast\' sektionen er skjult</string>
   <string name="revanced_hide_podcast_section_summary_off">\'Udforsk podcast\' sektionen vises</string>
@@ -330,7 +331,7 @@ Du vil ikke blive underrettet om uventede hændelser."</string>
   <string name="revanced_hide_comments_preview_comment_title">Skjul forhåndsvisning kommentar</string>
   <string name="revanced_hide_comments_preview_comment_summary_on">Forhåndsvisning kommentar er skjult</string>
   <string name="revanced_hide_comments_preview_comment_summary_off">Forhåndsvis kommentar er vist</string>
-  <string name="revanced_hide_comments_thanks_button_title">Skjul tasteknap</string>
+  <string name="revanced_hide_comments_thanks_button_title">Skjul \"Tak\"-knap</string>
   <string name="revanced_hide_comments_thanks_button_summary_on">Tak knappen er skjult</string>
   <string name="revanced_hide_comments_thanks_button_summary_off">Tak knappen er vist</string>
   <string name="revanced_hide_comments_timestamp_and_emoji_buttons_title">Skjul tidsstempel og emoji knapper</string>
@@ -357,12 +358,12 @@ Hvis et Doodle vises i øjeblikket i din region, og denne skjuleindstilling er a
   <string name="revanced_hide_keyword_content_home_title">Skjul hjemmevideoer med søgeord</string>
   <string name="revanced_hide_keyword_content_home_summary_on">Videoer i fanen hjemme filtreres af søgeord</string>
   <string name="revanced_hide_keyword_content_home_summary_off">Videoer i fanen Hjem er ikke filtreret af søgeord</string>
-  <string name="revanced_hide_keyword_content_subscriptions_title">Skjul abonnementsvideoer med søgeord</string>
-  <string name="revanced_hide_keyword_content_subscriptions_summary_on">Videoer i fanen Abonnementer filtreres af søgeord</string>
-  <string name="revanced_hide_keyword_content_subscriptions_summary_off">Videoer i fanen Abonnementer filtreres ikke af søgeord</string>
   <string name="revanced_hide_keyword_content_search_title">Skjul søgeresultater efter søgeord</string>
   <string name="revanced_hide_keyword_content_search_summary_on">Søgeresultater filtreres af søgeord</string>
   <string name="revanced_hide_keyword_content_search_summary_off">Søgeresultater filtreres ikke af søgeord</string>
+  <string name="revanced_hide_keyword_content_subscriptions_title">Skjul abonnementsvideoer med søgeord</string>
+  <string name="revanced_hide_keyword_content_subscriptions_summary_on">Videoer i fanen Abonnementer filtreres af søgeord</string>
+  <string name="revanced_hide_keyword_content_subscriptions_summary_off">Videoer i fanen Abonnementer filtreres ikke af søgeord</string>
   <string name="revanced_hide_keyword_content_phrases_title">Nøgleord at skjule</string>
   <!-- For localization it is preferred, but not required, if 'LeBlanc' is replaced with a localized name or a familiar word that has upper case letters in the middle of the word.
                  This is because keywords can be in any language, and showing an example in the localized script helps convey this. -->
@@ -409,6 +410,9 @@ Denne funktion er kun tilgængelig for ældre enheder"</string>
   <string name="revanced_hide_products_banner_title">Skjul banner for at se produkter</string>
   <string name="revanced_hide_products_banner_summary_on">Banner er skjult</string>
   <string name="revanced_hide_products_banner_summary_off">Banner er vist</string>
+  <string name="revanced_hide_end_screen_store_banner_title">Skjul banner fra butikken på slutskærmen</string>
+  <string name="revanced_hide_end_screen_store_banner_summary_on">Gem banner skjult</string>
+  <string name="revanced_hide_end_screen_store_banner_summary_off">Gem banner vises</string>
   <string name="revanced_hide_player_store_shelf_title">Skjul spillerens indkøbshylde</string>
   <string name="revanced_hide_player_store_shelf_summary_on">Shopping hylde er skjult</string>
   <string name="revanced_hide_player_store_shelf_summary_off">Shopping hylde er vist</string>
@@ -461,7 +465,7 @@ Denne funktion er kun tilgængelig for ældre enheder"</string>
   <string name="revanced_external_downloader_summary_on">Download-knap vist i afspilleren</string>
   <string name="revanced_external_downloader_summary_off">Download-knappen vises ikke i afspilleren</string>
   <!-- 'download action button' should be translated using the same wording as the translation of 'revanced_hide_download_button_title' -->
-  <string name="revanced_external_downloader_action_button_title">Tilsidesæt download-handlingsknap</string>
+  <string name="revanced_external_downloader_action_button_title">Overskriv knappen Download-handling</string>
   <string name="revanced_external_downloader_action_button_summary_on">Download-knappen åbner din eksterne downloader</string>
   <string name="revanced_external_downloader_action_button_summary_off">Download-knappen åbner den indfødte in-app downloader</string>
   <string name="revanced_external_downloader_name_title">Downloader pakkenavn</string>
@@ -648,14 +652,14 @@ Bemærk: Aktivering af dette skjuler også videoannoncer"</string>
   <string name="revanced_hide_player_previous_next_buttons_title">Skjul forrige &amp; næste video knapper</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_on">Knapper er skjult</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">Knapper vises</string>
-  <string name="revanced_hide_cast_button_title">Skjul cast-knap</string>
+  <string name="revanced_hide_cast_button_title">Skjul Cast-knappen</string>
   <string name="revanced_hide_cast_button_summary_on">Cast-knappen er skjult</string>
   <string name="revanced_hide_cast_button_summary_off">Cast knap er vist</string>
   <!-- This button does not display any text, but 'captions' should be translated using the same wording used as the translation of 'revanced_hide_player_flyout_captions_title' -->
-  <string name="revanced_hide_captions_button_title">Skjul billedtekst knap</string>
+  <string name="revanced_hide_captions_button_title">Skjul undertekstknappen</string>
   <string name="revanced_hide_captions_button_summary_on">Undertekster knappen er skjult</string>
   <string name="revanced_hide_captions_button_summary_off">Underskriftsknappen vises</string>
-  <string name="revanced_hide_autoplay_button_title">Skjul autoplay knap</string>
+  <string name="revanced_hide_autoplay_button_title">Skjul knappen Automatisk afspilning</string>
   <string name="revanced_hide_autoplay_button_summary_on">Automatisk spil-knap er skjult</string>
   <string name="revanced_hide_autoplay_button_summary_off">Automatisk afspilningsknap vises</string>
   </patch>
@@ -665,7 +669,7 @@ Bemærk: Aktivering af dette skjuler også videoannoncer"</string>
   <string name="revanced_hide_endscreen_cards_summary_off">Kort til slutskærm vises</string>
   </patch>
   <patch id="layout.hide.fullscreenambientmode.disableFullscreenAmbientModePatch">
-  <string name="revanced_disable_fullscreen_ambient_mode_title">Deaktivér omgivende tilstand i fuld skærm</string>
+  <string name="revanced_disable_fullscreen_ambient_mode_title">Deaktiver Ambient-tilstand i fuldskærm</string>
   <string name="revanced_disable_fullscreen_ambient_mode_summary_on">Omgivelsestilstand deaktiveret</string>
   <string name="revanced_disable_fullscreen_ambient_mode_summary_off">Omgivelsestilstand aktiveret</string>
   </patch>
@@ -705,38 +709,38 @@ Bemærk: Aktivering af dette skjuler også videoannoncer"</string>
   <string name="revanced_hide_shorts_history_summary_on">Skjult i historikken</string>
   <string name="revanced_hide_shorts_history_summary_off">Vises i historik</string>
   <!-- 'join' should be translated using the same localized wording YouTube displays for the button. -->
-  <string name="revanced_hide_shorts_join_button_title">Skjul tilmeldingsknap</string>
+  <string name="revanced_hide_shorts_join_button_title">Skjul knappen Deltag</string>
   <string name="revanced_hide_shorts_join_button_summary_on">Deltag-knappen er skjult</string>
   <string name="revanced_hide_shorts_join_button_summary_off">Tilmeldingsknappen vises</string>
   <!-- 'subscribe' should be translated using the same localized wording YouTube displays for the button. -->
-  <string name="revanced_hide_shorts_subscribe_button_title">Skjul abonnentknap</string>
+  <string name="revanced_hide_shorts_subscribe_button_title">Skjul knappen Abonner</string>
   <string name="revanced_hide_shorts_subscribe_button_summary_on">Abonnement knappen er skjult</string>
   <string name="revanced_hide_shorts_subscribe_button_summary_off">Knappen Abonnér vises</string>
   <string name="revanced_hide_shorts_paused_overlay_buttons_title">Skjul overlay knapper på pause</string>
   <string name="revanced_hide_shorts_paused_overlay_buttons_summary_on">Overlay-knapper på pause er skjult</string>
   <string name="revanced_hide_shorts_paused_overlay_buttons_summary_off">Overlay-knapper på pause vises</string>
-  <string name="revanced_hide_shorts_shop_button_title">Skjul butiksknap</string>
+  <string name="revanced_hide_shorts_shop_button_title">Skjul knappen Shop</string>
   <string name="revanced_hide_shorts_shop_button_summary_on">Butiksknap er skjult</string>
   <string name="revanced_hide_shorts_shop_button_summary_off">Butiksknappen er vist</string>
-  <string name="revanced_hide_shorts_super_thanks_button_title">Skjul super tak knap</string>
-  <string name="revanced_hide_shorts_super_thanks_button_summary_on">Super tak knappen er skjult</string>
-  <string name="revanced_hide_shorts_super_thanks_button_summary_off">Super tak knappen er vist</string>
+  <string name="revanced_hide_shorts_super_thanks_button_title">Skjul knappen Køb Super Thanks</string>
+  <string name="revanced_hide_shorts_super_thanks_button_summary_on">Knappen Super Thanks er skjult</string>
+  <string name="revanced_hide_shorts_super_thanks_button_summary_off">Knappen Super Thanks vises</string>
   <string name="revanced_hide_shorts_tagged_products_title">Skjul taggede varer</string>
   <string name="revanced_hide_shorts_tagged_products_summary_on">Tagged produkter er skjult</string>
   <string name="revanced_hide_shorts_tagged_products_summary_off">Tagged produkter er vist</string>
   <string name="revanced_hide_shorts_location_label_title">Skjul placeringsetiket</string>
   <string name="revanced_hide_shorts_location_label_summary_on">Placeringsetiket er skjult</string>
   <string name="revanced_hide_shorts_location_label_summary_off">Placeringsetiket er vist</string>
-  <string name="revanced_hide_shorts_save_sound_button_title">Skjul gem musik knap</string>
+  <string name="revanced_hide_shorts_save_sound_button_title">Skjul knappen Gem musik</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_on">Gem musik knap er skjult</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_off">Gem musik knap er vist</string>
-  <string name="revanced_hide_shorts_use_template_button_title">Skjul brug skabelon knap</string>
+  <string name="revanced_hide_shorts_use_template_button_title">Skjul knappen Brug skabelon</string>
   <string name="revanced_hide_shorts_use_template_button_summary_on">Brug skabelon knappen er skjult</string>
   <string name="revanced_hide_shorts_use_template_button_summary_off">Brug skabelon knappen er vist</string>
-  <string name="revanced_hide_shorts_upcoming_button_title">Skjul kommende knap</string>
+  <string name="revanced_hide_shorts_upcoming_button_title">Skjul knappen Kommende</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_on">Kommende knap er skjult</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_off">Kommende knap vises</string>
-  <string name="revanced_hide_shorts_green_screen_button_title">Skjul grøn skærm knap</string>
+  <string name="revanced_hide_shorts_green_screen_button_title">Skjul knappen Grøn skærm</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_on">Grøn skærmknap er skjult</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_off">Grøn skærmknap vises</string>
   <string name="revanced_hide_shorts_hashtag_button_title">Skjul hashtag knap</string>
@@ -748,24 +752,24 @@ Bemærk: Aktivering af dette skjuler også videoannoncer"</string>
   <string name="revanced_hide_shorts_stickers_title">Skjul klistermærker</string>
   <string name="revanced_hide_shorts_stickers_summary_on">Klistermærker er skjult</string>
   <string name="revanced_hide_shorts_stickers_summary_off">Klistermærker vises</string>
-  <string name="revanced_hide_shorts_like_fountain_title">Skjul som springvand</string>
+  <string name="revanced_hide_shorts_like_fountain_title">Skjul knap for springvand-animation af like-knap</string>
   <string name="revanced_hide_shorts_like_fountain_summary_on">Ligesom knap springvand animation er skjult</string>
   <string name="revanced_hide_shorts_like_fountain_summary_off">Animation af springvand vises som knap</string>
-  <string name="revanced_hide_shorts_like_button_title">Skjul lignende knap</string>
+  <string name="revanced_hide_shorts_like_button_title">Skjul knappen Like</string>
   <string name="revanced_hide_shorts_like_button_summary_on">Ligesom knappen er skjult</string>
   <string name="revanced_hide_shorts_like_button_summary_off">Lideknap vises</string>
-  <string name="revanced_hide_shorts_dislike_button_title">Skjul dislike-knap</string>
+  <string name="revanced_hide_shorts_dislike_button_title">Skjul knappen Dislike</string>
   <string name="revanced_hide_shorts_dislike_button_summary_on">Dislike knap er skjult</string>
   <string name="revanced_hide_shorts_dislike_button_summary_off">Dislike knappen er vist</string>
-  <string name="revanced_hide_shorts_comments_button_title">Skjul kommentar-knap</string>
+  <string name="revanced_hide_shorts_comments_button_title">Skjul knappen Kommentarer</string>
   <string name="revanced_hide_shorts_comments_button_summary_on">Knappen Kommentarer er skjult</string>
   <string name="revanced_hide_shorts_comments_button_summary_off">Knappen Kommentarer vises</string>
   <!-- 'remix' should be translated using the same localized wording YouTube displays for the button. -->
-  <string name="revanced_hide_shorts_remix_button_title">Skjul remix-knap</string>
+  <string name="revanced_hide_shorts_remix_button_title">Skjul knappen Remix</string>
   <string name="revanced_hide_shorts_remix_button_summary_on">Remix knap er skjult</string>
   <string name="revanced_hide_shorts_remix_button_summary_off">Remix knap vises</string>
   <!-- 'share' should be translated using the same localized wording YouTube displays for the button. -->
-  <string name="revanced_hide_shorts_share_button_title">Skjul delingsknap</string>
+  <string name="revanced_hide_shorts_share_button_title">Skjul knappen Del</string>
   <string name="revanced_hide_shorts_share_button_summary_on">Deleknappen er skjult</string>
   <string name="revanced_hide_shorts_share_button_summary_off">Deleknappen vises</string>
   <string name="revanced_hide_shorts_info_panel_title">Skjul infopanel</string>
@@ -842,7 +846,7 @@ Begrænsning: Dislikes vises muligvis ikke i inkognitotilstand"</string>
   <string name="revanced_ryd_dislike_percentage_summary_on">Dislikationer vist som procent</string>
   <string name="revanced_ryd_dislike_percentage_summary_off">Dislikationer vist som nummer</string>
   <!-- Translations should use language similar to 'revanced_sb_enable_compact_skip_button' -->
-  <string name="revanced_ryd_compact_layout_title">Kompakt lignende knap</string>
+  <string name="revanced_ryd_compact_layout_title">Kompakt like-knap</string>
   <string name="revanced_ryd_compact_layout_summary_on">Lideknap stylet for mindste bredde</string>
   <string name="revanced_ryd_compact_layout_summary_off">Ligesom knap stylet for bedste udseende</string>
   <string name="revanced_ryd_toast_on_connection_error_title">Vis en toast hvis API ikke er tilgængelig</string>
@@ -890,7 +894,7 @@ Denne funktion fungerer bedst med en videokvalitet på 720p eller lavere og ved 
   </patch>
   <patch id="layout.sponsorblock.sponsorBlockResourcePatch">
   <string name="revanced_sb_enable_sb">Aktiver SponsorBloker</string>
-  <string name="revanced_sb_enable_sb_sum">SponsorBlock er et crowd-sourcet system til at springe irriterende dele af YouTube-videoer over</string>
+  <string name="revanced_sb_enable_sb_sum">SponsorBlock er et crowdsourcet system, der springer irriterende dele af YouTube-videoer over</string>
   <string name="revanced_sb_appearance_category">Udseende</string>
   <string name="revanced_sb_enable_voting">Vis afstemningsknap</string>
   <string name="revanced_sb_enable_voting_sum_on">Segmentafstemningsknap vises</string>
@@ -955,7 +959,7 @@ Dit bruger-id er som en adgangskode, og det må aldrig deles.
   <string name="revanced_sb_segments_sponsor">Sponsor</string>
   <string name="revanced_sb_segments_sponsor_sum">Betalt kampagne, betalte henvisninger og direkte reklamer. Ikke for selvpromoverende eller gratis råb til årsager/skabere/websteder/produkter, de kan lide</string>
   <string name="revanced_sb_segments_selfpromo">Ubetalt/Self Promotion</string>
-  <string name="revanced_sb_segments_selfpromo_sum">Svarende til \'Sponsor\' bortset fra ubetalt eller self promotion. Inkluderer sektioner om merchandise, donationer, eller oplysninger om, hvem de har samarbejdet med</string>
+  <string name="revanced_sb_segments_selfpromo_sum">Ligner Sponsor, men omfatter ikke ubetalt eller selvreklame. Indeholder sektioner om merchandise, donationer eller oplysninger om, hvem de har samarbejdet med</string>
   <string name="revanced_sb_segments_interaction">Interaktion Påmindelse (Abonner)</string>
   <string name="revanced_sb_segments_interaction_sum">En kort påmindelse om at lide, abonnere eller følge dem midt i indholdet. Hvis den er lang eller om noget specifik, bør den i stedet være under selvforfremmelse</string>
   <string name="revanced_sb_segments_highlight">Fremhæv</string>
@@ -1215,8 +1219,10 @@ Stryg for at udvide eller lukke"</string>
   <string name="revanced_seekbar_custom_color_title">Aktivér brugerdefineret søgelinjefarve</string>
   <string name="revanced_seekbar_custom_color_summary_on">Brugerdefineret søgelinje farve vises</string>
   <string name="revanced_seekbar_custom_color_summary_off">Original søgelinje farve vises</string>
-  <string name="revanced_seekbar_custom_color_value_title">Brugerdefineret søgelinje farve</string>
-  <string name="revanced_seekbar_custom_color_value_summary">Farven på den søgende bar</string>
+  <string name="revanced_seekbar_custom_color_primary_title">Brugerdefineret farve på søgelinje</string>
+  <string name="revanced_seekbar_custom_color_primary_summary">Farven på søgelinjen</string>
+  <string name="revanced_seekbar_custom_color_accent_title">Brugerdefineret accentfarve på søgelinje</string>
+  <string name="revanced_seekbar_custom_color_accent_summary">Søgelinjens accentfarve</string>
   <string name="revanced_seekbar_custom_color_invalid">Ugyldig søgelinje farveværdi</string>
   </patch>
   <patch id="layout.thumbnails.bypassImageRegionRestrictionsPatch">
@@ -1263,7 +1269,7 @@ Tryk her for at lære mere om DeArrow"</string>
   <string name="revanced_alt_thumbnail_dearrow_error_generic">DeArrow midlertidigt ikke tilgængelig</string>
   </patch>
   <patch id="misc.announcements.announcementsPatch">
-  <string name="revanced_announcements_title">Vis annonceringer</string>
+  <string name="revanced_announcements_title">Vis ReVanced meddelelser</string>
   <string name="revanced_announcements_summary_on">Meddelelser vises ved opstart</string>
   <string name="revanced_announcements_summary_off">Meddelelser vises ikke ved opstart</string>
   <string name="revanced_announcements_enabled_summary">Vis meddelelser ved opstart</string>
@@ -1356,6 +1362,11 @@ Aktivering af dette kan låse op for højere videokvalitet"</string>
   <string name="revanced_playback_speed_default_title">Standard afspilningshastighed</string>
   <string name="revanced_remember_playback_speed_toast">Ændrede standardhastighed til: %s</string>
   </patch>
+  <patch id="video.hdr.disableHdrPatch">
+  <string name="revanced_disable_hdr_video_title">Deaktiver HDR-video</string>
+  <string name="revanced_disable_hdr_video_summary_on">HDR-video er deaktiveret</string>
+  <string name="revanced_disable_hdr_video_summary_off">HDR-video er aktiveret</string>
+  </patch>
   <patch id="video.videoqualitymenu.restoreOldVideoQualityMenuResourcePatch">
   <string name="revanced_restore_old_video_quality_menu_title">Gendan gamle video kvalitet menu</string>
   <string name="revanced_restore_old_video_quality_menu_summary_on">Gammel videokvalitetsmenu vises</string>
@@ -1391,6 +1402,7 @@ Videoafspilning virker muligvis ikke"</string>
 • Stabil lydstyrke er ikke tilgængelig
 • Gennemtving original lyd er ikke tilgængelig"</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Intet AV1-videokodek</string>
+  <string name="revanced_spoof_video_streams_about_kids_videos">• Videoer til børn afspilles muligvis ikke, når du er logget ud eller i inkognitotilstand</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Vis i Statistik for nørder</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Klienttypen vises i Statistik for nørder</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Klienten er skjult i Statistik for nørder</string>

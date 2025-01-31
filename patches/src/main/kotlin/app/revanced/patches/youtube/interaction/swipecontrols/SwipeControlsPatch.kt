@@ -10,8 +10,7 @@ import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.shared.misc.settings.preference.TextPreference
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.playertype.playerTypeHookPatch
-import app.revanced.patches.youtube.misc.playservice.is_19_23_or_greater
-import app.revanced.patches.youtube.misc.playservice.is_19_25_or_greater
+import app.revanced.patches.youtube.misc.playservice.is_19_43_or_greater
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
 import app.revanced.patches.youtube.shared.mainActivityFingerprint
@@ -30,7 +29,7 @@ private val swipeControlsResourcePatch = resourcePatch {
     execute {
         addResources("youtube", "interaction.swipecontrols.swipeControlsResourcePatch")
 
-        if (is_19_25_or_greater) {
+        if (is_19_43_or_greater) {
             PreferenceScreen.SWIPE_CONTROLS.addPreferences(
                 SwitchPreference("revanced_swipe_change_video")
             )
@@ -114,7 +113,7 @@ val swipeControlsPatch = bytecodePatch(
 
         // region patch to enable/disable swipe to change video.
 
-        if (is_19_23_or_greater) {
+        if (is_19_43_or_greater) {
             swipeChangeVideoFingerprint.method.insertFeatureFlagBooleanOverride(
                 SWIPE_CHANGE_VIDEO_FEATURE_FLAG,
                 "$EXTENSION_CLASS_DESCRIPTOR->allowSwipeChangeVideo(Z)Z"

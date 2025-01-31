@@ -34,19 +34,66 @@ internal val shortsSeekbarColorFingerprint = fingerprint {
     literal { reelTimeBarPlayedColorId }
 }
 
-internal const val PLAYER_SEEKBAR_GRADIENT_FEATURE_FLAG = 45617850L
+internal val playerSeekbarHandleColorFingerprint = fingerprint {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
+    parameters("Landroid/content/Context;")
+    literal { ytStaticBrandRedId }
+}
 
-internal val playerSeekbarGradientConfigFingerprint = fingerprint {
+internal val watchHistoryMenuUseProgressDrawableFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("Z")
-    parameters()
-    literal { PLAYER_SEEKBAR_GRADIENT_FEATURE_FLAG }
+    returns("V")
+    parameters("L")
+    literal { -1712394514 }
 }
 
 internal val lithoLinearGradientFingerprint = fingerprint {
     accessFlags(AccessFlags.STATIC)
     returns("Landroid/graphics/LinearGradient;")
     parameters("F", "F", "F", "F", "[I", "[F")
+}
+
+/**
+ * 19.49+
+ */
+internal val playerLinearGradientFingerprint = fingerprint {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
+    parameters("I", "I", "I", "I", "Landroid/content/Context;", "I")
+    returns("Landroid/graphics/LinearGradient;")
+    opcodes(
+        Opcode.FILLED_NEW_ARRAY,
+        Opcode.MOVE_RESULT_OBJECT
+    )
+    literal { ytYoutubeMagentaColorId }
+}
+
+/**
+ * 19.46 - 19.47
+ */
+internal val playerLinearGradientLegacy1946Fingerprint = fingerprint {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
+    parameters("I", "I", "I", "I")
+    returns("V")
+    opcodes(
+        Opcode.FILLED_NEW_ARRAY,
+        Opcode.MOVE_RESULT_OBJECT
+    )
+    custom { method, _ ->
+        method.name == "setBounds" && method.containsLiteralInstruction(ytYoutubeMagentaColorId)
+    }
+}
+
+/**
+ * 19.25 - 19.45
+ */
+internal val playerLinearGradientLegacy1925Fingerprint = fingerprint {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
+    parameters("Landroid/content/Context;")
+    opcodes(
+        Opcode.FILLED_NEW_ARRAY,
+        Opcode.MOVE_RESULT_OBJECT
+    )
+    literal { ytYoutubeMagentaColorId }
 }
 
 internal const val launchScreenLayoutTypeLotteFeatureFlag = 268507948L

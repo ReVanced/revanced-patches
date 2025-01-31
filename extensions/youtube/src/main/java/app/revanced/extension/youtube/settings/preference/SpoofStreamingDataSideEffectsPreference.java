@@ -89,6 +89,8 @@ public class SpoofStreamingDataSideEffectsPreference extends Preference {
             summary += '\n' + str("revanced_spoof_video_streams_about_no_av1");
         }
 
+        summary += '\n' + str("revanced_spoof_video_streams_about_kids_videos");
+
         setTitle(title);
         setSummary(summary);
     }

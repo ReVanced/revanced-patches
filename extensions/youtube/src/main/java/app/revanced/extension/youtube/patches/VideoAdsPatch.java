@@ -5,10 +5,13 @@ import app.revanced.extension.youtube.settings.Settings;
 @SuppressWarnings("unused")
 public class VideoAdsPatch {
 
-    // Used by app.revanced.patches.youtube.ad.general.video.patch.VideoAdsPatch
-    // depends on Whitelist patch (still needs to be written)
+    private static final boolean SHOW_VIDEO_ADS = !Settings.HIDE_VIDEO_ADS.get();
+
+    /**
+     * Injection point.
+     */
     public static boolean shouldShowAds() {
-        return !Settings.HIDE_VIDEO_ADS.get(); // TODO && Whitelist.shouldShowAds();
+        return SHOW_VIDEO_ADS;
     }
 
 }
