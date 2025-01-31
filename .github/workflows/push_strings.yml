@@ -18,6 +18,9 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: Preprocess strings
+        run: ./gradlew clean preprocessCrowdinStrings
+
       - name: Push strings
         uses: crowdin/github-action@v2
         with:
