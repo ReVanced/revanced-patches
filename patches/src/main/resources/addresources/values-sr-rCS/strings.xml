@@ -60,11 +60,11 @@ Da biste preveli nove jezike, posetite translate.revanced.app"</string>
   <string name="revanced_language_EN">Engleski</string>
   <string name="revanced_language_ES">Španski</string>
   <string name="revanced_language_ET">Estonski</string>
-  <string name="revanced_language_FA">Perzijski</string>
+  <string name="revanced_language_FA">Persijski</string>
   <string name="revanced_language_FI">Finski</string>
   <string name="revanced_language_FR">Francuski</string>
   <string name="revanced_language_GU">Gudžarati</string>
-  <string name="revanced_language_HI">Хинди</string>
+  <string name="revanced_language_HI">Hindi</string>
   <string name="revanced_language_HR">Hrvatski</string>
   <string name="revanced_language_HU">Mađarski</string>
   <string name="revanced_language_ID">Indonežanski</string>
@@ -80,7 +80,7 @@ Da biste preveli nove jezike, posetite translate.revanced.app"</string>
   <string name="revanced_language_MS">Malajski</string>
   <string name="revanced_language_MY">Burmanski</string>
   <string name="revanced_language_NL">Holandski</string>
-  <string name="revanced_language_OR">Одија</string>
+  <string name="revanced_language_OR">Odija</string>
   <string name="revanced_language_PA">Pandžapski</string>
   <string name="revanced_language_PL">Poljski</string>
   <string name="revanced_language_PT">Portugalski</string>
@@ -92,11 +92,11 @@ Da biste preveli nove jezike, posetite translate.revanced.app"</string>
   <string name="revanced_language_SV">Švedski</string>
   <string name="revanced_language_SW">Svahili</string>
   <string name="revanced_language_TA">Tamilski</string>
-  <string name="revanced_language_TE">Телугу</string>
+  <string name="revanced_language_TE">Telugu</string>
   <string name="revanced_language_TH">Tajlandski</string>
   <string name="revanced_language_TR">Turski</string>
   <string name="revanced_language_UK">Ukrajinski</string>
-  <string name="revanced_language_UR">Урду</string>
+  <string name="revanced_language_UR">Urdu</string>
   <string name="revanced_language_VI">Vijetnamski</string>
   <string name="revanced_language_ZH">Kineski</string>
   <string name="revanced_pref_import_export_title">Uvoz / Izvoz</string>
@@ -115,7 +115,7 @@ Da biste preveli nove jezike, posetite translate.revanced.app"</string>
   <string name="gms_core_dialog_title">Neophodna radnja</string>
   <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"MicroG GmsCore nema dozvolu za rad u pozadini.
 
-Pratite uputstvo \"Ne ubijajte moju aplikaciju\" za vaš telefon i primenite uputstva na vašu MicroG instalaciju.
+Pratite uputstvo „Don't kill my app” za vaš telefon i primenite uputstva na vašu MicroG instalaciju.
 
 Ovo je neophodno za rad aplikacije."</string>
   <string name="gms_core_dialog_open_website_text">Otvori veb-sajt</string>
@@ -138,7 +138,7 @@ Dodirnite dugme „Nastavi” i dozvolite promene optimizacije."</string>
   <string name="revanced_settings_screen_07_seekbar_title">Traka za premotavanje</string>
   <string name="revanced_settings_screen_08_swipe_controls_title">Kontrole prevlačenja</string>
   <string name="revanced_settings_screen_11_misc_title">Razno</string>
-  <string name="revanced_settings_screen_12_video_title">Видео</string>
+  <string name="revanced_settings_screen_12_video_title">Video</string>
   <string name="revanced_restore_old_settings_menus_title">Vrati stare menije podešavanja</string>
   <string name="revanced_restore_old_settings_menus_summary_on">Prikazuju se stari meniji podešavanja</string>
   <string name="revanced_restore_old_settings_menus_summary_off">Ne prikazuju se stari meniji podešavanja</string>
@@ -1403,7 +1403,7 @@ AVC ima maksimalnu rezoluciju od 1080p, audio kodek Opus nije dostupan, a reprod
 • Ujednačena jačina zvuka nije dostupna
 • Opcija „Prisili originalan zvuk” nije dostupna"</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Nema video kodeka AV1</string>
-  <string name="revanced_spoof_video_streams_about_kids_videos">• Video deca za decu možda se neće prikazivati kada ste odjavljeni ili u privatnom režimu</string>
+  <string name="revanced_spoof_video_streams_about_kids_videos">• Videi za decu se možda neće puštati kada ste odjavljeni ili u režimu bez arhiviranja</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Prikaži u „Statistici za znalce”</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Tip klijenta je prikazan u „Statistici za znalce”</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Tip klijenta je skriven u „Statistici za znalce”</string>
