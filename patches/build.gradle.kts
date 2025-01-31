@@ -21,6 +21,22 @@ dependencies {
     compileOnly(project(":patches:stub"))
 }
 
+tasks {
+    register<JavaExec>("preprocessCrowdinStrings") {
+        description = "Preprocess strings for Crowdin push"
+
+        dependsOn(build)
+
+        classpath = sourceSets["main"].runtimeClasspath
+        mainClass.set("app.revanced.util.CrowdinPreprocessorKt")
+
+        args = listOf(
+            "src/main/resources/addresources/values/strings.xml",
+            "build/tmp/crowdin/strings.xml"
+        )
+    }
+}
+
 kotlin {
     compilerOptions {
         freeCompilerArgs = listOf("-Xcontext-receivers")
