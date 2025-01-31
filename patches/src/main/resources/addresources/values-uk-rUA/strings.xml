@@ -22,7 +22,7 @@ Second \"item\" text"</string>
 <resources>
   <app id="shared">
   <patch id="misc.checks.checkEnvironmentPatch">
-  <string name="revanced_check_environment_failed_title">Перевірка не вдалася</string>
+  <string name="revanced_check_environment_failed_title">Перевірки не вдалися</string>
   <string name="revanced_check_environment_dialog_open_official_source_button">Відкрити офіційний вебсайт</string>
   <string name="revanced_check_environment_dialog_ignore_button">Ігнорувати</string>
   <string name="revanced_check_environment_failed_message">&lt;h5&gt;Схоже, що цей застосунок був пропатчений не Вами.&lt;/h5&gt;&lt;br&gt;Він може працювати не належним чином, &lt;b&gt;бути шкідливим або навіть небезпечним&lt;/b&gt;.&lt;br&gt;&lt;br&gt;Ці перевірки означають, що цей застосунок був пропатчений та отриманий від когось іншого:&lt;br&gt;&lt;br&gt;&lt;small&gt;%1$s&lt;/small&gt;&lt;br&gt;Наполегливо рекомендується &lt;b&gt;видалити цей застосунок та пропатчити його самостійно,&lt;/b&gt; щоб переконатися, що Ви використовуєте перевірений та безпечний застосунок.&lt;p&gt;&lt;br&gt;Якщо це попередження проігнорувати, воно буде показано лише двічі.</string>
@@ -36,13 +36,13 @@ Second \"item\" text"</string>
   <string name="revanced_settings_submenu_title">Налаштування</string>
   <string name="revanced_settings_confirm_user_dialog_title">Бажаєте продовжити?</string>
   <string name="revanced_settings_reset">Скинути</string>
-  <string name="revanced_settings_restart_title">Оновити й перезапустити</string>
-  <string name="revanced_settings_restart">Перезапустити</string>
+  <string name="revanced_settings_restart_title">Оновити та перезавантажити?</string>
+  <string name="revanced_settings_restart">Перезавантажити</string>
   <string name="revanced_settings_import">Імпортувати</string>
   <string name="revanced_settings_import_copy">Копіювати</string>
-  <string name="revanced_settings_import_reset">Налаштування ReVanced скинуто до значень за замовчуванням</string>
+  <string name="revanced_settings_import_reset">Налаштування ReVanced скинуто до стандартних</string>
   <string name="revanced_settings_import_success">Імпортовано %d налаштувань</string>
-  <string name="revanced_settings_import_failure_parse">Помилка імпорту: %s</string>
+  <string name="revanced_settings_import_failure_parse">Не вдалося імпортувати: %s</string>
   <string name="revanced_language_title">Мова налаштувань ReVanced</string>
   <string name="revanced_language_user_dialog_message">"Переклади для деяких мов можуть бути відсутні або неповні.
 
@@ -99,12 +99,12 @@ Second \"item\" text"</string>
   <string name="revanced_language_UR">Урду</string>
   <string name="revanced_language_VI">В\'єтнамська</string>
   <string name="revanced_language_ZH">Китайська</string>
-  <string name="revanced_pref_import_export_title">Імпорт / Експорт</string>
-  <string name="revanced_pref_import_export_summary">Імпорт/експорт налаштувань ReVanced</string>
+  <string name="revanced_pref_import_export_title">Імпорт / Експорт налаштувань</string>
+  <string name="revanced_pref_import_export_summary">Імпорт / Експорт налаштувань ReVanced\n\nДля збереження налаштувань скопіюйте текст у вікні кнопкою \"Копіювати\" та збережіть його в текстовому файлі.\nДля відновлення налаштувань вставте у вікно збережений раніше текст та натисніть кнопку \"Імпортувати\"</string>
   <!-- Settings about dialog. -->
-  <string name="revanced_settings_about_links_body">Ви використовуєте версію ReVanced Patches &lt;i&gt;%s&lt;/i&gt;</string>
+  <string name="revanced_settings_about_links_body">Ви використовуєте ReVanced Patches версії &lt;i&gt;%s&lt;/i&gt;</string>
   <string name="revanced_settings_about_links_dev_header">Примітка</string>
-  <string name="revanced_settings_about_links_dev_body">Це попередня версія, і ви можете зіткнутися з неочікуваними проблемами</string>
+  <string name="revanced_settings_about_links_dev_body">Ця версія є передрелізною, тому у Вас можуть виникати несподівані проблеми</string>
   <string name="revanced_settings_about_links_header">Офіційні посилання</string>
   <!-- NOTE: the about strings above are duplicated in the TikTok about screen code,
                  and changes made here must also be made there. -->
@@ -112,31 +112,30 @@ Second \"item\" text"</string>
   <patch id="misc.gms.gmsCoreSupportResourcePatch">
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="gms_core_toast_not_installed_message">MicroG GmsCore не встановлено. Встановіть його.</string>
-  <string name="gms_core_dialog_title">Дію необхідно</string>
-  <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"MicroG GmsCore не має дозволу працювати у фоновому режимі.
-Виконайте інструкції \"Не закривайте мій додаток\" на своєму телефоні та
-застосуйте інструкції до встановленої програми MicroG.
+  <string name="gms_core_dialog_title">Потрібна дія</string>
+  <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"MicroG GmsCore не має дозволу на роботу в фоновому режимі.
+
+Дотримуйтесь інструкцій з посібника \"Don't kill my app\" для Вашого телефону та застосуйте їх до своєї інсталяції MicroG.
+
 Це необхідно для роботи програми."</string>
-  <string name="gms_core_dialog_open_website_text">Відкрити веб-сайт</string>
-  <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">"Оптимізація акумулятора MicroG GmsCore має бути вимкнена,
-щоб уникнути проблем.
+  <string name="gms_core_dialog_open_website_text">Відкрити вебсайт</string>
+  <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">"Необхідно вимкнути оптимізацію енергії для MicroG GmsCore, щоб запобігти проблемам.
 
-Вимкнення оптимізації акумулятора для MicroG
-не впливає негативно на використання акумулятора.
+Вимкнення оптимізації енергії для MicroG не вплине негативно на час автономної роботи.
 
-Натисніть кнопку продовжити та дозвольте змінити оптимізацію."</string>
+Натисніть кнопку \"Продовжити\" та вимкніть оптимізацію."</string>
   <string name="gms_core_dialog_continue_text">Продовжити</string>
   </patch>
   </app>
   <app id="youtube">
   <patch id="misc.settings.settingsPatch">
-  <string name="revanced_settings_screen_00_about_title">Про програму</string>
+  <string name="revanced_settings_screen_00_about_title">Інформація</string>
   <string name="revanced_settings_screen_01_ads_title">Реклама</string>
-  <string name="revanced_settings_screen_02_alt_thumbnails_title">Альтернативні мініатюри</string>
+  <string name="revanced_settings_screen_02_alt_thumbnails_title">Альтернативні прев\'ю</string>
   <string name="revanced_settings_screen_03_feed_title">Стрічка</string>
   <string name="revanced_settings_screen_04_general_title">Загальні</string>
   <string name="revanced_settings_screen_05_player_title">Плеєр</string>
-  <string name="revanced_settings_screen_07_seekbar_title">Індикатор перегляду</string>
+  <string name="revanced_settings_screen_07_seekbar_title">Панель прогресу</string>
   <string name="revanced_settings_screen_08_swipe_controls_title">Керування жестами</string>
   <string name="revanced_settings_screen_11_misc_title">Різне</string>
   <string name="revanced_settings_screen_12_video_title">Відео</string>
@@ -146,78 +145,78 @@ Second \"item\" text"</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
   <string name="revanced_shorts_disable_background_playback_title">Вимкнути фонове відтворення Shorts</string>
-  <string name="revanced_shorts_disable_background_playback_summary_on">Фонову відтворення Shorts вимкнено</string>
-  <string name="revanced_shorts_disable_background_playback_summary_off">Фонову відтворення Shorts увімкнено</string>
+  <string name="revanced_shorts_disable_background_playback_summary_on">Фонове відтворення Shorts вимкнуто</string>
+  <string name="revanced_shorts_disable_background_playback_summary_off">Фонове відтворення Shorts увімкнено</string>
   </patch>
   <patch id="misc.debugging.enableDebuggingPatch">
   <string name="revanced_debug_screen_title">Налагодження</string>
   <string name="revanced_debug_screen_summary">Увімкнення або вимкнення параметрів налагодження</string>
-  <string name="revanced_debug_title">Реєстрація налагодження</string>
-  <string name="revanced_debug_summary_on">Реєстрація налагодження увімкнено</string>
-  <string name="revanced_debug_summary_off">Реєстрація налагодження вимкнено</string>
-  <string name="revanced_debug_protobuffer_title">Реєструвати буфер протоколів</string>
-  <string name="revanced_debug_protobuffer_summary_on">Реєстрація налагодження містить буфер протоколів</string>
-  <string name="revanced_debug_protobuffer_summary_off">Реєстрація налагодження не містить буфер протоколів</string>
+  <string name="revanced_debug_title">Журнал налагодження</string>
+  <string name="revanced_debug_summary_on">Журнали налагодження ввімкнено</string>
+  <string name="revanced_debug_summary_off">Журнали налагодження вимкнуто</string>
+  <string name="revanced_debug_protobuffer_title">Реєструвати буфер протоколу</string>
+  <string name="revanced_debug_protobuffer_summary_on">Журнали налагодження містять протобуфер</string>
+  <string name="revanced_debug_protobuffer_summary_off">Журнали налагодження не містять протобуфер</string>
   <string name="revanced_debug_stacktrace_title">Реєструвати трасування стека</string>
-  <string name="revanced_debug_stacktrace_summary_on">Реєстрація налагодження містить трасування стека</string>
-  <string name="revanced_debug_stacktrace_summary_off">Реєстрація налагодження не містить трасування стека</string>
-  <string name="revanced_debug_toast_on_error_title">Показувати сповіщення про помилку ReVanced</string>
-  <string name="revanced_debug_toast_on_error_summary_on">Сповіщення показується, якщо трапляються помилки</string>
-  <string name="revanced_debug_toast_on_error_summary_off">Сповіщення не показується, якщо трапляться помилки</string>
-  <string name="revanced_debug_toast_on_error_user_dialog_message">"Вимкнення сповіщень про помилки призводить до приховування усіх сповіщень про помилки ReVanced.
+  <string name="revanced_debug_stacktrace_summary_on">Журнали налагодження містять трасування стека</string>
+  <string name="revanced_debug_stacktrace_summary_off">Журнали налагодження не містять трасування стека</string>
+  <string name="revanced_debug_toast_on_error_title">Показувати тост при помилці ReVanced</string>
+  <string name="revanced_debug_toast_on_error_summary_on">Тост показується, якщо сталася помилка</string>
+  <string name="revanced_debug_toast_on_error_summary_off">Тост не показується, якщо сталася помилка</string>
+  <string name="revanced_debug_toast_on_error_user_dialog_message">"Вимкнення сповіщень про помилки приховує всі сповіщення про помилки ReVanced.
 
-Ви не отримуватимете сповіщення про несподівані події."</string>
+Ви не будете отримувати сповіщення про будь-які непередбачувані події."</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
   <string name="revanced_disable_like_subscribe_glow_title">Вимкнути відблиск кнопок \"Подобається\" та \"Підписати\"</string>
   <string name="revanced_disable_like_subscribe_glow_summary_on">Кнопки \"Подобається\" та \"Підписатися\" не відблискуватимуть при згадуванні</string>
   <string name="revanced_disable_like_subscribe_glow_summary_off">Кнопки \"Подобається\" та \"Підписатися\" не відблискуватимуть при згадуванні</string>
   <string name="revanced_hide_album_cards_title">Приховати картки альбому</string>
-  <string name="revanced_hide_album_cards_summary_on">Картки альбому приховані</string>
-  <string name="revanced_hide_album_cards_summary_off">Картки альбому показані</string>
-  <string name="revanced_hide_crowdfunding_box_title">Приховати скарбничку для збору коштів</string>
-  <string name="revanced_hide_crowdfunding_box_summary_on">Скарбничка для збору коштів прихована</string>
-  <string name="revanced_hide_crowdfunding_box_summary_off">Скарбничка для збору коштів показана</string>
-  <string name="revanced_hide_floating_microphone_button_title">Приховати плаваючу кнопку мікрофона</string>
-  <string name="revanced_hide_floating_microphone_button_summary_on">Кнопка мікрофона прихована</string>
-  <string name="revanced_hide_floating_microphone_button_summary_off">Кнопка мікрофона показана</string>
+  <string name="revanced_hide_album_cards_summary_on">Картки альбому приховано</string>
+  <string name="revanced_hide_album_cards_summary_off">Картки альбому показуються</string>
+  <string name="revanced_hide_crowdfunding_box_title">Приховати скриню фінансування</string>
+  <string name="revanced_hide_crowdfunding_box_summary_on">Скриньку фінансування приховано</string>
+  <string name="revanced_hide_crowdfunding_box_summary_off">Скринька фінансування показується</string>
+  <string name="revanced_hide_floating_microphone_button_title">Приховати кнопку мікрофона</string>
+  <string name="revanced_hide_floating_microphone_button_summary_on">Плаваючу кнопку мікрофона приховано</string>
+  <string name="revanced_hide_floating_microphone_button_summary_off">Плаваюча кнопка мікрофона показується</string>
   <string name="revanced_hide_channel_watermark_title">Приховати водяний знак каналу</string>
-  <string name="revanced_hide_channel_watermark_summary_on">Водяний знак приховано</string>
-  <string name="revanced_hide_channel_watermark_summary_off">Водяний знак показано</string>
+  <string name="revanced_hide_channel_watermark_summary_on">Водяний знак у нижній частині відеоплеєра приховано</string>
+  <string name="revanced_hide_channel_watermark_summary_off">Водяний знак у нижній частині відеоплеєра показується</string>
   <string name="revanced_hide_horizontal_shelves_title">Приховати горизонтальні полиці</string>
-  <string name="revanced_hide_horizontal_shelves_summary_on">"Полиці приховано, такі як:
-• З останніх новин
+  <string name="revanced_hide_horizontal_shelves_summary_on">"Приховано такі полиці:
+• Гарячі новини
 • Продовжити перегляд
-• Дослідити інші канали
-• Купівлі
+• Переглянути більше каналів
+• Покупки
 • Переглянути ще раз"</string>
-  <string name="revanced_hide_horizontal_shelves_summary_off">Полиці показано</string>
+  <string name="revanced_hide_horizontal_shelves_summary_off">Горизонтальні полиці показуються</string>
   <!-- 'Join' should be translated using the same localized wording YouTube displays.
                  This appears in the video player for certain videos. -->
   <string name="revanced_hide_join_membership_button_title">Приховати кнопку \"Спонсорувати\"</string>
-  <string name="revanced_hide_join_membership_button_summary_on">Кнопка прихована</string>
+  <string name="revanced_hide_join_membership_button_summary_on">Кнопку \"Спонсорувати\" приховано</string>
   <string name="revanced_hide_join_membership_button_summary_off">Кнопка \"Спонсорувати\" показується</string>
   <!-- 'For you' should be translated using the same localized wording YouTube displays. -->
-  <string name="revanced_hide_for_you_shelf_title">Приховати блок \"Для Вас\" у розділі каналу</string>
-  <string name="revanced_hide_for_you_shelf_summary_on">Блок приховано</string>
-  <string name="revanced_hide_for_you_shelf_summary_off">Блок показано</string>
+  <string name="revanced_hide_for_you_shelf_title">Приховати полицю \"Для вас\"</string>
+  <string name="revanced_hide_for_you_shelf_summary_on">Полицю \"Для вас\" на сторінці каналу приховано</string>
+  <string name="revanced_hide_for_you_shelf_summary_off">Полиця \"Для вас\" на сторінці каналу показується</string>
   <!-- 'Notify me' should be translated using the same localized wording YouTube displays.
                  This item appear in the subscription feed for future livestreams or unreleased videos. -->
   <string name="revanced_hide_notify_me_button_title">Приховати кнопку \"Сповістити\"</string>
-  <string name="revanced_hide_notify_me_button_summary_on">Кнопка прихована</string>
+  <string name="revanced_hide_notify_me_button_summary_on">Кнопку \"Сповістити\" приховано</string>
   <string name="revanced_hide_notify_me_button_summary_off">Кнопка \"Сповістити\" показується</string>
   <!-- 'People also watch' should be translated using the same localized wording YouTube displays. -->
-  <string name="revanced_hide_search_result_recommendations_title">Приховати рекомендації \"Інші також дивляться\"</string>
-  <string name="revanced_hide_search_result_recommendations_summary_on">Рекомендації приховано</string>
-  <string name="revanced_hide_search_result_recommendations_summary_off">Рекомендації показано</string>
+  <string name="revanced_hide_search_result_recommendations_title">Приховати \"Люди також дивилися\"</string>
+  <string name="revanced_hide_search_result_recommendations_summary_on">Рекомендації \"Люди також дивилися\" приховано</string>
+  <string name="revanced_hide_search_result_recommendations_summary_off">Рекомендації \"Люди також дивилися\" показуються</string>
   <!-- 'Show more' should be translated with the same localized wording that YouTube displays.
                   This button usually appears when searching for a YT creator. -->
   <string name="revanced_hide_show_more_button_title">Приховати кнопку \"Показати більше\"</string>
-  <string name="revanced_hide_show_more_button_summary_on">Кнопка прихована</string>
+  <string name="revanced_hide_show_more_button_summary_on">Кнопку \"Показати більше\" приховано</string>
   <string name="revanced_hide_show_more_button_summary_off">Кнопка \"Показати більше\" показується</string>
-  <string name="revanced_hide_timed_reactions_title">Приховати миттєві реакції</string>
-  <string name="revanced_hide_timed_reactions_summary_on">Миттєві реакції приховано</string>
-  <string name="revanced_hide_timed_reactions_summary_off">Миттєві реакції показано</string>
+  <string name="revanced_hide_timed_reactions_title">Приховати тимчасові реакції</string>
+  <string name="revanced_hide_timed_reactions_summary_on">Тимчасові реакції приховано</string>
+  <string name="revanced_hide_timed_reactions_summary_off">Тимчасові реакції показуються</string>
   <string name="revanced_hide_channel_guidelines_title">Приховати правила каналу</string>
   <string name="revanced_hide_channel_guidelines_summary_on">Правила каналу приховано</string>
   <string name="revanced_hide_channel_guidelines_summary_off">Правила каналу показуються</string>
