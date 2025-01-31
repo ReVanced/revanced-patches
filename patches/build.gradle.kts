@@ -25,14 +25,17 @@ tasks {
     register<JavaExec>("preprocessCrowdinStrings") {
         description = "Preprocess strings for Crowdin push"
 
-        dependsOn(build)
+        dependsOn(compileKotlin)
 
         classpath = sourceSets["main"].runtimeClasspath
         mainClass.set("app.revanced.util.CrowdinPreprocessorKt")
 
         args = listOf(
             "src/main/resources/addresources/values/strings.xml",
-            "build/tmp/crowdin/strings.xml"
+            // Ideally this would use build/tmp/crowdin/strings.xml
+            // But using that does not work with Crowdin pull because
+            // it does not recognize the strings.xml file belongs to this project.
+            "src/main/resources/addresources/values/strings.xml"
         )
     }
 }

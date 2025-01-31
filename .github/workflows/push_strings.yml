@@ -19,6 +19,8 @@ jobs:
           fetch-depth: 0
 
       - name: Preprocess strings
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: ./gradlew clean preprocessCrowdinStrings
 
       - name: Push strings
