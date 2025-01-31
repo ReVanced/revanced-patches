@@ -3,7 +3,7 @@ package app.revanced.patches.nunl.ads
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.bytecodePatch
-import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction11x
+import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Suppress("unused")
 val hideAdsPatch = bytecodePatch(
@@ -31,7 +31,7 @@ val hideAdsPatch = bytecodePatch(
         arrayOf(screenMapperFingerprint, nextPageRepositoryImplFingerprint).forEach {
             val startIndex = it.patternMatch!!.startIndex
             it.method.apply {
-                val moveInstruction = getInstruction<Instruction11x>(startIndex)
+                val moveInstruction = getInstruction<OneRegisterInstruction>(startIndex)
 
                 val listRegister = moveInstruction.registerA
 
