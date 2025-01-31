@@ -843,14 +843,14 @@ Second \"item\" text"</string>
 Ограничение: отметки \"Не нравится\" могут не показываться в режиме инкогнито"</string>
   <string name="revanced_ryd_shorts_summary_off">Отметки \"Не нравится\" в Shorts скрыты</string>
   <string name="revanced_ryd_dislike_percentage_title">Показать отметки \"Не нравится\" в процентах</string>
-  <string name="revanced_ryd_dislike_percentage_summary_on">Отметки \"Не нравится\" отображаются в процентах</string>
-  <string name="revanced_ryd_dislike_percentage_summary_off">Отметки \"Не нравится\" отображаются как число</string>
+  <string name="revanced_ryd_dislike_percentage_summary_on">Отметки \"Не нравится\" показаны в процентах</string>
+  <string name="revanced_ryd_dislike_percentage_summary_off">Отметки \"Не нравится\" показаны как число</string>
   <!-- Translations should use language similar to 'revanced_sb_enable_compact_skip_button' -->
   <string name="revanced_ryd_compact_layout_title">Компактная кнопка \"Нравится\"</string>
   <string name="revanced_ryd_compact_layout_summary_on">Кнопка \"Нравится\" стилизована для минимальной ширины</string>
   <string name="revanced_ryd_compact_layout_summary_off">Кнопка \"Нравится\" стилизована для лучшего внешнего вида</string>
-  <string name="revanced_ryd_toast_on_connection_error_title">Отображать уведомление при недоступности API</string>
-  <string name="revanced_ryd_toast_on_connection_error_summary_on">Всплывающее уведомление при недоступности Return YouTube Dislike отображено</string>
+  <string name="revanced_ryd_toast_on_connection_error_title">Показать уведомление при недоступности API</string>
+  <string name="revanced_ryd_toast_on_connection_error_summary_on">Всплывающее уведомление при недоступности Return YouTube Dislike показано</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_off">Всплывающее уведомление при недоступности Return YouTube Dislike скрыто</string>
   <string name="revanced_ryd_about">Об интеграции</string>
   <string name="revanced_ryd_attribution_summary">Данные предоставлены Return YouTube Dislike API. Нажмите для дополнительной информации</string>
@@ -889,15 +889,15 @@ Second \"item\" text"</string>
 
 Данная опция работает лучше с качеством видео 720p или ниже, и при использовании очень быстрого подключения к Интернету."</string>
   <string name="revanced_restore_old_seekbar_thumbnails_title">Восстановить старые миниатюры</string>
-  <string name="revanced_restore_old_seekbar_thumbnails_summary_on">Старые миниатюры полосы прогресса восстановлены и отображаются над полосой прогресса</string>
-  <string name="revanced_restore_old_seekbar_thumbnails_summary_off">Старые миниатюры полосы прогресса не восстановлены и отображаются в виде полноэкранных миниатюр</string>
+  <string name="revanced_restore_old_seekbar_thumbnails_summary_on">Старые миниатюры полосы прогресса восстановлены и показываются в мини окнах над полосой прогресса</string>
+  <string name="revanced_restore_old_seekbar_thumbnails_summary_off">Старые миниатюры полосы прогресса не восстановлены и показываются в виде полноэкранных миниатюр</string>
   </patch>
   <patch id="layout.sponsorblock.sponsorBlockResourcePatch">
   <string name="revanced_sb_enable_sb">Включить SponsorBlock</string>
   <string name="revanced_sb_enable_sb_sum">SponsorBlock – это краудсорсинговая система для пропуска раздражающих фрагментов видео YouTube</string>
   <string name="revanced_sb_appearance_category">Внешний вид</string>
-  <string name="revanced_sb_enable_voting">Отображать кнопку голосования за сегмент</string>
-  <string name="revanced_sb_enable_voting_sum_on">Кнопка голосования за сегмент отображена</string>
+  <string name="revanced_sb_enable_voting">Показать кнопку голосования за сегмент</string>
+  <string name="revanced_sb_enable_voting_sum_on">Кнопка голосования за сегмент показана</string>
   <string name="revanced_sb_enable_voting_sum_off">Кнопка голосования за сегмент скрыта</string>
   <!-- Translations should use language similar to 'revanced_ryd_compact_layout_title' -->
   <string name="revanced_sb_enable_compact_skip_button">Компактная кнопка пропуска</string>
@@ -905,16 +905,16 @@ Second \"item\" text"</string>
   <string name="revanced_sb_enable_compact_skip_button_sum_off">Кнопка пропуска стилизована для лучшего внешнего вида</string>
   <string name="revanced_sb_enable_auto_hide_skip_segment_button">Автоматическое скрытие кнопки пропуска</string>
   <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_on">Кнопка пропуска автоматически скрывается через несколько секунд</string>
-  <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_off">Кнопка пропуска отображается для всего сегмента</string>
-  <string name="revanced_sb_general_skiptoast">Отображать уведомление при пропуске сегмента</string>
-  <string name="revanced_sb_general_skiptoast_sum_on">Всплывающее уведомление при автоматическом пропуске сегмента отображено. Нажмите для просмотра примера</string>
+  <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_off">Кнопка пропуска показывается для всего сегмента</string>
+  <string name="revanced_sb_general_skiptoast">Показать уведомление при пропуске сегмента</string>
+  <string name="revanced_sb_general_skiptoast_sum_on">Всплывающее уведомление при автоматическом пропуске сегмента показано. Нажмите для просмотра примера</string>
   <string name="revanced_sb_general_skiptoast_sum_off">Всплывающее уведомление при автоматическом пропуске сегмента скрыто. Нажмите для просмотра примера</string>
-  <string name="revanced_sb_general_time_without">Отображать длительность видео без сегментов</string>
-  <string name="revanced_sb_general_time_without_sum_on">Длительность видео за исключением всех сегментов отображена в скобках рядом с полной длительностью видео</string>
-  <string name="revanced_sb_general_time_without_sum_off">Полная длительность видео отображена</string>
+  <string name="revanced_sb_general_time_without">Показать длительность видео без сегментов</string>
+  <string name="revanced_sb_general_time_without_sum_on">Длительность видео за исключением всех сегментов показана в скобках рядом с полной длительностью видео</string>
+  <string name="revanced_sb_general_time_without_sum_off">Полная длительность видео показана</string>
   <string name="revanced_sb_create_segment_category">Создание новых сегментов</string>
-  <string name="revanced_sb_enable_create_segment">Отображать кнопку создания сегмента</string>
-  <string name="revanced_sb_enable_create_segment_sum_on">Кнопка создания нового сегмента отображена</string>
+  <string name="revanced_sb_enable_create_segment">Показать кнопку создания сегмента</string>
+  <string name="revanced_sb_enable_create_segment_sum_on">Кнопка создания нового сегмента показана</string>
   <string name="revanced_sb_enable_create_segment_sum_off">Кнопка создания нового сегмента скрыта</string>
   <string name="revanced_sb_general_adjusting">Настроить шаг нового сегмента</string>
   <string name="revanced_sb_general_adjusting_sum">Длительность (в миллисекундах) перемотки кнопками регулировки времени при создании новых сегментов</string>
@@ -926,14 +926,14 @@ Second \"item\" text"</string>
   <string name="revanced_sb_guidelines_popup_already_read">Уже прочитано</string>
   <string name="revanced_sb_guidelines_popup_open">Показать</string>
   <string name="revanced_sb_general">Общие настройки</string>
-  <string name="revanced_sb_toast_on_connection_error_title">Отображать уведомление при недоступности API</string>
-  <string name="revanced_sb_toast_on_connection_error_summary_on">Всплывающее уведомление при недоступности SponsorBlock отображено</string>
+  <string name="revanced_sb_toast_on_connection_error_title">Показать уведомление при недоступности API</string>
+  <string name="revanced_sb_toast_on_connection_error_summary_on">Всплывающее уведомление при недоступности SponsorBlock показано</string>
   <string name="revanced_sb_toast_on_connection_error_summary_off">Всплывающее уведомление при недоступности SponsorBlock скрыто</string>
   <string name="revanced_sb_general_skipcount">Включить подсчет количества пропусков</string>
   <string name="revanced_sb_general_skipcount_sum_on">Это позволяет системе лидеров SponsorBlock знать, сколько времени было сэкономлено. Сообщение отправляется на сервер каждый раз при пропуске сегмента</string>
   <string name="revanced_sb_general_skipcount_sum_off">Подсчет количества пропусков отключен</string>
   <string name="revanced_sb_general_min_duration">Минимальная продолжительность сегмента</string>
-  <string name="revanced_sb_general_min_duration_sum">Сегменты короче данного значения (в секундах) не будут отображены или пропущены</string>
+  <string name="revanced_sb_general_min_duration_sum">Сегменты короче данного значения (в секундах) не будут показаны или пропущены</string>
   <string name="revanced_sb_general_min_duration_invalid">Недопустимая длительность</string>
   <string name="revanced_sb_general_uuid">Ваш идентификатор пользователя</string>
   <string name="revanced_sb_general_uuid_sum">Уникальный идентификатор пользователя должен быть конфиденциальным. Он как пароль - не должен никому передаваться. Имеющий доступ к нему может выдать себя за Вас</string>
@@ -1007,8 +1007,8 @@ Second \"item\" text"</string>
   <string name="revanced_sb_skipped_multiple_segments">Несколько сегментов пропущены</string>
   <string name="revanced_sb_skip_automatically">Пропускать автоматически</string>
   <string name="revanced_sb_skip_automatically_once">Пропускать автоматически один раз</string>
-  <string name="revanced_sb_skip_showbutton">Отображать кнопку пропуска</string>
-  <string name="revanced_sb_skip_seekbaronly">Отображать в полосе прогресса</string>
+  <string name="revanced_sb_skip_showbutton">Показать кнопку пропуска</string>
+  <string name="revanced_sb_skip_seekbaronly">Показать в полосе прогресса</string>
   <string name="revanced_sb_skip_ignore">Отключить</string>
   <string name="revanced_sb_submit_failed_invalid">Невозможно отправить сегмент: %s</string>
   <string name="revanced_sb_submit_failed_timeout">SponsorBlock временно не работает</string>
@@ -1191,12 +1191,12 @@ Second \"item\" text"</string>
   <string name="revanced_miniplayer_horizontal_drag_summary_off">Жест горизонтального перетаскивания отключен</string>
   <string name="revanced_miniplayer_hide_expand_close_title">Скрыть кнопку закрытия</string>
   <string name="revanced_miniplayer_hide_expand_close_summary_on">Кнопка закрытия миниплеера скрыта</string>
-  <string name="revanced_miniplayer_hide_expand_close_summary_off">Кнопка закрытия миниплеера отображена</string>
+  <string name="revanced_miniplayer_hide_expand_close_summary_off">Кнопка закрытия миниплеера показана</string>
   <string name="revanced_miniplayer_hide_expand_close_legacy_title">Скрыть кнопки \"Развернуть\" и \"Закрыть\"</string>
   <string name="revanced_miniplayer_hide_expand_close_legacy_summary_on">"Кнопки \"Развернуть\" и \"Закрыть\" скрыты
 
 Проведите по миниплееру для разворачивания или закрытия"</string>
-  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_off">Кнопки \"Развернуть\" и \"Закрыть\" отображены</string>
+  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_off">Кнопки \"Развернуть\" и \"Закрыть\" показаны</string>
   <string name="revanced_miniplayer_hide_subtext_title">Скрыть подтексты</string>
   <string name="revanced_miniplayer_hide_subtext_summary_on">Подтексты в миниплеере скрыты</string>
   <string name="revanced_miniplayer_hide_subtext_summary_off">Подтексты в миниплеере отображены</string>
