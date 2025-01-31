@@ -511,8 +511,9 @@ This feature is only available for older devices"</string>
             <string name="revanced_swipe_overlay_timeout_summary">The amount of milliseconds the overlay is visible</string>
             <string name="revanced_swipe_text_overlay_size_title">Swipe overlay text size</string>
             <string name="revanced_swipe_text_overlay_size_summary">The text size for swipe overlay</string>
-            <string name="revanced_swipe_overlay_background_alpha_title">Swipe background visibility</string>
-            <string name="revanced_swipe_overlay_background_alpha_summary">The visibility of swipe overlay background</string>
+            <string name="revanced_swipe_overlay_background_opacity_title">Swipe overlay background opacity</string>
+            <string name="revanced_swipe_overlay_background_opacity_summary">Opacity value between 0-100</string>
+            <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Swipe opacity must be between 0-100</string>
             <string name="revanced_swipe_threshold_title">Swipe magnitude threshold</string>
             <string name="revanced_swipe_threshold_summary">The amount of threshold for swipe to occur</string>
             <string name="revanced_swipe_change_video_title">Enable swipe to change videos</string>
