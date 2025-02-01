@@ -278,6 +278,9 @@ You will not be notified of any unexpected events."</string>
             <string name="revanced_hide_mix_playlists_title">Hide mix playlists</string>
             <string name="revanced_hide_mix_playlists_summary_on">Mix playlists are hidden</string>
             <string name="revanced_hide_mix_playlists_summary_off">Mix playlists are shown</string>
+            <string name="revanced_hide_video_topics_title">Hide video topics</string>
+            <string name="revanced_hide_video_topics_summary_on">Video topics are hidden</string>
+            <string name="revanced_hide_video_topics_summary_off">Video topics are shown</string>
             <string name="revanced_hide_artist_cards_title">Hide artist cards</string>
             <string name="revanced_hide_artist_cards_summary_on">Artist cards are hidden</string>
             <string name="revanced_hide_artist_cards_summary_off">Artist cards are shown</string>

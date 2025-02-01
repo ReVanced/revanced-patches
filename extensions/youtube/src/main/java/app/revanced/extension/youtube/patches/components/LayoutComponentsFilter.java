@@ -226,6 +226,11 @@ public final class LayoutComponentsFilter extends Filter {
                 "featured_channel_watermark_overlay"
         );
 
+        final var videoTopics = new StringFilterGroup(
+                Settings.HIDE_VIDEO_TOPICS,
+                "topic_with_thumbnail_view_model"
+        );
+
         final var forYouShelf = new StringFilterGroup(
                 Settings.HIDE_FOR_YOU_SHELF,
                 "mixed_content_shelf"
@@ -275,6 +280,7 @@ public final class LayoutComponentsFilter extends Filter {
                 artistCard,
                 timedReactions,
                 imageShelf,
+                videoTopics,
                 channelMemberShelf,
                 forYouShelf,
                 horizontalShelves
