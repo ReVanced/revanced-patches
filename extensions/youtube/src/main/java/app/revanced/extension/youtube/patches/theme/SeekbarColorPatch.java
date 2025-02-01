@@ -2,15 +2,25 @@ package app.revanced.extension.youtube.patches.theme;
 
 import static app.revanced.extension.shared.StringRef.str;
 
+import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Color;
 import android.graphics.drawable.AnimatedVectorDrawable;
 
+import com.airbnb.lottie.LottieAnimationView;
+
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
 import java.util.Locale;
+import java.util.Scanner;
 
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
+import app.revanced.extension.shared.settings.BaseSettings;
+import app.revanced.extension.youtube.patches.VersionCheckPatch;
 import app.revanced.extension.youtube.settings.Settings;
 
 @SuppressWarnings("unused")
@@ -93,17 +103,6 @@ public final class SeekbarColorPatch {
         return customSeekbarColor;
     }
 
-    /**
-     * Injection point
-     */
-    public static boolean useLotteLaunchSplashScreen(boolean original) {
-        Logger.printDebug(() -> "useLotteLaunchSplashScreen original: " + original);
-
-        if (SEEKBAR_CUSTOM_COLOR_ENABLED) return false;
-
-        return original;
-    }
-
     private static int colorChannelTo3Bits(int channel8Bits) {
         final float channel3Bits = channel8Bits * 7 / 255f;
 
@@ -127,6 +126,17 @@ public final class SeekbarColorPatch {
     /**
      * Injection point
      */
+    public static boolean useLotteLaunchSplashScreen(boolean original) {
+        // This method is only used for development purposes to force the old style launch screen.
+        // Forcing this off pn some devices this causes an unexplained crash
+        // where the lottie animation is still used even though this condition appears to bypass it.
+        return original; // false = drawable style, true = lottie style.
+    }
+
+    /**
+     * Injection point.
+     * Old drawable style launch screen.
+     */
     public static void setSplashAnimationDrawableTheme(AnimatedVectorDrawable vectorDrawable) {
         // Alternatively a ColorMatrixColorFilter can be used to change the color of the drawable
         // without using any styles, but a color filter cannot selectively change the seekbar
@@ -134,6 +144,8 @@ public final class SeekbarColorPatch {
         // Even if the seekbar color xml value is changed to a completely different color (such as green),
         // a color filter still cannot be selectively applied when the drawable has more than 1 color.
         try {
+            // Must set the color even if custom seekbar is off,
+            // because the xml color was replaced with a themed value.
             String seekbarStyle = get9BitStyleIdentifier(customSeekbarColor);
             Logger.printDebug(() -> "Using splash seekbar style: " + seekbarStyle);
 
@@ -151,6 +163,82 @@ public final class SeekbarColorPatch {
             vectorDrawable.applyTheme(theme);
         } catch (Exception ex) {
             Logger.printException(() -> "setSplashAnimationDrawableTheme failure", ex);
+        }
+    }
+
+    /**
+     * Injection point.
+     * Modern Lottie style animation.
+     */
+    public static void setSplashAnimationLottie(LottieAnimationView view, int resourceId) {
+        try {
+            if (!SEEKBAR_CUSTOM_COLOR_ENABLED) {
+                view.patch_setAnimation(resourceId);
+                return;
+            }
+
+            //noinspection ConstantConditions
+            if (false) { // Set true to force slow animation for development.
+                final int longAnimation = Utils.getResourceIdentifier(
+                        Utils.isDarkModeEnabled(Utils.getContext())
+                                ? "startup_animation_5s_30fps_dark"
+                                : "startup_animation_5s_30fps_light",
+                        "raw");
+                if (longAnimation != 0) {
+                    resourceId = longAnimation;
+                }
+            }
+
+            // Must specify primary key name otherwise the morphing YT logo color is also changed.
+            String primaryColorOriginalPrefix = "\"k\":";
+            String originalPrimary = primaryColorOriginalPrefix + (VersionCheckPatch.IS_19_26_OR_GREATER
+                    ? "[1,0,0.2,1]"
+                    : "[1,0,0,1]");
+            String originalAccent = "[1,0.152941176471,0.56862745098,1]";
+
+            String replacementPrimary = primaryColorOriginalPrefix + Arrays.toString(new double[]{
+                    Color.red(customSeekbarColor) / 255.0,
+                    Color.green(customSeekbarColor) / 255.0,
+                    Color.blue(customSeekbarColor) / 255.0,
+                    Color.alpha(customSeekbarColor) / 255.0
+            });
+
+            final int accentColor = customSeekbarColorGradient[1];
+            String replacementAccent = Arrays.toString(new double[]{
+                    Color.red(accentColor) / 255.0,
+                    Color.green(accentColor) / 255.0,
+                    Color.blue(accentColor) / 255.0,
+                    Color.alpha(accentColor) / 255.0
+            });
+
+            String json = loadRawResourceAsString(resourceId);
+            if (json == null) {
+                return; // Should never happen.
+            }
+
+            if (BaseSettings.DEBUG.get() && (!json.contains(originalPrimary) || !json.contains(originalAccent))) {
+                String jsonFinal = json;
+                Logger.printException(() -> "Could not replace launch animation colors: " + jsonFinal);
+            }
+
+            Logger.printDebug(() -> "Replacing Lottie animation JSON");
+            json = json.replace(originalPrimary, replacementPrimary);
+            json = json.replace(originalAccent, replacementAccent);
+
+            // cacheKey is not needed since the animation will not be reused.
+            view.patch_setAnimation(new ByteArrayInputStream(json.getBytes()), null);
+        } catch (Exception ex) {
+            Logger.printException(() -> "setSplashAnimationLottie failure", ex);
+        }
+    }
+
+    public static String loadRawResourceAsString( int resourceId) {
+        try (InputStream inputStream = Utils.getContext().getResources().openRawResource(resourceId);
+             Scanner scanner = new Scanner(inputStream, StandardCharsets.UTF_8.name()).useDelimiter("\\A")) {
+            return scanner.next();
+        } catch (IOException e) {
+            Logger.printException(() -> "Could not load resource: " + resourceId);
+            return null;
         }
     }
 

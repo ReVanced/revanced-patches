@@ -3,10 +3,12 @@ package app.revanced.patches.youtube.layout.seekbar
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
+import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.resourcePatch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
+import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
 import app.revanced.patches.shared.misc.mapping.get
 import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
 import app.revanced.patches.shared.misc.mapping.resourceMappings
@@ -22,15 +24,21 @@ import app.revanced.patches.youtube.misc.settings.settingsPatch
 import app.revanced.patches.youtube.shared.mainActivityOnCreateFingerprint
 import app.revanced.util.copyXmlNode
 import app.revanced.util.findElementByAttributeValueOrThrow
+import app.revanced.util.findInstructionIndicesReversedOrThrow
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
 import app.revanced.util.indexOfFirstLiteralInstructionOrThrow
 import app.revanced.util.inputStreamFromBundledResource
 import app.revanced.util.insertFeatureFlagBooleanOverride
+import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.builder.MutableMethodImplementation
+import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
+import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
+import com.android.tools.smali.dexlib2.immutable.ImmutableMethodParameter
 import org.w3c.dom.Element
 import java.io.ByteArrayInputStream
 import kotlin.use
@@ -307,7 +315,7 @@ val seekbarColorPatch = bytecodePatch(
 
         // region apply seekbar custom color to splash screen animation.
 
-        // Don't use the lotte splash screen layout if using custom seekbar.
+        // Add development hook to force old drawable animation.
         arrayOf(
             launchScreenLayoutTypeFingerprint,
             mainActivityOnCreateFingerprint
@@ -333,6 +341,87 @@ val seekbarColorPatch = bytecodePatch(
                 "invoke-static { v$drawableRegister }, $EXTENSION_CLASS_DESCRIPTOR->" +
                         "setSplashAnimationDrawableTheme(Landroid/graphics/drawable/AnimatedVectorDrawable;)V"
             )
+
+            // Replace the Lottie animation view setAnimation(int) call.
+            val setAnimationIntMethodName = lottieAnimationViewSetAnimationIntFingerprint.originalMethod.name
+
+            findInstructionIndicesReversedOrThrow {
+                val reference = getReference<MethodReference>()
+                reference?.definingClass == "Lcom/airbnb/lottie/LottieAnimationView;"
+                        && reference.name == setAnimationIntMethodName && reference.returnType == "V"
+            }.forEach { index ->
+                val instruction = getInstruction<FiveRegisterInstruction>(index)
+
+                replaceInstruction(
+                    index,
+                    "invoke-static { v${instruction.registerC}, v${instruction.registerD} }, " +
+                            "$EXTENSION_CLASS_DESCRIPTOR->setSplashAnimationLottie" +
+                            "(Lcom/airbnb/lottie/LottieAnimationView;I)V"
+                )
+            }
+        }
+
+
+        // Add non obfuscated method aliases for `setAnimation(int)`
+        // and `setAnimation(InputStream, String)` so extension code can call them.
+        lottieAnimationViewSetAnimationIntFingerprint.classDef.methods.apply {
+            val addedMethodName = "patch_setAnimation"
+            val setAnimationIntName = lottieAnimationViewSetAnimationIntFingerprint.originalMethod.name
+
+            add(ImmutableMethod(
+                LOTTIE_ANIMATION_VIEW_CLASS_TYPE,
+                addedMethodName,
+                listOf(ImmutableMethodParameter("I", null, null)),
+                "V",
+                AccessFlags.PUBLIC.value,
+                null,
+                null,
+                MutableMethodImplementation(2),
+            ).toMutable().apply {
+                addInstructions(
+                    """
+                        invoke-virtual { p0, p1 }, Lcom/airbnb/lottie/LottieAnimationView;->$setAnimationIntName(I)V
+                        return-void
+                    """
+                )
+            })
+
+            val factoryStreamClass : CharSequence
+            val factoryStreamName : CharSequence
+            val factoryStreamReturnType : CharSequence
+            lottieCompositionFactoryFromJsonInputStreamFingerprint.match(
+                lottieCompositionFactoryZipFingerprint.originalClassDef
+            ).originalMethod.apply {
+                factoryStreamClass = definingClass
+                factoryStreamName = name
+                factoryStreamReturnType = returnType
+            }
+
+            val setAnimationStreamName = lottieAnimationViewSetAnimationStreamFingerprint
+                .originalMethod.name
+
+            add(ImmutableMethod(
+                LOTTIE_ANIMATION_VIEW_CLASS_TYPE,
+                addedMethodName,
+                listOf(
+                    ImmutableMethodParameter("Ljava/io/InputStream;", null, null),
+                    ImmutableMethodParameter("Ljava/lang/String;", null, null)
+                ),
+                "V",
+                AccessFlags.PUBLIC.value,
+                null,
+                null,
+                MutableMethodImplementation(4),
+            ).toMutable().apply {
+                addInstructions(
+                    """
+                        invoke-static { p1, p2 }, $factoryStreamClass->$factoryStreamName(Ljava/io/InputStream;Ljava/lang/String;)$factoryStreamReturnType
+                        move-result-object v0
+                        invoke-virtual { p0, v0}, Lcom/airbnb/lottie/LottieAnimationView;->$setAnimationStreamName($factoryStreamReturnType)V
+                        return-void
+                    """
+                )
+            })
         }
 
         // endregion
