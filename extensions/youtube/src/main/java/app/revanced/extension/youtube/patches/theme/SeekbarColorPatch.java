@@ -2,7 +2,6 @@ package app.revanced.extension.youtube.patches.theme;
 
 import static app.revanced.extension.shared.StringRef.str;
 
-import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Color;
 import android.graphics.drawable.AnimatedVectorDrawable;
@@ -20,7 +19,6 @@ import java.util.Scanner;
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
 import app.revanced.extension.shared.settings.BaseSettings;
-import app.revanced.extension.youtube.patches.VersionCheckPatch;
 import app.revanced.extension.youtube.settings.Settings;
 
 @SuppressWarnings("unused")
@@ -128,8 +126,8 @@ public final class SeekbarColorPatch {
      */
     public static boolean useLotteLaunchSplashScreen(boolean original) {
         // This method is only used for development purposes to force the old style launch screen.
-        // Forcing this off pn some devices this causes an unexplained crash
-        // where the lottie animation is still used even though this condition appears to bypass it.
+        // Forcing this off on some devices can cause unexplained startup crashes,
+        // where the lottie animation is still used even though this condition appears to bypass it.s
         return original; // false = drawable style, true = lottie style.
     }
 
@@ -191,9 +189,7 @@ public final class SeekbarColorPatch {
 
             // Must specify primary key name otherwise the morphing YT logo color is also changed.
             String primaryColorOriginalPrefix = "\"k\":";
-            String originalPrimary = primaryColorOriginalPrefix + (VersionCheckPatch.IS_19_26_OR_GREATER
-                    ? "[1,0,0.2,1]"
-                    : "[1,0,0,1]");
+            String originalPrimary = primaryColorOriginalPrefix + "[1,0,0.2,1]";
             String originalAccent = "[1,0.152941176471,0.56862745098,1]";
 
             String replacementPrimary = primaryColorOriginalPrefix + Arrays.toString(new double[]{
@@ -232,7 +228,7 @@ public final class SeekbarColorPatch {
         }
     }
 
-    public static String loadRawResourceAsString( int resourceId) {
+    public static String loadRawResourceAsString(int resourceId) {
         try (InputStream inputStream = Utils.getContext().getResources().openRawResource(resourceId);
              Scanner scanner = new Scanner(inputStream, StandardCharsets.UTF_8.name()).useDelimiter("\\A")) {
             return scanner.next();

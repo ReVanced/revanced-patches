@@ -315,6 +315,10 @@ val seekbarColorPatch = bytecodePatch(
 
         // region apply seekbar custom color to splash screen animation.
 
+        if (!is_19_34_or_greater) {
+            return@execute // 19.25 does not have cairo launch animation.
+        }
+
         // Add development hook to force old drawable animation.
         arrayOf(
             launchScreenLayoutTypeFingerprint,
