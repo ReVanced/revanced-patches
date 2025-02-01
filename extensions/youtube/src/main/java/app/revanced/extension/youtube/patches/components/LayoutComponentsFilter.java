@@ -226,8 +226,8 @@ public final class LayoutComponentsFilter extends Filter {
                 "featured_channel_watermark_overlay"
         );
 
-        final var videoTopics = new StringFilterGroup(
-                Settings.HIDE_VIDEO_TOPICS,
+        final var videoTopicsGrid = new StringFilterGroup(
+                Settings.HIDE_VIDEO_TOPICS_GRID,
                 "topic_with_thumbnail_view_model"
         );
 
@@ -280,7 +280,7 @@ public final class LayoutComponentsFilter extends Filter {
                 artistCard,
                 timedReactions,
                 imageShelf,
-                videoTopics,
+                videoTopicsGrid,
                 channelMemberShelf,
                 forYouShelf,
                 horizontalShelves
