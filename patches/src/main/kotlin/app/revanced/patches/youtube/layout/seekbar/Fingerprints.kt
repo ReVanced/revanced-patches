@@ -2,14 +2,12 @@ package app.revanced.patches.youtube.layout.seekbar
 
 import app.revanced.patcher.fingerprint
 import app.revanced.patcher.literal
-import app.revanced.util.getReference
-import app.revanced.util.indexOfFirstInstruction
 import app.revanced.patcher.methodCall
 import app.revanced.patcher.opcode
+import app.revanced.patcher.string
 import app.revanced.patches.shared.misc.mapping.resourceLiteral
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
-import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 internal val fullscreenSeekbarThumbnailsFingerprint by fingerprint {
     returns("Z")
@@ -158,12 +156,11 @@ internal val lottieAnimationViewSetAnimationIntFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     parameters("I")
     returns("V")
-    custom { methodDef, classDef ->
-        classDef.type == LOTTIE_ANIMATION_VIEW_CLASS_TYPE && methodDef.indexOfFirstInstruction {
-            val reference = getReference<MethodReference>()
-            reference?.definingClass == "Lcom/airbnb/lottie/LottieAnimationView;"
-                    && reference.name == "isInEditMode"
-        } >= 0
+    instructions(
+        methodCall("this", "isInEditMode")
+    )
+    custom { _, classDef ->
+        classDef.type == LOTTIE_ANIMATION_VIEW_CLASS_TYPE
     }
 }
 
@@ -171,20 +168,23 @@ internal val lottieAnimationViewSetAnimationStreamFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     parameters("L")
     returns("V")
-    custom { methodDef, classDef ->
-        classDef.type == LOTTIE_ANIMATION_VIEW_CLASS_TYPE && methodDef.indexOfFirstInstruction {
-            val reference = getReference<MethodReference>()
-            reference?.definingClass == "Ljava/util/Set;"
-                    && reference.name == "add"
-        } >= 0 && methodDef.containsLiteralInstruction(0)
+    instructions(
+        methodCall("Ljava/util/Set;", "add"),
+        literal(0)
+    )
+    custom { _, classDef ->
+        classDef.type == LOTTIE_ANIMATION_VIEW_CLASS_TYPE
     }
 }
 
-internal val lottieCompositionFactoryZipFingerprint = fingerprint {
+internal val lottieCompositionFactoryZipFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
     parameters("Landroid/content/Context;", "Ljava/lang/String;", "Ljava/lang/String;")
     returns("L")
-    strings(".zip", ".lottie")
+    instructions(
+        string(".zip"),
+        string(".lottie")
+    )
 }
 
 /**
@@ -192,11 +192,12 @@ internal val lottieCompositionFactoryZipFingerprint = fingerprint {
  *
  * [Original method](https://github.com/airbnb/lottie-android/blob/26ad8bab274eac3f93dccccfa0cafc39f7408d13/lottie/src/main/java/com/airbnb/lottie/LottieCompositionFactory.java#L386)
  */
-internal val lottieCompositionFactoryFromJsonInputStreamFingerprint = fingerprint {
+internal val lottieCompositionFactoryFromJsonInputStreamFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
     parameters("Ljava/io/InputStream;", "Ljava/lang/String;")
     returns("L")
-    literal { 2 }
+    instructions(
+        literal(2)
+    )
 }
-
 
