@@ -1,3 +1,10 @@
+## [5.10.1-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.10.0...v5.10.1-dev.1) (2025-02-02)
+
+
+### Bug Fixes
+
+* **YouTube - Theme:** Use custom seekbar color for cairo startup animation ([#4399](https://github.com/ReVanced/revanced-patches/issues/4399)) ([1cba294](https://github.com/ReVanced/revanced-patches/commit/1cba2948a6787118eb380ffcec35ee4fb99447ea))
+
 # [5.10.0](https://github.com/ReVanced/revanced-patches/compare/v5.9.0...v5.10.0) (2025-01-31)
 
 
