@@ -316,10 +316,10 @@ val seekbarColorPatch = bytecodePatch(
         // region apply seekbar custom color to splash screen animation.
 
         if (!is_19_34_or_greater) {
-            return@execute // 19.25 does not have cairo launch animation.
+            return@execute // 19.25 does not have a cairo launch animation.
         }
 
-        // Add development hook to force old drawable animation.
+        // Add development hook to force old drawable splash animation.
         arrayOf(
             launchScreenLayoutTypeFingerprint,
             mainActivityOnCreateFingerprint
@@ -330,7 +330,7 @@ val seekbarColorPatch = bytecodePatch(
             )
         }
 
-        // Hook the splash animation drawable to set the a seekbar color theme.
+        // Hook the splash animation to set the a seekbar color.
         mainActivityOnCreateFingerprint.method.apply {
             val drawableIndex = indexOfFirstInstructionOrThrow {
                 val reference = getReference<MethodReference>()
@@ -352,7 +352,7 @@ val seekbarColorPatch = bytecodePatch(
             findInstructionIndicesReversedOrThrow {
                 val reference = getReference<MethodReference>()
                 reference?.definingClass == "Lcom/airbnb/lottie/LottieAnimationView;"
-                        && reference.name == setAnimationIntMethodName && reference.returnType == "V"
+                        && reference.name == setAnimationIntMethodName
             }.forEach { index ->
                 val instruction = getInstruction<FiveRegisterInstruction>(index)
 

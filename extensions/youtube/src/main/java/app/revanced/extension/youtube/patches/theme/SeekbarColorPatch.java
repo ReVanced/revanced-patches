@@ -127,7 +127,7 @@ public final class SeekbarColorPatch {
     public static boolean useLotteLaunchSplashScreen(boolean original) {
         // This method is only used for development purposes to force the old style launch screen.
         // Forcing this off on some devices can cause unexplained startup crashes,
-        // where the lottie animation is still used even though this condition appears to bypass it.s
+        // where the lottie animation is still used even though this condition appears to bypass it.
         return original; // false = drawable style, true = lottie style.
     }
 
@@ -188,24 +188,12 @@ public final class SeekbarColorPatch {
             }
 
             // Must specify primary key name otherwise the morphing YT logo color is also changed.
-            String primaryColorOriginalPrefix = "\"k\":";
-            String originalPrimary = primaryColorOriginalPrefix + "[1,0,0.2,1]";
-            String originalAccent = "[1,0.152941176471,0.56862745098,1]";
+            String originalKey = "\"k\":";
+            String originalPrimary = originalKey + "[1,0,0.2,1]";
+            String originalAccent = originalKey + "[1,0.152941176471,0.56862745098,1]";
 
-            String replacementPrimary = primaryColorOriginalPrefix + Arrays.toString(new double[]{
-                    Color.red(customSeekbarColor) / 255.0,
-                    Color.green(customSeekbarColor) / 255.0,
-                    Color.blue(customSeekbarColor) / 255.0,
-                    Color.alpha(customSeekbarColor) / 255.0
-            });
-
-            final int accentColor = customSeekbarColorGradient[1];
-            String replacementAccent = Arrays.toString(new double[]{
-                    Color.red(accentColor) / 255.0,
-                    Color.green(accentColor) / 255.0,
-                    Color.blue(accentColor) / 255.0,
-                    Color.alpha(accentColor) / 255.0
-            });
+            String replacementPrimary = originalKey + getColorStringArray(customSeekbarColor);
+            String replacementAccent = originalKey + getColorStringArray(customSeekbarColorGradient[1]);
 
             String json = loadRawResourceAsString(resourceId);
             if (json == null) {
@@ -228,7 +216,16 @@ public final class SeekbarColorPatch {
         }
     }
 
-    public static String loadRawResourceAsString(int resourceId) {
+    private static String getColorStringArray(int color) {
+        return Arrays.toString(new double[]{
+                Color.red(color) / 255.0,
+                Color.green(color) / 255.0,
+                Color.blue(color) / 255.0,
+                Color.alpha(color) / 255.0
+        });
+    }
+
+    private static String loadRawResourceAsString(int resourceId) {
         try (InputStream inputStream = Utils.getContext().getResources().openRawResource(resourceId);
              Scanner scanner = new Scanner(inputStream, StandardCharsets.UTF_8.name()).useDelimiter("\\A")) {
             return scanner.next();
