@@ -302,7 +302,7 @@ val seekbarColorPatch = bytecodePatch(
 
                 findInstructionIndicesReversedOrThrow {
                     val reference = getReference<MethodReference>()
-                    reference?.definingClass == "Lcom/airbnb/lottie/LottieAnimationView;"
+                    reference?.definingClass == LOTTIE_ANIMATION_VIEW_CLASS_TYPE
                             && reference.name == setAnimationIntMethodName
                 }.forEach { index ->
                     val instruction = getInstruction<FiveRegisterInstruction>(index)

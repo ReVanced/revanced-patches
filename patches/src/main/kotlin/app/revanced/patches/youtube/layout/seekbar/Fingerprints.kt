@@ -86,8 +86,8 @@ internal val playerLinearGradientFingerprint by fingerprint {
     instructions(
         resourceLiteral("color", "yt_youtube_magenta"),
 
-        opcode(Opcode.FILLED_NEW_ARRAY, maxBefore = 5),
-        opcode(Opcode.MOVE_RESULT_OBJECT, maxBefore = 0)
+        opcode(Opcode.FILLED_NEW_ARRAY, maxAfter = 5),
+        opcode(Opcode.MOVE_RESULT_OBJECT, maxAfter = 0)
     )
 }
 
@@ -102,7 +102,7 @@ internal val playerLinearGradientLegacy1946Fingerprint by fingerprint {
         resourceLiteral("color", "yt_youtube_magenta"),
 
         opcode(Opcode.FILLED_NEW_ARRAY),
-        opcode(Opcode.MOVE_RESULT_OBJECT, maxBefore = 0),
+        opcode(Opcode.MOVE_RESULT_OBJECT, maxAfter = 0),
     )
     custom { method, _ ->
         method.name == "setBounds"
@@ -118,8 +118,8 @@ internal val playerLinearGradientLegacy1925Fingerprint by fingerprint {
     instructions(
         resourceLiteral("color", "yt_youtube_magenta"),
 
-        opcode(Opcode.FILLED_NEW_ARRAY, maxBefore = 10),
-        opcode(Opcode.MOVE_RESULT_OBJECT, maxBefore = 0),
+        opcode(Opcode.FILLED_NEW_ARRAY, maxAfter = 10),
+        opcode(Opcode.MOVE_RESULT_OBJECT, maxAfter = 0),
     )
 }
 

@@ -111,7 +111,7 @@ internal val newVideoQualityChangedFingerprint by fingerprint {
         newInstance("Lcom/google/android/libraries/youtube/innertube/model/media/VideoQuality;"),
         opcode(Opcode.IGET_OBJECT),
         opcode(Opcode.CHECK_CAST),
-        fieldAccess(type = "I", opcode = Opcode.IGET, maxBefore = 0), // Video resolution (human readable).
-        fieldAccess(type = "Ljava/lang/String;", opcode = Opcode.IGET_OBJECT, maxBefore = 0),
+        fieldAccess(type = "I", opcode = Opcode.IGET, maxAfter = 0), // Video resolution (human readable).
+        fieldAccess(type = "Ljava/lang/String;", opcode = Opcode.IGET_OBJECT, maxAfter = 0),
     )
 }

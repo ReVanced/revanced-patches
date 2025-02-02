@@ -104,7 +104,7 @@ internal val miniplayerModernForwardButtonFingerprint by fingerprint {
     parameters()
     instructions(
         resourceLiteral("id", "modern_miniplayer_forward_button"),
-        opcode(Opcode.MOVE_RESULT_OBJECT, maxBefore = 5)
+        opcode(Opcode.MOVE_RESULT_OBJECT, maxAfter = 5)
     )
 }
 
@@ -113,7 +113,7 @@ internal val miniplayerModernOverlayViewFingerprint by fingerprint {
     parameters()
     instructions(
         resourceLiteral("id", "scrim_overlay"),
-        opcode(Opcode.MOVE_RESULT_OBJECT, maxBefore = 5)
+        opcode(Opcode.MOVE_RESULT_OBJECT, maxAfter = 5)
     )
 }
 
@@ -126,7 +126,7 @@ internal val miniplayerModernRewindButtonFingerprint by fingerprint {
     parameters()
     instructions(
         resourceLiteral("id", "modern_miniplayer_rewind_button"),
-        opcode(Opcode.MOVE_RESULT_OBJECT, maxBefore = 5)
+        opcode(Opcode.MOVE_RESULT_OBJECT, maxAfter = 5)
     )
 }
 
@@ -139,7 +139,7 @@ internal val miniplayerModernActionButtonFingerprint by fingerprint {
     parameters()
     instructions(
         resourceLiteral("id", "modern_miniplayer_overlay_action_button"),
-        opcode(Opcode.MOVE_RESULT_OBJECT, maxBefore = 5)
+        opcode(Opcode.MOVE_RESULT_OBJECT, maxAfter = 5)
     )
 }
 

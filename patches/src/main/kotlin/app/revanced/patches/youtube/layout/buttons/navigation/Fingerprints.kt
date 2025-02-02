@@ -1,7 +1,6 @@
 package app.revanced.patches.youtube.layout.buttons.navigation
 
 import app.revanced.patcher.fingerprint
-import app.revanced.patcher.lastInstruction
 import app.revanced.patcher.literal
 import app.revanced.patcher.methodCall
 import app.revanced.patcher.opcode
@@ -13,7 +12,7 @@ internal val addCreateButtonViewFingerprint by fingerprint {
     instructions(
         string("Android Wear"),
         opcode(Opcode.IF_EQZ),
-        string("Android Automotive", maxBefore = 0),
+        string("Android Automotive", maxAfter = 0),
     )
 }
 
@@ -26,7 +25,7 @@ internal val createPivotBarFingerprint by fingerprint {
     )
     instructions(
         methodCall(definingClass = "Landroid/widget/TextView;", name = "setText"),
-        lastInstruction(opcode(Opcode.RETURN_VOID))
+        opcode(Opcode.RETURN_VOID)
     )
 }
 

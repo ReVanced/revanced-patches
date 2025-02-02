@@ -114,7 +114,7 @@ internal val showFloatingMicrophoneButtonFingerprint by fingerprint {
     parameters()
     instructions(
         resourceLiteral("id", "fab"),
-        checkCast("/FloatingActionButton;", maxBefore = 10),
-        opcode(Opcode.IGET_BOOLEAN, maxBefore = 10)
+        checkCast("/FloatingActionButton;", maxAfter = 10),
+        opcode(Opcode.IGET_BOOLEAN, maxAfter = 10)
     )
 }
