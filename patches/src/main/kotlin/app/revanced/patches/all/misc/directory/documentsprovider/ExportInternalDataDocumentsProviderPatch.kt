@@ -14,7 +14,7 @@ val exportInternalDataDocumentsProviderPatch = resourcePatch(
 ) {
     dependsOn(
         bytecodePatch {
-            extendWith("extensions/all/misc/directory/export-internal-data-documents-provider.rve")
+            extendWith("extensions/all/misc/directory/documentsprovider/export-internal-data-documents-provider.rve")
         },
     )
 
