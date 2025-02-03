@@ -5,6 +5,7 @@ import android.os.Build;
 
 import androidx.annotation.RequiresApi;
 
+@SuppressWarnings("unused")
 public final class RemoveScreencaptureRestrictionPatch {
     // Member of AudioAttributes.Builder
     @RequiresApi(api = Build.VERSION_CODES.Q)

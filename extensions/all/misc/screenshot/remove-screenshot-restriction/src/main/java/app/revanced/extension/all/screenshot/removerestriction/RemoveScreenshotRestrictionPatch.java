@@ -3,6 +3,7 @@ package app.revanced.extension.all.screenshot.removerestriction;
 import android.view.Window;
 import android.view.WindowManager;
 
+@SuppressWarnings("unused")
 public class RemoveScreenshotRestrictionPatch {
 
     public static void addFlags(Window window, int flags) {
