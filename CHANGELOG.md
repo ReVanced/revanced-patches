@@ -1,3 +1,10 @@
+## [5.10.1-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.10.1-dev.1...v5.10.1-dev.2) (2025-02-03)
+
+
+### Bug Fixes
+
+* **YouTube - Enable slide to seek:** Change patch to default include ([50358cd](https://github.com/ReVanced/revanced-patches/commit/50358cddea3eef4051d248040d23f774521dce00))
+
 ## [5.10.1-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.10.0...v5.10.1-dev.1) (2025-02-02)
 
 
