@@ -23,9 +23,9 @@ settings {
     extensions {
         defaultNamespace = "app.revanced.extension"
 
-        // Must use a file to convert relative path to absolute path,
-        // otherwise the extensions in subfolders fail to find the proguard config.
-        proguardFiles(file("extensions/proguard-rules.pro").toString())
+        // Must resolve to an absolute path (not relative),
+        // otherwise the extensions in subfolders will fail to find the proguard config.
+        proguardFiles(rootProject.projectDir.resolve("extensions/proguard-rules.pro").toString())
     }
 }
 
