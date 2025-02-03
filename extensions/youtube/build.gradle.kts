@@ -1,5 +1,5 @@
 //noinspection GradleDependency
-android.compileSdk = 34
+android.compileSdk = 33
 
 dependencies {
     compileOnly(project(":extensions:shared:library"))
