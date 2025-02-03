@@ -4,7 +4,7 @@ plugins {
 
 android {
     namespace = "app.revanced.extension"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         minSdk = 24
