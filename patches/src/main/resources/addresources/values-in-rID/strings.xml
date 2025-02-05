@@ -341,9 +341,9 @@ Anda tidak akan diberi tahu tentang kejadian yang tidak terduga."</string>
   <string name="revanced_hide_doodles_title">Sembunyikan YouTube Doodles</string>
   <string name="revanced_hide_doodles_summary_on">Bilah pencarian Doodle disembunyikan</string>
   <string name="revanced_hide_doodles_summary_off">Bilah pencarian Doodle ditampilkan</string>
-  <string name="revanced_hide_doodles_user_dialog_message">"Gambar kecil YouTube muncul beberapa hari setiap tahun.
+  <string name="revanced_hide_doodles_user_dialog_message">"YouTube Doodle muncul beberapa hari setiap tahun.
 
-Jika Gambar kecil saat ini ditampilkan di wilayah Anda dan pengaturan sembunyi ini aktif, bilah filter di bawah bilah pencarian juga akan disembunyikan."</string>
+Jika Doodle saat ini ditampilkan di wilayah Anda dan pengaturan penyembunyi ini aktif, bilah filter di bawah bilah pencarian juga akan disembunyikan."</string>
   <string name="revanced_custom_filter_screen_title">Penyaring khusus</string>
   <string name="revanced_custom_filter_screen_summary">Sembunyikan komponen menggunakan penyaring khusus</string>
   <string name="revanced_custom_filter_title">Aktifkan penyaring khusus</string>
@@ -506,8 +506,9 @@ Fitur ini hanya tersedia untuk perangkat yang lebih lama"</string>
   <string name="revanced_swipe_overlay_timeout_summary">Jumlah milidetik hamparan terlihat</string>
   <string name="revanced_swipe_text_overlay_size_title">Ukuran teks hamparan usap</string>
   <string name="revanced_swipe_text_overlay_size_summary">Ukuran teks untuk hamparan usap</string>
-  <string name="revanced_swipe_overlay_background_alpha_title">Visibilitas latar belakang usap</string>
-  <string name="revanced_swipe_overlay_background_alpha_summary">Visibilitas latar belakang hamparan usap</string>
+  <string name="revanced_swipe_overlay_background_opacity_title">Opasitas latar belakang hamparan geser</string>
+  <string name="revanced_swipe_overlay_background_opacity_summary">Nilai opasitas antara 0-100</string>
+  <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Opasitas geser harus antara 0-100</string>
   <string name="revanced_swipe_threshold_title">Ambang batas magnitudo usap</string>
   <string name="revanced_swipe_threshold_summary">Jumlah ambang batas untuk terjadinya usapan</string>
   <string name="revanced_swipe_change_video_title">Aktifkan usapan untuk beralih video</string>
@@ -960,11 +961,11 @@ Id pengguna Anda seperti kata sandi dan jangan pernah dibagikan."</string>
   <string name="revanced_sb_segments_selfpromo">Tidak Dibayar/Promosi Diri Sendiri</string>
   <string name="revanced_sb_segments_selfpromo_sum">Serupa dengan Sponsor kecuali tidak dibayar atau promosi diri sendiri. Termasuk bagian merchandise, donasi, atau informasi tentang siapa yang berkolaborasi dengan mereka</string>
   <string name="revanced_sb_segments_interaction">Pengingat Interaksi (Berlangganan)</string>
-  <string name="revanced_sb_segments_interaction_sum">Pengingat singkat untuk suka, berlangganan, atau ikuti di tengah konten. Jika berdurasi panjang atau mengenai sesuatu yang spesifik, sebaiknya termasuk kategori promosi diri sendiri</string>
+  <string name="revanced_sb_segments_interaction_sum">Pengingat singkat untuk menyukai, berlangganan, atau mengikuti mereka di tengah-tengah konten. Jika berdurasi panjang atau tentang sesuatu yang spesifik, sebaiknya berada di bawah promosi diri sendiri</string>
   <string name="revanced_sb_segments_highlight">Sorotan</string>
   <string name="revanced_sb_segments_highlight_sum">Bagian video yang paling dilihat oleh orang</string>
   <string name="revanced_sb_segments_intro">Jeda/Animasi Intro</string>
-  <string name="revanced_sb_segments_intro_sum">Bagian video yang bukan konten. Bisa saja pause, frame statis, atau animasi yang diulang-ulang. Tidak termasuk transisi yang mengandung informasi</string>
+  <string name="revanced_sb_segments_intro_sum">Interval tanpa konten yang sebenarnya. Bisa berupa jeda, bingkai statis, atau animasi berulang. Tidak termasuk transisi yang berisi informasi</string>
   <string name="revanced_sb_segments_outro">Kartu Akhir/Kredit</string>
   <string name="revanced_sb_segments_outro_sum">Kredit atau ketika layar akhir YouTube muncul. Bukan kesimpulan dengan informasi</string>
   <string name="revanced_sb_segments_preview">Pratinjau/Rekap/Pengait</string>
@@ -1114,7 +1115,7 @@ Jika kemudian dimatikan, disarankan untuk menghapus data aplikasi untuk mencegah
                  This is because the 'General layout' menu uses alphabetic sorting, and it functionally works better if the spoof target selector appears below the 'Spoof app version' UI switch -->
   <string name="revanced_spoof_app_version_target_title">Target versi app yang dipalsukan</string>
   <string name="revanced_spoof_app_version_target_entry_1">19.35.36 - Pulihkan ikon pemutar Shorts lama</string>
-  <string name="revanced_spoof_app_version_target_entry_2">19.26.42 - Pulihkan ikon navigasi dan bilah alat lama</string>
+  <string name="revanced_spoof_app_version_target_entry_2">19.26.42 - Pulihkan ikon navigasi lama</string>
   <!-- 'RYD' is 'Return YouTube Dislike' -->
   <string name="revanced_spoof_app_version_target_legacy_entry_1">18.33.40 - Pulihkan RYD pada mode penyamaran Shorts</string>
   <string name="revanced_spoof_app_version_target_legacy_entry_2">18.20.39 - Pulihkan menu kecepatan &amp; kualitas video lebar</string>
