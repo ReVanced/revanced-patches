@@ -1125,8 +1125,11 @@ Second \"item\" text"</string>
   <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">Полазна страница</string>
   <string name="revanced_change_start_page_entry_default">Подразумевана</string>
+  <string name="revanced_change_start_page_entry_all_subscriptions">Sve pretplate</string>
   <string name="revanced_change_start_page_entry_browse">Претрага канала</string>
+  <string name="revanced_change_start_page_entry_courses">Kursevi / Učenje</string>
   <string name="revanced_change_start_page_entry_explore">Истражи</string>
+  <string name="revanced_change_start_page_entry_fashion">Moda i ljepota</string>
   <string name="revanced_change_start_page_entry_gaming">Видео игре</string>
   <string name="revanced_change_start_page_entry_history">Историја</string>
   <string name="revanced_change_start_page_entry_library">Збирка</string>
@@ -1134,10 +1137,14 @@ Second \"item\" text"</string>
   <string name="revanced_change_start_page_entry_live">Уживо</string>
   <string name="revanced_change_start_page_entry_movies">Филмови</string>
   <string name="revanced_change_start_page_entry_music">Музика</string>
+  <string name="revanced_change_start_page_entry_news">Vijesti</string>
+  <string name="revanced_change_start_page_entry_notifications">Obavijesti</string>
+  <string name="revanced_change_start_page_entry_playlists">Liste za reprodukciju</string>
   <string name="revanced_change_start_page_entry_search">Претрага</string>
   <string name="revanced_change_start_page_entry_sports">Спорт</string>
   <string name="revanced_change_start_page_entry_subscriptions">Праћења</string>
   <string name="revanced_change_start_page_entry_trending">У тренду</string>
+  <string name="revanced_change_start_page_entry_virtual_reality">Virtualna stvarnost</string>
   <string name="revanced_change_start_page_entry_watch_later">За касније</string>
   </patch>
   <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch">

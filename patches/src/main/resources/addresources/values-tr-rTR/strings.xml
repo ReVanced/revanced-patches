@@ -1126,8 +1126,11 @@ Daha sonra kapatılırsa, arayüz hatalarını önlemek için uygulama verilerin
   <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">Başlangıç sayfasını seç</string>
   <string name="revanced_change_start_page_entry_default">Varsayılan</string>
+  <string name="revanced_change_start_page_entry_all_subscriptions">Tüm abonelikler</string>
   <string name="revanced_change_start_page_entry_browse">Kanallara göz at</string>
+  <string name="revanced_change_start_page_entry_courses">Kurslar / Öğrenme</string>
   <string name="revanced_change_start_page_entry_explore">Keşfet</string>
+  <string name="revanced_change_start_page_entry_fashion">Moda ve Güzellik</string>
   <string name="revanced_change_start_page_entry_gaming">Oyun</string>
   <string name="revanced_change_start_page_entry_history">Geçmiş</string>
   <string name="revanced_change_start_page_entry_library">Kitaplık</string>
@@ -1135,11 +1138,17 @@ Daha sonra kapatılırsa, arayüz hatalarını önlemek için uygulama verilerin
   <string name="revanced_change_start_page_entry_live">Canlı yayın</string>
   <string name="revanced_change_start_page_entry_movies">Filmler</string>
   <string name="revanced_change_start_page_entry_music">Müzik</string>
+  <string name="revanced_change_start_page_entry_news">Habercilik</string>
+  <string name="revanced_change_start_page_entry_notifications">Bildirimler</string>
+  <string name="revanced_change_start_page_entry_playlists">Oynatma listeleri</string>
   <string name="revanced_change_start_page_entry_search">Arama</string>
+  <string name="revanced_change_start_page_entry_shopping">Alışveriş</string>
   <string name="revanced_change_start_page_entry_sports">Spor</string>
   <string name="revanced_change_start_page_entry_subscriptions">Abonelikler</string>
   <string name="revanced_change_start_page_entry_trending">Trendler</string>
+  <string name="revanced_change_start_page_entry_virtual_reality">Sanal Gerçeklik</string>
   <string name="revanced_change_start_page_entry_watch_later">Daha sonra izle</string>
+  <string name="revanced_change_start_page_entry_your_clips">Kliplerin</string>
   </patch>
   <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch">
   <string name="revanced_disable_resuming_shorts_player_title">Shorts oynatıcıya devam edilmesini devre dışı bırak</string>

@@ -1125,8 +1125,11 @@ Ha később kikapcsolja, akkor ajánlott az alkalmazás adatait törölni, hogy 
   <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">Kezdőlap beállítása</string>
   <string name="revanced_change_start_page_entry_default">Alapértelmezett</string>
+  <string name="revanced_change_start_page_entry_all_subscriptions">Összes feliratkozás</string>
   <string name="revanced_change_start_page_entry_browse">Csatornák böngészése</string>
+  <string name="revanced_change_start_page_entry_courses">Tanfolyamok / Tanulás</string>
   <string name="revanced_change_start_page_entry_explore">Felfedezés</string>
+  <string name="revanced_change_start_page_entry_fashion">Divat és szépség</string>
   <string name="revanced_change_start_page_entry_gaming">Játék</string>
   <string name="revanced_change_start_page_entry_history">Előzmények</string>
   <string name="revanced_change_start_page_entry_library">Könyvtár</string>
@@ -1134,10 +1137,14 @@ Ha később kikapcsolja, akkor ajánlott az alkalmazás adatait törölni, hogy 
   <string name="revanced_change_start_page_entry_live">Élő</string>
   <string name="revanced_change_start_page_entry_movies">Filmek</string>
   <string name="revanced_change_start_page_entry_music">Zene</string>
+  <string name="revanced_change_start_page_entry_news">Hírek</string>
+  <string name="revanced_change_start_page_entry_notifications">Értesítések</string>
+  <string name="revanced_change_start_page_entry_playlists">Lejátszási listák</string>
   <string name="revanced_change_start_page_entry_search">Keresés</string>
   <string name="revanced_change_start_page_entry_sports">Sportok</string>
   <string name="revanced_change_start_page_entry_subscriptions">Feliratkozások</string>
   <string name="revanced_change_start_page_entry_trending">Felkapott</string>
+  <string name="revanced_change_start_page_entry_virtual_reality">Virtuális valóság</string>
   <string name="revanced_change_start_page_entry_watch_later">Megnézem később</string>
   </patch>
   <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch">

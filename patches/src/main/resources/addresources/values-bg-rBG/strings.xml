@@ -1126,8 +1126,11 @@ Second \"item\" text"</string>
   <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">Задай начална страница</string>
   <string name="revanced_change_start_page_entry_default">По подразбиране</string>
+  <string name="revanced_change_start_page_entry_all_subscriptions">Всички абонаменти</string>
   <string name="revanced_change_start_page_entry_browse">Разглеждане на канала</string>
+  <string name="revanced_change_start_page_entry_courses">Курсове / Учене</string>
   <string name="revanced_change_start_page_entry_explore">Разгледайте</string>
+  <string name="revanced_change_start_page_entry_fashion">Мода и Красота</string>
   <string name="revanced_change_start_page_entry_gaming">Игри</string>
   <string name="revanced_change_start_page_entry_history">История</string>
   <string name="revanced_change_start_page_entry_library">Библиотека</string>
@@ -1135,10 +1138,14 @@ Second \"item\" text"</string>
   <string name="revanced_change_start_page_entry_live">На Живо</string>
   <string name="revanced_change_start_page_entry_movies">Филми</string>
   <string name="revanced_change_start_page_entry_music">Музика</string>
+  <string name="revanced_change_start_page_entry_news">Новини</string>
+  <string name="revanced_change_start_page_entry_notifications">Известия</string>
+  <string name="revanced_change_start_page_entry_playlists">Списъци за възпроизвеждане</string>
   <string name="revanced_change_start_page_entry_search">Търсене</string>
   <string name="revanced_change_start_page_entry_sports">Спорт</string>
   <string name="revanced_change_start_page_entry_subscriptions">Абонаменти</string>
   <string name="revanced_change_start_page_entry_trending">Популярни</string>
+  <string name="revanced_change_start_page_entry_virtual_reality">Виртуална реалност</string>
   <string name="revanced_change_start_page_entry_watch_later">Гледай по-късно</string>
   </patch>
   <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch">
