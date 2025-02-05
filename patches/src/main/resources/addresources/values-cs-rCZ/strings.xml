@@ -506,8 +506,9 @@ Tato funkce je dostupná pouze pro starší zařízení"</string>
   <string name="revanced_swipe_overlay_timeout_summary">Doba v milisekundách, po kterou je překrytí viditelné</string>
   <string name="revanced_swipe_text_overlay_size_title">Velikost textu překrytí gesta</string>
   <string name="revanced_swipe_text_overlay_size_summary">Velikost textu pro překrytí gesta</string>
-  <string name="revanced_swipe_overlay_background_alpha_title">Viditelnost pozadí překrytí gesta</string>
-  <string name="revanced_swipe_overlay_background_alpha_summary">Viditelnost pozadí překrytí gesta</string>
+  <string name="revanced_swipe_overlay_background_opacity_title">Průsvitnost pozadí překrytí tažením</string>
+  <string name="revanced_swipe_overlay_background_opacity_summary">Hodnota průsvitnosti mezi 0-100</string>
+  <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Průsvitnost tažení musí být mezi 0-100</string>
   <string name="revanced_swipe_threshold_title">Práh vynucení gesta</string>
   <string name="revanced_swipe_threshold_summary">Velikost prahu pro provedení gesta</string>
   <string name="revanced_swipe_change_video_title">Povolit přejetí prstem pro změnu videa</string>
@@ -1114,7 +1115,7 @@ Pokud bude později vypnuta, doporučujeme vymazat data aplikace, aby se zabrán
                  This is because the 'General layout' menu uses alphabetic sorting, and it functionally works better if the spoof target selector appears below the 'Spoof app version' UI switch -->
   <string name="revanced_spoof_app_version_target_title">Cíl napodobení verze aplikace</string>
   <string name="revanced_spoof_app_version_target_entry_1">19.35.36 - Obnovuje staré ikony Shorts přehrávače</string>
-  <string name="revanced_spoof_app_version_target_entry_2">19.26.42 - Obnovit ikony staré navigace a panelu nástrojů</string>
+  <string name="revanced_spoof_app_version_target_entry_2">19.26.42 - Navrátit staré ikony pro navigaci</string>
   <!-- 'RYD' is 'Return YouTube Dislike' -->
   <string name="revanced_spoof_app_version_target_legacy_entry_1">18.33.40 - Obnovení RYD v režimu inkognito Shorts</string>
   <string name="revanced_spoof_app_version_target_legacy_entry_2">18.20.39 - Obnovení široké nabídky rychlosti a kvality videa</string>

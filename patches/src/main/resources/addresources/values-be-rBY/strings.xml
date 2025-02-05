@@ -506,8 +506,9 @@ Second \"item\" text"</string>
   <string name="revanced_swipe_overlay_timeout_summary">Працягласць бачнага накладання ў мілісекундах</string>
   <string name="revanced_swipe_text_overlay_size_title">Памер накладанага тэксту</string>
   <string name="revanced_swipe_text_overlay_size_summary">Памер тэксту для накладання пальцам</string>
-  <string name="revanced_swipe_overlay_background_alpha_title">Бачнасць фону пальцам</string>
-  <string name="revanced_swipe_overlay_background_alpha_summary">Бачнасць фону накладання пальцам</string>
+  <string name="revanced_swipe_overlay_background_opacity_title">Непразрыстасць фону накладкі пракруткі</string>
+  <string name="revanced_swipe_overlay_background_opacity_summary">Значэнне непразрыстасці паміж 0-100</string>
+  <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Непразрыстасць пракруткі павінна быць паміж 0-100</string>
   <string name="revanced_swipe_threshold_title">Парог велічыні пальцам</string>
   <string name="revanced_swipe_threshold_summary">Велічыня парогавага значэння для правядзення пальцам</string>
   <string name="revanced_swipe_change_video_title">Уключыць зьмену відэа праз правядзенне пальцам</string>
