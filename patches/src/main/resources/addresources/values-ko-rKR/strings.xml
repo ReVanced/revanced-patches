@@ -1130,8 +1130,11 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">앱 시작 페이지 변경하기</string>
   <string name="revanced_change_start_page_entry_default">홈 (기본값)</string>
+  <string name="revanced_change_start_page_entry_all_subscriptions">모든 구독</string>
   <string name="revanced_change_start_page_entry_browse">채널 둘러보기</string>
+  <string name="revanced_change_start_page_entry_courses">교육과 학습</string>
   <string name="revanced_change_start_page_entry_explore">탐색</string>
+  <string name="revanced_change_start_page_entry_fashion">패션 &amp; 뷰티</string>
   <string name="revanced_change_start_page_entry_gaming">게임</string>
   <string name="revanced_change_start_page_entry_history">기록</string>
   <string name="revanced_change_start_page_entry_library">내 페이지</string>
@@ -1139,10 +1142,14 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_change_start_page_entry_live">실시간</string>
   <string name="revanced_change_start_page_entry_movies">영화</string>
   <string name="revanced_change_start_page_entry_music">음악</string>
+  <string name="revanced_change_start_page_entry_news">뉴스</string>
+  <string name="revanced_change_start_page_entry_notifications">알림</string>
+  <string name="revanced_change_start_page_entry_playlists">재생목록</string>
   <string name="revanced_change_start_page_entry_search">검색</string>
   <string name="revanced_change_start_page_entry_sports">스포츠</string>
   <string name="revanced_change_start_page_entry_subscriptions">구독</string>
   <string name="revanced_change_start_page_entry_trending">인기 급상승</string>
+  <string name="revanced_change_start_page_entry_virtual_reality">가상현실</string>
   <string name="revanced_change_start_page_entry_watch_later">나중에 볼 동영상</string>
   </patch>
   <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch">

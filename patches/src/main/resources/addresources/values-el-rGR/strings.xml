@@ -1127,8 +1127,11 @@ Second \"item\" text"</string>
   <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">Αλλαγή της αρχικής σελίδας</string>
   <string name="revanced_change_start_page_entry_default">Προεπιλογή</string>
+  <string name="revanced_change_start_page_entry_all_subscriptions">Όλες οι συνδρομές</string>
   <string name="revanced_change_start_page_entry_browse">Περιήγηση καναλιών</string>
+  <string name="revanced_change_start_page_entry_courses">Μαθήματα / Εκμάθηση</string>
   <string name="revanced_change_start_page_entry_explore">Εξερεύνηση</string>
+  <string name="revanced_change_start_page_entry_fashion">Μόδα &amp; Ομορφιά</string>
   <string name="revanced_change_start_page_entry_gaming">Παιχνίδια</string>
   <string name="revanced_change_start_page_entry_history">Ιστορικό</string>
   <string name="revanced_change_start_page_entry_library">Βιβλιοθήκη</string>
@@ -1136,10 +1139,14 @@ Second \"item\" text"</string>
   <string name="revanced_change_start_page_entry_live">Live</string>
   <string name="revanced_change_start_page_entry_movies">Ταινίες</string>
   <string name="revanced_change_start_page_entry_music">Μουσική</string>
+  <string name="revanced_change_start_page_entry_news">Ειδήσεις</string>
+  <string name="revanced_change_start_page_entry_notifications">Ειδοποιήσεις</string>
+  <string name="revanced_change_start_page_entry_playlists">Λίστες αναπαραγωγής</string>
   <string name="revanced_change_start_page_entry_search">Αναζήτηση</string>
   <string name="revanced_change_start_page_entry_sports">Αθλητικά</string>
   <string name="revanced_change_start_page_entry_subscriptions">Εγγραφές</string>
   <string name="revanced_change_start_page_entry_trending">Τάσεις</string>
+  <string name="revanced_change_start_page_entry_virtual_reality">Εικονική Πραγματικότητα</string>
   <string name="revanced_change_start_page_entry_watch_later">Παρακολούθηση αργότερα</string>
   </patch>
   <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch">

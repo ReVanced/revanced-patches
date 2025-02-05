@@ -1123,8 +1123,11 @@ Se posteriormente desativado, é recomendável limpar os dados do aplicativo par
   <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">Definir página inicial</string>
   <string name="revanced_change_start_page_entry_default">Padrão</string>
+  <string name="revanced_change_start_page_entry_all_subscriptions">Todas as inscrições</string>
   <string name="revanced_change_start_page_entry_browse">Explorar canais</string>
+  <string name="revanced_change_start_page_entry_courses">Cursos / Educação</string>
   <string name="revanced_change_start_page_entry_explore">Explorar</string>
+  <string name="revanced_change_start_page_entry_fashion">Moda e Beleza</string>
   <string name="revanced_change_start_page_entry_gaming">Jogos</string>
   <string name="revanced_change_start_page_entry_history">Histórico</string>
   <string name="revanced_change_start_page_entry_library">Biblioteca</string>
@@ -1132,11 +1135,17 @@ Se posteriormente desativado, é recomendável limpar os dados do aplicativo par
   <string name="revanced_change_start_page_entry_live">Ao Vivo</string>
   <string name="revanced_change_start_page_entry_movies">Filmes</string>
   <string name="revanced_change_start_page_entry_music">Música</string>
+  <string name="revanced_change_start_page_entry_news">Notícias</string>
+  <string name="revanced_change_start_page_entry_notifications">Notificações</string>
+  <string name="revanced_change_start_page_entry_playlists">Playlists</string>
   <string name="revanced_change_start_page_entry_search">Procurar</string>
+  <string name="revanced_change_start_page_entry_shopping">Compras</string>
   <string name="revanced_change_start_page_entry_sports">Esportes</string>
   <string name="revanced_change_start_page_entry_subscriptions">Inscrições</string>
   <string name="revanced_change_start_page_entry_trending">Em alta</string>
+  <string name="revanced_change_start_page_entry_virtual_reality">Realidade virtual</string>
   <string name="revanced_change_start_page_entry_watch_later">Assistir mais tarde</string>
+  <string name="revanced_change_start_page_entry_your_clips">Seus clipes</string>
   </patch>
   <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch">
   <string name="revanced_disable_resuming_shorts_player_title">Desativar continuar a reproduzir Shorts</string>

@@ -1121,8 +1121,11 @@ Wenn Sie die Funktion später deaktivieren, wird empfohlen, die App-Daten zu lö
   <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">Startseite festlegen</string>
   <string name="revanced_change_start_page_entry_default">Standard</string>
+  <string name="revanced_change_start_page_entry_all_subscriptions">Alle Abonnements</string>
   <string name="revanced_change_start_page_entry_browse">Kanäle durchsuchen</string>
+  <string name="revanced_change_start_page_entry_courses">Kurse / Lernen</string>
   <string name="revanced_change_start_page_entry_explore">Erforschen</string>
+  <string name="revanced_change_start_page_entry_fashion">Mode &amp; Schönheit</string>
   <string name="revanced_change_start_page_entry_gaming">Spielen</string>
   <string name="revanced_change_start_page_entry_history">Verlauf</string>
   <string name="revanced_change_start_page_entry_library">Bibliothek</string>
@@ -1130,10 +1133,14 @@ Wenn Sie die Funktion später deaktivieren, wird empfohlen, die App-Daten zu lö
   <string name="revanced_change_start_page_entry_live">Live</string>
   <string name="revanced_change_start_page_entry_movies">Filme</string>
   <string name="revanced_change_start_page_entry_music">Musik</string>
+  <string name="revanced_change_start_page_entry_news">Nachrichten</string>
+  <string name="revanced_change_start_page_entry_notifications">Benachrichtigungen</string>
+  <string name="revanced_change_start_page_entry_playlists">Playlisten</string>
   <string name="revanced_change_start_page_entry_search">Suchen</string>
   <string name="revanced_change_start_page_entry_sports">Sport</string>
   <string name="revanced_change_start_page_entry_subscriptions">Abonnements</string>
   <string name="revanced_change_start_page_entry_trending">Beliebt</string>
+  <string name="revanced_change_start_page_entry_virtual_reality">Virtuelle Realität</string>
   <string name="revanced_change_start_page_entry_watch_later">Später ansehen</string>
   </patch>
   <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch">

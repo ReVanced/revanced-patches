@@ -1125,8 +1125,11 @@ Kui see hiljem välja lülitatakse, on soovitatav rakenduse andmed kustutada, et
   <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">Määra algusleht</string>
   <string name="revanced_change_start_page_entry_default">Vaikimisi</string>
+  <string name="revanced_change_start_page_entry_all_subscriptions">Kõik tellimused</string>
   <string name="revanced_change_start_page_entry_browse">Sirvi kanaleid</string>
+  <string name="revanced_change_start_page_entry_courses">Kursused / Õppimine</string>
   <string name="revanced_change_start_page_entry_explore">Avasta</string>
+  <string name="revanced_change_start_page_entry_fashion">Mood ja Ilu</string>
   <string name="revanced_change_start_page_entry_gaming">Mängud</string>
   <string name="revanced_change_start_page_entry_history">Ajalugu</string>
   <string name="revanced_change_start_page_entry_library">Raamatukogu</string>
@@ -1134,11 +1137,17 @@ Kui see hiljem välja lülitatakse, on soovitatav rakenduse andmed kustutada, et
   <string name="revanced_change_start_page_entry_live">Otseülekanne</string>
   <string name="revanced_change_start_page_entry_movies">Filmid</string>
   <string name="revanced_change_start_page_entry_music">Muusika</string>
+  <string name="revanced_change_start_page_entry_news">Uudised</string>
+  <string name="revanced_change_start_page_entry_notifications">Teatised</string>
+  <string name="revanced_change_start_page_entry_playlists">Esitusloendid</string>
   <string name="revanced_change_start_page_entry_search">Otsi</string>
+  <string name="revanced_change_start_page_entry_shopping">Shopping</string>
   <string name="revanced_change_start_page_entry_sports">Sport</string>
   <string name="revanced_change_start_page_entry_subscriptions">Tellimused</string>
   <string name="revanced_change_start_page_entry_trending">Trendikas</string>
+  <string name="revanced_change_start_page_entry_virtual_reality">Virtuaalne Reaalsus</string>
   <string name="revanced_change_start_page_entry_watch_later">Vaata hiljem</string>
+  <string name="revanced_change_start_page_entry_your_clips">Teie klipid</string>
   </patch>
   <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch">
   <string name="revanced_disable_resuming_shorts_player_title">Keela Shortsi esitaja jätkamine</string>

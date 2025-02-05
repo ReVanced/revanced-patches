@@ -1125,8 +1125,11 @@ Jika kemudian dimatikan, disarankan untuk menghapus data aplikasi untuk mencegah
   <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">Tetapkan halaman awal</string>
   <string name="revanced_change_start_page_entry_default">Bawaan</string>
+  <string name="revanced_change_start_page_entry_all_subscriptions">Semua langganan</string>
   <string name="revanced_change_start_page_entry_browse">Jelajahi saluran</string>
+  <string name="revanced_change_start_page_entry_courses">Kursus/Pembelajaran</string>
   <string name="revanced_change_start_page_entry_explore">Jelajahi</string>
+  <string name="revanced_change_start_page_entry_fashion">Fashion &amp; Kecantikan</string>
   <string name="revanced_change_start_page_entry_gaming">Permainan</string>
   <string name="revanced_change_start_page_entry_history">Riwayat</string>
   <string name="revanced_change_start_page_entry_library">Pustaka</string>
@@ -1134,11 +1137,17 @@ Jika kemudian dimatikan, disarankan untuk menghapus data aplikasi untuk mencegah
   <string name="revanced_change_start_page_entry_live">Siaran langsunng</string>
   <string name="revanced_change_start_page_entry_movies">Film</string>
   <string name="revanced_change_start_page_entry_music">Musik</string>
+  <string name="revanced_change_start_page_entry_news">Berita</string>
+  <string name="revanced_change_start_page_entry_notifications">Pemberitahuan</string>
+  <string name="revanced_change_start_page_entry_playlists">Daftar Putar</string>
   <string name="revanced_change_start_page_entry_search">Pencarian</string>
+  <string name="revanced_change_start_page_entry_shopping">Belanja</string>
   <string name="revanced_change_start_page_entry_sports">Olahraga</string>
   <string name="revanced_change_start_page_entry_subscriptions">Langganan</string>
   <string name="revanced_change_start_page_entry_trending">Sedang tren</string>
+  <string name="revanced_change_start_page_entry_virtual_reality">Realitas Virtual</string>
   <string name="revanced_change_start_page_entry_watch_later">Tonton nanti</string>
+  <string name="revanced_change_start_page_entry_your_clips">Klip Anda</string>
   </patch>
   <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch">
   <string name="revanced_disable_resuming_shorts_player_title">Matikan melanjutkan pemutar video Shorts</string>

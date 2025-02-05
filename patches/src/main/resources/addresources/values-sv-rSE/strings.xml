@@ -1125,8 +1125,11 @@ Om det senare stängs av rekommenderas det att rensa appens data för att förhi
   <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">Ställ in startsida</string>
   <string name="revanced_change_start_page_entry_default">Standard</string>
+  <string name="revanced_change_start_page_entry_all_subscriptions">Alla prenumerationer</string>
   <string name="revanced_change_start_page_entry_browse">Bläddra bland kanaler</string>
+  <string name="revanced_change_start_page_entry_courses">Kurser / Lärande</string>
   <string name="revanced_change_start_page_entry_explore">Utforska</string>
+  <string name="revanced_change_start_page_entry_fashion">Mode &amp; Skönhet</string>
   <string name="revanced_change_start_page_entry_gaming">Spel</string>
   <string name="revanced_change_start_page_entry_history">Historik</string>
   <string name="revanced_change_start_page_entry_library">Bibliotek</string>
@@ -1134,11 +1137,17 @@ Om det senare stängs av rekommenderas det att rensa appens data för att förhi
   <string name="revanced_change_start_page_entry_live">Direkt</string>
   <string name="revanced_change_start_page_entry_movies">Filmer</string>
   <string name="revanced_change_start_page_entry_music">Musik</string>
+  <string name="revanced_change_start_page_entry_news">Nyheter</string>
+  <string name="revanced_change_start_page_entry_notifications">Meddelanden</string>
+  <string name="revanced_change_start_page_entry_playlists">Spellistor</string>
   <string name="revanced_change_start_page_entry_search">Sök</string>
+  <string name="revanced_change_start_page_entry_shopping">Shopping</string>
   <string name="revanced_change_start_page_entry_sports">Sport</string>
   <string name="revanced_change_start_page_entry_subscriptions">Prenumerationer</string>
   <string name="revanced_change_start_page_entry_trending">Trendande</string>
+  <string name="revanced_change_start_page_entry_virtual_reality">Virtual reality</string>
   <string name="revanced_change_start_page_entry_watch_later">Titta senare</string>
+  <string name="revanced_change_start_page_entry_your_clips">Dina klipp</string>
   </patch>
   <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch">
   <string name="revanced_disable_resuming_shorts_player_title">Inaktivera återupptagande av Shorts spelare</string>

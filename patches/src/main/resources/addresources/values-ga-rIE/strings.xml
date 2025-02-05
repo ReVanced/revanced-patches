@@ -1126,8 +1126,11 @@ Má dhiúltaítear é níos déanaí, moltar sonraí an aip a ghlanadh chun buga
   <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">Socraigh leathanach tosaigh</string>
   <string name="revanced_change_start_page_entry_default">Réamhshocraithe</string>
+  <string name="revanced_change_start_page_entry_all_subscriptions">Uile shuibhscríbhinní</string>
   <string name="revanced_change_start_page_entry_browse">Brabhsáil cainéil</string>
+  <string name="revanced_change_start_page_entry_courses">Cúrsaí / Foghlaim</string>
   <string name="revanced_change_start_page_entry_explore">Déan iniúchadh</string>
+  <string name="revanced_change_start_page_entry_fashion">Faisean &amp; Áilleacht</string>
   <string name="revanced_change_start_page_entry_gaming">Cluichíocht</string>
   <string name="revanced_change_start_page_entry_history">Stair</string>
   <string name="revanced_change_start_page_entry_library">Leabharlann</string>
@@ -1135,10 +1138,14 @@ Má dhiúltaítear é níos déanaí, moltar sonraí an aip a ghlanadh chun buga
   <string name="revanced_change_start_page_entry_live">Beo</string>
   <string name="revanced_change_start_page_entry_movies">Scannáin</string>
   <string name="revanced_change_start_page_entry_music">Ceol</string>
+  <string name="revanced_change_start_page_entry_news">Nuacht</string>
+  <string name="revanced_change_start_page_entry_notifications">Fógraí</string>
+  <string name="revanced_change_start_page_entry_playlists">Liostaí seinnte</string>
   <string name="revanced_change_start_page_entry_search">Cuardaigh</string>
   <string name="revanced_change_start_page_entry_sports">Spóirt</string>
   <string name="revanced_change_start_page_entry_subscriptions">Síntiúis</string>
   <string name="revanced_change_start_page_entry_trending">Ag treocht</string>
+  <string name="revanced_change_start_page_entry_virtual_reality">Fíor-Rialtas</string>
   <string name="revanced_change_start_page_entry_watch_later">Féach ar níos déanaí</string>
   </patch>
   <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch">

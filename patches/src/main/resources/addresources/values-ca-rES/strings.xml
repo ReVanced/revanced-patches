@@ -1125,8 +1125,11 @@ Si després es desactiva, es recomana esborrar les dades de l'aplicació per evi
   <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">Defineix la pàgina d\'inici</string>
   <string name="revanced_change_start_page_entry_default">Per defecte</string>
+  <string name="revanced_change_start_page_entry_all_subscriptions">Totes les subscripcions</string>
   <string name="revanced_change_start_page_entry_browse">Explora canals</string>
+  <string name="revanced_change_start_page_entry_courses">Cursos / Aprenentatge</string>
   <string name="revanced_change_start_page_entry_explore">Explora</string>
+  <string name="revanced_change_start_page_entry_fashion">Moda i Bellesa</string>
   <string name="revanced_change_start_page_entry_gaming">Jocs</string>
   <string name="revanced_change_start_page_entry_history">Historial</string>
   <string name="revanced_change_start_page_entry_library">Biblioteca</string>
@@ -1134,10 +1137,14 @@ Si després es desactiva, es recomana esborrar les dades de l'aplicació per evi
   <string name="revanced_change_start_page_entry_live">En directe</string>
   <string name="revanced_change_start_page_entry_movies">Pel·lícules</string>
   <string name="revanced_change_start_page_entry_music">Música</string>
+  <string name="revanced_change_start_page_entry_news">Notícies</string>
+  <string name="revanced_change_start_page_entry_notifications">Notificacions</string>
+  <string name="revanced_change_start_page_entry_playlists">Llistes de reproducció</string>
   <string name="revanced_change_start_page_entry_search">Cerca</string>
   <string name="revanced_change_start_page_entry_sports">Esports</string>
   <string name="revanced_change_start_page_entry_subscriptions">Subscripcions</string>
   <string name="revanced_change_start_page_entry_trending">Tendències</string>
+  <string name="revanced_change_start_page_entry_virtual_reality">Realitat virtual</string>
   <string name="revanced_change_start_page_entry_watch_later">Veure més tard</string>
   </patch>
   <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch">

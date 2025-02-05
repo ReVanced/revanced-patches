@@ -1127,8 +1127,11 @@ Jei vėliau išjungta, rekomenduojama išvalyti programos duomenis, kad būtų i
   <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">Nustatyti pradinį puslapį</string>
   <string name="revanced_change_start_page_entry_default">Numatytasis</string>
+  <string name="revanced_change_start_page_entry_all_subscriptions">Visos Prenumeratos</string>
   <string name="revanced_change_start_page_entry_browse">Naršyti kanalus</string>
+  <string name="revanced_change_start_page_entry_courses">Kursai / Mokymasis</string>
   <string name="revanced_change_start_page_entry_explore">Atrasti</string>
+  <string name="revanced_change_start_page_entry_fashion">Mada ir Grožis</string>
   <string name="revanced_change_start_page_entry_gaming">Žaidimai</string>
   <string name="revanced_change_start_page_entry_history">Istorija</string>
   <string name="revanced_change_start_page_entry_library">Biblioteka</string>
@@ -1136,10 +1139,14 @@ Jei vėliau išjungta, rekomenduojama išvalyti programos duomenis, kad būtų i
   <string name="revanced_change_start_page_entry_live">Tiesiogiai</string>
   <string name="revanced_change_start_page_entry_movies">Filmai</string>
   <string name="revanced_change_start_page_entry_music">Muzika</string>
+  <string name="revanced_change_start_page_entry_news">Naujienos</string>
+  <string name="revanced_change_start_page_entry_notifications">Pranešimai</string>
+  <string name="revanced_change_start_page_entry_playlists">Grojaraščių sąrašai</string>
   <string name="revanced_change_start_page_entry_search">Paieška</string>
   <string name="revanced_change_start_page_entry_sports">Sportas</string>
   <string name="revanced_change_start_page_entry_subscriptions">Prenumeratos</string>
   <string name="revanced_change_start_page_entry_trending">Populiariausi</string>
+  <string name="revanced_change_start_page_entry_virtual_reality">Virtualioji realybė</string>
   <string name="revanced_change_start_page_entry_watch_later">Pažiūrėti vėliau</string>
   </patch>
   <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch">

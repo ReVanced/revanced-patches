@@ -1125,8 +1125,11 @@ Si désactivé ultérieurement, il est recommandé d'effacer les données de l'a
   <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">Définir la page ouverte au lancement</string>
   <string name="revanced_change_start_page_entry_default">Par défaut</string>
+  <string name="revanced_change_start_page_entry_all_subscriptions">Tous les abonnements</string>
   <string name="revanced_change_start_page_entry_browse">Parcourir les chaînes</string>
+  <string name="revanced_change_start_page_entry_courses">Cours / Apprentissage</string>
   <string name="revanced_change_start_page_entry_explore">Explorer</string>
+  <string name="revanced_change_start_page_entry_fashion">Mode et beauté</string>
   <string name="revanced_change_start_page_entry_gaming">Jeux vidéo</string>
   <string name="revanced_change_start_page_entry_history">Historique</string>
   <string name="revanced_change_start_page_entry_library">Bibliothèque</string>
@@ -1134,10 +1137,14 @@ Si désactivé ultérieurement, il est recommandé d'effacer les données de l'a
   <string name="revanced_change_start_page_entry_live">Direct</string>
   <string name="revanced_change_start_page_entry_movies">Films</string>
   <string name="revanced_change_start_page_entry_music">Musique</string>
+  <string name="revanced_change_start_page_entry_news">Infos</string>
+  <string name="revanced_change_start_page_entry_notifications">Notifications</string>
+  <string name="revanced_change_start_page_entry_playlists">Listes de lecture</string>
   <string name="revanced_change_start_page_entry_search">Recherche</string>
   <string name="revanced_change_start_page_entry_sports">Sport</string>
   <string name="revanced_change_start_page_entry_subscriptions">Abonnements</string>
   <string name="revanced_change_start_page_entry_trending">Tendances</string>
+  <string name="revanced_change_start_page_entry_virtual_reality">Réalité virtuelle</string>
   <string name="revanced_change_start_page_entry_watch_later">À regarder plus tard</string>
   </patch>
   <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch">
