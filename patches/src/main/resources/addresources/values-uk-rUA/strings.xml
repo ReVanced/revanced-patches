@@ -100,7 +100,10 @@ Second \"item\" text"</string>
   <string name="revanced_language_VI">В\'єтнамська</string>
   <string name="revanced_language_ZH">Китайська</string>
   <string name="revanced_pref_import_export_title">Імпорт / Експорт налаштувань</string>
-  <string name="revanced_pref_import_export_summary">Імпорт / Експорт налаштувань ReVanced\n\nДля збереження налаштувань скопіюйте текст у вікні кнопкою \"Копіювати\" та збережіть його в текстовому файлі.\nДля відновлення налаштувань вставте у вікно збережений раніше текст та натисніть кнопку \"Імпортувати\"</string>
+  <string name="revanced_pref_import_export_summary">Імпорт / Експорт налаштувань ReVanced
+
+Для збереження налаштувань скопіюйте текст у вікні кнопкою \"Копіювати\" та збережіть його в текстовому файлі.
+Для відновлення налаштувань вставте у вікно збережений раніше текст та натисніть кнопку \"Імпортувати\"</string>
   <!-- Settings about dialog. -->
   <string name="revanced_settings_about_links_body">Ви використовуєте ReVanced Patches версії &lt;i&gt;%s&lt;/i&gt;</string>
   <string name="revanced_settings_about_links_dev_header">Примітка</string>
@@ -145,7 +148,7 @@ Second \"item\" text"</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
   <string name="revanced_shorts_disable_background_playback_title">Вимкнути фонове відтворення Shorts</string>
-  <string name="revanced_shorts_disable_background_playback_summary_on">Фонове відтворення Shorts вимкнуто</string>
+  <string name="revanced_shorts_disable_background_playback_summary_on">Фонове відтворення Shorts вимкнено</string>
   <string name="revanced_shorts_disable_background_playback_summary_off">Фонове відтворення Shorts увімкнено</string>
   </patch>
   <patch id="misc.debugging.enableDebuggingPatch">
@@ -153,7 +156,7 @@ Second \"item\" text"</string>
   <string name="revanced_debug_screen_summary">Увімкнення або вимкнення параметрів налагодження</string>
   <string name="revanced_debug_title">Журнал налагодження</string>
   <string name="revanced_debug_summary_on">Журнали налагодження ввімкнено</string>
-  <string name="revanced_debug_summary_off">Журнали налагодження вимкнуто</string>
+  <string name="revanced_debug_summary_off">Журнали налагодження вимкнено</string>
   <string name="revanced_debug_protobuffer_title">Реєструвати буфер протоколу</string>
   <string name="revanced_debug_protobuffer_summary_on">Журнали налагодження містять протобуфер</string>
   <string name="revanced_debug_protobuffer_summary_off">Журнали налагодження не містять протобуфер</string>
@@ -348,7 +351,7 @@ Second \"item\" text"</string>
   <string name="revanced_custom_filter_screen_summary">Приховати компоненти за допомогою користувацьких фільтрів</string>
   <string name="revanced_custom_filter_title">Увімкнути користувацький фільтр</string>
   <string name="revanced_custom_filter_summary_on">Користувацький фільтр увімкнуто</string>
-  <string name="revanced_custom_filter_summary_off">Користувацький фільтр вимкнуто</string>
+  <string name="revanced_custom_filter_summary_off">Користувацький фільтр вимкнено</string>
   <string name="revanced_custom_filter_strings_title">Користувацький фільтр</string>
   <!-- 'Component path builder strings' is the technical name for identifying the Litho UI layout items to hide. This is an advanced feature and most users will never use this. -->
   <string name="revanced_custom_filter_strings_summary">Список рядків конструктора шляхів компонентів для фільтрування, розділених новим рядком</string>
@@ -474,27 +477,27 @@ Second \"item\" text"</string>
   </patch>
   <patch id="interaction.seekbar.disablePreciseSeekingGesturePatch">
   <string name="revanced_disable_precise_seeking_gesture_title">Вимкнути жест покадрового перемотування</string>
-  <string name="revanced_disable_precise_seeking_gesture_summary_on">Жест для покадрового перемотування вимкнуто</string>
+  <string name="revanced_disable_precise_seeking_gesture_summary_on">Жест для покадрового перемотування вимкнено</string>
   <string name="revanced_disable_precise_seeking_gesture_summary_off">Жест для покадрового перемотування ввімкнуто</string>
   </patch>
   <patch id="interaction.seekbar.enableSeekbarTappingPatch">
-  <string name="revanced_seekbar_tapping_title">Перемотування натисканням на панель</string>
+  <string name="revanced_seekbar_tapping_title">Увімкнути перемотування натисканням</string>
   <string name="revanced_seekbar_tapping_summary_on">Перемотування натисканням на панель прогресу ввімкнуто</string>
-  <string name="revanced_seekbar_tapping_summary_off">Перемотування натисканням на панель прогресу вимкнуто</string>
+  <string name="revanced_seekbar_tapping_summary_off">Перемотування натисканням на панель прогресу вимкнено</string>
   </patch>
   <patch id="interaction.swipecontrols.swipeControlsResourcePatch">
   <string name="revanced_swipe_brightness_title">Зміна яскравості жестом</string>
   <string name="revanced_swipe_brightness_summary_on">Зміну яскравості жестом по лівій частині відеоплеєра ввімкнуто</string>
-  <string name="revanced_swipe_brightness_summary_off">Зміну яскравості жестом по лівій частині відеоплеєра вимкнуто</string>
+  <string name="revanced_swipe_brightness_summary_off">Зміну яскравості жестом по лівій частині відеоплеєра вимкнено</string>
   <string name="revanced_swipe_volume_title">Зміна гучності жестом</string>
   <string name="revanced_swipe_volume_summary_on">Зміну гучності жестом по правій частині відеоплеєра ввімкнуто</string>
-  <string name="revanced_swipe_volume_summary_off">Зміну гучності жестом по правій частині відеоплеєра вимкнуто</string>
+  <string name="revanced_swipe_volume_summary_off">Зміну гучності жестом по правій частині відеоплеєра вимкнено</string>
   <string name="revanced_swipe_press_to_engage_title">Натискання для жесту</string>
   <string name="revanced_swipe_press_to_engage_summary_on">Натискання та утримання для жесту ввімкнуто</string>
-  <string name="revanced_swipe_press_to_engage_summary_off">Натискання та утримання для жесту вимкнуто</string>
+  <string name="revanced_swipe_press_to_engage_summary_off">Натискання та утримання для жесту вимкнено</string>
   <string name="revanced_swipe_haptic_feedback_title">Вібрація при жестах</string>
   <string name="revanced_swipe_haptic_feedback_summary_on">Вібрацію при жестах увімкнуто</string>
-  <string name="revanced_swipe_haptic_feedback_summary_off">Вібрацію при жестах вимкнуто</string>
+  <string name="revanced_swipe_haptic_feedback_summary_off">Вібрацію при жестах вимкнено</string>
   <string name="revanced_swipe_save_and_restore_brightness_title">Зберігати та відновлювати яскравість</string>
   <string name="revanced_swipe_save_and_restore_brightness_summary_on">Значення яскравості при переході до повноекранного режиму зберігається та відновлюється</string>
   <string name="revanced_swipe_save_and_restore_brightness_summary_off">Значення яскравості при переході до повноекранного режиму не зберігається та не відновлюється</string>
@@ -506,8 +509,9 @@ Second \"item\" text"</string>
   <string name="revanced_swipe_overlay_timeout_summary">Скільки мілісекунд спливаюча панель при жесті буде показуватися</string>
   <string name="revanced_swipe_text_overlay_size_title">Розмір шрифту панелі жесту</string>
   <string name="revanced_swipe_text_overlay_size_summary">Розмір шрифту спливаючої панелі при жесті</string>
-  <string name="revanced_swipe_overlay_background_alpha_title">Видимість фону панелі жесту</string>
-  <string name="revanced_swipe_overlay_background_alpha_summary">Видимість фону спливаючої панелі при жесті</string>
+  <string name="revanced_swipe_overlay_background_opacity_title">Затемнення фону панелі жесту</string>
+  <string name="revanced_swipe_overlay_background_opacity_summary">Значення затемнення від 0 до 100</string>
+  <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Значення затемнення панелі жесту має бути в межах від 0 до 100</string>
   <string name="revanced_swipe_threshold_title">Поріг величини жесту</string>
   <string name="revanced_swipe_threshold_summary">Мінімальна амплітуда руху, що розпізнається як жест</string>
   <string name="revanced_swipe_change_video_title">Увімкнути зміну відео проведенням</string>
@@ -516,7 +520,7 @@ Second \"item\" text"</string>
   </patch>
   <patch id="layout.autocaptions.autoCaptionsPatch">
   <string name="revanced_auto_captions_title">Вимкнути автоматичні субтитри</string>
-  <string name="revanced_auto_captions_summary_on">Автоматичні субтитри вимкнуто</string>
+  <string name="revanced_auto_captions_summary_on">Автоматичні субтитри вимкнено</string>
   <string name="revanced_auto_captions_summary_off">Автоматичні субтитри ввімкнуто</string>
   </patch>
   <patch id="layout.buttons.action.hideButtonsPatch">
@@ -670,7 +674,7 @@ Second \"item\" text"</string>
   </patch>
   <patch id="layout.hide.fullscreenambientmode.disableFullscreenAmbientModePatch">
   <string name="revanced_disable_fullscreen_ambient_mode_title">Вимкнути кінематографічне освітлення</string>
-  <string name="revanced_disable_fullscreen_ambient_mode_summary_on">Кінематографічне освітлення в повноекранному режимі вимкнуто</string>
+  <string name="revanced_disable_fullscreen_ambient_mode_summary_on">Кінематографічне освітлення в повноекранному режимі вимкнено</string>
   <string name="revanced_disable_fullscreen_ambient_mode_summary_off">Кінематографічне освітлення в повноекранному режимі ввімкнуто</string>
   </patch>
   <patch id="layout.hide.infocards.hideInfocardsResourcePatch">
@@ -796,7 +800,9 @@ Second \"item\" text"</string>
   </patch>
   <patch id="layout.hide.suggestedvideoendscreen.disableSuggestedVideoEndScreenResourcePatch">
   <string name="revanced_disable_suggested_video_end_screen_title">Вимкнути пропоновані відео на кінцевому екрані</string>
-  <string name="revanced_disable_suggested_video_end_screen_summary_on">Пропоновані відео на кінцевому екрані буде вимкнуто.\n\nПримітка: автовідтворення наступного відео не працює</string>
+  <string name="revanced_disable_suggested_video_end_screen_summary_on">Пропоновані відео на кінцевому екрані буде вимкнено.
+
+Примітка: автовідтворення наступного відео не працює</string>
   <string name="revanced_disable_suggested_video_end_screen_summary_off">Пропоновані відео на кінцевому екрані показуватимуться</string>
   </patch>
   <patch id="layout.hide.time.hideTimestampPatch">
@@ -823,15 +829,15 @@ Second \"item\" text"</string>
   </patch>
   <patch id="layout.player.overlay.customPlayerOverlayOpacityResourcePatch">
   <string name="revanced_player_overlay_opacity_title">Затемнення плеєра при натисканні</string>
-  <string name="revanced_player_overlay_opacity_summary">Значення непрозорості затемнення при натисканні на плеєр в межах 0-100, де 0 це прозоро</string>
-  <string name="revanced_player_overlay_opacity_invalid_toast">Значення затемнення плеєра має бути в межах 0-100</string>
+  <string name="revanced_player_overlay_opacity_summary">Значення непрозорості затемнення при натисканні на плеєр в межах від 0 до 100, де 0 це прозоро</string>
+  <string name="revanced_player_overlay_opacity_invalid_toast">Значення затемнення плеєра має бути в межах від 0 до 100</string>
   </patch>
   <patch id="layout.returnyoutubedislike.returnYouTubeDislikePatch">
   <!-- Toast shown if network connection times out. Translations of this should not be longer than the original English or the text can be clipped and not entirely shown. -->
-  <string name="revanced_ryd_failure_connection_timeout">Дизлайки тимчасово недоступні (тайм-аут API)</string>
-  <string name="revanced_ryd_failure_connection_status_code">Дизлайки недоступні (статус %d)</string>
-  <string name="revanced_ryd_failure_client_rate_limit_requested">Дизлайки недоступні (ліміт клієнтів сервера API)</string>
-  <string name="revanced_ryd_failure_generic">Дизлайки недоступні (%s)</string>
+  <string name="revanced_ryd_failure_connection_timeout">Відмітки \"Не подобається\" тимчасово недоступні (тайм-аут API)</string>
+  <string name="revanced_ryd_failure_connection_status_code">Відмітки \"Не подобається\" недоступні (статус %d)</string>
+  <string name="revanced_ryd_failure_client_rate_limit_requested">Відмітки \"Не подобається\" недоступні (ліміт клієнтів сервера API)</string>
+  <string name="revanced_ryd_failure_generic">Відмітки \"Не подобається\" недоступні (%s)</string>
   <!-- Toast shown if the user enables RYD while a video is opened, and then tries to vote for the video. -->
   <string name="revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted">Оновіть відео, щоб проголосувати за допомогою ReturnYouTubeDislike</string>
   <string name="revanced_ryd_enable_summary_on">Відмітки \"Не подобається\" показуються</string>
@@ -874,8 +880,10 @@ Second \"item\" text"</string>
   </patch>
   <patch id="layout.searchbar.wideSearchbarPatch">
   <string name="revanced_wide_searchbar_title">Широка панель пошуку</string>
-  <string name="revanced_wide_searchbar_summary_on">Широку панель пошуку ввімкнуто\n\nЦе також приховує значок YouTube та кнопку пошуку</string>
-  <string name="revanced_wide_searchbar_summary_off">Широку панель пошуку вимкнуто</string>
+  <string name="revanced_wide_searchbar_summary_on">Широку панель пошуку ввімкнуто
+
+Це також приховує значок YouTube та кнопку пошуку</string>
+  <string name="revanced_wide_searchbar_summary_off">Широку панель пошуку вимкнено</string>
   </patch>
   <patch id="layout.seekbar.seekbarThumbnailsPatch">
   <string name="revanced_seekbar_thumbnails_high_quality_title">Увімкнути мініатюри високої якості</string>
@@ -931,7 +939,7 @@ Second \"item\" text"</string>
   <string name="revanced_sb_toast_on_connection_error_summary_off">Тост не показується, якщо SponsorBlock не доступний</string>
   <string name="revanced_sb_general_skipcount">Відстеження кількості пропусків</string>
   <string name="revanced_sb_general_skipcount_sum_on">Дозволяє таблиці лідерів SponsorBlock дізнатися, скільки часу заощаджено. Повідомлення надсилається в таблицю лідерів щоразу, коли сегмент пропущено</string>
-  <string name="revanced_sb_general_skipcount_sum_off">Відстеження кількості пропусків вимкнуто</string>
+  <string name="revanced_sb_general_skipcount_sum_off">Відстеження кількості пропусків вимкнено</string>
   <string name="revanced_sb_general_min_duration">Мінімальна тривалість сегменту</string>
   <string name="revanced_sb_general_min_duration_sum">Сегменти, коротші за це значення (в секундах), не будуть показані або пропущені </string>
   <string name="revanced_sb_general_min_duration_invalid">Неприпустима тривалість</string>
@@ -1114,7 +1122,7 @@ Second \"item\" text"</string>
                  This is because the 'General layout' menu uses alphabetic sorting, and it functionally works better if the spoof target selector appears below the 'Spoof app version' UI switch -->
   <string name="revanced_spoof_app_version_target_title">Підробити версію програми на</string>
   <string name="revanced_spoof_app_version_target_entry_1">19.35.36 - Відновлення старих іконок плеєра Shorts</string>
-  <string name="revanced_spoof_app_version_target_entry_2">19.26.42 - Відновлення старих іконок навігації та панелі інструментів</string>
+  <string name="revanced_spoof_app_version_target_entry_2">19.26.42 - Відновлення старих іконок панелі навігації</string>
   <!-- 'RYD' is 'Return YouTube Dislike' -->
   <string name="revanced_spoof_app_version_target_legacy_entry_1">18.33.40 - Відновлення RYD в анонімному режимі Shorts</string>
   <string name="revanced_spoof_app_version_target_legacy_entry_2">18.20.39 - Відновлення розширеного меню швидкості та якості відео</string>
@@ -1140,9 +1148,9 @@ Second \"item\" text"</string>
   <string name="revanced_change_start_page_entry_watch_later">Переглянути пізніше</string>
   </patch>
   <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch">
-  <string name="revanced_disable_resuming_shorts_player_title">Вимкнути плеєр Shorts при запуску</string>
-  <string name="revanced_disable_resuming_shorts_player_summary_on">Плеєр Shorts вимкнуто при запуску додатку</string>
-  <string name="revanced_disable_resuming_shorts_player_summary_off">Плеєр Shorts увімкнуто при запуску додатку</string>
+  <string name="revanced_disable_resuming_shorts_player_title">Вимкнути відновлення плеєра Shorts</string>
+  <string name="revanced_disable_resuming_shorts_player_summary_on">Плеєр Shorts не відновиться після запуску застосунку</string>
+  <string name="revanced_disable_resuming_shorts_player_summary_off">Плеєр Shorts відновиться після запуску застосунку</string>
   </patch>
   <patch id="layout.shortsplayer.shortsPlayerTypePatch">
   <string name="revanced_shorts_player_type_title">Відкривати Shorts через</string>
@@ -1162,7 +1170,7 @@ Second \"item\" text"</string>
   <string name="revanced_miniplayer_screen_title">Мініплеєр</string>
   <string name="revanced_miniplayer_screen_summary">Змінити стиль згорнутого мініплеєра</string>
   <string name="revanced_miniplayer_type_title">Тип мініплеєра</string>
-  <string name="revanced_miniplayer_type_entry_0">Вимкнуто</string>
+  <string name="revanced_miniplayer_type_entry_0">Вимкнено</string>
   <string name="revanced_miniplayer_type_entry_1">Стандартний</string>
   <string name="revanced_miniplayer_type_entry_2">Мінімальний</string>
   <string name="revanced_miniplayer_type_entry_3">Планшетний</string>
@@ -1177,12 +1185,12 @@ Second \"item\" text"</string>
 
 • Двічі торкніться, щоб збільшити розмір мініплеєра
 • Двічі торкніться ще раз, щоб відновити початковий розмір"</string>
-  <string name="revanced_miniplayer_double_tap_action_summary_off">Подвійне натискання та зміну розміру щипком вимкнуто</string>
+  <string name="revanced_miniplayer_double_tap_action_summary_off">Подвійне натискання та зміну розміру щипком вимкнено</string>
   <string name="revanced_miniplayer_drag_and_drop_title">Увімкнути перетягування</string>
   <string name="revanced_miniplayer_drag_and_drop_summary_on">"Перетягування увімкнено
 
 Мініплеєр можна перетягнути в будь-який кут екрану"</string>
-  <string name="revanced_miniplayer_drag_and_drop_summary_off">Перетягування вимкнуто</string>
+  <string name="revanced_miniplayer_drag_and_drop_summary_off">Перетягування вимкнено</string>
   <string name="revanced_miniplayer_horizontal_drag_title">Увімкнути жест горизонтального перетягування</string>
   <string name="revanced_miniplayer_horizontal_drag_summary_on">"Жест горизонтального перетягування увімкнено
 
@@ -1206,8 +1214,8 @@ Second \"item\" text"</string>
   <string name="revanced_miniplayer_width_dip_summary">Початковий розмір мініплеєра на екрані, в пікселях</string>
   <string name="revanced_miniplayer_width_dip_invalid_toast">Розмір у пікселях повинен бути від %1$s до %2$s</string>
   <string name="revanced_miniplayer_opacity_title">Затемнення мініплеєра</string>
-  <string name="revanced_miniplayer_opacity_summary">Значення затемнення при натисканні на мініплеєр в межах 0-100, де 0 це прозоро</string>
-  <string name="revanced_miniplayer_opacity_invalid_toast">Значення затемнення мініплеєра має бути в межах 0-100</string>
+  <string name="revanced_miniplayer_opacity_summary">Значення затемнення при натисканні на мініплеєр в межах від 0 до 100, де 0 це прозоро</string>
+  <string name="revanced_miniplayer_opacity_invalid_toast">Значення затемнення мініплеєра має бути від 0 до 100</string>
   </patch>
   <patch id="layout.theme.themePatch">
   <string name="revanced_gradient_loading_screen_title">Увімкнути градієнт завантаження</string>
@@ -1215,12 +1223,12 @@ Second \"item\" text"</string>
   <string name="revanced_gradient_loading_screen_summary_off">Екран завантаження макета матиме суцільне тло</string>
   </patch>
   <patch id="layout.theme.themeResourcePatch">
-  <string name="revanced_seekbar_custom_color_title">Колір панелі прогресу</string>
-  <string name="revanced_seekbar_custom_color_summary_on">Показується користувацький колір панелі прогресу відтворення</string>
-  <string name="revanced_seekbar_custom_color_summary_off">Показується оригінальний колір панелі прогресу відтворення</string>
-  <string name="revanced_seekbar_custom_color_primary_title">Колір панелі прогресу</string>
+  <string name="revanced_seekbar_custom_color_title">Увімкнути користувацький колір</string>
+  <string name="revanced_seekbar_custom_color_summary_on">Показується користувацький колір панелі прогресу</string>
+  <string name="revanced_seekbar_custom_color_summary_off">Показується оригінальний колір панелі прогресу</string>
+  <string name="revanced_seekbar_custom_color_primary_title">Користувацький колір</string>
   <string name="revanced_seekbar_custom_color_primary_summary">Значення кольору панелі прогресу</string>
-  <string name="revanced_seekbar_custom_color_accent_title">Вторинний колір панелі прогресу</string>
+  <string name="revanced_seekbar_custom_color_accent_title">Користувацький вторинний колір</string>
   <string name="revanced_seekbar_custom_color_accent_summary">Значення вторинного кольору панелі прогресу</string>
   <string name="revanced_seekbar_custom_color_invalid">Недійсне значення кольору панелі прогресу</string>
   </patch>
@@ -1283,7 +1291,7 @@ Second \"item\" text"</string>
   <patch id="misc.autorepeat.autoRepeatPatch">
   <string name="revanced_auto_repeat_title">Увімкнути автоповтор відео</string>
   <string name="revanced_auto_repeat_summary_on">Автоповторення поточного відео ввімкнуто</string>
-  <string name="revanced_auto_repeat_summary_off">Автоповторення поточного відео вимкнуто</string>
+  <string name="revanced_auto_repeat_summary_off">Автоповторення поточного відео вимкнено</string>
   </patch>
   <patch id="misc.dimensions.spoof.spoofDeviceDimensionsPatch">
   <string name="revanced_spoof_device_dimensions_title">Підробити розміри пристрою</string>
@@ -1316,7 +1324,7 @@ Second \"item\" text"</string>
   </patch>
   <patch id="misc.zoomhaptics.zoomHapticsPatch">
   <string name="revanced_disable_zoom_haptics_title">Вимкнути вібрацію при масштабуванні</string>
-  <string name="revanced_disable_zoom_haptics_summary_on">Вібрації при масштабуванні вимкнуто</string>
+  <string name="revanced_disable_zoom_haptics_summary_on">Вібрації при масштабуванні вимкнено</string>
   <string name="revanced_disable_zoom_haptics_summary_off">Вібрації при масштабуванні ввімкнуто</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
@@ -1373,8 +1381,12 @@ Second \"item\" text"</string>
   </patch>
   <patch id="interaction.seekbar.enableSlideToSeekPatch">
   <string name="revanced_slide_to_seek_title">Увімкнути перемотку пересуванням</string>
-  <string name="revanced_slide_to_seek_summary_on">Перемотку пересуванням увімкнуто\n\nУвімкнуто поведінку старого інтерфейсу \"Проведіть пальцем, щоб перемотати\"</string>
-  <string name="revanced_slide_to_seek_summary_off">Перемотку пересуванням вимкнуто\n\nУвімкнуто поведінку нового інтерфейсу прискорення \"2х &gt;&gt;\" при утриманні на екрані</string>
+  <string name="revanced_slide_to_seek_summary_on">Перемотку пересуванням увімкнуто
+
+Увімкнуто поведінку старого інтерфейсу \"Проведіть пальцем, щоб перемотати\"</string>
+  <string name="revanced_slide_to_seek_summary_off">Перемотку пересуванням вимкнено
+
+Увімкнуто поведінку нового інтерфейсу прискорення \"2х &gt;&gt;\" при утриманні на екрані</string>
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
   <string name="revanced_spoof_video_streams_screen_title">Підробка відеопотоків</string>
@@ -1420,7 +1432,7 @@ AVC має максимальну роздільну здатність 1080p, �
   <string name="revanced_embedded_ads_service_unavailable">%s недоступний, реклама може відображатися. Спробуйте змінити службу блокування реклами в налаштуваннях.</string>
   <string name="revanced_embedded_ads_service_failed">%s повернув помилку, реклама може відображатися. Спробуйте змінити службу блокування реклами в налаштуваннях.</string>
   <string name="revanced_block_embedded_ads_title">Блокувати вбудовану відеорекламу</string>
-  <string name="revanced_block_embedded_ads_entry_1">Вимкнуто</string>
+  <string name="revanced_block_embedded_ads_entry_1">Вимкнено</string>
   <string name="revanced_block_embedded_ads_entry_2">Проксі Luminous</string>
   <string name="revanced_block_embedded_ads_entry_3">Проксі PurpleAdBlock</string>
   </patch>
@@ -1445,7 +1457,7 @@ AVC має максимальну роздільну здатність 1080p, �
   <!-- Twitch specific internal debug mode, and not the same as 'revanced_debug_title' -->
   <string name="revanced_twitch_debug_mode_title">Увімкнути режим налагодження Twitch</string>
   <string name="revanced_twitch_debug_mode_summary_on">Режим налагодження Twitch увімкнено (не рекомендовано)</string>
-  <string name="revanced_twitch_debug_mode_summary_off">Режим налагодження Twitch вимкнуто</string>
+  <string name="revanced_twitch_debug_mode_summary_off">Режим налагодження Twitch вимкнено</string>
   </patch>
   <patch id="misc.settings.settingsPatch">
   <string name="revanced_settings">Налаштування ReVanced</string>
@@ -1463,7 +1475,7 @@ AVC має максимальну роздільну здатність 1080p, �
   <string name="revanced_surestream_ads_category_title">Реклама на стороні сервера</string>
   <string name="revanced_twitch_debug_title">Режим налагодження</string>
   <string name="revanced_twitch_debug_summary_on">Журнали налагодження ввімкнено</string>
-  <string name="revanced_twitch_debug_summary_off">Журнали налагодження вимкнуто</string>
+  <string name="revanced_twitch_debug_summary_off">Журнали налагодження вимкнено</string>
   </patch>
   </app>
 </resources>

@@ -24,9 +24,7 @@ internal const val EXTENSION_METHOD_DESCRIPTOR =
 val enableSlideToSeekPatch = bytecodePatch(
     name = "Enable slide to seek",
     description = "Adds an option to enable slide to seek " +
-        "instead of playing at 2x speed when pressing and holding in the video player. " +
-        "Including this patch may cause issues with tapping or double tapping the video player overlay.",
-    use = false,
+        "instead of playing at 2x speed when pressing and holding in the video player."
 ) {
     dependsOn(
         sharedExtensionPatch,

@@ -1136,8 +1136,11 @@ If later turned off, it is recommended to clear the app data to prevent UI bugs.
         <patch id="layout.startpage.changeStartPagePatch">
             <string name="revanced_change_start_page_title">Set start page</string>
             <string name="revanced_change_start_page_entry_default">Default</string>
+            <string name="revanced_change_start_page_entry_all_subscriptions">All subscriptions</string>
             <string name="revanced_change_start_page_entry_browse">Browse channels</string>
+            <string name="revanced_change_start_page_entry_courses">Courses / Learning</string>
             <string name="revanced_change_start_page_entry_explore">Explore</string>
+            <string name="revanced_change_start_page_entry_fashion">Fashion &amp; Beauty</string>
             <string name="revanced_change_start_page_entry_gaming">Gaming</string>
             <string name="revanced_change_start_page_entry_history">History</string>
             <string name="revanced_change_start_page_entry_library">Library</string>
@@ -1145,11 +1148,18 @@ If later turned off, it is recommended to clear the app data to prevent UI bugs.
             <string name="revanced_change_start_page_entry_live">Live</string>
             <string name="revanced_change_start_page_entry_movies">Movies</string>
             <string name="revanced_change_start_page_entry_music">Music</string>
+            <string name="revanced_change_start_page_entry_news">News</string>
+            <string name="revanced_change_start_page_entry_notifications">Notifications</string>
+            <string name="revanced_change_start_page_entry_playlists">Playlists</string>
             <string name="revanced_change_start_page_entry_search">Search</string>
+            <string name="revanced_change_start_page_entry_shopping">Shopping</string>
+            <string name="revanced_change_start_page_entry_shorts" translatable="false">Shorts</string>
             <string name="revanced_change_start_page_entry_sports">Sports</string>
             <string name="revanced_change_start_page_entry_subscriptions">Subscriptions</string>
             <string name="revanced_change_start_page_entry_trending">Trending</string>
+            <string name="revanced_change_start_page_entry_virtual_reality">Virtual Reality</string>
             <string name="revanced_change_start_page_entry_watch_later">Watch later</string>
+            <string name="revanced_change_start_page_entry_your_clips">Your clips</string>
         </patch>
         <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch">
             <string name="revanced_disable_resuming_shorts_player_title">Disable resuming Shorts player</string>

@@ -1,3 +1,24 @@
+## [5.10.1-dev.3](https://github.com/ReVanced/revanced-patches/compare/v5.10.1-dev.2...v5.10.1-dev.3) (2025-02-03)
+
+
+### Bug Fixes
+
+* **YouTube - Hide layout components:** Hide new type of community post ([#4404](https://github.com/ReVanced/revanced-patches/issues/4404)) ([f67ab2b](https://github.com/ReVanced/revanced-patches/commit/f67ab2baf25d543ceb55fcec48bda441ebf2b998))
+
+## [5.10.1-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.10.1-dev.1...v5.10.1-dev.2) (2025-02-03)
+
+
+### Bug Fixes
+
+* **YouTube - Enable slide to seek:** Change patch to default include ([50358cd](https://github.com/ReVanced/revanced-patches/commit/50358cddea3eef4051d248040d23f774521dce00))
+
+## [5.10.1-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.10.0...v5.10.1-dev.1) (2025-02-02)
+
+
+### Bug Fixes
+
+* **YouTube - Theme:** Use custom seekbar color for cairo startup animation ([#4399](https://github.com/ReVanced/revanced-patches/issues/4399)) ([1cba294](https://github.com/ReVanced/revanced-patches/commit/1cba2948a6787118eb380ffcec35ee4fb99447ea))
+
 # [5.10.0](https://github.com/ReVanced/revanced-patches/compare/v5.9.0...v5.10.0) (2025-01-31)
 
 

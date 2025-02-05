@@ -506,8 +506,9 @@ Second \"item\" text"</string>
   <string name="revanced_swipe_overlay_timeout_summary">覆蓋顯示的毫秒數</string>
   <string name="revanced_swipe_text_overlay_size_title">滑動覆蓋的文字大小</string>
   <string name="revanced_swipe_text_overlay_size_summary">滑動覆蓋的文字大小</string>
-  <string name="revanced_swipe_overlay_background_alpha_title">滑動背景透明度</string>
-  <string name="revanced_swipe_overlay_background_alpha_summary">滑動覆蓋背景透明度</string>
+  <string name="revanced_swipe_overlay_background_opacity_title">滑動覆蓋背景透明度</string>
+  <string name="revanced_swipe_overlay_background_opacity_summary">不透明度值介於 0 到 100 之間</string>
+  <string name="revanced_swipe_overlay_background_opacity_invalid_toast"> 滑動透明度必須介於 0 到 100 之間</string>
   <string name="revanced_swipe_threshold_title">滑動幅度臨界點</string>
   <string name="revanced_swipe_threshold_summary">滑動幅度臨界點</string>
   <string name="revanced_swipe_change_video_title">啟用滑動切換影片</string>
@@ -823,8 +824,8 @@ Second \"item\" text"</string>
   </patch>
   <patch id="layout.player.overlay.customPlayerOverlayOpacityResourcePatch">
   <string name="revanced_player_overlay_opacity_title">播放器覆蓋透明度</string>
-  <string name="revanced_player_overlay_opacity_summary">不透明度值介於 0-100 之間，0 為透明</string>
-  <string name="revanced_player_overlay_opacity_invalid_toast">播放器覆蓋層的不透明度必須在 0-100 之間</string>
+  <string name="revanced_player_overlay_opacity_summary">不透明度值介於 0 到 100 之間，其中 0 為完全透明</string>
+  <string name="revanced_player_overlay_opacity_invalid_toast">播放器覆蓋層的不透明度必須在 0 到 100 之間</string>
   </patch>
   <patch id="layout.returnyoutubedislike.returnYouTubeDislikePatch">
   <!-- Toast shown if network connection times out. Translations of this should not be longer than the original English or the text can be clipped and not entirely shown. -->
@@ -975,11 +976,11 @@ Second \"item\" text"</string>
   <string name="revanced_sb_segments_nomusic">音樂：非音樂片段</string>
   <string name="revanced_sb_segments_nomusic_sum">僅適用於音樂影片。音樂影片中沒有音樂，且不屬於其他類別的段落。</string>
   <string name="revanced_sb_skip_button_compact">跳過</string>
-  <string name="revanced_sb_skip_button_compact_highlight">重播次數最多</string>
+  <string name="revanced_sb_skip_button_compact_highlight">精華</string>
   <string name="revanced_sb_skip_button_sponsor">跳過贊助商廣告</string>
   <string name="revanced_sb_skip_button_selfpromo">跳過推廣</string>
   <string name="revanced_sb_skip_button_interaction">跳過互動</string>
-  <string name="revanced_sb_skip_button_highlight">跳到重播次數最多的部分</string>
+  <string name="revanced_sb_skip_button_highlight">跳到精華</string>
   <string name="revanced_sb_skip_button_intro_beginning">跳過開頭</string>
   <string name="revanced_sb_skip_button_intro_middle">跳過中場休息</string>
   <string name="revanced_sb_skip_button_intro_end">跳過中場休息</string>
@@ -993,7 +994,7 @@ Second \"item\" text"</string>
   <string name="revanced_sb_skipped_sponsor">已跳過贊助商廣告</string>
   <string name="revanced_sb_skipped_selfpromo">已跳過自我推廣</string>
   <string name="revanced_sb_skipped_interaction">已跳過提醒</string>
-  <string name="revanced_sb_skipped_highlight">已跳到重播次數最多的部分</string>
+  <string name="revanced_sb_skipped_highlight">已跳到精華</string>
   <string name="revanced_sb_skipped_intro_beginning">已跳過開頭</string>
   <string name="revanced_sb_skipped_intro_middle">已跳過中場休息</string>
   <string name="revanced_sb_skipped_intro_end">已跳過中場休息</string>
@@ -1070,7 +1071,7 @@ Second \"item\" text"</string>
   <string name="revanced_sb_stats_saved_zero">SponsorBlock 排行榜</string>
   <string name="revanced_sb_stats_saved">你已為人們省下了觀看 &lt;b&gt;%s&lt;/b&gt; 個片段的時間</string>
   <string name="revanced_sb_stats_saved_sum_zero">輕觸這裡查看全球統計資料和最佳貢獻者</string>
-  <string name="revanced_sb_stats_saved_sum">那可是他們生命中寶貴的 &lt;b&gt;%s&lt;/b&gt;。&lt;br&gt;點選檢視排行榜</string>
+  <string name="revanced_sb_stats_saved_sum">那可是他們生命中寶貴的 &lt;b&gt;%s&lt;/b&gt;。&lt;br&gt;輕觸這裡檢視排行榜</string>
   <string name="revanced_sb_stats_self_saved">你已跳過 &lt;b&gt;%s&lt;/b&gt; 個片段</string>
   <string name="revanced_sb_stats_self_saved_sum">總共 &lt;b&gt;%s&lt;/b&gt;</string>
   <string name="revanced_sb_stats_self_saved_reset_title">要重設略過片段的計數器嗎？</string>
@@ -1116,7 +1117,7 @@ Second \"item\" text"</string>
                  This is because the 'General layout' menu uses alphabetic sorting, and it functionally works better if the spoof target selector appears below the 'Spoof app version' UI switch -->
   <string name="revanced_spoof_app_version_target_title">應用程式偽裝目標版本</string>
   <string name="revanced_spoof_app_version_target_entry_1">19.35.36 - 還原舊版 Shorts 播放圖示</string>
-  <string name="revanced_spoof_app_version_target_entry_2">19.26.42 - 還原舊版導覽和工具列圖示</string>
+  <string name="revanced_spoof_app_version_target_entry_2">19.26.42 - 還原舊版導覽圖示</string>
   <!-- 'RYD' is 'Return YouTube Dislike' -->
   <string name="revanced_spoof_app_version_target_legacy_entry_1">18.33.40 - 在 Shorts 無痕模式中還原 RYD</string>
   <string name="revanced_spoof_app_version_target_legacy_entry_2">18.20.39 - 還原寬影片速度與畫質選單</string>
@@ -1365,7 +1366,7 @@ Second \"item\" text"</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_on">播放速度變更會套用至所有影片</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_off">播放速度變更僅套用至目前影片</string>
   <string name="revanced_playback_speed_default_title">預設播放速度</string>
-  <string name="revanced_remember_playback_speed_toast">變更預設速度為：%s</string>
+  <string name="revanced_remember_playback_speed_toast">已將預設速度變更為：%s</string>
   </patch>
   <patch id="video.hdr.disableHdrPatch">
   <string name="revanced_disable_hdr_video_title">停用 HDR 影片</string>
@@ -1393,7 +1394,7 @@ Second \"item\" text"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">關閉此設定可能會導致影片播放發生問題</string>
   <string name="revanced_spoof_video_streams_client_type_title">預設用戶端</string>
   <!-- 'no auth' means no authentication -->
-  <string name="revanced_spoof_video_streams_client_type_android_vr_no_auth">Android VR (無驗證)</string>
+  <string name="revanced_spoof_video_streams_client_type_android_vr_no_auth">Android VR（無驗證）</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_title">強制 iOS AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">影片解碼器強制為 AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">自動選擇影片解碼器</string>
@@ -1466,7 +1467,7 @@ A​VC 的最高解析度為 1080p，不支援 Opus 音訊解碼器，而且與 
   <string name="revanced_general_category_title">一般設定</string>
   <string name="revanced_other_category_title">其他設定</string>
   <string name="revanced_client_ads_category_title">用戶端廣告</string>
-  <string name="revanced_surestream_ads_category_title">伺服端 Surestream 廣告</string>
+  <string name="revanced_surestream_ads_category_title">伺服器端 Surestream 廣告</string>
   <string name="revanced_twitch_debug_title">偵錯記錄檔</string>
   <string name="revanced_twitch_debug_summary_on">已啟用偵錯記錄檔</string>
   <string name="revanced_twitch_debug_summary_off">已停用偵錯記錄檔</string>
