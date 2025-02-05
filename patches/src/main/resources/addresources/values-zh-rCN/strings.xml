@@ -1139,6 +1139,8 @@ Second \"item\" text"</string>
   <string name="revanced_change_start_page_entry_live">直播</string>
   <string name="revanced_change_start_page_entry_movies">电影</string>
   <string name="revanced_change_start_page_entry_music">音乐</string>
+  <string name="revanced_change_start_page_entry_news">新闻</string>
+  <string name="revanced_change_start_page_entry_notifications">通知</string>
   <string name="revanced_change_start_page_entry_search">搜索</string>
   <string name="revanced_change_start_page_entry_sports">体育</string>
   <string name="revanced_change_start_page_entry_subscriptions">订阅</string>

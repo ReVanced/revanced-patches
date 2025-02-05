@@ -1125,8 +1125,11 @@ To bo spremenilo videz in funkcije aplikacije, vendar se lahko pojavijo neznani 
   <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">Nastavi začetno stran</string>
   <string name="revanced_change_start_page_entry_default">Privzeto</string>
+  <string name="revanced_change_start_page_entry_all_subscriptions">Vse naročnine</string>
   <string name="revanced_change_start_page_entry_browse">Brskaj po kanalih</string>
+  <string name="revanced_change_start_page_entry_courses">Tečaji / Učenje</string>
   <string name="revanced_change_start_page_entry_explore">Razišči</string>
+  <string name="revanced_change_start_page_entry_fashion">Moda \u0026 Lepota</string>
   <string name="revanced_change_start_page_entry_gaming">Igranje iger</string>
   <string name="revanced_change_start_page_entry_history">Zgodovina</string>
   <string name="revanced_change_start_page_entry_library">Knjižnica</string>
@@ -1134,10 +1137,14 @@ To bo spremenilo videz in funkcije aplikacije, vendar se lahko pojavijo neznani 
   <string name="revanced_change_start_page_entry_live">V živo</string>
   <string name="revanced_change_start_page_entry_movies">Filmi</string>
   <string name="revanced_change_start_page_entry_music">Glasba</string>
+  <string name="revanced_change_start_page_entry_news">Novice</string>
+  <string name="revanced_change_start_page_entry_notifications">Obvestila</string>
+  <string name="revanced_change_start_page_entry_playlists">Predvajalni seznami</string>
   <string name="revanced_change_start_page_entry_search">Iskanje</string>
   <string name="revanced_change_start_page_entry_sports">Šport</string>
   <string name="revanced_change_start_page_entry_subscriptions">Naročnine</string>
   <string name="revanced_change_start_page_entry_trending">Trendi</string>
+  <string name="revanced_change_start_page_entry_virtual_reality">Virtualna resničnost</string>
   <string name="revanced_change_start_page_entry_watch_later">Oglej si kasneje</string>
   </patch>
   <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch">

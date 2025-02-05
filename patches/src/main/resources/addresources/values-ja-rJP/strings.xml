@@ -1129,8 +1129,11 @@ Automotive レイアウト
   <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">起動画面</string>
   <string name="revanced_change_start_page_entry_default">デフォルト</string>
+  <string name="revanced_change_start_page_entry_all_subscriptions">すべてのサブスクリプション</string>
   <string name="revanced_change_start_page_entry_browse">チャンネルを参照</string>
+  <string name="revanced_change_start_page_entry_courses">コース / 学習</string>
   <string name="revanced_change_start_page_entry_explore">探索</string>
+  <string name="revanced_change_start_page_entry_fashion">ファッション &amp; ビューティー</string>
   <string name="revanced_change_start_page_entry_gaming">ゲーム</string>
   <string name="revanced_change_start_page_entry_history">履歴</string>
   <string name="revanced_change_start_page_entry_library">マイページ</string>
@@ -1138,10 +1141,14 @@ Automotive レイアウト
   <string name="revanced_change_start_page_entry_live">ライブ</string>
   <string name="revanced_change_start_page_entry_movies">映画</string>
   <string name="revanced_change_start_page_entry_music">音楽</string>
+  <string name="revanced_change_start_page_entry_news">ニュース</string>
+  <string name="revanced_change_start_page_entry_notifications">通知</string>
+  <string name="revanced_change_start_page_entry_playlists">プレイリスト</string>
   <string name="revanced_change_start_page_entry_search">検索</string>
   <string name="revanced_change_start_page_entry_sports">スポーツ</string>
   <string name="revanced_change_start_page_entry_subscriptions">登録チャンネル</string>
   <string name="revanced_change_start_page_entry_trending">急上昇</string>
+  <string name="revanced_change_start_page_entry_virtual_reality">バーチャルリアリティ</string>
   <string name="revanced_change_start_page_entry_watch_later">後で見る</string>
   </patch>
   <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch">

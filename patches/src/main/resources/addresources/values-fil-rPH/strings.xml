@@ -1126,8 +1126,11 @@ Kung mamaya ay patayin, inirerekumenda na i-clear ang data ng app upang maiwasan
   <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">Itakda ang panimulang pahina</string>
   <string name="revanced_change_start_page_entry_default">Regular</string>
+  <string name="revanced_change_start_page_entry_all_subscriptions">Lahat ng mga subscription</string>
   <string name="revanced_change_start_page_entry_browse">Mag-browse ng mga channel</string>
+  <string name="revanced_change_start_page_entry_courses">Mga Kurso/Pag-aaral</string>
   <string name="revanced_change_start_page_entry_explore">Galugarin</string>
+  <string name="revanced_change_start_page_entry_fashion">Fashion at&amp; Kagandahan</string>
   <string name="revanced_change_start_page_entry_gaming">Paglalaro</string>
   <string name="revanced_change_start_page_entry_history">Kasaysayan</string>
   <string name="revanced_change_start_page_entry_library">Aklatan</string>
@@ -1135,11 +1138,17 @@ Kung mamaya ay patayin, inirerekumenda na i-clear ang data ng app upang maiwasan
   <string name="revanced_change_start_page_entry_live">Live</string>
   <string name="revanced_change_start_page_entry_movies">Mga Pelikula</string>
   <string name="revanced_change_start_page_entry_music">Musika</string>
+  <string name="revanced_change_start_page_entry_news">Mga Balita</string>
+  <string name="revanced_change_start_page_entry_notifications">Mga Abiso</string>
+  <string name="revanced_change_start_page_entry_playlists">Mga Playlist</string>
   <string name="revanced_change_start_page_entry_search">Maghanap</string>
+  <string name="revanced_change_start_page_entry_shopping">Pamimili</string>
   <string name="revanced_change_start_page_entry_sports">Isports</string>
   <string name="revanced_change_start_page_entry_subscriptions">Mga subscription</string>
   <string name="revanced_change_start_page_entry_trending">Trending</string>
+  <string name="revanced_change_start_page_entry_virtual_reality">Virtual Reality</string>
   <string name="revanced_change_start_page_entry_watch_later">Panoorin mamaya</string>
+  <string name="revanced_change_start_page_entry_your_clips">Mga clip mo</string>
   </patch>
   <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch">
   <string name="revanced_disable_resuming_shorts_player_title">Huwag paganahin ang pagpapatuloy na manlalaro ng Shorts</string>

@@ -1126,8 +1126,11 @@ MicroG-এর জন্য ব্যাটারি অপ্টিমাইজ�
   <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">শুরুর পৃষ্ঠা সেট করুন</string>
   <string name="revanced_change_start_page_entry_default">পূর্ব-নির্ধারিত</string>
+  <string name="revanced_change_start_page_entry_all_subscriptions">অন্য়াসব রভর্বাশার চিয়ুট</string>
   <string name="revanced_change_start_page_entry_browse">চ্যানেল ব্রাউজ করুন</string>
+  <string name="revanced_change_start_page_entry_courses">কোর্সু চবুভায় চা চেরারুকে</string>
   <string name="revanced_change_start_page_entry_explore">ঘুরে দেখুন</string>
+  <string name="revanced_change_start_page_entry_fashion">แฟชั่น &amp; ความงาม</string>
   <string name="revanced_change_start_page_entry_gaming">গেমিং</string>
   <string name="revanced_change_start_page_entry_history">ইতিহাস</string>
   <string name="revanced_change_start_page_entry_library">লাইব্রেরি</string>
@@ -1135,11 +1138,17 @@ MicroG-এর জন্য ব্যাটারি অপ্টিমাইজ�
   <string name="revanced_change_start_page_entry_live">লাইভ</string>
   <string name="revanced_change_start_page_entry_movies">মুভি</string>
   <string name="revanced_change_start_page_entry_music">সঙ্গীত</string>
+  <string name="revanced_change_start_page_entry_news">প্রাষুগ</string>
+  <string name="revanced_change_start_page_entry_notifications">নোটিস্য়াসেগ</string>
+  <string name="revanced_change_start_page_entry_playlists">চ্লাস ন৊টিস্য়াসেগ</string>
   <string name="revanced_change_start_page_entry_search">অনুসন্ধান</string>
+  <string name="revanced_change_start_page_entry_shopping">শোপিংগ</string>
   <string name="revanced_change_start_page_entry_sports">খেলাধুলা</string>
   <string name="revanced_change_start_page_entry_subscriptions">সদস্যতা</string>
   <string name="revanced_change_start_page_entry_trending">এখন জনপ্রিয়</string>
+  <string name="revanced_change_start_page_entry_virtual_reality">বির্চুভ্য়াল টিএলিটি</string>
   <string name="revanced_change_start_page_entry_watch_later">পরে দেখুন</string>
+  <string name="revanced_change_start_page_entry_your_clips">আপ্নার কলিপ</string>
   </patch>
   <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch">
   <string name="revanced_disable_resuming_shorts_player_title">Shorts প্লেয়ার আবার চালানো নিষ্ক্রিয় করুন</string>

@@ -1126,8 +1126,11 @@ Second \"item\" text"</string>
   <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">تعيين صفحة البداية</string>
   <string name="revanced_change_start_page_entry_default">الافتراضي</string>
+  <string name="revanced_change_start_page_entry_all_subscriptions">الاشتراكات كلها</string>
   <string name="revanced_change_start_page_entry_browse">تصفح القنوات</string>
+  <string name="revanced_change_start_page_entry_courses">الدورات / التعلم</string>
   <string name="revanced_change_start_page_entry_explore">استكشف</string>
+  <string name="revanced_change_start_page_entry_fashion">Fashion &amp; Beauty</string>
   <string name="revanced_change_start_page_entry_gaming">ألعاب</string>
   <string name="revanced_change_start_page_entry_history">السّجل</string>
   <string name="revanced_change_start_page_entry_library">المكتبة</string>
@@ -1135,10 +1138,14 @@ Second \"item\" text"</string>
   <string name="revanced_change_start_page_entry_live">مباشر</string>
   <string name="revanced_change_start_page_entry_movies">أفلام</string>
   <string name="revanced_change_start_page_entry_music">الموسيقى</string>
+  <string name="revanced_change_start_page_entry_news">الأخبار</string>
+  <string name="revanced_change_start_page_entry_notifications">الإشعارات</string>
+  <string name="revanced_change_start_page_entry_playlists">قائمة التشغيل</string>
   <string name="revanced_change_start_page_entry_search">البحث</string>
   <string name="revanced_change_start_page_entry_sports">الرياضة</string>
   <string name="revanced_change_start_page_entry_subscriptions">الاشتراكات</string>
   <string name="revanced_change_start_page_entry_trending">المحتوى الرائج</string>
+  <string name="revanced_change_start_page_entry_virtual_reality">الوقاع الاتراضي</string>
   <string name="revanced_change_start_page_entry_watch_later">شاهد لاحقًا</string>
   </patch>
   <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch">

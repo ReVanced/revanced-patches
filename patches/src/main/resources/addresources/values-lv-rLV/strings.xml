@@ -1125,8 +1125,11 @@ Ja vēlāk tiks izslēgts, ieteicams notīrīt lietotnes datus, lai novērstu li
   <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">Iestatīt sākotnējo lapu</string>
   <string name="revanced_change_start_page_entry_default">Noklusētais</string>
+  <string name="revanced_change_start_page_entry_all_subscriptions">Visi abonementi</string>
   <string name="revanced_change_start_page_entry_browse">Pārlūkot kanālus</string>
+  <string name="revanced_change_start_page_entry_courses">Kursi / Mācīšanās</string>
   <string name="revanced_change_start_page_entry_explore">Pētīt</string>
+  <string name="revanced_change_start_page_entry_fashion">Mode un skaistums</string>
   <string name="revanced_change_start_page_entry_gaming">Spēles</string>
   <string name="revanced_change_start_page_entry_history">Vēsture</string>
   <string name="revanced_change_start_page_entry_library">Bibliotēka</string>
@@ -1134,11 +1137,17 @@ Ja vēlāk tiks izslēgts, ieteicams notīrīt lietotnes datus, lai novērstu li
   <string name="revanced_change_start_page_entry_live">Tiešraide</string>
   <string name="revanced_change_start_page_entry_movies">Filmas</string>
   <string name="revanced_change_start_page_entry_music">Mūzika</string>
+  <string name="revanced_change_start_page_entry_news">Ziņas</string>
+  <string name="revanced_change_start_page_entry_notifications">Paziņojumi</string>
+  <string name="revanced_change_start_page_entry_playlists">Atskaņošanas saraksti</string>
   <string name="revanced_change_start_page_entry_search">Meklēt</string>
+  <string name="revanced_change_start_page_entry_shopping">Iepirkšanās</string>
   <string name="revanced_change_start_page_entry_sports">Sporta</string>
   <string name="revanced_change_start_page_entry_subscriptions">Abonementi</string>
   <string name="revanced_change_start_page_entry_trending">Trendējošais</string>
+  <string name="revanced_change_start_page_entry_virtual_reality">Virtuālā realitāte</string>
   <string name="revanced_change_start_page_entry_watch_later">Skaties vēlāk</string>
+  <string name="revanced_change_start_page_entry_your_clips">Tavi klipi</string>
   </patch>
   <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch">
   <string name="revanced_disable_resuming_shorts_player_title">Atspējot Shorts atskaņotāja atsākšanu</string>
