@@ -1125,8 +1125,11 @@ Pokud bude později vypnuta, doporučujeme vymazat data aplikace, aby se zabrán
   <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">Nastavit úvodní stránku</string>
   <string name="revanced_change_start_page_entry_default">Výchozí</string>
+  <string name="revanced_change_start_page_entry_all_subscriptions">Všechna předplatná</string>
   <string name="revanced_change_start_page_entry_browse">Procházet kanály</string>
+  <string name="revanced_change_start_page_entry_courses">Kurzy / Vzdělávání</string>
   <string name="revanced_change_start_page_entry_explore">Prozkoumat</string>
+  <string name="revanced_change_start_page_entry_fashion">Móda a krása</string>
   <string name="revanced_change_start_page_entry_gaming">Hraní</string>
   <string name="revanced_change_start_page_entry_history">Historie</string>
   <string name="revanced_change_start_page_entry_library">Knihovna</string>
@@ -1134,10 +1137,14 @@ Pokud bude později vypnuta, doporučujeme vymazat data aplikace, aby se zabrán
   <string name="revanced_change_start_page_entry_live">Živě</string>
   <string name="revanced_change_start_page_entry_movies">Filmy</string>
   <string name="revanced_change_start_page_entry_music">Hudba</string>
+  <string name="revanced_change_start_page_entry_news">Zprávy</string>
+  <string name="revanced_change_start_page_entry_notifications">Oznámení</string>
+  <string name="revanced_change_start_page_entry_playlists">Playlisty</string>
   <string name="revanced_change_start_page_entry_search">Hledat</string>
   <string name="revanced_change_start_page_entry_sports">Sport</string>
   <string name="revanced_change_start_page_entry_subscriptions">Odběry</string>
   <string name="revanced_change_start_page_entry_trending">Trendy</string>
+  <string name="revanced_change_start_page_entry_virtual_reality">Virtuální realita</string>
   <string name="revanced_change_start_page_entry_watch_later">Sledovat později</string>
   </patch>
   <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch">

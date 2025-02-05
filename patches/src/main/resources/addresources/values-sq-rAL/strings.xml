@@ -1124,8 +1124,11 @@ Nëse më vonë është çaktivizuar, është e rekomanduar të fshiheni të dh�
   <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">Vendos faqen e fillimit</string>
   <string name="revanced_change_start_page_entry_default">Paragjykja</string>
+  <string name="revanced_change_start_page_entry_all_subscriptions">Të gjitha abonimet</string>
   <string name="revanced_change_start_page_entry_browse">Shfleto kanalet</string>
+  <string name="revanced_change_start_page_entry_courses">Kurse / Mësim</string>
   <string name="revanced_change_start_page_entry_explore">Zbulo</string>
+  <string name="revanced_change_start_page_entry_fashion">Modë dhe Bukuri</string>
   <string name="revanced_change_start_page_entry_gaming">Lojëra</string>
   <string name="revanced_change_start_page_entry_history">Historia</string>
   <string name="revanced_change_start_page_entry_library">Biblioteka</string>
@@ -1133,10 +1136,14 @@ Nëse më vonë është çaktivizuar, është e rekomanduar të fshiheni të dh�
   <string name="revanced_change_start_page_entry_live">Live</string>
   <string name="revanced_change_start_page_entry_movies">Filma</string>
   <string name="revanced_change_start_page_entry_music">Muzikë</string>
+  <string name="revanced_change_start_page_entry_news">Lajmet</string>
+  <string name="revanced_change_start_page_entry_notifications">Njoftimet</string>
+  <string name="revanced_change_start_page_entry_playlists">Playlistat</string>
   <string name="revanced_change_start_page_entry_search">Kërkimi</string>
   <string name="revanced_change_start_page_entry_sports">Sport</string>
   <string name="revanced_change_start_page_entry_subscriptions">Abonimet</string>
   <string name="revanced_change_start_page_entry_trending">Trend</string>
+  <string name="revanced_change_start_page_entry_virtual_reality">Realiteti Virtual</string>
   <string name="revanced_change_start_page_entry_watch_later">Shiko më vonë</string>
   </patch>
   <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch">

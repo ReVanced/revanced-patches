@@ -1116,8 +1116,11 @@ Ak sa neskôr vypne, odporúča sa vymazať údaje aplikácie, aby sa zabránilo
   <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">Nastaviť úvodnú stránku</string>
   <string name="revanced_change_start_page_entry_default">Predvolené</string>
+  <string name="revanced_change_start_page_entry_all_subscriptions">Všetky odbery</string>
   <string name="revanced_change_start_page_entry_browse">Prehliadať kanály</string>
+  <string name="revanced_change_start_page_entry_courses">Kurzy / Vzdelávanie</string>
   <string name="revanced_change_start_page_entry_explore">Preskúmajte</string>
+  <string name="revanced_change_start_page_entry_fashion">Móda a krása</string>
   <string name="revanced_change_start_page_entry_gaming">Hry</string>
   <string name="revanced_change_start_page_entry_history">História</string>
   <string name="revanced_change_start_page_entry_library">Knižnica</string>
@@ -1125,10 +1128,14 @@ Ak sa neskôr vypne, odporúča sa vymazať údaje aplikácie, aby sa zabránilo
   <string name="revanced_change_start_page_entry_live">Živé</string>
   <string name="revanced_change_start_page_entry_movies">Filmy</string>
   <string name="revanced_change_start_page_entry_music">Hudba</string>
+  <string name="revanced_change_start_page_entry_news">Správy</string>
+  <string name="revanced_change_start_page_entry_notifications">Upozornenia</string>
+  <string name="revanced_change_start_page_entry_playlists">Zoznamy skladieb</string>
   <string name="revanced_change_start_page_entry_search">Vyhľadávanie</string>
   <string name="revanced_change_start_page_entry_sports">Šport</string>
   <string name="revanced_change_start_page_entry_subscriptions">Predplatné</string>
   <string name="revanced_change_start_page_entry_trending">Trendy</string>
+  <string name="revanced_change_start_page_entry_virtual_reality">Virtuálna realita</string>
   <string name="revanced_change_start_page_entry_watch_later">Pozrieť neskôr</string>
   </patch>
   <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch">

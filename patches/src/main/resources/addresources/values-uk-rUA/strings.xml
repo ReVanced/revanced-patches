@@ -102,8 +102,7 @@ Second \"item\" text"</string>
   <string name="revanced_pref_import_export_title">Імпорт / Експорт налаштувань</string>
   <string name="revanced_pref_import_export_summary">Імпорт / Експорт налаштувань ReVanced
 
-Для збереження налаштувань скопіюйте текст у вікні кнопкою \"Копіювати\" та збережіть його в текстовому файлі.
-Для відновлення налаштувань вставте у вікно збережений раніше текст та натисніть кнопку \"Імпортувати\"</string>
+Для збереження налаштувань скопіюйте текст у вікні кнопкою \"Копіювати\" та збережіть його в текстовому файлі.\nДля відновлення налаштувань вставте у вікно збережений раніше текст та натисніть кнопку \"Імпортувати\"</string>
   <!-- Settings about dialog. -->
   <string name="revanced_settings_about_links_body">Ви використовуєте ReVanced Patches версії &lt;i&gt;%s&lt;/i&gt;</string>
   <string name="revanced_settings_about_links_dev_header">Примітка</string>
@@ -800,9 +799,7 @@ Second \"item\" text"</string>
   </patch>
   <patch id="layout.hide.suggestedvideoendscreen.disableSuggestedVideoEndScreenResourcePatch">
   <string name="revanced_disable_suggested_video_end_screen_title">Вимкнути пропоновані відео на кінцевому екрані</string>
-  <string name="revanced_disable_suggested_video_end_screen_summary_on">Пропоновані відео на кінцевому екрані буде вимкнено.
-
-Примітка: автовідтворення наступного відео не працює</string>
+  <string name="revanced_disable_suggested_video_end_screen_summary_on">Пропоновані відео на кінцевому екрані буде вимкнено.\nПримітка: автовідтворення наступного відео не працює</string>
   <string name="revanced_disable_suggested_video_end_screen_summary_off">Пропоновані відео на кінцевому екрані показуватимуться</string>
   </patch>
   <patch id="layout.hide.time.hideTimestampPatch">
@@ -880,9 +877,7 @@ Second \"item\" text"</string>
   </patch>
   <patch id="layout.searchbar.wideSearchbarPatch">
   <string name="revanced_wide_searchbar_title">Широка панель пошуку</string>
-  <string name="revanced_wide_searchbar_summary_on">Широку панель пошуку ввімкнуто
-
-Це також приховує значок YouTube та кнопку пошуку</string>
+  <string name="revanced_wide_searchbar_summary_on">Широку панель пошуку ввімкнуто\nЦе також приховує значок YouTube та кнопку пошуку</string>
   <string name="revanced_wide_searchbar_summary_off">Широку панель пошуку вимкнено</string>
   </patch>
   <patch id="layout.seekbar.seekbarThumbnailsPatch">
@@ -1132,8 +1127,11 @@ Second \"item\" text"</string>
   <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">Початкова сторінка</string>
   <string name="revanced_change_start_page_entry_default">За замовчуванням</string>
+  <string name="revanced_change_start_page_entry_all_subscriptions">Всі підписки</string>
   <string name="revanced_change_start_page_entry_browse">Усі підписки</string>
+  <string name="revanced_change_start_page_entry_courses">Курси / Навчання</string>
   <string name="revanced_change_start_page_entry_explore">Навігатор</string>
+  <string name="revanced_change_start_page_entry_fashion">Мода та краса</string>
   <string name="revanced_change_start_page_entry_gaming">Ігри</string>
   <string name="revanced_change_start_page_entry_history">Історія</string>
   <string name="revanced_change_start_page_entry_library">Бібліотека</string>
@@ -1141,11 +1139,17 @@ Second \"item\" text"</string>
   <string name="revanced_change_start_page_entry_live">Прямі трансляції</string>
   <string name="revanced_change_start_page_entry_movies">Фільми</string>
   <string name="revanced_change_start_page_entry_music">Музика</string>
+  <string name="revanced_change_start_page_entry_news">Новини</string>
+  <string name="revanced_change_start_page_entry_notifications">Сповіщення</string>
+  <string name="revanced_change_start_page_entry_playlists">Списки відтворення</string>
   <string name="revanced_change_start_page_entry_search">Пошук на YouTube</string>
+  <string name="revanced_change_start_page_entry_shopping">Покупки</string>
   <string name="revanced_change_start_page_entry_sports">Спорт</string>
   <string name="revanced_change_start_page_entry_subscriptions">Підписки</string>
   <string name="revanced_change_start_page_entry_trending">Популярне</string>
+  <string name="revanced_change_start_page_entry_virtual_reality">Віртуальна реальність</string>
   <string name="revanced_change_start_page_entry_watch_later">Переглянути пізніше</string>
+  <string name="revanced_change_start_page_entry_your_clips">Ваші кліпи</string>
   </patch>
   <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch">
   <string name="revanced_disable_resuming_shorts_player_title">Вимкнути відновлення плеєра Shorts</string>
@@ -1381,12 +1385,8 @@ Second \"item\" text"</string>
   </patch>
   <patch id="interaction.seekbar.enableSlideToSeekPatch">
   <string name="revanced_slide_to_seek_title">Увімкнути перемотку пересуванням</string>
-  <string name="revanced_slide_to_seek_summary_on">Перемотку пересуванням увімкнуто
-
-Увімкнуто поведінку старого інтерфейсу \"Проведіть пальцем, щоб перемотати\"</string>
-  <string name="revanced_slide_to_seek_summary_off">Перемотку пересуванням вимкнено
-
-Увімкнуто поведінку нового інтерфейсу прискорення \"2х &gt;&gt;\" при утриманні на екрані</string>
+  <string name="revanced_slide_to_seek_summary_on">Перемотку пересуванням увімкнуто\nУвімкнуто поведінку старого інтерфейсу \"Проведіть пальцем, щоб перемотати\"</string>
+  <string name="revanced_slide_to_seek_summary_off">Перемотку пересуванням вимкнено\nУвімкнуто поведінку нового інтерфейсу прискорення \"2х &gt;&gt;\" при утриманні на екрані</string>
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
   <string name="revanced_spoof_video_streams_screen_title">Підробка відеопотоків</string>

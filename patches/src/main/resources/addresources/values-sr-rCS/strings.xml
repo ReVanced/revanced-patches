@@ -1125,8 +1125,11 @@ Ako se kasnije isključi, preporučuje se da izbrišete podatke aplikacije da bi
   <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">Polazna stranica</string>
   <string name="revanced_change_start_page_entry_default">Podrazumevana</string>
+  <string name="revanced_change_start_page_entry_all_subscriptions">Sve pretplate</string>
   <string name="revanced_change_start_page_entry_browse">Pretraga kanala</string>
+  <string name="revanced_change_start_page_entry_courses">Kursevi / učenje</string>
   <string name="revanced_change_start_page_entry_explore">Istraži</string>
+  <string name="revanced_change_start_page_entry_fashion">Moda i ljepota</string>
   <string name="revanced_change_start_page_entry_gaming">Video igre</string>
   <string name="revanced_change_start_page_entry_history">Istorija</string>
   <string name="revanced_change_start_page_entry_library">Zbirka</string>
@@ -1134,11 +1137,17 @@ Ako se kasnije isključi, preporučuje se da izbrišete podatke aplikacije da bi
   <string name="revanced_change_start_page_entry_live">Uživo</string>
   <string name="revanced_change_start_page_entry_movies">Filmovi</string>
   <string name="revanced_change_start_page_entry_music">Muzika</string>
+  <string name="revanced_change_start_page_entry_news">Vijesti</string>
+  <string name="revanced_change_start_page_entry_notifications">Obavijesti</string>
+  <string name="revanced_change_start_page_entry_playlists">Popis pjesama</string>
   <string name="revanced_change_start_page_entry_search">Pretraga</string>
+  <string name="revanced_change_start_page_entry_shopping">Kupovina</string>
   <string name="revanced_change_start_page_entry_sports">Sport</string>
   <string name="revanced_change_start_page_entry_subscriptions">Praćenja</string>
   <string name="revanced_change_start_page_entry_trending">U trendu</string>
+  <string name="revanced_change_start_page_entry_virtual_reality">Virtualna stvarnost</string>
   <string name="revanced_change_start_page_entry_watch_later">Za kasnije</string>
+  <string name="revanced_change_start_page_entry_your_clips">Vaši klipovi</string>
   </patch>
   <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch">
   <string name="revanced_disable_resuming_shorts_player_title">Onemogući nastavak reprodukcije Shorts plejera</string>

@@ -1125,8 +1125,11 @@ Nếu sau này tắt, bạn nên xóa dữ liệu ứng dụng để tránh lỗ
   <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">Definir página inicial</string>
   <string name="revanced_change_start_page_entry_default">Padrão</string>
+  <string name="revanced_change_start_page_entry_all_subscriptions">Todas as assinaturas</string>
   <string name="revanced_change_start_page_entry_browse">Procurar canais</string>
+  <string name="revanced_change_start_page_entry_courses">Cursos / Aprendizado</string>
   <string name="revanced_change_start_page_entry_explore">Explorar</string>
+  <string name="revanced_change_start_page_entry_fashion">Moda e Beleza</string>
   <string name="revanced_change_start_page_entry_gaming">Jogos</string>
   <string name="revanced_change_start_page_entry_history">Histórico</string>
   <string name="revanced_change_start_page_entry_library">Biblioteca</string>
@@ -1134,10 +1137,14 @@ Nếu sau này tắt, bạn nên xóa dữ liệu ứng dụng để tránh lỗ
   <string name="revanced_change_start_page_entry_live">Publicado</string>
   <string name="revanced_change_start_page_entry_movies">Filmes</string>
   <string name="revanced_change_start_page_entry_music">Música</string>
+  <string name="revanced_change_start_page_entry_news">Notícias</string>
+  <string name="revanced_change_start_page_entry_notifications">Notificações</string>
+  <string name="revanced_change_start_page_entry_playlists">Listas de reprodução</string>
   <string name="revanced_change_start_page_entry_search">Pesquisa</string>
   <string name="revanced_change_start_page_entry_sports">Esportes</string>
   <string name="revanced_change_start_page_entry_subscriptions">Inscrições</string>
   <string name="revanced_change_start_page_entry_trending">Tendências</string>
+  <string name="revanced_change_start_page_entry_virtual_reality">Realidade virtual</string>
   <string name="revanced_change_start_page_entry_watch_later">Assistir depois</string>
   </patch>
   <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch">
