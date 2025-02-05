@@ -1,3 +1,10 @@
+# [5.11.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.10.1-dev.3...v5.11.0-dev.1) (2025-02-05)
+
+
+### Features
+
+* **YouTube - Change start page:** Add additional start pages ([#4413](https://github.com/ReVanced/revanced-patches/issues/4413)) ([b434182](https://github.com/ReVanced/revanced-patches/commit/b434182df69313c4eb5f0dfd98101cb80e46ead2))
+
 ## [5.10.1-dev.3](https://github.com/ReVanced/revanced-patches/compare/v5.10.1-dev.2...v5.10.1-dev.3) (2025-02-03)
 
 
