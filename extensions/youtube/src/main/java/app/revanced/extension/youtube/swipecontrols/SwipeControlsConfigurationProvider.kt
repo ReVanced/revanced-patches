@@ -114,7 +114,8 @@ class SwipeControlsConfigurationProvider(
         get() = Color.WHITE
 
     /**
-     * if icon only mode is selected
+     * If "show only icon" is selected, the background and text will be hidden,
+     * and only the icon will be displayed.
      */
     val overlayTextBackgroundOnlyIcon: Boolean
         get() = Settings.SWIPE_SHOW_ONLY_ICON.get()
