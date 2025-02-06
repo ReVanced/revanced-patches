@@ -83,11 +83,15 @@ class SwipeControlsConfigurationProvider(
      */
     val overlayTextSize: Int
         get() {
-            val textSize = Settings.SWIPE_OVERLAY_TEXT_SIZE.get()
+            var textSize = Settings.SWIPE_OVERLAY_TEXT_SIZE.get()
 
-            // Check if the text size exceeds the maximum allowed value (30)
-            // If it does, return 30; otherwise, return the actual text size
-            return if (textSize > 30) 30 else textSize
+            if (textSize <= 0 || textSize > 30) {
+                Utils.showToastLong(str("revanced_swipe_overlay_text_size_invalid_toast"))
+                Settings.SWIPE_OVERLAY_TEXT_SIZE.resetToDefault()
+                textSize = Settings.SWIPE_OVERLAY_TEXT_SIZE.get()
+            }
+
+            return textSize
         }
 
     /**
