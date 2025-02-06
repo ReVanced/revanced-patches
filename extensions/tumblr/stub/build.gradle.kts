@@ -1,3 +1,5 @@
+android.namespace = "app.revanced.extension"
+
 plugins {
     id(libs.plugins.android.library.get().pluginId)
 }
@@ -7,11 +9,6 @@ android {
     compileSdk = 34
 
     defaultConfig {
-        minSdk = 24
-    }
-
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
+        minSdk = 26
     }
 }
