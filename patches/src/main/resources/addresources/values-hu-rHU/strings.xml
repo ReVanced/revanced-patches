@@ -1141,11 +1141,13 @@ Ha később kikapcsolja, akkor ajánlott az alkalmazás adatait törölni, hogy 
   <string name="revanced_change_start_page_entry_notifications">Értesítések</string>
   <string name="revanced_change_start_page_entry_playlists">Lejátszási listák</string>
   <string name="revanced_change_start_page_entry_search">Keresés</string>
+  <string name="revanced_change_start_page_entry_shopping">Bevásárlás</string>
   <string name="revanced_change_start_page_entry_sports">Sportok</string>
   <string name="revanced_change_start_page_entry_subscriptions">Feliratkozások</string>
   <string name="revanced_change_start_page_entry_trending">Felkapott</string>
   <string name="revanced_change_start_page_entry_virtual_reality">Virtuális valóság</string>
   <string name="revanced_change_start_page_entry_watch_later">Megnézem később</string>
+  <string name="revanced_change_start_page_entry_your_clips">A saját klipjeid</string>
   </patch>
   <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch">
   <string name="revanced_disable_resuming_shorts_player_title">A Shorts lejátszás folytatásának kikapcsolása</string>

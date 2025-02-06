@@ -1141,11 +1141,13 @@ Se in seguito verrà disattivato, si consiglia di cancellare i dati dell'app per
   <string name="revanced_change_start_page_entry_notifications">Notifiche</string>
   <string name="revanced_change_start_page_entry_playlists">Playlist</string>
   <string name="revanced_change_start_page_entry_search">Cerca</string>
+  <string name="revanced_change_start_page_entry_shopping">Shopping</string>
   <string name="revanced_change_start_page_entry_sports">Sport</string>
   <string name="revanced_change_start_page_entry_subscriptions">Iscrizioni</string>
   <string name="revanced_change_start_page_entry_trending">Tendenze</string>
   <string name="revanced_change_start_page_entry_virtual_reality">Realtà Virtuale</string>
   <string name="revanced_change_start_page_entry_watch_later">Guarda più tardi</string>
+  <string name="revanced_change_start_page_entry_your_clips">Le tue clip</string>
   </patch>
   <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch">
   <string name="revanced_disable_resuming_shorts_player_title">Disabilita la ripresa del player Shorts</string>

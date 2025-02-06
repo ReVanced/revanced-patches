@@ -1141,11 +1141,13 @@ Si després es desactiva, es recomana esborrar les dades de l'aplicació per evi
   <string name="revanced_change_start_page_entry_notifications">Notificacions</string>
   <string name="revanced_change_start_page_entry_playlists">Llistes de reproducció</string>
   <string name="revanced_change_start_page_entry_search">Cerca</string>
+  <string name="revanced_change_start_page_entry_shopping">Esmorzar</string>
   <string name="revanced_change_start_page_entry_sports">Esports</string>
   <string name="revanced_change_start_page_entry_subscriptions">Subscripcions</string>
   <string name="revanced_change_start_page_entry_trending">Tendències</string>
   <string name="revanced_change_start_page_entry_virtual_reality">Realitat virtual</string>
   <string name="revanced_change_start_page_entry_watch_later">Veure més tard</string>
+  <string name="revanced_change_start_page_entry_your_clips">Els teus clips</string>
   </patch>
   <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch">
   <string name="revanced_disable_resuming_shorts_player_title">Desactiva la represa del reproductor de Shorts</string>

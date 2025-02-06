@@ -1141,11 +1141,13 @@ To bo spremenilo videz in funkcije aplikacije, vendar se lahko pojavijo neznani 
   <string name="revanced_change_start_page_entry_notifications">Obvestila</string>
   <string name="revanced_change_start_page_entry_playlists">Predvajalni seznami</string>
   <string name="revanced_change_start_page_entry_search">Iskanje</string>
+  <string name="revanced_change_start_page_entry_shopping">Nakupovanje</string>
   <string name="revanced_change_start_page_entry_sports">Šport</string>
   <string name="revanced_change_start_page_entry_subscriptions">Naročnine</string>
   <string name="revanced_change_start_page_entry_trending">Trendi</string>
   <string name="revanced_change_start_page_entry_virtual_reality">Virtualna resničnost</string>
   <string name="revanced_change_start_page_entry_watch_later">Oglej si kasneje</string>
+  <string name="revanced_change_start_page_entry_your_clips">Vaši posnetki</string>
   </patch>
   <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch">
   <string name="revanced_disable_resuming_shorts_player_title">Onemogoči nadaljevanje predvajalnika Shorts</string>
