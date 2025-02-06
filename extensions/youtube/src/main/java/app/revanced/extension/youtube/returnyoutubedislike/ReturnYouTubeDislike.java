@@ -346,56 +346,49 @@ public class ReturnYouTubeDislike {
     }
 
     private static String formatDislikeCount(long dislikeCount) {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-            synchronized (ReturnYouTubeDislike.class) { // number formatter is not thread safe, must synchronize
-                if (dislikeCountFormatter == null) {
-                    Locale locale = Objects.requireNonNull(Utils.getContext()).getResources().getConfiguration().locale;
-                    dislikeCountFormatter = CompactDecimalFormat.getInstance(locale, CompactDecimalFormat.CompactStyle.SHORT);
+        synchronized (ReturnYouTubeDislike.class) { // number formatter is not thread safe, must synchronize
+            if (dislikeCountFormatter == null) {
+                Locale locale = Objects.requireNonNull(Utils.getContext()).getResources().getConfiguration().locale;
+                dislikeCountFormatter = CompactDecimalFormat.getInstance(locale, CompactDecimalFormat.CompactStyle.SHORT);
 
-                    // YouTube disregards locale specific number characters
-                    // and instead shows english number characters everywhere.
-                    // To use the same behavior, override the digit characters to use English
-                    // so languages such as Arabic will show "1.234" instead of the native "۱,۲۳٤"
-                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
-                        DecimalFormatSymbols symbols = DecimalFormatSymbols.getInstance(locale);
-                        symbols.setDigitStrings(DecimalFormatSymbols.getInstance(Locale.ENGLISH).getDigitStrings());
-                        dislikeCountFormatter.setDecimalFormatSymbols(symbols);
-                    }
+                // YouTube disregards locale specific number characters
+                // and instead shows english number characters everywhere.
+                // To use the same behavior, override the digit characters to use English
+                // so languages such as Arabic will show "1.234" instead of the native "۱,۲۳٤"
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+                    DecimalFormatSymbols symbols = DecimalFormatSymbols.getInstance(locale);
+                    symbols.setDigitStrings(DecimalFormatSymbols.getInstance(Locale.ENGLISH).getDigitStrings());
+                    dislikeCountFormatter.setDecimalFormatSymbols(symbols);
                 }
-                return dislikeCountFormatter.format(dislikeCount);
             }
-        }
 
-        // Will never be reached, as the oldest supported YouTube app requires Android N or greater.
-        return String.valueOf(dislikeCount);
+            return dislikeCountFormatter.format(dislikeCount);
+        }
     }
 
     private static String formatDislikePercentage(float dislikePercentage) {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-            synchronized (ReturnYouTubeDislike.class) { // number formatter is not thread safe, must synchronize
-                if (dislikePercentageFormatter == null) {
-                    Locale locale = Objects.requireNonNull(Utils.getContext()).getResources().getConfiguration().locale;
-                    dislikePercentageFormatter = NumberFormat.getPercentInstance(locale);
+        synchronized (ReturnYouTubeDislike.class) { // Number formatter is not thread safe, must synchronize.
+            if (dislikePercentageFormatter == null) {
+                Locale locale = Objects.requireNonNull(Utils.getContext()).getResources().getConfiguration().locale;
+                dislikePercentageFormatter = NumberFormat.getPercentInstance(locale);
 
-                    // Want to set the digit strings, and the simplest way is to cast to the implementation NumberFormat returns.
-                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P
-                            && dislikePercentageFormatter instanceof DecimalFormat) {
-                        DecimalFormatSymbols symbols = DecimalFormatSymbols.getInstance(locale);
-                        symbols.setDigitStrings(DecimalFormatSymbols.getInstance(Locale.ENGLISH).getDigitStrings());
-                        ((DecimalFormat) dislikePercentageFormatter).setDecimalFormatSymbols(symbols);
-                    }
+                // Want to set the digit strings, and the simplest way is to cast to the implementation NumberFormat returns.
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P
+                        && dislikePercentageFormatter instanceof DecimalFormat) {
+                    DecimalFormatSymbols symbols = DecimalFormatSymbols.getInstance(locale);
+                    symbols.setDigitStrings(DecimalFormatSymbols.getInstance(Locale.ENGLISH).getDigitStrings());
+                    ((DecimalFormat) dislikePercentageFormatter).setDecimalFormatSymbols(symbols);
                 }
-                if (dislikePercentage >= 0.01) { // at least 1%
-                    dislikePercentageFormatter.setMaximumFractionDigits(0); // show only whole percentage points
-                } else {
-                    dislikePercentageFormatter.setMaximumFractionDigits(1); // show up to 1 digit precision
-                }
-                return dislikePercentageFormatter.format(dislikePercentage);
             }
-        }
 
-        // Will never be reached, as the oldest supported YouTube app requires Android N or greater.
-        return String.valueOf((int) (dislikePercentage * 100));
+            if (dislikePercentage >= 0.01) { // at least 1%
+                dislikePercentageFormatter.setMaximumFractionDigits(0); // show only whole percentage points
+            } else {
+                dislikePercentageFormatter.setMaximumFractionDigits(1); // show up to 1 digit precision
+            }
+
+            return dislikePercentageFormatter.format(dislikePercentage);
+        }
     }
 
     @NonNull
@@ -403,15 +396,13 @@ public class ReturnYouTubeDislike {
         Objects.requireNonNull(videoId);
         synchronized (fetchCache) {
             // Remove any expired entries.
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-                final long now = System.currentTimeMillis();
-                fetchCache.values().removeIf(value -> {
-                    final boolean expired = value.isExpired(now);
-                    if (expired)
-                        Logger.printDebug(() -> "Removing expired fetch: " + value.videoId);
-                    return expired;
-                });
-            }
+            final long now = System.currentTimeMillis();
+            fetchCache.values().removeIf(value -> {
+                final boolean expired = value.isExpired(now);
+                if (expired)
+                    Logger.printDebug(() -> "Removing expired fetch: " + value.videoId);
+                return expired;
+            });
 
             ReturnYouTubeDislike fetch = fetchCache.get(videoId);
             if (fetch == null) {

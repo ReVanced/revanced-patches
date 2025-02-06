@@ -12,7 +12,7 @@ import android.os.Handler;
 
 import androidx.annotation.RequiresApi;
 
-/** @noinspection deprecation, unused */
+@SuppressWarnings({"deprecation", "unused"})
 public class SpoofWifiPatch {
 
     // Used to check what the (real or fake) active network is (take a look at `hasTransport`).
