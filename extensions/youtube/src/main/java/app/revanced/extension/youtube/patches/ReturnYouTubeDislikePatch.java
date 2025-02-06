@@ -4,7 +4,6 @@ import static app.revanced.extension.youtube.returnyoutubedislike.ReturnYouTubeD
 
 import android.graphics.Rect;
 import android.graphics.drawable.ShapeDrawable;
-import android.os.Build;
 import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.Spanned;
@@ -366,9 +365,7 @@ public class ReturnYouTubeDislikePatch {
     private static final List<WeakReference<TextView>> shortsTextViewRefs = new ArrayList<>();
 
     private static void clearRemovedShortsTextViews() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) { // YouTube requires Android N or greater
-            shortsTextViewRefs.removeIf(ref -> ref.get() == null);
-        }
+        shortsTextViewRefs.removeIf(ref -> ref.get() == null);
     }
 
     /**
