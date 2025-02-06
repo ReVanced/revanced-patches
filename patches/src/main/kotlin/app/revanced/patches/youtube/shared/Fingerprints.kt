@@ -21,9 +21,9 @@ internal val autoRepeatFingerprint by fingerprint {
 internal val autoRepeatParentFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("V")
-    strings(
-        "play() called when the player wasn't loaded.",
-        "play() blocked because Background Playability failed",
+    instructions(
+        string("play() called when the player wasn't loaded."),
+        string("play() blocked because Background Playability failed")
     )
 }
 
