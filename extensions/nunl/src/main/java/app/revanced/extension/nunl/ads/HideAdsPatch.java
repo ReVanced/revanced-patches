@@ -31,7 +31,7 @@ public class HideAdsPatch {
             while (index < blocks.size()) {
                 Block currentBlock = blocks.get(index);
 
-                // because of pagination, we might not see the Divider in front of it
+                // Because of pagination, we might not see the Divider in front of it
                 // just remove it as is and leave potential extra spacing visible on the screen.
                 if (currentBlock instanceof DpgBannerBlock) {
                     index++;
