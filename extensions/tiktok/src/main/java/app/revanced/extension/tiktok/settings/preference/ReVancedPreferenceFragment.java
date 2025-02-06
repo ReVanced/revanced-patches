@@ -34,7 +34,7 @@ public class ReVancedPreferenceFragment extends AbstractPreferenceFragment {
 
     @Override
     protected void initialize() {
-        final var context = getContext();
+        final var context = getActivity();
 
         // Currently no resources can be compiled for TikTok (fails with aapt error).
         // So all TikTok Strings are hard coded in the extension.
