@@ -8,6 +8,7 @@ import android.graphics.drawable.Drawable
 import android.os.Handler
 import android.os.Looper
 import android.util.AttributeSet
+import android.util.TypedValue
 import android.view.HapticFeedbackConstants
 import android.view.View
 import android.widget.RelativeLayout
@@ -22,9 +23,7 @@ class SwipeControlsOverlayLayout(
     context: Context,
     private val config: SwipeControlsConfigurationProvider,
 ) : RelativeLayout(context), SwipeControlsOverlay {
-    /**
-     * DO NOT use this, for tools only
-     */
+
     constructor(context: Context) : this(context, SwipeControlsConfigurationProvider(context))
 
     private val feedbackProgressView: CircularProgressView
@@ -39,14 +38,18 @@ class SwipeControlsOverlayLayout(
         return resources.getDrawable(
             Utils.getResourceIdentifier(context, name, "drawable"),
             context.theme,
-        ).apply {
-            setTint(config.overlayForegroundColor)
-        }
+        )
     }
 
     init {
         // Initialize circular progress view
-        feedbackProgressView = CircularProgressView(context, config.overlayForegroundColor).apply {
+        feedbackProgressView = CircularProgressView(
+            context,
+            config.overlayTextBackgroundColor,
+            config.overlayTextBackgroundOnlyIcon,
+            config.overlayTextSize.toFloat(), // Convert Int to Float
+            config.overlayForegroundColor // Pass correct icon color
+        ).apply {
             layoutParams = LayoutParams(300, 300).apply {
                 addRule(CENTER_IN_PARENT, TRUE)
             }
@@ -66,33 +69,23 @@ class SwipeControlsOverlayLayout(
         feedbackProgressView.visibility = GONE
     }
 
-    /**
-     * Displays the circular progress indicator with the given value.
-     * @param value Text to display (percentage, number, or "Auto")
-     * @param progress Progress value for the circular bar
-     * @param max Maximum value of the scale
-     * @param icon Drawable icon to display
-     * @param isBrightness If true, use brightness color; otherwise, use volume color
-     */
     private fun showFeedbackView(value: String, progress: Int, max: Int, icon: Drawable, isBrightness: Boolean) {
         feedbackHideHandler.removeCallbacks(feedbackHideCallback)
         feedbackHideHandler.postDelayed(feedbackHideCallback, config.overlayShowTimeoutMillis)
         feedbackProgressView.apply {
             setProgress(progress, max, value, isBrightness)
-            setIcon(icon) // Set correct icon
+            setIcon(icon)
             visibility = VISIBLE
         }
     }
 
     override fun onVolumeChanged(newVolume: Int, maximumVolume: Int) {
-        // Use muted icon when volume is 0, otherwise normal icon
         val icon = if (newVolume == 0) mutedVolumeIcon else normalVolumeIcon
         showFeedbackView("$newVolume", newVolume, maximumVolume, icon, isBrightness = false)
     }
 
     override fun onBrightnessChanged(brightness: Double) {
         if (config.shouldLowestValueEnableAutoBrightness && brightness <= 0) {
-            // Show "Auto" when brightness is at the lowest level
             showFeedbackView(str("revanced_swipe_lowest_value_enable_auto_brightness_overlay_text"),
                 0, 100, autoBrightnessIcon, isBrightness = true)
         } else {
@@ -117,7 +110,10 @@ class SwipeControlsOverlayLayout(
  */
 class CircularProgressView @JvmOverloads constructor(
     context: Context,
-    private val overlayDarkness: Int, // Darkness percentage (0-100)
+    private val overlayTextBackgroundColor: Int, // Background with opacity
+    private val onlyIconMode: Boolean, // If true, only icon is shown
+    private val overlayTextSize: Float, // Text size from config
+    private val overlayForegroundColor: Int, // User-defined color for text and icon
     attrs: AttributeSet? = null,
     defStyleAttr: Int = 0
 ) : View(context, attrs, defStyleAttr) {
@@ -142,17 +138,17 @@ class CircularProgressView @JvmOverloads constructor(
         strokeCap = Paint.Cap.ROUND
     }
 
-    // Compute inner background darkness based on overlayDarkness percentage
     private val innerBackgroundPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
         style = Paint.Style.FILL
-        val alpha = (overlayDarkness * 2.55).toInt() // Convert 0-100% to 0-255 alpha
-        color = (alpha shl 24) or 0x000000 // Apply transparency to black color
+        color = overlayTextBackgroundColor // Use correct opacity
     }
 
     private val textPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
-        textSize = 60f
-        color = 0xFFFFFFFF.toInt() // White text
+        color = overlayForegroundColor // Now using overlayForegroundColor
         textAlign = Paint.Align.CENTER
+        textSize = TypedValue.applyDimension(
+            TypedValue.COMPLEX_UNIT_SP, overlayTextSize, resources.displayMetrics
+        ) // Correct SP handling, 1.5x larger
     }
 
     private var progress = 0
@@ -164,14 +160,29 @@ class CircularProgressView @JvmOverloads constructor(
     fun setProgress(value: Int, max: Int, text: String, isBrightnessMode: Boolean) {
         progress = value
         maxProgress = max
-        displayText = text
+        displayText = shortenTextIfNeeded(text)
         isBrightness = isBrightnessMode
         invalidate()
     }
 
     fun setIcon(drawable: Drawable) {
         icon = drawable
+        icon?.setTint(overlayForegroundColor) // Apply correct foreground color
         invalidate()
+    }
+
+    /**
+     * Shorten text if it's too long to fit inside the ring.
+     */
+    private fun shortenTextIfNeeded(text: String): String {
+        val maxWidth = width * 0.5f // Maximum allowed width for text
+        var textToDisplay = text
+
+        while (textPaint.measureText(textToDisplay) > maxWidth && textToDisplay.length > 4) {
+            textToDisplay = textToDisplay.dropLast(1) // Remove last character
+        }
+
+        return if (textToDisplay != text) "$textToDisplay..." else textToDisplay // Add "..." if shortened
     }
 
     override fun onDraw(canvas: Canvas) {
@@ -180,31 +191,24 @@ class CircularProgressView @JvmOverloads constructor(
         val size = min(width, height).toFloat()
         rectF.set(20f, 20f, size - 20f, size - 20f)
 
-        // Draw background circle
         canvas.drawOval(rectF, backgroundPaint)
+        canvas.drawCircle(width / 2f, height / 2f, size / 3, innerBackgroundPaint)
 
-        // Draw inner darkened background (based on overlayDarkness %)
-        val innerRadius = size / 3
-        canvas.drawCircle(width / 2f, height / 2f, innerRadius, innerBackgroundPaint)
-
-        // Choose correct paint for brightness or volume
         val paint = if (isBrightness) brightnessPaint else volumePaint
-
-        // Draw progress arc
         val sweepAngle = (progress.toFloat() / maxProgress) * 360
         canvas.drawArc(rectF, -90f, sweepAngle, false, paint)
 
-        // Draw icon above text (slightly lower than before)
         icon?.let {
             val iconSize = 80
             val iconX = (width - iconSize) / 2
-            val iconY = (height / 2) - 90 // Slightly lowered
+            val iconY = (height / 2) - if (onlyIconMode) 40 else 90
             it.setBounds(iconX, iconY, iconX + iconSize, iconY + iconSize)
             it.draw(canvas)
         }
 
-        // Draw text below the icon (slightly lower)
-        canvas.drawText(displayText, width / 2f, height / 2f + 55f, textPaint) // Lowered text
+        if (!onlyIconMode) {
+            canvas.drawText(displayText, width / 2f, height / 2f + 55f, textPaint)
+        }
     }
 
     private val rectF = RectF()

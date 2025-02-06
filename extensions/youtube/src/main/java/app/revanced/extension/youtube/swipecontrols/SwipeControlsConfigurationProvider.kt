@@ -82,7 +82,13 @@ class SwipeControlsConfigurationProvider(
      * text size for the overlay, in sp
      */
     val overlayTextSize: Int
-        get() = Settings.SWIPE_OVERLAY_TEXT_SIZE.get()
+        get() {
+            val textSize = Settings.SWIPE_OVERLAY_TEXT_SIZE.get()
+
+            // Check if the text size exceeds the maximum allowed value (30)
+            // If it does, return 30; otherwise, return the actual text size
+            return if (textSize > 30) 30 else textSize
+        }
 
     /**
      * get the background color for text on the overlay, as a color int
@@ -106,6 +112,12 @@ class SwipeControlsConfigurationProvider(
      */
     val overlayForegroundColor: Int
         get() = Color.WHITE
+
+    /**
+     * if icon only mode is selected
+     */
+    val overlayTextBackgroundOnlyIcon: Boolean
+        get() = Settings.SWIPE_SHOW_ONLY_ICON.get()
 
 //endregion
 
