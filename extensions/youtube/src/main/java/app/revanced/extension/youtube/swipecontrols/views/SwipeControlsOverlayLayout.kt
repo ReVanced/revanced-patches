@@ -69,6 +69,14 @@ class SwipeControlsOverlayLayout(
         feedbackProgressView.visibility = GONE
     }
 
+    /**
+     * Displays the circular progress indicator with the given value.
+     * @param value Text to display (percentage, number, or "Auto")
+     * @param progress Progress value for the circular bar
+     * @param max Maximum value of the scale
+     * @param icon Drawable icon to display
+     * @param isBrightness If true, use brightness color; otherwise, use volume color
+     */
     private fun showFeedbackView(value: String, progress: Int, max: Int, icon: Drawable, isBrightness: Boolean) {
         feedbackHideHandler.removeCallbacks(feedbackHideCallback)
         feedbackHideHandler.postDelayed(feedbackHideCallback, config.overlayShowTimeoutMillis)
