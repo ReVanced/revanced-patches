@@ -1141,11 +1141,13 @@ Pokud bude později vypnuta, doporučujeme vymazat data aplikace, aby se zabrán
   <string name="revanced_change_start_page_entry_notifications">Oznámení</string>
   <string name="revanced_change_start_page_entry_playlists">Playlisty</string>
   <string name="revanced_change_start_page_entry_search">Hledat</string>
+  <string name="revanced_change_start_page_entry_shopping">Nakupování</string>
   <string name="revanced_change_start_page_entry_sports">Sport</string>
   <string name="revanced_change_start_page_entry_subscriptions">Odběry</string>
   <string name="revanced_change_start_page_entry_trending">Trendy</string>
   <string name="revanced_change_start_page_entry_virtual_reality">Virtuální realita</string>
   <string name="revanced_change_start_page_entry_watch_later">Sledovat později</string>
+  <string name="revanced_change_start_page_entry_your_clips">Vaše klipy</string>
   </patch>
   <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch">
   <string name="revanced_disable_resuming_shorts_player_title">Zakázat obnovení přehrávače Shorts</string>

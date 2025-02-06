@@ -1142,11 +1142,13 @@ Second \"item\" text"</string>
   <string name="revanced_change_start_page_entry_notifications">Уведомления</string>
   <string name="revanced_change_start_page_entry_playlists">Плейлисты</string>
   <string name="revanced_change_start_page_entry_search">Поиск</string>
+  <string name="revanced_change_start_page_entry_shopping">Магазин</string>
   <string name="revanced_change_start_page_entry_sports">Спорт</string>
   <string name="revanced_change_start_page_entry_subscriptions">Подписки</string>
   <string name="revanced_change_start_page_entry_trending">Популярные</string>
   <string name="revanced_change_start_page_entry_virtual_reality">Виртуальная реальность</string>
   <string name="revanced_change_start_page_entry_watch_later">Смотреть позже</string>
+  <string name="revanced_change_start_page_entry_your_clips">Ваши клипы</string>
   </patch>
   <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch">
   <string name="revanced_disable_resuming_shorts_player_title">Отключить возобновление плеера Shorts</string>

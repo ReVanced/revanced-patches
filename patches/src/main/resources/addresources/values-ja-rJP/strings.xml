@@ -1129,11 +1129,11 @@ Automotive レイアウト
   <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">起動画面</string>
   <string name="revanced_change_start_page_entry_default">デフォルト</string>
-  <string name="revanced_change_start_page_entry_all_subscriptions">すべてのサブスクリプション</string>
+  <string name="revanced_change_start_page_entry_all_subscriptions">すべての登録チャンネル</string>
   <string name="revanced_change_start_page_entry_browse">チャンネルを参照</string>
-  <string name="revanced_change_start_page_entry_courses">コース / 学習</string>
+  <string name="revanced_change_start_page_entry_courses">コース / 学び</string>
   <string name="revanced_change_start_page_entry_explore">探索</string>
-  <string name="revanced_change_start_page_entry_fashion">ファッション &amp; ビューティー</string>
+  <string name="revanced_change_start_page_entry_fashion">ファッションと美容</string>
   <string name="revanced_change_start_page_entry_gaming">ゲーム</string>
   <string name="revanced_change_start_page_entry_history">履歴</string>
   <string name="revanced_change_start_page_entry_library">マイページ</string>
@@ -1143,13 +1143,15 @@ Automotive レイアウト
   <string name="revanced_change_start_page_entry_music">音楽</string>
   <string name="revanced_change_start_page_entry_news">ニュース</string>
   <string name="revanced_change_start_page_entry_notifications">通知</string>
-  <string name="revanced_change_start_page_entry_playlists">プレイリスト</string>
+  <string name="revanced_change_start_page_entry_playlists">再生リスト</string>
   <string name="revanced_change_start_page_entry_search">検索</string>
+  <string name="revanced_change_start_page_entry_shopping">ショッピング</string>
   <string name="revanced_change_start_page_entry_sports">スポーツ</string>
   <string name="revanced_change_start_page_entry_subscriptions">登録チャンネル</string>
   <string name="revanced_change_start_page_entry_trending">急上昇</string>
-  <string name="revanced_change_start_page_entry_virtual_reality">バーチャルリアリティ</string>
+  <string name="revanced_change_start_page_entry_virtual_reality">バーチャル リアリティ</string>
   <string name="revanced_change_start_page_entry_watch_later">後で見る</string>
+  <string name="revanced_change_start_page_entry_your_clips">自分のクリップ</string>
   </patch>
   <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch">
   <string name="revanced_disable_resuming_shorts_player_title">ショート動画プレーヤーの再開を無効にする</string>
@@ -1172,54 +1174,54 @@ Automotive レイアウト
   </patch>
   <patch id="layout.miniplayer.miniplayerPatch">
   <string name="revanced_miniplayer_screen_title">ミニプレーヤー</string>
-  <string name="revanced_miniplayer_screen_summary">プレーヤーをアプリ内で最小化した際のスタイルを変更する</string>
-  <string name="revanced_miniplayer_type_title">ミニプレーヤータイプ</string>
+  <string name="revanced_miniplayer_screen_summary">アプリ内で最小化されたプレーヤーの設定</string>
+  <string name="revanced_miniplayer_type_title">ミニプレーヤー タイプ</string>
   <string name="revanced_miniplayer_type_entry_0">無効</string>
-  <string name="revanced_miniplayer_type_entry_1">既定</string>
-  <string name="revanced_miniplayer_type_entry_2">最小</string>
+  <string name="revanced_miniplayer_type_entry_1">デフォルト</string>
+  <string name="revanced_miniplayer_type_entry_2">横長</string>
   <string name="revanced_miniplayer_type_entry_3">タブレット</string>
   <string name="revanced_miniplayer_type_entry_4">モダン 1</string>
   <string name="revanced_miniplayer_type_entry_5">モダン 2</string>
   <string name="revanced_miniplayer_type_entry_6">モダン 3</string>
-  <string name="revanced_miniplayer_rounded_corners_title">角の丸みを有効にする</string>
-  <string name="revanced_miniplayer_rounded_corners_summary_on">角が丸くなっています</string>
-  <string name="revanced_miniplayer_rounded_corners_summary_off">角が正方形です</string>
+  <string name="revanced_miniplayer_rounded_corners_title">角を丸くする</string>
+  <string name="revanced_miniplayer_rounded_corners_summary_on">ミニプレーヤーの四角は丸角です</string>
+  <string name="revanced_miniplayer_rounded_corners_summary_off">ミニプレーヤーの四角は直角です</string>
   <string name="revanced_miniplayer_double_tap_action_title">ダブルタップとピンチでサイズ変更を有効にする</string>
-  <string name="revanced_miniplayer_double_tap_action_summary_on">"ダブルタップとピンチズームが有効になっています
+  <string name="revanced_miniplayer_double_tap_action_summary_on">"ダブルタップとピンチでサイズ変更を有効にする
 
 • ダブルタップでミニプレーヤーのサイズを大きくします
 • もう一度ダブルタップすると、元のサイズに戻ります"</string>
-  <string name="revanced_miniplayer_double_tap_action_summary_off">ダブルタップでピンチでサイズを変更できません</string>
+  <string name="revanced_miniplayer_double_tap_action_summary_off">ダブルタップとピンチでサイズ変更は無効です</string>
   <string name="revanced_miniplayer_drag_and_drop_title">ドラッグ＆ドロップを有効にする</string>
-  <string name="revanced_miniplayer_drag_and_drop_summary_on">"ドラッグアンドドロップが有効になっています
+  <string name="revanced_miniplayer_drag_and_drop_summary_on">"ドラッグ＆ドロップが有効になっています
 
-ミニプレーヤーは、画面の隅にドラッグできます"</string>
+ミニプレーヤーを画面の四隅に移動できます"</string>
   <string name="revanced_miniplayer_drag_and_drop_summary_off">ドラッグ＆ドロップは無効です</string>
-  <string name="revanced_miniplayer_horizontal_drag_title">水平ドラッグジェスチャーを有効にする</string>
-  <string name="revanced_miniplayer_horizontal_drag_summary_on">"水平方向のドラッグジェスチャーが有効になっています
+  <string name="revanced_miniplayer_horizontal_drag_title">横方向ドラッグ ジェスチャーを有効にする</string>
+  <string name="revanced_miniplayer_horizontal_drag_summary_on">"横方向ドラッグ ジェスチャーは有効です
 
-ミニプレーヤーは、画面から左または右にドラッグできます"</string>
-  <string name="revanced_miniplayer_horizontal_drag_summary_off">水平ドラッグジェスチャーが無効になっています</string>
-  <string name="revanced_miniplayer_hide_expand_close_title">閉じるボタンを隠す</string>
-  <string name="revanced_miniplayer_hide_expand_close_summary_on">閉じるボタンは非表示です</string>
-  <string name="revanced_miniplayer_hide_expand_close_summary_off">閉じるボタンが表示されます</string>
-  <string name="revanced_miniplayer_hide_expand_close_legacy_title">展開と閉じるボタンを非表示</string>
-  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_on">"ボタンが非表示になっています
+ミニプレーヤーを画面の左または右端で最小化できます"</string>
+  <string name="revanced_miniplayer_horizontal_drag_summary_off">横方向ドラッグ ジェスチャーは無効です</string>
+  <string name="revanced_miniplayer_hide_expand_close_title">閉じるボタンを非表示</string>
+  <string name="revanced_miniplayer_hide_expand_close_summary_on">閉じるボタンは表示されません</string>
+  <string name="revanced_miniplayer_hide_expand_close_summary_off">閉じるボタンは表示されます</string>
+  <string name="revanced_miniplayer_hide_expand_close_legacy_title">拡大ボタンと閉じるボタンを非表示</string>
+  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_on">"ボタンは表示されません
 
-スワイプして展開または閉じます"</string>
-  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_off">展開と閉じる ボタンが表示されます</string>
+拡大する / 閉じるにはスワイプしてください"</string>
+  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_off">拡大ボタンと閉じるボタンは表示されます</string>
   <string name="revanced_miniplayer_hide_subtext_title">サブテキストを非表示</string>
-  <string name="revanced_miniplayer_hide_subtext_summary_on">サブテキストは非表示です</string>
-  <string name="revanced_miniplayer_hide_subtext_summary_off">サブテキストを表示します</string>
-  <string name="revanced_miniplayer_hide_rewind_forward_title">スキップと戻るボタンを隠す</string>
-  <string name="revanced_miniplayer_hide_rewind_forward_summary_on">スキップとバックが非表示になります</string>
-  <string name="revanced_miniplayer_hide_rewind_forward_summary_off">スキップとバックが表示されます</string>
-  <string name="revanced_miniplayer_width_dip_title">初期サイズ</string>
-  <string name="revanced_miniplayer_width_dip_summary">最初の画面サイズ（ピクセル）</string>
-  <string name="revanced_miniplayer_width_dip_invalid_toast">ピクセルサイズは %1$s と %2$s の間でなければなりません</string>
+  <string name="revanced_miniplayer_hide_subtext_summary_on">サブテキストは表示されません</string>
+  <string name="revanced_miniplayer_hide_subtext_summary_off">サブテキストは表示されます</string>
+  <string name="revanced_miniplayer_hide_rewind_forward_title">早送り / 巻き戻しボタンを非表示</string>
+  <string name="revanced_miniplayer_hide_rewind_forward_summary_on">早送りボタンと巻き戻しボタンは表示されません</string>
+  <string name="revanced_miniplayer_hide_rewind_forward_summary_off">早送りボタンと巻き戻しボタンは表示されます</string>
+  <string name="revanced_miniplayer_width_dip_title">デフォルトのサイズ</string>
+  <string name="revanced_miniplayer_width_dip_summary">画面に表示される際の大きさ（ピクセル）</string>
+  <string name="revanced_miniplayer_width_dip_invalid_toast">ピクセル サイズの値は %1$s と %2$s の間でなければなりません</string>
   <string name="revanced_miniplayer_opacity_title">オーバーレイの透明度</string>
   <string name="revanced_miniplayer_opacity_summary">透明度の値は 0-100 の範囲で、0 が透明です</string>
-  <string name="revanced_miniplayer_opacity_invalid_toast">オーバーレイの透明度は 0-100 の間でなければなりません</string>
+  <string name="revanced_miniplayer_opacity_invalid_toast">オーバーレイの透明度の値は 0-100 の間でなければなりません</string>
   </patch>
   <patch id="layout.theme.themePatch">
   <string name="revanced_gradient_loading_screen_title">グラデーション読み込み画面を有効にする</string>

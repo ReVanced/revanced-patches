@@ -1141,11 +1141,13 @@ Dacă este dezactivat ulterior, se recomandă să ștergeți datele aplicației 
   <string name="revanced_change_start_page_entry_notifications">Notificări</string>
   <string name="revanced_change_start_page_entry_playlists">Liste de redare</string>
   <string name="revanced_change_start_page_entry_search">Caută</string>
+  <string name="revanced_change_start_page_entry_shopping">Cumpărături</string>
   <string name="revanced_change_start_page_entry_sports">Sport</string>
   <string name="revanced_change_start_page_entry_subscriptions">Abonamente</string>
   <string name="revanced_change_start_page_entry_trending">Populare</string>
   <string name="revanced_change_start_page_entry_virtual_reality">Realitate virtuală</string>
   <string name="revanced_change_start_page_entry_watch_later">Urmărește mai târziu</string>
+  <string name="revanced_change_start_page_entry_your_clips">Clipurile tale</string>
   </patch>
   <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch">
   <string name="revanced_disable_resuming_shorts_player_title">Dezactivează reluarea playerului Shorts</string>

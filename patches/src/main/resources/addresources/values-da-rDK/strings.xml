@@ -1142,11 +1142,13 @@ Hvis det senere slås fra, anbefales det at rydde app-dataene for at forhindre U
   <string name="revanced_change_start_page_entry_notifications">Notifikationer</string>
   <string name="revanced_change_start_page_entry_playlists">Playlister</string>
   <string name="revanced_change_start_page_entry_search">Søg</string>
+  <string name="revanced_change_start_page_entry_shopping">Køb ind</string>
   <string name="revanced_change_start_page_entry_sports">Sport</string>
   <string name="revanced_change_start_page_entry_subscriptions">Abonnementer</string>
   <string name="revanced_change_start_page_entry_trending">Populære</string>
   <string name="revanced_change_start_page_entry_virtual_reality">Virtual Reality</string>
   <string name="revanced_change_start_page_entry_watch_later">Se senere</string>
+  <string name="revanced_change_start_page_entry_your_clips">Dine klip</string>
   </patch>
   <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch">
   <string name="revanced_disable_resuming_shorts_player_title">Deaktivér genoptagelse af Shorts spiller</string>
