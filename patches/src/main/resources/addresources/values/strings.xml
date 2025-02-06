@@ -516,6 +516,9 @@ This feature is only available for older devices"</string>
             <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Swipe opacity must be between 0-100</string>
             <string name="revanced_swipe_threshold_title">Swipe magnitude threshold</string>
             <string name="revanced_swipe_threshold_summary">The amount of threshold for swipe to occur</string>
+            <string name="revanced_swipe_show_only_icon_title">Show only the icon</string>
+            <string name="revanced_swipe_show_only_icon_summary_on">Only the icon is shown inside the circle</string>
+            <string name="revanced_swipe_show_only_icon_summary_off">The icon and value are shown inside the circle</string>
             <string name="revanced_swipe_change_video_title">Enable swipe to change videos</string>
             <string name="revanced_swipe_change_video_summary_on">Swiping in fullscreen mode will change to the next/previous video</string>
             <string name="revanced_swipe_change_video_summary_off">Swiping in fullscreen mode will not change to the next/previous video</string>

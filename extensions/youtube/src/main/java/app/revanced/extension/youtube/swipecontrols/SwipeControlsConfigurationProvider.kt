@@ -107,6 +107,12 @@ class SwipeControlsConfigurationProvider(
     val overlayForegroundColor: Int
         get() = Color.WHITE
 
+    /**
+     * if icon only mode is selected
+     */
+    val overlayTextBackgroundOnlyIcon: Boolean
+        get() = Settings.SWIPE_SHOW_ONLY_ICON.get()
+
 //endregion
 
 //region behaviour
