@@ -1123,11 +1123,13 @@ Si se desactiva posteriormente, se recomienda borrar los datos de la aplicación
   <string name="revanced_change_start_page_entry_notifications">Notificaciones</string>
   <string name="revanced_change_start_page_entry_playlists">Listas de reproducción</string>
   <string name="revanced_change_start_page_entry_search">Buscar</string>
+  <string name="revanced_change_start_page_entry_shopping">Compras</string>
   <string name="revanced_change_start_page_entry_sports">Deportes</string>
   <string name="revanced_change_start_page_entry_subscriptions">Suscripciones</string>
   <string name="revanced_change_start_page_entry_trending">Tendencias</string>
   <string name="revanced_change_start_page_entry_virtual_reality">Realidad virtual</string>
   <string name="revanced_change_start_page_entry_watch_later">Ver más tarde</string>
+  <string name="revanced_change_start_page_entry_your_clips">Tus clips</string>
   </patch>
   <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch">
   <string name="revanced_disable_resuming_shorts_player_title">Desactivar reanudación del reproductor de Shorts</string>

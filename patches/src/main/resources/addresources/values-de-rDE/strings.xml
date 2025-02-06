@@ -1137,11 +1137,13 @@ Wenn Sie die Funktion später deaktivieren, wird empfohlen, die App-Daten zu lö
   <string name="revanced_change_start_page_entry_notifications">Benachrichtigungen</string>
   <string name="revanced_change_start_page_entry_playlists">Playlisten</string>
   <string name="revanced_change_start_page_entry_search">Suchen</string>
+  <string name="revanced_change_start_page_entry_shopping">Einkaufen</string>
   <string name="revanced_change_start_page_entry_sports">Sport</string>
   <string name="revanced_change_start_page_entry_subscriptions">Abonnements</string>
   <string name="revanced_change_start_page_entry_trending">Beliebt</string>
   <string name="revanced_change_start_page_entry_virtual_reality">Virtuelle Realität</string>
   <string name="revanced_change_start_page_entry_watch_later">Später ansehen</string>
+  <string name="revanced_change_start_page_entry_your_clips">Deine Clips</string>
   </patch>
   <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch">
   <string name="revanced_disable_resuming_shorts_player_title">Fortsetzen des Shorts Players deaktivieren</string>

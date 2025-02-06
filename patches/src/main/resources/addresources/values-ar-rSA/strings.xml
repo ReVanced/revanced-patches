@@ -1142,11 +1142,13 @@ Second \"item\" text"</string>
   <string name="revanced_change_start_page_entry_notifications">الإشعارات</string>
   <string name="revanced_change_start_page_entry_playlists">قائمة التشغيل</string>
   <string name="revanced_change_start_page_entry_search">البحث</string>
+  <string name="revanced_change_start_page_entry_shopping">تسوق</string>
   <string name="revanced_change_start_page_entry_sports">الرياضة</string>
   <string name="revanced_change_start_page_entry_subscriptions">الاشتراكات</string>
   <string name="revanced_change_start_page_entry_trending">المحتوى الرائج</string>
   <string name="revanced_change_start_page_entry_virtual_reality">الوقاع الاتراضي</string>
   <string name="revanced_change_start_page_entry_watch_later">شاهد لاحقًا</string>
+  <string name="revanced_change_start_page_entry_your_clips">كليباتك</string>
   </patch>
   <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch">
   <string name="revanced_disable_resuming_shorts_player_title">تعطيل استئناف مشغل Shorts</string>

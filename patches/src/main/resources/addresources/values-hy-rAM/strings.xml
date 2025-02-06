@@ -1137,10 +1137,12 @@ Seekbar thumbnails-ները կօգտագործեն նույն որակը, ինչ
   <string name="revanced_change_start_page_entry_movies">Ֆիլմեր</string>
   <string name="revanced_change_start_page_entry_music">Երաժշտություն</string>
   <string name="revanced_change_start_page_entry_search">Որոնում</string>
+  <string name="revanced_change_start_page_entry_shopping">Shopping</string>
   <string name="revanced_change_start_page_entry_sports">Սպորտ</string>
   <string name="revanced_change_start_page_entry_subscriptions">Գրանցագրություններ</string>
   <string name="revanced_change_start_page_entry_trending">Trend-ի մեջ</string>
   <string name="revanced_change_start_page_entry_watch_later">Դիտել հետո</string>
+  <string name="revanced_change_start_page_entry_your_clips">Your clips</string>
   </patch>
   <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch">
   <string name="revanced_disable_resuming_shorts_player_title">Անջատել Shorts պլեյերի վերսկսումը</string>

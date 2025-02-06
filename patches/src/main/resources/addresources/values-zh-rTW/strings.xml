@@ -394,7 +394,7 @@ Second \"item\" text"</string>
   <string name="revanced_hide_general_ads_summary_on">已隱藏一般廣告</string>
   <string name="revanced_hide_general_ads_summary_off">已顯示一般廣告</string>
   <string name="revanced_hide_fullscreen_ads_title">隱藏全螢幕廣告</string>
-  <string name="revanced_hide_fullscreen_ads_summary_on">"全螢幕廣告已隱藏
+  <string name="revanced_hide_fullscreen_ads_summary_on">"已隱藏全螢幕廣告
 
 此功能僅適用於舊版裝置"</string>
   <string name="revanced_hide_fullscreen_ads_summary_off">已顯示全螢幕廣告</string>
@@ -921,7 +921,7 @@ Second \"item\" text"</string>
   <string name="revanced_sb_general_adjusting">調整新略過片段的時間長度</string>
   <string name="revanced_sb_general_adjusting_sum">建立新片段之時間調整按鈕移動的毫秒數</string>
   <string name="revanced_sb_general_adjusting_invalid">值必須為正數</string>
-  <string name="revanced_sb_guidelines_preference_title">檢視規範</string>
+  <string name="revanced_sb_guidelines_preference_title">查看規範</string>
   <string name="revanced_sb_guidelines_preference_sum">規範包含有關送出片段的提示和規則</string>
   <string name="revanced_sb_guidelines_popup_title">跟隨規範</string>
   <string name="revanced_sb_guidelines_popup_content">建議在送出任何片段前先閱讀 SponsorBlock 指南</string>
@@ -1127,8 +1127,11 @@ Second \"item\" text"</string>
   <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">設定起始頁面</string>
   <string name="revanced_change_start_page_entry_default">預設</string>
+  <string name="revanced_change_start_page_entry_all_subscriptions">所有訂閱內容</string>
   <string name="revanced_change_start_page_entry_browse">瀏覽頻道</string>
+  <string name="revanced_change_start_page_entry_courses">課程/學習</string>
   <string name="revanced_change_start_page_entry_explore">探索</string>
+  <string name="revanced_change_start_page_entry_fashion">時尚與美妝</string>
   <string name="revanced_change_start_page_entry_gaming">遊戲</string>
   <string name="revanced_change_start_page_entry_history">歷史記錄</string>
   <string name="revanced_change_start_page_entry_library">媒體庫</string>
@@ -1136,11 +1139,17 @@ Second \"item\" text"</string>
   <string name="revanced_change_start_page_entry_live">直播</string>
   <string name="revanced_change_start_page_entry_movies">電影</string>
   <string name="revanced_change_start_page_entry_music">音樂</string>
+  <string name="revanced_change_start_page_entry_news">新聞</string>
+  <string name="revanced_change_start_page_entry_notifications">通知</string>
+  <string name="revanced_change_start_page_entry_playlists">播放清單</string>
   <string name="revanced_change_start_page_entry_search">搜尋</string>
+  <string name="revanced_change_start_page_entry_shopping">購物</string>
   <string name="revanced_change_start_page_entry_sports">運動</string>
   <string name="revanced_change_start_page_entry_subscriptions">訂閱內容</string>
   <string name="revanced_change_start_page_entry_trending">發燒影片</string>
+  <string name="revanced_change_start_page_entry_virtual_reality">虛擬實境</string>
   <string name="revanced_change_start_page_entry_watch_later">稍後觀看</string>
+  <string name="revanced_change_start_page_entry_your_clips">你的剪輯</string>
   </patch>
   <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch">
   <string name="revanced_disable_resuming_shorts_player_title">停用 Shorts 播放器接續播放功能</string>

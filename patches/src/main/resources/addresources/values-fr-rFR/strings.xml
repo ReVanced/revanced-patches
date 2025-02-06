@@ -1141,11 +1141,13 @@ Si désactivé ultérieurement, il est recommandé d'effacer les données de l'a
   <string name="revanced_change_start_page_entry_notifications">Notifications</string>
   <string name="revanced_change_start_page_entry_playlists">Listes de lecture</string>
   <string name="revanced_change_start_page_entry_search">Recherche</string>
+  <string name="revanced_change_start_page_entry_shopping">Shopping</string>
   <string name="revanced_change_start_page_entry_sports">Sport</string>
   <string name="revanced_change_start_page_entry_subscriptions">Abonnements</string>
   <string name="revanced_change_start_page_entry_trending">Tendances</string>
   <string name="revanced_change_start_page_entry_virtual_reality">Réalité virtuelle</string>
   <string name="revanced_change_start_page_entry_watch_later">À regarder plus tard</string>
+  <string name="revanced_change_start_page_entry_your_clips">Vos clips</string>
   </patch>
   <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch">
   <string name="revanced_disable_resuming_shorts_player_title">Désactiver la reprise du lecteur Shorts</string>
