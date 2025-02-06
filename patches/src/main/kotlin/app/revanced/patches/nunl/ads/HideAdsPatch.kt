@@ -10,24 +10,24 @@ val hideAdsPatch = bytecodePatch(
     name = "Hide ads",
     description = "Hide ads and sponsored articles in list pages and remove pre-roll ads on videos.",
 ) {
-    extendWith("extensions/nunl.rve")
-
     compatibleWith("nl.sanomamedia.android.nu"("11.0.0", "11.0.1"))
 
+    extendWith("extensions/nunl.rve")
+
     execute {
-        // prevent video pre-roll ads
+        // Disable video pre-roll ads.
         jwCreateAdvertisementFingerprint.method.addInstructions(
             0,
             """
                 new-instance v0, Lcom/jwplayer/pub/api/configuration/ads/VastAdvertisingConfig${'$'}Builder;
-                invoke-direct {v0}, Lcom/jwplayer/pub/api/configuration/ads/VastAdvertisingConfig${'$'}Builder;-><init>()V
-                invoke-virtual {v0}, Lcom/jwplayer/pub/api/configuration/ads/VastAdvertisingConfig${'$'}Builder;->build()Lcom/jwplayer/pub/api/configuration/ads/VastAdvertisingConfig;
+                invoke-direct { v0 }, Lcom/jwplayer/pub/api/configuration/ads/VastAdvertisingConfig${'$'}Builder;-><init>()V
+                invoke-virtual { v0 }, Lcom/jwplayer/pub/api/configuration/ads/VastAdvertisingConfig${'$'}Builder;->build()Lcom/jwplayer/pub/api/configuration/ads/VastAdvertisingConfig;
                 move-result-object v0
                 return-object v0
             """,
         )
 
-        // filter injected content from API calls out of lists
+        // Filter injected content from API calls out of lists.
         arrayOf(screenMapperFingerprint, nextPageRepositoryImplFingerprint).forEach {
             val startIndex = it.patternMatch!!.startIndex
             it.method.apply {
@@ -38,7 +38,7 @@ val hideAdsPatch = bytecodePatch(
                 addInstructions(
                     startIndex + 1,
                     """
-                        invoke-static {v$listRegister}, Lapp/revanced/extension/nunl/ScreenMapperPatch;->filterAds(Ljava/util/List;)V
+                        invoke-static { v$listRegister }, Lapp/revanced/extension/nunl/ads/HideAdsPatch;->filterAds(Ljava/util/List;)V
                     """,
                 )
             }

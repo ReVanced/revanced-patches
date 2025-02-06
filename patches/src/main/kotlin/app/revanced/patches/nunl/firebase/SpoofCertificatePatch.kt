@@ -4,9 +4,9 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.patch.bytecodePatch
 
 @Suppress("unused")
-val firebaseGetCertPatch = bytecodePatch(
-    name = "Spoof Certificate",
-    description = "Spoofs the X-Android-Cert header for push messages.",
+val spoofCertificatePatch = bytecodePatch(
+    name = "Spoof certificate",
+    description = "Spoofs the X-Android-Cert header to allow push messages.",
 ) {
     compatibleWith("nl.sanomamedia.android.nu")
 
