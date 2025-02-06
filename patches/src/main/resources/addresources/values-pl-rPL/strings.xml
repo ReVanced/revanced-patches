@@ -1142,11 +1142,13 @@ Jeśli później zostanie wyłączony, zaleca się wyczyszczenie danych aplikacj
   <string name="revanced_change_start_page_entry_notifications">Powiadomienia</string>
   <string name="revanced_change_start_page_entry_playlists">Playlisty</string>
   <string name="revanced_change_start_page_entry_search">Szukaj</string>
+  <string name="revanced_change_start_page_entry_shopping">Zakupy</string>
   <string name="revanced_change_start_page_entry_sports">Sport</string>
   <string name="revanced_change_start_page_entry_subscriptions">Subskrypcje</string>
   <string name="revanced_change_start_page_entry_trending">Na czasie</string>
   <string name="revanced_change_start_page_entry_virtual_reality">Wirtualna rzeczywistość</string>
   <string name="revanced_change_start_page_entry_watch_later">Do obejrzenia</string>
+  <string name="revanced_change_start_page_entry_your_clips">Twoje klipy</string>
   </patch>
   <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch">
   <string name="revanced_disable_resuming_shorts_player_title">Wznawianie odtwarzacza Shortsów</string>

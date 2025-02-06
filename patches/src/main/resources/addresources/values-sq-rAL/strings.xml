@@ -1140,11 +1140,13 @@ Nëse më vonë është çaktivizuar, është e rekomanduar të fshiheni të dh�
   <string name="revanced_change_start_page_entry_notifications">Njoftimet</string>
   <string name="revanced_change_start_page_entry_playlists">Playlistat</string>
   <string name="revanced_change_start_page_entry_search">Kërkimi</string>
+  <string name="revanced_change_start_page_entry_shopping">Blerje</string>
   <string name="revanced_change_start_page_entry_sports">Sport</string>
   <string name="revanced_change_start_page_entry_subscriptions">Abonimet</string>
   <string name="revanced_change_start_page_entry_trending">Trend</string>
   <string name="revanced_change_start_page_entry_virtual_reality">Realiteti Virtual</string>
   <string name="revanced_change_start_page_entry_watch_later">Shiko më vonë</string>
+  <string name="revanced_change_start_page_entry_your_clips">Klipët tuaj</string>
   </patch>
   <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch">
   <string name="revanced_disable_resuming_shorts_player_title">Fik rifillon lojtarin Shorts</string>

@@ -1142,11 +1142,13 @@ Als het later wordt uitgeschakeld, wordt aanbevolen om de app-gegevens te wissen
   <string name="revanced_change_start_page_entry_notifications">Meldingen</string>
   <string name="revanced_change_start_page_entry_playlists">Afspeellijsten</string>
   <string name="revanced_change_start_page_entry_search">Zoeken</string>
+  <string name="revanced_change_start_page_entry_shopping">Winkelen</string>
   <string name="revanced_change_start_page_entry_sports">Sport</string>
   <string name="revanced_change_start_page_entry_subscriptions">Abonnements</string>
   <string name="revanced_change_start_page_entry_trending">Trends</string>
   <string name="revanced_change_start_page_entry_virtual_reality">Virtuele realiteit</string>
   <string name="revanced_change_start_page_entry_watch_later">Later bekijken</string>
+  <string name="revanced_change_start_page_entry_your_clips">Je clips</string>
   </patch>
   <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch">
   <string name="revanced_disable_resuming_shorts_player_title">Schakel het hervatten van Shorts-speler uit</string>
