@@ -86,7 +86,7 @@ class SwipeControlsConfigurationProvider(
             var textSize = Settings.SWIPE_OVERLAY_TEXT_SIZE.get()
 
             if (textSize <= 0 || textSize > 30) {
-                Utils.showToastLong(str("revanced_swipe_overlay_text_size_invalid_toast"))
+                Utils.showToastLong(str("revanced_swipe_text_overlay_size_invalid_toast"))
                 Settings.SWIPE_OVERLAY_TEXT_SIZE.resetToDefault()
                 textSize = Settings.SWIPE_OVERLAY_TEXT_SIZE.get()
             }
@@ -102,7 +102,7 @@ class SwipeControlsConfigurationProvider(
             var opacity = Settings.SWIPE_OVERLAY_OPACITY.get()
 
             if (opacity < 0 || opacity > 100) {
-                Utils.showToastLong(str("revanced_swipe_text_overlay_size_invalid_toast"))
+                Utils.showToastLong(str("revanced_swipe_overlay_background_opacity_invalid_toast"))
                 Settings.SWIPE_OVERLAY_OPACITY.resetToDefault()
                 opacity = Settings.SWIPE_OVERLAY_OPACITY.get()
             }
