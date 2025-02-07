@@ -496,7 +496,7 @@ Adjust brightness by swiping vertically on the left side of the screen"</string>
             <string name="revanced_swipe_volume_title">Enable volume gesture</string>
             <string name="revanced_swipe_volume_summary_on">"Fullscreen volume swipe is enabled
 
-Adjust volume by swiping vertically on the right side of the screen""</string>
+Adjust volume by swiping vertically on the right side of the screen"</string>
             <string name="revanced_swipe_volume_summary_off">Fullscreen volume swipe is disabled</string>
             <string name="revanced_swipe_press_to_engage_title">Enable press-to-swipe gesture</string>
             <string name="revanced_swipe_press_to_engage_summary_on">Press-to-swipe is enabled</string>
