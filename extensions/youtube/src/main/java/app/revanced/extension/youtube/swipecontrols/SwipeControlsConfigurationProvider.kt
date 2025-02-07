@@ -2,6 +2,8 @@ package app.revanced.extension.youtube.swipecontrols
 
 import android.content.Context
 import android.graphics.Color
+import app.revanced.extension.shared.StringRef.str
+import app.revanced.extension.shared.Utils
 import app.revanced.extension.youtube.settings.Settings
 import app.revanced.extension.youtube.shared.PlayerType
 
@@ -86,7 +88,18 @@ class SwipeControlsConfigurationProvider(
      * get the background color for text on the overlay, as a color int
      */
     val overlayTextBackgroundColor: Int
-        get() = Color.argb(Settings.SWIPE_OVERLAY_BACKGROUND_ALPHA.get(), 0, 0, 0)
+        get() {
+            var opacity = Settings.SWIPE_OVERLAY_OPACITY.get()
+
+            if (opacity < 0 || opacity > 100) {
+                Utils.showToastLong(str("revanced_swipe_overlay_background_opacity_invalid_toast"))
+                Settings.SWIPE_OVERLAY_OPACITY.resetToDefault()
+                opacity = Settings.SWIPE_OVERLAY_OPACITY.get()
+            }
+
+            opacity = opacity * 255 / 100
+            return Color.argb(opacity, 0, 0, 0)
+        }
 
     /**
      * get the foreground color for text on the overlay, as a color int

@@ -506,8 +506,9 @@ Ez a funkció csak régebbi eszközökön érhető el"</string>
   <string name="revanced_swipe_overlay_timeout_summary">Az átfedés láthatóságának időtartama ezredmásodpercben</string>
   <string name="revanced_swipe_text_overlay_size_title">Csúsztatási átfedés szövegmérete</string>
   <string name="revanced_swipe_text_overlay_size_summary">A csúsztatási átfedés szövegmérete</string>
-  <string name="revanced_swipe_overlay_background_alpha_title">A csúsztatás hátterének láthatósága</string>
-  <string name="revanced_swipe_overlay_background_alpha_summary">A csúsztatási átfedés hátterének láthatósága</string>
+  <string name="revanced_swipe_overlay_background_opacity_title">Az áthúzás átfedésének átlátszósága</string>
+  <string name="revanced_swipe_overlay_background_opacity_summary">Az átlátszóság értéke 0-100 között legyen</string>
+  <string name="revanced_swipe_overlay_background_opacity_invalid_toast">A csúsztatás átlátszóságának 0 és 100 között kell lennie</string>
   <string name="revanced_swipe_threshold_title">A csúsztatás küszöbértéke</string>
   <string name="revanced_swipe_threshold_summary">A csúsztatáshoz szükséges küszöbérték</string>
   <string name="revanced_swipe_change_video_title">Engedélyezze az ujjbegyújtással történő videóváltást</string>
@@ -1114,7 +1115,7 @@ Ha később kikapcsolja, akkor ajánlott az alkalmazás adatait törölni, hogy 
                  This is because the 'General layout' menu uses alphabetic sorting, and it functionally works better if the spoof target selector appears below the 'Spoof app version' UI switch -->
   <string name="revanced_spoof_app_version_target_title">Hamisított alkalmazásverzió célja</string>
   <string name="revanced_spoof_app_version_target_entry_1">19.35.36 - A régi Shorts lejátszó ikonok visszaállítása</string>
-  <string name="revanced_spoof_app_version_target_entry_2">19.26.42 - A régi navigációs és eszköztári ikonok visszaállítása</string>
+  <string name="revanced_spoof_app_version_target_entry_2">19.26.42 - Állítsa vissza a régi navigációs ikonokat</string>
   <!-- 'RYD' is 'Return YouTube Dislike' -->
   <string name="revanced_spoof_app_version_target_legacy_entry_1">18.33.40 - RYD visszaállítása Shorts inkognitó módban</string>
   <string name="revanced_spoof_app_version_target_legacy_entry_2">18.20.39 - Széles videósebesség és minőség menü visszaállítása</string>
@@ -1124,8 +1125,11 @@ Ha később kikapcsolja, akkor ajánlott az alkalmazás adatait törölni, hogy 
   <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">Kezdőlap beállítása</string>
   <string name="revanced_change_start_page_entry_default">Alapértelmezett</string>
+  <string name="revanced_change_start_page_entry_all_subscriptions">Összes feliratkozás</string>
   <string name="revanced_change_start_page_entry_browse">Csatornák böngészése</string>
+  <string name="revanced_change_start_page_entry_courses">Tanfolyamok / Tanulás</string>
   <string name="revanced_change_start_page_entry_explore">Felfedezés</string>
+  <string name="revanced_change_start_page_entry_fashion">Divat és szépség</string>
   <string name="revanced_change_start_page_entry_gaming">Játék</string>
   <string name="revanced_change_start_page_entry_history">Előzmények</string>
   <string name="revanced_change_start_page_entry_library">Könyvtár</string>
@@ -1133,11 +1137,17 @@ Ha később kikapcsolja, akkor ajánlott az alkalmazás adatait törölni, hogy 
   <string name="revanced_change_start_page_entry_live">Élő</string>
   <string name="revanced_change_start_page_entry_movies">Filmek</string>
   <string name="revanced_change_start_page_entry_music">Zene</string>
+  <string name="revanced_change_start_page_entry_news">Hírek</string>
+  <string name="revanced_change_start_page_entry_notifications">Értesítések</string>
+  <string name="revanced_change_start_page_entry_playlists">Lejátszási listák</string>
   <string name="revanced_change_start_page_entry_search">Keresés</string>
+  <string name="revanced_change_start_page_entry_shopping">Bevásárlás</string>
   <string name="revanced_change_start_page_entry_sports">Sportok</string>
   <string name="revanced_change_start_page_entry_subscriptions">Feliratkozások</string>
   <string name="revanced_change_start_page_entry_trending">Felkapott</string>
+  <string name="revanced_change_start_page_entry_virtual_reality">Virtuális valóság</string>
   <string name="revanced_change_start_page_entry_watch_later">Megnézem később</string>
+  <string name="revanced_change_start_page_entry_your_clips">A saját klipjeid</string>
   </patch>
   <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch">
   <string name="revanced_disable_resuming_shorts_player_title">A Shorts lejátszás folytatásának kikapcsolása</string>

@@ -1,5 +1,6 @@
 package app.revanced.extension.all.misc.directory.documentsprovider;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.ProviderInfo;
@@ -23,6 +24,7 @@ import java.util.Objects;
 /**
  * A DocumentsProvider that allows access to the app's internal data directory.
  */
+@SuppressLint("LongLogTag")
 public class InternalDataDocumentsProvider extends DocumentsProvider {
     private static final String[] rootColumns =
             {"root_id", "mime_types", "flags", "icon", "title", "summary", "document_id"};

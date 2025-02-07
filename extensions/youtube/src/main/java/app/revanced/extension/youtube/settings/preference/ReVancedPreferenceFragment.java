@@ -153,13 +153,10 @@ public class ReVancedPreferenceFragment extends AbstractPreferenceFragment {
                             toolbar.setTitle(childScreen.getTitle());
                             toolbar.setNavigationIcon(getBackButtonDrawable());
                             toolbar.setNavigationOnClickListener(view -> preferenceScreenDialog.dismiss());
-
-                            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-                                final int margin = (int) TypedValue.applyDimension(
-                                        TypedValue.COMPLEX_UNIT_DIP, 16, getResources().getDisplayMetrics()
-                                );
-                                toolbar.setTitleMargin(margin, 0, margin, 0);
-                            }
+                            final int margin = (int) TypedValue.applyDimension(
+                                    TypedValue.COMPLEX_UNIT_DIP, 16, getResources().getDisplayMetrics()
+                            );
+                            toolbar.setTitleMargin(margin, 0, margin, 0);
 
                             TextView toolbarTextView = Utils.getChildView(toolbar,
                                     true, TextView.class::isInstance);

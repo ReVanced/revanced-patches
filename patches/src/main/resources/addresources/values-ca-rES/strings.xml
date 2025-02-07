@@ -506,8 +506,9 @@ Aquesta funció només està disponible per a dispositius antics"</string>
   <string name="revanced_swipe_overlay_timeout_summary">La quantitat de mil·lisegons que la superposició és visible</string>
   <string name="revanced_swipe_text_overlay_size_title">Mida del text de la superposició lliscant</string>
   <string name="revanced_swipe_text_overlay_size_summary">La mida del text per a la superposició lliscant</string>
-  <string name="revanced_swipe_overlay_background_alpha_title">Visibilitat del fons de la superposició lliscant</string>
-  <string name="revanced_swipe_overlay_background_alpha_summary">La visibilitat del fons de la superposició lliscant</string>
+  <string name="revanced_swipe_overlay_background_opacity_title">Opacitat del fons de la superposició de lliscament</string>
+  <string name="revanced_swipe_overlay_background_opacity_summary">Valor d\'opacitat entre 0 i 100</string>
+  <string name="revanced_swipe_overlay_background_opacity_invalid_toast">L\'opacitat de lliscament ha d\'estar entre 0 i 100</string>
   <string name="revanced_swipe_threshold_title">Llindar de magnitud de lliscament</string>
   <string name="revanced_swipe_threshold_summary">La quantitat de llindar per a què es produeixi el desplaçament</string>
   <string name="revanced_swipe_change_video_title">Activa la funció de lliscament per canviar vídeos</string>
@@ -1114,7 +1115,7 @@ Si després es desactiva, es recomana esborrar les dades de l'aplicació per evi
                  This is because the 'General layout' menu uses alphabetic sorting, and it functionally works better if the spoof target selector appears below the 'Spoof app version' UI switch -->
   <string name="revanced_spoof_app_version_target_title">Objectiu de la versió falsa de l\'aplicació</string>
   <string name="revanced_spoof_app_version_target_entry_1">19.35.36 - Restaura els icones vells del reproductor de Shorts</string>
-  <string name="revanced_spoof_app_version_target_entry_2">26.19.42 - restaura les icones de navegació antigues</string>
+  <string name="revanced_spoof_app_version_target_entry_2">19.26.42 - Restaura les icones de navegació antigues</string>
   <!-- 'RYD' is 'Return YouTube Dislike' -->
   <string name="revanced_spoof_app_version_target_legacy_entry_1">18.33.40 - Restaura RYD al mode d\'incògnit de Shorts</string>
   <string name="revanced_spoof_app_version_target_legacy_entry_2">18.20.39 - Restaura la velocitat àmplia del vídeo &amp; menú de qualitat</string>
@@ -1124,8 +1125,11 @@ Si després es desactiva, es recomana esborrar les dades de l'aplicació per evi
   <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">Defineix la pàgina d\'inici</string>
   <string name="revanced_change_start_page_entry_default">Per defecte</string>
+  <string name="revanced_change_start_page_entry_all_subscriptions">Totes les subscripcions</string>
   <string name="revanced_change_start_page_entry_browse">Explora canals</string>
+  <string name="revanced_change_start_page_entry_courses">Cursos / Aprenentatge</string>
   <string name="revanced_change_start_page_entry_explore">Explora</string>
+  <string name="revanced_change_start_page_entry_fashion">Moda i Bellesa</string>
   <string name="revanced_change_start_page_entry_gaming">Jocs</string>
   <string name="revanced_change_start_page_entry_history">Historial</string>
   <string name="revanced_change_start_page_entry_library">Biblioteca</string>
@@ -1133,11 +1137,17 @@ Si després es desactiva, es recomana esborrar les dades de l'aplicació per evi
   <string name="revanced_change_start_page_entry_live">En directe</string>
   <string name="revanced_change_start_page_entry_movies">Pel·lícules</string>
   <string name="revanced_change_start_page_entry_music">Música</string>
+  <string name="revanced_change_start_page_entry_news">Notícies</string>
+  <string name="revanced_change_start_page_entry_notifications">Notificacions</string>
+  <string name="revanced_change_start_page_entry_playlists">Llistes de reproducció</string>
   <string name="revanced_change_start_page_entry_search">Cerca</string>
+  <string name="revanced_change_start_page_entry_shopping">Esmorzar</string>
   <string name="revanced_change_start_page_entry_sports">Esports</string>
   <string name="revanced_change_start_page_entry_subscriptions">Subscripcions</string>
   <string name="revanced_change_start_page_entry_trending">Tendències</string>
+  <string name="revanced_change_start_page_entry_virtual_reality">Realitat virtual</string>
   <string name="revanced_change_start_page_entry_watch_later">Veure més tard</string>
+  <string name="revanced_change_start_page_entry_your_clips">Els teus clips</string>
   </patch>
   <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch">
   <string name="revanced_disable_resuming_shorts_player_title">Desactiva la represa del reproductor de Shorts</string>

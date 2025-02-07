@@ -2,9 +2,12 @@ package app.revanced.patches.youtube.layout.seekbar
 
 import app.revanced.patcher.fingerprint
 import app.revanced.util.containsLiteralInstruction
+import app.revanced.util.getReference
+import app.revanced.util.indexOfFirstInstruction
 import app.revanced.util.literal
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 internal val fullscreenSeekbarThumbnailsFingerprint = fingerprint {
     returns("Z")
@@ -109,3 +112,52 @@ internal val launchScreenLayoutTypeFingerprint = fingerprint {
                 && method.containsLiteralInstruction(launchScreenLayoutTypeLotteFeatureFlag)
     }
 }
+
+internal const val LOTTIE_ANIMATION_VIEW_CLASS_TYPE = "Lcom/airbnb/lottie/LottieAnimationView;"
+
+internal val lottieAnimationViewSetAnimationIntFingerprint = fingerprint {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
+    parameters("I")
+    returns("V")
+    custom { methodDef, classDef ->
+        classDef.type == LOTTIE_ANIMATION_VIEW_CLASS_TYPE && methodDef.indexOfFirstInstruction {
+            val reference = getReference<MethodReference>()
+            reference?.definingClass == "Lcom/airbnb/lottie/LottieAnimationView;"
+                    && reference.name == "isInEditMode"
+        } >= 0
+    }
+}
+
+internal val lottieAnimationViewSetAnimationStreamFingerprint = fingerprint {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
+    parameters("L")
+    returns("V")
+    custom { methodDef, classDef ->
+        classDef.type == LOTTIE_ANIMATION_VIEW_CLASS_TYPE && methodDef.indexOfFirstInstruction {
+            val reference = getReference<MethodReference>()
+            reference?.definingClass == "Ljava/util/Set;"
+                    && reference.name == "add"
+        } >= 0 && methodDef.containsLiteralInstruction(0)
+    }
+}
+
+internal val lottieCompositionFactoryZipFingerprint = fingerprint {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
+    parameters("Landroid/content/Context;", "Ljava/lang/String;", "Ljava/lang/String;")
+    returns("L")
+    strings(".zip", ".lottie")
+}
+
+/**
+ * Resolves using class found in [lottieCompositionFactoryZipFingerprint].
+ *
+ * [Original method](https://github.com/airbnb/lottie-android/blob/26ad8bab274eac3f93dccccfa0cafc39f7408d13/lottie/src/main/java/com/airbnb/lottie/LottieCompositionFactory.java#L386)
+ */
+internal val lottieCompositionFactoryFromJsonInputStreamFingerprint = fingerprint {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
+    parameters("Ljava/io/InputStream;", "Ljava/lang/String;")
+    returns("L")
+    literal { 2 }
+}
+
+

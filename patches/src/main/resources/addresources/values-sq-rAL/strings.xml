@@ -506,8 +506,9 @@ Kjo veçori është e disponueshme vetëm për pajisje më të vjetra"</string>
   <string name="revanced_swipe_overlay_timeout_summary">Sasia e milisekondave që mbivendosja është e dukshme</string>
   <string name="revanced_swipe_text_overlay_size_title">Madhësia e tekstit të mbivendosjes së shërbimit</string>
   <string name="revanced_swipe_text_overlay_size_summary">Madhësia e tekstit për mbivendosjen e shërbimit</string>
-  <string name="revanced_swipe_overlay_background_alpha_title">Dukshmëria e sfondit të shërbimit</string>
-  <string name="revanced_swipe_overlay_background_alpha_summary">Dukshmëria e sfondit të mbivendosjes së shërbimit</string>
+  <string name="revanced_swipe_overlay_background_opacity_title">Opasiteti i sfondit mbivendosës shtypëse</string>
+  <string name="revanced_swipe_overlay_background_opacity_summary">Vlera e opacitetit midis 0-100</string>
+  <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Opaciteti i shtypjes duhet të jetë midis 0-100</string>
   <string name="revanced_swipe_threshold_title">Pragu i madhësisë së shërbimit</string>
   <string name="revanced_swipe_threshold_summary">Sasia e pragut për të ndodhur shërbimi</string>
   <string name="revanced_swipe_change_video_title">Aktivizoni lëshimin për të ndryshuar videot</string>
@@ -1113,7 +1114,7 @@ Nëse më vonë është çaktivizuar, është e rekomanduar të fshiheni të dh�
                  This is because the 'General layout' menu uses alphabetic sorting, and it functionally works better if the spoof target selector appears below the 'Spoof app version' UI switch -->
   <string name="revanced_spoof_app_version_target_title">Shënjestër e versionit të aplikacionit të mashtuar</string>
   <string name="revanced_spoof_app_version_target_entry_1">19.35.36 - Rikthe ikonat e vjetra të lojtarit Shorts</string>
-  <string name="revanced_spoof_app_version_target_entry_2">19.26.42 - Riktheh ikonat e navigimit dhe shiritit të mjeteve të vjetra</string>
+  <string name="revanced_spoof_app_version_target_entry_2">19.26.42 - Ristauro ikonave te vjetra te navigimit</string>
   <!-- 'RYD' is 'Return YouTube Dislike' -->
   <string name="revanced_spoof_app_version_target_legacy_entry_1">18.33.40 - Rikthe RYD në modin incognito të Shorts</string>
   <string name="revanced_spoof_app_version_target_legacy_entry_2">18.20.39 - Rikthe menunë e shpejtësisë dhe cilësisë së videos së gjerë</string>
@@ -1123,8 +1124,11 @@ Nëse më vonë është çaktivizuar, është e rekomanduar të fshiheni të dh�
   <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">Vendos faqen e fillimit</string>
   <string name="revanced_change_start_page_entry_default">Paragjykja</string>
+  <string name="revanced_change_start_page_entry_all_subscriptions">Të gjitha abonimet</string>
   <string name="revanced_change_start_page_entry_browse">Shfleto kanalet</string>
+  <string name="revanced_change_start_page_entry_courses">Kurse / Mësim</string>
   <string name="revanced_change_start_page_entry_explore">Zbulo</string>
+  <string name="revanced_change_start_page_entry_fashion">Modë dhe Bukuri</string>
   <string name="revanced_change_start_page_entry_gaming">Lojëra</string>
   <string name="revanced_change_start_page_entry_history">Historia</string>
   <string name="revanced_change_start_page_entry_library">Biblioteka</string>
@@ -1132,11 +1136,17 @@ Nëse më vonë është çaktivizuar, është e rekomanduar të fshiheni të dh�
   <string name="revanced_change_start_page_entry_live">Live</string>
   <string name="revanced_change_start_page_entry_movies">Filma</string>
   <string name="revanced_change_start_page_entry_music">Muzikë</string>
+  <string name="revanced_change_start_page_entry_news">Lajmet</string>
+  <string name="revanced_change_start_page_entry_notifications">Njoftimet</string>
+  <string name="revanced_change_start_page_entry_playlists">Playlistat</string>
   <string name="revanced_change_start_page_entry_search">Kërkimi</string>
+  <string name="revanced_change_start_page_entry_shopping">Blerje</string>
   <string name="revanced_change_start_page_entry_sports">Sport</string>
   <string name="revanced_change_start_page_entry_subscriptions">Abonimet</string>
   <string name="revanced_change_start_page_entry_trending">Trend</string>
+  <string name="revanced_change_start_page_entry_virtual_reality">Realiteti Virtual</string>
   <string name="revanced_change_start_page_entry_watch_later">Shiko më vonë</string>
+  <string name="revanced_change_start_page_entry_your_clips">Klipët tuaj</string>
   </patch>
   <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch">
   <string name="revanced_disable_resuming_shorts_player_title">Fik rifillon lojtarin Shorts</string>
