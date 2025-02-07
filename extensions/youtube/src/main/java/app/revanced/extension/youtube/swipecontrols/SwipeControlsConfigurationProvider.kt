@@ -20,19 +20,17 @@ class SwipeControlsConfigurationProvider(
      * should swipe controls be enabled? (global setting)
      */
     val enableSwipeControls: Boolean
-        get() = isFullscreenVideo && (enableVolumeControls || enableBrightnessControl)
+        get() = (enableVolumeControls || enableBrightnessControl) && isFullscreenVideo
 
     /**
      * should swipe controls for volume be enabled?
      */
-    val enableVolumeControls: Boolean
-        get() = Settings.SWIPE_VOLUME.get()
+    val enableVolumeControls = Settings.SWIPE_VOLUME.get()
 
     /**
      * should swipe controls for volume be enabled?
      */
-    val enableBrightnessControl: Boolean
-        get() = Settings.SWIPE_BRIGHTNESS.get()
+    val enableBrightnessControl = Settings.SWIPE_BRIGHTNESS.get()
 
     /**
      * is the video player currently in fullscreen mode?
@@ -46,7 +44,7 @@ class SwipeControlsConfigurationProvider(
      * should volume key controls be overwritten? (global setting)
      */
     val overwriteVolumeKeyControls: Boolean
-        get() = isFullscreenVideo && enableVolumeControls
+        get() = enableVolumeControls && isFullscreenVideo
 //endregion
 
 //region gesture adjustments
