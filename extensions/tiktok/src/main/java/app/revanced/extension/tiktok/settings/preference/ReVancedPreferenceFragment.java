@@ -21,9 +21,11 @@ public class ReVancedPreferenceFragment extends AbstractPreferenceFragment {
     protected void syncSettingWithPreference(@NonNull Preference pref,
                                              @NonNull Setting<?> setting,
                                              boolean applySettingToPreference) {
-        if (pref instanceof RangeValuePreference rangeValuePref) {
+        if (pref instanceof RangeValuePreference) {
+            RangeValuePreference rangeValuePref = (RangeValuePreference) pref;
             Setting.privateSetValueFromString(setting, rangeValuePref.getValue());
-        } else if (pref instanceof DownloadPathPreference downloadPathPref) {
+        } else if (pref instanceof DownloadPathPreference) {
+            DownloadPathPreference downloadPathPref = (DownloadPathPreference) pref;
             Setting.privateSetValueFromString(setting, downloadPathPref.getValue());
         } else {
             super.syncSettingWithPreference(pref, setting, applySettingToPreference);
@@ -32,7 +34,7 @@ public class ReVancedPreferenceFragment extends AbstractPreferenceFragment {
 
     @Override
     protected void initialize() {
-        final var context = getContext();
+        final var context = getActivity();
 
         // Currently no resources can be compiled for TikTok (fails with aapt error).
         // So all TikTok Strings are hard coded in the extension.

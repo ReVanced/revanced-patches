@@ -506,8 +506,9 @@ Second \"item\" text"</string>
   <string name="revanced_swipe_overlay_timeout_summary">จำนวนมิลลิวินาทีที่การแสดงทับจะมองเห็น</string>
   <string name="revanced_swipe_text_overlay_size_title">ขนาดข้อความของการแสดงทับการปัด</string>
   <string name="revanced_swipe_text_overlay_size_summary">ขนาดข้อความสำหรับการแสดงทับการปัด</string>
-  <string name="revanced_swipe_overlay_background_alpha_title">ความมองเห็นของพื้นหลังการปัด</string>
-  <string name="revanced_swipe_overlay_background_alpha_summary">ความมองเห็นของพื้นหลังการแสดงทับการปัด</string>
+  <string name="revanced_swipe_overlay_background_opacity_title">ความทึบแสงพื้นหลังของสไลด์โอเวอร์เลย์</string>
+  <string name="revanced_swipe_overlay_background_opacity_summary">ค่าความทึบแสงระหว่าง 0-100</string>
+  <string name="revanced_swipe_overlay_background_opacity_invalid_toast">ค่าความทึบแสงของสไลด์ต้องอยู่ระหว่าง 0-100</string>
   <string name="revanced_swipe_threshold_title">เกณฑ์ขนาดของการปัด</string>
   <string name="revanced_swipe_threshold_summary">จำนวนเกณฑ์สำหรับการปัดที่จะเกิดขึ้น</string>
   <string name="revanced_swipe_change_video_title">เปิดใช้การปัดเพื่อเปลี่ยนวิดีโอ</string>
@@ -1115,7 +1116,7 @@ User id ของคุณเหมือนกับรหัสผ่าน �
                  This is because the 'General layout' menu uses alphabetic sorting, and it functionally works better if the spoof target selector appears below the 'Spoof app version' UI switch -->
   <string name="revanced_spoof_app_version_target_title">เป้าหมายการปลอมแปลงเวอร์ชันแอป</string>
   <string name="revanced_spoof_app_version_target_entry_1">19.35.36 - คืนค่าไอคอนเครื่องเล่น Shorts เก่า</string>
-  <string name="revanced_spoof_app_version_target_entry_2">19.26.42 - กู้คืนไอคอนแถบนำทางและแถบเครื่องมือแบบเก่า</string>
+  <string name="revanced_spoof_app_version_target_entry_2">19.26.42 - แบนเพิ่มยุธการพันเข้าเนียงเลขนระบเจะหวัด</string>
   <!-- 'RYD' is 'Return YouTube Dislike' -->
   <string name="revanced_spoof_app_version_target_legacy_entry_1">18.33.40 - คืนค่า RYD บนโหมดไม่ระบุตัวตน Shorts</string>
   <string name="revanced_spoof_app_version_target_legacy_entry_2">18.20.39 - คืนค่าเมนูความเร็วและคุณภาพวิดีโอแบบกว้าง</string>
@@ -1125,8 +1126,11 @@ User id ของคุณเหมือนกับรหัสผ่าน �
   <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">ตั้งค่าหน้าเริ่มต้น</string>
   <string name="revanced_change_start_page_entry_default">ค่าเริ่มต้น</string>
+  <string name="revanced_change_start_page_entry_all_subscriptions">สยงสนดการตเปนี</string>
   <string name="revanced_change_start_page_entry_browse">เรียกดูช่อง</string>
+  <string name="revanced_change_start_page_entry_courses">เก็บค์คสตตว์อก / คมีนคร</string>
   <string name="revanced_change_start_page_entry_explore">สำรวจ</string>
+  <string name="revanced_change_start_page_entry_fashion">แฟชั่น \u0026 ความงาม</string>
   <string name="revanced_change_start_page_entry_gaming">เกม</string>
   <string name="revanced_change_start_page_entry_history">ประวัติ</string>
   <string name="revanced_change_start_page_entry_library">คลัง</string>
@@ -1134,11 +1138,17 @@ User id ของคุณเหมือนกับรหัสผ่าน �
   <string name="revanced_change_start_page_entry_live">สด</string>
   <string name="revanced_change_start_page_entry_movies">ภาพยนตร์</string>
   <string name="revanced_change_start_page_entry_music">เพลง</string>
+  <string name="revanced_change_start_page_entry_news">เริง</string>
+  <string name="revanced_change_start_page_entry_notifications">บริค์ซ์</string>
+  <string name="revanced_change_start_page_entry_playlists">แพล่งของ</string>
   <string name="revanced_change_start_page_entry_search">ค้นหา</string>
+  <string name="revanced_change_start_page_entry_shopping">ช็อปปิ้ง</string>
   <string name="revanced_change_start_page_entry_sports">กีฬา</string>
   <string name="revanced_change_start_page_entry_subscriptions">สมัครสมาชิก</string>
   <string name="revanced_change_start_page_entry_trending">กำลังมาแรง</string>
+  <string name="revanced_change_start_page_entry_virtual_reality">กทบทาคส์ชียอลัด</string>
   <string name="revanced_change_start_page_entry_watch_later">ดูต่อภายหลัง</string>
+  <string name="revanced_change_start_page_entry_your_clips">คลิปของคุณ</string>
   </patch>
   <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch">
   <string name="revanced_disable_resuming_shorts_player_title">ปิดใช้งานการกลับมาทำงานต่อของเครื่องเล่น Shorts</string>

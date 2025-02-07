@@ -492,9 +492,9 @@ Bu xüsusiyyət yalnız köhnə cihazlar üçün mövcuddur"</string>
   <string name="revanced_swipe_press_to_engage_title">Basıb sürüşdürmə jestini aktivləşdir</string>
   <string name="revanced_swipe_press_to_engage_summary_on">Sürüşdürmək üçün basma aktivdir</string>
   <string name="revanced_swipe_press_to_engage_summary_off">Sürüşdürmək üçün basma qeyri-aktivdir</string>
-  <string name="revanced_swipe_haptic_feedback_title">Toxunuşlu əks-əlaqəni aktivləşdir</string>
-  <string name="revanced_swipe_haptic_feedback_summary_on">Toxunuşlu əks-əlaqə aktivləşdirilib</string>
-  <string name="revanced_swipe_haptic_feedback_summary_off">Toxunuşlu əks-əlaqə qeyri-aktivdir</string>
+  <string name="revanced_swipe_haptic_feedback_title">Əks-əlaqə reaksiyasını aktivləşdir</string>
+  <string name="revanced_swipe_haptic_feedback_summary_on">Əks-əlaqə reaksiyası aktivləşdirilib</string>
+  <string name="revanced_swipe_haptic_feedback_summary_off">Əks-əlaqə reaksiyası qeyri-aktivdir</string>
   <string name="revanced_swipe_save_and_restore_brightness_title">Parlaqlığı saxla və bərpa et</string>
   <string name="revanced_swipe_save_and_restore_brightness_summary_on">Tam ekrana keçərkən və ya çıxarkən parlaqlığı saxla və bərpa et</string>
   <string name="revanced_swipe_save_and_restore_brightness_summary_off">Tam ekrana keçərkən və ya çıxarkən parlaqlığı saxlama və bərpa etmə</string>
@@ -506,8 +506,9 @@ Bu xüsusiyyət yalnız köhnə cihazlar üçün mövcuddur"</string>
   <string name="revanced_swipe_overlay_timeout_summary">Örtüyün göründüyü millisaniyələrin sayı</string>
   <string name="revanced_swipe_text_overlay_size_title">Örtük mətn ölçüsü dəyişdirmə</string>
   <string name="revanced_swipe_text_overlay_size_summary">Sürüşdürmə örtüyü üçün mətn ölçüsü</string>
-  <string name="revanced_swipe_overlay_background_alpha_title">Sürüşdürmə arxa plan görünməsi</string>
-  <string name="revanced_swipe_overlay_background_alpha_summary">Sürüşdürmə örtüyü arxa fonunun görünməsi</string>
+  <string name="revanced_swipe_overlay_background_opacity_title">Sürüşdürmə cildi arxa plan qeyri-şəffaflığı</string>
+  <string name="revanced_swipe_overlay_background_opacity_summary">0-100 arası qeyri-şəffaflıq dəyəri</string>
+  <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Sürüşmə qeyri-şəffaflığı 0-100 arası olmalıdır</string>
   <string name="revanced_swipe_threshold_title">Sürüşdürmə böyüklük həddi</string>
   <string name="revanced_swipe_threshold_summary">Sürüşdürmənin icra edilməsi üçün son dəyər</string>
   <string name="revanced_swipe_change_video_title">Videoları ötürmək üçün sürüşdürməni aktiv et</string>
@@ -621,8 +622,8 @@ Qeyd: Bunu aktivləşdirmə video reklamları da məcburi olaraq gizlədir"</str
   <string name="revanced_hide_player_flyout_stable_volume_summary_on">Stabil səs menyusu gizlidir</string>
   <!-- 'Help & feedback' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_help_title">Kömək və əks əlaqəni gizlət</string>
-  <string name="revanced_hide_player_flyout_help_summary_on">Kömək və əks əlaqə, gizlidir</string>
-  <string name="revanced_hide_player_flyout_help_summary_off">Kömək və əks əlaqə göstərilir</string>
+  <string name="revanced_hide_player_flyout_help_summary_on">Kömək və əks əlaqə menyusu gizlidir</string>
+  <string name="revanced_hide_player_flyout_help_summary_off">Kömək və əks əlaqə menyusu göstərilir</string>
   <!-- 'Playback speed' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_speed_title">\"Oynatma sürəti\"ni gizlət</string>
   <string name="revanced_hide_player_flyout_speed_summary_on">Oynatma sürəti menyusu gizlidir</string>
@@ -1115,7 +1116,7 @@ Sonradan qapadılarsa, UI səhvlərin önləmək üçün tətbiq məlumatların 
                  This is because the 'General layout' menu uses alphabetic sorting, and it functionally works better if the spoof target selector appears below the 'Spoof app version' UI switch -->
   <string name="revanced_spoof_app_version_target_title">Saxta tətbiq versiyası hədəfi</string>
   <string name="revanced_spoof_app_version_target_entry_1">19.35.36 - Köhnə Shorts oynadıcı işarələrin bərpa et</string>
-  <string name="revanced_spoof_app_version_target_entry_2">19.26.42 - Köhnə fəaliyyət və cihaz cizgisi işarələrin bərpa et</string>
+  <string name="revanced_spoof_app_version_target_entry_2">19.26.42 - Köhnə fəaliyyət simvolların bərpa et</string>
   <!-- 'RYD' is 'Return YouTube Dislike' -->
   <string name="revanced_spoof_app_version_target_legacy_entry_1">18.33.40 - Shorts gizli rejimində RYD-ni bərpa et</string>
   <string name="revanced_spoof_app_version_target_legacy_entry_2">18.20.39 - Geniş video sürəti &amp; keyfiyyət menyusunu bərpa et</string>
@@ -1125,8 +1126,11 @@ Sonradan qapadılarsa, UI səhvlərin önləmək üçün tətbiq məlumatların 
   <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">Başlanğıc səhifəsini təyin et</string>
   <string name="revanced_change_start_page_entry_default">İlkin</string>
+  <string name="revanced_change_start_page_entry_all_subscriptions">Bütün abunəliklər</string>
   <string name="revanced_change_start_page_entry_browse">Kanallara nəzər yetir</string>
+  <string name="revanced_change_start_page_entry_courses">Kurslar / Öyrənmə</string>
   <string name="revanced_change_start_page_entry_explore">Kəşf et</string>
+  <string name="revanced_change_start_page_entry_fashion">Dəb və Gözəllik</string>
   <string name="revanced_change_start_page_entry_gaming">Oyun</string>
   <string name="revanced_change_start_page_entry_history">Tarixçə</string>
   <string name="revanced_change_start_page_entry_library">Kitabxana</string>
@@ -1134,11 +1138,17 @@ Sonradan qapadılarsa, UI səhvlərin önləmək üçün tətbiq məlumatların 
   <string name="revanced_change_start_page_entry_live">Canlı</string>
   <string name="revanced_change_start_page_entry_movies">Filmlər</string>
   <string name="revanced_change_start_page_entry_music">Musiqi</string>
+  <string name="revanced_change_start_page_entry_news">Xəbərlər</string>
+  <string name="revanced_change_start_page_entry_notifications">Bildirişlər</string>
+  <string name="revanced_change_start_page_entry_playlists">Pleylistlər</string>
   <string name="revanced_change_start_page_entry_search">Axtarış</string>
+  <string name="revanced_change_start_page_entry_shopping">Alış-Veriş</string>
   <string name="revanced_change_start_page_entry_sports">İdman</string>
   <string name="revanced_change_start_page_entry_subscriptions">Abunəliklər</string>
   <string name="revanced_change_start_page_entry_trending">Trendlər</string>
+  <string name="revanced_change_start_page_entry_virtual_reality">Faktiki Həyat</string>
   <string name="revanced_change_start_page_entry_watch_later">Sonra izlə</string>
+  <string name="revanced_change_start_page_entry_your_clips">Klipləriniz</string>
   </patch>
   <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch">
   <string name="revanced_disable_resuming_shorts_player_title">Shorts oynadıcı başladıcını qapat</string>
@@ -1316,9 +1326,9 @@ Bunu aktivləşdirmə daha yüksək video keyfiyyətləri əngəlin silə bilər
   <string name="revanced_remove_tracking_query_parameter_summary_off">İzləmə sorğusu faktoru bağlantılardan silinmir</string>
   </patch>
   <patch id="misc.zoomhaptics.zoomHapticsPatch">
-  <string name="revanced_disable_zoom_haptics_title">Yaxınlaşdırma əks-əlaqəsini bağla</string>
-  <string name="revanced_disable_zoom_haptics_summary_on">Əks-əlaqə bağlandı</string>
-  <string name="revanced_disable_zoom_haptics_summary_off">Əks-əlaqə aktivdir</string>
+  <string name="revanced_disable_zoom_haptics_title">Yaxınlaşdırma reaksiyasın qapat</string>
+  <string name="revanced_disable_zoom_haptics_summary_on">Reaksiya qapalıdır</string>
+  <string name="revanced_disable_zoom_haptics_summary_off">Reaksiya aktivdir</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
   <string name="revanced_force_original_audio_title">Orijinal səsi tələb et</string>

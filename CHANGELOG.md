@@ -1,3 +1,38 @@
+# [5.11.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.11.0-dev.1...v5.11.0-dev.2) (2025-02-06)
+
+
+### Bug Fixes
+
+* Fix broken `Remove screen capture restriction`,  `Remove screenshot restriction`, `Spoof Wi-Fi connection`, and `Export internal data documents provider` patch ([#4405](https://github.com/ReVanced/revanced-patches/issues/4405)) ([1d52b74](https://github.com/ReVanced/revanced-patches/commit/1d52b7478d34e699d8c629eeaa9fdbb470b7d5c8))
+
+# [5.11.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.10.1-dev.3...v5.11.0-dev.1) (2025-02-05)
+
+
+### Features
+
+* **YouTube - Change start page:** Add additional start pages ([#4413](https://github.com/ReVanced/revanced-patches/issues/4413)) ([b434182](https://github.com/ReVanced/revanced-patches/commit/b434182df69313c4eb5f0dfd98101cb80e46ead2))
+
+## [5.10.1-dev.3](https://github.com/ReVanced/revanced-patches/compare/v5.10.1-dev.2...v5.10.1-dev.3) (2025-02-03)
+
+
+### Bug Fixes
+
+* **YouTube - Hide layout components:** Hide new type of community post ([#4404](https://github.com/ReVanced/revanced-patches/issues/4404)) ([f67ab2b](https://github.com/ReVanced/revanced-patches/commit/f67ab2baf25d543ceb55fcec48bda441ebf2b998))
+
+## [5.10.1-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.10.1-dev.1...v5.10.1-dev.2) (2025-02-03)
+
+
+### Bug Fixes
+
+* **YouTube - Enable slide to seek:** Change patch to default include ([50358cd](https://github.com/ReVanced/revanced-patches/commit/50358cddea3eef4051d248040d23f774521dce00))
+
+## [5.10.1-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.10.0...v5.10.1-dev.1) (2025-02-02)
+
+
+### Bug Fixes
+
+* **YouTube - Theme:** Use custom seekbar color for cairo startup animation ([#4399](https://github.com/ReVanced/revanced-patches/issues/4399)) ([1cba294](https://github.com/ReVanced/revanced-patches/commit/1cba2948a6787118eb380ffcec35ee4fb99447ea))
+
 # [5.10.0](https://github.com/ReVanced/revanced-patches/compare/v5.9.0...v5.10.0) (2025-01-31)
 
 

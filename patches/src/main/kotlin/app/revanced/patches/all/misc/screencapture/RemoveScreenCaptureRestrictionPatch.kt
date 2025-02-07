@@ -25,7 +25,7 @@ private val removeCaptureRestrictionResourcePatch = resourcePatch(
 }
 
 private const val EXTENSION_CLASS_DESCRIPTOR_PREFIX =
-    "Lapp/revanced/extension/all/screencapture/removerestriction/RemoveScreencaptureRestrictionPatch"
+    "Lapp/revanced/extension/all/screencapture/removerestriction/RemoveScreenCaptureRestrictionPatch"
 private const val EXTENSION_CLASS_DESCRIPTOR = "$EXTENSION_CLASS_DESCRIPTOR_PREFIX;"
 
 @Suppress("unused")
