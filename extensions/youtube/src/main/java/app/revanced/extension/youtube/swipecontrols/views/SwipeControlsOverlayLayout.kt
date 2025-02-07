@@ -147,14 +147,14 @@ class CircularProgressView @JvmOverloads constructor(
     private val brightnessPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
         style = Paint.Style.STROKE
         strokeWidth = 20f
-        color = hexToArgb("#FFA500", 128) // Orange for brightness.
+        color = hexToArgb("#FFA500", 191) // Orange for brightness.
         strokeCap = Paint.Cap.ROUND
     }
 
     private val volumePaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
         style = Paint.Style.STROKE
         strokeWidth = 20f
-        color = hexToArgb("#2196F3", 128) // Blue for volume.
+        color = hexToArgb("#2196F3", 191) // Blue for volume.
         strokeCap = Paint.Cap.ROUND
     }
 
