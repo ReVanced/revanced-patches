@@ -2,7 +2,6 @@ package app.revanced.extension.youtube.swipecontrols.views
 
 import android.content.Context
 import android.graphics.Canvas
-import android.graphics.Color
 import android.graphics.Paint
 import android.graphics.RectF
 import android.graphics.drawable.Drawable
@@ -138,25 +137,16 @@ class CircularProgressView @JvmOverloads constructor(
 ) : View(context, attrs, defStyleAttr) {
 
     // Paint objects for drawing various elements of the circular progress view.
-    private val backgroundPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
+    private fun createPaint(color: Int, strokeCap: Paint.Cap = Paint.Cap.BUTT) = Paint(Paint.ANTI_ALIAS_FLAG).apply {
         style = Paint.Style.STROKE
         strokeWidth = 20f
-        color = 0x33000000 // Semi-transparent outer ring.
+        this.color = color
+        this.strokeCap = strokeCap
     }
 
-    private val brightnessPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
-        style = Paint.Style.STROKE
-        strokeWidth = 20f
-        color = hexToArgb("#FFA500", 191) // Orange for brightness.
-        strokeCap = Paint.Cap.ROUND
-    }
-
-    private val volumePaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
-        style = Paint.Style.STROKE
-        strokeWidth = 20f
-        color = hexToArgb("#2196F3", 191) // Blue for volume.
-        strokeCap = Paint.Cap.ROUND
-    }
+    private val backgroundPaint = createPaint(0x33000000) // Semi-transparent outer ring.
+    private val brightnessPaint = createPaint(0xBFFFA500.toInt(), Paint.Cap.ROUND) // Orange for brightness, 75% transparency.
+    private val volumePaint = createPaint(0xBF2196F3.toInt(), Paint.Cap.ROUND) // Blue for volume, 75% transparency.
 
     private val innerBackgroundPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
         style = Paint.Style.FILL
@@ -176,6 +166,7 @@ class CircularProgressView @JvmOverloads constructor(
     private var displayText: String = "0"
     private var isBrightness = true
     private var icon: Drawable? = null
+    private val rectF = RectF() // Rectangle to define the bounds for drawing.
 
     // Set the progress, max value, and the text to display, along with the mode (brightness or volume).
     fun setProgress(value: Int, max: Int, text: String, isBrightnessMode: Boolean) {
@@ -211,11 +202,6 @@ class CircularProgressView @JvmOverloads constructor(
         return if (textToDisplay != text) "$textToDisplay..." else textToDisplay
     }
 
-    fun hexToArgb(hex: String, alpha: Int = 255): Int {
-        val color = Color.parseColor(hex) // Converts HEX to Color Int.
-        return Color.argb(alpha, Color.red(color), Color.green(color), Color.blue(color))
-    }
-
     // Override the onDraw method to draw the progress view and its components.
     override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
@@ -245,6 +231,4 @@ class CircularProgressView @JvmOverloads constructor(
             canvas.drawText(displayText, width / 2f, height / 2f + 55f, textPaint)
         }
     }
-
-    private val rectF = RectF() // Rectangle to define the bounds for drawing.
 }
