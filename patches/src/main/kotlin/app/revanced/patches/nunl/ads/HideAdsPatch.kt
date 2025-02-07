@@ -16,7 +16,8 @@ val hideAdsPatch = bytecodePatch(
 
     execute {
         // Disable video pre-roll ads.
-        jwCreateAdvertisementFingerprint.method.addInstructions(
+        // Whenever the app tries to create an ad via JWUtils.createAdvertising, don't actually tell the underlying JWPlayer library to do so => JWPlayer will not display ads
+        jwUtilCreateAdvertisementFingerprint.method.addInstructions(
             0,
             """
                 new-instance v0, Lcom/jwplayer/pub/api/configuration/ads/VastAdvertisingConfig${'$'}Builder;

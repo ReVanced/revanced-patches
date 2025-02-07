@@ -4,7 +4,7 @@ import app.revanced.patcher.fingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal val jwCreateAdvertisementFingerprint = fingerprint {
+internal val jwUtilCreateAdvertisementFingerprint = fingerprint {
     accessFlags(AccessFlags.PRIVATE, AccessFlags.STATIC)
     custom { methodDef, classDef ->
         classDef.type == "Lnl/sanomamedia/android/nu/video/util/JWUtil;" && methodDef.name == "createAdvertising"
