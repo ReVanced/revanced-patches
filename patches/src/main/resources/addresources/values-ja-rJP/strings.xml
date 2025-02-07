@@ -112,12 +112,12 @@ Second \"item\" text"</string>
   <patch id="misc.gms.gmsCoreSupportResourcePatch">
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="gms_core_toast_not_installed_message">MicroG GmsCore がインストールされていません。インストールしてください。</string>
-  <string name="gms_core_dialog_title">アクションが必要です</string>
-  <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"MicroG GmsCoreはバックグラウンドで実行するための権限を持っていません。
+  <string name="gms_core_dialog_title">必ず実行してください</string>
+  <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"MicroG GmsCore はバックグラウンドで実行するための権限を持っていません。
 
-お使いの携帯電話の「アプリの強制終了を無効にする」ガイドに従って、MicroGインストールに指示を適用してください。
+下記ウェブサイト「Don't kill my app」の携帯電話メーカー別のガイドに従い、MicroG GmsCore に対する端末の設定を変更してください。
 
-これはアプリが動作するために必要です。"</string>
+この操作はアプリが動作するために必要です。"</string>
   <string name="gms_core_dialog_open_website_text">ウェブサイトを開く</string>
   <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">"問題を防ぐためには、GmsCore の電池の最適化を無効にする必要があります。
 

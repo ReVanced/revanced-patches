@@ -140,7 +140,7 @@ Brúigh an cnaipe leanúnaí agus ligean athruithe optúimíochta."</string>
   <string name="revanced_settings_screen_11_misc_title">Éagsúla</string>
   <string name="revanced_settings_screen_12_video_title">Físeán</string>
   <string name="revanced_restore_old_settings_menus_title">Athshocraigh roghanna seanghléasanna</string>
-  <string name="revanced_restore_old_settings_menus_summary_on">Féachann roghanna seanmhéid</string>
+  <string name="revanced_restore_old_settings_menus_summary_on">Taispeántar sean-roghchláir socruithe</string>
   <string name="revanced_restore_old_settings_menus_summary_off">Ní féachann roghanna seanmhéid</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">

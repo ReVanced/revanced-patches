@@ -1235,8 +1235,8 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_seekbar_custom_color_title">사용자 정의 재생바 색상 활성화하기</string>
   <string name="revanced_seekbar_custom_color_summary_on">사용자 정의 재생바 색상을 활성화합니다</string>
   <string name="revanced_seekbar_custom_color_summary_off">기본 재생바 색상을 활성화합니다</string>
-  <string name="revanced_seekbar_custom_color_primary_title">사용자 정의 재생바 색상</string>
-  <string name="revanced_seekbar_custom_color_primary_summary">사용하고 싶은 재생바 색상의 헥스 코드를 입력하세요</string>
+  <string name="revanced_seekbar_custom_color_primary_title">사용자 정의 재생바 메인 색상</string>
+  <string name="revanced_seekbar_custom_color_primary_summary">사용하고 싶은 재생바 메인 색상의 헥스 코드를 입력하세요</string>
   <string name="revanced_seekbar_custom_color_accent_title">사용자 정의 재생바 보조 색상</string>
   <string name="revanced_seekbar_custom_color_accent_summary">사용하고 싶은 재생바 보조 색상의 헥스 코드를 입력하세요</string>
   <string name="revanced_seekbar_custom_color_invalid">잘못된 재생바 색상값입니다</string>
