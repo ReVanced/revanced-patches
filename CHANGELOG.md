@@ -1,3 +1,10 @@
+# [5.11.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.11.0-dev.1...v5.11.0-dev.2) (2025-02-06)
+
+
+### Bug Fixes
+
+* Fix broken `Remove screen capture restriction`,  `Remove screenshot restriction`, `Spoof Wi-Fi connection`, and `Export internal data documents provider` patch ([#4405](https://github.com/ReVanced/revanced-patches/issues/4405)) ([1d52b74](https://github.com/ReVanced/revanced-patches/commit/1d52b7478d34e699d8c629eeaa9fdbb470b7d5c8))
+
 # [5.11.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.10.1-dev.3...v5.11.0-dev.1) (2025-02-05)
 
 

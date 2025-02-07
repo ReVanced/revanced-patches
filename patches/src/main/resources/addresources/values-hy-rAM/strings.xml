@@ -26,20 +26,20 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_dialog_open_official_source_button">Բացել պաշտոնական կայքը</string>
   <string name="revanced_check_environment_dialog_ignore_button">Մերժել</string>
   <string name="revanced_check_environment_failed_message">&lt;h5&gt;Այս հավելվածը, ըստ երևույթին, չի մշակվել ձեզ կողմից։&lt;/h5&gt;&lt;br&gt;Այս հավելվածը կարող է անսպասելիորեն աշխատել կամ &lt;b&gt;վտանգավոր լինել կամ նույնիսկ վտանգավոր լինել օգտագործման համար&lt;/b&gt;։&lt;br&gt;&lt;br&gt;Այս վերահսկումները ենթադրում են, որ այս հավելվածը նախապես մշակված է կամ ստացվել է մեկ այլ անձից։&lt;br&gt;&lt;br&gt;&lt;small&gt;%1$s&lt;/small&gt;&lt;br&gt;Հ強くРекомендуется &lt;b&gt;թվոտացնել այս հավելվածը և ինքնուրույն մշակել այն&lt;/b&gt;՝  ապահովելու համար, որ դուք օգտագործում եք վավերացված և անվտանգ հավելված։&lt;p&gt;&lt;br&gt;Եթե ​​չեք ուշադրություն դարձնում, այս նախազգուշացումը կցուցադրվի միայն երկու անգամ։</string>
-  <string name="revanced_check_environment_not_same_patching_device">Մշակվել է մեկ այլ սարքի վրա</string>
+  <string name="revanced_check_environment_not_same_patching_device">Պատչված է տարբեր սարքի վրա</string>
   <string name="revanced_check_environment_manager_not_expected_installer">ReVanced Manager-ով չի տեղադրվել</string>
-  <string name="revanced_check_environment_not_near_patch_time">Մշակվել է ավելի քան 10 րոպե առաջ</string>
+  <string name="revanced_check_environment_not_near_patch_time">Պատչված է ավելի քան 10 րոպե առաջ</string>
   <string name="revanced_check_environment_not_near_patch_time_days">Մշակվել է %s օր առաջ</string>
-  <string name="revanced_check_environment_not_near_patch_time_invalid">APK-ի ստեղծման ամսաթիվը հնացած է</string>
+  <string name="revanced_check_environment_not_near_patch_time_invalid">APK-ի կառուցման ամսաթիվը վնասված է</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_submenu_title">Կարգավորումներ</string>
   <string name="revanced_settings_confirm_user_dialog_title">Դուք ցանկանում եք շարունակել?</string>
   <string name="revanced_settings_reset">Վերականգնել</string>
   <string name="revanced_settings_restart_title">Թարմացնել և վերագործարկել</string>
-  <string name="revanced_settings_restart">Վերագործարկում</string>
+  <string name="revanced_settings_restart">Վերսկսել</string>
   <string name="revanced_settings_import">Ներմուծել</string>
-  <string name="revanced_settings_import_copy">Պատճենել</string>
+  <string name="revanced_settings_import_copy">Պատճեն</string>
   <string name="revanced_settings_import_reset">ReVanced կարգավորումները վերադրվել են դեֆոլտային</string>
   <string name="revanced_settings_import_success">Import %d կարգավորում</string>
   <string name="revanced_settings_import_failure_parse">Import-ը ձախողվել է։ %s</string>
@@ -1126,7 +1126,9 @@ Seekbar thumbnails-ները կօգտագործեն նույն որակը, ինչ
   <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">Սահմանել մեկնարկային էջ</string>
   <string name="revanced_change_start_page_entry_default">Ըստ լռելյայնի</string>
+  <string name="revanced_change_start_page_entry_all_subscriptions">Բոլոր բաժանորդագրությունները</string>
   <string name="revanced_change_start_page_entry_browse">Դիտել ալիքները</string>
+  <string name="revanced_change_start_page_entry_courses">Դասընթացներ / Ուսուցում</string>
   <string name="revanced_change_start_page_entry_explore">Հետազոտել</string>
   <string name="revanced_change_start_page_entry_fashion">Mόδα և գեղեցկություն</string>
   <string name="revanced_change_start_page_entry_gaming">Խաղեր</string>
@@ -1136,11 +1138,17 @@ Seekbar thumbnails-ները կօգտագործեն նույն որակը, ինչ
   <string name="revanced_change_start_page_entry_live">Անհապաղ</string>
   <string name="revanced_change_start_page_entry_movies">Ֆիլմեր</string>
   <string name="revanced_change_start_page_entry_music">Երաժշտություն</string>
+  <string name="revanced_change_start_page_entry_news">Նորություններ</string>
+  <string name="revanced_change_start_page_entry_notifications">Ծանուցումներ</string>
+  <string name="revanced_change_start_page_entry_playlists">Երգացանկեր</string>
   <string name="revanced_change_start_page_entry_search">Որոնում</string>
+  <string name="revanced_change_start_page_entry_shopping">Shopping</string>
   <string name="revanced_change_start_page_entry_sports">Սպորտ</string>
   <string name="revanced_change_start_page_entry_subscriptions">Գրանցագրություններ</string>
   <string name="revanced_change_start_page_entry_trending">Trend-ի մեջ</string>
+  <string name="revanced_change_start_page_entry_virtual_reality">Վիրտուալ իրականություն</string>
   <string name="revanced_change_start_page_entry_watch_later">Դիտել հետո</string>
+  <string name="revanced_change_start_page_entry_your_clips">Your clips</string>
   </patch>
   <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch">
   <string name="revanced_disable_resuming_shorts_player_title">Անջատել Shorts պլեյերի վերսկսումը</string>

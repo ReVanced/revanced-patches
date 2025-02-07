@@ -1143,11 +1143,13 @@ Second \"item\" text"</string>
   <string name="revanced_change_start_page_entry_notifications">Апавяшчэнні</string>
   <string name="revanced_change_start_page_entry_playlists">Спісы прайгравання</string>
   <string name="revanced_change_start_page_entry_search">Пошук</string>
+  <string name="revanced_change_start_page_entry_shopping">Пакупкі</string>
   <string name="revanced_change_start_page_entry_sports">Спорт</string>
   <string name="revanced_change_start_page_entry_subscriptions">Падпіскі</string>
   <string name="revanced_change_start_page_entry_trending">У трэндзе</string>
   <string name="revanced_change_start_page_entry_virtual_reality">Віртуальная рэальнасць</string>
   <string name="revanced_change_start_page_entry_watch_later">Посмотреть позже</string>
+  <string name="revanced_change_start_page_entry_your_clips">Вашыя кліпы</string>
   </patch>
   <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch">
   <string name="revanced_disable_resuming_shorts_player_title">Адключыць аднаўленне прайгравання Shorts</string>

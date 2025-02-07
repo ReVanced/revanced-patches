@@ -1130,11 +1130,11 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">앱 시작 페이지 변경하기</string>
   <string name="revanced_change_start_page_entry_default">홈 (기본값)</string>
-  <string name="revanced_change_start_page_entry_all_subscriptions">모든 구독</string>
+  <string name="revanced_change_start_page_entry_all_subscriptions">모든 구독 채널</string>
   <string name="revanced_change_start_page_entry_browse">채널 둘러보기</string>
-  <string name="revanced_change_start_page_entry_courses">교육과 학습</string>
+  <string name="revanced_change_start_page_entry_courses">학습 프로그램</string>
   <string name="revanced_change_start_page_entry_explore">탐색</string>
-  <string name="revanced_change_start_page_entry_fashion">패션 &amp; 뷰티</string>
+  <string name="revanced_change_start_page_entry_fashion">패션 및 뷰티</string>
   <string name="revanced_change_start_page_entry_gaming">게임</string>
   <string name="revanced_change_start_page_entry_history">기록</string>
   <string name="revanced_change_start_page_entry_library">내 페이지</string>
@@ -1146,11 +1146,13 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_change_start_page_entry_notifications">알림</string>
   <string name="revanced_change_start_page_entry_playlists">재생목록</string>
   <string name="revanced_change_start_page_entry_search">검색</string>
+  <string name="revanced_change_start_page_entry_shopping">쇼핑</string>
   <string name="revanced_change_start_page_entry_sports">스포츠</string>
   <string name="revanced_change_start_page_entry_subscriptions">구독</string>
   <string name="revanced_change_start_page_entry_trending">인기 급상승</string>
-  <string name="revanced_change_start_page_entry_virtual_reality">가상현실</string>
+  <string name="revanced_change_start_page_entry_virtual_reality">가상 현실</string>
   <string name="revanced_change_start_page_entry_watch_later">나중에 볼 동영상</string>
+  <string name="revanced_change_start_page_entry_your_clips">내 클립</string>
   </patch>
   <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch">
   <string name="revanced_disable_resuming_shorts_player_title">앱을 시작할 때, Shorts 플레이어 비활성화하기</string>
@@ -1233,8 +1235,8 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_seekbar_custom_color_title">사용자 정의 재생바 색상 활성화하기</string>
   <string name="revanced_seekbar_custom_color_summary_on">사용자 정의 재생바 색상을 활성화합니다</string>
   <string name="revanced_seekbar_custom_color_summary_off">기본 재생바 색상을 활성화합니다</string>
-  <string name="revanced_seekbar_custom_color_primary_title">사용자 정의 재생바 색상</string>
-  <string name="revanced_seekbar_custom_color_primary_summary">사용하고 싶은 재생바 색상의 헥스 코드를 입력하세요</string>
+  <string name="revanced_seekbar_custom_color_primary_title">사용자 정의 재생바 메인 색상</string>
+  <string name="revanced_seekbar_custom_color_primary_summary">사용하고 싶은 재생바 메인 색상의 헥스 코드를 입력하세요</string>
   <string name="revanced_seekbar_custom_color_accent_title">사용자 정의 재생바 보조 색상</string>
   <string name="revanced_seekbar_custom_color_accent_summary">사용하고 싶은 재생바 보조 색상의 헥스 코드를 입력하세요</string>
   <string name="revanced_seekbar_custom_color_invalid">잘못된 재생바 색상값입니다</string>

@@ -1142,10 +1142,12 @@ Second \"item\" text"</string>
   <string name="revanced_change_start_page_entry_news">新闻</string>
   <string name="revanced_change_start_page_entry_notifications">通知</string>
   <string name="revanced_change_start_page_entry_search">搜索</string>
+  <string name="revanced_change_start_page_entry_shopping">购物</string>
   <string name="revanced_change_start_page_entry_sports">体育</string>
   <string name="revanced_change_start_page_entry_subscriptions">订阅</string>
   <string name="revanced_change_start_page_entry_trending">趋势</string>
   <string name="revanced_change_start_page_entry_watch_later">稍后观看</string>
+  <string name="revanced_change_start_page_entry_your_clips">你的剪辑</string>
   </patch>
   <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch">
   <string name="revanced_disable_resuming_shorts_player_title">禁用恢复 Shorts 播放器</string>

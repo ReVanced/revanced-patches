@@ -140,7 +140,7 @@ Brúigh an cnaipe leanúnaí agus ligean athruithe optúimíochta."</string>
   <string name="revanced_settings_screen_11_misc_title">Éagsúla</string>
   <string name="revanced_settings_screen_12_video_title">Físeán</string>
   <string name="revanced_restore_old_settings_menus_title">Athshocraigh roghanna seanghléasanna</string>
-  <string name="revanced_restore_old_settings_menus_summary_on">Féachann roghanna seanmhéid</string>
+  <string name="revanced_restore_old_settings_menus_summary_on">Taispeántar sean-roghchláir socruithe</string>
   <string name="revanced_restore_old_settings_menus_summary_off">Ní féachann roghanna seanmhéid</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
@@ -1142,11 +1142,13 @@ Má dhiúltaítear é níos déanaí, moltar sonraí an aip a ghlanadh chun buga
   <string name="revanced_change_start_page_entry_notifications">Fógraí</string>
   <string name="revanced_change_start_page_entry_playlists">Liostaí seinnte</string>
   <string name="revanced_change_start_page_entry_search">Cuardaigh</string>
+  <string name="revanced_change_start_page_entry_shopping">Siopadóireacht</string>
   <string name="revanced_change_start_page_entry_sports">Spóirt</string>
   <string name="revanced_change_start_page_entry_subscriptions">Síntiúis</string>
   <string name="revanced_change_start_page_entry_trending">Ag treocht</string>
   <string name="revanced_change_start_page_entry_virtual_reality">Fíor-Rialtas</string>
   <string name="revanced_change_start_page_entry_watch_later">Féach ar níos déanaí</string>
+  <string name="revanced_change_start_page_entry_your_clips">Do chlipbhoirt</string>
   </patch>
   <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch">
   <string name="revanced_disable_resuming_shorts_player_title">Díchumasaigh an t-imreoir Shorts atá ag tosú arís</string>
