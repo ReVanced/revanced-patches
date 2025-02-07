@@ -2,6 +2,7 @@ package app.revanced.extension.youtube.swipecontrols.views
 
 import android.content.Context
 import android.graphics.Canvas
+import android.graphics.Color
 import android.graphics.Paint
 import android.graphics.RectF
 import android.graphics.drawable.Drawable
@@ -146,14 +147,14 @@ class CircularProgressView @JvmOverloads constructor(
     private val brightnessPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
         style = Paint.Style.STROKE
         strokeWidth = 20f
-        color = 0xFFFFA500.toInt() // Orange for brightness.
+        color = hexToArgb("#FFA500", 128) // Orange for brightness.
         strokeCap = Paint.Cap.ROUND
     }
 
     private val volumePaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
         style = Paint.Style.STROKE
         strokeWidth = 20f
-        color = 0xFF2196F3.toInt() // Blue for volume.
+        color = hexToArgb("#2196F3", 128) // Blue for volume.
         strokeCap = Paint.Cap.ROUND
     }
 
@@ -208,6 +209,11 @@ class CircularProgressView @JvmOverloads constructor(
 
         // Add "..." if the text was shortened.
         return if (textToDisplay != text) "$textToDisplay..." else textToDisplay
+    }
+
+    fun hexToArgb(hex: String, alpha: Int = 255): Int {
+        val color = Color.parseColor(hex) // Converts HEX to Color Int.
+        return Color.argb(alpha, Color.red(color), Color.green(color), Color.blue(color))
     }
 
     // Override the onDraw method to draw the progress view and its components.
