@@ -489,11 +489,15 @@ This feature is only available for older devices"</string>
         </patch>
         <patch id="interaction.swipecontrols.swipeControlsResourcePatch">
             <string name="revanced_swipe_brightness_title">Enable brightness gesture</string>
-            <string name="revanced_swipe_brightness_summary_on">Brightness swipe is enabled</string>
-            <string name="revanced_swipe_brightness_summary_off">Brightness swipe is disabled</string>
+            <string name="revanced_swipe_brightness_summary_on">"Fullscreen brightness swipe is enabled
+
+Adjust brightness by swiping vertically on the left side of the screen"</string>
+            <string name="revanced_swipe_brightness_summary_off">Fullscreen brightness swipe is disabled</string>
             <string name="revanced_swipe_volume_title">Enable volume gesture</string>
-            <string name="revanced_swipe_volume_summary_on">Volume swipe is enabled</string>
-            <string name="revanced_swipe_volume_summary_off">Volume swipe is disabled</string>
+            <string name="revanced_swipe_volume_summary_on">"Fullscreen volume swipe is enabled
+
+Adjust volume by swiping vertically on the right side of the screen""</string>
+            <string name="revanced_swipe_volume_summary_off">Fullscreen volume swipe is disabled</string>
             <string name="revanced_swipe_press_to_engage_title">Enable press-to-swipe gesture</string>
             <string name="revanced_swipe_press_to_engage_summary_on">Press-to-swipe is enabled</string>
             <string name="revanced_swipe_press_to_engage_summary_off">Press-to-swipe is disabled</string>
