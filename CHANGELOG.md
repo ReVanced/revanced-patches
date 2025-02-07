@@ -1,3 +1,18 @@
+# [5.11.0](https://github.com/ReVanced/revanced-patches/compare/v5.10.0...v5.11.0) (2025-02-07)
+
+
+### Bug Fixes
+
+* Fix broken `Remove screen capture restriction`,  `Remove screenshot restriction`, `Spoof Wi-Fi connection`, and `Export internal data documents provider` patch ([#4405](https://github.com/ReVanced/revanced-patches/issues/4405)) ([1d52b74](https://github.com/ReVanced/revanced-patches/commit/1d52b7478d34e699d8c629eeaa9fdbb470b7d5c8))
+* **YouTube - Enable slide to seek:** Change patch to default include ([50358cd](https://github.com/ReVanced/revanced-patches/commit/50358cddea3eef4051d248040d23f774521dce00))
+* **YouTube - Hide layout components:** Hide new type of community post ([#4404](https://github.com/ReVanced/revanced-patches/issues/4404)) ([f67ab2b](https://github.com/ReVanced/revanced-patches/commit/f67ab2baf25d543ceb55fcec48bda441ebf2b998))
+* **YouTube - Theme:** Use custom seekbar color for cairo startup animation ([#4399](https://github.com/ReVanced/revanced-patches/issues/4399)) ([1cba294](https://github.com/ReVanced/revanced-patches/commit/1cba2948a6787118eb380ffcec35ee4fb99447ea))
+
+
+### Features
+
+* **YouTube - Change start page:** Add additional start pages ([#4413](https://github.com/ReVanced/revanced-patches/issues/4413)) ([b434182](https://github.com/ReVanced/revanced-patches/commit/b434182df69313c4eb5f0dfd98101cb80e46ead2))
+
 # [5.11.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.11.0-dev.1...v5.11.0-dev.2) (2025-02-06)
 
 
