@@ -30,14 +30,16 @@ val hideAdsPatch = bytecodePatch(
 
         // Filter injected content from API calls out of lists.
         arrayOf(screenMapperFingerprint, nextPageRepositoryImplFingerprint).forEach {
-            val startIndex = it.patternMatch!!.startIndex
+            // index of instruction moving result of BlockPage;->getBlocks(...)
+            val moveGetBlocksResultObjectIndex = it.patternMatch!!.startIndex
             it.method.apply {
-                val moveInstruction = getInstruction<OneRegisterInstruction>(startIndex)
+                val moveInstruction = getInstruction<OneRegisterInstruction>(moveGetBlocksResultObjectIndex)
 
                 val listRegister = moveInstruction.registerA
 
+                // add instruction after moving List<Block> to register and then filter this List<Block> in place
                 addInstructions(
-                    startIndex + 1,
+                    moveGetBlocksResultObjectIndex + 1,
                     """
                         invoke-static { v$listRegister }, Lapp/revanced/extension/nunl/ads/HideAdsPatch;->filterAds(Ljava/util/List;)V
                     """,
