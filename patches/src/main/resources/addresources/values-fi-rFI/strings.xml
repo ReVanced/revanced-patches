@@ -1126,8 +1126,11 @@ Jos tämä poistetaan myöhemmin käytöstä, on suositeltavaa tyhjentää sovel
   <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">Aseta aloitussivu</string>
   <string name="revanced_change_start_page_entry_default">Oletus</string>
+  <string name="revanced_change_start_page_entry_all_subscriptions">Kaikki tilaukset</string>
   <string name="revanced_change_start_page_entry_browse">Selaa kanavia</string>
+  <string name="revanced_change_start_page_entry_courses">Kurssit/Oppiminen</string>
   <string name="revanced_change_start_page_entry_explore">Tutustu</string>
+  <string name="revanced_change_start_page_entry_fashion">Muoti ja Kauneus</string>
   <string name="revanced_change_start_page_entry_gaming">Pelaaminen</string>
   <string name="revanced_change_start_page_entry_history">Historia</string>
   <string name="revanced_change_start_page_entry_library">Kirjasto</string>
@@ -1135,11 +1138,17 @@ Jos tämä poistetaan myöhemmin käytöstä, on suositeltavaa tyhjentää sovel
   <string name="revanced_change_start_page_entry_live">Suora</string>
   <string name="revanced_change_start_page_entry_movies">Elokuvat</string>
   <string name="revanced_change_start_page_entry_music">Musiikki</string>
+  <string name="revanced_change_start_page_entry_news">Uutiset</string>
+  <string name="revanced_change_start_page_entry_notifications">Ilmoitukset</string>
+  <string name="revanced_change_start_page_entry_playlists">Soittolistat</string>
   <string name="revanced_change_start_page_entry_search">Haku</string>
+  <string name="revanced_change_start_page_entry_shopping">Shopping</string>
   <string name="revanced_change_start_page_entry_sports">Urheilu</string>
   <string name="revanced_change_start_page_entry_subscriptions">Tilaukset</string>
   <string name="revanced_change_start_page_entry_trending">Nousussa</string>
+  <string name="revanced_change_start_page_entry_virtual_reality">Virtuaalitodellisuus</string>
   <string name="revanced_change_start_page_entry_watch_later">Katso myöhemmin</string>
+  <string name="revanced_change_start_page_entry_your_clips">Omat klipit</string>
   </patch>
   <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch">
   <string name="revanced_disable_resuming_shorts_player_title">Poista Shorts-soittimen jatkaminen käytöstä</string>
