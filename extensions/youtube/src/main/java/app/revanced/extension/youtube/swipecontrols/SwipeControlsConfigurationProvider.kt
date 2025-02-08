@@ -77,7 +77,9 @@ class SwipeControlsConfigurationProvider(
         get() = Settings.SWIPE_OVERLAY_TIMEOUT.get()
 
     /**
-     * text size for the overlay, in sp
+     * Gets the text size for the overlay in SP.
+     * Ensures the value is within a valid range (1-30 SP).
+     * If the value is out of range, it resets to default and shows a warning.
      */
     val overlayTextSize: Int
         get() {
@@ -93,9 +95,10 @@ class SwipeControlsConfigurationProvider(
         }
 
     /**
-     * get the background color for text on the overlay, as a color int
+     * Gets the opacity value (0-100%) is converted to an alpha value (0-255) for transparency.
+     * If the opacity value is out of range, it resets to the default and displays a warning message.
      */
-    val overlayTextBackgroundColor: Int
+    val overlayBackgroundOpacity: Int
         get() {
             var opacity = Settings.SWIPE_OVERLAY_OPACITY.get()
 
@@ -110,17 +113,18 @@ class SwipeControlsConfigurationProvider(
         }
 
     /**
-     * get the foreground color for text on the overlay, as a color int
+     * Gets the color for the overlay text as a color integer.
      */
-    val overlayForegroundColor: Int
+    val overlayTextColor: Int
         get() = Color.WHITE
 
     /**
-     * If "show only icon" is selected, the background and text will be hidden,
-     * and only the icon will be displayed.
+     * Determines whether only the icon should be displayed in the overlay.
+     * If true, text are hidden, and only the icon is shown.
      */
-    val overlayTextBackgroundOnlyIcon: Boolean
-        get() = Settings.SWIPE_SHOW_ONLY_ICON.get()
+    val showOnlyIconInOverlay: Boolean
+        get() = Settings.SWIPE_SHOW_ONLY_ICON_IN_OVERLAY.get()
+
 
 //endregion
 

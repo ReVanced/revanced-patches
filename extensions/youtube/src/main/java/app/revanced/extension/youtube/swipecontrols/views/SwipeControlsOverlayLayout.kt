@@ -50,10 +50,11 @@ class SwipeControlsOverlayLayout(
         // Initialize circular progress view with specific configurations.
         feedbackProgressView = CircularProgressView(
             context,
-            config.overlayTextBackgroundColor,
-            config.overlayTextBackgroundOnlyIcon,
-            config.overlayTextSize.toFloat(), // Convert Int to Float for text size.
-            config.overlayForegroundColor // Correct icon color.
+            config.overlayBackgroundOpacity,  // Background opacity for the overlay.
+            config.showOnlyIconInOverlay,     // If true, hides text, showing only the icon.
+            config.overlayTextSize.toFloat(), // Text size for overlay elements, converted from SP to float.
+            config.overlayTextColor           // Foreground color of the overlay text and icon.
+
         ).apply {
             layoutParams = LayoutParams(300, 300).apply {
                 addRule(CENTER_IN_PARENT, TRUE) // Center the progress view.
@@ -128,10 +129,10 @@ class SwipeControlsOverlayLayout(
  */
 class CircularProgressView @JvmOverloads constructor(
     context: Context,
-    private val overlayTextBackgroundColor: Int, // Background color with opacity.
-    private val onlyIconMode: Boolean, // If true, only the icon is displayed.
-    private val overlayTextSize: Float, // Text size from the config.
-    private val overlayForegroundColor: Int, // Color for text and icon.
+    private val overlayBackgroundOpacity: Int,  // Background opacity.
+    private val showOnlyIconInOverlay: Boolean, // If true, only the icon is displayed.
+    private val overlayTextSize: Float,         // Text size.
+    private val overlayTextColor: Int,          // Color for text and icon.
     attrs: AttributeSet? = null,
     defStyleAttr: Int = 0
 ) : View(context, attrs, defStyleAttr) {
@@ -146,15 +147,15 @@ class CircularProgressView @JvmOverloads constructor(
 
     private val backgroundPaint = createPaint(0x33000000) // Semi-transparent outer ring.
     private val brightnessPaint = createPaint(0xBFFFA500.toInt(), Paint.Cap.ROUND) // Orange for brightness, 75% transparency.
-    private val volumePaint = createPaint(0xBF2196F3.toInt(), Paint.Cap.ROUND) // Blue for volume, 75% transparency.
+    private val volumePaint     = createPaint(0xBF2196F3.toInt(), Paint.Cap.ROUND) // Blue for volume, 75% transparency.
 
     private val innerBackgroundPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
         style = Paint.Style.FILL
-        color = overlayTextBackgroundColor // Opacity for the background.
+        color = overlayBackgroundOpacity // Opacity for the background.
     }
 
     private val textPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
-        color = overlayForegroundColor // Color for the text.
+        color = overlayTextColor // Color for the text.
         textAlign = Paint.Align.CENTER
         textSize = TypedValue.applyDimension(
             TypedValue.COMPLEX_UNIT_SP, overlayTextSize, resources.displayMetrics
@@ -174,14 +175,14 @@ class CircularProgressView @JvmOverloads constructor(
         maxProgress = max
         displayText = shortenTextIfNeeded(text)
         isBrightness = isBrightnessMode
-        invalidate() // Redraw the view.
+        invalidate()
     }
 
     // Set the icon to display on the progress view.
     fun setIcon(drawable: Drawable) {
         icon = drawable
-        icon?.setTint(overlayForegroundColor) // Apply the foreground color to the icon.
-        invalidate() // Redraw the view.
+        icon?.setTint(overlayTextColor) // Apply the foreground color to the icon.
+        invalidate()
     }
 
     /**
@@ -221,13 +222,13 @@ class CircularProgressView @JvmOverloads constructor(
         icon?.let {
             val iconSize = 80
             val iconX = (width - iconSize) / 2
-            val iconY = (height / 2) - if (onlyIconMode) 40 else 90
+            val iconY = (height / 2) - if (showOnlyIconInOverlay) 40 else 90
             it.setBounds(iconX, iconY, iconX + iconSize, iconY + iconSize)
             it.draw(canvas)
         }
 
         // If not in icon-only mode, draw the text inside the ring.
-        if (!onlyIconMode) {
+        if (!showOnlyIconInOverlay) {
             canvas.drawText(displayText, width / 2f, height / 2f + 55f, textPaint)
         }
     }
