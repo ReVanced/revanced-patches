@@ -8,6 +8,7 @@ import static app.revanced.extension.shared.Utils.getResourceIdentifier;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Paint;
+import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -28,6 +29,7 @@ public class SkipSponsorButton extends FrameLayout {
     private final TextView skipSponsorTextView;
     private final Paint background;
     private final Paint border;
+    private float cornerRadius = 0;
     private SponsorSegment segment;
     final int defaultBottomMargin;
     final int ctaBottomMargin;
@@ -60,6 +62,7 @@ public class SkipSponsorButton extends FrameLayout {
         skipSponsorTextView = Objects.requireNonNull((TextView) findViewById(getResourceIdentifier(context, "revanced_sb_skip_sponsor_button_text", "id")));  // id:skip_ad_button_text;
         defaultBottomMargin = getResourceDimensionPixelSize("skip_button_default_bottom_margin");  // dimen:skip_button_default_bottom_margin
         ctaBottomMargin = getResourceDimensionPixelSize("skip_button_cta_bottom_margin");  // dimen:skip_button_cta_bottom_margin
+        setPadding(16, 0, 16, 0); // Added small margin from the screen edge
 
         skipSponsorBtnContainer.setOnClickListener(v -> {
             // The view controller handles hiding this button, but hide it here as well just in case something goofs.
@@ -72,15 +75,17 @@ public class SkipSponsorButton extends FrameLayout {
     protected final void dispatchDraw(Canvas canvas) {
         final int left = skipSponsorBtnContainer.getLeft();
         final int top = skipSponsorBtnContainer.getTop();
-        final int leftPlusWidth = (left + skipSponsorBtnContainer.getWidth());
-        final int topPlusHeight = (top + skipSponsorBtnContainer.getHeight());
-        canvas.drawRect(left, top, leftPlusWidth, topPlusHeight, background);
+        final int right = left + skipSponsorBtnContainer.getWidth();
+        final int bottom = top + skipSponsorBtnContainer.getHeight();
+
+        // Corner radius based on button height.
+        cornerRadius = skipSponsorBtnContainer.getHeight() / 2f;
+
+        RectF rect = new RectF(left, top, right, bottom);
+
+        canvas.drawRoundRect(rect, cornerRadius, cornerRadius, background); // Draw fully rounded background.
         if (!highContrast) {
-            canvas.drawLines(new float[]{
-                            leftPlusWidth, top, left, top,
-                            left, top, left, topPlusHeight,
-                            left, topPlusHeight, leftPlusWidth, topPlusHeight},
-                    border);
+            canvas.drawRoundRect(rect, cornerRadius, cornerRadius, border); // Draw fully rounded border.
         }
 
         super.dispatchDraw(canvas);
