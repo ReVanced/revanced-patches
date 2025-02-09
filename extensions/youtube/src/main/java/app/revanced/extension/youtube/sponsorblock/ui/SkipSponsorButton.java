@@ -24,7 +24,14 @@ import app.revanced.extension.youtube.sponsorblock.SegmentPlaybackController;
 import app.revanced.extension.youtube.sponsorblock.objects.SponsorSegment;
 
 public class SkipSponsorButton extends FrameLayout {
-    private static final boolean highContrast = true;
+    /**
+     * Adds a high contrast border around the skip button.
+     *
+     * This feature is not currently used.
+     * If this is added, it needs an additional button width change because
+     * as-is the skip button text is clipped when this is on.
+     */
+    private static final boolean highContrast = false;
     private final LinearLayout skipSponsorBtnContainer;
     private final TextView skipSponsorTextView;
     private final Paint background;
@@ -84,19 +91,19 @@ public class SkipSponsorButton extends FrameLayout {
         if (SponsorBlockViewController.useLegacyLayout()) {
             // Draw a rounded button
             RectF rect = new RectF(left, top, right, bottom);
-            canvas.drawRoundRect(rect, cornerRadius, cornerRadius, background); // Draw rounded background
-            if (!highContrast) {
-                canvas.drawRoundRect(rect, cornerRadius, cornerRadius, border); // Draw rounded border
+            canvas.drawRoundRect(rect, cornerRadius, cornerRadius, background); // Draw rounded background.
+            if (highContrast) {
+                canvas.drawRoundRect(rect, cornerRadius, cornerRadius, border); // Draw rounded border.
             }
         } else {
             // Draw a square button
-            canvas.drawRect(left, top, right, bottom, background); // Draw square background
-            if (!highContrast) {
+            canvas.drawRect(left, top, right, bottom, background); // Draw square background.
+            if (highContrast) {
                 canvas.drawLines(new float[]{
                                 right, top, left, top,
                                 left, top, left, bottom,
                                 left, bottom, right, bottom},
-                        border); // Draw square border
+                        border); // Draw square border.
             }
         }
 
