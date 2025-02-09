@@ -28,11 +28,6 @@ public final class NewSegmentLayout extends FrameLayout {
     final int defaultBottomMargin;
     final int ctaBottomMargin;
 
-    /**
-     * Used to prevent duplicate calls to {@link #updateLayout()}.
-     */
-    private boolean wasPreviouslyAttached;
-
     public NewSegmentLayout(final Context context) {
         this(context, null);
     }
@@ -97,18 +92,6 @@ public final class NewSegmentLayout extends FrameLayout {
 
         defaultBottomMargin = getResourceDimensionPixelSize("brand_interaction_default_bottom_margin");
         ctaBottomMargin = getResourceDimensionPixelSize("brand_interaction_cta_bottom_margin");
-    }
-
-    @Override
-    protected void onAttachedToWindow() {
-        super.onAttachedToWindow();
-
-        if (wasPreviouslyAttached) {
-            return;
-        }
-        wasPreviouslyAttached = true;
-
-        updateLayout();
     }
 
     /**
