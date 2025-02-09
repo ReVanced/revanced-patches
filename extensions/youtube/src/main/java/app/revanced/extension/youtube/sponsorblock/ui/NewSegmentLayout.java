@@ -2,6 +2,7 @@ package app.revanced.extension.youtube.sponsorblock.ui;
 
 import android.content.Context;
 import android.content.res.ColorStateList;
+import android.graphics.drawable.GradientDrawable;
 import android.graphics.drawable.RippleDrawable;
 import android.util.AttributeSet;
 import android.util.TypedValue;
@@ -14,13 +15,14 @@ import app.revanced.extension.youtube.settings.Settings;
 import app.revanced.extension.youtube.sponsorblock.SponsorBlockUtils;
 import app.revanced.extension.shared.Logger;
 
+import static app.revanced.extension.shared.Utils.getResourceColor;
 import static app.revanced.extension.shared.Utils.getResourceDimensionPixelSize;
 import static app.revanced.extension.shared.Utils.getResourceIdentifier;
 
 public final class NewSegmentLayout extends FrameLayout {
     private static final ColorStateList rippleColorStateList = new ColorStateList(
             new int[][]{new int[]{android.R.attr.state_enabled}},
-            new int[]{0x33ffffff} // sets the ripple color to white
+            new int[]{0x33ffffff} // Ripple effect color (semi-transparent white)
     );
     private final int rippleEffectId;
 
@@ -95,6 +97,13 @@ public final class NewSegmentLayout extends FrameLayout {
 
         defaultBottomMargin = getResourceDimensionPixelSize("brand_interaction_default_bottom_margin");
         ctaBottomMargin = getResourceDimensionPixelSize("brand_interaction_cta_bottom_margin");
+
+        // Create rounded background
+        GradientDrawable backgroundDrawable = new GradientDrawable();
+        backgroundDrawable.setColor(getResourceColor("skip_ad_button_background_color"));
+        // Set corner radius for rounded background
+        backgroundDrawable.setCornerRadius(16 * getResources().getDisplayMetrics().density);
+        setBackground(backgroundDrawable);
     }
 
     /**

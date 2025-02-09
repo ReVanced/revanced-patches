@@ -20,6 +20,7 @@ import androidx.annotation.NonNull;
 
 import java.util.Objects;
 
+import app.revanced.extension.youtube.settings.Settings;
 import app.revanced.extension.youtube.sponsorblock.SegmentPlaybackController;
 import app.revanced.extension.youtube.sponsorblock.objects.SponsorSegment;
 
@@ -33,6 +34,10 @@ public class SkipSponsorButton extends FrameLayout {
     private SponsorSegment segment;
     final int defaultBottomMargin;
     final int ctaBottomMargin;
+
+    private static boolean isRounded() {
+        return Settings.SB_ENABLED.get() && !Settings.SB_LEGACY_SKIP_BUTTON.get();
+    }
 
     public SkipSponsorButton(Context context) {
         this(context, null);
@@ -62,7 +67,13 @@ public class SkipSponsorButton extends FrameLayout {
         skipSponsorTextView = Objects.requireNonNull((TextView) findViewById(getResourceIdentifier(context, "revanced_sb_skip_sponsor_button_text", "id")));  // id:skip_ad_button_text;
         defaultBottomMargin = getResourceDimensionPixelSize("skip_button_default_bottom_margin");  // dimen:skip_button_default_bottom_margin
         ctaBottomMargin = getResourceDimensionPixelSize("skip_button_cta_bottom_margin");  // dimen:skip_button_cta_bottom_margin
-        setPadding(16, 0, 16, 0); // Added small margin from the screen edge
+
+        // Check if legacy skip button setting is enabled
+        if (isRounded()) {
+            setPadding(12, 0, 12, 0); // Apply padding for rounded corners
+        } else {
+            setPadding(0, 0, 0, 0); // No padding for square corners
+        }
 
         skipSponsorBtnContainer.setOnClickListener(v -> {
             // The view controller handles hiding this button, but hide it here as well just in case something goofs.
@@ -78,14 +89,26 @@ public class SkipSponsorButton extends FrameLayout {
         final int right = left + skipSponsorBtnContainer.getWidth();
         final int bottom = top + skipSponsorBtnContainer.getHeight();
 
-        // Corner radius based on button height.
-        cornerRadius = skipSponsorBtnContainer.getHeight() / 2f;
+        // Determine corner radius for rounded button
+        float cornerRadius = skipSponsorBtnContainer.getHeight() / 2f;
 
-        RectF rect = new RectF(left, top, right, bottom);
-
-        canvas.drawRoundRect(rect, cornerRadius, cornerRadius, background); // Draw fully rounded background.
-        if (!highContrast) {
-            canvas.drawRoundRect(rect, cornerRadius, cornerRadius, border); // Draw fully rounded border.
+        if (isRounded()) {
+            // Draw a rounded button
+            RectF rect = new RectF(left, top, right, bottom);
+            canvas.drawRoundRect(rect, cornerRadius, cornerRadius, background); // Draw rounded background
+            if (!highContrast) {
+                canvas.drawRoundRect(rect, cornerRadius, cornerRadius, border); // Draw rounded border
+            }
+        } else {
+            // Draw a square button
+            canvas.drawRect(left, top, right, bottom, background); // Draw square background
+            if (!highContrast) {
+                canvas.drawLines(new float[]{
+                                right, top, left, top,
+                                left, top, left, bottom,
+                                left, bottom, right, bottom},
+                        border); // Draw square border
+            }
         }
 
         super.dispatchDraw(canvas);
