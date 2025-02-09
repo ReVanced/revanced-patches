@@ -30,7 +30,6 @@ public class SkipSponsorButton extends FrameLayout {
     private final TextView skipSponsorTextView;
     private final Paint background;
     private final Paint border;
-    private float cornerRadius = 0;
     private SponsorSegment segment;
     final int defaultBottomMargin;
     final int ctaBottomMargin;
@@ -68,12 +67,7 @@ public class SkipSponsorButton extends FrameLayout {
         defaultBottomMargin = getResourceDimensionPixelSize("skip_button_default_bottom_margin");  // dimen:skip_button_default_bottom_margin
         ctaBottomMargin = getResourceDimensionPixelSize("skip_button_cta_bottom_margin");  // dimen:skip_button_cta_bottom_margin
 
-        // Check if legacy skip button setting is enabled
-        if (isRounded()) {
-            setPadding(12, 0, 12, 0); // Apply padding for rounded corners
-        } else {
-            setPadding(0, 0, 0, 0); // No padding for square corners
-        }
+        updateLayout();
 
         skipSponsorBtnContainer.setOnClickListener(v -> {
             // The view controller handles hiding this button, but hide it here as well just in case something goofs.
@@ -112,6 +106,17 @@ public class SkipSponsorButton extends FrameLayout {
         }
 
         super.dispatchDraw(canvas);
+    }
+
+    /**
+     * Update the layout of this button.
+     */
+    public void updateLayout() {
+        if (isRounded()) {
+            setPadding(12, 0, 12, 0); // Apply padding for rounded corners.
+        } else {
+            setPadding(0, 0, 0, 0); // No padding for square corners.
+        }
     }
 
     /**

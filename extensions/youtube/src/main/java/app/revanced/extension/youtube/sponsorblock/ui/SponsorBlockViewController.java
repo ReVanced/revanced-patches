@@ -101,6 +101,18 @@ public class SponsorBlockViewController {
         hideNewSegmentLayout();
     }
 
+    public static void updateButtonLayout() {
+        SkipSponsorButton button = skipSponsorButtonRef.get();
+        if (button != null) {
+            button.updateLayout();
+        }
+
+        button = skipHighlightButtonRef.get();
+        if (button != null) {
+            button.updateLayout();
+        }
+    }
+
     public static void showSkipHighlightButton(@NonNull SponsorSegment segment) {
         skipHighlight = Objects.requireNonNull(segment);
         NewSegmentLayout newSegmentLayout = newSegmentLayoutRef.get();

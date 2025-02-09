@@ -62,7 +62,9 @@ public class SponsorBlockPreferenceFragment extends PreferenceFragment {
             } else if (!Settings.SB_CREATE_NEW_SEGMENT.get()) {
                 SponsorBlockViewController.hideNewSegmentLayout();
             }
-            // Voting and add new segment buttons automatically shows/hide themselves.
+            // Voting and add new segment buttons automatically show/hide themselves.
+
+            SponsorBlockViewController.updateButtonLayout();
 
             sbEnabled.setChecked(enabled);
 
