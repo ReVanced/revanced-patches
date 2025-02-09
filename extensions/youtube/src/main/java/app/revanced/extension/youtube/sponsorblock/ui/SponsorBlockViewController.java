@@ -43,10 +43,6 @@ public class SponsorBlockViewController {
         });
     }
 
-    public static boolean useLegacyLayout() {
-        return Settings.SB_ENABLED.get() && !Settings.SB_LEGACY_LAYOUT.get();
-    }
-
     public static Context getOverLaysViewGroupContext() {
         ViewGroup group = youtubeOverlaysLayoutRef.get();
         if (group == null) {

@@ -20,6 +20,7 @@ import androidx.annotation.NonNull;
 
 import java.util.Objects;
 
+import app.revanced.extension.youtube.settings.Settings;
 import app.revanced.extension.youtube.sponsorblock.SegmentPlaybackController;
 import app.revanced.extension.youtube.sponsorblock.objects.SponsorSegment;
 
@@ -88,14 +89,7 @@ public class SkipSponsorButton extends FrameLayout {
         // Determine corner radius for rounded button
         float cornerRadius = skipSponsorBtnContainer.getHeight() / 2f;
 
-        if (SponsorBlockViewController.useLegacyLayout()) {
-            // Draw a rounded button
-            RectF rect = new RectF(left, top, right, bottom);
-            canvas.drawRoundRect(rect, cornerRadius, cornerRadius, background); // Draw rounded background.
-            if (highContrast) {
-                canvas.drawRoundRect(rect, cornerRadius, cornerRadius, border); // Draw rounded border.
-            }
-        } else {
+        if (Settings.SB_LEGACY_LAYOUT.get()) {
             // Draw a square button
             canvas.drawRect(left, top, right, bottom, background); // Draw square background.
             if (highContrast) {
@@ -104,6 +98,13 @@ public class SkipSponsorButton extends FrameLayout {
                                 left, top, left, bottom,
                                 left, bottom, right, bottom},
                         border); // Draw square border.
+            }
+        } else {
+            // Draw a rounded button
+            RectF rect = new RectF(left, top, right, bottom);
+            canvas.drawRoundRect(rect, cornerRadius, cornerRadius, background); // Draw rounded background.
+            if (highContrast) {
+                canvas.drawRoundRect(rect, cornerRadius, cornerRadius, border); // Draw rounded border.
             }
         }
 
@@ -114,11 +115,11 @@ public class SkipSponsorButton extends FrameLayout {
      * Update the layout of this button.
      */
     public void updateLayout() {
-        if (SponsorBlockViewController.useLegacyLayout()) {
+        if (Settings.SB_LEGACY_LAYOUT.get()) {
+            setPadding(0, 0, 0, 0); // No padding for square corners.
+        } else {
             final int padding = SponsorBlockViewController.ROUNDED_LAYOUT_MARGIN;
             setPadding(padding, 0, padding, 0); // Apply padding for rounded corners.
-        } else {
-            setPadding(0, 0, 0, 0); // No padding for square corners.
         }
     }
 
