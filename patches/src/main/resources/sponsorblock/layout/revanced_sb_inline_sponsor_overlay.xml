@@ -30,7 +30,6 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="@dimen/brand_interaction_default_bottom_margin"
-        android:layout_marginStart="@dimen/margin_start"
         android:focusable="true"
         android:visibility="gone" />
 </merge>

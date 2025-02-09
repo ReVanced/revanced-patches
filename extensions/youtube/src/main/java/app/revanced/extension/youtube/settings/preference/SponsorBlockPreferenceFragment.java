@@ -37,7 +37,7 @@ public class SponsorBlockPreferenceFragment extends PreferenceFragment {
     private SwitchPreference addNewSegment;
     private SwitchPreference votingEnabled;
     private SwitchPreference compactSkipButton;
-    private SwitchPreference legacySkipButton;
+    private SwitchPreference legacyLayout;
     private SwitchPreference autoHideSkipSegmentButton;
     private SwitchPreference showSkipToast;
     private SwitchPreference trackSkips;
@@ -64,7 +64,7 @@ public class SponsorBlockPreferenceFragment extends PreferenceFragment {
             }
             // Voting and add new segment buttons automatically show/hide themselves.
 
-            SponsorBlockViewController.updateButtonLayout();
+            SponsorBlockViewController.updateLayout();
 
             sbEnabled.setChecked(enabled);
 
@@ -77,8 +77,8 @@ public class SponsorBlockPreferenceFragment extends PreferenceFragment {
             compactSkipButton.setChecked(Settings.SB_COMPACT_SKIP_BUTTON.get());
             compactSkipButton.setEnabled(enabled);
 
-            legacySkipButton.setChecked(Settings.SB_LEGACY_SKIP_BUTTON.get());
-            legacySkipButton.setEnabled(enabled);
+            legacyLayout.setChecked(Settings.SB_LEGACY_LAYOUT.get());
+            legacyLayout.setEnabled(enabled);
 
             autoHideSkipSegmentButton.setChecked(Settings.SB_AUTO_HIDE_SKIP_BUTTON.get());
             autoHideSkipSegmentButton.setEnabled(enabled);
@@ -192,13 +192,13 @@ public class SponsorBlockPreferenceFragment extends PreferenceFragment {
             return true;
         });
 
-        legacySkipButton = new SwitchPreference(context);
-        legacySkipButton.setTitle(str("revanced_sb_enable_legacy_skip_button"));
-        legacySkipButton.setSummaryOn(str("revanced_sb_enable_legacy_skip_button_sum_on"));
-        legacySkipButton.setSummaryOff(str("revanced_sb_enable_legacy_skip_button_sum_off"));
-        category.addPreference(legacySkipButton);
-        legacySkipButton.setOnPreferenceChangeListener((preference1, newValue) -> {
-            Settings.SB_LEGACY_SKIP_BUTTON.save((Boolean) newValue);
+        legacyLayout = new SwitchPreference(context);
+        legacyLayout.setTitle(str("revanced_sb_legacy_layout"));
+        legacyLayout.setSummaryOn(str("revanced_sb_legacy_layout_sum_on"));
+        legacyLayout.setSummaryOff(str("revanced_sb_legacy_layout_sum_off"));
+        category.addPreference(legacyLayout);
+        legacyLayout.setOnPreferenceChangeListener((preference1, newValue) -> {
+            Settings.SB_LEGACY_LAYOUT.save((Boolean) newValue);
             updateUI();
             return true;
         });

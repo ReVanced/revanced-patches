@@ -22,6 +22,8 @@ import app.revanced.extension.youtube.sponsorblock.objects.SponsorSegment;
 import kotlin.Unit;
 
 public class SponsorBlockViewController {
+    public static final int ROUNDED_LAYOUT_MARGIN = 12;
+
     private static WeakReference<RelativeLayout> inlineSponsorOverlayRef = new WeakReference<>(null);
     private static WeakReference<ViewGroup> youtubeOverlaysLayoutRef = new WeakReference<>(null);
     private static WeakReference<SkipSponsorButton> skipHighlightButtonRef = new WeakReference<>(null);
@@ -39,6 +41,10 @@ public class SponsorBlockViewController {
             playerTypeChanged(type);
             return Unit.INSTANCE;
         });
+    }
+
+    public static boolean useLegacyLayout() {
+        return Settings.SB_ENABLED.get() && !Settings.SB_LEGACY_LAYOUT.get();
     }
 
     public static Context getOverLaysViewGroupContext() {
@@ -102,7 +108,7 @@ public class SponsorBlockViewController {
         hideNewSegmentLayout();
     }
 
-    public static void updateButtonLayout() {
+    public static void updateLayout() {
         SkipSponsorButton button = skipSponsorButtonRef.get();
         if (button != null) {
             button.updateLayout();
@@ -111,6 +117,11 @@ public class SponsorBlockViewController {
         button = skipHighlightButtonRef.get();
         if (button != null) {
             button.updateLayout();
+        }
+
+        NewSegmentLayout newSegmentLayout = newSegmentLayoutRef.get();
+        if (newSegmentLayout != null) {
+            newSegmentLayout.updateLayout();
         }
     }
 

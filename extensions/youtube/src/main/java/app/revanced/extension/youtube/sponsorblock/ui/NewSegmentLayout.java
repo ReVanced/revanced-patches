@@ -7,6 +7,7 @@ import android.graphics.drawable.RippleDrawable;
 import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
+import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
 
@@ -97,13 +98,13 @@ public final class NewSegmentLayout extends FrameLayout {
 
         defaultBottomMargin = getResourceDimensionPixelSize("brand_interaction_default_bottom_margin");
         ctaBottomMargin = getResourceDimensionPixelSize("brand_interaction_cta_bottom_margin");
+    }
 
-        // Create rounded background
-        GradientDrawable backgroundDrawable = new GradientDrawable();
-        backgroundDrawable.setColor(getResourceColor("skip_ad_button_background_color"));
-        // Set corner radius for rounded background
-        backgroundDrawable.setCornerRadius(16 * getResources().getDisplayMetrics().density);
-        setBackground(backgroundDrawable);
+    @Override
+    protected void onAttachedToWindow() {
+        super.onAttachedToWindow();
+
+        updateLayout();
     }
 
     /**
@@ -127,6 +128,29 @@ public final class NewSegmentLayout extends FrameLayout {
             handler.apply();
             Logger.printDebug(() -> debugMessage);
         });
+    }
+
+    /**
+     * Update the layout of this UI control.
+     */
+    public void updateLayout() {
+        final boolean useRoundedLayout = SponsorBlockViewController.useLegacyLayout();
+
+        ViewGroup.MarginLayoutParams params = (ViewGroup.MarginLayoutParams) getLayoutParams();
+        final int margin = useRoundedLayout
+                ? SponsorBlockViewController.ROUNDED_LAYOUT_MARGIN
+                : 0;
+        params.setMarginStart(margin);
+        setLayoutParams(params);
+
+        GradientDrawable backgroundDrawable = new GradientDrawable();
+        backgroundDrawable.setColor(getResourceColor("skip_ad_button_background_color"));
+        // Use rounded background if not using legacy buttons.
+        final float cornerRadius = useRoundedLayout
+                ? 16 * getResources().getDisplayMetrics().density
+                : 0;
+        backgroundDrawable.setCornerRadius(cornerRadius);
+        setBackground(backgroundDrawable);
     }
 
     @FunctionalInterface
