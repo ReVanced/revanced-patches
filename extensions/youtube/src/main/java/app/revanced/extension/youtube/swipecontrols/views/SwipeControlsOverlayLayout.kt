@@ -34,9 +34,12 @@ class SwipeControlsOverlayLayout(
 
     // Icons for brightness and volume.
     private val autoBrightnessIcon: Drawable
-    private val manualBrightnessIcon: Drawable
+    private val lowBrightnessIcon: Drawable
+    private val mediumBrightnessIcon: Drawable
+    private val fullBrightnessIcon: Drawable
     private val mutedVolumeIcon: Drawable
     private val normalVolumeIcon: Drawable
+    private val fullVolumeIcon: Drawable
 
     // Function to retrieve drawable resources by name.
     private fun getDrawable(name: String): Drawable {
@@ -65,9 +68,12 @@ class SwipeControlsOverlayLayout(
 
         // Load drawable icons for brightness and volume.
         autoBrightnessIcon = getDrawable("revanced_ic_sc_brightness_auto")
-        manualBrightnessIcon = getDrawable("revanced_ic_sc_brightness_manual")
+        lowBrightnessIcon = getDrawable("revanced_ic_sc_brightness_low")
+        mediumBrightnessIcon = getDrawable("revanced_ic_sc_brightness_medium")
+        fullBrightnessIcon = getDrawable("revanced_ic_sc_brightness_high")
         mutedVolumeIcon = getDrawable("revanced_ic_sc_volume_mute")
         normalVolumeIcon = getDrawable("revanced_ic_sc_volume_normal")
+        fullVolumeIcon = getDrawable("revanced_ic_sc_volume_high")
     }
 
     // Handler and callback to hide the feedback progress view after a delay.
@@ -96,7 +102,12 @@ class SwipeControlsOverlayLayout(
 
     // Called when volume changes.
     override fun onVolumeChanged(newVolume: Int, maximumVolume: Int) {
-        val icon = if (newVolume == 0) mutedVolumeIcon else normalVolumeIcon
+        val volumePercentage = (newVolume.toFloat() / maximumVolume) * 100
+        val icon = when {
+            newVolume == 0 -> mutedVolumeIcon
+            volumePercentage > 66 -> fullVolumeIcon
+            else -> normalVolumeIcon
+        }
         showFeedbackView("$newVolume", newVolume, maximumVolume, icon, isBrightness = false)
     }
 
@@ -108,7 +119,12 @@ class SwipeControlsOverlayLayout(
                 0, 100, autoBrightnessIcon, isBrightness = true)
         } else {
             val brightnessValue = round(brightness).toInt()
-            showFeedbackView("$brightnessValue%", brightnessValue, 100, manualBrightnessIcon, isBrightness = true)
+            val icon = when {
+                brightnessValue > 66 -> fullBrightnessIcon
+                brightnessValue <= 33 -> lowBrightnessIcon
+                else -> mediumBrightnessIcon
+            }
+            showFeedbackView("$brightnessValue%", brightnessValue, 100, icon, isBrightness = true)
         }
     }
 
@@ -220,16 +236,16 @@ class CircularProgressView @JvmOverloads constructor(
 
         // Draw the icon in the center.
         icon?.let {
-            val iconSize = 80
+            val iconSize = if (showOnlyIconInOverlay) 100 else 80
             val iconX = (width - iconSize) / 2
-            val iconY = (height / 2) - if (showOnlyIconInOverlay) 40 else 90
+            val iconY = (height / 2) - if (showOnlyIconInOverlay) 50 else 80
             it.setBounds(iconX, iconY, iconX + iconSize, iconY + iconSize)
             it.draw(canvas)
         }
 
         // If not in icon-only mode, draw the text inside the ring.
         if (!showOnlyIconInOverlay) {
-            canvas.drawText(displayText, width / 2f, height / 2f + 55f, textPaint)
+            canvas.drawText(displayText, width / 2f, height / 2f + 60f, textPaint)
         }
     }
 }
