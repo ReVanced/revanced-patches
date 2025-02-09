@@ -5,7 +5,6 @@ import android.content.res.ColorStateList;
 import android.graphics.drawable.GradientDrawable;
 import android.graphics.drawable.RippleDrawable;
 import android.util.AttributeSet;
-import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
@@ -28,6 +27,11 @@ public final class NewSegmentLayout extends FrameLayout {
 
     final int defaultBottomMargin;
     final int ctaBottomMargin;
+
+    /**
+     * Used to prevent duplicate calls to {@link #updateLayout()}.
+     */
+    private boolean wasPreviouslyAttached;
 
     public NewSegmentLayout(final Context context) {
         this(context, null);
@@ -98,6 +102,11 @@ public final class NewSegmentLayout extends FrameLayout {
     @Override
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
+
+        if (wasPreviouslyAttached) {
+            return;
+        }
+        wasPreviouslyAttached = true;
 
         updateLayout();
     }
