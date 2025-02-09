@@ -59,13 +59,16 @@ public class SkipSponsorButton extends FrameLayout {
         LayoutInflater.from(context).inflate(getResourceIdentifier(context, "revanced_sb_skip_sponsor_button", "layout"), this, true);  // layout:skip_ad_button
         setMinimumHeight(getResourceDimensionPixelSize("ad_skip_ad_button_min_height"));  // dimen:ad_skip_ad_button_min_height
         skipSponsorBtnContainer = Objects.requireNonNull(findViewById(getResourceIdentifier(context, "revanced_sb_skip_sponsor_button_container", "id")));  // id:skip_ad_button_container
+
         background = new Paint();
         background.setColor(getResourceColor("skip_ad_button_background_color"));  // color:skip_ad_button_background_color);
         background.setStyle(Paint.Style.FILL);
+
         border = new Paint();
         border.setColor(getResourceColor("skip_ad_button_border_color"));  // color:skip_ad_button_border_color);
         border.setStrokeWidth(getResourceDimension("ad_skip_ad_button_border_width"));  // dimen:ad_skip_ad_button_border_width);
         border.setStyle(Paint.Style.STROKE);
+
         skipSponsorTextView = Objects.requireNonNull(findViewById(getResourceIdentifier(context, "revanced_sb_skip_sponsor_button_text", "id")));  // id:skip_ad_button_text;
         defaultBottomMargin = getResourceDimensionPixelSize("skip_button_default_bottom_margin");  // dimen:skip_button_default_bottom_margin
         ctaBottomMargin = getResourceDimensionPixelSize("skip_button_cta_bottom_margin");  // dimen:skip_button_cta_bottom_margin
@@ -89,9 +92,9 @@ public class SkipSponsorButton extends FrameLayout {
         // Determine corner radius for rounded button
         float cornerRadius = skipSponsorBtnContainer.getHeight() / 2f;
 
-        if (Settings.SB_LEGACY_LAYOUT.get()) {
-            // Draw a square button
-            canvas.drawRect(left, top, right, bottom, background); // Draw square background.
+        if (Settings.SB_SQUARE_LAYOUT.get()) {
+            // Square button.
+            canvas.drawRect(left, top, right, bottom, background);
             if (highContrast) {
                 canvas.drawLines(new float[]{
                                 right, top, left, top,
@@ -100,7 +103,7 @@ public class SkipSponsorButton extends FrameLayout {
                         border); // Draw square border.
             }
         } else {
-            // Draw a rounded button
+            // Rounded button.
             RectF rect = new RectF(left, top, right, bottom);
             canvas.drawRoundRect(rect, cornerRadius, cornerRadius, background); // Draw rounded background.
             if (highContrast) {
@@ -115,11 +118,13 @@ public class SkipSponsorButton extends FrameLayout {
      * Update the layout of this button.
      */
     public void updateLayout() {
-        if (Settings.SB_LEGACY_LAYOUT.get()) {
-            setPadding(0, 0, 0, 0); // No padding for square corners.
+        if (Settings.SB_SQUARE_LAYOUT.get()) {
+            // No padding for square corners.
+            setPadding(0, 0, 0, 0);
         } else {
+            // Apply padding for rounded corners.
             final int padding = SponsorBlockViewController.ROUNDED_LAYOUT_MARGIN;
-            setPadding(padding, 0, padding, 0); // Apply padding for rounded corners.
+            setPadding(padding, 0, padding, 0);
         }
     }
 

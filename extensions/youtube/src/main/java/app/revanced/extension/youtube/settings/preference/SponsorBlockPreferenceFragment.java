@@ -38,7 +38,7 @@ public class SponsorBlockPreferenceFragment extends PreferenceFragment {
     private SwitchPreference votingEnabled;
     private SwitchPreference autoHideSkipSegmentButton;
     private SwitchPreference compactSkipButton;
-    private SwitchPreference legacyLayout;
+    private SwitchPreference squareLayout;
     private SwitchPreference showSkipToast;
     private SwitchPreference trackSkips;
     private SwitchPreference showTimeWithoutSegments;
@@ -80,8 +80,8 @@ public class SponsorBlockPreferenceFragment extends PreferenceFragment {
             compactSkipButton.setChecked(Settings.SB_COMPACT_SKIP_BUTTON.get());
             compactSkipButton.setEnabled(enabled);
 
-            legacyLayout.setChecked(Settings.SB_LEGACY_LAYOUT.get());
-            legacyLayout.setEnabled(enabled);
+            squareLayout.setChecked(Settings.SB_SQUARE_LAYOUT.get());
+            squareLayout.setEnabled(enabled);
 
             showSkipToast.setChecked(Settings.SB_TOAST_ON_SKIP.get());
             showSkipToast.setEnabled(enabled);
@@ -203,13 +203,13 @@ public class SponsorBlockPreferenceFragment extends PreferenceFragment {
             return true;
         });
 
-        legacyLayout = new SwitchPreference(context);
-        legacyLayout.setTitle(str("revanced_sb_legacy_layout"));
-        legacyLayout.setSummaryOn(str("revanced_sb_legacy_layout_sum_on"));
-        legacyLayout.setSummaryOff(str("revanced_sb_legacy_layout_sum_off"));
-        category.addPreference(legacyLayout);
-        legacyLayout.setOnPreferenceChangeListener((preference1, newValue) -> {
-            Settings.SB_LEGACY_LAYOUT.save((Boolean) newValue);
+        squareLayout = new SwitchPreference(context);
+        squareLayout.setTitle(str("revanced_sb_square_layout"));
+        squareLayout.setSummaryOn(str("revanced_sb_square_layout_sum_on"));
+        squareLayout.setSummaryOff(str("revanced_sb_square_layout_sum_off"));
+        category.addPreference(squareLayout);
+        squareLayout.setOnPreferenceChangeListener((preference1, newValue) -> {
+            Settings.SB_SQUARE_LAYOUT.save((Boolean) newValue);
             updateUI();
             return true;
         });

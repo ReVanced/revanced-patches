@@ -121,10 +121,10 @@ public final class NewSegmentLayout extends FrameLayout {
      * Update the layout of this UI control.
      */
     public void updateLayout() {
-        final boolean useLegacy = Settings.SB_LEGACY_LAYOUT.get();
+        final boolean squareLayout = Settings.SB_SQUARE_LAYOUT.get();
 
         ViewGroup.MarginLayoutParams params = (ViewGroup.MarginLayoutParams) getLayoutParams();
-        final int margin = useLegacy
+        final int margin = squareLayout
                 ? 0
                 : SponsorBlockViewController.ROUNDED_LAYOUT_MARGIN;
         params.setMarginStart(margin);
@@ -132,8 +132,7 @@ public final class NewSegmentLayout extends FrameLayout {
 
         GradientDrawable backgroundDrawable = new GradientDrawable();
         backgroundDrawable.setColor(getResourceColor("skip_ad_button_background_color"));
-        // Use rounded background if not using legacy buttons.
-        final float cornerRadius = useLegacy
+        final float cornerRadius = squareLayout
                 ? 0
                 : 16 * getResources().getDisplayMetrics().density;
         backgroundDrawable.setCornerRadius(cornerRadius);

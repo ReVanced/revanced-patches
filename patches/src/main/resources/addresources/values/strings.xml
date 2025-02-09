@@ -909,9 +909,9 @@ This feature works best with a video quality of 720p or lower and when using a v
             <string name="revanced_sb_enable_voting">Show voting button</string>
             <string name="revanced_sb_enable_voting_sum_on">Segment voting button is shown</string>
             <string name="revanced_sb_enable_voting_sum_off">Segment voting button is not shown</string>
-            <string name="revanced_sb_legacy_layout">Use square layout</string>
-            <string name="revanced_sb_legacy_layout_sum_on">Buttons and controls are square</string>
-            <string name="revanced_sb_legacy_layout_sum_off">Buttons and controls are rounded</string>
+            <string name="revanced_sb_square_layout">Use square layout</string>
+            <string name="revanced_sb_square_layout_sum_on">Buttons and controls are square</string>
+            <string name="revanced_sb_square_layout_sum_off">Buttons and controls are rounded</string>
             <!-- Translations should use language similar to 'revanced_ryd_compact_layout_title' -->
             <string name="revanced_sb_enable_compact_skip_button">Use compact skip button</string>
             <string name="revanced_sb_enable_compact_skip_button_sum_on">Skip button styled for minimum width</string>
