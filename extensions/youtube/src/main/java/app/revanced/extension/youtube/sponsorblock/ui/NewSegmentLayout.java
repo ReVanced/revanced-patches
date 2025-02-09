@@ -25,7 +25,6 @@ public final class NewSegmentLayout extends FrameLayout {
             new int[][]{new int[]{android.R.attr.state_enabled}},
             new int[]{0x33ffffff} // Ripple effect color (semi-transparent white)
     );
-    private final int rippleEffectId;
 
     final int defaultBottomMargin;
     final int ctaBottomMargin;
@@ -49,10 +48,6 @@ public final class NewSegmentLayout extends FrameLayout {
         LayoutInflater.from(context).inflate(
                 getResourceIdentifier(context, "revanced_sb_new_segment", "layout"), this, true
         );
-
-        TypedValue rippleEffect = new TypedValue();
-        context.getTheme().resolveAttribute(android.R.attr.selectableItemBackground, rippleEffect, true);
-        rippleEffectId = rippleEffect.resourceId;
 
         initializeButton(
                 context,
