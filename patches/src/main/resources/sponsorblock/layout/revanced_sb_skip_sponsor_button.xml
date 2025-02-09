@@ -8,7 +8,7 @@
         android:layout_height="32dp"
         android:layout_gravity="center_vertical"
         android:orientation="horizontal"
-        android:padding="8dp">
+        android:padding="5dp">
 
         <com.google.android.libraries.youtube.common.ui.YouTubeTextView
             android:id="@+id/revanced_sb_skip_sponsor_button_text"
@@ -16,6 +16,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:includeFontPadding="false"
+            android:paddingLeft="@dimen/add_text_side_padding"
             android:paddingRight="@dimen/ad_overlay_ad_text_padding"
             android:singleLine="true"
             android:text="@string/revanced_sb_skip_button_compact"
