@@ -55,7 +55,7 @@ public class SkipSponsorButton extends FrameLayout {
 
         LayoutInflater.from(context).inflate(getResourceIdentifier(context, "revanced_sb_skip_sponsor_button", "layout"), this, true);  // layout:skip_ad_button
         setMinimumHeight(getResourceDimensionPixelSize("ad_skip_ad_button_min_height"));  // dimen:ad_skip_ad_button_min_height
-        skipSponsorBtnContainer = Objects.requireNonNull((LinearLayout) findViewById(getResourceIdentifier(context, "revanced_sb_skip_sponsor_button_container", "id")));  // id:skip_ad_button_container
+        skipSponsorBtnContainer = Objects.requireNonNull(findViewById(getResourceIdentifier(context, "revanced_sb_skip_sponsor_button_container", "id")));  // id:skip_ad_button_container
         background = new Paint();
         background.setColor(getResourceColor("skip_ad_button_background_color"));  // color:skip_ad_button_background_color);
         background.setStyle(Paint.Style.FILL);
@@ -63,7 +63,7 @@ public class SkipSponsorButton extends FrameLayout {
         border.setColor(getResourceColor("skip_ad_button_border_color"));  // color:skip_ad_button_border_color);
         border.setStrokeWidth(getResourceDimension("ad_skip_ad_button_border_width"));  // dimen:ad_skip_ad_button_border_width);
         border.setStyle(Paint.Style.STROKE);
-        skipSponsorTextView = Objects.requireNonNull((TextView) findViewById(getResourceIdentifier(context, "revanced_sb_skip_sponsor_button_text", "id")));  // id:skip_ad_button_text;
+        skipSponsorTextView = Objects.requireNonNull(findViewById(getResourceIdentifier(context, "revanced_sb_skip_sponsor_button_text", "id")));  // id:skip_ad_button_text;
         defaultBottomMargin = getResourceDimensionPixelSize("skip_button_default_bottom_margin");  // dimen:skip_button_default_bottom_margin
         ctaBottomMargin = getResourceDimensionPixelSize("skip_button_cta_bottom_margin");  // dimen:skip_button_cta_bottom_margin
 
@@ -119,16 +119,14 @@ public class SkipSponsorButton extends FrameLayout {
         }
     }
 
-    /**
-     * @return true, if this button state was changed
-     */
-    public boolean updateSkipButtonText(@NonNull SponsorSegment segment) {
+    public void updateSkipButtonText(@NonNull SponsorSegment segment) {
         this.segment = segment;
         CharSequence newText = segment.getSkipButtonText();
+
+        //noinspection StringEqualsCharSequence
         if (newText.equals(skipSponsorTextView.getText())) {
-            return false;
+            return;
         }
         skipSponsorTextView.setText(newText);
-        return true;
     }
 }

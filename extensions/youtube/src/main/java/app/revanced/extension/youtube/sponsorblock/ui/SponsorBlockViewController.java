@@ -19,6 +19,7 @@ import app.revanced.extension.shared.Utils;
 import app.revanced.extension.youtube.settings.Settings;
 import app.revanced.extension.youtube.shared.PlayerType;
 import app.revanced.extension.youtube.sponsorblock.objects.SponsorSegment;
+import kotlin.Unit;
 
 public class SponsorBlockViewController {
     private static WeakReference<RelativeLayout> inlineSponsorOverlayRef = new WeakReference<>(null);
@@ -36,7 +37,7 @@ public class SponsorBlockViewController {
     static {
         PlayerType.getOnChange().addObserver((PlayerType type) -> {
             playerTypeChanged(type);
-            return null;
+            return Unit.INSTANCE;
         });
     }
 
