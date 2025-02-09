@@ -36,8 +36,8 @@ public class SponsorBlockPreferenceFragment extends PreferenceFragment {
     private SwitchPreference sbEnabled;
     private SwitchPreference addNewSegment;
     private SwitchPreference votingEnabled;
-    private SwitchPreference legacySkipButton;
     private SwitchPreference compactSkipButton;
+    private SwitchPreference legacySkipButton;
     private SwitchPreference autoHideSkipSegmentButton;
     private SwitchPreference showSkipToast;
     private SwitchPreference trackSkips;
@@ -74,11 +74,11 @@ public class SponsorBlockPreferenceFragment extends PreferenceFragment {
             votingEnabled.setChecked(Settings.SB_VOTING_BUTTON.get());
             votingEnabled.setEnabled(enabled);
 
-            legacySkipButton.setChecked(Settings.SB_LEGACY_SKIP_BUTTON.get());
-            legacySkipButton.setEnabled(enabled);
-
             compactSkipButton.setChecked(Settings.SB_COMPACT_SKIP_BUTTON.get());
             compactSkipButton.setEnabled(enabled);
+
+            legacySkipButton.setChecked(Settings.SB_LEGACY_SKIP_BUTTON.get());
+            legacySkipButton.setEnabled(enabled);
 
             autoHideSkipSegmentButton.setChecked(Settings.SB_AUTO_HIDE_SKIP_BUTTON.get());
             autoHideSkipSegmentButton.setEnabled(enabled);
@@ -181,17 +181,6 @@ public class SponsorBlockPreferenceFragment extends PreferenceFragment {
             return true;
         });
 
-        legacySkipButton = new SwitchPreference(context);
-        legacySkipButton.setTitle(str("revanced_sb_enable_legacy_skip_button"));
-        legacySkipButton.setSummaryOn(str("revanced_sb_enable_legacy_skip_button_sum_on"));
-        legacySkipButton.setSummaryOff(str("revanced_sb_enable_legacy_skip_button_sum_off"));
-        category.addPreference(legacySkipButton);
-        legacySkipButton.setOnPreferenceChangeListener((preference1, newValue) -> {
-            Settings.SB_LEGACY_SKIP_BUTTON.save((Boolean) newValue);
-            updateUI();
-            return true;
-        });
-
         compactSkipButton = new SwitchPreference(context);
         compactSkipButton.setTitle(str("revanced_sb_enable_compact_skip_button"));
         compactSkipButton.setSummaryOn(str("revanced_sb_enable_compact_skip_button_sum_on"));
@@ -199,6 +188,17 @@ public class SponsorBlockPreferenceFragment extends PreferenceFragment {
         category.addPreference(compactSkipButton);
         compactSkipButton.setOnPreferenceChangeListener((preference1, newValue) -> {
             Settings.SB_COMPACT_SKIP_BUTTON.save((Boolean) newValue);
+            updateUI();
+            return true;
+        });
+
+        legacySkipButton = new SwitchPreference(context);
+        legacySkipButton.setTitle(str("revanced_sb_enable_legacy_skip_button"));
+        legacySkipButton.setSummaryOn(str("revanced_sb_enable_legacy_skip_button_sum_on"));
+        legacySkipButton.setSummaryOff(str("revanced_sb_enable_legacy_skip_button_sum_off"));
+        category.addPreference(legacySkipButton);
+        legacySkipButton.setOnPreferenceChangeListener((preference1, newValue) -> {
+            Settings.SB_LEGACY_SKIP_BUTTON.save((Boolean) newValue);
             updateUI();
             return true;
         });
