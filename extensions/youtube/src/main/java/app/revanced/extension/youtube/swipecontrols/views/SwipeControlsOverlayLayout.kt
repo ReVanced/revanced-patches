@@ -36,8 +36,10 @@ class SwipeControlsOverlayLayout(
     private val autoBrightnessIcon: Drawable
     private val lowBrightnessIcon: Drawable
     private val mediumBrightnessIcon: Drawable
+    private val highBrightnessIcon: Drawable
     private val fullBrightnessIcon: Drawable
     private val mutedVolumeIcon: Drawable
+    private val lowVolumeIcon: Drawable
     private val normalVolumeIcon: Drawable
     private val fullVolumeIcon: Drawable
 
@@ -70,8 +72,10 @@ class SwipeControlsOverlayLayout(
         autoBrightnessIcon = getDrawable("revanced_ic_sc_brightness_auto")
         lowBrightnessIcon = getDrawable("revanced_ic_sc_brightness_low")
         mediumBrightnessIcon = getDrawable("revanced_ic_sc_brightness_medium")
-        fullBrightnessIcon = getDrawable("revanced_ic_sc_brightness_high")
+        highBrightnessIcon = getDrawable("revanced_ic_sc_brightness_high")
+        fullBrightnessIcon = getDrawable("revanced_ic_sc_brightness_full")
         mutedVolumeIcon = getDrawable("revanced_ic_sc_volume_mute")
+        lowVolumeIcon = getDrawable("revanced_ic_sc_volume_low")
         normalVolumeIcon = getDrawable("revanced_ic_sc_volume_normal")
         fullVolumeIcon = getDrawable("revanced_ic_sc_volume_high")
     }
@@ -105,8 +109,9 @@ class SwipeControlsOverlayLayout(
         val volumePercentage = (newVolume.toFloat() / maximumVolume) * 100
         val icon = when {
             newVolume == 0 -> mutedVolumeIcon
-            volumePercentage > 66 -> fullVolumeIcon
-            else -> normalVolumeIcon
+            volumePercentage < 33 -> lowVolumeIcon
+            volumePercentage < 66 -> normalVolumeIcon
+            else -> fullVolumeIcon
         }
         showFeedbackView("$newVolume", newVolume, maximumVolume, icon, isBrightness = false)
     }
@@ -120,9 +125,10 @@ class SwipeControlsOverlayLayout(
         } else {
             val brightnessValue = round(brightness).toInt()
             val icon = when {
-                brightnessValue > 66 -> fullBrightnessIcon
-                brightnessValue <= 33 -> lowBrightnessIcon
-                else -> mediumBrightnessIcon
+                brightnessValue < 25 -> lowBrightnessIcon
+                brightnessValue < 50 -> mediumBrightnessIcon
+                brightnessValue < 75 -> highBrightnessIcon
+                else -> fullBrightnessIcon
             }
             showFeedbackView("$brightnessValue%", brightnessValue, 100, icon, isBrightness = true)
         }
