@@ -1,3 +1,10 @@
+# [5.12.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.11.0...v5.12.0-dev.1) (2025-02-10)
+
+
+### Features
+
+* **YouTube - SponsorBlock:** Redesign skip buttons ([#4427](https://github.com/ReVanced/revanced-patches/issues/4427)) ([8f4883f](https://github.com/ReVanced/revanced-patches/commit/8f4883fc002420bfb4056401e23445c99e1d3fce))
+
 # [5.11.0](https://github.com/ReVanced/revanced-patches/compare/v5.10.0...v5.11.0) (2025-02-07)
 
 
