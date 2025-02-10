@@ -1423,9 +1423,9 @@ AVC maksimum 1080p görüntü imkanına malikdir, Opus audio kodlama olmur və v
   </app>
   <app id="twitch">
   <patch id="ad.audio.audioAdsPatch">
-  <string name="revanced_block_audio_ads_title">Səsli reklamları əngəllə</string>
-  <string name="revanced_block_audio_ads_summary_on">Səsli reklamlar bloklanıb</string>
-  <string name="revanced_block_audio_ads_summary_off">Səsli reklamlar bloklanmayıb</string>
+  <string name="revanced_block_audio_ads_title">Səs reklamların əngəllə</string>
+  <string name="revanced_block_audio_ads_summary_on">Səs reklamları bloklanıb</string>
+  <string name="revanced_block_audio_ads_summary_off">Səs reklamları bloklanmayıb</string>
   </patch>
   <patch id="ad.embedded.embeddedAdsPatch">
   <string name="revanced_embedded_ads_service_unavailable">%s əlçatmazdır, reklamlar göstərilə bilər. Tənzimləmədə reklam əngəlləmə xidmətin dəyişməyə çalışın.</string>
