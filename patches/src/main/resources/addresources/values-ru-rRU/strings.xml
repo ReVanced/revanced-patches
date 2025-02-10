@@ -1130,7 +1130,7 @@ Second \"item\" text"</string>
   <string name="revanced_change_start_page_entry_browse">Просмотр каналов</string>
   <string name="revanced_change_start_page_entry_courses">Курсы / Обучение</string>
   <string name="revanced_change_start_page_entry_explore">Навигатор</string>
-  <string name="revanced_change_start_page_entry_fashion">\"Мода иamp; Красота\"</string>
+  <string name="revanced_change_start_page_entry_fashion">Мода и Красота</string>
   <string name="revanced_change_start_page_entry_gaming">Игры</string>
   <string name="revanced_change_start_page_entry_history">История просмотров</string>
   <string name="revanced_change_start_page_entry_library">Библиотека</string>
@@ -1142,7 +1142,7 @@ Second \"item\" text"</string>
   <string name="revanced_change_start_page_entry_notifications">Уведомления</string>
   <string name="revanced_change_start_page_entry_playlists">Плейлисты</string>
   <string name="revanced_change_start_page_entry_search">Поиск</string>
-  <string name="revanced_change_start_page_entry_shopping">Магазин</string>
+  <string name="revanced_change_start_page_entry_shopping">Покупки</string>
   <string name="revanced_change_start_page_entry_sports">Спорт</string>
   <string name="revanced_change_start_page_entry_subscriptions">Подписки</string>
   <string name="revanced_change_start_page_entry_trending">Популярные</string>
