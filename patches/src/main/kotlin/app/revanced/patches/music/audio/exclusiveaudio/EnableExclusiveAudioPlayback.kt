@@ -2,6 +2,7 @@ package app.revanced.patches.music.audio.exclusiveaudio
 
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.util.returnEarly
 
 @Suppress("unused")
 val enableExclusiveAudioPlaybackPatch = bytecodePatch(
@@ -11,14 +12,6 @@ val enableExclusiveAudioPlaybackPatch = bytecodePatch(
     compatibleWith("com.google.android.apps.youtube.music")
 
     execute {
-        allowExclusiveAudioPlaybackFingerprint.method.apply {
-            addInstructions(
-                0,
-                """
-                    const/4 v0, 0x1
-                    return v0
-                """,
-            )
-        }
+        allowExclusiveAudioPlaybackFingerprint.method.returnEarly(true)
     }
 }
