@@ -207,9 +207,9 @@ You will not be notified of any unexpected events."</string>
             <string name="revanced_hide_notify_me_button_summary_on">Button is hidden</string>
             <string name="revanced_hide_notify_me_button_summary_off">Button is shown</string>
             <!-- 'People also watch' should be translated using the same localized wording YouTube displays. -->
-            <string name="revanced_hide_search_result_recommendations_title">Hide People also watched recommendations</string>
-            <string name="revanced_hide_search_result_recommendations_summary_on">Recommendations are hidden</string>
-            <string name="revanced_hide_search_result_recommendations_summary_off">Recommendations are shown</string>
+            <string name="revanced_hide_search_result_recommendations_title">Hide People also watched label</string>
+            <string name="revanced_hide_search_result_recommendations_summary_on">Label is hidden</string>
+            <string name="revanced_hide_search_result_recommendations_summary_off">Label is shown</string>
             <!-- 'Show more' should be translated with the same localized wording that YouTube displays.
                   This button usually appears when searching for a YT creator. -->
             <string name="revanced_hide_show_more_button_title">Hide Show more button</string>
