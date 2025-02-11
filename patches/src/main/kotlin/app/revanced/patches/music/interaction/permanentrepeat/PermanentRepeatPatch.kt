@@ -11,7 +11,7 @@ val permanentRepeatPatch = bytecodePatch(
     description = "Permanently remember your repeating preference even if the playlist ends or another track is played.",
     use = false,
 ) {
-    compatibleWith("com.google.android.apps.youtube.music")
+    compatibleWith("com.google.android.apps.youtube.music"("8.05.50"))
 
     execute {
 
