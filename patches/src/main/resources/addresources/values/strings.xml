@@ -512,9 +512,6 @@ Adjust volume by swiping vertically on the right side of the screen"</string>
             <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_off">Swiping down to the lowest value does not enable auto-brightness</string>
             <string name="revanced_swipe_overlay_timeout_title">Swipe overlay timeout</string>
             <string name="revanced_swipe_overlay_timeout_summary">The amount of milliseconds the overlay is visible</string>
-            <string name="revanced_swipe_circular_text_overlay_size_title">Swipe overlay text size</string>
-            <string name="revanced_swipe_circular_text_overlay_size_summary">The text size for swipe overlay between 1-30</string>
-            <string name="revanced_swipe_circular_text_overlay_size_invalid_toast">Text size must be between 1-30</string>
             <string name="revanced_swipe_overlay_background_opacity_title">Swipe overlay background opacity</string>
             <string name="revanced_swipe_overlay_background_opacity_summary">Opacity value between 0-100</string>
             <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Swipe opacity must be between 0-100</string>
@@ -523,9 +520,9 @@ Adjust volume by swiping vertically on the right side of the screen"</string>
             <string name="revanced_swipe_show_circular_overlay_title">Show circular overlay</string>
             <string name="revanced_swipe_show_circular_overlay_summary_on">Circular overlay is shown</string>
             <string name="revanced_swipe_show_circular_overlay_summary_off">Horizontal overlay is shown</string>
-            <string name="revanced_swipe_show_only_icon_circular_overlay_title">Show icon only</string>
-            <string name="revanced_swipe_show_only_icon_circular_overlay_summary_on">Only the icon is shown inside the circle</string>
-            <string name="revanced_swipe_show_only_icon_circular_overlay_summary_off">The icon and value are shown inside the circle</string>
+            <string name="revanced_swipe_overlay_minimal_style_title">Enable minimal style</string>
+            <string name="revanced_swipe_overlay_minimal_style_summary_on">Minimal overlay style is enabled</string>
+            <string name="revanced_swipe_overlay_minimal_style_summary_off">Minimal overlay style is disabled</string>
             <string name="revanced_swipe_change_video_title">Enable swipe to change videos</string>
             <string name="revanced_swipe_change_video_summary_on">Swiping in fullscreen mode will change to the next/previous video</string>
             <string name="revanced_swipe_change_video_summary_off">Swiping in fullscreen mode will not change to the next/previous video</string>

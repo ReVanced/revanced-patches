@@ -76,24 +76,6 @@ class SwipeControlsConfigurationProvider(
         get() = Settings.SWIPE_OVERLAY_TIMEOUT.get()
 
     /**
-     * Gets the text size for the overlay in SP.
-     * Ensures the value is within a valid range (1-30 SP).
-     * If the value is out of range, it resets to default and shows a warning.
-     */
-    val overlayTextSize: Int
-        get() {
-            var textSize = Settings.SWIPE_CIRCULAR_OVERLAY_TEXT_SIZE.get()
-
-            if (textSize <= 0 || textSize > 30) {
-                Utils.showToastLong(str("revanced_swipe_circular_text_overlay_size_invalid_toast"))
-                Settings.SWIPE_CIRCULAR_OVERLAY_TEXT_SIZE.resetToDefault()
-                textSize = Settings.SWIPE_CIRCULAR_OVERLAY_TEXT_SIZE.get()
-            }
-
-            return textSize
-        }
-
-    /**
      * Gets the opacity value (0-100%) is converted to an alpha value (0-255) for transparency.
      * If the opacity value is out of range, it resets to the default and displays a warning message.
      */
@@ -130,10 +112,10 @@ class SwipeControlsConfigurationProvider(
         get() = Color.WHITE
 
     /**
-     * A flag that determines if the overlay should only show the icon in a circle.
+     * A flag that determines if the overlay should only show the icon.
      */
-    val overlayShowOnlyIconInCircle: Boolean
-        get() = Settings.SWIPE_SHOW_ONLY_ICON_CIRCULAR_OVERLAY.get()
+    val overlayShowOverlayMinimalStyle: Boolean
+        get() = Settings.SWIPE_OVERLAY_MINIMAL_STYLE.get()
 
     /**
      * A flag that determines if the progress bar should be circular.

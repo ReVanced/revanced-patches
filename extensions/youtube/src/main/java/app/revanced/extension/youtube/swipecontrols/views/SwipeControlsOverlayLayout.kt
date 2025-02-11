@@ -56,8 +56,7 @@ class SwipeControlsOverlayLayout(
         circularProgressView = CircularProgressView(
             context,
             config.overlayBackgroundOpacity,
-            config.overlayShowOnlyIconInCircle,
-            config.overlayTextSize.toFloat(),
+            config.overlayShowOverlayMinimalStyle,
             config.overlayProgresstColor,
             config.overlayFillBackgroundPaint,
             config.overlayTextColor
@@ -75,6 +74,7 @@ class SwipeControlsOverlayLayout(
         horizontalProgressView = HorizontalProgressView(
             context,
             config.overlayBackgroundOpacity,
+            config.overlayShowOverlayMinimalStyle,
             config.overlayProgresstColor,
             config.overlayFillBackgroundPaint,
             config.overlayTextColor
@@ -165,8 +165,7 @@ class SwipeControlsOverlayLayout(
 class CircularProgressView(
     context: Context,
     private val overlayBackgroundOpacity: Int,
-    private val overlayShowOnlyIconInCircle: Boolean,
-    private val overlayTextSize: Float,
+    private val overlayShowOverlayMinimalStyle: Boolean,
     private val overlayProgresstColor: Int,
     private val overlayFillBackgroundPaint: Int,
     private val overlayTextColor: Int,
@@ -190,9 +189,7 @@ class CircularProgressView(
     private val textPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
         color = overlayTextColor
         textAlign = Paint.Align.CENTER
-        textSize = TypedValue.applyDimension(
-            TypedValue.COMPLEX_UNIT_SP, overlayTextSize, resources.displayMetrics
-        )
+        textSize = 40f
     }
 
     private var progress = 0
@@ -233,15 +230,15 @@ class CircularProgressView(
 
         // Draw the icon in the center.
         icon?.let {
-            val iconSize = if (overlayShowOnlyIconInCircle) 100 else 80
+            val iconSize = if (overlayShowOverlayMinimalStyle) 100 else 80
             val iconX = (width - iconSize) / 2
-            val iconY = (height / 2) - if (overlayShowOnlyIconInCircle) 50 else 80
+            val iconY = (height / 2) - if (overlayShowOverlayMinimalStyle) 50 else 80
             it.setBounds(iconX, iconY, iconX + iconSize, iconY + iconSize)
             it.draw(canvas)
         }
 
         // If not in icon-only mode, draw the text inside the ring.
-        if (!overlayShowOnlyIconInCircle) {
+        if (!overlayShowOverlayMinimalStyle) {
             canvas.drawText(displayText, width / 2f, height / 2f + 60f, textPaint)
         }
     }
@@ -253,6 +250,7 @@ class CircularProgressView(
 class HorizontalProgressView(
     context: Context,
     private val overlayBackgroundOpacity: Int,
+    private val overlayShowOverlayMinimalStyle: Boolean,
     private val overlayProgresstColor: Int,
     private val overlayFillBackgroundPaint: Int,
     private val overlayTextColor: Int,
@@ -309,44 +307,64 @@ class HorizontalProgressView(
         // Radius for rounded corners
         val cornerRadius = min(width, height) / 2
 
+        // Calculate the total width for the elements
+        val minimalElementWidth = 5 * padding + iconSize
+
+        // Calculate the starting point (X) to center the elements
+        val minimalStartX = (width - minimalElementWidth) / 2
+
         // Draw the background
-        canvas.drawRoundRect(0f, 0f, width, height, cornerRadius, cornerRadius, backgroundPaint)
+        if (!overlayShowOverlayMinimalStyle) {
+            canvas.drawRoundRect(0f, 0f, width, height, cornerRadius, cornerRadius, backgroundPaint)
+        } else {
+            canvas.drawRoundRect(minimalStartX, 0f, minimalStartX + minimalElementWidth, height, cornerRadius, cornerRadius, backgroundPaint)
+        }
 
-        // Draw the fill background
-        val startX = 2 * padding + iconSize
-        val endX = width - 4 * padding
-        val fillWidth = endX - startX
+        if (!overlayShowOverlayMinimalStyle) {
+            // Draw the fill background
+            val startX = 2 * padding + iconSize
+            val endX = width - 4 * padding
+            val fillWidth = endX - startX
 
-        canvas.drawRoundRect(
-            startX,
-            height / 2 - 5f,
-            endX,
-            height / 2 + 5f,
-            10f, 10f,
-            fillBackgroundPaint
-        )
+            canvas.drawRoundRect(
+                startX,
+                height / 2 - 5f,
+                endX,
+                height / 2 + 5f,
+                10f, 10f,
+                fillBackgroundPaint
+            )
 
-        // Draw the progress
-        val progressWidth = (progress.toFloat() / maxProgress) * fillWidth
-        canvas.drawRoundRect(
-            startX,
-            height / 2 - 5f,
-            startX + progressWidth,
-            height / 2 + 5f,
-            10f, 10f,
-            progressPaint
-        )
+            // Draw the progress
+            val progressWidth = (progress.toFloat() / maxProgress) * fillWidth
+            canvas.drawRoundRect(
+                startX,
+                height / 2 - 5f,
+                startX + progressWidth,
+                height / 2 + 5f,
+                10f, 10f,
+                progressPaint
+            )
+        }
 
         // Draw the icon
         icon?.let {
-            val iconX = padding
+            val iconX = if (!overlayShowOverlayMinimalStyle) {
+                padding
+            } else {
+                padding + minimalStartX
+            }
             val iconY = height / 2 - iconSize / 2
             it.setBounds(iconX.toInt(), iconY.toInt(), (iconX + iconSize).toInt(), (iconY + iconSize).toInt())
             it.draw(canvas)
         }
 
         // Draw the text on the right
-        val textX = width - 2 * padding
+        val textX = if (!overlayShowOverlayMinimalStyle) {
+            width - 2 * padding
+        } else {
+            minimalStartX + minimalElementWidth - 2 * padding
+        }
         val textY = height / 2 + textPaint.textSize / 3
 
         // Draw the text

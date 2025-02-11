@@ -316,10 +316,8 @@ public class Settings extends BaseSettings {
             parentsAny(SWIPE_BRIGHTNESS, SWIPE_VOLUME));
     public static final BooleanSetting SWIPE_SHOW_CIRCULAR_OVERLAY = new BooleanSetting("revanced_swipe_show_circular_overlay", FALSE, true,
             parentsAny(SWIPE_BRIGHTNESS, SWIPE_VOLUME));
-    public static final BooleanSetting SWIPE_SHOW_ONLY_ICON_CIRCULAR_OVERLAY = new BooleanSetting("revanced_swipe_show_only_icon_circular_overlay", FALSE, true,
-            parent(SWIPE_SHOW_CIRCULAR_OVERLAY));
-    public static final IntegerSetting SWIPE_CIRCULAR_OVERLAY_TEXT_SIZE = new IntegerSetting("revanced_swipe_circular_text_overlay_size", 18, true,
-            parent(SWIPE_SHOW_CIRCULAR_OVERLAY));
+    public static final BooleanSetting SWIPE_OVERLAY_MINIMAL_STYLE = new BooleanSetting("revanced_swipe_overlay_minimal_style", FALSE, true,
+            parentsAny(SWIPE_BRIGHTNESS, SWIPE_VOLUME));
     public static final IntegerSetting SWIPE_OVERLAY_OPACITY = new IntegerSetting("revanced_swipe_overlay_background_opacity", 60, true,
             parentsAny(SWIPE_BRIGHTNESS, SWIPE_VOLUME));
     private static final IntegerSetting DEPRECATED_SWIPE_OVERLAY_BACKGROUND_ALPHA = new IntegerSetting("revanced_swipe_overlay_background_alpha", 127);
