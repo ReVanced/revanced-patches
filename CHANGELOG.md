@@ -1,3 +1,10 @@
+# [5.12.0-dev.3](https://github.com/ReVanced/revanced-patches/compare/v5.12.0-dev.2...v5.12.0-dev.3) (2025-02-11)
+
+
+### Bug Fixes
+
+* **Windy.app:** Remove obsolete `Unlock pro` patch ([#4428](https://github.com/ReVanced/revanced-patches/issues/4428)) ([83d116e](https://github.com/ReVanced/revanced-patches/commit/83d116e8fd3935ee431cfdf0b8e095d04ee77259))
+
 # [5.12.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.12.0-dev.1...v5.12.0-dev.2) (2025-02-11)
 
 
