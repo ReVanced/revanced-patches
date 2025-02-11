@@ -41,7 +41,10 @@ inline fun Node.forEachChildElement(action: (Element) -> Unit) =
  */
 fun Node.doRecursively(action: (Node) -> Unit) {
     action(this)
-    for (i in 0 until this.childNodes.length) this.childNodes.item(i).doRecursively(action)
+    val childNodes = this.childNodes
+    for (i in 0 until childNodes.length) {
+        childNodes.item(i).doRecursively(action)
+    }
 }
 
 fun Node.insertFirst(node: Node) {
