@@ -56,8 +56,9 @@ val customThemePatch = resourcePatch(
         document("res/values/colors.xml").use { document ->
             val resourcesNode = document.getElementsByTagName("resources").item(0) as Element
 
-            for (i in 0 until resourcesNode.childNodes.length) {
-                val node = resourcesNode.childNodes.item(i) as? Element ?: continue
+            val childNodes = resourcesNode.childNodes
+            for (i in 0 until childNodes.length) {
+                val node = childNodes.item(i) as? Element ?: continue
 
                 node.textContent =
                     when (node.getAttribute("name")) {

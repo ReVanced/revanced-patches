@@ -835,6 +835,8 @@ Shënim: Aktivizimi i kësaj gjëje gjithashtu fsheh me forcë reklamat video"</
   <string name="revanced_ryd_failure_generic">\"Nuk më pëlqen\" nuk është në dispozicion (%s)</string>
   <!-- Toast shown if the user enables RYD while a video is opened, and then tries to vote for the video. -->
   <string name="revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted">Rikarkoni videon për të votuar duke përdorur Return YouTube Dislike</string>
+  <!-- Video likes have been set to hidden by the video uploader. -->
+  <string name="revanced_ryd_video_likes_hidden_by_video_owner">Fshehur nga pronari</string>
   <string name="revanced_ryd_enable_summary_on">\"Nuk më pëlqen\" janë të dukshme</string>
   <string name="revanced_ryd_enable_summary_off">\"Nuk më pëlqen\" nuk janë të dukshme</string>
   <string name="revanced_ryd_shorts_title">Shfaq \"Nuk më pëlqen\" në Shorts</string>
@@ -850,6 +852,9 @@ Kufizim: Dislajkat mund të mos shfaqen në modalitetin incognito"</string>
   <string name="revanced_ryd_compact_layout_title">Butoni i thjeshtëzuar Të Pëlqej</string>
   <string name="revanced_ryd_compact_layout_summary_on">Butoni \"Pëlqen\" i stiluar për gjerësi minimale</string>
   <string name="revanced_ryd_compact_layout_summary_off">Butoni \"Pëlqen\" i stiluar për paraqitje më të mirë</string>
+  <string name="revanced_ryd_estimated_like_title">Shfaq pëlqimet e vlerësuara</string>
+  <string name="revanced_ryd_estimated_like_summary_on">Pëlqimet e vlerësuara shfaqen</string>
+  <string name="revanced_ryd_estimated_like_summary_off">Pëlqimet e vlerësuara janë fshehur</string>
   <string name="revanced_ryd_toast_on_connection_error_title">Shfaq një toast nëse API nuk është në dispozicion</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_on">Toast shfaqet nëse Return YouTube Dislike nuk është në dispozicion</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_off">Toast nuk shfaqet nëse Return YouTube Dislike nuk është në dispozicion</string>
@@ -900,6 +905,9 @@ Kjo veçori funksionon më mirë me një cilësi video prej 720p ose më të ul�
   <string name="revanced_sb_enable_voting">Shfaq butonin e votimit</string>
   <string name="revanced_sb_enable_voting_sum_on">Butoni i votimit të segmentit shfaqet</string>
   <string name="revanced_sb_enable_voting_sum_off">Butoni i votimit të segmentit nuk shfaqet</string>
+  <string name="revanced_sb_square_layout">Përdor paraqitjen katrore</string>
+  <string name="revanced_sb_square_layout_sum_on">Butonat dhe kontrollet janë katrore</string>
+  <string name="revanced_sb_square_layout_sum_off">Butonat dhe kontrollet janë të rrumbullakosura</string>
   <!-- Translations should use language similar to 'revanced_ryd_compact_layout_title' -->
   <string name="revanced_sb_enable_compact_skip_button">Përdor butonin e shkurtër të kalimit</string>
   <string name="revanced_sb_enable_compact_skip_button_sum_on">Butoni i kalimit është i stiluar për gjerësinë minimale</string>

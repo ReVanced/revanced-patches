@@ -19,8 +19,11 @@ import app.revanced.extension.shared.Utils;
 import app.revanced.extension.youtube.settings.Settings;
 import app.revanced.extension.youtube.shared.PlayerType;
 import app.revanced.extension.youtube.sponsorblock.objects.SponsorSegment;
+import kotlin.Unit;
 
 public class SponsorBlockViewController {
+    public static final int ROUNDED_LAYOUT_MARGIN = 12;
+
     private static WeakReference<RelativeLayout> inlineSponsorOverlayRef = new WeakReference<>(null);
     private static WeakReference<ViewGroup> youtubeOverlaysLayoutRef = new WeakReference<>(null);
     private static WeakReference<SkipSponsorButton> skipHighlightButtonRef = new WeakReference<>(null);
@@ -36,7 +39,7 @@ public class SponsorBlockViewController {
     static {
         PlayerType.getOnChange().addObserver((PlayerType type) -> {
             playerTypeChanged(type);
-            return null;
+            return Unit.INSTANCE;
         });
     }
 
@@ -80,12 +83,16 @@ public class SponsorBlockViewController {
             });
             youtubeOverlaysLayoutRef = new WeakReference<>(viewGroup);
 
-            skipHighlightButtonRef = new WeakReference<>(
-                    Objects.requireNonNull(layout.findViewById(getResourceIdentifier("revanced_sb_skip_highlight_button", "id"))));
-            skipSponsorButtonRef = new WeakReference<>(
-                    Objects.requireNonNull(layout.findViewById(getResourceIdentifier("revanced_sb_skip_sponsor_button", "id"))));
-            newSegmentLayoutRef = new WeakReference<>(
-                    Objects.requireNonNull(layout.findViewById(getResourceIdentifier("revanced_sb_new_segment_view", "id"))));
+            skipHighlightButtonRef = new WeakReference<>(Objects.requireNonNull(
+                    layout.findViewById(getResourceIdentifier("revanced_sb_skip_highlight_button", "id"))));
+
+            skipSponsorButtonRef = new WeakReference<>(Objects.requireNonNull(
+                    layout.findViewById(getResourceIdentifier("revanced_sb_skip_sponsor_button", "id"))));
+
+            NewSegmentLayout newSegmentLayout = Objects.requireNonNull(
+                    layout.findViewById(getResourceIdentifier("revanced_sb_new_segment_view", "id")));
+            newSegmentLayoutRef = new WeakReference<>(newSegmentLayout);
+            newSegmentLayout.updateLayout();
 
             newSegmentLayoutVisible = false;
             skipHighlight = null;
@@ -99,6 +106,23 @@ public class SponsorBlockViewController {
         hideSkipHighlightButton();
         hideSkipSegmentButton();
         hideNewSegmentLayout();
+    }
+
+    public static void updateLayout() {
+        SkipSponsorButton button = skipSponsorButtonRef.get();
+        if (button != null) {
+            button.updateLayout();
+        }
+
+        button = skipHighlightButtonRef.get();
+        if (button != null) {
+            button.updateLayout();
+        }
+
+        NewSegmentLayout newSegmentLayout = newSegmentLayoutRef.get();
+        if (newSegmentLayout != null) {
+            newSegmentLayout.updateLayout();
+        }
     }
 
     public static void showSkipHighlightButton(@NonNull SponsorSegment segment) {

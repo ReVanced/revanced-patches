@@ -835,6 +835,8 @@ Second \"item\" text"</string>
   <string name="revanced_ryd_failure_generic">無法使用「不喜歡」數 (%s)</string>
   <!-- Toast shown if the user enables RYD while a video is opened, and then tries to vote for the video. -->
   <string name="revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted">重新載入影片以使用 Return YouTube Dislike 進行投票</string>
+  <!-- Video likes have been set to hidden by the video uploader. -->
+  <string name="revanced_ryd_video_likes_hidden_by_video_owner">已由擁有者隱藏</string>
   <string name="revanced_ryd_enable_summary_on">已顯示「不喜歡」數</string>
   <string name="revanced_ryd_enable_summary_off">未顯示「不喜歡」數</string>
   <string name="revanced_ryd_shorts_title">在 Shorts 中顯示「不喜歡」數</string>
@@ -850,6 +852,9 @@ Second \"item\" text"</string>
   <string name="revanced_ryd_compact_layout_title">精簡「喜歡」按鈕</string>
   <string name="revanced_ryd_compact_layout_summary_on">「喜歡」按鈕樣式設為最小寬度</string>
   <string name="revanced_ryd_compact_layout_summary_off">「喜歡」按鈕樣式設為最佳外觀</string>
+  <string name="revanced_ryd_estimated_like_title">顯示預估喜歡數</string>
+  <string name="revanced_ryd_estimated_like_summary_on">已顯示預估喜歡數</string>
+  <string name="revanced_ryd_estimated_like_summary_off">已隱藏預估喜歡數</string>
   <string name="revanced_ryd_toast_on_connection_error_title">若 API 無法使用，顯示提示</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_on">若 Return YouTube Dislike 無法使用，則顯示提示</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_off">若 Return YouTube Dislike 無法使用，則隱藏提示</string>
@@ -901,6 +906,9 @@ Second \"item\" text"</string>
   <string name="revanced_sb_enable_voting">顯示「投票」按鈕</string>
   <string name="revanced_sb_enable_voting_sum_on">已顯示「片段投票」按鈕</string>
   <string name="revanced_sb_enable_voting_sum_off">已隱藏「片段投票」按鈕</string>
+  <string name="revanced_sb_square_layout">使用方形版面配置</string>
+  <string name="revanced_sb_square_layout_sum_on">已將按鈕和控制項設為方形</string>
+  <string name="revanced_sb_square_layout_sum_off">已將按鈕和控制項設為圓角</string>
   <!-- Translations should use language similar to 'revanced_ryd_compact_layout_title' -->
   <string name="revanced_sb_enable_compact_skip_button">使用精簡「跳過」按鈕</string>
   <string name="revanced_sb_enable_compact_skip_button_sum_on">「跳過」按鈕樣式設為最小寬度</string>

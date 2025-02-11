@@ -839,6 +839,8 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_ryd_failure_generic">싫어요 수를 표시할 수 없습니다 (%s)</string>
   <!-- Toast shown if the user enables RYD while a video is opened, and then tries to vote for the video. -->
   <string name="revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted">ReturnYouTubeDislike를 사용하여 투표하려면 동영상을 다시 로드하세요</string>
+  <!-- Video likes have been set to hidden by the video uploader. -->
+  <string name="revanced_ryd_video_likes_hidden_by_video_owner">소유자에 의해 숨겨짐</string>
   <string name="revanced_ryd_enable_summary_on">싫어요 수를 표시합니다</string>
   <string name="revanced_ryd_enable_summary_off">싫어요 수를 표시하지 않습니다</string>
   <string name="revanced_ryd_shorts_title">Shorts에서 싫어요 수 표시하기</string>
@@ -855,6 +857,9 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_ryd_compact_layout_title">좋아요 버튼에서 구분선 숨기기</string>
   <string name="revanced_ryd_compact_layout_summary_on">좋아요 버튼에서 구분선을 표시하지 않습니다</string>
   <string name="revanced_ryd_compact_layout_summary_off">좋아요 버튼에서 구분선을 표시합니다</string>
+  <string name="revanced_ryd_estimated_like_title">추정되는 좋아요 수 표시하기</string>
+  <string name="revanced_ryd_estimated_like_summary_on">좋아요 수가 숨겨진 동영상에서 추정되는 좋아요 수를 표시합니다</string>
+  <string name="revanced_ryd_estimated_like_summary_off">좋아요 수가 숨겨진 동영상에서 추정되는 좋아요 수를 표시하지 않습니다</string>
   <string name="revanced_ryd_toast_on_connection_error_title">API를 사용할 수 없을 때, 팝업 메시지 표시하기</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_on">ReturnYouTubeDislike를 사용할 수 없을 때, 팝업 메시지를 표시합니다</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_off">ReturnYouTubeDislike를 사용할 수 없을 때, 팝업 메시지를 표시하지 않습니다</string>
@@ -905,6 +910,9 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_sb_enable_voting">구간 투표 버튼 표시하기</string>
   <string name="revanced_sb_enable_voting_sum_on">플레이어에서 구간 투표 버튼을 표시합니다</string>
   <string name="revanced_sb_enable_voting_sum_off">플레이어에서 구간 투표 버튼을 표시하지 않습니다</string>
+  <string name="revanced_sb_square_layout">각진 레이아웃 사용하기</string>
+  <string name="revanced_sb_square_layout_sum_on">버튼과 컨트롤이 각지게 활성화합니다</string>
+  <string name="revanced_sb_square_layout_sum_off">버튼과 컨트롤이 둥글게 활성화합니다</string>
   <!-- Translations should use language similar to 'revanced_ryd_compact_layout_title' -->
   <string name="revanced_sb_enable_compact_skip_button">최소화된 건너뛰기 버튼 표시하기</string>
   <string name="revanced_sb_enable_compact_skip_button_sum_on">최소화된 건너뛰기 버튼을 표시합니다</string>

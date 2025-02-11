@@ -835,6 +835,7 @@ Qeyd: Bunu aktivləşdirmə video reklamları da məcburi olaraq gizlədir"</str
   <string name="revanced_ryd_failure_generic">Bəyənməmə əlçatmazdır (%s)</string>
   <!-- Toast shown if the user enables RYD while a video is opened, and then tries to vote for the video. -->
   <string name="revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted">Ryd ilə səsvermə üçün videonu yenidən yüklə</string>
+  <!-- Video likes have been set to hidden by the video uploader. -->
   <string name="revanced_ryd_enable_summary_on">Bəyənməmələr göstərilir</string>
   <string name="revanced_ryd_enable_summary_off">Bəyənməmələr göstərilmir</string>
   <string name="revanced_ryd_shorts_title">\"Shorts\"da bəyənməmə sayını göstər</string>
@@ -1423,9 +1424,9 @@ AVC maksimum 1080p görüntü imkanına malikdir, Opus audio kodlama olmur və v
   </app>
   <app id="twitch">
   <patch id="ad.audio.audioAdsPatch">
-  <string name="revanced_block_audio_ads_title">Səsli reklamları əngəllə</string>
-  <string name="revanced_block_audio_ads_summary_on">Səsli reklamlar bloklanıb</string>
-  <string name="revanced_block_audio_ads_summary_off">Səsli reklamlar bloklanmayıb</string>
+  <string name="revanced_block_audio_ads_title">Səs reklamların əngəllə</string>
+  <string name="revanced_block_audio_ads_summary_on">Səs reklamları bloklanıb</string>
+  <string name="revanced_block_audio_ads_summary_off">Səs reklamları bloklanmayıb</string>
   </patch>
   <patch id="ad.embedded.embeddedAdsPatch">
   <string name="revanced_embedded_ads_service_unavailable">%s əlçatmazdır, reklamlar göstərilə bilər. Tənzimləmədə reklam əngəlləmə xidmətin dəyişməyə çalışın.</string>

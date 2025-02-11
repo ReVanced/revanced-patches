@@ -834,6 +834,8 @@ Märkus: selle lubamine peidab ka sunniviisiliselt video reklaamid"</string>
   <string name="revanced_ryd_failure_generic">Mittemeeldimised pole saadaval (%s)</string>
   <!-- Toast shown if the user enables RYD while a video is opened, and then tries to vote for the video. -->
   <string name="revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted">Laadi video uuesti, et hääletada Return YouTube Dislike\'i abil</string>
+  <!-- Video likes have been set to hidden by the video uploader. -->
+  <string name="revanced_ryd_video_likes_hidden_by_video_owner">Peidetud omaniku poolt</string>
   <string name="revanced_ryd_enable_summary_on">Mittemeeldimised on nähtavad</string>
   <string name="revanced_ryd_enable_summary_off">Mittemeeldimised pole nähtavad</string>
   <string name="revanced_ryd_shorts_title">Näita mittemeeldimisi Shorts\'il</string>
@@ -849,6 +851,9 @@ Piirang: mittemeeldimised ei pruugi ilmneda inkognito režiimis"</string>
   <string name="revanced_ryd_compact_layout_title">Kompaktne Meeldi nupp</string>
   <string name="revanced_ryd_compact_layout_summary_on">Meeldimise nupp on stiilitud minimaalse laiusena</string>
   <string name="revanced_ryd_compact_layout_summary_off">Meeldimise nupp on stiilitud parima välimusega</string>
+  <string name="revanced_ryd_estimated_like_title">Näita hinnangulisi meeldimisi</string>
+  <string name="revanced_ryd_estimated_like_summary_on">Hinnangulised meeldimised on näidatud</string>
+  <string name="revanced_ryd_estimated_like_summary_off">Hinnangulised meeldimised on peidetud</string>
   <string name="revanced_ryd_toast_on_connection_error_title">Näita teadet, kui API pole saadaval</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_on">Teade näidatakse, kui Return YouTube Dislike pole saadaval</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_off">Teadet ei näidata, kui Return YouTube Dislike pole saadaval</string>
@@ -899,6 +904,9 @@ See funktsioon toimib kõige paremini 720p või madalama video kvaliteedi ja vä
   <string name="revanced_sb_enable_voting">Näita hääletamisnuppu</string>
   <string name="revanced_sb_enable_voting_sum_on">Segmendi hääletamisnupp on näidatud</string>
   <string name="revanced_sb_enable_voting_sum_off">Segmendi hääletamisnupp ei ole näidatud</string>
+  <string name="revanced_sb_square_layout">Kasuta ruudukujulist paigutust</string>
+  <string name="revanced_sb_square_layout_sum_on">Nupud ja juhtnupud on kandilised</string>
+  <string name="revanced_sb_square_layout_sum_off">Nupud ja juhtnupud on ümardatud</string>
   <!-- Translations should use language similar to 'revanced_ryd_compact_layout_title' -->
   <string name="revanced_sb_enable_compact_skip_button">Kasuta kompaktset vahelejätmisnuppu</string>
   <string name="revanced_sb_enable_compact_skip_button_sum_on">Vahelejätmisnupp on kujundatud minimaalse laiusena</string>

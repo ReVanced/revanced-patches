@@ -835,6 +835,7 @@ Huomaa: Tämä piilottaa väkisin myös videomainokset"</string>
   <string name="revanced_ryd_failure_generic">Ei-tykkäykset eivät ole saatavilla (%s)</string>
   <!-- Toast shown if the user enables RYD while a video is opened, and then tries to vote for the video. -->
   <string name="revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted">Lataa video uudelleen äänestääksesi Return YouTube Dislikellä</string>
+  <!-- Video likes have been set to hidden by the video uploader. -->
   <string name="revanced_ryd_enable_summary_on">Ei-tykkäykset näytetään</string>
   <string name="revanced_ryd_enable_summary_off">Ei-tykkäyksiä ei näytetä</string>
   <string name="revanced_ryd_shorts_title">Näytä ei-tykkykset Shortseissa</string>

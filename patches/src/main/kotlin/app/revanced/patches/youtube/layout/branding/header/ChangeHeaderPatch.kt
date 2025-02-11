@@ -172,14 +172,16 @@ val changeHeaderPatch = resourcePatch(
         // Instead change styles.xml to use the old drawable resources.
         if (is_19_25_or_greater) {
             document("res/values/styles.xml").use { document ->
+                val documentChildNodes = document.childNodes
+
                 arrayOf(
                     "CairoLightThemeRingo2Updates" to variants[0],
                     "CairoDarkThemeRingo2Updates" to variants[1]
                 ).forEach { (styleName, theme) ->
-                    val style = document.childNodes.findElementByAttributeValueOrThrow(
+                    val styleNodes = documentChildNodes.findElementByAttributeValueOrThrow(
                         "name",
                         styleName,
-                    )
+                    ).childNodes
 
                     val drawable = "@drawable/${HEADER_FILE_NAME}_${theme}"
 
@@ -187,7 +189,7 @@ val changeHeaderPatch = resourcePatch(
                         "ytWordmarkHeader",
                         "ytPremiumWordmarkHeader"
                     ).forEach { itemName ->
-                        style.childNodes.findElementByAttributeValueOrThrow(
+                        styleNodes.findElementByAttributeValueOrThrow(
                             "name",
                             itemName,
                         ).textContent = drawable

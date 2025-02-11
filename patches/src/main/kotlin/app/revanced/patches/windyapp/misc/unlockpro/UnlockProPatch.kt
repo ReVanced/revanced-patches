@@ -3,9 +3,9 @@ package app.revanced.patches.windyapp.misc.unlockpro
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.patch.bytecodePatch
 
+@Deprecated("This patch no longer works and will be removed in the future.")
 @Suppress("unused")
 val unlockProPatch = bytecodePatch(
-    name = "Unlock pro",
     description = "Unlocks all pro features.",
 ) {
     compatibleWith("co.windyapp.android")

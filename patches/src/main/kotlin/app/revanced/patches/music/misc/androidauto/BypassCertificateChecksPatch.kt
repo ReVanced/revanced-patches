@@ -8,7 +8,12 @@ val bypassCertificateChecksPatch = bytecodePatch(
     name = "Bypass certificate checks",
     description = "Bypasses certificate checks which prevent YouTube Music from working on Android Auto.",
 ) {
-    compatibleWith("com.google.android.apps.youtube.music"("7.29.52"))
+    compatibleWith(
+        "com.google.android.apps.youtube.music"(
+            "7.16.53",
+            "8.05.50"
+        )
+    )
 
     execute {
         checkCertificateFingerprint.method.returnEarly(true)

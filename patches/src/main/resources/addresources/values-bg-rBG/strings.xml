@@ -835,6 +835,8 @@ Second \"item\" text"</string>
   <string name="revanced_ryd_failure_generic">Нехаресванията не са налични (%s)</string>
   <!-- Toast shown if the user enables RYD while a video is opened, and then tries to vote for the video. -->
   <string name="revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted">Презареди видеото за гласуване с ReturnYouTubeDislike</string>
+  <!-- Video likes have been set to hidden by the video uploader. -->
+  <string name="revanced_ryd_video_likes_hidden_by_video_owner">Скрито от собственика</string>
   <string name="revanced_ryd_enable_summary_on">Нехаресванията се показват</string>
   <string name="revanced_ryd_enable_summary_off">Нехаресванията не се показват</string>
   <string name="revanced_ryd_shorts_title">Пок. нехаресвания в кратките клипове</string>
@@ -850,6 +852,9 @@ Second \"item\" text"</string>
   <string name="revanced_ryd_compact_layout_title">Компактен Like бутон</string>
   <string name="revanced_ryd_compact_layout_summary_on">Включен компактен бутон \"Харесва ми\"</string>
   <string name="revanced_ryd_compact_layout_summary_off">Най-добър изглед на бутона за харесване</string>
+  <string name="revanced_ryd_estimated_like_title">Показване на прогнозни харесвания</string>
+  <string name="revanced_ryd_estimated_like_summary_on">Показват се прогнозни харесвания</string>
+  <string name="revanced_ryd_estimated_like_summary_off">Прогнозните харесвания са скрити</string>
   <string name="revanced_ryd_toast_on_connection_error_title">Показване на известие, ако API не е наличен</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_on">Показва известие, ако Return YouTube Dislike не е наличен</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_off">Не се показва известие, ако ReturnYouTube Dislike не е наличен</string>
@@ -900,6 +905,9 @@ Second \"item\" text"</string>
   <string name="revanced_sb_enable_voting">Бутона за гласуване</string>
   <string name="revanced_sb_enable_voting_sum_on">Бутона за гласуване на част се показва</string>
   <string name="revanced_sb_enable_voting_sum_off">Бутона за гласуване на част е скрит</string>
+  <string name="revanced_sb_square_layout">Използване на квадратно оформление</string>
+  <string name="revanced_sb_square_layout_sum_on">Бутоните и контролите са квадратни</string>
+  <string name="revanced_sb_square_layout_sum_off">Бутоните и контролите са заоблени</string>
   <!-- Translations should use language similar to 'revanced_ryd_compact_layout_title' -->
   <string name="revanced_sb_enable_compact_skip_button">Компактен бутон за пропускане</string>
   <string name="revanced_sb_enable_compact_skip_button_sum_on">Мин. ширина на бутона за пропускане</string>

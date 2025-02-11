@@ -40,6 +40,11 @@ public class ReturnYouTubeDislikePreferenceFragment extends PreferenceFragment {
     private SwitchPreference compactLayoutPreference;
 
     /**
+     * If hidden likes are replaced with an estimated value.
+     */
+    private SwitchPreference estimatedLikesPreference;
+
+    /**
      * If segmented like/dislike button uses smaller compact layout.
      */
     private SwitchPreference toastOnRYDNotAvailable;
@@ -48,6 +53,7 @@ public class ReturnYouTubeDislikePreferenceFragment extends PreferenceFragment {
         shortsPreference.setEnabled(Settings.RYD_SHORTS.isAvailable());
         percentagePreference.setEnabled(Settings.RYD_DISLIKE_PERCENTAGE.isAvailable());
         compactLayoutPreference.setEnabled(Settings.RYD_COMPACT_LAYOUT.isAvailable());
+        estimatedLikesPreference.setEnabled(Settings.RYD_ESTIMATED_LIKE.isAvailable());
         toastOnRYDNotAvailable.setEnabled(Settings.RYD_TOAST_ON_CONNECTION_ERROR.isAvailable());
     }
 
@@ -116,6 +122,19 @@ public class ReturnYouTubeDislikePreferenceFragment extends PreferenceFragment {
                 return true;
             });
             preferenceScreen.addPreference(compactLayoutPreference);
+
+            estimatedLikesPreference = new SwitchPreference(context);
+            estimatedLikesPreference.setChecked(Settings.RYD_ESTIMATED_LIKE.get());
+            estimatedLikesPreference.setTitle(str("revanced_ryd_estimated_like_title"));
+            estimatedLikesPreference.setSummaryOn(str("revanced_ryd_estimated_like_summary_on"));
+            estimatedLikesPreference.setSummaryOff(str("revanced_ryd_estimated_like_summary_off"));
+            estimatedLikesPreference.setOnPreferenceChangeListener((pref, newValue) -> {
+                Settings.RYD_ESTIMATED_LIKE.save((Boolean) newValue);
+                ReturnYouTubeDislike.clearAllUICaches();
+                updateUIState();
+                return true;
+            });
+            preferenceScreen.addPreference(estimatedLikesPreference);
 
             toastOnRYDNotAvailable = new SwitchPreference(context);
             toastOnRYDNotAvailable.setChecked(Settings.RYD_TOAST_ON_CONNECTION_ERROR.get());

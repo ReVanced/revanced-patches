@@ -835,6 +835,8 @@ Lưu ý: Bật tính năng này cũng buộc ẩn quảng cáo video"</string>
   <string name="revanced_ryd_failure_generic">Descurtir não disponível (%s)</string>
   <!-- Toast shown if the user enables RYD while a video is opened, and then tries to vote for the video. -->
   <string name="revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted">Recarregue para votar usando Return YouTube Dislike</string>
+  <!-- Video likes have been set to hidden by the video uploader. -->
+  <string name="revanced_ryd_video_likes_hidden_by_video_owner">Oculto pelo proprietário</string>
   <string name="revanced_ryd_enable_summary_on">Descurtidas são visíveis</string>
   <string name="revanced_ryd_enable_summary_off">Não há curtidas visíveis</string>
   <string name="revanced_ryd_shorts_title">Mostrar não curtidas na abreviação</string>
@@ -850,6 +852,9 @@ Giới hạn: Số lượt không thích có thể không xuất hiện ở ch�
   <string name="revanced_ryd_compact_layout_title">Botão de Gosto compacto</string>
   <string name="revanced_ryd_compact_layout_summary_on">Botão curtir estilizado para largura mínima</string>
   <string name="revanced_ryd_compact_layout_summary_off">Botão curtir estilizado para melhor aparência</string>
+  <string name="revanced_ryd_estimated_like_title">Mostrar estimativa de \"gostos\"</string>
+  <string name="revanced_ryd_estimated_like_summary_on">As estimativas de \"gostos\" são mostradas</string>
+  <string name="revanced_ryd_estimated_like_summary_off">As estimativas de \"gostos\" estão ocultas</string>
   <string name="revanced_ryd_toast_on_connection_error_title">Mostrar uma notificação flutuante se a API não estiver disponível</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_on">Toast é exibida se Retornar o Youtube Dislike não estiver disponível</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_off">Toast não é exibida se Retornar o YouTube Dislike não estiver disponível</string>
@@ -900,6 +905,9 @@ Tính năng này hoạt động tốt nhất với chất lg video là 720p tr�
   <string name="revanced_sb_enable_voting">Mostrar o botão de votação</string>
   <string name="revanced_sb_enable_voting_sum_on">Botão de votação segmentado é visível</string>
   <string name="revanced_sb_enable_voting_sum_off">O botão de votação não é visível</string>
+  <string name="revanced_sb_square_layout">Usar layout quadrado</string>
+  <string name="revanced_sb_square_layout_sum_on">Botões e controles são quadrados</string>
+  <string name="revanced_sb_square_layout_sum_off">Botões e controles são arredondados</string>
   <!-- Translations should use language similar to 'revanced_ryd_compact_layout_title' -->
   <string name="revanced_sb_enable_compact_skip_button">Use o botão de pular compacto</string>
   <string name="revanced_sb_enable_compact_skip_button_sum_on">Ignorar botão estilizado para largura mínima</string>

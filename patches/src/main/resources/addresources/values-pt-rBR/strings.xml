@@ -833,6 +833,8 @@ Nota: Habilitar isso também oculta os anúncios em vídeo"</string>
   <string name="revanced_ryd_failure_generic">Não gostei indisponível (%s)</string>
   <!-- Toast shown if the user enables RYD while a video is opened, and then tries to vote for the video. -->
   <string name="revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted">Recarregue o vídeo para votar usando o Return YouTube Dislike</string>
+  <!-- Video likes have been set to hidden by the video uploader. -->
+  <string name="revanced_ryd_video_likes_hidden_by_video_owner">Oculto pelo proprietário</string>
   <string name="revanced_ryd_enable_summary_on">Não gostei está oculto</string>
   <string name="revanced_ryd_enable_summary_off">Não gostei não está oculto</string>
   <string name="revanced_ryd_shorts_title">Mostrar não gostei no Shorts</string>
@@ -848,6 +850,9 @@ Limitação: As curtidas podem não aparecer no modo anônimo"</string>
   <string name="revanced_ryd_compact_layout_title">Botão Curtir compacto</string>
   <string name="revanced_ryd_compact_layout_summary_on">Botão gostei estilizado para largura mínima</string>
   <string name="revanced_ryd_compact_layout_summary_off">Botão gostei estilizado para melhor aparência</string>
+  <string name="revanced_ryd_estimated_like_title">Mostrar estimativa de \"gostei\"</string>
+  <string name="revanced_ryd_estimated_like_summary_on">A estimativa de \"gostei\" está visível</string>
+  <string name="revanced_ryd_estimated_like_summary_off">A estimativa de \"gostei\" está oculta</string>
   <string name="revanced_ryd_toast_on_connection_error_title">Exibir uma notificação flutuante se a API não estiver disponível</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_on">Notificação flutuante vai ser exibida se o Return YouTube Dislike não estiver disponível</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_off">Notificação flutuante não vai ser exibida se o Return YouTube Dislike não estiver disponível</string>
@@ -898,6 +903,9 @@ Este recurso funciona melhor com uma qualidade de vídeo de 720p ou inferior e a
   <string name="revanced_sb_enable_voting">Mostrar botão votar</string>
   <string name="revanced_sb_enable_voting_sum_on">Botão de votar segmento será mostrado</string>
   <string name="revanced_sb_enable_voting_sum_off">Botão de votar não será mostrado</string>
+  <string name="revanced_sb_square_layout">Usar layout quadrado</string>
+  <string name="revanced_sb_square_layout_sum_on">Botões e controles são quadrados</string>
+  <string name="revanced_sb_square_layout_sum_off">Botões e controles são arredondados</string>
   <!-- Translations should use language similar to 'revanced_ryd_compact_layout_title' -->
   <string name="revanced_sb_enable_compact_skip_button">Usar botão pular compacto</string>
   <string name="revanced_sb_enable_compact_skip_button_sum_on">Botão pular estilizado para largura mínima</string>

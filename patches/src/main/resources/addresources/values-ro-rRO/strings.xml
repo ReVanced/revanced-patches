@@ -835,6 +835,8 @@ Notă: Activarea acestei opțiuni ascunde, de asemenea, forțat reclamele video"
   <string name="revanced_ryd_failure_generic">Dislike-uri indisponibile (%s)</string>
   <!-- Toast shown if the user enables RYD while a video is opened, and then tries to vote for the video. -->
   <string name="revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted">Reîncarcă videoclipul pentru a vota folosind Returnare YouTube Dislike</string>
+  <!-- Video likes have been set to hidden by the video uploader. -->
+  <string name="revanced_ryd_video_likes_hidden_by_video_owner">Ascuns de proprietar</string>
   <string name="revanced_ryd_enable_summary_on">Dislike-urile sunt afișate</string>
   <string name="revanced_ryd_enable_summary_off">Dislike-urile nu sunt afișate</string>
   <string name="revanced_ryd_shorts_title">Arată displace pe scurtmetraje</string>
@@ -850,6 +852,9 @@ Limitare: Este posibil ca Nu-mi plac să nu apară în modul incognito"</string>
   <string name="revanced_ryd_compact_layout_title">Buton Like compact</string>
   <string name="revanced_ryd_compact_layout_summary_on">Buton de stilizat pentru lățime minimă</string>
   <string name="revanced_ryd_compact_layout_summary_off">Buton asemănător pentru cel mai bun aspect</string>
+  <string name="revanced_ryd_estimated_like_title">Afișați aprecierile estimate</string>
+  <string name="revanced_ryd_estimated_like_summary_on">Aprecierile estimate sunt afișate</string>
+  <string name="revanced_ryd_estimated_like_summary_off">Aprecierile estimate sunt ascunse</string>
   <string name="revanced_ryd_toast_on_connection_error_title">Arată un toast dacă API-ul nu este disponibil</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_on">Toast este afișat dacă Returnarea YouTube Dislike nu este disponibilă</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_off">Toast nu este afișat dacă Returnarea YouTube Dislike nu este disponibilă</string>
@@ -900,6 +905,9 @@ Această caracteristică funcționează cel mai bine cu o calitate video de 720p
   <string name="revanced_sb_enable_voting">Arată butonul de votare</string>
   <string name="revanced_sb_enable_voting_sum_on">Butonul de vot este afișat</string>
   <string name="revanced_sb_enable_voting_sum_off">Butonul de vot nu este afișat</string>
+  <string name="revanced_sb_square_layout">Utilizați aspectul pătrat</string>
+  <string name="revanced_sb_square_layout_sum_on">Butoanele și comenzile sunt pătrate</string>
+  <string name="revanced_sb_square_layout_sum_off">Butoanele și comenzile sunt rotunjite</string>
   <!-- Translations should use language similar to 'revanced_ryd_compact_layout_title' -->
   <string name="revanced_sb_enable_compact_skip_button">Folosește butonul compact de omitere</string>
   <string name="revanced_sb_enable_compact_skip_button_sum_on">Omite butonul stilizat pentru lățimea minimă</string>

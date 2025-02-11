@@ -837,6 +837,8 @@ Second \"item\" text"</string>
   <string name="revanced_ryd_failure_generic">Δεδομένα dislike μη διαθέσιμα (%s)</string>
   <!-- Toast shown if the user enables RYD while a video is opened, and then tries to vote for the video. -->
   <string name="revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted">Επαναφορτώστε το βίντεο για να ψηφίσετε χρησιμοποιώντας το Return YouTube Dislike</string>
+  <!-- Video likes have been set to hidden by the video uploader. -->
+  <string name="revanced_ryd_video_likes_hidden_by_video_owner">Κρυμμένα από τον κάτοχο</string>
   <string name="revanced_ryd_enable_summary_on">Τα «Δεν μου αρέσει» εμφανίζονται</string>
   <string name="revanced_ryd_enable_summary_off">Τα «Δεν μου αρέσει» δεν εμφανίζονται</string>
   <string name="revanced_ryd_shorts_title">Εμφάνιση στα Shorts</string>
@@ -852,6 +854,9 @@ Second \"item\" text"</string>
   <string name="revanced_ryd_compact_layout_title">Κουμπί «Μου αρέσει» μικρότερου στυλ</string>
   <string name="revanced_ryd_compact_layout_summary_on">Το κουμπί «Μου αρέσει» είναι διαμορφωμένο για ελάχιστο μέγεθος</string>
   <string name="revanced_ryd_compact_layout_summary_off">Το κουμπί «Μου αρέσει» είναι διαμορφωμένο για καλύτερη εμφάνιση</string>
+  <string name="revanced_ryd_estimated_like_title">Εμφάνιση εκτιμώμενων επιδοκιμασιών</string>
+  <string name="revanced_ryd_estimated_like_summary_on">Εμφανίζονται οι εκτιμώμενες επιδοκιμασίες</string>
+  <string name="revanced_ryd_estimated_like_summary_off">Οι εκτιμώμενες επιδοκιμασίες είναι κρυμμένες</string>
   <string name="revanced_ryd_toast_on_connection_error_title">Εμφάνιση μηνύματος αν το API δεν είναι διαθέσιμο</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_on">Να εμφανίζεται μήνυμα στο κάτω μέρος της οθόνης αν το Return YouTube Dislike δεν είναι διαθέσιμο</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_off">Να μην εμφανίζεται μήνυμα στο κάτω μέρος της οθόνης αν το Return YouTube Dislike δεν είναι διαθέσιμο</string>
@@ -902,6 +907,9 @@ Second \"item\" text"</string>
   <string name="revanced_sb_enable_voting">Κουμπί ψηφοφορίας τμημάτων</string>
   <string name="revanced_sb_enable_voting_sum_on">Το κουμπί ψηφοφορίας τμημάτων εμφανίζεται</string>
   <string name="revanced_sb_enable_voting_sum_off">Το κουμπί ψηφοφορίας τμημάτων δεν εμφανίζεται</string>
+  <string name="revanced_sb_square_layout">Χρήση τετράγωνης διάταξης</string>
+  <string name="revanced_sb_square_layout_sum_on">Τα κουμπιά και τα στοιχεία ελέγχου είναι τετράγωνα</string>
+  <string name="revanced_sb_square_layout_sum_off">Τα κουμπιά και τα στοιχεία ελέγχου είναι στρογγυλεμένα</string>
   <!-- Translations should use language similar to 'revanced_ryd_compact_layout_title' -->
   <string name="revanced_sb_enable_compact_skip_button">Κουμπί παράλειψης μικρότερου στυλ</string>
   <string name="revanced_sb_enable_compact_skip_button_sum_on">Το κουμπί παράλειψης είναι διαμορφωμένο για ελάχιστο μέγεθος</string>

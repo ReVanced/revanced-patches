@@ -2,10 +2,11 @@ package app.revanced.extension.youtube.sponsorblock.ui;
 
 import android.content.Context;
 import android.content.res.ColorStateList;
+import android.graphics.drawable.GradientDrawable;
 import android.graphics.drawable.RippleDrawable;
 import android.util.AttributeSet;
-import android.util.TypedValue;
 import android.view.LayoutInflater;
+import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
 
@@ -14,15 +15,15 @@ import app.revanced.extension.youtube.settings.Settings;
 import app.revanced.extension.youtube.sponsorblock.SponsorBlockUtils;
 import app.revanced.extension.shared.Logger;
 
+import static app.revanced.extension.shared.Utils.getResourceColor;
 import static app.revanced.extension.shared.Utils.getResourceDimensionPixelSize;
 import static app.revanced.extension.shared.Utils.getResourceIdentifier;
 
 public final class NewSegmentLayout extends FrameLayout {
     private static final ColorStateList rippleColorStateList = new ColorStateList(
             new int[][]{new int[]{android.R.attr.state_enabled}},
-            new int[]{0x33ffffff} // sets the ripple color to white
+            new int[]{0x33ffffff} // Ripple effect color (semi-transparent white)
     );
-    private final int rippleEffectId;
 
     final int defaultBottomMargin;
     final int ctaBottomMargin;
@@ -46,10 +47,6 @@ public final class NewSegmentLayout extends FrameLayout {
         LayoutInflater.from(context).inflate(
                 getResourceIdentifier(context, "revanced_sb_new_segment", "layout"), this, true
         );
-
-        TypedValue rippleEffect = new TypedValue();
-        context.getTheme().resolveAttribute(android.R.attr.selectableItemBackground, rippleEffect, true);
-        rippleEffectId = rippleEffect.resourceId;
 
         initializeButton(
                 context,
@@ -118,6 +115,28 @@ public final class NewSegmentLayout extends FrameLayout {
             handler.apply();
             Logger.printDebug(() -> debugMessage);
         });
+    }
+
+    /**
+     * Update the layout of this UI control.
+     */
+    public void updateLayout() {
+        final boolean squareLayout = Settings.SB_SQUARE_LAYOUT.get();
+
+        ViewGroup.MarginLayoutParams params = (ViewGroup.MarginLayoutParams) getLayoutParams();
+        final int margin = squareLayout
+                ? 0
+                : SponsorBlockViewController.ROUNDED_LAYOUT_MARGIN;
+        params.setMarginStart(margin);
+        setLayoutParams(params);
+
+        GradientDrawable backgroundDrawable = new GradientDrawable();
+        backgroundDrawable.setColor(getResourceColor("skip_ad_button_background_color"));
+        final float cornerRadius = squareLayout
+                ? 0
+                : 16 * getResources().getDisplayMetrics().density;
+        backgroundDrawable.setCornerRadius(cornerRadius);
+        setBackground(backgroundDrawable);
     }
 
     @FunctionalInterface

@@ -835,6 +835,8 @@ Second \"item\" text"</string>
   <string name="revanced_ryd_failure_generic">لم يعجبني غير متاح (%s)</string>
   <!-- Toast shown if the user enables RYD while a video is opened, and then tries to vote for the video. -->
   <string name="revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted">أعد تحميل الفيديو للتصويت بـ Return YouTube Dislike</string>
+  <!-- Video likes have been set to hidden by the video uploader. -->
+  <string name="revanced_ryd_video_likes_hidden_by_video_owner">مخفي بواسطة المالك</string>
   <string name="revanced_ryd_enable_summary_on">يتم عرض لم يعجبني</string>
   <string name="revanced_ryd_enable_summary_off">لا يتم عرض لم يعجبني</string>
   <string name="revanced_ryd_shorts_title">عرض لم يعجني في فيديوهات Shorts</string>
@@ -850,6 +852,9 @@ Second \"item\" text"</string>
   <string name="revanced_ryd_compact_layout_title">مقاس زر أعجبني</string>
   <string name="revanced_ryd_compact_layout_summary_on">زر أعجبني مصمم لأدنى عرض</string>
   <string name="revanced_ryd_compact_layout_summary_off">زر أعجبني مصمم لأفضل مظهر</string>
+  <string name="revanced_ryd_estimated_like_title">إظهار الإعجابات المقدرة</string>
+  <string name="revanced_ryd_estimated_like_summary_on">يتم عرض الإعجابات المقدرة</string>
+  <string name="revanced_ryd_estimated_like_summary_off">الإعجابات المقدرة مخفية</string>
   <string name="revanced_ryd_toast_on_connection_error_title">عرض ملاحظة إذا كان API غير متاح</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_on">يتم عرض الملاحظة في حالة عدم توفر Return YouTube Dislike</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_off">لا يتم عرض الملاحظة في حالة عدم توفر Return YouTube Dislike</string>
@@ -900,6 +905,9 @@ Second \"item\" text"</string>
   <string name="revanced_sb_enable_voting">عرض زر التصويت</string>
   <string name="revanced_sb_enable_voting_sum_on">يتم عرض زر التصويت على المقطع</string>
   <string name="revanced_sb_enable_voting_sum_off">لا يتم عرض زر التصويت على المقطع</string>
+  <string name="revanced_sb_square_layout">استخدام تصميم مربع</string>
+  <string name="revanced_sb_square_layout_sum_on">الأزرار وعناصر التحكم مربعة</string>
+  <string name="revanced_sb_square_layout_sum_off">الأزرار وعناصر التحكم مستديرة</string>
   <!-- Translations should use language similar to 'revanced_ryd_compact_layout_title' -->
   <string name="revanced_sb_enable_compact_skip_button">استخدام زر التخطي المُصَغَّر</string>
   <string name="revanced_sb_enable_compact_skip_button_sum_on">زر التخطي مصمم لأدنى عرض</string>

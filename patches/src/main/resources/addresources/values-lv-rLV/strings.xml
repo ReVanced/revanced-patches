@@ -835,6 +835,8 @@ Piezīme: Šī iestatījuma ieslēgšana arī piespiedu kārtā slēpj video rek
   <string name="revanced_ryd_failure_generic">Nepatīk pogas nav pieejamas (%s)</string>
   <!-- Toast shown if the user enables RYD while a video is opened, and then tries to vote for the video. -->
   <string name="revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted">Pārstartējiet video, lai balsotu, izmantojot Return YouTube Dislike</string>
+  <!-- Video likes have been set to hidden by the video uploader. -->
+  <string name="revanced_ryd_video_likes_hidden_by_video_owner">Slēpts no īpašnieka</string>
   <string name="revanced_ryd_enable_summary_on">Nepatīk pogas ir redzamas</string>
   <string name="revanced_ryd_enable_summary_off">Nepatīk pogas nav redzamas</string>
   <string name="revanced_ryd_shorts_title">Rādīt nepatīk pogas Shorts</string>
@@ -850,6 +852,9 @@ Ierobežojums: Nepatika var nebūt redzama inkognito režīmā"</string>
   <string name="revanced_ryd_compact_layout_title">Kompaktpoga \"Like\"</string>
   <string name="revanced_ryd_compact_layout_summary_on">Patīk poga ir stilizēta minimālam platumam</string>
   <string name="revanced_ryd_compact_layout_summary_off">Patīk poga ir stilizēta labākam izskatam</string>
+  <string name="revanced_ryd_estimated_like_title">Rādīt aptuvenos \"Patīk\"</string>
+  <string name="revanced_ryd_estimated_like_summary_on">Aptuvenie \"Patīk\" tiek rādīti</string>
+  <string name="revanced_ryd_estimated_like_summary_off">Aptuvenie \"Patīk\" ir paslēpti</string>
   <string name="revanced_ryd_toast_on_connection_error_title">Rādīt paziņojumu, ja API nav pieejama</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_on">Paziņojums tiks rādīts, ja Return YouTube Dislike nav pieejams</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_off">Paziņojums netiks rādīts, ja Return YouTube Dislike nav pieejams</string>
@@ -900,6 +905,9 @@ Laika skalas miniatūras izmantos tādu pašu kvalitāti kā pašreizējais vide
   <string name="revanced_sb_enable_voting">Rādīt balsošanas pogu</string>
   <string name="revanced_sb_enable_voting_sum_on">Segmenta balsošanas poga ir redzama</string>
   <string name="revanced_sb_enable_voting_sum_off">Segmenta balsošanas poga nav redzama</string>
+  <string name="revanced_sb_square_layout">Izmantot kvadrātveida izkārtojumu</string>
+  <string name="revanced_sb_square_layout_sum_on">Pogām un vadīklām ir kvadrātveida forma</string>
+  <string name="revanced_sb_square_layout_sum_off">Pogas un vadīklas ir noapaļotas</string>
   <!-- Translations should use language similar to 'revanced_ryd_compact_layout_title' -->
   <string name="revanced_sb_enable_compact_skip_button">Izmantot kompaktu izlaides pogu</string>
   <string name="revanced_sb_enable_compact_skip_button_sum_on">Izlaides poga ir veidota minimālajam platumam</string>

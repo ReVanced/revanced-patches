@@ -835,6 +835,8 @@ Catatan: Mengaktifkan ini juga akan memaksa menyembunyikan iklan video"</string>
   <string name="revanced_ryd_failure_generic">Dislike tidak tersedia (%s)</string>
   <!-- Toast shown if the user enables RYD while a video is opened, and then tries to vote for the video. -->
   <string name="revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted">Muat ulang video untuk memilih Return YouTube Dislike</string>
+  <!-- Video likes have been set to hidden by the video uploader. -->
+  <string name="revanced_ryd_video_likes_hidden_by_video_owner">Disembunyikan oleh pemilik</string>
   <string name="revanced_ryd_enable_summary_on">Dislike ditampilkan</string>
   <string name="revanced_ryd_enable_summary_off">Dislike tidak ditampilkan</string>
   <string name="revanced_ryd_shorts_title">Tampilkan dislike di Shorts</string>
@@ -850,6 +852,9 @@ Keterbatasan: Dislike mungkin tidak muncul dalam mode penyamaran"</string>
   <string name="revanced_ryd_compact_layout_title">Tombol Suka Ringkas</string>
   <string name="revanced_ryd_compact_layout_summary_on">Tombol suka ditata untuk lebar minimum</string>
   <string name="revanced_ryd_compact_layout_summary_off">Tombol suka ditata untuk tampilan terbaik</string>
+  <string name="revanced_ryd_estimated_like_title">Tampilkan perkiraan suka</string>
+  <string name="revanced_ryd_estimated_like_summary_on">Perkiraan suka ditampilkan</string>
+  <string name="revanced_ryd_estimated_like_summary_off">Perkiraan suka disembunyikan</string>
   <string name="revanced_ryd_toast_on_connection_error_title">Tampilkan pesan timbul jika API tidak tersedia</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_on">Pesan timbul tidak ditampilkan jika Return YouTube Dislike tidak tersedia</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_off">Pesan timbul tidak ditampilkan jika Return YouTube Dislike tidak tersedia</string>
@@ -900,6 +905,9 @@ Fitur ini bekerja paling baik dengan kualitas video 720p atau lebih rendah dan s
   <string name="revanced_sb_enable_voting">Tampilkan tombol voting</string>
   <string name="revanced_sb_enable_voting_sum_on">Tombol segmen voting ditampilkan</string>
   <string name="revanced_sb_enable_voting_sum_off">Tombol segmen voting tidak ditampilkan</string>
+  <string name="revanced_sb_square_layout">Gunakan tata letak persegi</string>
+  <string name="revanced_sb_square_layout_sum_on">Tombol dan kontrol berbentuk persegi</string>
+  <string name="revanced_sb_square_layout_sum_off">Tombol dan kontrol berbentuk bulat</string>
   <!-- Translations should use language similar to 'revanced_ryd_compact_layout_title' -->
   <string name="revanced_sb_enable_compact_skip_button">Gunakan tombol lewati ringkas</string>
   <string name="revanced_sb_enable_compact_skip_button_sum_on">Tombol lewati ditata untuk lebar minimum</string>
