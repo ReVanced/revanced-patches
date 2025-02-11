@@ -3,7 +3,6 @@ revanced-patcher = "21.0.0"
 # Tracking https://github.com/google/smali/issues/64.
 #noinspection GradleDependency
 smali = "3.0.5"
-gson = "2.12.1"
 # 8.3.0 causes java verifier error: https://github.com/ReVanced/revanced-patches/issues/2818.
 #noinspection GradleDependency
 agp = "8.2.2"
@@ -14,7 +13,6 @@ retrofit = "2.11.0"
 guava = "33.4.0-jre"
 
 [libraries]
-gson = { module = "com.google.code.gson:gson", version.ref = "gson" }
 annotation = { module = "androidx.annotation:annotation", version.ref = "annotation" }
 appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
 okhttp = { module = "com.squareup.okhttp3:okhttp", version.ref = "okhttp" }
