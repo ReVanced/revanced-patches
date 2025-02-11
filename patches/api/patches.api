@@ -352,8 +352,8 @@ public final class app/revanced/patches/nunl/ads/HideAdsPatchKt {
 	public static final fun getHideAdsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/nunl/firebase/FirebasePatchKt {
-	public static final fun getFirebaseGetCertPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+public final class app/revanced/patches/nunl/firebase/SpoofCertificatePatchKt {
+	public static final fun getSpoofCertificatePatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
 public final class app/revanced/patches/nyx/misc/pro/UnlockProPatchKt {
