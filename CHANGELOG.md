@@ -1,3 +1,10 @@
+# [5.12.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.12.0-dev.1...v5.12.0-dev.2) (2025-02-11)
+
+
+### Features
+
+* **Return YouTube Dislike:** add `Show estimated likes` setting ([#4443](https://github.com/ReVanced/revanced-patches/issues/4443)) ([9a88b42](https://github.com/ReVanced/revanced-patches/commit/9a88b4239fd63d5f91105fec8e7d59d318a5d09a))
+
 # [5.12.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.11.0...v5.12.0-dev.1) (2025-02-10)
 
 
