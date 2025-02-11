@@ -558,10 +558,6 @@ public final class app/revanced/patches/shared/misc/fix/verticalscroll/VerticalS
 	public static final fun getVerticalScrollPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/shared/misc/gms/FingerprintsKt {
-	public static final field GET_GMS_CORE_VENDOR_GROUP_ID_METHOD_NAME Ljava/lang/String;
-}
-
 public final class app/revanced/patches/shared/misc/gms/GmsCoreSupportPatchKt {
 	public static final fun gmsCoreSupportPatch (Ljava/lang/String;Ljava/lang/String;Lapp/revanced/patcher/Fingerprint;Ljava/util/Set;Lapp/revanced/patcher/Fingerprint;Lapp/revanced/patcher/patch/Patch;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;)Lapp/revanced/patcher/patch/BytecodePatch;
 	public static synthetic fun gmsCoreSupportPatch$default (Ljava/lang/String;Ljava/lang/String;Lapp/revanced/patcher/Fingerprint;Ljava/util/Set;Lapp/revanced/patcher/Fingerprint;Lapp/revanced/patcher/patch/Patch;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)Lapp/revanced/patcher/patch/BytecodePatch;
@@ -600,6 +596,8 @@ public final class app/revanced/patches/shared/misc/mapping/ResourceMappingPatch
 	public static final fun get (Ljava/util/List;Ljava/lang/String;Ljava/lang/String;)J
 	public static final fun getResourceMappingPatch ()Lapp/revanced/patcher/patch/ResourcePatch;
 	public static final fun getResourceMappings ()Ljava/util/List;
+	public static final fun resourceLiteral (Ljava/lang/String;Ljava/lang/String;I)Lapp/revanced/patcher/LiteralFilter;
+	public static synthetic fun resourceLiteral$default (Ljava/lang/String;Ljava/lang/String;IILjava/lang/Object;)Lapp/revanced/patcher/LiteralFilter;
 }
 
 public final class app/revanced/patches/shared/misc/settings/SettingsPatchKt {
@@ -1121,15 +1119,7 @@ public final class app/revanced/patches/youtube/layout/hide/fullscreenambientmod
 }
 
 public final class app/revanced/patches/youtube/layout/hide/general/HideLayoutComponentsPatchKt {
-	public static final fun getAlbumCardId ()J
-	public static final fun getBarContainerHeightId ()J
-	public static final fun getCrowdfundingBoxId ()J
-	public static final fun getExpandButtonDownId ()J
-	public static final fun getFabButtonId ()J
-	public static final fun getFilterBarHeightId ()J
 	public static final fun getHideLayoutComponentsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
-	public static final fun getRelatedChipCloudMarginId ()J
-	public static final fun getYouTubeLogo ()J
 }
 
 public final class app/revanced/patches/youtube/layout/hide/infocards/HideInfoCardsPatchKt {
@@ -1161,17 +1151,7 @@ public final class app/revanced/patches/youtube/layout/hide/time/HideTimestampPa
 }
 
 public final class app/revanced/patches/youtube/layout/miniplayer/MiniplayerPatchKt {
-	public static final fun getFloatyBarButtonTopMargin ()J
-	public static final fun getMiniplayerMaxSize ()J
 	public static final fun getMiniplayerPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
-	public static final fun getModernMiniplayerClose ()J
-	public static final fun getModernMiniplayerExpand ()J
-	public static final fun getModernMiniplayerForwardButton ()J
-	public static final fun getModernMiniplayerRewindButton ()J
-	public static final fun getPlayerOverlays ()J
-	public static final fun getScrimOverlay ()J
-	public static final fun getYtOutlinePictureInPictureWhite24 ()J
-	public static final fun getYtOutlineXWhite24 ()J
 }
 
 public final class app/revanced/patches/youtube/layout/panels/popup/PlayerPopupPanelsPatchKt {
@@ -1180,10 +1160,6 @@ public final class app/revanced/patches/youtube/layout/panels/popup/PlayerPopupP
 
 public final class app/revanced/patches/youtube/layout/player/background/PlayerControlsBackgroundPatchKt {
 	public static final fun getPlayerControlsBackgroundPatch ()Lapp/revanced/patcher/patch/ResourcePatch;
-}
-
-public final class app/revanced/patches/youtube/layout/player/fullscreen/OpenVideosFullscreenKt {
-	public static final fun getOpenVideosFullscreen ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
 public final class app/revanced/patches/youtube/layout/player/fullscreen/OpenVideosFullscreenPatchKt {
@@ -1366,6 +1342,9 @@ public final class app/revanced/patches/youtube/misc/playservice/VersionCheckPat
 	public static final fun is_19_46_or_greater ()Z
 	public static final fun is_19_47_or_greater ()Z
 	public static final fun is_19_49_or_greater ()Z
+	public static final fun is_20_02_or_greater ()Z
+	public static final fun is_20_03_or_greater ()Z
+	public static final fun is_20_05_or_greater ()Z
 }
 
 public final class app/revanced/patches/youtube/misc/privacy/RemoveTrackingQueryParameterPatchKt {

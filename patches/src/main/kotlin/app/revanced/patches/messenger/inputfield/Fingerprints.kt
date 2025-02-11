@@ -4,7 +4,7 @@ import app.revanced.patcher.fingerprint
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.dexbacked.value.DexBackedStringEncodedValue
 
-internal val sendTypingIndicatorFingerprint = fingerprint {
+internal val sendTypingIndicatorFingerprint by fingerprint {
     returns("V")
     parameters()
     custom { method, classDef ->
@@ -16,7 +16,7 @@ internal val sendTypingIndicatorFingerprint = fingerprint {
     }
 }
 
-internal val switchMessengeInputEmojiButtonFingerprint = fingerprint {
+internal val switchMessengeInputEmojiButtonFingerprint by fingerprint {
     returns("V")
     parameters("L", "Z")
     opcodes(

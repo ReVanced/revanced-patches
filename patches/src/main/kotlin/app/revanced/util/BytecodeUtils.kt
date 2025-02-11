@@ -192,7 +192,7 @@ fun BytecodePatchContext.traverseClassHierarchy(targetClass: MutableClass, callb
 
     targetClass.superclass ?: return
 
-    classBy { targetClass.superclass == it.type }?.mutableClass?.let {
+    mutableClassByOrNull(targetClass.superclass!!)?.let {
         traverseClassHierarchy(it, callback)
     }
 }
@@ -405,6 +405,10 @@ fun Method.findInstructionIndicesReversedOrThrow(opcode: Opcode): List<Int> {
 
 internal fun MutableMethod.insertFeatureFlagBooleanOverride(literal: Long, extensionsMethod: String) {
     val literalIndex = indexOfFirstLiteralInstructionOrThrow(literal)
+    insertFeatureFlagBooleanOverride(literalIndex, extensionsMethod)
+}
+
+internal fun MutableMethod.insertFeatureFlagBooleanOverride(literalIndex: Int, extensionsMethod: String) {
     val index = indexOfFirstInstructionOrThrow(literalIndex, Opcode.MOVE_RESULT)
     val register = getInstruction<OneRegisterInstruction>(index).registerA
 
@@ -430,7 +434,7 @@ fun BytecodePatchContext.forEachLiteralValueInstruction(
                 if (instruction.opcode == Opcode.CONST &&
                     (instruction as WideLiteralInstruction).wideLiteral == literal
                 ) {
-                    val mutableMethod = proxy(classDef).mutableClass.findMutableMethodOf(method)
+                    val mutableMethod = mutableClassBy(classDef).findMutableMethodOf(method)
                     block.invoke(mutableMethod, index)
                 }
             }
@@ -469,7 +473,7 @@ fun MutableMethod.returnEarly(bool: Boolean = false) {
  *
  * @param literalSupplier The supplier for the literal value to check for.
  */
-// TODO: add a way for subclasses to also use their own custom fingerprint.
+@Deprecated("Instead use instruction filters and `literal()`")
 fun FingerprintBuilder.literal(literalSupplier: () -> Long) {
     custom { method, _ ->
         method.containsLiteralInstruction(literalSupplier())

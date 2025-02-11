@@ -1,8 +1,11 @@
 package app.revanced.patches.youtube.video.speed.remember
 
 import app.revanced.patcher.fingerprint
+import app.revanced.patcher.string
 
-internal val initializePlaybackSpeedValuesFingerprint = fingerprint {
+internal val initializePlaybackSpeedValuesFingerprint by fingerprint {
     parameters("[L", "I")
-    strings("menu_item_playback_speed")
+    instructions(
+        string("menu_item_playback_speed"),
+    )
 }

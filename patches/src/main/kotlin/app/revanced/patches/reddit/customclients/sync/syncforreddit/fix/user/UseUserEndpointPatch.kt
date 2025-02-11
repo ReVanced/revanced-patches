@@ -29,7 +29,7 @@ val useUserEndpointPatch = bytecodePatch(
             oAuthUserIdRequestFingerprint,
             oAuthUserInfoRequestFingerprint,
         ).map { fingerprint ->
-            fingerprint.stringMatches!!.first().index to fingerprint.method
+            fingerprint.stringMatches.first().index to fingerprint.method
         }.forEach { (userPathStringIndex, method) ->
             val userPathStringInstruction = method.getInstruction<OneRegisterInstruction>(userPathStringIndex)
 

@@ -1,15 +1,32 @@
 package app.revanced.patches.shared.misc.mapping
 
+import app.revanced.patcher.InstructionFilter.Companion.METHOD_MAX_INSTRUCTIONS
+import app.revanced.patcher.LiteralFilter
+import app.revanced.patcher.literal
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.resourcePatch
 import org.w3c.dom.Element
-import java.util.*
+import java.lang.Runtime
+import java.util.Collections
 import java.util.concurrent.Executors
 import java.util.concurrent.TimeUnit
 
 // TODO: Probably renaming the patch/this is a good idea.
 lateinit var resourceMappings: List<ResourceElement>
     private set
+
+/**
+ * Identical to [LiteralFilter] except uses a decoded resource literal value.
+ *
+ * Any patch with fingerprints of this filter must
+ * also declare [resourceMappingPatch] as a dependency.
+ */
+fun resourceLiteral(
+    type: String,
+    name: String,
+    maxBefore: Int = METHOD_MAX_INSTRUCTIONS,
+) = literal({ resourceMappings[type, name] }, null, maxBefore)
+
 
 val resourceMappingPatch = resourcePatch {
     val resourceMappings = Collections.synchronizedList(mutableListOf<ResourceElement>())

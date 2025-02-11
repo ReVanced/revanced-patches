@@ -33,34 +33,21 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
-var expandButtonDownId = -1L
+internal var albumCardId = -1L
     private set
-var albumCardId = -1L
+internal var crowdfundingBoxId = -1L
     private set
-var crowdfundingBoxId = -1L
+internal var filterBarHeightId = -1L
     private set
-var youTubeLogo = -1L
+internal var relatedChipCloudMarginId = -1L
     private set
-
-var filterBarHeightId = -1L
-    private set
-var relatedChipCloudMarginId = -1L
-    private set
-var barContainerHeightId = -1L
-    private set
-
-var fabButtonId = -1L
+internal var barContainerHeightId = -1L
     private set
 
 private val hideLayoutComponentsResourcePatch = resourcePatch {
     dependsOn(resourceMappingPatch)
 
     execute {
-        expandButtonDownId = resourceMappings[
-            "layout",
-            "expand_button_down",
-        ]
-
         albumCardId = resourceMappings[
             "layout",
             "album_card",
@@ -69,11 +56,6 @@ private val hideLayoutComponentsResourcePatch = resourcePatch {
         crowdfundingBoxId = resourceMappings[
             "layout",
             "donation_companion",
-        ]
-
-        youTubeLogo = resourceMappings[
-            "id",
-            "youtube_logo",
         ]
 
         relatedChipCloudMarginId = resourceMappings[
@@ -89,11 +71,6 @@ private val hideLayoutComponentsResourcePatch = resourcePatch {
         barContainerHeightId = resourceMappings[
             "dimen",
             "bar_container_height",
-        ]
-
-        fabButtonId = resourceMappings[
-            "id",
-            "fab",
         ]
     }
 }
@@ -120,7 +97,8 @@ val hideLayoutComponentsPatch = bytecodePatch(
         addResourcesPatch,
         hideLayoutComponentsResourcePatch,
         navigationBarHookPatch,
-        versionCheckPatch
+        versionCheckPatch,
+        resourceMappingPatch
     )
 
     compatibleWith(
@@ -249,7 +227,7 @@ val hideLayoutComponentsPatch = bytecodePatch(
         // region Mix playlists
 
         parseElementFromBufferFingerprint.method.apply {
-            val startIndex = parseElementFromBufferFingerprint.patternMatch!!.startIndex
+            val startIndex = parseElementFromBufferFingerprint.instructionMatches.first().index
             // Target code is a mess with a lot of register moves.
             // There is no simple way to find a free register for all versions so this is hard coded.
             val freeRegister = if (is_19_47_or_greater) 6 else 0
@@ -297,7 +275,7 @@ val hideLayoutComponentsPatch = bytecodePatch(
         // region Show more button
 
         hideShowMoreButtonFingerprint.method.apply {
-            val moveRegisterIndex = hideShowMoreButtonFingerprint.patternMatch!!.endIndex
+            val moveRegisterIndex = hideShowMoreButtonFingerprint.instructionMatches.last().index
             val viewRegister = getInstruction<OneRegisterInstruction>(moveRegisterIndex).registerA
 
             val insertIndex = moveRegisterIndex + 1
@@ -313,7 +291,7 @@ val hideLayoutComponentsPatch = bytecodePatch(
         // region crowdfunding box
         crowdfundingBoxFingerprint.let {
             it.method.apply {
-                val insertIndex = it.patternMatch!!.endIndex
+                val insertIndex = it.instructionMatches.last().index
                 val objectRegister = getInstruction<TwoRegisterInstruction>(insertIndex).registerA
 
                 addInstruction(
@@ -330,7 +308,7 @@ val hideLayoutComponentsPatch = bytecodePatch(
 
         albumCardsFingerprint.let {
             it.method.apply {
-                val checkCastAnchorIndex = it.patternMatch!!.endIndex
+                val checkCastAnchorIndex = it.instructionMatches.last().index
                 val insertIndex = checkCastAnchorIndex + 1
                 val register = getInstruction<OneRegisterInstruction>(checkCastAnchorIndex).registerA
 
@@ -348,15 +326,15 @@ val hideLayoutComponentsPatch = bytecodePatch(
 
         showFloatingMicrophoneButtonFingerprint.let {
             it.method.apply {
-                val startIndex = it.patternMatch!!.startIndex
-                val register = getInstruction<TwoRegisterInstruction>(startIndex).registerA
+                val index = it.instructionMatches.last().index
+                val register = getInstruction<TwoRegisterInstruction>(index).registerA
 
                 addInstructions(
-                    startIndex + 1,
+                    index + 1,
                     """
-                    invoke-static { v$register }, $LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR->hideFloatingMicrophoneButton(Z)Z
-                    move-result v$register
-                """,
+                        invoke-static { v$register }, $LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR->hideFloatingMicrophoneButton(Z)Z
+                        move-result v$register
+                    """,
                 )
             }
         }
@@ -400,11 +378,9 @@ val hideLayoutComponentsPatch = bytecodePatch(
             hookRegisterOffset: Int = 0,
             instructions: (Int) -> String,
         ) = method.apply {
-            val endIndex = patternMatch!!.endIndex
-
+            val endIndex = instructionMatches.last().index
             val insertIndex = endIndex + insertIndexOffset
-            val register =
-                getInstruction<RegisterInstruction>(endIndex + hookRegisterOffset).registerA
+            val register = getInstruction<RegisterInstruction>(endIndex + hookRegisterOffset).registerA
 
             addInstructions(insertIndex, instructions(register))
         }
