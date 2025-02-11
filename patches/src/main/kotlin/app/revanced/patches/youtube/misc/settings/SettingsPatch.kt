@@ -97,6 +97,8 @@ private val settingsResourcePatch = resourcePatch {
         // Remove horizontal divider from the settings Preferences
         // To better match the appearance of the stock YouTube settings.
         document("res/values/styles.xml").use { document ->
+            val childNodes = document.childNodes
+
             arrayOf(
                 "Theme.YouTube.Settings",
                 "Theme.YouTube.Settings.Dark",
@@ -105,7 +107,7 @@ private val settingsResourcePatch = resourcePatch {
                 listDividerNode.setAttribute("name", "android:listDivider")
                 listDividerNode.appendChild(document.createTextNode("@null"))
 
-                document.childNodes.findElementByAttributeValueOrThrow(
+                childNodes.findElementByAttributeValueOrThrow(
                     "name",
                     value,
                 ).appendChild(listDividerNode)
