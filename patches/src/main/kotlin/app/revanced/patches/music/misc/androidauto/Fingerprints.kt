@@ -6,5 +6,8 @@ import app.revanced.patcher.fingerprint
 internal val checkCertificateFingerprint = fingerprint {
     returns("Z")
     parameters("Ljava/lang/String;")
-    strings("X509", "Failed to get certificate")
+    strings(
+        "X509",
+        "Failed to get certificate" // Partial String match.
+    )
 }
