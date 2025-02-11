@@ -837,6 +837,8 @@ GmsCore の電池の最適化を無効にしても、バッテリーの使用に
   <string name="revanced_ryd_failure_generic">Return YouTube Dislikeは利用できません (%s)</string>
   <!-- Toast shown if the user enables RYD while a video is opened, and then tries to vote for the video. -->
   <string name="revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted">Return YouTube Dislike を使用するには動画を再読み込みしてください</string>
+  <!-- Video likes have been set to hidden by the video uploader. -->
+  <string name="revanced_ryd_video_likes_hidden_by_video_owner">所有者によって非表示</string>
   <string name="revanced_ryd_enable_summary_on">低評価数が表示されます</string>
   <string name="revanced_ryd_enable_summary_off">低評価数は表示されません</string>
   <string name="revanced_ryd_shorts_title">Shortsで低評価数を表示する</string>
@@ -852,6 +854,9 @@ GmsCore の電池の最適化を無効にしても、バッテリーの使用に
   <string name="revanced_ryd_compact_layout_title">コンパクト 高評価ボタン</string>
   <string name="revanced_ryd_compact_layout_summary_on">ボタンはコンパクトに表示されます</string>
   <string name="revanced_ryd_compact_layout_summary_off">ボタンは最適なサイズで表示されます</string>
+  <string name="revanced_ryd_estimated_like_title">推定「いいね！」を表示</string>
+  <string name="revanced_ryd_estimated_like_summary_on">推定「いいね！」が表示されます</string>
+  <string name="revanced_ryd_estimated_like_summary_off">推定「いいね！」は非表示になります</string>
   <string name="revanced_ryd_toast_on_connection_error_title">API が利用できない場合はトーストを表示</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_on">Return YouTube Dislike が利用できない場合、トースト ポップアップが表示されます</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_off">Return YouTube Dislike が利用できない場合でもトースト ポップアップは表示されません</string>
@@ -902,6 +907,9 @@ GmsCore の電池の最適化を無効にしても、バッテリーの使用に
   <string name="revanced_sb_enable_voting">投票ボタンを表示</string>
   <string name="revanced_sb_enable_voting_sum_on">セグメント投票ボタンが表示されます</string>
   <string name="revanced_sb_enable_voting_sum_off">セグメント投票ボタンは表示されません</string>
+  <string name="revanced_sb_square_layout">正方形のレイアウトを使用</string>
+  <string name="revanced_sb_square_layout_sum_on">ボタンとコントロールが正方形になります</string>
+  <string name="revanced_sb_square_layout_sum_off">ボタンとコントロールは丸みを帯びています</string>
   <!-- Translations should use language similar to 'revanced_ryd_compact_layout_title' -->
   <string name="revanced_sb_enable_compact_skip_button">コンパクトスキップボタンを使用</string>
   <string name="revanced_sb_enable_compact_skip_button_sum_on">スキップボタンはコンパクトに表示されます</string>

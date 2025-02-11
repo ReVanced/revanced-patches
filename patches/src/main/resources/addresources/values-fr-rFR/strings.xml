@@ -835,6 +835,8 @@ Remarque : Activer cette option masque également de force les annonces vidéo"
   <string name="revanced_ryd_failure_generic">\"Je n\'aime pas\" indisponibles (%s)</string>
   <!-- Toast shown if the user enables RYD while a video is opened, and then tries to vote for the video. -->
   <string name="revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted">Rechargez la vidéo pour voter avec Return YouTube Dislike</string>
+  <!-- Video likes have been set to hidden by the video uploader. -->
+  <string name="revanced_ryd_video_likes_hidden_by_video_owner">Masqué par le propriétaire</string>
   <string name="revanced_ryd_enable_summary_on">Les \"Je n\'aime pas\" sont affichés</string>
   <string name="revanced_ryd_enable_summary_off">Les \"Je n\'aime pas\" ne sont pas affichés</string>
   <string name="revanced_ryd_shorts_title">Afficher les \"Je n\'aime pas\" sur les Shorts</string>
@@ -850,6 +852,9 @@ Limitation : Les avertissements peuvent ne pas apparaître en mode navigation p
   <string name="revanced_ryd_compact_layout_title">Bouton J\'aime compact</string>
   <string name="revanced_ryd_compact_layout_summary_on">Bouton J\'aime optimisé pour minimiser la taille</string>
   <string name="revanced_ryd_compact_layout_summary_off">Bouton J\'aime optimisé pour l\'apparence</string>
+  <string name="revanced_ryd_estimated_like_title">Afficher les mentions J\'aime estimées</string>
+  <string name="revanced_ryd_estimated_like_summary_on">Les mentions J\'aime estimées sont affichées</string>
+  <string name="revanced_ryd_estimated_like_summary_off">Les mentions J\'aime estimées sont masquées</string>
   <string name="revanced_ryd_toast_on_connection_error_title">Afficher un message toast si l\'API n\'est pas disponible</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_on">Un message toast est affiché si Return YouTube Dislike n\'est pas disponible</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_off">Aucun message toast affiché si Return YouTube Dislike n\'est pas disponible</string>
@@ -900,6 +905,9 @@ Cette fonctionnalité fonctionne de manière optimale avec une qualité vidéo d
   <string name="revanced_sb_enable_voting">Afficher le bouton de vote</string>
   <string name="revanced_sb_enable_voting_sum_on">Le bouton permettant de voter sur un segment est affiché</string>
   <string name="revanced_sb_enable_voting_sum_off">Le bouton permettant de voter sur un segment est masqué</string>
+  <string name="revanced_sb_square_layout">Utiliser la disposition à angles droits</string>
+  <string name="revanced_sb_square_layout_sum_on">Les boutons et les commandes sont à angles droits</string>
+  <string name="revanced_sb_square_layout_sum_off">Les boutons et les commandes sont arrondis</string>
   <!-- Translations should use language similar to 'revanced_ryd_compact_layout_title' -->
   <string name="revanced_sb_enable_compact_skip_button">Utiliser le bouton Passer compact</string>
   <string name="revanced_sb_enable_compact_skip_button_sum_on">Bouton Passer optimisé pour minimiser la largeur</string>
