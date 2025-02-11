@@ -63,7 +63,6 @@ class SwipeControlsConfigurationProvider(
 //endregion
 
 //region overlay adjustments
-
     /**
      * should the overlay enable haptic feedback?
      */
@@ -83,12 +82,12 @@ class SwipeControlsConfigurationProvider(
      */
     val overlayTextSize: Int
         get() {
-            var textSize = Settings.SWIPE_OVERLAY_TEXT_SIZE.get()
+            var textSize = Settings.SWIPE_CIRCULAR_OVERLAY_TEXT_SIZE.get()
 
             if (textSize <= 0 || textSize > 30) {
-                Utils.showToastLong(str("revanced_swipe_text_overlay_size_invalid_toast"))
-                Settings.SWIPE_OVERLAY_TEXT_SIZE.resetToDefault()
-                textSize = Settings.SWIPE_OVERLAY_TEXT_SIZE.get()
+                Utils.showToastLong(str("revanced_swipe_circular_text_overlay_size_invalid_toast"))
+                Settings.SWIPE_CIRCULAR_OVERLAY_TEXT_SIZE.resetToDefault()
+                textSize = Settings.SWIPE_CIRCULAR_OVERLAY_TEXT_SIZE.get()
             }
 
             return textSize
@@ -113,19 +112,34 @@ class SwipeControlsConfigurationProvider(
         }
 
     /**
-     * Gets the color for the overlay text as a color integer.
+     * The color of the progress overlay.
+     */
+    val overlayProgresstColor: Int
+        get() = 0xBFFFFFFF.toInt()
+
+    /**
+     * The color used for the background of the progress overlay fill.
+     */
+    val overlayFillBackgroundPaint: Int
+        get() = 0x80D3D3D3.toInt()
+
+    /**
+     * The color used for the text and icons in the overlay.
      */
     val overlayTextColor: Int
         get() = Color.WHITE
 
     /**
-     * Determines whether only the icon should be displayed in the overlay.
-     * If true, text are hidden, and only the icon is shown.
+     * A flag that determines if the overlay should only show the icon in a circle.
      */
-    val showOnlyIconInOverlay: Boolean
-        get() = Settings.SWIPE_SHOW_ONLY_ICON_IN_OVERLAY.get()
+    val overlayShowOnlyIconInCircle: Boolean
+        get() = Settings.SWIPE_SHOW_ONLY_ICON_CIRCULAR_OVERLAY.get()
 
-
+    /**
+     * A flag that determines if the progress bar should be circular.
+     */
+    val isCircularProgressBar: Boolean
+        get() = Settings.SWIPE_SHOW_CIRCULAR_OVERLAY.get()
 //endregion
 
 //region behaviour

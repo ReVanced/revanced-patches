@@ -42,10 +42,11 @@ private val swipeControlsResourcePatch = resourcePatch {
             SwitchPreference("revanced_swipe_haptic_feedback"),
             SwitchPreference("revanced_swipe_save_and_restore_brightness"),
             SwitchPreference("revanced_swipe_lowest_value_enable_auto_brightness"),
-            SwitchPreference("revanced_swipe_show_only_icon_in_overlay"),
-            TextPreference("revanced_swipe_overlay_timeout", inputType = InputType.NUMBER),
-            TextPreference("revanced_swipe_text_overlay_size", inputType = InputType.NUMBER),
+            SwitchPreference("revanced_swipe_show_circular_overlay"),
+            SwitchPreference("revanced_swipe_show_only_icon_circular_overlay"),
+            TextPreference("revanced_swipe_circular_text_overlay_size", inputType = InputType.NUMBER),
             TextPreference("revanced_swipe_overlay_background_opacity", inputType = InputType.NUMBER),
+            TextPreference("revanced_swipe_overlay_timeout", inputType = InputType.NUMBER),
             TextPreference("revanced_swipe_threshold", inputType = InputType.NUMBER),
         )
 
