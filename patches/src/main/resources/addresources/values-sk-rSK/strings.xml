@@ -828,6 +828,8 @@ Poznámka: Povolením tejto možnosti sa tiež vynútene skryjú video reklamy"<
   <string name="revanced_ryd_failure_generic">Nepáči sa mi nie sú k dispozícii (%s)</string>
   <!-- Toast shown if the user enables RYD while a video is opened, and then tries to vote for the video. -->
   <string name="revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted">Znova načítajte video a hlasujte pomocou funkcie Vrátiť Nepáči sa mi na YouTube</string>
+  <!-- Video likes have been set to hidden by the video uploader. -->
+  <string name="revanced_ryd_video_likes_hidden_by_video_owner">Skryté vlastníkom</string>
   <string name="revanced_ryd_enable_summary_on">Nepáči sa mi</string>
   <string name="revanced_ryd_enable_summary_off">Nepáči sa mi nie sú zobrazené</string>
   <string name="revanced_ryd_shorts_title">Zobrazovať, že sa mi nepáči v Shorts videách</string>
@@ -843,6 +845,9 @@ Obmedzenie: Nepáči sa mi sa nemusí zobraziť v režime inkognito"</string>
   <string name="revanced_ryd_compact_layout_title">Kompaktné tlačidlo Páči sa mi to</string>
   <string name="revanced_ryd_compact_layout_summary_on">Tlačidlo podobné štýlu pre minimálnu šírku</string>
   <string name="revanced_ryd_compact_layout_summary_off">Tlačidlo v štýle ako pre najlepší vzhľad</string>
+  <string name="revanced_ryd_estimated_like_title">Zobraziť odhadované počty označení Páči sa mi to</string>
+  <string name="revanced_ryd_estimated_like_summary_on">Zobrazujú sa odhadované počty označení Páči sa mi to</string>
+  <string name="revanced_ryd_estimated_like_summary_off">Odhadované počty označení Páči sa mi to sú skryté</string>
   <string name="revanced_ryd_toast_on_connection_error_title">Ukážte prípitok, ak API nie je k dispozícii</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_on">Ak nie je k dispozícii možnosť Vrátiť Nepáči sa mi na YouTube, zobrazí sa toast</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_off">Toast sa nezobrazuje, ak nie je k dispozícii možnosť Vrátiť Nepáči sa mi na YouTube</string>
@@ -893,6 +898,9 @@ Táto funkcia najlepšie funguje s kvalitou videa 720p alebo nižšou a pri pou�
   <string name="revanced_sb_enable_voting">Zobraziť hlasovacie tlačidlo</string>
   <string name="revanced_sb_enable_voting_sum_on">Zobrazí sa tlačidlo hlasovania segmentov</string>
   <string name="revanced_sb_enable_voting_sum_off">Segmentové hlasovacie tlačidlo sa nezobrazuje</string>
+  <string name="revanced_sb_square_layout">Použiť štvorcové rozloženie</string>
+  <string name="revanced_sb_square_layout_sum_on">Tlačidlá a ovládacie prvky sú štvorcové</string>
+  <string name="revanced_sb_square_layout_sum_off">Tlačidlá a ovládacie prvky sú zaoblené</string>
   <!-- Translations should use language similar to 'revanced_ryd_compact_layout_title' -->
   <string name="revanced_sb_enable_compact_skip_button">Použite kompaktné tlačidlo preskočenia</string>
   <string name="revanced_sb_enable_compact_skip_button_sum_on">Tlačidlo preskočenia v štýle minimálnej šírky</string>

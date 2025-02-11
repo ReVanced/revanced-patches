@@ -835,6 +835,8 @@ Napomena: Omogućavanje ovoga prisilno sakriva i video oglase"</string>
   <string name="revanced_ryd_failure_generic">Nesviđanja nisu dostupna (%s)</string>
   <!-- Toast shown if the user enables RYD while a video is opened, and then tries to vote for the video. -->
   <string name="revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted">Osvežite video da biste glasali pomoću ReturnYouTubeDislike</string>
+  <!-- Video likes have been set to hidden by the video uploader. -->
+  <string name="revanced_ryd_video_likes_hidden_by_video_owner">Sakriveno od strane vlasnika</string>
   <string name="revanced_ryd_enable_summary_on">Nesviđanja su prikazana</string>
   <string name="revanced_ryd_enable_summary_off">Nesviđanja nisu prikazana</string>
   <string name="revanced_ryd_shorts_title">Prikaži nesviđanja na Shorts videima</string>
@@ -850,6 +852,9 @@ Ograničenje: Nesviđanja se možda neće pojaviti u režimu bez arhiviranja"</s
   <string name="revanced_ryd_compact_layout_title">Kompaktno dugme „Sviđanje”</string>
   <string name="revanced_ryd_compact_layout_summary_on">Dugme „Sviđanje” stilizovano za minimalnu širinu</string>
   <string name="revanced_ryd_compact_layout_summary_off">Dugme „Sviđanje” stilizovano za najbolji izgled</string>
+  <string name="revanced_ryd_estimated_like_title">Prikaži procenjene lajkove</string>
+  <string name="revanced_ryd_estimated_like_summary_on">Procenjeni lajkovi su prikazani</string>
+  <string name="revanced_ryd_estimated_like_summary_off">Procenjeni lajkovi su sakriveni</string>
   <string name="revanced_ryd_toast_on_connection_error_title">Prikaži iskačuće obaveštenje ako API nije dostupan</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_on">Iskačuće obaveštenje je prikazano, ako Return YouTube Dislike nije dostupan</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_off">Iskačuće obaveštenje nije prikazano, ako Return YouTube Dislike nije dostupan</string>
@@ -900,6 +905,9 @@ Ova funkcija najbolje radi sa kvalitetom videa od 720p ili nižim i kada koristi
   <string name="revanced_sb_enable_voting">Prikaži dugme za glasanje</string>
   <string name="revanced_sb_enable_voting_sum_on">Dugme za glasanje za segment je prikazano</string>
   <string name="revanced_sb_enable_voting_sum_off">Dugme za glasanje za segment nije prikazano</string>
+  <string name="revanced_sb_square_layout">Koristi kvadratni raspored</string>
+  <string name="revanced_sb_square_layout_sum_on">Dugmad i kontrole su kvadratni</string>
+  <string name="revanced_sb_square_layout_sum_off">Dugmad i kontrole su zaobljene</string>
   <!-- Translations should use language similar to 'revanced_ryd_compact_layout_title' -->
   <string name="revanced_sb_enable_compact_skip_button">Koristi kompaktno dugme za preskakanje</string>
   <string name="revanced_sb_enable_compact_skip_button_sum_on">Dugme za preskakanje stilizovano za minimalnu širinu</string>

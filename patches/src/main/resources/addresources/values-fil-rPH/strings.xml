@@ -835,6 +835,8 @@ Tandaan: Ang pagpapagana nito ay nagtatago rin ng mga ad ng video"</string>
   <string name="revanced_ryd_failure_generic">Hindi available ang mga hindi gusto (%s)</string>
   <!-- Toast shown if the user enables RYD while a video is opened, and then tries to vote for the video. -->
   <string name="revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted">I-reload ang video para bumoto gamit ang Return YouTube Dislike</string>
+  <!-- Video likes have been set to hidden by the video uploader. -->
+  <string name="revanced_ryd_video_likes_hidden_by_video_owner">Nakatago ng may-ari</string>
   <string name="revanced_ryd_enable_summary_on">Ang mga hindi gusto ay ipinapakita</string>
   <string name="revanced_ryd_enable_summary_off">Hindi ipinapakita ang mga hindi gusto</string>
   <string name="revanced_ryd_shorts_title">Ipakita ang mga hindi gusto sa Shorts</string>
@@ -850,6 +852,9 @@ Limitasyon: Ang mga Dislike ay maaaring hindi lumitaw sa incognito mode"</string
   <string name="revanced_ryd_compact_layout_title">Compact Like button</string>
   <string name="revanced_ryd_compact_layout_summary_on">Like button na naka-istilong para sa minimum na lapad</string>
   <string name="revanced_ryd_compact_layout_summary_off">I-style na button para sa pinakamahusay na hitsura</string>
+  <string name="revanced_ryd_estimated_like_title">Ipakita ang tinantyang mga gusto</string>
+  <string name="revanced_ryd_estimated_like_summary_on">Ipinapakita ang tinantyang mga gusto</string>
+  <string name="revanced_ryd_estimated_like_summary_off">Nakatago ang tinantyang mga gusto</string>
   <string name="revanced_ryd_toast_on_connection_error_title">Magpakita ng toast kung hindi available ang API</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_on">Ipapakita ang toast kung hindi available ang Return YouTube Dislike</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_off">Hindi ipinapakita ang toast kung hindi available ang Return YouTube Dislike</string>
@@ -900,6 +905,9 @@ Ang tampok na ito ay pinakamahusay na gumagana sa kalidad ng video na 720p o mas
   <string name="revanced_sb_enable_voting">Ipakita ang pindutan ng pagboto</string>
   <string name="revanced_sb_enable_voting_sum_on">Ang pindutan ng pagboto ng segment ay ipinapakita</string>
   <string name="revanced_sb_enable_voting_sum_off">Hindi ipinapakita ang pindutan ng pagboto ng segment</string>
+  <string name="revanced_sb_square_layout">Gumamit ng layout na parisukat</string>
+  <string name="revanced_sb_square_layout_sum_on">Ang mga button at kontrol ay parisukat</string>
+  <string name="revanced_sb_square_layout_sum_off">Bilog ang mga button at control</string>
   <!-- Translations should use language similar to 'revanced_ryd_compact_layout_title' -->
   <string name="revanced_sb_enable_compact_skip_button">Gumamit ng compact skip button</string>
   <string name="revanced_sb_enable_compact_skip_button_sum_on">Laktawan ang button na naka-istilo para sa minimum na lapad</string>

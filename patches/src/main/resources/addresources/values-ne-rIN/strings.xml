@@ -145,6 +145,7 @@ Second \"item\" text"</string>
   <patch id="layout.returnyoutubedislike.returnYouTubeDislikePatch">
   <!-- Toast shown if network connection times out. Translations of this should not be longer than the original English or the text can be clipped and not entirely shown. -->
   <!-- Toast shown if the user enables RYD while a video is opened, and then tries to vote for the video. -->
+  <!-- Video likes have been set to hidden by the video uploader. -->
   <!-- Translations should use language similar to 'revanced_sb_enable_compact_skip_button' -->
   <!-- Statistic strings are shown in the settings only when ReVanced debug mode is enabled. Typical users will never see these. -->
   </patch>
