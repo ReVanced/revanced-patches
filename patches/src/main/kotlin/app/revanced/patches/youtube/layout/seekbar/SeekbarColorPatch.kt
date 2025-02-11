@@ -86,8 +86,10 @@ private val seekbarColorResourcePatch = resourcePatch {
         fun setSplashDrawablePathFillColor(xmlFileNames: Iterable<String>, vararg resourceNames: String) {
             xmlFileNames.forEach { xmlFileName ->
                 document(xmlFileName).use { document ->
+                    val childNodes = document.childNodes
+
                     resourceNames.forEach { elementId ->
-                        val element = document.childNodes.findElementByAttributeValueOrThrow(
+                        val element = childNodes.findElementByAttributeValueOrThrow(
                             "android:name",
                             elementId
                         )

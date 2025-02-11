@@ -70,10 +70,11 @@ val playerControlsResourcePatch = resourcePatch {
             "android.support.constraint.ConstraintLayout",
         ).item(0)
 
-        var bottomInsertBeforeNode: Node = bottomTargetDocument.childNodes.findElementByAttributeValue(
+        val bottomTargetDocumentChildNodes = bottomTargetDocument.childNodes
+        var bottomInsertBeforeNode: Node = bottomTargetDocumentChildNodes.findElementByAttributeValue(
             "android:inflatedId",
             bottomLastLeftOf,
-        ) ?: bottomTargetDocument.childNodes.findElementByAttributeValueOrThrow(
+        ) ?: bottomTargetDocumentChildNodes.findElementByAttributeValueOrThrow(
             "android:id", // Older targets use non-inflated id.
             bottomLastLeftOf,
         )
@@ -137,11 +138,13 @@ val playerControlsResourcePatch = resourcePatch {
     }
 
     finalize {
+        val childNodes = bottomTargetDocument.childNodes
+
         arrayOf(
             "@id/bottom_end_container",
             "@id/multiview_button",
         ).forEach {
-            bottomTargetDocument.childNodes.findElementByAttributeValue(
+            childNodes.findElementByAttributeValue(
                 "android:id",
                 it,
             )?.setAttribute("yt:layout_constraintRight_toLeftOf", bottomLastLeftOf)
