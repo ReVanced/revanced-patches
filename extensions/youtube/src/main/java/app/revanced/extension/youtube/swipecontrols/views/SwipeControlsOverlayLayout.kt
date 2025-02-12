@@ -58,7 +58,7 @@ class SwipeControlsOverlayLayout(
             context,
             config.overlayBackgroundOpacity,
             config.overlayShowOverlayMinimalStyle,
-            config.overlayProgresstColor,
+            config.overlayProgressColor,
             config.overlayFillBackgroundPaint,
             config.overlayTextColor
         ).apply {
@@ -76,7 +76,7 @@ class SwipeControlsOverlayLayout(
             context,
             config.overlayBackgroundOpacity,
             config.overlayShowOverlayMinimalStyle,
-            config.overlayProgresstColor,
+            config.overlayProgressColor,
             config.overlayFillBackgroundPaint,
             config.overlayTextColor
         ).apply {
@@ -161,7 +161,7 @@ abstract class AbstractProgressView(
     context: Context,
     protected val overlayBackgroundOpacity: Int,
     protected val overlayShowOverlayMinimalStyle: Boolean,
-    protected val overlayProgresstColor: Int,
+    protected val overlayProgressColor: Int,
     protected val overlayFillBackgroundPaint: Int,
     protected val overlayTextColor: Int,
     attrs: AttributeSet? = null,
@@ -178,7 +178,7 @@ abstract class AbstractProgressView(
 
     // Initialize paints
     public val backgroundPaint     = createPaint(overlayBackgroundOpacity,   style = Paint.Style.FILL)
-    public val progressPaint       = createPaint(overlayProgresstColor,      style = Paint.Style.STROKE, strokeCap = Paint.Cap.ROUND, strokeWidth = 20f)
+    public val progressPaint       = createPaint(overlayProgressColor,       style = Paint.Style.STROKE, strokeCap = Paint.Cap.ROUND, strokeWidth = 20f)
     public val fillBackgroundPaint = createPaint(overlayFillBackgroundPaint, style = Paint.Style.FILL)
     public val textPaint           = Paint(Paint.ANTI_ALIAS_FLAG).apply {
         color     = overlayTextColor
@@ -217,7 +217,7 @@ class CircularProgressView(
     context: Context,
     overlayBackgroundOpacity: Int,
     overlayShowOverlayMinimalStyle: Boolean,
-    overlayProgresstColor: Int,
+    overlayProgressColor: Int,
     overlayFillBackgroundPaint: Int,
     overlayTextColor: Int,
     attrs: AttributeSet? = null,
@@ -226,7 +226,7 @@ class CircularProgressView(
     context,
     overlayBackgroundOpacity,
     overlayShowOverlayMinimalStyle,
-    overlayProgresstColor,
+    overlayProgressColor,
     overlayFillBackgroundPaint,
     overlayTextColor,
     attrs,
@@ -280,7 +280,7 @@ class HorizontalProgressView(
     context: Context,
     overlayBackgroundOpacity: Int,
     overlayShowOverlayMinimalStyle: Boolean,
-    overlayProgresstColor: Int,
+    overlayProgressColor: Int,
     overlayFillBackgroundPaint: Int,
     overlayTextColor: Int,
     attrs: AttributeSet? = null,
@@ -289,7 +289,7 @@ class HorizontalProgressView(
     context,
     overlayBackgroundOpacity,
     overlayShowOverlayMinimalStyle,
-    overlayProgresstColor,
+    overlayProgressColor,
     overlayFillBackgroundPaint,
     overlayTextColor,
     attrs,

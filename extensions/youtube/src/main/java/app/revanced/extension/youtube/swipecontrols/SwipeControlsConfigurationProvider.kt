@@ -96,7 +96,7 @@ class SwipeControlsConfigurationProvider(
     /**
      * The color of the progress overlay.
      */
-    val overlayProgresstColor: Int
+    val overlayProgressColor: Int
         get() = 0xBFFFFFFF.toInt()
 
     /**
