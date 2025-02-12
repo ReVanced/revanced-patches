@@ -189,7 +189,7 @@ Second \"item\" text"</string>
 • Продовжити перегляд
 • Переглянути більше каналів
 • Покупки
-• Переглянути ще раз"</string>
+• Дивитися знову"</string>
   <string name="revanced_hide_horizontal_shelves_summary_off">Горизонтальні полиці показуються</string>
   <!-- 'Join' should be translated using the same localized wording YouTube displays.
                  This appears in the video player for certain videos. -->
@@ -835,6 +835,8 @@ Second \"item\" text"</string>
   <string name="revanced_ryd_failure_generic">Відмітки \"Не подобається\" недоступні (%s)</string>
   <!-- Toast shown if the user enables RYD while a video is opened, and then tries to vote for the video. -->
   <string name="revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted">Оновіть відео, щоб проголосувати за допомогою ReturnYouTubeDislike</string>
+  <!-- Video likes have been set to hidden by the video uploader. -->
+  <string name="revanced_ryd_video_likes_hidden_by_video_owner">Приховано власником</string>
   <string name="revanced_ryd_enable_summary_on">Відмітки \"Не подобається\" показуються</string>
   <string name="revanced_ryd_enable_summary_off">Відмітки \"Не подобається\" приховано</string>
   <string name="revanced_ryd_shorts_title">Відмітки \"Не подобається\" в Shorts</string>
@@ -850,6 +852,9 @@ Second \"item\" text"</string>
   <string name="revanced_ryd_compact_layout_title">Компактна кнопка \"Подобається\"</string>
   <string name="revanced_ryd_compact_layout_summary_on">Кнопку \"Подобається\" стилізовано під мінімальну ширину</string>
   <string name="revanced_ryd_compact_layout_summary_off">Кнопку \"Подобається\" стилізовано для кращого вигляду</string>
+  <string name="revanced_ryd_estimated_like_title">Показувати приблизну кількість вподобань</string>
+  <string name="revanced_ryd_estimated_like_summary_on">Приблизна кількість вподобань показується</string>
+  <string name="revanced_ryd_estimated_like_summary_off">Приблизна кількість вподобань прихована</string>
   <string name="revanced_ryd_toast_on_connection_error_title">Показувати тост, якщо API не доступний</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_on">Тост показується, якщо Return YouTube Dislike не доступний</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_off">Тост не показується, якщо Return YouTube Dislike не доступний</string>
@@ -900,6 +905,9 @@ Second \"item\" text"</string>
   <string name="revanced_sb_enable_voting">Кнопка голосування</string>
   <string name="revanced_sb_enable_voting_sum_on">Кнопка голосування за сегмент показується в відеоплеєрі</string>
   <string name="revanced_sb_enable_voting_sum_off">Кнопка голосування за сегмент не показується в відеоплеєрі</string>
+  <string name="revanced_sb_square_layout">Використовувати квадратну розмітку</string>
+  <string name="revanced_sb_square_layout_sum_on">Кнопки та елементи керування квадратні</string>
+  <string name="revanced_sb_square_layout_sum_off">Кнопки та елементи керування заокруглені</string>
   <!-- Translations should use language similar to 'revanced_ryd_compact_layout_title' -->
   <string name="revanced_sb_enable_compact_skip_button">Компактна кнопка пропуску</string>
   <string name="revanced_sb_enable_compact_skip_button_sum_on">Кнопку пропуску стилізовано під мінімальну ширину</string>

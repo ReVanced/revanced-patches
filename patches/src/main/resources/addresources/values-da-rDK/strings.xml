@@ -835,6 +835,8 @@ Bemærk: Aktivering af dette skjuler også videoannoncer"</string>
   <string name="revanced_ryd_failure_generic">Dislikationer ikke tilgængelige (%s)</string>
   <!-- Toast shown if the user enables RYD while a video is opened, and then tries to vote for the video. -->
   <string name="revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted">Genindlæs video for at stemme ved hjælp af Return YouTube Dislike</string>
+  <!-- Video likes have been set to hidden by the video uploader. -->
+  <string name="revanced_ryd_video_likes_hidden_by_video_owner">Skjult af ejer</string>
   <string name="revanced_ryd_enable_summary_on">Dislikationer vises</string>
   <string name="revanced_ryd_enable_summary_off">Dislikationer vises ikke</string>
   <string name="revanced_ryd_shorts_title">Vis ikke på Shorts</string>
@@ -850,6 +852,9 @@ Begrænsning: Dislikes vises muligvis ikke i inkognitotilstand"</string>
   <string name="revanced_ryd_compact_layout_title">Kompakt like-knap</string>
   <string name="revanced_ryd_compact_layout_summary_on">Lideknap stylet for mindste bredde</string>
   <string name="revanced_ryd_compact_layout_summary_off">Ligesom knap stylet for bedste udseende</string>
+  <string name="revanced_ryd_estimated_like_title">Vis anslåede Synes godt om</string>
+  <string name="revanced_ryd_estimated_like_summary_on">Anslåede Synes godt om vises</string>
+  <string name="revanced_ryd_estimated_like_summary_off">Anslåede Synes godt om er skjult</string>
   <string name="revanced_ryd_toast_on_connection_error_title">Vis en toast hvis API ikke er tilgængelig</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_on">Toast vises, hvis Return YouTube Dislike ikke er tilgængelig</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_off">Toast vises ikke, hvis Return YouTube Dislike ikke er tilgængelig</string>
@@ -900,6 +905,9 @@ Denne funktion fungerer bedst med en videokvalitet på 720p eller lavere og ved 
   <string name="revanced_sb_enable_voting">Vis afstemningsknap</string>
   <string name="revanced_sb_enable_voting_sum_on">Segmentafstemningsknap vises</string>
   <string name="revanced_sb_enable_voting_sum_off">Segmentafstemningsknappen vises ikke</string>
+  <string name="revanced_sb_square_layout">Brug firkantet layout</string>
+  <string name="revanced_sb_square_layout_sum_on">Knapper og kontrolelementer er firkantede</string>
+  <string name="revanced_sb_square_layout_sum_off">Knapper og kontrolelementer er afrundede</string>
   <!-- Translations should use language similar to 'revanced_ryd_compact_layout_title' -->
   <string name="revanced_sb_enable_compact_skip_button">Brug kompakt spring knap</string>
   <string name="revanced_sb_enable_compact_skip_button_sum_on">Skip knap stylet for mindste bredde</string>

@@ -1,3 +1,31 @@
+# [5.12.0-dev.4](https://github.com/ReVanced/revanced-patches/compare/v5.12.0-dev.3...v5.12.0-dev.4) (2025-02-11)
+
+
+### Features
+
+* **YouTube Music:** Support version `8.05.50` ([#4439](https://github.com/ReVanced/revanced-patches/issues/4439)) ([b31fed9](https://github.com/ReVanced/revanced-patches/commit/b31fed98901fcda1bce6f05eb0de63280c689fa0))
+
+# [5.12.0-dev.3](https://github.com/ReVanced/revanced-patches/compare/v5.12.0-dev.2...v5.12.0-dev.3) (2025-02-11)
+
+
+### Bug Fixes
+
+* **Windy.app:** Remove obsolete `Unlock pro` patch ([#4428](https://github.com/ReVanced/revanced-patches/issues/4428)) ([83d116e](https://github.com/ReVanced/revanced-patches/commit/83d116e8fd3935ee431cfdf0b8e095d04ee77259))
+
+# [5.12.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.12.0-dev.1...v5.12.0-dev.2) (2025-02-11)
+
+
+### Features
+
+* **Return YouTube Dislike:** add `Show estimated likes` setting ([#4443](https://github.com/ReVanced/revanced-patches/issues/4443)) ([9a88b42](https://github.com/ReVanced/revanced-patches/commit/9a88b4239fd63d5f91105fec8e7d59d318a5d09a))
+
+# [5.12.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.11.0...v5.12.0-dev.1) (2025-02-10)
+
+
+### Features
+
+* **YouTube - SponsorBlock:** Redesign skip buttons ([#4427](https://github.com/ReVanced/revanced-patches/issues/4427)) ([8f4883f](https://github.com/ReVanced/revanced-patches/commit/8f4883fc002420bfb4056401e23445c99e1d3fce))
+
 # [5.11.0](https://github.com/ReVanced/revanced-patches/compare/v5.10.0...v5.11.0) (2025-02-07)
 
 

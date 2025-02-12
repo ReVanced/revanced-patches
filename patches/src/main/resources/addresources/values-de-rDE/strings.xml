@@ -830,6 +830,8 @@ Hinweis: Durch Aktivieren dieser Option wird auch die Videowerbung zwangsweise a
   <string name="revanced_ryd_failure_generic">Dislikes nicht verfügbar (%s)</string>
   <!-- Toast shown if the user enables RYD while a video is opened, and then tries to vote for the video. -->
   <string name="revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted">Video neu laden, um mit Return YouTube Dislike abzustimmen</string>
+  <!-- Video likes have been set to hidden by the video uploader. -->
+  <string name="revanced_ryd_video_likes_hidden_by_video_owner">Vom Eigentümer verborgen</string>
   <string name="revanced_ryd_enable_summary_on">Dislikes werden angezeigt</string>
   <string name="revanced_ryd_enable_summary_off">Dislikes werden nicht angezeigt</string>
   <string name="revanced_ryd_shorts_title">Dislikes auf Shorts anzeigen</string>
@@ -845,6 +847,9 @@ Einschränkung: Dislikes werden möglicherweise nicht im Inkognito-Modus angezei
   <string name="revanced_ryd_compact_layout_title">Kompakter Like-Button</string>
   <string name="revanced_ryd_compact_layout_summary_on">\"Gefällt mir\" Button für minimale Breite</string>
   <string name="revanced_ryd_compact_layout_summary_off">\"Gefällt mir\" Button für das beste Aussehen</string>
+  <string name="revanced_ryd_estimated_like_title">Geschätzte \"Gefällt mir\"-Angaben anzeigen</string>
+  <string name="revanced_ryd_estimated_like_summary_on">Geschätzte \"Gefällt mir\"-Angaben werden angezeigt</string>
+  <string name="revanced_ryd_estimated_like_summary_off">Geschätzte \"Gefällt mir\"-Angaben sind verborgen</string>
   <string name="revanced_ryd_toast_on_connection_error_title">Einen Toast anzeigen, wenn die API nicht verfügbar ist</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_on">Toast wird angezeigt, wenn YouTube-Ablehnung nicht verfügbar ist</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_off">Toast wird nicht angezeigt, wenn YouTube-Dislike nicht verfügbar ist</string>
@@ -895,6 +900,9 @@ Diese Funktion funktioniert am besten mit einer Videoqualität von 720p oder nie
   <string name="revanced_sb_enable_voting">Stimmen-Button anzeigen</string>
   <string name="revanced_sb_enable_voting_sum_on">Segmentstimmen Button wird angezeigt</string>
   <string name="revanced_sb_enable_voting_sum_off">Segmentstimmen Button wird nicht angezeigt</string>
+  <string name="revanced_sb_square_layout">Quadratisches Layout verwenden</string>
+  <string name="revanced_sb_square_layout_sum_on">Schaltflächen und Steuerelemente sind quadratisch</string>
+  <string name="revanced_sb_square_layout_sum_off">Schaltflächen und Bedienelemente sind abgerundet</string>
   <!-- Translations should use language similar to 'revanced_ryd_compact_layout_title' -->
   <string name="revanced_sb_enable_compact_skip_button">Kompakte Sprung-Taste verwenden</string>
   <string name="revanced_sb_enable_compact_skip_button_sum_on">Überspringe Taste für minimale Breite</string>
