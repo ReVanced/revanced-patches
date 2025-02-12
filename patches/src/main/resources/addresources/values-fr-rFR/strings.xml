@@ -852,9 +852,9 @@ Limitation : Les avertissements peuvent ne pas apparaître en mode navigation p
   <string name="revanced_ryd_compact_layout_title">Bouton J\'aime compact</string>
   <string name="revanced_ryd_compact_layout_summary_on">Bouton J\'aime optimisé pour minimiser la taille</string>
   <string name="revanced_ryd_compact_layout_summary_off">Bouton J\'aime optimisé pour l\'apparence</string>
-  <string name="revanced_ryd_estimated_like_title">Afficher les mentions J\'aime estimées</string>
-  <string name="revanced_ryd_estimated_like_summary_on">Les mentions J\'aime estimées sont affichées</string>
-  <string name="revanced_ryd_estimated_like_summary_off">Les mentions J\'aime estimées sont masquées</string>
+  <string name="revanced_ryd_estimated_like_title">Afficher les \"J\'aime\" estimés</string>
+  <string name="revanced_ryd_estimated_like_summary_on">Les \"J\'aime\" estimés sont affichés</string>
+  <string name="revanced_ryd_estimated_like_summary_off">Les \"J\'aime\" estimés sont masqués</string>
   <string name="revanced_ryd_toast_on_connection_error_title">Afficher un message toast si l\'API n\'est pas disponible</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_on">Un message toast est affiché si Return YouTube Dislike n\'est pas disponible</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_off">Aucun message toast affiché si Return YouTube Dislike n\'est pas disponible</string>

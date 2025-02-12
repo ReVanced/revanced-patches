@@ -852,9 +852,9 @@ Second \"item\" text"</string>
   <string name="revanced_ryd_compact_layout_title">مقاس زر أعجبني</string>
   <string name="revanced_ryd_compact_layout_summary_on">زر أعجبني مصمم لأدنى عرض</string>
   <string name="revanced_ryd_compact_layout_summary_off">زر أعجبني مصمم لأفضل مظهر</string>
-  <string name="revanced_ryd_estimated_like_title">إظهار الإعجابات المقدرة</string>
+  <string name="revanced_ryd_estimated_like_title">عرض الإعجابات المقدرة</string>
   <string name="revanced_ryd_estimated_like_summary_on">يتم عرض الإعجابات المقدرة</string>
-  <string name="revanced_ryd_estimated_like_summary_off">الإعجابات المقدرة مخفية</string>
+  <string name="revanced_ryd_estimated_like_summary_off">تم إخفاء الإعجابات المقدرة</string>
   <string name="revanced_ryd_toast_on_connection_error_title">عرض ملاحظة إذا كان API غير متاح</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_on">يتم عرض الملاحظة في حالة عدم توفر Return YouTube Dislike</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_off">لا يتم عرض الملاحظة في حالة عدم توفر Return YouTube Dislike</string>
@@ -905,9 +905,9 @@ Second \"item\" text"</string>
   <string name="revanced_sb_enable_voting">عرض زر التصويت</string>
   <string name="revanced_sb_enable_voting_sum_on">يتم عرض زر التصويت على المقطع</string>
   <string name="revanced_sb_enable_voting_sum_off">لا يتم عرض زر التصويت على المقطع</string>
-  <string name="revanced_sb_square_layout">استخدام تصميم مربع</string>
-  <string name="revanced_sb_square_layout_sum_on">الأزرار وعناصر التحكم مربعة</string>
-  <string name="revanced_sb_square_layout_sum_off">الأزرار وعناصر التحكم مستديرة</string>
+  <string name="revanced_sb_square_layout">استخدام التخطيط المربع</string>
+  <string name="revanced_sb_square_layout_sum_on">الأزرار وعناصر التحكم مربعة الشكل</string>
+  <string name="revanced_sb_square_layout_sum_off">الأزرار وعناصر التحكم مدورة الشكل</string>
   <!-- Translations should use language similar to 'revanced_ryd_compact_layout_title' -->
   <string name="revanced_sb_enable_compact_skip_button">استخدام زر التخطي المُصَغَّر</string>
   <string name="revanced_sb_enable_compact_skip_button_sum_on">زر التخطي مصمم لأدنى عرض</string>
@@ -1134,11 +1134,11 @@ Second \"item\" text"</string>
   <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">تعيين صفحة البداية</string>
   <string name="revanced_change_start_page_entry_default">الافتراضي</string>
-  <string name="revanced_change_start_page_entry_all_subscriptions">الاشتراكات كلها</string>
+  <string name="revanced_change_start_page_entry_all_subscriptions">كلّ الاشتراكات</string>
   <string name="revanced_change_start_page_entry_browse">تصفح القنوات</string>
   <string name="revanced_change_start_page_entry_courses">الدورات / التعلم</string>
   <string name="revanced_change_start_page_entry_explore">استكشف</string>
-  <string name="revanced_change_start_page_entry_fashion">Fashion &amp; Beauty</string>
+  <string name="revanced_change_start_page_entry_fashion">الموضة &amp; التجميل</string>
   <string name="revanced_change_start_page_entry_gaming">ألعاب</string>
   <string name="revanced_change_start_page_entry_history">السّجل</string>
   <string name="revanced_change_start_page_entry_library">المكتبة</string>
@@ -1148,15 +1148,15 @@ Second \"item\" text"</string>
   <string name="revanced_change_start_page_entry_music">الموسيقى</string>
   <string name="revanced_change_start_page_entry_news">الأخبار</string>
   <string name="revanced_change_start_page_entry_notifications">الإشعارات</string>
-  <string name="revanced_change_start_page_entry_playlists">قائمة التشغيل</string>
+  <string name="revanced_change_start_page_entry_playlists">قوائم التشغيل</string>
   <string name="revanced_change_start_page_entry_search">البحث</string>
   <string name="revanced_change_start_page_entry_shopping">تسوق</string>
   <string name="revanced_change_start_page_entry_sports">الرياضة</string>
   <string name="revanced_change_start_page_entry_subscriptions">الاشتراكات</string>
   <string name="revanced_change_start_page_entry_trending">المحتوى الرائج</string>
-  <string name="revanced_change_start_page_entry_virtual_reality">الوقاع الاتراضي</string>
+  <string name="revanced_change_start_page_entry_virtual_reality">الواقع الافتراضي</string>
   <string name="revanced_change_start_page_entry_watch_later">شاهد لاحقًا</string>
-  <string name="revanced_change_start_page_entry_your_clips">كليباتك</string>
+  <string name="revanced_change_start_page_entry_your_clips">فيديوهاتك</string>
   </patch>
   <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch">
   <string name="revanced_disable_resuming_shorts_player_title">تعطيل استئناف مشغل Shorts</string>

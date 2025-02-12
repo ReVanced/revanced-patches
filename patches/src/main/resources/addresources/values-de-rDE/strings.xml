@@ -23,20 +23,20 @@ Second \"item\" text"</string>
   <app id="shared">
   <patch id="misc.checks.checkEnvironmentPatch">
   <string name="revanced_check_environment_failed_title">Überprüfung fehlgeschlagen</string>
-  <string name="revanced_check_environment_dialog_open_official_source_button">Offizielle Webseite öffnen</string>
+  <string name="revanced_check_environment_dialog_open_official_source_button">Offizielle Website öffnen</string>
   <string name="revanced_check_environment_dialog_ignore_button">Ignorieren</string>
   <string name="revanced_check_environment_failed_message">&lt;h5&gt;Diese App wurde offenbar nicht von Ihnen gepatcht.&lt;/h5&gt;&lt;br&gt;Diese App funktioniert möglicherweise nicht richtig, &lt;b&gt;könnte schädlich oder sogar gefährlich in der Verwendung sein&lt;/b&gt;.&lt; br&gt;&lt;br&gt;Diese Prüfungen deuten darauf hin, dass diese App vorab gepatcht wurde oder von jemandem bezogen wurde sonst:&lt;br&gt;&lt;br&gt;&lt;small&gt;%1$s&lt;/small&gt;&lt;br&gt;Es wird dringend empfohlen, &lt;b&gt;diese App zu deinstallieren und selbst zu patchen&lt;/b&gt; um sicherzustellen, dass Sie eine validierte und sichere App verwenden.&lt;p&gt;&lt;br&gt;Wenn Sie diese Warnung ignorieren, wird sie nur zweimal angezeigt.</string>
   <string name="revanced_check_environment_not_same_patching_device">Auf einem anderen Gerät gepatcht</string>
   <string name="revanced_check_environment_manager_not_expected_installer">Nicht durch ReVanced Manager installiert</string>
   <string name="revanced_check_environment_not_near_patch_time">Vor mehr als 10 Minuten gepatcht</string>
   <string name="revanced_check_environment_not_near_patch_time_days">Vor %s Tagen gepatcht</string>
-  <string name="revanced_check_environment_not_near_patch_time_invalid">APK-Erstellungsdatum ist beschädigt</string>
+  <string name="revanced_check_environment_not_near_patch_time_invalid">APK-Build-Datum ist fehlerhaft</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_submenu_title">Einstellungen</string>
   <string name="revanced_settings_confirm_user_dialog_title">Möchtest du fortfahren?</string>
   <string name="revanced_settings_reset">Zurücksetzen</string>
-  <string name="revanced_settings_restart_title">Aktualisieren und Neustart</string>
+  <string name="revanced_settings_restart_title">Aktualisieren und neu starten</string>
   <string name="revanced_settings_restart">Neustart</string>
   <string name="revanced_settings_import">Importieren</string>
   <string name="revanced_settings_import_copy">Kopieren</string>
@@ -104,7 +104,7 @@ Um neue Sprachen zu übersetzen, besuchen Sie translate.revanced.app"</string>
   <!-- Settings about dialog. -->
   <string name="revanced_settings_about_links_body">Sie verwenden ReVanced-Patches Version &lt;i&gt;%s&lt;/i&gt;</string>
   <string name="revanced_settings_about_links_dev_header">Anmerkung</string>
-  <string name="revanced_settings_about_links_dev_body">Diese Version ist eine Vorabversion und du könntest unerwartete Probleme haben</string>
+  <string name="revanced_settings_about_links_dev_body">Diese Version ist eine Vorabversion, es kann zu unerwarteten Problemen kommen</string>
   <string name="revanced_settings_about_links_header">Offizielle Links</string>
   <!-- NOTE: the about strings above are duplicated in the TikTok about screen code,
                  and changes made here must also be made there. -->
@@ -116,7 +116,7 @@ Um neue Sprachen zu übersetzen, besuchen Sie translate.revanced.app"</string>
   <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"MicroG GmsCore hat keine Berechtigung, im Hintergrund zu laufen.
 Folgen Sie der Anleitung \"Meine App nicht beenden\" für Ihr Telefon und wenden Sie die Anweisungen auf Ihre MicroG-Installation an.
 Dies ist erforderlich, damit die App funktioniert."</string>
-  <string name="gms_core_dialog_open_website_text">Webseite öffnen</string>
+  <string name="gms_core_dialog_open_website_text">Website öffnen</string>
   <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">"Die Batterieoptimierung von MicroG GmsCore muss deaktiviert werden, um Probleme zu vermeiden.
 Die Deaktivierung der Batterieoptimierung für MicroG hat keinen negativen Einfluss auf den Batterieverbrauch.
 Tippen Sie auf die Schaltfläche \"Fortfahren\" und erlauben Sie die Optimierungsänderungen."</string>
