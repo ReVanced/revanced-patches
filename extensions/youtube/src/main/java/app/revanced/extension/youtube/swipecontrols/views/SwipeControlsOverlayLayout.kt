@@ -8,7 +8,6 @@ import android.graphics.drawable.Drawable
 import android.os.Handler
 import android.os.Looper
 import android.util.AttributeSet
-import android.util.TypedValue
 import android.view.HapticFeedbackConstants
 import android.view.View
 import android.widget.RelativeLayout
@@ -41,10 +40,12 @@ class SwipeControlsOverlayLayout(
 
     // Function to retrieve drawable resources by name
     private fun getDrawable(name: String): Drawable {
-        return resources.getDrawable(
+        val drawable = resources.getDrawable(
             Utils.getResourceIdentifier(context, name, "drawable"),
             context.theme,
         )
+        drawable.setTint(config.overlayTextColor)
+        return drawable
     }
 
     // Initialize progress bars
@@ -102,20 +103,11 @@ class SwipeControlsOverlayLayout(
         feedbackHideHandler.removeCallbacks(feedbackHideCallback)
         feedbackHideHandler.postDelayed(feedbackHideCallback, config.overlayShowTimeoutMillis)
 
-        if (config.isCircularProgressBar) {
-            // Show circular progress bar
-            circularProgressView.apply {
-                setProgress(progress, max, value, isBrightness)
-                setIcon(icon)
-                visibility = VISIBLE
-            }
-        } else {
-            // Show rectangular progress bar
-            horizontalProgressView.apply {
-                setProgress(progress, max, value, isBrightness)
-                setIcon(icon)
-                visibility = VISIBLE
-            }
+        val viewToShow = if (config.isCircularProgressBar) circularProgressView else horizontalProgressView
+        viewToShow.apply {
+            setProgress(progress, max, value, isBrightness)
+            this.icon = icon
+            visibility = VISIBLE
         }
     }
 
@@ -160,46 +152,51 @@ class SwipeControlsOverlayLayout(
 }
 
 /**
- * Custom view for rendering a circular progress indicator with text and icon.
+ * Abstract base class for progress views to reduce code duplication.
  */
-class CircularProgressView(
+/**
+ * Abstract base class for progress views to reduce code duplication.
+ */
+abstract class AbstractProgressView(
     context: Context,
-    private val overlayBackgroundOpacity: Int,
-    private val overlayShowOverlayMinimalStyle: Boolean,
-    private val overlayProgresstColor: Int,
-    private val overlayFillBackgroundPaint: Int,
-    private val overlayTextColor: Int,
+    protected val overlayBackgroundOpacity: Int,
+    protected val overlayShowOverlayMinimalStyle: Boolean,
+    protected val overlayProgresstColor: Int,
+    protected val overlayFillBackgroundPaint: Int,
+    protected val overlayTextColor: Int,
     attrs: AttributeSet? = null,
     defStyleAttr: Int = 0
 ) : View(context, attrs, defStyleAttr) {
-    // Paint objects for drawing circular progress
-    private fun createPaint(color: Int, strokeCap: Paint.Cap = Paint.Cap.BUTT) = Paint(Paint.ANTI_ALIAS_FLAG).apply {
-        style = Paint.Style.STROKE
-        strokeWidth = 20f
+
+    // Combined paint creation function for both fill and stroke styles
+    private fun createPaint(color: Int, style: Paint.Style = Paint.Style.FILL, strokeCap: Paint.Cap = Paint.Cap.BUTT, strokeWidth: Float = 0f) = Paint(Paint.ANTI_ALIAS_FLAG).apply {
+        this.style = style
         this.color = color
         this.strokeCap = strokeCap
+        this.strokeWidth = strokeWidth
     }
 
-    private val backgroundPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
-        style = Paint.Style.FILL
-        color = overlayBackgroundOpacity
-    }
-    private val progressPaint        = createPaint(overlayProgresstColor, Paint.Cap.ROUND) // Brightness ring
-    private val fillBackgroundPaint  = createPaint(overlayFillBackgroundPaint) // Semi-transparent background ring
-    private val textPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
-        color = overlayTextColor
+    // Initialize paints
+    public val backgroundPaint     = createPaint(overlayBackgroundOpacity,   style = Paint.Style.FILL)
+    public val progressPaint       = createPaint(overlayProgresstColor,      style = Paint.Style.STROKE, strokeCap = Paint.Cap.ROUND, strokeWidth = 20f)
+    public val fillBackgroundPaint = createPaint(overlayFillBackgroundPaint, style = Paint.Style.FILL)
+    public val textPaint           = Paint(Paint.ANTI_ALIAS_FLAG).apply {
+        color     = overlayTextColor
         textAlign = Paint.Align.CENTER
-        textSize = 40f
+        textSize  = 30f // Can adjust based on need
     }
 
-    private var progress = 0
-    private var maxProgress = 100
-    private var displayText: String = "0"
-    private var isBrightness = true
-    private var icon: Drawable? = null
-    private val rectF = RectF()
 
-    // Set progress, maximum progress, text, and brightness mode
+    protected var progress = 0
+    protected var maxProgress = 100
+    protected var displayText: String = "0"
+    protected var isBrightness = true
+    public var icon: Drawable? = null
+
+    init {
+        // Stroke widths are now set in createPaint for progressPaint and fillBackgroundPaint
+    }
+
     fun setProgress(value: Int, max: Int, text: String, isBrightnessMode: Boolean) {
         progress = value
         maxProgress = max
@@ -208,11 +205,43 @@ class CircularProgressView(
         invalidate()
     }
 
-    // Set icon for progress indicator
-    fun setIcon(drawable: Drawable) {
-        icon = drawable
-        icon?.setTint(overlayTextColor)
-        invalidate()
+    override fun onDraw(canvas: Canvas) {
+        // Base class implementation can be empty
+    }
+}
+
+/**
+ * Custom view for rendering a circular progress indicator with text and icon.
+ */
+class CircularProgressView(
+    context: Context,
+    overlayBackgroundOpacity: Int,
+    overlayShowOverlayMinimalStyle: Boolean,
+    overlayProgresstColor: Int,
+    overlayFillBackgroundPaint: Int,
+    overlayTextColor: Int,
+    attrs: AttributeSet? = null,
+    defStyleAttr: Int = 0
+) : AbstractProgressView(
+    context,
+    overlayBackgroundOpacity,
+    overlayShowOverlayMinimalStyle,
+    overlayProgresstColor,
+    overlayFillBackgroundPaint,
+    overlayTextColor,
+    attrs,
+    defStyleAttr
+) {
+    private val rectF = RectF()
+
+    init {
+        textPaint.textSize = 40f // Override default text size for horizontal view
+        progressPaint.strokeWidth       = 20f
+        fillBackgroundPaint.strokeWidth = 20f
+        progressPaint.strokeCap       = Paint.Cap.ROUND
+        fillBackgroundPaint.strokeCap = Paint.Cap.BUTT
+        progressPaint.style       = Paint.Style.STROKE
+        fillBackgroundPaint.style = Paint.Style.STROKE
     }
 
     override fun onDraw(canvas: Canvas) {
@@ -249,53 +278,33 @@ class CircularProgressView(
  */
 class HorizontalProgressView(
     context: Context,
-    private val overlayBackgroundOpacity: Int,
-    private val overlayShowOverlayMinimalStyle: Boolean,
-    private val overlayProgresstColor: Int,
-    private val overlayFillBackgroundPaint: Int,
-    private val overlayTextColor: Int,
+    overlayBackgroundOpacity: Int,
+    overlayShowOverlayMinimalStyle: Boolean,
+    overlayProgresstColor: Int,
+    overlayFillBackgroundPaint: Int,
+    overlayTextColor: Int,
     attrs: AttributeSet? = null,
     defStyleAttr: Int = 0
-) : View(context, attrs, defStyleAttr) {
-
-    // Paint objects for drawing progress
-    private fun createPaint(color: Int, style: Paint.Style = Paint.Style.FILL) = Paint(Paint.ANTI_ALIAS_FLAG).apply {
-        this.style = style
-        this.color = color
-    }
-
-    private val backgroundPaint     = createPaint(overlayBackgroundOpacity)
-    private val progressPaint       = createPaint(overlayProgresstColor)
-    private val fillBackgroundPaint = createPaint(overlayFillBackgroundPaint)
-    private val textPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
-        color = overlayTextColor
-        textAlign = Paint.Align.CENTER
-        textSize = 30f
-    }
+) : AbstractProgressView(
+    context,
+    overlayBackgroundOpacity,
+    overlayShowOverlayMinimalStyle,
+    overlayProgresstColor,
+    overlayFillBackgroundPaint,
+    overlayTextColor,
+    attrs,
+    defStyleAttr
+) {
 
     private val iconSize = 60f
-    private val padding = 40f
+    private val padding  = 40f
 
-    private var progress = 0
-    private var maxProgress = 100
-    private var displayText: String = "0"
-    private var icon: Drawable? = null
-    private var isBrightness = true
-
-    // Set progress, maximum progress, text, and brightness mode for rectangular bar
-    fun setProgress(progressValue: Int, max: Int, text: String, isBrightnessMode: Boolean) {
-        progress = progressValue
-        maxProgress = max
-        displayText = text
-        isBrightness = isBrightnessMode
-        invalidate()
-    }
-
-    // Set icon for progress
-    fun setIcon(drawable: Drawable) {
-        icon = drawable
-        icon?.setTint(overlayTextColor)
-        invalidate()
+    init {
+        textPaint.textSize        = 30f // Override default text size for horizontal view
+        progressPaint.strokeWidth = 0f
+        progressPaint.strokeCap   = Paint.Cap.BUTT
+        progressPaint.style       = Paint.Style.FILL
+        fillBackgroundPaint.style = Paint.Style.FILL
     }
 
     override fun onDraw(canvas: Canvas) {
