@@ -1,5 +1,6 @@
 <!--
    https://github.com/google/material-design-icons/blob/9beae745bb758f3ad56654fb377ea5cf62be4915/symbols/android/volume_mute/materialsymbolsoutlined/volume_mute_wght300_24px.xml
+   Changes made: The icon has been moved to the left relative to the center.
 
 Copyright 2022 Google
 
@@ -24,5 +25,5 @@ Copyright 2022 Google
         android:tint="?attr/colorControlNormal">
     <path
             android:fillColor="@android:color/white"
-            android:pathData="M7.5,14.5V9.5H11.2L15.5,5.2V18.8L11.2,14.5ZM9,13H11.85L14,15.15V8.85L11.85,11H9ZM11.5,12Z"/>
+            android:pathData="M3.8,14.5 L3.8,9.5 L7.5,9.5 L11.8,5.2 L11.8,18.8 L7.5,14.5 Z M5.3,13 L8.15,13 L10.3,15.15 L10.3,8.85 L8.15,11 L5.3,11 Z M7.8,12 Z"/>
 </vector>
