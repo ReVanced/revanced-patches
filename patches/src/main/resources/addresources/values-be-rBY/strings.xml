@@ -835,6 +835,8 @@ Second \"item\" text"</string>
   <string name="revanced_ryd_failure_generic">Не падабаецца (%s)</string>
   <!-- Toast shown if the user enables RYD while a video is opened, and then tries to vote for the video. -->
   <string name="revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted">Перазагрузіце відэа, каб прагаласаваць з дапамогай функцыі \"Вярнуць не падабаецца YouTube\"</string>
+  <!-- Video likes have been set to hidden by the video uploader. -->
+  <string name="revanced_ryd_video_likes_hidden_by_video_owner">Схавана ўладальнікам</string>
   <string name="revanced_ryd_enable_summary_on">Дызлайкі паказаны</string>
   <string name="revanced_ryd_enable_summary_off">Дызлайкі не паказваюцца</string>
   <string name="revanced_ryd_shorts_title">Паказвайце \"не падабаецца\" на Shorts</string>
@@ -850,6 +852,9 @@ Second \"item\" text"</string>
   <string name="revanced_ryd_compact_layout_title">Кампактны дызайн кнопак «Падабаецца» і «Не падабаецца»</string>
   <string name="revanced_ryd_compact_layout_summary_on">Кнопка \"Падабаецца\" ў стылі мінімальнай шырыні</string>
   <string name="revanced_ryd_compact_layout_summary_off">Кнопка \"Падабаецца\", аформленая для лепшага выгляду</string>
+  <string name="revanced_ryd_estimated_like_title">Паказваць прыблізную колькасць падабаек</string>
+  <string name="revanced_ryd_estimated_like_summary_on">Паказана прыблізная колькасць падабаек</string>
+  <string name="revanced_ryd_estimated_like_summary_off">Прыблізная колькасць падабаек схавана</string>
   <string name="revanced_ryd_toast_on_connection_error_title">Паказаць тост, калі API недаступны</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_on">Тост паказваецца, калі функцыя \"Вярнуць не падабаецца YouTube\" недаступная</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_off">Тост не паказваецца, калі функцыя \"Вярнуць не падабаецца YouTube\" недаступная</string>
@@ -900,6 +905,9 @@ Second \"item\" text"</string>
   <string name="revanced_sb_enable_voting">Паказаць кнопку галасавання</string>
   <string name="revanced_sb_enable_voting_sum_on">Паказана кнопка сегментнага галасавання</string>
   <string name="revanced_sb_enable_voting_sum_off">Кнопка сегментнага галасавання не паказваецца</string>
+  <string name="revanced_sb_square_layout">Выкарыстоўваць квадратную схему</string>
+  <string name="revanced_sb_square_layout_sum_on">Кнопкі і элементы кіравання квадратныя</string>
+  <string name="revanced_sb_square_layout_sum_off">Кнопкі і элементы кіравання закруглены</string>
   <!-- Translations should use language similar to 'revanced_ryd_compact_layout_title' -->
   <string name="revanced_sb_enable_compact_skip_button">Выкарыстоўвайце кнопку кампактнага пропуску</string>
   <string name="revanced_sb_enable_compact_skip_button_sum_on">Кнопка \"Прапусціць\" у стылі мінімальнай шырыні</string>
