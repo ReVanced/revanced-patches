@@ -21,7 +21,7 @@ val spoofAppVersionPatch = bytecodePatch(
     name = "Spoof app version",
     description = "Adds an option to trick YouTube into thinking you are running an older version of the app. " +
             "This can be used to restore old UI elements and features. " +
-            "Patching 19.16.39 or lower includes additional older spoofing targets.",
+            "Patching 19.16.39 includes additional older spoofing targets.",
 ) {
     dependsOn(
         sharedExtensionPatch,
@@ -32,8 +32,6 @@ val spoofAppVersionPatch = bytecodePatch(
 
     compatibleWith(
         "com.google.android.youtube"(
-            "18.38.44",
-            "18.49.37",
             "19.16.39",
             // "19.25.37", // Cannot be supported because the lowest spoof target is higher.
             // "19.34.42", // Cannot be supported because the lowest spoof target is higher.
