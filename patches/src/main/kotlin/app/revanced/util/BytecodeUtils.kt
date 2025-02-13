@@ -145,7 +145,57 @@ fun Method.indexOfFirstLiteralInstruction(literal: Long) = implementation?.let {
  */
 fun Method.indexOfFirstLiteralInstructionOrThrow(literal: Long): Int {
     val index = indexOfFirstLiteralInstruction(literal)
-    if (index < 0) throw PatchException("Could not find literal value: $literal")
+    if (index < 0) throw PatchException("Could not find literal long: $literal")
+    return index
+}
+
+/**
+ * Find the index of the first literal instruction with the given float value.
+ *
+ * @return the first literal instruction with the value, or -1 if not found.
+ * @see indexOfFirstLiteralInstructionOrThrow
+ */
+fun Method.indexOfFirstLiteralInstruction(literal: Float) = implementation?.let {
+    val floatBits = literal.toRawBits().toLong()
+    it.instructions.indexOfFirst { instruction ->
+        (instruction as? WideLiteralInstruction)?.wideLiteral == floatBits
+    }
+} ?: -1
+
+/**
+ * Find the index of the first literal instruction with the given float value,
+ * or throw an exception if not found.
+ *
+ * @return the first literal instruction with the value, or throws [PatchException] if not found.
+ */
+fun Method.indexOfFirstLiteralInstructionOrThrow(literal: Float): Int {
+    val index = indexOfFirstLiteralInstruction(literal)
+    if (index < 0) throw PatchException("Could not find literal float: $literal")
+    return index
+}
+
+/**
+ * Find the index of the first literal instruction with the given double value.
+ *
+ * @return the first literal instruction with the value, or -1 if not found.
+ * @see indexOfFirstLiteralInstructionOrThrow
+ */
+fun Method.indexOfFirstLiteralInstruction(literal: Double) = implementation?.let {
+    val floatBits = literal.toRawBits().toLong()
+    it.instructions.indexOfFirst { instruction ->
+        (instruction as? WideLiteralInstruction)?.wideLiteral == floatBits
+    }
+} ?: -1
+
+/**
+ * Find the index of the first literal instruction with the given double value,
+ * or throw an exception if not found.
+ *
+ * @return the first literal instruction with the value, or throws [PatchException] if not found.
+ */
+fun Method.indexOfFirstLiteralInstructionOrThrow(literal: Double): Int {
+    val index = indexOfFirstLiteralInstruction(literal)
+    if (index < 0) throw PatchException("Could not find literal double: $literal")
     return index
 }
 

@@ -95,11 +95,11 @@ internal val customPlaybackSpeedPatch = bytecodePatch(
 
         // Override the min/max speeds that can be used.
         speedLimiterFingerprint.method.apply {
-            val limitMinIndex = indexOfFirstLiteralInstructionOrThrow(0.25f.toRawBits().toLong())
-            var limitMaxIndex = indexOfFirstLiteralInstruction(2.0f.toRawBits().toLong())
+            val limitMinIndex = indexOfFirstLiteralInstructionOrThrow(0.25f)
+            var limitMaxIndex = indexOfFirstLiteralInstruction(2.0f)
             // Newer targets have 4x max speed.
             if (limitMaxIndex < 0) {
-                limitMaxIndex = indexOfFirstLiteralInstructionOrThrow(4.0f.toRawBits().toLong())
+                limitMaxIndex = indexOfFirstLiteralInstructionOrThrow(4.0f)
             }
 
             val limitMinRegister = getInstruction<OneRegisterInstruction>(limitMinIndex).registerA
@@ -162,10 +162,7 @@ internal val customPlaybackSpeedPatch = bytecodePatch(
 
         if (is_19_25_or_greater) {
             disableFastForwardNoticeFingerprint.method.apply {
-                val floatLiteral = 2.0f.toRawBits()
-                val index = indexOfFirstInstructionOrThrow {
-                    (this as? NarrowLiteralInstruction)?.narrowLiteral == floatLiteral
-                }
+                val index = indexOfFirstLiteralInstruction(2.0f)
                 val register = getInstruction<OneRegisterInstruction>(index).registerA
 
                 addInstructions(
