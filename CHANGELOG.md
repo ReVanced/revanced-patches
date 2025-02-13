@@ -1,3 +1,10 @@
+# [5.12.0-dev.5](https://github.com/ReVanced/revanced-patches/compare/v5.12.0-dev.4...v5.12.0-dev.5) (2025-02-13)
+
+
+### Bug Fixes
+
+* **YouTube:** Remove obsolete 18.x targets ([#4454](https://github.com/ReVanced/revanced-patches/issues/4454)) ([a006758](https://github.com/ReVanced/revanced-patches/commit/a0067581d0f877e1b4eb1f888a25786f09676b2e))
+
 # [5.12.0-dev.4](https://github.com/ReVanced/revanced-patches/compare/v5.12.0-dev.3...v5.12.0-dev.4) (2025-02-11)
 
 
