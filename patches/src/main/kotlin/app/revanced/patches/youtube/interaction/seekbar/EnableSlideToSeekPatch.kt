@@ -104,17 +104,19 @@ val enableSlideToSeekPatch = bytecodePatch(
                 }
             }
         } else {
-            disableFastForwardLegacyFingerprint.method.apply {
-                val insertIndex = disableFastForwardLegacyFingerprint.instructionMatches.last().index + 1
-                val targetRegister = getInstruction<OneRegisterInstruction>(insertIndex).registerA
+            disableFastForwardLegacyFingerprint.let {
+                it.method.apply {
+                    val insertIndex = it.instructionMatches.last().index + 1
+                    val targetRegister = getInstruction<OneRegisterInstruction>(insertIndex).registerA
 
-                addInstructions(
-                    insertIndex,
-                    """
-                        invoke-static { v$targetRegister }, $EXTENSION_METHOD_DESCRIPTOR
-                        move-result v$targetRegister
-                    """,
-                )
+                    addInstructions(
+                        insertIndex,
+                        """
+                            invoke-static { v$targetRegister }, $EXTENSION_METHOD_DESCRIPTOR
+                            move-result v$targetRegister
+                        """,
+                    )
+                }
             }
         }
     }

@@ -1,5 +1,6 @@
 package app.revanced.patches.youtube.layout.startupshortsreset
 
+import app.revanced.patcher.checkCast
 import app.revanced.patcher.fingerprint
 import app.revanced.patcher.literal
 import app.revanced.patcher.methodCall
@@ -16,8 +17,8 @@ internal val userWasInShortsAlternativeFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     parameters("Ljava/lang/Object;")
     instructions(
-        methodCall(smali = "Ljava/lang/Boolean;->booleanValue()Z"),
-        methodCall(smali = "Ljava/lang/Boolean;->booleanValue()Z"),
+        checkCast("Ljava/lang/Boolean;"),
+        methodCall(smali = "Ljava/lang/Boolean;->booleanValue()Z", maxAfter = 0),
         opcode(Opcode.MOVE_RESULT, maxAfter = 0),
         string("userIsInShorts: ", maxAfter = 5)
     )

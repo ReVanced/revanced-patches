@@ -162,8 +162,9 @@ internal val customPlaybackSpeedPatch = bytecodePatch(
 
         if (is_19_25_or_greater) {
             disableFastForwardNoticeFingerprint.method.apply {
+                val floatLiteral = 2.0f.toRawBits()
                 val index = indexOfFirstInstructionOrThrow {
-                    (this as? NarrowLiteralInstruction)?.narrowLiteral == 2.0f.toRawBits()
+                    (this as? NarrowLiteralInstruction)?.narrowLiteral == floatLiteral
                 }
                 val register = getInstruction<OneRegisterInstruction>(index).registerA
 

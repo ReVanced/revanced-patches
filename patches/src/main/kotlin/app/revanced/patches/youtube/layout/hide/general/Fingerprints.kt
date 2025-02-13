@@ -21,12 +21,13 @@ internal val hideShowMoreButtonFingerprint by fingerprint {
 
 internal val parseElementFromBufferFingerprint by fingerprint {
     parameters("L", "L", "[B", "L", "L")
-    opcodes(
-        Opcode.IGET_OBJECT,
-        Opcode.INVOKE_INTERFACE,
-        Opcode.MOVE_RESULT_OBJECT,
+    instructions(
+        opcode(Opcode.IGET_OBJECT),
+        // IGET_BOOLEAN // 20.07+
+        opcode(Opcode.INVOKE_INTERFACE, maxAfter = 1),
+        opcode(Opcode.MOVE_RESULT_OBJECT, maxAfter = 0),
+        string("Failed to parse Element", partialMatch = true)
     )
-    strings("Failed to parse Element") // String is a partial match.
 }
 
 internal val playerOverlayFingerprint by fingerprint {
