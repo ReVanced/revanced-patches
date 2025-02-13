@@ -905,8 +905,8 @@ Questa funzione funziona meglio con una qualità video di 720p o inferiore e qua
   <string name="revanced_sb_enable_voting">Mostra il pulsante di voto</string>
   <string name="revanced_sb_enable_voting_sum_on">Il pulsante di voto del segmento è visibile</string>
   <string name="revanced_sb_enable_voting_sum_off">Il pulsante di voto del segmento è nascosto</string>
-  <string name="revanced_sb_square_layout">Usa layout quadrato</string>
-  <string name="revanced_sb_square_layout_sum_on">Pulsanti e controlli sono quadrati</string>
+  <string name="revanced_sb_square_layout">Usa layout squadrato</string>
+  <string name="revanced_sb_square_layout_sum_on">Pulsanti e controlli sono squadrati</string>
   <string name="revanced_sb_square_layout_sum_off">Pulsanti e controlli sono arrotondati</string>
   <!-- Translations should use language similar to 'revanced_ryd_compact_layout_title' -->
   <string name="revanced_sb_enable_compact_skip_button">Utilizza il pulsante Salta compatto</string>
