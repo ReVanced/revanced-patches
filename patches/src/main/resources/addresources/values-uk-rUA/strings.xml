@@ -854,7 +854,7 @@ Second \"item\" text"</string>
   <string name="revanced_ryd_compact_layout_summary_off">Кнопку \"Подобається\" стилізовано для кращого вигляду</string>
   <string name="revanced_ryd_estimated_like_title">Показувати приблизну кількість вподобань</string>
   <string name="revanced_ryd_estimated_like_summary_on">Приблизна кількість вподобань показується</string>
-  <string name="revanced_ryd_estimated_like_summary_off">Приблизна кількість вподобань прихована</string>
+  <string name="revanced_ryd_estimated_like_summary_off">Приблизну кількість вподобань приховано</string>
   <string name="revanced_ryd_toast_on_connection_error_title">Показувати тост, якщо API не доступний</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_on">Тост показується, якщо Return YouTube Dislike не доступний</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_off">Тост не показується, якщо Return YouTube Dislike не доступний</string>
@@ -905,7 +905,7 @@ Second \"item\" text"</string>
   <string name="revanced_sb_enable_voting">Кнопка голосування</string>
   <string name="revanced_sb_enable_voting_sum_on">Кнопка голосування за сегмент показується в відеоплеєрі</string>
   <string name="revanced_sb_enable_voting_sum_off">Кнопка голосування за сегмент не показується в відеоплеєрі</string>
-  <string name="revanced_sb_square_layout">Використовувати квадратну розмітку</string>
+  <string name="revanced_sb_square_layout">Використовувати квадратний макет</string>
   <string name="revanced_sb_square_layout_sum_on">Кнопки та елементи керування квадратні</string>
   <string name="revanced_sb_square_layout_sum_off">Кнопки та елементи керування заокруглені</string>
   <!-- Translations should use language similar to 'revanced_ryd_compact_layout_title' -->
