@@ -18,7 +18,6 @@ import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.litho.filter.addLithoFilter
 import app.revanced.patches.youtube.misc.litho.filter.lithoFilterPatch
 import app.revanced.patches.youtube.misc.navigation.navigationBarHookPatch
-import app.revanced.patches.youtube.misc.playservice.is_19_03_or_greater
 import app.revanced.patches.youtube.misc.playservice.is_19_41_or_greater
 import app.revanced.patches.youtube.misc.playservice.versionCheckPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
@@ -27,11 +26,8 @@ import app.revanced.util.*
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
-import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
-internal var reelMultipleItemShelfId = -1L
-    private set
 internal var reelPlayerRightCellButtonHeight = -1L
     private set
 internal var bottomBarContainer = -1L
@@ -155,13 +151,6 @@ private val hideShortsComponentsResourcePatch = resourcePatch {
             "dimen",
             "reel_player_right_pivot_v2_size",
         ]
-
-        if (!is_19_03_or_greater) {
-            reelMultipleItemShelfId = resourceMappings[
-                "dimen",
-                "reel_player_right_cell_button_height",
-            ]
-        }
     }
 }
 
@@ -183,8 +172,6 @@ val hideShortsComponentsPatch = bytecodePatch(
 
     compatibleWith(
         "com.google.android.youtube"(
-            "18.38.44",
-            "18.49.37",
             "19.16.39",
             "19.25.37",
             "19.34.42",
@@ -199,25 +186,6 @@ val hideShortsComponentsPatch = bytecodePatch(
     hideShortsWidgetOption()
 
     execute {
-        // region Hide the Shorts shelf.
-
-        // This patch point is not present in 19.03.x and greater.
-        if (!is_19_03_or_greater && reelConstructorFingerprint.methodOrNull != null) {
-            reelConstructorFingerprint.method.apply {
-                val insertIndex = reelConstructorFingerprint.patternMatch!!.startIndex + 2
-                val viewRegister = getInstruction<TwoRegisterInstruction>(insertIndex).registerA
-
-                injectHideViewCall(
-                    insertIndex,
-                    viewRegister,
-                    FILTER_CLASS_DESCRIPTOR,
-                    "hideShortsShelf",
-                )
-            }
-        }
-
-        // endregion
-
         // region Hide the Shorts buttons in older versions of YouTube.
 
         // Some Shorts buttons are views, hide them by setting their visibility to GONE.

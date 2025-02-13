@@ -30,12 +30,6 @@ internal val createShortsButtonsFingerprint = fingerprint {
     literal { reelPlayerRightCellButtonHeight }
 }
 
-internal val reelConstructorFingerprint = fingerprint {
-    accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
-    opcodes(Opcode.INVOKE_VIRTUAL)
-    literal { reelMultipleItemShelfId }
-}
-
 internal val renderBottomNavigationBarFingerprint = fingerprint {
     returns("V")
     parameters("Ljava/lang/String;")

@@ -19,7 +19,6 @@ import app.revanced.patches.shared.misc.settings.settingsPatch
 import app.revanced.patches.youtube.misc.check.checkEnvironmentPatch
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.fix.playbackspeed.fixPlaybackSpeedWhilePlayingPatch
-import app.revanced.patches.youtube.misc.playservice.is_19_04_or_greater
 import app.revanced.patches.youtube.misc.playservice.is_19_34_or_greater
 import app.revanced.patches.youtube.misc.playservice.versionCheckPatch
 import app.revanced.util.*
@@ -249,13 +248,10 @@ val settingsPatch = bytecodePatch(
         }
 
         // Add setting to force cairo settings fragment on/off.
-        if (is_19_04_or_greater) {
-            cairoFragmentConfigFingerprint.method.insertFeatureFlagBooleanOverride(
-                CAIRO_CONFIG_LITERAL_VALUE,
-                "$activityHookClassDescriptor->useCairoSettingsFragment(Z)Z"
-            )
-        }
-
+        cairoFragmentConfigFingerprint.method.insertFeatureFlagBooleanOverride(
+            CAIRO_CONFIG_LITERAL_VALUE,
+            "$activityHookClassDescriptor->useCairoSettingsFragment(Z)Z"
+        )
     }
 
     finalize {

@@ -19,7 +19,7 @@ private const val EXTENSION_CLASS_DESCRIPTOR =
 val seekbarThumbnailsPatch = bytecodePatch(
     name = "Seekbar thumbnails",
     description = "Adds an option to use high quality fullscreen seekbar thumbnails. " +
-            "Patching 19.16.39 or lower adds an option to restore old seekbar thumbnails.",
+            "Patching 19.16.39 adds an option to restore old seekbar thumbnails.",
 ) {
     dependsOn(
         sharedExtensionPatch,
@@ -29,8 +29,6 @@ val seekbarThumbnailsPatch = bytecodePatch(
 
     compatibleWith(
         "com.google.android.youtube"(
-            "18.38.44",
-            "18.49.37",
             "19.16.39",
             "19.25.37",
             "19.34.42",
