@@ -596,8 +596,8 @@ public final class app/revanced/patches/shared/misc/mapping/ResourceMappingPatch
 	public static final fun get (Ljava/util/List;Ljava/lang/String;Ljava/lang/String;)J
 	public static final fun getResourceMappingPatch ()Lapp/revanced/patcher/patch/ResourcePatch;
 	public static final fun getResourceMappings ()Ljava/util/List;
-	public static final fun resourceLiteral (Ljava/lang/String;Ljava/lang/String;I)Lapp/revanced/patcher/LiteralFilter;
-	public static synthetic fun resourceLiteral$default (Ljava/lang/String;Ljava/lang/String;IILjava/lang/Object;)Lapp/revanced/patcher/LiteralFilter;
+	public static final fun resourceLiteral (Ljava/lang/String;Ljava/lang/String;I)Lapp/revanced/patcher/LiteralWideFilter;
+	public static synthetic fun resourceLiteral$default (Ljava/lang/String;Ljava/lang/String;IILjava/lang/Object;)Lapp/revanced/patcher/LiteralWideFilter;
 }
 
 public final class app/revanced/patches/shared/misc/settings/SettingsPatchKt {

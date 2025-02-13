@@ -1,7 +1,7 @@
 package app.revanced.patches.shared.misc.mapping
 
 import app.revanced.patcher.InstructionFilter.Companion.METHOD_MAX_INSTRUCTIONS
-import app.revanced.patcher.LiteralFilter
+import app.revanced.patcher.LiteralWideFilter
 import app.revanced.patcher.literal
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.resourcePatch
@@ -16,7 +16,7 @@ lateinit var resourceMappings: List<ResourceElement>
     private set
 
 /**
- * Identical to [LiteralFilter] except uses a decoded resource literal value.
+ * Identical to [LiteralWideFilter] except uses a decoded resource literal value.
  *
  * Any patch with fingerprints of this filter must
  * also declare [resourceMappingPatch] as a dependency.
