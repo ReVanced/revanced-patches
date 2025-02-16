@@ -1405,8 +1405,6 @@ User id ของคุณเหมือนกับรหัสผ่าน �
 การเล่นวิดีโออาจไม่ทํางาน"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">การปิดการตั้งค่านี้ อาจทำให้เกิดปัญหาในการเล่นวิดีโอ</string>
   <string name="revanced_spoof_video_streams_client_type_title">ไคลเอ็นต์เริ่มต้น</string>
-  <!-- 'no auth' means no authentication -->
-  <string name="revanced_spoof_video_streams_client_type_android_vr_no_auth">Android VR (ไม่มีการตรวจสอบสิทธิ์)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_title">บังคับ AVC (H.264) ของ iOS</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">บังคับตัวแปลงสัญญาณวิดีโอเป็น AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">ตัวแปลงสัญญาณวิดีโอถูกกำหนดโดยอัตโนมัติ</string>

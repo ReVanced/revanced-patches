@@ -1404,8 +1404,6 @@ Omogočanje tega lahko odklene višje kakovosti videa"</string>
 Predvajanje videa morda ne bo delovalo"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Izklop te nastavitve lahko povzroči težave s predvajanjem videoposnetkov.</string>
   <string name="revanced_spoof_video_streams_client_type_title">Privzeti odjemalec</string>
-  <!-- 'no auth' means no authentication -->
-  <string name="revanced_spoof_video_streams_client_type_android_vr_no_auth">Android VR (brez avtorizacije)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_title">Sile iOS AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Kodek videa je prisiljen v AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Kodek videa je določen samodejno</string>

@@ -1404,8 +1404,6 @@ Mengaktifkan ini dapat membuka kualitas video yang lebih tinggi"</string>
 Pemutaran video mungkin tidak berfungsi"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Mematikan pengaturan ini dapat menyebabkan masalah pemutaran video.</string>
   <string name="revanced_spoof_video_streams_client_type_title">Klien bawaan</string>
-  <!-- 'no auth' means no authentication -->
-  <string name="revanced_spoof_video_streams_client_type_android_vr_no_auth">Android VR (tanpa otentikasi)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_title">Paksa iOS AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Codec video dipaksa menjadi AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Codec video ditentukan secara otomatis</string>

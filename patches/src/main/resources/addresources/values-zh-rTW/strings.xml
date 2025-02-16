@@ -1410,8 +1410,6 @@ Second \"item\" text"</string>
 影片播放可能無法正常運作"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">關閉此設定可能會導致影片播放發生問題</string>
   <string name="revanced_spoof_video_streams_client_type_title">預設用戶端</string>
-  <!-- 'no auth' means no authentication -->
-  <string name="revanced_spoof_video_streams_client_type_android_vr_no_auth">Android VR（無驗證）</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_title">強制 iOS AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">影片解碼器強制為 AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">自動選擇影片解碼器</string>

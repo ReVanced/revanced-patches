@@ -1404,8 +1404,6 @@ Bật tính năng này có thể mở khóa chất lượng video cao hơn"</str
 Phát lại video có thể không hoạt động"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Việc tắt cài đặt này có thể gây ra sự cố phát nền video.</string>
   <string name="revanced_spoof_video_streams_client_type_title">Máy khách mặc định</string>
-  <!-- 'no auth' means no authentication -->
-  <string name="revanced_spoof_video_streams_client_type_android_vr_no_auth">Android VR (không cần xác thực)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_title">Buộc iOS AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Bộ giải mã video bị buộc thành AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Bộ giải mã video được xác định tự động</string>

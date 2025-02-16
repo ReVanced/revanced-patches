@@ -1404,8 +1404,6 @@ Ako ovo omogućite, mogu biti otključani viši kvaliteti videa"</string>
 Reprodukcija videa možda neće raditi"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Isključivanje ove opcije će možda izazvati probleme sa reprodukcijom videa.</string>
   <string name="revanced_spoof_video_streams_client_type_title">Podrazumevani klijent</string>
-  <!-- 'no auth' means no authentication -->
-  <string name="revanced_spoof_video_streams_client_type_android_vr_no_auth">Android VR (bez autentifikacije)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_title">Prisili na AVC (H.264) na iOS-u</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Video kodek je prisilno podešen na AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Video kodek se određuje automatski</string>

@@ -1404,8 +1404,6 @@ Activarea acestei opțiuni poate debloca calități video mai mari"</string>
 Este posibil ca redarea video să nu funcționeze"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Dezactivarea acestei setări poate cauza probleme de redare video.</string>
   <string name="revanced_spoof_video_streams_client_type_title">Client implicit</string>
-  <!-- 'no auth' means no authentication -->
-  <string name="revanced_spoof_video_streams_client_type_android_vr_no_auth">Android VR (fără autentificare)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_title">Forțarea codecului video AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Codecul video este forțat la AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Codecul video este determinat automat</string>

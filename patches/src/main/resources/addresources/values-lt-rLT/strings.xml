@@ -1406,8 +1406,6 @@ Gali būti atrakinta aukštesnės vaizdo įrašų kokybės, bet galite patirti v
 Vaizdo įrašo atkūrimas gali neveikti"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Išjungus šį nustatymą, gali kilti vaizdo įrašų atkūrimo problemų.</string>
   <string name="revanced_spoof_video_streams_client_type_title">Numatytasis klientas</string>
-  <!-- 'no auth' means no authentication -->
-  <string name="revanced_spoof_video_streams_client_type_android_vr_no_auth">Android VR (be leidimo)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_title">Priverstinė iOS AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Vaizdo kodekas yra priverstinai nustatytas kaip AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Vaizdo kodekas nustatomas automatiškai</string>

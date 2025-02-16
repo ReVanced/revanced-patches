@@ -1403,8 +1403,6 @@ Aktivizimi i kësaj mund të zhbllokojë cilësi më të larta video"</string>
 Shikimi i videove mund të mos funksionojë"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Çaktivizimi i kësaj cilësimi mund të shkaktojë probleme me luajtjen e videos.</string>
   <string name="revanced_spoof_video_streams_client_type_title">Klient i përdoruesit</string>
-  <!-- 'no auth' means no authentication -->
-  <string name="revanced_spoof_video_streams_client_type_android_vr_no_auth">Android VR (pa autentifikim)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_title">Forco AVC (H.264) për iOS</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Kodiku video është detyruar të jetë AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Kodiku video është përcaktuar automatikisht</string>
