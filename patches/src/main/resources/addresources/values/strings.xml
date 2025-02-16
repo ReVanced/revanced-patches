@@ -169,7 +169,7 @@ Tap the continue button and allow optimization changes."</string>
 You will not be notified of any unexpected events."</string>
         </patch>
         <patch id="layout.hide.general.hideLayoutComponentsPatch">
-            <string name="revanced_disable_like_subscribe_glow_title">Disable Like and Subscribe button glow</string>
+            <string name="revanced_disable_like_subscribe_glow_title">Disable Like and Subscribe glow</string>
             <string name="revanced_disable_like_subscribe_glow_summary_on">Like and Subscribe button will not glow when mentioned</string>
             <string name="revanced_disable_like_subscribe_glow_summary_off">Like and Subscribe button will glow when mentioned</string>
             <string name="revanced_hide_album_cards_title">Hide album cards</string>
@@ -242,7 +242,7 @@ You will not be notified of any unexpected events."</string>
             <string name="revanced_hide_community_guidelines_title">Hide community guidelines</string>
             <string name="revanced_hide_community_guidelines_summary_on">Community guidelines are hidden</string>
             <string name="revanced_hide_community_guidelines_summary_off">Community guidelines are shown</string>
-            <string name="revanced_hide_subscribers_community_guidelines_title">Hide subscribers community guidelines</string>
+            <string name="revanced_hide_subscribers_community_guidelines_title">Hide community guidelines</string>
             <string name="revanced_hide_subscribers_community_guidelines_summary_on">Subscribers community guidelines are hidden</string>
             <string name="revanced_hide_subscribers_community_guidelines_summary_off">Subscribers community guidelines are shown</string>
             <string name="revanced_hide_channel_member_shelf_title">Hide channel member shelf</string>
@@ -284,22 +284,22 @@ You will not be notified of any unexpected events."</string>
             <string name="revanced_hide_attributes_section_title">Hide attributes section</string>
             <string name="revanced_hide_attributes_section_summary_on">Featured places, Games, Music, and People mentioned sections are hidden</string>
             <string name="revanced_hide_attributes_section_summary_off">Featured places, Games, Music, and People mentioned sections are shown</string>
-            <string name="revanced_hide_chapters_section_title">Hide Chapters section</string>
+            <string name="revanced_hide_chapters_section_title">Hide Chapters</string>
             <string name="revanced_hide_chapters_section_summary_on">Chapters section is hidden</string>
             <string name="revanced_hide_chapters_section_summary_off">Chapters section is shown</string>
-            <string name="revanced_hide_how_this_was_made_section_title">Hide \'How this content was made\' section</string>
+            <string name="revanced_hide_how_this_was_made_section_title">Hide \'How this content was made\'</string>
             <string name="revanced_hide_how_this_was_made_section_summary_on">How this content was made section is hidden</string>
             <string name="revanced_hide_how_this_was_made_section_summary_off">How this content was made section is shown</string>
-            <string name="revanced_hide_podcast_section_title">Hide \'Explore the podcast\' section</string>
+            <string name="revanced_hide_podcast_section_title">Hide \'Explore the podcast\'</string>
             <string name="revanced_hide_podcast_section_summary_on">Explore the podcast section is hidden</string>
             <string name="revanced_hide_podcast_section_summary_off">Explore the podcast section is shown</string>
             <string name="revanced_hide_info_cards_section_title">Hide info cards section</string>
             <string name="revanced_hide_info_cards_section_summary_on">Info cards section is hidden</string>
             <string name="revanced_hide_info_cards_section_summary_off">Info cards section is shown</string>
-            <string name="revanced_hide_key_concepts_section_title">Hide \'Key concepts\' section</string>
+            <string name="revanced_hide_key_concepts_section_title">Hide \'Key concepts\'</string>
             <string name="revanced_hide_key_concepts_section_summary_on">Key concepts section is hidden</string>
             <string name="revanced_hide_key_concepts_section_summary_off">Key concepts section is shown</string>
-            <string name="revanced_hide_transcript_section_title">Hide Transcript section</string>
+            <string name="revanced_hide_transcript_section_title">Hide Transcript</string>
             <string name="revanced_hide_transcript_section_summary_on">Transcript section is hidden</string>
             <string name="revanced_hide_transcript_section_summary_off">Transcript section is shown</string>
             <string name="revanced_hide_description_components_screen_title">Video description</string>
@@ -924,7 +924,7 @@ This feature works best with a video quality of 720p or lower and when using a v
             <string name="revanced_sb_enable_auto_hide_skip_segment_button">Automatically hide Skip button</string>
             <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_on">Skip button is hidden after a few seconds</string>
             <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_off">Skip button is shown for the entire segment</string>
-            <string name="revanced_sb_general_skiptoast">Show a toast when skipping automatically</string>
+            <string name="revanced_sb_general_skiptoast">Show a toast when skipping</string>
             <string name="revanced_sb_general_skiptoast_sum_on">Toast is shown when a segment is automatically skipped. Tap here to see an example</string>
             <string name="revanced_sb_general_skiptoast_sum_off">Toast is not shown. Tap here to see an example</string>
             <string name="revanced_sb_general_time_without">Show video length without segments</string>
