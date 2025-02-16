@@ -1404,8 +1404,6 @@ Si actives aquesta opció, es poden desbloquejar qualitats de vídeo més altes"
 La reproducció de vídeo pot no funcionar"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Desactivar aquesta configuració pot causar problemes de reproducció de vídeo.</string>
   <string name="revanced_spoof_video_streams_client_type_title">Client predeterminat</string>
-  <!-- 'no auth' means no authentication -->
-  <string name="revanced_spoof_video_streams_client_type_android_vr_no_auth">Android VR (sense autorització)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_title">Forza iOS AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">El còdec de vídeo es força a AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">El còdec de vídeo es determina automàticament.</string>

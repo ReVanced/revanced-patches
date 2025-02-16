@@ -1404,8 +1404,6 @@ Selle lubamine võib avada kõrgema video kvaliteedi"</string>
 Video taasesitus ei pruugi toimida"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Selle seade keelamine võib põhjustada videote taasesituse probleeme.</string>
   <string name="revanced_spoof_video_streams_client_type_title">Vaikimisi klient</string>
-  <!-- 'no auth' means no authentication -->
-  <string name="revanced_spoof_video_streams_client_type_android_vr_no_auth">Android VR (autentimata)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_title">Sunnitud iOS AVC (H.264) kodek</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Video kodek on sunnitud AVC (H.264) kodeki</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Video kodek määratakse automaatselt</string>

@@ -1404,8 +1404,6 @@ Abilitare questa opzione può sbloccare qualità video più elevate"</string>
 La riproduzione video potrebbe non funzionare"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Disattivando questa impostazione potrebbe causare problemi di riproduzione video.</string>
   <string name="revanced_spoof_video_streams_client_type_title">Client predefinito</string>
-  <!-- 'no auth' means no authentication -->
-  <string name="revanced_spoof_video_streams_client_type_android_vr_no_auth">Android VR (nessuna autenticazione)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_title">Forza iOS AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Il codec video è forzato ad AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Il codec video è determinato automaticamente</string>
