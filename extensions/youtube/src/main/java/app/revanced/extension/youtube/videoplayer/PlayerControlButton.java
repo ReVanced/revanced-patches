@@ -75,11 +75,7 @@ public abstract class PlayerControlButton {
     }
 
     public void setVisibilityImmediate(boolean visible) {
-        if (visible) {
-            private_setVisibility(true, false);
-        } else {
-            private_setVisibility(false, false);
-        }
+        private_setVisibility(visible, false);
     }
 
     public void setVisibility(boolean visible, boolean animated) {
@@ -91,8 +87,8 @@ public abstract class PlayerControlButton {
 
     private void private_setVisibility(boolean visible, boolean animated) {
         try {
-            if (isVisible == visible) return;
-            isVisible = visible; // If the visibility state hasn't changed, return early
+            if (isVisible == visible) return; // If the visibility state hasn't changed, return early
+            isVisible = visible;
 
             ImageView iView = buttonRef.get();
             if (iView == null) {
