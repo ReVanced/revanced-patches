@@ -21,7 +21,7 @@ val removeUpgradeButtonPatch = bytecodePatch(
     compatibleWith(
         "com.google.android.apps.youtube.music"(
             "7.16.53",
-            "8.05.50"
+            "8.05.51"
         )
     )
 
