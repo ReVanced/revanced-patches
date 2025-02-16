@@ -1369,8 +1369,8 @@ Bật tính năng này có thể mở khóa chất lượng video cao hơn"</str
   <string name="revanced_custom_playback_speeds_invalid">Tốc độ tùy chỉnh phải nhỏ hơn %s</string>
   <string name="revanced_custom_playback_speeds_parse_exception">Tốc độ phát lại tùy chỉnh không hợp lệ</string>
   <string name="revanced_custom_playback_speeds_auto">Tự động</string>
-  <string name="revanced_speed_tap_and_hold_title">Tỹc độ nhạn và giữ lúu tạo tốc độ tốc độ</string>
-  <string name="revanced_speed_tap_and_hold_summary">Tốc độ phát lại giữa từ 0-̂8</string>
+  <string name="revanced_speed_tap_and_hold_title">Tốc độ chạm và giữ tùy chỉnh</string>
+  <string name="revanced_speed_tap_and_hold_summary">Tốc độ phát lại giữa 0-8</string>
   </patch>
   <patch id="video.speed.remember.rememberPlaybackSpeedPatch">
   <string name="revanced_remember_playback_speed_last_selected_title">Nhớ các thay đổi tốc độ phát</string>

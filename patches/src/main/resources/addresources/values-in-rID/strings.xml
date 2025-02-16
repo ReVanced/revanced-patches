@@ -135,7 +135,7 @@ Ketuk tombol lanjutkan dan izinkan perubahan pengoptimalan."</string>
   <string name="revanced_settings_screen_03_feed_title">Umpan</string>
   <string name="revanced_settings_screen_04_general_title">Umum</string>
   <string name="revanced_settings_screen_05_player_title">Pemutar</string>
-  <string name="revanced_settings_screen_07_seekbar_title">Bilah Pencarian</string>
+  <string name="revanced_settings_screen_07_seekbar_title">Seekbar</string>
   <string name="revanced_settings_screen_08_swipe_controls_title">Kontrol usap</string>
   <string name="revanced_settings_screen_11_misc_title">Lain-lain</string>
   <string name="revanced_settings_screen_12_video_title">Video</string>
@@ -670,7 +670,7 @@ Catatan: Mengaktifkan ini juga akan memaksa menyembunyikan iklan video"</string>
   <string name="revanced_hide_endscreen_cards_summary_off">Kartu layar akhir ditampilkan</string>
   </patch>
   <patch id="layout.hide.fullscreenambientmode.disableFullscreenAmbientModePatch">
-  <string name="revanced_disable_fullscreen_ambient_mode_title">Nonaktifkan mode Ambient dalam layar penuh</string>
+  <string name="revanced_disable_fullscreen_ambient_mode_title">Nonaktifkan mode Senematik dalam layar penuh</string>
   <string name="revanced_disable_fullscreen_ambient_mode_summary_on">Mode sinematik dinonaktifkan</string>
   <string name="revanced_disable_fullscreen_ambient_mode_summary_off">Mode sinematik diaktifkan</string>
   </patch>
