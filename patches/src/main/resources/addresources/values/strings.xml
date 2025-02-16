@@ -913,7 +913,7 @@ This feature works best with a video quality of 720p or lower and when using a v
             <string name="revanced_sb_appearance_category">Appearance</string>
             <string name="revanced_sb_enable_voting">Show voting button</string>
             <string name="revanced_sb_enable_voting_sum_on">Segment voting button is shown</string>
-            <string name="revanced_sb_enable_voting_sum_off">Segment voting button is hidden</string>
+            <string name="revanced_sb_enable_voting_sum_off">Segment voting button is not shown</string>
             <string name="revanced_sb_square_layout">Use square layout</string>
             <string name="revanced_sb_square_layout_sum_on">Buttons and controls are square</string>
             <string name="revanced_sb_square_layout_sum_off">Buttons and controls are rounded</string>
@@ -922,7 +922,7 @@ This feature works best with a video quality of 720p or lower and when using a v
             <string name="revanced_sb_enable_compact_skip_button_sum_on">Skip button styled for minimum width</string>
             <string name="revanced_sb_enable_compact_skip_button_sum_off">Skip button styled for best appearance</string>
             <string name="revanced_sb_enable_auto_hide_skip_segment_button">Automatically hide Skip button</string>
-            <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_on">Skip button is hidden after a few seconds</string>
+            <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_on">Skip button hides after a few seconds</string>
             <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_off">Skip button is shown for the entire segment</string>
             <string name="revanced_sb_general_skiptoast">Show a toast when skipping</string>
             <string name="revanced_sb_general_skiptoast_sum_on">Toast is shown when a segment is automatically skipped. Tap here to see an example</string>
@@ -933,7 +933,7 @@ This feature works best with a video quality of 720p or lower and when using a v
             <string name="revanced_sb_create_segment_category">Creating new segments</string>
             <string name="revanced_sb_enable_create_segment">Show Create new segment button</string>
             <string name="revanced_sb_enable_create_segment_sum_on">Create new segment button is shown</string>
-            <string name="revanced_sb_enable_create_segment_sum_off">Create new segment button is hidden</string>
+            <string name="revanced_sb_enable_create_segment_sum_off">Create new segment button is not shown</string>
             <string name="revanced_sb_general_adjusting">Adjust new segment step</string>
             <string name="revanced_sb_general_adjusting_sum">Number of milliseconds the time adjustment buttons move when creating new segments</string>
             <string name="revanced_sb_general_adjusting_invalid">Value must be a positive number</string>
@@ -1301,7 +1301,7 @@ Tap here to learn more about DeArrow"</string>
         <patch id="misc.announcements.announcementsPatch">
             <string name="revanced_announcements_title">Show ReVanced announcements</string>
             <string name="revanced_announcements_summary_on">Announcements on startup are shown</string>
-            <string name="revanced_announcements_summary_off">Announcements on startup are hidden</string>
+            <string name="revanced_announcements_summary_off">Announcements on startup are not shown</string>
             <string name="revanced_announcements_enabled_summary">Show announcements on startup</string>
             <string name="revanced_announcements_connection_failed">Failed connecting to announcements provider</string>
             <string name="revanced_announcements_dialog_dismiss">Dismiss</string>
@@ -1371,12 +1371,12 @@ Enabling this can unlock higher video qualities"</string>
         <patch id="video.speed.button.playbackSpeedButtonPatch">
             <string name="revanced_playback_speed_dialog_button_title">Show speed dialog button</string>
             <string name="revanced_playback_speed_dialog_button_summary_on">Button is shown</string>
-            <string name="revanced_playback_speed_dialog_button_summary_off">Button is hidden</string>
+            <string name="revanced_playback_speed_dialog_button_summary_off">Button is not shown</string>
         </patch>
         <patch id="video.speed.custom.customPlaybackSpeedPatch">
             <string name="revanced_custom_speed_menu_title">Custom playback speed menu</string>
             <string name="revanced_custom_speed_menu_summary_on">Custom speed menu is shown</string>
-            <string name="revanced_custom_speed_menu_summary_off">Custom speed menu is hidden</string>
+            <string name="revanced_custom_speed_menu_summary_off">Custom speed menu is not shown</string>
             <string name="revanced_custom_playback_speeds_title">Custom playback speeds</string>
             <string name="revanced_custom_playback_speeds_summary">Add or change the custom playback speeds</string>
             <string name="revanced_custom_playback_speeds_invalid">Custom speeds must be less than %s</string>
