@@ -198,7 +198,7 @@ You will not be notified of any unexpected events."</string>
             <string name="revanced_hide_join_membership_button_summary_on">Button is hidden</string>
             <string name="revanced_hide_join_membership_button_summary_off">Button is shown</string>
             <!-- 'For you' should be translated using the same localized wording YouTube displays. -->
-            <string name="revanced_hide_for_you_shelf_title">Hide For you shelf</string>
+            <string name="revanced_hide_for_you_shelf_title">Hide \'For you\' shelf</string>
             <string name="revanced_hide_for_you_shelf_summary_on">Shelf in channel page is hidden</string>
             <string name="revanced_hide_for_you_shelf_summary_off">Shelf in channel page is shown</string>
             <!-- 'Notify me' should be translated using the same localized wording YouTube displays.
