@@ -163,7 +163,7 @@ Tap the continue button and allow optimization changes."</string>
             <string name="revanced_debug_stacktrace_summary_off">Debug logs do not include stack trace</string>
             <string name="revanced_debug_toast_on_error_title">Show toast on ReVanced error</string>
             <string name="revanced_debug_toast_on_error_summary_on">Toast is shown if error occurs</string>
-            <string name="revanced_debug_toast_on_error_summary_off">Toast is hidden if error occurs</string>
+            <string name="revanced_debug_toast_on_error_summary_off">Toast is not shown if error occurs</string>
             <string name="revanced_debug_toast_on_error_user_dialog_message">"Turning off error toasts hides all ReVanced error notifications.
 
 You will not be notified of any unexpected events."</string>
