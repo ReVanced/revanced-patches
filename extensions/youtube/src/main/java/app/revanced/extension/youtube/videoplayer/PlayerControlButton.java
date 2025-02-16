@@ -4,7 +4,6 @@ import android.transition.Fade;
 import android.transition.TransitionManager;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.Animation;
 import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
@@ -18,40 +17,12 @@ import app.revanced.extension.shared.Utils;
 import app.revanced.extension.shared.settings.BooleanSetting;
 
 public abstract class PlayerControlButton {
-    private static final Animation fadeIn;
-    private static final Animation fadeOut;
-    private static final Animation fadeOutImmediate;
-
     private final WeakReference<ImageView> buttonRef;
     protected final BooleanSetting setting;
     protected boolean isVisible;
 
-    static {
-        // TODO: check if these durations are correct.
-        fadeIn = Utils.getResourceAnimation("fade_in");
-        fadeIn.setDuration(Utils.getResourceInteger("fade_duration_fast"));
-
-        fadeOut = Utils.getResourceAnimation("fade_out");
-        fadeOut.setDuration(Utils.getResourceInteger("fade_duration_scheduled"));
-
-        fadeOutImmediate = Utils.getResourceAnimation("abc_fade_out");
-        fadeOutImmediate.setDuration(Utils.getResourceInteger("fade_duration_fast"));
-    }
-
-    @NonNull
-    public static Animation getButtonFadeIn() {
-        return fadeIn;
-    }
-
-    @NonNull
-    public static Animation getButtonFadeOut() {
-        return fadeOut;
-    }
-
-    @NonNull
-    public static Animation getButtonFadeOutImmediately() {
-        return fadeOutImmediate;
-    }
+    public static final int fadeInDuration  = 200; // Fade-in duration (ms)
+    public static final int fadeOutDuration = 600; // Fade-out duration (ms)
 
     public PlayerControlButton(@NonNull ViewGroup bottomControlsViewGroup, @NonNull String imageViewButtonId,
                                @NonNull BooleanSetting booleanSetting, @NonNull View.OnClickListener onClickListener,
@@ -90,18 +61,17 @@ public abstract class PlayerControlButton {
 
             ImageView iView = buttonRef.get();
             if (iView == null) {
-                return; // Return if the ImageView is null
+                return;
             }
 
             ViewGroup parent = (ViewGroup) iView.getParent();
             if (parent == null) {
-                return; // Return if the parent view is null
+                return;
             }
 
+            final Fade fade = new Fade();
             // Use Fade animation with dynamic duration
-            Fade fade = new Fade();
-            fade.setDuration(visible ? Utils.getResourceInteger("fade_duration_fast")
-                                     : Utils.getResourceInteger("fade_duration_scheduled"));
+            fade.setDuration(visible ? fadeInDuration : fadeOutDuration);
 
             // Apply transition if animation is enabled
             if (animated) {
@@ -120,7 +90,7 @@ public abstract class PlayerControlButton {
                         if (!isVisible) {
                             iView.setVisibility(View.GONE); // Set the view to GONE after the fade animation ends
                         }
-                    }, fade.getDuration()); // Delay for the duration of the fade animation
+                    }, fadeOutDuration); // Delay for the duration of the fade animation
                 } else {
                     iView.setVisibility(View.GONE); // If no animation, immediately set the view to GONE
                 }
