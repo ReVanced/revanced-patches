@@ -852,9 +852,9 @@ Second \"item\" text"</string>
   <string name="revanced_ryd_compact_layout_title">Компактная кнопка \"Лайк\"</string>
   <string name="revanced_ryd_compact_layout_summary_on">Кнопка \"Лайк\" стилизована для минимальной ширины</string>
   <string name="revanced_ryd_compact_layout_summary_off">Кнопка \"Лайк\" стилизована для лучшего внешнего вида</string>
-  <string name="revanced_ryd_estimated_like_title">Показывать примерное количество отметок \"Нравится\"</string>
-  <string name="revanced_ryd_estimated_like_summary_on">Примерное количество отметок \"Нравится\" показано</string>
-  <string name="revanced_ryd_estimated_like_summary_off">Примерное количество отметок \"Нравится\" скрыто</string>
+  <string name="revanced_ryd_estimated_like_title">Показать примерное количество лайков</string>
+  <string name="revanced_ryd_estimated_like_summary_on">Примерное количество лайков показано</string>
+  <string name="revanced_ryd_estimated_like_summary_off">Примерное количество лайков скрыто</string>
   <string name="revanced_ryd_toast_on_connection_error_title">Уведомление при недоступности API</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_on">Всплывающее уведомление при недоступности Return YouTube Dislike показано</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_off">Всплывающее уведомление при недоступности Return YouTube Dislike скрыто</string>
@@ -907,7 +907,7 @@ Second \"item\" text"</string>
   <string name="revanced_sb_enable_voting_sum_off">Кнопка голосования за сегмент скрыта</string>
   <string name="revanced_sb_square_layout">Использовать квадратный макет</string>
   <string name="revanced_sb_square_layout_sum_on">Кнопки и элементы управления квадратные</string>
-  <string name="revanced_sb_square_layout_sum_off">Кнопки и элементы управления закруглены</string>
+  <string name="revanced_sb_square_layout_sum_off">Кнопки и элементы управления закругленные</string>
   <!-- Translations should use language similar to 'revanced_ryd_compact_layout_title' -->
   <string name="revanced_sb_enable_compact_skip_button">Компактная кнопка пропуска</string>
   <string name="revanced_sb_enable_compact_skip_button_sum_on">Кнопка пропуска стилизована для минимальной ширины</string>
