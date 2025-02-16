@@ -115,7 +115,7 @@
         <patch id="misc.fix.playback.spoofVideoStreamsPatch">
             <string-array name="revanced_spoof_video_streams_client_type_entries">
                 <item>Android TV</item>
-                <item>@string/revanced_spoof_video_streams_client_type_android_vr_no_auth</item>
+                <item>Android VR</item>
                 <item>iOS TV</item>
             </string-array>
             <string-array name="revanced_spoof_video_streams_client_type_entry_values">
