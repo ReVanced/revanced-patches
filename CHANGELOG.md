@@ -1,3 +1,15 @@
+# [5.12.0-dev.7](https://github.com/ReVanced/revanced-patches/compare/v5.12.0-dev.6...v5.12.0-dev.7) (2025-02-16)
+
+
+### Bug Fixes
+
+* **YouTube - Spoof video streams:** Change default client to `Android TV` ([#4465](https://github.com/ReVanced/revanced-patches/issues/4465)) ([0412c79](https://github.com/ReVanced/revanced-patches/commit/0412c7901dc8599b6079d9c3ba26452f88af642b))
+
+
+### Features
+
+* **YouTube Music:** Support version `8.05.51` ([128441e](https://github.com/ReVanced/revanced-patches/commit/128441e78bc0d096c3fc2f57782ab90c39c3ae4b))
+
 # [5.12.0-dev.6](https://github.com/ReVanced/revanced-patches/compare/v5.12.0-dev.5...v5.12.0-dev.6) (2025-02-16)
 
 
