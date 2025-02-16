@@ -207,7 +207,7 @@ You will not be notified of any unexpected events."</string>
             <string name="revanced_hide_notify_me_button_summary_on">Button is hidden</string>
             <string name="revanced_hide_notify_me_button_summary_off">Button is shown</string>
             <!-- 'People also watch' should be translated using the same localized wording YouTube displays. -->
-            <string name="revanced_hide_search_result_recommendations_title">Hide People also watched label</string>
+            <string name="revanced_hide_search_result_recommendations_title">Hide \'People also watched\' label</string>
             <string name="revanced_hide_search_result_recommendations_summary_on">Label is hidden</string>
             <string name="revanced_hide_search_result_recommendations_summary_off">Label is shown</string>
             <!-- 'Show more' should be translated with the same localized wording that YouTube displays.
@@ -452,10 +452,10 @@ This feature is only available for older devices"</string>
             <string name="revanced_share_copy_url_timestamp_success">URL with timestamp copied</string>
             <string name="revanced_copy_video_url_title">Show copy video URL button</string>
             <string name="revanced_copy_video_url_summary_on">Button is shown. Tap to copy video URL. Tap and hold to copy video URL with timestamp</string>
-            <string name="revanced_copy_video_url_summary_off">Button is hidden</string>
+            <string name="revanced_copy_video_url_summary_off">Button is not shown</string>
             <string name="revanced_copy_video_url_timestamp_title">Show copy timestamp URL button</string>
             <string name="revanced_copy_video_url_timestamp_summary_on">Button is shown. Tap to copy video URL with timestamp. Tap and hold to copy video without timestamp</string>
-            <string name="revanced_copy_video_url_timestamp_summary_off">Button is hidden</string>
+            <string name="revanced_copy_video_url_timestamp_summary_off">Button is not shown</string>
         </patch>
         <patch id="interaction.dialog.removeViewerDiscretionDialogPatch">
             <string name="revanced_remove_viewer_discretion_dialog_title">Remove viewer discretion dialog</string>
@@ -468,7 +468,7 @@ This feature is only available for older devices"</string>
             <string name="revanced_external_downloader_screen_summary">Settings for using an external downloader</string>
             <string name="revanced_external_downloader_title">Show external download button</string>
             <string name="revanced_external_downloader_summary_on">Download button in player is shown</string>
-            <string name="revanced_external_downloader_summary_off">Download button in player is hidden</string>
+            <string name="revanced_external_downloader_summary_off">Download button in player is not shown</string>
             <!-- 'download action button' should be translated using the same wording as the translation of 'revanced_hide_download_button_title' -->
             <string name="revanced_external_downloader_action_button_title">Override Download action button</string>
             <string name="revanced_external_downloader_action_button_summary_on">Download button opens your external downloader</string>
@@ -835,10 +835,10 @@ Note: Enabling this also forcibly hides video ads"</string>
         <patch id="layout.returnyoutubedislike.returnYouTubeDislikePatch">
             <string name="revanced_ryd_settings_title" translatable="false">Return YouTube Dislike</string>
             <!-- Toast shown if network connection times out. Translations of this should not be longer than the original English or the text can be clipped and not entirely shown. -->
-            <string name="revanced_ryd_failure_connection_timeout">Dislikes are temporarily unavailable (API timed out)</string>
-            <string name="revanced_ryd_failure_connection_status_code">Dislikes are unavailable (status %d)</string>
-            <string name="revanced_ryd_failure_client_rate_limit_requested">Dislikes are unavailable (client API limit reached)</string>
-            <string name="revanced_ryd_failure_generic">Dislikes are unavailable (%s)</string>
+            <string name="revanced_ryd_failure_connection_timeout">Dislikes are temporarily not available (API timed out)</string>
+            <string name="revanced_ryd_failure_connection_status_code">Dislikes are not available (status %d)</string>
+            <string name="revanced_ryd_failure_client_rate_limit_requested">Dislikes are not available (client API limit)</string>
+            <string name="revanced_ryd_failure_generic">Dislikes are not available (%s)</string>
             <!-- Toast shown if the user enables RYD while a video is opened, and then tries to vote for the video. -->
             <string name="revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted">Reload video to vote using Return YouTube Dislike</string>
             <!-- Video likes have been set to hidden by the video uploader. -->
