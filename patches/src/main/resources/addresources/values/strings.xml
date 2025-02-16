@@ -422,8 +422,8 @@ This feature is only available for older devices"</string>
             <string name="revanced_hide_player_store_shelf_summary_on">Shopping shelf is hidden</string>
             <string name="revanced_hide_player_store_shelf_summary_off">Shopping shelf is shown</string>
             <string name="revanced_hide_shopping_links_title">Hide shopping links</string>
-            <string name="revanced_hide_shopping_links_summary_on">Shopping links in video description is hidden</string>
-            <string name="revanced_hide_shopping_links_summary_off">Shopping links in video description is shown</string>
+            <string name="revanced_hide_shopping_links_summary_on">Shopping links in video description are hidden</string>
+            <string name="revanced_hide_shopping_links_summary_off">Shopping links in video description are shown</string>
             <!-- 'Visit store' should be translated with the same localized wording that YouTube displays. -->
             <string name="revanced_hide_visit_store_button_title">Hide \'Visit store\' button</string>
             <string name="revanced_hide_visit_store_button_summary_on">Button in channel page is hidden</string>
