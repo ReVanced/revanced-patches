@@ -1,3 +1,10 @@
+# [5.12.0-dev.6](https://github.com/ReVanced/revanced-patches/compare/v5.12.0-dev.5...v5.12.0-dev.6) (2025-02-16)
+
+
+### Bug Fixes
+
+* Allow changing default settings for existing app installs ([#4464](https://github.com/ReVanced/revanced-patches/issues/4464)) ([1bd7986](https://github.com/ReVanced/revanced-patches/commit/1bd7986823e774a929c8a9102a7cc96e245d5274))
+
 # [5.12.0-dev.5](https://github.com/ReVanced/revanced-patches/compare/v5.12.0-dev.4...v5.12.0-dev.5) (2025-02-13)
 
 
