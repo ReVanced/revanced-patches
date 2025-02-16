@@ -206,7 +206,7 @@ You will not be notified of any unexpected events."</string>
             <string name="revanced_hide_notify_me_button_title">Hide \'Notify me\' button</string>
             <string name="revanced_hide_notify_me_button_summary_on">Button is hidden</string>
             <string name="revanced_hide_notify_me_button_summary_off">Button is shown</string>
-            <!-- 'People also watch' should be translated using the same localized wording YouTube displays. -->
+            <!-- 'People also watched' should be translated using the same localized wording YouTube displays. -->
             <string name="revanced_hide_search_result_recommendations_title">Hide \'People also watched\' label</string>
             <string name="revanced_hide_search_result_recommendations_summary_on">Label is hidden</string>
             <string name="revanced_hide_search_result_recommendations_summary_off">Label is shown</string>
@@ -281,7 +281,7 @@ You will not be notified of any unexpected events."</string>
             <string name="revanced_hide_artist_cards_title">Hide artist cards</string>
             <string name="revanced_hide_artist_cards_summary_on">Artist cards are hidden</string>
             <string name="revanced_hide_artist_cards_summary_off">Artist cards are shown</string>
-            <string name="revanced_hide_attributes_section_title">Hide attributes section</string>
+            <string name="revanced_hide_attributes_section_title">Hide Attributes</string>
             <string name="revanced_hide_attributes_section_summary_on">Featured places, Games, Music, and People mentioned sections are hidden</string>
             <string name="revanced_hide_attributes_section_summary_off">Featured places, Games, Music, and People mentioned sections are shown</string>
             <string name="revanced_hide_chapters_section_title">Hide Chapters</string>
@@ -293,7 +293,7 @@ You will not be notified of any unexpected events."</string>
             <string name="revanced_hide_podcast_section_title">Hide \'Explore the podcast\'</string>
             <string name="revanced_hide_podcast_section_summary_on">Explore the podcast section is hidden</string>
             <string name="revanced_hide_podcast_section_summary_off">Explore the podcast section is shown</string>
-            <string name="revanced_hide_info_cards_section_title">Hide info cards section</string>
+            <string name="revanced_hide_info_cards_section_title">Hide Info cards</string>
             <string name="revanced_hide_info_cards_section_summary_on">Info cards section is hidden</string>
             <string name="revanced_hide_info_cards_section_summary_off">Info cards section is shown</string>
             <string name="revanced_hide_key_concepts_section_title">Hide \'Key concepts\'</string>
@@ -319,7 +319,7 @@ You will not be notified of any unexpected events."</string>
 
             <string name="revanced_comments_screen_title">Comments</string>
             <string name="revanced_comments_screen_summary">Hide or show comments section components</string>
-            <string name="revanced_hide_comments_chat_summary_title">Hide Chat summary</string>
+            <string name="revanced_hide_comments_chat_summary_title">Hide \`Chat summary\`</string>
             <string name="revanced_hide_comments_chat_summary_summary_on">Chat summary is hidden</string>
             <string name="revanced_hide_comments_chat_summary_summary_off">Chat summary is shown</string>
             <string name="revanced_hide_comments_by_members_header_title">Hide \'Comments by members\' header</string>
