@@ -1417,8 +1417,6 @@ Enabling this can unlock higher video qualities"</string>
 Video playback may not work"</string>
             <string name="revanced_spoof_video_streams_user_dialog_message">Turning off this setting may cause video playback issues.</string>
             <string name="revanced_spoof_video_streams_client_type_title">Default client</string>
-            <!-- 'no auth' means no authentication -->
-            <string name="revanced_spoof_video_streams_client_type_android_vr_no_auth">Android VR (no auth)</string>
             <string name="revanced_spoof_video_streams_ios_force_avc_title">Force iOS AVC (H.264)</string>
             <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Video codec is forced to AVC (H.264)</string>
             <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Video codec is determined automatically</string>
