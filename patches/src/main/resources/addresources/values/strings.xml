@@ -874,7 +874,7 @@ Limitation: Dislikes may not appear in incognito mode"</string>
             <string name="revanced_ryd_statistics_getFetchCallResponseTimeMin_title">API response time, minimum</string>
             <string name="revanced_ryd_statistics_getFetchCallResponseTimeMax_title">API response time, maximum</string>
             <string name="revanced_ryd_statistics_getFetchCallResponseTimeLast_title">API response time, last video</string>
-            <string name="revanced_ryd_statistics_getFetchCallResponseTimeLast_rate_limit_summary">Dislikes are temporarily unavailable - Client API rate limit in effect</string>
+            <string name="revanced_ryd_statistics_getFetchCallResponseTimeLast_rate_limit_summary">Dislikes are temporarily not available - Client API rate limit in effect</string>
             <string name="revanced_ryd_statistics_getFetchCallCount_title">API fetch votes, number of calls</string>
             <string name="revanced_ryd_statistics_getFetchCallCount_zero_summary">No network calls made</string>
             <string name="revanced_ryd_statistics_getFetchCallCount_non_zero_summary">%d network calls made</string>
