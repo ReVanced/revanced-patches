@@ -906,6 +906,7 @@ Seekbar thumbnails-ները կօգտագործեն նույն որակը, ինչ
   <string name="revanced_sb_enable_voting_sum_on">Segment-ի ձայնի մասին տեղեկությունները ցույց են տրվում</string>
   <string name="revanced_sb_enable_voting_sum_off">Segment-ի ձայնի մասին տեղեկությունները չեն ցույց տրվում</string>
   <string name="revanced_sb_square_layout">Օգտագործե՛ք քառակուսի դասավորություն</string>
+  <string name="revanced_sb_square_layout_sum_on">Կոճակները և հսկիչները քառակուսի են</string>
   <string name="revanced_sb_square_layout_sum_off">Կոճակները և կառավարման վահանակները կլորացված են</string>
   <!-- Translations should use language similar to 'revanced_ryd_compact_layout_title' -->
   <string name="revanced_sb_enable_compact_skip_button">Օգտագործել կոմպակտ բաց թողնել կոճակը</string>
