@@ -1405,8 +1405,6 @@ Bunu etkinleştirmek daha yüksek video kalitelerini açabilir"</string>
 Video oynatma çalışmayabilir"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Bu ayarı devre dışı bırakmak video oynatma sorunlarına yol açabilir.</string>
   <string name="revanced_spoof_video_streams_client_type_title">Varsayılan istemci</string>
-  <!-- 'no auth' means no authentication -->
-  <string name="revanced_spoof_video_streams_client_type_android_vr_no_auth">Android VR (yetkilendirme yok)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_title">iOS için AVC (H.264) zorla</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Video kodeği AVC\'ye (H.264) zorlandı</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Video kodeği otomatik olarak belirlenir</string>

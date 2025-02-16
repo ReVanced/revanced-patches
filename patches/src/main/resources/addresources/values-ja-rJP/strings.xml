@@ -1407,8 +1407,6 @@ DeArrow の詳細については、ここをタップしてください"</string
 動画が再生できない可能性があります"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">この設定をオフにすると、動画再生の問題が発生する可能性があります。</string>
   <string name="revanced_spoof_video_streams_client_type_title">デフォルトのクライアント</string>
-  <!-- 'no auth' means no authentication -->
-  <string name="revanced_spoof_video_streams_client_type_android_vr_no_auth">Android VR（認証なし）</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_title">iOS クライアントで AVC (H.264) を強制的に使用する</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">iOS クライアントで AVC (H.264) を強制します</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">ビデオコーデックは自動的に決定されます</string>

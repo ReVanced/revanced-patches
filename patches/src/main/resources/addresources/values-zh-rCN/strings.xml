@@ -1404,8 +1404,6 @@ Second \"item\" text"</string>
 视频播放可能无法正常工作"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">关闭此选项可能会导致视频不能正常播放。</string>
   <string name="revanced_spoof_video_streams_client_type_title">默认客户端</string>
-  <!-- 'no auth' means no authentication -->
-  <string name="revanced_spoof_video_streams_client_type_android_vr_no_auth">Android VR​(无认证)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_title">强制 iOS 使用 AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">视频编解码器强制为 AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">视频编解码器将自动确定</string>

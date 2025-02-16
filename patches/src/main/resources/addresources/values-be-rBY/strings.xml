@@ -1406,8 +1406,6 @@ Second \"item\" text"</string>
 Прайграванне відэа можа не працаваць"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Адключэнне гэтай налады можа выклікаць праблемы з прайграваннем відэа.</string>
   <string name="revanced_spoof_video_streams_client_type_title">Клиент по умолчанию</string>
-  <!-- 'no auth' means no authentication -->
-  <string name="revanced_spoof_video_streams_client_type_android_vr_no_auth">Android VR (няма аўтэнтыфікацыі)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_title">Вымусіць iOS AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Відэакaдэк зафіксаваны ў AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Відэакaдэк вызначаецца аўтаматычна</string>

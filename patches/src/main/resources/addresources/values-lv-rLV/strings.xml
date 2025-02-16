@@ -1404,8 +1404,6 @@ Var tikt atbloķētas augstākas video kvalitātes, taču var rasties video atsk
 Video atskaņošana var nedarboties"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Šī iestatījuma atspējošana var izraisīt video atskaņošanas problēmas.</string>
   <string name="revanced_spoof_video_streams_client_type_title">Noklusētā klients</string>
-  <!-- 'no auth' means no authentication -->
-  <string name="revanced_spoof_video_streams_client_type_android_vr_no_auth">Android VR (bez autentifikācijas)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_title">Spēka iOS AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Video kodeks ir piespiests AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Video kodeks tiek automātiski noteikts</string>

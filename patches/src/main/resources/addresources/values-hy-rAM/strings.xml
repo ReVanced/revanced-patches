@@ -1405,8 +1405,6 @@ Mini-player-ը կարող է գրավվել էկրանից դուրս՝ դեպի
 Տեսանյութի վերարտադրումը կարող է չաշխատել։"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Այս  կարգավորման  անջատումը  կարող է  առաջացնել  տեսանյութի  վերարտադրման  հետ  կապված  պրոբլեմներ</string>
   <string name="revanced_spoof_video_streams_client_type_title">Դեֆոլտ  կլիենտ</string>
-  <!-- 'no auth' means no authentication -->
-  <string name="revanced_spoof_video_streams_client_type_android_vr_no_auth">Android VR (առանց հաստատման)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_title">iOS-ի համար AVC (H.264) պարտադիր ակտիվացում</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Վիդեո կոդեկը պարտադիր կերպով AVC (H.264) է</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Վիդեո կոդեկը որոշվում է ավտոմատ կերպով</string>

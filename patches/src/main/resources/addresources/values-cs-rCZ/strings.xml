@@ -1404,8 +1404,6 @@ Povolením této funkce lze odemknout vyšší kvality videa"</string>
 Přehrávání videa nemusí fungovat"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Vypnutí tohoto nastavení může způsobit problémy s přehráváním videa.</string>
   <string name="revanced_spoof_video_streams_client_type_title">Výchozí klient</string>
-  <!-- 'no auth' means no authentication -->
-  <string name="revanced_spoof_video_streams_client_type_android_vr_no_auth">Android VR (bez ověření)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_title">Vynucení kodeku iOS AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Kodek videa je vynucen na AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Kodek videa je určen automaticky</string>

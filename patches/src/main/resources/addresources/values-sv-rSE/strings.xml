@@ -1404,8 +1404,6 @@ Att aktivera detta kan låsa upp högre videokvalitet"</string>
 Videouppspelning kanske inte fungerar"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Att stänga av den här inställningen kan orsaka videouppspelningsproblem.</string>
   <string name="revanced_spoof_video_streams_client_type_title">Standard klient</string>
-  <!-- 'no auth' means no authentication -->
-  <string name="revanced_spoof_video_streams_client_type_android_vr_no_auth">Android VR (ingen autentisering)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_title">Tvinga iOS AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Videokodek tvingas till AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Videokodeken bestäms automatiskt</string>

@@ -491,7 +491,6 @@ Mלות עם אותיות גדולות באמצע צריכות להיכנס עם
   <string name="revanced_spoof_video_streams_summary_off">"זרמי וידאו לא מזויפים
 
 ייתכן שהשמעת וידאו לא תעבוד"</string>
-  <!-- 'no auth' means no authentication -->
   </patch>
   </app>
   <app id="twitch">

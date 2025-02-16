@@ -1404,8 +1404,6 @@ Second \"item\" text"</string>
 Відтворення відео може не працювати"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Вимкнення цього параметра може спричинити проблеми відтворення відео.</string>
   <string name="revanced_spoof_video_streams_client_type_title">Клієнт за замовчуванням</string>
-  <!-- 'no auth' means no authentication -->
-  <string name="revanced_spoof_video_streams_client_type_android_vr_no_auth">Android VR (без автентифікації)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_title">Примусово iOS AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Відеокодек примусово встановлено на AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Відеокодек визначається автоматично</string>

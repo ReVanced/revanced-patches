@@ -1400,8 +1400,6 @@ Is féidir le seo caighdeáin físeáin níos airde a dhíghlasáil"</string>
 D'fhéadfadh nach n-oibreoidh athsheinm físeáin"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Seans go mbeidh fadhbanna athsheinm físe ag baint leis an socrú seo a mhúchadh.</string>
   <string name="revanced_spoof_video_streams_client_type_title">Cliant réamhshocraithe</string>
-  <!-- 'no auth' means no authentication -->
-  <string name="revanced_spoof_video_streams_client_type_android_vr_no_auth">Android VR (gun fháil údarás)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_title">Féach iOS AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Fórsaítear códú fhíseán chuig AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Chinntítear códú fhíseán go huathoibríoch</string>
