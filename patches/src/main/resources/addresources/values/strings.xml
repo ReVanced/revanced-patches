@@ -467,8 +467,8 @@ This feature is only available for older devices"</string>
             <string name="revanced_external_downloader_screen_title">External downloads</string>
             <string name="revanced_external_downloader_screen_summary">Settings for using an external downloader</string>
             <string name="revanced_external_downloader_title">Show external download button</string>
-            <string name="revanced_external_downloader_summary_on">Download button is shown in player</string>
-            <string name="revanced_external_downloader_summary_off">Download button is hidden in player</string>
+            <string name="revanced_external_downloader_summary_on">Download button in player is shown</string>
+            <string name="revanced_external_downloader_summary_off">Download button in player is hidden</string>
             <!-- 'download action button' should be translated using the same wording as the translation of 'revanced_hide_download_button_title' -->
             <string name="revanced_external_downloader_action_button_title">Override Download action button</string>
             <string name="revanced_external_downloader_action_button_summary_on">Download button opens your external downloader</string>
