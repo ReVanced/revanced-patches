@@ -203,7 +203,7 @@ You will not be notified of any unexpected events."</string>
             <string name="revanced_hide_for_you_shelf_summary_off">Shelf in channel page is shown</string>
             <!-- 'Notify me' should be translated using the same localized wording YouTube displays.
                  This item appear in the subscription feed for future livestreams or unreleased videos. -->
-            <string name="revanced_hide_notify_me_button_title">Hide Notify me button</string>
+            <string name="revanced_hide_notify_me_button_title">Hide \'Notify me\' button</string>
             <string name="revanced_hide_notify_me_button_summary_on">Button is hidden</string>
             <string name="revanced_hide_notify_me_button_summary_off">Button is shown</string>
             <!-- 'People also watch' should be translated using the same localized wording YouTube displays. -->
@@ -212,7 +212,7 @@ You will not be notified of any unexpected events."</string>
             <string name="revanced_hide_search_result_recommendations_summary_off">Label is shown</string>
             <!-- 'Show more' should be translated with the same localized wording that YouTube displays.
                   This button usually appears when searching for a YT creator. -->
-            <string name="revanced_hide_show_more_button_title">Hide Show more button</string>
+            <string name="revanced_hide_show_more_button_title">Hide \'Show more\' button</string>
             <string name="revanced_hide_show_more_button_summary_on">Button is hidden</string>
             <string name="revanced_hide_show_more_button_summary_off">Button is shown</string>
             <string name="revanced_hide_timed_reactions_title">Hide timed reactions</string>
@@ -287,16 +287,16 @@ You will not be notified of any unexpected events."</string>
             <string name="revanced_hide_chapters_section_title">Hide Chapters section</string>
             <string name="revanced_hide_chapters_section_summary_on">Chapters section is hidden</string>
             <string name="revanced_hide_chapters_section_summary_off">Chapters section is shown</string>
-            <string name="revanced_hide_how_this_was_made_section_title">Hide How this content was made section</string>
+            <string name="revanced_hide_how_this_was_made_section_title">Hide \'How this content was made\' section</string>
             <string name="revanced_hide_how_this_was_made_section_summary_on">How this content was made section is hidden</string>
             <string name="revanced_hide_how_this_was_made_section_summary_off">How this content was made section is shown</string>
-            <string name="revanced_hide_podcast_section_title">Hide Explore the podcast section</string>
+            <string name="revanced_hide_podcast_section_title">Hide \'Explore the podcast\' section</string>
             <string name="revanced_hide_podcast_section_summary_on">Explore the podcast section is hidden</string>
             <string name="revanced_hide_podcast_section_summary_off">Explore the podcast section is shown</string>
             <string name="revanced_hide_info_cards_section_title">Hide info cards section</string>
             <string name="revanced_hide_info_cards_section_summary_on">Info cards section is hidden</string>
             <string name="revanced_hide_info_cards_section_summary_off">Info cards section is shown</string>
-            <string name="revanced_hide_key_concepts_section_title">Hide Key concepts section</string>
+            <string name="revanced_hide_key_concepts_section_title">Hide \'Key concepts\' section</string>
             <string name="revanced_hide_key_concepts_section_summary_on">Key concepts section is hidden</string>
             <string name="revanced_hide_key_concepts_section_summary_off">Key concepts section is shown</string>
             <string name="revanced_hide_transcript_section_title">Hide Transcript section</string>
@@ -319,16 +319,16 @@ You will not be notified of any unexpected events."</string>
 
             <string name="revanced_comments_screen_title">Comments</string>
             <string name="revanced_comments_screen_summary">Hide or show comments section components</string>
-            <string name="revanced_hide_comments_chat_summary_title">Hide Chat summary </string>
+            <string name="revanced_hide_comments_chat_summary_title">Hide Chat summary</string>
             <string name="revanced_hide_comments_chat_summary_summary_on">Chat summary is hidden</string>
             <string name="revanced_hide_comments_chat_summary_summary_off">Chat summary is shown</string>
-            <string name="revanced_hide_comments_by_members_header_title">Hide Comments by members header</string>
+            <string name="revanced_hide_comments_by_members_header_title">Hide \'Comments by members\' header</string>
             <string name="revanced_hide_comments_by_members_header_summary_on">Comments by members header is hidden</string>
             <string name="revanced_hide_comments_by_members_header_summary_off">Comments by members header is shown</string>
             <string name="revanced_hide_comments_section_title">Hide comments section</string>
             <string name="revanced_hide_comments_section_summary_on">Comments section is hidden</string>
             <string name="revanced_hide_comments_section_summary_off">Comments section is shown</string>
-            <string name="revanced_hide_comments_create_a_short_button_title">Hide Create a Short button</string>
+            <string name="revanced_hide_comments_create_a_short_button_title">Hide \'Create a Short\' button</string>
             <string name="revanced_hide_comments_create_a_short_button_summary_on">Create a Short button is hidden</string>
             <string name="revanced_hide_comments_create_a_short_button_summary_off">Create a Short button is shown</string>
             <string name="revanced_hide_comments_timestamp_and_emoji_buttons_title">Hide emoji and timestamp buttons</string>
@@ -425,7 +425,7 @@ This feature is only available for older devices"</string>
             <string name="revanced_hide_shopping_links_summary_on">Shopping links in video description is hidden</string>
             <string name="revanced_hide_shopping_links_summary_off">Shopping links in video description is shown</string>
             <!-- 'Visit store' should be translated with the same localized wording that YouTube displays. -->
-            <string name="revanced_hide_visit_store_button_title">Hide Visit store button</string>
+            <string name="revanced_hide_visit_store_button_title">Hide \'Visit store\' button</string>
             <string name="revanced_hide_visit_store_button_summary_on">Button in channel page is hidden</string>
             <string name="revanced_hide_visit_store_button_summary_off">Button in channel page is shown</string>
             <string name="revanced_hide_web_search_results_title">Hide web search results</string>
