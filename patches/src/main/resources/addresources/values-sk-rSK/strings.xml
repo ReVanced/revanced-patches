@@ -499,8 +499,9 @@ Táto funkcia je dostupná len pre staršie zariadenia"</string>
   <string name="revanced_swipe_overlay_timeout_summary">Počet milisekúnd, počas ktorých je prekrytie viditeľné</string>
   <string name="revanced_swipe_text_overlay_size_title">Veľkosť textu prekrytia prstom</string>
   <string name="revanced_swipe_text_overlay_size_summary">Veľkosť textu pre prekrytie potiahnutím prstom</string>
-  <string name="revanced_swipe_overlay_background_alpha_title">Viditeľnosť pozadia potiahnutím prstom</string>
-  <string name="revanced_swipe_overlay_background_alpha_summary">Viditeľnosť pozadia prekrytia potiahnutím prstom</string>
+  <string name="revanced_swipe_overlay_background_opacity_title">Priehľadnosť pozadia prekrytia potiahnutia</string>
+  <string name="revanced_swipe_overlay_background_opacity_summary">Hodnota priehľadnosti medzi 0-100</string>
+  <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Priehľadnosť prekrytia potiahnutia musí byť medzi 0-100</string>
   <string name="revanced_swipe_threshold_title">Prahová hodnota potiahnutia</string>
   <string name="revanced_swipe_threshold_summary">Hodnota prahu, ktorý sa má vykonať potiahnutím prstom</string>
   <string name="revanced_swipe_change_video_title">Potiahnite prstom a zmeňte videá</string>
@@ -827,6 +828,8 @@ Poznámka: Povolením tejto možnosti sa tiež vynútene skryjú video reklamy"<
   <string name="revanced_ryd_failure_generic">Nepáči sa mi nie sú k dispozícii (%s)</string>
   <!-- Toast shown if the user enables RYD while a video is opened, and then tries to vote for the video. -->
   <string name="revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted">Znova načítajte video a hlasujte pomocou funkcie Vrátiť Nepáči sa mi na YouTube</string>
+  <!-- Video likes have been set to hidden by the video uploader. -->
+  <string name="revanced_ryd_video_likes_hidden_by_video_owner">Skryté vlastníkom</string>
   <string name="revanced_ryd_enable_summary_on">Nepáči sa mi</string>
   <string name="revanced_ryd_enable_summary_off">Nepáči sa mi nie sú zobrazené</string>
   <string name="revanced_ryd_shorts_title">Zobrazovať, že sa mi nepáči v Shorts videách</string>
@@ -842,6 +845,9 @@ Obmedzenie: Nepáči sa mi sa nemusí zobraziť v režime inkognito"</string>
   <string name="revanced_ryd_compact_layout_title">Kompaktné tlačidlo Páči sa mi to</string>
   <string name="revanced_ryd_compact_layout_summary_on">Tlačidlo podobné štýlu pre minimálnu šírku</string>
   <string name="revanced_ryd_compact_layout_summary_off">Tlačidlo v štýle ako pre najlepší vzhľad</string>
+  <string name="revanced_ryd_estimated_like_title">Zobraziť odhadované počty označení Páči sa mi to</string>
+  <string name="revanced_ryd_estimated_like_summary_on">Zobrazujú sa odhadované počty označení Páči sa mi to</string>
+  <string name="revanced_ryd_estimated_like_summary_off">Odhadované počty označení Páči sa mi to sú skryté</string>
   <string name="revanced_ryd_toast_on_connection_error_title">Ukážte prípitok, ak API nie je k dispozícii</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_on">Ak nie je k dispozícii možnosť Vrátiť Nepáči sa mi na YouTube, zobrazí sa toast</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_off">Toast sa nezobrazuje, ak nie je k dispozícii možnosť Vrátiť Nepáči sa mi na YouTube</string>
@@ -892,6 +898,9 @@ Táto funkcia najlepšie funguje s kvalitou videa 720p alebo nižšou a pri pou�
   <string name="revanced_sb_enable_voting">Zobraziť hlasovacie tlačidlo</string>
   <string name="revanced_sb_enable_voting_sum_on">Zobrazí sa tlačidlo hlasovania segmentov</string>
   <string name="revanced_sb_enable_voting_sum_off">Segmentové hlasovacie tlačidlo sa nezobrazuje</string>
+  <string name="revanced_sb_square_layout">Použiť štvorcové rozloženie</string>
+  <string name="revanced_sb_square_layout_sum_on">Tlačidlá a ovládacie prvky sú štvorcové</string>
+  <string name="revanced_sb_square_layout_sum_off">Tlačidlá a ovládacie prvky sú zaoblené</string>
   <!-- Translations should use language similar to 'revanced_ryd_compact_layout_title' -->
   <string name="revanced_sb_enable_compact_skip_button">Použite kompaktné tlačidlo preskočenia</string>
   <string name="revanced_sb_enable_compact_skip_button_sum_on">Tlačidlo preskočenia v štýle minimálnej šírky</string>
@@ -1105,7 +1114,7 @@ Ak sa neskôr vypne, odporúča sa vymazať údaje aplikácie, aby sa zabránilo
                  This is because the 'General layout' menu uses alphabetic sorting, and it functionally works better if the spoof target selector appears below the 'Spoof app version' UI switch -->
   <string name="revanced_spoof_app_version_target_title">Falošná cieľová verzia aplikácie</string>
   <string name="revanced_spoof_app_version_target_entry_1">19.35.36 - Obnoviť staré ikony Shorts prehrávača</string>
-  <string name="revanced_spoof_app_version_target_entry_2">19.26.42 - Obnovte staré ikony navigácie a panela s nástrojmi</string>
+  <string name="revanced_spoof_app_version_target_entry_2">19.26.42 - Obnoviť staré ikony navigácie</string>
   <!-- 'RYD' is 'Return YouTube Dislike' -->
   <string name="revanced_spoof_app_version_target_legacy_entry_1">18.33.40 - Obnovenie režimu inkognito RYD na Shorts</string>
   <string name="revanced_spoof_app_version_target_legacy_entry_2">18.20.39 - Obnovenie rýchlosti širokouhlého videa &amp; kvalitné menu</string>
@@ -1115,8 +1124,11 @@ Ak sa neskôr vypne, odporúča sa vymazať údaje aplikácie, aby sa zabránilo
   <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">Nastaviť úvodnú stránku</string>
   <string name="revanced_change_start_page_entry_default">Predvolené</string>
+  <string name="revanced_change_start_page_entry_all_subscriptions">Všetky odbery</string>
   <string name="revanced_change_start_page_entry_browse">Prehliadať kanály</string>
+  <string name="revanced_change_start_page_entry_courses">Kurzy / Vzdelávanie</string>
   <string name="revanced_change_start_page_entry_explore">Preskúmajte</string>
+  <string name="revanced_change_start_page_entry_fashion">Móda a krása</string>
   <string name="revanced_change_start_page_entry_gaming">Hry</string>
   <string name="revanced_change_start_page_entry_history">História</string>
   <string name="revanced_change_start_page_entry_library">Knižnica</string>
@@ -1124,11 +1136,17 @@ Ak sa neskôr vypne, odporúča sa vymazať údaje aplikácie, aby sa zabránilo
   <string name="revanced_change_start_page_entry_live">Živé</string>
   <string name="revanced_change_start_page_entry_movies">Filmy</string>
   <string name="revanced_change_start_page_entry_music">Hudba</string>
+  <string name="revanced_change_start_page_entry_news">Správy</string>
+  <string name="revanced_change_start_page_entry_notifications">Upozornenia</string>
+  <string name="revanced_change_start_page_entry_playlists">Zoznamy skladieb</string>
   <string name="revanced_change_start_page_entry_search">Vyhľadávanie</string>
+  <string name="revanced_change_start_page_entry_shopping">Nakupovanie</string>
   <string name="revanced_change_start_page_entry_sports">Šport</string>
   <string name="revanced_change_start_page_entry_subscriptions">Predplatné</string>
   <string name="revanced_change_start_page_entry_trending">Trendy</string>
+  <string name="revanced_change_start_page_entry_virtual_reality">Virtuálna realita</string>
   <string name="revanced_change_start_page_entry_watch_later">Pozrieť neskôr</string>
+  <string name="revanced_change_start_page_entry_your_clips">Vaše klipy</string>
   </patch>
   <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch">
   <string name="revanced_disable_resuming_shorts_player_title">Zakázať obnovenie prehrávača Shorts</string>
@@ -1375,8 +1393,6 @@ Povolením tejto možnosti môžete odomknúť vyššie kvality videa"</string>
 Prehrávanie videa nemusí fungovať"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Vypnutie tohto nastavenia môže spôsobiť problémy s prehrávaním videa.</string>
   <string name="revanced_spoof_video_streams_client_type_title">Predvolený klient</string>
-  <!-- 'no auth' means no authentication -->
-  <string name="revanced_spoof_video_streams_client_type_android_vr_no_auth">Android VR (bez autorizácie)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_title">Vynútiť iOS AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Video kodek je vynútený na AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Video kodek sa určuje automaticky</string>

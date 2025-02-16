@@ -506,8 +506,9 @@ Ez a funkció csak régebbi eszközökön érhető el"</string>
   <string name="revanced_swipe_overlay_timeout_summary">Az átfedés láthatóságának időtartama ezredmásodpercben</string>
   <string name="revanced_swipe_text_overlay_size_title">Csúsztatási átfedés szövegmérete</string>
   <string name="revanced_swipe_text_overlay_size_summary">A csúsztatási átfedés szövegmérete</string>
-  <string name="revanced_swipe_overlay_background_alpha_title">A csúsztatás hátterének láthatósága</string>
-  <string name="revanced_swipe_overlay_background_alpha_summary">A csúsztatási átfedés hátterének láthatósága</string>
+  <string name="revanced_swipe_overlay_background_opacity_title">Az áthúzás átfedésének átlátszósága</string>
+  <string name="revanced_swipe_overlay_background_opacity_summary">Az átlátszóság értéke 0-100 között legyen</string>
+  <string name="revanced_swipe_overlay_background_opacity_invalid_toast">A csúsztatás átlátszóságának 0 és 100 között kell lennie</string>
   <string name="revanced_swipe_threshold_title">A csúsztatás küszöbértéke</string>
   <string name="revanced_swipe_threshold_summary">A csúsztatáshoz szükséges küszöbérték</string>
   <string name="revanced_swipe_change_video_title">Engedélyezze az ujjbegyújtással történő videóváltást</string>
@@ -834,6 +835,8 @@ Megjegyzés: Ez a beállítás a videóhirdetések kényszerű elrejtését is m
   <string name="revanced_ryd_failure_generic">A nem tetszik funkció nem elérhető (%s)</string>
   <!-- Toast shown if the user enables RYD while a video is opened, and then tries to vote for the video. -->
   <string name="revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted">Töltse újra a videót a Return YouTube Dislike-hoz</string>
+  <!-- Video likes have been set to hidden by the video uploader. -->
+  <string name="revanced_ryd_video_likes_hidden_by_video_owner">A tulajdonos elrejtette</string>
   <string name="revanced_ryd_enable_summary_on">A nem tetszések megjelennek</string>
   <string name="revanced_ryd_enable_summary_off">A nem tetszések nem jelennek meg</string>
   <string name="revanced_ryd_shorts_title">A nem tetszések megjelenítése a Shorts videóknál</string>
@@ -849,6 +852,9 @@ Korlátozás: A Nem tetszik jelzések nem jelennek meg inkognitó módban"</stri
   <string name="revanced_ryd_compact_layout_title">Tömör Tetszik gomb</string>
   <string name="revanced_ryd_compact_layout_summary_on">A tetszik gomb minimális szélességre formázva</string>
   <string name="revanced_ryd_compact_layout_summary_off">A tetszik gomb a legjobb megjelenésre formázva</string>
+  <string name="revanced_ryd_estimated_like_title">Becsült kedvelések mutatása</string>
+  <string name="revanced_ryd_estimated_like_summary_on">A becsült kedvelések láthatók</string>
+  <string name="revanced_ryd_estimated_like_summary_off">A becsült kedvelések rejtve vannak</string>
   <string name="revanced_ryd_toast_on_connection_error_title">Üzenet megjelenítése, ha az API nem elérhető</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_on">Üzenet megjelenítése, ha a Return YouTube Dislike nem elérhető</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_off">Nem jelenik meg üzenet, ha a Return YouTube Dislike nem elérhető</string>
@@ -899,6 +905,9 @@ Ez a funkció a legjobban 720p vagy annál alacsonyabb videóminőség mellett �
   <string name="revanced_sb_enable_voting">Szavazás gomb megjelenítése</string>
   <string name="revanced_sb_enable_voting_sum_on">Szegmens szavazás gomb megjelenítve</string>
   <string name="revanced_sb_enable_voting_sum_off">Szegmens szavazás gomb elrejtve</string>
+  <string name="revanced_sb_square_layout">Négyzetes elrendezés használata</string>
+  <string name="revanced_sb_square_layout_sum_on">A gombok és vezérlők négyszögletesek</string>
+  <string name="revanced_sb_square_layout_sum_off">A gombok és vezérlők lekerekítettek</string>
   <!-- Translations should use language similar to 'revanced_ryd_compact_layout_title' -->
   <string name="revanced_sb_enable_compact_skip_button">Kompakt kihagyás gomb használata</string>
   <string name="revanced_sb_enable_compact_skip_button_sum_on">A kihagyás gomb minimális szélességre formázva</string>
@@ -1114,7 +1123,7 @@ Ha később kikapcsolja, akkor ajánlott az alkalmazás adatait törölni, hogy 
                  This is because the 'General layout' menu uses alphabetic sorting, and it functionally works better if the spoof target selector appears below the 'Spoof app version' UI switch -->
   <string name="revanced_spoof_app_version_target_title">Hamisított alkalmazásverzió célja</string>
   <string name="revanced_spoof_app_version_target_entry_1">19.35.36 - A régi Shorts lejátszó ikonok visszaállítása</string>
-  <string name="revanced_spoof_app_version_target_entry_2">19.26.42 - A régi navigációs és eszköztári ikonok visszaállítása</string>
+  <string name="revanced_spoof_app_version_target_entry_2">19.26.42 - Állítsa vissza a régi navigációs ikonokat</string>
   <!-- 'RYD' is 'Return YouTube Dislike' -->
   <string name="revanced_spoof_app_version_target_legacy_entry_1">18.33.40 - RYD visszaállítása Shorts inkognitó módban</string>
   <string name="revanced_spoof_app_version_target_legacy_entry_2">18.20.39 - Széles videósebesség és minőség menü visszaállítása</string>
@@ -1124,8 +1133,11 @@ Ha később kikapcsolja, akkor ajánlott az alkalmazás adatait törölni, hogy 
   <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">Kezdőlap beállítása</string>
   <string name="revanced_change_start_page_entry_default">Alapértelmezett</string>
+  <string name="revanced_change_start_page_entry_all_subscriptions">Összes feliratkozás</string>
   <string name="revanced_change_start_page_entry_browse">Csatornák böngészése</string>
+  <string name="revanced_change_start_page_entry_courses">Tanfolyamok / Tanulás</string>
   <string name="revanced_change_start_page_entry_explore">Felfedezés</string>
+  <string name="revanced_change_start_page_entry_fashion">Divat és szépség</string>
   <string name="revanced_change_start_page_entry_gaming">Játék</string>
   <string name="revanced_change_start_page_entry_history">Előzmények</string>
   <string name="revanced_change_start_page_entry_library">Könyvtár</string>
@@ -1133,11 +1145,17 @@ Ha később kikapcsolja, akkor ajánlott az alkalmazás adatait törölni, hogy 
   <string name="revanced_change_start_page_entry_live">Élő</string>
   <string name="revanced_change_start_page_entry_movies">Filmek</string>
   <string name="revanced_change_start_page_entry_music">Zene</string>
+  <string name="revanced_change_start_page_entry_news">Hírek</string>
+  <string name="revanced_change_start_page_entry_notifications">Értesítések</string>
+  <string name="revanced_change_start_page_entry_playlists">Lejátszási listák</string>
   <string name="revanced_change_start_page_entry_search">Keresés</string>
+  <string name="revanced_change_start_page_entry_shopping">Bevásárlás</string>
   <string name="revanced_change_start_page_entry_sports">Sportok</string>
   <string name="revanced_change_start_page_entry_subscriptions">Feliratkozások</string>
   <string name="revanced_change_start_page_entry_trending">Felkapott</string>
+  <string name="revanced_change_start_page_entry_virtual_reality">Virtuális valóság</string>
   <string name="revanced_change_start_page_entry_watch_later">Megnézem később</string>
+  <string name="revanced_change_start_page_entry_your_clips">A saját klipjeid</string>
   </patch>
   <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch">
   <string name="revanced_disable_resuming_shorts_player_title">A Shorts lejátszás folytatásának kikapcsolása</string>
@@ -1386,8 +1404,6 @@ Ez a beállítás lehetővé teszi a magasabb videóminőségek feloldását"</s
 A videólejátszás nem működhet"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">A beállítás kikapcsolása videolejátszási problémákat okozhat.</string>
   <string name="revanced_spoof_video_streams_client_type_title">Alapértelmezett kliens</string>
-  <!-- 'no auth' means no authentication -->
-  <string name="revanced_spoof_video_streams_client_type_android_vr_no_auth">Android VR (nincs hitelesítés)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_title">Az iOS kényyszerített AVC (H.264) videokodeket használ</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">A videokodek AVC-re kényszerítve (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">A videokodek meghatározása automatikusan történik</string>

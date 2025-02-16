@@ -506,8 +506,9 @@ Second \"item\" text"</string>
   <string name="revanced_swipe_overlay_timeout_summary">Працягласць бачнага накладання ў мілісекундах</string>
   <string name="revanced_swipe_text_overlay_size_title">Памер накладанага тэксту</string>
   <string name="revanced_swipe_text_overlay_size_summary">Памер тэксту для накладання пальцам</string>
-  <string name="revanced_swipe_overlay_background_alpha_title">Бачнасць фону пальцам</string>
-  <string name="revanced_swipe_overlay_background_alpha_summary">Бачнасць фону накладання пальцам</string>
+  <string name="revanced_swipe_overlay_background_opacity_title">Непразрыстасць фону накладкі пракруткі</string>
+  <string name="revanced_swipe_overlay_background_opacity_summary">Значэнне непразрыстасці паміж 0-100</string>
+  <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Непразрыстасць пракруткі павінна быць паміж 0-100</string>
   <string name="revanced_swipe_threshold_title">Парог велічыні пальцам</string>
   <string name="revanced_swipe_threshold_summary">Велічыня парогавага значэння для правядзення пальцам</string>
   <string name="revanced_swipe_change_video_title">Уключыць зьмену відэа праз правядзенне пальцам</string>
@@ -834,6 +835,8 @@ Second \"item\" text"</string>
   <string name="revanced_ryd_failure_generic">Не падабаецца (%s)</string>
   <!-- Toast shown if the user enables RYD while a video is opened, and then tries to vote for the video. -->
   <string name="revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted">Перазагрузіце відэа, каб прагаласаваць з дапамогай функцыі \"Вярнуць не падабаецца YouTube\"</string>
+  <!-- Video likes have been set to hidden by the video uploader. -->
+  <string name="revanced_ryd_video_likes_hidden_by_video_owner">Схавана ўладальнікам</string>
   <string name="revanced_ryd_enable_summary_on">Дызлайкі паказаны</string>
   <string name="revanced_ryd_enable_summary_off">Дызлайкі не паказваюцца</string>
   <string name="revanced_ryd_shorts_title">Паказвайце \"не падабаецца\" на Shorts</string>
@@ -849,6 +852,9 @@ Second \"item\" text"</string>
   <string name="revanced_ryd_compact_layout_title">Кампактны дызайн кнопак «Падабаецца» і «Не падабаецца»</string>
   <string name="revanced_ryd_compact_layout_summary_on">Кнопка \"Падабаецца\" ў стылі мінімальнай шырыні</string>
   <string name="revanced_ryd_compact_layout_summary_off">Кнопка \"Падабаецца\", аформленая для лепшага выгляду</string>
+  <string name="revanced_ryd_estimated_like_title">Паказваць прыблізную колькасць падабаек</string>
+  <string name="revanced_ryd_estimated_like_summary_on">Паказана прыблізная колькасць падабаек</string>
+  <string name="revanced_ryd_estimated_like_summary_off">Прыблізная колькасць падабаек схавана</string>
   <string name="revanced_ryd_toast_on_connection_error_title">Паказаць тост, калі API недаступны</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_on">Тост паказваецца, калі функцыя \"Вярнуць не падабаецца YouTube\" недаступная</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_off">Тост не паказваецца, калі функцыя \"Вярнуць не падабаецца YouTube\" недаступная</string>
@@ -899,6 +905,9 @@ Second \"item\" text"</string>
   <string name="revanced_sb_enable_voting">Паказаць кнопку галасавання</string>
   <string name="revanced_sb_enable_voting_sum_on">Паказана кнопка сегментнага галасавання</string>
   <string name="revanced_sb_enable_voting_sum_off">Кнопка сегментнага галасавання не паказваецца</string>
+  <string name="revanced_sb_square_layout">Выкарыстоўваць квадратную схему</string>
+  <string name="revanced_sb_square_layout_sum_on">Кнопкі і элементы кіравання квадратныя</string>
+  <string name="revanced_sb_square_layout_sum_off">Кнопкі і элементы кіравання закруглены</string>
   <!-- Translations should use language similar to 'revanced_ryd_compact_layout_title' -->
   <string name="revanced_sb_enable_compact_skip_button">Выкарыстоўвайце кнопку кампактнага пропуску</string>
   <string name="revanced_sb_enable_compact_skip_button_sum_on">Кнопка \"Прапусціць\" у стылі мінімальнай шырыні</string>
@@ -1126,8 +1135,11 @@ Second \"item\" text"</string>
   <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">Усталяваць стартавую старонку</string>
   <string name="revanced_change_start_page_entry_default">Па змаўчанні</string>
+  <string name="revanced_change_start_page_entry_all_subscriptions">Усе падпіскі</string>
   <string name="revanced_change_start_page_entry_browse">Обзор каналов</string>
+  <string name="revanced_change_start_page_entry_courses">Курсы / Адукацыя</string>
   <string name="revanced_change_start_page_entry_explore">Дасьледуйце</string>
+  <string name="revanced_change_start_page_entry_fashion">Мода і прыгажосць</string>
   <string name="revanced_change_start_page_entry_gaming">Игры</string>
   <string name="revanced_change_start_page_entry_history">Гісторыя</string>
   <string name="revanced_change_start_page_entry_library">Библиотека</string>
@@ -1135,11 +1147,17 @@ Second \"item\" text"</string>
   <string name="revanced_change_start_page_entry_live">В прямом эфире</string>
   <string name="revanced_change_start_page_entry_movies">Фильмы</string>
   <string name="revanced_change_start_page_entry_music">Музыка</string>
+  <string name="revanced_change_start_page_entry_news">Навіны</string>
+  <string name="revanced_change_start_page_entry_notifications">Апавяшчэнні</string>
+  <string name="revanced_change_start_page_entry_playlists">Спісы прайгравання</string>
   <string name="revanced_change_start_page_entry_search">Пошук</string>
+  <string name="revanced_change_start_page_entry_shopping">Пакупкі</string>
   <string name="revanced_change_start_page_entry_sports">Спорт</string>
   <string name="revanced_change_start_page_entry_subscriptions">Падпіскі</string>
   <string name="revanced_change_start_page_entry_trending">У трэндзе</string>
+  <string name="revanced_change_start_page_entry_virtual_reality">Віртуальная рэальнасць</string>
   <string name="revanced_change_start_page_entry_watch_later">Посмотреть позже</string>
+  <string name="revanced_change_start_page_entry_your_clips">Вашыя кліпы</string>
   </patch>
   <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch">
   <string name="revanced_disable_resuming_shorts_player_title">Адключыць аднаўленне прайгравання Shorts</string>
@@ -1388,8 +1406,6 @@ Second \"item\" text"</string>
 Прайграванне відэа можа не працаваць"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Адключэнне гэтай налады можа выклікаць праблемы з прайграваннем відэа.</string>
   <string name="revanced_spoof_video_streams_client_type_title">Клиент по умолчанию</string>
-  <!-- 'no auth' means no authentication -->
-  <string name="revanced_spoof_video_streams_client_type_android_vr_no_auth">Android VR (няма аўтэнтыфікацыі)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_title">Вымусіць iOS AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Відэакaдэк зафіксаваны ў AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Відэакaдэк вызначаецца аўтаматычна</string>

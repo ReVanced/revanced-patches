@@ -506,8 +506,9 @@ Această funcție este disponibilă numai pentru dispozitivele mai vechi"</strin
   <string name="revanced_swipe_overlay_timeout_summary">Cantitatea de milisecunde suprapunerea este vizibilă</string>
   <string name="revanced_swipe_text_overlay_size_title">Dimensiune text glisare suprapunere</string>
   <string name="revanced_swipe_text_overlay_size_summary">Dimensiunea textului pentru suprapunere glisare</string>
-  <string name="revanced_swipe_overlay_background_alpha_title">Vizibilitate fundal glisare</string>
-  <string name="revanced_swipe_overlay_background_alpha_summary">Vizibilitatea fundalului de glisare suprapus</string>
+  <string name="revanced_swipe_overlay_background_opacity_title">Opacitate suprapunere glisare</string>
+  <string name="revanced_swipe_overlay_background_opacity_summary">Valoare opacitate între 0-100</string>
+  <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Opacitatea glisării trebuie să fie între 0-100</string>
   <string name="revanced_swipe_threshold_title">Pragul mărimii glisării</string>
   <string name="revanced_swipe_threshold_summary">Cantitatea de prag pentru a glisa</string>
   <string name="revanced_swipe_change_video_title">Activați glisarea pentru a schimba videoclipurile</string>
@@ -834,6 +835,8 @@ Notă: Activarea acestei opțiuni ascunde, de asemenea, forțat reclamele video"
   <string name="revanced_ryd_failure_generic">Dislike-uri indisponibile (%s)</string>
   <!-- Toast shown if the user enables RYD while a video is opened, and then tries to vote for the video. -->
   <string name="revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted">Reîncarcă videoclipul pentru a vota folosind Returnare YouTube Dislike</string>
+  <!-- Video likes have been set to hidden by the video uploader. -->
+  <string name="revanced_ryd_video_likes_hidden_by_video_owner">Ascuns de proprietar</string>
   <string name="revanced_ryd_enable_summary_on">Dislike-urile sunt afișate</string>
   <string name="revanced_ryd_enable_summary_off">Dislike-urile nu sunt afișate</string>
   <string name="revanced_ryd_shorts_title">Arată displace pe scurtmetraje</string>
@@ -849,6 +852,9 @@ Limitare: Este posibil ca Nu-mi plac să nu apară în modul incognito"</string>
   <string name="revanced_ryd_compact_layout_title">Buton Like compact</string>
   <string name="revanced_ryd_compact_layout_summary_on">Buton de stilizat pentru lățime minimă</string>
   <string name="revanced_ryd_compact_layout_summary_off">Buton asemănător pentru cel mai bun aspect</string>
+  <string name="revanced_ryd_estimated_like_title">Afișați aprecierile estimate</string>
+  <string name="revanced_ryd_estimated_like_summary_on">Aprecierile estimate sunt afișate</string>
+  <string name="revanced_ryd_estimated_like_summary_off">Aprecierile estimate sunt ascunse</string>
   <string name="revanced_ryd_toast_on_connection_error_title">Arată un toast dacă API-ul nu este disponibil</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_on">Toast este afișat dacă Returnarea YouTube Dislike nu este disponibilă</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_off">Toast nu este afișat dacă Returnarea YouTube Dislike nu este disponibilă</string>
@@ -899,6 +905,9 @@ Această caracteristică funcționează cel mai bine cu o calitate video de 720p
   <string name="revanced_sb_enable_voting">Arată butonul de votare</string>
   <string name="revanced_sb_enable_voting_sum_on">Butonul de vot este afișat</string>
   <string name="revanced_sb_enable_voting_sum_off">Butonul de vot nu este afișat</string>
+  <string name="revanced_sb_square_layout">Utilizați aspectul pătrat</string>
+  <string name="revanced_sb_square_layout_sum_on">Butoanele și comenzile sunt pătrate</string>
+  <string name="revanced_sb_square_layout_sum_off">Butoanele și comenzile sunt rotunjite</string>
   <!-- Translations should use language similar to 'revanced_ryd_compact_layout_title' -->
   <string name="revanced_sb_enable_compact_skip_button">Folosește butonul compact de omitere</string>
   <string name="revanced_sb_enable_compact_skip_button_sum_on">Omite butonul stilizat pentru lățimea minimă</string>
@@ -1114,7 +1123,7 @@ Dacă este dezactivat ulterior, se recomandă să ștergeți datele aplicației 
                  This is because the 'General layout' menu uses alphabetic sorting, and it functionally works better if the spoof target selector appears below the 'Spoof app version' UI switch -->
   <string name="revanced_spoof_app_version_target_title">Țintă versiune falsificată a aplicației</string>
   <string name="revanced_spoof_app_version_target_entry_1">19.35.36 - Restaurează pictogramele vechi ale playerului Shorts</string>
-  <string name="revanced_spoof_app_version_target_entry_2">19.26.42 - Restaurează vechile pictograme pentru navigare și bara de instrumente</string>
+  <string name="revanced_spoof_app_version_target_entry_2">19.26.42 - Revenire la pictogramele vechi pentru navigare</string>
   <!-- 'RYD' is 'Return YouTube Dislike' -->
   <string name="revanced_spoof_app_version_target_legacy_entry_1">18.33.40 - Restaurează RYD în modul incognito Shorts</string>
   <string name="revanced_spoof_app_version_target_legacy_entry_2">18.20.39 - Restaurare viteză video mare &amp; meniu calitate</string>
@@ -1124,8 +1133,11 @@ Dacă este dezactivat ulterior, se recomandă să ștergeți datele aplicației 
   <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">Setaţi pagina de start</string>
   <string name="revanced_change_start_page_entry_default">Implicit</string>
+  <string name="revanced_change_start_page_entry_all_subscriptions">Toate abonamentele</string>
   <string name="revanced_change_start_page_entry_browse">Navigare canale</string>
+  <string name="revanced_change_start_page_entry_courses">Cursuri / Învățare</string>
   <string name="revanced_change_start_page_entry_explore">Explorați</string>
+  <string name="revanced_change_start_page_entry_fashion">Modă și frumusețe</string>
   <string name="revanced_change_start_page_entry_gaming">Joc</string>
   <string name="revanced_change_start_page_entry_history">Istoric</string>
   <string name="revanced_change_start_page_entry_library">Bibliotecă</string>
@@ -1133,11 +1145,17 @@ Dacă este dezactivat ulterior, se recomandă să ștergeți datele aplicației 
   <string name="revanced_change_start_page_entry_live">Live</string>
   <string name="revanced_change_start_page_entry_movies">Filme</string>
   <string name="revanced_change_start_page_entry_music">Muzică</string>
+  <string name="revanced_change_start_page_entry_news">Știri</string>
+  <string name="revanced_change_start_page_entry_notifications">Notificări</string>
+  <string name="revanced_change_start_page_entry_playlists">Liste de redare</string>
   <string name="revanced_change_start_page_entry_search">Caută</string>
+  <string name="revanced_change_start_page_entry_shopping">Cumpărături</string>
   <string name="revanced_change_start_page_entry_sports">Sport</string>
   <string name="revanced_change_start_page_entry_subscriptions">Abonamente</string>
   <string name="revanced_change_start_page_entry_trending">Populare</string>
+  <string name="revanced_change_start_page_entry_virtual_reality">Realitate virtuală</string>
   <string name="revanced_change_start_page_entry_watch_later">Urmărește mai târziu</string>
+  <string name="revanced_change_start_page_entry_your_clips">Clipurile tale</string>
   </patch>
   <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch">
   <string name="revanced_disable_resuming_shorts_player_title">Dezactivează reluarea playerului Shorts</string>
@@ -1386,8 +1404,6 @@ Activarea acestei opțiuni poate debloca calități video mai mari"</string>
 Este posibil ca redarea video să nu funcționeze"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Dezactivarea acestei setări poate cauza probleme de redare video.</string>
   <string name="revanced_spoof_video_streams_client_type_title">Client implicit</string>
-  <!-- 'no auth' means no authentication -->
-  <string name="revanced_spoof_video_streams_client_type_android_vr_no_auth">Android VR (fără autentificare)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_title">Forțarea codecului video AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Codecul video este forțat la AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Codecul video este determinat automat</string>

@@ -283,6 +283,7 @@ Mלות עם אותיות גדולות באמצע צריכות להיכנס עם
   <patch id="layout.returnyoutubedislike.returnYouTubeDislikePatch">
   <!-- Toast shown if network connection times out. Translations of this should not be longer than the original English or the text can be clipped and not entirely shown. -->
   <!-- Toast shown if the user enables RYD while a video is opened, and then tries to vote for the video. -->
+  <!-- Video likes have been set to hidden by the video uploader. -->
   <string name="revanced_ryd_shorts_summary_on_disclaimer">"לא אהבתי מוצגות ב-Shorts
 
 מגבלה: לא אהבתי לא ייתכן שיופיעו במצב גלישה אנונימית"</string>
@@ -302,6 +303,7 @@ Mלות עם אותיות גדולות באמצע צריכות להיכנס עם
   </patch>
   <patch id="layout.sponsorblock.sponsorBlockResourcePatch">
   <string name="revanced_sb_enable_sb">הפעל את SponsorBlock</string>
+  <string name="revanced_sb_enable_sb_sum">SponsorBlock היא מערכת מיקור המונים לדילוג על חלקים מטרידים בסרטוני יוטיוב</string>
   <string name="revanced_sb_appearance_category">מראה</string>
   <!-- Translations should use language similar to 'revanced_ryd_compact_layout_title' -->
   <string name="revanced_sb_guidelines_preference_title">ראה הנחיות</string>
@@ -309,6 +311,7 @@ Mלות עם אותיות גדולות באמצע צריכות להיכנס עם
   <string name="revanced_sb_guidelines_popup_open">הראו לי</string>
   <string name="revanced_sb_general">הגדרות כלליות</string>
   <string name="revanced_sb_toast_on_connection_error_title">הצג הודעה אם הממשק לא זמין</string>
+  <string name="revanced_sb_general_skipcount_sum_on">מאפשר ללוח המובילים של SponsorBlock לדעת כמה זמן נחסך. הודעה נשלחת ל-Leaderboard בכל פעם שמדלגים על קטע</string>
   <string name="revanced_sb_general_api_url">שנה כתובת API</string>
   <string name="revanced_sb_api_url_reset">כתובת API אופסה</string>
   <string name="revanced_sb_api_url_changed">כתובת API שונתה</string>
@@ -488,7 +491,6 @@ Mלות עם אותיות גדולות באמצע צריכות להיכנס עם
   <string name="revanced_spoof_video_streams_summary_off">"זרמי וידאו לא מזויפים
 
 ייתכן שהשמעת וידאו לא תעבוד"</string>
-  <!-- 'no auth' means no authentication -->
   </patch>
   </app>
   <app id="twitch">

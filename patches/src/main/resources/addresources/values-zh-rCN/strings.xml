@@ -25,7 +25,7 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_failed_title">检测失败</string>
   <string name="revanced_check_environment_dialog_open_official_source_button">打开官方网站</string>
   <string name="revanced_check_environment_dialog_ignore_button">忽略</string>
-  <string name="revanced_check_environment_failed_message">&lt;h5&gt;此应用似乎不是您修补的。&lt;/h5&gt;&lt;h4&gt;此应用可能无法正常运行，&lt;b&gt;使用可能会有害甚至危险&lt;/b&gt;。&lt;/h4&gt;&lt;h4&gt;&lt;br&gt;以下检查暗示此应用是预先修补的或从其他人处获得的：&lt;br&gt;&lt;br&gt;&lt;small&gt;%1$s&lt;/small&gt;&lt;br&gt;&lt;br&gt;强烈建议您&lt;b&gt;卸载此应用并自行修补&lt;/b&gt;，以确保您使用的是经过验证和安全的应用。&lt;p&gt;&lt;br&gt;如果忽略此警告，此警告只会显示两次。</string>
+  <string name="revanced_check_environment_failed_message">&lt;h5&gt;此应用程序似乎未由您修补。&lt;/h5&gt;&lt;br&gt;此应用程序可能无法正常运行，&lt;b&gt;可能存在安全风险或使用起来甚至存在危险&lt;/b&gt;。&lt;br&gt;&lt;br&gt;这些检查表明此应用程序是预先修补的或从其他人那里获得的：&lt;br&gt;&lt;br&gt;&lt;small&gt;%1$s&lt;/small&gt;&lt;br&gt;强烈建议您&lt;b&gt;卸载此应用程序并自行修补&lt;/b&gt;，以确保您使用的是经过验证的安全的应用。&lt;p&gt;&lt;br&gt;如果忽略，此警告只会显示两次。</string>
   <string name="revanced_check_environment_not_same_patching_device">已在另一台设备上修补过</string>
   <string name="revanced_check_environment_manager_not_expected_installer">未通过 ReVanced 管理器安装</string>
   <string name="revanced_check_environment_not_near_patch_time">上次修补在10分钟前</string>
@@ -506,8 +506,9 @@ Second \"item\" text"</string>
   <string name="revanced_swipe_overlay_timeout_summary">滑动叠加层显示的时长（毫秒）</string>
   <string name="revanced_swipe_text_overlay_size_title">滑动叠加层上的文本大小</string>
   <string name="revanced_swipe_text_overlay_size_summary">滑动时显示的叠加层上的文本大小</string>
-  <string name="revanced_swipe_overlay_background_alpha_title">滑动叠加层背景透明度</string>
-  <string name="revanced_swipe_overlay_background_alpha_summary">滑动叠加层的背景透明度</string>
+  <string name="revanced_swipe_overlay_background_opacity_title">滑动叠加层背景的不透明度</string>
+  <string name="revanced_swipe_overlay_background_opacity_summary">不透明度值介于 0-100 之间</string>
+  <string name="revanced_swipe_overlay_background_opacity_invalid_toast">滑动不透明度必须介于 0-100 之间</string>
   <string name="revanced_swipe_threshold_title">滑动幅度阈值</string>
   <string name="revanced_swipe_threshold_summary">防误触的滑动幅度阈值</string>
   <string name="revanced_swipe_change_video_title">启用滑动切换视频</string>
@@ -834,6 +835,8 @@ Second \"item\" text"</string>
   <string name="revanced_ryd_failure_generic">点踩数不可用 (%s)</string>
   <!-- Toast shown if the user enables RYD while a video is opened, and then tries to vote for the video. -->
   <string name="revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted">重新加载视频，使用 Return YouTube Dislike 投票</string>
+  <!-- Video likes have been set to hidden by the video uploader. -->
+  <string name="revanced_ryd_video_likes_hidden_by_video_owner">所有者已隐藏</string>
   <string name="revanced_ryd_enable_summary_on">点踩数已显示</string>
   <string name="revanced_ryd_enable_summary_off">点踩数已隐藏</string>
   <string name="revanced_ryd_shorts_title">在 Shorts 上显示点踩数</string>
@@ -849,6 +852,9 @@ Second \"item\" text"</string>
   <string name="revanced_ryd_compact_layout_title">紧凑点赞按钮</string>
   <string name="revanced_ryd_compact_layout_summary_on">点赞按钮设置为最小宽度</string>
   <string name="revanced_ryd_compact_layout_summary_off">点赞按钮设置为最佳外观</string>
+  <string name="revanced_ryd_estimated_like_title">显示估计的点赞数</string>
+  <string name="revanced_ryd_estimated_like_summary_on">已显示估计的点赞数</string>
+  <string name="revanced_ryd_estimated_like_summary_off">已隐藏估计的点赞数</string>
   <string name="revanced_ryd_toast_on_connection_error_title">如果 API 不可用，则显示提示</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_on">如果 Return YouTube Dislike 不可用，则显示提示</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_off">如果 Return YouTube Dislike 不可用，则不显示提示</string>
@@ -899,6 +905,9 @@ Second \"item\" text"</string>
   <string name="revanced_sb_enable_voting">显示投票按钮</string>
   <string name="revanced_sb_enable_voting_sum_on">显示片段投票按钮</string>
   <string name="revanced_sb_enable_voting_sum_off">不显示片段投票按钮</string>
+  <string name="revanced_sb_square_layout">使用方形布局</string>
+  <string name="revanced_sb_square_layout_sum_on">按钮和控件为方形</string>
+  <string name="revanced_sb_square_layout_sum_off">按钮和控件已四舍五入</string>
   <!-- Translations should use language similar to 'revanced_ryd_compact_layout_title' -->
   <string name="revanced_sb_enable_compact_skip_button">使用紧凑的跳过按钮</string>
   <string name="revanced_sb_enable_compact_skip_button_sum_on">跳过按钮样式为最小宽度</string>
@@ -1119,7 +1128,7 @@ Second \"item\" text"</string>
                  This is because the 'General layout' menu uses alphabetic sorting, and it functionally works better if the spoof target selector appears below the 'Spoof app version' UI switch -->
   <string name="revanced_spoof_app_version_target_title">伪装应用程序版本为</string>
   <string name="revanced_spoof_app_version_target_entry_1">19.35.36 - 恢复旧的 Shorts 播放器图标</string>
-  <string name="revanced_spoof_app_version_target_entry_2">19.26.42 - 恢复旧导航和工具栏图标</string>
+  <string name="revanced_spoof_app_version_target_entry_2">19.26.42 - 恢复旧导航图标</string>
   <!-- 'RYD' is 'Return YouTube Dislike' -->
   <string name="revanced_spoof_app_version_target_legacy_entry_1">18.33.40 - 在隐身模式下恢复 RYD</string>
   <string name="revanced_spoof_app_version_target_legacy_entry_2">18.20.39 - 还原宽视频速度 &amp; 画质菜单</string>
@@ -1138,11 +1147,15 @@ Second \"item\" text"</string>
   <string name="revanced_change_start_page_entry_live">直播</string>
   <string name="revanced_change_start_page_entry_movies">电影</string>
   <string name="revanced_change_start_page_entry_music">音乐</string>
+  <string name="revanced_change_start_page_entry_news">新闻</string>
+  <string name="revanced_change_start_page_entry_notifications">通知</string>
   <string name="revanced_change_start_page_entry_search">搜索</string>
+  <string name="revanced_change_start_page_entry_shopping">购物</string>
   <string name="revanced_change_start_page_entry_sports">体育</string>
   <string name="revanced_change_start_page_entry_subscriptions">订阅</string>
   <string name="revanced_change_start_page_entry_trending">趋势</string>
   <string name="revanced_change_start_page_entry_watch_later">稍后观看</string>
+  <string name="revanced_change_start_page_entry_your_clips">你的剪辑</string>
   </patch>
   <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch">
   <string name="revanced_disable_resuming_shorts_player_title">禁用恢复 Shorts 播放器</string>
@@ -1391,8 +1404,6 @@ Second \"item\" text"</string>
 视频播放可能无法正常工作"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">关闭此选项可能会导致视频不能正常播放。</string>
   <string name="revanced_spoof_video_streams_client_type_title">默认客户端</string>
-  <!-- 'no auth' means no authentication -->
-  <string name="revanced_spoof_video_streams_client_type_android_vr_no_auth">Android VR​(无认证)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_title">强制 iOS 使用 AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">视频编解码器强制为 AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">视频编解码器将自动确定</string>

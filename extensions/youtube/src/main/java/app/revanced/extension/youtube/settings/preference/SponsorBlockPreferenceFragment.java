@@ -6,7 +6,6 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
 import android.preference.*;
 import android.text.Html;
@@ -37,8 +36,9 @@ public class SponsorBlockPreferenceFragment extends PreferenceFragment {
     private SwitchPreference sbEnabled;
     private SwitchPreference addNewSegment;
     private SwitchPreference votingEnabled;
-    private SwitchPreference compactSkipButton;
     private SwitchPreference autoHideSkipSegmentButton;
+    private SwitchPreference compactSkipButton;
+    private SwitchPreference squareLayout;
     private SwitchPreference showSkipToast;
     private SwitchPreference trackSkips;
     private SwitchPreference showTimeWithoutSegments;
@@ -62,7 +62,9 @@ public class SponsorBlockPreferenceFragment extends PreferenceFragment {
             } else if (!Settings.SB_CREATE_NEW_SEGMENT.get()) {
                 SponsorBlockViewController.hideNewSegmentLayout();
             }
-            // Voting and add new segment buttons automatically shows/hide themselves.
+            // Voting and add new segment buttons automatically show/hide themselves.
+
+            SponsorBlockViewController.updateLayout();
 
             sbEnabled.setChecked(enabled);
 
@@ -72,11 +74,14 @@ public class SponsorBlockPreferenceFragment extends PreferenceFragment {
             votingEnabled.setChecked(Settings.SB_VOTING_BUTTON.get());
             votingEnabled.setEnabled(enabled);
 
+            autoHideSkipSegmentButton.setEnabled(enabled);
+            autoHideSkipSegmentButton.setChecked(Settings.SB_AUTO_HIDE_SKIP_BUTTON.get());
+
             compactSkipButton.setChecked(Settings.SB_COMPACT_SKIP_BUTTON.get());
             compactSkipButton.setEnabled(enabled);
 
-            autoHideSkipSegmentButton.setChecked(Settings.SB_AUTO_HIDE_SKIP_BUTTON.get());
-            autoHideSkipSegmentButton.setEnabled(enabled);
+            squareLayout.setChecked(Settings.SB_SQUARE_LAYOUT.get());
+            squareLayout.setEnabled(enabled);
 
             showSkipToast.setChecked(Settings.SB_TOAST_ON_SKIP.get());
             showSkipToast.setEnabled(enabled);
@@ -176,6 +181,17 @@ public class SponsorBlockPreferenceFragment extends PreferenceFragment {
             return true;
         });
 
+        autoHideSkipSegmentButton = new SwitchPreference(context);
+        autoHideSkipSegmentButton.setTitle(str("revanced_sb_enable_auto_hide_skip_segment_button"));
+        autoHideSkipSegmentButton.setSummaryOn(str("revanced_sb_enable_auto_hide_skip_segment_button_sum_on"));
+        autoHideSkipSegmentButton.setSummaryOff(str("revanced_sb_enable_auto_hide_skip_segment_button_sum_off"));
+        category.addPreference(autoHideSkipSegmentButton);
+        autoHideSkipSegmentButton.setOnPreferenceChangeListener((preference1, newValue) -> {
+            Settings.SB_AUTO_HIDE_SKIP_BUTTON.save((Boolean) newValue);
+            updateUI();
+            return true;
+        });
+
         compactSkipButton = new SwitchPreference(context);
         compactSkipButton.setTitle(str("revanced_sb_enable_compact_skip_button"));
         compactSkipButton.setSummaryOn(str("revanced_sb_enable_compact_skip_button_sum_on"));
@@ -187,13 +203,13 @@ public class SponsorBlockPreferenceFragment extends PreferenceFragment {
             return true;
         });
 
-        autoHideSkipSegmentButton = new SwitchPreference(context);
-        autoHideSkipSegmentButton.setTitle(str("revanced_sb_enable_auto_hide_skip_segment_button"));
-        autoHideSkipSegmentButton.setSummaryOn(str("revanced_sb_enable_auto_hide_skip_segment_button_sum_on"));
-        autoHideSkipSegmentButton.setSummaryOff(str("revanced_sb_enable_auto_hide_skip_segment_button_sum_off"));
-        category.addPreference(autoHideSkipSegmentButton);
-        autoHideSkipSegmentButton.setOnPreferenceChangeListener((preference1, newValue) -> {
-            Settings.SB_AUTO_HIDE_SKIP_BUTTON.save((Boolean) newValue);
+        squareLayout = new SwitchPreference(context);
+        squareLayout.setTitle(str("revanced_sb_square_layout"));
+        squareLayout.setSummaryOn(str("revanced_sb_square_layout_sum_on"));
+        squareLayout.setSummaryOff(str("revanced_sb_square_layout_sum_off"));
+        category.addPreference(squareLayout);
+        squareLayout.setOnPreferenceChangeListener((preference1, newValue) -> {
+            Settings.SB_SQUARE_LAYOUT.save((Boolean) newValue);
             updateUI();
             return true;
         });
@@ -393,9 +409,7 @@ public class SponsorBlockPreferenceFragment extends PreferenceFragment {
         importExport.getEditText().setInputType(InputType.TYPE_CLASS_TEXT
                 | InputType.TYPE_TEXT_FLAG_MULTI_LINE
                 | InputType.TYPE_TEXT_FLAG_NO_SUGGESTIONS);
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            importExport.getEditText().setAutofillHints((String) null);
-        }
+        importExport.getEditText().setAutofillHints((String) null);
         importExport.getEditText().setTextSize(TypedValue.COMPLEX_UNIT_PT, 8);
         importExport.setOnPreferenceClickListener(preference1 -> {
             importExport.getEditText().setText(SponsorBlockSettings.exportDesktopSettings());

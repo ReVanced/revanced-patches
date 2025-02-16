@@ -1,3 +1,139 @@
+# [5.12.0-dev.7](https://github.com/ReVanced/revanced-patches/compare/v5.12.0-dev.6...v5.12.0-dev.7) (2025-02-16)
+
+
+### Bug Fixes
+
+* **YouTube - Spoof video streams:** Change default client to `Android TV` ([#4465](https://github.com/ReVanced/revanced-patches/issues/4465)) ([0412c79](https://github.com/ReVanced/revanced-patches/commit/0412c7901dc8599b6079d9c3ba26452f88af642b))
+
+
+### Features
+
+* **YouTube Music:** Support version `8.05.51` ([128441e](https://github.com/ReVanced/revanced-patches/commit/128441e78bc0d096c3fc2f57782ab90c39c3ae4b))
+
+# [5.12.0-dev.6](https://github.com/ReVanced/revanced-patches/compare/v5.12.0-dev.5...v5.12.0-dev.6) (2025-02-16)
+
+
+### Bug Fixes
+
+* Allow changing default settings for existing app installs ([#4464](https://github.com/ReVanced/revanced-patches/issues/4464)) ([1bd7986](https://github.com/ReVanced/revanced-patches/commit/1bd7986823e774a929c8a9102a7cc96e245d5274))
+
+# [5.12.0-dev.5](https://github.com/ReVanced/revanced-patches/compare/v5.12.0-dev.4...v5.12.0-dev.5) (2025-02-13)
+
+
+### Bug Fixes
+
+* **YouTube:** Remove obsolete 18.x targets ([#4454](https://github.com/ReVanced/revanced-patches/issues/4454)) ([a006758](https://github.com/ReVanced/revanced-patches/commit/a0067581d0f877e1b4eb1f888a25786f09676b2e))
+
+# [5.12.0-dev.4](https://github.com/ReVanced/revanced-patches/compare/v5.12.0-dev.3...v5.12.0-dev.4) (2025-02-11)
+
+
+### Features
+
+* **YouTube Music:** Support version `8.05.50` ([#4439](https://github.com/ReVanced/revanced-patches/issues/4439)) ([b31fed9](https://github.com/ReVanced/revanced-patches/commit/b31fed98901fcda1bce6f05eb0de63280c689fa0))
+
+# [5.12.0-dev.3](https://github.com/ReVanced/revanced-patches/compare/v5.12.0-dev.2...v5.12.0-dev.3) (2025-02-11)
+
+
+### Bug Fixes
+
+* **Windy.app:** Remove obsolete `Unlock pro` patch ([#4428](https://github.com/ReVanced/revanced-patches/issues/4428)) ([83d116e](https://github.com/ReVanced/revanced-patches/commit/83d116e8fd3935ee431cfdf0b8e095d04ee77259))
+
+# [5.12.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.12.0-dev.1...v5.12.0-dev.2) (2025-02-11)
+
+
+### Features
+
+* **Return YouTube Dislike:** add `Show estimated likes` setting ([#4443](https://github.com/ReVanced/revanced-patches/issues/4443)) ([9a88b42](https://github.com/ReVanced/revanced-patches/commit/9a88b4239fd63d5f91105fec8e7d59d318a5d09a))
+
+# [5.12.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.11.0...v5.12.0-dev.1) (2025-02-10)
+
+
+### Features
+
+* **YouTube - SponsorBlock:** Redesign skip buttons ([#4427](https://github.com/ReVanced/revanced-patches/issues/4427)) ([8f4883f](https://github.com/ReVanced/revanced-patches/commit/8f4883fc002420bfb4056401e23445c99e1d3fce))
+
+# [5.11.0](https://github.com/ReVanced/revanced-patches/compare/v5.10.0...v5.11.0) (2025-02-07)
+
+
+### Bug Fixes
+
+* Fix broken `Remove screen capture restriction`,  `Remove screenshot restriction`, `Spoof Wi-Fi connection`, and `Export internal data documents provider` patch ([#4405](https://github.com/ReVanced/revanced-patches/issues/4405)) ([1d52b74](https://github.com/ReVanced/revanced-patches/commit/1d52b7478d34e699d8c629eeaa9fdbb470b7d5c8))
+* **YouTube - Enable slide to seek:** Change patch to default include ([50358cd](https://github.com/ReVanced/revanced-patches/commit/50358cddea3eef4051d248040d23f774521dce00))
+* **YouTube - Hide layout components:** Hide new type of community post ([#4404](https://github.com/ReVanced/revanced-patches/issues/4404)) ([f67ab2b](https://github.com/ReVanced/revanced-patches/commit/f67ab2baf25d543ceb55fcec48bda441ebf2b998))
+* **YouTube - Theme:** Use custom seekbar color for cairo startup animation ([#4399](https://github.com/ReVanced/revanced-patches/issues/4399)) ([1cba294](https://github.com/ReVanced/revanced-patches/commit/1cba2948a6787118eb380ffcec35ee4fb99447ea))
+
+
+### Features
+
+* **YouTube - Change start page:** Add additional start pages ([#4413](https://github.com/ReVanced/revanced-patches/issues/4413)) ([b434182](https://github.com/ReVanced/revanced-patches/commit/b434182df69313c4eb5f0dfd98101cb80e46ead2))
+
+# [5.11.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.11.0-dev.1...v5.11.0-dev.2) (2025-02-06)
+
+
+### Bug Fixes
+
+* Fix broken `Remove screen capture restriction`,  `Remove screenshot restriction`, `Spoof Wi-Fi connection`, and `Export internal data documents provider` patch ([#4405](https://github.com/ReVanced/revanced-patches/issues/4405)) ([1d52b74](https://github.com/ReVanced/revanced-patches/commit/1d52b7478d34e699d8c629eeaa9fdbb470b7d5c8))
+
+# [5.11.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.10.1-dev.3...v5.11.0-dev.1) (2025-02-05)
+
+
+### Features
+
+* **YouTube - Change start page:** Add additional start pages ([#4413](https://github.com/ReVanced/revanced-patches/issues/4413)) ([b434182](https://github.com/ReVanced/revanced-patches/commit/b434182df69313c4eb5f0dfd98101cb80e46ead2))
+
+## [5.10.1-dev.3](https://github.com/ReVanced/revanced-patches/compare/v5.10.1-dev.2...v5.10.1-dev.3) (2025-02-03)
+
+
+### Bug Fixes
+
+* **YouTube - Hide layout components:** Hide new type of community post ([#4404](https://github.com/ReVanced/revanced-patches/issues/4404)) ([f67ab2b](https://github.com/ReVanced/revanced-patches/commit/f67ab2baf25d543ceb55fcec48bda441ebf2b998))
+
+## [5.10.1-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.10.1-dev.1...v5.10.1-dev.2) (2025-02-03)
+
+
+### Bug Fixes
+
+* **YouTube - Enable slide to seek:** Change patch to default include ([50358cd](https://github.com/ReVanced/revanced-patches/commit/50358cddea3eef4051d248040d23f774521dce00))
+
+## [5.10.1-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.10.0...v5.10.1-dev.1) (2025-02-02)
+
+
+### Bug Fixes
+
+* **YouTube - Theme:** Use custom seekbar color for cairo startup animation ([#4399](https://github.com/ReVanced/revanced-patches/issues/4399)) ([1cba294](https://github.com/ReVanced/revanced-patches/commit/1cba2948a6787118eb380ffcec35ee4fb99447ea))
+
+# [5.10.0](https://github.com/ReVanced/revanced-patches/compare/v5.9.0...v5.10.0) (2025-01-31)
+
+
+### Bug Fixes
+
+* **SwissId - Play integrity Removal:** Add recommended app version ([#4370](https://github.com/ReVanced/revanced-patches/issues/4370)) ([d8ed474](https://github.com/ReVanced/revanced-patches/commit/d8ed474b165f094fdedc32caaae1f82ebc99eb3d))
+* Use correct path to fix invalid file paths ([5ff4ee8](https://github.com/ReVanced/revanced-patches/commit/5ff4ee823da55c7b135eab8b62e07be465612b55))
+* **YouTube - Hide ads:** fix 'Hide the Visit store button on channel pages' not working ([#4364](https://github.com/ReVanced/revanced-patches/issues/4364)) ([9d63ea9](https://github.com/ReVanced/revanced-patches/commit/9d63ea9a10ab5128ce18a1f53a946e84550da258))
+* **YouTube - Hide Ads:** Hide end screen store banner without leaving empty space ([#4367](https://github.com/ReVanced/revanced-patches/issues/4367)) ([7e68390](https://github.com/ReVanced/revanced-patches/commit/7e683906418434dd4e2104337d73a2292415c615))
+* **YouTube - Hide ads:** Hide new types of tablet ads ([574bcc8](https://github.com/ReVanced/revanced-patches/commit/574bcc844746b7445ec3e93b47daceafefad85e7))
+* **YouTube - Hide layout components:** Hide new kind of community post ([#4341](https://github.com/ReVanced/revanced-patches/issues/4341)) ([02685c4](https://github.com/ReVanced/revanced-patches/commit/02685c4567aca55f22d45dc238a7d1f0ea264143))
+* **YouTube - Hide seekbar:** Do not hide player seekbar if hide feed seekbar is enabled ([#4333](https://github.com/ReVanced/revanced-patches/issues/4333)) ([f5cf6f2](https://github.com/ReVanced/revanced-patches/commit/f5cf6f2a445492d33815a9772f49deac2d70eba9))
+* **YouTube - Hide video description components:** Use correct string key names ([0f28c2b](https://github.com/ReVanced/revanced-patches/commit/0f28c2b44c0051ea7ab3136433b84c73321cf5bd))
+* **YouTube - Spoof video streams:** Update settings side effects summary text ([#4369](https://github.com/ReVanced/revanced-patches/issues/4369)) ([e5b3aa1](https://github.com/ReVanced/revanced-patches/commit/e5b3aa1cc6a2465cb006487d528de888bc7cd430))
+* **YouTube - Theme:** Fix 19.25 - 19.45 patch error ([5b47a5f](https://github.com/ReVanced/revanced-patches/commit/5b47a5f0f6299daaae209341064fd85f16ca18a6))
+* **YouTube - Theme:** Replace custom seekbar gradient colors instead of disabling ([#4329](https://github.com/ReVanced/revanced-patches/issues/4329)) ([f03da98](https://github.com/ReVanced/revanced-patches/commit/f03da983051021e0c372557a5354d5d967409564))
+
+
+### Features
+
+* **YouTube - Hide ads:** Add `Hide end screen store banner` ([#4351](https://github.com/ReVanced/revanced-patches/issues/4351)) ([5505087](https://github.com/ReVanced/revanced-patches/commit/55050878028fed82b0f583a9f7ba06b8f267f8ec))
+* **YouTube - Hide video description components:** Add `Hide How this content was made section` ([#4355](https://github.com/ReVanced/revanced-patches/issues/4355)) ([68ec54e](https://github.com/ReVanced/revanced-patches/commit/68ec54ef850ae8d6461dd0ef2846e6efbb59e482))
+* **YouTube - Theme:** Add option to use custom seekbar accent color ([#4337](https://github.com/ReVanced/revanced-patches/issues/4337)) ([952b4fc](https://github.com/ReVanced/revanced-patches/commit/952b4fc4c9291e1a3e71437b503857763c973dd4))
+* **YouTube:** Add patch `Disable HDR video` ([#4347](https://github.com/ReVanced/revanced-patches/issues/4347)) ([0528f7c](https://github.com/ReVanced/revanced-patches/commit/0528f7cad856a2b1347e41944167b0583fc4a3d9))
+
+# [5.10.0-dev.11](https://github.com/ReVanced/revanced-patches/compare/v5.10.0-dev.10...v5.10.0-dev.11) (2025-01-30)
+
+
+### Bug Fixes
+
+* Use correct path to fix invalid file paths ([5ff4ee8](https://github.com/ReVanced/revanced-patches/commit/5ff4ee823da55c7b135eab8b62e07be465612b55))
+
 # [5.10.0-dev.10](https://github.com/ReVanced/revanced-patches/compare/v5.10.0-dev.9...v5.10.0-dev.10) (2025-01-29)
 
 

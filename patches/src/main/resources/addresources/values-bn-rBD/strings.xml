@@ -506,8 +506,9 @@ MicroG-এর জন্য ব্যাটারি অপ্টিমাইজ�
   <string name="revanced_swipe_overlay_timeout_summary">কত মিলিসেকেন্ডের জন্য ওভারলে দৃশ্যমান হবে</string>
   <string name="revanced_swipe_text_overlay_size_title">সোয়াইপ ওভারলে টেক্সট সাইজ</string>
   <string name="revanced_swipe_text_overlay_size_summary">সোয়াইপ ওভারলে এর টেক্সট সাইজ</string>
-  <string name="revanced_swipe_overlay_background_alpha_title">সোয়াইপ ব্যাকগ্রাউন্ডের দৃশ্যমানতা</string>
-  <string name="revanced_swipe_overlay_background_alpha_summary">সোয়াইপ ওভারলে ব্যাকগ্রাউন্ডের দৃশ্যমানতা</string>
+  <string name="revanced_swipe_overlay_background_opacity_title">অস্বচ্ছতা</string>
+  <string name="revanced_swipe_overlay_background_opacity_summary">0-100 এর মধ্যে অস্বচ্ছতার মান</string>
+  <string name="revanced_swipe_overlay_background_opacity_invalid_toast">সোয়াইপের অস্বচ্ছতা অবশ্যই 0-100 এর মধ্যে হতে হবে</string>
   <string name="revanced_swipe_threshold_title">সোয়াইপ থ্রেশহোল্ড এর মাত্রা</string>
   <string name="revanced_swipe_threshold_summary">সোয়াইপ করার থ্রেশহোল্ডের পরিমাণ</string>
   <string name="revanced_swipe_change_video_title">ভিডিও পরিবর্তন করতে সোয়াইপ করে সক্ষম করুন</string>
@@ -834,6 +835,8 @@ MicroG-এর জন্য ব্যাটারি অপ্টিমাইজ�
   <string name="revanced_ryd_failure_generic">অপছন্দ উপলভ্য নয় (%s)</string>
   <!-- Toast shown if the user enables RYD while a video is opened, and then tries to vote for the video. -->
   <string name="revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted">ReturnYouTubeDislike দিয়ে ভোট দিতে ভিডিও আবার লোড করুন</string>
+  <!-- Video likes have been set to hidden by the video uploader. -->
+  <string name="revanced_ryd_video_likes_hidden_by_video_owner">মালিক কর্তৃক লুকানো</string>
   <string name="revanced_ryd_enable_summary_on">অপছন্দগুলো প্রদর্শিত হয়েছে</string>
   <string name="revanced_ryd_enable_summary_off">অপছন্দগুলো প্রদর্শিত হয়নি</string>
   <string name="revanced_ryd_shorts_title">Shorts এ অপছন্দ দেখান</string>
@@ -849,6 +852,9 @@ MicroG-এর জন্য ব্যাটারি অপ্টিমাইজ�
   <string name="revanced_ryd_compact_layout_title">কম্প্যাক্ট লাইক বোতাম</string>
   <string name="revanced_ryd_compact_layout_summary_on">পছন্দ বোতামটি ন্যূনতম প্রস্থের জন্য সাজানো হয়েছে</string>
   <string name="revanced_ryd_compact_layout_summary_off">পছন্দ বোতামটি সেরা চেহারার জন্য সাজানো হয়েছে</string>
+  <string name="revanced_ryd_estimated_like_title">অনুমানিত লাইক দেখান</string>
+  <string name="revanced_ryd_estimated_like_summary_on">অনুমানিত লাইক দেখানো হয়েছে</string>
+  <string name="revanced_ryd_estimated_like_summary_off">অনুমানিত লাইক লুকানো হয়েছে</string>
   <string name="revanced_ryd_toast_on_connection_error_title">API উপলভ্য না থাকলে একটি টোস্ট দেখান</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_on">Return YouTube Dislike উপলভ্য না থাকলে টোস্ট দেখানো হবে</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_off">Return YouTube Dislike উপলভ্য না থাকলে টোস্ট দেখানো হবে না</string>
@@ -899,6 +905,9 @@ MicroG-এর জন্য ব্যাটারি অপ্টিমাইজ�
   <string name="revanced_sb_enable_voting">ভোটিং বাটন দেখান</string>
   <string name="revanced_sb_enable_voting_sum_on">সেগমেন্ট ভোটিং বাটন প্রদর্শিত রয়েছে</string>
   <string name="revanced_sb_enable_voting_sum_off">সেগমেন্ট ভোটিং বাটন প্রদর্শিত হয়নি</string>
+  <string name="revanced_sb_square_layout">বর্গাকার লেআউট ব্যবহার করুন</string>
+  <string name="revanced_sb_square_layout_sum_on">বোতাম এবং নিয়ন্ত্রণগুলি বর্গক্ষেত্র</string>
+  <string name="revanced_sb_square_layout_sum_off">বোতাম এবং নিয়ন্ত্রণগুলি গোলাকার</string>
   <!-- Translations should use language similar to 'revanced_ryd_compact_layout_title' -->
   <string name="revanced_sb_enable_compact_skip_button">সংক্ষিপ্ত স্কিপ বাটন ব্যবহার করুন</string>
   <string name="revanced_sb_enable_compact_skip_button_sum_on">স্কিপ বোতামটি ন্যূনতম প্রস্থের জন্য সাজানো হয়েছে</string>
@@ -1115,7 +1124,7 @@ MicroG-এর জন্য ব্যাটারি অপ্টিমাইজ�
                  This is because the 'General layout' menu uses alphabetic sorting, and it functionally works better if the spoof target selector appears below the 'Spoof app version' UI switch -->
   <string name="revanced_spoof_app_version_target_title">স্পুফ অ্যাপ সংস্করণ লক্ষ্য</string>
   <string name="revanced_spoof_app_version_target_entry_1">19.35.36 - পুরনো Shorts প্লেয়ার আইকন পুনরুদ্ধার করুন</string>
-  <string name="revanced_spoof_app_version_target_entry_2">19.26.42 - পুরোনো নেভিগেশন এবং টুলবার আইকন পুনরুদ্ধার করুন</string>
+  <string name="revanced_spoof_app_version_target_entry_2">19.26.42 - পুরনো নেভিগেশন আইকন পুনরুদ্ধার করুন</string>
   <!-- 'RYD' is 'Return YouTube Dislike' -->
   <string name="revanced_spoof_app_version_target_legacy_entry_1">18.33.40 - ছদ্মবেশি মোডে RYD পুনরুদ্ধার করে</string>
   <string name="revanced_spoof_app_version_target_legacy_entry_2">18.20.39 - প্রশ্বস্ত ভিডিও স্পিড এবং গুণমান মেনু পুনরুদ্ধার করে</string>
@@ -1125,8 +1134,11 @@ MicroG-এর জন্য ব্যাটারি অপ্টিমাইজ�
   <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">শুরুর পৃষ্ঠা সেট করুন</string>
   <string name="revanced_change_start_page_entry_default">পূর্ব-নির্ধারিত</string>
+  <string name="revanced_change_start_page_entry_all_subscriptions">অন্য়াসব রভর্বাশার চিয়ুট</string>
   <string name="revanced_change_start_page_entry_browse">চ্যানেল ব্রাউজ করুন</string>
+  <string name="revanced_change_start_page_entry_courses">কোর্সু চবুভায় চা চেরারুকে</string>
   <string name="revanced_change_start_page_entry_explore">ঘুরে দেখুন</string>
+  <string name="revanced_change_start_page_entry_fashion">แฟชั่น &amp; ความงาม</string>
   <string name="revanced_change_start_page_entry_gaming">গেমিং</string>
   <string name="revanced_change_start_page_entry_history">ইতিহাস</string>
   <string name="revanced_change_start_page_entry_library">লাইব্রেরি</string>
@@ -1134,11 +1146,17 @@ MicroG-এর জন্য ব্যাটারি অপ্টিমাইজ�
   <string name="revanced_change_start_page_entry_live">লাইভ</string>
   <string name="revanced_change_start_page_entry_movies">মুভি</string>
   <string name="revanced_change_start_page_entry_music">সঙ্গীত</string>
+  <string name="revanced_change_start_page_entry_news">প্রাষুগ</string>
+  <string name="revanced_change_start_page_entry_notifications">নোটিস্য়াসেগ</string>
+  <string name="revanced_change_start_page_entry_playlists">চ্লাস ন৊টিস্য়াসেগ</string>
   <string name="revanced_change_start_page_entry_search">অনুসন্ধান</string>
+  <string name="revanced_change_start_page_entry_shopping">শোপিংগ</string>
   <string name="revanced_change_start_page_entry_sports">খেলাধুলা</string>
   <string name="revanced_change_start_page_entry_subscriptions">সদস্যতা</string>
   <string name="revanced_change_start_page_entry_trending">এখন জনপ্রিয়</string>
+  <string name="revanced_change_start_page_entry_virtual_reality">বির্চুভ্য়াল টিএলিটি</string>
   <string name="revanced_change_start_page_entry_watch_later">পরে দেখুন</string>
+  <string name="revanced_change_start_page_entry_your_clips">আপ্নার কলিপ</string>
   </patch>
   <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch">
   <string name="revanced_disable_resuming_shorts_player_title">Shorts প্লেয়ার আবার চালানো নিষ্ক্রিয় করুন</string>
@@ -1387,8 +1405,6 @@ DeArrow সম্পর্কে আরও জানতে এখানে ট�
 ভিডিও প্লেব্যাক কাজ নাও করতে পারে"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">এই সেটিংটি বন্ধ করার ফলে ভিডিও প্লেব্যাক ত্রুটি হতে পারে।</string>
   <string name="revanced_spoof_video_streams_client_type_title">ডিফল্ট ক্লায়েন্ট</string>
-  <!-- 'no auth' means no authentication -->
-  <string name="revanced_spoof_video_streams_client_type_android_vr_no_auth">Android VR (স্বীকৃতি ছাড়া)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_title">iOS AVC (H.264) বাধ্যতামূলক করুন</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">ভিডিও কোডেক AVC (H.264) এ বাধ্যতামূলক করা হয়েছে</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">ভিডিও কোডেক স্বয়ংক্রিয়ভাবে নির্ধারিত হয়</string>

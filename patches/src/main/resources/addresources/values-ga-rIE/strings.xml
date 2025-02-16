@@ -140,7 +140,7 @@ Brúigh an cnaipe leanúnaí agus ligean athruithe optúimíochta."</string>
   <string name="revanced_settings_screen_11_misc_title">Éagsúla</string>
   <string name="revanced_settings_screen_12_video_title">Físeán</string>
   <string name="revanced_restore_old_settings_menus_title">Athshocraigh roghanna seanghléasanna</string>
-  <string name="revanced_restore_old_settings_menus_summary_on">Féachann roghanna seanmhéid</string>
+  <string name="revanced_restore_old_settings_menus_summary_on">Taispeántar sean-roghchláir socruithe</string>
   <string name="revanced_restore_old_settings_menus_summary_off">Ní féachann roghanna seanmhéid</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
@@ -506,8 +506,9 @@ Níl an ghné seo ar fáil ach do ghléasanna níos sine"</string>
   <string name="revanced_swipe_overlay_timeout_summary">Tá méid na milleasoicind an forleagan le feiceáil</string>
   <string name="revanced_swipe_text_overlay_size_title">Méid téacs forleagtha Swipe</string>
   <string name="revanced_swipe_text_overlay_size_summary">Méid an téacs le haghaidh forleagan swipe</string>
-  <string name="revanced_swipe_overlay_background_alpha_title">Swipe infheictheacht chúlra</string>
-  <string name="revanced_swipe_overlay_background_alpha_summary">Infheictheacht an chúlra forleagan swipe</string>
+  <string name="revanced_swipe_overlay_background_opacity_title">Réabhlóid thrasláiteachta na gcúlra léaráidí</string>
+  <string name="revanced_swipe_overlay_background_opacity_summary">Luach léaráidí idir 0-100</string>
+  <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Caithfidh léaráidí traslaithe a bheith idir 0-100</string>
   <string name="revanced_swipe_threshold_title">Tairseach méid swipe</string>
   <string name="revanced_swipe_threshold_summary">Méid an tairseach le haghaidh sruthú tarlú</string>
   <string name="revanced_swipe_change_video_title">Cumasaigh swipe chun físeáin a athrú</string>
@@ -834,6 +835,7 @@ Nóta: Trí é seo a chumasú, cuirtear fógraí físeáin i bhfolach freisin"</
   <string name="revanced_ryd_failure_generic">Ní dtaitníonn sé ar fáil (%s)</string>
   <!-- Toast shown if the user enables RYD while a video is opened, and then tries to vote for the video. -->
   <string name="revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted">Athlódáil físeán chun vótáil ag baint úsáide as Return YouTube Dislike</string>
+  <!-- Video likes have been set to hidden by the video uploader. -->
   <string name="revanced_ryd_enable_summary_on">Taispeántar rudaí nach dtaitníonn leo</string>
   <string name="revanced_ryd_enable_summary_off">Ní thaispeántar nach dtaitníonn leat</string>
   <string name="revanced_ryd_shorts_title">Taispeáin neamhthaitníonn ar Shorts</string>
@@ -899,6 +901,8 @@ Oibríonn an ghné seo is fearr le caighdeán físeáin 720p nó níos ísle agu
   <string name="revanced_sb_enable_voting">Taispeáin cnaipe vótá</string>
   <string name="revanced_sb_enable_voting_sum_on">Taispeántar cnaipe vótála deigh</string>
   <string name="revanced_sb_enable_voting_sum_off">Ní thaispeántar cnaipe vótála deireadh</string>
+  <string name="revanced_sb_square_layout">Úsáid leagan amach cearnógach</string>
+  <string name="revanced_sb_square_layout_sum_off">Tá cnaipí agus rialuithe cruinn</string>
   <!-- Translations should use language similar to 'revanced_ryd_compact_layout_title' -->
   <string name="revanced_sb_enable_compact_skip_button">Úsáid cnaipe scipeála dlúth</string>
   <string name="revanced_sb_enable_compact_skip_button_sum_on">Sceip cnaipe stíleáilte don leithead íosta</string>
@@ -1115,7 +1119,7 @@ Má dhiúltaítear é níos déanaí, moltar sonraí an aip a ghlanadh chun buga
                  This is because the 'General layout' menu uses alphabetic sorting, and it functionally works better if the spoof target selector appears below the 'Spoof app version' UI switch -->
   <string name="revanced_spoof_app_version_target_title">Sprioc leagan aip spoof</string>
   <string name="revanced_spoof_app_version_target_entry_1">19.35.36 - Athchóirigh sean-deilbhíní imreoir Shorts</string>
-  <string name="revanced_spoof_app_version_target_entry_2">19.26.42 - Seanghreannacha loingseoireachta agus greille is sine a athchóirigh</string>
+  <string name="revanced_spoof_app_version_target_entry_2">19.26.42 - Athchóiriú Sean Icóin Treorach</string>
   <!-- 'RYD' is 'Return YouTube Dislike' -->
   <string name="revanced_spoof_app_version_target_legacy_entry_1">18.33.40 - Athchóirigh RYD ar mhodh incognito Shorts</string>
   <string name="revanced_spoof_app_version_target_legacy_entry_2">18.20.39 - Athchóirigh luas leathan físe &amp; roghchlár cáilíochta</string>
@@ -1125,8 +1129,11 @@ Má dhiúltaítear é níos déanaí, moltar sonraí an aip a ghlanadh chun buga
   <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">Socraigh leathanach tosaigh</string>
   <string name="revanced_change_start_page_entry_default">Réamhshocraithe</string>
+  <string name="revanced_change_start_page_entry_all_subscriptions">Uile shuibhscríbhinní</string>
   <string name="revanced_change_start_page_entry_browse">Brabhsáil cainéil</string>
+  <string name="revanced_change_start_page_entry_courses">Cúrsaí / Foghlaim</string>
   <string name="revanced_change_start_page_entry_explore">Déan iniúchadh</string>
+  <string name="revanced_change_start_page_entry_fashion">Faisean &amp; Áilleacht</string>
   <string name="revanced_change_start_page_entry_gaming">Cluichíocht</string>
   <string name="revanced_change_start_page_entry_history">Stair</string>
   <string name="revanced_change_start_page_entry_library">Leabharlann</string>
@@ -1134,11 +1141,17 @@ Má dhiúltaítear é níos déanaí, moltar sonraí an aip a ghlanadh chun buga
   <string name="revanced_change_start_page_entry_live">Beo</string>
   <string name="revanced_change_start_page_entry_movies">Scannáin</string>
   <string name="revanced_change_start_page_entry_music">Ceol</string>
+  <string name="revanced_change_start_page_entry_news">Nuacht</string>
+  <string name="revanced_change_start_page_entry_notifications">Fógraí</string>
+  <string name="revanced_change_start_page_entry_playlists">Liostaí seinnte</string>
   <string name="revanced_change_start_page_entry_search">Cuardaigh</string>
+  <string name="revanced_change_start_page_entry_shopping">Siopadóireacht</string>
   <string name="revanced_change_start_page_entry_sports">Spóirt</string>
   <string name="revanced_change_start_page_entry_subscriptions">Síntiúis</string>
   <string name="revanced_change_start_page_entry_trending">Ag treocht</string>
+  <string name="revanced_change_start_page_entry_virtual_reality">Fíor-Rialtas</string>
   <string name="revanced_change_start_page_entry_watch_later">Féach ar níos déanaí</string>
+  <string name="revanced_change_start_page_entry_your_clips">Do chlipbhoirt</string>
   </patch>
   <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch">
   <string name="revanced_disable_resuming_shorts_player_title">Díchumasaigh an t-imreoir Shorts atá ag tosú arís</string>
@@ -1387,8 +1400,6 @@ Is féidir le seo caighdeáin físeáin níos airde a dhíghlasáil"</string>
 D'fhéadfadh nach n-oibreoidh athsheinm físeáin"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Seans go mbeidh fadhbanna athsheinm físe ag baint leis an socrú seo a mhúchadh.</string>
   <string name="revanced_spoof_video_streams_client_type_title">Cliant réamhshocraithe</string>
-  <!-- 'no auth' means no authentication -->
-  <string name="revanced_spoof_video_streams_client_type_android_vr_no_auth">Android VR (gun fháil údarás)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_title">Féach iOS AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Fórsaítear códú fhíseán chuig AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Chinntítear códú fhíseán go huathoibríoch</string>

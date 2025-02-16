@@ -40,13 +40,13 @@ Second \"item\" text"</string>
   <string name="revanced_settings_restart">再起動</string>
   <string name="revanced_settings_import">インポート</string>
   <string name="revanced_settings_import_copy">コピー</string>
-  <string name="revanced_settings_import_reset">ReVanced設定をデフォルトにリセット</string>
-  <string name="revanced_settings_import_success">%d個の設定をインポートしました</string>
+  <string name="revanced_settings_import_reset">ReVanced 設定をデフォルトにリセット</string>
+  <string name="revanced_settings_import_success">%d 個の設定をインポートしました</string>
   <string name="revanced_settings_import_failure_parse">インポート失敗: %s</string>
-  <string name="revanced_language_title">ReVanced言語</string>
+  <string name="revanced_language_title">ReVancedの言語</string>
   <string name="revanced_language_user_dialog_message">"一部の言語の翻訳が不足しているか、不完全である可能性があります。
 
-新しい言語を翻訳するには、translate.revanced.appにアクセスしてください。"</string>
+新しい言語を翻訳するには、translate.revanced.appにアクセスしてください"</string>
   <string name="revanced_language_DEFAULT">アプリの言語</string>
   <string name="revanced_language_AR">アラビア語</string>
   <string name="revanced_language_AZ">アゼルバイジャン語</string>
@@ -99,25 +99,25 @@ Second \"item\" text"</string>
   <string name="revanced_language_UR">ウルドゥー語</string>
   <string name="revanced_language_VI">ベトナム語</string>
   <string name="revanced_language_ZH">中国語</string>
-  <string name="revanced_pref_import_export_title">インポート/エクスポート</string>
-  <string name="revanced_pref_import_export_summary">ReVanced設定のインポート/エクスポート</string>
+  <string name="revanced_pref_import_export_title">インポート / エクスポート</string>
+  <string name="revanced_pref_import_export_summary">ReVanced の設定をテキストでインポート / エクスポートします</string>
   <!-- Settings about dialog. -->
-  <string name="revanced_settings_about_links_body">ReVanced Patchesのバージョン &lt;i&gt;%s&lt;/i&gt; を使用しています</string>
+  <string name="revanced_settings_about_links_body">ReVanced Patches のバージョン &lt;i&gt;%s&lt;/i&gt; を使用しています</string>
   <string name="revanced_settings_about_links_dev_header">注意</string>
-  <string name="revanced_settings_about_links_dev_body">このバージョンはプレリリース版であり、予期しない問題が発生する可能性があります。</string>
+  <string name="revanced_settings_about_links_dev_body">このバージョンはプレリリース版であり、予期しない問題が発生する可能性があります</string>
   <string name="revanced_settings_about_links_header">公式リンク</string>
   <!-- NOTE: the about strings above are duplicated in the TikTok about screen code,
                  and changes made here must also be made there. -->
   </patch>
   <patch id="misc.gms.gmsCoreSupportResourcePatch">
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
-  <string name="gms_core_toast_not_installed_message">MicroG GmsCoreがインストールされていません。インストールしてください。</string>
-  <string name="gms_core_dialog_title">アクションが必要です</string>
-  <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"MicroG GmsCoreはバックグラウンドで実行するための権限を持っていません。
+  <string name="gms_core_toast_not_installed_message">MicroG GmsCore がインストールされていません。インストールしてください。</string>
+  <string name="gms_core_dialog_title">必ず実行してください</string>
+  <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"MicroG GmsCore はバックグラウンドで実行するための権限を持っていません。
 
-お使いの携帯電話の「アプリの強制終了を無効にする」ガイドに従って、MicroGインストールに指示を適用してください。
+下記ウェブサイト「Don't kill my app」の携帯電話メーカー別のガイドに従い、MicroG GmsCore に対する端末の設定を変更してください。
 
-これはアプリが動作するために必要です。"</string>
+この操作はアプリが動作するために必要です。"</string>
   <string name="gms_core_dialog_open_website_text">ウェブサイトを開く</string>
   <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">"問題を防ぐためには、GmsCore の電池の最適化を無効にする必要があります。
 
@@ -129,7 +129,7 @@ GmsCore の電池の最適化を無効にしても、バッテリーの使用に
   </app>
   <app id="youtube">
   <patch id="misc.settings.settingsPatch">
-  <string name="revanced_settings_screen_00_about_title">について</string>
+  <string name="revanced_settings_screen_00_about_title">このアプリについて</string>
   <string name="revanced_settings_screen_01_ads_title">広告</string>
   <string name="revanced_settings_screen_02_alt_thumbnails_title">代替サムネイル</string>
   <string name="revanced_settings_screen_03_feed_title">フィード</string>
@@ -137,9 +137,9 @@ GmsCore の電池の最適化を無効にしても、バッテリーの使用に
   <string name="revanced_settings_screen_05_player_title">動画プレーヤー</string>
   <string name="revanced_settings_screen_06_shorts_title">ショート</string>
   <string name="revanced_settings_screen_07_seekbar_title">シークバー</string>
-  <string name="revanced_settings_screen_08_swipe_controls_title">スワイプコントロール</string>
+  <string name="revanced_settings_screen_08_swipe_controls_title">スワイプ コントロール</string>
   <string name="revanced_settings_screen_11_misc_title">その他</string>
-  <string name="revanced_settings_screen_12_video_title">ビデオ</string>
+  <string name="revanced_settings_screen_12_video_title">動画</string>
   <string name="revanced_restore_old_settings_menus_title">設定メニューを旧バージョンに戻す</string>
   <string name="revanced_restore_old_settings_menus_summary_on">旧バージョンの設定メニューが表示されます</string>
   <string name="revanced_restore_old_settings_menus_summary_off">通常の設定メニューが表示されます</string>
@@ -151,22 +151,22 @@ GmsCore の電池の最適化を無効にしても、バッテリーの使用に
   </patch>
   <patch id="misc.debugging.enableDebuggingPatch">
   <string name="revanced_debug_screen_title">デバッグ</string>
-  <string name="revanced_debug_screen_summary">デバッグオプションを有効または無効にする</string>
-  <string name="revanced_debug_title">デバッグログ</string>
-  <string name="revanced_debug_summary_on">デバッグログが有効になっています</string>
-  <string name="revanced_debug_summary_off">デバッグログが無効になっています</string>
-  <string name="revanced_debug_protobuffer_title">プロトコルバッファのログ</string>
-  <string name="revanced_debug_protobuffer_summary_on">デバッグログにプロトバッファが含まれます</string>
-  <string name="revanced_debug_protobuffer_summary_off">デバッグログにはプロトバッファが含まれていません</string>
-  <string name="revanced_debug_stacktrace_title">ロッグスタックトレース</string>
-  <string name="revanced_debug_stacktrace_summary_on">デバッグログにスタックトレースを含まれます</string>
-  <string name="revanced_debug_stacktrace_summary_off">デバッグログにスタックトレースは含まれません</string>
-  <string name="revanced_debug_toast_on_error_title">ReVancedエラー時にトーストを表示する</string>
-  <string name="revanced_debug_toast_on_error_summary_on">エラー発生時にトーストが表示されます</string>
-  <string name="revanced_debug_toast_on_error_summary_off">エラー発生時にトーストは表示されません</string>
-  <string name="revanced_debug_toast_on_error_user_dialog_message">"エラートーストの無効化により、すべてのReVancedエラー通知が非表示になります。
+  <string name="revanced_debug_screen_summary">デバッグの設定</string>
+  <string name="revanced_debug_title">デバッグ ログを有効にする</string>
+  <string name="revanced_debug_summary_on">デバッグ ログは有効です</string>
+  <string name="revanced_debug_summary_off">デバッグ ログは無効です</string>
+  <string name="revanced_debug_protobuffer_title">protocol buffer を記録する</string>
+  <string name="revanced_debug_protobuffer_summary_on">デバッグ ログに protocol buffer が含まれます</string>
+  <string name="revanced_debug_protobuffer_summary_off">デバッグ ログに protocol buffer は含まれません</string>
+  <string name="revanced_debug_stacktrace_title">stack trace を記録する</string>
+  <string name="revanced_debug_stacktrace_summary_on">デバッグ ログにstack trace が含まれます</string>
+  <string name="revanced_debug_stacktrace_summary_off">デバッグ ログにstack trace は含まれません</string>
+  <string name="revanced_debug_toast_on_error_title">ReVanced エラーのトーストを表示</string>
+  <string name="revanced_debug_toast_on_error_summary_on">ReVanced エラー発生時にトースト ポップアップが表示されます</string>
+  <string name="revanced_debug_toast_on_error_summary_off">ReVanced エラーが発生してもトースト ポップアップは表示されません</string>
+  <string name="revanced_debug_toast_on_error_user_dialog_message">"この機能をオフにすると、すべてのReVanced エラー通知が非表示になります。
 
-予期しないイベントは通知されません。"</string>
+あらゆる予期せぬイベントが通知されなくなります。"</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
   <string name="revanced_disable_like_subscribe_glow_title">高評価 / チャンネル登録ボタンのアニメーションを無効にする</string>
@@ -181,33 +181,27 @@ GmsCore の電池の最適化を無効にしても、バッテリーの使用に
   <string name="revanced_hide_floating_microphone_button_title">音声入力のフローティング ボタンを非表示</string>
   <string name="revanced_hide_floating_microphone_button_summary_on">音声入力のフローティング ボタンは表示されません</string>
   <string name="revanced_hide_floating_microphone_button_summary_off">音声入力のフローティング ボタンは表示されます</string>
-  <string name="revanced_hide_channel_watermark_title">チャンネルのウォーターマークを隠す</string>
-  <string name="revanced_hide_channel_watermark_summary_on">ウォーターマークは隠されています</string>
-  <string name="revanced_hide_channel_watermark_summary_off">ウォーターマークが表示されています</string>
-  <string name="revanced_hide_horizontal_shelves_title">横スクロール リストを非表示</string>
-  <string name="revanced_hide_horizontal_shelves_summary_on">"以下のリストは表示されません
+  <string name="revanced_hide_channel_watermark_title">チャンネルの透かしを非表示</string>
+  <string name="revanced_hide_channel_watermark_summary_on">チャンネルの透かしは表示されません</string>
+  <string name="revanced_hide_channel_watermark_summary_off">チャンネルの透かしは表示されます</string>
+  <string name="revanced_hide_horizontal_shelves_title">横スクロール欄を非表示</string>
+  <string name="revanced_hide_horizontal_shelves_summary_on">"以下の項目は表示されません
 • 緊急ニュース
 • 続きを見る
 • 他のチャンネルを探す
 • ショッピング
 • もう一度見る
 • 他の人はこちらも検索"</string>
-  <string name="revanced_hide_horizontal_shelves_summary_off">以下のリストが表示されます
-• 緊急ニュース
-• 続きを見る
-• 他のチャンネルを探す
-• ショッピング
-• もう一度見る
-• 他の人はこちらも検索</string>
+  <string name="revanced_hide_horizontal_shelves_summary_off">横スクロール欄は表示されます</string>
   <!-- 'Join' should be translated using the same localized wording YouTube displays.
                  This appears in the video player for certain videos. -->
   <string name="revanced_hide_join_membership_button_title">「メンバーになる」ボタンを非表示</string>
   <string name="revanced_hide_join_membership_button_summary_on">「メンバーになる」ボタンは表示されません</string>
   <string name="revanced_hide_join_membership_button_summary_off">「メンバーになる」ボタンは表示されます</string>
   <!-- 'For you' should be translated using the same localized wording YouTube displays. -->
-  <string name="revanced_hide_for_you_shelf_title">チャンネルページの「おすすめ」リストを非表示</string>
-  <string name="revanced_hide_for_you_shelf_summary_on">チャンネルページに「おすすめ」リストは表示されません</string>
-  <string name="revanced_hide_for_you_shelf_summary_off">チャンネルページに「おすすめ」リストが表示されます</string>
+  <string name="revanced_hide_for_you_shelf_title">チャンネルページの「おすすめ」欄を非表示</string>
+  <string name="revanced_hide_for_you_shelf_summary_on">チャンネルページに「おすすめ」欄は表示されません</string>
+  <string name="revanced_hide_for_you_shelf_summary_off">チャンネルページに「おすすめ」欄が表示されます</string>
   <!-- 'Notify me' should be translated using the same localized wording YouTube displays.
                  This item appear in the subscription feed for future livestreams or unreleased videos. -->
   <string name="revanced_hide_notify_me_button_title">「通知を受け取る」ボタンを非表示</string>
@@ -286,7 +280,7 @@ GmsCore の電池の最適化を無効にしても、バッテリーの使用に
   <string name="revanced_hide_mix_playlists_summary_on">ミックスリストは表示されません</string>
   <string name="revanced_hide_mix_playlists_summary_off">ミックスリストは表示されます</string>
   <string name="revanced_hide_artist_cards_title">アーティスト情報を非表示</string>
-  <string name="revanced_hide_artist_cards_summary_on">アーティスト情報は非表示です</string>
+  <string name="revanced_hide_artist_cards_summary_on">アーティスト情報は表示されません</string>
   <string name="revanced_hide_artist_cards_summary_off">アーティスト情報が表示されます</string>
   <string name="revanced_hide_attributes_section_title">引用元セクションを非表示</string>
   <string name="revanced_hide_attributes_section_summary_on">「注目の場所」/ ゲーム / 音楽セクションは表示されません</string>
@@ -328,7 +322,7 @@ GmsCore の電池の最適化を無効にしても、バッテリーの使用に
   <string name="revanced_hide_comments_chat_summary_summary_on">「チャットの要約」は表示されません</string>
   <string name="revanced_hide_comments_chat_summary_summary_off">「チャットの要約」は表示されます</string>
   <string name="revanced_hide_comments_by_members_header_title">「メンバーによるコメント」ヘッダーを非表示</string>
-  <string name="revanced_hide_comments_by_members_header_summary_on">「メンバーによるコメント」ヘッダーは非表示です</string>
+  <string name="revanced_hide_comments_by_members_header_summary_on">「メンバーによるコメント」ヘッダーは表示されません</string>
   <string name="revanced_hide_comments_by_members_header_summary_off">「メンバーによるコメント」ヘッダーは表示されます</string>
   <string name="revanced_hide_comments_section_title">コメント セクションを非表示</string>
   <string name="revanced_hide_comments_section_summary_on">コメント セクションは表示されません</string>
@@ -341,7 +335,7 @@ GmsCore の電池の最適化を無効にしても、バッテリーの使用に
   <string name="revanced_hide_comments_preview_comment_summary_off">コメントのプレビューは表示されます</string>
   <string name="revanced_hide_comments_thanks_button_title">Thanks ボタンを非表示</string>
   <string name="revanced_hide_comments_thanks_button_summary_on">Thanks ボタンは表示されません</string>
-  <string name="revanced_hide_comments_thanks_button_summary_off">Thanks ボタンは表示されません</string>
+  <string name="revanced_hide_comments_thanks_button_summary_off">Thanks ボタンは表示されます</string>
   <string name="revanced_hide_comments_timestamp_and_emoji_buttons_title">タイムスタンプ ボタンと絵文字ボタンを非表示</string>
   <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_on">タイムスタンプ ボタンと絵文字ボタンは表示されません</string>
   <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_off">タイムスタンプ ボタンと絵文字ボタンは表示されます</string>
@@ -360,15 +354,15 @@ GmsCore の電池の最適化を無効にしても、バッテリーの使用に
   <string name="revanced_custom_filter_strings_title">カスタム フィルタ</string>
   <!-- 'Component path builder strings' is the technical name for identifying the Litho UI layout items to hide. This is an advanced feature and most users will never use this. -->
   <string name="revanced_custom_filter_strings_summary">非表示にしたい component の path builder string を改行区切りで入力します</string>
-  <string name="revanced_custom_filter_toast_invalid_syntax">無効なカスタムフィルター: %s</string>
+  <string name="revanced_custom_filter_toast_invalid_syntax">無効なカスタム フィルタ: %s</string>
   <string name="revanced_hide_keyword_content_screen_title">キーワード フィルタ</string>
   <string name="revanced_hide_keyword_content_screen_summary">フィード、検索結果、関連動画をキーワードでフィルタリングします</string>
   <string name="revanced_hide_keyword_content_home_title">キーワードに合致する動画をホーム フィードから除外する</string>
   <string name="revanced_hide_keyword_content_home_summary_on">キーワードに合致する動画はホーム フィードに表示されません</string>
-  <string name="revanced_hide_keyword_content_home_summary_off">ホーム フィードの動画はキーワードでフィルタリングされません</string>
+  <string name="revanced_hide_keyword_content_home_summary_off">ホーム フィードはキーワードでフィルタリングされません</string>
   <string name="revanced_hide_keyword_content_search_title">キーワードに合致する動画を検索結果から除外する</string>
   <string name="revanced_hide_keyword_content_search_summary_on">キーワードに合致する動画は検索結果に表示されません</string>
-  <string name="revanced_hide_keyword_content_search_summary_off">検索結果の動画はキーワードでフィルタリングされません</string>
+  <string name="revanced_hide_keyword_content_search_summary_off">検索結果はキーワードでフィルタリングされません</string>
   <string name="revanced_hide_keyword_content_subscriptions_title">キーワードに合致する動画を登録チャンネル フィードから除外する</string>
   <string name="revanced_hide_keyword_content_subscriptions_summary_on">キーワードに合致する動画は登録チャンネル フィードに表示されません</string>
   <string name="revanced_hide_keyword_content_subscriptions_summary_off">登録チャンネル フィードの動画はキーワードでフィルタリングされません</string>
@@ -395,7 +389,7 @@ GmsCore の電池の最適化を無効にしても、バッテリーの使用に
   <string name="revanced_hide_keyword_toast_invalid_common_whole_word_required">キーワード %sを使用する引用符を追加</string>
   <string name="revanced_hide_keyword_toast_invalid_conflicting">キーワードに矛盾する宣言があります: %s</string>
   <string name="revanced_hide_keyword_toast_invalid_length">キーワードが短すぎるため見積もりが必要です: %s</string>
-  <string name="revanced_hide_keyword_toast_invalid_broad">キーワードはすべてのビデオを非表示にします： %s</string>
+  <string name="revanced_hide_keyword_toast_invalid_broad">キーワードはすべての動画を非表示にします： %s</string>
   </patch>
   <patch id="ad.general.hideAdsResourcePatch">
   <string name="revanced_hide_general_ads_title">一般的な広告を非表示</string>
@@ -404,14 +398,14 @@ GmsCore の電池の最適化を無効にしても、バッテリーの使用に
   <string name="revanced_hide_fullscreen_ads_title">全画面広告を非表示</string>
   <string name="revanced_hide_fullscreen_ads_summary_on">"アプリ起動時に全画面広告は表示されません
 
-この機能は、古いデバイスでのみ利用できます"</string>
+この機能は、古い端末でのみ利用できます"</string>
   <string name="revanced_hide_fullscreen_ads_summary_off">アプリ起動時に全画面広告が表示されます</string>
   <string name="revanced_hide_buttoned_ads_title">ボタン付き広告を非表示</string>
   <string name="revanced_hide_buttoned_ads_summary_on">ボタン付き広告は表示されません</string>
   <string name="revanced_hide_buttoned_ads_summary_off">ボタン付き広告は表示されます</string>
-  <string name="revanced_hide_paid_promotion_label_title">「プロモーションを含みます」バナーを非表示</string>
-  <string name="revanced_hide_paid_promotion_label_summary_on">動画上に「プロモーションを含みます」バナーは表示されません</string>
-  <string name="revanced_hide_paid_promotion_label_summary_off">動画上に「プロモーションを含みます」バナーが表示されます</string>
+  <string name="revanced_hide_paid_promotion_label_title">「プロモーションを含みます」ボタンを非表示</string>
+  <string name="revanced_hide_paid_promotion_label_summary_on">動画上に「プロモーションを含みます」ボタンは表示されません</string>
+  <string name="revanced_hide_paid_promotion_label_summary_off">動画上に「プロモーションを含みます」ボタンが表示されます</string>
   <string name="revanced_hide_self_sponsor_ads_title">自己スポンサーカードを非表示</string>
   <string name="revanced_hide_self_sponsor_ads_summary_on">自己スポンサーカードは表示されません</string>
   <string name="revanced_hide_self_sponsor_ads_summary_off">自己スポンサーカードは表示されます</string>
@@ -425,8 +419,8 @@ GmsCore の電池の最適化を無効にしても、バッテリーの使用に
   <string name="revanced_hide_player_store_shelf_summary_on">ストア広告は表示されません</string>
   <string name="revanced_hide_player_store_shelf_summary_off">ストア広告は表示されます</string>
   <string name="revanced_hide_shopping_links_title">概要欄の商品へのリンクを非表示</string>
-  <string name="revanced_hide_shopping_links_summary_on">概要欄に、タグ付けされた商品へのリンクおよび商品セクションは表示されません</string>
-  <string name="revanced_hide_shopping_links_summary_off">概要欄に、タグ付けされた商品へのリンクまたは商品セクションが表示されます</string>
+  <string name="revanced_hide_shopping_links_summary_on">概要欄にタグ付けされた商品へのリンクは表示されません</string>
+  <string name="revanced_hide_shopping_links_summary_off">概要欄にタグ付けされた商品へのリンクが表示されます</string>
   <!-- 'Visit store' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_visit_store_button_title">チャンネルページの「ストアに移動」ボタンを非表示</string>
   <string name="revanced_hide_visit_store_button_summary_on">チャンネルページに「ストアに移動」ボタンは表示されません</string>
@@ -453,10 +447,10 @@ GmsCore の電池の最適化を無効にしても、バッテリーの使用に
   <patch id="interaction.copyvideourl.copyVideoUrlResourcePatch">
   <string name="revanced_share_copy_url_success">URL をクリップボードにコピーしました</string>
   <string name="revanced_share_copy_url_timestamp_success">タイムスタンプ付きの URL がコピーされました</string>
-  <string name="revanced_copy_video_url_title">「動画の URL をコピーする」ボタンを表示</string>
+  <string name="revanced_copy_video_url_title">「動画の URL をコピー」ボタンを表示</string>
   <string name="revanced_copy_video_url_summary_on">オーバーレイ上にボタンが表示されます。タップするとタイムスタンプなしの URL を、長押しするとタイムスタンプ付きの URL をそれぞれコピーできます</string>
   <string name="revanced_copy_video_url_summary_off">オーバーレイ上にボタンは表示されません</string>
-  <string name="revanced_copy_video_url_timestamp_title">「タイムスタンプ付き URL をコピーする」ボタンを表示</string>
+  <string name="revanced_copy_video_url_timestamp_title">「動画のタイムスタンプ付き URL をコピー」ボタンを表示</string>
   <string name="revanced_copy_video_url_timestamp_summary_on">オーバーレイ上にボタンが表示されます。タップするとタイムスタンプ付きの URL を、長押しするとタイムスタンプなしの URL をそれぞれコピーできます</string>
   <string name="revanced_copy_video_url_timestamp_summary_off">オーバーレイ上にボタンは表示されません</string>
   </patch>
@@ -464,7 +458,7 @@ GmsCore の電池の最適化を無効にしても、バッテリーの使用に
   <string name="revanced_remove_viewer_discretion_dialog_title">「ご自身の責任」ダイアログを削除</string>
   <string name="revanced_remove_viewer_discretion_dialog_summary_on">ダイアログは削除されます</string>
   <string name="revanced_remove_viewer_discretion_dialog_summary_off">ダイアログは表示されます</string>
-  <string name="revanced_remove_viewer_discretion_dialog_user_dialog_message">この機能は年齢制限を回避するものではなく、ダイアログを自動的に承認するだけです。</string>
+  <string name="revanced_remove_viewer_discretion_dialog_user_dialog_message">この機能は年齢制限を回避するものではなく、自動的に承認するだけです。</string>
   </patch>
   <patch id="interaction.downloads.downloadsResourcePatch">
   <string name="revanced_external_downloader_screen_title">外部ダウンロード</string>
@@ -504,8 +498,8 @@ GmsCore の電池の最適化を無効にしても、バッテリーの使用に
   <string name="revanced_swipe_haptic_feedback_summary_on">触覚フィードバックは有効です</string>
   <string name="revanced_swipe_haptic_feedback_summary_off">触覚フィードバックは無効です</string>
   <string name="revanced_swipe_save_and_restore_brightness_title">明るさの保存と復元</string>
-  <string name="revanced_swipe_save_and_restore_brightness_summary_on">フルスクリーンを終了/開始したときに明るさを保存して復元します</string>
-  <string name="revanced_swipe_save_and_restore_brightness_summary_off">フルスクリーンを終了/開始したときに明るさを保存および復元しません</string>
+  <string name="revanced_swipe_save_and_restore_brightness_summary_on">全画面表示を解除 / 開始したときに明るさを保存して復元します</string>
+  <string name="revanced_swipe_save_and_restore_brightness_summary_off">全画面表示を解除 / 開始したときに明るさを保存および復元しません</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_title">自動明るさジェスチャーを有効にする</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_on">明るさジェスチャーの最小値まで下にスワイプすると、自動明るさが有効になります</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_off">最小値まで下にスワイプしても、自動明るさの自動調節は有効になりません</string>
@@ -514,13 +508,14 @@ GmsCore の電池の最適化を無効にしても、バッテリーの使用に
   <string name="revanced_swipe_overlay_timeout_summary">オーバーレイが表示されるミリ秒の量</string>
   <string name="revanced_swipe_text_overlay_size_title">スワイプオーバーレイのテキストサイズ</string>
   <string name="revanced_swipe_text_overlay_size_summary">スワイプオーバーレイのテキストサイズ</string>
-  <string name="revanced_swipe_overlay_background_alpha_title">背景のスワイプ表示</string>
-  <string name="revanced_swipe_overlay_background_alpha_summary">オーバーレイの背景をスワイプ表示する</string>
+  <string name="revanced_swipe_overlay_background_opacity_title">スワイプオーバーレイの背景の不透明度</string>
+  <string name="revanced_swipe_overlay_background_opacity_summary">透明度の値は 0-100 の範囲で、0が透明です</string>
+  <string name="revanced_swipe_overlay_background_opacity_invalid_toast">透明度の値は 0-100 の間でなければなりません</string>
   <string name="revanced_swipe_threshold_title">スワイプの大きさのしきい値</string>
   <string name="revanced_swipe_threshold_summary">スワイプとして検出する量のしきい値</string>
-  <string name="revanced_swipe_change_video_title">スワイプして動画を切り替え</string>
-  <string name="revanced_swipe_change_video_summary_on">全画面モードでスワイプすると、次の/前の動画に切り替わります</string>
-  <string name="revanced_swipe_change_video_summary_off">全画面モードでスワイプしても、次の/前の動画には切り替わりません</string>
+  <string name="revanced_swipe_change_video_title">スワイプして動画を切り替える</string>
+  <string name="revanced_swipe_change_video_summary_on">全画面表示でスワイプすると、次 / 前の動画に切り替わります</string>
+  <string name="revanced_swipe_change_video_summary_off">全画面表示でスワイプしても、次 / 前の動画には切り替わりません</string>
   </patch>
   <patch id="layout.autocaptions.autoCaptionsPatch">
   <string name="revanced_auto_captions_title">自動字幕表示を無効にする</string>
@@ -529,7 +524,7 @@ GmsCore の電池の最適化を無効にしても、バッテリーの使用に
   </patch>
   <patch id="layout.buttons.action.hideButtonsPatch">
   <string name="revanced_hide_buttons_screen_title">アクション ボタン</string>
-  <string name="revanced_hide_buttons_screen_summary">動画下のボタンを編集します</string>
+  <string name="revanced_hide_buttons_screen_summary">プレーヤー画面下のボタンを編集します</string>
   <string name="revanced_hide_like_dislike_button_title">高評価 / 低評価ボタンを非表示</string>
   <string name="revanced_hide_like_dislike_button_summary_on">高評価 / 低評価ボタンは表示されません</string>
   <string name="revanced_hide_like_dislike_button_summary_off">高評価 / 低評価ボタンは表示されます</string>
@@ -575,7 +570,7 @@ GmsCore の電池の最適化を無効にしても、バッテリーの使用に
   <string name="revanced_hide_shorts_button_summary_on">ショート ボタンは表示されません</string>
   <string name="revanced_hide_shorts_button_summary_off">ショート ボタンは表示されます</string>
   <!-- The Create button has no display name. Translate normally. -->
-  <string name="revanced_hide_create_button_title">作成を非表示</string>
+  <string name="revanced_hide_create_button_title">作成ボタンを非表示</string>
   <string name="revanced_hide_create_button_summary_on">作成ボタンは非表示です</string>
   <string name="revanced_hide_create_button_summary_off">作成ボタンは表示されます</string>
   <!-- 'Subscriptions' should be translated using the same localized wording YouTube displays the tab. -->
@@ -591,18 +586,18 @@ GmsCore の電池の最適化を無効にしても、バッテリーの使用に
   <string name="revanced_hide_navigation_button_labels_title">ナビゲーション ボタンをアイコンのみで表示する</string>
   <string name="revanced_hide_navigation_button_labels_summary_on">ナビゲーション ボタンはアイコンのみで表示されます</string>
   <string name="revanced_hide_navigation_button_labels_summary_off">ナビゲーション ボタンはアイコンと文字で表示されます</string>
-  <string name="revanced_disable_translucent_status_bar_title">半透明なステータスバーを無効化</string>
-  <string name="revanced_disable_translucent_status_bar_summary_on">ステータスバーを不透明にします。</string>
-  <string name="revanced_disable_translucent_status_bar_summary_off">ステータスバーを不透明にします。</string>
-  <string name="revanced_disable_translucent_navigation_bar_light_title">明るい半透明なナビゲーションバーを無効化</string>
-  <string name="revanced_disable_translucent_navigation_bar_light_summary_on">ライトモードで半透明なナビゲーションバーを無効化します。</string>
-  <string name="revanced_disable_translucent_navigation_bar_light_summary_off">ライトモードで半透明なナビゲーションバーを無効化します。</string>
-  <string name="revanced_disable_translucent_navigation_bar_dark_title">暗い半透明なナビゲーションバーを無効化</string>
-  <string name="revanced_disable_translucent_navigation_bar_dark_summary_on">ダークモードのナビゲーションバーは不透明です</string>
-  <string name="revanced_disable_translucent_navigation_bar_dark_summary_off">ダークモードのナビゲーションバーは不透明または半透明です</string>
+  <string name="revanced_disable_translucent_status_bar_title">ステータス バーの半透明化を無効にする</string>
+  <string name="revanced_disable_translucent_status_bar_summary_on">ステータス バーは透けません</string>
+  <string name="revanced_disable_translucent_status_bar_summary_off">ステータス バーは状況に応じて透けます</string>
+  <string name="revanced_disable_translucent_navigation_bar_light_title">ライトモード時のナビゲーション バーの半透明化を無効にする</string>
+  <string name="revanced_disable_translucent_navigation_bar_light_summary_on">ライトモード時にナビゲーション バーは透けません</string>
+  <string name="revanced_disable_translucent_navigation_bar_light_summary_off">ライトモード時にナビゲーション バーが状況に応じて透けます</string>
+  <string name="revanced_disable_translucent_navigation_bar_dark_title">ダークモード時のナビゲーション バーの半透明化を無効にする</string>
+  <string name="revanced_disable_translucent_navigation_bar_dark_summary_on">ダークモード時にナビゲーション バーは透けません</string>
+  <string name="revanced_disable_translucent_navigation_bar_dark_summary_off">ダークモード時にナビゲーション バーは状況に応じて透けます</string>
   </patch>
   <patch id="layout.hide.player.flyoutmenupanel.hidePlayerFlyoutMenuPatch">
-  <string name="revanced_hide_player_flyout_title">フライアウトメニュー</string>
+  <string name="revanced_hide_player_flyout_title">フライアウト メニュー</string>
   <string name="revanced_hide_player_flyout_summary">オーバーレイ上の歯車アイコンから表示されるメニューを編集します</string>
   <!-- 'Captions' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_captions_title">「字幕」を非表示</string>
@@ -657,9 +652,9 @@ GmsCore の電池の最適化を無効にしても、バッテリーの使用に
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_off">画質設定メニューの脚注は表示されます</string>
   </patch>
   <patch id="layout.buttons.overlay.hidePlayerOverlayButtonsPatch">
-  <string name="revanced_hide_player_previous_next_buttons_title">前の動画 / 次の動画ボタンを非表示</string>
-  <string name="revanced_hide_player_previous_next_buttons_summary_on">前の動画 / 次の動画ボタンは表示されません</string>
-  <string name="revanced_hide_player_previous_next_buttons_summary_off">前の動画 / 次の動画ボタンは表示されます</string>
+  <string name="revanced_hide_player_previous_next_buttons_title">前の動画 &amp; 次の動画ボタンを非表示</string>
+  <string name="revanced_hide_player_previous_next_buttons_summary_on">前の動画ボタンと次の動画ボタンは表示されません</string>
+  <string name="revanced_hide_player_previous_next_buttons_summary_off">前の動画ボタンと次の動画ボタンは表示されます</string>
   <string name="revanced_hide_cast_button_title">キャスト ボタンを非表示</string>
   <string name="revanced_hide_cast_button_summary_on">オーバーレイ上にキャスト ボタンは表示されません</string>
   <string name="revanced_hide_cast_button_summary_off">オーバーレイ上にキャスト ボタンが表示されます</string>
@@ -683,8 +678,8 @@ GmsCore の電池の最適化を無効にしても、バッテリーの使用に
   </patch>
   <patch id="layout.hide.infocards.hideInfocardsResourcePatch">
   <string name="revanced_hide_info_cards_title">情報カードを非表示</string>
-  <string name="revanced_hide_info_cards_summary_on">情報カードは表示されません</string>
-  <string name="revanced_hide_info_cards_summary_off">情報カードは表示されます</string>
+  <string name="revanced_hide_info_cards_summary_on">動画上に情報カードは表示されません</string>
+  <string name="revanced_hide_info_cards_summary_off">動画上に情報カードが表示されます</string>
   </patch>
   <patch id="layout.hide.rollingnumber.disableRollingNumberAnimationPatch">
   <string name="revanced_disable_rolling_number_animations_title">数字のアニメーションを無効にする</string>
@@ -733,8 +728,8 @@ GmsCore の電池の最適化を無効にしても、バッテリーの使用に
   <string name="revanced_hide_shorts_super_thanks_button_title">Super Thanks ボタンを非表示</string>
   <string name="revanced_hide_shorts_super_thanks_button_summary_on">Super Thanks ボタンは表示されません</string>
   <string name="revanced_hide_shorts_super_thanks_button_summary_off">Super Thanks ボタンは表示されます</string>
-  <string name="revanced_hide_shorts_tagged_products_title">タグ付き製品を非表示</string>
-  <string name="revanced_hide_shorts_tagged_products_summary_on">タグ付けされた商品は非表示です</string>
+  <string name="revanced_hide_shorts_tagged_products_title">タグ付けされた商品を非表示</string>
+  <string name="revanced_hide_shorts_tagged_products_summary_on">タグ付けされた商品は表示されません</string>
   <string name="revanced_hide_shorts_tagged_products_summary_off">タグ付けされた商品が表示されます</string>
   <string name="revanced_hide_shorts_location_label_title">位置情報のラベルを隠す</string>
   <string name="revanced_hide_shorts_location_label_summary_on">ロケーションラベルは非表示です</string>
@@ -803,7 +798,7 @@ GmsCore の電池の最適化を無効にしても、バッテリーの使用に
   <string name="revanced_hide_shorts_navigation_bar_summary_off">ナビゲーション バーは表示されます</string>
   </patch>
   <patch id="layout.hide.suggestedvideoendscreen.disableSuggestedVideoEndScreenResourcePatch">
-  <string name="revanced_disable_suggested_video_end_screen_title">再生終了時に「関連動画」を表示しない</string>
+  <string name="revanced_disable_suggested_video_end_screen_title">再生終了時の「関連動画」を非表示</string>
   <string name="revanced_disable_suggested_video_end_screen_summary_on">再生終了時に「関連動画」は表示されません</string>
   <string name="revanced_disable_suggested_video_end_screen_summary_off">再生終了時に「関連動画」が表示されます</string>
   </patch>
@@ -841,7 +836,9 @@ GmsCore の電池の最適化を無効にしても、バッテリーの使用に
   <string name="revanced_ryd_failure_client_rate_limit_requested">Return YouTube Dislikeは利用できません (API レート制限)</string>
   <string name="revanced_ryd_failure_generic">Return YouTube Dislikeは利用できません (%s)</string>
   <!-- Toast shown if the user enables RYD while a video is opened, and then tries to vote for the video. -->
-  <string name="revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted">Return YouTube Dislikeを使用するにはビデオを再読み込みしてください</string>
+  <string name="revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted">Return YouTube Dislike を使用するには動画を再読み込みしてください</string>
+  <!-- Video likes have been set to hidden by the video uploader. -->
+  <string name="revanced_ryd_video_likes_hidden_by_video_owner">所有者によって非表示</string>
   <string name="revanced_ryd_enable_summary_on">低評価数が表示されます</string>
   <string name="revanced_ryd_enable_summary_off">低評価数は表示されません</string>
   <string name="revanced_ryd_shorts_title">Shortsで低評価数を表示する</string>
@@ -857,9 +854,12 @@ GmsCore の電池の最適化を無効にしても、バッテリーの使用に
   <string name="revanced_ryd_compact_layout_title">コンパクト 高評価ボタン</string>
   <string name="revanced_ryd_compact_layout_summary_on">ボタンはコンパクトに表示されます</string>
   <string name="revanced_ryd_compact_layout_summary_off">ボタンは最適なサイズで表示されます</string>
+  <string name="revanced_ryd_estimated_like_title">推定「いいね！」を表示</string>
+  <string name="revanced_ryd_estimated_like_summary_on">推定「いいね！」が表示されます</string>
+  <string name="revanced_ryd_estimated_like_summary_off">推定「いいね！」は非表示になります</string>
   <string name="revanced_ryd_toast_on_connection_error_title">API が利用できない場合はトーストを表示</string>
-  <string name="revanced_ryd_toast_on_connection_error_summary_on">Return YouTube Dislikeが利用できない場合、トーストが表示されます</string>
-  <string name="revanced_ryd_toast_on_connection_error_summary_off">Return YouTube Dislikeが利用できない場合でもトーストは表示されません</string>
+  <string name="revanced_ryd_toast_on_connection_error_summary_on">Return YouTube Dislike が利用できない場合、トースト ポップアップが表示されます</string>
+  <string name="revanced_ryd_toast_on_connection_error_summary_off">Return YouTube Dislike が利用できない場合でもトースト ポップアップは表示されません</string>
   <string name="revanced_ryd_about">このアプリについて</string>
   <string name="revanced_ryd_attribution_summary">このデータはReturn YouTube Dislike APIによって提供されています。詳細はここをタップしてください</string>
   <!-- Statistic strings are shown in the settings only when ReVanced debug mode is enabled. Typical users will never see these. -->
@@ -889,13 +889,13 @@ GmsCore の電池の最適化を無効にしても、バッテリーの使用に
   <string name="revanced_seekbar_thumbnails_high_quality_title">高画質サムネイルを有効にする</string>
   <string name="revanced_seekbar_thumbnails_high_quality_summary_on">シークバーのサムネイルは高画質です</string>
   <string name="revanced_seekbar_thumbnails_high_quality_summary_off">シークバーのサムネイルは中画質です</string>
-  <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_on">全画面表示のサムネイルは高画質です</string>
-  <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_off">全画面表示のサムネイルは中画質です</string>
+  <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_on">プレーヤー画面全体表示のサムネイルは高画質です</string>
+  <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_off">プレーヤー画面全体表示のサムネイルは中画質です</string>
   <string name="revanced_seekbar_thumbnails_high_quality_dialog_message">"これにより、シークバー サムネイルがないライブストリームのサムネイルも復元されます。
 
 シークバー サムネイルは、現在の動画と同じ画質になります。
 
-この機能は、動画の画質が720p以下で、非常に高速なインターネット接続を使用している場合に最適です。"</string>
+この機能は、動画の画質が720p以下で非常に高速なインターネット接続を使用している場合に最適です。"</string>
   <string name="revanced_restore_old_seekbar_thumbnails_title">シーク中のサムネイルを旧バージョンに戻す</string>
   <string name="revanced_restore_old_seekbar_thumbnails_summary_on">シーク位置のサムネイルがシークバーの上に表示されます</string>
   <string name="revanced_restore_old_seekbar_thumbnails_summary_off">シーク位置のサムネイルがプレーヤー画面全体に表示されます</string>
@@ -907,6 +907,9 @@ GmsCore の電池の最適化を無効にしても、バッテリーの使用に
   <string name="revanced_sb_enable_voting">投票ボタンを表示</string>
   <string name="revanced_sb_enable_voting_sum_on">セグメント投票ボタンが表示されます</string>
   <string name="revanced_sb_enable_voting_sum_off">セグメント投票ボタンは表示されません</string>
+  <string name="revanced_sb_square_layout">正方形のレイアウトを使用</string>
+  <string name="revanced_sb_square_layout_sum_on">ボタンとコントロールが正方形になります</string>
+  <string name="revanced_sb_square_layout_sum_off">ボタンとコントロールは丸みを帯びています</string>
   <!-- Translations should use language similar to 'revanced_ryd_compact_layout_title' -->
   <string name="revanced_sb_enable_compact_skip_button">コンパクトスキップボタンを使用</string>
   <string name="revanced_sb_enable_compact_skip_button_sum_on">スキップボタンはコンパクトに表示されます</string>
@@ -915,11 +918,11 @@ GmsCore の電池の最適化を無効にしても、バッテリーの使用に
   <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_on">スキップボタンは数秒後に非表示になります</string>
   <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_off">スキップボタンをセグメント全体に表示する</string>
   <string name="revanced_sb_general_skiptoast">自動スキップ時にトーストを表示</string>
-  <string name="revanced_sb_general_skiptoast_sum_on">セグメントが自動的にスキップされたときにトーストが表示されます。例を見るにはここをタップしてください</string>
-  <string name="revanced_sb_general_skiptoast_sum_off">トーストは表示されません。例を見るにはここをタップしてください</string>
-  <string name="revanced_sb_general_time_without">セグメントを除いたビデオの時間を表示</string>
+  <string name="revanced_sb_general_skiptoast_sum_on">セグメントが自動的にスキップされたときにトースト ポップアップが表示されます。例を見るにはここをタップしてください</string>
+  <string name="revanced_sb_general_skiptoast_sum_off">トースト ポップアップは表示されません。例を見るにはここをタップしてください</string>
+  <string name="revanced_sb_general_time_without">セグメントを除いた動画の時間を表示</string>
   <string name="revanced_sb_general_time_without_sum_on">動画からセグメントを除いた時間が、動画全体の長さの横に括弧で表示されます。</string>
-  <string name="revanced_sb_general_time_without_sum_off">ビデオのすべての再生時間を表示</string>
+  <string name="revanced_sb_general_time_without_sum_off">動画のすべての再生時間を表示</string>
   <string name="revanced_sb_create_segment_category">新しいセグメントを作成する</string>
   <string name="revanced_sb_enable_create_segment">新しいセグメントの作成ボタンを表示</string>
   <string name="revanced_sb_enable_create_segment_sum_on">新しいセグメントを作成するボタンが表示されます</string>
@@ -934,9 +937,9 @@ GmsCore の電池の最適化を無効にしても、バッテリーの使用に
   <string name="revanced_sb_guidelines_popup_already_read">既に読んでいます</string>
   <string name="revanced_sb_guidelines_popup_open">見る</string>
   <string name="revanced_sb_general">一般設定</string>
-  <string name="revanced_sb_toast_on_connection_error_title">API が利用できない場合はトーストを表示</string>
-  <string name="revanced_sb_toast_on_connection_error_summary_on">SponsorBlockが利用できない場合はトーストが表示されます</string>
-  <string name="revanced_sb_toast_on_connection_error_summary_off">SponsorBlockが利用できない場合でもトーストは表示されません</string>
+  <string name="revanced_sb_toast_on_connection_error_title">API が利用できない場合はトーストを表示する</string>
+  <string name="revanced_sb_toast_on_connection_error_summary_on">SponsorBlock が利用できない場合はトースト ポップアップが表示されます</string>
+  <string name="revanced_sb_toast_on_connection_error_summary_off">SponsorBlock が利用できない場合でもトースト ポップアップは表示されません</string>
   <string name="revanced_sb_general_skipcount">スキップ数の追跡を有効にする</string>
   <string name="revanced_sb_general_skipcount_sum_on">SponsorBlockリーダーボードは、どれだけの時間が節約されたかを知ることができます。セグメントがスキップされるたびにメッセージがリーダーボードに送信されます。</string>
   <string name="revanced_sb_general_skipcount_sum_off">スキップカウント追跡が有効になっていません</string>
@@ -951,17 +954,16 @@ GmsCore の電池の最適化を無効にしても、バッテリーの使用に
   <string name="revanced_sb_api_url_reset">API の URL をリセットしました</string>
   <string name="revanced_sb_api_url_invalid">API URL が無効です</string>
   <string name="revanced_sb_api_url_changed">API の URL を変更しました</string>
-  <string name="revanced_sb_settings_ie">設定のインポート/エクスポート</string>
+  <string name="revanced_sb_settings_ie">設定のインポート / エクスポート</string>
   <string name="revanced_sb_settings_copy">コピー</string>
-  <string name="revanced_sb_settings_ie_sum">ReVancedや他のSponsorBlockプラットフォームにインポート/エクスポートできるSponsorBlock JSON設定</string>
-  <string name="revanced_sb_settings_ie_sum_warning">ReVancedや他のSponsorBlockプラットフォームにインポート/エクスポートできるSponsorBlock JSON設定。 これにはプライベートユーザーIDが含まれます。共有する際は十分注意してください</string>
+  <string name="revanced_sb_settings_ie_sum">ReVanced や他の SponsorBlock プラットフォームにインポート / エクスポートできる SponsorBlock JSON 設定</string>
+  <string name="revanced_sb_settings_ie_sum_warning">ReVanced や他の SponsorBlock プラットフォームにインポート / エクスポートできる SponsorBlock JSON 設定。 これにはプライベートなユーザー ID が含まれます。共有する際は十分注意してください</string>
   <string name="revanced_sb_settings_import_successful">設定が正常にインポートされました</string>
   <string name="revanced_sb_settings_import_failed">インポートに失敗しました: %s</string>
   <string name="revanced_sb_settings_export_failed">エクスポートに失敗しました: %s</string>
-  <string name="revanced_sb_settings_revanced_export_user_id_warning">"設定にプライベートなSponsorBlockユーザーIDが含まれています。
+  <string name="revanced_sb_settings_revanced_export_user_id_warning">"設定にプライベートな SponsorBlock ユーザー ID が含まれています。
 
-ユーザーIDはパスワードのようなものであり、共有しないでください。
-"</string>
+ユーザー ID はパスワードのようなものであり、共有しないでください。"</string>
   <string name="revanced_sb_settings_revanced_export_user_id_warning_dismiss">今後表示しない</string>
   <string name="revanced_sb_diff_segments">セグメントの動作を変更する</string>
   <string name="revanced_sb_segments_sponsor">スポンサー</string>
@@ -971,7 +973,7 @@ GmsCore の電池の最適化を無効にしても、バッテリーの使用に
   <string name="revanced_sb_segments_interaction">インタラクション リマインダー (チャンネル登録)</string>
   <string name="revanced_sb_segments_interaction_sum">コンテンツの途中で、購読したりフォローしたりするための短いリマインダーです。 それが長いまたは特定の何かについてである場合、それは代わりに自己宣伝の下にあるべきである。</string>
   <string name="revanced_sb_segments_highlight">強調表示</string>
-  <string name="revanced_sb_segments_highlight_sum">ほとんどの人が探しているビデオの一部</string>
+  <string name="revanced_sb_segments_highlight_sum">動画の中で多くの人々が見たい部分</string>
   <string name="revanced_sb_segments_intro">休憩/イントロ アニメーション</string>
   <string name="revanced_sb_segments_intro_sum">実際のコンテンツを含まない間隔。一時停止、固定フレーム、繰り返しアニメーションを使用できます。情報を含むトランジションは含まれません。</string>
   <string name="revanced_sb_segments_outro">エンドカード/クレジット</string>
@@ -1124,19 +1126,22 @@ Automotive レイアウト
   <!-- It is ideal, but not required, if the text here appears is alphabetically after the text used for 'revanced_spoof_app_version_title'.
                  This is because the 'General layout' menu uses alphabetic sorting, and it functionally works better if the spoof target selector appears below the 'Spoof app version' UI switch -->
   <string name="revanced_spoof_app_version_target_title">アプリバージョン</string>
-  <string name="revanced_spoof_app_version_target_entry_1">19.35.36 - ショート動画プレーヤーのアイコンを旧バージョンに戻す</string>
-  <string name="revanced_spoof_app_version_target_entry_2">19.26.42 - ナビゲーション バーとツール バーのアイコンを旧バージョンに戻す</string>
+  <string name="revanced_spoof_app_version_target_entry_1">19.35.36 - ショート動画プレーヤーのアイコンを旧バージョンに</string>
+  <string name="revanced_spoof_app_version_target_entry_2">19.26.42 - 旧バージョンのナビゲーションアイコンを復元</string>
   <!-- 'RYD' is 'Return YouTube Dislike' -->
   <string name="revanced_spoof_app_version_target_legacy_entry_1">18.33.40 - シークレット モード使用時のショート動画の RYD を復元</string>
   <string name="revanced_spoof_app_version_target_legacy_entry_2">18.20.39 - ワイドビデオスピード &amp; クオリティメニューを復元</string>
   <string name="revanced_spoof_app_version_target_legacy_entry_3">18.09.39 - ライブラリ タブを復元</string>
-  <string name="revanced_spoof_app_version_target_legacy_entry_4">17.33.42 - プレイリスト欄を旧バージョンに戻す</string>
+  <string name="revanced_spoof_app_version_target_legacy_entry_4">17.33.42 - プレイリスト欄を旧バージョンに</string>
   </patch>
   <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">起動画面</string>
   <string name="revanced_change_start_page_entry_default">デフォルト</string>
+  <string name="revanced_change_start_page_entry_all_subscriptions">すべての登録チャンネル</string>
   <string name="revanced_change_start_page_entry_browse">チャンネルを参照</string>
+  <string name="revanced_change_start_page_entry_courses">コース / 学び</string>
   <string name="revanced_change_start_page_entry_explore">探索</string>
+  <string name="revanced_change_start_page_entry_fashion">ファッションと美容</string>
   <string name="revanced_change_start_page_entry_gaming">ゲーム</string>
   <string name="revanced_change_start_page_entry_history">履歴</string>
   <string name="revanced_change_start_page_entry_library">マイページ</string>
@@ -1144,11 +1149,17 @@ Automotive レイアウト
   <string name="revanced_change_start_page_entry_live">ライブ</string>
   <string name="revanced_change_start_page_entry_movies">映画</string>
   <string name="revanced_change_start_page_entry_music">音楽</string>
+  <string name="revanced_change_start_page_entry_news">ニュース</string>
+  <string name="revanced_change_start_page_entry_notifications">通知</string>
+  <string name="revanced_change_start_page_entry_playlists">再生リスト</string>
   <string name="revanced_change_start_page_entry_search">検索</string>
+  <string name="revanced_change_start_page_entry_shopping">ショッピング</string>
   <string name="revanced_change_start_page_entry_sports">スポーツ</string>
   <string name="revanced_change_start_page_entry_subscriptions">登録チャンネル</string>
   <string name="revanced_change_start_page_entry_trending">急上昇</string>
+  <string name="revanced_change_start_page_entry_virtual_reality">バーチャル リアリティ</string>
   <string name="revanced_change_start_page_entry_watch_later">後で見る</string>
+  <string name="revanced_change_start_page_entry_your_clips">自分のクリップ</string>
   </patch>
   <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch">
   <string name="revanced_disable_resuming_shorts_player_title">ショート動画プレーヤーの再開を無効にする</string>
@@ -1171,54 +1182,54 @@ Automotive レイアウト
   </patch>
   <patch id="layout.miniplayer.miniplayerPatch">
   <string name="revanced_miniplayer_screen_title">ミニプレーヤー</string>
-  <string name="revanced_miniplayer_screen_summary">プレーヤーをアプリ内で最小化した際のスタイルを変更する</string>
-  <string name="revanced_miniplayer_type_title">ミニプレーヤータイプ</string>
+  <string name="revanced_miniplayer_screen_summary">アプリ内で最小化されたプレーヤーの設定</string>
+  <string name="revanced_miniplayer_type_title">ミニプレーヤー タイプ</string>
   <string name="revanced_miniplayer_type_entry_0">無効</string>
-  <string name="revanced_miniplayer_type_entry_1">既定</string>
-  <string name="revanced_miniplayer_type_entry_2">最小</string>
+  <string name="revanced_miniplayer_type_entry_1">デフォルト</string>
+  <string name="revanced_miniplayer_type_entry_2">横長</string>
   <string name="revanced_miniplayer_type_entry_3">タブレット</string>
   <string name="revanced_miniplayer_type_entry_4">モダン 1</string>
   <string name="revanced_miniplayer_type_entry_5">モダン 2</string>
   <string name="revanced_miniplayer_type_entry_6">モダン 3</string>
-  <string name="revanced_miniplayer_rounded_corners_title">角の丸みを有効にする</string>
-  <string name="revanced_miniplayer_rounded_corners_summary_on">角が丸くなっています</string>
-  <string name="revanced_miniplayer_rounded_corners_summary_off">角が正方形です</string>
+  <string name="revanced_miniplayer_rounded_corners_title">角を丸くする</string>
+  <string name="revanced_miniplayer_rounded_corners_summary_on">ミニプレーヤーの四角は丸角です</string>
+  <string name="revanced_miniplayer_rounded_corners_summary_off">ミニプレーヤーの四角は直角です</string>
   <string name="revanced_miniplayer_double_tap_action_title">ダブルタップとピンチでサイズ変更を有効にする</string>
-  <string name="revanced_miniplayer_double_tap_action_summary_on">"ダブルタップとピンチズームが有効になっています
+  <string name="revanced_miniplayer_double_tap_action_summary_on">"ダブルタップとピンチでサイズ変更を有効にする
 
 • ダブルタップでミニプレーヤーのサイズを大きくします
 • もう一度ダブルタップすると、元のサイズに戻ります"</string>
-  <string name="revanced_miniplayer_double_tap_action_summary_off">ダブルタップでピンチでサイズを変更できません</string>
+  <string name="revanced_miniplayer_double_tap_action_summary_off">ダブルタップとピンチでサイズ変更は無効です</string>
   <string name="revanced_miniplayer_drag_and_drop_title">ドラッグ＆ドロップを有効にする</string>
-  <string name="revanced_miniplayer_drag_and_drop_summary_on">"ドラッグアンドドロップが有効になっています
+  <string name="revanced_miniplayer_drag_and_drop_summary_on">"ドラッグ＆ドロップが有効になっています
 
-ミニプレーヤーは、画面の隅にドラッグできます"</string>
+ミニプレーヤーを画面の四隅に移動できます"</string>
   <string name="revanced_miniplayer_drag_and_drop_summary_off">ドラッグ＆ドロップは無効です</string>
-  <string name="revanced_miniplayer_horizontal_drag_title">水平ドラッグジェスチャーを有効にする</string>
-  <string name="revanced_miniplayer_horizontal_drag_summary_on">"水平方向のドラッグジェスチャーが有効になっています
+  <string name="revanced_miniplayer_horizontal_drag_title">横方向ドラッグ ジェスチャーを有効にする</string>
+  <string name="revanced_miniplayer_horizontal_drag_summary_on">"横方向ドラッグ ジェスチャーは有効です
 
-ミニプレーヤーは、画面から左または右にドラッグできます"</string>
-  <string name="revanced_miniplayer_horizontal_drag_summary_off">水平ドラッグジェスチャーが無効になっています</string>
-  <string name="revanced_miniplayer_hide_expand_close_title">閉じるボタンを隠す</string>
-  <string name="revanced_miniplayer_hide_expand_close_summary_on">閉じるボタンは非表示です</string>
-  <string name="revanced_miniplayer_hide_expand_close_summary_off">閉じるボタンが表示されます</string>
-  <string name="revanced_miniplayer_hide_expand_close_legacy_title">展開と閉じるボタンを非表示</string>
-  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_on">"ボタンが非表示になっています
+ミニプレーヤーを画面の左または右端で最小化できます"</string>
+  <string name="revanced_miniplayer_horizontal_drag_summary_off">横方向ドラッグ ジェスチャーは無効です</string>
+  <string name="revanced_miniplayer_hide_expand_close_title">閉じるボタンを非表示</string>
+  <string name="revanced_miniplayer_hide_expand_close_summary_on">閉じるボタンは表示されません</string>
+  <string name="revanced_miniplayer_hide_expand_close_summary_off">閉じるボタンは表示されます</string>
+  <string name="revanced_miniplayer_hide_expand_close_legacy_title">拡大ボタンと閉じるボタンを非表示</string>
+  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_on">"ボタンは表示されません
 
-スワイプして展開または閉じます"</string>
-  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_off">展開と閉じる ボタンが表示されます</string>
+拡大する / 閉じるにはスワイプしてください"</string>
+  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_off">拡大ボタンと閉じるボタンは表示されます</string>
   <string name="revanced_miniplayer_hide_subtext_title">サブテキストを非表示</string>
-  <string name="revanced_miniplayer_hide_subtext_summary_on">サブテキストは非表示です</string>
-  <string name="revanced_miniplayer_hide_subtext_summary_off">サブテキストを表示します</string>
-  <string name="revanced_miniplayer_hide_rewind_forward_title">スキップと戻るボタンを隠す</string>
-  <string name="revanced_miniplayer_hide_rewind_forward_summary_on">スキップとバックが非表示になります</string>
-  <string name="revanced_miniplayer_hide_rewind_forward_summary_off">スキップとバックが表示されます</string>
-  <string name="revanced_miniplayer_width_dip_title">初期サイズ</string>
-  <string name="revanced_miniplayer_width_dip_summary">最初の画面サイズ（ピクセル）</string>
-  <string name="revanced_miniplayer_width_dip_invalid_toast">ピクセルサイズは %1$s と %2$sの間でなければなりません</string>
+  <string name="revanced_miniplayer_hide_subtext_summary_on">サブテキストは表示されません</string>
+  <string name="revanced_miniplayer_hide_subtext_summary_off">サブテキストは表示されます</string>
+  <string name="revanced_miniplayer_hide_rewind_forward_title">早送り / 巻き戻しボタンを非表示</string>
+  <string name="revanced_miniplayer_hide_rewind_forward_summary_on">早送りボタンと巻き戻しボタンは表示されません</string>
+  <string name="revanced_miniplayer_hide_rewind_forward_summary_off">早送りボタンと巻き戻しボタンは表示されます</string>
+  <string name="revanced_miniplayer_width_dip_title">デフォルトのサイズ</string>
+  <string name="revanced_miniplayer_width_dip_summary">画面に表示される際の大きさ（ピクセル）</string>
+  <string name="revanced_miniplayer_width_dip_invalid_toast">ピクセル サイズの値は %1$s と %2$s の間でなければなりません</string>
   <string name="revanced_miniplayer_opacity_title">オーバーレイの透明度</string>
   <string name="revanced_miniplayer_opacity_summary">透明度の値は 0-100 の範囲で、0 が透明です</string>
-  <string name="revanced_miniplayer_opacity_invalid_toast">オーバーレイの透明度は 0-100 の間でなければなりません</string>
+  <string name="revanced_miniplayer_opacity_invalid_toast">オーバーレイの透明度の値は 0-100 の間でなければなりません</string>
   </patch>
   <patch id="layout.theme.themePatch">
   <string name="revanced_gradient_loading_screen_title">グラデーション読み込み画面を有効にする</string>
@@ -1236,11 +1247,11 @@ Automotive レイアウト
   <string name="revanced_seekbar_custom_color_invalid">入力されたシークバーの色の値は無効です</string>
   </patch>
   <patch id="layout.thumbnails.bypassImageRegionRestrictionsPatch">
-  <string name="revanced_bypass_image_region_restrictions_title">画像表示の地域制限をバイパスする</string>
-  <string name="revanced_bypass_image_region_restrictions_summary_on">画像表示の地域制限を回避するために、 yt4.ggpht.com から画像を取得します。</string>
-  <string name="revanced_bypass_image_region_restrictions_summary_off">"元の画像ホストを使用しています
+  <string name="revanced_bypass_image_region_restrictions_title">画像表示の地域制限を回避する</string>
+  <string name="revanced_bypass_image_region_restrictions_summary_on">yt4.ggpht.com から画像を取得します</string>
+  <string name="revanced_bypass_image_region_restrictions_summary_off">"オリジナルの画像ホストから画像を取得します
 
-これにより、一部の地域でブロックされている画像が表示されない問題が解決する場合があります"</string>
+この機能を有効にすると、一部の地域でブロックされている画像が表示されない問題が解決する場合があります"</string>
   </patch>
   <patch id="layout.thumbnails.alternativeThumbnailsPatch">
   <!-- 'Home' should be translated using the same localized wording YouTube displays for the home tab. -->
@@ -1259,27 +1270,27 @@ Automotive レイアウト
 
 DeArrow の詳細については、ここをタップしてください"</string>
   <string name="revanced_alt_thumbnail_dearrow_connection_toast_title">API が利用できない場合はトーストを表示</string>
-  <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_on">DeArrowが利用できない場合はトーストが表示されます</string>
-  <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_off">DeArrowが利用できない場合でもトーストは表示されません</string>
+  <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_on">DeArrow が利用できない場合はトースト ポップアップが表示されます</string>
+  <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_off">DeArrow が利用できない場合でもトースト ポップアップは表示されません</string>
   <string name="revanced_alt_thumbnail_dearrow_api_url_title">DeArrow API のエンドポイント</string>
-  <string name="revanced_alt_thumbnail_dearrow_api_url_summary">DeArrow からサムネイルを取得するエンドポイントの URL</string>
+  <string name="revanced_alt_thumbnail_dearrow_api_url_summary">DeArrow からサムネイル キャッシュを取得するエンドポイントの URL</string>
   <string name="revanced_alt_thumbnail_stills_about_title">静止画サムネイル</string>
   <string name="revanced_alt_thumbnail_stills_about_summary">静止画は各動画の序盤 / 中盤 / 終盤から取得されます。これらの画像は YouTube に組み込まれており、外部 API は使用されません</string>
   <string name="revanced_alt_thumbnail_stills_fast_title">高速な静止画サムネイルを使用する</string>
   <string name="revanced_alt_thumbnail_stills_fast_summary_on">中画質の静止画サムネイルを使用します。サムネイルの読み込みは速くなりますが、ライブ、未公開、または非常に古い動画には空白のサムネイルが表示されることがあります</string>
-  <string name="revanced_alt_thumbnail_stills_fast_summary_off">高画質の静止画を使用します</string>
+  <string name="revanced_alt_thumbnail_stills_fast_summary_off">高画質の静止画サムネイルを使用します</string>
   <string name="revanced_alt_thumbnail_stills_time_title">静止画サムネイルを取得する位置</string>
   <string name="revanced_alt_thumbnail_stills_time_entry_1">動画の序盤</string>
   <string name="revanced_alt_thumbnail_stills_time_entry_2">動画の中盤</string>
   <string name="revanced_alt_thumbnail_stills_time_entry_3">動画の終盤</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
-  <string name="revanced_alt_thumbnail_dearrow_error">DeArrowは一時的に利用できません(ステータスコード: %s)</string>
-  <string name="revanced_alt_thumbnail_dearrow_error_generic">DeArrowは一時的に利用できません</string>
+  <string name="revanced_alt_thumbnail_dearrow_error">DeArrow は一時的に利用できません(ステータスコード: %s)</string>
+  <string name="revanced_alt_thumbnail_dearrow_error_generic">DeArrow は一時的に利用できません</string>
   </patch>
   <patch id="misc.announcements.announcementsPatch">
-  <string name="revanced_announcements_title">ReVancedアナウンスを表示</string>
-  <string name="revanced_announcements_summary_on">起動時にお知らせが表示されます</string>
-  <string name="revanced_announcements_summary_off">起動時にお知らせは表示されません</string>
+  <string name="revanced_announcements_title">ReVanced のお知らせを表示する</string>
+  <string name="revanced_announcements_summary_on">アプリの起動時に ReVanced のお知らせが表示されます</string>
+  <string name="revanced_announcements_summary_off">アプリの起動時に ReVanced のお知らせは表示されません</string>
   <string name="revanced_announcements_enabled_summary">起動時にお知らせを表示する</string>
   <string name="revanced_announcements_connection_failed">アナウンスプロバイダーへの接続に失敗しました</string>
   <string name="revanced_announcements_dialog_dismiss">無視</string>
@@ -1290,46 +1301,47 @@ DeArrow の詳細については、ここをタップしてください"</string
   <string name="revanced_check_watch_history_domain_name_dialog_ignore">今後表示しない</string>
   </patch>
   <patch id="misc.autorepeat.autoRepeatPatch">
-  <string name="revanced_auto_repeat_title">自動ループ再生を有効化</string>
+  <string name="revanced_auto_repeat_title">自動ループ再生を有効にする</string>
   <string name="revanced_auto_repeat_summary_on">自動ループ再生は有効です</string>
   <string name="revanced_auto_repeat_summary_off">自動ループ再生は無効です</string>
   </patch>
   <patch id="misc.dimensions.spoof.spoofDeviceDimensionsPatch">
-  <string name="revanced_spoof_device_dimensions_title">端末の寸法を偽装する</string>
-  <string name="revanced_spoof_device_dimensions_summary_on">"デバイスの寸法が偽装されています
+  <string name="revanced_spoof_device_dimensions_title">端末の画面サイズを偽装する</string>
+  <string name="revanced_spoof_device_dimensions_summary_on">"端末の画面サイズは偽装されています
 
-より高画質の動画がアンロックされる可能性がありますが、動画再生のスタッタリングやバッテリー寿命の悪化、予期せぬ副作用が発生する可能性があります"</string>
-  <string name="revanced_spoof_device_dimensions_summary_off">"デバイスの寸法は偽装されていません
+より高画質な映像がアンロックされる可能性がありますが、動画のカクつき、バッテリー寿命の悪化、予期せぬ副作用が
+発生するかもしれません"</string>
+  <string name="revanced_spoof_device_dimensions_summary_off">"端末の画面サイズは偽装されていません
 
-これにより、より高画質の動画がアンロックされる可能性があります"</string>
-  <string name="revanced_spoof_device_dimensions_user_dialog_message">これを有効にすると、ビデオ再生の吃音、バッテリー寿命の悪化、および不明な副作用を引き起こす可能性があります。</string>
+この機能を有効にすると、より高画質な映像がアンロックされる可能性があります"</string>
+  <string name="revanced_spoof_device_dimensions_user_dialog_message">この機能を有効にすると、動画のカクつき、バッテリー寿命の悪化、および予期せぬ副作用を引き起こす可能性があります。</string>
   </patch>
   <patch id="misc.gms.gmsCoreSupportResourcePatch">
   <string name="microg_settings_title">GmsCore設定</string>
   <string name="microg_settings_summary">GmsCoreの設定</string>
   </patch>
   <patch id="misc.links.bypassURLRedirectsPatch">
-  <string name="revanced_bypass_url_redirects_title">URL リダイレクトをバイパスする</string>
-  <string name="revanced_bypass_url_redirects_summary_on">URL リダイレクトはバイパスされます</string>
-  <string name="revanced_bypass_url_redirects_summary_off">URL リダイレクトはバイパスされません</string>
+  <string name="revanced_bypass_url_redirects_title">URL リダイレクトを回避する</string>
+  <string name="revanced_bypass_url_redirects_summary_on">YouTube の URL リダイレクトを経由せずにリンクへ移動します</string>
+  <string name="revanced_bypass_url_redirects_summary_off">YouTube の URL リダイレクトを経由してリンク先へ移動します</string>
   </patch>
   <patch id="misc.links.openLinksExternallyPatch">
-  <string name="revanced_external_browser_title">ブラウザでリンクを開く</string>
-  <string name="revanced_external_browser_summary_on">外部リンクを開く</string>
-  <string name="revanced_external_browser_summary_off">アプリ内でリンクを開く</string>
+  <string name="revanced_external_browser_title">リンクをブラウザで開く</string>
+  <string name="revanced_external_browser_summary_on">リンクをブラウザで開きます</string>
+  <string name="revanced_external_browser_summary_off">リンクをアプリ内で開きます</string>
   </patch>
   <patch id="misc.privacy.removeTrackingQueryParameterPatch">
-  <string name="revanced_remove_tracking_query_parameter_title">トラッキングクエリパラメータを削除</string>
-  <string name="revanced_remove_tracking_query_parameter_summary_on">トラッキングクエリパラメータがリンクから削除されます</string>
-  <string name="revanced_remove_tracking_query_parameter_summary_off">トラッキングクエリパラメータはリンクから削除されません</string>
+  <string name="revanced_remove_tracking_query_parameter_title">追跡パラメータをリンクから削除する</string>
+  <string name="revanced_remove_tracking_query_parameter_summary_on">追跡パラメータはリンクから削除されます</string>
+  <string name="revanced_remove_tracking_query_parameter_summary_off">追跡パラメータはリンクから削除されません</string>
   </patch>
   <patch id="misc.zoomhaptics.zoomHapticsPatch">
-  <string name="revanced_disable_zoom_haptics_title">ズームした際の触覚機能を無効にする</string>
-  <string name="revanced_disable_zoom_haptics_summary_on">触覚機能は無効です</string>
-  <string name="revanced_disable_zoom_haptics_summary_off">触覚機能は有効です</string>
+  <string name="revanced_disable_zoom_haptics_title">ズームの触覚フィードバックを無効にする</string>
+  <string name="revanced_disable_zoom_haptics_summary_on">ズームの触覚フィードバックは無効です</string>
+  <string name="revanced_disable_zoom_haptics_summary_off">ズームの触覚フィードバックは有効です</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
-  <string name="revanced_force_original_audio_title">強制的にオリジナルの音声を使用する</string>
+  <string name="revanced_force_original_audio_title">オリジナルの音声を強制的に使用する</string>
   <string name="revanced_force_original_audio_summary_on">オリジナルの音声トラックが再生されます</string>
   <string name="revanced_force_original_audio_summary_off">デフォルトの音声トラックが再生されます</string>
   <string name="revanced_force_original_audio_not_available">この機能を使用するには、動画ストリーム偽装を iOS に変更してください</string>
@@ -1387,36 +1399,34 @@ DeArrow の詳細については、ここをタップしてください"</string
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
   <string name="revanced_spoof_video_streams_screen_title">動画ストリームを偽装する</string>
-  <string name="revanced_spoof_video_streams_screen_summary">再生の問題を防ぐために、クライアントのビデオストリームを偽装します</string>
+  <string name="revanced_spoof_video_streams_screen_summary">再生不能問題を回避するために、クライアントの動画ストリームを偽装します</string>
   <string name="revanced_spoof_video_streams_title">動画ストリームを偽装する</string>
-  <string name="revanced_spoof_video_streams_summary_on">ビデオストリームはなりすましています</string>
-  <string name="revanced_spoof_video_streams_summary_off">"動画ストリームは偽装されていません
+  <string name="revanced_spoof_video_streams_summary_on">動画ストリームは偽装されます</string>
+  <string name="revanced_spoof_video_streams_summary_off">"動画ストリームは偽装されません
 
-動画再生が機能しない可能性があります"</string>
-  <string name="revanced_spoof_video_streams_user_dialog_message">この設定をオフにすると、ビデオ再生の問題が発生する可能性があります。</string>
+動画が再生できない可能性があります"</string>
+  <string name="revanced_spoof_video_streams_user_dialog_message">この設定をオフにすると、動画再生の問題が発生する可能性があります。</string>
   <string name="revanced_spoof_video_streams_client_type_title">デフォルトのクライアント</string>
-  <!-- 'no auth' means no authentication -->
-  <string name="revanced_spoof_video_streams_client_type_android_vr_no_auth">Android VR（認証なし）</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_title">iOS クライアントで AVC (H.264) を強制</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">iOS クライアントで AVC (H.264) を強制します。</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">ビデオコーデックは自動的に決定されます。</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">"有効にすると、バッテリー寿命が延び、再生の途切れが改善される可能性があります。
+  <string name="revanced_spoof_video_streams_ios_force_avc_title">iOS クライアントで AVC (H.264) を強制的に使用する</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">iOS クライアントで AVC (H.264) を強制します</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">ビデオコーデックは自動的に決定されます</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">"この機能を有効にすると、バッテリー寿命が延び、動画のカクつきが改善される可能性があります。
 
-AVC の最大解像度は 1080p であり、Opus オーディオコーデックは使用できず、ビデオの再生は VP9 や AV1 より多くのインターネットデータを使用します。"</string>
-  <string name="revanced_spoof_video_streams_about_ios_tv_title">iOS スプーフィングの副作用</string>
+AVC の最大解像度は 1080p であり、Opus オーディオ コーデックは使用できず、動画の再生時に VP9 や AV1 より多くの通信量を使用します。"</string>
+  <string name="revanced_spoof_video_streams_about_ios_tv_title">iOS クライアントの副作用</string>
   <string name="revanced_spoof_video_streams_about_ios_tv_summary">"• 映画や有料動画が再生されない場合があります
-• 一定音量は利用できません
-• 動画が1秒早く終了します"</string>
-  <string name="revanced_spoof_video_streams_about_android_title">Android スプーフィングの副作用</string>
+• 一定音量は使用できません
+• 動画が 1 秒早く終了します"</string>
+  <string name="revanced_spoof_video_streams_about_android_title">Android クライアントの副作用</string>
   <string name="revanced_spoof_video_streams_about_android_summary">"• 音声トラック メニューが表示されません
 • 一定音量は使用できません
 • 「強制的にオリジナル音声を使用する」は使用できません"</string>
-  <string name="revanced_spoof_video_streams_about_no_av1">• AV1 コーデックは使用できません。</string>
-  <string name="revanced_spoof_video_streams_about_kids_videos">• キッズ向け動画は、ログアウト時またはシークレットモード時には再生されない場合があります</string>
+  <string name="revanced_spoof_video_streams_about_no_av1">• AV1 コーデックは使用できません</string>
+  <string name="revanced_spoof_video_streams_about_kids_videos">• キッズ向け動画は、ログアウト時またはシークレット モード時には再生されない場合があります</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_title">統計情報（詳細）</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">クライアントの種類は統計情報（詳細）に表示されます</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">クライアントは統計情報（詳細）に表示されません</string>
-  <string name="revanced_spoof_video_streams_language_title">Android VRをクライアントに設定した時にデフォルトで使用するオーディオの言語</string>
+  <string name="revanced_spoof_video_streams_language_title">デフォルトの音声トラック（Android VR）</string>
   </patch>
   </app>
   <app id="twitch">
@@ -1426,17 +1436,17 @@ AVC の最大解像度は 1080p であり、Opus オーディオコーデック�
   <string name="revanced_block_audio_ads_summary_off">オーディオ広告のブロックが解除されました</string>
   </patch>
   <patch id="ad.embedded.embeddedAdsPatch">
-  <string name="revanced_embedded_ads_service_unavailable">%sは利用できません。広告が表示される可能性があります。設定で広告ブロックサービスを変更してみてください。</string>
-  <string name="revanced_embedded_ads_service_failed">%sエラーが発生しました。広告が表示される可能性があります。設定で広告ブロックサービスを変更してみてください。</string>
-  <string name="revanced_block_embedded_ads_title">埋め込みビデオ広告をブロック</string>
+  <string name="revanced_embedded_ads_service_unavailable">%s は利用できません。広告が表示される可能性があります。設定で広告ブロックサービスを変更してみてください。</string>
+  <string name="revanced_embedded_ads_service_failed">%s エラーが発生しました。広告が表示される可能性があります。設定で広告ブロックサービスを変更してみてください。</string>
+  <string name="revanced_block_embedded_ads_title">埋め込み動画広告をブロック</string>
   <string name="revanced_block_embedded_ads_entry_1">無効</string>
   <string name="revanced_block_embedded_ads_entry_2">Luminous プロキシ</string>
   <string name="revanced_block_embedded_ads_entry_3">PurpleAdBlock プロキシ</string>
   </patch>
   <patch id="ad.video.videoAdsPatch">
   <string name="revanced_block_video_ads_title">動画広告をブロック</string>
-  <string name="revanced_block_video_ads_summary_on">ビデオ広告はブロックされています</string>
-  <string name="revanced_block_video_ads_summary_off">ビデオ広告のブロックが解除されました</string>
+  <string name="revanced_block_video_ads_summary_on">動画広告はブロックされます</string>
+  <string name="revanced_block_video_ads_summary_off">動画広告はブロックされません</string>
   </patch>
   <patch id="chat.antidelete.showDeletedMessagesPatch">
   <string name="revanced_deleted_msg">メッセージが削除されました</string>
@@ -1452,12 +1462,12 @@ AVC の最大解像度は 1080p であり、Opus オーディオコーデック�
   </patch>
   <patch id="debug.debugModePatch">
   <!-- Twitch specific internal debug mode, and not the same as 'revanced_debug_title' -->
-  <string name="revanced_twitch_debug_mode_title">Twitch デバッグモードを有効にする</string>
-  <string name="revanced_twitch_debug_mode_summary_on">Twitch デバッグモードが有効になっています（非推奨）</string>
-  <string name="revanced_twitch_debug_mode_summary_off">Twitchデバッグモードは無効です</string>
+  <string name="revanced_twitch_debug_mode_title">Twitch デバッグ モードを有効にする</string>
+  <string name="revanced_twitch_debug_mode_summary_on">Twitch デバッグ モードが有効になっています（非推奨）</string>
+  <string name="revanced_twitch_debug_mode_summary_off">Twitchデバッグ モードは無効です</string>
   </patch>
   <patch id="misc.settings.settingsPatch">
-  <string name="revanced_settings">Revancedの設定</string>
+  <string name="revanced_settings">Revanced の設定</string>
   <string name="revanced_about_title">情報</string>
   <string name="revanced_about_summary">ReVancedについて</string>
   <string name="revanced_ads_screen_title">広告</string>
@@ -1470,9 +1480,9 @@ AVC の最大解像度は 1080p であり、Opus オーディオコーデック�
   <string name="revanced_other_category_title">その他の設定</string>
   <string name="revanced_client_ads_category_title">クライアントサイド広告</string>
   <string name="revanced_surestream_ads_category_title">サーバー側サレストリーム広告</string>
-  <string name="revanced_twitch_debug_title">デバッグログ</string>
-  <string name="revanced_twitch_debug_summary_on">デバッグログは有効です</string>
-  <string name="revanced_twitch_debug_summary_off">デバッグログは無効です</string>
+  <string name="revanced_twitch_debug_title">デバッグ ログ</string>
+  <string name="revanced_twitch_debug_summary_on">デバッグ ログは有効です</string>
+  <string name="revanced_twitch_debug_summary_off">デバッグ ログは無効です</string>
   </patch>
   </app>
 </resources>

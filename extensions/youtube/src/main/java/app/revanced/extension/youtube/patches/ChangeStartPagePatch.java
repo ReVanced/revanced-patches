@@ -23,21 +23,30 @@ public final class ChangeStartPagePatch {
         /**
          * Browse id.
          */
+        ALL_SUBSCRIPTIONS("FEchannels", TRUE),
         BROWSE("FEguide_builder", TRUE),
         EXPLORE("FEexplore", TRUE),
         HISTORY("FEhistory", TRUE),
         LIBRARY("FElibrary", TRUE),
         MOVIE("FEstorefront", TRUE),
+        NOTIFICATIONS("FEactivity", TRUE),
+        PLAYLISTS("FEplaylist_aggregation", TRUE),
         SUBSCRIPTIONS("FEsubscriptions", TRUE),
         TRENDING("FEtrending", TRUE),
+        YOUR_CLIPS("FEclips", TRUE),
 
         /**
          * Channel id, this can be used as a browseId.
          */
+        COURSES("UCtFRv9O2AHqOZjjynzrv-xg", TRUE),
+        FASHION("UCrpQ4p1Ql_hG8rKXIKM1MOQ", TRUE),
         GAMING("UCOpNcN46UbXVtpKMrmU4Abg", TRUE),
         LIVE("UC4R8DWoMoI7CAwX8_LjQHig", TRUE),
         MUSIC("UC-9-kyTW8ZkZNDHQJ6FgpwQ", TRUE),
+        NEWS("UCYfdidRxbB8Qhf0Nx7ioOYw", TRUE),
+        SHOPPING("UCkYQyvc_i9hXEo4xic9Hh2g", TRUE),
         SPORTS("UCEgdi0XIXXZ-qJOFPf4JSKw", TRUE),
+        VIRTUAL_REALITY("UCzuqhhs6NWbgTzMuM09WKDQ", TRUE),
 
         /**
          * Playlist id, this can be used as a browseId.
@@ -51,11 +60,11 @@ public final class ChangeStartPagePatch {
         SEARCH("com.google.android.youtube.action.open.search", FALSE),
         SHORTS("com.google.android.youtube.action.open.shorts", FALSE);
 
-        @Nullable
-        final Boolean isBrowseId;
-
         @NonNull
         final String id;
+
+        @Nullable
+        final Boolean isBrowseId;
 
         StartPage(@NonNull String id, @Nullable Boolean isBrowseId) {
             this.id = id;
@@ -122,7 +131,7 @@ public final class ChangeStartPagePatch {
         }
         appLaunched = true;
 
-        final String intentAction = START_PAGE.id;
+        String intentAction = START_PAGE.id;
         Logger.printDebug(() -> "Changing intent action to " + intentAction);
         intent.setAction(intentAction);
     }

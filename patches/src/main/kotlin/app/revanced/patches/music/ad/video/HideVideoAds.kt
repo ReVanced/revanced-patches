@@ -8,7 +8,12 @@ val hideVideoAdsPatch = bytecodePatch(
     name = "Hide music video ads",
     description = "Hides ads that appear while listening to or streaming music videos, podcasts, or songs.",
 ) {
-    compatibleWith("com.google.android.apps.youtube.music")
+    compatibleWith(
+        "com.google.android.apps.youtube.music"(
+            "7.16.53",
+            "8.05.51"
+        )
+    )
 
     execute {
         navigate(showVideoAdsParentFingerprint.originalMethod)

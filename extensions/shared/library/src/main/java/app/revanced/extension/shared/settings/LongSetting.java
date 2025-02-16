@@ -55,10 +55,8 @@ public class LongSetting extends Setting<Long> {
     }
 
     @Override
-    public void save(@NonNull Long newValue) {
-        // Must set before saving to preferences (otherwise importing fails to update UI correctly).
-        value = Objects.requireNonNull(newValue);
-        preferences.saveLongString(key, newValue);
+    public void saveToPreferences() {
+        preferences.saveLongString(key, value);
     }
 
     @NonNull

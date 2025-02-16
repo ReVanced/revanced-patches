@@ -506,8 +506,9 @@ Ta funkcija je na voljo samo za starejše naprave"</string>
   <string name="revanced_swipe_overlay_timeout_summary">Število milisekund, ko je prekrivanje vidno</string>
   <string name="revanced_swipe_text_overlay_size_title">Velikost besedila prekrivanja pomikanja</string>
   <string name="revanced_swipe_text_overlay_size_summary">Velikost besedila za prekrivanje pomikanja</string>
-  <string name="revanced_swipe_overlay_background_alpha_title">Vidnost ozadja pomikanja</string>
-  <string name="revanced_swipe_overlay_background_alpha_summary">Vidnost ozadja prekrivanja pomikanja</string>
+  <string name="revanced_swipe_overlay_background_opacity_title">Prosojnost prekrivanja poteze</string>
+  <string name="revanced_swipe_overlay_background_opacity_summary">Vrednost prosojnosti med 0 in 100</string>
+  <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Prosojnost drsenja mora biti med 0 in 100</string>
   <string name="revanced_swipe_threshold_title">Prazg prag za pomikanje</string>
   <string name="revanced_swipe_threshold_summary">Vrednost praga za pomikanje</string>
   <string name="revanced_swipe_change_video_title">Omogoči menjavanje videoposnetkov z drsenjem</string>
@@ -834,6 +835,8 @@ Opomba: Omogočanje tega tudi prisilno skrije video oglase"</string>
   <string name="revanced_ryd_failure_generic">Všečkov ne je na voljo (%s)</string>
   <!-- Toast shown if the user enables RYD while a video is opened, and then tries to vote for the video. -->
   <string name="revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted">Znova naloži videoposnetek, da glasuješ z Return YouTube Dislike</string>
+  <!-- Video likes have been set to hidden by the video uploader. -->
+  <string name="revanced_ryd_video_likes_hidden_by_video_owner">Skrito s strani lastnika</string>
   <string name="revanced_ryd_enable_summary_on">Všečkov ne so prikazani</string>
   <string name="revanced_ryd_enable_summary_off">Všečkov ne niso prikazani</string>
   <string name="revanced_ryd_shorts_title">Pokaži všečkov ne na Shorts</string>
@@ -849,6 +852,9 @@ Omejitev: Nevljudnosti se morda ne bodo prikazale v načinu brez beleženja zgod
   <string name="revanced_ryd_compact_layout_title">Kompaktni gumb \'Všeč mi je\'</string>
   <string name="revanced_ryd_compact_layout_summary_on">Gumb všečkov je oblikovan za minimalno širino</string>
   <string name="revanced_ryd_compact_layout_summary_off">Gumb všečkov je oblikovan za najboljši videz</string>
+  <string name="revanced_ryd_estimated_like_title">Pokaži ocenjeno število »všečkov«</string>
+  <string name="revanced_ryd_estimated_like_summary_on">Prikaže se ocenjeno število »všečkov«</string>
+  <string name="revanced_ryd_estimated_like_summary_off">Ocenjeno število »všečkov« je skrito</string>
   <string name="revanced_ryd_toast_on_connection_error_title">Pokaži obvestilo, če API ni na voljo</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_on">Obvestilo se prikaže, če Return YouTube Dislike ni na voljo</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_off">Obvestilo se ne prikaže, če Return YouTube Dislike ni na voljo</string>
@@ -899,6 +905,9 @@ Ta funkcija deluje najbolje pri kakovosti videa 720p ali nižji in pri uporabi z
   <string name="revanced_sb_enable_voting">Pokaži gumb za glasovanje</string>
   <string name="revanced_sb_enable_voting_sum_on">Gumb za glasovanje segmentov je prikazan</string>
   <string name="revanced_sb_enable_voting_sum_off">Gumb za glasovanje segmentov ni prikazan</string>
+  <string name="revanced_sb_square_layout">Uporabi kvadratno postavitev</string>
+  <string name="revanced_sb_square_layout_sum_on">Gumbi in kontrolniki so kvadratni</string>
+  <string name="revanced_sb_square_layout_sum_off">Gumbi in kontrolniki so zaobljeni</string>
   <!-- Translations should use language similar to 'revanced_ryd_compact_layout_title' -->
   <string name="revanced_sb_enable_compact_skip_button">Uporabi kompaktan gumb za preskakovanje</string>
   <string name="revanced_sb_enable_compact_skip_button_sum_on">Gumb za preskakovanje, oblikovan za minimalno širino</string>
@@ -1114,7 +1123,7 @@ To bo spremenilo videz in funkcije aplikacije, vendar se lahko pojavijo neznani 
                  This is because the 'General layout' menu uses alphabetic sorting, and it functionally works better if the spoof target selector appears below the 'Spoof app version' UI switch -->
   <string name="revanced_spoof_app_version_target_title">Cilj spoofa različice aplikacije</string>
   <string name="revanced_spoof_app_version_target_entry_1">19.35.36 - Obnovi stare ikone predvajalnika Shorts</string>
-  <string name="revanced_spoof_app_version_target_entry_2">19.26.42 - Obnovi stare ikone za krmarjenje in orodno vrstico</string>
+  <string name="revanced_spoof_app_version_target_entry_2">19.26.42 - Obnovi stare ikone za krmarjenje</string>
   <!-- 'RYD' is 'Return YouTube Dislike' -->
   <string name="revanced_spoof_app_version_target_legacy_entry_1">18.33.40 - Obnovi RYD v načinu inkognito za Shorts</string>
   <string name="revanced_spoof_app_version_target_legacy_entry_2">18.20.39 - Obnovi meni hitrosti in kakovosti videa</string>
@@ -1124,8 +1133,11 @@ To bo spremenilo videz in funkcije aplikacije, vendar se lahko pojavijo neznani 
   <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">Nastavi začetno stran</string>
   <string name="revanced_change_start_page_entry_default">Privzeto</string>
+  <string name="revanced_change_start_page_entry_all_subscriptions">Vse naročnine</string>
   <string name="revanced_change_start_page_entry_browse">Brskaj po kanalih</string>
+  <string name="revanced_change_start_page_entry_courses">Tečaji / Učenje</string>
   <string name="revanced_change_start_page_entry_explore">Razišči</string>
+  <string name="revanced_change_start_page_entry_fashion">Moda \u0026 Lepota</string>
   <string name="revanced_change_start_page_entry_gaming">Igranje iger</string>
   <string name="revanced_change_start_page_entry_history">Zgodovina</string>
   <string name="revanced_change_start_page_entry_library">Knjižnica</string>
@@ -1133,11 +1145,17 @@ To bo spremenilo videz in funkcije aplikacije, vendar se lahko pojavijo neznani 
   <string name="revanced_change_start_page_entry_live">V živo</string>
   <string name="revanced_change_start_page_entry_movies">Filmi</string>
   <string name="revanced_change_start_page_entry_music">Glasba</string>
+  <string name="revanced_change_start_page_entry_news">Novice</string>
+  <string name="revanced_change_start_page_entry_notifications">Obvestila</string>
+  <string name="revanced_change_start_page_entry_playlists">Predvajalni seznami</string>
   <string name="revanced_change_start_page_entry_search">Iskanje</string>
+  <string name="revanced_change_start_page_entry_shopping">Nakupovanje</string>
   <string name="revanced_change_start_page_entry_sports">Šport</string>
   <string name="revanced_change_start_page_entry_subscriptions">Naročnine</string>
   <string name="revanced_change_start_page_entry_trending">Trendi</string>
+  <string name="revanced_change_start_page_entry_virtual_reality">Virtualna resničnost</string>
   <string name="revanced_change_start_page_entry_watch_later">Oglej si kasneje</string>
+  <string name="revanced_change_start_page_entry_your_clips">Vaši posnetki</string>
   </patch>
   <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch">
   <string name="revanced_disable_resuming_shorts_player_title">Onemogoči nadaljevanje predvajalnika Shorts</string>
@@ -1386,8 +1404,6 @@ Omogočanje tega lahko odklene višje kakovosti videa"</string>
 Predvajanje videa morda ne bo delovalo"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Izklop te nastavitve lahko povzroči težave s predvajanjem videoposnetkov.</string>
   <string name="revanced_spoof_video_streams_client_type_title">Privzeti odjemalec</string>
-  <!-- 'no auth' means no authentication -->
-  <string name="revanced_spoof_video_streams_client_type_android_vr_no_auth">Android VR (brez avtorizacije)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_title">Sile iOS AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Kodek videa je prisiljen v AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Kodek videa je določen samodejno</string>

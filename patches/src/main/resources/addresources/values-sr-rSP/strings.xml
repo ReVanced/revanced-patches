@@ -23,156 +23,156 @@ Second \"item\" text"</string>
   <app id="shared">
   <patch id="misc.checks.checkEnvironmentPatch">
   <string name="revanced_check_environment_failed_title">Провере нису успеле</string>
-  <string name="revanced_check_environment_dialog_open_official_source_button">Otvori zvaničnu veb stranicu</string>
-  <string name="revanced_check_environment_dialog_ignore_button">Ignoriši</string>
-  <string name="revanced_check_environment_failed_message">&lt;h5&gt;Ova aplikacija ne izgleda da je pobolj&scaron;ana od strane vas.&lt;/h5&gt;&lt;br&gt;Ova aplikacija možda neće raditi ispravno, &lt;b&gt;može biti &scaron;tetna ili čak opasna za kori&scaron;ćenje&lt;/b&gt;.&lt;br&gt;&lt;br&gt;Ove provere podrazumevaju da je ova aplikacija prethodno pobolj&scaron;ana ili dobijena od nekog drugog:&lt;br&gt;&lt;br&gt;&lt;small&gt;%1$s&lt;/small&gt;&lt;br&gt;Preporučuje se da &lt;b&gt;deinstalira&scaron; ovu aplikaciju i sam je pobolj&scaron;a&scaron;&lt;/b&gt; kako bi bio siguran da koristi&scaron; validiranu i bezbednu aplikaciju.&lt;p&gt;&lt;br&gt;Ako se ignori&scaron;e, ovo upozorenje će biti prikazano samo dva puta.</string>
+  <string name="revanced_check_environment_dialog_open_official_source_button">Отвори званични веб-сајт</string>
+  <string name="revanced_check_environment_dialog_ignore_button">Занемари</string>
+  <string name="revanced_check_environment_failed_message">&lt;h5&gt;Изгледа да нисте ви печовали ову апликацију.&lt;/h5&gt;&lt;br&gt;Ова апликација можда неће исправно радити, &lt;b&gt;може бити штетна или чак опасна за коришћење.&lt;/b&gt;&lt;br&gt;&lt;br&gt;Ове провере подразумевају да је ова апликација унапред печована или добијена од неког другог:&lt;br&gt;&lt;br&gt;&lt;small&gt;%1$s&lt;/small&gt;&lt;br&gt;Изричито се препоручује да &lt;b&gt;деинсталирате ову апликацију и сами је печујете&lt;/b&gt; да бисте били сигурни да користите проверену и безбедну апликацију.&lt;p&gt;&lt;br&gt;Ако се занемари, ово упозорење ће бити приказано само два пута.</string>
   <string name="revanced_check_environment_not_same_patching_device">Печовано на другом уређају</string>
-  <string name="revanced_check_environment_manager_not_expected_installer">Nije instaliran od strane ReVanced Managera</string>
+  <string name="revanced_check_environment_manager_not_expected_installer">Није инсталирано у ReVanced Manager-у</string>
   <string name="revanced_check_environment_not_near_patch_time">Печовано пре више од 10 минута</string>
-  <string name="revanced_check_environment_not_near_patch_time_days">Povoljen pre %s dana</string>
+  <string name="revanced_check_environment_not_near_patch_time_days">Печовано пре %s дана</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">Датум израде APK-а је оштећен</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
-  <string name="revanced_settings_submenu_title">Podešavanja</string>
-  <string name="revanced_settings_confirm_user_dialog_title">Želi&scaron; li nastaviti?</string>
-  <string name="revanced_settings_reset">Resetovanje</string>
-  <string name="revanced_settings_restart_title">Osvježi i restartuj</string>
-  <string name="revanced_settings_restart">Restartuj</string>
-  <string name="revanced_settings_import">Uvezi</string>
-  <string name="revanced_settings_import_copy">Kopiraj</string>
-  <string name="revanced_settings_import_reset">ReVanced podešavanja resetovana na podrazumevane</string>
-  <string name="revanced_settings_import_success">Uvezeno %d podešavanja</string>
-  <string name="revanced_settings_import_failure_parse">Uvoz nije uspio: %s</string>
+  <string name="revanced_settings_submenu_title">Подешавања</string>
+  <string name="revanced_settings_confirm_user_dialog_title">Желите ли да наставите?</string>
+  <string name="revanced_settings_reset">Ресетуј</string>
+  <string name="revanced_settings_restart_title">Освежите и рестартујте</string>
+  <string name="revanced_settings_restart">Рестартуј</string>
+  <string name="revanced_settings_import">Увоз</string>
+  <string name="revanced_settings_import_copy">Копирај</string>
+  <string name="revanced_settings_import_reset">Подешавања ReVanced-а су враћена на подразумеване вредности</string>
+  <string name="revanced_settings_import_success">Увезено %d подешавања</string>
+  <string name="revanced_settings_import_failure_parse">Неуспешан увоз: %s</string>
   <string name="revanced_language_title">Језик ReVanced-a</string>
   <string name="revanced_language_user_dialog_message">"Преводи за неке језике могу недостајати или бити непотпуни.
 
 Да бисте превели нове језике, посетите translate.revanced.app"</string>
   <string name="revanced_language_DEFAULT">Језик апликације</string>
-  <string name="revanced_language_AR">Arapski</string>
-  <string name="revanced_language_AZ">Azerski</string>
-  <string name="revanced_language_BG">Bugarski</string>
-  <string name="revanced_language_BN">Bengalski</string>
-  <string name="revanced_language_CA">Katalonski</string>
-  <string name="revanced_language_CS">Češki</string>
-  <string name="revanced_language_DA">Danski</string>
-  <string name="revanced_language_DE">Nemački</string>
-  <string name="revanced_language_EL">Grčki</string>
-  <string name="revanced_language_EN">Engleski</string>
-  <string name="revanced_language_ES">Španski</string>
-  <string name="revanced_language_ET">Estonski</string>
-  <string name="revanced_language_FA">Persijski</string>
-  <string name="revanced_language_FI">Finski</string>
-  <string name="revanced_language_FR">Francuski</string>
-  <string name="revanced_language_GU">Gudžaratski</string>
-  <string name="revanced_language_HI">Hindski</string>
-  <string name="revanced_language_HR">Hrvatski</string>
-  <string name="revanced_language_HU">Mađarski</string>
-  <string name="revanced_language_ID">Indonezijski</string>
-  <string name="revanced_language_IT">Italijanski</string>
-  <string name="revanced_language_JA">Japanski</string>
-  <string name="revanced_language_KK">Kazaški</string>
-  <string name="revanced_language_KO">Korejski</string>
-  <string name="revanced_language_LT">Litvanski</string>
-  <string name="revanced_language_LV">Latvijski</string>
-  <string name="revanced_language_MK">Makedonski</string>
-  <string name="revanced_language_MN">Mongolski</string>
-  <string name="revanced_language_MR">Maratski</string>
-  <string name="revanced_language_MS">Malajski</string>
-  <string name="revanced_language_MY">Burmanski</string>
-  <string name="revanced_language_NL">Nizozemskog</string>
-  <string name="revanced_language_OR">Odia</string>
+  <string name="revanced_language_AR">Арапски</string>
+  <string name="revanced_language_AZ">Азербејџански</string>
+  <string name="revanced_language_BG">Бугарски</string>
+  <string name="revanced_language_BN">Бенгалски</string>
+  <string name="revanced_language_CA">Каталонски</string>
+  <string name="revanced_language_CS">Чешки</string>
+  <string name="revanced_language_DA">Дански</string>
+  <string name="revanced_language_DE">Немачки</string>
+  <string name="revanced_language_EL">Грчки</string>
+  <string name="revanced_language_EN">Енглески</string>
+  <string name="revanced_language_ES">Шпански</string>
+  <string name="revanced_language_ET">Естонски</string>
+  <string name="revanced_language_FA">Персијски</string>
+  <string name="revanced_language_FI">Фински</string>
+  <string name="revanced_language_FR">Француски</string>
+  <string name="revanced_language_GU">Гуџарати</string>
+  <string name="revanced_language_HI">Хинди</string>
+  <string name="revanced_language_HR">Хрватски</string>
+  <string name="revanced_language_HU">Мађарски</string>
+  <string name="revanced_language_ID">Индонежански</string>
+  <string name="revanced_language_IT">Италијански</string>
+  <string name="revanced_language_JA">Јапански</string>
+  <string name="revanced_language_KK">Казашки</string>
+  <string name="revanced_language_KO">Корејски</string>
+  <string name="revanced_language_LT">Литвански</string>
+  <string name="revanced_language_LV">Летонски</string>
+  <string name="revanced_language_MK">Македонски</string>
+  <string name="revanced_language_MN">Монголски</string>
+  <string name="revanced_language_MR">Марати</string>
+  <string name="revanced_language_MS">Малајски</string>
+  <string name="revanced_language_MY">Бурмански</string>
+  <string name="revanced_language_NL">Холандски</string>
+  <string name="revanced_language_OR">Одија</string>
   <string name="revanced_language_PA">Панџапски</string>
-  <string name="revanced_language_PL">Poljski</string>
-  <string name="revanced_language_PT">Portugalski</string>
-  <string name="revanced_language_RO">Rumunski</string>
-  <string name="revanced_language_RU">Ruski</string>
-  <string name="revanced_language_SK">Slovački</string>
-  <string name="revanced_language_SL">Slovenski</string>
-  <string name="revanced_language_SR">Srpski</string>
-  <string name="revanced_language_SV">Švedski</string>
-  <string name="revanced_language_SW">Svahili</string>
-  <string name="revanced_language_TA">Tamilski</string>
-  <string name="revanced_language_TE">Telugu</string>
-  <string name="revanced_language_TH">Tajlandski</string>
-  <string name="revanced_language_TR">Turski</string>
-  <string name="revanced_language_UK">Ukrajinski</string>
-  <string name="revanced_language_UR">Urdu</string>
-  <string name="revanced_language_VI">Vijetnamski</string>
-  <string name="revanced_language_ZH">Kineski</string>
-  <string name="revanced_pref_import_export_title">Uvezi / Izvezi</string>
-  <string name="revanced_pref_import_export_summary">Uvezi / Izvezi ReVanced podešavanja</string>
+  <string name="revanced_language_PL">Пољски</string>
+  <string name="revanced_language_PT">Португалски</string>
+  <string name="revanced_language_RO">Румунски</string>
+  <string name="revanced_language_RU">Руски</string>
+  <string name="revanced_language_SK">Словачки</string>
+  <string name="revanced_language_SL">Словеначки</string>
+  <string name="revanced_language_SR">Српски</string>
+  <string name="revanced_language_SV">Шведски</string>
+  <string name="revanced_language_SW">Свахили</string>
+  <string name="revanced_language_TA">Тамилски</string>
+  <string name="revanced_language_TE">Телугу</string>
+  <string name="revanced_language_TH">Тајландски</string>
+  <string name="revanced_language_TR">Турски</string>
+  <string name="revanced_language_UK">Украјински</string>
+  <string name="revanced_language_UR">Урду</string>
+  <string name="revanced_language_VI">Вијетнамски</string>
+  <string name="revanced_language_ZH">Кинески</string>
+  <string name="revanced_pref_import_export_title">Увоз / Извоз</string>
+  <string name="revanced_pref_import_export_summary">Увоз / Извоз подешавања ReVanced-а</string>
   <!-- Settings about dialog. -->
-  <string name="revanced_settings_about_links_body">Koristit posebnu ReVanced Patches verziju &lt;i&gt;%s&lt;/i&gt;</string>
-  <string name="revanced_settings_about_links_dev_header">Napomena</string>
-  <string name="revanced_settings_about_links_dev_body">Ova verzija je pre-izdavanje i moguće je da imate nepredviđene probleme</string>
-  <string name="revanced_settings_about_links_header">Zvanični linkovi</string>
+  <string name="revanced_settings_about_links_body">Користите верзију &lt;i&gt;%s&lt;/i&gt; ReVanced печева</string>
+  <string name="revanced_settings_about_links_dev_header">Напомена</string>
+  <string name="revanced_settings_about_links_dev_body">Ова верзија је предиздање и можда ћете имати неочекиване проблеме</string>
+  <string name="revanced_settings_about_links_header">Званични линкови</string>
   <!-- NOTE: the about strings above are duplicated in the TikTok about screen code,
                  and changes made here must also be made there. -->
   </patch>
   <patch id="misc.gms.gmsCoreSupportResourcePatch">
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
-  <string name="gms_core_toast_not_installed_message">MicroG GmsCore nije instaliran. Instaliraj.</string>
-  <string name="gms_core_dialog_title">Potrebna akcija</string>
-  <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"MicroG GmsCore does not have permission to run in the background.
+  <string name="gms_core_toast_not_installed_message">MicroG GmsCore није инсталиран. Инсталирајте га.</string>
+  <string name="gms_core_dialog_title">Неопходна радња</string>
+  <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"MicroG GmsCore нема дозволу за рад у позадини.
 
-Follow the \"Don't kill my app\" guide for your phone, and apply the instructions to your MicroG installation.
+Пратите упутство „Don't kill my app” за ваш телефон и примените упутства на вашу MicroG инсталацију.
 
-This is required for the app to work."</string>
-  <string name="gms_core_dialog_open_website_text">Otvori veb sajt</string>
-  <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">"MicroG GmsCore battery optimizations must be disabled to prevent issues.
+Ово је неопходно за рад апликације."</string>
+  <string name="gms_core_dialog_open_website_text">Отвори веб-сајт</string>
+  <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">"Оптимизације батерије за MicroG GmsCore морају бити онемогућене да би се спречили проблеми.
 
-Disabling battery optimizations for MicroG will not negatively affect battery usage.
+Онемогућавање оптимизације батерије за MicroG неће негативно утицати на потрошњу батерије.
 
-Tap the continue button and allow optimization changes."</string>
-  <string name="gms_core_dialog_continue_text">Nastavi</string>
+Додирните дугме „Настави” и дозволите промене оптимизације."</string>
+  <string name="gms_core_dialog_continue_text">Настави</string>
   </patch>
   </app>
   <app id="youtube">
   <patch id="misc.settings.settingsPatch">
-  <string name="revanced_settings_screen_00_about_title">O aplikaciji</string>
-  <string name="revanced_settings_screen_01_ads_title">Oglasi</string>
-  <string name="revanced_settings_screen_02_alt_thumbnails_title">Alternativne miniature</string>
-  <string name="revanced_settings_screen_03_feed_title">Feed</string>
-  <string name="revanced_settings_screen_04_general_title">Op&scaron;te</string>
+  <string name="revanced_settings_screen_00_about_title">О програму</string>
+  <string name="revanced_settings_screen_01_ads_title">Огласи</string>
+  <string name="revanced_settings_screen_02_alt_thumbnails_title">Алтернативне сличице</string>
+  <string name="revanced_settings_screen_03_feed_title">Фид</string>
+  <string name="revanced_settings_screen_04_general_title">Опште</string>
   <string name="revanced_settings_screen_05_player_title">Плејер</string>
-  <string name="revanced_settings_screen_07_seekbar_title">Traka za pretraživanje</string>
-  <string name="revanced_settings_screen_08_swipe_controls_title">Kontrole povlačenja</string>
-  <string name="revanced_settings_screen_11_misc_title">Razno</string>
-  <string name="revanced_settings_screen_12_video_title">Video</string>
+  <string name="revanced_settings_screen_07_seekbar_title">Трака за премотавање</string>
+  <string name="revanced_settings_screen_08_swipe_controls_title">Контроле превлачења</string>
+  <string name="revanced_settings_screen_11_misc_title">Разно</string>
+  <string name="revanced_settings_screen_12_video_title">Видео</string>
   <string name="revanced_restore_old_settings_menus_title">Врати старе меније подешавања</string>
   <string name="revanced_restore_old_settings_menus_summary_on">Приказују се стари менији подешавања</string>
   <string name="revanced_restore_old_settings_menus_summary_off">Не приказују се стари менији подешавања</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
-  <string name="revanced_shorts_disable_background_playback_title">Onemogući Shorts reprodukciju u pozadini</string>
-  <string name="revanced_shorts_disable_background_playback_summary_on">Reprodukcija Shorts u pozadini je onemogućena</string>
-  <string name="revanced_shorts_disable_background_playback_summary_off">Reprodukcija Shorts u pozadini je omogućena</string>
+  <string name="revanced_shorts_disable_background_playback_title">Онемогући пуштање Shorts видеа у позадини</string>
+  <string name="revanced_shorts_disable_background_playback_summary_on">Пуштање Shorts видеа у позадини је онемогућено</string>
+  <string name="revanced_shorts_disable_background_playback_summary_off">Пуштање Shorts видеа у позадини је омогућено</string>
   </patch>
   <patch id="misc.debugging.enableDebuggingPatch">
-  <string name="revanced_debug_screen_title">Debugovanje</string>
-  <string name="revanced_debug_screen_summary">Omogući ili onemogući opcije za debugovanje</string>
-  <string name="revanced_debug_title">Debugovanje logova</string>
-  <string name="revanced_debug_summary_on">Debugovanje logova je omogućeno</string>
-  <string name="revanced_debug_summary_off">Debugovanje logova je onemogućeno</string>
-  <string name="revanced_debug_protobuffer_title">Logiraj proto bafer</string>
-  <string name="revanced_debug_protobuffer_summary_on">Debugovanje logova uključuje proto bafer</string>
-  <string name="revanced_debug_protobuffer_summary_off">Debugovanje logova ne uključuje proto bafer</string>
-  <string name="revanced_debug_stacktrace_title">Logiraj stack tragove</string>
-  <string name="revanced_debug_stacktrace_summary_on">Debugovanje logova uključuje stack trag</string>
-  <string name="revanced_debug_stacktrace_summary_off">Debugovanje logova ne uključuje stack trag</string>
-  <string name="revanced_debug_toast_on_error_title">Prikaži toast obavještenje pri ReVanced gre&scaron;ci</string>
-  <string name="revanced_debug_toast_on_error_summary_on">Toast obavještenje se prikazuje ako dođe do gre&scaron;ke</string>
-  <string name="revanced_debug_toast_on_error_summary_off">Toast obavještenje se ne prikazuje ako dođe do gre&scaron;ke</string>
-  <string name="revanced_debug_toast_on_error_user_dialog_message">"Isključivanje obavje&scaron;tenja o gre&scaron;kama sakriva sva ReVanced obavje&scaron;tenja o gre&scaron;kama. 
+  <string name="revanced_debug_screen_title">Отклањање грешака</string>
+  <string name="revanced_debug_screen_summary">Омогућите или онемогућите опције за отклањање грешака</string>
+  <string name="revanced_debug_title">Евидентирање отклањања грешака</string>
+  <string name="revanced_debug_summary_on">Евиденције отклањања грешака су омогућене</string>
+  <string name="revanced_debug_summary_off">Евиденције отклањања грешака су онемогућене</string>
+  <string name="revanced_debug_protobuffer_title">Евидентирање бафера протокола</string>
+  <string name="revanced_debug_protobuffer_summary_on">Евиденције отклањања грешака садрже бафер протокола</string>
+  <string name="revanced_debug_protobuffer_summary_off">Евиденције отклањања грешака не садрже бафер протокола</string>
+  <string name="revanced_debug_stacktrace_title">Евидентирање праћења стека</string>
+  <string name="revanced_debug_stacktrace_summary_on">Евиденције отклањања грешака садрже праћење стека</string>
+  <string name="revanced_debug_stacktrace_summary_off">Евиденције отклањања грешака не садрже праћење стека</string>
+  <string name="revanced_debug_toast_on_error_title">Прикажи искачуће обавештење при грешци с ReVanced-ом</string>
+  <string name="revanced_debug_toast_on_error_summary_on">Искачуће обавештење се приказује ако дође до грешке</string>
+  <string name="revanced_debug_toast_on_error_summary_off">Искачуће обавештење се не приказује ако дође до грешке</string>
+  <string name="revanced_debug_toast_on_error_user_dialog_message">"Искључивање искачућих обавештења о грешкама сакрива сва обавештења о грешкама у ReVanced-у.
 
-Nećete biti obavije&scaron;teni o nepredviđenim događajima."</string>
+Нећете бити обавештени ни о каквим неочекиваним догађајима."</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
   <string name="revanced_disable_like_subscribe_glow_title">Онемогући сјај дугмади „Свиђање” и „Запрати”</string>
   <string name="revanced_disable_like_subscribe_glow_summary_on">Дугмад „Свиђање” и „Запрати” неће светлети при додиру</string>
   <string name="revanced_disable_like_subscribe_glow_summary_off">Дугмад „Свиђање” и „Запрати” ће светлети при додиру</string>
-  <string name="revanced_hide_album_cards_title">Sakrij kartice albuma</string>
-  <string name="revanced_hide_album_cards_summary_on">Kartice albuma su sakrivene</string>
+  <string name="revanced_hide_album_cards_title">Сакриј картице албума</string>
+  <string name="revanced_hide_album_cards_summary_on">Картице албума су скривене</string>
   <string name="revanced_hide_album_cards_summary_off">Картице албума су приказане</string>
   <string name="revanced_hide_crowdfunding_box_title">Сакриј поље за колективно финансирање </string>
   <string name="revanced_hide_crowdfunding_box_summary_on">Поље за колективно финансирање је скривено</string>
@@ -193,9 +193,9 @@ Nećete biti obavije&scaron;teni o nepredviđenim događajima."</string>
   <string name="revanced_hide_horizontal_shelves_summary_off">Хоризонталне полице су приказане</string>
   <!-- 'Join' should be translated using the same localized wording YouTube displays.
                  This appears in the video player for certain videos. -->
-  <string name="revanced_hide_join_membership_button_title">Сакриј дугме „Учлани ме”</string>
-  <string name="revanced_hide_join_membership_button_summary_on">Дугме „Прикажи још” је скривено</string>
-  <string name="revanced_hide_join_membership_button_summary_off">Дугме „Прикажи још” је приказано</string>
+  <string name="revanced_hide_join_membership_button_title">Сакриј дугме „Учлани ме“</string>
+  <string name="revanced_hide_join_membership_button_summary_on">Дугме „Учлани ме” је скривено</string>
+  <string name="revanced_hide_join_membership_button_summary_off">Дугме „Учлани ме” је приказано</string>
   <!-- 'For you' should be translated using the same localized wording YouTube displays. -->
   <string name="revanced_hide_for_you_shelf_title">Сакриј полицу „За вас” на страници канала</string>
   <string name="revanced_hide_for_you_shelf_summary_on">Полица „За вас” на страници канала је скривена</string>
@@ -203,8 +203,8 @@ Nećete biti obavije&scaron;teni o nepredviđenim događajima."</string>
   <!-- 'Notify me' should be translated using the same localized wording YouTube displays.
                  This item appear in the subscription feed for future livestreams or unreleased videos. -->
   <string name="revanced_hide_notify_me_button_title">Сакриј дугме „Обавести ме”</string>
-  <string name="revanced_hide_notify_me_button_summary_on">Дугме „Прикажи још” је скривено</string>
-  <string name="revanced_hide_notify_me_button_summary_off">Дугме „Прикажи још” је приказано</string>
+  <string name="revanced_hide_notify_me_button_summary_on">Дугме „Обавести ме” је скривено</string>
+  <string name="revanced_hide_notify_me_button_summary_off">Дугме „Обавести ме” је приказано</string>
   <!-- 'People also watch' should be translated using the same localized wording YouTube displays. -->
   <string name="revanced_hide_search_result_recommendations_title">Сакриј препоруке „Други су такође гледали овај видео”</string>
   <string name="revanced_hide_search_result_recommendations_summary_on">Препоруке „Други су такође гледали овај видео” су скривене</string>
@@ -212,8 +212,8 @@ Nećete biti obavije&scaron;teni o nepredviđenim događajima."</string>
   <!-- 'Show more' should be translated with the same localized wording that YouTube displays.
                   This button usually appears when searching for a YT creator. -->
   <string name="revanced_hide_show_more_button_title">Сакриј дугме „Прикажи још”</string>
-  <string name="revanced_hide_show_more_button_summary_on">Дугме „Учлани ме” је скривено</string>
-  <string name="revanced_hide_show_more_button_summary_off">Дугме „Учлани ме” је приказано</string>
+  <string name="revanced_hide_show_more_button_summary_on">Дугме „Прикажи још” је скривено</string>
+  <string name="revanced_hide_show_more_button_summary_off">Дугме „Прикажи још” је приказано</string>
   <string name="revanced_hide_timed_reactions_title">Сакриј временске реакције</string>
   <string name="revanced_hide_timed_reactions_summary_on">Временске реакције су скривене</string>
   <string name="revanced_hide_timed_reactions_summary_off">Временске реакције су приказане</string>
@@ -506,8 +506,9 @@ Nećete biti obavije&scaron;teni o nepredviđenim događajima."</string>
   <string name="revanced_swipe_overlay_timeout_summary">Количина милисекунди у којој је покрет превлачења видљив</string>
   <string name="revanced_swipe_text_overlay_size_title">Величина текста покрета превлачења</string>
   <string name="revanced_swipe_text_overlay_size_summary">Величина текста за покрет превлачења</string>
-  <string name="revanced_swipe_overlay_background_alpha_title">Видљивост позадине покрета превлачења</string>
-  <string name="revanced_swipe_overlay_background_alpha_summary">Видљивост позадине за покрет превлачења</string>
+  <string name="revanced_swipe_overlay_background_opacity_title">Непрозирност позадине покрета превлачења</string>
+  <string name="revanced_swipe_overlay_background_opacity_summary">Вредност непрозирности између 0 и 100</string>
+  <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Непрозирност покрета превлачења мора бити између 0 и 100</string>
   <string name="revanced_swipe_threshold_title">Праг трајања превлачења</string>
   <string name="revanced_swipe_threshold_summary">Износ прага трајања превлачења</string>
   <string name="revanced_swipe_change_video_title">Омогући превлачење за промену видеа</string>
@@ -834,6 +835,8 @@ Nećete biti obavije&scaron;teni o nepredviđenim događajima."</string>
   <string name="revanced_ryd_failure_generic">Несвиђања нису доступна (%s)</string>
   <!-- Toast shown if the user enables RYD while a video is opened, and then tries to vote for the video. -->
   <string name="revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted">Освежите видео да бисте гласали помоћу ReturnYouTubeDislike</string>
+  <!-- Video likes have been set to hidden by the video uploader. -->
+  <string name="revanced_ryd_video_likes_hidden_by_video_owner">Скривено од стране власника</string>
   <string name="revanced_ryd_enable_summary_on">Несвиђања су приказана</string>
   <string name="revanced_ryd_enable_summary_off">Несвиђања нису приказана</string>
   <string name="revanced_ryd_shorts_title">Прикажи несвиђања на Shorts видеима</string>
@@ -849,6 +852,9 @@ Nećete biti obavije&scaron;teni o nepredviđenim događajima."</string>
   <string name="revanced_ryd_compact_layout_title">Компактно дугме „Свиђање”</string>
   <string name="revanced_ryd_compact_layout_summary_on">Дугме „Свиђање” стилизовано за минималну ширину</string>
   <string name="revanced_ryd_compact_layout_summary_off">Дугме „Свиђање” стилизовано за најбољи изглед</string>
+  <string name="revanced_ryd_estimated_like_title">Прикажи процењени број свиђања</string>
+  <string name="revanced_ryd_estimated_like_summary_on">Процењени број свиђања је приказан</string>
+  <string name="revanced_ryd_estimated_like_summary_off">Процењени број свиђања је скривен</string>
   <string name="revanced_ryd_toast_on_connection_error_title">Прикажи искачуће обавештење ако API није доступан</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_on">Искачуће обавештење је приказано, ако Return YouTube Dislike није доступан</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_off">Искачуће обавештење није приказано, ако Return YouTube Dislike није доступан</string>
@@ -899,6 +905,9 @@ Nećete biti obavije&scaron;teni o nepredviđenim događajima."</string>
   <string name="revanced_sb_enable_voting">Прикажи дугме за гласање</string>
   <string name="revanced_sb_enable_voting_sum_on">Дугме за гласање за сегмент је приказано</string>
   <string name="revanced_sb_enable_voting_sum_off">Дугме за гласање за сегмент није приказано</string>
+  <string name="revanced_sb_square_layout">Користи квадратни изглед</string>
+  <string name="revanced_sb_square_layout_sum_on">Дугмад и контроле су квадратни</string>
+  <string name="revanced_sb_square_layout_sum_off">Дугмад и контроле су заобљени</string>
   <!-- Translations should use language similar to 'revanced_ryd_compact_layout_title' -->
   <string name="revanced_sb_enable_compact_skip_button">Користи компактно дугме за прескакање</string>
   <string name="revanced_sb_enable_compact_skip_button_sum_on">Дугме за прескакање стилизовано за минималну ширину</string>
@@ -1114,7 +1123,7 @@ Nećete biti obavije&scaron;teni o nepredviđenim događajima."</string>
                  This is because the 'General layout' menu uses alphabetic sorting, and it functionally works better if the spoof target selector appears below the 'Spoof app version' UI switch -->
   <string name="revanced_spoof_app_version_target_title">Циљна верзија апликације за лажирање</string>
   <string name="revanced_spoof_app_version_target_entry_1">19.35.36 - Враћа старе иконице Shorts плејера</string>
-  <string name="revanced_spoof_app_version_target_entry_2">19.26.42 - Враћа старе иконице навигације и траке са алаткама</string>
+  <string name="revanced_spoof_app_version_target_entry_2">19.26.42 - Враћа старе иконице навигације</string>
   <!-- 'RYD' is 'Return YouTube Dislike' -->
   <string name="revanced_spoof_app_version_target_legacy_entry_1">18.33.40 - Враћа Return YouTube Dislike у Shorts видеима у режиму без архивирања</string>
   <string name="revanced_spoof_app_version_target_legacy_entry_2">18.20.39 - Враћа широк мени за брзину и квалитет видеа</string>
@@ -1124,8 +1133,11 @@ Nećete biti obavije&scaron;teni o nepredviđenim događajima."</string>
   <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">Полазна страница</string>
   <string name="revanced_change_start_page_entry_default">Подразумевана</string>
+  <string name="revanced_change_start_page_entry_all_subscriptions">Сва праћења</string>
   <string name="revanced_change_start_page_entry_browse">Претрага канала</string>
+  <string name="revanced_change_start_page_entry_courses">Курсеви / Учење</string>
   <string name="revanced_change_start_page_entry_explore">Истражи</string>
+  <string name="revanced_change_start_page_entry_fashion">Мода и лепота</string>
   <string name="revanced_change_start_page_entry_gaming">Видео игре</string>
   <string name="revanced_change_start_page_entry_history">Историја</string>
   <string name="revanced_change_start_page_entry_library">Збирка</string>
@@ -1133,11 +1145,17 @@ Nećete biti obavije&scaron;teni o nepredviđenim događajima."</string>
   <string name="revanced_change_start_page_entry_live">Уживо</string>
   <string name="revanced_change_start_page_entry_movies">Филмови</string>
   <string name="revanced_change_start_page_entry_music">Музика</string>
+  <string name="revanced_change_start_page_entry_news">Вести</string>
+  <string name="revanced_change_start_page_entry_notifications">Обавештења</string>
+  <string name="revanced_change_start_page_entry_playlists">Плејлисте</string>
   <string name="revanced_change_start_page_entry_search">Претрага</string>
+  <string name="revanced_change_start_page_entry_shopping">Куповина</string>
   <string name="revanced_change_start_page_entry_sports">Спорт</string>
   <string name="revanced_change_start_page_entry_subscriptions">Праћења</string>
   <string name="revanced_change_start_page_entry_trending">У тренду</string>
+  <string name="revanced_change_start_page_entry_virtual_reality">Виртуелна реалност</string>
   <string name="revanced_change_start_page_entry_watch_later">За касније</string>
+  <string name="revanced_change_start_page_entry_your_clips">Ваши клипови</string>
   </patch>
   <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch">
   <string name="revanced_disable_resuming_shorts_player_title">Онемогући наставак репродукције Shorts плејера</string>
@@ -1171,7 +1189,7 @@ Nećete biti obavije&scaron;teni o nepredviđenim događajima."</string>
   <string name="revanced_miniplayer_type_entry_6">Модеран 3</string>
   <string name="revanced_miniplayer_rounded_corners_title">Омогући заобљене углове</string>
   <string name="revanced_miniplayer_rounded_corners_summary_on">Углови су заобљени</string>
-  <string name="revanced_miniplayer_rounded_corners_summary_off">Углови нису заобљени</string>
+  <string name="revanced_miniplayer_rounded_corners_summary_off">Углови су квадратни</string>
   <string name="revanced_miniplayer_double_tap_action_title">Омогући двоструки додир и штипање за промену величине</string>
   <string name="revanced_miniplayer_double_tap_action_summary_on">"Радња двоструког додира и штипања за промену величине је омогућена
 
@@ -1386,8 +1404,6 @@ Nećete biti obavije&scaron;teni o nepredviđenim događajima."</string>
 Репродукција видеа можда неће радити"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Искључивање ове опције ће можда изазвати проблеме са репродукцијом видеа.</string>
   <string name="revanced_spoof_video_streams_client_type_title">Подразумевани клијент</string>
-  <!-- 'no auth' means no authentication -->
-  <string name="revanced_spoof_video_streams_client_type_android_vr_no_auth">Android VR (без аутентификације)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_title">Присили на AVC (H.264) на iOS-у</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Видео кодек је присилно подешен на AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Видео кодек се одређује аутоматски</string>
@@ -1403,7 +1419,7 @@ AVC има максималну резолуцију од 1080p, аудио ко
 • Уједначена јачина звука није доступна
 • Опција „Присили оригиналан звук” није доступна"</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Нема видео кодека AV1</string>
-  <string name="revanced_spoof_video_streams_about_kids_videos">• Dečije video klipove možda nećete moći da reprodukujete kada niste prijavljeni ili ako ste u inkognito režimu</string>
+  <string name="revanced_spoof_video_streams_about_kids_videos">• Видеи за децу се можда неће пуштати када сте одјављени или у режиму без архивирања</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Прикажи у „Статистици за зналце”</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Тип клијента је приказан у „Статистици за зналце”</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Тип клијента је скривен у „Статистици за зналце”</string>

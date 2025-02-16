@@ -19,7 +19,6 @@ import app.revanced.patches.shared.misc.settings.settingsPatch
 import app.revanced.patches.youtube.misc.check.checkEnvironmentPatch
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.fix.playbackspeed.fixPlaybackSpeedWhilePlayingPatch
-import app.revanced.patches.youtube.misc.playservice.is_19_04_or_greater
 import app.revanced.patches.youtube.misc.playservice.is_19_34_or_greater
 import app.revanced.patches.youtube.misc.playservice.versionCheckPatch
 import app.revanced.util.*
@@ -97,6 +96,8 @@ private val settingsResourcePatch = resourcePatch {
         // Remove horizontal divider from the settings Preferences
         // To better match the appearance of the stock YouTube settings.
         document("res/values/styles.xml").use { document ->
+            val childNodes = document.childNodes
+
             arrayOf(
                 "Theme.YouTube.Settings",
                 "Theme.YouTube.Settings.Dark",
@@ -105,7 +106,7 @@ private val settingsResourcePatch = resourcePatch {
                 listDividerNode.setAttribute("name", "android:listDivider")
                 listDividerNode.appendChild(document.createTextNode("@null"))
 
-                document.childNodes.findElementByAttributeValueOrThrow(
+                childNodes.findElementByAttributeValueOrThrow(
                     "name",
                     value,
                 ).appendChild(listDividerNode)
@@ -247,13 +248,10 @@ val settingsPatch = bytecodePatch(
         }
 
         // Add setting to force cairo settings fragment on/off.
-        if (is_19_04_or_greater) {
-            cairoFragmentConfigFingerprint.method.insertFeatureFlagBooleanOverride(
-                CAIRO_CONFIG_LITERAL_VALUE,
-                "$activityHookClassDescriptor->useCairoSettingsFragment(Z)Z"
-            )
-        }
-
+        cairoFragmentConfigFingerprint.method.insertFeatureFlagBooleanOverride(
+            CAIRO_CONFIG_LITERAL_VALUE,
+            "$activityHookClassDescriptor->useCairoSettingsFragment(Z)Z"
+        )
     }
 
     finalize {

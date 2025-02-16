@@ -70,12 +70,7 @@ private val sponsorBlockResourcePatch = resourcePatch {
                 "revanced_sb_logo.xml",
                 "revanced_sb_publish.xml",
                 "revanced_sb_voting.xml",
-            ),
-            ResourceGroup(
-                // required resource for back button, because when the base APK is used, this resource will not exist
-                "drawable-xxxhdpi",
-                "quantum_ic_skip_next_white_24.png",
-            ),
+            )
         ).forEach { resourceGroup ->
             copyResources("sponsorblock", resourceGroup)
         }
@@ -111,8 +106,6 @@ val sponsorBlockPatch = bytecodePatch(
 
     compatibleWith(
         "com.google.android.youtube"(
-            "18.38.44",
-            "18.49.37",
             "19.16.39",
             "19.25.37",
             "19.34.42",

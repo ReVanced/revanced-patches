@@ -137,7 +137,7 @@ Nhấn nút tiếp tục và cho phép thay đổi tối ưu hóa."</string>
   <string name="revanced_settings_screen_05_player_title">Trình phát</string>
   <string name="revanced_settings_screen_07_seekbar_title">Thanh tiến trình</string>
   <string name="revanced_settings_screen_08_swipe_controls_title">Cử chỉ vuốt</string>
-  <string name="revanced_settings_screen_11_misc_title">Linh tinh</string>
+  <string name="revanced_settings_screen_11_misc_title">Cài đặt khác</string>
   <string name="revanced_settings_screen_12_video_title">Video</string>
   <string name="revanced_restore_old_settings_menus_title">Khôi phục trình đơn cài đặt cũ</string>
   <string name="revanced_restore_old_settings_menus_summary_on">Các trình đơn cài đặt cũ được hiện</string>
@@ -506,8 +506,9 @@ Tính năng này chỉ khả dụng cho các thiết bị cũ hơn"</string>
   <string name="revanced_swipe_overlay_timeout_summary">Số mili-giây mà lớp phủ hiển thị</string>
   <string name="revanced_swipe_text_overlay_size_title">Kích thước văn bản lớp phủ vuốt</string>
   <string name="revanced_swipe_text_overlay_size_summary">Kích thước văn bản cho lớp phủ vuốt</string>
-  <string name="revanced_swipe_overlay_background_alpha_title">Độ trong suốt nền lớp phủ vuốt</string>
-  <string name="revanced_swipe_overlay_background_alpha_summary">Độ trong suốt của nền lớp phủ vuốt</string>
+  <string name="revanced_swipe_overlay_background_opacity_title">Độ mờ nền phủ vuốt</string>
+  <string name="revanced_swipe_overlay_background_opacity_summary">Giá trị độ mờ từ 0-100</string>
+  <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Độ mờ vuốt phải nằm trong khoảng từ 0-100</string>
   <string name="revanced_swipe_threshold_title">Độ rộng ngưỡng vuốt</string>
   <string name="revanced_swipe_threshold_summary">Độ rộng của ngưỡng vuốt để thực hiện cử chỉ vuốt</string>
   <string name="revanced_swipe_change_video_title">Bật vuốt để thay đổi video</string>
@@ -834,6 +835,8 @@ Lưu ý: Bật tính năng này cũng sẽ tự động ẩn quảng cáo video"
   <string name="revanced_ryd_failure_generic">Số lượt không thích không khả dụng (%s)</string>
   <!-- Toast shown if the user enables RYD while a video is opened, and then tries to vote for the video. -->
   <string name="revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted">Tải lại video để không thích bằng ReturnYouTubeDislike</string>
+  <!-- Video likes have been set to hidden by the video uploader. -->
+  <string name="revanced_ryd_video_likes_hidden_by_video_owner">Bị ẩn bởi chủ sở hữu</string>
   <string name="revanced_ryd_enable_summary_on">Số lượt không thích được hiện</string>
   <string name="revanced_ryd_enable_summary_off">Số lượt không thích không được hiện</string>
   <string name="revanced_ryd_shorts_title">Hiện số lượt không thích trong Shorts</string>
@@ -849,6 +852,9 @@ Hạn chế: Số người không thích có thể không xuất hiện ở ch�
   <string name="revanced_ryd_compact_layout_title">Nút Thích thu gọn</string>
   <string name="revanced_ryd_compact_layout_summary_on">Nút thích được thiết kế để tối ưu độ rộng hiển thị</string>
   <string name="revanced_ryd_compact_layout_summary_off">Nút thích được thiết kế để tối ưu ngoại hình tốt nhất</string>
+  <string name="revanced_ryd_estimated_like_title">Hiển thị lượt thích ước tính</string>
+  <string name="revanced_ryd_estimated_like_summary_on">Đã hiển thị lượt thích ước tính</string>
+  <string name="revanced_ryd_estimated_like_summary_off">Đã ẩn lượt thích ước tính</string>
   <string name="revanced_ryd_toast_on_connection_error_title">Hiện thông báo nổi nếu API không khả dụng</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_on">Thông báo nổi được hiện nếu Return YouTube Dislike không khả dụng</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_off">Thông báo nổi không được hiện nếu Return YouTube Dislike không khả dụng</string>
@@ -899,6 +905,9 @@ Tính năng này hoạt động tốt nhất với chất lượng video 720p tr
   <string name="revanced_sb_enable_voting">Hiện nút bình chọn</string>
   <string name="revanced_sb_enable_voting_sum_on">Nút bình chọn phân đoạn được hiện</string>
   <string name="revanced_sb_enable_voting_sum_off">Nút bình chọn phân đoạn không được hiện</string>
+  <string name="revanced_sb_square_layout">Sử dụng bố cục vuông</string>
+  <string name="revanced_sb_square_layout_sum_on">Các nút và điều khiển có hình vuông</string>
+  <string name="revanced_sb_square_layout_sum_off">Các nút và điều khiển được bo tròn</string>
   <!-- Translations should use language similar to 'revanced_ryd_compact_layout_title' -->
   <string name="revanced_sb_enable_compact_skip_button">Dùng nút bỏ qua phân đoạn thu gọn</string>
   <string name="revanced_sb_enable_compact_skip_button_sum_on">Nút bỏ qua phân đoạn được thiết kế để tối ưu độ rộng hiển thị</string>
@@ -1114,7 +1123,7 @@ Nếu sau này tắt đi, bạn nên xóa dữ liệu ứng dụng để tránh 
                  This is because the 'General layout' menu uses alphabetic sorting, and it functionally works better if the spoof target selector appears below the 'Spoof app version' UI switch -->
   <string name="revanced_spoof_app_version_target_title">Phiên bản giả mạo mục tiêu</string>
   <string name="revanced_spoof_app_version_target_entry_1">19.35.36 - Khôi phục biểu tượng trình phát Shorts cũ</string>
-  <string name="revanced_spoof_app_version_target_entry_2">19.26.42 - Khôi phục biểu tượng điều hướng và thanh công cụ cũ</string>
+  <string name="revanced_spoof_app_version_target_entry_2">19.26.42 - Cập nhật lại biểu tượng điều hướng cũ</string>
   <!-- 'RYD' is 'Return YouTube Dislike' -->
   <string name="revanced_spoof_app_version_target_legacy_entry_1">18.33.40 - Khôi phục RYD trong Shorts chế độ ẩn danh</string>
   <string name="revanced_spoof_app_version_target_legacy_entry_2">18.20.39 - Khôi phục trình đơn tốc độ &amp; chất lượng cho video rộng</string>
@@ -1124,8 +1133,11 @@ Nếu sau này tắt đi, bạn nên xóa dữ liệu ứng dụng để tránh 
   <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">Đặt trang bắt đầu</string>
   <string name="revanced_change_start_page_entry_default">Mặc định</string>
+  <string name="revanced_change_start_page_entry_all_subscriptions">Tất cả đăng ký</string>
   <string name="revanced_change_start_page_entry_browse">Duyệt kênh</string>
+  <string name="revanced_change_start_page_entry_courses">Khóa học / Học tập</string>
   <string name="revanced_change_start_page_entry_explore">Khám phá</string>
+  <string name="revanced_change_start_page_entry_fashion">Thời trang &amp; Làm đẹp</string>
   <string name="revanced_change_start_page_entry_gaming">Trò chơi</string>
   <string name="revanced_change_start_page_entry_history">Lịch sử</string>
   <string name="revanced_change_start_page_entry_library">Thư viện</string>
@@ -1133,11 +1145,17 @@ Nếu sau này tắt đi, bạn nên xóa dữ liệu ứng dụng để tránh 
   <string name="revanced_change_start_page_entry_live">Trực tiếp</string>
   <string name="revanced_change_start_page_entry_movies">Phim</string>
   <string name="revanced_change_start_page_entry_music">Âm nhạc</string>
+  <string name="revanced_change_start_page_entry_news">Tin tức</string>
+  <string name="revanced_change_start_page_entry_notifications">Thông báo</string>
+  <string name="revanced_change_start_page_entry_playlists">Danh sách phát</string>
   <string name="revanced_change_start_page_entry_search">Tìm kiếm</string>
+  <string name="revanced_change_start_page_entry_shopping">Mua sắm</string>
   <string name="revanced_change_start_page_entry_sports">Thể thao</string>
   <string name="revanced_change_start_page_entry_subscriptions">Đăng ký</string>
   <string name="revanced_change_start_page_entry_trending">Xu hướng</string>
+  <string name="revanced_change_start_page_entry_virtual_reality">Thực tế ảo</string>
   <string name="revanced_change_start_page_entry_watch_later">Xem sau</string>
+  <string name="revanced_change_start_page_entry_your_clips">Clip của bạn</string>
   </patch>
   <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch">
   <string name="revanced_disable_resuming_shorts_player_title">Tắt tiếp tục trình phát Shorts</string>
@@ -1351,8 +1369,8 @@ Bật tính năng này có thể mở khóa chất lượng video cao hơn"</str
   <string name="revanced_custom_playback_speeds_invalid">Tốc độ tùy chỉnh phải nhỏ hơn %s</string>
   <string name="revanced_custom_playback_speeds_parse_exception">Tốc độ phát lại tùy chỉnh không hợp lệ</string>
   <string name="revanced_custom_playback_speeds_auto">Tự động</string>
-  <string name="revanced_speed_tap_and_hold_title">Tỹc độ nhạn và giữ lúu tạo tốc độ tốc độ</string>
-  <string name="revanced_speed_tap_and_hold_summary">Tốc độ phát lại giữa từ 0-̂8</string>
+  <string name="revanced_speed_tap_and_hold_title">Tốc độ chạm và giữ tùy chỉnh</string>
+  <string name="revanced_speed_tap_and_hold_summary">Tốc độ phát lại giữa 0-8</string>
   </patch>
   <patch id="video.speed.remember.rememberPlaybackSpeedPatch">
   <string name="revanced_remember_playback_speed_last_selected_title">Nhớ các thay đổi tốc độ phát</string>
@@ -1386,8 +1404,6 @@ Bật tính năng này có thể mở khóa chất lượng video cao hơn"</str
 Phát lại video có thể không hoạt động"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Việc tắt cài đặt này có thể gây ra sự cố phát nền video.</string>
   <string name="revanced_spoof_video_streams_client_type_title">Máy khách mặc định</string>
-  <!-- 'no auth' means no authentication -->
-  <string name="revanced_spoof_video_streams_client_type_android_vr_no_auth">Android VR (không cần xác thực)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_title">Buộc iOS AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Bộ giải mã video bị buộc thành AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Bộ giải mã video được xác định tự động</string>

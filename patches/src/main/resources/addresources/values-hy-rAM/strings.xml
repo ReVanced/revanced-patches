@@ -26,20 +26,20 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_dialog_open_official_source_button">Բացել պաշտոնական կայքը</string>
   <string name="revanced_check_environment_dialog_ignore_button">Մերժել</string>
   <string name="revanced_check_environment_failed_message">&lt;h5&gt;Այս հավելվածը, ըստ երևույթին, չի մշակվել ձեզ կողմից։&lt;/h5&gt;&lt;br&gt;Այս հավելվածը կարող է անսպասելիորեն աշխատել կամ &lt;b&gt;վտանգավոր լինել կամ նույնիսկ վտանգավոր լինել օգտագործման համար&lt;/b&gt;։&lt;br&gt;&lt;br&gt;Այս վերահսկումները ենթադրում են, որ այս հավելվածը նախապես մշակված է կամ ստացվել է մեկ այլ անձից։&lt;br&gt;&lt;br&gt;&lt;small&gt;%1$s&lt;/small&gt;&lt;br&gt;Հ強くРекомендуется &lt;b&gt;թվոտացնել այս հավելվածը և ինքնուրույն մշակել այն&lt;/b&gt;՝  ապահովելու համար, որ դուք օգտագործում եք վավերացված և անվտանգ հավելված։&lt;p&gt;&lt;br&gt;Եթե ​​չեք ուշադրություն դարձնում, այս նախազգուշացումը կցուցադրվի միայն երկու անգամ։</string>
-  <string name="revanced_check_environment_not_same_patching_device">Մշակվել է մեկ այլ սարքի վրա</string>
+  <string name="revanced_check_environment_not_same_patching_device">Պատչված է տարբեր սարքի վրա</string>
   <string name="revanced_check_environment_manager_not_expected_installer">ReVanced Manager-ով չի տեղադրվել</string>
-  <string name="revanced_check_environment_not_near_patch_time">Մշակվել է ավելի քան 10 րոպե առաջ</string>
+  <string name="revanced_check_environment_not_near_patch_time">Պատչված է ավելի քան 10 րոպե առաջ</string>
   <string name="revanced_check_environment_not_near_patch_time_days">Մշակվել է %s օր առաջ</string>
-  <string name="revanced_check_environment_not_near_patch_time_invalid">APK-ի ստեղծման ամսաթիվը հնացած է</string>
+  <string name="revanced_check_environment_not_near_patch_time_invalid">APK-ի կառուցման ամսաթիվը վնասված է</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_submenu_title">Կարգավորումներ</string>
   <string name="revanced_settings_confirm_user_dialog_title">Դուք ցանկանում եք շարունակել?</string>
   <string name="revanced_settings_reset">Վերականգնել</string>
   <string name="revanced_settings_restart_title">Թարմացնել և վերագործարկել</string>
-  <string name="revanced_settings_restart">Վերագործարկում</string>
+  <string name="revanced_settings_restart">Վերսկսել</string>
   <string name="revanced_settings_import">Ներմուծել</string>
-  <string name="revanced_settings_import_copy">Պատճենել</string>
+  <string name="revanced_settings_import_copy">Պատճեն</string>
   <string name="revanced_settings_import_reset">ReVanced կարգավորումները վերադրվել են դեֆոլտային</string>
   <string name="revanced_settings_import_success">Import %d կարգավորում</string>
   <string name="revanced_settings_import_failure_parse">Import-ը ձախողվել է։ %s</string>
@@ -506,8 +506,9 @@ MicroG-ի համար մարտկոցի օպտիմալացումը անջատել�
   <string name="revanced_swipe_overlay_timeout_summary">Վերածման ցուցադրման տևողությունը միլիվայրկյաններով</string>
   <string name="revanced_swipe_text_overlay_size_title">Սահմանման վերածման տեքստի չափը</string>
   <string name="revanced_swipe_text_overlay_size_summary">Սահմանման վերածման տեքստի չափը</string>
-  <string name="revanced_swipe_overlay_background_alpha_title">Սահմանման վերածման ֆոնի տեսանելիությունը</string>
-  <string name="revanced_swipe_overlay_background_alpha_summary">Սահմանման վերածման ֆոնի տեսանելիությունը</string>
+  <string name="revanced_swipe_overlay_background_opacity_title">Սողացման ծածկույթի ֆոնի անթափանցություն</string>
+  <string name="revanced_swipe_overlay_background_opacity_summary">Անթափանցության արժեք 0-100 միջակայքում</string>
+  <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Սողալու անթափանցությունը պետք է լինի 0-100 միջակայքում</string>
   <string name="revanced_swipe_threshold_title">Սահմանման վերածման չափը</string>
   <string name="revanced_swipe_threshold_summary">Սահմանման վերածման չափը</string>
   <string name="revanced_swipe_change_video_title">Վայրէջքով տեսանյութերը փոխելու ակտիվացում</string>
@@ -834,6 +835,8 @@ MicroG-ի համար մարտկոցի օպտիմալացումը անջատել�
   <string name="revanced_ryd_failure_generic">\"Dislike\"-երը  հասանելի չեն (%s)</string>
   <!-- Toast shown if the user enables RYD while a video is opened, and then tries to vote for the video. -->
   <string name="revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted">Վերբեռնել տեսանյութը՝ քվեարկելու համար Return YouTube Dislike-ի միջոցով</string>
+  <!-- Video likes have been set to hidden by the video uploader. -->
+  <string name="revanced_ryd_video_likes_hidden_by_video_owner">Թաքցված է սեփականատիրոջ կողմից</string>
   <string name="revanced_ryd_enable_summary_on">\"Dislike\"-երը  ցուցադրվում են</string>
   <string name="revanced_ryd_enable_summary_off">\"Dislike\"-երը  չեն ցուցադրվում</string>
   <string name="revanced_ryd_shorts_title">Ցուցադրել \"Dislike\"-երը  Shorts-ում</string>
@@ -849,6 +852,9 @@ MicroG-ի համար մարտկոցի օպտիմալացումը անջատել�
   <string name="revanced_ryd_compact_layout_title">Միարժեք «Like» կոճակ</string>
   <string name="revanced_ryd_compact_layout_summary_on">\"Like\" կոճակը  ոճավորված է  մինիմալ  մեծության համար</string>
   <string name="revanced_ryd_compact_layout_summary_off">\"Like\" կոճակը  ոճավորված է  լավագույն  հայացքի համար</string>
+  <string name="revanced_ryd_estimated_like_title">Ցույց տալ մոտավոր հավանումները</string>
+  <string name="revanced_ryd_estimated_like_summary_on">Ցուցադրվում են մոտավոր հավանումները</string>
+  <string name="revanced_ryd_estimated_like_summary_off">Մոտավոր հավանումները թաքցված են</string>
   <string name="revanced_ryd_toast_on_connection_error_title">Ցուցադրել \"toast\", եթե API-ն  հասանելի չէ</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_on">\"Toast\"-ը  ցուցադրվում է, եթե Return YouTube Dislike-ը  հասանելի չէ</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_off">\"Toast\"-ը  չի ցուցադրվում, եթե Return YouTube Dislike-ը  հասանելի չէ</string>
@@ -899,6 +905,9 @@ Seekbar thumbnails-ները կօգտագործեն նույն որակը, ինչ
   <string name="revanced_sb_enable_voting">Ցույց տալ ձայնի մասին տեղեկությունները</string>
   <string name="revanced_sb_enable_voting_sum_on">Segment-ի ձայնի մասին տեղեկությունները ցույց են տրվում</string>
   <string name="revanced_sb_enable_voting_sum_off">Segment-ի ձայնի մասին տեղեկությունները չեն ցույց տրվում</string>
+  <string name="revanced_sb_square_layout">Օգտագործե՛ք քառակուսի դասավորություն</string>
+  <string name="revanced_sb_square_layout_sum_on">Կոճակները և հսկիչները քառակուսի են</string>
+  <string name="revanced_sb_square_layout_sum_off">Կոճակները և կառավարման վահանակները կլորացված են</string>
   <!-- Translations should use language similar to 'revanced_ryd_compact_layout_title' -->
   <string name="revanced_sb_enable_compact_skip_button">Օգտագործել կոմպակտ բաց թողնել կոճակը</string>
   <string name="revanced_sb_enable_compact_skip_button_sum_on">Բաց թողնել կոճակը ոճավորվել է նվազագույն լայնության համար</string>
@@ -1115,7 +1124,7 @@ Seekbar thumbnails-ները կօգտագործեն նույն որակը, ինչ
                  This is because the 'General layout' menu uses alphabetic sorting, and it functionally works better if the spoof target selector appears below the 'Spoof app version' UI switch -->
   <string name="revanced_spoof_app_version_target_title">Spoof-ի կիրառության տարբերակի նպատակ</string>
   <string name="revanced_spoof_app_version_target_entry_1">19.35.36 - Վերականգնել հին Shorts պլեյերի պատկերակները</string>
-  <string name="revanced_spoof_app_version_target_entry_2">19.26.42 - Հին նավիգացիայի և գործիքների պատկերներ վերականգնել</string>
+  <string name="revanced_spoof_app_version_target_entry_2">19.26.42 - Վերականգնել հին նավիգացիոն պատկերակները</string>
   <!-- 'RYD' is 'Return YouTube Dislike' -->
   <string name="revanced_spoof_app_version_target_legacy_entry_1">18.33.40 - Վերականգնել RYD-ը Shorts անանուն ռեժիմում</string>
   <string name="revanced_spoof_app_version_target_legacy_entry_2">18.20.39 - Վերականգնել լայն տեսանյութի արագության &amp; որակի ընտրացանկը</string>
@@ -1125,8 +1134,11 @@ Seekbar thumbnails-ները կօգտագործեն նույն որակը, ինչ
   <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">Սահմանել մեկնարկային էջ</string>
   <string name="revanced_change_start_page_entry_default">Ըստ լռելյայնի</string>
+  <string name="revanced_change_start_page_entry_all_subscriptions">Բոլոր բաժանորդագրությունները</string>
   <string name="revanced_change_start_page_entry_browse">Դիտել ալիքները</string>
+  <string name="revanced_change_start_page_entry_courses">Դասընթացներ / Ուսուցում</string>
   <string name="revanced_change_start_page_entry_explore">Հետազոտել</string>
+  <string name="revanced_change_start_page_entry_fashion">Mόδα և գեղեցկություն</string>
   <string name="revanced_change_start_page_entry_gaming">Խաղեր</string>
   <string name="revanced_change_start_page_entry_history">Պատմություն</string>
   <string name="revanced_change_start_page_entry_library">Գրադարան</string>
@@ -1134,11 +1146,17 @@ Seekbar thumbnails-ները կօգտագործեն նույն որակը, ինչ
   <string name="revanced_change_start_page_entry_live">Անհապաղ</string>
   <string name="revanced_change_start_page_entry_movies">Ֆիլմեր</string>
   <string name="revanced_change_start_page_entry_music">Երաժշտություն</string>
+  <string name="revanced_change_start_page_entry_news">Նորություններ</string>
+  <string name="revanced_change_start_page_entry_notifications">Ծանուցումներ</string>
+  <string name="revanced_change_start_page_entry_playlists">Երգացանկեր</string>
   <string name="revanced_change_start_page_entry_search">Որոնում</string>
+  <string name="revanced_change_start_page_entry_shopping">Shopping</string>
   <string name="revanced_change_start_page_entry_sports">Սպորտ</string>
   <string name="revanced_change_start_page_entry_subscriptions">Գրանցագրություններ</string>
   <string name="revanced_change_start_page_entry_trending">Trend-ի մեջ</string>
+  <string name="revanced_change_start_page_entry_virtual_reality">Վիրտուալ իրականություն</string>
   <string name="revanced_change_start_page_entry_watch_later">Դիտել հետո</string>
+  <string name="revanced_change_start_page_entry_your_clips">Your clips</string>
   </patch>
   <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch">
   <string name="revanced_disable_resuming_shorts_player_title">Անջատել Shorts պլեյերի վերսկսումը</string>
@@ -1387,8 +1405,6 @@ Mini-player-ը կարող է գրավվել էկրանից դուրս՝ դեպի
 Տեսանյութի վերարտադրումը կարող է չաշխատել։"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Այս  կարգավորման  անջատումը  կարող է  առաջացնել  տեսանյութի  վերարտադրման  հետ  կապված  պրոբլեմներ</string>
   <string name="revanced_spoof_video_streams_client_type_title">Դեֆոլտ  կլիենտ</string>
-  <!-- 'no auth' means no authentication -->
-  <string name="revanced_spoof_video_streams_client_type_android_vr_no_auth">Android VR (առանց հաստատման)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_title">iOS-ի համար AVC (H.264) պարտադիր ակտիվացում</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Վիդեո կոդեկը պարտադիր կերպով AVC (H.264) է</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Վիդեո կոդեկը որոշվում է ավտոմատ կերպով</string>

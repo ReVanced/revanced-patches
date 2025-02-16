@@ -14,7 +14,6 @@ import java.util.*;
 
 import static app.revanced.extension.shared.StringRef.str;
 
-@SuppressWarnings("unused")
 public abstract class Setting<T> {
 
     /**
@@ -288,6 +287,13 @@ public abstract class Setting<T> {
      */
     public static void privateSetValueFromString(@NonNull Setting<?> setting, @NonNull String newValue) {
         setting.setValueFromString(newValue);
+
+        // Clear the preference value since default is used, to allow changing
+        // the changing the default for a future release.  Without this after upgrading
+        // the saved value will be whatever was the default when the app was first installed.
+        if (setting.isSetToDefault()) {
+            setting.removeFromPreferences();
+        }
     }
 
     /**
@@ -303,7 +309,33 @@ public abstract class Setting<T> {
     /**
      * Persistently saves the value.
      */
-    public abstract void save(@NonNull T newValue);
+    public final void save(@NonNull T newValue) {
+        if (value.equals(newValue)) {
+            return;
+        }
+
+        // Must set before saving to preferences (otherwise importing fails to update UI correctly).
+        value = Objects.requireNonNull(newValue);
+
+        if (defaultValue.equals(newValue)) {
+            removeFromPreferences();
+        } else {
+            saveToPreferences();
+        }
+    }
+
+    /**
+     * Save {@link #value} to {@link #preferences}.
+     */
+    protected abstract void saveToPreferences();
+
+    /**
+     * Remove {@link #value} from {@link #preferences}.
+     */
+    protected final void removeFromPreferences() {
+        Logger.printDebug(() -> "Clearing stored preference value (reset to default): " + key);
+        preferences.removeKey(key);
+    }
 
     @NonNull
     public abstract T get();
