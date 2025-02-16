@@ -1,7 +1,5 @@
 package app.revanced.extension.youtube.videoplayer;
 
-import android.os.Handler;
-import android.os.Looper;
 import android.transition.Fade;
 import android.transition.TransitionManager;
 import android.view.View;
@@ -118,7 +116,7 @@ public abstract class PlayerControlButton {
 
                 // Use Handler to set GONE after the animation is complete
                 if (animated) {
-                    new Handler(Looper.getMainLooper()).postDelayed(() -> {
+                    Utils.runOnMainThreadDelayed(() -> {
                         if (!isVisible) {
                             iView.setVisibility(View.GONE); // Set the view to GONE after the fade animation ends
                         }
