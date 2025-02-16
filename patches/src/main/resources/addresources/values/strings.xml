@@ -862,9 +862,9 @@ Limitation: Dislikes may not appear in incognito mode"</string>
             <string name="revanced_ryd_estimated_like_title">Show estimated likes</string>
             <string name="revanced_ryd_estimated_like_summary_on">Estimated likes are shown</string>
             <string name="revanced_ryd_estimated_like_summary_off">Estimated likes are hidden</string>
-            <string name="revanced_ryd_toast_on_connection_error_title">Show a toast if API is unavailable</string>
-            <string name="revanced_ryd_toast_on_connection_error_summary_on">Toast is shown if Return YouTube Dislike is unavailable</string>
-            <string name="revanced_ryd_toast_on_connection_error_summary_off">Toast is hidden if Return YouTube Dislike is unavailable</string>
+            <string name="revanced_ryd_toast_on_connection_error_title">Show a toast if API is not available</string>
+            <string name="revanced_ryd_toast_on_connection_error_summary_on">Toast is shown if Return YouTube Dislike is not available</string>
+            <string name="revanced_ryd_toast_on_connection_error_summary_off">Toast is not shown if Return YouTube Dislike is not available</string>
             <string name="revanced_ryd_about">About</string>
             <string name="revanced_ryd_attribution_title" translatable="false">ReturnYouTubeDislike.com</string>
             <string name="revanced_ryd_attribution_summary">Data is provided by the Return YouTube Dislike API. Tap here to learn more</string>
@@ -926,7 +926,7 @@ This feature works best with a video quality of 720p or lower and when using a v
             <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_off">Skip button is shown for the entire segment</string>
             <string name="revanced_sb_general_skiptoast">Show a toast when skipping automatically</string>
             <string name="revanced_sb_general_skiptoast_sum_on">Toast is shown when a segment is automatically skipped. Tap here to see an example</string>
-            <string name="revanced_sb_general_skiptoast_sum_off">Toast is hidden. Tap here to see an example</string>
+            <string name="revanced_sb_general_skiptoast_sum_off">Toast is not shown. Tap here to see an example</string>
             <string name="revanced_sb_general_time_without">Show video length without segments</string>
             <string name="revanced_sb_general_time_without_sum_on">Video length minus all segments, shown in parentheses next to the full video length</string>
             <string name="revanced_sb_general_time_without_sum_off">Full video length shown</string>
@@ -944,9 +944,9 @@ This feature works best with a video quality of 720p or lower and when using a v
             <string name="revanced_sb_guidelines_popup_already_read">Already read</string>
             <string name="revanced_sb_guidelines_popup_open">Show me</string>
             <string name="revanced_sb_general">General</string>
-            <string name="revanced_sb_toast_on_connection_error_title">Show a toast if API is unavailable</string>
-            <string name="revanced_sb_toast_on_connection_error_summary_on">Toast is shown if SponsorBlock is unavailable</string>
-            <string name="revanced_sb_toast_on_connection_error_summary_off">Toast is hidden if SponsorBlock is unavailable</string>
+            <string name="revanced_sb_toast_on_connection_error_title">Show a toast if API is not available</string>
+            <string name="revanced_sb_toast_on_connection_error_summary_on">Toast is shown if SponsorBlock is not available</string>
+            <string name="revanced_sb_toast_on_connection_error_summary_off">Toast is not shown if SponsorBlock is not available</string>
             <string name="revanced_sb_general_skipcount">Enable skip count tracking</string>
             <string name="revanced_sb_general_skipcount_sum_on">Lets the SponsorBlock leaderboard know how much time is saved. A message is sent to the leaderboard each time a segment is skipped</string>
             <string name="revanced_sb_general_skipcount_sum_off">Skip count tracking is not enabled</string>
@@ -1280,9 +1280,9 @@ Enabling this can fix missing images that are blocked in some regions"</string>
 If enabled, video URLs will be sent to the API server and no other data is sent. If a video does not have DeArrow thumbnails, then the original or still captures are shown
 
 Tap here to learn more about DeArrow"</string>
-            <string name="revanced_alt_thumbnail_dearrow_connection_toast_title">Show a toast if API is unavailable</string>
-            <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_on">Toast is shown if DeArrow is unavailable</string>
-            <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_off">Toast is hidden if DeArrow is unavailable</string>
+            <string name="revanced_alt_thumbnail_dearrow_connection_toast_title">Show a toast if API is not available</string>
+            <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_on">Toast is shown if DeArrow is not available</string>
+            <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_off">Toast is not shown if DeArrow is not available</string>
             <string name="revanced_alt_thumbnail_dearrow_api_url_title">DeArrow API endpoint</string>
             <string name="revanced_alt_thumbnail_dearrow_api_url_summary">The URL of the DeArrow thumbnail cache endpoint</string>
             <string name="revanced_alt_thumbnail_stills_about_title">Still video captures</string>
