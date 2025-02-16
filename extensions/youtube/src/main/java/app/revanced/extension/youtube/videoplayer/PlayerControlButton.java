@@ -1,5 +1,9 @@
 package app.revanced.extension.youtube.videoplayer;
 
+import android.os.Handler;
+import android.os.Looper;
+import android.transition.Fade;
+import android.transition.TransitionManager;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
@@ -90,25 +94,44 @@ public abstract class PlayerControlButton {
     private void private_setVisibility(boolean visible, boolean animated) {
         try {
             if (isVisible == visible) return;
-            isVisible = visible;
+            isVisible = visible; // If the visibility state hasn't changed, return early
 
             ImageView iView = buttonRef.get();
             if (iView == null) {
-                return;
+                return; // Return if the ImageView is null
             }
 
+            ViewGroup parent = (ViewGroup) iView.getParent();
+            if (parent == null) {
+                return; // Return if the parent view is null
+            }
+
+            // Use Fade animation with dynamic duration
+            Fade fade = new Fade();
+            fade.setDuration(visible ? Utils.getResourceInteger("fade_duration_fast")
+                                     : Utils.getResourceInteger("fade_duration_scheduled"));
+
+            // Apply transition if animation is enabled
+            if (animated) {
+                TransitionManager.beginDelayedTransition(parent, fade);
+            }
+
+            // If the view should be visible and the setting allows it
             if (visible && setting.get()) {
-                iView.clearAnimation();
-                if (animated) {
-                    iView.startAnimation(PlayerControlButton.getButtonFadeIn());
-                }
-                iView.setVisibility(View.VISIBLE);
+                iView.setVisibility(View.VISIBLE); // Set the view to VISIBLE
             } else if (iView.getVisibility() == View.VISIBLE) {
-                iView.clearAnimation();
+                iView.setVisibility(View.INVISIBLE); // First, set visibility to INVISIBLE for animation
+
+                // Use Handler to set GONE after the animation is complete
                 if (animated) {
-                    iView.startAnimation(PlayerControlButton.getButtonFadeOut());
+                    new Handler(Looper.getMainLooper()).postDelayed(() -> {
+                        if (!isVisible) {
+                            iView.setVisibility(View.GONE); // Set the view to GONE after the fade animation ends
+                        }
+                    }, fade.getDuration()); // Delay for the duration of the fade animation
+                } else {
+                    iView.setVisibility(View.GONE); // If no animation, immediately set the view to GONE
                 }
-                iView.setVisibility(View.GONE);
             }
         } catch (Exception ex) {
             Logger.printException(() -> "setVisibility failure", ex);
