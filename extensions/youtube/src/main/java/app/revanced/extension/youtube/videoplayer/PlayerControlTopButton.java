@@ -39,7 +39,7 @@ public abstract class PlayerControlTopButton {
         fadeOutTransition.setDuration(fadeOutDuration);
     }
 
-    public PlayerControlTopButton(ImageView imageView, View.OnClickListener onClickListener) {
+    protected PlayerControlTopButton(ImageView imageView, View.OnClickListener onClickListener) {
         imageView.setVisibility(View.GONE);
         imageView.setOnClickListener(onClickListener);
 

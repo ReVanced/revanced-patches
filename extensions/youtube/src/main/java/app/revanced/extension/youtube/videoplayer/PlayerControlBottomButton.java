@@ -22,7 +22,7 @@ public abstract class PlayerControlBottomButton {
     private final BooleanSetting setting;
     private boolean isVisible;
 
-    public PlayerControlBottomButton(ViewGroup bottomControlsViewGroup, String imageViewButtonId,
+    protected PlayerControlBottomButton(ViewGroup bottomControlsViewGroup, String imageViewButtonId,
                                      BooleanSetting booleanSetting, View.OnClickListener onClickListener,
                                      @Nullable View.OnLongClickListener longClickListener) {
         Logger.printDebug(() -> "Initializing button: " + imageViewButtonId);
@@ -78,19 +78,22 @@ public abstract class PlayerControlBottomButton {
 
             // If the view should be visible and the setting allows it.
             if (visible && setting.get()) {
-                iView.setVisibility(View.VISIBLE); // Set the view to VISIBLE.
+                // Set the view to VISIBLE.
+                iView.setVisibility(View.VISIBLE);
             } else if (iView.getVisibility() == View.VISIBLE) {
-                iView.setVisibility(View.INVISIBLE); // First, set visibility to INVISIBLE for animation.
+                // First, set visibility to INVISIBLE for animation.
+                iView.setVisibility(View.INVISIBLE);
 
-                // Use Handler to set GONE after the animation is complete.
                 if (animated) {
+                    // Set the view to GONE after the fade animation ends.
                     Utils.runOnMainThreadDelayed(() -> {
                         if (!isVisible) {
-                            iView.setVisibility(View.GONE); // Set the view to GONE after the fade animation ends.
+                            iView.setVisibility(View.GONE);
                         }
-                    }, fadeOutDuration); // Delay for the duration of the fade animation.
+                    }, fadeOutDuration);
                 } else {
-                    iView.setVisibility(View.GONE); // If no animation, immediately set the view to GONE.
+                    // If no animation, immediately set the view to GONE.
+                    iView.setVisibility(View.GONE);
                 }
             }
         } catch (Exception ex) {
