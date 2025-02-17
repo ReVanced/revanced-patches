@@ -835,6 +835,8 @@ Second \"item\" text"</string>
   <string name="revanced_ryd_failure_generic">Несвиђања нису доступна (%s)</string>
   <!-- Toast shown if the user enables RYD while a video is opened, and then tries to vote for the video. -->
   <string name="revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted">Освежите видео да бисте гласали помоћу ReturnYouTubeDislike</string>
+  <!-- Video likes have been set to hidden by the video uploader. -->
+  <string name="revanced_ryd_video_likes_hidden_by_video_owner">Скривено од стране власника</string>
   <string name="revanced_ryd_enable_summary_on">Несвиђања су приказана</string>
   <string name="revanced_ryd_enable_summary_off">Несвиђања нису приказана</string>
   <string name="revanced_ryd_shorts_title">Прикажи несвиђања на Shorts видеима</string>
@@ -850,6 +852,9 @@ Second \"item\" text"</string>
   <string name="revanced_ryd_compact_layout_title">Компактно дугме „Свиђање”</string>
   <string name="revanced_ryd_compact_layout_summary_on">Дугме „Свиђање” стилизовано за минималну ширину</string>
   <string name="revanced_ryd_compact_layout_summary_off">Дугме „Свиђање” стилизовано за најбољи изглед</string>
+  <string name="revanced_ryd_estimated_like_title">Прикажи процењени број свиђања</string>
+  <string name="revanced_ryd_estimated_like_summary_on">Процењени број свиђања је приказан</string>
+  <string name="revanced_ryd_estimated_like_summary_off">Процењени број свиђања је скривен</string>
   <string name="revanced_ryd_toast_on_connection_error_title">Прикажи искачуће обавештење ако API није доступан</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_on">Искачуће обавештење је приказано, ако Return YouTube Dislike није доступан</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_off">Искачуће обавештење није приказано, ако Return YouTube Dislike није доступан</string>
@@ -900,6 +905,9 @@ Second \"item\" text"</string>
   <string name="revanced_sb_enable_voting">Прикажи дугме за гласање</string>
   <string name="revanced_sb_enable_voting_sum_on">Дугме за гласање за сегмент је приказано</string>
   <string name="revanced_sb_enable_voting_sum_off">Дугме за гласање за сегмент није приказано</string>
+  <string name="revanced_sb_square_layout">Користи квадратни изглед</string>
+  <string name="revanced_sb_square_layout_sum_on">Дугмад и контроле су квадратни</string>
+  <string name="revanced_sb_square_layout_sum_off">Дугмад и контроле су заобљени</string>
   <!-- Translations should use language similar to 'revanced_ryd_compact_layout_title' -->
   <string name="revanced_sb_enable_compact_skip_button">Користи компактно дугме за прескакање</string>
   <string name="revanced_sb_enable_compact_skip_button_sum_on">Дугме за прескакање стилизовано за минималну ширину</string>
@@ -1181,7 +1189,7 @@ Second \"item\" text"</string>
   <string name="revanced_miniplayer_type_entry_6">Модеран 3</string>
   <string name="revanced_miniplayer_rounded_corners_title">Омогући заобљене углове</string>
   <string name="revanced_miniplayer_rounded_corners_summary_on">Углови су заобљени</string>
-  <string name="revanced_miniplayer_rounded_corners_summary_off">Углови нису заобљени</string>
+  <string name="revanced_miniplayer_rounded_corners_summary_off">Углови су квадратни</string>
   <string name="revanced_miniplayer_double_tap_action_title">Омогући двоструки додир и штипање за промену величине</string>
   <string name="revanced_miniplayer_double_tap_action_summary_on">"Радња двоструког додира и штипања за промену величине је омогућена
 
@@ -1396,8 +1404,6 @@ Second \"item\" text"</string>
 Репродукција видеа можда неће радити"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Искључивање ове опције ће можда изазвати проблеме са репродукцијом видеа.</string>
   <string name="revanced_spoof_video_streams_client_type_title">Подразумевани клијент</string>
-  <!-- 'no auth' means no authentication -->
-  <string name="revanced_spoof_video_streams_client_type_android_vr_no_auth">Android VR (без аутентификације)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_title">Присили на AVC (H.264) на iOS-у</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Видео кодек је присилно подешен на AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Видео кодек се одређује аутоматски</string>

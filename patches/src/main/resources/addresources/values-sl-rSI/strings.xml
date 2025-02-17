@@ -835,6 +835,8 @@ Opomba: Omogočanje tega tudi prisilno skrije video oglase"</string>
   <string name="revanced_ryd_failure_generic">Všečkov ne je na voljo (%s)</string>
   <!-- Toast shown if the user enables RYD while a video is opened, and then tries to vote for the video. -->
   <string name="revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted">Znova naloži videoposnetek, da glasuješ z Return YouTube Dislike</string>
+  <!-- Video likes have been set to hidden by the video uploader. -->
+  <string name="revanced_ryd_video_likes_hidden_by_video_owner">Skrito s strani lastnika</string>
   <string name="revanced_ryd_enable_summary_on">Všečkov ne so prikazani</string>
   <string name="revanced_ryd_enable_summary_off">Všečkov ne niso prikazani</string>
   <string name="revanced_ryd_shorts_title">Pokaži všečkov ne na Shorts</string>
@@ -850,6 +852,9 @@ Omejitev: Nevljudnosti se morda ne bodo prikazale v načinu brez beleženja zgod
   <string name="revanced_ryd_compact_layout_title">Kompaktni gumb \'Všeč mi je\'</string>
   <string name="revanced_ryd_compact_layout_summary_on">Gumb všečkov je oblikovan za minimalno širino</string>
   <string name="revanced_ryd_compact_layout_summary_off">Gumb všečkov je oblikovan za najboljši videz</string>
+  <string name="revanced_ryd_estimated_like_title">Pokaži ocenjeno število »všečkov«</string>
+  <string name="revanced_ryd_estimated_like_summary_on">Prikaže se ocenjeno število »všečkov«</string>
+  <string name="revanced_ryd_estimated_like_summary_off">Ocenjeno število »všečkov« je skrito</string>
   <string name="revanced_ryd_toast_on_connection_error_title">Pokaži obvestilo, če API ni na voljo</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_on">Obvestilo se prikaže, če Return YouTube Dislike ni na voljo</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_off">Obvestilo se ne prikaže, če Return YouTube Dislike ni na voljo</string>
@@ -900,6 +905,9 @@ Ta funkcija deluje najbolje pri kakovosti videa 720p ali nižji in pri uporabi z
   <string name="revanced_sb_enable_voting">Pokaži gumb za glasovanje</string>
   <string name="revanced_sb_enable_voting_sum_on">Gumb za glasovanje segmentov je prikazan</string>
   <string name="revanced_sb_enable_voting_sum_off">Gumb za glasovanje segmentov ni prikazan</string>
+  <string name="revanced_sb_square_layout">Uporabi kvadratno postavitev</string>
+  <string name="revanced_sb_square_layout_sum_on">Gumbi in kontrolniki so kvadratni</string>
+  <string name="revanced_sb_square_layout_sum_off">Gumbi in kontrolniki so zaobljeni</string>
   <!-- Translations should use language similar to 'revanced_ryd_compact_layout_title' -->
   <string name="revanced_sb_enable_compact_skip_button">Uporabi kompaktan gumb za preskakovanje</string>
   <string name="revanced_sb_enable_compact_skip_button_sum_on">Gumb za preskakovanje, oblikovan za minimalno širino</string>
@@ -1396,8 +1404,6 @@ Omogočanje tega lahko odklene višje kakovosti videa"</string>
 Predvajanje videa morda ne bo delovalo"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Izklop te nastavitve lahko povzroči težave s predvajanjem videoposnetkov.</string>
   <string name="revanced_spoof_video_streams_client_type_title">Privzeti odjemalec</string>
-  <!-- 'no auth' means no authentication -->
-  <string name="revanced_spoof_video_streams_client_type_android_vr_no_auth">Android VR (brez avtorizacije)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_title">Sile iOS AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Kodek videa je prisiljen v AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Kodek videa je določen samodejno</string>

@@ -825,6 +825,8 @@ Nota: Habilitar esto también oculta a la fuerza los anuncios de vídeo"</string
   <string name="revanced_ryd_failure_generic">Dislikes no disponibles (%s)</string>
   <!-- Toast shown if the user enables RYD while a video is opened, and then tries to vote for the video. -->
   <string name="revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted">Recargar vídeo para votar usando Return YouTube Dislike</string>
+  <!-- Video likes have been set to hidden by the video uploader. -->
+  <string name="revanced_ryd_video_likes_hidden_by_video_owner">Oculto por el propietario</string>
   <string name="revanced_ryd_enable_summary_on">Dislikes son mostrados</string>
   <string name="revanced_ryd_enable_summary_off">No se muestran Dislikes</string>
   <string name="revanced_ryd_shorts_title">Mostrar no me gusta en Shorts</string>
@@ -840,6 +842,9 @@ Limitación: Es posible que los No me gustas no aparezcan en el modo de incógni
   <string name="revanced_ryd_compact_layout_title">Botón Me gusta compacto</string>
   <string name="revanced_ryd_compact_layout_summary_on">Botón \"Me gusta\" para el ancho mínimo</string>
   <string name="revanced_ryd_compact_layout_summary_off">Botón \"Me gusta\" para una mejor apariencia</string>
+  <string name="revanced_ryd_estimated_like_title">Mostrar estimación de \"me gusta\"</string>
+  <string name="revanced_ryd_estimated_like_summary_on">Se muestra la estimación de \"me gusta\"</string>
+  <string name="revanced_ryd_estimated_like_summary_off">Se oculta la estimación de \"me gusta\"</string>
   <string name="revanced_ryd_toast_on_connection_error_title">Mostrar un brindis si la API no está disponible</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_on">Toast se muestra si Devolución de YouTube Dislike no está disponible</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_off">Toast no se muestra si Devolución de YouTube Dislike no está disponible</string>
@@ -890,6 +895,9 @@ Esta función funciona mejor con una calidad de vídeo de 720p o inferior y cuan
   <string name="revanced_sb_enable_voting">Mostrar botón de voto</string>
   <string name="revanced_sb_enable_voting_sum_on">Se muestra el botón de voto del segmento</string>
   <string name="revanced_sb_enable_voting_sum_off">El botón de voto del segmento no se muestra</string>
+  <string name="revanced_sb_square_layout">Usar diseño cuadrado</string>
+  <string name="revanced_sb_square_layout_sum_on">Los botones y los controles son cuadrados</string>
+  <string name="revanced_sb_square_layout_sum_off">Los botones y controles están redondeados</string>
   <!-- Translations should use language similar to 'revanced_ryd_compact_layout_title' -->
   <string name="revanced_sb_enable_compact_skip_button">Usar botón compacto de saltar</string>
   <string name="revanced_sb_enable_compact_skip_button_sum_on">Omitir botón con estilo para el ancho mínimo</string>
@@ -1378,8 +1386,6 @@ Habilitar esto puede desbloquear calidades de vídeo más altas"</string>
 Es posible que la reproducción de vídeo no funcione"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Desactivar esta configuración puede causar problemas de reproducción de vídeo.</string>
   <string name="revanced_spoof_video_streams_client_type_title">Cliente por defecto</string>
-  <!-- 'no auth' means no authentication -->
-  <string name="revanced_spoof_video_streams_client_type_android_vr_no_auth">Android VR (sin autenticación)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_title">Forzar iOS AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">El códec de video se fuerza a AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">El códec de video se determina automáticamente</string>

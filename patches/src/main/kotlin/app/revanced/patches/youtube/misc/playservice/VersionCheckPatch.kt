@@ -5,10 +5,13 @@ package app.revanced.patches.youtube.misc.playservice
 import app.revanced.patcher.patch.resourcePatch
 import app.revanced.util.findElementByAttributeValueOrThrow
 
+@Deprecated("19.16.39 is the lowest supported version")
 var is_19_03_or_greater = false
     private set
+@Deprecated("19.16.39 is the lowest supported version")
 var is_19_04_or_greater = false
     private set
+@Deprecated("19.16.39 is the lowest supported version")
 var is_19_16_or_greater = false
     private set
 var is_19_17_or_greater = false

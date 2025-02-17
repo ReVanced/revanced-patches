@@ -835,6 +835,8 @@ Poznámka: Povolení této funkce také vynuceně skryje video reklamy"</string>
   <string name="revanced_ryd_failure_generic">Nelíbí se se nedají použít (%s)</string>
   <!-- Toast shown if the user enables RYD while a video is opened, and then tries to vote for the video. -->
   <string name="revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted">Načtěte video znovu, abyste hlasovali pomocí Return YouTube Dislike</string>
+  <!-- Video likes have been set to hidden by the video uploader. -->
+  <string name="revanced_ryd_video_likes_hidden_by_video_owner">Skryto vlastníkem</string>
   <string name="revanced_ryd_enable_summary_on">Nelíbí se se zobrazují</string>
   <string name="revanced_ryd_enable_summary_off">Nelíbí se se nezobrazují</string>
   <string name="revanced_ryd_shorts_title">Zobrazit nelíbí se v Shorts</string>
@@ -850,6 +852,9 @@ Omezení: Nelíbí se se nemusí zobrazit v režimu inkognito"</string>
   <string name="revanced_ryd_compact_layout_title">Kompaktní tlačítko To se mi líbí</string>
   <string name="revanced_ryd_compact_layout_summary_on">Tlačítko lajku stylizované pro minimální šířku</string>
   <string name="revanced_ryd_compact_layout_summary_off">Tlačítko lajku stylizované pro nejlepší vzhled</string>
+  <string name="revanced_ryd_estimated_like_title">Zobrazit odhadované počty To se mi líbí</string>
+  <string name="revanced_ryd_estimated_like_summary_on">Zobrazují se odhadované počty To se mi líbí</string>
+  <string name="revanced_ryd_estimated_like_summary_off">Odhadované počty To se mi líbí jsou skryté</string>
   <string name="revanced_ryd_toast_on_connection_error_title">Zobrazit toast, pokud API není dostupné</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_on">Toast se zobrazí, pokud Return YouTube Dislike není dostupný</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_off">Toast se nezobrazí, pokud Return YouTube Dislike není dostupný</string>
@@ -900,6 +905,9 @@ Tato funkce funguje nejlépe s kvalitou videa 720p nebo nižší a při použit�
   <string name="revanced_sb_enable_voting">Zobrazit tlačítko pro hlasování</string>
   <string name="revanced_sb_enable_voting_sum_on">Tlačítko pro hlasování segmentu je zobrazeno</string>
   <string name="revanced_sb_enable_voting_sum_off">Tlačítko pro hlasování segmentu není zobrazeno</string>
+  <string name="revanced_sb_square_layout">Použít čtvercové rozvržení</string>
+  <string name="revanced_sb_square_layout_sum_on">Tlačítka a ovládací prvky jsou čtvercové</string>
+  <string name="revanced_sb_square_layout_sum_off">Tlačítka a ovládací prvky jsou zaoblené</string>
   <!-- Translations should use language similar to 'revanced_ryd_compact_layout_title' -->
   <string name="revanced_sb_enable_compact_skip_button">Použít kompaktní tlačítko pro přeskočení</string>
   <string name="revanced_sb_enable_compact_skip_button_sum_on">Tlačítko pro přeskočení je stylizováno pro minimální šířku</string>
@@ -1396,8 +1404,6 @@ Povolením této funkce lze odemknout vyšší kvality videa"</string>
 Přehrávání videa nemusí fungovat"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Vypnutí tohoto nastavení může způsobit problémy s přehráváním videa.</string>
   <string name="revanced_spoof_video_streams_client_type_title">Výchozí klient</string>
-  <!-- 'no auth' means no authentication -->
-  <string name="revanced_spoof_video_streams_client_type_android_vr_no_auth">Android VR (bez ověření)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_title">Vynucení kodeku iOS AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Kodek videa je vynucen na AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Kodek videa je určen automaticky</string>

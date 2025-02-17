@@ -835,6 +835,8 @@ Second \"item\" text"</string>
   <string name="revanced_ryd_failure_generic">点踩数不可用 (%s)</string>
   <!-- Toast shown if the user enables RYD while a video is opened, and then tries to vote for the video. -->
   <string name="revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted">重新加载视频，使用 Return YouTube Dislike 投票</string>
+  <!-- Video likes have been set to hidden by the video uploader. -->
+  <string name="revanced_ryd_video_likes_hidden_by_video_owner">所有者已隐藏</string>
   <string name="revanced_ryd_enable_summary_on">点踩数已显示</string>
   <string name="revanced_ryd_enable_summary_off">点踩数已隐藏</string>
   <string name="revanced_ryd_shorts_title">在 Shorts 上显示点踩数</string>
@@ -850,6 +852,9 @@ Second \"item\" text"</string>
   <string name="revanced_ryd_compact_layout_title">紧凑点赞按钮</string>
   <string name="revanced_ryd_compact_layout_summary_on">点赞按钮设置为最小宽度</string>
   <string name="revanced_ryd_compact_layout_summary_off">点赞按钮设置为最佳外观</string>
+  <string name="revanced_ryd_estimated_like_title">显示估计的点赞数</string>
+  <string name="revanced_ryd_estimated_like_summary_on">已显示估计的点赞数</string>
+  <string name="revanced_ryd_estimated_like_summary_off">已隐藏估计的点赞数</string>
   <string name="revanced_ryd_toast_on_connection_error_title">如果 API 不可用，则显示提示</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_on">如果 Return YouTube Dislike 不可用，则显示提示</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_off">如果 Return YouTube Dislike 不可用，则不显示提示</string>
@@ -900,6 +905,9 @@ Second \"item\" text"</string>
   <string name="revanced_sb_enable_voting">显示投票按钮</string>
   <string name="revanced_sb_enable_voting_sum_on">显示片段投票按钮</string>
   <string name="revanced_sb_enable_voting_sum_off">不显示片段投票按钮</string>
+  <string name="revanced_sb_square_layout">使用方形布局</string>
+  <string name="revanced_sb_square_layout_sum_on">按钮和控件为方形</string>
+  <string name="revanced_sb_square_layout_sum_off">按钮和控件已四舍五入</string>
   <!-- Translations should use language similar to 'revanced_ryd_compact_layout_title' -->
   <string name="revanced_sb_enable_compact_skip_button">使用紧凑的跳过按钮</string>
   <string name="revanced_sb_enable_compact_skip_button_sum_on">跳过按钮样式为最小宽度</string>
@@ -1396,8 +1404,6 @@ Second \"item\" text"</string>
 视频播放可能无法正常工作"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">关闭此选项可能会导致视频不能正常播放。</string>
   <string name="revanced_spoof_video_streams_client_type_title">默认客户端</string>
-  <!-- 'no auth' means no authentication -->
-  <string name="revanced_spoof_video_streams_client_type_android_vr_no_auth">Android VR​(无认证)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_title">强制 iOS 使用 AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">视频编解码器强制为 AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">视频编解码器将自动确定</string>

@@ -137,7 +137,7 @@ Nhấn nút tiếp tục và cho phép thay đổi tối ưu hóa."</string>
   <string name="revanced_settings_screen_05_player_title">Trình phát</string>
   <string name="revanced_settings_screen_07_seekbar_title">Thanh tiến trình</string>
   <string name="revanced_settings_screen_08_swipe_controls_title">Cử chỉ vuốt</string>
-  <string name="revanced_settings_screen_11_misc_title">Linh tinh</string>
+  <string name="revanced_settings_screen_11_misc_title">Cài đặt khác</string>
   <string name="revanced_settings_screen_12_video_title">Video</string>
   <string name="revanced_restore_old_settings_menus_title">Khôi phục trình đơn cài đặt cũ</string>
   <string name="revanced_restore_old_settings_menus_summary_on">Các trình đơn cài đặt cũ được hiện</string>
@@ -835,6 +835,8 @@ Lưu ý: Bật tính năng này cũng sẽ tự động ẩn quảng cáo video"
   <string name="revanced_ryd_failure_generic">Số lượt không thích không khả dụng (%s)</string>
   <!-- Toast shown if the user enables RYD while a video is opened, and then tries to vote for the video. -->
   <string name="revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted">Tải lại video để không thích bằng ReturnYouTubeDislike</string>
+  <!-- Video likes have been set to hidden by the video uploader. -->
+  <string name="revanced_ryd_video_likes_hidden_by_video_owner">Bị ẩn bởi chủ sở hữu</string>
   <string name="revanced_ryd_enable_summary_on">Số lượt không thích được hiện</string>
   <string name="revanced_ryd_enable_summary_off">Số lượt không thích không được hiện</string>
   <string name="revanced_ryd_shorts_title">Hiện số lượt không thích trong Shorts</string>
@@ -850,6 +852,9 @@ Hạn chế: Số người không thích có thể không xuất hiện ở ch�
   <string name="revanced_ryd_compact_layout_title">Nút Thích thu gọn</string>
   <string name="revanced_ryd_compact_layout_summary_on">Nút thích được thiết kế để tối ưu độ rộng hiển thị</string>
   <string name="revanced_ryd_compact_layout_summary_off">Nút thích được thiết kế để tối ưu ngoại hình tốt nhất</string>
+  <string name="revanced_ryd_estimated_like_title">Hiển thị lượt thích ước tính</string>
+  <string name="revanced_ryd_estimated_like_summary_on">Đã hiển thị lượt thích ước tính</string>
+  <string name="revanced_ryd_estimated_like_summary_off">Đã ẩn lượt thích ước tính</string>
   <string name="revanced_ryd_toast_on_connection_error_title">Hiện thông báo nổi nếu API không khả dụng</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_on">Thông báo nổi được hiện nếu Return YouTube Dislike không khả dụng</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_off">Thông báo nổi không được hiện nếu Return YouTube Dislike không khả dụng</string>
@@ -900,6 +905,9 @@ Tính năng này hoạt động tốt nhất với chất lượng video 720p tr
   <string name="revanced_sb_enable_voting">Hiện nút bình chọn</string>
   <string name="revanced_sb_enable_voting_sum_on">Nút bình chọn phân đoạn được hiện</string>
   <string name="revanced_sb_enable_voting_sum_off">Nút bình chọn phân đoạn không được hiện</string>
+  <string name="revanced_sb_square_layout">Sử dụng bố cục vuông</string>
+  <string name="revanced_sb_square_layout_sum_on">Các nút và điều khiển có hình vuông</string>
+  <string name="revanced_sb_square_layout_sum_off">Các nút và điều khiển được bo tròn</string>
   <!-- Translations should use language similar to 'revanced_ryd_compact_layout_title' -->
   <string name="revanced_sb_enable_compact_skip_button">Dùng nút bỏ qua phân đoạn thu gọn</string>
   <string name="revanced_sb_enable_compact_skip_button_sum_on">Nút bỏ qua phân đoạn được thiết kế để tối ưu độ rộng hiển thị</string>
@@ -1361,8 +1369,8 @@ Bật tính năng này có thể mở khóa chất lượng video cao hơn"</str
   <string name="revanced_custom_playback_speeds_invalid">Tốc độ tùy chỉnh phải nhỏ hơn %s</string>
   <string name="revanced_custom_playback_speeds_parse_exception">Tốc độ phát lại tùy chỉnh không hợp lệ</string>
   <string name="revanced_custom_playback_speeds_auto">Tự động</string>
-  <string name="revanced_speed_tap_and_hold_title">Tỹc độ nhạn và giữ lúu tạo tốc độ tốc độ</string>
-  <string name="revanced_speed_tap_and_hold_summary">Tốc độ phát lại giữa từ 0-̂8</string>
+  <string name="revanced_speed_tap_and_hold_title">Tốc độ chạm và giữ tùy chỉnh</string>
+  <string name="revanced_speed_tap_and_hold_summary">Tốc độ phát lại giữa 0-8</string>
   </patch>
   <patch id="video.speed.remember.rememberPlaybackSpeedPatch">
   <string name="revanced_remember_playback_speed_last_selected_title">Nhớ các thay đổi tốc độ phát</string>
@@ -1396,8 +1404,6 @@ Bật tính năng này có thể mở khóa chất lượng video cao hơn"</str
 Phát lại video có thể không hoạt động"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Việc tắt cài đặt này có thể gây ra sự cố phát nền video.</string>
   <string name="revanced_spoof_video_streams_client_type_title">Máy khách mặc định</string>
-  <!-- 'no auth' means no authentication -->
-  <string name="revanced_spoof_video_streams_client_type_android_vr_no_auth">Android VR (không cần xác thực)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_title">Buộc iOS AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Bộ giải mã video bị buộc thành AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Bộ giải mã video được xác định tự động</string>

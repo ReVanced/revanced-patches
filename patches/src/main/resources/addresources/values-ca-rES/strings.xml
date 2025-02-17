@@ -835,6 +835,8 @@ Nota: si actives aquesta opció, també s'amaguen els anuncis de vídeo per for�
   <string name="revanced_ryd_failure_generic">Els \"no m\'agrada\" no estan disponibles (%s)</string>
   <!-- Toast shown if the user enables RYD while a video is opened, and then tries to vote for the video. -->
   <string name="revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted">Recarrega el vídeo per votar utilitzant Return YouTube Dislike</string>
+  <!-- Video likes have been set to hidden by the video uploader. -->
+  <string name="revanced_ryd_video_likes_hidden_by_video_owner">Amagat per l\'amo</string>
   <string name="revanced_ryd_enable_summary_on">Els \"no m\'agrada\" es mostren</string>
   <string name="revanced_ryd_enable_summary_off">Els \"no m\'agrada\" no es mostren</string>
   <string name="revanced_ryd_shorts_title">Mostrar \"no m\'agrada\" a Shorts</string>
@@ -850,6 +852,9 @@ Limitació: és possible que els No m'agrades no apareguin en mode d'incògnit"<
   <string name="revanced_ryd_compact_layout_title">Botó Compact Like</string>
   <string name="revanced_ryd_compact_layout_summary_on">Botó \"m\'agrada\" estilitzat per a l\'amplada mínima</string>
   <string name="revanced_ryd_compact_layout_summary_off">Botó \"m\'agrada\" estilitzat per a la millor aparença</string>
+  <string name="revanced_ryd_estimated_like_title">Mostra els \"m\'agrada\" estimats</string>
+  <string name="revanced_ryd_estimated_like_summary_on">Es mostren els \"m\'agrada\" estimats</string>
+  <string name="revanced_ryd_estimated_like_summary_off">S\'han amagat els \"m\'agrada\" estimats</string>
   <string name="revanced_ryd_toast_on_connection_error_title">Mostrar una \"toast\" si l\'API no està disponible</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_on">La \"toast\" es mostra si Return YouTube Dislike no està disponible</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_off">La \"toast\" no es mostra si Return YouTube Dislike no està disponible</string>
@@ -900,6 +905,9 @@ Aquesta funció funciona millor amb una qualitat de vídeo de 720p o inferior i 
   <string name="revanced_sb_enable_voting">Mostrar el botó de votació</string>
   <string name="revanced_sb_enable_voting_sum_on">El botó de votació del segment es mostra</string>
   <string name="revanced_sb_enable_voting_sum_off">El botó de votació del segment no es mostra</string>
+  <string name="revanced_sb_square_layout">Utilitza el disseny quadrat</string>
+  <string name="revanced_sb_square_layout_sum_on">Els botons i controls són quadrats</string>
+  <string name="revanced_sb_square_layout_sum_off">Els botons i els controls són arrodonits</string>
   <!-- Translations should use language similar to 'revanced_ryd_compact_layout_title' -->
   <string name="revanced_sb_enable_compact_skip_button">Utilitzar el botó de salt compacte</string>
   <string name="revanced_sb_enable_compact_skip_button_sum_on">El botó de salt té un estil per a una amplada mínima</string>
@@ -1396,8 +1404,6 @@ Si actives aquesta opció, es poden desbloquejar qualitats de vídeo més altes"
 La reproducció de vídeo pot no funcionar"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Desactivar aquesta configuració pot causar problemes de reproducció de vídeo.</string>
   <string name="revanced_spoof_video_streams_client_type_title">Client predeterminat</string>
-  <!-- 'no auth' means no authentication -->
-  <string name="revanced_spoof_video_streams_client_type_android_vr_no_auth">Android VR (sense autorització)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_title">Forza iOS AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">El còdec de vídeo es força a AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">El còdec de vídeo es determina automàticament.</string>

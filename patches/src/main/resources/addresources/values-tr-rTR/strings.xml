@@ -835,6 +835,8 @@ Not: Bunu etkinleştirmek aynı zamanda video reklamlarını zorla gizler"</stri
   <string name="revanced_ryd_failure_generic">Beğenmeme sayıları kullanılamıyor (%s)</string>
   <!-- Toast shown if the user enables RYD while a video is opened, and then tries to vote for the video. -->
   <string name="revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted">ReturnYouTubeDislike ile oylamak için videoyu yenileyin</string>
+  <!-- Video likes have been set to hidden by the video uploader. -->
+  <string name="revanced_ryd_video_likes_hidden_by_video_owner">Sahibi tarafından gizlendi</string>
   <string name="revanced_ryd_enable_summary_on">Beğenmeme sayıları gösteriliyor</string>
   <string name="revanced_ryd_enable_summary_off">Beğenmeme sayıları gösterilmiyor</string>
   <string name="revanced_ryd_shorts_title">Shorts\'ta beğenmeme sayılarını göster</string>
@@ -850,6 +852,9 @@ Sınırlama: Beğenmemeler gizli modda görünmeyebilir"</string>
   <string name="revanced_ryd_compact_layout_title">Sıkıştırılmış Beğen Düğmesi</string>
   <string name="revanced_ryd_compact_layout_summary_on">En az genişlik için tasarlanmış beğen düğmesi</string>
   <string name="revanced_ryd_compact_layout_summary_off">En iyi görünüm için tasarlanmış beğen düğmesi</string>
+  <string name="revanced_ryd_estimated_like_title">Tahmini beğenileri göster</string>
+  <string name="revanced_ryd_estimated_like_summary_on">Tahmini beğeniler gösteriliyor</string>
+  <string name="revanced_ryd_estimated_like_summary_off">Tahmini beğeniler gizlendi</string>
   <string name="revanced_ryd_toast_on_connection_error_title">API kullanılamadığında bir tost bildirimi göster</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_on">Return YouTube Dislike kullanılamadığında tost bildirimi gösterilir</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_off">Return YouTube Dislike kullanılamadığında tost bildirimi gösterilmez</string>
@@ -900,6 +905,9 @@ Bu özellik, 720p veya daha düşük video kalitesi ve çok hızlı bir internet
   <string name="revanced_sb_enable_voting">Oylama düğmesini göster</string>
   <string name="revanced_sb_enable_voting_sum_on">Kısım oylama düğmesi gösterilir</string>
   <string name="revanced_sb_enable_voting_sum_off">Kısım oylama düğmesi gösterilmez</string>
+  <string name="revanced_sb_square_layout">Kare düzen kullan</string>
+  <string name="revanced_sb_square_layout_sum_on">Düğmeler ve kontroller kare şeklinde</string>
+  <string name="revanced_sb_square_layout_sum_off">Düğmeler ve kontroller yuvarlatılmıştır</string>
   <!-- Translations should use language similar to 'revanced_ryd_compact_layout_title' -->
   <string name="revanced_sb_enable_compact_skip_button">Ufak atlama düğmesi kullan</string>
   <string name="revanced_sb_enable_compact_skip_button_sum_on">Atlama düğmesi en az genişlik için tasarlanır</string>
@@ -1397,8 +1405,6 @@ Bunu etkinleştirmek daha yüksek video kalitelerini açabilir"</string>
 Video oynatma çalışmayabilir"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Bu ayarı devre dışı bırakmak video oynatma sorunlarına yol açabilir.</string>
   <string name="revanced_spoof_video_streams_client_type_title">Varsayılan istemci</string>
-  <!-- 'no auth' means no authentication -->
-  <string name="revanced_spoof_video_streams_client_type_android_vr_no_auth">Android VR (yetkilendirme yok)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_title">iOS için AVC (H.264) zorla</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Video kodeği AVC\'ye (H.264) zorlandı</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Video kodeği otomatik olarak belirlenir</string>

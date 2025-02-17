@@ -835,6 +835,8 @@ Pastaba: įjungus šį nustatymą, vaizdo įrašų reklamos taip pat yra privers
   <string name="revanced_ryd_failure_generic">\"Nepatinka\" nepasiekiami (%s)</string>
   <!-- Toast shown if the user enables RYD while a video is opened, and then tries to vote for the video. -->
   <string name="revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted">Perkraukite vaizdo įrašą, kad balsuotumėte naudodami „Return YouTube Dislike“</string>
+  <!-- Video likes have been set to hidden by the video uploader. -->
+  <string name="revanced_ryd_video_likes_hidden_by_video_owner">Paslėpta savininko</string>
   <string name="revanced_ryd_enable_summary_on">\"Nepatinka\" rodomi</string>
   <string name="revanced_ryd_enable_summary_off">\"Nepatinka\" nerodomi</string>
   <string name="revanced_ryd_shorts_title">Rodyti \"Nepatinka\" Shorts</string>
@@ -850,6 +852,9 @@ Apribojimas: „Nepatinka“ gali nepasirodyti inkognito režimu"</string>
   <string name="revanced_ryd_compact_layout_title">Kompaktiškas mygtukas „Patinka\"</string>
   <string name="revanced_ryd_compact_layout_summary_on">\"Patinka\" mygtukas suformuotas minimaliam pločiui</string>
   <string name="revanced_ryd_compact_layout_summary_off">\"Patinka\" mygtukas suformuotas geriausiam vaizdui</string>
+  <string name="revanced_ryd_estimated_like_title">Rodyti numatomus patiktukus</string>
+  <string name="revanced_ryd_estimated_like_summary_on">Apytiksliai patiktukai rodomi</string>
+  <string name="revanced_ryd_estimated_like_summary_off">Apytiksliai patiktukai paslėpti</string>
   <string name="revanced_ryd_toast_on_connection_error_title">Rodyti pranešimą, jei API nepasiekiamas</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_on">Pranešimas rodomas, jei „Return YouTube Dislike“ nepasiekiamas</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_off">Pranešimas nerodomas, jei „Return YouTube Dislike“ nepasiekiamas</string>
@@ -900,6 +905,9 @@ Paieškos juostos miniatiūros bus naudojamos tos pačios kokybės kaip dabartin
   <string name="revanced_sb_enable_voting">Rodyti balsavimo mygtuką</string>
   <string name="revanced_sb_enable_voting_sum_on">Segmento balsavimo mygtukas rodomas</string>
   <string name="revanced_sb_enable_voting_sum_off">Segmento balsavimo mygtukas nerodomas</string>
+  <string name="revanced_sb_square_layout">Naudoti kvadratinę išdėstymo schemą</string>
+  <string name="revanced_sb_square_layout_sum_on">Mygtukai ir valdikliai yra kvadratiniai</string>
+  <string name="revanced_sb_square_layout_sum_off">Mygtukai ir valdikliai yra suapvalinti</string>
   <!-- Translations should use language similar to 'revanced_ryd_compact_layout_title' -->
   <string name="revanced_sb_enable_compact_skip_button">Naudoti kompaktišką praleidimo mygtuką</string>
   <string name="revanced_sb_enable_compact_skip_button_sum_on">Praleidimo mygtukas suprojektuotas minimaliai pločio</string>
@@ -1398,8 +1406,6 @@ Gali būti atrakinta aukštesnės vaizdo įrašų kokybės, bet galite patirti v
 Vaizdo įrašo atkūrimas gali neveikti"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Išjungus šį nustatymą, gali kilti vaizdo įrašų atkūrimo problemų.</string>
   <string name="revanced_spoof_video_streams_client_type_title">Numatytasis klientas</string>
-  <!-- 'no auth' means no authentication -->
-  <string name="revanced_spoof_video_streams_client_type_android_vr_no_auth">Android VR (be leidimo)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_title">Priverstinė iOS AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Vaizdo kodekas yra priverstinai nustatytas kaip AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Vaizdo kodekas nustatomas automatiškai</string>

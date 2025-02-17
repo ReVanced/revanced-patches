@@ -12,8 +12,6 @@ import app.revanced.patches.youtube.misc.settings.settingsPatch
 val spoofVideoStreamsPatch = spoofVideoStreamsPatch({
     compatibleWith(
         "com.google.android.youtube"(
-            "18.38.44",
-            "18.49.37",
             "19.16.39",
             "19.25.37",
             "19.34.42",
