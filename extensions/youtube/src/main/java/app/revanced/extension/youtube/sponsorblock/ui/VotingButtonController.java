@@ -1,21 +1,17 @@
 package app.revanced.extension.youtube.sponsorblock.ui;
 
-import static app.revanced.extension.youtube.videoplayer.PlayerControlButton.fadeInDuration;
-import static app.revanced.extension.youtube.videoplayer.PlayerControlButton.fadeOutDuration;
-
 import android.view.View;
-import android.view.animation.Animation;
 import android.widget.ImageView;
 
 import java.lang.ref.WeakReference;
 import java.util.Objects;
 
+import app.revanced.extension.shared.Logger;
+import app.revanced.extension.shared.Utils;
 import app.revanced.extension.youtube.patches.VideoInformation;
 import app.revanced.extension.youtube.settings.Settings;
 import app.revanced.extension.youtube.sponsorblock.SegmentPlaybackController;
 import app.revanced.extension.youtube.sponsorblock.SponsorBlockUtils;
-import app.revanced.extension.shared.Logger;
-import app.revanced.extension.shared.Utils;
 
 // Edit: This should be a subclass of PlayerControlButton
 public class VotingButtonController {
@@ -73,10 +69,7 @@ public class VotingButtonController {
                     return;
                 }
                 if (animated) {
-                    Animation fadeIn = Utils.getResourceAnimation("fade_in");
-                    fadeIn.setDuration(fadeInDuration);
-                    iView.startAnimation(fadeIn);
-
+                    iView.startAnimation(CreateSegmentButtonController.fadeIn);
                 }
                 iView.setVisibility(View.VISIBLE);
                 return;
@@ -85,9 +78,7 @@ public class VotingButtonController {
             if (iView.getVisibility() == View.VISIBLE) {
                 iView.clearAnimation();
                 if (animated) {
-                    Animation fadeOut = Utils.getResourceAnimation("fade_out");
-                    fadeOut.setDuration(fadeOutDuration);
-                    iView.startAnimation(fadeOut);
+                    iView.startAnimation(CreateSegmentButtonController.fadeOut);
                 }
                 iView.setVisibility(View.GONE);
             }

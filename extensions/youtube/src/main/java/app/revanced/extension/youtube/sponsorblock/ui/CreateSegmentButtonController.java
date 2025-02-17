@@ -20,6 +20,17 @@ public class CreateSegmentButtonController {
     private static WeakReference<ImageView> buttonReference = new WeakReference<>(null);
     private static boolean isShowing;
 
+    static final Animation fadeIn;
+    static final Animation fadeOut;
+
+    static {
+        fadeIn = Utils.getResourceAnimation("fade_in");
+        fadeIn.setDuration(fadeInDuration);
+
+        fadeOut = Utils.getResourceAnimation("fade_out");
+        fadeOut.setDuration(fadeOutDuration);
+    }
+
     /**
      * injection point
      */
@@ -68,10 +79,7 @@ public class CreateSegmentButtonController {
                     return;
                 }
                 if (animated) {
-                    Animation fadeIn = Utils.getResourceAnimation("fade_in");
-                    fadeIn.setDuration(fadeInDuration);
                     iView.startAnimation(fadeIn);
-
                 }
                 iView.setVisibility(View.VISIBLE);
                 return;
@@ -80,8 +88,6 @@ public class CreateSegmentButtonController {
             if (iView.getVisibility() == View.VISIBLE) {
                 iView.clearAnimation();
                 if (animated) {
-                    Animation fadeOut = Utils.getResourceAnimation("fade_out");
-                    fadeOut.setDuration(fadeOutDuration);
                     iView.startAnimation(fadeOut);
                 }
                 iView.setVisibility(View.GONE);
