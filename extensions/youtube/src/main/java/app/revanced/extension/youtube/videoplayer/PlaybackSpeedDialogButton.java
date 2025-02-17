@@ -10,7 +10,7 @@ import app.revanced.extension.youtube.settings.Settings;
 import app.revanced.extension.shared.Logger;
 
 @SuppressWarnings("unused")
-public class PlaybackSpeedDialogButton extends PlayerControlButton {
+public class PlaybackSpeedDialogButton extends PlayerControlBottomButton {
     @Nullable
     private static PlaybackSpeedDialogButton instance;
 

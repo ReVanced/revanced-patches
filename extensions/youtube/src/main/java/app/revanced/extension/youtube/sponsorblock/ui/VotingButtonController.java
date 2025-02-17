@@ -3,7 +3,8 @@ package app.revanced.extension.youtube.sponsorblock.ui;
 import android.view.View;
 import android.widget.ImageView;
 
-import java.lang.ref.WeakReference;
+import androidx.annotation.Nullable;
+
 import java.util.Objects;
 
 import app.revanced.extension.shared.Logger;
@@ -12,11 +13,16 @@ import app.revanced.extension.youtube.patches.VideoInformation;
 import app.revanced.extension.youtube.settings.Settings;
 import app.revanced.extension.youtube.sponsorblock.SegmentPlaybackController;
 import app.revanced.extension.youtube.sponsorblock.SponsorBlockUtils;
+import app.revanced.extension.youtube.videoplayer.PlayerControlTopButton;
 
-// Edit: This should be a subclass of PlayerControlButton
-public class VotingButtonController {
-    private static WeakReference<ImageView> buttonReference = new WeakReference<>(null);
-    private static boolean isShowing;
+public class VotingButtonController extends PlayerControlTopButton {
+    @Nullable
+    private static VotingButtonController instance;
+
+    @Nullable
+    public static VotingButtonController getInstance() {
+        return instance;
+    }
 
     /**
      * injection point
@@ -26,10 +32,7 @@ public class VotingButtonController {
             Logger.printDebug(() -> "initializing voting button");
             ImageView imageView = Objects.requireNonNull(Utils.getChildViewByResourceName(
                     youtubeControlsLayout, "revanced_sb_voting_button"));
-            imageView.setVisibility(View.GONE);
-            imageView.setOnClickListener(v -> SponsorBlockUtils.onVotingClicked(v.getContext()));
-
-            buttonReference = new WeakReference<>(imageView);
+            instance = new VotingButtonController(imageView);
         } catch (Exception ex) {
             Logger.printException(() -> "initialize failure", ex);
         }
@@ -39,69 +42,22 @@ public class VotingButtonController {
      * injection point
      */
     public static void changeVisibilityImmediate(boolean visible) {
-        setVisibility(visible, false);
+        if (instance != null) instance.setVisibilityImmediate(visible);
     }
 
     /**
      * injection point
      */
     public static void changeVisibility(boolean visible, boolean animated) {
-        // Ignore this call, otherwise with full screen thumbnails the buttons are visible while seeking.
-        if (visible && !animated) return;
-
-        setVisibility(visible, animated);
+        if (instance != null) instance.setVisibility(visible, animated);
     }
 
-    /**
-     * injection point
-     */
-    private static void setVisibility(boolean visible, boolean animated) {
-        try {
-            if (isShowing == visible) return;
-            isShowing = visible;
-
-            ImageView iView = buttonReference.get();
-            if (iView == null) return;
-
-            if (visible) {
-                iView.clearAnimation();
-                if (!shouldBeShown()) {
-                    return;
-                }
-                if (animated) {
-                    iView.startAnimation(CreateSegmentButtonController.fadeIn);
-                }
-                iView.setVisibility(View.VISIBLE);
-                return;
-            }
-
-            if (iView.getVisibility() == View.VISIBLE) {
-                iView.clearAnimation();
-                if (animated) {
-                    iView.startAnimation(CreateSegmentButtonController.fadeOut);
-                }
-                iView.setVisibility(View.GONE);
-            }
-        } catch (Exception ex) {
-            Logger.printException(() -> "changeVisibility failure", ex);
-        }
+    private VotingButtonController(ImageView imageView) {
+        super(imageView, v -> SponsorBlockUtils.onVotingClicked(v.getContext()));
     }
 
-    private static boolean shouldBeShown() {
+    protected  boolean shouldBeShown() {
         return Settings.SB_ENABLED.get() && Settings.SB_VOTING_BUTTON.get()
                 && SegmentPlaybackController.videoHasSegments() && !VideoInformation.isAtEndOfVideo();
-    }
-
-    public static void hide() {
-        if (!isShowing) {
-            return;
-        }
-        Utils.verifyOnMainThread();
-        View v = buttonReference.get();
-        if (v == null) {
-            return;
-        }
-        v.setVisibility(View.GONE);
-        isShowing = false;
     }
 }

@@ -1,34 +1,25 @@
 package app.revanced.extension.youtube.sponsorblock.ui;
 
-import static app.revanced.extension.youtube.videoplayer.PlayerControlButton.fadeInDuration;
-import static app.revanced.extension.youtube.videoplayer.PlayerControlButton.fadeOutDuration;
-
 import android.view.View;
-import android.view.animation.Animation;
 import android.widget.ImageView;
 
-import java.lang.ref.WeakReference;
+import androidx.annotation.Nullable;
+
 import java.util.Objects;
 
-import app.revanced.extension.youtube.patches.VideoInformation;
-import app.revanced.extension.youtube.settings.Settings;
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
+import app.revanced.extension.youtube.patches.VideoInformation;
+import app.revanced.extension.youtube.settings.Settings;
+import app.revanced.extension.youtube.videoplayer.PlayerControlTopButton;
 
-// Edit: This should be a subclass of PlayerControlButton
-public class CreateSegmentButtonController {
-    private static WeakReference<ImageView> buttonReference = new WeakReference<>(null);
-    private static boolean isShowing;
+public class CreateSegmentButtonController extends PlayerControlTopButton {
+    @Nullable
+    private static CreateSegmentButtonController instance;
 
-    static final Animation fadeIn;
-    static final Animation fadeOut;
-
-    static {
-        fadeIn = Utils.getResourceAnimation("fade_in");
-        fadeIn.setDuration(fadeInDuration);
-
-        fadeOut = Utils.getResourceAnimation("fade_out");
-        fadeOut.setDuration(fadeOutDuration);
+    @Nullable
+    public static CreateSegmentButtonController getInstance() {
+        return instance;
     }
 
     /**
@@ -39,10 +30,7 @@ public class CreateSegmentButtonController {
             Logger.printDebug(() -> "initializing new segment button");
             ImageView imageView = Objects.requireNonNull(Utils.getChildViewByResourceName(
                     youtubeControlsLayout, "revanced_sb_create_segment_button"));
-            imageView.setVisibility(View.GONE);
-            imageView.setOnClickListener(v -> SponsorBlockViewController.toggleNewSegmentLayoutVisibility());
-
-            buttonReference = new WeakReference<>(imageView);
+            instance = new CreateSegmentButtonController(imageView);
         } catch (Exception ex) {
             Logger.printException(() -> "initialize failure", ex);
         }
@@ -52,66 +40,22 @@ public class CreateSegmentButtonController {
      * injection point
      */
     public static void changeVisibilityImmediate(boolean visible) {
-        setVisibility(visible, false);
+        if (instance != null) instance.setVisibilityImmediate(visible);
     }
 
     /**
      * injection point
      */
     public static void changeVisibility(boolean visible, boolean animated) {
-        // Ignore this call, otherwise with full screen thumbnails the buttons are visible while seeking.
-        if (visible && !animated) return;
-
-        setVisibility(visible, animated);
+        if (instance != null) instance.setVisibility(visible, animated);
     }
 
-    private static void setVisibility(boolean visible, boolean animated) {
-        try {
-            if (isShowing == visible) return;
-            isShowing = visible;
-
-            ImageView iView = buttonReference.get();
-            if (iView == null) return;
-
-            if (visible) {
-                iView.clearAnimation();
-                if (!shouldBeShown()) {
-                    return;
-                }
-                if (animated) {
-                    iView.startAnimation(fadeIn);
-                }
-                iView.setVisibility(View.VISIBLE);
-                return;
-            }
-
-            if (iView.getVisibility() == View.VISIBLE) {
-                iView.clearAnimation();
-                if (animated) {
-                    iView.startAnimation(fadeOut);
-                }
-                iView.setVisibility(View.GONE);
-            }
-        } catch (Exception ex) {
-            Logger.printException(() -> "changeVisibility failure", ex);
-        }
+    private CreateSegmentButtonController(ImageView imageView) {
+        super(imageView, v -> SponsorBlockViewController.toggleNewSegmentLayoutVisibility());
     }
 
-    private static boolean shouldBeShown() {
+    protected boolean shouldBeShown() {
         return Settings.SB_ENABLED.get() && Settings.SB_CREATE_NEW_SEGMENT.get()
                 && !VideoInformation.isAtEndOfVideo();
-    }
-
-    public static void hide() {
-        if (!isShowing) {
-            return;
-        }
-        Utils.verifyOnMainThread();
-        View v = buttonReference.get();
-        if (v == null) {
-            return;
-        }
-        v.setVisibility(View.GONE);
-        isShowing = false;
     }
 }

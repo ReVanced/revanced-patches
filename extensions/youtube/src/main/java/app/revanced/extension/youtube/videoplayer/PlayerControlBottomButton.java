@@ -1,5 +1,8 @@
 package app.revanced.extension.youtube.videoplayer;
 
+import static app.revanced.extension.youtube.videoplayer.PlayerControlTopButton.fadeInDuration;
+import static app.revanced.extension.youtube.videoplayer.PlayerControlTopButton.fadeOutDuration;
+
 import android.transition.Fade;
 import android.transition.TransitionManager;
 import android.view.View;
@@ -16,17 +19,14 @@ import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
 import app.revanced.extension.shared.settings.BooleanSetting;
 
-public abstract class PlayerControlButton {
+public abstract class PlayerControlBottomButton {
     private final WeakReference<ImageView> buttonRef;
-    protected final BooleanSetting setting;
-    protected boolean isVisible;
+    private final BooleanSetting setting;
+    private boolean isVisible;
 
-    public static final int fadeInDuration  = 200; // Fade-in duration (ms)
-    public static final int fadeOutDuration = 600; // Fade-out duration (ms)
-
-    public PlayerControlButton(@NonNull ViewGroup bottomControlsViewGroup, @NonNull String imageViewButtonId,
-                               @NonNull BooleanSetting booleanSetting, @NonNull View.OnClickListener onClickListener,
-                               @Nullable View.OnLongClickListener longClickListener) {
+    public PlayerControlBottomButton(@NonNull ViewGroup bottomControlsViewGroup, @NonNull String imageViewButtonId,
+                                     @NonNull BooleanSetting booleanSetting, @NonNull View.OnClickListener onClickListener,
+                                     @Nullable View.OnLongClickListener longClickListener) {
         Logger.printDebug(() -> "Initializing button: " + imageViewButtonId);
 
         ImageView imageView = Objects.requireNonNull(bottomControlsViewGroup.findViewById(
@@ -43,11 +43,11 @@ public abstract class PlayerControlButton {
         buttonRef = new WeakReference<>(imageView);
     }
 
-    public void setVisibilityImmediate(boolean visible) {
+    protected void setVisibilityImmediate(boolean visible) {
         private_setVisibility(visible, false);
     }
 
-    public void setVisibility(boolean visible, boolean animated) {
+    protected void setVisibility(boolean visible, boolean animated) {
         // Ignore this call, otherwise with full screen thumbnails the buttons are visible while seeking.
         if (visible && !animated) return;
 
