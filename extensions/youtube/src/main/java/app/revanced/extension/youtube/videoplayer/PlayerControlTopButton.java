@@ -13,8 +13,8 @@ import app.revanced.extension.shared.Utils;
 // Ideally this should be refactored into PlayerControlBottomButton,
 // but the show/hide logic is not the same so keeping this as two classes might be simpler.
 public abstract class PlayerControlTopButton {
-    static final int fadeInDuration  = 200; // Fade-in duration (ms)
-    static final int fadeOutDuration = 600; // Fade-out duration (ms)
+    static final int fadeInDuration;
+    static final int fadeOutDuration;
 
     private static final Animation fadeInAnimation;
     private static final Animation fadeOutAnimation;
@@ -26,6 +26,9 @@ public abstract class PlayerControlTopButton {
     private boolean isShowing;
 
     static {
+        fadeInDuration = Utils.getResourceInteger("fade_duration_fast");
+        fadeOutDuration = Utils.getResourceInteger("fade_duration_scheduled");
+
         fadeInAnimation = Utils.getResourceAnimation("fade_in");
         fadeInAnimation.setDuration(fadeInDuration);
 
