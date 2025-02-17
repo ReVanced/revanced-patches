@@ -1,5 +1,6 @@
 package app.revanced.extension.youtube.videoplayer;
 
+import android.transition.Fade;
 import android.view.View;
 import android.view.animation.Animation;
 import android.widget.ImageView;
@@ -9,23 +10,33 @@ import java.lang.ref.WeakReference;
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
 
-// Ideally this should be refactored into PlayerControlBottomButton.
+// Ideally this should be refactored into PlayerControlBottomButton,
+// but the show/hide logic is not the same so keeping this as two classes might be simpler.
 public abstract class PlayerControlTopButton {
     static final int fadeInDuration  = 200; // Fade-in duration (ms)
     static final int fadeOutDuration = 600; // Fade-out duration (ms)
 
-    private static final Animation fadeIn;
-    private static final Animation fadeOut;
+    private static final Animation fadeInAnimation;
+    private static final Animation fadeOutAnimation;
+
+    static final Fade fadeInTransition;
+    static final Fade fadeOutTransition;
 
     private final WeakReference<ImageView> buttonReference;
     private boolean isShowing;
 
     static {
-        fadeIn = Utils.getResourceAnimation("fade_in");
-        fadeIn.setDuration(fadeInDuration);
+        fadeInAnimation = Utils.getResourceAnimation("fade_in");
+        fadeInAnimation.setDuration(fadeInDuration);
 
-        fadeOut = Utils.getResourceAnimation("fade_out");
-        fadeOut.setDuration(fadeOutDuration);
+        fadeOutAnimation = Utils.getResourceAnimation("fade_out");
+        fadeOutAnimation.setDuration(fadeOutDuration);
+
+        fadeInTransition = new Fade();
+        fadeInTransition.setDuration(fadeInDuration);
+
+        fadeOutTransition = new Fade();
+        fadeOutTransition.setDuration(fadeOutDuration);
     }
 
     public PlayerControlTopButton(ImageView imageView, View.OnClickListener onClickListener) {
@@ -60,7 +71,7 @@ public abstract class PlayerControlTopButton {
                     return;
                 }
                 if (animated) {
-                    iView.startAnimation(fadeIn);
+                    iView.startAnimation(fadeInAnimation);
                 }
                 iView.setVisibility(View.VISIBLE);
                 return;
@@ -69,12 +80,12 @@ public abstract class PlayerControlTopButton {
             if (iView.getVisibility() == View.VISIBLE) {
                 iView.clearAnimation();
                 if (animated) {
-                    iView.startAnimation(fadeOut);
+                    iView.startAnimation(fadeOutAnimation);
                 }
                 iView.setVisibility(View.GONE);
             }
         } catch (Exception ex) {
-            Logger.printException(() -> "changeVisibility failure", ex);
+            Logger.printException(() -> "private_setVisibility failure", ex);
         }
     }
 
