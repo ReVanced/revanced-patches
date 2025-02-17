@@ -79,53 +79,52 @@ private val miniplayerResourcePatch = resourcePatch {
             "player_overlays",
         ]
 
-        if (is_19_16_or_greater) {
-            modernMiniplayerClose = resourceMappings[
-                "id",
-                "modern_miniplayer_close",
+
+        modernMiniplayerClose = resourceMappings[
+            "id",
+            "modern_miniplayer_close",
+        ]
+
+        modernMiniplayerExpand = resourceMappings[
+            "id",
+            "modern_miniplayer_expand",
+        ]
+
+        modernMiniplayerRewindButton = resourceMappings[
+            "id",
+            "modern_miniplayer_rewind_button",
+        ]
+
+        modernMiniplayerForwardButton = resourceMappings[
+            "id",
+            "modern_miniplayer_forward_button",
+        ]
+
+        // Resource id is not used during patching, but is used by extension.
+        // Verify the resource is present while patching.
+        resourceMappings[
+            "id",
+            "modern_miniplayer_subtitle_text",
+        ]
+
+        // Only required for exactly 19.16
+        if (!is_19_17_or_greater) {
+            ytOutlinePictureInPictureWhite24 = resourceMappings[
+                "drawable",
+                "yt_outline_picture_in_picture_white_24",
             ]
 
-            modernMiniplayerExpand = resourceMappings[
-                "id",
-                "modern_miniplayer_expand",
+            ytOutlineXWhite24 = resourceMappings[
+                "drawable",
+                "yt_outline_x_white_24",
             ]
+        }
 
-            modernMiniplayerRewindButton = resourceMappings[
-                "id",
-                "modern_miniplayer_rewind_button",
+        if (is_19_26_or_greater) {
+            miniplayerMaxSize = resourceMappings[
+                "dimen",
+                "miniplayer_max_size",
             ]
-
-            modernMiniplayerForwardButton = resourceMappings[
-                "id",
-                "modern_miniplayer_forward_button",
-            ]
-
-            // Resource id is not used during patching, but is used by extension.
-            // Verify the resource is present while patching.
-            resourceMappings[
-                "id",
-                "modern_miniplayer_subtitle_text",
-            ]
-
-            // Only required for exactly 19.16
-            if (!is_19_17_or_greater) {
-                ytOutlinePictureInPictureWhite24 = resourceMappings[
-                    "drawable",
-                    "yt_outline_picture_in_picture_white_24",
-                ]
-
-                ytOutlineXWhite24 = resourceMappings[
-                    "drawable",
-                    "yt_outline_x_white_24",
-                ]
-            }
-
-            if (is_19_26_or_greater) {
-                miniplayerMaxSize = resourceMappings[
-                    "dimen",
-                    "miniplayer_max_size",
-                ]
-            }
         }
     }
 }
@@ -146,9 +145,6 @@ val miniplayerPatch = bytecodePatch(
 
     compatibleWith(
         "com.google.android.youtube"(
-            // 18.49.37 // Could be supported, but no reason when 19.16 exists and has modern types.
-            // 19.14.43 // Incomplete code for modern miniplayers.
-            // 19.15.36 // Different code for handling subtitle texts and not worth supporting.
             "19.16.39", // First with modern miniplayers.
             // 19.17.41 // Works without issues, but no reason to recommend over 19.16.
             // 19.18.41 // Works without issues, but no reason to recommend over 19.16.

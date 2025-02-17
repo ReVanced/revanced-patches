@@ -6,7 +6,6 @@
         android:id="@+id/revanced_sb_new_segment_container"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="#66000000"
         android:gravity="start|center"
         android:orientation="vertical">
 

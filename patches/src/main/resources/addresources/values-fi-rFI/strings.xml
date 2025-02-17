@@ -835,6 +835,8 @@ Huomaa: Tämä piilottaa väkisin myös videomainokset"</string>
   <string name="revanced_ryd_failure_generic">Ei-tykkäykset eivät ole saatavilla (%s)</string>
   <!-- Toast shown if the user enables RYD while a video is opened, and then tries to vote for the video. -->
   <string name="revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted">Lataa video uudelleen äänestääksesi Return YouTube Dislikellä</string>
+  <!-- Video likes have been set to hidden by the video uploader. -->
+  <string name="revanced_ryd_video_likes_hidden_by_video_owner">Omistajan piilottama</string>
   <string name="revanced_ryd_enable_summary_on">Ei-tykkäykset näytetään</string>
   <string name="revanced_ryd_enable_summary_off">Ei-tykkäyksiä ei näytetä</string>
   <string name="revanced_ryd_shorts_title">Näytä ei-tykkykset Shortseissa</string>
@@ -850,6 +852,9 @@ Rajoitus: Ei-tykkäykset eivät välttämättä näy inkognito-tilassa"</string>
   <string name="revanced_ryd_compact_layout_title">Kompakti Tykkää-painike</string>
   <string name="revanced_ryd_compact_layout_summary_on">Tykkää-painike on muotoiltu mahdollisimman kapeaksi</string>
   <string name="revanced_ryd_compact_layout_summary_off">Tykkää-painike on muotoiltu parhaan näköiseksi</string>
+  <string name="revanced_ryd_estimated_like_title">Näytä arvioidut tykkäykset</string>
+  <string name="revanced_ryd_estimated_like_summary_on">Arvioidut tykkäykset näytetään</string>
+  <string name="revanced_ryd_estimated_like_summary_off">Arvioidut tykkäykset on piilotettu</string>
   <string name="revanced_ryd_toast_on_connection_error_title">Näytä ponnahdusilmoitus, jos API ei ole käytettävissä</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_on">Ponnahdusilmoitus näytetään, jos Return YouTube Dislike ei ole käytettävissä</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_off">Ponnahdusilmoitusta ei näytetä, jos Return YouTube Dislike ei ole käytettävissä</string>
@@ -900,6 +905,9 @@ Tämä ominaisuus toimii parhaiten, kun videon laatu on 720p tai alhaisempi ja k
   <string name="revanced_sb_enable_voting">Näytä äänestyspainike</string>
   <string name="revanced_sb_enable_voting_sum_on">Osion äänestyspainike näytetään</string>
   <string name="revanced_sb_enable_voting_sum_off">Osion äänestyspainiketta ei näytetä</string>
+  <string name="revanced_sb_square_layout">Käytä nelikulmaista asettelua</string>
+  <string name="revanced_sb_square_layout_sum_on">Painikkeet ja ohjaimet ovat nelikulmaisia</string>
+  <string name="revanced_sb_square_layout_sum_off">Painikkeet ja ohjaimet ovat pyöreitä</string>
   <!-- Translations should use language similar to 'revanced_ryd_compact_layout_title' -->
   <string name="revanced_sb_enable_compact_skip_button">Käytä kompaktia ohita-painiketta</string>
   <string name="revanced_sb_enable_compact_skip_button_sum_on">Ohita-painike on muotoiltu mahdollisimman kapeaksi</string>
@@ -1397,8 +1405,6 @@ Tämä voi avata korkealaatuisemmat videot"</string>
 Videon toisto ei välttämättä toimi"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Tämän asetuksen poistaminen käytöstä voi aiheuttaa ongelmia videotoistossa.</string>
   <string name="revanced_spoof_video_streams_client_type_title">Oletusasiakasohjelma</string>
-  <!-- 'no auth' means no authentication -->
-  <string name="revanced_spoof_video_streams_client_type_android_vr_no_auth">Android VR (ei todennusta)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_title">Pakota iOS AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Videokoodekiksi pakotetaan AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Videokoodekki määritetään automaattisesti</string>

@@ -835,6 +835,8 @@ Second \"item\" text"</string>
   <string name="revanced_ryd_failure_generic">Дизлайки недоступны (%s)</string>
   <!-- Toast shown if the user enables RYD while a video is opened, and then tries to vote for the video. -->
   <string name="revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted">Обновите видео для голосования с помощью Return YouTube Dislike</string>
+  <!-- Video likes have been set to hidden by the video uploader. -->
+  <string name="revanced_ryd_video_likes_hidden_by_video_owner">Скрыто владельцем</string>
   <string name="revanced_ryd_enable_summary_on">Дизлайки показаны</string>
   <string name="revanced_ryd_enable_summary_off">Дизлайки скрыты</string>
   <string name="revanced_ryd_shorts_title">Показать дизлайки в Shorts</string>
@@ -850,6 +852,9 @@ Second \"item\" text"</string>
   <string name="revanced_ryd_compact_layout_title">Компактная кнопка \"Лайк\"</string>
   <string name="revanced_ryd_compact_layout_summary_on">Кнопка \"Лайк\" стилизована для минимальной ширины</string>
   <string name="revanced_ryd_compact_layout_summary_off">Кнопка \"Лайк\" стилизована для лучшего внешнего вида</string>
+  <string name="revanced_ryd_estimated_like_title">Показать примерное количество лайков</string>
+  <string name="revanced_ryd_estimated_like_summary_on">Примерное количество лайков показано</string>
+  <string name="revanced_ryd_estimated_like_summary_off">Примерное количество лайков скрыто</string>
   <string name="revanced_ryd_toast_on_connection_error_title">Уведомление при недоступности API</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_on">Всплывающее уведомление при недоступности Return YouTube Dislike показано</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_off">Всплывающее уведомление при недоступности Return YouTube Dislike скрыто</string>
@@ -900,6 +905,9 @@ Second \"item\" text"</string>
   <string name="revanced_sb_enable_voting">Кнопка голосования за сегмент</string>
   <string name="revanced_sb_enable_voting_sum_on">Кнопка голосования за сегмент показана</string>
   <string name="revanced_sb_enable_voting_sum_off">Кнопка голосования за сегмент скрыта</string>
+  <string name="revanced_sb_square_layout">Использовать квадратный макет</string>
+  <string name="revanced_sb_square_layout_sum_on">Кнопки и элементы управления квадратные</string>
+  <string name="revanced_sb_square_layout_sum_off">Кнопки и элементы управления закругленные</string>
   <!-- Translations should use language similar to 'revanced_ryd_compact_layout_title' -->
   <string name="revanced_sb_enable_compact_skip_button">Компактная кнопка пропуска</string>
   <string name="revanced_sb_enable_compact_skip_button_sum_on">Кнопка пропуска стилизована для минимальной ширины</string>
@@ -1130,7 +1138,7 @@ Second \"item\" text"</string>
   <string name="revanced_change_start_page_entry_browse">Просмотр каналов</string>
   <string name="revanced_change_start_page_entry_courses">Курсы / Обучение</string>
   <string name="revanced_change_start_page_entry_explore">Навигатор</string>
-  <string name="revanced_change_start_page_entry_fashion">\"Мода иamp; Красота\"</string>
+  <string name="revanced_change_start_page_entry_fashion">Мода и Красота</string>
   <string name="revanced_change_start_page_entry_gaming">Игры</string>
   <string name="revanced_change_start_page_entry_history">История просмотров</string>
   <string name="revanced_change_start_page_entry_library">Библиотека</string>
@@ -1142,7 +1150,7 @@ Second \"item\" text"</string>
   <string name="revanced_change_start_page_entry_notifications">Уведомления</string>
   <string name="revanced_change_start_page_entry_playlists">Плейлисты</string>
   <string name="revanced_change_start_page_entry_search">Поиск</string>
-  <string name="revanced_change_start_page_entry_shopping">Магазин</string>
+  <string name="revanced_change_start_page_entry_shopping">Покупки</string>
   <string name="revanced_change_start_page_entry_sports">Спорт</string>
   <string name="revanced_change_start_page_entry_subscriptions">Подписки</string>
   <string name="revanced_change_start_page_entry_trending">Популярные</string>
@@ -1397,8 +1405,6 @@ Second \"item\" text"</string>
 Воспроизведение видео может не работать"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Отключение этой настройки может вызвать проблемы с воспроизведением видео</string>
   <string name="revanced_spoof_video_streams_client_type_title">Клиент по умолчанию</string>
-  <!-- 'no auth' means no authentication -->
-  <string name="revanced_spoof_video_streams_client_type_android_vr_no_auth">Android VR (без аутентификации)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_title">Принудительно iOS AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Видеокодек принудительно установлен на AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Видеокодек определяется автоматически</string>

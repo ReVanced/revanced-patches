@@ -22,7 +22,7 @@ Second \"item\" text"</string>
 <resources>
   <app id="shared">
   <patch id="misc.checks.checkEnvironmentPatch">
-  <string name="revanced_check_environment_failed_title">Verificação falhou</string>
+  <string name="revanced_check_environment_failed_title">Falha na verificação</string>
   <string name="revanced_check_environment_dialog_open_official_source_button">Abrir site oficial</string>
   <string name="revanced_check_environment_dialog_ignore_button">Ignorar</string>
   <string name="revanced_check_environment_failed_message">&lt;h5&gt;Esta aplicação não parece ter sido modificada por ti.&lt;/h5&gt;&lt;br&gt;Esta aplicação pode não funcionar corretamente, &lt;b&gt;pode ser maliciosa ou até perigosa de usar&lt;/b&gt;.&lt;br&gt;&lt;br&gt;Estas verificações implicam que esta aplicação é pré-modificada ou obtida de outros:&lt;br&gt;&lt;br&gt;&lt;small&gt;%1$s&lt;/small&gt;&lt;br&gt;É extremamente recomendado &lt;b&gt;desinstalar esta aplicação e modificá-la tu mesmo&lt;/b&gt; para garantir que estás a usar uma aplicação segura e validada.&lt;p&gt;&lt;br&gt;Se ignorado, este aviso apenas será mostrado duas vezes.</string>
@@ -35,13 +35,13 @@ Second \"item\" text"</string>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_submenu_title">Configurações</string>
   <string name="revanced_settings_confirm_user_dialog_title">Desejas continuar?</string>
-  <string name="revanced_settings_reset">Redefinir</string>
+  <string name="revanced_settings_reset">Repor</string>
   <string name="revanced_settings_restart_title">Atualizar e reiniciar</string>
   <string name="revanced_settings_restart">Reiniciar</string>
   <string name="revanced_settings_import">Importar</string>
   <string name="revanced_settings_import_copy">Copiar</string>
   <string name="revanced_settings_import_reset">Configurações redefinidas para o padrão</string>
-  <string name="revanced_settings_import_success">Configurações %d importadas</string>
+  <string name="revanced_settings_import_success">Configurações importadas: %d</string>
   <string name="revanced_settings_import_failure_parse">A importação falhou: %s</string>
   <string name="revanced_language_title">Idioma do ReVanced</string>
   <string name="revanced_language_user_dialog_message">"As traduções para algumas línguas podem estar em falta ou incompletas.
@@ -51,9 +51,9 @@ Para traduzir novas línguas, visite translate.revanced.app"</string>
   <string name="revanced_language_AR">Árabe</string>
   <string name="revanced_language_AZ">Azerbaijano</string>
   <string name="revanced_language_BG">Búlgaro</string>
-  <string name="revanced_language_BN">Bengalês</string>
+  <string name="revanced_language_BN">Bengali</string>
   <string name="revanced_language_CA">Catalão</string>
-  <string name="revanced_language_CS">Tcheco</string>
+  <string name="revanced_language_CS">Checo</string>
   <string name="revanced_language_DA">Dinamarquês</string>
   <string name="revanced_language_DE">Alemão</string>
   <string name="revanced_language_EL">Grego</string>
@@ -70,19 +70,19 @@ Para traduzir novas línguas, visite translate.revanced.app"</string>
   <string name="revanced_language_ID">Indonésio</string>
   <string name="revanced_language_IT">Italiano</string>
   <string name="revanced_language_JA">Japonês</string>
-  <string name="revanced_language_KK">Cazaque</string>
+  <string name="revanced_language_KK">Cazaquistão</string>
   <string name="revanced_language_KO">Coreano</string>
   <string name="revanced_language_LT">Lituano</string>
   <string name="revanced_language_LV">Letão</string>
   <string name="revanced_language_MK">Macedônio</string>
   <string name="revanced_language_MN">Mongol</string>
-  <string name="revanced_language_MR">Marata</string>
+  <string name="revanced_language_MR">Marati</string>
   <string name="revanced_language_MS">Malaio</string>
   <string name="revanced_language_MY">Birmanês</string>
   <string name="revanced_language_NL">Holandês</string>
   <string name="revanced_language_OR">Oriá</string>
   <string name="revanced_language_PA">Punjabi</string>
-  <string name="revanced_language_PL">Polonês</string>
+  <string name="revanced_language_PL">Polaco</string>
   <string name="revanced_language_PT">Português</string>
   <string name="revanced_language_RO">Romeno</string>
   <string name="revanced_language_RU">Russo</string>
@@ -91,7 +91,7 @@ Para traduzir novas línguas, visite translate.revanced.app"</string>
   <string name="revanced_language_SR">Sérvio</string>
   <string name="revanced_language_SV">Sueco</string>
   <string name="revanced_language_SW">Suaíli</string>
-  <string name="revanced_language_TA">Tâmil</string>
+  <string name="revanced_language_TA">Tamil</string>
   <string name="revanced_language_TE">Telugu</string>
   <string name="revanced_language_TH">Tailandês</string>
   <string name="revanced_language_TR">Turco</string>
@@ -134,7 +134,7 @@ Toque no botão continuar e permita as alterações de otimização."</string>
   <string name="revanced_settings_screen_02_alt_thumbnails_title">Miniaturas alternativas</string>
   <string name="revanced_settings_screen_03_feed_title">Recomendações</string>
   <string name="revanced_settings_screen_04_general_title">Geral</string>
-  <string name="revanced_settings_screen_05_player_title">Jogador</string>
+  <string name="revanced_settings_screen_05_player_title">Reprodutor</string>
   <string name="revanced_settings_screen_07_seekbar_title">Barra de pesquisa</string>
   <string name="revanced_settings_screen_08_swipe_controls_title">Controlos por Gestos</string>
   <string name="revanced_settings_screen_11_misc_title">Diversos</string>
@@ -835,6 +835,8 @@ Lưu ý: Bật tính năng này cũng buộc ẩn quảng cáo video"</string>
   <string name="revanced_ryd_failure_generic">Descurtir não disponível (%s)</string>
   <!-- Toast shown if the user enables RYD while a video is opened, and then tries to vote for the video. -->
   <string name="revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted">Recarregue para votar usando Return YouTube Dislike</string>
+  <!-- Video likes have been set to hidden by the video uploader. -->
+  <string name="revanced_ryd_video_likes_hidden_by_video_owner">Oculto pelo proprietário</string>
   <string name="revanced_ryd_enable_summary_on">Descurtidas são visíveis</string>
   <string name="revanced_ryd_enable_summary_off">Não há curtidas visíveis</string>
   <string name="revanced_ryd_shorts_title">Mostrar não curtidas na abreviação</string>
@@ -850,6 +852,9 @@ Giới hạn: Số lượt không thích có thể không xuất hiện ở ch�
   <string name="revanced_ryd_compact_layout_title">Botão de Gosto compacto</string>
   <string name="revanced_ryd_compact_layout_summary_on">Botão curtir estilizado para largura mínima</string>
   <string name="revanced_ryd_compact_layout_summary_off">Botão curtir estilizado para melhor aparência</string>
+  <string name="revanced_ryd_estimated_like_title">Mostrar estimativa de \"gostos\"</string>
+  <string name="revanced_ryd_estimated_like_summary_on">As estimativas de \"gostos\" são mostradas</string>
+  <string name="revanced_ryd_estimated_like_summary_off">As estimativas de \"gostos\" estão ocultas</string>
   <string name="revanced_ryd_toast_on_connection_error_title">Mostrar uma notificação flutuante se a API não estiver disponível</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_on">Toast é exibida se Retornar o Youtube Dislike não estiver disponível</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_off">Toast não é exibida se Retornar o YouTube Dislike não estiver disponível</string>
@@ -900,6 +905,9 @@ Tính năng này hoạt động tốt nhất với chất lg video là 720p tr�
   <string name="revanced_sb_enable_voting">Mostrar o botão de votação</string>
   <string name="revanced_sb_enable_voting_sum_on">Botão de votação segmentado é visível</string>
   <string name="revanced_sb_enable_voting_sum_off">O botão de votação não é visível</string>
+  <string name="revanced_sb_square_layout">Usar layout quadrado</string>
+  <string name="revanced_sb_square_layout_sum_on">Botões e controles são quadrados</string>
+  <string name="revanced_sb_square_layout_sum_off">Botões e controles são arredondados</string>
   <!-- Translations should use language similar to 'revanced_ryd_compact_layout_title' -->
   <string name="revanced_sb_enable_compact_skip_button">Use o botão de pular compacto</string>
   <string name="revanced_sb_enable_compact_skip_button_sum_on">Ignorar botão estilizado para largura mínima</string>
@@ -975,7 +983,7 @@ Seu ID de usuário é como uma senha e nunca deve ser compartilhado.
   <string name="revanced_sb_segments_filler_sum">Cenas tangenciais adicionadas apenas para fins de preenchimento ou humor que não são necessários para compreender o conteúdo principal do vídeo. Não inclui segmentos que fornecem contexto ou pormenores de fundo</string>
   <string name="revanced_sb_segments_nomusic">Música: Seção de Não Música</string>
   <string name="revanced_sb_segments_nomusic_sum">Somente para uso em vídeos de música. Seções de vídeos de música sem música, que já não estão cobertas por outra categoria</string>
-  <string name="revanced_sb_skip_button_compact">Ignorar</string>
+  <string name="revanced_sb_skip_button_compact">Pular</string>
   <string name="revanced_sb_skip_button_compact_highlight">Destacar</string>
   <string name="revanced_sb_skip_button_sponsor">Pular patrocinador</string>
   <string name="revanced_sb_skip_button_selfpromo">Pular promoção</string>
@@ -1082,15 +1090,15 @@ Pronto para enviar?"</string>
   <string name="revanced_sb_color_reset">Redefinir cor</string>
   <string name="revanced_sb_color_invalid">Código de cor inválido</string>
   <string name="revanced_sb_reset_color">Redefinir cor</string>
-  <string name="revanced_sb_reset">Redefinir</string>
+  <string name="revanced_sb_reset">Repor</string>
   <string name="revanced_sb_about">Sobre</string>
   <string name="revanced_sb_about_api_sum">Os dados são fornecidos pela API do SponsorBlock. Toque aqui para aprender mais e ver downloads para outras plataformas</string>
   </patch>
   <patch id="layout.formfactor.changeFormFactorPatch">
   <string name="revanced_change_form_factor_title">Fator de forma do layout</string>
   <string name="revanced_change_form_factor_entry_1">Padrão</string>
-  <string name="revanced_change_form_factor_entry_2">Telefone</string>
-  <string name="revanced_change_form_factor_entry_3">Tábua</string>
+  <string name="revanced_change_form_factor_entry_2">Telemóvel</string>
+  <string name="revanced_change_form_factor_entry_3">Tablet</string>
   <string name="revanced_change_form_factor_entry_4">Automotivo</string>
   <string name="revanced_change_form_factor_user_dialog_message">"As alterações incluem:
 
@@ -1116,6 +1124,7 @@ Nếu sau này tắt, bạn nên xóa dữ liệu ứng dụng để tránh lỗ
                  This is because the 'General layout' menu uses alphabetic sorting, and it functionally works better if the spoof target selector appears below the 'Spoof app version' UI switch -->
   <string name="revanced_spoof_app_version_target_title">Destaque de versão do app</string>
   <string name="revanced_spoof_app_version_target_entry_1">19.35.36 - Restaurar os icones antigos do reprodutor dos Shorts</string>
+  <string name="revanced_spoof_app_version_target_entry_2">19.26.42 - Restaurar ícones antigos de navegação</string>
   <!-- 'RYD' is 'Return YouTube Dislike' -->
   <string name="revanced_spoof_app_version_target_legacy_entry_1">18.33.40 - Restaurar RYD em Modo Curto Incógnito</string>
   <string name="revanced_spoof_app_version_target_legacy_entry_2">18.20.39 - Restaurar menu de qualidade de vídeo &amp;</string>
@@ -1142,7 +1151,7 @@ Nếu sau này tắt, bạn nên xóa dữ liệu ứng dụng để tránh lỗ
   <string name="revanced_change_start_page_entry_playlists">Listas de reprodução</string>
   <string name="revanced_change_start_page_entry_search">Pesquisa</string>
   <string name="revanced_change_start_page_entry_shopping">Compras</string>
-  <string name="revanced_change_start_page_entry_sports">Esportes</string>
+  <string name="revanced_change_start_page_entry_sports">Desportos</string>
   <string name="revanced_change_start_page_entry_subscriptions">Inscrições</string>
   <string name="revanced_change_start_page_entry_trending">Tendências</string>
   <string name="revanced_change_start_page_entry_virtual_reality">Realidade virtual</string>
@@ -1175,7 +1184,7 @@ Nếu sau này tắt, bạn nên xóa dữ liệu ứng dụng để tránh lỗ
   <string name="revanced_miniplayer_type_entry_0">Desativado</string>
   <string name="revanced_miniplayer_type_entry_1">Padrão</string>
   <string name="revanced_miniplayer_type_entry_2">Mínimo</string>
-  <string name="revanced_miniplayer_type_entry_3">Tábua</string>
+  <string name="revanced_miniplayer_type_entry_3">Tablet</string>
   <string name="revanced_miniplayer_type_entry_4">Moderno 1</string>
   <string name="revanced_miniplayer_type_entry_5">Moderno 2</string>
   <string name="revanced_miniplayer_type_entry_6">Moderno 3</string>
@@ -1343,7 +1352,7 @@ Bật tính năng này có thể mở khóa chất lượng video cao hơn"</str
   <string name="revanced_remember_video_quality_last_selected_summary_off">As alterações de qualidade só se aplicam ao vídeo atual</string>
   <string name="revanced_video_quality_default_wifi_title">Qualidade de vídeo padrão na rede Wi-Fi</string>
   <string name="revanced_video_quality_default_mobile_title">Qualidade de vídeo padrão na rede móvel</string>
-  <string name="revanced_remember_video_quality_mobile">Celular</string>
+  <string name="revanced_remember_video_quality_mobile">telemóvel</string>
   <string name="revanced_remember_video_quality_wifi">Wi-Fi</string>
   <string name="revanced_remember_video_quality_toast">Qualidade padrão %1$s alterada para: %2$s</string>
   </patch>
@@ -1396,8 +1405,6 @@ Bật tính năng này có thể mở khóa chất lượng video cao hơn"</str
 Phát video có thể không hoạt động"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Desativar essa configuração pode causar problemas de reprodução de vídeo.</string>
   <string name="revanced_spoof_video_streams_client_type_title">Cliente padrão</string>
-  <!-- 'no auth' means no authentication -->
-  <string name="revanced_spoof_video_streams_client_type_android_vr_no_auth">Android VR (sem autenticação)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_title">Força AVC iOS (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Codificação de vídeo forçada a AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Codificação de vídeo é automaticamente determinada</string>
@@ -1441,7 +1448,7 @@ A AVC tem resolução máxima de 1080p, Opus audio codec não está disponível,
   </patch>
   <patch id="chat.antidelete.showDeletedMessagesPatch">
   <string name="revanced_deleted_msg">mensagem apagada</string>
-  <string name="revanced_show_deleted_messages_title">Mostrar mensagens excluídas</string>
+  <string name="revanced_show_deleted_messages_title">Mostrar mensagens eliminadas</string>
   <string name="revanced_show_deleted_messages_entry_1">Não exibir mensagens excluídas</string>
   <string name="revanced_show_deleted_messages_entry_2">Esconder mensagens excluídas atrás de um spoiler</string>
   <string name="revanced_show_deleted_messages_entry_3">Mostrar mensagens excluídas como texto ultrapassado</string>
@@ -1460,10 +1467,10 @@ A AVC tem resolução máxima de 1080p, Opus audio codec não está disponível,
   <patch id="misc.settings.settingsPatch">
   <string name="revanced_settings">Configurações Avançadas</string>
   <string name="revanced_about_title">Sobre</string>
-  <string name="revanced_about_summary">Sobre ReVanced</string>
+  <string name="revanced_about_summary">Sobre o ReVanced</string>
   <string name="revanced_ads_screen_title">Anúncios</string>
   <string name="revanced_ads_screen_summary">Configurações de bloqueio de anúncios</string>
-  <string name="revanced_chat_screen_title">Bate-papo</string>
+  <string name="revanced_chat_screen_title">Chat</string>
   <string name="revanced_chat_screen_summary">Configurações do chat</string>
   <string name="revanced_misc_screen_title">Diversos</string>
   <string name="revanced_misc_screen_summary">Configurações diversas</string>

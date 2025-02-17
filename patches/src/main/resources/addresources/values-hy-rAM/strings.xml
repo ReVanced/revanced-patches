@@ -835,6 +835,8 @@ MicroG-ի համար մարտկոցի օպտիմալացումը անջատել�
   <string name="revanced_ryd_failure_generic">\"Dislike\"-երը  հասանելի չեն (%s)</string>
   <!-- Toast shown if the user enables RYD while a video is opened, and then tries to vote for the video. -->
   <string name="revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted">Վերբեռնել տեսանյութը՝ քվեարկելու համար Return YouTube Dislike-ի միջոցով</string>
+  <!-- Video likes have been set to hidden by the video uploader. -->
+  <string name="revanced_ryd_video_likes_hidden_by_video_owner">Թաքցված է սեփականատիրոջ կողմից</string>
   <string name="revanced_ryd_enable_summary_on">\"Dislike\"-երը  ցուցադրվում են</string>
   <string name="revanced_ryd_enable_summary_off">\"Dislike\"-երը  չեն ցուցադրվում</string>
   <string name="revanced_ryd_shorts_title">Ցուցադրել \"Dislike\"-երը  Shorts-ում</string>
@@ -850,6 +852,9 @@ MicroG-ի համար մարտկոցի օպտիմալացումը անջատել�
   <string name="revanced_ryd_compact_layout_title">Միարժեք «Like» կոճակ</string>
   <string name="revanced_ryd_compact_layout_summary_on">\"Like\" կոճակը  ոճավորված է  մինիմալ  մեծության համար</string>
   <string name="revanced_ryd_compact_layout_summary_off">\"Like\" կոճակը  ոճավորված է  լավագույն  հայացքի համար</string>
+  <string name="revanced_ryd_estimated_like_title">Ցույց տալ մոտավոր հավանումները</string>
+  <string name="revanced_ryd_estimated_like_summary_on">Ցուցադրվում են մոտավոր հավանումները</string>
+  <string name="revanced_ryd_estimated_like_summary_off">Մոտավոր հավանումները թաքցված են</string>
   <string name="revanced_ryd_toast_on_connection_error_title">Ցուցադրել \"toast\", եթե API-ն  հասանելի չէ</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_on">\"Toast\"-ը  ցուցադրվում է, եթե Return YouTube Dislike-ը  հասանելի չէ</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_off">\"Toast\"-ը  չի ցուցադրվում, եթե Return YouTube Dislike-ը  հասանելի չէ</string>
@@ -900,6 +905,9 @@ Seekbar thumbnails-ները կօգտագործեն նույն որակը, ինչ
   <string name="revanced_sb_enable_voting">Ցույց տալ ձայնի մասին տեղեկությունները</string>
   <string name="revanced_sb_enable_voting_sum_on">Segment-ի ձայնի մասին տեղեկությունները ցույց են տրվում</string>
   <string name="revanced_sb_enable_voting_sum_off">Segment-ի ձայնի մասին տեղեկությունները չեն ցույց տրվում</string>
+  <string name="revanced_sb_square_layout">Օգտագործե՛ք քառակուսի դասավորություն</string>
+  <string name="revanced_sb_square_layout_sum_on">Կոճակները և հսկիչները քառակուսի են</string>
+  <string name="revanced_sb_square_layout_sum_off">Կոճակները և կառավարման վահանակները կլորացված են</string>
   <!-- Translations should use language similar to 'revanced_ryd_compact_layout_title' -->
   <string name="revanced_sb_enable_compact_skip_button">Օգտագործել կոմպակտ բաց թողնել կոճակը</string>
   <string name="revanced_sb_enable_compact_skip_button_sum_on">Բաց թողնել կոճակը ոճավորվել է նվազագույն լայնության համար</string>
@@ -1397,8 +1405,6 @@ Mini-player-ը կարող է գրավվել էկրանից դուրս՝ դեպի
 Տեսանյութի վերարտադրումը կարող է չաշխատել։"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Այս  կարգավորման  անջատումը  կարող է  առաջացնել  տեսանյութի  վերարտադրման  հետ  կապված  պրոբլեմներ</string>
   <string name="revanced_spoof_video_streams_client_type_title">Դեֆոլտ  կլիենտ</string>
-  <!-- 'no auth' means no authentication -->
-  <string name="revanced_spoof_video_streams_client_type_android_vr_no_auth">Android VR (առանց հաստատման)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_title">iOS-ի համար AVC (H.264) պարտադիր ակտիվացում</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Վիդեո կոդեկը պարտադիր կերպով AVC (H.264) է</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Վիդեո կոդեկը որոշվում է ավտոմատ կերպով</string>

@@ -835,6 +835,8 @@ Uwaga: Włączenie tej opcji również ukrywa reklamy wideo"</string>
   <string name="revanced_ryd_failure_generic">Łapki w dół niedostępne (%s)</string>
   <!-- Toast shown if the user enables RYD while a video is opened, and then tries to vote for the video. -->
   <string name="revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted">Odśwież film, aby zagłosować za pomocą Return YouTube Dislike</string>
+  <!-- Video likes have been set to hidden by the video uploader. -->
+  <string name="revanced_ryd_video_likes_hidden_by_video_owner">Ukryte przez właściciela</string>
   <string name="revanced_ryd_enable_summary_on">Łapki w dół są widoczne</string>
   <string name="revanced_ryd_enable_summary_off">Łapki w dół są ukryte</string>
   <string name="revanced_ryd_shorts_title">Łapki w dół na Shortsach</string>
@@ -850,6 +852,9 @@ Ograniczenie: Niechęci mogą nie pojawiać się w trybie incognito"</string>
   <string name="revanced_ryd_compact_layout_title">Kompaktowy przycisk \"Lubię to\"</string>
   <string name="revanced_ryd_compact_layout_summary_on">Przycisk łapki stylizowany dla minimalnej szerokości</string>
   <string name="revanced_ryd_compact_layout_summary_off">Przycisk łapki stylizowany dla najlepszego wyglądu</string>
+  <string name="revanced_ryd_estimated_like_title">Pokaż szacunkową liczbę polubień</string>
+  <string name="revanced_ryd_estimated_like_summary_on">Szacunkowa liczba polubień jest wyświetlana</string>
+  <string name="revanced_ryd_estimated_like_summary_off">Szacunkowa liczba polubień jest ukryta</string>
   <string name="revanced_ryd_toast_on_connection_error_title">Komunikat o niedostępności API</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_on">Komunikat jest wyświetlany, jeśli Return YouTube Dislike nie jest dostępny</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_off">Komunikat nie jest wyświetlany, jeśli Return YouTube Dislike nie jest dostępny</string>
@@ -900,6 +905,9 @@ Ta funkcja działa najlepiej przy jakości wideo 720p lub niższej i przy korzys
   <string name="revanced_sb_enable_voting">Przycisk głosowania</string>
   <string name="revanced_sb_enable_voting_sum_on">Przycisk głosowania jest widoczny</string>
   <string name="revanced_sb_enable_voting_sum_off">Przycisk głosowania nie jest widoczny</string>
+  <string name="revanced_sb_square_layout">Użyj kwadratowego układu</string>
+  <string name="revanced_sb_square_layout_sum_on">Przyciski i elementy sterujące są kwadratowe</string>
+  <string name="revanced_sb_square_layout_sum_off">Przyciski i elementy sterujące są zaokrąglone</string>
   <!-- Translations should use language similar to 'revanced_ryd_compact_layout_title' -->
   <string name="revanced_sb_enable_compact_skip_button">Styl przycisku od pomijania</string>
   <string name="revanced_sb_enable_compact_skip_button_sum_on">Przycisk od pomijania stylizowany dla minimalnej szerokości</string>
@@ -1397,8 +1405,6 @@ Włączenie tego może odblokować wyższe jakości wideo"</string>
 Odtwarzanie wideo może nie działać"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Wyłączenie tej opcji może spowodować problemy z odtwarzaniem filmów.</string>
   <string name="revanced_spoof_video_streams_client_type_title">Domyślny klient</string>
-  <!-- 'no auth' means no authentication -->
-  <string name="revanced_spoof_video_streams_client_type_android_vr_no_auth">Android VR (bez uwierzytelniania)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_title">Wymuszaj iOS AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Kodek wideo jest wymuszany na AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Kodek wideo jest określany automatycznie</string>

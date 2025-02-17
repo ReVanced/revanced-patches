@@ -835,6 +835,8 @@ Second \"item\" text"</string>
   <string name="revanced_ryd_failure_generic">ไม่สามารถใช้งาน \"ไม่ชอบ\" ได้ (%s)</string>
   <!-- Toast shown if the user enables RYD while a video is opened, and then tries to vote for the video. -->
   <string name="revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted">รีโหลดวิดีโอเพื่อลงคะแนนโดยใช้ Return YouTube Dislike</string>
+  <!-- Video likes have been set to hidden by the video uploader. -->
+  <string name="revanced_ryd_video_likes_hidden_by_video_owner">ซ่อนโดยเจ้าของ</string>
   <string name="revanced_ryd_enable_summary_on">แสดง \"ไม่ชอบ\"</string>
   <string name="revanced_ryd_enable_summary_off">ไม่แสดง \"ไม่ชอบ\"</string>
   <string name="revanced_ryd_shorts_title">แสดง \"ไม่ชอบ\" ใน Shorts</string>
@@ -850,6 +852,9 @@ Second \"item\" text"</string>
   <string name="revanced_ryd_compact_layout_title">ปุ่มถูกใจแบบกะทัดรัด</string>
   <string name="revanced_ryd_compact_layout_summary_on">ปุ่ม \"ถูกใจ\" ปรับให้มีขนาดเล็กที่สุด</string>
   <string name="revanced_ryd_compact_layout_summary_off">ปุ่ม \"ถูกใจ\" ปรับให้แสดงผลได้ดีที่สุด</string>
+  <string name="revanced_ryd_estimated_like_title">แสดงจำนวนถูกใจโดยประมาณ</string>
+  <string name="revanced_ryd_estimated_like_summary_on">แสดงจำนวนถูกใจโดยประมาณ</string>
+  <string name="revanced_ryd_estimated_like_summary_off">ซ่อนจำนวนถูกใจโดยประมาณ</string>
   <string name="revanced_ryd_toast_on_connection_error_title">แสดงคำอวยพรถ้า API ไม่พร้อมใช้งาน</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_on">ข้อความแจ้งเตือนแสดงขึ้น หาก Return YouTube Dislike ไม่พร้อมใช้งาน</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_off">Toast ไม่ปรากฏขึ้นหาก ไม่สามารถใช้งาน Return YouTube Dislike</string>
@@ -900,6 +905,9 @@ Second \"item\" text"</string>
   <string name="revanced_sb_enable_voting">แสดงปุ่มโหวต</string>
   <string name="revanced_sb_enable_voting_sum_on">ปุ่มการโหวตส่วนแสดงอยู่</string>
   <string name="revanced_sb_enable_voting_sum_off">ปุ่มการโหวตส่วนไม่แสดงอยู่</string>
+  <string name="revanced_sb_square_layout">ใช้เลย์เอาต์สี่เหลี่ยมจัตุรัส</string>
+  <string name="revanced_sb_square_layout_sum_on">ปุ่มและส่วนควบคุมเป็นสี่เหลี่ยมจัตุรัส</string>
+  <string name="revanced_sb_square_layout_sum_off">ปุ่มและส่วนควบคุมเป็นแบบโค้งมน</string>
   <!-- Translations should use language similar to 'revanced_ryd_compact_layout_title' -->
   <string name="revanced_sb_enable_compact_skip_button">ใช้ปุ่มข้ามแบบกะทัดรัด</string>
   <string name="revanced_sb_enable_compact_skip_button_sum_on">ปุ่มข้ามมีรูปแบบสำหรับความกว้างขั้นต่ำ</string>
@@ -1397,8 +1405,6 @@ User id ของคุณเหมือนกับรหัสผ่าน �
 การเล่นวิดีโออาจไม่ทํางาน"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">การปิดการตั้งค่านี้ อาจทำให้เกิดปัญหาในการเล่นวิดีโอ</string>
   <string name="revanced_spoof_video_streams_client_type_title">ไคลเอ็นต์เริ่มต้น</string>
-  <!-- 'no auth' means no authentication -->
-  <string name="revanced_spoof_video_streams_client_type_android_vr_no_auth">Android VR (ไม่มีการตรวจสอบสิทธิ์)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_title">บังคับ AVC (H.264) ของ iOS</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">บังคับตัวแปลงสัญญาณวิดีโอเป็น AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">ตัวแปลงสัญญาณวิดีโอถูกกำหนดโดยอัตโนมัติ</string>

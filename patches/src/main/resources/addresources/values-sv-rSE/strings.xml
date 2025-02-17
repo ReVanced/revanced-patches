@@ -835,6 +835,8 @@ Obs: Genom att aktivera detta döljs även videoannonser"</string>
   <string name="revanced_ryd_failure_generic">Tycker inte tillgängligt (%s)</string>
   <!-- Toast shown if the user enables RYD while a video is opened, and then tries to vote for the video. -->
   <string name="revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted">Ladda om video för att rösta med Return YouTube Dislike</string>
+  <!-- Video likes have been set to hidden by the video uploader. -->
+  <string name="revanced_ryd_video_likes_hidden_by_video_owner">Dold av ägaren</string>
   <string name="revanced_ryd_enable_summary_on">Ogilla är synliga</string>
   <string name="revanced_ryd_enable_summary_off">Ogilla visas inte</string>
   <string name="revanced_ryd_shorts_title">Visa ogillande på Shorts</string>
@@ -850,6 +852,9 @@ Begränsning: Ogillanden kanske inte visas i inkognitoläge"</string>
   <string name="revanced_ryd_compact_layout_title">Kompakt gilla-knapp</string>
   <string name="revanced_ryd_compact_layout_summary_on">Gilla knappen stylad för minsta bredd</string>
   <string name="revanced_ryd_compact_layout_summary_off">Gilla knappen stylas för bästa utseende</string>
+  <string name="revanced_ryd_estimated_like_title">Visa uppskattade gillamarkeringar</string>
+  <string name="revanced_ryd_estimated_like_summary_on">Uppskattade gillamarkeringar visas</string>
+  <string name="revanced_ryd_estimated_like_summary_off">Uppskattade gillamarkeringar är dolda</string>
   <string name="revanced_ryd_toast_on_connection_error_title">Visa ett meddelande om API inte är tillgängligt</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_on">Visa ett meddelande om Return YouTube Dislike inte är tillgängligt</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_off">Visa inget meddelande om Return YouTube Dislike inte är tillgängligt</string>
@@ -900,6 +905,9 @@ Den här funktionen fungerar bäst med en videokvalitet på 720p eller lägre oc
   <string name="revanced_sb_enable_voting">Visa röstknapp</string>
   <string name="revanced_sb_enable_voting_sum_on">Segmentets röstknapp är synligt</string>
   <string name="revanced_sb_enable_voting_sum_off">Segmentets röstknapp visas inte</string>
+  <string name="revanced_sb_square_layout">Använd fyrkantig layout</string>
+  <string name="revanced_sb_square_layout_sum_on">Knappar och kontroller är fyrkantiga</string>
+  <string name="revanced_sb_square_layout_sum_off">Knappar och kontroller är rundade</string>
   <!-- Translations should use language similar to 'revanced_ryd_compact_layout_title' -->
   <string name="revanced_sb_enable_compact_skip_button">Använd kompakt hopp-knapp</string>
   <string name="revanced_sb_enable_compact_skip_button_sum_on">Skippa knappen stylad för minsta bredd</string>
@@ -1396,8 +1404,6 @@ Att aktivera detta kan låsa upp högre videokvalitet"</string>
 Videouppspelning kanske inte fungerar"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Att stänga av den här inställningen kan orsaka videouppspelningsproblem.</string>
   <string name="revanced_spoof_video_streams_client_type_title">Standard klient</string>
-  <!-- 'no auth' means no authentication -->
-  <string name="revanced_spoof_video_streams_client_type_android_vr_no_auth">Android VR (ingen autentisering)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_title">Tvinga iOS AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Videokodek tvingas till AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Videokodeken bestäms automatiskt</string>

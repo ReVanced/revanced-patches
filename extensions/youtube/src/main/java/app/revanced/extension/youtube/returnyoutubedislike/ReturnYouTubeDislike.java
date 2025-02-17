@@ -234,6 +234,12 @@ public class ReturnYouTubeDislike {
             // example video: https://www.youtube.com/watch?v=UnrU5vxCHxw
             // RYD data: https://returnyoutubedislikeapi.com/votes?videoId=UnrU5vxCHxw
             //
+            if (!Settings.RYD_ESTIMATED_LIKE.get()) {
+                // Change the "Likes" string to show that likes and dislikes are hidden.
+                String hiddenMessageString = str("revanced_ryd_video_likes_hidden_by_video_owner");
+                return newSpanUsingStylingOfAnotherSpan(oldSpannable, hiddenMessageString);
+            }
+
             Logger.printDebug(() -> "Using estimated likes");
             oldLikes = formatDislikeCount(voteData.getLikeCount());
         }
@@ -542,6 +548,15 @@ public class ReturnYouTubeDislike {
                 }
 
                 if (spanIsForLikes) {
+                    if (!Utils.containsNumber(original)) {
+                        if (!Settings.RYD_ESTIMATED_LIKE.get()) {
+                            Logger.printDebug(() -> "Likes are hidden");
+                            return original;
+                        } else {
+                            Logger.printDebug(() -> "Using estimated likes");
+                        }
+                    }
+
                     // Scrolling Shorts does not cause the Spans to be reloaded,
                     // so there is no need to cache the likes for this situations.
                     Logger.printDebug(() -> "Creating likes span for: " + votingData.videoId);

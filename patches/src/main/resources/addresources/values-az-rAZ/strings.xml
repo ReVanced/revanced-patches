@@ -835,6 +835,8 @@ Qeyd: Bunu aktivləşdirmə video reklamları da məcburi olaraq gizlədir"</str
   <string name="revanced_ryd_failure_generic">Bəyənməmə əlçatmazdır (%s)</string>
   <!-- Toast shown if the user enables RYD while a video is opened, and then tries to vote for the video. -->
   <string name="revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted">Ryd ilə səsvermə üçün videonu yenidən yüklə</string>
+  <!-- Video likes have been set to hidden by the video uploader. -->
+  <string name="revanced_ryd_video_likes_hidden_by_video_owner">Sahib tərəfindən gizlədilib</string>
   <string name="revanced_ryd_enable_summary_on">Bəyənməmələr göstərilir</string>
   <string name="revanced_ryd_enable_summary_off">Bəyənməmələr göstərilmir</string>
   <string name="revanced_ryd_shorts_title">\"Shorts\"da bəyənməmə sayını göstər</string>
@@ -850,6 +852,9 @@ Məhdudiyyət: Bəyənməmələr gizli rejimdə görünmür"</string>
   <string name="revanced_ryd_compact_layout_title">Yığcam Bəyən Düyməsi</string>
   <string name="revanced_ryd_compact_layout_summary_on">Daha kiçik en üçün hazırlanmış Bəyən düyməsi</string>
   <string name="revanced_ryd_compact_layout_summary_off">Ən yaxşı görünüş üçün tərtib edilmiş Bəyən düyməsi</string>
+  <string name="revanced_ryd_estimated_like_title">Təxmini bəyənmələri göstər</string>
+  <string name="revanced_ryd_estimated_like_summary_on">Təxmini bəyənmələr göstərilir</string>
+  <string name="revanced_ryd_estimated_like_summary_off">Təxmini bəyənmələr gizlədilir</string>
   <string name="revanced_ryd_toast_on_connection_error_title">API əlçatan deyilsə ani bildiriş göstər</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_on">Return YouTube Dislike əlçatan deyilsə ani bildiriş göstər</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_off">Return YouTube Dislike əlçatan deyilsə ani bildiriş göstərmə</string>
@@ -900,6 +905,9 @@ Bu funksiya 720p və ya daha aşağı video keyfiyyəti ilə və çox sürətli 
   <string name="revanced_sb_enable_voting">Səsvermə düyməsini göstər</string>
   <string name="revanced_sb_enable_voting_sum_on">Bölümə səsvermə düyməsi göstərilir</string>
   <string name="revanced_sb_enable_voting_sum_off">Bölümə səsvermə düyməsi göstərilmir</string>
+  <string name="revanced_sb_square_layout">Kvadrat düzümü istifadə et</string>
+  <string name="revanced_sb_square_layout_sum_on">Düymələr və idarəedicilər kvadratdır </string>
+  <string name="revanced_sb_square_layout_sum_off">Düymələr və idarəedicilər dairəvidir</string>
   <!-- Translations should use language similar to 'revanced_ryd_compact_layout_title' -->
   <string name="revanced_sb_enable_compact_skip_button">Yığcam ötürmə düyməsini istifadə et</string>
   <string name="revanced_sb_enable_compact_skip_button_sum_on">Ən kiçik en üçün hazırlanmış ötürmə düyməsi</string>
@@ -1397,8 +1405,6 @@ Bunu aktivləşdirmə daha yüksək video keyfiyyətləri əngəlin silə bilər
 Video oynatma işləməyə bilər"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Bu seçimi bağlamaq, video oynatma problemlərinə səbəb olar.</string>
   <string name="revanced_spoof_video_streams_client_type_title">İlkin qəbuledici</string>
-  <!-- 'no auth' means no authentication -->
-  <string name="revanced_spoof_video_streams_client_type_android_vr_no_auth">Android VR (təsdiqlənmə yoxdur)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_title">IOS-da AVC (H.264)-ni məcbur et</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Video kodlama AVC (H.264)-yə məcbur edilir</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Video kodlayıcı avtomatik müəyyən edilir</string>
@@ -1423,9 +1429,9 @@ AVC maksimum 1080p görüntü imkanına malikdir, Opus audio kodlama olmur və v
   </app>
   <app id="twitch">
   <patch id="ad.audio.audioAdsPatch">
-  <string name="revanced_block_audio_ads_title">Səsli reklamları əngəllə</string>
-  <string name="revanced_block_audio_ads_summary_on">Səsli reklamlar bloklanıb</string>
-  <string name="revanced_block_audio_ads_summary_off">Səsli reklamlar bloklanmayıb</string>
+  <string name="revanced_block_audio_ads_title">Səs reklamların əngəllə</string>
+  <string name="revanced_block_audio_ads_summary_on">Səs reklamları bloklanıb</string>
+  <string name="revanced_block_audio_ads_summary_off">Səs reklamları bloklanmayıb</string>
   </patch>
   <patch id="ad.embedded.embeddedAdsPatch">
   <string name="revanced_embedded_ads_service_unavailable">%s əlçatmazdır, reklamlar göstərilə bilər. Tənzimləmədə reklam əngəlləmə xidmətin dəyişməyə çalışın.</string>

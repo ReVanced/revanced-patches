@@ -835,6 +835,8 @@ MicroG-এর জন্য ব্যাটারি অপ্টিমাইজ�
   <string name="revanced_ryd_failure_generic">অপছন্দ উপলভ্য নয় (%s)</string>
   <!-- Toast shown if the user enables RYD while a video is opened, and then tries to vote for the video. -->
   <string name="revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted">ReturnYouTubeDislike দিয়ে ভোট দিতে ভিডিও আবার লোড করুন</string>
+  <!-- Video likes have been set to hidden by the video uploader. -->
+  <string name="revanced_ryd_video_likes_hidden_by_video_owner">মালিক কর্তৃক লুকানো</string>
   <string name="revanced_ryd_enable_summary_on">অপছন্দগুলো প্রদর্শিত হয়েছে</string>
   <string name="revanced_ryd_enable_summary_off">অপছন্দগুলো প্রদর্শিত হয়নি</string>
   <string name="revanced_ryd_shorts_title">Shorts এ অপছন্দ দেখান</string>
@@ -850,6 +852,9 @@ MicroG-এর জন্য ব্যাটারি অপ্টিমাইজ�
   <string name="revanced_ryd_compact_layout_title">কম্প্যাক্ট লাইক বোতাম</string>
   <string name="revanced_ryd_compact_layout_summary_on">পছন্দ বোতামটি ন্যূনতম প্রস্থের জন্য সাজানো হয়েছে</string>
   <string name="revanced_ryd_compact_layout_summary_off">পছন্দ বোতামটি সেরা চেহারার জন্য সাজানো হয়েছে</string>
+  <string name="revanced_ryd_estimated_like_title">অনুমানিত লাইক দেখান</string>
+  <string name="revanced_ryd_estimated_like_summary_on">অনুমানিত লাইক দেখানো হয়েছে</string>
+  <string name="revanced_ryd_estimated_like_summary_off">অনুমানিত লাইক লুকানো হয়েছে</string>
   <string name="revanced_ryd_toast_on_connection_error_title">API উপলভ্য না থাকলে একটি টোস্ট দেখান</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_on">Return YouTube Dislike উপলভ্য না থাকলে টোস্ট দেখানো হবে</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_off">Return YouTube Dislike উপলভ্য না থাকলে টোস্ট দেখানো হবে না</string>
@@ -900,6 +905,9 @@ MicroG-এর জন্য ব্যাটারি অপ্টিমাইজ�
   <string name="revanced_sb_enable_voting">ভোটিং বাটন দেখান</string>
   <string name="revanced_sb_enable_voting_sum_on">সেগমেন্ট ভোটিং বাটন প্রদর্শিত রয়েছে</string>
   <string name="revanced_sb_enable_voting_sum_off">সেগমেন্ট ভোটিং বাটন প্রদর্শিত হয়নি</string>
+  <string name="revanced_sb_square_layout">বর্গাকার লেআউট ব্যবহার করুন</string>
+  <string name="revanced_sb_square_layout_sum_on">বোতাম এবং নিয়ন্ত্রণগুলি বর্গক্ষেত্র</string>
+  <string name="revanced_sb_square_layout_sum_off">বোতাম এবং নিয়ন্ত্রণগুলি গোলাকার</string>
   <!-- Translations should use language similar to 'revanced_ryd_compact_layout_title' -->
   <string name="revanced_sb_enable_compact_skip_button">সংক্ষিপ্ত স্কিপ বাটন ব্যবহার করুন</string>
   <string name="revanced_sb_enable_compact_skip_button_sum_on">স্কিপ বোতামটি ন্যূনতম প্রস্থের জন্য সাজানো হয়েছে</string>
@@ -1397,8 +1405,6 @@ DeArrow সম্পর্কে আরও জানতে এখানে ট�
 ভিডিও প্লেব্যাক কাজ নাও করতে পারে"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">এই সেটিংটি বন্ধ করার ফলে ভিডিও প্লেব্যাক ত্রুটি হতে পারে।</string>
   <string name="revanced_spoof_video_streams_client_type_title">ডিফল্ট ক্লায়েন্ট</string>
-  <!-- 'no auth' means no authentication -->
-  <string name="revanced_spoof_video_streams_client_type_android_vr_no_auth">Android VR (স্বীকৃতি ছাড়া)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_title">iOS AVC (H.264) বাধ্যতামূলক করুন</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">ভিডিও কোডেক AVC (H.264) এ বাধ্যতামূলক করা হয়েছে</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">ভিডিও কোডেক স্বয়ংক্রিয়ভাবে নির্ধারিত হয়</string>

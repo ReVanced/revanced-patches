@@ -835,6 +835,8 @@ Nota: Abilitare questa opzione nasconde anche le pubblicità video"</string>
   <string name="revanced_ryd_failure_generic">Non Mi Piace non disponibili (%s)</string>
   <!-- Toast shown if the user enables RYD while a video is opened, and then tries to vote for the video. -->
   <string name="revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted">Ricarica il video per votare usando Return YouTube Dislike</string>
+  <!-- Video likes have been set to hidden by the video uploader. -->
+  <string name="revanced_ryd_video_likes_hidden_by_video_owner">Nascosto dal proprietario</string>
   <string name="revanced_ryd_enable_summary_on">I Non Mi Piace sono visibili</string>
   <string name="revanced_ryd_enable_summary_off">I Non Mi Piace non sono visibili</string>
   <string name="revanced_ryd_shorts_title">Mostra i Non Mi Piace degli Shorts</string>
@@ -850,6 +852,9 @@ Limitazione: i Non mi piace potrebbero non apparire in modalità di navigazione 
   <string name="revanced_ryd_compact_layout_title">Attiva il pulsante Mi piace compatto</string>
   <string name="revanced_ryd_compact_layout_summary_on">Pulsante Mi Piace riadattato per una larghezza minima</string>
   <string name="revanced_ryd_compact_layout_summary_off">Pulsante Mi Piace riadattato per la migliore visualizzazione</string>
+  <string name="revanced_ryd_estimated_like_title">Mostra \"Mi piace\" stimati</string>
+  <string name="revanced_ryd_estimated_like_summary_on">Vengono mostrati i \"Mi piace\" stimati</string>
+  <string name="revanced_ryd_estimated_like_summary_off">I \"Mi piace\" stimati sono nascosti</string>
   <string name="revanced_ryd_toast_on_connection_error_title">Mostra un toast se l\'API non è disponibile</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_on">Una notifica è mostrata se Return YouTube Dislike non è disponibile</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_off">Nessuna notifica viene mostrata se Return YouTube Dislike non è disponibile</string>
@@ -900,6 +905,9 @@ Questa funzione funziona meglio con una qualità video di 720p o inferiore e qua
   <string name="revanced_sb_enable_voting">Mostra il pulsante di voto</string>
   <string name="revanced_sb_enable_voting_sum_on">Il pulsante di voto del segmento è visibile</string>
   <string name="revanced_sb_enable_voting_sum_off">Il pulsante di voto del segmento è nascosto</string>
+  <string name="revanced_sb_square_layout">Usa layout squadrato</string>
+  <string name="revanced_sb_square_layout_sum_on">Pulsanti e controlli sono squadrati</string>
+  <string name="revanced_sb_square_layout_sum_off">Pulsanti e controlli sono arrotondati</string>
   <!-- Translations should use language similar to 'revanced_ryd_compact_layout_title' -->
   <string name="revanced_sb_enable_compact_skip_button">Utilizza il pulsante Salta compatto</string>
   <string name="revanced_sb_enable_compact_skip_button_sum_on">Pulsante Salta riadattato per una larghezza minima</string>
@@ -1396,8 +1404,6 @@ Abilitare questa opzione può sbloccare qualità video più elevate"</string>
 La riproduzione video potrebbe non funzionare"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Disattivando questa impostazione potrebbe causare problemi di riproduzione video.</string>
   <string name="revanced_spoof_video_streams_client_type_title">Client predefinito</string>
-  <!-- 'no auth' means no authentication -->
-  <string name="revanced_spoof_video_streams_client_type_android_vr_no_auth">Android VR (nessuna autenticazione)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_title">Forza iOS AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Il codec video è forzato ad AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Il codec video è determinato automaticamente</string>

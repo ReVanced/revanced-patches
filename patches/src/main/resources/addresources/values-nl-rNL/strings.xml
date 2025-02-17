@@ -835,6 +835,8 @@ Opmerking: Als u dit inschakelt, worden videoadvertenties ook geforceerd verborg
   <string name="revanced_ryd_failure_generic">\"Dislikes\" niet beschikbaar (%s)</string>
   <!-- Toast shown if the user enables RYD while a video is opened, and then tries to vote for the video. -->
   <string name="revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted">Herlaad video om te stemmen via Return YouTube Dislike</string>
+  <!-- Video likes have been set to hidden by the video uploader. -->
+  <string name="revanced_ryd_video_likes_hidden_by_video_owner">Verborgen door eigenaar</string>
   <string name="revanced_ryd_enable_summary_on">\"Dislikes\" worden weergegeven</string>
   <string name="revanced_ryd_enable_summary_off">\"Dislikes\" worden niet weergegeven</string>
   <string name="revanced_ryd_shorts_title">Toon onlikes op Shorts</string>
@@ -850,6 +852,9 @@ Beperking: Dislikes worden mogelijk niet weergegeven in de incognito-modus"</str
   <string name="revanced_ryd_compact_layout_title">Compacte vind-ik-leukknop</string>
   <string name="revanced_ryd_compact_layout_summary_on">\"Like\" knop met minimale breedte</string>
   <string name="revanced_ryd_compact_layout_summary_off">\"Like\" knop met beste uiterlijk</string>
+  <string name="revanced_ryd_estimated_like_title">Geschatte likes weergeven</string>
+  <string name="revanced_ryd_estimated_like_summary_on">Geschatte likes worden weergegeven</string>
+  <string name="revanced_ryd_estimated_like_summary_off">Geschatte likes zijn verborgen</string>
   <string name="revanced_ryd_toast_on_connection_error_title">Toon een \"toast\" als de API niet beschikbaar is</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_on">\"Toast\" wordt getoond als Return YouTube Dislike niet beschikbaar is</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_off">\"Toast\" wordt niet getoond als Return YouTube Dislike niet beschikbaar is</string>
@@ -900,6 +905,9 @@ Deze functie werkt het beste met een videokwaliteit van 720p of lager en wanneer
   <string name="revanced_sb_enable_voting">Toon de stemknop</string>
   <string name="revanced_sb_enable_voting_sum_on">De stemknop voor segmenten wordt weergegeven</string>
   <string name="revanced_sb_enable_voting_sum_off">De stemknop voor segmenten wordt niet weergegeven</string>
+  <string name="revanced_sb_square_layout">Vierkante lay-out gebruiken</string>
+  <string name="revanced_sb_square_layout_sum_on">Knoppen en bedieningselementen zijn vierkant</string>
+  <string name="revanced_sb_square_layout_sum_off">Knoppen en bedieningselementen zijn afgerond</string>
   <!-- Translations should use language similar to 'revanced_ryd_compact_layout_title' -->
   <string name="revanced_sb_enable_compact_skip_button">Gebruik een compacte oversla-knop</string>
   <string name="revanced_sb_enable_compact_skip_button_sum_on">Oversla-knop gestyled voor minimale breedte</string>
@@ -1397,8 +1405,6 @@ Het inschakelen hiervan kan hogere videokwaliteiten ontgrendelen"</string>
 Video-playback werkt mogelijk niet"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Het uitschakelen van deze instelling kan afspeelproblemen veroorzaken.</string>
   <string name="revanced_spoof_video_streams_client_type_title">Standaard client</string>
-  <!-- 'no auth' means no authentication -->
-  <string name="revanced_spoof_video_streams_client_type_android_vr_no_auth">Android VR (geen authenticatie)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_title">Forceer iOS AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">De videocodec is geforceerd naar AVC (H.264).</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">De videocodec wordt automatisch bepaald.</string>
