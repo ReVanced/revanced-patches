@@ -16,10 +16,6 @@ import app.revanced.extension.youtube.shared.PlayerType;
 
 @SuppressWarnings("unused")
 public final class LayoutComponentsFilter extends Filter {
-    private static final String COMPACT_CHANNEL_BAR_PATH_PREFIX = "compact_channel_bar.eml";
-    private static final String VIDEO_ACTION_BAR_PATH_PREFIX = "video_action_bar.eml";
-    private static final String ANIMATED_VECTOR_TYPE_PATH = "AnimatedVectorType";
-
     private static final StringTrieSearch mixPlaylistsExceptions = new StringTrieSearch(
             "V.ED", // Playlist browse id.
             "java.lang.ref.WeakReference"
@@ -43,7 +39,6 @@ public final class LayoutComponentsFilter extends Filter {
     private final StringFilterGroup compactChannelBarInner;
     private final StringFilterGroup compactChannelBarInnerButton;
     private final ByteArrayFilterGroup joinMembershipButton;
-    private final StringFilterGroup likeSubscribeGlow;
     private final StringFilterGroup horizontalShelves;
 
     public LayoutComponentsFilter() {
@@ -219,10 +214,6 @@ public final class LayoutComponentsFilter extends Filter {
                 "sponsorships"
         );
 
-        likeSubscribeGlow = new StringFilterGroup(
-                Settings.DISABLE_LIKE_SUBSCRIBE_GLOW,
-                "animated_button_border.eml"
-        );
 
         final var channelWatermark = new StringFilterGroup(
                 Settings.HIDE_VIDEO_CHANNEL_WATERMARK,
@@ -256,7 +247,6 @@ public final class LayoutComponentsFilter extends Filter {
                 expandableMetadata,
                 inFeedSurvey,
                 notifyMe,
-                likeSubscribeGlow,
                 compactChannelBar,
                 communityPosts,
                 paidPromotion,
@@ -305,15 +295,6 @@ public final class LayoutComponentsFilter extends Filter {
             if (searchResultRecommendations.check(protobufBufferArray).isFiltered()) {
                 return super.isFiltered(identifier, path, protobufBufferArray, matchedGroup, contentType, contentIndex);
             }
-            return false;
-        }
-
-        if (matchedGroup == likeSubscribeGlow) {
-            if ((path.startsWith(VIDEO_ACTION_BAR_PATH_PREFIX) || path.startsWith(COMPACT_CHANNEL_BAR_PATH_PREFIX))
-                    && path.contains(ANIMATED_VECTOR_TYPE_PATH)) {
-                return super.isFiltered(identifier, path, protobufBufferArray, matchedGroup, contentType, contentIndex);
-            }
-
             return false;
         }
 
