@@ -5,15 +5,6 @@ package app.revanced.patches.youtube.misc.playservice
 import app.revanced.patcher.patch.resourcePatch
 import app.revanced.util.findElementByAttributeValueOrThrow
 
-@Deprecated("19.16.39 is the lowest supported version")
-var is_19_03_or_greater = false
-    private set
-@Deprecated("19.16.39 is the lowest supported version")
-var is_19_04_or_greater = false
-    private set
-@Deprecated("19.16.39 is the lowest supported version")
-var is_19_16_or_greater = false
-    private set
 var is_19_17_or_greater = false
     private set
 var is_19_18_or_greater = false
@@ -67,9 +58,6 @@ val versionCheckPatch = resourcePatch(
         }
 
         // All bug fix releases always seem to use the same play store version as the minor version.
-        is_19_03_or_greater = 240402000 <= playStoreServicesVersion
-        is_19_04_or_greater = 240502000 <= playStoreServicesVersion
-        is_19_16_or_greater = 241702000 <= playStoreServicesVersion
         is_19_17_or_greater = 241802000 <= playStoreServicesVersion
         is_19_18_or_greater = 241902000 <= playStoreServicesVersion
         is_19_23_or_greater = 242402000 <= playStoreServicesVersion
