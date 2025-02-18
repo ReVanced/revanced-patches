@@ -3,11 +3,9 @@ package app.revanced.extension.youtube.patches.components;
 import static app.revanced.extension.youtube.shared.NavigationBar.NavigationButton;
 
 import android.graphics.drawable.Drawable;
-import android.os.Build;
 import android.view.View;
 
 import androidx.annotation.Nullable;
-import androidx.annotation.RequiresApi;
 
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
@@ -38,6 +36,7 @@ public final class LayoutComponentsFilter extends Filter {
     private final StringTrieSearch exceptions = new StringTrieSearch();
     private final StringFilterGroup inFeedSurvey;
     private final StringFilterGroup notifyMe;
+    private final StringFilterGroup singleItemInformationPanel;
     private final StringFilterGroup expandableMetadata;
     private final ByteArrayFilterGroup searchResultRecommendations;
     private final StringFilterGroup searchResultVideo;
@@ -47,7 +46,6 @@ public final class LayoutComponentsFilter extends Filter {
     private final StringFilterGroup likeSubscribeGlow;
     private final StringFilterGroup horizontalShelves;
 
-    @RequiresApi(api = Build.VERSION_CODES.N)
     public LayoutComponentsFilter() {
         exceptions.addPatterns(
                 "home_video_with_context",
@@ -123,8 +121,12 @@ public final class LayoutComponentsFilter extends Filter {
         );
 
         final var infoPanel = new StringFilterGroup(
-                Settings.HIDE_HIDE_INFO_PANELS,
-                "publisher_transparency_panel",
+                Settings.HIDE_INFO_PANELS,
+                "publisher_transparency_panel"
+        );
+
+        singleItemInformationPanel = new StringFilterGroup(
+                Settings.HIDE_INFO_PANELS,
                 "single_item_information_panel"
         );
 
@@ -269,6 +271,7 @@ public final class LayoutComponentsFilter extends Filter {
                 compactChannelBarInner,
                 medicalPanel,
                 infoPanel,
+                singleItemInformationPanel,
                 emergencyBox,
                 subscribersCommunityGuidelines,
                 channelGuidelines,
@@ -285,6 +288,19 @@ public final class LayoutComponentsFilter extends Filter {
     @Override
     boolean isFiltered(@Nullable String identifier, String path, byte[] protobufBufferArray,
                        StringFilterGroup matchedGroup, FilterContentType contentType, int contentIndex) {
+        // This identifier is used not only in players but also in search results:
+        // https://github.com/ReVanced/revanced-patches/issues/3245
+        // Until 2024, medical information panels such as Covid 19 also used this identifier and were shown in the search results.
+        // From 2025, the medical information panel is no longer shown in the search results.
+        // Therefore, this identifier does not filter when the search bar is activated.
+        if (matchedGroup == singleItemInformationPanel) {
+            if (PlayerType.getCurrent().isMaximizedOrFullscreen() || !NavigationBar.isSearchBarActive()) {
+                return super.isFiltered(identifier, path, protobufBufferArray, matchedGroup, contentType, contentIndex);
+            }
+
+            return false;
+        }
+
         if (matchedGroup == searchResultVideo) {
             if (searchResultRecommendations.check(protobufBufferArray).isFiltered()) {
                 return super.isFiltered(identifier, path, protobufBufferArray, matchedGroup, contentType, contentIndex);

@@ -1,9 +1,6 @@
 package app.revanced.extension.youtube.patches.components;
 
-import android.os.Build;
-
 import androidx.annotation.NonNull;
-import androidx.annotation.RequiresApi;
 
 import java.util.*;
 import java.util.function.Consumer;
@@ -44,13 +41,11 @@ abstract class FilterGroupList<V, T extends FilterGroup<V>> implements Iterable<
         return filterGroups.iterator();
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     public void forEach(@NonNull Consumer<? super T> action) {
         filterGroups.forEach(action);
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.N)
     @NonNull
     @Override
     public Spliterator<T> spliterator() {
