@@ -484,10 +484,14 @@ Second \"item\" text"</string>
   </patch>
   <patch id="interaction.swipecontrols.swipeControlsResourcePatch">
   <string name="revanced_swipe_brightness_title">Зміна яскравості жестом</string>
-  <string name="revanced_swipe_brightness_summary_on">Зміну яскравості жестом по лівій частині відеоплеєра ввімкнуто</string>
+  <string name="revanced_swipe_brightness_summary_on">"Увімкнено зміну яскравості жестом на весь екран
+
+Регулюйте яскравість, проводячи пальцем вертикально зліва на екрані"</string>
   <string name="revanced_swipe_brightness_summary_off">Зміну яскравості жестом по лівій частині відеоплеєра вимкнено</string>
   <string name="revanced_swipe_volume_title">Зміна гучності жестом</string>
-  <string name="revanced_swipe_volume_summary_on">Зміну гучності жестом по правій частині відеоплеєра ввімкнуто</string>
+  <string name="revanced_swipe_volume_summary_on">"Увімкнено жест регулювання гучності на весь екран
+
+Регулюйте гучність, проводячи вертикально по правій стороні екрана"</string>
   <string name="revanced_swipe_volume_summary_off">Зміну гучності жестом по правій частині відеоплеєра вимкнено</string>
   <string name="revanced_swipe_press_to_engage_title">Натискання для жесту</string>
   <string name="revanced_swipe_press_to_engage_summary_on">Натискання та утримання для жесту ввімкнуто</string>
@@ -501,16 +505,19 @@ Second \"item\" text"</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_title">Жест автояскравості</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_on">Проведення вниз до найнижчого значення яскравості вмикає автоматичну яскравість</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_off">Проведення вниз до найнижчого значення не вмикає автоматичну яскравість</string>
-  <string name="revanced_swipe_lowest_value_enable_auto_brightness_overlay_text">Авто</string>
   <string name="revanced_swipe_overlay_timeout_title">Час показу панелі жесту</string>
   <string name="revanced_swipe_overlay_timeout_summary">Скільки мілісекунд спливаюча панель при жесті буде показуватися</string>
-  <string name="revanced_swipe_text_overlay_size_title">Розмір шрифту панелі жесту</string>
-  <string name="revanced_swipe_text_overlay_size_summary">Розмір шрифту спливаючої панелі при жесті</string>
   <string name="revanced_swipe_overlay_background_opacity_title">Затемнення фону панелі жесту</string>
   <string name="revanced_swipe_overlay_background_opacity_summary">Значення затемнення від 0 до 100</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Значення затемнення панелі жесту має бути в межах від 0 до 100</string>
   <string name="revanced_swipe_threshold_title">Поріг величини жесту</string>
   <string name="revanced_swipe_threshold_summary">Мінімальна амплітуда руху, що розпізнається як жест</string>
+  <string name="revanced_swipe_show_circular_overlay_title">Показувати кругове накладання</string>
+  <string name="revanced_swipe_show_circular_overlay_summary_on">Кругове накладання відображається</string>
+  <string name="revanced_swipe_show_circular_overlay_summary_off">Горизонтальне накладання відображається</string>
+  <string name="revanced_swipe_overlay_minimal_style_title">Увімкнути мінімалістичний стиль</string>
+  <string name="revanced_swipe_overlay_minimal_style_summary_on">Увімкнено мінімалістичний стиль накладання</string>
+  <string name="revanced_swipe_overlay_minimal_style_summary_off">Мінімальний стиль накладання вимкнено</string>
   <string name="revanced_swipe_change_video_title">Увімкнути зміну відео проведенням</string>
   <string name="revanced_swipe_change_video_summary_on">Проведення пальцем у повноекранному режимі перейде до наступного/попереднього відео</string>
   <string name="revanced_swipe_change_video_summary_off">Проведення пальцем у повноекранному режимі не перейде до наступного/попереднього відео</string>

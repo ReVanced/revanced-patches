@@ -484,11 +484,15 @@ Bu özellik yalnızca eski cihazlarda kullanılabilir"</string>
   </patch>
   <patch id="interaction.swipecontrols.swipeControlsResourcePatch">
   <string name="revanced_swipe_brightness_title">Parlaklık hareketini etkinleştir</string>
-  <string name="revanced_swipe_brightness_summary_on">Parlaklık kaydırma hareketi etkin</string>
-  <string name="revanced_swipe_brightness_summary_off">Parlaklık kaydırma hareketi devre dışı</string>
+  <string name="revanced_swipe_brightness_summary_on">"Tam ekran parlaklık kaydırması etkin
+
+Ekranın sol tarafında dikey olarak kaydırarak parlaklığı ayarlayın"</string>
+  <string name="revanced_swipe_brightness_summary_off">Tam ekran parlaklık kaydırması devre dışı</string>
   <string name="revanced_swipe_volume_title">Ses hareketini etkinleştir</string>
-  <string name="revanced_swipe_volume_summary_on">Ses kaydırma hareketi etkin</string>
-  <string name="revanced_swipe_volume_summary_off">Ses kaydırma hareketi devre dışı</string>
+  <string name="revanced_swipe_volume_summary_on">"Tam ekran ses kaydırma etkin
+
+Ekranın sağ tarafında dikey olarak kaydırarak sesi ayarlayın"</string>
+  <string name="revanced_swipe_volume_summary_off">Tam ekran ses kaydırma devre dışı</string>
   <string name="revanced_swipe_press_to_engage_title">Basılı tutup kaydırma hareketini etkinleştir</string>
   <string name="revanced_swipe_press_to_engage_summary_on">Basılı tutup kaydırma hareketi etkin</string>
   <string name="revanced_swipe_press_to_engage_summary_off">Basılı tutup kaydırma hareketi devre dışı</string>
@@ -501,16 +505,19 @@ Bu özellik yalnızca eski cihazlarda kullanılabilir"</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_title">Otomatik parlaklık hareketini etkinleştir</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_on">Parlaklık hareketinin en düşük değerine kadar kaydırma otomatik parlaklığı etkinleştirir</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_off">Parlaklık hareketinin en düşük değerine kadar kaydırma otomatik parlaklığı etkinleştirmez</string>
-  <string name="revanced_swipe_lowest_value_enable_auto_brightness_overlay_text">Oto</string>
   <string name="revanced_swipe_overlay_timeout_title">Kaydırma paneli zaman aşımı</string>
   <string name="revanced_swipe_overlay_timeout_summary">Panelin görünür olduğu milisaniye miktarı</string>
-  <string name="revanced_swipe_text_overlay_size_title">Kaydırma paneli metin boyutu</string>
-  <string name="revanced_swipe_text_overlay_size_summary">Kaydırma paneli için metin boyutu</string>
   <string name="revanced_swipe_overlay_background_opacity_title">Kaydırma paneli arka plan opaklığı</string>
   <string name="revanced_swipe_overlay_background_opacity_summary">0-100 arasında opaklık değeri</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Kaydırma opaklığı 0-100 arasında olmalıdır</string>
   <string name="revanced_swipe_threshold_title">Kaydırma büyüklük eşiği</string>
   <string name="revanced_swipe_threshold_summary">Kaydırma işleminin gerçekleşmesi için eşik miktarı</string>
+  <string name="revanced_swipe_show_circular_overlay_title">Dairesel katmanı göster</string>
+  <string name="revanced_swipe_show_circular_overlay_summary_on">Dairesel katman gösteriliyor</string>
+  <string name="revanced_swipe_show_circular_overlay_summary_off">Yatay katman gösteriliyor</string>
+  <string name="revanced_swipe_overlay_minimal_style_title">Minimal stili etkinleştir</string>
+  <string name="revanced_swipe_overlay_minimal_style_summary_on">Minimal kaplama stili etkin</string>
+  <string name="revanced_swipe_overlay_minimal_style_summary_off">Minimal katman stili devre dışı</string>
   <string name="revanced_swipe_change_video_title">Kaydırarak video değiştirmeyi etkinleştir</string>
   <string name="revanced_swipe_change_video_summary_on">Tam ekran modunda kaydırma, bir sonraki/önceki videoya geçecektir</string>
   <string name="revanced_swipe_change_video_summary_off">Tam ekran modunda kaydırma, bir sonraki/önceki videoya geçmeyecektir</string>

@@ -479,11 +479,13 @@ Diese Funktion ist nur für ältere Geräte verfügbar"</string>
   </patch>
   <patch id="interaction.swipecontrols.swipeControlsResourcePatch">
   <string name="revanced_swipe_brightness_title">Helligkeitsgeste aktivieren</string>
-  <string name="revanced_swipe_brightness_summary_on">Helligkeitswischen ist aktiviert</string>
-  <string name="revanced_swipe_brightness_summary_off">Helligkeitswischen ist deaktiviert</string>
+  <string name="revanced_swipe_brightness_summary_on">"Vollbild-Helligkeits-Swipe ist aktiviert
+
+Passen Sie die Helligkeit an, indem Sie auf der linken Seite des Bildschirms vertikal wischen"</string>
+  <string name="revanced_swipe_brightness_summary_off">Vollbild-Helligkeits-Swipe ist deaktiviert</string>
   <string name="revanced_swipe_volume_title">Lautstärke-Geste aktivieren</string>
-  <string name="revanced_swipe_volume_summary_on">Lautstärke-Wischen ist aktiviert</string>
-  <string name="revanced_swipe_volume_summary_off">Lautstärke-Wischen ist deaktiviert</string>
+  <string name="revanced_swipe_volume_summary_on">"Die Vollbild-Lautstärkegeste ist aktiviert\n\nPassen Sie die Lautstärke an, indem Sie auf der rechten Seite des Bildschirms vertikal wischen"</string>
+  <string name="revanced_swipe_volume_summary_off">Die Vollbild-Lautstärkegeste ist deaktiviert</string>
   <string name="revanced_swipe_press_to_engage_title">Aktiviere Drücken-zu-Wischgeste</string>
   <string name="revanced_swipe_press_to_engage_summary_on">Drücken zum Wischen ist aktiviert</string>
   <string name="revanced_swipe_press_to_engage_summary_off">Drücken zum Wischen ist deaktiviert</string>
@@ -496,16 +498,19 @@ Diese Funktion ist nur für ältere Geräte verfügbar"</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_title">Auto-Helligkeit Geste aktivieren</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_on">Wische runter auf den niedrigsten Wert der Helligkeitsgeste, um die automatische Helligkeit zu aktivieren</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_off">Wenn man zum niedrigsten Wert wischt, aktiviert man die automatische Helligkeit nicht</string>
-  <string name="revanced_swipe_lowest_value_enable_auto_brightness_overlay_text">Automatik</string>
   <string name="revanced_swipe_overlay_timeout_title">Wischüberlagerungs-Timeout</string>
   <string name="revanced_swipe_overlay_timeout_summary">Die Anzahl der Millisekunden, die das Overlay sichtbar ist</string>
-  <string name="revanced_swipe_text_overlay_size_title">Wischüberlagerung Textgröße</string>
-  <string name="revanced_swipe_text_overlay_size_summary">Die Textgröße für Wische-Overlay</string>
   <string name="revanced_swipe_overlay_background_opacity_title">Bildschirmüberlagerung Deckkraft Swipe</string>
   <string name="revanced_swipe_overlay_background_opacity_summary">Deckkraftwert zwischen 0-100</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Die Wischdeckkraft muss zwischen 0 und 100 liegen</string>
   <string name="revanced_swipe_threshold_title">Wischgrößenschwelle</string>
   <string name="revanced_swipe_threshold_summary">Der Schwellenwert für Wischen</string>
+  <string name="revanced_swipe_show_circular_overlay_title">Kreisförmiges Overlay anzeigen</string>
+  <string name="revanced_swipe_show_circular_overlay_summary_on">Kreisförmiges Overlay wird angezeigt</string>
+  <string name="revanced_swipe_show_circular_overlay_summary_off">Horizontales Overlay wird angezeigt</string>
+  <string name="revanced_swipe_overlay_minimal_style_title">Minimalen Stil aktivieren</string>
+  <string name="revanced_swipe_overlay_minimal_style_summary_on">Minimaler Overlay-Stil ist aktiviert</string>
+  <string name="revanced_swipe_overlay_minimal_style_summary_off">Minimaler Overlay-Stil ist deaktiviert</string>
   <string name="revanced_swipe_change_video_title">Mit Wischen wechseln Sie zu den Videos</string>
   <string name="revanced_swipe_change_video_summary_on">Im Vollbildmodus wischen, um zum nächsten/vorherigen Video zu wechseln</string>
   <string name="revanced_swipe_change_video_summary_off">Im Vollbildmodus wischen, um nicht zum nächsten/vorherigen Video zu wechseln</string>

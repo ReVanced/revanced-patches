@@ -487,10 +487,14 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   </patch>
   <patch id="interaction.swipecontrols.swipeControlsResourcePatch">
   <string name="revanced_swipe_brightness_title">스와이프 제스처로 밝기 조절 활성화하기</string>
-  <string name="revanced_swipe_brightness_summary_on">스와이프 제스처로 밝기 조절을 활성화합니다</string>
-  <string name="revanced_swipe_brightness_summary_off">스와이프 제스처로 밝기 조절을 비활성화합니다</string>
+  <string name="revanced_swipe_brightness_summary_on">"전체 화면 밝기 스와이프가 활성화되었습니다.
+
+화면 왼쪽에서 세로로 스와이프하여 밝기를 조절합니다"</string>
+  <string name="revanced_swipe_brightness_summary_off">전체 화면 밝기 스와이프가 비활성화되었습니다</string>
   <string name="revanced_swipe_volume_title">스와이프 제스처로 볼륨 조절 활성화하기</string>
-  <string name="revanced_swipe_volume_summary_on">스와이프 제스처로 볼륨 조절을 활성화합니다</string>
+  <string name="revanced_swipe_volume_summary_on">"전체 화면 볼륨 스와이프가 활성화되었습니다.
+
+화면 오른쪽을 세로로 스와이프하여 볼륨을 조절합니다"</string>
   <string name="revanced_swipe_volume_summary_off">스와이프 제스처로 볼륨 조절을 비활성화합니다</string>
   <string name="revanced_swipe_press_to_engage_title">길게 눌러서 스와이프 제스처 사용하기</string>
   <string name="revanced_swipe_press_to_engage_summary_on">화면을 길게 눌러서 스와이프 제스처를 사용합니다</string>
@@ -504,16 +508,19 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_title">스와이프 제스처로 자동 밝기 활성화하기</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_on">스와이프 제스처로 밝기가 0이 되면 자동 밝기를 활성화합니다</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_off">스와이프 제스처로 밝기가 0이 되더라도 자동 밝기를 활성화하지 않습니다</string>
-  <string name="revanced_swipe_lowest_value_enable_auto_brightness_overlay_text">자동</string>
   <string name="revanced_swipe_overlay_timeout_title">오버레이 타임아웃</string>
   <string name="revanced_swipe_overlay_timeout_summary">오버레이가 표시되는 시간을 지정할 수 있습니다 (밀리초)</string>
-  <string name="revanced_swipe_text_overlay_size_title">오버레이 텍스트 크기</string>
-  <string name="revanced_swipe_text_overlay_size_summary">오버레이 텍스트 크기를 지정할 수 있습니다</string>
   <string name="revanced_swipe_overlay_background_opacity_title">스와이프 오버레이 배경 불투명도</string>
   <string name="revanced_swipe_overlay_background_opacity_summary">스와이프 불투명도 값은 0-100 사이여야 합니다</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">스와이프 불투명도 값은 0-100 사이여야 합니다</string>
   <string name="revanced_swipe_threshold_title">스와이프 한계치</string>
   <string name="revanced_swipe_threshold_summary">제스처 인식을 위해 얼마나 스와이프를 해야 할지를 지정할 수 있으며, 원하지 않은 제스처 인식을 방지할 수 있습니다</string>
+  <string name="revanced_swipe_show_circular_overlay_title">원형 오버레이 표시</string>
+  <string name="revanced_swipe_show_circular_overlay_summary_on">원형 오버레이가 표시됩니다</string>
+  <string name="revanced_swipe_show_circular_overlay_summary_off">가로 오버레이가 표시됩니다</string>
+  <string name="revanced_swipe_overlay_minimal_style_title">최소 스타일 사용</string>
+  <string name="revanced_swipe_overlay_minimal_style_summary_on">최소 오버레이 스타일이 활성화되었습니다</string>
+  <string name="revanced_swipe_overlay_minimal_style_summary_off">최소 오버레이 스타일이 비활성화되었습니다</string>
   <string name="revanced_swipe_change_video_title">스와이프 제스처로 동영상 전환 활성화하기</string>
   <string name="revanced_swipe_change_video_summary_on">전체 화면 모드에서 위로/아래로 스와이프하여 다음/이전 동영상으로 전환합니다.</string>
   <string name="revanced_swipe_change_video_summary_off">전체 화면 모드에서 위로/아래로 스와이프하여 다음/이전 동영상으로 전환하지 않습니다.</string>

@@ -484,11 +484,15 @@ MicroG-ի համար մարտկոցի օպտիմալացումը անջատել�
   </patch>
   <patch id="interaction.swipecontrols.swipeControlsResourcePatch">
   <string name="revanced_swipe_brightness_title">Միացնել լուսավորության ժեստը</string>
-  <string name="revanced_swipe_brightness_summary_on">Լուսավորության սահումը միացված է</string>
-  <string name="revanced_swipe_brightness_summary_off">Լուսավորության սահումը անջատված է</string>
+  <string name="revanced_swipe_brightness_summary_on">"Մեծ էկրանով պայծառության սահեցումը միացված է։
+
+Կարգավորեք պայծառությունը՝ էկրանի ձախ կողմում ուղղահայաց սահեցնելով։"</string>
+  <string name="revanced_swipe_brightness_summary_off">Մեծ էկրանով պայծառության սահեցումն անջատված է</string>
   <string name="revanced_swipe_volume_title">Միացնել ձայնի ժեստը</string>
-  <string name="revanced_swipe_volume_summary_on">Ձայնի սահումը միացված է</string>
-  <string name="revanced_swipe_volume_summary_off">Ձայնի սահումը անջատված է</string>
+  <string name="revanced_swipe_volume_summary_on">"Ամբողջ էկրանով ձայնի սահեցումը միացված է
+
+Կարգավորեք ձայնի ձայնը՝ ուղղահայաց սահեցնելով էկրանի աջ կողմում"</string>
+  <string name="revanced_swipe_volume_summary_off">Ամբողջ էկրանով ձայնի սահեցումը անջատված է</string>
   <string name="revanced_swipe_press_to_engage_title">Միացնել սեղմելու համար սահման ժեստը</string>
   <string name="revanced_swipe_press_to_engage_summary_on">Սեղմելու համար սահմանը միացված է</string>
   <string name="revanced_swipe_press_to_engage_summary_off">Սեղմելու համար սահմանը անջատված է</string>
@@ -501,16 +505,19 @@ MicroG-ի համար մարտկոցի օպտիմալացումը անջատել�
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_title">Միացնել ավտոմատ լուսավորության ժեստը</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_on">Լուսավորության ժեստի ամենացածր արժեքին իջնելը միացնում է ավտոմատ լուսավորությունը</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_off">Լուսավորության ժեստի ամենացածր արժեքին իջնելը չի միացնում ավտոմատ լուսավորությունը</string>
-  <string name="revanced_swipe_lowest_value_enable_auto_brightness_overlay_text">Ավտոմատ</string>
   <string name="revanced_swipe_overlay_timeout_title">Սահմանման վերածումը հետաձգելու ժամանակը</string>
   <string name="revanced_swipe_overlay_timeout_summary">Վերածման ցուցադրման տևողությունը միլիվայրկյաններով</string>
-  <string name="revanced_swipe_text_overlay_size_title">Սահմանման վերածման տեքստի չափը</string>
-  <string name="revanced_swipe_text_overlay_size_summary">Սահմանման վերածման տեքստի չափը</string>
   <string name="revanced_swipe_overlay_background_opacity_title">Սողացման ծածկույթի ֆոնի անթափանցություն</string>
   <string name="revanced_swipe_overlay_background_opacity_summary">Անթափանցության արժեք 0-100 միջակայքում</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Սողալու անթափանցությունը պետք է լինի 0-100 միջակայքում</string>
   <string name="revanced_swipe_threshold_title">Սահմանման վերածման չափը</string>
   <string name="revanced_swipe_threshold_summary">Սահմանման վերածման չափը</string>
+  <string name="revanced_swipe_show_circular_overlay_title">Ցույց տալ շրջանաձև ծածկույթը</string>
+  <string name="revanced_swipe_show_circular_overlay_summary_on">Ցուցադրված է շրջանաձև ծածկույթ</string>
+  <string name="revanced_swipe_show_circular_overlay_summary_off">Հորիզոնական ծածկույթը ցուցադրվում է</string>
+  <string name="revanced_swipe_overlay_minimal_style_title">Միացնել նվազագույն ոճը</string>
+  <string name="revanced_swipe_overlay_minimal_style_summary_on">Միացված է նվազագույն վերադրման ոճը</string>
+  <string name="revanced_swipe_overlay_minimal_style_summary_off">Նվազագույն ծածկույթի ոճն անջատված է</string>
   <string name="revanced_swipe_change_video_title">Վայրէջքով տեսանյութերը փոխելու ակտիվացում</string>
   <string name="revanced_swipe_change_video_summary_on">Լիարժեք ռեժիմով վայրէջքը կփոխվի հաջորդ / նախորդ տեսանյութին</string>
   <string name="revanced_swipe_change_video_summary_off">Լիարժեք ռեժիմով վայրէջքը չի փոխվի հաջորդ / նախորդ տեսանյութին</string>

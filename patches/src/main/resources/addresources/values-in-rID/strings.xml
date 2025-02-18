@@ -484,11 +484,15 @@ Fitur ini hanya tersedia untuk perangkat yang lebih lama"</string>
   </patch>
   <patch id="interaction.swipecontrols.swipeControlsResourcePatch">
   <string name="revanced_swipe_brightness_title">Aktifkan gerakan kecerahan</string>
-  <string name="revanced_swipe_brightness_summary_on">Sapuan kecerahan diaktifkan</string>
-  <string name="revanced_swipe_brightness_summary_off">Sapuan kecerahan dinonaktifkan</string>
+  <string name="revanced_swipe_brightness_summary_on">"Sapuan kecerahan layar penuh diaktifkan
+
+Sesuaikan kecerahan dengan menggeser secara vertikal di sisi kiri layar"</string>
+  <string name="revanced_swipe_brightness_summary_off">Sapuan kecerahan layar penuh dinonaktifkan</string>
   <string name="revanced_swipe_volume_title">Aktifkan gerakan volume</string>
-  <string name="revanced_swipe_volume_summary_on">Sapuan volume diaktifkan</string>
-  <string name="revanced_swipe_volume_summary_off">Sapuan volume dinonaktifkan</string>
+  <string name="revanced_swipe_volume_summary_on">"Gesek volume layar penuh diaktifkan
+
+Sesuaikan volume dengan menggesek secara vertikal di sisi kanan layar"</string>
+  <string name="revanced_swipe_volume_summary_off">Gesek volume layar penuh dinonaktifkan</string>
   <string name="revanced_swipe_press_to_engage_title">Aktifkan gerakan tekan-untuk-mengusap</string>
   <string name="revanced_swipe_press_to_engage_summary_on">Tekan-untuk-mengusap diaktifkan</string>
   <string name="revanced_swipe_press_to_engage_summary_off">Tekan-untuk-mengusap dinonaktifkan</string>
@@ -501,16 +505,19 @@ Fitur ini hanya tersedia untuk perangkat yang lebih lama"</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_title">Aktifkan gerakan kecerahan otomatis</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_on">Mengusap ke bawah ke nilai terendah dari gerakan kecerahan akan menyalakan kecerahan otomatis</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_off">Mengusap ke bawah ke nilai terendah tidak mengaktifkan kecerahan otomatis</string>
-  <string name="revanced_swipe_lowest_value_enable_auto_brightness_overlay_text">Otomatis</string>
   <string name="revanced_swipe_overlay_timeout_title">Batas waktu hamparan usap</string>
   <string name="revanced_swipe_overlay_timeout_summary">Jumlah milidetik hamparan terlihat</string>
-  <string name="revanced_swipe_text_overlay_size_title">Ukuran teks hamparan usap</string>
-  <string name="revanced_swipe_text_overlay_size_summary">Ukuran teks untuk hamparan usap</string>
   <string name="revanced_swipe_overlay_background_opacity_title">Opasitas latar belakang hamparan geser</string>
   <string name="revanced_swipe_overlay_background_opacity_summary">Nilai opasitas antara 0-100</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Opasitas geser harus antara 0-100</string>
   <string name="revanced_swipe_threshold_title">Ambang batas magnitudo usap</string>
   <string name="revanced_swipe_threshold_summary">Jumlah ambang batas untuk terjadinya usapan</string>
+  <string name="revanced_swipe_show_circular_overlay_title">Tampilkan overlay melingkar</string>
+  <string name="revanced_swipe_show_circular_overlay_summary_on">Overlay melingkar ditampilkan</string>
+  <string name="revanced_swipe_show_circular_overlay_summary_off">Overlay horizontal ditampilkan</string>
+  <string name="revanced_swipe_overlay_minimal_style_title">Aktifkan gaya minimal</string>
+  <string name="revanced_swipe_overlay_minimal_style_summary_on">Gaya overlay minimal diaktifkan</string>
+  <string name="revanced_swipe_overlay_minimal_style_summary_off">Gaya overlay minimal dinonaktifkan</string>
   <string name="revanced_swipe_change_video_title">Aktifkan usapan untuk beralih video</string>
   <string name="revanced_swipe_change_video_summary_on">Mengusap dalam mode layar penuh akan beralih ke video berikutnya/sebelumnya</string>
   <string name="revanced_swipe_change_video_summary_off">Mengusap dalam mode layar penuh tidak akan beralih ke video berikutnya/sebelumnya</string>

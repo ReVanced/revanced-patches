@@ -484,11 +484,15 @@ Această funcție este disponibilă numai pentru dispozitivele mai vechi"</strin
   </patch>
   <patch id="interaction.swipecontrols.swipeControlsResourcePatch">
   <string name="revanced_swipe_brightness_title">Activează gestul de luminozitate</string>
-  <string name="revanced_swipe_brightness_summary_on">Tragerea luminozității este activată</string>
-  <string name="revanced_swipe_brightness_summary_off">Tragerea luminozității este dezactivată</string>
+  <string name="revanced_swipe_brightness_summary_on">"Tragerea luminozității pe tot ecranul este activată
+
+Reglați luminozitatea glisând vertical pe partea stângă a ecranului"</string>
+  <string name="revanced_swipe_brightness_summary_off">Tragerea luminozității pe tot ecranul este dezactivată</string>
   <string name="revanced_swipe_volume_title">Activare gest volum</string>
-  <string name="revanced_swipe_volume_summary_on">Tragerea volumului este activată</string>
-  <string name="revanced_swipe_volume_summary_off">Tragerea volumului este dezactivată</string>
+  <string name="revanced_swipe_volume_summary_on">"Glisarea volumului pe ecran complet este activată
+
+Reglați volumul glisând vertical pe partea dreaptă a ecranului"</string>
+  <string name="revanced_swipe_volume_summary_off">Glisarea volumului pe ecran complet este dezactivată</string>
   <string name="revanced_swipe_press_to_engage_title">Activează gestul de apăsare în glisare</string>
   <string name="revanced_swipe_press_to_engage_summary_on">Apăsa-to-glisare este activată</string>
   <string name="revanced_swipe_press_to_engage_summary_off">Apăsa-to-glisare este dezactivată</string>
@@ -501,16 +505,19 @@ Această funcție este disponibilă numai pentru dispozitivele mai vechi"</strin
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_title">Activează gestul de luminozitate automată</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_on">Glisați în jos până la cea mai mică valoare a gestului de luminozitate activând luminozitatea automată</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_off">Glisarea în jos până la cea mai mică valoare nu activează luminozitatea automată</string>
-  <string name="revanced_swipe_lowest_value_enable_auto_brightness_overlay_text">Automat</string>
   <string name="revanced_swipe_overlay_timeout_title">Expirare suprapunere glisare</string>
   <string name="revanced_swipe_overlay_timeout_summary">Cantitatea de milisecunde suprapunerea este vizibilă</string>
-  <string name="revanced_swipe_text_overlay_size_title">Dimensiune text glisare suprapunere</string>
-  <string name="revanced_swipe_text_overlay_size_summary">Dimensiunea textului pentru suprapunere glisare</string>
   <string name="revanced_swipe_overlay_background_opacity_title">Opacitate suprapunere glisare</string>
   <string name="revanced_swipe_overlay_background_opacity_summary">Valoare opacitate între 0-100</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Opacitatea glisării trebuie să fie între 0-100</string>
   <string name="revanced_swipe_threshold_title">Pragul mărimii glisării</string>
   <string name="revanced_swipe_threshold_summary">Cantitatea de prag pentru a glisa</string>
+  <string name="revanced_swipe_show_circular_overlay_title">Afișează suprapunerea circulară</string>
+  <string name="revanced_swipe_show_circular_overlay_summary_on">Suprapunerea circulară este afișată</string>
+  <string name="revanced_swipe_show_circular_overlay_summary_off">Suprapunerea orizontală este afișată</string>
+  <string name="revanced_swipe_overlay_minimal_style_title">Activați stilul minimal</string>
+  <string name="revanced_swipe_overlay_minimal_style_summary_on">Stilul minimal de suprapunere este activat</string>
+  <string name="revanced_swipe_overlay_minimal_style_summary_off">Stilul minim de suprapunere este dezactivat</string>
   <string name="revanced_swipe_change_video_title">Activați glisarea pentru a schimba videoclipurile</string>
   <string name="revanced_swipe_change_video_summary_on">Glisarea în modul pe ecran complet va trece la următorul/anteriorul videoclip</string>
   <string name="revanced_swipe_change_video_summary_off">Glisarea în modul pe ecran complet nu va trece la următorul/anteriorul videoclip</string>

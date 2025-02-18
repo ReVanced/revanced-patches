@@ -484,11 +484,15 @@ Ang tampok na ito ay magagamit lamang para sa mga mas lumang device"</string>
   </patch>
   <patch id="interaction.swipecontrols.swipeControlsResourcePatch">
   <string name="revanced_swipe_brightness_title">I-enable ang brightness gesture</string>
-  <string name="revanced_swipe_brightness_summary_on">Naka-enable ang brightness swipe</string>
-  <string name="revanced_swipe_brightness_summary_off">Naka-disable ang brightness swipe</string>
+  <string name="revanced_swipe_brightness_summary_on">"Naka-enable ang pag-swipe ng brightness sa fullscreen
+
+Aayos ang brightness sa pamamagitan ng pag-swipe nang patayo sa kaliwang bahagi ng screen"</string>
+  <string name="revanced_swipe_brightness_summary_off">Naka-disable ang pag-swipe ng brightness sa fullscreen</string>
   <string name="revanced_swipe_volume_title">I-enable ang volume gesture</string>
-  <string name="revanced_swipe_volume_summary_on">Naka-enable ang volume swipe</string>
-  <string name="revanced_swipe_volume_summary_off">Naka-disable ang volume swipe</string>
+  <string name="revanced_swipe_volume_summary_on">"Pinagana ang pag-swipe ng volume sa fullscreen
+
+Ayusin ang volume sa pamamagitan ng pag-swipe nang patayo sa kanang bahagi ng screen"</string>
+  <string name="revanced_swipe_volume_summary_off">Hindi pinagana ang pag-swipe ng volume sa fullscreen</string>
   <string name="revanced_swipe_press_to_engage_title">I-enable ang press-to-swipe na galaw</string>
   <string name="revanced_swipe_press_to_engage_summary_on">Naka-enable ang press-to-swipe</string>
   <string name="revanced_swipe_press_to_engage_summary_off">Naka-disable ang press-to-swipe</string>
@@ -501,16 +505,19 @@ Ang tampok na ito ay magagamit lamang para sa mga mas lumang device"</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_title">I-enable ang galaw ng auto-brightness</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_on">Ang pag-swipe pababa sa pinakamababang halaga ng brightness gesture ay nagbibigay-daan sa auto-brightness</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_off">Ang pag-swipe pababa sa pinakamababang halaga ay hindi nagpapagana ng auto-brightness</string>
-  <string name="revanced_swipe_lowest_value_enable_auto_brightness_overlay_text">Awtomatik</string>
   <string name="revanced_swipe_overlay_timeout_title">Mag-swipe overlay timeout</string>
   <string name="revanced_swipe_overlay_timeout_summary">Ang dami ng millisecond na nakikita ang overlay</string>
-  <string name="revanced_swipe_text_overlay_size_title">I-swipe ang laki ng teksto ng overlay</string>
-  <string name="revanced_swipe_text_overlay_size_summary">Ang laki ng text para sa swipe overlay</string>
   <string name="revanced_swipe_overlay_background_opacity_title">Transparency ng background ng swipe overlay</string>
   <string name="revanced_swipe_overlay_background_opacity_summary">Halaga ng opacity sa pagitan ng 0-100</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Ang opacity ng swipe ay dapat nasa pagitan ng 0-100</string>
   <string name="revanced_swipe_threshold_title">I-swipe ang magnitude threshold</string>
   <string name="revanced_swipe_threshold_summary">Ang halaga ng threshold para sa pag-swipe na magaganap</string>
+  <string name="revanced_swipe_show_circular_overlay_title">Ipakita ang pabilog na overlay</string>
+  <string name="revanced_swipe_show_circular_overlay_summary_on">Ipinapakita ang pabilog na overlay</string>
+  <string name="revanced_swipe_show_circular_overlay_summary_off">Ipinapakita ang pahalang na overlay</string>
+  <string name="revanced_swipe_overlay_minimal_style_title">I-enable ang minimal na istilo</string>
+  <string name="revanced_swipe_overlay_minimal_style_summary_on">Naka-enable ang minimal na istilo ng overlay</string>
+  <string name="revanced_swipe_overlay_minimal_style_summary_off">Hindi pinagana ang minimal na istilo ng overlay</string>
   <string name="revanced_swipe_change_video_title">I-enable ang swipe para magpalit ng mga video</string>
   <string name="revanced_swipe_change_video_summary_on">Ang pag-swipe sa full screen mode ay magpapalit sa susunod/nakaraang video</string>
   <string name="revanced_swipe_change_video_summary_off">Ang pag-swipe sa full screen ay hindi magpapalit sa susunod/nakaraang video</string>

@@ -484,11 +484,15 @@ Ta funkcja jest dostępna tylko dla starszych urządzeń"</string>
   </patch>
   <patch id="interaction.swipecontrols.swipeControlsResourcePatch">
   <string name="revanced_swipe_brightness_title">Gest jasności</string>
-  <string name="revanced_swipe_brightness_summary_on">Przesunięcie jasności jest włączone</string>
-  <string name="revanced_swipe_brightness_summary_off">Przesunięcie jasności jest wyłączone</string>
+  <string name="revanced_swipe_brightness_summary_on">"Przesuwanie jasności na pełnym ekranie jest włączone
+
+Dostosuj jasność, przesuwając pionowo po lewej stronie ekranu"</string>
+  <string name="revanced_swipe_brightness_summary_off">Przesuwanie jasności na pełnym ekranie jest wyłączone</string>
   <string name="revanced_swipe_volume_title">Gest głośności</string>
-  <string name="revanced_swipe_volume_summary_on">Przesunięcie głośności jest włączone</string>
-  <string name="revanced_swipe_volume_summary_off">Przesunięcie głośności jest wyłączone</string>
+  <string name="revanced_swipe_volume_summary_on">"Przesuwanie głośności na pełnym ekranie jest włączone
+
+Dostosuj głośność, przesuwając pionowo po prawej stronie ekranu"</string>
+  <string name="revanced_swipe_volume_summary_off">Przesuwanie głośności na pełnym ekranie jest wyłączone</string>
   <string name="revanced_swipe_press_to_engage_title">Naciśnij, by przesunąć</string>
   <string name="revanced_swipe_press_to_engage_summary_on">Gest naciśnięcia jest włączony</string>
   <string name="revanced_swipe_press_to_engage_summary_off">Gest naciśnięcia jest wyłączony</string>
@@ -501,16 +505,19 @@ Ta funkcja jest dostępna tylko dla starszych urządzeń"</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_title">Gest automatycznej jasności</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_on">Przesunięcie w dół do najniższej wartości gestu jasności włącza automatyczną jasność</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_off">Przesunięcie w dół do najniższej wartości nie włącza automatycznej jasności</string>
-  <string name="revanced_swipe_lowest_value_enable_auto_brightness_overlay_text">Automatycznie</string>
   <string name="revanced_swipe_overlay_timeout_title">Limit czasu widoczności nakładki</string>
   <string name="revanced_swipe_overlay_timeout_summary">Liczba milisekund, przez które nakładka jest widoczna</string>
-  <string name="revanced_swipe_text_overlay_size_title">Rozmiar tekstu nakładki przesuwania</string>
-  <string name="revanced_swipe_text_overlay_size_summary">Rozmiar tekstu dla nakładki przy przesunięciu</string>
   <string name="revanced_swipe_overlay_background_opacity_title">Przejrzystość tła nakładki przesuwania</string>
   <string name="revanced_swipe_overlay_background_opacity_summary">Wartość przezroczystości od 0 do 100</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Przezroczystość przesuwania musi być między 0 a 100</string>
   <string name="revanced_swipe_threshold_title">Minimalna długość przesunięcia</string>
   <string name="revanced_swipe_threshold_summary">Wartość wymagana do wykonania gestu przesunięcia</string>
+  <string name="revanced_swipe_show_circular_overlay_title">Pokaż okrągłą nakładkę</string>
+  <string name="revanced_swipe_show_circular_overlay_summary_on">Wyświetlana jest okrągła nakładka</string>
+  <string name="revanced_swipe_show_circular_overlay_summary_off">Wyświetlana jest pozioma nakładka</string>
+  <string name="revanced_swipe_overlay_minimal_style_title">Włącz minimalny styl</string>
+  <string name="revanced_swipe_overlay_minimal_style_summary_on">Minimalny styl nakładki jest włączony</string>
+  <string name="revanced_swipe_overlay_minimal_style_summary_off">Minimalny styl nakładki jest wyłączony</string>
   <string name="revanced_swipe_change_video_title">Włącz przesuwanie palcem, aby zmienić filmy</string>
   <string name="revanced_swipe_change_video_summary_on">Przesunięcie palcem w trybie pełnoekranowym spowoduje przejście do następnego lub poprzedniego filmu</string>
   <string name="revanced_swipe_change_video_summary_off">Przesunięcie palcem w trybie pełnoekranowym nie spowoduje przejścia do następnego lub poprzedniego filmu</string>
