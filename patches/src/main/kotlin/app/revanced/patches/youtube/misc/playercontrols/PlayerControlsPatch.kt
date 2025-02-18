@@ -8,9 +8,8 @@ import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.resourcePatch
 import app.revanced.patcher.util.Document
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
-import app.revanced.patches.shared.misc.mapping.get
+import app.revanced.patches.shared.misc.mapping.getResourceId
 import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
-import app.revanced.patches.shared.misc.mapping.resourceMappings
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.playservice.is_19_25_or_greater
 import app.revanced.patches.youtube.misc.playservice.is_19_35_or_greater
@@ -61,8 +60,8 @@ val playerControlsResourcePatch = resourcePatch {
     execute {
         val targetResourceName = "youtube_controls_bottom_ui_container.xml"
 
-        heatseekerViewstub = resourceMappings["id", "heatseeker_viewstub"]
-        fullscreenButton = resourceMappings["id", "fullscreen_button"]
+        heatseekerViewstub = getResourceId("id", "heatseeker_viewstub")
+        fullscreenButton = getResourceId("id", "fullscreen_button")
 
         bottomTargetDocument = document("res/layout/$targetResourceName")
 

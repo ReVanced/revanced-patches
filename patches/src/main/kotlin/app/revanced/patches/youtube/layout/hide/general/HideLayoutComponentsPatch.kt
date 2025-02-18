@@ -13,9 +13,8 @@ import app.revanced.patcher.patch.resourcePatch
 import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
-import app.revanced.patches.shared.misc.mapping.get
+import app.revanced.patches.shared.misc.mapping.getResourceId
 import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
-import app.revanced.patches.shared.misc.mapping.resourceMappings
 import app.revanced.patches.shared.misc.settings.preference.*
 import app.revanced.patches.youtube.misc.litho.filter.addLithoFilter
 import app.revanced.patches.youtube.misc.litho.filter.lithoFilterPatch
@@ -48,30 +47,30 @@ private val hideLayoutComponentsResourcePatch = resourcePatch {
     dependsOn(resourceMappingPatch)
 
     execute {
-        albumCardId = resourceMappings[
+        albumCardId = getResourceId(
             "layout",
             "album_card",
-        ]
+        )
 
-        crowdfundingBoxId = resourceMappings[
+        crowdfundingBoxId = getResourceId(
             "layout",
             "donation_companion",
-        ]
+        )
 
-        relatedChipCloudMarginId = resourceMappings[
+        relatedChipCloudMarginId = getResourceId(
             "layout",
             "related_chip_cloud_reduced_margins",
-        ]
+        )
 
-        filterBarHeightId = resourceMappings[
+        filterBarHeightId = getResourceId(
             "dimen",
             "filter_bar_height",
-        ]
+        )
 
-        barContainerHeightId = resourceMappings[
+        barContainerHeightId = getResourceId(
             "dimen",
             "bar_container_height",
-        ]
+        )
     }
 }
 

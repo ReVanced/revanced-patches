@@ -3,9 +3,8 @@ package app.revanced.patches.spotify.navbar
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.resourcePatch
-import app.revanced.patches.shared.misc.mapping.get
+import app.revanced.patches.shared.misc.mapping.getResourceId
 import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
-import app.revanced.patches.shared.misc.mapping.resourceMappings
 
 internal var premiumTabId = -1L
     private set
@@ -14,7 +13,7 @@ private val premiumNavbarTabResourcePatch = resourcePatch {
     dependsOn(resourceMappingPatch)
 
     execute {
-        premiumTabId = resourceMappings["id", "premium_tab"]
+        premiumTabId = getResourceId("id", "premium_tab")
     }
 }
 

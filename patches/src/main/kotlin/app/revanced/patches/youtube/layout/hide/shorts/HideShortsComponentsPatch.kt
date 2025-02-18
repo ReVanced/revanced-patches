@@ -9,9 +9,8 @@ import app.revanced.patcher.patch.resourcePatch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
-import app.revanced.patches.shared.misc.mapping.get
+import app.revanced.patches.shared.misc.mapping.getResourceId
 import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
-import app.revanced.patches.shared.misc.mapping.resourceMappings
 import app.revanced.patches.shared.misc.settings.preference.PreferenceScreenPreference
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
@@ -132,10 +131,10 @@ private val hideShortsComponentsResourcePatch = resourcePatch {
             }
         }
 
-        reelPlayerRightPivotV2Size = resourceMappings[
+        reelPlayerRightPivotV2Size = getResourceId(
             "dimen",
             "reel_player_right_pivot_v2_size",
-        ]
+        )
     }
 }
 

@@ -6,9 +6,8 @@ import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.resourcePatch
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
-import app.revanced.patches.shared.misc.mapping.get
+import app.revanced.patches.shared.misc.mapping.getResourceId
 import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
-import app.revanced.patches.shared.misc.mapping.resourceMappings
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.playertype.playerTypeHookPatch
@@ -27,7 +26,7 @@ private val backgroundPlaybackResourcePatch = resourcePatch {
     dependsOn(resourceMappingPatch, addResourcesPatch)
 
     execute {
-        prefBackgroundAndOfflineCategoryId = resourceMappings["string", "pref_background_and_offline_category"]
+        prefBackgroundAndOfflineCategoryId = getResourceId("string", "pref_background_and_offline_category")
     }
 }
 

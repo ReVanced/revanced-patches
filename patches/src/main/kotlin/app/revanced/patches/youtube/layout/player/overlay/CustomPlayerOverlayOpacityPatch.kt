@@ -6,9 +6,8 @@ import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.resourcePatch
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
-import app.revanced.patches.shared.misc.mapping.get
+import app.revanced.patches.shared.misc.mapping.getResourceId
 import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
-import app.revanced.patches.shared.misc.mapping.resourceMappings
 import app.revanced.patches.shared.misc.settings.preference.InputType
 import app.revanced.patches.shared.misc.settings.preference.TextPreference
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
@@ -33,10 +32,10 @@ private val customPlayerOverlayOpacityResourcePatch = resourcePatch {
             TextPreference("revanced_player_overlay_opacity", inputType = InputType.NUMBER),
         )
 
-        scrimOverlayId = resourceMappings[
+        scrimOverlayId = getResourceId(
             "id",
             "scrim_overlay",
-        ]
+        )
     }
 }
 
