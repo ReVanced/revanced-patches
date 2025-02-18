@@ -3,11 +3,9 @@ package app.revanced.extension.youtube.shared;
 import static app.revanced.extension.youtube.shared.NavigationBar.NavigationButton.CREATE;
 
 import android.app.Activity;
-import android.os.Build;
 import android.view.View;
 
 import androidx.annotation.Nullable;
-import androidx.annotation.RequiresApi;
 
 import java.lang.ref.WeakReference;
 import java.util.Arrays;
@@ -257,7 +255,6 @@ public final class NavigationBar {
      * Injection point.
      * Fixes missing drawable.
      */
-    @RequiresApi(api = Build.VERSION_CODES.N)
     @SuppressWarnings({"unchecked", "rawtypes"})
     public static void setCairoNotificationFilledIcon(EnumMap enumMap, Enum tabActivityCairo) {
         if (fillBellCairoBlack != 0) {
