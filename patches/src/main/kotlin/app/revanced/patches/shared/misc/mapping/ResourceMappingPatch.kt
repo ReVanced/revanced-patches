@@ -20,6 +20,11 @@ fun getResourceId(type: String, name: String) = resourceMappings[type + name]?.i
     ?: throw PatchException("Could not find resource type: $type name: $name")
 
 /**
+ * @return If the resource exists.
+ */
+fun hasResourceId(type: String, name: String) = resourceMappings[type + name] != null
+
+/**
  * Identical to [LiteralFilter] except uses a decoded resource literal value.
  *
  * Any patch with fingerprints of this filter must
