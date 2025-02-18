@@ -92,8 +92,6 @@ Second \"item\" text"</string>
   <string name="revanced_debug_stacktrace_summary_on">יומני ניפוי שגיאות כוללים עקבות מחסנית</string>
   <string name="revanced_debug_stacktrace_summary_off">יומני ניפוי שגיאות אינם כוללים עקבות מחסנית</string>
   <string name="revanced_debug_toast_on_error_title">הצג טוסט שגיאת ReVanced</string>
-  <string name="revanced_debug_toast_on_error_summary_on">טוסט מוצג במקרה של שגיאה</string>
-  <string name="revanced_debug_toast_on_error_summary_off">טוסט אינו מוצג במקרה של שגיאה</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
   <string name="revanced_hide_album_cards_title">הסתר כרטיסי אלבום</string>
@@ -112,22 +110,15 @@ Second \"item\" text"</string>
   <string name="revanced_hide_horizontal_shelves_summary_off">מדפים מוצגים</string>
   <!-- 'Join' should be translated using the same localized wording YouTube displays.
                  This appears in the video player for certain videos. -->
-  <string name="revanced_hide_join_membership_button_title">הסתר כפתור \'הצטרף\'</string>
   <string name="revanced_hide_join_membership_button_summary_on">הכפתור מוסתר</string>
   <string name="revanced_hide_join_membership_button_summary_off">הכפתור מוצג</string>
   <!-- 'For you' should be translated using the same localized wording YouTube displays. -->
-  <string name="revanced_hide_for_you_shelf_title">הסתר מדף \'עבורך\' בדף ערוץ</string>
-  <string name="revanced_hide_for_you_shelf_summary_on">המדף מוסתר</string>
-  <string name="revanced_hide_for_you_shelf_summary_off">המדף מוצג</string>
   <!-- 'Notify me' should be translated using the same localized wording YouTube displays.
                  This item appear in the subscription feed for future livestreams or unreleased videos. -->
   <string name="revanced_hide_notify_me_button_title">הסתר כפתור \'הודע לי\'</string>
   <string name="revanced_hide_notify_me_button_summary_on">הכפתור מוסתר</string>
   <string name="revanced_hide_notify_me_button_summary_off">הכפתור מוצג</string>
-  <!-- 'People also watch' should be translated using the same localized wording YouTube displays. -->
-  <string name="revanced_hide_search_result_recommendations_title">הסתר המלצות \'אנשים גם צפו\'</string>
-  <string name="revanced_hide_search_result_recommendations_summary_on">ההמלצות מוסתרות</string>
-  <string name="revanced_hide_search_result_recommendations_summary_off">ההמלצות מוצגות</string>
+  <!-- 'People also watched' should be translated using the same localized wording YouTube displays. -->
   <!-- 'Show more' should be translated with the same localized wording that YouTube displays.
                   This button usually appears when searching for a YT creator. -->
   <string name="revanced_hide_show_more_button_title">הסתר כפתור \'הצג עוד\'</string>
@@ -160,9 +151,6 @@ Second \"item\" text"</string>
   <string name="revanced_hide_latest_posts_ads_summary_off">הפוסטים האחרונים מוצגים</string>
   <string name="revanced_hide_description_components_screen_title">תיאור סרטון</string>
   <string name="revanced_comments_screen_title">הערות</string>
-  <string name="revanced_hide_comments_chat_summary_title">הסתרת \'סיכום צ\'אט\' </string>
-  <string name="revanced_hide_comments_chat_summary_summary_on">\'\'\'סיכום צ’אט\'\' מוסתר</string>
-  <string name="revanced_hide_comments_chat_summary_summary_off">\'\'סיכום צ’אט\'\' מוצג</string>
   <!-- https://logos.fandom.com/wiki/YouTube/Yoodles -->
   <string name="revanced_hide_doodles_user_dialog_message">"Doodles של YouTube מוצגים כמה ימים בשנה.
 
@@ -284,9 +272,6 @@ Mלות עם אותיות גדולות באמצע צריכות להיכנס עם
   <!-- Toast shown if network connection times out. Translations of this should not be longer than the original English or the text can be clipped and not entirely shown. -->
   <!-- Toast shown if the user enables RYD while a video is opened, and then tries to vote for the video. -->
   <!-- Video likes have been set to hidden by the video uploader. -->
-  <string name="revanced_ryd_shorts_summary_on_disclaimer">"לא אהבתי מוצגות ב-Shorts
-
-מגבלה: לא אהבתי לא ייתכן שיופיעו במצב גלישה אנונימית"</string>
   <!-- Translations should use language similar to 'revanced_sb_enable_compact_skip_button' -->
   <string name="revanced_ryd_toast_on_connection_error_title">הצג הודעה אם הממשק לא זמין</string>
   <string name="revanced_ryd_about">אודות</string>
@@ -344,7 +329,6 @@ Mלות עם אותיות גדולות באמצע צריכות להיכנס עם
   <string name="revanced_sb_skipped_filler">קטע הפילר דולג</string>
   <string name="revanced_sb_skipped_unsubmitted">דילוג על קטעים שלא נשלחו</string>
   <string name="revanced_sb_skip_automatically">דלג אוטומטית</string>
-  <string name="revanced_sb_skip_showbutton">הצג את לחצן הדילוג</string>
   <string name="revanced_sb_skip_ignore">כבוי</string>
   <string name="revanced_sb_submit_failed_rate_limit">לא ניתן לשלוח קטע. הגבלת קצב (יותר מדי מאותו משתמש או כתובת IP)</string>
   <string name="revanced_sb_submit_failed_duplicate">"לא ניתן לשלוח את הקטע.
@@ -356,9 +340,6 @@ Mלות עם אותיות גדולות באמצע צריכות להיכנס עם
   <string name="revanced_sb_vote_category">שנה קטגוריה</string>
   <string name="revanced_sb_vote_no_segments">אין קטעים לבחירה</string>
   <string name="revanced_sb_new_segment_title">קטע חסות חדש של SponsorBloack</string>
-  <string name="revanced_sb_new_segment_mark_start">התחל</string>
-  <string name="revanced_sb_new_segment_mark_end">סוף</string>
-  <string name="revanced_sb_new_segment_now">עכשיו</string>
   <string name="revanced_sb_new_segment_confirm_title">האם הזמנים נכונים?</string>
   <string name="revanced_sb_new_segment_confirm_content">"הקטע נמצא מ
 

@@ -168,7 +168,7 @@ Ketuk tombol lanjutkan dan izinkan perubahan pengoptimalan."</string>
 Anda tidak akan diberi tahu tentang kejadian yang tidak terduga."</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
-  <string name="revanced_disable_like_subscribe_glow_title">Nonaktifkan kilau tombol Suka dan Berlangganan</string>
+  <string name="revanced_disable_like_subscribe_glow_title">Nonaktifkan kilauan Suka dan Langganan</string>
   <string name="revanced_disable_like_subscribe_glow_summary_on">Tombol Suka dan Berlangganan tidak akan berkilau saat disebut</string>
   <string name="revanced_disable_like_subscribe_glow_summary_off">Tombol Suka dan Berlangganan akan berkilau saat disebut</string>
   <string name="revanced_hide_album_cards_title">Sembunyikan kartu album</string>
@@ -193,22 +193,22 @@ Anda tidak akan diberi tahu tentang kejadian yang tidak terduga."</string>
   <string name="revanced_hide_horizontal_shelves_summary_off">Rak-rak ditampilkan</string>
   <!-- 'Join' should be translated using the same localized wording YouTube displays.
                  This appears in the video player for certain videos. -->
-  <string name="revanced_hide_join_membership_button_title">Sembunyikan tombol \'Gabung\'</string>
+  <string name="revanced_hide_join_membership_button_title">Sembunyikan tombol Gabung</string>
   <string name="revanced_hide_join_membership_button_summary_on">Tombol disembunyikan</string>
   <string name="revanced_hide_join_membership_button_summary_off">Tombol ditampilkan</string>
   <!-- 'For you' should be translated using the same localized wording YouTube displays. -->
-  <string name="revanced_hide_for_you_shelf_title">Sembunyikan rak \'Untuk Anda\' di laman saluran</string>
-  <string name="revanced_hide_for_you_shelf_summary_on">Rak disembunyikan</string>
-  <string name="revanced_hide_for_you_shelf_summary_off">Rak ditampilkan</string>
+  <string name="revanced_hide_for_you_shelf_title">Sembunyikan rak \'Untuk Anda\'</string>
+  <string name="revanced_hide_for_you_shelf_summary_on">Rak di halaman saluran disembunyikan</string>
+  <string name="revanced_hide_for_you_shelf_summary_off">Rak di halaman saluran ditampilkan</string>
   <!-- 'Notify me' should be translated using the same localized wording YouTube displays.
                  This item appear in the subscription feed for future livestreams or unreleased videos. -->
   <string name="revanced_hide_notify_me_button_title">Sembunyikan \'Beri tahu saya\'</string>
   <string name="revanced_hide_notify_me_button_summary_on">Tombol disembunyikan</string>
   <string name="revanced_hide_notify_me_button_summary_off">Tombol ditampilkan</string>
-  <!-- 'People also watch' should be translated using the same localized wording YouTube displays. -->
-  <string name="revanced_hide_search_result_recommendations_title">Sembunyikan anjuran \'Orang juga menonton\'</string>
-  <string name="revanced_hide_search_result_recommendations_summary_on">Anjuran disembunyikan</string>
-  <string name="revanced_hide_search_result_recommendations_summary_off">Anjuran ditampilkan</string>
+  <!-- 'People also watched' should be translated using the same localized wording YouTube displays. -->
+  <string name="revanced_hide_search_result_recommendations_title">Sembunyikan label \'Orang juga menonton\'</string>
+  <string name="revanced_hide_search_result_recommendations_summary_on">Label disembunyikan</string>
+  <string name="revanced_hide_search_result_recommendations_summary_off">Label ditampilkan</string>
   <!-- 'Show more' should be translated with the same localized wording that YouTube displays.
                   This button usually appears when searching for a YT creator. -->
   <string name="revanced_hide_show_more_button_title">Sembunyikan tombol \'Tampilkan selengkapnya\'</string>
@@ -241,7 +241,7 @@ Anda tidak akan diberi tahu tentang kejadian yang tidak terduga."</string>
   <string name="revanced_hide_community_guidelines_title">Sembunyikan pedoman komunitas</string>
   <string name="revanced_hide_community_guidelines_summary_on">Pedoman komunitas disembunyikan</string>
   <string name="revanced_hide_community_guidelines_summary_off">Pedoman komunitas ditampilkan</string>
-  <string name="revanced_hide_subscribers_community_guidelines_title">Sembunyikan pedoman komunitas pelanggan</string>
+  <string name="revanced_hide_subscribers_community_guidelines_title">Sembunyikan panduan pelanggan</string>
   <string name="revanced_hide_subscribers_community_guidelines_summary_on">Pedoman komunitas pelanggan disembunyikan</string>
   <string name="revanced_hide_subscribers_community_guidelines_summary_off">Pedoman komunitas pelanggan ditampilkan</string>
   <string name="revanced_hide_channel_member_shelf_title">Sembunyikan rak anggota saluran</string>
@@ -280,25 +280,25 @@ Anda tidak akan diberi tahu tentang kejadian yang tidak terduga."</string>
   <string name="revanced_hide_artist_cards_title">Sembunyikan kartu artis</string>
   <string name="revanced_hide_artist_cards_summary_on">Kartu artis disembunyikan</string>
   <string name="revanced_hide_artist_cards_summary_off">Kartu artis ditampilkan</string>
-  <string name="revanced_hide_attributes_section_title">Sembunyikan bagian atribut</string>
-  <string name="revanced_hide_attributes_section_summary_on">\'Tempat unggulan\', bagian Permainan dan Musik disembunyikan</string>
-  <string name="revanced_hide_attributes_section_summary_off">\'Tempat unggulan\', bagian Permainan dan Musik ditampilkan</string>
-  <string name="revanced_hide_chapters_section_title">Sembunyikan bagian Bab</string>
+  <string name="revanced_hide_attributes_section_title">Sembunyikan Atribut</string>
+  <string name="revanced_hide_attributes_section_summary_on">Bagian tempat Unggulan, Game, Musik, dan disebutkan Orang disembunyikan</string>
+  <string name="revanced_hide_attributes_section_summary_off">Bagian tempat Unggulan, Game, Musik, dan disebutkan Orang ditampilkan</string>
+  <string name="revanced_hide_chapters_section_title">Sembunyikan Bab</string>
   <string name="revanced_hide_chapters_section_summary_on">Bagian Bab disembunyikan</string>
   <string name="revanced_hide_chapters_section_summary_off">Bagian Bab ditampilkan</string>
-  <string name="revanced_hide_how_this_was_made_section_title">Sembunyikan bagian \'Bagaimana konten ini dibuat\'</string>
-  <string name="revanced_hide_how_this_was_made_section_summary_on">Bagian \'Bagaimana konten ini dibuat\' disembunyikan</string>
-  <string name="revanced_hide_how_this_was_made_section_summary_off">Bagian \'Bagaimana konten ini dibuat\' ditampilkan</string>
-  <string name="revanced_hide_podcast_section_title">Sembunyikan bagian \'Jelajahi podcast\'</string>
-  <string name="revanced_hide_podcast_section_summary_on">Bagian \'Jelajahi podcast\' disembunyikan</string>
-  <string name="revanced_hide_podcast_section_summary_off">Bagian \'Jelajahi podcast\' ditampilkan</string>
-  <string name="revanced_hide_info_cards_section_title">Sembunyikan kartu info</string>
+  <string name="revanced_hide_how_this_was_made_section_title">Sembunyikan \'Bagaimana konten ini dibuat\'</string>
+  <string name="revanced_hide_how_this_was_made_section_summary_on">Bagian Bagaimana konten ini dibuat disembunyikan</string>
+  <string name="revanced_hide_how_this_was_made_section_summary_off">Bagian Bagaimana konten ini dibuat ditampilkan</string>
+  <string name="revanced_hide_podcast_section_title">Sembunyikan \'Jelajahi podcast\'</string>
+  <string name="revanced_hide_podcast_section_summary_on">Bagian Jelajahi podcast disembunyikan</string>
+  <string name="revanced_hide_podcast_section_summary_off">Bagian Jelajahi podcast ditampilkan</string>
+  <string name="revanced_hide_info_cards_section_title">Sembunyikan kartu Info</string>
   <string name="revanced_hide_info_cards_section_summary_on">Bagian kartu info disembunyikan</string>
   <string name="revanced_hide_info_cards_section_summary_off">Bagian kartu info ditampilkan</string>
-  <string name="revanced_hide_key_concepts_section_title">Sembunyikan bagian \'Konsep Utama\'</string>
-  <string name="revanced_hide_key_concepts_section_summary_on">Bagian \'Konsep Utama\' disembunyikan</string>
-  <string name="revanced_hide_key_concepts_section_summary_off">Bagian \'Konsep Utama\' ditampilkan</string>
-  <string name="revanced_hide_transcript_section_title">Sembunyikan bagian transkrip</string>
+  <string name="revanced_hide_key_concepts_section_title">Sembunyikan \'Konsep utama\'</string>
+  <string name="revanced_hide_key_concepts_section_summary_on">Bagian Konsep utama disembunyikan</string>
+  <string name="revanced_hide_key_concepts_section_summary_off">Bagian Konsep utama ditampilkan</string>
+  <string name="revanced_hide_transcript_section_title">Sembunyikan Transkrip</string>
   <string name="revanced_hide_transcript_section_summary_on">Bagian transkrip disembunyikan</string>
   <string name="revanced_hide_transcript_section_summary_off">Bagian transkrip ditampilkan</string>
   <string name="revanced_hide_description_components_screen_title">Keterangan video</string>
@@ -316,27 +316,27 @@ Anda tidak akan diberi tahu tentang kejadian yang tidak terduga."</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">Ditampilkan di video terkait</string>
   <string name="revanced_comments_screen_title">Komentar</string>
   <string name="revanced_comments_screen_summary">Sembunyikan atau tampilkan komponen bagian komentar</string>
-  <string name="revanced_hide_comments_chat_summary_title">Sembunyikan \'Ringkasan Obrolan\' </string>
-  <string name="revanced_hide_comments_chat_summary_summary_on">\'Ringkasan obrolan\' disembunyikan</string>
-  <string name="revanced_hide_comments_chat_summary_summary_off">\'Ringkasan obrolan\' ditampilkan</string>
+  <string name="revanced_hide_comments_chat_summary_title">Sembunyikan \'Ringkasan obrolan\'</string>
+  <string name="revanced_hide_comments_chat_summary_summary_on">Ringkasan obrolan disembunyikan</string>
+  <string name="revanced_hide_comments_chat_summary_summary_off">Ringkasan obrolan ditampilkan</string>
   <string name="revanced_hide_comments_by_members_header_title">Sembunyikan header \'Komentar oleh anggota\'</string>
-  <string name="revanced_hide_comments_by_members_header_summary_on">Header \'Komentar oleh anggota\' disembunyikan</string>
-  <string name="revanced_hide_comments_by_members_header_summary_off">Header \'Komentar oleh anggota\' disembunyikan</string>
+  <string name="revanced_hide_comments_by_members_header_summary_on">Header Komentar oleh anggota disembunyikan</string>
+  <string name="revanced_hide_comments_by_members_header_summary_off">Header Komentar oleh anggota ditampilkan</string>
   <string name="revanced_hide_comments_section_title">Sembunyikan bagian komentar</string>
   <string name="revanced_hide_comments_section_summary_on">Bagian komentar disembunyikan</string>
   <string name="revanced_hide_comments_section_summary_off">Bagian komentar ditampilkan</string>
   <string name="revanced_hide_comments_create_a_short_button_title">Sembunyikan tombol \'Buat Short\'</string>
-  <string name="revanced_hide_comments_create_a_short_button_summary_on">Tombol \'Buat Short\' disembunyikan</string>
-  <string name="revanced_hide_comments_create_a_short_button_summary_off">Tombol \'Buat Short\' ditampilkan</string>
+  <string name="revanced_hide_comments_create_a_short_button_summary_on">Tombol Buat Short disembunyikan</string>
+  <string name="revanced_hide_comments_create_a_short_button_summary_off">Tombol Buat Short ditampilkan</string>
+  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_title">Sembunyikan tombol emoji dan stempel waktu</string>
+  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_on">Tombol emoji dan stempel waktu disembunyikan</string>
+  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_off">Tombol emoji dan stempel waktu ditampilkan</string>
   <string name="revanced_hide_comments_preview_comment_title">Sembunyikan pratinjau komentar</string>
   <string name="revanced_hide_comments_preview_comment_summary_on">Pratinjau komentar disembunyikan</string>
   <string name="revanced_hide_comments_preview_comment_summary_off">Pratinjau komentar ditampilkan</string>
   <string name="revanced_hide_comments_thanks_button_title">Sembunyikan tombol Terima Kasih</string>
   <string name="revanced_hide_comments_thanks_button_summary_on">Tombol terima kasih disembunyikan</string>
   <string name="revanced_hide_comments_thanks_button_summary_off">Tombol terima kasih ditampilkan</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_title">Sembunyikan timestamp dan tombol emoji</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_on">Tombol timestamp dan emoji disembunyikan</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_off">Tombol timestamp dan emoji ditampilkan</string>
   <!-- https://logos.fandom.com/wiki/YouTube/Yoodles -->
   <string name="revanced_hide_doodles_title">Sembunyikan YouTube Doodles</string>
   <string name="revanced_hide_doodles_summary_on">Bilah pencarian Doodle disembunyikan</string>
@@ -417,12 +417,12 @@ Fitur ini hanya tersedia untuk perangkat yang lebih lama"</string>
   <string name="revanced_hide_player_store_shelf_summary_on">Rak belanja disembunyikan</string>
   <string name="revanced_hide_player_store_shelf_summary_off">Rak belanja ditampilkan</string>
   <string name="revanced_hide_shopping_links_title">Sembunyikan tautan belanja</string>
-  <string name="revanced_hide_shopping_links_summary_on">Tautan belanja deskripsi video disembunyikan</string>
-  <string name="revanced_hide_shopping_links_summary_off">Tautan belanja deskripsi video ditampilkan</string>
+  <string name="revanced_hide_shopping_links_summary_on">Tautan belanja di deskripsi video disembunyikan</string>
+  <string name="revanced_hide_shopping_links_summary_off">Tautan belanja di deskripsi video ditampilkan</string>
   <!-- 'Visit store' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_visit_store_button_title">Sembunyikan tombol \'Kunjungi toko\'</string>
-  <string name="revanced_hide_visit_store_button_summary_on">Tombol disembunyikan pada laman saluran</string>
-  <string name="revanced_hide_visit_store_button_summary_off">Tombol ditampilkan pada laman saluran</string>
+  <string name="revanced_hide_visit_store_button_summary_on">Tombol di halaman saluran disembunyikan</string>
+  <string name="revanced_hide_visit_store_button_summary_off">Tombol di halaman saluran ditampilkan</string>
   <string name="revanced_hide_web_search_results_title">Sembunyikan hasil pencarian web</string>
   <string name="revanced_hide_web_search_results_summary_on">Hasil pencarian web disembunyikan</string>
   <string name="revanced_hide_web_search_results_summary_off">Hasil pencarian web ditampilkan</string>
@@ -430,7 +430,7 @@ Fitur ini hanya tersedia untuk perangkat yang lebih lama"</string>
   <string name="revanced_hide_merchandise_banners_summary_on">Banner merchandise disembunyikan</string>
   <string name="revanced_hide_merchandise_banners_summary_off">Spanduk merchandise ditampilkan</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
-  <string name="revanced_hide_fullscreen_ads_feature_not_available_toast">Sembunyikan iklan layar penuh hanya berfungsi pada perangkat lama</string>
+  <string name="revanced_hide_fullscreen_ads_feature_not_available_toast">Menyembunyikan iklan layar penuh hanya berfungsi pada perangkat lama</string>
   </patch>
   <patch id="ad.getpremium.hideGetPremiumPatch">
   <string name="revanced_hide_get_premium_title">Sembunyikan promosi YouTube Premium</string>
@@ -462,8 +462,8 @@ Fitur ini hanya tersedia untuk perangkat yang lebih lama"</string>
   <string name="revanced_external_downloader_screen_title">Unduhan eksternal</string>
   <string name="revanced_external_downloader_screen_summary">Pengaturan untuk menggunakan pengunduh eksternal</string>
   <string name="revanced_external_downloader_title">Tampilkan tombol unduhan eksternal</string>
-  <string name="revanced_external_downloader_summary_on">Tombol unduh ditampilkan di pemutar</string>
-  <string name="revanced_external_downloader_summary_off">Tombol unduh tidak ditampilkan di pemutar</string>
+  <string name="revanced_external_downloader_summary_on">Tombol Unduh di pemutar ditampilkan</string>
+  <string name="revanced_external_downloader_summary_off">Tombol Unduh di pemutar tidak ditampilkan</string>
   <!-- 'download action button' should be translated using the same wording as the translation of 'revanced_hide_download_button_title' -->
   <string name="revanced_external_downloader_action_button_title">Gantikan tombol tindakan Unduh</string>
   <string name="revanced_external_downloader_action_button_summary_on">Tombol unduh membuka pengunduh eksternal Anda</string>
@@ -831,7 +831,7 @@ Catatan: Mengaktifkan ini juga akan memaksa menyembunyikan iklan video"</string>
   <!-- Toast shown if network connection times out. Translations of this should not be longer than the original English or the text can be clipped and not entirely shown. -->
   <string name="revanced_ryd_failure_connection_timeout">Dislike sementara tidak tersedia (waktu API habis)</string>
   <string name="revanced_ryd_failure_connection_status_code">Dislike tidak tersedia (status %d)</string>
-  <string name="revanced_ryd_failure_client_rate_limit_requested">Dislike tidak tersedia (batas API klien tercapai)</string>
+  <string name="revanced_ryd_failure_client_rate_limit_requested">Dislike tidak tersedia (pembatasan API klien)</string>
   <string name="revanced_ryd_failure_generic">Dislike tidak tersedia (%s)</string>
   <!-- Toast shown if the user enables RYD while a video is opened, and then tries to vote for the video. -->
   <string name="revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted">Muat ulang video untuk memilih Return YouTube Dislike</string>
@@ -840,11 +840,11 @@ Catatan: Mengaktifkan ini juga akan memaksa menyembunyikan iklan video"</string>
   <string name="revanced_ryd_enable_summary_on">Dislike ditampilkan</string>
   <string name="revanced_ryd_enable_summary_off">Dislike tidak ditampilkan</string>
   <string name="revanced_ryd_shorts_title">Tampilkan dislike di Shorts</string>
-  <string name="revanced_ryd_shorts_summary_on">Dislike ditampilkan di Shorts</string>
-  <string name="revanced_ryd_shorts_summary_on_disclaimer">"Dislike ditampilkan di Shorts
+  <string name="revanced_ryd_shorts_summary_on">Dislike pada Shorts ditampilkan</string>
+  <string name="revanced_ryd_shorts_summary_on_disclaimer">"Dislike pada Shorts ditampilkan
 
-Keterbatasan: Dislike mungkin tidak muncul dalam mode penyamaran"</string>
-  <string name="revanced_ryd_shorts_summary_off">Dislike disembunyikan di Shorts</string>
+Batasan: Dislike mungkin tidak muncul dalam mode penyamaran"</string>
+  <string name="revanced_ryd_shorts_summary_off">Dislike pada Shorts tidak ditampilkan</string>
   <string name="revanced_ryd_dislike_percentage_title">Dislike sebagai persentase</string>
   <string name="revanced_ryd_dislike_percentage_summary_on">Dislike ditampilkan sebagai persentase</string>
   <string name="revanced_ryd_dislike_percentage_summary_off">Dislike ditampilkan sebagai angka</string>
@@ -909,20 +909,20 @@ Fitur ini bekerja paling baik dengan kualitas video 720p atau lebih rendah dan s
   <string name="revanced_sb_square_layout_sum_on">Tombol dan kontrol berbentuk persegi</string>
   <string name="revanced_sb_square_layout_sum_off">Tombol dan kontrol berbentuk bulat</string>
   <!-- Translations should use language similar to 'revanced_ryd_compact_layout_title' -->
-  <string name="revanced_sb_enable_compact_skip_button">Gunakan tombol lewati ringkas</string>
+  <string name="revanced_sb_enable_compact_skip_button">Gunakan tombol Lewati ringkas</string>
   <string name="revanced_sb_enable_compact_skip_button_sum_on">Tombol lewati ditata untuk lebar minimum</string>
   <string name="revanced_sb_enable_compact_skip_button_sum_off">Tombol lewati ditata untuk penampilan terbaik</string>
-  <string name="revanced_sb_enable_auto_hide_skip_segment_button">Tombol lewati disembunyikan secara otomatis</string>
+  <string name="revanced_sb_enable_auto_hide_skip_segment_button">Sembunyikan tombol Lewati secara otomatis</string>
   <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_on">Tombol lewati disembunyikan setelah beberapa detik</string>
-  <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_off">Tombol lewati ditampilkan untuk seluruh segmen</string>
-  <string name="revanced_sb_general_skiptoast">Tampilkan pesan timbul ketika melewati segmen otomatis</string>
+  <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_off">Tombol Lewati ditampilkan untuk seluruh segmen</string>
+  <string name="revanced_sb_general_skiptoast">Tampilkan sebuah pesan timbul ketika melewati</string>
   <string name="revanced_sb_general_skiptoast_sum_on">Pesan timbul ditampilkan saat segmen dilewati secara otomatis. Tekan di sini untuk melihat contohnya</string>
   <string name="revanced_sb_general_skiptoast_sum_off">Pesan timbul tidak ditampilkan. Tekan di sini untuk melihat contohnya</string>
   <string name="revanced_sb_general_time_without">Tampilkan durasi video tanpa segmen</string>
   <string name="revanced_sb_general_time_without_sum_on">Durasi video dikurangi semua segmen, ditampilkan dalam tanda kurung di samping durasi video penuh</string>
   <string name="revanced_sb_general_time_without_sum_off">Durasi video penuh ditampilkan</string>
   <string name="revanced_sb_create_segment_category">Membuat segmen baru</string>
-  <string name="revanced_sb_enable_create_segment">Tampilkan tombol buat segmen baru</string>
+  <string name="revanced_sb_enable_create_segment">Tampilkan tombol Buat segmen baru</string>
   <string name="revanced_sb_enable_create_segment_sum_on">Tombol buat segmen baru ditampilkan</string>
   <string name="revanced_sb_enable_create_segment_sum_off">Tombol buat segmen baru tidak ditampilkan</string>
   <string name="revanced_sb_general_adjusting">Sesuaikan langkah segmen baru</string>
@@ -1015,7 +1015,7 @@ Id pengguna Anda seperti kata sandi dan jangan pernah dibagikan."</string>
   <string name="revanced_sb_skipped_multiple_segments">Beberapa segmen dilewati</string>
   <string name="revanced_sb_skip_automatically">Lewati otomatis</string>
   <string name="revanced_sb_skip_automatically_once">Lewati otomatis sekali</string>
-  <string name="revanced_sb_skip_showbutton">Tampilkan tombol lewati</string>
+  <string name="revanced_sb_skip_showbutton">Tampilkan tombol Lewati</string>
   <string name="revanced_sb_skip_seekbaronly">Tampilkan di seekbar</string>
   <string name="revanced_sb_skip_ignore">Nonaktifkan</string>
   <string name="revanced_sb_submit_failed_invalid">Tak dapat mengirim segmen: %s</string>
@@ -1041,9 +1041,9 @@ Sudah ada"</string>
   <string name="revanced_sb_new_segment_disabled_category">Kategori dinonaktifkan di pengaturan. Aktifkan kategori untuk dikirim.</string>
   <string name="revanced_sb_new_segment_title">Segmen SponsorBlock Baru</string>
   <string name="revanced_sb_new_segment_mark_time_as_question">Tetapkan %s sebagai awal atau akhir segmen baru?</string>
-  <string name="revanced_sb_new_segment_mark_start">awal</string>
-  <string name="revanced_sb_new_segment_mark_end">akhir</string>
-  <string name="revanced_sb_new_segment_now">sekarang</string>
+  <string name="revanced_sb_new_segment_mark_start">Mulai</string>
+  <string name="revanced_sb_new_segment_mark_end">Akhir</string>
+  <string name="revanced_sb_new_segment_now">Sekarang</string>
   <string name="revanced_sb_new_segment_time_start">Waktu segmen dimulai pada</string>
   <string name="revanced_sb_new_segment_time_end">Waktu segmen diakhiri pada</string>
   <string name="revanced_sb_new_segment_confirm_title">Apakah waktunya benar?</string>
@@ -1064,7 +1064,7 @@ Siap mengirim?"</string>
   <string name="revanced_sb_new_segment_edit_by_hand_parse_error">Waktu yang diberikan tidak sah</string>
   <string name="revanced_sb_stats">Statistik</string>
   <!-- Shown in the settings preferences, and translations can be any text length. -->
-  <string name="revanced_sb_stats_connection_failure">Data sementara tidak tersedia (API nonaktif)</string>
+  <string name="revanced_sb_stats_connection_failure">Statistik sementara tidak tersedia (API tidak aktif)</string>
   <string name="revanced_sb_stats_loading">Memuat...</string>
   <string name="revanced_sb_stats_sb_disabled">SponsorBlock dinonaktifkan</string>
   <string name="revanced_sb_stats_username">Nama pengguna Anda: &lt;b&gt;%s&lt;/b&gt;</string>
@@ -1267,9 +1267,9 @@ Mengaktifkan ini dapat memperbaiki gambar yang hilang yang diblokir di beberapa 
 Jika diaktifkan, URL video akan dikirim ke server API dan tidak ada data lain yang dikirim. Jika video tidak memiliki gambar mini DeArrow, maka gambar asli atau tangkapan statis yang ditampilkan
 
 Ketuk di sini untuk mempelajari lebih lanjut tentang DeArrow"</string>
-  <string name="revanced_alt_thumbnail_dearrow_connection_toast_title">Tampilkan pemberitahuan halus jika API tidak tersedia</string>
-  <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_on">Pemberitahuan halus ditampilkan jika DeArrow tidak tersedia</string>
-  <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_off">Pemberitahuan halus tidak ditampilkan jika DeArrow tidak tersedia</string>
+  <string name="revanced_alt_thumbnail_dearrow_connection_toast_title">Tampilkan pesan timbul jika API tidak tersedia</string>
+  <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_on">Pesan timbul ditampilkan jika DeArrow tidak tersedia</string>
+  <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_off">Pesan timbul tidak ditampilkan jika DeArrow tidak tersedia</string>
   <string name="revanced_alt_thumbnail_dearrow_api_url_title">Titik akhir API DeArrow</string>
   <string name="revanced_alt_thumbnail_dearrow_api_url_summary">URL titik akhir cache thumbnail DeArrow</string>
   <string name="revanced_alt_thumbnail_stills_about_title">Tangkapan video diam</string>
@@ -1282,13 +1282,13 @@ Ketuk di sini untuk mempelajari lebih lanjut tentang DeArrow"</string>
   <string name="revanced_alt_thumbnail_stills_time_entry_2">Pertengahan video</string>
   <string name="revanced_alt_thumbnail_stills_time_entry_3">Akhir video</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
-  <string name="revanced_alt_thumbnail_dearrow_error">DeArrow sementara ini tidak tersedia (kode status: %s)</string>
-  <string name="revanced_alt_thumbnail_dearrow_error_generic">DeArrow sementara ini tidak tersedia</string>
+  <string name="revanced_alt_thumbnail_dearrow_error">DeArrow sementara tidak tersedia (kode status: %s)</string>
+  <string name="revanced_alt_thumbnail_dearrow_error_generic">DeArrow sementara tidak tersedia</string>
   </patch>
   <patch id="misc.announcements.announcementsPatch">
   <string name="revanced_announcements_title">Tampilkan pengumuman ReVanced</string>
-  <string name="revanced_announcements_summary_on">Pengumuman ditampilkan saat memulai</string>
-  <string name="revanced_announcements_summary_off">Pengumuman tidak ditampilkan saat memulai</string>
+  <string name="revanced_announcements_summary_on">Pengumuman saat memulai ditampilkan</string>
+  <string name="revanced_announcements_summary_off">Pengumuman saat memulai tidak ditampilkan</string>
   <string name="revanced_announcements_enabled_summary">Tampilkan pengumuman saat memulai</string>
   <string name="revanced_announcements_connection_failed">Gagal menghubungkan ke penyedia pengumuman</string>
   <string name="revanced_announcements_dialog_dismiss">Abaikan</string>
