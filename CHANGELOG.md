@@ -1,3 +1,10 @@
+# [5.13.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.13.0-dev.1...v5.13.0-dev.2) (2025-02-18)
+
+
+### Bug Fixes
+
+* **YouTube - Hide video action buttons:** Move 'Disable Like and Subscribe glow' to action buttons settings menu ([29b265d](https://github.com/ReVanced/revanced-patches/commit/29b265d8fdaa48502650be9623bfc518a57a0bb1))
+
 # [5.13.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.12.0...v5.13.0-dev.1) (2025-02-18)
 
 
