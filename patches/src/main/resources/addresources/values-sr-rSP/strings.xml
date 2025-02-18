@@ -161,8 +161,8 @@ Second \"item\" text"</string>
   <string name="revanced_debug_stacktrace_summary_on">Евиденције отклањања грешака садрже праћење стека</string>
   <string name="revanced_debug_stacktrace_summary_off">Евиденције отклањања грешака не садрже праћење стека</string>
   <string name="revanced_debug_toast_on_error_title">Прикажи искачуће обавештење при грешци с ReVanced-ом</string>
-  <string name="revanced_debug_toast_on_error_summary_on">Искачуће обавештење се приказује ако дође до грешке</string>
-  <string name="revanced_debug_toast_on_error_summary_off">Искачуће обавештење се не приказује ако дође до грешке</string>
+  <string name="revanced_debug_toast_on_error_summary_on">Искаче обавештење је приказано, ако дође до грешке</string>
+  <string name="revanced_debug_toast_on_error_summary_off">Искачуће обавештење није приказано, ако дође до грешке</string>
   <string name="revanced_debug_toast_on_error_user_dialog_message">"Искључивање искачућих обавештења о грешкама сакрива сва обавештења о грешкама у ReVanced-у.
 
 Нећете бити обавештени ни о каквим неочекиваним догађајима."</string>
@@ -193,22 +193,22 @@ Second \"item\" text"</string>
   <string name="revanced_hide_horizontal_shelves_summary_off">Хоризонталне полице су приказане</string>
   <!-- 'Join' should be translated using the same localized wording YouTube displays.
                  This appears in the video player for certain videos. -->
-  <string name="revanced_hide_join_membership_button_title">Сакриј дугме „Учлани ме“</string>
+  <string name="revanced_hide_join_membership_button_title">Сакриј дугме „Учлани ме”</string>
   <string name="revanced_hide_join_membership_button_summary_on">Дугме „Учлани ме” је скривено</string>
   <string name="revanced_hide_join_membership_button_summary_off">Дугме „Учлани ме” је приказано</string>
   <!-- 'For you' should be translated using the same localized wording YouTube displays. -->
-  <string name="revanced_hide_for_you_shelf_title">Сакриј полицу „За вас” на страници канала</string>
-  <string name="revanced_hide_for_you_shelf_summary_on">Полица „За вас” на страници канала је скривена</string>
-  <string name="revanced_hide_for_you_shelf_summary_off">Полица „За вас” на страници канала је приказана</string>
+  <string name="revanced_hide_for_you_shelf_title">Сакриј полицу „За вас”</string>
+  <string name="revanced_hide_for_you_shelf_summary_on">Полица на страници канала је скривена</string>
+  <string name="revanced_hide_for_you_shelf_summary_off">Полица на страници канала је приказана</string>
   <!-- 'Notify me' should be translated using the same localized wording YouTube displays.
                  This item appear in the subscription feed for future livestreams or unreleased videos. -->
   <string name="revanced_hide_notify_me_button_title">Сакриј дугме „Обавести ме”</string>
   <string name="revanced_hide_notify_me_button_summary_on">Дугме „Обавести ме” је скривено</string>
   <string name="revanced_hide_notify_me_button_summary_off">Дугме „Обавести ме” је приказано</string>
-  <!-- 'People also watch' should be translated using the same localized wording YouTube displays. -->
-  <string name="revanced_hide_search_result_recommendations_title">Сакриј препоруке „Други су такође гледали овај видео”</string>
-  <string name="revanced_hide_search_result_recommendations_summary_on">Препоруке „Други су такође гледали овај видео” су скривене</string>
-  <string name="revanced_hide_search_result_recommendations_summary_off">Препоруке „Други су такође гледали овај видео” су приказане</string>
+  <!-- 'People also watched' should be translated using the same localized wording YouTube displays. -->
+  <string name="revanced_hide_search_result_recommendations_title">Сакриј ознаку „Други су такође гледали овај видео”</string>
+  <string name="revanced_hide_search_result_recommendations_summary_on">Ознака је скривена</string>
+  <string name="revanced_hide_search_result_recommendations_summary_off">Ознака је приказана</string>
   <!-- 'Show more' should be translated with the same localized wording that YouTube displays.
                   This button usually appears when searching for a YT creator. -->
   <string name="revanced_hide_show_more_button_title">Сакриј дугме „Прикажи још”</string>
@@ -224,8 +224,8 @@ Second \"item\" text"</string>
   <string name="revanced_hide_chips_shelf_summary_on">Полица ознака сличних видеа је скривена</string>
   <string name="revanced_hide_chips_shelf_summary_off">Полица ознака сличних видеа је приказана</string>
   <string name="revanced_hide_expandable_chip_title">Сакриј прошириву картицу испод видео снимака</string>
-  <string name="revanced_hide_expandable_chip_summary_on">Прошириве картице су скривене</string>
-  <string name="revanced_hide_expandable_chip_summary_off">Прошириве картице су приказане</string>
+  <string name="revanced_hide_expandable_chip_summary_on">Проширива картица је скривена</string>
+  <string name="revanced_hide_expandable_chip_summary_off">Проширива картица је приказана</string>
   <string name="revanced_hide_community_posts_title">Сакриј објаве заједнице</string>
   <string name="revanced_hide_community_posts_summary_on">Објаве заједнице су скривене</string>
   <string name="revanced_hide_community_posts_summary_off">Објаве заједнице су приказане</string>
@@ -241,7 +241,7 @@ Second \"item\" text"</string>
   <string name="revanced_hide_community_guidelines_title">Сакриј смернице заједнице</string>
   <string name="revanced_hide_community_guidelines_summary_on">Смернице заједнице су скривене</string>
   <string name="revanced_hide_community_guidelines_summary_off">Смернице заједнице су приказане</string>
-  <string name="revanced_hide_subscribers_community_guidelines_title">Сакриј смернице заједнице пратилаца</string>
+  <string name="revanced_hide_subscribers_community_guidelines_title">Сакриј смернице пратилаца</string>
   <string name="revanced_hide_subscribers_community_guidelines_summary_on">Смернице заједнице пратилаца су скривене</string>
   <string name="revanced_hide_subscribers_community_guidelines_summary_off">Смернице заједнице пратилаца су приказане</string>
   <string name="revanced_hide_channel_member_shelf_title">Сакриј полицу чланова канала</string>
@@ -280,10 +280,10 @@ Second \"item\" text"</string>
   <string name="revanced_hide_artist_cards_title">Сакриј картице извођача</string>
   <string name="revanced_hide_artist_cards_summary_on">Картице извођача су скривене</string>
   <string name="revanced_hide_artist_cards_summary_off">Картице извођача су приказане</string>
-  <string name="revanced_hide_attributes_section_title">Сакриј одељак са атрибутима</string>
-  <string name="revanced_hide_attributes_section_summary_on">Одељци „Истакнута места”, „Игре” и „Музика” су скривени</string>
-  <string name="revanced_hide_attributes_section_summary_off">Одељци „Истакнута места”, „Игре” и „Музика” су приказани</string>
-  <string name="revanced_hide_chapters_section_title">Сакриј одељак за поглавља</string>
+  <string name="revanced_hide_attributes_section_title">Сакриј атрибуте</string>
+  <string name="revanced_hide_attributes_section_summary_on">Одељци „Истакнута места”, „Игре”, „Музика” и „Поменути људи” су скривени</string>
+  <string name="revanced_hide_attributes_section_summary_off">Одељци „Истакнута места”, „Игре”, „Музика” и „Поменути људи” су приказани</string>
+  <string name="revanced_hide_chapters_section_title">Сакриј поглавља</string>
   <string name="revanced_hide_chapters_section_summary_on">Одељак за поглавља је скривен</string>
   <string name="revanced_hide_chapters_section_summary_off">Одељак за поглавља је приказан</string>
   <string name="revanced_hide_how_this_was_made_section_title">Сакриј одељак „Како је направљен овај садржај”</string>
@@ -292,13 +292,13 @@ Second \"item\" text"</string>
   <string name="revanced_hide_podcast_section_title">Сакриј одељак „Истражите подкаст”</string>
   <string name="revanced_hide_podcast_section_summary_on">Одељак „Истражите подкаст” је скривен</string>
   <string name="revanced_hide_podcast_section_summary_off">Одељак „Истражите подкаст” је приказан</string>
-  <string name="revanced_hide_info_cards_section_title">Сакриј одељак за картице са информацијама</string>
+  <string name="revanced_hide_info_cards_section_title">Сакриј картице са информацијама</string>
   <string name="revanced_hide_info_cards_section_summary_on">Одељак за картице са информацијама је скривен</string>
   <string name="revanced_hide_info_cards_section_summary_off">Одељак за картице са информацијама је приказан</string>
   <string name="revanced_hide_key_concepts_section_title">Сакриј одељак „Кључни концепти”</string>
   <string name="revanced_hide_key_concepts_section_summary_on">Одељак „Кључни концепти” је скривен</string>
   <string name="revanced_hide_key_concepts_section_summary_off">Одељак „Кључни концепти” је приказан</string>
-  <string name="revanced_hide_transcript_section_title">Сакриј одељак за транскрипцију</string>
+  <string name="revanced_hide_transcript_section_title">Сакриј транскрипт</string>
   <string name="revanced_hide_transcript_section_summary_on">Одељак за транскрипцију је скривен</string>
   <string name="revanced_hide_transcript_section_summary_off">Одељак за транскрипцију је приказан</string>
   <string name="revanced_hide_description_components_screen_title">Опис видеа</string>
@@ -320,23 +320,23 @@ Second \"item\" text"</string>
   <string name="revanced_hide_comments_chat_summary_summary_on">„Резиме ћаскања” је скривен</string>
   <string name="revanced_hide_comments_chat_summary_summary_off">„Резиме ћаскања” је приказан</string>
   <string name="revanced_hide_comments_by_members_header_title">Сакриј заглавље „Коментари од чланова”</string>
-  <string name="revanced_hide_comments_by_members_header_summary_on">Заглавље „Коментари од чланова” је скривено</string>
-  <string name="revanced_hide_comments_by_members_header_summary_off">Заглавље „Коментари од чланова” је приказано</string>
+  <string name="revanced_hide_comments_by_members_header_summary_on">Заглавље „Коментари чланова” је скривено</string>
+  <string name="revanced_hide_comments_by_members_header_summary_off">Заглавље „Коментари чланова” је приказано</string>
   <string name="revanced_hide_comments_section_title">Сакриј одељак за коментаре</string>
   <string name="revanced_hide_comments_section_summary_on">Одељак за коментаре је скривен</string>
   <string name="revanced_hide_comments_section_summary_off">Одељак за коментаре је приказан</string>
   <string name="revanced_hide_comments_create_a_short_button_title">Сакриј дугме „Направи Short”</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_on">Дугме „Направи Short” је скривено</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_off">Дугме „Направи Short” је приказано</string>
+  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_title">Сакриј дугмад за емоџи и временску ознаку</string>
+  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_on">Дугмад за емоџи и временску ознаку су скривена</string>
+  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_off">Дугмад за емоџи и временску ознаку су приказана</string>
   <string name="revanced_hide_comments_preview_comment_title">Сакриј коментар за преглед</string>
   <string name="revanced_hide_comments_preview_comment_summary_on">Коментар за преглед је скривен</string>
   <string name="revanced_hide_comments_preview_comment_summary_off">Коментар за преглед је приказан</string>
   <string name="revanced_hide_comments_thanks_button_title">Сакриј дугме „Хвала”</string>
   <string name="revanced_hide_comments_thanks_button_summary_on">Дугме „Хвала” је скривено</string>
   <string name="revanced_hide_comments_thanks_button_summary_off">Дугме „Хвала” је приказано</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_title">Сакриј дугмад за временску ознаку и емоџије</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_on">Дугмад за временску ознаку и емоџије су скривена</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_off">Дугмад за временску ознаку и емоџије су приказана</string>
   <!-- https://logos.fandom.com/wiki/YouTube/Yoodles -->
   <string name="revanced_hide_doodles_title">Сакриј YouTube Doodles</string>
   <string name="revanced_hide_doodles_summary_on">Doodles на траци за претрагу је скривен</string>
@@ -421,8 +421,8 @@ Second \"item\" text"</string>
   <string name="revanced_hide_shopping_links_summary_off">Линкови за куповину у опису видеа су приказани</string>
   <!-- 'Visit store' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_visit_store_button_title">Сакриј дугме „Посети продавницу” на страницама канала</string>
-  <string name="revanced_hide_visit_store_button_summary_on">Дугме „Посети продавницу” на страницама канала је скривено</string>
-  <string name="revanced_hide_visit_store_button_summary_off">Дугме „Посети продавницу” на страницама канала је приказано</string>
+  <string name="revanced_hide_visit_store_button_summary_on">Дугме „Посети продавницу” на страници канала је скривено</string>
+  <string name="revanced_hide_visit_store_button_summary_off">Дугме „Посети продавницу” на страници канала је приказано</string>
   <string name="revanced_hide_web_search_results_title">Сакриј резултате веб-претраге</string>
   <string name="revanced_hide_web_search_results_summary_on">Резултати веб-претраге су скривени</string>
   <string name="revanced_hide_web_search_results_summary_off">Резултати веб-претраге су приказани</string>
@@ -462,8 +462,8 @@ Second \"item\" text"</string>
   <string name="revanced_external_downloader_screen_title">Спољна преузимања</string>
   <string name="revanced_external_downloader_screen_summary">Подешавања за коришћење спољног програма за преузимање</string>
   <string name="revanced_external_downloader_title">Прикажи дугме за спољно преузимање</string>
-  <string name="revanced_external_downloader_summary_on">Дугме за спољно преузимање је приказано у плејеру</string>
-  <string name="revanced_external_downloader_summary_off">Дугме за спољно преузимање није приказано у плејеру</string>
+  <string name="revanced_external_downloader_summary_on">Дугме „Преузми” у плејеру је приказано</string>
+  <string name="revanced_external_downloader_summary_off">Дугме „Преузми” у плејеру није приказано</string>
   <!-- 'download action button' should be translated using the same wording as the translation of 'revanced_hide_download_button_title' -->
   <string name="revanced_external_downloader_action_button_title">Замени дугме радње „Преузми”</string>
   <string name="revanced_external_downloader_action_button_summary_on">Дугме „Преузми” отвара спољни програм за преузимање</string>
@@ -831,7 +831,7 @@ Second \"item\" text"</string>
   <!-- Toast shown if network connection times out. Translations of this should not be longer than the original English or the text can be clipped and not entirely shown. -->
   <string name="revanced_ryd_failure_connection_timeout">Несвиђања привремено нису доступна (API истекао)</string>
   <string name="revanced_ryd_failure_connection_status_code">Несвиђања нису доступна (статус %d)</string>
-  <string name="revanced_ryd_failure_client_rate_limit_requested">Несвиђања нису доступна (лимит API-ја клијента)</string>
+  <string name="revanced_ryd_failure_client_rate_limit_requested">Несвиђања нису доступна (ограничење клијента API-ја)</string>
   <string name="revanced_ryd_failure_generic">Несвиђања нису доступна (%s)</string>
   <!-- Toast shown if the user enables RYD while a video is opened, and then tries to vote for the video. -->
   <string name="revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted">Освежите видео да бисте гласали помоћу ReturnYouTubeDislike</string>
@@ -840,14 +840,14 @@ Second \"item\" text"</string>
   <string name="revanced_ryd_enable_summary_on">Несвиђања су приказана</string>
   <string name="revanced_ryd_enable_summary_off">Несвиђања нису приказана</string>
   <string name="revanced_ryd_shorts_title">Прикажи несвиђања на Shorts видеима</string>
-  <string name="revanced_ryd_shorts_summary_on">Несвиђања су приказана на Shorts видеима</string>
-  <string name="revanced_ryd_shorts_summary_on_disclaimer">"Несвиђања су приказана на Shorts видеима
+  <string name="revanced_ryd_shorts_summary_on">Несвиђања на Shorts видеима су приказана</string>
+  <string name="revanced_ryd_shorts_summary_on_disclaimer">"Несвиђања на Shorts видеима су приказана
 
 Ограничење: Несвиђања се можда неће појавити у режиму без архивирања"</string>
-  <string name="revanced_ryd_shorts_summary_off">Несвиђања су скривена на Shorts видеима</string>
+  <string name="revanced_ryd_shorts_summary_off">Несвиђања на Shorts видеима нису приказана</string>
   <string name="revanced_ryd_dislike_percentage_title">Несвиђања у процентима</string>
-  <string name="revanced_ryd_dislike_percentage_summary_on">Несвиђања приказана у процентима</string>
-  <string name="revanced_ryd_dislike_percentage_summary_off">Несвиђања приказана у бројевима</string>
+  <string name="revanced_ryd_dislike_percentage_summary_on">Несвиђања су приказана као проценат</string>
+  <string name="revanced_ryd_dislike_percentage_summary_off">Несвиђања су приказана као број</string>
   <!-- Translations should use language similar to 'revanced_sb_enable_compact_skip_button' -->
   <string name="revanced_ryd_compact_layout_title">Компактно дугме „Свиђање”</string>
   <string name="revanced_ryd_compact_layout_summary_on">Дугме „Свиђање” стилизовано за минималну ширину</string>
@@ -914,8 +914,8 @@ Second \"item\" text"</string>
   <string name="revanced_sb_enable_compact_skip_button_sum_off">Дугме за прескакање стилизовано за најбољи изглед</string>
   <string name="revanced_sb_enable_auto_hide_skip_segment_button">Аутоматски сакриј дугме за прескакање</string>
   <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_on">Дугме за прескакање ће бити скривено након неколико секунди</string>
-  <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_off">Дугме за прескакање ће бити приказано током целог сегмента</string>
-  <string name="revanced_sb_general_skiptoast">Прикажи искачуће обавештење при аутоматском прескакању</string>
+  <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_off">Дугме за прескакање је приказано за цео сегмент</string>
+  <string name="revanced_sb_general_skiptoast">Прикажи искачуће обавештење при прескакању</string>
   <string name="revanced_sb_general_skiptoast_sum_on">Искачуће обавештење се приказује, када је сегмент аутоматски прескочен. Додирните овде да видите пример</string>
   <string name="revanced_sb_general_skiptoast_sum_off">Искачуће обавештење се не приказује. Додирните овде да видите пример</string>
   <string name="revanced_sb_general_time_without">Прикажи дужину видеа без сегмената</string>
@@ -1041,9 +1041,9 @@ Second \"item\" text"</string>
   <string name="revanced_sb_new_segment_disabled_category">Категорија је онемогућена у подешавањима. Омогућите категорију да бисте поднели.</string>
   <string name="revanced_sb_new_segment_title">Нови SponsorBlock сегмент</string>
   <string name="revanced_sb_new_segment_mark_time_as_question">Поставити %s као почетак или крај новог сегмента?</string>
-  <string name="revanced_sb_new_segment_mark_start">почетак</string>
-  <string name="revanced_sb_new_segment_mark_end">крај</string>
-  <string name="revanced_sb_new_segment_now">сада</string>
+  <string name="revanced_sb_new_segment_mark_start">Почетак</string>
+  <string name="revanced_sb_new_segment_mark_end">Крај</string>
+  <string name="revanced_sb_new_segment_now">Сада</string>
   <string name="revanced_sb_new_segment_time_start">Време почетка сегмента</string>
   <string name="revanced_sb_new_segment_time_end">Време краја сегмента</string>
   <string name="revanced_sb_new_segment_confirm_title">Да ли су времена тачна?</string>
@@ -1064,7 +1064,7 @@ Second \"item\" text"</string>
   <string name="revanced_sb_new_segment_edit_by_hand_parse_error">Дато је неважеће време</string>
   <string name="revanced_sb_stats">Статистика</string>
   <!-- Shown in the settings preferences, and translations can be any text length. -->
-  <string name="revanced_sb_stats_connection_failure">Статистика привремено није доступна (API не ради)</string>
+  <string name="revanced_sb_stats_connection_failure">Статистике привремено нису доступне (API не ради)</string>
   <string name="revanced_sb_stats_loading">Учитавање…</string>
   <string name="revanced_sb_stats_sb_disabled">SponsorBlock је онемогућен</string>
   <string name="revanced_sb_stats_username">Ваше корисничко име: &lt;b&gt;%s&lt;/b&gt;</string>
@@ -1287,8 +1287,8 @@ Second \"item\" text"</string>
   </patch>
   <patch id="misc.announcements.announcementsPatch">
   <string name="revanced_announcements_title">Прикажи саопштења ReVanced-а</string>
-  <string name="revanced_announcements_summary_on">Саопштења су приказана при покретању</string>
-  <string name="revanced_announcements_summary_off">Саопштења нису приказана при покретању</string>
+  <string name="revanced_announcements_summary_on">Саопштења при покретању су приказана</string>
+  <string name="revanced_announcements_summary_off">Саопштења при покретању нису приказана</string>
   <string name="revanced_announcements_enabled_summary">Приказивање саопштења при покретању</string>
   <string name="revanced_announcements_connection_failed">Неуспешно повезивање са пружаоцем саопштења</string>
   <string name="revanced_announcements_dialog_dismiss">Одбаци</string>

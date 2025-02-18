@@ -161,8 +161,8 @@ Dodirnite dugme „Nastavi” i dozvolite promene optimizacije."</string>
   <string name="revanced_debug_stacktrace_summary_on">Evidencije otklanjanja grešaka sadrže praćenje steka</string>
   <string name="revanced_debug_stacktrace_summary_off">Evidencije otklanjanja grešaka ne sadrže praćenje steka</string>
   <string name="revanced_debug_toast_on_error_title">Prikaži iskačuće obaveštenje pri grešci s ReVancedom</string>
-  <string name="revanced_debug_toast_on_error_summary_on">Iskačuće obaveštenje se prikazuje ako dođe do greške</string>
-  <string name="revanced_debug_toast_on_error_summary_off">Iskačuće obavešenje se ne prikazuje ako dođe do greške</string>
+  <string name="revanced_debug_toast_on_error_summary_on">Iskačuće obaveštenje je prikazano, ako dođe do greške</string>
+  <string name="revanced_debug_toast_on_error_summary_off">Iskačuće obaveštenje nije prikazano, ako dođe do greške</string>
   <string name="revanced_debug_toast_on_error_user_dialog_message">"Isključivanje iskačućih obaveštenja o greškama sakriva sve obaveštenja o greškama u ReVancedu.
 
 Nećete biti obavešteni ni o kakvim neočekivanim događajima."</string>
@@ -197,18 +197,18 @@ Nećete biti obavešteni ni o kakvim neočekivanim događajima."</string>
   <string name="revanced_hide_join_membership_button_summary_on">Dugme „Učlani me” je skriveno</string>
   <string name="revanced_hide_join_membership_button_summary_off">Dugme „Učlani me” je prikazano</string>
   <!-- 'For you' should be translated using the same localized wording YouTube displays. -->
-  <string name="revanced_hide_for_you_shelf_title">Sakrij policu „Za vas” na stranici kanala</string>
-  <string name="revanced_hide_for_you_shelf_summary_on">Polica „Za vas” na stranici kanala je skrivena</string>
-  <string name="revanced_hide_for_you_shelf_summary_off">Polica „Za vas” na stranici kanala je prikazana</string>
+  <string name="revanced_hide_for_you_shelf_title">Sakrij policu „Za vas”</string>
+  <string name="revanced_hide_for_you_shelf_summary_on">Polica na stranici kanala je skrivena</string>
+  <string name="revanced_hide_for_you_shelf_summary_off">Polica na stranici kanala je prikazana</string>
   <!-- 'Notify me' should be translated using the same localized wording YouTube displays.
                  This item appear in the subscription feed for future livestreams or unreleased videos. -->
   <string name="revanced_hide_notify_me_button_title">Sakrij dugme „Obavesti me”</string>
   <string name="revanced_hide_notify_me_button_summary_on">Dugme „Obavesti me” je skriveno</string>
   <string name="revanced_hide_notify_me_button_summary_off">Dugme „Obavesti me” je prikazano</string>
-  <!-- 'People also watch' should be translated using the same localized wording YouTube displays. -->
-  <string name="revanced_hide_search_result_recommendations_title">Sakrij preporuke „Drugi su takođe gledali ovaj video”</string>
-  <string name="revanced_hide_search_result_recommendations_summary_on">Preporuke „Drugi su takođe gledali ovaj video” su skrivene</string>
-  <string name="revanced_hide_search_result_recommendations_summary_off">Preporuke „Drugi su takođe gledali ovaj video” su prikazane</string>
+  <!-- 'People also watched' should be translated using the same localized wording YouTube displays. -->
+  <string name="revanced_hide_search_result_recommendations_title">Sakrij oznaku „Drugi su takođe gledali ovaj video”</string>
+  <string name="revanced_hide_search_result_recommendations_summary_on">Oznaka je skrivena</string>
+  <string name="revanced_hide_search_result_recommendations_summary_off">Oznaka je prikazana</string>
   <!-- 'Show more' should be translated with the same localized wording that YouTube displays.
                   This button usually appears when searching for a YT creator. -->
   <string name="revanced_hide_show_more_button_title">Sakrij dugme „Prikaži još”</string>
@@ -224,8 +224,8 @@ Nećete biti obavešteni ni o kakvim neočekivanim događajima."</string>
   <string name="revanced_hide_chips_shelf_summary_on">Polica oznaka sličnih videa je skrivena</string>
   <string name="revanced_hide_chips_shelf_summary_off">Polica oznaka sličnih videa je prikazana</string>
   <string name="revanced_hide_expandable_chip_title">Sakrij proširivu karticu ispod videozapisa</string>
-  <string name="revanced_hide_expandable_chip_summary_on">Proširive kartice su skrivene</string>
-  <string name="revanced_hide_expandable_chip_summary_off">Proširive kartice su prikazane</string>
+  <string name="revanced_hide_expandable_chip_summary_on">Proširiva kartica je skrivena</string>
+  <string name="revanced_hide_expandable_chip_summary_off">Proširiva kartica je prikazana</string>
   <string name="revanced_hide_community_posts_title">Sakrij objave zajednice</string>
   <string name="revanced_hide_community_posts_summary_on">Objave zajednice su skrivene</string>
   <string name="revanced_hide_community_posts_summary_off">Objave zajednice su prikazane</string>
@@ -241,7 +241,7 @@ Nećete biti obavešteni ni o kakvim neočekivanim događajima."</string>
   <string name="revanced_hide_community_guidelines_title">Sakrij smernice zajednice</string>
   <string name="revanced_hide_community_guidelines_summary_on">Smernice zajednice su skrivene</string>
   <string name="revanced_hide_community_guidelines_summary_off">Smernice zajednice su prikazane</string>
-  <string name="revanced_hide_subscribers_community_guidelines_title">Sakrij smernice zajednice pratilaca</string>
+  <string name="revanced_hide_subscribers_community_guidelines_title">Sakrij smernice pratilaca</string>
   <string name="revanced_hide_subscribers_community_guidelines_summary_on">Smernice zajednice pratilaca su skrivene</string>
   <string name="revanced_hide_subscribers_community_guidelines_summary_off">Smernice zajednice pratilaca su prikazane</string>
   <string name="revanced_hide_channel_member_shelf_title">Sakrij policu članova kanala</string>
@@ -280,10 +280,10 @@ Nećete biti obavešteni ni o kakvim neočekivanim događajima."</string>
   <string name="revanced_hide_artist_cards_title">Sakrij kartice izvođača</string>
   <string name="revanced_hide_artist_cards_summary_on">Kartice izvođača su skrivene</string>
   <string name="revanced_hide_artist_cards_summary_off">Kartice izvođača su prikazane</string>
-  <string name="revanced_hide_attributes_section_title">Sakrij odeljak sa atributima</string>
-  <string name="revanced_hide_attributes_section_summary_on"> Odeljci „Istaknuta mesta”, „Igre” i „Muzika” su skriveni</string>
-  <string name="revanced_hide_attributes_section_summary_off">Odeljci „Istaknuta mesta”, „Igre” i „Muzika” su prikazani</string>
-  <string name="revanced_hide_chapters_section_title">Sakrij odeljak za poglavlja</string>
+  <string name="revanced_hide_attributes_section_title">Sakrij atribute</string>
+  <string name="revanced_hide_attributes_section_summary_on">Odeljci „Istaknuta mesta”, „Igre”, „Muzika” i „Pomenuti ljudi” su skriveni</string>
+  <string name="revanced_hide_attributes_section_summary_off">Odeljci „Istaknuta mesta”, „Igre”, „Muzika” i „Pomenuti ljudi” su prikazani</string>
+  <string name="revanced_hide_chapters_section_title">Sakrij poglavlja</string>
   <string name="revanced_hide_chapters_section_summary_on">Odeljak za poglavlja je skriven</string>
   <string name="revanced_hide_chapters_section_summary_off">Odeljak za poglavlja je prikazan</string>
   <string name="revanced_hide_how_this_was_made_section_title">Sakrij odeljak „Kako je napravljen ovaj sadržaj”</string>
@@ -292,13 +292,13 @@ Nećete biti obavešteni ni o kakvim neočekivanim događajima."</string>
   <string name="revanced_hide_podcast_section_title">Sakrij odeljak „Istražite podkast”</string>
   <string name="revanced_hide_podcast_section_summary_on">Odeljak „Istražite podkast” je skriven</string>
   <string name="revanced_hide_podcast_section_summary_off">Odeljak „Istražite podkast” je prikazan</string>
-  <string name="revanced_hide_info_cards_section_title">Sakrij odeljak za kartice sa informacijama</string>
+  <string name="revanced_hide_info_cards_section_title">Sakrij kartice sa informacijama</string>
   <string name="revanced_hide_info_cards_section_summary_on">Odeljak za kartice sa informacijama je skriven</string>
   <string name="revanced_hide_info_cards_section_summary_off">Odeljak za kartice sa informacijama je prikazan</string>
   <string name="revanced_hide_key_concepts_section_title">Sakrij odeljak „Ključni koncepti”</string>
   <string name="revanced_hide_key_concepts_section_summary_on">Odeljak „Ključni koncepti” je skriven</string>
   <string name="revanced_hide_key_concepts_section_summary_off">Odeljak „Ključni koncepti” je prikazan</string>
-  <string name="revanced_hide_transcript_section_title">Sakrij odeljak za transkripciju</string>
+  <string name="revanced_hide_transcript_section_title">Sakrij transkript</string>
   <string name="revanced_hide_transcript_section_summary_on">Odeljak za transkripciju je skriven</string>
   <string name="revanced_hide_transcript_section_summary_off">Odeljak za transkripciju je prikazan</string>
   <string name="revanced_hide_description_components_screen_title">Opis videa</string>
@@ -316,27 +316,27 @@ Nećete biti obavešteni ni o kakvim neočekivanim događajima."</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">Prikazano u srodnim videima</string>
   <string name="revanced_comments_screen_title">Komentari</string>
   <string name="revanced_comments_screen_summary">Sakrijte ili prikažite komponente odeljka za komentare</string>
-  <string name="revanced_hide_comments_chat_summary_title">Sakrij „Rezime ćaskanja”</string>
-  <string name="revanced_hide_comments_chat_summary_summary_on">„Rezime ćaskanja” je skriven</string>
-  <string name="revanced_hide_comments_chat_summary_summary_off">„Rezime ćaskanja” je prikazan</string>
+  <string name="revanced_hide_comments_chat_summary_title">Sakrij „Rezime ćaskanja”</string>
+  <string name="revanced_hide_comments_chat_summary_summary_on">„Rezime ćaskanja” je skriven</string>
+  <string name="revanced_hide_comments_chat_summary_summary_off">„Rezime ćaskanja” je prikazan</string>
   <string name="revanced_hide_comments_by_members_header_title">Sakrij zaglavlje „Komentari od članova”</string>
-  <string name="revanced_hide_comments_by_members_header_summary_on">Zaglavlje „Komentari od članova” je skriveno</string>
-  <string name="revanced_hide_comments_by_members_header_summary_off">Zaglavlje „Komentari od članova” je prikazano</string>
+  <string name="revanced_hide_comments_by_members_header_summary_on">Zaglavlje „Komentari članova” je skriveno</string>
+  <string name="revanced_hide_comments_by_members_header_summary_off">Zaglavlje „Komentari članova” je prikazano</string>
   <string name="revanced_hide_comments_section_title">Sakrij odeljak za komentare</string>
   <string name="revanced_hide_comments_section_summary_on">Odeljak za komentare je skriven</string>
   <string name="revanced_hide_comments_section_summary_off">Odeljak za komentare je prikazan</string>
   <string name="revanced_hide_comments_create_a_short_button_title">Sakrij dugme „Napravi Short”</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_on">Dugme „Napravi Short” je skriveno</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_off">Dugme „Napravi Short” je prikazano</string>
+  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_title">Sakrij dugmad za emodži i vremensku oznaku</string>
+  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_on">Dugmad za emodži i vremensku oznaku su skrivena</string>
+  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_off">Dugmad za emodži i vremensku oznaku su prikazana</string>
   <string name="revanced_hide_comments_preview_comment_title">Sakrij komentar za pregled</string>
   <string name="revanced_hide_comments_preview_comment_summary_on">Komentar za pregled je skriven</string>
   <string name="revanced_hide_comments_preview_comment_summary_off">Komentar za pregled je prikazan</string>
   <string name="revanced_hide_comments_thanks_button_title">Sakrij dugme „Hvala”</string>
   <string name="revanced_hide_comments_thanks_button_summary_on">Dugme „Hvala” je skriveno</string>
   <string name="revanced_hide_comments_thanks_button_summary_off">Dugme „Hvala” je prikazano</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_title">Sakrij dugmad za vremensku oznaku i emodžije</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_on">Dugmad za vremensku oznaku i emodžije su skrivena</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_off">Dugmad za vremensku oznaku i emodžije su prikazana</string>
   <!-- https://logos.fandom.com/wiki/YouTube/Yoodles -->
   <string name="revanced_hide_doodles_title">Sakrij YouTube Doodles</string>
   <string name="revanced_hide_doodles_summary_on">Doodles na traci za pretragu je skriven</string>
@@ -421,8 +421,8 @@ Ova funkcija je dostupna samo za starije uređaje"</string>
   <string name="revanced_hide_shopping_links_summary_off">Linkovi za kupovinu u opisu videa su prikazani</string>
   <!-- 'Visit store' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_visit_store_button_title">Sakrij dugme „Poseti prodavnicu” na stranicama kanala</string>
-  <string name="revanced_hide_visit_store_button_summary_on">Dugme „Poseti prodavnicu” na stranicama kanala je skriveno</string>
-  <string name="revanced_hide_visit_store_button_summary_off">Dugme „Poseti prodavnicu” na stranicama kanala je prikazano</string>
+  <string name="revanced_hide_visit_store_button_summary_on">Dugme „Poseti prodavnicu” na stranici kanala je skriveno</string>
+  <string name="revanced_hide_visit_store_button_summary_off">Dugme „Poseti prodavnicu” na stranici kanala je prikazano</string>
   <string name="revanced_hide_web_search_results_title">Sakrij rezultate veb-pretrage</string>
   <string name="revanced_hide_web_search_results_summary_on">Rezultati veb-pretrage su skriveni</string>
   <string name="revanced_hide_web_search_results_summary_off">Rezultati veb-pretrage su prikazani</string>
@@ -462,8 +462,8 @@ Ova funkcija je dostupna samo za starije uređaje"</string>
   <string name="revanced_external_downloader_screen_title">Spoljna preuzimanja</string>
   <string name="revanced_external_downloader_screen_summary">Podešavanja za korišćenje spoljnog programa za preuzimanje</string>
   <string name="revanced_external_downloader_title">Prikaži dugme za spoljno preuzimanje</string>
-  <string name="revanced_external_downloader_summary_on">Dugme za spoljno preuzimanje je prikazano u plejeru</string>
-  <string name="revanced_external_downloader_summary_off">Dugme za spoljno preuzimanje nije prikazano u plejeru</string>
+  <string name="revanced_external_downloader_summary_on">Dugme „Preuzmi” u plejeru je prikazano</string>
+  <string name="revanced_external_downloader_summary_off">Dugme „Preuzmi” u plejeru nije prikazano</string>
   <!-- 'download action button' should be translated using the same wording as the translation of 'revanced_hide_download_button_title' -->
   <string name="revanced_external_downloader_action_button_title">Zameni dugme radnje „Preuzmi”</string>
   <string name="revanced_external_downloader_action_button_summary_on">Dugme „Preuzmi” otvara spoljni program za preuzimanje</string>
@@ -831,7 +831,7 @@ Napomena: Omogućavanje ovoga prisilno sakriva i video oglase"</string>
   <!-- Toast shown if network connection times out. Translations of this should not be longer than the original English or the text can be clipped and not entirely shown. -->
   <string name="revanced_ryd_failure_connection_timeout">Nesviđanja privremeno nisu dostupna (API istekao)</string>
   <string name="revanced_ryd_failure_connection_status_code">Nesviđanja nisu dostupna (status %d)</string>
-  <string name="revanced_ryd_failure_client_rate_limit_requested">Nesviđanja nisu dostupna (dostignuto je ograničenje klijenta API-ja)</string>
+  <string name="revanced_ryd_failure_client_rate_limit_requested">Nesviđanja nisu dostupna (ograničenje klijenta API-ja)</string>
   <string name="revanced_ryd_failure_generic">Nesviđanja nisu dostupna (%s)</string>
   <!-- Toast shown if the user enables RYD while a video is opened, and then tries to vote for the video. -->
   <string name="revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted">Osvežite video da biste glasali pomoću ReturnYouTubeDislike</string>
@@ -840,14 +840,14 @@ Napomena: Omogućavanje ovoga prisilno sakriva i video oglase"</string>
   <string name="revanced_ryd_enable_summary_on">Nesviđanja su prikazana</string>
   <string name="revanced_ryd_enable_summary_off">Nesviđanja nisu prikazana</string>
   <string name="revanced_ryd_shorts_title">Prikaži nesviđanja na Shorts videima</string>
-  <string name="revanced_ryd_shorts_summary_on">Nesviđanja su prikazana na Shorts videima</string>
-  <string name="revanced_ryd_shorts_summary_on_disclaimer">"Nesviđanja su prikazana na Shorts videima
+  <string name="revanced_ryd_shorts_summary_on">Nesviđanja na Shorts videima su prikazana</string>
+  <string name="revanced_ryd_shorts_summary_on_disclaimer">"Nesviđanja na Shorts videima su prikazana
 
-Ograničenje: Nesviđanja se možda neće pojaviti u režimu bez arhiviranja"</string>
-  <string name="revanced_ryd_shorts_summary_off">Nesviđanja su skrivena na Shorts videima</string>
+Ograničenje: Nesviđanja se možda neće pojaviti u režimu bez arhiviranja"</string>
+  <string name="revanced_ryd_shorts_summary_off">Nesviđanja na Shorts videima nisu prikazana</string>
   <string name="revanced_ryd_dislike_percentage_title">Nesviđanja u procentima</string>
-  <string name="revanced_ryd_dislike_percentage_summary_on">Nesviđanja prikazana u procentima</string>
-  <string name="revanced_ryd_dislike_percentage_summary_off">Nesviđanja prikazana u brojevima</string>
+  <string name="revanced_ryd_dislike_percentage_summary_on">Nesviđanja su prikazana kao procenat</string>
+  <string name="revanced_ryd_dislike_percentage_summary_off">Nesviđanja su prikazana kao broj</string>
   <!-- Translations should use language similar to 'revanced_sb_enable_compact_skip_button' -->
   <string name="revanced_ryd_compact_layout_title">Kompaktno dugme „Sviđanje”</string>
   <string name="revanced_ryd_compact_layout_summary_on">Dugme „Sviđanje” stilizovano za minimalnu širinu</string>
@@ -914,8 +914,8 @@ Ova funkcija najbolje radi sa kvalitetom videa od 720p ili nižim i kada koristi
   <string name="revanced_sb_enable_compact_skip_button_sum_off">Dugme za preskakanje stilizovano za najbolji izgled</string>
   <string name="revanced_sb_enable_auto_hide_skip_segment_button">Automatski sakrij dugme za preskakanje</string>
   <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_on">Dugme za preskakanje će biti skriveno nakon nekoliko sekundi</string>
-  <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_off">Dugme za preskakanje će biti prikazano tokom celog segmenta</string>
-  <string name="revanced_sb_general_skiptoast">Prikaži iskačuće obaveštenje pri automatskom preskakanju</string>
+  <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_off">Dugme za preskakanje je prikazano za ceo segment</string>
+  <string name="revanced_sb_general_skiptoast">Prikaži iskačuće obaveštenje pri preskakanju</string>
   <string name="revanced_sb_general_skiptoast_sum_on">Iskačuće obaveštenje se prikazuje, kada je segment automatski preskočen. Dodirnite ovde da vidite primer</string>
   <string name="revanced_sb_general_skiptoast_sum_off">Iskačuće obaveštenje se ne prikazuje. Dodirnite ovde da vidite primer</string>
   <string name="revanced_sb_general_time_without">Prikaži dužinu videa bez segmenata</string>
@@ -1041,9 +1041,9 @@ Već postoji"</string>
   <string name="revanced_sb_new_segment_disabled_category">Kategorija je onemogućena u podešavanjima. Omogućite kategoriju da biste podneli.</string>
   <string name="revanced_sb_new_segment_title">Novi SponsorBlock segment</string>
   <string name="revanced_sb_new_segment_mark_time_as_question">Postaviti %s kao početak ili kraj novog segmenta?</string>
-  <string name="revanced_sb_new_segment_mark_start">početak</string>
-  <string name="revanced_sb_new_segment_mark_end">kraj</string>
-  <string name="revanced_sb_new_segment_now">sada</string>
+  <string name="revanced_sb_new_segment_mark_start">Početak</string>
+  <string name="revanced_sb_new_segment_mark_end">Kraj</string>
+  <string name="revanced_sb_new_segment_now">Sada</string>
   <string name="revanced_sb_new_segment_time_start">Vreme početka segmenta</string>
   <string name="revanced_sb_new_segment_time_end">Vreme kraja segmenta</string>
   <string name="revanced_sb_new_segment_confirm_title">Da li su vremena tačna?</string>
@@ -1064,7 +1064,7 @@ Spreman za podnošenje?"</string>
   <string name="revanced_sb_new_segment_edit_by_hand_parse_error">Dato je nevažeće vreme</string>
   <string name="revanced_sb_stats">Statistika</string>
   <!-- Shown in the settings preferences, and translations can be any text length. -->
-  <string name="revanced_sb_stats_connection_failure">Statistika privremeno nije dostupna (API ne radi)</string>
+  <string name="revanced_sb_stats_connection_failure">Statistike privremeno nisu dostupne (API ne radi)</string>
   <string name="revanced_sb_stats_loading">Učitavanje…</string>
   <string name="revanced_sb_stats_sb_disabled">SponsorBlock je onemogućen</string>
   <string name="revanced_sb_stats_username">Vaše korisničko ime: &lt;b&gt;%s&lt;/b&gt;</string>
@@ -1287,8 +1287,8 @@ Dodirnite ovde da saznate više o DeArrowu"</string>
   </patch>
   <patch id="misc.announcements.announcementsPatch">
   <string name="revanced_announcements_title">Prikaži saopštenja ReVanceda</string>
-  <string name="revanced_announcements_summary_on">Saopštenja su prikazana pri pokretanju</string>
-  <string name="revanced_announcements_summary_off">Saopštenja nisu prikazana pri pokretanju</string>
+  <string name="revanced_announcements_summary_on">Saopštenja pri pokretanju su prikazana</string>
+  <string name="revanced_announcements_summary_off">Saopštenja pri pokretanju nisu prikazana</string>
   <string name="revanced_announcements_enabled_summary">Prikazivanje saopštenja pri pokretanju</string>
   <string name="revanced_announcements_connection_failed">Neuspešno povezivanje sa pružaocem saopštenja</string>
   <string name="revanced_announcements_dialog_dismiss">Odbaci</string>

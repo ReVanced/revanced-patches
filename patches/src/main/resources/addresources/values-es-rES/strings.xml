@@ -153,8 +153,8 @@ Para traducir nuevos idiomas, visita translate.revanced.app"</string>
   <string name="revanced_debug_stacktrace_summary_on">Los registros de depuración incluyen stack trace</string>
   <string name="revanced_debug_stacktrace_summary_off">Los registros de depuración no incluyen stack trace</string>
   <string name="revanced_debug_toast_on_error_title">Mostrar brindis en error ReVanced</string>
-  <string name="revanced_debug_toast_on_error_summary_on">Toast mostrado si ocurre un error</string>
-  <string name="revanced_debug_toast_on_error_summary_off">Toast no se muestra si ocurre un error</string>
+  <string name="revanced_debug_toast_on_error_summary_on">Se muestra un toast si se produce un error</string>
+  <string name="revanced_debug_toast_on_error_summary_off">No se muestra un toast si se produce un error</string>
   <string name="revanced_debug_toast_on_error_user_dialog_message">"Desactivar las notificaciones de error oculta todas las notificaciones de error de ReVanced."</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
@@ -183,22 +183,22 @@ Para traducir nuevos idiomas, visita translate.revanced.app"</string>
   <string name="revanced_hide_horizontal_shelves_summary_off">Se muestran las estanterías</string>
   <!-- 'Join' should be translated using the same localized wording YouTube displays.
                  This appears in the video player for certain videos. -->
-  <string name="revanced_hide_join_membership_button_title">Ocultar botón \'Unirse\'</string>
+  <string name="revanced_hide_join_membership_button_title">Ocultar el botón Unirse</string>
   <string name="revanced_hide_join_membership_button_summary_on">Botón oculto</string>
   <string name="revanced_hide_join_membership_button_summary_off">Se muestra el botón</string>
   <!-- 'For you' should be translated using the same localized wording YouTube displays. -->
-  <string name="revanced_hide_for_you_shelf_title">Ocultar sección \'Para ti\' en la página del canal</string>
-  <string name="revanced_hide_for_you_shelf_summary_on">Estante oculto</string>
-  <string name="revanced_hide_for_you_shelf_summary_off">Estante mostrado</string>
+  <string name="revanced_hide_for_you_shelf_title">Ocultar la sección \"Para ti\"</string>
+  <string name="revanced_hide_for_you_shelf_summary_on">El estante en la página del canal está oculto</string>
+  <string name="revanced_hide_for_you_shelf_summary_off">El estante en la página del canal se muestra</string>
   <!-- 'Notify me' should be translated using the same localized wording YouTube displays.
                  This item appear in the subscription feed for future livestreams or unreleased videos. -->
   <string name="revanced_hide_notify_me_button_title">Ocultar el botón \'Notificarme\'</string>
   <string name="revanced_hide_notify_me_button_summary_on">Botón oculto</string>
   <string name="revanced_hide_notify_me_button_summary_off">Se muestra el botón</string>
-  <!-- 'People also watch' should be translated using the same localized wording YouTube displays. -->
-  <string name="revanced_hide_search_result_recommendations_title">Ocultar recomendaciones de \"Las personas también vieron\"</string>
-  <string name="revanced_hide_search_result_recommendations_summary_on">Recomendaciones ocultas</string>
-  <string name="revanced_hide_search_result_recommendations_summary_off">Se muestran las recomendaciones</string>
+  <!-- 'People also watched' should be translated using the same localized wording YouTube displays. -->
+  <string name="revanced_hide_search_result_recommendations_title">Ocultar la etiqueta \"También vieron\"</string>
+  <string name="revanced_hide_search_result_recommendations_summary_on">La etiqueta está oculta</string>
+  <string name="revanced_hide_search_result_recommendations_summary_off">Se muestra la etiqueta</string>
   <!-- 'Show more' should be translated with the same localized wording that YouTube displays.
                   This button usually appears when searching for a YT creator. -->
   <string name="revanced_hide_show_more_button_title">Ocultar botón \'Mostrar más\'</string>
@@ -214,8 +214,8 @@ Para traducir nuevos idiomas, visita translate.revanced.app"</string>
   <string name="revanced_hide_chips_shelf_summary_on">\"Más como esto\" está oculto</string>
   <string name="revanced_hide_chips_shelf_summary_off">\"Más como esto\" está habilitado</string>
   <string name="revanced_hide_expandable_chip_title">Ocultar tarjeta expandible debajo de los videos</string>
-  <string name="revanced_hide_expandable_chip_summary_on">Las tarjetas expandibles están ocultas</string>
-  <string name="revanced_hide_expandable_chip_summary_off">Las tarjetas expandibles se muestran</string>
+  <string name="revanced_hide_expandable_chip_summary_on">La tarjeta expandible está oculta</string>
+  <string name="revanced_hide_expandable_chip_summary_off">Se muestra la tarjeta expandible</string>
   <string name="revanced_hide_community_posts_title">Ocultar mensajes comunitarios</string>
   <string name="revanced_hide_community_posts_summary_on">Los mensajes de la comunidad están ocultos</string>
   <string name="revanced_hide_community_posts_summary_off">Se muestran las publicaciones de la comunidad</string>
@@ -231,7 +231,7 @@ Para traducir nuevos idiomas, visita translate.revanced.app"</string>
   <string name="revanced_hide_community_guidelines_title">Ocultar pautas comunitarias</string>
   <string name="revanced_hide_community_guidelines_summary_on">Las pautas comunitarias están ocultas</string>
   <string name="revanced_hide_community_guidelines_summary_off">Se muestran las pautas comunitarias</string>
-  <string name="revanced_hide_subscribers_community_guidelines_title">Ocultar pautas de la comunidad de suscriptores</string>
+  <string name="revanced_hide_subscribers_community_guidelines_title">Ocultar las directrices para suscriptores</string>
   <string name="revanced_hide_subscribers_community_guidelines_summary_on">Las pautas comunitarias de los suscriptores están ocultas</string>
   <string name="revanced_hide_subscribers_community_guidelines_summary_off">Se muestran las pautas de la comunidad de suscriptores</string>
   <string name="revanced_hide_channel_member_shelf_title">Ocultar estante del miembro del canal</string>
@@ -270,25 +270,25 @@ Para traducir nuevos idiomas, visita translate.revanced.app"</string>
   <string name="revanced_hide_artist_cards_title">Ocultar tarjetas de artistas</string>
   <string name="revanced_hide_artist_cards_summary_on">Las tarjetas de artistas están ocultas</string>
   <string name="revanced_hide_artist_cards_summary_off">Se muestran las tarjetas del artista</string>
-  <string name="revanced_hide_attributes_section_title">Ocultar sección de atributos</string>
-  <string name="revanced_hide_attributes_section_summary_on">\'Lugares destacados\', Las secciones de juegos y música están ocultas</string>
-  <string name="revanced_hide_attributes_section_summary_off">\'Lugares destacados\', Se muestran las secciones de juegos y música</string>
-  <string name="revanced_hide_chapters_section_title">Ocultar sección de capítulos</string>
+  <string name="revanced_hide_attributes_section_title">Ocultar atributos</string>
+  <string name="revanced_hide_attributes_section_summary_on">Las secciones Lugares destacados, Juegos, Música y Personas mencionadas están ocultas</string>
+  <string name="revanced_hide_attributes_section_summary_off">Las secciones Lugares destacados, Juegos, Música y Personas mencionadas se muestran</string>
+  <string name="revanced_hide_chapters_section_title">Ocultar capítulos</string>
   <string name="revanced_hide_chapters_section_summary_on">La sección de capítulos está oculta</string>
   <string name="revanced_hide_chapters_section_summary_off">Se muestra la sección de capítulos</string>
-  <string name="revanced_hide_how_this_was_made_section_title">Ocultar la sección \'Cómo se creó este contenido\'</string>
-  <string name="revanced_hide_how_this_was_made_section_summary_on">La sección \'Cómo se creó este contenido\' está oculta</string>
-  <string name="revanced_hide_how_this_was_made_section_summary_off">La sección \'Cómo se creó este contenido\' está visible</string>
-  <string name="revanced_hide_podcast_section_title">Ocultar la sección \'Explorar el podcast\'</string>
-  <string name="revanced_hide_podcast_section_summary_on">La sección \'Explorar el podcast\' está oculta</string>
-  <string name="revanced_hide_podcast_section_summary_off">Se muestra la sección \'Explorar el podcast\'</string>
-  <string name="revanced_hide_info_cards_section_title">Ocultar sección de tarjetas de información</string>
+  <string name="revanced_hide_how_this_was_made_section_title">Ocultar \"Cómo se hizo este contenido\"</string>
+  <string name="revanced_hide_how_this_was_made_section_summary_on">La sección Cómo se hizo este contenido está oculta</string>
+  <string name="revanced_hide_how_this_was_made_section_summary_off">Se muestra la sección Cómo se hizo este contenido</string>
+  <string name="revanced_hide_podcast_section_title">Ocultar \"Explora el pódcast\"</string>
+  <string name="revanced_hide_podcast_section_summary_on">La sección Explora el pódcast está oculta</string>
+  <string name="revanced_hide_podcast_section_summary_off">Se muestra la sección Explora el pódcast</string>
+  <string name="revanced_hide_info_cards_section_title">Ocultar tarjetas de información</string>
   <string name="revanced_hide_info_cards_section_summary_on">La sección de tarjetas de información está oculta</string>
   <string name="revanced_hide_info_cards_section_summary_off">Se muestra la sección de tarjetas de información</string>
-  <string name="revanced_hide_key_concepts_section_title">Ocultar sección \'Conceptos clave\'</string>
-  <string name="revanced_hide_key_concepts_section_summary_on">La sección \'Conceptos clave\' está oculta</string>
-  <string name="revanced_hide_key_concepts_section_summary_off">La sección \'Conceptos clave\' se muestra</string>
-  <string name="revanced_hide_transcript_section_title">Ocultar sección de transcripción</string>
+  <string name="revanced_hide_key_concepts_section_title">Ocultar \"Conceptos clave\"</string>
+  <string name="revanced_hide_key_concepts_section_summary_on">La sección Conceptos clave está oculta</string>
+  <string name="revanced_hide_key_concepts_section_summary_off">Se muestra la sección Conceptos clave</string>
+  <string name="revanced_hide_transcript_section_title">Ocultar transcripción</string>
   <string name="revanced_hide_transcript_section_summary_on">La sección transcripción está oculta</string>
   <string name="revanced_hide_transcript_section_summary_off">Se muestra la sección transcripción</string>
   <string name="revanced_hide_description_components_screen_title">Descripción del vídeo</string>
@@ -306,27 +306,27 @@ Para traducir nuevos idiomas, visita translate.revanced.app"</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">Mostrar en vídeos relacionados</string>
   <string name="revanced_comments_screen_title">Comentarios</string>
   <string name="revanced_comments_screen_summary">Ocultar o mostrar los componentes de sección de comentarios</string>
-  <string name="revanced_hide_comments_chat_summary_title">Ocultar \'Resumen del chat\'</string>
-  <string name="revanced_hide_comments_chat_summary_summary_on">El resumen de chat está oculto</string>
-  <string name="revanced_hide_comments_chat_summary_summary_off">El resumen del chat se muestra</string>
+  <string name="revanced_hide_comments_chat_summary_title">Ocultar \"Resumen del chat\"</string>
+  <string name="revanced_hide_comments_chat_summary_summary_on">El resumen del chat está oculto</string>
+  <string name="revanced_hide_comments_chat_summary_summary_off">Se muestra el resumen del chat</string>
   <string name="revanced_hide_comments_by_members_header_title">Ocultar encabezado \'Comentarios por miembros\'</string>
-  <string name="revanced_hide_comments_by_members_header_summary_on">El encabezado \'Comentarios por miembros\' está oculto</string>
-  <string name="revanced_hide_comments_by_members_header_summary_off">La cabecera \'Comentarios por miembros\' se muestra</string>
+  <string name="revanced_hide_comments_by_members_header_summary_on">El encabezado Comentarios de los miembros está oculto</string>
+  <string name="revanced_hide_comments_by_members_header_summary_off">Se muestra el encabezado Comentarios de los miembros</string>
   <string name="revanced_hide_comments_section_title">Ocultar sección de comentarios</string>
   <string name="revanced_hide_comments_section_summary_on">La sección de comentarios está oculta</string>
   <string name="revanced_hide_comments_section_summary_off">Sección de comentarios mostrada</string>
   <string name="revanced_hide_comments_create_a_short_button_title">Ocultar botón \'Crear un Short\'</string>
-  <string name="revanced_hide_comments_create_a_short_button_summary_on">El botón \'Crear un Short\' está oculto</string>
-  <string name="revanced_hide_comments_create_a_short_button_summary_off">Se muestra el botón \'Crear un Short\'</string>
+  <string name="revanced_hide_comments_create_a_short_button_summary_on">El botón Crear un Short está oculto</string>
+  <string name="revanced_hide_comments_create_a_short_button_summary_off">Se muestra el botón Crear un Short</string>
+  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_title">Ocultar los botones de emoji y marca de tiempo</string>
+  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_on">Los botones de emoji y marca de tiempo están ocultos</string>
+  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_off">Se muestran los botones de emoji y marca de tiempo</string>
   <string name="revanced_hide_comments_preview_comment_title">Ocultar comentario de vista previa</string>
   <string name="revanced_hide_comments_preview_comment_summary_on">El comentario de la vista previa está oculto</string>
   <string name="revanced_hide_comments_preview_comment_summary_off">Vista previa del comentario se muestra</string>
   <string name="revanced_hide_comments_thanks_button_title">Ocultar botón Gracias</string>
   <string name="revanced_hide_comments_thanks_button_summary_on">El botón de gracias está oculto</string>
   <string name="revanced_hide_comments_thanks_button_summary_off">Se muestra el botón de gracias</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_title">Ocultar botones de hora y emoji</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_on">Botones Timestamp y emoji están ocultos</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_off">Se muestran los botones Timestamp y emoji</string>
   <!-- https://logos.fandom.com/wiki/YouTube/Yoodles -->
   <string name="revanced_hide_doodles_title">Ocultar YouTube Doodles</string>
   <string name="revanced_hide_doodles_summary_on">Barra de búsqueda Doodles están ocultos</string>
@@ -407,12 +407,12 @@ Esta función solo está disponible para dispositivos antiguos"</string>
   <string name="revanced_hide_player_store_shelf_summary_on">El armazón de compras está oculto</string>
   <string name="revanced_hide_player_store_shelf_summary_off">Se muestra el shelf de la compra</string>
   <string name="revanced_hide_shopping_links_title">Ocultar enlaces de compras en la descripción de vídeo</string>
-  <string name="revanced_hide_shopping_links_summary_on">Enlaces de compras están ocultos</string>
-  <string name="revanced_hide_shopping_links_summary_off">Se muestran enlaces de compras</string>
+  <string name="revanced_hide_shopping_links_summary_on">Los enlaces de compra en la descripción del video están ocultos</string>
+  <string name="revanced_hide_shopping_links_summary_off">Se muestran los enlaces de compra en la descripción del video</string>
   <!-- 'Visit store' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_visit_store_button_title">Ocultar el botón \'Visitar tienda\' en las páginas del canal</string>
-  <string name="revanced_hide_visit_store_button_summary_on">Botón oculto</string>
-  <string name="revanced_hide_visit_store_button_summary_off">Se muestra el botón</string>
+  <string name="revanced_hide_visit_store_button_summary_on">El botón en la página del canal está oculto</string>
+  <string name="revanced_hide_visit_store_button_summary_off">Se muestra el botón en la página del canal</string>
   <string name="revanced_hide_web_search_results_title">Ocultar resultados de búsqueda web</string>
   <string name="revanced_hide_web_search_results_summary_on">Los resultados de búsqueda web están ocultos</string>
   <string name="revanced_hide_web_search_results_summary_off">Se muestran los resultados de la búsqueda web</string>
@@ -452,8 +452,8 @@ Esta función solo está disponible para dispositivos antiguos"</string>
   <string name="revanced_external_downloader_screen_title">Descargas externa</string>
   <string name="revanced_external_downloader_screen_summary">Configuración para el uso de un descargador externo</string>
   <string name="revanced_external_downloader_title">Mostrar botón externo de descarga</string>
-  <string name="revanced_external_downloader_summary_on">Botón de descarga mostrado en el reproductor</string>
-  <string name="revanced_external_downloader_summary_off">Botón de descarga no mostrado en el reproductor</string>
+  <string name="revanced_external_downloader_summary_on">Se muestra el botón de descarga en el reproductor</string>
+  <string name="revanced_external_downloader_summary_off">No se muestra el botón de descarga en el reproductor</string>
   <!-- 'download action button' should be translated using the same wording as the translation of 'revanced_hide_download_button_title' -->
   <string name="revanced_external_downloader_action_button_title">Anular el botón de acción de descarga</string>
   <string name="revanced_external_downloader_action_button_summary_on">El botón de descarga abre su descarga externa</string>
@@ -821,7 +821,7 @@ Nota: Habilitar esto también oculta a la fuerza los anuncios de vídeo"</string
   <!-- Toast shown if network connection times out. Translations of this should not be longer than the original English or the text can be clipped and not entirely shown. -->
   <string name="revanced_ryd_failure_connection_timeout">No me gusta no disponible temporalmente</string>
   <string name="revanced_ryd_failure_connection_status_code">Dislikes no disponibles (estado %d)</string>
-  <string name="revanced_ryd_failure_client_rate_limit_requested">No me gusta no disponible</string>
+  <string name="revanced_ryd_failure_client_rate_limit_requested">Los Dislikes no están disponibles (límite de la API del cliente)</string>
   <string name="revanced_ryd_failure_generic">Dislikes no disponibles (%s)</string>
   <!-- Toast shown if the user enables RYD while a video is opened, and then tries to vote for the video. -->
   <string name="revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted">Recargar vídeo para votar usando Return YouTube Dislike</string>
@@ -830,14 +830,14 @@ Nota: Habilitar esto también oculta a la fuerza los anuncios de vídeo"</string
   <string name="revanced_ryd_enable_summary_on">Dislikes son mostrados</string>
   <string name="revanced_ryd_enable_summary_off">No se muestran Dislikes</string>
   <string name="revanced_ryd_shorts_title">Mostrar no me gusta en Shorts</string>
-  <string name="revanced_ryd_shorts_summary_on">Dislikes mostrados en Shorts</string>
-  <string name="revanced_ryd_shorts_summary_on_disclaimer">"No me gustas que se muestran en los Shorts
+  <string name="revanced_ryd_shorts_summary_on">Los Dislikes en los Shorts se muestran</string>
+  <string name="revanced_ryd_shorts_summary_on_disclaimer">"Los Dislikes en los Shorts se muestran
 
-Limitación: Es posible que los No me gustas no aparezcan en el modo de incógnito"</string>
-  <string name="revanced_ryd_shorts_summary_off">No me Gusta ocultos en Shorts</string>
+Limitación: Es posible que los Dislikes no aparezcan en el modo de incógnito"</string>
+  <string name="revanced_ryd_shorts_summary_off">No se muestran los Dislikes en los Shorts</string>
   <string name="revanced_ryd_dislike_percentage_title">Desliza como porcentaje</string>
-  <string name="revanced_ryd_dislike_percentage_summary_on">Dislikes mostrados como porcentaje</string>
-  <string name="revanced_ryd_dislike_percentage_summary_off">Dislikes mostrados como número</string>
+  <string name="revanced_ryd_dislike_percentage_summary_on">Los Dislikes se muestran como un porcentaje</string>
+  <string name="revanced_ryd_dislike_percentage_summary_off">Los Dislikes se muestran como un número</string>
   <!-- Translations should use language similar to 'revanced_sb_enable_compact_skip_button' -->
   <string name="revanced_ryd_compact_layout_title">Botón Me gusta compacto</string>
   <string name="revanced_ryd_compact_layout_summary_on">Botón \"Me gusta\" para el ancho mínimo</string>
@@ -899,20 +899,20 @@ Esta función funciona mejor con una calidad de vídeo de 720p o inferior y cuan
   <string name="revanced_sb_square_layout_sum_on">Los botones y los controles son cuadrados</string>
   <string name="revanced_sb_square_layout_sum_off">Los botones y controles están redondeados</string>
   <!-- Translations should use language similar to 'revanced_ryd_compact_layout_title' -->
-  <string name="revanced_sb_enable_compact_skip_button">Usar botón compacto de saltar</string>
+  <string name="revanced_sb_enable_compact_skip_button">Usar botón Saltar compacto</string>
   <string name="revanced_sb_enable_compact_skip_button_sum_on">Omitir botón con estilo para el ancho mínimo</string>
   <string name="revanced_sb_enable_compact_skip_button_sum_off">Omitir botón con estilo para la mejor apariencia</string>
-  <string name="revanced_sb_enable_auto_hide_skip_segment_button">Ocultar automáticamente el botón omitir</string>
+  <string name="revanced_sb_enable_auto_hide_skip_segment_button">Ocultar automáticamente el botón Saltar</string>
   <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_on">Omitir botón se oculta después de unos segundos</string>
-  <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_off">Saltar botón mostrado para todo el segmento</string>
-  <string name="revanced_sb_general_skiptoast">Mostrar un brindis al saltar automáticamente</string>
+  <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_off">Se muestra el botón Saltar para todo el segmento</string>
+  <string name="revanced_sb_general_skiptoast">Mostrar un toast al saltar</string>
   <string name="revanced_sb_general_skiptoast_sum_on">Toast se muestra cuando un segmento se omite automáticamente. Pulse aquí para ver un ejemplo</string>
   <string name="revanced_sb_general_skiptoast_sum_off">Toast no se muestra. Toque aquí para ver un ejemplo</string>
   <string name="revanced_sb_general_time_without">Mostrar longitud de vídeo sin segmentos</string>
   <string name="revanced_sb_general_time_without_sum_on">Longitud del vídeo menos todos los segmentos, mostrados en paréntesis junto a la longitud completa del vídeo</string>
   <string name="revanced_sb_general_time_without_sum_off">Longitud completa del vídeo mostrada</string>
   <string name="revanced_sb_create_segment_category">Creando nuevos segmentos</string>
-  <string name="revanced_sb_enable_create_segment">Mostrar botón crear nuevo segmento</string>
+  <string name="revanced_sb_enable_create_segment">Mostrar el botón Crear nuevo segmento</string>
   <string name="revanced_sb_enable_create_segment_sum_on">Se muestra el botón de crear un nuevo segmento</string>
   <string name="revanced_sb_enable_create_segment_sum_off">No se muestra el botón de crear un nuevo segmento</string>
   <string name="revanced_sb_general_adjusting">Ajustar nuevo paso de segmento</string>
@@ -1005,7 +1005,7 @@ Tu ID de usuario es como una contraseña y nunca debe compartirse."</string>
   <string name="revanced_sb_skipped_multiple_segments">Se omitieron varios segmentos</string>
   <string name="revanced_sb_skip_automatically">Omitir automáticamente</string>
   <string name="revanced_sb_skip_automatically_once">Saltar automáticamente una vez</string>
-  <string name="revanced_sb_skip_showbutton">Mostrar botón de omitir</string>
+  <string name="revanced_sb_skip_showbutton">Mostrar un botón Saltar</string>
   <string name="revanced_sb_skip_seekbaronly">Mostrar en la barra de búsqueda</string>
   <string name="revanced_sb_skip_ignore">Deshabilitar</string>
   <string name="revanced_sb_submit_failed_invalid">No se puede enviar el segmento: %s</string>
@@ -1031,9 +1031,9 @@ Ya existe"</string>
   <string name="revanced_sb_new_segment_disabled_category">Categoría está desactivada en la configuración. Habilitar la categoría para enviar.</string>
   <string name="revanced_sb_new_segment_title">Nuevo segmento de SponsorBlock</string>
   <string name="revanced_sb_new_segment_mark_time_as_question">¿Establecer %s como inicio o fin de un nuevo segmento?</string>
-  <string name="revanced_sb_new_segment_mark_start">comienzo</string>
-  <string name="revanced_sb_new_segment_mark_end">final</string>
-  <string name="revanced_sb_new_segment_now">ahora</string>
+  <string name="revanced_sb_new_segment_mark_start">Comienzo</string>
+  <string name="revanced_sb_new_segment_mark_end">Fin</string>
+  <string name="revanced_sb_new_segment_now">Ahora</string>
   <string name="revanced_sb_new_segment_time_start">Segundo en el que el segmento comienza</string>
   <string name="revanced_sb_new_segment_time_end">Segundo en el que el segmento finaliza</string>
   <string name="revanced_sb_new_segment_confirm_title">¿Los tiempos son correctos?</string>
@@ -1046,7 +1046,7 @@ Ya existe"</string>
   <string name="revanced_sb_new_segment_edit_by_hand_parse_error">Tiempo dado no válido</string>
   <string name="revanced_sb_stats">Estadísticas</string>
   <!-- Shown in the settings preferences, and translations can be any text length. -->
-  <string name="revanced_sb_stats_connection_failure">Estadísticas temporalmente no disponibles (API está caída)</string>
+  <string name="revanced_sb_stats_connection_failure">Las estadísticas no están disponibles temporalmente (la API está inactiva)</string>
   <string name="revanced_sb_stats_loading">Cargando...</string>
   <string name="revanced_sb_stats_sb_disabled">SponsorBlock está desactivado</string>
   <string name="revanced_sb_stats_username">Tu nombre de usuario: &lt;b&gt;%s&lt;/b&gt;</string>
@@ -1264,13 +1264,13 @@ Toca aquí para obtener más información sobre DeArrow"</string>
   <string name="revanced_alt_thumbnail_stills_time_entry_2">Medio del vídeo</string>
   <string name="revanced_alt_thumbnail_stills_time_entry_3">Fin del vídeo</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
-  <string name="revanced_alt_thumbnail_dearrow_error">DeArrow no disponible. (código de estado: %s)</string>
-  <string name="revanced_alt_thumbnail_dearrow_error_generic">DeFlecha temporalmente no disponible</string>
+  <string name="revanced_alt_thumbnail_dearrow_error">DeArrow no está disponible temporalmente (código de estado: %s)</string>
+  <string name="revanced_alt_thumbnail_dearrow_error_generic">DeArrow no está disponible temporalmente</string>
   </patch>
   <patch id="misc.announcements.announcementsPatch">
   <string name="revanced_announcements_title">Mostrar anuncios de ReVanced</string>
-  <string name="revanced_announcements_summary_on">Los anuncios se muestran al iniciar</string>
-  <string name="revanced_announcements_summary_off">Los anuncios no se muestran al iniciar</string>
+  <string name="revanced_announcements_summary_on">Se muestran los anuncios al inicio</string>
+  <string name="revanced_announcements_summary_off">No se muestran los anuncios al inicio</string>
   <string name="revanced_announcements_enabled_summary">Mostrar anuncios al iniciar</string>
   <string name="revanced_announcements_connection_failed">Error al conectar con el proveedor de anuncios</string>
   <string name="revanced_announcements_dialog_dismiss">Descartar</string>

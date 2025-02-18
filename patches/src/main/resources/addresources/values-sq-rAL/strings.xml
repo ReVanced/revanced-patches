@@ -161,14 +161,14 @@ Prekni butonin vazhdo dhe lejoni ndryshimet e optimizimit."</string>
   <string name="revanced_debug_stacktrace_summary_on">Regjistrimet e depurimit përfshijnë gjurmë grumbullimi</string>
   <string name="revanced_debug_stacktrace_summary_off">Regjistrimet e depurimit nuk përfshijnë gjurmë grumbullimi</string>
   <string name="revanced_debug_toast_on_error_title">Shfaqni toast për gabimet e ReVanced</string>
-  <string name="revanced_debug_toast_on_error_summary_on">Toast shfaqet nëse ndodh ndonjë gabim</string>
-  <string name="revanced_debug_toast_on_error_summary_off">Toast nuk shfaqet nëse ndodh ndonjë gabim</string>
+  <string name="revanced_debug_toast_on_error_summary_on">Shfaqet një toast nëse ndodh një gabim</string>
+  <string name="revanced_debug_toast_on_error_summary_off">Nuk shfaqet toast nëse ndodh një gabim</string>
   <string name="revanced_debug_toast_on_error_user_dialog_message">"Fshirja e toast-eve të gabimit fsheh të gjitha njoftimet e gabimeve të ReVanced.
 
 Ju nuk do të njoftoheni për ndonjë ngjarje të papritur."</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
-  <string name="revanced_disable_like_subscribe_glow_title">Çaktivizo dritën e butonave Të Pëlqej dhe të Regjistrohu</string>
+  <string name="revanced_disable_like_subscribe_glow_title">Çaktivizo dritën Të Pëlqej dhe Abonohu</string>
   <string name="revanced_disable_like_subscribe_glow_summary_on">Butoni Të Pëlqej dhe të Regjistrohu do të ndriçojë kur përmenden</string>
   <string name="revanced_disable_like_subscribe_glow_summary_off">Butoni Të Pëlqej dhe të Regjistrohu nuk do të ndriçojë kur përmenden</string>
   <string name="revanced_hide_album_cards_title">Fshih kartat e albumit</string>
@@ -193,22 +193,22 @@ Ju nuk do të njoftoheni për ndonjë ngjarje të papritur."</string>
   <string name="revanced_hide_horizontal_shelves_summary_off">Raftët janë të dukshëm</string>
   <!-- 'Join' should be translated using the same localized wording YouTube displays.
                  This appears in the video player for certain videos. -->
-  <string name="revanced_hide_join_membership_button_title">Fshih butonin \"Bashkoju\"</string>
+  <string name="revanced_hide_join_membership_button_title">Fshih butonin Anëtarësohu</string>
   <string name="revanced_hide_join_membership_button_summary_on">Butoni është i fshehur</string>
   <string name="revanced_hide_join_membership_button_summary_off">Butoni është i dukshëm</string>
   <!-- 'For you' should be translated using the same localized wording YouTube displays. -->
-  <string name="revanced_hide_for_you_shelf_title">Fshih rafin \"Për ty\" në faqen e kanalit</string>
-  <string name="revanced_hide_for_you_shelf_summary_on">Rafi është i fshehur</string>
-  <string name="revanced_hide_for_you_shelf_summary_off">Rafi është i dukshëm</string>
+  <string name="revanced_hide_for_you_shelf_title">Fshih raftin \"Për ju\"</string>
+  <string name="revanced_hide_for_you_shelf_summary_on">Rafti në faqen e kanalit është i fshehur</string>
+  <string name="revanced_hide_for_you_shelf_summary_off">Rafti në faqen e kanalit është i shfaqur</string>
   <!-- 'Notify me' should be translated using the same localized wording YouTube displays.
                  This item appear in the subscription feed for future livestreams or unreleased videos. -->
   <string name="revanced_hide_notify_me_button_title">Fshih butonin \"Njoftomë\"</string>
   <string name="revanced_hide_notify_me_button_summary_on">Butoni është i fshehur</string>
   <string name="revanced_hide_notify_me_button_summary_off">Butoni është i dukshëm</string>
-  <!-- 'People also watch' should be translated using the same localized wording YouTube displays. -->
-  <string name="revanced_hide_search_result_recommendations_title">Fshih rekomandimet \"Njerëzit gjithashtu shikuan\"</string>
-  <string name="revanced_hide_search_result_recommendations_summary_on">Rekomandimet janë të fshehura</string>
-  <string name="revanced_hide_search_result_recommendations_summary_off">Rekomandimet janë të dukshme</string>
+  <!-- 'People also watched' should be translated using the same localized wording YouTube displays. -->
+  <string name="revanced_hide_search_result_recommendations_title">Fshih etiketën \'Njerëzit shikuan gjithashtu\'</string>
+  <string name="revanced_hide_search_result_recommendations_summary_on">Etiketa është e fshehur</string>
+  <string name="revanced_hide_search_result_recommendations_summary_off">Etiketa është e shfaqur</string>
   <!-- 'Show more' should be translated with the same localized wording that YouTube displays.
                   This button usually appears when searching for a YT creator. -->
   <string name="revanced_hide_show_more_button_title">Fshih butonin \"Trego më shumë\"</string>
@@ -224,8 +224,8 @@ Ju nuk do të njoftoheni për ndonjë ngjarje të papritur."</string>
   <string name="revanced_hide_chips_shelf_summary_on">Raftet me çipat janë të fshehura</string>
   <string name="revanced_hide_chips_shelf_summary_off">Raftet me çipat janë të dukshme</string>
   <string name="revanced_hide_expandable_chip_title">Fsheh kartën e zgjerueshme nën video</string>
-  <string name="revanced_hide_expandable_chip_summary_on">Kartat e zgjerueshme janë të fshehura</string>
-  <string name="revanced_hide_expandable_chip_summary_off">Kartat e zgjerueshme janë të shfaqur</string>
+  <string name="revanced_hide_expandable_chip_summary_on">Karta e zgjerueshme është e fshehur</string>
+  <string name="revanced_hide_expandable_chip_summary_off">Karta e zgjerueshme është e shfaqur</string>
   <string name="revanced_hide_community_posts_title">Fshi postimet e komunitetit</string>
   <string name="revanced_hide_community_posts_summary_on">Postimet e komunitetit janë të fshehura</string>
   <string name="revanced_hide_community_posts_summary_off">Postimet e komunitetit janë të dukshme</string>
@@ -241,7 +241,7 @@ Ju nuk do të njoftoheni për ndonjë ngjarje të papritur."</string>
   <string name="revanced_hide_community_guidelines_title">Fshi udhëzimet e komunitetit</string>
   <string name="revanced_hide_community_guidelines_summary_on">Udhëzimet e komunitetit janë të fshehura</string>
   <string name="revanced_hide_community_guidelines_summary_off">Udhëzimet e komunitetit janë të dukshme</string>
-  <string name="revanced_hide_subscribers_community_guidelines_title">Fshi udhëzimet e komunitetit të abonuesve</string>
+  <string name="revanced_hide_subscribers_community_guidelines_title">Fshih udhëzimet e abonentëve</string>
   <string name="revanced_hide_subscribers_community_guidelines_summary_on">Udhëzimet e komunitetit të abonuesve janë të fshehura</string>
   <string name="revanced_hide_subscribers_community_guidelines_summary_off">Udhëzimet e komunitetit të abonuesve janë të dukshme</string>
   <string name="revanced_hide_channel_member_shelf_title">Fshi raftët e anëtarëve të kanalit</string>
@@ -280,25 +280,25 @@ Ju nuk do të njoftoheni për ndonjë ngjarje të papritur."</string>
   <string name="revanced_hide_artist_cards_title">Fshi kartat e artistëve</string>
   <string name="revanced_hide_artist_cards_summary_on">Kartat e artistëve janë të fshehura</string>
   <string name="revanced_hide_artist_cards_summary_off">Kartat e artistëve janë të dukshme</string>
-  <string name="revanced_hide_attributes_section_title">Fshi seksionin e atributeve</string>
-  <string name="revanced_hide_attributes_section_summary_on">Seksionet \"Vendet e veçanta\", Lojërat dhe Muzika janë të fshehura</string>
-  <string name="revanced_hide_attributes_section_summary_off">Seksionet \"Vendet e veçanta\", Lojërat dhe Muzika janë të dukshme</string>
-  <string name="revanced_hide_chapters_section_title">Fshi seksionin e Kapitujve</string>
+  <string name="revanced_hide_attributes_section_title">Fshih Atributet</string>
+  <string name="revanced_hide_attributes_section_summary_on">Vendndodhjet e veçuara, Lojërat, Muzika dhe seksionet e personave të përmendur janë të fshehura</string>
+  <string name="revanced_hide_attributes_section_summary_off">Vendndodhjet e veçuara, Lojërat, Muzika dhe seksionet e personave të përmendur janë të shfaqura</string>
+  <string name="revanced_hide_chapters_section_title">Fshih Kapitujt</string>
   <string name="revanced_hide_chapters_section_summary_on">Seksioni i Kapitujve është i fshehur</string>
   <string name="revanced_hide_chapters_section_summary_off">Seksioni i Kapitujve është i dukshme</string>
-  <string name="revanced_hide_how_this_was_made_section_title">Fsheh seksionin \'Si u krijua ky përmbajtje\'</string>
-  <string name="revanced_hide_how_this_was_made_section_summary_on">Seksioni \'Si u krijua ky përmbajtje\' është fshehur</string>
-  <string name="revanced_hide_how_this_was_made_section_summary_off">Seksioni \'Si u krijua ky përmbajtje\' është shfaqur</string>
-  <string name="revanced_hide_podcast_section_title">Fshi seksionin \"Zbuloni podkstin\"</string>
-  <string name="revanced_hide_podcast_section_summary_on">Seksioni \"Zbuloni podkstin\" është i fshehur</string>
-  <string name="revanced_hide_podcast_section_summary_off">Seksioni \"Zbuloni podkstin\" është i dukshme</string>
-  <string name="revanced_hide_info_cards_section_title">Fshi seksionin e kartave informative</string>
+  <string name="revanced_hide_how_this_was_made_section_title">Fshih \'Si u krijua ky përmbajtje\'</string>
+  <string name="revanced_hide_how_this_was_made_section_summary_on">Seksioni si u krijua kjo përmbajtje është i fshehur</string>
+  <string name="revanced_hide_how_this_was_made_section_summary_off">Seksioni si u krijua kjo përmbajtje është i shfaqur</string>
+  <string name="revanced_hide_podcast_section_title">Fshih \'Eksploro podkastin\'</string>
+  <string name="revanced_hide_podcast_section_summary_on">Seksioni eksploro podkastin është i fshehur</string>
+  <string name="revanced_hide_podcast_section_summary_off">Seksioni eksploro podkastin është i shfaqur</string>
+  <string name="revanced_hide_info_cards_section_title">Fshih kartat e informacionit</string>
   <string name="revanced_hide_info_cards_section_summary_on">Seksioni i kartave informative është i fshehur</string>
   <string name="revanced_hide_info_cards_section_summary_off">Seksioni i kartave informative është i dukshme</string>
-  <string name="revanced_hide_key_concepts_section_title">Fshi seksionin \"Koncepte kyçe\"</string>
-  <string name="revanced_hide_key_concepts_section_summary_on">Seksioni \"Koncepte kyçe\" është i fshehur</string>
-  <string name="revanced_hide_key_concepts_section_summary_off">Seksioni \"Koncepte kyçe\" është i dukshme</string>
-  <string name="revanced_hide_transcript_section_title">Fshi seksionin e Shkrimit</string>
+  <string name="revanced_hide_key_concepts_section_title">Fshih \'Konceptet kryesore\'</string>
+  <string name="revanced_hide_key_concepts_section_summary_on">Seksioni i koncepteve kryesore është i fshehur</string>
+  <string name="revanced_hide_key_concepts_section_summary_off">Seksioni i koncepteve kryesore është i shfaqur</string>
+  <string name="revanced_hide_transcript_section_title">Fshih Transkriptin</string>
   <string name="revanced_hide_transcript_section_summary_on">Seksioni i Shkrimit është i fshehur</string>
   <string name="revanced_hide_transcript_section_summary_off">Seksioni i Shkrimit është i dukshme</string>
   <string name="revanced_hide_description_components_screen_title">Përshkrimi i videos</string>
@@ -316,27 +316,27 @@ Ju nuk do të njoftoheni për ndonjë ngjarje të papritur."</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">I dukshme në video të lidhura</string>
   <string name="revanced_comments_screen_title">Komentet</string>
   <string name="revanced_comments_screen_summary">Fshi ose shfaq komponentët e seksionit të komenteve</string>
-  <string name="revanced_hide_comments_chat_summary_title">Fshih \"Përmbledhjen e bisedës\"</string>
-  <string name="revanced_hide_comments_chat_summary_summary_on">\'Rezumat i bisedës\' është fshehur</string>
-  <string name="revanced_hide_comments_chat_summary_summary_off">\'Rezumat i bisedës\' është shfaqur</string>
+  <string name="revanced_hide_comments_chat_summary_title">Fshih \'Përmbledhjen e bisedës\'</string>
+  <string name="revanced_hide_comments_chat_summary_summary_on">Përmbledhja e bisedës është e fshehur</string>
+  <string name="revanced_hide_comments_chat_summary_summary_off">Përmbledhja e bisedës është e shfaqur</string>
   <string name="revanced_hide_comments_by_members_header_title">Fshi kokën \"Komentet nga anëtarët\"</string>
-  <string name="revanced_hide_comments_by_members_header_summary_on">Koka \"Komentet nga anëtarët\" është e fshehur</string>
-  <string name="revanced_hide_comments_by_members_header_summary_off">Koka \"Komentet nga anëtarët\" është e dukshme</string>
+  <string name="revanced_hide_comments_by_members_header_summary_on">Kreu i komenteve nga anëtarët është i fshehur</string>
+  <string name="revanced_hide_comments_by_members_header_summary_off">Kreu i komenteve nga anëtarët është i shfaqur</string>
   <string name="revanced_hide_comments_section_title">Fshi seksionin e komenteve</string>
   <string name="revanced_hide_comments_section_summary_on">Seksioni i komenteve është i fshehur</string>
   <string name="revanced_hide_comments_section_summary_off">Seksioni i komenteve është i dukshme</string>
   <string name="revanced_hide_comments_create_a_short_button_title">Fsheh butonin \"Krijo një Short\"</string>
-  <string name="revanced_hide_comments_create_a_short_button_summary_on">Butoni \"Krijo një Short\" është i fshehur</string>
-  <string name="revanced_hide_comments_create_a_short_button_summary_off">Butoni \"Krijo një Short\" është i dukshëm</string>
+  <string name="revanced_hide_comments_create_a_short_button_summary_on">Butoni Krijo një Short është i fshehur</string>
+  <string name="revanced_hide_comments_create_a_short_button_summary_off">Butoni Krijo një Short është i shfaqur</string>
+  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_title">Fshih butonat emoji dhe timestamp</string>
+  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_on">Butonat Emoji dhe timestamp janë të fshehur</string>
+  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_off">Butonat Emoji dhe timestamp janë të shfaqur</string>
   <string name="revanced_hide_comments_preview_comment_title">Fsheh komentin e parashikimit</string>
   <string name="revanced_hide_comments_preview_comment_summary_on">Komenti i parashikimit është i fshehur</string>
   <string name="revanced_hide_comments_preview_comment_summary_off">Komenti i parashikimit është i dukshëm</string>
   <string name="revanced_hide_comments_thanks_button_title">Fsheh butonin Faleminderit</string>
   <string name="revanced_hide_comments_thanks_button_summary_on">Butoni i falënderimit është i fshehur</string>
   <string name="revanced_hide_comments_thanks_button_summary_off">Butoni i falënderimit është i dukshëm</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_title">Fsheh butonat e kohës dhe emojive</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_on">Butonat e kohës dhe emojive janë të fshehur</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_off">Butonat e kohës dhe emojive janë të dukshëm</string>
   <!-- https://logos.fandom.com/wiki/YouTube/Yoodles -->
   <string name="revanced_hide_doodles_title">Fsheh YouTube Doodles</string>
   <string name="revanced_hide_doodles_summary_on">Doodles në shiritin e kërkimit janë të fshehur</string>
@@ -417,12 +417,12 @@ Kjo veçori është e disponueshme vetëm për pajisje më të vjetra"</string>
   <string name="revanced_hide_player_store_shelf_summary_on">Rafti i dyqanit është i fshehur</string>
   <string name="revanced_hide_player_store_shelf_summary_off">Rafti i dyqanit është i dukshëm</string>
   <string name="revanced_hide_shopping_links_title">Fsheh lidhjet e blerjeve në përshkrimin e videos</string>
-  <string name="revanced_hide_shopping_links_summary_on">Lidhjet e blerjeve janë të fshehur</string>
-  <string name="revanced_hide_shopping_links_summary_off">Lidhjet e blerjeve janë të dukshme</string>
+  <string name="revanced_hide_shopping_links_summary_on">Lidhjet e blerjeve në përshkrimin e videos janë të fshehura</string>
+  <string name="revanced_hide_shopping_links_summary_off">Lidhjet e blerjeve në përshkrimin e videos janë të shfaqura</string>
   <!-- 'Visit store' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_visit_store_button_title">Fsheh butonin \"Vizito dyqanin\" në faqet e kanaleve</string>
-  <string name="revanced_hide_visit_store_button_summary_on">Butoni është i fshehur</string>
-  <string name="revanced_hide_visit_store_button_summary_off">Butoni është i dukshëm</string>
+  <string name="revanced_hide_visit_store_button_summary_on">Butoni në faqen e kanalit është i fshehur</string>
+  <string name="revanced_hide_visit_store_button_summary_off">Butoni në faqen e kanalit është i shfaqur</string>
   <string name="revanced_hide_web_search_results_title">Fsheh rezultatet e kërkimit në ueb</string>
   <string name="revanced_hide_web_search_results_summary_on">Rezultatet e kërkimit në ueb janë të fshehur</string>
   <string name="revanced_hide_web_search_results_summary_off">Rezultatet e kërkimit në ueb janë të dukshme</string>
@@ -462,8 +462,8 @@ Kjo veçori është e disponueshme vetëm për pajisje më të vjetra"</string>
   <string name="revanced_external_downloader_screen_title">Shkarkime të jashtme</string>
   <string name="revanced_external_downloader_screen_summary">Cilësimet për përdorimin e një shkarkuesi të jashtëm</string>
   <string name="revanced_external_downloader_title">Shfaq butonin \"Shkarko\" të jashtëm</string>
-  <string name="revanced_external_downloader_summary_on">Butoni \"Shkarko\" shfaqet në luajtës</string>
-  <string name="revanced_external_downloader_summary_off">Butoni \"Shkarko\" nuk shfaqet në luajtës</string>
+  <string name="revanced_external_downloader_summary_on">Butoni i shkarkimit në luajtës është i shfaqur</string>
+  <string name="revanced_external_downloader_summary_off">Butoni i shkarkimit në luajtës nuk është i shfaqur</string>
   <!-- 'download action button' should be translated using the same wording as the translation of 'revanced_hide_download_button_title' -->
   <string name="revanced_external_downloader_action_button_title">Zëvendëso butonin e shkarkimit të jashtëm</string>
   <string name="revanced_external_downloader_action_button_summary_on">Butoni \"Shkarko\" hap shkarkuesin tuaj të jashtëm</string>
@@ -831,7 +831,7 @@ Shënim: Aktivizimi i kësaj gjëje gjithashtu fsheh me forcë reklamat video"</
   <!-- Toast shown if network connection times out. Translations of this should not be longer than the original English or the text can be clipped and not entirely shown. -->
   <string name="revanced_ryd_failure_connection_timeout">Nuk pëlqen përkohësisht nuk është në dispozicion (API ka kaluar kohën)</string>
   <string name="revanced_ryd_failure_connection_status_code">\"Nuk më pëlqen\" nuk është në dispozicion (statusi %d)</string>
-  <string name="revanced_ryd_failure_client_rate_limit_requested">\"Nuk më pëlqen\" nuk është në dispozicion (ka arritur limiti i API-së së klientit)</string>
+  <string name="revanced_ryd_failure_client_rate_limit_requested">Pëlqimet nuk janë të disponueshme (limiti i API-së së klientit)</string>
   <string name="revanced_ryd_failure_generic">\"Nuk më pëlqen\" nuk është në dispozicion (%s)</string>
   <!-- Toast shown if the user enables RYD while a video is opened, and then tries to vote for the video. -->
   <string name="revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted">Rikarkoni videon për të votuar duke përdorur Return YouTube Dislike</string>
@@ -840,14 +840,14 @@ Shënim: Aktivizimi i kësaj gjëje gjithashtu fsheh me forcë reklamat video"</
   <string name="revanced_ryd_enable_summary_on">\"Nuk më pëlqen\" janë të dukshme</string>
   <string name="revanced_ryd_enable_summary_off">\"Nuk më pëlqen\" nuk janë të dukshme</string>
   <string name="revanced_ryd_shorts_title">Shfaq \"Nuk më pëlqen\" në Shorts</string>
-  <string name="revanced_ryd_shorts_summary_on">\"Nuk më pëlqen\" shfaqen në Shorts</string>
-  <string name="revanced_ryd_shorts_summary_on_disclaimer">"Dislajkat e shfaqan në Shorts
+  <string name="revanced_ryd_shorts_summary_on">Mospëlqimet në Shorts janë të shfaqura</string>
+  <string name="revanced_ryd_shorts_summary_on_disclaimer">"Mospëlqimet në Shorts janë të shfaqura
 
-Kufizim: Dislajkat mund të mos shfaqen në modalitetin incognito"</string>
-  <string name="revanced_ryd_shorts_summary_off">\"Nuk më pëlqen\" janë të fshehura në Shorts</string>
+Kufizimi: Mospëlqimet mund të mos shfaqen në modalitetin incognito"</string>
+  <string name="revanced_ryd_shorts_summary_off">Mospëlqimet në Shorts nuk janë të shfaqura</string>
   <string name="revanced_ryd_dislike_percentage_title">\"Nuk më pëlqen\" si përqindje</string>
-  <string name="revanced_ryd_dislike_percentage_summary_on">\"Nuk më pëlqen\" shfaqen si përqindje</string>
-  <string name="revanced_ryd_dislike_percentage_summary_off">\"Nuk më pëlqen\" shfaqen si numër</string>
+  <string name="revanced_ryd_dislike_percentage_summary_on">Mospëlqimet shfaqen si përqindje</string>
+  <string name="revanced_ryd_dislike_percentage_summary_off">Mospëlqimet shfaqen si numër</string>
   <!-- Translations should use language similar to 'revanced_sb_enable_compact_skip_button' -->
   <string name="revanced_ryd_compact_layout_title">Butoni i thjeshtëzuar Të Pëlqej</string>
   <string name="revanced_ryd_compact_layout_summary_on">Butoni \"Pëlqen\" i stiluar për gjerësi minimale</string>
@@ -909,20 +909,20 @@ Kjo veçori funksionon më mirë me një cilësi video prej 720p ose më të ul�
   <string name="revanced_sb_square_layout_sum_on">Butonat dhe kontrollet janë katrore</string>
   <string name="revanced_sb_square_layout_sum_off">Butonat dhe kontrollet janë të rrumbullakosura</string>
   <!-- Translations should use language similar to 'revanced_ryd_compact_layout_title' -->
-  <string name="revanced_sb_enable_compact_skip_button">Përdor butonin e shkurtër të kalimit</string>
+  <string name="revanced_sb_enable_compact_skip_button">Përdor butonin kompakt Kalo</string>
   <string name="revanced_sb_enable_compact_skip_button_sum_on">Butoni i kalimit është i stiluar për gjerësinë minimale</string>
   <string name="revanced_sb_enable_compact_skip_button_sum_off">Butoni i kalimit është i stiluar për pamjen më të mirë</string>
-  <string name="revanced_sb_enable_auto_hide_skip_segment_button">Fshih automatikisht butonin e kalimit</string>
+  <string name="revanced_sb_enable_auto_hide_skip_segment_button">Fshih automatikisht butonin Kalo</string>
   <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_on">Butoni i kalimit fshihet pas disa sekondash</string>
-  <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_off">Butoni i kalimit shfaqet për të gjithë segmentin</string>
-  <string name="revanced_sb_general_skiptoast">Shfaq një lajmërim kur kaloni automatikisht</string>
+  <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_off">Butoni Kalo është i shfaqur për të gjithë segmentin</string>
+  <string name="revanced_sb_general_skiptoast">Shfaq një toast kur kalohet</string>
   <string name="revanced_sb_general_skiptoast_sum_on">Lajmërimi shfaqet kur një segment kalon automatikisht. Shtypni këtu për të parë një shembull</string>
   <string name="revanced_sb_general_skiptoast_sum_off">Lajmërimi nuk shfaqet. Shtypni këtu për të parë një shembull</string>
   <string name="revanced_sb_general_time_without">Shfaq kohën e videos pa segmente</string>
   <string name="revanced_sb_general_time_without_sum_on">Kohëzgjatja e videos minus të gjitha segmentet, tregohet në kllapa pranë kohëzgjatjes së plotë të videos</string>
   <string name="revanced_sb_general_time_without_sum_off">Kohëzgjatja e plotë e videos tregohet</string>
   <string name="revanced_sb_create_segment_category">Krijimi i segmenteve të reja</string>
-  <string name="revanced_sb_enable_create_segment">Shfaq butonin e krijimit të segmentit të ri</string>
+  <string name="revanced_sb_enable_create_segment">Shfaq butonin Krijo segment të ri</string>
   <string name="revanced_sb_enable_create_segment_sum_on">Butoni i krijimit të segmentit të ri shfaqet</string>
   <string name="revanced_sb_enable_create_segment_sum_off">Butoni i krijimit të segmentit të ri nuk shfaqet</string>
   <string name="revanced_sb_general_adjusting">Rregullo hapin e segmentit të ri</string>
@@ -1015,7 +1015,7 @@ User id juaj është si një fjalëkalim dhe nuk duhet të ndahet kurrë."</stri
   <string name="revanced_sb_skipped_multiple_segments">Kapërcyer segmente të shumta</string>
   <string name="revanced_sb_skip_automatically">Kapërci automatikisht</string>
   <string name="revanced_sb_skip_automatically_once">Kapërci automatikisht një herë</string>
-  <string name="revanced_sb_skip_showbutton">Shfaqni një buton kapërci</string>
+  <string name="revanced_sb_skip_showbutton">Shfaq një buton Kalo</string>
   <string name="revanced_sb_skip_seekbaronly">Shfaqni në shiritin e kërkimit</string>
   <string name="revanced_sb_skip_ignore">Çaktivizo</string>
   <string name="revanced_sb_submit_failed_invalid">Nuk mund të dorëzohet segmenti: %s</string>
@@ -1041,9 +1041,9 @@ Ekziston tashmë"</string>
   <string name="revanced_sb_new_segment_disabled_category">Kategoria është e çaktivizuar në cilësime. Aktivizo kategorinë për të dorëzuar.</string>
   <string name="revanced_sb_new_segment_title">Segment i ri SponsorBlock</string>
   <string name="revanced_sb_new_segment_mark_time_as_question">Vendos %s si fillimin ose fundin e një segmenti të ri?</string>
-  <string name="revanced_sb_new_segment_mark_start">fillimi</string>
-  <string name="revanced_sb_new_segment_mark_end">fundi</string>
-  <string name="revanced_sb_new_segment_now">tani</string>
+  <string name="revanced_sb_new_segment_mark_start">Fillimi</string>
+  <string name="revanced_sb_new_segment_mark_end">Fundi</string>
+  <string name="revanced_sb_new_segment_now">Tani</string>
   <string name="revanced_sb_new_segment_time_start">Koha kur fillon segmenti</string>
   <string name="revanced_sb_new_segment_time_end">Koha kur mbaron segmenti</string>
   <string name="revanced_sb_new_segment_confirm_title">A janë kohët e sakta?</string>
@@ -1063,7 +1063,7 @@ Gati per te dhene?"</string>
   <string name="revanced_sb_new_segment_edit_by_hand_parse_error">Kohë e pavlefshme e dhënë</string>
   <string name="revanced_sb_stats">Statistikat</string>
   <!-- Shown in the settings preferences, and translations can be any text length. -->
-  <string name="revanced_sb_stats_connection_failure">Statistikat janë përkohësisht të padisponueshme (API është jashtë funksionit)</string>
+  <string name="revanced_sb_stats_connection_failure">Statistikat aktualisht nuk janë të disponueshme (API nuk funksionon)</string>
   <string name="revanced_sb_stats_loading">Po ngarkohet...</string>
   <string name="revanced_sb_stats_sb_disabled">SponsorBlock është i çaktivizuar</string>
   <string name="revanced_sb_stats_username">Emri juaj i përdoruesit: &lt;b&gt;%s&lt;/b&gt;</string>
@@ -1286,8 +1286,8 @@ Prekni këtu për të mësuar më shumë rreth DeArrow"</string>
   </patch>
   <patch id="misc.announcements.announcementsPatch">
   <string name="revanced_announcements_title">Shfaq njoftimet e ReVanced</string>
-  <string name="revanced_announcements_summary_on">Njoftimet shfaqen në fillim</string>
-  <string name="revanced_announcements_summary_off">Njoftimet nuk shfaqen në fillim</string>
+  <string name="revanced_announcements_summary_on">Njoftimet gjatë fillimit janë të shfaqura</string>
+  <string name="revanced_announcements_summary_off">Njoftimet gjatë fillimit nuk janë të shfaqura</string>
   <string name="revanced_announcements_enabled_summary">Shfaq njoftime në fillim</string>
   <string name="revanced_announcements_connection_failed">Lidhja me ofruesin e njoftimeve dështoi</string>
   <string name="revanced_announcements_dialog_dismiss">Anulo</string>
