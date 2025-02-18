@@ -20,19 +20,17 @@ class SwipeControlsConfigurationProvider(
      * should swipe controls be enabled? (global setting)
      */
     val enableSwipeControls: Boolean
-        get() = isFullscreenVideo && (enableVolumeControls || enableBrightnessControl)
+        get() = (enableVolumeControls || enableBrightnessControl) && isFullscreenVideo
 
     /**
      * should swipe controls for volume be enabled?
      */
-    val enableVolumeControls: Boolean
-        get() = Settings.SWIPE_VOLUME.get()
+    val enableVolumeControls = Settings.SWIPE_VOLUME.get()
 
     /**
      * should swipe controls for volume be enabled?
      */
-    val enableBrightnessControl: Boolean
-        get() = Settings.SWIPE_BRIGHTNESS.get()
+    val enableBrightnessControl = Settings.SWIPE_BRIGHTNESS.get()
 
     /**
      * is the video player currently in fullscreen mode?
@@ -46,7 +44,7 @@ class SwipeControlsConfigurationProvider(
      * should volume key controls be overwritten? (global setting)
      */
     val overwriteVolumeKeyControls: Boolean
-        get() = isFullscreenVideo && enableVolumeControls
+        get() = enableVolumeControls && isFullscreenVideo
 //endregion
 
 //region gesture adjustments
@@ -65,7 +63,6 @@ class SwipeControlsConfigurationProvider(
 //endregion
 
 //region overlay adjustments
-
     /**
      * should the overlay enable haptic feedback?
      */
@@ -79,15 +76,10 @@ class SwipeControlsConfigurationProvider(
         get() = Settings.SWIPE_OVERLAY_TIMEOUT.get()
 
     /**
-     * text size for the overlay, in sp
+     * Gets the opacity value (0-100%) is converted to an alpha value (0-255) for transparency.
+     * If the opacity value is out of range, it resets to the default and displays a warning message.
      */
-    val overlayTextSize: Int
-        get() = Settings.SWIPE_OVERLAY_TEXT_SIZE.get()
-
-    /**
-     * get the background color for text on the overlay, as a color int
-     */
-    val overlayTextBackgroundColor: Int
+    val overlayBackgroundOpacity: Int
         get() {
             var opacity = Settings.SWIPE_OVERLAY_OPACITY.get()
 
@@ -102,11 +94,34 @@ class SwipeControlsConfigurationProvider(
         }
 
     /**
-     * get the foreground color for text on the overlay, as a color int
+     * The color of the progress overlay.
      */
-    val overlayForegroundColor: Int
+    val overlayProgressColor: Int
+        get() = 0xBFFFFFFF.toInt()
+
+    /**
+     * The color used for the background of the progress overlay fill.
+     */
+    val overlayFillBackgroundPaint: Int
+        get() = 0x80D3D3D3.toInt()
+
+    /**
+     * The color used for the text and icons in the overlay.
+     */
+    val overlayTextColor: Int
         get() = Color.WHITE
 
+    /**
+     * A flag that determines if the overlay should only show the icon.
+     */
+    val overlayShowOverlayMinimalStyle: Boolean
+        get() = Settings.SWIPE_OVERLAY_MINIMAL_STYLE.get()
+
+    /**
+     * A flag that determines if the progress bar should be circular.
+     */
+    val isCircularProgressBar: Boolean
+        get() = Settings.SWIPE_SHOW_CIRCULAR_OVERLAY.get()
 //endregion
 
 //region behaviour

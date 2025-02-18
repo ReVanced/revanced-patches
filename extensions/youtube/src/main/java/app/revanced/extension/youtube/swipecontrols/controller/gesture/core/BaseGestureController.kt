@@ -82,11 +82,15 @@ abstract class BaseGestureController(
     }
 
     override fun onScroll(
-        from: MotionEvent,
+        from: MotionEvent?,
         to: MotionEvent,
         distanceX: Float,
         distanceY: Float,
     ): Boolean {
+        if (from == null) {
+            return false
+        }
+
         // submit to swipe detector
         submitForSwipe(from, to, distanceX, distanceY)
 
