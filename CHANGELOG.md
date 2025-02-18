@@ -1,3 +1,15 @@
+# [5.13.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.12.0...v5.13.0-dev.1) (2025-02-18)
+
+
+### Bug Fixes
+
+* **YouTube - Hide layout components:** Do not hide 'Show anyway' button in search results ([4ac8854](https://github.com/ReVanced/revanced-patches/commit/4ac8854b99808a8957f3b0b7438e1e0cdedffbaf))
+
+
+### Features
+
+* **YouTube - Swipe controls:** Swipe controls UI improvements ([#4422](https://github.com/ReVanced/revanced-patches/issues/4422)) ([198e4d2](https://github.com/ReVanced/revanced-patches/commit/198e4d2a2315c24a09eb9ecfefbd131a75384d2c))
+
 # [5.12.0](https://github.com/ReVanced/revanced-patches/compare/v5.11.0...v5.12.0) (2025-02-17)
 
 
