@@ -42,9 +42,10 @@ private val swipeControlsResourcePatch = resourcePatch {
             SwitchPreference("revanced_swipe_haptic_feedback"),
             SwitchPreference("revanced_swipe_save_and_restore_brightness"),
             SwitchPreference("revanced_swipe_lowest_value_enable_auto_brightness"),
-            TextPreference("revanced_swipe_overlay_timeout", inputType = InputType.NUMBER),
-            TextPreference("revanced_swipe_text_overlay_size", inputType = InputType.NUMBER),
+            SwitchPreference("revanced_swipe_show_circular_overlay"),
+            SwitchPreference("revanced_swipe_overlay_minimal_style"),
             TextPreference("revanced_swipe_overlay_background_opacity", inputType = InputType.NUMBER),
+            TextPreference("revanced_swipe_overlay_timeout", inputType = InputType.NUMBER),
             TextPreference("revanced_swipe_threshold", inputType = InputType.NUMBER),
         )
 
@@ -53,7 +54,12 @@ private val swipeControlsResourcePatch = resourcePatch {
             ResourceGroup(
                 "drawable",
                 "revanced_ic_sc_brightness_auto.xml",
-                "revanced_ic_sc_brightness_manual.xml",
+                "revanced_ic_sc_brightness_full.xml",
+                "revanced_ic_sc_brightness_high.xml",
+                "revanced_ic_sc_brightness_low.xml",
+                "revanced_ic_sc_brightness_medium.xml",
+                "revanced_ic_sc_volume_high.xml",
+                "revanced_ic_sc_volume_low.xml",
                 "revanced_ic_sc_volume_mute.xml",
                 "revanced_ic_sc_volume_normal.xml",
             ),

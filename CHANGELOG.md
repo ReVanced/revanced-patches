@@ -1,3 +1,59 @@
+# [5.13.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.12.0...v5.13.0-dev.1) (2025-02-18)
+
+
+### Bug Fixes
+
+* **YouTube - Hide layout components:** Do not hide 'Show anyway' button in search results ([4ac8854](https://github.com/ReVanced/revanced-patches/commit/4ac8854b99808a8957f3b0b7438e1e0cdedffbaf))
+
+
+### Features
+
+* **YouTube - Swipe controls:** Swipe controls UI improvements ([#4422](https://github.com/ReVanced/revanced-patches/issues/4422)) ([198e4d2](https://github.com/ReVanced/revanced-patches/commit/198e4d2a2315c24a09eb9ecfefbd131a75384d2c))
+
+# [5.12.0](https://github.com/ReVanced/revanced-patches/compare/v5.11.0...v5.12.0) (2025-02-17)
+
+
+### Bug Fixes
+
+* Allow changing default settings for existing app installs ([#4464](https://github.com/ReVanced/revanced-patches/issues/4464)) ([1bd7986](https://github.com/ReVanced/revanced-patches/commit/1bd7986823e774a929c8a9102a7cc96e245d5274))
+* **Windy.app:** Remove obsolete `Unlock pro` patch ([#4428](https://github.com/ReVanced/revanced-patches/issues/4428)) ([83d116e](https://github.com/ReVanced/revanced-patches/commit/83d116e8fd3935ee431cfdf0b8e095d04ee77259))
+* **YouTube - Spoof video streams:** Change default client to `Android TV` ([#4465](https://github.com/ReVanced/revanced-patches/issues/4465)) ([0412c79](https://github.com/ReVanced/revanced-patches/commit/0412c7901dc8599b6079d9c3ba26452f88af642b))
+* **YouTube:** Remove obsolete 18.x targets ([#4454](https://github.com/ReVanced/revanced-patches/issues/4454)) ([a006758](https://github.com/ReVanced/revanced-patches/commit/a0067581d0f877e1b4eb1f888a25786f09676b2e))
+
+
+### Features
+
+* **Return YouTube Dislike:** add `Show estimated likes` setting ([#4443](https://github.com/ReVanced/revanced-patches/issues/4443)) ([9a88b42](https://github.com/ReVanced/revanced-patches/commit/9a88b4239fd63d5f91105fec8e7d59d318a5d09a))
+* **YouTube - SponsorBlock:** Redesign skip buttons ([#4427](https://github.com/ReVanced/revanced-patches/issues/4427)) ([8f4883f](https://github.com/ReVanced/revanced-patches/commit/8f4883fc002420bfb4056401e23445c99e1d3fce))
+* **YouTube Music:** Support version `8.05.50` ([#4439](https://github.com/ReVanced/revanced-patches/issues/4439)) ([b31fed9](https://github.com/ReVanced/revanced-patches/commit/b31fed98901fcda1bce6f05eb0de63280c689fa0))
+* **YouTube Music:** Support version `8.05.51` ([128441e](https://github.com/ReVanced/revanced-patches/commit/128441e78bc0d096c3fc2f57782ab90c39c3ae4b))
+
+# [5.12.0-dev.7](https://github.com/ReVanced/revanced-patches/compare/v5.12.0-dev.6...v5.12.0-dev.7) (2025-02-16)
+
+
+### Bug Fixes
+
+* **YouTube - Spoof video streams:** Change default client to `Android TV` ([#4465](https://github.com/ReVanced/revanced-patches/issues/4465)) ([0412c79](https://github.com/ReVanced/revanced-patches/commit/0412c7901dc8599b6079d9c3ba26452f88af642b))
+
+
+### Features
+
+* **YouTube Music:** Support version `8.05.51` ([128441e](https://github.com/ReVanced/revanced-patches/commit/128441e78bc0d096c3fc2f57782ab90c39c3ae4b))
+
+# [5.12.0-dev.6](https://github.com/ReVanced/revanced-patches/compare/v5.12.0-dev.5...v5.12.0-dev.6) (2025-02-16)
+
+
+### Bug Fixes
+
+* Allow changing default settings for existing app installs ([#4464](https://github.com/ReVanced/revanced-patches/issues/4464)) ([1bd7986](https://github.com/ReVanced/revanced-patches/commit/1bd7986823e774a929c8a9102a7cc96e245d5274))
+
+# [5.12.0-dev.5](https://github.com/ReVanced/revanced-patches/compare/v5.12.0-dev.4...v5.12.0-dev.5) (2025-02-13)
+
+
+### Bug Fixes
+
+* **YouTube:** Remove obsolete 18.x targets ([#4454](https://github.com/ReVanced/revanced-patches/issues/4454)) ([a006758](https://github.com/ReVanced/revanced-patches/commit/a0067581d0f877e1b4eb1f888a25786f09676b2e))
+
 # [5.12.0-dev.4](https://github.com/ReVanced/revanced-patches/compare/v5.12.0-dev.3...v5.12.0-dev.4) (2025-02-11)
 
 

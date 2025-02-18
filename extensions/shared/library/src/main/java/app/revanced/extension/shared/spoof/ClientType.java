@@ -66,22 +66,6 @@ public enum ClientType {
             true,
             "Android Creator"
     ),
-    ANDROID_VR(
-            ANDROID_VR_NO_AUTH.id,
-            ANDROID_VR_NO_AUTH.clientName,
-            ANDROID_VR_NO_AUTH.packageName,
-            ANDROID_VR_NO_AUTH.deviceMake,
-            ANDROID_VR_NO_AUTH.deviceModel,
-            ANDROID_VR_NO_AUTH.osName,
-            ANDROID_VR_NO_AUTH.osVersion,
-            ANDROID_VR_NO_AUTH.androidSdkVersion,
-            ANDROID_VR_NO_AUTH.buildId,
-            ANDROID_VR_NO_AUTH.cronetVersion,
-            ANDROID_VR_NO_AUTH.clientVersion,
-            ANDROID_VR_NO_AUTH.requiresAuth,
-            true,
-            "Android VR"
-    ),
     IOS_UNPLUGGED(
             33,
             "IOS_UNPLUGGED",
@@ -112,6 +96,22 @@ public enum ClientType {
             forceAVC()
                     ? "iOS TV Force AVC"
                     : "iOS TV"
+    ),
+    ANDROID_VR_AUTH(
+            ANDROID_VR_NO_AUTH.id,
+            ANDROID_VR_NO_AUTH.clientName,
+            ANDROID_VR_NO_AUTH.packageName,
+            ANDROID_VR_NO_AUTH.deviceMake,
+            ANDROID_VR_NO_AUTH.deviceModel,
+            ANDROID_VR_NO_AUTH.osName,
+            ANDROID_VR_NO_AUTH.osVersion,
+            ANDROID_VR_NO_AUTH.androidSdkVersion,
+            ANDROID_VR_NO_AUTH.buildId,
+            ANDROID_VR_NO_AUTH.cronetVersion,
+            ANDROID_VR_NO_AUTH.clientVersion,
+            ANDROID_VR_NO_AUTH.requiresAuth,
+            true,
+            "Android VR"
     );
 
     private static boolean forceAVC() {

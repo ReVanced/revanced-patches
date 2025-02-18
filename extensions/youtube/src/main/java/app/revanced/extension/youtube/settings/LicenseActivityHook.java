@@ -5,14 +5,11 @@ import static app.revanced.extension.shared.Utils.getResourceIdentifier;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
-import android.os.Build;
 import android.preference.PreferenceFragment;
 import android.util.TypedValue;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toolbar;
-
-import androidx.annotation.RequiresApi;
 
 import java.util.Objects;
 
@@ -79,7 +76,6 @@ public class LicenseActivityHook {
      * <p>
      * Hooks LicenseActivity#onCreate in order to inject our own fragment.
      */
-    @RequiresApi(api = Build.VERSION_CODES.N)
     public static void initialize(Activity licenseActivity) {
         try {
             ThemeHelper.setActivityTheme(licenseActivity);
@@ -119,7 +115,6 @@ public class LicenseActivityHook {
         }
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.N)
     @SuppressLint("UseCompatLoadingForDrawables")
     private static void createToolbar(Activity activity, String toolbarTitleResourceName) {
         // Replace dummy placeholder toolbar.

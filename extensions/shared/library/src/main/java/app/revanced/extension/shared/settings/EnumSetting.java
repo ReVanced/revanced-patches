@@ -89,10 +89,8 @@ public class EnumSetting<T extends Enum<?>> extends Setting<T> {
     }
 
     @Override
-    public void save(@NonNull T newValue) {
-        // Must set before saving to preferences (otherwise importing fails to update UI correctly).
-        value = Objects.requireNonNull(newValue);
-        preferences.saveEnumAsString(key, newValue);
+    public void saveToPreferences() {
+        preferences.saveEnumAsString(key, value);
     }
 
     @NonNull

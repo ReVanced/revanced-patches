@@ -45,7 +45,7 @@ Second \"item\" text"</string>
   <!-- 'For you' should be translated using the same localized wording YouTube displays. -->
   <!-- 'Notify me' should be translated using the same localized wording YouTube displays.
                  This item appear in the subscription feed for future livestreams or unreleased videos. -->
-  <!-- 'People also watch' should be translated using the same localized wording YouTube displays. -->
+  <!-- 'People also watched' should be translated using the same localized wording YouTube displays. -->
   <!-- 'Show more' should be translated with the same localized wording that YouTube displays.
                   This button usually appears when searching for a YT creator. -->
   <!-- https://logos.fandom.com/wiki/YouTube/Yoodles -->
@@ -223,7 +223,6 @@ Second \"item\" text"</string>
   <patch id="interaction.seekbar.enableSlideToSeekPatch">
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
-  <!-- 'no auth' means no authentication -->
   </patch>
   </app>
   <app id="twitch">
