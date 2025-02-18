@@ -63,20 +63,14 @@ val playerControlsResourcePatch = resourcePatch {
     lateinit var bottomTargetDocument: Document
 
     execute {
+        val targetResourceName = "youtube_controls_bottom_ui_container.xml"
+
         bottomUiContainerResourceId = resourceMappings["id", "bottom_ui_container_stub"]
         controlsLayoutStub = resourceMappings["id", "controls_layout_stub"]
         heatseekerViewstub = resourceMappings["id", "heatseeker_viewstub"]
         fullscreenButton = resourceMappings["id", "fullscreen_button"]
-//        fullscreenButton = resourceMappings["id", "cf_fullscreen_button"]
-        bottomTargetDocument = document("res/layout/youtube_controls_bottom_ui_container.xml")
 
-        // Use a custom class for the fullscreen button to listen for visibility changes and animations.
-        val fullscreenButtonFile = get("res/layout/youtube_controls_fullscreen_button.xml")
-        val fullscreenButtonXml = fullscreenButtonFile.readText().replace(
-            "com.google.android.libraries.youtube.common.ui.TouchImageView",
-            "app.revanced.extension.youtube.videoplayer.HookedTouchImageView"
-        )
-        fullscreenButtonFile.writeText(fullscreenButtonXml)
+        bottomTargetDocument = document("res/layout/$targetResourceName")
 
         val bottomTargetElement: Node = bottomTargetDocument.getElementsByTagName(
             "android.support.constraint.ConstraintLayout",
