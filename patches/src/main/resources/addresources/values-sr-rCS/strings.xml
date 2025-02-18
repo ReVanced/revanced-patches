@@ -484,11 +484,15 @@ Ova funkcija je dostupna samo za starije uređaje"</string>
   </patch>
   <patch id="interaction.swipecontrols.swipeControlsResourcePatch">
   <string name="revanced_swipe_brightness_title">Omogući pokret za osvetljenost</string>
-  <string name="revanced_swipe_brightness_summary_on">Povlačenje za podesˇavanje osvetljenja je omogućeno</string>
-  <string name="revanced_swipe_brightness_summary_off">Povlačenje za podesˇavanje osvetljenja je onemogućeno</string>
+  <string name="revanced_swipe_brightness_summary_on">"Prevlačenje za osvetljenost ekrana je omogućeno
+
+Podesite osvetljenost prevlačenjem vertikalno sa leve strane ekrana"</string>
+  <string name="revanced_swipe_brightness_summary_off">Prevlačenje za osvetljenost ekrana je onemogućeno</string>
   <string name="revanced_swipe_volume_title">Omogući pokret za jačinu zvuka</string>
-  <string name="revanced_swipe_volume_summary_on">Prevlačenje za podešavanje jačine zvuka je omogućeno</string>
-  <string name="revanced_swipe_volume_summary_off">Prevlačenje za podešavanje jačine zvuka je onemogućeno</string>
+  <string name="revanced_swipe_volume_summary_on">"Prevlačenje za jačinu zvuka preko celog ekrana je omogućeno
+
+Podesite jačinu zvuka prevlačenjem vertikalno sa desne strane ekrana"</string>
+  <string name="revanced_swipe_volume_summary_off">Prevlačenje za jačinu zvuka preko celog ekrana je onemogućeno</string>
   <string name="revanced_swipe_press_to_engage_title">Omogući pokret pritiskom za prevlačenje</string>
   <string name="revanced_swipe_press_to_engage_summary_on">Pokret pritiskom za prevlačenje je omogućen</string>
   <string name="revanced_swipe_press_to_engage_summary_off">Pokret pritiskom za prevlačenje je onemogućen</string>
@@ -501,16 +505,19 @@ Ova funkcija je dostupna samo za starije uređaje"</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_title">Omogući pokret za automatsku osvetljenost</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_on">Prevlačenje nadole do najniže vrednosti pokreta za osvetljenost omogućava automatsku osvetljenost</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_off">Prevlačenje nadole do najniže vrednosti pokreta za osvetljenost ne omogućava automatsku osvetljenost</string>
-  <string name="revanced_swipe_lowest_value_enable_auto_brightness_overlay_text">Automatski</string>
   <string name="revanced_swipe_overlay_timeout_title">Vremensko ograničenje pokreta prevlačenja</string>
   <string name="revanced_swipe_overlay_timeout_summary">Količina milisekundi u kojoj je pokret prevlačenja vidljiv</string>
-  <string name="revanced_swipe_text_overlay_size_title">Veličina teksta pokreta prevlačenja</string>
-  <string name="revanced_swipe_text_overlay_size_summary">Veličina teksta za pokret prevlačenja</string>
   <string name="revanced_swipe_overlay_background_opacity_title">Neprozirnost pozadine pokreta prevlačenja</string>
   <string name="revanced_swipe_overlay_background_opacity_summary">Vrednost neprozirnosti između 0 i 100</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Neprozirnost pokreta prevlačenja mora biti između 0 i 100</string>
   <string name="revanced_swipe_threshold_title">Prag trajanja prevlačenja</string>
   <string name="revanced_swipe_threshold_summary">Iznos praga trajanja prevlačenja</string>
+  <string name="revanced_swipe_show_circular_overlay_title">Prikaži kružni sloj</string>
+  <string name="revanced_swipe_show_circular_overlay_summary_on">Kružni sloj je prikazan</string>
+  <string name="revanced_swipe_show_circular_overlay_summary_off">Horizontalni sloj je prikazan</string>
+  <string name="revanced_swipe_overlay_minimal_style_title">Omogući minimalni stil</string>
+  <string name="revanced_swipe_overlay_minimal_style_summary_on">Minimalni stil prekrivanja je omogućen</string>
+  <string name="revanced_swipe_overlay_minimal_style_summary_off">Minimalni stil sloja je onemogućen</string>
   <string name="revanced_swipe_change_video_title">Omogući prevlačenje za promenu videa</string>
   <string name="revanced_swipe_change_video_summary_on">Prevlačenje u režimu celog ekrana će promeniti na sledeći/prethodni video</string>
   <string name="revanced_swipe_change_video_summary_off">Prevlačenje u režimu celog ekrana neće promeniti na sledeći/prethodni video</string>

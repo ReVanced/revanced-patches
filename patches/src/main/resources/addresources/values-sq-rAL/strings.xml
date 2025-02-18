@@ -484,11 +484,15 @@ Kjo veçori është e disponueshme vetëm për pajisje më të vjetra"</string>
   </patch>
   <patch id="interaction.swipecontrols.swipeControlsResourcePatch">
   <string name="revanced_swipe_brightness_title">Aktivizo lëvizjen e ndriçimit</string>
-  <string name="revanced_swipe_brightness_summary_on">Shërbimi i ndriçimit është i aktivizuar</string>
-  <string name="revanced_swipe_brightness_summary_off">Shërbimi i ndriçimit është i çaktivizuar</string>
+  <string name="revanced_swipe_brightness_summary_on">"Rrëshqitja e shkëlqimit në ekran të plotë është aktivizuar
+
+Përshtate shkëlqimin duke rrëshqitur vertikalisht në anën e majtë të ekranit"</string>
+  <string name="revanced_swipe_brightness_summary_off">Rrëshqitja e shkëlqimit në ekran të plotë është çaktivizuar</string>
   <string name="revanced_swipe_volume_title">Aktivizo lëvizjen e zërit</string>
-  <string name="revanced_swipe_volume_summary_on">Shërbimi i zërit është i aktivizuar</string>
-  <string name="revanced_swipe_volume_summary_off">Shërbimi i zërit është i çaktivizuar</string>
+  <string name="revanced_swipe_volume_summary_on">"Rrëshqitja e volumit në ekran të plotë është aktivizuar
+
+ Rregullo volumin duke rrëshqitur vertikalisht në anën e djathtë të ekranit"</string>
+  <string name="revanced_swipe_volume_summary_off">Rrëshqitja e volumit në ekran të plotë është çaktivizuar</string>
   <string name="revanced_swipe_press_to_engage_title">Aktivizo lëvizjen \"shtyp-për-të-shëruar\"</string>
   <string name="revanced_swipe_press_to_engage_summary_on">\"Shtyp-për-të-shëruar\" është i aktivizuar</string>
   <string name="revanced_swipe_press_to_engage_summary_off">\"Shtyp-për-të-shëruar\" është i çaktivizuar</string>
@@ -501,16 +505,19 @@ Kjo veçori është e disponueshme vetëm për pajisje më të vjetra"</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_title">Aktivizo lëvizjen \"ndriçim automatik\"</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_on">Shërbimi \"ndriçim automatik\" aktivizohet duke shëruar poshtë në vlerën më të ulët të lëvizjes së ndriçimit</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_off">Shërbimi \"ndriçim automatik\" nuk aktivizohet duke shëruar poshtë në vlerën më të ulët</string>
-  <string name="revanced_swipe_lowest_value_enable_auto_brightness_overlay_text">Automatik</string>
   <string name="revanced_swipe_overlay_timeout_title">Koha e daljes së mbivendosjes së shërbimit</string>
   <string name="revanced_swipe_overlay_timeout_summary">Sasia e milisekondave që mbivendosja është e dukshme</string>
-  <string name="revanced_swipe_text_overlay_size_title">Madhësia e tekstit të mbivendosjes së shërbimit</string>
-  <string name="revanced_swipe_text_overlay_size_summary">Madhësia e tekstit për mbivendosjen e shërbimit</string>
   <string name="revanced_swipe_overlay_background_opacity_title">Opasiteti i sfondit mbivendosës shtypëse</string>
   <string name="revanced_swipe_overlay_background_opacity_summary">Vlera e opacitetit midis 0-100</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Opaciteti i shtypjes duhet të jetë midis 0-100</string>
   <string name="revanced_swipe_threshold_title">Pragu i madhësisë së shërbimit</string>
   <string name="revanced_swipe_threshold_summary">Sasia e pragut për të ndodhur shërbimi</string>
+  <string name="revanced_swipe_show_circular_overlay_title">Shfaq mbivendosjen rrethore</string>
+  <string name="revanced_swipe_show_circular_overlay_summary_on">Mbivendosja rrethore është shfaqur</string>
+  <string name="revanced_swipe_show_circular_overlay_summary_off">Mbivendosja horizontale është shfaqur</string>
+  <string name="revanced_swipe_overlay_minimal_style_title">Aktivizo stilin minimal</string>
+  <string name="revanced_swipe_overlay_minimal_style_summary_on">Stili minimal i shtresës është aktivizuar</string>
+  <string name="revanced_swipe_overlay_minimal_style_summary_off">Stili minimal i mbivendosjes është çaktivizuar</string>
   <string name="revanced_swipe_change_video_title">Aktivizoni lëshimin për të ndryshuar videot</string>
   <string name="revanced_swipe_change_video_summary_on">Lëvizja në modalitetin në ekran të plotë do të ndryshojë në videon e ardhshme/të mëparshme</string>
   <string name="revanced_swipe_change_video_summary_off">Lëvizja në modalitetin në ekran të plotë nuk do të ndryshojë në videon e ardhshme/të mëparshme</string>

@@ -484,11 +484,15 @@ Tính năng này chỉ khả dụng cho các thiết bị cũ"</string>
   </patch>
   <patch id="interaction.swipecontrols.swipeControlsResourcePatch">
   <string name="revanced_swipe_brightness_title">Ativar gesto de brilho</string>
-  <string name="revanced_swipe_brightness_summary_on">O deslize de brilho está ativado</string>
-  <string name="revanced_swipe_brightness_summary_off">O deslize de brilho está desativado</string>
+  <string name="revanced_swipe_brightness_summary_on">"O deslize de brilho em tela cheia está ativado
+
+Ajuste o brilho deslizando verticalmente no lado esquerdo da tela"</string>
+  <string name="revanced_swipe_brightness_summary_off">O deslize de brilho em tela cheia está desativado</string>
   <string name="revanced_swipe_volume_title">Ativar gesto de volume</string>
-  <string name="revanced_swipe_volume_summary_on">Deslizar por volume está ativado</string>
-  <string name="revanced_swipe_volume_summary_off">Deslizar por volume está desativado</string>
+  <string name="revanced_swipe_volume_summary_on">"O gesto de deslizar de volume em tela cheia está ativado
+
+Ajuste o volume deslizando verticalmente no lado direito da tela"</string>
+  <string name="revanced_swipe_volume_summary_off">O gesto de deslizar de volume em tela cheia está desativado</string>
   <string name="revanced_swipe_press_to_engage_title">Ativar gesto pressionar-para-deslizar</string>
   <string name="revanced_swipe_press_to_engage_summary_on">Pressionar-para-deslizar está habilitado</string>
   <string name="revanced_swipe_press_to_engage_summary_off">Pressionar-para-deslizar está desativado</string>
@@ -501,16 +505,19 @@ Tính năng này chỉ khả dụng cho các thiết bị cũ"</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_title">Ativar gesto de brilho automático</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_on">Deslizando para baixo até o menor valor do gesto de brilho, habilite o brilho automático</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_off">Deslizando para baixo até o menor valor não habilita o brilho automático</string>
-  <string name="revanced_swipe_lowest_value_enable_auto_brightness_overlay_text">Automático</string>
   <string name="revanced_swipe_overlay_timeout_title">Tempo limite de sobreposição</string>
   <string name="revanced_swipe_overlay_timeout_summary">A quantidade de milissegundos que a sobreposição é visível</string>
-  <string name="revanced_swipe_text_overlay_size_title">Deslize para sobrepor tamanho do texto</string>
-  <string name="revanced_swipe_text_overlay_size_summary">O tamanho do texto para sobreposição de deslize</string>
   <string name="revanced_swipe_overlay_background_opacity_title">Opacidade do plano de fundo da sobreposição de deslizar</string>
   <string name="revanced_swipe_overlay_background_opacity_summary">Valor de opacidade entre 0-100</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">A opacidade do deslizar deve estar entre 0-100</string>
   <string name="revanced_swipe_threshold_title">Limite de magnitude</string>
   <string name="revanced_swipe_threshold_summary">A quantidade limite para deslizar irá ocorrer</string>
+  <string name="revanced_swipe_show_circular_overlay_title">Mostrar sobreposição circular</string>
+  <string name="revanced_swipe_show_circular_overlay_summary_on">A sobreposição circular é mostrada</string>
+  <string name="revanced_swipe_show_circular_overlay_summary_off">A sobreposição horizontal é mostrada</string>
+  <string name="revanced_swipe_overlay_minimal_style_title">Ativar estilo mínimo</string>
+  <string name="revanced_swipe_overlay_minimal_style_summary_on">O estilo de sobreposição mínimo está ativado</string>
+  <string name="revanced_swipe_overlay_minimal_style_summary_off">O estilo de sobreposição mínima está desativado</string>
   <string name="revanced_swipe_change_video_title">Ativar deslizar para mudar de vídeo</string>
   <string name="revanced_swipe_change_video_summary_on">Deslizar no modo de ecrã inteiro mudará para o vídeo seguinte/anterior</string>
   <string name="revanced_swipe_change_video_summary_off">Deslizar no modo de ecrã inteiro não mudará para o vídeo seguinte/anterior</string>

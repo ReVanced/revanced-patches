@@ -484,11 +484,15 @@ Second \"item\" text"</string>
   </patch>
   <patch id="interaction.swipecontrols.swipeControlsResourcePatch">
   <string name="revanced_swipe_brightness_title">Задаване на яркост чрез плъзгане</string>
-  <string name="revanced_swipe_brightness_summary_on">Опцията за превъртане с плъзгане за промяна на яркостта е активирана</string>
-  <string name="revanced_swipe_brightness_summary_off">Опцията за превъртане с плъзгане за промяна на яркостта е деактивирана</string>
+  <string name="revanced_swipe_brightness_summary_on">"Плъзгането за яркост на цял екран е активирано
+
+Регулирайте яркостта, като плъзгате вертикално от лявата страна на екрана"</string>
+  <string name="revanced_swipe_brightness_summary_off">Плъзгането за яркост на цял екран е деактивирано</string>
   <string name="revanced_swipe_volume_title">Настройване на звука чрез плъзгане</string>
-  <string name="revanced_swipe_volume_summary_on">Обемът чрез плъзване е активен</string>
-  <string name="revanced_swipe_volume_summary_off">Обемът чрез плъзване е деактивиран</string>
+  <string name="revanced_swipe_volume_summary_on">"Плъзгането за сила на звука на цял екран е активирано
+
+Регулирайте силата на звука, като плъзнете вертикално от дясната страна на екрана"</string>
+  <string name="revanced_swipe_volume_summary_off">Плъзгането за сила на звука на цял екран е деактивирано</string>
   <string name="revanced_swipe_press_to_engage_title">Активиране на жеста натискане за преместване</string>
   <string name="revanced_swipe_press_to_engage_summary_on">Плъзгането чрез натискане е активирано</string>
   <string name="revanced_swipe_press_to_engage_summary_off">Плъзгането чрез натискане е деактивирано</string>
@@ -501,16 +505,19 @@ Second \"item\" text"</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_title">Задаване на яркост чрез плъзгане</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_on">Плъзгането надолу до най-ниската стойност на жеста за яркост, за да се активира автоматичната яркост</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_off">Плъзгането надолу до най-ниската стойност на жеста за яркост, без дасе активира автоматичната яркост</string>
-  <string name="revanced_swipe_lowest_value_enable_auto_brightness_overlay_text">Авто</string>
   <string name="revanced_swipe_overlay_timeout_title">Задръжка на плъзгащата контрола за показване</string>
   <string name="revanced_swipe_overlay_timeout_summary">Време за което плъзгащата контрола е видима.</string>
-  <string name="revanced_swipe_text_overlay_size_title">Размер на текста при плъзгане</string>
-  <string name="revanced_swipe_text_overlay_size_summary">Размера на текста на плъзгащите контроли</string>
   <string name="revanced_swipe_overlay_background_opacity_title">Плъзгане на фона на наслагването непрозрачност</string>
   <string name="revanced_swipe_overlay_background_opacity_summary">Стойност на непрозрачността между 0-100</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Непрозрачността на плъзгането трябва да е между 0-100</string>
   <string name="revanced_swipe_threshold_title">Праг на величината на плъзгане</string>
   <string name="revanced_swipe_threshold_summary">Праг преди да се осъществи плъзгането</string>
+  <string name="revanced_swipe_show_circular_overlay_title">Показване на кръгъл овърлей</string>
+  <string name="revanced_swipe_show_circular_overlay_summary_on">Показва се кръгъл овърлей</string>
+  <string name="revanced_swipe_show_circular_overlay_summary_off">Показва се хоризонтален овърлей</string>
+  <string name="revanced_swipe_overlay_minimal_style_title">Активиране на минимален стил</string>
+  <string name="revanced_swipe_overlay_minimal_style_summary_on">Минималният стил на наслагване е активиран</string>
+  <string name="revanced_swipe_overlay_minimal_style_summary_off">Минималният стил на овърлея е деактивиран</string>
   <string name="revanced_swipe_change_video_title">Включване на превключване на видеото чрез плъзване</string>
   <string name="revanced_swipe_change_video_summary_on">Плъзването в режим на цял екран ще превключи към следващото/предишно видео</string>
   <string name="revanced_swipe_change_video_summary_off">Плъзването в режим на цял екран няма да превключи към следващото/предишно видео</string>

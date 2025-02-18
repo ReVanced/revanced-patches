@@ -484,11 +484,15 @@ Deze functie is alleen beschikbaar voor oudere apparaten"</string>
   </patch>
   <patch id="interaction.swipecontrols.swipeControlsResourcePatch">
   <string name="revanced_swipe_brightness_title">Helderheidsbeweging inschakelen</string>
-  <string name="revanced_swipe_brightness_summary_on">Helderheid swipe is ingeschakeld</string>
-  <string name="revanced_swipe_brightness_summary_off">Helderheid swipe is uitgeschakeld</string>
+  <string name="revanced_swipe_brightness_summary_on">"Volledig scherm helderheid swipe is ingeschakeld
+
+Pas de helderheid aan door verticaal te swipen aan de linkerkant van het scherm"</string>
+  <string name="revanced_swipe_brightness_summary_off">Volledig scherm helderheid swipe is uitgeschakeld</string>
   <string name="revanced_swipe_volume_title">Volumebeweging inschakelen</string>
-  <string name="revanced_swipe_volume_summary_on">Volume swipe is ingeschakeld</string>
-  <string name="revanced_swipe_volume_summary_off">Volume swipe is uitgeschakeld</string>
+  <string name="revanced_swipe_volume_summary_on">"Volume aanpassen in volledig scherm is ingeschakeld
+
+Pas het volume aan door verticaal over de rechterkant van het scherm te vegen"</string>
+  <string name="revanced_swipe_volume_summary_off">Volume aanpassen in volledig scherm is uitgeschakeld</string>
   <string name="revanced_swipe_press_to_engage_title">Druk-om-te-swipen-beweging inschakelen</string>
   <string name="revanced_swipe_press_to_engage_summary_on">Druk-om-te-swipen is ingeschakeld</string>
   <string name="revanced_swipe_press_to_engage_summary_off">Druk-om-te-swipen is uitgeschakeld</string>
@@ -501,16 +505,19 @@ Deze functie is alleen beschikbaar voor oudere apparaten"</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_title">Automatische helderheidsbeweging inschakelen</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_on">Omlaag swipen naar de laagste waarde van de helderheidsbeweging activeert automatische helderheid</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_off">Omlaag swipen naar de laagste waarde activeert automatische helderheid niet</string>
-  <string name="revanced_swipe_lowest_value_enable_auto_brightness_overlay_text">Automatisch</string>
   <string name="revanced_swipe_overlay_timeout_title">Swipe-overlay time-out</string>
   <string name="revanced_swipe_overlay_timeout_summary">Het aantal milliseconden dat de overlay zichtbaar is</string>
-  <string name="revanced_swipe_text_overlay_size_title">Swipe-overlay tekstgrootte</string>
-  <string name="revanced_swipe_text_overlay_size_summary">De tekstgrootte voor swipe-overlay</string>
   <string name="revanced_swipe_overlay_background_opacity_title">Dekking van de Swipe overlay</string>
   <string name="revanced_swipe_overlay_background_opacity_summary">Dekking tussen 0-100</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Dekking moet tussen 0-100 zijn</string>
   <string name="revanced_swipe_threshold_title">Drempelwaarde swipe-sterkte</string>
   <string name="revanced_swipe_threshold_summary">De hoeveelheid drempelwaarde voor swipe om te gebeuren</string>
+  <string name="revanced_swipe_show_circular_overlay_title">Circulaire overlay weergeven</string>
+  <string name="revanced_swipe_show_circular_overlay_summary_on">Circulaire overlay wordt weergegeven</string>
+  <string name="revanced_swipe_show_circular_overlay_summary_off">Horizontale overlay wordt weergegeven</string>
+  <string name="revanced_swipe_overlay_minimal_style_title">Minimale stijl inschakelen</string>
+  <string name="revanced_swipe_overlay_minimal_style_summary_on">Minimale overlay-stijl is ingeschakeld</string>
+  <string name="revanced_swipe_overlay_minimal_style_summary_off">Minimale overlay-stijl is uitgeschakeld</string>
   <string name="revanced_swipe_change_video_title">Schakel vegen in om te wisselen tussen video\'s</string>
   <string name="revanced_swipe_change_video_summary_on">Vegen in de modus volledig scherm weergegeven, verandert naar de volgende/vorige video</string>
   <string name="revanced_swipe_change_video_summary_off">Vegen in de modus volledig scherm weergegeven, verandert niet naar de volgende/vorige video</string>

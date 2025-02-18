@@ -484,11 +484,15 @@ Tato funkce je dostupná pouze pro starší zařízení"</string>
   </patch>
   <patch id="interaction.swipecontrols.swipeControlsResourcePatch">
   <string name="revanced_swipe_brightness_title">Povolit gesto pro jas</string>
-  <string name="revanced_swipe_brightness_summary_on">Přejetí pro jas je povoleno</string>
-  <string name="revanced_swipe_brightness_summary_off">Přejetí pro jas je zakázáno</string>
+  <string name="revanced_swipe_brightness_summary_on">"Potažení jasu na celou obrazovku je povoleno
+
+Upravte jas přejetím svisle po levé straně obrazovky"</string>
+  <string name="revanced_swipe_brightness_summary_off">Potažení jasu na celou obrazovku je zakázáno</string>
   <string name="revanced_swipe_volume_title">Povolit gesto pro hlasitost</string>
-  <string name="revanced_swipe_volume_summary_on">Posuvník hlasitosti je povolen</string>
-  <string name="revanced_swipe_volume_summary_off">Posuvník hlasitosti je zakázán</string>
+  <string name="revanced_swipe_volume_summary_on">"Přejetím prstem na celou obrazovku je povoleno
+
+Hlasitost se upravuje svislým přejetím po pravé straně obrazovky"</string>
+  <string name="revanced_swipe_volume_summary_off">Přejetí prstem na celou obrazovku je zakázáno</string>
   <string name="revanced_swipe_press_to_engage_title">Povolit gesto stisknutí pro přejetí</string>
   <string name="revanced_swipe_press_to_engage_summary_on">Stisknutí pro přejetí je povoleno</string>
   <string name="revanced_swipe_press_to_engage_summary_off">Stisknutí pro přejetí je zakázáno</string>
@@ -501,16 +505,19 @@ Tato funkce je dostupná pouze pro starší zařízení"</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_title">Povolit gesto pro automatický jas</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_on">Přejetím dolů na nejnižší hodnotu gesta pro jas aktivujete automatický jas</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_off">Přejetím dolů na nejnižší hodnotu neaktivujete automatický jas</string>
-  <string name="revanced_swipe_lowest_value_enable_auto_brightness_overlay_text">Automat</string>
   <string name="revanced_swipe_overlay_timeout_title">Timeout překrytí gesta</string>
   <string name="revanced_swipe_overlay_timeout_summary">Doba v milisekundách, po kterou je překrytí viditelné</string>
-  <string name="revanced_swipe_text_overlay_size_title">Velikost textu překrytí gesta</string>
-  <string name="revanced_swipe_text_overlay_size_summary">Velikost textu pro překrytí gesta</string>
   <string name="revanced_swipe_overlay_background_opacity_title">Průsvitnost pozadí překrytí tažením</string>
   <string name="revanced_swipe_overlay_background_opacity_summary">Hodnota průsvitnosti mezi 0-100</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Průsvitnost tažení musí být mezi 0-100</string>
   <string name="revanced_swipe_threshold_title">Práh vynucení gesta</string>
   <string name="revanced_swipe_threshold_summary">Velikost prahu pro provedení gesta</string>
+  <string name="revanced_swipe_show_circular_overlay_title">Zobrazit kruhovou překryvnou vrstvu</string>
+  <string name="revanced_swipe_show_circular_overlay_summary_on">Zobrazuje se kruhová překryvná vrstva</string>
+  <string name="revanced_swipe_show_circular_overlay_summary_off">Zobrazuje se vodorovná překryvná vrstva</string>
+  <string name="revanced_swipe_overlay_minimal_style_title">Povolit minimální styl</string>
+  <string name="revanced_swipe_overlay_minimal_style_summary_on">Minimální styl překrytí je povolen</string>
+  <string name="revanced_swipe_overlay_minimal_style_summary_off">Minimální styl překryvné vrstvy je zakázán</string>
   <string name="revanced_swipe_change_video_title">Povolit přejetí prstem pro změnu videa</string>
   <string name="revanced_swipe_change_video_summary_on">Přejetí prstem v režimu celé obrazovky změní video na další/předchozí</string>
   <string name="revanced_swipe_change_video_summary_off">Přejetí prstem v režimu celé obrazovky nebude video měnit na další/předchozí</string>

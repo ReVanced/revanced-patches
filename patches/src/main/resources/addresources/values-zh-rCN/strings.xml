@@ -484,11 +484,15 @@ Second \"item\" text"</string>
   </patch>
   <patch id="interaction.swipecontrols.swipeControlsResourcePatch">
   <string name="revanced_swipe_brightness_title">启用亮度控制手势</string>
-  <string name="revanced_swipe_brightness_summary_on">滑动控制亮度已启用</string>
-  <string name="revanced_swipe_brightness_summary_off">滑动控制亮度已禁用</string>
+  <string name="revanced_swipe_brightness_summary_on">"已启用全屏亮度滑动
+
+通过在屏幕左侧垂直滑动来调节亮度"</string>
+  <string name="revanced_swipe_brightness_summary_off">已停用全屏亮度滑动</string>
   <string name="revanced_swipe_volume_title">启用音量手势</string>
-  <string name="revanced_swipe_volume_summary_on">滑动控制音量已启用</string>
-  <string name="revanced_swipe_volume_summary_off">滑动控制音量已禁用</string>
+  <string name="revanced_swipe_volume_summary_on">"已启用全屏音量滑动
+
+通过在屏幕右侧垂直滑动来调节音量"</string>
+  <string name="revanced_swipe_volume_summary_off">已停用全屏音量滑动</string>
   <string name="revanced_swipe_press_to_engage_title">长按以滑动手势</string>
   <string name="revanced_swipe_press_to_engage_summary_on">长按以滑动已启用</string>
   <string name="revanced_swipe_press_to_engage_summary_off">长按以滑动已禁用</string>
@@ -501,16 +505,19 @@ Second \"item\" text"</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_title">启用自动亮度手势</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_on">滑动到最低亮度手势将启用自动亮度</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_off">滑动到最低亮度手势不启用自动亮度</string>
-  <string name="revanced_swipe_lowest_value_enable_auto_brightness_overlay_text">自动</string>
   <string name="revanced_swipe_overlay_timeout_title">滑动覆盖超时</string>
   <string name="revanced_swipe_overlay_timeout_summary">滑动叠加层显示的时长（毫秒）</string>
-  <string name="revanced_swipe_text_overlay_size_title">滑动叠加层上的文本大小</string>
-  <string name="revanced_swipe_text_overlay_size_summary">滑动时显示的叠加层上的文本大小</string>
   <string name="revanced_swipe_overlay_background_opacity_title">滑动叠加层背景的不透明度</string>
   <string name="revanced_swipe_overlay_background_opacity_summary">不透明度值介于 0-100 之间</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">滑动不透明度必须介于 0-100 之间</string>
   <string name="revanced_swipe_threshold_title">滑动幅度阈值</string>
   <string name="revanced_swipe_threshold_summary">防误触的滑动幅度阈值</string>
+  <string name="revanced_swipe_show_circular_overlay_title">显示圆形叠加层</string>
+  <string name="revanced_swipe_show_circular_overlay_summary_on">圆形叠加层已显示</string>
+  <string name="revanced_swipe_show_circular_overlay_summary_off">水平叠加层已显示</string>
+  <string name="revanced_swipe_overlay_minimal_style_title">启用极简样式</string>
+  <string name="revanced_swipe_overlay_minimal_style_summary_on">已启用极简叠加样式</string>
+  <string name="revanced_swipe_overlay_minimal_style_summary_off">已停用最小叠加层样式</string>
   <string name="revanced_swipe_change_video_title">启用滑动切换视频</string>
   <string name="revanced_swipe_change_video_summary_on">在全屏模式下滑动将切换到下一个/上一个视频</string>
   <string name="revanced_swipe_change_video_summary_off">在全屏模式下滑动将不会切换到下一个/上一个视频</string>

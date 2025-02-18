@@ -484,11 +484,15 @@ Den här funktionen är endast tillgänglig för äldre enheter"</string>
   </patch>
   <patch id="interaction.swipecontrols.swipeControlsResourcePatch">
   <string name="revanced_swipe_brightness_title">Aktivera ljusstyrkegest</string>
-  <string name="revanced_swipe_brightness_summary_on">Svep för ljusstyrka är aktiverat</string>
-  <string name="revanced_swipe_brightness_summary_off">Svep för ljusstyrka är inaktiverat</string>
+  <string name="revanced_swipe_brightness_summary_on">"Helskärmens ljusstyrkesvep är aktiverat
+
+Justera ljusstyrkan genom att svepa vertikalt på vänster sida av skärmen"</string>
+  <string name="revanced_swipe_brightness_summary_off">Helskärmens ljusstyrkesvep är inaktiverat</string>
   <string name="revanced_swipe_volume_title">Aktivera volymgest</string>
-  <string name="revanced_swipe_volume_summary_on">Volymsvepning är aktiverad</string>
-  <string name="revanced_swipe_volume_summary_off">Volymsvepning är inaktiverad</string>
+  <string name="revanced_swipe_volume_summary_on">"Helskärmsvolymsvep är aktiverat
+
+Justera volymen genom att svepa vertikalt på höger sida av skärmen"</string>
+  <string name="revanced_swipe_volume_summary_off">Helskärmsvolymsvep är inaktiverat</string>
   <string name="revanced_swipe_press_to_engage_title">Aktivera gester för att svepa</string>
   <string name="revanced_swipe_press_to_engage_summary_on">Press-till-svep är aktiverat</string>
   <string name="revanced_swipe_press_to_engage_summary_off">Press-till-svepning är inaktiverad</string>
@@ -501,16 +505,19 @@ Den här funktionen är endast tillgänglig för äldre enheter"</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_title">Aktivera automatisk ljusstyrkegest</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_on">Genom att svepa ner till det lägsta värdet av gesten för ljusstyrka aktiveras automatisk ljusstyrka</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_off">Att svepa ner till det lägsta värdet aktiverar inte automatisk ljusstyrka</string>
-  <string name="revanced_swipe_lowest_value_enable_auto_brightness_overlay_text">Automatiskt</string>
   <string name="revanced_swipe_overlay_timeout_title">Tidsgräns för svepöverlagring</string>
   <string name="revanced_swipe_overlay_timeout_summary">Mängden millisekunder överlappningen är synlig</string>
-  <string name="revanced_swipe_text_overlay_size_title">Storlek på svep överlagrad text</string>
-  <string name="revanced_swipe_text_overlay_size_summary">Textstorleken för att svepa överlägg</string>
   <string name="revanced_swipe_overlay_background_opacity_title">Överlägg svepbakgrund opacitet</string>
   <string name="revanced_swipe_overlay_background_opacity_summary">Opacitetsvärde mellan 0-100</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Överlagrad svepopacitet måste vara mellan 0-100</string>
   <string name="revanced_swipe_threshold_title">Svep magnitud tröskel</string>
   <string name="revanced_swipe_threshold_summary">Mängden tröskel för att svepa ska uppstå</string>
+  <string name="revanced_swipe_show_circular_overlay_title">Visa cirkelformad overlay</string>
+  <string name="revanced_swipe_show_circular_overlay_summary_on">Cirkelformad overlay visas</string>
+  <string name="revanced_swipe_show_circular_overlay_summary_off">Horisontell overlay visas</string>
+  <string name="revanced_swipe_overlay_minimal_style_title">Aktivera minimal stil</string>
+  <string name="revanced_swipe_overlay_minimal_style_summary_on">Minimal överlagringsstil är aktiverad</string>
+  <string name="revanced_swipe_overlay_minimal_style_summary_off">Minimal overlay-stil är inaktiverad</string>
   <string name="revanced_swipe_change_video_title">Aktivera svepning för att byta video</string>
   <string name="revanced_swipe_change_video_summary_on">Svepning i helskärmsläge ändrar till följande/föregående video</string>
   <string name="revanced_swipe_change_video_summary_off">Svepning i helskärmsläge ändrar inte till följande/föregående video</string>

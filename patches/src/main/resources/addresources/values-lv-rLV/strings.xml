@@ -484,11 +484,15 @@ Ierobežojumi
   </patch>
   <patch id="interaction.swipecontrols.swipeControlsResourcePatch">
   <string name="revanced_swipe_brightness_title">Ieslēgt spilgtuma žestu</string>
-  <string name="revanced_swipe_brightness_summary_on">Spilgtuma slīdēšana ir ieslēgta</string>
-  <string name="revanced_swipe_brightness_summary_off">Spilgtuma slīdēšana ir atslēgta</string>
+  <string name="revanced_swipe_brightness_summary_on">"Pilnekrāna spilgtuma slīdēšana ir ieslēgta
+
+Regulējiet spilgtumu, velkot vertikāli ekrāna kreisajā pusē"</string>
+  <string name="revanced_swipe_brightness_summary_off">Pilnekrāna spilgtuma slīdēšana ir atspējota</string>
   <string name="revanced_swipe_volume_title">Ieslēgt skaļuma žestu</string>
-  <string name="revanced_swipe_volume_summary_on">Skaļuma slīdēšana ir ieslēgta</string>
-  <string name="revanced_swipe_volume_summary_off">Skaļuma slīdēšana ir atslēgta</string>
+  <string name="revanced_swipe_volume_summary_on">"Pilnekrāna skaļuma vilkšana ir iespējota
+
+Regulējiet skaļumu, velkot vertikāli ekrāna labajā pusē"</string>
+  <string name="revanced_swipe_volume_summary_off">Pilnekrāna skaļuma vilkšana ir atspējota</string>
   <string name="revanced_swipe_press_to_engage_title">Ieslēgt pieskaršanās-lai-slīdētu žestu</string>
   <string name="revanced_swipe_press_to_engage_summary_on">Pieskaršanās-lai-slīdētu ir ieslēgta</string>
   <string name="revanced_swipe_press_to_engage_summary_off">Pieskaršanās-lai-slīdētu ir atslēgta</string>
@@ -501,16 +505,19 @@ Ierobežojumi
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_title">Ieslēgt automātiskā spilgtuma žestu</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_on">Slīdot uz leju līdz spilgtuma žesta zemākajai vērtībai, tiek ieslēgts automātiskais spilgtums</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_off">Slīdot uz leju līdz zemākajai vērtībai, netiek ieslēgts automātiskais spilgtums</string>
-  <string name="revanced_swipe_lowest_value_enable_auto_brightness_overlay_text">Automātisks</string>
   <string name="revanced_swipe_overlay_timeout_title">Slīdēšanas pārklājuma laika izbeigšanās</string>
   <string name="revanced_swipe_overlay_timeout_summary">Milisekundes, ko pārklājums ir redzams</string>
-  <string name="revanced_swipe_text_overlay_size_title">Slīdēšanas pārklājuma teksta lielums</string>
-  <string name="revanced_swipe_text_overlay_size_summary">Teksta lielums slīdēšanas pārklājuma gadījumā</string>
   <string name="revanced_swipe_overlay_background_opacity_title">Pārvilkšanas pārklājuma fona necaurredzamība</string>
   <string name="revanced_swipe_overlay_background_opacity_summary">Necaurredzamības vērtība no 0 līdz 100</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Pārvilkšanas necaurredzamībai jābūt no 0 līdz 100</string>
   <string name="revanced_swipe_threshold_title">Slīdēšanas lieluma slieksnis</string>
   <string name="revanced_swipe_threshold_summary">Slieksnis, lai slīdēšana varētu notikt</string>
+  <string name="revanced_swipe_show_circular_overlay_title">Rādīt apļveida pārklājumu</string>
+  <string name="revanced_swipe_show_circular_overlay_summary_on">Apļveida pārklājums tiek rādīts</string>
+  <string name="revanced_swipe_show_circular_overlay_summary_off">Horizontālais pārklājums tiek rādīts</string>
+  <string name="revanced_swipe_overlay_minimal_style_title">Iespējot minimālo stilu</string>
+  <string name="revanced_swipe_overlay_minimal_style_summary_on">Minimālais pārklājuma stils ir iespējots</string>
+  <string name="revanced_swipe_overlay_minimal_style_summary_off">Minimālais pārklājuma stils ir atspējots</string>
   <string name="revanced_swipe_change_video_title">Iespējot pārvilkšanu, lai mainītu videoklipus</string>
   <string name="revanced_swipe_change_video_summary_on">Pārvelkot pilnekrāna režīmā, tiks mainīts nākamais/iepriekšējais videoklips</string>
   <string name="revanced_swipe_change_video_summary_off">Pārvelkot pilnekrāna režīmā, nākamais/iepriekšējais videoklips netiks mainīts</string>

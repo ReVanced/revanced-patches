@@ -484,11 +484,15 @@ Ta funkcija je na voljo samo za starejše naprave"</string>
   </patch>
   <patch id="interaction.swipecontrols.swipeControlsResourcePatch">
   <string name="revanced_swipe_brightness_title">Omogoči kretnjo za svetlost</string>
-  <string name="revanced_swipe_brightness_summary_on">Pomikanje za svetlost je omogočeno</string>
-  <string name="revanced_swipe_brightness_summary_off">Pomikanje za svetlost je onemogočeno</string>
+  <string name="revanced_swipe_brightness_summary_on">"Potezanje za svetlost čez cel zaslon je omogočeno
+
+Prilagodite svetlost s potezanjem navpično na levi strani zaslona"</string>
+  <string name="revanced_swipe_brightness_summary_off">Potezanje za svetlost čez cel zaslon je onemogočeno</string>
   <string name="revanced_swipe_volume_title">Omogoči kretnjo za glasnost</string>
-  <string name="revanced_swipe_volume_summary_on">Pomikanje za glasnost je omogočeno</string>
-  <string name="revanced_swipe_volume_summary_off">Pomikanje za glasnost je onemogočeno</string>
+  <string name="revanced_swipe_volume_summary_on">"Poteg s prstom za celozaslonski nadzor glasnosti je omogočen
+
+Prilagodite glasnost s potegom navpično na desni strani zaslona"</string>
+  <string name="revanced_swipe_volume_summary_off">Poteg s prstom za celozaslonski nadzor glasnosti je onemogočen</string>
   <string name="revanced_swipe_press_to_engage_title">Omogoči kretnjo pritisni za pomikanje</string>
   <string name="revanced_swipe_press_to_engage_summary_on">Pritisni za pomikanje je omogočeno</string>
   <string name="revanced_swipe_press_to_engage_summary_off">Pritisni za pomikanje je onemogočeno</string>
@@ -501,16 +505,19 @@ Ta funkcija je na voljo samo za starejše naprave"</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_title">Omogoči samodejno svetlost z gretnjo</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_on">Pomikanje navzdol do najnižje vrednosti kretnje za svetlost omogoči samodejno svetlost</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_off">Pomikanje navzdol do najnižje vrednosti ne omogoči samodejne svetlosti</string>
-  <string name="revanced_swipe_lowest_value_enable_auto_brightness_overlay_text">Samodejno</string>
   <string name="revanced_swipe_overlay_timeout_title">Časovni zamik prekrivanja pomikanja</string>
   <string name="revanced_swipe_overlay_timeout_summary">Število milisekund, ko je prekrivanje vidno</string>
-  <string name="revanced_swipe_text_overlay_size_title">Velikost besedila prekrivanja pomikanja</string>
-  <string name="revanced_swipe_text_overlay_size_summary">Velikost besedila za prekrivanje pomikanja</string>
   <string name="revanced_swipe_overlay_background_opacity_title">Prosojnost prekrivanja poteze</string>
   <string name="revanced_swipe_overlay_background_opacity_summary">Vrednost prosojnosti med 0 in 100</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Prosojnost drsenja mora biti med 0 in 100</string>
   <string name="revanced_swipe_threshold_title">Prazg prag za pomikanje</string>
   <string name="revanced_swipe_threshold_summary">Vrednost praga za pomikanje</string>
+  <string name="revanced_swipe_show_circular_overlay_title">Pokaži krožni prekrivni element</string>
+  <string name="revanced_swipe_show_circular_overlay_summary_on">Krožni prekrivni element je prikazan</string>
+  <string name="revanced_swipe_show_circular_overlay_summary_off">Prikazan je vodoravni prekrivni element</string>
+  <string name="revanced_swipe_overlay_minimal_style_title">Omogoči minimalen slog</string>
+  <string name="revanced_swipe_overlay_minimal_style_summary_on">Minimalen slog prekrivanja je omogočen</string>
+  <string name="revanced_swipe_overlay_minimal_style_summary_off">Minimalni slog prekrivnega elementa je onemogočen</string>
   <string name="revanced_swipe_change_video_title">Omogoči menjavanje videoposnetkov z drsenjem</string>
   <string name="revanced_swipe_change_video_summary_on">Drsenje v celozaslonskem načinu bo prešlo na naslednji/prejšnji videoposnetek.</string>
   <string name="revanced_swipe_change_video_summary_off">Drsenje v celozaslonskem načinu ne bo prešlo na naslednji/prejšnji videoposnetek.</string>

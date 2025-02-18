@@ -484,11 +484,15 @@ Ez a funkció csak régebbi eszközökön érhető el"</string>
   </patch>
   <patch id="interaction.swipecontrols.swipeControlsResourcePatch">
   <string name="revanced_swipe_brightness_title">Fényerő kézmozdulat engedélyezése</string>
-  <string name="revanced_swipe_brightness_summary_on">A fényerő vezérlése kézmozdulattal engedélyezve</string>
-  <string name="revanced_swipe_brightness_summary_off">A fényerő vezérlése kézmozdulattal letiltva</string>
+  <string name="revanced_swipe_brightness_summary_on">"A teljes képernyős fényerő-húzás engedélyezve
+
+A fényerő beállítása a képernyő bal oldalán történő függőleges húzással"</string>
+  <string name="revanced_swipe_brightness_summary_off">A teljes képernyős fényerő-húzás le van tiltva</string>
   <string name="revanced_swipe_volume_title">Hangerő kézmozdulat engedélyezése</string>
-  <string name="revanced_swipe_volume_summary_on">A hangerő vezérlése kézmozdulattal engedélyezve</string>
-  <string name="revanced_swipe_volume_summary_off">A hangerő vezérlése kézmozdulattal letiltva</string>
+  <string name="revanced_swipe_volume_summary_on">"A teljes képernyős hangerőhúzás engedélyezve van
+
+A hangerő a képernyő jobb oldalán függőlegesen húzva állítható be"</string>
+  <string name="revanced_swipe_volume_summary_off">A teljes képernyős hangerőhúzás le van tiltva</string>
   <string name="revanced_swipe_press_to_engage_title">Nyomva húzás kézmozdulat engedélyezése</string>
   <string name="revanced_swipe_press_to_engage_summary_on">A nyomva húzás engedélyezve van</string>
   <string name="revanced_swipe_press_to_engage_summary_off">A nyomva húzás le van tiltva</string>
@@ -501,16 +505,19 @@ Ez a funkció csak régebbi eszközökön érhető el"</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_title">Auto fényerő gesztus engedélyezése</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_on">A fényerő kézmozdulat legalacsonyabb értékig csúsztatása engedélyezi az auto fényerőt</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_off">A legalacsonyabb értékig csúsztatás nem engedélyezi az auto fényerőt</string>
-  <string name="revanced_swipe_lowest_value_enable_auto_brightness_overlay_text">Automatikus</string>
   <string name="revanced_swipe_overlay_timeout_title">Csúsztatási átfedés időkorlátja</string>
   <string name="revanced_swipe_overlay_timeout_summary">Az átfedés láthatóságának időtartama ezredmásodpercben</string>
-  <string name="revanced_swipe_text_overlay_size_title">Csúsztatási átfedés szövegmérete</string>
-  <string name="revanced_swipe_text_overlay_size_summary">A csúsztatási átfedés szövegmérete</string>
   <string name="revanced_swipe_overlay_background_opacity_title">Az áthúzás átfedésének átlátszósága</string>
   <string name="revanced_swipe_overlay_background_opacity_summary">Az átlátszóság értéke 0-100 között legyen</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">A csúsztatás átlátszóságának 0 és 100 között kell lennie</string>
   <string name="revanced_swipe_threshold_title">A csúsztatás küszöbértéke</string>
   <string name="revanced_swipe_threshold_summary">A csúsztatáshoz szükséges küszöbérték</string>
+  <string name="revanced_swipe_show_circular_overlay_title">Kör alakú fedvény megjelenítése</string>
+  <string name="revanced_swipe_show_circular_overlay_summary_on">Kör alakú fedvény megjelenik</string>
+  <string name="revanced_swipe_show_circular_overlay_summary_off">Vízszintes fedvény megjelenik</string>
+  <string name="revanced_swipe_overlay_minimal_style_title">Minimál stílus engedélyezése</string>
+  <string name="revanced_swipe_overlay_minimal_style_summary_on">A minimál fedési stílus engedélyezve van</string>
+  <string name="revanced_swipe_overlay_minimal_style_summary_off">A minimalista fedvény stílus le van tiltva</string>
   <string name="revanced_swipe_change_video_title">Engedélyezze az ujjbegyújtással történő videóváltást</string>
   <string name="revanced_swipe_change_video_summary_on">Teljes képernyős módban történő ujjbegyújtás megváltoztatja a következő/előző videóra</string>
   <string name="revanced_swipe_change_video_summary_off">Teljes képernyős módban történő ujjbegyújtás nem változtatja meg a következő/előző videóra</string>

@@ -484,11 +484,15 @@ Second \"item\" text"</string>
   </patch>
   <patch id="interaction.swipecontrols.swipeControlsResourcePatch">
   <string name="revanced_swipe_brightness_title">التحكم بالسطوع عن طريق ايماءة التمرير</string>
-  <string name="revanced_swipe_brightness_summary_on">تم تمكين التحكم بمستوى السطوع عن طريق الإيماءة</string>
-  <string name="revanced_swipe_brightness_summary_off">تم تعطيل التحكم بمستوى السطوع عن طريق الإيماءة</string>
+  <string name="revanced_swipe_brightness_summary_on">"تم تمكين التمرير السريع لضبط السطوع في وضع ملء الشاشة
+
+اضبط السطوع عن طريق التمرير عموديًا على الجانب الأيسر من الشاشة"</string>
+  <string name="revanced_swipe_brightness_summary_off">تم تعطيل التمرير السريع لضبط السطوع في وضع ملء الشاشة</string>
   <string name="revanced_swipe_volume_title">تمكين التحكم بالصوت عن طريق إيماءة التمرير</string>
-  <string name="revanced_swipe_volume_summary_on">تم تمكين التحكم بمستوى الصوت عن طريق الإيماءة</string>
-  <string name="revanced_swipe_volume_summary_off">تم تعطيل التحكم بمستوى الصوت عن طريق الإيماءة</string>
+  <string name="revanced_swipe_volume_summary_on">"تم تمكين التمرير السريع لضبط مستوى الصوت في وضع ملء الشاشة
+
+اضبط مستوى الصوت عن طريق التمرير عموديًا على الجانب الأيمن من الشاشة"</string>
+  <string name="revanced_swipe_volume_summary_off">تم تعطيل التمرير السريع لضبط مستوى الصوت في وضع ملء الشاشة</string>
   <string name="revanced_swipe_press_to_engage_title">تمكين إيماءة الضغط للتمرير</string>
   <string name="revanced_swipe_press_to_engage_summary_on">يتم تنشيط عناصر التحكم عن طريق إيماءة التمرير فقط بضغطة طويلة</string>
   <string name="revanced_swipe_press_to_engage_summary_off">تنشيط عناصر التحكم عن طريق إيماءة التمرير عند الضغط مباشرة</string>
@@ -501,16 +505,19 @@ Second \"item\" text"</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_title">تمكين إيماءة السطوع التلقائي</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_on">التمرير لأسفل إلى أدنى قيمة للسطوع يمكّن السطوع التلقائي</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_off">لا يؤدي التمرير لأسفل إلى أدنى قيمة إلى تمكين السطوع التلقائي</string>
-  <string name="revanced_swipe_lowest_value_enable_auto_brightness_overlay_text">تلقائي</string>
   <string name="revanced_swipe_overlay_timeout_title">مهلة واجهة التمرير</string>
   <string name="revanced_swipe_overlay_timeout_summary">مقدار الوقت الذي تظهر فيه واجهة التمرير بعد التغيير بجزء الثانية</string>
-  <string name="revanced_swipe_text_overlay_size_title">حجم نص واجهة التمرير</string>
-  <string name="revanced_swipe_text_overlay_size_summary">حجم النص على واجهة التمرير</string>
   <string name="revanced_swipe_overlay_background_opacity_title">تعتيم خلفية واجهة التمرير السريع</string>
   <string name="revanced_swipe_overlay_background_opacity_summary">قيمة التعتيم بين 0-100</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">يجب أن يكون تعتيم التمرير السريع بين 0-100</string>
   <string name="revanced_swipe_threshold_title">مقدار حد التمرير</string>
   <string name="revanced_swipe_threshold_summary">الحد الأدنى من التمرير قبل اكتشاف الإيماءة</string>
+  <string name="revanced_swipe_show_circular_overlay_title">إظهار التراكب الدائري</string>
+  <string name="revanced_swipe_show_circular_overlay_summary_on">يتم عرض التراكب الدائري</string>
+  <string name="revanced_swipe_show_circular_overlay_summary_off">يتم عرض التراكب الأفقي</string>
+  <string name="revanced_swipe_overlay_minimal_style_title">تمكين النمط البسيط</string>
+  <string name="revanced_swipe_overlay_minimal_style_summary_on">تم تمكين النمط البسيط للتراكب</string>
+  <string name="revanced_swipe_overlay_minimal_style_summary_off">تم تعطيل نمط التراكب البسيط</string>
   <string name="revanced_swipe_change_video_title">تمكين إيماءة التمرير لتغيير الفيديو</string>
   <string name="revanced_swipe_change_video_summary_on">سيؤدي التمرير في وضع ملء الشاشة إلى التغيير للفيديو التالي/السابق</string>
   <string name="revanced_swipe_change_video_summary_off">لن يؤدي التمرير في وضع ملء الشاشة إلى التغيير للفيديو التالي/السابق</string>

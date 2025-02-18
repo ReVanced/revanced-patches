@@ -484,10 +484,14 @@ Second \"item\" text"</string>
   </patch>
   <patch id="interaction.swipecontrols.swipeControlsResourcePatch">
   <string name="revanced_swipe_brightness_title">Включить регулировку яркости жестом</string>
-  <string name="revanced_swipe_brightness_summary_on">Регулировка яркости жестом включена</string>
-  <string name="revanced_swipe_brightness_summary_off">Регулировка яркости жестом отключена</string>
+  <string name="revanced_swipe_brightness_summary_on">"Регулировка яркости жестом на весь экран включена
+
+Регулируйте яркость, проводя вертикально по левой стороне экрана"</string>
+  <string name="revanced_swipe_brightness_summary_off">Регулировка яркости жестом на весь экран отключена</string>
   <string name="revanced_swipe_volume_title">Включить регулировку громкости жестом</string>
-  <string name="revanced_swipe_volume_summary_on">Регулировка громкости жестом включена</string>
+  <string name="revanced_swipe_volume_summary_on">"Полноэкранное управление громкостью жестом включено
+
+Регулируйте громкость, проводя пальцем по правой стороне экрана по вертикали"</string>
   <string name="revanced_swipe_volume_summary_off">Регулировка громкости жестом отключена</string>
   <string name="revanced_swipe_press_to_engage_title">Включить нажатие для выполнения жестов</string>
   <string name="revanced_swipe_press_to_engage_summary_on">Нажатие для выполнения жестов включено</string>
@@ -501,16 +505,19 @@ Second \"item\" text"</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_title">Включить жест автояркости</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_on">Активация автояркости жестом до самого низкого значения яркости включена</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_off">Активация автояркости жестом до самого низкого значения яркости отключена</string>
-  <string name="revanced_swipe_lowest_value_enable_auto_brightness_overlay_text">Автоматически</string>
   <string name="revanced_swipe_overlay_timeout_title">Время показа панели жестов</string>
   <string name="revanced_swipe_overlay_timeout_summary">Количество миллисекунд для показа всплывающей панели при жестах</string>
-  <string name="revanced_swipe_text_overlay_size_title">Размер текста панели жестов</string>
-  <string name="revanced_swipe_text_overlay_size_summary">Размер текста всплывающей панели при жестах</string>
   <string name="revanced_swipe_overlay_background_opacity_title">Затемнение фона панели жестов</string>
   <string name="revanced_swipe_overlay_background_opacity_summary">Значение затемнения всплывающей панели при жестах от 0 до 100</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Значение затемнения панели жестов должно быть от 0 до 100</string>
   <string name="revanced_swipe_threshold_title">Порог величины жеста</string>
   <string name="revanced_swipe_threshold_summary">Минимальная амплитуда движения, распознаваемого как жест</string>
+  <string name="revanced_swipe_show_circular_overlay_title">Показывать круговое наложение</string>
+  <string name="revanced_swipe_show_circular_overlay_summary_on">Круговое наложение отображается</string>
+  <string name="revanced_swipe_show_circular_overlay_summary_off">Отображается горизонтальное наложение</string>
+  <string name="revanced_swipe_overlay_minimal_style_title">Включить минимальный стиль</string>
+  <string name="revanced_swipe_overlay_minimal_style_summary_on">Включен минимальный стиль наложения</string>
+  <string name="revanced_swipe_overlay_minimal_style_summary_off">Минимальный стиль наложения отключен</string>
   <string name="revanced_swipe_change_video_title">Включить переключение видео жестом</string>
   <string name="revanced_swipe_change_video_summary_on">Жест в полноэкранном режиме переключает на следующее/предыдущее видео</string>
   <string name="revanced_swipe_change_video_summary_off">Жест в полноэкранном режиме не переключает на следующее/предыдущее видео</string>

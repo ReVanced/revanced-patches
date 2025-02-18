@@ -484,11 +484,15 @@ Cette fonctionnalité est disponible uniquement pour les appareils anciens"</str
   </patch>
   <patch id="interaction.swipecontrols.swipeControlsResourcePatch">
   <string name="revanced_swipe_brightness_title">Activer le geste de contrôle de la luminosité</string>
-  <string name="revanced_swipe_brightness_summary_on">Le geste de contrôle de la luminosité est activé</string>
-  <string name="revanced_swipe_brightness_summary_off">Le geste de contrôle de la luminosité est désactivé</string>
+  <string name="revanced_swipe_brightness_summary_on">"Le geste de contrôle de la luminosité en plein écran est activé
+
+Réglez la luminosité en faisant glisser verticalement sur le côté gauche de l'écran"</string>
+  <string name="revanced_swipe_brightness_summary_off">Le geste de contrôle de la luminosité en plein écran est désactivé</string>
   <string name="revanced_swipe_volume_title">Activer le geste de contrôle du volume</string>
-  <string name="revanced_swipe_volume_summary_on">Le geste de contrôle du volume est activé</string>
-  <string name="revanced_swipe_volume_summary_off">Le geste de contrôle du volume est désactivé</string>
+  <string name="revanced_swipe_volume_summary_on">"Le geste de contrôle du volume en plein écran est activé
+
+Réglez le volume en balayant verticalement sur le côté droit de l'écran"</string>
+  <string name="revanced_swipe_volume_summary_off">Le geste de contrôle du volume en plein écran est désactivé</string>
   <string name="revanced_swipe_press_to_engage_title">Activer le geste Appuyer puis balayer</string>
   <string name="revanced_swipe_press_to_engage_summary_on">Appuyer puis balayer est activé</string>
   <string name="revanced_swipe_press_to_engage_summary_off">Appuyer puis balayer est désactivé</string>
@@ -501,16 +505,19 @@ Cette fonctionnalité est disponible uniquement pour les appareils anciens"</str
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_title">Activer le geste de luminosité automatique</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_on">Balayer vers le bas jusqu\'à la valeur minimum du geste de contrôle de la luminosité active la luminosité automatique</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_off">Balayer vers le bas jusqu\'à la valeur minimum n\'active pas la luminosité automatique</string>
-  <string name="revanced_swipe_lowest_value_enable_auto_brightness_overlay_text">Automatique</string>
   <string name="revanced_swipe_overlay_timeout_title">Délai avant disparition de l\'overlay des gestes</string>
   <string name="revanced_swipe_overlay_timeout_summary">La durée en millisecondes pendant laquelle l\'overlay est visible</string>
-  <string name="revanced_swipe_text_overlay_size_title">Taille du texte de l\'overlay des gestes</string>
-  <string name="revanced_swipe_text_overlay_size_summary">La taille du texte de l\'overlay des gestes</string>
   <string name="revanced_swipe_overlay_background_opacity_title">Opacité de l\'arrière-plan de l\'overlay des gestes</string>
   <string name="revanced_swipe_overlay_background_opacity_summary">Valeur de l\'opacité entre 0 et 100</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">L\'opacité doit être comprise entre 0 et 100 pour les gestes</string>
   <string name="revanced_swipe_threshold_title">Seuil d\'intensité des balayages</string>
   <string name="revanced_swipe_threshold_summary">L\'intensité du mouvement à effectuer pour qu\'un balayage soit pris en compte</string>
+  <string name="revanced_swipe_show_circular_overlay_title">Afficher la superposition circulaire</string>
+  <string name="revanced_swipe_show_circular_overlay_summary_on">La superposition circulaire est affichée</string>
+  <string name="revanced_swipe_show_circular_overlay_summary_off">La superposition horizontale est affichée</string>
+  <string name="revanced_swipe_overlay_minimal_style_title">Activer le style minimal</string>
+  <string name="revanced_swipe_overlay_minimal_style_summary_on">Le style de superposition minimal est activé</string>
+  <string name="revanced_swipe_overlay_minimal_style_summary_off">Le style de superposition minimal est désactivé</string>
   <string name="revanced_swipe_change_video_title">Activer Balayer pour changer de vidéo</string>
   <string name="revanced_swipe_change_video_summary_on">En mode plein écran, vous passerez à la vidéo précédente/suivante en balayant l\'écran</string>
   <string name="revanced_swipe_change_video_summary_off">En mode plein écran, vous ne changerez pas de vidéo en balayant l\'écran</string>

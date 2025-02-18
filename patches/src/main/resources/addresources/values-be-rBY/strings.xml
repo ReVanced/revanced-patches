@@ -484,11 +484,15 @@ Second \"item\" text"</string>
   </patch>
   <patch id="interaction.swipecontrols.swipeControlsResourcePatch">
   <string name="revanced_swipe_brightness_title">Уключыць жэст яркасці</string>
-  <string name="revanced_swipe_brightness_summary_on">Правядзенне па яркасці ўключана</string>
-  <string name="revanced_swipe_brightness_summary_off">Правядзенне пальцам па яркасці адключана</string>
+  <string name="revanced_swipe_brightness_summary_on">"Поўнаэкранны жэст правядзення для яркасці ўключаны
+
+Наладжвайце яркасць, праводзячы вертыкальна па левым баку экрана"</string>
+  <string name="revanced_swipe_brightness_summary_off">Поўнаэкранны жэст правядзення для яркасці выключаны</string>
   <string name="revanced_swipe_volume_title">Уключыць жэст гучнасці</string>
-  <string name="revanced_swipe_volume_summary_on">Правядзенне пальцам па гучнасці ўключана</string>
-  <string name="revanced_swipe_volume_summary_off">Правядзенне пальцам па гучнасці адключана</string>
+  <string name="revanced_swipe_volume_summary_on">"Правядзенне пальцам для рэгулявання гучнасці ва ўвесь экран уключана
+
+Рэгулюйце гучнасць, праводзячы пальцам вертыкальна па правай частцы экрана"</string>
+  <string name="revanced_swipe_volume_summary_off">Правядзенне пальцам для рэгулявання гучнасці ва ўвесь экран выключана</string>
   <string name="revanced_swipe_press_to_engage_title">Уключыць жэст \"націсканне для правядзення пальцам\"</string>
   <string name="revanced_swipe_press_to_engage_summary_on">Правядзенне пальцам уключана</string>
   <string name="revanced_swipe_press_to_engage_summary_off">Правядзенне пальцам адключана</string>
@@ -501,16 +505,19 @@ Second \"item\" text"</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_title">Уключыць жэст аўтаматычнай яркасці</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_on">Правядзіце пальцам уніз да самага нізкага значэння яркасці, каб уключыць аўтаматычную яркасць</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_off">Правядзенне пальцам уніз да самага нізкага значэння не ўключае аўтаматычную яркасць</string>
-  <string name="revanced_swipe_lowest_value_enable_auto_brightness_overlay_text">Аўто</string>
   <string name="revanced_swipe_overlay_timeout_title">Тайм-аўт накладання пальцам</string>
   <string name="revanced_swipe_overlay_timeout_summary">Працягласць бачнага накладання ў мілісекундах</string>
-  <string name="revanced_swipe_text_overlay_size_title">Памер накладанага тэксту</string>
-  <string name="revanced_swipe_text_overlay_size_summary">Памер тэксту для накладання пальцам</string>
   <string name="revanced_swipe_overlay_background_opacity_title">Непразрыстасць фону накладкі пракруткі</string>
   <string name="revanced_swipe_overlay_background_opacity_summary">Значэнне непразрыстасці паміж 0-100</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Непразрыстасць пракруткі павінна быць паміж 0-100</string>
   <string name="revanced_swipe_threshold_title">Парог велічыні пальцам</string>
   <string name="revanced_swipe_threshold_summary">Велічыня парогавага значэння для правядзення пальцам</string>
+  <string name="revanced_swipe_show_circular_overlay_title">Паказваць кругавое накладанне</string>
+  <string name="revanced_swipe_show_circular_overlay_summary_on">Кругавое накладанне паказваецца</string>
+  <string name="revanced_swipe_show_circular_overlay_summary_off">Гарызантальнае накладанне паказваецца</string>
+  <string name="revanced_swipe_overlay_minimal_style_title">Уключыць мінімальны стыль</string>
+  <string name="revanced_swipe_overlay_minimal_style_summary_on">Уключаны мінімальны стыль накладання</string>
+  <string name="revanced_swipe_overlay_minimal_style_summary_off">Мінімальны стыль накладання выключаны</string>
   <string name="revanced_swipe_change_video_title">Уключыць зьмену відэа праз правядзенне пальцам</string>
   <string name="revanced_swipe_change_video_summary_on">Правядзенне пальцам у рэжыме поўнага экрана зьменіць відэа на наступнае/папярэдняе</string>
   <string name="revanced_swipe_change_video_summary_off">Правядзенне пальцам у рэжыме поўнага экрана не зьменіць відэа на наступнае/папярэдняе</string>
