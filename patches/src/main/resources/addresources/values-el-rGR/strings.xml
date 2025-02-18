@@ -486,11 +486,15 @@ Second \"item\" text"</string>
   </patch>
   <patch id="interaction.swipecontrols.swipeControlsResourcePatch">
   <string name="revanced_swipe_brightness_title">Σάρωση οθόνης για φωτεινότητα</string>
-  <string name="revanced_swipe_brightness_summary_on">Η δυνατότητα αλλαγής φωτεινότητας με χειρονομία κατακόρυφης σάρωσης στην αριστερή πλευρά της οθόνης αναπαραγωγής είναι ενεργοποιημένη</string>
-  <string name="revanced_swipe_brightness_summary_off">Η δυνατότητα αλλαγής φωτεινότητας με χειρονομία σάρωσης στην οθόνη αναπαραγωγής είναι απενεργοποιημένη</string>
+  <string name="revanced_swipe_brightness_summary_on">"Η σάρωση φωτεινότητας σε πλήρη οθόνη είναι ενεργοποιημένη
+
+Προσαρμόστε τη φωτεινότητα σύροντας κάθετα στην αριστερή πλευρά της οθόνης"</string>
+  <string name="revanced_swipe_brightness_summary_off">Η σάρωση φωτεινότητας σε πλήρη οθόνη είναι απενεργοποιημένη</string>
   <string name="revanced_swipe_volume_title">Σάρωση οθόνης για ένταση ήχου</string>
-  <string name="revanced_swipe_volume_summary_on">Η δυνατότητα αλλαγής έντασης ήχου με χειρονομία κατακόρυφης σάρωσης στη δεξιά πλευρά της οθόνης αναπαραγωγής είναι ενεργοποιημένη</string>
-  <string name="revanced_swipe_volume_summary_off">Η δυνατότητα αλλαγής έντασης ήχου με χειρονομία σάρωσης στην οθόνη αναπαραγωγής είναι απενεργοποιημένη</string>
+  <string name="revanced_swipe_volume_summary_on">"Η σάρωση έντασης ήχου σε πλήρη οθόνη είναι ενεργοποιημένη
+
+Ρυθμίστε την ένταση ήχου σύροντας κάθετα στη δεξιά πλευρά της οθόνης"</string>
+  <string name="revanced_swipe_volume_summary_off">Η σάρωση έντασης ήχου σε πλήρη οθόνη είναι απενεργοποιημένη</string>
   <string name="revanced_swipe_press_to_engage_title">Λειτουργία πάτημα-για-σάρωση</string>
   <string name="revanced_swipe_press_to_engage_summary_on">Η λειτουργία πάτημα-για-σάρωση είναι ενεργοποιημένη, πατήστε παρατεταμένα για χειρονομίες σάρωσης</string>
   <string name="revanced_swipe_press_to_engage_summary_off">Η λειτουργία πάτημα-για-σάρωση είναι απενεργοποιημένη, πατήστε παρατεταμένα για χειρονομίες σάρωσης</string>
@@ -503,16 +507,19 @@ Second \"item\" text"</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_title">Ενεργοποίηση χειρονομίας αυτόματης φωτεινότητας</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_on">Η σάρωση προς τα κάτω στη χαμηλότερη τιμή της χειρονομίας φωτεινότητας ενεργοποιεί την αυτόματη φωτεινότητα</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_off">Η σάρωση προς τα κάτω στη χαμηλότερη τιμή δεν ενεργοποιεί την αυτόματη φωτεινότητα</string>
-  <string name="revanced_swipe_lowest_value_enable_auto_brightness_overlay_text">Αυτόματη φωτεινότητα</string>
   <string name="revanced_swipe_overlay_timeout_title">Χρονικό όριο εμφάνισης πλαισίου σάρωσης</string>
   <string name="revanced_swipe_overlay_timeout_summary">Το χρονικό διάστημα χιλιοστών του δευτερολέπτου που είναι ορατό το πλαίσιο σάρωσης</string>
-  <string name="revanced_swipe_text_overlay_size_title">Μέγεθος κειμένου πλαισίου σάρωσης</string>
-  <string name="revanced_swipe_text_overlay_size_summary">Το μέγεθος κειμένου του πλαισίου σάρωσης</string>
   <string name="revanced_swipe_overlay_background_opacity_title">Αδιαφάνεια φόντου σάρωσης</string>
   <string name="revanced_swipe_overlay_background_opacity_summary">Τιμή αδιαφάνειας μεταξύ 0-100</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Η αδιαφάνεια σάρωσης πρέπει να είναι μεταξύ 0-100</string>
   <string name="revanced_swipe_threshold_title">Κατώτατο όριο μεγέθους σάρωσης</string>
   <string name="revanced_swipe_threshold_summary">Η ελάχιστη απόσταση που θα διανύσετε με το δάκτυλο σας για να είναι αναγνωρίσιμη η χειρονομία σάρωσης</string>
+  <string name="revanced_swipe_show_circular_overlay_title">Εμφάνιση κυκλικής επικάλυψης</string>
+  <string name="revanced_swipe_show_circular_overlay_summary_on">Εμφανίζεται κυκλική επικάλυψη</string>
+  <string name="revanced_swipe_show_circular_overlay_summary_off">Εμφανίζεται οριζόντια επικάλυψη</string>
+  <string name="revanced_swipe_overlay_minimal_style_title">Ενεργοποίηση μινιμαλιστικού στυλ</string>
+  <string name="revanced_swipe_overlay_minimal_style_summary_on">Ενεργοποιήθηκε το μινιμαλιστικό στυλ επικάλυψης</string>
+  <string name="revanced_swipe_overlay_minimal_style_summary_off">Το μινιμαλιστικό στυλ επικάλυψης είναι απενεργοποιημένο</string>
   <string name="revanced_swipe_change_video_title">Χειρονομία εναλλαγής βίντεο στην πλήρη οθόνη</string>
   <string name="revanced_swipe_change_video_summary_on">Σάρωση αριστερά/δεξιά κατά τη λειτουργία πλήρους οθόνης για αλλαγή σε επόμενο/προηγούμενο βίντεο</string>
   <string name="revanced_swipe_change_video_summary_off">Η χειρονομία αλλαγής βίντεο κατά τη λειτουργία πλήρους οθόνης είναι ανενεργή</string>

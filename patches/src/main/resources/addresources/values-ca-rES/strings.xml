@@ -484,11 +484,15 @@ Aquesta funció només està disponible per a dispositius antics"</string>
   </patch>
   <patch id="interaction.swipecontrols.swipeControlsResourcePatch">
   <string name="revanced_swipe_brightness_title">Habilita el control de brillo por gesto</string>
-  <string name="revanced_swipe_brightness_summary_on">El control lliscant de brillantor està habilitat</string>
-  <string name="revanced_swipe_brightness_summary_off">El control lliscant de brillantor està inhabilitat</string>
+  <string name="revanced_swipe_brightness_summary_on">"S'ha activat el lliscament de la brillantor a pantalla completa
+
+Ajusteu la brillantor lliscant verticalment a la part esquerra de la pantalla"</string>
+  <string name="revanced_swipe_brightness_summary_off">S\'ha desactivat el lliscament de la brillantor a pantalla completa</string>
   <string name="revanced_swipe_volume_title">Habilita el control de volumen por gesto</string>
-  <string name="revanced_swipe_volume_summary_on">Actiu el canvi de volum amb gestos</string>
-  <string name="revanced_swipe_volume_summary_off">Desactivat el canvi de volum amb gestos</string>
+  <string name="revanced_swipe_volume_summary_on">"Lliscar el dit a pantalla completa per al volum està activat
+
+Ajusteu el volum lliscant verticalment a la part dreta de la pantalla"</string>
+  <string name="revanced_swipe_volume_summary_off">Lliscar el dit a pantalla completa per al volum està desactivat</string>
   <string name="revanced_swipe_press_to_engage_title">Activa el gest de polsar per lliscar</string>
   <string name="revanced_swipe_press_to_engage_summary_on">Activat el gest de prémer per lliscar</string>
   <string name="revanced_swipe_press_to_engage_summary_off">Desactivat el gest de prémer per lliscar</string>
@@ -501,16 +505,19 @@ Aquesta funció només està disponible per a dispositius antics"</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_title">Activa el gest de la brillantor automàtica</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_on">Deslizar hacia abajo hasta el valor más bajo del gesto de brillo activa el brillo automático</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_off">Deslizar hacia abajo hasta el valor más bajo no activa el brillo automático</string>
-  <string name="revanced_swipe_lowest_value_enable_auto_brightness_overlay_text">Automàtic</string>
   <string name="revanced_swipe_overlay_timeout_title">Temps límite de superposició de lliscament</string>
   <string name="revanced_swipe_overlay_timeout_summary">La quantitat de mil·lisegons que la superposició és visible</string>
-  <string name="revanced_swipe_text_overlay_size_title">Mida del text de la superposició lliscant</string>
-  <string name="revanced_swipe_text_overlay_size_summary">La mida del text per a la superposició lliscant</string>
   <string name="revanced_swipe_overlay_background_opacity_title">Opacitat del fons de la superposició de lliscament</string>
   <string name="revanced_swipe_overlay_background_opacity_summary">Valor d\'opacitat entre 0 i 100</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">L\'opacitat de lliscament ha d\'estar entre 0 i 100</string>
   <string name="revanced_swipe_threshold_title">Llindar de magnitud de lliscament</string>
   <string name="revanced_swipe_threshold_summary">La quantitat de llindar per a què es produeixi el desplaçament</string>
+  <string name="revanced_swipe_show_circular_overlay_title">Mostra la superposició circular</string>
+  <string name="revanced_swipe_show_circular_overlay_summary_on">Es mostra la superposició circular</string>
+  <string name="revanced_swipe_show_circular_overlay_summary_off">Es mostra la superposició horitzontal</string>
+  <string name="revanced_swipe_overlay_minimal_style_title">Activa l\'estil minimalista</string>
+  <string name="revanced_swipe_overlay_minimal_style_summary_on">S\'ha activat l\'estil de superposició minimalista</string>
+  <string name="revanced_swipe_overlay_minimal_style_summary_off">L\'estil de superposició mínima està desactivat</string>
   <string name="revanced_swipe_change_video_title">Activa la funció de lliscament per canviar vídeos</string>
   <string name="revanced_swipe_change_video_summary_on">Lliscar en mode de pantalla completa canviarà al vídeo següent/anterior</string>
   <string name="revanced_swipe_change_video_summary_off">Lliscar en mode de pantalla completa no canviarà al vídeo següent/anterior</string>

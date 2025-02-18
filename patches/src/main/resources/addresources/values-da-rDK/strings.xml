@@ -445,11 +445,15 @@ Denne funktion er kun tilgængelig for ældre enheder"</string>
   </patch>
   <patch id="interaction.swipecontrols.swipeControlsResourcePatch">
   <string name="revanced_swipe_brightness_title">Aktivér lysstyrke-bevægelse</string>
-  <string name="revanced_swipe_brightness_summary_on">Strøg med lysstyrke er aktiveret</string>
-  <string name="revanced_swipe_brightness_summary_off">Stryg for lysstyrke er deaktiveret</string>
+  <string name="revanced_swipe_brightness_summary_on">"Fuldskaermens lysstyrke-swipe er aktiveret
+
+Juster lysstyrken ved at swipe lodret i venstre side af skærmen"</string>
+  <string name="revanced_swipe_brightness_summary_off">Fuldskaermens lysstyrke-swipe er deaktiveret</string>
   <string name="revanced_swipe_volume_title">Aktiver lydstyrke-bevægelse</string>
-  <string name="revanced_swipe_volume_summary_on">Stryg på lydstyrke er aktiveret</string>
-  <string name="revanced_swipe_volume_summary_off">Stryg på lydstyrke er deaktiveret</string>
+  <string name="revanced_swipe_volume_summary_on">"Fuldskærmslydstyrkesvip er aktiveret
+
+Juster lydstyrken ved at swipe lodret i højre side af skærmen"</string>
+  <string name="revanced_swipe_volume_summary_off">Fuldskærmslydstyrkesvip er deaktiveret</string>
   <string name="revanced_swipe_press_to_engage_title">Aktivér tryk-til-stryg bevægelse</string>
   <string name="revanced_swipe_press_to_engage_summary_on">Press-to-swipe er aktiveret</string>
   <string name="revanced_swipe_press_to_engage_summary_off">Press-to-swipe er deaktiveret</string>
@@ -462,16 +466,19 @@ Denne funktion er kun tilgængelig for ældre enheder"</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_title">Aktivér auto-lysstyrke-bevægelse</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_on">Stryg ned til den laveste værdi af lysstyrke-bevægelsen aktiverer auto-lysstyrke</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_off">Stryg ned til den laveste værdi aktiverer ikke auto-lysstyrke</string>
-  <string name="revanced_swipe_lowest_value_enable_auto_brightness_overlay_text">Automatisk</string>
   <string name="revanced_swipe_overlay_timeout_title">Stryg overlay timeout</string>
   <string name="revanced_swipe_overlay_timeout_summary">Mængden af millisekunder, overlayet er synlig</string>
-  <string name="revanced_swipe_text_overlay_size_title">Stryg overlay tekststørrelse</string>
-  <string name="revanced_swipe_text_overlay_size_summary">Tekststørrelsen for strygeoverlay</string>
   <string name="revanced_swipe_overlay_background_opacity_title">Baggrundsgennemsigtighed for swipe-overlay</string>
   <string name="revanced_swipe_overlay_background_opacity_summary">Gennemsigtighedsværdi mellem 0-100</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Gennemsigtighed for swipe skal være mellem 0-100</string>
   <string name="revanced_swipe_threshold_title">Stryg størrelse tærskel</string>
   <string name="revanced_swipe_threshold_summary">Beløbet for tærskelværdi for stryg der skal ske</string>
+  <string name="revanced_swipe_show_circular_overlay_title">Vis cirkulært overlejring</string>
+  <string name="revanced_swipe_show_circular_overlay_summary_on">Cirkulært overlejring vises</string>
+  <string name="revanced_swipe_show_circular_overlay_summary_off">Horisontalt overlejring vises</string>
+  <string name="revanced_swipe_overlay_minimal_style_title">Aktiver minimal stil</string>
+  <string name="revanced_swipe_overlay_minimal_style_summary_on">Minimal overlay-stil er aktiveret</string>
+  <string name="revanced_swipe_overlay_minimal_style_summary_off">Minimal overlejringsstil er deaktiveret</string>
   <string name="revanced_swipe_change_video_title">Aktivér swipe for at skifte videoer</string>
   <string name="revanced_swipe_change_video_summary_on">Strygning i fuldskærmstilstand vil ændre til den næste/forrige video</string>
   <string name="revanced_swipe_change_video_summary_off">Strygning i fuldskærmstilstand vil ikke ændre til den næste/forrige video</string>

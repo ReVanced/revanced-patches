@@ -484,11 +484,15 @@ Questa funzione è disponibile solo per i dispositivi più vecchi"</string>
   </patch>
   <patch id="interaction.swipecontrols.swipeControlsResourcePatch">
   <string name="revanced_swipe_brightness_title">Attiva il gesto per modificare la luminosità</string>
-  <string name="revanced_swipe_brightness_summary_on">Il gesto per modificare la luminosità è attivato</string>
-  <string name="revanced_swipe_brightness_summary_off">Il gesto per modificare la luminosità è disattivato</string>
+  <string name="revanced_swipe_brightness_summary_on">"Lo scorrimento per la luminosità a schermo intero è abilitato
+
+Regola la luminosità scorrendo verticalmente sul lato sinistro dello schermo"</string>
+  <string name="revanced_swipe_brightness_summary_off">Lo scorrimento per la luminosità a schermo intero è disabilitato</string>
   <string name="revanced_swipe_volume_title">Attiva il gesto per modificare il volume</string>
-  <string name="revanced_swipe_volume_summary_on">Il gesto del volume è attivato</string>
-  <string name="revanced_swipe_volume_summary_off">Il gesto del volume è disattivato</string>
+  <string name="revanced_swipe_volume_summary_on">"Lo scorrimento del volume a schermo intero è abilitato
+
+Regola il volume scorrendo verticalmente sul lato destro dello schermo"</string>
+  <string name="revanced_swipe_volume_summary_off">Lo scorrimento del volume a schermo intero è disabilitato</string>
   <string name="revanced_swipe_press_to_engage_title">Attiva il gesto Premi-per-Scorrere</string>
   <string name="revanced_swipe_press_to_engage_summary_on">Premi-per-Scorrere è attivato</string>
   <string name="revanced_swipe_press_to_engage_summary_off">Premi-per-Scorrere è disattivato</string>
@@ -501,16 +505,19 @@ Questa funzione è disponibile solo per i dispositivi più vecchi"</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_title">Attiva il gesto della luminosità automatica</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_on">Scorri verso il basso fino al valore più basso del gesto luminosità per abilitare la luminosità automatica</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_off">Scorrendo verso il basso, il valore più basso non abilita la luminosità automatica</string>
-  <string name="revanced_swipe_lowest_value_enable_auto_brightness_overlay_text">Automatico</string>
   <string name="revanced_swipe_overlay_timeout_title">Timeout sovrapposizione dello scorrimento</string>
   <string name="revanced_swipe_overlay_timeout_summary">La visibilità in millisecondi della sovrapposizione</string>
-  <string name="revanced_swipe_text_overlay_size_title">Dimensione del testo sovrapposto dello scorrimento</string>
-  <string name="revanced_swipe_text_overlay_size_summary">La dimensione del testo per la sovrapposizione dello scorrimento</string>
   <string name="revanced_swipe_overlay_background_opacity_title">Opacità di sfondo della sovrapposizione di scorrimento</string>
   <string name="revanced_swipe_overlay_background_opacity_summary">Valore di opacità tra 0-100</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">L\'opacità di scorrimento deve essere tra 0-100</string>
   <string name="revanced_swipe_threshold_title">Ampiezza limite della soglia di scorrimento</string>
   <string name="revanced_swipe_threshold_summary">Il limite di ampiezza entro cui deve avvenire lo scorrimento</string>
+  <string name="revanced_swipe_show_circular_overlay_title">Mostra sovrapposizione circolare</string>
+  <string name="revanced_swipe_show_circular_overlay_summary_on">La sovrapposizione circolare viene mostrata</string>
+  <string name="revanced_swipe_show_circular_overlay_summary_off">La sovrapposizione orizzontale viene mostrata</string>
+  <string name="revanced_swipe_overlay_minimal_style_title">Abilita stile minimale</string>
+  <string name="revanced_swipe_overlay_minimal_style_summary_on">Lo stile di sovrapposizione minimale è abilitato</string>
+  <string name="revanced_swipe_overlay_minimal_style_summary_off">Lo stile di sovrapposizione minimale è disabilitato</string>
   <string name="revanced_swipe_change_video_title">Attiva il gesto per cambiare video</string>
   <string name="revanced_swipe_change_video_summary_on">Lo scorrimento in modalità a schermo intero passerà al video successivo/precedente</string>
   <string name="revanced_swipe_change_video_summary_off">Lo scorrimento in modalità schermo intero non cambierà al video successivo/precedente</string>

@@ -484,11 +484,15 @@ MicroG-এর জন্য ব্যাটারি অপ্টিমাইজ�
   </patch>
   <patch id="interaction.swipecontrols.swipeControlsResourcePatch">
   <string name="revanced_swipe_brightness_title">উজ্জ্বলতার সোয়াইপ অঙ্গভঙ্গি সক্রিয় করুন</string>
-  <string name="revanced_swipe_brightness_summary_on">উজ্জ্বলতা সোয়াইপ সক্রিয় করা হয়েছে</string>
-  <string name="revanced_swipe_brightness_summary_off">উজ্জ্বলতা সোয়াইপ নিষ্ক্রিয় করা হয়েছে</string>
+  <string name="revanced_swipe_brightness_summary_on">"Fullscreen brightness swipe enabled আছে
+
+স্ক্রিনের বাম দিকে উল্লম্বভাবে সোয়াইপ করে উজ্জ্বলতা সামঞ্জস্য করুন"</string>
+  <string name="revanced_swipe_brightness_summary_off">Fullscreen brightness swipe disabled করা হয়েছে</string>
   <string name="revanced_swipe_volume_title">ভলিউম অঙ্গভঙ্গি সক্রিয় করুন</string>
-  <string name="revanced_swipe_volume_summary_on">ভলিউম সোয়াইপ সক্রিয় করা হয়েছে</string>
-  <string name="revanced_swipe_volume_summary_off">ভলিউম সোয়াইপ নিষ্ক্রিয় করা হয়েছে</string>
+  <string name="revanced_swipe_volume_summary_on">"পূর্ণ স্ক্রীন ভলিউম সোয়াইপ সক্রিয় করা হয়েছে
+
+স্ক্রিনের ডান দিকে উল্লম্বভাবে সোয়াইপ করে ভলিউম সামঞ্জস্য করুন"</string>
+  <string name="revanced_swipe_volume_summary_off">পূর্ণ স্ক্রীন ভলিউম সোয়াইপ নিষ্ক্রিয় করা হয়েছে</string>
   <string name="revanced_swipe_press_to_engage_title">প্রেস-টু-সোয়াইপ অঙ্গভঙ্গি সক্রিয় করুন</string>
   <string name="revanced_swipe_press_to_engage_summary_on">প্রেস-টু-সোয়াইপ সক্রিয় করা হয়েছে</string>
   <string name="revanced_swipe_press_to_engage_summary_off">প্রেস-টু-সোয়াইপ নিষ্ক্রিয় করা হয়েছে</string>
@@ -501,16 +505,19 @@ MicroG-এর জন্য ব্যাটারি অপ্টিমাইজ�
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_title">স্বয়ংক্রিয়-উজ্জ্বলতার অঙ্গভঙ্গি সক্রিয় করুন</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_on">উজ্জ্বলতার অঙ্গভঙ্গির সর্বনিম্ন মানে সোয়াইপ ডাউন করলে অটো-উজ্জ্বলতা সক্ষম হয়</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_off">সর্বনিম্ন মানে সোয়াইপ ডাউন করলে অটো-উজ্জ্বলতা সক্ষম হয় না</string>
-  <string name="revanced_swipe_lowest_value_enable_auto_brightness_overlay_text">স্বতস্ফূর্তভাবে</string>
   <string name="revanced_swipe_overlay_timeout_title">ওভার-লে টাইম আউট</string>
   <string name="revanced_swipe_overlay_timeout_summary">কত মিলিসেকেন্ডের জন্য ওভারলে দৃশ্যমান হবে</string>
-  <string name="revanced_swipe_text_overlay_size_title">সোয়াইপ ওভারলে টেক্সট সাইজ</string>
-  <string name="revanced_swipe_text_overlay_size_summary">সোয়াইপ ওভারলে এর টেক্সট সাইজ</string>
   <string name="revanced_swipe_overlay_background_opacity_title">অস্বচ্ছতা</string>
   <string name="revanced_swipe_overlay_background_opacity_summary">0-100 এর মধ্যে অস্বচ্ছতার মান</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">সোয়াইপের অস্বচ্ছতা অবশ্যই 0-100 এর মধ্যে হতে হবে</string>
   <string name="revanced_swipe_threshold_title">সোয়াইপ থ্রেশহোল্ড এর মাত্রা</string>
   <string name="revanced_swipe_threshold_summary">সোয়াইপ করার থ্রেশহোল্ডের পরিমাণ</string>
+  <string name="revanced_swipe_show_circular_overlay_title">বৃত্তাকার ওভারলে দেখান</string>
+  <string name="revanced_swipe_show_circular_overlay_summary_on">বৃত্তাকার ওভারলে দেখানো হয়েছে</string>
+  <string name="revanced_swipe_show_circular_overlay_summary_off">অনুভূমিক ওভারলে দেখানো হয়েছে</string>
+  <string name="revanced_swipe_overlay_minimal_style_title">ন্যূনতম শৈলী সক্ষম করুন</string>
+  <string name="revanced_swipe_overlay_minimal_style_summary_on">Minimal overlay style enabled করা হয়েছে</string>
+  <string name="revanced_swipe_overlay_minimal_style_summary_off">ন্যূনতম ওভারলে শৈলী নিষ্ক্রিয় করা হয়েছে</string>
   <string name="revanced_swipe_change_video_title">ভিডিও পরিবর্তন করতে সোয়াইপ করে সক্ষম করুন</string>
   <string name="revanced_swipe_change_video_summary_on">ফুলস্ক্রিন মোডে সোয়াইপ করলে পরবর্তী/পূর্ববর্তী ভিডিওতে পরিবর্তন হবে</string>
   <string name="revanced_swipe_change_video_summary_off">ফুলস্ক্রিন মোডে সোয়াইপ করলে পরবর্তী /পূর্ববর্তী ভিডিওতে পরিবর্তন হবে না</string>

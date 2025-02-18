@@ -477,11 +477,15 @@ Táto funkcia je dostupná len pre staršie zariadenia"</string>
   </patch>
   <patch id="interaction.swipecontrols.swipeControlsResourcePatch">
   <string name="revanced_swipe_brightness_title">Povoliť gesto jasu</string>
-  <string name="revanced_swipe_brightness_summary_on">Potiahnutie jasu je povolené</string>
-  <string name="revanced_swipe_brightness_summary_off">Potiahnutie prstom po jase je vypnuté</string>
+  <string name="revanced_swipe_brightness_summary_on">"Posúvanie jasu na celú obrazovku je povolené
+
+Upravte jas potiahnutím prsta zvisle na ľavej strane obrazovky"</string>
+  <string name="revanced_swipe_brightness_summary_off">Posúvanie jasu na celú obrazovku je zakázané</string>
   <string name="revanced_swipe_volume_title">Povoliť gesto hlasitosti</string>
-  <string name="revanced_swipe_volume_summary_on">Potiahnutie hlasitosti je povolené</string>
-  <string name="revanced_swipe_volume_summary_off">Potiahnutie prstom po hlasitosti je vypnuté</string>
+  <string name="revanced_swipe_volume_summary_on">"Posúvanie hlasitosti na celú obrazovku je povolené
+
+Upravte hlasitosť posúvaním vertikálne na pravej strane obrazovky"</string>
+  <string name="revanced_swipe_volume_summary_off">Posúvanie hlasitosti na celú obrazovku je zakázané</string>
   <string name="revanced_swipe_press_to_engage_title">Povoliť gesto potiahnutia stlačením</string>
   <string name="revanced_swipe_press_to_engage_summary_on">Potiahnutie stlačením je povolené</string>
   <string name="revanced_swipe_press_to_engage_summary_off">Potiahnutie stlačením je zakázané</string>
@@ -494,16 +498,19 @@ Táto funkcia je dostupná len pre staršie zariadenia"</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_title">Povoliť gesto automatického jasu</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_on">Potiahnutím nadol na najnižšiu hodnotu gesta jasu aktivujete automatický jas</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_off">Potiahnutie prstom nadol na najnižšiu hodnotu nezapne automatický jas</string>
-  <string name="revanced_swipe_lowest_value_enable_auto_brightness_overlay_text">Automaticky</string>
   <string name="revanced_swipe_overlay_timeout_title">Časový limit prekrytia potiahnutím prstom vypršal</string>
   <string name="revanced_swipe_overlay_timeout_summary">Počet milisekúnd, počas ktorých je prekrytie viditeľné</string>
-  <string name="revanced_swipe_text_overlay_size_title">Veľkosť textu prekrytia prstom</string>
-  <string name="revanced_swipe_text_overlay_size_summary">Veľkosť textu pre prekrytie potiahnutím prstom</string>
   <string name="revanced_swipe_overlay_background_opacity_title">Priehľadnosť pozadia prekrytia potiahnutia</string>
   <string name="revanced_swipe_overlay_background_opacity_summary">Hodnota priehľadnosti medzi 0-100</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Priehľadnosť prekrytia potiahnutia musí byť medzi 0-100</string>
   <string name="revanced_swipe_threshold_title">Prahová hodnota potiahnutia</string>
   <string name="revanced_swipe_threshold_summary">Hodnota prahu, ktorý sa má vykonať potiahnutím prstom</string>
+  <string name="revanced_swipe_show_circular_overlay_title">Zobraziť kruhovú vrstvu</string>
+  <string name="revanced_swipe_show_circular_overlay_summary_on">Kruhová vrstva sa zobrazuje</string>
+  <string name="revanced_swipe_show_circular_overlay_summary_off">Zobrazuje sa vodorovná vrstva</string>
+  <string name="revanced_swipe_overlay_minimal_style_title">Povoliť minimalistický štýl</string>
+  <string name="revanced_swipe_overlay_minimal_style_summary_on">Je povolený minimalistický štýl prekrytia</string>
+  <string name="revanced_swipe_overlay_minimal_style_summary_off">Minimálny štýl prekrytia je zakázaný</string>
   <string name="revanced_swipe_change_video_title">Potiahnite prstom a zmeňte videá</string>
   <string name="revanced_swipe_change_video_summary_on">Potiahnutie prstom v režime celej obrazovky prepne na predchádzajúce/nasledujúce video</string>
   <string name="revanced_swipe_change_video_summary_off">Potiahnutie prstom v režime celej obrazovky neprepne na predchádzajúce/nasledujúce video</string>

@@ -484,11 +484,13 @@ Second \"item\" text"</string>
   </patch>
   <patch id="interaction.swipecontrols.swipeControlsResourcePatch">
   <string name="revanced_swipe_brightness_title">เปิดใช้งานท่าทางความสว่าง</string>
-  <string name="revanced_swipe_brightness_summary_on">การปัดความสว่างถูกเปิดใช้งาน</string>
-  <string name="revanced_swipe_brightness_summary_off">การปัดความสว่างถูกปิดใช้งาน</string>
+  <string name="revanced_swipe_brightness_summary_on">"เปิดใช้งานการเลื่อนความสว่างแบบเต็มหน้าจอ
+
+ปรับความสว่างโดยการเลื่อนในแนวตั้งทางด้านซ้ายของหน้าจอ"</string>
+  <string name="revanced_swipe_brightness_summary_off">ปิดใช้งานการเลื่อนความสว่างแบบเต็มหน้าจอ</string>
   <string name="revanced_swipe_volume_title">เปิดใช้งานท่าทางระดับเสียง</string>
-  <string name="revanced_swipe_volume_summary_on">การปัดระดับเสียงถูกเปิดใช้งาน</string>
-  <string name="revanced_swipe_volume_summary_off">การปัดระดับเสียงถูกปิดใช้งาน</string>
+  <string name="revanced_swipe_volume_summary_on">"เปิดใช้งานการปัดระดับเสียงแบบเต็มหน้าจอ\n\nปรับระดับเสียงโดยปัดในแนวตั้งที่ด้านขวาของหน้าจอ"</string>
+  <string name="revanced_swipe_volume_summary_off">ปิดใช้งานการปัดระดับเสียงแบบเต็มหน้าจอ</string>
   <string name="revanced_swipe_press_to_engage_title">เปิดใช้งานท่าทางการกดเพื่อปัด</string>
   <string name="revanced_swipe_press_to_engage_summary_on">การกดเพื่อปัดถูกเปิดใช้งาน</string>
   <string name="revanced_swipe_press_to_engage_summary_off">การกดเพื่อปัดถูกปิดใช้งาน</string>
@@ -501,16 +503,19 @@ Second \"item\" text"</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_title">เปิดใช้งานท่าทางความสว่างอัตโนมัติ</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_on">การปัดลงไปที่ค่าต่ำสุดของท่าทางความสว่างจะเปิดใช้งานความสว่างอัตโนมัติ</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_off">การปัดลงไปที่ค่าต่ำสุดจะไม่เปิดใช้งานความสว่างอัตโนมัติ</string>
-  <string name="revanced_swipe_lowest_value_enable_auto_brightness_overlay_text">อัตโนมัติ</string>
   <string name="revanced_swipe_overlay_timeout_title">เวลาหมดอายุของการแสดงทับการปัด</string>
   <string name="revanced_swipe_overlay_timeout_summary">จำนวนมิลลิวินาทีที่การแสดงทับจะมองเห็น</string>
-  <string name="revanced_swipe_text_overlay_size_title">ขนาดข้อความของการแสดงทับการปัด</string>
-  <string name="revanced_swipe_text_overlay_size_summary">ขนาดข้อความสำหรับการแสดงทับการปัด</string>
   <string name="revanced_swipe_overlay_background_opacity_title">ความทึบแสงพื้นหลังของสไลด์โอเวอร์เลย์</string>
   <string name="revanced_swipe_overlay_background_opacity_summary">ค่าความทึบแสงระหว่าง 0-100</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">ค่าความทึบแสงของสไลด์ต้องอยู่ระหว่าง 0-100</string>
   <string name="revanced_swipe_threshold_title">เกณฑ์ขนาดของการปัด</string>
   <string name="revanced_swipe_threshold_summary">จำนวนเกณฑ์สำหรับการปัดที่จะเกิดขึ้น</string>
+  <string name="revanced_swipe_show_circular_overlay_title">แสดงภาพซ้อนทับแบบวงกลม</string>
+  <string name="revanced_swipe_show_circular_overlay_summary_on">แสดงภาพซ้อนทับแบบวงกลม</string>
+  <string name="revanced_swipe_show_circular_overlay_summary_off">แสดงภาพซ้อนทับแนวนอน</string>
+  <string name="revanced_swipe_overlay_minimal_style_title">เปิดใช้งานรูปแบบมินิมอล</string>
+  <string name="revanced_swipe_overlay_minimal_style_summary_on">เปิดใช้งานรูปแบบโอเวอร์เลย์มินิมอล</string>
+  <string name="revanced_swipe_overlay_minimal_style_summary_off">ปิดใช้งานรูปแบบภาพซ้อนทับแบบมินิมอล</string>
   <string name="revanced_swipe_change_video_title">เปิดใช้การปัดเพื่อเปลี่ยนวิดีโอ</string>
   <string name="revanced_swipe_change_video_summary_on">การปัดในโหมดเต็มหน้าจอจะเปลี่ยนไปเป็นวิดีโอถัดไป/ก่อนหน้า</string>
   <string name="revanced_swipe_change_video_summary_off">การปัดในโหมดเต็มหน้าจอจะไม่เปลี่ยนเป็นวิดีโอถัดไป/ก่อนหน้า</string>

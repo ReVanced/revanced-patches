@@ -484,11 +484,15 @@ Apribojimai
   </patch>
   <patch id="interaction.swipecontrols.swipeControlsResourcePatch">
   <string name="revanced_swipe_brightness_title">Įjungti ryškumo gestą</string>
-  <string name="revanced_swipe_brightness_summary_on">Ryškumo slinktis įjungta</string>
-  <string name="revanced_swipe_brightness_summary_off">Ryškumo slinktis išjungta</string>
+  <string name="revanced_swipe_brightness_summary_on">"Įjungtas viso ekrano ryškumo perbraukimas
+
+Reguliuokite ryškumą perbraukdami vertikaliai kairėje ekrano pusėje"</string>
+  <string name="revanced_swipe_brightness_summary_off">Išjungtas viso ekrano ryškumo perbraukimas</string>
   <string name="revanced_swipe_volume_title">Įjungti garsumo gestą</string>
-  <string name="revanced_swipe_volume_summary_on">Garsumo slinktis įjungta</string>
-  <string name="revanced_swipe_volume_summary_off">Garsumo slinktis išjungta</string>
+  <string name="revanced_swipe_volume_summary_on">"Įjungtas viso ekrano garsumo perbraukimas
+
+Reguliuokite garsumą braukdami vertikaliai dešinėje ekrano pusėje"</string>
+  <string name="revanced_swipe_volume_summary_off">Išjungtas viso ekrano garsumo perbraukimas</string>
   <string name="revanced_swipe_press_to_engage_title">Įjungti paspaudimo slinkties gestą</string>
   <string name="revanced_swipe_press_to_engage_summary_on">Paspaudimo slinktis įjungta</string>
   <string name="revanced_swipe_press_to_engage_summary_off">Paspaudimo slinktis išjungta</string>
@@ -501,16 +505,19 @@ Apribojimai
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_title">Įjungti automatinio ryškumo gestą</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_on">Slinkimas žemyn iki mažiausios ryškumo gesto vertės įjungia automatinį ryškumą</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_off">Slinkimas žemyn iki mažiausios vertės neįjungia automatinio ryškumo</string>
-  <string name="revanced_swipe_lowest_value_enable_auto_brightness_overlay_text">Automatinis</string>
   <string name="revanced_swipe_overlay_timeout_title">Slinkties peržiūros išjungimo laikas</string>
   <string name="revanced_swipe_overlay_timeout_summary">Milisekundžių skaičius, kiek laiko peržiūra matoma</string>
-  <string name="revanced_swipe_text_overlay_size_title">Slinkties peržiūros teksto dydis</string>
-  <string name="revanced_swipe_text_overlay_size_summary">Teksto dydis slinkties peržiūrai</string>
   <string name="revanced_swipe_overlay_background_opacity_title">Užšliaukite dangos nušveitimo fono permatinumas</string>
   <string name="revanced_swipe_overlay_background_opacity_summary">Permatnumo vertė nuo 0 iki 100</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Slinkties permatnumas turi būti nuo 0 iki 100</string>
   <string name="revanced_swipe_threshold_title">Slinkties dydžio slenkstis</string>
   <string name="revanced_swipe_threshold_summary">Slenkstis, reikalingas slinkčiai</string>
+  <string name="revanced_swipe_show_circular_overlay_title">Rodyti apskritą perdangą</string>
+  <string name="revanced_swipe_show_circular_overlay_summary_on">Rodoma apskrita perdanga</string>
+  <string name="revanced_swipe_show_circular_overlay_summary_off">Rodoma horizontali perdanga</string>
+  <string name="revanced_swipe_overlay_minimal_style_title">Įgalinti minimalų stilių</string>
+  <string name="revanced_swipe_overlay_minimal_style_summary_on">Įjungtas minimalus perdangos stilius</string>
+  <string name="revanced_swipe_overlay_minimal_style_summary_off">Minimalus perdangos stilius išjungtas</string>
   <string name="revanced_swipe_change_video_title">Braukimas norint pakeisti vaizdo įrašus</string>
   <string name="revanced_swipe_change_video_summary_on">Braukimas viso ekrano režimu pakeis į kitą/ankstesnį vaizdo įrašą</string>
   <string name="revanced_swipe_change_video_summary_off">Braukimas viso ekrano režimu nepakeis į kitą/ankstesnį vaizdo įrašą</string>

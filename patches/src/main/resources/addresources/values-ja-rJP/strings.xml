@@ -486,11 +486,15 @@ GmsCore の電池の最適化を無効にしても、バッテリーの使用に
   </patch>
   <patch id="interaction.swipecontrols.swipeControlsResourcePatch">
   <string name="revanced_swipe_brightness_title">明るさジェスチャーを有効にする</string>
-  <string name="revanced_swipe_brightness_summary_on">明るさスワイプは有効です</string>
-  <string name="revanced_swipe_brightness_summary_off">明るさスワイプは無効です</string>
+  <string name="revanced_swipe_brightness_summary_on">"全画面の明るさスワイプが有効になっています
+
+画面の左側を垂直にスワイプして、明るさを調整します"</string>
+  <string name="revanced_swipe_brightness_summary_off">全画面の明るさスワイプは無効になっています</string>
   <string name="revanced_swipe_volume_title">音量ジェスチャーを有効にする</string>
-  <string name="revanced_swipe_volume_summary_on">音量スワイプは有効です</string>
-  <string name="revanced_swipe_volume_summary_off">音量スワイプは無効です</string>
+  <string name="revanced_swipe_volume_summary_on">"全画面ボリュームスワイプが有効です
+
+画面の右側を縦にスワイプして音量を調整します"</string>
+  <string name="revanced_swipe_volume_summary_off">全画面ボリュームスワイプは無効です</string>
   <string name="revanced_swipe_press_to_engage_title">長押しスワイプ コントロールを有効化</string>
   <string name="revanced_swipe_press_to_engage_summary_on">Press-to-swipeは有効です</string>
   <string name="revanced_swipe_press_to_engage_summary_off">Press-to-swipeは無効です</string>
@@ -503,16 +507,19 @@ GmsCore の電池の最適化を無効にしても、バッテリーの使用に
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_title">自動明るさジェスチャーを有効にする</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_on">明るさジェスチャーの最小値まで下にスワイプすると、自動明るさが有効になります</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_off">最小値まで下にスワイプしても、自動明るさの自動調節は有効になりません</string>
-  <string name="revanced_swipe_lowest_value_enable_auto_brightness_overlay_text">自動</string>
   <string name="revanced_swipe_overlay_timeout_title">スワイプ オーバーレイのタイムアウト</string>
   <string name="revanced_swipe_overlay_timeout_summary">オーバーレイが表示されるミリ秒の量</string>
-  <string name="revanced_swipe_text_overlay_size_title">スワイプ オーバーレイのテキスト サイズ</string>
-  <string name="revanced_swipe_text_overlay_size_summary">スワイプ オーバーレイのテキスト サイズ</string>
   <string name="revanced_swipe_overlay_background_opacity_title">スワイプ オーバーレイの背景の不透明度</string>
   <string name="revanced_swipe_overlay_background_opacity_summary">透明度の値は 0-100 の範囲で、0が透明です</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">透明度の値は 0-100 の間でなければなりません</string>
   <string name="revanced_swipe_threshold_title">スワイプの大きさのしきい値</string>
   <string name="revanced_swipe_threshold_summary">スワイプとして検出する量のしきい値</string>
+  <string name="revanced_swipe_show_circular_overlay_title">円形のオーバーレイを表示</string>
+  <string name="revanced_swipe_show_circular_overlay_summary_on">円形のオーバーレイが表示されています</string>
+  <string name="revanced_swipe_show_circular_overlay_summary_off">水平方向のオーバーレイが表示されています</string>
+  <string name="revanced_swipe_overlay_minimal_style_title">最小スタイルを有効にする</string>
+  <string name="revanced_swipe_overlay_minimal_style_summary_on">最小オーバーレイ スタイルが有効になっています</string>
+  <string name="revanced_swipe_overlay_minimal_style_summary_off">最小限のオーバーレイ スタイルは無効です</string>
   <string name="revanced_swipe_change_video_title">スワイプして動画を切り替える</string>
   <string name="revanced_swipe_change_video_summary_on">全画面表示でスワイプすると、次 / 前の動画に切り替わります</string>
   <string name="revanced_swipe_change_video_summary_off">全画面表示でスワイプしても、次 / 前の動画には切り替わりません</string>

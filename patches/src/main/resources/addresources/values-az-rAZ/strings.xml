@@ -440,11 +440,7 @@ Bu xüsusiyyət yalnız köhnə cihazlar üçün mövcuddur"</string>
   </patch>
   <patch id="interaction.swipecontrols.swipeControlsResourcePatch">
   <string name="revanced_swipe_brightness_title">Parlaqlıq jestini aktivləşdir</string>
-  <string name="revanced_swipe_brightness_summary_on">Parlaqlıq sürüşdürmə aktivdir</string>
-  <string name="revanced_swipe_brightness_summary_off">Parlaqlıq sürüşdürmə qeyri-aktivdir</string>
   <string name="revanced_swipe_volume_title">Səs səviyyəsi jestini aktivləşdir</string>
-  <string name="revanced_swipe_volume_summary_on">Səs səviyyəsin sürüşdürmə aktivdir</string>
-  <string name="revanced_swipe_volume_summary_off">Səs səviyyəsin sürüşdürmə qeyri-aktivdir</string>
   <string name="revanced_swipe_press_to_engage_title">Basıb sürüşdürmə jestini aktivləşdir</string>
   <string name="revanced_swipe_press_to_engage_summary_on">Sürüşdürmək üçün basma aktivdir</string>
   <string name="revanced_swipe_press_to_engage_summary_off">Sürüşdürmək üçün basma qeyri-aktivdir</string>
@@ -457,11 +453,8 @@ Bu xüsusiyyət yalnız köhnə cihazlar üçün mövcuddur"</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_title">Avto-parlaqlıq jestini aktivləşdir</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_on">Parlaqlıq ən aşağı dəyərinə sürüşdürüləndə avto-parlaqlıq aktivləşir</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_off">Parlaqlığı ən aşağı dəyərə sürüşdürəndə avto-parlaqlıq aktivləşmir</string>
-  <string name="revanced_swipe_lowest_value_enable_auto_brightness_overlay_text">Birbaşa</string>
   <string name="revanced_swipe_overlay_timeout_title">Sürüşdürmə örtüyü müddəti</string>
   <string name="revanced_swipe_overlay_timeout_summary">Örtüyün göründüyü millisaniyələrin sayı</string>
-  <string name="revanced_swipe_text_overlay_size_title">Örtük mətn ölçüsü dəyişdirmə</string>
-  <string name="revanced_swipe_text_overlay_size_summary">Sürüşdürmə örtüyü üçün mətn ölçüsü</string>
   <string name="revanced_swipe_overlay_background_opacity_title">Sürüşdürmə cildi arxa plan qeyri-şəffaflığı</string>
   <string name="revanced_swipe_overlay_background_opacity_summary">0-100 arası qeyri-şəffaflıq dəyəri</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Sürüşmə qeyri-şəffaflığı 0-100 arası olmalıdır</string>

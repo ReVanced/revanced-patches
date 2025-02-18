@@ -451,11 +451,7 @@ Tämä ominaisuus on käytettävissä vain vanhemmilla laitteilla"</string>
   </patch>
   <patch id="interaction.swipecontrols.swipeControlsResourcePatch">
   <string name="revanced_swipe_brightness_title">Ota kirkkauden ele käyttöön</string>
-  <string name="revanced_swipe_brightness_summary_on">Kirkkauden pyyhkäisy on käytössä</string>
-  <string name="revanced_swipe_brightness_summary_off">Kirkkauden pyyhkäisy ei ole käytössä</string>
   <string name="revanced_swipe_volume_title">Ota äänenvoimakkuuden ele käyttöön</string>
-  <string name="revanced_swipe_volume_summary_on">Äänenvoimakkuuden pyyhkäisy on käytössä</string>
-  <string name="revanced_swipe_volume_summary_off">Äänenvoimakkuuden pyyhkäisy ei ole käytössä</string>
   <string name="revanced_swipe_press_to_engage_title">Ota pyyhkäise painamalla -ele käyttöön</string>
   <string name="revanced_swipe_press_to_engage_summary_on">Pyyhkäise painamalla -ele on käytössä</string>
   <string name="revanced_swipe_press_to_engage_summary_off">Pyyhkäise painamalla -ele ei ole käytössä</string>
@@ -468,11 +464,8 @@ Tämä ominaisuus on käytettävissä vain vanhemmilla laitteilla"</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_title">Ota automaattisen kirkkauden ele käyttöön</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_on">Automaattinen kirkkaus otetaan käyttöön pyyhkäisemällä alhaisimpaan arvoon</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_off">Pienimpään arvoon alas pyyhkäiseminen ei ota käyttöön automaattista kirkkautta</string>
-  <string name="revanced_swipe_lowest_value_enable_auto_brightness_overlay_text">Automaattinen</string>
   <string name="revanced_swipe_overlay_timeout_title">Pyyhkäisyikkunan aikakatkaisu</string>
   <string name="revanced_swipe_overlay_timeout_summary">Kuinka monta millisekuntia ikkuna on näkyvissä</string>
-  <string name="revanced_swipe_text_overlay_size_title">Pyyhkäisyikkunan tekstin koko</string>
-  <string name="revanced_swipe_text_overlay_size_summary">Pyyhkäisyikkunan tekstin koko</string>
   <string name="revanced_swipe_overlay_background_opacity_title">Pyyhkäisypeittokuvan taustan läpinäkymättömyys</string>
   <string name="revanced_swipe_overlay_background_opacity_summary">Läpinäkymättömyysarvo 0–100 välillä</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Pyyhkäisyn läpinäkymättömyyden on oltava välillä 0–100</string>

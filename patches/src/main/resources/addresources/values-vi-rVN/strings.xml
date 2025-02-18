@@ -484,10 +484,14 @@ Tính năng này chỉ khả dụng cho các thiết bị cũ hơn"</string>
   </patch>
   <patch id="interaction.swipecontrols.swipeControlsResourcePatch">
   <string name="revanced_swipe_brightness_title">Bật cử chỉ độ sáng</string>
-  <string name="revanced_swipe_brightness_summary_on">Vuốt độ sáng đã bật</string>
-  <string name="revanced_swipe_brightness_summary_off">Vuốt độ sáng đã tắt</string>
+  <string name="revanced_swipe_brightness_summary_on">"Đã bật vuốt độ sáng toàn màn hình
+
+Điều chỉnh độ sáng bằng cách vuốt dọc ở bên trái màn hình"</string>
+  <string name="revanced_swipe_brightness_summary_off">Đã tắt vuốt độ sáng toàn màn hình</string>
   <string name="revanced_swipe_volume_title">Bật cử chỉ âm lượng</string>
-  <string name="revanced_swipe_volume_summary_on">Vuốt âm lượng đã bật</string>
+  <string name="revanced_swipe_volume_summary_on">"Đã bật vuốt âm lượng toàn màn hình
+
+Điều chỉnh âm lượng bằng cách vuốt dọc ở bên phải màn hình"</string>
   <string name="revanced_swipe_volume_summary_off">Vuốt âm lượng đã tắt</string>
   <string name="revanced_swipe_press_to_engage_title">Bật cử chỉ nhân-để-vuốt</string>
   <string name="revanced_swipe_press_to_engage_summary_on">Nhân-để-vuốt đã bật</string>
@@ -501,16 +505,19 @@ Tính năng này chỉ khả dụng cho các thiết bị cũ hơn"</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_title">Bật cử chỉ độ sáng tự động</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_on">Vuốt xuống đến giá trị thấp nhất của cử chỉ độ sáng bật độ sáng tự động</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_off">Vuốt xuống đến giá trị thấp nhất không bật độ sáng tự động</string>
-  <string name="revanced_swipe_lowest_value_enable_auto_brightness_overlay_text">Tự động</string>
   <string name="revanced_swipe_overlay_timeout_title">Thời gian chờ lớp phủ vuốt</string>
   <string name="revanced_swipe_overlay_timeout_summary">Số mili-giây mà lớp phủ hiển thị</string>
-  <string name="revanced_swipe_text_overlay_size_title">Kích thước văn bản lớp phủ vuốt</string>
-  <string name="revanced_swipe_text_overlay_size_summary">Kích thước văn bản cho lớp phủ vuốt</string>
   <string name="revanced_swipe_overlay_background_opacity_title">Độ mờ nền phủ vuốt</string>
   <string name="revanced_swipe_overlay_background_opacity_summary">Giá trị độ mờ từ 0-100</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Độ mờ vuốt phải nằm trong khoảng từ 0-100</string>
   <string name="revanced_swipe_threshold_title">Độ rộng ngưỡng vuốt</string>
   <string name="revanced_swipe_threshold_summary">Độ rộng của ngưỡng vuốt để thực hiện cử chỉ vuốt</string>
+  <string name="revanced_swipe_show_circular_overlay_title">Hiển thị lớp phủ hình tròn</string>
+  <string name="revanced_swipe_show_circular_overlay_summary_on">Đã hiển thị lớp phủ hình tròn</string>
+  <string name="revanced_swipe_show_circular_overlay_summary_off">Đã hiển thị lớp phủ ngang</string>
+  <string name="revanced_swipe_overlay_minimal_style_title">Bật kiểu tối giản</string>
+  <string name="revanced_swipe_overlay_minimal_style_summary_on">Đã bật kiểu lớp phủ tối giản</string>
+  <string name="revanced_swipe_overlay_minimal_style_summary_off">Đã tắt kiểu lớp phủ tối giản</string>
   <string name="revanced_swipe_change_video_title">Bật vuốt để thay đổi video</string>
   <string name="revanced_swipe_change_video_summary_on">Vuốt trong chế độ toàn màn hình sẽ chuyển sang video tiếp theo/trước</string>
   <string name="revanced_swipe_change_video_summary_off">Vuốt trong chế độ toàn màn hình sẽ không chuyển sang video tiếp theo/trước</string>

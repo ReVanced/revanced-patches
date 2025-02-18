@@ -484,11 +484,11 @@ Níl an ghné seo ar fáil ach do ghléasanna níos sine"</string>
   </patch>
   <patch id="interaction.swipecontrols.swipeControlsResourcePatch">
   <string name="revanced_swipe_brightness_title">Cumasaigh comhartha gile</string>
-  <string name="revanced_swipe_brightness_summary_on">Tá slip gile cumasaithe</string>
-  <string name="revanced_swipe_brightness_summary_off">Tá slide gile díchumasaithe</string>
+  <string name="revanced_swipe_brightness_summary_on">"Tá swipe gile lánscáileáin cumasaithe
+
+Coigeartaigh gile trí swipe a dhéanamh go hingearach ar thaobh na láimhe clé den scáileán"</string>
+  <string name="revanced_swipe_brightness_summary_off">Tá swipe gile lánscáileáin díchumasaithe</string>
   <string name="revanced_swipe_volume_title">Cumasaigh comhartha toirte</string>
-  <string name="revanced_swipe_volume_summary_on">Tá slide toirte cumasaithe</string>
-  <string name="revanced_swipe_volume_summary_off">Tá slide toirt díchumasaithe</string>
   <string name="revanced_swipe_press_to_engage_title">Cumasaigh gothaí brúigh-go-swipe</string>
   <string name="revanced_swipe_press_to_engage_summary_on">Tá brúigh-go-swipe cumasaithe</string>
   <string name="revanced_swipe_press_to_engage_summary_off">Tá brúigh-go-swipe díchumasaithe</string>
@@ -501,16 +501,15 @@ Níl an ghné seo ar fáil ach do ghléasanna níos sine"</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_title">Cumasaigh gotha uathoibríoch</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_on">Cumasaíonn scioradh síos go dtí an luach is ísle den chomhartha gile uathoibríoch</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_off">Ní chumasaíonn uathoibríoch a tharraingt síos go dtí an luach is ísle</string>
-  <string name="revanced_swipe_lowest_value_enable_auto_brightness_overlay_text">Uathoibríoch</string>
   <string name="revanced_swipe_overlay_timeout_title">Amach forleagtha Swipe</string>
   <string name="revanced_swipe_overlay_timeout_summary">Tá méid na milleasoicind an forleagan le feiceáil</string>
-  <string name="revanced_swipe_text_overlay_size_title">Méid téacs forleagtha Swipe</string>
-  <string name="revanced_swipe_text_overlay_size_summary">Méid an téacs le haghaidh forleagan swipe</string>
   <string name="revanced_swipe_overlay_background_opacity_title">Réabhlóid thrasláiteachta na gcúlra léaráidí</string>
   <string name="revanced_swipe_overlay_background_opacity_summary">Luach léaráidí idir 0-100</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Caithfidh léaráidí traslaithe a bheith idir 0-100</string>
   <string name="revanced_swipe_threshold_title">Tairseach méid swipe</string>
   <string name="revanced_swipe_threshold_summary">Méid an tairseach le haghaidh sruthú tarlú</string>
+  <string name="revanced_swipe_overlay_minimal_style_title">Cumasaigh stíl íosta</string>
+  <string name="revanced_swipe_overlay_minimal_style_summary_on">Tá stíl íosta forleagain cumasaithe</string>
   <string name="revanced_swipe_change_video_title">Cumasaigh swipe chun físeáin a athrú</string>
   <string name="revanced_swipe_change_video_summary_on">Achlaigh i mód lán-scáile chun athrú go dtí an físeán chéanna/arís</string>
   <string name="revanced_swipe_change_video_summary_off">Ní athróidh achlaigh i mód lán-scáile go dtí an físeán chéanna/arís</string>

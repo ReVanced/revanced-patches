@@ -440,11 +440,7 @@ Second \"item\" text"</string>
   </patch>
   <patch id="interaction.swipecontrols.swipeControlsResourcePatch">
   <string name="revanced_swipe_brightness_title">啟用亮度手勢</string>
-  <string name="revanced_swipe_brightness_summary_on">已啟用亮度滑動</string>
-  <string name="revanced_swipe_brightness_summary_off">已停用亮度滑動</string>
   <string name="revanced_swipe_volume_title">啟用音量手勢</string>
-  <string name="revanced_swipe_volume_summary_on">已啟用音量滑動</string>
-  <string name="revanced_swipe_volume_summary_off">已停用音量滑動</string>
   <string name="revanced_swipe_press_to_engage_title">啟用長按滑動手勢</string>
   <string name="revanced_swipe_press_to_engage_summary_on">已啟用長按滑動</string>
   <string name="revanced_swipe_press_to_engage_summary_off">已停用長按滑動</string>
@@ -457,11 +453,8 @@ Second \"item\" text"</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_title">啟用自動亮度手勢</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_on">亮度手勢滑到最底時，啟用自動亮度</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_off">亮度手勢滑到最底時，不啟用自動亮度</string>
-  <string name="revanced_swipe_lowest_value_enable_auto_brightness_overlay_text">自動</string>
   <string name="revanced_swipe_overlay_timeout_title">滑動覆蓋顯示時間</string>
   <string name="revanced_swipe_overlay_timeout_summary">覆蓋顯示的毫秒數</string>
-  <string name="revanced_swipe_text_overlay_size_title">滑動覆蓋的文字大小</string>
-  <string name="revanced_swipe_text_overlay_size_summary">滑動覆蓋的文字大小</string>
   <string name="revanced_swipe_overlay_background_opacity_title">滑動覆蓋背景透明度</string>
   <string name="revanced_swipe_overlay_background_opacity_summary">不透明度值介於 0 到 100 之間</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast"> 滑動透明度必須介於 0 到 100 之間</string>
