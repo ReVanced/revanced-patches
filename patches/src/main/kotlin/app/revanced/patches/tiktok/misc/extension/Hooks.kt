@@ -4,12 +4,11 @@ import app.revanced.patches.shared.misc.extension.extensionHook
 import com.android.tools.smali.dexlib2.AccessFlags
 
 internal val initHook = extensionHook(
-    insertIndexResolver = { 1 }, // Insert after call to super class.
+    insertIndexResolver = { 0 }
 ) {
-    accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     custom { method, classDef ->
-        classDef.endsWith("/AwemeHostApplication;") &&
-            method.name == "<init>"
+        classDef.type == "Lcom/ss/android/ugc/aweme/main/MainActivity;" &&
+                method.name == "onCreate"
     }
 }
 
