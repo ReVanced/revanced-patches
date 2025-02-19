@@ -6,11 +6,15 @@ import app.revanced.patcher.literal
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.resourcePatch
 import org.w3c.dom.Element
-import java.lang.Runtime
-import java.util.concurrent.Executors
-import java.util.concurrent.TimeUnit
+import java.util.Collections
 
-private lateinit var resourceMappings: Map<String, ResourceElement>
+data class ResourceElement(val type: String, val name: String, val id: Long)
+
+private lateinit var resourceMappings: MutableMap<String, ResourceElement>
+
+private fun setResourceId(type: String, name: String, id: Long) {
+    resourceMappings[type + name] = ResourceElement(type, name, id)
+}
 
 /**
  * @return A resource id of the given resource type and name.
@@ -18,6 +22,11 @@ private lateinit var resourceMappings: Map<String, ResourceElement>
  */
 fun getResourceId(type: String, name: String) = resourceMappings[type + name]?.id
     ?: throw PatchException("Could not find resource type: $type name: $name")
+
+/**
+ * @return All resource elements.  If a single resource id is needed instead use [getResourceId].
+ */
+fun getResourceElements() = Collections.unmodifiableCollection(resourceMappings.values)
 
 /**
  * @return If the resource exists.
@@ -39,56 +48,28 @@ fun resourceLiteral(
 
 val resourceMappingPatch = resourcePatch {
     execute {
-        val mappings : Map<String, ResourceElement>
-        val threadCount = Runtime.getRuntime().availableProcessors()
-        val threadPoolExecutor = Executors.newFixedThreadPool(threadCount)
-
-        // Save the file in memory to concurrently read from it.
+        val start = System.currentTimeMillis()
         val resourceXmlFile = get("res/values/public.xml").readBytes()
 
         document(resourceXmlFile.inputStream()).use { document ->
-            // Need to synchronize while building the map, but after it's built
-            // no synchronization is needed. Don't use a synchronized map and
-            // instead only synchronize while building.
-            val lock = Object()
             val resources = document.documentElement.childNodes
             val resourcesLength = resources.length
-            val jobSize = resourcesLength / threadCount
-            mappings = HashMap<String, ResourceElement>(2 * resourcesLength)
+            resourceMappings = HashMap<String, ResourceElement>(2 * resourcesLength)
 
-            for (threadIndex in 0 until threadCount) {
-                threadPoolExecutor.execute thread@{
-                    val batchStart = jobSize * threadIndex
-                    val batchEnd = jobSize * (threadIndex + 1)
+            for (i in 0 until resourcesLength) {
+                val node = resources.item(i)
+                if (node !is Element || node.nodeName != "public") continue
 
-                    for (i in batchStart until batchEnd) {
-                        // Prevent out of bounds.
-                        if (i >= resourcesLength) return@thread
+                val nameAttribute = node.getAttribute("name")
+                if (nameAttribute.startsWith("APKTOOL")) continue
 
-                        val node = resources.item(i)
-                        if (node !is Element) continue
+                val typeAttribute = node.getAttribute("type")
+                val id = node.getAttribute("id").substring(2).toLong(16)
 
-                        val nameAttribute = node.getAttribute("name")
-                        val typeAttribute = node.getAttribute("type")
-
-                        if (node.nodeName != "public" || nameAttribute.startsWith("APKTOOL")) continue
-
-                        val id = node.getAttribute("id").substring(2).toLong(16)
-
-                        val resourceElement = ResourceElement(typeAttribute, nameAttribute, id)
-
-                        synchronized(lock) {
-                            mappings[typeAttribute + nameAttribute] = resourceElement
-                        }
-                    }
-                }
+                setResourceId(typeAttribute, nameAttribute, id)
             }
         }
 
-        threadPoolExecutor.also { it.shutdown() }.awaitTermination(Long.MAX_VALUE, TimeUnit.SECONDS)
-
-        resourceMappings = mappings
+        println("time: " + (System.currentTimeMillis() - start))
     }
 }
-
-data class ResourceElement internal constructor(val type: String, val name: String, val id: Long)

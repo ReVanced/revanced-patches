@@ -563,6 +563,7 @@ public final class app/revanced/patches/shared/misc/hex/Replacement$Companion {
 }
 
 public final class app/revanced/patches/shared/misc/mapping/ResourceElement {
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;J)V
 	public final fun component1 ()Ljava/lang/String;
 	public final fun component2 ()Ljava/lang/String;
 	public final fun component3 ()J
@@ -577,6 +578,7 @@ public final class app/revanced/patches/shared/misc/mapping/ResourceElement {
 }
 
 public final class app/revanced/patches/shared/misc/mapping/ResourceMappingPatchKt {
+	public static final fun getResourceElements ()Ljava/util/Collection;
 	public static final fun getResourceId (Ljava/lang/String;Ljava/lang/String;)J
 	public static final fun getResourceMappingPatch ()Lapp/revanced/patcher/patch/ResourcePatch;
 	public static final fun hasResourceId (Ljava/lang/String;Ljava/lang/String;)Z
