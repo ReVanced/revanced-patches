@@ -168,9 +168,6 @@ MicroG-ի համար մարտկոցի օպտիմալացումը անջատել�
 Դուք չեք ստանա ան予期した出来事ի մասին ծանուցում։"</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
-  <string name="revanced_disable_like_subscribe_glow_title">Հանել «Like» և «Subscribe» լուսավորումը</string>
-  <string name="revanced_disable_like_subscribe_glow_summary_on">«Like» և «Subscribe» կոճակները չեն լուսավորվի, երբ հիշատակվեն</string>
-  <string name="revanced_disable_like_subscribe_glow_summary_off">«Like» և «Subscribe» կոճակները կլուսավորվեն, երբ հիշատակվեն</string>
   <string name="revanced_hide_album_cards_title">Թաքցնել  ալբոմի  քարտերը</string>
   <string name="revanced_hide_album_cards_summary_on">Ալբոմի  քարտերը  թաքցված  են</string>
   <string name="revanced_hide_album_cards_summary_off">Ալբոմի  քարտերը  ցույց  են  տրվում</string>
@@ -530,6 +527,9 @@ MicroG-ի համար մարտկոցի օպտիմալացումը անջատել�
   <patch id="layout.buttons.action.hideButtonsPatch">
   <string name="revanced_hide_buttons_screen_title">Գործողության կոճակներ</string>
   <string name="revanced_hide_buttons_screen_summary">Թաքցնել կամ ցույց տալ կոճակները տեսանյութերի տակ</string>
+  <string name="revanced_disable_like_subscribe_glow_title">Հանել «Like» և «Subscribe» լուսավորումը</string>
+  <string name="revanced_disable_like_subscribe_glow_summary_on">«Like» և «Subscribe» կոճակները չեն լուսավորվի, երբ հիշատակվեն</string>
+  <string name="revanced_disable_like_subscribe_glow_summary_off">«Like» և «Subscribe» կոճակները կլուսավորվեն, երբ հիշատակվեն</string>
   <string name="revanced_hide_like_dislike_button_title">Թաքցնել Like և Dislike</string>
   <string name="revanced_hide_like_dislike_button_summary_on">Like և Dislike կոճակները թաքցված են</string>
   <string name="revanced_hide_like_dislike_button_summary_off">Like և Dislike կոճակները ցուցադրվում են</string>

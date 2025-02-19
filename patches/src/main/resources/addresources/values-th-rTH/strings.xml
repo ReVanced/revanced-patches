@@ -168,9 +168,6 @@ Second \"item\" text"</string>
 คุณจะไม่ได้รับแจ้งเกี่ยวกับเหตุการณ์ที่ไม่คาดคิดใดๆ"</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
-  <string name="revanced_disable_like_subscribe_glow_title">ปิดการเรืองแสงถูกใจและติดตาม</string>
-  <string name="revanced_disable_like_subscribe_glow_summary_on">ปุ่มถูกใจและกดติดตามจะไม่เรืองแสงเมื่อกล่าวถึง</string>
-  <string name="revanced_disable_like_subscribe_glow_summary_off">ปุ่มถูกใจและกดติดตามจะเรืองแสงเมื่อกล่าวถึง</string>
   <string name="revanced_hide_album_cards_title">ซ่อนการ์ดอัลบั้ม</string>
   <string name="revanced_hide_album_cards_summary_on">การ์ดอัลบั้มถูกซ่อน</string>
   <string name="revanced_hide_album_cards_summary_off">การ์ดอัลบั้มถูกแสดง</string>
@@ -528,6 +525,9 @@ Second \"item\" text"</string>
   <patch id="layout.buttons.action.hideButtonsPatch">
   <string name="revanced_hide_buttons_screen_title">ปุ่มการกระทำ</string>
   <string name="revanced_hide_buttons_screen_summary">ซ่อนหรือแสดงปุ่มใต้วิดีโอ</string>
+  <string name="revanced_disable_like_subscribe_glow_title">ปิดการเรืองแสงถูกใจและติดตาม</string>
+  <string name="revanced_disable_like_subscribe_glow_summary_on">ปุ่มถูกใจและกดติดตามจะไม่เรืองแสงเมื่อกล่าวถึง</string>
+  <string name="revanced_disable_like_subscribe_glow_summary_off">ปุ่มถูกใจและกดติดตามจะเรืองแสงเมื่อกล่าวถึง</string>
   <string name="revanced_hide_like_dislike_button_title">ซ่อนชอบและไม่ชอบ</string>
   <string name="revanced_hide_like_dislike_button_summary_on">ปุ่มชอบและไม่ชอบถูกซ่อน</string>
   <string name="revanced_hide_like_dislike_button_summary_off">ปุ่มชอบและไม่ชอบถูกแสดง</string>

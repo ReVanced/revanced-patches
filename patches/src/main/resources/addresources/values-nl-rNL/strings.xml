@@ -168,9 +168,6 @@ Tik op de knop Doorgaan en sta wijzigingen in de optimalisatie toe."</string>
 U wordt niet op de hoogte gesteld van onverwachte gebeurtenissen."</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
-  <string name="revanced_disable_like_subscribe_glow_title">Schakel de gloed van Vind ik leuk en Abonneren uit</string>
-  <string name="revanced_disable_like_subscribe_glow_summary_on">De knop \"Vind ik leuk\" en \"Abonneren\" zullen niet gloeien wanneer ze worden genoemd</string>
-  <string name="revanced_disable_like_subscribe_glow_summary_off">De knop \"Vind ik leuk\" en \"Abonneren\" zullen gloeien wanneer ze worden genoemd</string>
   <string name="revanced_hide_album_cards_title">Verberg albumkaarten</string>
   <string name="revanced_hide_album_cards_summary_on">Albumkaarten zijn verborgen</string>
   <string name="revanced_hide_album_cards_summary_off">Albumkaarten worden getoond</string>
@@ -530,6 +527,9 @@ Pas het volume aan door verticaal over de rechterkant van het scherm te vegen"</
   <patch id="layout.buttons.action.hideButtonsPatch">
   <string name="revanced_hide_buttons_screen_title">Actieknoppen</string>
   <string name="revanced_hide_buttons_screen_summary">Knoppen onder video\'s verbergen of weergeven</string>
+  <string name="revanced_disable_like_subscribe_glow_title">Schakel de gloed van Vind ik leuk en Abonneren uit</string>
+  <string name="revanced_disable_like_subscribe_glow_summary_on">De knop \"Vind ik leuk\" en \"Abonneren\" zullen niet gloeien wanneer ze worden genoemd</string>
+  <string name="revanced_disable_like_subscribe_glow_summary_off">De knop \"Vind ik leuk\" en \"Abonneren\" zullen gloeien wanneer ze worden genoemd</string>
   <string name="revanced_hide_like_dislike_button_title">Vind ik leuk en vind ik niet leuk verbergen</string>
   <string name="revanced_hide_like_dislike_button_summary_on">Vind ik leuk en vind ik niet leuk knoppen zijn verborgen</string>
   <string name="revanced_hide_like_dislike_button_summary_off">Vind ik leuk en vind ik niet leuk knoppen worden weergegeven</string>

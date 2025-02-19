@@ -141,7 +141,7 @@ Second \"item\" text"</string>
   <string name="revanced_settings_screen_12_video_title">影片</string>
   <string name="revanced_restore_old_settings_menus_title">還原舊版設定選單</string>
   <string name="revanced_restore_old_settings_menus_summary_on">已顯示舊版設定選單</string>
-  <string name="revanced_restore_old_settings_menus_summary_off">已隱藏舊版設定選單</string>
+  <string name="revanced_restore_old_settings_menus_summary_off">不顯示舊版設定選單</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
   <string name="revanced_shorts_disable_background_playback_title">停用背景播放 Shorts</string>
@@ -161,13 +161,13 @@ Second \"item\" text"</string>
   <string name="revanced_debug_stacktrace_summary_on">除錯記錄檔會包含堆疊追蹤</string>
   <string name="revanced_debug_stacktrace_summary_off">除錯記錄檔不會包含堆疊追蹤</string>
   <string name="revanced_debug_toast_on_error_title">在 ReVanced 發生錯誤時顯示提示訊息</string>
+  <string name="revanced_debug_toast_on_error_summary_on">如果發生錯誤，則顯示提示訊息</string>
+  <string name="revanced_debug_toast_on_error_summary_off">如果發生錯誤，則不會顯示提示訊息</string>
   <string name="revanced_debug_toast_on_error_user_dialog_message">"關閉錯誤提示訊息會隱藏所有 ReVanced 的錯誤通知。
 
 你將不會收到任何非預期的事件通知。"</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
-  <string name="revanced_disable_like_subscribe_glow_summary_on">提及時，「喜歡」和「訂閱」按鈕不會發光</string>
-  <string name="revanced_disable_like_subscribe_glow_summary_off">提及時，「喜歡」和「訂閱」按鈕會發光</string>
   <string name="revanced_hide_album_cards_title">隱藏專輯資訊卡</string>
   <string name="revanced_hide_album_cards_summary_on">已隱藏專輯資訊卡</string>
   <string name="revanced_hide_album_cards_summary_off">已顯示專輯資訊卡</string>
@@ -190,15 +190,22 @@ Second \"item\" text"</string>
   <string name="revanced_hide_horizontal_shelves_summary_off">已顯示橫向區塊</string>
   <!-- 'Join' should be translated using the same localized wording YouTube displays.
                  This appears in the video player for certain videos. -->
+  <string name="revanced_hide_join_membership_button_title">隱藏「加入」按鈕</string>
   <string name="revanced_hide_join_membership_button_summary_on">已隱藏按鈕</string>
   <string name="revanced_hide_join_membership_button_summary_off">已顯示按鈕</string>
   <!-- 'For you' should be translated using the same localized wording YouTube displays. -->
+  <string name="revanced_hide_for_you_shelf_title">隱藏「為你推薦」區塊</string>
+  <string name="revanced_hide_for_you_shelf_summary_on">已隱藏頻道頁面的區塊</string>
+  <string name="revanced_hide_for_you_shelf_summary_off">已顯示頻道頁面的區塊</string>
   <!-- 'Notify me' should be translated using the same localized wording YouTube displays.
                  This item appear in the subscription feed for future livestreams or unreleased videos. -->
   <string name="revanced_hide_notify_me_button_title">隱藏「通知我」按鈕</string>
   <string name="revanced_hide_notify_me_button_summary_on">已隱藏按鈕</string>
   <string name="revanced_hide_notify_me_button_summary_off">已顯示按鈕</string>
   <!-- 'People also watched' should be translated using the same localized wording YouTube displays. -->
+  <string name="revanced_hide_search_result_recommendations_title">隱藏「其他人還看了」標籤</string>
+  <string name="revanced_hide_search_result_recommendations_summary_on">已隱藏標籤</string>
+  <string name="revanced_hide_search_result_recommendations_summary_off">已顯示標籤</string>
   <!-- 'Show more' should be translated with the same localized wording that YouTube displays.
                   This button usually appears when searching for a YT creator. -->
   <string name="revanced_hide_show_more_button_title">隱藏「顯示更多」按鈕</string>
@@ -214,6 +221,8 @@ Second \"item\" text"</string>
   <string name="revanced_hide_chips_shelf_summary_on">已隱藏標籤列</string>
   <string name="revanced_hide_chips_shelf_summary_off">已顯示標籤列</string>
   <string name="revanced_hide_expandable_chip_title">隱藏影片下方的可展開資訊卡</string>
+  <string name="revanced_hide_expandable_chip_summary_on">已隱藏可展開資訊卡</string>
+  <string name="revanced_hide_expandable_chip_summary_off">已顯示可展開資訊卡</string>
   <string name="revanced_hide_community_posts_title">隱藏社群貼文</string>
   <string name="revanced_hide_community_posts_summary_on">已隱藏社群貼文</string>
   <string name="revanced_hide_community_posts_summary_off">已顯示社群貼文</string>
@@ -229,6 +238,7 @@ Second \"item\" text"</string>
   <string name="revanced_hide_community_guidelines_title">隱藏《社群規範》</string>
   <string name="revanced_hide_community_guidelines_summary_on">已隱藏《社群規範》</string>
   <string name="revanced_hide_community_guidelines_summary_off">已顯示《社群規範》</string>
+  <string name="revanced_hide_subscribers_community_guidelines_title">隱藏訂閱者規範</string>
   <string name="revanced_hide_subscribers_community_guidelines_summary_on">已隱藏《訂閱者社群規範》</string>
   <string name="revanced_hide_subscribers_community_guidelines_summary_off">已顯示《訂閱者社群規範》</string>
   <string name="revanced_hide_channel_member_shelf_title">隱藏頻道會員專區</string>
@@ -267,10 +277,20 @@ Second \"item\" text"</string>
   <string name="revanced_hide_artist_cards_title">隱藏藝人資訊卡</string>
   <string name="revanced_hide_artist_cards_summary_on">已隱藏藝人資訊卡</string>
   <string name="revanced_hide_artist_cards_summary_off">已顯示藝人資訊卡</string>
+  <string name="revanced_hide_attributes_section_title">隱藏屬性</string>
+  <string name="revanced_hide_attributes_section_summary_on">已隱藏精選地點、遊戲、音樂和提及的人區塊</string>
+  <string name="revanced_hide_attributes_section_summary_off">已顯示精選地點、遊戲、音樂和提及的人區塊</string>
+  <string name="revanced_hide_chapters_section_title">隱藏章節</string>
   <string name="revanced_hide_chapters_section_summary_on">已隱藏章節區塊</string>
   <string name="revanced_hide_chapters_section_summary_off">已顯示章節區塊</string>
+  <string name="revanced_hide_how_this_was_made_section_title">隱藏「這項內容的製作方式」</string>
+  <string name="revanced_hide_how_this_was_made_section_summary_on">已隱藏這項內容的製作方式區塊</string>
+  <string name="revanced_hide_how_this_was_made_section_summary_off">已隱藏這項內容的製作方式區塊</string>
+  <string name="revanced_hide_podcast_section_title">隱藏「探索 Podcast」</string>
+  <string name="revanced_hide_info_cards_section_title">隱藏資訊卡</string>
   <string name="revanced_hide_info_cards_section_summary_on">已隱藏資訊卡區塊</string>
   <string name="revanced_hide_info_cards_section_summary_off">已顯示資訊卡區塊</string>
+  <string name="revanced_hide_transcript_section_title">隱藏轉錄稿</string>
   <string name="revanced_hide_transcript_section_summary_on">已隱藏轉錄稿區塊</string>
   <string name="revanced_hide_transcript_section_summary_off">已顯示轉錄稿區塊</string>
   <string name="revanced_hide_description_components_screen_title">影片說明</string>
@@ -405,10 +425,10 @@ Second \"item\" text"</string>
   <string name="revanced_share_copy_url_timestamp_success">已複製時間戳記網址</string>
   <string name="revanced_copy_video_url_title">顯示複製影片網址按鈕</string>
   <string name="revanced_copy_video_url_summary_on">已顯示按鈕。輕觸以複製影片網址。按住以複製包含時間戳記的影片網址。</string>
-  <string name="revanced_copy_video_url_summary_off">已隱藏按鈕</string>
+  <string name="revanced_copy_video_url_summary_off">不顯示按鈕</string>
   <string name="revanced_copy_video_url_timestamp_title">顯示複製時間戳記網址按鈕</string>
   <string name="revanced_copy_video_url_timestamp_summary_on">已顯示按鈕。輕觸以複製包含時間戳記的影片網址。按住以複製不包含時間戳記的影片網址。</string>
-  <string name="revanced_copy_video_url_timestamp_summary_off">已隱藏按鈕</string>
+  <string name="revanced_copy_video_url_timestamp_summary_off">不顯示按鈕</string>
   </patch>
   <patch id="interaction.dialog.removeViewerDiscretionDialogPatch">
   <string name="revanced_remove_viewer_discretion_dialog_title">移除觀眾謹慎觀看對話方塊</string>
@@ -472,6 +492,8 @@ Second \"item\" text"</string>
   <patch id="layout.buttons.action.hideButtonsPatch">
   <string name="revanced_hide_buttons_screen_title">動作按鈕</string>
   <string name="revanced_hide_buttons_screen_summary">隱藏或顯示影片下方的按鈕</string>
+  <string name="revanced_disable_like_subscribe_glow_summary_on">提及時，「喜歡」和「訂閱」按鈕不會發光</string>
+  <string name="revanced_disable_like_subscribe_glow_summary_off">提及時，「喜歡」和「訂閱」按鈕會發光</string>
   <string name="revanced_hide_like_dislike_button_title">隱藏「喜歡」和「不喜歡」數</string>
   <string name="revanced_hide_like_dislike_button_summary_on">已隱藏「喜歡」和「不喜歡」按鈕</string>
   <string name="revanced_hide_like_dislike_button_summary_off">已顯示「喜歡」和「不喜歡」按鈕</string>
@@ -778,7 +800,7 @@ Second \"item\" text"</string>
   </patch>
   <patch id="layout.returnyoutubedislike.returnYouTubeDislikePatch">
   <!-- Toast shown if network connection times out. Translations of this should not be longer than the original English or the text can be clipped and not entirely shown. -->
-  <string name="revanced_ryd_failure_connection_timeout">暫時無法使用「不喜歡」數（API 逾時）</string>
+  <string name="revanced_ryd_failure_connection_timeout">暫時無法顯示不喜歡人數（API 逾時）</string>
   <string name="revanced_ryd_failure_connection_status_code">無法使用「不喜歡」數（狀態 %d）</string>
   <string name="revanced_ryd_failure_generic">無法使用「不喜歡」數 (%s)</string>
   <!-- Toast shown if the user enables RYD while a video is opened, and then tries to vote for the video. -->
@@ -786,7 +808,7 @@ Second \"item\" text"</string>
   <!-- Video likes have been set to hidden by the video uploader. -->
   <string name="revanced_ryd_video_likes_hidden_by_video_owner">已由擁有者隱藏</string>
   <string name="revanced_ryd_enable_summary_on">已顯示「不喜歡」數</string>
-  <string name="revanced_ryd_enable_summary_off">未顯示「不喜歡」數</string>
+  <string name="revanced_ryd_enable_summary_off">不顯示不喜歡人數</string>
   <string name="revanced_ryd_shorts_title">在 Shorts 中顯示「不喜歡」數</string>
   <string name="revanced_ryd_dislike_percentage_title">「不喜歡」數比例</string>
   <!-- Translations should use language similar to 'revanced_sb_enable_compact_skip_button' -->
@@ -797,8 +819,8 @@ Second \"item\" text"</string>
   <string name="revanced_ryd_estimated_like_summary_on">已顯示預估喜歡數</string>
   <string name="revanced_ryd_estimated_like_summary_off">已隱藏預估喜歡數</string>
   <string name="revanced_ryd_toast_on_connection_error_title">若 API 無法使用，顯示提示</string>
-  <string name="revanced_ryd_toast_on_connection_error_summary_on">若 Return YouTube Dislike 無法使用，則顯示提示</string>
-  <string name="revanced_ryd_toast_on_connection_error_summary_off">若 Return YouTube Dislike 無法使用，則隱藏提示</string>
+  <string name="revanced_ryd_toast_on_connection_error_summary_on">如果 Return YouTube Dislike 無法使用，則顯示提示訊息</string>
+  <string name="revanced_ryd_toast_on_connection_error_summary_off">如果 Return YouTube Dislike 無法使用，則不會顯示提示訊息</string>
   <string name="revanced_ryd_about">關於</string>
   <string name="revanced_ryd_attribution_summary">資料由 Return YouTube Dislike API 提供。輕觸這裡來了解詳情</string>
   <!-- Statistic strings are shown in the settings only when ReVanced debug mode is enabled. Typical users will never see these. -->
@@ -846,7 +868,7 @@ Second \"item\" text"</string>
   <string name="revanced_sb_appearance_category">外觀</string>
   <string name="revanced_sb_enable_voting">顯示「投票」按鈕</string>
   <string name="revanced_sb_enable_voting_sum_on">已顯示「片段投票」按鈕</string>
-  <string name="revanced_sb_enable_voting_sum_off">已隱藏「片段投票」按鈕</string>
+  <string name="revanced_sb_enable_voting_sum_off">不顯示「片段投票」按鈕</string>
   <string name="revanced_sb_square_layout">使用方形版面配置</string>
   <string name="revanced_sb_square_layout_sum_on">已將按鈕和控制項設為方形</string>
   <string name="revanced_sb_square_layout_sum_off">已將按鈕和控制項設為圓角</string>
@@ -854,14 +876,15 @@ Second \"item\" text"</string>
   <string name="revanced_sb_enable_compact_skip_button_sum_on">「跳過」按鈕樣式設為最小寬度</string>
   <string name="revanced_sb_enable_compact_skip_button_sum_off">「跳過」按鈕樣式設為最佳外觀</string>
   <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_on">在幾秒過後隱藏「跳過」按鈕</string>
+  <string name="revanced_sb_general_skiptoast">跳過時顯示提示訊息</string>
   <string name="revanced_sb_general_skiptoast_sum_on">已顯示在片段被自動跳過時的提示。輕觸這裡來查看範例</string>
-  <string name="revanced_sb_general_skiptoast_sum_off">已隱藏提示。輕觸這裡來查看範例</string>
+  <string name="revanced_sb_general_skiptoast_sum_off">不顯示提示。輕觸這裡來查看範例</string>
   <string name="revanced_sb_general_time_without">顯示不包含被略過片段的時間戳記</string>
   <string name="revanced_sb_general_time_without_sum_on">將被略過片段減去的時間戳括號後，顯示於完整時間戳記旁邊</string>
   <string name="revanced_sb_general_time_without_sum_off">只顯示完整的時間戳記</string>
   <string name="revanced_sb_create_segment_category">建立新片段</string>
   <string name="revanced_sb_enable_create_segment_sum_on">已顯示「建立片段」按鈕</string>
-  <string name="revanced_sb_enable_create_segment_sum_off">已隱藏「建立片段」按鈕</string>
+  <string name="revanced_sb_enable_create_segment_sum_off">不顯示「建立片段」按鈕</string>
   <string name="revanced_sb_general_adjusting">調整新略過片段的時間長度</string>
   <string name="revanced_sb_general_adjusting_sum">建立新片段之時間調整按鈕移動的毫秒數</string>
   <string name="revanced_sb_general_adjusting_invalid">值必須為正數</string>
@@ -873,8 +896,8 @@ Second \"item\" text"</string>
   <string name="revanced_sb_guidelines_popup_open">顯示</string>
   <string name="revanced_sb_general">一般</string>
   <string name="revanced_sb_toast_on_connection_error_title">若 API 無法使用，顯示提示</string>
-  <string name="revanced_sb_toast_on_connection_error_summary_on">若 SponsorBlock 無法使用時，顯示提示</string>
-  <string name="revanced_sb_toast_on_connection_error_summary_off">若 SponsorBlock 無法使用時，不顯示提示</string>
+  <string name="revanced_sb_toast_on_connection_error_summary_on">如果 SponsorBlock 無法使用，則顯示提示訊息</string>
+  <string name="revanced_sb_toast_on_connection_error_summary_off">如果 SponsorBlock 無法使用，則不會顯示提示訊息</string>
   <string name="revanced_sb_general_skipcount">啟用跳過次數追蹤</string>
   <string name="revanced_sb_general_skipcount_sum_on">讓 SponsorBlock 排行榜記錄您節省了多少時間。每跳過一個片段時，都會向排行榜傳送一則訊息</string>
   <string name="revanced_sb_general_skipcount_sum_off">未啟用跳過次數追蹤</string>
@@ -952,6 +975,7 @@ Second \"item\" text"</string>
   <string name="revanced_sb_skipped_multiple_segments">已跳過多個片段</string>
   <string name="revanced_sb_skip_automatically">自動跳過</string>
   <string name="revanced_sb_skip_automatically_once">自動跳過一次</string>
+  <string name="revanced_sb_skip_showbutton">顯示「跳過」按鈕</string>
   <string name="revanced_sb_skip_seekbaronly">在跳轉列顯示</string>
   <string name="revanced_sb_skip_ignore">停用</string>
   <string name="revanced_sb_submit_failed_invalid">無法提交片段：%s</string>
@@ -977,6 +1001,9 @@ Second \"item\" text"</string>
   <string name="revanced_sb_new_segment_disabled_category">已在設定中停用類別。啟用類別以提交。</string>
   <string name="revanced_sb_new_segment_title">新 SponsorBlock 片段</string>
   <string name="revanced_sb_new_segment_mark_time_as_question">將 %s 設為新片段的開始或結束？</string>
+  <string name="revanced_sb_new_segment_mark_start">開始</string>
+  <string name="revanced_sb_new_segment_mark_end">結束</string>
+  <string name="revanced_sb_new_segment_now">現在</string>
   <string name="revanced_sb_new_segment_time_start">片段開始時間</string>
   <string name="revanced_sb_new_segment_time_end">片段結束時間</string>
   <string name="revanced_sb_new_segment_confirm_title">時間是否正確？</string>
@@ -998,6 +1025,7 @@ Second \"item\" text"</string>
   <string name="revanced_sb_new_segment_edit_by_hand_parse_error">所選擇的時間無效</string>
   <string name="revanced_sb_stats">統計</string>
   <!-- Shown in the settings preferences, and translations can be any text length. -->
+  <string name="revanced_sb_stats_connection_failure">統計資料暫時不可用（API 離線）</string>
   <string name="revanced_sb_stats_loading">載入中…</string>
   <string name="revanced_sb_stats_sb_disabled">已停用 SponsorBlock</string>
   <string name="revanced_sb_stats_username">你的使用者名稱：&lt;b&gt;%s&lt;/b&gt;</string>
@@ -1205,8 +1233,8 @@ Second \"item\" text"</string>
 
 輕觸這裡以進一步了解 DeArrow"</string>
   <string name="revanced_alt_thumbnail_dearrow_connection_toast_title">若 API 無法使用，顯示提示</string>
-  <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_on">若 DeArrow 無法使用，顯示提示</string>
-  <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_off">若 DeArrow 無法使用，不顯示提示</string>
+  <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_on">如果 DeArrow 無法使用，則顯示提示訊息</string>
+  <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_off">如果 DeArrow 無法使用，則不會顯示提示訊息</string>
   <string name="revanced_alt_thumbnail_dearrow_api_url_title">DeArrow API 端點</string>
   <string name="revanced_alt_thumbnail_dearrow_api_url_summary">DeArrow URL 縮圖快取端點</string>
   <string name="revanced_alt_thumbnail_stills_about_title">靜態影片擷取</string>
@@ -1291,12 +1319,12 @@ Second \"item\" text"</string>
   <patch id="video.speed.button.playbackSpeedButtonPatch">
   <string name="revanced_playback_speed_dialog_button_title">顯示速度對話方塊按鈕</string>
   <string name="revanced_playback_speed_dialog_button_summary_on">已顯示按鈕</string>
-  <string name="revanced_playback_speed_dialog_button_summary_off">已隱藏按鈕</string>
+  <string name="revanced_playback_speed_dialog_button_summary_off">不顯示按鈕</string>
   </patch>
   <patch id="video.speed.custom.customPlaybackSpeedPatch">
   <string name="revanced_custom_speed_menu_title">自訂播放速度選單</string>
   <string name="revanced_custom_speed_menu_summary_on">已顯示自訂播放速度選單</string>
-  <string name="revanced_custom_speed_menu_summary_off">已隱藏自訂播放速度選單</string>
+  <string name="revanced_custom_speed_menu_summary_off">不顯示自訂播放速度選單</string>
   <string name="revanced_custom_playback_speeds_title">自訂播放速度</string>
   <string name="revanced_custom_playback_speeds_summary">新增或變更自訂播放速度</string>
   <string name="revanced_custom_playback_speeds_invalid">自訂速度必須小於 %s</string>
@@ -1320,7 +1348,7 @@ Second \"item\" text"</string>
   <patch id="video.videoqualitymenu.restoreOldVideoQualityMenuResourcePatch">
   <string name="revanced_restore_old_video_quality_menu_title">還原舊版影片畫質選單</string>
   <string name="revanced_restore_old_video_quality_menu_summary_on">已顯示舊版影片畫質選單</string>
-  <string name="revanced_restore_old_video_quality_menu_summary_off">已隱藏舊版影片畫質選單</string>
+  <string name="revanced_restore_old_video_quality_menu_summary_off">不顯示舊版影片畫質選單</string>
   </patch>
   <patch id="interaction.seekbar.enableSlideToSeekPatch">
   <string name="revanced_slide_to_seek_title">啟用滑動預覽</string>

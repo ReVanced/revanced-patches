@@ -168,9 +168,6 @@ Prekni butonin vazhdo dhe lejoni ndryshimet e optimizimit."</string>
 Ju nuk do të njoftoheni për ndonjë ngjarje të papritur."</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
-  <string name="revanced_disable_like_subscribe_glow_title">Çaktivizo dritën Të Pëlqej dhe Abonohu</string>
-  <string name="revanced_disable_like_subscribe_glow_summary_on">Butoni Të Pëlqej dhe të Regjistrohu do të ndriçojë kur përmenden</string>
-  <string name="revanced_disable_like_subscribe_glow_summary_off">Butoni Të Pëlqej dhe të Regjistrohu nuk do të ndriçojë kur përmenden</string>
   <string name="revanced_hide_album_cards_title">Fshih kartat e albumit</string>
   <string name="revanced_hide_album_cards_summary_on">Kartat e albumit janë të fshehura</string>
   <string name="revanced_hide_album_cards_summary_off">Kartat e albumit janë të dukshme</string>
@@ -530,6 +527,9 @@ Përshtate shkëlqimin duke rrëshqitur vertikalisht në anën e majtë të ekra
   <patch id="layout.buttons.action.hideButtonsPatch">
   <string name="revanced_hide_buttons_screen_title">Butonat e veprimit</string>
   <string name="revanced_hide_buttons_screen_summary">Fsheh ose shfaq butonat nën video</string>
+  <string name="revanced_disable_like_subscribe_glow_title">Çaktivizo dritën Të Pëlqej dhe Abonohu</string>
+  <string name="revanced_disable_like_subscribe_glow_summary_on">Butoni Të Pëlqej dhe të Regjistrohu do të ndriçojë kur përmenden</string>
+  <string name="revanced_disable_like_subscribe_glow_summary_off">Butoni Të Pëlqej dhe të Regjistrohu nuk do të ndriçojë kur përmenden</string>
   <string name="revanced_hide_like_dislike_button_title">Fsheh \"Pëlqej\" dhe \"Mos pëlqej\"</string>
   <string name="revanced_hide_like_dislike_button_summary_on">Butonat \"Pëlqej\" dhe \"Mos pëlqej\" janë të fshehur</string>
   <string name="revanced_hide_like_dislike_button_summary_off">Butonat \"Pëlqej\" dhe \"Mos pëlqej\" janë të dukshëm</string>

@@ -82,6 +82,7 @@ Uute keelte tõlkimiseks külastage saiti translate.revanced.app"</string>
   <string name="revanced_language_NL">Hollandi</string>
   <string name="revanced_language_OR">Odia</string>
   <string name="revanced_language_PA">Pandžabi</string>
+  <string name="revanced_language_PL">Poola</string>
   <string name="revanced_language_PT">Portugali</string>
   <string name="revanced_language_RO">Rumeenia</string>
   <string name="revanced_language_RU">Vene</string>
@@ -167,9 +168,6 @@ Vajutage jätkamise nuppu ja lubage optimeerimismuutused."</string>
 Teid ei teavitata ühestki ootamatust sündmusest."</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
-  <string name="revanced_disable_like_subscribe_glow_title">Eemalda Meeldi ja Telli nuppude helk</string>
-  <string name="revanced_disable_like_subscribe_glow_summary_on">Meeldi ja Telli nupud ei heida mainitmisel</string>
-  <string name="revanced_disable_like_subscribe_glow_summary_off">Meeldi ja Telli nupud heidavad mainitmisel</string>
   <string name="revanced_hide_album_cards_title">Peida albumikaardid</string>
   <string name="revanced_hide_album_cards_summary_on">Albumikaardid on peidetud</string>
   <string name="revanced_hide_album_cards_summary_off">Albumikaardid on nähtavad</string>
@@ -529,6 +527,9 @@ Helitugevuse reguleerimiseks pühkige ekraani paremal küljel vertikaalselt"</st
   <patch id="layout.buttons.action.hideButtonsPatch">
   <string name="revanced_hide_buttons_screen_title">Tegevuse nupud</string>
   <string name="revanced_hide_buttons_screen_summary">Peida või näita videote all olevaid nuppe</string>
+  <string name="revanced_disable_like_subscribe_glow_title">Eemalda Meeldi ja Telli nuppude helk</string>
+  <string name="revanced_disable_like_subscribe_glow_summary_on">Meeldi ja Telli nupud ei heida mainitmisel</string>
+  <string name="revanced_disable_like_subscribe_glow_summary_off">Meeldi ja Telli nupud heidavad mainitmisel</string>
   <string name="revanced_hide_like_dislike_button_title">Peida Meeldib ja Ei meeldi</string>
   <string name="revanced_hide_like_dislike_button_summary_on">Meeldib ja Ei meeldi nupud on peidetud</string>
   <string name="revanced_hide_like_dislike_button_summary_off">Meeldib ja Ei meeldi nupud on nähtavad</string>

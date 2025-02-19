@@ -168,9 +168,6 @@ Second \"item\" text"</string>
 Δεν θα ειδοποιηθείτε για τυχόν απρόβλεπτα γεγονότα."</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
-  <string name="revanced_disable_like_subscribe_glow_title">Απενεργοποίηση λάμψης κουμπιών «Μου αρέσει» και «Εγγραφή»</string>
-  <string name="revanced_disable_like_subscribe_glow_summary_on">Τα κουμπιά «Μου αρέσει» και «Εγγραφή» δεν θα λάμπουν όταν αναφέρονται</string>
-  <string name="revanced_disable_like_subscribe_glow_summary_off">Τα κουμπιά «Μου αρέσει» και «Εγγραφή» θα λάμπουν όταν αναφέρονται</string>
   <string name="revanced_hide_album_cards_title">Κάρτες άλμπουμ</string>
   <string name="revanced_hide_album_cards_summary_on">Κρυμμένες</string>
   <string name="revanced_hide_album_cards_summary_off">Εμφανίζονται</string>
@@ -532,6 +529,9 @@ Second \"item\" text"</string>
   <patch id="layout.buttons.action.hideButtonsPatch">
   <string name="revanced_hide_buttons_screen_title">Κουμπιά ενεργειών</string>
   <string name="revanced_hide_buttons_screen_summary">Απόκρυψη ή εμφάνιση κουμπιών κάτω από βίντεο</string>
+  <string name="revanced_disable_like_subscribe_glow_title">Απενεργοποίηση λάμψης κουμπιών «Μου αρέσει» και «Εγγραφή»</string>
+  <string name="revanced_disable_like_subscribe_glow_summary_on">Τα κουμπιά «Μου αρέσει» και «Εγγραφή» δεν θα λάμπουν όταν αναφέρονται</string>
+  <string name="revanced_disable_like_subscribe_glow_summary_off">Τα κουμπιά «Μου αρέσει» και «Εγγραφή» θα λάμπουν όταν αναφέρονται</string>
   <string name="revanced_hide_like_dislike_button_title">Κουμπιά «Μου αρέσει» και «Δεν μου αρέσει»</string>
   <string name="revanced_hide_like_dislike_button_summary_on">Κρυμμένα</string>
   <string name="revanced_hide_like_dislike_button_summary_off">Εμφανίζονται</string>

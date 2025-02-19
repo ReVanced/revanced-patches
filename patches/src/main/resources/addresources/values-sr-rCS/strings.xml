@@ -168,9 +168,6 @@ Dodirnite dugme „Nastavi” i dozvolite promene optimizacije."</string>
 Nećete biti obavešteni ni o kakvim neočekivanim događajima."</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
-  <string name="revanced_disable_like_subscribe_glow_title">Onemogući sjaj dugmadi „Sviđanje” i „Zaprati”</string>
-  <string name="revanced_disable_like_subscribe_glow_summary_on">Dugmad „Sviđanje” i „Zaprati” neće svetleti pri dodiru</string>
-  <string name="revanced_disable_like_subscribe_glow_summary_off">Dugmad „Sviđanje” i „Zaprati” će svetleti pri dodiru</string>
   <string name="revanced_hide_album_cards_title">Sakrij kartice albuma</string>
   <string name="revanced_hide_album_cards_summary_on">Kartice albuma su skrivene</string>
   <string name="revanced_hide_album_cards_summary_off">Kartice albuma su prikazane</string>
@@ -484,15 +481,15 @@ Ova funkcija je dostupna samo za starije uređaje"</string>
   </patch>
   <patch id="interaction.swipecontrols.swipeControlsResourcePatch">
   <string name="revanced_swipe_brightness_title">Omogući pokret za osvetljenost</string>
-  <string name="revanced_swipe_brightness_summary_on">"Prevlačenje za osvetljenost ekrana je omogućeno
+  <string name="revanced_swipe_brightness_summary_on">"Prevlačenje za osvetljenost u režimu celog ekrana je omogućeno
 
-Podesite osvetljenost prevlačenjem vertikalno sa leve strane ekrana"</string>
-  <string name="revanced_swipe_brightness_summary_off">Prevlačenje za osvetljenost ekrana je onemogućeno</string>
+Podesite osvetljenost prevlačenjem vertikalno na levoj strani ekrana"</string>
+  <string name="revanced_swipe_brightness_summary_off">Prevlačenje za osvetljenost u režimu celog ekrana je onemogućeno</string>
   <string name="revanced_swipe_volume_title">Omogući pokret za jačinu zvuka</string>
-  <string name="revanced_swipe_volume_summary_on">"Prevlačenje za jačinu zvuka preko celog ekrana je omogućeno
+  <string name="revanced_swipe_volume_summary_on">"Prevlačenje za jačinu zvuka u režimu celog ekrana je omogućeno
 
-Podesite jačinu zvuka prevlačenjem vertikalno sa desne strane ekrana"</string>
-  <string name="revanced_swipe_volume_summary_off">Prevlačenje za jačinu zvuka preko celog ekrana je onemogućeno</string>
+Podesite jačinu zvuka prevlačenjem vertikalno na desnoj strani ekrana"</string>
+  <string name="revanced_swipe_volume_summary_off">Prevlačenje za jačinu zvuka u režimu celog ekrana je onemogućeno</string>
   <string name="revanced_swipe_press_to_engage_title">Omogući pokret pritiskom za prevlačenje</string>
   <string name="revanced_swipe_press_to_engage_summary_on">Pokret pritiskom za prevlačenje je omogućen</string>
   <string name="revanced_swipe_press_to_engage_summary_off">Pokret pritiskom za prevlačenje je onemogućen</string>
@@ -512,12 +509,12 @@ Podesite jačinu zvuka prevlačenjem vertikalno sa desne strane ekrana"</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Neprozirnost pokreta prevlačenja mora biti između 0 i 100</string>
   <string name="revanced_swipe_threshold_title">Prag trajanja prevlačenja</string>
   <string name="revanced_swipe_threshold_summary">Iznos praga trajanja prevlačenja</string>
-  <string name="revanced_swipe_show_circular_overlay_title">Prikaži kružni sloj</string>
-  <string name="revanced_swipe_show_circular_overlay_summary_on">Kružni sloj je prikazan</string>
-  <string name="revanced_swipe_show_circular_overlay_summary_off">Horizontalni sloj je prikazan</string>
+  <string name="revanced_swipe_show_circular_overlay_title">Prikaži kružni preklop</string>
+  <string name="revanced_swipe_show_circular_overlay_summary_on">Prikazan je kružni preklop</string>
+  <string name="revanced_swipe_show_circular_overlay_summary_off">Prikazan je horizontalni preklop</string>
   <string name="revanced_swipe_overlay_minimal_style_title">Omogući minimalni stil</string>
-  <string name="revanced_swipe_overlay_minimal_style_summary_on">Minimalni stil prekrivanja je omogućen</string>
-  <string name="revanced_swipe_overlay_minimal_style_summary_off">Minimalni stil sloja je onemogućen</string>
+  <string name="revanced_swipe_overlay_minimal_style_summary_on">Minimalni stil preklopa je omogućen</string>
+  <string name="revanced_swipe_overlay_minimal_style_summary_off">Minimalni stil preklopa je onemogućen</string>
   <string name="revanced_swipe_change_video_title">Omogući prevlačenje za promenu videa</string>
   <string name="revanced_swipe_change_video_summary_on">Prevlačenje u režimu celog ekrana će promeniti na sledeći/prethodni video</string>
   <string name="revanced_swipe_change_video_summary_off">Prevlačenje u režimu celog ekrana neće promeniti na sledeći/prethodni video</string>
@@ -530,6 +527,9 @@ Podesite jačinu zvuka prevlačenjem vertikalno sa desne strane ekrana"</string>
   <patch id="layout.buttons.action.hideButtonsPatch">
   <string name="revanced_hide_buttons_screen_title">Dugmad radnji</string>
   <string name="revanced_hide_buttons_screen_summary">Sakrijte ili prikažite dugmad ispod videa</string>
+  <string name="revanced_disable_like_subscribe_glow_title">Onemogući sjaj dugmadi „Sviđanje” i „Zaprati”</string>
+  <string name="revanced_disable_like_subscribe_glow_summary_on">Dugmad „Sviđanje” i „Zaprati” neće svetleti pri dodiru</string>
+  <string name="revanced_disable_like_subscribe_glow_summary_off">Dugmad „Sviđanje” i „Zaprati” će svetleti pri dodiru</string>
   <string name="revanced_hide_like_dislike_button_title">Sakrij dugmad „Sviđanje” i „Nesviđanje”</string>
   <string name="revanced_hide_like_dislike_button_summary_on">Dugmad „Sviđanje” i „Nesviđanje” su skrivena</string>
   <string name="revanced_hide_like_dislike_button_summary_off">Dugmad „Sviđanje” i „Nesviđanje” su prikazana</string>
