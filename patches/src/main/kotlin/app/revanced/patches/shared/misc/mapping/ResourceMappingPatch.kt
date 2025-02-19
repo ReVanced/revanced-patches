@@ -48,7 +48,6 @@ fun resourceLiteral(
 
 val resourceMappingPatch = resourcePatch {
     execute {
-        val start = System.currentTimeMillis()
         val resourceXmlFile = get("res/values/public.xml").readBytes()
 
         document(resourceXmlFile.inputStream()).use { document ->
@@ -69,7 +68,5 @@ val resourceMappingPatch = resourcePatch {
                 setResourceId(typeAttribute, nameAttribute, id)
             }
         }
-
-        println("time: " + (System.currentTimeMillis() - start))
     }
 }
