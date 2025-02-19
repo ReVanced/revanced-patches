@@ -168,9 +168,6 @@ Kattintson a folytatás gombra, és engedélyezze az optimalizálási módosít�
 Nem fog értesülni semmilyen váratlan eseményről."</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
-  <string name="revanced_disable_like_subscribe_glow_title">A Tetszik és Iratkozz fel gomb fényének kikapcsolása</string>
-  <string name="revanced_disable_like_subscribe_glow_summary_on">A Tetszik és Iratkozz fel gombok nem világítanak, ha megemlítik őket</string>
-  <string name="revanced_disable_like_subscribe_glow_summary_off">A Tetszik és Iratkozz fel gombok világítanak, ha megemlítik őket</string>
   <string name="revanced_hide_album_cards_title">Album kártyák elrejtése</string>
   <string name="revanced_hide_album_cards_summary_on">Az album kártyák el vannak rejtve</string>
   <string name="revanced_hide_album_cards_summary_off">Az album kártyák láthatóak</string>
@@ -530,6 +527,9 @@ A hangerő a képernyő jobb oldalán függőlegesen húzva állítható be"</st
   <patch id="layout.buttons.action.hideButtonsPatch">
   <string name="revanced_hide_buttons_screen_title">Művelet gombok</string>
   <string name="revanced_hide_buttons_screen_summary">Gombok megjelenítése vagy elrejtése a videók alatt</string>
+  <string name="revanced_disable_like_subscribe_glow_title">A Tetszik és Iratkozz fel gomb fényének kikapcsolása</string>
+  <string name="revanced_disable_like_subscribe_glow_summary_on">A Tetszik és Iratkozz fel gombok nem világítanak, ha megemlítik őket</string>
+  <string name="revanced_disable_like_subscribe_glow_summary_off">A Tetszik és Iratkozz fel gombok világítanak, ha megemlítik őket</string>
   <string name="revanced_hide_like_dislike_button_title">Tetszik és nem tetszik elrejtése</string>
   <string name="revanced_hide_like_dislike_button_summary_on">A tetszik és nem tetszik gombok rejtve vannak</string>
   <string name="revanced_hide_like_dislike_button_summary_off">A tetszik és nem tetszik gombok láthatóak</string>

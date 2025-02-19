@@ -168,9 +168,6 @@ Napauta jatka-painiketta ja salli optimoinnin muutokset."</string>
 Et saa ilmoituksia odottamattomista tapahtumista."</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
-  <string name="revanced_disable_like_subscribe_glow_title">Poista Tykkää- ja Tilaa-painikkeiden hehku</string>
-  <string name="revanced_disable_like_subscribe_glow_summary_on">Tykkää- ja Tilaa-painikkeet eivät hehku mainittaessa</string>
-  <string name="revanced_disable_like_subscribe_glow_summary_off">Tykkää- ja Tilaa-painikkeet hehkuvat mainittaessa</string>
   <string name="revanced_hide_album_cards_title">Piilota albumikortit</string>
   <string name="revanced_hide_album_cards_summary_on">Albumikortit on piilotettu</string>
   <string name="revanced_hide_album_cards_summary_off">Albumikortit näytetään</string>
@@ -483,6 +480,9 @@ Tämä ominaisuus on käytettävissä vain vanhemmilla laitteilla"</string>
   <patch id="layout.buttons.action.hideButtonsPatch">
   <string name="revanced_hide_buttons_screen_title">Toimintopainikkeet</string>
   <string name="revanced_hide_buttons_screen_summary">Piilota tai näytä painikkeet videoiden alla</string>
+  <string name="revanced_disable_like_subscribe_glow_title">Poista Tykkää- ja Tilaa-painikkeiden hehku</string>
+  <string name="revanced_disable_like_subscribe_glow_summary_on">Tykkää- ja Tilaa-painikkeet eivät hehku mainittaessa</string>
+  <string name="revanced_disable_like_subscribe_glow_summary_off">Tykkää- ja Tilaa-painikkeet hehkuvat mainittaessa</string>
   <string name="revanced_hide_like_dislike_button_title">Piilota Tykkää ja En tykkää</string>
   <string name="revanced_hide_like_dislike_button_summary_on">Tykkää- ja En tykkää -painikkeet on piilotettu</string>
   <string name="revanced_hide_like_dislike_button_summary_off">Tykkää- ja En tykkää -painikkeet näytetään</string>

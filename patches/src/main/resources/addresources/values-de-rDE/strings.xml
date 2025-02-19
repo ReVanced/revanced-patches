@@ -164,9 +164,6 @@ Tippen Sie auf die Schaltfläche \"Fortfahren\" und erlauben Sie die Optimierung
 Sie werden nicht über unerwartete Ereignisse informiert."</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
-  <string name="revanced_disable_like_subscribe_glow_title">Like und Subscribe Button leuchten nicht mehr, wenn sie erwähnt werden</string>
-  <string name="revanced_disable_like_subscribe_glow_summary_on">Like- und Subscribe-Button leuchten nicht, wenn sie erwähnt werden</string>
-  <string name="revanced_disable_like_subscribe_glow_summary_off">Like- und Subscribe-Button leuchten, wenn sie erwähnt werden</string>
   <string name="revanced_hide_album_cards_title">Albumkarten ausblenden</string>
   <string name="revanced_hide_album_cards_summary_on">Albumkarten sind ausgeblendet</string>
   <string name="revanced_hide_album_cards_summary_off">Albumkarten werden angezeigt</string>
@@ -523,6 +520,9 @@ Passen Sie die Helligkeit an, indem Sie auf der linken Seite des Bildschirms ver
   <patch id="layout.buttons.action.hideButtonsPatch">
   <string name="revanced_hide_buttons_screen_title">Aktionstasten</string>
   <string name="revanced_hide_buttons_screen_summary">Verstecke oder zeige Schaltflächen unter Videos</string>
+  <string name="revanced_disable_like_subscribe_glow_title">Like und Subscribe Button leuchten nicht mehr, wenn sie erwähnt werden</string>
+  <string name="revanced_disable_like_subscribe_glow_summary_on">Like- und Subscribe-Button leuchten nicht, wenn sie erwähnt werden</string>
+  <string name="revanced_disable_like_subscribe_glow_summary_off">Like- und Subscribe-Button leuchten, wenn sie erwähnt werden</string>
   <string name="revanced_hide_like_dislike_button_title">Verstecke Likes und Dislikes</string>
   <string name="revanced_hide_like_dislike_button_summary_on">\"Gefällt mir\"-Tasten sind ausgeblendet</string>
   <string name="revanced_hide_like_dislike_button_summary_off">\"Gefällt mir\"-Tasten werden angezeigt</string>

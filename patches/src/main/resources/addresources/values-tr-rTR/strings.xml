@@ -168,9 +168,6 @@ Devam düğmesine dokunun ve optimizasyon değişikliklerine izin verin."</strin
 Beklenmedik olaylar hakkında bilgilendirilmeyeceksiniz."</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
-  <string name="revanced_disable_like_subscribe_glow_title">Beğen ve Abone ol parlamasını devre dışı bırak</string>
-  <string name="revanced_disable_like_subscribe_glow_summary_on">Beğen ve Abone Ol düğmesi bahsedildiğinde parlamayacak</string>
-  <string name="revanced_disable_like_subscribe_glow_summary_off">Beğen ve Abone Ol düğmesi bahsedildiğinde parlayacak</string>
   <string name="revanced_hide_album_cards_title">Albüm kartlarını gizle</string>
   <string name="revanced_hide_album_cards_summary_on">Albüm kartları gizli</string>
   <string name="revanced_hide_album_cards_summary_off">Albüm kartları görünür</string>
@@ -530,6 +527,9 @@ Ekranın sağ tarafında dikey olarak kaydırarak sesi ayarlayın"</string>
   <patch id="layout.buttons.action.hideButtonsPatch">
   <string name="revanced_hide_buttons_screen_title">Eylem düğmeleri</string>
   <string name="revanced_hide_buttons_screen_summary">Videoların altındaki düğmeleri gizle veya göster</string>
+  <string name="revanced_disable_like_subscribe_glow_title">Beğen ve Abone ol parlamasını devre dışı bırak</string>
+  <string name="revanced_disable_like_subscribe_glow_summary_on">Beğen ve Abone Ol düğmesi bahsedildiğinde parlamayacak</string>
+  <string name="revanced_disable_like_subscribe_glow_summary_off">Beğen ve Abone Ol düğmesi bahsedildiğinde parlayacak</string>
   <string name="revanced_hide_like_dislike_button_title">Beğenme ve Beğenmemeyi gizle</string>
   <string name="revanced_hide_like_dislike_button_summary_on">Beğenme ve Beğenmeme düğmeleri gizli</string>
   <string name="revanced_hide_like_dislike_button_summary_off">Beğenme ve Beğenmeme düğmeleri görünür</string>

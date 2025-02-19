@@ -168,9 +168,6 @@ Klepněte na tlačítko Pokračovat a povolte změny optimalizace."</string>
 Nebudete informováni o žádné neočekávané události."</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
-  <string name="revanced_disable_like_subscribe_glow_title">Deaktivovat zvýraznění tlačítek Like a Subscribe</string>
-  <string name="revanced_disable_like_subscribe_glow_summary_on">Tlačítka Like a Subscribe po zmínce nebudou zvýrazněna</string>
-  <string name="revanced_disable_like_subscribe_glow_summary_off">Tlačítka Like a Subscribe po zmínce budou zvýrazněna</string>
   <string name="revanced_hide_album_cards_title">Skrýt karty alb</string>
   <string name="revanced_hide_album_cards_summary_on">Karty alb jsou skryté</string>
   <string name="revanced_hide_album_cards_summary_off">Karty alb jsou zobrazeny</string>
@@ -530,6 +527,9 @@ Hlasitost se upravuje svislým přejetím po pravé straně obrazovky"</string>
   <patch id="layout.buttons.action.hideButtonsPatch">
   <string name="revanced_hide_buttons_screen_title">Akční tlačítka</string>
   <string name="revanced_hide_buttons_screen_summary">Skrýt nebo zobrazit tlačítka pod videi</string>
+  <string name="revanced_disable_like_subscribe_glow_title">Deaktivovat zvýraznění tlačítek Like a Subscribe</string>
+  <string name="revanced_disable_like_subscribe_glow_summary_on">Tlačítka Like a Subscribe po zmínce nebudou zvýrazněna</string>
+  <string name="revanced_disable_like_subscribe_glow_summary_off">Tlačítka Like a Subscribe po zmínce budou zvýrazněna</string>
   <string name="revanced_hide_like_dislike_button_title">Skrýt Like a Dislike</string>
   <string name="revanced_hide_like_dislike_button_summary_on">Tlačítka Like a Dislike jsou skryta</string>
   <string name="revanced_hide_like_dislike_button_summary_off">Tlačítka Like a Dislike jsou zobrazena</string>

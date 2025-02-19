@@ -168,9 +168,6 @@ Second \"item\" text"</string>
 لن يتم إعلامك بأي أخطاء غير متوقعة."</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
-  <string name="revanced_disable_like_subscribe_glow_title">إيقاف تفعيل توهج الإعجاب والاشتراك</string>
-  <string name="revanced_disable_like_subscribe_glow_summary_on">لن يتوهَّج زرّي أعجبني واشتراك عند ذكرهما</string>
-  <string name="revanced_disable_like_subscribe_glow_summary_off">سيتوهَّج زرّي أعجبني واشتراك عند ذكرهما</string>
   <string name="revanced_hide_album_cards_title">إخفاء بطاقات الألبوم</string>
   <string name="revanced_hide_album_cards_summary_on">تم إخفاء بطاقات الألبوم</string>
   <string name="revanced_hide_album_cards_summary_off">يتم عرض بطاقات الألبوم</string>
@@ -512,12 +509,12 @@ Second \"item\" text"</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">يجب أن يكون تعتيم التمرير السريع بين 0-100</string>
   <string name="revanced_swipe_threshold_title">مقدار حد التمرير</string>
   <string name="revanced_swipe_threshold_summary">الحد الأدنى من التمرير قبل اكتشاف الإيماءة</string>
-  <string name="revanced_swipe_show_circular_overlay_title">إظهار التراكب الدائري</string>
+  <string name="revanced_swipe_show_circular_overlay_title">عرض الواجهة الدائرية</string>
   <string name="revanced_swipe_show_circular_overlay_summary_on">يتم عرض التراكب الدائري</string>
   <string name="revanced_swipe_show_circular_overlay_summary_off">يتم عرض التراكب الأفقي</string>
-  <string name="revanced_swipe_overlay_minimal_style_title">تمكين النمط البسيط</string>
-  <string name="revanced_swipe_overlay_minimal_style_summary_on">تم تمكين النمط البسيط للتراكب</string>
-  <string name="revanced_swipe_overlay_minimal_style_summary_off">تم تعطيل نمط التراكب البسيط</string>
+  <string name="revanced_swipe_overlay_minimal_style_title">تمكين النمط الأدنى</string>
+  <string name="revanced_swipe_overlay_minimal_style_summary_on">تم تمكين النمط الواجهة الأدنى</string>
+  <string name="revanced_swipe_overlay_minimal_style_summary_off">تم تعطيل نمط الواجهة الأدنى</string>
   <string name="revanced_swipe_change_video_title">تمكين إيماءة التمرير لتغيير الفيديو</string>
   <string name="revanced_swipe_change_video_summary_on">سيؤدي التمرير في وضع ملء الشاشة إلى التغيير للفيديو التالي/السابق</string>
   <string name="revanced_swipe_change_video_summary_off">لن يؤدي التمرير في وضع ملء الشاشة إلى التغيير للفيديو التالي/السابق</string>
@@ -530,6 +527,9 @@ Second \"item\" text"</string>
   <patch id="layout.buttons.action.hideButtonsPatch">
   <string name="revanced_hide_buttons_screen_title">أزرار الإجراء</string>
   <string name="revanced_hide_buttons_screen_summary">إخفاء أو عرض الأزرار تحت الفيديوهات</string>
+  <string name="revanced_disable_like_subscribe_glow_title">إيقاف تفعيل توهج الإعجاب والاشتراك</string>
+  <string name="revanced_disable_like_subscribe_glow_summary_on">لن يتوهَّج زرّي أعجبني واشتراك عند ذكرهما</string>
+  <string name="revanced_disable_like_subscribe_glow_summary_off">سيتوهَّج زرّي أعجبني واشتراك عند ذكرهما</string>
   <string name="revanced_hide_like_dislike_button_title">إخفاء أعجبني ولم يعجبني</string>
   <string name="revanced_hide_like_dislike_button_summary_on">تم إخفاء أزرار أعجبني ولم يعجبني</string>
   <string name="revanced_hide_like_dislike_button_summary_off">يتم عرض أزرار أعجبني ولم يعجبني</string>

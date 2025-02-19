@@ -158,9 +158,6 @@ Para traducir nuevos idiomas, visita translate.revanced.app"</string>
   <string name="revanced_debug_toast_on_error_user_dialog_message">"Desactivar las notificaciones de error oculta todas las notificaciones de error de ReVanced."</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
-  <string name="revanced_disable_like_subscribe_glow_title">Desactivar el brillo de los botones Me gusta y Suscribirse</string>
-  <string name="revanced_disable_like_subscribe_glow_summary_on">Los botones Me gusta y Suscribirse no brillarán cuando se mencionen</string>
-  <string name="revanced_disable_like_subscribe_glow_summary_off">Los botones Me gusta y Suscribirse brillarán cuando se mencionen</string>
   <string name="revanced_hide_album_cards_title">Ocultar álbumes</string>
   <string name="revanced_hide_album_cards_summary_on">Las tarjetas de álbum están ocultas</string>
   <string name="revanced_hide_album_cards_summary_off">Se muestran las tarjetas de álbum</string>
@@ -520,6 +517,9 @@ Ajusta el volumen deslizando verticalmente en el lado derecho de la pantalla"</s
   <patch id="layout.buttons.action.hideButtonsPatch">
   <string name="revanced_hide_buttons_screen_title">Botones de acción</string>
   <string name="revanced_hide_buttons_screen_summary">Ocultar o mostrar botones en videos</string>
+  <string name="revanced_disable_like_subscribe_glow_title">Desactivar el brillo de los botones Me gusta y Suscribirse</string>
+  <string name="revanced_disable_like_subscribe_glow_summary_on">Los botones Me gusta y Suscribirse no brillarán cuando se mencionen</string>
+  <string name="revanced_disable_like_subscribe_glow_summary_off">Los botones Me gusta y Suscribirse brillarán cuando se mencionen</string>
   <string name="revanced_hide_like_dislike_button_title">Ocultar me gusta y no me gusta</string>
   <string name="revanced_hide_like_dislike_button_summary_on">Botones \"Me gusta\" y \"No me gusta\" están ocultos</string>
   <string name="revanced_hide_like_dislike_button_summary_off">Se muestran botones \"Me gusta\" y \"No me gusta\"</string>
