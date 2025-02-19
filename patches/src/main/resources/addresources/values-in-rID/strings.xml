@@ -168,9 +168,6 @@ Ketuk tombol lanjutkan dan izinkan perubahan pengoptimalan."</string>
 Anda tidak akan diberi tahu tentang kejadian yang tidak terduga."</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
-  <string name="revanced_disable_like_subscribe_glow_title">Nonaktifkan kilauan Suka dan Langganan</string>
-  <string name="revanced_disable_like_subscribe_glow_summary_on">Tombol Suka dan Berlangganan tidak akan berkilau saat disebut</string>
-  <string name="revanced_disable_like_subscribe_glow_summary_off">Tombol Suka dan Berlangganan akan berkilau saat disebut</string>
   <string name="revanced_hide_album_cards_title">Sembunyikan kartu album</string>
   <string name="revanced_hide_album_cards_summary_on">Kartu album disembunyikan</string>
   <string name="revanced_hide_album_cards_summary_off">Kartu album ditampilkan</string>
@@ -484,15 +481,15 @@ Fitur ini hanya tersedia untuk perangkat yang lebih lama"</string>
   </patch>
   <patch id="interaction.swipecontrols.swipeControlsResourcePatch">
   <string name="revanced_swipe_brightness_title">Aktifkan gerakan kecerahan</string>
-  <string name="revanced_swipe_brightness_summary_on">"Sapuan kecerahan layar penuh diaktifkan
+  <string name="revanced_swipe_brightness_summary_on">"Pengusapan kecerahan layar penuh diaktifkan
 
-Sesuaikan kecerahan dengan menggeser secara vertikal di sisi kiri layar"</string>
-  <string name="revanced_swipe_brightness_summary_off">Sapuan kecerahan layar penuh dinonaktifkan</string>
+Sesuaikan kecerahan dengan mengusap secara vertikal pada sisi kiri layar"</string>
+  <string name="revanced_swipe_brightness_summary_off">Pengusapan kecerahan layar penuh dinonaktifkan</string>
   <string name="revanced_swipe_volume_title">Aktifkan gerakan volume</string>
-  <string name="revanced_swipe_volume_summary_on">"Gesek volume layar penuh diaktifkan
+  <string name="revanced_swipe_volume_summary_on">"Pengusapan volume layar penuh diaktifkan
 
-Sesuaikan volume dengan menggesek secara vertikal di sisi kanan layar"</string>
-  <string name="revanced_swipe_volume_summary_off">Gesek volume layar penuh dinonaktifkan</string>
+Menyesuaikan volume dengan mengusap secara vertikal di sisi kanan layar"</string>
+  <string name="revanced_swipe_volume_summary_off">Pengusapan volume layar penuh dinonaktifkan</string>
   <string name="revanced_swipe_press_to_engage_title">Aktifkan gerakan tekan-untuk-mengusap</string>
   <string name="revanced_swipe_press_to_engage_summary_on">Tekan-untuk-mengusap diaktifkan</string>
   <string name="revanced_swipe_press_to_engage_summary_off">Tekan-untuk-mengusap dinonaktifkan</string>
@@ -512,12 +509,12 @@ Sesuaikan volume dengan menggesek secara vertikal di sisi kanan layar"</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Opasitas geser harus antara 0-100</string>
   <string name="revanced_swipe_threshold_title">Ambang batas magnitudo usap</string>
   <string name="revanced_swipe_threshold_summary">Jumlah ambang batas untuk terjadinya usapan</string>
-  <string name="revanced_swipe_show_circular_overlay_title">Tampilkan overlay melingkar</string>
-  <string name="revanced_swipe_show_circular_overlay_summary_on">Overlay melingkar ditampilkan</string>
-  <string name="revanced_swipe_show_circular_overlay_summary_off">Overlay horizontal ditampilkan</string>
+  <string name="revanced_swipe_show_circular_overlay_title">Tampilkan hamparan melingkar</string>
+  <string name="revanced_swipe_show_circular_overlay_summary_on">Hamparan melingkar ditampilkan</string>
+  <string name="revanced_swipe_show_circular_overlay_summary_off">Hamparan horizontal ditampilkan</string>
   <string name="revanced_swipe_overlay_minimal_style_title">Aktifkan gaya minimal</string>
-  <string name="revanced_swipe_overlay_minimal_style_summary_on">Gaya overlay minimal diaktifkan</string>
-  <string name="revanced_swipe_overlay_minimal_style_summary_off">Gaya overlay minimal dinonaktifkan</string>
+  <string name="revanced_swipe_overlay_minimal_style_summary_on">Gaya hamparan minimal diaktifkan</string>
+  <string name="revanced_swipe_overlay_minimal_style_summary_off">Gaya hamparan minimal dinonaktifkan</string>
   <string name="revanced_swipe_change_video_title">Aktifkan usapan untuk beralih video</string>
   <string name="revanced_swipe_change_video_summary_on">Mengusap dalam mode layar penuh akan beralih ke video berikutnya/sebelumnya</string>
   <string name="revanced_swipe_change_video_summary_off">Mengusap dalam mode layar penuh tidak akan beralih ke video berikutnya/sebelumnya</string>
@@ -530,6 +527,9 @@ Sesuaikan volume dengan menggesek secara vertikal di sisi kanan layar"</string>
   <patch id="layout.buttons.action.hideButtonsPatch">
   <string name="revanced_hide_buttons_screen_title">Tombol tindakan</string>
   <string name="revanced_hide_buttons_screen_summary">Sembunyikan atau tampilkan tombol di bawah video</string>
+  <string name="revanced_disable_like_subscribe_glow_title">Nonaktifkan kilauan Suka dan Langganan</string>
+  <string name="revanced_disable_like_subscribe_glow_summary_on">Tombol Suka dan Berlangganan tidak akan berkilau saat disebut</string>
+  <string name="revanced_disable_like_subscribe_glow_summary_off">Tombol Suka dan Berlangganan akan berkilau saat disebut</string>
   <string name="revanced_hide_like_dislike_button_title">Sembunyikan Suka dan Tidak Suka</string>
   <string name="revanced_hide_like_dislike_button_summary_on">Tombol Suka dan Tidak suka disembunyikan</string>
   <string name="revanced_hide_like_dislike_button_summary_off">Tombol Suka dan Tidak suka ditampilkan</string>

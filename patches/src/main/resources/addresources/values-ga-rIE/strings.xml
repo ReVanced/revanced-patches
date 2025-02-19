@@ -168,9 +168,6 @@ Brúigh an cnaipe leanúnaí agus ligean athruithe optúimíochta."</string>
 Ní bheidh a fhios agat faoi aon imeachtaí neamhghnácha."</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
-  <string name="revanced_disable_like_subscribe_glow_title">Díchumasaigh lonradh na cnaipí Cosúil / Liostáil</string>
-  <string name="revanced_disable_like_subscribe_glow_summary_on">Ní lonróidh an cnaipe \'Cosúil\' agus \'Liostáil\' nuair a luafaí</string>
-  <string name="revanced_disable_like_subscribe_glow_summary_off">Lonróidh an cnaipe Cosúil agus Liostáil nuair a luaitear</string>
   <string name="revanced_hide_album_cards_title">Folaigh cártaí albam</string>
   <string name="revanced_hide_album_cards_summary_on">Tá cártaí albam i bhfolach</string>
   <string name="revanced_hide_album_cards_summary_off">Taispeántar cártaí albam</string>
@@ -522,6 +519,9 @@ Coigeartaigh gile trí swipe a dhéanamh go hingearach ar thaobh na láimhe clé
   <patch id="layout.buttons.action.hideButtonsPatch">
   <string name="revanced_hide_buttons_screen_title">Cnaipí gníomh</string>
   <string name="revanced_hide_buttons_screen_summary">Folaigh nó taispeáin cnaipí faoi fhíseáin</string>
+  <string name="revanced_disable_like_subscribe_glow_title">Díchumasaigh lonradh na cnaipí Cosúil / Liostáil</string>
+  <string name="revanced_disable_like_subscribe_glow_summary_on">Ní lonróidh an cnaipe \'Cosúil\' agus \'Liostáil\' nuair a luafaí</string>
+  <string name="revanced_disable_like_subscribe_glow_summary_off">Lonróidh an cnaipe Cosúil agus Liostáil nuair a luaitear</string>
   <string name="revanced_hide_like_dislike_button_title">Folaigh Like agus Dislike</string>
   <string name="revanced_hide_like_dislike_button_summary_on">Tá cnaipí Cosúil agus Dislike i bhfolach</string>
   <string name="revanced_hide_like_dislike_button_summary_off">Taispeántar cnaipí Cosúil agus Dislike</string>

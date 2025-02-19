@@ -168,9 +168,6 @@ Second \"item\" text"</string>
 您不会收到任何意外事件的通知。"</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
-  <string name="revanced_disable_like_subscribe_glow_title">禁用点赞和订阅光晕效果</string>
-  <string name="revanced_disable_like_subscribe_glow_summary_on">提及时，喜欢和订阅按钮不会发光</string>
-  <string name="revanced_disable_like_subscribe_glow_summary_off">提及时，喜欢和订阅按钮会发光</string>
   <string name="revanced_hide_album_cards_title">隐藏专辑卡片</string>
   <string name="revanced_hide_album_cards_summary_on">专辑卡片已隐藏</string>
   <string name="revanced_hide_album_cards_summary_off">专辑卡片已显示</string>
@@ -530,6 +527,9 @@ Second \"item\" text"</string>
   <patch id="layout.buttons.action.hideButtonsPatch">
   <string name="revanced_hide_buttons_screen_title">操作按钮</string>
   <string name="revanced_hide_buttons_screen_summary">隐藏或显示视频下的按钮</string>
+  <string name="revanced_disable_like_subscribe_glow_title">禁用点赞和订阅光晕效果</string>
+  <string name="revanced_disable_like_subscribe_glow_summary_on">提及时，喜欢和订阅按钮不会发光</string>
+  <string name="revanced_disable_like_subscribe_glow_summary_off">提及时，喜欢和订阅按钮会发光</string>
   <string name="revanced_hide_like_dislike_button_title">隐藏「顶」和「踩」按钮</string>
   <string name="revanced_hide_like_dislike_button_summary_on">点赞与点踩按钮已隐藏</string>
   <string name="revanced_hide_like_dislike_button_summary_off">点赞与点踩按钮已显示</string>

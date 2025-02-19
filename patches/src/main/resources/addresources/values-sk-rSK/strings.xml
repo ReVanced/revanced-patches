@@ -166,9 +166,6 @@ Vypnutie optimalizácie batérie pre MicroG nebude mať negatívny vplyv na spot
 Nebudete informovaní o žiadnych nepredvídaných udalostiach."</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
-  <string name="revanced_disable_like_subscribe_glow_title">Vypnutie zvýraznenia tlačidiel Páči sa mi to a Odoberať</string>
-  <string name="revanced_disable_like_subscribe_glow_summary_on">Tlačidlá Páči sa mi to a Odoberať sa nebudú zvýrazňovať po ich spomenutí</string>
-  <string name="revanced_disable_like_subscribe_glow_summary_off">Tlačidlá Páči sa mi to a Odoberať sa budú zvýrazňovať po ich spomenutí</string>
   <string name="revanced_hide_album_cards_title">Skryť karty albumov</string>
   <string name="revanced_hide_album_cards_summary_on">Karty albumov sú skryté</string>
   <string name="revanced_hide_album_cards_summary_off">Zobrazia sa karty albumov</string>
@@ -523,6 +520,9 @@ Upravte hlasitosť posúvaním vertikálne na pravej strane obrazovky"</string>
   <patch id="layout.buttons.action.hideButtonsPatch">
   <string name="revanced_hide_buttons_screen_title">Akčné tlačidlá</string>
   <string name="revanced_hide_buttons_screen_summary">Skryť alebo zobraziť tlačidlá pod videami</string>
+  <string name="revanced_disable_like_subscribe_glow_title">Vypnutie zvýraznenia tlačidiel Páči sa mi to a Odoberať</string>
+  <string name="revanced_disable_like_subscribe_glow_summary_on">Tlačidlá Páči sa mi to a Odoberať sa nebudú zvýrazňovať po ich spomenutí</string>
+  <string name="revanced_disable_like_subscribe_glow_summary_off">Tlačidlá Páči sa mi to a Odoberať sa budú zvýrazňovať po ich spomenutí</string>
   <string name="revanced_hide_like_dislike_button_title">Skryť Páči sa mi a Nepáči sa mi</string>
   <string name="revanced_hide_like_dislike_button_summary_on">Tlačidlá Páči sa mi a Nepáči sa mi sú skryté</string>
   <string name="revanced_hide_like_dislike_button_summary_off">Zobrazia sa tlačidlá Páči sa mi a Nepáči sa mi</string>

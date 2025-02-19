@@ -168,9 +168,6 @@ Appuyez sur le bouton Continuer et autorisez les modifications."</string>
 Vous ne serez pas informé des événements inattendus."</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
-  <string name="revanced_disable_like_subscribe_glow_title">Désactiver l\'effet de lueur des boutons J\'aime et S\'abonner</string>
-  <string name="revanced_disable_like_subscribe_glow_summary_on">Les boutons J\'aime et S\'abonner ne seront pas mis en surbrillance lorsqu\'ils seront mentionnés</string>
-  <string name="revanced_disable_like_subscribe_glow_summary_off">Les boutons J\'aime et S\'abonner seront mis en surbrillance lorsqu\'ils seront mentionnés</string>
   <string name="revanced_hide_album_cards_title">Masquer les fiches d\'album</string>
   <string name="revanced_hide_album_cards_summary_on">Les fiches d\'album sont masquées</string>
   <string name="revanced_hide_album_cards_summary_off">Les fiches d\'album sont affichées</string>
@@ -185,7 +182,7 @@ Vous ne serez pas informé des événements inattendus."</string>
   <string name="revanced_hide_channel_watermark_summary_off">Le filigrane est affiché</string>
   <string name="revanced_hide_horizontal_shelves_title">Masquer les étagères horizontales</string>
   <string name="revanced_hide_horizontal_shelves_summary_on">"Des étagères sont masquées, telles que :
-• Actualités
+• Alerte info
 • Continuer à regarder
 • Explorer plus de chaînes
 • Shopping
@@ -512,12 +509,12 @@ Réglez le volume en balayant verticalement sur le côté droit de l'écran"</st
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">L\'opacité doit être comprise entre 0 et 100 pour les gestes</string>
   <string name="revanced_swipe_threshold_title">Seuil d\'intensité des balayages</string>
   <string name="revanced_swipe_threshold_summary">L\'intensité du mouvement à effectuer pour qu\'un balayage soit pris en compte</string>
-  <string name="revanced_swipe_show_circular_overlay_title">Afficher la superposition circulaire</string>
-  <string name="revanced_swipe_show_circular_overlay_summary_on">La superposition circulaire est affichée</string>
-  <string name="revanced_swipe_show_circular_overlay_summary_off">La superposition horizontale est affichée</string>
-  <string name="revanced_swipe_overlay_minimal_style_title">Activer le style minimal</string>
-  <string name="revanced_swipe_overlay_minimal_style_summary_on">Le style de superposition minimal est activé</string>
-  <string name="revanced_swipe_overlay_minimal_style_summary_off">Le style de superposition minimal est désactivé</string>
+  <string name="revanced_swipe_show_circular_overlay_title">Afficher l\'overlay circulaire</string>
+  <string name="revanced_swipe_show_circular_overlay_summary_on">L\'overlay circulaire est affiché</string>
+  <string name="revanced_swipe_show_circular_overlay_summary_off">L\'overlay horizontal est affiché</string>
+  <string name="revanced_swipe_overlay_minimal_style_title">Activer le style minimaliste</string>
+  <string name="revanced_swipe_overlay_minimal_style_summary_on">Le style minimaliste d\'overlay est activé</string>
+  <string name="revanced_swipe_overlay_minimal_style_summary_off">Le style minimaliste d\'overlay est désactivé</string>
   <string name="revanced_swipe_change_video_title">Activer Balayer pour changer de vidéo</string>
   <string name="revanced_swipe_change_video_summary_on">En mode plein écran, vous passerez à la vidéo précédente/suivante en balayant l\'écran</string>
   <string name="revanced_swipe_change_video_summary_off">En mode plein écran, vous ne changerez pas de vidéo en balayant l\'écran</string>
@@ -530,6 +527,9 @@ Réglez le volume en balayant verticalement sur le côté droit de l'écran"</st
   <patch id="layout.buttons.action.hideButtonsPatch">
   <string name="revanced_hide_buttons_screen_title">Boutons d\'action</string>
   <string name="revanced_hide_buttons_screen_summary">Masquez ou affichez les boutons sous les vidéos</string>
+  <string name="revanced_disable_like_subscribe_glow_title">Désactiver l\'effet de lueur des boutons J\'aime et S\'abonner</string>
+  <string name="revanced_disable_like_subscribe_glow_summary_on">Les boutons J\'aime et S\'abonner ne seront pas mis en surbrillance lorsqu\'ils seront mentionnés</string>
+  <string name="revanced_disable_like_subscribe_glow_summary_off">Les boutons J\'aime et S\'abonner seront mis en surbrillance lorsqu\'ils seront mentionnés</string>
   <string name="revanced_hide_like_dislike_button_title">Masquer \"J\'aime\" et \"Je n\'aime pas\"</string>
   <string name="revanced_hide_like_dislike_button_summary_on">Les boutons J\'aime et Je n\'aime pas sont masqués</string>
   <string name="revanced_hide_like_dislike_button_summary_off">Les boutons J\'aime et Je n\'aime pas sont affichés</string>
