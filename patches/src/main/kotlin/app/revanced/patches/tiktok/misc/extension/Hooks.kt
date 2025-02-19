@@ -12,3 +12,19 @@ internal val initHook = extensionHook(
             method.name == "<init>"
     }
 }
+
+/**
+ * In some cases the extension code can be called before
+ * the app main activity onCreate is called.
+ *
+ * This class is called from startup code titled "BPEA RunnableGuardLancet"
+ */
+internal val jatoInitHook = extensionHook(
+    insertIndexResolver = { 0 },
+    contextRegisterResolver = { "p1" }
+) {
+    custom { method, classDef ->
+        classDef.type == "Lcom/ss/android/ugc/aweme/legoImp/task/JatoInitTask;" &&
+                method.name == "run"
+    }
+}
