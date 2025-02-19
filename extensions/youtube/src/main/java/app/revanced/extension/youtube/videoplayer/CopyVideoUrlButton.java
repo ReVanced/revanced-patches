@@ -10,7 +10,7 @@ import app.revanced.extension.youtube.settings.Settings;
 import app.revanced.extension.shared.Logger;
 
 @SuppressWarnings("unused")
-public class CopyVideoUrlButton extends PlayerControlButton {
+public class CopyVideoUrlButton extends PlayerControlBottomButton {
     @Nullable
     private static CopyVideoUrlButton instance;
 

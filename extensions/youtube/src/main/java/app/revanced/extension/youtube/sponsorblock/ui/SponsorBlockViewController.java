@@ -19,6 +19,7 @@ import app.revanced.extension.shared.Utils;
 import app.revanced.extension.youtube.settings.Settings;
 import app.revanced.extension.youtube.shared.PlayerType;
 import app.revanced.extension.youtube.sponsorblock.objects.SponsorSegment;
+import app.revanced.extension.youtube.videoplayer.PlayerControlTopButton;
 import kotlin.Unit;
 
 public class SponsorBlockViewController {
@@ -238,8 +239,8 @@ public class SponsorBlockViewController {
             // but if buttons are showing when the end of the video is reached then they need
             // to be forcefully hidden
             if (!Settings.AUTO_REPEAT.get()) {
-                CreateSegmentButtonController.hide();
-                VotingButtonController.hide();
+                CreateSegmentButtonController.hideControls();
+                VotingButtonController.hideControls();
             }
         } catch (Exception ex) {
             Logger.printException(() -> "endOfVideoReached failure", ex);

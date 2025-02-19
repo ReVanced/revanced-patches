@@ -11,7 +11,7 @@ import app.revanced.extension.youtube.patches.VideoInformation;
 import app.revanced.extension.youtube.settings.Settings;
 
 @SuppressWarnings("unused")
-public class ExternalDownloadButton extends PlayerControlButton {
+public class ExternalDownloadButton extends PlayerControlBottomButton {
     @Nullable
     private static ExternalDownloadButton instance;
 
