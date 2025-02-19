@@ -239,11 +239,8 @@ public class SponsorBlockViewController {
             // but if buttons are showing when the end of the video is reached then they need
             // to be forcefully hidden
             if (!Settings.AUTO_REPEAT.get()) {
-                PlayerControlTopButton button = CreateSegmentButtonController.getInstance();
-                if (button != null) button.hide();
-
-                button = CreateSegmentButtonController.getInstance();
-                if (button != null) button.hide();
+                CreateSegmentButtonController.hideControls();
+                VotingButtonController.hideControls();
             }
         } catch (Exception ex) {
             Logger.printException(() -> "endOfVideoReached failure", ex);

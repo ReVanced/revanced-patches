@@ -17,9 +17,8 @@ public class CreateSegmentButtonController extends PlayerControlTopButton {
     @Nullable
     private static CreateSegmentButtonController instance;
 
-    @Nullable
-    public static CreateSegmentButtonController getInstance() {
-        return instance;
+    public static void hideControls() {
+        if (instance != null) instance.hide();
     }
 
     /**

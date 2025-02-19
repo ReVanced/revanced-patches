@@ -19,9 +19,8 @@ public class VotingButtonController extends PlayerControlTopButton {
     @Nullable
     private static VotingButtonController instance;
 
-    @Nullable
-    public static VotingButtonController getInstance() {
-        return instance;
+    public static void hideControls() {
+        if (instance != null) instance.hide();
     }
 
     /**
