@@ -168,9 +168,6 @@ Tapikin ang pindutan ng pagpapatuloy at payagan ang mga pagbabago sa pag-optimiz
 Hindi ka aabisuhan ng anumang hindi inaasahang mga kaganapan."</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
-  <string name="revanced_disable_like_subscribe_glow_title">Huwag paganahin ang glow ng Like at Subscribe</string>
-  <string name="revanced_disable_like_subscribe_glow_summary_on">Ang Like at Subscribe na button ay hindi mag-glow kapag nabanggit</string>
-  <string name="revanced_disable_like_subscribe_glow_summary_off">Ang Like at Subscribe na button ay mag-glow kapag nabanggit</string>
   <string name="revanced_hide_album_cards_title">Itago ang mga album card</string>
   <string name="revanced_hide_album_cards_summary_on">Nakatago ang mga card ng album</string>
   <string name="revanced_hide_album_cards_summary_off">Ipinapakita ang mga album card</string>
@@ -530,6 +527,9 @@ Ayusin ang volume sa pamamagitan ng pag-swipe nang patayo sa kanang bahagi ng sc
   <patch id="layout.buttons.action.hideButtonsPatch">
   <string name="revanced_hide_buttons_screen_title">Mga pindutan ng pagkilos</string>
   <string name="revanced_hide_buttons_screen_summary">Itago o ipakita ang mga button sa ilalim ng mga video</string>
+  <string name="revanced_disable_like_subscribe_glow_title">Huwag paganahin ang glow ng Like at Subscribe</string>
+  <string name="revanced_disable_like_subscribe_glow_summary_on">Ang Like at Subscribe na button ay hindi mag-glow kapag nabanggit</string>
+  <string name="revanced_disable_like_subscribe_glow_summary_off">Ang Like at Subscribe na button ay mag-glow kapag nabanggit</string>
   <string name="revanced_hide_like_dislike_button_title">Itago ang Like at Dislike</string>
   <string name="revanced_hide_like_dislike_button_summary_on">Nakatago ang mga button na Like at Dislike</string>
   <string name="revanced_hide_like_dislike_button_summary_off">Ang mga button na Like at Dislike ay ipinapakita</string>

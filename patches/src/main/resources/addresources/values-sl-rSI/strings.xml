@@ -168,9 +168,6 @@ Tapnite gumb za nadaljevanje in dovolite spremembe optimizacij."</string>
 Ne boste obveščeni o nobenih nepričakovanih dogodkih."</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
-  <string name="revanced_disable_like_subscribe_glow_title">Onemogoči sijaj gumbov »Všeč mi je« in »Naroči se«</string>
-  <string name="revanced_disable_like_subscribe_glow_summary_on">Gumba \"Všeč mi je\" in \"Naroči se\" ne bosta sijala, ko bosta omenjena</string>
-  <string name="revanced_disable_like_subscribe_glow_summary_off">Gumba \"Všeč mi je\" in \"Naroči se\" bosta sijala, ko bosta omenjena</string>
   <string name="revanced_hide_album_cards_title">Skrij kartice albuma</string>
   <string name="revanced_hide_album_cards_summary_on">Kartice albuma so skrite</string>
   <string name="revanced_hide_album_cards_summary_off">Kartice albuma so prikazane</string>
@@ -530,6 +527,9 @@ Prilagodite glasnost s potegom navpično na desni strani zaslona"</string>
   <patch id="layout.buttons.action.hideButtonsPatch">
   <string name="revanced_hide_buttons_screen_title">Gumbi za dejanja</string>
   <string name="revanced_hide_buttons_screen_summary">Skrij ali prikaži gumbe pod videoposnetki</string>
+  <string name="revanced_disable_like_subscribe_glow_title">Onemogoči sijaj gumbov »Všeč mi je« in »Naroči se«</string>
+  <string name="revanced_disable_like_subscribe_glow_summary_on">Gumba \"Všeč mi je\" in \"Naroči se\" ne bosta sijala, ko bosta omenjena</string>
+  <string name="revanced_disable_like_subscribe_glow_summary_off">Gumba \"Všeč mi je\" in \"Naroči se\" bosta sijala, ko bosta omenjena</string>
   <string name="revanced_hide_like_dislike_button_title">Skrij Všeč mi je in Ni mi všeč</string>
   <string name="revanced_hide_like_dislike_button_summary_on">Gumba Všeč mi je in Ni mi všeč sta skrita</string>
   <string name="revanced_hide_like_dislike_button_summary_off">Gumba Všeč mi je in Ni mi všeč sta prikazana</string>

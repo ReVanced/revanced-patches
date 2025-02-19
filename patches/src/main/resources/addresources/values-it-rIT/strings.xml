@@ -168,9 +168,6 @@ Tocca il pulsante Continua e consenti le modifiche di ottimizzazione."</string>
 Non sarai notificato di eventi imprevisti."</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
-  <string name="revanced_disable_like_subscribe_glow_title">Disabilita l\'effetto glow per \"Mi piace\" e \"Iscriviti\"</string>
-  <string name="revanced_disable_like_subscribe_glow_summary_on">I pulsanti Mi piace e Iscriviti non saranno evidenziati quando menzionati</string>
-  <string name="revanced_disable_like_subscribe_glow_summary_off">I pulsanti Mi piace e Iscriviti saranno evidenziati quando menzionati</string>
   <string name="revanced_hide_album_cards_title">Nascondi le schede degli album</string>
   <string name="revanced_hide_album_cards_summary_on">Le schede album sono nascoste</string>
   <string name="revanced_hide_album_cards_summary_off">Le schede degli album sono visibili</string>
@@ -530,6 +527,9 @@ Regola il volume scorrendo verticalmente sul lato destro dello schermo"</string>
   <patch id="layout.buttons.action.hideButtonsPatch">
   <string name="revanced_hide_buttons_screen_title">Pulsanti azione</string>
   <string name="revanced_hide_buttons_screen_summary">Mostra o nascondi i pulsanti sotto i video</string>
+  <string name="revanced_disable_like_subscribe_glow_title">Disabilita l\'effetto glow per \"Mi piace\" e \"Iscriviti\"</string>
+  <string name="revanced_disable_like_subscribe_glow_summary_on">I pulsanti Mi piace e Iscriviti non saranno evidenziati quando menzionati</string>
+  <string name="revanced_disable_like_subscribe_glow_summary_off">I pulsanti Mi piace e Iscriviti saranno evidenziati quando menzionati</string>
   <string name="revanced_hide_like_dislike_button_title">Nascondi Mi Piace e Non Mi Piace</string>
   <string name="revanced_hide_like_dislike_button_summary_on">I pulsanti Mi Piace e Non Mi Piace sono nascosti</string>
   <string name="revanced_hide_like_dislike_button_summary_off">I pulsanti Mi Piace e Non Mi Piace sono visibili</string>

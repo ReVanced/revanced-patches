@@ -166,9 +166,6 @@ Toque no botão continuar e permita as mudanças de otimização. "</string>
 Você não será notificado sobre nenhum evento inesperado."</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
-  <string name="revanced_disable_like_subscribe_glow_title">Desativar o brilho do botão Curtir e Inscrever-se</string>
-  <string name="revanced_disable_like_subscribe_glow_summary_on">O botão Curtir e Inscrever-se não brilhará quando mencionado</string>
-  <string name="revanced_disable_like_subscribe_glow_summary_off">O botão Curtir e Inscrever-se brilhará quando mencionado</string>
   <string name="revanced_hide_album_cards_title">Ocultar cartões de álbum</string>
   <string name="revanced_hide_album_cards_summary_on">Cartões de álbum estão ocultos</string>
   <string name="revanced_hide_album_cards_summary_off">Cartões de álbum não estão ocultos</string>
@@ -528,6 +525,9 @@ Ajuste o volume deslizando verticalmente no lado direito da tela"</string>
   <patch id="layout.buttons.action.hideButtonsPatch">
   <string name="revanced_hide_buttons_screen_title">Botões de ação</string>
   <string name="revanced_hide_buttons_screen_summary">Ocultar ou mostrar botões sob vídeos</string>
+  <string name="revanced_disable_like_subscribe_glow_title">Desativar o brilho do botão Curtir e Inscrever-se</string>
+  <string name="revanced_disable_like_subscribe_glow_summary_on">O botão Curtir e Inscrever-se não brilhará quando mencionado</string>
+  <string name="revanced_disable_like_subscribe_glow_summary_off">O botão Curtir e Inscrever-se brilhará quando mencionado</string>
   <string name="revanced_hide_like_dislike_button_title">Ocultar Gostei e Não gostei</string>
   <string name="revanced_hide_like_dislike_button_summary_on">Os botões Gostei e Não gostei estão ocultos</string>
   <string name="revanced_hide_like_dislike_button_summary_off">Os botões Gostei e Não gostei são mostrados</string>

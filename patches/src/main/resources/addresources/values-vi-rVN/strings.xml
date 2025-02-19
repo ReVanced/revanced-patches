@@ -168,9 +168,6 @@ Nhấn nút tiếp tục và cho phép thay đổi tối ưu hóa."</string>
 Bạn sẽ không được thông báo về bất kỳ sự kiện bất ngờ nào."</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
-  <string name="revanced_disable_like_subscribe_glow_title">Tắt hiệu ứng phát sáng nút Thích và Đăng ký</string>
-  <string name="revanced_disable_like_subscribe_glow_summary_on">Nút Thích và Đăng ký sẽ không phát sáng khi được đề cập đến</string>
-  <string name="revanced_disable_like_subscribe_glow_summary_off">Nút Thích và Đăng ký sẽ phát sáng khi được đề cập đến</string>
   <string name="revanced_hide_album_cards_title">Ẩn các thẻ album</string>
   <string name="revanced_hide_album_cards_summary_on">Các thẻ album được ẩn</string>
   <string name="revanced_hide_album_cards_summary_off">Các thẻ album được hiện</string>
@@ -530,6 +527,9 @@ Tính năng này chỉ khả dụng cho các thiết bị cũ hơn"</string>
   <patch id="layout.buttons.action.hideButtonsPatch">
   <string name="revanced_hide_buttons_screen_title">Các nút hành động</string>
   <string name="revanced_hide_buttons_screen_summary">Ẩn hoặc hiện nút dưới video</string>
+  <string name="revanced_disable_like_subscribe_glow_title">Tắt hiệu ứng phát sáng nút Thích và Đăng ký</string>
+  <string name="revanced_disable_like_subscribe_glow_summary_on">Nút Thích và Đăng ký sẽ không phát sáng khi được đề cập đến</string>
+  <string name="revanced_disable_like_subscribe_glow_summary_off">Nút Thích và Đăng ký sẽ phát sáng khi được đề cập đến</string>
   <string name="revanced_hide_like_dislike_button_title">Ẩn Thích và Không thích</string>
   <string name="revanced_hide_like_dislike_button_summary_on">Các nút Thích và Không thích được ẩn</string>
   <string name="revanced_hide_like_dislike_button_summary_off">Các nút Thích và Không thích được hiện</string>
@@ -1402,9 +1402,9 @@ Bật tính năng này có thể mở khóa chất lượng video cao hơn"</str
   <string name="revanced_slide_to_seek_summary_off">Vuốt để tua không được bật</string>
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
-  <string name="revanced_spoof_video_streams_screen_title">Giả mạo luồng video</string>
+  <string name="revanced_spoof_video_streams_screen_title">Giả mạo luồng phát video trực tuyến</string>
   <string name="revanced_spoof_video_streams_screen_summary">Giả mạo luồng video máy khách để ngăn ngừa sự cố khi phát nền</string>
-  <string name="revanced_spoof_video_streams_title">Giả mạo luồng video</string>
+  <string name="revanced_spoof_video_streams_title">Giả mạo luồng phát video trực tuyến</string>
   <string name="revanced_spoof_video_streams_summary_on">Luồng video đã được giả mạo</string>
   <string name="revanced_spoof_video_streams_summary_off">"Luồng video không bị giả mạo
 
@@ -1417,14 +1417,14 @@ Phát lại video có thể không hoạt động"</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">"Bật tính năng này có thể cải thiện thời lượng pin và khắc phục tình trạng giật lag khi phát lại.
 
 AVC có độ phân giải tối đa là 1080p, bộ giải mã âm thanh Opus không khả dụng và phát lại video sẽ sử dụng nhiều dữ liệu internet hơn VP9 hoặc AV1."</string>
-  <string name="revanced_spoof_video_streams_about_ios_tv_title">Tạo cảc phượng phương định iOS</string>
-  <string name="revanced_spoof_video_streams_about_ios_tv_summary">"• Phim hoặc có phí trả không phát hày có thể chơi
-• Âm lượng ở ỗn định không có sử dụng
-• Video két thúc sớm hơn có 1 giây"</string>
+  <string name="revanced_spoof_video_streams_about_ios_tv_title">Tác dụng phụ của việc giả mạo iOS</string>
+  <string name="revanced_spoof_video_streams_about_ios_tv_summary">"• Phim hoặc video có trả phí không thể phát
+• Âm lượng ổn định không khả dụng
+• Video có thể kết thúc sớm hơn 1 giây"</string>
   <string name="revanced_spoof_video_streams_about_android_title">Tác dụng phụ của việc giả mạo Android</string>
-  <string name="revanced_spoof_video_streams_about_android_summary">"• Thiếu menu âm thanh
-• Không có âm lượng ổn định
-• Không có tùy chọn âm thanh gốc"</string>
+  <string name="revanced_spoof_video_streams_about_android_summary">"• Menu âm thanh bị thiếu
+• Âm lượng ổn định không khả dụng
+• Tuỳ chọn âm thanh gốc không khả dụng"</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Không có bộ giải mã video AV1</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Video dành cho trẻ em có thể không phát được khi đăng xuất hoặc ở chế độ ẩn danh</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Hiển thị trong Stats for nerds</string>

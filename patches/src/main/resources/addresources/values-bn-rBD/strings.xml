@@ -168,9 +168,6 @@ MicroG-এর জন্য ব্যাটারি অপ্টিমাইজ�
 আপনি কোনও অপ্রত্যাশিত ঘটনার বিষয়ে অবহিত হবেন না।"</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
-  <string name="revanced_disable_like_subscribe_glow_title">লাইক এবং সাবস্ক্রাইব বোতাম গ্লো বন্ধ করুন</string>
-  <string name="revanced_disable_like_subscribe_glow_summary_on">উল্লেখ করলে সক্রিয়করন এবং সাবস্ক্রাইব বোতাম উজ্জ্বল হবে না</string>
-  <string name="revanced_disable_like_subscribe_glow_summary_off">উল্লেখ করলে সক্রিয়করন এবং সাবস্ক্রাইব বোতাম উজ্জ্বল হবে</string>
   <string name="revanced_hide_album_cards_title">অ্যালবাম কার্ড লুকান</string>
   <string name="revanced_hide_album_cards_summary_on">অ্যালবাম কার্ড লুকিয়ে রয়েছে</string>
   <string name="revanced_hide_album_cards_summary_off">অ্যালবাম কার্ড প্রদর্শিত হয়েছে</string>
@@ -530,6 +527,9 @@ MicroG-এর জন্য ব্যাটারি অপ্টিমাইজ�
   <patch id="layout.buttons.action.hideButtonsPatch">
   <string name="revanced_hide_buttons_screen_title">অ্যাকশন বোতাম</string>
   <string name="revanced_hide_buttons_screen_summary">ভিডিওর নীচে বোতাম লুকানো বা দেখানো</string>
+  <string name="revanced_disable_like_subscribe_glow_title">লাইক এবং সাবস্ক্রাইব বোতাম গ্লো বন্ধ করুন</string>
+  <string name="revanced_disable_like_subscribe_glow_summary_on">উল্লেখ করলে সক্রিয়করন এবং সাবস্ক্রাইব বোতাম উজ্জ্বল হবে না</string>
+  <string name="revanced_disable_like_subscribe_glow_summary_off">উল্লেখ করলে সক্রিয়করন এবং সাবস্ক্রাইব বোতাম উজ্জ্বল হবে</string>
   <string name="revanced_hide_like_dislike_button_title">Like এবং Dislike লুকান</string>
   <string name="revanced_hide_like_dislike_button_summary_on">Like এবং Dislike বোতাম লুকানো আছে</string>
   <string name="revanced_hide_like_dislike_button_summary_off">Like এবং Dislike বোতাম দেখানো হচ্ছে</string>

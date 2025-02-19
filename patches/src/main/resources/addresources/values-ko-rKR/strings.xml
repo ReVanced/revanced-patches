@@ -168,9 +168,6 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
 예상되지 않은 이벤트에 대한 알림을 받지 못할 수 있습니다"</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
-  <string name="revanced_disable_like_subscribe_glow_title">빛나는 \'좋아요\' / \'구독\' 버튼 비활성화하기</string>
-  <string name="revanced_disable_like_subscribe_glow_summary_on">동영상에서 \'Like (좋아요)\' 또는 \'Subscribe (구독)\' 버튼이 언급되었을 때, 해당 버튼에 빛나는 애니메이션을 적용하지 않습니다\n• 일부 언어는 아직 지원되지 않습니다</string>
-  <string name="revanced_disable_like_subscribe_glow_summary_off">동영상에서 \'Like (좋아요)\' 또는 \'Subscribe (구독)\' 버튼이 언급되었을 때, 해당 버튼에 빛나는 애니메이션을 적용합니다\n• 일부 언어는 아직 지원되지 않습니다</string>
   <string name="revanced_hide_album_cards_title">음악 앨범 카드 숨기기</string>
   <string name="revanced_hide_album_cards_summary_on">검색 결과에서 음악 앨범 카드가 숨겨집니다</string>
   <string name="revanced_hide_album_cards_summary_off">검색 결과에서 음악 앨범 카드가 표시됩니다</string>
@@ -533,6 +530,9 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <patch id="layout.buttons.action.hideButtonsPatch">
   <string name="revanced_hide_buttons_screen_title">액션 버튼</string>
   <string name="revanced_hide_buttons_screen_summary">플레이어 하단에서 액션 버튼을 숨기거나 표시할 수 있습니다</string>
+  <string name="revanced_disable_like_subscribe_glow_title">빛나는 \'좋아요\' / \'구독\' 버튼 비활성화하기</string>
+  <string name="revanced_disable_like_subscribe_glow_summary_on">동영상에서 \'Like (좋아요)\' 또는 \'Subscribe (구독)\' 버튼이 언급되었을 때, 해당 버튼에 빛나는 애니메이션을 적용하지 않습니다\n• 일부 언어는 아직 지원되지 않습니다</string>
+  <string name="revanced_disable_like_subscribe_glow_summary_off">동영상에서 \'Like (좋아요)\' 또는 \'Subscribe (구독)\' 버튼이 언급되었을 때, 해당 버튼에 빛나는 애니메이션을 적용합니다\n• 일부 언어는 아직 지원되지 않습니다</string>
   <string name="revanced_hide_like_dislike_button_title">좋아요 &amp; 싫어요 버튼 숨기기</string>
   <string name="revanced_hide_like_dislike_button_summary_on">좋아요 &amp; 싫어요 버튼이 숨겨집니다</string>
   <string name="revanced_hide_like_dislike_button_summary_off">좋아요 &amp; 싫어요 버튼이 표시됩니다</string>

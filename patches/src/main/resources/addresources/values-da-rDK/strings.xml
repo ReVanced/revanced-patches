@@ -168,8 +168,6 @@ Tap på knappen Fortsæt, og tillad optimeringsændringer."</string>
 Du modtager ikke notifikationer om uventede hændelser."</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
-  <string name="revanced_disable_like_subscribe_glow_summary_on">Lykke- og abonnér-knappen gløder ikke, når den nævnes</string>
-  <string name="revanced_disable_like_subscribe_glow_summary_off">Lykke- og abonnér-knappen gløder, når den nævnes</string>
   <string name="revanced_hide_album_cards_title">Skjul albumkort</string>
   <string name="revanced_hide_album_cards_summary_on">Albumkort er skjult</string>
   <string name="revanced_hide_album_cards_summary_off">Albumkort vises</string>
@@ -491,6 +489,8 @@ Juster lydstyrken ved at swipe lodret i højre side af skærmen"</string>
   <patch id="layout.buttons.action.hideButtonsPatch">
   <string name="revanced_hide_buttons_screen_title">Handlingsknapper</string>
   <string name="revanced_hide_buttons_screen_summary">Skjul eller vis knapper under videoer</string>
+  <string name="revanced_disable_like_subscribe_glow_summary_on">Lykke- og abonnér-knappen gløder ikke, når den nævnes</string>
+  <string name="revanced_disable_like_subscribe_glow_summary_off">Lykke- og abonnér-knappen gløder, når den nævnes</string>
   <string name="revanced_hide_like_dislike_button_title">Skjul Like og Dislike</string>
   <string name="revanced_hide_like_dislike_button_summary_on">Lige- og Dislike knapper er skjult</string>
   <string name="revanced_hide_like_dislike_button_summary_off">Lige- og Dislike knapper vises</string>

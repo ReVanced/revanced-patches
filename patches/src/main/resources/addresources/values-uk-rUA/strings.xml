@@ -168,9 +168,6 @@ Second \"item\" text"</string>
 Ви не будете отримувати сповіщення про будь-які непередбачувані події."</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
-  <string name="revanced_disable_like_subscribe_glow_title">Вимкнути відблиск кнопок \"Подобається\" та \"Підписати\"</string>
-  <string name="revanced_disable_like_subscribe_glow_summary_on">Кнопки \"Подобається\" та \"Підписатися\" не відблискуватимуть при згадуванні</string>
-  <string name="revanced_disable_like_subscribe_glow_summary_off">Кнопки \"Подобається\" та \"Підписатися\" не відблискуватимуть при згадуванні</string>
   <string name="revanced_hide_album_cards_title">Приховати картки альбому</string>
   <string name="revanced_hide_album_cards_summary_on">Картки альбому приховано</string>
   <string name="revanced_hide_album_cards_summary_off">Картки альбому показуються</string>
@@ -484,15 +481,15 @@ Second \"item\" text"</string>
   </patch>
   <patch id="interaction.swipecontrols.swipeControlsResourcePatch">
   <string name="revanced_swipe_brightness_title">Зміна яскравості жестом</string>
-  <string name="revanced_swipe_brightness_summary_on">"Увімкнено зміну яскравості жестом на весь екран
+  <string name="revanced_swipe_brightness_summary_on">"Зміну яскравості жестом в повноекранному режимі увімкнено
 
-Регулюйте яскравість, проводячи пальцем вертикально зліва на екрані"</string>
-  <string name="revanced_swipe_brightness_summary_off">Зміну яскравості жестом по лівій частині відеоплеєра вимкнено</string>
+Регулюйте яскравість, проводячи пальцем вертикально по лівій стороні екрана"</string>
+  <string name="revanced_swipe_brightness_summary_off">Зміну яскравості жестом в повноекранному режимі вимкнено</string>
   <string name="revanced_swipe_volume_title">Зміна гучності жестом</string>
-  <string name="revanced_swipe_volume_summary_on">"Увімкнено жест регулювання гучності на весь екран
+  <string name="revanced_swipe_volume_summary_on">"Зміну гучності жестом в повноекранному режимі увімкнено
 
-Регулюйте гучність, проводячи вертикально по правій стороні екрана"</string>
-  <string name="revanced_swipe_volume_summary_off">Зміну гучності жестом по правій частині відеоплеєра вимкнено</string>
+Регулюйте гучність, проводячи пальцем вертикально по правій стороні екрана"</string>
+  <string name="revanced_swipe_volume_summary_off">Зміну гучності жестом в повноекранному режимі вимкнено</string>
   <string name="revanced_swipe_press_to_engage_title">Натискання для жесту</string>
   <string name="revanced_swipe_press_to_engage_summary_on">Натискання та утримання для жесту ввімкнуто</string>
   <string name="revanced_swipe_press_to_engage_summary_off">Натискання та утримання для жесту вимкнено</string>
@@ -512,12 +509,12 @@ Second \"item\" text"</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Значення затемнення панелі жесту має бути в межах від 0 до 100</string>
   <string name="revanced_swipe_threshold_title">Поріг величини жесту</string>
   <string name="revanced_swipe_threshold_summary">Мінімальна амплітуда руху, що розпізнається як жест</string>
-  <string name="revanced_swipe_show_circular_overlay_title">Показувати кругове накладання</string>
-  <string name="revanced_swipe_show_circular_overlay_summary_on">Кругове накладання відображається</string>
-  <string name="revanced_swipe_show_circular_overlay_summary_off">Горизонтальне накладання відображається</string>
+  <string name="revanced_swipe_show_circular_overlay_title">Показувати круговий індикатор</string>
+  <string name="revanced_swipe_show_circular_overlay_summary_on">Показується круговий індикатор</string>
+  <string name="revanced_swipe_show_circular_overlay_summary_off">Показується горизонтальний індикатор</string>
   <string name="revanced_swipe_overlay_minimal_style_title">Увімкнути мінімалістичний стиль</string>
-  <string name="revanced_swipe_overlay_minimal_style_summary_on">Увімкнено мінімалістичний стиль накладання</string>
-  <string name="revanced_swipe_overlay_minimal_style_summary_off">Мінімальний стиль накладання вимкнено</string>
+  <string name="revanced_swipe_overlay_minimal_style_summary_on">Мінімалістичний стиль індикатора увімкнено</string>
+  <string name="revanced_swipe_overlay_minimal_style_summary_off">Мінімалістичний стиль індикатора вимкнено</string>
   <string name="revanced_swipe_change_video_title">Увімкнути зміну відео проведенням</string>
   <string name="revanced_swipe_change_video_summary_on">Проведення пальцем у повноекранному режимі перейде до наступного/попереднього відео</string>
   <string name="revanced_swipe_change_video_summary_off">Проведення пальцем у повноекранному режимі не перейде до наступного/попереднього відео</string>
@@ -530,6 +527,9 @@ Second \"item\" text"</string>
   <patch id="layout.buttons.action.hideButtonsPatch">
   <string name="revanced_hide_buttons_screen_title">Кнопки дій</string>
   <string name="revanced_hide_buttons_screen_summary">Приховати або показувати кнопки дій під відео</string>
+  <string name="revanced_disable_like_subscribe_glow_title">Вимкнути відблиск кнопок \"Подобається\" та \"Підписати\"</string>
+  <string name="revanced_disable_like_subscribe_glow_summary_on">Кнопки \"Подобається\" та \"Підписатися\" не відблискуватимуть при згадуванні</string>
+  <string name="revanced_disable_like_subscribe_glow_summary_off">Кнопки \"Подобається\" та \"Підписатися\" не відблискуватимуть при згадуванні</string>
   <string name="revanced_hide_like_dislike_button_title">Приховати \"Подобається\" та \"Не подобається\"</string>
   <string name="revanced_hide_like_dislike_button_summary_on">Кнопки \"Подобається\" та \"Не подобається\" приховано</string>
   <string name="revanced_hide_like_dislike_button_summary_off">Кнопки \"Подобається\" та \"Не подобається\" показуються</string>

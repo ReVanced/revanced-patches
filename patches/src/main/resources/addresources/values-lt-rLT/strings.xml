@@ -168,9 +168,6 @@ Palieskite mygtuką Tęsti ir leiskite optimizavimo pakeitimus."</string>
 Apie netikėtus įvykius nebus pranešta."</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
-  <string name="revanced_disable_like_subscribe_glow_title">Išjungti „Patinka“ ir „Prenumeruoti“ švytėjimą</string>
-  <string name="revanced_disable_like_subscribe_glow_summary_on">Paminėti mygtukai \"Patinka\" ir \"Prenumeruoti\" nešvytės</string>
-  <string name="revanced_disable_like_subscribe_glow_summary_off">Paminėti mygtukai \"Patinka\" ir \"Prenumeruoti\" švytės</string>
   <string name="revanced_hide_album_cards_title">Slėpti albumo korteles</string>
   <string name="revanced_hide_album_cards_summary_on">Albumo kortelės yra paslėptos</string>
   <string name="revanced_hide_album_cards_summary_off">Albumo kortelės yra rodomos</string>
@@ -530,6 +527,9 @@ Reguliuokite garsumą braukdami vertikaliai dešinėje ekrano pusėje"</string>
   <patch id="layout.buttons.action.hideButtonsPatch">
   <string name="revanced_hide_buttons_screen_title">Veiksmo mygtukai</string>
   <string name="revanced_hide_buttons_screen_summary">Slėpti arba rodyti mygtukus po vaizdo įrašais</string>
+  <string name="revanced_disable_like_subscribe_glow_title">Išjungti „Patinka“ ir „Prenumeruoti“ švytėjimą</string>
+  <string name="revanced_disable_like_subscribe_glow_summary_on">Paminėti mygtukai \"Patinka\" ir \"Prenumeruoti\" nešvytės</string>
+  <string name="revanced_disable_like_subscribe_glow_summary_off">Paminėti mygtukai \"Patinka\" ir \"Prenumeruoti\" švytės</string>
   <string name="revanced_hide_like_dislike_button_title">Slėpti Patinka ir Nepatinka</string>
   <string name="revanced_hide_like_dislike_button_summary_on">Patinka ir Nepatinka mygtukai paslėpti</string>
   <string name="revanced_hide_like_dislike_button_summary_off">Patinka ir Nepatinka mygtukai rodomi</string>

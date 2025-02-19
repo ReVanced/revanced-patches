@@ -168,9 +168,6 @@ Second \"item\" text"</string>
 Вы не будзеце атрымліваць апавяшчэнні пра нечаканыя падзеі."</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
-  <string name="revanced_disable_like_subscribe_glow_title">Адключыць свецянне кнопак «Мне падабаецца» і «Падпісацца»</string>
-  <string name="revanced_disable_like_subscribe_glow_summary_on">Кнопкі «Падабаецца» і «Падпісацца» не будуць мігцець пры згадванні</string>
-  <string name="revanced_disable_like_subscribe_glow_summary_off">Кнопкі «Падабаецца» і «Падпісацца» будуць мігцець пры згадванні</string>
   <string name="revanced_hide_album_cards_title">Схаваць карты альбома</string>
   <string name="revanced_hide_album_cards_summary_on">Карткі альбомаў схаваныя</string>
   <string name="revanced_hide_album_cards_summary_off">Паказваюцца альбомныя карткі</string>
@@ -530,6 +527,9 @@ Second \"item\" text"</string>
   <patch id="layout.buttons.action.hideButtonsPatch">
   <string name="revanced_hide_buttons_screen_title">Кнопкі дзеянняў</string>
   <string name="revanced_hide_buttons_screen_summary">Схаваць або паказаць кнопкі пад відэа</string>
+  <string name="revanced_disable_like_subscribe_glow_title">Адключыць свецянне кнопак «Мне падабаецца» і «Падпісацца»</string>
+  <string name="revanced_disable_like_subscribe_glow_summary_on">Кнопкі «Падабаецца» і «Падпісацца» не будуць мігцець пры згадванні</string>
+  <string name="revanced_disable_like_subscribe_glow_summary_off">Кнопкі «Падабаецца» і «Падпісацца» будуць мігцець пры згадванні</string>
   <string name="revanced_hide_like_dislike_button_title">Схаваць \"Падабаецца\" і \"Не падабаецца\"</string>
   <string name="revanced_hide_like_dislike_button_summary_on">Кнопкі \"Падабаецца\" і \"Не падабаецца\" схаваны</string>
   <string name="revanced_hide_like_dislike_button_summary_off">Паказваюцца кнопкі \"Падабаецца\" і \"Не падабаецца\"</string>
