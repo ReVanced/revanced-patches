@@ -1,3 +1,10 @@
+# [5.13.0-dev.3](https://github.com/ReVanced/revanced-patches/compare/v5.13.0-dev.2...v5.13.0-dev.3) (2025-02-19)
+
+
+### Bug Fixes
+
+* **YouTube:** Fix player button fade out animations ([#4469](https://github.com/ReVanced/revanced-patches/issues/4469)) ([bf8e775](https://github.com/ReVanced/revanced-patches/commit/bf8e7759f9bdbdfef419a879fb3dd7cf0dff0098))
+
 # [5.13.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.13.0-dev.1...v5.13.0-dev.2) (2025-02-18)
 
 
