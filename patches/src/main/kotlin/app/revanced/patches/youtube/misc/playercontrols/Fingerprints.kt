@@ -1,19 +1,13 @@
 package app.revanced.patches.youtube.misc.playercontrols
 
+import app.revanced.patcher.checkCast
 import app.revanced.patcher.fingerprint
 import app.revanced.patcher.literal
+import app.revanced.patcher.methodCall
+import app.revanced.patcher.opcode
 import app.revanced.patches.shared.misc.mapping.resourceLiteral
-import app.revanced.util.containsLiteralInstruction
 import com.android.tools.smali.dexlib2.AccessFlags
-
-internal val playerTopControlsInflateFingerprint by fingerprint {
-    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("V")
-    parameters()
-    instructions(
-        resourceLiteral("id", "controls_layout_stub")
-    )
-}
+import com.android.tools.smali.dexlib2.Opcode
 
 internal val playerControlsExtensionHookListenersExistFingerprint by fingerprint {
     accessFlags(AccessFlags.PRIVATE, AccessFlags.STATIC)
@@ -35,11 +29,24 @@ internal val playerControlsExtensionHookFingerprint by fingerprint {
     }
 }
 
+internal val playerTopControlsInflateFingerprint by fingerprint {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
+    returns("V")
+    parameters()
+    instructions(
+        resourceLiteral("id", "controls_layout_stub"),
+        methodCall("Landroid/view/ViewStub;", "inflate"),
+        opcode(Opcode.MOVE_RESULT_OBJECT, maxAfter = 0)
+    )
+}
+
 internal val playerBottomControlsInflateFingerprint by fingerprint {
     returns("Ljava/lang/Object;")
     parameters()
     instructions(
-        resourceLiteral("id", "bottom_ui_container_stub")
+        resourceLiteral("id", "bottom_ui_container_stub"),
+        methodCall("Landroid/view/ViewStub;", "inflate"),
+        opcode(Opcode.MOVE_RESULT_OBJECT, maxAfter = 0)
     )
 }
 
@@ -47,10 +54,11 @@ internal val overlayViewInflateFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("V")
     parameters("Landroid/view/View;")
-    custom { methodDef, _ ->
-        methodDef.containsLiteralInstruction(fullscreenButton) &&
-            methodDef.containsLiteralInstruction(heatseekerViewstub)
-    }
+    instructions(
+        resourceLiteral("id", "heatseeker_viewstub"),
+        resourceLiteral("id", "fullscreen_button"),
+        checkCast("Landroid/widget/ImageView;")
+    )
 }
 
 /**

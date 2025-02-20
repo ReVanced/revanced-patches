@@ -2,6 +2,8 @@ package app.revanced.patches.youtube.layout.shortsplayer
 
 import app.revanced.patcher.fingerprint
 import app.revanced.patcher.literal
+import app.revanced.patcher.methodCall
+import app.revanced.patcher.string
 import com.android.tools.smali.dexlib2.AccessFlags
 
 /**
@@ -14,6 +16,10 @@ internal val playbackStartFeatureFlagFingerprint by fingerprint {
         "Lcom/google/android/libraries/youtube/player/model/PlaybackStartDescriptor;",
     )
     instructions(
+        methodCall(
+            definingClass = "Lcom/google/android/libraries/youtube/player/model/PlaybackStartDescriptor;",
+            returnType = "Ljava/lang/String;"
+        ),
         literal(45380134L)
     )
 }
@@ -30,11 +36,12 @@ internal val shortsPlaybackIntentLegacyFingerprint by fingerprint {
         "Z",
         "Ljava/util/Map;"
     )
-    strings(
+    instructions(
+        methodCall(returnType = "Lcom/google/android/libraries/youtube/player/model/PlaybackStartDescriptor;"),
         // None of these strings are unique.
-        "com.google.android.apps.youtube.app.endpoint.flags",
-        "ReelWatchFragmentArgs",
-        "reels_fragment_descriptor"
+        string("com.google.android.apps.youtube.app.endpoint.flags"),
+        string("ReelWatchFragmentArgs"),
+        string("reels_fragment_descriptor")
     )
 }
 
@@ -47,10 +54,10 @@ internal val shortsPlaybackIntentFingerprint by fingerprint {
         "J",
         "Ljava/lang/String;"
     )
-    strings(
+    instructions(
         // None of these strings are unique.
-        "com.google.android.apps.youtube.app.endpoint.flags",
-        "ReelWatchFragmentArgs",
-        "reels_fragment_descriptor"
+        string("com.google.android.apps.youtube.app.endpoint.flags"),
+        string("ReelWatchFragmentArgs"),
+        string("reels_fragment_descriptor")
     )
 }

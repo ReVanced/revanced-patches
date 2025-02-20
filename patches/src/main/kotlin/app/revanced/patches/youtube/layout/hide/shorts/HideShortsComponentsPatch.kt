@@ -27,8 +27,6 @@ import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
-private var reelPlayerRightPivotV2Size = -1L
-
 internal val hideShortsAppShortcutOption = booleanOption(
     key = "hideShortsAppShortcut",
     default = false,
@@ -130,11 +128,6 @@ private val hideShortsComponentsResourcePatch = resourcePatch {
                 shortsItem.parentNode.removeChild(shortsItem)
             }
         }
-
-        reelPlayerRightPivotV2Size = getResourceId(
-            "dimen",
-            "reel_player_right_pivot_v2_size",
-        )
     }
 }
 
@@ -182,7 +175,7 @@ val hideShortsComponentsPatch = bytecodePatch(
         addLithoFilter(FILTER_CLASS_DESCRIPTOR)
 
         forEachLiteralValueInstruction(
-            reelPlayerRightPivotV2Size,
+            getResourceId("dimen", "reel_player_right_pivot_v2_size")
         ) { literalInstructionIndex ->
             val targetIndex = indexOfFirstInstructionOrThrow(literalInstructionIndex) {
                 getReference<MethodReference>()?.name == "getDimensionPixelSize"

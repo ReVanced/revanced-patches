@@ -106,7 +106,7 @@ val returnYouTubeDislikePatch = bytecodePatch(
         // region Hook code for creation and cached lookup of text Spans.
 
         // Alternatively the hook can be made at tht it fails to update the Span when the user dislikes,
-        //        // since the underlying (likes only) tee creation of Spans in TextComponentSpec,
+        // since the underlying (likes only) tee creation of Spans in TextComponentSpec,
         // And it works in all situations excepxt did not change.
         // This hook handles all situations, as it's where the created Spans are stored and later reused.
         // Find the field name of the conversion context.
@@ -225,14 +225,9 @@ val returnYouTubeDislikePatch = bytecodePatch(
 
         // region Hook rolling numbers.
 
-        // Do this last to allow patching old unsupported versions (if the user really wants),
-        // On older unsupported version this will fail to match and throw an exception,
-        // but everything will still work correctly anyway.
-        val dislikesIndex = rollingNumberSetterFingerprint.instructionMatches.last().index
-
         rollingNumberSetterFingerprint.method.apply {
             val insertIndex = 1
-
+            val dislikesIndex = rollingNumberSetterFingerprint.instructionMatches.last().index
             val charSequenceInstanceRegister =
                 getInstruction<OneRegisterInstruction>(0).registerA
             val charSequenceFieldReference =
@@ -293,15 +288,15 @@ val returnYouTubeDislikePatch = bytecodePatch(
                 )
             }
         }
+
         // The rolling number Span is missing styling since it's initially set as a String.
         // Modify the UI text view and use the styled like/dislike Span.
         // Initial TextView is set in this method.
-        val initiallyCreatedTextViewMethod = rollingNumberTextViewFingerprint.method
 
         // Videos less than 24 hours after uploaded, like counts will be updated in real time.
         // Whenever like counts are updated, TextView is set in this method.
         arrayOf(
-            initiallyCreatedTextViewMethod,
+            rollingNumberTextViewFingerprint.method,
             rollingNumberTextViewAnimationUpdateFingerprint.method,
         ).forEach { insertMethod ->
             insertMethod.apply {
@@ -309,17 +304,15 @@ val returnYouTubeDislikePatch = bytecodePatch(
                     getReference<MethodReference>()?.name == "setText"
                 }
 
-                val textViewRegister =
-                    getInstruction<FiveRegisterInstruction>(setTextIndex).registerC
-                val textSpanRegister =
-                    getInstruction<FiveRegisterInstruction>(setTextIndex).registerD
+                val textViewRegister = getInstruction<FiveRegisterInstruction>(setTextIndex).registerC
+                val textSpanRegister = getInstruction<FiveRegisterInstruction>(setTextIndex).registerD
 
                 addInstructions(
                     setTextIndex,
                     """
-                            invoke-static {v$textViewRegister, v$textSpanRegister}, $EXTENSION_CLASS_DESCRIPTOR->updateRollingNumber(Landroid/widget/TextView;Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
-                            move-result-object v$textSpanRegister
-                        """,
+                        invoke-static {v$textViewRegister, v$textSpanRegister}, $EXTENSION_CLASS_DESCRIPTOR->updateRollingNumber(Landroid/widget/TextView;Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
+                        move-result-object v$textSpanRegister
+                    """
                 )
             }
         }
