@@ -48,16 +48,14 @@ fun resourceLiteral(
 
 val resourceMappingPatch = resourcePatch {
     execute {
-        val resourceXmlFile = get("res/values/public.xml").readBytes()
-
-        document(resourceXmlFile.inputStream()).use { document ->
+        document("res/values/public.xml").use { document ->
             val resources = document.documentElement.childNodes
             val resourcesLength = resources.length
             resourceMappings = HashMap<String, ResourceElement>(2 * resourcesLength)
 
             for (i in 0 until resourcesLength) {
-                val node = resources.item(i)
-                if (node !is Element || node.nodeName != "public") continue
+                val node = resources.item(i) as? Element ?: continue
+                if (node.nodeName != "public") continue
 
                 val nameAttribute = node.getAttribute("name")
                 if (nameAttribute.startsWith("APKTOOL")) continue
