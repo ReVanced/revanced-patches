@@ -1,6 +1,7 @@
 package app.revanced.extension.nunl.ads;
 
 import nl.nu.performance.api.client.interfaces.Block;
+import nl.nu.performance.api.client.unions.SmallArticleLinkFlavor;
 import nl.nu.performance.api.client.objects.*;
 
 import java.util.ArrayList;
@@ -63,6 +64,16 @@ public class HideAdsPatch {
                             }
                         }
                     }
+                }
+
+                // Skip LinkBlocks with a "flavor" claiming to be "isPartner" (sponsored inline ads)
+                if (currentBlock instanceof LinkBlock linkBlock
+                        && linkBlock.getLink() != null
+                        && linkBlock.getLink().getLinkFlavor() instanceof SmallArticleLinkFlavor smallArticleLinkFlavor
+                        && smallArticleLinkFlavor.isPartner() != null
+                        && smallArticleLinkFlavor.isPartner()) {
+                    index++;
+                    continue;
                 }
 
                 if (currentBlock instanceof DividerBlock) {
