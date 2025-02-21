@@ -5,27 +5,14 @@ import android.view.ViewGroup;
 
 import androidx.annotation.Nullable;
 
+import app.revanced.extension.shared.Logger;
 import app.revanced.extension.youtube.patches.CopyVideoUrlPatch;
 import app.revanced.extension.youtube.settings.Settings;
-import app.revanced.extension.shared.Logger;
 
 @SuppressWarnings("unused")
-public class CopyVideoUrlTimestampButton extends PlayerControlBottomButton {
+public class CopyVideoUrlTimestampButton extends PlayerControlButton {
     @Nullable
     private static CopyVideoUrlTimestampButton instance;
-
-    public CopyVideoUrlTimestampButton(ViewGroup bottomControlsViewGroup) {
-        super(
-                bottomControlsViewGroup,
-                "revanced_copy_video_url_timestamp_button",
-                Settings.COPY_VIDEO_URL_TIMESTAMP,
-                view -> CopyVideoUrlPatch.copyUrl(true),
-                view -> {
-                    CopyVideoUrlPatch.copyUrl(false);
-                    return true;
-                }
-        );
-    }
 
     /**
      * Injection point.
@@ -50,5 +37,19 @@ public class CopyVideoUrlTimestampButton extends PlayerControlBottomButton {
      */
     public static void changeVisibility(boolean visible, boolean animated) {
         if (instance != null) instance.setVisibility(visible, animated);
+    }
+
+
+    public CopyVideoUrlTimestampButton(ViewGroup controlsView) {
+        super(
+                controlsView,
+                "revanced_copy_video_url_timestamp_button",
+                Settings.COPY_VIDEO_URL_TIMESTAMP::get,
+                view -> CopyVideoUrlPatch.copyUrl(true),
+                view -> {
+                    CopyVideoUrlPatch.copyUrl(false);
+                    return true;
+                }
+        );
     }
 }

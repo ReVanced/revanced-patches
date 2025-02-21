@@ -1,23 +1,19 @@
 package app.revanced.extension.youtube.sponsorblock.ui;
 
 import android.view.View;
-import android.widget.ImageView;
 
 import androidx.annotation.Nullable;
 
-import java.util.Objects;
-
 import app.revanced.extension.shared.Logger;
-import app.revanced.extension.shared.Utils;
 import app.revanced.extension.youtube.patches.VideoInformation;
 import app.revanced.extension.youtube.settings.Settings;
 import app.revanced.extension.youtube.sponsorblock.SegmentPlaybackController;
 import app.revanced.extension.youtube.sponsorblock.SponsorBlockUtils;
-import app.revanced.extension.youtube.videoplayer.PlayerControlTopButton;
+import app.revanced.extension.youtube.videoplayer.PlayerControlButton;
 
-public class VotingButtonController extends PlayerControlTopButton {
+public class VotingButton extends PlayerControlButton {
     @Nullable
-    private static VotingButtonController instance;
+    private static VotingButton instance;
 
     public static void hideControls() {
         if (instance != null) instance.hide();
@@ -26,12 +22,10 @@ public class VotingButtonController extends PlayerControlTopButton {
     /**
      * injection point
      */
-    public static void initialize(View youtubeControlsLayout) {
+    public static void initialize(View controlsView) {
         try {
             Logger.printDebug(() -> "initializing voting button");
-            ImageView imageView = Objects.requireNonNull(Utils.getChildViewByResourceName(
-                    youtubeControlsLayout, "revanced_sb_voting_button"));
-            instance = new VotingButtonController(imageView);
+            instance = new VotingButton(controlsView);
         } catch (Exception ex) {
             Logger.printException(() -> "initialize failure", ex);
         }
@@ -51,12 +45,16 @@ public class VotingButtonController extends PlayerControlTopButton {
         if (instance != null) instance.setVisibility(visible, animated);
     }
 
-    private VotingButtonController(ImageView imageView) {
-        super(imageView, v -> SponsorBlockUtils.onVotingClicked(v.getContext()));
-    }
-
-    protected  boolean shouldBeShown() {
+    private static boolean shouldBeShown() {
         return Settings.SB_ENABLED.get() && Settings.SB_VOTING_BUTTON.get()
                 && SegmentPlaybackController.videoHasSegments() && !VideoInformation.isAtEndOfVideo();
+    }
+
+    private VotingButton(View imageView) {
+        super(imageView,
+                "revanced_sb_voting_button",
+                VotingButton::shouldBeShown,
+                v -> SponsorBlockUtils.onVotingClicked(imageView.getContext()),
+                null);
     }
 }

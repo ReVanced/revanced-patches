@@ -11,19 +11,9 @@ import app.revanced.extension.youtube.patches.VideoInformation;
 import app.revanced.extension.youtube.settings.Settings;
 
 @SuppressWarnings("unused")
-public class ExternalDownloadButton extends PlayerControlBottomButton {
+public class ExternalDownloadButton extends PlayerControlButton {
     @Nullable
     private static ExternalDownloadButton instance;
-
-    public ExternalDownloadButton(ViewGroup viewGroup) {
-        super(
-                viewGroup,
-                "revanced_external_download_button",
-                Settings.EXTERNAL_DOWNLOADER,
-                ExternalDownloadButton::onDownloadClick,
-                null
-        );
-    }
 
     /**
      * Injection point.
@@ -55,6 +45,16 @@ public class ExternalDownloadButton extends PlayerControlBottomButton {
                 VideoInformation.getVideoId(),
                 view.getContext(),
                 true);
+    }
+
+    public ExternalDownloadButton(ViewGroup controlsView) {
+        super(
+                controlsView,
+                "revanced_external_download_button",
+                Settings.EXTERNAL_DOWNLOADER::get,
+                ExternalDownloadButton::onDownloadClick,
+                null
+        );
     }
 }
 

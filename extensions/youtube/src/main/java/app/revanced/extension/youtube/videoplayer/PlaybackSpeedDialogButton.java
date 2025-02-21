@@ -5,24 +5,14 @@ import android.view.ViewGroup;
 
 import androidx.annotation.Nullable;
 
+import app.revanced.extension.shared.Logger;
 import app.revanced.extension.youtube.patches.playback.speed.CustomPlaybackSpeedPatch;
 import app.revanced.extension.youtube.settings.Settings;
-import app.revanced.extension.shared.Logger;
 
 @SuppressWarnings("unused")
-public class PlaybackSpeedDialogButton extends PlayerControlBottomButton {
+public class PlaybackSpeedDialogButton extends PlayerControlButton {
     @Nullable
     private static PlaybackSpeedDialogButton instance;
-
-    public PlaybackSpeedDialogButton(ViewGroup viewGroup) {
-        super(
-                viewGroup,
-                "revanced_playback_speed_dialog_button",
-                Settings.PLAYBACK_SPEED_DIALOG_BUTTON,
-                view -> CustomPlaybackSpeedPatch.showOldPlaybackSpeedMenu(),
-                null
-        );
-    }
 
     /**
      * Injection point.
@@ -47,5 +37,15 @@ public class PlaybackSpeedDialogButton extends PlayerControlBottomButton {
      */
     public static void changeVisibility(boolean visible, boolean animated) {
         if (instance != null) instance.setVisibility(visible, animated);
+    }
+
+    public PlaybackSpeedDialogButton(ViewGroup controlsView) {
+        super(
+                controlsView,
+                "revanced_playback_speed_dialog_button",
+                Settings.PLAYBACK_SPEED_DIALOG_BUTTON::get,
+                view -> CustomPlaybackSpeedPatch.showOldPlaybackSpeedMenu(),
+                null
+        );
     }
 }
