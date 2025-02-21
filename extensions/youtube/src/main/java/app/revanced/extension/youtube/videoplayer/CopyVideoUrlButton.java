@@ -43,6 +43,7 @@ public class CopyVideoUrlButton extends PlayerControlButton {
         super(
                 controlsView,
                 "revanced_copy_video_url_button",
+                "revanced_copy_video_url_button_placeholder",
                 Settings.COPY_VIDEO_URL::get,
                 view -> CopyVideoUrlPatch.copyUrl(false),
                 view -> {

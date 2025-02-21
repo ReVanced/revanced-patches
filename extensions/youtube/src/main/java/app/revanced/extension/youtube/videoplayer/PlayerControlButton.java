@@ -2,6 +2,7 @@ package app.revanced.extension.youtube.videoplayer;
 
 import android.transition.Fade;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.widget.ImageView;
 
@@ -25,9 +26,6 @@ public abstract class PlayerControlButton {
     private static final Animation fadeOutAnimation;
     private static final Animation fadeOutImmediate;
 
-    private static final Fade fadeInTransition;
-    private static final Fade fadeOutTransition;
-
     static {
         fadeInDuration = Utils.getResourceInteger("fade_duration_fast");
         fadeOutDuration = Utils.getResourceInteger("fade_duration_scheduled");
@@ -38,24 +36,18 @@ public abstract class PlayerControlButton {
         fadeOutAnimation = Utils.getResourceAnimation("fade_out");
         fadeOutAnimation.setDuration(fadeOutDuration);
 
-        // Animation for the fast fade out after tappoing the overlay.
-        // Currently not used but should be.
         fadeOutImmediate = Utils.getResourceAnimation("abc_fade_out");
         fadeOutImmediate.setDuration(Utils.getResourceInteger("fade_duration_fast"));
-
-        fadeInTransition = new Fade();
-        fadeInTransition.setDuration(fadeInDuration);
-
-        fadeOutTransition = new Fade();
-        fadeOutTransition.setDuration(fadeOutDuration);
     }
 
     private final WeakReference<ImageView> buttonRef;
     private final PlayerControlButtonVisibility visibilityCheck;
+    private final View placeholder; // Може бути null
     private boolean isVisible;
 
-    protected PlayerControlButton(View controlsViewGroup,
+    protected PlayerControlButton(ViewGroup controlsViewGroup,
                                   String imageViewButtonId,
+                                  @Nullable String placeholderId, // Зроблено необов’язковим
                                   PlayerControlButtonVisibility buttonVisibility,
                                   View.OnClickListener onClickListener,
                                   @Nullable View.OnLongClickListener longClickListener) {
@@ -66,6 +58,15 @@ public abstract class PlayerControlButton {
         ));
         imageView.setVisibility(View.GONE);
 
+        View tempPlaceholder = null;
+        if (placeholderId != null) {
+            tempPlaceholder = controlsViewGroup.findViewById(Utils.getResourceIdentifier(placeholderId, "id"));
+            if (tempPlaceholder != null) {
+                tempPlaceholder.setVisibility(View.GONE);
+            }
+        }
+        placeholder = tempPlaceholder;
+
         imageView.setOnClickListener(onClickListener);
         if (longClickListener != null) {
             imageView.setOnLongClickListener(longClickListener);
@@ -73,12 +74,11 @@ public abstract class PlayerControlButton {
 
         visibilityCheck = buttonVisibility;
         buttonRef = new WeakReference<>(imageView);
+        isVisible = false;
     }
 
     protected void setVisibilityImmediate(boolean visible) {
         if (visible) {
-            // Fix button flickering, by pushing this call to the back of
-            // the main thread and letting other layout code run first.
             Utils.runOnMainThread(() -> private_setVisibility(true, false));
         } else {
             private_setVisibility(false, false);
@@ -86,22 +86,17 @@ public abstract class PlayerControlButton {
     }
 
     protected void setVisibility(boolean visible, boolean animated) {
-        // Ignore this call, otherwise with full screen thumbnails the buttons are visible while seeking.
         if (visible && !animated) return;
-
         private_setVisibility(visible, animated);
     }
 
     private void private_setVisibility(boolean visible, boolean animated) {
         try {
-            // If the visibility state hasn't changed, return early.
             if (isVisible == visible) return;
             isVisible = visible;
 
             ImageView iView = buttonRef.get();
-            if (iView == null) {
-                return;
-            }
+            if (iView == null) return;
 
             if (visible && visibilityCheck.shouldBeShown()) {
                 iView.clearAnimation();
@@ -109,12 +104,14 @@ public abstract class PlayerControlButton {
                     iView.startAnimation(PlayerControlButton.fadeInAnimation);
                 }
                 iView.setVisibility(View.VISIBLE);
+                if (placeholder != null) placeholder.setVisibility(View.GONE);
             } else if (iView.getVisibility() == View.VISIBLE) {
                 iView.clearAnimation();
                 if (animated) {
                     iView.startAnimation(PlayerControlButton.fadeOutAnimation);
                 }
                 iView.setVisibility(View.GONE);
+                if (placeholder != null) placeholder.setVisibility(View.VISIBLE);
             }
         } catch (Exception ex) {
             Logger.printException(() -> "private_setVisibility failure", ex);
@@ -122,16 +119,13 @@ public abstract class PlayerControlButton {
     }
 
     public void hide() {
-        if (!isVisible) {
-            return;
-        }
+        if (!isVisible) return;
 
         Utils.verifyOnMainThread();
         View v = buttonRef.get();
-        if (v == null) {
-            return;
-        }
+        if (v == null) return;
         v.setVisibility(View.GONE);
+        if (placeholder != null) placeholder.setVisibility(View.VISIBLE);
         isVisible = false;
     }
 }

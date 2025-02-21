@@ -44,6 +44,7 @@ public class CopyVideoUrlTimestampButton extends PlayerControlButton {
         super(
                 controlsView,
                 "revanced_copy_video_url_timestamp_button",
+                "revanced_copy_video_url_timestamp_button_placeholder",
                 Settings.COPY_VIDEO_URL_TIMESTAMP::get,
                 view -> CopyVideoUrlPatch.copyUrl(true),
                 view -> {

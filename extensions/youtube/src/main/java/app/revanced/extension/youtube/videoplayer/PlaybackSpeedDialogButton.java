@@ -43,6 +43,7 @@ public class PlaybackSpeedDialogButton extends PlayerControlButton {
         super(
                 controlsView,
                 "revanced_playback_speed_dialog_button",
+                "revanced_playback_speed_dialog_button_placeholder",
                 Settings.PLAYBACK_SPEED_DIALOG_BUTTON::get,
                 view -> CustomPlaybackSpeedPatch.showOldPlaybackSpeedMenu(),
                 null

@@ -51,6 +51,7 @@ public class ExternalDownloadButton extends PlayerControlButton {
         super(
                 controlsView,
                 "revanced_external_download_button",
+                "revanced_external_download_button_placeholder",
                 Settings.EXTERNAL_DOWNLOADER::get,
                 ExternalDownloadButton::onDownloadClick,
                 null

@@ -2,6 +2,7 @@ package app.revanced.extension.youtube.sponsorblock.ui;
 
 import android.view.View;
 
+import android.view.ViewGroup;
 import androidx.annotation.Nullable;
 
 import app.revanced.extension.shared.Logger;
@@ -23,7 +24,7 @@ public class CreateSegmentButton extends PlayerControlButton {
     public static void initialize(View controlsView) {
         try {
             Logger.printDebug(() -> "initializing new segment button");
-            instance = new CreateSegmentButton(controlsView);
+            instance = new CreateSegmentButton((ViewGroup) controlsView);
         } catch (Exception ex) {
             Logger.printException(() -> "initialize failure", ex);
         }
@@ -48,9 +49,10 @@ public class CreateSegmentButton extends PlayerControlButton {
                 && !VideoInformation.isAtEndOfVideo();
     }
 
-    private CreateSegmentButton(View youtubeControlsLayout) {
+    private CreateSegmentButton(ViewGroup youtubeControlsLayout) {
         super(youtubeControlsLayout,
                 "revanced_sb_create_segment_button",
+                null,
                 CreateSegmentButton::shouldBeShown,
                 v -> SponsorBlockViewController.toggleNewSegmentLayoutVisibility(),
                 null);
