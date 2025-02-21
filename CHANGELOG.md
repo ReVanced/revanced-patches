@@ -1,3 +1,10 @@
+# [5.13.0-dev.6](https://github.com/ReVanced/revanced-patches/compare/v5.13.0-dev.5...v5.13.0-dev.6) (2025-02-21)
+
+
+### Features
+
+* **YouTube - Navigation buttons:** Add 'Hide notifications' setting ([#4485](https://github.com/ReVanced/revanced-patches/issues/4485)) ([506d241](https://github.com/ReVanced/revanced-patches/commit/506d2414bbc760e764e5a514b32926083d6ecb6b))
+
 # [5.13.0-dev.5](https://github.com/ReVanced/revanced-patches/compare/v5.13.0-dev.4...v5.13.0-dev.5) (2025-02-19)
 
 
