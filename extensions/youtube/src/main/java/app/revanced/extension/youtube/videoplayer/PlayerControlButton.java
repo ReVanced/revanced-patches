@@ -78,11 +78,7 @@ public abstract class PlayerControlButton {
     }
 
     protected void setVisibilityImmediate(boolean visible) {
-        if (visible) {
-            Utils.runOnMainThread(() -> private_setVisibility(true, false));
-        } else {
-            private_setVisibility(false, false);
-        }
+        private_setVisibility(visible, false);
     }
 
     protected void setVisibility(boolean visible, boolean animated) {

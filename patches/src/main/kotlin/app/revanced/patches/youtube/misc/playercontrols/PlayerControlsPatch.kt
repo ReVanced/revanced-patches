@@ -123,7 +123,7 @@ val playerControlsResourcePatch = resourcePatch {
             ).item(0).childNodes
 
             // Copy the patch layout xml into the target layout file.
-            for (index in 1 until sourceElements.length) {
+            for (index in sourceElements.length - 1 downTo 1) {
                 val element = sourceElements.item(index).cloneNode(true)
 
                 // If the element has no attributes there's no point adding it to the destination.
