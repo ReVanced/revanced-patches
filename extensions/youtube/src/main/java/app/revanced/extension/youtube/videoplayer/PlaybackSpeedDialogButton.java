@@ -8,6 +8,7 @@ import androidx.annotation.Nullable;
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.youtube.patches.playback.speed.CustomPlaybackSpeedPatch;
 import app.revanced.extension.youtube.settings.Settings;
+import app.revanced.extension.youtube.shared.PlayerType;
 
 @SuppressWarnings("unused")
 public class PlaybackSpeedDialogButton extends PlayerControlButton {
@@ -26,17 +27,29 @@ public class PlaybackSpeedDialogButton extends PlayerControlButton {
     }
 
     /**
-     * injection point
+     * Injection point
      */
     public static void changeVisibilityImmediate(boolean visible) {
         if (instance != null) instance.setVisibilityImmediate(visible);
     }
 
     /**
-     * injection point
+     * Injection point
      */
     public static void changeVisibility(boolean visible, boolean animated) {
         if (instance != null) instance.setVisibility(visible, animated);
+    }
+
+    /**
+     * Injection point
+     */
+    public static void onPlayerTypeChanged(PlayerType newType) {
+        if (instance != null) {
+            Logger.printDebug(() -> "Player type changed to: " + newType);
+            if (newType == PlayerType.WATCH_WHILE_MINIMIZED || newType.isMaximizedOrFullscreen()) {
+                instance.syncVisibility();
+            }
+        }
     }
 
     public PlaybackSpeedDialogButton(ViewGroup controlsView) {

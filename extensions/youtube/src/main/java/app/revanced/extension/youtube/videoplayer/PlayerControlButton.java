@@ -139,6 +139,7 @@ public abstract class PlayerControlButton {
         Utils.verifyOnMainThread();
         View view = buttonRef.get();
         if (view == null) return;
+        view.clearAnimation();
         view.setVisibility(View.GONE);
 
         view = placeHolderRef.get();
@@ -150,5 +151,32 @@ public abstract class PlayerControlButton {
             }
         }
         isVisible = false;
+    }
+
+    /**
+     * Synchronizes the button state after the player state changes.
+     * Call this method manually when the player is deployed from a miniplayer.
+     */
+    public void syncVisibility() {
+        Utils.verifyOnMainThread();
+        View button = buttonRef.get();
+        if (button == null) return;
+
+        View placeholder = placeHolderRef.get();
+        Logger.printDebug(() -> "Syncing visibility: isVisible=" + isVisible + ", shouldBeShown=" + visibilityCheck.shouldBeShown());
+        button.clearAnimation(); // Очищаємо анімацію
+
+        if (visibilityCheck.shouldBeShown()) {
+            if (isVisible) {
+                button.setVisibility(View.VISIBLE);
+                if (placeholder != null) placeholder.setVisibility(View.GONE);
+            } else {
+                button.setVisibility(View.GONE);
+                if (placeholder != null) placeholder.setVisibility(View.VISIBLE);
+            }
+        } else {
+            button.setVisibility(View.GONE);
+            if (placeholder != null) placeholder.setVisibility(View.GONE);
+        }
     }
 }
