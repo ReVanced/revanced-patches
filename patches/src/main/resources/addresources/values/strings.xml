@@ -448,10 +448,10 @@ This feature is only available for older devices"</string>
             <string name="revanced_share_copy_url_success">URL copied to clipboard</string>
             <string name="revanced_share_copy_url_timestamp_success">URL with timestamp copied</string>
             <string name="revanced_copy_video_url_title">Show copy video URL button</string>
-            <string name="revanced_copy_video_url_summary_on">Button is shown. Tap to copy video URL. Tap and hold to copy video URL with timestamp</string>
+            <string name="revanced_copy_video_url_summary_on">Button is shown. Tap to copy video URL. Tap and hold to copy with timestamp</string>
             <string name="revanced_copy_video_url_summary_off">Button is not shown</string>
             <string name="revanced_copy_video_url_timestamp_title">Show copy timestamp URL button</string>
-            <string name="revanced_copy_video_url_timestamp_summary_on">Button is shown. Tap to copy video URL with timestamp. Tap and hold to copy video without timestamp</string>
+            <string name="revanced_copy_video_url_timestamp_summary_on">Button is shown. Tap to copy video URL with timestamp. Tap and hold to copy without timestamp</string>
             <string name="revanced_copy_video_url_timestamp_summary_off">Button is not shown</string>
         </patch>
         <patch id="interaction.dialog.removeViewerDiscretionDialogPatch">
