@@ -13,7 +13,7 @@ val hideAdsPatch = bytecodePatch(
 ) {
     compatibleWith("nl.sanomamedia.android.nu"("11.0.0", "11.0.1", "11.1.0"))
 
-    dependsOn(sharedExtensionPatch("nunl"))
+    dependsOn(sharedExtensionPatch("nunl", mainActivityOnCreateHook))
 
     execute {
         // Disable video pre-roll ads.
