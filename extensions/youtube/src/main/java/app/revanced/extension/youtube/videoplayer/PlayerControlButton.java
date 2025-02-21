@@ -87,7 +87,15 @@ public abstract class PlayerControlButton {
 
     private void private_setVisibility(boolean visible, boolean animated) {
         try {
-            if (isVisible == visible) return;
+            if (isVisible == visible) {
+                if (!visible && !visibilityCheck.shouldBeShown()) {
+                    View placeholder = placeHolderRef.get();
+                    if (placeholder != null && placeholder.getVisibility() == View.VISIBLE) {
+                        placeholder.setVisibility(View.GONE);
+                    }
+                }
+                return;
+            }
             isVisible = visible;
 
             View button = buttonRef.get();
@@ -101,19 +109,23 @@ public abstract class PlayerControlButton {
                     button.startAnimation(PlayerControlButton.fadeInAnimation);
                 }
                 button.setVisibility(View.VISIBLE);
-
                 if (placeholder != null) {
                     placeholder.setVisibility(View.GONE);
                 }
-            } else if (button.getVisibility() == View.VISIBLE) {
-                button.clearAnimation();
-                if (animated) {
-                    button.startAnimation(PlayerControlButton.fadeOutAnimation);
+            } else {
+                if (button.getVisibility() == View.VISIBLE) {
+                    button.clearAnimation();
+                    if (animated) {
+                        button.startAnimation(PlayerControlButton.fadeOutAnimation);
+                    }
+                    button.setVisibility(View.GONE);
                 }
-                button.setVisibility(View.GONE);
-
                 if (placeholder != null) {
-                    placeholder.setVisibility(View.VISIBLE);
+                    if (visibilityCheck.shouldBeShown()) {
+                        placeholder.setVisibility(View.VISIBLE);
+                    } else {
+                        placeholder.setVisibility(View.GONE);
+                    }
                 }
             }
         } catch (Exception ex) {
@@ -130,7 +142,13 @@ public abstract class PlayerControlButton {
         view.setVisibility(View.GONE);
 
         view = placeHolderRef.get();
-        if (view != null) view.setVisibility(View.VISIBLE);
+        if (view != null) {
+            if (visibilityCheck.shouldBeShown()) {
+                view.setVisibility(View.VISIBLE);
+            } else {
+                view.setVisibility(View.GONE);
+            }
+        }
         isVisible = false;
     }
 }
