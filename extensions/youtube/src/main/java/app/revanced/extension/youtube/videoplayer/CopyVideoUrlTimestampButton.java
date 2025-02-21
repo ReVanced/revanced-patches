@@ -1,7 +1,6 @@
 package app.revanced.extension.youtube.videoplayer;
 
 import android.view.View;
-import android.view.ViewGroup;
 
 import androidx.annotation.Nullable;
 
@@ -48,17 +47,5 @@ public class CopyVideoUrlTimestampButton {
      */
     public static void setVisibility(boolean visible, boolean animated) {
         if (instance != null) instance.setVisibility(visible, animated);
-    }
-
-    /**
-     * Injection point
-     */
-    public static void onPlayerTypeChanged(PlayerType newType) {
-        if (instance != null) {
-            Logger.printDebug(() -> "Player type changed to: " + newType);
-            if (newType == PlayerType.WATCH_WHILE_MINIMIZED || newType.isMaximizedOrFullscreen()) {
-                instance.syncVisibility();
-            }
-        }
     }
 }

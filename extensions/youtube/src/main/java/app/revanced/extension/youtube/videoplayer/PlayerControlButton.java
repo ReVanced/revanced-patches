@@ -10,6 +10,8 @@ import java.lang.ref.WeakReference;
 
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
+import app.revanced.extension.youtube.shared.PlayerType;
+import kotlin.Unit;
 
 public class PlayerControlButton {
     public interface PlayerControlButtonVisibility {
@@ -75,6 +77,16 @@ public class PlayerControlButton {
         visibilityCheck = buttonVisibility;
         buttonRef = new WeakReference<>(imageView);
         isVisible = false;
+
+        // Update the visibility after the player type changes.
+        // This ensures that button animations are cleared and their states are updated correctly
+        // when switching between states like minimized, maximized, or fullscreen, preventing
+        // "stuck" animations or incorrect visibility.  Without this fix the issue is most noticable
+        // when maximizing type 3 miniplayer.
+        PlayerType.getOnChange().addObserver((PlayerType type) -> {
+            playerTypeChanged(type);
+            return Unit.INSTANCE;
+        });
     }
 
     public void setVisibilityImmediate(boolean visible) {
@@ -129,31 +141,19 @@ public class PlayerControlButton {
         }
     }
 
-    public void hide() {
-        if (!isVisible) return;
-
-        Utils.verifyOnMainThread();
-        View view = buttonRef.get();
-        if (view == null) return;
-        view.setVisibility(View.GONE);
-
-        view = placeHolderRef.get();
-        if (view != null) view.setVisibility(View.GONE);
-        isVisible = false;
-    }
-
     /**
      * Synchronizes the button state after the player state changes.
-     * Call this method manually when the player is deployed from a miniplayer.
      */
-    public void syncVisibility() {
-        Utils.verifyOnMainThread();
+    private void playerTypeChanged(PlayerType newType) {
+        if (newType != PlayerType.WATCH_WHILE_MINIMIZED && !newType.isMaximizedOrFullscreen()) {
+            return;
+        }
+
         View button = buttonRef.get();
         if (button == null) return;
 
+        button.clearAnimation();
         View placeholder = placeHolderRef.get();
-        Logger.printDebug(() -> "Syncing visibility: isVisible=" + isVisible + ", shouldBeShown=" + visibilityCheck.shouldBeShown());
-        button.clearAnimation(); // Очищаємо анімацію
 
         if (visibilityCheck.shouldBeShown()) {
             if (isVisible) {
@@ -167,5 +167,18 @@ public class PlayerControlButton {
             button.setVisibility(View.GONE);
             if (placeholder != null) placeholder.setVisibility(View.GONE);
         }
+    }
+
+    public void hide() {
+        if (!isVisible) return;
+
+        Utils.verifyOnMainThread();
+        View view = buttonRef.get();
+        if (view == null) return;
+        view.setVisibility(View.GONE);
+
+        view = placeHolderRef.get();
+        if (view != null) view.setVisibility(View.GONE);
+        isVisible = false;
     }
 }
