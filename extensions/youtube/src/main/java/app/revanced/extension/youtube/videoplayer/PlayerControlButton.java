@@ -1,7 +1,6 @@
 package app.revanced.extension.youtube.videoplayer;
 
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.widget.ImageView;
 
@@ -41,9 +40,9 @@ public abstract class PlayerControlButton {
         fadeOutImmediate.setDuration(Utils.getResourceInteger("fade_duration_fast"));
     }
 
-    private final WeakReference<ImageView> buttonRef;
+    private final WeakReference<View> buttonRef;
+    private final WeakReference<View> placeHolderRef;
     private final PlayerControlButtonVisibility visibilityCheck;
-    private final WeakReference<ImageView> placeHolderRef;
     private boolean isVisible;
 
     protected PlayerControlButton(View controlsViewGroup,
@@ -52,21 +51,17 @@ public abstract class PlayerControlButton {
                                   PlayerControlButtonVisibility buttonVisibility,
                                   View.OnClickListener onClickListener,
                                   @Nullable View.OnLongClickListener longClickListener) {
-        Logger.printDebug(() -> "Initializing button: " + imageViewButtonId);
-
         ImageView imageView = Objects.requireNonNull(controlsViewGroup.findViewById(
                 Utils.getResourceIdentifier(imageViewButtonId, "id")
         ));
         imageView.setVisibility(View.GONE);
 
-        ImageView tempPlaceholder = null;
+        View tempPlaceholder = null;
         if (placeholderId != null) {
-            tempPlaceholder = controlsViewGroup.findViewById(
+            tempPlaceholder = Objects.requireNonNull(controlsViewGroup.findViewById(
                     Utils.getResourceIdentifier(placeholderId, "id")
-            );
-            if (tempPlaceholder != null) {
-                tempPlaceholder.setVisibility(View.GONE);
-            }
+            ));
+            tempPlaceholder.setVisibility(View.GONE);
         }
         placeHolderRef = new WeakReference<>(tempPlaceholder);
 
@@ -96,27 +91,27 @@ public abstract class PlayerControlButton {
             if (isVisible == visible) return;
             isVisible = visible;
 
-            ImageView iView = buttonRef.get();
-            if (iView == null) return;
+            View button = buttonRef.get();
+            if (button == null) return;
 
-            ImageView placeholder = placeHolderRef.get();
+            View placeholder = placeHolderRef.get();
 
             if (visible && visibilityCheck.shouldBeShown()) {
-                iView.clearAnimation();
+                button.clearAnimation();
                 if (animated) {
-                    iView.startAnimation(PlayerControlButton.fadeInAnimation);
+                    button.startAnimation(PlayerControlButton.fadeInAnimation);
                 }
-                iView.setVisibility(View.VISIBLE);
+                button.setVisibility(View.VISIBLE);
 
                 if (placeholder != null) {
                     placeholder.setVisibility(View.GONE);
                 }
-            } else if (iView.getVisibility() == View.VISIBLE) {
-                iView.clearAnimation();
+            } else if (button.getVisibility() == View.VISIBLE) {
+                button.clearAnimation();
                 if (animated) {
-                    iView.startAnimation(PlayerControlButton.fadeOutAnimation);
+                    button.startAnimation(PlayerControlButton.fadeOutAnimation);
                 }
-                iView.setVisibility(View.GONE);
+                button.setVisibility(View.GONE);
 
                 if (placeholder != null) {
                     placeholder.setVisibility(View.VISIBLE);
