@@ -3,6 +3,7 @@ package app.revanced.patches.nunl.ads
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.patches.shared.misc.extension.sharedExtensionPatch
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Suppress("unused")
@@ -12,7 +13,7 @@ val hideAdsPatch = bytecodePatch(
 ) {
     compatibleWith("nl.sanomamedia.android.nu"("11.0.0", "11.0.1"))
 
-    extendWith("extensions/nunl.rve")
+    dependsOn(sharedExtensionPatch("nunl"))
 
     execute {
         // Disable video pre-roll ads.
