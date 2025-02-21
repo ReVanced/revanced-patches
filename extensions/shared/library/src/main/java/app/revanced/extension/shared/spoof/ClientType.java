@@ -111,7 +111,7 @@ public enum ClientType {
             ANDROID_VR_NO_AUTH.clientVersion,
             ANDROID_VR_NO_AUTH.requiresAuth,
             true,
-            "Android VR"
+            "Android VR Auth"
     );
 
     private static boolean forceAVC() {
