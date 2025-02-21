@@ -11,13 +11,13 @@ import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
 
 // Ideally this should be refactored into PlayerControlBottomButton,
-// but the show/hide logic is not the same so keeping this as two classes might be simpler.
 public abstract class PlayerControlTopButton {
     static final int fadeInDuration;
     static final int fadeOutDuration;
 
-    private static final Animation fadeInAnimation;
-    private static final Animation fadeOutAnimation;
+    static final Animation fadeInAnimation;
+    static final Animation fadeOutAnimation;
+    static final Animation fadeOutImmediate;
 
     static final Fade fadeInTransition;
     static final Fade fadeOutTransition;
@@ -34,6 +34,11 @@ public abstract class PlayerControlTopButton {
 
         fadeOutAnimation = Utils.getResourceAnimation("fade_out");
         fadeOutAnimation.setDuration(fadeOutDuration);
+
+        // Animation for the fast fade out after tappoing the overlay.
+        // Currently not used but should be.
+        fadeOutImmediate = Utils.getResourceAnimation("abc_fade_out");
+        fadeOutImmediate.setDuration(Utils.getResourceInteger("fade_duration_fast"));
 
         fadeInTransition = new Fade();
         fadeInTransition.setDuration(fadeInDuration);

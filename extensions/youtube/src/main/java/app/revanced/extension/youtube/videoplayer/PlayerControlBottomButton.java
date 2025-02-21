@@ -1,9 +1,5 @@
 package app.revanced.extension.youtube.videoplayer;
 
-import static app.revanced.extension.youtube.videoplayer.PlayerControlTopButton.fadeOutDuration;
-
-import android.transition.Fade;
-import android.transition.TransitionManager;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -42,7 +38,13 @@ public abstract class PlayerControlBottomButton {
     }
 
     protected void setVisibilityImmediate(boolean visible) {
-        private_setVisibility(visible, false);
+        if (visible) {
+            // Fix button flickering, by pushing this call to the back of
+            // the main thread and letting other layout code run first.
+            Utils.runOnMainThread(() -> private_setVisibility(true, false));
+        } else {
+            private_setVisibility(false, false);
+        }
     }
 
     protected void setVisibility(boolean visible, boolean animated) {
@@ -63,38 +65,18 @@ public abstract class PlayerControlBottomButton {
                 return;
             }
 
-            ViewGroup parent = (ViewGroup) iView.getParent();
-            if (parent == null) {
-                return;
-            }
-
-            // Apply transition if animation is enabled.
-            if (animated) {
-                Fade fade = visible
-                        ? PlayerControlTopButton.fadeInTransition
-                        :  PlayerControlTopButton.fadeOutTransition;
-                TransitionManager.beginDelayedTransition(parent, fade);
-            }
-
-            // If the view should be visible and the setting allows it.
             if (visible && setting.get()) {
-                // Set the view to VISIBLE.
+                iView.clearAnimation();
+                if (animated) {
+                    iView.startAnimation(PlayerControlTopButton.fadeInAnimation);
+                }
                 iView.setVisibility(View.VISIBLE);
             } else if (iView.getVisibility() == View.VISIBLE) {
-                // First, set visibility to INVISIBLE for animation.
-                iView.setVisibility(View.INVISIBLE);
-
+                iView.clearAnimation();
                 if (animated) {
-                    // Set the view to GONE after the fade animation ends.
-                    Utils.runOnMainThreadDelayed(() -> {
-                        if (!isVisible) {
-                            iView.setVisibility(View.GONE);
-                        }
-                    }, fadeOutDuration);
-                } else {
-                    // If no animation, immediately set the view to GONE.
-                    iView.setVisibility(View.GONE);
+                    iView.startAnimation(PlayerControlTopButton.fadeOutAnimation);
                 }
+                iView.setVisibility(View.GONE);
             }
         } catch (Exception ex) {
             Logger.printException(() -> "private_setVisibility failure", ex);
