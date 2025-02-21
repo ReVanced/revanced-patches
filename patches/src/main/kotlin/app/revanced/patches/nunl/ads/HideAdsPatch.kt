@@ -11,7 +11,7 @@ val hideAdsPatch = bytecodePatch(
     name = "Hide ads",
     description = "Hide ads and sponsored articles in list pages and remove pre-roll ads on videos.",
 ) {
-    compatibleWith("nl.sanomamedia.android.nu"("11.0.0", "11.0.1"))
+    compatibleWith("nl.sanomamedia.android.nu"("11.0.0", "11.0.1", "11.1.0"))
 
     dependsOn(sharedExtensionPatch("nunl"))
 
