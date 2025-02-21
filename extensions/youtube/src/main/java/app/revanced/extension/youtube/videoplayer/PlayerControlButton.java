@@ -7,7 +7,6 @@ import android.widget.ImageView;
 import androidx.annotation.Nullable;
 
 import java.lang.ref.WeakReference;
-import java.util.Objects;
 
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
@@ -41,6 +40,10 @@ public abstract class PlayerControlButton {
     }
 
     private final WeakReference<View> buttonRef;
+    /**
+     * Empty view with the same layout size as the button. Used to fill empty space while the
+     * fade out animation runs. Without this the chapter titles overlapping the button when fading out.
+     */
     private final WeakReference<View> placeHolderRef;
     private final PlayerControlButtonVisibility visibilityCheck;
     private boolean isVisible;
@@ -51,16 +54,12 @@ public abstract class PlayerControlButton {
                                   PlayerControlButtonVisibility buttonVisibility,
                                   View.OnClickListener onClickListener,
                                   @Nullable View.OnLongClickListener longClickListener) {
-        ImageView imageView = Objects.requireNonNull(controlsViewGroup.findViewById(
-                Utils.getResourceIdentifier(imageViewButtonId, "id")
-        ));
+        ImageView imageView = Utils.getChildViewByResourceName(controlsViewGroup, imageViewButtonId);
         imageView.setVisibility(View.GONE);
 
         View tempPlaceholder = null;
         if (placeholderId != null) {
-            tempPlaceholder = Objects.requireNonNull(controlsViewGroup.findViewById(
-                    Utils.getResourceIdentifier(placeholderId, "id")
-            ));
+            tempPlaceholder = Utils.getChildViewByResourceName(controlsViewGroup, placeholderId);
             tempPlaceholder.setVisibility(View.GONE);
         }
         placeHolderRef = new WeakReference<>(tempPlaceholder);
