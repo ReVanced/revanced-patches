@@ -2,7 +2,6 @@ package app.revanced.extension.youtube.sponsorblock.ui;
 
 import android.view.View;
 
-import android.view.ViewGroup;
 import androidx.annotation.Nullable;
 
 import app.revanced.extension.shared.Logger;
@@ -26,7 +25,7 @@ public class VotingButton extends PlayerControlButton {
     public static void initialize(View controlsView) {
         try {
             Logger.printDebug(() -> "initializing voting button");
-            instance = new VotingButton((ViewGroup) controlsView);
+            instance = new VotingButton(controlsView);
         } catch (Exception ex) {
             Logger.printException(() -> "initialize failure", ex);
         }
@@ -51,7 +50,7 @@ public class VotingButton extends PlayerControlButton {
                 && SegmentPlaybackController.videoHasSegments() && !VideoInformation.isAtEndOfVideo();
     }
 
-    private VotingButton(ViewGroup imageView) {
+    private VotingButton(View imageView) {
         super(imageView,
                 "revanced_sb_voting_button",
                 null,
