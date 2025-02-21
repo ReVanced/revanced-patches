@@ -77,11 +77,8 @@ val playerControlsResourcePatch = resourcePatch {
         ).item(0)
 
         val bottomTargetDocumentChildNodes = bottomTargetDocument.childNodes
-        var bottomInsertBeforeNode: Node = bottomTargetDocumentChildNodes.findElementByAttributeValue(
+        var bottomInsertBeforeNode: Node = bottomTargetDocumentChildNodes.findElementByAttributeValueOrThrow(
             "android:inflatedId",
-            bottomLastLeftOf,
-        ) ?: bottomTargetDocumentChildNodes.findElementByAttributeValueOrThrow(
-            "android:id", // Older targets use non-inflated id.
             bottomLastLeftOf,
         )
 
