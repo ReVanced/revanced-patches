@@ -582,12 +582,18 @@ Second \"item\" text"</string>
   <string name="revanced_hide_subscriptions_button_title">Приховати \"Підписки\"</string>
   <string name="revanced_hide_subscriptions_button_summary_on">Кнопку \"Підписки\" приховано на панелі навігації</string>
   <string name="revanced_hide_subscriptions_button_summary_off">Кнопка \"Підписки\" показується на панелі навігації</string>
+  <string name="revanced_hide_notifications_button_title">Приховати \"Сповіщення\"</string>
+  <string name="revanced_hide_notifications_button_summary_on">Кнопку \"Сповіщення\" приховано на панелі навігації</string>
+  <string name="revanced_hide_notifications_button_summary_off">Кнопка \"Сповіщення\" показується на панелі навігації</string>
   <!-- 'Notifications' should be translated using the same localized wording YouTube displays the tab. -->
   <string name="revanced_switch_create_with_notifications_button_title">Замінити \"Створити\" на \"Сповіщення\"</string>
   <string name="revanced_switch_create_with_notifications_button_summary_on">"Кнопку \"Створити\" замінено кнопкою \"Сповіщення\"
 
 Примітка: Увімкнення цього параметру також примусово приховує відеорекламу"</string>
   <string name="revanced_switch_create_with_notifications_button_summary_off">Кнопку \"Створити\" не замінено кнопкою \"Сповіщення\"</string>
+  <string name="revanced_switch_create_with_notifications_button_user_dialog_message">"Вимкнення цього параметра також вимкне блокування реклами в Shorts.
+
+Якщо зміна цього параметра не діє, спробуйте перейти в режим анонімного перегляду."</string>
   <string name="revanced_hide_navigation_button_labels_title">Приховати підписи кнопок навігації</string>
   <string name="revanced_hide_navigation_button_labels_summary_on">Підписи кнопок навігації приховано</string>
   <string name="revanced_hide_navigation_button_labels_summary_off">Підписи кнопок навігації показуються</string>

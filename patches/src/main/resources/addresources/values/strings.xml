@@ -587,12 +587,18 @@ Adjust volume by swiping vertically on the right side of the screen"</string>
             <string name="revanced_hide_subscriptions_button_title">Hide Subscriptions</string>
             <string name="revanced_hide_subscriptions_button_summary_on">Subscriptions button is hidden</string>
             <string name="revanced_hide_subscriptions_button_summary_off">Subscriptions button is shown</string>
+            <string name="revanced_hide_notifications_button_title">Hide Notifications</string>
+            <string name="revanced_hide_notifications_button_summary_on">Notifications button is hidden</string>
+            <string name="revanced_hide_notifications_button_summary_off">Notifications button is shown</string>
             <!-- 'Notifications' should be translated using the same localized wording YouTube displays the tab. -->
             <string name="revanced_switch_create_with_notifications_button_title">Switch Create with Notifications</string>
             <string name="revanced_switch_create_with_notifications_button_summary_on">"Create button is switched with Notifications button
 
 Note: Enabling this also forcibly hides video ads"</string>
             <string name="revanced_switch_create_with_notifications_button_summary_off">Create button is not switched with Notifications button</string>
+            <string name="revanced_switch_create_with_notifications_button_user_dialog_message">"Disabling this setting will also disable Shorts ad blocking.
+
+If changing this setting does not take effect, try switching to Incognito mode."</string>
             <string name="revanced_hide_navigation_button_labels_title">Hide navigation button labels</string>
             <string name="revanced_hide_navigation_button_labels_summary_on">Labels are hidden</string>
             <string name="revanced_hide_navigation_button_labels_summary_off">Labels are shown</string>

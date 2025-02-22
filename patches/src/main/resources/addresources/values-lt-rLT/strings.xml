@@ -582,12 +582,18 @@ Reguliuokite garsumą braukdami vertikaliai dešinėje ekrano pusėje"</string>
   <string name="revanced_hide_subscriptions_button_title">Slėpti Prenumeratos</string>
   <string name="revanced_hide_subscriptions_button_summary_on">Prenumeratų mygtukas paslėptas</string>
   <string name="revanced_hide_subscriptions_button_summary_off">Prenumeratų mygtukas rodomas</string>
+  <string name="revanced_hide_notifications_button_title">Slėpti pranešimus</string>
+  <string name="revanced_hide_notifications_button_summary_on">Pranešimų mygtukas yra paslėptas</string>
+  <string name="revanced_hide_notifications_button_summary_off">Pranešimų mygtukas rodomas</string>
   <!-- 'Notifications' should be translated using the same localized wording YouTube displays the tab. -->
   <string name="revanced_switch_create_with_notifications_button_title">Pakeisti Kurti su Pranešimais</string>
   <string name="revanced_switch_create_with_notifications_button_summary_on">"„Sukurti“ mygtukas pakeistas į „Pranešimai“ mygtuką
 
 Pastaba: įjungus šį nustatymą, vaizdo įrašų reklamos taip pat yra priverstinai paslėptos"</string>
   <string name="revanced_switch_create_with_notifications_button_summary_off">Sukurti mygtukas nėra pakeistas Pranešimų mygtuku</string>
+  <string name="revanced_switch_create_with_notifications_button_user_dialog_message">"Išjungus šį nustatymą, bus išjungtas ir „Shorts“ skelbimų blokavimas.
+
+Jei pakeitus šį nustatymą neįsigalioja, pabandykite perjungti į inkognito režimą."</string>
   <string name="revanced_hide_navigation_button_labels_title">Slėpti naršymo mygtukų etiketes</string>
   <string name="revanced_hide_navigation_button_labels_summary_on">Etiketės yra paslėptos</string>
   <string name="revanced_hide_navigation_button_labels_summary_off">Etiketės yra rodomos</string>

@@ -180,7 +180,7 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_hide_channel_watermark_title">동영상 하단에서 채널 워터마크 숨기기</string>
   <string name="revanced_hide_channel_watermark_summary_on">채널 워터마크가 숨겨집니다</string>
   <string name="revanced_hide_channel_watermark_summary_off">채널 워터마크가 표시됩니다</string>
-  <string name="revanced_hide_horizontal_shelves_title">회전형 선반 숨기기</string>
+  <string name="revanced_hide_horizontal_shelves_title">좌우 슬라이드형 선반 숨기기</string>
   <string name="revanced_hide_horizontal_shelves_summary_on">"다음 선반이 숨겨집니다:
 • 다시 듣기
 • 다시 시청하기
@@ -484,15 +484,15 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   </patch>
   <patch id="interaction.swipecontrols.swipeControlsResourcePatch">
   <string name="revanced_swipe_brightness_title">스와이프 제스처로 밝기 조절 활성화하기</string>
-  <string name="revanced_swipe_brightness_summary_on">"전체 화면 밝기 스와이프가 활성화되었습니다.
+  <string name="revanced_swipe_brightness_summary_on">"전체 화면에서 스와이프 제스처로 밝기 조절을 활성화합니다
 
-화면 왼쪽에서 세로로 스와이프하여 밝기를 조절합니다"</string>
-  <string name="revanced_swipe_brightness_summary_off">전체 화면 밝기 스와이프가 비활성화되었습니다</string>
+• 화면 왼쪽에서 위로/아래로 스와이프하여 밝기 조절할 수 있습니다"</string>
+  <string name="revanced_swipe_brightness_summary_off">전체 화면에서 스와이프 제스처로 밝기 조절을 비활성화합니다</string>
   <string name="revanced_swipe_volume_title">스와이프 제스처로 볼륨 조절 활성화하기</string>
-  <string name="revanced_swipe_volume_summary_on">"전체 화면 볼륨 스와이프가 활성화되었습니다.
+  <string name="revanced_swipe_volume_summary_on">"전체 화면에서 스와이프 제스처로 볼륨 조절을 활성화합니다
 
-화면 오른쪽을 세로로 스와이프하여 볼륨을 조절합니다"</string>
-  <string name="revanced_swipe_volume_summary_off">스와이프 제스처로 볼륨 조절을 비활성화합니다</string>
+• 화면 오른쪽에서 위로/아래로 스와이프하여 볼륨 조절할 수 있습니다"</string>
+  <string name="revanced_swipe_volume_summary_off">전체 화면에서 스와이프 제스처로 볼륨 조절을 비활성화합니다</string>
   <string name="revanced_swipe_press_to_engage_title">길게 눌러서 스와이프 제스처 사용하기</string>
   <string name="revanced_swipe_press_to_engage_summary_on">화면을 길게 눌러서 스와이프 제스처를 사용합니다</string>
   <string name="revanced_swipe_press_to_engage_summary_off">화면을 짧게 눌러서 스와이프 제스처를 사용합니다</string>
@@ -512,15 +512,15 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">스와이프 불투명도 값은 0-100 사이여야 합니다</string>
   <string name="revanced_swipe_threshold_title">스와이프 한계치</string>
   <string name="revanced_swipe_threshold_summary">제스처 인식을 위해 얼마나 스와이프를 해야 할지를 지정할 수 있으며, 원하지 않은 제스처 인식을 방지할 수 있습니다</string>
-  <string name="revanced_swipe_show_circular_overlay_title">원형 오버레이 표시</string>
-  <string name="revanced_swipe_show_circular_overlay_summary_on">원형 오버레이가 표시됩니다</string>
-  <string name="revanced_swipe_show_circular_overlay_summary_off">가로 오버레이가 표시됩니다</string>
-  <string name="revanced_swipe_overlay_minimal_style_title">최소 스타일 사용</string>
-  <string name="revanced_swipe_overlay_minimal_style_summary_on">최소 오버레이 스타일이 활성화되었습니다</string>
-  <string name="revanced_swipe_overlay_minimal_style_summary_off">최소 오버레이 스타일이 비활성화되었습니다</string>
+  <string name="revanced_swipe_show_circular_overlay_title">원형 오버레이 표시하기</string>
+  <string name="revanced_swipe_show_circular_overlay_summary_on">원형 오버레이를 표시합니다</string>
+  <string name="revanced_swipe_show_circular_overlay_summary_off">수평 오버레이를 표시합니다</string>
+  <string name="revanced_swipe_overlay_minimal_style_title">최소화된 스타일 활성화하기</string>
+  <string name="revanced_swipe_overlay_minimal_style_summary_on">최소화된 오버레이 스타일을 활성화합니다</string>
+  <string name="revanced_swipe_overlay_minimal_style_summary_off">최소화된 오버레이 스타일을 비활성화합니다</string>
   <string name="revanced_swipe_change_video_title">스와이프 제스처로 동영상 전환 활성화하기</string>
-  <string name="revanced_swipe_change_video_summary_on">전체 화면 모드에서 위로/아래로 스와이프하여 다음/이전 동영상으로 전환합니다.</string>
-  <string name="revanced_swipe_change_video_summary_off">전체 화면 모드에서 위로/아래로 스와이프하여 다음/이전 동영상으로 전환하지 않습니다.</string>
+  <string name="revanced_swipe_change_video_summary_on">전체 화면에서 위로/아래로 스와이프하여 다음/이전 동영상으로 전환합니다</string>
+  <string name="revanced_swipe_change_video_summary_off">전체 화면에서 위로/아래로 스와이프하여 다음/이전 동영상으로 전환하지 않습니다</string>
   </patch>
   <patch id="layout.autocaptions.autoCaptionsPatch">
   <string name="revanced_auto_captions_title">자동 자막 비활성화하기</string>
@@ -585,6 +585,9 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_hide_subscriptions_button_title">구독 버튼 숨기기</string>
   <string name="revanced_hide_subscriptions_button_summary_on">구독 버튼이 숨겨집니다</string>
   <string name="revanced_hide_subscriptions_button_summary_off">구독 버튼이 표시됩니다</string>
+  <string name="revanced_hide_notifications_button_title">알림 버튼 숨기기</string>
+  <string name="revanced_hide_notifications_button_summary_on">알림 버튼이 숨겨집니다</string>
+  <string name="revanced_hide_notifications_button_summary_off">알림 버튼이 표시됩니다</string>
   <!-- 'Notifications' should be translated using the same localized wording YouTube displays the tab. -->
   <string name="revanced_switch_create_with_notifications_button_title">만들기 버튼과 알림 버튼 위치 교환하기</string>
   <string name="revanced_switch_create_with_notifications_button_summary_on">"만들기 버튼과 알림 버튼의 위치를 교환합니다
@@ -592,6 +595,9 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
 알려진 문제점:
 • 동영상 광고가 강제로 숨겨집니다"</string>
   <string name="revanced_switch_create_with_notifications_button_summary_off">만들기 버튼과 알림 버튼의 위치를 교환하지 않습니다\n\n알려진 문제점:\n• 서버에서 더 많은 광고가 로드될 수 있습니다\n• Shorts 광고가 더 이상 숨겨지지 않습니다</string>
+  <string name="revanced_switch_create_with_notifications_button_user_dialog_message">"이 설정을 비활성화하면 Shorts 광고가 차단되지 않습니다
+
+이 설정을 변경해도 적용되지 않는다면 시크릿 모드로 전환해 보세요"</string>
   <string name="revanced_hide_navigation_button_labels_title">하단바 버튼 라벨 숨기기</string>
   <string name="revanced_hide_navigation_button_labels_summary_on">라벨이 숨겨집니다</string>
   <string name="revanced_hide_navigation_button_labels_summary_off">라벨이 표시됩니다</string>
@@ -918,8 +924,8 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_sb_enable_voting_sum_on">플레이어에서 구간 투표 버튼을 표시합니다</string>
   <string name="revanced_sb_enable_voting_sum_off">플레이어에서 구간 투표 버튼을 표시하지 않습니다</string>
   <string name="revanced_sb_square_layout">각진 레이아웃 사용하기</string>
-  <string name="revanced_sb_square_layout_sum_on">버튼과 컨트롤이 각지게 활성화합니다</string>
-  <string name="revanced_sb_square_layout_sum_off">버튼과 컨트롤이 둥글게 활성화합니다</string>
+  <string name="revanced_sb_square_layout_sum_on">버튼과 컨트롤을 각지게 활성화합니다</string>
+  <string name="revanced_sb_square_layout_sum_off">버튼과 컨트롤을 둥글게 활성화합니다</string>
   <!-- Translations should use language similar to 'revanced_ryd_compact_layout_title' -->
   <string name="revanced_sb_enable_compact_skip_button">최소화된 건너뛰기 버튼 표시하기</string>
   <string name="revanced_sb_enable_compact_skip_button_sum_on">최소화된 건너뛰기 버튼을 표시합니다</string>
@@ -1193,7 +1199,7 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_miniplayer_screen_summary">앱 내에서 최소화된 플레이어의 스타일을 변경할 수 있습니다</string>
   <string name="revanced_miniplayer_type_title">미니 플레이어 유형</string>
   <string name="revanced_miniplayer_type_entry_0">사용 안함</string>
-  <string name="revanced_miniplayer_type_entry_1">기본값</string>
+  <string name="revanced_miniplayer_type_entry_1">기기 기본값 사용</string>
   <string name="revanced_miniplayer_type_entry_2">최소화</string>
   <string name="revanced_miniplayer_type_entry_3">태블릿</string>
   <string name="revanced_miniplayer_type_entry_4">모던 스타일 1</string>

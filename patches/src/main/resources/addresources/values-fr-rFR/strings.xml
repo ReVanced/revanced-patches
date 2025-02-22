@@ -582,12 +582,18 @@ Réglez le volume en balayant verticalement sur le côté droit de l'écran"</st
   <string name="revanced_hide_subscriptions_button_title">Masquer \"Abonnements\"</string>
   <string name="revanced_hide_subscriptions_button_summary_on">Le bouton Abonnements est masqué</string>
   <string name="revanced_hide_subscriptions_button_summary_off">Le bouton Abonnements est affiché</string>
+  <string name="revanced_hide_notifications_button_title">Masquer les notifications</string>
+  <string name="revanced_hide_notifications_button_summary_on">Le bouton Notifications est masqué</string>
+  <string name="revanced_hide_notifications_button_summary_off">Le bouton Notifications est affiché</string>
   <!-- 'Notifications' should be translated using the same localized wording YouTube displays the tab. -->
   <string name="revanced_switch_create_with_notifications_button_title">Échanger Créer et Notifications</string>
   <string name="revanced_switch_create_with_notifications_button_summary_on">"Le bouton Créer est échangé avec le bouton Notifications
 
 Remarque : Activer cette option masque également de force les annonces vidéo"</string>
   <string name="revanced_switch_create_with_notifications_button_summary_off">Le bouton Créer n\'est pas échangé avec le bouton \'Notification\'</string>
+  <string name="revanced_switch_create_with_notifications_button_user_dialog_message">"La désactivation de ce paramètre désactivera également le blocage des publicités Shorts.
+
+Si la modification de ce paramètre ne prend pas effet, essayez de passer en mode navigation privée."</string>
   <string name="revanced_hide_navigation_button_labels_title">Masquer le nom des boutons de navigation</string>
   <string name="revanced_hide_navigation_button_labels_summary_on">Les noms sont masqués</string>
   <string name="revanced_hide_navigation_button_labels_summary_off">Les noms sont affichés</string>

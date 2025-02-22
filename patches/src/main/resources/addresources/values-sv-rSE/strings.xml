@@ -582,12 +582,18 @@ Justera volymen genom att svepa vertikalt på höger sida av skärmen"</string>
   <string name="revanced_hide_subscriptions_button_title">Dölj prenumerationer</string>
   <string name="revanced_hide_subscriptions_button_summary_on">Knappen prenumerationer är dold</string>
   <string name="revanced_hide_subscriptions_button_summary_off">Knappen prenumerationer är synlig</string>
+  <string name="revanced_hide_notifications_button_title">Dölj aviseringar</string>
+  <string name="revanced_hide_notifications_button_summary_on">Aviseringsknappen är dold</string>
+  <string name="revanced_hide_notifications_button_summary_off">Aviseringsknappen är synlig</string>
   <!-- 'Notifications' should be translated using the same localized wording YouTube displays the tab. -->
   <string name="revanced_switch_create_with_notifications_button_title">Växla Skapa med aviseringar</string>
   <string name="revanced_switch_create_with_notifications_button_summary_on">"Skapa-knappen är omkopplad med Notifieringsknappen
 
 Obs: Genom att aktivera detta döljs även videoannonser"</string>
   <string name="revanced_switch_create_with_notifications_button_summary_off">Knappen Skapa är inte bytt med aviseringsknappen</string>
+  <string name="revanced_switch_create_with_notifications_button_user_dialog_message">"Om du inaktiverar den här inställningen inaktiveras även annonsblockering för Shorts.
+
+Om du ändrar den här inställningen och det inte får effekt kan du försöka växla till inkognitoläge."</string>
   <string name="revanced_hide_navigation_button_labels_title">Dölj navigeringsknapp etiketter</string>
   <string name="revanced_hide_navigation_button_labels_summary_on">Etiketter är dolda</string>
   <string name="revanced_hide_navigation_button_labels_summary_off">Etiketter visas</string>

@@ -582,12 +582,18 @@ Hlasitost se upravuje svislým přejetím po pravé straně obrazovky"</string>
   <string name="revanced_hide_subscriptions_button_title">Skrýt Odběry</string>
   <string name="revanced_hide_subscriptions_button_summary_on">Tlačítko Odběry je skryto</string>
   <string name="revanced_hide_subscriptions_button_summary_off">Tlačítko Odběry je zobrazeno</string>
+  <string name="revanced_hide_notifications_button_title">Skrýt oznámení</string>
+  <string name="revanced_hide_notifications_button_summary_on">Tlačítko oznámení je skryto</string>
+  <string name="revanced_hide_notifications_button_summary_off">Tlačítko oznámení je zobrazeno</string>
   <!-- 'Notifications' should be translated using the same localized wording YouTube displays the tab. -->
   <string name="revanced_switch_create_with_notifications_button_title">Zaměnit Vytvořit s Oznámeními</string>
   <string name="revanced_switch_create_with_notifications_button_summary_on">"Tlačítko Vytvořit se přepne s tlačítkem Oznámení
 
 Poznámka: Povolení této funkce také vynuceně skryje video reklamy"</string>
   <string name="revanced_switch_create_with_notifications_button_summary_off">Tlačítko Vytvořit není zaměněno s tlačítkem Oznámení</string>
+  <string name="revanced_switch_create_with_notifications_button_user_dialog_message">"Zakázáním tohoto nastavení také zakážete blokování reklam u položek Shorts.
+
+Pokud změna tohoto nastavení nemá žádný účinek, zkuste přepnout do režimu anonymního prohlížení."</string>
   <string name="revanced_hide_navigation_button_labels_title">Skrýt štítky navigačních tlačítek</string>
   <string name="revanced_hide_navigation_button_labels_summary_on">Štítky jsou skryty</string>
   <string name="revanced_hide_navigation_button_labels_summary_off">Štítky jsou zobrazeny</string>

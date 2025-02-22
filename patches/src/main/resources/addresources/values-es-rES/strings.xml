@@ -572,12 +572,18 @@ Ajusta el volumen deslizando verticalmente en el lado derecho de la pantalla"</s
   <string name="revanced_hide_subscriptions_button_title">Ocultar Suscripciones</string>
   <string name="revanced_hide_subscriptions_button_summary_on">El botón Suscripciones está oculto</string>
   <string name="revanced_hide_subscriptions_button_summary_off">Se muestra el botón Suscripciones</string>
+  <string name="revanced_hide_notifications_button_title">Ocultar notificaciones</string>
+  <string name="revanced_hide_notifications_button_summary_on">El botón de notificaciones está oculto</string>
+  <string name="revanced_hide_notifications_button_summary_off">Se muestra el botón de notificaciones</string>
   <!-- 'Notifications' should be translated using the same localized wording YouTube displays the tab. -->
   <string name="revanced_switch_create_with_notifications_button_title">Cambiar Crear con Notificaciones</string>
   <string name="revanced_switch_create_with_notifications_button_summary_on">"El botón Crear se cambia por el botón Notificaciones
 
 Nota: Habilitar esto también oculta a la fuerza los anuncios de vídeo"</string>
   <string name="revanced_switch_create_with_notifications_button_summary_off">El botón Crear no se cambia con el botón de notificaciones</string>
+  <string name="revanced_switch_create_with_notifications_button_user_dialog_message">"Deshabilitar este ajuste también deshabilitará el bloqueo de anuncios de Shorts.
+
+Si cambiar este ajuste no tiene efecto, intenta cambiar al modo incógnito."</string>
   <string name="revanced_hide_navigation_button_labels_title">Ocultar etiquetas de botón de navegación</string>
   <string name="revanced_hide_navigation_button_labels_summary_on">Las etiquetas están ocultas</string>
   <string name="revanced_hide_navigation_button_labels_summary_off">Las etiquetas se muestran</string>

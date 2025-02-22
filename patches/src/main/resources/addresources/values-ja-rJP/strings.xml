@@ -483,12 +483,12 @@ GmsCore の電池の最適化を無効にしても、バッテリーの使用に
   </patch>
   <patch id="interaction.swipecontrols.swipeControlsResourcePatch">
   <string name="revanced_swipe_brightness_title">明るさジェスチャーを有効にする</string>
-  <string name="revanced_swipe_brightness_summary_on">"全画面表示時の明るさスワイプは有効です
+  <string name="revanced_swipe_brightness_summary_on">"全画面表示の明るさスワイプは有効です
 
 画面の左側を垂直にスワイプして明るさを調整します"</string>
-  <string name="revanced_swipe_brightness_summary_off">全画面表示時の明るさスワイプは無効です</string>
+  <string name="revanced_swipe_brightness_summary_off">全画面表示の明るさスワイプは無効です</string>
   <string name="revanced_swipe_volume_title">音量ジェスチャーを有効にする</string>
-  <string name="revanced_swipe_volume_summary_on">"全画面表示時の音量スワイプは有効です
+  <string name="revanced_swipe_volume_summary_on">"全画面表示の音量スワイプは有効です
 
 画面の右側を縦にスワイプして音量を調整します"</string>
   <string name="revanced_swipe_volume_summary_off">全画面表示時の音量スワイプは無効です</string>
@@ -509,14 +509,14 @@ GmsCore の電池の最適化を無効にしても、バッテリーの使用に
   <string name="revanced_swipe_overlay_background_opacity_title">スワイプ オーバーレイの背景の透明度</string>
   <string name="revanced_swipe_overlay_background_opacity_summary">透明度の値は 0-100 の範囲で、0が透明です</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">透明度の値は 0-100 の間でなければなりません</string>
-  <string name="revanced_swipe_threshold_title">スワイプの大きさのしきい値</string>
-  <string name="revanced_swipe_threshold_summary">スワイプのしきい値</string>
+  <string name="revanced_swipe_threshold_title">スワイプのしきい値</string>
+  <string name="revanced_swipe_threshold_summary">スワイプと判定される最小の距離</string>
   <string name="revanced_swipe_show_circular_overlay_title">円形のオーバーレイを表示する</string>
   <string name="revanced_swipe_show_circular_overlay_summary_on">ジェスチャー中に現在値が円グラフで表示されます</string>
   <string name="revanced_swipe_show_circular_overlay_summary_off">ジェスチャー中に現在値が横方向の棒グラフで表示されます</string>
-  <string name="revanced_swipe_overlay_minimal_style_title">最小限スタイルを有効にする</string>
-  <string name="revanced_swipe_overlay_minimal_style_summary_on">最小限オーバーレイ スタイルは有効です</string>
-  <string name="revanced_swipe_overlay_minimal_style_summary_off">最小限オーバーレイ スタイルは無効です</string>
+  <string name="revanced_swipe_overlay_minimal_style_title">オーバーレイを最小限化する</string>
+  <string name="revanced_swipe_overlay_minimal_style_summary_on">最小限のオーバーレイが表示されます</string>
+  <string name="revanced_swipe_overlay_minimal_style_summary_off">通常のオーバーレイが表示されます</string>
   <string name="revanced_swipe_change_video_title">スワイプして動画を切り替える</string>
   <string name="revanced_swipe_change_video_summary_on">全画面表示でスワイプすると、次 / 前の動画に切り替わります</string>
   <string name="revanced_swipe_change_video_summary_off">全画面表示でスワイプしても、次 / 前の動画には切り替わりません</string>
@@ -584,12 +584,18 @@ GmsCore の電池の最適化を無効にしても、バッテリーの使用に
   <string name="revanced_hide_subscriptions_button_title">登録チャンネル ボタンを非表示</string>
   <string name="revanced_hide_subscriptions_button_summary_on">登録チャンネル ボタンは表示されません</string>
   <string name="revanced_hide_subscriptions_button_summary_off">登録チャンネル ボタンは表示されます</string>
+  <string name="revanced_hide_notifications_button_title">通知を非表示</string>
+  <string name="revanced_hide_notifications_button_summary_on">通知ボタンは非表示</string>
+  <string name="revanced_hide_notifications_button_summary_off">通知ボタンが表示されます</string>
   <!-- 'Notifications' should be translated using the same localized wording YouTube displays the tab. -->
   <string name="revanced_switch_create_with_notifications_button_title">作成ボタンと通知ボタンを入れ替える</string>
   <string name="revanced_switch_create_with_notifications_button_summary_on">"作成ボタンと通知ボタンが入れ替わります
 
 注: これにより、動画広告も強制的に非表示になります"</string>
   <string name="revanced_switch_create_with_notifications_button_summary_off">作成ボタンと通知ボタンは入れ替わりません</string>
+  <string name="revanced_switch_create_with_notifications_button_user_dialog_message">"この設定を無効にすると、Shortsの広告ブロックも無効になります。
+
+この設定を変更しても有効にならない場合は、シークレットモードに切り替えてみてください。"</string>
   <string name="revanced_hide_navigation_button_labels_title">ナビゲーション ボタンをアイコンのみで表示する</string>
   <string name="revanced_hide_navigation_button_labels_summary_on">ナビゲーション ボタンはアイコンのみで表示されます</string>
   <string name="revanced_hide_navigation_button_labels_summary_off">ナビゲーション ボタンはアイコンと文字で表示されます</string>
