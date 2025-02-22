@@ -13,6 +13,9 @@ import app.revanced.extension.shared.Utils;
 
 public class PlayerControlButton {
     public interface PlayerControlButtonVisibility {
+        /**
+         * @return If the button should be shown when the player overlay is visible.
+         */
         boolean shouldBeShown();
     }
 
