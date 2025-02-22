@@ -135,7 +135,7 @@ public class PlayerControlButton {
         view.setVisibility(View.GONE);
 
         view = placeHolderRef.get();
-        if (view != null) view.setVisibility(View.VISIBLE);
+        if (view != null) view.setVisibility(View.GONE);
         isVisible = false;
     }
 }
