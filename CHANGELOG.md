@@ -1,3 +1,10 @@
+# [5.13.0-dev.8](https://github.com/ReVanced/revanced-patches/compare/v5.13.0-dev.7...v5.13.0-dev.8) (2025-02-22)
+
+
+### Bug Fixes
+
+* **YouTube - Spoof app version:** Force old settings menus if spoofing to older app targets ([#4490](https://github.com/ReVanced/revanced-patches/issues/4490)) ([45e7c46](https://github.com/ReVanced/revanced-patches/commit/45e7c46dd9c70c926b8b1a97ada668f90f5f6f8c))
+
 # [5.13.0-dev.7](https://github.com/ReVanced/revanced-patches/compare/v5.13.0-dev.6...v5.13.0-dev.7) (2025-02-22)
 
 
