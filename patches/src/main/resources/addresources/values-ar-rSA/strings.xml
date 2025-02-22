@@ -582,12 +582,18 @@ Second \"item\" text"</string>
   <string name="revanced_hide_subscriptions_button_title">إخفاء الاشتراكات</string>
   <string name="revanced_hide_subscriptions_button_summary_on">تم إخفاء زر الاشتراكات</string>
   <string name="revanced_hide_subscriptions_button_summary_off">يتم عرض زر الاشتراكات</string>
+  <string name="revanced_hide_notifications_button_title">إخفاء الإشعارات</string>
+  <string name="revanced_hide_notifications_button_summary_on">تم إخفاء زر الإشعارات</string>
+  <string name="revanced_hide_notifications_button_summary_off">يتم عرض زر الإشعارات</string>
   <!-- 'Notifications' should be translated using the same localized wording YouTube displays the tab. -->
   <string name="revanced_switch_create_with_notifications_button_title">تبديل الإنشاء مع الإشعارات</string>
   <string name="revanced_switch_create_with_notifications_button_summary_on">"تم تبديل زر الإنشاء بـزر الإشعارات
 
 ملاحظة: يؤدي تمكين هذا أيضًا إلى إخفاء إعلانات الفيديو بالقوة"</string>
   <string name="revanced_switch_create_with_notifications_button_summary_off">لا يتم تبديل زر الإنشاء بزر الإشعارات</string>
+  <string name="revanced_switch_create_with_notifications_button_user_dialog_message">"سيؤدي تعطيل هذا الإعداد أيضًا إلى تعطيل حظر إعلانات Shorts.
+
+إذا لم يتم تفعيل تغيير هذا الإعداد، فحاول التبديل إلى وضع التصفُّح المتخفي."</string>
   <string name="revanced_hide_navigation_button_labels_title">إخفاء تسميات زر التنقل</string>
   <string name="revanced_hide_navigation_button_labels_summary_on">تم إخفاء التسميات</string>
   <string name="revanced_hide_navigation_button_labels_summary_off">يتم عرض التسميات</string>

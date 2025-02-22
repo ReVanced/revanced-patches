@@ -582,12 +582,18 @@ Podesite jačinu zvuka prevlačenjem vertikalno na desnoj strani ekrana"</string
   <string name="revanced_hide_subscriptions_button_title">Sakrij dugme „Praćenja”</string>
   <string name="revanced_hide_subscriptions_button_summary_on">Dugme „Praćenja” je skriveno</string>
   <string name="revanced_hide_subscriptions_button_summary_off">Dugme „Praćenja” je prikazano</string>
+  <string name="revanced_hide_notifications_button_title">Sakrij obaveštenja</string>
+  <string name="revanced_hide_notifications_button_summary_on">Dugme „Obaveštenja” je skriveno</string>
+  <string name="revanced_hide_notifications_button_summary_off">Dugme „Obaveštenja” je prikazano</string>
   <!-- 'Notifications' should be translated using the same localized wording YouTube displays the tab. -->
   <string name="revanced_switch_create_with_notifications_button_title">Zameni dugme „Napravi” dugmetom „Obaveštenja”</string>
   <string name="revanced_switch_create_with_notifications_button_summary_on">"Dugme „Napravi” je zamenjeno dugmetom „Obaveštenja”
 
 Napomena: Omogućavanje ovoga prisilno sakriva i video oglase"</string>
   <string name="revanced_switch_create_with_notifications_button_summary_off">Dugme „Napravi” nije zamenjeno dugmetom „Obaveštenja”</string>
+  <string name="revanced_switch_create_with_notifications_button_user_dialog_message">"Onemogućavanje ove opcije će onemogućiti i blokiranje oglasa u Shorts videima.
+
+Ako se promena ove opcije ne primeni, pokušajte da pređete u režim bez arhiviranja."</string>
   <string name="revanced_hide_navigation_button_labels_title">Sakrij oznake dugmadi za navigaciju</string>
   <string name="revanced_hide_navigation_button_labels_summary_on">Oznake dugmadi za navigaciju su skrivene</string>
   <string name="revanced_hide_navigation_button_labels_summary_off">Oznake dugmadi za navigaciju su prikazane</string>

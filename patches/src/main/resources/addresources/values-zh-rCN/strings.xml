@@ -582,12 +582,18 @@ Second \"item\" text"</string>
   <string name="revanced_hide_subscriptions_button_title">隐藏「订阅」按钮</string>
   <string name="revanced_hide_subscriptions_button_summary_on">订阅按钮已隐藏</string>
   <string name="revanced_hide_subscriptions_button_summary_off">订阅按钮已显示</string>
+  <string name="revanced_hide_notifications_button_title">隐藏通知</string>
+  <string name="revanced_hide_notifications_button_summary_on">通知按钮已隐藏</string>
+  <string name="revanced_hide_notifications_button_summary_off">通知按钮已显示</string>
   <!-- 'Notifications' should be translated using the same localized wording YouTube displays the tab. -->
   <string name="revanced_switch_create_with_notifications_button_title">将「创作」改成「通知」按钮</string>
   <string name="revanced_switch_create_with_notifications_button_summary_on">"创作按钮将切换成通知按钮
 
 注意：启用此功能也会强制隐藏视频广告"</string>
   <string name="revanced_switch_create_with_notifications_button_summary_off">创作按钮未切换成通知按钮</string>
+  <string name="revanced_switch_create_with_notifications_button_user_dialog_message">"禁用此设置也会禁用 Shorts 广告拦截。
+
+如果更改此设置未生效，请尝试切换到无痕模式。"</string>
   <string name="revanced_hide_navigation_button_labels_title">隐藏导航栏按钮标签</string>
   <string name="revanced_hide_navigation_button_labels_summary_on">标签已隐藏</string>
   <string name="revanced_hide_navigation_button_labels_summary_off">标签已显示</string>

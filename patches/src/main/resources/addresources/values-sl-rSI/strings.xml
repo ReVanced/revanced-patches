@@ -582,12 +582,18 @@ Prilagodite glasnost s potegom navpično na desni strani zaslona"</string>
   <string name="revanced_hide_subscriptions_button_title">Skrij Naročnine</string>
   <string name="revanced_hide_subscriptions_button_summary_on">Gumb Naročnine je skrit</string>
   <string name="revanced_hide_subscriptions_button_summary_off">Gumb Naročnine je prikazan</string>
+  <string name="revanced_hide_notifications_button_title">Skrij obvestila</string>
+  <string name="revanced_hide_notifications_button_summary_on">Gumb za obvestila je skrit</string>
+  <string name="revanced_hide_notifications_button_summary_off">Gumb za obvestila je prikazan</string>
   <!-- 'Notifications' should be translated using the same localized wording YouTube displays the tab. -->
   <string name="revanced_switch_create_with_notifications_button_title">Zamenjaj Ustvari z Obvestili</string>
   <string name="revanced_switch_create_with_notifications_button_summary_on">"Gumb Ustvari je zamenjan z gumbom Obvestila
 
 Opomba: Omogočanje tega tudi prisilno skrije video oglase"</string>
   <string name="revanced_switch_create_with_notifications_button_summary_off">Gumb \"Ustvari\" ni zamenjan z gumbom \"Obvestila\"</string>
+  <string name="revanced_switch_create_with_notifications_button_user_dialog_message">"Če onemogočite to nastavitev, boste onemogočili tudi blokiranje oglasov za Shorts.
+
+Če sprememba te nastavitve ne začne veljati, poskusite preklopiti v način brez beleženja zgodovine."</string>
   <string name="revanced_hide_navigation_button_labels_title">Skrij oznake gumbov za navigacijo</string>
   <string name="revanced_hide_navigation_button_labels_summary_on">Oznake so skrite</string>
   <string name="revanced_hide_navigation_button_labels_summary_off">Oznake so prikazane</string>

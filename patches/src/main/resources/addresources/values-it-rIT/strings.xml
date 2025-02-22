@@ -190,13 +190,13 @@ Non sarai notificato di eventi imprevisti."</string>
   <string name="revanced_hide_horizontal_shelves_summary_off">Le sezioni sono visibili</string>
   <!-- 'Join' should be translated using the same localized wording YouTube displays.
                  This appears in the video player for certain videos. -->
-  <string name="revanced_hide_join_membership_button_title">Nascondi il pulsante Iscriviti</string>
+  <string name="revanced_hide_join_membership_button_title">Nascondi il pulsante Abbonati</string>
   <string name="revanced_hide_join_membership_button_summary_on">Il pulsante è nascosto</string>
   <string name="revanced_hide_join_membership_button_summary_off">Il pulsante è visibile</string>
   <!-- 'For you' should be translated using the same localized wording YouTube displays. -->
   <string name="revanced_hide_for_you_shelf_title">Nascondi sezione \"Per te\"</string>
-  <string name="revanced_hide_for_you_shelf_summary_on">Lo shelf nella pagina del canale è nascosto</string>
-  <string name="revanced_hide_for_you_shelf_summary_off">Lo shelf nella pagina del canale è visibile</string>
+  <string name="revanced_hide_for_you_shelf_summary_on">Il ripiano nella pagina del canale è nascosto</string>
+  <string name="revanced_hide_for_you_shelf_summary_off">Il ripiano nella pagina del canale è visibile</string>
   <!-- 'Notify me' should be translated using the same localized wording YouTube displays.
                  This item appear in the subscription feed for future livestreams or unreleased videos. -->
   <string name="revanced_hide_notify_me_button_title">Nascondi il pulsante \'Avvisami\'</string>
@@ -277,10 +277,10 @@ Non sarai notificato di eventi imprevisti."</string>
   <string name="revanced_hide_artist_cards_title">Nascondi le schede artista</string>
   <string name="revanced_hide_artist_cards_summary_on">Le schede artista sono nascoste</string>
   <string name="revanced_hide_artist_cards_summary_off">Le schede artista sono visibili</string>
-  <string name="revanced_hide_attributes_section_title">Nascondi gli attributi</string>
+  <string name="revanced_hide_attributes_section_title">Nascondi Attributi</string>
   <string name="revanced_hide_attributes_section_summary_on">Le sezioni Luoghi in evidenza, Giochi, Musica e Persone menzionate sono nascoste</string>
   <string name="revanced_hide_attributes_section_summary_off">Le sezioni Luoghi in evidenza, Giochi, Musica e Persone menzionate sono visibili</string>
-  <string name="revanced_hide_chapters_section_title">Nascondi i capitoli</string>
+  <string name="revanced_hide_chapters_section_title">Nascondi Capitoli</string>
   <string name="revanced_hide_chapters_section_summary_on">La sezione Capitoli è nascosta</string>
   <string name="revanced_hide_chapters_section_summary_off">La sezione Capitoli è visibile</string>
   <string name="revanced_hide_how_this_was_made_section_title">Nascondi \"Come è stato realizzato questo contenuto\"</string>
@@ -289,13 +289,13 @@ Non sarai notificato di eventi imprevisti."</string>
   <string name="revanced_hide_podcast_section_title">Nascondi \"Esplora il podcast\"</string>
   <string name="revanced_hide_podcast_section_summary_on">La sezione Esplora il podcast è nascosta</string>
   <string name="revanced_hide_podcast_section_summary_off">La sezione Esplora il podcast è visibile</string>
-  <string name="revanced_hide_info_cards_section_title">Nascondi schede info</string>
+  <string name="revanced_hide_info_cards_section_title">Nascondi le schede informative</string>
   <string name="revanced_hide_info_cards_section_summary_on">La sezione Schede Informative è nascosta</string>
   <string name="revanced_hide_info_cards_section_summary_off">La sezione Schede Informative è visibile</string>
   <string name="revanced_hide_key_concepts_section_title">Nascondi \"Concetti chiave\"</string>
   <string name="revanced_hide_key_concepts_section_summary_on">La sezione Concetti chiave è nascosta</string>
   <string name="revanced_hide_key_concepts_section_summary_off">La sezione Concetti chiave è visibile</string>
-  <string name="revanced_hide_transcript_section_title">Nascondi trascrizione</string>
+  <string name="revanced_hide_transcript_section_title">Nascondi Trascrizione</string>
   <string name="revanced_hide_transcript_section_summary_on">La sezione Trascrizione è nascosta</string>
   <string name="revanced_hide_transcript_section_summary_off">La sezione Trascrizione è visibile</string>
   <string name="revanced_hide_description_components_screen_title">Descrizione del video</string>
@@ -582,12 +582,18 @@ Regola il volume scorrendo verticalmente sul lato destro dello schermo"</string>
   <string name="revanced_hide_subscriptions_button_title">Nascondi Iscrizioni</string>
   <string name="revanced_hide_subscriptions_button_summary_on">Il pulsante Iscrizioni è nascosto</string>
   <string name="revanced_hide_subscriptions_button_summary_off">Il pulsante Iscrizioni è visibile</string>
+  <string name="revanced_hide_notifications_button_title">Nascondi Notifiche</string>
+  <string name="revanced_hide_notifications_button_summary_on">Il pulsante Notifiche è nascosto</string>
+  <string name="revanced_hide_notifications_button_summary_off">Il pulsante Notifiche è visibile</string>
   <!-- 'Notifications' should be translated using the same localized wording YouTube displays the tab. -->
   <string name="revanced_switch_create_with_notifications_button_title">Cambia Crea con le notifiche</string>
   <string name="revanced_switch_create_with_notifications_button_summary_on">"Il pulsante Crea viene sostituito con il pulsante Notifiche
 
 Nota: Abilitare questa opzione nasconde anche le pubblicità video"</string>
   <string name="revanced_switch_create_with_notifications_button_summary_off">Il pulsante Crea non è cambiato con il pulsante Notifiche</string>
+  <string name="revanced_switch_create_with_notifications_button_user_dialog_message">"La disattivazione di questa impostazione disabiliterà anche il blocco degli annunci per gli Shorts.
+
+Se la modifica di questa impostazione non ha effetto, prova a passare alla modalità di navigazione in incognito."</string>
   <string name="revanced_hide_navigation_button_labels_title">Nascondi etichette dei pulsanti di navigazione</string>
   <string name="revanced_hide_navigation_button_labels_summary_on">Le etichette sono nascoste</string>
   <string name="revanced_hide_navigation_button_labels_summary_off">Le etichette sono visibili</string>

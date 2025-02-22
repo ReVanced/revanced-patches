@@ -582,12 +582,18 @@ Tính năng này chỉ khả dụng cho các thiết bị cũ hơn"</string>
   <string name="revanced_hide_subscriptions_button_title">Ẩn Đăng ký</string>
   <string name="revanced_hide_subscriptions_button_summary_on">Nút đăng ký được ẩn</string>
   <string name="revanced_hide_subscriptions_button_summary_off">Nút Đăng ký được hiện</string>
+  <string name="revanced_hide_notifications_button_title">Ẩn Thông báo</string>
+  <string name="revanced_hide_notifications_button_summary_on">Nút Thông báo đang ẩn</string>
+  <string name="revanced_hide_notifications_button_summary_off">Nút Thông báo đang hiện</string>
   <!-- 'Notifications' should be translated using the same localized wording YouTube displays the tab. -->
   <string name="revanced_switch_create_with_notifications_button_title">Chuyển vị nút Tạo với nút Thông báo</string>
   <string name="revanced_switch_create_with_notifications_button_summary_on">"Nút tạo được chuyển đổi với nút Thông báo
 
 Lưu ý: Bật tính năng này cũng sẽ tự động ẩn quảng cáo video"</string>
   <string name="revanced_switch_create_with_notifications_button_summary_off">Nút Tạo không chuyển vị với nút Thông báo</string>
+  <string name="revanced_switch_create_with_notifications_button_user_dialog_message">"Tắt cài đặt này cũng sẽ tắt chặn quảng cáo trên Shorts.
+
+Nếu việc thay đổi cài đặt này không có hiệu lực, hãy thử chuyển sang chế độ Ẩn danh."</string>
   <string name="revanced_hide_navigation_button_labels_title">Ẩn các nhãn nút điều hướng</string>
   <string name="revanced_hide_navigation_button_labels_summary_on">Các nhãn được ẩn</string>
   <string name="revanced_hide_navigation_button_labels_summary_off">Các nhãn được hiện</string>

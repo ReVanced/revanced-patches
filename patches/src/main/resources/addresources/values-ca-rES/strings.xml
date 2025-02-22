@@ -582,12 +582,18 @@ Ajusteu el volum lliscant verticalment a la part dreta de la pantalla"</string>
   <string name="revanced_hide_subscriptions_button_title">Amaga les subscripcions</string>
   <string name="revanced_hide_subscriptions_button_summary_on">El botó de subscripcions està ocult</string>
   <string name="revanced_hide_subscriptions_button_summary_off">El botó de subscripcions es mostra</string>
+  <string name="revanced_hide_notifications_button_title">Amaga les notificacions</string>
+  <string name="revanced_hide_notifications_button_summary_on">El botó de notificacions està amagat</string>
+  <string name="revanced_hide_notifications_button_summary_off">El botó de notificacions es mostra</string>
   <!-- 'Notifications' should be translated using the same localized wording YouTube displays the tab. -->
   <string name="revanced_switch_create_with_notifications_button_title">Canvia Crea amb notificacions</string>
   <string name="revanced_switch_create_with_notifications_button_summary_on">"El botó Crea es canvia pel botó Notificacions
 
 Nota: si actives aquesta opció, també s'amaguen els anuncis de vídeo per força"</string>
   <string name="revanced_switch_create_with_notifications_button_summary_off">El botó Crear no s\'intercanvia amb el botó Notificacions</string>
+  <string name="revanced_switch_create_with_notifications_button_user_dialog_message">"Desactivar aquesta opció també desactivarà el bloqueig d'anuncis de Shorts.
+
+Si canviar aquesta opció no té cap efecte, prova a canviar al mode d'incògnit."</string>
   <string name="revanced_hide_navigation_button_labels_title">Amagueu les etiquetes dels botons de navegació</string>
   <string name="revanced_hide_navigation_button_labels_summary_on">Les etiquetes estan amagades</string>
   <string name="revanced_hide_navigation_button_labels_summary_off">Les etiquetes es mostren</string>

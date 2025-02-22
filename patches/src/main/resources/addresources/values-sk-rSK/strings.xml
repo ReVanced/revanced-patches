@@ -575,12 +575,18 @@ Upravte hlasitosť posúvaním vertikálne na pravej strane obrazovky"</string>
   <string name="revanced_hide_subscriptions_button_title">Skryť odbery</string>
   <string name="revanced_hide_subscriptions_button_summary_on">Tlačidlo odberov je skryté</string>
   <string name="revanced_hide_subscriptions_button_summary_off">Zobrazí sa tlačidlo odberov</string>
+  <string name="revanced_hide_notifications_button_title">Skryť upozornenia</string>
+  <string name="revanced_hide_notifications_button_summary_on">Tlačidlo upozornení je skryté</string>
+  <string name="revanced_hide_notifications_button_summary_off">Tlačidlo upozornení je zobrazené</string>
   <!-- 'Notifications' should be translated using the same localized wording YouTube displays the tab. -->
   <string name="revanced_switch_create_with_notifications_button_title">Prepnite na položku Vytvoriť s upozorneniami</string>
   <string name="revanced_switch_create_with_notifications_button_summary_on">"Tlačidlo Vytvoriť sa prepne s tlačidlom Upozornenia
 
 Poznámka: Povolením tejto možnosti sa tiež vynútene skryjú video reklamy"</string>
   <string name="revanced_switch_create_with_notifications_button_summary_off">Tlačidlo Vytvoriť sa neprepína s tlačidlom Upozornenia</string>
+  <string name="revanced_switch_create_with_notifications_button_user_dialog_message">"Deaktiváciou tohto nastavenia sa deaktivuje aj blokovanie reklám pre Shorts.
+
+Ak zmena tohto nastavenia nemá žiadny účinok, skúste prepnúť do režimu inkognito."</string>
   <string name="revanced_hide_navigation_button_labels_title">Skryť štítky navigačných tlačidiel</string>
   <string name="revanced_hide_navigation_button_labels_summary_on">Štítky sú skryté</string>
   <string name="revanced_hide_navigation_button_labels_summary_off">Zobrazia sa štítky</string>

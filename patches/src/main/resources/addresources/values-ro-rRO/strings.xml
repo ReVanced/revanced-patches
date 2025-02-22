@@ -582,12 +582,18 @@ Reglați volumul glisând vertical pe partea dreaptă a ecranului"</string>
   <string name="revanced_hide_subscriptions_button_title">Ascunde abonamentele</string>
   <string name="revanced_hide_subscriptions_button_summary_on">Butonul Abonamente este ascuns</string>
   <string name="revanced_hide_subscriptions_button_summary_off">Butonul Abonamente este afișat</string>
+  <string name="revanced_hide_notifications_button_title">Ascunde notificările</string>
+  <string name="revanced_hide_notifications_button_summary_on">Butonul Notificări este ascuns</string>
+  <string name="revanced_hide_notifications_button_summary_off">Butonul Notificări este afișat</string>
   <!-- 'Notifications' should be translated using the same localized wording YouTube displays the tab. -->
   <string name="revanced_switch_create_with_notifications_button_title">Comutare creare cu notificări</string>
   <string name="revanced_switch_create_with_notifications_button_summary_on">"Butonul Creare este comutat cu butonul Notificări
 
 Notă: Activarea acestei opțiuni ascunde, de asemenea, forțat reclamele video"</string>
   <string name="revanced_switch_create_with_notifications_button_summary_off">Butonul Creare nu este comutat cu butonul Notificări</string>
+  <string name="revanced_switch_create_with_notifications_button_user_dialog_message">"Dezactivarea acestei setări va dezactiva, de asemenea, blocarea anunțurilor pentru Shorts.
+
+Dacă modificarea acestei setări nu are efect, încercați să comutați la modul Incognito."</string>
   <string name="revanced_hide_navigation_button_labels_title">Ascunde etichetele butoanelor de navigare</string>
   <string name="revanced_hide_navigation_button_labels_summary_on">Etichetele sunt ascunse</string>
   <string name="revanced_hide_navigation_button_labels_summary_off">Etichetele sunt afișate</string>

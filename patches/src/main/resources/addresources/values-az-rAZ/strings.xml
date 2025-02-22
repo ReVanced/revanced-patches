@@ -582,12 +582,18 @@ Ekranın sağ tərəfində düzünə sürüşdürərək səs səviyyəsini tənz
   <string name="revanced_hide_subscriptions_button_title">\"Abunəliklər\"i gizlət</string>
   <string name="revanced_hide_subscriptions_button_summary_on">Abunəliklər düyməsi gizlidir</string>
   <string name="revanced_hide_subscriptions_button_summary_off">Abunəliklər düyməsi göstərilir</string>
+  <string name="revanced_hide_notifications_button_title">Bildirişləri Gizlət</string>
+  <string name="revanced_hide_notifications_button_summary_on">Bildirişlər düyməsi gizlidir</string>
+  <string name="revanced_hide_notifications_button_summary_off">Bildirişlər düyməsi görünür</string>
   <!-- 'Notifications' should be translated using the same localized wording YouTube displays the tab. -->
   <string name="revanced_switch_create_with_notifications_button_title">\"Yarat\"ı \"Bildirişlər\" ilə dəyişdir</string>
   <string name="revanced_switch_create_with_notifications_button_summary_on">"Yarat düyməsi Bildirişlər düyməsi ilə dəyişdirilir
 
 Qeyd: Bunu aktivləşdirmə video reklamları da məcburi olaraq gizlədir"</string>
   <string name="revanced_switch_create_with_notifications_button_summary_off">\"Yarat\" düyməsi, \"Bildirişlər\" düyməsi ilə əvəzlənmir</string>
+  <string name="revanced_switch_create_with_notifications_button_user_dialog_message">"Bu seçimin qapanması Shorts reklam əngəllənməsin də qapadacaq.
+
+Bu seçimi dəyişdirmə işə düşmürsə, Gizli rejimə keçməyə çalışın."</string>
   <string name="revanced_hide_navigation_button_labels_title">Fəaliyyət düymə etiketlərini gizlət</string>
   <string name="revanced_hide_navigation_button_labels_summary_on">Etiketlər gizlidir</string>
   <string name="revanced_hide_navigation_button_labels_summary_off">Etiketlər göstərilir</string>

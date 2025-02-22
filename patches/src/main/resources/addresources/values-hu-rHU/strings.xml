@@ -582,12 +582,18 @@ A hangerő a képernyő jobb oldalán függőlegesen húzva állítható be"</st
   <string name="revanced_hide_subscriptions_button_title">Feliratkozások elrejtése</string>
   <string name="revanced_hide_subscriptions_button_summary_on">A feliratkozások gomb el van rejtve</string>
   <string name="revanced_hide_subscriptions_button_summary_off">A feliratkozások gomb megjelenítve</string>
+  <string name="revanced_hide_notifications_button_title">Értesítések elrejtése</string>
+  <string name="revanced_hide_notifications_button_summary_on">Az értesítések gomb rejtve van</string>
+  <string name="revanced_hide_notifications_button_summary_off">Az értesítések gomb megjelenik</string>
   <!-- 'Notifications' should be translated using the same localized wording YouTube displays the tab. -->
   <string name="revanced_switch_create_with_notifications_button_title">Létrehozás felcserélése az értesítésekkel</string>
   <string name="revanced_switch_create_with_notifications_button_summary_on">"A Létrehozás gomb kicserélve az Értesítések gombbal
 
 Megjegyzés: Ez a beállítás a videóhirdetések kényszerű elrejtését is magában foglalja"</string>
   <string name="revanced_switch_create_with_notifications_button_summary_off">A létrehozás gomb nincs felcserélve az értesítések gombbal</string>
+  <string name="revanced_switch_create_with_notifications_button_user_dialog_message">"Ennek a beállításnak a letiltása a Shorts hirdetések blokkolását is letiltja.
+
+Ha a beállítás módosítása nem lép életbe, próbáljon meg Inkognitó módra váltani."</string>
   <string name="revanced_hide_navigation_button_labels_title">A navigációs gombok címkéinek elrejtése</string>
   <string name="revanced_hide_navigation_button_labels_summary_on">A címke el vannak rejtve</string>
   <string name="revanced_hide_navigation_button_labels_summary_off">A címke meg vannak jelenítve</string>

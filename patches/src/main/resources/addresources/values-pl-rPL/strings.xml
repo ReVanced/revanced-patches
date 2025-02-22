@@ -582,12 +582,18 @@ Dostosuj głośność, przesuwając pionowo po prawej stronie ekranu"</string>
   <string name="revanced_hide_subscriptions_button_title">Przycisk od strony subskrypcji</string>
   <string name="revanced_hide_subscriptions_button_summary_on">Przycisk subskrypcji jest ukryty</string>
   <string name="revanced_hide_subscriptions_button_summary_off">Przycisk subskrypcji jest widoczny</string>
+  <string name="revanced_hide_notifications_button_title">Ukryj powiadomienia</string>
+  <string name="revanced_hide_notifications_button_summary_on">Przycisk powiadomień jest ukryty</string>
+  <string name="revanced_hide_notifications_button_summary_off">Przycisk powiadomień jest widoczny</string>
   <!-- 'Notifications' should be translated using the same localized wording YouTube displays the tab. -->
   <string name="revanced_switch_create_with_notifications_button_title">Przełącz przyciski Przesyłania z Powiadomieniami</string>
   <string name="revanced_switch_create_with_notifications_button_summary_on">"Przycisk Utwórz jest zamieniony z przyciskiem Powiadomienia
 
 Uwaga: Włączenie tej opcji również ukrywa reklamy wideo"</string>
   <string name="revanced_switch_create_with_notifications_button_summary_off">Przycisk Przesyłania nie jest przełączony z przyciskiem Powiadomienia</string>
+  <string name="revanced_switch_create_with_notifications_button_user_dialog_message">"Wyłączenie tego ustawienia spowoduje również wyłączenie blokowania reklam w usłudze Shorts.
+
+Jeśli zmiana tego ustawienia nie przyniesie efektu, spróbuj przełączyć się w tryb incognito."</string>
   <string name="revanced_hide_navigation_button_labels_title">Etykiety przycisków nawigacji</string>
   <string name="revanced_hide_navigation_button_labels_summary_on">Etykiety są ukryte</string>
   <string name="revanced_hide_navigation_button_labels_summary_off">Etykiety są widoczne</string>
