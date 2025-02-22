@@ -1,3 +1,10 @@
+# [5.13.0-dev.9](https://github.com/ReVanced/revanced-patches/compare/v5.13.0-dev.8...v5.13.0-dev.9) (2025-02-22)
+
+
+### Bug Fixes
+
+* **YouTube:** Do not hide player controls when using double tap to skip forward ([#4487](https://github.com/ReVanced/revanced-patches/issues/4487)) ([63fe870](https://github.com/ReVanced/revanced-patches/commit/63fe870d48ca2217327b952bde241b7f16ced850))
+
 # [5.13.0-dev.8](https://github.com/ReVanced/revanced-patches/compare/v5.13.0-dev.7...v5.13.0-dev.8) (2025-02-22)
 
 
