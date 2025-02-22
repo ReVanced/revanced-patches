@@ -580,12 +580,18 @@ Ajuste o volume deslizando verticalmente no lado direito da tela"</string>
   <string name="revanced_hide_subscriptions_button_title">Ocultar Inscrições</string>
   <string name="revanced_hide_subscriptions_button_summary_on">Botão inscrições está oculto</string>
   <string name="revanced_hide_subscriptions_button_summary_off">O botão inscrições é mostrado</string>
+  <string name="revanced_hide_notifications_button_title">Ocultar notificações</string>
+  <string name="revanced_hide_notifications_button_summary_on">O botão de notificações está oculto</string>
+  <string name="revanced_hide_notifications_button_summary_off">O botão de notificações está visível</string>
   <!-- 'Notifications' should be translated using the same localized wording YouTube displays the tab. -->
   <string name="revanced_switch_create_with_notifications_button_title">Mudar botão Criar por Notificações</string>
   <string name="revanced_switch_create_with_notifications_button_summary_on">"O botão Criar é trocado com o botão Notificações 
 
 Nota: Habilitar isso também oculta os anúncios em vídeo"</string>
   <string name="revanced_switch_create_with_notifications_button_summary_off">Botão criar não está alternado com o botão notificações</string>
+  <string name="revanced_switch_create_with_notifications_button_user_dialog_message">"Desativar esta configuração também desativará o bloqueio de anúncios do Shorts.
+
+Se alterar esta configuração não fizer efeito, tente mudar para o modo anônimo."</string>
   <string name="revanced_hide_navigation_button_labels_title">Ocultar rótulos dos botões de navegação</string>
   <string name="revanced_hide_navigation_button_labels_summary_on">Rótulos são ocultos</string>
   <string name="revanced_hide_navigation_button_labels_summary_off">Rótulos são mostrados</string>

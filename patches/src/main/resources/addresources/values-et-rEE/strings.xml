@@ -582,12 +582,18 @@ Helitugevuse reguleerimiseks pühkige ekraani paremal küljel vertikaalselt"</st
   <string name="revanced_hide_subscriptions_button_title">Peida Tellimuste</string>
   <string name="revanced_hide_subscriptions_button_summary_on">Tellimuste nupp on peidetud</string>
   <string name="revanced_hide_subscriptions_button_summary_off">Tellimuste nupp on nähtav</string>
+  <string name="revanced_hide_notifications_button_title">Peida teavitused</string>
+  <string name="revanced_hide_notifications_button_summary_on">Teavituste nupp on peidetud</string>
+  <string name="revanced_hide_notifications_button_summary_off">Teavituste nupp on nähtav</string>
   <!-- 'Notifications' should be translated using the same localized wording YouTube displays the tab. -->
   <string name="revanced_switch_create_with_notifications_button_title">Vaheta Loo ja Teated</string>
   <string name="revanced_switch_create_with_notifications_button_summary_on">"Looda nupp on vahetatud teavituste nupuga
 
 Märkus: selle lubamine peidab ka sunniviisiliselt video reklaamid"</string>
   <string name="revanced_switch_create_with_notifications_button_summary_off">Loo nuppu ei ole vahetatud Teadete nupuga</string>
+  <string name="revanced_switch_create_with_notifications_button_user_dialog_message">"Selle sätte keelamine keelab ka Shorts reklaamide blokeerimise.
+
+Kui selle sätte muutmine ei avalda mõju, proovige lülituda Inkognito režiimile."</string>
   <string name="revanced_hide_navigation_button_labels_title">Peida navigeerimisnupude sildistused</string>
   <string name="revanced_hide_navigation_button_labels_summary_on">Sildistused on peidetud</string>
   <string name="revanced_hide_navigation_button_labels_summary_off">Sildistused on nähtavad</string>

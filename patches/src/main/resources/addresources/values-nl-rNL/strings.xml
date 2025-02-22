@@ -582,12 +582,18 @@ Pas het volume aan door verticaal over de rechterkant van het scherm te vegen"</
   <string name="revanced_hide_subscriptions_button_title">Abonnementen verbergen</string>
   <string name="revanced_hide_subscriptions_button_summary_on">Abonnementen-knop is verborgen</string>
   <string name="revanced_hide_subscriptions_button_summary_off">Abonnementen-knop wordt weergegeven</string>
+  <string name="revanced_hide_notifications_button_title">Meldingen verbergen</string>
+  <string name="revanced_hide_notifications_button_summary_on">Meldingsknop is verborgen</string>
+  <string name="revanced_hide_notifications_button_summary_off">Meldingsknop wordt weergegeven</string>
   <!-- 'Notifications' should be translated using the same localized wording YouTube displays the tab. -->
   <string name="revanced_switch_create_with_notifications_button_title">Maak wisselen met Meldingen</string>
   <string name="revanced_switch_create_with_notifications_button_summary_on">"Maken-knop wordt gewisseld met meldingen-knop
 
 Opmerking: Als u dit inschakelt, worden videoadvertenties ook geforceerd verborgen"</string>
   <string name="revanced_switch_create_with_notifications_button_summary_off">Maak-knop wordt niet gewisseld met Meldingen-knop</string>
+  <string name="revanced_switch_create_with_notifications_button_user_dialog_message">"Als u deze instelling uitschakelt, wordt ook het blokkeren van Shorts-advertenties uitgeschakeld.
+
+Als het wijzigen van deze instelling geen effect heeft, probeer dan over te schakelen naar de incognitomodus."</string>
   <string name="revanced_hide_navigation_button_labels_title">Navigatieknoppenlabels verbergen</string>
   <string name="revanced_hide_navigation_button_labels_summary_on">Labels zijn verborgen</string>
   <string name="revanced_hide_navigation_button_labels_summary_off">Labels worden weergegeven</string>

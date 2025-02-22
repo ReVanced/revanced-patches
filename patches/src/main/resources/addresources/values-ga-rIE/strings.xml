@@ -574,12 +574,18 @@ Coigeartaigh gile trí swipe a dhéanamh go hingearach ar thaobh na láimhe clé
   <string name="revanced_hide_subscriptions_button_title">Folaigh Síntiúis</string>
   <string name="revanced_hide_subscriptions_button_summary_on">Tá cnaipe síntiús i bhfolach</string>
   <string name="revanced_hide_subscriptions_button_summary_off">Taispeántar cnaipe síntiúis</string>
+  <string name="revanced_hide_notifications_button_title">Folaigh Fógraí</string>
+  <string name="revanced_hide_notifications_button_summary_on">Tá cnaipe fógraí i bhfolach</string>
+  <string name="revanced_hide_notifications_button_summary_off">Taispeántar cnaipe fógraí</string>
   <!-- 'Notifications' should be translated using the same localized wording YouTube displays the tab. -->
   <string name="revanced_switch_create_with_notifications_button_title">Athraigh Cruthaigh le Fógraí</string>
   <string name="revanced_switch_create_with_notifications_button_summary_on">"Cnaipe Cruthaigh athraithe le cnaipe Fógraí
 
 Nóta: Trí é seo a chumasú, cuirtear fógraí físeáin i bhfolach freisin"</string>
   <string name="revanced_switch_create_with_notifications_button_summary_off">Ní athraítear cnaipe Cruthaigh le cnaipe Fógraí</string>
+  <string name="revanced_switch_create_with_notifications_button_user_dialog_message">"Má dhíchumasaíonn tú an socrú seo, díchumasófar bac fógraí Shorts freisin.
+
+Mura dtagann aon athrú ar an socrú seo, bain triail as mód Incognito a chur air."</string>
   <string name="revanced_hide_navigation_button_labels_title">Folaigh lipéid cnaipe nascleanú</string>
   <string name="revanced_hide_navigation_button_labels_summary_on">Tá lipéid i bhfolach</string>
   <string name="revanced_hide_navigation_button_labels_summary_off">Taispeántar lipéid</string>

@@ -582,12 +582,18 @@ Second \"item\" text"</string>
   <string name="revanced_hide_subscriptions_button_title">Абонаменти</string>
   <string name="revanced_hide_subscriptions_button_summary_on">Бутона за абонаменти е скрит</string>
   <string name="revanced_hide_subscriptions_button_summary_off">Бутона за абонаменти се показва</string>
+  <string name="revanced_hide_notifications_button_title">Скриване на известията</string>
+  <string name="revanced_hide_notifications_button_summary_on">Бутонът за известия е скрит</string>
+  <string name="revanced_hide_notifications_button_summary_off">Бутонът за известия е показан</string>
   <!-- 'Notifications' should be translated using the same localized wording YouTube displays the tab. -->
   <string name="revanced_switch_create_with_notifications_button_title">Заменете бутона „Създаване“ с бутона „Известия“</string>
   <string name="revanced_switch_create_with_notifications_button_summary_on">"Бутонът за създаване е сменен с бутона Известия
 
 Забележка: Активирането на това също принудително скрива видео рекламите"</string>
   <string name="revanced_switch_create_with_notifications_button_summary_off">Бутоните \"Създаване\" и \"Известия\" не са разменени</string>
+  <string name="revanced_switch_create_with_notifications_button_user_dialog_message">"Деактивирането на тази настройка също ще деактивира блокирането на рекламите за Shorts.
+
+Ако промяната на тази настройка не влезе в сила, опитайте да превключите в режим „инкогнито“."</string>
   <string name="revanced_hide_navigation_button_labels_title">Имена на бутоните на лентата за навигация</string>
   <string name="revanced_hide_navigation_button_labels_summary_on">Етикетите са скрити</string>
   <string name="revanced_hide_navigation_button_labels_summary_off">Етикетите се показват</string>

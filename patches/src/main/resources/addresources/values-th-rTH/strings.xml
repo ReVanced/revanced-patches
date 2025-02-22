@@ -580,12 +580,18 @@ Second \"item\" text"</string>
   <string name="revanced_hide_subscriptions_button_title">ซ่อนการสมัครสมาชิก</string>
   <string name="revanced_hide_subscriptions_button_summary_on">ปุ่มการสมัครสมาชิกถูกซ่อน</string>
   <string name="revanced_hide_subscriptions_button_summary_off">ปุ่มการสมัครสมาชิกถูกแสดง</string>
+  <string name="revanced_hide_notifications_button_title">ซ่อนการแจ้งเตือน</string>
+  <string name="revanced_hide_notifications_button_summary_on">ปุ่มการแจ้งเตือนถูกซ่อนอยู่</string>
+  <string name="revanced_hide_notifications_button_summary_off">ปุ่มการแจ้งเตือนแสดงอยู่</string>
   <!-- 'Notifications' should be translated using the same localized wording YouTube displays the tab. -->
   <string name="revanced_switch_create_with_notifications_button_title">สลับสร้างด้วยการแจ้งเตือน</string>
   <string name="revanced_switch_create_with_notifications_button_summary_on">"ปุ่มสร้างถูกสลับกับปุ่มการแจ้งเตือน
 
 หมายเหตุ: การเปิดใช้งานสิ่งนี้จะซ่อนโฆษณาวิดีโอด้วย"</string>
   <string name="revanced_switch_create_with_notifications_button_summary_off">ปุ่มสร้างไม่ได้ถูกสลับกับปุ่มการแจ้งเตือน</string>
+  <string name="revanced_switch_create_with_notifications_button_user_dialog_message">"การปิดใช้งานการตั้งค่านี้จะปิดใช้งานการบล็อกโฆษณา Shorts ด้วย
+
+หากการเปลี่ยนการตั้งค่านี้ไม่มีผล ให้ลองสลับไปใช้โหมดไม่ระบุตัวตน"</string>
   <string name="revanced_hide_navigation_button_labels_title">ซ่อนป้ายกำกับปุ่มนำทาง</string>
   <string name="revanced_hide_navigation_button_labels_summary_on">ป้ายกำกับถูกซ่อน</string>
   <string name="revanced_hide_navigation_button_labels_summary_off">ป้ายกำกับถูกแสดง</string>

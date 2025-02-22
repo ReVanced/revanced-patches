@@ -582,12 +582,18 @@ MicroG-ի համար մարտկոցի օպտիմալացումը անջատել�
   <string name="revanced_hide_subscriptions_button_title">Թաքցնել Subscriptions</string>
   <string name="revanced_hide_subscriptions_button_summary_on">Subscriptions կոճակը թաքցված է</string>
   <string name="revanced_hide_subscriptions_button_summary_off">Subscriptions կոճակը ցուցադրվում է</string>
+  <string name="revanced_hide_notifications_button_title">Թաքցնել Ծանուցումները</string>
+  <string name="revanced_hide_notifications_button_summary_on">Ծանուցումների կոճակը թաքցված է</string>
+  <string name="revanced_hide_notifications_button_summary_off">Ծանուցումների կոճակը ցուցադրվում է</string>
   <!-- 'Notifications' should be translated using the same localized wording YouTube displays the tab. -->
   <string name="revanced_switch_create_with_notifications_button_title">Փոխել Create-ը Notifications-ի հետ</string>
   <string name="revanced_switch_create_with_notifications_button_summary_on">"«Ստեղծել» կոճակը փոխարինվում է «Հայտարարություններ» կոճակով
 
 Նշում. Այս կարգավորման միացումը նաև ստիպում է թաքցնել տեսանյութի գովազդները"</string>
   <string name="revanced_switch_create_with_notifications_button_summary_off">Create կոճակը չի փոխվել Notifications կոճակի հետ</string>
+  <string name="revanced_switch_create_with_notifications_button_user_dialog_message">"Այս կարգավորումն անջատելը նաև կանջատի Shorts գովազդների արգելափակումը։
+
+Եթե այս կարգավորումը փոխելը չի ազդում, փորձեք անցնել անհայտ ռեժիմ։"</string>
   <string name="revanced_hide_navigation_button_labels_title">Թաքցնել նավիգացիայի կոճակների մակագրությունները</string>
   <string name="revanced_hide_navigation_button_labels_summary_on">Մակագրությունները թաքցված են</string>
   <string name="revanced_hide_navigation_button_labels_summary_off">Մակագրությունները ցուցադրվում են</string>

@@ -582,12 +582,18 @@ Ekranın sağ tarafında dikey olarak kaydırarak sesi ayarlayın"</string>
   <string name="revanced_hide_subscriptions_button_title">\"Abonelikler\" düğmesini gizle</string>
   <string name="revanced_hide_subscriptions_button_summary_on">\"Abonelikler\" düğmesi gizli</string>
   <string name="revanced_hide_subscriptions_button_summary_off">\"Abonelikler\" düğmesi görünür</string>
+  <string name="revanced_hide_notifications_button_title">Bildirimleri Gizle</string>
+  <string name="revanced_hide_notifications_button_summary_on">Bildirimler dümesi gizli</string>
+  <string name="revanced_hide_notifications_button_summary_off">Bildirimler dümesi görünür</string>
   <!-- 'Notifications' should be translated using the same localized wording YouTube displays the tab. -->
   <string name="revanced_switch_create_with_notifications_button_title">\"Oluştur\" ve \"Bildirimler\" düğmelerinin yerlerini değiştir</string>
   <string name="revanced_switch_create_with_notifications_button_summary_on">"Oluştur düğmesi Bildirimler düğmesi ile değiştirilir
 
 Not: Bunu etkinleştirmek aynı zamanda video reklamlarını zorla gizler"</string>
   <string name="revanced_switch_create_with_notifications_button_summary_off">Oluştur düğmesi Bildirimler düğmesi ile değiştirilmez</string>
+  <string name="revanced_switch_create_with_notifications_button_user_dialog_message">"Bu ayarın devre dışı bırakılması, Shorts reklam engellemeyi de devre dışı bırakır.
+
+Bu ayarı değiştirmek etkili olmazsa, Gizli moda geçmeyi deneyin."</string>
   <string name="revanced_hide_navigation_button_labels_title">Gezinme düğmeleri etiketlerini gizle</string>
   <string name="revanced_hide_navigation_button_labels_summary_on">Etiketler gizli</string>
   <string name="revanced_hide_navigation_button_labels_summary_off">Etiketler görünür</string>
