@@ -94,8 +94,9 @@ public class PlayerControlButton {
             if (button == null) return;
 
             View placeholder = placeHolderRef.get();
+            final boolean shouldBeShown = visibilityCheck.shouldBeShown();
 
-            if (visible && visibilityCheck.shouldBeShown()) {
+            if (visible && shouldBeShown) {
                 button.clearAnimation();
                 if (animated) {
                     button.startAnimation(PlayerControlButton.fadeInAnimation);
@@ -115,11 +116,9 @@ public class PlayerControlButton {
                 }
 
                 if (placeholder != null) {
-                    if (visibilityCheck.shouldBeShown()) {
-                        placeholder.setVisibility(View.VISIBLE);
-                    } else {
-                        placeholder.setVisibility(View.GONE);
-                    }
+                    placeholder.setVisibility(shouldBeShown
+                            ? View.VISIBLE
+                            : View.GONE);
                 }
             }
         } catch (Exception ex) {
