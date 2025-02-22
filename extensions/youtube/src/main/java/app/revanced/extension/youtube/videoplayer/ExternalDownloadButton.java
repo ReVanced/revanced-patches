@@ -12,16 +12,23 @@ import app.revanced.extension.youtube.settings.Settings;
 import app.revanced.extension.youtube.shared.PlayerType;
 
 @SuppressWarnings("unused")
-public class ExternalDownloadButton extends PlayerControlButton {
+public class ExternalDownloadButton {
     @Nullable
-    private static ExternalDownloadButton instance;
+    private static PlayerControlButton instance;
 
     /**
      * Injection point.
      */
-    public static void initializeButton(View view) {
+    public static void initializeButton(View controlsView) {
         try {
-            instance = new ExternalDownloadButton((ViewGroup) view);
+            instance = new PlayerControlButton(
+                    controlsView,
+                    "revanced_external_download_button",
+                    "revanced_external_download_button_placeholder",
+                    Settings.EXTERNAL_DOWNLOADER::get,
+                    ExternalDownloadButton::onDownloadClick,
+                    null
+            );
         } catch (Exception ex) {
             Logger.printException(() -> "initializeButton failure", ex);
         }
@@ -30,14 +37,14 @@ public class ExternalDownloadButton extends PlayerControlButton {
     /**
      * injection point
      */
-    public static void changeVisibilityImmediate(boolean visible) {
+    public static void setVisibilityImmediate(boolean visible) {
         if (instance != null) instance.setVisibilityImmediate(visible);
     }
 
     /**
      * Injection point
      */
-    public static void changeVisibility(boolean visible, boolean animated) {
+    public static void setVisibility(boolean visible, boolean animated) {
         if (instance != null) instance.setVisibility(visible, animated);
     }
 
@@ -58,17 +65,6 @@ public class ExternalDownloadButton extends PlayerControlButton {
                 VideoInformation.getVideoId(),
                 view.getContext(),
                 true);
-    }
-
-    public ExternalDownloadButton(ViewGroup controlsView) {
-        super(
-                controlsView,
-                "revanced_external_download_button",
-                "revanced_external_download_button_placeholder",
-                Settings.EXTERNAL_DOWNLOADER::get,
-                ExternalDownloadButton::onDownloadClick,
-                null
-        );
     }
 }
 

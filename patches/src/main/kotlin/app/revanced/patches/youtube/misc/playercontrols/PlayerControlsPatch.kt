@@ -186,7 +186,7 @@ fun initializeBottomControl(descriptor: String) {
 fun injectVisibilityCheckCall(descriptor: String) {
     visibilityMethod.addInstruction(
         visibilityInsertIndex++,
-        "invoke-static { p1 , p2 }, $descriptor->changeVisibility(ZZ)V",
+        "invoke-static { p1 , p2 }, $descriptor->setVisibility(ZZ)V",
     )
 
     if (!visibilityImmediateCallbacksExistModified) {
@@ -196,7 +196,7 @@ fun injectVisibilityCheckCall(descriptor: String) {
 
     visibilityImmediateMethod.addInstruction(
         visibilityImmediateInsertIndex++,
-        "invoke-static { p0 }, $descriptor->changeVisibilityImmediate(Z)V",
+        "invoke-static { p0 }, $descriptor->setVisibilityImmediate(Z)V",
     )
 }
 

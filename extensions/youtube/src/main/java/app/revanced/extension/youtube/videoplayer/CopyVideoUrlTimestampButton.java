@@ -11,32 +11,42 @@ import app.revanced.extension.youtube.settings.Settings;
 import app.revanced.extension.youtube.shared.PlayerType;
 
 @SuppressWarnings("unused")
-public class CopyVideoUrlTimestampButton extends PlayerControlButton {
+public class CopyVideoUrlTimestampButton {
     @Nullable
-    private static CopyVideoUrlTimestampButton instance;
+    private static PlayerControlButton instance;
 
     /**
      * Injection point.
      */
-    public static void initializeButton(View bottomControlsViewGroup) {
+    public static void initializeButton(View controlsView) {
         try {
-            instance = new CopyVideoUrlTimestampButton((ViewGroup) bottomControlsViewGroup);
+            instance = new PlayerControlButton(
+                    controlsView,
+                    "revanced_copy_video_url_timestamp_button",
+                    "revanced_copy_video_url_timestamp_button_placeholder",
+                    Settings.COPY_VIDEO_URL_TIMESTAMP::get,
+                    view -> CopyVideoUrlPatch.copyUrl(true),
+                    view -> {
+                        CopyVideoUrlPatch.copyUrl(false);
+                        return true;
+                    }
+            );
         } catch (Exception ex) {
             Logger.printException(() -> "initializeButton failure", ex);
         }
     }
 
     /**
-     * Injection point
+     * injection point
      */
-    public static void changeVisibilityImmediate(boolean visible) {
+    public static void setVisibilityImmediate(boolean visible) {
         if (instance != null) instance.setVisibilityImmediate(visible);
     }
 
     /**
-     * Injection point
+     * injection point
      */
-    public static void changeVisibility(boolean visible, boolean animated) {
+    public static void setVisibility(boolean visible, boolean animated) {
         if (instance != null) instance.setVisibility(visible, animated);
     }
 
@@ -50,20 +60,5 @@ public class CopyVideoUrlTimestampButton extends PlayerControlButton {
                 instance.syncVisibility();
             }
         }
-    }
-
-
-    public CopyVideoUrlTimestampButton(ViewGroup controlsView) {
-        super(
-                controlsView,
-                "revanced_copy_video_url_timestamp_button",
-                "revanced_copy_video_url_timestamp_button_placeholder",
-                Settings.COPY_VIDEO_URL_TIMESTAMP::get,
-                view -> CopyVideoUrlPatch.copyUrl(true),
-                view -> {
-                    CopyVideoUrlPatch.copyUrl(false);
-                    return true;
-                }
-        );
     }
 }

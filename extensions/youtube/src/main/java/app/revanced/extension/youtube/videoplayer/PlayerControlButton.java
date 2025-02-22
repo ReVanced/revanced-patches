@@ -11,8 +11,11 @@ import java.lang.ref.WeakReference;
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
 
-public abstract class PlayerControlButton {
+public class PlayerControlButton {
     public interface PlayerControlButtonVisibility {
+        /**
+         * @return If the button should be shown when the player overlay is visible.
+         */
         boolean shouldBeShown();
     }
 
@@ -48,12 +51,12 @@ public abstract class PlayerControlButton {
     private final PlayerControlButtonVisibility visibilityCheck;
     private boolean isVisible;
 
-    protected PlayerControlButton(View controlsViewGroup,
-                                  String imageViewButtonId,
-                                  @Nullable String placeholderId,
-                                  PlayerControlButtonVisibility buttonVisibility,
-                                  View.OnClickListener onClickListener,
-                                  @Nullable View.OnLongClickListener longClickListener) {
+    public PlayerControlButton(View controlsViewGroup,
+                               String imageViewButtonId,
+                               @Nullable String placeholderId,
+                               PlayerControlButtonVisibility buttonVisibility,
+                               View.OnClickListener onClickListener,
+                               @Nullable View.OnLongClickListener longClickListener) {
         ImageView imageView = Utils.getChildViewByResourceName(controlsViewGroup, imageViewButtonId);
         imageView.setVisibility(View.GONE);
 
@@ -74,11 +77,11 @@ public abstract class PlayerControlButton {
         isVisible = false;
     }
 
-    protected void setVisibilityImmediate(boolean visible) {
+    public void setVisibilityImmediate(boolean visible) {
         private_setVisibility(visible, false);
     }
 
-    protected void setVisibility(boolean visible, boolean animated) {
+    public void setVisibility(boolean visible, boolean animated) {
         // Ignore this call, otherwise with full screen thumbnails the buttons are visible while seeking.
         if (visible && !animated) return;
 
@@ -87,28 +90,22 @@ public abstract class PlayerControlButton {
 
     private void private_setVisibility(boolean visible, boolean animated) {
         try {
-            if (isVisible == visible) {
-                if (!visible && !visibilityCheck.shouldBeShown()) {
-                    View placeholder = placeHolderRef.get();
-                    if (placeholder != null && placeholder.getVisibility() == View.VISIBLE) {
-                        placeholder.setVisibility(View.GONE);
-                    }
-                }
-                return;
-            }
+            if (isVisible == visible) return;
             isVisible = visible;
 
             View button = buttonRef.get();
             if (button == null) return;
 
             View placeholder = placeHolderRef.get();
+            final boolean shouldBeShown = visibilityCheck.shouldBeShown();
 
-            if (visible && visibilityCheck.shouldBeShown()) {
+            if (visible && shouldBeShown) {
                 button.clearAnimation();
                 if (animated) {
                     button.startAnimation(PlayerControlButton.fadeInAnimation);
                 }
                 button.setVisibility(View.VISIBLE);
+
                 if (placeholder != null) {
                     placeholder.setVisibility(View.GONE);
                 }
@@ -120,12 +117,11 @@ public abstract class PlayerControlButton {
                     }
                     button.setVisibility(View.GONE);
                 }
+
                 if (placeholder != null) {
-                    if (visibilityCheck.shouldBeShown()) {
-                        placeholder.setVisibility(View.VISIBLE);
-                    } else {
-                        placeholder.setVisibility(View.GONE);
-                    }
+                    placeholder.setVisibility(shouldBeShown
+                            ? View.VISIBLE
+                            : View.GONE);
                 }
             }
         } catch (Exception ex) {
@@ -139,17 +135,10 @@ public abstract class PlayerControlButton {
         Utils.verifyOnMainThread();
         View view = buttonRef.get();
         if (view == null) return;
-        view.clearAnimation();
         view.setVisibility(View.GONE);
 
         view = placeHolderRef.get();
-        if (view != null) {
-            if (visibilityCheck.shouldBeShown()) {
-                view.setVisibility(View.VISIBLE);
-            } else {
-                view.setVisibility(View.GONE);
-            }
-        }
+        if (view != null) view.setVisibility(View.GONE);
         isVisible = false;
     }
 
