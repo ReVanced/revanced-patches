@@ -11,9 +11,9 @@ import app.revanced.extension.youtube.sponsorblock.SegmentPlaybackController;
 import app.revanced.extension.youtube.sponsorblock.SponsorBlockUtils;
 import app.revanced.extension.youtube.videoplayer.PlayerControlButton;
 
-public class VotingButton extends PlayerControlButton {
+public class VotingButton {
     @Nullable
-    private static VotingButton instance;
+    private static PlayerControlButton instance;
 
     public static void hideControls() {
         if (instance != null) instance.hide();
@@ -24,8 +24,14 @@ public class VotingButton extends PlayerControlButton {
      */
     public static void initialize(View controlsView) {
         try {
-            Logger.printDebug(() -> "initializing voting button");
-            instance = new VotingButton(controlsView);
+            instance = new PlayerControlButton(
+                    controlsView,
+                    "revanced_sb_voting_button",
+                    null,
+                    VotingButton::shouldBeShown,
+                    v -> SponsorBlockUtils.onVotingClicked(v.getContext()),
+                    null
+            );
         } catch (Exception ex) {
             Logger.printException(() -> "initialize failure", ex);
         }
@@ -34,28 +40,19 @@ public class VotingButton extends PlayerControlButton {
     /**
      * injection point
      */
-    public static void changeVisibilityImmediate(boolean visible) {
+    public static void setVisibilityImmediate(boolean visible) {
         if (instance != null) instance.setVisibilityImmediate(visible);
     }
 
     /**
      * injection point
      */
-    public static void changeVisibility(boolean visible, boolean animated) {
+    public static void setVisibility(boolean visible, boolean animated) {
         if (instance != null) instance.setVisibility(visible, animated);
     }
 
     private static boolean shouldBeShown() {
         return Settings.SB_ENABLED.get() && Settings.SB_VOTING_BUTTON.get()
                 && SegmentPlaybackController.videoHasSegments() && !VideoInformation.isAtEndOfVideo();
-    }
-
-    private VotingButton(View imageView) {
-        super(imageView,
-                "revanced_sb_voting_button",
-                null,
-                VotingButton::shouldBeShown,
-                v -> SponsorBlockUtils.onVotingClicked(imageView.getContext()),
-                null);
     }
 }

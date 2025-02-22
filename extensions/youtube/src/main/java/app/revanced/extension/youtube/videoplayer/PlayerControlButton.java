@@ -11,7 +11,7 @@ import java.lang.ref.WeakReference;
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
 
-public abstract class PlayerControlButton {
+public class PlayerControlButton {
     public interface PlayerControlButtonVisibility {
         boolean shouldBeShown();
     }
@@ -48,7 +48,7 @@ public abstract class PlayerControlButton {
     private final PlayerControlButtonVisibility visibilityCheck;
     private boolean isVisible;
 
-    protected PlayerControlButton(View controlsViewGroup,
+    public PlayerControlButton(View controlsViewGroup,
                                   String imageViewButtonId,
                                   @Nullable String placeholderId,
                                   PlayerControlButtonVisibility buttonVisibility,
@@ -74,11 +74,11 @@ public abstract class PlayerControlButton {
         isVisible = false;
     }
 
-    protected void setVisibilityImmediate(boolean visible) {
+    public void setVisibilityImmediate(boolean visible) {
         private_setVisibility(visible, false);
     }
 
-    protected void setVisibility(boolean visible, boolean animated) {
+    public void setVisibility(boolean visible, boolean animated) {
         // Ignore this call, otherwise with full screen thumbnails the buttons are visible while seeking.
         if (visible && !animated) return;
 
