@@ -1,0 +1,27 @@
+<!--
+    https://github.com/google/material-design-icons/blob/9beae745bb758f3ad56654fb377ea5cf62be4915/symbols/android/widgets/materialsymbolsoutlined/widgets_wght200_24px.xml
+
+Copyright 2022 Google
+
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+-->
+
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+        android:width="24dp"
+        android:height="24dp"
+        android:viewportWidth="24"
+        android:viewportHeight="24">
+    <path
+            android:fillColor="?ytTextPrimary"
+            android:pathData="M16.3,11.95 L12.075,7.725 16.3,3.5 20.525,7.725ZM4.625,10.625V4.625H10.625V10.625ZM13.375,19.375V13.375H19.375V19.375ZM4.625,19.375V13.375H10.625V19.375ZM5.625,9.625H9.625V5.625H5.625ZM16.325,10.575 L19.15,7.75 16.325,4.925 13.5,7.75ZM14.375,18.375H18.375V14.375H14.375ZM5.625,18.375H9.625V14.375H5.625ZM9.625,9.625ZM13.5,7.75ZM9.625,14.375ZM14.375,14.375Z"/>
+</vector>

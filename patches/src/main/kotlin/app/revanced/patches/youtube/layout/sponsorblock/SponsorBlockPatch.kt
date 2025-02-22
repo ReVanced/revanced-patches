@@ -48,6 +48,8 @@ private val sponsorBlockResourcePatch = resourcePatch {
                 key = "revanced_settings_screen_10",
                 titleKey = "revanced_sb_settings_title",
                 summaryKey = null,
+                icon = "@drawable/revanced_settings_screen_10",
+                layout = "@layout/preference_with_icon",
                 intent = newIntent("revanced_sb_settings_intent"),
             ),
         )
