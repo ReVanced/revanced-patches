@@ -1,38 +1,35 @@
 package app.revanced.extension.youtube.videoplayer;
 
 import android.view.View;
-import android.view.ViewGroup;
 
 import androidx.annotation.Nullable;
 
+import app.revanced.extension.shared.Logger;
 import app.revanced.extension.youtube.patches.CopyVideoUrlPatch;
 import app.revanced.extension.youtube.settings.Settings;
-import app.revanced.extension.shared.Logger;
+import app.revanced.extension.youtube.shared.PlayerType;
 
 @SuppressWarnings("unused")
-public class CopyVideoUrlButton extends PlayerControlBottomButton {
+public class CopyVideoUrlButton {
     @Nullable
-    private static CopyVideoUrlButton instance;
-
-    public CopyVideoUrlButton(ViewGroup viewGroup) {
-        super(
-                viewGroup,
-                "revanced_copy_video_url_button",
-                Settings.COPY_VIDEO_URL,
-                view -> CopyVideoUrlPatch.copyUrl(false),
-                view -> {
-                    CopyVideoUrlPatch.copyUrl(true);
-                    return true;
-                }
-        );
-    }
+    private static PlayerControlButton instance;
 
     /**
      * Injection point.
      */
-    public static void initializeButton(View view) {
+    public static void initializeButton(View controlsView) {
         try {
-            instance = new CopyVideoUrlButton((ViewGroup) view);
+            instance = new PlayerControlButton(
+                    controlsView,
+                    "revanced_copy_video_url_button",
+                    "revanced_copy_video_url_button_placeholder",
+                    Settings.COPY_VIDEO_URL::get,
+                    view -> CopyVideoUrlPatch.copyUrl(false),
+                    view -> {
+                        CopyVideoUrlPatch.copyUrl(true);
+                        return true;
+                    }
+            );
         } catch (Exception ex) {
             Logger.printException(() -> "initializeButton failure", ex);
         }
@@ -41,14 +38,14 @@ public class CopyVideoUrlButton extends PlayerControlBottomButton {
     /**
      * injection point
      */
-    public static void changeVisibilityImmediate(boolean visible) {
+    public static void setVisibilityImmediate(boolean visible) {
         if (instance != null) instance.setVisibilityImmediate(visible);
     }
 
     /**
      * injection point
      */
-    public static void changeVisibility(boolean visible, boolean animated) {
+    public static void setVisibility(boolean visible, boolean animated) {
         if (instance != null) instance.setVisibility(visible, animated);
     }
 }

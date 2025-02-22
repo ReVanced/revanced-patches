@@ -1,23 +1,19 @@
 package app.revanced.extension.youtube.sponsorblock.ui;
 
 import android.view.View;
-import android.widget.ImageView;
 
 import androidx.annotation.Nullable;
 
-import java.util.Objects;
-
 import app.revanced.extension.shared.Logger;
-import app.revanced.extension.shared.Utils;
 import app.revanced.extension.youtube.patches.VideoInformation;
 import app.revanced.extension.youtube.settings.Settings;
 import app.revanced.extension.youtube.sponsorblock.SegmentPlaybackController;
 import app.revanced.extension.youtube.sponsorblock.SponsorBlockUtils;
-import app.revanced.extension.youtube.videoplayer.PlayerControlTopButton;
+import app.revanced.extension.youtube.videoplayer.PlayerControlButton;
 
-public class VotingButtonController extends PlayerControlTopButton {
+public class VotingButton {
     @Nullable
-    private static VotingButtonController instance;
+    private static PlayerControlButton instance;
 
     public static void hideControls() {
         if (instance != null) instance.hide();
@@ -26,36 +22,36 @@ public class VotingButtonController extends PlayerControlTopButton {
     /**
      * injection point
      */
-    public static void initialize(View youtubeControlsLayout) {
+    public static void initialize(View controlsView) {
         try {
-            Logger.printDebug(() -> "initializing voting button");
-            ImageView imageView = Objects.requireNonNull(Utils.getChildViewByResourceName(
-                    youtubeControlsLayout, "revanced_sb_voting_button"));
-            instance = new VotingButtonController(imageView);
+            instance = new PlayerControlButton(
+                    controlsView,
+                    "revanced_sb_voting_button",
+                    null,
+                    VotingButton::shouldBeShown,
+                    v -> SponsorBlockUtils.onVotingClicked(v.getContext()),
+                    null
+            );
         } catch (Exception ex) {
             Logger.printException(() -> "initialize failure", ex);
         }
     }
 
     /**
-     * injection point
+     * Injection point
      */
-    public static void changeVisibilityImmediate(boolean visible) {
+    public static void setVisibilityImmediate(boolean visible) {
         if (instance != null) instance.setVisibilityImmediate(visible);
     }
 
     /**
-     * injection point
+     * Injection point
      */
-    public static void changeVisibility(boolean visible, boolean animated) {
+    public static void setVisibility(boolean visible, boolean animated) {
         if (instance != null) instance.setVisibility(visible, animated);
     }
 
-    private VotingButtonController(ImageView imageView) {
-        super(imageView, v -> SponsorBlockUtils.onVotingClicked(v.getContext()));
-    }
-
-    protected  boolean shouldBeShown() {
+    private static boolean shouldBeShown() {
         return Settings.SB_ENABLED.get() && Settings.SB_VOTING_BUTTON.get()
                 && SegmentPlaybackController.videoHasSegments() && !VideoInformation.isAtEndOfVideo();
     }
