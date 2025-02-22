@@ -19,6 +19,7 @@ import app.revanced.extension.shared.settings.AppLanguage;
 import app.revanced.extension.shared.settings.BaseSettings;
 import app.revanced.extension.youtube.ThemeHelper;
 import app.revanced.extension.youtube.patches.VersionCheckPatch;
+import app.revanced.extension.youtube.patches.spoof.SpoofAppVersionPatch;
 import app.revanced.extension.youtube.settings.preference.ReVancedPreferenceFragment;
 import app.revanced.extension.youtube.settings.preference.ReturnYouTubeDislikePreferenceFragment;
 import app.revanced.extension.youtube.settings.preference.SponsorBlockPreferenceFragment;
@@ -61,6 +62,10 @@ public class LicenseActivityHook {
             return false;
         }
         if (Settings.RESTORE_OLD_SETTINGS_MENUS.get()) {
+            return false;
+        }
+        // Spoofing can cause half broken settings menus of old and new settings.
+        if (SpoofAppVersionPatch.isSpoofingToLessThan("19.35.36")) {
             return false;
         }
 
