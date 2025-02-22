@@ -582,12 +582,18 @@ Përshtate shkëlqimin duke rrëshqitur vertikalisht në anën e majtë të ekra
   <string name="revanced_hide_subscriptions_button_title">Fsheh \"Abonimet\"</string>
   <string name="revanced_hide_subscriptions_button_summary_on">Butoni \"Abonimet\" është i fshehur</string>
   <string name="revanced_hide_subscriptions_button_summary_off">Butoni \"Abonimet\" është i dukshëm</string>
+  <string name="revanced_hide_notifications_button_title">Fshih Njoftimet</string>
+  <string name="revanced_hide_notifications_button_summary_on">Butoni i njoftimeve është i fshehur</string>
+  <string name="revanced_hide_notifications_button_summary_off">Butoni i njoftimeve është shfaqur</string>
   <!-- 'Notifications' should be translated using the same localized wording YouTube displays the tab. -->
   <string name="revanced_switch_create_with_notifications_button_title">Ndërro \"Krijoni\" me \"Njoftimet\"</string>
   <string name="revanced_switch_create_with_notifications_button_summary_on">"Butoni i krijimit është ndërruar me butonin e njoftimeve
 
 Shënim: Aktivizimi i kësaj gjëje gjithashtu fsheh me forcë reklamat video"</string>
   <string name="revanced_switch_create_with_notifications_button_summary_off">Butoni \"Krijoni\" nuk është i ndërruar me butonin \"Njoftimet\"</string>
+  <string name="revanced_switch_create_with_notifications_button_user_dialog_message">"Çaktivizimi i këtij konfigurimi do të çaktivizojë gjithashtu bllokimin e reklamave të Shorts.
+
+Nëse ndryshimi i këtij konfigurimi nuk ka efekt, provoni të kaloni në modalitetin Incognito."</string>
   <string name="revanced_hide_navigation_button_labels_title">Fsheh etiketat e butonave të navigimit</string>
   <string name="revanced_hide_navigation_button_labels_summary_on">Etiketat janë të fshehura</string>
   <string name="revanced_hide_navigation_button_labels_summary_off">Etiketat janë të dukshme</string>

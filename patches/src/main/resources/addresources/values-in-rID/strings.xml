@@ -582,12 +582,18 @@ Menyesuaikan volume dengan mengusap secara vertikal di sisi kanan layar"</string
   <string name="revanced_hide_subscriptions_button_title">Sembunyikan Langganan</string>
   <string name="revanced_hide_subscriptions_button_summary_on">Tombol langganan disembunyikan</string>
   <string name="revanced_hide_subscriptions_button_summary_off">Tombol langganan ditampilkan</string>
+  <string name="revanced_hide_notifications_button_title">Sembunyikan Notifikasi</string>
+  <string name="revanced_hide_notifications_button_summary_on">Tombol notifikasi disembunyikan</string>
+  <string name="revanced_hide_notifications_button_summary_off">Tombol notifikasi ditampilkan</string>
   <!-- 'Notifications' should be translated using the same localized wording YouTube displays the tab. -->
   <string name="revanced_switch_create_with_notifications_button_title">Ganti Buat dengan Notifikasi</string>
   <string name="revanced_switch_create_with_notifications_button_summary_on">"Tombol buat diganti dengan tombol Notifikasi
 
 Catatan: Mengaktifkan ini juga akan memaksa menyembunyikan iklan video"</string>
   <string name="revanced_switch_create_with_notifications_button_summary_off">Tombol buat tidak diganti dengan tombol Notifikasi</string>
+  <string name="revanced_switch_create_with_notifications_button_user_dialog_message">"Menonaktifkan setelan ini juga akan menonaktifkan pemblokiran iklan di Shorts.
+
+Jika mengubah setelan ini tidak berpengaruh, coba beralih ke mode Penyamaran."</string>
   <string name="revanced_hide_navigation_button_labels_title">Sembunyikan label tombol navigasi</string>
   <string name="revanced_hide_navigation_button_labels_summary_on">Label disembunyikan</string>
   <string name="revanced_hide_navigation_button_labels_summary_off">Label ditampilkan</string>

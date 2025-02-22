@@ -582,12 +582,18 @@ Regulējiet skaļumu, velkot vertikāli ekrāna labajā pusē"</string>
   <string name="revanced_hide_subscriptions_button_title">Paslēpt Abonementi</string>
   <string name="revanced_hide_subscriptions_button_summary_on">Abonementi poga ir paslēpta</string>
   <string name="revanced_hide_subscriptions_button_summary_off">Abonementi poga ir redzama</string>
+  <string name="revanced_hide_notifications_button_title">Slēpt paziņojumus</string>
+  <string name="revanced_hide_notifications_button_summary_on">Paziņojumu poga ir paslēpta</string>
+  <string name="revanced_hide_notifications_button_summary_off">Paziņojumu poga ir redzama</string>
   <!-- 'Notifications' should be translated using the same localized wording YouTube displays the tab. -->
   <string name="revanced_switch_create_with_notifications_button_title">Mainīt Izveidot ar Paziņojumiem</string>
   <string name="revanced_switch_create_with_notifications_button_summary_on">"Izveidot poga tiek pārslēgta ar Paziņojumu pogu
 
 Piezīme: Šī iestatījuma ieslēgšana arī piespiedu kārtā slēpj video reklāmas"</string>
   <string name="revanced_switch_create_with_notifications_button_summary_off">Izveidot pogu nevar pārslēgt ar paziņojumu pogu</string>
+  <string name="revanced_switch_create_with_notifications_button_user_dialog_message">"Atspējojot šo iestatījumu, tiks atspējota arī Shorts reklāmu bloķēšana.
+
+Ja šī iestatījuma maiņa nestājas spēkā, mēģiniet pārslēgties uz inkognito režīmu."</string>
   <string name="revanced_hide_navigation_button_labels_title">Paslēpt navigācijas pogu etiķetes</string>
   <string name="revanced_hide_navigation_button_labels_summary_on">Etiķetes ir paslēptas</string>
   <string name="revanced_hide_navigation_button_labels_summary_off">Etiķetes ir redzamas</string>

@@ -582,12 +582,16 @@ Ayusin ang volume sa pamamagitan ng pag-swipe nang patayo sa kanang bahagi ng sc
   <string name="revanced_hide_subscriptions_button_title">Itago ang Mga Subscription</string>
   <string name="revanced_hide_subscriptions_button_summary_on">Nakatago ang button ng mga subscription</string>
   <string name="revanced_hide_subscriptions_button_summary_off">Ang pindutan ng mga subscription ay ipinapakita</string>
+  <string name="revanced_hide_notifications_button_title">Itago ang Mga Notification</string>
+  <string name="revanced_hide_notifications_button_summary_on">Nakatago ang button ng Mga Notification</string>
+  <string name="revanced_hide_notifications_button_summary_off">Ipinapakita ang button ng Mga Notification</string>
   <!-- 'Notifications' should be translated using the same localized wording YouTube displays the tab. -->
   <string name="revanced_switch_create_with_notifications_button_title">Lumipat ng Gumawa gamit ang Mga Notification</string>
   <string name="revanced_switch_create_with_notifications_button_summary_on">"Ang pindutan ng Lumikha ay pinalitan ng pindutan ng Mga Notification
 
 Tandaan: Ang pagpapagana nito ay nagtatago rin ng mga ad ng video"</string>
   <string name="revanced_switch_create_with_notifications_button_summary_off">Ang pindutan ng Lumikha ay hindi inililipat gamit ang pindutan ng Mga Notification</string>
+  <string name="revanced_switch_create_with_notifications_button_user_dialog_message">"Kung hindi gagana ang pagpapalit ng setting na ito, subukang lumipat sa Incognito mode."</string>
   <string name="revanced_hide_navigation_button_labels_title">Itago ang mga label ng navigation button</string>
   <string name="revanced_hide_navigation_button_labels_summary_on">Nakatago ang mga label</string>
   <string name="revanced_hide_navigation_button_labels_summary_off">Ang mga label ay ipinapakita</string>

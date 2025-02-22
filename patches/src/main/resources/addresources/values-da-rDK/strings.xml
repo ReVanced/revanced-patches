@@ -543,12 +543,18 @@ Juster lydstyrken ved at swipe lodret i højre side af skærmen"</string>
   <string name="revanced_hide_subscriptions_button_title">Skjul Abonnementer</string>
   <string name="revanced_hide_subscriptions_button_summary_on">Abonnementer knappen er skjult</string>
   <string name="revanced_hide_subscriptions_button_summary_off">Abonnementer knappen vises</string>
+  <string name="revanced_hide_notifications_button_title">Skjul notifikationer</string>
+  <string name="revanced_hide_notifications_button_summary_on">Notifikationsknappen er skjult</string>
+  <string name="revanced_hide_notifications_button_summary_off">Notifikationsknappen vises</string>
   <!-- 'Notifications' should be translated using the same localized wording YouTube displays the tab. -->
   <string name="revanced_switch_create_with_notifications_button_title">Skift Opret med notifikationer</string>
   <string name="revanced_switch_create_with_notifications_button_summary_on">"Opret-knappen er skiftet med knappen Meddelelser
 
 Bemærk: Aktivering af dette skjuler også videoannoncer"</string>
   <string name="revanced_switch_create_with_notifications_button_summary_off">Opret knappen er ikke skiftet med Notifikationer knappen</string>
+  <string name="revanced_switch_create_with_notifications_button_user_dialog_message">"Deaktivering af denne indstilling vil også deaktivere Shorts-annonceblokering.
+
+Hvis ændring af denne indstilling ikke træder i kraft, kan du prøve at skifte til inkognitotilstand."</string>
   <string name="revanced_hide_navigation_button_labels_title">Skjul navigationsknappens etiketter</string>
   <string name="revanced_hide_navigation_button_labels_summary_on">Etiketter er skjult</string>
   <string name="revanced_hide_navigation_button_labels_summary_off">Etiketter er vist</string>

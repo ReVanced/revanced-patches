@@ -582,12 +582,18 @@ Second \"item\" text"</string>
   <string name="revanced_hide_subscriptions_button_title">Схаваць падпіскі</string>
   <string name="revanced_hide_subscriptions_button_summary_on">Кнопка \"Падпіскі\" схавана</string>
   <string name="revanced_hide_subscriptions_button_summary_off">Паказана кнопка \"Падпіскі\"</string>
+  <string name="revanced_hide_notifications_button_title">Схаваць апавяшчэнні</string>
+  <string name="revanced_hide_notifications_button_summary_on">Кнопка апавяшчэнняў схаваная</string>
+  <string name="revanced_hide_notifications_button_summary_off">Кнопка апавяшчэнняў паказаная</string>
   <!-- 'Notifications' should be translated using the same localized wording YouTube displays the tab. -->
   <string name="revanced_switch_create_with_notifications_button_title">Пераключальнік \"Стварыць з апавяшчэннямі\"</string>
   <string name="revanced_switch_create_with_notifications_button_summary_on">"Кнопка «Стварыць» заменена кнопкай «Апавяшчэнні»
 
 Заўвага: Уключэнне гэтага таксама прымусова схавае відэарэкламу"</string>
   <string name="revanced_switch_create_with_notifications_button_summary_off">Кнопка \"Стварыць\" не ўзаемадзейнічае з кнопкай \"Апавяшчэнні\"</string>
+  <string name="revanced_switch_create_with_notifications_button_user_dialog_message">"Адключэнне гэтай налады таксама адключыць блакіроўку рэкламы Shorts.
+
+Калі змена гэтай налады не ўступае ў сілу, паспрабуйце пераключыцца ў рэжым інкогніта."</string>
   <string name="revanced_hide_navigation_button_labels_title">Схаваць меткі кнопак навігацыі</string>
   <string name="revanced_hide_navigation_button_labels_summary_on">Цэтлікі схаваныя</string>
   <string name="revanced_hide_navigation_button_labels_summary_off">Этыкеткі паказаны</string>
