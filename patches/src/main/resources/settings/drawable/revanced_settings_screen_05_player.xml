@@ -1,0 +1,28 @@
+<!--
+   https://github.com/google/material-design-icons/blob/9beae745bb758f3ad56654fb377ea5cf62be4915/symbols/android/smart_display/materialsymbolsoutlined/smart_display_wght300_24px.xml
+
+Copyright 2022 Google
+
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+-->
+
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+        android:width="24dp"
+        android:height="24dp"
+        android:viewportWidth="24"
+        android:viewportHeight="24"
+        android:tint="?attr/colorControlNormal">
+    <path
+            android:fillColor="@android:color/white"
+            android:pathData="M9.75,16.05 L16.05,12 9.75,7.95ZM4.3,19.5Q3.55,19.5 3.025,18.975Q2.5,18.45 2.5,17.7V6.3Q2.5,5.55 3.025,5.025Q3.55,4.5 4.3,4.5H19.7Q20.45,4.5 20.975,5.025Q21.5,5.55 21.5,6.3V17.7Q21.5,18.45 20.975,18.975Q20.45,19.5 19.7,19.5ZM4.3,18H19.7Q19.8,18 19.9,17.9Q20,17.8 20,17.7V6.3Q20,6.2 19.9,6.1Q19.8,6 19.7,6H4.3Q4.2,6 4.1,6.1Q4,6.2 4,6.3V17.7Q4,17.8 4.1,17.9Q4.2,18 4.3,18ZM4,18Q4,18 4,17.9Q4,17.8 4,17.7V6.3Q4,6.2 4,6.1Q4,6 4,6Q4,6 4,6.1Q4,6.2 4,6.3V17.7Q4,17.8 4,17.9Q4,18 4,18Z"/>
+</vector>
