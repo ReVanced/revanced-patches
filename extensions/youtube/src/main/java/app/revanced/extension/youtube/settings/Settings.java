@@ -405,12 +405,6 @@ public class Settings extends BaseSettings {
 
         migrateOldSettingToNew(DEPRECATED_HIDE_PLAYER_FLYOUT_VIDEO_QUALITY_FOOTER, HIDE_PLAYER_FLYOUT_VIDEO_QUALITY_FOOTER);
 
-        // Old spoof versions that no longer work reliably.
-        if (SPOOF_APP_VERSION_TARGET.get().compareTo(SPOOF_APP_VERSION_TARGET.defaultValue) < 0) {
-            Logger.printInfo(() -> "Resetting spoof app version target");
-            SPOOF_APP_VERSION_TARGET.resetToDefault();
-        }
-
         // Migrate renamed enum.
         //noinspection deprecation
         if (MINIPLAYER_TYPE.get() == MiniplayerType.PHONE) {
