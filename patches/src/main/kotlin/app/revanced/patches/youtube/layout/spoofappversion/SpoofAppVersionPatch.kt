@@ -67,35 +67,39 @@ val spoofAppVersionPatch = bytecodePatch(
         )
 
         /**
-         * If a user really wants to spoof to very old versions with the latest app target
-         * they can  modify the import/export spoof version.  But when spoofing the 19.20.xx
-         * or earlier the Library tab can crash due to missing image resources trying to load.
-         * As a temporary workaround, do not set an image in the toolbar when the enum name is UNKNOWN.
+         * Shorts player is broken when spoofing to very old versions.
+         * But if a user still really wants to they can modify the import/export spoof version.
+         * But when spoofing the 19.20.xx or earlier the Library tab can crash due to missing
+         * image resources trying to load. As a temporary workaround, do not set an image
+         * in the toolbar when the enum name is UNKNOWN.
          */
         toolBarButtonFingerprint.let {
             it.method.apply {
                 val imageResourceIndex = it.instructionMatches[2].index
-                val insertRegister = getInstruction<OneRegisterInstruction>(imageResourceIndex).registerA
+                val register = getInstruction<OneRegisterInstruction>(imageResourceIndex).registerA
                 val jumpIndex = it.instructionMatches.last().index + 1
 
                 addInstructionsWithLabels(
                     imageResourceIndex + 1,
-                    "if-eqz v$insertRegister, :ignore",
+                    "if-eqz v$register, :ignore",
                     ExternalLabel("ignore", getInstruction(jumpIndex))
                 )
             }
         }
 
-        val insertIndex = spoofAppVersionFingerprint.instructionMatches.first().index + 1
-        val buildOverrideNameRegister =
-            spoofAppVersionFingerprint.method.getInstruction<OneRegisterInstruction>(insertIndex - 1).registerA
+        spoofAppVersionFingerprint.let {
+            it.method.apply {
+                val index = it.instructionMatches.first().index
+                val register = getInstruction<OneRegisterInstruction>(index).registerA
 
-        spoofAppVersionFingerprint.method.addInstructions(
-            insertIndex,
-            """
-                invoke-static {v$buildOverrideNameRegister}, $EXTENSION_CLASS_DESCRIPTOR->getYouTubeVersionOverride(Ljava/lang/String;)Ljava/lang/String;
-                move-result-object v$buildOverrideNameRegister
-            """
-        )
+                addInstructions(
+                    index + 1,
+                    """
+                        invoke-static { v$register }, $EXTENSION_CLASS_DESCRIPTOR->getYouTubeVersionOverride(Ljava/lang/String;)Ljava/lang/String;
+                        move-result-object v$register
+                    """
+                )
+            }
+        }
     }
 }
