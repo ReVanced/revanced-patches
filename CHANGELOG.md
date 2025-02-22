@@ -1,3 +1,10 @@
+# [5.13.0-dev.10](https://github.com/ReVanced/revanced-patches/compare/v5.13.0-dev.9...v5.13.0-dev.10) (2025-02-22)
+
+
+### Bug Fixes
+
+* **YouTube - Copy video URL:** Use correct button ordering ([5e622cc](https://github.com/ReVanced/revanced-patches/commit/5e622ccf66d34af31c6026fa7f4d332460c6ecb0))
+
 # [5.13.0-dev.9](https://github.com/ReVanced/revanced-patches/compare/v5.13.0-dev.8...v5.13.0-dev.9) (2025-02-22)
 
 
