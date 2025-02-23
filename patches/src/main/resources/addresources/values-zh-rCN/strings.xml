@@ -443,10 +443,10 @@ Second \"item\" text"</string>
   <string name="revanced_share_copy_url_success">URL 已复制到剪贴板</string>
   <string name="revanced_share_copy_url_timestamp_success">URL 已复制，包含时间戳</string>
   <string name="revanced_copy_video_url_title">显示复制视频 URL 按钮</string>
-  <string name="revanced_copy_video_url_summary_on">按钮已显示。点击复制视频 URL。点击并按住复制带时间戳的视频 URL</string>
+  <string name="revanced_copy_video_url_summary_on">按钮已显示。点击即可复制视频网址。点住可复制带时间戳的网址</string>
   <string name="revanced_copy_video_url_summary_off">按钮未显示</string>
   <string name="revanced_copy_video_url_timestamp_title">显示复制带有时间戳的 URL 按钮</string>
-  <string name="revanced_copy_video_url_timestamp_summary_on">按钮已显示。点击复制带有时间戳的视频网址。按住即可复制不带时间戳的视频网址</string>
+  <string name="revanced_copy_video_url_timestamp_summary_on">按钮已显示。点击即可复制带时间戳的视频网址。点住可复制不带时间戳的网址</string>
   <string name="revanced_copy_video_url_timestamp_summary_off">按钮未显示</string>
   </patch>
   <patch id="interaction.dialog.removeViewerDiscretionDialogPatch">

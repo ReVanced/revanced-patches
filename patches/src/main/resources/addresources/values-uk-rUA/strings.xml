@@ -443,10 +443,10 @@ Second \"item\" text"</string>
   <string name="revanced_share_copy_url_success">URL-адресу скопійовано до буфера</string>
   <string name="revanced_share_copy_url_timestamp_success">URL-адресу з міткою часу скопійовано до буфера</string>
   <string name="revanced_copy_video_url_title">Кнопка копіювання URL відео</string>
-  <string name="revanced_copy_video_url_summary_on">Кнопка показується. Натисніть, щоб скопіювати URL-адресу відео. Натисніть і утримуйте, щоб скопіювати URL-адресу відео з міткою часу</string>
+  <string name="revanced_copy_video_url_summary_on">Кнопка показується. Натисніть, щоб скопіювати URL-адресу відео. Натисніть і утримуйте, щоб скопіювати з міткою часу</string>
   <string name="revanced_copy_video_url_summary_off">Кнопка копіювання URL-адреси відео не показується</string>
   <string name="revanced_copy_video_url_timestamp_title">Кнопка копіювання URL із міткою часу</string>
-  <string name="revanced_copy_video_url_timestamp_summary_on">Кнопка показується. Натисніть, щоб скопіювати URL-адресу відео з міткою часу. Натисніть і утримуйте, щоб скопіювати URL-адресу без мітки часу відео</string>
+  <string name="revanced_copy_video_url_timestamp_summary_on">Кнопка показується. Натисніть, щоб скопіювати URL-адресу відео з міткою часу. Натисніть і утримуйте, щоб скопіювати без мітки часу</string>
   <string name="revanced_copy_video_url_timestamp_summary_off">Кнопка копіювання URL-адреси відео із міткою часу не показується</string>
   </patch>
   <patch id="interaction.dialog.removeViewerDiscretionDialogPatch">

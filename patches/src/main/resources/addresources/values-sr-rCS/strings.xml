@@ -443,10 +443,10 @@ Ova funkcija je dostupna samo za starije uređaje"</string>
   <string name="revanced_share_copy_url_success">Link je kopiran u privremenu memoriju</string>
   <string name="revanced_share_copy_url_timestamp_success">Link s vremenskom oznakom je kopiran</string>
   <string name="revanced_copy_video_url_title">Prikaži dugme za kopiranje linka videa</string>
-  <string name="revanced_copy_video_url_summary_on">Dugme je prikazano. Dodirnite da biste kopirali link videa. Dodirnite i zadržite da biste kopirali link videa s vremenskom oznakom</string>
+  <string name="revanced_copy_video_url_summary_on">Dugme je prikazano. Dodirnite da biste kopirali link videa. Dodirnite i zadržite da biste kopirali link s vremenskom oznakom</string>
   <string name="revanced_copy_video_url_summary_off">Dugme za kopiranje linka videa nije prikazano</string>
   <string name="revanced_copy_video_url_timestamp_title">Prikaži dugme za kopiranje linka videa s vremenskom oznakom</string>
-  <string name="revanced_copy_video_url_timestamp_summary_on">Dugme je prikazano. Dodirnite da biste kopirali link videa s vremenskom oznakom. Dodirnite i zadržite da biste kopirali link videa bez vremenske oznake</string>
+  <string name="revanced_copy_video_url_timestamp_summary_on">Dugme je prikazano. Dodirnite da biste kopirali link videa s vremenskom oznakom. Dodirnite i zadržite da biste kopirali link bez vremenske oznake</string>
   <string name="revanced_copy_video_url_timestamp_summary_off">Dugme za kopiranje linka videa s vremenskom oznakom nije prikazano</string>
   </patch>
   <patch id="interaction.dialog.removeViewerDiscretionDialogPatch">

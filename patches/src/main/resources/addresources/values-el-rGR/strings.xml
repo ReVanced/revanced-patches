@@ -445,10 +445,10 @@ Second \"item\" text"</string>
   <string name="revanced_share_copy_url_success">Η διεύθυνση URL αντιγράφηκε στο πρόχειρο</string>
   <string name="revanced_share_copy_url_timestamp_success">Η διεύθυνση URL αντιγράφηκε με χρονική σήμανση</string>
   <string name="revanced_copy_video_url_title">Εμφάνιση κουμπιού αντιγραφής URL του βίντεο</string>
-  <string name="revanced_copy_video_url_summary_on">Το κουμπί εμφανίζεται. Πατήστε για αντιγραφή του συνδέσμου βίντεο ή πατήστε παρατεταμένα για αντιγραφή του συνδέσμου βίντεο με χρονική σήμανση</string>
+  <string name="revanced_copy_video_url_summary_on">Το κουμπί εμφανίζεται. Πατήστε για να αντιγράψετε τη διεύθυνση URL του βίντεο. Πατήστε παρατεταμένα για να αντιγράψετε τη διεύθυνση URL με χρονική σήμανση</string>
   <string name="revanced_copy_video_url_summary_off">Το κουμπί δεν εμφανίζεται</string>
   <string name="revanced_copy_video_url_timestamp_title">Εμφάνιση κουμπιού αντιγραφής URL με χρονική σήμανση</string>
-  <string name="revanced_copy_video_url_timestamp_summary_on">Το κουμπί εμφανίζεται. Πατήστε για αντιγραφή του συνδέσμου βίντεο με χρονική σήμανση ή πατήστε παρατεταμένα για αντιγραφή του συνδέσμου βίντεο χωρίς χρονική σήμανση</string>
+  <string name="revanced_copy_video_url_timestamp_summary_on">Το κουμπί εμφανίζεται. Πατήστε για να αντιγράψετε τη διεύθυνση URL του βίντεο με χρονική σήμανση. Πατήστε παρατεταμένα για να αντιγράψετε τη διεύθυνση URL χωρίς χρονική σήμανση</string>
   <string name="revanced_copy_video_url_timestamp_summary_off">Το κουμπί δεν εμφανίζεται</string>
   </patch>
   <patch id="interaction.dialog.removeViewerDiscretionDialogPatch">

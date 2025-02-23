@@ -443,10 +443,10 @@ Second \"item\" text"</string>
   <string name="revanced_share_copy_url_success">URL скапіраваны ў буфер абмену</string>
   <string name="revanced_share_copy_url_timestamp_success">URL-адрас з пазнакай часу скапіраваны</string>
   <string name="revanced_copy_video_url_title">Паказаць кнопку скапіравання URL відэа</string>
-  <string name="revanced_copy_video_url_summary_on">Паказана кнопка. Націсніце, каб скапіяваць URL відэа. Націсніце і ўтрымлівайце, каб скапіяваць URL відэа з пазнакай часу</string>
+  <string name="revanced_copy_video_url_summary_on">Кнопка паказана. Націсніце, каб скапіяваць URL відэа. Націсніце і ўтрымлівайце, каб скапіяваць з пазнакай часу</string>
   <string name="revanced_copy_video_url_summary_off">Кнопка не паказваецца</string>
   <string name="revanced_copy_video_url_timestamp_title">Паказаць кнопку URL-адрас з часовай пазнакай</string>
-  <string name="revanced_copy_video_url_timestamp_summary_on">Паказана кнопка. Націсніце, каб скапіяваць URL відэа з пазнакай часу. Націсніце і ўтрымлівайце, каб скапіяваць відэа без пазнакі часу</string>
+  <string name="revanced_copy_video_url_timestamp_summary_on">Кнопка паказана. Націсніце, каб скапіяваць URL відэа з пазнакай часу. Націсніце і ўтрымлівайце, каб скапіяваць без пазнакі часу</string>
   <string name="revanced_copy_video_url_timestamp_summary_off">Кнопка не паказваецца</string>
   </patch>
   <patch id="interaction.dialog.removeViewerDiscretionDialogPatch">

@@ -443,10 +443,10 @@ Kjo veçori është e disponueshme vetëm për pajisje më të vjetra"</string>
   <string name="revanced_share_copy_url_success">URL u kopjua në shkëmbim</string>
   <string name="revanced_share_copy_url_timestamp_success">URL me kohëzgjatje u kopjua</string>
   <string name="revanced_copy_video_url_title">Shfaq butonin e kopjimit të URL-së së videos</string>
-  <string name="revanced_copy_video_url_summary_on">Butoni është i dukshëm. Prekni për të kopjuar URL-në e videos. Prekni dhe mbani për të kopjuar URL-në e videos me kohëzgjatje</string>
+  <string name="revanced_copy_video_url_summary_on">Butoni shfaqet. Trokitni për të kopjuar URL-në e videos. Trokitni dhe mbani për të kopjuar me vulë kohore</string>
   <string name="revanced_copy_video_url_summary_off">Butoni nuk shfaqet</string>
   <string name="revanced_copy_video_url_timestamp_title">Shfaq butonin \"Kopjo URL-në me vulë kohe\"</string>
-  <string name="revanced_copy_video_url_timestamp_summary_on">Butoni shfaqet. Prekni për të kopjuar URL-në e videos me vulë kohe. Prekni dhe mbajeni për të kopjuar videon pa vulë kohe</string>
+  <string name="revanced_copy_video_url_timestamp_summary_on">Butoni shfaqet. Trokitni për të kopjuar URL-në e videos me vulë kohore. Trokitni dhe mbani për të kopjuar pa vulë kohore</string>
   <string name="revanced_copy_video_url_timestamp_summary_off">Butoni nuk shfaqet</string>
   </patch>
   <patch id="interaction.dialog.removeViewerDiscretionDialogPatch">

@@ -443,10 +443,10 @@ Second \"item\" text"</string>
   <string name="revanced_share_copy_url_success">คัดลอก URL ไปยังคลิปบอร์ด</string>
   <string name="revanced_share_copy_url_timestamp_success">คัดลอก URL พร้อมเวลาไปยังคลิปบอร์ด</string>
   <string name="revanced_copy_video_url_title">แสดงปุ่มคัดลอก URL วิดีโอ</string>
-  <string name="revanced_copy_video_url_summary_on">ปุ่มจะแสดง แตะเพื่อคัดลอก URL วิดีโอ แตะค้างไว้เพื่อคัดลอก URL วิดีโอพร้อมเวลา</string>
+  <string name="revanced_copy_video_url_summary_on">ปุ่มแสดงอยู่ แตะเพื่อคัดลอก URL วิดีโอ แตะค้างไว้เพื่อคัดลอกพร้อมการประทับเวลา</string>
   <string name="revanced_copy_video_url_summary_off">ปุ่มไม่แสดง</string>
   <string name="revanced_copy_video_url_timestamp_title">แสดงปุ่มคัดลอก URL เวลา</string>
-  <string name="revanced_copy_video_url_timestamp_summary_on">ปุ่มจะแสดง แตะเพื่อคัดลอก URL วิดีโอพร้อมเวลา แตะค้างไว้เพื่อคัดลอกวิดีโอโดยไม่ใช้เวลา</string>
+  <string name="revanced_copy_video_url_timestamp_summary_on">ปุ่มแสดงอยู่ แตะเพื่อคัดลอก URL วิดีโอพร้อมการประทับเวลา แตะค้างไว้เพื่อคัดลอกโดยไม่มีการประทับเวลา</string>
   <string name="revanced_copy_video_url_timestamp_summary_off">ปุ่มไม่แสดง</string>
   </patch>
   <patch id="interaction.dialog.removeViewerDiscretionDialogPatch">

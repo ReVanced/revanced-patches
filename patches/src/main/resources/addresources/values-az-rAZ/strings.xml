@@ -443,10 +443,10 @@ Bu xüsusiyyət yalnız köhnə cihazlar üçün mövcuddur"</string>
   <string name="revanced_share_copy_url_success">URL buferə köçürüldü</string>
   <string name="revanced_share_copy_url_timestamp_success">Vaxt möhürlü URL köçürüldü</string>
   <string name="revanced_copy_video_url_title">Video URL-i köçürmə düyməsin göstər</string>
-  <string name="revanced_copy_video_url_summary_on">Düymə göstərilir. Video URL-sini köçürmək üçün toxun. Vaxt möhürlü video URL-sini köçürmək üçün basılı saxla</string>
+  <string name="revanced_copy_video_url_summary_on">Düymə göstərilir. Video URL-ni köçürmək üçün toxun. Vaxt möhürü ilə köçürmək üçün basıb saxlayın</string>
   <string name="revanced_copy_video_url_summary_off">Düymə göstərilmir</string>
   <string name="revanced_copy_video_url_timestamp_title">Vaxt möhürü URL köçür düyməsi göstər</string>
-  <string name="revanced_copy_video_url_timestamp_summary_on">Düymə göstərilir. Vaxt möhürlü video URL-sini köçürmək üçün toxun. Vaxt möhürü olmadan köçürmək üçün basılı saxla</string>
+  <string name="revanced_copy_video_url_timestamp_summary_on">Düymə göstərilir. Video URL-ni vaxt möhürü ilə köçürmək üçün toxun. Vaxt möhürü olmadan köçürmək üçün basıb saxlayın</string>
   <string name="revanced_copy_video_url_timestamp_summary_off">Düymə göstərilmir</string>
   </patch>
   <patch id="interaction.dialog.removeViewerDiscretionDialogPatch">
