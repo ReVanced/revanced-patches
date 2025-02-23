@@ -36,14 +36,14 @@ fun settingsPatch (
     execute {
         copyResources(
             "settings",
-            ResourceGroup("xml", "revanced_prefs.xml"),
+            ResourceGroup("xml", "revanced_prefs.xml", "revanced_prefs_icons.xml"),
         )
 
         addResources("shared", "misc.settings.settingsResourcePatch")
     }
 
     finalize {
-        fun Node.addPreference(preference: BasePreference, prepend: Boolean = false) {
+        fun Node.addPreference(preference: BasePreference) {
             preference.serialize(ownerDocument) { resource ->
                 // TODO: Currently, resources can only be added to "values", which may not be the correct place.
                 //  It may be necessary to ask for the desired resourceValue in the future.
@@ -61,7 +61,7 @@ fun settingsPatch (
                 val preferenceFileName = "res/xml/$fileName.xml"
                 if (get(preferenceFileName).exists()) {
                     document(preferenceFileName).use { document ->
-                        document.getNode("PreferenceScreen").addPreference(intent, true)
+                        document.getNode("PreferenceScreen").addPreference(intent)
                     }
                     modified = true
                 }
@@ -71,6 +71,20 @@ fun settingsPatch (
         }
 
         // Add all preferences to the ReVanced fragment.
+        document("res/xml/revanced_prefs_icons.xml").use { document ->
+            val revancedPreferenceScreenNode = document.getNode("PreferenceScreen")
+            preferences.forEach { revancedPreferenceScreenNode.addPreference(it) }
+        }
+
+        // Because the icon preferences require declaring a layout resource,
+        // there is no easy way to change to the Android default preference layout
+        // after the preference is inflated.
+        // Using two different preference files is the simplest and most robust.
+        preferences.forEach { preference ->
+            preference.icon = null
+            preference.layout = null
+        }
+
         document("res/xml/revanced_prefs.xml").use { document ->
             val revancedPreferenceScreenNode = document.getNode("PreferenceScreen")
             preferences.forEach { revancedPreferenceScreenNode.addPreference(it) }

@@ -183,7 +183,8 @@ val settingsPatch = bytecodePatch(
 
         if (is_19_34_or_greater) {
             PreferenceScreen.GENERAL_LAYOUT.addPreferences(
-                SwitchPreference("revanced_restore_old_settings_menus")
+                SwitchPreference("revanced_restore_old_settings_menus"),
+                SwitchPreference("revanced_show_menu_icons")
             )
         }
 
