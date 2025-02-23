@@ -1,3 +1,10 @@
+# [5.13.0-dev.11](https://github.com/ReVanced/revanced-patches/compare/v5.13.0-dev.10...v5.13.0-dev.11) (2025-02-23)
+
+
+### Bug Fixes
+
+* **TikTok:** Resolve startup app crash ([18c0fc2](https://github.com/ReVanced/revanced-patches/commit/18c0fc2a7f186f50a904fd25dbaa739abdd24993))
+
 # [5.13.0-dev.10](https://github.com/ReVanced/revanced-patches/compare/v5.13.0-dev.9...v5.13.0-dev.10) (2025-02-22)
 
 
