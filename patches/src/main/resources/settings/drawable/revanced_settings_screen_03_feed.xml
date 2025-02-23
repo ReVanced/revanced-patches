@@ -1,5 +1,5 @@
 <!--
-   https://github.com/google/material-design-icons/blob/9beae745bb758f3ad56654fb377ea5cf62be4915/symbols/android/dynamic_feed/materialsymbolsoutlined/dynamic_feed_wght300_24px.xml
+    https://github.com/google/material-design-icons/blob/9beae745bb758f3ad56654fb377ea5cf62be4915/symbols/android/dynamic_feed/materialsymbolsoutlined/dynamic_feed_wght200_24px.xml
 
 Copyright 2022 Google
 
@@ -20,9 +20,8 @@ Copyright 2022 Google
         android:width="24dp"
         android:height="24dp"
         android:viewportWidth="24"
-        android:viewportHeight="24"
-        android:tint="?attr/colorControlNormal">
+        android:viewportHeight="24">
     <path
-            android:fillColor="@android:color/white"
-            android:pathData="M4.425,20.375Q3.675,20.375 3.15,19.85Q2.625,19.325 2.625,18.575V12.275H4.125V18.575Q4.125,18.7 4.213,18.788Q4.3,18.875 4.425,18.875H12.725V20.375ZM8.3,16.5Q7.55,16.5 7.025,15.975Q6.5,15.45 6.5,14.7V8.375H8V14.7Q8,14.8 8.1,14.9Q8.2,15 8.3,15H16.625V16.5ZM12.2,12.625Q11.425,12.625 10.9,12.1Q10.375,11.575 10.375,10.8V5.425Q10.375,4.675 10.9,4.15Q11.425,3.625 12.2,3.625H19.575Q20.325,3.625 20.85,4.15Q21.375,4.675 21.375,5.425V10.8Q21.375,11.575 20.85,12.1Q20.325,12.625 19.575,12.625ZM12.2,11.125H19.575Q19.7,11.125 19.788,11.025Q19.875,10.925 19.875,10.8V7.125H11.875V10.8Q11.875,10.925 11.975,11.025Q12.075,11.125 12.2,11.125Z"/>
+            android:fillColor="?ytTextPrimary"
+            android:pathData="M4.85,19.775Q4.15,19.775 3.688,19.312Q3.225,18.85 3.225,18.15V12.55H4.225V18.15Q4.225,18.375 4.425,18.575Q4.625,18.775 4.85,18.775H12.45V19.775ZM8.625,16Q7.925,16 7.463,15.537Q7,15.075 7,14.375V8.775H8V14.375Q8,14.625 8.188,14.812Q8.375,15 8.625,15H16.225V16ZM12.375,12.225Q11.7,12.225 11.238,11.762Q10.775,11.3 10.775,10.625V5.85Q10.775,5.15 11.238,4.687Q11.7,4.225 12.375,4.225H19.15Q19.85,4.225 20.312,4.687Q20.775,5.15 20.775,5.85V10.625Q20.775,11.3 20.312,11.762Q19.85,12.225 19.15,12.225ZM12.375,11.225H19.15Q19.375,11.225 19.575,11.037Q19.775,10.85 19.775,10.625V7.225H11.775V10.625Q11.775,10.85 11.963,11.037Q12.15,11.225 12.375,11.225Z"/>
 </vector>

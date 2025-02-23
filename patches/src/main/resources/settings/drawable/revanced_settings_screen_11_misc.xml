@@ -1,5 +1,5 @@
 <!--
-    https://github.com/google/material-design-icons/blob/9beae745bb758f3ad56654fb377ea5cf62be4915/symbols/android/widgets/materialsymbolsoutlined/widgets_wght300_24px.xml
+    https://github.com/google/material-design-icons/blob/9beae745bb758f3ad56654fb377ea5cf62be4915/symbols/android/widgets/materialsymbolsoutlined/widgets_wght200_24px.xml
 
 Copyright 2022 Google
 
@@ -20,9 +20,8 @@ Copyright 2022 Google
         android:width="24dp"
         android:height="24dp"
         android:viewportWidth="24"
-        android:viewportHeight="24"
-        android:tint="?attr/colorControlNormal">
+        android:viewportHeight="24">
     <path
-            android:fillColor="@android:color/white"
-            android:pathData="M16.475,12.475 L11.55,7.55 16.475,2.6 21.425,7.55ZM3.8,10.8V3.8H10.8V10.8ZM13.2,20.2V13.2H20.2V20.2ZM3.8,20.2V13.2H10.8V20.2ZM5.3,9.3H9.3V5.3H5.3ZM16.5,10.4 L19.325,7.575 16.5,4.75 13.675,7.575ZM14.7,18.7H18.7V14.7H14.7ZM5.3,18.7H9.3V14.7H5.3ZM9.3,9.3ZM13.675,7.575ZM9.3,14.7ZM14.7,14.7Z"/>
+            android:fillColor="?ytTextPrimary"
+            android:pathData="M16.3,11.95 L12.075,7.725 16.3,3.5 20.525,7.725ZM4.625,10.625V4.625H10.625V10.625ZM13.375,19.375V13.375H19.375V19.375ZM4.625,19.375V13.375H10.625V19.375ZM5.625,9.625H9.625V5.625H5.625ZM16.325,10.575 L19.15,7.75 16.325,4.925 13.5,7.75ZM14.375,18.375H18.375V14.375H14.375ZM5.625,18.375H9.625V14.375H5.625ZM9.625,9.625ZM13.5,7.75ZM9.625,14.375ZM14.375,14.375Z"/>
 </vector>
