@@ -441,10 +441,10 @@ Este recurso está disponível apenas para dispositivos mais antigos"</string>
   <string name="revanced_share_copy_url_success">URL copiada para a área de transferência</string>
   <string name="revanced_share_copy_url_timestamp_success">URL com tempo copiado</string>
   <string name="revanced_copy_video_url_title">Mostrar botão copiar URL no vídeo</string>
-  <string name="revanced_copy_video_url_summary_on">O botão é mostrado. Toque para copiar a URL do vídeo. Toque e segure para copiar a URL do vídeo com tempo</string>
+  <string name="revanced_copy_video_url_summary_on">O botão é mostrado. Toque para copiar a URL do vídeo. Toque e segure para copiar com carimbo de data/hora</string>
   <string name="revanced_copy_video_url_summary_off">O botão não está visível</string>
   <string name="revanced_copy_video_url_timestamp_title">Mostrar botão copiar URL com tempo</string>
-  <string name="revanced_copy_video_url_timestamp_summary_on">O botão é mostrado. Toque para copiar a URL do vídeo com temo. Toque e segure para copiar vídeos sem tempo</string>
+  <string name="revanced_copy_video_url_timestamp_summary_on">O botão é mostrado. Toque para copiar a URL do vídeo com carimbo de data/hora. Toque e segure para copiar sem carimbo de data/hora</string>
   <string name="revanced_copy_video_url_timestamp_summary_off">O botão não está visível</string>
   </patch>
   <patch id="interaction.dialog.removeViewerDiscretionDialogPatch">

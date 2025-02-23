@@ -443,10 +443,10 @@ Second \"item\" text"</string>
   <string name="revanced_share_copy_url_success">Връзката е копирана в клипборда.</string>
   <string name="revanced_share_copy_url_timestamp_success">URL адрес с отметка за време, копиран в клипборда.</string>
   <string name="revanced_copy_video_url_title">Показване на бутона за копиране на URL адреса на видеоклипа</string>
-  <string name="revanced_copy_video_url_summary_on">Показан е бутон. Докоснете, за да копирате URL на видеото. Докоснете и задръжте, за да копирате URL адреса на видеоклипа с клеймо за време</string>
+  <string name="revanced_copy_video_url_summary_on">Бутонът е показан. Докоснете, за да копирате URL адреса на видеоклипа. Докоснете и задръжте, за да копирате с времеви печат</string>
   <string name="revanced_copy_video_url_summary_off">Бутонът не е показан</string>
   <string name="revanced_copy_video_url_timestamp_title">Показване на бутона за копиране на URL адреса на времевия отпечатък на видеоклипа</string>
-  <string name="revanced_copy_video_url_timestamp_summary_on">Показан е бутон. Докоснете, за да копирате URL адреса на видеоклипа с клеймо за време. Докоснете и задръжте, за да копирате видеоклип без клеймо за време</string>
+  <string name="revanced_copy_video_url_timestamp_summary_on">Бутонът е показан. Докоснете, за да копирате URL адреса на видеоклипа с времеви печат. Докоснете и задръжте, за да копирате без времеви печат</string>
   <string name="revanced_copy_video_url_timestamp_summary_off">Бутонът не е показан</string>
   </patch>
   <patch id="interaction.dialog.removeViewerDiscretionDialogPatch">

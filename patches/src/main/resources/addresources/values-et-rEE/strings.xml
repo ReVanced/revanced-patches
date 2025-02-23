@@ -443,10 +443,10 @@ See funktsioon on saadaval ainult vanemates seadmetes"</string>
   <string name="revanced_share_copy_url_success">URL kopeeritud clipboardi</string>
   <string name="revanced_share_copy_url_timestamp_success">Aadres URL ajaga kopeeritud</string>
   <string name="revanced_copy_video_url_title">Kuva video URL kopeerimise nupp</string>
-  <string name="revanced_copy_video_url_summary_on">Nupud on näha. Koputage video URL-i kopeerimiseks. Koputage ja hoidke video URL-i ajatempliga kopeerimiseks</string>
+  <string name="revanced_copy_video_url_summary_on">Nupp on nähtav. Video URL-i kopeerimiseks puuduta. Ajakoodiga kopeerimiseks puuduta pikalt</string>
   <string name="revanced_copy_video_url_summary_off">Nupud ei ole näha</string>
   <string name="revanced_copy_video_url_timestamp_title">Näita video URL-i ajatempliga kopeerimise nuppu</string>
-  <string name="revanced_copy_video_url_timestamp_summary_on">Nupud on näha. Koputage video URL-i ajatempliga kopeerimiseks. Koputage ja hoidke video kopeerimiseks ilma ajatempli</string>
+  <string name="revanced_copy_video_url_timestamp_summary_on">Nupp on nähtav. Ajakoodiga video URL-i kopeerimiseks puuduta. Ilma ajakoodita kopeerimiseks puuduta pikalt</string>
   <string name="revanced_copy_video_url_timestamp_summary_off">Nupud ei ole näha</string>
   </patch>
   <patch id="interaction.dialog.removeViewerDiscretionDialogPatch">

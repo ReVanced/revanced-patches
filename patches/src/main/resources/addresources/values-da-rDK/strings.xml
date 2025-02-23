@@ -407,10 +407,10 @@ Denne funktion er kun tilgængelig for ældre enheder"</string>
   <string name="revanced_share_copy_url_success">URL kopieret til udklipsholder</string>
   <string name="revanced_share_copy_url_timestamp_success">URL med tidsstempel kopieret</string>
   <string name="revanced_copy_video_url_title">Vis kopiér video URL knap</string>
-  <string name="revanced_copy_video_url_summary_on">Knap vises. Tryk for at kopiere video URL. Tryk og hold for at kopiere video URL med tidsstempel</string>
+  <string name="revanced_copy_video_url_summary_on">Knappen vises. Tryk for at kopiere videoens URL. Tryk og hold for at kopiere med tidsstempel</string>
   <string name="revanced_copy_video_url_summary_off">Knap vises ikke</string>
   <string name="revanced_copy_video_url_timestamp_title">Vis kopi tidsstempel URL knap</string>
-  <string name="revanced_copy_video_url_timestamp_summary_on">Knap vises. Tryk for at kopiere video URL med tidsstempel. Tryk og hold for at kopiere video uden tidsstempel</string>
+  <string name="revanced_copy_video_url_timestamp_summary_on">Knappen vises. Tryk for at kopiere videoens URL med tidsstempel. Tryk og hold for at kopiere uden tidsstempel</string>
   <string name="revanced_copy_video_url_timestamp_summary_off">Knap vises ikke</string>
   </patch>
   <patch id="interaction.dialog.removeViewerDiscretionDialogPatch">

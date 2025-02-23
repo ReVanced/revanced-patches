@@ -443,10 +443,10 @@ Tính năng này chỉ khả dụng cho các thiết bị cũ hơn"</string>
   <string name="revanced_share_copy_url_success">Đã chép URL vào bảng nhớ tạm</string>
   <string name="revanced_share_copy_url_timestamp_success">Đã chép URL với dấu thời gian</string>
   <string name="revanced_copy_video_url_title">Hiện nút sao chép url video</string>
-  <string name="revanced_copy_video_url_summary_on">Nút được hiển thị. Chạm để sao chép video URL. Chạm và giữ để sao chép video URL với dấu thời gian</string>
+  <string name="revanced_copy_video_url_summary_on">Nút được hiển thị. Chạm để sao chép video URL. Chạm và giữ để sao chép với dấu thời gian</string>
   <string name="revanced_copy_video_url_summary_off">Nút không được hiện</string>
   <string name="revanced_copy_video_url_timestamp_title">Hiện nút sao chép URL với dấu thời gian</string>
-  <string name="revanced_copy_video_url_timestamp_summary_on">Nút được hiển thị. Chạm để sao chép video URL với dấu thời gian. Chạm và giữ để sao chép video URL không dấu thời gian</string>
+  <string name="revanced_copy_video_url_timestamp_summary_on">Nút được hiển thị. Chạm để sao chép video URL với dấu thời gian. Chạm và giữ để sao chép video không dấu thời gian</string>
   <string name="revanced_copy_video_url_timestamp_summary_off">Nút không được hiện</string>
   </patch>
   <patch id="interaction.dialog.removeViewerDiscretionDialogPatch">

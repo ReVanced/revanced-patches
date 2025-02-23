@@ -443,10 +443,10 @@ Ierobežojumi
   <string name="revanced_share_copy_url_success">URL kopēts starpliktuvē</string>
   <string name="revanced_share_copy_url_timestamp_success">URL ar laika zīmi kopēts</string>
   <string name="revanced_copy_video_url_title">Rādīt video URL kopēšanas pogu</string>
-  <string name="revanced_copy_video_url_summary_on">Poga ir redzama. Pieskarieties, lai kopētu video URL. Nospiediet un turiet, lai kopētu video URL ar laika zīmi</string>
+  <string name="revanced_copy_video_url_summary_on">Poga ir redzama. Pieskarieties, lai kopētu video URL. Pieskarieties un turiet, lai kopētu ar laika zīmogu</string>
   <string name="revanced_copy_video_url_summary_off">Pogas nav redzamas</string>
   <string name="revanced_copy_video_url_timestamp_title">Rādīt pogu \"Kopēt saiti ar laika zīmi\"</string>
-  <string name="revanced_copy_video_url_timestamp_summary_on">Poga ir redzama. Pieskarieties, lai kopētu video saiti ar laika zīmi. Pieskarieties un turiet nospiestu, lai kopētu video bez laika zīmes</string>
+  <string name="revanced_copy_video_url_timestamp_summary_on">Poga ir redzama. Pieskarieties, lai kopētu video URL ar laika zīmogu. Pieskarieties un turiet, lai kopētu bez laika zīmoga</string>
   <string name="revanced_copy_video_url_timestamp_summary_off">Pogas nav redzamas</string>
   </patch>
   <patch id="interaction.dialog.removeViewerDiscretionDialogPatch">

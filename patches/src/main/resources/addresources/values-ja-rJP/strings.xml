@@ -445,7 +445,7 @@ GmsCore の電池の最適化を無効にしても、バッテリーの使用に
   <string name="revanced_share_copy_url_success">URL をクリップボードにコピーしました</string>
   <string name="revanced_share_copy_url_timestamp_success">タイムスタンプ付きの URL がコピーされました</string>
   <string name="revanced_copy_video_url_title">「動画の URL をコピー」ボタンを表示</string>
-  <string name="revanced_copy_video_url_summary_on">オーバーレイ上にボタンが表示されます。タップするとタイムスタンプなしの URL を、長押しするとタイムスタンプ付きの URL をそれぞれコピーできます</string>
+  <string name="revanced_copy_video_url_summary_on">オーバーレイ上にボタンが表示されます。タップすると動画の URL を、長押しするとタイムスタンプ付きの URL をそれぞれコピーできます</string>
   <string name="revanced_copy_video_url_summary_off">オーバーレイ上にボタンは表示されません</string>
   <string name="revanced_copy_video_url_timestamp_title">「動画のタイムスタンプ付き URL をコピー」ボタンを表示</string>
   <string name="revanced_copy_video_url_timestamp_summary_on">オーバーレイ上にボタンが表示されます。タップするとタイムスタンプ付きの URL を、長押しするとタイムスタンプなしの URL をそれぞれコピーできます</string>
@@ -569,33 +569,33 @@ GmsCore の電池の最適化を無効にしても、バッテリーの使用に
   <string name="revanced_navigation_buttons_screen_title">ナビゲーション ボタン</string>
   <string name="revanced_navigation_buttons_screen_summary">画面下部のナビゲーション バー上のボタンを編集します</string>
   <!-- 'Home' should be translated using the same localized wording YouTube displays for the tab. -->
-  <string name="revanced_hide_home_button_title">ホーム ボタンを非表示</string>
+  <string name="revanced_hide_home_button_title">「ホーム」を非表示</string>
   <string name="revanced_hide_home_button_summary_on">ホーム ボタンは表示されません</string>
   <string name="revanced_hide_home_button_summary_off">ホーム ボタンは表示されます</string>
   <!-- 'Shorts' should be translated using the same localized wording YouTube displays the tab. -->
-  <string name="revanced_hide_shorts_button_title">ショート ボタンを非表示</string>
+  <string name="revanced_hide_shorts_button_title">「ショート」を非表示</string>
   <string name="revanced_hide_shorts_button_summary_on">ショート ボタンは表示されません</string>
   <string name="revanced_hide_shorts_button_summary_off">ショート ボタンは表示されます</string>
   <!-- The Create button has no display name. Translate normally. -->
-  <string name="revanced_hide_create_button_title">作成ボタンを非表示</string>
+  <string name="revanced_hide_create_button_title">「作成」を非表示</string>
   <string name="revanced_hide_create_button_summary_on">作成ボタンは非表示です</string>
   <string name="revanced_hide_create_button_summary_off">作成ボタンは表示されます</string>
   <!-- 'Subscriptions' should be translated using the same localized wording YouTube displays the tab. -->
-  <string name="revanced_hide_subscriptions_button_title">登録チャンネル ボタンを非表示</string>
+  <string name="revanced_hide_subscriptions_button_title">「登録チャンネル」を非表示</string>
   <string name="revanced_hide_subscriptions_button_summary_on">登録チャンネル ボタンは表示されません</string>
   <string name="revanced_hide_subscriptions_button_summary_off">登録チャンネル ボタンは表示されます</string>
   <string name="revanced_hide_notifications_button_title">通知を非表示</string>
-  <string name="revanced_hide_notifications_button_summary_on">通知ボタンは非表示</string>
-  <string name="revanced_hide_notifications_button_summary_off">通知ボタンが表示されます</string>
+  <string name="revanced_hide_notifications_button_summary_on">通知ボタンは表示されません</string>
+  <string name="revanced_hide_notifications_button_summary_off">通知ボタンは表示されます</string>
   <!-- 'Notifications' should be translated using the same localized wording YouTube displays the tab. -->
-  <string name="revanced_switch_create_with_notifications_button_title">作成ボタンと通知ボタンを入れ替える</string>
+  <string name="revanced_switch_create_with_notifications_button_title">「作成」と「通知」を入れ替える</string>
   <string name="revanced_switch_create_with_notifications_button_summary_on">"作成ボタンと通知ボタンが入れ替わります
 
 注: これにより、動画広告も強制的に非表示になります"</string>
   <string name="revanced_switch_create_with_notifications_button_summary_off">作成ボタンと通知ボタンは入れ替わりません</string>
-  <string name="revanced_switch_create_with_notifications_button_user_dialog_message">"この設定を無効にすると、Shortsの広告ブロックも無効になります。
+  <string name="revanced_switch_create_with_notifications_button_user_dialog_message">"この設定を無効にすると、ショート動画の広告ブロックも無効になります。
 
-この設定を変更しても有効にならない場合は、シークレットモードに切り替えてみてください。"</string>
+この設定を変更しても効果がない場合は、シークレット モードに切り替えてみてください。"</string>
   <string name="revanced_hide_navigation_button_labels_title">ナビゲーション ボタンをアイコンのみで表示する</string>
   <string name="revanced_hide_navigation_button_labels_summary_on">ナビゲーション ボタンはアイコンのみで表示されます</string>
   <string name="revanced_hide_navigation_button_labels_summary_off">ナビゲーション ボタンはアイコンと文字で表示されます</string>
@@ -867,10 +867,10 @@ GmsCore の電池の最適化を無効にしても、バッテリーの使用に
   <string name="revanced_ryd_compact_layout_title">コンパクト 高評価ボタン</string>
   <string name="revanced_ryd_compact_layout_summary_on">ボタンはコンパクトに表示されます</string>
   <string name="revanced_ryd_compact_layout_summary_off">ボタンは最適なサイズで表示されます</string>
-  <string name="revanced_ryd_estimated_like_title">推定「いいね！」を表示</string>
-  <string name="revanced_ryd_estimated_like_summary_on">推定「いいね！」が表示されます</string>
-  <string name="revanced_ryd_estimated_like_summary_off">推定「いいね！」は非表示になります</string>
-  <string name="revanced_ryd_toast_on_connection_error_title">API が利用できない場合はトーストを表示</string>
+  <string name="revanced_ryd_estimated_like_title">高評価の推定値を表示</string>
+  <string name="revanced_ryd_estimated_like_summary_on">高評価が非公開の動画で推定値が表示されます</string>
+  <string name="revanced_ryd_estimated_like_summary_off">高評価が非公開の動画では数値は表示されません</string>
+  <string name="revanced_ryd_toast_on_connection_error_title">API 利用不可時にトーストを表示</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_on">Return YouTube Dislike が利用できない場合、トースト ポップアップが表示されます</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_off">Return YouTube Dislike が利用できない場合でもトースト ポップアップは表示されません</string>
   <string name="revanced_ryd_about">このアプリについて</string>
@@ -933,11 +933,11 @@ GmsCore の電池の最適化を無効にしても、バッテリーの使用に
   <string name="revanced_sb_general_skiptoast">スキップ時にトーストを表示</string>
   <string name="revanced_sb_general_skiptoast_sum_on">セグメントが自動的にスキップされたときにトースト ポップアップが表示されます。例を見るにはここをタップしてください</string>
   <string name="revanced_sb_general_skiptoast_sum_off">トースト ポップアップは表示されません。例を見るにはここをタップしてください</string>
-  <string name="revanced_sb_general_time_without">セグメントを除いた動画の時間を表示</string>
-  <string name="revanced_sb_general_time_without_sum_on">動画からセグメントを除いた時間が、動画全体の長さの横に括弧で表示されます。</string>
-  <string name="revanced_sb_general_time_without_sum_off">動画のすべての再生時間を表示</string>
+  <string name="revanced_sb_general_time_without">セグメントを除いた時間を表示</string>
+  <string name="revanced_sb_general_time_without_sum_on">動画からセグメントを除いた時間が、動画全体の再生時間の横に括弧で表示されます</string>
+  <string name="revanced_sb_general_time_without_sum_off">動画全体の再生時間のみが表示されます</string>
   <string name="revanced_sb_create_segment_category">新しいセグメントを作成する</string>
-  <string name="revanced_sb_enable_create_segment">新しいセグメントの作成ボタンを表示</string>
+  <string name="revanced_sb_enable_create_segment">新しいセグメント作成ボタンを表示</string>
   <string name="revanced_sb_enable_create_segment_sum_on">新しいセグメントを作成するボタンが表示されます</string>
   <string name="revanced_sb_enable_create_segment_sum_off">新しいセグメントを作成するボタンは表示されません</string>
   <string name="revanced_sb_general_adjusting">新しいセグメントステップを調整する</string>
@@ -950,7 +950,7 @@ GmsCore の電池の最適化を無効にしても、バッテリーの使用に
   <string name="revanced_sb_guidelines_popup_already_read">既に読んでいます</string>
   <string name="revanced_sb_guidelines_popup_open">見る</string>
   <string name="revanced_sb_general">一般設定</string>
-  <string name="revanced_sb_toast_on_connection_error_title">API が利用できない場合はトーストを表示する</string>
+  <string name="revanced_sb_toast_on_connection_error_title">API 利用不可時にトーストを表示</string>
   <string name="revanced_sb_toast_on_connection_error_summary_on">SponsorBlock が利用できない場合はトースト ポップアップが表示されます</string>
   <string name="revanced_sb_toast_on_connection_error_summary_off">SponsorBlock が利用できない場合でもトースト ポップアップは表示されません</string>
   <string name="revanced_sb_general_skipcount">スキップ数の追跡を有効にする</string>
@@ -1282,7 +1282,7 @@ Automotive レイアウト
   <string name="revanced_alt_thumbnail_dearrow_about_summary">"DeArrow は、YouTube 動画のサムネイルをクラウドソーシングで提供する機能です。DeArrow のサムネイルは、YouTube が提供するサムネイルよりも適切なことが多いです。これを有効にすると、動画の URL が API サーバーに送信されますが、他のデータは送信されません。動画に DeArrow サムネイルがない場合は、オリジナルのサムネイルまたは静止画サムネイルが表示されます
 
 DeArrow の詳細については、ここをタップしてください"</string>
-  <string name="revanced_alt_thumbnail_dearrow_connection_toast_title">API が利用できない場合はトーストを表示</string>
+  <string name="revanced_alt_thumbnail_dearrow_connection_toast_title">API が利用できない場合はトーストを表示する</string>
   <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_on">DeArrow が利用できない場合はトースト ポップアップが表示されます</string>
   <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_off">DeArrow が利用できない場合でもトースト ポップアップは表示されません</string>
   <string name="revanced_alt_thumbnail_dearrow_api_url_title">DeArrow API のエンドポイント</string>

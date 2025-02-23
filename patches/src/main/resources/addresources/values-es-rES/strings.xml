@@ -433,10 +433,10 @@ Esta función solo está disponible para dispositivos antiguos"</string>
   <string name="revanced_share_copy_url_success">URL copiada al portapapeles</string>
   <string name="revanced_share_copy_url_timestamp_success">URL con marca de tiempo copiada</string>
   <string name="revanced_copy_video_url_title">Mostrar botón URL de copia de vídeo</string>
-  <string name="revanced_copy_video_url_summary_on">El botón se muestra. Toque para copiar la URL del vídeo. Mantenga pulsado para copiar la URL del vídeo con la marca de tiempo</string>
+  <string name="revanced_copy_video_url_summary_on">El botón se muestra. Toca para copiar la URL del vídeo. Toca y mantén pulsado para copiar con la marca de tiempo</string>
   <string name="revanced_copy_video_url_summary_off">El botón no se muestra</string>
   <string name="revanced_copy_video_url_timestamp_title">Mostrar botón URL de la marca de tiempo</string>
-  <string name="revanced_copy_video_url_timestamp_summary_on">El botón se muestra. Toque para copiar la URL del vídeo con la marca de tiempo. Toque y mantenga pulsado para copiar el vídeo sin marca de tiempo</string>
+  <string name="revanced_copy_video_url_timestamp_summary_on">El botón se muestra. Toca para copiar la URL del vídeo con la marca de tiempo. Toca y mantén pulsado para copiar sin la marca de tiempo</string>
   <string name="revanced_copy_video_url_timestamp_summary_off">El botón no se muestra</string>
   </patch>
   <patch id="interaction.dialog.removeViewerDiscretionDialogPatch">
