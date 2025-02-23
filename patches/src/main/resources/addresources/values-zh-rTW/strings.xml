@@ -438,10 +438,8 @@ Second \"item\" text"</string>
   <string name="revanced_share_copy_url_success">已將網址複製到剪貼簿</string>
   <string name="revanced_share_copy_url_timestamp_success">已複製時間戳記網址</string>
   <string name="revanced_copy_video_url_title">顯示複製影片網址按鈕</string>
-  <string name="revanced_copy_video_url_summary_on">已顯示按鈕。輕觸以複製影片網址。按住以複製包含時間戳記的影片網址。</string>
   <string name="revanced_copy_video_url_summary_off">不顯示按鈕</string>
   <string name="revanced_copy_video_url_timestamp_title">顯示複製時間戳記網址按鈕</string>
-  <string name="revanced_copy_video_url_timestamp_summary_on">已顯示按鈕。輕觸以複製包含時間戳記的影片網址。按住以複製不包含時間戳記的影片網址。</string>
   <string name="revanced_copy_video_url_timestamp_summary_off">不顯示按鈕</string>
   </patch>
   <patch id="interaction.dialog.removeViewerDiscretionDialogPatch">

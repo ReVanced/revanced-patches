@@ -443,10 +443,10 @@ Ta funkcija je na voljo samo za starejše naprave"</string>
   <string name="revanced_share_copy_url_success">URL je kopiran v odložišče</string>
   <string name="revanced_share_copy_url_timestamp_success">URL s časovnim žigom je kopiran</string>
   <string name="revanced_copy_video_url_title">Pokaži gumb za kopiranje URL-ja videoposnetka</string>
-  <string name="revanced_copy_video_url_summary_on">Gumb je prikazan. Tapnite za kopiranje URL-ja videoposnetka. Pritisnite in držite za kopiranje URL-ja videoposnetka s časovnim žigom</string>
+  <string name="revanced_copy_video_url_summary_on">Gumb je prikazan. Dotaknite se, da kopirate URL videoposnetka. Dotaknite se in pridržite, da kopirate s časovnim žigom</string>
   <string name="revanced_copy_video_url_summary_off">Gumb ni prikazan</string>
   <string name="revanced_copy_video_url_timestamp_title">Prikaži gumb za kopiranje URL-ja s časovnim žigom</string>
-  <string name="revanced_copy_video_url_timestamp_summary_on">Gumb je prikazan. Tapnite, da kopirate URL videoposnetka s časovnim žigom. Tapnite in pridržite, da kopirate videoposnetek brez časovnega žiga</string>
+  <string name="revanced_copy_video_url_timestamp_summary_on">Gumb je prikazan. Dotaknite se, da kopirate URL videoposnetka s časovnim žigom. Dotaknite se in pridržite, da kopirate brez časovnega žiga</string>
   <string name="revanced_copy_video_url_timestamp_summary_off">Gumb ni prikazan</string>
   </patch>
   <patch id="interaction.dialog.removeViewerDiscretionDialogPatch">

@@ -443,10 +443,10 @@ Bu özellik yalnızca eski cihazlarda kullanılabilir"</string>
   <string name="revanced_share_copy_url_success">URL panoya kopyalandı</string>
   <string name="revanced_share_copy_url_timestamp_success">Zaman damgalı URL kopyalandı</string>
   <string name="revanced_copy_video_url_title">Video URL\'sini kopyalama düğmesini göster</string>
-  <string name="revanced_copy_video_url_summary_on">Düğme görünür. Video URL\'sini kopyalamak için dokunun. Zaman damgalı URL\'yi kopyalamak için basılı tutun</string>
+  <string name="revanced_copy_video_url_summary_on">Düğme gösteriliyor. Video URL\'sini kopyalamak için dokunun. Zaman damgasıyla kopyalamak için dokunup basılı tutun</string>
   <string name="revanced_copy_video_url_summary_off">Düğme gösterilmez</string>
   <string name="revanced_copy_video_url_timestamp_title">Zaman damgalı URL\'yi kopyalama düğmesini göster</string>
-  <string name="revanced_copy_video_url_timestamp_summary_on">Düğme görünür. Zaman damgalı video URLsini kopyalamak için dokunun. Zaman damgası olmadan kopyalamak için basılı tutun</string>
+  <string name="revanced_copy_video_url_timestamp_summary_on">Düğme gösteriliyor. Zaman damgalı video URL\'sini kopyalamak için dokunun. Zaman damgası olmadan kopyalamak için dokunup basılı tutun</string>
   <string name="revanced_copy_video_url_timestamp_summary_off">Düğme gösterilmez</string>
   </patch>
   <patch id="interaction.dialog.removeViewerDiscretionDialogPatch">

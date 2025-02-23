@@ -443,10 +443,10 @@ Apribojimai
   <string name="revanced_share_copy_url_success">URL nukopijuotas į iškarpinę</string>
   <string name="revanced_share_copy_url_timestamp_success">URL su laiko žyma nukopijuotas</string>
   <string name="revanced_copy_video_url_title">Rodyti kopijuoti vaizdo įrašo URL mygtuką</string>
-  <string name="revanced_copy_video_url_summary_on">Mygtukas yra rodomas. Bakstelėkite, kad nukopijuotumėte vaizdo įrašo URL. Bakstelėkite ir palaikykite, kad nukopijuotumėte vaizdo įrašo URL su laiko žyma</string>
+  <string name="revanced_copy_video_url_summary_on">Mygtukas rodomas. Palieskite, kad nukopijuotumėte vaizdo įrašo URL. Palieskite ir palaikykite, kad nukopijuotumėte su laiko žyma</string>
   <string name="revanced_copy_video_url_summary_off">Mygtukas nerodomas</string>
   <string name="revanced_copy_video_url_timestamp_title">Rodyti mygtuką kopijuoti laikrodžio URL</string>
-  <string name="revanced_copy_video_url_timestamp_summary_on">Mygtukas rodomas. Bakstelėkite, norėdami kopijuoti vaizdo įrašo URL su laikrodžio žyma. Bakstelėkite ir palaikykite, kad kopijuotumėte vaizdo įrašą be laikrodžio žymos</string>
+  <string name="revanced_copy_video_url_timestamp_summary_on">Mygtukas rodomas. Palieskite, kad nukopijuotumėte vaizdo įrašo URL su laiko žyma. Palieskite ir palaikykite, kad nukopijuotumėte be laiko žymos</string>
   <string name="revanced_copy_video_url_timestamp_summary_off">Mygtukas nerodomas</string>
   </patch>
   <patch id="interaction.dialog.removeViewerDiscretionDialogPatch">

@@ -443,10 +443,10 @@ Den här funktionen är endast tillgänglig för äldre enheter"</string>
   <string name="revanced_share_copy_url_success">Webbadress kopierad till urklipp</string>
   <string name="revanced_share_copy_url_timestamp_success">Webbadress med tidsstämpel kopierad</string>
   <string name="revanced_copy_video_url_title">Visa knappen för kopiering av video-URL</string>
-  <string name="revanced_copy_video_url_summary_on">Knappen är synlig. Tryck för att kopiera videowebbadressen. Tryck och håll ner för att kopiera videowebbadressen med tidsstämpel</string>
+  <string name="revanced_copy_video_url_summary_on">Knappen visas. Tryck för att kopiera videons URL. Tryck och håll ned för att kopiera med tidsstämpel</string>
   <string name="revanced_copy_video_url_summary_off">Knappen är dold</string>
   <string name="revanced_copy_video_url_timestamp_title">Visa knappen för kopiering av tidsstämpel</string>
-  <string name="revanced_copy_video_url_timestamp_summary_on">Knappen är synlig. Tryck för att kopiera videowebbadressen med tidsstämpel. Tryck och håll ner för att kopiera videon utan tidsstämpel</string>
+  <string name="revanced_copy_video_url_timestamp_summary_on">Knappen visas. Tryck för att kopiera videons URL med tidsstämpel. Tryck och håll ned för att kopiera utan tidsstämpel</string>
   <string name="revanced_copy_video_url_timestamp_summary_off">Knappen är dold</string>
   </patch>
   <patch id="interaction.dialog.removeViewerDiscretionDialogPatch">

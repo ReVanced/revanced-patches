@@ -443,10 +443,10 @@ Această funcție este disponibilă numai pentru dispozitivele mai vechi"</strin
   <string name="revanced_share_copy_url_success">URL copiat în clipboard</string>
   <string name="revanced_share_copy_url_timestamp_success">URL cu marcaj de timp copiat</string>
   <string name="revanced_copy_video_url_title">Afișare buton copie URL</string>
-  <string name="revanced_copy_video_url_summary_on">Butonul este afișat. Atingeți pentru a copia URL-ul video. Atingeți și țineți apăsat pentru a copia URL-ul video cu marcajul de timp</string>
+  <string name="revanced_copy_video_url_summary_on">Butonul este afișat. Atingeți pentru a copia adresa URL a videoclipului. Atingeți și mențineți apăsat pentru a copia cu marcaj temporal</string>
   <string name="revanced_copy_video_url_summary_off">Butonul nu este afișat</string>
   <string name="revanced_copy_video_url_timestamp_title">Afișare buton copie marcaj URL</string>
-  <string name="revanced_copy_video_url_timestamp_summary_on">Butonul este afișat. Atingeți pentru a copia URL-ul video cu marcajul de timp. Atingeți și țineți apăsat pentru a copia videoclipul fără marcaj de timp</string>
+  <string name="revanced_copy_video_url_timestamp_summary_on">Butonul este afișat. Atingeți pentru a copia adresa URL a videoclipului cu marcaj temporal. Atingeți și mențineți apăsat pentru a copia fără marcaj temporal</string>
   <string name="revanced_copy_video_url_timestamp_summary_off">Butonul nu este afișat</string>
   </patch>
   <patch id="interaction.dialog.removeViewerDiscretionDialogPatch">

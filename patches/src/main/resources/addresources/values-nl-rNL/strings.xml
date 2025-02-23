@@ -443,10 +443,10 @@ Deze functie is alleen beschikbaar voor oudere apparaten"</string>
   <string name="revanced_share_copy_url_success">URL gekopieerd naar klembord</string>
   <string name="revanced_share_copy_url_timestamp_success">URL met tijdstempel gekopieerd</string>
   <string name="revanced_copy_video_url_title">Knop \"Video-URL kopiëren\" weergeven</string>
-  <string name="revanced_copy_video_url_summary_on">Knop wordt getoond. Tik om de video-URL te kopiëren. Tik en houd vast om de video-URL met tijdstempel te kopiëren</string>
+  <string name="revanced_copy_video_url_summary_on">Knop wordt weergegeven. Tik om de video-URL te kopiëren. Tik en houd vast om met tijdstempel te kopiëren</string>
   <string name="revanced_copy_video_url_summary_off">Knop wordt niet getoond</string>
   <string name="revanced_copy_video_url_timestamp_title">Knop \"Tijdstempel URL kopiëren\" weergeven</string>
-  <string name="revanced_copy_video_url_timestamp_summary_on">Knop wordt getoond. Tik om de video-URL met tijdstempel te kopiëren. Tik en houd vast om de video zonder tijdstempel te kopiëren</string>
+  <string name="revanced_copy_video_url_timestamp_summary_on">Knop wordt weergegeven. Tik om de video-URL met tijdstempel te kopiëren. Tik en houd vast om zonder tijdstempel te kopiëren</string>
   <string name="revanced_copy_video_url_timestamp_summary_off">Knop wordt niet getoond</string>
   </patch>
   <patch id="interaction.dialog.removeViewerDiscretionDialogPatch">

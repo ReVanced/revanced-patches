@@ -443,7 +443,7 @@ Second \"item\" text"</string>
   <string name="revanced_share_copy_url_success">URL-адрес скопирован</string>
   <string name="revanced_share_copy_url_timestamp_success">URL-адрес с меткой времени скопирован</string>
   <string name="revanced_copy_video_url_title">Показать кнопку копирования URL видео</string>
-  <string name="revanced_copy_video_url_summary_on">Кнопка показана. Нажмите для копирования URL-адреса видео. Нажмите и удерживайте для копирования URL-адреса видео с меткой времени</string>
+  <string name="revanced_copy_video_url_summary_on">Кнопка показана. Нажмите для копирования URL-адреса видео. Нажмите и удерживайте для копирования с меткой времени</string>
   <string name="revanced_copy_video_url_summary_off">Кнопка копирования URL-адреса видео скрыта</string>
   <string name="revanced_copy_video_url_timestamp_title">Показать кнопку копирования URL видео с меткой времени</string>
   <string name="revanced_copy_video_url_timestamp_summary_on">Кнопка показана. Нажмите для копирования URL-адреса видео с меткой времени. Нажмите и удерживайте для копирования URL-адреса видео без метки времени</string>

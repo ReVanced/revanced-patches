@@ -443,10 +443,10 @@ Cette fonctionnalité est disponible uniquement pour les appareils anciens"</str
   <string name="revanced_share_copy_url_success">URL copiée dans le presse-papiers</string>
   <string name="revanced_share_copy_url_timestamp_success">URL avec horodatage copiée</string>
   <string name="revanced_copy_video_url_title">Afficher le bouton \"Copier l\'URL de la vidéo\"</string>
-  <string name="revanced_copy_video_url_summary_on">Le bouton est affiché. Appuyez pour copier l\'URL de la vidéo. Appuyez longuement pour copier l\'URL de la vidéo avec l\'horodatage.</string>
+  <string name="revanced_copy_video_url_summary_on">Le bouton est affiché. Appuyez pour copier l\'URL de la vidéo. Appuyez longuement pour copier avec l\'horodatage</string>
   <string name="revanced_copy_video_url_summary_off">Le bouton n\'est pas affiché</string>
   <string name="revanced_copy_video_url_timestamp_title">Afficher un bouton \"Copier URL avec horodatage\"</string>
-  <string name="revanced_copy_video_url_timestamp_summary_on">Le bouton est affiché. Appuyez pour copier l\'URL de la vidéo avec horodatage. Appuyez longuement pour copier l\'URL de la vidéo sans horodatage.</string>
+  <string name="revanced_copy_video_url_timestamp_summary_on">Le bouton est affiché. Appuyez pour copier l\'URL de la vidéo avec horodatage. Appuyez longuement pour copier sans horodatage</string>
   <string name="revanced_copy_video_url_timestamp_summary_off">Le bouton n\'est pas affiché</string>
   </patch>
   <patch id="interaction.dialog.removeViewerDiscretionDialogPatch">

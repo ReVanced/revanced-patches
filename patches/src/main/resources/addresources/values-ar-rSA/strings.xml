@@ -443,10 +443,10 @@ Second \"item\" text"</string>
   <string name="revanced_share_copy_url_success">تم نسخ URL إلى الحافظة</string>
   <string name="revanced_share_copy_url_timestamp_success">تم نسخ عنوان URL مع الطابع الزمني</string>
   <string name="revanced_copy_video_url_title">عرض زر نسخ عنوان URL للفيديو</string>
-  <string name="revanced_copy_video_url_summary_on">يتم عرض الزر. انقر لنسخ رابط الفيديو. انقر مع الاستمرار لنسخ URL الفيديو مع الطابع الزمني</string>
+  <string name="revanced_copy_video_url_summary_on">يتم عرض الزر. انقر لنسخ عنوان URL للفيديو. انقر مع الاستمرار للنسخ مع الطابع الزمني</string>
   <string name="revanced_copy_video_url_summary_off">لا يتم عرض الزر</string>
   <string name="revanced_copy_video_url_timestamp_title">عرض زر نسخ URL مع الطابع الزمني</string>
-  <string name="revanced_copy_video_url_timestamp_summary_on">يتم عرض الزر. انقر لنسخ عنوان URL للفيديو مع الطابع الزمني. انقر مع الاستمرار لنسخ الفيديو بدون الطابع الزمني</string>
+  <string name="revanced_copy_video_url_timestamp_summary_on">يتم عرض الزر. انقر لنسخ عنوان URL للفيديو مع الطابع الزمني. انقر مع الاستمرار للنسخ بدون الطابع الزمني</string>
   <string name="revanced_copy_video_url_timestamp_summary_off">لا يتم عرض الزر</string>
   </patch>
   <patch id="interaction.dialog.removeViewerDiscretionDialogPatch">
