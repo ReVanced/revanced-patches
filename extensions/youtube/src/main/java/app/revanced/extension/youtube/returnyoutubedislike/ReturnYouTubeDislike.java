@@ -352,13 +352,16 @@ public class ReturnYouTubeDislike {
     }
 
     private static String formatDislikeCount(long dislikeCount) {
-        synchronized (ReturnYouTubeDislike.class) { // number formatter is not thread safe, must synchronize
+        synchronized (ReturnYouTubeDislike.class) { // Number formatter is not thread safe.
             if (dislikeCountFormatter == null) {
-                Locale locale = Objects.requireNonNull(Utils.getContext()).getResources().getConfiguration().locale;
+                // Must use default locale and not Utils context locale,
+                // otherwise if using a different settings language then the
+                // formatting will use that of the different language.
+                Locale locale = Locale.getDefault();
                 dislikeCountFormatter = CompactDecimalFormat.getInstance(locale, CompactDecimalFormat.CompactStyle.SHORT);
 
                 // YouTube disregards locale specific number characters
-                // and instead shows english number characters everywhere.
+                // and instead shows English number characters everywhere.
                 // To use the same behavior, override the digit characters to use English
                 // so languages such as Arabic will show "1.234" instead of the native "۱,۲۳٤"
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
@@ -375,15 +378,15 @@ public class ReturnYouTubeDislike {
     private static String formatDislikePercentage(float dislikePercentage) {
         synchronized (ReturnYouTubeDislike.class) { // Number formatter is not thread safe, must synchronize.
             if (dislikePercentageFormatter == null) {
-                Locale locale = Objects.requireNonNull(Utils.getContext()).getResources().getConfiguration().locale;
+                Locale locale = Locale.getDefault();
                 dislikePercentageFormatter = NumberFormat.getPercentInstance(locale);
 
                 // Want to set the digit strings, and the simplest way is to cast to the implementation NumberFormat returns.
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P
-                        && dislikePercentageFormatter instanceof DecimalFormat) {
+                        && dislikePercentageFormatter instanceof DecimalFormat decimalFormatter) {
                     DecimalFormatSymbols symbols = DecimalFormatSymbols.getInstance(locale);
                     symbols.setDigitStrings(DecimalFormatSymbols.getInstance(Locale.ENGLISH).getDigitStrings());
-                    ((DecimalFormat) dislikePercentageFormatter).setDecimalFormatSymbols(symbols);
+                    decimalFormatter.setDecimalFormatSymbols(symbols);
                 }
             }
 
