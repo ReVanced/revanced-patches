@@ -443,7 +443,7 @@ Second \"item\" text"</string>
   <string name="revanced_share_copy_url_success">URL-адрес скопирован</string>
   <string name="revanced_share_copy_url_timestamp_success">URL-адрес с меткой времени скопирован</string>
   <string name="revanced_copy_video_url_title">Показать кнопку копирования URL видео</string>
-  <string name="revanced_copy_video_url_summary_on">Кнопка показана. Нажмите для копирования URL-адреса видео. Нажмите и удерживайте для копирования с меткой времени</string>
+  <string name="revanced_copy_video_url_summary_on">Кнопка показана. Нажмите для копирования URL-адреса видео. Нажмите и удерживайте для копирования URL-адреса видео с меткой времени</string>
   <string name="revanced_copy_video_url_summary_off">Кнопка копирования URL-адреса видео скрыта</string>
   <string name="revanced_copy_video_url_timestamp_title">Показать кнопку копирования URL видео с меткой времени</string>
   <string name="revanced_copy_video_url_timestamp_summary_on">Кнопка показана. Нажмите для копирования URL-адреса видео с меткой времени. Нажмите и удерживайте для копирования URL-адреса видео без метки времени</string>
@@ -513,8 +513,8 @@ Second \"item\" text"</string>
   <string name="revanced_swipe_show_circular_overlay_summary_on">Круговой индикатор показан</string>
   <string name="revanced_swipe_show_circular_overlay_summary_off">Горизонтальный индикатор показан</string>
   <string name="revanced_swipe_overlay_minimal_style_title">Включить минимальный стиль</string>
-  <string name="revanced_swipe_overlay_minimal_style_summary_on">Включен минимальный стиль наложения</string>
-  <string name="revanced_swipe_overlay_minimal_style_summary_off">Минимальный стиль наложения отключен</string>
+  <string name="revanced_swipe_overlay_minimal_style_summary_on">Минимальный стиль индикатора включен</string>
+  <string name="revanced_swipe_overlay_minimal_style_summary_off">Минимальный стиль индикатора отключен</string>
   <string name="revanced_swipe_change_video_title">Включить переключение видео жестом</string>
   <string name="revanced_swipe_change_video_summary_on">Жест в полноэкранном режиме переключает на следующее/предыдущее видео</string>
   <string name="revanced_swipe_change_video_summary_off">Жест в полноэкранном режиме не переключает на следующее/предыдущее видео</string>
@@ -582,18 +582,18 @@ Second \"item\" text"</string>
   <string name="revanced_hide_subscriptions_button_title">Скрыть кнопку \"Подписки\"</string>
   <string name="revanced_hide_subscriptions_button_summary_on">Кнопка \"Подписки\" в панели навигации скрыта</string>
   <string name="revanced_hide_subscriptions_button_summary_off">Кнопка \"Подписки\" в панели навигации показана</string>
-  <string name="revanced_hide_notifications_button_title">Скрыть уведомления</string>
-  <string name="revanced_hide_notifications_button_summary_on">Кнопка уведомлений скрыта</string>
-  <string name="revanced_hide_notifications_button_summary_off">Кнопка уведомлений показана</string>
+  <string name="revanced_hide_notifications_button_title">Скрыть кнопку \"Уведомления\"</string>
+  <string name="revanced_hide_notifications_button_summary_on">Кнопка \"Уведомления\" в панели навигации скрыта</string>
+  <string name="revanced_hide_notifications_button_summary_off">Кнопка \"Уведомления\" в панели навигации показана</string>
   <!-- 'Notifications' should be translated using the same localized wording YouTube displays the tab. -->
   <string name="revanced_switch_create_with_notifications_button_title">Поменять местами кнопки \"Создать\" и \"Уведомления\"</string>
   <string name="revanced_switch_create_with_notifications_button_summary_on">"Кнопка \"Создать\" поменяна местами с кнопкой \"Уведомления\"
 
 Примечание: активация данной опции также принудительно скроет видеорекламу"</string>
   <string name="revanced_switch_create_with_notifications_button_summary_off">Кнопка \"Создать\" не поменяна местами с кнопкой \"Уведомления\"</string>
-  <string name="revanced_switch_create_with_notifications_button_user_dialog_message">"Отключение этой настройки также отключит блокировку рекламы Shorts.
+  <string name="revanced_switch_create_with_notifications_button_user_dialog_message">"Отключение этого параметра также отключит блокировку рекламы в Shorts.
 
-Если изменение этого параметра не вступит в силу, попробуйте переключиться в режим инкогнито."</string>
+Если изменение этого параметра не вступило в силу, попробуйте перейти в режим инкогнито."</string>
   <string name="revanced_hide_navigation_button_labels_title">Скрыть подписи кнопок навигации</string>
   <string name="revanced_hide_navigation_button_labels_summary_on">Подписи кнопок навигации скрыты</string>
   <string name="revanced_hide_navigation_button_labels_summary_off">Подписи кнопок навигации показаны</string>
@@ -922,20 +922,20 @@ Second \"item\" text"</string>
   <string name="revanced_sb_square_layout_sum_on">Кнопки и элементы управления квадратные</string>
   <string name="revanced_sb_square_layout_sum_off">Кнопки и элементы управления закругленные</string>
   <!-- Translations should use language similar to 'revanced_ryd_compact_layout_title' -->
-  <string name="revanced_sb_enable_compact_skip_button">Использовать компактную кнопку \"Пропустить\"</string>
+  <string name="revanced_sb_enable_compact_skip_button">Компактная кнопка пропуска</string>
   <string name="revanced_sb_enable_compact_skip_button_sum_on">Кнопка пропуска стилизована для минимальной ширины</string>
   <string name="revanced_sb_enable_compact_skip_button_sum_off">Кнопка пропуска стилизована для лучшего внешнего вида</string>
-  <string name="revanced_sb_enable_auto_hide_skip_segment_button">Автоматически скрыть кнопку \"Пропустить\"</string>
+  <string name="revanced_sb_enable_auto_hide_skip_segment_button">Автоскрытие кнопки пропуска</string>
   <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_on">Кнопка пропуска автоматически скрывается через несколько секунд</string>
-  <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_off">Кнопка \"Пропустить\" отображается для всего сегмента</string>
-  <string name="revanced_sb_general_skiptoast">Показывать уведомление при пропуске сегмента</string>
+  <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_off">Кнопка пропуска показывается для всего сегмента</string>
+  <string name="revanced_sb_general_skiptoast">Уведомление при пропуске сегмента</string>
   <string name="revanced_sb_general_skiptoast_sum_on">Всплывающее уведомление при автоматическом пропуске сегмента показано. Нажмите для просмотра примера</string>
   <string name="revanced_sb_general_skiptoast_sum_off">Всплывающее уведомление при автоматическом пропуске сегмента скрыто. Нажмите для просмотра примера</string>
   <string name="revanced_sb_general_time_without">Длительность видео без сегментов</string>
   <string name="revanced_sb_general_time_without_sum_on">Длительность видео за исключением всех сегментов показана в скобках рядом с полной длительностью видео</string>
   <string name="revanced_sb_general_time_without_sum_off">Полная длительность видео показана</string>
   <string name="revanced_sb_create_segment_category">Создание новых сегментов</string>
-  <string name="revanced_sb_enable_create_segment">Показать кнопку \"Создать сегмент\"</string>
+  <string name="revanced_sb_enable_create_segment">Кнопка создания сегмента</string>
   <string name="revanced_sb_enable_create_segment_sum_on">Кнопка создания нового сегмента показана</string>
   <string name="revanced_sb_enable_create_segment_sum_off">Кнопка создания нового сегмента скрыта</string>
   <string name="revanced_sb_general_adjusting">Настроить шаг нового сегмента</string>
@@ -1029,7 +1029,7 @@ Second \"item\" text"</string>
   <string name="revanced_sb_skipped_multiple_segments">Несколько сегментов пропущены</string>
   <string name="revanced_sb_skip_automatically">Пропускать автоматически</string>
   <string name="revanced_sb_skip_automatically_once">Пропускать автоматически один раз</string>
-  <string name="revanced_sb_skip_showbutton">Показать кнопку \"Пропустить\"</string>
+  <string name="revanced_sb_skip_showbutton">Показать кнопку пропуска</string>
   <string name="revanced_sb_skip_seekbaronly">Показать в полосе прогресса</string>
   <string name="revanced_sb_skip_ignore">Отключить</string>
   <string name="revanced_sb_submit_failed_invalid">Невозможно отправить сегмент: %s</string>
@@ -1301,8 +1301,8 @@ Second \"item\" text"</string>
   </patch>
   <patch id="misc.announcements.announcementsPatch">
   <string name="revanced_announcements_title">Показать объявления ReVanced</string>
-  <string name="revanced_announcements_summary_on">Объявления при запуске показаны</string>
-  <string name="revanced_announcements_summary_off">Объявления при запуске не показаны</string>
+  <string name="revanced_announcements_summary_on">Объявления ReVanced при запуске приложения показаны</string>
+  <string name="revanced_announcements_summary_off">Объявления ReVanced при запуске приложения скрыты</string>
   <string name="revanced_announcements_enabled_summary">Показать объявления ReVanced при запуске приложения</string>
   <string name="revanced_announcements_connection_failed">Не удалось подключиться к поставщику объявлений</string>
   <string name="revanced_announcements_dialog_dismiss">Закрыть</string>
