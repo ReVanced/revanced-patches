@@ -1,3 +1,10 @@
+# [5.13.0-dev.12](https://github.com/ReVanced/revanced-patches/compare/v5.13.0-dev.11...v5.13.0-dev.12) (2025-02-24)
+
+
+### Bug Fixes
+
+* **YouTube - Return YouTube Dislike:** Use correct number formatting if using a different ReVanced language ([edf66f4](https://github.com/ReVanced/revanced-patches/commit/edf66f4e16d46156cb8b8e31d18cb8dbcb87737e))
+
 # [5.13.0-dev.11](https://github.com/ReVanced/revanced-patches/compare/v5.13.0-dev.10...v5.13.0-dev.11) (2025-02-23)
 
 
