@@ -99,7 +99,7 @@ Yeni dilleri çevirmek için translate.revanced.app adresini ziyaret edin"</stri
   <string name="revanced_language_UR">Urduca</string>
   <string name="revanced_language_VI">Vietnamca</string>
   <string name="revanced_language_ZH">Çince</string>
-  <string name="revanced_pref_import_export_title">İçe / Dışa aktar</string>
+  <string name="revanced_pref_import_export_title">İçe / Dışa Aktar</string>
   <string name="revanced_pref_import_export_summary">ReVanced ayarlarını içe / dışa aktar</string>
   <!-- Settings about dialog. -->
   <string name="revanced_settings_about_links_body">ReVanced Patches &lt;i&gt;%s&lt;/i&gt; sürümünü kullanıyorsunuz</string>
