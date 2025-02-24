@@ -90,7 +90,13 @@ public class PlayerControlButton {
     }
 
     public void setVisibilityImmediate(boolean visible) {
-        private_setVisibility(visible, false);
+        if (visible) {
+            // Fix button flickering, by pushing this call to the back of
+            // the main thread and letting other layout code run first.
+            Utils.runOnMainThread(() -> private_setVisibility(true, false));
+        } else {
+            private_setVisibility(false, false);
+        }
     }
 
     public void setVisibility(boolean visible, boolean animated) {
