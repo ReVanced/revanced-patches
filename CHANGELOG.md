@@ -1,3 +1,10 @@
+# [5.13.0-dev.13](https://github.com/ReVanced/revanced-patches/compare/v5.13.0-dev.12...v5.13.0-dev.13) (2025-02-24)
+
+
+### Bug Fixes
+
+* **YouTube:** Resolve button flickering when taping seekbar ([#4500](https://github.com/ReVanced/revanced-patches/issues/4500)) ([1f08047](https://github.com/ReVanced/revanced-patches/commit/1f08047b48cc9555a4887d16ec7219a55a77251f))
+
 # [5.13.0-dev.12](https://github.com/ReVanced/revanced-patches/compare/v5.13.0-dev.11...v5.13.0-dev.12) (2025-02-24)
 
 
