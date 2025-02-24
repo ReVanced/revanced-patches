@@ -1,5 +1,6 @@
 <!--
    https://github.com/google/material-design-icons/blob/9beae745bb758f3ad56654fb377ea5cf62be4915/symbols/android/publish/materialsymbolsoutlined/publish_wght200_24px.xml
+   Changes made: Icon has been resized to 32dp.
 
 Copyright 2022 Google
 
@@ -17,11 +18,11 @@ Copyright 2022 Google
 -->
 
 <vector xmlns:android="http://schemas.android.com/apk/res/android"
-        android:width="24dp"
-        android:height="24dp"
-        android:viewportWidth="24"
-        android:viewportHeight="24">
+        android:width="32dp"
+        android:height="32dp"
+        android:viewportWidth="32"
+        android:viewportHeight="32">
     <path
             android:fillColor="@android:color/white"
-            android:pathData="M11.5,19V10.35L9.175,12.675L8.45,11.95L12,8.425L15.55,11.95L14.825,12.675L12.5,10.35V19ZM5,8.65V6.275Q5,5.575 5.463,5.112Q5.925,4.65 6.625,4.65H17.375Q18.075,4.65 18.538,5.112Q19,5.575 19,6.275V8.65H18V6.275Q18,6.05 17.812,5.85Q17.625,5.65 17.375,5.65H6.625Q6.375,5.65 6.188,5.85Q6,6.05 6,6.275V8.65Z"/>
+            android:pathData="M15.4375,25.332 L15.4375,13.3281 L12.1602,16.6055 L11.3516,15.8086 L16,11.1602 L20.6484,15.8086 L19.8398,16.6055 L16.5625,13.3281 L16.5625,25.332 Z M6.66797,12.082 L6.66797,8.61719 C6.66797,8.07031,6.85547,7.60938,7.23047,7.23047 C7.60938,6.85547,8.07031,6.66797,8.61719,6.66797 L23.3828,6.66797 C23.9297,6.66797,24.3906,6.85547,24.7695,7.23047 C25.1445,7.60938,25.332,8.07031,25.332,8.61719 L25.332,12.082 L24.2031,12.082 L24.2031,8.61719 C24.2031,8.41016,24.1211,8.22266,23.9492,8.05078 C23.7773,7.87891,23.5898,7.79688,23.3828,7.79688 L8.61719,7.79688 C8.41016,7.79688,8.22266,7.87891,8.05078,8.05078 C7.87891,8.22266,7.79688,8.41016,7.79688,8.61719 L7.79688,12.082 Z M6.66797,12.082"/>
 </vector>
