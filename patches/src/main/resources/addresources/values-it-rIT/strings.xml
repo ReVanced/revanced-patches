@@ -443,10 +443,10 @@ Questa funzione è disponibile solo per i dispositivi più vecchi"</string>
   <string name="revanced_share_copy_url_success">URL copiato negli appunti</string>
   <string name="revanced_share_copy_url_timestamp_success">URL con timestamp copiato</string>
   <string name="revanced_copy_video_url_title">Mostra il pulsante Copia URL Video</string>
-  <string name="revanced_copy_video_url_summary_on">Il pulsante viene mostrato. Tocca per copiare l\'URL del video. Tieni premuto per copiare con l\'indicatore temporale</string>
+  <string name="revanced_copy_video_url_summary_on">Il pulsante viene mostrato. Tocca per copiare l\'URL del video. Tieni premuto per copiare con il timestamp</string>
   <string name="revanced_copy_video_url_summary_off">Il pulsante non è visibile</string>
   <string name="revanced_copy_video_url_timestamp_title">Mostra il pulsante Copia URL Video con Timestamp</string>
-  <string name="revanced_copy_video_url_timestamp_summary_on">Il pulsante viene mostrato. Tocca per copiare l\'URL del video con l\'indicatore temporale. Tieni premuto per copiare senza l\'indicatore temporale</string>
+  <string name="revanced_copy_video_url_timestamp_summary_on">Il pulsante viene mostrato. Tocca per copiare l\'URL del video con il timestamp. Tieni premuto per copiare senza il timestamp</string>
   <string name="revanced_copy_video_url_timestamp_summary_off">Il pulsante non è visibile</string>
   </patch>
   <patch id="interaction.dialog.removeViewerDiscretionDialogPatch">
