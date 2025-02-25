@@ -1156,6 +1156,10 @@ public final class app/revanced/patches/youtube/layout/hide/suggestedvideoendscr
 	public static final fun getDisableSuggestedVideoEndScreenPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
+public final class app/revanced/patches/youtube/layout/hide/suggestedvideoendscreen/HideSuggestedVideoEndScreenPatchKt {
+	public static final fun getHideSuggestedVideoEndScreenPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
 public final class app/revanced/patches/youtube/layout/hide/time/HideTimestampPatchKt {
 	public static final fun getHideTimestampPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }

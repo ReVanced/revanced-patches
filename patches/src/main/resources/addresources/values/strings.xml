@@ -813,10 +813,13 @@ If changing this setting does not take effect, try switching to Incognito mode."
             <string name="revanced_hide_shorts_navigation_bar_summary_on">Navigation bar is hidden</string>
             <string name="revanced_hide_shorts_navigation_bar_summary_off">Navigation bar is shown</string>
         </patch>
-        <patch id="layout.hide.suggestedvideoendscreen.disableSuggestedVideoEndScreenResourcePatch">
-            <string name="revanced_hide_suggested_video_end_screen_title">Hide suggested video end screen</string>
-            <string name="revanced_hide_suggested_video_end_screen_summary_on">Suggested videos will be hidden</string>
-            <string name="revanced_hide_suggested_video_end_screen_summary_off">Suggested videos will be shown</string>
+        <patch id="layout.hide.suggestedvideoendscreen.hideSuggestedVideoEndScreenResourcePatch">
+            <string name="revanced_hide_suggested_video_end_screen_title">Hide end screen suggested videos</string>
+            <string name="revanced_hide_suggested_video_end_screen_summary_on">"End screen suggested videos are hidden when autoplay is turned off
+
+Autoplay can be changed in YouTube settings:
+Settings → Playback → Autoplay next video"</string>
+            <string name="revanced_hide_suggested_video_end_screen_summary_off">End screen suggestions are shown</string>
         </patch>
         <patch id="layout.hide.time.hideTimestampPatch">
             <string name="revanced_hide_timestamp_title">Hide video timestamp</string>

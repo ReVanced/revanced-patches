@@ -1,18 +1,38 @@
 package app.revanced.patches.youtube.layout.hide.suggestedvideoendscreen
 
 import app.revanced.patcher.fingerprint
-import app.revanced.util.literal
+import app.revanced.util.getReference
+import app.revanced.util.indexOfFirstInstruction
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
-internal val createEndScreenViewFingerprint = fingerprint {
+internal val autoNavConstructorFingerprint = fingerprint {
+    returns("V")
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
+    strings("main_app_autonav")
+}
+
+internal val autoNavStatusFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("Landroid/view/View;")
-    parameters("Landroid/content/Context;")
+    returns("Z")
+    parameters()
+}
+
+internal val removeOnLayoutChangeListenerFingerprint = fingerprint {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
+    returns("V")
+    parameters()
     opcodes(
-        Opcode.INVOKE_DIRECT,
-        Opcode.INVOKE_VIRTUAL,
-        Opcode.CONST,
+        Opcode.IPUT,
+        Opcode.INVOKE_VIRTUAL
     )
-    literal { sizeAdjustableLiteAutoNavOverlay }
+    // This is the only reference present in the entire smali.
+    custom { method, _ ->
+        method.indexOfFirstInstruction {
+            val reference = getReference<MethodReference>()
+            reference?.name == "removeOnLayoutChangeListener" &&
+            reference.definingClass.endsWith("/YouTubePlayerOverlaysLayout;")
+        } >= 0
+    }
 }
