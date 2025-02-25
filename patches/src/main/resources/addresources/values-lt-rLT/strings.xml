@@ -1353,10 +1353,11 @@ Gali būti atrakinta aukštesnės vaizdo įrašų kokybės, bet galite patirti v
   <string name="revanced_disable_zoom_haptics_summary_off">Vibracija įjungta</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
-  <string name="revanced_force_original_audio_title">Priversti originalų garsą</string>
-  <string name="revanced_force_original_audio_summary_on">Naudojamas originalus garsas</string>
+  <string name="revanced_force_original_audio_title">Priversti originalią garso kalbą</string>
+  <string name="revanced_force_original_audio_summary_on">Naudojama originali garso kalba</string>
   <string name="revanced_force_original_audio_summary_off">Naudojamas numatytasis garsas</string>
-  <string name="revanced_force_original_audio_not_available">Norėdami naudoti šią funkciją, pakeiskite srauto imitavimą į „iOS“ kliento tipą</string>
+  <!-- 'Spoof video streams' should be the same translation used for revanced_spoof_video_streams_screen_title -->
+  <string name="revanced_force_original_audio_not_available">Norėdami naudoti šią funkciją, pakeiskite „Klastoti vaizdo srautus“ į iOS TV</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->

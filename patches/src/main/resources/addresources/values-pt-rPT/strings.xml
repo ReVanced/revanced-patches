@@ -26,11 +26,11 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_dialog_open_official_source_button">Abrir site oficial</string>
   <string name="revanced_check_environment_dialog_ignore_button">Ignorar</string>
   <string name="revanced_check_environment_failed_message">&lt;h5&gt;Esta aplicação não parece ter sido modificada por ti.&lt;/h5&gt;&lt;br&gt;Esta aplicação pode não funcionar corretamente, &lt;b&gt;pode ser maliciosa ou até perigosa de usar&lt;/b&gt;.&lt;br&gt;&lt;br&gt;Estas verificações implicam que esta aplicação é pré-modificada ou obtida de outros:&lt;br&gt;&lt;br&gt;&lt;small&gt;%1$s&lt;/small&gt;&lt;br&gt;É extremamente recomendado &lt;b&gt;desinstalar esta aplicação e modificá-la tu mesmo&lt;/b&gt; para garantir que estás a usar uma aplicação segura e validada.&lt;p&gt;&lt;br&gt;Se ignorado, este aviso apenas será mostrado duas vezes.</string>
-  <string name="revanced_check_environment_not_same_patching_device">Corrigido num dispositivo diferente</string>
+  <string name="revanced_check_environment_not_same_patching_device">Modificado num dispositivo diferente</string>
   <string name="revanced_check_environment_manager_not_expected_installer">Não instalado pelo ReVanced Manager</string>
   <string name="revanced_check_environment_not_near_patch_time">Modificado há mais de 10 minutos atrás</string>
-  <string name="revanced_check_environment_not_near_patch_time_days">Corrigida há %s dias</string>
-  <string name="revanced_check_environment_not_near_patch_time_invalid">Data de compilação do APK está corrompida</string>
+  <string name="revanced_check_environment_not_near_patch_time_days">Modificada há %s dias atrás</string>
+  <string name="revanced_check_environment_not_near_patch_time_invalid">A data da compilação da APK está corrompida</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_submenu_title">Configurações</string>
@@ -1352,10 +1352,11 @@ Bật tính năng này có thể mở khóa chất lượng video cao hơn"</str
   <string name="revanced_disable_zoom_haptics_summary_off">Hábitos estão ativados</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
-  <string name="revanced_force_original_audio_title">Forçar áudio original</string>
-  <string name="revanced_force_original_audio_summary_on">Usando áudio original</string>
+  <string name="revanced_force_original_audio_title">Forçar idioma original do áudio</string>
+  <string name="revanced_force_original_audio_summary_on">Usando o idioma de áudio original</string>
   <string name="revanced_force_original_audio_summary_off">Usando áudio padrão</string>
-  <string name="revanced_force_original_audio_not_available">Para usar este recurso, altere a falsificação de fluxo para o tipo de cliente iOS</string>
+  <!-- 'Spoof video streams' should be the same translation used for revanced_spoof_video_streams_screen_title -->
+  <string name="revanced_force_original_audio_not_available">Para usar este recurso, altere \"Spoof video streams\" para iOS TV</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->

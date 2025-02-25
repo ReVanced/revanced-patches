@@ -1349,10 +1349,11 @@ DeArrow সম্পর্কে আরও জানতে এখানে ট�
   <string name="revanced_disable_zoom_haptics_summary_off">কম্পন সক্রিয় করা হয়েছে</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
-  <string name="revanced_force_original_audio_title">মূল অডিও বলপূর্বক চালু করুন</string>
-  <string name="revanced_force_original_audio_summary_on">মূল অডিও ব্যবহার করছে</string>
+  <string name="revanced_force_original_audio_title">মূল অডিও ভাষা বলপূর্বক চালু করুন</string>
+  <string name="revanced_force_original_audio_summary_on">মূল অডিও ভাষা ব্যবহার করা হচ্ছে</string>
   <string name="revanced_force_original_audio_summary_off">ডিফল্ট অডিও ব্যবহার করছে</string>
-  <string name="revanced_force_original_audio_not_available">এই বৈশিষ্ট্যটি ব্যবহার করার জন্য, iOS ক্লায়েন্ট প্রকারে স্ট্রিম স্পুফিং পরিবর্তন করুন</string>
+  <!-- 'Spoof video streams' should be the same translation used for revanced_spoof_video_streams_screen_title -->
+  <string name="revanced_force_original_audio_not_available">এই বৈশিষ্ট্যটি ব্যবহার করতে, \'স্পুফ ভিডিও স্ট্রীম\' কে iOS TV-তে পরিবর্তন করুন</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->

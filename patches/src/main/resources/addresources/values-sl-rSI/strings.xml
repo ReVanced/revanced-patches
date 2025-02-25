@@ -1351,10 +1351,11 @@ Omogočanje tega lahko odklene višje kakovosti videa"</string>
   <string name="revanced_disable_zoom_haptics_summary_off">Haptika je omogočena</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
-  <string name="revanced_force_original_audio_title">Izsili izvirni zvok</string>
-  <string name="revanced_force_original_audio_summary_on">Uporaba izvirnega zvoka</string>
+  <string name="revanced_force_original_audio_title">Izsili izvirni jezik zvoka</string>
+  <string name="revanced_force_original_audio_summary_on">Uporabi izvirni jezik zvoka</string>
   <string name="revanced_force_original_audio_summary_off">Uporaba privzetega zvoka</string>
-  <string name="revanced_force_original_audio_not_available">Za uporabo te funkcije spremenite odjemalce pretakanja na vrsto odjemalca iOS</string>
+  <!-- 'Spoof video streams' should be the same translation used for revanced_spoof_video_streams_screen_title -->
+  <string name="revanced_force_original_audio_not_available">Če želite uporabljati to funkcijo, spremenite možnost &#39;Prikazovanje video tokov&#39; v iOS TV</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->

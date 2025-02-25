@@ -1352,10 +1352,11 @@ Mini-player-ը կարող է գրավվել էկրանից դուրս՝ դեպի
   <string name="revanced_disable_zoom_haptics_summary_off">Հպումները  ակտիվացված են</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
-  <string name="revanced_force_original_audio_title">Բնօրինակ ձայն օգտագործել</string>
-  <string name="revanced_force_original_audio_summary_on">Բնօրինակ ձայն օգտագործվում է</string>
+  <string name="revanced_force_original_audio_title">Բնօրինակ ձայն օգտագործել լեզուն</string>
+  <string name="revanced_force_original_audio_summary_on">Օգտագործելով ձայնային օրիգինալ լեզուն</string>
   <string name="revanced_force_original_audio_summary_off">Վերջնական ձայն օգտագործվում է</string>
-  <string name="revanced_force_original_audio_not_available">Անեի սյօւյր դա ժյրդեք ռասրունաքն ամ Java զեմե, սիուի կյադ եյ չոն մաiOS</string>
+  <!-- 'Spoof video streams' should be the same translation used for revanced_spoof_video_streams_screen_title -->
+  <string name="revanced_force_original_audio_not_available">Այս գործառույթն օգտագործելու համար փոխեք «Կեղծել տեսահոսքերը» iOS TV-ի</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->

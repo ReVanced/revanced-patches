@@ -1352,10 +1352,10 @@ Second \"item\" text"</string>
   <string name="revanced_disable_zoom_haptics_summary_off">تم تمكين الاهتزاز</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
-  <string name="revanced_force_original_audio_title">فرض الصوت الأصلي</string>
-  <string name="revanced_force_original_audio_summary_on">استخدام الصوت الأصلي</string>
+  <string name="revanced_force_original_audio_summary_on">استخدام لغة الصوت الأصلية</string>
   <string name="revanced_force_original_audio_summary_off">استخدام الصوت الافتراضي</string>
-  <string name="revanced_force_original_audio_not_available">لاستخدام هذه الميزة، قم بتغيير محاكاة بث المحتوى إلى نوع العميل iOS</string>
+  <!-- 'Spoof video streams' should be the same translation used for revanced_spoof_video_streams_screen_title -->
+  <string name="revanced_force_original_audio_not_available">لاستخدام هذه الميزة، غيّر \"انتحال دفقات الفيديو\" إلى iOS TV</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->

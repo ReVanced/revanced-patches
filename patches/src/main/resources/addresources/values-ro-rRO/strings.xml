@@ -1351,10 +1351,11 @@ Activarea acestei opțiuni poate debloca calități video mai mari"</string>
   <string name="revanced_disable_zoom_haptics_summary_off">Haptic-urile sunt activate</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
-  <string name="revanced_force_original_audio_title">Forțați sunetul original</string>
-  <string name="revanced_force_original_audio_summary_on">Utilizează audio original</string>
+  <string name="revanced_force_original_audio_title">Forțează limba audio originală</string>
+  <string name="revanced_force_original_audio_summary_on">Folosind limba audio originală</string>
   <string name="revanced_force_original_audio_summary_off">Utilizează audio implicit</string>
-  <string name="revanced_force_original_audio_not_available">Pentru a utiliza această funcție, schimbați opțiunea de streaming în modul client iOS</string>
+  <!-- 'Spoof video streams' should be the same translation used for revanced_spoof_video_streams_screen_title -->
+  <string name="revanced_force_original_audio_not_available">Pentru a utiliza această funcție, schimbați „Spoof video streams” în iOS TV</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
