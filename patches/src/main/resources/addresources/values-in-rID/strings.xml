@@ -1355,7 +1355,7 @@ Mengaktifkan ini dapat membuka kualitas video yang lebih tinggi"</string>
   <string name="revanced_force_original_audio_summary_on">Menggunakan bahasa audio asli</string>
   <string name="revanced_force_original_audio_summary_off">Menggunakan audio bawaan</string>
   <!-- 'Spoof video streams' should be the same translation used for revanced_spoof_video_streams_screen_title -->
-  <string name="revanced_force_original_audio_not_available">Untuk menggunakan fitur ini, ubah \'Spoof aliran video\' ke iOS TV</string>
+  <string name="revanced_force_original_audio_not_available">Untuk menggunakan fitur ini, ubah \'Palsukan aliran video\' ke iOS TV</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->

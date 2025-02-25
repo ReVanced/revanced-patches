@@ -1355,7 +1355,7 @@ Omogočanje tega lahko odklene višje kakovosti videa"</string>
   <string name="revanced_force_original_audio_summary_on">Uporabi izvirni jezik zvoka</string>
   <string name="revanced_force_original_audio_summary_off">Uporaba privzetega zvoka</string>
   <!-- 'Spoof video streams' should be the same translation used for revanced_spoof_video_streams_screen_title -->
-  <string name="revanced_force_original_audio_not_available">Če želite uporabljati to funkcijo, spremenite možnost &#39;Prikazovanje video tokov&#39; v iOS TV</string>
+  <string name="revanced_force_original_audio_not_available">Če želite uporabiti to funkcijo, spremenite »Spoof video streams« v iOS TV</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
