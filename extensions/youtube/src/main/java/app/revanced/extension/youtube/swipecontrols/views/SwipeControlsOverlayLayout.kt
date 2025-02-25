@@ -18,7 +18,7 @@ import kotlin.math.min
 import kotlin.math.round
 
 /**
- * Main overlay layout for displaying volume and brightness level with both circular and rectangular progress bars.
+ * Main overlay layout for displaying volume and brightness level with both circular and horizontal progress bars.
  */
 class SwipeControlsOverlayLayout(
     context: Context,
@@ -69,7 +69,7 @@ class SwipeControlsOverlayLayout(
         }
         addView(circularProgressView)
 
-        // Initialize rectangular progress bar
+        // Initialize horizontal progress bar
         val screenWidth = resources.displayMetrics.widthPixels
         val layoutWidth = (screenWidth * 2 / 3).toInt() // 2/3 of screen width
         horizontalProgressView = HorizontalProgressView(
@@ -152,10 +152,7 @@ class SwipeControlsOverlayLayout(
 }
 
 /**
- * Abstract base class for progress views to reduce code duplication.
- */
-/**
- * Abstract base class for progress views to reduce code duplication.
+ * Abstract base class for progress views.
  */
 abstract class AbstractProgressView(
     context: Context,
@@ -183,9 +180,8 @@ abstract class AbstractProgressView(
     public val textPaint           = Paint(Paint.ANTI_ALIAS_FLAG).apply {
         color     = overlayTextColor
         textAlign = Paint.Align.CENTER
-        textSize  = 30f // Can adjust based on need
+        textSize  = 40f // Can adjust based on need
     }
-
 
     protected var progress = 0
     protected var maxProgress = 100
@@ -211,7 +207,7 @@ abstract class AbstractProgressView(
 }
 
 /**
- * Custom view for rendering a circular progress indicator with text and icon.
+ * Custom view for rendering a circular progress indicator with icons and text.
  */
 class CircularProgressView(
     context: Context,
@@ -235,7 +231,7 @@ class CircularProgressView(
     private val rectF = RectF()
 
     init {
-        textPaint.textSize = 40f // Override default text size for horizontal view
+        textPaint.textSize = 40f // Override default text size for circular view
         progressPaint.strokeWidth       = 20f
         fillBackgroundPaint.strokeWidth = 20f
         progressPaint.strokeCap       = Paint.Cap.ROUND
@@ -266,7 +262,7 @@ class CircularProgressView(
             it.draw(canvas)
         }
 
-        // If not in icon-only mode, draw the text inside the ring.
+        // If not a minimal style mode, draw the text inside the ring.
         if (!overlayShowOverlayMinimalStyle) {
             canvas.drawText(displayText, width / 2f, height / 2f + 60f, textPaint)
         }
@@ -300,7 +296,7 @@ class HorizontalProgressView(
     private val padding  = 40f
 
     init {
-        textPaint.textSize        = 30f // Override default text size for horizontal view
+        textPaint.textSize        = 36f // Override default text size for horizontal view
         progressPaint.strokeWidth = 0f
         progressPaint.strokeCap   = Paint.Cap.BUTT
         progressPaint.style       = Paint.Style.FILL
