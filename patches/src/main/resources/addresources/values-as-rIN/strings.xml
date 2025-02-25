@@ -208,6 +208,7 @@ Second \"item\" text"</string>
   <patch id="misc.zoomhaptics.zoomHapticsPatch">
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
+  <!-- 'Spoof video streams' should be the same translation used for revanced_spoof_video_streams_screen_title -->
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->

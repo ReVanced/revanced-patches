@@ -1350,10 +1350,11 @@ Ang pagpapagana nito ay maaaring magbukas ng mas mataas na kalidad ng video"</st
   <string name="revanced_disable_zoom_haptics_summary_off">Pinagana ang Haptics</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
-  <string name="revanced_force_original_audio_title">Pilitin ang original audio</string>
-  <string name="revanced_force_original_audio_summary_on">Gumagamit ng original audio</string>
+  <string name="revanced_force_original_audio_title">Pilitin ang orihinal na wika ng audio</string>
+  <string name="revanced_force_original_audio_summary_on">Ginagamit ang orihinal na wika ng audio</string>
   <string name="revanced_force_original_audio_summary_off">Gumagamit ng default audio</string>
-  <string name="revanced_force_original_audio_not_available">Upang magamit ang tampok na ito, baguhin ang stream spoofing sa uri ng kliyente ng iOS</string>
+  <!-- 'Spoof video streams' should be the same translation used for revanced_spoof_video_streams_screen_title -->
+  <string name="revanced_force_original_audio_not_available">Para magamit ang feature na ito, palitan ang \'Magpanggap na video stream\' sa iOS TV</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->

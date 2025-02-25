@@ -1350,10 +1350,11 @@ Aktivizimi i kësaj mund të zhbllokojë cilësi më të larta video"</string>
   <string name="revanced_disable_zoom_haptics_summary_off">Haptikët janë të aktivizuar</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
-  <string name="revanced_force_original_audio_title">Forco Zërin Origjinal</string>
-  <string name="revanced_force_original_audio_summary_on">Përdorimi i Zërit Origjinal</string>
+  <string name="revanced_force_original_audio_title">Forco gjuhën origjinale të audios</string>
+  <string name="revanced_force_original_audio_summary_on">Duke përdorur gjuhën origjinale audio</string>
   <string name="revanced_force_original_audio_summary_off">Përdorimi i Zërit Parazgjedhur</string>
-  <string name="revanced_force_original_audio_not_available">Për të përdorur këtë funksion, ndrysho rrymën spoofing në llojin e klientit iOS</string>
+  <!-- 'Spoof video streams' should be the same translation used for revanced_spoof_video_streams_screen_title -->
+  <string name="revanced_force_original_audio_not_available">Për ta përdorur këtë veçori, ndryshoni \'Rrjedhat e videos tallëse\' në iOS TV</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
