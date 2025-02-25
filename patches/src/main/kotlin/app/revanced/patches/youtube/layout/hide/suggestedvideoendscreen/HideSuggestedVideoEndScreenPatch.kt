@@ -127,5 +127,9 @@ val hideSuggestedVideoEndScreenPatch = bytecodePatch(
                     ExternalLabel(
                         "show_suggested_video_end_screen",
                         getInstruction(0)
+                    )
+                )
+            }
+        }
     }
 }
