@@ -814,9 +814,9 @@ If changing this setting does not take effect, try switching to Incognito mode."
             <string name="revanced_hide_shorts_navigation_bar_summary_off">Navigation bar is shown</string>
         </patch>
         <patch id="layout.hide.suggestedvideoendscreen.disableSuggestedVideoEndScreenResourcePatch">
-            <string name="revanced_disable_suggested_video_end_screen_title">Disable suggested video end screen</string>
-            <string name="revanced_disable_suggested_video_end_screen_summary_on">Suggested videos will be disabled</string>
-            <string name="revanced_disable_suggested_video_end_screen_summary_off">Suggested videos will be shown</string>
+            <string name="revanced_hide_suggested_video_end_screen_title">Hide suggested video end screen</string>
+            <string name="revanced_hide_suggested_video_end_screen_summary_on">Suggested videos will be hidden</string>
+            <string name="revanced_hide_suggested_video_end_screen_summary_off">Suggested videos will be shown</string>
         </patch>
         <patch id="layout.hide.time.hideTimestampPatch">
             <string name="revanced_hide_timestamp_title">Hide video timestamp</string>
