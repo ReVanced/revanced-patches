@@ -1116,6 +1116,10 @@ public final class app/revanced/patches/youtube/layout/hide/endscreencards/HideE
 	public static final fun getHideEndscreenCardsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
+public final class app/revanced/patches/youtube/layout/hide/endscreensuggestion/HideEndScreenSuggestedVideoPatchKt {
+	public static final fun getHideEndScreenSuggestedVideoPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
 public final class app/revanced/patches/youtube/layout/hide/fullscreenambientmode/DisableFullscreenAmbientModePatchKt {
 	public static final fun getDisableFullscreenAmbientModePatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
@@ -1154,10 +1158,6 @@ public final class app/revanced/patches/youtube/layout/hide/shorts/HideShortsCom
 
 public final class app/revanced/patches/youtube/layout/hide/suggestedvideoendscreen/DisableSuggestedVideoEndScreenPatchKt {
 	public static final fun getDisableSuggestedVideoEndScreenPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
-}
-
-public final class app/revanced/patches/youtube/layout/hide/suggestedvideoendscreen/HideSuggestedVideoEndScreenPatchKt {
-	public static final fun getHideSuggestedVideoEndScreenPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
 public final class app/revanced/patches/youtube/layout/hide/time/HideTimestampPatchKt {

@@ -1,4 +1,4 @@
-package app.revanced.patches.youtube.layout.hide.suggestedvideoendscreen
+package app.revanced.patches.youtube.layout.hide.endscreensuggestion
 
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
@@ -17,12 +17,12 @@ import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 private const val EXTENSION_CLASS_DESCRIPTOR =
-    "Lapp/revanced/extension/youtube/patches/HideSuggestedVideoEndScreenPatch;"
+    "Lapp/revanced/extension/youtube/patches/HideEndScreenSuggestedVideoPatch;"
 
 @Suppress("unused")
-val hideSuggestedVideoEndScreenPatch = bytecodePatch(
-    name = "Hide suggested video end screen",
-    description = "Adds an option to hide the suggested video end screen at the end of videos.",
+val hideEndScreenSuggestedVideoPatch = bytecodePatch(
+    name = "Hide end screen suggested video",
+    description = "Adds an option to hide the recommended video at the end of each video.",
 ) {
     dependsOn(
         sharedExtensionPatch,
@@ -42,10 +42,10 @@ val hideSuggestedVideoEndScreenPatch = bytecodePatch(
     )
 
     execute {
-        addResources("youtube", "layout.hide.suggestedvideoendscreen.hideSuggestedVideoEndScreenResourcePatch")
+        addResources("youtube", "layout.hide.endscreensuggestion.hideEndScreenSuggestedVideoPatch")
 
         PreferenceScreen.PLAYER.addPreferences(
-            SwitchPreference("revanced_hide_suggested_video_end_screen"),
+            SwitchPreference("revanced_end_screen_suggested_video"),
         )
 
         removeOnLayoutChangeListenerFingerprint.let {
@@ -70,9 +70,9 @@ val hideSuggestedVideoEndScreenPatch = bytecodePatch(
                 addInstructionsWithLabels(
                     0,
                     """
-                        invoke-static {}, $EXTENSION_CLASS_DESCRIPTOR->hideSuggestedVideoEndScreen()Z
+                        invoke-static {}, $EXTENSION_CLASS_DESCRIPTOR->hideEndScreenSuggestedVideo()Z
                         move-result v0
-                        if-eqz v0, :show_suggested_video_end_screen
+                        if-eqz v0, :show_end_screen_recommendation
 
                         iget-object v0, p0, $iGetObjectReference
 
@@ -81,10 +81,10 @@ val hideSuggestedVideoEndScreenPatch = bytecodePatch(
                         move-result v0
 
                         # Hide suggested video end screen only when autoplay is turned off.
-                        if-nez v0, :show_suggested_video_end_screen
+                        if-nez v0, :show_end_screen_recommendation
                         return-void
                     """,
-                    ExternalLabel("show_suggested_video_end_screen", getInstruction(0))
+                    ExternalLabel("show_end_screen_recommendation", getInstruction(0))
                 )
             }
         }

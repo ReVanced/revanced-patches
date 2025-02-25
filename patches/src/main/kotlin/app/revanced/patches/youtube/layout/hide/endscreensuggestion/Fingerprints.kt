@@ -1,4 +1,4 @@
-package app.revanced.patches.youtube.layout.hide.suggestedvideoendscreen
+package app.revanced.patches.youtube.layout.hide.endscreensuggestion
 
 import app.revanced.patcher.fingerprint
 import app.revanced.util.getReference
