@@ -444,13 +444,13 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   </patch>
   <patch id="interaction.copyvideourl.copyVideoUrlResourcePatch">
   <string name="revanced_share_copy_url_success">URL을 클립보드에 복사하였습니다</string>
-  <string name="revanced_share_copy_url_timestamp_success">타임스탬프를 표기한 URL을 클립보드에 복사하였습니다</string>
+  <string name="revanced_share_copy_url_timestamp_success">타임스탬프가 표기된 URL을 클립보드에 복사하였습니다</string>
   <string name="revanced_copy_video_url_title">동영상 URL 복사 버튼 표시하기</string>
-  <string name="revanced_copy_video_url_summary_on">버튼을 눌러서 동영상 URL을 복사할 수 있습니다\n길게 누르면 타임스탬프를 표기한 동영상 URL이 복사됩니다</string>
-  <string name="revanced_copy_video_url_summary_off">버튼을 눌러서 동영상 URL을 복사할 수 있습니다\n길게 누르면 타임스탬프를 표기한 동영상 URL이 복사됩니다</string>
-  <string name="revanced_copy_video_url_timestamp_title">타임스탬프를 표기한 URL 복사 버튼 표시하기</string>
-  <string name="revanced_copy_video_url_timestamp_summary_on">버튼을 눌러서 타임스탬프를 표기한 동영상 URL을 복사할 수 있습니다\n길게 누르면 타임스탬프를 표기하지 않은 동영상 URL이 복사됩니다</string>
-  <string name="revanced_copy_video_url_timestamp_summary_off">버튼을 눌러서 타임스탬프를 표기한 동영상 URL을 복사할 수 있습니다\n길게 누르면 타임스탬프를 표기하지 않은 동영상 URL이 복사됩니다</string>
+  <string name="revanced_copy_video_url_summary_on">버튼을 표시합니다\n버튼을 눌러서 동영상 URL을 복사할 수 있습니다\n길게 누르면 타임스탬스가 표기된 동영상 URL이 복사됩니다</string>
+  <string name="revanced_copy_video_url_summary_off">버튼을 표시하지 않습니다</string>
+  <string name="revanced_copy_video_url_timestamp_title">타임스탬프가 표기된 URL 복사 버튼 표시하기</string>
+  <string name="revanced_copy_video_url_timestamp_summary_on">버튼을 표시합니다\n버튼을 눌러서 타임스탬프가 표기된 동영상 URL을 복사할 수 있습니다\n길게 누르면 타임스탬프가 표기되지 않은 동영상 URL이 복사됩니다</string>
+  <string name="revanced_copy_video_url_timestamp_summary_off">버튼을 표시하지 않습니다</string>
   </patch>
   <patch id="interaction.dialog.removeViewerDiscretionDialogPatch">
   <string name="revanced_remove_viewer_discretion_dialog_title">시청자 재량 다이얼로그 제거하기</string>

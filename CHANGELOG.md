@@ -1,3 +1,31 @@
+# [5.13.0-dev.13](https://github.com/ReVanced/revanced-patches/compare/v5.13.0-dev.12...v5.13.0-dev.13) (2025-02-24)
+
+
+### Bug Fixes
+
+* **YouTube:** Resolve button flickering when taping seekbar ([#4500](https://github.com/ReVanced/revanced-patches/issues/4500)) ([1f08047](https://github.com/ReVanced/revanced-patches/commit/1f08047b48cc9555a4887d16ec7219a55a77251f))
+
+# [5.13.0-dev.12](https://github.com/ReVanced/revanced-patches/compare/v5.13.0-dev.11...v5.13.0-dev.12) (2025-02-24)
+
+
+### Bug Fixes
+
+* **YouTube - Return YouTube Dislike:** Use correct number formatting if using a different ReVanced language ([edf66f4](https://github.com/ReVanced/revanced-patches/commit/edf66f4e16d46156cb8b8e31d18cb8dbcb87737e))
+
+# [5.13.0-dev.11](https://github.com/ReVanced/revanced-patches/compare/v5.13.0-dev.10...v5.13.0-dev.11) (2025-02-23)
+
+
+### Bug Fixes
+
+* **TikTok:** Resolve startup app crash ([18c0fc2](https://github.com/ReVanced/revanced-patches/commit/18c0fc2a7f186f50a904fd25dbaa739abdd24993))
+
+# [5.13.0-dev.10](https://github.com/ReVanced/revanced-patches/compare/v5.13.0-dev.9...v5.13.0-dev.10) (2025-02-22)
+
+
+### Bug Fixes
+
+* **YouTube - Copy video URL:** Use correct button ordering ([5e622cc](https://github.com/ReVanced/revanced-patches/commit/5e622ccf66d34af31c6026fa7f4d332460c6ecb0))
+
 # [5.13.0-dev.9](https://github.com/ReVanced/revanced-patches/compare/v5.13.0-dev.8...v5.13.0-dev.9) (2025-02-22)
 
 

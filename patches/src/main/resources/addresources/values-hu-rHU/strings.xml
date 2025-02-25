@@ -443,10 +443,10 @@ Ez a funkció csak régebbi eszközökön érhető el"</string>
   <string name="revanced_share_copy_url_success">Az URL a vágólapra másolva</string>
   <string name="revanced_share_copy_url_timestamp_success">Az URL időbélyeggel a vágólapra másolva</string>
   <string name="revanced_copy_video_url_title">A videó URL másolása gomb megjelenítése</string>
-  <string name="revanced_copy_video_url_summary_on">A gomb megjelenik. Koppintson a video URL másolásához. Koppintson és tartsa lenyomva az időbélyeggel másoláshoz</string>
+  <string name="revanced_copy_video_url_summary_on">A gomb látható. Koppintson a videó URL-jének másolásához. Tartsa nyomva az időbélyeggel való másoláshoz</string>
   <string name="revanced_copy_video_url_summary_off">A gomb nem látható</string>
   <string name="revanced_copy_video_url_timestamp_title">A videó URL másolása időbélyeggel gomb megjelenítése</string>
-  <string name="revanced_copy_video_url_timestamp_summary_on">A gomb megjelenik. Koppintson a videó URL másolásához időbélyeggel. Koppintson és tartsa lenyomva az időbélyeg nélküli másoláshoz</string>
+  <string name="revanced_copy_video_url_timestamp_summary_on">A gomb látható. Koppintson a videó URL-jének másolásához időbélyeggel. Tartsa nyomva az időbélyeg nélküli másoláshoz</string>
   <string name="revanced_copy_video_url_timestamp_summary_off">A gomb nem látható</string>
   </patch>
   <patch id="interaction.dialog.removeViewerDiscretionDialogPatch">

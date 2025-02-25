@@ -443,10 +443,10 @@ Tato funkce je dostupná pouze pro starší zařízení"</string>
   <string name="revanced_share_copy_url_success">URL zkopírováno do schránky</string>
   <string name="revanced_share_copy_url_timestamp_success">Adresa URL s časovým razítkem zkopírována</string>
   <string name="revanced_copy_video_url_title">Zobrazit tlačítko pro kopírování adresy URL videa</string>
-  <string name="revanced_copy_video_url_summary_on">Tlačítko je zobrazeno. Klepnutím zkopírujete adresu URL videa. Klepnutím a podržením zkopírujete adresu URL videa s časovým razítkem</string>
+  <string name="revanced_copy_video_url_summary_on">Zobrazí se tlačítko. Klepnutím zkopírujete URL videa. Klepnutím a podržením zkopírujete s časovou značkou</string>
   <string name="revanced_copy_video_url_summary_off">Tlačítko se nezobrazuje</string>
   <string name="revanced_copy_video_url_timestamp_title">Zobrazit tlačítko pro kopírování adresy URL videa s časovým razítkem</string>
-  <string name="revanced_copy_video_url_timestamp_summary_on">Tlačítko je zobrazeno. Klepnutím zkopírujete adresu URL videa s časovým razítkem. Klepnutím a podržením zkopírujete adresu URL videa bez časového razítka</string>
+  <string name="revanced_copy_video_url_timestamp_summary_on">Zobrazí se tlačítko. Klepnutím zkopírujete URL videa s časovou značkou. Klepnutím a podržením zkopírujete bez časové značky</string>
   <string name="revanced_copy_video_url_timestamp_summary_off">Tlačítko se nezobrazuje</string>
   </patch>
   <patch id="interaction.dialog.removeViewerDiscretionDialogPatch">

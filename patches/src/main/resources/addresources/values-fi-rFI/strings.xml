@@ -438,10 +438,8 @@ Tämä ominaisuus on käytettävissä vain vanhemmilla laitteilla"</string>
   <string name="revanced_share_copy_url_success">URL-osoite kopioitiin leikepöydälle</string>
   <string name="revanced_share_copy_url_timestamp_success">Aikaleimattu URL-osoite kopioitiin</string>
   <string name="revanced_copy_video_url_title">Näytä videon URL-osoitteen kopiointipainike</string>
-  <string name="revanced_copy_video_url_summary_on">Painike näytetään. Napauta kopioidaksesi videon URL-osoitteen. Napauta ja pidä pohjassa kopioidaksesi aikaleimatun URL-osoitteen</string>
   <string name="revanced_copy_video_url_summary_off">Painiketta ei näytetä</string>
   <string name="revanced_copy_video_url_timestamp_title">Näytä videon aikaleimatun URL-osoitteen kopiointipainike</string>
-  <string name="revanced_copy_video_url_timestamp_summary_on">Painike näytetään. Napauta kopioidaksesi videon aikaleimatun URL-osoitteen. Napauta ja pidä pohjassa kopioidaksesi URL-osoitteen ilman aikaleimaa</string>
   <string name="revanced_copy_video_url_timestamp_summary_off">Painiketta ei näytetä</string>
   </patch>
   <patch id="interaction.dialog.removeViewerDiscretionDialogPatch">

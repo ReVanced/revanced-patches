@@ -443,10 +443,10 @@ Aquesta funció només està disponible per a dispositius antics"</string>
   <string name="revanced_share_copy_url_success">S\'ha copiat l\'URL al porta-retalls</string>
   <string name="revanced_share_copy_url_timestamp_success">S\'ha copiat l\'URL amb data i hora</string>
   <string name="revanced_copy_video_url_title">Mostra el botó de l\'URL</string>
-  <string name="revanced_copy_video_url_summary_on">El botó es mostra. Toca per copiar l\'URL del vídeo. Mantén premut per copiar l\'URL del vídeo amb marca de temps</string>
+  <string name="revanced_copy_video_url_summary_on">Es mostra el botó. Toqueu per copiar l\'URL del vídeo. Toqueu i manteniu premut per copiar-lo amb la marca de temps</string>
   <string name="revanced_copy_video_url_summary_off">El botó no es mostra</string>
   <string name="revanced_copy_video_url_timestamp_title">Mostra el botó per copiar l\'URL amb marca de temps</string>
-  <string name="revanced_copy_video_url_timestamp_summary_on">Es mostra el botó. Toqueu per copiar l\'URL del vídeo amb segell de temps. Toqueu i manteniu premut per copiar el vídeo sense segell de temps</string>
+  <string name="revanced_copy_video_url_timestamp_summary_on">Es mostra el botó. Toqueu per copiar l\'URL del vídeo amb la marca de temps. Toqueu i manteniu premut per copiar-lo sense la marca de temps</string>
   <string name="revanced_copy_video_url_timestamp_summary_off">No es mostra el botó</string>
   </patch>
   <patch id="interaction.dialog.removeViewerDiscretionDialogPatch">

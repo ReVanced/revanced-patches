@@ -443,10 +443,10 @@ Ang tampok na ito ay magagamit lamang para sa mga mas lumang device"</string>
   <string name="revanced_share_copy_url_success">Nakopya ang URL sa clipboard</string>
   <string name="revanced_share_copy_url_timestamp_success">URL na may timestamp na kinopya</string>
   <string name="revanced_copy_video_url_title">Ipakita ang pindutan ng URL ng kopya ng video</string>
-  <string name="revanced_copy_video_url_summary_on">Ang pindutan ay ipinapakita. I-tap para kopyahin ang URL ng video. I-tap nang matagal para kopyahin ang URL ng video gamit ang timestamp</string>
+  <string name="revanced_copy_video_url_summary_on">Ipinapakita ang button. I-tap para kopyahin ang URL ng video. I-tap nang matagal para kopyahin kasama ang timestamp</string>
   <string name="revanced_copy_video_url_summary_off">Hindi ipinapakita ang button</string>
   <string name="revanced_copy_video_url_timestamp_title">Ipakita ang pindutan ng URL ng kopya ng timestamp</string>
-  <string name="revanced_copy_video_url_timestamp_summary_on">Ang pindutan ay ipinapakita. I-tap para kopyahin ang URL ng video gamit ang timestamp. I-tap nang matagal upang kopyahin ang video nang walang timestamp</string>
+  <string name="revanced_copy_video_url_timestamp_summary_on">Ipinapakita ang button. I-tap para kopyahin ang URL ng video kasama ang timestamp. I-tap nang matagal para kopyahin nang walang timestamp</string>
   <string name="revanced_copy_video_url_timestamp_summary_off">Hindi ipinapakita ang button</string>
   </patch>
   <patch id="interaction.dialog.removeViewerDiscretionDialogPatch">

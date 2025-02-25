@@ -443,10 +443,10 @@ Tính năng này chỉ khả dụng cho các thiết bị cũ"</string>
   <string name="revanced_share_copy_url_success">URL copiado</string>
   <string name="revanced_share_copy_url_timestamp_success">URL com timestamp copiado</string>
   <string name="revanced_copy_video_url_title">Mostrar botão de URL de vídeo copiado</string>
-  <string name="revanced_copy_video_url_summary_on">Botão é visível. Toque para copiar a URL do vídeo. Toque e segure para copiar a URL do vídeo com timestamp</string>
+  <string name="revanced_copy_video_url_summary_on">O botão é mostrado. Toque para copiar o URL do vídeo. Toque e segure para copiar com o carimbo de data/hora</string>
   <string name="revanced_copy_video_url_summary_off">O botão NÃO está visível</string>
   <string name="revanced_copy_video_url_timestamp_title">Mostrar botão de copiar timestamp URL</string>
-  <string name="revanced_copy_video_url_timestamp_summary_on">Botão é visível. Toque para copiar a URL do vídeo com timestamp. Toque e segure para copiar vídeos sem timestamp</string>
+  <string name="revanced_copy_video_url_timestamp_summary_on">O botão é mostrado. Toque para copiar o URL do vídeo com o carimbo de data/hora. Toque e segure para copiar sem o carimbo de data/hora</string>
   <string name="revanced_copy_video_url_timestamp_summary_off">O botão não está visível</string>
   </patch>
   <patch id="interaction.dialog.removeViewerDiscretionDialogPatch">
