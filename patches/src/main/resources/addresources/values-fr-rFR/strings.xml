@@ -1351,10 +1351,11 @@ Activer cette option peut déverrouiller des qualités vidéo supérieures"</str
   <string name="revanced_disable_zoom_haptics_summary_off">Le retour haptique est activé</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
-  <string name="revanced_force_original_audio_title">Forcer l\'audio d\'origine</string>
-  <string name="revanced_force_original_audio_summary_on">Utilisation de l\'audio d\'origine</string>
+  <string name="revanced_force_original_audio_title">Forcer la langue audio d\'origine</string>
+  <string name="revanced_force_original_audio_summary_on">Utilisation de la langue audio d\'origine</string>
   <string name="revanced_force_original_audio_summary_off">Utilisation de l\'audio par défaut</string>
-  <string name="revanced_force_original_audio_not_available">Pour utiliser cette fonctionnalité, falsifiez les flux vidéo à l\'aide d\'un client iOS</string>
+  <!-- 'Spoof video streams' should be the same translation used for revanced_spoof_video_streams_screen_title -->
+  <string name="revanced_force_original_audio_not_available">Pour utiliser cette fonctionnalité, définissez \"Falsifier les flux vidéo\" sur iOS TV</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->

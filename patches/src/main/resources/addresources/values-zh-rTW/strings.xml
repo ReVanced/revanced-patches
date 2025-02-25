@@ -1347,10 +1347,11 @@ Second \"item\" text"</string>
   <string name="revanced_disable_zoom_haptics_summary_off">已啟用震動</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
-  <string name="revanced_force_original_audio_title">強制使用原始音訊</string>
-  <string name="revanced_force_original_audio_summary_on">使用原始音訊</string>
+  <string name="revanced_force_original_audio_title">強制使用原始音訊語言</string>
+  <string name="revanced_force_original_audio_summary_on">正在使用原始音訊語言</string>
   <string name="revanced_force_original_audio_summary_off">使用預設音訊</string>
-  <string name="revanced_force_original_audio_not_available">如要使用此功能，請將串流偽裝變更為 iOS 用戶端類型</string>
+  <!-- 'Spoof video streams' should be the same translation used for revanced_spoof_video_streams_screen_title -->
+  <string name="revanced_force_original_audio_not_available">如要使用這項功能，請將「偽裝視訊串流」變更為 iOS TV</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->

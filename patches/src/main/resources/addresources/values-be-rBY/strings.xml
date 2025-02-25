@@ -1353,10 +1353,11 @@ Second \"item\" text"</string>
   <string name="revanced_disable_zoom_haptics_summary_off">Тактыльныя сігналы ўключаны</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
-  <string name="revanced_force_original_audio_title">Вымушанае арыгінальнае аўдыё</string>
-  <string name="revanced_force_original_audio_summary_on">Выкарыстанне арыгінальнага аўдыё</string>
+  <string name="revanced_force_original_audio_title">Вымушаная арыгінальная мова аўдыё</string>
+  <string name="revanced_force_original_audio_summary_on">Выкарыстоўваць арыгінальную мову аўдыя</string>
   <string name="revanced_force_original_audio_summary_off">Выкарыстанне аўдыё па змаўчанні</string>
-  <string name="revanced_force_original_audio_not_available">Каб выкарыстоўваць гэтую функцыю, зменіце спафінг патоку на тып кліента iOS</string>
+  <!-- 'Spoof video streams' should be the same translation used for revanced_spoof_video_streams_screen_title -->
+  <string name="revanced_force_original_audio_not_available">Каб выкарыстоўваць гэту функцыю, змяніце параметр \"Падрабляць відэаструмені\" на iOS TV</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->

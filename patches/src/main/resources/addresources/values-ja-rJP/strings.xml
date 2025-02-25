@@ -1354,10 +1354,11 @@ DeArrow の詳細については、ここをタップしてください"</string
   <string name="revanced_disable_zoom_haptics_summary_off">ズームの触覚フィードバックは有効です</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
-  <string name="revanced_force_original_audio_title">オリジナルの音声を強制的に使用する</string>
-  <string name="revanced_force_original_audio_summary_on">オリジナルの音声トラックが再生されます</string>
+  <string name="revanced_force_original_audio_title">オリジナルの音声言語を強制的に使用する</string>
+  <string name="revanced_force_original_audio_summary_on">オリジナルのオーディオ言語を使用する</string>
   <string name="revanced_force_original_audio_summary_off">デフォルトの音声トラックが再生されます</string>
-  <string name="revanced_force_original_audio_not_available">この機能を使用するには、動画ストリーム偽装を iOS に変更してください</string>
+  <!-- 'Spoof video streams' should be the same translation used for revanced_spoof_video_streams_screen_title -->
+  <string name="revanced_force_original_audio_not_available">この機能を使用するには、「ビデオストリームのスプーフィング」を「iOS TV」に変更してください</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->

@@ -1350,10 +1350,11 @@ User id ของคุณเหมือนกับรหัสผ่าน �
   <string name="revanced_disable_zoom_haptics_summary_off">แฮปติกเปิดใช้งาน</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
-  <string name="revanced_force_original_audio_title">บังคับเสียงต้นฉบับ</string>
-  <string name="revanced_force_original_audio_summary_on">กำลังใช้ออดิโอดั้งเดิม</string>
+  <string name="revanced_force_original_audio_title">บังคับใช้ภาษาเสียงต้นฉบับ</string>
+  <string name="revanced_force_original_audio_summary_on">กำลังใช้ภาษาเสียงต้นฉบับ</string>
   <string name="revanced_force_original_audio_summary_off">กำลังใช้ออดิโอเริ่มต้น</string>
-  <string name="revanced_force_original_audio_not_available">เลียที่ยงให้ฟังเพิ่มันที่ หมดการ์ที่สามาชียงานiOS กับ</string>
+  <!-- 'Spoof video streams' should be the same translation used for revanced_spoof_video_streams_screen_title -->
+  <string name="revanced_force_original_audio_not_available">หากต้องการใช้คุณสมบัตินี้ ให้เปลี่ยน \'ปลอมแปลงสตรีมวิดีโอ\' เป็น iOS TV</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->

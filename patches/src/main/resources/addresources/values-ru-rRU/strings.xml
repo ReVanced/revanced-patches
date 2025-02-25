@@ -1352,10 +1352,11 @@ Second \"item\" text"</string>
   <string name="revanced_disable_zoom_haptics_summary_off">Виброотклик при масштабировании включен</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
-  <string name="revanced_force_original_audio_title">Принудительно оригинальная звуковая дорожка</string>
-  <string name="revanced_force_original_audio_summary_on">Используется оригинальная звуковая дорожка</string>
+  <string name="revanced_force_original_audio_title">Принудительно выбирать язык оригинала аудиодорожки</string>
+  <string name="revanced_force_original_audio_summary_on">Используется оригинальный язык звуковой дорожки</string>
   <string name="revanced_force_original_audio_summary_off">Используется звуковая дорожка по умолчанию</string>
-  <string name="revanced_force_original_audio_not_available">Для использования данной опции измените подмену видеопотока на тип клиента iOS</string>
+  <!-- 'Spoof video streams' should be the same translation used for revanced_spoof_video_streams_screen_title -->
+  <string name="revanced_force_original_audio_not_available">Чтобы использовать эту функцию, измените параметр \"Подмена видеопотоков\" на iOS TV</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->

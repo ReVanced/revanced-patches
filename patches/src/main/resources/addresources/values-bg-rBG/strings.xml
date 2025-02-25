@@ -1352,10 +1352,11 @@ Second \"item\" text"</string>
   <string name="revanced_disable_zoom_haptics_summary_off">Вибрациите са активирани</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
-  <string name="revanced_force_original_audio_title">Принудително оригинално аудио</string>
-  <string name="revanced_force_original_audio_summary_on">Използване на оригинално аудио</string>
+  <string name="revanced_force_original_audio_title">Принудително оригинално аудио език</string>
+  <string name="revanced_force_original_audio_summary_on">Използване на оригиналния език на аудиото</string>
   <string name="revanced_force_original_audio_summary_off">Използване на аудио по подразбиране</string>
-  <string name="revanced_force_original_audio_not_available">За да използвате тази функция, променете имитацията на поточно предаване на тип клиент на iOS</string>
+  <!-- 'Spoof video streams' should be the same translation used for revanced_spoof_video_streams_screen_title -->
+  <string name="revanced_force_original_audio_not_available">За да използвате тази функция, сменете „Фалшифициране на видео потоци“ на iOS TV</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
