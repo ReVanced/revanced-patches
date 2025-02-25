@@ -181,6 +181,12 @@ Second \"item\" text"</string>
   <string name="revanced_hide_channel_watermark_summary_on">סימן מים מוסתר</string>
   <string name="revanced_hide_channel_watermark_summary_off">סימן מים מוצג</string>
   <string name="revanced_hide_horizontal_shelves_title">הסתר מדפים אופקיים</string>
+  <string name="revanced_hide_horizontal_shelves_summary_on">"מדפים מוסתרים, כמו:
+• מבזק חדשות
+• להמשיך לצפות
+• גלה עוד ערוצים
+• שופינג
+• לצפייה חוזרת"</string>
   <string name="revanced_hide_horizontal_shelves_summary_off">מדפים מוצגים</string>
   <!-- 'Join' should be translated using the same localized wording YouTube displays.
                  This appears in the video player for certain videos. -->
@@ -197,6 +203,7 @@ Second \"item\" text"</string>
   <string name="revanced_hide_notify_me_button_summary_on">הלחצן מוסתר</string>
   <string name="revanced_hide_notify_me_button_summary_off">הלחצן מוצג</string>
   <!-- 'People also watched' should be translated using the same localized wording YouTube displays. -->
+  <string name="revanced_hide_search_result_recommendations_title">הסתר תווית \'אנשים צפו גם\'</string>
   <string name="revanced_hide_search_result_recommendations_summary_on">התווית מוסתרת</string>
   <string name="revanced_hide_search_result_recommendations_summary_off">התווית מוצגת</string>
   <!-- 'Show more' should be translated with the same localized wording that YouTube displays.
@@ -410,6 +417,7 @@ Second \"item\" text"</string>
   <string name="revanced_hide_shopping_links_summary_on">קישורי שופינג בתיאור סרטון מוסתרים</string>
   <string name="revanced_hide_shopping_links_summary_off">קישורי שופינג בתיאור סרטון מוצגים</string>
   <!-- 'Visit store' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_visit_store_button_title">הסתר לחצן \'בקר בחנות\'</string>
   <string name="revanced_hide_visit_store_button_summary_on">לחצן בדף הערוץ מוסתר</string>
   <string name="revanced_hide_visit_store_button_summary_off">לחצן בדף הערוץ מוצג</string>
   <string name="revanced_hide_web_search_results_title">הסתר תוצאות חיפוש באינטרנט</string>
@@ -574,15 +582,15 @@ Second \"item\" text"</string>
   <string name="revanced_hide_subscriptions_button_title">הסתר מינויים</string>
   <string name="revanced_hide_subscriptions_button_summary_on">לחצן מינויים מוסתר</string>
   <string name="revanced_hide_subscriptions_button_summary_off">לחצן מינויים מוצג</string>
-  <string name="revanced_hide_notifications_button_title">הסתר התראות</string>
-  <string name="revanced_hide_notifications_button_summary_on">לחצן התראות מוסתר</string>
-  <string name="revanced_hide_notifications_button_summary_off">לחצן התראות מוצג</string>
+  <string name="revanced_hide_notifications_button_title">הסתר עדכונים</string>
+  <string name="revanced_hide_notifications_button_summary_on">לחצן עדכונים מוסתר</string>
+  <string name="revanced_hide_notifications_button_summary_off">לחצן עדכונים מוצג</string>
   <!-- 'Notifications' should be translated using the same localized wording YouTube displays the tab. -->
-  <string name="revanced_switch_create_with_notifications_button_title">החלף יצירה עם התראות</string>
-  <string name="revanced_switch_create_with_notifications_button_summary_on">"לחצן יצירה מוחלף בלחצן הודעות
+  <string name="revanced_switch_create_with_notifications_button_title">החלף יצירה עם עדכונים</string>
+  <string name="revanced_switch_create_with_notifications_button_summary_on">"לחצן יצירה מוחלף בלחצן עדכונים
 
 הערה: הפעלת אפשרות זו גם מסתירה באופן כפוי מודעות סרטון"</string>
-  <string name="revanced_switch_create_with_notifications_button_summary_off">לחצן יצירה לא יוחלף עם לחצן התראות</string>
+  <string name="revanced_switch_create_with_notifications_button_summary_off">לחצן יצירה לא יוחלף עם לחצן עדכונים</string>
   <string name="revanced_switch_create_with_notifications_button_user_dialog_message">"השבתת הגדרה זו תשבית גם את חסימת המודעות של Shorts.
 
 אם שינוי הגדרה זו אינו נכנס לתוקף, נסה לעבור למצב פרטי."</string>
@@ -647,6 +655,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_on">תפריט טראק אודיו מוסתר</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_off">תפריט טראק אודיו מוצג</string>
   <!-- 'Watch in VR' should be translated using the same localized wording YouTube displays for the menu item. -->
+  <string name="revanced_hide_player_flyout_watch_in_vr_title">הסתר \'צפה ב-VR\'</string>
+  <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">תפריט \'צפה ב-VR\' מוסתר</string>
+  <string name="revanced_hide_player_flyout_watch_in_vr_summary_off">תפריט \'צפה ב-VR\' מוצג</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_title">הסתר כותרת תחתונה של תפריט איכות סרטון</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_on">כותרת תחתונה של תפריט איכות סרטון מוסתרת</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_off">כותרת תחתונה של תפריט איכות סרטון מוצגת</string>
@@ -734,9 +745,15 @@ Second \"item\" text"</string>
   <string name="revanced_hide_shorts_location_label_title">הסתר תווית מיקום</string>
   <string name="revanced_hide_shorts_location_label_summary_on">תווית מיקום מוסתרת</string>
   <string name="revanced_hide_shorts_location_label_summary_off">תווית מיקום מוצגת</string>
+  <string name="revanced_hide_shorts_save_sound_button_title">הסתר לחצן שמור מוזיקה</string>
+  <string name="revanced_hide_shorts_save_sound_button_summary_on">לחצן שמור מוזיקה מוסתר</string>
+  <string name="revanced_hide_shorts_save_sound_button_summary_off">לחצן שמור מוזיקה מוצג</string>
   <string name="revanced_hide_shorts_use_template_button_title">הסתר לחצן שימוש בתבנית</string>
   <string name="revanced_hide_shorts_use_template_button_summary_on">לחצן שימוש בתבנית מוסתר</string>
   <string name="revanced_hide_shorts_use_template_button_summary_off">לחצן שימוש בתבנית מוצב</string>
+  <string name="revanced_hide_shorts_upcoming_button_title">הסתר לחצן \'בקרוב\'</string>
+  <string name="revanced_hide_shorts_upcoming_button_summary_on">לחצן \'בקרוב\' מוסתר</string>
+  <string name="revanced_hide_shorts_upcoming_button_summary_off">לחצן \'בקרוב\' מוצג</string>
   <string name="revanced_hide_shorts_green_screen_button_title">הסתר לחצן מסך ירוק</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_on">לחצן מסך ירוק מוסתר</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_off">לחצן מסך ירוק מוצג</string>
@@ -1032,10 +1049,10 @@ Second \"item\" text"</string>
   <string name="revanced_sb_vote_upvote">הצבע בעד</string>
   <string name="revanced_sb_vote_downvote">הצבע נגד</string>
   <string name="revanced_sb_vote_category">שנה קטגוריה</string>
-  <string name="revanced_sb_vote_no_segments">אין קטעים לבחירה</string>
+  <string name="revanced_sb_vote_no_segments">אין מקטעים להצביע עבורם</string>
   <string name="revanced_sb_new_segment_choose_category">בחר את קטגוריית המקטע</string>
   <string name="revanced_sb_new_segment_disabled_category">קטגוריה מושבתת בהגדרות. הפעל קטגוריה כדי לשלוח.</string>
-  <string name="revanced_sb_new_segment_title">קטע חסות חדש של SponsorBloack</string>
+  <string name="revanced_sb_new_segment_title">מקטע חדש של SponsorBloack</string>
   <string name="revanced_sb_new_segment_mark_time_as_question">להגדיר את %s כתחילת או סיום המקטע החדש?</string>
   <string name="revanced_sb_new_segment_mark_start">התחלה</string>
   <string name="revanced_sb_new_segment_mark_end">סיום</string>
@@ -1043,15 +1060,15 @@ Second \"item\" text"</string>
   <string name="revanced_sb_new_segment_time_start">הזמן בו המקטע מתחיל</string>
   <string name="revanced_sb_new_segment_time_end">הזמן בו המקטע מסתיים</string>
   <string name="revanced_sb_new_segment_confirm_title">האם הזמנים נכונים?</string>
-  <string name="revanced_sb_new_segment_confirm_content">"הקטע נמצא מ
+  <string name="revanced_sb_new_segment_confirm_content">"המקטע הוא מ
 
 %1$s
-ל
+עד
 %2$s
 
 (%3$s)
 
-מוכן להגשה?"</string>
+מוכן להגיש?"</string>
   <string name="revanced_sb_new_segment_start_is_before_end">התחלה חייבת להיות לפני הסוף</string>
   <string name="revanced_sb_new_segment_mark_locations_first">סמן שני מיקומים על סרגל הזמן תחילה</string>
   <string name="revanced_sb_new_segment_preview_segment_first">צפה מראש במקטע, וודא שהוא מדלג בצורה חלקה</string>
@@ -1110,11 +1127,11 @@ Second \"item\" text"</string>
   <string name="revanced_spoof_app_version_title">זייף גרסת יישום</string>
   <string name="revanced_spoof_app_version_summary_on">גרסה מזויפת</string>
   <string name="revanced_spoof_app_version_summary_off">גרסה לא מזויפת</string>
-  <string name="revanced_spoof_app_version_user_dialog_message">"גרסת האפליקציה תזויף לגרסה ישנה יותר של YouTube.
+  <string name="revanced_spoof_app_version_user_dialog_message">"גרסת היישום תזויף לגרסה ישנה יותר של YouTube.
 
-זה ישנה את המראה והתכונות של האפליקציה, אך עשויים להתרחש תופעות לוואי לא ידועות.
+זה ישנה את המראה והתכונות של היישום, אך תופעות לוואי לא ידועות עלולות להתרחש.
 
-אם יופעל לאחר מכן, מומלץ לנקות את נתוני האפליקציה כדי למנוע באגים של ממשק המשתמש."</string>
+אם נכבה מאוחר יותר, מומלץ לנקות את נתוני היישום כדי למנוע באגים של ממשק המשתמש."</string>
   <!-- It is ideal, but not required, if the text here appears is alphabetically after the text used for 'revanced_spoof_app_version_title'.
                  This is because the 'General layout' menu uses alphabetic sorting, and it functionally works better if the spoof target selector appears below the 'Spoof app version' UI switch -->
   <string name="revanced_spoof_app_version_target_title">יעד גרסת יישום מזויפת</string>
@@ -1142,7 +1159,7 @@ Second \"item\" text"</string>
   <string name="revanced_change_start_page_entry_movies">סרטים</string>
   <string name="revanced_change_start_page_entry_music">מוזיקה</string>
   <string name="revanced_change_start_page_entry_news">חדשות</string>
-  <string name="revanced_change_start_page_entry_notifications">התראות</string>
+  <string name="revanced_change_start_page_entry_notifications">עדכונים</string>
   <string name="revanced_change_start_page_entry_playlists">פלייליסטים</string>
   <string name="revanced_change_start_page_entry_search">חיפוש</string>
   <string name="revanced_change_start_page_entry_shopping">שופינג</string>
@@ -1176,7 +1193,7 @@ Second \"item\" text"</string>
   <string name="revanced_miniplayer_screen_title">מיני-נגן</string>
   <string name="revanced_miniplayer_screen_summary">שנה את הסגנון של הנגן הממוזער בתוך היישום</string>
   <string name="revanced_miniplayer_type_title">סוג מיני-נגן</string>
-  <string name="revanced_miniplayer_type_entry_0">הושבת</string>
+  <string name="revanced_miniplayer_type_entry_0">מושבת</string>
   <string name="revanced_miniplayer_type_entry_1">ברירת מחדל</string>
   <string name="revanced_miniplayer_type_entry_2">מינימלי</string>
   <string name="revanced_miniplayer_type_entry_3">טאבלט</string>
@@ -1187,20 +1204,20 @@ Second \"item\" text"</string>
   <string name="revanced_miniplayer_rounded_corners_summary_on">הפינות מעוגלות</string>
   <string name="revanced_miniplayer_rounded_corners_summary_off">הפינות מרובעות</string>
   <string name="revanced_miniplayer_double_tap_action_title">הפעל הקשה כפולה וצביטה לשינוי גודל</string>
-  <string name="revanced_miniplayer_double_tap_action_summary_on">"פעולת הקשה כפולה וקמצוץ לשינוי גודל זמינה
+  <string name="revanced_miniplayer_double_tap_action_summary_on">"פעולת הקשה כפולה וצביטה לשינוי גודל מופעלת
 
-• הקשה כפולה כדי להגדיל את גודל \"miniplayer\"
-• הקשה כפולה שוב כדי לשחזר את הגודל המקורי"</string>
+• הקש פעמיים כדי להגדיל את גודל המיני-נגן
+• הקש פעמיים שוב כדי לשחזר את הגודל המקורי"</string>
   <string name="revanced_miniplayer_double_tap_action_summary_off">פעולת הקשה כפולה וצביטה לשינוי גודל מושבתת</string>
   <string name="revanced_miniplayer_drag_and_drop_title">הפעל גרירה ושחרור</string>
-  <string name="revanced_miniplayer_drag_and_drop_summary_on">"גרירה ושחרור זמינים
+  <string name="revanced_miniplayer_drag_and_drop_summary_on">"גרירה ושחרור מופעלים
 
-\"miniplayer\" יכול להיות גורר לכל פינה של המסך"</string>
+מיני-נגן ניתן לגרירה לעבר כל פינה של המסך"</string>
   <string name="revanced_miniplayer_drag_and_drop_summary_off">גרירה ושחרור מושבת</string>
   <string name="revanced_miniplayer_horizontal_drag_title">הפעל מחוות גרירה אופקית</string>
-  <string name="revanced_miniplayer_horizontal_drag_summary_on">"מחווה גרירה אופקית זמינה
+  <string name="revanced_miniplayer_horizontal_drag_summary_on">"מחוות גרירה אופקית מופעלת
 
-\"miniplayer\" ניתן לגרור מחוץ למסך ימינה או שמאלה"</string>
+מיני-נגן ניתן לגרירה מחוץ למסך לשמאל או לימין"</string>
   <string name="revanced_miniplayer_horizontal_drag_summary_off">מחוות גרירה אופקית מושבתת</string>
   <string name="revanced_miniplayer_hide_expand_close_title">הסתר לחצן סגירה</string>
   <string name="revanced_miniplayer_hide_expand_close_summary_on">לחצן סגירה מוסתר</string>
@@ -1249,6 +1266,7 @@ Second \"item\" text"</string>
   <!-- 'Home' should be translated using the same localized wording YouTube displays for the home tab. -->
   <string name="revanced_alt_thumbnail_home_title">כרטיסיית דף הבית</string>
   <!-- 'Subscription' should be translated using the same localized wording YouTube displays for the subscription tab. -->
+  <string name="revanced_alt_thumbnail_subscription_title">כרטיסיית מינויים</string>
   <!-- 'You' should be translated using the same localized wording YouTube displays for the You (library) tab. -->
   <string name="revanced_alt_thumbnail_library_title">כרטיסיית הדף שלי</string>
   <string name="revanced_alt_thumbnail_player_title">נגן פלייליסטים, המלצות</string>
@@ -1257,12 +1275,12 @@ Second \"item\" text"</string>
   <string name="revanced_alt_thumbnail_options_entry_2">DeArrow &amp; תמונות ממוזערות מקוריות</string>
   <string name="revanced_alt_thumbnail_options_entry_3">DeArrow &amp; לכידות דוממות</string>
   <string name="revanced_alt_thumbnail_options_entry_4">לכידות דוממות</string>
-  <string name="revanced_alt_thumbnail_dearrow_about_summary">"DeArrow מספק תמונות ממוזערות ממקור המונים עבור סרטוני YouTube. תמונות ממוזערות אלו הן לעתים קרובות רלוונטיות יותר מאלה שסופקו על ידי YouTube
+  <string name="revanced_alt_thumbnail_dearrow_about_summary">"DeArrow מספק תמונות ממוזערות של מיקור המונים עבור סרטוני YouTube. תמונות ממוזערות אלה הן לעתים קרובות רלוונטיות יותר מאלה שסופקו על ידי YouTube
 
-אם מופעל, כתובות URL של סרטונים יישלחו לשרת ה-API ושום נתונים אחרים לא יישלחו. אם לסרטון אין תמונות ממוזערות של DeArrow, אז מוצגות התמונות המקוריות או לוכדות תמונות נייחות
+אם מופעל, כתובות URL של סרטונים יישלחו לשרת ה-API ושום נתונים אחרים לא יישלחו. אם לסרטון אין תמונות ממוזערות של DeArrow, אז מוצגות התמונות המקוריות או לכידות דוממות
 
-לחץ כאן כדי ללמוד עוד על DeArrow"</string>
-  <string name="revanced_alt_thumbnail_dearrow_connection_toast_title">הצג הודעה אם הממשק לא זמין</string>
+הקש כאן כדי ללמוד עוד על DeArrow"</string>
+  <string name="revanced_alt_thumbnail_dearrow_connection_toast_title">הצג הודעה קופצת אם ה-API אינו זמין</string>
   <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_on">הודעה קופצת מוצגת אם DeArrow אינו זמין</string>
   <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_off">הודעה קופצת אינו מוצגת אם DeArrow אינו זמין</string>
   <string name="revanced_alt_thumbnail_dearrow_api_url_title">נקודת קצה של DeArrow API</string>
@@ -1286,7 +1304,7 @@ Second \"item\" text"</string>
   <string name="revanced_announcements_summary_off">הכרזות בעת הפעלה אינן מוצגות</string>
   <string name="revanced_announcements_enabled_summary">הצג הכרזות בעת הפעלה</string>
   <string name="revanced_announcements_connection_failed">נכשל בהתחברות לספק הכרזות</string>
-  <string name="revanced_announcements_dialog_dismiss">התעלם</string>
+  <string name="revanced_announcements_dialog_dismiss">דחה</string>
   </patch>
   <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
   <string name="revanced_check_watch_history_domain_name_dialog_title">אזהרה</string>
@@ -1362,7 +1380,7 @@ Second \"item\" text"</string>
   <string name="revanced_custom_speed_menu_summary_off">תפריט מהירות מותאם אישית אינו מוצג</string>
   <string name="revanced_custom_playback_speeds_title">מהירויות הפעלה מותאמות אישית</string>
   <string name="revanced_custom_playback_speeds_summary">הוסף או שנה את המהירויות הפעלה המותאמות אישית</string>
-  <string name="revanced_custom_playback_speeds_invalid">מהירויות מותאמות אישית חייבות להיות קטנות מ- %s</string>
+  <string name="revanced_custom_playback_speeds_invalid">מהירויות מותאמות אישית חייבות להיות קטנות מ-%s</string>
   <string name="revanced_custom_playback_speeds_parse_exception">מהירויות הפעלה מותאמות אישית לא חוקיות</string>
   <string name="revanced_custom_playback_speeds_auto">אוטומטי</string>
   <string name="revanced_speed_tap_and_hold_title">מהירות הקשה והחזקה מותאמת אישית</string>
@@ -1395,9 +1413,9 @@ Second \"item\" text"</string>
   <string name="revanced_spoof_video_streams_screen_summary">זייף זרמי וידאו של לקוח כדי למנוע בעיות הפעלה</string>
   <string name="revanced_spoof_video_streams_title">זייף זרמי וידאו</string>
   <string name="revanced_spoof_video_streams_summary_on">זרמי וידאו הם מזויפים</string>
-  <string name="revanced_spoof_video_streams_summary_off">"זרמי וידאו לא מזויפים
+  <string name="revanced_spoof_video_streams_summary_off">"זרמי וידאו אינם מזויפים
 
-ייתכן שהשמעת וידאו לא תעבוד"</string>
+ייתכן שהפעלת סרטון לא תעבוד"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">כיבוי הגדרה זו עלול לגרום לבעיות בהפעלת סרטון.</string>
   <string name="revanced_spoof_video_streams_client_type_title">לקוח ברירת מחדל</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_title">כפה iOS AVC (H.264)</string>
@@ -1429,10 +1447,10 @@ Second \"item\" text"</string>
   <string name="revanced_block_audio_ads_summary_off">מודעות שמע אינן חסומות</string>
   </patch>
   <patch id="ad.embedded.embeddedAdsPatch">
-  <string name="revanced_embedded_ads_service_unavailable">%s לא זמין, פרסומות עשויות להופיע. נסה לשנות את שירות חסימת פרסומות בהגדרות.</string>
-  <string name="revanced_embedded_ads_service_failed">%s החזיר שגיאה, פרסומות עשויות להופיע. נסה לשנות את שירות חסימת פרסומות בהגדרות.</string>
+  <string name="revanced_embedded_ads_service_unavailable">%s אינו זמין, מודעות עשויות להופיע. נסה לשנות את שירות חוסם המודעות בהגדרות.</string>
+  <string name="revanced_embedded_ads_service_failed">%s החזיר שגיאה, מודעות עשויות להופיע. נסה לשנות את שירות חוסם המודעות בהגדרות.</string>
   <string name="revanced_block_embedded_ads_title">חסום מודעות סרטון מוטמעות</string>
-  <string name="revanced_block_embedded_ads_entry_1">הושבת</string>
+  <string name="revanced_block_embedded_ads_entry_1">מושבת</string>
   <string name="revanced_block_embedded_ads_entry_2">פרוקסי Luminous</string>
   <string name="revanced_block_embedded_ads_entry_3">פרוקסי PurpleAdBlock</string>
   </patch>
