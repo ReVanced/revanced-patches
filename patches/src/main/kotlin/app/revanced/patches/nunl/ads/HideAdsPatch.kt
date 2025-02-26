@@ -17,7 +17,7 @@ val hideAdsPatch = bytecodePatch(
 
     execute {
         // Disable video pre-roll ads.
-        // Whenever the app tries to create an ad via JWUtils.createAdvertising, don't actually tell the underlying JWPlayer library to do so => JWPlayer will not display ads
+        // Whenever the app tries to create an ad via JWUtils.createAdvertising, don't actually tell the underlying JWPlayer library to do so => JWPlayer will not display ads.
         jwUtilCreateAdvertisementFingerprint.method.addInstructions(
             0,
             """
@@ -31,14 +31,14 @@ val hideAdsPatch = bytecodePatch(
 
         // Filter injected content from API calls out of lists.
         arrayOf(screenMapperFingerprint, nextPageRepositoryImplFingerprint).forEach {
-            // index of instruction moving result of BlockPage;->getBlocks(...)
+            // Index of instruction moving result of BlockPage;->getBlocks(...).
             val moveGetBlocksResultObjectIndex = it.patternMatch!!.startIndex
             it.method.apply {
                 val moveInstruction = getInstruction<OneRegisterInstruction>(moveGetBlocksResultObjectIndex)
 
                 val listRegister = moveInstruction.registerA
 
-                // add instruction after moving List<Block> to register and then filter this List<Block> in place
+                // Add instruction after moving List<Block> to register and then filter this List<Block> in place.
                 addInstructions(
                     moveGetBlocksResultObjectIndex + 1,
                     """
