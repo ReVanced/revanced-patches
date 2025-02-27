@@ -1,3 +1,10 @@
+# [5.13.0-dev.17](https://github.com/ReVanced/revanced-patches/compare/v5.13.0-dev.16...v5.13.0-dev.17) (2025-02-27)
+
+
+### Bug Fixes
+
+* **YouTube - Hide filter bar:** Fix `Hide in feed` not working in subscriptions feed ([#4512](https://github.com/ReVanced/revanced-patches/issues/4512)) ([634d0ee](https://github.com/ReVanced/revanced-patches/commit/634d0ee12e31491c7ee1d4ceb002daf8366a3c15))
+
 # [5.13.0-dev.16](https://github.com/ReVanced/revanced-patches/compare/v5.13.0-dev.15...v5.13.0-dev.16) (2025-02-27)
 
 
