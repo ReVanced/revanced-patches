@@ -1,3 +1,10 @@
+# [5.13.0-dev.16](https://github.com/ReVanced/revanced-patches/compare/v5.13.0-dev.15...v5.13.0-dev.16) (2025-02-27)
+
+
+### Features
+
+* **NU.nl:** Add `Hide ads` and `Spoof Certificate` patch ([#4368](https://github.com/ReVanced/revanced-patches/issues/4368)) ([f3268fb](https://github.com/ReVanced/revanced-patches/commit/f3268fb03ca25fb5465e36015b6c9dec2c84a655))
+
 # [5.13.0-dev.15](https://github.com/ReVanced/revanced-patches/compare/v5.13.0-dev.14...v5.13.0-dev.15) (2025-02-25)
 
 
