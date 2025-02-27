@@ -388,6 +388,10 @@ public final class app/revanced/patches/pixiv/ads/HideAdsPatchKt {
 	public static final fun getHideAdsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
+public final class app/revanced/patches/protonmail/footer/RemoveMobileFooterPatchKt {
+	public static final fun getRemoveMobileFooterPatch ()Lapp/revanced/patcher/patch/ResourcePatch;
+}
+
 public final class app/revanced/patches/rar/misc/annoyances/purchasereminder/HidePurchaseReminderPatchKt {
 	public static final fun getHidePurchaseReminderPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
