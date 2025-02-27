@@ -49,7 +49,7 @@ val hideEndScreenSuggestedVideoPatch = bytecodePatch(
         )
 
         removeOnLayoutChangeListenerFingerprint.let {
-            val endScreenMethod = navigate(it.originalMethod).to(it.patternMatch!!.endIndex).stop()
+            val endScreenMethod = navigate(it.originalMethod).to(it.instructionMatches.last().index).stop()
 
             endScreenMethod.apply {
                 val autoNavStatusMethodName = autoNavStatusFingerprint.match(
