@@ -2,6 +2,7 @@ package app.revanced.patches.protonmail.footer
 
 import app.revanced.patcher.patch.resourcePatch
 import org.w3c.dom.Element
+import app.revanced.util.findElementByAttributeValueOrThrow
 
 @Suppress("unused")
 val removeMobileFooterPatch = resourcePatch(
@@ -10,12 +11,7 @@ val removeMobileFooterPatch = resourcePatch(
 ) {
     execute {
         document("res/values/strings.xml").use { document ->
-            val stringElements = document.getElementsByTagName("string")
-            val element = (0 until stringElements.length)
-                .mapNotNull { stringElements.item(it) as? Element }
-                .find { it.getAttribute("name") == "mail_settings_identity_mobile_footer_default_free" }
-
-            element?.textContent = ""
+            document.documentElement.childNodes.findElementByAttributeValueOrThrow("name", "mail_settings_identity_mobile_footer_default_free").textContent = ""
         }
     }
 }
