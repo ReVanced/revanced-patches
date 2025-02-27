@@ -43,6 +43,9 @@ private val hideEndscreenCardsResourcePatch = resourcePatch {
     }
 }
 
+private const val EXTENSION_CLASS_DESCRIPTOR =
+    "Lapp/revanced/extension/youtube/patches/HideEndscreenCardsPatch;"
+
 @Suppress("unused")
 val hideEndscreenCardsPatch = bytecodePatch(
     name = "Hide endscreen cards",
@@ -77,9 +80,7 @@ val hideEndscreenCardsPatch = bytecodePatch(
 
                 addInstruction(
                     insertIndex,
-                    "invoke-static { v$viewRegister }, " +
-                        "Lapp/revanced/extension/youtube/patches/HideEndscreenCardsPatch;->" +
-                        "hideEndscreen(Landroid/view/View;)V",
+                    "invoke-static { v$viewRegister }, $EXTENSION_CLASS_DESCRIPTOR->hideEndscreen(Landroid/view/View;)V",
                 )
             }
         }

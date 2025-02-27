@@ -795,10 +795,7 @@ Huomaa: Tämä piilottaa väkisin myös videomainokset"</string>
   <string name="revanced_hide_shorts_navigation_bar_summary_on">Navigointipalkki on piilotettu</string>
   <string name="revanced_hide_shorts_navigation_bar_summary_off">Navigointipalkki näytetään</string>
   </patch>
-  <patch id="layout.hide.suggestedvideoendscreen.disableSuggestedVideoEndScreenResourcePatch">
-  <string name="revanced_disable_suggested_video_end_screen_title">Poista loppunäytön videoehdotukset käytöstä</string>
-  <string name="revanced_disable_suggested_video_end_screen_summary_on">Ehdotetut videot on piilotettu</string>
-  <string name="revanced_disable_suggested_video_end_screen_summary_off">Ehdotetut videot näytetään</string>
+  <patch id="layout.hide.endscreensuggestion.hideEndScreenSuggestedVideoPatch">
   </patch>
   <patch id="layout.hide.time.hideTimestampPatch">
   <string name="revanced_hide_timestamp_title">Piilota videon aikaleima</string>

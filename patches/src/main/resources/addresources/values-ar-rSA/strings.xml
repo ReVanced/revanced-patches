@@ -808,10 +808,13 @@ Second \"item\" text"</string>
   <string name="revanced_hide_shorts_navigation_bar_summary_on">تم إخفاء شريط التنقل</string>
   <string name="revanced_hide_shorts_navigation_bar_summary_off">يتم عرض شريط التنقل</string>
   </patch>
-  <patch id="layout.hide.suggestedvideoendscreen.disableSuggestedVideoEndScreenResourcePatch">
-  <string name="revanced_disable_suggested_video_end_screen_title">تعطيل شاشة نهاية الفيديو المقترح</string>
-  <string name="revanced_disable_suggested_video_end_screen_summary_on">الفيديوهات المقترحة سيتم تعطيلها</string>
-  <string name="revanced_disable_suggested_video_end_screen_summary_off">الفيديوهات المقترحة سيتم عرضها</string>
+  <patch id="layout.hide.endscreensuggestion.hideEndScreenSuggestedVideoPatch">
+  <string name="revanced_end_screen_suggested_video_title">إخفاء الفيديو المقترح في شاشة النهاية</string>
+  <string name="revanced_end_screen_suggested_video_summary_on">"يتم إخفاء الفيديو المقترح في شاشة النهاية عند إيقاف التشغيل التلقائي
+
+يمكن تغيير التشغيل التلقائي في إعدادات YouTube:
+الإعدادات ← التشغيل ← تشغيل الفيديو التالي تلقائيًا"</string>
+  <string name="revanced_end_screen_suggested_video_summary_off">يتم عرض الفيديو المقترح في شاشة النهاية</string>
   </patch>
   <patch id="layout.hide.time.hideTimestampPatch">
   <string name="revanced_hide_timestamp_title">إخفاء الطابع الزمني للفيديو</string>

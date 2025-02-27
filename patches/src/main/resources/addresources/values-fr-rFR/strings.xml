@@ -407,7 +407,7 @@ Cette fonctionnalité est disponible uniquement pour les appareils anciens"</str
   <string name="revanced_hide_products_banner_title">Masquer la bannière Afficher les produits</string>
   <string name="revanced_hide_products_banner_summary_on">La bannière est masquée</string>
   <string name="revanced_hide_products_banner_summary_off">La bannière est affichée</string>
-  <string name="revanced_hide_end_screen_store_banner_title">Masquer la bannière de boutique sur l\'écran de fin</string>
+  <string name="revanced_hide_end_screen_store_banner_title">Masquer l\'écran de fin de bannière de boutique</string>
   <string name="revanced_hide_end_screen_store_banner_summary_on">La bannière de boutique est masquée</string>
   <string name="revanced_hide_end_screen_store_banner_summary_off">La bannière de boutique est affichée</string>
   <string name="revanced_hide_player_store_shelf_title">Masquer l\'étagère Shopping dans le lecteur</string>
@@ -678,9 +678,9 @@ Si la modification de ce paramètre ne prend pas effet, essayez de passer en mod
   <string name="revanced_hide_autoplay_button_summary_off">Le bouton Lecture automatique est affiché</string>
   </patch>
   <patch id="layout.hide.endscreencards.hideEndscreenCardsResourcePatch">
-  <string name="revanced_hide_endscreen_cards_title">Masquer les cartes d\'écran de fin</string>
-  <string name="revanced_hide_endscreen_cards_summary_on">Les cartes d\'écran de fin sont masquées</string>
-  <string name="revanced_hide_endscreen_cards_summary_off">Les cartes d\'écran de fin sont affichées</string>
+  <string name="revanced_hide_endscreen_cards_title">Masquer les écrans de fin au format fiche</string>
+  <string name="revanced_hide_endscreen_cards_summary_on">Les écrans de fin au format fiche sont masqués</string>
+  <string name="revanced_hide_endscreen_cards_summary_off">Les écrans de fin au format fiche sont affichés</string>
   </patch>
   <patch id="layout.hide.fullscreenambientmode.disableFullscreenAmbientModePatch">
   <string name="revanced_disable_fullscreen_ambient_mode_title">Désactiver le mode ambiant en plein écran</string>
@@ -808,10 +808,13 @@ Si la modification de ce paramètre ne prend pas effet, essayez de passer en mod
   <string name="revanced_hide_shorts_navigation_bar_summary_on">La barre de navigation est masquée</string>
   <string name="revanced_hide_shorts_navigation_bar_summary_off">La barre de navigation est affichée</string>
   </patch>
-  <patch id="layout.hide.suggestedvideoendscreen.disableSuggestedVideoEndScreenResourcePatch">
-  <string name="revanced_disable_suggested_video_end_screen_title">Désactiver l\'écran de fin suggérant une vidéo</string>
-  <string name="revanced_disable_suggested_video_end_screen_summary_on">Les vidéos suggérées seront désactivées</string>
-  <string name="revanced_disable_suggested_video_end_screen_summary_off">Les vidéos suggérées seront affichées</string>
+  <patch id="layout.hide.endscreensuggestion.hideEndScreenSuggestedVideoPatch">
+  <string name="revanced_end_screen_suggested_video_title">Masquer l\'écran de fin suggérant une vidéo</string>
+  <string name="revanced_end_screen_suggested_video_summary_on">"L'écran de fin suggérant une vidéo est masqué lorsque la lecture automatique est désactivée
+
+La lecture automatique peut être modifiée dans les paramètres de YouTube :
+Paramètres → Lecture → Lecture automatique de la vidéo suivante"</string>
+  <string name="revanced_end_screen_suggested_video_summary_off">L\'écran de fin suggérant une vidéo est affiché</string>
   </patch>
   <patch id="layout.hide.time.hideTimestampPatch">
   <string name="revanced_hide_timestamp_title">Masquer le temps écoulé et la durée totale</string>

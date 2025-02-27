@@ -1,3 +1,17 @@
+# [5.13.0-dev.16](https://github.com/ReVanced/revanced-patches/compare/v5.13.0-dev.15...v5.13.0-dev.16) (2025-02-27)
+
+
+### Features
+
+* **NU.nl:** Add `Hide ads` and `Spoof Certificate` patch ([#4368](https://github.com/ReVanced/revanced-patches/issues/4368)) ([f3268fb](https://github.com/ReVanced/revanced-patches/commit/f3268fb03ca25fb5465e36015b6c9dec2c84a655))
+
+# [5.13.0-dev.15](https://github.com/ReVanced/revanced-patches/compare/v5.13.0-dev.14...v5.13.0-dev.15) (2025-02-25)
+
+
+### Bug Fixes
+
+* **YouTube - Hide player components:** Show correct end video thumbnail if `Hide end screen suggested video` is enabled ([#4502](https://github.com/ReVanced/revanced-patches/issues/4502)) ([6c4885a](https://github.com/ReVanced/revanced-patches/commit/6c4885a1d5dfff50100b01840b5552d92e83ee4a))
+
 # [5.13.0-dev.14](https://github.com/ReVanced/revanced-patches/compare/v5.13.0-dev.13...v5.13.0-dev.14) (2025-02-25)
 
 

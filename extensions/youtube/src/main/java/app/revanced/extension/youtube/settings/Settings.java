@@ -125,7 +125,6 @@ public class Settings extends BaseSettings {
     public static final BooleanSetting COPY_VIDEO_URL_TIMESTAMP = new BooleanSetting("revanced_copy_video_url_timestamp", TRUE);
     public static final BooleanSetting DISABLE_FULLSCREEN_AMBIENT_MODE = new BooleanSetting("revanced_disable_fullscreen_ambient_mode", TRUE, true);
     public static final BooleanSetting DISABLE_ROLLING_NUMBER_ANIMATIONS = new BooleanSetting("revanced_disable_rolling_number_animations", FALSE);
-    public static final BooleanSetting DISABLE_SUGGESTED_VIDEO_END_SCREEN = new BooleanSetting("revanced_disable_suggested_video_end_screen", FALSE, true);
     public static final EnumSetting<FullscreenMode> EXIT_FULLSCREEN = new EnumSetting<>("revanced_exit_fullscreen", FullscreenMode.DISABLED);
     public static final BooleanSetting HIDE_AUTOPLAY_BUTTON = new BooleanSetting("revanced_hide_autoplay_button", TRUE, true);
     public static final BooleanSetting HIDE_CAPTIONS_BUTTON = new BooleanSetting("revanced_hide_captions_button", FALSE);
@@ -135,6 +134,7 @@ public class Settings extends BaseSettings {
     public static final BooleanSetting HIDE_COMMUNITY_GUIDELINES = new BooleanSetting("revanced_hide_community_guidelines", TRUE);
     public static final BooleanSetting HIDE_EMERGENCY_BOX = new BooleanSetting("revanced_hide_emergency_box", TRUE);
     public static final BooleanSetting HIDE_ENDSCREEN_CARDS = new BooleanSetting("revanced_hide_endscreen_cards", FALSE);
+    public static final BooleanSetting HIDE_END_SCREEN_SUGGESTED_VIDEO = new BooleanSetting("revanced_end_screen_suggested_video", FALSE, true);
     public static final BooleanSetting HIDE_HIDE_CHANNEL_GUIDELINES = new BooleanSetting("revanced_hide_channel_guidelines", TRUE);
     public static final BooleanSetting HIDE_INFO_PANELS = new BooleanSetting("revanced_hide_info_panels", TRUE);
     public static final BooleanSetting HIDE_INFO_CARDS = new BooleanSetting("revanced_hide_info_cards", FALSE);
@@ -284,7 +284,6 @@ public class Settings extends BaseSettings {
             "revanced_seekbar_thumbnails_high_quality_dialog_message", new SeekbarThumbnailsHighQualityAvailability());
     public static final BooleanSetting SLIDE_TO_SEEK = new BooleanSetting("revanced_slide_to_seek", FALSE, true);
     public static final BooleanSetting SEEKBAR_CUSTOM_COLOR = new BooleanSetting("revanced_seekbar_custom_color", FALSE, true);
-    private static final StringSetting DEPRECATED_SEEKBAR_CUSTOM_COLOR_PRIMARY = new StringSetting("revanced_seekbar_custom_color_value", "#FF0033");
     public static final StringSetting SEEKBAR_CUSTOM_COLOR_PRIMARY = new StringSetting("revanced_seekbar_custom_color_primary", "#FF0033", true, parent(SEEKBAR_CUSTOM_COLOR));
     public static final StringSetting SEEKBAR_CUSTOM_COLOR_ACCENT = new StringSetting("revanced_seekbar_custom_color_accent", "#FF2791", true, parent(SEEKBAR_CUSTOM_COLOR));
 
@@ -322,7 +321,6 @@ public class Settings extends BaseSettings {
             parentsAny(SWIPE_BRIGHTNESS, SWIPE_VOLUME));
     public static final IntegerSetting SWIPE_OVERLAY_OPACITY = new IntegerSetting("revanced_swipe_overlay_background_opacity", 60, true,
             parentsAny(SWIPE_BRIGHTNESS, SWIPE_VOLUME));
-    private static final IntegerSetting DEPRECATED_SWIPE_OVERLAY_BACKGROUND_ALPHA = new IntegerSetting("revanced_swipe_overlay_background_alpha", 127);
     public static final LongSetting SWIPE_OVERLAY_TIMEOUT = new LongSetting("revanced_swipe_overlay_timeout", 500L, true,
             parentsAny(SWIPE_BRIGHTNESS, SWIPE_VOLUME));
     public static final BooleanSetting SWIPE_SAVE_AND_RESTORE_BRIGHTNESS = new BooleanSetting("revanced_swipe_save_and_restore_brightness", TRUE, true, parent(SWIPE_BRIGHTNESS));
@@ -384,9 +382,12 @@ public class Settings extends BaseSettings {
     public static final StringSetting SB_CATEGORY_UNSUBMITTED_COLOR = new StringSetting("sb_unsubmitted_color", "#FFFFFF");
 
     // Deprecated migrations
-    public static final StringSetting DEPRECATED_SB_UUID_OLD_MIGRATION_SETTING = new StringSetting("uuid", ""); // Delete sometime in 2024
+    private static final StringSetting DEPRECATED_SB_UUID_OLD_MIGRATION_SETTING = new StringSetting("uuid", ""); // Delete sometime in 2024
     private static final BooleanSetting DEPRECATED_HIDE_PLAYER_BUTTONS = new BooleanSetting("revanced_hide_player_buttons", FALSE, true);
     private static final BooleanSetting DEPRECATED_HIDE_PLAYER_FLYOUT_VIDEO_QUALITY_FOOTER = new BooleanSetting("revanced_hide_video_quality_menu_footer", FALSE);
+    private static final IntegerSetting DEPRECATED_SWIPE_OVERLAY_BACKGROUND_ALPHA = new IntegerSetting("revanced_swipe_overlay_background_alpha", 127);
+    private static final StringSetting DEPRECATED_SEEKBAR_CUSTOM_COLOR_PRIMARY = new StringSetting("revanced_seekbar_custom_color_value", "#FF0033");
+    private static final BooleanSetting DEPRECATED_DISABLE_SUGGESTED_VIDEO_END_SCREEN = new BooleanSetting("revanced_disable_suggested_video_end_screen", FALSE);
 
     static {
         // region Migration
@@ -404,6 +405,8 @@ public class Settings extends BaseSettings {
         migrateOldSettingToNew(DEPRECATED_HIDE_PLAYER_BUTTONS, HIDE_PLAYER_PREVIOUS_NEXT_BUTTONS);
 
         migrateOldSettingToNew(DEPRECATED_HIDE_PLAYER_FLYOUT_VIDEO_QUALITY_FOOTER, HIDE_PLAYER_FLYOUT_VIDEO_QUALITY_FOOTER);
+
+        migrateOldSettingToNew(DEPRECATED_DISABLE_SUGGESTED_VIDEO_END_SCREEN, HIDE_END_SCREEN_SUGGESTED_VIDEO);
 
         // Migrate renamed enum.
         //noinspection deprecation

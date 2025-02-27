@@ -808,10 +808,13 @@ Jika mengubah setelan ini tidak berpengaruh, coba beralih ke mode Penyamaran."</
   <string name="revanced_hide_shorts_navigation_bar_summary_on">Bilah navigasi disembunyikan</string>
   <string name="revanced_hide_shorts_navigation_bar_summary_off">Bilah navigasi ditampilkan</string>
   </patch>
-  <patch id="layout.hide.suggestedvideoendscreen.disableSuggestedVideoEndScreenResourcePatch">
-  <string name="revanced_disable_suggested_video_end_screen_title">Nonaktifkan layar akhir video yang disarankan</string>
-  <string name="revanced_disable_suggested_video_end_screen_summary_on">Video yang disarankan akan dinonaktifkan</string>
-  <string name="revanced_disable_suggested_video_end_screen_summary_off">Video yang disarankan akan ditampilkan</string>
+  <patch id="layout.hide.endscreensuggestion.hideEndScreenSuggestedVideoPatch">
+  <string name="revanced_end_screen_suggested_video_title">Sembunyikan video saran layar akhir</string>
+  <string name="revanced_end_screen_suggested_video_summary_on">"Video saran layar akhir disembunyikan ketika putar otomatis dimatikan
+
+Putar otomatis dapat diubah di setelan YouTube:
+Setelan → Pemutaran → Putar otomatis video berikutnya"</string>
+  <string name="revanced_end_screen_suggested_video_summary_off">Video saran layar akhir ditampilkan</string>
   </patch>
   <patch id="layout.hide.time.hideTimestampPatch">
   <string name="revanced_hide_timestamp_title">Sembunyikan timestamp video</string>

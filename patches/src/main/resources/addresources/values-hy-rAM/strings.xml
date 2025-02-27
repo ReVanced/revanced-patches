@@ -808,10 +808,13 @@ MicroG-ի համար մարտկոցի օպտիմալացումը անջատել�
   <string name="revanced_hide_shorts_navigation_bar_summary_on">Նավիգացիայի ձողը թաքցված է</string>
   <string name="revanced_hide_shorts_navigation_bar_summary_off">Նավիգացիայի ձողը երևում է</string>
   </patch>
-  <patch id="layout.hide.suggestedvideoendscreen.disableSuggestedVideoEndScreenResourcePatch">
-  <string name="revanced_disable_suggested_video_end_screen_title">Անջատել առաջարկվող տեսանյութի վերջավորության էկրանը</string>
-  <string name="revanced_disable_suggested_video_end_screen_summary_on">Առաջարկվող տեսանյութերը անջատվելու են</string>
-  <string name="revanced_disable_suggested_video_end_screen_summary_off">Առաջարկվող տեսանյութերը երևանալու են</string>
+  <patch id="layout.hide.endscreensuggestion.hideEndScreenSuggestedVideoPatch">
+  <string name="revanced_end_screen_suggested_video_title">Թաքցնել վերջնական էկրանին առաջարկվող տեսանյութը</string>
+  <string name="revanced_end_screen_suggested_video_summary_on">"Վերջնական էկրանին առաջարկվող տեսանյութը թաքցված է, երբ ավտոմատ նվագարկումն անջատված է
+
+Ավտոմատ նվագարկումը կարելի է փոխել YouTube-ի կարգավորումներում.
+Կարգավորումներ → Վերարտադրում → Ավտոմատ նվագարկել հաջորդ տեսանյութը"</string>
+  <string name="revanced_end_screen_suggested_video_summary_off">Վերջնական էկրանին առաջարկվող տեսանյութը ցուցադրվում է</string>
   </patch>
   <patch id="layout.hide.time.hideTimestampPatch">
   <string name="revanced_hide_timestamp_title">Թաքցնել տեսանյութի ժամանակային կետը</string>

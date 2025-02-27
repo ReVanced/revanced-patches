@@ -808,10 +808,13 @@ Kui selle sätte muutmine ei avalda mõju, proovige lülituda Inkognito režiimi
   <string name="revanced_hide_shorts_navigation_bar_summary_on">Navigeerimisriba on peidetud</string>
   <string name="revanced_hide_shorts_navigation_bar_summary_off">Navigeerimisriba on nähtav</string>
   </patch>
-  <patch id="layout.hide.suggestedvideoendscreen.disableSuggestedVideoEndScreenResourcePatch">
-  <string name="revanced_disable_suggested_video_end_screen_title">Keela soovitatud video lõpueri</string>
-  <string name="revanced_disable_suggested_video_end_screen_summary_on">Soovitatud videod keelatakse</string>
-  <string name="revanced_disable_suggested_video_end_screen_summary_off">Soovitatud videod on nähtavad</string>
+  <patch id="layout.hide.endscreensuggestion.hideEndScreenSuggestedVideoPatch">
+  <string name="revanced_end_screen_suggested_video_title">Peida lõpuekraani soovitatud video</string>
+  <string name="revanced_end_screen_suggested_video_summary_on">"Lõpuekraani soovitatud video on peidetud, kui automaatesitus on välja lülitatud.
+
+Automaatesitust saab muuta YouTube'i seadetes:
+Seaded → Taasesitus → Esita järgmine video automaatselt"</string>
+  <string name="revanced_end_screen_suggested_video_summary_off">Lõpuekraani soovitatud video on näidatud</string>
   </patch>
   <patch id="layout.hide.time.hideTimestampPatch">
   <string name="revanced_hide_timestamp_title">Peida video ajamärk</string>

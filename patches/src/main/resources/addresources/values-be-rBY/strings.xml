@@ -808,10 +808,13 @@ Second \"item\" text"</string>
   <string name="revanced_hide_shorts_navigation_bar_summary_on">Панэль навігацыі схавана</string>
   <string name="revanced_hide_shorts_navigation_bar_summary_off">Паказана панэль навігацыі</string>
   </patch>
-  <patch id="layout.hide.suggestedvideoendscreen.disableSuggestedVideoEndScreenResourcePatch">
-  <string name="revanced_disable_suggested_video_end_screen_title">Адключыць канчатковы экран прапанаванага відэа</string>
-  <string name="revanced_disable_suggested_video_end_screen_summary_on">Прапанаваныя відэа будуць адключаны</string>
-  <string name="revanced_disable_suggested_video_end_screen_summary_off">Будуць паказаны прапанаваныя відэа</string>
+  <patch id="layout.hide.endscreensuggestion.hideEndScreenSuggestedVideoPatch">
+  <string name="revanced_end_screen_suggested_video_title">Схаваць прапанаванае відэа на канчатковым экране</string>
+  <string name="revanced_end_screen_suggested_video_summary_on">"Прапанаванае відэа на канчатковым экране будзе схавана, калі аўтаматычнае прайграванне выключана.
+
+Аўтаматычнае прайграванне можна змяніць у наладах YouTube:
+Налады → Прайграванне → Аўтаматычнае прайграванне наступнага відэа"</string>
+  <string name="revanced_end_screen_suggested_video_summary_off">Паказваць прапанаванае відэа на канчатковым экране</string>
   </patch>
   <patch id="layout.hide.time.hideTimestampPatch">
   <string name="revanced_hide_timestamp_title">Схаваць метку часу відэа</string>

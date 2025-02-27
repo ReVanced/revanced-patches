@@ -808,10 +808,13 @@ Om du ändrar den här inställningen och det inte får effekt kan du försöka 
   <string name="revanced_hide_shorts_navigation_bar_summary_on">Navigeringsfältet är dolt</string>
   <string name="revanced_hide_shorts_navigation_bar_summary_off">Navigeringsfältet visas</string>
   </patch>
-  <patch id="layout.hide.suggestedvideoendscreen.disableSuggestedVideoEndScreenResourcePatch">
-  <string name="revanced_disable_suggested_video_end_screen_title">Inaktivera föreslagen video slutskärm</string>
-  <string name="revanced_disable_suggested_video_end_screen_summary_on">Föreslagna videor kommer att inaktiveras</string>
-  <string name="revanced_disable_suggested_video_end_screen_summary_off">Föreslagen video kommer att visas</string>
+  <patch id="layout.hide.endscreensuggestion.hideEndScreenSuggestedVideoPatch">
+  <string name="revanced_end_screen_suggested_video_title">Dölj föreslagen video på slutskärmen</string>
+  <string name="revanced_end_screen_suggested_video_summary_on">"Föreslagen video på slutskärmen döljs när automatisk uppspelning är avstängd
+
+Automatisk uppspelning kan ändras i YouTube-inställningarna:
+Inställningar → Uppspelning → Spela upp nästa video automatiskt"</string>
+  <string name="revanced_end_screen_suggested_video_summary_off">Föreslagen video på slutskärmen visas</string>
   </patch>
   <patch id="layout.hide.time.hideTimestampPatch">
   <string name="revanced_hide_timestamp_title">Dölj videotidsstämpel</string>

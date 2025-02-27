@@ -801,10 +801,13 @@ Wenn diese Änderung nicht wirksam wird, versuchen Sie, in den Inkognito-Modus z
   <string name="revanced_hide_shorts_navigation_bar_summary_on">Navigationsleiste ist ausgeblendet</string>
   <string name="revanced_hide_shorts_navigation_bar_summary_off">Navigationsleiste wird angezeigt</string>
   </patch>
-  <patch id="layout.hide.suggestedvideoendscreen.disableSuggestedVideoEndScreenResourcePatch">
-  <string name="revanced_disable_suggested_video_end_screen_title">Empfohlene Video-Endbildschirm deaktivieren</string>
-  <string name="revanced_disable_suggested_video_end_screen_summary_on">Empfohlene Videos werden deaktiviert</string>
-  <string name="revanced_disable_suggested_video_end_screen_summary_off">Empfohlene Videos werden angezeigt</string>
+  <patch id="layout.hide.endscreensuggestion.hideEndScreenSuggestedVideoPatch">
+  <string name="revanced_end_screen_suggested_video_title">Vorgeschlagenes Video auf dem Endbildschirm ausblenden</string>
+  <string name="revanced_end_screen_suggested_video_summary_on">"Das vorgeschlagene Video auf dem Endbildschirm wird ausgeblendet, wenn die automatische Wiedergabe deaktiviert ist.
+
+Die automatische Wiedergabe kann in den YouTube-Einstellungen geändert werden:
+Einstellungen → Wiedergabe → Nächstes Video automatisch abspielen"</string>
+  <string name="revanced_end_screen_suggested_video_summary_off">Das vorgeschlagene Video auf dem Endbildschirm wird angezeigt</string>
   </patch>
   <patch id="layout.hide.time.hideTimestampPatch">
   <string name="revanced_hide_timestamp_title">Verstecke Video-Zeitstempel</string>

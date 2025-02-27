@@ -808,10 +808,13 @@ Second \"item\" text"</string>
   <string name="revanced_hide_shorts_navigation_bar_summary_on">Навигационната лента е скрита</string>
   <string name="revanced_hide_shorts_navigation_bar_summary_off">Навигационната лента се показва</string>
   </patch>
-  <patch id="layout.hide.suggestedvideoendscreen.disableSuggestedVideoEndScreenResourcePatch">
-  <string name="revanced_disable_suggested_video_end_screen_title">Препоръчани видеоклипове в края</string>
-  <string name="revanced_disable_suggested_video_end_screen_summary_on">Препоръчаните видеоклипове в края са скрити</string>
-  <string name="revanced_disable_suggested_video_end_screen_summary_off">Препоръчаните видеоклипове в края се показват</string>
+  <patch id="layout.hide.endscreensuggestion.hideEndScreenSuggestedVideoPatch">
+  <string name="revanced_end_screen_suggested_video_title">Скриване на предложеното видео в края на екрана</string>
+  <string name="revanced_end_screen_suggested_video_summary_on">"Предложеното видео в края на екрана е скрито, когато автоматичното пускане е изключено
+
+Автоматичното пускане може да бъде променено в настройките на YouTube:
+Настройки → Възпроизвеждане → Автоматично пускане на следващото видео"</string>
+  <string name="revanced_end_screen_suggested_video_summary_off">Предложеното видео в края на екрана е показано</string>
   </patch>
   <patch id="layout.hide.time.hideTimestampPatch">
   <string name="revanced_hide_timestamp_title">Скриване на клеймото за време на видеоклипа</string>

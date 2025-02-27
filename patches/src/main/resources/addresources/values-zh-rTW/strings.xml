@@ -799,10 +799,7 @@ Second \"item\" text"</string>
   <string name="revanced_hide_shorts_navigation_bar_summary_on">已隱藏導覽列</string>
   <string name="revanced_hide_shorts_navigation_bar_summary_off">已顯示導覽列</string>
   </patch>
-  <patch id="layout.hide.suggestedvideoendscreen.disableSuggestedVideoEndScreenResourcePatch">
-  <string name="revanced_disable_suggested_video_end_screen_title">停用片尾建議影片</string>
-  <string name="revanced_disable_suggested_video_end_screen_summary_on">將停用建議影片</string>
-  <string name="revanced_disable_suggested_video_end_screen_summary_off">將顯示建議影片</string>
+  <patch id="layout.hide.endscreensuggestion.hideEndScreenSuggestedVideoPatch">
   </patch>
   <patch id="layout.hide.time.hideTimestampPatch">
   <string name="revanced_hide_timestamp_title">隱藏影片時間戳記</string>
