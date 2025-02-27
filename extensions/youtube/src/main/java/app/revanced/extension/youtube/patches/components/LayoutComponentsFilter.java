@@ -105,6 +105,11 @@ public final class LayoutComponentsFilter extends Filter {
                 "compact_banner"
         );
 
+        final var subscriptionsChipBar = new StringFilterGroup(
+                Settings.HIDE_FILTER_BAR_FEED_IN_FEED,
+                "subscriptions_chip_bar"
+        );
+
         inFeedSurvey = new StringFilterGroup(
                 Settings.HIDE_FEED_SURVEY,
                 "in_feed_survey",
@@ -271,6 +276,7 @@ public final class LayoutComponentsFilter extends Filter {
                 infoPanel,
                 emergencyBox,
                 subscribersCommunityGuidelines,
+                subscriptionsChipBar,
                 channelGuidelines,
                 audioTrackButton,
                 artistCard,

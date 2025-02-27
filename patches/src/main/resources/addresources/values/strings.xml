@@ -306,7 +306,7 @@ You will not be notified of any unexpected events."</string>
             <string name="revanced_hide_description_components_screen_summary">Hide or show video description components</string>
 
             <string name="revanced_hide_filter_bar_screen_title">Filter bar</string>
-            <string name="revanced_hide_filter_bar_screen_summary">Hide or show the filter bar in the feed, search, and related videos</string>
+            <string name="revanced_hide_filter_bar_screen_summary">Hide or show the filter bar in the feed, search and related videos</string>
             <string name="revanced_hide_filter_bar_feed_in_feed_title">Hide in feed</string>
             <string name="revanced_hide_filter_bar_feed_in_feed_summary_on">Hidden in feed</string>
             <string name="revanced_hide_filter_bar_feed_in_feed_summary_off">Shown in feed</string>
