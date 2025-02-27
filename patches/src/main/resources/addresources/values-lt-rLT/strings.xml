@@ -808,10 +808,13 @@ Jei pakeitus šį nustatymą neįsigalioja, pabandykite perjungti į inkognito r
   <string name="revanced_hide_shorts_navigation_bar_summary_on">Naršymo juosta paslėpta</string>
   <string name="revanced_hide_shorts_navigation_bar_summary_off">Naršymo juosta rodoma</string>
   </patch>
-  <patch id="layout.hide.suggestedvideoendscreen.disableSuggestedVideoEndScreenResourcePatch">
-  <string name="revanced_disable_suggested_video_end_screen_title">Išjungti siūlomų vaizdo įrašų pabaigos ekraną</string>
-  <string name="revanced_disable_suggested_video_end_screen_summary_on">Siūlomi vaizdo įrašai bus išjungti</string>
-  <string name="revanced_disable_suggested_video_end_screen_summary_off">Siūlomi vaizdo įrašai bus rodomi</string>
+  <patch id="layout.hide.endscreensuggestion.hideEndScreenSuggestedVideoPatch">
+  <string name="revanced_end_screen_suggested_video_title">Slėpti pabaigos ekrano siūlomą vaizdo įrašą</string>
+  <string name="revanced_end_screen_suggested_video_summary_on">"Pabaigos ekrane siūlomas vaizdo įrašas yra paslėptas, kai automatinis paleidimas yra išjungtas.
+
+Automatinį paleidimą galima pakeisti „YouTube“ nustatymuose:
+Nustatymai → Atkūrimas → Automatiškai leisti kitą vaizdo įrašą"</string>
+  <string name="revanced_end_screen_suggested_video_summary_off">Pabaigos ekrane siūlomas vaizdo įrašas rodomas</string>
   </patch>
   <patch id="layout.hide.time.hideTimestampPatch">
   <string name="revanced_hide_timestamp_title">Slėpti vaizdo įrašo laiko žymę</string>

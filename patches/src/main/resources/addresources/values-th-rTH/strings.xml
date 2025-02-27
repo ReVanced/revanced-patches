@@ -806,10 +806,13 @@ Second \"item\" text"</string>
   <string name="revanced_hide_shorts_navigation_bar_summary_on">ซ่อนแถบนำทางแล้ว</string>
   <string name="revanced_hide_shorts_navigation_bar_summary_off">ไม่ซ่อนแถบนำทาง</string>
   </patch>
-  <patch id="layout.hide.suggestedvideoendscreen.disableSuggestedVideoEndScreenResourcePatch">
-  <string name="revanced_disable_suggested_video_end_screen_title">ปิดใช้งานหน้าจอแนะนำวิดีโอท้าย</string>
-  <string name="revanced_disable_suggested_video_end_screen_summary_on">ปิดใช้งานแนะนำวิดีโอท้ายแล้ว</string>
-  <string name="revanced_disable_suggested_video_end_screen_summary_off">เปิดใช้งานแนะนำวิดีโอท้ายแล้ว</string>
+  <patch id="layout.hide.endscreensuggestion.hideEndScreenSuggestedVideoPatch">
+  <string name="revanced_end_screen_suggested_video_title">ซ่อนวิดีโอแนะนำในหน้าจอสิ้นสุด</string>
+  <string name="revanced_end_screen_suggested_video_summary_on">"วิดีโอแนะนำในหน้าจอสิ้นสุดจะถูกซ่อนเมื่อปิดเล่นอัตโนมัติ
+
+สามารถเปลี่ยนการเล่นอัตโนมัติได้ในการตั้งค่า YouTube:
+การตั้งค่า → การเล่น → เล่นวิดีโอถัดไปอัตโนมัติ"</string>
+  <string name="revanced_end_screen_suggested_video_summary_off">วิดีโอแนะนำในหน้าจอสิ้นสุดจะปรากฏ</string>
   </patch>
   <patch id="layout.hide.time.hideTimestampPatch">
   <string name="revanced_hide_timestamp_title">ซ่อนเวลาของวิดีโอ</string>

@@ -808,10 +808,13 @@ Opomba: Omogočanje tega tudi prisilno skrije video oglase"</string>
   <string name="revanced_hide_shorts_navigation_bar_summary_on">Navigacijska vrstica je skrita</string>
   <string name="revanced_hide_shorts_navigation_bar_summary_off">Navigacijska vrstica je prikazana</string>
   </patch>
-  <patch id="layout.hide.suggestedvideoendscreen.disableSuggestedVideoEndScreenResourcePatch">
-  <string name="revanced_disable_suggested_video_end_screen_title">Onemogoči končni zaslon s predlaganimi videoposnetki</string>
-  <string name="revanced_disable_suggested_video_end_screen_summary_on">Predlagani videoposnetki bodo onemogočeni</string>
-  <string name="revanced_disable_suggested_video_end_screen_summary_off">Predlagani videoposnetki bodo prikazani</string>
+  <patch id="layout.hide.endscreensuggestion.hideEndScreenSuggestedVideoPatch">
+  <string name="revanced_end_screen_suggested_video_title">Skrij predlagani videoposnetek na koncu zaslona</string>
+  <string name="revanced_end_screen_suggested_video_summary_on">"Predlagani videoposnetek na koncu zaslona je skrit, ko je samodejno predvajanje izklopljeno
+
+Samodejno predvajanje lahko spremenite v nastavitvah YouTube:
+Nastavitve → Predvajanje → Samodejno predvajanje naslednjega videoposnetka"</string>
+  <string name="revanced_end_screen_suggested_video_summary_off">Predlagani videoposnetek na koncu zaslona je prikazan</string>
   </patch>
   <patch id="layout.hide.time.hideTimestampPatch">
   <string name="revanced_hide_timestamp_title">Skrij časovni žig videoposnetka</string>

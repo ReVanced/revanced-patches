@@ -808,10 +808,13 @@ Als het wijzigen van deze instelling geen effect heeft, probeer dan over te scha
   <string name="revanced_hide_shorts_navigation_bar_summary_on">De navigatiebalk is verborgen</string>
   <string name="revanced_hide_shorts_navigation_bar_summary_off">De navigatiebalk is zichtbaar</string>
   </patch>
-  <patch id="layout.hide.suggestedvideoendscreen.disableSuggestedVideoEndScreenResourcePatch">
-  <string name="revanced_disable_suggested_video_end_screen_title">Schakel het eindscherm met suggesties voor video\'s uit</string>
-  <string name="revanced_disable_suggested_video_end_screen_summary_on">Gesuggereerde video\'s worden uitgeschakeld</string>
-  <string name="revanced_disable_suggested_video_end_screen_summary_off">Gesuggereerde video\'s worden weergegeven</string>
+  <patch id="layout.hide.endscreensuggestion.hideEndScreenSuggestedVideoPatch">
+  <string name="revanced_end_screen_suggested_video_title">Voorgestelde video op eindscherm verbergen</string>
+  <string name="revanced_end_screen_suggested_video_summary_on">"De voorgestelde video op het eindscherm is verborgen wanneer automatisch afspelen is uitgeschakeld.
+
+Automatisch afspelen kan worden gewijzigd in de YouTube-instellingen:
+Instellingen → Afspelen → Volgende video automatisch afspelen"</string>
+  <string name="revanced_end_screen_suggested_video_summary_off">Voorgestelde video op eindscherm wordt getoond</string>
   </patch>
   <patch id="layout.hide.time.hideTimestampPatch">
   <string name="revanced_hide_timestamp_title">Verberg de videotijd</string>

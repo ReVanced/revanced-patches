@@ -808,10 +808,13 @@ Bu ayarı değiştirmek etkili olmazsa, Gizli moda geçmeyi deneyin."</string>
   <string name="revanced_hide_shorts_navigation_bar_summary_on">Gezinme çubuğu gizli</string>
   <string name="revanced_hide_shorts_navigation_bar_summary_off">Gezinme çubuğu görünür</string>
   </patch>
-  <patch id="layout.hide.suggestedvideoendscreen.disableSuggestedVideoEndScreenResourcePatch">
-  <string name="revanced_disable_suggested_video_end_screen_title">Önerilen video bitiş ekranını devre dışı bırak</string>
-  <string name="revanced_disable_suggested_video_end_screen_summary_on">Önerilen videolar devre dışı bırakılacak</string>
-  <string name="revanced_disable_suggested_video_end_screen_summary_off">Önerilen videolar gösterilecek</string>
+  <patch id="layout.hide.endscreensuggestion.hideEndScreenSuggestedVideoPatch">
+  <string name="revanced_end_screen_suggested_video_title">Bitiş ekranı önerilen videosunu gizle</string>
+  <string name="revanced_end_screen_suggested_video_summary_on">"Otomatik oynatma kapatıldığında bitiş ekranı önerilen videosu gizlenir
+
+Otomatik oynatma YouTube ayarlarından değiştirilebilir:
+Ayarlar → Oynatma → Sonraki videoyu otomatik oynat"</string>
+  <string name="revanced_end_screen_suggested_video_summary_off">Bitiş ekranı önerilen videosu gösteriliyor</string>
   </patch>
   <patch id="layout.hide.time.hideTimestampPatch">
   <string name="revanced_hide_timestamp_title">Video zaman damgasını gizle</string>

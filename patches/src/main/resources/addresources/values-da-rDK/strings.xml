@@ -769,10 +769,13 @@ Hvis ændring af denne indstilling ikke træder i kraft, kan du prøve at skifte
   <string name="revanced_hide_shorts_navigation_bar_summary_on">Navigationsbjælken er skjult</string>
   <string name="revanced_hide_shorts_navigation_bar_summary_off">Navigationsbjælken vises</string>
   </patch>
-  <patch id="layout.hide.suggestedvideoendscreen.disableSuggestedVideoEndScreenResourcePatch">
-  <string name="revanced_disable_suggested_video_end_screen_title">Deaktivér foreslået videoslutskærm</string>
-  <string name="revanced_disable_suggested_video_end_screen_summary_on">Foreslåede videoer vil blive deaktiveret</string>
-  <string name="revanced_disable_suggested_video_end_screen_summary_off">Foreslåede videoer vil blive vist</string>
+  <patch id="layout.hide.endscreensuggestion.hideEndScreenSuggestedVideoPatch">
+  <string name="revanced_end_screen_suggested_video_title">Skjul foreslået video på slutskærmen</string>
+  <string name="revanced_end_screen_suggested_video_summary_on">"Foreslået video på slutskærmen er skjult, når automatisk afspilning er slået fra
+
+Automatisk afspilning kan ændres i YouTube-indstillinger:
+Indstillinger → Afspilning → Afspil næste video automatisk"</string>
+  <string name="revanced_end_screen_suggested_video_summary_off">Foreslået video på slutskærmen vises</string>
   </patch>
   <patch id="layout.hide.time.hideTimestampPatch">
   <string name="revanced_hide_timestamp_title">Skjul tidsstempel på video</string>
