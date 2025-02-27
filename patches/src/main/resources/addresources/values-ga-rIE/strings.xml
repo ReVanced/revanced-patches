@@ -1337,10 +1337,11 @@ Is féidir le seo caighdeáin físeáin níos airde a dhíghlasáil"</string>
   <string name="revanced_disable_zoom_haptics_summary_off">Tá Haptics cumasaithe</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
-  <string name="revanced_force_original_audio_title">Fórsaigh fuaim bunaidh</string>
-  <string name="revanced_force_original_audio_summary_on">Ag úsáid fuaim bunaidh</string>
+  <string name="revanced_force_original_audio_title">Fórsaigh teanga bhunaidh na fuaime</string>
+  <string name="revanced_force_original_audio_summary_on">Ag úsáid teanga bhunaidh na fuaime</string>
   <string name="revanced_force_original_audio_summary_off">Ag úsáid fuaim réamhshocraithe</string>
-  <string name="revanced_force_original_audio_not_available">Chun an ghné seo a úsáid, athraigh spoofing srutha chuig cineál cliant iOS</string>
+  <!-- 'Spoof video streams' should be the same translation used for revanced_spoof_video_streams_screen_title -->
+  <string name="revanced_force_original_audio_not_available">Chun an ghné seo a úsáid, athraigh \'Sruthanna físeáin bhréige\' go iOS TV</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->

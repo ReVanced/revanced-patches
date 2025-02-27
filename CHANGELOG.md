@@ -1,3 +1,10 @@
+# [5.13.0-dev.14](https://github.com/ReVanced/revanced-patches/compare/v5.13.0-dev.13...v5.13.0-dev.14) (2025-02-25)
+
+
+### Bug Fixes
+
+* **YouTube - Swipe controls:** Adjust the overlay text size ([#4503](https://github.com/ReVanced/revanced-patches/issues/4503)) ([6dc4bf7](https://github.com/ReVanced/revanced-patches/commit/6dc4bf75e09ed6f05534919d7b769b720043abce))
+
 # [5.13.0-dev.13](https://github.com/ReVanced/revanced-patches/compare/v5.13.0-dev.12...v5.13.0-dev.13) (2025-02-24)
 
 

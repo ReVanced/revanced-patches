@@ -1351,10 +1351,11 @@ Povolením této funkce lze odemknout vyšší kvality videa"</string>
   <string name="revanced_disable_zoom_haptics_summary_off">Haptika je povolena</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
-  <string name="revanced_force_original_audio_title">Vynutit původní zvuk</string>
-  <string name="revanced_force_original_audio_summary_on">Používání původního zvuku</string>
+  <string name="revanced_force_original_audio_title">Vynutit původní jazyk zvuku</string>
+  <string name="revanced_force_original_audio_summary_on">Použít původní jazyk zvuku</string>
   <string name="revanced_force_original_audio_summary_off">Používání výchozího zvuku</string>
-  <string name="revanced_force_original_audio_not_available">Pro použití této funkce změňte typ klienta streamu na iOS</string>
+  <!-- 'Spoof video streams' should be the same translation used for revanced_spoof_video_streams_screen_title -->
+  <string name="revanced_force_original_audio_not_available">Chcete-li používat tuto funkci, změňte možnost „Zfalšovat datové proudy videa“ na iOS TV</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->

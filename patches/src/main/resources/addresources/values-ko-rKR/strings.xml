@@ -1358,10 +1358,11 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요"</string>
   <string name="revanced_disable_zoom_haptics_summary_off">진동 피드백을 활성화합니다</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
-  <string name="revanced_force_original_audio_title">원본 오디오 트랙 강제로 활성화하기</string>
-  <string name="revanced_force_original_audio_summary_on">원본 오디오 트랙을 사용 중입니다</string>
-  <string name="revanced_force_original_audio_summary_off">기본 오디오 트랙을 사용 중입니다</string>
-  <string name="revanced_force_original_audio_not_available">이 기능을 사용하려면, \'스트리밍 데이터 변경하기\' 설정에서 기본 클라이언트를 iOS TV로 변경하세요</string>
+  <string name="revanced_force_original_audio_title">원본 오디오 스트림 언어 강제로 활성화하기</string>
+  <string name="revanced_force_original_audio_summary_on">원본 오디오 스트림 언어를 사용 중입니다</string>
+  <string name="revanced_force_original_audio_summary_off">기본 오디오 스트림 언어를 사용 중입니다</string>
+  <!-- 'Spoof video streams' should be the same translation used for revanced_spoof_video_streams_screen_title -->
+  <string name="revanced_force_original_audio_not_available">이 설정을 사용하려면, \'스트리밍 데이터 변경하기\' 설정에서 기본 클라이언트를 iOS TV로 변경하세요</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->

@@ -1351,10 +1351,10 @@ Ako ovo omogućite, mogu biti otključani viši kvaliteti videa"</string>
   <string name="revanced_disable_zoom_haptics_summary_off">Vibracija pri uveličavanju je omogućena</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
-  <string name="revanced_force_original_audio_title">Prisili originalni zvuk</string>
-  <string name="revanced_force_original_audio_summary_on">Korišćenje originalnog zvuka</string>
+  <string name="revanced_force_original_audio_summary_on">Korišćenje originalnog audio jezika</string>
   <string name="revanced_force_original_audio_summary_off">Korišćenje podrazumevanog zvuka</string>
-  <string name="revanced_force_original_audio_not_available">Da biste koristili ovu funkciju, promenite lažiranje strima na tip klijenta iOS</string>
+  <!-- 'Spoof video streams' should be the same translation used for revanced_spoof_video_streams_screen_title -->
+  <string name="revanced_force_original_audio_not_available">Da biste koristili ovu funkciju, promenite opciju „Lažni video strimovi“ u iOS TV</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->

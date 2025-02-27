@@ -1351,10 +1351,11 @@ Second \"item\" text"</string>
   <string name="revanced_disable_zoom_haptics_summary_off">触觉反馈已启用</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
-  <string name="revanced_force_original_audio_title">强制使用原始音频</string>
-  <string name="revanced_force_original_audio_summary_on">正在使用原始音频</string>
+  <string name="revanced_force_original_audio_title">强制使用原始音频语言</string>
+  <string name="revanced_force_original_audio_summary_on">使用原始音频语言</string>
   <string name="revanced_force_original_audio_summary_off">正在使用默认音频</string>
-  <string name="revanced_force_original_audio_not_available">要使用此功能，请将流伪装更改为 iOS 客户端类型</string>
+  <!-- 'Spoof video streams' should be the same translation used for revanced_spoof_video_streams_screen_title -->
+  <string name="revanced_force_original_audio_not_available">要使用此功能，请将“欺骗视频流”更改为 iOS TV</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->

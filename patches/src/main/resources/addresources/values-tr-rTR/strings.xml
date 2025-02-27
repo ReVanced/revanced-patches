@@ -1352,10 +1352,11 @@ Bunu etkinleştirmek daha yüksek video kalitelerini açabilir"</string>
   <string name="revanced_disable_zoom_haptics_summary_off">Titreşim etkin</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
-  <string name="revanced_force_original_audio_title">Orijinal sesi zorla</string>
-  <string name="revanced_force_original_audio_summary_on">Orijinal ses kullanılıyor</string>
+  <string name="revanced_force_original_audio_title">Orijinal ses dilini zorla</string>
+  <string name="revanced_force_original_audio_summary_on">Orijinal ses dili kullanılıyor</string>
   <string name="revanced_force_original_audio_summary_off">Varsayılan ses kullanılıyor</string>
-  <string name="revanced_force_original_audio_not_available">Bu özelliği kullanmak için, video akışı taklidi özelliğini iOS istemci türüne değiştirin</string>
+  <!-- 'Spoof video streams' should be the same translation used for revanced_spoof_video_streams_screen_title -->
+  <string name="revanced_force_original_audio_not_available">Bu özelliği kullanmak için \"Video akışlarını taklit et\" ayarını iOS TV olarak değiştirin</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->

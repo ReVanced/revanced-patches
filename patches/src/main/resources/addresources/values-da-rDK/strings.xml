@@ -1291,10 +1291,11 @@ Aktivering af dette kan låse op for højere videokvalitet"</string>
   <string name="revanced_disable_zoom_haptics_summary_off">Haptics er aktiveret</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
-  <string name="revanced_force_original_audio_title">Tving original lyd</string>
-  <string name="revanced_force_original_audio_summary_on">Brug original lyd</string>
+  <string name="revanced_force_original_audio_title">Tving originalt lydsprog</string>
+  <string name="revanced_force_original_audio_summary_on">Bruger originalt lydsprog</string>
   <string name="revanced_force_original_audio_summary_off">Brug standard lyd</string>
-  <string name="revanced_force_original_audio_not_available">Tilføj musik til denne historie</string>
+  <!-- 'Spoof video streams' should be the same translation used for revanced_spoof_video_streams_screen_title -->
+  <string name="revanced_force_original_audio_not_available">For at bruge denne funktion skal du ændre \"Spoof videostreams\" til iOS TV</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
