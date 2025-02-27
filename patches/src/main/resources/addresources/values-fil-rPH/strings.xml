@@ -443,10 +443,10 @@ Ang tampok na ito ay magagamit lamang para sa mga mas lumang device"</string>
   <string name="revanced_share_copy_url_success">Nakopya ang URL sa clipboard</string>
   <string name="revanced_share_copy_url_timestamp_success">URL na may timestamp na kinopya</string>
   <string name="revanced_copy_video_url_title">Ipakita ang pindutan ng URL ng kopya ng video</string>
-  <string name="revanced_copy_video_url_summary_on">Ang pindutan ay ipinapakita. I-tap para kopyahin ang URL ng video. I-tap nang matagal para kopyahin ang URL ng video gamit ang timestamp</string>
+  <string name="revanced_copy_video_url_summary_on">Ipinapakita ang button. I-tap para kopyahin ang URL ng video. I-tap nang matagal para kopyahin kasama ang timestamp</string>
   <string name="revanced_copy_video_url_summary_off">Hindi ipinapakita ang button</string>
   <string name="revanced_copy_video_url_timestamp_title">Ipakita ang pindutan ng URL ng kopya ng timestamp</string>
-  <string name="revanced_copy_video_url_timestamp_summary_on">Ang pindutan ay ipinapakita. I-tap para kopyahin ang URL ng video gamit ang timestamp. I-tap nang matagal upang kopyahin ang video nang walang timestamp</string>
+  <string name="revanced_copy_video_url_timestamp_summary_on">Ipinapakita ang button. I-tap para kopyahin ang URL ng video kasama ang timestamp. I-tap nang matagal para kopyahin nang walang timestamp</string>
   <string name="revanced_copy_video_url_timestamp_summary_off">Hindi ipinapakita ang button</string>
   </patch>
   <patch id="interaction.dialog.removeViewerDiscretionDialogPatch">
@@ -806,10 +806,13 @@ Tandaan: Ang pagpapagana nito ay nagtatago rin ng mga ad ng video"</string>
   <string name="revanced_hide_shorts_navigation_bar_summary_on">Nakatago ang navigation bar</string>
   <string name="revanced_hide_shorts_navigation_bar_summary_off">Ipinapakita ang navigation bar</string>
   </patch>
-  <patch id="layout.hide.suggestedvideoendscreen.disableSuggestedVideoEndScreenResourcePatch">
-  <string name="revanced_disable_suggested_video_end_screen_title">I-disable ang iminungkahing video end screen</string>
-  <string name="revanced_disable_suggested_video_end_screen_summary_on">Idi-disable ang mga iminungkahing video</string>
-  <string name="revanced_disable_suggested_video_end_screen_summary_off">Ipapakita ang mga iminungkahing video</string>
+  <patch id="layout.hide.endscreensuggestion.hideEndScreenSuggestedVideoPatch">
+  <string name="revanced_end_screen_suggested_video_title">Itago ang iminungkahing video sa dulo ng screen</string>
+  <string name="revanced_end_screen_suggested_video_summary_on">"Nakatago ang iminungkahing video sa dulo ng screen kapag nakapatay ang autoplay
+
+Maaaring baguhin ang Autoplay sa mga setting ng YouTube:
+Mga Setting → Pag-playback → I-autoplay ang susunod na video"</string>
+  <string name="revanced_end_screen_suggested_video_summary_off">Ipinapakita ang iminungkahing video sa dulo ng screen</string>
   </patch>
   <patch id="layout.hide.time.hideTimestampPatch">
   <string name="revanced_hide_timestamp_title">Itago ang timestamp ng video</string>
@@ -1350,10 +1353,11 @@ Ang pagpapagana nito ay maaaring magbukas ng mas mataas na kalidad ng video"</st
   <string name="revanced_disable_zoom_haptics_summary_off">Pinagana ang Haptics</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
-  <string name="revanced_force_original_audio_title">Pilitin ang original audio</string>
-  <string name="revanced_force_original_audio_summary_on">Gumagamit ng original audio</string>
+  <string name="revanced_force_original_audio_title">Pilitin ang orihinal na wika ng audio</string>
+  <string name="revanced_force_original_audio_summary_on">Ginagamit ang orihinal na wika ng audio</string>
   <string name="revanced_force_original_audio_summary_off">Gumagamit ng default audio</string>
-  <string name="revanced_force_original_audio_not_available">Upang magamit ang tampok na ito, baguhin ang stream spoofing sa uri ng kliyente ng iOS</string>
+  <!-- 'Spoof video streams' should be the same translation used for revanced_spoof_video_streams_screen_title -->
+  <string name="revanced_force_original_audio_not_available">Para magamit ang feature na ito, palitan ang \'Magpanggap na video stream\' sa iOS TV</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->

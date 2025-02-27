@@ -407,7 +407,7 @@ Cette fonctionnalité est disponible uniquement pour les appareils anciens"</str
   <string name="revanced_hide_products_banner_title">Masquer la bannière Afficher les produits</string>
   <string name="revanced_hide_products_banner_summary_on">La bannière est masquée</string>
   <string name="revanced_hide_products_banner_summary_off">La bannière est affichée</string>
-  <string name="revanced_hide_end_screen_store_banner_title">Masquer la bannière de boutique sur l\'écran de fin</string>
+  <string name="revanced_hide_end_screen_store_banner_title">Masquer l\'écran de fin de bannière de boutique</string>
   <string name="revanced_hide_end_screen_store_banner_summary_on">La bannière de boutique est masquée</string>
   <string name="revanced_hide_end_screen_store_banner_summary_off">La bannière de boutique est affichée</string>
   <string name="revanced_hide_player_store_shelf_title">Masquer l\'étagère Shopping dans le lecteur</string>
@@ -443,10 +443,10 @@ Cette fonctionnalité est disponible uniquement pour les appareils anciens"</str
   <string name="revanced_share_copy_url_success">URL copiée dans le presse-papiers</string>
   <string name="revanced_share_copy_url_timestamp_success">URL avec horodatage copiée</string>
   <string name="revanced_copy_video_url_title">Afficher le bouton \"Copier l\'URL de la vidéo\"</string>
-  <string name="revanced_copy_video_url_summary_on">Le bouton est affiché. Appuyez pour copier l\'URL de la vidéo. Appuyez longuement pour copier l\'URL de la vidéo avec l\'horodatage.</string>
+  <string name="revanced_copy_video_url_summary_on">Le bouton est affiché. Appuyez pour copier l\'URL de la vidéo. Appuyez longuement pour copier avec l\'horodatage.</string>
   <string name="revanced_copy_video_url_summary_off">Le bouton n\'est pas affiché</string>
   <string name="revanced_copy_video_url_timestamp_title">Afficher un bouton \"Copier URL avec horodatage\"</string>
-  <string name="revanced_copy_video_url_timestamp_summary_on">Le bouton est affiché. Appuyez pour copier l\'URL de la vidéo avec horodatage. Appuyez longuement pour copier l\'URL de la vidéo sans horodatage.</string>
+  <string name="revanced_copy_video_url_timestamp_summary_on">Le bouton est affiché. Appuyez pour copier l\'URL de la vidéo avec l\'horodatage. Appuyez longuement pour copier sans horodatage.</string>
   <string name="revanced_copy_video_url_timestamp_summary_off">Le bouton n\'est pas affiché</string>
   </patch>
   <patch id="interaction.dialog.removeViewerDiscretionDialogPatch">
@@ -678,9 +678,9 @@ Si la modification de ce paramètre ne prend pas effet, essayez de passer en mod
   <string name="revanced_hide_autoplay_button_summary_off">Le bouton Lecture automatique est affiché</string>
   </patch>
   <patch id="layout.hide.endscreencards.hideEndscreenCardsResourcePatch">
-  <string name="revanced_hide_endscreen_cards_title">Masquer les cartes d\'écran de fin</string>
-  <string name="revanced_hide_endscreen_cards_summary_on">Les cartes d\'écran de fin sont masquées</string>
-  <string name="revanced_hide_endscreen_cards_summary_off">Les cartes d\'écran de fin sont affichées</string>
+  <string name="revanced_hide_endscreen_cards_title">Masquer les écrans de fin au format fiche</string>
+  <string name="revanced_hide_endscreen_cards_summary_on">Les écrans de fin au format fiche sont masqués</string>
+  <string name="revanced_hide_endscreen_cards_summary_off">Les écrans de fin au format fiche sont affichés</string>
   </patch>
   <patch id="layout.hide.fullscreenambientmode.disableFullscreenAmbientModePatch">
   <string name="revanced_disable_fullscreen_ambient_mode_title">Désactiver le mode ambiant en plein écran</string>
@@ -808,10 +808,13 @@ Si la modification de ce paramètre ne prend pas effet, essayez de passer en mod
   <string name="revanced_hide_shorts_navigation_bar_summary_on">La barre de navigation est masquée</string>
   <string name="revanced_hide_shorts_navigation_bar_summary_off">La barre de navigation est affichée</string>
   </patch>
-  <patch id="layout.hide.suggestedvideoendscreen.disableSuggestedVideoEndScreenResourcePatch">
-  <string name="revanced_disable_suggested_video_end_screen_title">Désactiver l\'écran de fin suggérant une vidéo</string>
-  <string name="revanced_disable_suggested_video_end_screen_summary_on">Les vidéos suggérées seront désactivées</string>
-  <string name="revanced_disable_suggested_video_end_screen_summary_off">Les vidéos suggérées seront affichées</string>
+  <patch id="layout.hide.endscreensuggestion.hideEndScreenSuggestedVideoPatch">
+  <string name="revanced_end_screen_suggested_video_title">Masquer l\'écran de fin suggérant une vidéo</string>
+  <string name="revanced_end_screen_suggested_video_summary_on">"L'écran de fin suggérant une vidéo est masqué lorsque la lecture automatique est désactivée
+
+La lecture automatique peut être modifiée dans les paramètres de YouTube :
+Paramètres → Lecture → Lecture automatique de la vidéo suivante"</string>
+  <string name="revanced_end_screen_suggested_video_summary_off">L\'écran de fin suggérant une vidéo est affiché</string>
   </patch>
   <patch id="layout.hide.time.hideTimestampPatch">
   <string name="revanced_hide_timestamp_title">Masquer le temps écoulé et la durée totale</string>
@@ -1351,10 +1354,11 @@ Activer cette option peut déverrouiller des qualités vidéo supérieures"</str
   <string name="revanced_disable_zoom_haptics_summary_off">Le retour haptique est activé</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
-  <string name="revanced_force_original_audio_title">Forcer l\'audio d\'origine</string>
-  <string name="revanced_force_original_audio_summary_on">Utilisation de l\'audio d\'origine</string>
+  <string name="revanced_force_original_audio_title">Forcer la langue audio d\'origine</string>
+  <string name="revanced_force_original_audio_summary_on">Utilisation de la langue audio d\'origine</string>
   <string name="revanced_force_original_audio_summary_off">Utilisation de l\'audio par défaut</string>
-  <string name="revanced_force_original_audio_not_available">Pour utiliser cette fonctionnalité, falsifiez les flux vidéo à l\'aide d\'un client iOS</string>
+  <!-- 'Spoof video streams' should be the same translation used for revanced_spoof_video_streams_screen_title -->
+  <string name="revanced_force_original_audio_not_available">Pour utiliser cette fonctionnalité, définissez \"Falsifier les flux vidéo\" sur iOS TV</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->

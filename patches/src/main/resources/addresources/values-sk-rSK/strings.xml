@@ -436,10 +436,10 @@ Táto funkcia je dostupná len pre staršie zariadenia"</string>
   <string name="revanced_share_copy_url_success">Adresa URL bola skopírovaná do schránky</string>
   <string name="revanced_share_copy_url_timestamp_success">Adresa URL s časovou pečiatkou bola skopírovaná</string>
   <string name="revanced_copy_video_url_title">Zobraziť tlačidlo skopírovať adresu URL videa</string>
-  <string name="revanced_copy_video_url_summary_on">Tlačidlo je zobrazené. Klepnutím skopírujete adresu URL videa. Klepnutím a podržaním skopírujete adresu URL videa s časovou pečiatkou</string>
+  <string name="revanced_copy_video_url_summary_on">Tlačidlo sa zobrazuje. Klepnutím skopírujete URL videa. Klepnutím a podržaním skopírujete s časovou pečiatkou</string>
   <string name="revanced_copy_video_url_summary_off">Tlačidlo nie je zobrazené</string>
   <string name="revanced_copy_video_url_timestamp_title">Zobraziť tlačidlo webovej adresy kopírovania časovej pečiatky</string>
-  <string name="revanced_copy_video_url_timestamp_summary_on">Tlačidlo je zobrazené. Klepnutím skopírujete webovú adresu videa s časovou pečiatkou. Klepnutím a podržaním skopírujete video bez časovej pečiatky</string>
+  <string name="revanced_copy_video_url_timestamp_summary_on">Tlačidlo sa zobrazuje. Klepnutím skopírujete URL videa s časovou pečiatkou. Klepnutím a podržaním skopírujete bez časovej pečiatky</string>
   <string name="revanced_copy_video_url_timestamp_summary_off">Tlačidlo nie je zobrazené</string>
   </patch>
   <patch id="interaction.dialog.removeViewerDiscretionDialogPatch">
@@ -801,10 +801,13 @@ Ak zmena tohto nastavenia nemá žiadny účinok, skúste prepnúť do režimu i
   <string name="revanced_hide_shorts_navigation_bar_summary_on">Navigačný panel je skrytý</string>
   <string name="revanced_hide_shorts_navigation_bar_summary_off">Zobrazí sa navigačná lišta</string>
   </patch>
-  <patch id="layout.hide.suggestedvideoendscreen.disableSuggestedVideoEndScreenResourcePatch">
-  <string name="revanced_disable_suggested_video_end_screen_title">Zakázať záverečnú obrazovku navrhovaného videa</string>
-  <string name="revanced_disable_suggested_video_end_screen_summary_on">Navrhované videá budú zakázané</string>
-  <string name="revanced_disable_suggested_video_end_screen_summary_off">Zobrazia sa navrhované videá</string>
+  <patch id="layout.hide.endscreensuggestion.hideEndScreenSuggestedVideoPatch">
+  <string name="revanced_end_screen_suggested_video_title">Skryť navrhované video na konci obrazovky</string>
+  <string name="revanced_end_screen_suggested_video_summary_on">"Navrhované video na konci obrazovky je skryté, keď je automatické prehrávanie vypnuté.
+
+Automatické prehrávanie je možné zmeniť v nastaveniach YouTube:
+Nastavenia → Prehrávanie → Automatické prehrávanie ďalšieho videa"</string>
+  <string name="revanced_end_screen_suggested_video_summary_off">Navrhované video na konci obrazovky sa zobrazuje</string>
   </patch>
   <patch id="layout.hide.time.hideTimestampPatch">
   <string name="revanced_hide_timestamp_title">Skryť časovú pečiatku videa</string>
@@ -1340,10 +1343,11 @@ Povolením tejto možnosti môžete odomknúť vyššie kvality videa"</string>
   <string name="revanced_disable_zoom_haptics_summary_off">Haptika je povolená</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
-  <string name="revanced_force_original_audio_title">Vynútiť pôvodný zvuk</string>
-  <string name="revanced_force_original_audio_summary_on">Používanie pôvodného zvuku</string>
+  <string name="revanced_force_original_audio_title">Vynútiť pôvodný jazyk zvuku</string>
+  <string name="revanced_force_original_audio_summary_on">Používa sa pôvodný jazyk zvuku</string>
   <string name="revanced_force_original_audio_summary_off">Používanie predvoleného zvuku</string>
-  <string name="revanced_force_original_audio_not_available">Ak chcete použiť túto funkciu, zmeňte stream spoofing na typ klienta iOS</string>
+  <!-- 'Spoof video streams' should be the same translation used for revanced_spoof_video_streams_screen_title -->
+  <string name="revanced_force_original_audio_not_available">Ak chcete používať túto funkciu, zmeňte možnosť „Zosmiešniť streamy videa“ na iOS TV</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->

@@ -443,10 +443,10 @@ Ta funkcija je na voljo samo za starejše naprave"</string>
   <string name="revanced_share_copy_url_success">URL je kopiran v odložišče</string>
   <string name="revanced_share_copy_url_timestamp_success">URL s časovnim žigom je kopiran</string>
   <string name="revanced_copy_video_url_title">Pokaži gumb za kopiranje URL-ja videoposnetka</string>
-  <string name="revanced_copy_video_url_summary_on">Gumb je prikazan. Tapnite za kopiranje URL-ja videoposnetka. Pritisnite in držite za kopiranje URL-ja videoposnetka s časovnim žigom</string>
+  <string name="revanced_copy_video_url_summary_on">Gumb je prikazan. Dotaknite se, da kopirate URL videoposnetka. Dotaknite se in pridržite, da kopirate s časovnim žigom</string>
   <string name="revanced_copy_video_url_summary_off">Gumb ni prikazan</string>
   <string name="revanced_copy_video_url_timestamp_title">Prikaži gumb za kopiranje URL-ja s časovnim žigom</string>
-  <string name="revanced_copy_video_url_timestamp_summary_on">Gumb je prikazan. Tapnite, da kopirate URL videoposnetka s časovnim žigom. Tapnite in pridržite, da kopirate videoposnetek brez časovnega žiga</string>
+  <string name="revanced_copy_video_url_timestamp_summary_on">Gumb je prikazan. Dotaknite se, da kopirate URL videoposnetka s časovnim žigom. Dotaknite se in pridržite, da kopirate brez časovnega žiga</string>
   <string name="revanced_copy_video_url_timestamp_summary_off">Gumb ni prikazan</string>
   </patch>
   <patch id="interaction.dialog.removeViewerDiscretionDialogPatch">
@@ -808,10 +808,13 @@ Opomba: Omogočanje tega tudi prisilno skrije video oglase"</string>
   <string name="revanced_hide_shorts_navigation_bar_summary_on">Navigacijska vrstica je skrita</string>
   <string name="revanced_hide_shorts_navigation_bar_summary_off">Navigacijska vrstica je prikazana</string>
   </patch>
-  <patch id="layout.hide.suggestedvideoendscreen.disableSuggestedVideoEndScreenResourcePatch">
-  <string name="revanced_disable_suggested_video_end_screen_title">Onemogoči končni zaslon s predlaganimi videoposnetki</string>
-  <string name="revanced_disable_suggested_video_end_screen_summary_on">Predlagani videoposnetki bodo onemogočeni</string>
-  <string name="revanced_disable_suggested_video_end_screen_summary_off">Predlagani videoposnetki bodo prikazani</string>
+  <patch id="layout.hide.endscreensuggestion.hideEndScreenSuggestedVideoPatch">
+  <string name="revanced_end_screen_suggested_video_title">Skrij predlagani videoposnetek na koncu zaslona</string>
+  <string name="revanced_end_screen_suggested_video_summary_on">"Predlagani videoposnetek na koncu zaslona je skrit, ko je samodejno predvajanje izklopljeno
+
+Samodejno predvajanje lahko spremenite v nastavitvah YouTube:
+Nastavitve → Predvajanje → Samodejno predvajanje naslednjega videoposnetka"</string>
+  <string name="revanced_end_screen_suggested_video_summary_off">Predlagani videoposnetek na koncu zaslona je prikazan</string>
   </patch>
   <patch id="layout.hide.time.hideTimestampPatch">
   <string name="revanced_hide_timestamp_title">Skrij časovni žig videoposnetka</string>
@@ -1351,10 +1354,11 @@ Omogočanje tega lahko odklene višje kakovosti videa"</string>
   <string name="revanced_disable_zoom_haptics_summary_off">Haptika je omogočena</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
-  <string name="revanced_force_original_audio_title">Izsili izvirni zvok</string>
-  <string name="revanced_force_original_audio_summary_on">Uporaba izvirnega zvoka</string>
+  <string name="revanced_force_original_audio_title">Izsili izvirni jezik zvoka</string>
+  <string name="revanced_force_original_audio_summary_on">Uporabi izvirni jezik zvoka</string>
   <string name="revanced_force_original_audio_summary_off">Uporaba privzetega zvoka</string>
-  <string name="revanced_force_original_audio_not_available">Za uporabo te funkcije spremenite odjemalce pretakanja na vrsto odjemalca iOS</string>
+  <!-- 'Spoof video streams' should be the same translation used for revanced_spoof_video_streams_screen_title -->
+  <string name="revanced_force_original_audio_not_available">Če želite uporabiti to funkcijo, spremenite »Spoof video streams« v iOS TV</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->

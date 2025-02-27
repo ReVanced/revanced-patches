@@ -443,10 +443,10 @@ Second \"item\" text"</string>
   <string name="revanced_share_copy_url_success">URL-адресу скопійовано до буфера</string>
   <string name="revanced_share_copy_url_timestamp_success">URL-адресу з міткою часу скопійовано до буфера</string>
   <string name="revanced_copy_video_url_title">Кнопка копіювання URL відео</string>
-  <string name="revanced_copy_video_url_summary_on">Кнопка показується. Натисніть, щоб скопіювати URL-адресу відео. Натисніть і утримуйте, щоб скопіювати URL-адресу відео з міткою часу</string>
+  <string name="revanced_copy_video_url_summary_on">Кнопка показується. Натисніть, щоб скопіювати URL-адресу відео. Натисніть і утримуйте, щоб скопіювати з міткою часу</string>
   <string name="revanced_copy_video_url_summary_off">Кнопка копіювання URL-адреси відео не показується</string>
   <string name="revanced_copy_video_url_timestamp_title">Кнопка копіювання URL із міткою часу</string>
-  <string name="revanced_copy_video_url_timestamp_summary_on">Кнопка показується. Натисніть, щоб скопіювати URL-адресу відео з міткою часу. Натисніть і утримуйте, щоб скопіювати URL-адресу без мітки часу відео</string>
+  <string name="revanced_copy_video_url_timestamp_summary_on">Кнопка показується. Натисніть, щоб скопіювати URL-адресу відео з міткою часу. Натисніть і утримуйте, щоб скопіювати без мітки часу</string>
   <string name="revanced_copy_video_url_timestamp_summary_off">Кнопка копіювання URL-адреси відео із міткою часу не показується</string>
   </patch>
   <patch id="interaction.dialog.removeViewerDiscretionDialogPatch">
@@ -808,10 +808,13 @@ Second \"item\" text"</string>
   <string name="revanced_hide_shorts_navigation_bar_summary_on">Панель навігації приховано</string>
   <string name="revanced_hide_shorts_navigation_bar_summary_off">Панель навігації показується</string>
   </patch>
-  <patch id="layout.hide.suggestedvideoendscreen.disableSuggestedVideoEndScreenResourcePatch">
-  <string name="revanced_disable_suggested_video_end_screen_title">Вимкнути пропоновані відео на кінцевому екрані</string>
-  <string name="revanced_disable_suggested_video_end_screen_summary_on">Пропоновані відео на кінцевому екрані буде вимкнено.\n\nПримітка: автовідтворення наступного відео не працює</string>
-  <string name="revanced_disable_suggested_video_end_screen_summary_off">Пропоновані відео на кінцевому екрані показуватимуться</string>
+  <patch id="layout.hide.endscreensuggestion.hideEndScreenSuggestedVideoPatch">
+  <string name="revanced_end_screen_suggested_video_title">Приховати пропоноване відео на кінцевому екрані</string>
+  <string name="revanced_end_screen_suggested_video_summary_on">"Пропоноване відео на кінцевому екрані приховано, коли автоматичне відтворення вимкнено.
+
+Автоматичне відтворення можна змінити в налаштуваннях YouTube:
+Налаштування → Відтворення → Автовідтворення наступного відео"</string>
+  <string name="revanced_end_screen_suggested_video_summary_off">Пропоноване відео на кінцевому екрані показується</string>
   </patch>
   <patch id="layout.hide.time.hideTimestampPatch">
   <string name="revanced_hide_timestamp_title">Приховати мітку часу відео</string>
@@ -1351,10 +1354,11 @@ Second \"item\" text"</string>
   <string name="revanced_disable_zoom_haptics_summary_off">Вібрації при масштабуванні ввімкнуто</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
-  <string name="revanced_force_original_audio_title">Примусово оригінальна звукова доріжка</string>
-  <string name="revanced_force_original_audio_summary_on">Використовується оригінальна звукова доріжка відео</string>
-  <string name="revanced_force_original_audio_summary_off">Використовується стандартна (регіональна) звукова доріжка відео</string>
-  <string name="revanced_force_original_audio_not_available">Щоб скористатися цією функцією, змініть тип клієнта підробки відеопотоку на iOS</string>
+  <string name="revanced_force_original_audio_title">Примусово оригінальна мова звукової доріжки</string>
+  <string name="revanced_force_original_audio_summary_on">Використовується оригінальна мова звукової доріжки</string>
+  <string name="revanced_force_original_audio_summary_off">Використовується стандартна (регіональна) мова звукової доріжки</string>
+  <!-- 'Spoof video streams' should be the same translation used for revanced_spoof_video_streams_screen_title -->
+  <string name="revanced_force_original_audio_not_available">Щоб використовувати цю функцію, змініть клієнт \"Підробки відеопотоків\" на iOS TV</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->

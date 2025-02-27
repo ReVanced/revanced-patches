@@ -438,10 +438,10 @@ Second \"item\" text"</string>
   <string name="revanced_share_copy_url_success">已將網址複製到剪貼簿</string>
   <string name="revanced_share_copy_url_timestamp_success">已複製時間戳記網址</string>
   <string name="revanced_copy_video_url_title">顯示複製影片網址按鈕</string>
-  <string name="revanced_copy_video_url_summary_on">已顯示按鈕。輕觸以複製影片網址。按住以複製包含時間戳記的影片網址。</string>
+  <string name="revanced_copy_video_url_summary_on">已顯示按鈕。輕觸以複製影片網址。按住以複製包含時間戳記的影片網址</string>
   <string name="revanced_copy_video_url_summary_off">不顯示按鈕</string>
   <string name="revanced_copy_video_url_timestamp_title">顯示複製時間戳記網址按鈕</string>
-  <string name="revanced_copy_video_url_timestamp_summary_on">已顯示按鈕。輕觸以複製包含時間戳記的影片網址。按住以複製不包含時間戳記的影片網址。</string>
+  <string name="revanced_copy_video_url_timestamp_summary_on">已顯示按鈕。輕觸以複製包含時間戳記影片網址。按住以複製不包含時間戳記的影片網址</string>
   <string name="revanced_copy_video_url_timestamp_summary_off">不顯示按鈕</string>
   </patch>
   <patch id="interaction.dialog.removeViewerDiscretionDialogPatch">
@@ -799,10 +799,7 @@ Second \"item\" text"</string>
   <string name="revanced_hide_shorts_navigation_bar_summary_on">已隱藏導覽列</string>
   <string name="revanced_hide_shorts_navigation_bar_summary_off">已顯示導覽列</string>
   </patch>
-  <patch id="layout.hide.suggestedvideoendscreen.disableSuggestedVideoEndScreenResourcePatch">
-  <string name="revanced_disable_suggested_video_end_screen_title">停用片尾建議影片</string>
-  <string name="revanced_disable_suggested_video_end_screen_summary_on">將停用建議影片</string>
-  <string name="revanced_disable_suggested_video_end_screen_summary_off">將顯示建議影片</string>
+  <patch id="layout.hide.endscreensuggestion.hideEndScreenSuggestedVideoPatch">
   </patch>
   <patch id="layout.hide.time.hideTimestampPatch">
   <string name="revanced_hide_timestamp_title">隱藏影片時間戳記</string>
@@ -1347,10 +1344,11 @@ Second \"item\" text"</string>
   <string name="revanced_disable_zoom_haptics_summary_off">已啟用震動</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
-  <string name="revanced_force_original_audio_title">強制使用原始音訊</string>
-  <string name="revanced_force_original_audio_summary_on">使用原始音訊</string>
+  <string name="revanced_force_original_audio_title">強制使用原始音訊語言</string>
+  <string name="revanced_force_original_audio_summary_on">正在使用原始音訊語言</string>
   <string name="revanced_force_original_audio_summary_off">使用預設音訊</string>
-  <string name="revanced_force_original_audio_not_available">如要使用此功能，請將串流偽裝變更為 iOS 用戶端類型</string>
+  <!-- 'Spoof video streams' should be the same translation used for revanced_spoof_video_streams_screen_title -->
+  <string name="revanced_force_original_audio_not_available">如要使用這項功能，請將「偽裝視訊串流」變更為 iOS TV</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->

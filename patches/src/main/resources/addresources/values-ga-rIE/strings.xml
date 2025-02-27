@@ -141,7 +141,7 @@ Brúigh an cnaipe leanúnaí agus ligean athruithe optúimíochta."</string>
   <string name="revanced_settings_screen_12_video_title">Físeán</string>
   <string name="revanced_restore_old_settings_menus_title">Athshocraigh roghanna seanghléasanna</string>
   <string name="revanced_restore_old_settings_menus_summary_on">Taispeántar sean-roghchláir socruithe</string>
-  <string name="revanced_restore_old_settings_menus_summary_off">Ní féachann roghanna seanmhéid</string>
+  <string name="revanced_restore_old_settings_menus_summary_off">Ní thaispeántar sean-roghchláir socruithe</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
   <string name="revanced_shorts_disable_background_playback_title">Díchumasaigh seinnte Cúlra Shorts</string>
@@ -149,7 +149,7 @@ Brúigh an cnaipe leanúnaí agus ligean athruithe optúimíochta."</string>
   <string name="revanced_shorts_disable_background_playback_summary_off">Tá súgradh cúlra Shorts cumasaithe</string>
   </patch>
   <patch id="misc.debugging.enableDebuggingPatch">
-  <string name="revanced_debug_screen_title">Dífhabhtú</string>
+  <string name="revanced_debug_screen_title">Dífhabhtaithe</string>
   <string name="revanced_debug_screen_summary">Cumasaigh nó díchumasaigh roghanna dífhabhtaithe</string>
   <string name="revanced_debug_title">Logáil dífhabhtaithe</string>
   <string name="revanced_debug_summary_on">Tá logaí dífhabhtaithe cumasaithe</string>
@@ -443,10 +443,8 @@ Níl an ghné seo ar fáil ach do ghléasanna níos sine"</string>
   <string name="revanced_share_copy_url_success">URL cóipeáilte chuig gearr</string>
   <string name="revanced_share_copy_url_timestamp_success">URL le stampa ama cóipeáilte</string>
   <string name="revanced_copy_video_url_title">Taispeáin cnaipe URL físe cóipeáil</string>
-  <string name="revanced_copy_video_url_summary_on">Taispeántar an cnaipe. Tapáil chun URL físe a chóipeáil. Tapáil agus coinnigh chun URL físe a chóipeáil le stampa ama</string>
   <string name="revanced_copy_video_url_summary_off">Ní thaispeántar an cnaipe</string>
   <string name="revanced_copy_video_url_timestamp_title">Taispeáin cnaipe URL stampa ama cóipeáil</string>
-  <string name="revanced_copy_video_url_timestamp_summary_on">Taispeántar an cnaipe. Tapáil chun URL físe a chóipeáil le stampa ama. Tapáil agus coinnigh chun físeán a chóipeáil gan stampa ama</string>
   <string name="revanced_copy_video_url_timestamp_summary_off">Ní thaispeántar an cnaipe</string>
   </patch>
   <patch id="interaction.dialog.removeViewerDiscretionDialogPatch">
@@ -800,10 +798,13 @@ Mura dtagann aon athrú ar an socrú seo, bain triail as mód Incognito a chur a
   <string name="revanced_hide_shorts_navigation_bar_summary_on">Tá barra nascleanúna i bhfolach</string>
   <string name="revanced_hide_shorts_navigation_bar_summary_off">Taispeántar barra nascleanúna</string>
   </patch>
-  <patch id="layout.hide.suggestedvideoendscreen.disableSuggestedVideoEndScreenResourcePatch">
-  <string name="revanced_disable_suggested_video_end_screen_title">Díchumasaigh scáileán deireadh físe molta</string>
-  <string name="revanced_disable_suggested_video_end_screen_summary_on">Déanfar na físeáin mholta a dhíchumasú</string>
-  <string name="revanced_disable_suggested_video_end_screen_summary_off">Taispeánfar físeáin mholta</string>
+  <patch id="layout.hide.endscreensuggestion.hideEndScreenSuggestedVideoPatch">
+  <string name="revanced_end_screen_suggested_video_title">Folaigh físeán molta deireadh scáileáin</string>
+  <string name="revanced_end_screen_suggested_video_summary_on">"Folaítear físeán molta deireadh scáileáin nuair a bhíonn an uathshein múchta
+
+Is féidir an uathshein a athrú i socruithe YouTube:
+Socruithe → Athsheinm → Uathshein físeán eile"</string>
+  <string name="revanced_end_screen_suggested_video_summary_off">Taispeántar físeán molta deireadh scáileáin</string>
   </patch>
   <patch id="layout.hide.time.hideTimestampPatch">
   <string name="revanced_hide_timestamp_title">Folaigh stampa ama an fhíseáin</string>
@@ -1339,10 +1340,11 @@ Is féidir le seo caighdeáin físeáin níos airde a dhíghlasáil"</string>
   <string name="revanced_disable_zoom_haptics_summary_off">Tá Haptics cumasaithe</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
-  <string name="revanced_force_original_audio_title">Fórsaigh fuaim bunaidh</string>
-  <string name="revanced_force_original_audio_summary_on">Ag úsáid fuaim bunaidh</string>
+  <string name="revanced_force_original_audio_title">Fórsaigh teanga bhunaidh na fuaime</string>
+  <string name="revanced_force_original_audio_summary_on">Ag úsáid teanga bhunaidh na fuaime</string>
   <string name="revanced_force_original_audio_summary_off">Ag úsáid fuaim réamhshocraithe</string>
-  <string name="revanced_force_original_audio_not_available">Chun an ghné seo a úsáid, athraigh spoofing srutha chuig cineál cliant iOS</string>
+  <!-- 'Spoof video streams' should be the same translation used for revanced_spoof_video_streams_screen_title -->
+  <string name="revanced_force_original_audio_not_available">Chun an ghné seo a úsáid, athraigh \'Sruthanna físeáin bhréige\' go iOS TV</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->

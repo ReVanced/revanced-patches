@@ -356,7 +356,7 @@ public class Utils {
 
     public static Context getContext() {
         if (context == null) {
-            Logger.initializationException(Utils.class, "Context is null, returning null!",  null);
+            Logger.initializationException(Utils.class, "Context is not set by extension hook, returning null",  null);
         }
         return context;
     }

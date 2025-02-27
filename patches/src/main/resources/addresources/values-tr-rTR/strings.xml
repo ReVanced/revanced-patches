@@ -99,7 +99,7 @@ Yeni dilleri çevirmek için translate.revanced.app adresini ziyaret edin"</stri
   <string name="revanced_language_UR">Urduca</string>
   <string name="revanced_language_VI">Vietnamca</string>
   <string name="revanced_language_ZH">Çince</string>
-  <string name="revanced_pref_import_export_title">İçe / Dışa aktar</string>
+  <string name="revanced_pref_import_export_title">İçe / Dışa Aktar</string>
   <string name="revanced_pref_import_export_summary">ReVanced ayarlarını içe / dışa aktar</string>
   <!-- Settings about dialog. -->
   <string name="revanced_settings_about_links_body">ReVanced Patches &lt;i&gt;%s&lt;/i&gt; sürümünü kullanıyorsunuz</string>
@@ -443,10 +443,10 @@ Bu özellik yalnızca eski cihazlarda kullanılabilir"</string>
   <string name="revanced_share_copy_url_success">URL panoya kopyalandı</string>
   <string name="revanced_share_copy_url_timestamp_success">Zaman damgalı URL kopyalandı</string>
   <string name="revanced_copy_video_url_title">Video URL\'sini kopyalama düğmesini göster</string>
-  <string name="revanced_copy_video_url_summary_on">Düğme görünür. Video URL\'sini kopyalamak için dokunun. Zaman damgalı URL\'yi kopyalamak için basılı tutun</string>
+  <string name="revanced_copy_video_url_summary_on">Düğme gösteriliyor. Video URL\'sini kopyalamak için dokunun. Zaman damgasıyla kopyalamak için dokunup basılı tutun</string>
   <string name="revanced_copy_video_url_summary_off">Düğme gösterilmez</string>
   <string name="revanced_copy_video_url_timestamp_title">Zaman damgalı URL\'yi kopyalama düğmesini göster</string>
-  <string name="revanced_copy_video_url_timestamp_summary_on">Düğme görünür. Zaman damgalı video URLsini kopyalamak için dokunun. Zaman damgası olmadan kopyalamak için basılı tutun</string>
+  <string name="revanced_copy_video_url_timestamp_summary_on">Düğme gösteriliyor. Zaman damgalı video URL\'sini kopyalamak için dokunun. Zaman damgası olmadan kopyalamak için dokunup basılı tutun</string>
   <string name="revanced_copy_video_url_timestamp_summary_off">Düğme gösterilmez</string>
   </patch>
   <patch id="interaction.dialog.removeViewerDiscretionDialogPatch">
@@ -808,10 +808,13 @@ Bu ayarı değiştirmek etkili olmazsa, Gizli moda geçmeyi deneyin."</string>
   <string name="revanced_hide_shorts_navigation_bar_summary_on">Gezinme çubuğu gizli</string>
   <string name="revanced_hide_shorts_navigation_bar_summary_off">Gezinme çubuğu görünür</string>
   </patch>
-  <patch id="layout.hide.suggestedvideoendscreen.disableSuggestedVideoEndScreenResourcePatch">
-  <string name="revanced_disable_suggested_video_end_screen_title">Önerilen video bitiş ekranını devre dışı bırak</string>
-  <string name="revanced_disable_suggested_video_end_screen_summary_on">Önerilen videolar devre dışı bırakılacak</string>
-  <string name="revanced_disable_suggested_video_end_screen_summary_off">Önerilen videolar gösterilecek</string>
+  <patch id="layout.hide.endscreensuggestion.hideEndScreenSuggestedVideoPatch">
+  <string name="revanced_end_screen_suggested_video_title">Bitiş ekranı önerilen videosunu gizle</string>
+  <string name="revanced_end_screen_suggested_video_summary_on">"Otomatik oynatma kapatıldığında bitiş ekranı önerilen videosu gizlenir
+
+Otomatik oynatma YouTube ayarlarından değiştirilebilir:
+Ayarlar → Oynatma → Sonraki videoyu otomatik oynat"</string>
+  <string name="revanced_end_screen_suggested_video_summary_off">Bitiş ekranı önerilen videosu gösteriliyor</string>
   </patch>
   <patch id="layout.hide.time.hideTimestampPatch">
   <string name="revanced_hide_timestamp_title">Video zaman damgasını gizle</string>
@@ -1352,10 +1355,11 @@ Bunu etkinleştirmek daha yüksek video kalitelerini açabilir"</string>
   <string name="revanced_disable_zoom_haptics_summary_off">Titreşim etkin</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
-  <string name="revanced_force_original_audio_title">Orijinal sesi zorla</string>
-  <string name="revanced_force_original_audio_summary_on">Orijinal ses kullanılıyor</string>
+  <string name="revanced_force_original_audio_title">Orijinal ses dilini zorla</string>
+  <string name="revanced_force_original_audio_summary_on">Orijinal ses dili kullanılıyor</string>
   <string name="revanced_force_original_audio_summary_off">Varsayılan ses kullanılıyor</string>
-  <string name="revanced_force_original_audio_not_available">Bu özelliği kullanmak için, video akışı taklidi özelliğini iOS istemci türüne değiştirin</string>
+  <!-- 'Spoof video streams' should be the same translation used for revanced_spoof_video_streams_screen_title -->
+  <string name="revanced_force_original_audio_not_available">Bu özelliği kullanmak için \"Video akışlarını taklit et\" ayarını iOS TV olarak değiştirin</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->

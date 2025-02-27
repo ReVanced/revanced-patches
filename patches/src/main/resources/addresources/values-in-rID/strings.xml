@@ -283,9 +283,9 @@ Anda tidak akan diberi tahu tentang kejadian yang tidak terduga."</string>
   <string name="revanced_hide_chapters_section_title">Sembunyikan Bab</string>
   <string name="revanced_hide_chapters_section_summary_on">Bagian Bab disembunyikan</string>
   <string name="revanced_hide_chapters_section_summary_off">Bagian Bab ditampilkan</string>
-  <string name="revanced_hide_how_this_was_made_section_title">Sembunyikan \'Bagaimana konten ini dibuat\'</string>
-  <string name="revanced_hide_how_this_was_made_section_summary_on">Bagian Bagaimana konten ini dibuat disembunyikan</string>
-  <string name="revanced_hide_how_this_was_made_section_summary_off">Bagian Bagaimana konten ini dibuat ditampilkan</string>
+  <string name="revanced_hide_how_this_was_made_section_title">Sembunyikan \'Cara konten ini dibuat\'</string>
+  <string name="revanced_hide_how_this_was_made_section_summary_on">Bagian Cara konten ini dibuat disembunyikan</string>
+  <string name="revanced_hide_how_this_was_made_section_summary_off">Bagian Cara konten ini dibuat ditampilkan</string>
   <string name="revanced_hide_podcast_section_title">Sembunyikan \'Jelajahi podcast\'</string>
   <string name="revanced_hide_podcast_section_summary_on">Bagian Jelajahi podcast disembunyikan</string>
   <string name="revanced_hide_podcast_section_summary_off">Bagian Jelajahi podcast ditampilkan</string>
@@ -443,10 +443,10 @@ Fitur ini hanya tersedia untuk perangkat yang lebih lama"</string>
   <string name="revanced_share_copy_url_success">URL disalin ke papan klip</string>
   <string name="revanced_share_copy_url_timestamp_success">URL dengan timestamp telah disalin</string>
   <string name="revanced_copy_video_url_title">Tampilkan tombol salin URL video</string>
-  <string name="revanced_copy_video_url_summary_on">Tombol ditampilkan. Ketuk untuk menyalin URL video. Ketuk dan tahan untuk menyalin URL video dengan timestamp</string>
+  <string name="revanced_copy_video_url_summary_on">Tombol ditampilkan. Ketuk untuk menyalin URL video. Ketuk dan tahan untuk menyalin dengan stempel waktu</string>
   <string name="revanced_copy_video_url_summary_off">Tombol tidak ditampilkan</string>
   <string name="revanced_copy_video_url_timestamp_title">Tampilkan tombol salin timestamp URL</string>
-  <string name="revanced_copy_video_url_timestamp_summary_on">Tombol ditampilkan. Ketuk untuk menyalin URL video dengan timestamp. Ketuk dan tahan untuk menyalin video tanpa timestamp</string>
+  <string name="revanced_copy_video_url_timestamp_summary_on">Tombol ditampilkan. Ketuk untuk menyalin URL video dengan stempel waktu. Ketuk dan tahan untuk menyalin tanpa stempel waktu</string>
   <string name="revanced_copy_video_url_timestamp_summary_off">Tombol tidak ditampilkan</string>
   </patch>
   <patch id="interaction.dialog.removeViewerDiscretionDialogPatch">
@@ -808,10 +808,13 @@ Jika mengubah setelan ini tidak berpengaruh, coba beralih ke mode Penyamaran."</
   <string name="revanced_hide_shorts_navigation_bar_summary_on">Bilah navigasi disembunyikan</string>
   <string name="revanced_hide_shorts_navigation_bar_summary_off">Bilah navigasi ditampilkan</string>
   </patch>
-  <patch id="layout.hide.suggestedvideoendscreen.disableSuggestedVideoEndScreenResourcePatch">
-  <string name="revanced_disable_suggested_video_end_screen_title">Nonaktifkan layar akhir video yang disarankan</string>
-  <string name="revanced_disable_suggested_video_end_screen_summary_on">Video yang disarankan akan dinonaktifkan</string>
-  <string name="revanced_disable_suggested_video_end_screen_summary_off">Video yang disarankan akan ditampilkan</string>
+  <patch id="layout.hide.endscreensuggestion.hideEndScreenSuggestedVideoPatch">
+  <string name="revanced_end_screen_suggested_video_title">Sembunyikan video saran layar akhir</string>
+  <string name="revanced_end_screen_suggested_video_summary_on">"Video saran layar akhir disembunyikan ketika putar otomatis dimatikan
+
+Putar otomatis dapat diubah di setelan YouTube:
+Setelan → Pemutaran → Putar otomatis video berikutnya"</string>
+  <string name="revanced_end_screen_suggested_video_summary_off">Video saran layar akhir ditampilkan</string>
   </patch>
   <patch id="layout.hide.time.hideTimestampPatch">
   <string name="revanced_hide_timestamp_title">Sembunyikan timestamp video</string>
@@ -1351,10 +1354,11 @@ Mengaktifkan ini dapat membuka kualitas video yang lebih tinggi"</string>
   <string name="revanced_disable_zoom_haptics_summary_off">Sentuh getar diaktifkan</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
-  <string name="revanced_force_original_audio_title">Paksa audio asli</string>
-  <string name="revanced_force_original_audio_summary_on">Menggunakan audio asli</string>
+  <string name="revanced_force_original_audio_title">Paksa bahasa audio asli</string>
+  <string name="revanced_force_original_audio_summary_on">Menggunakan bahasa audio asli</string>
   <string name="revanced_force_original_audio_summary_off">Menggunakan audio bawaan</string>
-  <string name="revanced_force_original_audio_not_available">Untuk menggunakan fitur ini, ubah pemalsuan aliran ke jenis klien iOS</string>
+  <!-- 'Spoof video streams' should be the same translation used for revanced_spoof_video_streams_screen_title -->
+  <string name="revanced_force_original_audio_not_available">Untuk menggunakan fitur ini, ubah \'Palsukan aliran video\' ke iOS TV</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->

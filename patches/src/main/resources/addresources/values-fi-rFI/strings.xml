@@ -438,10 +438,8 @@ Tämä ominaisuus on käytettävissä vain vanhemmilla laitteilla"</string>
   <string name="revanced_share_copy_url_success">URL-osoite kopioitiin leikepöydälle</string>
   <string name="revanced_share_copy_url_timestamp_success">Aikaleimattu URL-osoite kopioitiin</string>
   <string name="revanced_copy_video_url_title">Näytä videon URL-osoitteen kopiointipainike</string>
-  <string name="revanced_copy_video_url_summary_on">Painike näytetään. Napauta kopioidaksesi videon URL-osoitteen. Napauta ja pidä pohjassa kopioidaksesi aikaleimatun URL-osoitteen</string>
   <string name="revanced_copy_video_url_summary_off">Painiketta ei näytetä</string>
   <string name="revanced_copy_video_url_timestamp_title">Näytä videon aikaleimatun URL-osoitteen kopiointipainike</string>
-  <string name="revanced_copy_video_url_timestamp_summary_on">Painike näytetään. Napauta kopioidaksesi videon aikaleimatun URL-osoitteen. Napauta ja pidä pohjassa kopioidaksesi URL-osoitteen ilman aikaleimaa</string>
   <string name="revanced_copy_video_url_timestamp_summary_off">Painiketta ei näytetä</string>
   </patch>
   <patch id="interaction.dialog.removeViewerDiscretionDialogPatch">
@@ -797,10 +795,7 @@ Huomaa: Tämä piilottaa väkisin myös videomainokset"</string>
   <string name="revanced_hide_shorts_navigation_bar_summary_on">Navigointipalkki on piilotettu</string>
   <string name="revanced_hide_shorts_navigation_bar_summary_off">Navigointipalkki näytetään</string>
   </patch>
-  <patch id="layout.hide.suggestedvideoendscreen.disableSuggestedVideoEndScreenResourcePatch">
-  <string name="revanced_disable_suggested_video_end_screen_title">Poista loppunäytön videoehdotukset käytöstä</string>
-  <string name="revanced_disable_suggested_video_end_screen_summary_on">Ehdotetut videot on piilotettu</string>
-  <string name="revanced_disable_suggested_video_end_screen_summary_off">Ehdotetut videot näytetään</string>
+  <patch id="layout.hide.endscreensuggestion.hideEndScreenSuggestedVideoPatch">
   </patch>
   <patch id="layout.hide.time.hideTimestampPatch">
   <string name="revanced_hide_timestamp_title">Piilota videon aikaleima</string>
@@ -1341,10 +1336,8 @@ Tämä voi avata korkealaatuisemmat videot"</string>
   <string name="revanced_disable_zoom_haptics_summary_off">Haptiikka on käytössä</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
-  <string name="revanced_force_original_audio_title">Pakota alkuperäinen ääni</string>
-  <string name="revanced_force_original_audio_summary_on">Käytetään alkuperäistä ääntä</string>
   <string name="revanced_force_original_audio_summary_off">Käytetään oletusääntä</string>
-  <string name="revanced_force_original_audio_not_available">Käytä tätä ominaisuutta vaihtamalla virran naamiointi iOS-asiakastyyppiiin</string>
+  <!-- 'Spoof video streams' should be the same translation used for revanced_spoof_video_streams_screen_title -->
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->

@@ -443,10 +443,10 @@ Second \"item\" text"</string>
   <string name="revanced_share_copy_url_success">URL 已复制到剪贴板</string>
   <string name="revanced_share_copy_url_timestamp_success">URL 已复制，包含时间戳</string>
   <string name="revanced_copy_video_url_title">显示复制视频 URL 按钮</string>
-  <string name="revanced_copy_video_url_summary_on">按钮已显示。点击复制视频 URL。点击并按住复制带时间戳的视频 URL</string>
+  <string name="revanced_copy_video_url_summary_on">按钮已显示。点击即可复制视频网址。点住可复制带时间戳的网址</string>
   <string name="revanced_copy_video_url_summary_off">按钮未显示</string>
   <string name="revanced_copy_video_url_timestamp_title">显示复制带有时间戳的 URL 按钮</string>
-  <string name="revanced_copy_video_url_timestamp_summary_on">按钮已显示。点击复制带有时间戳的视频网址。按住即可复制不带时间戳的视频网址</string>
+  <string name="revanced_copy_video_url_timestamp_summary_on">按钮已显示。点击即可复制带时间戳的视频网址。点住可复制不带时间戳的网址</string>
   <string name="revanced_copy_video_url_timestamp_summary_off">按钮未显示</string>
   </patch>
   <patch id="interaction.dialog.removeViewerDiscretionDialogPatch">
@@ -808,10 +808,13 @@ Second \"item\" text"</string>
   <string name="revanced_hide_shorts_navigation_bar_summary_on">导航栏已隐藏</string>
   <string name="revanced_hide_shorts_navigation_bar_summary_off">导航栏已显示</string>
   </patch>
-  <patch id="layout.hide.suggestedvideoendscreen.disableSuggestedVideoEndScreenResourcePatch">
-  <string name="revanced_disable_suggested_video_end_screen_title">禁用建议视频结束画面</string>
-  <string name="revanced_disable_suggested_video_end_screen_summary_on">建议视频将被禁用</string>
-  <string name="revanced_disable_suggested_video_end_screen_summary_off">建议视频将被显示</string>
+  <patch id="layout.hide.endscreensuggestion.hideEndScreenSuggestedVideoPatch">
+  <string name="revanced_end_screen_suggested_video_title">隐藏片尾画面推荐视频</string>
+  <string name="revanced_end_screen_suggested_video_summary_on">"自动播放关闭时隐藏片尾画面推荐视频
+
+可以在 YouTube 设置中更改自动播放设置：
+设置 → 播放 → 自动播放下一个视频"</string>
+  <string name="revanced_end_screen_suggested_video_summary_off">显示片尾画面推荐视频</string>
   </patch>
   <patch id="layout.hide.time.hideTimestampPatch">
   <string name="revanced_hide_timestamp_title">隐藏视频时间戳</string>
@@ -1351,10 +1354,11 @@ Second \"item\" text"</string>
   <string name="revanced_disable_zoom_haptics_summary_off">触觉反馈已启用</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
-  <string name="revanced_force_original_audio_title">强制使用原始音频</string>
-  <string name="revanced_force_original_audio_summary_on">正在使用原始音频</string>
+  <string name="revanced_force_original_audio_title">强制使用原始音频语言</string>
+  <string name="revanced_force_original_audio_summary_on">使用原始音频语言</string>
   <string name="revanced_force_original_audio_summary_off">正在使用默认音频</string>
-  <string name="revanced_force_original_audio_not_available">要使用此功能，请将流伪装更改为 iOS 客户端类型</string>
+  <!-- 'Spoof video streams' should be the same translation used for revanced_spoof_video_streams_screen_title -->
+  <string name="revanced_force_original_audio_not_available">要使用此功能，请将“欺骗视频流”更改为 iOS TV</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->

@@ -443,10 +443,10 @@ Second \"item\" text"</string>
   <string name="revanced_share_copy_url_success">คัดลอก URL ไปยังคลิปบอร์ด</string>
   <string name="revanced_share_copy_url_timestamp_success">คัดลอก URL พร้อมเวลาไปยังคลิปบอร์ด</string>
   <string name="revanced_copy_video_url_title">แสดงปุ่มคัดลอก URL วิดีโอ</string>
-  <string name="revanced_copy_video_url_summary_on">ปุ่มจะแสดง แตะเพื่อคัดลอก URL วิดีโอ แตะค้างไว้เพื่อคัดลอก URL วิดีโอพร้อมเวลา</string>
+  <string name="revanced_copy_video_url_summary_on">ปุ่มแสดงอยู่ แตะเพื่อคัดลอก URL วิดีโอ แตะค้างไว้เพื่อคัดลอกพร้อมการประทับเวลา</string>
   <string name="revanced_copy_video_url_summary_off">ปุ่มไม่แสดง</string>
   <string name="revanced_copy_video_url_timestamp_title">แสดงปุ่มคัดลอก URL เวลา</string>
-  <string name="revanced_copy_video_url_timestamp_summary_on">ปุ่มจะแสดง แตะเพื่อคัดลอก URL วิดีโอพร้อมเวลา แตะค้างไว้เพื่อคัดลอกวิดีโอโดยไม่ใช้เวลา</string>
+  <string name="revanced_copy_video_url_timestamp_summary_on">ปุ่มแสดงอยู่ แตะเพื่อคัดลอก URL วิดีโอพร้อมการประทับเวลา แตะค้างไว้เพื่อคัดลอกโดยไม่มีการประทับเวลา</string>
   <string name="revanced_copy_video_url_timestamp_summary_off">ปุ่มไม่แสดง</string>
   </patch>
   <patch id="interaction.dialog.removeViewerDiscretionDialogPatch">
@@ -806,10 +806,13 @@ Second \"item\" text"</string>
   <string name="revanced_hide_shorts_navigation_bar_summary_on">ซ่อนแถบนำทางแล้ว</string>
   <string name="revanced_hide_shorts_navigation_bar_summary_off">ไม่ซ่อนแถบนำทาง</string>
   </patch>
-  <patch id="layout.hide.suggestedvideoendscreen.disableSuggestedVideoEndScreenResourcePatch">
-  <string name="revanced_disable_suggested_video_end_screen_title">ปิดใช้งานหน้าจอแนะนำวิดีโอท้าย</string>
-  <string name="revanced_disable_suggested_video_end_screen_summary_on">ปิดใช้งานแนะนำวิดีโอท้ายแล้ว</string>
-  <string name="revanced_disable_suggested_video_end_screen_summary_off">เปิดใช้งานแนะนำวิดีโอท้ายแล้ว</string>
+  <patch id="layout.hide.endscreensuggestion.hideEndScreenSuggestedVideoPatch">
+  <string name="revanced_end_screen_suggested_video_title">ซ่อนวิดีโอแนะนำในหน้าจอสิ้นสุด</string>
+  <string name="revanced_end_screen_suggested_video_summary_on">"วิดีโอแนะนำในหน้าจอสิ้นสุดจะถูกซ่อนเมื่อปิดเล่นอัตโนมัติ
+
+สามารถเปลี่ยนการเล่นอัตโนมัติได้ในการตั้งค่า YouTube:
+การตั้งค่า → การเล่น → เล่นวิดีโอถัดไปอัตโนมัติ"</string>
+  <string name="revanced_end_screen_suggested_video_summary_off">วิดีโอแนะนำในหน้าจอสิ้นสุดจะปรากฏ</string>
   </patch>
   <patch id="layout.hide.time.hideTimestampPatch">
   <string name="revanced_hide_timestamp_title">ซ่อนเวลาของวิดีโอ</string>
@@ -1350,10 +1353,11 @@ User id ของคุณเหมือนกับรหัสผ่าน �
   <string name="revanced_disable_zoom_haptics_summary_off">แฮปติกเปิดใช้งาน</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
-  <string name="revanced_force_original_audio_title">บังคับเสียงต้นฉบับ</string>
-  <string name="revanced_force_original_audio_summary_on">กำลังใช้ออดิโอดั้งเดิม</string>
+  <string name="revanced_force_original_audio_title">บังคับใช้ภาษาเสียงต้นฉบับ</string>
+  <string name="revanced_force_original_audio_summary_on">กำลังใช้ภาษาเสียงต้นฉบับ</string>
   <string name="revanced_force_original_audio_summary_off">กำลังใช้ออดิโอเริ่มต้น</string>
-  <string name="revanced_force_original_audio_not_available">เลียที่ยงให้ฟังเพิ่มันที่ หมดการ์ที่สามาชียงานiOS กับ</string>
+  <!-- 'Spoof video streams' should be the same translation used for revanced_spoof_video_streams_screen_title -->
+  <string name="revanced_force_original_audio_not_available">หากต้องการใช้คุณสมบัตินี้ ให้เปลี่ยน \'ปลอมแปลงสตรีมวิดีโอ\' เป็น iOS TV</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->

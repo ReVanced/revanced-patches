@@ -443,10 +443,10 @@ See funktsioon on saadaval ainult vanemates seadmetes"</string>
   <string name="revanced_share_copy_url_success">URL kopeeritud clipboardi</string>
   <string name="revanced_share_copy_url_timestamp_success">Aadres URL ajaga kopeeritud</string>
   <string name="revanced_copy_video_url_title">Kuva video URL kopeerimise nupp</string>
-  <string name="revanced_copy_video_url_summary_on">Nupud on näha. Koputage video URL-i kopeerimiseks. Koputage ja hoidke video URL-i ajatempliga kopeerimiseks</string>
+  <string name="revanced_copy_video_url_summary_on">Nupp on nähtav. Video URL-i kopeerimiseks puuduta. Ajakoodiga kopeerimiseks puuduta pikalt</string>
   <string name="revanced_copy_video_url_summary_off">Nupud ei ole näha</string>
   <string name="revanced_copy_video_url_timestamp_title">Näita video URL-i ajatempliga kopeerimise nuppu</string>
-  <string name="revanced_copy_video_url_timestamp_summary_on">Nupud on näha. Koputage video URL-i ajatempliga kopeerimiseks. Koputage ja hoidke video kopeerimiseks ilma ajatempli</string>
+  <string name="revanced_copy_video_url_timestamp_summary_on">Nupp on nähtav. Ajakoodiga video URL-i kopeerimiseks puuduta. Ilma ajakoodita kopeerimiseks puuduta pikalt</string>
   <string name="revanced_copy_video_url_timestamp_summary_off">Nupud ei ole näha</string>
   </patch>
   <patch id="interaction.dialog.removeViewerDiscretionDialogPatch">
@@ -808,10 +808,13 @@ Kui selle sätte muutmine ei avalda mõju, proovige lülituda Inkognito režiimi
   <string name="revanced_hide_shorts_navigation_bar_summary_on">Navigeerimisriba on peidetud</string>
   <string name="revanced_hide_shorts_navigation_bar_summary_off">Navigeerimisriba on nähtav</string>
   </patch>
-  <patch id="layout.hide.suggestedvideoendscreen.disableSuggestedVideoEndScreenResourcePatch">
-  <string name="revanced_disable_suggested_video_end_screen_title">Keela soovitatud video lõpueri</string>
-  <string name="revanced_disable_suggested_video_end_screen_summary_on">Soovitatud videod keelatakse</string>
-  <string name="revanced_disable_suggested_video_end_screen_summary_off">Soovitatud videod on nähtavad</string>
+  <patch id="layout.hide.endscreensuggestion.hideEndScreenSuggestedVideoPatch">
+  <string name="revanced_end_screen_suggested_video_title">Peida lõpuekraani soovitatud video</string>
+  <string name="revanced_end_screen_suggested_video_summary_on">"Lõpuekraani soovitatud video on peidetud, kui automaatesitus on välja lülitatud.
+
+Automaatesitust saab muuta YouTube'i seadetes:
+Seaded → Taasesitus → Esita järgmine video automaatselt"</string>
+  <string name="revanced_end_screen_suggested_video_summary_off">Lõpuekraani soovitatud video on näidatud</string>
   </patch>
   <patch id="layout.hide.time.hideTimestampPatch">
   <string name="revanced_hide_timestamp_title">Peida video ajamärk</string>
@@ -1352,10 +1355,11 @@ Selle lubamine võib avada kõrgema video kvaliteedi"</string>
   <string name="revanced_disable_zoom_haptics_summary_off">Hääled on lubatud</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
-  <string name="revanced_force_original_audio_title">Sunni originaalheli</string>
-  <string name="revanced_force_original_audio_summary_on">Kasutatakse originaalheli</string>
+  <string name="revanced_force_original_audio_title">Sunni originaalheli keel</string>
+  <string name="revanced_force_original_audio_summary_on">Algse helikeele kasutamine</string>
   <string name="revanced_force_original_audio_summary_off">Kasutan vaikeheli</string>
-  <string name="revanced_force_original_audio_not_available">Selle funktsiooni kasutamiseks muutke voo esindamine iOS-i kliendi tüübiks</string>
+  <!-- 'Spoof video streams' should be the same translation used for revanced_spoof_video_streams_screen_title -->
+  <string name="revanced_force_original_audio_not_available">Selle funktsiooni kasutamiseks muuda valik „Pettemanööver videovoogudele” iOS TV peale</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->

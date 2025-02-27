@@ -443,10 +443,10 @@ Ta funkcja jest dostępna tylko dla starszych urządzeń"</string>
   <string name="revanced_share_copy_url_success">Adres URL skopiowany do schowka</string>
   <string name="revanced_share_copy_url_timestamp_success">URL ze znacznikiem czasu skopiowany</string>
   <string name="revanced_copy_video_url_title">Przycisk od kopiowania URL filmu</string>
-  <string name="revanced_copy_video_url_summary_on">Przycisk jest widoczny. Dotknij, aby skopiować adres URL wideo. Dotknij i przytrzymaj aby skopiować adres wideo ze znacznikiem czasu</string>
+  <string name="revanced_copy_video_url_summary_on">Przycisk jest wyświetlany. Dotknij, aby skopiować adres URL filmu. Dotknij i przytrzymaj, aby skopiować ze znacznikiem czasu</string>
   <string name="revanced_copy_video_url_summary_off">Przycisk nie jest widoczny</string>
   <string name="revanced_copy_video_url_timestamp_title">Przycisk od kopiowania URL filmu z czasem</string>
-  <string name="revanced_copy_video_url_timestamp_summary_on">Przycisk jest widoczny. Dotknij, aby skopiować URL filmu ze znacznikiem czasu. Dotknij i przytrzymaj, aby skopiować film bez znacznika czasu</string>
+  <string name="revanced_copy_video_url_timestamp_summary_on">Przycisk jest wyświetlany. Dotknij, aby skopiować adres URL filmu ze znacznikiem czasu. Dotknij i przytrzymaj, aby skopiować bez znacznika czasu</string>
   <string name="revanced_copy_video_url_timestamp_summary_off">Przycisk nie jest widoczny</string>
   </patch>
   <patch id="interaction.dialog.removeViewerDiscretionDialogPatch">
@@ -808,10 +808,13 @@ Jeśli zmiana tego ustawienia nie przyniesie efektu, spróbuj przełączyć się
   <string name="revanced_hide_shorts_navigation_bar_summary_on">Pasek nawigacji jest ukryty</string>
   <string name="revanced_hide_shorts_navigation_bar_summary_off">Pasek nawigacji jest widoczny</string>
   </patch>
-  <patch id="layout.hide.suggestedvideoendscreen.disableSuggestedVideoEndScreenResourcePatch">
-  <string name="revanced_disable_suggested_video_end_screen_title">Sugestie na ekranie końcowym</string>
-  <string name="revanced_disable_suggested_video_end_screen_summary_on">Sugerowane filmy będą ukryte</string>
-  <string name="revanced_disable_suggested_video_end_screen_summary_off">Sugerowane filmy będą widoczne</string>
+  <patch id="layout.hide.endscreensuggestion.hideEndScreenSuggestedVideoPatch">
+  <string name="revanced_end_screen_suggested_video_title">Ukryj sugerowane wideo na ekranie końcowym</string>
+  <string name="revanced_end_screen_suggested_video_summary_on">"Sugerowane wideo na ekranie końcowym jest ukryte, gdy automatyczne odtwarzanie jest wyłączone
+
+Automatyczne odtwarzanie można zmienić w ustawieniach YouTube:
+Ustawienia → Odtwarzanie → Autoodtwarzanie następnego filmu"</string>
+  <string name="revanced_end_screen_suggested_video_summary_off">Sugerowane wideo na ekranie końcowym jest wyświetlane</string>
   </patch>
   <patch id="layout.hide.time.hideTimestampPatch">
   <string name="revanced_hide_timestamp_title">Znacznik czasu filmu</string>
@@ -1352,10 +1355,11 @@ Włączenie tego może odblokować wyższe jakości wideo"</string>
   <string name="revanced_disable_zoom_haptics_summary_off">Haptyka jest włączona</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
-  <string name="revanced_force_original_audio_title">Wymuś oryginalny dźwięk</string>
-  <string name="revanced_force_original_audio_summary_on">Używanie oryginalnego dźwięku</string>
+  <string name="revanced_force_original_audio_title">Wymuś język oryginalnego dźwięku</string>
+  <string name="revanced_force_original_audio_summary_on">Używanie oryginalnego języka audio</string>
   <string name="revanced_force_original_audio_summary_off">Używanie domyślnego dźwięku</string>
-  <string name="revanced_force_original_audio_not_available">Aby użyć tej funkcji, zmień podszywanie strumienia na typ klienta iOS</string>
+  <!-- 'Spoof video streams' should be the same translation used for revanced_spoof_video_streams_screen_title -->
+  <string name="revanced_force_original_audio_not_available">Aby użyć tej funkcji, zmień opcję \"Fałszuj strumienie wideo\" na iOS TV</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->

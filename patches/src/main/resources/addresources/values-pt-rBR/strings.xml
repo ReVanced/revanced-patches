@@ -441,10 +441,10 @@ Este recurso está disponível apenas para dispositivos mais antigos"</string>
   <string name="revanced_share_copy_url_success">URL copiada para a área de transferência</string>
   <string name="revanced_share_copy_url_timestamp_success">URL com tempo copiado</string>
   <string name="revanced_copy_video_url_title">Mostrar botão copiar URL no vídeo</string>
-  <string name="revanced_copy_video_url_summary_on">O botão é mostrado. Toque para copiar a URL do vídeo. Toque e segure para copiar a URL do vídeo com tempo</string>
+  <string name="revanced_copy_video_url_summary_on">O botão é mostrado. Toque para copiar a URL do vídeo. Toque e segure para copiar com carimbo de data/hora</string>
   <string name="revanced_copy_video_url_summary_off">O botão não está visível</string>
   <string name="revanced_copy_video_url_timestamp_title">Mostrar botão copiar URL com tempo</string>
-  <string name="revanced_copy_video_url_timestamp_summary_on">O botão é mostrado. Toque para copiar a URL do vídeo com temo. Toque e segure para copiar vídeos sem tempo</string>
+  <string name="revanced_copy_video_url_timestamp_summary_on">O botão é mostrado. Toque para copiar a URL do vídeo com carimbo de data/hora. Toque e segure para copiar sem carimbo de data/hora</string>
   <string name="revanced_copy_video_url_timestamp_summary_off">O botão não está visível</string>
   </patch>
   <patch id="interaction.dialog.removeViewerDiscretionDialogPatch">
@@ -806,10 +806,13 @@ Se alterar esta configuração não fizer efeito, tente mudar para o modo anôni
   <string name="revanced_hide_shorts_navigation_bar_summary_on">Barra de navegação está oculta</string>
   <string name="revanced_hide_shorts_navigation_bar_summary_off">Barra de navegação não está oculta</string>
   </patch>
-  <patch id="layout.hide.suggestedvideoendscreen.disableSuggestedVideoEndScreenResourcePatch">
-  <string name="revanced_disable_suggested_video_end_screen_title">Desativar tela finais com vídeo sugerido</string>
-  <string name="revanced_disable_suggested_video_end_screen_summary_on">Vídeo sugerido está desativado</string>
-  <string name="revanced_disable_suggested_video_end_screen_summary_off">Vídeo sugerido está ativado</string>
+  <patch id="layout.hide.endscreensuggestion.hideEndScreenSuggestedVideoPatch">
+  <string name="revanced_end_screen_suggested_video_title">Ocultar o vídeo sugerido na tela final</string>
+  <string name="revanced_end_screen_suggested_video_summary_on">"O vídeo sugerido na tela final fica oculto quando a reprodução automática está desativada
+
+A reprodução automática pode ser alterada nas configurações do YouTube:
+Configurações → Reprodução → Reproduzir próximo vídeo automaticamente"</string>
+  <string name="revanced_end_screen_suggested_video_summary_off">O vídeo sugerido na tela final é exibido</string>
   </patch>
   <patch id="layout.hide.time.hideTimestampPatch">
   <string name="revanced_hide_timestamp_title">Ocultar tempo do vídeo</string>
@@ -1349,10 +1352,11 @@ Habilitar isso pode desbloquear qualidades de vídeo mais altas"</string>
   <string name="revanced_disable_zoom_haptics_summary_off">Zoom tátil está desativado</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
-  <string name="revanced_force_original_audio_title">Forçar áudio original</string>
-  <string name="revanced_force_original_audio_summary_on">Usando áudio original</string>
+  <string name="revanced_force_original_audio_title">Forçar idioma do áudio original</string>
+  <string name="revanced_force_original_audio_summary_on">Usar o idioma original do áudio</string>
   <string name="revanced_force_original_audio_summary_off">Usando áudio padrão</string>
-  <string name="revanced_force_original_audio_not_available">Para usar este recurso, altere a falsificação de fluxo para o tipo de cliente iOS</string>
+  <!-- 'Spoof video streams' should be the same translation used for revanced_spoof_video_streams_screen_title -->
+  <string name="revanced_force_original_audio_not_available">Para usar este recurso, altere \"Spoof video streams\" para iOS TV</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->

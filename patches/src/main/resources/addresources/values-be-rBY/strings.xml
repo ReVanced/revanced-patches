@@ -443,10 +443,10 @@ Second \"item\" text"</string>
   <string name="revanced_share_copy_url_success">URL скапіраваны ў буфер абмену</string>
   <string name="revanced_share_copy_url_timestamp_success">URL-адрас з пазнакай часу скапіраваны</string>
   <string name="revanced_copy_video_url_title">Паказаць кнопку скапіравання URL відэа</string>
-  <string name="revanced_copy_video_url_summary_on">Паказана кнопка. Націсніце, каб скапіяваць URL відэа. Націсніце і ўтрымлівайце, каб скапіяваць URL відэа з пазнакай часу</string>
+  <string name="revanced_copy_video_url_summary_on">Кнопка паказана. Націсніце, каб скапіяваць URL відэа. Націсніце і ўтрымлівайце, каб скапіяваць з пазнакай часу</string>
   <string name="revanced_copy_video_url_summary_off">Кнопка не паказваецца</string>
   <string name="revanced_copy_video_url_timestamp_title">Паказаць кнопку URL-адрас з часовай пазнакай</string>
-  <string name="revanced_copy_video_url_timestamp_summary_on">Паказана кнопка. Націсніце, каб скапіяваць URL відэа з пазнакай часу. Націсніце і ўтрымлівайце, каб скапіяваць відэа без пазнакі часу</string>
+  <string name="revanced_copy_video_url_timestamp_summary_on">Кнопка паказана. Націсніце, каб скапіяваць URL відэа з пазнакай часу. Націсніце і ўтрымлівайце, каб скапіяваць без пазнакі часу</string>
   <string name="revanced_copy_video_url_timestamp_summary_off">Кнопка не паказваецца</string>
   </patch>
   <patch id="interaction.dialog.removeViewerDiscretionDialogPatch">
@@ -808,10 +808,13 @@ Second \"item\" text"</string>
   <string name="revanced_hide_shorts_navigation_bar_summary_on">Панэль навігацыі схавана</string>
   <string name="revanced_hide_shorts_navigation_bar_summary_off">Паказана панэль навігацыі</string>
   </patch>
-  <patch id="layout.hide.suggestedvideoendscreen.disableSuggestedVideoEndScreenResourcePatch">
-  <string name="revanced_disable_suggested_video_end_screen_title">Адключыць канчатковы экран прапанаванага відэа</string>
-  <string name="revanced_disable_suggested_video_end_screen_summary_on">Прапанаваныя відэа будуць адключаны</string>
-  <string name="revanced_disable_suggested_video_end_screen_summary_off">Будуць паказаны прапанаваныя відэа</string>
+  <patch id="layout.hide.endscreensuggestion.hideEndScreenSuggestedVideoPatch">
+  <string name="revanced_end_screen_suggested_video_title">Схаваць прапанаванае відэа на канчатковым экране</string>
+  <string name="revanced_end_screen_suggested_video_summary_on">"Прапанаванае відэа на канчатковым экране будзе схавана, калі аўтаматычнае прайграванне выключана.
+
+Аўтаматычнае прайграванне можна змяніць у наладах YouTube:
+Налады → Прайграванне → Аўтаматычнае прайграванне наступнага відэа"</string>
+  <string name="revanced_end_screen_suggested_video_summary_off">Паказваць прапанаванае відэа на канчатковым экране</string>
   </patch>
   <patch id="layout.hide.time.hideTimestampPatch">
   <string name="revanced_hide_timestamp_title">Схаваць метку часу відэа</string>
@@ -1353,10 +1356,11 @@ Second \"item\" text"</string>
   <string name="revanced_disable_zoom_haptics_summary_off">Тактыльныя сігналы ўключаны</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
-  <string name="revanced_force_original_audio_title">Вымушанае арыгінальнае аўдыё</string>
-  <string name="revanced_force_original_audio_summary_on">Выкарыстанне арыгінальнага аўдыё</string>
+  <string name="revanced_force_original_audio_title">Вымушаная арыгінальная мова аўдыё</string>
+  <string name="revanced_force_original_audio_summary_on">Выкарыстоўваць арыгінальную мову аўдыя</string>
   <string name="revanced_force_original_audio_summary_off">Выкарыстанне аўдыё па змаўчанні</string>
-  <string name="revanced_force_original_audio_not_available">Каб выкарыстоўваць гэтую функцыю, зменіце спафінг патоку на тып кліента iOS</string>
+  <!-- 'Spoof video streams' should be the same translation used for revanced_spoof_video_streams_screen_title -->
+  <string name="revanced_force_original_audio_not_available">Каб выкарыстоўваць гэту функцыю, змяніце параметр \"Падрабляць відэаструмені\" на iOS TV</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->

@@ -26,11 +26,11 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_dialog_open_official_source_button">Abrir site oficial</string>
   <string name="revanced_check_environment_dialog_ignore_button">Ignorar</string>
   <string name="revanced_check_environment_failed_message">&lt;h5&gt;Esta aplicação não parece ter sido modificada por ti.&lt;/h5&gt;&lt;br&gt;Esta aplicação pode não funcionar corretamente, &lt;b&gt;pode ser maliciosa ou até perigosa de usar&lt;/b&gt;.&lt;br&gt;&lt;br&gt;Estas verificações implicam que esta aplicação é pré-modificada ou obtida de outros:&lt;br&gt;&lt;br&gt;&lt;small&gt;%1$s&lt;/small&gt;&lt;br&gt;É extremamente recomendado &lt;b&gt;desinstalar esta aplicação e modificá-la tu mesmo&lt;/b&gt; para garantir que estás a usar uma aplicação segura e validada.&lt;p&gt;&lt;br&gt;Se ignorado, este aviso apenas será mostrado duas vezes.</string>
-  <string name="revanced_check_environment_not_same_patching_device">Corrigido num dispositivo diferente</string>
+  <string name="revanced_check_environment_not_same_patching_device">Modificado num dispositivo diferente</string>
   <string name="revanced_check_environment_manager_not_expected_installer">Não instalado pelo ReVanced Manager</string>
   <string name="revanced_check_environment_not_near_patch_time">Modificado há mais de 10 minutos atrás</string>
-  <string name="revanced_check_environment_not_near_patch_time_days">Corrigida há %s dias</string>
-  <string name="revanced_check_environment_not_near_patch_time_invalid">Data de compilação do APK está corrompida</string>
+  <string name="revanced_check_environment_not_near_patch_time_days">Modificada há %s dias atrás</string>
+  <string name="revanced_check_environment_not_near_patch_time_invalid">A data da compilação da APK está corrompida</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_submenu_title">Configurações</string>
@@ -443,10 +443,10 @@ Tính năng này chỉ khả dụng cho các thiết bị cũ"</string>
   <string name="revanced_share_copy_url_success">URL copiado</string>
   <string name="revanced_share_copy_url_timestamp_success">URL com timestamp copiado</string>
   <string name="revanced_copy_video_url_title">Mostrar botão de URL de vídeo copiado</string>
-  <string name="revanced_copy_video_url_summary_on">Botão é visível. Toque para copiar a URL do vídeo. Toque e segure para copiar a URL do vídeo com timestamp</string>
+  <string name="revanced_copy_video_url_summary_on">O botão é mostrado. Toque para copiar o URL do vídeo. Toque e segure para copiar com o carimbo de data/hora</string>
   <string name="revanced_copy_video_url_summary_off">O botão NÃO está visível</string>
   <string name="revanced_copy_video_url_timestamp_title">Mostrar botão de copiar timestamp URL</string>
-  <string name="revanced_copy_video_url_timestamp_summary_on">Botão é visível. Toque para copiar a URL do vídeo com timestamp. Toque e segure para copiar vídeos sem timestamp</string>
+  <string name="revanced_copy_video_url_timestamp_summary_on">O botão é mostrado. Toque para copiar o URL do vídeo com o carimbo de data/hora. Toque e segure para copiar sem o carimbo de data/hora</string>
   <string name="revanced_copy_video_url_timestamp_summary_off">O botão não está visível</string>
   </patch>
   <patch id="interaction.dialog.removeViewerDiscretionDialogPatch">
@@ -808,10 +808,13 @@ Se alterar esta configuração não fizer efeito, tente alternar para o modo an�
   <string name="revanced_hide_shorts_navigation_bar_summary_on">A barra de navegação está escondida</string>
   <string name="revanced_hide_shorts_navigation_bar_summary_off">Barra de navegação exibida</string>
   </patch>
-  <patch id="layout.hide.suggestedvideoendscreen.disableSuggestedVideoEndScreenResourcePatch">
-  <string name="revanced_disable_suggested_video_end_screen_title">Desativar ecrã de fim de vídeo sugerida</string>
-  <string name="revanced_disable_suggested_video_end_screen_summary_on">Vídeos sugeridos serão desativados</string>
-  <string name="revanced_disable_suggested_video_end_screen_summary_off">Vídeos sugeridos serão exibidos</string>
+  <patch id="layout.hide.endscreensuggestion.hideEndScreenSuggestedVideoPatch">
+  <string name="revanced_end_screen_suggested_video_title">Ocultar o vídeo sugerido na tela final</string>
+  <string name="revanced_end_screen_suggested_video_summary_on">"O vídeo sugerido na tela final fica oculto quando a reprodução automática está desativada
+
+A reprodução automática pode ser alterada nas configurações do YouTube:
+Configurações → Reprodução → Reproduzir o próximo vídeo automaticamente"</string>
+  <string name="revanced_end_screen_suggested_video_summary_off">O vídeo sugerido na tela final é exibido</string>
   </patch>
   <patch id="layout.hide.time.hideTimestampPatch">
   <string name="revanced_hide_timestamp_title">Esconder timestamp do vídeo</string>
@@ -1352,10 +1355,11 @@ Bật tính năng này có thể mở khóa chất lượng video cao hơn"</str
   <string name="revanced_disable_zoom_haptics_summary_off">Hábitos estão ativados</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
-  <string name="revanced_force_original_audio_title">Forçar áudio original</string>
-  <string name="revanced_force_original_audio_summary_on">Usando áudio original</string>
+  <string name="revanced_force_original_audio_title">Forçar idioma original do áudio</string>
+  <string name="revanced_force_original_audio_summary_on">Usando o idioma de áudio original</string>
   <string name="revanced_force_original_audio_summary_off">Usando áudio padrão</string>
-  <string name="revanced_force_original_audio_not_available">Para usar este recurso, altere a falsificação de fluxo para o tipo de cliente iOS</string>
+  <!-- 'Spoof video streams' should be the same translation used for revanced_spoof_video_streams_screen_title -->
+  <string name="revanced_force_original_audio_not_available">Para usar este recurso, altere \"Spoof video streams\" para iOS TV</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->

@@ -443,10 +443,10 @@ Second \"item\" text"</string>
   <string name="revanced_share_copy_url_success">تم نسخ URL إلى الحافظة</string>
   <string name="revanced_share_copy_url_timestamp_success">تم نسخ عنوان URL مع الطابع الزمني</string>
   <string name="revanced_copy_video_url_title">عرض زر نسخ عنوان URL للفيديو</string>
-  <string name="revanced_copy_video_url_summary_on">يتم عرض الزر. انقر لنسخ رابط الفيديو. انقر مع الاستمرار لنسخ URL الفيديو مع الطابع الزمني</string>
+  <string name="revanced_copy_video_url_summary_on">يتم عرض الزر. انقر لنسخ عنوان URL للفيديو. انقر مع الاستمرار للنسخ مع الطابع الزمني</string>
   <string name="revanced_copy_video_url_summary_off">لا يتم عرض الزر</string>
   <string name="revanced_copy_video_url_timestamp_title">عرض زر نسخ URL مع الطابع الزمني</string>
-  <string name="revanced_copy_video_url_timestamp_summary_on">يتم عرض الزر. انقر لنسخ عنوان URL للفيديو مع الطابع الزمني. انقر مع الاستمرار لنسخ الفيديو بدون الطابع الزمني</string>
+  <string name="revanced_copy_video_url_timestamp_summary_on">يتم عرض الزر. انقر لنسخ عنوان URL للفيديو مع الطابع الزمني. انقر مع الاستمرار للنسخ بدون الطابع الزمني</string>
   <string name="revanced_copy_video_url_timestamp_summary_off">لا يتم عرض الزر</string>
   </patch>
   <patch id="interaction.dialog.removeViewerDiscretionDialogPatch">
@@ -808,10 +808,13 @@ Second \"item\" text"</string>
   <string name="revanced_hide_shorts_navigation_bar_summary_on">تم إخفاء شريط التنقل</string>
   <string name="revanced_hide_shorts_navigation_bar_summary_off">يتم عرض شريط التنقل</string>
   </patch>
-  <patch id="layout.hide.suggestedvideoendscreen.disableSuggestedVideoEndScreenResourcePatch">
-  <string name="revanced_disable_suggested_video_end_screen_title">تعطيل شاشة نهاية الفيديو المقترح</string>
-  <string name="revanced_disable_suggested_video_end_screen_summary_on">الفيديوهات المقترحة سيتم تعطيلها</string>
-  <string name="revanced_disable_suggested_video_end_screen_summary_off">الفيديوهات المقترحة سيتم عرضها</string>
+  <patch id="layout.hide.endscreensuggestion.hideEndScreenSuggestedVideoPatch">
+  <string name="revanced_end_screen_suggested_video_title">إخفاء الفيديو المقترح في شاشة النهاية</string>
+  <string name="revanced_end_screen_suggested_video_summary_on">"يتم إخفاء الفيديو المقترح في شاشة النهاية عند إيقاف التشغيل التلقائي
+
+يمكن تغيير التشغيل التلقائي في إعدادات YouTube:
+الإعدادات ← التشغيل ← تشغيل الفيديو التالي تلقائيًا"</string>
+  <string name="revanced_end_screen_suggested_video_summary_off">يتم عرض الفيديو المقترح في شاشة النهاية</string>
   </patch>
   <patch id="layout.hide.time.hideTimestampPatch">
   <string name="revanced_hide_timestamp_title">إخفاء الطابع الزمني للفيديو</string>
@@ -1352,10 +1355,10 @@ Second \"item\" text"</string>
   <string name="revanced_disable_zoom_haptics_summary_off">تم تمكين الاهتزاز</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
-  <string name="revanced_force_original_audio_title">فرض الصوت الأصلي</string>
-  <string name="revanced_force_original_audio_summary_on">استخدام الصوت الأصلي</string>
+  <string name="revanced_force_original_audio_summary_on">استخدام لغة الصوت الأصلية</string>
   <string name="revanced_force_original_audio_summary_off">استخدام الصوت الافتراضي</string>
-  <string name="revanced_force_original_audio_not_available">لاستخدام هذه الميزة، قم بتغيير محاكاة بث المحتوى إلى نوع العميل iOS</string>
+  <!-- 'Spoof video streams' should be the same translation used for revanced_spoof_video_streams_screen_title -->
+  <string name="revanced_force_original_audio_not_available">لاستخدام هذه الميزة، غيّر \"انتحال دفقات الفيديو\" إلى iOS TV</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->

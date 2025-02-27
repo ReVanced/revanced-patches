@@ -443,10 +443,10 @@ Ez a funkció csak régebbi eszközökön érhető el"</string>
   <string name="revanced_share_copy_url_success">Az URL a vágólapra másolva</string>
   <string name="revanced_share_copy_url_timestamp_success">Az URL időbélyeggel a vágólapra másolva</string>
   <string name="revanced_copy_video_url_title">A videó URL másolása gomb megjelenítése</string>
-  <string name="revanced_copy_video_url_summary_on">A gomb megjelenik. Koppintson a video URL másolásához. Koppintson és tartsa lenyomva az időbélyeggel másoláshoz</string>
+  <string name="revanced_copy_video_url_summary_on">A gomb látható. Koppintson a videó URL-jének másolásához. Tartsa nyomva az időbélyeggel való másoláshoz</string>
   <string name="revanced_copy_video_url_summary_off">A gomb nem látható</string>
   <string name="revanced_copy_video_url_timestamp_title">A videó URL másolása időbélyeggel gomb megjelenítése</string>
-  <string name="revanced_copy_video_url_timestamp_summary_on">A gomb megjelenik. Koppintson a videó URL másolásához időbélyeggel. Koppintson és tartsa lenyomva az időbélyeg nélküli másoláshoz</string>
+  <string name="revanced_copy_video_url_timestamp_summary_on">A gomb látható. Koppintson a videó URL-jének másolásához időbélyeggel. Tartsa nyomva az időbélyeg nélküli másoláshoz</string>
   <string name="revanced_copy_video_url_timestamp_summary_off">A gomb nem látható</string>
   </patch>
   <patch id="interaction.dialog.removeViewerDiscretionDialogPatch">
@@ -808,10 +808,13 @@ Ha a beállítás módosítása nem lép életbe, próbáljon meg Inkognitó mó
   <string name="revanced_hide_shorts_navigation_bar_summary_on">A navigációs sáv el van rejtve</string>
   <string name="revanced_hide_shorts_navigation_bar_summary_off">A navigációs sáv megjelenik</string>
   </patch>
-  <patch id="layout.hide.suggestedvideoendscreen.disableSuggestedVideoEndScreenResourcePatch">
-  <string name="revanced_disable_suggested_video_end_screen_title">Videójavaslatok letiltása a záróképernyőn</string>
-  <string name="revanced_disable_suggested_video_end_screen_summary_on">A videójavaslatok le lesznek tiltva</string>
-  <string name="revanced_disable_suggested_video_end_screen_summary_off">A videójavaslatok megjelennek</string>
+  <patch id="layout.hide.endscreensuggestion.hideEndScreenSuggestedVideoPatch">
+  <string name="revanced_end_screen_suggested_video_title">Javasolt videó elrejtése a befejező képernyőn</string>
+  <string name="revanced_end_screen_suggested_video_summary_on">"A befejező képernyőn lévő javasolt videó el van rejtve, ha az automatikus lejátszás ki van kapcsolva.
+
+Az automatikus lejátszás a YouTube beállításaiban módosítható:
+Beállítások → Lejátszás → Következő videó automatikus lejátszása"</string>
+  <string name="revanced_end_screen_suggested_video_summary_off">A befejező képernyőn lévő javasolt videó látható</string>
   </patch>
   <patch id="layout.hide.time.hideTimestampPatch">
   <string name="revanced_hide_timestamp_title">Videó időbélyegzőjének elrejtése</string>
@@ -1352,9 +1355,10 @@ Ez a beállítás lehetővé teszi a magasabb videóminőségek feloldását"</s
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
   <string name="revanced_force_original_audio_title">Eredeti hang kikényszerítése</string>
-  <string name="revanced_force_original_audio_summary_on">Eredeti hang használata</string>
+  <string name="revanced_force_original_audio_summary_on">Eredeti hang használata a hang nyelvén</string>
   <string name="revanced_force_original_audio_summary_off">Alapértelmezett hang használata</string>
-  <string name="revanced_force_original_audio_not_available">Ezt a funkciót iOS klienstípusra állított adatfolyam-hamisítással használhatja</string>
+  <!-- 'Spoof video streams' should be the same translation used for revanced_spoof_video_streams_screen_title -->
+  <string name="revanced_force_original_audio_not_available">A funkció használatához módosítsa a „Videófolyamok hamisítása” beállítást iOS TV-re</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->

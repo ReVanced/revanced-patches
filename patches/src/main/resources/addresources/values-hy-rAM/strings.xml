@@ -443,10 +443,10 @@ MicroG-ի համար մարտկոցի օպտիմալացումը անջատել�
   <string name="revanced_share_copy_url_success">URL-ը կրկնօրինակվել է բացման տախտակին</string>
   <string name="revanced_share_copy_url_timestamp_success">URL-ը ժամանակի կնիքով կրկնօրինակվել է</string>
   <string name="revanced_copy_video_url_title">Ցույց տալ տեսանյութի URL-ի կրկնօրինակման կոճակը</string>
-  <string name="revanced_copy_video_url_summary_on">Կոճակը երևում է։ Սեղմել՝ տեսանյութի URL-ը կրկնօրինակելու համար։  Սեղմել և պահել՝ տեսանյութի URL-ը ժամանակի կնիքով կրկնօրինակելու համար</string>
+  <string name="revanced_copy_video_url_summary_on">Կոճակը ցուցադրվում է: Հպեք վիդեոյի URL-ը պատճենելու համար: Հպեք և պահեք ժամանակային նշումով պատճենելու համար</string>
   <string name="revanced_copy_video_url_summary_off">Կոճակը չի երևում</string>
   <string name="revanced_copy_video_url_timestamp_title">Ցույց տալ ժամանակի կնիքով URL-ի կրկնօրինակման կոճակը</string>
-  <string name="revanced_copy_video_url_timestamp_summary_on">Կոճակը երևում է։ Սեղմել՝ տեսանյութի URL-ը ժամանակի կնիքով կրկնօրինակելու համար։  Սեղմել և պահել՝ տեսանյութը ժամանակի կնիքի առանց կրկնօրինակելու համար</string>
+  <string name="revanced_copy_video_url_timestamp_summary_on">Կոճակը ցուցադրվում է: Հպեք ժամանակային նշումով վիդեոյի URL-ը պատճենելու համար: Հպեք և պահեք առանց ժամանակային նշման պատճենելու համար</string>
   <string name="revanced_copy_video_url_timestamp_summary_off">Կոճակը չի երևում</string>
   </patch>
   <patch id="interaction.dialog.removeViewerDiscretionDialogPatch">
@@ -808,10 +808,13 @@ MicroG-ի համար մարտկոցի օպտիմալացումը անջատել�
   <string name="revanced_hide_shorts_navigation_bar_summary_on">Նավիգացիայի ձողը թաքցված է</string>
   <string name="revanced_hide_shorts_navigation_bar_summary_off">Նավիգացիայի ձողը երևում է</string>
   </patch>
-  <patch id="layout.hide.suggestedvideoendscreen.disableSuggestedVideoEndScreenResourcePatch">
-  <string name="revanced_disable_suggested_video_end_screen_title">Անջատել առաջարկվող տեսանյութի վերջավորության էկրանը</string>
-  <string name="revanced_disable_suggested_video_end_screen_summary_on">Առաջարկվող տեսանյութերը անջատվելու են</string>
-  <string name="revanced_disable_suggested_video_end_screen_summary_off">Առաջարկվող տեսանյութերը երևանալու են</string>
+  <patch id="layout.hide.endscreensuggestion.hideEndScreenSuggestedVideoPatch">
+  <string name="revanced_end_screen_suggested_video_title">Թաքցնել վերջնական էկրանին առաջարկվող տեսանյութը</string>
+  <string name="revanced_end_screen_suggested_video_summary_on">"Վերջնական էկրանին առաջարկվող տեսանյութը թաքցված է, երբ ավտոմատ նվագարկումն անջատված է
+
+Ավտոմատ նվագարկումը կարելի է փոխել YouTube-ի կարգավորումներում.
+Կարգավորումներ → Վերարտադրում → Ավտոմատ նվագարկել հաջորդ տեսանյութը"</string>
+  <string name="revanced_end_screen_suggested_video_summary_off">Վերջնական էկրանին առաջարկվող տեսանյութը ցուցադրվում է</string>
   </patch>
   <patch id="layout.hide.time.hideTimestampPatch">
   <string name="revanced_hide_timestamp_title">Թաքցնել տեսանյութի ժամանակային կետը</string>
@@ -1352,10 +1355,11 @@ Mini-player-ը կարող է գրավվել էկրանից դուրս՝ դեպի
   <string name="revanced_disable_zoom_haptics_summary_off">Հպումները  ակտիվացված են</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
-  <string name="revanced_force_original_audio_title">Բնօրինակ ձայն օգտագործել</string>
-  <string name="revanced_force_original_audio_summary_on">Բնօրինակ ձայն օգտագործվում է</string>
+  <string name="revanced_force_original_audio_title">Բնօրինակ ձայն օգտագործել լեզուն</string>
+  <string name="revanced_force_original_audio_summary_on">Օգտագործելով ձայնային օրիգինալ լեզուն</string>
   <string name="revanced_force_original_audio_summary_off">Վերջնական ձայն օգտագործվում է</string>
-  <string name="revanced_force_original_audio_not_available">Անեի սյօւյր դա ժյրդեք ռասրունաքն ամ Java զեմե, սիուի կյադ եյ չոն մաiOS</string>
+  <!-- 'Spoof video streams' should be the same translation used for revanced_spoof_video_streams_screen_title -->
+  <string name="revanced_force_original_audio_not_available">Այս գործառույթն օգտագործելու համար փոխեք «Կեղծել տեսահոսքերը» iOS TV-ի</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->

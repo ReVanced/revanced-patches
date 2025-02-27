@@ -443,10 +443,10 @@ Second \"item\" text"</string>
   <string name="revanced_share_copy_url_success">Връзката е копирана в клипборда.</string>
   <string name="revanced_share_copy_url_timestamp_success">URL адрес с отметка за време, копиран в клипборда.</string>
   <string name="revanced_copy_video_url_title">Показване на бутона за копиране на URL адреса на видеоклипа</string>
-  <string name="revanced_copy_video_url_summary_on">Показан е бутон. Докоснете, за да копирате URL на видеото. Докоснете и задръжте, за да копирате URL адреса на видеоклипа с клеймо за време</string>
+  <string name="revanced_copy_video_url_summary_on">Бутонът е показан. Докоснете, за да копирате URL адреса на видеоклипа. Докоснете и задръжте, за да копирате с времеви печат</string>
   <string name="revanced_copy_video_url_summary_off">Бутонът не е показан</string>
   <string name="revanced_copy_video_url_timestamp_title">Показване на бутона за копиране на URL адреса на времевия отпечатък на видеоклипа</string>
-  <string name="revanced_copy_video_url_timestamp_summary_on">Показан е бутон. Докоснете, за да копирате URL адреса на видеоклипа с клеймо за време. Докоснете и задръжте, за да копирате видеоклип без клеймо за време</string>
+  <string name="revanced_copy_video_url_timestamp_summary_on">Бутонът е показан. Докоснете, за да копирате URL адреса на видеоклипа с времеви печат. Докоснете и задръжте, за да копирате без времеви печат</string>
   <string name="revanced_copy_video_url_timestamp_summary_off">Бутонът не е показан</string>
   </patch>
   <patch id="interaction.dialog.removeViewerDiscretionDialogPatch">
@@ -808,10 +808,13 @@ Second \"item\" text"</string>
   <string name="revanced_hide_shorts_navigation_bar_summary_on">Навигационната лента е скрита</string>
   <string name="revanced_hide_shorts_navigation_bar_summary_off">Навигационната лента се показва</string>
   </patch>
-  <patch id="layout.hide.suggestedvideoendscreen.disableSuggestedVideoEndScreenResourcePatch">
-  <string name="revanced_disable_suggested_video_end_screen_title">Препоръчани видеоклипове в края</string>
-  <string name="revanced_disable_suggested_video_end_screen_summary_on">Препоръчаните видеоклипове в края са скрити</string>
-  <string name="revanced_disable_suggested_video_end_screen_summary_off">Препоръчаните видеоклипове в края се показват</string>
+  <patch id="layout.hide.endscreensuggestion.hideEndScreenSuggestedVideoPatch">
+  <string name="revanced_end_screen_suggested_video_title">Скриване на предложеното видео в края на екрана</string>
+  <string name="revanced_end_screen_suggested_video_summary_on">"Предложеното видео в края на екрана е скрито, когато автоматичното пускане е изключено
+
+Автоматичното пускане може да бъде променено в настройките на YouTube:
+Настройки → Възпроизвеждане → Автоматично пускане на следващото видео"</string>
+  <string name="revanced_end_screen_suggested_video_summary_off">Предложеното видео в края на екрана е показано</string>
   </patch>
   <patch id="layout.hide.time.hideTimestampPatch">
   <string name="revanced_hide_timestamp_title">Скриване на клеймото за време на видеоклипа</string>
@@ -1352,10 +1355,11 @@ Second \"item\" text"</string>
   <string name="revanced_disable_zoom_haptics_summary_off">Вибрациите са активирани</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
-  <string name="revanced_force_original_audio_title">Принудително оригинално аудио</string>
-  <string name="revanced_force_original_audio_summary_on">Използване на оригинално аудио</string>
+  <string name="revanced_force_original_audio_title">Принудително оригинално аудио език</string>
+  <string name="revanced_force_original_audio_summary_on">Използване на оригиналния език на аудиото</string>
   <string name="revanced_force_original_audio_summary_off">Използване на аудио по подразбиране</string>
-  <string name="revanced_force_original_audio_not_available">За да използвате тази функция, променете имитацията на поточно предаване на тип клиент на iOS</string>
+  <!-- 'Spoof video streams' should be the same translation used for revanced_spoof_video_streams_screen_title -->
+  <string name="revanced_force_original_audio_not_available">За да използвате тази функция, сменете „Фалшифициране на видео потоци“ на iOS TV</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->

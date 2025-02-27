@@ -443,10 +443,10 @@ Aquesta funció només està disponible per a dispositius antics"</string>
   <string name="revanced_share_copy_url_success">S\'ha copiat l\'URL al porta-retalls</string>
   <string name="revanced_share_copy_url_timestamp_success">S\'ha copiat l\'URL amb data i hora</string>
   <string name="revanced_copy_video_url_title">Mostra el botó de l\'URL</string>
-  <string name="revanced_copy_video_url_summary_on">El botó es mostra. Toca per copiar l\'URL del vídeo. Mantén premut per copiar l\'URL del vídeo amb marca de temps</string>
+  <string name="revanced_copy_video_url_summary_on">Es mostra el botó. Toqueu per copiar l\'URL del vídeo. Toqueu i manteniu premut per copiar-lo amb la marca de temps</string>
   <string name="revanced_copy_video_url_summary_off">El botó no es mostra</string>
   <string name="revanced_copy_video_url_timestamp_title">Mostra el botó per copiar l\'URL amb marca de temps</string>
-  <string name="revanced_copy_video_url_timestamp_summary_on">Es mostra el botó. Toqueu per copiar l\'URL del vídeo amb segell de temps. Toqueu i manteniu premut per copiar el vídeo sense segell de temps</string>
+  <string name="revanced_copy_video_url_timestamp_summary_on">Es mostra el botó. Toqueu per copiar l\'URL del vídeo amb la marca de temps. Toqueu i manteniu premut per copiar-lo sense la marca de temps</string>
   <string name="revanced_copy_video_url_timestamp_summary_off">No es mostra el botó</string>
   </patch>
   <patch id="interaction.dialog.removeViewerDiscretionDialogPatch">
@@ -808,10 +808,13 @@ Si canviar aquesta opció no té cap efecte, prova a canviar al mode d'incògnit
   <string name="revanced_hide_shorts_navigation_bar_summary_on">La barra de navegació està oculta</string>
   <string name="revanced_hide_shorts_navigation_bar_summary_off">La barra de navegació està visible</string>
   </patch>
-  <patch id="layout.hide.suggestedvideoendscreen.disableSuggestedVideoEndScreenResourcePatch">
-  <string name="revanced_disable_suggested_video_end_screen_title">Deshabilitar pantalla final amb vídeos suggerits</string>
-  <string name="revanced_disable_suggested_video_end_screen_summary_on">Els vídeos suggerits estaran desactivats</string>
-  <string name="revanced_disable_suggested_video_end_screen_summary_off">Els vídeos suggerits estaran visibles</string>
+  <patch id="layout.hide.endscreensuggestion.hideEndScreenSuggestedVideoPatch">
+  <string name="revanced_end_screen_suggested_video_title">Amaga el vídeo suggerit de la pantalla final</string>
+  <string name="revanced_end_screen_suggested_video_summary_on">"El vídeo suggerit de la pantalla final s'amaga quan la reproducció automàtica està desactivada
+
+La reproducció automàtica es pot canviar a la configuració de YouTube:
+Configuració → Reproducció → Reprodueix el vídeo següent automàticament"</string>
+  <string name="revanced_end_screen_suggested_video_summary_off">Es mostra el vídeo suggerit de la pantalla final</string>
   </patch>
   <patch id="layout.hide.time.hideTimestampPatch">
   <string name="revanced_hide_timestamp_title">Amagar segell de temps del vídeo</string>
@@ -1351,10 +1354,11 @@ Si actives aquesta opció, es poden desbloquejar qualitats de vídeo més altes"
   <string name="revanced_disable_zoom_haptics_summary_off">Els hàptics estan habilitats</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
-  <string name="revanced_force_original_audio_title">Forçar àudio original</string>
-  <string name="revanced_force_original_audio_summary_on">Utilitzant àudio original</string>
+  <string name="revanced_force_original_audio_title">Forçar l\'idioma d\'àudio original</string>
+  <string name="revanced_force_original_audio_summary_on">S\'utilitza l\'idioma d\'àudio original</string>
   <string name="revanced_force_original_audio_summary_off">Utilitzant àudio predeterminat</string>
-  <string name="revanced_force_original_audio_not_available">Per utilitzar aquesta funció, canvia la suplantació de flux al tipus de client iOS</string>
+  <!-- 'Spoof video streams' should be the same translation used for revanced_spoof_video_streams_screen_title -->
+  <string name="revanced_force_original_audio_not_available">Per utilitzar aquesta funció, canvieu \"Suplantació de fluxos de vídeo\" a iOS TV</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->

@@ -407,10 +407,10 @@ Denne funktion er kun tilgængelig for ældre enheder"</string>
   <string name="revanced_share_copy_url_success">URL kopieret til udklipsholder</string>
   <string name="revanced_share_copy_url_timestamp_success">URL med tidsstempel kopieret</string>
   <string name="revanced_copy_video_url_title">Vis kopiér video URL knap</string>
-  <string name="revanced_copy_video_url_summary_on">Knap vises. Tryk for at kopiere video URL. Tryk og hold for at kopiere video URL med tidsstempel</string>
+  <string name="revanced_copy_video_url_summary_on">Knappen vises. Tryk for at kopiere videoens URL. Tryk og hold for at kopiere med tidsstempel</string>
   <string name="revanced_copy_video_url_summary_off">Knap vises ikke</string>
   <string name="revanced_copy_video_url_timestamp_title">Vis kopi tidsstempel URL knap</string>
-  <string name="revanced_copy_video_url_timestamp_summary_on">Knap vises. Tryk for at kopiere video URL med tidsstempel. Tryk og hold for at kopiere video uden tidsstempel</string>
+  <string name="revanced_copy_video_url_timestamp_summary_on">Knappen vises. Tryk for at kopiere videoens URL med tidsstempel. Tryk og hold for at kopiere uden tidsstempel</string>
   <string name="revanced_copy_video_url_timestamp_summary_off">Knap vises ikke</string>
   </patch>
   <patch id="interaction.dialog.removeViewerDiscretionDialogPatch">
@@ -769,10 +769,13 @@ Hvis ændring af denne indstilling ikke træder i kraft, kan du prøve at skifte
   <string name="revanced_hide_shorts_navigation_bar_summary_on">Navigationsbjælken er skjult</string>
   <string name="revanced_hide_shorts_navigation_bar_summary_off">Navigationsbjælken vises</string>
   </patch>
-  <patch id="layout.hide.suggestedvideoendscreen.disableSuggestedVideoEndScreenResourcePatch">
-  <string name="revanced_disable_suggested_video_end_screen_title">Deaktivér foreslået videoslutskærm</string>
-  <string name="revanced_disable_suggested_video_end_screen_summary_on">Foreslåede videoer vil blive deaktiveret</string>
-  <string name="revanced_disable_suggested_video_end_screen_summary_off">Foreslåede videoer vil blive vist</string>
+  <patch id="layout.hide.endscreensuggestion.hideEndScreenSuggestedVideoPatch">
+  <string name="revanced_end_screen_suggested_video_title">Skjul foreslået video på slutskærmen</string>
+  <string name="revanced_end_screen_suggested_video_summary_on">"Foreslået video på slutskærmen er skjult, når automatisk afspilning er slået fra
+
+Automatisk afspilning kan ændres i YouTube-indstillinger:
+Indstillinger → Afspilning → Afspil næste video automatisk"</string>
+  <string name="revanced_end_screen_suggested_video_summary_off">Foreslået video på slutskærmen vises</string>
   </patch>
   <patch id="layout.hide.time.hideTimestampPatch">
   <string name="revanced_hide_timestamp_title">Skjul tidsstempel på video</string>
@@ -1291,10 +1294,11 @@ Aktivering af dette kan låse op for højere videokvalitet"</string>
   <string name="revanced_disable_zoom_haptics_summary_off">Haptics er aktiveret</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
-  <string name="revanced_force_original_audio_title">Tving original lyd</string>
-  <string name="revanced_force_original_audio_summary_on">Brug original lyd</string>
+  <string name="revanced_force_original_audio_title">Tving originalt lydsprog</string>
+  <string name="revanced_force_original_audio_summary_on">Bruger originalt lydsprog</string>
   <string name="revanced_force_original_audio_summary_off">Brug standard lyd</string>
-  <string name="revanced_force_original_audio_not_available">Tilføj musik til denne historie</string>
+  <!-- 'Spoof video streams' should be the same translation used for revanced_spoof_video_streams_screen_title -->
+  <string name="revanced_force_original_audio_not_available">For at bruge denne funktion skal du ændre \"Spoof videostreams\" til iOS TV</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->

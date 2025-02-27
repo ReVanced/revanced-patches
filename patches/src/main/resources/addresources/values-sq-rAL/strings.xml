@@ -443,10 +443,10 @@ Kjo veçori është e disponueshme vetëm për pajisje më të vjetra"</string>
   <string name="revanced_share_copy_url_success">URL u kopjua në shkëmbim</string>
   <string name="revanced_share_copy_url_timestamp_success">URL me kohëzgjatje u kopjua</string>
   <string name="revanced_copy_video_url_title">Shfaq butonin e kopjimit të URL-së së videos</string>
-  <string name="revanced_copy_video_url_summary_on">Butoni është i dukshëm. Prekni për të kopjuar URL-në e videos. Prekni dhe mbani për të kopjuar URL-në e videos me kohëzgjatje</string>
+  <string name="revanced_copy_video_url_summary_on">Butoni shfaqet. Trokitni për të kopjuar URL-në e videos. Trokitni dhe mbani për të kopjuar me vulë kohore</string>
   <string name="revanced_copy_video_url_summary_off">Butoni nuk shfaqet</string>
   <string name="revanced_copy_video_url_timestamp_title">Shfaq butonin \"Kopjo URL-në me vulë kohe\"</string>
-  <string name="revanced_copy_video_url_timestamp_summary_on">Butoni shfaqet. Prekni për të kopjuar URL-në e videos me vulë kohe. Prekni dhe mbajeni për të kopjuar videon pa vulë kohe</string>
+  <string name="revanced_copy_video_url_timestamp_summary_on">Butoni shfaqet. Trokitni për të kopjuar URL-në e videos me vulë kohore. Trokitni dhe mbani për të kopjuar pa vulë kohore</string>
   <string name="revanced_copy_video_url_timestamp_summary_off">Butoni nuk shfaqet</string>
   </patch>
   <patch id="interaction.dialog.removeViewerDiscretionDialogPatch">
@@ -808,10 +808,13 @@ Nëse ndryshimi i këtij konfigurimi nuk ka efekt, provoni të kaloni në modali
   <string name="revanced_hide_shorts_navigation_bar_summary_on">Shiriti i navigimit është i fshehur</string>
   <string name="revanced_hide_shorts_navigation_bar_summary_off">Shiriti i navigimit është i dukshëm</string>
   </patch>
-  <patch id="layout.hide.suggestedvideoendscreen.disableSuggestedVideoEndScreenResourcePatch">
-  <string name="revanced_disable_suggested_video_end_screen_title">Çaktivizo ekranin e fundit me video të propozuara</string>
-  <string name="revanced_disable_suggested_video_end_screen_summary_on">Videot e propozuara do të çaktivizohen</string>
-  <string name="revanced_disable_suggested_video_end_screen_summary_off">Videot e propozuara do të shfaqen</string>
+  <patch id="layout.hide.endscreensuggestion.hideEndScreenSuggestedVideoPatch">
+  <string name="revanced_end_screen_suggested_video_title">Fshih videon e sugjeruar në ekranin fundor</string>
+  <string name="revanced_end_screen_suggested_video_summary_on">"Videoja e sugjeruar në ekranin fundor fshihet kur çaktivizohet luajtja automatike
+
+Luajtja automatike mund të ndryshohet në cilësimet e YouTube:
+Cilësimet → Luajtja → Luaj automatikisht videon tjetër"</string>
+  <string name="revanced_end_screen_suggested_video_summary_off">Videoja e sugjeruar në ekranin fundor shfaqet</string>
   </patch>
   <patch id="layout.hide.time.hideTimestampPatch">
   <string name="revanced_hide_timestamp_title">Fsheh vulën e kohës së videos</string>
@@ -1350,10 +1353,11 @@ Aktivizimi i kësaj mund të zhbllokojë cilësi më të larta video"</string>
   <string name="revanced_disable_zoom_haptics_summary_off">Haptikët janë të aktivizuar</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
-  <string name="revanced_force_original_audio_title">Forco Zërin Origjinal</string>
-  <string name="revanced_force_original_audio_summary_on">Përdorimi i Zërit Origjinal</string>
+  <string name="revanced_force_original_audio_title">Forco gjuhën origjinale të audios</string>
+  <string name="revanced_force_original_audio_summary_on">Duke përdorur gjuhën origjinale audio</string>
   <string name="revanced_force_original_audio_summary_off">Përdorimi i Zërit Parazgjedhur</string>
-  <string name="revanced_force_original_audio_not_available">Për të përdorur këtë funksion, ndrysho rrymën spoofing në llojin e klientit iOS</string>
+  <!-- 'Spoof video streams' should be the same translation used for revanced_spoof_video_streams_screen_title -->
+  <string name="revanced_force_original_audio_not_available">Për ta përdorur këtë veçori, ndryshoni \'Rrjedhat e videos tallëse\' në iOS TV</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
