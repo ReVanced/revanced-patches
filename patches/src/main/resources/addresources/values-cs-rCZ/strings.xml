@@ -808,10 +808,13 @@ Pokud změna tohoto nastavení nemá žádný účinek, zkuste přepnout do rež
   <string name="revanced_hide_shorts_navigation_bar_summary_on">Navigační panel je skrytý</string>
   <string name="revanced_hide_shorts_navigation_bar_summary_off">Navigační panel je zobrazen</string>
   </patch>
-  <patch id="layout.hide.suggestedvideoendscreen.disableSuggestedVideoEndScreenResourcePatch">
-  <string name="revanced_disable_suggested_video_end_screen_title">Zakázat koncovou obrazovku s doporučenými videi</string>
-  <string name="revanced_disable_suggested_video_end_screen_summary_on">Doporučená videa budou zakázána</string>
-  <string name="revanced_disable_suggested_video_end_screen_summary_off">Doporučená videa budou zobrazena</string>
+  <patch id="layout.hide.endscreensuggestion.hideEndScreenSuggestedVideoPatch">
+  <string name="revanced_end_screen_suggested_video_title">Skrýt navrhované video na konci obrazovky</string>
+  <string name="revanced_end_screen_suggested_video_summary_on">"Navrhované video na konci obrazovky je skryté, když je automatické přehrávání vypnuté.
+
+Automatické přehrávání lze změnit v nastavení YouTube:
+Nastavení → Přehrávání → Automatické přehrávání dalšího videa"</string>
+  <string name="revanced_end_screen_suggested_video_summary_off">Navrhované video na konci obrazovky se zobrazuje</string>
   </patch>
   <patch id="layout.hide.time.hideTimestampPatch">
   <string name="revanced_hide_timestamp_title">Skrýt čas videa</string>

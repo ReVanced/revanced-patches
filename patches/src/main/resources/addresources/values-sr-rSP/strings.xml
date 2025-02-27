@@ -808,10 +808,13 @@ Second \"item\" text"</string>
   <string name="revanced_hide_shorts_navigation_bar_summary_on">Трака за навигацију је скривена</string>
   <string name="revanced_hide_shorts_navigation_bar_summary_off">Трака за навигацију је приказана</string>
   </patch>
-  <patch id="layout.hide.suggestedvideoendscreen.disableSuggestedVideoEndScreenResourcePatch">
-  <string name="revanced_disable_suggested_video_end_screen_title">Онемогући предложени видео на завршном екрану</string>
-  <string name="revanced_disable_suggested_video_end_screen_summary_on">Предложени видеи на завршном екрану ће бити скривени</string>
-  <string name="revanced_disable_suggested_video_end_screen_summary_off">Предложени видеи на завршном екрану ће бити приказани</string>
+  <patch id="layout.hide.endscreensuggestion.hideEndScreenSuggestedVideoPatch">
+  <string name="revanced_end_screen_suggested_video_title">Сакриј предложени видео на завршном екрану</string>
+  <string name="revanced_end_screen_suggested_video_summary_on">"Предложени видео на завршном екрану је скривен, када је аутоплеј искључен
+
+Аутоплеј се може променити у подешавањима YouTube-а:
+Подешавања → Репродукција → Аутоматски пусти следећи видео"</string>
+  <string name="revanced_end_screen_suggested_video_summary_off">Предложени видео на завршном екрану је приказан</string>
   </patch>
   <patch id="layout.hide.time.hideTimestampPatch">
   <string name="revanced_hide_timestamp_title">Сакриј временску ознаку видеа</string>
@@ -1351,11 +1354,11 @@ Second \"item\" text"</string>
   <string name="revanced_disable_zoom_haptics_summary_off">Вибрација при увеличавању је омогућена</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
-  <string name="revanced_force_original_audio_title">Присили оригинални језик звука</string>
+  <string name="revanced_force_original_audio_title">Присили оригинални аудио језик</string>
   <string name="revanced_force_original_audio_summary_on">Коришћење оригиналног језика звука</string>
   <string name="revanced_force_original_audio_summary_off">Коришћење подразумеваног звука</string>
   <!-- 'Spoof video streams' should be the same translation used for revanced_spoof_video_streams_screen_title -->
-  <string name="revanced_force_original_audio_not_available">Да бисте користили ову функцију, промените „Лажирај видео стримове“ у iOS TV</string>
+  <string name="revanced_force_original_audio_not_available">Да бисте користили ову функцију, промените „Лажирани видео стримови” на iOS TV</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->

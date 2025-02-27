@@ -808,10 +808,13 @@ Si canviar aquesta opció no té cap efecte, prova a canviar al mode d'incògnit
   <string name="revanced_hide_shorts_navigation_bar_summary_on">La barra de navegació està oculta</string>
   <string name="revanced_hide_shorts_navigation_bar_summary_off">La barra de navegació està visible</string>
   </patch>
-  <patch id="layout.hide.suggestedvideoendscreen.disableSuggestedVideoEndScreenResourcePatch">
-  <string name="revanced_disable_suggested_video_end_screen_title">Deshabilitar pantalla final amb vídeos suggerits</string>
-  <string name="revanced_disable_suggested_video_end_screen_summary_on">Els vídeos suggerits estaran desactivats</string>
-  <string name="revanced_disable_suggested_video_end_screen_summary_off">Els vídeos suggerits estaran visibles</string>
+  <patch id="layout.hide.endscreensuggestion.hideEndScreenSuggestedVideoPatch">
+  <string name="revanced_end_screen_suggested_video_title">Amaga el vídeo suggerit de la pantalla final</string>
+  <string name="revanced_end_screen_suggested_video_summary_on">"El vídeo suggerit de la pantalla final s'amaga quan la reproducció automàtica està desactivada
+
+La reproducció automàtica es pot canviar a la configuració de YouTube:
+Configuració → Reproducció → Reprodueix el vídeo següent automàticament"</string>
+  <string name="revanced_end_screen_suggested_video_summary_off">Es mostra el vídeo suggerit de la pantalla final</string>
   </patch>
   <patch id="layout.hide.time.hideTimestampPatch">
   <string name="revanced_hide_timestamp_title">Amagar segell de temps del vídeo</string>

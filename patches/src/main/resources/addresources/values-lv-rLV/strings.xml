@@ -808,10 +808,13 @@ Ja šī iestatījuma maiņa nestājas spēkā, mēģiniet pārslēgties uz inkog
   <string name="revanced_hide_shorts_navigation_bar_summary_on">Navigācijas josla ir paslēpta</string>
   <string name="revanced_hide_shorts_navigation_bar_summary_off">Navigācijas josla ir redzama</string>
   </patch>
-  <patch id="layout.hide.suggestedvideoendscreen.disableSuggestedVideoEndScreenResourcePatch">
-  <string name="revanced_disable_suggested_video_end_screen_title">Atspējot ieteikto video noslēguma ekrānu</string>
-  <string name="revanced_disable_suggested_video_end_screen_summary_on">Ieteiktie video tiks atspējoti</string>
-  <string name="revanced_disable_suggested_video_end_screen_summary_off">Ieteiktie video tiks rādīti</string>
+  <patch id="layout.hide.endscreensuggestion.hideEndScreenSuggestedVideoPatch">
+  <string name="revanced_end_screen_suggested_video_title">Slēpt ieteikto video beigu ekrānā</string>
+  <string name="revanced_end_screen_suggested_video_summary_on">"Ieteiktais video beigu ekrānā ir paslēpts, kad automātiskā atskaņošana ir izslēgta
+
+Automātisko atskaņošanu var mainīt YouTube iestatījumos:
+Iestatījumi → Atskaņošana → Automātiski atskaņot nākamo video"</string>
+  <string name="revanced_end_screen_suggested_video_summary_off">Ieteiktais video beigu ekrānā ir redzams</string>
   </patch>
   <patch id="layout.hide.time.hideTimestampPatch">
   <string name="revanced_hide_timestamp_title">Paslēpt video laika zīmi</string>

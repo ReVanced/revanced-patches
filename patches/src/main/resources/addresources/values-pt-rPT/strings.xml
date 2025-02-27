@@ -808,10 +808,13 @@ Se alterar esta configuração não fizer efeito, tente alternar para o modo an�
   <string name="revanced_hide_shorts_navigation_bar_summary_on">A barra de navegação está escondida</string>
   <string name="revanced_hide_shorts_navigation_bar_summary_off">Barra de navegação exibida</string>
   </patch>
-  <patch id="layout.hide.suggestedvideoendscreen.disableSuggestedVideoEndScreenResourcePatch">
-  <string name="revanced_disable_suggested_video_end_screen_title">Desativar ecrã de fim de vídeo sugerida</string>
-  <string name="revanced_disable_suggested_video_end_screen_summary_on">Vídeos sugeridos serão desativados</string>
-  <string name="revanced_disable_suggested_video_end_screen_summary_off">Vídeos sugeridos serão exibidos</string>
+  <patch id="layout.hide.endscreensuggestion.hideEndScreenSuggestedVideoPatch">
+  <string name="revanced_end_screen_suggested_video_title">Ocultar o vídeo sugerido na tela final</string>
+  <string name="revanced_end_screen_suggested_video_summary_on">"O vídeo sugerido na tela final fica oculto quando a reprodução automática está desativada
+
+A reprodução automática pode ser alterada nas configurações do YouTube:
+Configurações → Reprodução → Reproduzir o próximo vídeo automaticamente"</string>
+  <string name="revanced_end_screen_suggested_video_summary_off">O vídeo sugerido na tela final é exibido</string>
   </patch>
   <patch id="layout.hide.time.hideTimestampPatch">
   <string name="revanced_hide_timestamp_title">Esconder timestamp do vídeo</string>

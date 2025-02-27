@@ -801,10 +801,13 @@ Ak zmena tohto nastavenia nemá žiadny účinok, skúste prepnúť do režimu i
   <string name="revanced_hide_shorts_navigation_bar_summary_on">Navigačný panel je skrytý</string>
   <string name="revanced_hide_shorts_navigation_bar_summary_off">Zobrazí sa navigačná lišta</string>
   </patch>
-  <patch id="layout.hide.suggestedvideoendscreen.disableSuggestedVideoEndScreenResourcePatch">
-  <string name="revanced_disable_suggested_video_end_screen_title">Zakázať záverečnú obrazovku navrhovaného videa</string>
-  <string name="revanced_disable_suggested_video_end_screen_summary_on">Navrhované videá budú zakázané</string>
-  <string name="revanced_disable_suggested_video_end_screen_summary_off">Zobrazia sa navrhované videá</string>
+  <patch id="layout.hide.endscreensuggestion.hideEndScreenSuggestedVideoPatch">
+  <string name="revanced_end_screen_suggested_video_title">Skryť navrhované video na konci obrazovky</string>
+  <string name="revanced_end_screen_suggested_video_summary_on">"Navrhované video na konci obrazovky je skryté, keď je automatické prehrávanie vypnuté.
+
+Automatické prehrávanie je možné zmeniť v nastaveniach YouTube:
+Nastavenia → Prehrávanie → Automatické prehrávanie ďalšieho videa"</string>
+  <string name="revanced_end_screen_suggested_video_summary_off">Navrhované video na konci obrazovky sa zobrazuje</string>
   </patch>
   <patch id="layout.hide.time.hideTimestampPatch">
   <string name="revanced_hide_timestamp_title">Skryť časovú pečiatku videa</string>

@@ -130,7 +130,7 @@ Second \"item\" text"</string>
   <!-- 'remix' should be translated using the same localized wording YouTube displays for the button. -->
   <!-- 'share' should be translated using the same localized wording YouTube displays for the button. -->
   </patch>
-  <patch id="layout.hide.suggestedvideoendscreen.disableSuggestedVideoEndScreenResourcePatch">
+  <patch id="layout.hide.endscreensuggestion.hideEndScreenSuggestedVideoPatch">
   </patch>
   <patch id="layout.hide.time.hideTimestampPatch">
   </patch>

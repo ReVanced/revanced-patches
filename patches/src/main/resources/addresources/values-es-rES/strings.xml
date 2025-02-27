@@ -798,10 +798,13 @@ Si cambiar este ajuste no tiene efecto, intenta cambiar al modo incógnito."</st
   <string name="revanced_hide_shorts_navigation_bar_summary_on">Barra de navegación oculta</string>
   <string name="revanced_hide_shorts_navigation_bar_summary_off">Se muestra la barra de navegación</string>
   </patch>
-  <patch id="layout.hide.suggestedvideoendscreen.disableSuggestedVideoEndScreenResourcePatch">
-  <string name="revanced_disable_suggested_video_end_screen_title">Desactivar pantalla de final de vídeo sugerida</string>
-  <string name="revanced_disable_suggested_video_end_screen_summary_on">Vídeos sugeridos serán desactivados</string>
-  <string name="revanced_disable_suggested_video_end_screen_summary_off">Se mostrarán vídeos sugeridos</string>
+  <patch id="layout.hide.endscreensuggestion.hideEndScreenSuggestedVideoPatch">
+  <string name="revanced_end_screen_suggested_video_title">Ocultar el vídeo sugerido de la pantalla final</string>
+  <string name="revanced_end_screen_suggested_video_summary_on">"El vídeo sugerido de la pantalla final se oculta cuando la reproducción automática está desactivada
+
+La reproducción automática se puede cambiar en la configuración de YouTube:
+Configuración → Reproducción → Reproducir el siguiente vídeo automáticamente"</string>
+  <string name="revanced_end_screen_suggested_video_summary_off">Se muestra el vídeo sugerido de la pantalla final</string>
   </patch>
   <patch id="layout.hide.time.hideTimestampPatch">
   <string name="revanced_hide_timestamp_title">Ocultar fecha y hora de vídeo</string>
