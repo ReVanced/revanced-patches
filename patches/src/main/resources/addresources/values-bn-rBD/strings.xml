@@ -805,10 +805,13 @@ MicroG-এর জন্য ব্যাটারি অপ্টিমাইজ�
   <string name="revanced_hide_shorts_navigation_bar_summary_on">নেভিগেশন বার লুকিয়ে রয়েছে</string>
   <string name="revanced_hide_shorts_navigation_bar_summary_off">পনেভিগেশন বার প্রদর্শিত হয়েছে</string>
   </patch>
-  <patch id="layout.hide.suggestedvideoendscreen.disableSuggestedVideoEndScreenResourcePatch">
-  <string name="revanced_disable_suggested_video_end_screen_title">ভিডিওর শেষ স্ক্রিণে সাজেস্ট করা ভিডিও নিষ্ক্রিয় করুন</string>
-  <string name="revanced_disable_suggested_video_end_screen_summary_on">সাজেস্ট করা ভিডিও নিস্ক্রিয় করা হবে</string>
-  <string name="revanced_disable_suggested_video_end_screen_summary_off">সাজেস্ট করা ভিডিও প্রদর্শিত হবে</string>
+  <patch id="layout.hide.endscreensuggestion.hideEndScreenSuggestedVideoPatch">
+  <string name="revanced_end_screen_suggested_video_title">শেষ স্ক্রীনে প্রস্তাবিত ভিডিও লুকানো হবে</string>
+  <string name="revanced_end_screen_suggested_video_summary_on">"অটো প্লে বন্ধ থাকলে শেষ স্ক্রীনে প্রস্তাবিত ভিডিও লুকানো থাকে
+
+YouTube সেটিংসে অটো প্লে পরিবর্তন করা যেতে পারে:
+সেটিংস → প্লেব্যাক → অটো প্লে পরবর্তী ভিডিও"</string>
+  <string name="revanced_end_screen_suggested_video_summary_off">শেষ স্ক্রীনে প্রস্তাবিত ভিডিও দেখানো হয়েছে</string>
   </patch>
   <patch id="layout.hide.time.hideTimestampPatch">
   <string name="revanced_hide_timestamp_title">ভিডিওর সময়স্ট্যাম্প লুকান</string>

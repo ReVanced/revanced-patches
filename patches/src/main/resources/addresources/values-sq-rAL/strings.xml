@@ -808,10 +808,13 @@ Nëse ndryshimi i këtij konfigurimi nuk ka efekt, provoni të kaloni në modali
   <string name="revanced_hide_shorts_navigation_bar_summary_on">Shiriti i navigimit është i fshehur</string>
   <string name="revanced_hide_shorts_navigation_bar_summary_off">Shiriti i navigimit është i dukshëm</string>
   </patch>
-  <patch id="layout.hide.suggestedvideoendscreen.disableSuggestedVideoEndScreenResourcePatch">
-  <string name="revanced_disable_suggested_video_end_screen_title">Çaktivizo ekranin e fundit me video të propozuara</string>
-  <string name="revanced_disable_suggested_video_end_screen_summary_on">Videot e propozuara do të çaktivizohen</string>
-  <string name="revanced_disable_suggested_video_end_screen_summary_off">Videot e propozuara do të shfaqen</string>
+  <patch id="layout.hide.endscreensuggestion.hideEndScreenSuggestedVideoPatch">
+  <string name="revanced_end_screen_suggested_video_title">Fshih videon e sugjeruar në ekranin fundor</string>
+  <string name="revanced_end_screen_suggested_video_summary_on">"Videoja e sugjeruar në ekranin fundor fshihet kur çaktivizohet luajtja automatike
+
+Luajtja automatike mund të ndryshohet në cilësimet e YouTube:
+Cilësimet → Luajtja → Luaj automatikisht videon tjetër"</string>
+  <string name="revanced_end_screen_suggested_video_summary_off">Videoja e sugjeruar në ekranin fundor shfaqet</string>
   </patch>
   <patch id="layout.hide.time.hideTimestampPatch">
   <string name="revanced_hide_timestamp_title">Fsheh vulën e kohës së videos</string>

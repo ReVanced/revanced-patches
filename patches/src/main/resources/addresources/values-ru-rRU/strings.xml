@@ -808,10 +808,13 @@ Second \"item\" text"</string>
   <string name="revanced_hide_shorts_navigation_bar_summary_on">Панель навигации в Shorts скрыта</string>
   <string name="revanced_hide_shorts_navigation_bar_summary_off">Панель навигации в Shorts показана</string>
   </patch>
-  <patch id="layout.hide.suggestedvideoendscreen.disableSuggestedVideoEndScreenResourcePatch">
-  <string name="revanced_disable_suggested_video_end_screen_title">Отключить предлагаемые видео</string>
-  <string name="revanced_disable_suggested_video_end_screen_summary_on">Предлагаемые видео в конце просмотра скрыты</string>
-  <string name="revanced_disable_suggested_video_end_screen_summary_off">Предлагаемые видео в конце просмотра показаны</string>
+  <patch id="layout.hide.endscreensuggestion.hideEndScreenSuggestedVideoPatch">
+  <string name="revanced_end_screen_suggested_video_title">Скрыть предложенное видео на экране завершения</string>
+  <string name="revanced_end_screen_suggested_video_summary_on">"Предложенное видео на экране завершения скрыто, когда автовоспроизведение выключено.
+
+Автовоспроизведение можно изменить в настройках YouTube:
+Настройки → Воспроизведение → Автовоспроизведение следующего видео"</string>
+  <string name="revanced_end_screen_suggested_video_summary_off">Предложенное видео на экране завершения отображается</string>
   </patch>
   <patch id="layout.hide.time.hideTimestampPatch">
   <string name="revanced_hide_timestamp_title">Скрыть метку времени видео</string>

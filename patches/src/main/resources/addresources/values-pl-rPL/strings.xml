@@ -808,10 +808,13 @@ Jeśli zmiana tego ustawienia nie przyniesie efektu, spróbuj przełączyć się
   <string name="revanced_hide_shorts_navigation_bar_summary_on">Pasek nawigacji jest ukryty</string>
   <string name="revanced_hide_shorts_navigation_bar_summary_off">Pasek nawigacji jest widoczny</string>
   </patch>
-  <patch id="layout.hide.suggestedvideoendscreen.disableSuggestedVideoEndScreenResourcePatch">
-  <string name="revanced_disable_suggested_video_end_screen_title">Sugestie na ekranie końcowym</string>
-  <string name="revanced_disable_suggested_video_end_screen_summary_on">Sugerowane filmy będą ukryte</string>
-  <string name="revanced_disable_suggested_video_end_screen_summary_off">Sugerowane filmy będą widoczne</string>
+  <patch id="layout.hide.endscreensuggestion.hideEndScreenSuggestedVideoPatch">
+  <string name="revanced_end_screen_suggested_video_title">Ukryj sugerowane wideo na ekranie końcowym</string>
+  <string name="revanced_end_screen_suggested_video_summary_on">"Sugerowane wideo na ekranie końcowym jest ukryte, gdy automatyczne odtwarzanie jest wyłączone
+
+Automatyczne odtwarzanie można zmienić w ustawieniach YouTube:
+Ustawienia → Odtwarzanie → Autoodtwarzanie następnego filmu"</string>
+  <string name="revanced_end_screen_suggested_video_summary_off">Sugerowane wideo na ekranie końcowym jest wyświetlane</string>
   </patch>
   <patch id="layout.hide.time.hideTimestampPatch">
   <string name="revanced_hide_timestamp_title">Znacznik czasu filmu</string>

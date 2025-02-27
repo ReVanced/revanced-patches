@@ -808,10 +808,13 @@ Se la modifica di questa impostazione non ha effetto, prova a passare alla modal
   <string name="revanced_hide_shorts_navigation_bar_summary_on">La barra di navigazione è nascosta</string>
   <string name="revanced_hide_shorts_navigation_bar_summary_off">La barra di navigazione è visibile</string>
   </patch>
-  <patch id="layout.hide.suggestedvideoendscreen.disableSuggestedVideoEndScreenResourcePatch">
-  <string name="revanced_disable_suggested_video_end_screen_title">Disabilita i video suggeriti alla fine del video</string>
-  <string name="revanced_disable_suggested_video_end_screen_summary_on">I video suggeriti saranno disabilitati</string>
-  <string name="revanced_disable_suggested_video_end_screen_summary_off">Verranno mostrati i video suggeriti</string>
+  <patch id="layout.hide.endscreensuggestion.hideEndScreenSuggestedVideoPatch">
+  <string name="revanced_end_screen_suggested_video_title">Nascondi video suggerito nella schermata finale</string>
+  <string name="revanced_end_screen_suggested_video_summary_on">"Il video suggerito nella schermata finale è nascosto quando l'autoplay è disattivato
+
+L'autoplay può essere modificato nelle impostazioni di YouTube:
+Impostazioni → Riproduzione → Riproduzione automatica video successivo"</string>
+  <string name="revanced_end_screen_suggested_video_summary_off">Il video suggerito nella schermata finale è mostrato</string>
   </patch>
   <patch id="layout.hide.time.hideTimestampPatch">
   <string name="revanced_hide_timestamp_title">Nascondi timestamp video</string>

@@ -808,10 +808,13 @@ Ha a beállítás módosítása nem lép életbe, próbáljon meg Inkognitó mó
   <string name="revanced_hide_shorts_navigation_bar_summary_on">A navigációs sáv el van rejtve</string>
   <string name="revanced_hide_shorts_navigation_bar_summary_off">A navigációs sáv megjelenik</string>
   </patch>
-  <patch id="layout.hide.suggestedvideoendscreen.disableSuggestedVideoEndScreenResourcePatch">
-  <string name="revanced_disable_suggested_video_end_screen_title">Videójavaslatok letiltása a záróképernyőn</string>
-  <string name="revanced_disable_suggested_video_end_screen_summary_on">A videójavaslatok le lesznek tiltva</string>
-  <string name="revanced_disable_suggested_video_end_screen_summary_off">A videójavaslatok megjelennek</string>
+  <patch id="layout.hide.endscreensuggestion.hideEndScreenSuggestedVideoPatch">
+  <string name="revanced_end_screen_suggested_video_title">Javasolt videó elrejtése a befejező képernyőn</string>
+  <string name="revanced_end_screen_suggested_video_summary_on">"A befejező képernyőn lévő javasolt videó el van rejtve, ha az automatikus lejátszás ki van kapcsolva.
+
+Az automatikus lejátszás a YouTube beállításaiban módosítható:
+Beállítások → Lejátszás → Következő videó automatikus lejátszása"</string>
+  <string name="revanced_end_screen_suggested_video_summary_off">A befejező képernyőn lévő javasolt videó látható</string>
   </patch>
   <patch id="layout.hide.time.hideTimestampPatch">
   <string name="revanced_hide_timestamp_title">Videó időbélyegzőjének elrejtése</string>

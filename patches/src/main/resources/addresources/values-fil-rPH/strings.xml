@@ -806,10 +806,13 @@ Tandaan: Ang pagpapagana nito ay nagtatago rin ng mga ad ng video"</string>
   <string name="revanced_hide_shorts_navigation_bar_summary_on">Nakatago ang navigation bar</string>
   <string name="revanced_hide_shorts_navigation_bar_summary_off">Ipinapakita ang navigation bar</string>
   </patch>
-  <patch id="layout.hide.suggestedvideoendscreen.disableSuggestedVideoEndScreenResourcePatch">
-  <string name="revanced_disable_suggested_video_end_screen_title">I-disable ang iminungkahing video end screen</string>
-  <string name="revanced_disable_suggested_video_end_screen_summary_on">Idi-disable ang mga iminungkahing video</string>
-  <string name="revanced_disable_suggested_video_end_screen_summary_off">Ipapakita ang mga iminungkahing video</string>
+  <patch id="layout.hide.endscreensuggestion.hideEndScreenSuggestedVideoPatch">
+  <string name="revanced_end_screen_suggested_video_title">Itago ang iminungkahing video sa dulo ng screen</string>
+  <string name="revanced_end_screen_suggested_video_summary_on">"Nakatago ang iminungkahing video sa dulo ng screen kapag nakapatay ang autoplay
+
+Maaaring baguhin ang Autoplay sa mga setting ng YouTube:
+Mga Setting → Pag-playback → I-autoplay ang susunod na video"</string>
+  <string name="revanced_end_screen_suggested_video_summary_off">Ipinapakita ang iminungkahing video sa dulo ng screen</string>
   </patch>
   <patch id="layout.hide.time.hideTimestampPatch">
   <string name="revanced_hide_timestamp_title">Itago ang timestamp ng video</string>

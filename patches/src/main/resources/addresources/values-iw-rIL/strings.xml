@@ -808,10 +808,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_shorts_navigation_bar_summary_on">סרגל ניווט מוסתר</string>
   <string name="revanced_hide_shorts_navigation_bar_summary_off">סרגל ניווט מוצג</string>
   </patch>
-  <patch id="layout.hide.suggestedvideoendscreen.disableSuggestedVideoEndScreenResourcePatch">
-  <string name="revanced_disable_suggested_video_end_screen_title">השבת סרטונים מוצעים במסך סיום</string>
-  <string name="revanced_disable_suggested_video_end_screen_summary_on">סרטונים מוצעים יושבתו</string>
-  <string name="revanced_disable_suggested_video_end_screen_summary_off">סרטונים מוצעים יוצגו</string>
+  <patch id="layout.hide.endscreensuggestion.hideEndScreenSuggestedVideoPatch">
+  <string name="revanced_end_screen_suggested_video_title">הסתר סרטון מוצע של מסך סיום</string>
+  <string name="revanced_end_screen_suggested_video_summary_off">סרטון מוצע של מסך סיום מוצג</string>
   </patch>
   <patch id="layout.hide.time.hideTimestampPatch">
   <string name="revanced_hide_timestamp_title">הסתר חותמת זמן של סרטון</string>

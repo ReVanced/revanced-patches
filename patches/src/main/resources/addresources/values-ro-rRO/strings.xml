@@ -808,10 +808,13 @@ Dacă modificarea acestei setări nu are efect, încercați să comutați la mod
   <string name="revanced_hide_shorts_navigation_bar_summary_on">Bara de navigare este ascunsă</string>
   <string name="revanced_hide_shorts_navigation_bar_summary_off">Bara de navigare este afișată</string>
   </patch>
-  <patch id="layout.hide.suggestedvideoendscreen.disableSuggestedVideoEndScreenResourcePatch">
-  <string name="revanced_disable_suggested_video_end_screen_title">Dezactivează ecranul de sfârșit cu sugestii video</string>
-  <string name="revanced_disable_suggested_video_end_screen_summary_on">Videoclipurile sugerate vor fi dezactivate</string>
-  <string name="revanced_disable_suggested_video_end_screen_summary_off">Videoclipurile sugerate vor fi afișate</string>
+  <patch id="layout.hide.endscreensuggestion.hideEndScreenSuggestedVideoPatch">
+  <string name="revanced_end_screen_suggested_video_title">Ascunde videoclipul sugerat de pe ecranul final</string>
+  <string name="revanced_end_screen_suggested_video_summary_on">"Videoclipul sugerat de pe ecranul final este ascuns când redarea automată este oprită
+
+Redarea automată poate fi modificată în setările YouTube:
+Setări → Redare → Redare automată videoclipul următor"</string>
+  <string name="revanced_end_screen_suggested_video_summary_off">Videoclipul sugerat de pe ecranul final este afișat</string>
   </patch>
   <patch id="layout.hide.time.hideTimestampPatch">
   <string name="revanced_hide_timestamp_title">Ascunde marcajul temporal video</string>

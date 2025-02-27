@@ -810,10 +810,13 @@ GmsCore の電池の最適化を無効にしても、バッテリーの使用に
   <string name="revanced_hide_shorts_navigation_bar_summary_on">ナビゲーション バーは表示されません</string>
   <string name="revanced_hide_shorts_navigation_bar_summary_off">ナビゲーション バーは表示されます</string>
   </patch>
-  <patch id="layout.hide.suggestedvideoendscreen.disableSuggestedVideoEndScreenResourcePatch">
-  <string name="revanced_disable_suggested_video_end_screen_title">再生終了時の「関連動画」を非表示</string>
-  <string name="revanced_disable_suggested_video_end_screen_summary_on">再生終了時に「関連動画」は表示されません</string>
-  <string name="revanced_disable_suggested_video_end_screen_summary_off">再生終了時に「関連動画」が表示されます</string>
+  <patch id="layout.hide.endscreensuggestion.hideEndScreenSuggestedVideoPatch">
+  <string name="revanced_end_screen_suggested_video_title">再生終了時に「関連動画」を表示しない</string>
+  <string name="revanced_end_screen_suggested_video_summary_on">"再生終了時に「関連動画」は表示されません (自動再生が無効の場合)
+
+自動再生の設定は YouTube の設定で変更できます:
+設定 → 再生 → 次の動画を自動再生"</string>
+  <string name="revanced_end_screen_suggested_video_summary_off">再生終了時に「関連動画」が表示されます</string>
   </patch>
   <patch id="layout.hide.time.hideTimestampPatch">
   <string name="revanced_hide_timestamp_title">タイムスタンプを非表示</string>
@@ -1354,11 +1357,11 @@ DeArrow の詳細については、ここをタップしてください"</string
   <string name="revanced_disable_zoom_haptics_summary_off">ズームの触覚フィードバックは有効です</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
-  <string name="revanced_force_original_audio_title">オリジナルの音声言語を強制的に使用する</string>
-  <string name="revanced_force_original_audio_summary_on">オリジナルのオーディオ言語を使用する</string>
-  <string name="revanced_force_original_audio_summary_off">デフォルトの音声トラックが再生されます</string>
+  <string name="revanced_force_original_audio_title">オリジナルの音声トラック (言語) を強制的に使用する</string>
+  <string name="revanced_force_original_audio_summary_on">オリジナルの音声トラック (言語) が再生されます</string>
+  <string name="revanced_force_original_audio_summary_off">デフォルトの音声トラック (言語) が再生されます</string>
   <!-- 'Spoof video streams' should be the same translation used for revanced_spoof_video_streams_screen_title -->
-  <string name="revanced_force_original_audio_not_available">この機能を使用するには、「ビデオストリームのスプーフィング」を「iOS TV」に変更してください</string>
+  <string name="revanced_force_original_audio_not_available">この機能を使用するには、「動画ストリームを偽装する」のクライアントを iOS TV に変更してください</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
@@ -1433,8 +1436,8 @@ AVC の最大解像度は 1080p であり、Opus オーディオ コーデック
 • 動画が 1 秒早く終了します"</string>
   <string name="revanced_spoof_video_streams_about_android_title">Android クライアントの副作用</string>
   <string name="revanced_spoof_video_streams_about_android_summary">"• 音声トラック メニューが表示されません
-• 一定音量は使用できません
-• 「強制的にオリジナル音声を使用する」は使用できません"</string>
+• 一定音量は利用できません
+• 「オリジナルの音声トラック (言語) を強制的に使用する」は利用できません"</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• AV1 コーデックは使用できません</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• キッズ向け動画は、ログアウト時またはシークレット モード時には再生されない場合があります</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_title">統計情報（詳細）</string>

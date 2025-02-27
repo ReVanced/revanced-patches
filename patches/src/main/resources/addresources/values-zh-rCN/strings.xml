@@ -808,10 +808,13 @@ Second \"item\" text"</string>
   <string name="revanced_hide_shorts_navigation_bar_summary_on">导航栏已隐藏</string>
   <string name="revanced_hide_shorts_navigation_bar_summary_off">导航栏已显示</string>
   </patch>
-  <patch id="layout.hide.suggestedvideoendscreen.disableSuggestedVideoEndScreenResourcePatch">
-  <string name="revanced_disable_suggested_video_end_screen_title">禁用建议视频结束画面</string>
-  <string name="revanced_disable_suggested_video_end_screen_summary_on">建议视频将被禁用</string>
-  <string name="revanced_disable_suggested_video_end_screen_summary_off">建议视频将被显示</string>
+  <patch id="layout.hide.endscreensuggestion.hideEndScreenSuggestedVideoPatch">
+  <string name="revanced_end_screen_suggested_video_title">隐藏片尾画面推荐视频</string>
+  <string name="revanced_end_screen_suggested_video_summary_on">"自动播放关闭时隐藏片尾画面推荐视频
+
+可以在 YouTube 设置中更改自动播放设置：
+设置 → 播放 → 自动播放下一个视频"</string>
+  <string name="revanced_end_screen_suggested_video_summary_off">显示片尾画面推荐视频</string>
   </patch>
   <patch id="layout.hide.time.hideTimestampPatch">
   <string name="revanced_hide_timestamp_title">隐藏视频时间戳</string>

@@ -808,10 +808,13 @@ Nếu việc thay đổi cài đặt này không có hiệu lực, hãy thử ch
   <string name="revanced_hide_shorts_navigation_bar_summary_on">Thanh điều hướng được ẩn</string>
   <string name="revanced_hide_shorts_navigation_bar_summary_off">Thanh điều hướng được hiện</string>
   </patch>
-  <patch id="layout.hide.suggestedvideoendscreen.disableSuggestedVideoEndScreenResourcePatch">
-  <string name="revanced_disable_suggested_video_end_screen_title">Tắt video đề xuất ở màn hình kết thúc</string>
-  <string name="revanced_disable_suggested_video_end_screen_summary_on">Video đề xuất sẽ được tắt</string>
-  <string name="revanced_disable_suggested_video_end_screen_summary_off">Video đề xuất sẽ được bật</string>
+  <patch id="layout.hide.endscreensuggestion.hideEndScreenSuggestedVideoPatch">
+  <string name="revanced_end_screen_suggested_video_title">Ẩn video được đề xuất ở màn hình kết thúc</string>
+  <string name="revanced_end_screen_suggested_video_summary_on">"Video được đề xuất ở màn hình kết thúc bị ẩn khi tự động phát bị tắt
+
+Có thể thay đổi Tự động phát trong phần cài đặt YouTube:
+Cài đặt → Phát lại → Tự động phát video tiếp theo"</string>
+  <string name="revanced_end_screen_suggested_video_summary_off">Video được đề xuất ở màn hình kết thúc đang hiển thị</string>
   </patch>
   <patch id="layout.hide.time.hideTimestampPatch">
   <string name="revanced_hide_timestamp_title">Ẩn mốc thời gian video</string>
