@@ -1,3 +1,10 @@
+# [5.13.0-dev.18](https://github.com/ReVanced/revanced-patches/compare/v5.13.0-dev.17...v5.13.0-dev.18) (2025-02-28)
+
+
+### Features
+
+* **Infinity for Reddit:** Add support for Infinity for Reddit Plus ([#4511](https://github.com/ReVanced/revanced-patches/issues/4511)) ([d74732b](https://github.com/ReVanced/revanced-patches/commit/d74732b7596104321bde263201d95649e4bd0eee))
+
 # [5.13.0-dev.17](https://github.com/ReVanced/revanced-patches/compare/v5.13.0-dev.16...v5.13.0-dev.17) (2025-02-27)
 
 
