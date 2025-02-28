@@ -305,9 +305,9 @@ Beklenmedik olaylar hakkında bilgilendirilmeyeceksiniz."</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_title">Akıştakini gizle</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_summary_on">Akıştaki gizli</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_summary_off">Akıştaki görünür</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_title">Arama sonuçlarındakini gizle</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_summary_on">Arama sonuçlarındaki gizli</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_summary_off">Arama sonuçlarındaki görünür</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_title">Arama sonuçlarında gizle</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_summary_on">Arama sonuçlarında gizli</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_summary_off">Arama sonuçlarında gösteriliyor</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_title">Alâkalı videolardakini gizle</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_on">Alâkalı videolardaki gizli</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">Alâkalı videolardaki görünür</string>

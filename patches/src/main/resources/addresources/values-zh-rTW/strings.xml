@@ -292,19 +292,18 @@ Second \"item\" text"</string>
   <string name="revanced_hide_info_cards_section_title">隱藏資訊卡</string>
   <string name="revanced_hide_info_cards_section_summary_on">已隱藏資訊卡區塊</string>
   <string name="revanced_hide_info_cards_section_summary_off">已顯示資訊卡區塊</string>
+  <string name="revanced_hide_key_concepts_section_title">隱藏「關鍵概念」</string>
+  <string name="revanced_hide_key_concepts_section_summary_on">關鍵概念區塊已隱藏</string>
+  <string name="revanced_hide_key_concepts_section_summary_off">關鍵概念區塊已顯示</string>
   <string name="revanced_hide_transcript_section_title">隱藏轉錄稿</string>
   <string name="revanced_hide_transcript_section_summary_on">已隱藏轉錄稿區塊</string>
   <string name="revanced_hide_transcript_section_summary_off">已顯示轉錄稿區塊</string>
   <string name="revanced_hide_description_components_screen_title">影片說明</string>
   <string name="revanced_hide_description_components_screen_summary">隱藏或顯示影片說明元件</string>
   <string name="revanced_hide_filter_bar_screen_title">篩選列</string>
-  <string name="revanced_hide_filter_bar_screen_summary">隱藏或顯示推薦內容、搜尋、相關影片篩選列</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_title">已在推薦內容中隱藏</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_summary_on">已在推薦內容中隱藏</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_summary_off">已在推薦內容中顯示</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_title">已在搜尋結果中隱藏</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_summary_on">已在搜尋結果中隱藏</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_summary_off">已在搜尋結果中顯示</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_title">隱藏相關影片</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_on">已在相關影片中隱藏</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">已在相關影片中顯示</string>
@@ -314,6 +313,8 @@ Second \"item\" text"</string>
   <string name="revanced_hide_comments_chat_summary_summary_on">已隱藏聊天室摘要</string>
   <string name="revanced_hide_comments_chat_summary_summary_off">已顯示聊天室摘要</string>
   <string name="revanced_hide_comments_by_members_header_title">隱藏「會員留言」標題</string>
+  <string name="revanced_hide_comments_by_members_header_summary_on">會員留言標題已隱藏</string>
+  <string name="revanced_hide_comments_by_members_header_summary_off">會員留言標題已顯示</string>
   <string name="revanced_hide_comments_section_title">隱藏留言區</string>
   <string name="revanced_hide_comments_section_summary_on">已隱藏留言區</string>
   <string name="revanced_hide_comments_section_summary_off">已顯示留言區</string>
@@ -507,6 +508,9 @@ Second \"item\" text"</string>
   <string name="revanced_swipe_show_circular_overlay_title">顯示圓形覆蓋</string>
   <string name="revanced_swipe_show_circular_overlay_summary_on">已顯示圓形覆蓋</string>
   <string name="revanced_swipe_show_circular_overlay_summary_off">已顯示水平覆蓋</string>
+  <string name="revanced_swipe_overlay_minimal_style_title">啟用極簡風格</string>
+  <string name="revanced_swipe_overlay_minimal_style_summary_on">極簡覆蓋樣式已啟用</string>
+  <string name="revanced_swipe_overlay_minimal_style_summary_off">極簡覆蓋樣式已停用</string>
   <string name="revanced_swipe_change_video_title">啟用滑動切換影片</string>
   <string name="revanced_swipe_change_video_summary_on">在全螢幕模式下滑動將切換到下一部/上一部影片</string>
   <string name="revanced_swipe_change_video_summary_off">在全螢幕模式下滑動將不會切換到下一部/上一部影片</string>
@@ -519,6 +523,7 @@ Second \"item\" text"</string>
   <patch id="layout.buttons.action.hideButtonsPatch">
   <string name="revanced_hide_buttons_screen_title">動作按鈕</string>
   <string name="revanced_hide_buttons_screen_summary">隱藏或顯示影片下方的按鈕</string>
+  <string name="revanced_disable_like_subscribe_glow_title">停用「喜歡」和「訂閱」的發光效果</string>
   <string name="revanced_disable_like_subscribe_glow_summary_on">提及時，「喜歡」和「訂閱」按鈕不會發光</string>
   <string name="revanced_disable_like_subscribe_glow_summary_off">提及時，「喜歡」和「訂閱」按鈕會發光</string>
   <string name="revanced_hide_like_dislike_button_title">隱藏喜歡人數和不喜歡人數</string>
@@ -800,6 +805,11 @@ Second \"item\" text"</string>
   <string name="revanced_hide_shorts_navigation_bar_summary_off">已顯示導覽列</string>
   </patch>
   <patch id="layout.hide.endscreensuggestion.hideEndScreenSuggestedVideoPatch">
+  <string name="revanced_end_screen_suggested_video_title">隱藏結束畫面的推薦影片</string>
+  <string name="revanced_end_screen_suggested_video_summary_on">"當自動播放關閉時，結束畫面的推薦影片將被隱藏
+
+自動播放可在 YouTube 設定中更改：設定 → 播放 → 自動播放下一部影片"</string>
+  <string name="revanced_end_screen_suggested_video_summary_off">結束畫面的推薦影片已顯示</string>
   </patch>
   <patch id="layout.hide.time.hideTimestampPatch">
   <string name="revanced_hide_timestamp_title">隱藏影片時間戳記</string>
@@ -832,6 +842,7 @@ Second \"item\" text"</string>
   <!-- Toast shown if network connection times out. Translations of this should not be longer than the original English or the text can be clipped and not entirely shown. -->
   <string name="revanced_ryd_failure_connection_timeout">暫時無法顯示不喜歡人數（API 逾時）</string>
   <string name="revanced_ryd_failure_connection_status_code">無法顯示不喜歡人數（狀態 %d）</string>
+  <string name="revanced_ryd_failure_client_rate_limit_requested">無法顯示「不喜歡」數量（用戶端 API 限制）</string>
   <string name="revanced_ryd_failure_generic">無法顯示不喜歡人數 (%s)</string>
   <!-- Toast shown if the user enables RYD while a video is opened, and then tries to vote for the video. -->
   <string name="revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted">重新載入影片以使用 Return YouTube Dislike 進行投票</string>

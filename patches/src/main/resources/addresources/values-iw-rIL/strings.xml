@@ -301,13 +301,13 @@ Second \"item\" text"</string>
   <string name="revanced_hide_description_components_screen_title">תיאור סרטון</string>
   <string name="revanced_hide_description_components_screen_summary">הסתר או הצג רכיבי תיאור סרטון</string>
   <string name="revanced_hide_filter_bar_screen_title">סרגל סינון</string>
-  <string name="revanced_hide_filter_bar_screen_summary">הסתר או הצג את סרגל הסינון בפיד, חיפוש, וסרטונים קשורים</string>
+  <string name="revanced_hide_filter_bar_screen_summary">הסתר או הצג את סרגל הסינון בפיד, תוצאות חיפוש, וסרטונים קשורים</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_title">הסתר בפיד</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_summary_on">מוסתר בפיד</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_summary_off">מוצג בפיד</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_title">הסתר בחיפוש</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_summary_on">מוסתר בחיפוש</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_summary_off">מוצג בחיפוש</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_title">הסתר בתוצאות חיפוש</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_summary_on">מוסתר בתוצאות חיפוש</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_summary_off">מוצג בתוצאות חיפוש</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_title">הסתר בסרטונים קשורים</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_on">מוסתר בסרטונים קשורים</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">מוצג בסרטונים קשורים</string>
@@ -810,6 +810,11 @@ Second \"item\" text"</string>
   </patch>
   <patch id="layout.hide.endscreensuggestion.hideEndScreenSuggestedVideoPatch">
   <string name="revanced_end_screen_suggested_video_title">הסתר סרטון מוצע של מסך סיום</string>
+  <string name="revanced_end_screen_suggested_video_summary_on">"סרטון מוצע של מסך סיום מוסתר כאשר הפעלה אוטומטית כבויה
+
+
+הפעלה אוטומטית ניתנת לשינוי בהגדרות YouTube:
+הגדרות ← הפעלה ← הפעלה אוטומטית של הסרטון הבא"</string>
   <string name="revanced_end_screen_suggested_video_summary_off">סרטון מוצע של מסך סיום מוצג</string>
   </patch>
   <patch id="layout.hide.time.hideTimestampPatch">

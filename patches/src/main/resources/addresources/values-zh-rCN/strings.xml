@@ -301,13 +301,13 @@ Second \"item\" text"</string>
   <string name="revanced_hide_description_components_screen_title">视频说明</string>
   <string name="revanced_hide_description_components_screen_summary">隐藏或显示视频说明组件</string>
   <string name="revanced_hide_filter_bar_screen_title">筛选栏</string>
-  <string name="revanced_hide_filter_bar_screen_summary">隐藏或显示在首页动态、搜索、相关视频中的筛选栏</string>
+  <string name="revanced_hide_filter_bar_screen_summary">隐藏或显示订阅源、搜索结果和相关视频中的过滤栏</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_title">在首页动态中隐藏</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_summary_on">已在首页动态中隐藏</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_summary_off">已在首页动态中显示</string>
   <string name="revanced_hide_filter_bar_feed_in_search_title">在搜索结果中隐藏</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_summary_on">已在搜索结果中隐藏</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_summary_off">已在搜索结果中显示</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_summary_on">在搜索结果中已隐藏</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_summary_off">在搜索结果中显示</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_title">在相关视频中隐藏</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_on">已在相关视频中隐藏</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">已在相关视频中显示</string>
