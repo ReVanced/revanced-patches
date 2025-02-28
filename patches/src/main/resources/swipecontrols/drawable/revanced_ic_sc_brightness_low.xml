@@ -21,8 +21,7 @@ Copyright 2022 Google
         android:width="24dp"
         android:height="24dp"
         android:viewportWidth="24"
-        android:viewportHeight="24"
-        android:tint="?attr/colorControlNormal">
+        android:viewportHeight="24">
     <path
             android:fillColor="@android:color/white"
             android:pathData="M12,1.40039 L8.84961,4.5 L4.5,4.5 L4.5,8.84961 L1.40039,12 L4.5,15.1504 L4.5,19.5 L8.84961,19.5 L12,22.5996 L15.1504,19.5 L19.5,19.5 L19.5,15.1504 L22.5996,12 L19.5,8.84961 L19.5,4.5 L15.1504,4.5 L12,1.40039 Z M12,3.5 L14.5,6 L18,6 L18,9.5 L20.5,12 L18,14.5 L18,18 L14.5,18 L12,20.5 L9.5,18 L6,18 L6,14.5 L3.5,12 L6,9.5 L6,6 L9.5,6 L12,3.5 Z M12,6 L12,12 L18,12 C18,10.3333,17.4167,8.91667,16.25,7.75 C15.0833,6.58333,13.6667,6,12,6 Z"/>
