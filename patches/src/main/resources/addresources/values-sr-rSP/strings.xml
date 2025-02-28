@@ -301,13 +301,13 @@ Second \"item\" text"</string>
   <string name="revanced_hide_description_components_screen_title">Опис видеа</string>
   <string name="revanced_hide_description_components_screen_summary">Сакријте или прикажите компоненте описа видеа</string>
   <string name="revanced_hide_filter_bar_screen_title">Трака филтера</string>
-  <string name="revanced_hide_filter_bar_screen_summary">Сакријте или прикажите траку филтера у фиду, претрази или сродним видеима</string>
+  <string name="revanced_hide_filter_bar_screen_summary">Сакријте или прикажите траку филтера у фиду, резултатима претраге или сродним видеима</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_title">Сакриј у фиду</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_summary_on">Скривено у фиду</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_summary_off">Приказано у фиду</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_title">Сакриј у претрази</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_summary_on">Скривено у претрази</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_summary_off">Приказано у претрази</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_title">Сакриј у резултатима претраге</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_summary_on">Скривено у резултатима претраге</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_summary_off">Приказано у резултатима претраге</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_title">Сакриј у сродним видеима</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_on">Скривено у сродним видеима</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">Приказано у сродним видеима</string>

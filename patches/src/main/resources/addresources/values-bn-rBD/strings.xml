@@ -301,13 +301,12 @@ MicroG-এর জন্য ব্যাটারি অপ্টিমাইজ�
   <string name="revanced_hide_description_components_screen_title">ভিডিওর বিবরণ</string>
   <string name="revanced_hide_description_components_screen_summary">ভিডিও বিবরণ এর উপাদান লুকান বা প্রদর্শন করুন</string>
   <string name="revanced_hide_filter_bar_screen_title">ফিল্টার বার</string>
-  <string name="revanced_hide_filter_bar_screen_summary">ফিড, অনুসন্ধান এবং সম্পর্কিত ভিডিওতে ফিল্টার বার লুকান বা প্রদর্শন করুন</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_title">ফিডে লুকান</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_summary_on">ফিডে লুকিয়ে রয়েছে</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_summary_off">ফিডে প্রদর্শিত হয়েছে</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_title">অনুসন্ধানে লুকান</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_summary_on">অনুসন্ধানে লুকিয়ে রয়েছে</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_summary_off">অনুসন্ধানে প্রদর্শিত হয়েছে</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_title">অনুসন্ধান ফলাফলে লুকান</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_summary_on">অনুসন্ধান ফলাফলে লুকানো আছে</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_summary_off">অনুসন্ধান ফলাফলে দেখানো হয়েছে</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_title">সম্পর্কিত ভিডিওতে লুকান</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_on">সম্পর্কিত ভিডিওতে লুকিয়ে রয়েছে</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">সম্পর্কিত ভিডিওতে প্রদর্শিত হয়েছে</string>

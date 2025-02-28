@@ -301,13 +301,13 @@ Ne boste obveščeni o nobenih nepričakovanih dogodkih."</string>
   <string name="revanced_hide_description_components_screen_title">Opis videoposnetka</string>
   <string name="revanced_hide_description_components_screen_summary">Skrij ali prikaži komponente opisa videoposnetka</string>
   <string name="revanced_hide_filter_bar_screen_title">Vrstica filtra</string>
-  <string name="revanced_hide_filter_bar_screen_summary">Skrij ali prikaži vrstico filtra v viru, iskanju in povezanih videoposnetkih</string>
+  <string name="revanced_hide_filter_bar_screen_summary">Skrije ali prikaže filtrirno vrstico v viru, rezultatih iskanja in povezanih videoposnetkih</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_title">Skrij v viru</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_summary_on">Skrita v viru</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_summary_off">Prikazana v viru</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_title">Skrij v iskanju</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_summary_on">Skrita v iskanju</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_summary_off">Prikazana v iskanju</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_title">Skrij v rezultatih iskanja</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_summary_on">Skrito v rezultatih iskanja</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_summary_off">Prikazano v rezultatih iskanja</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_title">Skrij v povezanih videoposnetkih</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_on">Skrita v povezanih videoposnetkih</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">Prikazana v povezanih videoposnetkih</string>

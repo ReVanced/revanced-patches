@@ -301,13 +301,13 @@ Hindi ka aabisuhan ng anumang hindi inaasahang mga kaganapan."</string>
   <string name="revanced_hide_description_components_screen_title">Paglalarawan ng video</string>
   <string name="revanced_hide_description_components_screen_summary">Itago o ipakita ang mga bahagi ng paglalarawan ng video</string>
   <string name="revanced_hide_filter_bar_screen_title">Bar ng filter</string>
-  <string name="revanced_hide_filter_bar_screen_summary">Itago o ipakita ang filter bar sa feed, paghahanap, at mga kaugnay na video</string>
+  <string name="revanced_hide_filter_bar_screen_summary">Itago o ipakita ang filter bar sa feed, mga resulta ng paghahanap, at mga kaugnay na video</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_title">Itago sa feed</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_summary_on">Nakatago sa feed</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_summary_off">Ipinapakita sa feed</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_title">Itago sa paghahanap</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_summary_on">Nakatago sa paghahanap</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_summary_off">Ipinapakita sa paghahanap</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_title">Itago sa mga resulta ng paghahanap</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_summary_on">Nakatago sa mga resulta ng paghahanap</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_summary_off">Ipinapakita sa mga resulta ng paghahanap</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_title">Itago sa mga kaugnay na video</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_on">Nakatago sa mga kaugnay na video</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">Ipinapakita sa mga kaugnay na video</string>
