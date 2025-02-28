@@ -301,13 +301,13 @@ Bạn sẽ không được thông báo về bất kỳ sự kiện bất ngờ n
   <string name="revanced_hide_description_components_screen_title">Mô tả video</string>
   <string name="revanced_hide_description_components_screen_summary">Ẩn hoặc hiện các thành phần mô tả video</string>
   <string name="revanced_hide_filter_bar_screen_title">Thanh bộ lọc</string>
-  <string name="revanced_hide_filter_bar_screen_summary">Ẩn hoặc hiện thanh bộ lọc trong bảng tin, tìm kiếm và video liên quan</string>
+  <string name="revanced_hide_filter_bar_screen_summary">Ẩn hoặc hiện thanh bộ lọc trong bảng tin, kết quả tìm kiếm và video liên quan</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_title">Ẩn trong bảng tin</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_summary_on">Đã ẩn trong bảng tin</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_summary_off">Đã hiện trong bảng tin</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_title">Ẩn tròn tìm kiếm</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_summary_on">Đã ẩn trong tìm kiếm</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_summary_off">Đã hiện trong tìm kiếm</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_title">Ẩn trong kết quả tìm kiếm</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_summary_on">Bị ẩn trong kết quả tìm kiếm</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_summary_off">Được hiển thị trong kết quả tìm kiếm</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_title">Ẩn trong video liên quan</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_on">Đã ẩn trong video liên quan</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">Đã hiện trong video liên quan</string>
@@ -1118,13 +1118,13 @@ Bạn đã sẵn sàng gửi?"</string>
   <string name="revanced_change_form_factor_user_dialog_message">"Thay đổi bao gồm:
 
 Bố cục máy tính bảng
-• 隱藏社區貼文
+• Bài đăng trên cộng đồng bị ẩn
 
 Bố cục ô tô
-• 隱藏观看历史菜单
-• 恢复探索标签
-• Shorts 在常规播放器中打开
-• 以主题和频道组织 Feed"</string>
+• Menu lịch sử xem bị ẩn
+• Tab khám phá đã được khôi phục
+• Kệ Short mở trong trình phát thông thường
+• Bảng Feed được sắp xếp theo chủ đề và kênh"</string>
   </patch>
   <patch id="layout.spoofappversion.spoofAppVersionPatch">
   <string name="revanced_spoof_app_version_title">Giả mạo phiên bản ứng dụng</string>
@@ -1434,7 +1434,7 @@ AVC có độ phân giải tối đa là 1080p, bộ giải mã âm thanh Opus k
   <string name="revanced_spoof_video_streams_about_android_title">Tác dụng phụ của việc giả mạo Android</string>
   <string name="revanced_spoof_video_streams_about_android_summary">"• Menu âm thanh bị thiếu
 • Âm lượng ổn định không khả dụng
-• Tuỳ chọn âm thanh gốc không khả dụng"</string>
+• Tùy chọn âm thanh gốc không khả dụng"</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Không có bộ giải mã video AV1</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Video dành cho trẻ em có thể không phát được khi đăng xuất hoặc ở chế độ ẩn danh</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Hiển thị trong Stats for nerds</string>

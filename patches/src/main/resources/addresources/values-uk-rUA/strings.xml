@@ -301,13 +301,13 @@ Second \"item\" text"</string>
   <string name="revanced_hide_description_components_screen_title">Опис відео</string>
   <string name="revanced_hide_description_components_screen_summary">Приховати або показувати компоненти опису відео</string>
   <string name="revanced_hide_filter_bar_screen_title">Панель фільтрів</string>
-  <string name="revanced_hide_filter_bar_screen_summary">Приховати або показувати панель фільтрів у стрічці, пошуку та пов\'язаних відео</string>
+  <string name="revanced_hide_filter_bar_screen_summary">Приховати або показувати панель фільтрів у стрічці, результатах пошуку та пов\'язаних відео</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_title">Приховати панель у стрічці</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_summary_on">Панель фільтрів у стрічці приховано</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_summary_off">Панель фільтрів у стрічці показується</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_title">Приховати панель у пошуку</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_summary_on">Панель фільтрів у пошуку приховано</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_summary_off">Панель фільтрів у пошуку показується</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_title">Приховати панель у результатах пошуку</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_summary_on">Панель фільтрів у результатах пошуку приховано</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_summary_off">Панель фільтрів у результатах пошуку показується</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_title">Приховати панель у пов\'язаних відео</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_on">Панель фільтрів у пов\'язаних відео приховано</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">Панель фільтрів у пов\'язаних відео показується</string>

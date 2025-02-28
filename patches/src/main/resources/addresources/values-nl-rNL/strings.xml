@@ -301,13 +301,13 @@ U wordt niet op de hoogte gesteld van onverwachte gebeurtenissen."</string>
   <string name="revanced_hide_description_components_screen_title">Videobeschrijving</string>
   <string name="revanced_hide_description_components_screen_summary">Skjul eller vis komponentene i videoens beskrivelse</string>
   <string name="revanced_hide_filter_bar_screen_title">Filterbaren</string>
-  <string name="revanced_hide_filter_bar_screen_summary">Skjul eller vis filterbaren i feedet, søket og relaterte videoer</string>
+  <string name="revanced_hide_filter_bar_screen_summary">De filterbalk in de feed, zoekresultaten en gerelateerde video\'s verbergen of weergeven</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_title">Skjul i feed</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_summary_on">Sjul i feed</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_summary_off">Vis i feed</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_title">Skjul i søk</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_summary_on">Verborgen in zoekfunctie</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_summary_off">Weergegeven in zoekfunctie</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_title">Verbergen in zoekresultaten</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_summary_on">Verborgen in zoekresultaten</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_summary_off">Weergegeven in zoekresultaten</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_title">Verbergen in gerelateerde video\'s</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_on">Verborgen in gerelateerde video\'s</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">Weergegeven in gerelateerde video\'s</string>

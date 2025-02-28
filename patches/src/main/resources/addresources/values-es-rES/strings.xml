@@ -291,13 +291,13 @@ Para traducir nuevos idiomas, visita translate.revanced.app"</string>
   <string name="revanced_hide_description_components_screen_title">Descripción del vídeo</string>
   <string name="revanced_hide_description_components_screen_summary">Ocultar o mostrar componentes de descripción de vídeo</string>
   <string name="revanced_hide_filter_bar_screen_title">Barra de filtros</string>
-  <string name="revanced_hide_filter_bar_screen_summary">Ocultar o mostrar la barra de filtros en el feed, la búsqueda y vídeos relacionados</string>
+  <string name="revanced_hide_filter_bar_screen_summary">Ocultar o mostrar la barra de filtro en el feed, los resultados de búsqueda y los videos relacionados</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_title">Ocultar en el feed</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_summary_on">Escondido en el feed</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_summary_off">Mostrar en el feed</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_title">Ocultar en búsqueda</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_summary_on">Oculto en la búsqueda</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_summary_off">Mostrar en búsqueda</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_title">Ocultar en los resultados de búsqueda</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_summary_on">Oculto en los resultados de búsqueda</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_summary_off">Mostrado en los resultados de búsqueda</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_title">Ocultar en vídeos relacionados</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_on">Escondido en videos relacionados</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">Mostrar en vídeos relacionados</string>

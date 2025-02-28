@@ -301,13 +301,13 @@ Ní bheidh a fhios agat faoi aon imeachtaí neamhghnácha."</string>
   <string name="revanced_hide_description_components_screen_title">Cur síos físeán</string>
   <string name="revanced_hide_description_components_screen_summary">Folaigh nó taispeáint comhpháirteanna tuairisc</string>
   <string name="revanced_hide_filter_bar_screen_title">Barra scagaire</string>
-  <string name="revanced_hide_filter_bar_screen_summary">Folaigh nó taispeáin an barra scagaire sna físeáin beatha, cuardaigh agus gaolmhara</string>
+  <string name="revanced_hide_filter_bar_screen_summary">Folaigh nó taispeáin an barra scagaire sa sruth, torthaí cuardaigh agus físeáin ghaolmhara</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_title">Folaigh i mbeatha</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_summary_on">I bhfolach i mbeatha</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_summary_off">Taispeántar i mbeatha</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_title">Folaigh i gcuardach</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_summary_on">I bhfolach i gcuardach</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_summary_off">Taispeántar i gcuardach</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_title">Folaigh i dtorthaí cuardaigh</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_summary_on">Folaigh i dtorthaí cuardaigh</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_summary_off">Taispeáin i dtorthaí cuardaigh</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_title">Folaigh i bhfíseáin gaolmhara</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_on">I bhfolach i bhfíseáin ghaolmhara</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">Taispeántar i bhfíseáin ghaolmhara</string>
