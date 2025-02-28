@@ -8,7 +8,7 @@ import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethodImplementation
 
 val spoofClientPatch = spoofClientPatch(redirectUri = "infinity://localhost") { clientIdOption ->
-    compatibleWith("ml.docilealligator.infinityforreddit")
+    compatibleWith("ml.docilealligator.infinityforreddit", "ml.docilealligator.infinityforreddit.plus")
 
     val clientId by clientIdOption
 
