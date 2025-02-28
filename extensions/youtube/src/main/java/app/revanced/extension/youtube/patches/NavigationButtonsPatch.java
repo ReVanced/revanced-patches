@@ -21,6 +21,7 @@ public final class NavigationButtonsPatch {
         {
             put(NavigationButton.HOME, Settings.HIDE_HOME_BUTTON.get());
             put(NavigationButton.CREATE, Settings.HIDE_CREATE_BUTTON.get());
+            put(NavigationButton.NOTIFICATIONS, Settings.HIDE_NOTIFICATIONS_BUTTON.get());
             put(NavigationButton.SHORTS, Settings.HIDE_SHORTS_BUTTON.get());
             put(NavigationButton.SUBSCRIPTIONS, Settings.HIDE_SUBSCRIPTIONS_BUTTON.get());
         }

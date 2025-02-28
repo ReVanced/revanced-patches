@@ -77,11 +77,8 @@ val playerControlsResourcePatch = resourcePatch {
         ).item(0)
 
         val bottomTargetDocumentChildNodes = bottomTargetDocument.childNodes
-        var bottomInsertBeforeNode: Node = bottomTargetDocumentChildNodes.findElementByAttributeValue(
+        var bottomInsertBeforeNode: Node = bottomTargetDocumentChildNodes.findElementByAttributeValueOrThrow(
             "android:inflatedId",
-            bottomLastLeftOf,
-        ) ?: bottomTargetDocumentChildNodes.findElementByAttributeValueOrThrow(
-            "android:id", // Older targets use non-inflated id.
             bottomLastLeftOf,
         )
 
@@ -123,7 +120,7 @@ val playerControlsResourcePatch = resourcePatch {
             ).item(0).childNodes
 
             // Copy the patch layout xml into the target layout file.
-            for (index in 1 until sourceElements.length) {
+            for (index in sourceElements.length - 1 downTo 1) {
                 val element = sourceElements.item(index).cloneNode(true)
 
                 // If the element has no attributes there's no point adding it to the destination.
@@ -189,7 +186,7 @@ fun initializeBottomControl(descriptor: String) {
 fun injectVisibilityCheckCall(descriptor: String) {
     visibilityMethod.addInstruction(
         visibilityInsertIndex++,
-        "invoke-static { p1 , p2 }, $descriptor->changeVisibility(ZZ)V",
+        "invoke-static { p1 , p2 }, $descriptor->setVisibility(ZZ)V",
     )
 
     if (!visibilityImmediateCallbacksExistModified) {
@@ -199,7 +196,7 @@ fun injectVisibilityCheckCall(descriptor: String) {
 
     visibilityImmediateMethod.addInstruction(
         visibilityImmediateInsertIndex++,
-        "invoke-static { p0 }, $descriptor->changeVisibilityImmediate(Z)V",
+        "invoke-static { p0 }, $descriptor->setVisibilityImmediate(Z)V",
     )
 }
 

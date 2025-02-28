@@ -39,6 +39,7 @@ val hideButtonsPatch = resourcePatch(
             PreferenceScreenPreference(
                 "revanced_hide_buttons_screen",
                 preferences = setOf(
+                    SwitchPreference("revanced_disable_like_subscribe_glow"),
                     SwitchPreference("revanced_hide_like_dislike_button"),
                     SwitchPreference("revanced_hide_share_button"),
                     SwitchPreference("revanced_hide_report_button"),

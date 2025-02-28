@@ -161,16 +161,13 @@ Second \"item\" text"</string>
   <string name="revanced_debug_stacktrace_summary_on">Дневникът за отстраняване на грешки съдържа следи от стека</string>
   <string name="revanced_debug_stacktrace_summary_off">Дневникът за отстраняване на грешки не съдържа следи от стека</string>
   <string name="revanced_debug_toast_on_error_title">Покажи системно съобщение при ReVanced грешка</string>
-  <string name="revanced_debug_toast_on_error_summary_on">Системно съобщение ще бъде показано, ако се появи грешка</string>
-  <string name="revanced_debug_toast_on_error_summary_off">Системно съобщение няма да бъде показано, ако се появи грешка</string>
+  <string name="revanced_debug_toast_on_error_summary_on">Показва се toast, ако възникне грешка</string>
+  <string name="revanced_debug_toast_on_error_summary_off">Не се показва toast, ако възникне грешка</string>
   <string name="revanced_debug_toast_on_error_user_dialog_message">"Изключването на изскачащи съобщения за грешки крие всички известия за грешки на ReVanced.
 
 Няма да бъдете уведомени за неочаквани събития."</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
-  <string name="revanced_disable_like_subscribe_glow_title">Деактивиране на светенето на бутон Like и Subscribe</string>
-  <string name="revanced_disable_like_subscribe_glow_summary_on">Бутон Like и Subscribe няма да светят при споменаване</string>
-  <string name="revanced_disable_like_subscribe_glow_summary_off">Бутон Like и Subscribe ще светят при споменаване</string>
   <string name="revanced_hide_album_cards_title">\"Карти на албумите\"</string>
   <string name="revanced_hide_album_cards_summary_on">Албумните карти са скрити</string>
   <string name="revanced_hide_album_cards_summary_off">Албумните карти се показват</string>
@@ -193,22 +190,22 @@ Second \"item\" text"</string>
   <string name="revanced_hide_horizontal_shelves_summary_off">Хоризонтални секции се показват</string>
   <!-- 'Join' should be translated using the same localized wording YouTube displays.
                  This appears in the video player for certain videos. -->
-  <string name="revanced_hide_join_membership_button_title">Скриване на бутона \'Присъедини се\'</string>
+  <string name="revanced_hide_join_membership_button_title">Скриване на бутона \"Присъединяване\"</string>
   <string name="revanced_hide_join_membership_button_summary_on">Бутона Покажи още е скрит</string>
   <string name="revanced_hide_join_membership_button_summary_off">Бутона \"Уведоми ме\" се показва</string>
   <!-- 'For you' should be translated using the same localized wording YouTube displays. -->
-  <string name="revanced_hide_for_you_shelf_title">Скриване на секцията \'За вас\' в страницата на канала</string>
-  <string name="revanced_hide_for_you_shelf_summary_on">Секцията \'За Вас\' е скрита</string>
-  <string name="revanced_hide_for_you_shelf_summary_off">Секцията \'За Вас\' се показва</string>
+  <string name="revanced_hide_for_you_shelf_title">Скриване на рафта \"За вас\"</string>
+  <string name="revanced_hide_for_you_shelf_summary_on">Рафтът в страницата на канала е скрит</string>
+  <string name="revanced_hide_for_you_shelf_summary_off">Рафтът в страницата на канала е показан</string>
   <!-- 'Notify me' should be translated using the same localized wording YouTube displays.
                  This item appear in the subscription feed for future livestreams or unreleased videos. -->
   <string name="revanced_hide_notify_me_button_title">Скриване на бутона \"Уведоми ме\"</string>
   <string name="revanced_hide_notify_me_button_summary_on">Бутона \"Уведоми ме\" е скрит</string>
   <string name="revanced_hide_notify_me_button_summary_off">Бутона \"Уведоми ме\" се показва</string>
-  <!-- 'People also watch' should be translated using the same localized wording YouTube displays. -->
-  <string name="revanced_hide_search_result_recommendations_title">Скриване на препоръките \'Други харесват също\'</string>
-  <string name="revanced_hide_search_result_recommendations_summary_on">Препоръките са скрити</string>
-  <string name="revanced_hide_search_result_recommendations_summary_off">Препоръките се показват</string>
+  <!-- 'People also watched' should be translated using the same localized wording YouTube displays. -->
+  <string name="revanced_hide_search_result_recommendations_title">Скриване на етикета \"Хората също гледаха\"</string>
+  <string name="revanced_hide_search_result_recommendations_summary_on">Етикетът е скрит</string>
+  <string name="revanced_hide_search_result_recommendations_summary_off">Етикетът е показан</string>
   <!-- 'Show more' should be translated with the same localized wording that YouTube displays.
                   This button usually appears when searching for a YT creator. -->
   <string name="revanced_hide_show_more_button_title">Скриване на бутона \"Покажи още\"</string>
@@ -224,8 +221,8 @@ Second \"item\" text"</string>
   <string name="revanced_hide_chips_shelf_summary_on">Рафтът \"Chip\" е скрит</string>
   <string name="revanced_hide_chips_shelf_summary_off">Рафтовете със снимки се показват</string>
   <string name="revanced_hide_expandable_chip_title">Скрий разширяемата карта под видеоклиповете</string>
-  <string name="revanced_hide_expandable_chip_summary_on">Разширяемите карти са скрити</string>
-  <string name="revanced_hide_expandable_chip_summary_off">Разширяемите карти се показват</string>
+  <string name="revanced_hide_expandable_chip_summary_on">Разгъваемата карта е скрита</string>
+  <string name="revanced_hide_expandable_chip_summary_off">Разгъваемата карта е показана</string>
   <string name="revanced_hide_community_posts_title">Скриване на публикациите от общността</string>
   <string name="revanced_hide_community_posts_summary_on">Насоките на общността са скрити</string>
   <string name="revanced_hide_community_posts_summary_off">Последните публикации са показани</string>
@@ -241,7 +238,7 @@ Second \"item\" text"</string>
   <string name="revanced_hide_community_guidelines_title">Скриване на насоките на общността</string>
   <string name="revanced_hide_community_guidelines_summary_on">Насоките на общността са скрити</string>
   <string name="revanced_hide_community_guidelines_summary_off">Скриване на насоките за общността на абонатите</string>
-  <string name="revanced_hide_subscribers_community_guidelines_title">Скриване на насоките за общността на абонатите</string>
+  <string name="revanced_hide_subscribers_community_guidelines_title">Скриване на указанията за абонатори</string>
   <string name="revanced_hide_subscribers_community_guidelines_summary_on">Насоките за общността са скрити</string>
   <string name="revanced_hide_subscribers_community_guidelines_summary_off">Насоките за общността са показани</string>
   <string name="revanced_hide_channel_member_shelf_title">Скриване на секцията с членуващи</string>
@@ -280,63 +277,63 @@ Second \"item\" text"</string>
   <string name="revanced_hide_artist_cards_title">Скриване на картите на артистите</string>
   <string name="revanced_hide_artist_cards_summary_on">Картите на изпълнителите са скрити</string>
   <string name="revanced_hide_artist_cards_summary_off">Показват се карти на артисти</string>
-  <string name="revanced_hide_attributes_section_title">Скриване на секцията с атрибути</string>
-  <string name="revanced_hide_attributes_section_summary_on">„Популярни места“, „Игри“ и „Музика“ под описанието са скрити</string>
-  <string name="revanced_hide_attributes_section_summary_off">„Популярни места“, „Игри“ и „Музика“ под описанието се показват</string>
-  <string name="revanced_hide_chapters_section_title">Скриване на секцията с заглавия</string>
+  <string name="revanced_hide_attributes_section_title">Скриване на атрибути</string>
+  <string name="revanced_hide_attributes_section_summary_on">Секциите \"Препоръчани места\", \"Игри\", \"Музика\" и \"Споменати хора\" са скрити</string>
+  <string name="revanced_hide_attributes_section_summary_off">Секциите \"Препоръчани места\", \"Игри\", \"Музика\" и \"Споменати хора\" са показани</string>
+  <string name="revanced_hide_chapters_section_title">Скриване на глави</string>
   <string name="revanced_hide_chapters_section_summary_on">Секцията с заглавия е скрита</string>
   <string name="revanced_hide_chapters_section_summary_off">Секцията с заглавия се показва</string>
-  <string name="revanced_hide_how_this_was_made_section_title">Скриване на секцията \'Как е създадено това съдържание\'</string>
-  <string name="revanced_hide_how_this_was_made_section_summary_on">Секцията \'Как е създадено това съдържание\' е скрита</string>
-  <string name="revanced_hide_how_this_was_made_section_summary_off">Секцията \'Как е създадено това съдържание\' се показва</string>
-  <string name="revanced_hide_podcast_section_title">Скриване секцията „Разгледайте подкаста“</string>
-  <string name="revanced_hide_podcast_section_summary_on">\"Разгледайте подкаста\" е скрита</string>
-  <string name="revanced_hide_podcast_section_summary_off">\"Разгледайте подкаста\" се показва</string>
-  <string name="revanced_hide_info_cards_section_title">Скриване на раздела за информационни карти</string>
+  <string name="revanced_hide_how_this_was_made_section_title">Скриване на \"Как е създадено това съдържание\"</string>
+  <string name="revanced_hide_how_this_was_made_section_summary_on">Секцията \"Как е създадено това съдържание\" е скрита</string>
+  <string name="revanced_hide_how_this_was_made_section_summary_off">Секцията \"Как е създадено това съдържание\" е показана</string>
+  <string name="revanced_hide_podcast_section_title">Скриване на \"Разгледайте подкаста\"</string>
+  <string name="revanced_hide_podcast_section_summary_on">Секцията \"Разгледайте подкаста\" е скрита</string>
+  <string name="revanced_hide_podcast_section_summary_off">Секцията \"Разгледайте подкаста\" е показана</string>
+  <string name="revanced_hide_info_cards_section_title">Скриване на инфо. карти</string>
   <string name="revanced_hide_info_cards_section_summary_on">Разделът за информационни карти е скрит</string>
   <string name="revanced_hide_info_cards_section_summary_off">Разделът за информационни карти е показан</string>
-  <string name="revanced_hide_key_concepts_section_title">Раздел „Ключови понятия“</string>
-  <string name="revanced_hide_key_concepts_section_summary_on">Раздел „Ключови понятия“ са скрит</string>
-  <string name="revanced_hide_key_concepts_section_summary_off">Раздел „Ключови понятия“ се показва</string>
-  <string name="revanced_hide_transcript_section_title">Скриване на раздела за транскрипция</string>
+  <string name="revanced_hide_key_concepts_section_title">Скриване на \"Основни концепции\"</string>
+  <string name="revanced_hide_key_concepts_section_summary_on">Секцията \"Основни концепции\" е скрита</string>
+  <string name="revanced_hide_key_concepts_section_summary_off">Секцията \"Основни концепции\" е показана</string>
+  <string name="revanced_hide_transcript_section_title">Скриване на транскрипт</string>
   <string name="revanced_hide_transcript_section_summary_on">Разделът за транскрипция е скрит</string>
   <string name="revanced_hide_transcript_section_summary_off">Разделът за транскрипция е показан</string>
   <string name="revanced_hide_description_components_screen_title">Описание на видеото</string>
   <string name="revanced_hide_description_components_screen_summary">Скриване или показване на компонентите за описание на видеоклиповете</string>
   <string name="revanced_hide_filter_bar_screen_title">Лента с филтри</string>
-  <string name="revanced_hide_filter_bar_screen_summary">Скриване или показване на лентата с категории в емисията, резултатите от търсенето и свързаните видеоклипове</string>
+  <string name="revanced_hide_filter_bar_screen_summary">Скриване или показване на лентата за филтриране в емисията, резултатите от търсенето и свързаните видеоклипове</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_title">Скриване на горната лента с категории в емисията</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_summary_on">Скрита</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_summary_off">Показва се</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_title">Филтъри на търсене</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_summary_on">Панелът с филтъри на търсене е скрит</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_summary_off">Панелът с филтъри на търсене се показва</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_title">Скриване в резултатите от търсенето</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_summary_on">Скрито в резултатите от търсенето</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_summary_off">Показано в резултатите от търсенето</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_title">Скриване в сродни видеоклипове</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_on">Скриване в сродни видеоклипове</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">Показано в сродни видеоклипове</string>
   <string name="revanced_comments_screen_title">Коментари</string>
   <string name="revanced_comments_screen_summary">Скриване или показване на секцията за коментари</string>
-  <string name="revanced_hide_comments_chat_summary_title">Скрий „Резюме на чата“</string>
-  <string name="revanced_hide_comments_chat_summary_summary_on">\'Резюме на чата\' е скрито</string>
-  <string name="revanced_hide_comments_chat_summary_summary_off">\'Резюме на чата\' е показано</string>
+  <string name="revanced_hide_comments_chat_summary_title">Скриване на \"Резюме на чата\"</string>
+  <string name="revanced_hide_comments_chat_summary_summary_on">Резюмето на чата е скрито</string>
+  <string name="revanced_hide_comments_chat_summary_summary_off">Резюмето на чата е показано</string>
   <string name="revanced_hide_comments_by_members_header_title">Скриване на „Коментари, направени от членове“</string>
-  <string name="revanced_hide_comments_by_members_header_summary_on">„Коментари от членове“ са скрити</string>
-  <string name="revanced_hide_comments_by_members_header_summary_off">„Коментари от членове“ се показват</string>
+  <string name="revanced_hide_comments_by_members_header_summary_on">Заглавието на коментарите от членове е скрито</string>
+  <string name="revanced_hide_comments_by_members_header_summary_off">Заглавието на коментарите от членове е показано</string>
   <string name="revanced_hide_comments_section_title">Скриване на секцията с коментари</string>
   <string name="revanced_hide_comments_section_summary_on">Секцията с коментари е скрита</string>
   <string name="revanced_hide_comments_section_summary_off">Секцията с коментари се показва</string>
   <string name="revanced_hide_comments_create_a_short_button_title">Бутон за създаване на Shorts</string>
-  <string name="revanced_hide_comments_create_a_short_button_summary_on">Бутон за създаване на Shorts е скрит</string>
-  <string name="revanced_hide_comments_create_a_short_button_summary_off">Бутон за създаване на Shorts се показва</string>
+  <string name="revanced_hide_comments_create_a_short_button_summary_on">Бутонът \"Създаване на Short\" е скрит</string>
+  <string name="revanced_hide_comments_create_a_short_button_summary_off">Бутонът \"Създаване на Short\" е показан</string>
+  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_title">Скриване на бутоните за емоджи и времеви печат</string>
+  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_on">Бутоните за емоджи и времеви печат са скрити</string>
+  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_off">Бутоните за емоджи и времеви печат са показани</string>
   <string name="revanced_hide_comments_preview_comment_title">Преглед на коментари</string>
   <string name="revanced_hide_comments_preview_comment_summary_on">Прегледа на коментари е скрит</string>
   <string name="revanced_hide_comments_preview_comment_summary_off">Прегледа на коментари се показва</string>
   <string name="revanced_hide_comments_thanks_button_title">Скрий бутона за харесване</string>
   <string name="revanced_hide_comments_thanks_button_summary_on">Бутона за благодарност е скрит</string>
   <string name="revanced_hide_comments_thanks_button_summary_off">Бутона за благодарност се показва</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_title">Бутони в лентата на прогреса и емотикони</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_on">Бутоните са скрити</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_off">Бутоните се показват</string>
   <!-- https://logos.fandom.com/wiki/YouTube/Yoodles -->
   <string name="revanced_hide_doodles_title">YouTube Doodles</string>
   <string name="revanced_hide_doodles_summary_on">Doodles в лентата за търсене са скрити</string>
@@ -417,12 +414,12 @@ Second \"item\" text"</string>
   <string name="revanced_hide_player_store_shelf_summary_on">Рафта за пазаруване е скрит</string>
   <string name="revanced_hide_player_store_shelf_summary_off">Рафта за пазаруване се показва</string>
   <string name="revanced_hide_shopping_links_title">Скриване на връзки за пазаруване</string>
-  <string name="revanced_hide_shopping_links_summary_on">Връзките за пазаруване са скрити</string>
-  <string name="revanced_hide_shopping_links_summary_off">Връзките за пазаруване се показват</string>
+  <string name="revanced_hide_shopping_links_summary_on">Връзките за пазаруване в описанието на видеоклипа са скрити</string>
+  <string name="revanced_hide_shopping_links_summary_off">Връзките за пазаруване в описанието на видеоклипа са показани</string>
   <!-- 'Visit store' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_visit_store_button_title">Скрийте бутона „Посетете магазина“ на страниците на каналите</string>
-  <string name="revanced_hide_visit_store_button_summary_on">Бутона Покажи още е скрит</string>
-  <string name="revanced_hide_visit_store_button_summary_off">Бутона \"Уведоми ме\" се показва</string>
+  <string name="revanced_hide_visit_store_button_summary_on">Бутонът в страницата на канала е скрит</string>
+  <string name="revanced_hide_visit_store_button_summary_off">Бутонът в страницата на канала е показан</string>
   <string name="revanced_hide_web_search_results_title">Скриване на резултатите от уеб търсенето</string>
   <string name="revanced_hide_web_search_results_summary_on">Резултатите от уеб търсенето са скрити</string>
   <string name="revanced_hide_web_search_results_summary_off">Резултатите от уеб търсенето са показани.</string>
@@ -446,10 +443,10 @@ Second \"item\" text"</string>
   <string name="revanced_share_copy_url_success">Връзката е копирана в клипборда.</string>
   <string name="revanced_share_copy_url_timestamp_success">URL адрес с отметка за време, копиран в клипборда.</string>
   <string name="revanced_copy_video_url_title">Показване на бутона за копиране на URL адреса на видеоклипа</string>
-  <string name="revanced_copy_video_url_summary_on">Показан е бутон. Докоснете, за да копирате URL на видеото. Докоснете и задръжте, за да копирате URL адреса на видеоклипа с клеймо за време</string>
+  <string name="revanced_copy_video_url_summary_on">Бутонът е показан. Докоснете, за да копирате URL адреса на видеоклипа. Докоснете и задръжте, за да копирате с времеви печат</string>
   <string name="revanced_copy_video_url_summary_off">Бутонът не е показан</string>
   <string name="revanced_copy_video_url_timestamp_title">Показване на бутона за копиране на URL адреса на времевия отпечатък на видеоклипа</string>
-  <string name="revanced_copy_video_url_timestamp_summary_on">Показан е бутон. Докоснете, за да копирате URL адреса на видеоклипа с клеймо за време. Докоснете и задръжте, за да копирате видеоклип без клеймо за време</string>
+  <string name="revanced_copy_video_url_timestamp_summary_on">Бутонът е показан. Докоснете, за да копирате URL адреса на видеоклипа с времеви печат. Докоснете и задръжте, за да копирате без времеви печат</string>
   <string name="revanced_copy_video_url_timestamp_summary_off">Бутонът не е показан</string>
   </patch>
   <patch id="interaction.dialog.removeViewerDiscretionDialogPatch">
@@ -462,8 +459,8 @@ Second \"item\" text"</string>
   <string name="revanced_external_downloader_screen_title">Външни изтегляния</string>
   <string name="revanced_external_downloader_screen_summary">Настройки за използване на външно приложение за изтегляне</string>
   <string name="revanced_external_downloader_title">Показване на бутона за изтегляне чрез външно приложение</string>
-  <string name="revanced_external_downloader_summary_on">Бутонът за изтегляне е показан в плейъра</string>
-  <string name="revanced_external_downloader_summary_off">Бутонът за изтегляне не е показан в плейъра</string>
+  <string name="revanced_external_downloader_summary_on">Бутонът за изтегляне в плейъра е показан</string>
+  <string name="revanced_external_downloader_summary_off">Бутонът за изтегляне в плейъра не е показан</string>
   <!-- 'download action button' should be translated using the same wording as the translation of 'revanced_hide_download_button_title' -->
   <string name="revanced_external_downloader_action_button_title">Заместване на бутона Download</string>
   <string name="revanced_external_downloader_action_button_summary_on">Бутонът за изтегляне отваря избраното от Вас външно приложение за изтегляне</string>
@@ -484,11 +481,15 @@ Second \"item\" text"</string>
   </patch>
   <patch id="interaction.swipecontrols.swipeControlsResourcePatch">
   <string name="revanced_swipe_brightness_title">Задаване на яркост чрез плъзгане</string>
-  <string name="revanced_swipe_brightness_summary_on">Опцията за превъртане с плъзгане за промяна на яркостта е активирана</string>
-  <string name="revanced_swipe_brightness_summary_off">Опцията за превъртане с плъзгане за промяна на яркостта е деактивирана</string>
+  <string name="revanced_swipe_brightness_summary_on">"Плъзгането за яркост на цял екран е активирано
+
+Регулирайте яркостта, като плъзгате вертикално от лявата страна на екрана"</string>
+  <string name="revanced_swipe_brightness_summary_off">Плъзгането за яркост на цял екран е деактивирано</string>
   <string name="revanced_swipe_volume_title">Настройване на звука чрез плъзгане</string>
-  <string name="revanced_swipe_volume_summary_on">Обемът чрез плъзване е активен</string>
-  <string name="revanced_swipe_volume_summary_off">Обемът чрез плъзване е деактивиран</string>
+  <string name="revanced_swipe_volume_summary_on">"Плъзгането за сила на звука на цял екран е активирано
+
+Регулирайте силата на звука, като плъзнете вертикално от дясната страна на екрана"</string>
+  <string name="revanced_swipe_volume_summary_off">Плъзгането за сила на звука на цял екран е деактивирано</string>
   <string name="revanced_swipe_press_to_engage_title">Активиране на жеста натискане за преместване</string>
   <string name="revanced_swipe_press_to_engage_summary_on">Плъзгането чрез натискане е активирано</string>
   <string name="revanced_swipe_press_to_engage_summary_off">Плъзгането чрез натискане е деактивирано</string>
@@ -501,16 +502,19 @@ Second \"item\" text"</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_title">Задаване на яркост чрез плъзгане</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_on">Плъзгането надолу до най-ниската стойност на жеста за яркост, за да се активира автоматичната яркост</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_off">Плъзгането надолу до най-ниската стойност на жеста за яркост, без дасе активира автоматичната яркост</string>
-  <string name="revanced_swipe_lowest_value_enable_auto_brightness_overlay_text">Авто</string>
   <string name="revanced_swipe_overlay_timeout_title">Задръжка на плъзгащата контрола за показване</string>
   <string name="revanced_swipe_overlay_timeout_summary">Време за което плъзгащата контрола е видима.</string>
-  <string name="revanced_swipe_text_overlay_size_title">Размер на текста при плъзгане</string>
-  <string name="revanced_swipe_text_overlay_size_summary">Размера на текста на плъзгащите контроли</string>
   <string name="revanced_swipe_overlay_background_opacity_title">Плъзгане на фона на наслагването непрозрачност</string>
   <string name="revanced_swipe_overlay_background_opacity_summary">Стойност на непрозрачността между 0-100</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Непрозрачността на плъзгането трябва да е между 0-100</string>
   <string name="revanced_swipe_threshold_title">Праг на величината на плъзгане</string>
   <string name="revanced_swipe_threshold_summary">Праг преди да се осъществи плъзгането</string>
+  <string name="revanced_swipe_show_circular_overlay_title">Показване на кръгъл овърлей</string>
+  <string name="revanced_swipe_show_circular_overlay_summary_on">Показва се кръгъл овърлей</string>
+  <string name="revanced_swipe_show_circular_overlay_summary_off">Показва се хоризонтален овърлей</string>
+  <string name="revanced_swipe_overlay_minimal_style_title">Активиране на минимален стил</string>
+  <string name="revanced_swipe_overlay_minimal_style_summary_on">Минималният стил на наслагване е активиран</string>
+  <string name="revanced_swipe_overlay_minimal_style_summary_off">Минималният стил на овърлея е деактивиран</string>
   <string name="revanced_swipe_change_video_title">Включване на превключване на видеото чрез плъзване</string>
   <string name="revanced_swipe_change_video_summary_on">Плъзването в режим на цял екран ще превключи към следващото/предишно видео</string>
   <string name="revanced_swipe_change_video_summary_off">Плъзването в режим на цял екран няма да превключи към следващото/предишно видео</string>
@@ -523,6 +527,9 @@ Second \"item\" text"</string>
   <patch id="layout.buttons.action.hideButtonsPatch">
   <string name="revanced_hide_buttons_screen_title">Бутони за действия</string>
   <string name="revanced_hide_buttons_screen_summary">Скриване или показване на бутони под видеото</string>
+  <string name="revanced_disable_like_subscribe_glow_title">Деактивиране на светенето на бутон Like и Subscribe</string>
+  <string name="revanced_disable_like_subscribe_glow_summary_on">Бутон Like и Subscribe няма да светят при споменаване</string>
+  <string name="revanced_disable_like_subscribe_glow_summary_off">Бутон Like и Subscribe ще светят при споменаване</string>
   <string name="revanced_hide_like_dislike_button_title">Бутони \"Харесвам\" и \"Не харесвам\"</string>
   <string name="revanced_hide_like_dislike_button_summary_on">Бутоните \"Харесвам\" и \"Не харесвам\" са скрити</string>
   <string name="revanced_hide_like_dislike_button_summary_off">Бутоните \"Харесвам\" и \"Не харесвам\" се показват</string>
@@ -575,12 +582,18 @@ Second \"item\" text"</string>
   <string name="revanced_hide_subscriptions_button_title">Абонаменти</string>
   <string name="revanced_hide_subscriptions_button_summary_on">Бутона за абонаменти е скрит</string>
   <string name="revanced_hide_subscriptions_button_summary_off">Бутона за абонаменти се показва</string>
+  <string name="revanced_hide_notifications_button_title">Скриване на известията</string>
+  <string name="revanced_hide_notifications_button_summary_on">Бутонът за известия е скрит</string>
+  <string name="revanced_hide_notifications_button_summary_off">Бутонът за известия е показан</string>
   <!-- 'Notifications' should be translated using the same localized wording YouTube displays the tab. -->
   <string name="revanced_switch_create_with_notifications_button_title">Заменете бутона „Създаване“ с бутона „Известия“</string>
   <string name="revanced_switch_create_with_notifications_button_summary_on">"Бутонът за създаване е сменен с бутона Известия
 
 Забележка: Активирането на това също принудително скрива видео рекламите"</string>
   <string name="revanced_switch_create_with_notifications_button_summary_off">Бутоните \"Създаване\" и \"Известия\" не са разменени</string>
+  <string name="revanced_switch_create_with_notifications_button_user_dialog_message">"Деактивирането на тази настройка също ще деактивира блокирането на рекламите за Shorts.
+
+Ако промяната на тази настройка не влезе в сила, опитайте да превключите в режим „инкогнито“."</string>
   <string name="revanced_hide_navigation_button_labels_title">Имена на бутоните на лентата за навигация</string>
   <string name="revanced_hide_navigation_button_labels_summary_on">Етикетите са скрити</string>
   <string name="revanced_hide_navigation_button_labels_summary_off">Етикетите се показват</string>
@@ -795,10 +808,13 @@ Second \"item\" text"</string>
   <string name="revanced_hide_shorts_navigation_bar_summary_on">Навигационната лента е скрита</string>
   <string name="revanced_hide_shorts_navigation_bar_summary_off">Навигационната лента се показва</string>
   </patch>
-  <patch id="layout.hide.suggestedvideoendscreen.disableSuggestedVideoEndScreenResourcePatch">
-  <string name="revanced_disable_suggested_video_end_screen_title">Препоръчани видеоклипове в края</string>
-  <string name="revanced_disable_suggested_video_end_screen_summary_on">Препоръчаните видеоклипове в края са скрити</string>
-  <string name="revanced_disable_suggested_video_end_screen_summary_off">Препоръчаните видеоклипове в края се показват</string>
+  <patch id="layout.hide.endscreensuggestion.hideEndScreenSuggestedVideoPatch">
+  <string name="revanced_end_screen_suggested_video_title">Скриване на предложеното видео в края на екрана</string>
+  <string name="revanced_end_screen_suggested_video_summary_on">"Предложеното видео в края на екрана е скрито, когато автоматичното пускане е изключено
+
+Автоматичното пускане може да бъде променено в настройките на YouTube:
+Настройки → Възпроизвеждане → Автоматично пускане на следващото видео"</string>
+  <string name="revanced_end_screen_suggested_video_summary_off">Предложеното видео в края на екрана е показано</string>
   </patch>
   <patch id="layout.hide.time.hideTimestampPatch">
   <string name="revanced_hide_timestamp_title">Скриване на клеймото за време на видеоклипа</string>
@@ -831,7 +847,7 @@ Second \"item\" text"</string>
   <!-- Toast shown if network connection times out. Translations of this should not be longer than the original English or the text can be clipped and not entirely shown. -->
   <string name="revanced_ryd_failure_connection_timeout">Нехаресванията временно не са налични (API timed out)</string>
   <string name="revanced_ryd_failure_connection_status_code">Нехаресванията не са налични (status %d)</string>
-  <string name="revanced_ryd_failure_client_rate_limit_requested">Нехаресванията не са достъпни (достигнат лимит на API)</string>
+  <string name="revanced_ryd_failure_client_rate_limit_requested">Не са налични нехаресвания (ограничение на клиентския API)</string>
   <string name="revanced_ryd_failure_generic">Нехаресванията не са налични (%s)</string>
   <!-- Toast shown if the user enables RYD while a video is opened, and then tries to vote for the video. -->
   <string name="revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted">Презареди видеото за гласуване с ReturnYouTubeDislike</string>
@@ -840,14 +856,14 @@ Second \"item\" text"</string>
   <string name="revanced_ryd_enable_summary_on">Нехаресванията се показват</string>
   <string name="revanced_ryd_enable_summary_off">Нехаресванията не се показват</string>
   <string name="revanced_ryd_shorts_title">Пок. нехаресвания в кратките клипове</string>
-  <string name="revanced_ryd_shorts_summary_on">Нехаресванията се показват в кратките клипове</string>
-  <string name="revanced_ryd_shorts_summary_on_disclaimer">"Нехаресванията се показват на шорти
+  <string name="revanced_ryd_shorts_summary_on">Нехаресванията на Shorts са показани</string>
+  <string name="revanced_ryd_shorts_summary_on_disclaimer">"Нехаресванията на Shorts са показани
 
-Ограничение: Нехаресванията може да не се появят в режим инкогнито"</string>
-  <string name="revanced_ryd_shorts_summary_off">Нехаресванията са скрити в кратките клипове</string>
+Ограничение: Нехаресванията може да не се показват в режим инкогнито"</string>
+  <string name="revanced_ryd_shorts_summary_off">Нехаресванията на Shorts не са показани</string>
   <string name="revanced_ryd_dislike_percentage_title">Нехаресвания като процент</string>
-  <string name="revanced_ryd_dislike_percentage_summary_on">Нехаресванията се показват като процент</string>
-  <string name="revanced_ryd_dislike_percentage_summary_off">Нехаресванията се показват като число</string>
+  <string name="revanced_ryd_dislike_percentage_summary_on">Нехаресванията са показани като процент</string>
+  <string name="revanced_ryd_dislike_percentage_summary_off">Нехаресванията са показани като число</string>
   <!-- Translations should use language similar to 'revanced_sb_enable_compact_skip_button' -->
   <string name="revanced_ryd_compact_layout_title">Компактен Like бутон</string>
   <string name="revanced_ryd_compact_layout_summary_on">Включен компактен бутон \"Харесва ми\"</string>
@@ -909,20 +925,20 @@ Second \"item\" text"</string>
   <string name="revanced_sb_square_layout_sum_on">Бутоните и контролите са квадратни</string>
   <string name="revanced_sb_square_layout_sum_off">Бутоните и контролите са заоблени</string>
   <!-- Translations should use language similar to 'revanced_ryd_compact_layout_title' -->
-  <string name="revanced_sb_enable_compact_skip_button">Компактен бутон за пропускане</string>
+  <string name="revanced_sb_enable_compact_skip_button">Използване на компактен бутон \"Пропускане\"</string>
   <string name="revanced_sb_enable_compact_skip_button_sum_on">Мин. ширина на бутона за пропускане</string>
   <string name="revanced_sb_enable_compact_skip_button_sum_off">Най-добър изглед на бутона за пропускане</string>
-  <string name="revanced_sb_enable_auto_hide_skip_segment_button">Авт. скриване на бутона за пропускане</string>
+  <string name="revanced_sb_enable_auto_hide_skip_segment_button">Автоматично скриване на бутона \"Пропускане\"</string>
   <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_on">Бутона за пропускане се скрива след няколко секунди</string>
-  <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_off">Бутона за пропускане се показва за цялата част</string>
-  <string name="revanced_sb_general_skiptoast">Показв. известие при автом. пропуск. част</string>
+  <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_off">Бутонът \"Пропускане\" е показан за целия сегмент</string>
+  <string name="revanced_sb_general_skiptoast">Показване на toast при пропускане</string>
   <string name="revanced_sb_general_skiptoast_sum_on">Показване на известие при автоматично пропусната част. Докоснете тук за пример</string>
   <string name="revanced_sb_general_skiptoast_sum_off">Известието не се показва. Докоснете тук за пример</string>
   <string name="revanced_sb_general_time_without">Показване на дължината на видеото без сигментите</string>
   <string name="revanced_sb_general_time_without_sum_on">Дължината на видеото без всички части показана в скоби до цялата дължина</string>
   <string name="revanced_sb_general_time_without_sum_off">Цялата дължина на видето се показва</string>
   <string name="revanced_sb_create_segment_category">Създаване на нови части</string>
-  <string name="revanced_sb_enable_create_segment">Показване на бутона за нова част</string>
+  <string name="revanced_sb_enable_create_segment">Показване на бутон \"Създаване на нов сегмент\"</string>
   <string name="revanced_sb_enable_create_segment_sum_on">Бутона създаване за нова част се показва</string>
   <string name="revanced_sb_enable_create_segment_sum_off">Бутона създаване за нова част не се показва</string>
   <string name="revanced_sb_general_adjusting">Настройване стъпка на новата част</string>
@@ -1016,7 +1032,7 @@ Second \"item\" text"</string>
   <string name="revanced_sb_skipped_multiple_segments">Пропуснати множество части</string>
   <string name="revanced_sb_skip_automatically">Автоматично пропускане</string>
   <string name="revanced_sb_skip_automatically_once">Авт. пропускане веднъж</string>
-  <string name="revanced_sb_skip_showbutton">Показвай бутон за пропускане</string>
+  <string name="revanced_sb_skip_showbutton">Показване на бутон \"Пропускане\"</string>
   <string name="revanced_sb_skip_seekbaronly">Показв. в лентата за време</string>
   <string name="revanced_sb_skip_ignore">Деактивиране</string>
   <string name="revanced_sb_submit_failed_invalid">Не може да се изпрати сегмент: %s</string>
@@ -1042,9 +1058,9 @@ Second \"item\" text"</string>
   <string name="revanced_sb_new_segment_disabled_category">Категорията е изкл. в настройките. Вкл. я за да можете да изпратите.</string>
   <string name="revanced_sb_new_segment_title">Нова част в SponsorBlock</string>
   <string name="revanced_sb_new_segment_mark_time_as_question">Задаване на %s като начало или край на нов раздел?</string>
-  <string name="revanced_sb_new_segment_mark_start">начало</string>
-  <string name="revanced_sb_new_segment_mark_end">край</string>
-  <string name="revanced_sb_new_segment_now">сега</string>
+  <string name="revanced_sb_new_segment_mark_start">Начало</string>
+  <string name="revanced_sb_new_segment_mark_end">Край</string>
+  <string name="revanced_sb_new_segment_now">Сега</string>
   <string name="revanced_sb_new_segment_time_start">Частта започва от</string>
   <string name="revanced_sb_new_segment_time_end">Частта свършва до</string>
   <string name="revanced_sb_new_segment_confirm_title">Времената точни ли са?</string>
@@ -1065,7 +1081,7 @@ Second \"item\" text"</string>
   <string name="revanced_sb_new_segment_edit_by_hand_parse_error">Зададено е невалидно време</string>
   <string name="revanced_sb_stats">Статистика</string>
   <!-- Shown in the settings preferences, and translations can be any text length. -->
-  <string name="revanced_sb_stats_connection_failure">Статистиката е враменно недостъпна (API не работи)</string>
+  <string name="revanced_sb_stats_connection_failure">Статистиките временно не са налични (API не работи)</string>
   <string name="revanced_sb_stats_loading">Зареждане...</string>
   <string name="revanced_sb_stats_sb_disabled">SponsorBlock е деактивиран.</string>
   <string name="revanced_sb_stats_username">Вашето потреб. име: &lt;b&gt;%s&lt;/b&gt;</string>
@@ -1283,13 +1299,13 @@ Second \"item\" text"</string>
   <string name="revanced_alt_thumbnail_stills_time_entry_2">Средата на видеото</string>
   <string name="revanced_alt_thumbnail_stills_time_entry_3">Края на видеото</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
-  <string name="revanced_alt_thumbnail_dearrow_error">DeArrow временно не е наличен. (код на състоянието: %s)</string>
+  <string name="revanced_alt_thumbnail_dearrow_error">DeArrow временно не е наличен (код на състоянието: %s)</string>
   <string name="revanced_alt_thumbnail_dearrow_error_generic">DeArrow временно не е наличен</string>
   </patch>
   <patch id="misc.announcements.announcementsPatch">
   <string name="revanced_announcements_title">Показване на ReVanced съобщения</string>
-  <string name="revanced_announcements_summary_on">Съобщенията се показват при стартиране</string>
-  <string name="revanced_announcements_summary_off">Съобщенията не се показват при стартиране</string>
+  <string name="revanced_announcements_summary_on">Обявите при стартиране са показани</string>
+  <string name="revanced_announcements_summary_off">Обявите при стартиране не са показани</string>
   <string name="revanced_announcements_enabled_summary">Показване на съобщения при стартиране</string>
   <string name="revanced_announcements_connection_failed">Неуспешно свързване с доставчик на съобщения</string>
   <string name="revanced_announcements_dialog_dismiss">Отхвърли</string>
@@ -1339,10 +1355,11 @@ Second \"item\" text"</string>
   <string name="revanced_disable_zoom_haptics_summary_off">Вибрациите са активирани</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
-  <string name="revanced_force_original_audio_title">Принудително оригинално аудио</string>
-  <string name="revanced_force_original_audio_summary_on">Използване на оригинално аудио</string>
+  <string name="revanced_force_original_audio_title">Принудително оригинално аудио език</string>
+  <string name="revanced_force_original_audio_summary_on">Използване на оригиналния език на аудиото</string>
   <string name="revanced_force_original_audio_summary_off">Използване на аудио по подразбиране</string>
-  <string name="revanced_force_original_audio_not_available">За да използвате тази функция, променете имитацията на поточно предаване на тип клиент на iOS</string>
+  <!-- 'Spoof video streams' should be the same translation used for revanced_spoof_video_streams_screen_title -->
+  <string name="revanced_force_original_audio_not_available">За да използвате тази функция, сменете „Фалшифициране на видео потоци“ на iOS TV</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->

@@ -45,7 +45,7 @@ Second \"item\" text"</string>
   <!-- 'For you' should be translated using the same localized wording YouTube displays. -->
   <!-- 'Notify me' should be translated using the same localized wording YouTube displays.
                  This item appear in the subscription feed for future livestreams or unreleased videos. -->
-  <!-- 'People also watch' should be translated using the same localized wording YouTube displays. -->
+  <!-- 'People also watched' should be translated using the same localized wording YouTube displays. -->
   <!-- 'Show more' should be translated with the same localized wording that YouTube displays.
                   This button usually appears when searching for a YT creator. -->
   <!-- https://logos.fandom.com/wiki/YouTube/Yoodles -->
@@ -130,7 +130,7 @@ Second \"item\" text"</string>
   <!-- 'remix' should be translated using the same localized wording YouTube displays for the button. -->
   <!-- 'share' should be translated using the same localized wording YouTube displays for the button. -->
   </patch>
-  <patch id="layout.hide.suggestedvideoendscreen.disableSuggestedVideoEndScreenResourcePatch">
+  <patch id="layout.hide.endscreensuggestion.hideEndScreenSuggestedVideoPatch">
   </patch>
   <patch id="layout.hide.time.hideTimestampPatch">
   </patch>
@@ -206,6 +206,7 @@ Second \"item\" text"</string>
   <patch id="misc.zoomhaptics.zoomHapticsPatch">
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
+  <!-- 'Spoof video streams' should be the same translation used for revanced_spoof_video_streams_screen_title -->
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->

@@ -1,0 +1,29 @@
+<!--
+   https://github.com/google/material-design-icons/blob/9beae745bb758f3ad56654fb377ea5cf62be4915/symbols/android/volume_up/materialsymbolsoutlined/volume_up_wght300_24px.xml
+   Changes made: The icon has been moved to the left relative to the center.
+
+Copyright 2022 Google
+
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+-->
+
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+        android:width="24dp"
+        android:height="24dp"
+        android:viewportWidth="24"
+        android:viewportHeight="24"
+        android:tint="?attr/colorControlNormal">
+    <path
+            android:fillColor="@android:color/white"
+            android:pathData="M14.2,20.1 L14.2,18.55 Q16.35,17.875,17.675,16.062 Q19,14.25,19,11.975 Q19,9.7,17.675,7.887 Q16.35,6.075,14.2,5.4 L14.2,3.85 Q16.975,4.6,18.737,6.85 Q20.5,9.1,20.5,11.975 Q20.5,14.85,18.737,17.1 Q16.975,19.35,14.2,20.1 Z M3.8,14.5 L3.8,9.5 L7.525,9.5 L11.8,5.2 L11.8,18.8 L7.525,14.5 Z M14.2,15.65 L14.2,8.3 Q15.15,8.825,15.725,9.825 Q16.3,10.825,16.3,12 Q16.3,13.175,15.725,14.15 Q15.15,15.125,14.2,15.65 Z M10.3,8.85 L8.15,11 L5.3,11 L5.3,13 L8.15,13 L10.3,15.15 Z M7.8,12 Z"/>
+</vector>

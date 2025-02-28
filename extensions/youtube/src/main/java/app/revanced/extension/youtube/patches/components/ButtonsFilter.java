@@ -6,8 +6,12 @@ import app.revanced.extension.youtube.settings.Settings;
 
 @SuppressWarnings("unused")
 final class ButtonsFilter extends Filter {
+    private static final String COMPACT_CHANNEL_BAR_PATH_PREFIX = "compact_channel_bar.eml";
+    private static final String VIDEO_ACTION_BAR_PATH_PREFIX = "video_action_bar.eml";
     private static final String VIDEO_ACTION_BAR_PATH = "video_action_bar.eml";
+    private static final String ANIMATED_VECTOR_TYPE_PATH = "AnimatedVectorType";
 
+    private final StringFilterGroup likeSubscribeGlow;
     private final StringFilterGroup actionBarGroup;
     private final StringFilterGroup bufferFilterPathGroup;
     private final ByteArrayFilterGroupList bufferButtonsGroupList = new ByteArrayFilterGroupList();
@@ -20,11 +24,19 @@ final class ButtonsFilter extends Filter {
         addIdentifierCallbacks(actionBarGroup);
 
 
+        likeSubscribeGlow = new StringFilterGroup(
+                Settings.DISABLE_LIKE_SUBSCRIBE_GLOW,
+                "animated_button_border.eml"
+        );
+
         bufferFilterPathGroup = new StringFilterGroup(
                 null,
                 "|ContainerType|button.eml|"
         );
+
         addPathCallbacks(
+                likeSubscribeGlow,
+                bufferFilterPathGroup,
                 new StringFilterGroup(
                         Settings.HIDE_LIKE_DISLIKE_BUTTON,
                         "|segmented_like_dislike_button"
@@ -40,8 +52,7 @@ final class ButtonsFilter extends Filter {
                 new StringFilterGroup(
                         Settings.HIDE_CLIP_BUTTON,
                         "|clip_button.eml|"
-                ),
-                bufferFilterPathGroup
+                )
         );
 
         bufferButtonsGroupList.addAll(
@@ -83,6 +94,15 @@ final class ButtonsFilter extends Filter {
     @Override
     boolean isFiltered(@Nullable String identifier, String path, byte[] protobufBufferArray,
                        StringFilterGroup matchedGroup, FilterContentType contentType, int contentIndex) {
+        if (matchedGroup == likeSubscribeGlow) {
+            if ((path.startsWith(VIDEO_ACTION_BAR_PATH_PREFIX) || path.startsWith(COMPACT_CHANNEL_BAR_PATH_PREFIX))
+                    && path.contains(ANIMATED_VECTOR_TYPE_PATH)) {
+                return super.isFiltered(identifier, path, protobufBufferArray, matchedGroup, contentType, contentIndex);
+            }
+
+            return false;
+        }
+
         // If the current matched group is the action bar group,
         // in case every filter group is enabled, hide the action bar.
         if (matchedGroup == actionBarGroup) {

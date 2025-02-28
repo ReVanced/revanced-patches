@@ -17,8 +17,6 @@ import android.view.WindowInsets;
 import android.widget.TextView;
 import android.widget.Toolbar;
 
-import androidx.annotation.RequiresApi;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -98,7 +96,6 @@ public class ReVancedPreferenceFragment extends AbstractPreferenceFragment {
         listPreference.setEntryValues(sortedEntryValues);
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     protected void initialize() {
         super.initialize();

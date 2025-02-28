@@ -1,9 +1,6 @@
 package app.revanced.extension.youtube.patches;
 
 import android.app.Activity;
-import android.os.Build;
-
-import androidx.annotation.RequiresApi;
 
 import java.lang.ref.WeakReference;
 import java.util.Objects;
@@ -58,7 +55,6 @@ public class ShortsAutoplayPatch {
     /**
      * @return If the app is currently in background PiP mode.
      */
-    @RequiresApi(api = Build.VERSION_CODES.N)
     private static boolean isAppInBackgroundPiPMode() {
         Activity activity = mainActivityRef.get();
         return activity != null && activity.isInPictureInPictureMode();
@@ -80,7 +76,6 @@ public class ShortsAutoplayPatch {
     /**
      * Injection point.
      */
-    @RequiresApi(api = Build.VERSION_CODES.N)
     public static Enum<?> changeShortsRepeatBehavior(Enum<?> original) {
         try {
             final boolean autoplay;
