@@ -8,9 +8,8 @@ import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.resourcePatch
 import app.revanced.patcher.util.Document
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
-import app.revanced.patches.shared.misc.mapping.get
+import app.revanced.patches.shared.misc.mapping.getResourceId
 import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
-import app.revanced.patches.shared.misc.mapping.resourceMappings
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.playservice.is_19_25_or_greater
 import app.revanced.patches.youtube.misc.playservice.is_19_35_or_greater
@@ -40,18 +39,7 @@ internal lateinit var addTopControl: (String) -> Unit
 lateinit var addBottomControl: (String) -> Unit
     private set
 
-internal var bottomUiContainerResourceId = -1L
-    private set
-internal var controlsLayoutStub = -1L
-    private set
-internal var heatseekerViewstub = -1L
-    private set
-internal var fullscreenButton = -1L
-    private set
-
 val playerControlsResourcePatch = resourcePatch {
-    dependsOn(resourceMappingPatch)
-
     /**
      * The element to the left of the element being added.
      */
@@ -64,11 +52,6 @@ val playerControlsResourcePatch = resourcePatch {
 
     execute {
         val targetResourceName = "youtube_controls_bottom_ui_container.xml"
-
-        bottomUiContainerResourceId = resourceMappings["id", "bottom_ui_container_stub"]
-        controlsLayoutStub = resourceMappings["id", "controls_layout_stub"]
-        heatseekerViewstub = resourceMappings["id", "heatseeker_viewstub"]
-        fullscreenButton = resourceMappings["id", "fullscreen_button"]
 
         bottomTargetDocument = document("res/layout/$targetResourceName")
 
@@ -226,29 +209,28 @@ val playerControlsPatch = bytecodePatch(
     dependsOn(
         playerControlsResourcePatch,
         sharedExtensionPatch,
+        resourceMappingPatch // Used by fingerprints.
     )
 
     execute {
-        fun MutableMethod.indexOfFirstViewInflateOrThrow() = indexOfFirstInstructionOrThrow {
-            val reference = getReference<MethodReference>()
-            reference?.definingClass == "Landroid/view/ViewStub;" &&
-                reference.name == "inflate"
+        playerBottomControlsInflateFingerprint.let {
+            it.method.apply {
+                inflateBottomControlMethod = this
+
+                val inflateReturnObjectIndex = it.instructionMatches.last().index
+                inflateBottomControlRegister = getInstruction<OneRegisterInstruction>(inflateReturnObjectIndex).registerA
+                inflateBottomControlInsertIndex = inflateReturnObjectIndex + 1
+            }
         }
 
-        playerBottomControlsInflateFingerprint.method.apply {
-            inflateBottomControlMethod = this
+        playerTopControlsInflateFingerprint.let {
+            it.method.apply {
+                inflateTopControlMethod = this
 
-            val inflateReturnObjectIndex = indexOfFirstViewInflateOrThrow() + 1
-            inflateBottomControlRegister = getInstruction<OneRegisterInstruction>(inflateReturnObjectIndex).registerA
-            inflateBottomControlInsertIndex = inflateReturnObjectIndex + 1
-        }
-
-        playerTopControlsInflateFingerprint.method.apply {
-            inflateTopControlMethod = this
-
-            val inflateReturnObjectIndex = indexOfFirstViewInflateOrThrow() + 1
-            inflateTopControlRegister = getInstruction<OneRegisterInstruction>(inflateReturnObjectIndex).registerA
-            inflateTopControlInsertIndex = inflateReturnObjectIndex + 1
+                val inflateReturnObjectIndex = it.instructionMatches.last().index
+                inflateTopControlRegister = getInstruction<OneRegisterInstruction>(inflateReturnObjectIndex).registerA
+                inflateTopControlInsertIndex = inflateReturnObjectIndex + 1
+            }
         }
 
         visibilityMethod = controlsOverlayVisibilityFingerprint.match(
@@ -257,21 +239,17 @@ val playerControlsPatch = bytecodePatch(
 
         // Hook the fullscreen close button.  Used to fix visibility
         // when seeking and other situations.
-        overlayViewInflateFingerprint.method.apply {
-            val resourceIndex = indexOfFirstLiteralInstructionReversedOrThrow(fullscreenButton)
+        overlayViewInflateFingerprint.let {
+            it.method.apply {
+                val index = it.instructionMatches.last().index
+                val register = getInstruction<OneRegisterInstruction>(index).registerA
 
-            val index = indexOfFirstInstructionOrThrow(resourceIndex) {
-                opcode == Opcode.CHECK_CAST &&
-                    getReference<TypeReference>()?.type ==
-                    "Landroid/widget/ImageView;"
+                addInstruction(
+                    index + 1,
+                    "invoke-static { v$register }, " +
+                            "$EXTENSION_CLASS_DESCRIPTOR->setFullscreenCloseButton(Landroid/widget/ImageView;)V",
+                )
             }
-            val register = getInstruction<OneRegisterInstruction>(index).registerA
-
-            addInstruction(
-                index + 1,
-                "invoke-static { v$register }, " +
-                    "$EXTENSION_CLASS_DESCRIPTOR->setFullscreenCloseButton(Landroid/widget/ImageView;)V",
-            )
         }
 
         visibilityImmediateCallbacksExistMethod = playerControlsExtensionHookListenersExistFingerprint.method

@@ -106,7 +106,7 @@ val returnYouTubeDislikePatch = bytecodePatch(
         // region Hook code for creation and cached lookup of text Spans.
 
         // Alternatively the hook can be made at tht it fails to update the Span when the user dislikes,
-        //        // since the underlying (likes only) tee creation of Spans in TextComponentSpec,
+        // since the underlying (likes only) tee creation of Spans in TextComponentSpec,
         // And it works in all situations excepxt did not change.
         // This hook handles all situations, as it's where the created Spans are stored and later reused.
         // Find the field name of the conversion context.
@@ -171,7 +171,7 @@ val returnYouTubeDislikePatch = bytecodePatch(
 
         // region Hook for non-litho Short videos.
         shortsTextViewFingerprint.method.apply {
-            val insertIndex = shortsTextViewFingerprint.patternMatch!!.endIndex + 1
+            val insertIndex = shortsTextViewFingerprint.instructionMatches.last().index + 1
 
             // If the field is true, the TextView is for a dislike button.
             val isDisLikesBooleanInstruction = instructions.first { instruction ->
@@ -225,14 +225,9 @@ val returnYouTubeDislikePatch = bytecodePatch(
 
         // region Hook rolling numbers.
 
-        // Do this last to allow patching old unsupported versions (if the user really wants),
-        // On older unsupported version this will fail to match and throw an exception,
-        // but everything will still work correctly anyway.
-        val dislikesIndex = rollingNumberSetterFingerprint.patternMatch!!.endIndex
-
         rollingNumberSetterFingerprint.method.apply {
             val insertIndex = 1
-
+            val dislikesIndex = rollingNumberSetterFingerprint.instructionMatches.last().index
             val charSequenceInstanceRegister =
                 getInstruction<OneRegisterInstruction>(0).registerA
             val charSequenceFieldReference =
@@ -257,20 +252,22 @@ val returnYouTubeDislikePatch = bytecodePatch(
 
         // Rolling Number text views use the measured width of the raw string for layout.
         // Modify the measure text calculation to include the left drawable separator if needed.
-        val patternMatch = rollingNumberMeasureAnimatedTextFingerprint.patternMatch!!
-        // Additional check to verify the opcodes are at the start of the method
-        if (patternMatch.startIndex != 0) throw PatchException("Unexpected opcode location")
-        val endIndex = patternMatch.endIndex
-        rollingNumberMeasureAnimatedTextFingerprint.method.apply {
-            val measuredTextWidthRegister = getInstruction<OneRegisterInstruction>(endIndex).registerA
+        rollingNumberMeasureAnimatedTextFingerprint.let {
+            // Additional check to verify the opcodes are at the start of the method
+            if (it.instructionMatches.first().index != 0) throw PatchException("Unexpected opcode location")
+            val endIndex = it.instructionMatches.last().index
 
-            addInstructions(
-                endIndex + 1,
-                """
-                    invoke-static {p1, v$measuredTextWidthRegister}, $EXTENSION_CLASS_DESCRIPTOR->onRollingNumberMeasured(Ljava/lang/String;F)F
-                    move-result v$measuredTextWidthRegister
-                """,
-            )
+            it.method.apply {
+                val measuredTextWidthRegister = getInstruction<OneRegisterInstruction>(endIndex).registerA
+
+                addInstructions(
+                    endIndex + 1,
+                    """
+                        invoke-static {p1, v$measuredTextWidthRegister}, $EXTENSION_CLASS_DESCRIPTOR->onRollingNumberMeasured(Ljava/lang/String;F)F
+                        move-result v$measuredTextWidthRegister
+                    """
+                )
+            }
         }
 
         // Additional text measurement method. Used if YouTube decides not to animate the likes count
@@ -278,7 +275,7 @@ val returnYouTubeDislikePatch = bytecodePatch(
         rollingNumberMeasureStaticLabelFingerprint.match(
             rollingNumberMeasureStaticLabelParentFingerprint.originalClassDef,
         ).let {
-            val measureTextIndex = it.patternMatch!!.startIndex + 1
+            val measureTextIndex = it.instructionMatches.first().index + 1
             it.method.apply {
                 val freeRegister = getInstruction<TwoRegisterInstruction>(0).registerA
 
@@ -291,15 +288,15 @@ val returnYouTubeDislikePatch = bytecodePatch(
                 )
             }
         }
+
         // The rolling number Span is missing styling since it's initially set as a String.
         // Modify the UI text view and use the styled like/dislike Span.
         // Initial TextView is set in this method.
-        val initiallyCreatedTextViewMethod = rollingNumberTextViewFingerprint.method
 
         // Videos less than 24 hours after uploaded, like counts will be updated in real time.
         // Whenever like counts are updated, TextView is set in this method.
         arrayOf(
-            initiallyCreatedTextViewMethod,
+            rollingNumberTextViewFingerprint.method,
             rollingNumberTextViewAnimationUpdateFingerprint.method,
         ).forEach { insertMethod ->
             insertMethod.apply {
@@ -307,17 +304,15 @@ val returnYouTubeDislikePatch = bytecodePatch(
                     getReference<MethodReference>()?.name == "setText"
                 }
 
-                val textViewRegister =
-                    getInstruction<FiveRegisterInstruction>(setTextIndex).registerC
-                val textSpanRegister =
-                    getInstruction<FiveRegisterInstruction>(setTextIndex).registerD
+                val textViewRegister = getInstruction<FiveRegisterInstruction>(setTextIndex).registerC
+                val textSpanRegister = getInstruction<FiveRegisterInstruction>(setTextIndex).registerD
 
                 addInstructions(
                     setTextIndex,
                     """
-                            invoke-static {v$textViewRegister, v$textSpanRegister}, $EXTENSION_CLASS_DESCRIPTOR->updateRollingNumber(Landroid/widget/TextView;Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
-                            move-result-object v$textSpanRegister
-                        """,
+                        invoke-static {v$textViewRegister, v$textSpanRegister}, $EXTENSION_CLASS_DESCRIPTOR->updateRollingNumber(Landroid/widget/TextView;Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
+                        move-result-object v$textSpanRegister
+                    """
                 )
             }
         }

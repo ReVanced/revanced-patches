@@ -79,7 +79,7 @@ fun gmsCoreSupportPatch(
     execute {
         fun transformStringReferences(transform: (str: String) -> String?) = classes.forEach {
             val mutableClass by lazy {
-                proxy(it).mutableClass
+                mutableClassBy(it)
             }
 
             it.methods.forEach classLoop@{ method ->
@@ -89,12 +89,12 @@ fun gmsCoreSupportPatch(
                     mutableClass.methods.first { MethodUtil.methodSignaturesMatch(it, method) }
                 }
 
-                implementation.instructions.forEachIndexed insnLoop@{ index, instruction ->
+                implementation.instructions.forEachIndexed { index, instruction ->
                     val string = ((instruction as? Instruction21c)?.reference as? StringReference)?.string
-                        ?: return@insnLoop
+                        ?: return@forEachIndexed
 
                     // Apply transformation.
-                    val transformedString = transform(string) ?: return@insnLoop
+                    val transformedString = transform(string) ?: return@forEachIndexed
 
                     mutableMethod.replaceInstruction(
                         index,
@@ -221,9 +221,7 @@ fun gmsCoreSupportPatch(
         }
 
         // Change the vendor of GmsCore in the extension.
-        gmsCoreSupportFingerprint.classDef.methods
-            .single { it.name == GET_GMS_CORE_VENDOR_GROUP_ID_METHOD_NAME }
-            .replaceInstruction(0, "const-string v0, \"$gmsCoreVendorGroupId\"")
+        gmsCoreSupportFingerprint.method.replaceInstruction(0, "const-string v0, \"$gmsCoreVendorGroupId\"")
 
         executeBlock()
     }

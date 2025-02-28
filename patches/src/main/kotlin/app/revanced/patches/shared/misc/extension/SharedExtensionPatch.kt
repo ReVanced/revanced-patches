@@ -4,9 +4,7 @@ import app.revanced.patcher.Fingerprint
 import app.revanced.patcher.FingerprintBuilder
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
-import app.revanced.patcher.fingerprint
 import app.revanced.patcher.patch.BytecodePatchContext
-import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.bytecodePatch
 import com.android.tools.smali.dexlib2.iface.Method
 import java.net.URLDecoder
@@ -40,11 +38,8 @@ fun sharedExtensionPatch(
     extendWith("extensions/shared.rve")
 
     execute {
-        if (classes.none { EXTENSION_CLASS_DESCRIPTOR == it.type }) {
-            throw PatchException(
-                "Shared extension has not been merged yet. This patch can not succeed without merging it.",
-            )
-        }
+        // Verify the extension class exists.
+        classBy(EXTENSION_CLASS_DESCRIPTOR)
 
         hooks.forEach { hook -> hook(EXTENSION_CLASS_DESCRIPTOR) }
 
@@ -113,4 +108,10 @@ fun extensionHook(
     insertIndexResolver: ((Method) -> Int) = { 0 },
     contextRegisterResolver: (Method) -> String = { "p0" },
     fingerprintBuilderBlock: FingerprintBuilder.() -> Unit,
-) = ExtensionHook(fingerprint(block = fingerprintBuilderBlock), insertIndexResolver, contextRegisterResolver)
+) = ExtensionHook(
+    FingerprintBuilder("extension").also {
+        it.fingerprintBuilderBlock()
+    }.build(),
+    insertIndexResolver,
+    contextRegisterResolver
+)

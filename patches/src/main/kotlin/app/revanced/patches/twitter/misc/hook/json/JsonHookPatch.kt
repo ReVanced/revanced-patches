@@ -22,7 +22,7 @@ fun addJsonHook(
 
     jsonHookPatchFingerprint.method.apply {
         // Insert hooks right before calling buildList.
-        val insertIndex = jsonHookPatchFingerprint.patternMatch!!.endIndex
+        val insertIndex = jsonHookPatchFingerprint.instructionMatches.last().index
 
         addInstructions(
             insertIndex,
@@ -48,11 +48,9 @@ val jsonHookPatch = bytecodePatch(
 
     execute {
         jsonHookPatchFingerprint.apply {
-            // Make sure the extension is present.
-            val jsonHookPatch = classBy { classDef -> classDef.type == JSON_HOOK_PATCH_CLASS_DESCRIPTOR }
-                ?: throw PatchException("Could not find the extension.")
+            val jsonHookPatch = classBy(JSON_HOOK_PATCH_CLASS_DESCRIPTOR)
 
-            matchOrNull(jsonHookPatch.immutableClass)
+            matchOrNull(jsonHookPatch)
                 ?: throw PatchException("Unexpected extension.")
         }
 
@@ -61,7 +59,7 @@ val jsonHookPatch = bytecodePatch(
                 .fields
                 .firstOrNull { it.name == "JSON_FACTORY" }
                 ?.type
-                .let { type -> classes.find { it.type == type } }
+                ?.let { type -> classes.classBy(type) }
                 ?: throw PatchException("Could not find required class.")
 
         // Hook the methods first parameter.
@@ -77,7 +75,7 @@ val jsonHookPatch = bytecodePatch(
     finalize {
         // Remove hooks.add(dummyHook).
         jsonHookPatchFingerprint.method.apply {
-            val addDummyHookIndex = jsonHookPatchFingerprint.patternMatch!!.endIndex - 2
+            val addDummyHookIndex = jsonHookPatchFingerprint.instructionMatches.last().index - 2
 
             removeInstructions(addDummyHookIndex, 2)
         }
@@ -99,8 +97,8 @@ class JsonHook(
     internal var added = false
 
     init {
-        classBy { it.type == descriptor }?.let {
-            it.mutableClass.also { classDef ->
+        mutableClassBy(descriptor).let {
+            it.also { classDef ->
                 if (
                     classDef.superclass != JSON_HOOK_CLASS_DESCRIPTOR ||
                     !classDef.fields.any { field -> field.name == "INSTANCE" }
@@ -108,6 +106,6 @@ class JsonHook(
                     throw InvalidClassException(classDef.type, "Not a hook class")
                 }
             }
-        } ?: throw ClassNotFoundException("Failed to find hook class $descriptor")
+        }
     }
 }
