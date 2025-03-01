@@ -1,10 +1,15 @@
 package app.revanced.patches.youtube.shared
 
+import app.revanced.patcher.fieldAccess
 import app.revanced.patcher.fingerprint
+import app.revanced.patcher.newInstance
+import app.revanced.patcher.opcode
+import app.revanced.patcher.string
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal val autoRepeatFingerprint = fingerprint {
+
+internal val autoRepeatFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("V")
     parameters()
@@ -13,32 +18,25 @@ internal val autoRepeatFingerprint = fingerprint {
     }
 }
 
-internal val autoRepeatParentFingerprint = fingerprint {
+internal val autoRepeatParentFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("V")
-    strings(
-        "play() called when the player wasn't loaded.",
-        "play() blocked because Background Playability failed",
+    instructions(
+        string("play() called when the player wasn't loaded."),
+        string("play() blocked because Background Playability failed")
     )
 }
 
-internal val layoutConstructorFingerprint = fingerprint {
+internal val layoutConstructorFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("V")
     parameters()
-    strings("1.0x")
+    instructions(
+        string("1.0x"),
+    )
 }
 
-internal val mainActivityFingerprint = fingerprint {
-    accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
-    parameters()
-    custom { _, classDef ->
-        // Old versions of YouTube called this class "WatchWhileActivity" instead.
-        classDef.endsWith("MainActivity;") || classDef.endsWith("WatchWhileActivity;")
-    }
-}
-
-internal val mainActivityOnCreateFingerprint = fingerprint {
+internal val mainActivityOnCreateFingerprint by fingerprint {
     returns("V")
     parameters("Landroid/os/Bundle;")
     custom { method, classDef ->
@@ -51,7 +49,7 @@ internal val mainActivityOnCreateFingerprint = fingerprint {
     }
 }
 
-internal val rollingNumberTextViewAnimationUpdateFingerprint = fingerprint {
+internal val rollingNumberTextViewAnimationUpdateFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("V")
     parameters("Landroid/graphics/Bitmap;")
@@ -77,16 +75,18 @@ internal val rollingNumberTextViewAnimationUpdateFingerprint = fingerprint {
     }
 }
 
-internal val seekbarFingerprint = fingerprint {
+internal val seekbarFingerprint by fingerprint {
     returns("V")
-    strings("timed_markers_width")
+    instructions(
+        string("timed_markers_width"),
+    )
 }
 
-internal val seekbarOnDrawFingerprint = fingerprint {
+internal val seekbarOnDrawFingerprint by fingerprint {
     custom { method, _ -> method.name == "onDraw" }
 }
 
-internal val subtitleButtonControllerFingerprint = fingerprint {
+internal val subtitleButtonControllerFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("V")
     parameters("Lcom/google/android/libraries/youtube/player/subtitles/model/SubtitleTrack;")
@@ -103,28 +103,15 @@ internal val subtitleButtonControllerFingerprint = fingerprint {
     )
 }
 
-internal val newVideoQualityChangedFingerprint = fingerprint {
+internal val newVideoQualityChangedFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("L")
     parameters("L")
-    opcodes(
-        Opcode.IGET, // Video resolution (human readable).
-        Opcode.IGET_OBJECT,
-        Opcode.IGET_BOOLEAN,
-        Opcode.IGET_OBJECT,
-        Opcode.INVOKE_STATIC,
-        Opcode.MOVE_RESULT_OBJECT,
-        Opcode.INVOKE_DIRECT,
-        Opcode.IGET_OBJECT,
-        Opcode.INVOKE_INTERFACE,
-        Opcode.MOVE_RESULT_OBJECT,
-        Opcode.INVOKE_VIRTUAL,
-        Opcode.GOTO,
-        Opcode.CONST_4,
-        Opcode.IF_NE,
-        Opcode.IGET_OBJECT,
-        Opcode.INVOKE_INTERFACE,
-        Opcode.MOVE_RESULT_OBJECT,
-        Opcode.IGET,
+    instructions(
+        newInstance("Lcom/google/android/libraries/youtube/innertube/model/media/VideoQuality;"),
+        opcode(Opcode.IGET_OBJECT),
+        opcode(Opcode.CHECK_CAST),
+        fieldAccess(type = "I", opcode = Opcode.IGET, maxAfter = 0), // Video resolution (human readable).
+        fieldAccess(type = "Ljava/lang/String;", opcode = Opcode.IGET_OBJECT, maxAfter = 0),
     )
 }

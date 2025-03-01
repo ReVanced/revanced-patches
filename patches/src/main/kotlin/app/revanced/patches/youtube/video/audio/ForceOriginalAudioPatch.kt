@@ -79,9 +79,7 @@ val forceOriginalAudioPatch = bytecodePatch(
         val isDefaultMethod = streamingModelBuilderFingerprint.originalMethod.firstFormatStreamingModelCall("Z")
         val audioTrackIdMethod = menuItemAudioTrackFingerprint.originalMethod.firstFormatStreamingModelCall()
         val audioTrackDisplayNameMethod = audioStreamingTypeSelector.originalMethod.firstFormatStreamingModelCall()
-        val formatStreamModelClass = proxy(classes.first {
-            it.type == audioTrackIdMethod.definingClass
-        }).mutableClass
+        val formatStreamModelClass = mutableClassBy(audioTrackIdMethod.definingClass)
 
         formatStreamModelClass.apply {
             // Add a new field to store the override.

@@ -22,7 +22,6 @@ import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
-import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethodParameter
 
@@ -49,7 +48,7 @@ fun spoofVideoStreamsPatch(
 
         // region Block /initplayback requests to fall back to /get_watch requests.
 
-        val moveUriStringIndex = buildInitPlaybackRequestFingerprint.patternMatch!!.startIndex
+        val moveUriStringIndex = buildInitPlaybackRequestFingerprint.instructionMatches.first().index
 
         buildInitPlaybackRequestFingerprint.method.apply {
             val targetRegister = getInstruction<OneRegisterInstruction>(moveUriStringIndex).registerA
@@ -67,39 +66,39 @@ fun spoofVideoStreamsPatch(
 
         // region Block /get_watch requests to fall back to /player requests.
 
-        val invokeToStringIndex = buildPlayerRequestURIFingerprint.patternMatch!!.startIndex
+        buildPlayerRequestURIFingerprint.let {
+            val invokeToStringIndex = it.instructionMatches.first().index
+            it.method.apply {
+                val uriRegister = getInstruction<FiveRegisterInstruction>(invokeToStringIndex).registerC
 
-        buildPlayerRequestURIFingerprint.method.apply {
-            val uriRegister = getInstruction<FiveRegisterInstruction>(invokeToStringIndex).registerC
-
-            addInstructions(
-                invokeToStringIndex,
-                """
-                    invoke-static { v$uriRegister }, $EXTENSION_CLASS_DESCRIPTOR->blockGetWatchRequest(Landroid/net/Uri;)Landroid/net/Uri;
-                    move-result-object v$uriRegister
-                """,
-            )
+                addInstructions(
+                    invokeToStringIndex,
+                    """
+                        invoke-static { v$uriRegister }, $EXTENSION_CLASS_DESCRIPTOR->blockGetWatchRequest(Landroid/net/Uri;)Landroid/net/Uri;
+                        move-result-object v$uriRegister
+                    """
+                )
+            }
         }
 
         // endregion
 
         // region Get replacement streams at player requests.
 
-        buildRequestFingerprint.method.apply {
-            val newRequestBuilderIndex = indexOfFirstInstructionOrThrow {
-                opcode == Opcode.INVOKE_VIRTUAL &&
-                    getReference<MethodReference>()?.name == "newUrlRequestBuilder"
-            }
-            val urlRegister = getInstruction<FiveRegisterInstruction>(newRequestBuilderIndex).registerD
-            val freeRegister = getInstruction<OneRegisterInstruction>(newRequestBuilderIndex + 1).registerA
+        buildRequestFingerprint.let {
+            it.method.apply {
+                val builderIndex = it.instructionMatches.first().index
+                val urlRegister = getInstruction<FiveRegisterInstruction>(builderIndex).registerD
+                val freeRegister = getInstruction<OneRegisterInstruction>(builderIndex + 1).registerA
 
-            addInstructions(
-                newRequestBuilderIndex,
-                """
-                move-object v$freeRegister, p1
-                invoke-static { v$urlRegister, v$freeRegister }, $EXTENSION_CLASS_DESCRIPTOR->fetchStreams(Ljava/lang/String;Ljava/util/Map;)V
-            """,
-            )
+                addInstructions(
+                    builderIndex,
+                    """
+                        move-object v$freeRegister, p1
+                        invoke-static { v$urlRegister, v$freeRegister }, $EXTENSION_CLASS_DESCRIPTOR->fetchStreams(Ljava/lang/String;Ljava/util/Map;)V
+                    """
+                )
+            }
         }
 
         // endregion
@@ -109,7 +108,7 @@ fun spoofVideoStreamsPatch(
         createStreamingDataFingerprint.method.apply {
             val setStreamDataMethodName = "patch_setStreamingData"
             val resultMethodType = createStreamingDataFingerprint.classDef.type
-            val videoDetailsIndex = createStreamingDataFingerprint.patternMatch!!.endIndex
+            val videoDetailsIndex = createStreamingDataFingerprint.instructionMatches.last().index
             val videoDetailsRegister = getInstruction<TwoRegisterInstruction>(videoDetailsIndex).registerA
             val videoDetailsClass = getInstruction(videoDetailsIndex).getReference<FieldReference>()!!.type
 
@@ -120,7 +119,7 @@ fun spoofVideoStreamsPatch(
             )
 
             val protobufClass = protobufClassParseByteBufferFingerprint.method.definingClass
-            val setStreamingDataIndex = createStreamingDataFingerprint.patternMatch!!.startIndex
+            val setStreamingDataIndex = createStreamingDataFingerprint.instructionMatches.first().index
 
             val playerProtoClass = getInstruction(setStreamingDataIndex + 1)
                 .getReference<FieldReference>()!!.definingClass
@@ -231,10 +230,12 @@ fun spoofVideoStreamsPatch(
 
         // region Fix iOS livestream current time.
 
-        hlsCurrentTimeFingerprint.method.insertFeatureFlagBooleanOverride(
-            HLS_CURRENT_TIME_FEATURE_FLAG,
-            "$EXTENSION_CLASS_DESCRIPTOR->fixHLSCurrentTime(Z)Z"
-        )
+        hlsCurrentTimeFingerprint.let {
+            it.method.insertFeatureFlagBooleanOverride(
+                it.instructionMatches.first().index,
+                "$EXTENSION_CLASS_DESCRIPTOR->fixHLSCurrentTime(Z)Z"
+            )
+        }
 
         // endregion
 
