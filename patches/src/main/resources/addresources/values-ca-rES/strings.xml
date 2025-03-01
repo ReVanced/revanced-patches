@@ -301,13 +301,13 @@ No se t'informarà de cap esdeveniment inesperat."</string>
   <string name="revanced_hide_description_components_screen_title">Descripció del vídeo</string>
   <string name="revanced_hide_description_components_screen_summary">Amaga o mostra els components de descripció del vídeo</string>
   <string name="revanced_hide_filter_bar_screen_title">Barra de filtre</string>
-  <string name="revanced_hide_filter_bar_screen_summary">Mostra o amaga la barra de filtre al feed, la cerca i els vídeos relacionats</string>
+  <string name="revanced_hide_filter_bar_screen_summary">Amaga o mostra la barra de filtre al canal, als resultats de cerca i als vídeos relacionats</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_title">Amaga al feed</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_summary_on">Amagat al feed</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_summary_off">Es mostra al feed</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_title">Amaga a la cerca</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_summary_on">Amagat a la cerca</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_summary_off">Mostrat a la cerca</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_title">Amaga als resultats de cerca</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_summary_on">Amagat als resultats de cerca</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_summary_off">Mostrat als resultats de cerca</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_title">Amaga els vídeos relacionats</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_on">Amagats als vídeos relacionats</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">Es mostren els vídeos relacionats</string>

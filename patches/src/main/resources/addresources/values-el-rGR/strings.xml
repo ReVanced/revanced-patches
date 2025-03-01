@@ -303,7 +303,7 @@ Second \"item\" text"</string>
   <string name="revanced_hide_description_components_screen_title">Περιγραφή βίντεο</string>
   <string name="revanced_hide_description_components_screen_summary">Απόκρυψη ή εμφάνιση στοιχείων περιγραφής βίντεο</string>
   <string name="revanced_hide_filter_bar_screen_title">Γραμμή φίλτρων</string>
-  <string name="revanced_hide_filter_bar_screen_summary">Απόκρυψη η εμφάνιση της γραμμής φίλτρων στη ροή, αναζήτηση και τα σχετικά βίντεο</string>
+  <string name="revanced_hide_filter_bar_screen_summary">Απόκρυψη ή εμφάνιση της γραμμής φίλτρων στην ροή, στα αποτελέσματα αναζήτησης και στα σχετικά βίντεο</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_title">Απόκρυψη στη ροή</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_summary_on">Κρυμμένη</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_summary_off">Εμφανίζεται</string>

@@ -301,13 +301,13 @@ Non sarai notificato di eventi imprevisti."</string>
   <string name="revanced_hide_description_components_screen_title">Descrizione del video</string>
   <string name="revanced_hide_description_components_screen_summary">Mostra o nascondi i componenti della descrizione del video</string>
   <string name="revanced_hide_filter_bar_screen_title">Barra dei filtri</string>
-  <string name="revanced_hide_filter_bar_screen_summary">Mostra o nascondi la barra dei filtri nel feed, nella ricerca e nei video correlati</string>
+  <string name="revanced_hide_filter_bar_screen_summary">Nascondi o mostra la barra dei filtri nel feed, nei risultati di ricerca e nei video correlati</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_title">Nascondi nel feed</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_summary_on">È nascosto nel feed</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_summary_off">È visibile nel feed</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_title">Nascondi nella ricerca</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_summary_on">È nascosto nella ricerca</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_summary_off">È visibile nella ricerca</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_title">Nascondi nei risultati di ricerca</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_summary_on">Nascosto nei risultati di ricerca</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_summary_off">Mostrato nei risultati di ricerca</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_title">Nascondi nei video correlati</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_on">Nascosto nei video correlati</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">È visibile nei video correlati</string>
