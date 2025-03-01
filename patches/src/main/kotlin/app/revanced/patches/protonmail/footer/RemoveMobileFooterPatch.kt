@@ -11,7 +11,7 @@ val removeMobileFooterPatch = resourcePatch(
 ) {
     execute {
 
-        //TODO: This breaks if Proton Mail removes a language and goes out of date if they add one.
+        //TODO: This goes out of date if Proton Mail adds additional languages.
         //It could be improved by dynamically iterating through all directories in /res/ .
         val directories = listOf(
             "res/values",
