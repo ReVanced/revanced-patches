@@ -105,17 +105,18 @@ val returnYouTubeDislikePatch = bytecodePatch(
 
         // region Hook code for creation and cached lookup of text Spans.
 
-        // Alternatively the hook can be made at tht it fails to update the Span when the user dislikes,
-        // since the underlying (likes only) tee creation of Spans in TextComponentSpec,
-        // And it works in all situations excepxt did not change.
+        // Alternatively the hook can be made in the creation of Spans in TextComponentSpec.
+        // And it works in all situations except if the likes do not such as disliking.
         // This hook handles all situations, as it's where the created Spans are stored and later reused.
+
         // Find the field name of the conversion context.
         val conversionContextField = textComponentConstructorFingerprint.originalClassDef.fields.find {
             it.type == conversionContextFingerprint.originalClassDef.type
         } ?: throw PatchException("Could not find conversion context field")
 
-        textComponentLookupFingerprint.match(textComponentConstructorFingerprint.originalClassDef)
-        textComponentLookupFingerprint.method.apply {
+        textComponentLookupFingerprint.match(
+            textComponentConstructorFingerprint.originalClassDef
+        ).method.apply {
             // Find the instruction for creating the text data object.
             val textDataClassType = textComponentDataFingerprint.originalClassDef.type
 
@@ -124,21 +125,20 @@ val returnYouTubeDislikePatch = bytecodePatch(
             val charSequenceRegister: Int
 
             if (is_19_33_or_greater) {
-                insertIndex = indexOfFirstInstructionOrThrow {
+                val index = indexOfFirstInstructionOrThrow {
                     (opcode == Opcode.INVOKE_STATIC || opcode == Opcode.INVOKE_STATIC_RANGE)
                             && getReference<MethodReference>()?.returnType == textDataClassType
                 }
 
-                tempRegister = getInstruction<OneRegisterInstruction>(insertIndex + 1).registerA
-
-                // Find the instruction that sets the span to an instance field.
-                // The instruction is only a few lines after the creation of the instance.
-                charSequenceRegister = getInstruction<FiveRegisterInstruction>(
-                    indexOfFirstInstructionOrThrow(insertIndex) {
-                        opcode == Opcode.INVOKE_VIRTUAL &&
+                insertIndex = indexOfFirstInstructionOrThrow(index) {
+                    opcode == Opcode.INVOKE_VIRTUAL &&
                             getReference<MethodReference>()?.parameterTypes?.firstOrNull() == "Ljava/lang/CharSequence;"
-                    },
-                ).registerD
+                }
+
+                charSequenceRegister = getInstruction<FiveRegisterInstruction>(insertIndex).registerD
+
+                val tempRegisterIndex = indexOfFirstInstructionOrThrow(insertIndex, Opcode.IGET_OBJECT)
+                tempRegister = getInstruction<TwoRegisterInstruction>(tempRegisterIndex).registerA
             } else {
                 insertIndex = indexOfFirstInstructionOrThrow {
                     opcode == Opcode.NEW_INSTANCE &&
@@ -158,12 +158,12 @@ val returnYouTubeDislikePatch = bytecodePatch(
             addInstructionsAtControlFlowLabel(
                 insertIndex,
                 """
-                        # Copy conversion context
-                        move-object/from16 v$tempRegister, p0
-                        iget-object v$tempRegister, v$tempRegister, $conversionContextField
-                        invoke-static { v$tempRegister, v$charSequenceRegister }, $EXTENSION_CLASS_DESCRIPTOR->onLithoTextLoaded(Ljava/lang/Object;Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
-                        move-result-object v$charSequenceRegister
-                    """,
+                    # Copy conversion context
+                    move-object/from16 v$tempRegister, p0
+                    iget-object v$tempRegister, v$tempRegister, $conversionContextField
+                    invoke-static { v$tempRegister, v$charSequenceRegister }, $EXTENSION_CLASS_DESCRIPTOR->onLithoTextLoaded(Ljava/lang/Object;Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
+                    move-result-object v$charSequenceRegister
+                """
             )
         }
 
@@ -193,21 +193,21 @@ val returnYouTubeDislikePatch = bytecodePatch(
             addInstructionsWithLabels(
                 insertIndex,
                 """
-                        # Check, if the TextView is for a dislike button
-                        iget-boolean v0, p0, $isDisLikesBooleanReference
-                        if-eqz v0, :is_like
-                        
-                        # Hook the TextView, if it is for the dislike button
-                        iget-object v0, p0, $textViewFieldReference
-                        invoke-static {v0}, $EXTENSION_CLASS_DESCRIPTOR->setShortsDislikes(Landroid/view/View;)Z
-                        move-result v0
-                        if-eqz v0, :ryd_disabled
-                        return-void
-                        
-                        :is_like
-                        :ryd_disabled
-                        nop
-                    """,
+                    # Check, if the TextView is for a dislike button
+                    iget-boolean v0, p0, $isDisLikesBooleanReference
+                    if-eqz v0, :is_like
+                    
+                    # Hook the TextView, if it is for the dislike button
+                    iget-object v0, p0, $textViewFieldReference
+                    invoke-static {v0}, $EXTENSION_CLASS_DESCRIPTOR->setShortsDislikes(Landroid/view/View;)Z
+                    move-result v0
+                    if-eqz v0, :ryd_disabled
+                    return-void
+                    
+                    :is_like
+                    :ryd_disabled
+                    nop
+                """
             )
         }
 
@@ -246,7 +246,7 @@ val returnYouTubeDislikePatch = bytecodePatch(
                     invoke-static {v$conversionContextRegister, v$freeRegister}, $EXTENSION_CLASS_DESCRIPTOR->onRollingNumberLoaded(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/String;
                     move-result-object v$freeRegister
                     iput-object v$freeRegister, v$charSequenceInstanceRegister, $charSequenceFieldReference
-                """,
+                """
             )
         }
 
@@ -284,7 +284,7 @@ val returnYouTubeDislikePatch = bytecodePatch(
                     """
                         move-result v$freeRegister
                         invoke-static {p1, v$freeRegister}, $EXTENSION_CLASS_DESCRIPTOR->onRollingNumberMeasured(Ljava/lang/String;F)F
-                    """,
+                    """
                 )
             }
         }
