@@ -9,7 +9,7 @@ val removeSentFromSignaturePatch = resourcePatch(
     name = "Remove \"Sent from\" signature",
     description = "Removes the 'Sent from Proton Mail mobile' signature from emails.",
 ) {
-    compatibleWith("ch.protonmail.android"("4.7.2"))
+    compatibleWith("ch.protonmail.android")
     execute {
         //TODO: This goes out of date if Proton Mail adds additional languages.
         //It could be improved by dynamically iterating through all directories in /res/ .
