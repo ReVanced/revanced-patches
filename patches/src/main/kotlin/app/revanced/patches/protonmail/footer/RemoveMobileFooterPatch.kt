@@ -46,7 +46,6 @@ val removeMobileFooterPatch = resourcePatch(
             "res/values-uk",
             "res/values-zh-rCN",
             "res/values-zh-rTW",
-            "res/testbreak"
         )
 
         directories.forEach { directory ->
