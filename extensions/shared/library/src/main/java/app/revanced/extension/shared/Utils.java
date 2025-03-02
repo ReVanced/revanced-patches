@@ -362,27 +362,18 @@ public class Utils {
     }
 
     public static void setContext(Context appContext) {
-        // Must initially set context as the language settings needs it.
+        // Must initially set context to check the app language.
         context = appContext;
+        Logger.initializationInfo(Utils.class, "Set context: " + appContext);
 
         AppLanguage language = BaseSettings.REVANCED_LANGUAGE.get();
         if (language != AppLanguage.DEFAULT) {
             // Create a new context with the desired language.
+            Logger.printDebug(() -> "Using app language: " + language);
             Configuration config = appContext.getResources().getConfiguration();
             config.setLocale(language.getLocale());
             context = appContext.createConfigurationContext(config);
         }
-
-        // In some apps like TikTok, the Setting classes can load in weird orders due to cyclic class dependencies.
-        // Calling the regular printDebug method here can cause a Settings context null pointer exception,
-        // even though the context is already set before the call.
-        //
-        // The initialization logger methods do not directly or indirectly
-        // reference the Context or any Settings and are unaffected by this problem.
-        //
-        // Info level also helps debug if a patch hook is called before
-        // the context is set since debug logging is off by default.
-        Logger.initializationInfo(Utils.class, "Set context: " + appContext);
     }
 
     public static void setClipboard(@NonNull String text) {
