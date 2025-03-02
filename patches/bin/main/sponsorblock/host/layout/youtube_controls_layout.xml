@@ -1,0 +1,28 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <com.google.android.libraries.youtube.common.ui.TouchImageView
+        android:id="@+id/revanced_sb_voting_button"
+        style="@style/YouTubePlayerButton"
+        android:layout_width="@dimen/controls_overlay_action_button_size"
+        android:layout_height="@dimen/controls_overlay_action_button_size"
+        android:layout_alignWithParentIfMissing="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="4dp"
+        android:layout_toStartOf="@+id/revanced_sb_create_segment_button"
+        android:padding="@dimen/controls_overlay_action_button_padding"
+        android:src="@drawable/revanced_sb_voting" />
+
+    <com.google.android.libraries.youtube.common.ui.TouchImageView
+        android:id="@+id/revanced_sb_create_segment_button"
+        style="@style/YouTubePlayerButton"
+        android:layout_width="@dimen/controls_overlay_action_button_size"
+        android:layout_height="@dimen/controls_overlay_action_button_size"
+        android:layout_alignWithParentIfMissing="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="4dp"
+        android:layout_toStartOf="@id/music_app_deeplink_button"
+        android:padding="@dimen/controls_overlay_action_button_padding"
+        android:src="@drawable/revanced_sb_logo" />
+</RelativeLayout>
