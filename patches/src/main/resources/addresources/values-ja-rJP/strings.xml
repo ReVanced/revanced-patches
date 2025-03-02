@@ -812,7 +812,7 @@ GmsCore の電池の最適化を無効にしても、バッテリーの使用に
   </patch>
   <patch id="layout.hide.endscreensuggestion.hideEndScreenSuggestedVideoPatch">
   <string name="revanced_end_screen_suggested_video_title">再生終了時に「関連動画」を表示しない</string>
-  <string name="revanced_end_screen_suggested_video_summary_on">"再生終了時に「関連動画」は表示されません (自動再生が無効の場合)
+  <string name="revanced_end_screen_suggested_video_summary_on">"自動再生を無効にすると、再生終了時に「関連動画」は表示されません 
 
 自動再生の設定は YouTube の設定で変更できます:
 設定 → 再生 → 次の動画を自動再生"</string>
