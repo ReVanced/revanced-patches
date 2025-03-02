@@ -1,6 +1,7 @@
 package app.revanced.patches.youtube.misc.debugging
 
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
+import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
@@ -11,9 +12,11 @@ import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.playservice.versionCheckPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
+import app.revanced.util.findInstructionIndicesReversedOrThrow
 import app.revanced.util.indexOfFirstInstructionOrThrow
 import app.revanced.util.indexOfFirstInstructionReversedOrThrow
 import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 private const val EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/youtube/patches/EnableDebuggingPatch;"
@@ -61,19 +64,17 @@ val enableDebuggingPatch = bytecodePatch(
         experimentalBooleanFeatureFlagFingerprint.match(
             experimentalFeatureFlagParentFingerprint.originalClassDef
         ).method.apply {
-            val insertIndex = indexOfFirstInstructionOrThrow(Opcode.MOVE_RESULT)
+            findInstructionIndicesReversedOrThrow(Opcode.RETURN).forEach { index ->
+                val register = getInstruction<OneRegisterInstruction>(index).registerA
 
-            // It appears that all usage of this method has a default of 'false',
-            // so there's no need to pass in the default.
-            addInstructions(
-                insertIndex,
-                """
-                    move-result v0
-                    invoke-static { v0, p1, p2 }, $EXTENSION_CLASS_DESCRIPTOR->isBooleanFeatureFlagEnabled(ZJ)Z
-                    move-result v0
-                    return v0
-                """
-            )
+                addInstructions(
+                    index,
+                    """
+                        invoke-static { v$register, p1 }, $EXTENSION_CLASS_DESCRIPTOR->isBooleanFeatureFlagEnabled(ZLjava/lang/Long;)Z
+                        move-result v$register
+                    """
+                )
+            }
         }
 
         experimentalDoubleFeatureFlagFingerprint.match(
@@ -92,7 +93,6 @@ val enableDebuggingPatch = bytecodePatch(
             )
         }
 
-
         experimentalLongFeatureFlagFingerprint.match(
             experimentalFeatureFlagParentFingerprint.originalClassDef
         ).method.apply {
@@ -108,21 +108,22 @@ val enableDebuggingPatch = bytecodePatch(
                 """
             )
 
-            experimentalStringFeatureFlagFingerprint.match(
-                experimentalFeatureFlagParentFingerprint.originalClassDef
-            ).method.apply {
-                val insertIndex = indexOfFirstInstructionReversedOrThrow(Opcode.MOVE_RESULT_OBJECT)
+        }
 
-                addInstructions(
-                    insertIndex,
-                    """
-                        move-result-object v0
-                        invoke-static { v0, p1, p2, p3 }, $EXTENSION_CLASS_DESCRIPTOR->isStringFeatureFlagEnabled(Ljava/lang/String;JLjava/lang/String;)Ljava/lang/String;
-                        move-result-object v0
-                        return-object v0
-                    """
-                )
-            }
+        experimentalStringFeatureFlagFingerprint.match(
+            experimentalFeatureFlagParentFingerprint.originalClassDef
+        ).method.apply {
+            val insertIndex = indexOfFirstInstructionReversedOrThrow(Opcode.MOVE_RESULT_OBJECT)
+
+            addInstructions(
+                insertIndex,
+                """
+                    move-result-object v0
+                    invoke-static { v0, p1, p2, p3 }, $EXTENSION_CLASS_DESCRIPTOR->isStringFeatureFlagEnabled(Ljava/lang/String;JLjava/lang/String;)Ljava/lang/String;
+                    move-result-object v0
+                    return-object v0
+                """
+            )
         }
 
         // There exists other experimental accessor methods for byte[]
