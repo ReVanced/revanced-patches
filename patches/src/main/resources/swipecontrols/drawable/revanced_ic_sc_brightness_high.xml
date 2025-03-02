@@ -1,0 +1,29 @@
+<!--
+   https://github.com/google/material-design-icons/blob/9beae745bb758f3ad56654fb377ea5cf62be4915/symbols/android/brightness_high/materialsymbolsoutlined/brightness_high_wght300_24px.xml
+   Changes made: The center circle of the icon has been edited.
+
+Copyright 2022 Google
+
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+-->
+
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+        android:width="24dp"
+        android:height="24dp"
+        android:viewportWidth="24"
+        android:viewportHeight="24"
+        android:tint="?attr/colorControlNormal">
+    <path
+            android:fillColor="@android:color/white"
+            android:pathData="M12,1.40039 L8.84961,4.5 L4.5,4.5 L4.5,8.84961 L1.40039,12 L4.5,15.1504 L4.5,19.5 L8.84961,19.5 L12,22.5996 L15.1504,19.5 L19.5,19.5 L19.5,15.1504 L22.5996,12 L19.5,8.84961 L19.5,4.5 L15.1504,4.5 L12,1.40039 Z M12,3.5 L14.5,6 L18,6 L18,9.5 L20.5,12 L18,14.5 L18,18 L14.5,18 L12,20.5 L9.5,18 L6,18 L6,14.5 L3.5,12 L6,9.5 L6,6 L9.5,6 L12,3.5 Z M12,6 L12,12 L6,12 C6,13.6667,6.58334,15.0833,7.75,16.25 C8.91666,17.4167,10.3333,18,12,18 C13.6667,18,15.0833,17.4167,16.25,16.25 C17.4167,15.0833,18,13.6667,18,12 C18,10.3333,17.4167,8.91667,16.25,7.75 C15.0833,6.58333,13.6667,6,12,6 Z"/>
+</vector>

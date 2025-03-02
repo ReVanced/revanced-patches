@@ -4,11 +4,8 @@ import static app.revanced.extension.shared.StringRef.str;
 import static app.revanced.extension.youtube.shared.NavigationBar.NavigationButton;
 import static java.lang.Character.UnicodeBlock.*;
 
-import android.os.Build;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.annotation.RequiresApi;
 
 import java.nio.charset.StandardCharsets;
 import java.util.LinkedHashMap;
@@ -44,7 +41,6 @@ import app.revanced.extension.youtube.shared.PlayerType;
  * - When using whole word syntax, some keywords may need additional pluralized variations.
  */
 @SuppressWarnings("unused")
-@RequiresApi(api = Build.VERSION_CODES.N)
 final class KeywordContentFilter extends Filter {
 
     /**

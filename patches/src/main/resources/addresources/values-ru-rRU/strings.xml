@@ -168,9 +168,6 @@ Second \"item\" text"</string>
 Вы не будете уведомлены о каких-либо непредвиденных событиях."</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
-  <string name="revanced_disable_like_subscribe_glow_title">Отключить подсветку кнопок \"Лайк\" и \"Подписаться\"</string>
-  <string name="revanced_disable_like_subscribe_glow_summary_on">Кнопки \"Лайк\" и \"Подписаться\" при упоминании не подсвечиваются</string>
-  <string name="revanced_disable_like_subscribe_glow_summary_off">Кнопки \"Лайк\" и \"Подписаться\" при упоминании подсвечиваются</string>
   <string name="revanced_hide_album_cards_title">Скрыть карточки альбомов</string>
   <string name="revanced_hide_album_cards_summary_on">Карточки альбомов под описанием артистов скрыты</string>
   <string name="revanced_hide_album_cards_summary_off">Карточки альбомов под описанием артистов показаны</string>
@@ -205,7 +202,7 @@ Second \"item\" text"</string>
   <string name="revanced_hide_notify_me_button_title">Скрыть кнопку \"Прислать уведомление\"</string>
   <string name="revanced_hide_notify_me_button_summary_on">Кнопка \"Прислать уведомление\" под плеером скрыта</string>
   <string name="revanced_hide_notify_me_button_summary_off">Кнопка \"Прислать уведомление\" под плеером показана</string>
-  <!-- 'People also watch' should be translated using the same localized wording YouTube displays. -->
+  <!-- 'People also watched' should be translated using the same localized wording YouTube displays. -->
   <string name="revanced_hide_search_result_recommendations_title">Скрыть рекомендации \"Зрители также посмотрели\"</string>
   <string name="revanced_hide_search_result_recommendations_summary_on">Рекомендации \"Зрители также посмотрели\" в ленте скрыты</string>
   <string name="revanced_hide_search_result_recommendations_summary_off">Рекомендации \"Зрители также посмотрели\" в ленте показаны</string>
@@ -281,8 +278,8 @@ Second \"item\" text"</string>
   <string name="revanced_hide_artist_cards_summary_on">Карточки исполнителей под плеером скрыты</string>
   <string name="revanced_hide_artist_cards_summary_off">Карточки исполнителей под плеером показаны</string>
   <string name="revanced_hide_attributes_section_title">Скрыть раздел атрибутов</string>
-  <string name="revanced_hide_attributes_section_summary_on">Разделы \"Упомянутые или показанные места\", \"Игры\" и \"Музыка\" в описании видео скрыты</string>
-  <string name="revanced_hide_attributes_section_summary_off">Разделы \"Упомянутые или показанные места\", \"Игры\" и \"Музыка\" в описании видео показаны</string>
+  <string name="revanced_hide_attributes_section_summary_on">Разделы \"Упомянутые или показанные места\", \"Игры\", \"Музыка\" и \"Люди, которых упоминали\" скрыты</string>
+  <string name="revanced_hide_attributes_section_summary_off">Разделы \"Упомянутые или показанные места\", \"Игры\", \"Музыка\" и \"Люди, которых упоминали\" показаны</string>
   <string name="revanced_hide_chapters_section_title">Скрыть раздел \"Эпизоды\"</string>
   <string name="revanced_hide_chapters_section_summary_on">Раздел \"Эпизоды\" в описании видео скрыт</string>
   <string name="revanced_hide_chapters_section_summary_off">Раздел \"Эпизоды\" в описании видео показан</string>
@@ -304,13 +301,13 @@ Second \"item\" text"</string>
   <string name="revanced_hide_description_components_screen_title">Описание видео</string>
   <string name="revanced_hide_description_components_screen_summary">Скрыть или показать компоненты описания видео</string>
   <string name="revanced_hide_filter_bar_screen_title">Панель фильтров</string>
-  <string name="revanced_hide_filter_bar_screen_summary">Скрыть или показать панель фильтров в ленте, поиске и похожих видео</string>
+  <string name="revanced_hide_filter_bar_screen_summary">Скрыть или показать панель фильтров в ленте, результатах поиска и похожих видео</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_title">Скрыть панель фильтров в ленте</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_summary_on">Панель фильтров в ленте скрыта</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_summary_off">Панель фильтров в ленте показана</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_title">Скрыть панель фильтров в поиске</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_summary_on">Панель фильтров в поиске скрыта</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_summary_off">Панель фильтров в поиске показана</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_title">Скрыть в результатах поиска</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_summary_on">Shorts в результатах поиска скрыты</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_summary_off">Shorts в результатах поиска показаны</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_title">Скрыть панель фильтров в похожих видео</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_on">Панель фильтров в похожих видео скрыта</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">Панель фильтров в похожих видео показана</string>
@@ -318,7 +315,7 @@ Second \"item\" text"</string>
   <string name="revanced_comments_screen_summary">Скрыть или показать компоненты раздела комментариев</string>
   <string name="revanced_hide_comments_chat_summary_title">Скрыть баннер \"Обзор чата\"</string>
   <string name="revanced_hide_comments_chat_summary_summary_on">Баннер \"Обзор чата\" в чатах прямых трансляций скрыт</string>
-  <string name="revanced_hide_comments_chat_summary_summary_off">Баннер \"Обзор чата\" в чатах прямых трансляций  показан</string>
+  <string name="revanced_hide_comments_chat_summary_summary_off">Баннер \"Обзор чата\" в чатах прямых трансляций показан</string>
   <string name="revanced_hide_comments_by_members_header_title">Скрыть заголовок \"Комментарии спонсоров\"</string>
   <string name="revanced_hide_comments_by_members_header_summary_on">Заголовок \"Комментарии спонсоров\" в комментариях скрыт</string>
   <string name="revanced_hide_comments_by_members_header_summary_off">Заголовок \"Комментарии спонсоров\" в комментариях показан</string>
@@ -328,15 +325,15 @@ Second \"item\" text"</string>
   <string name="revanced_hide_comments_create_a_short_button_title">Скрыть кнопку \"Создать Short\"</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_on">Кнопка \"Создать Short\" при ответе на комментарий скрыта</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_off">Кнопка \"Создать Short\" при ответе на комментарий показана</string>
+  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_title">Скрыть кнопки эмодзи и меток времени</string>
+  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_on">Кнопки эмодзи и меток времени скрыты</string>
+  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_off">Кнопки эмодзи и меток времени показаны</string>
   <string name="revanced_hide_comments_preview_comment_title">Скрыть предпросмотр комментария</string>
   <string name="revanced_hide_comments_preview_comment_summary_on">Предпросмотр комментария под плеером скрыт</string>
   <string name="revanced_hide_comments_preview_comment_summary_off">Предпросмотр комментария под плеером показан</string>
   <string name="revanced_hide_comments_thanks_button_title">Скрыть кнопку \"Спасибо\"</string>
   <string name="revanced_hide_comments_thanks_button_summary_on">Кнопка \"Спасибо\" в комментариях скрыта</string>
   <string name="revanced_hide_comments_thanks_button_summary_off">Кнопка \"Спасибо\" в комментариях показана</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_title">Скрыть метку времени и кнопки эмодзи</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_on">Метка времени и кнопки эмодзи в комментариях скрыты</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_off">Метка времени и кнопки эмодзи в комментариях показаны</string>
   <!-- https://logos.fandom.com/wiki/YouTube/Yoodles -->
   <string name="revanced_hide_doodles_title">Скрыть YouTube Doodles</string>
   <string name="revanced_hide_doodles_summary_on">Doodles на панели поиска скрыты</string>
@@ -484,10 +481,14 @@ Second \"item\" text"</string>
   </patch>
   <patch id="interaction.swipecontrols.swipeControlsResourcePatch">
   <string name="revanced_swipe_brightness_title">Включить регулировку яркости жестом</string>
-  <string name="revanced_swipe_brightness_summary_on">Регулировка яркости жестом включена</string>
+  <string name="revanced_swipe_brightness_summary_on">"Регулировка яркости жестом включена
+
+Изменяйте яркость  вертикальным жестом по левой стороне экрана"</string>
   <string name="revanced_swipe_brightness_summary_off">Регулировка яркости жестом отключена</string>
   <string name="revanced_swipe_volume_title">Включить регулировку громкости жестом</string>
-  <string name="revanced_swipe_volume_summary_on">Регулировка громкости жестом включена</string>
+  <string name="revanced_swipe_volume_summary_on">"Регулировка громкости жестом включена
+
+Изменяйте громкость  вертикальным жестом по левой стороне экрана"</string>
   <string name="revanced_swipe_volume_summary_off">Регулировка громкости жестом отключена</string>
   <string name="revanced_swipe_press_to_engage_title">Включить нажатие для выполнения жестов</string>
   <string name="revanced_swipe_press_to_engage_summary_on">Нажатие для выполнения жестов включено</string>
@@ -501,16 +502,19 @@ Second \"item\" text"</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_title">Включить жест автояркости</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_on">Активация автояркости жестом до самого низкого значения яркости включена</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_off">Активация автояркости жестом до самого низкого значения яркости отключена</string>
-  <string name="revanced_swipe_lowest_value_enable_auto_brightness_overlay_text">Автоматически</string>
   <string name="revanced_swipe_overlay_timeout_title">Время показа панели жестов</string>
   <string name="revanced_swipe_overlay_timeout_summary">Количество миллисекунд для показа всплывающей панели при жестах</string>
-  <string name="revanced_swipe_text_overlay_size_title">Размер текста панели жестов</string>
-  <string name="revanced_swipe_text_overlay_size_summary">Размер текста всплывающей панели при жестах</string>
   <string name="revanced_swipe_overlay_background_opacity_title">Затемнение фона панели жестов</string>
   <string name="revanced_swipe_overlay_background_opacity_summary">Значение затемнения всплывающей панели при жестах от 0 до 100</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Значение затемнения панели жестов должно быть от 0 до 100</string>
   <string name="revanced_swipe_threshold_title">Порог величины жеста</string>
   <string name="revanced_swipe_threshold_summary">Минимальная амплитуда движения, распознаваемого как жест</string>
+  <string name="revanced_swipe_show_circular_overlay_title">Показать круговой индикатор</string>
+  <string name="revanced_swipe_show_circular_overlay_summary_on">Круговой индикатор показан</string>
+  <string name="revanced_swipe_show_circular_overlay_summary_off">Горизонтальный индикатор показан</string>
+  <string name="revanced_swipe_overlay_minimal_style_title">Включить минимальный стиль</string>
+  <string name="revanced_swipe_overlay_minimal_style_summary_on">Минимальный стиль индикатора включен</string>
+  <string name="revanced_swipe_overlay_minimal_style_summary_off">Минимальный стиль индикатора отключен</string>
   <string name="revanced_swipe_change_video_title">Включить переключение видео жестом</string>
   <string name="revanced_swipe_change_video_summary_on">Жест в полноэкранном режиме переключает на следующее/предыдущее видео</string>
   <string name="revanced_swipe_change_video_summary_off">Жест в полноэкранном режиме не переключает на следующее/предыдущее видео</string>
@@ -523,6 +527,9 @@ Second \"item\" text"</string>
   <patch id="layout.buttons.action.hideButtonsPatch">
   <string name="revanced_hide_buttons_screen_title">Кнопки действий</string>
   <string name="revanced_hide_buttons_screen_summary">Скрыть или показать кнопки действий под плеером</string>
+  <string name="revanced_disable_like_subscribe_glow_title">Отключить подсветку кнопок \"Лайк\" и \"Подписаться\"</string>
+  <string name="revanced_disable_like_subscribe_glow_summary_on">Кнопки \"Лайк\" и \"Подписаться\" при упоминании не подсвечиваются</string>
+  <string name="revanced_disable_like_subscribe_glow_summary_off">Кнопки \"Лайк\" и \"Подписаться\" при упоминании подсвечиваются</string>
   <string name="revanced_hide_like_dislike_button_title">Скрыть кнопки \"Лайк\" и \"Дизлайк\"</string>
   <string name="revanced_hide_like_dislike_button_summary_on">Кнопки \"Лайк\" и \"Дизлайк\" под плеером скрыты</string>
   <string name="revanced_hide_like_dislike_button_summary_off">Кнопки \"Лайк\" и \"Дизлайк\" под плеером показаны</string>
@@ -575,12 +582,18 @@ Second \"item\" text"</string>
   <string name="revanced_hide_subscriptions_button_title">Скрыть кнопку \"Подписки\"</string>
   <string name="revanced_hide_subscriptions_button_summary_on">Кнопка \"Подписки\" в панели навигации скрыта</string>
   <string name="revanced_hide_subscriptions_button_summary_off">Кнопка \"Подписки\" в панели навигации показана</string>
+  <string name="revanced_hide_notifications_button_title">Скрыть кнопку \"Уведомления\"</string>
+  <string name="revanced_hide_notifications_button_summary_on">Кнопка \"Уведомления\" в панели навигации скрыта</string>
+  <string name="revanced_hide_notifications_button_summary_off">Кнопка \"Уведомления\" в панели навигации показана</string>
   <!-- 'Notifications' should be translated using the same localized wording YouTube displays the tab. -->
   <string name="revanced_switch_create_with_notifications_button_title">Поменять местами кнопки \"Создать\" и \"Уведомления\"</string>
   <string name="revanced_switch_create_with_notifications_button_summary_on">"Кнопка \"Создать\" поменяна местами с кнопкой \"Уведомления\"
 
 Примечание: активация данной опции также принудительно скроет видеорекламу"</string>
   <string name="revanced_switch_create_with_notifications_button_summary_off">Кнопка \"Создать\" не поменяна местами с кнопкой \"Уведомления\"</string>
+  <string name="revanced_switch_create_with_notifications_button_user_dialog_message">"Отключение этого параметра также отключит блокировку рекламы в Shorts.
+
+Если изменение этого параметра не вступило в силу, попробуйте перейти в режим инкогнито."</string>
   <string name="revanced_hide_navigation_button_labels_title">Скрыть подписи кнопок навигации</string>
   <string name="revanced_hide_navigation_button_labels_summary_on">Подписи кнопок навигации скрыты</string>
   <string name="revanced_hide_navigation_button_labels_summary_off">Подписи кнопок навигации показаны</string>
@@ -795,10 +808,13 @@ Second \"item\" text"</string>
   <string name="revanced_hide_shorts_navigation_bar_summary_on">Панель навигации в Shorts скрыта</string>
   <string name="revanced_hide_shorts_navigation_bar_summary_off">Панель навигации в Shorts показана</string>
   </patch>
-  <patch id="layout.hide.suggestedvideoendscreen.disableSuggestedVideoEndScreenResourcePatch">
-  <string name="revanced_disable_suggested_video_end_screen_title">Отключить предлагаемые видео</string>
-  <string name="revanced_disable_suggested_video_end_screen_summary_on">Предлагаемые видео в конце просмотра скрыты</string>
-  <string name="revanced_disable_suggested_video_end_screen_summary_off">Предлагаемые видео в конце просмотра показаны</string>
+  <patch id="layout.hide.endscreensuggestion.hideEndScreenSuggestedVideoPatch">
+  <string name="revanced_end_screen_suggested_video_title">Скрыть предложенное видео на экране завершения</string>
+  <string name="revanced_end_screen_suggested_video_summary_on">"Предложенное видео на экране завершения скрыто, когда автовоспроизведение выключено.
+
+Автовоспроизведение можно изменить в настройках YouTube:
+Настройки → Воспроизведение → Автовоспроизведение следующего видео"</string>
+  <string name="revanced_end_screen_suggested_video_summary_off">Предложенное видео на экране завершения отображается</string>
   </patch>
   <patch id="layout.hide.time.hideTimestampPatch">
   <string name="revanced_hide_timestamp_title">Скрыть метку времени видео</string>
@@ -1042,9 +1058,9 @@ Second \"item\" text"</string>
   <string name="revanced_sb_new_segment_disabled_category">Категория отключена в настройках. Включите категорию для отправки.</string>
   <string name="revanced_sb_new_segment_title">Новый сегмент SponsorBlock</string>
   <string name="revanced_sb_new_segment_mark_time_as_question">Установить %s в качестве начала или конца нового сегмента?</string>
-  <string name="revanced_sb_new_segment_mark_start">начало</string>
-  <string name="revanced_sb_new_segment_mark_end">конец</string>
-  <string name="revanced_sb_new_segment_now">сейчас</string>
+  <string name="revanced_sb_new_segment_mark_start">Начало</string>
+  <string name="revanced_sb_new_segment_mark_end">Конец</string>
+  <string name="revanced_sb_new_segment_now">Сейчас</string>
   <string name="revanced_sb_new_segment_time_start">Время начала сегмента</string>
   <string name="revanced_sb_new_segment_time_end">Время окончания сегмента</string>
   <string name="revanced_sb_new_segment_confirm_title">Верно ли выбрано время?</string>
@@ -1339,10 +1355,11 @@ Second \"item\" text"</string>
   <string name="revanced_disable_zoom_haptics_summary_off">Виброотклик при масштабировании включен</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
-  <string name="revanced_force_original_audio_title">Принудительно оригинальная звуковая дорожка</string>
-  <string name="revanced_force_original_audio_summary_on">Используется оригинальная звуковая дорожка</string>
+  <string name="revanced_force_original_audio_title">Принудительно выбирать язык оригинала аудиодорожки</string>
+  <string name="revanced_force_original_audio_summary_on">Используется оригинальный язык звуковой дорожки</string>
   <string name="revanced_force_original_audio_summary_off">Используется звуковая дорожка по умолчанию</string>
-  <string name="revanced_force_original_audio_not_available">Для использования данной опции измените подмену видеопотока на тип клиента iOS</string>
+  <!-- 'Spoof video streams' should be the same translation used for revanced_spoof_video_streams_screen_title -->
+  <string name="revanced_force_original_audio_not_available">Чтобы использовать эту функцию, измените параметр \"Подмена видеопотоков\" на iOS TV</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->

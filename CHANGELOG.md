@@ -1,3 +1,141 @@
+# [5.13.0-dev.19](https://github.com/ReVanced/revanced-patches/compare/v5.13.0-dev.18...v5.13.0-dev.19) (2025-03-02)
+
+
+### Bug Fixes
+
+* **YouTube - Spoof video streams:** Resolve playback issues with dynamic player config ([#4521](https://github.com/ReVanced/revanced-patches/issues/4521)) ([647e764](https://github.com/ReVanced/revanced-patches/commit/647e7642efc0c00db17ccb6a620d1c96ccf4afed))
+
+# [5.13.0-dev.18](https://github.com/ReVanced/revanced-patches/compare/v5.13.0-dev.17...v5.13.0-dev.18) (2025-02-28)
+
+
+### Features
+
+* **Infinity for Reddit:** Add support for Infinity for Reddit Plus ([#4511](https://github.com/ReVanced/revanced-patches/issues/4511)) ([d74732b](https://github.com/ReVanced/revanced-patches/commit/d74732b7596104321bde263201d95649e4bd0eee))
+
+# [5.13.0-dev.17](https://github.com/ReVanced/revanced-patches/compare/v5.13.0-dev.16...v5.13.0-dev.17) (2025-02-27)
+
+
+### Bug Fixes
+
+* **YouTube - Hide filter bar:** Fix `Hide in feed` not working in subscriptions feed ([#4512](https://github.com/ReVanced/revanced-patches/issues/4512)) ([634d0ee](https://github.com/ReVanced/revanced-patches/commit/634d0ee12e31491c7ee1d4ceb002daf8366a3c15))
+
+# [5.13.0-dev.16](https://github.com/ReVanced/revanced-patches/compare/v5.13.0-dev.15...v5.13.0-dev.16) (2025-02-27)
+
+
+### Features
+
+* **NU.nl:** Add `Hide ads` and `Spoof Certificate` patch ([#4368](https://github.com/ReVanced/revanced-patches/issues/4368)) ([f3268fb](https://github.com/ReVanced/revanced-patches/commit/f3268fb03ca25fb5465e36015b6c9dec2c84a655))
+
+# [5.13.0-dev.15](https://github.com/ReVanced/revanced-patches/compare/v5.13.0-dev.14...v5.13.0-dev.15) (2025-02-25)
+
+
+### Bug Fixes
+
+* **YouTube - Hide player components:** Show correct end video thumbnail if `Hide end screen suggested video` is enabled ([#4502](https://github.com/ReVanced/revanced-patches/issues/4502)) ([6c4885a](https://github.com/ReVanced/revanced-patches/commit/6c4885a1d5dfff50100b01840b5552d92e83ee4a))
+
+# [5.13.0-dev.14](https://github.com/ReVanced/revanced-patches/compare/v5.13.0-dev.13...v5.13.0-dev.14) (2025-02-25)
+
+
+### Bug Fixes
+
+* **YouTube - Swipe controls:** Adjust the overlay text size ([#4503](https://github.com/ReVanced/revanced-patches/issues/4503)) ([6dc4bf7](https://github.com/ReVanced/revanced-patches/commit/6dc4bf75e09ed6f05534919d7b769b720043abce))
+
+# [5.13.0-dev.13](https://github.com/ReVanced/revanced-patches/compare/v5.13.0-dev.12...v5.13.0-dev.13) (2025-02-24)
+
+
+### Bug Fixes
+
+* **YouTube:** Resolve button flickering when taping seekbar ([#4500](https://github.com/ReVanced/revanced-patches/issues/4500)) ([1f08047](https://github.com/ReVanced/revanced-patches/commit/1f08047b48cc9555a4887d16ec7219a55a77251f))
+
+# [5.13.0-dev.12](https://github.com/ReVanced/revanced-patches/compare/v5.13.0-dev.11...v5.13.0-dev.12) (2025-02-24)
+
+
+### Bug Fixes
+
+* **YouTube - Return YouTube Dislike:** Use correct number formatting if using a different ReVanced language ([edf66f4](https://github.com/ReVanced/revanced-patches/commit/edf66f4e16d46156cb8b8e31d18cb8dbcb87737e))
+
+# [5.13.0-dev.11](https://github.com/ReVanced/revanced-patches/compare/v5.13.0-dev.10...v5.13.0-dev.11) (2025-02-23)
+
+
+### Bug Fixes
+
+* **TikTok:** Resolve startup app crash ([18c0fc2](https://github.com/ReVanced/revanced-patches/commit/18c0fc2a7f186f50a904fd25dbaa739abdd24993))
+
+# [5.13.0-dev.10](https://github.com/ReVanced/revanced-patches/compare/v5.13.0-dev.9...v5.13.0-dev.10) (2025-02-22)
+
+
+### Bug Fixes
+
+* **YouTube - Copy video URL:** Use correct button ordering ([5e622cc](https://github.com/ReVanced/revanced-patches/commit/5e622ccf66d34af31c6026fa7f4d332460c6ecb0))
+
+# [5.13.0-dev.9](https://github.com/ReVanced/revanced-patches/compare/v5.13.0-dev.8...v5.13.0-dev.9) (2025-02-22)
+
+
+### Bug Fixes
+
+* **YouTube:** Do not hide player controls when using double tap to skip forward ([#4487](https://github.com/ReVanced/revanced-patches/issues/4487)) ([63fe870](https://github.com/ReVanced/revanced-patches/commit/63fe870d48ca2217327b952bde241b7f16ced850))
+
+# [5.13.0-dev.8](https://github.com/ReVanced/revanced-patches/compare/v5.13.0-dev.7...v5.13.0-dev.8) (2025-02-22)
+
+
+### Bug Fixes
+
+* **YouTube - Spoof app version:** Force old settings menus if spoofing to older app targets ([#4490](https://github.com/ReVanced/revanced-patches/issues/4490)) ([45e7c46](https://github.com/ReVanced/revanced-patches/commit/45e7c46dd9c70c926b8b1a97ada668f90f5f6f8c))
+
+# [5.13.0-dev.7](https://github.com/ReVanced/revanced-patches/compare/v5.13.0-dev.6...v5.13.0-dev.7) (2025-02-22)
+
+
+### Bug Fixes
+
+* **TikTok:** Resolve startup app crash ([6466398](https://github.com/ReVanced/revanced-patches/commit/64663983b84de1f28636205f61bf0a24c83968d1))
+
+# [5.13.0-dev.6](https://github.com/ReVanced/revanced-patches/compare/v5.13.0-dev.5...v5.13.0-dev.6) (2025-02-21)
+
+
+### Features
+
+* **YouTube - Navigation buttons:** Add 'Hide notifications' setting ([#4485](https://github.com/ReVanced/revanced-patches/issues/4485)) ([506d241](https://github.com/ReVanced/revanced-patches/commit/506d2414bbc760e764e5a514b32926083d6ecb6b))
+
+# [5.13.0-dev.5](https://github.com/ReVanced/revanced-patches/compare/v5.13.0-dev.4...v5.13.0-dev.5) (2025-02-19)
+
+
+### Bug Fixes
+
+* **TikTok:** Resolve startup app crash ([c14bc24](https://github.com/ReVanced/revanced-patches/commit/c14bc244550de30eca975ca7c09e8eb0c47534b5))
+
+# [5.13.0-dev.4](https://github.com/ReVanced/revanced-patches/compare/v5.13.0-dev.3...v5.13.0-dev.4) (2025-02-19)
+
+
+### Bug Fixes
+
+* **TikTok:** Resolve startup app crash ([d700076](https://github.com/ReVanced/revanced-patches/commit/d7000768a5e5a688c9f4e48858ac34e352222c1e))
+
+# [5.13.0-dev.3](https://github.com/ReVanced/revanced-patches/compare/v5.13.0-dev.2...v5.13.0-dev.3) (2025-02-19)
+
+
+### Bug Fixes
+
+* **YouTube:** Fix player button fade out animations ([#4469](https://github.com/ReVanced/revanced-patches/issues/4469)) ([bf8e775](https://github.com/ReVanced/revanced-patches/commit/bf8e7759f9bdbdfef419a879fb3dd7cf0dff0098))
+
+# [5.13.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.13.0-dev.1...v5.13.0-dev.2) (2025-02-18)
+
+
+### Bug Fixes
+
+* **YouTube - Hide video action buttons:** Move 'Disable Like and Subscribe glow' to action buttons settings menu ([29b265d](https://github.com/ReVanced/revanced-patches/commit/29b265d8fdaa48502650be9623bfc518a57a0bb1))
+
+# [5.13.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.12.0...v5.13.0-dev.1) (2025-02-18)
+
+
+### Bug Fixes
+
+* **YouTube - Hide layout components:** Do not hide 'Show anyway' button in search results ([4ac8854](https://github.com/ReVanced/revanced-patches/commit/4ac8854b99808a8957f3b0b7438e1e0cdedffbaf))
+
+
+### Features
+
+* **YouTube - Swipe controls:** Swipe controls UI improvements ([#4422](https://github.com/ReVanced/revanced-patches/issues/4422)) ([198e4d2](https://github.com/ReVanced/revanced-patches/commit/198e4d2a2315c24a09eb9ecfefbd131a75384d2c))
+
 # [5.12.0](https://github.com/ReVanced/revanced-patches/compare/v5.11.0...v5.12.0) (2025-02-17)
 
 

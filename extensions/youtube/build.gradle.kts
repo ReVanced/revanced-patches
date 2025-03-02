@@ -5,8 +5,6 @@ dependencies {
 }
 
 android {
-    compileSdk = 33 // TODO: Update Swipe controls code to allow updating this to the latest sdk.
-
     defaultConfig {
         minSdk = 26
     }

@@ -1,9 +1,6 @@
 package app.revanced.extension.youtube.patches.components;
 
-import android.os.Build;
-
 import androidx.annotation.Nullable;
-import androidx.annotation.RequiresApi;
 
 import app.revanced.extension.youtube.settings.Settings;
 import app.revanced.extension.youtube.shared.PlayerType;
@@ -16,7 +13,6 @@ public class PlayerFlyoutMenuItemsFilter extends Filter {
     private final ByteArrayFilterGroup exception;
     private final StringFilterGroup videoQualityMenuFooter;
 
-    @RequiresApi(api = Build.VERSION_CODES.N)
     public PlayerFlyoutMenuItemsFilter() {
         exception = new ByteArrayFilterGroup(
                 // Whitelist Quality menu item when "Hide Additional settings menu" is enabled

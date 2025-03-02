@@ -348,6 +348,14 @@ public final class app/revanced/patches/nfctoolsse/misc/pro/UnlockProPatchKt {
 	public static final fun getUnlockProPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
+public final class app/revanced/patches/nunl/ads/HideAdsPatchKt {
+	public static final fun getHideAdsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
+public final class app/revanced/patches/nunl/firebase/SpoofCertificatePatchKt {
+	public static final fun getSpoofCertificatePatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
 public final class app/revanced/patches/nyx/misc/pro/UnlockProPatchKt {
 	public static final fun getUnlockProPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
@@ -768,8 +776,8 @@ public final class app/revanced/patches/shared/misc/settings/preference/TextPref
 }
 
 public final class app/revanced/patches/shared/misc/spoof/SpoofVideoStreamsPatchKt {
-	public static final fun spoofVideoStreamsPatch (Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;)Lapp/revanced/patcher/patch/BytecodePatch;
-	public static synthetic fun spoofVideoStreamsPatch$default (Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)Lapp/revanced/patcher/patch/BytecodePatch;
+	public static final fun spoofVideoStreamsPatch (Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;)Lapp/revanced/patcher/patch/BytecodePatch;
+	public static synthetic fun spoofVideoStreamsPatch$default (Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
 public final class app/revanced/patches/shared/misc/spoof/UserAgentClientSpoofPatchKt {
@@ -1114,6 +1122,10 @@ public final class app/revanced/patches/youtube/layout/formfactor/ChangeFormFact
 
 public final class app/revanced/patches/youtube/layout/hide/endscreencards/HideEndscreenCardsPatchKt {
 	public static final fun getHideEndscreenCardsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
+public final class app/revanced/patches/youtube/layout/hide/endscreensuggestion/HideEndScreenSuggestedVideoPatchKt {
+	public static final fun getHideEndScreenSuggestedVideoPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
 public final class app/revanced/patches/youtube/layout/hide/fullscreenambientmode/DisableFullscreenAmbientModePatchKt {

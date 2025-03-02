@@ -408,10 +408,13 @@ internal fun MutableMethod.insertFeatureFlagBooleanOverride(literal: Long, exten
     val index = indexOfFirstInstructionOrThrow(literalIndex, Opcode.MOVE_RESULT)
     val register = getInstruction<OneRegisterInstruction>(index).registerA
 
+    val operation = if (register < 16) "invoke-static { v$register }"
+    else "invoke-static/range { v$register .. v$register }"
+
     addInstructions(
         index + 1,
         """
-            invoke-static { v$register }, $extensionsMethod
+            $operation, $extensionsMethod
             move-result v$register
         """
     )
@@ -458,7 +461,7 @@ fun MutableMethod.returnEarly(bool: Boolean = false) {
                 return v0
             """
 
-        else -> throw Exception("This case should never happen.")
+        else -> throw Exception("Return type is not supported: $this")
     }
 
     addInstructions(0, stringInstructions)

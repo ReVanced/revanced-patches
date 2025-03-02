@@ -168,9 +168,6 @@ Second \"item\" text"</string>
 Ви не будете отримувати сповіщення про будь-які непередбачувані події."</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
-  <string name="revanced_disable_like_subscribe_glow_title">Вимкнути відблиск кнопок \"Подобається\" та \"Підписати\"</string>
-  <string name="revanced_disable_like_subscribe_glow_summary_on">Кнопки \"Подобається\" та \"Підписатися\" не відблискуватимуть при згадуванні</string>
-  <string name="revanced_disable_like_subscribe_glow_summary_off">Кнопки \"Подобається\" та \"Підписатися\" не відблискуватимуть при згадуванні</string>
   <string name="revanced_hide_album_cards_title">Приховати картки альбому</string>
   <string name="revanced_hide_album_cards_summary_on">Картки альбому приховано</string>
   <string name="revanced_hide_album_cards_summary_off">Картки альбому показуються</string>
@@ -193,22 +190,22 @@ Second \"item\" text"</string>
   <string name="revanced_hide_horizontal_shelves_summary_off">Горизонтальні полиці показуються</string>
   <!-- 'Join' should be translated using the same localized wording YouTube displays.
                  This appears in the video player for certain videos. -->
-  <string name="revanced_hide_join_membership_button_title">Приховати кнопку \"Спонсорувати\"</string>
+  <string name="revanced_hide_join_membership_button_title">Приховати кнопку Спонсорувати</string>
   <string name="revanced_hide_join_membership_button_summary_on">Кнопку \"Спонсорувати\" приховано</string>
   <string name="revanced_hide_join_membership_button_summary_off">Кнопка \"Спонсорувати\" показується</string>
   <!-- 'For you' should be translated using the same localized wording YouTube displays. -->
   <string name="revanced_hide_for_you_shelf_title">Приховати полицю \"Для вас\"</string>
-  <string name="revanced_hide_for_you_shelf_summary_on">Полицю \"Для вас\" на сторінці каналу приховано</string>
-  <string name="revanced_hide_for_you_shelf_summary_off">Полиця \"Для вас\" на сторінці каналу показується</string>
+  <string name="revanced_hide_for_you_shelf_summary_on">Полицю на сторінці каналу приховано</string>
+  <string name="revanced_hide_for_you_shelf_summary_off">Полиця на сторінці каналу показується</string>
   <!-- 'Notify me' should be translated using the same localized wording YouTube displays.
                  This item appear in the subscription feed for future livestreams or unreleased videos. -->
   <string name="revanced_hide_notify_me_button_title">Приховати кнопку \"Сповістити\"</string>
   <string name="revanced_hide_notify_me_button_summary_on">Кнопку \"Сповістити\" приховано</string>
   <string name="revanced_hide_notify_me_button_summary_off">Кнопка \"Сповістити\" показується</string>
-  <!-- 'People also watch' should be translated using the same localized wording YouTube displays. -->
-  <string name="revanced_hide_search_result_recommendations_title">Приховати \"Люди також дивилися\"</string>
-  <string name="revanced_hide_search_result_recommendations_summary_on">Рекомендації \"Люди також дивилися\" приховано</string>
-  <string name="revanced_hide_search_result_recommendations_summary_off">Рекомендації \"Люди також дивилися\" показуються</string>
+  <!-- 'People also watched' should be translated using the same localized wording YouTube displays. -->
+  <string name="revanced_hide_search_result_recommendations_title">Приховати мітку \"Люди також дивилися\"</string>
+  <string name="revanced_hide_search_result_recommendations_summary_on">Мітку приховано</string>
+  <string name="revanced_hide_search_result_recommendations_summary_off">Мітка показується </string>
   <!-- 'Show more' should be translated with the same localized wording that YouTube displays.
                   This button usually appears when searching for a YT creator. -->
   <string name="revanced_hide_show_more_button_title">Приховати кнопку \"Показати більше\"</string>
@@ -224,8 +221,8 @@ Second \"item\" text"</string>
   <string name="revanced_hide_chips_shelf_summary_on">Полицю фішок приховано</string>
   <string name="revanced_hide_chips_shelf_summary_off">Полиця фішок показується</string>
   <string name="revanced_hide_expandable_chip_title">Приховати розширювану картку під відео</string>
-  <string name="revanced_hide_expandable_chip_summary_on">Розширювані картки приховано</string>
-  <string name="revanced_hide_expandable_chip_summary_off">Розширювані картки показуються</string>
+  <string name="revanced_hide_expandable_chip_summary_on">Розширювану картку приховано</string>
+  <string name="revanced_hide_expandable_chip_summary_off">Розширювана картка показується</string>
   <string name="revanced_hide_community_posts_title">Приховати публікації спільноти</string>
   <string name="revanced_hide_community_posts_summary_on">Публікації спільноти приховано</string>
   <string name="revanced_hide_community_posts_summary_off">Публікації спільноти показуються</string>
@@ -281,8 +278,8 @@ Second \"item\" text"</string>
   <string name="revanced_hide_artist_cards_summary_on">Картки виконавця приховано</string>
   <string name="revanced_hide_artist_cards_summary_off">Картки виконавця показуються</string>
   <string name="revanced_hide_attributes_section_title">Приховати секції атрибутів</string>
-  <string name="revanced_hide_attributes_section_summary_on">Секції \"Місця на відео\", \"Люди, згадані у відео\", \"Ігри\" та \"Музика\" приховано</string>
-  <string name="revanced_hide_attributes_section_summary_off">Секції \"Місця на відео\", \"Люди, згадані у відео\", \"Ігри\" та \"Музика\" показуються</string>
+  <string name="revanced_hide_attributes_section_summary_on">Секції \"Місця на відео\", \"Ігри\", \"Музика\" та \"Люди, згадані у відео\" приховано</string>
+  <string name="revanced_hide_attributes_section_summary_off">Секції \"Місця на відео\", \"Ігри\", \"Музика\" та \"Люди, згадані у відео\" показуються</string>
   <string name="revanced_hide_chapters_section_title">Приховати секцію \"Розділи\"</string>
   <string name="revanced_hide_chapters_section_summary_on">Секцію \"Розділи\" приховано</string>
   <string name="revanced_hide_chapters_section_summary_off">Секція \"Розділи\" показується</string>
@@ -304,13 +301,13 @@ Second \"item\" text"</string>
   <string name="revanced_hide_description_components_screen_title">Опис відео</string>
   <string name="revanced_hide_description_components_screen_summary">Приховати або показувати компоненти опису відео</string>
   <string name="revanced_hide_filter_bar_screen_title">Панель фільтрів</string>
-  <string name="revanced_hide_filter_bar_screen_summary">Приховати або показувати панель фільтрів у стрічці, пошуку та пов\'язаних відео</string>
+  <string name="revanced_hide_filter_bar_screen_summary">Приховати або показувати панель фільтрів у стрічці, результатах пошуку та пов\'язаних відео</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_title">Приховати панель у стрічці</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_summary_on">Панель фільтрів у стрічці приховано</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_summary_off">Панель фільтрів у стрічці показується</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_title">Приховати панель у пошуку</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_summary_on">Панель фільтрів у пошуку приховано</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_summary_off">Панель фільтрів у пошуку показується</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_title">Приховати панель у результатах пошуку</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_summary_on">Панель фільтрів у результатах пошуку приховано</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_summary_off">Панель фільтрів у результатах пошуку показується</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_title">Приховати панель у пов\'язаних відео</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_on">Панель фільтрів у пов\'язаних відео приховано</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">Панель фільтрів у пов\'язаних відео показується</string>
@@ -328,15 +325,15 @@ Second \"item\" text"</string>
   <string name="revanced_hide_comments_create_a_short_button_title">Приховати кнопку \"Створити Short\"</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_on">Кнопку \"Створити Short\" приховано</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_off">Кнопка \"Створити Short\" показується</string>
+  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_title">Приховати кнопки емодзі та позначки часу</string>
+  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_on">Кнопки емодзі та позначки часу приховано</string>
+  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_off">Кнопки емодзі та позначки часу показуються</string>
   <string name="revanced_hide_comments_preview_comment_title">Приховати прев\'ю коментар</string>
   <string name="revanced_hide_comments_preview_comment_summary_on">Прев\'ю коментар в секції коментарів приховано</string>
   <string name="revanced_hide_comments_preview_comment_summary_off">Прев\'ю коментар в секції коментарів показується</string>
   <string name="revanced_hide_comments_thanks_button_title">Приховати \"Дякую\"</string>
   <string name="revanced_hide_comments_thanks_button_summary_on">Кнопку \"Дякую\" приховано</string>
   <string name="revanced_hide_comments_thanks_button_summary_off">Кнопка \"Дякую\" показується</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_title">Приховати мітку часу та емодзі</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_on">Кнопки мітки часу та емодзі приховано</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_off">Кнопки мітки часу та емодзі показуються</string>
   <!-- https://logos.fandom.com/wiki/YouTube/Yoodles -->
   <string name="revanced_hide_doodles_title">Приховати YouTube Doodles</string>
   <string name="revanced_hide_doodles_summary_on">Doodles у пошуковій панелі приховано</string>
@@ -421,8 +418,8 @@ Second \"item\" text"</string>
   <string name="revanced_hide_shopping_links_summary_off">Посилання на покупки в описі відео показуються</string>
   <!-- 'Visit store' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_visit_store_button_title">Приховати \"Відвідати магазин\"</string>
-  <string name="revanced_hide_visit_store_button_summary_on">Кнопку \"Відвідати магазин\" на сторінках каналів приховано</string>
-  <string name="revanced_hide_visit_store_button_summary_off">Кнопка \"Відвідати магазин\" на сторінках каналів показується</string>
+  <string name="revanced_hide_visit_store_button_summary_on">Кнопку на сторінці каналу приховано</string>
+  <string name="revanced_hide_visit_store_button_summary_off">Кнопка на сторінці каналу показується</string>
   <string name="revanced_hide_web_search_results_title">Приховати результати вебпошуку</string>
   <string name="revanced_hide_web_search_results_summary_on">Результати вебпошуку приховано</string>
   <string name="revanced_hide_web_search_results_summary_off">Результати вебпошуку показуються</string>
@@ -446,10 +443,10 @@ Second \"item\" text"</string>
   <string name="revanced_share_copy_url_success">URL-адресу скопійовано до буфера</string>
   <string name="revanced_share_copy_url_timestamp_success">URL-адресу з міткою часу скопійовано до буфера</string>
   <string name="revanced_copy_video_url_title">Кнопка копіювання URL відео</string>
-  <string name="revanced_copy_video_url_summary_on">Кнопка показується. Натисніть, щоб скопіювати URL-адресу відео. Натисніть і утримуйте, щоб скопіювати URL-адресу відео з міткою часу</string>
+  <string name="revanced_copy_video_url_summary_on">Кнопка показується. Натисніть, щоб скопіювати URL-адресу відео. Натисніть і утримуйте, щоб скопіювати з міткою часу</string>
   <string name="revanced_copy_video_url_summary_off">Кнопка копіювання URL-адреси відео не показується</string>
   <string name="revanced_copy_video_url_timestamp_title">Кнопка копіювання URL із міткою часу</string>
-  <string name="revanced_copy_video_url_timestamp_summary_on">Кнопка показується. Натисніть, щоб скопіювати URL-адресу відео з міткою часу. Натисніть і утримуйте, щоб скопіювати URL-адресу без мітки часу відео</string>
+  <string name="revanced_copy_video_url_timestamp_summary_on">Кнопка показується. Натисніть, щоб скопіювати URL-адресу відео з міткою часу. Натисніть і утримуйте, щоб скопіювати без мітки часу</string>
   <string name="revanced_copy_video_url_timestamp_summary_off">Кнопка копіювання URL-адреси відео із міткою часу не показується</string>
   </patch>
   <patch id="interaction.dialog.removeViewerDiscretionDialogPatch">
@@ -462,8 +459,8 @@ Second \"item\" text"</string>
   <string name="revanced_external_downloader_screen_title">Зовнішній завантажувач</string>
   <string name="revanced_external_downloader_screen_summary">Налаштування для використання зовнішнього завантажувача відео</string>
   <string name="revanced_external_downloader_title">Кнопка завантажувача в плеєрі</string>
-  <string name="revanced_external_downloader_summary_on">Кнопка зовнішнього завантажувача показується в плеєрі</string>
-  <string name="revanced_external_downloader_summary_off">Кнопка зовнішнього завантажувача не показується в плеєрі</string>
+  <string name="revanced_external_downloader_summary_on">Кнопка \"Завантажити\" в плеєрі показується</string>
+  <string name="revanced_external_downloader_summary_off">Кнопка \"Завантажити\" в плеєрі не показується</string>
   <!-- 'download action button' should be translated using the same wording as the translation of 'revanced_hide_download_button_title' -->
   <string name="revanced_external_downloader_action_button_title">Підмінити кнопку \"Завантажити\"</string>
   <string name="revanced_external_downloader_action_button_summary_on">Кнопка \"Завантажити\" запускає зовнішній завантажувач</string>
@@ -484,11 +481,15 @@ Second \"item\" text"</string>
   </patch>
   <patch id="interaction.swipecontrols.swipeControlsResourcePatch">
   <string name="revanced_swipe_brightness_title">Зміна яскравості жестом</string>
-  <string name="revanced_swipe_brightness_summary_on">Зміну яскравості жестом по лівій частині відеоплеєра ввімкнуто</string>
-  <string name="revanced_swipe_brightness_summary_off">Зміну яскравості жестом по лівій частині відеоплеєра вимкнено</string>
+  <string name="revanced_swipe_brightness_summary_on">"Зміну яскравості жестом в повноекранному режимі увімкнено
+
+Регулюйте яскравість, проводячи пальцем вертикально по лівій стороні екрана"</string>
+  <string name="revanced_swipe_brightness_summary_off">Зміну яскравості жестом в повноекранному режимі вимкнено</string>
   <string name="revanced_swipe_volume_title">Зміна гучності жестом</string>
-  <string name="revanced_swipe_volume_summary_on">Зміну гучності жестом по правій частині відеоплеєра ввімкнуто</string>
-  <string name="revanced_swipe_volume_summary_off">Зміну гучності жестом по правій частині відеоплеєра вимкнено</string>
+  <string name="revanced_swipe_volume_summary_on">"Зміну гучності жестом в повноекранному режимі увімкнено
+
+Регулюйте гучність, проводячи пальцем вертикально по правій стороні екрана"</string>
+  <string name="revanced_swipe_volume_summary_off">Зміну гучності жестом в повноекранному режимі вимкнено</string>
   <string name="revanced_swipe_press_to_engage_title">Натискання для жесту</string>
   <string name="revanced_swipe_press_to_engage_summary_on">Натискання та утримання для жесту ввімкнуто</string>
   <string name="revanced_swipe_press_to_engage_summary_off">Натискання та утримання для жесту вимкнено</string>
@@ -501,16 +502,19 @@ Second \"item\" text"</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_title">Жест автояскравості</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_on">Проведення вниз до найнижчого значення яскравості вмикає автоматичну яскравість</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_off">Проведення вниз до найнижчого значення не вмикає автоматичну яскравість</string>
-  <string name="revanced_swipe_lowest_value_enable_auto_brightness_overlay_text">Авто</string>
   <string name="revanced_swipe_overlay_timeout_title">Час показу панелі жесту</string>
   <string name="revanced_swipe_overlay_timeout_summary">Скільки мілісекунд спливаюча панель при жесті буде показуватися</string>
-  <string name="revanced_swipe_text_overlay_size_title">Розмір шрифту панелі жесту</string>
-  <string name="revanced_swipe_text_overlay_size_summary">Розмір шрифту спливаючої панелі при жесті</string>
   <string name="revanced_swipe_overlay_background_opacity_title">Затемнення фону панелі жесту</string>
   <string name="revanced_swipe_overlay_background_opacity_summary">Значення затемнення від 0 до 100</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Значення затемнення панелі жесту має бути в межах від 0 до 100</string>
   <string name="revanced_swipe_threshold_title">Поріг величини жесту</string>
   <string name="revanced_swipe_threshold_summary">Мінімальна амплітуда руху, що розпізнається як жест</string>
+  <string name="revanced_swipe_show_circular_overlay_title">Показувати круговий індикатор</string>
+  <string name="revanced_swipe_show_circular_overlay_summary_on">Показується круговий індикатор</string>
+  <string name="revanced_swipe_show_circular_overlay_summary_off">Показується горизонтальний індикатор</string>
+  <string name="revanced_swipe_overlay_minimal_style_title">Увімкнути мінімалістичний стиль</string>
+  <string name="revanced_swipe_overlay_minimal_style_summary_on">Мінімалістичний стиль індикатора увімкнено</string>
+  <string name="revanced_swipe_overlay_minimal_style_summary_off">Мінімалістичний стиль індикатора вимкнено</string>
   <string name="revanced_swipe_change_video_title">Увімкнути зміну відео проведенням</string>
   <string name="revanced_swipe_change_video_summary_on">Проведення пальцем у повноекранному режимі перейде до наступного/попереднього відео</string>
   <string name="revanced_swipe_change_video_summary_off">Проведення пальцем у повноекранному режимі не перейде до наступного/попереднього відео</string>
@@ -523,6 +527,9 @@ Second \"item\" text"</string>
   <patch id="layout.buttons.action.hideButtonsPatch">
   <string name="revanced_hide_buttons_screen_title">Кнопки дій</string>
   <string name="revanced_hide_buttons_screen_summary">Приховати або показувати кнопки дій під відео</string>
+  <string name="revanced_disable_like_subscribe_glow_title">Вимкнути відблиск кнопок \"Подобається\" та \"Підписати\"</string>
+  <string name="revanced_disable_like_subscribe_glow_summary_on">Кнопки \"Подобається\" та \"Підписатися\" не відблискуватимуть при згадуванні</string>
+  <string name="revanced_disable_like_subscribe_glow_summary_off">Кнопки \"Подобається\" та \"Підписатися\" не відблискуватимуть при згадуванні</string>
   <string name="revanced_hide_like_dislike_button_title">Приховати \"Подобається\" та \"Не подобається\"</string>
   <string name="revanced_hide_like_dislike_button_summary_on">Кнопки \"Подобається\" та \"Не подобається\" приховано</string>
   <string name="revanced_hide_like_dislike_button_summary_off">Кнопки \"Подобається\" та \"Не подобається\" показуються</string>
@@ -575,12 +582,18 @@ Second \"item\" text"</string>
   <string name="revanced_hide_subscriptions_button_title">Приховати \"Підписки\"</string>
   <string name="revanced_hide_subscriptions_button_summary_on">Кнопку \"Підписки\" приховано на панелі навігації</string>
   <string name="revanced_hide_subscriptions_button_summary_off">Кнопка \"Підписки\" показується на панелі навігації</string>
+  <string name="revanced_hide_notifications_button_title">Приховати \"Сповіщення\"</string>
+  <string name="revanced_hide_notifications_button_summary_on">Кнопку \"Сповіщення\" приховано на панелі навігації</string>
+  <string name="revanced_hide_notifications_button_summary_off">Кнопка \"Сповіщення\" показується на панелі навігації</string>
   <!-- 'Notifications' should be translated using the same localized wording YouTube displays the tab. -->
   <string name="revanced_switch_create_with_notifications_button_title">Замінити \"Створити\" на \"Сповіщення\"</string>
   <string name="revanced_switch_create_with_notifications_button_summary_on">"Кнопку \"Створити\" замінено кнопкою \"Сповіщення\"
 
 Примітка: Увімкнення цього параметру також примусово приховує відеорекламу"</string>
   <string name="revanced_switch_create_with_notifications_button_summary_off">Кнопку \"Створити\" не замінено кнопкою \"Сповіщення\"</string>
+  <string name="revanced_switch_create_with_notifications_button_user_dialog_message">"Вимкнення цього параметра також вимкне блокування реклами в Shorts.
+
+Якщо зміна цього параметра не діє, спробуйте перейти в режим анонімного перегляду."</string>
   <string name="revanced_hide_navigation_button_labels_title">Приховати підписи кнопок навігації</string>
   <string name="revanced_hide_navigation_button_labels_summary_on">Підписи кнопок навігації приховано</string>
   <string name="revanced_hide_navigation_button_labels_summary_off">Підписи кнопок навігації показуються</string>
@@ -795,10 +808,13 @@ Second \"item\" text"</string>
   <string name="revanced_hide_shorts_navigation_bar_summary_on">Панель навігації приховано</string>
   <string name="revanced_hide_shorts_navigation_bar_summary_off">Панель навігації показується</string>
   </patch>
-  <patch id="layout.hide.suggestedvideoendscreen.disableSuggestedVideoEndScreenResourcePatch">
-  <string name="revanced_disable_suggested_video_end_screen_title">Вимкнути пропоновані відео на кінцевому екрані</string>
-  <string name="revanced_disable_suggested_video_end_screen_summary_on">Пропоновані відео на кінцевому екрані буде вимкнено.\n\nПримітка: автовідтворення наступного відео не працює</string>
-  <string name="revanced_disable_suggested_video_end_screen_summary_off">Пропоновані відео на кінцевому екрані показуватимуться</string>
+  <patch id="layout.hide.endscreensuggestion.hideEndScreenSuggestedVideoPatch">
+  <string name="revanced_end_screen_suggested_video_title">Приховати пропоноване відео на кінцевому екрані</string>
+  <string name="revanced_end_screen_suggested_video_summary_on">"Пропоноване відео на кінцевому екрані приховано, коли автоматичне відтворення вимкнено.
+
+Автоматичне відтворення можна змінити в налаштуваннях YouTube:
+Налаштування → Відтворення → Автовідтворення наступного відео"</string>
+  <string name="revanced_end_screen_suggested_video_summary_off">Пропоноване відео на кінцевому екрані показується</string>
   </patch>
   <patch id="layout.hide.time.hideTimestampPatch">
   <string name="revanced_hide_timestamp_title">Приховати мітку часу відео</string>
@@ -831,7 +847,7 @@ Second \"item\" text"</string>
   <!-- Toast shown if network connection times out. Translations of this should not be longer than the original English or the text can be clipped and not entirely shown. -->
   <string name="revanced_ryd_failure_connection_timeout">Відмітки \"Не подобається\" тимчасово недоступні (тайм-аут API)</string>
   <string name="revanced_ryd_failure_connection_status_code">Відмітки \"Не подобається\" недоступні (статус %d)</string>
-  <string name="revanced_ryd_failure_client_rate_limit_requested">Відмітки \"Не подобається\" недоступні (ліміт клієнтів сервера API)</string>
+  <string name="revanced_ryd_failure_client_rate_limit_requested">Відмітки \"Не подобається\" недоступні (ліміт клієнтів API)</string>
   <string name="revanced_ryd_failure_generic">Відмітки \"Не подобається\" недоступні (%s)</string>
   <!-- Toast shown if the user enables RYD while a video is opened, and then tries to vote for the video. -->
   <string name="revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted">Оновіть відео, щоб проголосувати за допомогою ReturnYouTubeDislike</string>
@@ -846,7 +862,7 @@ Second \"item\" text"</string>
 Обмеження: Відмітки \"Не подобається\" не можуть показуватися в анонімному режимі"</string>
   <string name="revanced_ryd_shorts_summary_off">Відмітки \"Не подобається\" в Shorts приховано</string>
   <string name="revanced_ryd_dislike_percentage_title">Відмітки \"Не подобається\" у відсотках</string>
-  <string name="revanced_ryd_dislike_percentage_summary_on">Відмітки \"Не подобається\" показуються як відсоток</string>
+  <string name="revanced_ryd_dislike_percentage_summary_on">Відмітки \"Не подобається\" показуються у відсотках</string>
   <string name="revanced_ryd_dislike_percentage_summary_off">Відмітки \"Не подобається\" показуються як число</string>
   <!-- Translations should use language similar to 'revanced_sb_enable_compact_skip_button' -->
   <string name="revanced_ryd_compact_layout_title">Компактна кнопка \"Подобається\"</string>
@@ -915,7 +931,7 @@ Second \"item\" text"</string>
   <string name="revanced_sb_enable_auto_hide_skip_segment_button">Приховувати кнопку пропуску</string>
   <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_on">Кнопка пропуску автоматично приховується після декількох секунд</string>
   <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_off">Кнопка пропуску показується для всього сегменту</string>
-  <string name="revanced_sb_general_skiptoast">Показувати тост під час пропуску</string>
+  <string name="revanced_sb_general_skiptoast">Показувати тост, коли пропущено</string>
   <string name="revanced_sb_general_skiptoast_sum_on">Тост показується, коли сегмент автоматично пропускається. Натисніть тут, щоб побачити приклад</string>
   <string name="revanced_sb_general_skiptoast_sum_off">Тост не показується. Натисніть тут, щоб побачити приклад</string>
   <string name="revanced_sb_general_time_without">Тривалість відео без сегментів</string>
@@ -1041,9 +1057,9 @@ Second \"item\" text"</string>
   <string name="revanced_sb_new_segment_disabled_category">Категорія вимкнена у налаштуваннях. Увімкніть категорію, щоб надіслати.</string>
   <string name="revanced_sb_new_segment_title">Новий сегмент SponsorBlock</string>
   <string name="revanced_sb_new_segment_mark_time_as_question">Встановити %s як початок чи кінець нового сегмента?</string>
-  <string name="revanced_sb_new_segment_mark_start">початок</string>
-  <string name="revanced_sb_new_segment_mark_end">кінець</string>
-  <string name="revanced_sb_new_segment_now">зараз</string>
+  <string name="revanced_sb_new_segment_mark_start">Початок</string>
+  <string name="revanced_sb_new_segment_mark_end">Кінець</string>
+  <string name="revanced_sb_new_segment_now">Зараз</string>
   <string name="revanced_sb_new_segment_time_start">Час сегменту починається з</string>
   <string name="revanced_sb_new_segment_time_end">Час сегменту закінчується на</string>
   <string name="revanced_sb_new_segment_confirm_title">Час початку і кінця сегмента правильні?</string>
@@ -1282,7 +1298,7 @@ Second \"item\" text"</string>
   <string name="revanced_alt_thumbnail_stills_time_entry_2">Середина відео</string>
   <string name="revanced_alt_thumbnail_stills_time_entry_3">Кінець відео</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
-  <string name="revanced_alt_thumbnail_dearrow_error">DeArrow тимчасово недоступний. (код статусу: %s)</string>
+  <string name="revanced_alt_thumbnail_dearrow_error">DeArrow тимчасово недоступний (код статусу: %s)</string>
   <string name="revanced_alt_thumbnail_dearrow_error_generic">DeArrow тимчасово недоступний</string>
   </patch>
   <patch id="misc.announcements.announcementsPatch">
@@ -1338,10 +1354,11 @@ Second \"item\" text"</string>
   <string name="revanced_disable_zoom_haptics_summary_off">Вібрації при масштабуванні ввімкнуто</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
-  <string name="revanced_force_original_audio_title">Примусово оригінальна звукова доріжка</string>
-  <string name="revanced_force_original_audio_summary_on">Використовується оригінальна звукова доріжка відео</string>
-  <string name="revanced_force_original_audio_summary_off">Використовується стандартна (регіональна) звукова доріжка відео</string>
-  <string name="revanced_force_original_audio_not_available">Щоб скористатися цією функцією, змініть тип клієнта підробки відеопотоку на iOS</string>
+  <string name="revanced_force_original_audio_title">Примусово оригінальна мова звукової доріжки</string>
+  <string name="revanced_force_original_audio_summary_on">Використовується оригінальна мова звукової доріжки</string>
+  <string name="revanced_force_original_audio_summary_off">Використовується стандартна (регіональна) мова звукової доріжки</string>
+  <!-- 'Spoof video streams' should be the same translation used for revanced_spoof_video_streams_screen_title -->
+  <string name="revanced_force_original_audio_not_available">Щоб використовувати цю функцію, змініть клієнт \"Підробки відеопотоків\" на iOS TV</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
