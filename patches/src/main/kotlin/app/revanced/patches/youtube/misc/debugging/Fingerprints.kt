@@ -11,9 +11,9 @@ internal val experimentalFeatureFlagParentFingerprint = fingerprint {
 }
 
 internal val experimentalBooleanFeatureFlagFingerprint = fingerprint {
-    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
     returns("Z")
-    parameters("J", "Z")
+    parameters("L", "J", "Z")
 }
 
 internal val experimentalDoubleFeatureFlagFingerprint = fingerprint {
@@ -33,4 +33,3 @@ internal val experimentalStringFeatureFlagFingerprint = fingerprint {
     returns("Ljava/lang/String;")
     parameters("J", "Ljava/lang/String;")
 }
-
