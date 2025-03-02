@@ -455,7 +455,7 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <patch id="interaction.dialog.removeViewerDiscretionDialogPatch">
   <string name="revanced_remove_viewer_discretion_dialog_title">시청 경고 다이얼로그 제거하기</string>
   <string name="revanced_remove_viewer_discretion_dialog_summary_on">다음 동영상을 시청하기 전에 표시되는 시청 경고 다이얼로그를 제거합니다:\n• 연령 제한 동영상\n• 혐오감을 주는 동영상\n• 자살 또는 자해와 관련된 동영상, etc.</string>
-  <string name="revanced_remove_viewer_discretion_dialog_summary_off">다음 동영상을 시청하기 전에 표시되는 시청 경고 다이얼로그가 제거하지 않습니다:\n• 연령 제한 동영상\n• 혐오감을 주는 동영상\n• 자살 또는 자해와 관련된 동영상, etc.</string>
+  <string name="revanced_remove_viewer_discretion_dialog_summary_off">다음 동영상을 시청하기 전에 표시되는 시청 경고 다이얼로그를 제거하지 않습니다:\n• 연령 제한 동영상\n• 혐오감을 주는 동영상\n• 자살 또는 자해와 관련된 동영상, etc.</string>
   <string name="revanced_remove_viewer_discretion_dialog_user_dialog_message">이 설정은 다이얼로그를 자동으로 허용하기만 하며 연령 제한(성인인증 절차)을 우회할 수 없습니다</string>
   </patch>
   <patch id="interaction.downloads.downloadsResourcePatch">
@@ -927,8 +927,8 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_sb_enable_voting_sum_on">플레이어에서 구간 투표 버튼을 표시합니다</string>
   <string name="revanced_sb_enable_voting_sum_off">플레이어에서 구간 투표 버튼을 표시하지 않습니다</string>
   <string name="revanced_sb_square_layout">각진 레이아웃 사용하기</string>
-  <string name="revanced_sb_square_layout_sum_on">버튼과 컨트롤러를 각지게 활성화합니다</string>
-  <string name="revanced_sb_square_layout_sum_off">버튼과 컨트롤러를 둥글게 활성화합니다</string>
+  <string name="revanced_sb_square_layout_sum_on">버튼과 컨트롤을 각지게 활성화합니다</string>
+  <string name="revanced_sb_square_layout_sum_off">버튼과 컨트롤을 둥글게 활성화합니다</string>
   <!-- Translations should use language similar to 'revanced_ryd_compact_layout_title' -->
   <string name="revanced_sb_enable_compact_skip_button">최소화된 건너뛰기 버튼 표시하기</string>
   <string name="revanced_sb_enable_compact_skip_button_sum_on">최소화된 건너뛰기 버튼을 표시합니다</string>

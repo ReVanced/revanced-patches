@@ -284,6 +284,9 @@ Et saa ilmoituksia odottamattomista tapahtumista."</string>
   <string name="revanced_hide_how_this_was_made_section_title">Piilota \"Miten sisältö on luotu\"</string>
   <string name="revanced_hide_how_this_was_made_section_summary_on">Miten sisältö on luotu -osio on piilotettu</string>
   <string name="revanced_hide_how_this_was_made_section_summary_off">Miten sisältö on luotu -osio näytetään</string>
+  <string name="revanced_hide_podcast_section_title">Piilota \"Tutustu podcastiin\"</string>
+  <string name="revanced_hide_podcast_section_summary_on">Tutustu podcastiin -osio on piilotettu</string>
+  <string name="revanced_hide_podcast_section_summary_off">Tutustu podcastiin -osio näytetään</string>
   <string name="revanced_hide_info_cards_section_title">Piilota tietokortit</string>
   <string name="revanced_hide_info_cards_section_summary_on">Infokortit-osio on piilotettu</string>
   <string name="revanced_hide_info_cards_section_summary_off">Infokortit-osio näytetään</string>
@@ -296,9 +299,11 @@ Et saa ilmoituksia odottamattomista tapahtumista."</string>
   <string name="revanced_hide_description_components_screen_title">Videon kuvaus</string>
   <string name="revanced_hide_description_components_screen_summary">Piilota tai näytä videon kuvauksen osia</string>
   <string name="revanced_hide_filter_bar_screen_title">Suodatinpalkki</string>
+  <string name="revanced_hide_filter_bar_screen_summary">Piilota tai näytä suodatinpalkki syötteessä, haussa ja liittyvissä videoissa</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_title">Piilota syötteessä</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_summary_on">Piilotettu syötteessä</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_summary_off">Näytetään syötteessä</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_title">Piilota hakutuloksissa</string>
   <string name="revanced_hide_filter_bar_feed_in_search_summary_on">Piilotettu hakutuloksissa</string>
   <string name="revanced_hide_filter_bar_feed_in_search_summary_off">Näytetään hakutuloksissa</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_title">Piilota liittyvissä videoissa</string>
@@ -436,8 +441,10 @@ Tämä ominaisuus on käytettävissä vain vanhemmilla laitteilla"</string>
   <string name="revanced_share_copy_url_success">URL-osoite kopioitiin leikepöydälle</string>
   <string name="revanced_share_copy_url_timestamp_success">Aikaleimattu URL-osoite kopioitiin</string>
   <string name="revanced_copy_video_url_title">Näytä videon URL-osoitteen kopiointipainike</string>
+  <string name="revanced_copy_video_url_summary_on">Painike näytetään. Napauta kopioidaksesi videon URL-osoitteen. Napauta ja pidä pohjassa kopioidaksesi aikaleimattuna</string>
   <string name="revanced_copy_video_url_summary_off">Painiketta ei näytetä</string>
   <string name="revanced_copy_video_url_timestamp_title">Näytä videon aikaleimatun URL-osoitteen kopiointipainike</string>
+  <string name="revanced_copy_video_url_timestamp_summary_on">Painike näytetään. Napauta kopioidaksesi videon URL-osoitteen aikaleimattuna. Napauta ja pidä pohjassa kopioidaksesi ilman aikaleimaa</string>
   <string name="revanced_copy_video_url_timestamp_summary_off">Painiketta ei näytetä</string>
   </patch>
   <patch id="interaction.dialog.removeViewerDiscretionDialogPatch">
@@ -573,12 +580,18 @@ Säädä äänenvoimakkuutta pyyhkäisemällä pystysuoraan näytön oikealta pu
   <string name="revanced_hide_subscriptions_button_title">Piilota Tilaukset</string>
   <string name="revanced_hide_subscriptions_button_summary_on">Tilaukset-painike on piilotettu</string>
   <string name="revanced_hide_subscriptions_button_summary_off">Tilaukset-painike näytetään</string>
+  <string name="revanced_hide_notifications_button_title">Piilota Ilmoitukset</string>
+  <string name="revanced_hide_notifications_button_summary_on">Ilmoitukset-painike on piilotettu</string>
+  <string name="revanced_hide_notifications_button_summary_off">Ilmoitukset-painike näytetään</string>
   <!-- 'Notifications' should be translated using the same localized wording YouTube displays the tab. -->
   <string name="revanced_switch_create_with_notifications_button_title">Vaihda Luo ja Ilmoitukset</string>
   <string name="revanced_switch_create_with_notifications_button_summary_on">"Luo- ja Ilmoitukset-painikkeet vaihdetaan
 
 Huomaa: Tämä piilottaa väkisin myös videomainokset"</string>
   <string name="revanced_switch_create_with_notifications_button_summary_off">Luo- ja Ilmoitukset-painikkeita ei vaihdeta</string>
+  <string name="revanced_switch_create_with_notifications_button_user_dialog_message">"Tämän asetuksen poistaminen käytöstä poistaa myös Shorts-mainosten eston käytöstä.
+
+Jos tämän asetuksen muuttaminen ei tule voimaan, kokeile vaihtaa Incognito-tilaan."</string>
   <string name="revanced_hide_navigation_button_labels_title">Piilota navigointipainikkeiden tunnisteet</string>
   <string name="revanced_hide_navigation_button_labels_summary_on">Tunnisteet on piilotettu</string>
   <string name="revanced_hide_navigation_button_labels_summary_off">Tunnisteet näytetään</string>
@@ -794,6 +807,12 @@ Huomaa: Tämä piilottaa väkisin myös videomainokset"</string>
   <string name="revanced_hide_shorts_navigation_bar_summary_off">Navigointipalkki näytetään</string>
   </patch>
   <patch id="layout.hide.endscreensuggestion.hideEndScreenSuggestedVideoPatch">
+  <string name="revanced_end_screen_suggested_video_title">Piilota loppunäytön ehdotettu video</string>
+  <string name="revanced_end_screen_suggested_video_summary_on">"Loppunäytön ehdotettu video on piilotettu, kun automaattinen toisto ei ole käytössä
+
+Automaattista toistoa voidaan muuttaa YouTube-asetuksissa:
+Asetukset → Toisto → Toista seuraava video automaattisesti"</string>
+  <string name="revanced_end_screen_suggested_video_summary_off">Loppunäytön ehdotettu video näytetään</string>
   </patch>
   <patch id="layout.hide.time.hideTimestampPatch">
   <string name="revanced_hide_timestamp_title">Piilota videon aikaleima</string>
@@ -1334,8 +1353,11 @@ Tämä voi avata korkealaatuisemmat videot"</string>
   <string name="revanced_disable_zoom_haptics_summary_off">Haptiikka on käytössä</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
+  <string name="revanced_force_original_audio_title">Pakota alkuperäinen äänen kieli</string>
+  <string name="revanced_force_original_audio_summary_on">Käytetään alkuperäistä ääntä</string>
   <string name="revanced_force_original_audio_summary_off">Käytetään oletusääntä</string>
   <!-- 'Spoof video streams' should be the same translation used for revanced_spoof_video_streams_screen_title -->
+  <string name="revanced_force_original_audio_not_available">Voit käyttää tätä ominaisuutta muuttamalla \"Naamioi videovirrat\" iOS TV:ksi</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->

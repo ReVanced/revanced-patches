@@ -301,13 +301,13 @@ Vous ne serez pas informé des événements inattendus."</string>
   <string name="revanced_hide_description_components_screen_title">Description de la vidéo</string>
   <string name="revanced_hide_description_components_screen_summary">Masquez ou affichez des éléments dans la description des vidéos</string>
   <string name="revanced_hide_filter_bar_screen_title">Barre des filtres</string>
-  <string name="revanced_hide_filter_bar_screen_summary">Masquez ou affichez la barre des filtres dans le flux, les résultats de recherche et les vidéos associées</string>
+  <string name="revanced_hide_filter_bar_screen_summary">Masquez ou affichez la barre des filtres dans le flux, les résultats de recherche et les vidéos similaires</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_title">Masquer dans le flux</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_summary_on">Masquée dans le flux</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_summary_off">Affichée dans le flux</string>
   <string name="revanced_hide_filter_bar_feed_in_search_title">Masquer dans les résultats de recherche</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_summary_on">Masqués dans les résultats de recherche</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_summary_off">Affichés dans les résultats de recherche</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_summary_on">Masquée dans les résultats de recherche</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_summary_off">Affichée dans les résultats de recherche</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_title">Masquer dans les vidéos similaires</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_on">Masquée dans les vidéos similaires</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">Affichée dans les vidéos similaires</string>
