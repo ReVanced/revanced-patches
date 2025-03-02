@@ -411,7 +411,7 @@ internal fun MutableMethod.insertFeatureFlagBooleanOverride(literal: Long, exten
     addInstructions(
         index + 1,
         """
-            invoke-static { v$register }, $extensionsMethod
+            invoke-static/range { v$register .. v$register }, $extensionsMethod
             move-result v$register
         """
     )
