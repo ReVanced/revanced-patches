@@ -1,3 +1,10 @@
+# [5.13.0-dev.19](https://github.com/ReVanced/revanced-patches/compare/v5.13.0-dev.18...v5.13.0-dev.19) (2025-03-02)
+
+
+### Bug Fixes
+
+* **YouTube - Spoof video streams:** Resolve playback issues with dynamic player config ([#4521](https://github.com/ReVanced/revanced-patches/issues/4521)) ([647e764](https://github.com/ReVanced/revanced-patches/commit/647e7642efc0c00db17ccb6a620d1c96ccf4afed))
+
 # [5.13.0-dev.18](https://github.com/ReVanced/revanced-patches/compare/v5.13.0-dev.17...v5.13.0-dev.18) (2025-02-28)
 
 
