@@ -301,7 +301,7 @@ Anda tidak akan diberi tahu tentang kejadian yang tidak terduga."</string>
   <string name="revanced_hide_description_components_screen_title">Keterangan video</string>
   <string name="revanced_hide_description_components_screen_summary">Sembunyikan atau tampilkan komponen keterangan video</string>
   <string name="revanced_hide_filter_bar_screen_title">Bilah saring</string>
-  <string name="revanced_hide_filter_bar_screen_summary">Sembunyikan atau tampilkan bilah filter di bagian umpan, hasil pencarian, dan video terkait</string>
+  <string name="revanced_hide_filter_bar_screen_summary">Sembunyikan atau tampilkan bilah saring di bagian umpan, hasil pencarian, dan video terkait</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_title">Sembunyikan di bagian umpan</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_summary_on">Disembunyikan di bagian umpan</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_summary_off">Tampilkan di bagian umpan</string>
