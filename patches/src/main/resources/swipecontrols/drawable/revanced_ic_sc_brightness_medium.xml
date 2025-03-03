@@ -1,0 +1,28 @@
+<!--
+   https://github.com/google/material-design-icons/blob/9beae745bb758f3ad56654fb377ea5cf62be4915/symbols/android/brightness_medium/materialsymbolsoutlined/brightness_medium_wght300_24px.xml
+
+Copyright 2022 Google
+
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+-->
+
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+        android:width="24dp"
+        android:height="24dp"
+        android:viewportWidth="24"
+        android:viewportHeight="24"
+        android:tint="?attr/colorControlNormal">
+    <path
+            android:fillColor="@android:color/white"
+            android:pathData="M12,22.6 L8.85,19.5H4.5V15.15L1.4,12L4.5,8.85V4.5H8.85L12,1.4L15.15,4.5H19.5V8.85L22.6,12L19.5,15.15V19.5H15.15ZM12,18Q14.5,18 16.25,16.25Q18,14.5 18,12Q18,9.5 16.25,7.75Q14.5,6 12,6ZM12,20.5 L14.5,18H18V14.5L20.5,12L18,9.5V6H14.5L12,3.5L9.5,6H6V9.5L3.5,12L6,14.5V18H9.5ZM12,12Z"/>
+</vector>

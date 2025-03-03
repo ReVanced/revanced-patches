@@ -7,12 +7,9 @@ import static app.revanced.extension.youtube.patches.announcements.requests.Anno
 
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.os.Build;
 import android.text.Html;
 import android.text.method.LinkMovementMethod;
 import android.widget.TextView;
-
-import androidx.annotation.RequiresApi;
 
 import org.json.JSONArray;
 
@@ -31,7 +28,6 @@ public final class AnnouncementsPatch {
     private AnnouncementsPatch() {
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.O)
     private static boolean isLatestAlready() throws IOException {
         HttpURLConnection connection =
                 AnnouncementsRoutes.getAnnouncementsConnectionFromRoute(GET_LATEST_ANNOUNCEMENT_IDS);
@@ -70,7 +66,6 @@ public final class AnnouncementsPatch {
         return Settings.ANNOUNCEMENT_LAST_ID.get() == id;
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.O)
     public static void showAnnouncement(final Activity context) {
         if (!Settings.ANNOUNCEMENTS.get()) return;
 

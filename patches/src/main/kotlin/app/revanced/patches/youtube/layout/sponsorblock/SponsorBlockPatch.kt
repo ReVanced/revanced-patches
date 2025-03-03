@@ -82,9 +82,9 @@ private val sponsorBlockResourcePatch = resourcePatch {
 private const val EXTENSION_SEGMENT_PLAYBACK_CONTROLLER_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/youtube/sponsorblock/SegmentPlaybackController;"
 private const val EXTENSION_CREATE_SEGMENT_BUTTON_CONTROLLER_CLASS_DESCRIPTOR =
-    "Lapp/revanced/extension/youtube/sponsorblock/ui/CreateSegmentButtonController;"
+    "Lapp/revanced/extension/youtube/sponsorblock/ui/CreateSegmentButton;"
 private const val EXTENSION_VOTING_BUTTON_CONTROLLER_CLASS_DESCRIPTOR =
-    "Lapp/revanced/extension/youtube/sponsorblock/ui/VotingButtonController;"
+    "Lapp/revanced/extension/youtube/sponsorblock/ui/VotingButton;"
 private const val EXTENSION_SPONSORBLOCK_VIEW_CONTROLLER_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/youtube/sponsorblock/ui/SponsorBlockViewController;"
 

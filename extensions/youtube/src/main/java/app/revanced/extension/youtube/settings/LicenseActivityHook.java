@@ -5,14 +5,11 @@ import static app.revanced.extension.shared.Utils.getResourceIdentifier;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
-import android.os.Build;
 import android.preference.PreferenceFragment;
 import android.util.TypedValue;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toolbar;
-
-import androidx.annotation.RequiresApi;
 
 import java.util.Objects;
 
@@ -22,6 +19,7 @@ import app.revanced.extension.shared.settings.AppLanguage;
 import app.revanced.extension.shared.settings.BaseSettings;
 import app.revanced.extension.youtube.ThemeHelper;
 import app.revanced.extension.youtube.patches.VersionCheckPatch;
+import app.revanced.extension.youtube.patches.spoof.SpoofAppVersionPatch;
 import app.revanced.extension.youtube.settings.preference.ReVancedPreferenceFragment;
 import app.revanced.extension.youtube.settings.preference.ReturnYouTubeDislikePreferenceFragment;
 import app.revanced.extension.youtube.settings.preference.SponsorBlockPreferenceFragment;
@@ -66,6 +64,10 @@ public class LicenseActivityHook {
         if (Settings.RESTORE_OLD_SETTINGS_MENUS.get()) {
             return false;
         }
+        // Spoofing can cause half broken settings menus of old and new settings.
+        if (SpoofAppVersionPatch.isSpoofingToLessThan("19.35.36")) {
+            return false;
+        }
 
         // On the first launch of a clean install, forcing the cairo menu can give a
         // half broken appearance because all the preference icons may not be available yet.
@@ -79,7 +81,6 @@ public class LicenseActivityHook {
      * <p>
      * Hooks LicenseActivity#onCreate in order to inject our own fragment.
      */
-    @RequiresApi(api = Build.VERSION_CODES.N)
     public static void initialize(Activity licenseActivity) {
         try {
             ThemeHelper.setActivityTheme(licenseActivity);
@@ -119,15 +120,13 @@ public class LicenseActivityHook {
         }
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.N)
     @SuppressLint("UseCompatLoadingForDrawables")
     private static void createToolbar(Activity activity, String toolbarTitleResourceName) {
         // Replace dummy placeholder toolbar.
         // This is required to fix submenu title alignment issue with Android ASOP 15+
         ViewGroup toolBarParent = activity.findViewById(
                 getResourceIdentifier("revanced_toolbar_parent", "id"));
-        ViewGroup dummyToolbar = toolBarParent.findViewById(getResourceIdentifier(
-                "revanced_toolbar", "id"));
+        ViewGroup dummyToolbar = Utils.getChildViewByResourceName(toolBarParent,"revanced_toolbar");
         toolbarLayoutParams = dummyToolbar.getLayoutParams();
         toolBarParent.removeView(dummyToolbar);
 

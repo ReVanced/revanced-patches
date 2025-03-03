@@ -1,7 +1,5 @@
 <!--
    https://github.com/google/material-design-icons/blob/9beae745bb758f3ad56654fb377ea5cf62be4915/symbols/android/brightness_auto/materialsymbolsoutlined/brightness_auto_wght300_24px.xml
-   Changes made: Icon has been resized.
-
 
 Copyright 2022 Google
 
@@ -19,12 +17,12 @@ Copyright 2022 Google
 -->
 
 <vector xmlns:android="http://schemas.android.com/apk/res/android"
-        android:tint="#000000"
         android:width="24dp"
         android:height="24dp"
         android:viewportWidth="24"
-        android:viewportHeight="24">
+        android:viewportHeight="24"
+        android:tint="?attr/colorControlNormal">
     <path
             android:fillColor="@android:color/white"
-            android:pathData="m 7.4662814,16.525036 h 1.4401493 l 1.0355546,-2.77594 h 4.1725927 l 1.035554,2.77594 h 1.427112 L 12.643941,6.3437048 H 11.377836 Z M 10.36403,12.561274 11.943437,8.166757 h 0.113126 l 1.601184,4.394517 z M 12,24 8.4496001,20.484415 H 3.5155855 V 15.5504 L 0,12 3.5155855,8.4496001 V 3.5155855 H 8.4496001 L 12,0 15.5504,3.5155855 h 4.934015 V 8.4496001 L 24,12 20.484415,15.5504 v 4.934015 H 15.5504 Z m 0,-2.384298 2.828148,-2.828148 h 3.959406 V 14.828148 L 21.615702,12 18.787554,9.1718524 V 5.2124457 H 14.828148 L 12,2.3842981 9.1718524,5.2124457 H 5.2124457 V 9.1718524 L 2.3842981,12 5.2124457,14.828148 v 3.959406 H 9.1718524 Z M 12,12 Z"/>
+            android:pathData="M8,16H9.275L10.175,13.55H13.875L14.775,16H16.05L12.575,7H11.45ZM10.55,12.5 L11.95,8.6H12.05L13.475,12.5ZM12,22.6 L8.85,19.5H4.5V15.15L1.4,12L4.5,8.85V4.5H8.85L12,1.4L15.15,4.5H19.5V8.85L22.6,12L19.5,15.15V19.5H15.15ZM12,12ZM12,20.5 L14.5,18H18V14.5L20.5,12L18,9.5V6H14.5L12,3.5L9.5,6H6V9.5L3.5,12L6,14.5V18H9.5Z"/>
 </vector>
