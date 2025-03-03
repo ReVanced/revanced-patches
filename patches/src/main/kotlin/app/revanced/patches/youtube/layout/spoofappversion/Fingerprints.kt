@@ -1,8 +1,29 @@
 package app.revanced.patches.youtube.layout.spoofappversion
 
 import app.revanced.patcher.fingerprint
+import app.revanced.util.containsLiteralInstruction
+import app.revanced.util.getReference
+import app.revanced.util.indexOfFirstInstruction
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.iface.Method
+import com.android.tools.smali.dexlib2.iface.reference.MethodReference
+
+internal val toolBarButtonFingerprint = fingerprint {
+    returns("V")
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
+    parameters("Landroid/view/MenuItem;")
+    custom { method, _ ->
+        method.containsLiteralInstruction(menuItemView) &&
+                indexOfGetDrawableInstruction(method) >= 0
+    }
+}
+
+internal fun indexOfGetDrawableInstruction(method: Method) = method.indexOfFirstInstruction {
+    val reference = getReference<MethodReference>()
+    reference?.definingClass == "Landroid/content/res/Resources;" &&
+            reference.name == "getDrawable"
+}
 
 internal val spoofAppVersionFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
