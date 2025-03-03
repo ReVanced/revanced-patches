@@ -301,9 +301,13 @@ MicroG-ի համար մարտկոցի օպտիմալացումը անջատել�
   <string name="revanced_hide_description_components_screen_title">Տեսանյութի նկարագրություն</string>
   <string name="revanced_hide_description_components_screen_summary">Թաքցնել կամ ցույց տալ տեսանյութի նկարագրության բաղադրամասերը</string>
   <string name="revanced_hide_filter_bar_screen_title">Ֆիլտրի գիծ</string>
+  <string name="revanced_hide_filter_bar_screen_summary">Թաքցնել կամ ցուցադրել ֆիլտրի գոտին լրահոսում, որոնման արդյունքներում և հարակից տեսանյութերում</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_title">Թաքցնել լեզվականում</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_summary_on">Թաքցված է լեզվականում</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_summary_off">Ցույց է տրվում լեզվականում</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_title">Թաքցնել որոնման արդյունքներում</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_summary_on">Թաքնված է որոնման արդյունքներում</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_summary_off">Ցուցադրված է որոնման արդյունքներում</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_title">Թաքցնել կապված տեսանյութերում</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_on">Թաքցված է կապված տեսանյութերում</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">Ցույց է տրվում կապված տեսանյութերում</string>
