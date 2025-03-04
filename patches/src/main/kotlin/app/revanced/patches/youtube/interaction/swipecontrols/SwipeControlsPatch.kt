@@ -47,6 +47,7 @@ private val swipeControlsResourcePatch = resourcePatch {
             TextPreference("revanced_swipe_overlay_background_opacity", inputType = InputType.NUMBER),
             TextPreference("revanced_swipe_overlay_timeout", inputType = InputType.NUMBER),
             TextPreference("revanced_swipe_threshold", inputType = InputType.NUMBER),
+            TextPreference("revanced_swipe_max_volume", inputType = InputType.NUMBER),
         )
 
         copyResources(

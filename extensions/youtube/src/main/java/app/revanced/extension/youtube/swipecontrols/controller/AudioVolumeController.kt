@@ -5,16 +5,19 @@ import android.media.AudioManager
 import android.os.Build
 import app.revanced.extension.shared.Logger.printException
 import app.revanced.extension.youtube.swipecontrols.misc.clamp
+import kotlin.math.roundToInt
 import kotlin.properties.Delegates
 
 /**
  * controller to adjust the device volume level
  *
  * @param context the context to bind the audio service in
+ * @param maxVolumeConfig number of volume steps set by user in settings
  * @param targetStream the stream that is being controlled. Must be one of the STREAM_* constants in [AudioManager]
  */
 class AudioVolumeController(
     context: Context,
+    maxVolumeConfig: Int,
     private val targetStream: Int = AudioManager.STREAM_MUSIC,
 ) {
 
@@ -24,6 +27,7 @@ class AudioVolumeController(
     private lateinit var audioManager: AudioManager
     private var minimumVolumeIndex by Delegates.notNull<Int>()
     private var maximumVolumeIndex by Delegates.notNull<Int>()
+    private var ratio by Delegates.notNull<Float>()
 
     init {
         // bind audio service
@@ -32,7 +36,19 @@ class AudioVolumeController(
             printException { "failed to acquire AUDIO_SERVICE" }
         } else {
             audioManager = mgr
-            maximumVolumeIndex = audioManager.getStreamMaxVolume(targetStream)
+
+            val realMax = audioManager.getStreamMaxVolume(targetStream)
+
+            // Value from config can't be higher than real max volume,
+            // otherwise it breaks volume up.
+            if(maxVolumeConfig <= 0 || maxVolumeConfig >= realMax) {
+                maximumVolumeIndex = realMax
+                ratio = 1F
+            } else {
+                maximumVolumeIndex = maxVolumeConfig
+                ratio = realMax / maxVolumeConfig.toFloat()
+            }
+
             minimumVolumeIndex =
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
                     audioManager.getStreamMinVolume(
@@ -74,6 +90,6 @@ class AudioVolumeController(
      * the current volume index of the target stream
      */
     private var currentVolumeIndex: Int
-        get() = audioManager.getStreamVolume(targetStream)
-        set(value) = audioManager.setStreamVolume(targetStream, value, 0)
+        get() = (audioManager.getStreamVolume(targetStream) / ratio).roundToInt()
+        set(value) = audioManager.setStreamVolume(targetStream, (value * ratio).roundToInt(), 0)
 }

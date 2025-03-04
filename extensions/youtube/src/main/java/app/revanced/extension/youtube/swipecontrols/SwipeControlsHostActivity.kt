@@ -200,7 +200,7 @@ class SwipeControlsHostActivity : Activity() {
      */
     private fun createAudioController() =
         if (config.enableVolumeControls) {
-            AudioVolumeController(this)
+            AudioVolumeController(this, config.maxVolume)
         } else {
             null
         }

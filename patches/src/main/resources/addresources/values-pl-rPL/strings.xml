@@ -509,6 +509,8 @@ Dostosuj głośność, przesuwając pionowo po prawej stronie ekranu"</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Przezroczystość przesuwania musi być między 0 a 100</string>
   <string name="revanced_swipe_threshold_title">Minimalna długość przesunięcia</string>
   <string name="revanced_swipe_threshold_summary">Wartość wymagana do wykonania gestu przesunięcia</string>
+  <string name="revanced_swipe_max_volume_title">Maksymalna głośność</string>
+  <string name="revanced_swipe_max_volume_summary">Ilość kroków głośności przy presuwaniu. 0 oznacza wartość systemową</string>
   <string name="revanced_swipe_show_circular_overlay_title">Pokaż okrągłą nakładkę</string>
   <string name="revanced_swipe_show_circular_overlay_summary_on">Wyświetlana jest okrągła nakładka</string>
   <string name="revanced_swipe_show_circular_overlay_summary_off">Wyświetlana jest pozioma nakładka</string>

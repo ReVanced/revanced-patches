@@ -60,6 +60,12 @@ class SwipeControlsConfigurationProvider(
      */
     val swipeMagnitudeThreshold: Int
         get() = Settings.SWIPE_MAGNITUDE_THRESHOLD.get()
+
+    /**
+     * number of volume steps set by user in settings
+     * */
+    val maxVolume: Int
+        get() = Settings.SWIPE_MAX_VOLUME.get()
 //endregion
 
 //region overlay adjustments
