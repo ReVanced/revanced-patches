@@ -8,7 +8,7 @@ import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.shared.misc.settings.preference.ListPreference
-import app.revanced.patches.shared.misc.settings.preference.PreferenceScreenPreference
+import app.revanced.patches.shared.misc.settings.preference.PreferenceCategory
 import app.revanced.patches.shared.misc.settings.preference.PreferenceScreenPreference.Sorting
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
@@ -53,32 +53,42 @@ val rememberVideoQualityPatch = bytecodePatch(
         addResources("youtube", "video.quality.rememberVideoQualityPatch")
 
         PreferenceScreen.VIDEO.addPreferences(
-            SwitchPreference("revanced_remember_video_quality_last_selected"),
-            ListPreference(
-                key = "revanced_video_quality_default_wifi",
-                summaryKey = null,
-                entriesKey = "revanced_video_quality_default_entries",
-                entryValuesKey = "revanced_video_quality_default_entry_values",
-            ),
-            ListPreference(
-                key = "revanced_video_quality_default_mobile",
-                summaryKey = null,
-                entriesKey = "revanced_video_quality_default_entries",
-                entryValuesKey = "revanced_video_quality_default_entry_values",
-            ),
+            // Keep the preferences organized together.
+            PreferenceCategory(
+                key = null,
+                // The title does not show, but is used for sorting the group.
+                titleKey = "revanced_remember_video_quality_last_selected_title",
+                sorting = Sorting.UNSORTED,
+                tag = "app.revanced.extension.shared.settings.preference.NoTitlePreferenceCategory",
+                preferences = setOf(
+                    ListPreference(
+                        key = "revanced_video_quality_default_mobile",
+                        summaryKey = null,
+                        entriesKey = "revanced_video_quality_default_entries",
+                        entryValuesKey = "revanced_video_quality_default_entry_values",
+                    ),
+                    ListPreference(
+                        key = "revanced_video_quality_default_wifi",
+                        summaryKey = null,
+                        entriesKey = "revanced_video_quality_default_entries",
+                        entryValuesKey = "revanced_video_quality_default_entry_values",
+                    ),
+                    SwitchPreference("revanced_remember_video_quality_last_selected"),
 
-            SwitchPreference("revanced_remember_shorts_quality_last_selected"),
-            ListPreference(
-                key = "revanced_shorts_quality_default_wifi",
-                summaryKey = null,
-                entriesKey = "revanced_video_quality_default_entries",
-                entryValuesKey = "revanced_video_quality_default_entry_values",
-            ),
-            ListPreference(
-                key = "revanced_shorts_quality_default_mobile",
-                summaryKey = null,
-                entriesKey = "revanced_video_quality_default_entries",
-                entryValuesKey = "revanced_video_quality_default_entry_values",
+                    ListPreference(
+                        key = "revanced_shorts_quality_default_mobile",
+                        summaryKey = null,
+                        entriesKey = "revanced_video_quality_default_entries",
+                        entryValuesKey = "revanced_video_quality_default_entry_values",
+                    ),
+                    ListPreference(
+                        key = "revanced_shorts_quality_default_wifi",
+                        summaryKey = null,
+                        entriesKey = "revanced_video_quality_default_entries",
+                        entryValuesKey = "revanced_video_quality_default_entry_values",
+                    ),
+                    SwitchPreference("revanced_remember_shorts_quality_last_selected")
+                )
             )
         )
 
