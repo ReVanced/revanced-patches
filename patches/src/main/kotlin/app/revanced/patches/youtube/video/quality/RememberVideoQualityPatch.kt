@@ -53,39 +53,32 @@ val rememberVideoQualityPatch = bytecodePatch(
         addResources("youtube", "video.quality.rememberVideoQualityPatch")
 
         PreferenceScreen.VIDEO.addPreferences(
-            PreferenceScreenPreference(
-                key = "revanced_video_quality_screen",
+            SwitchPreference("revanced_remember_video_quality_last_selected"),
+            ListPreference(
+                key = "revanced_video_quality_default_wifi",
                 summaryKey = null,
-                sorting = Sorting.UNSORTED,
-                preferences = setOf(
-                    SwitchPreference("revanced_remember_video_quality_last_selected"),
-                    ListPreference(
-                        key = "revanced_video_quality_default_wifi",
-                        summaryKey = null,
-                        entriesKey = "revanced_video_quality_default_entries",
-                        entryValuesKey = "revanced_video_quality_default_entry_values",
-                    ),
-                    ListPreference(
-                        key = "revanced_video_quality_default_mobile",
-                        summaryKey = null,
-                        entriesKey = "revanced_video_quality_default_entries",
-                        entryValuesKey = "revanced_video_quality_default_entry_values",
-                    ),
-                    SwitchPreference("revanced_video_quality_separate_shorts"),
-                    SwitchPreference("revanced_remember_shorts_quality_last_selected"),
-                    ListPreference(
-                        key = "revanced_video_quality_default_wifi_shorts",
-                        summaryKey = null,
-                        entriesKey = "revanced_video_quality_default_entries",
-                        entryValuesKey = "revanced_video_quality_default_entry_values",
-                    ),
-                    ListPreference(
-                        key = "revanced_video_quality_default_mobile_shorts",
-                        summaryKey = null,
-                        entriesKey = "revanced_video_quality_default_entries",
-                        entryValuesKey = "revanced_video_quality_default_entry_values",
-                    ),
-                )
+                entriesKey = "revanced_video_quality_default_entries",
+                entryValuesKey = "revanced_video_quality_default_entry_values",
+            ),
+            ListPreference(
+                key = "revanced_video_quality_default_mobile",
+                summaryKey = null,
+                entriesKey = "revanced_video_quality_default_entries",
+                entryValuesKey = "revanced_video_quality_default_entry_values",
+            ),
+
+            SwitchPreference("revanced_remember_shorts_quality_last_selected"),
+            ListPreference(
+                key = "revanced_shorts_quality_default_wifi",
+                summaryKey = null,
+                entriesKey = "revanced_video_quality_default_entries",
+                entryValuesKey = "revanced_video_quality_default_entry_values",
+            ),
+            ListPreference(
+                key = "revanced_shorts_quality_default_mobile",
+                summaryKey = null,
+                entriesKey = "revanced_video_quality_default_entries",
+                entryValuesKey = "revanced_video_quality_default_entry_values",
             )
         )
 

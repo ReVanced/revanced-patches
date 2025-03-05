@@ -21,11 +21,10 @@ import app.revanced.extension.youtube.shared.ShortsPlayerState;
 @SuppressWarnings("unused")
 public class RememberVideoQualityPatch {
     private static final int AUTOMATIC_VIDEO_QUALITY_VALUE = -2;
-    private static final IntegerSetting wifiQualitySetting = Settings.VIDEO_QUALITY_DEFAULT_WIFI;
-    private static final IntegerSetting mobileQualitySetting = Settings.VIDEO_QUALITY_DEFAULT_MOBILE;
-    private static final BooleanSetting separateShortsQuality = Settings.VIDEO_QUALITY_SEPARATE_SHORTS;
-    private static final IntegerSetting wifiShortsQualitySetting = Settings.VIDEO_QUALITY_DEFAULT_WIFI_SHORTS;
-    private static final IntegerSetting mobileShortsQualitySetting = Settings.VIDEO_QUALITY_DEFAULT_MOBILE_SHORTS;
+    private static final IntegerSetting videoWifiQuality = Settings.VIDEO_QUALITY_DEFAULT_WIFI;
+    private static final IntegerSetting videoMobileQuality = Settings.VIDEO_QUALITY_DEFAULT_MOBILE;
+    private static final IntegerSetting shortsWifiQuality = Settings.SHORTS_QUALITY_DEFAULT_WIFI;
+    private static final IntegerSetting shortsMobileQuality = Settings.SHORTS_QUALITY_DEFAULT_MOBILE;
 
     private static boolean qualityNeedsUpdating;
 
@@ -47,12 +46,11 @@ public class RememberVideoQualityPatch {
     private static List<Integer> videoQualities;
 
     private static boolean shouldUseShortsPreference() {
-        return separateShortsQuality.get() && ShortsPlayerState.isOpen();
+        return ShortsPlayerState.isOpen();
     }
 
     private static boolean shouldRememberVideoQuality() {
-        boolean useShortsPreference = shouldUseShortsPreference();
-        BooleanSetting preference = useShortsPreference ?
+        BooleanSetting preference = shouldUseShortsPreference() ?
                 Settings.REMEMBER_SHORTS_QUALITY_LAST_SELECTED
                 : Settings.REMEMBER_VIDEO_QUALITY_LAST_SELECTED;
         return preference.get();
@@ -62,12 +60,12 @@ public class RememberVideoQualityPatch {
         String networkTypeMessage;
         boolean useShortsPreference = shouldUseShortsPreference();
         if (Utils.getNetworkType() == NetworkType.MOBILE) {
-            if (useShortsPreference) mobileShortsQualitySetting.save(defaultQuality);
-            else mobileQualitySetting.save(defaultQuality);
+            if (useShortsPreference) shortsMobileQuality.save(defaultQuality);
+            else videoMobileQuality.save(defaultQuality);
             networkTypeMessage = str("revanced_remember_video_quality_mobile");
         } else {
-            if (useShortsPreference) wifiShortsQualitySetting.save(defaultQuality);
-            else wifiQualitySetting.save(defaultQuality);
+            if (useShortsPreference) shortsWifiQuality.save(defaultQuality);
+            else videoWifiQuality.save(defaultQuality);
             networkTypeMessage = str("revanced_remember_video_quality_wifi");
         }
         Utils.showToastShort(str(
@@ -86,8 +84,8 @@ public class RememberVideoQualityPatch {
         try {
             boolean useShortsPreference = shouldUseShortsPreference();
             final int preferredQuality = Utils.getNetworkType() == NetworkType.MOBILE
-                    ? (useShortsPreference ? mobileShortsQualitySetting : mobileQualitySetting).get()
-                    : (useShortsPreference ? wifiShortsQualitySetting : wifiQualitySetting).get();
+                    ? (useShortsPreference ? shortsMobileQuality : videoMobileQuality).get()
+                    : (useShortsPreference ? shortsWifiQuality : videoWifiQuality).get();
 
             if (!userChangedDefaultQuality && preferredQuality == AUTOMATIC_VIDEO_QUALITY_VALUE) {
                 return originalQualityIndex; // Nothing to do.
