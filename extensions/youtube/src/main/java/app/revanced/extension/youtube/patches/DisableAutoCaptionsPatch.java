@@ -1,7 +1,7 @@
 package app.revanced.extension.youtube.patches;
 
 import app.revanced.extension.youtube.settings.Settings;
-import app.revanced.extension.youtube.shared.PlayerType;
+import app.revanced.extension.youtube.shared.ShortsPlayerState;
 
 @SuppressWarnings("unused")
 public class DisableAutoCaptionsPatch {
@@ -14,7 +14,7 @@ public class DisableAutoCaptionsPatch {
     public static boolean autoCaptionsEnabled() {
         return Settings.AUTO_CAPTIONS.get()
                 // Do not use auto captions for Shorts.
-                && !PlayerType.getCurrent().isNoneHiddenOrSlidingMinimized();
+                && ShortsPlayerState.isOpen();
     }
 
 }

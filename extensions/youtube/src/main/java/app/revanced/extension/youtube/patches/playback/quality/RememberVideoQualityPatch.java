@@ -16,7 +16,7 @@ import app.revanced.extension.shared.settings.BooleanSetting;
 import app.revanced.extension.shared.settings.IntegerSetting;
 import app.revanced.extension.youtube.patches.VideoInformation;
 import app.revanced.extension.youtube.settings.Settings;
-import app.revanced.extension.youtube.shared.PlayerType;
+import app.revanced.extension.youtube.shared.ShortsPlayerState;
 
 @SuppressWarnings("unused")
 public class RememberVideoQualityPatch {
@@ -47,7 +47,7 @@ public class RememberVideoQualityPatch {
     private static List<Integer> videoQualities;
 
     private static boolean shouldUseShortsPreference() {
-        return separateShortsQuality.get() && PlayerType.getCurrent().isNoneHiddenOrSlidingMinimized();
+        return separateShortsQuality.get() && ShortsPlayerState.isOpen();
     }
 
     private static boolean shouldRememberVideoQuality() {
