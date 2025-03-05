@@ -55,9 +55,8 @@ val rememberVideoQualityPatch = bytecodePatch(
         PreferenceScreen.VIDEO.addPreferences(
             // Keep the preferences organized together.
             PreferenceCategory(
-                key = null,
-                // The title does not show, but is used for sorting the group.
-                titleKey = "revanced_remember_video_quality_last_selected_title",
+                key = "revanced_01_video_key", // Dummy key to force the quality preferences first.
+                titleKey = null,
                 sorting = Sorting.UNSORTED,
                 tag = "app.revanced.extension.shared.settings.preference.NoTitlePreferenceCategory",
                 preferences = setOf(

@@ -10,7 +10,7 @@ import app.revanced.patches.youtube.video.speed.custom.customPlaybackSpeedPatch
 import app.revanced.patches.youtube.video.speed.remember.rememberPlaybackSpeedPatch
 
 /**
- * Speed menu settings.
+ * Speed menu settings.  Used to organize all speed related settings together.
  */
 internal val settingsMenuVideoSpeedGroup = mutableSetOf<BasePreference>()
 
@@ -39,12 +39,10 @@ val playbackSpeedPatch = bytecodePatch(
     )
 
     finalize {
-        // Keep the preferences organized together.
         PreferenceScreen.VIDEO.addPreferences(
             PreferenceCategory(
-                key = null,
-                // The title does not show, but is used for sorting the group.
-                titleKey = "revanced_custom_speed_menu_title",
+                key = "revanced_zz_key", // Dummy key to force the speed settings last.
+                titleKey = null,
                 sorting = Sorting.UNSORTED,
                 tag = "app.revanced.extension.shared.settings.preference.NoTitlePreferenceCategory",
                 preferences = settingsMenuVideoSpeedGroup
