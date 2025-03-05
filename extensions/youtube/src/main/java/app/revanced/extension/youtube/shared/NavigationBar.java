@@ -3,7 +3,9 @@ package app.revanced.extension.youtube.shared;
 import static app.revanced.extension.youtube.shared.NavigationBar.NavigationButton.CREATE;
 
 import android.app.Activity;
+import android.graphics.drawable.Drawable;
 import android.view.View;
+import android.widget.FrameLayout;
 
 import androidx.annotation.Nullable;
 
@@ -24,17 +26,43 @@ import app.revanced.extension.youtube.settings.Settings;
 @SuppressWarnings("unused")
 public final class NavigationBar {
 
+    /**
+     * Interface to call obfuscated methods in AppCompat Toolbar class.
+     */
+    public interface AppCompatToolbarPatchInterface {
+        Drawable patch_getNavigationIcon();
+    }
+
     //
-    // Search bar
+    // Search and toolbar.
     //
 
     private static volatile WeakReference<View> searchBarResultsRef = new WeakReference<>(null);
+
+    private static volatile WeakReference<AppCompatToolbarPatchInterface> toolbarResultsRef
+            = new WeakReference<>(null);
 
     /**
      * Injection point.
      */
     public static void searchBarResultsViewLoaded(View searchbarResults) {
         searchBarResultsRef = new WeakReference<>(searchbarResults);
+    }
+
+    /**
+     * Injection point.
+     */
+    public static void setToolbar(FrameLayout layout) {
+        AppCompatToolbarPatchInterface toolbar = Utils.getChildView(layout, false, (view) ->
+                view instanceof AppCompatToolbarPatchInterface
+        );
+
+        if (toolbar == null) {
+            Logger.printException(() -> "Could not find navigation toolbar");
+            return;
+        }
+
+        toolbarResultsRef = new WeakReference<>(toolbar);
     }
 
     /**
@@ -47,8 +75,13 @@ public final class NavigationBar {
         return searchbarResults != null && searchbarResults.getParent() != null;
     }
 
+    public static boolean isBackButtonVisible() {
+        AppCompatToolbarPatchInterface toolbar = toolbarResultsRef.get();
+        return toolbar != null && toolbar.patch_getNavigationIcon() != null;
+    }
+
     //
-    // Navigation bar buttons
+    // Navigation bar buttons.
     //
 
     /**

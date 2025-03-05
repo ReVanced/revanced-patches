@@ -8,6 +8,7 @@ import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.resourcePatch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
+import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
 import app.revanced.patches.shared.misc.mapping.get
 import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
 import app.revanced.patches.shared.misc.mapping.resourceMappings
@@ -18,12 +19,16 @@ import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
 import app.revanced.util.indexOfFirstInstructionReversedOrThrow
 import app.revanced.util.indexOfFirstLiteralInstructionOrThrow
+import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.builder.MutableMethodImplementation
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.Instruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
+import com.android.tools.smali.dexlib2.iface.reference.TypeReference
+import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
 import com.android.tools.smali.dexlib2.util.MethodUtil
 
 internal var imageOnlyTabResourceId = -1L
@@ -31,6 +36,8 @@ internal var imageOnlyTabResourceId = -1L
 internal var actionBarSearchResultsViewMicId = -1L
     private set
 internal var ytFillBellId = -1L
+    private set
+internal var toolbarContainerId = -1L
     private set
 
 private val navigationBarHookResourcePatch = resourcePatch {
@@ -40,6 +47,7 @@ private val navigationBarHookResourcePatch = resourcePatch {
         imageOnlyTabResourceId = resourceMappings["layout", "image_only_tab"]
         actionBarSearchResultsViewMicId = resourceMappings["layout", "action_bar_search_results_view_mic"]
         ytFillBellId = resourceMappings["drawable", "yt_fill_bell_black_24"]
+        toolbarContainerId = resourceMappings["id", "toolbar_container"]
     }
 }
 
@@ -47,6 +55,8 @@ internal const val EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/youtube/shared/NavigationBar;"
 internal const val EXTENSION_NAVIGATION_BUTTON_DESCRIPTOR =
     "Lapp/revanced/extension/youtube/shared/NavigationBar\$NavigationButton;"
+private const val EXTENSION_TOOLBAR_INTERFACE =
+    "Lapp/revanced/extension/youtube/shared/NavigationBar${'$'}AppCompatToolbarPatchInterface;"
 
 lateinit var hookNavigationButtonCreated: (String) -> Unit
 
@@ -143,11 +153,58 @@ val navigationBarHookPatch = bytecodePatch(description = "Hooks the active navig
             )
         }
 
+        // Hook the back button visibility.
+
+        toolbarLayoutFingerprint.method.apply {
+            val index = indexOfFirstInstructionOrThrow {
+                opcode == Opcode.CHECK_CAST && getReference<TypeReference>()?.type ==
+                        "Lcom/google/android/apps/youtube/app/ui/actionbar/MainCollapsingToolbarLayout;"
+            }
+            val register = getInstruction<OneRegisterInstruction>(index).registerA
+
+            addInstruction(
+                index + 1,
+                "invoke-static { v$register }, ${EXTENSION_CLASS_DESCRIPTOR}->setToolbar(Landroid/widget/FrameLayout;)V"
+            )
+        }
+
+        // Add interface for extensions code to call obfuscated methods.
+        appCompatToolbarBackButtonFingerprint.let {
+            it.classDef.apply {
+                interfaces.add(EXTENSION_TOOLBAR_INTERFACE)
+
+                val definingClass = type
+                val obfuscatedMethodName = it.originalMethod.name
+                val returnType = "Landroid/graphics/drawable/Drawable;"
+
+                methods.add(
+                    ImmutableMethod(
+                        definingClass,
+                        "patch_getNavigationIcon",
+                        listOf(),
+                        returnType,
+                        AccessFlags.PUBLIC.value or AccessFlags.FINAL.value,
+                        null,
+                        null,
+                        MutableMethodImplementation(2),
+                    ).toMutable().apply {
+                        addInstructions(
+                            0,
+                            """
+                                invoke-virtual { p0 }, $definingClass->$obfuscatedMethodName()$returnType
+                                move-result-object v0
+                                return-object v0
+                            """
+                        )
+                    }
+                )
+            }
+        }
+
         hookNavigationButtonCreated = { extensionClassDescriptor ->
             navigationBarHookCallbackFingerprint.method.addInstruction(
                 0,
-                "invoke-static { p0, p1 }, " +
-                    "$extensionClassDescriptor->navigationTabCreated" +
+                "invoke-static { p0, p1 }, $extensionClassDescriptor->navigationTabCreated" +
                     "(${EXTENSION_NAVIGATION_BUTTON_DESCRIPTOR}Landroid/view/View;)V",
             )
         }
