@@ -9,7 +9,7 @@ import org.w3c.dom.Element
 val changeVersionCodePatch = resourcePatch(
     name = "Change version code",
     description = "Changes the version code of the app. This will turn off app store updates " +
-            "and allows updating an existing app install to an older app version.",
+            "and allows downgrading an existing app install to an older app version.",
     use = false,
 ) {
     val versionCode by intOption(
@@ -21,7 +21,7 @@ val changeVersionCodePatch = resourcePatch(
         ),
         title = "Version code",
         description = "The version code to use. Using the highest value turns off app store " +
-                "updates and allows downgrading an existing app installation to an older app version.",
+                "updates and allows downgrading an existing app install to an older app version.",
         required = true,
     ) { versionCode -> versionCode!! >= 1 }
 

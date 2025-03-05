@@ -1042,7 +1042,7 @@ Your user id is like a password and it should never be shared.
             <string name="revanced_sb_skip_automatically">Skip automatically</string>
             <string name="revanced_sb_skip_automatically_once">Skip automatically once</string>
             <string name="revanced_sb_skip_showbutton">Show a Skip button</string>
-            <string name="revanced_sb_skip_seekbaronly">Show in seek bar</string>
+            <string name="revanced_sb_skip_seekbaronly">Show in seekbar</string>
             <string name="revanced_sb_skip_ignore">Disable</string>
             <string name="revanced_sb_submit_failed_invalid">Unable to submit segment: %s</string>
             <string name="revanced_sb_submit_failed_timeout">SponsorBlock is temporarily down</string>
