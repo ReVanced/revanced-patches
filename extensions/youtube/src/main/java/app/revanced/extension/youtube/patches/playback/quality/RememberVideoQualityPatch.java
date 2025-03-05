@@ -21,10 +21,10 @@ import app.revanced.extension.youtube.shared.ShortsPlayerState;
 @SuppressWarnings("unused")
 public class RememberVideoQualityPatch {
     private static final int AUTOMATIC_VIDEO_QUALITY_VALUE = -2;
-    private static final IntegerSetting videoWifiQuality = Settings.VIDEO_QUALITY_DEFAULT_WIFI;
-    private static final IntegerSetting videoMobileQuality = Settings.VIDEO_QUALITY_DEFAULT_MOBILE;
-    private static final IntegerSetting shortsWifiQuality = Settings.SHORTS_QUALITY_DEFAULT_WIFI;
-    private static final IntegerSetting shortsMobileQuality = Settings.SHORTS_QUALITY_DEFAULT_MOBILE;
+    private static final IntegerSetting videoQualityWifi = Settings.VIDEO_QUALITY_DEFAULT_WIFI;
+    private static final IntegerSetting videoQualityMobile = Settings.VIDEO_QUALITY_DEFAULT_MOBILE;
+    private static final IntegerSetting shortsQualityWifi = Settings.SHORTS_QUALITY_DEFAULT_WIFI;
+    private static final IntegerSetting shortsQualityMobile = Settings.SHORTS_QUALITY_DEFAULT_MOBILE;
 
     private static boolean qualityNeedsUpdating;
 
@@ -45,12 +45,8 @@ public class RememberVideoQualityPatch {
     @Nullable
     private static List<Integer> videoQualities;
 
-    private static boolean shouldUseShortsPreference() {
-        return ShortsPlayerState.isOpen();
-    }
-
     private static boolean shouldRememberVideoQuality() {
-        BooleanSetting preference = shouldUseShortsPreference() ?
+        BooleanSetting preference = ShortsPlayerState.isOpen() ?
                 Settings.REMEMBER_SHORTS_QUALITY_LAST_SELECTED
                 : Settings.REMEMBER_VIDEO_QUALITY_LAST_SELECTED;
         return preference.get();
@@ -58,14 +54,14 @@ public class RememberVideoQualityPatch {
 
     private static void changeDefaultQuality(int defaultQuality) {
         String networkTypeMessage;
-        boolean useShortsPreference = shouldUseShortsPreference();
+        boolean useShortsPreference = ShortsPlayerState.isOpen();
         if (Utils.getNetworkType() == NetworkType.MOBILE) {
-            if (useShortsPreference) shortsMobileQuality.save(defaultQuality);
-            else videoMobileQuality.save(defaultQuality);
+            if (useShortsPreference) shortsQualityMobile.save(defaultQuality);
+            else videoQualityMobile.save(defaultQuality);
             networkTypeMessage = str("revanced_remember_video_quality_mobile");
         } else {
-            if (useShortsPreference) shortsWifiQuality.save(defaultQuality);
-            else videoWifiQuality.save(defaultQuality);
+            if (useShortsPreference) shortsQualityWifi.save(defaultQuality);
+            else videoQualityWifi.save(defaultQuality);
             networkTypeMessage = str("revanced_remember_video_quality_wifi");
         }
         Utils.showToastShort(str(
@@ -82,10 +78,10 @@ public class RememberVideoQualityPatch {
      */
     public static int setVideoQuality(Object[] qualities, final int originalQualityIndex, Object qInterface, String qIndexMethod) {
         try {
-            boolean useShortsPreference = shouldUseShortsPreference();
+            boolean useShortsPreference = ShortsPlayerState.isOpen();
             final int preferredQuality = Utils.getNetworkType() == NetworkType.MOBILE
-                    ? (useShortsPreference ? shortsMobileQuality : videoMobileQuality).get()
-                    : (useShortsPreference ? shortsWifiQuality : videoWifiQuality).get();
+                    ? (useShortsPreference ? shortsQualityMobile : videoQualityMobile).get()
+                    : (useShortsPreference ? shortsQualityWifi : videoQualityWifi).get();
 
             if (!userChangedDefaultQuality && preferredQuality == AUTOMATIC_VIDEO_QUALITY_VALUE) {
                 return originalQualityIndex; // Nothing to do.
@@ -162,10 +158,10 @@ public class RememberVideoQualityPatch {
      * Injection point.  Old quality menu.
      */
     public static void userChangedQuality(int selectedQualityIndex) {
-        if (!shouldRememberVideoQuality()) return;
-
-        userSelectedQualityIndex = selectedQualityIndex;
-        userChangedDefaultQuality = true;
+        if (shouldRememberVideoQuality()) {
+            userSelectedQualityIndex = selectedQualityIndex;
+            userChangedDefaultQuality = true;
+        }
     }
 
     /**
