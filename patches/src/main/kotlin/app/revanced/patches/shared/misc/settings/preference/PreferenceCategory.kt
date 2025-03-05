@@ -17,7 +17,7 @@ import org.w3c.dom.Document
 @Suppress("MemberVisibilityCanBePrivate")
 open class PreferenceCategory(
     key: String? = null,
-    titleKey: String = "${key}_title",
+    titleKey: String? = "${key}_title",
     icon: String? = null,
     layout: String? = null,
     sorting: Sorting = Sorting.BY_TITLE,
