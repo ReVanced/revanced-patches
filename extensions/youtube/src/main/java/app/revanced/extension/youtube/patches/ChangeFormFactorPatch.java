@@ -2,6 +2,8 @@ package app.revanced.extension.youtube.patches;
 
 import static app.revanced.extension.youtube.shared.NavigationBar.NavigationButton;
 
+import android.view.View;
+
 import androidx.annotation.Nullable;
 
 import java.util.Objects;
@@ -84,5 +86,20 @@ public class ChangeFormFactorPatch {
         }
 
         return FORM_FACTOR_TYPE;
+    }
+
+    /**
+     * Injection point.
+     */
+    public static void navigationTabCreated(NavigationButton button, View tabView) {
+        // On first startup of the app the navigation buttons are fetched and updated.
+        // If the user immediately opens the 'You' or opens a video, then the call to
+        // update the navigtation buttons will use the non automotive form factor
+        // and the explore tab is missing.
+        // Fixing this is not so simple because of the concurrent calls for the player and You tab.
+        // For now, always hide the explore tab.
+        if (USING_AUTOMOTIVE_TYPE && button == NavigationButton.EXPLORE) {
+            tabView.setVisibility(View.GONE);
+        }
     }
 }
