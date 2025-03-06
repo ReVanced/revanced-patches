@@ -1,3 +1,10 @@
+# [5.14.0-dev.5](https://github.com/ReVanced/revanced-patches/compare/v5.14.0-dev.4...v5.14.0-dev.5) (2025-03-06)
+
+
+### Features
+
+* **Infinity for Reddit:** Add support for package name on IzzyOnDroid ([#4554](https://github.com/ReVanced/revanced-patches/issues/4554)) ([cf9f959](https://github.com/ReVanced/revanced-patches/commit/cf9f959923076c10a7f0a29f6ba277f5a055ec07))
+
 # [5.14.0-dev.4](https://github.com/ReVanced/revanced-patches/compare/v5.14.0-dev.3...v5.14.0-dev.4) (2025-03-06)
 
 
