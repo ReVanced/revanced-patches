@@ -404,7 +404,7 @@ Fitur ini hanya tersedia untuk perangkat yang lebih lama"</string>
   <string name="revanced_hide_self_sponsor_ads_title">Sembunyikan kartu bersponsor pribadi</string>
   <string name="revanced_hide_self_sponsor_ads_summary_on">Kartu bersponsor pribadi disembunyikan</string>
   <string name="revanced_hide_self_sponsor_ads_summary_off">Kartu bersponsor pribadi ditampilkan</string>
-  <string name="revanced_hide_products_banner_title">Sembunyikan banner untuk melihat produk</string>
+  <string name="revanced_hide_products_banner_title">Sembunyikan banner \'Lihat produk\'</string>
   <string name="revanced_hide_products_banner_summary_on">Banner disembunyikan</string>
   <string name="revanced_hide_products_banner_summary_off">Banner ditampilkan</string>
   <string name="revanced_hide_end_screen_store_banner_title">Sembunyikan spanduk toko di layar akhir</string>
@@ -663,7 +663,7 @@ Jika mengubah setelan ini tidak berpengaruh, coba beralih ke mode Penyamaran."</
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_off">Footer menu kualitas video ditampilkan</string>
   </patch>
   <patch id="layout.buttons.overlay.hidePlayerOverlayButtonsPatch">
-  <string name="revanced_hide_player_previous_next_buttons_title">Sembunyikan tombol video sebelumnya &amp; berikutnya</string>
+  <string name="revanced_hide_player_previous_next_buttons_title">Sembunyikan tombol Sebelumnya &amp; Berikutnya</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_on">Tombol disembunyikan</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">Tombol ditampilkan</string>
   <string name="revanced_hide_cast_button_title">Sembunyikan tombol Transmisi</string>
@@ -1194,7 +1194,7 @@ Jika kemudian dimatikan, disarankan untuk menghapus data aplikasi untuk mencegah
   </patch>
   <patch id="layout.miniplayer.miniplayerPatch">
   <string name="revanced_miniplayer_screen_title">Pemutar Mini</string>
-  <string name="revanced_miniplayer_screen_summary">Mengubah gaya pemutar aplikasi saat diciuitkan</string>
+  <string name="revanced_miniplayer_screen_summary">Ubah gaya pemutar mini dalam aplikasi</string>
   <string name="revanced_miniplayer_type_title">Jenis pemutar mini</string>
   <string name="revanced_miniplayer_type_entry_0">Nonaktif</string>
   <string name="revanced_miniplayer_type_entry_1">Bawaan</string>
@@ -1340,8 +1340,8 @@ Mengaktifkan ini dapat membuka kualitas video yang lebih tinggi"</string>
   </patch>
   <patch id="misc.links.openLinksExternallyPatch">
   <string name="revanced_external_browser_title">Buka tautan di peramban</string>
-  <string name="revanced_external_browser_summary_on">Membuka tautan di eksternal</string>
-  <string name="revanced_external_browser_summary_off">Membuka tautan di aplikasi</string>
+  <string name="revanced_external_browser_summary_on">Membuka tautan di peramban eksternal</string>
+  <string name="revanced_external_browser_summary_off">Membuka tautan di peramban dalam aplikasi</string>
   </patch>
   <patch id="misc.privacy.removeTrackingQueryParameterPatch">
   <string name="revanced_remove_tracking_query_parameter_title">Hapus parameter kueri pelacakan</string>

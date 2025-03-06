@@ -18,6 +18,23 @@ internal val actionBarSearchResultsFingerprint by fingerprint {
     )
 }
 
+internal val toolbarLayoutFingerprint by fingerprint {
+    accessFlags(AccessFlags.PROTECTED, AccessFlags.CONSTRUCTOR)
+    literal { toolbarContainerId }
+}
+
+/**
+ * Matches to https://android.googlesource.com/platform/frameworks/support/+/9eee6ba/v7/appcompat/src/android/support/v7/widget/Toolbar.java#963
+ */
+internal val appCompatToolbarBackButtonFingerprint by fingerprint {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
+    returns("Landroid/graphics/drawable/Drawable;")
+    parameters()
+    custom { methodDef, classDef ->
+        classDef.type == "Landroid/support/v7/widget/Toolbar;"
+    }
+}
+
 /**
  * Matches to the class found in [pivotBarConstructorFingerprint].
  */

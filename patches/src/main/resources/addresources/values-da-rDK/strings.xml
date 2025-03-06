@@ -372,7 +372,7 @@ Denne funktion er kun tilgængelig for ældre enheder"</string>
   <string name="revanced_hide_self_sponsor_ads_title">Skjul selvsponsorerede kort</string>
   <string name="revanced_hide_self_sponsor_ads_summary_on">Selvsponsorerede kort er skjult</string>
   <string name="revanced_hide_self_sponsor_ads_summary_off">Selvsponsorerede kort vises</string>
-  <string name="revanced_hide_products_banner_title">Skjul banner for at se produkter</string>
+  <string name="revanced_hide_products_banner_title">Skjul banneret \"Se produkter\"</string>
   <string name="revanced_hide_products_banner_summary_on">Banner er skjult</string>
   <string name="revanced_hide_products_banner_summary_off">Banner er vist</string>
   <string name="revanced_hide_end_screen_store_banner_title">Skjul banner fra butikken på slutskærmen</string>
@@ -624,7 +624,7 @@ Hvis ændring af denne indstilling ikke træder i kraft, kan du prøve at skifte
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_off">Videokvalitet menu footer er vist</string>
   </patch>
   <patch id="layout.buttons.overlay.hidePlayerOverlayButtonsPatch">
-  <string name="revanced_hide_player_previous_next_buttons_title">Skjul forrige &amp; næste video knapper</string>
+  <string name="revanced_hide_player_previous_next_buttons_title">Skjul Forrige &amp; Næste knapper</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_on">Knapper er skjult</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">Knapper vises</string>
   <string name="revanced_hide_cast_button_title">Skjul Cast-knappen</string>
@@ -1138,7 +1138,7 @@ Hvis det senere slås fra, anbefales det at rydde app-dataene for at forhindre U
   </patch>
   <patch id="layout.miniplayer.miniplayerPatch">
   <string name="revanced_miniplayer_screen_title">Mini-afspiller</string>
-  <string name="revanced_miniplayer_screen_summary">Ændre stilen for den i app minimeret afspiller</string>
+  <string name="revanced_miniplayer_screen_summary">Skift stilen på den minimerede afspiller i appen</string>
   <string name="revanced_miniplayer_type_title">Type af miniplayer</string>
   <string name="revanced_miniplayer_type_entry_0">Deaktiveret</string>
   <string name="revanced_miniplayer_type_entry_1">Standard</string>
@@ -1280,8 +1280,8 @@ Aktivering af dette kan låse op for højere videokvalitet"</string>
   </patch>
   <patch id="misc.links.openLinksExternallyPatch">
   <string name="revanced_external_browser_title">Åbn links i browser</string>
-  <string name="revanced_external_browser_summary_on">Åbning af links eksternt</string>
-  <string name="revanced_external_browser_summary_off">Åbner links i appen</string>
+  <string name="revanced_external_browser_summary_on">Åbner links i ekstern browser</string>
+  <string name="revanced_external_browser_summary_off">Åbner links i browser i appen</string>
   </patch>
   <patch id="misc.privacy.removeTrackingQueryParameterPatch">
   <string name="revanced_remove_tracking_query_parameter_title">Fjern sporingsforespørgselsparameter</string>

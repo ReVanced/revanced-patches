@@ -174,9 +174,9 @@ Vous ne serez pas informé des événements inattendus."</string>
   <string name="revanced_hide_crowdfunding_box_title">Masquer la boîte de financement participatif</string>
   <string name="revanced_hide_crowdfunding_box_summary_on">La boîte de financement participatif est masquée</string>
   <string name="revanced_hide_crowdfunding_box_summary_off">La boîte de financement participatif est affichée</string>
-  <string name="revanced_hide_floating_microphone_button_title">Masquer le bouton de microphone flottant</string>
-  <string name="revanced_hide_floating_microphone_button_summary_on">Le bouton du microphone est masqué</string>
-  <string name="revanced_hide_floating_microphone_button_summary_off">Le bouton du microphone est affiché</string>
+  <string name="revanced_hide_floating_microphone_button_title">Masquer le bouton micro flottant</string>
+  <string name="revanced_hide_floating_microphone_button_summary_on">Le bouton micro est masqué</string>
+  <string name="revanced_hide_floating_microphone_button_summary_off">Le bouton micro est affiché</string>
   <string name="revanced_hide_channel_watermark_title">Masquer le filigrane de la chaîne</string>
   <string name="revanced_hide_channel_watermark_summary_on">Le filigrane est masqué</string>
   <string name="revanced_hide_channel_watermark_summary_off">Le filigrane est affiché</string>
@@ -199,7 +199,7 @@ Vous ne serez pas informé des événements inattendus."</string>
   <string name="revanced_hide_for_you_shelf_summary_off">L\'étagère est affichée sur la page de chaîne</string>
   <!-- 'Notify me' should be translated using the same localized wording YouTube displays.
                  This item appear in the subscription feed for future livestreams or unreleased videos. -->
-  <string name="revanced_hide_notify_me_button_title">Masquer le bouton \"M\'avertir\"</string>
+  <string name="revanced_hide_notify_me_button_title">Masquer le bouton M\'avertir</string>
   <string name="revanced_hide_notify_me_button_summary_on">Le bouton est masqué</string>
   <string name="revanced_hide_notify_me_button_summary_off">Le bouton est affiché</string>
   <!-- 'People also watched' should be translated using the same localized wording YouTube displays. -->
@@ -208,7 +208,7 @@ Vous ne serez pas informé des événements inattendus."</string>
   <string name="revanced_hide_search_result_recommendations_summary_off">Le libellé est affiché</string>
   <!-- 'Show more' should be translated with the same localized wording that YouTube displays.
                   This button usually appears when searching for a YT creator. -->
-  <string name="revanced_hide_show_more_button_title">Masquer le bouton \"Afficher plus\"</string>
+  <string name="revanced_hide_show_more_button_title">Masquer le bouton Afficher plus</string>
   <string name="revanced_hide_show_more_button_summary_on">Le bouton est masqué</string>
   <string name="revanced_hide_show_more_button_summary_off">Le bouton est affiché</string>
   <string name="revanced_hide_timed_reactions_title">Masquer les réactions minutées</string>
@@ -417,7 +417,7 @@ Cette fonctionnalité est disponible uniquement pour les appareils anciens"</str
   <string name="revanced_hide_shopping_links_summary_on">Les liens de shopping dans la description des vidéos sont masqués</string>
   <string name="revanced_hide_shopping_links_summary_off">Les liens de shopping dans la description des vidéos sont affichés</string>
   <!-- 'Visit store' should be translated with the same localized wording that YouTube displays. -->
-  <string name="revanced_hide_visit_store_button_title">Masquer le bouton \"Visiter la boutique\"</string>
+  <string name="revanced_hide_visit_store_button_title">Masquer le bouton Visiter la boutique</string>
   <string name="revanced_hide_visit_store_button_summary_on">Le bouton est masqué sur la page de chaîne</string>
   <string name="revanced_hide_visit_store_button_summary_off">Le bouton est affiché sur la page de chaîne</string>
   <string name="revanced_hide_web_search_results_title">Masquer les résultats Web</string>
@@ -663,7 +663,7 @@ Si la modification de ce paramètre ne prend pas effet, essayez de passer en mod
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_off">Le pied de page du menu de qualité vidéo est affiché</string>
   </patch>
   <patch id="layout.buttons.overlay.hidePlayerOverlayButtonsPatch">
-  <string name="revanced_hide_player_previous_next_buttons_title">Masquer les boutons de vidéo précédente et suivante</string>
+  <string name="revanced_hide_player_previous_next_buttons_title">Masquer les boutons Précédent et Suivant</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_on">Les boutons sont masqués</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">Les boutons sont affichés</string>
   <string name="revanced_hide_cast_button_title">Masquer le bouton Caster</string>
@@ -1194,7 +1194,7 @@ Si désactivé ultérieurement, il est recommandé d'effacer les données de l'a
   </patch>
   <patch id="layout.miniplayer.miniplayerPatch">
   <string name="revanced_miniplayer_screen_title">Lecteur réduit</string>
-  <string name="revanced_miniplayer_screen_summary">Changer le style du lecteur réduit dans l\'application</string>
+  <string name="revanced_miniplayer_screen_summary">Modifier le style du lecteur réduit à l\'intérieur de l\'application</string>
   <string name="revanced_miniplayer_type_title">Type de lecteur réduit</string>
   <string name="revanced_miniplayer_type_entry_0">Désactivé</string>
   <string name="revanced_miniplayer_type_entry_1">Par défaut</string>
@@ -1340,8 +1340,8 @@ Activer cette option peut déverrouiller des qualités vidéo supérieures"</str
   </patch>
   <patch id="misc.links.openLinksExternallyPatch">
   <string name="revanced_external_browser_title">Ouvrir les liens dans le navigateur</string>
-  <string name="revanced_external_browser_summary_on">Les liens sont ouverts dans une appli externe</string>
-  <string name="revanced_external_browser_summary_off">Les liens sont ouverts dans l\'application</string>
+  <string name="revanced_external_browser_summary_on">Les liens sont ouverts dans le navigateur externe</string>
+  <string name="revanced_external_browser_summary_off">Les liens sont ouverts dans le navigateur intégré à l\'application</string>
   </patch>
   <patch id="misc.privacy.removeTrackingQueryParameterPatch">
   <string name="revanced_remove_tracking_query_parameter_title">Supprimer le paramètre de suivi</string>

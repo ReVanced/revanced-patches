@@ -404,7 +404,7 @@ Aquesta funció només està disponible per a dispositius antics"</string>
   <string name="revanced_hide_self_sponsor_ads_title">Amaga les targetes d\'auto patrocini</string>
   <string name="revanced_hide_self_sponsor_ads_summary_on">Les targetes d\'autopatrocini estan magades</string>
   <string name="revanced_hide_self_sponsor_ads_summary_off">Es mostren les targetes d\'autopatrocini</string>
-  <string name="revanced_hide_products_banner_title">Amaga el bàner per veure productes</string>
+  <string name="revanced_hide_products_banner_title">Amaga el bàner «Mostra els productes»</string>
   <string name="revanced_hide_products_banner_summary_on">La pancarta s\'amaga</string>
   <string name="revanced_hide_products_banner_summary_off">La pancarta es mostra</string>
   <string name="revanced_hide_end_screen_store_banner_title">Amaga el banner de la botiga a la pantalla final</string>
@@ -663,7 +663,7 @@ Si canviar aquesta opció no té cap efecte, prova a canviar al mode d'incògnit
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_off">La part inferior del menú de qualitat del vídeo es mostra</string>
   </patch>
   <patch id="layout.buttons.overlay.hidePlayerOverlayButtonsPatch">
-  <string name="revanced_hide_player_previous_next_buttons_title">Amaga els botons de vídeo anteriors i següents</string>
+  <string name="revanced_hide_player_previous_next_buttons_title">Amaga els botons Anterior i següent</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_on">Els botons estan amagats</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">Els botons es mostren</string>
   <string name="revanced_hide_cast_button_title">Amaga el botó Emet</string>
@@ -1340,8 +1340,8 @@ Si actives aquesta opció, es poden desbloquejar qualitats de vídeo més altes"
   </patch>
   <patch id="misc.links.openLinksExternallyPatch">
   <string name="revanced_external_browser_title">Obri els enllaços al navegador</string>
-  <string name="revanced_external_browser_summary_on">Obrir els enllaços externament</string>
-  <string name="revanced_external_browser_summary_off">Obrir els enllaços a l\'aplicació</string>
+  <string name="revanced_external_browser_summary_on">Obrint enllaços en un navegador extern</string>
+  <string name="revanced_external_browser_summary_off">Obrint enllaços en un navegador integrat a l\'aplicació</string>
   </patch>
   <patch id="misc.privacy.removeTrackingQueryParameterPatch">
   <string name="revanced_remove_tracking_query_parameter_title">Elimina el paràmetre de consulta de seguiment</string>

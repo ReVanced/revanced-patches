@@ -667,7 +667,7 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_off">화질 설정 메뉴에서 하단 설명이 표시됩니다</string>
   </patch>
   <patch id="layout.buttons.overlay.hidePlayerOverlayButtonsPatch">
-  <string name="revanced_hide_player_previous_next_buttons_title">이전 &amp; 다음 동영상 버튼 숨기기</string>
+  <string name="revanced_hide_player_previous_next_buttons_title">이전 &amp; 다음 버튼 숨기기</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_on">이전 &amp; 다음 동영상 버튼이 숨겨집니다</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">이전 &amp; 다음 동영상 버튼이 표시됩니다</string>
   <string name="revanced_hide_cast_button_title">크롬캐스트 버튼 숨기기</string>

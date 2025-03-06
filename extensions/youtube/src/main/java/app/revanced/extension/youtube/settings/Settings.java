@@ -48,10 +48,13 @@ import app.revanced.extension.youtube.sponsorblock.SponsorBlockSettings;
 public class Settings extends BaseSettings {
     // Video
     public static final BooleanSetting DISABLE_HDR_VIDEO = new BooleanSetting("revanced_disable_hdr_video", FALSE);
-    public static final BooleanSetting RESTORE_OLD_VIDEO_QUALITY_MENU = new BooleanSetting("revanced_restore_old_video_quality_menu", TRUE);
-    public static final BooleanSetting REMEMBER_VIDEO_QUALITY_LAST_SELECTED = new BooleanSetting("revanced_remember_video_quality_last_selected", FALSE);
     public static final IntegerSetting VIDEO_QUALITY_DEFAULT_WIFI = new IntegerSetting("revanced_video_quality_default_wifi", -2);
     public static final IntegerSetting VIDEO_QUALITY_DEFAULT_MOBILE = new IntegerSetting("revanced_video_quality_default_mobile", -2);
+    public static final BooleanSetting REMEMBER_VIDEO_QUALITY_LAST_SELECTED = new BooleanSetting("revanced_remember_video_quality_last_selected", FALSE);
+    public static final IntegerSetting SHORTS_QUALITY_DEFAULT_WIFI = new IntegerSetting("revanced_shorts_quality_default_wifi", -2, true);
+    public static final IntegerSetting SHORTS_QUALITY_DEFAULT_MOBILE = new IntegerSetting("revanced_shorts_quality_default_mobile", -2, true);
+    public static final BooleanSetting REMEMBER_SHORTS_QUALITY_LAST_SELECTED = new BooleanSetting("revanced_remember_shorts_quality_last_selected", FALSE);
+    public static final BooleanSetting RESTORE_OLD_VIDEO_QUALITY_MENU = new BooleanSetting("revanced_restore_old_video_quality_menu", TRUE);
     // Speed
     public static final FloatSetting SPEED_TAP_AND_HOLD = new FloatSetting("revanced_speed_tap_and_hold", 2.0f, true);
     public static final BooleanSetting REMEMBER_PLAYBACK_SPEED_LAST_SELECTED = new BooleanSetting("revanced_remember_playback_speed_last_selected", FALSE);
@@ -171,10 +174,10 @@ public class Settings extends BaseSettings {
     public static final BooleanSetting HIDE_COMMENTS_CHAT_SUMMARY = new BooleanSetting("revanced_hide_comments_chat_summary", FALSE);
     public static final BooleanSetting HIDE_COMMENTS_BY_MEMBERS_HEADER = new BooleanSetting("revanced_hide_comments_by_members_header", FALSE);
     public static final BooleanSetting HIDE_COMMENTS_CREATE_A_SHORT_BUTTON = new BooleanSetting("revanced_hide_comments_create_a_short_button", TRUE);
+    public static final BooleanSetting HIDE_COMMENTS_TIMESTAMP_AND_EMOJI_BUTTONS = new BooleanSetting("revanced_hide_comments_timestamp_and_emoji_buttons", TRUE);
     public static final BooleanSetting HIDE_COMMENTS_PREVIEW_COMMENT = new BooleanSetting("revanced_hide_comments_preview_comment", FALSE);
     public static final BooleanSetting HIDE_COMMENTS_SECTION = new BooleanSetting("revanced_hide_comments_section", FALSE);
     public static final BooleanSetting HIDE_COMMENTS_THANKS_BUTTON = new BooleanSetting("revanced_hide_comments_thanks_button", TRUE);
-    public static final BooleanSetting HIDE_COMMENTS_TIMESTAMP_AND_EMOJI_BUTTONS = new BooleanSetting("revanced_hide_comments_timestamp_and_emoji_buttons", TRUE);
     // Description
     public static final BooleanSetting HIDE_ATTRIBUTES_SECTION = new BooleanSetting("revanced_hide_attributes_section", FALSE);
     public static final BooleanSetting HIDE_CHAPTERS_SECTION = new BooleanSetting("revanced_hide_chapters_section", TRUE);

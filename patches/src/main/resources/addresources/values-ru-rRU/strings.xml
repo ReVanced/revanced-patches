@@ -305,9 +305,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_title">Скрыть панель фильтров в ленте</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_summary_on">Панель фильтров в ленте скрыта</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_summary_off">Панель фильтров в ленте показана</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_title">Скрыть в результатах поиска</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_summary_on">Shorts в результатах поиска скрыты</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_summary_off">Shorts в результатах поиска показаны</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_title">Скрыть панель фильтров в поиске</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_summary_on">Панель фильтров в поиске скрыта</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_summary_off">Панель фильтров в поиске показана</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_title">Скрыть панель фильтров в похожих видео</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_on">Панель фильтров в похожих видео скрыта</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">Панель фильтров в похожих видео показана</string>
@@ -809,12 +809,12 @@ Second \"item\" text"</string>
   <string name="revanced_hide_shorts_navigation_bar_summary_off">Панель навигации в Shorts показана</string>
   </patch>
   <patch id="layout.hide.endscreensuggestion.hideEndScreenSuggestedVideoPatch">
-  <string name="revanced_end_screen_suggested_video_title">Скрыть предложенное видео на экране завершения</string>
-  <string name="revanced_end_screen_suggested_video_summary_on">"Предложенное видео на экране завершения скрыто, когда автовоспроизведение выключено.
+  <string name="revanced_end_screen_suggested_video_title">Скрыть предлагаемые видео в конце просмотра</string>
+  <string name="revanced_end_screen_suggested_video_summary_on">"Предлагаемые видео в конце просмотра скрыты при выключенном автовоспроизведении
 
 Автовоспроизведение можно изменить в настройках YouTube:
-Настройки → Воспроизведение → Автовоспроизведение следующего видео"</string>
-  <string name="revanced_end_screen_suggested_video_summary_off">Предложенное видео на экране завершения отображается</string>
+Настройки → Фоновое воспроизведение → Следующее видео"</string>
+  <string name="revanced_end_screen_suggested_video_summary_off">Предлагаемые видео в конце просмотра показаны</string>
   </patch>
   <patch id="layout.hide.time.hideTimestampPatch">
   <string name="revanced_hide_timestamp_title">Скрыть метку времени видео</string>
@@ -1195,7 +1195,7 @@ Second \"item\" text"</string>
   </patch>
   <patch id="layout.miniplayer.miniplayerPatch">
   <string name="revanced_miniplayer_screen_title">Миниплеер</string>
-  <string name="revanced_miniplayer_screen_summary">Изменить стиль свернутого миниплеера </string>
+  <string name="revanced_miniplayer_screen_summary">Изменить стиль свернутого миниплеера</string>
   <string name="revanced_miniplayer_type_title">Тип миниплеера</string>
   <string name="revanced_miniplayer_type_entry_0">Отключено</string>
   <string name="revanced_miniplayer_type_entry_1">Стандартный</string>
@@ -1341,8 +1341,8 @@ Second \"item\" text"</string>
   </patch>
   <patch id="misc.links.openLinksExternallyPatch">
   <string name="revanced_external_browser_title">Открыть ссылки в браузере</string>
-  <string name="revanced_external_browser_summary_on">Ссылки открываются в браузере</string>
-  <string name="revanced_external_browser_summary_off">Ссылки открываются в приложении</string>
+  <string name="revanced_external_browser_summary_on">Ссылки открываются во внешнем браузере</string>
+  <string name="revanced_external_browser_summary_off">Ссылки открываются во встроенном браузере</string>
   </patch>
   <patch id="misc.privacy.removeTrackingQueryParameterPatch">
   <string name="revanced_remove_tracking_query_parameter_title">Удалить параметр отслеживания запросов</string>
@@ -1355,11 +1355,11 @@ Second \"item\" text"</string>
   <string name="revanced_disable_zoom_haptics_summary_off">Виброотклик при масштабировании включен</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
-  <string name="revanced_force_original_audio_title">Принудительно выбирать язык оригинала аудиодорожки</string>
-  <string name="revanced_force_original_audio_summary_on">Используется оригинальный язык звуковой дорожки</string>
+  <string name="revanced_force_original_audio_title">Принудительно оригинальная звуковая дорожка</string>
+  <string name="revanced_force_original_audio_summary_on">Используется оригинальная звуковая дорожка</string>
   <string name="revanced_force_original_audio_summary_off">Используется звуковая дорожка по умолчанию</string>
   <!-- 'Spoof video streams' should be the same translation used for revanced_spoof_video_streams_screen_title -->
-  <string name="revanced_force_original_audio_not_available">Чтобы использовать эту функцию, измените параметр \"Подмена видеопотоков\" на iOS TV</string>
+  <string name="revanced_force_original_audio_not_available">Для использования данной опции измените подмену видеопотока на тип клиента iOS TV</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->

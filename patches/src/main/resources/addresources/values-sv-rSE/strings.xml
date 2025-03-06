@@ -404,7 +404,7 @@ Den här funktionen är endast tillgänglig för äldre enheter"</string>
   <string name="revanced_hide_self_sponsor_ads_title">Dölj självsponsrade kort</string>
   <string name="revanced_hide_self_sponsor_ads_summary_on">Självsponsrade kort är dolda</string>
   <string name="revanced_hide_self_sponsor_ads_summary_off">Självsponsrade kort är synliga</string>
-  <string name="revanced_hide_products_banner_title">Dölj banner för att visa produkter</string>
+  <string name="revanced_hide_products_banner_title">Dölj \"Visa produkter\"-banner</string>
   <string name="revanced_hide_products_banner_summary_on">Banner är dold</string>
   <string name="revanced_hide_products_banner_summary_off">Banner är synlig</string>
   <string name="revanced_hide_end_screen_store_banner_title">Dölj bannern för butik på slutskärmen</string>
@@ -663,7 +663,7 @@ Om du ändrar den här inställningen och det inte får effekt kan du försöka 
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_off">Videokvalitets sidfot visas</string>
   </patch>
   <patch id="layout.buttons.overlay.hidePlayerOverlayButtonsPatch">
-  <string name="revanced_hide_player_previous_next_buttons_title">Dölj tidigare &amp; nästa videoknappar</string>
+  <string name="revanced_hide_player_previous_next_buttons_title">Dölj Föregående &amp; Nästa knappar</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_on">Knappar är dolda</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">Knappar är synliga</string>
   <string name="revanced_hide_cast_button_title">Dölj cast-knappen</string>
@@ -1194,7 +1194,7 @@ Om det senare stängs av rekommenderas det att rensa appens data för att förhi
   </patch>
   <patch id="layout.miniplayer.miniplayerPatch">
   <string name="revanced_miniplayer_screen_title">Minispelare</string>
-  <string name="revanced_miniplayer_screen_summary">Ändra stilen på appen minimerad spelare</string>
+  <string name="revanced_miniplayer_screen_summary">Ändra stilen på den minimerade spelaren i appen</string>
   <string name="revanced_miniplayer_type_title">Miniplayer typ</string>
   <string name="revanced_miniplayer_type_entry_0">Inaktiverad</string>
   <string name="revanced_miniplayer_type_entry_1">Standard</string>
@@ -1340,8 +1340,8 @@ Att aktivera detta kan låsa upp högre videokvalitet"</string>
   </patch>
   <patch id="misc.links.openLinksExternallyPatch">
   <string name="revanced_external_browser_title">Öppna länkar i webbläsaren</string>
-  <string name="revanced_external_browser_summary_on">Öppna länkar externt</string>
-  <string name="revanced_external_browser_summary_off">Öppna länkar i appen</string>
+  <string name="revanced_external_browser_summary_on">Öppna länkar i extern webbläsare</string>
+  <string name="revanced_external_browser_summary_off">Öppna länkar i webbläsaren i appen</string>
   </patch>
   <patch id="misc.privacy.removeTrackingQueryParameterPatch">
   <string name="revanced_remove_tracking_query_parameter_title">Ta bort spårningsfrågeparameter</string>

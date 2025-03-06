@@ -404,7 +404,6 @@ Níl an ghné seo ar fáil ach do ghléasanna níos sine"</string>
   <string name="revanced_hide_self_sponsor_ads_title">Folaigh cártaí féin-urraithe</string>
   <string name="revanced_hide_self_sponsor_ads_summary_on">Tá cártaí féin-urraithe i bhfolach</string>
   <string name="revanced_hide_self_sponsor_ads_summary_off">Taispeántar cártaí féin-urraithe</string>
-  <string name="revanced_hide_products_banner_title">Folaigh meirge chun táirgí a fheiceáil</string>
   <string name="revanced_hide_products_banner_summary_on">Tá bratach i bhfolach</string>
   <string name="revanced_hide_products_banner_summary_off">Taispeántar an bhratach</string>
   <string name="revanced_hide_end_screen_store_banner_title">Folaigh brat bhranda siopa scáileáin deiridh</string>
@@ -653,7 +652,7 @@ Mura dtagann aon athrú ar an socrú seo, bain triail as mód Incognito a chur a
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_off">Taispeántar buntásc roghchlár cáilíochta físeáin</string>
   </patch>
   <patch id="layout.buttons.overlay.hidePlayerOverlayButtonsPatch">
-  <string name="revanced_hide_player_previous_next_buttons_title">Folaigh &amp; cnaipí físeáin seo chugainn</string>
+  <string name="revanced_hide_player_previous_next_buttons_title">Folaigh Cnaipí Roimhe &amp; Ar Aghaidh</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_on">Tá cnaipí i bhfolach</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">Taispeántar cnaipí</string>
   <string name="revanced_hide_cast_button_title">Folaigh cnaipe an Chasta</string>
@@ -1180,7 +1179,6 @@ Má dhiúltaítear é níos déanaí, moltar sonraí an aip a ghlanadh chun buga
   </patch>
   <patch id="layout.miniplayer.miniplayerPatch">
   <string name="revanced_miniplayer_screen_title">Minipléir</string>
-  <string name="revanced_miniplayer_screen_summary">Athraigh stíl an imreora íoslaghdaithe san aip</string>
   <string name="revanced_miniplayer_type_title">Cineál Miniplayer</string>
   <string name="revanced_miniplayer_type_entry_0">Díchumasaithe</string>
   <string name="revanced_miniplayer_type_entry_1">Réamhshocraithe</string>
@@ -1326,8 +1324,8 @@ Is féidir le seo caighdeáin físeáin níos airde a dhíghlasáil"</string>
   </patch>
   <patch id="misc.links.openLinksExternallyPatch">
   <string name="revanced_external_browser_title">Oscail naisc sa bhrabhsála</string>
-  <string name="revanced_external_browser_summary_on">Naisc a oscailt go seachtrach</string>
-  <string name="revanced_external_browser_summary_off">Naisc a oscailt san aip</string>
+  <string name="revanced_external_browser_summary_on">Ag oscailt naisc sa bhrabhsálaí seachtrach</string>
+  <string name="revanced_external_browser_summary_off">Ag oscailt naisc sa bhrabhsálaí in-aip</string>
   </patch>
   <patch id="misc.privacy.removeTrackingQueryParameterPatch">
   <string name="revanced_remove_tracking_query_parameter_title">Bain paraiméadar ceist rianaithe</string>

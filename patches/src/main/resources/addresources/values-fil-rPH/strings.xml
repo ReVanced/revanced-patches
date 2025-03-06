@@ -404,7 +404,7 @@ Ang tampok na ito ay magagamit lamang para sa mga mas lumang device"</string>
   <string name="revanced_hide_self_sponsor_ads_title">Itago ang mga self sponsored card</string>
   <string name="revanced_hide_self_sponsor_ads_summary_on">Nakatago ang mga self sponsored card</string>
   <string name="revanced_hide_self_sponsor_ads_summary_off">Ipinapakita ang mga self sponsored card</string>
-  <string name="revanced_hide_products_banner_title">Itago ang banner para tingnan ang mga produkto</string>
+  <string name="revanced_hide_products_banner_title">Itago ang banner na \'Tingnan ang mga produkto\'</string>
   <string name="revanced_hide_products_banner_summary_on">Nakatago ang banner</string>
   <string name="revanced_hide_products_banner_summary_off">Ipinakita ang banner</string>
   <string name="revanced_hide_end_screen_store_banner_title">Itago ang banner ng tindahan ng end screen</string>
@@ -661,7 +661,7 @@ Tandaan: Ang pagpapagana nito ay nagtatago rin ng mga ad ng video"</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_off">Ang footer ng menu ng kalidad ng video ay ipinapakita</string>
   </patch>
   <patch id="layout.buttons.overlay.hidePlayerOverlayButtonsPatch">
-  <string name="revanced_hide_player_previous_next_buttons_title">Itago ang nakaraang &amp; susunod na mga pindutan ng video</string>
+  <string name="revanced_hide_player_previous_next_buttons_title">Itago ang Nakaraan at Susunod na mga pindutan</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_on">Nakatago ang mga pindutan</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">Ang mga pindutan ay ipinapakita</string>
   <string name="revanced_hide_cast_button_title">Itago ang Cast button</string>
@@ -1031,7 +1031,7 @@ Ang iyong user id ay parang isang password at hindi dapat ibahagi.
   <string name="revanced_sb_skip_automatically">Awtomatikong lumaktaw</string>
   <string name="revanced_sb_skip_automatically_once">Awtomatikong lumaktaw nang isang beses</string>
   <string name="revanced_sb_skip_showbutton">Magpakita ng button na Laktawan</string>
-  <string name="revanced_sb_skip_seekbaronly">Ipakita sa seek bar</string>
+  <string name="revanced_sb_skip_seekbaronly">Ipakita sa seekbar</string>
   <string name="revanced_sb_skip_ignore">Huwag paganahin</string>
   <string name="revanced_sb_submit_failed_invalid">Hindi maisumite ang segment: %s</string>
   <string name="revanced_sb_submit_failed_timeout">Pansamantalang hindi gumagana ang SponsorBlock</string>
@@ -1193,7 +1193,6 @@ Kung mamaya ay patayin, inirerekumenda na i-clear ang data ng app upang maiwasan
   </patch>
   <patch id="layout.miniplayer.miniplayerPatch">
   <string name="revanced_miniplayer_screen_title">Miniplayer</string>
-  <string name="revanced_miniplayer_screen_summary">Baguhin ang istilo ng in app minimized na player</string>
   <string name="revanced_miniplayer_type_title">Uri ng miniplayer</string>
   <string name="revanced_miniplayer_type_entry_0">Hindi</string>
   <string name="revanced_miniplayer_type_entry_1">Regular</string>
@@ -1339,8 +1338,8 @@ Ang pagpapagana nito ay maaaring magbukas ng mas mataas na kalidad ng video"</st
   </patch>
   <patch id="misc.links.openLinksExternallyPatch">
   <string name="revanced_external_browser_title">Buksan ang mga link sa browser</string>
-  <string name="revanced_external_browser_summary_on">Pagbubukas ng mga link sa labas</string>
-  <string name="revanced_external_browser_summary_off">Pagbubukas ng mga link sa app</string>
+  <string name="revanced_external_browser_summary_on">Binubuksan ang mga link sa panlabas na browser</string>
+  <string name="revanced_external_browser_summary_off">Binubuksan ang mga link sa in-app na browser</string>
   </patch>
   <patch id="misc.privacy.removeTrackingQueryParameterPatch">
   <string name="revanced_remove_tracking_query_parameter_title">Alisin ang parameter ng query sa pagsubaybay</string>

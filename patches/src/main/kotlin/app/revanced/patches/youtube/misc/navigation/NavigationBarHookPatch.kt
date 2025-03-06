@@ -7,24 +7,30 @@ import app.revanced.patcher.extensions.InstructionExtensions.instructions
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
+import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
 import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.playertype.playerTypeHookPatch
 import app.revanced.patches.youtube.misc.playservice.is_19_35_or_greater
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionReversedOrThrow
+import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.builder.MutableMethodImplementation
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.Instruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
+import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
 import com.android.tools.smali.dexlib2.util.MethodUtil
 
 internal const val EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/youtube/shared/NavigationBar;"
 internal const val EXTENSION_NAVIGATION_BUTTON_DESCRIPTOR =
     "Lapp/revanced/extension/youtube/shared/NavigationBar\$NavigationButton;"
+private const val EXTENSION_TOOLBAR_INTERFACE =
+    "Lapp/revanced/extension/youtube/shared/NavigationBar${'$'}AppCompatToolbarPatchInterface;"
 
 lateinit var hookNavigationButtonCreated: (String) -> Unit
 
@@ -118,11 +124,58 @@ val navigationBarHookPatch = bytecodePatch(description = "Hooks the active navig
             }
         }
 
+        // Hook the back button visibility.
+
+        toolbarLayoutFingerprint.method.apply {
+            val index = indexOfFirstInstructionOrThrow {
+                opcode == Opcode.CHECK_CAST && getReference<TypeReference>()?.type ==
+                        "Lcom/google/android/apps/youtube/app/ui/actionbar/MainCollapsingToolbarLayout;"
+            }
+            val register = getInstruction<OneRegisterInstruction>(index).registerA
+
+            addInstruction(
+                index + 1,
+                "invoke-static { v$register }, ${EXTENSION_CLASS_DESCRIPTOR}->setToolbar(Landroid/widget/FrameLayout;)V"
+            )
+        }
+
+        // Add interface for extensions code to call obfuscated methods.
+        appCompatToolbarBackButtonFingerprint.let {
+            it.classDef.apply {
+                interfaces.add(EXTENSION_TOOLBAR_INTERFACE)
+
+                val definingClass = type
+                val obfuscatedMethodName = it.originalMethod.name
+                val returnType = "Landroid/graphics/drawable/Drawable;"
+
+                methods.add(
+                    ImmutableMethod(
+                        definingClass,
+                        "patch_getNavigationIcon",
+                        listOf(),
+                        returnType,
+                        AccessFlags.PUBLIC.value or AccessFlags.FINAL.value,
+                        null,
+                        null,
+                        MutableMethodImplementation(2),
+                    ).toMutable().apply {
+                        addInstructions(
+                            0,
+                            """
+                                invoke-virtual { p0 }, $definingClass->$obfuscatedMethodName()$returnType
+                                move-result-object v0
+                                return-object v0
+                            """
+                        )
+                    }
+                )
+            }
+        }
+
         hookNavigationButtonCreated = { extensionClassDescriptor ->
             navigationBarHookCallbackFingerprint.method.addInstruction(
                 0,
-                "invoke-static { p0, p1 }, " +
-                    "$extensionClassDescriptor->navigationTabCreated" +
+                "invoke-static { p0, p1 }, $extensionClassDescriptor->navigationTabCreated" +
                     "(${EXTENSION_NAVIGATION_BUTTON_DESCRIPTOR}Landroid/view/View;)V",
             )
         }

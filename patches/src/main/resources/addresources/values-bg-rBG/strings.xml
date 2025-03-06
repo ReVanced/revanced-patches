@@ -404,7 +404,7 @@ Second \"item\" text"</string>
   <string name="revanced_hide_self_sponsor_ads_title">Скриване на самоспонсорирани карти</string>
   <string name="revanced_hide_self_sponsor_ads_summary_on">Самоспонсорираните карти са скрити</string>
   <string name="revanced_hide_self_sponsor_ads_summary_off">Самоспонсорираните карти са показани</string>
-  <string name="revanced_hide_products_banner_title">Скриване на банера за показване на продукти</string>
+  <string name="revanced_hide_products_banner_title">Скриване на банера \"Преглед на продукти\"</string>
   <string name="revanced_hide_products_banner_summary_on">Банерът е скрит</string>
   <string name="revanced_hide_products_banner_summary_off">Банерът е показан</string>
   <string name="revanced_hide_end_screen_store_banner_title">Скрий банера за реклама в края на екрана</string>
@@ -663,7 +663,7 @@ Second \"item\" text"</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_off">Долният колонтитул на менюто за качество на видеото се показва</string>
   </patch>
   <patch id="layout.buttons.overlay.hidePlayerOverlayButtonsPatch">
-  <string name="revanced_hide_player_previous_next_buttons_title">Бутони за Предишно &amp; Следващо видео</string>
+  <string name="revanced_hide_player_previous_next_buttons_title">Скриване на бутоните \"Предишен и Следващ\"</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_on">Бутоните са скрити</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">Бутоните се показват</string>
   <string name="revanced_hide_cast_button_title">Скриване на бутона Cast</string>
@@ -1195,7 +1195,7 @@ Second \"item\" text"</string>
   </patch>
   <patch id="layout.miniplayer.miniplayerPatch">
   <string name="revanced_miniplayer_screen_title">Минимизиран екран за възпроизвеждане</string>
-  <string name="revanced_miniplayer_screen_summary">Променете стила на минимизирания екран за възпроизвеждане</string>
+  <string name="revanced_miniplayer_screen_summary">Промяна на стила на минимизиран плейър в приложението</string>
   <string name="revanced_miniplayer_type_title">Минимизиран тип екран за гледане</string>
   <string name="revanced_miniplayer_type_entry_0">Деактивирано</string>
   <string name="revanced_miniplayer_type_entry_1">По подразбиране</string>
@@ -1341,8 +1341,8 @@ Second \"item\" text"</string>
   </patch>
   <patch id="misc.links.openLinksExternallyPatch">
   <string name="revanced_external_browser_title">Отваряне на връзки в браузъра</string>
-  <string name="revanced_external_browser_summary_on">Отваряне на външни връзки</string>
-  <string name="revanced_external_browser_summary_off">Отваряне на връзки в приложението</string>
+  <string name="revanced_external_browser_summary_on">Отваряне на връзки във външен браузър</string>
+  <string name="revanced_external_browser_summary_off">Отваряне на връзки във вграден браузър</string>
   </patch>
   <patch id="misc.privacy.removeTrackingQueryParameterPatch">
   <string name="revanced_remove_tracking_query_parameter_title">Премахнете параметъра на заявката за проследяване</string>

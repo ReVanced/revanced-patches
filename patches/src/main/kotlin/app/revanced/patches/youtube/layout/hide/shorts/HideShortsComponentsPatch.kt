@@ -136,7 +136,7 @@ private const val FILTER_CLASS_DESCRIPTOR = "Lapp/revanced/extension/youtube/pat
 @Suppress("unused")
 val hideShortsComponentsPatch = bytecodePatch(
     name = "Hide Shorts components",
-    description = "Adds options to hide components related to YouTube Shorts.",
+    description = "Adds options to hide components related to Shorts.",
 ) {
     dependsOn(
         sharedExtensionPatch,

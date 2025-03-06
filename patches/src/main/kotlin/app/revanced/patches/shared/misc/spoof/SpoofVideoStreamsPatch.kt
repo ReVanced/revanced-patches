@@ -34,7 +34,7 @@ fun spoofVideoStreamsPatch(
     executeBlock: BytecodePatchContext.() -> Unit = {},
 ) = bytecodePatch(
     name = "Spoof video streams",
-    description = "Spoofs the client video streams to fix playback.",
+    description = "Adds options to spoof the client video streams to fix playback.",
 ) {
     block()
 
