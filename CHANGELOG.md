@@ -1,3 +1,10 @@
+# [5.14.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.14.0-dev.1...v5.14.0-dev.2) (2025-03-06)
+
+
+### Bug Fixes
+
+* **YouTube - Hide ads:** Hide new type of buttoned ad ([#4528](https://github.com/ReVanced/revanced-patches/issues/4528)) ([4387a7b](https://github.com/ReVanced/revanced-patches/commit/4387a7b131f49729e902e008bb4cec073635c040))
+
 # [5.14.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.13.1-dev.1...v5.14.0-dev.1) (2025-03-06)
 
 
