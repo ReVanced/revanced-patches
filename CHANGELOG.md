@@ -1,3 +1,17 @@
+# [5.14.0-dev.3](https://github.com/ReVanced/revanced-patches/compare/v5.14.0-dev.2...v5.14.0-dev.3) (2025-03-06)
+
+
+### Bug Fixes
+
+* **Boost for reddit - Client spoof:** Use a different user agent to combat Reddit's API issues ([5d3c817](https://github.com/ReVanced/revanced-patches/commit/5d3c8175b34a3f6ae2732b25db0851773a8c000d))
+
+# [5.14.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.14.0-dev.1...v5.14.0-dev.2) (2025-03-06)
+
+
+### Bug Fixes
+
+* **YouTube - Hide ads:** Hide new type of buttoned ad ([#4528](https://github.com/ReVanced/revanced-patches/issues/4528)) ([4387a7b](https://github.com/ReVanced/revanced-patches/commit/4387a7b131f49729e902e008bb4cec073635c040))
+
 # [5.14.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.13.1-dev.1...v5.14.0-dev.1) (2025-03-06)
 
 
