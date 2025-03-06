@@ -1,3 +1,10 @@
+# [5.14.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.13.1-dev.1...v5.14.0-dev.1) (2025-03-06)
+
+
+### Features
+
+* **YouTube - Remember video quality:** Add separate Shorts default quality settings ([#4543](https://github.com/ReVanced/revanced-patches/issues/4543)) ([88142ab](https://github.com/ReVanced/revanced-patches/commit/88142ab464192b564b1b8d56a6b45663f77f5e00))
+
 ## [5.13.1-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.13.0...v5.13.1-dev.1) (2025-03-06)
 
 
