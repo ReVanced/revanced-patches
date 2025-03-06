@@ -399,7 +399,7 @@ Diese Funktion ist nur für ältere Geräte verfügbar"</string>
   <string name="revanced_hide_self_sponsor_ads_title">Selbst gesponserte Karten ausblenden</string>
   <string name="revanced_hide_self_sponsor_ads_summary_on">Selbst gesponserte Karten sind ausgeblendet</string>
   <string name="revanced_hide_self_sponsor_ads_summary_off">Selbstgesponserte Karten werden angezeigt</string>
-  <string name="revanced_hide_products_banner_title">Banner ausblenden, um Produkte anzuzeigen</string>
+  <string name="revanced_hide_products_banner_title">Banner \"Produkte ansehen\" ausblenden</string>
   <string name="revanced_hide_products_banner_summary_on">Banner ist ausgeblendet</string>
   <string name="revanced_hide_products_banner_summary_off">Banner wird angezeigt</string>
   <string name="revanced_hide_end_screen_store_banner_title">Endbild-Banner ausblenden</string>
@@ -656,7 +656,7 @@ Wenn diese Änderung nicht wirksam wird, versuchen Sie, in den Inkognito-Modus z
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_off">Video-Qualität Menü-Fußzeile wird angezeigt</string>
   </patch>
   <patch id="layout.buttons.overlay.hidePlayerOverlayButtonsPatch">
-  <string name="revanced_hide_player_previous_next_buttons_title">Vorherige &amp; Nächste Video-Tasten ausblenden</string>
+  <string name="revanced_hide_player_previous_next_buttons_title">Vorherige &amp; Nächste Tasten ausblenden</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_on">Buttons sind ausgeblendet</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">Tasten werden angezeigt</string>
   <string name="revanced_hide_cast_button_title">Cast-Button ausblenden</string>
@@ -1188,7 +1188,7 @@ Wenn Sie die Funktion später deaktivieren, wird empfohlen, die App-Daten zu lö
   </patch>
   <patch id="layout.miniplayer.miniplayerPatch">
   <string name="revanced_miniplayer_screen_title">Minispieler</string>
-  <string name="revanced_miniplayer_screen_summary">Ändere den Stil des in App minimierten Players</string>
+  <string name="revanced_miniplayer_screen_summary">Das Aussehen des minimierten In-App-Players ändern</string>
   <string name="revanced_miniplayer_type_title">Minispielertyp</string>
   <string name="revanced_miniplayer_type_entry_0">Deaktiviert</string>
   <string name="revanced_miniplayer_type_entry_1">Standard</string>
@@ -1334,8 +1334,8 @@ Durch Aktivieren dieser Option können höhere Videoqualitäten freigeschaltet w
   </patch>
   <patch id="misc.links.openLinksExternallyPatch">
   <string name="revanced_external_browser_title">Links im Browser öffnen</string>
-  <string name="revanced_external_browser_summary_on">Links extern öffnen</string>
-  <string name="revanced_external_browser_summary_off">Öffne Links in der App</string>
+  <string name="revanced_external_browser_summary_on">Links im externen Browser öffnen</string>
+  <string name="revanced_external_browser_summary_off">Links im In-App-Browser öffnen</string>
   </patch>
   <patch id="misc.privacy.removeTrackingQueryParameterPatch">
   <string name="revanced_remove_tracking_query_parameter_title">Tracking-Abfrageparameter entfernen</string>

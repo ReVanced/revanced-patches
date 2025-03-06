@@ -404,9 +404,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_self_sponsor_ads_title">Приховати картки само спонсорства</string>
   <string name="revanced_hide_self_sponsor_ads_summary_on">Картки само спонсорства приховано</string>
   <string name="revanced_hide_self_sponsor_ads_summary_off">Картки само спонсорства показуються</string>
-  <string name="revanced_hide_products_banner_title">Приховати банер для перегляду товарів</string>
-  <string name="revanced_hide_products_banner_summary_on">Банер для перегляду товарів приховано</string>
-  <string name="revanced_hide_products_banner_summary_off">Банер для перегляду товарів показується</string>
+  <string name="revanced_hide_products_banner_title">Приховати банер \"Перегляд товарів\"</string>
+  <string name="revanced_hide_products_banner_summary_on">Банер перегляду товарів приховано</string>
+  <string name="revanced_hide_products_banner_summary_off">Банер перегляду товарів показується</string>
   <string name="revanced_hide_end_screen_store_banner_title">Приховати банер магазину на кінцевому екрані</string>
   <string name="revanced_hide_end_screen_store_banner_summary_on">Рекламний банер магазину на кінцевому екрані приховано</string>
   <string name="revanced_hide_end_screen_store_banner_summary_off">Рекламний банер магазину на кінцевому екрані показується</string>
@@ -663,7 +663,7 @@ Second \"item\" text"</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_off">Нижній колонтитул меню якості відео показується</string>
   </patch>
   <patch id="layout.buttons.overlay.hidePlayerOverlayButtonsPatch">
-  <string name="revanced_hide_player_previous_next_buttons_title">Приховати кнопки попереднє та наступне</string>
+  <string name="revanced_hide_player_previous_next_buttons_title">Приховати кнопки Попереднє та Наступне</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_on">Кнопки попереднього та наступного відео приховано</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">Кнопки попереднього та наступного відео показуються</string>
   <string name="revanced_hide_cast_button_title">Приховати кнопку \"Трансляція\"</string>
@@ -1194,7 +1194,7 @@ Second \"item\" text"</string>
   </patch>
   <patch id="layout.miniplayer.miniplayerPatch">
   <string name="revanced_miniplayer_screen_title">Мініплеєр</string>
-  <string name="revanced_miniplayer_screen_summary">Змінити стиль згорнутого мініплеєра</string>
+  <string name="revanced_miniplayer_screen_summary">Змінити стиль згорнутого мініплеєра у застосунку</string>
   <string name="revanced_miniplayer_type_title">Тип мініплеєра</string>
   <string name="revanced_miniplayer_type_entry_0">Вимкнено</string>
   <string name="revanced_miniplayer_type_entry_1">Стандартний</string>
@@ -1340,8 +1340,8 @@ Second \"item\" text"</string>
   </patch>
   <patch id="misc.links.openLinksExternallyPatch">
   <string name="revanced_external_browser_title">Відкривати посилання у браузері</string>
-  <string name="revanced_external_browser_summary_on">Посилання відкриваються зовні</string>
-  <string name="revanced_external_browser_summary_off">Посилання відкриваються у додатку</string>
+  <string name="revanced_external_browser_summary_on">Посилання відкриваються у зовнішньому браузері</string>
+  <string name="revanced_external_browser_summary_off">Посилання відкриваються у вбудованому браузері</string>
   </patch>
   <patch id="misc.privacy.removeTrackingQueryParameterPatch">
   <string name="revanced_remove_tracking_query_parameter_title">Вилучити параметр відстеження</string>

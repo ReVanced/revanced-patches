@@ -394,7 +394,7 @@ Esta función solo está disponible para dispositivos antiguos"</string>
   <string name="revanced_hide_self_sponsor_ads_title">Ocultar tarjetas autopatrocinadas</string>
   <string name="revanced_hide_self_sponsor_ads_summary_on">Las tarjetas autopatrocinadas están ocultas</string>
   <string name="revanced_hide_self_sponsor_ads_summary_off">Se muestran las tarjetas autopatrocinadas</string>
-  <string name="revanced_hide_products_banner_title">Ocultar banner para ver los productos</string>
+  <string name="revanced_hide_products_banner_title">Ocultar el banner \"Ver productos\"</string>
   <string name="revanced_hide_products_banner_summary_on">Banner oculto</string>
   <string name="revanced_hide_products_banner_summary_off">Banner mostrado</string>
   <string name="revanced_hide_end_screen_store_banner_title">Ocultar banner de la tienda en la pantalla final</string>
@@ -653,7 +653,7 @@ Si cambiar este ajuste no tiene efecto, intenta cambiar al modo incógnito."</st
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_off">El pie del menú de calidad de vídeo se muestra</string>
   </patch>
   <patch id="layout.buttons.overlay.hidePlayerOverlayButtonsPatch">
-  <string name="revanced_hide_player_previous_next_buttons_title">Ocultar botones de vídeo anteriores &amp; siguiente</string>
+  <string name="revanced_hide_player_previous_next_buttons_title">Ocultar botones Anterior &amp; Siguiente</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_on">Los botones están ocultos</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">Los botones se muestran</string>
   <string name="revanced_hide_cast_button_title">Ocultar el botón Transmitir</string>
@@ -1176,7 +1176,7 @@ Si se desactiva posteriormente, se recomienda borrar los datos de la aplicación
   </patch>
   <patch id="layout.miniplayer.miniplayerPatch">
   <string name="revanced_miniplayer_screen_title">Minireproductor</string>
-  <string name="revanced_miniplayer_screen_summary">Cambiar el estilo del reproductor minimizado de la aplicación</string>
+  <string name="revanced_miniplayer_screen_summary">Cambiar el estilo del reproductor minimizado en la aplicación</string>
   <string name="revanced_miniplayer_type_title">Tipo de minreproductor</string>
   <string name="revanced_miniplayer_type_entry_0">Desactivado</string>
   <string name="revanced_miniplayer_type_entry_1">Predeterminado</string>
@@ -1322,8 +1322,8 @@ Habilitar esto puede desbloquear calidades de vídeo más altas"</string>
   </patch>
   <patch id="misc.links.openLinksExternallyPatch">
   <string name="revanced_external_browser_title">Abrir enlaces en el navegador</string>
-  <string name="revanced_external_browser_summary_on">Abriendo enlaces externamente</string>
-  <string name="revanced_external_browser_summary_off">Abrir enlaces en la aplicación</string>
+  <string name="revanced_external_browser_summary_on">Abrir enlaces en el navegador externo</string>
+  <string name="revanced_external_browser_summary_off">Abrir enlaces en el navegador integrado en la aplicación</string>
   </patch>
   <patch id="misc.privacy.removeTrackingQueryParameterPatch">
   <string name="revanced_remove_tracking_query_parameter_title">Quitar parámetro de consulta de rastreo</string>

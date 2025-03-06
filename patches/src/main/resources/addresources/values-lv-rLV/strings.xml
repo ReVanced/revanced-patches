@@ -404,7 +404,7 @@ Ierobežojumi
   <string name="revanced_hide_self_sponsor_ads_title">Paslēpt pašreklāmas kartītes</string>
   <string name="revanced_hide_self_sponsor_ads_summary_on">Pašreklāmas kartītes ir paslēptas</string>
   <string name="revanced_hide_self_sponsor_ads_summary_off">Pašreklāmas kartītes ir redzamas</string>
-  <string name="revanced_hide_products_banner_title">Paslēpt reklāmas joslu, lai skatītu produktus</string>
+  <string name="revanced_hide_products_banner_title">Paslēpt reklāmjoslu \"Skatīt produktus\"</string>
   <string name="revanced_hide_products_banner_summary_on">Reklāmas josla ir paslēpta</string>
   <string name="revanced_hide_products_banner_summary_off">Reklāmas josla ir redzama</string>
   <string name="revanced_hide_end_screen_store_banner_title">Paslēpt veikala reklāmkarogu ekrāna beigās</string>
@@ -663,7 +663,7 @@ Ja šī iestatījuma maiņa nestājas spēkā, mēģiniet pārslēgties uz inkog
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_off">Video kvalitātes izvēlnes apakšējā daļa ir redzama</string>
   </patch>
   <patch id="layout.buttons.overlay.hidePlayerOverlayButtonsPatch">
-  <string name="revanced_hide_player_previous_next_buttons_title">Paslēpt iepriekšējo un nākamo video pogas</string>
+  <string name="revanced_hide_player_previous_next_buttons_title">Paslēpt iepriekšējo un nākamo pogas</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_on">Pogas ir paslēptas</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">Pogas ir redzamas</string>
   <string name="revanced_hide_cast_button_title">Paslēpt pogu \"Sūtīt\"</string>
@@ -1194,7 +1194,7 @@ Ja vēlāk tiks izslēgts, ieteicams notīrīt lietotnes datus, lai novērstu li
   </patch>
   <patch id="layout.miniplayer.miniplayerPatch">
   <string name="revanced_miniplayer_screen_title">Minispēlētājs</string>
-  <string name="revanced_miniplayer_screen_summary">Mainīt samazināta spēlētāja stilu lietotnē</string>
+  <string name="revanced_miniplayer_screen_summary">Mainīt lietotnē minimizētā atskaņotāja stilu</string>
   <string name="revanced_miniplayer_type_title">Miniplayer tips</string>
   <string name="revanced_miniplayer_type_entry_0">Atspējots</string>
   <string name="revanced_miniplayer_type_entry_1">Noklusētais</string>
@@ -1340,8 +1340,8 @@ Var tikt atbloķētas augstākas video kvalitātes, taču var rasties video atsk
   </patch>
   <patch id="misc.links.openLinksExternallyPatch">
   <string name="revanced_external_browser_title">Atvērt saites pārlūkprogrammā</string>
-  <string name="revanced_external_browser_summary_on">Atverot saites ārēji</string>
-  <string name="revanced_external_browser_summary_off">Atverot saites lietotnē</string>
+  <string name="revanced_external_browser_summary_on">Saišu atvēršana ārējā pārlūkprogrammā</string>
+  <string name="revanced_external_browser_summary_off">Saišu atvēršana lietotnes pārlūkprogrammā</string>
   </patch>
   <patch id="misc.privacy.removeTrackingQueryParameterPatch">
   <string name="revanced_remove_tracking_query_parameter_title">Noņemt izsekošanas vaicājuma parametru</string>

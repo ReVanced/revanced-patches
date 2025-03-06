@@ -404,7 +404,7 @@ See funktsioon on saadaval ainult vanemates seadmetes"</string>
   <string name="revanced_hide_self_sponsor_ads_title">Peida ise-sponsoritud kaardid</string>
   <string name="revanced_hide_self_sponsor_ads_summary_on">Ise-sponsoritud kaardid on peidus</string>
   <string name="revanced_hide_self_sponsor_ads_summary_off">Ise-sponsoritud kaardid on näidatud</string>
-  <string name="revanced_hide_products_banner_title">Peida bänner näha tooteid</string>
+  <string name="revanced_hide_products_banner_title">Peida bänner „Vaata tooteid“</string>
   <string name="revanced_hide_products_banner_summary_on">Bänner on peidetud</string>
   <string name="revanced_hide_products_banner_summary_off">Bänner on nähtav</string>
   <string name="revanced_hide_end_screen_store_banner_title">Peida lõpuekraani poe bänner</string>
@@ -663,7 +663,7 @@ Kui selle sätte muutmine ei avalda mõju, proovige lülituda Inkognito režiimi
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_off">Video kvaliteedi menüü jalg on nähtav</string>
   </patch>
   <patch id="layout.buttons.overlay.hidePlayerOverlayButtonsPatch">
-  <string name="revanced_hide_player_previous_next_buttons_title">Peida eelmine &amp; järgmine video nupp</string>
+  <string name="revanced_hide_player_previous_next_buttons_title">Peida eelmine &amp; järgmine nupp</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_on">Nupud on peidetud</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">Nupud on nähtavad</string>
   <string name="revanced_hide_cast_button_title">Peida Saada kätte nupp</string>
@@ -1195,7 +1195,7 @@ Kui see hiljem välja lülitatakse, on soovitatav rakenduse andmed kustutada, et
   </patch>
   <patch id="layout.miniplayer.miniplayerPatch">
   <string name="revanced_miniplayer_screen_title">Minimängija</string>
-  <string name="revanced_miniplayer_screen_summary">Muuda rakenduses minimeeritud esitaja stiili</string>
+  <string name="revanced_miniplayer_screen_summary">Muuda rakendusesisese minipleieri stiili</string>
   <string name="revanced_miniplayer_type_title">Miniplayeri tüüp</string>
   <string name="revanced_miniplayer_type_entry_0">Väljas</string>
   <string name="revanced_miniplayer_type_entry_1">Vaikimisi</string>
@@ -1341,8 +1341,8 @@ Selle lubamine võib avada kõrgema video kvaliteedi"</string>
   </patch>
   <patch id="misc.links.openLinksExternallyPatch">
   <string name="revanced_external_browser_title">Ava lingid brauseris</string>
-  <string name="revanced_external_browser_summary_on">Lingid avatakse välistel</string>
-  <string name="revanced_external_browser_summary_off">Lingid avatakse rakenduses</string>
+  <string name="revanced_external_browser_summary_on">Linkide avamine välises brauseris</string>
+  <string name="revanced_external_browser_summary_off">Linkide avamine rakendusesiseses brauseris</string>
   </patch>
   <patch id="misc.privacy.removeTrackingQueryParameterPatch">
   <string name="revanced_remove_tracking_query_parameter_title">Eemalda jälgimise päringuparameeter</string>

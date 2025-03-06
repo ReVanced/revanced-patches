@@ -403,7 +403,7 @@ MicroG-এর জন্য ব্যাটারি অপ্টিমাইজ�
   <string name="revanced_hide_self_sponsor_ads_title">স্ব-স্পন্সর কার্ড লুকান</string>
   <string name="revanced_hide_self_sponsor_ads_summary_on">স্ব-স্পন্সর কার্ড লুকিয়ে রয়েছে</string>
   <string name="revanced_hide_self_sponsor_ads_summary_off">স্ব-স্পন্সর কার্ড প্রদর্শিত হয়েছে</string>
-  <string name="revanced_hide_products_banner_title">প্রোডাক্ট দেখার ব্যানার লুকান</string>
+  <string name="revanced_hide_products_banner_title">\'পণ্য দেখুন\' ব্যানার লুকান</string>
   <string name="revanced_hide_products_banner_summary_on">ব্যানার লুকিয়ে রয়েছে</string>
   <string name="revanced_hide_products_banner_summary_off">ব্যানার প্রদর্শিত হয়েছে</string>
   <string name="revanced_hide_end_screen_store_banner_title">শেষ পর্দার স্টোর ব্যানার লুকান</string>
@@ -659,7 +659,7 @@ MicroG-এর জন্য ব্যাটারি অপ্টিমাইজ�
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_off">ভিডিও গুণমান মেনু ফুটার দেখানো হচ্ছে</string>
   </patch>
   <patch id="layout.buttons.overlay.hidePlayerOverlayButtonsPatch">
-  <string name="revanced_hide_player_previous_next_buttons_title">পূর্ববর্তী লুকান &amp; পরবর্তী ভিডিও বোতাম</string>
+  <string name="revanced_hide_player_previous_next_buttons_title">পূর্ববর্তী লুকান &amp; পরবর্তী বোতাম</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_on">বোতাম লুকানো হয়</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">বোতাম দেখানো হয়</string>
   <string name="revanced_hide_cast_button_title">কাস্ট বোতামটি লুকান</string>
@@ -1191,7 +1191,7 @@ YouTube সেটিংসে অটো প্লে পরিবর্তন �
   </patch>
   <patch id="layout.miniplayer.miniplayerPatch">
   <string name="revanced_miniplayer_screen_title">মিনিপ্লেয়ার</string>
-  <string name="revanced_miniplayer_screen_summary">অ্যাপের মধ্যকার মিনিমাইজড প্লেয়ার এর ধরণ পরিবর্তন করুন</string>
+  <string name="revanced_miniplayer_screen_summary">ইন-অ্যাপ মিনিমাইজড প্লেয়ারের শৈলী পরিবর্তন করুন</string>
   <string name="revanced_miniplayer_type_title">মিনিপ্লেয়ার ধরণ</string>
   <string name="revanced_miniplayer_type_entry_0">নিষ্ক্রিয় হয়েছে</string>
   <string name="revanced_miniplayer_type_entry_1">পূর্ব-নির্ধারিত</string>
@@ -1337,8 +1337,8 @@ DeArrow সম্পর্কে আরও জানতে এখানে ট�
   </patch>
   <patch id="misc.links.openLinksExternallyPatch">
   <string name="revanced_external_browser_title">লিংক ব্রাউজারে খুলুন</string>
-  <string name="revanced_external_browser_summary_on">লিংক বাহিরে খুলুন</string>
-  <string name="revanced_external_browser_summary_off">অ্যাপের মধ্যে লিংক খুলছে</string>
+  <string name="revanced_external_browser_summary_on">বাহ্যিক ব্রাউজারে লিঙ্ক খোলা হচ্ছে</string>
+  <string name="revanced_external_browser_summary_off">ইন-অ্যাপ ব্রাউজারে লিঙ্ক খোলা হচ্ছে</string>
   </patch>
   <patch id="misc.privacy.removeTrackingQueryParameterPatch">
   <string name="revanced_remove_tracking_query_parameter_title">ট্র্যাকিং করার প্যারামিটার মুছুন</string>

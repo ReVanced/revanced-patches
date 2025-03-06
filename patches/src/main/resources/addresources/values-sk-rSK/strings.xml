@@ -397,7 +397,7 @@ Táto funkcia je dostupná len pre staršie zariadenia"</string>
   <string name="revanced_hide_self_sponsor_ads_title">Skryť vlastné sponzorované karty</string>
   <string name="revanced_hide_self_sponsor_ads_summary_on">Vlastné sponzorované karty sú skryté</string>
   <string name="revanced_hide_self_sponsor_ads_summary_off">Zobrazujú sa vlastné sponzorované karty</string>
-  <string name="revanced_hide_products_banner_title">Skryť banner pre zobrazenie produktov</string>
+  <string name="revanced_hide_products_banner_title">Skryť banner „Zobraziť produkty“</string>
   <string name="revanced_hide_products_banner_summary_on">Banner je skrytý</string>
   <string name="revanced_hide_products_banner_summary_off">Zobrazuje sa banner</string>
   <string name="revanced_hide_end_screen_store_banner_title">Skryť banner obchodu na konci obrazovky</string>
@@ -656,7 +656,7 @@ Ak zmena tohto nastavenia nemá žiadny účinok, skúste prepnúť do režimu i
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_off">Zobrazí sa päta ponuky kvality videa</string>
   </patch>
   <patch id="layout.buttons.overlay.hidePlayerOverlayButtonsPatch">
-  <string name="revanced_hide_player_previous_next_buttons_title">Skryť predchádzajúce &amp; tlačidlá ďalšieho videa</string>
+  <string name="revanced_hide_player_previous_next_buttons_title">Skryť tlačidlá Predchádzajúce &amp; Nasledujúce</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_on">Tlačidlá sú skryté</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">Zobrazia sa tlačidlá</string>
   <string name="revanced_hide_cast_button_title">Skryť tlačidlo Cast</string>
@@ -1185,7 +1185,7 @@ Ak sa neskôr vypne, odporúča sa vymazať údaje aplikácie, aby sa zabránilo
   </patch>
   <patch id="layout.miniplayer.miniplayerPatch">
   <string name="revanced_miniplayer_screen_title">Miniprehrávač</string>
-  <string name="revanced_miniplayer_screen_summary">Zmeňte štýl minimalizovaného prehrávača v aplikácii</string>
+  <string name="revanced_miniplayer_screen_summary">Zmeniť štýl minimalizovaného prehrávača v aplikácii</string>
   <string name="revanced_miniplayer_type_title">Typ miniprehrávača</string>
   <string name="revanced_miniplayer_type_entry_0">Vypnuté</string>
   <string name="revanced_miniplayer_type_entry_1">Predvolené</string>
@@ -1329,8 +1329,8 @@ Povolením tejto možnosti môžete odomknúť vyššie kvality videa"</string>
   </patch>
   <patch id="misc.links.openLinksExternallyPatch">
   <string name="revanced_external_browser_title">Otvoriť odkazy v prehliadači</string>
-  <string name="revanced_external_browser_summary_on">Otváranie odkazov externe</string>
-  <string name="revanced_external_browser_summary_off">Otváranie odkazov v aplikácii</string>
+  <string name="revanced_external_browser_summary_on">Otváranie odkazov v externom prehliadači</string>
+  <string name="revanced_external_browser_summary_off">Otváranie odkazov v prehliadači v aplikácii</string>
   </patch>
   <patch id="misc.privacy.removeTrackingQueryParameterPatch">
   <string name="revanced_remove_tracking_query_parameter_title">Odstráňte parameter dopytu sledovania</string>

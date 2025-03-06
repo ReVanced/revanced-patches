@@ -404,7 +404,7 @@ Această funcție este disponibilă numai pentru dispozitivele mai vechi"</strin
   <string name="revanced_hide_self_sponsor_ads_title">Ascunde cardurile auto-sponsorizate</string>
   <string name="revanced_hide_self_sponsor_ads_summary_on">Cardurile sponsorizate automat sunt ascunse</string>
   <string name="revanced_hide_self_sponsor_ads_summary_off">Cardurile sponsorizate automat sunt afișate</string>
-  <string name="revanced_hide_products_banner_title">Ascunde banner-ul pentru a vizualiza produsele</string>
+  <string name="revanced_hide_products_banner_title">Ascunde bannerul \"Vezi produse\"</string>
   <string name="revanced_hide_products_banner_summary_on">Banner-ul este ascuns</string>
   <string name="revanced_hide_products_banner_summary_off">Banner-ul este afișat</string>
   <string name="revanced_hide_end_screen_store_banner_title">Ascunde bannerul magazinului de la finalul ecranului</string>
@@ -663,7 +663,7 @@ Dacă modificarea acestei setări nu are efect, încercați să comutați la mod
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_off">Subsolul meniului calității video este afișat</string>
   </patch>
   <patch id="layout.buttons.overlay.hidePlayerOverlayButtonsPatch">
-  <string name="revanced_hide_player_previous_next_buttons_title">Ascunde butoanele anterioare &amp; următorul video</string>
+  <string name="revanced_hide_player_previous_next_buttons_title">Ascunde butoanele Anterior &amp; Următorul</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_on">Butoanele sunt ascunse</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">Butoanele sunt afișate</string>
   <string name="revanced_hide_cast_button_title">Ascunde butonul Distribuție</string>
@@ -1194,7 +1194,7 @@ Dacă este dezactivat ulterior, se recomandă să ștergeți datele aplicației 
   </patch>
   <patch id="layout.miniplayer.miniplayerPatch">
   <string name="revanced_miniplayer_screen_title">Minijucător</string>
-  <string name="revanced_miniplayer_screen_summary">Schimbă stilul aplicaţiei minimizat jucătorul</string>
+  <string name="revanced_miniplayer_screen_summary">Schimbă stilul playerului minimizat în aplicație</string>
   <string name="revanced_miniplayer_type_title">Tip minijucător</string>
   <string name="revanced_miniplayer_type_entry_0">Dezactivat</string>
   <string name="revanced_miniplayer_type_entry_1">Implicit</string>
@@ -1340,8 +1340,8 @@ Activarea acestei opțiuni poate debloca calități video mai mari"</string>
   </patch>
   <patch id="misc.links.openLinksExternallyPatch">
   <string name="revanced_external_browser_title">Deschide link-uri în browser</string>
-  <string name="revanced_external_browser_summary_on">Se deschid link-uri extern</string>
-  <string name="revanced_external_browser_summary_off">Se deschid link-uri în aplicație</string>
+  <string name="revanced_external_browser_summary_on">Deschiderea linkurilor în browserul extern</string>
+  <string name="revanced_external_browser_summary_off">Deschiderea linkurilor în browserul din aplicație</string>
   </patch>
   <patch id="misc.privacy.removeTrackingQueryParameterPatch">
   <string name="revanced_remove_tracking_query_parameter_title">Elimină parametrul de urmărire interogare</string>
