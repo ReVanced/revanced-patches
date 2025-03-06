@@ -8,6 +8,7 @@ import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.playservice.is_19_23_or_greater
 import app.revanced.patches.youtube.misc.playservice.is_20_02_or_greater
+import app.revanced.patches.youtube.misc.playservice.is_20_10_or_greater
 import app.revanced.patches.youtube.misc.playservice.versionCheckPatch
 
 private val hooks = mutableSetOf<Hook>()
@@ -38,9 +39,12 @@ val playerResponseMethodHookPatch = bytecodePatch {
 
     execute {
         val fingerprint : Fingerprint
-        if (is_20_02_or_greater) {
-            parameterIsShortAndOpeningOrPlaying = 12
+        if (is_20_10_or_greater) {
+            parameterIsShortAndOpeningOrPlaying = 13
             fingerprint = playerParameterBuilderFingerprint
+        } else if (is_20_02_or_greater) {
+            parameterIsShortAndOpeningOrPlaying = 12
+            fingerprint = playerParameterBuilder2002Fingerprint
         } else if (is_19_23_or_greater) {
             parameterIsShortAndOpeningOrPlaying = 12
             fingerprint = playerParameterBuilder1925Fingerprint
