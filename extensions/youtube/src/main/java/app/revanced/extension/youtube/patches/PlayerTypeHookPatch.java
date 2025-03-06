@@ -40,12 +40,12 @@ public class PlayerTypeHookPatch {
         view.addOnAttachStateChangeListener(new View.OnAttachStateChangeListener() {
             @Override
             public void onViewAttachedToWindow(@Nullable View v) {
-                ShortsPlayerState.set(ShortsPlayerState.OPEN);
+                ShortsPlayerState.setOpen(true);
             }
 
             @Override
             public void onViewDetachedFromWindow(@Nullable View v) {
-                ShortsPlayerState.set(ShortsPlayerState.CLOSED);
+                ShortsPlayerState.setOpen(false);
             }
         });
     }

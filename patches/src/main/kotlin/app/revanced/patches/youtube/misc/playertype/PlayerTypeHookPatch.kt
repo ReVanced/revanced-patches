@@ -40,10 +40,8 @@ val playerTypeHookPatch = bytecodePatch(
         )
 
         reelWatchPagerFingerprint.method.apply {
-            val literalIndex = indexOfFirstLiteralInstructionOrThrow(reelWatchPlayerId) + 2
-            val registerIndex = indexOfFirstInstructionOrThrow(literalIndex) {
-                opcode == Opcode.MOVE_RESULT_OBJECT
-            }
+            val literalIndex = indexOfFirstLiteralInstructionOrThrow(reelWatchPlayerId)
+            val registerIndex = indexOfFirstInstructionOrThrow(literalIndex, Opcode.MOVE_RESULT_OBJECT)
             val viewRegister = getInstruction<OneRegisterInstruction>(registerIndex).registerA
 
             addInstruction(
@@ -59,9 +57,9 @@ val playerTypeHookPatch = bytecodePatch(
             addInstructions(
                 0,
                 """
-                        iget-object v0, p1, $videoStateFieldName  # copy VideoState parameter field
-                        invoke-static {v0}, $EXTENSION_CLASS_DESCRIPTOR->setVideoState(Ljava/lang/Enum;)V
-                    """,
+                    iget-object v0, p1, $videoStateFieldName  # copy VideoState parameter field
+                    invoke-static {v0}, $EXTENSION_CLASS_DESCRIPTOR->setVideoState(Ljava/lang/Enum;)V
+                """
             )
         }
     }

@@ -6,36 +6,33 @@ import app.revanced.extension.youtube.Event
 /**
  * Shorts player state.
  */
-enum class ShortsPlayerState {
-    CLOSED,
-    OPEN;
-
+class ShortsPlayerState {
     companion object {
 
         @JvmStatic
-        fun set(enum: ShortsPlayerState) {
-            if (currentShortsPlayerState != enum) {
-                Logger.printDebug { "ShortsPlayerState changed to: ${enum.name}" }
-                currentShortsPlayerState = enum
-                onChange(enum)
+        fun setOpen(open: Boolean) {
+            if (isOpen != open) {
+                Logger.printDebug { "ShortsPlayerState open changed to: $isOpen" }
+                isOpen = open
+                onChange(open)
             }
         }
 
-        @Volatile // Read/write from different threads.
-        private var currentShortsPlayerState = CLOSED
+        @Volatile
+        private var isOpen = false
 
         /**
          * Shorts player state change listener.
          */
         @JvmStatic
-        val onChange = Event<ShortsPlayerState>()
+        val onChange = Event<Boolean>()
 
         /**
          * If the Shorts player is currently open.
          */
         @JvmStatic
         fun isOpen(): Boolean {
-            return currentShortsPlayerState == OPEN
+            return isOpen
         }
     }
 }
