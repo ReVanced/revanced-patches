@@ -404,7 +404,7 @@ Tính năng này chỉ khả dụng cho các thiết bị cũ hơn"</string>
   <string name="revanced_hide_self_sponsor_ads_title">Ẩn thẻ tự tài trợ</string>
   <string name="revanced_hide_self_sponsor_ads_summary_on">Thẻ được tài trợ được ẩn</string>
   <string name="revanced_hide_self_sponsor_ads_summary_off">Thẻ được tài trợ được hiện</string>
-  <string name="revanced_hide_products_banner_title">Ẩn biểu ngữ để xem sản phẩm</string>
+  <string name="revanced_hide_products_banner_title">Ẩn biểu ngữ \'Xem sản phẩm\'</string>
   <string name="revanced_hide_products_banner_summary_on">Biểu ngữ được ẩn</string>
   <string name="revanced_hide_products_banner_summary_off">Biểu ngữ được hiện</string>
   <string name="revanced_hide_end_screen_store_banner_title">Ẩn biểu ngữ cửa hàng ở cuối màn hình</string>
@@ -663,7 +663,7 @@ Nếu việc thay đổi cài đặt này không có hiệu lực, hãy thử ch
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_off">Trình đơn chất lượng video bên dưới được hiện</string>
   </patch>
   <patch id="layout.buttons.overlay.hidePlayerOverlayButtonsPatch">
-  <string name="revanced_hide_player_previous_next_buttons_title">Ẩn các nút video trước đó &amp; tiếp theo</string>
+  <string name="revanced_hide_player_previous_next_buttons_title">Ẩn các nút Trước &amp; Tiếp theo</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_on">Các nút được ẩn</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">Các nút được hiện</string>
   <string name="revanced_hide_cast_button_title">Ẩn nút Phát sóng</string>
@@ -1123,7 +1123,7 @@ Bố cục máy tính bảng
 Bố cục ô tô
 • Menu lịch sử xem bị ẩn
 • Tab khám phá đã được khôi phục
-• Kệ Short mở trong trình phát thông thường
+• Kệ Shorts mở trong trình phát thông thường
 • Bảng Feed được sắp xếp theo chủ đề và kênh"</string>
   </patch>
   <patch id="layout.spoofappversion.spoofAppVersionPatch">
@@ -1340,8 +1340,8 @@ Bật tính năng này có thể mở khóa chất lượng video cao hơn"</str
   </patch>
   <patch id="misc.links.openLinksExternallyPatch">
   <string name="revanced_external_browser_title">Mở liên kết trong trình duyệt</string>
-  <string name="revanced_external_browser_summary_on">Đang mở liên kết bên ngoài</string>
-  <string name="revanced_external_browser_summary_off">Đang mở liên kết trong ứng dụng</string>
+  <string name="revanced_external_browser_summary_on">Đang mở liên kết trong trình duyệt bên ngoài</string>
+  <string name="revanced_external_browser_summary_off">Đang mở liên kết trình duyệt trong ứng dụng</string>
   </patch>
   <patch id="misc.privacy.removeTrackingQueryParameterPatch">
   <string name="revanced_remove_tracking_query_parameter_title">Loại bỏ tham số truy vấn theo dõi</string>

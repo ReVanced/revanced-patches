@@ -404,7 +404,7 @@ Ova funkcija je dostupna samo za starije uređaje"</string>
   <string name="revanced_hide_self_sponsor_ads_title">Sakrij kartice samosponzorstva</string>
   <string name="revanced_hide_self_sponsor_ads_summary_on">Kartice samosponzorstva su skrivene</string>
   <string name="revanced_hide_self_sponsor_ads_summary_off">Kartice samosponzorstva su prikazane</string>
-  <string name="revanced_hide_products_banner_title">Sakrij baner za gledanje proizvoda</string>
+  <string name="revanced_hide_products_banner_title">Sakrij baner „Pogledajte proizvode”</string>
   <string name="revanced_hide_products_banner_summary_on">Baner za gledanje proizvoda je skriven</string>
   <string name="revanced_hide_products_banner_summary_off">Baner za gledanje proizvoda je prikazan</string>
   <string name="revanced_hide_end_screen_store_banner_title">Sakrij baner prodavnice na završnom ekranu</string>
@@ -1340,8 +1340,8 @@ Ako ovo omogućite, mogu biti otključani viši kvaliteti videa"</string>
   </patch>
   <patch id="misc.links.openLinksExternallyPatch">
   <string name="revanced_external_browser_title">Otvori linkove u pregledaču</string>
-  <string name="revanced_external_browser_summary_on">Otvaranje linkova van aplikacije</string>
-  <string name="revanced_external_browser_summary_off">Otvaranje linkova u aplikaciji</string>
+  <string name="revanced_external_browser_summary_on">Otvaranje linkova u spoljnom pregledaču</string>
+  <string name="revanced_external_browser_summary_off">Otvaranje linkova u pregledaču u aplikaciji</string>
   </patch>
   <patch id="misc.privacy.removeTrackingQueryParameterPatch">
   <string name="revanced_remove_tracking_query_parameter_title">Ukloni parametar upita za praćenje</string>
@@ -1434,7 +1434,7 @@ AVC ima maksimalnu rezoluciju od 1080p, audio kodek Opus nije dostupan, a reprod
   <string name="revanced_spoof_video_streams_about_android_title">Neželjeni efekti lažiranja na Android</string>
   <string name="revanced_spoof_video_streams_about_android_summary">"• Meni „Audio snimak” nedostaje
 • Ujednačena jačina zvuka nije dostupna
-• Opcija „Prisili originalan zvuk” nije dostupna"</string>
+• Opcija „Prisili originalni zvuk” nije dostupna"</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Nema video kodeka AV1</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Videi za decu se možda neće puštati kada ste odjavljeni ili u režimu bez arhiviranja</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Prikaži u „Statistici za znalce”</string>

@@ -31,10 +31,11 @@ internal const val EXTENSION_CLASS_DESCRIPTOR =
 
 fun spoofVideoStreamsPatch(
     block: BytecodePatchBuilder.() -> Unit = {},
+    applyMediaFetchHotConfigChanges: BytecodePatchBuilder.() -> Boolean = { false },
     executeBlock: BytecodePatchContext.() -> Unit = {},
 ) = bytecodePatch(
     name = "Spoof video streams",
-    description = "Spoofs the client video streams to fix playback.",
+    description = "Adds options to spoof the client video streams to fix playback.",
 ) {
     block()
 
@@ -235,6 +236,17 @@ fun spoofVideoStreamsPatch(
             HLS_CURRENT_TIME_FEATURE_FLAG,
             "$EXTENSION_CLASS_DESCRIPTOR->fixHLSCurrentTime(Z)Z"
         )
+
+        // endregion
+
+        // region turn off stream config replacement feature flag.
+
+        if (applyMediaFetchHotConfigChanges()) {
+            mediaFetchHotConfigFingerprint.method.insertFeatureFlagBooleanOverride(
+                MEDIA_FETCH_HOT_CONFIG_FEATURE_FLAG,
+                "$EXTENSION_CLASS_DESCRIPTOR->useMediaFetchHotConfigReplacement(Z)Z"
+            )
+        }
 
         // endregion
 

@@ -404,7 +404,7 @@ Tính năng này chỉ khả dụng cho các thiết bị cũ"</string>
   <string name="revanced_hide_self_sponsor_ads_title">Esconder cartões autopatrocinados</string>
   <string name="revanced_hide_self_sponsor_ads_summary_on">Cartões auto-patrocinados estão escondidos</string>
   <string name="revanced_hide_self_sponsor_ads_summary_off">Cartões auto-patrocinados são visíveis</string>
-  <string name="revanced_hide_products_banner_title">Esconder banner para ver os produtos</string>
+  <string name="revanced_hide_products_banner_title">Ocultar banner \"Ver produtos\"</string>
   <string name="revanced_hide_products_banner_summary_on">Banner está escondido</string>
   <string name="revanced_hide_products_banner_summary_off">Banner é visível</string>
   <string name="revanced_hide_end_screen_store_banner_title">Ocultar banner da loja na tela final</string>
@@ -663,7 +663,7 @@ Se alterar esta configuração não fizer efeito, tente alternar para o modo an�
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_off">Cabeçalho do menu de qualidade de vídeo mostrado</string>
   </patch>
   <patch id="layout.buttons.overlay.hidePlayerOverlayButtonsPatch">
-  <string name="revanced_hide_player_previous_next_buttons_title">Esconder botões anteriores &amp; próxima vídeo</string>
+  <string name="revanced_hide_player_previous_next_buttons_title">Ocultar botões Anterior &amp; Próximo</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_on">Botões estão ocultos</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">Botões são exibidos</string>
   <string name="revanced_hide_cast_button_title">Ocultar botão Transmitir</string>
@@ -1195,7 +1195,7 @@ Nếu sau này tắt, bạn nên xóa dữ liệu ứng dụng để tránh lỗ
   </patch>
   <patch id="layout.miniplayer.miniplayerPatch">
   <string name="revanced_miniplayer_screen_title">Minijogador</string>
-  <string name="revanced_miniplayer_screen_summary">Alterar o estilo do player minimizado no aplicativo</string>
+  <string name="revanced_miniplayer_screen_summary">Altere o estilo do player minimizado no aplicativo</string>
   <string name="revanced_miniplayer_type_title">Tipo de minijogador</string>
   <string name="revanced_miniplayer_type_entry_0">Desativado</string>
   <string name="revanced_miniplayer_type_entry_1">Padrão</string>
@@ -1341,8 +1341,8 @@ Bật tính năng này có thể mở khóa chất lượng video cao hơn"</str
   </patch>
   <patch id="misc.links.openLinksExternallyPatch">
   <string name="revanced_external_browser_title">Abrir links no navegador</string>
-  <string name="revanced_external_browser_summary_on">Abrir links externamente</string>
-  <string name="revanced_external_browser_summary_off">Abrir links no aplicativo</string>
+  <string name="revanced_external_browser_summary_on">Abrindo links no navegador externo</string>
+  <string name="revanced_external_browser_summary_off">Abrindo links no navegador no aplicativo</string>
   </patch>
   <patch id="misc.privacy.removeTrackingQueryParameterPatch">
   <string name="revanced_remove_tracking_query_parameter_title">Remover parâmetro de consulta de rastreamento</string>

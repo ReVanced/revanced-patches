@@ -404,7 +404,7 @@ Second \"item\" text"</string>
   <string name="revanced_hide_self_sponsor_ads_title">Схаваць самі спансаваныя карты</string>
   <string name="revanced_hide_self_sponsor_ads_summary_on">Спонсарскія карткі схаваныя</string>
   <string name="revanced_hide_self_sponsor_ads_summary_off">Паказваюцца ўласныя карты</string>
-  <string name="revanced_hide_products_banner_title">Схаваць банер для прагляду прадуктаў</string>
+  <string name="revanced_hide_products_banner_title">Схаваць банер «Паглядзець прадукты»</string>
   <string name="revanced_hide_products_banner_summary_on">Банэр схаваны</string>
   <string name="revanced_hide_products_banner_summary_off">Паказваецца банэр</string>
   <string name="revanced_hide_end_screen_store_banner_title">Схаваць банер крамы на канчатковым экране</string>
@@ -663,7 +663,7 @@ Second \"item\" text"</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_off">Паказваецца ніжні калонтытул меню якасці відэа</string>
   </patch>
   <patch id="layout.buttons.overlay.hidePlayerOverlayButtonsPatch">
-  <string name="revanced_hide_player_previous_next_buttons_title">Схаваць папярэдні &amp; кнопкі наступнага відэа</string>
+  <string name="revanced_hide_player_previous_next_buttons_title">Схаваць папярэднія &amp; кнопкі «Далей»</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_on">Кнопкі схаваныя</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">Паказваюцца кнопкі</string>
   <string name="revanced_hide_cast_button_title">Схаваць кнопку «Трансляцыя»</string>
@@ -1196,7 +1196,7 @@ Second \"item\" text"</string>
   </patch>
   <patch id="layout.miniplayer.miniplayerPatch">
   <string name="revanced_miniplayer_screen_title">Міні-плэер</string>
-  <string name="revanced_miniplayer_screen_summary">Змяніце стыль мінімізаванага плэера ў праграме</string>
+  <string name="revanced_miniplayer_screen_summary">Змяніць стыль згорнутага прайгравальніка ў праграме</string>
   <string name="revanced_miniplayer_type_title">Тып мініплэера</string>
   <string name="revanced_miniplayer_type_entry_0">Інваліды</string>
   <string name="revanced_miniplayer_type_entry_1">Па змаўчанні</string>
@@ -1342,8 +1342,8 @@ Second \"item\" text"</string>
   </patch>
   <patch id="misc.links.openLinksExternallyPatch">
   <string name="revanced_external_browser_title">Адкрываць спасылкі ў браўзеры</string>
-  <string name="revanced_external_browser_summary_on">Адкрыццё спасылак звонку</string>
-  <string name="revanced_external_browser_summary_off">Адкрыццё спасылак у праграме</string>
+  <string name="revanced_external_browser_summary_on">Адкрыццё спасылак у знешнім браўзеры</string>
+  <string name="revanced_external_browser_summary_off">Адкрыццё спасылак ва ўбудаваным браўзеры</string>
   </patch>
   <patch id="misc.privacy.removeTrackingQueryParameterPatch">
   <string name="revanced_remove_tracking_query_parameter_title">Выдаліць параметр запыту адсочвання</string>

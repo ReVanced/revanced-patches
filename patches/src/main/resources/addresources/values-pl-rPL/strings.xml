@@ -404,7 +404,7 @@ Ta funkcja jest dostępna tylko dla starszych urządzeń"</string>
   <string name="revanced_hide_self_sponsor_ads_title">Karty z autopromocją</string>
   <string name="revanced_hide_self_sponsor_ads_summary_on">Karty z autopromocją są ukryte</string>
   <string name="revanced_hide_self_sponsor_ads_summary_off">Karty z autopromocją są widoczne</string>
-  <string name="revanced_hide_products_banner_title">Banery z produktami</string>
+  <string name="revanced_hide_products_banner_title">Ukryj baner „Zobacz produkty”</string>
   <string name="revanced_hide_products_banner_summary_on">Banery są ukryte</string>
   <string name="revanced_hide_products_banner_summary_off">Banery są widoczne</string>
   <string name="revanced_hide_end_screen_store_banner_title">Ukryj baner sklepu na ekranie końcowym</string>
@@ -663,7 +663,7 @@ Jeśli zmiana tego ustawienia nie przyniesie efektu, spróbuj przełączyć się
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_off">Opis menu jakości filmu jest widoczny</string>
   </patch>
   <patch id="layout.buttons.overlay.hidePlayerOverlayButtonsPatch">
-  <string name="revanced_hide_player_previous_next_buttons_title">Przyciski od poprzedniego i następnego filmu</string>
+  <string name="revanced_hide_player_previous_next_buttons_title">Ukryj przyciski Poprzedni i Następny</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_on">Przyciski są ukryte</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">Przyciski są widoczne</string>
   <string name="revanced_hide_cast_button_title">Ukryj przycisk transmisji</string>
@@ -1341,8 +1341,8 @@ Włączenie tego może odblokować wyższe jakości wideo"</string>
   </patch>
   <patch id="misc.links.openLinksExternallyPatch">
   <string name="revanced_external_browser_title">Otwieranie linków</string>
-  <string name="revanced_external_browser_summary_on">Przez przeglądarke</string>
-  <string name="revanced_external_browser_summary_off">Przez aplikacje</string>
+  <string name="revanced_external_browser_summary_on">Otwieranie linków w zewnętrznej przeglądarce</string>
+  <string name="revanced_external_browser_summary_off">Otwieranie linków w przeglądarce w aplikacji</string>
   </patch>
   <patch id="misc.privacy.removeTrackingQueryParameterPatch">
   <string name="revanced_remove_tracking_query_parameter_title">Parametr zapytania śledzenia</string>
