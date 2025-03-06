@@ -69,35 +69,39 @@ internal val advancedVideoQualityMenuPatch = bytecodePatch {
         // Used for regular videos when spoofing to old app version,
         // and for the Shorts quality flyout on newer app versions.
 
-        videoQualityMenuViewInflateFingerprint.method.apply {
-            val checkCastIndex = videoQualityMenuViewInflateFingerprint.patternMatch!!.endIndex
-            val listViewRegister = getInstruction<OneRegisterInstruction>(checkCastIndex).registerA
+        videoQualityMenuViewInflateFingerprint.let {
+            it.method.apply {
+                val checkCastIndex = it.patternMatch!!.endIndex
+                val listViewRegister = getInstruction<OneRegisterInstruction>(checkCastIndex).registerA
 
-            addInstruction(
-                checkCastIndex + 1,
-                "invoke-static { v$listViewRegister }, $EXTENSION_CLASS_DESCRIPTOR->" +
-                    "showAdvancedVideoQualityMenu(Landroid/widget/ListView;)V",
-            )
+                addInstruction(
+                    checkCastIndex + 1,
+                    "invoke-static { v$listViewRegister }, $EXTENSION_CLASS_DESCRIPTOR->" +
+                            "showAdvancedVideoQualityMenu(Landroid/widget/ListView;)V",
+                )
+            }
         }
 
         // Force YT to add the 'advanced' quality menu for Shorts.
-        val patternMatch = videoQualityMenuOptionsFingerprint.patternMatch!!
-        val startIndex = patternMatch.startIndex
-        if (startIndex != 0) throw PatchException("Unexpected opcode start index: $startIndex")
-        val insertIndex = patternMatch.endIndex
+        videoQualityMenuOptionsFingerprint.let {
+            val patternMatch = it.patternMatch!!
+            val startIndex = patternMatch.startIndex
+            val insertIndex = patternMatch.endIndex
+            if (startIndex != 0) throw PatchException("Unexpected opcode start index: $startIndex")
 
-        videoQualityMenuOptionsFingerprint.method.apply {
-            val register = getInstruction<OneRegisterInstruction>(insertIndex).registerA
+            it.method.apply {
+                val register = getInstruction<OneRegisterInstruction>(insertIndex).registerA
 
-            // A condition controls whether to show the three or four items quality menu.
-            // Force the four items quality menu to make the "Advanced" item visible, necessary for the patch.
-            addInstructions(
-                insertIndex,
-                """
-                    invoke-static { v$register }, $EXTENSION_CLASS_DESCRIPTOR->forceAdvancedVideoQualityMenuCreation(Z)Z
-                    move-result v$register
-                """,
-            )
+                // A condition controls whether to show the three or four items quality menu.
+                // Force the four items quality menu to make the "Advanced" item visible, necessary for the patch.
+                addInstructions(
+                    insertIndex,
+                    """
+                        invoke-static { v$register }, $EXTENSION_CLASS_DESCRIPTOR->forceAdvancedVideoQualityMenuCreation(Z)Z
+                        move-result v$register
+                    """
+                )
+            }
         }
 
         // endregion

@@ -41,7 +41,7 @@ val videoQualityPatch = bytecodePatch(
                 titleKey = null,
                 sorting = Sorting.UNSORTED,
                 tag = "app.revanced.extension.shared.settings.preference.NoTitlePreferenceCategory",
-                preferences = settingsMenuVideoQualityGroup.toSet()
+                preferences = settingsMenuVideoQualityGroup
             )
         )
     }

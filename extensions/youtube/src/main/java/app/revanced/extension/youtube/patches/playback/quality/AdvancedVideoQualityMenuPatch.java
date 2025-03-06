@@ -39,15 +39,15 @@ public final class AdvancedVideoQualityMenuPatch {
                 }
 
                 View firstChild = recyclerView.getChildAt(0);
-                if (!(firstChild instanceof ViewGroup advancedQualityParentView)) {
+                if (!(firstChild instanceof ViewGroup firstChildGroup)) {
                     return;
                 }
 
-                if (advancedQualityParentView.getChildCount() < 4) {
+                if (firstChildGroup.getChildCount() < 4) {
                     return;
                 }
 
-                View advancedQualityView = advancedQualityParentView.getChildAt(3);
+                View advancedQualityView = firstChildGroup.getChildAt(3);
                 if (advancedQualityView == null) {
                     return;
                 }
