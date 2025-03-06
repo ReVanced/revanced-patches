@@ -1257,8 +1257,6 @@ Swipe to expand or close"</string>
             <string name="revanced_gradient_loading_screen_title">Enable gradient loading screen</string>
             <string name="revanced_gradient_loading_screen_summary_on">Loading screen will have a gradient background</string>
             <string name="revanced_gradient_loading_screen_summary_off">Loading screen will have a solid background</string>
-        </patch>
-        <patch id="layout.theme.themeResourcePatch">
             <string name="revanced_seekbar_custom_color_title">Enable custom seekbar color</string>
             <string name="revanced_seekbar_custom_color_summary_on">Custom seekbar color is shown</string>
             <string name="revanced_seekbar_custom_color_summary_off">Original seekbar color is shown</string>
@@ -1373,7 +1371,6 @@ Enabling this can unlock higher video qualities"</string>
         </patch>
         <patch id="video.quality.rememberVideoQualityPatch">
             <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
-            <string name="revanced_video_quality_screen_title">Video quality</string>
             <string name="revanced_video_quality_default_entry_1">Auto</string>
             <string name="revanced_remember_video_quality_last_selected_title">Remember video quality changes</string>
             <string name="revanced_remember_video_quality_last_selected_summary_on">Quality changes apply to all videos</string>
@@ -1381,8 +1378,8 @@ Enabling this can unlock higher video qualities"</string>
             <string name="revanced_video_quality_default_wifi_title">Default video quality on Wi-Fi network</string>
             <string name="revanced_video_quality_default_mobile_title">Default video quality on mobile network</string>
             <string name="revanced_remember_shorts_quality_last_selected_title">Remember Shorts quality changes</string>
-            <string name="revanced_remember_shorts_quality_last_selected_summary_on">Quality changes apply to all Shorts videos</string>
-            <string name="revanced_remember_shorts_quality_last_selected_summary_off">Quality changes only apply to the current Shorts video</string>
+            <string name="revanced_remember_shorts_quality_last_selected_summary_on">Quality changes apply to all Shorts</string>
+            <string name="revanced_remember_shorts_quality_last_selected_summary_off">Quality changes only apply to the current Short</string>
             <string name="revanced_shorts_quality_default_wifi_title">Default Shorts quality on Wi-Fi network</string>
             <string name="revanced_shorts_quality_default_mobile_title">Default Shorts quality on mobile network</string>
             <string name="revanced_remember_video_quality_mobile">mobile</string>
@@ -1419,10 +1416,10 @@ Enabling this can unlock higher video qualities"</string>
             <string name="revanced_disable_hdr_video_summary_on">HDR video is disabled</string>
             <string name="revanced_disable_hdr_video_summary_off">HDR video is enabled</string>
         </patch>
-        <patch id="video.videoqualitymenu.restoreOldVideoQualityMenuResourcePatch">
-            <string name="revanced_restore_old_video_quality_menu_title">Restore old video quality menu</string>
-            <string name="revanced_restore_old_video_quality_menu_summary_on">Old video quality menu is shown</string>
-            <string name="revanced_restore_old_video_quality_menu_summary_off">Old video quality menu is not shown</string>
+        <patch id="video.quality.advancedVideoQualityMenuPatch">
+            <string name="revanced_advanced_video_quality_menu_title">Show advanced video quality menu</string>
+            <string name="revanced_advanced_video_quality_menu_summary_on">Advanced video quality menu is shown</string>
+            <string name="revanced_advanced_video_quality_menu_summary_off">Advanced video quality menu is not shown</string>
         </patch>
         <patch id="interaction.seekbar.enableSlideToSeekPatch">
             <string name="revanced_slide_to_seek_title">Enable slide to seek</string>

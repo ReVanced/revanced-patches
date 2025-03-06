@@ -8,12 +8,9 @@ import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.shared.misc.settings.preference.ListPreference
-import app.revanced.patches.shared.misc.settings.preference.PreferenceCategory
-import app.revanced.patches.shared.misc.settings.preference.PreferenceScreenPreference.Sorting
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.playertype.playerTypeHookPatch
-import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
 import app.revanced.patches.youtube.shared.newVideoQualityChangedFingerprint
 import app.revanced.patches.youtube.video.information.onCreateHook
@@ -25,10 +22,7 @@ import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 private const val EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/youtube/patches/playback/quality/RememberVideoQualityPatch;"
 
-val rememberVideoQualityPatch = bytecodePatch(
-    name = "Remember video quality",
-    description = "Adds an option to remember the last video quality selected.",
-) {
+val rememberVideoQualityPatch = bytecodePatch {
     dependsOn(
         sharedExtensionPatch,
         videoInformationPatch,
@@ -37,59 +31,38 @@ val rememberVideoQualityPatch = bytecodePatch(
         addResourcesPatch,
     )
 
-    compatibleWith(
-        "com.google.android.youtube"(
-            "19.16.39",
-            "19.25.37",
-            "19.34.42",
-            "19.43.41",
-            "19.45.38",
-            "19.46.42",
-            "19.47.53",
-        ),
-    )
-
     execute {
         addResources("youtube", "video.quality.rememberVideoQualityPatch")
 
-        PreferenceScreen.VIDEO.addPreferences(
-            // Keep the preferences organized together.
-            PreferenceCategory(
-                key = "revanced_01_video_key", // Dummy key to force the quality preferences first.
-                titleKey = null,
-                sorting = Sorting.UNSORTED,
-                tag = "app.revanced.extension.shared.settings.preference.NoTitlePreferenceCategory",
-                preferences = setOf(
-                    ListPreference(
-                        key = "revanced_video_quality_default_mobile",
-                        summaryKey = null,
-                        entriesKey = "revanced_video_quality_default_entries",
-                        entryValuesKey = "revanced_video_quality_default_entry_values",
-                    ),
-                    ListPreference(
-                        key = "revanced_video_quality_default_wifi",
-                        summaryKey = null,
-                        entriesKey = "revanced_video_quality_default_entries",
-                        entryValuesKey = "revanced_video_quality_default_entry_values",
-                    ),
-                    SwitchPreference("revanced_remember_video_quality_last_selected"),
+        settingsMenuVideoQualityGroup.addAll(listOf(
+            ListPreference(
+                key = "revanced_video_quality_default_mobile",
+                summaryKey = null,
+                entriesKey = "revanced_video_quality_default_entries",
+                entryValuesKey = "revanced_video_quality_default_entry_values",
+            ),
+            ListPreference(
+                key = "revanced_video_quality_default_wifi",
+                summaryKey = null,
+                entriesKey = "revanced_video_quality_default_entries",
+                entryValuesKey = "revanced_video_quality_default_entry_values",
+            ),
+            SwitchPreference("revanced_remember_video_quality_last_selected"),
 
-                    ListPreference(
-                        key = "revanced_shorts_quality_default_mobile",
-                        summaryKey = null,
-                        entriesKey = "revanced_video_quality_default_entries",
-                        entryValuesKey = "revanced_video_quality_default_entry_values",
-                    ),
-                    ListPreference(
-                        key = "revanced_shorts_quality_default_wifi",
-                        summaryKey = null,
-                        entriesKey = "revanced_video_quality_default_entries",
-                        entryValuesKey = "revanced_video_quality_default_entry_values",
-                    ),
-                    SwitchPreference("revanced_remember_shorts_quality_last_selected")
-                )
-            )
-        )
+            ListPreference(
+                key = "revanced_shorts_quality_default_mobile",
+                summaryKey = null,
+                entriesKey = "revanced_video_quality_default_entries",
+                entryValuesKey = "revanced_video_quality_default_entry_values",
+            ),
+            ListPreference(
+                key = "revanced_shorts_quality_default_wifi",
+                summaryKey = null,
+                entriesKey = "revanced_video_quality_default_entries",
+                entryValuesKey = "revanced_video_quality_default_entry_values",
+            ),
+            SwitchPreference("revanced_remember_shorts_quality_last_selected")
+        ))
 
         /*
          * The following code works by hooking the method which is called when the user selects a video quality
