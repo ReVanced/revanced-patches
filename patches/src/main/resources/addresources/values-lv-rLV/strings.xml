@@ -1245,8 +1245,6 @@ Pārvelciet, lai paplašinātu vai aizvērtu"</string>
   <string name="revanced_gradient_loading_screen_title">Iespējot gradientu ielādes ekrānu</string>
   <string name="revanced_gradient_loading_screen_summary_on">Ielādes ekrānam būs gradientu fons</string>
   <string name="revanced_gradient_loading_screen_summary_off">Ielādes ekrānam būs ciets fons</string>
-  </patch>
-  <patch id="layout.theme.themeResourcePatch">
   <string name="revanced_seekbar_custom_color_title">Iespējot pielāgotu meklēšanas joslas krāsu</string>
   <string name="revanced_seekbar_custom_color_summary_on">Pielāgota meklēšanas joslas krāsa ir redzama</string>
   <string name="revanced_seekbar_custom_color_summary_off">Oriģinālā meklēšanas joslas krāsa ir redzama</string>
@@ -1360,7 +1358,6 @@ Var tikt atbloķētas augstākas video kvalitātes, taču var rasties video atsk
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
-  <string name="revanced_video_quality_screen_title">Video kvalitāte</string>
   <string name="revanced_video_quality_default_entry_1">Automātiski</string>
   <string name="revanced_remember_video_quality_last_selected_title">Atcerēties video kvalitātes izmaiņas</string>
   <string name="revanced_remember_video_quality_last_selected_summary_on">Kvalitātes izmaiņas attiecas uz visiem videoklipiem</string>
@@ -1368,8 +1365,8 @@ Var tikt atbloķētas augstākas video kvalitātes, taču var rasties video atsk
   <string name="revanced_video_quality_default_wifi_title">Noklusējuma video kvalitāte Wi-Fi tīklā</string>
   <string name="revanced_video_quality_default_mobile_title">Noklusējuma video kvalitāte mobilajā tīklā</string>
   <string name="revanced_remember_shorts_quality_last_selected_title">Atcerēties Shorts kvalitātes izmaiņas</string>
-  <string name="revanced_remember_shorts_quality_last_selected_summary_on">Kvalitātes izmaiņas attiecas uz visiem Shorts video</string>
-  <string name="revanced_remember_shorts_quality_last_selected_summary_off">Kvalitātes izmaiņas attiecas tikai uz pašreizējo Shorts video</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_on">Kvalitātes izmaiņas attiecas uz visiem Shorts</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_off">Kvalitātes izmaiņas attiecas tikai uz pašreizējo Short</string>
   <string name="revanced_shorts_quality_default_wifi_title">Noklusējuma Shorts kvalitāte Wi-Fi tīklā</string>
   <string name="revanced_shorts_quality_default_mobile_title">Noklusējuma Shorts kvalitāte mobilajā tīklā</string>
   <string name="revanced_remember_video_quality_mobile">mobilais</string>
@@ -1406,10 +1403,10 @@ Var tikt atbloķētas augstākas video kvalitātes, taču var rasties video atsk
   <string name="revanced_disable_hdr_video_summary_on">HDR video ir deaktivizēts</string>
   <string name="revanced_disable_hdr_video_summary_off">HDR video ir aktivizēts</string>
   </patch>
-  <patch id="video.videoqualitymenu.restoreOldVideoQualityMenuResourcePatch">
-  <string name="revanced_restore_old_video_quality_menu_title">Atjaunot veco video kvalitātes izvēlni</string>
-  <string name="revanced_restore_old_video_quality_menu_summary_on">Vecā video kvalitātes izvēlne tiek rādīta</string>
-  <string name="revanced_restore_old_video_quality_menu_summary_off">Vecā video kvalitātes izvēlne netiek rādīta</string>
+  <patch id="video.quality.advancedVideoQualityMenuPatch">
+  <string name="revanced_advanced_video_quality_menu_title">Rādīt izvērsto video kvalitātes izvēlni</string>
+  <string name="revanced_advanced_video_quality_menu_summary_on">Tiek rādīta izvērstā video kvalitātes izvēlne</string>
+  <string name="revanced_advanced_video_quality_menu_summary_off">Izvērstā video kvalitātes izvēlne netiek rādīta</string>
   </patch>
   <patch id="interaction.seekbar.enableSlideToSeekPatch">
   <string name="revanced_slide_to_seek_title">Iespējot slīdēšanu, lai meklētu</string>

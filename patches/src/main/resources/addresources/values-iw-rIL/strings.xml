@@ -1235,8 +1235,6 @@ Second \"item\" text"</string>
   <string name="revanced_gradient_loading_screen_title">הפעל מסך טעינה עם מעבר צבע</string>
   <string name="revanced_gradient_loading_screen_summary_on">מסך הטעינה יהיה בעל רקע עם מעבר צבע</string>
   <string name="revanced_gradient_loading_screen_summary_off">מסך הטעינה יהיה בעל רקע מוצק</string>
-  </patch>
-  <patch id="layout.theme.themeResourcePatch">
   <string name="revanced_seekbar_custom_color_title">הפעל צבע סרגל דילוג מותאם אישית</string>
   <string name="revanced_seekbar_custom_color_summary_on">צבע סרגל דילוג מותאם אישית מוצג</string>
   <string name="revanced_seekbar_custom_color_summary_off">צבע סרגל דילוג מקורי מוצג</string>
@@ -1387,10 +1385,7 @@ Second \"item\" text"</string>
   <string name="revanced_disable_hdr_video_summary_on">סרטון HDR מושבת</string>
   <string name="revanced_disable_hdr_video_summary_off">סרטון HDR מופעל</string>
   </patch>
-  <patch id="video.videoqualitymenu.restoreOldVideoQualityMenuResourcePatch">
-  <string name="revanced_restore_old_video_quality_menu_title">שחזר תפריט איכות סרטון ישן</string>
-  <string name="revanced_restore_old_video_quality_menu_summary_on">תפריט איכות סרטון ישן מוצג</string>
-  <string name="revanced_restore_old_video_quality_menu_summary_off">תפריט איכות סרטון ישן אינו מוצג</string>
+  <patch id="video.quality.advancedVideoQualityMenuPatch">
   </patch>
   <patch id="interaction.seekbar.enableSlideToSeekPatch">
   <string name="revanced_slide_to_seek_title">הפעל החלק כדי לדלג</string>

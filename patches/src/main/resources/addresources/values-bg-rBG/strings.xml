@@ -1246,8 +1246,6 @@ Second \"item\" text"</string>
   <string name="revanced_gradient_loading_screen_title">Фон на екрана при зареждане на видео</string>
   <string name="revanced_gradient_loading_screen_summary_on">Екранът за зареждане ще има градиентен фон</string>
   <string name="revanced_gradient_loading_screen_summary_off">Екранът за зареждане ще има плътен фон</string>
-  </patch>
-  <patch id="layout.theme.themeResourcePatch">
   <string name="revanced_seekbar_custom_color_title">Промяна на цвета на индикатора за време</string>
   <string name="revanced_seekbar_custom_color_summary_on">Показва се персонализиран цвят на лентата за напредък</string>
   <string name="revanced_seekbar_custom_color_summary_off">Показва се оригиналния цвят на лентата за напредък</string>
@@ -1361,7 +1359,6 @@ Second \"item\" text"</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
-  <string name="revanced_video_quality_screen_title">Качество на видеоклипа</string>
   <string name="revanced_video_quality_default_entry_1">Авто</string>
   <string name="revanced_remember_video_quality_last_selected_title">Запомни промените в качеството на видеото</string>
   <string name="revanced_remember_video_quality_last_selected_summary_on">Промените в качеството се отнасят за всички видеоклипове</string>
@@ -1369,8 +1366,8 @@ Second \"item\" text"</string>
   <string name="revanced_video_quality_default_wifi_title">Предпочитано качество при Wi-Fi</string>
   <string name="revanced_video_quality_default_mobile_title">Предпочитано качество при мобилни данни</string>
   <string name="revanced_remember_shorts_quality_last_selected_title">Запомняне на промените в качеството на Shorts</string>
-  <string name="revanced_remember_shorts_quality_last_selected_summary_on">Промените в качеството се прилагат към всички Shorts видеа</string>
-  <string name="revanced_remember_shorts_quality_last_selected_summary_off">Промените в качеството се прилагат само към текущото Shorts видео</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_on">Промените в качеството се прилагат за всички Shorts</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_off">Промените в качеството се прилагат само за текущия Short</string>
   <string name="revanced_shorts_quality_default_wifi_title">Качество по подразбиране на Shorts във Wi-Fi мрежа</string>
   <string name="revanced_shorts_quality_default_mobile_title">Качество по подразбиране на Shorts в мобилна мрежа</string>
   <string name="revanced_remember_video_quality_mobile">мобилни данни</string>
@@ -1407,10 +1404,10 @@ Second \"item\" text"</string>
   <string name="revanced_disable_hdr_video_summary_on">HDR видеото е деактивирано</string>
   <string name="revanced_disable_hdr_video_summary_off">HDR видеото е активирано</string>
   </patch>
-  <patch id="video.videoqualitymenu.restoreOldVideoQualityMenuResourcePatch">
-  <string name="revanced_restore_old_video_quality_menu_title">Възстановете старото меню за качество на видеото</string>
-  <string name="revanced_restore_old_video_quality_menu_summary_on">Показва се старото меню за видео качество</string>
-  <string name="revanced_restore_old_video_quality_menu_summary_off">Старото меню за видео качество е скрито</string>
+  <patch id="video.quality.advancedVideoQualityMenuPatch">
+  <string name="revanced_advanced_video_quality_menu_title">Показване на менюто за разширено качество на видеото</string>
+  <string name="revanced_advanced_video_quality_menu_summary_on">Показва се менюто за разширено качество на видеото</string>
+  <string name="revanced_advanced_video_quality_menu_summary_off">Менюто за разширено качество на видеото не се показва</string>
   </patch>
   <patch id="interaction.seekbar.enableSlideToSeekPatch">
   <string name="revanced_slide_to_seek_title">Активиране на слайд за превъртане</string>

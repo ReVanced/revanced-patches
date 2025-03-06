@@ -1227,8 +1227,6 @@ Desliza para expandir o cerrar"</string>
   <string name="revanced_gradient_loading_screen_title">Activar la pantalla de carga del degradado</string>
   <string name="revanced_gradient_loading_screen_summary_on">La pantalla de carga tendrá un fondo de degradado</string>
   <string name="revanced_gradient_loading_screen_summary_off">La pantalla de carga tendrá un fondo sólido</string>
-  </patch>
-  <patch id="layout.theme.themeResourcePatch">
   <string name="revanced_seekbar_custom_color_title">Activar el color personalizado de la barra de búsqueda</string>
   <string name="revanced_seekbar_custom_color_summary_on">Se muestra el color personalizado de la barra de búsqueda</string>
   <string name="revanced_seekbar_custom_color_summary_off">Se muestra el color original de la barra de búsqueda</string>
@@ -1342,7 +1340,6 @@ Habilitar esto puede desbloquear calidades de vídeo más altas"</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
-  <string name="revanced_video_quality_screen_title">Calidad de video</string>
   <string name="revanced_video_quality_default_entry_1">Automático</string>
   <string name="revanced_remember_video_quality_last_selected_title">Recordar cambios de calidad de vídeo</string>
   <string name="revanced_remember_video_quality_last_selected_summary_on">Los cambios de calidad se aplican a todos los vídeos</string>
@@ -1350,8 +1347,8 @@ Habilitar esto puede desbloquear calidades de vídeo más altas"</string>
   <string name="revanced_video_quality_default_wifi_title">Calidad de vídeo predeterminada en la red Wi-Fi</string>
   <string name="revanced_video_quality_default_mobile_title">Calidad de vídeo predeterminada en la red móvil</string>
   <string name="revanced_remember_shorts_quality_last_selected_title">Recordar cambios en la calidad de Shorts</string>
-  <string name="revanced_remember_shorts_quality_last_selected_summary_on">Los cambios de calidad se aplican a todos los videos de Shorts</string>
-  <string name="revanced_remember_shorts_quality_last_selected_summary_off">Los cambios de calidad solo se aplican al video de Shorts actual</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_on">Los cambios de calidad se aplican a todos los Shorts</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_off">Los cambios de calidad solo se aplican al Short actual</string>
   <string name="revanced_shorts_quality_default_wifi_title">Calidad predeterminada de Shorts en la red Wi-Fi</string>
   <string name="revanced_shorts_quality_default_mobile_title">Calidad predeterminada de Shorts en la red móvil</string>
   <string name="revanced_remember_video_quality_mobile">móvil</string>
@@ -1388,10 +1385,10 @@ Habilitar esto puede desbloquear calidades de vídeo más altas"</string>
   <string name="revanced_disable_hdr_video_summary_on">El vídeo HDR está desactivado</string>
   <string name="revanced_disable_hdr_video_summary_off">El vídeo HDR está activado</string>
   </patch>
-  <patch id="video.videoqualitymenu.restoreOldVideoQualityMenuResourcePatch">
-  <string name="revanced_restore_old_video_quality_menu_title">Restaurar menú de calidad de vídeo antiguo</string>
-  <string name="revanced_restore_old_video_quality_menu_summary_on">Se muestra el antiguo menú de calidad de vídeo</string>
-  <string name="revanced_restore_old_video_quality_menu_summary_off">El antiguo menú de calidad de vídeo no se muestra</string>
+  <patch id="video.quality.advancedVideoQualityMenuPatch">
+  <string name="revanced_advanced_video_quality_menu_title">Mostrar menú de calidad de vídeo avanzado</string>
+  <string name="revanced_advanced_video_quality_menu_summary_on">Se muestra el menú de calidad de vídeo avanzado</string>
+  <string name="revanced_advanced_video_quality_menu_summary_off">No se muestra el menú de calidad de vídeo avanzado</string>
   </patch>
   <patch id="interaction.seekbar.enableSlideToSeekPatch">
   <string name="revanced_slide_to_seek_title">Habilitar diapositiva para buscar</string>

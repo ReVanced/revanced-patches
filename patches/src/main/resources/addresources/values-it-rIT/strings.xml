@@ -1245,8 +1245,6 @@ Scorrere per espandere o chiudere"</string>
   <string name="revanced_gradient_loading_screen_title">Abilita la schermata di caricamento col gradiente</string>
   <string name="revanced_gradient_loading_screen_summary_on">La schermata di caricamento avrà uno sfondo col gradiente</string>
   <string name="revanced_gradient_loading_screen_summary_off">La schermata di caricamento avrà uno sfondo a tinta unita</string>
-  </patch>
-  <patch id="layout.theme.themeResourcePatch">
   <string name="revanced_seekbar_custom_color_title">Abilita colore personalizzato della barra di avanzamento</string>
   <string name="revanced_seekbar_custom_color_summary_on">Il colore personalizzato della barra di avanzamento è visibile</string>
   <string name="revanced_seekbar_custom_color_summary_off">Il colore originale della barra di avanzamento è visibile</string>
@@ -1360,7 +1358,6 @@ Abilitare questa opzione può sbloccare qualità video più elevate"</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
-  <string name="revanced_video_quality_screen_title">Qualità video</string>
   <string name="revanced_video_quality_default_entry_1">Automatico</string>
   <string name="revanced_remember_video_quality_last_selected_title">Ricorda le modifiche della qualità del video</string>
   <string name="revanced_remember_video_quality_last_selected_summary_on">Le modifiche della qualità si applicano a tutti i video</string>
@@ -1368,8 +1365,8 @@ Abilitare questa opzione può sbloccare qualità video più elevate"</string>
   <string name="revanced_video_quality_default_wifi_title">Qualità video predefinita sulla rete Wi-Fi</string>
   <string name="revanced_video_quality_default_mobile_title">Qualità video predefinita sulla rete mobile</string>
   <string name="revanced_remember_shorts_quality_last_selected_title">Ricorda le modifiche alla qualità di Shorts</string>
-  <string name="revanced_remember_shorts_quality_last_selected_summary_on">Le modifiche della qualità si applicano a tutti i video di Shorts</string>
-  <string name="revanced_remember_shorts_quality_last_selected_summary_off">Le modifiche alla qualità si applicano solo al video Shorts corrente</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_on">Le modifiche della qualità si applicano a tutti gli Shorts</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_off">Le modifiche della qualità si applicano solo allo Short corrente</string>
   <string name="revanced_shorts_quality_default_wifi_title">Qualità predefinita di Shorts sulla rete Wi-Fi</string>
   <string name="revanced_shorts_quality_default_mobile_title">Qualità predefinita di Shorts sulla rete mobile</string>
   <string name="revanced_remember_video_quality_mobile">cellulare</string>
@@ -1406,10 +1403,10 @@ Abilitare questa opzione può sbloccare qualità video più elevate"</string>
   <string name="revanced_disable_hdr_video_summary_on">I video in HDR sono disabilitati</string>
   <string name="revanced_disable_hdr_video_summary_off">I video in HDR sono abilitati</string>
   </patch>
-  <patch id="video.videoqualitymenu.restoreOldVideoQualityMenuResourcePatch">
-  <string name="revanced_restore_old_video_quality_menu_title">Ripristina il vecchio menu di qualità video</string>
-  <string name="revanced_restore_old_video_quality_menu_summary_on">Il vecchio menu di qualità video è visibile</string>
-  <string name="revanced_restore_old_video_quality_menu_summary_off">Il vecchio menu di qualità video non è visibile</string>
+  <patch id="video.quality.advancedVideoQualityMenuPatch">
+  <string name="revanced_advanced_video_quality_menu_title">Mostra il menu avanzato della qualità video</string>
+  <string name="revanced_advanced_video_quality_menu_summary_on">Viene mostrato il menu avanzato della qualità video</string>
+  <string name="revanced_advanced_video_quality_menu_summary_off">Il menu avanzato della qualità video non viene mostrato</string>
   </patch>
   <patch id="interaction.seekbar.enableSlideToSeekPatch">
   <string name="revanced_slide_to_seek_title">Abilita scorri per avanzare</string>

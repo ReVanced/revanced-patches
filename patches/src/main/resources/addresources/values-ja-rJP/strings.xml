@@ -1119,13 +1119,13 @@ GmsCore の電池の最適化を無効にしても、バッテリーの使用に
   <string name="revanced_change_form_factor_entry_2">スマートフォン</string>
   <string name="revanced_change_form_factor_entry_3">タブレット</string>
   <string name="revanced_change_form_factor_entry_4">Automotive</string>
-  <string name="revanced_change_form_factor_user_dialog_message">"変更点は次のとおりです。
+  <string name="revanced_change_form_factor_user_dialog_message">"変更点は次のとおりです:
 
 タブレット レイアウト
-• コミュニティ投稿は非表示になります
+• コミュニティ投稿は表示されません
 
-自動車レイアウト
-• Shorts が通常のプレーヤーで開きます
+Automotive レイアウト
+• ショート動画を通常のプレーヤーで開きます
 • フィードはトピックとチャンネルで整理されています"</string>
   </patch>
   <patch id="layout.spoofappversion.spoofAppVersionPatch">
@@ -1249,8 +1249,6 @@ GmsCore の電池の最適化を無効にしても、バッテリーの使用に
   <string name="revanced_gradient_loading_screen_title">グラデーション読み込み画面を有効にする</string>
   <string name="revanced_gradient_loading_screen_summary_on">画面読み込み時にグラデーションの背景が表示されます</string>
   <string name="revanced_gradient_loading_screen_summary_off">画面読み込み時に通常の背景が表示されます</string>
-  </patch>
-  <patch id="layout.theme.themeResourcePatch">
   <string name="revanced_seekbar_custom_color_title">編集したシークバーの色を使用する</string>
   <string name="revanced_seekbar_custom_color_summary_on">編集したシークバーの色が表示されます</string>
   <string name="revanced_seekbar_custom_color_summary_off">デフォルトのシークバーの色が表示されます</string>
@@ -1363,22 +1361,21 @@ DeArrow の詳細については、ここをタップしてください"</string
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
-  <string name="revanced_video_quality_screen_title">動画品質</string>
   <string name="revanced_video_quality_default_entry_1">自動</string>
   <string name="revanced_remember_video_quality_last_selected_title">画質の変更を保存する</string>
   <string name="revanced_remember_video_quality_last_selected_summary_on">画質の変更はすべての動画に適用されます</string>
   <string name="revanced_remember_video_quality_last_selected_summary_off">画質の変更は現在の動画にのみ適用されます</string>
   <string name="revanced_video_quality_default_wifi_title">デフォルトの画質（Wi-Fi）</string>
   <string name="revanced_video_quality_default_mobile_title">デフォルトの画質（モバイル ネットワーク）</string>
-  <string name="revanced_remember_shorts_quality_last_selected_title">Shortsの品質変更を記憶する</string>
-  <string name="revanced_remember_shorts_quality_last_selected_summary_on">品質の変更はすべてのShorts動画に適用されます</string>
-  <string name="revanced_remember_shorts_quality_last_selected_summary_off">品質の変更は現在のShorts動画にのみ適用されます</string>
-  <string name="revanced_shorts_quality_default_wifi_title">Wi-FiネットワークでのデフォルトのShortsの品質</string>
-  <string name="revanced_shorts_quality_default_mobile_title">モバイルネットワークでのデフォルトのShortsの品質</string>
+  <string name="revanced_remember_shorts_quality_last_selected_title">ショート動画の画質の変更を保存する</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_on">画質の変更はすべてのShortsに適用されます</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_off">画質の変更は現在のShorts動画にのみ適用されます</string>
+  <string name="revanced_shorts_quality_default_wifi_title">デフォルトのショート動画の画質（Wi-Fi）</string>
+  <string name="revanced_shorts_quality_default_mobile_title">デフォルトのショート動画の画質（モバイル ネットワーク）</string>
   <string name="revanced_remember_video_quality_mobile">モバイル ネットワーク</string>
   <string name="revanced_remember_video_quality_wifi">Wi-Fi</string>
   <string name="revanced_remember_video_quality_toast">デフォルトの画質（%1$s）を %2$s に変更しました</string>
-  <string name="revanced_remember_video_quality_toast_shorts">Shortsの品質を%1$sから%2$sに変更しました</string>
+  <string name="revanced_remember_video_quality_toast_shorts">ショート動画の画質（%1$s） を %2$s に変更しました</string>
   </patch>
   <patch id="video.speed.button.playbackSpeedButtonPatch">
   <string name="revanced_playback_speed_dialog_button_title">再生速度設定ボタンを非表示</string>
@@ -1409,10 +1406,10 @@ DeArrow の詳細については、ここをタップしてください"</string
   <string name="revanced_disable_hdr_video_summary_on">HDR 動画は無効です</string>
   <string name="revanced_disable_hdr_video_summary_off">HDR 動画は有効です</string>
   </patch>
-  <patch id="video.videoqualitymenu.restoreOldVideoQualityMenuResourcePatch">
-  <string name="revanced_restore_old_video_quality_menu_title">画質設定メニューを旧バージョンに戻す</string>
-  <string name="revanced_restore_old_video_quality_menu_summary_on">旧バージョンの画質設定メニューが表示されます</string>
-  <string name="revanced_restore_old_video_quality_menu_summary_off">通常の画質設定メニューが表示されます</string>
+  <patch id="video.quality.advancedVideoQualityMenuPatch">
+  <string name="revanced_advanced_video_quality_menu_title">詳細ビデオ画質メニューを表示</string>
+  <string name="revanced_advanced_video_quality_menu_summary_on">詳細ビデオ画質メニューが表示されます</string>
+  <string name="revanced_advanced_video_quality_menu_summary_off">詳細ビデオ画質メニューは表示されません</string>
   </patch>
   <patch id="interaction.seekbar.enableSlideToSeekPatch">
   <string name="revanced_slide_to_seek_title">スライドしてシークする機能を有効にする</string>

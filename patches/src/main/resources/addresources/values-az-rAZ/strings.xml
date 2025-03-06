@@ -1234,8 +1234,6 @@ Genişləndirmək və ya bağlamaq üçün sürüşdür"</string>
   <string name="revanced_gradient_loading_screen_title">Dəyişkən yükləmə ekranını aktivləşdir</string>
   <string name="revanced_gradient_loading_screen_summary_on">Yükləmə ekranı, dəyişkən arxa plana malik olacaq</string>
   <string name="revanced_gradient_loading_screen_summary_off">Yükləmə ekranı, vahid arxa plana malik olacaq</string>
-  </patch>
-  <patch id="layout.theme.themeResourcePatch">
   <string name="revanced_seekbar_custom_color_title">Fərdi irəliləmə cizgisi rəngini aktivləşdir</string>
   <string name="revanced_seekbar_custom_color_summary_on">Fərdi irəliləmə cizgisi rəngi göstərilir</string>
   <string name="revanced_seekbar_custom_color_summary_off">Orijinal irəliləmə cizgisi rəngi göstərilir</string>
@@ -1386,10 +1384,7 @@ Bunu aktivləşdirmə daha yüksək video keyfiyyətləri əngəlin silə bilər
   <string name="revanced_disable_hdr_video_summary_on">HDR video qapalıdır</string>
   <string name="revanced_disable_hdr_video_summary_off">HDR video aktivdir</string>
   </patch>
-  <patch id="video.videoqualitymenu.restoreOldVideoQualityMenuResourcePatch">
-  <string name="revanced_restore_old_video_quality_menu_title">Köhnə video keyfiyyət menusun qaytar</string>
-  <string name="revanced_restore_old_video_quality_menu_summary_on">Köhnə video keyfiyyət siyahısı göstərilir</string>
-  <string name="revanced_restore_old_video_quality_menu_summary_off">Köhnə video keyfiyyət siyahısı görünmür</string>
+  <patch id="video.quality.advancedVideoQualityMenuPatch">
   </patch>
   <patch id="interaction.seekbar.enableSlideToSeekPatch">
   <string name="revanced_slide_to_seek_title">Axtarmaq üçün sürüşdürməni aktiv et</string>

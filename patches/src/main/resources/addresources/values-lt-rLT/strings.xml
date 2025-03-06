@@ -1247,8 +1247,6 @@ Braukite, kad išplėstumėte arba uždarytumėte"</string>
   <string name="revanced_gradient_loading_screen_title">Įgalinti gradientinį įkėlimo ekraną</string>
   <string name="revanced_gradient_loading_screen_summary_on">Įkėlimo ekranas turės gradientinį foną</string>
   <string name="revanced_gradient_loading_screen_summary_off">Įkėlimo ekranas turės tvirtą foną</string>
-  </patch>
-  <patch id="layout.theme.themeResourcePatch">
   <string name="revanced_seekbar_custom_color_title">Įgalinti pritaikytą slankiklio spalvą</string>
   <string name="revanced_seekbar_custom_color_summary_on">Rodoma pritaikyta slankiklio spalva</string>
   <string name="revanced_seekbar_custom_color_summary_off">Rodoma originali slankiklio spalva</string>
@@ -1362,7 +1360,6 @@ Gali būti atrakinta aukštesnės vaizdo įrašų kokybės, bet galite patirti v
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
-  <string name="revanced_video_quality_screen_title">Vaizdo įrašo kokybė</string>
   <string name="revanced_video_quality_default_entry_1">Automatinis</string>
   <string name="revanced_remember_video_quality_last_selected_title">Atsiminti vaizdo įrašų kokybės pakeitimus</string>
   <string name="revanced_remember_video_quality_last_selected_summary_on">Kokybės pakeitimai taikomi visiems vaizdo įrašams</string>
@@ -1370,8 +1367,8 @@ Gali būti atrakinta aukštesnės vaizdo įrašų kokybės, bet galite patirti v
   <string name="revanced_video_quality_default_wifi_title">Numatytoji vaizdo įrašų kokybė „Wi-Fi“ tinkle</string>
   <string name="revanced_video_quality_default_mobile_title">Numatytoji vaizdo įrašų kokybė mobiliojo ryšio tinkle</string>
   <string name="revanced_remember_shorts_quality_last_selected_title">Atsiminti „Shorts“ kokybės pakeitimus</string>
-  <string name="revanced_remember_shorts_quality_last_selected_summary_on">Kokybės pakeitimai taikomi visiems „Shorts“ vaizdo įrašams</string>
-  <string name="revanced_remember_shorts_quality_last_selected_summary_off">Kokybės pakeitimai taikomi tik dabartiniam „Shorts“ vaizdo įrašui</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_on">Kokybės pakeitimai taikomi visiems „Shorts“</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_off">Kokybės pakeitimai taikomi tik dabartiniam „Shorts“</string>
   <string name="revanced_shorts_quality_default_wifi_title">Numatytoji „Shorts“ kokybė naudojant „Wi-Fi“ tinklą</string>
   <string name="revanced_shorts_quality_default_mobile_title">Numatytoji „Shorts“ kokybė mobiliųjų tinklų atveju</string>
   <string name="revanced_remember_video_quality_mobile">mobilusis</string>
@@ -1408,10 +1405,10 @@ Gali būti atrakinta aukštesnės vaizdo įrašų kokybės, bet galite patirti v
   <string name="revanced_disable_hdr_video_summary_on">HDR vaizdo įrašas išjungtas</string>
   <string name="revanced_disable_hdr_video_summary_off">HDR vaizdo įrašas įjungtas</string>
   </patch>
-  <patch id="video.videoqualitymenu.restoreOldVideoQualityMenuResourcePatch">
-  <string name="revanced_restore_old_video_quality_menu_title">Atkurti senąjį vaizdo įrašų kokybės meniu</string>
-  <string name="revanced_restore_old_video_quality_menu_summary_on">Senasis vaizdo įrašų kokybės meniu rodomas</string>
-  <string name="revanced_restore_old_video_quality_menu_summary_off">Senasis vaizdo įrašų kokybės meniu nerodomas</string>
+  <patch id="video.quality.advancedVideoQualityMenuPatch">
+  <string name="revanced_advanced_video_quality_menu_title">Rodyti išplėstinį vaizdo įrašo kokybės meniu</string>
+  <string name="revanced_advanced_video_quality_menu_summary_on">Rodomas išplėstinis vaizdo įrašo kokybės meniu</string>
+  <string name="revanced_advanced_video_quality_menu_summary_off">Nerodomas išplėstinis vaizdo įrašo kokybės meniu</string>
   </patch>
   <patch id="interaction.seekbar.enableSlideToSeekPatch">
   <string name="revanced_slide_to_seek_title">Įjungti slinkimą, kad ieškotumėte</string>

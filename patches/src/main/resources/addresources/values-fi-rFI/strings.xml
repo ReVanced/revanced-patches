@@ -1233,8 +1233,6 @@ Pyyhkäise laajentaaksesi tai sulkeaksesi"</string>
   <string name="revanced_gradient_loading_screen_title">Ota liukuvärillinen latausruutu käyttöön</string>
   <string name="revanced_gradient_loading_screen_summary_on">Latausruudulla on liukuvärillinen tausta</string>
   <string name="revanced_gradient_loading_screen_summary_off">Latausruudulla on yksivärinen tausta</string>
-  </patch>
-  <patch id="layout.theme.themeResourcePatch">
   <string name="revanced_seekbar_custom_color_title">Ota oma liukusäätimen väri käyttöön</string>
   <string name="revanced_seekbar_custom_color_summary_on">Oma liukusäätimen väri näytetään</string>
   <string name="revanced_seekbar_custom_color_summary_off">Alkuperäinen liukusäätimen väri näytetään</string>
@@ -1385,10 +1383,7 @@ Tämä voi avata korkealaatuisemmat videot"</string>
   <string name="revanced_disable_hdr_video_summary_on">HDR-video ei ole käytössä</string>
   <string name="revanced_disable_hdr_video_summary_off">HDR-video on käytössä</string>
   </patch>
-  <patch id="video.videoqualitymenu.restoreOldVideoQualityMenuResourcePatch">
-  <string name="revanced_restore_old_video_quality_menu_title">Palauta vanha videolaatuvalikko</string>
-  <string name="revanced_restore_old_video_quality_menu_summary_on">Vanha videolaatuvalikko näytetään</string>
-  <string name="revanced_restore_old_video_quality_menu_summary_off">Vanhaa videolaatuvalikkoa ei näytetä</string>
+  <patch id="video.quality.advancedVideoQualityMenuPatch">
   </patch>
   <patch id="interaction.seekbar.enableSlideToSeekPatch">
   <string name="revanced_slide_to_seek_title">Ota kelaus liu\'uttamalla käyttöön</string>

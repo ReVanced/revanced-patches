@@ -1245,8 +1245,6 @@ Second \"item\" text"</string>
   <string name="revanced_gradient_loading_screen_title">Увімкнути градієнт завантаження</string>
   <string name="revanced_gradient_loading_screen_summary_on">Екран завантаження макета матиме градієнтне тло</string>
   <string name="revanced_gradient_loading_screen_summary_off">Екран завантаження макета матиме суцільне тло</string>
-  </patch>
-  <patch id="layout.theme.themeResourcePatch">
   <string name="revanced_seekbar_custom_color_title">Увімкнути користувацький колір</string>
   <string name="revanced_seekbar_custom_color_summary_on">Показується користувацький колір панелі прогресу</string>
   <string name="revanced_seekbar_custom_color_summary_off">Показується оригінальний колір панелі прогресу</string>
@@ -1360,7 +1358,6 @@ Second \"item\" text"</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
-  <string name="revanced_video_quality_screen_title">Якість відео</string>
   <string name="revanced_video_quality_default_entry_1">Авто</string>
   <string name="revanced_remember_video_quality_last_selected_title">Запам\'ятовувати зміни якості відео</string>
   <string name="revanced_remember_video_quality_last_selected_summary_on">Зміни якості застосовуються до всіх відео</string>
@@ -1368,8 +1365,8 @@ Second \"item\" text"</string>
   <string name="revanced_video_quality_default_wifi_title">Стандартна якість відео у Wi-Fi мережі</string>
   <string name="revanced_video_quality_default_mobile_title">Стандартна якість відео в мобільній мережі</string>
   <string name="revanced_remember_shorts_quality_last_selected_title">Запам\'ятовувати зміни якості Shorts</string>
-  <string name="revanced_remember_shorts_quality_last_selected_summary_on">Зміни якості застосовуються до всіх відео Shorts</string>
-  <string name="revanced_remember_shorts_quality_last_selected_summary_off">Зміни якості застосовуються лише до поточного відео Shorts</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_on">Зміни якості застосовуються до всіх Shorts</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_off">Зміни якості застосовуються лише до поточного Short</string>
   <string name="revanced_shorts_quality_default_wifi_title">Стандартна якість Shorts у Wi-Fi мережі</string>
   <string name="revanced_shorts_quality_default_mobile_title">Стандартна якість Shorts у мобільній мережі</string>
   <string name="revanced_remember_video_quality_mobile">в мобільній мережі</string>
@@ -1406,10 +1403,10 @@ Second \"item\" text"</string>
   <string name="revanced_disable_hdr_video_summary_on">HDR відео вимкнено</string>
   <string name="revanced_disable_hdr_video_summary_off">HDR відео увімкнено</string>
   </patch>
-  <patch id="video.videoqualitymenu.restoreOldVideoQualityMenuResourcePatch">
-  <string name="revanced_restore_old_video_quality_menu_title">Відновити старе меню якості відео</string>
-  <string name="revanced_restore_old_video_quality_menu_summary_on">Показується старе меню якості відео</string>
-  <string name="revanced_restore_old_video_quality_menu_summary_off">Показується нове меню якості відео</string>
+  <patch id="video.quality.advancedVideoQualityMenuPatch">
+  <string name="revanced_advanced_video_quality_menu_title">Показувати розширене меню якості відео</string>
+  <string name="revanced_advanced_video_quality_menu_summary_on">Розширене меню якості відео показується</string>
+  <string name="revanced_advanced_video_quality_menu_summary_off">Розширене меню якості відео не показується</string>
   </patch>
   <patch id="interaction.seekbar.enableSlideToSeekPatch">
   <string name="revanced_slide_to_seek_title">Увімкнути перемотку пересуванням</string>
