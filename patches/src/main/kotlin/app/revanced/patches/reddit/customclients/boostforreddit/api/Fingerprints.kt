@@ -13,3 +13,21 @@ internal val getClientIdFingerprint = fingerprint {
         method.name == "getClientId"
     }
 }
+
+internal val loginActivityOnCreateFingerprint = fingerprint {
+    strings("http://rubenmayayo.com")
+    custom { method, classDef ->
+        if (!classDef.endsWith("LoginActivity;")) return@custom false
+
+        method.name == "onCreate"
+    }
+}
+
+internal val loginActivityAShouldOverrideUrlLoadingFingerprint = fingerprint {
+    strings("http://rubenmayayo.com")
+    custom { method, classDef ->
+        if (!classDef.endsWith("LoginActivity${'$'}a;")) return@custom false
+
+        method.name == "shouldOverrideUrlLoading"
+    }
+}
