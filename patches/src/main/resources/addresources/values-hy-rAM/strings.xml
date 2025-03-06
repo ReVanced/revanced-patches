@@ -404,7 +404,6 @@ MicroG-ի համար մարտկոցի օպտիմալացումը անջատել�
   <string name="revanced_hide_self_sponsor_ads_title">Թաքցնել ինքնահովանավորված քարտերը</string>
   <string name="revanced_hide_self_sponsor_ads_summary_on">Ինքնահովանավորված քարտերը թաքցված են</string>
   <string name="revanced_hide_self_sponsor_ads_summary_off">Ինքնահովանավորված քարտերը երևում են</string>
-  <string name="revanced_hide_products_banner_title">Թաքցնել ապրանքների դիտման բաները</string>
   <string name="revanced_hide_products_banner_summary_on">Բաները թաքցված են</string>
   <string name="revanced_hide_products_banner_summary_off">Բաները երևում են</string>
   <string name="revanced_hide_end_screen_store_banner_title">Թաքցնել վերջնական էկրանի խանութի բաները</string>
@@ -663,7 +662,7 @@ MicroG-ի համար մարտկոցի օպտիմալացումը անջատել�
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_off">Տեսանյութի որակի մենյուի ստորագրությունը երևում է</string>
   </patch>
   <patch id="layout.buttons.overlay.hidePlayerOverlayButtonsPatch">
-  <string name="revanced_hide_player_previous_next_buttons_title">Թաքցնել \"Նախորդ\" և \"Հաջորդ\" տեսանյութի կոճակները</string>
+  <string name="revanced_hide_player_previous_next_buttons_title">Թաքցնել \"Նախորդ\" և \"Հաջորդ\" կոճակները</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_on">Կոճակները թաքցված են</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">Կոճակները երևում են</string>
   <string name="revanced_hide_cast_button_title">Թաքցնել Cast կոճակը</string>
@@ -1195,7 +1194,6 @@ Seekbar thumbnails-ները կօգտագործեն նույն որակը, ինչ
   </patch>
   <patch id="layout.miniplayer.miniplayerPatch">
   <string name="revanced_miniplayer_screen_title">Մինի նվագարկիչ</string>
-  <string name="revanced_miniplayer_screen_summary">Փոխել կիրառության մեջ փոքրացված պլեյերի ոճը</string>
   <string name="revanced_miniplayer_type_title">Miniplayer-ի տեսակ</string>
   <string name="revanced_miniplayer_type_entry_0">Անջատված է</string>
   <string name="revanced_miniplayer_type_entry_1">Ըստ լռելյայնի</string>
@@ -1341,8 +1339,8 @@ Mini-player-ը կարող է գրավվել էկրանից դուրս՝ դեպի
   </patch>
   <patch id="misc.links.openLinksExternallyPatch">
   <string name="revanced_external_browser_title">Բրաուզերում  հղումներ  բացել</string>
-  <string name="revanced_external_browser_summary_on">Հղումները  բացվում են  արտաքին</string>
-  <string name="revanced_external_browser_summary_off">Հղումները  բացվում են  ծրագրում</string>
+  <string name="revanced_external_browser_summary_on">Բացել հղումները արտաքին բրաուզերում</string>
+  <string name="revanced_external_browser_summary_off">Բացել հղումները ներծրագրային բրաուզերում</string>
   </patch>
   <patch id="misc.privacy.removeTrackingQueryParameterPatch">
   <string name="revanced_remove_tracking_query_parameter_title">Հետևողականության  հարցումի  պարամետրը  հեռացնել</string>

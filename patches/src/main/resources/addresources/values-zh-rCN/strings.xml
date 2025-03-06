@@ -404,7 +404,7 @@ Second \"item\" text"</string>
   <string name="revanced_hide_self_sponsor_ads_title">隐藏自我推广卡片</string>
   <string name="revanced_hide_self_sponsor_ads_summary_on">自我推广卡片已隐藏</string>
   <string name="revanced_hide_self_sponsor_ads_summary_off">自我推广卡片已显示</string>
-  <string name="revanced_hide_products_banner_title">隐藏产品横幅</string>
+  <string name="revanced_hide_products_banner_title">隐藏“查看商品”横幅</string>
   <string name="revanced_hide_products_banner_summary_on">横幅已隐藏</string>
   <string name="revanced_hide_products_banner_summary_off">横幅已显示</string>
   <string name="revanced_hide_end_screen_store_banner_title">隐藏片尾画面商店横幅</string>
@@ -663,7 +663,7 @@ Second \"item\" text"</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_off">画质选单页脚已显示</string>
   </patch>
   <patch id="layout.buttons.overlay.hidePlayerOverlayButtonsPatch">
-  <string name="revanced_hide_player_previous_next_buttons_title">隐藏上一个 &amp;下一个视频按钮</string>
+  <string name="revanced_hide_player_previous_next_buttons_title">隐藏上一个和下一个按钮</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_on">按钮已隐藏</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">按钮已显示</string>
   <string name="revanced_hide_cast_button_title">隐藏「投屏」按钮</string>
@@ -1154,8 +1154,11 @@ Second \"item\" text"</string>
   <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">设置起始页</string>
   <string name="revanced_change_start_page_entry_default">默认</string>
+  <string name="revanced_change_start_page_entry_all_subscriptions">所有订阅频道</string>
   <string name="revanced_change_start_page_entry_browse">浏览频道</string>
+  <string name="revanced_change_start_page_entry_courses">学习</string>
   <string name="revanced_change_start_page_entry_explore">探索</string>
+  <string name="revanced_change_start_page_entry_fashion">时尚和美容</string>
   <string name="revanced_change_start_page_entry_gaming">游戏</string>
   <string name="revanced_change_start_page_entry_history">历史记录</string>
   <string name="revanced_change_start_page_entry_library">库</string>
@@ -1165,11 +1168,13 @@ Second \"item\" text"</string>
   <string name="revanced_change_start_page_entry_music">音乐</string>
   <string name="revanced_change_start_page_entry_news">新闻</string>
   <string name="revanced_change_start_page_entry_notifications">通知</string>
+  <string name="revanced_change_start_page_entry_playlists">播放列表</string>
   <string name="revanced_change_start_page_entry_search">搜索</string>
   <string name="revanced_change_start_page_entry_shopping">购物</string>
   <string name="revanced_change_start_page_entry_sports">体育</string>
   <string name="revanced_change_start_page_entry_subscriptions">订阅</string>
   <string name="revanced_change_start_page_entry_trending">趋势</string>
+  <string name="revanced_change_start_page_entry_virtual_reality">虚拟实境</string>
   <string name="revanced_change_start_page_entry_watch_later">稍后观看</string>
   <string name="revanced_change_start_page_entry_your_clips">你的剪辑</string>
   </patch>
@@ -1194,7 +1199,7 @@ Second \"item\" text"</string>
   </patch>
   <patch id="layout.miniplayer.miniplayerPatch">
   <string name="revanced_miniplayer_screen_title">小型播放器</string>
-  <string name="revanced_miniplayer_screen_summary">更改应用内小型播放器的样式</string>
+  <string name="revanced_miniplayer_screen_summary">更改应用内最小化播放器的样式</string>
   <string name="revanced_miniplayer_type_title">小型播放器类型</string>
   <string name="revanced_miniplayer_type_entry_0">已禁用</string>
   <string name="revanced_miniplayer_type_entry_1">默认</string>
@@ -1315,9 +1320,9 @@ Second \"item\" text"</string>
   <string name="revanced_check_watch_history_domain_name_dialog_ignore">不再显示</string>
   </patch>
   <patch id="misc.autorepeat.autoRepeatPatch">
-  <string name="revanced_auto_repeat_title">启用自动重复</string>
-  <string name="revanced_auto_repeat_summary_on">自动重复已启用</string>
-  <string name="revanced_auto_repeat_summary_off">自动重复已禁用</string>
+  <string name="revanced_auto_repeat_title">启用自动重复播放</string>
+  <string name="revanced_auto_repeat_summary_on">自动重复播放已启用</string>
+  <string name="revanced_auto_repeat_summary_off">自动重复播放已禁用</string>
   </patch>
   <patch id="misc.dimensions.spoof.spoofDeviceDimensionsPatch">
   <string name="revanced_spoof_device_dimensions_title">伪装设备尺寸</string>
@@ -1340,8 +1345,8 @@ Second \"item\" text"</string>
   </patch>
   <patch id="misc.links.openLinksExternallyPatch">
   <string name="revanced_external_browser_title">在浏览器中打开链接</string>
-  <string name="revanced_external_browser_summary_on">在外部打开链接</string>
-  <string name="revanced_external_browser_summary_off">在应用中打开链接</string>
+  <string name="revanced_external_browser_summary_on">在外部浏览器中打开链接</string>
+  <string name="revanced_external_browser_summary_off">在应用内浏览器中打开链接</string>
   </patch>
   <patch id="misc.privacy.removeTrackingQueryParameterPatch">
   <string name="revanced_remove_tracking_query_parameter_title">删除跟踪查询参数</string>

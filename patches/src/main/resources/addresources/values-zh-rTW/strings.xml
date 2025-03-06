@@ -400,7 +400,6 @@ Second \"item\" text"</string>
   <string name="revanced_hide_self_sponsor_ads_title">隱藏自我贊助資訊卡</string>
   <string name="revanced_hide_self_sponsor_ads_summary_on">已隱藏自我贊助資訊卡</string>
   <string name="revanced_hide_self_sponsor_ads_summary_off">已顯示自我贊助資訊卡</string>
-  <string name="revanced_hide_products_banner_title">隱藏檢視產品橫幅</string>
   <string name="revanced_hide_products_banner_summary_on">已隱藏橫幅</string>
   <string name="revanced_hide_products_banner_summary_off">已顯示橫幅</string>
   <string name="revanced_hide_end_screen_store_banner_title">隱藏片尾商店橫幅</string>
@@ -659,7 +658,6 @@ Second \"item\" text"</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_off">已顯示影片畫質選單頁尾</string>
   </patch>
   <patch id="layout.buttons.overlay.hidePlayerOverlayButtonsPatch">
-  <string name="revanced_hide_player_previous_next_buttons_title">隱藏上一部和下一部影片按紐</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_on">已隱藏按鈕</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">已顯示按鈕</string>
   <string name="revanced_hide_cast_button_title">隱藏「投影」按鈕</string>
@@ -1191,7 +1189,6 @@ Second \"item\" text"</string>
   </patch>
   <patch id="layout.miniplayer.miniplayerPatch">
   <string name="revanced_miniplayer_screen_title">迷你播放器</string>
-  <string name="revanced_miniplayer_screen_summary">變更應用程式中迷你播放器的樣式</string>
   <string name="revanced_miniplayer_type_title">迷你播放器類型</string>
   <string name="revanced_miniplayer_type_entry_0">停用</string>
   <string name="revanced_miniplayer_type_entry_1">預設</string>
@@ -1341,8 +1338,6 @@ Second \"item\" text"</string>
   </patch>
   <patch id="misc.links.openLinksExternallyPatch">
   <string name="revanced_external_browser_title">在瀏覽器中開啟連結</string>
-  <string name="revanced_external_browser_summary_on">在外部開啟連結</string>
-  <string name="revanced_external_browser_summary_off">在應用程式中開啟連結</string>
   </patch>
   <patch id="misc.privacy.removeTrackingQueryParameterPatch">
   <string name="revanced_remove_tracking_query_parameter_title">移除追蹤查詢參數</string>

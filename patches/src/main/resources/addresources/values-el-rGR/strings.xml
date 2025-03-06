@@ -406,7 +406,7 @@ Second \"item\" text"</string>
   <string name="revanced_hide_self_sponsor_ads_title">Κάρτες αυτοπροώθησης</string>
   <string name="revanced_hide_self_sponsor_ads_summary_on">Κρυμμένες</string>
   <string name="revanced_hide_self_sponsor_ads_summary_off">Εμφανίζονται</string>
-  <string name="revanced_hide_products_banner_title">Διαφημίσεις προβολής προϊόντων</string>
+  <string name="revanced_hide_products_banner_title">Ετικέτα «Προβολή προϊόντων»</string>
   <string name="revanced_hide_products_banner_summary_on">Κρυμμένες</string>
   <string name="revanced_hide_products_banner_summary_off">Εμφανίζονται</string>
   <string name="revanced_hide_end_screen_store_banner_title">Ετικέτα καταστήματος στην τελική οθόνη</string>
@@ -1196,7 +1196,7 @@ Second \"item\" text"</string>
   </patch>
   <patch id="layout.miniplayer.miniplayerPatch">
   <string name="revanced_miniplayer_screen_title">Ελαχιστοποιημένη οθόνη αναπαραγωγής</string>
-  <string name="revanced_miniplayer_screen_summary">Αλλάξτε το στυλ της ελαχιστοποιημένης οθόνης αναπαραγωγής</string>
+  <string name="revanced_miniplayer_screen_summary">Αλλαγή του στυλ της ελαχιστοποιημένης οθόνης αναπαραγωγής της εφαρμογής</string>
   <string name="revanced_miniplayer_type_title">Τύπος ελαχιστοποιημένης οθόνης αναπαραγωγής</string>
   <string name="revanced_miniplayer_type_entry_0">Απενεργοποιημένη</string>
   <string name="revanced_miniplayer_type_entry_1">Προεπιλογή</string>
@@ -1340,8 +1340,8 @@ Second \"item\" text"</string>
   </patch>
   <patch id="misc.links.openLinksExternallyPatch">
   <string name="revanced_external_browser_title">Άνοιγμα συνδέσμων σε πρόγραμμα περιήγησης</string>
-  <string name="revanced_external_browser_summary_on">Οι σύνδεσμοι ανοίγουν εξωτερικά</string>
-  <string name="revanced_external_browser_summary_off">Οι σύνδεσμοι ανοίγουν εντός της εφαρμογής</string>
+  <string name="revanced_external_browser_summary_on">Οι σύνδεσμοι ανοίγουν σε εξωτερικό πρόγραμμα περιήγησης</string>
+  <string name="revanced_external_browser_summary_off">Οι σύνδεσμοι ανοίγουν στο εσωτερικό πρόγραμμα περιήγησης της εφαρμογής</string>
   </patch>
   <patch id="misc.privacy.removeTrackingQueryParameterPatch">
   <string name="revanced_remove_tracking_query_parameter_title">Καθαρισμός συνδέσμων κοινοποίησης</string>

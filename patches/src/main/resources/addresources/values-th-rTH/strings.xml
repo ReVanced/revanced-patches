@@ -404,7 +404,7 @@ Second \"item\" text"</string>
   <string name="revanced_hide_self_sponsor_ads_title">ซ่อนการ์ดที่สนับสนุนตัวเอง</string>
   <string name="revanced_hide_self_sponsor_ads_summary_on">การ์ดที่สนับสนุนตัวเองถูกซ่อน</string>
   <string name="revanced_hide_self_sponsor_ads_summary_off">การ์ดที่สนับสนุนตัวเองจะแสดง</string>
-  <string name="revanced_hide_products_banner_title">ซ่อนแบนเนอร์เพื่อดูผลิตภัณฑ์</string>
+  <string name="revanced_hide_products_banner_title">ซ่อนแบนเนอร์ \'ดูผลิตภัณฑ์\'</string>
   <string name="revanced_hide_products_banner_summary_on">แบนเนอร์ถูกซ่อน</string>
   <string name="revanced_hide_products_banner_summary_off">แบนเนอร์จะแสดง</string>
   <string name="revanced_hide_end_screen_store_banner_title">ซ่อนแบนเนอร์ร้านค้าท้ายจอ</string>
@@ -661,7 +661,7 @@ Second \"item\" text"</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_off">ส่วนท้ายเมนูคุณภาพวิดีโอแสดงอยู่</string>
   </patch>
   <patch id="layout.buttons.overlay.hidePlayerOverlayButtonsPatch">
-  <string name="revanced_hide_player_previous_next_buttons_title">ซ่อนปุ่มวิดีโอก่อนหน้าและถัดไป</string>
+  <string name="revanced_hide_player_previous_next_buttons_title">ซ่อนปุ่มก่อนหน้า &amp; ถัดไป</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_on">ปุ่มซ่อนอยู่</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">ปุ่มแสดงอยู่</string>
   <string name="revanced_hide_cast_button_title">ซ่อนปุ่มส่ง</string>
@@ -1193,7 +1193,7 @@ User id ของคุณเหมือนกับรหัสผ่าน �
   </patch>
   <patch id="layout.miniplayer.miniplayerPatch">
   <string name="revanced_miniplayer_screen_title">มินิเพลเยอร์</string>
-  <string name="revanced_miniplayer_screen_summary">เปลี่ยนสไตล์ของเครื่องเล่นย่อขนาดในแอป</string>
+  <string name="revanced_miniplayer_screen_summary">เปลี่ยนรูปแบบของเครื่องเล่นขนาดเล็กในแอป</string>
   <string name="revanced_miniplayer_type_title">ประเภทของเครื่องเล่นย่อขนาด</string>
   <string name="revanced_miniplayer_type_entry_0">ปิดการใช้งานอยู่</string>
   <string name="revanced_miniplayer_type_entry_1">ค่าเริ่มต้น</string>
@@ -1339,8 +1339,8 @@ User id ของคุณเหมือนกับรหัสผ่าน �
   </patch>
   <patch id="misc.links.openLinksExternallyPatch">
   <string name="revanced_external_browser_title">เปิดลิงก์ในเบราว์เซอร์</string>
-  <string name="revanced_external_browser_summary_on">เปิดลิงก์ภายนอก</string>
-  <string name="revanced_external_browser_summary_off">เปิดลิงก์ในแอป</string>
+  <string name="revanced_external_browser_summary_on">เปิดลิงก์ในเบราว์เซอร์ภายนอก</string>
+  <string name="revanced_external_browser_summary_off">เปิดลิงก์ในเบราว์เซอร์ในแอป</string>
   </patch>
   <patch id="misc.privacy.removeTrackingQueryParameterPatch">
   <string name="revanced_remove_tracking_query_parameter_title">ลบพารามิเตอร์การติดตามแบบสอบถาม</string>
