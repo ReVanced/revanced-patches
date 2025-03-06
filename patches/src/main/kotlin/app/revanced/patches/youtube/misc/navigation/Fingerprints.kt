@@ -1,5 +1,6 @@
 package app.revanced.patches.youtube.misc.navigation
 
+import app.revanced.patcher.checkCast
 import app.revanced.patcher.fingerprint
 import app.revanced.patcher.methodCall
 import app.revanced.patcher.opcode
@@ -20,7 +21,10 @@ internal val actionBarSearchResultsFingerprint by fingerprint {
 
 internal val toolbarLayoutFingerprint by fingerprint {
     accessFlags(AccessFlags.PROTECTED, AccessFlags.CONSTRUCTOR)
-    literal { toolbarContainerId }
+    instructions(
+        resourceLiteral("id", "toolbar_container"),
+        checkCast("Lcom/google/android/apps/youtube/app/ui/actionbar/MainCollapsingToolbarLayout;")
+    )
 }
 
 /**
@@ -51,11 +55,7 @@ internal val mainActivityOnBackPressedFingerprint by fingerprint {
     returns("V")
     parameters()
     custom { method, classDef ->
-        val matchesClass = classDef.endsWith("MainActivity;") ||
-            // Old versions of YouTube called this class "WatchWhileActivity" instead.
-            classDef.endsWith("WatchWhileActivity;")
-
-        matchesClass && method.name == "onBackPressed"
+        classDef.endsWith("MainActivity;") && method.name == "onBackPressed"
     }
 }
 

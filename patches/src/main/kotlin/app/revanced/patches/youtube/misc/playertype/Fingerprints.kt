@@ -2,6 +2,10 @@ package app.revanced.patches.youtube.misc.playertype
 
 import app.revanced.patcher.fieldAccess
 import app.revanced.patcher.fingerprint
+import app.revanced.patcher.literal
+import app.revanced.patcher.opcode
+import app.revanced.patcher.patch.BytecodePatchContext
+import app.revanced.patches.shared.misc.mapping.resourceLiteral
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
@@ -19,7 +23,10 @@ internal val playerTypeFingerprint by fingerprint {
 internal val reelWatchPagerFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("Landroid/view/View;")
-    literal { reelWatchPlayerId }
+    instructions(
+        resourceLiteral("id", "reel_watch_player"),
+        opcode(Opcode.MOVE_RESULT_OBJECT, maxAfter = 10)
+    )
 }
 
 internal val videoStateEnumFingerprint by fingerprint {

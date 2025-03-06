@@ -51,7 +51,7 @@ val removeTrackingQueryParameterPatch = bytecodePatch(
             getInsertIndex: Match.PatternMatch.() -> Int,
             getUrlRegister: MutableMethod.(insertIndex: Int) -> Int,
         ) {
-            val insertIndex = patternMatch!!.getInsertIndex()
+            val insertIndex = patternMatch.getInsertIndex()
             val urlRegister = method.getUrlRegister(insertIndex)
 
             method.addInstructions(

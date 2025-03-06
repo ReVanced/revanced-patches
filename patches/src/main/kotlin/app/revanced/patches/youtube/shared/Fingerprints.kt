@@ -8,7 +8,6 @@ import app.revanced.patcher.string
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-
 internal val autoRepeatFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("V")
@@ -40,12 +39,7 @@ internal val mainActivityOnCreateFingerprint by fingerprint {
     returns("V")
     parameters("Landroid/os/Bundle;")
     custom { method, classDef ->
-        method.name == "onCreate" &&
-            (
-                classDef.endsWith("MainActivity;") ||
-                    // Old versions of YouTube called this class "WatchWhileActivity" instead.
-                    classDef.endsWith("WatchWhileActivity;")
-                )
+        method.name == "onCreate" && classDef.endsWith("MainActivity;")
     }
 }
 

@@ -9,9 +9,7 @@ internal val onBackPressedFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     opcodes(Opcode.RETURN_VOID)
     custom { method, classDef ->
-        method.name == "onBackPressed" &&
-            // Old versions of YouTube called this class "WatchWhileActivity" instead.
-            (classDef.endsWith("MainActivity;") || classDef.endsWith("WatchWhileActivity;"))
+        method.name == "onBackPressed" && classDef.endsWith("MainActivity;")
     }
 }
 
