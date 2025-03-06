@@ -1,3 +1,10 @@
+## [5.13.1-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.13.0...v5.13.1-dev.1) (2025-03-06)
+
+
+### Bug Fixes
+
+* **YouTube - Change form factor:** Restore Automotive form factor watch history menu, channel pages, and community posts ([#4541](https://github.com/ReVanced/revanced-patches/issues/4541)) ([aa5c001](https://github.com/ReVanced/revanced-patches/commit/aa5c001968446e5270c756256724e917009612cd))
+
 # [5.13.0](https://github.com/ReVanced/revanced-patches/compare/v5.12.0...v5.13.0) (2025-03-03)
 
 
