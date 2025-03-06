@@ -60,12 +60,12 @@ internal val customPlaybackSpeedPatch = bytecodePatch(
 ) {
     dependsOn(
         sharedExtensionPatch,
-        lithoFilterPatch,
         settingsPatch,
-        recyclerViewTreeHookPatch,
-        customPlaybackSpeedResourcePatch,
         addResourcesPatch,
-        versionCheckPatch
+        lithoFilterPatch,
+        versionCheckPatch,
+        recyclerViewTreeHookPatch,
+        customPlaybackSpeedResourcePatch
     )
 
     execute {

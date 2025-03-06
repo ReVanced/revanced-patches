@@ -8,7 +8,10 @@ import app.revanced.patcher.patch.stringOption
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
+import app.revanced.patches.shared.misc.settings.preference.BasePreference
 import app.revanced.patches.shared.misc.settings.preference.InputType
+import app.revanced.patches.shared.misc.settings.preference.PreferenceCategory
+import app.revanced.patches.shared.misc.settings.preference.PreferenceScreenPreference.Sorting
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.shared.misc.settings.preference.TextPreference
 import app.revanced.patches.youtube.layout.seekbar.seekbarColorPatch
@@ -71,6 +74,9 @@ val themePatch = bytecodePatch(
     )
 
     dependsOn(
+        sharedExtensionPatch,
+        settingsPatch,
+        addResourcesPatch,
         lithoColorHookPatch,
         seekbarColorPatch,
         versionCheckPatch,
@@ -78,22 +84,30 @@ val themePatch = bytecodePatch(
             dependsOn(
                 settingsPatch,
                 resourceMappingPatch,
-                addResourcesPatch,
             )
 
             execute {
-                addResources("youtube", "layout.theme.themeResourcePatch")
-
-                PreferenceScreen.SEEKBAR.addPreferences(
+                val preferences = mutableSetOf<BasePreference>(
                     SwitchPreference("revanced_seekbar_custom_color"),
                     TextPreference("revanced_seekbar_custom_color_primary", inputType = InputType.TEXT_CAP_CHARACTERS),
                 )
 
                 if (is_19_25_or_greater) {
-                    PreferenceScreen.SEEKBAR.addPreferences(
-                        TextPreference("revanced_seekbar_custom_color_accent", inputType = InputType.TEXT_CAP_CHARACTERS),
+                    preferences += TextPreference(
+                        "revanced_seekbar_custom_color_accent",
+                        inputType = InputType.TEXT_CAP_CHARACTERS
                     )
                 }
+
+                PreferenceScreen.SEEKBAR.addPreferences(
+                    PreferenceCategory(
+                        // Title is hidden, but is used for sorting the group.
+                        titleKey = "revanced_seekbar_custom_color_title",
+                        sorting = Sorting.UNSORTED,
+                        tag = "app.revanced.extension.shared.settings.preference.NoTitlePreferenceCategory",
+                        preferences = preferences
+                    )
+                )
 
                 // Edit theme colors via resources.
                 document("res/values/colors.xml").use { document ->
@@ -125,7 +139,6 @@ val themePatch = bytecodePatch(
                     colorValue: String,
                 ) {
                     document(resourceFile).use { document ->
-
                         val resourcesNode = document.getElementsByTagName("resources").item(0) as Element
 
                         resourcesNode.appendChild(
@@ -133,7 +146,7 @@ val themePatch = bytecodePatch(
                                 setAttribute("name", colorName)
                                 setAttribute("category", "color")
                                 textContent = colorValue
-                            },
+                            }
                         )
                     }
                 }
@@ -152,11 +165,10 @@ val themePatch = bytecodePatch(
                 // Edit splash screen files and change the background color,
                 // if the background colors are set.
                 if (darkThemeBackgroundColor != null && lightThemeBackgroundColor != null) {
-                    val splashScreenResourceFiles =
-                        listOf(
-                            "res/drawable/quantum_launchscreen_youtube.xml",
-                            "res/drawable-sw600dp/quantum_launchscreen_youtube.xml",
-                        )
+                    val splashScreenResourceFiles = listOf(
+                        "res/drawable/quantum_launchscreen_youtube.xml",
+                        "res/drawable-sw600dp/quantum_launchscreen_youtube.xml",
+                    )
 
                     splashScreenResourceFiles.forEach editSplashScreen@{ resourceFile ->
                         document(resourceFile).use { document ->
@@ -200,10 +212,7 @@ val themePatch = bytecodePatch(
                     }
                 }
             }
-        },
-        sharedExtensionPatch,
-        settingsPatch,
-        addResourcesPatch,
+        }
     )
 
     compatibleWith(

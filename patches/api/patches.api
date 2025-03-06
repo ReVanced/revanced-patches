@@ -1463,6 +1463,10 @@ public final class app/revanced/patches/youtube/video/quality/RememberVideoQuali
 	public static final fun getRememberVideoQualityPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
+public final class app/revanced/patches/youtube/video/quality/VideoQualityPatchKt {
+	public static final fun getVideoQualityPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
 public final class app/revanced/patches/youtube/video/speed/PlaybackSpeedPatchKt {
 	public static final fun getPlaybackSpeedPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }

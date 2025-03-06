@@ -22,9 +22,9 @@ internal val rememberPlaybackSpeedPatch = bytecodePatch {
     dependsOn(
         sharedExtensionPatch,
         settingsPatch,
-        videoInformationPatch,
-        customPlaybackSpeedPatch,
         addResourcesPatch,
+        videoInformationPatch,
+        customPlaybackSpeedPatch
     )
 
     execute {
@@ -44,6 +44,7 @@ internal val rememberPlaybackSpeedPatch = bytecodePatch {
         )
 
         onCreateHook(EXTENSION_CLASS_DESCRIPTOR, "newVideoStarted")
+
         userSelectedPlaybackSpeedHook(
             EXTENSION_CLASS_DESCRIPTOR,
             "userSelectedPlaybackSpeed",
