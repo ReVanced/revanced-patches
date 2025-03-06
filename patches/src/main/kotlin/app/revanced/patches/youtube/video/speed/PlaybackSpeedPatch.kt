@@ -21,8 +21,8 @@ val playbackSpeedPatch = bytecodePatch(
         "and show a speed dialog button in the video player.",
 ) {
     dependsOn(
-        rememberPlaybackSpeedPatch,
         customPlaybackSpeedPatch,
+        rememberPlaybackSpeedPatch,
         playbackSpeedButtonPatch,
     )
 
