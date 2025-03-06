@@ -11,7 +11,11 @@ val unlockSubscriptionPatch = bytecodePatch(
 ) {
     dependsOn(spoofClientPatch)
 
-    compatibleWith("ml.docilealligator.infinityforreddit", "ml.docilealligator.infinityforreddit.plus")
+    compatibleWith(
+        "ml.docilealligator.infinityforreddit",
+        "ml.docilealligator.infinityforreddit.plus",
+        "ml.docilealligator.infinityforreddit.patreon"
+    )
 
     execute {
         setOf(
