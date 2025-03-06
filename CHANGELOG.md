@@ -1,3 +1,10 @@
+# [5.14.0-dev.4](https://github.com/ReVanced/revanced-patches/compare/v5.14.0-dev.3...v5.14.0-dev.4) (2025-03-06)
+
+
+### Bug Fixes
+
+* **YouTube:** Combine `Restore old video quality menu` and `Remember video quality` into `Video quality` patch ([#4552](https://github.com/ReVanced/revanced-patches/issues/4552)) ([ee67b76](https://github.com/ReVanced/revanced-patches/commit/ee67b763d5c5947a5b1ef4420b1efa820ed6af83))
+
 # [5.14.0-dev.3](https://github.com/ReVanced/revanced-patches/compare/v5.14.0-dev.2...v5.14.0-dev.3) (2025-03-06)
 
 
