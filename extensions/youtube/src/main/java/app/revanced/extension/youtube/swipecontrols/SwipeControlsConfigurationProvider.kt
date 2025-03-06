@@ -64,8 +64,8 @@ class SwipeControlsConfigurationProvider(
     /**
      * how much volume will change by single swipe
      * */
-    val volumeSwipeMultiplier: Int
-        get() = Settings.SWIPE_VOLUME_MULTIPLIER.get()
+    val volumeSwipeSensitivity: Int
+        get() = Settings.SWIPE_VOLUME_SENSITIVITY.get()
 //endregion
 
 //region overlay adjustments
