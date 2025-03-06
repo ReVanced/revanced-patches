@@ -1419,10 +1419,10 @@ Enabling this can unlock higher video qualities"</string>
             <string name="revanced_disable_hdr_video_summary_on">HDR video is disabled</string>
             <string name="revanced_disable_hdr_video_summary_off">HDR video is enabled</string>
         </patch>
-        <patch id="video.videoqualitymenu.restoreOldVideoQualityMenuResourcePatch">
-            <string name="revanced_restore_old_video_quality_menu_title">Restore old video quality menu</string>
-            <string name="revanced_restore_old_video_quality_menu_summary_on">Old video quality menu is shown</string>
-            <string name="revanced_restore_old_video_quality_menu_summary_off">Old video quality menu is not shown</string>
+        <patch id="video.quality.advancedVideoQualityMenuPatch">
+            <string name="revanced_advanced_video_quality_menu_title">Show advanced video quality menu</string>
+            <string name="revanced_advanced_video_quality_menu_summary_on">Advanced video quality menu is shown</string>
+            <string name="revanced_advanced_video_quality_menu_summary_off">Advanced video quality menu is not shown</string>
         </patch>
         <patch id="interaction.seekbar.enableSlideToSeekPatch">
             <string name="revanced_slide_to_seek_title">Enable slide to seek</string>
