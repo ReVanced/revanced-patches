@@ -1100,16 +1100,14 @@ Maithe chun cur isteach?"</string>
   <string name="revanced_change_form_factor_entry_2">Fón</string>
   <string name="revanced_change_form_factor_entry_3">Táibhléad</string>
   <string name="revanced_change_form_factor_entry_4">Gluaisrothar</string>
-  <string name="revanced_change_form_factor_user_dialog_message">"Áirítear na hathruithe seo a leanas:
+  <string name="revanced_change_form_factor_user_dialog_message">"Áirítear ar na hathruithe:
 
-Leagan amach na táibléad
-• Tá poist an phobail curtha i bhfolach
+Leagan amach an táibléid
+• Tá postálacha pobail i bhfolach
 
-Leagan amach na ngluaisteán
-• Tá roghchlár stair féachana curtha i bhfolach
-• Tá an táb eolais arís ann
-• Osclóidh Shorts sa seinnteoir gnáth
-• Tá an foraois eagraithe de réir ábhar agus cainéal"</string>
+Leagan amach feithicleach
+• Osclaítear Shorts sa ghnáthsheinnteoir
+• Eagraítear an fotha de réir topaicí agus bealaí"</string>
   </patch>
   <patch id="layout.spoofappversion.spoofAppVersionPatch">
   <string name="revanced_spoof_app_version_title">Leagan aip spoof</string>
@@ -1346,15 +1344,22 @@ Is féidir le seo caighdeáin físeáin níos airde a dhíghlasáil"</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
+  <string name="revanced_video_quality_screen_title">Cáilíocht físe</string>
   <string name="revanced_video_quality_default_entry_1">Uathoibríoch</string>
   <string name="revanced_remember_video_quality_last_selected_title">Cuimhnigh athruithe ar cháilíocht</string>
   <string name="revanced_remember_video_quality_last_selected_summary_on">Baineann athruithe cáilíochta le gach físeán</string>
   <string name="revanced_remember_video_quality_last_selected_summary_off">Ní bhaineann athruithe cáilíochta ach leis an bhfíseán reatha</string>
   <string name="revanced_video_quality_default_wifi_title">Cáilíocht físe réamhshocraithe ar líonra</string>
   <string name="revanced_video_quality_default_mobile_title">Cáilíocht físe réamhshocraithe ar líonra</string>
+  <string name="revanced_remember_shorts_quality_last_selected_title">Cuimhnigh ar athruithe cáilíochta Shorts</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_on">Baineann athruithe cáilíochta le gach físeán Shorts</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_off">Ní bhaineann athruithe cáilíochta ach leis an bhfíseán reatha Shorts</string>
+  <string name="revanced_shorts_quality_default_wifi_title">Cáilíocht réamhshocraithe Shorts ar líonra Wi-Fi</string>
+  <string name="revanced_shorts_quality_default_mobile_title">Cáilíocht réamhshocraithe Shorts ar líonra soghluaiste</string>
   <string name="revanced_remember_video_quality_mobile">soghluaiste</string>
   <string name="revanced_remember_video_quality_wifi">Wi-Fi</string>
   <string name="revanced_remember_video_quality_toast">Athraigh cáilíocht réamhshocraithe %1$s go dtí: %2$s</string>
+  <string name="revanced_remember_video_quality_toast_shorts">Athraíodh cáilíocht Shorts %1$s go: %2$s</string>
   </patch>
   <patch id="video.speed.button.playbackSpeedButtonPatch">
   <string name="revanced_playback_speed_dialog_button_title">Taispeáin cnaipe dialóg luais</string>

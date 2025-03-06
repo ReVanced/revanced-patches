@@ -1121,8 +1121,6 @@ Second \"item\" text"</string>
 • Публікації спільноти приховані
 
 Автомобільний макет
-• Меню історії переглядів приховано
-• Відновлено вкладку \"Навігатор\"
 • Shorts відкриваються у звичайному плеєрі
 • Стрічка впорядкована за темами та каналами"</string>
   </patch>
@@ -1362,15 +1360,22 @@ Second \"item\" text"</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
+  <string name="revanced_video_quality_screen_title">Якість відео</string>
   <string name="revanced_video_quality_default_entry_1">Авто</string>
   <string name="revanced_remember_video_quality_last_selected_title">Запам\'ятовувати зміни якості відео</string>
   <string name="revanced_remember_video_quality_last_selected_summary_on">Зміни якості застосовуються до всіх відео</string>
   <string name="revanced_remember_video_quality_last_selected_summary_off">Зміни якості застосовуються лише до поточного відео</string>
-  <string name="revanced_video_quality_default_wifi_title">Стандартна якість відео в Wi-Fi мережі</string>
+  <string name="revanced_video_quality_default_wifi_title">Стандартна якість відео у Wi-Fi мережі</string>
   <string name="revanced_video_quality_default_mobile_title">Стандартна якість відео в мобільній мережі</string>
-  <string name="revanced_remember_video_quality_mobile">в моб. мережі</string>
+  <string name="revanced_remember_shorts_quality_last_selected_title">Запам\'ятовувати зміни якості Shorts</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_on">Зміни якості застосовуються до всіх відео Shorts</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_off">Зміни якості застосовуються лише до поточного відео Shorts</string>
+  <string name="revanced_shorts_quality_default_wifi_title">Стандартна якість Shorts у Wi-Fi мережі</string>
+  <string name="revanced_shorts_quality_default_mobile_title">Стандартна якість Shorts у мобільній мережі</string>
+  <string name="revanced_remember_video_quality_mobile">в мобільній мережі</string>
   <string name="revanced_remember_video_quality_wifi">в Wi-Fi мережі</string>
   <string name="revanced_remember_video_quality_toast">Якість %1$s змінено на %2$s</string>
+  <string name="revanced_remember_video_quality_toast_shorts">Якість Shorts %1$s змінено на %2$s</string>
   </patch>
   <patch id="video.speed.button.playbackSpeedButtonPatch">
   <string name="revanced_playback_speed_dialog_button_title">Кнопка швидкості відтворення</string>

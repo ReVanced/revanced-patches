@@ -1110,16 +1110,6 @@ Second \"item\" text"</string>
   <string name="revanced_change_form_factor_entry_2">手機</string>
   <string name="revanced_change_form_factor_entry_3">平板電腦</string>
   <string name="revanced_change_form_factor_entry_4">車用</string>
-  <string name="revanced_change_form_factor_user_dialog_message">"變更包括：
-
-平板電腦版面配置
-• 隱藏社群貼文
-
-車用版面配置
-• 隱藏觀看記錄選單
-• 還原「探索」分頁
-• Shorts 以一般播放器開啟
-• 推薦內容依主題和頻道整理"</string>
   </patch>
   <patch id="layout.spoofappversion.spoofAppVersionPatch">
   <string name="revanced_spoof_app_version_title">偽裝應用程式版本</string>

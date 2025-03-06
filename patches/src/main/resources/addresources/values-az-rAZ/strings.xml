@@ -1113,16 +1113,6 @@ Təqdim etməyə hazırdır?"</string>
   <string name="revanced_change_form_factor_entry_2">Telefon</string>
   <string name="revanced_change_form_factor_entry_3">Planşet</string>
   <string name="revanced_change_form_factor_entry_4">Avtomobil</string>
-  <string name="revanced_change_form_factor_user_dialog_message">"Dəyişikliklərə daxildir:
-
-Planşet tərtibatı
-• İcma elanları gizlidir
-
-Avtomobil tərtibatı
-• Baxış tarixçəsi seçimi gizlidir
-• \"Kəşf et\" bölməsi qaytarılıb
-• Shorts daimi oynadıcıda açılır
-• Axın mövzulara və kanala görə hazırlanıb"</string>
   </patch>
   <patch id="layout.spoofappversion.spoofAppVersionPatch">
   <string name="revanced_spoof_app_version_title">Tətbiq versiyasını saxtalaşdır</string>

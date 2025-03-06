@@ -1117,16 +1117,14 @@ Second \"item\" text"</string>
   <string name="revanced_change_form_factor_entry_2">Τηλέφωνο</string>
   <string name="revanced_change_form_factor_entry_3">Ταμπλετ</string>
   <string name="revanced_change_form_factor_entry_4">Αυτοκίνητο</string>
-  <string name="revanced_change_form_factor_user_dialog_message">"Οι αλλαγές στη διάταξη περιλαμβάνουν τα παρακάτω:
+  <string name="revanced_change_form_factor_user_dialog_message">"Οι αλλαγές περιλαμβάνουν:
 
-Διάταξη ταμπλετ
-• Οι δημοσιεύσεις κοινότητας είναι κρυμμένες
+Διάταξη tablet
+• Οι αναρτήσεις κοινότητας είναι κρυφές
 
 Διάταξη αυτοκινήτου
-• Το μενού ιστορικού παρακολούθησης είναι κρυμμένο
-• Η καρτέλα «Εξερεύνηση» επαναφέρεται
-• Τα Shorts ανοίγουν στην κανονική οθόνη αναπαραγωγής
-• Η ροή οργανώνεται ανά θέματα και κανάλι"</string>
+• Τα Shorts ανοίγουν στην κανονική συσκευή αναπαραγωγής
+• Η ροή οργανώνεται ανά θέματα και κανάλια"</string>
   </patch>
   <patch id="layout.spoofappversion.spoofAppVersionPatch">
   <string name="revanced_spoof_app_version_title">Τροποποίηση έκδοσης εφαρμογής</string>
@@ -1362,15 +1360,22 @@ Second \"item\" text"</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
+  <string name="revanced_video_quality_screen_title">Ποιότητα βίντεο</string>
   <string name="revanced_video_quality_default_entry_1">Αυτόματη</string>
   <string name="revanced_remember_video_quality_last_selected_title">Απομνημόνευση αλλαγών ποιότητας βίντεο</string>
   <string name="revanced_remember_video_quality_last_selected_summary_on">Οι αλλαγές ποιότητας ισχύουν για όλα τα βίντεο</string>
   <string name="revanced_remember_video_quality_last_selected_summary_off">Οι αλλαγές ποιότητας ισχύουν μόνο για το τρέχον βίντεο</string>
   <string name="revanced_video_quality_default_wifi_title">Προεπιλεγμένη ποιότητα βίντεο με Wi-Fi</string>
   <string name="revanced_video_quality_default_mobile_title">Προεπιλεγμένη ποιότητα βίντεο με δεδομένα κινητής τηλεφωνίας</string>
+  <string name="revanced_remember_shorts_quality_last_selected_title">Απομνημόνευση αλλαγών ποιότητας στα Shorts</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_on">Οι αλλαγές ποιότητας ισχύουν για όλα τα βίντεο Shorts</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_off">Οι αλλαγές ποιότητας ισχύουν μόνο για το τρέχον βίντεο Shorts</string>
+  <string name="revanced_shorts_quality_default_wifi_title">Προεπιλεγμένη ποιότητα Shorts σε δίκτυο Wi-Fi</string>
+  <string name="revanced_shorts_quality_default_mobile_title">Προεπιλεγμένη ποιότητα Shorts σε δίκτυο κινητής τηλεφωνίας</string>
   <string name="revanced_remember_video_quality_mobile">δεδομένων</string>
   <string name="revanced_remember_video_quality_wifi">Wi-Fi</string>
   <string name="revanced_remember_video_quality_toast">Η προεπιλεγμένη ποιότητα %1$s άλλαξε σε: %2$s</string>
+  <string name="revanced_remember_video_quality_toast_shorts">Άλλαξε η ποιότητα των Shorts %1$s σε: %2$s</string>
   </patch>
   <patch id="video.speed.button.playbackSpeedButtonPatch">
   <string name="revanced_playback_speed_dialog_button_title">Εμφάνιση κουμπιού αλλαγής ταχύτητας</string>

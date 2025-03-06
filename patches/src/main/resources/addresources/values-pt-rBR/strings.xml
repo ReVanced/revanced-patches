@@ -1113,16 +1113,14 @@ Pronto para enviar?"</string>
   <string name="revanced_change_form_factor_entry_2">Telefone</string>
   <string name="revanced_change_form_factor_entry_3">Tablet</string>
   <string name="revanced_change_form_factor_entry_4">Automóveis</string>
-  <string name="revanced_change_form_factor_user_dialog_message">"Mudanças incluem:
+  <string name="revanced_change_form_factor_user_dialog_message">"As alterações incluem:
 
-Layout para tablets
-• As postagens da comunidade estão ocultas
+Layout para tablet
+• Publicações da comunidade estão ocultas
 
-Layout para veículos
-• O menu do histórico de exibições fica oculto
-• A guia Explorar está restaurada
-• Os Shorts abrem no player normal
-• O feed é organizado por tópicos e canal"</string>
+Layout automotivo
+• Shorts são abertos no reprodutor normal
+• O feed é organizado por tópicos e canais"</string>
   </patch>
   <patch id="layout.spoofappversion.spoofAppVersionPatch">
   <string name="revanced_spoof_app_version_title">Spoofing da versão do aplicativo</string>
@@ -1360,15 +1358,22 @@ Habilitar isso pode desbloquear qualidades de vídeo mais altas"</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
+  <string name="revanced_video_quality_screen_title">Qualidade do vídeo</string>
   <string name="revanced_video_quality_default_entry_1">Automático</string>
   <string name="revanced_remember_video_quality_last_selected_title">Lembrar mudanças na qualidade do vídeo</string>
   <string name="revanced_remember_video_quality_last_selected_summary_on">Mudança na qualidade se aplicam a todos os vídeos</string>
   <string name="revanced_remember_video_quality_last_selected_summary_off">Mudança na qualidade só se aplicam ao vídeo atual</string>
   <string name="revanced_video_quality_default_wifi_title">Qualidade padrão do vídeo no Wi-Fi</string>
   <string name="revanced_video_quality_default_mobile_title">Qualidade padrão do vídeo nos dados móveis</string>
+  <string name="revanced_remember_shorts_quality_last_selected_title">Lembrar alterações na qualidade dos Shorts</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_on">As alterações de qualidade se aplicam a todos os vídeos do Shorts</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_off">As alterações de qualidade se aplicam apenas ao vídeo atual do Shorts</string>
+  <string name="revanced_shorts_quality_default_wifi_title">Qualidade padrão dos Shorts na rede Wi-Fi</string>
+  <string name="revanced_shorts_quality_default_mobile_title">Qualidade padrão dos Shorts na rede móvel</string>
   <string name="revanced_remember_video_quality_mobile">dados móveis</string>
   <string name="revanced_remember_video_quality_wifi">Wi-Fi</string>
   <string name="revanced_remember_video_quality_toast">Qualidade padrão %1$s alterada para: %2$s</string>
+  <string name="revanced_remember_video_quality_toast_shorts">Qualidade dos Shorts %1$s alterada para: %2$s</string>
   </patch>
   <patch id="video.speed.button.playbackSpeedButtonPatch">
   <string name="revanced_playback_speed_dialog_button_title">Mostrar botão de velocidade</string>

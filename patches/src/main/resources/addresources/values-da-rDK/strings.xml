@@ -1062,13 +1062,11 @@ Er du klar til at indsende?"</string>
   <string name="revanced_change_form_factor_user_dialog_message">"Ændringer omfatter:
 
 Tabletlayout
-• Fællesindlæg er skjult
+• Fællesskabsopslag er skjulte
 
-Bil layout
-• Se historik-menuen er skjult
-• Udforsk-fanen er gendannet
+Automotive-layout
 • Shorts åbnes i den almindelige afspiller
-• Feedet er organiseret efter emner og kanal"</string>
+• Feed er organiseret efter emner og kanaler"</string>
   </patch>
   <patch id="layout.spoofappversion.spoofAppVersionPatch">
   <string name="revanced_spoof_app_version_title">Spoof app-version</string>
@@ -1302,15 +1300,22 @@ Aktivering af dette kan låse op for højere videokvalitet"</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
+  <string name="revanced_video_quality_screen_title">Videokvalitet</string>
   <string name="revanced_video_quality_default_entry_1">Automatisk</string>
   <string name="revanced_remember_video_quality_last_selected_title">Husk ændringer i videokvalitet</string>
   <string name="revanced_remember_video_quality_last_selected_summary_on">Kvalitetsændringer gælder for alle videoer</string>
   <string name="revanced_remember_video_quality_last_selected_summary_off">Kvalitetsændringer gælder kun for den aktuelle video</string>
   <string name="revanced_video_quality_default_wifi_title">Standard videokvalitet på Wi-Fi-netværk</string>
   <string name="revanced_video_quality_default_mobile_title">Standard videokvalitet på mobilnetværk</string>
+  <string name="revanced_remember_shorts_quality_last_selected_title">Husk kvalitetsændringer for Shorts</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_on">Kvalitetsændringer gælder for alle Shorts-videoer</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_off">Kvalitetsændringer gælder kun for den aktuelle Shorts-video</string>
+  <string name="revanced_shorts_quality_default_wifi_title">Standard Shorts-kvalitet på Wi-Fi-netværk</string>
+  <string name="revanced_shorts_quality_default_mobile_title">Standard Shorts-kvalitet på mobilnetværk</string>
   <string name="revanced_remember_video_quality_mobile">mobil</string>
   <string name="revanced_remember_video_quality_wifi">Wi-Fi</string>
   <string name="revanced_remember_video_quality_toast">Ændrede standard %1$s kvalitet til: %2$s</string>
+  <string name="revanced_remember_video_quality_toast_shorts">Ændrede Shorts %1$s kvalitet til: %2$s</string>
   </patch>
   <patch id="video.speed.button.playbackSpeedButtonPatch">
   <string name="revanced_playback_speed_dialog_button_title">Vis hastigheds dialogknap</string>
