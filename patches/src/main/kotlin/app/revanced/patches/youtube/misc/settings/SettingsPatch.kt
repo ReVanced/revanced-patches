@@ -323,6 +323,7 @@ object PreferenceScreen : BasePreferenceScreen() {
     val VIDEO = Screen(
         key = "revanced_settings_screen_12_video",
         summaryKey = null,
+        sorting = Sorting.BY_KEY,
     )
 
     override fun commit(screen: PreferenceScreenPreference) {
