@@ -76,9 +76,7 @@ val spoofAppVersionPatch = bytecodePatch(
             // Group the switch and list preference together, since General menu is sorted by name
             // and the preferences can be scattered apart with non English langauges.
             PreferenceCategory(
-                key = null,
-                // The title does not show, but is used for sorting the group.
-                titleKey = "revanced_spoof_app_version_title",
+                titleKey = null,
                 sorting = Sorting.UNSORTED,
                 tag = "app.revanced.extension.shared.settings.preference.NoTitlePreferenceCategory",
                 preferences = setOf(
