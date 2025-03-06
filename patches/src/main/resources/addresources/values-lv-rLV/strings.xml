@@ -1121,10 +1121,8 @@ Planšetdatora izkārtojums
 • Kopienas ieraksti ir paslēpti
 
 Automobiļu izkārtojums
-• Skatīšanās vēstures izvēlne ir paslēpta
-• Izpētes cilne ir atjaunota
-• Īsie videoklipi tiek atvērti parastajā atskaņotājā
-• Lentē ir organizēta pēc tēmām un kanāliem"</string>
+• Shorts tiek atvērti parastajā atskaņotājā
+• Plūsma ir sakārtota pēc tēmām un kanāliem"</string>
   </patch>
   <patch id="layout.spoofappversion.spoofAppVersionPatch">
   <string name="revanced_spoof_app_version_title">Vilto lietotnes versiju</string>
@@ -1362,15 +1360,22 @@ Var tikt atbloķētas augstākas video kvalitātes, taču var rasties video atsk
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
+  <string name="revanced_video_quality_screen_title">Video kvalitāte</string>
   <string name="revanced_video_quality_default_entry_1">Automātiski</string>
   <string name="revanced_remember_video_quality_last_selected_title">Atcerēties video kvalitātes izmaiņas</string>
   <string name="revanced_remember_video_quality_last_selected_summary_on">Kvalitātes izmaiņas attiecas uz visiem videoklipiem</string>
   <string name="revanced_remember_video_quality_last_selected_summary_off">Kvalitātes izmaiņas attiecas tikai uz pašreizējo videoklipu</string>
   <string name="revanced_video_quality_default_wifi_title">Noklusējuma video kvalitāte Wi-Fi tīklā</string>
   <string name="revanced_video_quality_default_mobile_title">Noklusējuma video kvalitāte mobilajā tīklā</string>
+  <string name="revanced_remember_shorts_quality_last_selected_title">Atcerēties Shorts kvalitātes izmaiņas</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_on">Kvalitātes izmaiņas attiecas uz visiem Shorts video</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_off">Kvalitātes izmaiņas attiecas tikai uz pašreizējo Shorts video</string>
+  <string name="revanced_shorts_quality_default_wifi_title">Noklusējuma Shorts kvalitāte Wi-Fi tīklā</string>
+  <string name="revanced_shorts_quality_default_mobile_title">Noklusējuma Shorts kvalitāte mobilajā tīklā</string>
   <string name="revanced_remember_video_quality_mobile">mobilais</string>
   <string name="revanced_remember_video_quality_wifi">bezvadu tīkls</string>
   <string name="revanced_remember_video_quality_toast">Izmainīta noklusējuma %1$s kvalitāte uz: %2$s</string>
+  <string name="revanced_remember_video_quality_toast_shorts">Mainīta Shorts %1$s kvalitāte uz: %2$s</string>
   </patch>
   <patch id="video.speed.button.playbackSpeedButtonPatch">
   <string name="revanced_playback_speed_dialog_button_title">Rādīt ātruma dialoga pogu</string>

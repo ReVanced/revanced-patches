@@ -1117,16 +1117,14 @@ Ar paruošta pateikti?"</string>
   <string name="revanced_change_form_factor_entry_2">Telefonas</string>
   <string name="revanced_change_form_factor_entry_3">Planšetė</string>
   <string name="revanced_change_form_factor_entry_4">Automobilių</string>
-  <string name="revanced_change_form_factor_user_dialog_message">"Pakeitimai apima:
+  <string name="revanced_change_form_factor_user_dialog_message">"Pakeitimai:
 
-Planšetinio kompiuterio išdėstymas
-• Bendruomenės įrašai paslėpti
+Planšetės išdėstymas
+• Bendruomenės įrašai yra paslėpti
 
-Automobilių išdėstymas
-• Paslėptas žiūrėjimo istorijos meniu
-• Atkurtas skirtukas \"Naršyti\"
-• Trumpieji filmai atidaromi įprastame grotuve
-• Kanalas organizuotas pagal temas ir kanalą"</string>
+Automobilinis išdėstymas
+• „Shorts“ atidaromi įprastame grotuve
+• Sklaida suskirstyta pagal temas ir kanalus"</string>
   </patch>
   <patch id="layout.spoofappversion.spoofAppVersionPatch">
   <string name="revanced_spoof_app_version_title">Programėlės versijos apsimetinėjimas</string>
@@ -1364,15 +1362,22 @@ Gali būti atrakinta aukštesnės vaizdo įrašų kokybės, bet galite patirti v
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
+  <string name="revanced_video_quality_screen_title">Vaizdo įrašo kokybė</string>
   <string name="revanced_video_quality_default_entry_1">Automatinis</string>
   <string name="revanced_remember_video_quality_last_selected_title">Atsiminti vaizdo įrašų kokybės pakeitimus</string>
   <string name="revanced_remember_video_quality_last_selected_summary_on">Kokybės pakeitimai taikomi visiems vaizdo įrašams</string>
   <string name="revanced_remember_video_quality_last_selected_summary_off">Kokybės pakeitimai taikomi tik dabartiniam vaizdo įrašui</string>
   <string name="revanced_video_quality_default_wifi_title">Numatytoji vaizdo įrašų kokybė „Wi-Fi“ tinkle</string>
   <string name="revanced_video_quality_default_mobile_title">Numatytoji vaizdo įrašų kokybė mobiliojo ryšio tinkle</string>
+  <string name="revanced_remember_shorts_quality_last_selected_title">Atsiminti „Shorts“ kokybės pakeitimus</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_on">Kokybės pakeitimai taikomi visiems „Shorts“ vaizdo įrašams</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_off">Kokybės pakeitimai taikomi tik dabartiniam „Shorts“ vaizdo įrašui</string>
+  <string name="revanced_shorts_quality_default_wifi_title">Numatytoji „Shorts“ kokybė naudojant „Wi-Fi“ tinklą</string>
+  <string name="revanced_shorts_quality_default_mobile_title">Numatytoji „Shorts“ kokybė mobiliųjų tinklų atveju</string>
   <string name="revanced_remember_video_quality_mobile">mobilusis</string>
   <string name="revanced_remember_video_quality_wifi">wifi</string>
   <string name="revanced_remember_video_quality_toast">Pakeista numatytoji %1$s kokybė į: %2$s</string>
+  <string name="revanced_remember_video_quality_toast_shorts">Pakeista \"Shorts\" %1$s kokybė į: %2$s</string>
   </patch>
   <patch id="video.speed.button.playbackSpeedButtonPatch">
   <string name="revanced_playback_speed_dialog_button_title">Rodyti greičio dialogo mygtuką</string>

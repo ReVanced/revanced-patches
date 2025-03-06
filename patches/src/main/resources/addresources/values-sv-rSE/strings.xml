@@ -1117,14 +1117,12 @@ Redo att skicka in?"</string>
   <string name="revanced_change_form_factor_entry_4">Bil</string>
   <string name="revanced_change_form_factor_user_dialog_message">"Ändringar inkluderar:
 
-Surfplatta-layout
-• Community-inlägg är dolda
+Tabletlayout
+• Communityinlägg är dolda
 
-Billautomation
-• Tittningshistorikmenyn är dold
-• Utforska-fliken är återställd
+Automotive-layout
 • Shorts öppnas i den vanliga spelaren
-• Flödet är organiserat efter ämnen och kanal"</string>
+• Flödet är organiserat efter ämnen och kanaler"</string>
   </patch>
   <patch id="layout.spoofappversion.spoofAppVersionPatch">
   <string name="revanced_spoof_app_version_title">Spoof app-version</string>
@@ -1362,15 +1360,22 @@ Att aktivera detta kan låsa upp högre videokvalitet"</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
+  <string name="revanced_video_quality_screen_title">Videokvalitet</string>
   <string name="revanced_video_quality_default_entry_1">Automatiskt</string>
   <string name="revanced_remember_video_quality_last_selected_title">Kom ihåg förändringar i videokvaliteten</string>
   <string name="revanced_remember_video_quality_last_selected_summary_on">Kvalitetsändringar gäller för alla videor</string>
   <string name="revanced_remember_video_quality_last_selected_summary_off">Kvalitetsförändringar gäller endast för den aktuella videon</string>
   <string name="revanced_video_quality_default_wifi_title">Standard videokvalitet på Wi-Fi-nätverk</string>
   <string name="revanced_video_quality_default_mobile_title">Standard videokvalitet på mobilt nätverk</string>
+  <string name="revanced_remember_shorts_quality_last_selected_title">Kom ihåg kvalitetsändringar för Shorts</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_on">Kvalitetsändringar gäller alla Shorts-videor</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_off">Kvalitetsändringar gäller endast den aktuella Shorts-videon</string>
+  <string name="revanced_shorts_quality_default_wifi_title">Standardkvalitet för Shorts på Wi-Fi-nätverk</string>
+  <string name="revanced_shorts_quality_default_mobile_title">Standardkvalitet för Shorts på mobilnätverk</string>
   <string name="revanced_remember_video_quality_mobile">mobil</string>
   <string name="revanced_remember_video_quality_wifi">wifi</string>
   <string name="revanced_remember_video_quality_toast">Ändrade standardkvalitet %1$s till: %2$s</string>
+  <string name="revanced_remember_video_quality_toast_shorts">Ändrade Shorts %1$s-kvalitet till: %2$s</string>
   </patch>
   <patch id="video.speed.button.playbackSpeedButtonPatch">
   <string name="revanced_playback_speed_dialog_button_title">Visa hastighetsdialogruta knapp</string>

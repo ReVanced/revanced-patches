@@ -1115,16 +1115,14 @@ Készen állsz a beküldésre?"</string>
   <string name="revanced_change_form_factor_entry_2">Telefon</string>
   <string name="revanced_change_form_factor_entry_3">Táblagép</string>
   <string name="revanced_change_form_factor_entry_4">Autóipari</string>
-  <string name="revanced_change_form_factor_user_dialog_message">"Módosítások:
+  <string name="revanced_change_form_factor_user_dialog_message">"A változások a következők:
 
 Tablet elrendezés
-• A közösségi bejegyzések el vannak rejtve
+• A közösségi bejegyzések rejtve vannak
 
 Autóipari elrendezés
-• Az előzmények menü el van rejtve
-• A Felfedezés fül visszaáll
-• A Shorts a szokásos lejátszóban nyílik meg
-• A feed témák és csatornák szerint van rendezve"</string>
+• A \"Shorts\" a szokásos lejátszóban nyílik meg
+• A hírcsatorna témák és csatornák szerint van rendezve"</string>
   </patch>
   <patch id="layout.spoofappversion.spoofAppVersionPatch">
   <string name="revanced_spoof_app_version_title">Alkalmazásverzió hamisítása</string>
@@ -1362,15 +1360,22 @@ Ez a beállítás lehetővé teszi a magasabb videóminőségek feloldását"</s
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
+  <string name="revanced_video_quality_screen_title">Videóminőség</string>
   <string name="revanced_video_quality_default_entry_1">Automatikus</string>
   <string name="revanced_remember_video_quality_last_selected_title">Felbontás változtatások mentése</string>
   <string name="revanced_remember_video_quality_last_selected_summary_on">Felbontás változtatások alkalmazása az összes videóra</string>
   <string name="revanced_remember_video_quality_last_selected_summary_off">Felbontás változtatások alkalmazása a jelenlegi videóra</string>
   <string name="revanced_video_quality_default_wifi_title">Alapértelmezett videó minőség Wi-Fi hálózaton</string>
   <string name="revanced_video_quality_default_mobile_title">Alapértelmezett videó minőség mobilhálózaton</string>
+  <string name="revanced_remember_shorts_quality_last_selected_title">A Shorts minőség módosításainak megjegyzése</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_on">A minőségváltozások az összes Shorts-videóra érvényesek</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_off">A minőségváltozások csak az aktuális Shorts-videóra érvényesek</string>
+  <string name="revanced_shorts_quality_default_wifi_title">Alapértelmezett Shorts minőség Wi-Fi hálózaton</string>
+  <string name="revanced_shorts_quality_default_mobile_title">Alapértelmezett Shorts minőség mobilhálózaton</string>
   <string name="revanced_remember_video_quality_mobile">mobil</string>
   <string name="revanced_remember_video_quality_wifi">wi-fi</string>
   <string name="revanced_remember_video_quality_toast">A(z) %1$s alapértelmezett felbontása erre módosult: %2$s</string>
+  <string name="revanced_remember_video_quality_toast_shorts">A Shorts %1$s minősége megváltozott: %2$s</string>
   </patch>
   <patch id="video.speed.button.playbackSpeedButtonPatch">
   <string name="revanced_playback_speed_dialog_button_title">Sebesség párbeszédpanel megjelenítése</string>

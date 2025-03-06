@@ -1121,10 +1121,8 @@ Aspect tabletă
 • Postările comunității sunt ascunse
 
 Aspect auto
-• Meniul Istoric vizionări este ascuns
-• Fila Explore este restaurată
-• Shorts-urile se deschid în playerul obișnuit
-• Feed-ul este organizat pe subiecte și canal"</string>
+• Shorts se deschid în playerul obișnuit
+• Fluxul este organizat pe teme și canale"</string>
   </patch>
   <patch id="layout.spoofappversion.spoofAppVersionPatch">
   <string name="revanced_spoof_app_version_title">Falsifică versiunea aplicației</string>
@@ -1362,15 +1360,22 @@ Activarea acestei opțiuni poate debloca calități video mai mari"</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
+  <string name="revanced_video_quality_screen_title">Calitatea video</string>
   <string name="revanced_video_quality_default_entry_1">Automat</string>
   <string name="revanced_remember_video_quality_last_selected_title">Memorează modificările calității video</string>
   <string name="revanced_remember_video_quality_last_selected_summary_on">Modificările de calitate se aplică tuturor videoclipurilor</string>
   <string name="revanced_remember_video_quality_last_selected_summary_off">Modificările de calitate se aplică numai video-ului curent</string>
   <string name="revanced_video_quality_default_wifi_title">Calitate video implicită în rețeaua Wi-Fi</string>
   <string name="revanced_video_quality_default_mobile_title">Calitatea video implicită în rețeaua mobilă</string>
+  <string name="revanced_remember_shorts_quality_last_selected_title">Reține modificările calității pentru Shorts</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_on">Modificările de calitate se aplică tuturor videoclipurilor Shorts</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_off">Modificările de calitate se aplică doar videoclipului curent Shorts</string>
+  <string name="revanced_shorts_quality_default_wifi_title">Calitatea implicită a Shorts în rețeaua Wi-Fi</string>
+  <string name="revanced_shorts_quality_default_mobile_title">Calitatea implicită a Shorts în rețeaua mobilă</string>
   <string name="revanced_remember_video_quality_mobile">mobil</string>
   <string name="revanced_remember_video_quality_wifi">wifi</string>
   <string name="revanced_remember_video_quality_toast">Calitate %1$s modificată implicit: %2$s</string>
+  <string name="revanced_remember_video_quality_toast_shorts">Calitatea Shorts %1$s a fost modificată la: %2$s</string>
   </patch>
   <patch id="video.speed.button.playbackSpeedButtonPatch">
   <string name="revanced_playback_speed_dialog_button_title">Arată butonul de dialog de viteză</string>

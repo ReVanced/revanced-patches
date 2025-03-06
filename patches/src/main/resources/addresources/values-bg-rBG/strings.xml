@@ -1121,11 +1121,9 @@ Second \"item\" text"</string>
 Оформление за таблет
 • Публикациите на общността са скрити
 
-Оформление за автомобил
-• Менюто „История на гледане“ е скрито
-• Разделът „Разгледай“ е възстановен
+Автомобилно оформление
 • Shorts се отварят в обикновения плейър
-• Лентата е организирана по теми и канал"</string>
+• Каналът е организиран по теми и канали"</string>
   </patch>
   <patch id="layout.spoofappversion.spoofAppVersionPatch">
   <string name="revanced_spoof_app_version_title">Подлъгване за версията на приложението</string>
@@ -1363,15 +1361,22 @@ Second \"item\" text"</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
+  <string name="revanced_video_quality_screen_title">Качество на видеоклипа</string>
   <string name="revanced_video_quality_default_entry_1">Авто</string>
   <string name="revanced_remember_video_quality_last_selected_title">Запомни промените в качеството на видеото</string>
   <string name="revanced_remember_video_quality_last_selected_summary_on">Промените в качеството се отнасят за всички видеоклипове</string>
   <string name="revanced_remember_video_quality_last_selected_summary_off">Промените в качеството се отнасят само за текущия видеоклип</string>
   <string name="revanced_video_quality_default_wifi_title">Предпочитано качество при Wi-Fi</string>
   <string name="revanced_video_quality_default_mobile_title">Предпочитано качество при мобилни данни</string>
+  <string name="revanced_remember_shorts_quality_last_selected_title">Запомняне на промените в качеството на Shorts</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_on">Промените в качеството се прилагат към всички Shorts видеа</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_off">Промените в качеството се прилагат само към текущото Shorts видео</string>
+  <string name="revanced_shorts_quality_default_wifi_title">Качество по подразбиране на Shorts във Wi-Fi мрежа</string>
+  <string name="revanced_shorts_quality_default_mobile_title">Качество по подразбиране на Shorts в мобилна мрежа</string>
   <string name="revanced_remember_video_quality_mobile">мобилни данни</string>
   <string name="revanced_remember_video_quality_wifi">wi-fi</string>
   <string name="revanced_remember_video_quality_toast">Променено стандартно %1$s качество на: %2$s</string>
+  <string name="revanced_remember_video_quality_toast_shorts">Променено качество на Shorts %1$s на: %2$s</string>
   </patch>
   <patch id="video.speed.button.playbackSpeedButtonPatch">
   <string name="revanced_playback_speed_dialog_button_title">Показване бутон за скорост</string>

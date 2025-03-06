@@ -1109,16 +1109,14 @@ Bereit zum Einreichen?"</string>
   <string name="revanced_change_form_factor_entry_2">Telefon</string>
   <string name="revanced_change_form_factor_entry_3">Tablets</string>
   <string name="revanced_change_form_factor_entry_4">Automobil</string>
-  <string name="revanced_change_form_factor_user_dialog_message">"Änderungen umfassen:
+  <string name="revanced_change_form_factor_user_dialog_message">"Zu den Änderungen gehören:
 
 Tablet-Layout
-• Community-Beiträge werden ausgeblendet
+• Community-Beiträge sind ausgeblendet
 
-Auto-Layout
-• Der Verlaufsmenü ist ausgeblendet
-• Der Explore-Tab wird wiederhergestellt
-• Shorts werden im regulären Player geöffnet
-• Der Feed ist nach Themen und Kanälen organisiert"</string>
+Automotive-Layout
+• Shorts werden im normalen Player geöffnet
+• Feed ist nach Themen und Kanälen geordnet"</string>
   </patch>
   <patch id="layout.spoofappversion.spoofAppVersionPatch">
   <string name="revanced_spoof_app_version_title">Spoof-App-Version</string>
@@ -1356,15 +1354,22 @@ Durch Aktivieren dieser Option können höhere Videoqualitäten freigeschaltet w
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
+  <string name="revanced_video_quality_screen_title">Videoqualität</string>
   <string name="revanced_video_quality_default_entry_1">Autom</string>
   <string name="revanced_remember_video_quality_last_selected_title">Änderungen der Videoqualität merken</string>
   <string name="revanced_remember_video_quality_last_selected_summary_on">Qualitätsänderungen gelten für alle Videos</string>
   <string name="revanced_remember_video_quality_last_selected_summary_off">Qualitätsänderungen gelten nur für das aktuelle Video</string>
   <string name="revanced_video_quality_default_wifi_title">Standard-Videoqualität im Wi-Fi-Netzwerk</string>
   <string name="revanced_video_quality_default_mobile_title">Standard-Videoqualität im Mobilfunknetz</string>
+  <string name="revanced_remember_shorts_quality_last_selected_title">Änderungen der Shorts-Qualität speichern</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_on">Qualitätsänderungen gelten für alle Shorts-Videos</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_off">Qualitätsänderungen gelten nur für das aktuelle Shorts-Video</string>
+  <string name="revanced_shorts_quality_default_wifi_title">Standardmäßige Shorts-Qualität im WLAN</string>
+  <string name="revanced_shorts_quality_default_mobile_title">Standard-Shorts-Qualität im Mobilfunknetz</string>
   <string name="revanced_remember_video_quality_mobile">Mobile</string>
   <string name="revanced_remember_video_quality_wifi">WLAN</string>
   <string name="revanced_remember_video_quality_toast">Standard %1$s Qualität geändert zu: %2$s</string>
+  <string name="revanced_remember_video_quality_toast_shorts">Shorts-Qualität von %1$s geändert in: %2$s</string>
   </patch>
   <patch id="video.speed.button.playbackSpeedButtonPatch">
   <string name="revanced_playback_speed_dialog_button_title">Zeige Geschwindigkeitsdialog Taste</string>
