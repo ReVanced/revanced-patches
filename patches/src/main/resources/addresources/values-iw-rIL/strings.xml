@@ -1114,16 +1114,6 @@ Second \"item\" text"</string>
   <string name="revanced_change_form_factor_entry_2">טלפון</string>
   <string name="revanced_change_form_factor_entry_3">טאבלט</string>
   <string name="revanced_change_form_factor_entry_4">רכב</string>
-  <string name="revanced_change_form_factor_user_dialog_message">"השינויים כוללים:
-
-פריסת טאבלט
-• פוסטים קהילתיים מוסתרים
-
-פריסת רכב
-• תפריט היסטוריית הצפייה מוסתר
-• כרטיסיית 'מה חדש' משוחזרת
-• סרטוני Shorts נפתחים בנגן הרגיל
-• פיד מאורגן לפי נושאים וערוץ"</string>
   </patch>
   <patch id="layout.spoofappversion.spoofAppVersionPatch">
   <string name="revanced_spoof_app_version_title">זייף גרסת יישום</string>

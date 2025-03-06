@@ -1112,16 +1112,14 @@ YouTube সেটিংসে অটো প্লে পরিবর্তন �
   <string name="revanced_change_form_factor_entry_2">ফোন</string>
   <string name="revanced_change_form_factor_entry_3">ট্যাবলেট</string>
   <string name="revanced_change_form_factor_entry_4">স্বয়ংচালিত</string>
-  <string name="revanced_change_form_factor_user_dialog_message">"পরিবর্তনগুলো হল:
+  <string name="revanced_change_form_factor_user_dialog_message">"পরিবর্তনগুলির মধ্যে রয়েছে:
 
 ট্যাবলেট লেআউট
-• কমিউনিটি পোস্ট গোপন
+• কমিউনিটির পোস্টগুলি লুকানো আছে
 
-স্বয়ংচালিত লেআউট
-• ঘড়ির ইতিহাস মেনু গোপন
-• এক্সপ্লোর ট্যাব পুনরুদ্ধার করা হয়েছে
-• শর্টস নিয়মিত প্লেয়ারে খোলে
-• ফিড বিষয় এবং চ্যানেল দ্বারা সংগঠিত হয়"</string>
+অটোমোটিভ লেআউট
+• Shorts নিয়মিত প্লেয়ারে খোলে
+• ফিড বিষয় এবং চ্যানেল দ্বারা সংগঠিত"</string>
   </patch>
   <patch id="layout.spoofappversion.spoofAppVersionPatch">
   <string name="revanced_spoof_app_version_title">অ্যাপ সংস্করণ স্পুফ করুন</string>
@@ -1359,15 +1357,22 @@ DeArrow সম্পর্কে আরও জানতে এখানে ট�
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
+  <string name="revanced_video_quality_screen_title">ভিডিওর গুণমান</string>
   <string name="revanced_video_quality_default_entry_1">স্বতস্ফূর্তভাবে</string>
   <string name="revanced_remember_video_quality_last_selected_title">ভিডিও গুণমান পরিবর্তন মনে রাখুন</string>
   <string name="revanced_remember_video_quality_last_selected_summary_on">গুণমান পরিবর্তন সব ভিডিওতে প্রয়োগ করা হয়েছে</string>
   <string name="revanced_remember_video_quality_last_selected_summary_off">গুণমান পরিবর্তন বর্তমান ভিডিওতে প্রয়োগ করা হয়েছে</string>
   <string name="revanced_video_quality_default_wifi_title">ওয়াই-ফাই নেটওয়ার্কে ডিফল্ট ভিডিও গুণমান</string>
   <string name="revanced_video_quality_default_mobile_title">মোবাইল নেটওয়ার্কে ডিফল্ট ভিডিও গুণমান</string>
+  <string name="revanced_remember_shorts_quality_last_selected_title">Shorts গুণমান পরিবর্তনের কথা মনে রাখুন</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_on">গুণমানের পরিবর্তন সমস্ত Shorts ভিডিওগুলিতে প্রযোজ্য</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_off">গুণমানের পরিবর্তনগুলি কেবল বর্তমান Shorts ভিডিওটিতে প্রযোজ্য</string>
+  <string name="revanced_shorts_quality_default_wifi_title">Wi-Fi নেটওয়ার্কে ডিফল্ট Shorts গুণমান</string>
+  <string name="revanced_shorts_quality_default_mobile_title">মোবাইল নেটওয়ার্কে ডিফল্ট Shorts গুণমান</string>
   <string name="revanced_remember_video_quality_mobile">মোবাইল</string>
   <string name="revanced_remember_video_quality_wifi">ওয়াই-ফাই</string>
   <string name="revanced_remember_video_quality_toast">ডিফল্ট %1$s গুণমান পরিবর্তন হচ্ছে: %2$s</string>
+  <string name="revanced_remember_video_quality_toast_shorts">Shorts %1$s এর গুণমান পরিবর্তন করে: %2$s</string>
   </patch>
   <patch id="video.speed.button.playbackSpeedButtonPatch">
   <string name="revanced_playback_speed_dialog_button_title">স্পিড ডায়ালগ বোতাম দেখান</string>

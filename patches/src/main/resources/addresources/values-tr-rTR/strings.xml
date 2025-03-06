@@ -1122,10 +1122,8 @@ Tablet düzeni
 • Topluluk yayınları gizlenir
 
 Otomotiv düzeni
-• İzleme geçmişi menüsü gizlenir
-• Keşfet sekmesi geri getirilir
-• Shorts normal oynatıcıda açılır
-• Akış, konulara ve kanala göre düzenlenir"</string>
+• Shorts, normal oynatıcıda açılır
+• Akış, konulara ve kanallara göre düzenlenir"</string>
   </patch>
   <patch id="layout.spoofappversion.spoofAppVersionPatch">
   <string name="revanced_spoof_app_version_title">Uygulama sürümünü taklit et</string>
@@ -1342,7 +1340,7 @@ Bunu etkinleştirmek daha yüksek video kalitelerini açabilir"</string>
   <patch id="misc.links.openLinksExternallyPatch">
   <string name="revanced_external_browser_title">Bağlantıları tarayıcıda aç</string>
   <string name="revanced_external_browser_summary_on">Bağlantılar harici tarayıcıda açılıyor</string>
-  <string name="revanced_external_browser_summary_off">Uygulama içi tarayıcıda bağlantılar açılıyor</string>
+  <string name="revanced_external_browser_summary_off">Bağlantılar uygulama içi tarayıcıda açılıyor</string>
   </patch>
   <patch id="misc.privacy.removeTrackingQueryParameterPatch">
   <string name="revanced_remove_tracking_query_parameter_title">İzleyici sorgu parametresini kaldır</string>
@@ -1363,15 +1361,22 @@ Bunu etkinleştirmek daha yüksek video kalitelerini açabilir"</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
+  <string name="revanced_video_quality_screen_title">Video kalitesi</string>
   <string name="revanced_video_quality_default_entry_1">Oto</string>
   <string name="revanced_remember_video_quality_last_selected_title">Video kalitesi değişikliklerini hatırla</string>
   <string name="revanced_remember_video_quality_last_selected_summary_on">Kalite değişiklikleri tüm videolara uygulanır</string>
   <string name="revanced_remember_video_quality_last_selected_summary_off">Kalite değişiklikleri sadece oynatılan videoya uygulanır</string>
   <string name="revanced_video_quality_default_wifi_title">Wi-Fi ağındaki varsayılan video kalitesi</string>
   <string name="revanced_video_quality_default_mobile_title">Mobil ağdaki varsayılan video kalitesi</string>
+  <string name="revanced_remember_shorts_quality_last_selected_title">Shorts kalitesi değişikliklerini hatırla</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_on">Kalite değişiklikleri tüm Shorts videolarına uygulanır</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_off">Kalite değişiklikleri sadece oynatılan Shorts videosuna uygulanır</string>
+  <string name="revanced_shorts_quality_default_wifi_title">Wi-Fi ağındaki varsayılan Shorts kalitesi</string>
+  <string name="revanced_shorts_quality_default_mobile_title">Mobil ağdaki varsayılan Shorts kalitesi</string>
   <string name="revanced_remember_video_quality_mobile">mobil ağ</string>
   <string name="revanced_remember_video_quality_wifi">wifi</string>
   <string name="revanced_remember_video_quality_toast">Varsayılan %1$s kalitesi, %2$s olarak ayarlandı</string>
+  <string name="revanced_remember_video_quality_toast_shorts">Shorts %1$s kalitesi, %2$s olarak ayarlandı</string>
   </patch>
   <patch id="video.speed.button.playbackSpeedButtonPatch">
   <string name="revanced_playback_speed_dialog_button_title">Hız diyaloğu düğmesini göster</string>

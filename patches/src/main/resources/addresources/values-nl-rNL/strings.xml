@@ -1116,16 +1116,14 @@ Klaar om in te dienen?"</string>
   <string name="revanced_change_form_factor_entry_2">Telefoon</string>
   <string name="revanced_change_form_factor_entry_3">Tablet</string>
   <string name="revanced_change_form_factor_entry_4">Automobiel</string>
-  <string name="revanced_change_form_factor_user_dialog_message">"De wijzigingen omvatten:
+  <string name="revanced_change_form_factor_user_dialog_message">"Wijzigingen omvatten:
 
-Tablet-indeling
-• Community-berichten zijn verborgen
+Tablet lay-out
+• Community posts zijn verborgen
 
-Automobielindeling
-• Het menu \"Wachthistorie\" is verborgen
-• Het tabblad \"Verkennen\" is hersteld
-• Shorts openen in de gewone speler
-• De feed is georganiseerd op onderwerpen en kanaal"</string>
+Automotive lay-out
+• Shorts worden geopend in de normale speler
+• Feed is georganiseerd op onderwerp en kanalen"</string>
   </patch>
   <patch id="layout.spoofappversion.spoofAppVersionPatch">
   <string name="revanced_spoof_app_version_title">App-versie vervalsen</string>
@@ -1363,15 +1361,22 @@ Het inschakelen hiervan kan hogere videokwaliteiten ontgrendelen"</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
+  <string name="revanced_video_quality_screen_title">Videokwaliteit</string>
   <string name="revanced_video_quality_default_entry_1">Automatisch</string>
   <string name="revanced_remember_video_quality_last_selected_title">Onthoud wijzigingen in videokwaliteit</string>
   <string name="revanced_remember_video_quality_last_selected_summary_on">Kwaliteitswijzigingen worden op alle video\'s toegepast</string>
   <string name="revanced_remember_video_quality_last_selected_summary_off">Kwaliteitswijzigingen worden alleen op de huidige video toegepast</string>
   <string name="revanced_video_quality_default_wifi_title">Standaard videokwaliteit op Wi-Fi-netwerk</string>
   <string name="revanced_video_quality_default_mobile_title">Standaard videokwaliteit op mobiel netwerk</string>
+  <string name="revanced_remember_shorts_quality_last_selected_title">Onthoud kwaliteitswijzigingen voor Shorts</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_on">Kwaliteitswijzigingen gelden voor alle Shorts video\'s</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_off">Kwaliteitswijzigingen gelden alleen voor de huidige Shorts-video</string>
+  <string name="revanced_shorts_quality_default_wifi_title">Standaardkwaliteit voor Shorts op wifi-netwerk</string>
+  <string name="revanced_shorts_quality_default_mobile_title">Standaardkwaliteit voor Shorts op mobiel netwerk</string>
   <string name="revanced_remember_video_quality_mobile">mobiel</string>
   <string name="revanced_remember_video_quality_wifi">wifi</string>
   <string name="revanced_remember_video_quality_toast">Standaard %1$s-kwaliteit gewijzigd naar: %2$s</string>
+  <string name="revanced_remember_video_quality_toast_shorts">De kwaliteit van Shorts %1$s is gewijzigd in: %2$s</string>
   </patch>
   <patch id="video.speed.button.playbackSpeedButtonPatch">
   <string name="revanced_playback_speed_dialog_button_title">Snelheidsdialoogknop weergeven</string>

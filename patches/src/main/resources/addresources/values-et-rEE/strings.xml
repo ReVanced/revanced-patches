@@ -1119,13 +1119,11 @@ Kas olete esitamiseks valmis?"</string>
   <string name="revanced_change_form_factor_user_dialog_message">"Muudatused hõlmavad:
 
 Tahvelarvuti paigutus
-• Ühenduse postitused on peidetud
+• Kogukonna postitused on peidetud
 
-Automotiivi paigutus
-• Vaatamisloendi menüü on peidetud
-• Uudista vaheleht on taastatud
+Autode paigutus
 • Shorts avanevad tavalises pleieris
-• Sööt on korraldatud teemade ja kanalite kaupa"</string>
+• Voog on korraldatud teemade ja kanalite järgi"</string>
   </patch>
   <patch id="layout.spoofappversion.spoofAppVersionPatch">
   <string name="revanced_spoof_app_version_title">Võltsitud rakenduse versioon</string>
@@ -1363,15 +1361,22 @@ Selle lubamine võib avada kõrgema video kvaliteedi"</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
+  <string name="revanced_video_quality_screen_title">Video kvaliteet</string>
   <string name="revanced_video_quality_default_entry_1">Automaatne</string>
   <string name="revanced_remember_video_quality_last_selected_title">Määle video kvaliteedi muudatused meelde</string>
   <string name="revanced_remember_video_quality_last_selected_summary_on">Kvaliteedi muudatused kehtivad kõigile videotele</string>
   <string name="revanced_remember_video_quality_last_selected_summary_off">Kvaliteedi muudatused kehtivad ainult praegusele videole</string>
   <string name="revanced_video_quality_default_wifi_title">Vaikimisi video kvaliteet Wi-Fi võrgus</string>
   <string name="revanced_video_quality_default_mobile_title">Vaikimisi video kvaliteet mobiilsidevõrgus</string>
+  <string name="revanced_remember_shorts_quality_last_selected_title">Jäta meelde Shorts\'i kvaliteedimuudatused</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_on">Kvaliteedi muudatused kehtivad kõikidele [Shorts] videotele</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_off">Kvaliteedi muudatused kehtivad ainult praegusele [Shorts] videole</string>
+  <string name="revanced_shorts_quality_default_wifi_title">Vaikimisi [Shorts] kvaliteet WiFi võrgus</string>
+  <string name="revanced_shorts_quality_default_mobile_title">Vaikimisi [Shorts] kvaliteet mobiilivõrgus</string>
   <string name="revanced_remember_video_quality_mobile">mobiil</string>
   <string name="revanced_remember_video_quality_wifi">wifi</string>
   <string name="revanced_remember_video_quality_toast">Vaikimisi %1$s kvaliteet muudeti: %2$s</string>
+  <string name="revanced_remember_video_quality_toast_shorts">Muudetud Shorts %1$s kvaliteet: %2$s</string>
   </patch>
   <patch id="video.speed.button.playbackSpeedButtonPatch">
   <string name="revanced_playback_speed_dialog_button_title">Kuva kiiruse dialoogi nupp</string>
