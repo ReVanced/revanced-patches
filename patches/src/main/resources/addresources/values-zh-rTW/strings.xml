@@ -1231,8 +1231,6 @@ Second \"item\" text"</string>
   <string name="revanced_gradient_loading_screen_title">啟用漸層載入畫面</string>
   <string name="revanced_gradient_loading_screen_summary_on">載入畫面將具有漸層背景</string>
   <string name="revanced_gradient_loading_screen_summary_off">載入畫面將具有純色背景</string>
-  </patch>
-  <patch id="layout.theme.themeResourcePatch">
   <string name="revanced_seekbar_custom_color_title">啟用自訂跳轉列顏色</string>
   <string name="revanced_seekbar_custom_color_summary_on">已顯示自訂跳轉列顏色</string>
   <string name="revanced_seekbar_custom_color_summary_off">已顯示原版跳轉列顏色</string>
@@ -1387,10 +1385,7 @@ Second \"item\" text"</string>
   <string name="revanced_disable_hdr_video_summary_on">已停用 HDR 影片</string>
   <string name="revanced_disable_hdr_video_summary_off">已啟用 HDR 影片</string>
   </patch>
-  <patch id="video.videoqualitymenu.restoreOldVideoQualityMenuResourcePatch">
-  <string name="revanced_restore_old_video_quality_menu_title">還原舊版影片畫質選單</string>
-  <string name="revanced_restore_old_video_quality_menu_summary_on">已顯示舊版影片畫質選單</string>
-  <string name="revanced_restore_old_video_quality_menu_summary_off">不顯示舊版影片畫質選單</string>
+  <patch id="video.quality.advancedVideoQualityMenuPatch">
   </patch>
   <patch id="interaction.seekbar.enableSlideToSeekPatch">
   <string name="revanced_slide_to_seek_title">啟用滑動預覽</string>

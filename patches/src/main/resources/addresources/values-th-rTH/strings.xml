@@ -1244,8 +1244,6 @@ User id ของคุณเหมือนกับรหัสผ่าน �
   <string name="revanced_gradient_loading_screen_title">เปิดใช้งานหน้าจอโหลดแบบไล่ระดับสี</string>
   <string name="revanced_gradient_loading_screen_summary_on">หน้าจอโหลดจะมีพื้นหลังแบบไล่ระดับสี</string>
   <string name="revanced_gradient_loading_screen_summary_off">หน้าจอโหลดจะมีพื้นหลังแบบทึบ</string>
-  </patch>
-  <patch id="layout.theme.themeResourcePatch">
   <string name="revanced_seekbar_custom_color_title">เปิดใช้งานสีแถบเลื่อนแบบกำหนดเอง</string>
   <string name="revanced_seekbar_custom_color_summary_on">แสดงสีแถบเลื่อนแบบกำหนดเอง</string>
   <string name="revanced_seekbar_custom_color_summary_off">แสดงสีแถบเลื่อนดั้งเดิม</string>
@@ -1359,7 +1357,6 @@ User id ของคุณเหมือนกับรหัสผ่าน �
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
-  <string name="revanced_video_quality_screen_title">คุณภาพวิดีโอ</string>
   <string name="revanced_video_quality_default_entry_1">อัตโนมัติ</string>
   <string name="revanced_remember_video_quality_last_selected_title">จำการเปลี่ยนแปลงคุณภาพวิดีโอ</string>
   <string name="revanced_remember_video_quality_last_selected_summary_on">การเปลี่ยนแปลงคุณภาพใช้กับวิดีโอทั้งหมด</string>
@@ -1367,8 +1364,8 @@ User id ของคุณเหมือนกับรหัสผ่าน �
   <string name="revanced_video_quality_default_wifi_title">คุณภาพวิดีโอเริ่มต้นบนเครือข่าย Wi-Fi</string>
   <string name="revanced_video_quality_default_mobile_title">คุณภาพวิดีโอเริ่มต้นบนเครือข่ายมือถือ</string>
   <string name="revanced_remember_shorts_quality_last_selected_title">จดจำการเปลี่ยนแปลงคุณภาพของ Shorts</string>
-  <string name="revanced_remember_shorts_quality_last_selected_summary_on">การเปลี่ยนแปลงคุณภาพมีผลกับวิดีโอ Shorts ทั้งหมด</string>
-  <string name="revanced_remember_shorts_quality_last_selected_summary_off">การเปลี่ยนแปลงคุณภาพมีผลกับวิดีโอ Shorts ปัจจุบันเท่านั้น</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_on">การเปลี่ยนแปลงคุณภาพมีผลกับ Shorts ทั้งหมด</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_off">การเปลี่ยนแปลงคุณภาพมีผลกับ Short ปัจจุบันเท่านั้น</string>
   <string name="revanced_shorts_quality_default_wifi_title">คุณภาพ Shorts เริ่มต้นบนเครือข่าย Wi-Fi</string>
   <string name="revanced_shorts_quality_default_mobile_title">คุณภาพ Shorts เริ่มต้นบนเครือข่ายมือถือ</string>
   <string name="revanced_remember_video_quality_mobile">มือถือ</string>
@@ -1405,10 +1402,10 @@ User id ของคุณเหมือนกับรหัสผ่าน �
   <string name="revanced_disable_hdr_video_summary_on">ปิดใช้งานวิดีโอ HDR</string>
   <string name="revanced_disable_hdr_video_summary_off">เปิดใช้งานวิดีโอ HDR</string>
   </patch>
-  <patch id="video.videoqualitymenu.restoreOldVideoQualityMenuResourcePatch">
-  <string name="revanced_restore_old_video_quality_menu_title">คืนค่าเมนูกำหนดคุณภาพวิดีโอแบบเก่า</string>
-  <string name="revanced_restore_old_video_quality_menu_summary_on">แสดงเมนูกำหนดคุณภาพวิดีโอแบบเก่า</string>
-  <string name="revanced_restore_old_video_quality_menu_summary_off">ไม่แสดงเมนูกำหนดคุณภาพวิดีโอแบบเก่า</string>
+  <patch id="video.quality.advancedVideoQualityMenuPatch">
+  <string name="revanced_advanced_video_quality_menu_title">แสดงเมนูคุณภาพวิดีโอขั้นสูง</string>
+  <string name="revanced_advanced_video_quality_menu_summary_on">เมนูคุณภาพวิดีโอขั้นสูงปรากฏขึ้น</string>
+  <string name="revanced_advanced_video_quality_menu_summary_off">เมนูคุณภาพวิดีโอขั้นสูงไม่ปรากฏ</string>
   </patch>
   <patch id="interaction.seekbar.enableSlideToSeekPatch">
   <string name="revanced_slide_to_seek_title">เปิดใช้งานเลื่อนเพื่อค้นหา</string>

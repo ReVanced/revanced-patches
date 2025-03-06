@@ -1244,8 +1244,6 @@ Mini-player-ը կարող է գրավվել էկրանից դուրս՝ դեպի
   <string name="revanced_gradient_loading_screen_title">Աктиվացնել գրադիենտի բեռնման էկրանը</string>
   <string name="revanced_gradient_loading_screen_summary_on">Բեռնման էկրանը կունենա գրադիենտի ֆոն</string>
   <string name="revanced_gradient_loading_screen_summary_off">Բեռնման էկրանը կունենա մեկ գույնի ֆոն</string>
-  </patch>
-  <patch id="layout.theme.themeResourcePatch">
   <string name="revanced_seekbar_custom_color_title">Աктиվացնել հարմարեցված seekbar-ի գույնը</string>
   <string name="revanced_seekbar_custom_color_summary_on">Հարմարեցված seekbar-ի գույնը ցուցադրվում է</string>
   <string name="revanced_seekbar_custom_color_summary_off">Սկզբնական seekbar-ի գույնը ցուցադրվում է</string>
@@ -1366,8 +1364,8 @@ Mini-player-ը կարող է գրավվել էկրանից դուրս՝ դեպի
   <string name="revanced_video_quality_default_wifi_title">Wi-Fi  ցանցի  դեֆոլտ  տեսանյութի  որակը</string>
   <string name="revanced_video_quality_default_mobile_title">Մೊբայլ  ցանցի  դեֆոլտ  տեսանյութի  որակը</string>
   <string name="revanced_remember_shorts_quality_last_selected_title">Հիշել Shorts-ի որակի փոփոխությունները</string>
-  <string name="revanced_remember_shorts_quality_last_selected_summary_on">Որակի փոփոխություններն ազդում են բոլոր Shorts տեսանյութերի վրա</string>
-  <string name="revanced_remember_shorts_quality_last_selected_summary_off">Որակի փոփոխություններն ազդում են միայն ընթացիկ Shorts տեսանյութի վրա</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_on">Որակի փոփոխություններն ազդում են բոլոր Shorts-ի վրա</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_off">Որակի փոփոխություններն ազդում են միայն ընթացիկ Short-ի վրա</string>
   <string name="revanced_shorts_quality_default_wifi_title">Shorts-ի լռելյայն որակը Wi-Fi ցանցում</string>
   <string name="revanced_shorts_quality_default_mobile_title">Shorts-ի լռելյայն որակը բջջային ցանցում</string>
   <string name="revanced_remember_video_quality_mobile">վարկանիշ</string>
@@ -1404,10 +1402,10 @@ Mini-player-ը կարող է գրավվել էկրանից դուրս՝ դեպի
   <string name="revanced_disable_hdr_video_summary_on">HDR տեսանյութը անջատված է</string>
   <string name="revanced_disable_hdr_video_summary_off">HDR տեսանյութը միացված է</string>
   </patch>
-  <patch id="video.videoqualitymenu.restoreOldVideoQualityMenuResourcePatch">
-  <string name="revanced_restore_old_video_quality_menu_title">Վերականգնել  տեսանյութի  որակի  հին  մենյու</string>
-  <string name="revanced_restore_old_video_quality_menu_summary_on">Տեսանյութի  որակի  հին  մենյուը  ցուցադրվում է</string>
-  <string name="revanced_restore_old_video_quality_menu_summary_off">Տեսանյութի  որակի  հին  մենյուը  չի  ցուցադրվում</string>
+  <patch id="video.quality.advancedVideoQualityMenuPatch">
+  <string name="revanced_advanced_video_quality_menu_title">Ցուցադրել տեսանյութի որակի ընդլայնված մենյուն</string>
+  <string name="revanced_advanced_video_quality_menu_summary_on">Տեսանյութի որակի ընդլայնված մենյուն ցուցադրվում է</string>
+  <string name="revanced_advanced_video_quality_menu_summary_off">Տեսանյութի որակի ընդլայնված մենյուն չի ցուցադրվում</string>
   </patch>
   <patch id="interaction.seekbar.enableSlideToSeekPatch">
   <string name="revanced_slide_to_seek_title">Ակտիվացնել  սահելը  համար  ընտրելու</string>

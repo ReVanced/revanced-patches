@@ -1250,8 +1250,6 @@ Second \"item\" text"</string>
   <string name="revanced_gradient_loading_screen_title">启用渐变加载屏幕</string>
   <string name="revanced_gradient_loading_screen_summary_on">加载屏幕将具有渐变背景</string>
   <string name="revanced_gradient_loading_screen_summary_off">加载屏幕将具有纯色背景</string>
-  </patch>
-  <patch id="layout.theme.themeResourcePatch">
   <string name="revanced_seekbar_custom_color_title">启用自定义进度条颜色</string>
   <string name="revanced_seekbar_custom_color_summary_on">自定义进度条颜色显示</string>
   <string name="revanced_seekbar_custom_color_summary_off">显示原始进度条颜色</string>
@@ -1365,7 +1363,6 @@ Second \"item\" text"</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
-  <string name="revanced_video_quality_screen_title">视频画质</string>
   <string name="revanced_video_quality_default_entry_1">自动</string>
   <string name="revanced_remember_video_quality_last_selected_title">记住视频质量更改</string>
   <string name="revanced_remember_video_quality_last_selected_summary_on">质量更改适用于所有视频</string>
@@ -1373,8 +1370,8 @@ Second \"item\" text"</string>
   <string name="revanced_video_quality_default_wifi_title">Wi-Fi 网络上的默认视频质量</string>
   <string name="revanced_video_quality_default_mobile_title">移动网络上的默认视频质量</string>
   <string name="revanced_remember_shorts_quality_last_selected_title">记住 Shorts 画质更改</string>
-  <string name="revanced_remember_shorts_quality_last_selected_summary_on">画质更改将应用于所有 Shorts 视频</string>
-  <string name="revanced_remember_shorts_quality_last_selected_summary_off">画质更改仅应用于当前的 Shorts 视频</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_on">质量更改适用于所有 Shorts</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_off">质量更改仅适用于当前的 Short</string>
   <string name="revanced_shorts_quality_default_wifi_title">Wi-Fi 网络上的默认 Shorts 画质</string>
   <string name="revanced_shorts_quality_default_mobile_title">移动网络上的默认 Shorts 画质</string>
   <string name="revanced_remember_video_quality_mobile">移动网络</string>
@@ -1411,10 +1408,10 @@ Second \"item\" text"</string>
   <string name="revanced_disable_hdr_video_summary_on">HDR 视频已禁用</string>
   <string name="revanced_disable_hdr_video_summary_off">HDR 视频已启用</string>
   </patch>
-  <patch id="video.videoqualitymenu.restoreOldVideoQualityMenuResourcePatch">
-  <string name="revanced_restore_old_video_quality_menu_title">恢复旧的画质菜单</string>
-  <string name="revanced_restore_old_video_quality_menu_summary_on">旧的画质菜单已显示</string>
-  <string name="revanced_restore_old_video_quality_menu_summary_off">旧的画质菜单未显示</string>
+  <patch id="video.quality.advancedVideoQualityMenuPatch">
+  <string name="revanced_advanced_video_quality_menu_title">显示高级视频质量菜单</string>
+  <string name="revanced_advanced_video_quality_menu_summary_on">显示高级视频质量菜单</string>
+  <string name="revanced_advanced_video_quality_menu_summary_off">不显示高级视频质量菜单</string>
   </patch>
   <patch id="interaction.seekbar.enableSlideToSeekPatch">
   <string name="revanced_slide_to_seek_title">启用滑动拖动进度条</string>

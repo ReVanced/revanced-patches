@@ -1245,8 +1245,6 @@ Trageți pentru a extinde sau a închide"</string>
   <string name="revanced_gradient_loading_screen_title">Activează ecranul de încărcare gradient</string>
   <string name="revanced_gradient_loading_screen_summary_on">Încărcarea ecranului va avea un fundal pentru gradient</string>
   <string name="revanced_gradient_loading_screen_summary_off">Ecranul de încărcare va avea un fundal solid</string>
-  </patch>
-  <patch id="layout.theme.themeResourcePatch">
   <string name="revanced_seekbar_custom_color_title">Activează culoarea barei de căutare personalizate</string>
   <string name="revanced_seekbar_custom_color_summary_on">Culoarea personalizată a barei de căutare este afișată</string>
   <string name="revanced_seekbar_custom_color_summary_off">Culoarea bara de căutare originală este afișată</string>
@@ -1360,7 +1358,6 @@ Activarea acestei opțiuni poate debloca calități video mai mari"</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
-  <string name="revanced_video_quality_screen_title">Calitatea video</string>
   <string name="revanced_video_quality_default_entry_1">Automat</string>
   <string name="revanced_remember_video_quality_last_selected_title">Memorează modificările calității video</string>
   <string name="revanced_remember_video_quality_last_selected_summary_on">Modificările de calitate se aplică tuturor videoclipurilor</string>
@@ -1368,8 +1365,8 @@ Activarea acestei opțiuni poate debloca calități video mai mari"</string>
   <string name="revanced_video_quality_default_wifi_title">Calitate video implicită în rețeaua Wi-Fi</string>
   <string name="revanced_video_quality_default_mobile_title">Calitatea video implicită în rețeaua mobilă</string>
   <string name="revanced_remember_shorts_quality_last_selected_title">Reține modificările calității pentru Shorts</string>
-  <string name="revanced_remember_shorts_quality_last_selected_summary_on">Modificările de calitate se aplică tuturor videoclipurilor Shorts</string>
-  <string name="revanced_remember_shorts_quality_last_selected_summary_off">Modificările de calitate se aplică doar videoclipului curent Shorts</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_on">Modificările de calitate se aplică tuturor Shorts</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_off">Modificările de calitate se aplică doar Shortului curent</string>
   <string name="revanced_shorts_quality_default_wifi_title">Calitatea implicită a Shorts în rețeaua Wi-Fi</string>
   <string name="revanced_shorts_quality_default_mobile_title">Calitatea implicită a Shorts în rețeaua mobilă</string>
   <string name="revanced_remember_video_quality_mobile">mobil</string>
@@ -1406,10 +1403,10 @@ Activarea acestei opțiuni poate debloca calități video mai mari"</string>
   <string name="revanced_disable_hdr_video_summary_on">Videoclipurile HDR sunt dezactivate</string>
   <string name="revanced_disable_hdr_video_summary_off">Videoclipurile HDR sunt activate</string>
   </patch>
-  <patch id="video.videoqualitymenu.restoreOldVideoQualityMenuResourcePatch">
-  <string name="revanced_restore_old_video_quality_menu_title">Restaurează meniul de calitate video vechi</string>
-  <string name="revanced_restore_old_video_quality_menu_summary_on">Vechea meniu de calitate a videoclipului este afișat</string>
-  <string name="revanced_restore_old_video_quality_menu_summary_off">Meniul vechi de calitate a videoclipului nu este afișat</string>
+  <patch id="video.quality.advancedVideoQualityMenuPatch">
+  <string name="revanced_advanced_video_quality_menu_title">Afișează meniul avansat de calitate video</string>
+  <string name="revanced_advanced_video_quality_menu_summary_on">Se afișează meniul avansat de calitate video</string>
+  <string name="revanced_advanced_video_quality_menu_summary_off">Nu se afișează meniul avansat de calitate video</string>
   </patch>
   <patch id="interaction.seekbar.enableSlideToSeekPatch">
   <string name="revanced_slide_to_seek_title">Activează diapozitivul pentru a căuta</string>

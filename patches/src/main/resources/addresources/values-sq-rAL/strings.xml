@@ -1244,8 +1244,6 @@ Lëviz gishtin për të zgjeruar ose mbyllur"</string>
   <string name="revanced_gradient_loading_screen_title">Aktivizo ekranin e ngarkimit me gradient</string>
   <string name="revanced_gradient_loading_screen_summary_on">Ekrani i ngarkimit do të ketë një sfond me gradient</string>
   <string name="revanced_gradient_loading_screen_summary_off">Ekrani i ngarkimit do të ketë një sfond të ngurtë</string>
-  </patch>
-  <patch id="layout.theme.themeResourcePatch">
   <string name="revanced_seekbar_custom_color_title">Aktivizo ngjyrën e personalizuar të shkallës së kërkimit</string>
   <string name="revanced_seekbar_custom_color_summary_on">Ngjyra e personalizuar e shkallës së kërkimit është e dukshme</string>
   <string name="revanced_seekbar_custom_color_summary_off">Ngjyra origjinale e shkallës së kërkimit është e dukshme</string>
@@ -1359,7 +1357,6 @@ Aktivizimi i kësaj mund të zhbllokojë cilësi më të larta video"</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
-  <string name="revanced_video_quality_screen_title">Cilësia e videos</string>
   <string name="revanced_video_quality_default_entry_1">Automatik</string>
   <string name="revanced_remember_video_quality_last_selected_title">Mbani mend ndryshimet e cilësisë së videos</string>
   <string name="revanced_remember_video_quality_last_selected_summary_on">Ndryshimet e cilësisë zbatohen për të gjitha videot</string>
@@ -1367,8 +1364,8 @@ Aktivizimi i kësaj mund të zhbllokojë cilësi më të larta video"</string>
   <string name="revanced_video_quality_default_wifi_title">Cilësia e videos parazgjedhëse në rrjetin Wi-Fi</string>
   <string name="revanced_video_quality_default_mobile_title">Cilësia e videos parazgjedhëse në rrjetin celular</string>
   <string name="revanced_remember_shorts_quality_last_selected_title">Mbani mend ndryshimet e cilësisë së Shorts</string>
-  <string name="revanced_remember_shorts_quality_last_selected_summary_on">Ndryshimet e cilësisë zbatohen për të gjitha videot e Shorts</string>
-  <string name="revanced_remember_shorts_quality_last_selected_summary_off">Ndryshimet e cilësisë zbatohen vetëm për videon aktuale të Shorts</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_on">Ndryshimet e cilësisë zbatohen për të gjitha Shorts</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_off">Ndryshimet e cilësisë zbatohen vetëm për Short-in aktual</string>
   <string name="revanced_shorts_quality_default_wifi_title">Cilësia e parazgjedhur e Shorts në rrjetin Wi-Fi</string>
   <string name="revanced_shorts_quality_default_mobile_title">Cilësia e parazgjedhur e Shorts në rrjetin celular</string>
   <string name="revanced_remember_video_quality_mobile">celular</string>
@@ -1405,10 +1402,10 @@ Aktivizimi i kësaj mund të zhbllokojë cilësi më të larta video"</string>
   <string name="revanced_disable_hdr_video_summary_on">Videoja HDR është çaktivizuar</string>
   <string name="revanced_disable_hdr_video_summary_off">Videoja HDR është aktivizuar</string>
   </patch>
-  <patch id="video.videoqualitymenu.restoreOldVideoQualityMenuResourcePatch">
-  <string name="revanced_restore_old_video_quality_menu_title">Rikthe menynë e vjetër të cilësisë së videos</string>
-  <string name="revanced_restore_old_video_quality_menu_summary_on">Menyja e vjetër e cilësisë së videos shfaqet</string>
-  <string name="revanced_restore_old_video_quality_menu_summary_off">Menyja e vjetër e cilësisë së videos nuk shfaqet</string>
+  <patch id="video.quality.advancedVideoQualityMenuPatch">
+  <string name="revanced_advanced_video_quality_menu_title">Shfaq menunë e avancuar të cilësisë së videos</string>
+  <string name="revanced_advanced_video_quality_menu_summary_on">Shfaqet menyja e avancuar e cilësisë së videos</string>
+  <string name="revanced_advanced_video_quality_menu_summary_off">Menyja e avancuar e cilësisë së videos nuk shfaqet</string>
   </patch>
   <patch id="interaction.seekbar.enableSlideToSeekPatch">
   <string name="revanced_slide_to_seek_title">Aktivizo rrëshqitjen për kërkim</string>

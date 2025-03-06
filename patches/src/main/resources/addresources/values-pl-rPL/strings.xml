@@ -1246,8 +1246,6 @@ Przesuń, aby rozwinąć lub zamknąć"</string>
   <string name="revanced_gradient_loading_screen_title">Kolorowy ekran ładowania</string>
   <string name="revanced_gradient_loading_screen_summary_on">Ekran ładowania będzie miał kolorowe tło</string>
   <string name="revanced_gradient_loading_screen_summary_off">Ekran ładowania będzie miał stałe tło</string>
-  </patch>
-  <patch id="layout.theme.themeResourcePatch">
   <string name="revanced_seekbar_custom_color_title">Niestandardowy kolor paska postępu</string>
   <string name="revanced_seekbar_custom_color_summary_on">Niestandardowy</string>
   <string name="revanced_seekbar_custom_color_summary_off">Oryginalny</string>
@@ -1361,7 +1359,6 @@ Włączenie tego może odblokować wyższe jakości wideo"</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
-  <string name="revanced_video_quality_screen_title">Jakość wideo</string>
   <string name="revanced_video_quality_default_entry_1">Automatycznie</string>
   <string name="revanced_remember_video_quality_last_selected_title">Zapamiętaj zmiany jakości filmu</string>
   <string name="revanced_remember_video_quality_last_selected_summary_on">Zmiany jakości dotyczą wszystkich filmów</string>
@@ -1369,8 +1366,8 @@ Włączenie tego może odblokować wyższe jakości wideo"</string>
   <string name="revanced_video_quality_default_wifi_title">Domyślna jakość filmu w sieci Wi-Fi</string>
   <string name="revanced_video_quality_default_mobile_title">Domyślna jakość filmu w sieci komórkowej</string>
   <string name="revanced_remember_shorts_quality_last_selected_title">Zapamiętaj zmiany jakości w Shorts</string>
-  <string name="revanced_remember_shorts_quality_last_selected_summary_on">Zmiany jakości dotyczą wszystkich filmów w Shorts</string>
-  <string name="revanced_remember_shorts_quality_last_selected_summary_off">Zmiany jakości dotyczą tylko bieżącego filmu w Shorts</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_on">Zmiany jakości dotyczą wszystkich filmów Shorts</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_off">Zmiany jakości dotyczą tylko bieżącego Short</string>
   <string name="revanced_shorts_quality_default_wifi_title">Domyślna jakość Shorts w sieci Wi-Fi</string>
   <string name="revanced_shorts_quality_default_mobile_title">Domyślna jakość Shorts w sieci komórkowej</string>
   <string name="revanced_remember_video_quality_mobile">telefonu</string>
@@ -1407,10 +1404,10 @@ Włączenie tego może odblokować wyższe jakości wideo"</string>
   <string name="revanced_disable_hdr_video_summary_on">Wideo HDR jest wyłączone</string>
   <string name="revanced_disable_hdr_video_summary_off">Wideo HDR jest włączone</string>
   </patch>
-  <patch id="video.videoqualitymenu.restoreOldVideoQualityMenuResourcePatch">
-  <string name="revanced_restore_old_video_quality_menu_title">Stare menu jakości filmu</string>
-  <string name="revanced_restore_old_video_quality_menu_summary_on">Stare menu jakości filmu jest widoczne</string>
-  <string name="revanced_restore_old_video_quality_menu_summary_off">Stare menu jakości filmu nie jest widoczne</string>
+  <patch id="video.quality.advancedVideoQualityMenuPatch">
+  <string name="revanced_advanced_video_quality_menu_title">Pokaż zaawansowane menu jakości filmu</string>
+  <string name="revanced_advanced_video_quality_menu_summary_on">Zaawansowane menu jakości filmu jest wyświetlane</string>
+  <string name="revanced_advanced_video_quality_menu_summary_off">Zaawansowane menu jakości filmu nie jest wyświetlane</string>
   </patch>
   <patch id="interaction.seekbar.enableSlideToSeekPatch">
   <string name="revanced_slide_to_seek_title">Przesuń, by przewinąć</string>

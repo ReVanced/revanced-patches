@@ -1243,8 +1243,6 @@ Deslize para expandir ou fechar"</string>
   <string name="revanced_gradient_loading_screen_title">Ativar tela de carregamento em gradiente</string>
   <string name="revanced_gradient_loading_screen_summary_on">Tela de carregamento terá um fundo em gradiente</string>
   <string name="revanced_gradient_loading_screen_summary_off">Tela de carregamento terá um fundo sólido</string>
-  </patch>
-  <patch id="layout.theme.themeResourcePatch">
   <string name="revanced_seekbar_custom_color_title">Ativar cor personalizada da barra de busca</string>
   <string name="revanced_seekbar_custom_color_summary_on">Cor personalizada da barra de busca é mostrada</string>
   <string name="revanced_seekbar_custom_color_summary_off">Cor original da barra de busca é mostrada</string>
@@ -1358,7 +1356,6 @@ Habilitar isso pode desbloquear qualidades de vídeo mais altas"</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
-  <string name="revanced_video_quality_screen_title">Qualidade do vídeo</string>
   <string name="revanced_video_quality_default_entry_1">Automático</string>
   <string name="revanced_remember_video_quality_last_selected_title">Lembrar mudanças na qualidade do vídeo</string>
   <string name="revanced_remember_video_quality_last_selected_summary_on">Mudança na qualidade se aplicam a todos os vídeos</string>
@@ -1366,8 +1363,8 @@ Habilitar isso pode desbloquear qualidades de vídeo mais altas"</string>
   <string name="revanced_video_quality_default_wifi_title">Qualidade padrão do vídeo no Wi-Fi</string>
   <string name="revanced_video_quality_default_mobile_title">Qualidade padrão do vídeo nos dados móveis</string>
   <string name="revanced_remember_shorts_quality_last_selected_title">Lembrar alterações na qualidade dos Shorts</string>
-  <string name="revanced_remember_shorts_quality_last_selected_summary_on">As alterações de qualidade se aplicam a todos os vídeos do Shorts</string>
-  <string name="revanced_remember_shorts_quality_last_selected_summary_off">As alterações de qualidade se aplicam apenas ao vídeo atual do Shorts</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_on">As alterações de qualidade se aplicam a todos os Shorts</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_off">As alterações de qualidade aplicam-se apenas ao Short atual</string>
   <string name="revanced_shorts_quality_default_wifi_title">Qualidade padrão dos Shorts na rede Wi-Fi</string>
   <string name="revanced_shorts_quality_default_mobile_title">Qualidade padrão dos Shorts na rede móvel</string>
   <string name="revanced_remember_video_quality_mobile">dados móveis</string>
@@ -1404,10 +1401,10 @@ Habilitar isso pode desbloquear qualidades de vídeo mais altas"</string>
   <string name="revanced_disable_hdr_video_summary_on">O vídeo HDR está desabilitado</string>
   <string name="revanced_disable_hdr_video_summary_off">O vídeo HDR está habilitado</string>
   </patch>
-  <patch id="video.videoqualitymenu.restoreOldVideoQualityMenuResourcePatch">
-  <string name="revanced_restore_old_video_quality_menu_title">Restaurar menu antigo de qualidade de vídeo</string>
-  <string name="revanced_restore_old_video_quality_menu_summary_on">Menu antigo de qualidade de vídeo está sendo mostrado</string>
-  <string name="revanced_restore_old_video_quality_menu_summary_off">Menu antigo de qualidade de vídeo não está sendo mostrado</string>
+  <patch id="video.quality.advancedVideoQualityMenuPatch">
+  <string name="revanced_advanced_video_quality_menu_title">Mostrar menu de qualidade de vídeo avançado</string>
+  <string name="revanced_advanced_video_quality_menu_summary_on">O menu de qualidade de vídeo avançado é exibido</string>
+  <string name="revanced_advanced_video_quality_menu_summary_off">O menu de qualidade de vídeo avançado não é exibido</string>
   </patch>
   <patch id="interaction.seekbar.enableSlideToSeekPatch">
   <string name="revanced_slide_to_seek_title">Ativar gesto na barra de busca</string>
