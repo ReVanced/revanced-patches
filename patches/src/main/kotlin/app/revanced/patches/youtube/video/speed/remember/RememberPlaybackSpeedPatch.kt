@@ -11,7 +11,6 @@ import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.settings.settingsPatch
 import app.revanced.patches.youtube.video.information.*
-import app.revanced.patches.youtube.video.speed.custom.customPlaybackSpeedPatch
 import app.revanced.patches.youtube.video.speed.settingsMenuVideoSpeedGroup
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 
@@ -22,9 +21,10 @@ internal val rememberPlaybackSpeedPatch = bytecodePatch {
     dependsOn(
         sharedExtensionPatch,
         settingsPatch,
-        videoInformationPatch,
-        customPlaybackSpeedPatch,
         addResourcesPatch,
+        videoInformationPatch,
+        // Also depends on customPlaybackSpeedPatch, but cannot declare here
+        // otherwise settings are not in the preferred order.
     )
 
     execute {
@@ -44,6 +44,7 @@ internal val rememberPlaybackSpeedPatch = bytecodePatch {
         )
 
         onCreateHook(EXTENSION_CLASS_DESCRIPTOR, "newVideoStarted")
+
         userSelectedPlaybackSpeedHook(
             EXTENSION_CLASS_DESCRIPTOR,
             "userSelectedPlaybackSpeed",

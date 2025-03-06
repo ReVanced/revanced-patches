@@ -33,7 +33,7 @@ val videoQualityPatch = bytecodePatch(
         )
     )
 
-    finalize {
+    execute {
         PreferenceScreen.VIDEO.addPreferences(
             // Keep the preferences organized together.
             PreferenceCategory(
