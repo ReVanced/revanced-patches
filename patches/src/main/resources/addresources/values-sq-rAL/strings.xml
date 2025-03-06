@@ -1114,16 +1114,14 @@ Gati per te dhene?"</string>
   <string name="revanced_change_form_factor_entry_2">Telefon</string>
   <string name="revanced_change_form_factor_entry_3">Tabletë</string>
   <string name="revanced_change_form_factor_entry_4">Automjet</string>
-  <string name="revanced_change_form_factor_user_dialog_message">"Ndryshimet përfshijnë:&#13;
+  <string name="revanced_change_form_factor_user_dialog_message">"Ndryshimet përfshijnë:
 
-Pamje në format tabletë&#13;
-• Postimet e komunitetit janë të fshehura&#13;
+Paraqitja e tabletit
+• Postimet e komunitetit janë të fshehura
 
-Pamje automotive&#13;
-• Menua e historisë së shikimit është e fshehur&#13;
-• Seksioni Shfleto është rikthyer&#13;
-• Shorts hapen në oynën e zakonshme&#13;
-• Ushtrimi është i organizuar sipas temave dhe kanaleve"</string>
+Paraqitja e makinës
+• Shorts hapen në luajtësin e rregullt
+• Feed organizohet sipas temave dhe kanaleve"</string>
   </patch>
   <patch id="layout.spoofappversion.spoofAppVersionPatch">
   <string name="revanced_spoof_app_version_title">Mashtro versionin e aplikacionit</string>
@@ -1361,15 +1359,22 @@ Aktivizimi i kësaj mund të zhbllokojë cilësi më të larta video"</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
+  <string name="revanced_video_quality_screen_title">Cilësia e videos</string>
   <string name="revanced_video_quality_default_entry_1">Automatik</string>
   <string name="revanced_remember_video_quality_last_selected_title">Mbani mend ndryshimet e cilësisë së videos</string>
   <string name="revanced_remember_video_quality_last_selected_summary_on">Ndryshimet e cilësisë zbatohen për të gjitha videot</string>
   <string name="revanced_remember_video_quality_last_selected_summary_off">Ndryshimet e cilësisë zbatohen vetëm për videon aktuale</string>
   <string name="revanced_video_quality_default_wifi_title">Cilësia e videos parazgjedhëse në rrjetin Wi-Fi</string>
   <string name="revanced_video_quality_default_mobile_title">Cilësia e videos parazgjedhëse në rrjetin celular</string>
+  <string name="revanced_remember_shorts_quality_last_selected_title">Mbani mend ndryshimet e cilësisë së Shorts</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_on">Ndryshimet e cilësisë zbatohen për të gjitha videot e Shorts</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_off">Ndryshimet e cilësisë zbatohen vetëm për videon aktuale të Shorts</string>
+  <string name="revanced_shorts_quality_default_wifi_title">Cilësia e parazgjedhur e Shorts në rrjetin Wi-Fi</string>
+  <string name="revanced_shorts_quality_default_mobile_title">Cilësia e parazgjedhur e Shorts në rrjetin celular</string>
   <string name="revanced_remember_video_quality_mobile">celular</string>
   <string name="revanced_remember_video_quality_wifi">wifi</string>
   <string name="revanced_remember_video_quality_toast">Ndryshuar cilësia parazgjedhëse %1$s në: %2$s</string>
+  <string name="revanced_remember_video_quality_toast_shorts">Cilësia e Shorts u ndryshua nga %1$s në: %2$s</string>
   </patch>
   <patch id="video.speed.button.playbackSpeedButtonPatch">
   <string name="revanced_playback_speed_dialog_button_title">Shfaq butonin e dialogut të shpejtësisë</string>

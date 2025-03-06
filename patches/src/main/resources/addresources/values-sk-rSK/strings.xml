@@ -1108,14 +1108,12 @@ Pripravené na odoslanie?"</string>
   <string name="revanced_change_form_factor_entry_4">Automobily</string>
   <string name="revanced_change_form_factor_user_dialog_message">"Zmeny zahŕňajú:
 
-Rozloženie tabletu
+Rozloženie pre tablety
 • Príspevky komunity sú skryté
 
-Rozloženie automobilu
-• Menu histórie pozerania je skryté
-• Karta preskúmať je obnovená
+Rozloženie pre automobily
 • Shorts sa otvárajú v bežnom prehrávači
-• Feed je organizovaný podľa tém a kanálov"</string>
+• Kanál je usporiadaný podľa tém a kanálov"</string>
   </patch>
   <patch id="layout.spoofappversion.spoofAppVersionPatch">
   <string name="revanced_spoof_app_version_title">Verzia aplikácie Spoof</string>
@@ -1351,15 +1349,22 @@ Povolením tejto možnosti môžete odomknúť vyššie kvality videa"</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
+  <string name="revanced_video_quality_screen_title">Kvalita videa</string>
   <string name="revanced_video_quality_default_entry_1">Automaticky</string>
   <string name="revanced_remember_video_quality_last_selected_title">Pamätajte na zmeny kvality videa</string>
   <string name="revanced_remember_video_quality_last_selected_summary_on">Zmeny kvality sa vzťahujú na všetky videá</string>
   <string name="revanced_remember_video_quality_last_selected_summary_off">Zmeny kvality sa vzťahujú iba na aktuálne video</string>
   <string name="revanced_video_quality_default_wifi_title">Predvolená kvalita videa v sieti Wi-Fi</string>
   <string name="revanced_video_quality_default_mobile_title">Predvolená kvalita videa v mobilnej sieti</string>
+  <string name="revanced_remember_shorts_quality_last_selected_title">Zapamätať si zmeny kvality pre Shorts</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_on">Zmeny kvality sa použijú na všetky videá Shorts</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_off">Zmeny kvality sa použijú iba na aktuálne video Shorts</string>
+  <string name="revanced_shorts_quality_default_wifi_title">Predvolená kvalita pre Shorts v sieti Wi-Fi</string>
+  <string name="revanced_shorts_quality_default_mobile_title">Predvolená kvalita pre Shorts v mobilnej sieti</string>
   <string name="revanced_remember_video_quality_mobile">mobilné</string>
   <string name="revanced_remember_video_quality_wifi">Wi-Fi</string>
   <string name="revanced_remember_video_quality_toast">Predvolená kvalita %1$s bola zmenená na: %2$s</string>
+  <string name="revanced_remember_video_quality_toast_shorts">Zmenená kvalita Shorts %1$s na: %2$s</string>
   </patch>
   <patch id="video.speed.button.playbackSpeedButtonPatch">
   <string name="revanced_playback_speed_dialog_button_title">Zobraziť dialógové tlačidlo rýchlosti</string>

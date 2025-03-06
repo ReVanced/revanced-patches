@@ -1112,16 +1112,6 @@ Oletko valmis lähettämään?"</string>
   <string name="revanced_change_form_factor_entry_2">Puhelin</string>
   <string name="revanced_change_form_factor_entry_3">Tabletti</string>
   <string name="revanced_change_form_factor_entry_4">Ajoneuvo</string>
-  <string name="revanced_change_form_factor_user_dialog_message">"Muutokset sisältävät:
-
-Tabletti-asettelu
-• Yhteisöpostaukset on piilotettu
-
-Ajoneuvo-asettelu
-• Katseluhistoriavalikko on piilotettu
-• Tutustu-välilehti on palautettu
-• Shortsit avautuvat tavallisessa soittimessa
-• Syöte on järjestetty aiheiden ja kanavien mukaan"</string>
   </patch>
   <patch id="layout.spoofappversion.spoofAppVersionPatch">
   <string name="revanced_spoof_app_version_title">Naamioi sovellusversio</string>

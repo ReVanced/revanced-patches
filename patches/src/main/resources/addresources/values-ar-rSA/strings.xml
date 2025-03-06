@@ -1116,16 +1116,14 @@ Second \"item\" text"</string>
   <string name="revanced_change_form_factor_entry_2">الجوّال</string>
   <string name="revanced_change_form_factor_entry_3">الجهاز اللوحي</string>
   <string name="revanced_change_form_factor_entry_4">Automotive</string>
-  <string name="revanced_change_form_factor_user_dialog_message">"تتضمن التغييرات:
+  <string name="revanced_change_form_factor_user_dialog_message">"التغييرات تشمل:
 
-تخطيط الجهاز اللوحي
-• إخفاء منشورات المجتمع
+تصميم الجهاز اللوحي
+• مشاركات المجتمع مخفية
 
-تخطيط Automotive
-• إخفاء قائمة سجل المشاهدة
-• استعادة علامة التبويب \"استكشاف\"
-• فتح فيديوهات Shorts في المشغل العادي
-• تنظيم الخلاصة حسب الموضوعات والقناة"</string>
+تصميم السيارة
+• يتم فتح Shorts في المشغل العادي
+• يتم تنظيم الخلاصة حسب المواضيع والقنوات"</string>
   </patch>
   <patch id="layout.spoofappversion.spoofAppVersionPatch">
   <string name="revanced_spoof_app_version_title">خِداع إصدار التطبيق</string>
@@ -1362,15 +1360,22 @@ Second \"item\" text"</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
+  <string name="revanced_video_quality_screen_title">جودة الفيديو</string>
   <string name="revanced_video_quality_default_entry_1">تلقائي</string>
   <string name="revanced_remember_video_quality_last_selected_title">تذكر تغييرات جودة الفيديو</string>
   <string name="revanced_remember_video_quality_last_selected_summary_on">تنطبق تغييرات الجودة على جميع الفيديوهات</string>
   <string name="revanced_remember_video_quality_last_selected_summary_off">تنطبق تغييرات الجودة على الفيديو الحالي فقط</string>
   <string name="revanced_video_quality_default_wifi_title">جودة الفيديو الافتراضية على شبكة Wi-Fi</string>
   <string name="revanced_video_quality_default_mobile_title">جودة الفيديو الافتراضية على شبكة الجوَّال</string>
+  <string name="revanced_remember_shorts_quality_last_selected_title">تذكر تغييرات جودة Shorts</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_on">تطبق تغييرات الجودة على جميع فيديوهات Shorts</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_off">تطبق تغييرات الجودة على فيديو Shorts الحالي فقط</string>
+  <string name="revanced_shorts_quality_default_wifi_title">جودة Shorts الافتراضية على شبكة Wi-Fi</string>
+  <string name="revanced_shorts_quality_default_mobile_title">جودة Shorts الافتراضية على شبكة الجوال</string>
   <string name="revanced_remember_video_quality_mobile">الجوّال</string>
   <string name="revanced_remember_video_quality_wifi">Wi-Fi</string>
   <string name="revanced_remember_video_quality_toast">تم تغيير جودة %1$s الافتراضية إلى: %2$s</string>
+  <string name="revanced_remember_video_quality_toast_shorts">تم تغيير جودة Shorts %1$s إلى: %2$s</string>
   </patch>
   <patch id="video.speed.button.playbackSpeedButtonPatch">
   <string name="revanced_playback_speed_dialog_button_title">عرض زر مربع حوار السرعة</string>

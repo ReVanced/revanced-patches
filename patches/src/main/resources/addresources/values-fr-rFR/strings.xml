@@ -1110,7 +1110,7 @@ Prêt à soumettre ?"</string>
   <string name="revanced_sb_about_api_sum">Les données sont fournies par l\'API SponsorBlock. Appuyez ici pour en savoir plus et pour voir les téléchargements pour les autres plateformes.</string>
   </patch>
   <patch id="layout.formfactor.changeFormFactorPatch">
-  <string name="revanced_change_form_factor_title">Facteur de forme de la mise en page</string>
+  <string name="revanced_change_form_factor_title">Format de mise en page</string>
   <string name="revanced_change_form_factor_entry_1">Par défaut</string>
   <string name="revanced_change_form_factor_entry_2">Téléphone</string>
   <string name="revanced_change_form_factor_entry_3">Tablette</string>
@@ -1121,8 +1121,6 @@ Disposition pour tablette
 • Les publications de la communauté sont masquées
 
 Disposition Automotive
-• Le menu de l'historique des vidéos regardées est masqué
-• L'onglet Explorer est restauré
 • Les Shorts s'ouvrent dans le lecteur classique
 • Le flux est organisé par sujets et par chaînes"</string>
   </patch>
@@ -1362,15 +1360,22 @@ Activer cette option peut déverrouiller des qualités vidéo supérieures"</str
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
+  <string name="revanced_video_quality_screen_title">Qualité vidéo</string>
   <string name="revanced_video_quality_default_entry_1">Automatique</string>
   <string name="revanced_remember_video_quality_last_selected_title">Se souvenir des modifications de la qualité vidéo</string>
   <string name="revanced_remember_video_quality_last_selected_summary_on">Les modifications de qualité s\'appliquent à toutes les vidéos</string>
   <string name="revanced_remember_video_quality_last_selected_summary_off">Les modifications de qualité s\'appliquent uniquement à la vidéo en cours</string>
   <string name="revanced_video_quality_default_wifi_title">Qualité vidéo par défaut sur un réseau Wi-Fi</string>
   <string name="revanced_video_quality_default_mobile_title">Qualité vidéo par défaut sur le réseau mobile</string>
+  <string name="revanced_remember_shorts_quality_last_selected_title">Se souvenir des modifications de la qualité des Shorts</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_on">Les modifications de qualité s\'appliquent à toutes les vidéos Shorts</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_off">Les modifications de qualité s\'appliquent uniquement à la vidéo Shorts en cours</string>
+  <string name="revanced_shorts_quality_default_wifi_title">Qualité Shorts par défaut sur un réseau Wi-Fi</string>
+  <string name="revanced_shorts_quality_default_mobile_title">Qualité Shorts par défaut sur le réseau mobile</string>
   <string name="revanced_remember_video_quality_mobile">mobile</string>
   <string name="revanced_remember_video_quality_wifi">Wi-Fi</string>
   <string name="revanced_remember_video_quality_toast">Nouvelle qualité %1$s par défaut : %2$s</string>
+  <string name="revanced_remember_video_quality_toast_shorts">Nouvelle qualité Shorts %1$s par défaut : %2$s</string>
   </patch>
   <patch id="video.speed.button.playbackSpeedButtonPatch">
   <string name="revanced_playback_speed_dialog_button_title">Afficher un bouton Vitesse</string>

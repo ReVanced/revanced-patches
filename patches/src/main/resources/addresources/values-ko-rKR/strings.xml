@@ -1126,8 +1126,6 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
 • 커뮤니티 게시물이 숨겨집니다
 
 오토모티브 레이아웃
-• 시청 기록 메뉴가 숨겨집니다
-• 탐색 탭이 복원됩니다
 • Shorts가 일반 플레이어에서 재생됩니다
 • 피드가 주제와 채널별로 구성됩니다"</string>
   </patch>
@@ -1191,11 +1189,11 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   </patch>
   <patch id="layout.shortsautoplay.shortsAutoplayPatch">
   <string name="revanced_shorts_autoplay_title">Shorts 자동재생</string>
-  <string name="revanced_shorts_autoplay_summary_on">Shorts 동영상이 자동넘김됩니다</string>
-  <string name="revanced_shorts_autoplay_summary_off">Shorts 동영상이 반복재생됩니다</string>
+  <string name="revanced_shorts_autoplay_summary_on">Shorts가 자동넘김됩니다</string>
+  <string name="revanced_shorts_autoplay_summary_off">Shorts가 반복재생됩니다</string>
   <string name="revanced_shorts_autoplay_background_title">Shorts 자동 백그라운드 재생</string>
-  <string name="revanced_shorts_autoplay_background_summary_on">Shorts 동영상 백그라운드 재생이 자동넘김됩니다</string>
-  <string name="revanced_shorts_autoplay_background_summary_off">Shorts 동영상 백그라운드 재생이 반복재생됩니다</string>
+  <string name="revanced_shorts_autoplay_background_summary_on">Shorts 백그라운드 재생이 자동넘김됩니다</string>
+  <string name="revanced_shorts_autoplay_background_summary_off">Shorts 백그라운드 재생이 반복재생됩니다</string>
   </patch>
   <patch id="layout.miniplayer.miniplayerPatch">
   <string name="revanced_miniplayer_screen_title">미니 플레이어</string>
@@ -1369,15 +1367,22 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요"</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
+  <string name="revanced_video_quality_screen_title">동영상 화질</string>
   <string name="revanced_video_quality_default_entry_1">자동</string>
   <string name="revanced_remember_video_quality_last_selected_title">동영상 화질 저장 활성화하기</string>
   <string name="revanced_remember_video_quality_last_selected_summary_on">동영상 화질 값을 변경할 때마다 저장합니다</string>
   <string name="revanced_remember_video_quality_last_selected_summary_off">동영상 화질 값을 변경할 때마다 저장하지 않습니다</string>
   <string name="revanced_video_quality_default_wifi_title">Wi-Fi 이용 시 기본 동영상 화질</string>
   <string name="revanced_video_quality_default_mobile_title">모바일 네트워크 이용 시 기본 동영상 화질</string>
+  <string name="revanced_remember_shorts_quality_last_selected_title">Shorts 화질 저장 활성화하기</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_on">Shorts 화질 값을 변경할 때마다 저장합니다</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_off">Shorts 화질 값을 변경할 때마다 저장하지 않습니다</string>
+  <string name="revanced_shorts_quality_default_wifi_title">Wi-Fi 이용 시 기본 Shorts 화질</string>
+  <string name="revanced_shorts_quality_default_mobile_title">모바일 네트워크 이용 시 기본 Shorts 화질</string>
   <string name="revanced_remember_video_quality_mobile">모바일 네트워크</string>
   <string name="revanced_remember_video_quality_wifi">Wi-Fi</string>
-  <string name="revanced_remember_video_quality_toast">기본 동영상 화질을 %1$s 에서 %2$s 로 변경합니다</string>
+  <string name="revanced_remember_video_quality_toast">%1$s 이용 시 기본 동영상 화질을 %2$s 로 변경합니다</string>
+  <string name="revanced_remember_video_quality_toast_shorts">%1$s 이용 시 기본 Shorts 화질을 %2$s 로 변경합니다</string>
   </patch>
   <patch id="video.speed.button.playbackSpeedButtonPatch">
   <string name="revanced_playback_speed_dialog_button_title">동영상 재생 속도 다이얼로그 버튼 표시하기</string>
@@ -1401,7 +1406,7 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요"</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_on">동영상 재생 속도 값을 변경할 때마다 저장합니다</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_off">동영상 재생 속도 값을 변경할 때마다 저장하지 않습니다</string>
   <string name="revanced_playback_speed_default_title">기본 동영상 재생 속도</string>
-  <string name="revanced_remember_playback_speed_toast">기본 동영상 재생 속도 값을 %s으로 변경합니다</string>
+  <string name="revanced_remember_playback_speed_toast">기본 동영상 재생 속도 값을 %s 로 변경합니다</string>
   </patch>
   <patch id="video.hdr.disableHdrPatch">
   <string name="revanced_disable_hdr_video_title">HDR 동영상 비활성화하기</string>

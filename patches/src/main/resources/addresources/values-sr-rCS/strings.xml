@@ -1117,14 +1117,12 @@ Spreman za podnošenje?"</string>
   <string name="revanced_change_form_factor_entry_4">Automobilski</string>
   <string name="revanced_change_form_factor_user_dialog_message">"Promene uključuju:
 
-Izgled „Tablet”
-• Objave zajednice su skrivene
+Izgled za tablet
+• Objava zajednice su sakrivene
 
-Izgled „Automobilski”
-• Meni „Istorija gledanja” je skriven
-• Kartica „Istražite” je vraćena
-• Shorts videi se otvaraju u običnom plejeru
-• Fid je organizovan po temama i kanalima"</string>
+Automotive izgled
+• Shorts se otvaraju u regularnom plejeru
+• Feed je organizovan po temama i kanalima"</string>
   </patch>
   <patch id="layout.spoofappversion.spoofAppVersionPatch">
   <string name="revanced_spoof_app_version_title">Lažirana verzija aplikacije</string>
@@ -1362,15 +1360,22 @@ Ako ovo omogućite, mogu biti otključani viši kvaliteti videa"</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
+  <string name="revanced_video_quality_screen_title">Kvalitet video snimka</string>
   <string name="revanced_video_quality_default_entry_1">Automatski</string>
   <string name="revanced_remember_video_quality_last_selected_title">Zapamti promene kvaliteta videa</string>
   <string name="revanced_remember_video_quality_last_selected_summary_on">Promene kvaliteta se primenjuju na sve videe</string>
   <string name="revanced_remember_video_quality_last_selected_summary_off">Promene kvaliteta se primenjuju samo na trenutni video</string>
   <string name="revanced_video_quality_default_wifi_title">Podrazumevani kvalitet videa na Wi-Fi mreži</string>
   <string name="revanced_video_quality_default_mobile_title">Podrazumevani kvalitet videa na mobilnoj mreži</string>
+  <string name="revanced_remember_shorts_quality_last_selected_title">Zapamti promene kvaliteta za Shorts</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_on">Promene kvaliteta se primenjuju na sve Shorts video snimke</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_off">Promene kvaliteta se primenjuju samo na trenutni Shorts video snimak</string>
+  <string name="revanced_shorts_quality_default_wifi_title">Podrazumevani kvalitet za Shorts na Wi-Fi mreži</string>
+  <string name="revanced_shorts_quality_default_mobile_title">Podrazumevani kvalitet za Shorts na mobilnoj mreži</string>
   <string name="revanced_remember_video_quality_mobile">mobilnoj mreži</string>
   <string name="revanced_remember_video_quality_wifi">Wi-Fi mreži</string>
   <string name="revanced_remember_video_quality_toast">Kvalitet na %1$s promenjen na: %2$s</string>
+  <string name="revanced_remember_video_quality_toast_shorts">Promenjen je kvalitet Shorts %1$s na: %2$s</string>
   </patch>
   <patch id="video.speed.button.playbackSpeedButtonPatch">
   <string name="revanced_playback_speed_dialog_button_title">Prikaži dugme dijaloga za brzinu</string>

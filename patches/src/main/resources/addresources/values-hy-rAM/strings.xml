@@ -1115,16 +1115,14 @@ Seekbar thumbnails-ները կօգտագործեն նույն որակը, ինչ
   <string name="revanced_change_form_factor_entry_2">Հեռախոս</string>
   <string name="revanced_change_form_factor_entry_3">Պլանշետ</string>
   <string name="revanced_change_form_factor_entry_4">Ավտոմոբիլային</string>
-  <string name="revanced_change_form_factor_user_dialog_message">"Փոփոխությունները ներառում են. 
+  <string name="revanced_change_form_factor_user_dialog_message">"Փոփոխությունները ներառում են.
 
-Պլանշետի ինտերֆեյս
-• Թաքցված են համայնքի հրապարակումները
+Պլանշետի դասավորություն
+• Համայնքային գրառումները թաքնված են
 
-Ավտոմոբիլային ինտերֆեյս
-• Թաքցված է դիտումների պատմության ընտրանին
-• Վերականգնված է ուսումնասիրել  էջը
-• Հոլովակները բացվում են ստանդարտ նվագարկչում
-• Նորությունները կազմակերպված են ըստ թեմաների և ալիքների"</string>
+Ավտոմեքենայի դասավորություն
+• Shorts-ը բացվում է սովորական նվագարկչում
+• Ֆիդը կազմակերպվում է ըստ թեմաների և ալիքների"</string>
   </patch>
   <patch id="layout.spoofappversion.spoofAppVersionPatch">
   <string name="revanced_spoof_app_version_title">Կեղծել հավելվածի տարբերակը</string>
@@ -1367,9 +1365,15 @@ Mini-player-ը կարող է գրավվել էկրանից դուրս՝ դեպի
   <string name="revanced_remember_video_quality_last_selected_summary_off">Որակի  փոփոխությունները  կիրառվում են  միայն  ներկայիս  տեսանյութի  համար</string>
   <string name="revanced_video_quality_default_wifi_title">Wi-Fi  ցանցի  դեֆոլտ  տեսանյութի  որակը</string>
   <string name="revanced_video_quality_default_mobile_title">Մೊբայլ  ցանցի  դեֆոլտ  տեսանյութի  որակը</string>
+  <string name="revanced_remember_shorts_quality_last_selected_title">Հիշել Shorts-ի որակի փոփոխությունները</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_on">Որակի փոփոխություններն ազդում են բոլոր Shorts տեսանյութերի վրա</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_off">Որակի փոփոխություններն ազդում են միայն ընթացիկ Shorts տեսանյութի վրա</string>
+  <string name="revanced_shorts_quality_default_wifi_title">Shorts-ի լռելյայն որակը Wi-Fi ցանցում</string>
+  <string name="revanced_shorts_quality_default_mobile_title">Shorts-ի լռելյայն որակը բջջային ցանցում</string>
   <string name="revanced_remember_video_quality_mobile">վարկանիշ</string>
   <string name="revanced_remember_video_quality_wifi">ուայ-ֆայ</string>
   <string name="revanced_remember_video_quality_toast">Փոփոխվել է  դեֆոլտ  %1$s  որակը: %2$s</string>
+  <string name="revanced_remember_video_quality_toast_shorts">Փոխվել է Shorts %1$s-ի որակը հետևյալի վրա. %2$s</string>
   </patch>
   <patch id="video.speed.button.playbackSpeedButtonPatch">
   <string name="revanced_playback_speed_dialog_button_title">Ցուցադրել  արագության  դիալոգի  պատուհանի  կոճակը</string>
