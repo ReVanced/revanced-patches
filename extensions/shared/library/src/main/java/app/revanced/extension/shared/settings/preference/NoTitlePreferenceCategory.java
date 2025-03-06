@@ -12,6 +12,7 @@ import android.view.ViewGroup;
  */
 @SuppressWarnings({"unused", "deprecation"})
 public class NoTitlePreferenceCategory extends PreferenceCategory {
+
     public NoTitlePreferenceCategory(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
@@ -27,8 +28,27 @@ public class NoTitlePreferenceCategory extends PreferenceCategory {
     @Override
     @SuppressLint("MissingSuperCall")
     protected View onCreateView(ViewGroup parent) {
-        // Return an empty, zero-height view to eliminate spacing
+        // Return an zero-height view to eliminate empty title space.
         return new View(getContext());
+    }
+
+    @Override
+    public CharSequence getTitle() {
+        // Title can be used for sorting. Return the first sub preference title.
+        if (getPreferenceCount() > 0) {
+            return getPreference(0).getTitle();
+        }
+
+        return super.getTitle();
+    }
+
+    @Override
+    public int getTitleRes() {
+        if (getPreferenceCount() > 0) {
+            return getPreference(0).getTitleRes();
+        }
+
+        return super.getTitleRes();
     }
 }
 

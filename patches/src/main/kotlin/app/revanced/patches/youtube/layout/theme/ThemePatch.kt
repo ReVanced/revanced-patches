@@ -101,8 +101,7 @@ val themePatch = bytecodePatch(
 
                 PreferenceScreen.SEEKBAR.addPreferences(
                     PreferenceCategory(
-                        // Title is hidden, but is used for sorting the group.
-                        titleKey = "revanced_seekbar_custom_color_title",
+                        titleKey = null,
                         sorting = Sorting.UNSORTED,
                         tag = "app.revanced.extension.shared.settings.preference.NoTitlePreferenceCategory",
                         preferences = preferences
