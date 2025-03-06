@@ -404,7 +404,7 @@ Ta funkcija je na voljo samo za starejše naprave"</string>
   <string name="revanced_hide_self_sponsor_ads_title">Skrij samoproizvedene oglase</string>
   <string name="revanced_hide_self_sponsor_ads_summary_on">Samoproizvedeni oglasi so skriti</string>
   <string name="revanced_hide_self_sponsor_ads_summary_off">Samoproizvedeni oglasi so prikazani</string>
-  <string name="revanced_hide_products_banner_title">Skrij pasico za ogled izdelkov</string>
+  <string name="revanced_hide_products_banner_title">Skrij pasico »Ogled izdelkov«</string>
   <string name="revanced_hide_products_banner_summary_on">Pasica je skrita</string>
   <string name="revanced_hide_products_banner_summary_off">Pasica je prikazana</string>
   <string name="revanced_hide_end_screen_store_banner_title">Skrij pasico trgovine na koncu zaslona</string>
@@ -663,7 +663,7 @@ Opomba: Omogočanje tega tudi prisilno skrije video oglase"</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_off">Noga menija s kakovostjo videa je prikazana</string>
   </patch>
   <patch id="layout.buttons.overlay.hidePlayerOverlayButtonsPatch">
-  <string name="revanced_hide_player_previous_next_buttons_title">Skrij gumbe \"Prejšnji\" &amp; \"Naslednji\" video</string>
+  <string name="revanced_hide_player_previous_next_buttons_title">Skrij gumbe »Prejšnji« &amp; »Naslednji«</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_on">Gumbi so skriti</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">Gumbi so prikazani</string>
   <string name="revanced_hide_cast_button_title">Skrij gumb \'Predvajaj\'</string>
@@ -1194,7 +1194,7 @@ To bo spremenilo videz in funkcije aplikacije, vendar se lahko pojavijo neznani 
   </patch>
   <patch id="layout.miniplayer.miniplayerPatch">
   <string name="revanced_miniplayer_screen_title">\"Miniplayer\"</string>
-  <string name="revanced_miniplayer_screen_summary">Spremeni slog zmanjšanega predvajalnika v aplikaciji</string>
+  <string name="revanced_miniplayer_screen_summary">Spremenite slog minimiziranega predvajalnika v aplikaciji</string>
   <string name="revanced_miniplayer_type_title">Vrsta mini predvajalnika</string>
   <string name="revanced_miniplayer_type_entry_0">Onemogočeno</string>
   <string name="revanced_miniplayer_type_entry_1">Privzeto</string>
@@ -1340,8 +1340,8 @@ Omogočanje tega lahko odklene višje kakovosti videa"</string>
   </patch>
   <patch id="misc.links.openLinksExternallyPatch">
   <string name="revanced_external_browser_title">Odpri povezave v brskalniku</string>
-  <string name="revanced_external_browser_summary_on">Odpiranje povezav zunaj aplikacije</string>
-  <string name="revanced_external_browser_summary_off">Odpiranje povezav v aplikaciji</string>
+  <string name="revanced_external_browser_summary_on">Odpiranje povezav v zunanjem brskalniku</string>
+  <string name="revanced_external_browser_summary_off">Odpiranje povezav v brskalniku v aplikaciji</string>
   </patch>
   <patch id="misc.privacy.removeTrackingQueryParameterPatch">
   <string name="revanced_remove_tracking_query_parameter_title">Odstrani parameter poizvedbe za sledenje</string>

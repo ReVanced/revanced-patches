@@ -404,7 +404,7 @@ Second \"item\" text"</string>
   <string name="revanced_hide_self_sponsor_ads_title">Сакриј картице самоспонзорства</string>
   <string name="revanced_hide_self_sponsor_ads_summary_on">Картице самоспонзорства су скривене</string>
   <string name="revanced_hide_self_sponsor_ads_summary_off">Картице самоспонзорства су приказане</string>
-  <string name="revanced_hide_products_banner_title">Сакриј банер за гледање производа</string>
+  <string name="revanced_hide_products_banner_title">Сакриј банер „Погледајте производе”</string>
   <string name="revanced_hide_products_banner_summary_on">Банер за гледање производа је скривен</string>
   <string name="revanced_hide_products_banner_summary_off">Банер за гледање производа је приказан</string>
   <string name="revanced_hide_end_screen_store_banner_title">Сакриј банер продавнице на завршном екрану</string>
@@ -1340,8 +1340,8 @@ Second \"item\" text"</string>
   </patch>
   <patch id="misc.links.openLinksExternallyPatch">
   <string name="revanced_external_browser_title">Отвори линкове у прегледачу</string>
-  <string name="revanced_external_browser_summary_on">Отварање линкова ван апликације</string>
-  <string name="revanced_external_browser_summary_off">Отварање линкова у апликацији</string>
+  <string name="revanced_external_browser_summary_on">Отварање линкова у спољном прегледачу</string>
+  <string name="revanced_external_browser_summary_off">Отварање линкова у прегледачу у апликацији</string>
   </patch>
   <patch id="misc.privacy.removeTrackingQueryParameterPatch">
   <string name="revanced_remove_tracking_query_parameter_title">Уклони параметар упита за праћење</string>
@@ -1354,7 +1354,7 @@ Second \"item\" text"</string>
   <string name="revanced_disable_zoom_haptics_summary_off">Вибрација при увеличавању је омогућена</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
-  <string name="revanced_force_original_audio_title">Присили оригинални аудио језик</string>
+  <string name="revanced_force_original_audio_title">Присили оригинални језик звука</string>
   <string name="revanced_force_original_audio_summary_on">Коришћење оригиналног језика звука</string>
   <string name="revanced_force_original_audio_summary_off">Коришћење подразумеваног звука</string>
   <!-- 'Spoof video streams' should be the same translation used for revanced_spoof_video_streams_screen_title -->
@@ -1434,7 +1434,7 @@ AVC има максималну резолуцију од 1080p, аудио ко
   <string name="revanced_spoof_video_streams_about_android_title">Нежељени ефекти лажирања на Android</string>
   <string name="revanced_spoof_video_streams_about_android_summary">"• Мени „Аудио снимак” недостаје
 • Уједначена јачина звука није доступна
-• Опција „Присили оригиналан звук” није доступна"</string>
+• Опција „Присили оригинални звук” није доступна"</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Нема видео кодека AV1</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Видеи за децу се можда неће пуштати када сте одјављени или у режиму без архивирања</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Прикажи у „Статистици за зналце”</string>

@@ -404,7 +404,7 @@ Bu özellik yalnızca eski cihazlarda kullanılabilir"</string>
   <string name="revanced_hide_self_sponsor_ads_title">Kendine sponsor kartları gizle</string>
   <string name="revanced_hide_self_sponsor_ads_summary_on">Kendine sponsor kartlar gizli</string>
   <string name="revanced_hide_self_sponsor_ads_summary_off">Kendine sponsor kartlar görünür</string>
-  <string name="revanced_hide_products_banner_title">Ürünleri görme afişini gizle</string>
+  <string name="revanced_hide_products_banner_title">\'Ürünleri görüntüle\' başlığını gizle</string>
   <string name="revanced_hide_products_banner_summary_on">Afiş gizli</string>
   <string name="revanced_hide_products_banner_summary_off">Afiş görünür</string>
   <string name="revanced_hide_end_screen_store_banner_title">Bitiş ekranındaki mağaza afişini gizle</string>
@@ -663,7 +663,7 @@ Bu ayarı değiştirmek etkili olmazsa, Gizli moda geçmeyi deneyin."</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_off">Video kalite menüsü alt bilgisi görünür</string>
   </patch>
   <patch id="layout.buttons.overlay.hidePlayerOverlayButtonsPatch">
-  <string name="revanced_hide_player_previous_next_buttons_title">Önceki &amp; Sonraki video düğmelerini gizle</string>
+  <string name="revanced_hide_player_previous_next_buttons_title">Önceki &amp; Sonraki düğmelerini gizle</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_on">Düğmeler gizli</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">Düğmeler görünür</string>
   <string name="revanced_hide_cast_button_title">Yayınla düğmesini gizle</string>
@@ -1341,8 +1341,8 @@ Bunu etkinleştirmek daha yüksek video kalitelerini açabilir"</string>
   </patch>
   <patch id="misc.links.openLinksExternallyPatch">
   <string name="revanced_external_browser_title">Bağlantıları tarayıcıda aç</string>
-  <string name="revanced_external_browser_summary_on">Bağlantılar harici olarak açılıyor</string>
-  <string name="revanced_external_browser_summary_off">Bağlantılar uygulamada açılıyor</string>
+  <string name="revanced_external_browser_summary_on">Bağlantılar harici tarayıcıda açılıyor</string>
+  <string name="revanced_external_browser_summary_off">Uygulama içi tarayıcıda bağlantılar açılıyor</string>
   </patch>
   <patch id="misc.privacy.removeTrackingQueryParameterPatch">
   <string name="revanced_remove_tracking_query_parameter_title">İzleyici sorgu parametresini kaldır</string>

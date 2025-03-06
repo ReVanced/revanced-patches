@@ -404,7 +404,7 @@ Questa funzione è disponibile solo per i dispositivi più vecchi"</string>
   <string name="revanced_hide_self_sponsor_ads_title">Nascondi le schede autopromozionali</string>
   <string name="revanced_hide_self_sponsor_ads_summary_on">Le schede autopromozionali sono nascoste</string>
   <string name="revanced_hide_self_sponsor_ads_summary_off">Le schede autopromozionali sono visibili</string>
-  <string name="revanced_hide_products_banner_title">Nascondi banner per visualizzare i prodotti</string>
+  <string name="revanced_hide_products_banner_title">Nascondi il banner \"Visualizza prodotti\"</string>
   <string name="revanced_hide_products_banner_summary_on">Il banner è nascosto</string>
   <string name="revanced_hide_products_banner_summary_off">Il banner è visibile</string>
   <string name="revanced_hide_end_screen_store_banner_title">Nascondi banner del negozio della schermata finale</string>
@@ -663,7 +663,7 @@ Se la modifica di questa impostazione non ha effetto, prova a passare alla modal
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_off">Il piè di pagina del menu di qualità video è visibile</string>
   </patch>
   <patch id="layout.buttons.overlay.hidePlayerOverlayButtonsPatch">
-  <string name="revanced_hide_player_previous_next_buttons_title">Nascondi i pulsanti video precedenti &amp; successivi</string>
+  <string name="revanced_hide_player_previous_next_buttons_title">Nascondi i pulsanti Precedente e Successivo</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_on">I pulsanti sono nascosti</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">I pulsanti sono visibili</string>
   <string name="revanced_hide_cast_button_title">Nascondi il pulsante Trasmetti</string>
@@ -1194,7 +1194,7 @@ Se in seguito verrà disattivato, si consiglia di cancellare i dati dell'app per
   </patch>
   <patch id="layout.miniplayer.miniplayerPatch">
   <string name="revanced_miniplayer_screen_title">Miniplayer</string>
-  <string name="revanced_miniplayer_screen_summary">Cambia lo stile del miniplayer nell\'app</string>
+  <string name="revanced_miniplayer_screen_summary">Modifica lo stile del player minimizzato in-app</string>
   <string name="revanced_miniplayer_type_title">Tipo di Miniplayer</string>
   <string name="revanced_miniplayer_type_entry_0">Disattivato</string>
   <string name="revanced_miniplayer_type_entry_1">Predefinito</string>
@@ -1340,8 +1340,8 @@ Abilitare questa opzione può sbloccare qualità video più elevate"</string>
   </patch>
   <patch id="misc.links.openLinksExternallyPatch">
   <string name="revanced_external_browser_title">Apri link nel browser</string>
-  <string name="revanced_external_browser_summary_on">Apertura dei link esternamente</string>
-  <string name="revanced_external_browser_summary_off">Apertura dei link nell\'app</string>
+  <string name="revanced_external_browser_summary_on">Apertura dei link nel browser esterno</string>
+  <string name="revanced_external_browser_summary_off">Apertura dei link nel browser in-app</string>
   </patch>
   <patch id="misc.privacy.removeTrackingQueryParameterPatch">
   <string name="revanced_remove_tracking_query_parameter_title">Rimuovi il parametro di tracciamento della query</string>

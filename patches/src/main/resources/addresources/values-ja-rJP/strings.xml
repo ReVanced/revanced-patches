@@ -327,7 +327,7 @@ GmsCore の電池の最適化を無効にしても、バッテリーの使用に
   <string name="revanced_hide_comments_create_a_short_button_title">「ショートを作成」ボタンを非表示</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_on">「ショートを作成」ボタンは表示されません</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_off">「ショートを作成」ボタンは表示されます</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_title">絵文字 / タイムスタンプ ボタンを非表示</string>
+  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_title">絵文字ボタンとタイムスタンプ ボタンを非表示</string>
   <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_on">絵文字ボタンとタイムスタンプ ボタンは表示されません</string>
   <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_off">絵文字ボタンとタイムスタンプ ボタンは表示されます</string>
   <string name="revanced_hide_comments_preview_comment_title">コメントのプレビューを非表示</string>
@@ -406,7 +406,7 @@ GmsCore の電池の最適化を無効にしても、バッテリーの使用に
   <string name="revanced_hide_self_sponsor_ads_title">自己スポンサーカードを非表示</string>
   <string name="revanced_hide_self_sponsor_ads_summary_on">自己スポンサーカードは表示されません</string>
   <string name="revanced_hide_self_sponsor_ads_summary_off">自己スポンサーカードは表示されます</string>
-  <string name="revanced_hide_products_banner_title">動画上の「商品を表示」ボタンを非表示</string>
+  <string name="revanced_hide_products_banner_title">「商品を表示」ボタンを非表示</string>
   <string name="revanced_hide_products_banner_summary_on">動画上に「商品を表示」ボタンや商品ボタンは表示されません</string>
   <string name="revanced_hide_products_banner_summary_off">動画上に「商品を表示」ボタンや商品ボタンが表示されます</string>
   <string name="revanced_hide_end_screen_store_banner_title">終了画面のストア バナーを非表示</string>
@@ -529,12 +529,12 @@ GmsCore の電池の最適化を無効にしても、バッテリーの使用に
   <patch id="layout.buttons.action.hideButtonsPatch">
   <string name="revanced_hide_buttons_screen_title">アクション ボタン</string>
   <string name="revanced_hide_buttons_screen_summary">プレーヤー画面下のボタンを編集します</string>
-  <string name="revanced_disable_like_subscribe_glow_title">高評価 / チャンネル登録ボタンのエフェクトを無効にする</string>
+  <string name="revanced_disable_like_subscribe_glow_title">高評価とチャンネル登録のエフェクトを無効にする</string>
   <string name="revanced_disable_like_subscribe_glow_summary_on">高評価ボタンとチャンネル登録ボタンのエフェクトは無効です</string>
   <string name="revanced_disable_like_subscribe_glow_summary_off">高評価ボタンとチャンネル登録ボタンのエフェクトは有効です</string>
-  <string name="revanced_hide_like_dislike_button_title">高評価 / 低評価ボタンを非表示</string>
-  <string name="revanced_hide_like_dislike_button_summary_on">高評価 / 低評価ボタンは表示されません</string>
-  <string name="revanced_hide_like_dislike_button_summary_off">高評価 / 低評価ボタンは表示されます</string>
+  <string name="revanced_hide_like_dislike_button_title">高評価ボタンと低評価ボタンを非表示</string>
+  <string name="revanced_hide_like_dislike_button_summary_on">高評価ボタンと低評価ボタンは表示されません</string>
+  <string name="revanced_hide_like_dislike_button_summary_off">高評価ボタンと低評価ボタンは表示されます</string>
   <!-- 'Share' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_share_button_title">共有ボタンを非表示</string>
   <string name="revanced_hide_share_button_summary_on">共有ボタンは表示されません</string>
@@ -1343,8 +1343,8 @@ DeArrow の詳細については、ここをタップしてください"</string
   </patch>
   <patch id="misc.links.openLinksExternallyPatch">
   <string name="revanced_external_browser_title">リンクをブラウザで開く</string>
-  <string name="revanced_external_browser_summary_on">リンクをブラウザで開きます</string>
-  <string name="revanced_external_browser_summary_off">リンクをアプリ内で開きます</string>
+  <string name="revanced_external_browser_summary_on">外部ブラウザでリンクを開きます</string>
+  <string name="revanced_external_browser_summary_off">アプリ内ブラウザでリンクを開きます</string>
   </patch>
   <patch id="misc.privacy.removeTrackingQueryParameterPatch">
   <string name="revanced_remove_tracking_query_parameter_title">追跡パラメータをリンクから削除する</string>

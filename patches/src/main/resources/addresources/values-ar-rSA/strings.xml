@@ -404,7 +404,7 @@ Second \"item\" text"</string>
   <string name="revanced_hide_self_sponsor_ads_title">إخفاء بطاقات الرعاية الذاتية</string>
   <string name="revanced_hide_self_sponsor_ads_summary_on">تم إخفاء بطاقات الرعاية الذاتية</string>
   <string name="revanced_hide_self_sponsor_ads_summary_off">يتم عرض بطاقات الرعاية الذاتية</string>
-  <string name="revanced_hide_products_banner_title">إخفاء لافتة لعرض المنتجات</string>
+  <string name="revanced_hide_products_banner_title">إخفاء لافتة \"عرض المنتجات\"</string>
   <string name="revanced_hide_products_banner_summary_on">تم إخفاء البانر</string>
   <string name="revanced_hide_products_banner_summary_off">يتم عرض البانر</string>
   <string name="revanced_hide_end_screen_store_banner_title">إخفاء لافتة شاشة المتجر النهائية</string>
@@ -663,7 +663,7 @@ Second \"item\" text"</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_off">يتم عرض تذييل قائمة جودة الفيديو</string>
   </patch>
   <patch id="layout.buttons.overlay.hidePlayerOverlayButtonsPatch">
-  <string name="revanced_hide_player_previous_next_buttons_title">إخفاء أزرار الفيديو السابق &amp; التالي</string>
+  <string name="revanced_hide_player_previous_next_buttons_title">إخفاء زري \"السابق\" و \"التالي\"</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_on">تم إخفاء الأزرار</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">يتم عرض الأزرار</string>
   <string name="revanced_hide_cast_button_title">إخفاء زر البث</string>
@@ -1341,8 +1341,8 @@ Second \"item\" text"</string>
   </patch>
   <patch id="misc.links.openLinksExternallyPatch">
   <string name="revanced_external_browser_title">فتح الروابط في المتصفح</string>
-  <string name="revanced_external_browser_summary_on">فتح الروابط خارجيًا</string>
-  <string name="revanced_external_browser_summary_off">فتح الروابط في التطبيق</string>
+  <string name="revanced_external_browser_summary_on">فتح الروابط في متصفح خارجي</string>
+  <string name="revanced_external_browser_summary_off">فتح الروابط في متصفح داخل التطبيق</string>
   </patch>
   <patch id="misc.privacy.removeTrackingQueryParameterPatch">
   <string name="revanced_remove_tracking_query_parameter_title">إزالة معلمة تتبع الاستعلام</string>
