@@ -1245,8 +1245,6 @@ Desliza para ampliar o cerrar"</string>
   <string name="revanced_gradient_loading_screen_title">Habilita la pantalla de càrrega amb degradació</string>
   <string name="revanced_gradient_loading_screen_summary_on">La pantalla de càrrega tindrà un fons de degradació</string>
   <string name="revanced_gradient_loading_screen_summary_off">La pantalla de càrrega tindrà un fons sòlid</string>
-  </patch>
-  <patch id="layout.theme.themeResourcePatch">
   <string name="revanced_seekbar_custom_color_title">Habilita el color personalitzat de la barra de cerca</string>
   <string name="revanced_seekbar_custom_color_summary_on">El color personalitzat de la barra de cerca es mostra</string>
   <string name="revanced_seekbar_custom_color_summary_off">El color original de la barra de cerca es mostra</string>
@@ -1360,7 +1358,6 @@ Si actives aquesta opció, es poden desbloquejar qualitats de vídeo més altes"
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
-  <string name="revanced_video_quality_screen_title">Qualitat de vídeo</string>
   <string name="revanced_video_quality_default_entry_1">Automàtic</string>
   <string name="revanced_remember_video_quality_last_selected_title">Recorda els canvis de qualitat de vídeo</string>
   <string name="revanced_remember_video_quality_last_selected_summary_on">Els canvis de qualitat s\'apliquen a tots els vídeos</string>
@@ -1368,8 +1365,8 @@ Si actives aquesta opció, es poden desbloquejar qualitats de vídeo més altes"
   <string name="revanced_video_quality_default_wifi_title">Qualitat de vídeo predeterminada a la xarxa Wi-Fi</string>
   <string name="revanced_video_quality_default_mobile_title">Qualitat de vídeo predeterminada a la xarxa mòbil</string>
   <string name="revanced_remember_shorts_quality_last_selected_title">Recorda els canvis de qualitat de Shorts</string>
-  <string name="revanced_remember_shorts_quality_last_selected_summary_on">Els canvis de qualitat s\'apliquen a tots els vídeos de Shorts</string>
-  <string name="revanced_remember_shorts_quality_last_selected_summary_off">Els canvis de qualitat només s\'apliquen al vídeo actual de Shorts</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_on">Els canvis de qualitat s\'apliquen a tots els Shorts</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_off">Els canvis de qualitat només s\'apliquen al Short actual</string>
   <string name="revanced_shorts_quality_default_wifi_title">Qualitat predeterminada de Shorts a la xarxa Wi-Fi</string>
   <string name="revanced_shorts_quality_default_mobile_title">Qualitat predeterminada de Shorts a la xarxa mòbil</string>
   <string name="revanced_remember_video_quality_mobile">mòbil</string>
@@ -1406,10 +1403,10 @@ Si actives aquesta opció, es poden desbloquejar qualitats de vídeo més altes"
   <string name="revanced_disable_hdr_video_summary_on">El vídeo HDR està desactivat</string>
   <string name="revanced_disable_hdr_video_summary_off">El vídeo HDR està activat</string>
   </patch>
-  <patch id="video.videoqualitymenu.restoreOldVideoQualityMenuResourcePatch">
-  <string name="revanced_restore_old_video_quality_menu_title">Restaura el menú de qualitat de vídeo antic</string>
-  <string name="revanced_restore_old_video_quality_menu_summary_on">El menú de qualitat de vídeo antic es mostra</string>
-  <string name="revanced_restore_old_video_quality_menu_summary_off">El menú de qualitat de vídeo antic no es mostra</string>
+  <patch id="video.quality.advancedVideoQualityMenuPatch">
+  <string name="revanced_advanced_video_quality_menu_title">Mostra el menú avançat de qualitat de vídeo</string>
+  <string name="revanced_advanced_video_quality_menu_summary_on">Es mostra el menú avançat de qualitat de vídeo</string>
+  <string name="revanced_advanced_video_quality_menu_summary_off">No es mostra el menú avançat de qualitat de vídeo</string>
   </patch>
   <patch id="interaction.seekbar.enableSlideToSeekPatch">
   <string name="revanced_slide_to_seek_title">Habilita lliscar per buscar</string>

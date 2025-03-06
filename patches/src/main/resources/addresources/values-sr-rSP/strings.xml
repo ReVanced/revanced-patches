@@ -1245,8 +1245,6 @@ Second \"item\" text"</string>
   <string name="revanced_gradient_loading_screen_title">Омогући градијентну позадину екрана учитавања</string>
   <string name="revanced_gradient_loading_screen_summary_on">Екран учитавања ће имати градијентну позадину</string>
   <string name="revanced_gradient_loading_screen_summary_off">Екран учитавања ће имати обичну позадину</string>
-  </patch>
-  <patch id="layout.theme.themeResourcePatch">
   <string name="revanced_seekbar_custom_color_title">Омогући прилагођену боју траке за премотавање</string>
   <string name="revanced_seekbar_custom_color_summary_on">Прилагођена боја траке за премотавање је приказана</string>
   <string name="revanced_seekbar_custom_color_summary_off">Оригинална боја траке за премотавање је приказана</string>
@@ -1360,7 +1358,6 @@ Second \"item\" text"</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
-  <string name="revanced_video_quality_screen_title">Kvalitet video snimka</string>
   <string name="revanced_video_quality_default_entry_1">Аутоматски</string>
   <string name="revanced_remember_video_quality_last_selected_title">Запамти промене квалитета видеа</string>
   <string name="revanced_remember_video_quality_last_selected_summary_on">Промене квалитета се примењују на све видее</string>
@@ -1368,8 +1365,8 @@ Second \"item\" text"</string>
   <string name="revanced_video_quality_default_wifi_title">Подразумевани квалитет видеа на Wi-Fi мрежи</string>
   <string name="revanced_video_quality_default_mobile_title">Подразумевани квалитет видеа на мобилној мрежи</string>
   <string name="revanced_remember_shorts_quality_last_selected_title">Zapamti promene kvaliteta za Shorts</string>
-  <string name="revanced_remember_shorts_quality_last_selected_summary_on">Promene kvaliteta se primenjuju na sve Shorts video snimke</string>
-  <string name="revanced_remember_shorts_quality_last_selected_summary_off">Promene kvaliteta se primenjuju samo na trenutni Shorts video snimak</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_on">Промене квалитета се примењују на све Shorts</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_off">Промене квалитета се примењују само на тренутни Short</string>
   <string name="revanced_shorts_quality_default_wifi_title">Podrazumevani kvalitet za Shorts na Wi-Fi mreži</string>
   <string name="revanced_shorts_quality_default_mobile_title">Podrazumevani kvalitet za Shorts na mobilnoj mreži</string>
   <string name="revanced_remember_video_quality_mobile">мобилној мрежи</string>
@@ -1406,10 +1403,10 @@ Second \"item\" text"</string>
   <string name="revanced_disable_hdr_video_summary_on">HDR видео је онемогућен</string>
   <string name="revanced_disable_hdr_video_summary_off">HDR видео је омогућен</string>
   </patch>
-  <patch id="video.videoqualitymenu.restoreOldVideoQualityMenuResourcePatch">
-  <string name="revanced_restore_old_video_quality_menu_title">Врати стари мени квалитета видеа</string>
-  <string name="revanced_restore_old_video_quality_menu_summary_on">Стари мени квалитета видеа је приказан</string>
-  <string name="revanced_restore_old_video_quality_menu_summary_off">Стари мени квалитета видеа није приказан</string>
+  <patch id="video.quality.advancedVideoQualityMenuPatch">
+  <string name="revanced_advanced_video_quality_menu_title">Прикажи напредни мени квалитета видеа</string>
+  <string name="revanced_advanced_video_quality_menu_summary_on">Приказан је напредни мени квалитета видеа</string>
+  <string name="revanced_advanced_video_quality_menu_summary_off">Напредни мени квалитета видеа није приказан</string>
   </patch>
   <patch id="interaction.seekbar.enableSlideToSeekPatch">
   <string name="revanced_slide_to_seek_title">Омогући превлачење за премотавање</string>

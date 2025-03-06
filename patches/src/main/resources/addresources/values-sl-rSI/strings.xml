@@ -1245,8 +1245,6 @@ Podrsnite za razširitev ali zapiranje"</string>
   <string name="revanced_gradient_loading_screen_title">Omogoči zaslon za nalaganje z gradientom</string>
   <string name="revanced_gradient_loading_screen_summary_on">Zaslon za nalaganje bo imel ozadje z gradientom</string>
   <string name="revanced_gradient_loading_screen_summary_off">Zaslon za nalaganje bo imel enobarvno ozadje</string>
-  </patch>
-  <patch id="layout.theme.themeResourcePatch">
   <string name="revanced_seekbar_custom_color_title">Omogoči prilagojeno barvo drsnika</string>
   <string name="revanced_seekbar_custom_color_summary_on">Prilagojena barva drsnika je prikazana</string>
   <string name="revanced_seekbar_custom_color_summary_off">Izvorna barva drsnika je prikazana</string>
@@ -1360,7 +1358,6 @@ Omogočanje tega lahko odklene višje kakovosti videa"</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
-  <string name="revanced_video_quality_screen_title">Kakovost videoposnetka</string>
   <string name="revanced_video_quality_default_entry_1">Samodejno</string>
   <string name="revanced_remember_video_quality_last_selected_title">Zapomni si spremembe kakovosti videoposnetka</string>
   <string name="revanced_remember_video_quality_last_selected_summary_on">Spremembe kakovosti se uporabijo za vse videoposnetke</string>
@@ -1368,8 +1365,8 @@ Omogočanje tega lahko odklene višje kakovosti videa"</string>
   <string name="revanced_video_quality_default_wifi_title">Privzeta kakovost videoposnetka v omrežju Wi-Fi</string>
   <string name="revanced_video_quality_default_mobile_title">Privzeta kakovost videoposnetka v mobilnem omrežju</string>
   <string name="revanced_remember_shorts_quality_last_selected_title">Zapomni si spremembe kakovosti za Shorts</string>
-  <string name="revanced_remember_shorts_quality_last_selected_summary_on">Spremembe kakovosti se uporabljajo za vse videoposnetke Shorts</string>
-  <string name="revanced_remember_shorts_quality_last_selected_summary_off">Spremembe kakovosti se uporabljajo samo za trenutni videoposnetek Shorts</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_on">Spremembe kakovosti veljajo za vse Shorts</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_off">Spremembe kakovosti veljajo samo za trenutni Short</string>
   <string name="revanced_shorts_quality_default_wifi_title">Privzeta kakovost za Shorts v omrežju Wi-Fi</string>
   <string name="revanced_shorts_quality_default_mobile_title">Privzeta kakovost za Shorts v mobilnem omrežju</string>
   <string name="revanced_remember_video_quality_mobile">mobilni</string>
@@ -1406,10 +1403,10 @@ Omogočanje tega lahko odklene višje kakovosti videa"</string>
   <string name="revanced_disable_hdr_video_summary_on">HDR video je onemogočen</string>
   <string name="revanced_disable_hdr_video_summary_off">HDR video je omogočen</string>
   </patch>
-  <patch id="video.videoqualitymenu.restoreOldVideoQualityMenuResourcePatch">
-  <string name="revanced_restore_old_video_quality_menu_title">Obnovi stari meni za kakovost videoposnetkov</string>
-  <string name="revanced_restore_old_video_quality_menu_summary_on">Stari meni za kakovost videoposnetkov je prikazan</string>
-  <string name="revanced_restore_old_video_quality_menu_summary_off">Stari meni za kakovost videoposnetkov ni prikazan</string>
+  <patch id="video.quality.advancedVideoQualityMenuPatch">
+  <string name="revanced_advanced_video_quality_menu_title">Pokaži napredni meni za kakovost videoposnetkov</string>
+  <string name="revanced_advanced_video_quality_menu_summary_on">Napredni meni za kakovost videoposnetkov je prikazan</string>
+  <string name="revanced_advanced_video_quality_menu_summary_off">Napredni meni za kakovost videoposnetkov ni prikazan</string>
   </patch>
   <patch id="interaction.seekbar.enableSlideToSeekPatch">
   <string name="revanced_slide_to_seek_title">Omogoči drsno iskanje</string>

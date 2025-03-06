@@ -1189,8 +1189,6 @@ Stryg for at udvide eller lukke"</string>
   <string name="revanced_gradient_loading_screen_title">Aktiver gradient indlæsning af skærmen</string>
   <string name="revanced_gradient_loading_screen_summary_on">Indlæser skærmen vil have en gradient baggrund</string>
   <string name="revanced_gradient_loading_screen_summary_off">Indlæser skærmen vil have en solid baggrund</string>
-  </patch>
-  <patch id="layout.theme.themeResourcePatch">
   <string name="revanced_seekbar_custom_color_title">Aktivér brugerdefineret søgelinjefarve</string>
   <string name="revanced_seekbar_custom_color_summary_on">Brugerdefineret søgelinje farve vises</string>
   <string name="revanced_seekbar_custom_color_summary_off">Original søgelinje farve vises</string>
@@ -1300,7 +1298,6 @@ Aktivering af dette kan låse op for højere videokvalitet"</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
-  <string name="revanced_video_quality_screen_title">Videokvalitet</string>
   <string name="revanced_video_quality_default_entry_1">Automatisk</string>
   <string name="revanced_remember_video_quality_last_selected_title">Husk ændringer i videokvalitet</string>
   <string name="revanced_remember_video_quality_last_selected_summary_on">Kvalitetsændringer gælder for alle videoer</string>
@@ -1308,8 +1305,8 @@ Aktivering af dette kan låse op for højere videokvalitet"</string>
   <string name="revanced_video_quality_default_wifi_title">Standard videokvalitet på Wi-Fi-netværk</string>
   <string name="revanced_video_quality_default_mobile_title">Standard videokvalitet på mobilnetværk</string>
   <string name="revanced_remember_shorts_quality_last_selected_title">Husk kvalitetsændringer for Shorts</string>
-  <string name="revanced_remember_shorts_quality_last_selected_summary_on">Kvalitetsændringer gælder for alle Shorts-videoer</string>
-  <string name="revanced_remember_shorts_quality_last_selected_summary_off">Kvalitetsændringer gælder kun for den aktuelle Shorts-video</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_on">Kvalitetsændringer gælder for alle Shorts</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_off">Kvalitetsændringer gælder kun for den aktuelle Short</string>
   <string name="revanced_shorts_quality_default_wifi_title">Standard Shorts-kvalitet på Wi-Fi-netværk</string>
   <string name="revanced_shorts_quality_default_mobile_title">Standard Shorts-kvalitet på mobilnetværk</string>
   <string name="revanced_remember_video_quality_mobile">mobil</string>
@@ -1346,10 +1343,10 @@ Aktivering af dette kan låse op for højere videokvalitet"</string>
   <string name="revanced_disable_hdr_video_summary_on">HDR-video er deaktiveret</string>
   <string name="revanced_disable_hdr_video_summary_off">HDR-video er aktiveret</string>
   </patch>
-  <patch id="video.videoqualitymenu.restoreOldVideoQualityMenuResourcePatch">
-  <string name="revanced_restore_old_video_quality_menu_title">Gendan gamle video kvalitet menu</string>
-  <string name="revanced_restore_old_video_quality_menu_summary_on">Gammel videokvalitetsmenu vises</string>
-  <string name="revanced_restore_old_video_quality_menu_summary_off">Gammel videokvalitetsmenu vises ikke</string>
+  <patch id="video.quality.advancedVideoQualityMenuPatch">
+  <string name="revanced_advanced_video_quality_menu_title">Vis avanceret menu for videokvalitet</string>
+  <string name="revanced_advanced_video_quality_menu_summary_on">Avanceret menu for videokvalitet vises</string>
+  <string name="revanced_advanced_video_quality_menu_summary_off">Avanceret menu for videokvalitet vises ikke</string>
   </patch>
   <patch id="interaction.seekbar.enableSlideToSeekPatch">
   <string name="revanced_slide_to_seek_title">Aktivér dias for at søge</string>

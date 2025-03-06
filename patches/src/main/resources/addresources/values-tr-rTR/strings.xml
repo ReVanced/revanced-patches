@@ -1246,8 +1246,6 @@ Genişletmek veya kapatmak için kaydırın"</string>
   <string name="revanced_gradient_loading_screen_title">Gradyan yükleme ekranını etkinleştir</string>
   <string name="revanced_gradient_loading_screen_summary_on">Yükleme ekranı gradyan bir arka plana sahip olacak</string>
   <string name="revanced_gradient_loading_screen_summary_off">Yükleme ekranı tek renk bir arka plana sahip olacak</string>
-  </patch>
-  <patch id="layout.theme.themeResourcePatch">
   <string name="revanced_seekbar_custom_color_title">Özel zaman çubuğu rengini etkinleştir</string>
   <string name="revanced_seekbar_custom_color_summary_on">Özel zaman çubuğu rengi gösterilir</string>
   <string name="revanced_seekbar_custom_color_summary_off">Orijinal zaman çubuğu rengi gösterilir</string>
@@ -1361,7 +1359,6 @@ Bunu etkinleştirmek daha yüksek video kalitelerini açabilir"</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
-  <string name="revanced_video_quality_screen_title">Video kalitesi</string>
   <string name="revanced_video_quality_default_entry_1">Oto</string>
   <string name="revanced_remember_video_quality_last_selected_title">Video kalitesi değişikliklerini hatırla</string>
   <string name="revanced_remember_video_quality_last_selected_summary_on">Kalite değişiklikleri tüm videolara uygulanır</string>
@@ -1369,8 +1366,8 @@ Bunu etkinleştirmek daha yüksek video kalitelerini açabilir"</string>
   <string name="revanced_video_quality_default_wifi_title">Wi-Fi ağındaki varsayılan video kalitesi</string>
   <string name="revanced_video_quality_default_mobile_title">Mobil ağdaki varsayılan video kalitesi</string>
   <string name="revanced_remember_shorts_quality_last_selected_title">Shorts kalitesi değişikliklerini hatırla</string>
-  <string name="revanced_remember_shorts_quality_last_selected_summary_on">Kalite değişiklikleri tüm Shorts videolarına uygulanır</string>
-  <string name="revanced_remember_shorts_quality_last_selected_summary_off">Kalite değişiklikleri sadece oynatılan Shorts videosuna uygulanır</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_on">Kalite değişiklikleri tüm Shorts\'lara uygulanır</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_off">Kalite değişiklikleri sadece oynatılan Short\'a uygulanır</string>
   <string name="revanced_shorts_quality_default_wifi_title">Wi-Fi ağındaki varsayılan Shorts kalitesi</string>
   <string name="revanced_shorts_quality_default_mobile_title">Mobil ağdaki varsayılan Shorts kalitesi</string>
   <string name="revanced_remember_video_quality_mobile">mobil ağ</string>
@@ -1407,10 +1404,10 @@ Bunu etkinleştirmek daha yüksek video kalitelerini açabilir"</string>
   <string name="revanced_disable_hdr_video_summary_on">HDR video devre dışı</string>
   <string name="revanced_disable_hdr_video_summary_off">HDR video etkin</string>
   </patch>
-  <patch id="video.videoqualitymenu.restoreOldVideoQualityMenuResourcePatch">
-  <string name="revanced_restore_old_video_quality_menu_title">Eski video kalite menüsünü geri getir</string>
-  <string name="revanced_restore_old_video_quality_menu_summary_on">Eski video kalite menüsü gösterilir</string>
-  <string name="revanced_restore_old_video_quality_menu_summary_off">Eski video kalite menüsü gösterilmez</string>
+  <patch id="video.quality.advancedVideoQualityMenuPatch">
+  <string name="revanced_advanced_video_quality_menu_title">Gelişmiş video kalitesi menüsünü göster</string>
+  <string name="revanced_advanced_video_quality_menu_summary_on">Gelişmiş video kalitesi menüsü gösterilir</string>
+  <string name="revanced_advanced_video_quality_menu_summary_off">Gelişmiş video kalitesi menüsü gösterilmez</string>
   </patch>
   <patch id="interaction.seekbar.enableSlideToSeekPatch">
   <string name="revanced_slide_to_seek_title">Kaydırarak sardırmayı etkinleştir</string>

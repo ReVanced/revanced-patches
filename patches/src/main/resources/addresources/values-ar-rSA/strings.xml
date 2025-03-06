@@ -1246,8 +1246,6 @@ Second \"item\" text"</string>
   <string name="revanced_gradient_loading_screen_title">تمكين شاشة التحميل المتدرجة</string>
   <string name="revanced_gradient_loading_screen_summary_on">ستحتوي شاشة التحميل على خلفية متدرجة</string>
   <string name="revanced_gradient_loading_screen_summary_off">ستحتوي شاشة التحميل على خلفية ثابتة</string>
-  </patch>
-  <patch id="layout.theme.themeResourcePatch">
   <string name="revanced_seekbar_custom_color_title">تمكين لون شريط تقدم الفيديو المخصص</string>
   <string name="revanced_seekbar_custom_color_summary_on">يتم عرض لون شريط تقدم الفيديو المخصص</string>
   <string name="revanced_seekbar_custom_color_summary_off">يتم عرض لون شريط تقدم الفيديو الاصلي</string>
@@ -1353,6 +1351,7 @@ Second \"item\" text"</string>
   <string name="revanced_disable_zoom_haptics_summary_off">تم تمكين الاهتزاز</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
+  <string name="revanced_force_original_audio_title">فرض لغة الصوت الأصلية</string>
   <string name="revanced_force_original_audio_summary_on">استخدام لغة الصوت الأصلية</string>
   <string name="revanced_force_original_audio_summary_off">استخدام الصوت الافتراضي</string>
   <!-- 'Spoof video streams' should be the same translation used for revanced_spoof_video_streams_screen_title -->
@@ -1360,7 +1359,6 @@ Second \"item\" text"</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
-  <string name="revanced_video_quality_screen_title">جودة الفيديو</string>
   <string name="revanced_video_quality_default_entry_1">تلقائي</string>
   <string name="revanced_remember_video_quality_last_selected_title">تذكر تغييرات جودة الفيديو</string>
   <string name="revanced_remember_video_quality_last_selected_summary_on">تنطبق تغييرات الجودة على جميع الفيديوهات</string>
@@ -1368,8 +1366,8 @@ Second \"item\" text"</string>
   <string name="revanced_video_quality_default_wifi_title">جودة الفيديو الافتراضية على شبكة Wi-Fi</string>
   <string name="revanced_video_quality_default_mobile_title">جودة الفيديو الافتراضية على شبكة الجوَّال</string>
   <string name="revanced_remember_shorts_quality_last_selected_title">تذكر تغييرات جودة Shorts</string>
-  <string name="revanced_remember_shorts_quality_last_selected_summary_on">تطبق تغييرات الجودة على جميع فيديوهات Shorts</string>
-  <string name="revanced_remember_shorts_quality_last_selected_summary_off">تطبق تغييرات الجودة على فيديو Shorts الحالي فقط</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_on">تنطبق تغييرات الجودة على جميع فيديوهات Shorts</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_off">تنطبق تغييرات الجودة فقط على فيديو Short الحالي</string>
   <string name="revanced_shorts_quality_default_wifi_title">جودة Shorts الافتراضية على شبكة Wi-Fi</string>
   <string name="revanced_shorts_quality_default_mobile_title">جودة Shorts الافتراضية على شبكة الجوال</string>
   <string name="revanced_remember_video_quality_mobile">الجوّال</string>
@@ -1406,10 +1404,10 @@ Second \"item\" text"</string>
   <string name="revanced_disable_hdr_video_summary_on">تم تعطيل فيديو HDR</string>
   <string name="revanced_disable_hdr_video_summary_off">تم تمكين فيديو HDR</string>
   </patch>
-  <patch id="video.videoqualitymenu.restoreOldVideoQualityMenuResourcePatch">
-  <string name="revanced_restore_old_video_quality_menu_title">استعادة قائمة جودة الفيديو القديمة</string>
-  <string name="revanced_restore_old_video_quality_menu_summary_on">يتم عرض قائمة جودة الفيديو القديمة</string>
-  <string name="revanced_restore_old_video_quality_menu_summary_off">لا يتم عرض قائمة جودة الفيديو القديمة</string>
+  <patch id="video.quality.advancedVideoQualityMenuPatch">
+  <string name="revanced_advanced_video_quality_menu_title">إظهار قائمة جودة الفيديو المتقدمة</string>
+  <string name="revanced_advanced_video_quality_menu_summary_on">يتم عرض قائمة جودة الفيديو المتقدمة</string>
+  <string name="revanced_advanced_video_quality_menu_summary_off">لا يتم عرض قائمة جودة الفيديو المتقدمة</string>
   </patch>
   <patch id="interaction.seekbar.enableSlideToSeekPatch">
   <string name="revanced_slide_to_seek_title">تمكين التمرير للتقديم أو الترجيع</string>

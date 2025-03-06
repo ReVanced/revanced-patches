@@ -1245,8 +1245,6 @@ Přejeďte prstem pro rozbalení nebo zavření"</string>
   <string name="revanced_gradient_loading_screen_title">Povolit přechodovou obrazovku načítání</string>
   <string name="revanced_gradient_loading_screen_summary_on">Obrazovka načítání bude mít přechodové pozadí</string>
   <string name="revanced_gradient_loading_screen_summary_off">Obrazovka načítání bude mít pevné pozadí</string>
-  </patch>
-  <patch id="layout.theme.themeResourcePatch">
   <string name="revanced_seekbar_custom_color_title">Povolit vlastní barvu posuvníku</string>
   <string name="revanced_seekbar_custom_color_summary_on">Vlasní barva posuvníku je zobrazena</string>
   <string name="revanced_seekbar_custom_color_summary_off">Původní barva posuvníku je zobrazena</string>
@@ -1360,7 +1358,6 @@ Povolením této funkce lze odemknout vyšší kvality videa"</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
-  <string name="revanced_video_quality_screen_title">Kvalita videa</string>
   <string name="revanced_video_quality_default_entry_1">Automaticky</string>
   <string name="revanced_remember_video_quality_last_selected_title">Pamatovat si změny kvality videa</string>
   <string name="revanced_remember_video_quality_last_selected_summary_on">Změny kvality se vztahují na všechna videa</string>
@@ -1368,8 +1365,8 @@ Povolením této funkce lze odemknout vyšší kvality videa"</string>
   <string name="revanced_video_quality_default_wifi_title">Výchozí kvalita videa v síti Wi-Fi</string>
   <string name="revanced_video_quality_default_mobile_title">Výchozí kvalita videa v mobilní síti</string>
   <string name="revanced_remember_shorts_quality_last_selected_title">Zapamatovat si změny kvality u položky Shorts</string>
-  <string name="revanced_remember_shorts_quality_last_selected_summary_on">Změny kvality se použijí u všech videí Shorts</string>
-  <string name="revanced_remember_shorts_quality_last_selected_summary_off">Změny kvality se vztahují pouze na aktuální video Shorts</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_on">Změny kvality se vztahují na všechny {Shorts}</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_off">Změny kvality se vztahují pouze na aktuální {Shorts}</string>
   <string name="revanced_shorts_quality_default_wifi_title">Výchozí kvalita Shorts v síti Wi-Fi</string>
   <string name="revanced_shorts_quality_default_mobile_title">Výchozí kvalita Shorts v mobilní síti</string>
   <string name="revanced_remember_video_quality_mobile">mobilní</string>
@@ -1406,10 +1403,10 @@ Povolením této funkce lze odemknout vyšší kvality videa"</string>
   <string name="revanced_disable_hdr_video_summary_on">HDR video je vypnuté.</string>
   <string name="revanced_disable_hdr_video_summary_off">HDR video je zapnuté.</string>
   </patch>
-  <patch id="video.videoqualitymenu.restoreOldVideoQualityMenuResourcePatch">
-  <string name="revanced_restore_old_video_quality_menu_title">Obnovit staré menu kvality videa</string>
-  <string name="revanced_restore_old_video_quality_menu_summary_on">Staré menu kvality videa se zobrazuje</string>
-  <string name="revanced_restore_old_video_quality_menu_summary_off">Staré menu kvality videa se nezobrazuje</string>
+  <patch id="video.quality.advancedVideoQualityMenuPatch">
+  <string name="revanced_advanced_video_quality_menu_title">Zobrazit rozšířené menu kvality videa</string>
+  <string name="revanced_advanced_video_quality_menu_summary_on">Zobrazuje se rozšířené menu kvality videa</string>
+  <string name="revanced_advanced_video_quality_menu_summary_off">Nezobrazuje se rozšířené menu kvality videa</string>
   </patch>
   <patch id="interaction.seekbar.enableSlideToSeekPatch">
   <string name="revanced_slide_to_seek_title">Povolit posun pro hledání</string>

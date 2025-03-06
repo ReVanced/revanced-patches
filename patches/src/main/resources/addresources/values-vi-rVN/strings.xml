@@ -1245,8 +1245,6 @@ Vuốt để mở rộng hoặc đóng"</string>
   <string name="revanced_gradient_loading_screen_title">Bật màn hình tải màu dốc</string>
   <string name="revanced_gradient_loading_screen_summary_on">Màn hình tải sẽ có một nền màu dốc</string>
   <string name="revanced_gradient_loading_screen_summary_off">Màn hình tải sẽ có một nền màu đặc</string>
-  </patch>
-  <patch id="layout.theme.themeResourcePatch">
   <string name="revanced_seekbar_custom_color_title">Bật màu tùy chỉnh thanh tiến trình</string>
   <string name="revanced_seekbar_custom_color_summary_on">Màu tùy chỉnh thanh tiến trình được hiện </string>
   <string name="revanced_seekbar_custom_color_summary_off">Màu gốc thanh tiến trình được hiện </string>
@@ -1360,7 +1358,6 @@ Bật tính năng này có thể mở khóa chất lượng video cao hơn"</str
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
-  <string name="revanced_video_quality_screen_title">Chất lượng Video</string>
   <string name="revanced_video_quality_default_entry_1">Tự động</string>
   <string name="revanced_remember_video_quality_last_selected_title">Nhớ các thay đổi chất lượng video</string>
   <string name="revanced_remember_video_quality_last_selected_summary_on">Thay đổi chất lượng áp dụng cho tất cả video</string>
@@ -1368,8 +1365,8 @@ Bật tính năng này có thể mở khóa chất lượng video cao hơn"</str
   <string name="revanced_video_quality_default_wifi_title">Chất lượng mặc định trên mạng Wi-Fi</string>
   <string name="revanced_video_quality_default_mobile_title">Chất lượng mặc định trên mạng di động</string>
   <string name="revanced_remember_shorts_quality_last_selected_title">Ghi nhớ các thay đổi chất lượng Shorts</string>
-  <string name="revanced_remember_shorts_quality_last_selected_summary_on">Thay đổi chất lượng áp dụng cho tất cả video Shorts</string>
-  <string name="revanced_remember_shorts_quality_last_selected_summary_off">Thay đổi chất lượng chỉ áp dụng cho video Shorts hiện tại</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_on">Thay đổi chất lượng áp dụng cho tất cả nội dung Shorts</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_off">Thay đổi chất lượng chỉ áp dụng cho Short hiện tại</string>
   <string name="revanced_shorts_quality_default_wifi_title">Chất lượng Shorts mặc định trên mạng Wi-Fi</string>
   <string name="revanced_shorts_quality_default_mobile_title">Chất lượng Shorts mặc định trên mạng di động</string>
   <string name="revanced_remember_video_quality_mobile">di động</string>
@@ -1406,10 +1403,10 @@ Bật tính năng này có thể mở khóa chất lượng video cao hơn"</str
   <string name="revanced_disable_hdr_video_summary_on">Video HDR đã bị tắt</string>
   <string name="revanced_disable_hdr_video_summary_off">Video HDR đã được bật</string>
   </patch>
-  <patch id="video.videoqualitymenu.restoreOldVideoQualityMenuResourcePatch">
-  <string name="revanced_restore_old_video_quality_menu_title">Khôi phục trình đơn chất lượng video kiểu cũ</string>
-  <string name="revanced_restore_old_video_quality_menu_summary_on">Trình đơn chất lượng video kiểu cũ được hiện</string>
-  <string name="revanced_restore_old_video_quality_menu_summary_off">Trình đơn chất lượng video kiểu cũ không được hiện</string>
+  <patch id="video.quality.advancedVideoQualityMenuPatch">
+  <string name="revanced_advanced_video_quality_menu_title">Hiển thị trình đơn chất lượng video nâng cao</string>
+  <string name="revanced_advanced_video_quality_menu_summary_on">Trình đơn chất lượng video nâng cao được hiển thị</string>
+  <string name="revanced_advanced_video_quality_menu_summary_off">Trình đơn chất lượng video nâng cao không được hiển thị</string>
   </patch>
   <patch id="interaction.seekbar.enableSlideToSeekPatch">
   <string name="revanced_slide_to_seek_title">Bật vuốt để tua</string>

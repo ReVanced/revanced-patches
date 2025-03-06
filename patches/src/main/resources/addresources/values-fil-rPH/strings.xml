@@ -1243,8 +1243,6 @@ Mag-swipe upang palawakin o isara"</string>
   <string name="revanced_gradient_loading_screen_title">Paganahin ang gradient loading screen</string>
   <string name="revanced_gradient_loading_screen_summary_on">Ang paglo-load ng screen ay magkakaroon ng gradient na background</string>
   <string name="revanced_gradient_loading_screen_summary_off">Ang paglo-load ng screen ay magkakaroon ng solidong background</string>
-  </patch>
-  <patch id="layout.theme.themeResourcePatch">
   <string name="revanced_seekbar_custom_color_title">Paganahin ang custom na kulay ng seekbar</string>
   <string name="revanced_seekbar_custom_color_summary_on">Ipinapakita ang kulay ng custom na seekbar</string>
   <string name="revanced_seekbar_custom_color_summary_off">Ipinapakita ang orihinal na kulay ng seekbar</string>
@@ -1358,7 +1356,6 @@ Ang pagpapagana nito ay maaaring magbukas ng mas mataas na kalidad ng video"</st
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
-  <string name="revanced_video_quality_screen_title">Kalidad ng Video</string>
   <string name="revanced_video_quality_default_entry_1">Awtomatik</string>
   <string name="revanced_remember_video_quality_last_selected_title">Tandaan ang mga pagbabago sa kalidad ng video</string>
   <string name="revanced_remember_video_quality_last_selected_summary_on">Nalalapat ang mga pagbabago sa kalidad sa lahat ng video</string>
@@ -1366,8 +1363,8 @@ Ang pagpapagana nito ay maaaring magbukas ng mas mataas na kalidad ng video"</st
   <string name="revanced_video_quality_default_wifi_title">Default na kalidad ng video sa Wi-Fi network</string>
   <string name="revanced_video_quality_default_mobile_title">Default na kalidad ng video sa mobile network</string>
   <string name="revanced_remember_shorts_quality_last_selected_title">Tandaan ang mga pagbabago sa kalidad ng Shorts</string>
-  <string name="revanced_remember_shorts_quality_last_selected_summary_on">Nalalapat ang mga pagbabago sa kalidad sa lahat ng mga video ng Shorts</string>
-  <string name="revanced_remember_shorts_quality_last_selected_summary_off">Nalalapat lang ang mga pagbabago sa kalidad sa kasalukuyang video ng Shorts</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_on">Nalalapat ang mga pagbabago sa kalidad sa lahat ng Shorts</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_off">Nalalapat lamang ang mga pagbabago sa kalidad sa kasalukuyang Short</string>
   <string name="revanced_shorts_quality_default_wifi_title">Default na kalidad ng Shorts sa Wi-Fi network</string>
   <string name="revanced_shorts_quality_default_mobile_title">Default na kalidad ng Shorts sa mobile network</string>
   <string name="revanced_remember_video_quality_mobile">Mobile</string>
@@ -1404,10 +1401,10 @@ Ang pagpapagana nito ay maaaring magbukas ng mas mataas na kalidad ng video"</st
   <string name="revanced_disable_hdr_video_summary_on">Hindi pinagana ang HDR video</string>
   <string name="revanced_disable_hdr_video_summary_off">Pinagana ang HDR video</string>
   </patch>
-  <patch id="video.videoqualitymenu.restoreOldVideoQualityMenuResourcePatch">
-  <string name="revanced_restore_old_video_quality_menu_title">Ibalik ang lumang menu ng kalidad ng video</string>
-  <string name="revanced_restore_old_video_quality_menu_summary_on">Ipinapakita ang lumang menu ng kalidad ng video</string>
-  <string name="revanced_restore_old_video_quality_menu_summary_off">Hindi ipinapakita ang lumang menu ng kalidad ng video</string>
+  <patch id="video.quality.advancedVideoQualityMenuPatch">
+  <string name="revanced_advanced_video_quality_menu_title">Ipakita ang advanced na menu ng kalidad ng video</string>
+  <string name="revanced_advanced_video_quality_menu_summary_on">Ipinapakita ang advanced na menu ng kalidad ng video</string>
+  <string name="revanced_advanced_video_quality_menu_summary_off">Hindi ipinapakita ang advanced na menu ng kalidad ng video</string>
   </patch>
   <patch id="interaction.seekbar.enableSlideToSeekPatch">
   <string name="revanced_slide_to_seek_title">Paganahin ang slide para maghanap</string>

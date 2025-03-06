@@ -1245,8 +1245,6 @@ Usap untuk memperluas atau menutup"</string>
   <string name="revanced_gradient_loading_screen_title">Aktifkan layar pemuatan gradien</string>
   <string name="revanced_gradient_loading_screen_summary_on">Layar pemuatan akan memiliki latar belakang gradien</string>
   <string name="revanced_gradient_loading_screen_summary_off">Layar pemuatan akan memiliki latar belakang yang solid</string>
-  </patch>
-  <patch id="layout.theme.themeResourcePatch">
   <string name="revanced_seekbar_custom_color_title">Aktifkan warna seekbar khusus</string>
   <string name="revanced_seekbar_custom_color_summary_on">Warna seekbar khusus ditampilkan</string>
   <string name="revanced_seekbar_custom_color_summary_off">Warna seekbar asli ditampilkan</string>
@@ -1360,7 +1358,6 @@ Mengaktifkan ini dapat membuka kualitas video yang lebih tinggi"</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
-  <string name="revanced_video_quality_screen_title">Kualitas video</string>
   <string name="revanced_video_quality_default_entry_1">Otomatis</string>
   <string name="revanced_remember_video_quality_last_selected_title">Ingat perubahan kualitas video</string>
   <string name="revanced_remember_video_quality_last_selected_summary_on">Perubahan kualitas diatur ke semua video</string>
@@ -1368,8 +1365,8 @@ Mengaktifkan ini dapat membuka kualitas video yang lebih tinggi"</string>
   <string name="revanced_video_quality_default_wifi_title">Kualitas video bawaan di jaringan Wi-Fi</string>
   <string name="revanced_video_quality_default_mobile_title">Kualitas video bawaan di jaringan selular</string>
   <string name="revanced_remember_shorts_quality_last_selected_title">Ingat perubahan kualitas Shorts</string>
-  <string name="revanced_remember_shorts_quality_last_selected_summary_on">Perubahan kualitas berlaku untuk semua video Shorts</string>
-  <string name="revanced_remember_shorts_quality_last_selected_summary_off">Perubahan kualitas hanya diatur di video Shorts saat ini</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_on">Perubahan kualitas berlaku untuk semua Shorts</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_off">Perubahan kualitas hanya berlaku untuk Short saat ini</string>
   <string name="revanced_shorts_quality_default_wifi_title">Kualitas Shorts bawaan di jaringan Wi-Fi</string>
   <string name="revanced_shorts_quality_default_mobile_title">Kualitas Shorts bawaan di jaringan seluler</string>
   <string name="revanced_remember_video_quality_mobile">seluler</string>
@@ -1406,10 +1403,10 @@ Mengaktifkan ini dapat membuka kualitas video yang lebih tinggi"</string>
   <string name="revanced_disable_hdr_video_summary_on">Video HDR dinonaktifkan</string>
   <string name="revanced_disable_hdr_video_summary_off">Video HDR diaktifkan</string>
   </patch>
-  <patch id="video.videoqualitymenu.restoreOldVideoQualityMenuResourcePatch">
-  <string name="revanced_restore_old_video_quality_menu_title">Pulihkan menu kualitas video lawas</string>
-  <string name="revanced_restore_old_video_quality_menu_summary_on">Menu kualitas video lawas ditampilkan</string>
-  <string name="revanced_restore_old_video_quality_menu_summary_off">Menu kualitas video lawas tidak ditampilkan</string>
+  <patch id="video.quality.advancedVideoQualityMenuPatch">
+  <string name="revanced_advanced_video_quality_menu_title">Tampilkan menu kualitas video lanjutan</string>
+  <string name="revanced_advanced_video_quality_menu_summary_on">Menu kualitas video lanjutan ditampilkan</string>
+  <string name="revanced_advanced_video_quality_menu_summary_off">Menu kualitas video lanjutan tidak ditampilkan</string>
   </patch>
   <patch id="interaction.seekbar.enableSlideToSeekPatch">
   <string name="revanced_slide_to_seek_title">Aktifkan geser untuk mencari</string>

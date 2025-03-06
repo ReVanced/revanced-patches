@@ -1246,8 +1246,6 @@ Veeg om uit te vouwen of te sluiten"</string>
   <string name="revanced_gradient_loading_screen_title">Schakel het laden van het verloopscherm in</string>
   <string name="revanced_gradient_loading_screen_summary_on">Het laadscherm heeft een verlopende achtergrond</string>
   <string name="revanced_gradient_loading_screen_summary_off">Het laadscherm heeft een effen achtergrond</string>
-  </patch>
-  <patch id="layout.theme.themeResourcePatch">
   <string name="revanced_seekbar_custom_color_title">Schakel aangepaste schuifregelaar kleur in</string>
   <string name="revanced_seekbar_custom_color_summary_on">De aangepaste kleur van de schuifregelaar is zichtbaar</string>
   <string name="revanced_seekbar_custom_color_summary_off">De oorspronkelijke kleur van de schuifregelaar is zichtbaar</string>
@@ -1361,7 +1359,6 @@ Het inschakelen hiervan kan hogere videokwaliteiten ontgrendelen"</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
-  <string name="revanced_video_quality_screen_title">Videokwaliteit</string>
   <string name="revanced_video_quality_default_entry_1">Automatisch</string>
   <string name="revanced_remember_video_quality_last_selected_title">Onthoud wijzigingen in videokwaliteit</string>
   <string name="revanced_remember_video_quality_last_selected_summary_on">Kwaliteitswijzigingen worden op alle video\'s toegepast</string>
@@ -1369,8 +1366,8 @@ Het inschakelen hiervan kan hogere videokwaliteiten ontgrendelen"</string>
   <string name="revanced_video_quality_default_wifi_title">Standaard videokwaliteit op Wi-Fi-netwerk</string>
   <string name="revanced_video_quality_default_mobile_title">Standaard videokwaliteit op mobiel netwerk</string>
   <string name="revanced_remember_shorts_quality_last_selected_title">Onthoud kwaliteitswijzigingen voor Shorts</string>
-  <string name="revanced_remember_shorts_quality_last_selected_summary_on">Kwaliteitswijzigingen gelden voor alle Shorts video\'s</string>
-  <string name="revanced_remember_shorts_quality_last_selected_summary_off">Kwaliteitswijzigingen gelden alleen voor de huidige Shorts-video</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_on">Kwaliteitswijzigingen zijn van toepassing op alle Shorts</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_off">Kwaliteitswijzigingen zijn alleen van toepassing op de huidige Short</string>
   <string name="revanced_shorts_quality_default_wifi_title">Standaardkwaliteit voor Shorts op wifi-netwerk</string>
   <string name="revanced_shorts_quality_default_mobile_title">Standaardkwaliteit voor Shorts op mobiel netwerk</string>
   <string name="revanced_remember_video_quality_mobile">mobiel</string>
@@ -1407,10 +1404,10 @@ Het inschakelen hiervan kan hogere videokwaliteiten ontgrendelen"</string>
   <string name="revanced_disable_hdr_video_summary_on">HDR-video is uitgeschakeld</string>
   <string name="revanced_disable_hdr_video_summary_off">HDR-video is ingeschakeld</string>
   </patch>
-  <patch id="video.videoqualitymenu.restoreOldVideoQualityMenuResourcePatch">
-  <string name="revanced_restore_old_video_quality_menu_title">Oud menu voor videokwaliteit herstellen</string>
-  <string name="revanced_restore_old_video_quality_menu_summary_on">Oud menu voor videokwaliteit wordt weergegeven</string>
-  <string name="revanced_restore_old_video_quality_menu_summary_off">Oud menu voor videokwaliteit wordt niet weergegeven</string>
+  <patch id="video.quality.advancedVideoQualityMenuPatch">
+  <string name="revanced_advanced_video_quality_menu_title">Geavanceerd menu voor videokwaliteit weergeven</string>
+  <string name="revanced_advanced_video_quality_menu_summary_on">Geavanceerd menu voor videokwaliteit wordt weergegeven</string>
+  <string name="revanced_advanced_video_quality_menu_summary_off">Geavanceerd menu voor videokwaliteit wordt niet weergegeven</string>
   </patch>
   <patch id="interaction.seekbar.enableSlideToSeekPatch">
   <string name="revanced_slide_to_seek_title">Schuiven om te zoeken inschakelen</string>

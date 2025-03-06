@@ -1229,8 +1229,6 @@ Swipe chun leathnú nó dúnadh"</string>
   <string name="revanced_gradient_loading_screen_title">Cumasaigh scáileán luchtaithe</string>
   <string name="revanced_gradient_loading_screen_summary_on">Beidh cúlra grádáin ag an scáileán lódála</string>
   <string name="revanced_gradient_loading_screen_summary_off">Beidh cúlra láidir ag scáileán luchtaithe</string>
-  </patch>
-  <patch id="layout.theme.themeResourcePatch">
   <string name="revanced_seekbar_custom_color_title">Cumasaigh dath barra cuardaigh saincheaptha</string>
   <string name="revanced_seekbar_custom_color_summary_on">Taispeántar dath barra cuardaigh saincheaptha</string>
   <string name="revanced_seekbar_custom_color_summary_off">Taispeántar dath barr cuardaigh bunaidh</string>
@@ -1344,7 +1342,6 @@ Is féidir le seo caighdeáin físeáin níos airde a dhíghlasáil"</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
-  <string name="revanced_video_quality_screen_title">Cáilíocht físe</string>
   <string name="revanced_video_quality_default_entry_1">Uathoibríoch</string>
   <string name="revanced_remember_video_quality_last_selected_title">Cuimhnigh athruithe ar cháilíocht</string>
   <string name="revanced_remember_video_quality_last_selected_summary_on">Baineann athruithe cáilíochta le gach físeán</string>
@@ -1352,8 +1349,8 @@ Is féidir le seo caighdeáin físeáin níos airde a dhíghlasáil"</string>
   <string name="revanced_video_quality_default_wifi_title">Cáilíocht físe réamhshocraithe ar líonra</string>
   <string name="revanced_video_quality_default_mobile_title">Cáilíocht físe réamhshocraithe ar líonra</string>
   <string name="revanced_remember_shorts_quality_last_selected_title">Cuimhnigh ar athruithe cáilíochta Shorts</string>
-  <string name="revanced_remember_shorts_quality_last_selected_summary_on">Baineann athruithe cáilíochta le gach físeán Shorts</string>
-  <string name="revanced_remember_shorts_quality_last_selected_summary_off">Ní bhaineann athruithe cáilíochta ach leis an bhfíseán reatha Shorts</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_on">Baineann athruithe ar an gcáilíocht le gach Shorts</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_off">Ní bhaineann athruithe ar an gcáilíocht ach leis an Short reatha</string>
   <string name="revanced_shorts_quality_default_wifi_title">Cáilíocht réamhshocraithe Shorts ar líonra Wi-Fi</string>
   <string name="revanced_shorts_quality_default_mobile_title">Cáilíocht réamhshocraithe Shorts ar líonra soghluaiste</string>
   <string name="revanced_remember_video_quality_mobile">soghluaiste</string>
@@ -1390,10 +1387,10 @@ Is féidir le seo caighdeáin físeáin níos airde a dhíghlasáil"</string>
   <string name="revanced_disable_hdr_video_summary_on"><p style="margin-left: 60px;">Tá físeán HDR díchumasaithe</p></string>
   <string name="revanced_disable_hdr_video_summary_off"><p style="margin-left: 60px;">Tá físeán HDR arna chumhachtú</p></string>
   </patch>
-  <patch id="video.videoqualitymenu.restoreOldVideoQualityMenuResourcePatch">
-  <string name="revanced_restore_old_video_quality_menu_title">Athchóirigh sean-roghchlár cáilíochta físeáin</string>
-  <string name="revanced_restore_old_video_quality_menu_summary_on">Taispeántar sean-roghchlár cáilíochta físeáin</string>
-  <string name="revanced_restore_old_video_quality_menu_summary_off">Ní thaispeántar sean-roghchlár cáilíochta físeáin</string>
+  <patch id="video.quality.advancedVideoQualityMenuPatch">
+  <string name="revanced_advanced_video_quality_menu_title">Taispeáin roghchlár ardcháilíochta físeáin</string>
+  <string name="revanced_advanced_video_quality_menu_summary_on">Taispeántar roghchlár ardcháilíochta físeáin</string>
+  <string name="revanced_advanced_video_quality_menu_summary_off">Ní thaispeántar roghchlár ardcháilíochta físeáin</string>
   </patch>
   <patch id="interaction.seekbar.enableSlideToSeekPatch">
   <string name="revanced_slide_to_seek_title">Cumasaigh sleamhnán a lorg</string>

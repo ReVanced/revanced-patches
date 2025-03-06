@@ -1234,8 +1234,6 @@ Potiahnite prstom na rozbalenie alebo zatvorenie"</string>
   <string name="revanced_gradient_loading_screen_title">Povoliť obrazovku načítania gradientu</string>
   <string name="revanced_gradient_loading_screen_summary_on">Načítavacia obrazovka bude mať pozadie s prechodom</string>
   <string name="revanced_gradient_loading_screen_summary_off">Načítavacia obrazovka bude mať pevné pozadie</string>
-  </patch>
-  <patch id="layout.theme.themeResourcePatch">
   <string name="revanced_seekbar_custom_color_title">Povoliť vlastnú farbu vyhľadávacieho panela</string>
   <string name="revanced_seekbar_custom_color_summary_on">Zobrazí sa vlastná farba panela vyhľadávania</string>
   <string name="revanced_seekbar_custom_color_summary_off">Zobrazí sa pôvodná farba vyhľadávacieho panela</string>
@@ -1349,7 +1347,6 @@ Povolením tejto možnosti môžete odomknúť vyššie kvality videa"</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
-  <string name="revanced_video_quality_screen_title">Kvalita videa</string>
   <string name="revanced_video_quality_default_entry_1">Automaticky</string>
   <string name="revanced_remember_video_quality_last_selected_title">Pamätajte na zmeny kvality videa</string>
   <string name="revanced_remember_video_quality_last_selected_summary_on">Zmeny kvality sa vzťahujú na všetky videá</string>
@@ -1357,8 +1354,8 @@ Povolením tejto možnosti môžete odomknúť vyššie kvality videa"</string>
   <string name="revanced_video_quality_default_wifi_title">Predvolená kvalita videa v sieti Wi-Fi</string>
   <string name="revanced_video_quality_default_mobile_title">Predvolená kvalita videa v mobilnej sieti</string>
   <string name="revanced_remember_shorts_quality_last_selected_title">Zapamätať si zmeny kvality pre Shorts</string>
-  <string name="revanced_remember_shorts_quality_last_selected_summary_on">Zmeny kvality sa použijú na všetky videá Shorts</string>
-  <string name="revanced_remember_shorts_quality_last_selected_summary_off">Zmeny kvality sa použijú iba na aktuálne video Shorts</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_on">Zmeny kvality sa použijú na všetky Shorts</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_off">Zmeny kvality sa použijú iba na aktuálny Short</string>
   <string name="revanced_shorts_quality_default_wifi_title">Predvolená kvalita pre Shorts v sieti Wi-Fi</string>
   <string name="revanced_shorts_quality_default_mobile_title">Predvolená kvalita pre Shorts v mobilnej sieti</string>
   <string name="revanced_remember_video_quality_mobile">mobilné</string>
@@ -1395,10 +1392,10 @@ Povolením tejto možnosti môžete odomknúť vyššie kvality videa"</string>
   <string name="revanced_disable_hdr_video_summary_on">HDR video je vypnuté</string>
   <string name="revanced_disable_hdr_video_summary_off">HDR video je zapnuté</string>
   </patch>
-  <patch id="video.videoqualitymenu.restoreOldVideoQualityMenuResourcePatch">
-  <string name="revanced_restore_old_video_quality_menu_title">Obnovte starú ponuku kvality videa</string>
-  <string name="revanced_restore_old_video_quality_menu_summary_on">Zobrazí sa stará ponuka kvality videa</string>
-  <string name="revanced_restore_old_video_quality_menu_summary_off">Stará ponuka kvality videa sa nezobrazuje</string>
+  <patch id="video.quality.advancedVideoQualityMenuPatch">
+  <string name="revanced_advanced_video_quality_menu_title">Zobraziť rozšírenú ponuku kvality videa</string>
+  <string name="revanced_advanced_video_quality_menu_summary_on">Zobrazuje sa rozšírená ponuka kvality videa</string>
+  <string name="revanced_advanced_video_quality_menu_summary_off">Nezobrazuje sa rozšírená ponuka kvality videa</string>
   </patch>
   <patch id="interaction.seekbar.enableSlideToSeekPatch">
   <string name="revanced_slide_to_seek_title">Povoliť vyhľadávanie snímkou</string>
