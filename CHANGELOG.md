@@ -1,3 +1,10 @@
+# [5.14.0-dev.6](https://github.com/ReVanced/revanced-patches/compare/v5.14.0-dev.5...v5.14.0-dev.6) (2025-03-07)
+
+
+### Bug Fixes
+
+* **YouTube - Hide layout components:** Do not hide Movie/Courses start page content if 'Hide horizontal shelves' is enabled ([62a6164](https://github.com/ReVanced/revanced-patches/commit/62a6164b88b64200b517a5ba6b800d8214dbbad8))
+
 # [5.14.0-dev.5](https://github.com/ReVanced/revanced-patches/compare/v5.14.0-dev.4...v5.14.0-dev.5) (2025-03-06)
 
 
