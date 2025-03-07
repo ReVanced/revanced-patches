@@ -442,6 +442,7 @@ Níl an ghné seo ar fáil ach do ghléasanna níos sine"</string>
   <string name="revanced_share_copy_url_success">URL cóipeáilte chuig gearr</string>
   <string name="revanced_share_copy_url_timestamp_success">URL le stampa ama cóipeáilte</string>
   <string name="revanced_copy_video_url_title">Taispeáin cnaipe URL físe cóipeáil</string>
+  <string name="revanced_copy_video_url_summary_on">Taispeántar an cnaipe. Tapáil chun URL an fhíseáin a chóipeáil. Tapáil agus coinnigh chun a chóipeáil le stampa ama</string>
   <string name="revanced_copy_video_url_summary_off">Ní thaispeántar an cnaipe</string>
   <string name="revanced_copy_video_url_timestamp_title">Taispeáin cnaipe URL stampa ama cóipeáil</string>
   <string name="revanced_copy_video_url_timestamp_summary_off">Ní thaispeántar an cnaipe</string>
