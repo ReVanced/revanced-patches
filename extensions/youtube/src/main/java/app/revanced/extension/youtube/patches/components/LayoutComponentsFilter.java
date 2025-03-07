@@ -462,6 +462,12 @@ public final class LayoutComponentsFilter extends Filter {
             return true;
         }
 
+        // Do not hide if the navigation back button is visible,
+        // otherwise the content shelves in the YouTube Movie/Courses pages is hidden.
+        if (NavigationBar.isBackButtonVisible()) {
+            return false;
+        }
+
         // Check navigation button last.
         // Only filter if the library tab is not selected.
         // This check is important as the shelf layout is used for the library tab playlists.
