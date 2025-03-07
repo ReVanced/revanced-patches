@@ -306,13 +306,13 @@ You will not be notified of any unexpected events."</string>
             <string name="revanced_hide_description_components_screen_summary">Hide or show video description components</string>
 
             <string name="revanced_hide_filter_bar_screen_title">Filter bar</string>
-            <string name="revanced_hide_filter_bar_screen_summary">Hide or show the filter bar in the feed, search, and related videos</string>
+            <string name="revanced_hide_filter_bar_screen_summary">Hide or show the filter bar in the feed, search results, and related videos</string>
             <string name="revanced_hide_filter_bar_feed_in_feed_title">Hide in feed</string>
             <string name="revanced_hide_filter_bar_feed_in_feed_summary_on">Hidden in feed</string>
             <string name="revanced_hide_filter_bar_feed_in_feed_summary_off">Shown in feed</string>
-            <string name="revanced_hide_filter_bar_feed_in_search_title">Hide in search</string>
-            <string name="revanced_hide_filter_bar_feed_in_search_summary_on">Hidden in search</string>
-            <string name="revanced_hide_filter_bar_feed_in_search_summary_off">Shown in search</string>
+            <string name="revanced_hide_filter_bar_feed_in_search_title">Hide in search results</string>
+            <string name="revanced_hide_filter_bar_feed_in_search_summary_on">Hidden in search results</string>
+            <string name="revanced_hide_filter_bar_feed_in_search_summary_off">Shown in search results</string>
             <string name="revanced_hide_filter_bar_feed_in_related_videos_title">Hide in related videos</string>
             <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_on">Hidden in related videos</string>
             <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">Shown in related videos</string>
@@ -412,7 +412,7 @@ This feature is only available for older devices"</string>
             <string name="revanced_hide_self_sponsor_ads_title">Hide self sponsored cards</string>
             <string name="revanced_hide_self_sponsor_ads_summary_on">Self sponsored cards are hidden</string>
             <string name="revanced_hide_self_sponsor_ads_summary_off">Self sponsored cards are shown</string>
-            <string name="revanced_hide_products_banner_title">Hide banner to view products</string>
+            <string name="revanced_hide_products_banner_title">Hide \'View products\' banner</string>
             <string name="revanced_hide_products_banner_summary_on">Banner is hidden</string>
             <string name="revanced_hide_products_banner_summary_off">Banner is shown</string>
             <string name="revanced_hide_end_screen_store_banner_title">Hide end screen store banner</string>
@@ -671,7 +671,7 @@ If changing this setting does not take effect, try switching to Incognito mode."
             <string name="revanced_hide_player_flyout_video_quality_footer_summary_off">Video quality menu footer is shown</string>
         </patch>
         <patch id="layout.buttons.overlay.hidePlayerOverlayButtonsPatch">
-            <string name="revanced_hide_player_previous_next_buttons_title">Hide previous &amp; next video buttons</string>
+            <string name="revanced_hide_player_previous_next_buttons_title">Hide Previous &amp; Next buttons</string>
             <string name="revanced_hide_player_previous_next_buttons_summary_on">Buttons are hidden</string>
             <string name="revanced_hide_player_previous_next_buttons_summary_off">Buttons are shown</string>
             <string name="revanced_hide_cast_button_title">Hide Cast button</string>
@@ -1045,7 +1045,7 @@ Your user id is like a password and it should never be shared.
             <string name="revanced_sb_skip_automatically">Skip automatically</string>
             <string name="revanced_sb_skip_automatically_once">Skip automatically once</string>
             <string name="revanced_sb_skip_showbutton">Show a Skip button</string>
-            <string name="revanced_sb_skip_seekbaronly">Show in seek bar</string>
+            <string name="revanced_sb_skip_seekbaronly">Show in seekbar</string>
             <string name="revanced_sb_skip_ignore">Disable</string>
             <string name="revanced_sb_submit_failed_invalid">Unable to submit segment: %s</string>
             <string name="revanced_sb_submit_failed_timeout">SponsorBlock is temporarily down</string>
@@ -1135,10 +1135,8 @@ Tablet layout
 • Community posts are hidden
 
 Automotive layout
-• Watch history menu is hidden
-• Explore tab is restored
 • Shorts open in the regular player
-• Feed is organized by topics and channel"</string>
+• Feed is organized by topics and channels"</string>
         </patch>
         <patch id="layout.spoofappversion.spoofAppVersionPatch">
             <string name="revanced_spoof_app_version_title">Spoof app version</string>
@@ -1209,7 +1207,7 @@ If later turned off, it is recommended to clear the app data to prevent UI bugs.
         </patch>
         <patch id="layout.miniplayer.miniplayerPatch">
             <string name="revanced_miniplayer_screen_title">Miniplayer</string>
-            <string name="revanced_miniplayer_screen_summary">Change the style of the in app minimized player</string>
+            <string name="revanced_miniplayer_screen_summary">Change the style of the in-app minimized player</string>
             <string name="revanced_miniplayer_type_title">Miniplayer type</string>
             <string name="revanced_miniplayer_type_entry_0">Disabled</string>
             <string name="revanced_miniplayer_type_entry_1">Default</string>
@@ -1262,8 +1260,6 @@ Swipe to expand or close"</string>
             <string name="revanced_gradient_loading_screen_title">Enable gradient loading screen</string>
             <string name="revanced_gradient_loading_screen_summary_on">Loading screen will have a gradient background</string>
             <string name="revanced_gradient_loading_screen_summary_off">Loading screen will have a solid background</string>
-        </patch>
-        <patch id="layout.theme.themeResourcePatch">
             <string name="revanced_seekbar_custom_color_title">Enable custom seekbar color</string>
             <string name="revanced_seekbar_custom_color_summary_on">Custom seekbar color is shown</string>
             <string name="revanced_seekbar_custom_color_summary_off">Original seekbar color is shown</string>
@@ -1356,8 +1352,8 @@ Enabling this can unlock higher video qualities"</string>
         </patch>
         <patch id="misc.links.openLinksExternallyPatch">
             <string name="revanced_external_browser_title">Open links in browser</string>
-            <string name="revanced_external_browser_summary_on">Opening links externally</string>
-            <string name="revanced_external_browser_summary_off">Opening links in app</string>
+            <string name="revanced_external_browser_summary_on">Opening links in external browser</string>
+            <string name="revanced_external_browser_summary_off">Opening links in in-app browser</string>
         </patch>
         <patch id="misc.privacy.removeTrackingQueryParameterPatch">
             <string name="revanced_remove_tracking_query_parameter_title">Remove tracking query parameter</string>
@@ -1384,9 +1380,15 @@ Enabling this can unlock higher video qualities"</string>
             <string name="revanced_remember_video_quality_last_selected_summary_off">Quality changes only apply to the current video</string>
             <string name="revanced_video_quality_default_wifi_title">Default video quality on Wi-Fi network</string>
             <string name="revanced_video_quality_default_mobile_title">Default video quality on mobile network</string>
+            <string name="revanced_remember_shorts_quality_last_selected_title">Remember Shorts quality changes</string>
+            <string name="revanced_remember_shorts_quality_last_selected_summary_on">Quality changes apply to all Shorts</string>
+            <string name="revanced_remember_shorts_quality_last_selected_summary_off">Quality changes only apply to the current Short</string>
+            <string name="revanced_shorts_quality_default_wifi_title">Default Shorts quality on Wi-Fi network</string>
+            <string name="revanced_shorts_quality_default_mobile_title">Default Shorts quality on mobile network</string>
             <string name="revanced_remember_video_quality_mobile">mobile</string>
             <string name="revanced_remember_video_quality_wifi">wifi</string>
             <string name="revanced_remember_video_quality_toast">Changed default %1$s quality to: %2$s</string>
+            <string name="revanced_remember_video_quality_toast_shorts">Changed Shorts %1$s quality to: %2$s</string>
         </patch>
         <patch id="video.speed.button.playbackSpeedButtonPatch">
             <string name="revanced_playback_speed_dialog_button_title">Show speed dialog button</string>
@@ -1417,10 +1419,10 @@ Enabling this can unlock higher video qualities"</string>
             <string name="revanced_disable_hdr_video_summary_on">HDR video is disabled</string>
             <string name="revanced_disable_hdr_video_summary_off">HDR video is enabled</string>
         </patch>
-        <patch id="video.videoqualitymenu.restoreOldVideoQualityMenuResourcePatch">
-            <string name="revanced_restore_old_video_quality_menu_title">Restore old video quality menu</string>
-            <string name="revanced_restore_old_video_quality_menu_summary_on">Old video quality menu is shown</string>
-            <string name="revanced_restore_old_video_quality_menu_summary_off">Old video quality menu is not shown</string>
+        <patch id="video.quality.advancedVideoQualityMenuPatch">
+            <string name="revanced_advanced_video_quality_menu_title">Show advanced video quality menu</string>
+            <string name="revanced_advanced_video_quality_menu_summary_on">Advanced video quality menu is shown</string>
+            <string name="revanced_advanced_video_quality_menu_summary_off">Advanced video quality menu is not shown</string>
         </patch>
         <patch id="interaction.seekbar.enableSlideToSeekPatch">
             <string name="revanced_slide_to_seek_title">Enable slide to seek</string>

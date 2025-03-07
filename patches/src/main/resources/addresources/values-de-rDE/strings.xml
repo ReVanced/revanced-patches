@@ -297,13 +297,13 @@ Sie werden nicht über unerwartete Ereignisse informiert."</string>
   <string name="revanced_hide_description_components_screen_title">Videobeschreibung</string>
   <string name="revanced_hide_description_components_screen_summary">Komponenten der Videobeschreibung ausblenden oder anzeigen</string>
   <string name="revanced_hide_filter_bar_screen_title">Filterleiste</string>
-  <string name="revanced_hide_filter_bar_screen_summary">Verstecke oder zeige die Filterleiste im Feed, in der Suche und verwandten Videos</string>
+  <string name="revanced_hide_filter_bar_screen_summary">Die Filterleiste im Feed, in den Suchergebnissen und in verwandten Videos ein- oder ausblenden</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_title">Im Feed ausblenden</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_summary_on">Versteckt im Feed</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_summary_off">Im Feed angezeigt</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_title">In der Suche ausblenden</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_summary_on">Versteckt in der Suche</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_summary_off">In der Suche angezeigt</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_title">In Suchergebnissen ausblenden</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_summary_on">In Suchergebnissen versteckt</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_summary_off">In den Suchergebnissen angezeigt</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_title">In verwandten Videos ausblenden</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_on">Versteckt in verwandten Videos</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">In verwandten Videos angezeigt</string>
@@ -399,7 +399,7 @@ Diese Funktion ist nur für ältere Geräte verfügbar"</string>
   <string name="revanced_hide_self_sponsor_ads_title">Selbst gesponserte Karten ausblenden</string>
   <string name="revanced_hide_self_sponsor_ads_summary_on">Selbst gesponserte Karten sind ausgeblendet</string>
   <string name="revanced_hide_self_sponsor_ads_summary_off">Selbstgesponserte Karten werden angezeigt</string>
-  <string name="revanced_hide_products_banner_title">Banner ausblenden, um Produkte anzuzeigen</string>
+  <string name="revanced_hide_products_banner_title">Banner \"Produkte ansehen\" ausblenden</string>
   <string name="revanced_hide_products_banner_summary_on">Banner ist ausgeblendet</string>
   <string name="revanced_hide_products_banner_summary_off">Banner wird angezeigt</string>
   <string name="revanced_hide_end_screen_store_banner_title">Endbild-Banner ausblenden</string>
@@ -656,7 +656,7 @@ Wenn diese Änderung nicht wirksam wird, versuchen Sie, in den Inkognito-Modus z
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_off">Video-Qualität Menü-Fußzeile wird angezeigt</string>
   </patch>
   <patch id="layout.buttons.overlay.hidePlayerOverlayButtonsPatch">
-  <string name="revanced_hide_player_previous_next_buttons_title">Vorherige &amp; Nächste Video-Tasten ausblenden</string>
+  <string name="revanced_hide_player_previous_next_buttons_title">Vorherige &amp; Nächste Tasten ausblenden</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_on">Buttons sind ausgeblendet</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">Tasten werden angezeigt</string>
   <string name="revanced_hide_cast_button_title">Cast-Button ausblenden</string>
@@ -1109,16 +1109,14 @@ Bereit zum Einreichen?"</string>
   <string name="revanced_change_form_factor_entry_2">Telefon</string>
   <string name="revanced_change_form_factor_entry_3">Tablets</string>
   <string name="revanced_change_form_factor_entry_4">Automobil</string>
-  <string name="revanced_change_form_factor_user_dialog_message">"Änderungen umfassen:
+  <string name="revanced_change_form_factor_user_dialog_message">"Zu den Änderungen gehören:
 
 Tablet-Layout
-• Community-Beiträge werden ausgeblendet
+• Community-Beiträge sind ausgeblendet
 
-Auto-Layout
-• Der Verlaufsmenü ist ausgeblendet
-• Der Explore-Tab wird wiederhergestellt
-• Shorts werden im regulären Player geöffnet
-• Der Feed ist nach Themen und Kanälen organisiert"</string>
+Automotive-Layout
+• Shorts werden im normalen Player geöffnet
+• Feed ist nach Themen und Kanälen geordnet"</string>
   </patch>
   <patch id="layout.spoofappversion.spoofAppVersionPatch">
   <string name="revanced_spoof_app_version_title">Spoof-App-Version</string>
@@ -1188,7 +1186,7 @@ Wenn Sie die Funktion später deaktivieren, wird empfohlen, die App-Daten zu lö
   </patch>
   <patch id="layout.miniplayer.miniplayerPatch">
   <string name="revanced_miniplayer_screen_title">Minispieler</string>
-  <string name="revanced_miniplayer_screen_summary">Ändere den Stil des in App minimierten Players</string>
+  <string name="revanced_miniplayer_screen_summary">Das Aussehen des minimierten In-App-Players ändern</string>
   <string name="revanced_miniplayer_type_title">Minispielertyp</string>
   <string name="revanced_miniplayer_type_entry_0">Deaktiviert</string>
   <string name="revanced_miniplayer_type_entry_1">Standard</string>
@@ -1241,8 +1239,6 @@ Wischen Sie, um zu erweitern oder zu schließen"</string>
   <string name="revanced_gradient_loading_screen_title">Gradientenladebildschirm aktivieren</string>
   <string name="revanced_gradient_loading_screen_summary_on">Lade Bildschirm hat einen Farbverlauf Hintergrund</string>
   <string name="revanced_gradient_loading_screen_summary_off">Das Laden des Bildschirms wird einen soliden Hintergrund haben</string>
-  </patch>
-  <patch id="layout.theme.themeResourcePatch">
   <string name="revanced_seekbar_custom_color_title">Eigene Suchleistenfarbe aktivieren</string>
   <string name="revanced_seekbar_custom_color_summary_on">Angepasste Suchleistenfarbe wird angezeigt</string>
   <string name="revanced_seekbar_custom_color_summary_off">Originalfarbe der Suchleiste wird angezeigt</string>
@@ -1334,8 +1330,8 @@ Durch Aktivieren dieser Option können höhere Videoqualitäten freigeschaltet w
   </patch>
   <patch id="misc.links.openLinksExternallyPatch">
   <string name="revanced_external_browser_title">Links im Browser öffnen</string>
-  <string name="revanced_external_browser_summary_on">Links extern öffnen</string>
-  <string name="revanced_external_browser_summary_off">Öffne Links in der App</string>
+  <string name="revanced_external_browser_summary_on">Links im externen Browser öffnen</string>
+  <string name="revanced_external_browser_summary_off">Links im In-App-Browser öffnen</string>
   </patch>
   <patch id="misc.privacy.removeTrackingQueryParameterPatch">
   <string name="revanced_remove_tracking_query_parameter_title">Tracking-Abfrageparameter entfernen</string>
@@ -1362,9 +1358,15 @@ Durch Aktivieren dieser Option können höhere Videoqualitäten freigeschaltet w
   <string name="revanced_remember_video_quality_last_selected_summary_off">Qualitätsänderungen gelten nur für das aktuelle Video</string>
   <string name="revanced_video_quality_default_wifi_title">Standard-Videoqualität im Wi-Fi-Netzwerk</string>
   <string name="revanced_video_quality_default_mobile_title">Standard-Videoqualität im Mobilfunknetz</string>
+  <string name="revanced_remember_shorts_quality_last_selected_title">Änderungen der Shorts-Qualität speichern</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_on">Qualitätsänderungen gelten für alle Shorts</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_off">Qualitätsänderungen gelten nur für den aktuellen Short</string>
+  <string name="revanced_shorts_quality_default_wifi_title">Standardmäßige Shorts-Qualität im WLAN</string>
+  <string name="revanced_shorts_quality_default_mobile_title">Standard-Shorts-Qualität im Mobilfunknetz</string>
   <string name="revanced_remember_video_quality_mobile">Mobile</string>
   <string name="revanced_remember_video_quality_wifi">WLAN</string>
   <string name="revanced_remember_video_quality_toast">Standard %1$s Qualität geändert zu: %2$s</string>
+  <string name="revanced_remember_video_quality_toast_shorts">Shorts-Qualität von %1$s geändert in: %2$s</string>
   </patch>
   <patch id="video.speed.button.playbackSpeedButtonPatch">
   <string name="revanced_playback_speed_dialog_button_title">Zeige Geschwindigkeitsdialog Taste</string>
@@ -1395,10 +1397,10 @@ Durch Aktivieren dieser Option können höhere Videoqualitäten freigeschaltet w
   <string name="revanced_disable_hdr_video_summary_on">HDR-Video ist deaktiviert</string>
   <string name="revanced_disable_hdr_video_summary_off">HDR-Video ist aktiviert</string>
   </patch>
-  <patch id="video.videoqualitymenu.restoreOldVideoQualityMenuResourcePatch">
-  <string name="revanced_restore_old_video_quality_menu_title">Altes Videoqualitätsmenü wiederherstellen</string>
-  <string name="revanced_restore_old_video_quality_menu_summary_on">Altes Video-Qualitätsmenü wird angezeigt</string>
-  <string name="revanced_restore_old_video_quality_menu_summary_off">Altes Video-Qualitätsmenü wird nicht angezeigt</string>
+  <patch id="video.quality.advancedVideoQualityMenuPatch">
+  <string name="revanced_advanced_video_quality_menu_title">Erweitertes Videoqualitätsmenü anzeigen</string>
+  <string name="revanced_advanced_video_quality_menu_summary_on">Erweitertes Videoqualitätsmenü wird angezeigt</string>
+  <string name="revanced_advanced_video_quality_menu_summary_off">Erweitertes Videoqualitätsmenü wird nicht angezeigt</string>
   </patch>
   <patch id="interaction.seekbar.enableSlideToSeekPatch">
   <string name="revanced_slide_to_seek_title">Folie zum Suchen aktivieren</string>

@@ -301,13 +301,13 @@ Bạn sẽ không được thông báo về bất kỳ sự kiện bất ngờ n
   <string name="revanced_hide_description_components_screen_title">Mô tả video</string>
   <string name="revanced_hide_description_components_screen_summary">Ẩn hoặc hiện các thành phần mô tả video</string>
   <string name="revanced_hide_filter_bar_screen_title">Thanh bộ lọc</string>
-  <string name="revanced_hide_filter_bar_screen_summary">Ẩn hoặc hiện thanh bộ lọc trong bảng tin, tìm kiếm và video liên quan</string>
+  <string name="revanced_hide_filter_bar_screen_summary">Ẩn hoặc hiện thanh bộ lọc trong bảng tin, kết quả tìm kiếm và video liên quan</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_title">Ẩn trong bảng tin</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_summary_on">Đã ẩn trong bảng tin</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_summary_off">Đã hiện trong bảng tin</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_title">Ẩn tròn tìm kiếm</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_summary_on">Đã ẩn trong tìm kiếm</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_summary_off">Đã hiện trong tìm kiếm</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_title">Ẩn trong kết quả tìm kiếm</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_summary_on">Bị ẩn trong kết quả tìm kiếm</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_summary_off">Được hiển thị trong kết quả tìm kiếm</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_title">Ẩn trong video liên quan</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_on">Đã ẩn trong video liên quan</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">Đã hiện trong video liên quan</string>
@@ -404,7 +404,7 @@ Tính năng này chỉ khả dụng cho các thiết bị cũ hơn"</string>
   <string name="revanced_hide_self_sponsor_ads_title">Ẩn thẻ tự tài trợ</string>
   <string name="revanced_hide_self_sponsor_ads_summary_on">Thẻ được tài trợ được ẩn</string>
   <string name="revanced_hide_self_sponsor_ads_summary_off">Thẻ được tài trợ được hiện</string>
-  <string name="revanced_hide_products_banner_title">Ẩn biểu ngữ để xem sản phẩm</string>
+  <string name="revanced_hide_products_banner_title">Ẩn biểu ngữ \'Xem sản phẩm\'</string>
   <string name="revanced_hide_products_banner_summary_on">Biểu ngữ được ẩn</string>
   <string name="revanced_hide_products_banner_summary_off">Biểu ngữ được hiện</string>
   <string name="revanced_hide_end_screen_store_banner_title">Ẩn biểu ngữ cửa hàng ở cuối màn hình</string>
@@ -663,7 +663,7 @@ Nếu việc thay đổi cài đặt này không có hiệu lực, hãy thử ch
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_off">Trình đơn chất lượng video bên dưới được hiện</string>
   </patch>
   <patch id="layout.buttons.overlay.hidePlayerOverlayButtonsPatch">
-  <string name="revanced_hide_player_previous_next_buttons_title">Ẩn các nút video trước đó &amp; tiếp theo</string>
+  <string name="revanced_hide_player_previous_next_buttons_title">Ẩn các nút Trước &amp; Tiếp theo</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_on">Các nút được ẩn</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">Các nút được hiện</string>
   <string name="revanced_hide_cast_button_title">Ẩn nút Phát sóng</string>
@@ -1118,13 +1118,11 @@ Bạn đã sẵn sàng gửi?"</string>
   <string name="revanced_change_form_factor_user_dialog_message">"Thay đổi bao gồm:
 
 Bố cục máy tính bảng
-• 隱藏社區貼文
+• Bài đăng trên cộng đồng bị ẩn
 
 Bố cục ô tô
-• 隱藏观看历史菜单
-• 恢复探索标签
-• Shorts 在常规播放器中打开
-• 以主题和频道组织 Feed"</string>
+• Shorts mở trong trình phát thông thường
+• Bảng Feed được sắp xếp theo chủ đề và kênh"</string>
   </patch>
   <patch id="layout.spoofappversion.spoofAppVersionPatch">
   <string name="revanced_spoof_app_version_title">Giả mạo phiên bản ứng dụng</string>
@@ -1247,8 +1245,6 @@ Vuốt để mở rộng hoặc đóng"</string>
   <string name="revanced_gradient_loading_screen_title">Bật màn hình tải màu dốc</string>
   <string name="revanced_gradient_loading_screen_summary_on">Màn hình tải sẽ có một nền màu dốc</string>
   <string name="revanced_gradient_loading_screen_summary_off">Màn hình tải sẽ có một nền màu đặc</string>
-  </patch>
-  <patch id="layout.theme.themeResourcePatch">
   <string name="revanced_seekbar_custom_color_title">Bật màu tùy chỉnh thanh tiến trình</string>
   <string name="revanced_seekbar_custom_color_summary_on">Màu tùy chỉnh thanh tiến trình được hiện </string>
   <string name="revanced_seekbar_custom_color_summary_off">Màu gốc thanh tiến trình được hiện </string>
@@ -1340,8 +1336,8 @@ Bật tính năng này có thể mở khóa chất lượng video cao hơn"</str
   </patch>
   <patch id="misc.links.openLinksExternallyPatch">
   <string name="revanced_external_browser_title">Mở liên kết trong trình duyệt</string>
-  <string name="revanced_external_browser_summary_on">Đang mở liên kết bên ngoài</string>
-  <string name="revanced_external_browser_summary_off">Đang mở liên kết trong ứng dụng</string>
+  <string name="revanced_external_browser_summary_on">Đang mở liên kết trong trình duyệt bên ngoài</string>
+  <string name="revanced_external_browser_summary_off">Đang mở liên kết trình duyệt trong ứng dụng</string>
   </patch>
   <patch id="misc.privacy.removeTrackingQueryParameterPatch">
   <string name="revanced_remove_tracking_query_parameter_title">Loại bỏ tham số truy vấn theo dõi</string>
@@ -1368,9 +1364,15 @@ Bật tính năng này có thể mở khóa chất lượng video cao hơn"</str
   <string name="revanced_remember_video_quality_last_selected_summary_off">Thay đổi chất lượng chỉ áp dụng cho video hiện tại</string>
   <string name="revanced_video_quality_default_wifi_title">Chất lượng mặc định trên mạng Wi-Fi</string>
   <string name="revanced_video_quality_default_mobile_title">Chất lượng mặc định trên mạng di động</string>
+  <string name="revanced_remember_shorts_quality_last_selected_title">Ghi nhớ các thay đổi chất lượng Shorts</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_on">Thay đổi chất lượng áp dụng cho tất cả nội dung Shorts</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_off">Thay đổi chất lượng chỉ áp dụng cho Short hiện tại</string>
+  <string name="revanced_shorts_quality_default_wifi_title">Chất lượng Shorts mặc định trên mạng Wi-Fi</string>
+  <string name="revanced_shorts_quality_default_mobile_title">Chất lượng Shorts mặc định trên mạng di động</string>
   <string name="revanced_remember_video_quality_mobile">di động</string>
   <string name="revanced_remember_video_quality_wifi">wifi</string>
   <string name="revanced_remember_video_quality_toast">Đã thay đổi chất lượng %1$s mặc định: %2$s</string>
+  <string name="revanced_remember_video_quality_toast_shorts">Đã thay đổi chất lượng Shorts %1$s: %2$s</string>
   </patch>
   <patch id="video.speed.button.playbackSpeedButtonPatch">
   <string name="revanced_playback_speed_dialog_button_title">Hiện nút hộp thoại tốc độ phát</string>
@@ -1401,10 +1403,10 @@ Bật tính năng này có thể mở khóa chất lượng video cao hơn"</str
   <string name="revanced_disable_hdr_video_summary_on">Video HDR đã bị tắt</string>
   <string name="revanced_disable_hdr_video_summary_off">Video HDR đã được bật</string>
   </patch>
-  <patch id="video.videoqualitymenu.restoreOldVideoQualityMenuResourcePatch">
-  <string name="revanced_restore_old_video_quality_menu_title">Khôi phục trình đơn chất lượng video kiểu cũ</string>
-  <string name="revanced_restore_old_video_quality_menu_summary_on">Trình đơn chất lượng video kiểu cũ được hiện</string>
-  <string name="revanced_restore_old_video_quality_menu_summary_off">Trình đơn chất lượng video kiểu cũ không được hiện</string>
+  <patch id="video.quality.advancedVideoQualityMenuPatch">
+  <string name="revanced_advanced_video_quality_menu_title">Hiển thị trình đơn chất lượng video nâng cao</string>
+  <string name="revanced_advanced_video_quality_menu_summary_on">Trình đơn chất lượng video nâng cao được hiển thị</string>
+  <string name="revanced_advanced_video_quality_menu_summary_off">Trình đơn chất lượng video nâng cao không được hiển thị</string>
   </patch>
   <patch id="interaction.seekbar.enableSlideToSeekPatch">
   <string name="revanced_slide_to_seek_title">Bật vuốt để tua</string>
@@ -1434,7 +1436,7 @@ AVC có độ phân giải tối đa là 1080p, bộ giải mã âm thanh Opus k
   <string name="revanced_spoof_video_streams_about_android_title">Tác dụng phụ của việc giả mạo Android</string>
   <string name="revanced_spoof_video_streams_about_android_summary">"• Menu âm thanh bị thiếu
 • Âm lượng ổn định không khả dụng
-• Tuỳ chọn âm thanh gốc không khả dụng"</string>
+• Tùy chọn âm thanh gốc không khả dụng"</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Không có bộ giải mã video AV1</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Video dành cho trẻ em có thể không phát được khi đăng xuất hoặc ở chế độ ẩn danh</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Hiển thị trong Stats for nerds</string>

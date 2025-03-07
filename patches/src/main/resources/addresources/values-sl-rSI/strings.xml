@@ -301,13 +301,13 @@ Ne boste obveščeni o nobenih nepričakovanih dogodkih."</string>
   <string name="revanced_hide_description_components_screen_title">Opis videoposnetka</string>
   <string name="revanced_hide_description_components_screen_summary">Skrij ali prikaži komponente opisa videoposnetka</string>
   <string name="revanced_hide_filter_bar_screen_title">Vrstica filtra</string>
-  <string name="revanced_hide_filter_bar_screen_summary">Skrij ali prikaži vrstico filtra v viru, iskanju in povezanih videoposnetkih</string>
+  <string name="revanced_hide_filter_bar_screen_summary">Skrije ali prikaže filtrirno vrstico v viru, rezultatih iskanja in povezanih videoposnetkih</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_title">Skrij v viru</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_summary_on">Skrita v viru</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_summary_off">Prikazana v viru</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_title">Skrij v iskanju</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_summary_on">Skrita v iskanju</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_summary_off">Prikazana v iskanju</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_title">Skrij v rezultatih iskanja</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_summary_on">Skrito v rezultatih iskanja</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_summary_off">Prikazano v rezultatih iskanja</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_title">Skrij v povezanih videoposnetkih</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_on">Skrita v povezanih videoposnetkih</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">Prikazana v povezanih videoposnetkih</string>
@@ -404,7 +404,7 @@ Ta funkcija je na voljo samo za starejše naprave"</string>
   <string name="revanced_hide_self_sponsor_ads_title">Skrij samoproizvedene oglase</string>
   <string name="revanced_hide_self_sponsor_ads_summary_on">Samoproizvedeni oglasi so skriti</string>
   <string name="revanced_hide_self_sponsor_ads_summary_off">Samoproizvedeni oglasi so prikazani</string>
-  <string name="revanced_hide_products_banner_title">Skrij pasico za ogled izdelkov</string>
+  <string name="revanced_hide_products_banner_title">Skrij pasico »Ogled izdelkov«</string>
   <string name="revanced_hide_products_banner_summary_on">Pasica je skrita</string>
   <string name="revanced_hide_products_banner_summary_off">Pasica je prikazana</string>
   <string name="revanced_hide_end_screen_store_banner_title">Skrij pasico trgovine na koncu zaslona</string>
@@ -663,7 +663,7 @@ Opomba: Omogočanje tega tudi prisilno skrije video oglase"</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_off">Noga menija s kakovostjo videa je prikazana</string>
   </patch>
   <patch id="layout.buttons.overlay.hidePlayerOverlayButtonsPatch">
-  <string name="revanced_hide_player_previous_next_buttons_title">Skrij gumbe \"Prejšnji\" &amp; \"Naslednji\" video</string>
+  <string name="revanced_hide_player_previous_next_buttons_title">Skrij gumbe »Prejšnji« &amp; »Naslednji«</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_on">Gumbi so skriti</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">Gumbi so prikazani</string>
   <string name="revanced_hide_cast_button_title">Skrij gumb \'Predvajaj\'</string>
@@ -1117,13 +1117,11 @@ Ali ste pripravljeni na oddajo?"</string>
   <string name="revanced_change_form_factor_entry_4">Avtomobilska</string>
   <string name="revanced_change_form_factor_user_dialog_message">"Spremembe vključujejo:
 
-Postavitev tabličnega računalnika
+Postavitev za tablične računalnike
 • Objave skupnosti so skrite
 
-Postavitev za vozila
-• Meni zgodovine ogledov je skrit
-• Zavihek Raziskovanje je obnovljen
-• Posnetki Shorts se odprejo v običajnem predvajalniku
+Avtomobilska postavitev
+• Shorts se odprejo v običajnem predvajalniku
 • Vir je organiziran po temah in kanalih"</string>
   </patch>
   <patch id="layout.spoofappversion.spoofAppVersionPatch">
@@ -1194,7 +1192,7 @@ To bo spremenilo videz in funkcije aplikacije, vendar se lahko pojavijo neznani 
   </patch>
   <patch id="layout.miniplayer.miniplayerPatch">
   <string name="revanced_miniplayer_screen_title">\"Miniplayer\"</string>
-  <string name="revanced_miniplayer_screen_summary">Spremeni slog zmanjšanega predvajalnika v aplikaciji</string>
+  <string name="revanced_miniplayer_screen_summary">Spremenite slog minimiziranega predvajalnika v aplikaciji</string>
   <string name="revanced_miniplayer_type_title">Vrsta mini predvajalnika</string>
   <string name="revanced_miniplayer_type_entry_0">Onemogočeno</string>
   <string name="revanced_miniplayer_type_entry_1">Privzeto</string>
@@ -1247,8 +1245,6 @@ Podrsnite za razširitev ali zapiranje"</string>
   <string name="revanced_gradient_loading_screen_title">Omogoči zaslon za nalaganje z gradientom</string>
   <string name="revanced_gradient_loading_screen_summary_on">Zaslon za nalaganje bo imel ozadje z gradientom</string>
   <string name="revanced_gradient_loading_screen_summary_off">Zaslon za nalaganje bo imel enobarvno ozadje</string>
-  </patch>
-  <patch id="layout.theme.themeResourcePatch">
   <string name="revanced_seekbar_custom_color_title">Omogoči prilagojeno barvo drsnika</string>
   <string name="revanced_seekbar_custom_color_summary_on">Prilagojena barva drsnika je prikazana</string>
   <string name="revanced_seekbar_custom_color_summary_off">Izvorna barva drsnika je prikazana</string>
@@ -1340,8 +1336,8 @@ Omogočanje tega lahko odklene višje kakovosti videa"</string>
   </patch>
   <patch id="misc.links.openLinksExternallyPatch">
   <string name="revanced_external_browser_title">Odpri povezave v brskalniku</string>
-  <string name="revanced_external_browser_summary_on">Odpiranje povezav zunaj aplikacije</string>
-  <string name="revanced_external_browser_summary_off">Odpiranje povezav v aplikaciji</string>
+  <string name="revanced_external_browser_summary_on">Odpiranje povezav v zunanjem brskalniku</string>
+  <string name="revanced_external_browser_summary_off">Odpiranje povezav v brskalniku v aplikaciji</string>
   </patch>
   <patch id="misc.privacy.removeTrackingQueryParameterPatch">
   <string name="revanced_remove_tracking_query_parameter_title">Odstrani parameter poizvedbe za sledenje</string>
@@ -1368,9 +1364,15 @@ Omogočanje tega lahko odklene višje kakovosti videa"</string>
   <string name="revanced_remember_video_quality_last_selected_summary_off">Spremembe kakovosti se uporabijo le za trenutni videoposnetek</string>
   <string name="revanced_video_quality_default_wifi_title">Privzeta kakovost videoposnetka v omrežju Wi-Fi</string>
   <string name="revanced_video_quality_default_mobile_title">Privzeta kakovost videoposnetka v mobilnem omrežju</string>
+  <string name="revanced_remember_shorts_quality_last_selected_title">Zapomni si spremembe kakovosti za Shorts</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_on">Spremembe kakovosti veljajo za vse Shorts</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_off">Spremembe kakovosti veljajo samo za trenutni Short</string>
+  <string name="revanced_shorts_quality_default_wifi_title">Privzeta kakovost za Shorts v omrežju Wi-Fi</string>
+  <string name="revanced_shorts_quality_default_mobile_title">Privzeta kakovost za Shorts v mobilnem omrežju</string>
   <string name="revanced_remember_video_quality_mobile">mobilni</string>
   <string name="revanced_remember_video_quality_wifi">Wi-Fi</string>
   <string name="revanced_remember_video_quality_toast">Spremenjena privzeta kakovost %1$s na: %2$s</string>
+  <string name="revanced_remember_video_quality_toast_shorts">Spremenjena kakovost Shorts %1$s v: %2$s</string>
   </patch>
   <patch id="video.speed.button.playbackSpeedButtonPatch">
   <string name="revanced_playback_speed_dialog_button_title">Pokaži gumb za pogovor o hitrosti</string>
@@ -1401,10 +1403,10 @@ Omogočanje tega lahko odklene višje kakovosti videa"</string>
   <string name="revanced_disable_hdr_video_summary_on">HDR video je onemogočen</string>
   <string name="revanced_disable_hdr_video_summary_off">HDR video je omogočen</string>
   </patch>
-  <patch id="video.videoqualitymenu.restoreOldVideoQualityMenuResourcePatch">
-  <string name="revanced_restore_old_video_quality_menu_title">Obnovi stari meni za kakovost videoposnetkov</string>
-  <string name="revanced_restore_old_video_quality_menu_summary_on">Stari meni za kakovost videoposnetkov je prikazan</string>
-  <string name="revanced_restore_old_video_quality_menu_summary_off">Stari meni za kakovost videoposnetkov ni prikazan</string>
+  <patch id="video.quality.advancedVideoQualityMenuPatch">
+  <string name="revanced_advanced_video_quality_menu_title">Pokaži napredni meni za kakovost videoposnetkov</string>
+  <string name="revanced_advanced_video_quality_menu_summary_on">Napredni meni za kakovost videoposnetkov je prikazan</string>
+  <string name="revanced_advanced_video_quality_menu_summary_off">Napredni meni za kakovost videoposnetkov ni prikazan</string>
   </patch>
   <patch id="interaction.seekbar.enableSlideToSeekPatch">
   <string name="revanced_slide_to_seek_title">Omogoči drsno iskanje</string>

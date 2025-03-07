@@ -301,13 +301,13 @@ Du kommer inte att bli meddelad om oväntade händelser."</string>
   <string name="revanced_hide_description_components_screen_title">Videobeskrivning</string>
   <string name="revanced_hide_description_components_screen_summary">Dölj eller visa videobeskrivningskomponenter</string>
   <string name="revanced_hide_filter_bar_screen_title">Filterfält</string>
-  <string name="revanced_hide_filter_bar_screen_summary">Dölj eller visa filterfältet i flödet, sök och relaterade videor</string>
+  <string name="revanced_hide_filter_bar_screen_summary">Visa eller dölj filterfältet i flödet, sökresultaten och relaterade videor</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_title">Dölj i flöde</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_summary_on">Dold i flödet</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_summary_off">Visas i flöde</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_title">Dölj i sökningen</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_summary_on">Dold i sökningen</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_summary_off">Visas i sök</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_title">Dölj i sökresultat</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_summary_on">Dold i sökresultat</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_summary_off">Visas i sökresultat</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_title">Dölj i relaterade videor</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_on">Dold i relaterade videor</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">Visas i relaterade videor</string>
@@ -404,7 +404,7 @@ Den här funktionen är endast tillgänglig för äldre enheter"</string>
   <string name="revanced_hide_self_sponsor_ads_title">Dölj självsponsrade kort</string>
   <string name="revanced_hide_self_sponsor_ads_summary_on">Självsponsrade kort är dolda</string>
   <string name="revanced_hide_self_sponsor_ads_summary_off">Självsponsrade kort är synliga</string>
-  <string name="revanced_hide_products_banner_title">Dölj banner för att visa produkter</string>
+  <string name="revanced_hide_products_banner_title">Dölj \"Visa produkter\"-banner</string>
   <string name="revanced_hide_products_banner_summary_on">Banner är dold</string>
   <string name="revanced_hide_products_banner_summary_off">Banner är synlig</string>
   <string name="revanced_hide_end_screen_store_banner_title">Dölj bannern för butik på slutskärmen</string>
@@ -663,7 +663,7 @@ Om du ändrar den här inställningen och det inte får effekt kan du försöka 
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_off">Videokvalitets sidfot visas</string>
   </patch>
   <patch id="layout.buttons.overlay.hidePlayerOverlayButtonsPatch">
-  <string name="revanced_hide_player_previous_next_buttons_title">Dölj tidigare &amp; nästa videoknappar</string>
+  <string name="revanced_hide_player_previous_next_buttons_title">Dölj Föregående &amp; Nästa knappar</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_on">Knappar är dolda</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">Knappar är synliga</string>
   <string name="revanced_hide_cast_button_title">Dölj cast-knappen</string>
@@ -1117,14 +1117,12 @@ Redo att skicka in?"</string>
   <string name="revanced_change_form_factor_entry_4">Bil</string>
   <string name="revanced_change_form_factor_user_dialog_message">"Ändringar inkluderar:
 
-Surfplatta-layout
-• Community-inlägg är dolda
+Tabletlayout
+• Communityinlägg är dolda
 
-Billautomation
-• Tittningshistorikmenyn är dold
-• Utforska-fliken är återställd
+Automotive-layout
 • Shorts öppnas i den vanliga spelaren
-• Flödet är organiserat efter ämnen och kanal"</string>
+• Flödet är organiserat efter ämnen och kanaler"</string>
   </patch>
   <patch id="layout.spoofappversion.spoofAppVersionPatch">
   <string name="revanced_spoof_app_version_title">Spoof app-version</string>
@@ -1194,7 +1192,7 @@ Om det senare stängs av rekommenderas det att rensa appens data för att förhi
   </patch>
   <patch id="layout.miniplayer.miniplayerPatch">
   <string name="revanced_miniplayer_screen_title">Minispelare</string>
-  <string name="revanced_miniplayer_screen_summary">Ändra stilen på appen minimerad spelare</string>
+  <string name="revanced_miniplayer_screen_summary">Ändra stilen på den minimerade spelaren i appen</string>
   <string name="revanced_miniplayer_type_title">Miniplayer typ</string>
   <string name="revanced_miniplayer_type_entry_0">Inaktiverad</string>
   <string name="revanced_miniplayer_type_entry_1">Standard</string>
@@ -1247,8 +1245,6 @@ Svep för att expandera eller stänga"</string>
   <string name="revanced_gradient_loading_screen_title">Aktivera gradient laddar skärmen</string>
   <string name="revanced_gradient_loading_screen_summary_on">Laddar skärmen kommer att ha en lutande bakgrund</string>
   <string name="revanced_gradient_loading_screen_summary_off">Laddar skärmen kommer att ha en solid bakgrund</string>
-  </patch>
-  <patch id="layout.theme.themeResourcePatch">
   <string name="revanced_seekbar_custom_color_title">Aktivera anpassad sökfält färg</string>
   <string name="revanced_seekbar_custom_color_summary_on">Anpassad sökfält färg visas</string>
   <string name="revanced_seekbar_custom_color_summary_off">Original sökfält färg visas</string>
@@ -1340,8 +1336,8 @@ Att aktivera detta kan låsa upp högre videokvalitet"</string>
   </patch>
   <patch id="misc.links.openLinksExternallyPatch">
   <string name="revanced_external_browser_title">Öppna länkar i webbläsaren</string>
-  <string name="revanced_external_browser_summary_on">Öppna länkar externt</string>
-  <string name="revanced_external_browser_summary_off">Öppna länkar i appen</string>
+  <string name="revanced_external_browser_summary_on">Öppna länkar i extern webbläsare</string>
+  <string name="revanced_external_browser_summary_off">Öppna länkar i webbläsaren i appen</string>
   </patch>
   <patch id="misc.privacy.removeTrackingQueryParameterPatch">
   <string name="revanced_remove_tracking_query_parameter_title">Ta bort spårningsfrågeparameter</string>
@@ -1368,9 +1364,15 @@ Att aktivera detta kan låsa upp högre videokvalitet"</string>
   <string name="revanced_remember_video_quality_last_selected_summary_off">Kvalitetsförändringar gäller endast för den aktuella videon</string>
   <string name="revanced_video_quality_default_wifi_title">Standard videokvalitet på Wi-Fi-nätverk</string>
   <string name="revanced_video_quality_default_mobile_title">Standard videokvalitet på mobilt nätverk</string>
+  <string name="revanced_remember_shorts_quality_last_selected_title">Kom ihåg kvalitetsändringar för Shorts</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_on">Kvalitetsändringar gäller alla Shorts</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_off">Kvalitetsändringar gäller endast aktuell Short</string>
+  <string name="revanced_shorts_quality_default_wifi_title">Standardkvalitet för Shorts på Wi-Fi-nätverk</string>
+  <string name="revanced_shorts_quality_default_mobile_title">Standardkvalitet för Shorts på mobilnätverk</string>
   <string name="revanced_remember_video_quality_mobile">mobil</string>
   <string name="revanced_remember_video_quality_wifi">wifi</string>
   <string name="revanced_remember_video_quality_toast">Ändrade standardkvalitet %1$s till: %2$s</string>
+  <string name="revanced_remember_video_quality_toast_shorts">Ändrade Shorts %1$s-kvalitet till: %2$s</string>
   </patch>
   <patch id="video.speed.button.playbackSpeedButtonPatch">
   <string name="revanced_playback_speed_dialog_button_title">Visa hastighetsdialogruta knapp</string>
@@ -1401,10 +1403,10 @@ Att aktivera detta kan låsa upp högre videokvalitet"</string>
   <string name="revanced_disable_hdr_video_summary_on">HDR-video är inaktiverat</string>
   <string name="revanced_disable_hdr_video_summary_off">HDR-video är aktiverat</string>
   </patch>
-  <patch id="video.videoqualitymenu.restoreOldVideoQualityMenuResourcePatch">
-  <string name="revanced_restore_old_video_quality_menu_title">Återställ gamla videokvalitetsmenyn</string>
-  <string name="revanced_restore_old_video_quality_menu_summary_on">Gammal videokvalitetsmeny visas</string>
-  <string name="revanced_restore_old_video_quality_menu_summary_off">Gamla videokvalitetsmenyn visas inte</string>
+  <patch id="video.quality.advancedVideoQualityMenuPatch">
+  <string name="revanced_advanced_video_quality_menu_title">Visa avancerad videokvalitetsmeny</string>
+  <string name="revanced_advanced_video_quality_menu_summary_on">Avancerad videokvalitetsmeny visas</string>
+  <string name="revanced_advanced_video_quality_menu_summary_off">Avancerad videokvalitetsmeny visas inte</string>
   </patch>
   <patch id="interaction.seekbar.enableSlideToSeekPatch">
   <string name="revanced_slide_to_seek_title">Aktivera glid för att söka</string>

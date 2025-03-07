@@ -301,13 +301,13 @@ Gözlənilməz hallardan xəbərdar olmayacaqsınız."</string>
   <string name="revanced_hide_description_components_screen_title">Video açıqlaması</string>
   <string name="revanced_hide_description_components_screen_summary">Video açıqlaması elementlərini gizlət və ya göstər</string>
   <string name="revanced_hide_filter_bar_screen_title">Filtr çubuğu</string>
-  <string name="revanced_hide_filter_bar_screen_summary">Axında, axtarışda və əlaqəli videolardakı filtr çubuğunu gizlət və ya göstər</string>
+  <string name="revanced_hide_filter_bar_screen_summary">Axında, axtarış nəticələrində və əlaqəli videolarda filtr cərgəsin gizlət və ya göstər</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_title">Axında gizlət</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_summary_on">Axında gizlidir</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_summary_off">Axında göstərilir</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_title">Axtarışda gizlət</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_summary_on">Axtarışda gizlidir</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_summary_off">Axtarışda görünür</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_title">Axtarış nəticələrində gizlət</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_summary_on">Axtarış nəticələrində gizlədilib</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_summary_off">Axtarış nəticələrində göstərilir</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_title">Əlaqəli videolarda gizlət</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_on">Əlaqəli videolarda gizlidir</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">Əlaqəli videolarda görünür</string>
@@ -404,7 +404,6 @@ Bu xüsusiyyət yalnız köhnə cihazlar üçün mövcuddur"</string>
   <string name="revanced_hide_self_sponsor_ads_title">Öz-sponsorlu kartları gizlət</string>
   <string name="revanced_hide_self_sponsor_ads_summary_on">Özünə sponsorluq edilən kartlar gizlidir</string>
   <string name="revanced_hide_self_sponsor_ads_summary_off">Özünə sponsorluq edilən kartlar göstərilir</string>
-  <string name="revanced_hide_products_banner_title">Məhsullara baxma etiketin gizlət</string>
   <string name="revanced_hide_products_banner_summary_on">Etiket gizlədilib</string>
   <string name="revanced_hide_products_banner_summary_off">Etiket göstərilir</string>
   <string name="revanced_hide_end_screen_store_banner_title">Son ekran mağaza etiketini gizlət</string>
@@ -663,7 +662,6 @@ Bu seçimi dəyişdirmə işə düşmürsə, Gizli rejimə keçməyə çalışı
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_off">Video keyfiyyət menyusu alt məlumatı göstərilir</string>
   </patch>
   <patch id="layout.buttons.overlay.hidePlayerOverlayButtonsPatch">
-  <string name="revanced_hide_player_previous_next_buttons_title">Əvvəlki/növbəti video düymələrin gizlət</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_on">Düymələr gizlidir</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">Düymələr göstərilir</string>
   <string name="revanced_hide_cast_button_title">Yayımla düyməsini gizlət</string>
@@ -1115,16 +1113,6 @@ Təqdim etməyə hazırdır?"</string>
   <string name="revanced_change_form_factor_entry_2">Telefon</string>
   <string name="revanced_change_form_factor_entry_3">Planşet</string>
   <string name="revanced_change_form_factor_entry_4">Avtomobil</string>
-  <string name="revanced_change_form_factor_user_dialog_message">"Dəyişikliklərə daxildir:
-
-Planşet tərtibatı
-• İcma elanları gizlidir
-
-Avtomobil tərtibatı
-• Baxış tarixçəsi seçimi gizlidir
-• \"Kəşf et\" bölməsi qaytarılıb
-• Shorts daimi oynadıcıda açılır
-• Axın mövzulara və kanala görə hazırlanıb"</string>
   </patch>
   <patch id="layout.spoofappversion.spoofAppVersionPatch">
   <string name="revanced_spoof_app_version_title">Tətbiq versiyasını saxtalaşdır</string>
@@ -1194,7 +1182,6 @@ Sonradan qapadılarsa, UI səhvlərin önləmək üçün tətbiq məlumatların 
   </patch>
   <patch id="layout.miniplayer.miniplayerPatch">
   <string name="revanced_miniplayer_screen_title">Kiçik oynadıcı</string>
-  <string name="revanced_miniplayer_screen_summary">Tətbiqdə kiçildilən oynadıcı üslubunu dəyişdir</string>
   <string name="revanced_miniplayer_type_title">Kiçik oynadıcı növü</string>
   <string name="revanced_miniplayer_type_entry_0">Qeyri-aktivdir</string>
   <string name="revanced_miniplayer_type_entry_1">İlkin</string>
@@ -1247,8 +1234,6 @@ Genişləndirmək və ya bağlamaq üçün sürüşdür"</string>
   <string name="revanced_gradient_loading_screen_title">Dəyişkən yükləmə ekranını aktivləşdir</string>
   <string name="revanced_gradient_loading_screen_summary_on">Yükləmə ekranı, dəyişkən arxa plana malik olacaq</string>
   <string name="revanced_gradient_loading_screen_summary_off">Yükləmə ekranı, vahid arxa plana malik olacaq</string>
-  </patch>
-  <patch id="layout.theme.themeResourcePatch">
   <string name="revanced_seekbar_custom_color_title">Fərdi irəliləmə cizgisi rəngini aktivləşdir</string>
   <string name="revanced_seekbar_custom_color_summary_on">Fərdi irəliləmə cizgisi rəngi göstərilir</string>
   <string name="revanced_seekbar_custom_color_summary_off">Orijinal irəliləmə cizgisi rəngi göstərilir</string>
@@ -1340,8 +1325,6 @@ Bunu aktivləşdirmə daha yüksək video keyfiyyətləri əngəlin silə bilər
   </patch>
   <patch id="misc.links.openLinksExternallyPatch">
   <string name="revanced_external_browser_title">Bağlantıları brauzerdə aç</string>
-  <string name="revanced_external_browser_summary_on">Bağlantılar xarici yolla açılır</string>
-  <string name="revanced_external_browser_summary_off">Bağlantılar tətbiqdə açılır</string>
   </patch>
   <patch id="misc.privacy.removeTrackingQueryParameterPatch">
   <string name="revanced_remove_tracking_query_parameter_title">İzləmə sorğusu faktorun sil</string>
@@ -1401,10 +1384,7 @@ Bunu aktivləşdirmə daha yüksək video keyfiyyətləri əngəlin silə bilər
   <string name="revanced_disable_hdr_video_summary_on">HDR video qapalıdır</string>
   <string name="revanced_disable_hdr_video_summary_off">HDR video aktivdir</string>
   </patch>
-  <patch id="video.videoqualitymenu.restoreOldVideoQualityMenuResourcePatch">
-  <string name="revanced_restore_old_video_quality_menu_title">Köhnə video keyfiyyət menusun qaytar</string>
-  <string name="revanced_restore_old_video_quality_menu_summary_on">Köhnə video keyfiyyət siyahısı göstərilir</string>
-  <string name="revanced_restore_old_video_quality_menu_summary_off">Köhnə video keyfiyyət siyahısı görünmür</string>
+  <patch id="video.quality.advancedVideoQualityMenuPatch">
   </patch>
   <patch id="interaction.seekbar.enableSlideToSeekPatch">
   <string name="revanced_slide_to_seek_title">Axtarmaq üçün sürüşdürməni aktiv et</string>

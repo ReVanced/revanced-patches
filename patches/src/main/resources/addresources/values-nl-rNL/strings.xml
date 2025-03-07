@@ -301,13 +301,13 @@ U wordt niet op de hoogte gesteld van onverwachte gebeurtenissen."</string>
   <string name="revanced_hide_description_components_screen_title">Videobeschrijving</string>
   <string name="revanced_hide_description_components_screen_summary">Skjul eller vis komponentene i videoens beskrivelse</string>
   <string name="revanced_hide_filter_bar_screen_title">Filterbaren</string>
-  <string name="revanced_hide_filter_bar_screen_summary">Skjul eller vis filterbaren i feedet, søket og relaterte videoer</string>
+  <string name="revanced_hide_filter_bar_screen_summary">De filterbalk in de feed, zoekresultaten en gerelateerde video\'s verbergen of weergeven</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_title">Skjul i feed</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_summary_on">Sjul i feed</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_summary_off">Vis i feed</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_title">Skjul i søk</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_summary_on">Verborgen in zoekfunctie</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_summary_off">Weergegeven in zoekfunctie</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_title">Verbergen in zoekresultaten</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_summary_on">Verborgen in zoekresultaten</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_summary_off">Weergegeven in zoekresultaten</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_title">Verbergen in gerelateerde video\'s</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_on">Verborgen in gerelateerde video\'s</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">Weergegeven in gerelateerde video\'s</string>
@@ -404,7 +404,7 @@ Deze functie is alleen beschikbaar voor oudere apparaten"</string>
   <string name="revanced_hide_self_sponsor_ads_title">Zelf gesponsorde kaarten verbergen</string>
   <string name="revanced_hide_self_sponsor_ads_summary_on">Zelf gesponsorde kaarten zijn verborgen</string>
   <string name="revanced_hide_self_sponsor_ads_summary_off">Zelf gesponsorde kaarten worden getoond</string>
-  <string name="revanced_hide_products_banner_title">Banner om producten te bekijken verbergen</string>
+  <string name="revanced_hide_products_banner_title">Verberg de banner \'Producten bekijken\'</string>
   <string name="revanced_hide_products_banner_summary_on">Banner is verborgen</string>
   <string name="revanced_hide_products_banner_summary_off">Banner wordt getoond</string>
   <string name="revanced_hide_end_screen_store_banner_title">Verberg de Store-banner op het eindscherm</string>
@@ -663,7 +663,7 @@ Als het wijzigen van deze instelling geen effect heeft, probeer dan over te scha
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_off">Voettekst van video-kwaliteitsmenu wordt weergegeven</string>
   </patch>
   <patch id="layout.buttons.overlay.hidePlayerOverlayButtonsPatch">
-  <string name="revanced_hide_player_previous_next_buttons_title">Verberg vorige &amp; volgende videoknoppen</string>
+  <string name="revanced_hide_player_previous_next_buttons_title">Verberg Vorige &amp; Volgende knoppen</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_on">Knoppen zijn verborgen</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">Knoppen worden weergegeven</string>
   <string name="revanced_hide_cast_button_title">Verberg Cast-knop</string>
@@ -1116,16 +1116,14 @@ Klaar om in te dienen?"</string>
   <string name="revanced_change_form_factor_entry_2">Telefoon</string>
   <string name="revanced_change_form_factor_entry_3">Tablet</string>
   <string name="revanced_change_form_factor_entry_4">Automobiel</string>
-  <string name="revanced_change_form_factor_user_dialog_message">"De wijzigingen omvatten:
+  <string name="revanced_change_form_factor_user_dialog_message">"Wijzigingen omvatten:
 
-Tablet-indeling
-• Community-berichten zijn verborgen
+Tablet lay-out
+• Community posts zijn verborgen
 
-Automobielindeling
-• Het menu \"Wachthistorie\" is verborgen
-• Het tabblad \"Verkennen\" is hersteld
-• Shorts openen in de gewone speler
-• De feed is georganiseerd op onderwerpen en kanaal"</string>
+Automotive lay-out
+• Shorts worden geopend in de normale speler
+• Feed is georganiseerd op onderwerp en kanalen"</string>
   </patch>
   <patch id="layout.spoofappversion.spoofAppVersionPatch">
   <string name="revanced_spoof_app_version_title">App-versie vervalsen</string>
@@ -1195,7 +1193,7 @@ Als het later wordt uitgeschakeld, wordt aanbevolen om de app-gegevens te wissen
   </patch>
   <patch id="layout.miniplayer.miniplayerPatch">
   <string name="revanced_miniplayer_screen_title">Minispeler</string>
-  <string name="revanced_miniplayer_screen_summary">Wijzig de stijl van de geminimaliseerde speler in de app</string>
+  <string name="revanced_miniplayer_screen_summary">De stijl van de geminimaliseerde speler in de app wijzigen</string>
   <string name="revanced_miniplayer_type_title">\"miniplayer\"-type</string>
   <string name="revanced_miniplayer_type_entry_0">Uitgeschakeld</string>
   <string name="revanced_miniplayer_type_entry_1">Standaard</string>
@@ -1248,8 +1246,6 @@ Veeg om uit te vouwen of te sluiten"</string>
   <string name="revanced_gradient_loading_screen_title">Schakel het laden van het verloopscherm in</string>
   <string name="revanced_gradient_loading_screen_summary_on">Het laadscherm heeft een verlopende achtergrond</string>
   <string name="revanced_gradient_loading_screen_summary_off">Het laadscherm heeft een effen achtergrond</string>
-  </patch>
-  <patch id="layout.theme.themeResourcePatch">
   <string name="revanced_seekbar_custom_color_title">Schakel aangepaste schuifregelaar kleur in</string>
   <string name="revanced_seekbar_custom_color_summary_on">De aangepaste kleur van de schuifregelaar is zichtbaar</string>
   <string name="revanced_seekbar_custom_color_summary_off">De oorspronkelijke kleur van de schuifregelaar is zichtbaar</string>
@@ -1341,8 +1337,8 @@ Het inschakelen hiervan kan hogere videokwaliteiten ontgrendelen"</string>
   </patch>
   <patch id="misc.links.openLinksExternallyPatch">
   <string name="revanced_external_browser_title">Koppelingen openen in browser</string>
-  <string name="revanced_external_browser_summary_on">Koppelingen extern openen</string>
-  <string name="revanced_external_browser_summary_off">Koppelingen openen in app</string>
+  <string name="revanced_external_browser_summary_on">Koppelingen openen in externe browser</string>
+  <string name="revanced_external_browser_summary_off">Koppelingen openen in in-app browser</string>
   </patch>
   <patch id="misc.privacy.removeTrackingQueryParameterPatch">
   <string name="revanced_remove_tracking_query_parameter_title">Verwijder tracking-queryparameter</string>
@@ -1369,9 +1365,15 @@ Het inschakelen hiervan kan hogere videokwaliteiten ontgrendelen"</string>
   <string name="revanced_remember_video_quality_last_selected_summary_off">Kwaliteitswijzigingen worden alleen op de huidige video toegepast</string>
   <string name="revanced_video_quality_default_wifi_title">Standaard videokwaliteit op Wi-Fi-netwerk</string>
   <string name="revanced_video_quality_default_mobile_title">Standaard videokwaliteit op mobiel netwerk</string>
+  <string name="revanced_remember_shorts_quality_last_selected_title">Onthoud kwaliteitswijzigingen voor Shorts</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_on">Kwaliteitswijzigingen zijn van toepassing op alle Shorts</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_off">Kwaliteitswijzigingen zijn alleen van toepassing op de huidige Short</string>
+  <string name="revanced_shorts_quality_default_wifi_title">Standaardkwaliteit voor Shorts op wifi-netwerk</string>
+  <string name="revanced_shorts_quality_default_mobile_title">Standaardkwaliteit voor Shorts op mobiel netwerk</string>
   <string name="revanced_remember_video_quality_mobile">mobiel</string>
   <string name="revanced_remember_video_quality_wifi">wifi</string>
   <string name="revanced_remember_video_quality_toast">Standaard %1$s-kwaliteit gewijzigd naar: %2$s</string>
+  <string name="revanced_remember_video_quality_toast_shorts">De kwaliteit van Shorts %1$s is gewijzigd in: %2$s</string>
   </patch>
   <patch id="video.speed.button.playbackSpeedButtonPatch">
   <string name="revanced_playback_speed_dialog_button_title">Snelheidsdialoogknop weergeven</string>
@@ -1402,10 +1404,10 @@ Het inschakelen hiervan kan hogere videokwaliteiten ontgrendelen"</string>
   <string name="revanced_disable_hdr_video_summary_on">HDR-video is uitgeschakeld</string>
   <string name="revanced_disable_hdr_video_summary_off">HDR-video is ingeschakeld</string>
   </patch>
-  <patch id="video.videoqualitymenu.restoreOldVideoQualityMenuResourcePatch">
-  <string name="revanced_restore_old_video_quality_menu_title">Oud menu voor videokwaliteit herstellen</string>
-  <string name="revanced_restore_old_video_quality_menu_summary_on">Oud menu voor videokwaliteit wordt weergegeven</string>
-  <string name="revanced_restore_old_video_quality_menu_summary_off">Oud menu voor videokwaliteit wordt niet weergegeven</string>
+  <patch id="video.quality.advancedVideoQualityMenuPatch">
+  <string name="revanced_advanced_video_quality_menu_title">Geavanceerd menu voor videokwaliteit weergeven</string>
+  <string name="revanced_advanced_video_quality_menu_summary_on">Geavanceerd menu voor videokwaliteit wordt weergegeven</string>
+  <string name="revanced_advanced_video_quality_menu_summary_off">Geavanceerd menu voor videokwaliteit wordt niet weergegeven</string>
   </patch>
   <patch id="interaction.seekbar.enableSlideToSeekPatch">
   <string name="revanced_slide_to_seek_title">Schuiven om te zoeken inschakelen</string>

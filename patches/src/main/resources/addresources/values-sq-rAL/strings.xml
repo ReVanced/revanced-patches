@@ -301,13 +301,13 @@ Ju nuk do të njoftoheni për ndonjë ngjarje të papritur."</string>
   <string name="revanced_hide_description_components_screen_title">Përshkrimi i videos</string>
   <string name="revanced_hide_description_components_screen_summary">Fshi ose shfaq komponentët e përshkrimit të videos</string>
   <string name="revanced_hide_filter_bar_screen_title">Shiriti i filtrimit</string>
-  <string name="revanced_hide_filter_bar_screen_summary">Fshi ose shfaq shiritin e filtrimit në ushqim, kërkim dhe video të lidhura</string>
+  <string name="revanced_hide_filter_bar_screen_summary">Fshih ose shfaq shiritin e filtrit në burim, rezultatet e kërkimit dhe videot e ngjashme</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_title">Fshi në ushqim</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_summary_on">I fshehur në ushqim</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_summary_off">I dukshme në ushqim</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_title">Fshi në kërkim</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_summary_on">I fshehur në kërkim</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_summary_off">I dukshme në kërkim</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_title">Fsheh në rezultatet e kërkimit</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_summary_on">E fshehur në rezultatet e kërkimit</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_summary_off">E shfaqur në rezultatet e kërkimit</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_title">Fshi në video të lidhura</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_on">I fshehur në video të lidhura</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">I dukshme në video të lidhura</string>
@@ -404,7 +404,7 @@ Kjo veçori është e disponueshme vetëm për pajisje më të vjetra"</string>
   <string name="revanced_hide_self_sponsor_ads_title">Fsheh kartat e sponsorizuara vetë</string>
   <string name="revanced_hide_self_sponsor_ads_summary_on">Kartat e sponsorizuara vetë janë të fshehur</string>
   <string name="revanced_hide_self_sponsor_ads_summary_off">Kartat e sponsorizuara vetë janë të dukshme</string>
-  <string name="revanced_hide_products_banner_title">Fsheh bannerin për të parë produktet</string>
+  <string name="revanced_hide_products_banner_title">Fshih banerin \'Shiko produktet\'</string>
   <string name="revanced_hide_products_banner_summary_on">Banneri është i fshehur</string>
   <string name="revanced_hide_products_banner_summary_off">Banneri është i dukshëm</string>
   <string name="revanced_hide_end_screen_store_banner_title">Fsheh bannerin e dyqanit të ekranit përfundimtar</string>
@@ -663,7 +663,7 @@ Nëse ndryshimi i këtij konfigurimi nuk ka efekt, provoni të kaloni në modali
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_off">Funda e menusë së cilësisë së videos është e dukshme</string>
   </patch>
   <patch id="layout.buttons.overlay.hidePlayerOverlayButtonsPatch">
-  <string name="revanced_hide_player_previous_next_buttons_title">Fsheh butonat \"e mëparshme\" &amp; \"e mëvonshme\"</string>
+  <string name="revanced_hide_player_previous_next_buttons_title">Fsheh Butonat e Mëparshme &amp; Tjetër</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_on">Butonat janë të fshehur</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">Butonat janë të dukshme</string>
   <string name="revanced_hide_cast_button_title">Fsheh butonin Transmeto</string>
@@ -1114,16 +1114,14 @@ Gati per te dhene?"</string>
   <string name="revanced_change_form_factor_entry_2">Telefon</string>
   <string name="revanced_change_form_factor_entry_3">Tabletë</string>
   <string name="revanced_change_form_factor_entry_4">Automjet</string>
-  <string name="revanced_change_form_factor_user_dialog_message">"Ndryshimet përfshijnë:&#13;
+  <string name="revanced_change_form_factor_user_dialog_message">"Ndryshimet përfshijnë:
 
-Pamje në format tabletë&#13;
-• Postimet e komunitetit janë të fshehura&#13;
+Paraqitja e tabletit
+• Postimet e komunitetit janë të fshehura
 
-Pamje automotive&#13;
-• Menua e historisë së shikimit është e fshehur&#13;
-• Seksioni Shfleto është rikthyer&#13;
-• Shorts hapen në oynën e zakonshme&#13;
-• Ushtrimi është i organizuar sipas temave dhe kanaleve"</string>
+Paraqitja e makinës
+• Shorts hapen në luajtësin e rregullt
+• Feed organizohet sipas temave dhe kanaleve"</string>
   </patch>
   <patch id="layout.spoofappversion.spoofAppVersionPatch">
   <string name="revanced_spoof_app_version_title">Mashtro versionin e aplikacionit</string>
@@ -1193,7 +1191,7 @@ Nëse më vonë është çaktivizuar, është e rekomanduar të fshiheni të dh�
   </patch>
   <patch id="layout.miniplayer.miniplayerPatch">
   <string name="revanced_miniplayer_screen_title">Miniplayer</string>
-  <string name="revanced_miniplayer_screen_summary">Ndrysho stilin e lojtarit të minimizuar në aplikacion</string>
+  <string name="revanced_miniplayer_screen_summary">Ndrysho stilin e luajtësit të minimizuar brenda aplikacionit</string>
   <string name="revanced_miniplayer_type_title">Lloji i \"miniplayer\"</string>
   <string name="revanced_miniplayer_type_entry_0">I çaktivizuar</string>
   <string name="revanced_miniplayer_type_entry_1">Paragjykja</string>
@@ -1246,8 +1244,6 @@ Lëviz gishtin për të zgjeruar ose mbyllur"</string>
   <string name="revanced_gradient_loading_screen_title">Aktivizo ekranin e ngarkimit me gradient</string>
   <string name="revanced_gradient_loading_screen_summary_on">Ekrani i ngarkimit do të ketë një sfond me gradient</string>
   <string name="revanced_gradient_loading_screen_summary_off">Ekrani i ngarkimit do të ketë një sfond të ngurtë</string>
-  </patch>
-  <patch id="layout.theme.themeResourcePatch">
   <string name="revanced_seekbar_custom_color_title">Aktivizo ngjyrën e personalizuar të shkallës së kërkimit</string>
   <string name="revanced_seekbar_custom_color_summary_on">Ngjyra e personalizuar e shkallës së kërkimit është e dukshme</string>
   <string name="revanced_seekbar_custom_color_summary_off">Ngjyra origjinale e shkallës së kërkimit është e dukshme</string>
@@ -1339,8 +1335,8 @@ Aktivizimi i kësaj mund të zhbllokojë cilësi më të larta video"</string>
   </patch>
   <patch id="misc.links.openLinksExternallyPatch">
   <string name="revanced_external_browser_title">Hap linket në shfletues</string>
-  <string name="revanced_external_browser_summary_on">Hapja e linkeve nga jashtë</string>
-  <string name="revanced_external_browser_summary_off">Hapja e linkeve në aplikacion</string>
+  <string name="revanced_external_browser_summary_on">Hapja e linkeve në shfletuesin e jashtëm</string>
+  <string name="revanced_external_browser_summary_off">Hapja e linkeve në shfletuesin brenda aplikacionit</string>
   </patch>
   <patch id="misc.privacy.removeTrackingQueryParameterPatch">
   <string name="revanced_remove_tracking_query_parameter_title">Hiq parametrin e gjurmimit të kërkesës</string>
@@ -1367,9 +1363,15 @@ Aktivizimi i kësaj mund të zhbllokojë cilësi më të larta video"</string>
   <string name="revanced_remember_video_quality_last_selected_summary_off">Ndryshimet e cilësisë zbatohen vetëm për videon aktuale</string>
   <string name="revanced_video_quality_default_wifi_title">Cilësia e videos parazgjedhëse në rrjetin Wi-Fi</string>
   <string name="revanced_video_quality_default_mobile_title">Cilësia e videos parazgjedhëse në rrjetin celular</string>
+  <string name="revanced_remember_shorts_quality_last_selected_title">Mbani mend ndryshimet e cilësisë së Shorts</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_on">Ndryshimet e cilësisë zbatohen për të gjitha Shorts</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_off">Ndryshimet e cilësisë zbatohen vetëm për Short-in aktual</string>
+  <string name="revanced_shorts_quality_default_wifi_title">Cilësia e parazgjedhur e Shorts në rrjetin Wi-Fi</string>
+  <string name="revanced_shorts_quality_default_mobile_title">Cilësia e parazgjedhur e Shorts në rrjetin celular</string>
   <string name="revanced_remember_video_quality_mobile">celular</string>
   <string name="revanced_remember_video_quality_wifi">wifi</string>
   <string name="revanced_remember_video_quality_toast">Ndryshuar cilësia parazgjedhëse %1$s në: %2$s</string>
+  <string name="revanced_remember_video_quality_toast_shorts">Cilësia e Shorts u ndryshua nga %1$s në: %2$s</string>
   </patch>
   <patch id="video.speed.button.playbackSpeedButtonPatch">
   <string name="revanced_playback_speed_dialog_button_title">Shfaq butonin e dialogut të shpejtësisë</string>
@@ -1400,10 +1402,10 @@ Aktivizimi i kësaj mund të zhbllokojë cilësi më të larta video"</string>
   <string name="revanced_disable_hdr_video_summary_on">Videoja HDR është çaktivizuar</string>
   <string name="revanced_disable_hdr_video_summary_off">Videoja HDR është aktivizuar</string>
   </patch>
-  <patch id="video.videoqualitymenu.restoreOldVideoQualityMenuResourcePatch">
-  <string name="revanced_restore_old_video_quality_menu_title">Rikthe menynë e vjetër të cilësisë së videos</string>
-  <string name="revanced_restore_old_video_quality_menu_summary_on">Menyja e vjetër e cilësisë së videos shfaqet</string>
-  <string name="revanced_restore_old_video_quality_menu_summary_off">Menyja e vjetër e cilësisë së videos nuk shfaqet</string>
+  <patch id="video.quality.advancedVideoQualityMenuPatch">
+  <string name="revanced_advanced_video_quality_menu_title">Shfaq menunë e avancuar të cilësisë së videos</string>
+  <string name="revanced_advanced_video_quality_menu_summary_on">Shfaqet menyja e avancuar e cilësisë së videos</string>
+  <string name="revanced_advanced_video_quality_menu_summary_off">Menyja e avancuar e cilësisë së videos nuk shfaqet</string>
   </patch>
   <patch id="interaction.seekbar.enableSlideToSeekPatch">
   <string name="revanced_slide_to_seek_title">Aktivizo rrëshqitjen për kërkim</string>

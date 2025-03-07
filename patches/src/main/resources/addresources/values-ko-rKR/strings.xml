@@ -453,10 +453,10 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_copy_video_url_timestamp_summary_off">버튼을 표시하지 않습니다</string>
   </patch>
   <patch id="interaction.dialog.removeViewerDiscretionDialogPatch">
-  <string name="revanced_remove_viewer_discretion_dialog_title">시청자 재량 다이얼로그 제거하기</string>
-  <string name="revanced_remove_viewer_discretion_dialog_summary_on">다이얼로그가 숨겨집니다</string>
-  <string name="revanced_remove_viewer_discretion_dialog_summary_off">다이얼로그가 표시됩니다</string>
-  <string name="revanced_remove_viewer_discretion_dialog_user_dialog_message">• 이 설정은 다이얼로그를 자동으로 허용하기만 하며 연령 제한(성인인증 절차)을 우회할 수 없습니다</string>
+  <string name="revanced_remove_viewer_discretion_dialog_title">시청 경고 다이얼로그 제거하기</string>
+  <string name="revanced_remove_viewer_discretion_dialog_summary_on">다음 동영상을 시청하기 전에 표시되는 시청 경고 다이얼로그를 제거합니다:\n• 연령 제한 동영상\n• 혐오감을 주는 동영상\n• 자살 또는 자해와 관련된 동영상, etc.</string>
+  <string name="revanced_remove_viewer_discretion_dialog_summary_off">다음 동영상을 시청하기 전에 표시되는 시청 경고 다이얼로그를 제거하지 않습니다:\n• 연령 제한 동영상\n• 혐오감을 주는 동영상\n• 자살 또는 자해와 관련된 동영상, etc.</string>
+  <string name="revanced_remove_viewer_discretion_dialog_user_dialog_message">이 설정은 다이얼로그를 자동으로 허용하기만 하며 연령 제한(성인인증 절차)을 우회할 수 없습니다</string>
   </patch>
   <patch id="interaction.downloads.downloadsResourcePatch">
   <string name="revanced_external_downloader_screen_title">외부 다운로드</string>
@@ -512,9 +512,9 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">스와이프 불투명도 값은 0-100 사이여야 합니다</string>
   <string name="revanced_swipe_threshold_title">스와이프 한계치</string>
   <string name="revanced_swipe_threshold_summary">제스처 인식을 위해 얼마나 스와이프를 해야 할지를 지정할 수 있으며, 원하지 않은 제스처 인식을 방지할 수 있습니다</string>
-  <string name="revanced_swipe_show_circular_overlay_title">원형 오버레이 표시하기</string>
-  <string name="revanced_swipe_show_circular_overlay_summary_on">원형 오버레이를 표시합니다</string>
-  <string name="revanced_swipe_show_circular_overlay_summary_off">수평 오버레이를 표시합니다</string>
+  <string name="revanced_swipe_show_circular_overlay_title">원형 조절 오버레이 표시하기</string>
+  <string name="revanced_swipe_show_circular_overlay_summary_on">원형 조절 오버레이를 표시합니다</string>
+  <string name="revanced_swipe_show_circular_overlay_summary_off">바형 조절 오버레이를 표시합니다</string>
   <string name="revanced_swipe_overlay_minimal_style_title">최소화된 스타일 활성화하기</string>
   <string name="revanced_swipe_overlay_minimal_style_summary_on">최소화된 오버레이 스타일을 활성화합니다</string>
   <string name="revanced_swipe_overlay_minimal_style_summary_off">최소화된 오버레이 스타일을 비활성화합니다</string>
@@ -667,7 +667,7 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_off">화질 설정 메뉴에서 하단 설명이 표시됩니다</string>
   </patch>
   <patch id="layout.buttons.overlay.hidePlayerOverlayButtonsPatch">
-  <string name="revanced_hide_player_previous_next_buttons_title">이전 &amp; 다음 동영상 버튼 숨기기</string>
+  <string name="revanced_hide_player_previous_next_buttons_title">이전 &amp; 다음 버튼 숨기기</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_on">이전 &amp; 다음 동영상 버튼이 숨겨집니다</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">이전 &amp; 다음 동영상 버튼이 표시됩니다</string>
   <string name="revanced_hide_cast_button_title">크롬캐스트 버튼 숨기기</string>
@@ -927,8 +927,8 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_sb_enable_voting_sum_on">플레이어에서 구간 투표 버튼을 표시합니다</string>
   <string name="revanced_sb_enable_voting_sum_off">플레이어에서 구간 투표 버튼을 표시하지 않습니다</string>
   <string name="revanced_sb_square_layout">각진 레이아웃 사용하기</string>
-  <string name="revanced_sb_square_layout_sum_on">버튼과 컨트롤러를 각지게 활성화합니다</string>
-  <string name="revanced_sb_square_layout_sum_off">버튼과 컨트롤러를 둥글게 활성화합니다</string>
+  <string name="revanced_sb_square_layout_sum_on">버튼과 컨트롤을 각지게 활성화합니다</string>
+  <string name="revanced_sb_square_layout_sum_off">버튼과 컨트롤을 둥글게 활성화합니다</string>
   <!-- Translations should use language similar to 'revanced_ryd_compact_layout_title' -->
   <string name="revanced_sb_enable_compact_skip_button">최소화된 건너뛰기 버튼 표시하기</string>
   <string name="revanced_sb_enable_compact_skip_button_sum_on">최소화된 건너뛰기 버튼을 표시합니다</string>
@@ -1126,8 +1126,6 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
 • 커뮤니티 게시물이 숨겨집니다
 
 오토모티브 레이아웃
-• 시청 기록 메뉴가 숨겨집니다
-• 탐색 탭이 복원됩니다
 • Shorts가 일반 플레이어에서 재생됩니다
 • 피드가 주제와 채널별로 구성됩니다"</string>
   </patch>
@@ -1191,11 +1189,11 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   </patch>
   <patch id="layout.shortsautoplay.shortsAutoplayPatch">
   <string name="revanced_shorts_autoplay_title">Shorts 자동재생</string>
-  <string name="revanced_shorts_autoplay_summary_on">Shorts 동영상이 자동넘김됩니다</string>
-  <string name="revanced_shorts_autoplay_summary_off">Shorts 동영상이 반복재생됩니다</string>
+  <string name="revanced_shorts_autoplay_summary_on">Shorts가 자동넘김됩니다</string>
+  <string name="revanced_shorts_autoplay_summary_off">Shorts가 반복재생됩니다</string>
   <string name="revanced_shorts_autoplay_background_title">Shorts 자동 백그라운드 재생</string>
-  <string name="revanced_shorts_autoplay_background_summary_on">Shorts 동영상 백그라운드 재생이 자동넘김됩니다</string>
-  <string name="revanced_shorts_autoplay_background_summary_off">Shorts 동영상 백그라운드 재생이 반복재생됩니다</string>
+  <string name="revanced_shorts_autoplay_background_summary_on">Shorts 백그라운드 재생이 자동넘김됩니다</string>
+  <string name="revanced_shorts_autoplay_background_summary_off">Shorts 백그라운드 재생이 반복재생됩니다</string>
   </patch>
   <patch id="layout.miniplayer.miniplayerPatch">
   <string name="revanced_miniplayer_screen_title">미니 플레이어</string>
@@ -1254,8 +1252,6 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_gradient_loading_screen_title">그라데이션 색상 로딩 화면 활성화하기</string>
   <string name="revanced_gradient_loading_screen_summary_on">그라데이션 색상 로딩 화면을 활성화합니다</string>
   <string name="revanced_gradient_loading_screen_summary_off">기본 로딩 화면을 활성화합니다</string>
-  </patch>
-  <patch id="layout.theme.themeResourcePatch">
   <string name="revanced_seekbar_custom_color_title">사용자 정의 재생바 색상 활성화하기</string>
   <string name="revanced_seekbar_custom_color_summary_on">사용자 정의 재생바 색상을 활성화합니다</string>
   <string name="revanced_seekbar_custom_color_summary_off">기본 재생바 색상을 활성화합니다</string>
@@ -1371,13 +1367,19 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요"</string>
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
   <string name="revanced_video_quality_default_entry_1">자동</string>
   <string name="revanced_remember_video_quality_last_selected_title">동영상 화질 저장 활성화하기</string>
-  <string name="revanced_remember_video_quality_last_selected_summary_on">동영상 화질 값을 변경할 때마다 저장합니다</string>
-  <string name="revanced_remember_video_quality_last_selected_summary_off">동영상 화질 값을 변경할 때마다 저장하지 않습니다</string>
+  <string name="revanced_remember_video_quality_last_selected_summary_on">동영상 화질 값을 변경할 때마다 기본 동영상 화질으로 저장합니다</string>
+  <string name="revanced_remember_video_quality_last_selected_summary_off">동영상 화질 값을 변경할 때마다 기본 동영상 화질으로 저장하지 않습니다</string>
   <string name="revanced_video_quality_default_wifi_title">Wi-Fi 이용 시 기본 동영상 화질</string>
   <string name="revanced_video_quality_default_mobile_title">모바일 네트워크 이용 시 기본 동영상 화질</string>
+  <string name="revanced_remember_shorts_quality_last_selected_title">Shorts 화질 저장 활성화하기</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_on">Shorts 화질 값을 변경할 때마다 기본 Shorts 화질으로 저장합니다</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_off">Shorts 화질 값을 변경할 때마다 기본 Shorts 화질으로 저장하지 않습니다</string>
+  <string name="revanced_shorts_quality_default_wifi_title">Wi-Fi 이용 시 기본 Shorts 화질</string>
+  <string name="revanced_shorts_quality_default_mobile_title">모바일 네트워크 이용 시 기본 Shorts 화질</string>
   <string name="revanced_remember_video_quality_mobile">모바일 네트워크</string>
   <string name="revanced_remember_video_quality_wifi">Wi-Fi</string>
-  <string name="revanced_remember_video_quality_toast">기본 동영상 화질을 %1$s 에서 %2$s 로 변경합니다</string>
+  <string name="revanced_remember_video_quality_toast">%1$s 이용 시 기본 동영상 화질을 %2$s 로 변경합니다</string>
+  <string name="revanced_remember_video_quality_toast_shorts">%1$s 이용 시 기본 Shorts 화질을 %2$s 로 변경합니다</string>
   </patch>
   <patch id="video.speed.button.playbackSpeedButtonPatch">
   <string name="revanced_playback_speed_dialog_button_title">동영상 재생 속도 다이얼로그 버튼 표시하기</string>
@@ -1398,20 +1400,20 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요"</string>
   </patch>
   <patch id="video.speed.remember.rememberPlaybackSpeedPatch">
   <string name="revanced_remember_playback_speed_last_selected_title">동영상 재생 속도 저장 활성화하기</string>
-  <string name="revanced_remember_playback_speed_last_selected_summary_on">동영상 재생 속도 값을 변경할 때마다 저장합니다</string>
-  <string name="revanced_remember_playback_speed_last_selected_summary_off">동영상 재생 속도 값을 변경할 때마다 저장하지 않습니다</string>
+  <string name="revanced_remember_playback_speed_last_selected_summary_on">동영상 재생 속도 값을 변경할 때마다 기본 동영상 재생 속도로 저장합니다</string>
+  <string name="revanced_remember_playback_speed_last_selected_summary_off">동영상 재생 속도 값을 변경할 때마다 기본 동영상 재생 속도로 저장하지 않습니다</string>
   <string name="revanced_playback_speed_default_title">기본 동영상 재생 속도</string>
-  <string name="revanced_remember_playback_speed_toast">기본 동영상 재생 속도 값을 %s으로 변경합니다</string>
+  <string name="revanced_remember_playback_speed_toast">기본 동영상 재생 속도 값을 %s 로 변경합니다</string>
   </patch>
   <patch id="video.hdr.disableHdrPatch">
   <string name="revanced_disable_hdr_video_title">HDR 동영상 비활성화하기</string>
   <string name="revanced_disable_hdr_video_summary_on">HDR 동영상을 비활성화합니다</string>
   <string name="revanced_disable_hdr_video_summary_off">HDR 동영상을 활성화합니다</string>
   </patch>
-  <patch id="video.videoqualitymenu.restoreOldVideoQualityMenuResourcePatch">
-  <string name="revanced_restore_old_video_quality_menu_title">이전 동영상 화질 설정 메뉴 활성화하기</string>
-  <string name="revanced_restore_old_video_quality_menu_summary_on">이전 동영상 화질 설정 메뉴를 활성화합니다</string>
-  <string name="revanced_restore_old_video_quality_menu_summary_off">이전 동영상 화질 설정 메뉴를 비활성화합니다</string>
+  <patch id="video.quality.advancedVideoQualityMenuPatch">
+  <string name="revanced_advanced_video_quality_menu_title">고급 동영상 화질 설정 메뉴 표시하기</string>
+  <string name="revanced_advanced_video_quality_menu_summary_on">고급 동영상 화질 설정 메뉴를 표시합니다</string>
+  <string name="revanced_advanced_video_quality_menu_summary_off">고급 동영상 화질 설정 메뉴를 표시하지 않습니다</string>
   </patch>
   <patch id="interaction.seekbar.enableSlideToSeekPatch">
   <string name="revanced_slide_to_seek_title">슬라이드하여 탐색 활성화하기</string>

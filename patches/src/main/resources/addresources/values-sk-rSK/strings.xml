@@ -299,13 +299,13 @@ Nebudete informovaní o žiadnych nepredvídaných udalostiach."</string>
   <string name="revanced_hide_description_components_screen_title">Popis videa</string>
   <string name="revanced_hide_description_components_screen_summary">Skryť alebo zobraziť komponenty popisu videa</string>
   <string name="revanced_hide_filter_bar_screen_title">Panel filtra</string>
-  <string name="revanced_hide_filter_bar_screen_summary">Skryť alebo zobraziť panel filtra v informačnom kanáli, vo vyhľadávaní a v súvisiacich videách</string>
+  <string name="revanced_hide_filter_bar_screen_summary">Skryť alebo zobraziť panel filtra v informačnom kanáli, vo výsledkoch vyhľadávania a v súvisiacich videách</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_title">Skryť v feede</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_summary_on">Skryté v krmive</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_summary_off">Zobrazené v informačnom kanáli</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_title">Skryť vo vyhľadávaní</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_summary_on">Skryté vo vyhľadávaní</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_summary_off">Zobrazuje sa pri vyhľadávaní</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_title">Skryť vo výsledkoch vyhľadávania</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_summary_on">Zobrazené vo výsledkoch vyhľadávania</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_summary_off">Zobrazené vo výsledkoch vyhľadávania</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_title">Skryť v súvisiacich videách</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_on">Skryté v súvisiacich videách</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">Zobrazuje sa v súvisiacich videách</string>
@@ -397,7 +397,7 @@ Táto funkcia je dostupná len pre staršie zariadenia"</string>
   <string name="revanced_hide_self_sponsor_ads_title">Skryť vlastné sponzorované karty</string>
   <string name="revanced_hide_self_sponsor_ads_summary_on">Vlastné sponzorované karty sú skryté</string>
   <string name="revanced_hide_self_sponsor_ads_summary_off">Zobrazujú sa vlastné sponzorované karty</string>
-  <string name="revanced_hide_products_banner_title">Skryť banner pre zobrazenie produktov</string>
+  <string name="revanced_hide_products_banner_title">Skryť banner „Zobraziť produkty“</string>
   <string name="revanced_hide_products_banner_summary_on">Banner je skrytý</string>
   <string name="revanced_hide_products_banner_summary_off">Zobrazuje sa banner</string>
   <string name="revanced_hide_end_screen_store_banner_title">Skryť banner obchodu na konci obrazovky</string>
@@ -656,7 +656,7 @@ Ak zmena tohto nastavenia nemá žiadny účinok, skúste prepnúť do režimu i
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_off">Zobrazí sa päta ponuky kvality videa</string>
   </patch>
   <patch id="layout.buttons.overlay.hidePlayerOverlayButtonsPatch">
-  <string name="revanced_hide_player_previous_next_buttons_title">Skryť predchádzajúce &amp; tlačidlá ďalšieho videa</string>
+  <string name="revanced_hide_player_previous_next_buttons_title">Skryť tlačidlá Predchádzajúce &amp; Nasledujúce</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_on">Tlačidlá sú skryté</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">Zobrazia sa tlačidlá</string>
   <string name="revanced_hide_cast_button_title">Skryť tlačidlo Cast</string>
@@ -1108,14 +1108,12 @@ Pripravené na odoslanie?"</string>
   <string name="revanced_change_form_factor_entry_4">Automobily</string>
   <string name="revanced_change_form_factor_user_dialog_message">"Zmeny zahŕňajú:
 
-Rozloženie tabletu
+Rozloženie pre tablety
 • Príspevky komunity sú skryté
 
-Rozloženie automobilu
-• Menu histórie pozerania je skryté
-• Karta preskúmať je obnovená
+Rozloženie pre automobily
 • Shorts sa otvárajú v bežnom prehrávači
-• Feed je organizovaný podľa tém a kanálov"</string>
+• Kanál je usporiadaný podľa tém a kanálov"</string>
   </patch>
   <patch id="layout.spoofappversion.spoofAppVersionPatch">
   <string name="revanced_spoof_app_version_title">Verzia aplikácie Spoof</string>
@@ -1185,7 +1183,7 @@ Ak sa neskôr vypne, odporúča sa vymazať údaje aplikácie, aby sa zabránilo
   </patch>
   <patch id="layout.miniplayer.miniplayerPatch">
   <string name="revanced_miniplayer_screen_title">Miniprehrávač</string>
-  <string name="revanced_miniplayer_screen_summary">Zmeňte štýl minimalizovaného prehrávača v aplikácii</string>
+  <string name="revanced_miniplayer_screen_summary">Zmeniť štýl minimalizovaného prehrávača v aplikácii</string>
   <string name="revanced_miniplayer_type_title">Typ miniprehrávača</string>
   <string name="revanced_miniplayer_type_entry_0">Vypnuté</string>
   <string name="revanced_miniplayer_type_entry_1">Predvolené</string>
@@ -1236,8 +1234,6 @@ Potiahnite prstom na rozbalenie alebo zatvorenie"</string>
   <string name="revanced_gradient_loading_screen_title">Povoliť obrazovku načítania gradientu</string>
   <string name="revanced_gradient_loading_screen_summary_on">Načítavacia obrazovka bude mať pozadie s prechodom</string>
   <string name="revanced_gradient_loading_screen_summary_off">Načítavacia obrazovka bude mať pevné pozadie</string>
-  </patch>
-  <patch id="layout.theme.themeResourcePatch">
   <string name="revanced_seekbar_custom_color_title">Povoliť vlastnú farbu vyhľadávacieho panela</string>
   <string name="revanced_seekbar_custom_color_summary_on">Zobrazí sa vlastná farba panela vyhľadávania</string>
   <string name="revanced_seekbar_custom_color_summary_off">Zobrazí sa pôvodná farba vyhľadávacieho panela</string>
@@ -1329,8 +1325,8 @@ Povolením tejto možnosti môžete odomknúť vyššie kvality videa"</string>
   </patch>
   <patch id="misc.links.openLinksExternallyPatch">
   <string name="revanced_external_browser_title">Otvoriť odkazy v prehliadači</string>
-  <string name="revanced_external_browser_summary_on">Otváranie odkazov externe</string>
-  <string name="revanced_external_browser_summary_off">Otváranie odkazov v aplikácii</string>
+  <string name="revanced_external_browser_summary_on">Otváranie odkazov v externom prehliadači</string>
+  <string name="revanced_external_browser_summary_off">Otváranie odkazov v prehliadači v aplikácii</string>
   </patch>
   <patch id="misc.privacy.removeTrackingQueryParameterPatch">
   <string name="revanced_remove_tracking_query_parameter_title">Odstráňte parameter dopytu sledovania</string>
@@ -1357,9 +1353,15 @@ Povolením tejto možnosti môžete odomknúť vyššie kvality videa"</string>
   <string name="revanced_remember_video_quality_last_selected_summary_off">Zmeny kvality sa vzťahujú iba na aktuálne video</string>
   <string name="revanced_video_quality_default_wifi_title">Predvolená kvalita videa v sieti Wi-Fi</string>
   <string name="revanced_video_quality_default_mobile_title">Predvolená kvalita videa v mobilnej sieti</string>
+  <string name="revanced_remember_shorts_quality_last_selected_title">Zapamätať si zmeny kvality pre Shorts</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_on">Zmeny kvality sa použijú na všetky Shorts</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_off">Zmeny kvality sa použijú iba na aktuálny Short</string>
+  <string name="revanced_shorts_quality_default_wifi_title">Predvolená kvalita pre Shorts v sieti Wi-Fi</string>
+  <string name="revanced_shorts_quality_default_mobile_title">Predvolená kvalita pre Shorts v mobilnej sieti</string>
   <string name="revanced_remember_video_quality_mobile">mobilné</string>
   <string name="revanced_remember_video_quality_wifi">Wi-Fi</string>
   <string name="revanced_remember_video_quality_toast">Predvolená kvalita %1$s bola zmenená na: %2$s</string>
+  <string name="revanced_remember_video_quality_toast_shorts">Zmenená kvalita Shorts %1$s na: %2$s</string>
   </patch>
   <patch id="video.speed.button.playbackSpeedButtonPatch">
   <string name="revanced_playback_speed_dialog_button_title">Zobraziť dialógové tlačidlo rýchlosti</string>
@@ -1390,10 +1392,10 @@ Povolením tejto možnosti môžete odomknúť vyššie kvality videa"</string>
   <string name="revanced_disable_hdr_video_summary_on">HDR video je vypnuté</string>
   <string name="revanced_disable_hdr_video_summary_off">HDR video je zapnuté</string>
   </patch>
-  <patch id="video.videoqualitymenu.restoreOldVideoQualityMenuResourcePatch">
-  <string name="revanced_restore_old_video_quality_menu_title">Obnovte starú ponuku kvality videa</string>
-  <string name="revanced_restore_old_video_quality_menu_summary_on">Zobrazí sa stará ponuka kvality videa</string>
-  <string name="revanced_restore_old_video_quality_menu_summary_off">Stará ponuka kvality videa sa nezobrazuje</string>
+  <patch id="video.quality.advancedVideoQualityMenuPatch">
+  <string name="revanced_advanced_video_quality_menu_title">Zobraziť rozšírenú ponuku kvality videa</string>
+  <string name="revanced_advanced_video_quality_menu_summary_on">Zobrazuje sa rozšírená ponuka kvality videa</string>
+  <string name="revanced_advanced_video_quality_menu_summary_off">Nezobrazuje sa rozšírená ponuka kvality videa</string>
   </patch>
   <patch id="interaction.seekbar.enableSlideToSeekPatch">
   <string name="revanced_slide_to_seek_title">Povoliť vyhľadávanie snímkou</string>

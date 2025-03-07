@@ -301,13 +301,13 @@ Second \"item\" text"</string>
   <string name="revanced_hide_description_components_screen_title">وصف الفيديو</string>
   <string name="revanced_hide_description_components_screen_summary">إخفاء أو عرض مكونات وصف الفيديو</string>
   <string name="revanced_hide_filter_bar_screen_title">شريط التصفية</string>
-  <string name="revanced_hide_filter_bar_screen_summary">إخفاء شريط التصفية أو عرضه في الموجز والبحث الفيديوهات ذات الصلة</string>
+  <string name="revanced_hide_filter_bar_screen_summary">إخفاء أو إظهار شريط الفلتر في الخلاصة ونتائج البحث ومقاطع الفيديو ذات الصلة</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_title">إخفاء في الموجز</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_summary_on">مخفي في الموجز</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_summary_off">يعرض في الموجز</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_title">إخفاء في البحث</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_summary_on">مخفي في البحث</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_summary_off">يعرض في البحث</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_title">إخفاء في نتائج البحث</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_summary_on">مخفي في نتائج البحث</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_summary_off">يظهر في نتائج البحث</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_title">إخفاء في الفيديوهات ذات الصلة</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_on">مخفي في الفيديوهات ذات الصلة</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">يعرض في الفيديوهات ذات الصلة</string>
@@ -404,7 +404,7 @@ Second \"item\" text"</string>
   <string name="revanced_hide_self_sponsor_ads_title">إخفاء بطاقات الرعاية الذاتية</string>
   <string name="revanced_hide_self_sponsor_ads_summary_on">تم إخفاء بطاقات الرعاية الذاتية</string>
   <string name="revanced_hide_self_sponsor_ads_summary_off">يتم عرض بطاقات الرعاية الذاتية</string>
-  <string name="revanced_hide_products_banner_title">إخفاء لافتة لعرض المنتجات</string>
+  <string name="revanced_hide_products_banner_title">إخفاء لافتة \"عرض المنتجات\"</string>
   <string name="revanced_hide_products_banner_summary_on">تم إخفاء البانر</string>
   <string name="revanced_hide_products_banner_summary_off">يتم عرض البانر</string>
   <string name="revanced_hide_end_screen_store_banner_title">إخفاء لافتة شاشة المتجر النهائية</string>
@@ -663,7 +663,7 @@ Second \"item\" text"</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_off">يتم عرض تذييل قائمة جودة الفيديو</string>
   </patch>
   <patch id="layout.buttons.overlay.hidePlayerOverlayButtonsPatch">
-  <string name="revanced_hide_player_previous_next_buttons_title">إخفاء أزرار الفيديو السابق &amp; التالي</string>
+  <string name="revanced_hide_player_previous_next_buttons_title">إخفاء زري \"السابق\" و \"التالي\"</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_on">تم إخفاء الأزرار</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">يتم عرض الأزرار</string>
   <string name="revanced_hide_cast_button_title">إخفاء زر البث</string>
@@ -1116,16 +1116,14 @@ Second \"item\" text"</string>
   <string name="revanced_change_form_factor_entry_2">الجوّال</string>
   <string name="revanced_change_form_factor_entry_3">الجهاز اللوحي</string>
   <string name="revanced_change_form_factor_entry_4">Automotive</string>
-  <string name="revanced_change_form_factor_user_dialog_message">"تتضمن التغييرات:
+  <string name="revanced_change_form_factor_user_dialog_message">"التغييرات تشمل:
 
-تخطيط الجهاز اللوحي
-• إخفاء منشورات المجتمع
+تصميم الجهاز اللوحي
+• مشاركات المجتمع مخفية
 
-تخطيط Automotive
-• إخفاء قائمة سجل المشاهدة
-• استعادة علامة التبويب \"استكشاف\"
-• فتح فيديوهات Shorts في المشغل العادي
-• تنظيم الخلاصة حسب الموضوعات والقناة"</string>
+تصميم السيارة
+• يتم فتح Shorts في المشغل العادي
+• يتم تنظيم الخلاصة حسب المواضيع والقنوات"</string>
   </patch>
   <patch id="layout.spoofappversion.spoofAppVersionPatch">
   <string name="revanced_spoof_app_version_title">خِداع إصدار التطبيق</string>
@@ -1248,8 +1246,6 @@ Second \"item\" text"</string>
   <string name="revanced_gradient_loading_screen_title">تمكين شاشة التحميل المتدرجة</string>
   <string name="revanced_gradient_loading_screen_summary_on">ستحتوي شاشة التحميل على خلفية متدرجة</string>
   <string name="revanced_gradient_loading_screen_summary_off">ستحتوي شاشة التحميل على خلفية ثابتة</string>
-  </patch>
-  <patch id="layout.theme.themeResourcePatch">
   <string name="revanced_seekbar_custom_color_title">تمكين لون شريط تقدم الفيديو المخصص</string>
   <string name="revanced_seekbar_custom_color_summary_on">يتم عرض لون شريط تقدم الفيديو المخصص</string>
   <string name="revanced_seekbar_custom_color_summary_off">يتم عرض لون شريط تقدم الفيديو الاصلي</string>
@@ -1341,8 +1337,8 @@ Second \"item\" text"</string>
   </patch>
   <patch id="misc.links.openLinksExternallyPatch">
   <string name="revanced_external_browser_title">فتح الروابط في المتصفح</string>
-  <string name="revanced_external_browser_summary_on">فتح الروابط خارجيًا</string>
-  <string name="revanced_external_browser_summary_off">فتح الروابط في التطبيق</string>
+  <string name="revanced_external_browser_summary_on">فتح الروابط في متصفح خارجي</string>
+  <string name="revanced_external_browser_summary_off">فتح الروابط في متصفح داخل التطبيق</string>
   </patch>
   <patch id="misc.privacy.removeTrackingQueryParameterPatch">
   <string name="revanced_remove_tracking_query_parameter_title">إزالة معلمة تتبع الاستعلام</string>
@@ -1355,6 +1351,7 @@ Second \"item\" text"</string>
   <string name="revanced_disable_zoom_haptics_summary_off">تم تمكين الاهتزاز</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
+  <string name="revanced_force_original_audio_title">فرض لغة الصوت الأصلية</string>
   <string name="revanced_force_original_audio_summary_on">استخدام لغة الصوت الأصلية</string>
   <string name="revanced_force_original_audio_summary_off">استخدام الصوت الافتراضي</string>
   <!-- 'Spoof video streams' should be the same translation used for revanced_spoof_video_streams_screen_title -->
@@ -1368,9 +1365,15 @@ Second \"item\" text"</string>
   <string name="revanced_remember_video_quality_last_selected_summary_off">تنطبق تغييرات الجودة على الفيديو الحالي فقط</string>
   <string name="revanced_video_quality_default_wifi_title">جودة الفيديو الافتراضية على شبكة Wi-Fi</string>
   <string name="revanced_video_quality_default_mobile_title">جودة الفيديو الافتراضية على شبكة الجوَّال</string>
+  <string name="revanced_remember_shorts_quality_last_selected_title">تذكر تغييرات جودة Shorts</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_on">تنطبق تغييرات الجودة على جميع فيديوهات Shorts</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_off">تنطبق تغييرات الجودة فقط على فيديو Short الحالي</string>
+  <string name="revanced_shorts_quality_default_wifi_title">جودة Shorts الافتراضية على شبكة Wi-Fi</string>
+  <string name="revanced_shorts_quality_default_mobile_title">جودة Shorts الافتراضية على شبكة الجوال</string>
   <string name="revanced_remember_video_quality_mobile">الجوّال</string>
   <string name="revanced_remember_video_quality_wifi">Wi-Fi</string>
   <string name="revanced_remember_video_quality_toast">تم تغيير جودة %1$s الافتراضية إلى: %2$s</string>
+  <string name="revanced_remember_video_quality_toast_shorts">تم تغيير جودة Shorts %1$s إلى: %2$s</string>
   </patch>
   <patch id="video.speed.button.playbackSpeedButtonPatch">
   <string name="revanced_playback_speed_dialog_button_title">عرض زر مربع حوار السرعة</string>
@@ -1401,10 +1404,10 @@ Second \"item\" text"</string>
   <string name="revanced_disable_hdr_video_summary_on">تم تعطيل فيديو HDR</string>
   <string name="revanced_disable_hdr_video_summary_off">تم تمكين فيديو HDR</string>
   </patch>
-  <patch id="video.videoqualitymenu.restoreOldVideoQualityMenuResourcePatch">
-  <string name="revanced_restore_old_video_quality_menu_title">استعادة قائمة جودة الفيديو القديمة</string>
-  <string name="revanced_restore_old_video_quality_menu_summary_on">يتم عرض قائمة جودة الفيديو القديمة</string>
-  <string name="revanced_restore_old_video_quality_menu_summary_off">لا يتم عرض قائمة جودة الفيديو القديمة</string>
+  <patch id="video.quality.advancedVideoQualityMenuPatch">
+  <string name="revanced_advanced_video_quality_menu_title">إظهار قائمة جودة الفيديو المتقدمة</string>
+  <string name="revanced_advanced_video_quality_menu_summary_on">يتم عرض قائمة جودة الفيديو المتقدمة</string>
+  <string name="revanced_advanced_video_quality_menu_summary_off">لا يتم عرض قائمة جودة الفيديو المتقدمة</string>
   </patch>
   <patch id="interaction.seekbar.enableSlideToSeekPatch">
   <string name="revanced_slide_to_seek_title">تمكين التمرير للتقديم أو الترجيع</string>

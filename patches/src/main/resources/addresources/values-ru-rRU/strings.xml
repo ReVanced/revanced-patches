@@ -301,7 +301,7 @@ Second \"item\" text"</string>
   <string name="revanced_hide_description_components_screen_title">Описание видео</string>
   <string name="revanced_hide_description_components_screen_summary">Скрыть или показать компоненты описания видео</string>
   <string name="revanced_hide_filter_bar_screen_title">Панель фильтров</string>
-  <string name="revanced_hide_filter_bar_screen_summary">Скрыть или показать панель фильтров в ленте, поиске и похожих видео</string>
+  <string name="revanced_hide_filter_bar_screen_summary">Скрыть или показать панель фильтров в ленте, результатах поиска и похожих видео</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_title">Скрыть панель фильтров в ленте</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_summary_on">Панель фильтров в ленте скрыта</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_summary_off">Панель фильтров в ленте показана</string>
@@ -809,12 +809,12 @@ Second \"item\" text"</string>
   <string name="revanced_hide_shorts_navigation_bar_summary_off">Панель навигации в Shorts показана</string>
   </patch>
   <patch id="layout.hide.endscreensuggestion.hideEndScreenSuggestedVideoPatch">
-  <string name="revanced_end_screen_suggested_video_title">Скрыть предложенное видео на экране завершения</string>
-  <string name="revanced_end_screen_suggested_video_summary_on">"Предложенное видео на экране завершения скрыто, когда автовоспроизведение выключено.
+  <string name="revanced_end_screen_suggested_video_title">Скрыть предлагаемые видео в конце просмотра</string>
+  <string name="revanced_end_screen_suggested_video_summary_on">"Предлагаемые видео в конце просмотра скрыты при выключенном автовоспроизведении
 
 Автовоспроизведение можно изменить в настройках YouTube:
-Настройки → Воспроизведение → Автовоспроизведение следующего видео"</string>
-  <string name="revanced_end_screen_suggested_video_summary_off">Предложенное видео на экране завершения отображается</string>
+Настройки → Фоновое воспроизведение → Следующее видео"</string>
+  <string name="revanced_end_screen_suggested_video_summary_off">Предлагаемые видео в конце просмотра показаны</string>
   </patch>
   <patch id="layout.hide.time.hideTimestampPatch">
   <string name="revanced_hide_timestamp_title">Скрыть метку времени видео</string>
@@ -1122,8 +1122,6 @@ Second \"item\" text"</string>
 • Посты сообщества скрыты
 
 Автомобильный макет
-• Меню истории просмотров скрыто
-• Вкладка \"Навигатор\" восстановлена
 • Shorts открываются в стандартном плеере
 • Лента организована по темам и каналам"</string>
   </patch>
@@ -1195,7 +1193,7 @@ Second \"item\" text"</string>
   </patch>
   <patch id="layout.miniplayer.miniplayerPatch">
   <string name="revanced_miniplayer_screen_title">Миниплеер</string>
-  <string name="revanced_miniplayer_screen_summary">Изменить стиль свернутого миниплеера </string>
+  <string name="revanced_miniplayer_screen_summary">Изменить стиль свернутого миниплеера</string>
   <string name="revanced_miniplayer_type_title">Тип миниплеера</string>
   <string name="revanced_miniplayer_type_entry_0">Отключено</string>
   <string name="revanced_miniplayer_type_entry_1">Стандартный</string>
@@ -1248,8 +1246,6 @@ Second \"item\" text"</string>
   <string name="revanced_gradient_loading_screen_title">Включить градиентный фон экрана загрузки</string>
   <string name="revanced_gradient_loading_screen_summary_on">Градиентный фон экрана загрузки макета включен</string>
   <string name="revanced_gradient_loading_screen_summary_off">Сплошной фон экрана загрузки макета включен</string>
-  </patch>
-  <patch id="layout.theme.themeResourcePatch">
   <string name="revanced_seekbar_custom_color_title">Включить кастомный цвет полосы прогресса</string>
   <string name="revanced_seekbar_custom_color_summary_on">Кастомный цвет полосы прогресса включен</string>
   <string name="revanced_seekbar_custom_color_summary_off">Оригинальный цвет полосы прогресса включен</string>
@@ -1341,8 +1337,8 @@ Second \"item\" text"</string>
   </patch>
   <patch id="misc.links.openLinksExternallyPatch">
   <string name="revanced_external_browser_title">Открыть ссылки в браузере</string>
-  <string name="revanced_external_browser_summary_on">Ссылки открываются в браузере</string>
-  <string name="revanced_external_browser_summary_off">Ссылки открываются в приложении</string>
+  <string name="revanced_external_browser_summary_on">Ссылки открываются во внешнем браузере</string>
+  <string name="revanced_external_browser_summary_off">Ссылки открываются во встроенном браузере</string>
   </patch>
   <patch id="misc.privacy.removeTrackingQueryParameterPatch">
   <string name="revanced_remove_tracking_query_parameter_title">Удалить параметр отслеживания запросов</string>
@@ -1355,11 +1351,11 @@ Second \"item\" text"</string>
   <string name="revanced_disable_zoom_haptics_summary_off">Виброотклик при масштабировании включен</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
-  <string name="revanced_force_original_audio_title">Принудительно выбирать язык оригинала аудиодорожки</string>
-  <string name="revanced_force_original_audio_summary_on">Используется оригинальный язык звуковой дорожки</string>
+  <string name="revanced_force_original_audio_title">Принудительно оригинальная звуковая дорожка</string>
+  <string name="revanced_force_original_audio_summary_on">Используется оригинальная звуковая дорожка</string>
   <string name="revanced_force_original_audio_summary_off">Используется звуковая дорожка по умолчанию</string>
   <!-- 'Spoof video streams' should be the same translation used for revanced_spoof_video_streams_screen_title -->
-  <string name="revanced_force_original_audio_not_available">Чтобы использовать эту функцию, измените параметр \"Подмена видеопотоков\" на iOS TV</string>
+  <string name="revanced_force_original_audio_not_available">Для использования данной опции измените подмену видеопотока на тип клиента iOS TV</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
@@ -1369,9 +1365,15 @@ Second \"item\" text"</string>
   <string name="revanced_remember_video_quality_last_selected_summary_off">Изменения качества воспроизведения применяются только к текущему видео</string>
   <string name="revanced_video_quality_default_wifi_title">Качество видео по умолчанию в Wi-Fi сети</string>
   <string name="revanced_video_quality_default_mobile_title">Качество видео по умолчанию в мобильной сети</string>
+  <string name="revanced_remember_shorts_quality_last_selected_title">Запоминать изменения качества Shorts</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_on">Изменения качества воспроизведения применяются ко всем Shorts</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_off">Изменения качества воспроизведения применяются только к текущему Short</string>
+  <string name="revanced_shorts_quality_default_wifi_title">Качество Shorts по умолчанию в Wi-Fi сети</string>
+  <string name="revanced_shorts_quality_default_mobile_title">Качество Shorts по умолчанию в мобильной сети</string>
   <string name="revanced_remember_video_quality_mobile">мобильной сети</string>
   <string name="revanced_remember_video_quality_wifi">Wi-Fi</string>
   <string name="revanced_remember_video_quality_toast">Качество в %1$s изменено на: %2$s</string>
+  <string name="revanced_remember_video_quality_toast_shorts">Качество Shorts в %1$s изменено на: %2$s</string>
   </patch>
   <patch id="video.speed.button.playbackSpeedButtonPatch">
   <string name="revanced_playback_speed_dialog_button_title">Показать кнопку скорости воспроизведения</string>
@@ -1402,10 +1404,10 @@ Second \"item\" text"</string>
   <string name="revanced_disable_hdr_video_summary_on">HDR видео отключено</string>
   <string name="revanced_disable_hdr_video_summary_off">HDR видео включено</string>
   </patch>
-  <patch id="video.videoqualitymenu.restoreOldVideoQualityMenuResourcePatch">
-  <string name="revanced_restore_old_video_quality_menu_title">Включить старое меню качества видео</string>
-  <string name="revanced_restore_old_video_quality_menu_summary_on">Старое меню качества видео включено</string>
-  <string name="revanced_restore_old_video_quality_menu_summary_off">Новое меню качества видео включено</string>
+  <patch id="video.quality.advancedVideoQualityMenuPatch">
+  <string name="revanced_advanced_video_quality_menu_title">Показывать расширенное меню качества видео</string>
+  <string name="revanced_advanced_video_quality_menu_summary_on">Расширенное меню качества видео включено</string>
+  <string name="revanced_advanced_video_quality_menu_summary_off">Новое меню качества видео включено</string>
   </patch>
   <patch id="interaction.seekbar.enableSlideToSeekPatch">
   <string name="revanced_slide_to_seek_title">Включить перемотку видео слайдом</string>

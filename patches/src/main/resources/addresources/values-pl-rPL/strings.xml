@@ -301,13 +301,13 @@ Nie będziesz informowany o żadnych nieoczekiwanych zdarzeniach."</string>
   <string name="revanced_hide_description_components_screen_title">Opis filmu</string>
   <string name="revanced_hide_description_components_screen_summary">Ukryj lub pokaż elementy opisu filmu</string>
   <string name="revanced_hide_filter_bar_screen_title">Pasek filtrowania</string>
-  <string name="revanced_hide_filter_bar_screen_summary">Ukryj lub pokazuj pasek filtrowania na stronie głównej, w wynikach wyszukiwania i powiązanych filmach</string>
+  <string name="revanced_hide_filter_bar_screen_summary">Ukryj lub pokaż pasek filtrów w aktualnościach, wynikach wyszukiwania i powiązanych filmach</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_title">Na stronie głównej</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_summary_on">Ukryte na stronie głównej</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_summary_off">Widoczne na stronie głównej</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_title">W wyszukiwarce</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_summary_on">Ukryte w wyszukiwarce</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_summary_off">Widoczne w wyszukiwarce</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_title">Ukryj w wynikach wyszukiwania</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_summary_on">Ukryte w wynikach wyszukiwania</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_summary_off">Wyświetlane w wynikach wyszukiwania</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_title">W powiązanych filmach</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_on">Ukryte w powiązanych filmach</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">Widoczne w powiązanych filmach</string>
@@ -404,7 +404,7 @@ Ta funkcja jest dostępna tylko dla starszych urządzeń"</string>
   <string name="revanced_hide_self_sponsor_ads_title">Karty z autopromocją</string>
   <string name="revanced_hide_self_sponsor_ads_summary_on">Karty z autopromocją są ukryte</string>
   <string name="revanced_hide_self_sponsor_ads_summary_off">Karty z autopromocją są widoczne</string>
-  <string name="revanced_hide_products_banner_title">Banery z produktami</string>
+  <string name="revanced_hide_products_banner_title">Ukryj baner „Zobacz produkty”</string>
   <string name="revanced_hide_products_banner_summary_on">Banery są ukryte</string>
   <string name="revanced_hide_products_banner_summary_off">Banery są widoczne</string>
   <string name="revanced_hide_end_screen_store_banner_title">Ukryj baner sklepu na ekranie końcowym</string>
@@ -663,7 +663,7 @@ Jeśli zmiana tego ustawienia nie przyniesie efektu, spróbuj przełączyć się
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_off">Opis menu jakości filmu jest widoczny</string>
   </patch>
   <patch id="layout.buttons.overlay.hidePlayerOverlayButtonsPatch">
-  <string name="revanced_hide_player_previous_next_buttons_title">Przyciski od poprzedniego i następnego filmu</string>
+  <string name="revanced_hide_player_previous_next_buttons_title">Ukryj przyciski Poprzedni i Następny</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_on">Przyciski są ukryte</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">Przyciski są widoczne</string>
   <string name="revanced_hide_cast_button_title">Ukryj przycisk transmisji</string>
@@ -1116,16 +1116,14 @@ Gotowy do przesłania?"</string>
   <string name="revanced_change_form_factor_entry_2">Telefon</string>
   <string name="revanced_change_form_factor_entry_3">Tabletowy</string>
   <string name="revanced_change_form_factor_entry_4">Motoryzacja</string>
-  <string name="revanced_change_form_factor_user_dialog_message">"Zmianami są:
+  <string name="revanced_change_form_factor_user_dialog_message">"Zmiany obejmują:
 
 Układ tabletu
-• Wspólne posty są ukryte
+• Posty społeczności są ukryte
 
 Układ samochodowy
-• Menu historii oglądania jest ukryte
-• Karta Eksploruj zostaje przywrócona
-• Shortsy otwierają się w standardowym odtwarzaczu
-• Kanał jest zorganizowany wg tematów i kanałów"</string>
+• Shorts otwierają się w zwykłym odtwarzaczu
+• Kanał jest uporządkowany według tematów i kanałów"</string>
   </patch>
   <patch id="layout.spoofappversion.spoofAppVersionPatch">
   <string name="revanced_spoof_app_version_title">Oszukiwanie wersji aplikacji</string>
@@ -1248,8 +1246,6 @@ Przesuń, aby rozwinąć lub zamknąć"</string>
   <string name="revanced_gradient_loading_screen_title">Kolorowy ekran ładowania</string>
   <string name="revanced_gradient_loading_screen_summary_on">Ekran ładowania będzie miał kolorowe tło</string>
   <string name="revanced_gradient_loading_screen_summary_off">Ekran ładowania będzie miał stałe tło</string>
-  </patch>
-  <patch id="layout.theme.themeResourcePatch">
   <string name="revanced_seekbar_custom_color_title">Niestandardowy kolor paska postępu</string>
   <string name="revanced_seekbar_custom_color_summary_on">Niestandardowy</string>
   <string name="revanced_seekbar_custom_color_summary_off">Oryginalny</string>
@@ -1341,8 +1337,8 @@ Włączenie tego może odblokować wyższe jakości wideo"</string>
   </patch>
   <patch id="misc.links.openLinksExternallyPatch">
   <string name="revanced_external_browser_title">Otwieranie linków</string>
-  <string name="revanced_external_browser_summary_on">Przez przeglądarke</string>
-  <string name="revanced_external_browser_summary_off">Przez aplikacje</string>
+  <string name="revanced_external_browser_summary_on">Otwieranie linków w zewnętrznej przeglądarce</string>
+  <string name="revanced_external_browser_summary_off">Otwieranie linków w przeglądarce w aplikacji</string>
   </patch>
   <patch id="misc.privacy.removeTrackingQueryParameterPatch">
   <string name="revanced_remove_tracking_query_parameter_title">Parametr zapytania śledzenia</string>
@@ -1369,9 +1365,15 @@ Włączenie tego może odblokować wyższe jakości wideo"</string>
   <string name="revanced_remember_video_quality_last_selected_summary_off">Zmiany jakości dotyczą tylko bieżącego filmu</string>
   <string name="revanced_video_quality_default_wifi_title">Domyślna jakość filmu w sieci Wi-Fi</string>
   <string name="revanced_video_quality_default_mobile_title">Domyślna jakość filmu w sieci komórkowej</string>
+  <string name="revanced_remember_shorts_quality_last_selected_title">Zapamiętaj zmiany jakości w Shorts</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_on">Zmiany jakości dotyczą wszystkich filmów Shorts</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_off">Zmiany jakości dotyczą tylko bieżącego Short</string>
+  <string name="revanced_shorts_quality_default_wifi_title">Domyślna jakość Shorts w sieci Wi-Fi</string>
+  <string name="revanced_shorts_quality_default_mobile_title">Domyślna jakość Shorts w sieci komórkowej</string>
   <string name="revanced_remember_video_quality_mobile">telefonu</string>
   <string name="revanced_remember_video_quality_wifi">Wi-Fi</string>
   <string name="revanced_remember_video_quality_toast">Zmieniono domyślną jakość %1$s na: %2$s</string>
+  <string name="revanced_remember_video_quality_toast_shorts">Zmieniono jakość Shorts %1$s na: %2$s</string>
   </patch>
   <patch id="video.speed.button.playbackSpeedButtonPatch">
   <string name="revanced_playback_speed_dialog_button_title">Przycisk od prędkości</string>
@@ -1402,10 +1404,10 @@ Włączenie tego może odblokować wyższe jakości wideo"</string>
   <string name="revanced_disable_hdr_video_summary_on">Wideo HDR jest wyłączone</string>
   <string name="revanced_disable_hdr_video_summary_off">Wideo HDR jest włączone</string>
   </patch>
-  <patch id="video.videoqualitymenu.restoreOldVideoQualityMenuResourcePatch">
-  <string name="revanced_restore_old_video_quality_menu_title">Stare menu jakości filmu</string>
-  <string name="revanced_restore_old_video_quality_menu_summary_on">Stare menu jakości filmu jest widoczne</string>
-  <string name="revanced_restore_old_video_quality_menu_summary_off">Stare menu jakości filmu nie jest widoczne</string>
+  <patch id="video.quality.advancedVideoQualityMenuPatch">
+  <string name="revanced_advanced_video_quality_menu_title">Pokaż zaawansowane menu jakości filmu</string>
+  <string name="revanced_advanced_video_quality_menu_summary_on">Zaawansowane menu jakości filmu jest wyświetlane</string>
+  <string name="revanced_advanced_video_quality_menu_summary_off">Zaawansowane menu jakości filmu nie jest wyświetlane</string>
   </patch>
   <patch id="interaction.seekbar.enableSlideToSeekPatch">
   <string name="revanced_slide_to_seek_title">Przesuń, by przewinąć</string>

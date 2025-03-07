@@ -303,7 +303,7 @@ Second \"item\" text"</string>
   <string name="revanced_hide_description_components_screen_title">Περιγραφή βίντεο</string>
   <string name="revanced_hide_description_components_screen_summary">Απόκρυψη ή εμφάνιση στοιχείων περιγραφής βίντεο</string>
   <string name="revanced_hide_filter_bar_screen_title">Γραμμή φίλτρων</string>
-  <string name="revanced_hide_filter_bar_screen_summary">Απόκρυψη η εμφάνιση της γραμμής φίλτρων στη ροή, αναζήτηση και τα σχετικά βίντεο</string>
+  <string name="revanced_hide_filter_bar_screen_summary">Απόκρυψη ή εμφάνιση της γραμμής φίλτρων στην ροή, στα αποτελέσματα αναζήτησης και στα σχετικά βίντεο</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_title">Απόκρυψη στη ροή</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_summary_on">Κρυμμένη</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_summary_off">Εμφανίζεται</string>
@@ -406,7 +406,7 @@ Second \"item\" text"</string>
   <string name="revanced_hide_self_sponsor_ads_title">Κάρτες αυτοπροώθησης</string>
   <string name="revanced_hide_self_sponsor_ads_summary_on">Κρυμμένες</string>
   <string name="revanced_hide_self_sponsor_ads_summary_off">Εμφανίζονται</string>
-  <string name="revanced_hide_products_banner_title">Διαφημίσεις προβολής προϊόντων</string>
+  <string name="revanced_hide_products_banner_title">Ετικέτα «Προβολή προϊόντων»</string>
   <string name="revanced_hide_products_banner_summary_on">Κρυμμένες</string>
   <string name="revanced_hide_products_banner_summary_off">Εμφανίζονται</string>
   <string name="revanced_hide_end_screen_store_banner_title">Ετικέτα καταστήματος στην τελική οθόνη</string>
@@ -1117,16 +1117,14 @@ Second \"item\" text"</string>
   <string name="revanced_change_form_factor_entry_2">Τηλέφωνο</string>
   <string name="revanced_change_form_factor_entry_3">Ταμπλετ</string>
   <string name="revanced_change_form_factor_entry_4">Αυτοκίνητο</string>
-  <string name="revanced_change_form_factor_user_dialog_message">"Οι αλλαγές στη διάταξη περιλαμβάνουν τα παρακάτω:
+  <string name="revanced_change_form_factor_user_dialog_message">"Οι αλλαγές περιλαμβάνουν:
 
-Διάταξη ταμπλετ
-• Οι δημοσιεύσεις κοινότητας είναι κρυμμένες
+Διάταξη tablet
+• Οι δημοσιεύσεις κοινότητας δεν εμφανίζονται
 
 Διάταξη αυτοκινήτου
-• Το μενού ιστορικού παρακολούθησης είναι κρυμμένο
-• Η καρτέλα «Εξερεύνηση» επαναφέρεται
 • Τα Shorts ανοίγουν στην κανονική οθόνη αναπαραγωγής
-• Η ροή οργανώνεται ανά θέματα και κανάλι"</string>
+• Η ροή οργανώνεται ανά θέματα και κανάλια"</string>
   </patch>
   <patch id="layout.spoofappversion.spoofAppVersionPatch">
   <string name="revanced_spoof_app_version_title">Τροποποίηση έκδοσης εφαρμογής</string>
@@ -1196,7 +1194,7 @@ Second \"item\" text"</string>
   </patch>
   <patch id="layout.miniplayer.miniplayerPatch">
   <string name="revanced_miniplayer_screen_title">Ελαχιστοποιημένη οθόνη αναπαραγωγής</string>
-  <string name="revanced_miniplayer_screen_summary">Αλλάξτε το στυλ της ελαχιστοποιημένης οθόνης αναπαραγωγής</string>
+  <string name="revanced_miniplayer_screen_summary">Αλλαγή του στυλ της ελαχιστοποιημένης οθόνης αναπαραγωγής της εφαρμογής</string>
   <string name="revanced_miniplayer_type_title">Τύπος ελαχιστοποιημένης οθόνης αναπαραγωγής</string>
   <string name="revanced_miniplayer_type_entry_0">Απενεργοποιημένη</string>
   <string name="revanced_miniplayer_type_entry_1">Προεπιλογή</string>
@@ -1249,8 +1247,6 @@ Second \"item\" text"</string>
   <string name="revanced_gradient_loading_screen_title">Διαβάθμιση οθόνης φόρτωσης</string>
   <string name="revanced_gradient_loading_screen_summary_on">Η οθόνη φόρτωσης θα έχει σταδιακές αποχρώσεις φόντο</string>
   <string name="revanced_gradient_loading_screen_summary_off">Η οθόνη φόρτωσης θα έχει στατική απόχρωση φόντο</string>
-  </patch>
-  <patch id="layout.theme.themeResourcePatch">
   <string name="revanced_seekbar_custom_color_title">Προσαρμοσμένο χρώμα γραμμής προόδου</string>
   <string name="revanced_seekbar_custom_color_summary_on">Η γραμμή προόδου εμφανίζεται με προσαρμοσμένο χρώμα</string>
   <string name="revanced_seekbar_custom_color_summary_off">Η γραμμή προόδου εμφανίζεται με το αρχικό χρώμα</string>
@@ -1340,8 +1336,8 @@ Second \"item\" text"</string>
   </patch>
   <patch id="misc.links.openLinksExternallyPatch">
   <string name="revanced_external_browser_title">Άνοιγμα συνδέσμων σε πρόγραμμα περιήγησης</string>
-  <string name="revanced_external_browser_summary_on">Οι σύνδεσμοι ανοίγουν εξωτερικά</string>
-  <string name="revanced_external_browser_summary_off">Οι σύνδεσμοι ανοίγουν εντός της εφαρμογής</string>
+  <string name="revanced_external_browser_summary_on">Οι σύνδεσμοι ανοίγουν σε εξωτερικό πρόγραμμα περιήγησης</string>
+  <string name="revanced_external_browser_summary_off">Οι σύνδεσμοι ανοίγουν στο εσωτερικό πρόγραμμα περιήγησης της εφαρμογής</string>
   </patch>
   <patch id="misc.privacy.removeTrackingQueryParameterPatch">
   <string name="revanced_remove_tracking_query_parameter_title">Καθαρισμός συνδέσμων κοινοποίησης</string>
@@ -1366,11 +1362,17 @@ Second \"item\" text"</string>
   <string name="revanced_remember_video_quality_last_selected_title">Απομνημόνευση αλλαγών ποιότητας βίντεο</string>
   <string name="revanced_remember_video_quality_last_selected_summary_on">Οι αλλαγές ποιότητας ισχύουν για όλα τα βίντεο</string>
   <string name="revanced_remember_video_quality_last_selected_summary_off">Οι αλλαγές ποιότητας ισχύουν μόνο για το τρέχον βίντεο</string>
-  <string name="revanced_video_quality_default_wifi_title">Προεπιλεγμένη ποιότητα βίντεο με Wi-Fi</string>
+  <string name="revanced_video_quality_default_wifi_title">Προεπιλεγμένη ποιότητα βίντεο σε δίκτυο Wi-Fi</string>
   <string name="revanced_video_quality_default_mobile_title">Προεπιλεγμένη ποιότητα βίντεο με δεδομένα κινητής τηλεφωνίας</string>
+  <string name="revanced_remember_shorts_quality_last_selected_title">Απομνημόνευση αλλαγών ποιότητας στα Shorts</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_on">Οι αλλαγές ποιότητας ισχύουν για όλα τα Shorts</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_off">Οι αλλαγές ποιότητας ισχύουν μόνο για το τρέχον Short</string>
+  <string name="revanced_shorts_quality_default_wifi_title">Προεπιλεγμένη ποιότητα Shorts σε δίκτυο Wi-Fi</string>
+  <string name="revanced_shorts_quality_default_mobile_title">Προεπιλεγμένη ποιότητα Shorts σε δίκτυο κινητής τηλεφωνίας</string>
   <string name="revanced_remember_video_quality_mobile">δεδομένων</string>
   <string name="revanced_remember_video_quality_wifi">Wi-Fi</string>
   <string name="revanced_remember_video_quality_toast">Η προεπιλεγμένη ποιότητα %1$s άλλαξε σε: %2$s</string>
+  <string name="revanced_remember_video_quality_toast_shorts">Η ποιότητα Shorts με %1$s άλλαξε σε: %2$s</string>
   </patch>
   <patch id="video.speed.button.playbackSpeedButtonPatch">
   <string name="revanced_playback_speed_dialog_button_title">Εμφάνιση κουμπιού αλλαγής ταχύτητας</string>
@@ -1401,10 +1403,10 @@ Second \"item\" text"</string>
   <string name="revanced_disable_hdr_video_summary_on">Τα βίντεο HDR είναι απενεργοποιημένα</string>
   <string name="revanced_disable_hdr_video_summary_off">Τα βίντεο HDR είναι ενεργοποιημένα</string>
   </patch>
-  <patch id="video.videoqualitymenu.restoreOldVideoQualityMenuResourcePatch">
-  <string name="revanced_restore_old_video_quality_menu_title">Επαναφορά παλιού μενού ποιότητας βίντεο</string>
-  <string name="revanced_restore_old_video_quality_menu_summary_on">Το μενού ποιότητας βίντεο εμφανίζεται με το παλιό στυλ</string>
-  <string name="revanced_restore_old_video_quality_menu_summary_off">Το μενού ποιότητας βίντεο εμφανίζεται με το νέο στυλ</string>
+  <patch id="video.quality.advancedVideoQualityMenuPatch">
+  <string name="revanced_advanced_video_quality_menu_title">Εμφάνιση προχωρημένου μενού ποιότητας βίντεο</string>
+  <string name="revanced_advanced_video_quality_menu_summary_on">Εμφανίζεται το προχωρημένο μενού ποιότητας βίντεο</string>
+  <string name="revanced_advanced_video_quality_menu_summary_off">Δεν εμφανίζεται το προχωρημένο μενού ποιότητας βίντεο</string>
   </patch>
   <patch id="interaction.seekbar.enableSlideToSeekPatch">
   <string name="revanced_slide_to_seek_title">Χειρονομία συρσίματος για αναζήτηση</string>

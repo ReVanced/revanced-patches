@@ -301,13 +301,13 @@ Second \"item\" text"</string>
   <string name="revanced_hide_description_components_screen_title">Опис відео</string>
   <string name="revanced_hide_description_components_screen_summary">Приховати або показувати компоненти опису відео</string>
   <string name="revanced_hide_filter_bar_screen_title">Панель фільтрів</string>
-  <string name="revanced_hide_filter_bar_screen_summary">Приховати або показувати панель фільтрів у стрічці, пошуку та пов\'язаних відео</string>
+  <string name="revanced_hide_filter_bar_screen_summary">Приховати або показувати панель фільтрів у стрічці, результатах пошуку та пов\'язаних відео</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_title">Приховати панель у стрічці</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_summary_on">Панель фільтрів у стрічці приховано</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_summary_off">Панель фільтрів у стрічці показується</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_title">Приховати панель у пошуку</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_summary_on">Панель фільтрів у пошуку приховано</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_summary_off">Панель фільтрів у пошуку показується</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_title">Приховати панель у результатах пошуку</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_summary_on">Панель фільтрів у результатах пошуку приховано</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_summary_off">Панель фільтрів у результатах пошуку показується</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_title">Приховати панель у пов\'язаних відео</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_on">Панель фільтрів у пов\'язаних відео приховано</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">Панель фільтрів у пов\'язаних відео показується</string>
@@ -404,9 +404,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_self_sponsor_ads_title">Приховати картки само спонсорства</string>
   <string name="revanced_hide_self_sponsor_ads_summary_on">Картки само спонсорства приховано</string>
   <string name="revanced_hide_self_sponsor_ads_summary_off">Картки само спонсорства показуються</string>
-  <string name="revanced_hide_products_banner_title">Приховати банер для перегляду товарів</string>
-  <string name="revanced_hide_products_banner_summary_on">Банер для перегляду товарів приховано</string>
-  <string name="revanced_hide_products_banner_summary_off">Банер для перегляду товарів показується</string>
+  <string name="revanced_hide_products_banner_title">Приховати банер \"Перегляд товарів\"</string>
+  <string name="revanced_hide_products_banner_summary_on">Банер перегляду товарів приховано</string>
+  <string name="revanced_hide_products_banner_summary_off">Банер перегляду товарів показується</string>
   <string name="revanced_hide_end_screen_store_banner_title">Приховати банер магазину на кінцевому екрані</string>
   <string name="revanced_hide_end_screen_store_banner_summary_on">Рекламний банер магазину на кінцевому екрані приховано</string>
   <string name="revanced_hide_end_screen_store_banner_summary_off">Рекламний банер магазину на кінцевому екрані показується</string>
@@ -663,7 +663,7 @@ Second \"item\" text"</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_off">Нижній колонтитул меню якості відео показується</string>
   </patch>
   <patch id="layout.buttons.overlay.hidePlayerOverlayButtonsPatch">
-  <string name="revanced_hide_player_previous_next_buttons_title">Приховати кнопки попереднє та наступне</string>
+  <string name="revanced_hide_player_previous_next_buttons_title">Приховати кнопки Попереднє та Наступне</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_on">Кнопки попереднього та наступного відео приховано</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">Кнопки попереднього та наступного відео показуються</string>
   <string name="revanced_hide_cast_button_title">Приховати кнопку \"Трансляція\"</string>
@@ -1121,8 +1121,6 @@ Second \"item\" text"</string>
 • Публікації спільноти приховані
 
 Автомобільний макет
-• Меню історії переглядів приховано
-• Відновлено вкладку \"Навігатор\"
 • Shorts відкриваються у звичайному плеєрі
 • Стрічка впорядкована за темами та каналами"</string>
   </patch>
@@ -1194,7 +1192,7 @@ Second \"item\" text"</string>
   </patch>
   <patch id="layout.miniplayer.miniplayerPatch">
   <string name="revanced_miniplayer_screen_title">Мініплеєр</string>
-  <string name="revanced_miniplayer_screen_summary">Змінити стиль згорнутого мініплеєра</string>
+  <string name="revanced_miniplayer_screen_summary">Змінити стиль згорнутого мініплеєра у застосунку</string>
   <string name="revanced_miniplayer_type_title">Тип мініплеєра</string>
   <string name="revanced_miniplayer_type_entry_0">Вимкнено</string>
   <string name="revanced_miniplayer_type_entry_1">Стандартний</string>
@@ -1247,8 +1245,6 @@ Second \"item\" text"</string>
   <string name="revanced_gradient_loading_screen_title">Увімкнути градієнт завантаження</string>
   <string name="revanced_gradient_loading_screen_summary_on">Екран завантаження макета матиме градієнтне тло</string>
   <string name="revanced_gradient_loading_screen_summary_off">Екран завантаження макета матиме суцільне тло</string>
-  </patch>
-  <patch id="layout.theme.themeResourcePatch">
   <string name="revanced_seekbar_custom_color_title">Увімкнути користувацький колір</string>
   <string name="revanced_seekbar_custom_color_summary_on">Показується користувацький колір панелі прогресу</string>
   <string name="revanced_seekbar_custom_color_summary_off">Показується оригінальний колір панелі прогресу</string>
@@ -1340,8 +1336,8 @@ Second \"item\" text"</string>
   </patch>
   <patch id="misc.links.openLinksExternallyPatch">
   <string name="revanced_external_browser_title">Відкривати посилання у браузері</string>
-  <string name="revanced_external_browser_summary_on">Посилання відкриваються зовні</string>
-  <string name="revanced_external_browser_summary_off">Посилання відкриваються у додатку</string>
+  <string name="revanced_external_browser_summary_on">Посилання відкриваються у зовнішньому браузері</string>
+  <string name="revanced_external_browser_summary_off">Посилання відкриваються у вбудованому браузері</string>
   </patch>
   <patch id="misc.privacy.removeTrackingQueryParameterPatch">
   <string name="revanced_remove_tracking_query_parameter_title">Вилучити параметр відстеження</string>
@@ -1366,11 +1362,17 @@ Second \"item\" text"</string>
   <string name="revanced_remember_video_quality_last_selected_title">Запам\'ятовувати зміни якості відео</string>
   <string name="revanced_remember_video_quality_last_selected_summary_on">Зміни якості застосовуються до всіх відео</string>
   <string name="revanced_remember_video_quality_last_selected_summary_off">Зміни якості застосовуються лише до поточного відео</string>
-  <string name="revanced_video_quality_default_wifi_title">Стандартна якість відео в Wi-Fi мережі</string>
+  <string name="revanced_video_quality_default_wifi_title">Стандартна якість відео у Wi-Fi мережі</string>
   <string name="revanced_video_quality_default_mobile_title">Стандартна якість відео в мобільній мережі</string>
-  <string name="revanced_remember_video_quality_mobile">в моб. мережі</string>
+  <string name="revanced_remember_shorts_quality_last_selected_title">Запам\'ятовувати зміни якості Shorts</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_on">Зміни якості застосовуються до всіх Shorts</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_off">Зміни якості застосовуються лише до поточного Short</string>
+  <string name="revanced_shorts_quality_default_wifi_title">Стандартна якість Shorts у Wi-Fi мережі</string>
+  <string name="revanced_shorts_quality_default_mobile_title">Стандартна якість Shorts у мобільній мережі</string>
+  <string name="revanced_remember_video_quality_mobile">в мобільній мережі</string>
   <string name="revanced_remember_video_quality_wifi">в Wi-Fi мережі</string>
   <string name="revanced_remember_video_quality_toast">Якість %1$s змінено на %2$s</string>
+  <string name="revanced_remember_video_quality_toast_shorts">Якість Shorts %1$s змінено на %2$s</string>
   </patch>
   <patch id="video.speed.button.playbackSpeedButtonPatch">
   <string name="revanced_playback_speed_dialog_button_title">Кнопка швидкості відтворення</string>
@@ -1401,10 +1403,10 @@ Second \"item\" text"</string>
   <string name="revanced_disable_hdr_video_summary_on">HDR відео вимкнено</string>
   <string name="revanced_disable_hdr_video_summary_off">HDR відео увімкнено</string>
   </patch>
-  <patch id="video.videoqualitymenu.restoreOldVideoQualityMenuResourcePatch">
-  <string name="revanced_restore_old_video_quality_menu_title">Відновити старе меню якості відео</string>
-  <string name="revanced_restore_old_video_quality_menu_summary_on">Показується старе меню якості відео</string>
-  <string name="revanced_restore_old_video_quality_menu_summary_off">Показується нове меню якості відео</string>
+  <patch id="video.quality.advancedVideoQualityMenuPatch">
+  <string name="revanced_advanced_video_quality_menu_title">Показувати розширене меню якості відео</string>
+  <string name="revanced_advanced_video_quality_menu_summary_on">Розширене меню якості відео показується</string>
+  <string name="revanced_advanced_video_quality_menu_summary_off">Розширене меню якості відео не показується</string>
   </patch>
   <patch id="interaction.seekbar.enableSlideToSeekPatch">
   <string name="revanced_slide_to_seek_title">Увімкнути перемотку пересуванням</string>

@@ -301,13 +301,13 @@ Nebudete informováni o žádné neočekávané události."</string>
   <string name="revanced_hide_description_components_screen_title">Popis videa</string>
   <string name="revanced_hide_description_components_screen_summary">Skrýt nebo zobrazit komponenty popisu videa</string>
   <string name="revanced_hide_filter_bar_screen_title">Lišta filtrů</string>
-  <string name="revanced_hide_filter_bar_screen_summary">Skrýt nebo zobrazit lištu filtrů ve feedu, vyhledávání a souvisejících videích</string>
+  <string name="revanced_hide_filter_bar_screen_summary">Skrýt nebo zobrazit lištu filtrů v kanálu, výsledcích hledání a souvisejících videích</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_title">Skrýt ve feedu</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_summary_on">Ve feedu skryto</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_summary_off">Ve feedu zobrazeno</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_title">Skrýt ve vyhledávání</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_summary_on">Ve vyhledávání skryto</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_summary_off">Ve vyhledávání zobrazeno</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_title">Skrýt ve výsledcích vyhledávání</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_summary_on">Skryto ve výsledcích vyhledávání</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_summary_off">Zobrazeno ve výsledcích vyhledávání</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_title">Skrýt v souvisejících videích</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_on">V souvisejících videích skryto</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">V souvisejících videích zobrazeno</string>
@@ -404,7 +404,7 @@ Tato funkce je dostupná pouze pro starší zařízení"</string>
   <string name="revanced_hide_self_sponsor_ads_title">Skrýt karty se sponzorovanými produkty</string>
   <string name="revanced_hide_self_sponsor_ads_summary_on">Karty se sponzorovanými produkty jsou skryty</string>
   <string name="revanced_hide_self_sponsor_ads_summary_off">Karty se sponzorovanými produkty jsou zobrazeny</string>
-  <string name="revanced_hide_products_banner_title">Skrýt banner pro prohlížení produktů</string>
+  <string name="revanced_hide_products_banner_title">Skrýt banner „Zobrazit produkty“</string>
   <string name="revanced_hide_products_banner_summary_on">Banner je skryt</string>
   <string name="revanced_hide_products_banner_summary_off">Banner je zobrazen</string>
   <string name="revanced_hide_end_screen_store_banner_title">Skrýt koncový banner obchodu</string>
@@ -663,7 +663,7 @@ Pokud změna tohoto nastavení nemá žádný účinek, zkuste přepnout do rež
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_off">Zápatí menu kvality videa je zobrazeno</string>
   </patch>
   <patch id="layout.buttons.overlay.hidePlayerOverlayButtonsPatch">
-  <string name="revanced_hide_player_previous_next_buttons_title">Skrýt tlačítka pro předchozí a další video</string>
+  <string name="revanced_hide_player_previous_next_buttons_title">Skrýt tlačítka Předchozí a Další</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_on">Tlačítka jsou skryta</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">Tlačítka jsou zobrazena</string>
   <string name="revanced_hide_cast_button_title">Skrýt tlačítko Odeslat</string>
@@ -1121,10 +1121,8 @@ Rozložení tabletu
 • Příspěvky komunity jsou skryté
 
 Rozložení automobilu
-• Menu historie sledování je skryté
-• Karta Prozkoumat je obnovena
 • Shorts se otevírají v běžném přehrávači
-• Kanál je organizován podle témat a kanálu"</string>
+• Kanál je uspořádán podle témat a kanálů"</string>
   </patch>
   <patch id="layout.spoofappversion.spoofAppVersionPatch">
   <string name="revanced_spoof_app_version_title">Napodobit verzi aplikace</string>
@@ -1247,8 +1245,6 @@ Přejeďte prstem pro rozbalení nebo zavření"</string>
   <string name="revanced_gradient_loading_screen_title">Povolit přechodovou obrazovku načítání</string>
   <string name="revanced_gradient_loading_screen_summary_on">Obrazovka načítání bude mít přechodové pozadí</string>
   <string name="revanced_gradient_loading_screen_summary_off">Obrazovka načítání bude mít pevné pozadí</string>
-  </patch>
-  <patch id="layout.theme.themeResourcePatch">
   <string name="revanced_seekbar_custom_color_title">Povolit vlastní barvu posuvníku</string>
   <string name="revanced_seekbar_custom_color_summary_on">Vlasní barva posuvníku je zobrazena</string>
   <string name="revanced_seekbar_custom_color_summary_off">Původní barva posuvníku je zobrazena</string>
@@ -1340,8 +1336,8 @@ Povolením této funkce lze odemknout vyšší kvality videa"</string>
   </patch>
   <patch id="misc.links.openLinksExternallyPatch">
   <string name="revanced_external_browser_title">Otevírat odkazy v prohlížeči</string>
-  <string name="revanced_external_browser_summary_on">Otevírání odkazů externě</string>
-  <string name="revanced_external_browser_summary_off">Otevírání odkazů v aplikaci</string>
+  <string name="revanced_external_browser_summary_on">Otevírání odkazů v externím prohlížeči</string>
+  <string name="revanced_external_browser_summary_off">Otevírání odkazů v prohlížeči v aplikaci</string>
   </patch>
   <patch id="misc.privacy.removeTrackingQueryParameterPatch">
   <string name="revanced_remove_tracking_query_parameter_title">Odstranit sledovací parametr dotazu</string>
@@ -1368,9 +1364,15 @@ Povolením této funkce lze odemknout vyšší kvality videa"</string>
   <string name="revanced_remember_video_quality_last_selected_summary_off">Změny kvality se vztahují pouze na aktuální video</string>
   <string name="revanced_video_quality_default_wifi_title">Výchozí kvalita videa v síti Wi-Fi</string>
   <string name="revanced_video_quality_default_mobile_title">Výchozí kvalita videa v mobilní síti</string>
+  <string name="revanced_remember_shorts_quality_last_selected_title">Zapamatovat si změny kvality u položky Shorts</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_on">Změny kvality se vztahují na všechny {Shorts}</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_off">Změny kvality se vztahují pouze na aktuální {Shorts}</string>
+  <string name="revanced_shorts_quality_default_wifi_title">Výchozí kvalita Shorts v síti Wi-Fi</string>
+  <string name="revanced_shorts_quality_default_mobile_title">Výchozí kvalita Shorts v mobilní síti</string>
   <string name="revanced_remember_video_quality_mobile">mobilní</string>
   <string name="revanced_remember_video_quality_wifi">Wi-Fi</string>
   <string name="revanced_remember_video_quality_toast">Výchozí kvalita %1$s změněna na: %2$s</string>
+  <string name="revanced_remember_video_quality_toast_shorts">Změněna kvalita Shorts %1$s na: %2$s</string>
   </patch>
   <patch id="video.speed.button.playbackSpeedButtonPatch">
   <string name="revanced_playback_speed_dialog_button_title">Zobrazit tlačítko dialogu rychlosti</string>
@@ -1401,10 +1403,10 @@ Povolením této funkce lze odemknout vyšší kvality videa"</string>
   <string name="revanced_disable_hdr_video_summary_on">HDR video je vypnuté.</string>
   <string name="revanced_disable_hdr_video_summary_off">HDR video je zapnuté.</string>
   </patch>
-  <patch id="video.videoqualitymenu.restoreOldVideoQualityMenuResourcePatch">
-  <string name="revanced_restore_old_video_quality_menu_title">Obnovit staré menu kvality videa</string>
-  <string name="revanced_restore_old_video_quality_menu_summary_on">Staré menu kvality videa se zobrazuje</string>
-  <string name="revanced_restore_old_video_quality_menu_summary_off">Staré menu kvality videa se nezobrazuje</string>
+  <patch id="video.quality.advancedVideoQualityMenuPatch">
+  <string name="revanced_advanced_video_quality_menu_title">Zobrazit rozšířené menu kvality videa</string>
+  <string name="revanced_advanced_video_quality_menu_summary_on">Zobrazuje se rozšířené menu kvality videa</string>
+  <string name="revanced_advanced_video_quality_menu_summary_off">Nezobrazuje se rozšířené menu kvality videa</string>
   </patch>
   <patch id="interaction.seekbar.enableSlideToSeekPatch">
   <string name="revanced_slide_to_seek_title">Povolit posun pro hledání</string>

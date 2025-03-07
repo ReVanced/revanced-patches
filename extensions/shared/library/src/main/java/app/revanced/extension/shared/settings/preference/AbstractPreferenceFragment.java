@@ -160,16 +160,16 @@ public abstract class AbstractPreferenceFragment extends PreferenceFragment {
     /**
      * Syncs all UI Preferences to any {@link Setting} they represent.
      */
-    private void updatePreferenceScreen(@NonNull PreferenceScreen screen,
+    private void updatePreferenceScreen(@NonNull PreferenceGroup group,
                                         boolean syncSettingValue,
                                         boolean applySettingToPreference) {
         // Alternatively this could iterate thru all Settings and check for any matching Preferences,
         // but there are many more Settings than UI preferences so it's more efficient to only check
         // the Preferences.
-        for (int i = 0, prefCount = screen.getPreferenceCount(); i < prefCount; i++) {
-            Preference pref = screen.getPreference(i);
-            if (pref instanceof PreferenceScreen) {
-                updatePreferenceScreen((PreferenceScreen) pref, syncSettingValue, applySettingToPreference);
+        for (int i = 0, prefCount = group.getPreferenceCount(); i < prefCount; i++) {
+            Preference pref = group.getPreference(i);
+            if (pref instanceof PreferenceGroup subGroup) {
+                updatePreferenceScreen(subGroup, syncSettingValue, applySettingToPreference);
             } else if (pref.hasKey()) {
                 String key = pref.getKey();
                 Setting<?> setting = Setting.getSettingFromPath(key);
