@@ -7,6 +7,8 @@ import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.shared.misc.settings.preference.BasePreference
 import app.revanced.patches.shared.misc.settings.preference.IntentPreference
+import app.revanced.patches.shared.misc.settings.preference.PreferenceCategory
+import app.revanced.patches.shared.misc.settings.preference.PreferenceScreenPreference
 import app.revanced.util.ResourceGroup
 import app.revanced.util.copyResources
 import app.revanced.util.getNode
@@ -79,11 +81,21 @@ fun settingsPatch (
         // Because the icon preferences require declaring a layout resource,
         // there is no easy way to change to the Android default preference layout
         // after the preference is inflated.
-        // Using two different preference files is the simplest and most robust.
-        preferences.forEach { preference ->
-            preference.icon = null
-            preference.layout = null
+        // Using two different preference files is the simplest and most robust solution.
+        fun removeIconsAndLayout(preferences: Collection<BasePreference>) {
+            preferences.forEach { preference ->
+                preference.icon = null
+                preference.layout = null
+
+                if (preference is PreferenceCategory) {
+                    removeIconsAndLayout(preference.preferences)
+                }
+                if (preference is PreferenceScreenPreference) {
+                    removeIconsAndLayout(preference.preferences)
+                }
+            }
         }
+        removeIconsAndLayout(preferences)
 
         document("res/xml/revanced_prefs.xml").use { document ->
             val revancedPreferenceScreenNode = document.getNode("PreferenceScreen")
