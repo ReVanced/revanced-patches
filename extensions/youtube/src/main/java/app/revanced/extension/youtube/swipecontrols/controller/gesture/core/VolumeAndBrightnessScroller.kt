@@ -41,6 +41,7 @@ interface VolumeAndBrightnessScroller {
  * @param overlayController overlay controller instance
  * @param volumeDistance unit distance for volume scrolling, in dp
  * @param brightnessDistance unit distance for brightness scrolling, in dp
+ * @param volumeSwipeSensitivity how much volume will change by single swipe
  */
 class VolumeAndBrightnessScrollerImpl(
     context: Context,
@@ -49,6 +50,7 @@ class VolumeAndBrightnessScrollerImpl(
     private val overlayController: SwipeControlsOverlay,
     volumeDistance: Int = 10,
     brightnessDistance: Int = 1,
+    private val volumeSwipeSensitivity: Int,
 ) : VolumeAndBrightnessScroller {
 
     // region volume
@@ -60,7 +62,7 @@ class VolumeAndBrightnessScrollerImpl(
             ),
         ) { _, _, direction ->
             volumeController?.run {
-                volume += direction
+                volume += direction * volumeSwipeSensitivity
                 overlayController.onVolumeChanged(volume, maxVolume)
             }
         }
