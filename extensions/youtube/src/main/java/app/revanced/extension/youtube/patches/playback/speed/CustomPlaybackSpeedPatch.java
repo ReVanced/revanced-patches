@@ -1,228 +1,101 @@
-package app.revanced.extension.youtube.patches.playback.speed;
+package app.revanced.patches.youtube.playback.speed.custom;
 
-import static app.revanced.extension.shared.StringRef.sf;
-import static app.revanced.extension.shared.StringRef.str;
+import static app.revanced.patches.shared.StringRef.str;
 
 import android.preference.ListPreference;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.ViewParent;
 
-import androidx.annotation.NonNull;
+import app.revanced.patcher.annotation.Description;
+import app.revanced.patcher.annotation.Name;
+import app.revanced.patcher.annotation.Version;
+import app.revanced.patcher.data.ResourceContext;
+import app.revanced.patcher.patch.annotations.DependsOn;
+import app.revanced.patcher.patch.annotations.Patch;
+import app.revanced.patches.youtube.misc.settings.SettingsPatch;
+import app.revanced.shared.annotation.YouTubeCompatibility;
 
-import java.util.Arrays;
-
-import app.revanced.extension.shared.Logger;
-import app.revanced.extension.shared.Utils;
-import app.revanced.extension.youtube.patches.components.PlaybackSpeedMenuFilterPatch;
-import app.revanced.extension.youtube.settings.Settings;
-
-@SuppressWarnings("unused")
+@Patch
+@Name("dynamic-playback-speed")
+@Description("Adds ability to change playback speed dynamically by holding speed button.")
+@DependsOn({SettingsPatch.class})
+@YouTubeCompatibility
+@Version("0.0.1")
 public class CustomPlaybackSpeedPatch {
+    private static final String SETTINGS_KEY = "revanced_dynamic_player_speed";
+    
+    private static final float PLAYBACK_SPEED_AUTO = 1.0f;
+    private static final float PLAYBACK_SPEED_MINIMUM = 0.0625f;
+    private static final float PLAYBACK_SPEED_MAXIMUM = 8.0f;
+    
+    private static float currentSpeed = PLAYBACK_SPEED_AUTO;
+    private static final float[] AVAILABLE_SPEEDS = {
+        0.0625f, 0.125f, 0.25f, 0.5f, 0.75f, 
+        1.0f, 
+        1.25f, 1.5f, 1.75f, 2.0f, 2.25f, 2.5f, 3.0f, 4.0f, 5.0f, 6.0f, 7.0f, 8.0f
+    };
 
-    private static final float PLAYBACK_SPEED_AUTO = Settings.PLAYBACK_SPEED_DEFAULT.defaultValue;
+    public static boolean isEnabled() {
+        return SettingsPatch.getBooleanSetting(SETTINGS_KEY, true);
+    }
 
-    /**
-     * Maximum playback speed, exclusive value.  Custom speeds must be less than this value.
-     * <p>
-     * Going over 8x does not increase the actual playback speed any higher,
-     * and the UI selector starts flickering and acting weird.
-     * Over 10x and the speeds show up out of order in the UI selector.
-     */
-    public static final float PLAYBACK_SPEED_MAXIMUM = 8;
+    public static float getSpeedMultiplier() {
+        return SettingsPatch.getFloatSetting("revanced_speed_multiplier", 2.0f);
+    }
 
-    /**
-     * Tap and hold speed.
-     */
-    private static final float TAP_AND_HOLD_SPEED;
+    public static float getSpeedDivider() {
+        return SettingsPatch.getFloatSetting("revanced_speed_divider", 2.0f);
+    }
 
-    /**
-     * Custom playback speeds.
-     */
-    public static float[] customPlaybackSpeeds;
+    private static float calculateDynamicSpeed(boolean increase) {
+        float multiplier = increase ? getSpeedMultiplier() : (1 / getSpeedDivider());
+        float newSpeed = currentSpeed * multiplier;
+        
+        if (newSpeed < PLAYBACK_SPEED_MINIMUM) return PLAYBACK_SPEED_MINIMUM;
+        if (newSpeed > PLAYBACK_SPEED_MAXIMUM) return PLAYBACK_SPEED_MAXIMUM;
+        
+        return findNearestAvailableSpeed(newSpeed);
+    }
 
-    /**
-     * The last time the old playback menu was forcefully called.
-     */
-    private static long lastTimeOldPlaybackMenuInvoked;
-
-    /**
-     * PreferenceList entries and values, of all available playback speeds.
-     */
-    private static String[] preferenceListEntries, preferenceListEntryValues;
-
-    static {
-        final float holdSpeed = Settings.SPEED_TAP_AND_HOLD.get();
-        if (holdSpeed > 0 && holdSpeed <= PLAYBACK_SPEED_MAXIMUM) {
-            TAP_AND_HOLD_SPEED = holdSpeed;
-        } else {
-            showInvalidCustomSpeedToast();
-            Settings.SPEED_TAP_AND_HOLD.resetToDefault();
-            TAP_AND_HOLD_SPEED = Settings.SPEED_TAP_AND_HOLD.get();
+    private static float findNearestAvailableSpeed(float targetSpeed) {
+        float nearestSpeed = PLAYBACK_SPEED_AUTO;
+        float minDiff = Math.abs(targetSpeed - PLAYBACK_SPEED_AUTO);
+        
+        for (float speed : AVAILABLE_SPEEDS) {
+            float diff = Math.abs(targetSpeed - speed);
+            if (diff < minDiff) {
+                minDiff = diff;
+                nearestSpeed = speed;
+            }
         }
-
-        loadCustomSpeeds();
+        return nearestSpeed;
     }
 
-    /**
-     * Injection point.
-     */
-    public static float tapAndHoldSpeed() {
-        return TAP_AND_HOLD_SPEED;
+    public static void onSpeedGestureStart(boolean increase) {
+        if (!isEnabled()) return;
+        
+        float newSpeed = calculateDynamicSpeed(increase);
+        if (newSpeed != currentSpeed) {
+            currentSpeed = newSpeed;
+            applyPlaybackSpeed(currentSpeed);
+        }
     }
 
-    private static void showInvalidCustomSpeedToast() {
-        Utils.showToastLong(str("revanced_custom_playback_speeds_invalid", PLAYBACK_SPEED_MAXIMUM));
+    public static void onSpeedGestureEnd() {
+        if (!isEnabled()) return;
+        
+        if (currentSpeed != PLAYBACK_SPEED_AUTO) {
+            currentSpeed = PLAYBACK_SPEED_AUTO;
+            applyPlaybackSpeed(PLAYBACK_SPEED_AUTO);
+        }
     }
 
-    private static void loadCustomSpeeds() {
+    private static void applyPlaybackSpeed(float speed) {
         try {
-            String[] speedStrings = Settings.CUSTOM_PLAYBACK_SPEEDS.get().split("\\s+");
-            Arrays.sort(speedStrings);
-            if (speedStrings.length == 0) {
-                throw new IllegalArgumentException();
-            }
-
-            customPlaybackSpeeds = new float[speedStrings.length];
-
-            int i = 0;
-            for (String speedString : speedStrings) {
-                final float speedFloat = Float.parseFloat(speedString);
-                if (speedFloat <= 0 || arrayContains(customPlaybackSpeeds, speedFloat)) {
-                    throw new IllegalArgumentException();
-                }
-
-                if (speedFloat >= PLAYBACK_SPEED_MAXIMUM) {
-                    showInvalidCustomSpeedToast();
-                    Settings.CUSTOM_PLAYBACK_SPEEDS.resetToDefault();
-                    loadCustomSpeeds();
-                    return;
-                }
-
-                customPlaybackSpeeds[i++] = speedFloat;
-            }
+            YouTubePlayerController.setPlaybackSpeed(speed);
         } catch (Exception ex) {
-            Logger.printInfo(() -> "parse error", ex);
-            Utils.showToastLong(str("revanced_custom_playback_speeds_parse_exception"));
-            Settings.CUSTOM_PLAYBACK_SPEEDS.resetToDefault();
-            loadCustomSpeeds();
+            LoggerUtil.printException(() -> "Failed to apply playback speed", ex);
         }
-    }
-
-    private static boolean arrayContains(float[] array, float value) {
-        for (float arrayValue : array) {
-            if (arrayValue == value) return true;
-        }
-        return false;
-    }
-
-    /**
-     * Initialize a settings preference list with the available playback speeds.
-     */
-    @SuppressWarnings("deprecation")
-    public static void initializeListPreference(ListPreference preference) {
-        if (preferenceListEntries == null) {
-            final int numberOfEntries = customPlaybackSpeeds.length + 1;
-            preferenceListEntries = new String[numberOfEntries];
-            preferenceListEntryValues = new String[numberOfEntries];
-
-            // Auto speed (same behavior as unpatched).
-            preferenceListEntries[0] = sf("revanced_custom_playback_speeds_auto").toString();
-            preferenceListEntryValues[0] = String.valueOf(PLAYBACK_SPEED_AUTO);
-
-            int i = 1;
-            for (float speed : customPlaybackSpeeds) {
-                String speedString = String.valueOf(speed);
-                preferenceListEntries[i] = speedString + "x";
-                preferenceListEntryValues[i] = speedString;
-                i++;
-            }
-        }
-
-        preference.setEntries(preferenceListEntries);
-        preference.setEntryValues(preferenceListEntryValues);
-    }
-
-    /**
-     * Injection point.
-     */
-    public static void onFlyoutMenuCreate(RecyclerView recyclerView) {
-        recyclerView.getViewTreeObserver().addOnDrawListener(() -> {
-            try {
-                if (PlaybackSpeedMenuFilterPatch.isPlaybackRateSelectorMenuVisible) {
-                    if (hideLithoMenuAndShowOldSpeedMenu(recyclerView, 5)) {
-                        PlaybackSpeedMenuFilterPatch.isPlaybackRateSelectorMenuVisible = false;
-                    }
-                    return;
-                }
-            } catch (Exception ex) {
-                Logger.printException(() -> "isPlaybackRateSelectorMenuVisible failure", ex);
-            }
-
-            try {
-                if (PlaybackSpeedMenuFilterPatch.isOldPlaybackSpeedMenuVisible) {
-                    if (hideLithoMenuAndShowOldSpeedMenu(recyclerView, 8)) {
-                        PlaybackSpeedMenuFilterPatch.isOldPlaybackSpeedMenuVisible = false;
-                    }
-                }
-            } catch (Exception ex) {
-                Logger.printException(() -> "isOldPlaybackSpeedMenuVisible failure", ex);
-            }
-        });
-    }
-
-    private static boolean hideLithoMenuAndShowOldSpeedMenu(RecyclerView recyclerView, int expectedChildCount) {
-        if (recyclerView.getChildCount() == 0) {
-            return false;
-        }
-
-        View firstChild = recyclerView.getChildAt(0);
-        if (!(firstChild instanceof ViewGroup PlaybackSpeedParentView)) {
-            return false;
-        }
-
-        if (PlaybackSpeedParentView.getChildCount() != expectedChildCount) {
-            return false;
-        }
-
-        ViewParent parentView3rd = Utils.getParentView(recyclerView, 3);
-        if (!(parentView3rd instanceof ViewGroup)) {
-            return true;
-        }
-
-        ViewParent parentView4th = parentView3rd.getParent();
-        if (!(parentView4th instanceof ViewGroup)) {
-            return true;
-        }
-
-        // Dismiss View [R.id.touch_outside] is the 1st ChildView of the 4th ParentView.
-        // This only shows in phone layout.
-        final var touchInsidedView = ((ViewGroup) parentView4th).getChildAt(0);
-        touchInsidedView.setSoundEffectsEnabled(false);
-        touchInsidedView.performClick();
-
-        // In tablet layout there is no Dismiss View, instead we just hide all two parent views.
-        ((ViewGroup) parentView3rd).setVisibility(View.GONE);
-        ((ViewGroup) parentView4th).setVisibility(View.GONE);
-
-        // Close the litho speed menu and show the old one.
-        showOldPlaybackSpeedMenu();
-
-        return true;
-    }
-
-    public static void showOldPlaybackSpeedMenu() {
-        // This method is sometimes used multiple times.
-        // To prevent this, ignore method reuse within 1 second.
-        final long now = System.currentTimeMillis();
-        if (now - lastTimeOldPlaybackMenuInvoked < 1000) {
-            Logger.printDebug(() -> "Ignoring call to showOldPlaybackSpeedMenu");
-            return;
-        }
-        lastTimeOldPlaybackMenuInvoked = now;
-        Logger.printDebug(() -> "Old video quality menu shown");
-
-        // Rest of the implementation added by patch.
     }
 }
