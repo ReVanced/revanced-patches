@@ -48,57 +48,6 @@ Second \"item\" text"</string>
 
 Pour traduire dans de nouvelles langues, visitez translate.revanced.app"</string>
   <string name="revanced_language_DEFAULT">Langue de l\'application</string>
-  <string name="revanced_language_AR">Arabe</string>
-  <string name="revanced_language_AZ">Azéri</string>
-  <string name="revanced_language_BG">Bulgare</string>
-  <string name="revanced_language_BN">Bengali</string>
-  <string name="revanced_language_CA">Catalan</string>
-  <string name="revanced_language_CS">Tchèque</string>
-  <string name="revanced_language_DA">Danois</string>
-  <string name="revanced_language_DE">Allemand</string>
-  <string name="revanced_language_EL">Grec</string>
-  <string name="revanced_language_EN">Anglais</string>
-  <string name="revanced_language_ES">Espagnol</string>
-  <string name="revanced_language_ET">Estonien</string>
-  <string name="revanced_language_FA">Persan</string>
-  <string name="revanced_language_FI">Finnois</string>
-  <string name="revanced_language_FR">Français</string>
-  <string name="revanced_language_GU">Gujarati</string>
-  <string name="revanced_language_HI">Hindi</string>
-  <string name="revanced_language_HR">Croate</string>
-  <string name="revanced_language_HU">Hongrois</string>
-  <string name="revanced_language_ID">Indonésien</string>
-  <string name="revanced_language_IT">Italien</string>
-  <string name="revanced_language_JA">Japonais</string>
-  <string name="revanced_language_KK">Kazakh</string>
-  <string name="revanced_language_KO">Coréen</string>
-  <string name="revanced_language_LT">Lituanien</string>
-  <string name="revanced_language_LV">Letton</string>
-  <string name="revanced_language_MK">Macédonien</string>
-  <string name="revanced_language_MN">Mongol</string>
-  <string name="revanced_language_MR">Marathi</string>
-  <string name="revanced_language_MS">Malais</string>
-  <string name="revanced_language_MY">Birman</string>
-  <string name="revanced_language_NL">Néerlandais</string>
-  <string name="revanced_language_OR">Odia</string>
-  <string name="revanced_language_PA">Pendjabi</string>
-  <string name="revanced_language_PL">Polonais</string>
-  <string name="revanced_language_PT">Portugais</string>
-  <string name="revanced_language_RO">Roumain</string>
-  <string name="revanced_language_RU">Russe</string>
-  <string name="revanced_language_SK">Slovaque</string>
-  <string name="revanced_language_SL">Slovène</string>
-  <string name="revanced_language_SR">Serbe</string>
-  <string name="revanced_language_SV">Suédois</string>
-  <string name="revanced_language_SW">Swahili</string>
-  <string name="revanced_language_TA">Tamoul</string>
-  <string name="revanced_language_TE">Télougou</string>
-  <string name="revanced_language_TH">Thaï</string>
-  <string name="revanced_language_TR">Turc</string>
-  <string name="revanced_language_UK">Ukrainien</string>
-  <string name="revanced_language_UR">Ourdou</string>
-  <string name="revanced_language_VI">Vietnamien</string>
-  <string name="revanced_language_ZH">Chinois</string>
   <string name="revanced_pref_import_export_title">Importer/Exporter</string>
   <string name="revanced_pref_import_export_summary">Importer/Exporter les paramètres ReVanced</string>
   <!-- Settings about dialog. -->
@@ -174,9 +123,9 @@ Vous ne serez pas informé des événements inattendus."</string>
   <string name="revanced_hide_crowdfunding_box_title">Masquer la boîte de financement participatif</string>
   <string name="revanced_hide_crowdfunding_box_summary_on">La boîte de financement participatif est masquée</string>
   <string name="revanced_hide_crowdfunding_box_summary_off">La boîte de financement participatif est affichée</string>
-  <string name="revanced_hide_floating_microphone_button_title">Masquer le bouton de microphone flottant</string>
-  <string name="revanced_hide_floating_microphone_button_summary_on">Le bouton du microphone est masqué</string>
-  <string name="revanced_hide_floating_microphone_button_summary_off">Le bouton du microphone est affiché</string>
+  <string name="revanced_hide_floating_microphone_button_title">Masquer le bouton micro flottant</string>
+  <string name="revanced_hide_floating_microphone_button_summary_on">Le bouton micro est masqué</string>
+  <string name="revanced_hide_floating_microphone_button_summary_off">Le bouton micro est affiché</string>
   <string name="revanced_hide_channel_watermark_title">Masquer le filigrane de la chaîne</string>
   <string name="revanced_hide_channel_watermark_summary_on">Le filigrane est masqué</string>
   <string name="revanced_hide_channel_watermark_summary_off">Le filigrane est affiché</string>
@@ -199,7 +148,7 @@ Vous ne serez pas informé des événements inattendus."</string>
   <string name="revanced_hide_for_you_shelf_summary_off">L\'étagère est affichée sur la page de chaîne</string>
   <!-- 'Notify me' should be translated using the same localized wording YouTube displays.
                  This item appear in the subscription feed for future livestreams or unreleased videos. -->
-  <string name="revanced_hide_notify_me_button_title">Masquer le bouton \"M\'avertir\"</string>
+  <string name="revanced_hide_notify_me_button_title">Masquer le bouton M\'avertir</string>
   <string name="revanced_hide_notify_me_button_summary_on">Le bouton est masqué</string>
   <string name="revanced_hide_notify_me_button_summary_off">Le bouton est affiché</string>
   <!-- 'People also watched' should be translated using the same localized wording YouTube displays. -->
@@ -208,7 +157,7 @@ Vous ne serez pas informé des événements inattendus."</string>
   <string name="revanced_hide_search_result_recommendations_summary_off">Le libellé est affiché</string>
   <!-- 'Show more' should be translated with the same localized wording that YouTube displays.
                   This button usually appears when searching for a YT creator. -->
-  <string name="revanced_hide_show_more_button_title">Masquer le bouton \"Afficher plus\"</string>
+  <string name="revanced_hide_show_more_button_title">Masquer le bouton Afficher plus</string>
   <string name="revanced_hide_show_more_button_summary_on">Le bouton est masqué</string>
   <string name="revanced_hide_show_more_button_summary_off">Le bouton est affiché</string>
   <string name="revanced_hide_timed_reactions_title">Masquer les réactions minutées</string>
@@ -417,7 +366,7 @@ Cette fonctionnalité est disponible uniquement pour les appareils anciens"</str
   <string name="revanced_hide_shopping_links_summary_on">Les liens de shopping dans la description des vidéos sont masqués</string>
   <string name="revanced_hide_shopping_links_summary_off">Les liens de shopping dans la description des vidéos sont affichés</string>
   <!-- 'Visit store' should be translated with the same localized wording that YouTube displays. -->
-  <string name="revanced_hide_visit_store_button_title">Masquer le bouton \"Visiter la boutique\"</string>
+  <string name="revanced_hide_visit_store_button_title">Masquer le bouton Visiter la boutique</string>
   <string name="revanced_hide_visit_store_button_summary_on">Le bouton est masqué sur la page de chaîne</string>
   <string name="revanced_hide_visit_store_button_summary_off">Le bouton est affiché sur la page de chaîne</string>
   <string name="revanced_hide_web_search_results_title">Masquer les résultats Web</string>
@@ -663,7 +612,7 @@ Si la modification de ce paramètre ne prend pas effet, essayez de passer en mod
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_off">Le pied de page du menu de qualité vidéo est affiché</string>
   </patch>
   <patch id="layout.buttons.overlay.hidePlayerOverlayButtonsPatch">
-  <string name="revanced_hide_player_previous_next_buttons_title">Masquer les boutons de vidéo précédente et suivante</string>
+  <string name="revanced_hide_player_previous_next_buttons_title">Masquer les boutons Précédent et Suivant</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_on">Les boutons sont masqués</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">Les boutons sont affichés</string>
   <string name="revanced_hide_cast_button_title">Masquer le bouton Caster</string>
@@ -1110,20 +1059,18 @@ Prêt à soumettre ?"</string>
   <string name="revanced_sb_about_api_sum">Les données sont fournies par l\'API SponsorBlock. Appuyez ici pour en savoir plus et pour voir les téléchargements pour les autres plateformes.</string>
   </patch>
   <patch id="layout.formfactor.changeFormFactorPatch">
-  <string name="revanced_change_form_factor_title">Facteur de forme de la mise en page</string>
+  <string name="revanced_change_form_factor_title">Format de mise en page</string>
   <string name="revanced_change_form_factor_entry_1">Par défaut</string>
   <string name="revanced_change_form_factor_entry_2">Téléphone</string>
   <string name="revanced_change_form_factor_entry_3">Tablette</string>
   <string name="revanced_change_form_factor_entry_4">Automotive</string>
-  <string name="revanced_change_form_factor_user_dialog_message">"Les modifications incluent :
+  <string name="revanced_change_form_factor_user_dialog_message">"Les modifications comprennent :
 
-Disposition pour tablette
-• Les publications de la communauté sont masquées
+Format Tablette
+• Les posts destinés à la communauté sont masqués
 
-Disposition Automotive
-• Le menu de l'historique des vidéos regardées est masqué
-• L'onglet Explorer est restauré
-• Les Shorts s'ouvrent dans le lecteur classique
+Format Automotive
+• Les Shorts s'ouvrent dans le lecteur standard
 • Le flux est organisé par sujets et par chaînes"</string>
   </patch>
   <patch id="layout.spoofappversion.spoofAppVersionPatch">
@@ -1181,8 +1128,8 @@ Si désactivé ultérieurement, il est recommandé d'effacer les données de l'a
   <patch id="layout.shortsplayer.shortsPlayerTypePatch">
   <string name="revanced_shorts_player_type_title">Ouvrir les Shorts avec</string>
   <string name="revanced_shorts_player_type_shorts">Lecteur Shorts</string>
-  <string name="revanced_shorts_player_type_regular_player">Lecteur classique</string>
-  <string name="revanced_shorts_player_type_regular_player_fullscreen">Lecteur classique en plein écran</string>
+  <string name="revanced_shorts_player_type_regular_player">Lecteur standard</string>
+  <string name="revanced_shorts_player_type_regular_player_fullscreen">Lecteur standard en plein écran</string>
   </patch>
   <patch id="layout.shortsautoplay.shortsAutoplayPatch">
   <string name="revanced_shorts_autoplay_title">Lire automatiquement les Shorts</string>
@@ -1194,7 +1141,7 @@ Si désactivé ultérieurement, il est recommandé d'effacer les données de l'a
   </patch>
   <patch id="layout.miniplayer.miniplayerPatch">
   <string name="revanced_miniplayer_screen_title">Lecteur réduit</string>
-  <string name="revanced_miniplayer_screen_summary">Changer le style du lecteur réduit dans l\'application</string>
+  <string name="revanced_miniplayer_screen_summary">Modifier le style du lecteur réduit à l\'intérieur de l\'application</string>
   <string name="revanced_miniplayer_type_title">Type de lecteur réduit</string>
   <string name="revanced_miniplayer_type_entry_0">Désactivé</string>
   <string name="revanced_miniplayer_type_entry_1">Par défaut</string>
@@ -1247,8 +1194,6 @@ Balayez pour développer ou fermer"</string>
   <string name="revanced_gradient_loading_screen_title">Activer le dégradé sur l\'écran de chargement</string>
   <string name="revanced_gradient_loading_screen_summary_on">Le fond de l\'écran de chargement sera un dégradé de couleurs</string>
   <string name="revanced_gradient_loading_screen_summary_off">Le fond de l\'écran de chargement sera une couleur unie</string>
-  </patch>
-  <patch id="layout.theme.themeResourcePatch">
   <string name="revanced_seekbar_custom_color_title">Personnaliser la couleur de la barre de progression</string>
   <string name="revanced_seekbar_custom_color_summary_on">La couleur de la barre de progression est personnalisée</string>
   <string name="revanced_seekbar_custom_color_summary_off">La couleur originale de la barre de progression est affichée</string>
@@ -1340,8 +1285,8 @@ Activer cette option peut déverrouiller des qualités vidéo supérieures"</str
   </patch>
   <patch id="misc.links.openLinksExternallyPatch">
   <string name="revanced_external_browser_title">Ouvrir les liens dans le navigateur</string>
-  <string name="revanced_external_browser_summary_on">Les liens sont ouverts dans une appli externe</string>
-  <string name="revanced_external_browser_summary_off">Les liens sont ouverts dans l\'application</string>
+  <string name="revanced_external_browser_summary_on">Les liens sont ouverts dans le navigateur externe</string>
+  <string name="revanced_external_browser_summary_off">Les liens sont ouverts dans le navigateur intégré à l\'application</string>
   </patch>
   <patch id="misc.privacy.removeTrackingQueryParameterPatch">
   <string name="revanced_remove_tracking_query_parameter_title">Supprimer le paramètre de suivi</string>
@@ -1363,14 +1308,20 @@ Activer cette option peut déverrouiller des qualités vidéo supérieures"</str
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
   <string name="revanced_video_quality_default_entry_1">Automatique</string>
-  <string name="revanced_remember_video_quality_last_selected_title">Se souvenir des modifications de la qualité vidéo</string>
-  <string name="revanced_remember_video_quality_last_selected_summary_on">Les modifications de qualité s\'appliquent à toutes les vidéos</string>
-  <string name="revanced_remember_video_quality_last_selected_summary_off">Les modifications de qualité s\'appliquent uniquement à la vidéo en cours</string>
-  <string name="revanced_video_quality_default_wifi_title">Qualité vidéo par défaut sur un réseau Wi-Fi</string>
+  <string name="revanced_remember_video_quality_last_selected_title">Mémoriser les changements de qualité vidéo</string>
+  <string name="revanced_remember_video_quality_last_selected_summary_on">Les changements de qualité s\'appliquent à toutes les vidéos</string>
+  <string name="revanced_remember_video_quality_last_selected_summary_off">Les changements de qualité s\'appliquent uniquement à la vidéo actuelle</string>
+  <string name="revanced_video_quality_default_wifi_title">Qualité vidéo par défaut sur les réseaux Wi-Fi</string>
   <string name="revanced_video_quality_default_mobile_title">Qualité vidéo par défaut sur le réseau mobile</string>
+  <string name="revanced_remember_shorts_quality_last_selected_title">Mémoriser les changements de qualité des Shorts</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_on">Les changements de qualité s\'appliquent à tous les Shorts</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_off">Les changements de qualité s\'appliquent uniquement au Short actuel</string>
+  <string name="revanced_shorts_quality_default_wifi_title">Qualité par défaut des Shorts sur les réseaux Wi-Fi</string>
+  <string name="revanced_shorts_quality_default_mobile_title">Qualité par défaut des Shorts sur le réseau mobile</string>
   <string name="revanced_remember_video_quality_mobile">mobile</string>
   <string name="revanced_remember_video_quality_wifi">Wi-Fi</string>
   <string name="revanced_remember_video_quality_toast">Nouvelle qualité %1$s par défaut : %2$s</string>
+  <string name="revanced_remember_video_quality_toast_shorts">Nouvelle qualité %1$s des Shorts par défaut : %2$s</string>
   </patch>
   <patch id="video.speed.button.playbackSpeedButtonPatch">
   <string name="revanced_playback_speed_dialog_button_title">Afficher un bouton Vitesse</string>
@@ -1390,9 +1341,9 @@ Activer cette option peut déverrouiller des qualités vidéo supérieures"</str
   <string name="revanced_speed_tap_and_hold_summary">Vitesse de lecture comprise entre 0 et 8</string>
   </patch>
   <patch id="video.speed.remember.rememberPlaybackSpeedPatch">
-  <string name="revanced_remember_playback_speed_last_selected_title">Se souvenir des modifications de la vitesse de lecture</string>
-  <string name="revanced_remember_playback_speed_last_selected_summary_on">Les modifications de vitesse de lecture s\'appliquent à toutes les vidéos</string>
-  <string name="revanced_remember_playback_speed_last_selected_summary_off">Les modifications de vitesse de lecture ne s\'appliquent qu\'à la vidéo actuelle</string>
+  <string name="revanced_remember_playback_speed_last_selected_title">Mémoriser les changements de vitesse de lecture</string>
+  <string name="revanced_remember_playback_speed_last_selected_summary_on">Les changements de vitesse de lecture s\'appliquent à toutes les vidéos</string>
+  <string name="revanced_remember_playback_speed_last_selected_summary_off">Les changements de vitesse de lecture ne s\'appliquent qu\'à la vidéo actuelle</string>
   <string name="revanced_playback_speed_default_title">Vitesse de lecture par défaut</string>
   <string name="revanced_remember_playback_speed_toast">Nouvelle vitesse par défaut : %s</string>
   </patch>
@@ -1401,10 +1352,10 @@ Activer cette option peut déverrouiller des qualités vidéo supérieures"</str
   <string name="revanced_disable_hdr_video_summary_on">Le HDR est désactivé dans les vidéos</string>
   <string name="revanced_disable_hdr_video_summary_off">Le HDR est activé dans les vidéos</string>
   </patch>
-  <patch id="video.videoqualitymenu.restoreOldVideoQualityMenuResourcePatch">
-  <string name="revanced_restore_old_video_quality_menu_title">Restaurer l\'ancien menu de qualité vidéo</string>
-  <string name="revanced_restore_old_video_quality_menu_summary_on">L\'ancien menu de qualité vidéo est affiché</string>
-  <string name="revanced_restore_old_video_quality_menu_summary_off">L\'ancien menu de qualité vidéo n\'est pas affiché</string>
+  <patch id="video.quality.advancedVideoQualityMenuPatch">
+  <string name="revanced_advanced_video_quality_menu_title">Afficher le menu de qualité vidéo avancé</string>
+  <string name="revanced_advanced_video_quality_menu_summary_on">Le menu de qualité vidéo avancé est affiché</string>
+  <string name="revanced_advanced_video_quality_menu_summary_off">Le menu de qualité vidéo avancé n\'est pas affiché</string>
   </patch>
   <patch id="interaction.seekbar.enableSlideToSeekPatch">
   <string name="revanced_slide_to_seek_title">Activer Glisser pour rechercher</string>

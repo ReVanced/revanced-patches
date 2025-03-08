@@ -18,8 +18,8 @@ import android.widget.TextView;
 import android.widget.Toolbar;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
+import java.util.Locale;
 
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
@@ -74,7 +74,8 @@ public class ReVancedPreferenceFragment extends AbstractPreferenceFragment {
             }
         }
 
-        Collections.sort(pairsToSort, (pair1, pair2) -> pair1.first.compareToIgnoreCase(pair2.first));
+        pairsToSort.sort((pair1, pair2)
+                -> pair1.first.compareToIgnoreCase(pair2.first));
 
         CharSequence[] sortedEntries = new CharSequence[entrySize];
         CharSequence[] sortedEntryValues = new CharSequence[entrySize];
@@ -109,6 +110,7 @@ public class ReVancedPreferenceFragment extends AbstractPreferenceFragment {
                 CustomPlaybackSpeedPatch.initializeListPreference(playbackPreference);
             }
 
+            sortPreferenceListMenu(Settings.CHANGE_START_PAGE);
             sortPreferenceListMenu(Settings.SPOOF_VIDEO_STREAMS_LANGUAGE);
             sortPreferenceListMenu(BaseSettings.REVANCED_LANGUAGE);
         } catch (Exception ex) {

@@ -8,30 +8,30 @@ import android.widget.ListView;
 
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
-import app.revanced.extension.youtube.patches.components.VideoQualityMenuFilterPatch;
+import app.revanced.extension.youtube.patches.components.AdvancedVideoQualityMenuFilter;
 import app.revanced.extension.youtube.settings.Settings;
 
 /**
- * This patch contains the logic to show the old video quality menu.
+ * This patch contains the logic to always open the advanced video quality menu.
  * Two methods are required, because the quality menu is a RecyclerView in the new YouTube version
  * and a ListView in the old one.
  */
 @SuppressWarnings("unused")
-public final class RestoreOldVideoQualityMenuPatch {
+public final class AdvancedVideoQualityMenuPatch {
 
     /**
      * Injection point.
      */
     public static void onFlyoutMenuCreate(RecyclerView recyclerView) {
-        if (!Settings.RESTORE_OLD_VIDEO_QUALITY_MENU.get()) return;
+        if (!Settings.ADVANCED_VIDEO_QUALITY_MENU.get()) return;
 
         recyclerView.getViewTreeObserver().addOnDrawListener(() -> {
             try {
                 // Check if the current view is the quality menu.
-                if (!VideoQualityMenuFilterPatch.isVideoQualityMenuVisible || recyclerView.getChildCount() == 0) {
+                if (!AdvancedVideoQualityMenuFilter.isVideoQualityMenuVisible || recyclerView.getChildCount() == 0) {
                     return;
                 }
-                VideoQualityMenuFilterPatch.isVideoQualityMenuVisible = false;
+                AdvancedVideoQualityMenuFilter.isVideoQualityMenuVisible = false;
 
                 ViewParent quickQualityViewParent = Utils.getParentView(recyclerView, 3);
                 if (!(quickQualityViewParent instanceof ViewGroup)) {
@@ -39,16 +39,15 @@ public final class RestoreOldVideoQualityMenuPatch {
                 }
 
                 View firstChild = recyclerView.getChildAt(0);
-                if (!(firstChild instanceof ViewGroup)) {
+                if (!(firstChild instanceof ViewGroup firstChildGroup)) {
                     return;
                 }
 
-                ViewGroup advancedQualityParentView = (ViewGroup) firstChild;
-                if (advancedQualityParentView.getChildCount() < 4) {
+                if (firstChildGroup.getChildCount() < 4) {
                     return;
                 }
 
-                View advancedQualityView = advancedQualityParentView.getChildAt(3);
+                View advancedQualityView = firstChildGroup.getChildAt(3);
                 if (advancedQualityView == null) {
                     return;
                 }
@@ -71,7 +70,7 @@ public final class RestoreOldVideoQualityMenuPatch {
      * Used to force the creation of the advanced menu item for the Shorts quality flyout.
      */
     public static boolean forceAdvancedVideoQualityMenuCreation(boolean original) {
-        return Settings.RESTORE_OLD_VIDEO_QUALITY_MENU.get() || original;
+        return Settings.ADVANCED_VIDEO_QUALITY_MENU.get() || original;
     }
 
     /**
@@ -79,8 +78,8 @@ public final class RestoreOldVideoQualityMenuPatch {
      *
      * Used if spoofing to an old app version, and also used for the Shorts video quality flyout.
      */
-    public static void showOldVideoQualityMenu(final ListView listView) {
-        if (!Settings.RESTORE_OLD_VIDEO_QUALITY_MENU.get()) return;
+    public static void showAdvancedVideoQualityMenu(ListView listView) {
+        if (!Settings.ADVANCED_VIDEO_QUALITY_MENU.get()) return;
 
         listView.setOnHierarchyChangeListener(new ViewGroup.OnHierarchyChangeListener() {
             @Override

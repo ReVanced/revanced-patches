@@ -48,57 +48,6 @@ Second \"item\" text"</string>
 
 Նոր լեզուներ թարգմանելու համար այցելեք translate.revanced.app"</string>
   <string name="revanced_language_DEFAULT">Հավելվածի լեզու</string>
-  <string name="revanced_language_AR">Արաբերեն</string>
-  <string name="revanced_language_AZ">Ադրբեջաներեն</string>
-  <string name="revanced_language_BG">Բուլղարերեն</string>
-  <string name="revanced_language_BN">Բենգալերեն</string>
-  <string name="revanced_language_CA">Կատալաներեն</string>
-  <string name="revanced_language_CS">Չեխերեն</string>
-  <string name="revanced_language_DA">Դանիերեն</string>
-  <string name="revanced_language_DE">Գերմաներեն</string>
-  <string name="revanced_language_EL">Հունարեն</string>
-  <string name="revanced_language_EN">Անգլերեն</string>
-  <string name="revanced_language_ES">Իսպաներեն</string>
-  <string name="revanced_language_ET">Էստոներեն</string>
-  <string name="revanced_language_FA">Պարսկերեն</string>
-  <string name="revanced_language_FI">Ֆիններեն</string>
-  <string name="revanced_language_FR">Ֆրանսերեն</string>
-  <string name="revanced_language_GU">Գուջարաթի</string>
-  <string name="revanced_language_HI">Հինդի</string>
-  <string name="revanced_language_HR">Խորվաթերեն</string>
-  <string name="revanced_language_HU">Հունգարերեն</string>
-  <string name="revanced_language_ID">Ինդոնեզերեն</string>
-  <string name="revanced_language_IT">Իտալերեն</string>
-  <string name="revanced_language_JA">Ճապոներեն</string>
-  <string name="revanced_language_KK">Ղազախերեն</string>
-  <string name="revanced_language_KO">Կորեերեն</string>
-  <string name="revanced_language_LT">Լիտվերեն</string>
-  <string name="revanced_language_LV">Լատվիերեն</string>
-  <string name="revanced_language_MK">Մակեդոներեն</string>
-  <string name="revanced_language_MN">Մոնղոլերեն</string>
-  <string name="revanced_language_MR">Մարաթի</string>
-  <string name="revanced_language_MS">Մալայերեն</string>
-  <string name="revanced_language_MY">Բիրմաներեն</string>
-  <string name="revanced_language_NL">Նիդերլանդերեն</string>
-  <string name="revanced_language_OR">Օդիա</string>
-  <string name="revanced_language_PA">Փանջաբի</string>
-  <string name="revanced_language_PL">Լեհերեն</string>
-  <string name="revanced_language_PT">Պորտուգալերեն</string>
-  <string name="revanced_language_RO">Ռումիներեն</string>
-  <string name="revanced_language_RU">Ռուսերեն</string>
-  <string name="revanced_language_SK">Սլովակերեն</string>
-  <string name="revanced_language_SL">Սլովեներեն</string>
-  <string name="revanced_language_SR">Սերբերեն</string>
-  <string name="revanced_language_SV">Շվեդերեն</string>
-  <string name="revanced_language_SW">Սվահիլի</string>
-  <string name="revanced_language_TA">Թամիլերեն</string>
-  <string name="revanced_language_TE">Թելուգու</string>
-  <string name="revanced_language_TH">Թաիլանդերեն</string>
-  <string name="revanced_language_TR">Թուրքերեն</string>
-  <string name="revanced_language_UK">Ուկրաիներեն</string>
-  <string name="revanced_language_UR">Ուրդու</string>
-  <string name="revanced_language_VI">Վիետնամերեն</string>
-  <string name="revanced_language_ZH">Չինարեն</string>
   <string name="revanced_pref_import_export_title">Ներմուծում/Արտահանում</string>
   <string name="revanced_pref_import_export_summary">Import / Export ReVanced կարգավորումներ</string>
   <!-- Settings about dialog. -->
@@ -404,7 +353,6 @@ MicroG-ի համար մարտկոցի օպտիմալացումը անջատել�
   <string name="revanced_hide_self_sponsor_ads_title">Թաքցնել ինքնահովանավորված քարտերը</string>
   <string name="revanced_hide_self_sponsor_ads_summary_on">Ինքնահովանավորված քարտերը թաքցված են</string>
   <string name="revanced_hide_self_sponsor_ads_summary_off">Ինքնահովանավորված քարտերը երևում են</string>
-  <string name="revanced_hide_products_banner_title">Թաքցնել ապրանքների դիտման բաները</string>
   <string name="revanced_hide_products_banner_summary_on">Բաները թաքցված են</string>
   <string name="revanced_hide_products_banner_summary_off">Բաները երևում են</string>
   <string name="revanced_hide_end_screen_store_banner_title">Թաքցնել վերջնական էկրանի խանութի բաները</string>
@@ -663,7 +611,7 @@ MicroG-ի համար մարտկոցի օպտիմալացումը անջատել�
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_off">Տեսանյութի որակի մենյուի ստորագրությունը երևում է</string>
   </patch>
   <patch id="layout.buttons.overlay.hidePlayerOverlayButtonsPatch">
-  <string name="revanced_hide_player_previous_next_buttons_title">Թաքցնել \"Նախորդ\" և \"Հաջորդ\" տեսանյութի կոճակները</string>
+  <string name="revanced_hide_player_previous_next_buttons_title">Թաքցնել \"Նախորդ\" և \"Հաջորդ\" կոճակները</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_on">Կոճակները թաքցված են</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">Կոճակները երևում են</string>
   <string name="revanced_hide_cast_button_title">Թաքցնել Cast կոճակը</string>
@@ -1116,16 +1064,14 @@ Seekbar thumbnails-ները կօգտագործեն նույն որակը, ինչ
   <string name="revanced_change_form_factor_entry_2">Հեռախոս</string>
   <string name="revanced_change_form_factor_entry_3">Պլանշետ</string>
   <string name="revanced_change_form_factor_entry_4">Ավտոմոբիլային</string>
-  <string name="revanced_change_form_factor_user_dialog_message">"Փոփոխությունները ներառում են. 
+  <string name="revanced_change_form_factor_user_dialog_message">"Փոփոխությունները ներառում են.
 
-Պլանշետի ինտերֆեյս
-• Թաքցված են համայնքի հրապարակումները
+Պլանշետի դասավորություն
+• Համայնքային գրառումները թաքնված են
 
-Ավտոմոբիլային ինտերֆեյս
-• Թաքցված է դիտումների պատմության ընտրանին
-• Վերականգնված է ուսումնասիրել  էջը
-• Հոլովակները բացվում են ստանդարտ նվագարկչում
-• Նորությունները կազմակերպված են ըստ թեմաների և ալիքների"</string>
+Ավտոմեքենայի դասավորություն
+• Shorts-ը բացվում է սովորական նվագարկչում
+• Ֆիդը կազմակերպվում է ըստ թեմաների և ալիքների"</string>
   </patch>
   <patch id="layout.spoofappversion.spoofAppVersionPatch">
   <string name="revanced_spoof_app_version_title">Կեղծել հավելվածի տարբերակը</string>
@@ -1195,7 +1141,6 @@ Seekbar thumbnails-ները կօգտագործեն նույն որակը, ինչ
   </patch>
   <patch id="layout.miniplayer.miniplayerPatch">
   <string name="revanced_miniplayer_screen_title">Մինի նվագարկիչ</string>
-  <string name="revanced_miniplayer_screen_summary">Փոխել կիրառության մեջ փոքրացված պլեյերի ոճը</string>
   <string name="revanced_miniplayer_type_title">Miniplayer-ի տեսակ</string>
   <string name="revanced_miniplayer_type_entry_0">Անջատված է</string>
   <string name="revanced_miniplayer_type_entry_1">Ըստ լռելյայնի</string>
@@ -1248,8 +1193,6 @@ Mini-player-ը կարող է գրավվել էկրանից դուրս՝ դեպի
   <string name="revanced_gradient_loading_screen_title">Աктиվացնել գրադիենտի բեռնման էկրանը</string>
   <string name="revanced_gradient_loading_screen_summary_on">Բեռնման էկրանը կունենա գրադիենտի ֆոն</string>
   <string name="revanced_gradient_loading_screen_summary_off">Բեռնման էկրանը կունենա մեկ գույնի ֆոն</string>
-  </patch>
-  <patch id="layout.theme.themeResourcePatch">
   <string name="revanced_seekbar_custom_color_title">Աктиվացնել հարմարեցված seekbar-ի գույնը</string>
   <string name="revanced_seekbar_custom_color_summary_on">Հարմարեցված seekbar-ի գույնը ցուցադրվում է</string>
   <string name="revanced_seekbar_custom_color_summary_off">Սկզբնական seekbar-ի գույնը ցուցադրվում է</string>
@@ -1341,8 +1284,8 @@ Mini-player-ը կարող է գրավվել էկրանից դուրս՝ դեպի
   </patch>
   <patch id="misc.links.openLinksExternallyPatch">
   <string name="revanced_external_browser_title">Բրաուզերում  հղումներ  բացել</string>
-  <string name="revanced_external_browser_summary_on">Հղումները  բացվում են  արտաքին</string>
-  <string name="revanced_external_browser_summary_off">Հղումները  բացվում են  ծրագրում</string>
+  <string name="revanced_external_browser_summary_on">Բացել հղումները արտաքին բրաուզերում</string>
+  <string name="revanced_external_browser_summary_off">Բացել հղումները ներծրագրային բրաուզերում</string>
   </patch>
   <patch id="misc.privacy.removeTrackingQueryParameterPatch">
   <string name="revanced_remove_tracking_query_parameter_title">Հետևողականության  հարցումի  պարամետրը  հեռացնել</string>
@@ -1369,9 +1312,15 @@ Mini-player-ը կարող է գրավվել էկրանից դուրս՝ դեպի
   <string name="revanced_remember_video_quality_last_selected_summary_off">Որակի  փոփոխությունները  կիրառվում են  միայն  ներկայիս  տեսանյութի  համար</string>
   <string name="revanced_video_quality_default_wifi_title">Wi-Fi  ցանցի  դեֆոլտ  տեսանյութի  որակը</string>
   <string name="revanced_video_quality_default_mobile_title">Մೊբայլ  ցանցի  դեֆոլտ  տեսանյութի  որակը</string>
+  <string name="revanced_remember_shorts_quality_last_selected_title">Հիշել Shorts-ի որակի փոփոխությունները</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_on">Որակի փոփոխություններն ազդում են բոլոր Shorts-ի վրա</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_off">Որակի փոփոխություններն ազդում են միայն ընթացիկ Short-ի վրա</string>
+  <string name="revanced_shorts_quality_default_wifi_title">Shorts-ի լռելյայն որակը Wi-Fi ցանցում</string>
+  <string name="revanced_shorts_quality_default_mobile_title">Shorts-ի լռելյայն որակը բջջային ցանցում</string>
   <string name="revanced_remember_video_quality_mobile">վարկանիշ</string>
   <string name="revanced_remember_video_quality_wifi">ուայ-ֆայ</string>
   <string name="revanced_remember_video_quality_toast">Փոփոխվել է  դեֆոլտ  %1$s  որակը: %2$s</string>
+  <string name="revanced_remember_video_quality_toast_shorts">Փոխվել է Shorts %1$s-ի որակը հետևյալի վրա. %2$s</string>
   </patch>
   <patch id="video.speed.button.playbackSpeedButtonPatch">
   <string name="revanced_playback_speed_dialog_button_title">Ցուցադրել  արագության  դիալոգի  պատուհանի  կոճակը</string>
@@ -1402,10 +1351,10 @@ Mini-player-ը կարող է գրավվել էկրանից դուրս՝ դեպի
   <string name="revanced_disable_hdr_video_summary_on">HDR տեսանյութը անջատված է</string>
   <string name="revanced_disable_hdr_video_summary_off">HDR տեսանյութը միացված է</string>
   </patch>
-  <patch id="video.videoqualitymenu.restoreOldVideoQualityMenuResourcePatch">
-  <string name="revanced_restore_old_video_quality_menu_title">Վերականգնել  տեսանյութի  որակի  հին  մենյու</string>
-  <string name="revanced_restore_old_video_quality_menu_summary_on">Տեսանյութի  որակի  հին  մենյուը  ցուցադրվում է</string>
-  <string name="revanced_restore_old_video_quality_menu_summary_off">Տեսանյութի  որակի  հին  մենյուը  չի  ցուցադրվում</string>
+  <patch id="video.quality.advancedVideoQualityMenuPatch">
+  <string name="revanced_advanced_video_quality_menu_title">Ցուցադրել տեսանյութի որակի ընդլայնված մենյուն</string>
+  <string name="revanced_advanced_video_quality_menu_summary_on">Տեսանյութի որակի ընդլայնված մենյուն ցուցադրվում է</string>
+  <string name="revanced_advanced_video_quality_menu_summary_off">Տեսանյութի որակի ընդլայնված մենյուն չի ցուցադրվում</string>
   </patch>
   <patch id="interaction.seekbar.enableSlideToSeekPatch">
   <string name="revanced_slide_to_seek_title">Ակտիվացնել  սահելը  համար  ընտրելու</string>

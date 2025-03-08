@@ -50,7 +50,7 @@ private val downloadsResourcePatch = resourcePatch {
     }
 }
 
-internal const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/youtube/patches/DownloadsPatch;"
+private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/youtube/patches/DownloadsPatch;"
 
 internal const val BUTTON_DESCRIPTOR = "Lapp/revanced/extension/youtube/videoplayer/ExternalDownloadButton;"
 

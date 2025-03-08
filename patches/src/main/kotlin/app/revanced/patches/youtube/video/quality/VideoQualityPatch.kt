@@ -1,29 +1,24 @@
-package app.revanced.patches.youtube.video.speed
+package app.revanced.patches.youtube.video.quality
 
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.shared.misc.settings.preference.BasePreference
 import app.revanced.patches.shared.misc.settings.preference.PreferenceCategory
 import app.revanced.patches.shared.misc.settings.preference.PreferenceScreenPreference.Sorting
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
-import app.revanced.patches.youtube.video.speed.button.playbackSpeedButtonPatch
-import app.revanced.patches.youtube.video.speed.custom.customPlaybackSpeedPatch
-import app.revanced.patches.youtube.video.speed.remember.rememberPlaybackSpeedPatch
 
 /**
- * Speed menu settings.  Used to organize all speed related settings together.
+ * Video quality settings.  Used to organize all speed related settings together.
  */
-internal val settingsMenuVideoSpeedGroup = mutableSetOf<BasePreference>()
+internal val settingsMenuVideoQualityGroup = mutableSetOf<BasePreference>()
 
 @Suppress("unused")
-val playbackSpeedPatch = bytecodePatch(
-    name = "Playback speed",
-    description = "Adds options to customize available playback speeds, set default a playback speed, " +
-        "and show a speed dialog button in the video player.",
+val videoQualityPatch = bytecodePatch(
+    name = "Video quality",
+    description = "Adds options to use the advanced video quality menu and set default video qualities."
 ) {
     dependsOn(
-        customPlaybackSpeedPatch,
-        rememberPlaybackSpeedPatch,
-        playbackSpeedButtonPatch,
+        rememberVideoQualityPatch,
+        advancedVideoQualityMenuPatch,
     )
 
     compatibleWith(
@@ -40,12 +35,13 @@ val playbackSpeedPatch = bytecodePatch(
 
     execute {
         PreferenceScreen.VIDEO.addPreferences(
+            // Keep the preferences organized together.
             PreferenceCategory(
-                key = "revanced_zz_video_key", // Dummy key to force the speed settings last.
+                key = "revanced_01_video_key", // Dummy key to force the quality preferences first.
                 titleKey = null,
                 sorting = Sorting.UNSORTED,
                 tag = "app.revanced.extension.shared.settings.preference.NoTitlePreferenceCategory",
-                preferences = settingsMenuVideoSpeedGroup
+                preferences = settingsMenuVideoQualityGroup
             )
         )
     }

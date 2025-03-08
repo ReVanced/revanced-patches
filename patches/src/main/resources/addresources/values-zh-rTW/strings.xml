@@ -48,57 +48,6 @@ Second \"item\" text"</string>
 
 如要翻譯新的語言，請前往 translate.revanced.app。"</string>
   <string name="revanced_language_DEFAULT">應用程式語言</string>
-  <string name="revanced_language_AR">阿拉伯文</string>
-  <string name="revanced_language_AZ">亞塞拜然文</string>
-  <string name="revanced_language_BG">保加利亞文</string>
-  <string name="revanced_language_BN">孟加拉文</string>
-  <string name="revanced_language_CA">加泰隆尼亞文</string>
-  <string name="revanced_language_CS">捷克文</string>
-  <string name="revanced_language_DA">丹麥文</string>
-  <string name="revanced_language_DE">德文</string>
-  <string name="revanced_language_EL">希臘文</string>
-  <string name="revanced_language_EN">英文</string>
-  <string name="revanced_language_ES">西班牙文</string>
-  <string name="revanced_language_ET">愛沙尼亞文</string>
-  <string name="revanced_language_FA">波斯文</string>
-  <string name="revanced_language_FI">芬蘭文</string>
-  <string name="revanced_language_FR">法文</string>
-  <string name="revanced_language_GU">古吉拉特文</string>
-  <string name="revanced_language_HI">印地文</string>
-  <string name="revanced_language_HR">克羅埃西亞文</string>
-  <string name="revanced_language_HU">匈牙利文</string>
-  <string name="revanced_language_ID">印尼文</string>
-  <string name="revanced_language_IT">義大利文</string>
-  <string name="revanced_language_JA">日文</string>
-  <string name="revanced_language_KK">哈薩克文</string>
-  <string name="revanced_language_KO">韓文</string>
-  <string name="revanced_language_LT">立陶宛文</string>
-  <string name="revanced_language_LV">拉脫維亞文</string>
-  <string name="revanced_language_MK">馬其頓文</string>
-  <string name="revanced_language_MN">蒙古文</string>
-  <string name="revanced_language_MR">馬拉地文</string>
-  <string name="revanced_language_MS">馬來文</string>
-  <string name="revanced_language_MY">緬甸文</string>
-  <string name="revanced_language_NL">荷蘭文</string>
-  <string name="revanced_language_OR">歐利亞文</string>
-  <string name="revanced_language_PA">旁遮普文</string>
-  <string name="revanced_language_PL">波蘭文</string>
-  <string name="revanced_language_PT">葡萄牙文</string>
-  <string name="revanced_language_RO">羅馬尼亞文</string>
-  <string name="revanced_language_RU">俄文</string>
-  <string name="revanced_language_SK">斯洛伐克文</string>
-  <string name="revanced_language_SL">斯洛維尼亞文</string>
-  <string name="revanced_language_SR">塞爾維亞文</string>
-  <string name="revanced_language_SV">瑞典文</string>
-  <string name="revanced_language_SW">斯瓦希里文</string>
-  <string name="revanced_language_TA">坦米爾文</string>
-  <string name="revanced_language_TE">特拉古文</string>
-  <string name="revanced_language_TH">泰文</string>
-  <string name="revanced_language_TR">土耳其文</string>
-  <string name="revanced_language_UK">烏克蘭文</string>
-  <string name="revanced_language_UR">烏都文</string>
-  <string name="revanced_language_VI">越南文</string>
-  <string name="revanced_language_ZH">中文</string>
   <string name="revanced_pref_import_export_title">匯入/匯出</string>
   <string name="revanced_pref_import_export_summary">匯入/匯出 ReVanced 設定</string>
   <!-- Settings about dialog. -->
@@ -400,7 +349,6 @@ Second \"item\" text"</string>
   <string name="revanced_hide_self_sponsor_ads_title">隱藏自我贊助資訊卡</string>
   <string name="revanced_hide_self_sponsor_ads_summary_on">已隱藏自我贊助資訊卡</string>
   <string name="revanced_hide_self_sponsor_ads_summary_off">已顯示自我贊助資訊卡</string>
-  <string name="revanced_hide_products_banner_title">隱藏檢視產品橫幅</string>
   <string name="revanced_hide_products_banner_summary_on">已隱藏橫幅</string>
   <string name="revanced_hide_products_banner_summary_off">已顯示橫幅</string>
   <string name="revanced_hide_end_screen_store_banner_title">隱藏片尾商店橫幅</string>
@@ -659,7 +607,6 @@ Second \"item\" text"</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_off">已顯示影片畫質選單頁尾</string>
   </patch>
   <patch id="layout.buttons.overlay.hidePlayerOverlayButtonsPatch">
-  <string name="revanced_hide_player_previous_next_buttons_title">隱藏上一部和下一部影片按紐</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_on">已隱藏按鈕</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">已顯示按鈕</string>
   <string name="revanced_hide_cast_button_title">隱藏「投影」按鈕</string>
@@ -1112,16 +1059,6 @@ Second \"item\" text"</string>
   <string name="revanced_change_form_factor_entry_2">手機</string>
   <string name="revanced_change_form_factor_entry_3">平板電腦</string>
   <string name="revanced_change_form_factor_entry_4">車用</string>
-  <string name="revanced_change_form_factor_user_dialog_message">"變更包括：
-
-平板電腦版面配置
-• 隱藏社群貼文
-
-車用版面配置
-• 隱藏觀看記錄選單
-• 還原「探索」分頁
-• Shorts 以一般播放器開啟
-• 推薦內容依主題和頻道整理"</string>
   </patch>
   <patch id="layout.spoofappversion.spoofAppVersionPatch">
   <string name="revanced_spoof_app_version_title">偽裝應用程式版本</string>
@@ -1191,7 +1128,6 @@ Second \"item\" text"</string>
   </patch>
   <patch id="layout.miniplayer.miniplayerPatch">
   <string name="revanced_miniplayer_screen_title">迷你播放器</string>
-  <string name="revanced_miniplayer_screen_summary">變更應用程式中迷你播放器的樣式</string>
   <string name="revanced_miniplayer_type_title">迷你播放器類型</string>
   <string name="revanced_miniplayer_type_entry_0">停用</string>
   <string name="revanced_miniplayer_type_entry_1">預設</string>
@@ -1244,8 +1180,6 @@ Second \"item\" text"</string>
   <string name="revanced_gradient_loading_screen_title">啟用漸層載入畫面</string>
   <string name="revanced_gradient_loading_screen_summary_on">載入畫面將具有漸層背景</string>
   <string name="revanced_gradient_loading_screen_summary_off">載入畫面將具有純色背景</string>
-  </patch>
-  <patch id="layout.theme.themeResourcePatch">
   <string name="revanced_seekbar_custom_color_title">啟用自訂跳轉列顏色</string>
   <string name="revanced_seekbar_custom_color_summary_on">已顯示自訂跳轉列顏色</string>
   <string name="revanced_seekbar_custom_color_summary_off">已顯示原版跳轉列顏色</string>
@@ -1341,8 +1275,6 @@ Second \"item\" text"</string>
   </patch>
   <patch id="misc.links.openLinksExternallyPatch">
   <string name="revanced_external_browser_title">在瀏覽器中開啟連結</string>
-  <string name="revanced_external_browser_summary_on">在外部開啟連結</string>
-  <string name="revanced_external_browser_summary_off">在應用程式中開啟連結</string>
   </patch>
   <patch id="misc.privacy.removeTrackingQueryParameterPatch">
   <string name="revanced_remove_tracking_query_parameter_title">移除追蹤查詢參數</string>
@@ -1402,10 +1334,7 @@ Second \"item\" text"</string>
   <string name="revanced_disable_hdr_video_summary_on">已停用 HDR 影片</string>
   <string name="revanced_disable_hdr_video_summary_off">已啟用 HDR 影片</string>
   </patch>
-  <patch id="video.videoqualitymenu.restoreOldVideoQualityMenuResourcePatch">
-  <string name="revanced_restore_old_video_quality_menu_title">還原舊版影片畫質選單</string>
-  <string name="revanced_restore_old_video_quality_menu_summary_on">已顯示舊版影片畫質選單</string>
-  <string name="revanced_restore_old_video_quality_menu_summary_off">不顯示舊版影片畫質選單</string>
+  <patch id="video.quality.advancedVideoQualityMenuPatch">
   </patch>
   <patch id="interaction.seekbar.enableSlideToSeekPatch">
   <string name="revanced_slide_to_seek_title">啟用滑動預覽</string>

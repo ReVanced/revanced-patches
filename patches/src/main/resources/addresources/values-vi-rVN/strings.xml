@@ -48,57 +48,6 @@ Second \"item\" text"</string>
 
 Để dịch các ngôn ngữ mới, hãy truy cập translate.revanced.app"</string>
   <string name="revanced_language_DEFAULT">Ngôn ngữ ứng dụng</string>
-  <string name="revanced_language_AR">Tiếng Ả Rập</string>
-  <string name="revanced_language_AZ">Tiếng Azerbaijan</string>
-  <string name="revanced_language_BG">Tiếng Bulgaria</string>
-  <string name="revanced_language_BN">Tiếng Bengal</string>
-  <string name="revanced_language_CA">Tiếng Catalan</string>
-  <string name="revanced_language_CS">Tiếng Séc</string>
-  <string name="revanced_language_DA">Tiếng Đan Mạch</string>
-  <string name="revanced_language_DE">Tiếng Đức</string>
-  <string name="revanced_language_EL">Tiếng Hy Lạp</string>
-  <string name="revanced_language_EN">Tiếng Anh</string>
-  <string name="revanced_language_ES">Tiếng Tây Ban Nha</string>
-  <string name="revanced_language_ET">Tiếng Estonia</string>
-  <string name="revanced_language_FA">Tiếng Ba Tư</string>
-  <string name="revanced_language_FI">Tiếng Phần Lan</string>
-  <string name="revanced_language_FR">Tiếng Pháp</string>
-  <string name="revanced_language_GU">Tiếng Gujarati</string>
-  <string name="revanced_language_HI">Tiếng Hindi</string>
-  <string name="revanced_language_HR">Tiếng Croatia</string>
-  <string name="revanced_language_HU">Tiếng Hungary</string>
-  <string name="revanced_language_ID">Tiếng Indonesia</string>
-  <string name="revanced_language_IT">Tiếng Ý</string>
-  <string name="revanced_language_JA">Tiếng Nhật</string>
-  <string name="revanced_language_KK">Tiếng Kazakh</string>
-  <string name="revanced_language_KO">Tiếng Hàn</string>
-  <string name="revanced_language_LT">Tiếng Litva</string>
-  <string name="revanced_language_LV">Tiếng Latvia</string>
-  <string name="revanced_language_MK">Tiếng Macedonia</string>
-  <string name="revanced_language_MN">Tiếng Mông Cổ</string>
-  <string name="revanced_language_MR">Tiếng Marathi</string>
-  <string name="revanced_language_MS">Tiếng Mã Lai</string>
-  <string name="revanced_language_MY">Tiếng Miến Điện</string>
-  <string name="revanced_language_NL">Tiếng Hà Lan</string>
-  <string name="revanced_language_OR">Tiếng Odia</string>
-  <string name="revanced_language_PA">Tiếng Punjabi</string>
-  <string name="revanced_language_PL">Tiếng Ba Lan</string>
-  <string name="revanced_language_PT">Tiếng Bồ Đào Nha</string>
-  <string name="revanced_language_RO">Tiếng Romania</string>
-  <string name="revanced_language_RU">Tiếng Nga</string>
-  <string name="revanced_language_SK">Tiếng Slovak</string>
-  <string name="revanced_language_SL">Tiếng Slovenia</string>
-  <string name="revanced_language_SR">Tiếng Serbia</string>
-  <string name="revanced_language_SV">Tiếng Thụy Điển</string>
-  <string name="revanced_language_SW">Tiếng Swahili</string>
-  <string name="revanced_language_TA">Tiếng Tamil</string>
-  <string name="revanced_language_TE">Tiếng Telugu</string>
-  <string name="revanced_language_TH">Tiếng Thái</string>
-  <string name="revanced_language_TR">Tiếng Thổ Nhĩ Kỳ</string>
-  <string name="revanced_language_UK">Tiếng Ukraina</string>
-  <string name="revanced_language_UR">Tiếng Urdu</string>
-  <string name="revanced_language_VI">Tiếng Việt</string>
-  <string name="revanced_language_ZH">Tiếng Trung</string>
   <string name="revanced_pref_import_export_title">Nhập / Xuất</string>
   <string name="revanced_pref_import_export_summary">Nhập / Xuất cài đặt ReVanced</string>
   <!-- Settings about dialog. -->
@@ -404,7 +353,7 @@ Tính năng này chỉ khả dụng cho các thiết bị cũ hơn"</string>
   <string name="revanced_hide_self_sponsor_ads_title">Ẩn thẻ tự tài trợ</string>
   <string name="revanced_hide_self_sponsor_ads_summary_on">Thẻ được tài trợ được ẩn</string>
   <string name="revanced_hide_self_sponsor_ads_summary_off">Thẻ được tài trợ được hiện</string>
-  <string name="revanced_hide_products_banner_title">Ẩn biểu ngữ để xem sản phẩm</string>
+  <string name="revanced_hide_products_banner_title">Ẩn biểu ngữ \'Xem sản phẩm\'</string>
   <string name="revanced_hide_products_banner_summary_on">Biểu ngữ được ẩn</string>
   <string name="revanced_hide_products_banner_summary_off">Biểu ngữ được hiện</string>
   <string name="revanced_hide_end_screen_store_banner_title">Ẩn biểu ngữ cửa hàng ở cuối màn hình</string>
@@ -663,7 +612,7 @@ Nếu việc thay đổi cài đặt này không có hiệu lực, hãy thử ch
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_off">Trình đơn chất lượng video bên dưới được hiện</string>
   </patch>
   <patch id="layout.buttons.overlay.hidePlayerOverlayButtonsPatch">
-  <string name="revanced_hide_player_previous_next_buttons_title">Ẩn các nút video trước đó &amp; tiếp theo</string>
+  <string name="revanced_hide_player_previous_next_buttons_title">Ẩn các nút Trước &amp; Tiếp theo</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_on">Các nút được ẩn</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">Các nút được hiện</string>
   <string name="revanced_hide_cast_button_title">Ẩn nút Phát sóng</string>
@@ -1121,9 +1070,7 @@ Bố cục máy tính bảng
 • Bài đăng trên cộng đồng bị ẩn
 
 Bố cục ô tô
-• Menu lịch sử xem bị ẩn
-• Tab khám phá đã được khôi phục
-• Kệ Shorts mở trong trình phát thông thường
+• Shorts mở trong trình phát thông thường
 • Bảng Feed được sắp xếp theo chủ đề và kênh"</string>
   </patch>
   <patch id="layout.spoofappversion.spoofAppVersionPatch">
@@ -1247,8 +1194,6 @@ Vuốt để mở rộng hoặc đóng"</string>
   <string name="revanced_gradient_loading_screen_title">Bật màn hình tải màu dốc</string>
   <string name="revanced_gradient_loading_screen_summary_on">Màn hình tải sẽ có một nền màu dốc</string>
   <string name="revanced_gradient_loading_screen_summary_off">Màn hình tải sẽ có một nền màu đặc</string>
-  </patch>
-  <patch id="layout.theme.themeResourcePatch">
   <string name="revanced_seekbar_custom_color_title">Bật màu tùy chỉnh thanh tiến trình</string>
   <string name="revanced_seekbar_custom_color_summary_on">Màu tùy chỉnh thanh tiến trình được hiện </string>
   <string name="revanced_seekbar_custom_color_summary_off">Màu gốc thanh tiến trình được hiện </string>
@@ -1340,8 +1285,8 @@ Bật tính năng này có thể mở khóa chất lượng video cao hơn"</str
   </patch>
   <patch id="misc.links.openLinksExternallyPatch">
   <string name="revanced_external_browser_title">Mở liên kết trong trình duyệt</string>
-  <string name="revanced_external_browser_summary_on">Đang mở liên kết bên ngoài</string>
-  <string name="revanced_external_browser_summary_off">Đang mở liên kết trong ứng dụng</string>
+  <string name="revanced_external_browser_summary_on">Đang mở liên kết trong trình duyệt bên ngoài</string>
+  <string name="revanced_external_browser_summary_off">Đang mở liên kết trình duyệt trong ứng dụng</string>
   </patch>
   <patch id="misc.privacy.removeTrackingQueryParameterPatch">
   <string name="revanced_remove_tracking_query_parameter_title">Loại bỏ tham số truy vấn theo dõi</string>
@@ -1368,9 +1313,15 @@ Bật tính năng này có thể mở khóa chất lượng video cao hơn"</str
   <string name="revanced_remember_video_quality_last_selected_summary_off">Thay đổi chất lượng chỉ áp dụng cho video hiện tại</string>
   <string name="revanced_video_quality_default_wifi_title">Chất lượng mặc định trên mạng Wi-Fi</string>
   <string name="revanced_video_quality_default_mobile_title">Chất lượng mặc định trên mạng di động</string>
+  <string name="revanced_remember_shorts_quality_last_selected_title">Ghi nhớ các thay đổi chất lượng Shorts</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_on">Thay đổi chất lượng áp dụng cho tất cả nội dung Shorts</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_off">Thay đổi chất lượng chỉ áp dụng cho Short hiện tại</string>
+  <string name="revanced_shorts_quality_default_wifi_title">Chất lượng Shorts mặc định trên mạng Wi-Fi</string>
+  <string name="revanced_shorts_quality_default_mobile_title">Chất lượng Shorts mặc định trên mạng di động</string>
   <string name="revanced_remember_video_quality_mobile">di động</string>
   <string name="revanced_remember_video_quality_wifi">wifi</string>
   <string name="revanced_remember_video_quality_toast">Đã thay đổi chất lượng %1$s mặc định: %2$s</string>
+  <string name="revanced_remember_video_quality_toast_shorts">Đã thay đổi chất lượng Shorts %1$s: %2$s</string>
   </patch>
   <patch id="video.speed.button.playbackSpeedButtonPatch">
   <string name="revanced_playback_speed_dialog_button_title">Hiện nút hộp thoại tốc độ phát</string>
@@ -1401,10 +1352,10 @@ Bật tính năng này có thể mở khóa chất lượng video cao hơn"</str
   <string name="revanced_disable_hdr_video_summary_on">Video HDR đã bị tắt</string>
   <string name="revanced_disable_hdr_video_summary_off">Video HDR đã được bật</string>
   </patch>
-  <patch id="video.videoqualitymenu.restoreOldVideoQualityMenuResourcePatch">
-  <string name="revanced_restore_old_video_quality_menu_title">Khôi phục trình đơn chất lượng video kiểu cũ</string>
-  <string name="revanced_restore_old_video_quality_menu_summary_on">Trình đơn chất lượng video kiểu cũ được hiện</string>
-  <string name="revanced_restore_old_video_quality_menu_summary_off">Trình đơn chất lượng video kiểu cũ không được hiện</string>
+  <patch id="video.quality.advancedVideoQualityMenuPatch">
+  <string name="revanced_advanced_video_quality_menu_title">Hiển thị trình đơn chất lượng video nâng cao</string>
+  <string name="revanced_advanced_video_quality_menu_summary_on">Trình đơn chất lượng video nâng cao được hiển thị</string>
+  <string name="revanced_advanced_video_quality_menu_summary_off">Trình đơn chất lượng video nâng cao không được hiển thị</string>
   </patch>
   <patch id="interaction.seekbar.enableSlideToSeekPatch">
   <string name="revanced_slide_to_seek_title">Bật vuốt để tua</string>
