@@ -27,37 +27,3 @@ This patch adds dynamic playback speed control to YouTube, allowing users to tem
 ## License
 This patch is licensed under the GPLv3 License. See the LICENSE file for details.
 
-{
-  "name": "dynamic-playback-speed",
-  "description": "Adds ability to change playback speed dynamically by holding speed button",
-  "version": "0.0.1",
-  "compatiblePackages": [
-    {
-      "name": "com.google.android.youtube",
-      "versions": ["18.32.39", "18.33.40", "18.34.38", "18.35.36"]
-    }
-  ],
-  "dependencies": [
-    "settings"
-  ],
-  "options": [
-    {
-      "key": "revanced_speed_multiplier",
-      "title": "Speed up multiplier",
-      "description": "Multiplier used when speeding up video",
-      "type": "float",
-      "default": 2.0,
-      "min": 1.1,
-      "max": 4.0
-    },
-    {
-      "key": "revanced_speed_divider",
-      "title": "Slow down divider",
-      "description": "Divider used when slowing down video",
-      "type": "float",
-      "default": 2.0,
-      "min": 1.1,
-      "max": 4.0
-    }
-  ]
-}
