@@ -1,5 +1,5 @@
 # Dynamic Playback Speed ▶️
-[![build](https://github.com/Anonymousik/revanced-patches-playback-speed/actions/workflows/build.yml/badge.svg)](https://github.com/[username]/revanced-patches-playback-speed/actions/workflows/build.yml)
+[![build](https://github.com/anonymousik/Dynamic-Playback-Speed-Patch-for-ReVanced/actions/workflows/build.yml/badge.svg)](https://github.com/anonymousik/Dynamic-Playback-Speed-Patch-for-ReVanced/actions/workflows/build.yml)
 [![license: GPL-3.0](https://img.shields.io/badge/license-GPL--3.0-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
 Dynamic playback speed control patch for ReVanced.
@@ -90,7 +90,7 @@ This project is licensed under the GNU General Public License v3.0 - see the [LI
 
 ## 📬 Contact
 
-Project Link: [https://github.com/[username]/revanced-patches-playback-speed](https://github.com/[username]/revanced-patches-playback-speed)
+Project Link: [https://github.com/anonymousik/Dynamic-Playback-Speed-Patch-for-ReVanced](https://github.com/anonymousik/Dynamic-Playback-Speed-Patch-for-ReVanced)
 
 ## 🙏 Acknowledgments
 
