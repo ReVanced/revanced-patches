@@ -43,7 +43,7 @@ val hideGetPremiumPatch = bytecodePatch(
         )
 
         getPremiumViewFingerprint.method.apply {
-            val startIndex = getPremiumViewFingerprint.patternMatch!!.startIndex
+            val startIndex = getPremiumViewFingerprint.instructionMatches.first().index
             val measuredWidthRegister = getInstruction<TwoRegisterInstruction>(startIndex).registerA
             val measuredHeightInstruction = getInstruction<TwoRegisterInstruction>(startIndex + 1)
 
