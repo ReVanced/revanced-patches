@@ -1,3 +1,10 @@
+# [5.14.0-dev.7](https://github.com/ReVanced/revanced-patches/compare/v5.14.0-dev.6...v5.14.0-dev.7) (2025-03-08)
+
+
+### Bug Fixes
+
+* **YouTube:** Change language settings menu to use native language names ([#4568](https://github.com/ReVanced/revanced-patches/issues/4568)) ([6f3f8fd](https://github.com/ReVanced/revanced-patches/commit/6f3f8fdce05501e4fa4423c2170a916fbea3b199))
+
 # [5.14.0-dev.6](https://github.com/ReVanced/revanced-patches/compare/v5.14.0-dev.5...v5.14.0-dev.6) (2025-03-07)
 
 
