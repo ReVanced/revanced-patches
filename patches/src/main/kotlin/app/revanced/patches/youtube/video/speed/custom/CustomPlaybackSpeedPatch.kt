@@ -25,8 +25,8 @@ import app.revanced.patches.youtube.misc.playservice.is_19_25_or_greater
 import app.revanced.patches.youtube.misc.playservice.versionCheckPatch
 import app.revanced.patches.youtube.misc.recyclerviewtree.hook.addRecyclerViewTreeHook
 import app.revanced.patches.youtube.misc.recyclerviewtree.hook.recyclerViewTreeHookPatch
-import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
+import app.revanced.patches.youtube.video.speed.settingsMenuVideoSpeedGroup
 import app.revanced.util.*
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.iface.instruction.NarrowLiteralInstruction
@@ -60,24 +60,29 @@ internal val customPlaybackSpeedPatch = bytecodePatch(
 ) {
     dependsOn(
         sharedExtensionPatch,
-        lithoFilterPatch,
         settingsPatch,
-        recyclerViewTreeHookPatch,
-        customPlaybackSpeedResourcePatch,
         addResourcesPatch,
-        versionCheckPatch
+        lithoFilterPatch,
+        versionCheckPatch,
+        recyclerViewTreeHookPatch,
+        customPlaybackSpeedResourcePatch
     )
 
     execute {
         addResources("youtube", "video.speed.custom.customPlaybackSpeedPatch")
 
-        PreferenceScreen.VIDEO.addPreferences(
-            SwitchPreference("revanced_custom_speed_menu"),
-            TextPreference("revanced_custom_playback_speeds", inputType = InputType.TEXT_MULTI_LINE),
+        settingsMenuVideoSpeedGroup.addAll(
+            listOf(
+                SwitchPreference("revanced_custom_speed_menu"),
+                TextPreference(
+                    "revanced_custom_playback_speeds",
+                    inputType = InputType.TEXT_MULTI_LINE
+                ),
+            )
         )
 
         if (is_19_25_or_greater) {
-            PreferenceScreen.VIDEO.addPreferences(
+            settingsMenuVideoSpeedGroup.add(
                 TextPreference("revanced_speed_tap_and_hold", inputType = InputType.NUMBER_DECIMAL),
             )
         }

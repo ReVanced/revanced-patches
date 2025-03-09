@@ -48,57 +48,6 @@ Second \"item\" text"</string>
 
 כדי לתרגם שפות חדשות בקר ב-translate.revanced.app"</string>
   <string name="revanced_language_DEFAULT">שפת היישום</string>
-  <string name="revanced_language_AR">ערבית</string>
-  <string name="revanced_language_AZ">אזרבייג\'נית</string>
-  <string name="revanced_language_BG">בולגרית</string>
-  <string name="revanced_language_BN">בנגלית</string>
-  <string name="revanced_language_CA">קטלאנית</string>
-  <string name="revanced_language_CS">צ\'כית</string>
-  <string name="revanced_language_DA">דנית</string>
-  <string name="revanced_language_DE">גרמנית</string>
-  <string name="revanced_language_EL">יוונית</string>
-  <string name="revanced_language_EN">אנגלית</string>
-  <string name="revanced_language_ES">ספרדית</string>
-  <string name="revanced_language_ET">אסטונית</string>
-  <string name="revanced_language_FA">פַּרסִית</string>
-  <string name="revanced_language_FI">פינית</string>
-  <string name="revanced_language_FR">צרפתית</string>
-  <string name="revanced_language_GU">גוג\'ראטית</string>
-  <string name="revanced_language_HI">הינדי</string>
-  <string name="revanced_language_HR">קרואטית</string>
-  <string name="revanced_language_HU">הונגרית</string>
-  <string name="revanced_language_ID">אינדונזית</string>
-  <string name="revanced_language_IT">איטלקית</string>
-  <string name="revanced_language_JA">יפנית</string>
-  <string name="revanced_language_KK">קזחית</string>
-  <string name="revanced_language_KO">קוריאנית</string>
-  <string name="revanced_language_LT">ליטאית</string>
-  <string name="revanced_language_LV">לטבית</string>
-  <string name="revanced_language_MK">מקדונית</string>
-  <string name="revanced_language_MN">מונגולית</string>
-  <string name="revanced_language_MR">מראטהית</string>
-  <string name="revanced_language_MS">מלאית</string>
-  <string name="revanced_language_MY">בורמזית</string>
-  <string name="revanced_language_NL">הולנדית</string>
-  <string name="revanced_language_OR">אודיה</string>
-  <string name="revanced_language_PA">פנג\'אבי</string>
-  <string name="revanced_language_PL">פולנית</string>
-  <string name="revanced_language_PT">פורטוגזית</string>
-  <string name="revanced_language_RO">רומנית</string>
-  <string name="revanced_language_RU">רוסית</string>
-  <string name="revanced_language_SK">סלובקית</string>
-  <string name="revanced_language_SL">סלובנית</string>
-  <string name="revanced_language_SR">סרבית</string>
-  <string name="revanced_language_SV">שוודית</string>
-  <string name="revanced_language_SW">סוואהילי</string>
-  <string name="revanced_language_TA">טמילית</string>
-  <string name="revanced_language_TE">טלוגו</string>
-  <string name="revanced_language_TH">תאית</string>
-  <string name="revanced_language_TR">טורקית</string>
-  <string name="revanced_language_UK">אוקראינית</string>
-  <string name="revanced_language_UR">אורדו</string>
-  <string name="revanced_language_VI">וייטנאמית</string>
-  <string name="revanced_language_ZH">סינית</string>
   <string name="revanced_pref_import_export_title">ייבוא / ייצוא</string>
   <string name="revanced_pref_import_export_summary">ייבוא / ייצוא הגדרות ReVanced</string>
   <!-- Settings about dialog. -->
@@ -111,7 +60,7 @@ Second \"item\" text"</string>
   </patch>
   <patch id="misc.gms.gmsCoreSupportResourcePatch">
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
-  <string name="gms_core_toast_not_installed_message">MicroG GmsCore אינו מותקן. התקן אותו.</string>
+  <string name="gms_core_toast_not_installed_message">היישום MicroG GmsCore אינו מותקן. התקן אותו.</string>
   <string name="gms_core_dialog_title">דרושה פעולה</string>
   <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"ל-MicroG GmsCore אין הרשאה לרוץ ברקע.
 
@@ -336,9 +285,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_comments_thanks_button_summary_off">לחצן תודה מוצג</string>
   <!-- https://logos.fandom.com/wiki/YouTube/Yoodles -->
   <string name="revanced_hide_doodles_title">הסתר YouTube Doodles</string>
-  <string name="revanced_hide_doodles_summary_on">Doodles של סרגל חיפוש מוסתרים</string>
-  <string name="revanced_hide_doodles_summary_off">Doodles של סרגל חיפוש מוצגים</string>
-  <string name="revanced_hide_doodles_user_dialog_message">"YouTube Doodles מוצגים למשך כמה ימים בכל שנה.
+  <string name="revanced_hide_doodles_summary_on">שרבוטים (Doodles) של סרגל חיפוש מוסתרים</string>
+  <string name="revanced_hide_doodles_summary_off">שרבוטים (Doodles) של סרגל חיפוש מוצגים</string>
+  <string name="revanced_hide_doodles_user_dialog_message">"שרבוטים (Doodles) של YouTube מוצגים למשך כמה ימים בכל שנה.
 
 אם Doodle מוצג כרגע באזור שלך והגדרת ההסתרה הזו מופעלת, אז גם סרגל הסינון שמתחת לסרגל החיפוש יוסתר."</string>
   <string name="revanced_custom_filter_screen_title">מסנן מותאם אישית</string>
@@ -373,7 +322,7 @@ Second \"item\" text"</string>
   <string name="revanced_hide_keyword_content_about_summary">"תוצאות דף הבית/מינויים/חיפוש מסוננות כדי להסתיר תוכן שתואם ביטויי מילות מפתח
 
 מגבלות
-• Shorts אינם ניתנים להסתרה לפי שם ערוץ
+• סרטוני Shorts אינם ניתנים להסתרה לפי שם ערוץ
 • ייתכן שחלק מרכיבי ממשק המשתמש לא יוסתרו
 • חיפוש אחר מילת מפתח עשוי שלא להציג תוצאות"</string>
   <string name="revanced_hide_keyword_content_about_whole_words_title">התאם מילים שלמות</string>
@@ -404,7 +353,6 @@ Second \"item\" text"</string>
   <string name="revanced_hide_self_sponsor_ads_title">הסתר כרטיסים בחסות עצמית</string>
   <string name="revanced_hide_self_sponsor_ads_summary_on">כרטיסים בחסות עצמית מוסתרים</string>
   <string name="revanced_hide_self_sponsor_ads_summary_off">כרטיסים בחסות עצמית מוצגים</string>
-  <string name="revanced_hide_products_banner_title">הסתר כרזה להצגת מוצרים</string>
   <string name="revanced_hide_products_banner_summary_on">כרזה מוסתרת</string>
   <string name="revanced_hide_products_banner_summary_off">כרזה מוצגת</string>
   <string name="revanced_hide_end_screen_store_banner_title">הסתר כרזת חנות של מסך סיום</string>
@@ -663,7 +611,6 @@ Second \"item\" text"</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_off">כותרת תחתונה של תפריט איכות סרטון מוצגת</string>
   </patch>
   <patch id="layout.buttons.overlay.hidePlayerOverlayButtonsPatch">
-  <string name="revanced_hide_player_previous_next_buttons_title">הסתר לחצני הסרטון הקודם &amp; הבא</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_on">הלחצנים מוסתרים</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">הלחצנים מוצגים</string>
   <string name="revanced_hide_cast_button_title">הסתר לחצן העברה</string>
@@ -884,10 +831,10 @@ Second \"item\" text"</string>
   <string name="revanced_ryd_statistics_getFetchCallResponseTimeMax_title">זמן תגובת API, מקסימום</string>
   <string name="revanced_ryd_statistics_getFetchCallResponseTimeLast_title">זמן תגובת API, סרטון אחרון</string>
   <string name="revanced_ryd_statistics_getFetchCallResponseTimeLast_rate_limit_summary">דיסלייקים אינם זמינים באופן זמני - מגבלת קצב של לקוח API בתוקף</string>
-  <string name="revanced_ryd_statistics_getFetchCallCount_title">API להבאת הצבעות, מספר קריאות</string>
+  <string name="revanced_ryd_statistics_getFetchCallCount_title">ממשק API להבאת הצבעות, מספר קריאות</string>
   <string name="revanced_ryd_statistics_getFetchCallCount_zero_summary">לא נעשו קריאות רשת</string>
   <string name="revanced_ryd_statistics_getFetchCallCount_non_zero_summary">נעשו %d קריאות רשת</string>
-  <string name="revanced_ryd_statistics_getFetchCallNumberOfFailures_title">API להבאת הצבעות, מספר פסקי זמן</string>
+  <string name="revanced_ryd_statistics_getFetchCallNumberOfFailures_title">ממשק API להבאת הצבעות, מספר פסקי זמן</string>
   <string name="revanced_ryd_statistics_getFetchCallNumberOfFailures_zero_summary">לא תם פסק הזמן של אף קריאת רשת</string>
   <string name="revanced_ryd_statistics_getFetchCallNumberOfFailures_non_zero_summary">תם פסק הזמן של %d קריאות רשת</string>
   <string name="revanced_ryd_statistics_getNumberOfRateLimitRequestsEncountered_title">מגבלות קצב של לקוח API</string>
@@ -917,7 +864,7 @@ Second \"item\" text"</string>
   </patch>
   <patch id="layout.sponsorblock.sponsorBlockResourcePatch">
   <string name="revanced_sb_enable_sb">הפעל את SponsorBlock</string>
-  <string name="revanced_sb_enable_sb_sum">SponsorBlock היא מערכת מיקור המונים לדילוג על חלקים מעצבנים של סרטוני YouTube</string>
+  <string name="revanced_sb_enable_sb_sum">המערכת SponsorBlock היא מערכת מיקור המונים לדילוג על חלקים מעצבנים של סרטוני YouTube</string>
   <string name="revanced_sb_appearance_category">מראה</string>
   <string name="revanced_sb_enable_voting">הצג לחצן הצבעה</string>
   <string name="revanced_sb_enable_voting_sum_on">לחצן הצבעה של מקטע מוצג</string>
@@ -1036,7 +983,7 @@ Second \"item\" text"</string>
   <string name="revanced_sb_skip_seekbaronly">הצג בסרגל דילוג</string>
   <string name="revanced_sb_skip_ignore">השבת</string>
   <string name="revanced_sb_submit_failed_invalid">לא ניתן לשלוח את המקטע: %s</string>
-  <string name="revanced_sb_submit_failed_timeout">SponsorBlock מושבת באופן זמני</string>
+  <string name="revanced_sb_submit_failed_timeout">המערכת SponsorBlock מושבתת באופן זמני</string>
   <string name="revanced_sb_submit_failed_unknown_error">לא ניתן לשלוח את המקטע (מצב: %1$d %2$s)</string>
   <string name="revanced_sb_submit_failed_rate_limit">לא ניתן לשלוח מקטע. מוגבל קצב (יותר מדי מאותו המשתמש או כתובת IP)</string>
   <string name="revanced_sb_submit_failed_forbidden">לא יכול לשלוח את המקטע: %s</string>
@@ -1044,9 +991,9 @@ Second \"item\" text"</string>
 כבר קיים"</string>
   <string name="revanced_sb_submit_succeeded">המקטע נשלח בהצלחה</string>
   <!-- Toast shown if network connection times out. Translations of this should not be longer than the original English or the text can be clipped and not entirely shown. -->
-  <string name="revanced_sb_sponsorblock_connection_failure_timeout">SponsorBlock אינו זמין באופן זמני (תם פסק הזמן של ה-API)</string>
-  <string name="revanced_sb_sponsorblock_connection_failure_status">SponsorBlock אינו זמין באופן זמני (מצב %d)</string>
-  <string name="revanced_sb_sponsorblock_connection_failure_generic">SponsorBlock אינו זמין באופן זמני</string>
+  <string name="revanced_sb_sponsorblock_connection_failure_timeout">המערכת SponsorBlock אינה זמינה באופן זמני (תם פסק זמן ה-API)</string>
+  <string name="revanced_sb_sponsorblock_connection_failure_status">המערכת SponsorBlock אינה זמינה באופן זמני (מצב %d)</string>
+  <string name="revanced_sb_sponsorblock_connection_failure_generic">המערכת SponsorBlock אינה זמינה באופן זמני</string>
   <string name="revanced_sb_vote_failed_timeout">לא ניתן להצביע עבור מקטע (תם פסק הזמן של ה-API)</string>
   <string name="revanced_sb_vote_failed_unknown_error">לא ניתן להצביע עבור מקטע (מצב: %1$d %2$s)</string>
   <string name="revanced_sb_vote_failed_forbidden">לא ניתן להצביע עבור מקטע: %s</string>
@@ -1116,16 +1063,6 @@ Second \"item\" text"</string>
   <string name="revanced_change_form_factor_entry_2">טלפון</string>
   <string name="revanced_change_form_factor_entry_3">טאבלט</string>
   <string name="revanced_change_form_factor_entry_4">רכב</string>
-  <string name="revanced_change_form_factor_user_dialog_message">"השינויים כוללים:
-
-פריסת טאבלט
-• פוסטים קהילתיים מוסתרים
-
-פריסת רכב
-• תפריט היסטוריית הצפייה מוסתר
-• כרטיסיית 'מה חדש' משוחזרת
-• Shorts נפתחים בנגן הרגיל
-• פיד מאורגן לפי נושאים וערוץ"</string>
   </patch>
   <patch id="layout.spoofappversion.spoofAppVersionPatch">
   <string name="revanced_spoof_app_version_title">זייף גרסת יישום</string>
@@ -1187,15 +1124,14 @@ Second \"item\" text"</string>
   </patch>
   <patch id="layout.shortsautoplay.shortsAutoplayPatch">
   <string name="revanced_shorts_autoplay_title">הפעלה אוטומטית של Shorts</string>
-  <string name="revanced_shorts_autoplay_summary_on">Shorts יפעילו אוטומטית</string>
-  <string name="revanced_shorts_autoplay_summary_off">Shorts יחזרו על עצמם</string>
+  <string name="revanced_shorts_autoplay_summary_on">סרטוני Shorts יפעילו אוטומטית</string>
+  <string name="revanced_shorts_autoplay_summary_off">סרטוני Shorts יחזרו על עצמם</string>
   <string name="revanced_shorts_autoplay_background_title">הפעלה אוטומטית בעת הפעלה ברקע של Shorts</string>
   <string name="revanced_shorts_autoplay_background_summary_on">הפעלה ברקע של Shorts תפעיל אוטומטית</string>
   <string name="revanced_shorts_autoplay_background_summary_off">הפעלה ברקע של Shorts תחזור על עצמה</string>
   </patch>
   <patch id="layout.miniplayer.miniplayerPatch">
   <string name="revanced_miniplayer_screen_title">מיני-נגן</string>
-  <string name="revanced_miniplayer_screen_summary">שנה את הסגנון של הנגן הממוזער בתוך היישום</string>
   <string name="revanced_miniplayer_type_title">סוג מיני-נגן</string>
   <string name="revanced_miniplayer_type_entry_0">מושבת</string>
   <string name="revanced_miniplayer_type_entry_1">ברירת מחדל</string>
@@ -1248,8 +1184,6 @@ Second \"item\" text"</string>
   <string name="revanced_gradient_loading_screen_title">הפעל מסך טעינה עם מעבר צבע</string>
   <string name="revanced_gradient_loading_screen_summary_on">מסך הטעינה יהיה בעל רקע עם מעבר צבע</string>
   <string name="revanced_gradient_loading_screen_summary_off">מסך הטעינה יהיה בעל רקע מוצק</string>
-  </patch>
-  <patch id="layout.theme.themeResourcePatch">
   <string name="revanced_seekbar_custom_color_title">הפעל צבע סרגל דילוג מותאם אישית</string>
   <string name="revanced_seekbar_custom_color_summary_on">צבע סרגל דילוג מותאם אישית מוצג</string>
   <string name="revanced_seekbar_custom_color_summary_off">צבע סרגל דילוג מקורי מוצג</string>
@@ -1276,10 +1210,10 @@ Second \"item\" text"</string>
   <string name="revanced_alt_thumbnail_player_title">נגן פלייליסטים, המלצות</string>
   <string name="revanced_alt_thumbnail_search_title">תוצאות חיפוש</string>
   <string name="revanced_alt_thumbnail_options_entry_1">תמונות ממוזערות מקוריות</string>
-  <string name="revanced_alt_thumbnail_options_entry_2">DeArrow &amp; תמונות ממוזערות מקוריות</string>
-  <string name="revanced_alt_thumbnail_options_entry_3">DeArrow &amp; לכידות דוממות</string>
+  <string name="revanced_alt_thumbnail_options_entry_2">תמונות ממוזערות מקוריות &amp; DeArrow</string>
+  <string name="revanced_alt_thumbnail_options_entry_3">לכידות דוממות &amp; DeArrow</string>
   <string name="revanced_alt_thumbnail_options_entry_4">לכידות דוממות</string>
-  <string name="revanced_alt_thumbnail_dearrow_about_summary">"DeArrow מספק תמונות ממוזערות של מיקור המונים עבור סרטוני YouTube. תמונות ממוזערות אלה הן לעתים קרובות רלוונטיות יותר מאלה שסופקו על ידי YouTube
+  <string name="revanced_alt_thumbnail_dearrow_about_summary">"השירות DeArrow מספק תמונות ממוזערות של מיקור המונים עבור סרטוני YouTube. תמונות ממוזערות אלה הן לעתים קרובות רלוונטיות יותר מאלה שסופקו על ידי YouTube
 
 אם מופעל, כתובות URL של סרטונים יישלחו לשרת ה-API ושום נתונים אחרים לא יישלחו. אם לסרטון אין תמונות ממוזערות של DeArrow, אז מוצגות התמונות המקוריות או לכידות דוממות
 
@@ -1299,8 +1233,8 @@ Second \"item\" text"</string>
   <string name="revanced_alt_thumbnail_stills_time_entry_2">אמצע הסרטון</string>
   <string name="revanced_alt_thumbnail_stills_time_entry_3">סוף הסרטון</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
-  <string name="revanced_alt_thumbnail_dearrow_error">DeArrow אינו זמין באופן זמני (קוד מצב: %s)</string>
-  <string name="revanced_alt_thumbnail_dearrow_error_generic">DeArrow אינו זמין באופן זמני</string>
+  <string name="revanced_alt_thumbnail_dearrow_error">השירות DeArrow אינו זמין באופן זמני (קוד מצב: %s)</string>
+  <string name="revanced_alt_thumbnail_dearrow_error_generic">השירות DeArrow אינו זמין באופן זמני</string>
   </patch>
   <patch id="misc.announcements.announcementsPatch">
   <string name="revanced_announcements_title">הצג הכרזות של ReVanced</string>
@@ -1341,8 +1275,6 @@ Second \"item\" text"</string>
   </patch>
   <patch id="misc.links.openLinksExternallyPatch">
   <string name="revanced_external_browser_title">פתח קישורים בדפדפן</string>
-  <string name="revanced_external_browser_summary_on">פותח קישורים באופן חיצוני</string>
-  <string name="revanced_external_browser_summary_off">פותח קישורים בתוך היישום</string>
   </patch>
   <patch id="misc.privacy.removeTrackingQueryParameterPatch">
   <string name="revanced_remove_tracking_query_parameter_title">הסר פרמטר מעקב של שאילתה</string>
@@ -1402,10 +1334,7 @@ Second \"item\" text"</string>
   <string name="revanced_disable_hdr_video_summary_on">סרטון HDR מושבת</string>
   <string name="revanced_disable_hdr_video_summary_off">סרטון HDR מופעל</string>
   </patch>
-  <patch id="video.videoqualitymenu.restoreOldVideoQualityMenuResourcePatch">
-  <string name="revanced_restore_old_video_quality_menu_title">שחזר תפריט איכות סרטון ישן</string>
-  <string name="revanced_restore_old_video_quality_menu_summary_on">תפריט איכות סרטון ישן מוצג</string>
-  <string name="revanced_restore_old_video_quality_menu_summary_off">תפריט איכות סרטון ישן אינו מוצג</string>
+  <patch id="video.quality.advancedVideoQualityMenuPatch">
   </patch>
   <patch id="interaction.seekbar.enableSlideToSeekPatch">
   <string name="revanced_slide_to_seek_title">הפעל החלק כדי לדלג</string>

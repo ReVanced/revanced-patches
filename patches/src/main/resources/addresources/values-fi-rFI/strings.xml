@@ -48,57 +48,6 @@ Second \"item\" text"</string>
 
 Voit auttaa uusien kielten kääntämisessä osoitteessa translate.revanced.app"</string>
   <string name="revanced_language_DEFAULT">Sovelluksen kieli</string>
-  <string name="revanced_language_AR">Arabia</string>
-  <string name="revanced_language_AZ">Azeri</string>
-  <string name="revanced_language_BG">Bulgaria</string>
-  <string name="revanced_language_BN">Bengali</string>
-  <string name="revanced_language_CA">Katalaani</string>
-  <string name="revanced_language_CS">Tšekki</string>
-  <string name="revanced_language_DA">Tanska</string>
-  <string name="revanced_language_DE">Saksa</string>
-  <string name="revanced_language_EL">Kreikka</string>
-  <string name="revanced_language_EN">Englanti</string>
-  <string name="revanced_language_ES">Espanja</string>
-  <string name="revanced_language_ET">Viro</string>
-  <string name="revanced_language_FA">Persia</string>
-  <string name="revanced_language_FI">Suomi</string>
-  <string name="revanced_language_FR">Ranska</string>
-  <string name="revanced_language_GU">Gudžarati</string>
-  <string name="revanced_language_HI">Hindi</string>
-  <string name="revanced_language_HR">Kroaatti</string>
-  <string name="revanced_language_HU">Unkari</string>
-  <string name="revanced_language_ID">Indonesia</string>
-  <string name="revanced_language_IT">Italia</string>
-  <string name="revanced_language_JA">Japani</string>
-  <string name="revanced_language_KK">Kazakki</string>
-  <string name="revanced_language_KO">Korea</string>
-  <string name="revanced_language_LT">Liettua</string>
-  <string name="revanced_language_LV">Latvia</string>
-  <string name="revanced_language_MK">Makedonia</string>
-  <string name="revanced_language_MN">Mongoli</string>
-  <string name="revanced_language_MR">Marathi</string>
-  <string name="revanced_language_MS">Malaiji</string>
-  <string name="revanced_language_MY">Burma</string>
-  <string name="revanced_language_NL">Hollanti</string>
-  <string name="revanced_language_OR">Orija</string>
-  <string name="revanced_language_PA">Pandžabi</string>
-  <string name="revanced_language_PL">Puola</string>
-  <string name="revanced_language_PT">Portugali</string>
-  <string name="revanced_language_RO">Romania</string>
-  <string name="revanced_language_RU">Venäjä</string>
-  <string name="revanced_language_SK">Slovakki</string>
-  <string name="revanced_language_SL">Sloveeni</string>
-  <string name="revanced_language_SR">Serbia</string>
-  <string name="revanced_language_SV">Ruotsi</string>
-  <string name="revanced_language_SW">Swahili</string>
-  <string name="revanced_language_TA">Tamil</string>
-  <string name="revanced_language_TE">Telugu</string>
-  <string name="revanced_language_TH">Thai</string>
-  <string name="revanced_language_TR">Turkki</string>
-  <string name="revanced_language_UK">Ukraina</string>
-  <string name="revanced_language_UR">Urdu</string>
-  <string name="revanced_language_VI">Vietnam</string>
-  <string name="revanced_language_ZH">Kiina</string>
   <string name="revanced_pref_import_export_title">Tuonti/vienti</string>
   <string name="revanced_pref_import_export_summary">Tuo/vie ReVanced-asetukset</string>
   <!-- Settings about dialog. -->
@@ -402,7 +351,6 @@ Tämä ominaisuus on käytettävissä vain vanhemmilla laitteilla"</string>
   <string name="revanced_hide_self_sponsor_ads_title">Piilota itse-sponsoroidut kortit</string>
   <string name="revanced_hide_self_sponsor_ads_summary_on">Itse-sponsoroidut kortit ovat piilotettu</string>
   <string name="revanced_hide_self_sponsor_ads_summary_off">Itse-sponsoroidut kortit näytetään</string>
-  <string name="revanced_hide_products_banner_title">Piilota tuotebanneri</string>
   <string name="revanced_hide_products_banner_summary_on">Banneri on piilotettu</string>
   <string name="revanced_hide_products_banner_summary_off">Banneri näytetään</string>
   <string name="revanced_hide_end_screen_store_banner_title">Piilota loppunäytön kauppabanneri</string>
@@ -661,7 +609,6 @@ Jos tämän asetuksen muuttaminen ei tule voimaan, kokeile vaihtaa Incognito-til
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_off">Videolaatuvalikon alatunniste näytetään</string>
   </patch>
   <patch id="layout.buttons.overlay.hidePlayerOverlayButtonsPatch">
-  <string name="revanced_hide_player_previous_next_buttons_title">Piilota edellinen- ja seuraava video -painikkeet</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_on">Painikkeet on piilotettu</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">Painikkeet näytetään</string>
   <string name="revanced_hide_cast_button_title">Piilota Cast-painike</string>
@@ -1114,16 +1061,6 @@ Oletko valmis lähettämään?"</string>
   <string name="revanced_change_form_factor_entry_2">Puhelin</string>
   <string name="revanced_change_form_factor_entry_3">Tabletti</string>
   <string name="revanced_change_form_factor_entry_4">Ajoneuvo</string>
-  <string name="revanced_change_form_factor_user_dialog_message">"Muutokset sisältävät:
-
-Tabletti-asettelu
-• Yhteisöpostaukset on piilotettu
-
-Ajoneuvo-asettelu
-• Katseluhistoriavalikko on piilotettu
-• Tutustu-välilehti on palautettu
-• Shortsit avautuvat tavallisessa soittimessa
-• Syöte on järjestetty aiheiden ja kanavien mukaan"</string>
   </patch>
   <patch id="layout.spoofappversion.spoofAppVersionPatch">
   <string name="revanced_spoof_app_version_title">Naamioi sovellusversio</string>
@@ -1193,7 +1130,6 @@ Jos tämä poistetaan myöhemmin käytöstä, on suositeltavaa tyhjentää sovel
   </patch>
   <patch id="layout.miniplayer.miniplayerPatch">
   <string name="revanced_miniplayer_screen_title">Minisoitin</string>
-  <string name="revanced_miniplayer_screen_summary">Muuta sovelluksen sisäisen pienennetyn soittimen tyyliä</string>
   <string name="revanced_miniplayer_type_title">Minisoittimen tyyppi</string>
   <string name="revanced_miniplayer_type_entry_0">Pois käytöstä</string>
   <string name="revanced_miniplayer_type_entry_1">Oletus</string>
@@ -1246,8 +1182,6 @@ Pyyhkäise laajentaaksesi tai sulkeaksesi"</string>
   <string name="revanced_gradient_loading_screen_title">Ota liukuvärillinen latausruutu käyttöön</string>
   <string name="revanced_gradient_loading_screen_summary_on">Latausruudulla on liukuvärillinen tausta</string>
   <string name="revanced_gradient_loading_screen_summary_off">Latausruudulla on yksivärinen tausta</string>
-  </patch>
-  <patch id="layout.theme.themeResourcePatch">
   <string name="revanced_seekbar_custom_color_title">Ota oma liukusäätimen väri käyttöön</string>
   <string name="revanced_seekbar_custom_color_summary_on">Oma liukusäätimen väri näytetään</string>
   <string name="revanced_seekbar_custom_color_summary_off">Alkuperäinen liukusäätimen väri näytetään</string>
@@ -1339,8 +1273,6 @@ Tämä voi avata korkealaatuisemmat videot"</string>
   </patch>
   <patch id="misc.links.openLinksExternallyPatch">
   <string name="revanced_external_browser_title">Avaa linkit selaimessa</string>
-  <string name="revanced_external_browser_summary_on">Linkit avataan ulkoisesti</string>
-  <string name="revanced_external_browser_summary_off">Linkit avataan sovelluksessa</string>
   </patch>
   <patch id="misc.privacy.removeTrackingQueryParameterPatch">
   <string name="revanced_remove_tracking_query_parameter_title">Poista seurantakyselyparametrit</string>
@@ -1400,10 +1332,7 @@ Tämä voi avata korkealaatuisemmat videot"</string>
   <string name="revanced_disable_hdr_video_summary_on">HDR-video ei ole käytössä</string>
   <string name="revanced_disable_hdr_video_summary_off">HDR-video on käytössä</string>
   </patch>
-  <patch id="video.videoqualitymenu.restoreOldVideoQualityMenuResourcePatch">
-  <string name="revanced_restore_old_video_quality_menu_title">Palauta vanha videolaatuvalikko</string>
-  <string name="revanced_restore_old_video_quality_menu_summary_on">Vanha videolaatuvalikko näytetään</string>
-  <string name="revanced_restore_old_video_quality_menu_summary_off">Vanhaa videolaatuvalikkoa ei näytetä</string>
+  <patch id="video.quality.advancedVideoQualityMenuPatch">
   </patch>
   <patch id="interaction.seekbar.enableSlideToSeekPatch">
   <string name="revanced_slide_to_seek_title">Ota kelaus liu\'uttamalla käyttöön</string>

@@ -301,11 +301,9 @@ object PreferenceScreen : BasePreferenceScreen() {
         summaryKey = null,
     )
 
-    // Don't sort, because title sorting scatters the custom color preferences.
     val SEEKBAR = Screen(
         key = "revanced_settings_screen_07_seekbar",
         summaryKey = null,
-        sorting = Sorting.UNSORTED,
     )
     val SWIPE_CONTROLS = Screen(
         key = "revanced_settings_screen_08_swipe_controls",
@@ -323,6 +321,7 @@ object PreferenceScreen : BasePreferenceScreen() {
     val VIDEO = Screen(
         key = "revanced_settings_screen_12_video",
         summaryKey = null,
+        sorting = Sorting.BY_KEY,
     )
 
     override fun commit(screen: PreferenceScreenPreference) {

@@ -48,57 +48,6 @@ Second \"item\" text"</string>
 
 Yeni dilleri çevirmek için translate.revanced.app adresini ziyaret edin"</string>
   <string name="revanced_language_DEFAULT">Uygulama dili</string>
-  <string name="revanced_language_AR">Arapça</string>
-  <string name="revanced_language_AZ">Azerice</string>
-  <string name="revanced_language_BG">Bulgarca</string>
-  <string name="revanced_language_BN">Bengalce</string>
-  <string name="revanced_language_CA">Katalanca</string>
-  <string name="revanced_language_CS">Çekçe</string>
-  <string name="revanced_language_DA">Danca</string>
-  <string name="revanced_language_DE">Almanca</string>
-  <string name="revanced_language_EL">Yunanca</string>
-  <string name="revanced_language_EN">İngilizce</string>
-  <string name="revanced_language_ES">İspanyolca</string>
-  <string name="revanced_language_ET">Estonca</string>
-  <string name="revanced_language_FA">Farsça</string>
-  <string name="revanced_language_FI">Fince</string>
-  <string name="revanced_language_FR">Fransızca</string>
-  <string name="revanced_language_GU">Gujarati</string>
-  <string name="revanced_language_HI">Hintçe</string>
-  <string name="revanced_language_HR">Hırvatça</string>
-  <string name="revanced_language_HU">Macarca</string>
-  <string name="revanced_language_ID">Endonezce</string>
-  <string name="revanced_language_IT">İtalyanca</string>
-  <string name="revanced_language_JA">Japonca</string>
-  <string name="revanced_language_KK">Kazakça</string>
-  <string name="revanced_language_KO">Korece</string>
-  <string name="revanced_language_LT">Litvanyaca</string>
-  <string name="revanced_language_LV">Letonca</string>
-  <string name="revanced_language_MK">Makedonca</string>
-  <string name="revanced_language_MN">Moğolca</string>
-  <string name="revanced_language_MR">Marathi</string>
-  <string name="revanced_language_MS">Malayca</string>
-  <string name="revanced_language_MY">Birmanca</string>
-  <string name="revanced_language_NL">Hollandaca</string>
-  <string name="revanced_language_OR">Odia</string>
-  <string name="revanced_language_PA">Pencapça</string>
-  <string name="revanced_language_PL">Lehçe</string>
-  <string name="revanced_language_PT">Portekizce</string>
-  <string name="revanced_language_RO">Romence</string>
-  <string name="revanced_language_RU">Rusça</string>
-  <string name="revanced_language_SK">Slovakça</string>
-  <string name="revanced_language_SL">Slovence</string>
-  <string name="revanced_language_SR">Sırpça</string>
-  <string name="revanced_language_SV">İsveççe</string>
-  <string name="revanced_language_SW">Svahili Dili</string>
-  <string name="revanced_language_TA">Tamilce</string>
-  <string name="revanced_language_TE">Teluguca</string>
-  <string name="revanced_language_TH">Tayca</string>
-  <string name="revanced_language_TR">Türkçe</string>
-  <string name="revanced_language_UK">Ukraynaca</string>
-  <string name="revanced_language_UR">Urduca</string>
-  <string name="revanced_language_VI">Vietnamca</string>
-  <string name="revanced_language_ZH">Çince</string>
   <string name="revanced_pref_import_export_title">İçe / Dışa aktar</string>
   <string name="revanced_pref_import_export_summary">ReVanced ayarlarını içe / dışa aktar</string>
   <!-- Settings about dialog. -->
@@ -404,7 +353,7 @@ Bu özellik yalnızca eski cihazlarda kullanılabilir"</string>
   <string name="revanced_hide_self_sponsor_ads_title">Kendine sponsor kartları gizle</string>
   <string name="revanced_hide_self_sponsor_ads_summary_on">Kendine sponsor kartlar gizli</string>
   <string name="revanced_hide_self_sponsor_ads_summary_off">Kendine sponsor kartlar görünür</string>
-  <string name="revanced_hide_products_banner_title">Ürünleri görme afişini gizle</string>
+  <string name="revanced_hide_products_banner_title">\'Ürünleri görüntüle\' başlığını gizle</string>
   <string name="revanced_hide_products_banner_summary_on">Afiş gizli</string>
   <string name="revanced_hide_products_banner_summary_off">Afiş görünür</string>
   <string name="revanced_hide_end_screen_store_banner_title">Bitiş ekranındaki mağaza afişini gizle</string>
@@ -663,7 +612,7 @@ Bu ayarı değiştirmek etkili olmazsa, Gizli moda geçmeyi deneyin."</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_off">Video kalite menüsü alt bilgisi görünür</string>
   </patch>
   <patch id="layout.buttons.overlay.hidePlayerOverlayButtonsPatch">
-  <string name="revanced_hide_player_previous_next_buttons_title">Önceki &amp; Sonraki video düğmelerini gizle</string>
+  <string name="revanced_hide_player_previous_next_buttons_title">Önceki &amp; Sonraki düğmelerini gizle</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_on">Düğmeler gizli</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">Düğmeler görünür</string>
   <string name="revanced_hide_cast_button_title">Yayınla düğmesini gizle</string>
@@ -1122,10 +1071,8 @@ Tablet düzeni
 • Topluluk yayınları gizlenir
 
 Otomotiv düzeni
-• İzleme geçmişi menüsü gizlenir
-• Keşfet sekmesi geri getirilir
-• Shorts normal oynatıcıda açılır
-• Akış, konulara ve kanala göre düzenlenir"</string>
+• Shorts, normal oynatıcıda açılır
+• Akış, konulara ve kanallara göre düzenlenir"</string>
   </patch>
   <patch id="layout.spoofappversion.spoofAppVersionPatch">
   <string name="revanced_spoof_app_version_title">Uygulama sürümünü taklit et</string>
@@ -1248,8 +1195,6 @@ Genişletmek veya kapatmak için kaydırın"</string>
   <string name="revanced_gradient_loading_screen_title">Gradyan yükleme ekranını etkinleştir</string>
   <string name="revanced_gradient_loading_screen_summary_on">Yükleme ekranı gradyan bir arka plana sahip olacak</string>
   <string name="revanced_gradient_loading_screen_summary_off">Yükleme ekranı tek renk bir arka plana sahip olacak</string>
-  </patch>
-  <patch id="layout.theme.themeResourcePatch">
   <string name="revanced_seekbar_custom_color_title">Özel zaman çubuğu rengini etkinleştir</string>
   <string name="revanced_seekbar_custom_color_summary_on">Özel zaman çubuğu rengi gösterilir</string>
   <string name="revanced_seekbar_custom_color_summary_off">Orijinal zaman çubuğu rengi gösterilir</string>
@@ -1341,8 +1286,8 @@ Bunu etkinleştirmek daha yüksek video kalitelerini açabilir"</string>
   </patch>
   <patch id="misc.links.openLinksExternallyPatch">
   <string name="revanced_external_browser_title">Bağlantıları tarayıcıda aç</string>
-  <string name="revanced_external_browser_summary_on">Bağlantılar harici olarak açılıyor</string>
-  <string name="revanced_external_browser_summary_off">Bağlantılar uygulamada açılıyor</string>
+  <string name="revanced_external_browser_summary_on">Bağlantılar harici tarayıcıda açılıyor</string>
+  <string name="revanced_external_browser_summary_off">Bağlantılar uygulama içi tarayıcıda açılıyor</string>
   </patch>
   <patch id="misc.privacy.removeTrackingQueryParameterPatch">
   <string name="revanced_remove_tracking_query_parameter_title">İzleyici sorgu parametresini kaldır</string>
@@ -1369,9 +1314,15 @@ Bunu etkinleştirmek daha yüksek video kalitelerini açabilir"</string>
   <string name="revanced_remember_video_quality_last_selected_summary_off">Kalite değişiklikleri sadece oynatılan videoya uygulanır</string>
   <string name="revanced_video_quality_default_wifi_title">Wi-Fi ağındaki varsayılan video kalitesi</string>
   <string name="revanced_video_quality_default_mobile_title">Mobil ağdaki varsayılan video kalitesi</string>
+  <string name="revanced_remember_shorts_quality_last_selected_title">Shorts kalitesi değişikliklerini hatırla</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_on">Kalite değişiklikleri tüm Shorts\'lara uygulanır</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_off">Kalite değişiklikleri sadece oynatılan Short\'a uygulanır</string>
+  <string name="revanced_shorts_quality_default_wifi_title">Wi-Fi ağındaki varsayılan Shorts kalitesi</string>
+  <string name="revanced_shorts_quality_default_mobile_title">Mobil ağdaki varsayılan Shorts kalitesi</string>
   <string name="revanced_remember_video_quality_mobile">mobil ağ</string>
   <string name="revanced_remember_video_quality_wifi">wifi</string>
   <string name="revanced_remember_video_quality_toast">Varsayılan %1$s kalitesi, %2$s olarak ayarlandı</string>
+  <string name="revanced_remember_video_quality_toast_shorts">Shorts %1$s kalitesi, %2$s olarak ayarlandı</string>
   </patch>
   <patch id="video.speed.button.playbackSpeedButtonPatch">
   <string name="revanced_playback_speed_dialog_button_title">Hız diyaloğu düğmesini göster</string>
@@ -1402,10 +1353,10 @@ Bunu etkinleştirmek daha yüksek video kalitelerini açabilir"</string>
   <string name="revanced_disable_hdr_video_summary_on">HDR video devre dışı</string>
   <string name="revanced_disable_hdr_video_summary_off">HDR video etkin</string>
   </patch>
-  <patch id="video.videoqualitymenu.restoreOldVideoQualityMenuResourcePatch">
-  <string name="revanced_restore_old_video_quality_menu_title">Eski video kalite menüsünü geri getir</string>
-  <string name="revanced_restore_old_video_quality_menu_summary_on">Eski video kalite menüsü gösterilir</string>
-  <string name="revanced_restore_old_video_quality_menu_summary_off">Eski video kalite menüsü gösterilmez</string>
+  <patch id="video.quality.advancedVideoQualityMenuPatch">
+  <string name="revanced_advanced_video_quality_menu_title">Gelişmiş video kalitesi menüsünü göster</string>
+  <string name="revanced_advanced_video_quality_menu_summary_on">Gelişmiş video kalitesi menüsü gösterilir</string>
+  <string name="revanced_advanced_video_quality_menu_summary_off">Gelişmiş video kalitesi menüsü gösterilmez</string>
   </patch>
   <patch id="interaction.seekbar.enableSlideToSeekPatch">
   <string name="revanced_slide_to_seek_title">Kaydırarak sardırmayı etkinleştir</string>

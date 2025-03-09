@@ -12,6 +12,8 @@ import app.revanced.patches.shared.misc.mapping.get
 import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
 import app.revanced.patches.shared.misc.mapping.resourceMappings
 import app.revanced.patches.shared.misc.settings.preference.ListPreference
+import app.revanced.patches.shared.misc.settings.preference.PreferenceCategory
+import app.revanced.patches.shared.misc.settings.preference.PreferenceScreenPreference.Sorting
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.playservice.is_19_17_or_greater
@@ -71,20 +73,29 @@ val spoofAppVersionPatch = bytecodePatch(
         addResources("youtube", "layout.spoofappversion.spoofAppVersionPatch")
 
         PreferenceScreen.GENERAL_LAYOUT.addPreferences(
-            SwitchPreference("revanced_spoof_app_version"),
-            if (is_19_17_or_greater) {
-                ListPreference(
-                    key = "revanced_spoof_app_version_target",
-                    summaryKey = null,
+            // Group the switch and list preference together, since General menu is sorted by name
+            // and the preferences can be scattered apart with non English langauges.
+            PreferenceCategory(
+                titleKey = null,
+                sorting = Sorting.UNSORTED,
+                tag = "app.revanced.extension.shared.settings.preference.NoTitlePreferenceCategory",
+                preferences = setOf(
+                    SwitchPreference("revanced_spoof_app_version"),
+                    if (is_19_17_or_greater) {
+                        ListPreference(
+                            key = "revanced_spoof_app_version_target",
+                            summaryKey = null,
+                        )
+                    } else {
+                        ListPreference(
+                            key = "revanced_spoof_app_version_target",
+                            summaryKey = null,
+                            entriesKey = "revanced_spoof_app_version_target_legacy_entries",
+                            entryValuesKey = "revanced_spoof_app_version_target_legacy_entry_values"
+                        )
+                    }
                 )
-            } else {
-                ListPreference(
-                    key = "revanced_spoof_app_version_target",
-                    summaryKey = null,
-                    entriesKey = "revanced_spoof_app_version_target_legacy_entries",
-                    entryValuesKey = "revanced_spoof_app_version_target_legacy_entry_values"
-                )
-            }
+            )
         )
 
         /**

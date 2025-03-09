@@ -48,57 +48,62 @@ Second \"item\" text"</string>
 
 To translate new languages visit translate.revanced.app"</string>
             <string name="revanced_language_DEFAULT">App language</string>
-            <string name="revanced_language_AR">Arabic</string>
-            <string name="revanced_language_AZ">Azerbaijani</string>
-            <string name="revanced_language_BG">Bulgarian</string>
-            <string name="revanced_language_BN">Bengali</string>
-            <string name="revanced_language_CA">Catalan</string>
-            <string name="revanced_language_CS">Czech</string>
-            <string name="revanced_language_DA">Danish</string>
-            <string name="revanced_language_DE">German</string>
-            <string name="revanced_language_EL">Greek</string>
-            <string name="revanced_language_EN">English</string>
-            <string name="revanced_language_ES">Spanish</string>
-            <string name="revanced_language_ET">Estonian</string>
-            <string name="revanced_language_FA">Persian</string>
-            <string name="revanced_language_FI">Finnish</string>
-            <string name="revanced_language_FR">French</string>
-            <string name="revanced_language_GU">Gujarati</string>
-            <string name="revanced_language_HI">Hindi</string>
-            <string name="revanced_language_HR">Croatian</string>
-            <string name="revanced_language_HU">Hungarian</string>
-            <string name="revanced_language_ID">Indonesian</string>
-            <string name="revanced_language_IT">Italian</string>
-            <string name="revanced_language_JA">Japanese</string>
-            <string name="revanced_language_KK">Kazakh</string>
-            <string name="revanced_language_KO">Korean</string>
-            <string name="revanced_language_LT">Lithuanian</string>
-            <string name="revanced_language_LV">Latvian</string>
-            <string name="revanced_language_MK">Macedonian</string>
-            <string name="revanced_language_MN">Mongolian</string>
-            <string name="revanced_language_MR">Marathi</string>
-            <string name="revanced_language_MS">Malay</string>
-            <string name="revanced_language_MY">Burmese</string>
-            <string name="revanced_language_NL">Dutch</string>
-            <string name="revanced_language_OR">Odia</string>
-            <string name="revanced_language_PA">Punjabi</string>
-            <string name="revanced_language_PL">Polish</string>
-            <string name="revanced_language_PT">Portuguese</string>
-            <string name="revanced_language_RO">Romanian</string>
-            <string name="revanced_language_RU">Russian</string>
-            <string name="revanced_language_SK">Slovak</string>
-            <string name="revanced_language_SL">Slovene</string>
-            <string name="revanced_language_SR">Serbian</string>
-            <string name="revanced_language_SV">Swedish</string>
-            <string name="revanced_language_SW">Swahili</string>
-            <string name="revanced_language_TA">Tamil</string>
-            <string name="revanced_language_TE">Telugu</string>
-            <string name="revanced_language_TH">Thai</string>
-            <string name="revanced_language_TR">Turkish</string>
-            <string name="revanced_language_UK">Ukrainian</string>
-            <string name="revanced_language_UR">Urdu</string>
-            <string name="revanced_language_VI">Vietnamese</string>
-            <string name="revanced_language_ZH">Chinese</string>
+            <string name="revanced_language_AM" translatable="false">አማርኛ</string>
+            <string name="revanced_language_AR" translatable="false">العربية</string>
+            <string name="revanced_language_AZ" translatable="false">Azərbaycan</string>
+            <string name="revanced_language_BE" translatable="false">беларуская</string>
+            <string name="revanced_language_BG" translatable="false">Български</string>
+            <string name="revanced_language_BN" translatable="false">বাংলা</string>
+            <string name="revanced_language_CA" translatable="false">Català</string>
+            <string name="revanced_language_CS" translatable="false">Čeština</string>
+            <string name="revanced_language_DA" translatable="false">Dansk</string>
+            <string name="revanced_language_DE" translatable="false">Deutsch</string>
+            <string name="revanced_language_EL" translatable="false">Ελληνικά</string>s
+            <string name="revanced_language_EN" translatable="false">English</string>
+            <string name="revanced_language_ES" translatable="false">Español</string>
+            <string name="revanced_language_ET" translatable="false">Eesti</string>
+            <string name="revanced_language_FA" translatable="false">فارسی</string>
+            <string name="revanced_language_FI" translatable="false">Suomi</string>
+            <string name="revanced_language_FR" translatable="false">Français</string>
+            <string name="revanced_language_GA" translatable="false">Gaeilge</string>
+            <string name="revanced_language_GU" translatable="false">ગુજરાતી</string>
+            <string name="revanced_language_HE" translatable="false">עברי</string>
+            <string name="revanced_language_HI" translatable="false">हिन्दी</string>
+            <string name="revanced_language_HR" translatable="false">Hrvatski</string>
+            <string name="revanced_language_HU" translatable="false">Magyar</string>
+            <string name="revanced_language_ID" translatable="false">Indonesia</string>
+            <string name="revanced_language_IT" translatable="false">Italiano</string>
+            <string name="revanced_language_JA" translatable="false">日本語</string>
+            <string name="revanced_language_KK" translatable="false">Қазақ тілі</string>
+            <string name="revanced_language_KO" translatable="false">한국어</string>
+            <string name="revanced_language_LT" translatable="false">Lietuvių</string>
+            <string name="revanced_language_LV" translatable="false">Latviešu</string>
+            <string name="revanced_language_MK" translatable="false">Македонски</string>
+            <string name="revanced_language_MN" translatable="false">Монгол</string>
+            <string name="revanced_language_MR" translatable="false">मराठी</string>
+            <string name="revanced_language_MS" translatable="false">Melayu</string>
+            <string name="revanced_language_MY" translatable="false">ဗမာ</string>
+            <string name="revanced_language_NL" translatable="false">Nederlands</string>
+            <string name="revanced_language_OR" translatable="false">ଓଡ଼ିଆ</string>
+            <string name="revanced_language_PA" translatable="false">ਪੰਜਾਬੀ</string>
+            <string name="revanced_language_PL" translatable="false">Polski</string>
+            <string name="revanced_language_PT" translatable="false">Português</string>
+            <string name="revanced_language_RO" translatable="false">Română</string>
+            <string name="revanced_language_RU" translatable="false">Русский</string>
+            <string name="revanced_language_SK" translatable="false">Slovenčina</string>
+            <string name="revanced_language_SQ" translatable="false">Shqip</string>
+            <string name="revanced_language_SL" translatable="false">Slovenščina</string>
+            <string name="revanced_language_SR" translatable="false">Српски</string>
+            <string name="revanced_language_SV" translatable="false">Svenska</string>
+            <string name="revanced_language_SW" translatable="false">Kiswahili</string>
+            <string name="revanced_language_TA" translatable="false">தமிழ்</string>
+            <string name="revanced_language_TE" translatable="false">తెలుగు</string>
+            <string name="revanced_language_TH" translatable="false">ไทย</string>
+            <string name="revanced_language_TR" translatable="false">Türkçe</string>
+            <string name="revanced_language_UK" translatable="false">Українська</string>
+            <string name="revanced_language_UR" translatable="false">اردو</string>
+            <string name="revanced_language_VI" translatable="false">Tiếng Việt</string>
+            <string name="revanced_language_ZH" translatable="false">中文</string>
             <string name="revanced_pref_import_export_title">Import / Export</string>
             <string name="revanced_pref_import_export_summary">Import / Export ReVanced settings</string>
             <!-- Settings about dialog. -->
@@ -409,7 +414,7 @@ This feature is only available for older devices"</string>
             <string name="revanced_hide_self_sponsor_ads_title">Hide self sponsored cards</string>
             <string name="revanced_hide_self_sponsor_ads_summary_on">Self sponsored cards are hidden</string>
             <string name="revanced_hide_self_sponsor_ads_summary_off">Self sponsored cards are shown</string>
-            <string name="revanced_hide_products_banner_title">Hide banner to view products</string>
+            <string name="revanced_hide_products_banner_title">Hide \'View products\' banner</string>
             <string name="revanced_hide_products_banner_summary_on">Banner is hidden</string>
             <string name="revanced_hide_products_banner_summary_off">Banner is shown</string>
             <string name="revanced_hide_end_screen_store_banner_title">Hide end screen store banner</string>
@@ -668,7 +673,7 @@ If changing this setting does not take effect, try switching to Incognito mode."
             <string name="revanced_hide_player_flyout_video_quality_footer_summary_off">Video quality menu footer is shown</string>
         </patch>
         <patch id="layout.buttons.overlay.hidePlayerOverlayButtonsPatch">
-            <string name="revanced_hide_player_previous_next_buttons_title">Hide previous &amp; next video buttons</string>
+            <string name="revanced_hide_player_previous_next_buttons_title">Hide Previous &amp; Next buttons</string>
             <string name="revanced_hide_player_previous_next_buttons_summary_on">Buttons are hidden</string>
             <string name="revanced_hide_player_previous_next_buttons_summary_off">Buttons are shown</string>
             <string name="revanced_hide_cast_button_title">Hide Cast button</string>
@@ -1042,7 +1047,7 @@ Your user id is like a password and it should never be shared.
             <string name="revanced_sb_skip_automatically">Skip automatically</string>
             <string name="revanced_sb_skip_automatically_once">Skip automatically once</string>
             <string name="revanced_sb_skip_showbutton">Show a Skip button</string>
-            <string name="revanced_sb_skip_seekbaronly">Show in seek bar</string>
+            <string name="revanced_sb_skip_seekbaronly">Show in seekbar</string>
             <string name="revanced_sb_skip_ignore">Disable</string>
             <string name="revanced_sb_submit_failed_invalid">Unable to submit segment: %s</string>
             <string name="revanced_sb_submit_failed_timeout">SponsorBlock is temporarily down</string>
@@ -1132,10 +1137,8 @@ Tablet layout
 • Community posts are hidden
 
 Automotive layout
-• Watch history menu is hidden
-• Explore tab is restored
 • Shorts open in the regular player
-• Feed is organized by topics and channel"</string>
+• Feed is organized by topics and channels"</string>
         </patch>
         <patch id="layout.spoofappversion.spoofAppVersionPatch">
             <string name="revanced_spoof_app_version_title">Spoof app version</string>
@@ -1206,7 +1209,7 @@ If later turned off, it is recommended to clear the app data to prevent UI bugs.
         </patch>
         <patch id="layout.miniplayer.miniplayerPatch">
             <string name="revanced_miniplayer_screen_title">Miniplayer</string>
-            <string name="revanced_miniplayer_screen_summary">Change the style of the in app minimized player</string>
+            <string name="revanced_miniplayer_screen_summary">Change the style of the in-app minimized player</string>
             <string name="revanced_miniplayer_type_title">Miniplayer type</string>
             <string name="revanced_miniplayer_type_entry_0">Disabled</string>
             <string name="revanced_miniplayer_type_entry_1">Default</string>
@@ -1259,8 +1262,6 @@ Swipe to expand or close"</string>
             <string name="revanced_gradient_loading_screen_title">Enable gradient loading screen</string>
             <string name="revanced_gradient_loading_screen_summary_on">Loading screen will have a gradient background</string>
             <string name="revanced_gradient_loading_screen_summary_off">Loading screen will have a solid background</string>
-        </patch>
-        <patch id="layout.theme.themeResourcePatch">
             <string name="revanced_seekbar_custom_color_title">Enable custom seekbar color</string>
             <string name="revanced_seekbar_custom_color_summary_on">Custom seekbar color is shown</string>
             <string name="revanced_seekbar_custom_color_summary_off">Original seekbar color is shown</string>
@@ -1353,8 +1354,8 @@ Enabling this can unlock higher video qualities"</string>
         </patch>
         <patch id="misc.links.openLinksExternallyPatch">
             <string name="revanced_external_browser_title">Open links in browser</string>
-            <string name="revanced_external_browser_summary_on">Opening links externally</string>
-            <string name="revanced_external_browser_summary_off">Opening links in app</string>
+            <string name="revanced_external_browser_summary_on">Opening links in external browser</string>
+            <string name="revanced_external_browser_summary_off">Opening links in in-app browser</string>
         </patch>
         <patch id="misc.privacy.removeTrackingQueryParameterPatch">
             <string name="revanced_remove_tracking_query_parameter_title">Remove tracking query parameter</string>
@@ -1381,9 +1382,15 @@ Enabling this can unlock higher video qualities"</string>
             <string name="revanced_remember_video_quality_last_selected_summary_off">Quality changes only apply to the current video</string>
             <string name="revanced_video_quality_default_wifi_title">Default video quality on Wi-Fi network</string>
             <string name="revanced_video_quality_default_mobile_title">Default video quality on mobile network</string>
+            <string name="revanced_remember_shorts_quality_last_selected_title">Remember Shorts quality changes</string>
+            <string name="revanced_remember_shorts_quality_last_selected_summary_on">Quality changes apply to all Shorts</string>
+            <string name="revanced_remember_shorts_quality_last_selected_summary_off">Quality changes only apply to the current Short</string>
+            <string name="revanced_shorts_quality_default_wifi_title">Default Shorts quality on Wi-Fi network</string>
+            <string name="revanced_shorts_quality_default_mobile_title">Default Shorts quality on mobile network</string>
             <string name="revanced_remember_video_quality_mobile">mobile</string>
             <string name="revanced_remember_video_quality_wifi">wifi</string>
             <string name="revanced_remember_video_quality_toast">Changed default %1$s quality to: %2$s</string>
+            <string name="revanced_remember_video_quality_toast_shorts">Changed Shorts %1$s quality to: %2$s</string>
         </patch>
         <patch id="video.speed.button.playbackSpeedButtonPatch">
             <string name="revanced_playback_speed_dialog_button_title">Show speed dialog button</string>
@@ -1414,10 +1421,10 @@ Enabling this can unlock higher video qualities"</string>
             <string name="revanced_disable_hdr_video_summary_on">HDR video is disabled</string>
             <string name="revanced_disable_hdr_video_summary_off">HDR video is enabled</string>
         </patch>
-        <patch id="video.videoqualitymenu.restoreOldVideoQualityMenuResourcePatch">
-            <string name="revanced_restore_old_video_quality_menu_title">Restore old video quality menu</string>
-            <string name="revanced_restore_old_video_quality_menu_summary_on">Old video quality menu is shown</string>
-            <string name="revanced_restore_old_video_quality_menu_summary_off">Old video quality menu is not shown</string>
+        <patch id="video.quality.advancedVideoQualityMenuPatch">
+            <string name="revanced_advanced_video_quality_menu_title">Show advanced video quality menu</string>
+            <string name="revanced_advanced_video_quality_menu_summary_on">Advanced video quality menu is shown</string>
+            <string name="revanced_advanced_video_quality_menu_summary_off">Advanced video quality menu is not shown</string>
         </patch>
         <patch id="interaction.seekbar.enableSlideToSeekPatch">
             <string name="revanced_slide_to_seek_title">Enable slide to seek</string>

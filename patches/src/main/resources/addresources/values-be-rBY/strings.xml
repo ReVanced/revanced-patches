@@ -48,57 +48,6 @@ Second \"item\" text"</string>
 
 Каб дадаць новыя мовы, наведайце translate.revanced.app"</string>
   <string name="revanced_language_DEFAULT">Мова праграмы</string>
-  <string name="revanced_language_AR">Арабская</string>
-  <string name="revanced_language_AZ">Азербайджанскі</string>
-  <string name="revanced_language_BG">Балгарская</string>
-  <string name="revanced_language_BN">Бенгальская</string>
-  <string name="revanced_language_CA">Каталонская</string>
-  <string name="revanced_language_CS">Чэшскі</string>
-  <string name="revanced_language_DA">Дацкі</string>
-  <string name="revanced_language_DE">Нямецкі</string>
-  <string name="revanced_language_EL">Грэцкі</string>
-  <string name="revanced_language_EN">Англійская</string>
-  <string name="revanced_language_ES">Іспанская</string>
-  <string name="revanced_language_ET">Эстонская</string>
-  <string name="revanced_language_FA">Персідская</string>
-  <string name="revanced_language_FI">Фінская</string>
-  <string name="revanced_language_FR">Французская</string>
-  <string name="revanced_language_GU">Гуджараці</string>
-  <string name="revanced_language_HI">Хіндзі</string>
-  <string name="revanced_language_HR">Харвацкая</string>
-  <string name="revanced_language_HU">Венгерская</string>
-  <string name="revanced_language_ID">Інданезійская</string>
-  <string name="revanced_language_IT">Італьянская</string>
-  <string name="revanced_language_JA">Японская</string>
-  <string name="revanced_language_KK">Казахская</string>
-  <string name="revanced_language_KO">Карэйская</string>
-  <string name="revanced_language_LT">Літоўская</string>
-  <string name="revanced_language_LV">Латышская</string>
-  <string name="revanced_language_MK">Македонская</string>
-  <string name="revanced_language_MN">Мангольская</string>
-  <string name="revanced_language_MR">Малаялам</string>
-  <string name="revanced_language_MS">Малайская</string>
-  <string name="revanced_language_MY">Бірманская</string>
-  <string name="revanced_language_NL">Нідэрландская</string>
-  <string name="revanced_language_OR">Одыя</string>
-  <string name="revanced_language_PA">Пенджабі</string>
-  <string name="revanced_language_PL">Польская</string>
-  <string name="revanced_language_PT">Партугальская</string>
-  <string name="revanced_language_RO">Румынская</string>
-  <string name="revanced_language_RU">Руская</string>
-  <string name="revanced_language_SK">Славацкая</string>
-  <string name="revanced_language_SL">Славенская</string>
-  <string name="revanced_language_SR">Сербская</string>
-  <string name="revanced_language_SV">Шведская</string>
-  <string name="revanced_language_SW">Суахілі</string>
-  <string name="revanced_language_TA">Тамільская</string>
-  <string name="revanced_language_TE">Тэлугу</string>
-  <string name="revanced_language_TH">Тайская</string>
-  <string name="revanced_language_TR">Турецкая</string>
-  <string name="revanced_language_UK">Украінская</string>
-  <string name="revanced_language_UR">Урду</string>
-  <string name="revanced_language_VI">В\'етнамская</string>
-  <string name="revanced_language_ZH">Кітайская</string>
   <string name="revanced_pref_import_export_title">Імпарт / Экспарт</string>
   <string name="revanced_pref_import_export_summary">Імпарт / Экспарт налад ReVanced</string>
   <!-- Settings about dialog. -->
@@ -404,7 +353,7 @@ Second \"item\" text"</string>
   <string name="revanced_hide_self_sponsor_ads_title">Схаваць самі спансаваныя карты</string>
   <string name="revanced_hide_self_sponsor_ads_summary_on">Спонсарскія карткі схаваныя</string>
   <string name="revanced_hide_self_sponsor_ads_summary_off">Паказваюцца ўласныя карты</string>
-  <string name="revanced_hide_products_banner_title">Схаваць банер для прагляду прадуктаў</string>
+  <string name="revanced_hide_products_banner_title">Схаваць банер «Паглядзець прадукты»</string>
   <string name="revanced_hide_products_banner_summary_on">Банэр схаваны</string>
   <string name="revanced_hide_products_banner_summary_off">Паказваецца банэр</string>
   <string name="revanced_hide_end_screen_store_banner_title">Схаваць банер крамы на канчатковым экране</string>
@@ -663,7 +612,7 @@ Second \"item\" text"</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_off">Паказваецца ніжні калонтытул меню якасці відэа</string>
   </patch>
   <patch id="layout.buttons.overlay.hidePlayerOverlayButtonsPatch">
-  <string name="revanced_hide_player_previous_next_buttons_title">Схаваць папярэдні &amp; кнопкі наступнага відэа</string>
+  <string name="revanced_hide_player_previous_next_buttons_title">Схаваць папярэднія &amp; кнопкі «Далей»</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_on">Кнопкі схаваныя</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">Паказваюцца кнопкі</string>
   <string name="revanced_hide_cast_button_title">Схаваць кнопку «Трансляцыя»</string>
@@ -1119,13 +1068,11 @@ Second \"item\" text"</string>
   <string name="revanced_change_form_factor_entry_4">Аўтамабільны</string>
   <string name="revanced_change_form_factor_user_dialog_message">"Змены ўключаюць:
 
-Раскладка планшэта
-• Паведамленні супольнасці схаваны
+Макет для планшэта
+• Паведамленні супольнасці схаваныя
 
-Раскладка аўтамабіля
-• Меню гісторыі праглядаў схавана
-• Адноўлена ўкладка «Даследаваць»
-• Ролікі Shorts адкрываюцца ў звычайным прайгравальніку
+Аўтамабільны макет
+• Shorts адкрываюцца ў звычайным плэеры
 • Стужка арганізавана па тэмах і каналах"</string>
   </patch>
   <patch id="layout.spoofappversion.spoofAppVersionPatch">
@@ -1196,7 +1143,7 @@ Second \"item\" text"</string>
   </patch>
   <patch id="layout.miniplayer.miniplayerPatch">
   <string name="revanced_miniplayer_screen_title">Міні-плэер</string>
-  <string name="revanced_miniplayer_screen_summary">Змяніце стыль мінімізаванага плэера ў праграме</string>
+  <string name="revanced_miniplayer_screen_summary">Змяніць стыль згорнутага прайгравальніка ў праграме</string>
   <string name="revanced_miniplayer_type_title">Тып мініплэера</string>
   <string name="revanced_miniplayer_type_entry_0">Інваліды</string>
   <string name="revanced_miniplayer_type_entry_1">Па змаўчанні</string>
@@ -1249,8 +1196,6 @@ Second \"item\" text"</string>
   <string name="revanced_gradient_loading_screen_title">Уключыць градыентны экран загрузкі</string>
   <string name="revanced_gradient_loading_screen_summary_on">Экран загрузкі будзе мець градыентны фон</string>
   <string name="revanced_gradient_loading_screen_summary_off">Экран загрузкі будзе мець суцэльны фон</string>
-  </patch>
-  <patch id="layout.theme.themeResourcePatch">
   <string name="revanced_seekbar_custom_color_title">Уключыць уласны колер панэлі пошуку</string>
   <string name="revanced_seekbar_custom_color_summary_on">Паказваецца карыстальніцкі колер панэлі пошуку</string>
   <string name="revanced_seekbar_custom_color_summary_off">Паказаны зыходны колер панэлі пошуку</string>
@@ -1342,8 +1287,8 @@ Second \"item\" text"</string>
   </patch>
   <patch id="misc.links.openLinksExternallyPatch">
   <string name="revanced_external_browser_title">Адкрываць спасылкі ў браўзеры</string>
-  <string name="revanced_external_browser_summary_on">Адкрыццё спасылак звонку</string>
-  <string name="revanced_external_browser_summary_off">Адкрыццё спасылак у праграме</string>
+  <string name="revanced_external_browser_summary_on">Адкрыццё спасылак у знешнім браўзеры</string>
+  <string name="revanced_external_browser_summary_off">Адкрыццё спасылак ва ўбудаваным браўзеры</string>
   </patch>
   <patch id="misc.privacy.removeTrackingQueryParameterPatch">
   <string name="revanced_remove_tracking_query_parameter_title">Выдаліць параметр запыту адсочвання</string>
@@ -1370,9 +1315,15 @@ Second \"item\" text"</string>
   <string name="revanced_remember_video_quality_last_selected_summary_off">Змены якасці прымяняюцца толькі да бягучага відэа</string>
   <string name="revanced_video_quality_default_wifi_title">Стандартная якасць відэа ў сетцы Wi-Fi</string>
   <string name="revanced_video_quality_default_mobile_title">Стандартная якасць відэа ў мабільнай сетцы</string>
+  <string name="revanced_remember_shorts_quality_last_selected_title">Запомніць змены якасці Shorts</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_on">Змены якасці прымяняюцца да ўсіх Shorts</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_off">Змены якасці прымяняюцца толькі да бягучага Short</string>
+  <string name="revanced_shorts_quality_default_wifi_title">Якасць Shorts па змаўчанні ў сетцы Wi-Fi</string>
+  <string name="revanced_shorts_quality_default_mobile_title">Якасць Shorts па змаўчанні ў мабільнай сетцы</string>
   <string name="revanced_remember_video_quality_mobile">мабільны</string>
   <string name="revanced_remember_video_quality_wifi">wi-fi</string>
   <string name="revanced_remember_video_quality_toast">Стандартная якасць %1$s зменена на: %2$s</string>
+  <string name="revanced_remember_video_quality_toast_shorts">Якасць Shorts %1$s зменена на: %2$s</string>
   </patch>
   <patch id="video.speed.button.playbackSpeedButtonPatch">
   <string name="revanced_playback_speed_dialog_button_title">Паказаць дыялогавую кнопку хуткасці</string>
@@ -1403,10 +1354,10 @@ Second \"item\" text"</string>
   <string name="revanced_disable_hdr_video_summary_on">Відэа ў фармаце HDR адключана</string>
   <string name="revanced_disable_hdr_video_summary_off">Відэа ў фармаце HDR уключана</string>
   </patch>
-  <patch id="video.videoqualitymenu.restoreOldVideoQualityMenuResourcePatch">
-  <string name="revanced_restore_old_video_quality_menu_title">Аднавіць старое меню якасці відэа</string>
-  <string name="revanced_restore_old_video_quality_menu_summary_on">Паказана старое меню якасці відэа</string>
-  <string name="revanced_restore_old_video_quality_menu_summary_off">Старое меню якасці відэа не паказваецца</string>
+  <patch id="video.quality.advancedVideoQualityMenuPatch">
+  <string name="revanced_advanced_video_quality_menu_title">Паказаць пашыранае меню якасці відэа</string>
+  <string name="revanced_advanced_video_quality_menu_summary_on">Пашыранае меню якасці відэа паказана</string>
+  <string name="revanced_advanced_video_quality_menu_summary_off">Пашыранае меню якасці відэа не паказана</string>
   </patch>
   <patch id="interaction.seekbar.enableSlideToSeekPatch">
   <string name="revanced_slide_to_seek_title">Уключыць слайд для пошуку</string>

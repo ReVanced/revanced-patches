@@ -816,6 +816,10 @@ public final class app/revanced/patches/spotify/lite/ondemand/OnDemandPatchKt {
 	public static final fun getOnDemandPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
+public final class app/revanced/patches/spotify/misc/fix/SpoofSignaturePatchKt {
+	public static final fun getSpoofSignaturePatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
 public final class app/revanced/patches/spotify/navbar/PremiumNavbarTabPatchKt {
 	public static final fun getPremiumNavbarTabPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
@@ -1461,6 +1465,10 @@ public final class app/revanced/patches/youtube/video/playerresponse/PlayerRespo
 
 public final class app/revanced/patches/youtube/video/quality/RememberVideoQualityPatchKt {
 	public static final fun getRememberVideoQualityPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
+public final class app/revanced/patches/youtube/video/quality/VideoQualityPatchKt {
+	public static final fun getVideoQualityPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
 public final class app/revanced/patches/youtube/video/speed/PlaybackSpeedPatchKt {
