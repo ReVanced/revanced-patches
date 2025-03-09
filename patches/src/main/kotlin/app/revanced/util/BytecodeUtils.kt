@@ -227,8 +227,7 @@ fun Method.indexOfFirstLiteralInstructionReversedOrThrow(literal: Long): Int {
  *
  * @return if the method contains a literal with the given value.
  */
-fun Method.containsLiteralInstruction(literal: Long) =
-    indexOfFirstLiteralInstruction(literal) >= 0
+fun Method.containsLiteralInstruction(literal: Long) = indexOfFirstLiteralInstruction(literal) >= 0
 
 /**
  * Traverse the class hierarchy starting from the given root class.
@@ -254,25 +253,22 @@ fun BytecodePatchContext.traverseClassHierarchy(targetClass: MutableClass, callb
  * if the [Instruction] is not a [ReferenceInstruction] or the [Reference] is not of type [T].
  * @see ReferenceInstruction
  */
-inline fun <reified T : Reference> Instruction.getReference() =
-    (this as? ReferenceInstruction)?.reference as? T
+inline fun <reified T : Reference> Instruction.getReference() = (this as? ReferenceInstruction)?.reference as? T
 
 /**
  * @return The index of the first opcode specified, or -1 if not found.
  * @see indexOfFirstInstructionOrThrow
  */
-fun Method.indexOfFirstInstruction(targetOpcode: Opcode): Int =
-    indexOfFirstInstruction(0, targetOpcode)
+fun Method.indexOfFirstInstruction(targetOpcode: Opcode): Int = indexOfFirstInstruction(0, targetOpcode)
 
 /**
  * @param startIndex Optional starting index to start searching from.
  * @return The index of the first opcode specified, or -1 if not found.
  * @see indexOfFirstInstructionOrThrow
  */
-fun Method.indexOfFirstInstruction(startIndex: Int = 0, targetOpcode: Opcode): Int =
-    indexOfFirstInstruction(startIndex) {
-        opcode == targetOpcode
-    }
+fun Method.indexOfFirstInstruction(startIndex: Int = 0, targetOpcode: Opcode): Int = indexOfFirstInstruction(startIndex) {
+    opcode == targetOpcode
+}
 
 /**
  * Get the index of the first [Instruction] that matches the predicate, starting from [startIndex].
@@ -300,23 +296,21 @@ fun Method.indexOfFirstInstruction(startIndex: Int = 0, filter: Instruction.() -
  * @throws PatchException
  * @see indexOfFirstInstruction
  */
-fun Method.indexOfFirstInstructionOrThrow(targetOpcode: Opcode): Int =
-    indexOfFirstInstructionOrThrow(0, targetOpcode)
+fun Method.indexOfFirstInstructionOrThrow(targetOpcode: Opcode): Int = indexOfFirstInstructionOrThrow(0, targetOpcode)
 
 /**
  * @return The index of the first opcode specified, starting from the index specified.
  * @throws PatchException
  * @see indexOfFirstInstruction
  */
-fun Method.indexOfFirstInstructionOrThrow(startIndex: Int = 0, targetOpcode: Opcode): Int =
-    indexOfFirstInstructionOrThrow(startIndex) {
-        opcode == targetOpcode
-    }
+fun Method.indexOfFirstInstructionOrThrow(startIndex: Int = 0, targetOpcode: Opcode): Int = indexOfFirstInstructionOrThrow(startIndex) {
+    opcode == targetOpcode
+}
 
 /**
  * Get the index of the first [Instruction] that matches the predicate, starting from [startIndex].
  *
- * @return the index of the instruction
+ * @return The index of the instruction.
  * @throws PatchException
  * @see indexOfFirstInstruction
  */
@@ -337,10 +331,9 @@ fun Method.indexOfFirstInstructionOrThrow(startIndex: Int = 0, filter: Instructi
  * @return -1 if the instruction is not found.
  * @see indexOfFirstInstructionReversedOrThrow
  */
-fun Method.indexOfFirstInstructionReversed(startIndex: Int? = null, targetOpcode: Opcode): Int =
-    indexOfFirstInstructionReversed(startIndex) {
-        opcode == targetOpcode
-    }
+fun Method.indexOfFirstInstructionReversed(startIndex: Int? = null, targetOpcode: Opcode): Int = indexOfFirstInstructionReversed(startIndex) {
+    opcode == targetOpcode
+}
 
 /**
  * Get the index of matching instruction,
@@ -365,23 +358,21 @@ fun Method.indexOfFirstInstructionReversed(startIndex: Int? = null, filter: Inst
  *
  * @return -1 if the instruction is not found.
  */
-fun Method.indexOfFirstInstructionReversed(targetOpcode: Opcode): Int =
-    indexOfFirstInstructionReversed {
-        opcode == targetOpcode
-    }
+fun Method.indexOfFirstInstructionReversed(targetOpcode: Opcode): Int = indexOfFirstInstructionReversed {
+    opcode == targetOpcode
+}
 
 /**
  * Get the index of matching instruction,
  * starting from and [startIndex] and searching down.
  *
  * @param startIndex Optional starting index to search down from. Searching includes the start index.
- * @return -1 if the instruction is not found.
+ * @return The index of the instruction.
  * @see indexOfFirstInstructionReversed
  */
-fun Method.indexOfFirstInstructionReversedOrThrow(startIndex: Int? = null, targetOpcode: Opcode): Int =
-    indexOfFirstInstructionReversedOrThrow(startIndex) {
-        opcode == targetOpcode
-    }
+fun Method.indexOfFirstInstructionReversedOrThrow(startIndex: Int? = null, targetOpcode: Opcode): Int = indexOfFirstInstructionReversedOrThrow(startIndex) {
+    opcode == targetOpcode
+}
 
 /**
  * Get the index of matching instruction,
@@ -389,16 +380,16 @@ fun Method.indexOfFirstInstructionReversedOrThrow(startIndex: Int? = null, targe
  *
  * @return -1 if the instruction is not found.
  */
-fun Method.indexOfFirstInstructionReversedOrThrow(targetOpcode: Opcode): Int =
-    indexOfFirstInstructionReversedOrThrow {
-        opcode == targetOpcode
-    }
+fun Method.indexOfFirstInstructionReversedOrThrow(targetOpcode: Opcode): Int = indexOfFirstInstructionReversedOrThrow {
+    opcode == targetOpcode
+}
+
 /**
  * Get the index of matching instruction,
  * starting from and [startIndex] and searching down.
  *
  * @param startIndex Optional starting index to search down from. Searching includes the start index.
- * @return -1 if the instruction is not found.
+ * @return The index of the instruction.
  * @see indexOfFirstInstructionReversed
  */
 fun Method.indexOfFirstInstructionReversedOrThrow(startIndex: Int? = null, filter: Instruction.() -> Boolean): Int {
@@ -438,8 +429,7 @@ fun Method.findInstructionIndicesReversedOrThrow(filter: Instruction.() -> Boole
  *  _Returns an empty list if no indices are found_
  * @see findInstructionIndicesReversedOrThrow
  */
-fun Method.findInstructionIndicesReversed(opcode: Opcode): List<Int> =
-    findInstructionIndicesReversed { this.opcode == opcode }
+fun Method.findInstructionIndicesReversed(opcode: Opcode): List<Int> = findInstructionIndicesReversed { this.opcode == opcode }
 
 /**
  * @return An immutable list of indices of the opcode in reverse order.
@@ -461,15 +451,18 @@ internal fun MutableMethod.insertFeatureFlagBooleanOverride(literalIndex: Int, e
     val index = indexOfFirstInstructionOrThrow(literalIndex, Opcode.MOVE_RESULT)
     val register = getInstruction<OneRegisterInstruction>(index).registerA
 
-    val operation = if (register < 16) "invoke-static { v$register }"
-    else "invoke-static/range { v$register .. v$register }"
+    val operation = if (register < 16) {
+        "invoke-static { v$register }"
+    } else {
+        "invoke-static/range { v$register .. v$register }"
+    }
 
     addInstructions(
         index + 1,
         """
             $operation, $extensionsMethod
             move-result v$register
-        """
+        """,
     )
 }
 
