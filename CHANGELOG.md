@@ -1,3 +1,10 @@
+# [5.14.0-dev.9](https://github.com/ReVanced/revanced-patches/compare/v5.14.0-dev.8...v5.14.0-dev.9) (2025-03-09)
+
+
+### Features
+
+* **Spotify:** Add `Spoof signature` patch ([#4576](https://github.com/ReVanced/revanced-patches/issues/4576)) ([3646c70](https://github.com/ReVanced/revanced-patches/commit/3646c70556b67a6b7ecf9b86869ebf03c3611333))
+
 # [5.14.0-dev.8](https://github.com/ReVanced/revanced-patches/compare/v5.14.0-dev.7...v5.14.0-dev.8) (2025-03-09)
 
 
