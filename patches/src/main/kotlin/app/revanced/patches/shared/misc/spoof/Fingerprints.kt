@@ -150,3 +150,23 @@ internal val mediaFetchHotConfigFingerprint by fingerprint {
         literal(45645570L)
     )
 }
+
+// 20.10+
+internal val mediaFetchHotConfigAlternativeFingerprint by fingerprint {
+    instructions(
+        literal(45683169L)
+    )
+}
+
+// Feature flag that enables different code for parsing and starting video playback,
+// but it's exact purpose is not known. If this flag is enabled while stream spoofing
+// then videos will never start playback and load forever.
+// Flag does not seem to affect playback if spoofing is off.
+internal val playbackStartDescriptorFeatureFlagFingerprint by fingerprint {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
+    parameters()
+    returns("Z")
+    instructions(
+        literal(45665455L)
+    )
+}

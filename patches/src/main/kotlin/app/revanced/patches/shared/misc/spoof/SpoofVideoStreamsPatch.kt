@@ -30,7 +30,9 @@ internal const val EXTENSION_CLASS_DESCRIPTOR =
 
 fun spoofVideoStreamsPatch(
     block: BytecodePatchBuilder.() -> Unit = {},
-    applyMediaFetchHotConfigChanges: BytecodePatchBuilder.() -> Boolean = { false },
+    fixMediaFetchHotConfigChanges: BytecodePatchBuilder.() -> Boolean = { false },
+    fixMediaFetchHotConfigAlternativeChanges: BytecodePatchBuilder.() -> Boolean = { false },
+    fixParsePlaybackResponseFeatureFlag: BytecodePatchBuilder.() -> Boolean = { false },
     executeBlock: BytecodePatchContext.() -> Unit = {},
 ) = bytecodePatch(
     name = "Spoof video streams",
@@ -49,18 +51,20 @@ fun spoofVideoStreamsPatch(
 
         // region Block /initplayback requests to fall back to /get_watch requests.
 
-        val moveUriStringIndex = buildInitPlaybackRequestFingerprint.instructionMatches.first().index
 
-        buildInitPlaybackRequestFingerprint.method.apply {
-            val targetRegister = getInstruction<OneRegisterInstruction>(moveUriStringIndex).registerA
+        buildInitPlaybackRequestFingerprint.let {
+            it.method.apply {
+                val moveUriStringIndex = it.instructionMatches.first().index
+                val targetRegister = getInstruction<OneRegisterInstruction>(moveUriStringIndex).registerA
 
-            addInstructions(
-                moveUriStringIndex + 1,
-                """
-                    invoke-static { v$targetRegister }, $EXTENSION_CLASS_DESCRIPTOR->blockInitPlaybackRequest(Ljava/lang/String;)Ljava/lang/String;
-                    move-result-object v$targetRegister
-                """,
-            )
+                addInstructions(
+                    moveUriStringIndex + 1,
+                    """
+                        invoke-static { v$targetRegister }, $EXTENSION_CLASS_DESCRIPTOR->blockInitPlaybackRequest(Ljava/lang/String;)Ljava/lang/String;
+                        move-result-object v$targetRegister
+                    """
+                )
+            }
         }
 
         // endregion
@@ -68,8 +72,8 @@ fun spoofVideoStreamsPatch(
         // region Block /get_watch requests to fall back to /player requests.
 
         buildPlayerRequestURIFingerprint.let {
-            val invokeToStringIndex = it.instructionMatches.first().index
             it.method.apply {
+                val invokeToStringIndex = it.instructionMatches.first().index
                 val uriRegister = getInstruction<FiveRegisterInstruction>(invokeToStringIndex).registerC
 
                 addInstructions(
@@ -242,11 +246,29 @@ fun spoofVideoStreamsPatch(
 
         // region turn off stream config replacement feature flag.
 
-        if (applyMediaFetchHotConfigChanges()) {
+        if (fixMediaFetchHotConfigChanges()) {
             mediaFetchHotConfigFingerprint.let {
                 it.method.insertFeatureFlagBooleanOverride(
                     it.instructionMatches.first().index,
                     "$EXTENSION_CLASS_DESCRIPTOR->useMediaFetchHotConfigReplacement(Z)Z"
+                )
+            }
+        }
+
+        if (fixMediaFetchHotConfigAlternativeChanges()) {
+            mediaFetchHotConfigAlternativeFingerprint.let {
+                it.method.insertFeatureFlagBooleanOverride(
+                    it.instructionMatches.first().index,
+                    "$EXTENSION_CLASS_DESCRIPTOR->useMediaFetchHotConfigReplacement(Z)Z"
+                )
+            }
+        }
+
+        if (fixParsePlaybackResponseFeatureFlag()) {
+            playbackStartDescriptorFeatureFlagFingerprint.let {
+                it.method.insertFeatureFlagBooleanOverride(
+                    it.instructionMatches.first().index,
+                    "$EXTENSION_CLASS_DESCRIPTOR->usePlaybackStartFeatureFlag(Z)Z"
                 )
             }
         }
