@@ -18,9 +18,10 @@ val spoofSignaturePatch = bytecodePatch(
         getAppSignatureFingerprint.method.apply {
             val failedToGetSignaturesStringMatch = getAppSignatureFingerprint.stringMatches!!.first()
 
-            val concatSignaturesIndex = indexOfFirstInstructionReversedOrThrow(failedToGetSignaturesStringMatch.index) {
-                opcode == Opcode.MOVE_RESULT_OBJECT
-            }
+            val concatSignaturesIndex = indexOfFirstInstructionReversedOrThrow(
+                failedToGetSignaturesStringMatch.index,
+                Opcode.MOVE_RESULT_OBJECT,
+            )
 
             val register = getInstruction<OneRegisterInstruction>(concatSignaturesIndex).registerA
 
