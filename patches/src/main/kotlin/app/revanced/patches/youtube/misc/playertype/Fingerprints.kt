@@ -1,6 +1,7 @@
 package app.revanced.patches.youtube.misc.playertype
 
 import app.revanced.patcher.fingerprint
+import app.revanced.util.literal
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
@@ -13,6 +14,12 @@ internal val playerTypeFingerprint = fingerprint {
         Opcode.RETURN_VOID,
     )
     custom { _, classDef -> classDef.endsWith("/YouTubePlayerOverlaysLayout;") }
+}
+
+internal val reelWatchPagerFingerprint = fingerprint {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
+    returns("Landroid/view/View;")
+    literal { reelWatchPlayerId }
 }
 
 internal val videoStateFingerprint = fingerprint {

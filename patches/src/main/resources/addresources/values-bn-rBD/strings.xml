@@ -48,57 +48,6 @@ Second \"item\" text"</string>
 
 নতুন ভাষা অনুবাদ করতে translate.revanced.app দেখুন"</string>
   <string name="revanced_language_DEFAULT">অ্যাপ্লিকেশনের ভাষা</string>
-  <string name="revanced_language_AR">আরবি</string>
-  <string name="revanced_language_AZ">আজারবাইজানি</string>
-  <string name="revanced_language_BG">বুলগেরিয়ান</string>
-  <string name="revanced_language_BN">বাংলা</string>
-  <string name="revanced_language_CA">কাতালান</string>
-  <string name="revanced_language_CS">চেক</string>
-  <string name="revanced_language_DA">ড্যানিশ</string>
-  <string name="revanced_language_DE">জার্মান</string>
-  <string name="revanced_language_EL">গ্রিক</string>
-  <string name="revanced_language_EN">ইংরেজি</string>
-  <string name="revanced_language_ES">স্প্যানিশ</string>
-  <string name="revanced_language_ET">এস্তোনিয়ান</string>
-  <string name="revanced_language_FA">ফার্সি</string>
-  <string name="revanced_language_FI">ফিনিশ</string>
-  <string name="revanced_language_FR">ফরাসি</string>
-  <string name="revanced_language_GU">গুজরাটি</string>
-  <string name="revanced_language_HI">হিন্দি</string>
-  <string name="revanced_language_HR">ক্রোয়েশীয়</string>
-  <string name="revanced_language_HU">হাঙ্গেরিয়ান</string>
-  <string name="revanced_language_ID">ইন্দোনেশিয়ান</string>
-  <string name="revanced_language_IT">ইতালীয়</string>
-  <string name="revanced_language_JA">জাপানি</string>
-  <string name="revanced_language_KK">কাজাখ</string>
-  <string name="revanced_language_KO">কোরিয়ান</string>
-  <string name="revanced_language_LT">লিথুয়ানিয়ান</string>
-  <string name="revanced_language_LV">লাতভিয়ান</string>
-  <string name="revanced_language_MK">ম্যাসেডোনিয়ান</string>
-  <string name="revanced_language_MN">মঙ্গোলীয়</string>
-  <string name="revanced_language_MR">মারাঠি</string>
-  <string name="revanced_language_MS">মালয়</string>
-  <string name="revanced_language_MY">বর্মি</string>
-  <string name="revanced_language_NL">ডাচ</string>
-  <string name="revanced_language_OR">ওড়িয়া</string>
-  <string name="revanced_language_PA">পাঞ্জাবি</string>
-  <string name="revanced_language_PL">পোলিশ</string>
-  <string name="revanced_language_PT">পর্তুগিজ</string>
-  <string name="revanced_language_RO">রোমানীয়</string>
-  <string name="revanced_language_RU">রুশ</string>
-  <string name="revanced_language_SK">স্লোভাক</string>
-  <string name="revanced_language_SL">স্লোভেন</string>
-  <string name="revanced_language_SR">সার্বিয়ান</string>
-  <string name="revanced_language_SV">সুইডিশ</string>
-  <string name="revanced_language_SW">সোয়াহিলি</string>
-  <string name="revanced_language_TA">তামিল</string>
-  <string name="revanced_language_TE">তেলুগু</string>
-  <string name="revanced_language_TH">থাই</string>
-  <string name="revanced_language_TR">তুর্কি</string>
-  <string name="revanced_language_UK">ইউক্রেনীয়</string>
-  <string name="revanced_language_UR">উর্দু</string>
-  <string name="revanced_language_VI">ভিয়েতনামী</string>
-  <string name="revanced_language_ZH">চাইনিজ</string>
   <string name="revanced_pref_import_export_title">আমদানি এবং রপ্তানি</string>
   <string name="revanced_pref_import_export_summary">ReVanced সেটিং আমদানি বা রপ্তানি করুন</string>
   <!-- Settings about dialog. -->
@@ -403,7 +352,7 @@ MicroG-এর জন্য ব্যাটারি অপ্টিমাইজ�
   <string name="revanced_hide_self_sponsor_ads_title">স্ব-স্পন্সর কার্ড লুকান</string>
   <string name="revanced_hide_self_sponsor_ads_summary_on">স্ব-স্পন্সর কার্ড লুকিয়ে রয়েছে</string>
   <string name="revanced_hide_self_sponsor_ads_summary_off">স্ব-স্পন্সর কার্ড প্রদর্শিত হয়েছে</string>
-  <string name="revanced_hide_products_banner_title">প্রোডাক্ট দেখার ব্যানার লুকান</string>
+  <string name="revanced_hide_products_banner_title">\'পণ্য দেখুন\' ব্যানার লুকান</string>
   <string name="revanced_hide_products_banner_summary_on">ব্যানার লুকিয়ে রয়েছে</string>
   <string name="revanced_hide_products_banner_summary_off">ব্যানার প্রদর্শিত হয়েছে</string>
   <string name="revanced_hide_end_screen_store_banner_title">শেষ পর্দার স্টোর ব্যানার লুকান</string>
@@ -659,7 +608,7 @@ MicroG-এর জন্য ব্যাটারি অপ্টিমাইজ�
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_off">ভিডিও গুণমান মেনু ফুটার দেখানো হচ্ছে</string>
   </patch>
   <patch id="layout.buttons.overlay.hidePlayerOverlayButtonsPatch">
-  <string name="revanced_hide_player_previous_next_buttons_title">পূর্ববর্তী লুকান &amp; পরবর্তী ভিডিও বোতাম</string>
+  <string name="revanced_hide_player_previous_next_buttons_title">পূর্ববর্তী লুকান &amp; পরবর্তী বোতাম</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_on">বোতাম লুকানো হয়</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">বোতাম দেখানো হয়</string>
   <string name="revanced_hide_cast_button_title">কাস্ট বোতামটি লুকান</string>
@@ -1112,16 +1061,14 @@ YouTube সেটিংসে অটো প্লে পরিবর্তন �
   <string name="revanced_change_form_factor_entry_2">ফোন</string>
   <string name="revanced_change_form_factor_entry_3">ট্যাবলেট</string>
   <string name="revanced_change_form_factor_entry_4">স্বয়ংচালিত</string>
-  <string name="revanced_change_form_factor_user_dialog_message">"পরিবর্তনগুলো হল:
+  <string name="revanced_change_form_factor_user_dialog_message">"পরিবর্তনগুলির মধ্যে রয়েছে:
 
 ট্যাবলেট লেআউট
-• কমিউনিটি পোস্ট গোপন
+• কমিউনিটির পোস্টগুলি লুকানো আছে
 
-স্বয়ংচালিত লেআউট
-• ঘড়ির ইতিহাস মেনু গোপন
-• এক্সপ্লোর ট্যাব পুনরুদ্ধার করা হয়েছে
-• শর্টস নিয়মিত প্লেয়ারে খোলে
-• ফিড বিষয় এবং চ্যানেল দ্বারা সংগঠিত হয়"</string>
+অটোমোটিভ লেআউট
+• Shorts নিয়মিত প্লেয়ারে খোলে
+• ফিড বিষয় এবং চ্যানেল দ্বারা সংগঠিত"</string>
   </patch>
   <patch id="layout.spoofappversion.spoofAppVersionPatch">
   <string name="revanced_spoof_app_version_title">অ্যাপ সংস্করণ স্পুফ করুন</string>
@@ -1191,7 +1138,7 @@ YouTube সেটিংসে অটো প্লে পরিবর্তন �
   </patch>
   <patch id="layout.miniplayer.miniplayerPatch">
   <string name="revanced_miniplayer_screen_title">মিনিপ্লেয়ার</string>
-  <string name="revanced_miniplayer_screen_summary">অ্যাপের মধ্যকার মিনিমাইজড প্লেয়ার এর ধরণ পরিবর্তন করুন</string>
+  <string name="revanced_miniplayer_screen_summary">ইন-অ্যাপ মিনিমাইজড প্লেয়ারের শৈলী পরিবর্তন করুন</string>
   <string name="revanced_miniplayer_type_title">মিনিপ্লেয়ার ধরণ</string>
   <string name="revanced_miniplayer_type_entry_0">নিষ্ক্রিয় হয়েছে</string>
   <string name="revanced_miniplayer_type_entry_1">পূর্ব-নির্ধারিত</string>
@@ -1244,8 +1191,6 @@ Miniplayer স্ক্রিন থেকে বামে বা ডানে �
   <string name="revanced_gradient_loading_screen_title">গ্রেডিয়েন্ট লোডিং স্ক্রিণ সক্রিয় করুন</string>
   <string name="revanced_gradient_loading_screen_summary_on">লোডিং স্ক্রিণে একটি গ্রেডিয়েন্ড ব্যাকগ্রাউন্ড থাকবে</string>
   <string name="revanced_gradient_loading_screen_summary_off">লোডিং স্ক্রিণে একটি সলিড ব্যাকগ্রাউন্ড থাকবে</string>
-  </patch>
-  <patch id="layout.theme.themeResourcePatch">
   <string name="revanced_seekbar_custom_color_title">সিকবারে নিজস্ব রং সক্রিয় করুন</string>
   <string name="revanced_seekbar_custom_color_summary_on">সিকবারে নিজস্ব রং প্রদর্শিত হয়েছে</string>
   <string name="revanced_seekbar_custom_color_summary_off">সিকবারে মূল রং প্রদর্শিত হয়েছে</string>
@@ -1337,8 +1282,8 @@ DeArrow সম্পর্কে আরও জানতে এখানে ট�
   </patch>
   <patch id="misc.links.openLinksExternallyPatch">
   <string name="revanced_external_browser_title">লিংক ব্রাউজারে খুলুন</string>
-  <string name="revanced_external_browser_summary_on">লিংক বাহিরে খুলুন</string>
-  <string name="revanced_external_browser_summary_off">অ্যাপের মধ্যে লিংক খুলছে</string>
+  <string name="revanced_external_browser_summary_on">বাহ্যিক ব্রাউজারে লিঙ্ক খোলা হচ্ছে</string>
+  <string name="revanced_external_browser_summary_off">ইন-অ্যাপ ব্রাউজারে লিঙ্ক খোলা হচ্ছে</string>
   </patch>
   <patch id="misc.privacy.removeTrackingQueryParameterPatch">
   <string name="revanced_remove_tracking_query_parameter_title">ট্র্যাকিং করার প্যারামিটার মুছুন</string>
@@ -1365,9 +1310,15 @@ DeArrow সম্পর্কে আরও জানতে এখানে ট�
   <string name="revanced_remember_video_quality_last_selected_summary_off">গুণমান পরিবর্তন বর্তমান ভিডিওতে প্রয়োগ করা হয়েছে</string>
   <string name="revanced_video_quality_default_wifi_title">ওয়াই-ফাই নেটওয়ার্কে ডিফল্ট ভিডিও গুণমান</string>
   <string name="revanced_video_quality_default_mobile_title">মোবাইল নেটওয়ার্কে ডিফল্ট ভিডিও গুণমান</string>
+  <string name="revanced_remember_shorts_quality_last_selected_title">Shorts গুণমান পরিবর্তনের কথা মনে রাখুন</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_on">গুণমানের পরিবর্তনগুলি সমস্ত Shorts-এর জন্য প্রযোজ্য</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_off">গুণমানের পরিবর্তনগুলি শুধুমাত্র বর্তমান Short-এর জন্য প্রযোজ্য</string>
+  <string name="revanced_shorts_quality_default_wifi_title">Wi-Fi নেটওয়ার্কে ডিফল্ট Shorts গুণমান</string>
+  <string name="revanced_shorts_quality_default_mobile_title">মোবাইল নেটওয়ার্কে ডিফল্ট Shorts গুণমান</string>
   <string name="revanced_remember_video_quality_mobile">মোবাইল</string>
   <string name="revanced_remember_video_quality_wifi">ওয়াই-ফাই</string>
   <string name="revanced_remember_video_quality_toast">ডিফল্ট %1$s গুণমান পরিবর্তন হচ্ছে: %2$s</string>
+  <string name="revanced_remember_video_quality_toast_shorts">Shorts %1$s এর গুণমান পরিবর্তন করে: %2$s</string>
   </patch>
   <patch id="video.speed.button.playbackSpeedButtonPatch">
   <string name="revanced_playback_speed_dialog_button_title">স্পিড ডায়ালগ বোতাম দেখান</string>
@@ -1398,10 +1349,10 @@ DeArrow সম্পর্কে আরও জানতে এখানে ট�
   <string name="revanced_disable_hdr_video_summary_on">HDR ভিডিও নিষ্ক্রিয় করা হয়েছে</string>
   <string name="revanced_disable_hdr_video_summary_off">HDR ভিডিও সক্রিয় হয়েছে</string>
   </patch>
-  <patch id="video.videoqualitymenu.restoreOldVideoQualityMenuResourcePatch">
-  <string name="revanced_restore_old_video_quality_menu_title">পুরোনো ভিডিও গুণমান উদ্ধার করুন</string>
-  <string name="revanced_restore_old_video_quality_menu_summary_on">পুরোনো ভিডিও গুণমান মেনু প্রদর্শিত হয়েছে</string>
-  <string name="revanced_restore_old_video_quality_menu_summary_off">পুরোনো ভিডিও গুণমান মেনু প্রদর্শিত হয়নি</string>
+  <patch id="video.quality.advancedVideoQualityMenuPatch">
+  <string name="revanced_advanced_video_quality_menu_title">উন্নত ভিডিও গুণমান মেনু দেখান</string>
+  <string name="revanced_advanced_video_quality_menu_summary_on">উন্নত ভিডিও গুণমান মেনু দেখানো হয়েছে</string>
+  <string name="revanced_advanced_video_quality_menu_summary_off">উন্নত ভিডিও গুণমান মেনু দেখানো হয়নি</string>
   </patch>
   <patch id="interaction.seekbar.enableSlideToSeekPatch">
   <string name="revanced_slide_to_seek_title">ভিডিওর নির্দিষ্ট অংশে যেতে টানুন সক্রিয় করুন</string>

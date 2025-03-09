@@ -177,8 +177,6 @@ Second \"item\" text"</string>
   </patch>
   <patch id="layout.theme.themePatch">
   </patch>
-  <patch id="layout.theme.themeResourcePatch">
-  </patch>
   <patch id="layout.thumbnails.bypassImageRegionRestrictionsPatch">
   </patch>
   <patch id="layout.thumbnails.alternativeThumbnailsPatch">
@@ -219,7 +217,7 @@ Second \"item\" text"</string>
   </patch>
   <patch id="video.hdr.disableHdrPatch">
   </patch>
-  <patch id="video.videoqualitymenu.restoreOldVideoQualityMenuResourcePatch">
+  <patch id="video.quality.advancedVideoQualityMenuPatch">
   </patch>
   <patch id="interaction.seekbar.enableSlideToSeekPatch">
   </patch>

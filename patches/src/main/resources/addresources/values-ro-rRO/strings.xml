@@ -48,57 +48,6 @@ Second \"item\" text"</string>
 
 Pentru a traduce noi limbi, vizitați translate.revanced.app"</string>
   <string name="revanced_language_DEFAULT">Limba aplicației</string>
-  <string name="revanced_language_AR">Arabă</string>
-  <string name="revanced_language_AZ">Azerbaidjană</string>
-  <string name="revanced_language_BG">Bulgară</string>
-  <string name="revanced_language_BN">Bengaleză</string>
-  <string name="revanced_language_CA">Catalană</string>
-  <string name="revanced_language_CS">Cehă</string>
-  <string name="revanced_language_DA">Daneză</string>
-  <string name="revanced_language_DE">Germană</string>
-  <string name="revanced_language_EL">Greacă</string>
-  <string name="revanced_language_EN">Engleză</string>
-  <string name="revanced_language_ES">Spaniolă</string>
-  <string name="revanced_language_ET">Estoniană</string>
-  <string name="revanced_language_FA">Persană</string>
-  <string name="revanced_language_FI">Finlandeză</string>
-  <string name="revanced_language_FR">Franceză</string>
-  <string name="revanced_language_GU">Gujarati</string>
-  <string name="revanced_language_HI">Hindi</string>
-  <string name="revanced_language_HR">Croată</string>
-  <string name="revanced_language_HU">Maghiară</string>
-  <string name="revanced_language_ID">Indoneziană</string>
-  <string name="revanced_language_IT">Italiană</string>
-  <string name="revanced_language_JA">Japoneză</string>
-  <string name="revanced_language_KK">Kazahă</string>
-  <string name="revanced_language_KO">Coreeană</string>
-  <string name="revanced_language_LT">Lituaniană</string>
-  <string name="revanced_language_LV">Letonă</string>
-  <string name="revanced_language_MK">Macedoneană</string>
-  <string name="revanced_language_MN">Mongolă</string>
-  <string name="revanced_language_MR">Marathi</string>
-  <string name="revanced_language_MS">Malaeză</string>
-  <string name="revanced_language_MY">Birmană</string>
-  <string name="revanced_language_NL">Olandeză</string>
-  <string name="revanced_language_OR">Odia</string>
-  <string name="revanced_language_PA">Punjabi</string>
-  <string name="revanced_language_PL">Poloneză</string>
-  <string name="revanced_language_PT">Portugheză</string>
-  <string name="revanced_language_RO">Română</string>
-  <string name="revanced_language_RU">Rusă</string>
-  <string name="revanced_language_SK">Slovacă</string>
-  <string name="revanced_language_SL">Slovenă</string>
-  <string name="revanced_language_SR">Sârbă</string>
-  <string name="revanced_language_SV">Suedeză</string>
-  <string name="revanced_language_SW">Swahili</string>
-  <string name="revanced_language_TA">Tamil</string>
-  <string name="revanced_language_TE">Telugu</string>
-  <string name="revanced_language_TH">Thailandeză</string>
-  <string name="revanced_language_TR">Turcă</string>
-  <string name="revanced_language_UK">Ucraineană</string>
-  <string name="revanced_language_UR">Urdu</string>
-  <string name="revanced_language_VI">Vietnameză</string>
-  <string name="revanced_language_ZH">Chineză</string>
   <string name="revanced_pref_import_export_title">Importă / Exportă</string>
   <string name="revanced_pref_import_export_summary">Import/Export setări ReVanced</string>
   <!-- Settings about dialog. -->
@@ -404,7 +353,7 @@ Această funcție este disponibilă numai pentru dispozitivele mai vechi"</strin
   <string name="revanced_hide_self_sponsor_ads_title">Ascunde cardurile auto-sponsorizate</string>
   <string name="revanced_hide_self_sponsor_ads_summary_on">Cardurile sponsorizate automat sunt ascunse</string>
   <string name="revanced_hide_self_sponsor_ads_summary_off">Cardurile sponsorizate automat sunt afișate</string>
-  <string name="revanced_hide_products_banner_title">Ascunde banner-ul pentru a vizualiza produsele</string>
+  <string name="revanced_hide_products_banner_title">Ascunde bannerul \"Vezi produse\"</string>
   <string name="revanced_hide_products_banner_summary_on">Banner-ul este ascuns</string>
   <string name="revanced_hide_products_banner_summary_off">Banner-ul este afișat</string>
   <string name="revanced_hide_end_screen_store_banner_title">Ascunde bannerul magazinului de la finalul ecranului</string>
@@ -663,7 +612,7 @@ Dacă modificarea acestei setări nu are efect, încercați să comutați la mod
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_off">Subsolul meniului calității video este afișat</string>
   </patch>
   <patch id="layout.buttons.overlay.hidePlayerOverlayButtonsPatch">
-  <string name="revanced_hide_player_previous_next_buttons_title">Ascunde butoanele anterioare &amp; următorul video</string>
+  <string name="revanced_hide_player_previous_next_buttons_title">Ascunde butoanele Anterior &amp; Următorul</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_on">Butoanele sunt ascunse</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">Butoanele sunt afișate</string>
   <string name="revanced_hide_cast_button_title">Ascunde butonul Distribuție</string>
@@ -1121,10 +1070,8 @@ Aspect tabletă
 • Postările comunității sunt ascunse
 
 Aspect auto
-• Meniul Istoric vizionări este ascuns
-• Fila Explore este restaurată
-• Shorts-urile se deschid în playerul obișnuit
-• Feed-ul este organizat pe subiecte și canal"</string>
+• Shorts se deschid în playerul obișnuit
+• Fluxul este organizat pe teme și canale"</string>
   </patch>
   <patch id="layout.spoofappversion.spoofAppVersionPatch">
   <string name="revanced_spoof_app_version_title">Falsifică versiunea aplicației</string>
@@ -1194,7 +1141,7 @@ Dacă este dezactivat ulterior, se recomandă să ștergeți datele aplicației 
   </patch>
   <patch id="layout.miniplayer.miniplayerPatch">
   <string name="revanced_miniplayer_screen_title">Minijucător</string>
-  <string name="revanced_miniplayer_screen_summary">Schimbă stilul aplicaţiei minimizat jucătorul</string>
+  <string name="revanced_miniplayer_screen_summary">Schimbă stilul playerului minimizat în aplicație</string>
   <string name="revanced_miniplayer_type_title">Tip minijucător</string>
   <string name="revanced_miniplayer_type_entry_0">Dezactivat</string>
   <string name="revanced_miniplayer_type_entry_1">Implicit</string>
@@ -1247,8 +1194,6 @@ Trageți pentru a extinde sau a închide"</string>
   <string name="revanced_gradient_loading_screen_title">Activează ecranul de încărcare gradient</string>
   <string name="revanced_gradient_loading_screen_summary_on">Încărcarea ecranului va avea un fundal pentru gradient</string>
   <string name="revanced_gradient_loading_screen_summary_off">Ecranul de încărcare va avea un fundal solid</string>
-  </patch>
-  <patch id="layout.theme.themeResourcePatch">
   <string name="revanced_seekbar_custom_color_title">Activează culoarea barei de căutare personalizate</string>
   <string name="revanced_seekbar_custom_color_summary_on">Culoarea personalizată a barei de căutare este afișată</string>
   <string name="revanced_seekbar_custom_color_summary_off">Culoarea bara de căutare originală este afișată</string>
@@ -1340,8 +1285,8 @@ Activarea acestei opțiuni poate debloca calități video mai mari"</string>
   </patch>
   <patch id="misc.links.openLinksExternallyPatch">
   <string name="revanced_external_browser_title">Deschide link-uri în browser</string>
-  <string name="revanced_external_browser_summary_on">Se deschid link-uri extern</string>
-  <string name="revanced_external_browser_summary_off">Se deschid link-uri în aplicație</string>
+  <string name="revanced_external_browser_summary_on">Deschiderea linkurilor în browserul extern</string>
+  <string name="revanced_external_browser_summary_off">Deschiderea linkurilor în browserul din aplicație</string>
   </patch>
   <patch id="misc.privacy.removeTrackingQueryParameterPatch">
   <string name="revanced_remove_tracking_query_parameter_title">Elimină parametrul de urmărire interogare</string>
@@ -1368,9 +1313,15 @@ Activarea acestei opțiuni poate debloca calități video mai mari"</string>
   <string name="revanced_remember_video_quality_last_selected_summary_off">Modificările de calitate se aplică numai video-ului curent</string>
   <string name="revanced_video_quality_default_wifi_title">Calitate video implicită în rețeaua Wi-Fi</string>
   <string name="revanced_video_quality_default_mobile_title">Calitatea video implicită în rețeaua mobilă</string>
+  <string name="revanced_remember_shorts_quality_last_selected_title">Reține modificările calității pentru Shorts</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_on">Modificările de calitate se aplică tuturor Shorts</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_off">Modificările de calitate se aplică doar Shortului curent</string>
+  <string name="revanced_shorts_quality_default_wifi_title">Calitatea implicită a Shorts în rețeaua Wi-Fi</string>
+  <string name="revanced_shorts_quality_default_mobile_title">Calitatea implicită a Shorts în rețeaua mobilă</string>
   <string name="revanced_remember_video_quality_mobile">mobil</string>
   <string name="revanced_remember_video_quality_wifi">wifi</string>
   <string name="revanced_remember_video_quality_toast">Calitate %1$s modificată implicit: %2$s</string>
+  <string name="revanced_remember_video_quality_toast_shorts">Calitatea Shorts %1$s a fost modificată la: %2$s</string>
   </patch>
   <patch id="video.speed.button.playbackSpeedButtonPatch">
   <string name="revanced_playback_speed_dialog_button_title">Arată butonul de dialog de viteză</string>
@@ -1401,10 +1352,10 @@ Activarea acestei opțiuni poate debloca calități video mai mari"</string>
   <string name="revanced_disable_hdr_video_summary_on">Videoclipurile HDR sunt dezactivate</string>
   <string name="revanced_disable_hdr_video_summary_off">Videoclipurile HDR sunt activate</string>
   </patch>
-  <patch id="video.videoqualitymenu.restoreOldVideoQualityMenuResourcePatch">
-  <string name="revanced_restore_old_video_quality_menu_title">Restaurează meniul de calitate video vechi</string>
-  <string name="revanced_restore_old_video_quality_menu_summary_on">Vechea meniu de calitate a videoclipului este afișat</string>
-  <string name="revanced_restore_old_video_quality_menu_summary_off">Meniul vechi de calitate a videoclipului nu este afișat</string>
+  <patch id="video.quality.advancedVideoQualityMenuPatch">
+  <string name="revanced_advanced_video_quality_menu_title">Afișează meniul avansat de calitate video</string>
+  <string name="revanced_advanced_video_quality_menu_summary_on">Se afișează meniul avansat de calitate video</string>
+  <string name="revanced_advanced_video_quality_menu_summary_off">Nu se afișează meniul avansat de calitate video</string>
   </patch>
   <patch id="interaction.seekbar.enableSlideToSeekPatch">
   <string name="revanced_slide_to_seek_title">Activează diapozitivul pentru a căuta</string>

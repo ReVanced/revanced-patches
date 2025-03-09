@@ -48,57 +48,6 @@ Second \"item\" text"</string>
 
 若要翻译为新语言，请访问 translate.revanced.app"</string>
   <string name="revanced_language_DEFAULT">应用语言</string>
-  <string name="revanced_language_AR">阿拉伯语</string>
-  <string name="revanced_language_AZ">阿塞拜疆语</string>
-  <string name="revanced_language_BG">保加利亚语</string>
-  <string name="revanced_language_BN">孟加拉语</string>
-  <string name="revanced_language_CA">加泰罗尼亚语</string>
-  <string name="revanced_language_CS">捷克语</string>
-  <string name="revanced_language_DA">丹麦语</string>
-  <string name="revanced_language_DE">德语</string>
-  <string name="revanced_language_EL">希腊语</string>
-  <string name="revanced_language_EN">英语</string>
-  <string name="revanced_language_ES">西班牙语</string>
-  <string name="revanced_language_ET">爱沙尼亚语</string>
-  <string name="revanced_language_FA">波斯语</string>
-  <string name="revanced_language_FI">芬兰语</string>
-  <string name="revanced_language_FR">法语</string>
-  <string name="revanced_language_GU">古吉拉特语</string>
-  <string name="revanced_language_HI">印地语</string>
-  <string name="revanced_language_HR">克罗地亚语</string>
-  <string name="revanced_language_HU">匈牙利语</string>
-  <string name="revanced_language_ID">印尼语</string>
-  <string name="revanced_language_IT">意大利语</string>
-  <string name="revanced_language_JA">日语</string>
-  <string name="revanced_language_KK">哈萨克语</string>
-  <string name="revanced_language_KO">朝鲜语</string>
-  <string name="revanced_language_LT">立陶宛语</string>
-  <string name="revanced_language_LV">拉脱维亚语</string>
-  <string name="revanced_language_MK">马其顿语</string>
-  <string name="revanced_language_MN">蒙古语</string>
-  <string name="revanced_language_MR">马拉地语</string>
-  <string name="revanced_language_MS">马来语</string>
-  <string name="revanced_language_MY">缅甸语</string>
-  <string name="revanced_language_NL">荷兰语</string>
-  <string name="revanced_language_OR">奥里亚语</string>
-  <string name="revanced_language_PA">旁遮普语</string>
-  <string name="revanced_language_PL">波兰语</string>
-  <string name="revanced_language_PT">葡萄牙语</string>
-  <string name="revanced_language_RO">罗马尼亚语</string>
-  <string name="revanced_language_RU">俄语</string>
-  <string name="revanced_language_SK">斯洛伐克语</string>
-  <string name="revanced_language_SL">斯洛文尼亚语</string>
-  <string name="revanced_language_SR">塞尔维亚语</string>
-  <string name="revanced_language_SV">瑞典语</string>
-  <string name="revanced_language_SW">斯瓦希里语</string>
-  <string name="revanced_language_TA">泰米尔语</string>
-  <string name="revanced_language_TE">泰卢固语</string>
-  <string name="revanced_language_TH">泰语</string>
-  <string name="revanced_language_TR">土耳其语</string>
-  <string name="revanced_language_UK">乌克兰语</string>
-  <string name="revanced_language_UR">乌尔都语</string>
-  <string name="revanced_language_VI">越南语</string>
-  <string name="revanced_language_ZH">中文</string>
   <string name="revanced_pref_import_export_title">导入/导出</string>
   <string name="revanced_pref_import_export_summary">导入/导出 ReVanced 设置</string>
   <!-- Settings about dialog. -->
@@ -404,7 +353,7 @@ Second \"item\" text"</string>
   <string name="revanced_hide_self_sponsor_ads_title">隐藏自我推广卡片</string>
   <string name="revanced_hide_self_sponsor_ads_summary_on">自我推广卡片已隐藏</string>
   <string name="revanced_hide_self_sponsor_ads_summary_off">自我推广卡片已显示</string>
-  <string name="revanced_hide_products_banner_title">隐藏产品横幅</string>
+  <string name="revanced_hide_products_banner_title">隐藏“查看商品”横幅</string>
   <string name="revanced_hide_products_banner_summary_on">横幅已隐藏</string>
   <string name="revanced_hide_products_banner_summary_off">横幅已显示</string>
   <string name="revanced_hide_end_screen_store_banner_title">隐藏片尾画面商店横幅</string>
@@ -663,7 +612,7 @@ Second \"item\" text"</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_off">画质选单页脚已显示</string>
   </patch>
   <patch id="layout.buttons.overlay.hidePlayerOverlayButtonsPatch">
-  <string name="revanced_hide_player_previous_next_buttons_title">隐藏上一个 &amp;下一个视频按钮</string>
+  <string name="revanced_hide_player_previous_next_buttons_title">隐藏上一个和下一个按钮</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_on">按钮已隐藏</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">按钮已显示</string>
   <string name="revanced_hide_cast_button_title">隐藏「投屏」按钮</string>
@@ -1123,13 +1072,11 @@ Second \"item\" text"</string>
   <string name="revanced_change_form_factor_user_dialog_message">"更改包括：
 
 平板电脑布局
-• 社区帖子隐藏
+• 社区帖子已隐藏
 
 汽车布局
-• 观看历史菜单隐藏
-• 探索选项卡已恢复
-• 在常规播放器中打开 Shorts
-• 时间轴按主题和频道排序"</string>
+• Shorts 在常规播放器中打开
+• Feed 按主题和频道组织"</string>
   </patch>
   <patch id="layout.spoofappversion.spoofAppVersionPatch">
   <string name="revanced_spoof_app_version_title">伪装应用程序版本</string>
@@ -1154,8 +1101,11 @@ Second \"item\" text"</string>
   <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">设置起始页</string>
   <string name="revanced_change_start_page_entry_default">默认</string>
+  <string name="revanced_change_start_page_entry_all_subscriptions">所有订阅频道</string>
   <string name="revanced_change_start_page_entry_browse">浏览频道</string>
+  <string name="revanced_change_start_page_entry_courses">学习</string>
   <string name="revanced_change_start_page_entry_explore">探索</string>
+  <string name="revanced_change_start_page_entry_fashion">时尚和美容</string>
   <string name="revanced_change_start_page_entry_gaming">游戏</string>
   <string name="revanced_change_start_page_entry_history">历史记录</string>
   <string name="revanced_change_start_page_entry_library">库</string>
@@ -1165,11 +1115,13 @@ Second \"item\" text"</string>
   <string name="revanced_change_start_page_entry_music">音乐</string>
   <string name="revanced_change_start_page_entry_news">新闻</string>
   <string name="revanced_change_start_page_entry_notifications">通知</string>
+  <string name="revanced_change_start_page_entry_playlists">播放列表</string>
   <string name="revanced_change_start_page_entry_search">搜索</string>
   <string name="revanced_change_start_page_entry_shopping">购物</string>
   <string name="revanced_change_start_page_entry_sports">体育</string>
   <string name="revanced_change_start_page_entry_subscriptions">订阅</string>
   <string name="revanced_change_start_page_entry_trending">趋势</string>
+  <string name="revanced_change_start_page_entry_virtual_reality">虚拟实境</string>
   <string name="revanced_change_start_page_entry_watch_later">稍后观看</string>
   <string name="revanced_change_start_page_entry_your_clips">你的剪辑</string>
   </patch>
@@ -1194,7 +1146,7 @@ Second \"item\" text"</string>
   </patch>
   <patch id="layout.miniplayer.miniplayerPatch">
   <string name="revanced_miniplayer_screen_title">小型播放器</string>
-  <string name="revanced_miniplayer_screen_summary">更改应用内小型播放器的样式</string>
+  <string name="revanced_miniplayer_screen_summary">更改应用内最小化播放器的样式</string>
   <string name="revanced_miniplayer_type_title">小型播放器类型</string>
   <string name="revanced_miniplayer_type_entry_0">已禁用</string>
   <string name="revanced_miniplayer_type_entry_1">默认</string>
@@ -1247,8 +1199,6 @@ Second \"item\" text"</string>
   <string name="revanced_gradient_loading_screen_title">启用渐变加载屏幕</string>
   <string name="revanced_gradient_loading_screen_summary_on">加载屏幕将具有渐变背景</string>
   <string name="revanced_gradient_loading_screen_summary_off">加载屏幕将具有纯色背景</string>
-  </patch>
-  <patch id="layout.theme.themeResourcePatch">
   <string name="revanced_seekbar_custom_color_title">启用自定义进度条颜色</string>
   <string name="revanced_seekbar_custom_color_summary_on">自定义进度条颜色显示</string>
   <string name="revanced_seekbar_custom_color_summary_off">显示原始进度条颜色</string>
@@ -1315,9 +1265,9 @@ Second \"item\" text"</string>
   <string name="revanced_check_watch_history_domain_name_dialog_ignore">不再显示</string>
   </patch>
   <patch id="misc.autorepeat.autoRepeatPatch">
-  <string name="revanced_auto_repeat_title">启用自动重复</string>
-  <string name="revanced_auto_repeat_summary_on">自动重复已启用</string>
-  <string name="revanced_auto_repeat_summary_off">自动重复已禁用</string>
+  <string name="revanced_auto_repeat_title">启用自动重复播放</string>
+  <string name="revanced_auto_repeat_summary_on">自动重复播放已启用</string>
+  <string name="revanced_auto_repeat_summary_off">自动重复播放已禁用</string>
   </patch>
   <patch id="misc.dimensions.spoof.spoofDeviceDimensionsPatch">
   <string name="revanced_spoof_device_dimensions_title">伪装设备尺寸</string>
@@ -1340,8 +1290,8 @@ Second \"item\" text"</string>
   </patch>
   <patch id="misc.links.openLinksExternallyPatch">
   <string name="revanced_external_browser_title">在浏览器中打开链接</string>
-  <string name="revanced_external_browser_summary_on">在外部打开链接</string>
-  <string name="revanced_external_browser_summary_off">在应用中打开链接</string>
+  <string name="revanced_external_browser_summary_on">在外部浏览器中打开链接</string>
+  <string name="revanced_external_browser_summary_off">在应用内浏览器中打开链接</string>
   </patch>
   <patch id="misc.privacy.removeTrackingQueryParameterPatch">
   <string name="revanced_remove_tracking_query_parameter_title">删除跟踪查询参数</string>
@@ -1368,9 +1318,15 @@ Second \"item\" text"</string>
   <string name="revanced_remember_video_quality_last_selected_summary_off">质量更改仅适用于当前视频</string>
   <string name="revanced_video_quality_default_wifi_title">Wi-Fi 网络上的默认视频质量</string>
   <string name="revanced_video_quality_default_mobile_title">移动网络上的默认视频质量</string>
+  <string name="revanced_remember_shorts_quality_last_selected_title">记住 Shorts 画质更改</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_on">质量更改适用于所有 Shorts</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_off">质量更改仅适用于当前的 Short</string>
+  <string name="revanced_shorts_quality_default_wifi_title">Wi-Fi 网络上的默认 Shorts 画质</string>
+  <string name="revanced_shorts_quality_default_mobile_title">移动网络上的默认 Shorts 画质</string>
   <string name="revanced_remember_video_quality_mobile">移动网络</string>
   <string name="revanced_remember_video_quality_wifi">无线网络</string>
   <string name="revanced_remember_video_quality_toast">已将默认 %1$s 质量更改为：%2$s</string>
+  <string name="revanced_remember_video_quality_toast_shorts">已将 Shorts %1$s 的画质更改为：%2$s</string>
   </patch>
   <patch id="video.speed.button.playbackSpeedButtonPatch">
   <string name="revanced_playback_speed_dialog_button_title">显示播放速度对话框按钮</string>
@@ -1401,10 +1357,10 @@ Second \"item\" text"</string>
   <string name="revanced_disable_hdr_video_summary_on">HDR 视频已禁用</string>
   <string name="revanced_disable_hdr_video_summary_off">HDR 视频已启用</string>
   </patch>
-  <patch id="video.videoqualitymenu.restoreOldVideoQualityMenuResourcePatch">
-  <string name="revanced_restore_old_video_quality_menu_title">恢复旧的画质菜单</string>
-  <string name="revanced_restore_old_video_quality_menu_summary_on">旧的画质菜单已显示</string>
-  <string name="revanced_restore_old_video_quality_menu_summary_off">旧的画质菜单未显示</string>
+  <patch id="video.quality.advancedVideoQualityMenuPatch">
+  <string name="revanced_advanced_video_quality_menu_title">显示高级视频质量菜单</string>
+  <string name="revanced_advanced_video_quality_menu_summary_on">显示高级视频质量菜单</string>
+  <string name="revanced_advanced_video_quality_menu_summary_off">不显示高级视频质量菜单</string>
   </patch>
   <patch id="interaction.seekbar.enableSlideToSeekPatch">
   <string name="revanced_slide_to_seek_title">启用滑动拖动进度条</string>
