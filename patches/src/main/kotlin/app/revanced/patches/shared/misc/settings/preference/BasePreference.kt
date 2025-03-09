@@ -19,10 +19,17 @@ abstract class BasePreference(
     val key: String? = null,
     val titleKey: String? = "${key}_title",
     val summaryKey: String? = "${key}_summary",
-    val icon: String? = null,
-    val layout: String? = null,
+    icon: String? = null,
+    layout: String? = null,
     val tag: String
 ) {
+
+    var icon: String? = icon
+        internal set
+
+    var layout: String? = layout
+        internal set
+
     /**
      * Serialize preference element to XML.
      * Overriding methods should invoke super and operate on its return value.
