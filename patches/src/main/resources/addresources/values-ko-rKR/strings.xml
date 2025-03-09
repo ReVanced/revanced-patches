@@ -320,7 +320,7 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_hide_keyword_content_phrases_summary">"필터링할 키워드 및 구문을 줄바꿈으로 구분하여 설정합니다
 
 • 필터링 키워드는 채널 이름 또는 동영상 제목에 표시되는 모든 텍스트가 될 수 있습니다
-• 가운데 대문자가 있는 단어는 대소문자를 함께 입력해야 합니다 (예: iPhone, TikTok, LeBlanc)"</string>
+• 대문자가 있는 단어는 대소문자를 함께 입력해야 합니다 (예: iPhone, TikTok, LeBlanc)"</string>
   <string name="revanced_hide_keyword_content_about_title">키워드 필터링 정보</string>
   <string name="revanced_hide_keyword_content_about_summary">"홈 / 구독 / 검색 결과가 필터링되어 키워드 구문과 일치하는 콘텐츠가 숨겨집니다
 
@@ -433,15 +433,11 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   </patch>
   <patch id="interaction.swipecontrols.swipeControlsResourcePatch">
   <string name="revanced_swipe_brightness_title">스와이프 제스처로 밝기 조절 활성화하기</string>
-  <string name="revanced_swipe_brightness_summary_on">"전체 화면에서 스와이프 제스처로 밝기 조절을 활성화합니다
-
-• 화면 왼쪽에서 위로/아래로 스와이프하여 밝기 조절할 수 있습니다"</string>
-  <string name="revanced_swipe_brightness_summary_off">전체 화면에서 스와이프 제스처로 밝기 조절을 비활성화합니다</string>
+  <string name="revanced_swipe_brightness_summary_on">"전체 화면 왼쪽에서 위로/아래로 스와이프하여 밝기 조절합니다"</string>
+  <string name="revanced_swipe_brightness_summary_off">전체 화면 왼쪽에서 위로/아래로 스와이프하여 밝기 조절하지 않습니다</string>
   <string name="revanced_swipe_volume_title">스와이프 제스처로 볼륨 조절 활성화하기</string>
-  <string name="revanced_swipe_volume_summary_on">"전체 화면에서 스와이프 제스처로 볼륨 조절을 활성화합니다
-
-• 화면 오른쪽에서 위로/아래로 스와이프하여 볼륨 조절할 수 있습니다"</string>
-  <string name="revanced_swipe_volume_summary_off">전체 화면에서 스와이프 제스처로 볼륨 조절을 비활성화합니다</string>
+  <string name="revanced_swipe_volume_summary_on">"전체 화면 오른쪽에서 위로/아래로 스와이프하여 볼륨 조절합니다"</string>
+  <string name="revanced_swipe_volume_summary_off">전체 화면 오른쪽에서 위로/아래로 스와이프하여 볼륨 조절하지 않습니다</string>
   <string name="revanced_swipe_press_to_engage_title">길게 눌러서 스와이프 제스처 사용하기</string>
   <string name="revanced_swipe_press_to_engage_summary_on">화면을 길게 눌러서 스와이프 제스처를 사용합니다</string>
   <string name="revanced_swipe_press_to_engage_summary_off">화면을 짧게 눌러서 스와이프 제스처를 사용합니다</string>
@@ -452,8 +448,8 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_swipe_save_and_restore_brightness_summary_on">전체 화면에서 나가거나 들어갈 때마다 화면 밝기 값을 저장 및 복원합니다</string>
   <string name="revanced_swipe_save_and_restore_brightness_summary_off">전체 화면에서 나가거나 들어갈 때마다 화면 밝기 값을 저장 및 복원하지 않습니다</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_title">스와이프 제스처로 자동 밝기 활성화하기</string>
-  <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_on">스와이프 제스처로 밝기가 0이 되면 자동 밝기를 활성화합니다</string>
-  <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_off">스와이프 제스처로 밝기가 0이 되더라도 자동 밝기를 활성화하지 않습니다</string>
+  <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_on">전체 화면에서 스와이프하여 밝기가 0이 되면 자동 밝기를 활성화합니다</string>
+  <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_off">전체 화면에서 스와이프하여 밝기가 0이 되더라도 자동 밝기를 활성화하지 않습니다</string>
   <string name="revanced_swipe_overlay_timeout_title">오버레이 타임아웃</string>
   <string name="revanced_swipe_overlay_timeout_summary">오버레이가 표시되는 시간을 지정할 수 있습니다 (밀리초)</string>
   <string name="revanced_swipe_overlay_background_opacity_title">스와이프 오버레이 배경 불투명도</string>
@@ -468,8 +464,8 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_swipe_overlay_minimal_style_summary_on">최소화된 오버레이 스타일을 활성화합니다</string>
   <string name="revanced_swipe_overlay_minimal_style_summary_off">최소화된 오버레이 스타일을 비활성화합니다</string>
   <string name="revanced_swipe_change_video_title">스와이프 제스처로 동영상 전환 활성화하기</string>
-  <string name="revanced_swipe_change_video_summary_on">전체 화면에서 위로/아래로 스와이프하여 다음/이전 동영상으로 전환합니다</string>
-  <string name="revanced_swipe_change_video_summary_off">전체 화면에서 위로/아래로 스와이프하여 다음/이전 동영상으로 전환하지 않습니다</string>
+  <string name="revanced_swipe_change_video_summary_on">전체 화면 중앙에서 위로/아래로 스와이프하여 다음/이전 동영상으로 전환합니다</string>
+  <string name="revanced_swipe_change_video_summary_off">전체 화면 중앙에서 위로/아래로 스와이프하여 다음/이전 동영상으로 전환하지 않습니다</string>
   </patch>
   <patch id="layout.autocaptions.autoCaptionsPatch">
   <string name="revanced_auto_captions_title">자동 자막 비활성화하기</string>
