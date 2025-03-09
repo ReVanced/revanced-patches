@@ -1,3 +1,10 @@
+# [5.14.0-dev.8](https://github.com/ReVanced/revanced-patches/compare/v5.14.0-dev.7...v5.14.0-dev.8) (2025-03-09)
+
+
+### Bug Fixes
+
+* **YouTube - Theme:** Resolve dark mode startup crash with Android 9.0 ([741c2d5](https://github.com/ReVanced/revanced-patches/commit/741c2d59406f5d602554bb3a3c0b8982f42848b4))
+
 # [5.14.0-dev.7](https://github.com/ReVanced/revanced-patches/compare/v5.14.0-dev.6...v5.14.0-dev.7) (2025-03-08)
 
 
