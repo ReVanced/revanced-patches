@@ -48,57 +48,6 @@ Second \"item\" text"</string>
 
 Nové jazyky přeložíte na translate.revanced.app"</string>
   <string name="revanced_language_DEFAULT">Jazyk aplikace</string>
-  <string name="revanced_language_AR">Arabština</string>
-  <string name="revanced_language_AZ">Ázerbájdžánština</string>
-  <string name="revanced_language_BG">Bulharština</string>
-  <string name="revanced_language_BN">Bengálština</string>
-  <string name="revanced_language_CA">Katalánština</string>
-  <string name="revanced_language_CS">Čeština</string>
-  <string name="revanced_language_DA">Dánština</string>
-  <string name="revanced_language_DE">Němčina</string>
-  <string name="revanced_language_EL">Řečtina</string>
-  <string name="revanced_language_EN">Angličtina</string>
-  <string name="revanced_language_ES">Španělština</string>
-  <string name="revanced_language_ET">Estonština</string>
-  <string name="revanced_language_FA">Perština</string>
-  <string name="revanced_language_FI">Finština</string>
-  <string name="revanced_language_FR">Francouzština</string>
-  <string name="revanced_language_GU">Gudžarátština</string>
-  <string name="revanced_language_HI">Hindština</string>
-  <string name="revanced_language_HR">Chorvatština</string>
-  <string name="revanced_language_HU">Maďarština</string>
-  <string name="revanced_language_ID">Indonéština</string>
-  <string name="revanced_language_IT">Italština</string>
-  <string name="revanced_language_JA">Japonština</string>
-  <string name="revanced_language_KK">Kazachština</string>
-  <string name="revanced_language_KO">Korejština</string>
-  <string name="revanced_language_LT">Litevština</string>
-  <string name="revanced_language_LV">Lotyština</string>
-  <string name="revanced_language_MK">Makedonština</string>
-  <string name="revanced_language_MN">Mongolština</string>
-  <string name="revanced_language_MR">Maráthština</string>
-  <string name="revanced_language_MS">Malajština</string>
-  <string name="revanced_language_MY">Barmština</string>
-  <string name="revanced_language_NL">Nizozemština</string>
-  <string name="revanced_language_OR">Uríjština</string>
-  <string name="revanced_language_PA">Paňdžábština</string>
-  <string name="revanced_language_PL">Polština</string>
-  <string name="revanced_language_PT">Portugalština</string>
-  <string name="revanced_language_RO">Rumunština</string>
-  <string name="revanced_language_RU">Ruština</string>
-  <string name="revanced_language_SK">Slovenština</string>
-  <string name="revanced_language_SL">Slověnština</string>
-  <string name="revanced_language_SR">Srbština</string>
-  <string name="revanced_language_SV">Švédština</string>
-  <string name="revanced_language_SW">Svahilština</string>
-  <string name="revanced_language_TA">Tamilština</string>
-  <string name="revanced_language_TE">Telugština</string>
-  <string name="revanced_language_TH">Thajština</string>
-  <string name="revanced_language_TR">Turečtina</string>
-  <string name="revanced_language_UK">Ukrajinština</string>
-  <string name="revanced_language_UR">Urdština</string>
-  <string name="revanced_language_VI">Vietnamština</string>
-  <string name="revanced_language_ZH">Čínština</string>
   <string name="revanced_pref_import_export_title">Importovat / Exportovat</string>
   <string name="revanced_pref_import_export_summary">Importovat/exportovat nastavení ReVanced</string>
   <!-- Settings about dialog. -->
@@ -1245,8 +1194,6 @@ Přejeďte prstem pro rozbalení nebo zavření"</string>
   <string name="revanced_gradient_loading_screen_title">Povolit přechodovou obrazovku načítání</string>
   <string name="revanced_gradient_loading_screen_summary_on">Obrazovka načítání bude mít přechodové pozadí</string>
   <string name="revanced_gradient_loading_screen_summary_off">Obrazovka načítání bude mít pevné pozadí</string>
-  </patch>
-  <patch id="layout.theme.themeResourcePatch">
   <string name="revanced_seekbar_custom_color_title">Povolit vlastní barvu posuvníku</string>
   <string name="revanced_seekbar_custom_color_summary_on">Vlasní barva posuvníku je zobrazena</string>
   <string name="revanced_seekbar_custom_color_summary_off">Původní barva posuvníku je zobrazena</string>
@@ -1360,7 +1307,6 @@ Povolením této funkce lze odemknout vyšší kvality videa"</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
-  <string name="revanced_video_quality_screen_title">Kvalita videa</string>
   <string name="revanced_video_quality_default_entry_1">Automaticky</string>
   <string name="revanced_remember_video_quality_last_selected_title">Pamatovat si změny kvality videa</string>
   <string name="revanced_remember_video_quality_last_selected_summary_on">Změny kvality se vztahují na všechna videa</string>
@@ -1368,8 +1314,8 @@ Povolením této funkce lze odemknout vyšší kvality videa"</string>
   <string name="revanced_video_quality_default_wifi_title">Výchozí kvalita videa v síti Wi-Fi</string>
   <string name="revanced_video_quality_default_mobile_title">Výchozí kvalita videa v mobilní síti</string>
   <string name="revanced_remember_shorts_quality_last_selected_title">Zapamatovat si změny kvality u položky Shorts</string>
-  <string name="revanced_remember_shorts_quality_last_selected_summary_on">Změny kvality se použijí u všech videí Shorts</string>
-  <string name="revanced_remember_shorts_quality_last_selected_summary_off">Změny kvality se vztahují pouze na aktuální video Shorts</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_on">Změny kvality se vztahují na všechny {Shorts}</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_off">Změny kvality se vztahují pouze na aktuální {Shorts}</string>
   <string name="revanced_shorts_quality_default_wifi_title">Výchozí kvalita Shorts v síti Wi-Fi</string>
   <string name="revanced_shorts_quality_default_mobile_title">Výchozí kvalita Shorts v mobilní síti</string>
   <string name="revanced_remember_video_quality_mobile">mobilní</string>
@@ -1406,10 +1352,10 @@ Povolením této funkce lze odemknout vyšší kvality videa"</string>
   <string name="revanced_disable_hdr_video_summary_on">HDR video je vypnuté.</string>
   <string name="revanced_disable_hdr_video_summary_off">HDR video je zapnuté.</string>
   </patch>
-  <patch id="video.videoqualitymenu.restoreOldVideoQualityMenuResourcePatch">
-  <string name="revanced_restore_old_video_quality_menu_title">Obnovit staré menu kvality videa</string>
-  <string name="revanced_restore_old_video_quality_menu_summary_on">Staré menu kvality videa se zobrazuje</string>
-  <string name="revanced_restore_old_video_quality_menu_summary_off">Staré menu kvality videa se nezobrazuje</string>
+  <patch id="video.quality.advancedVideoQualityMenuPatch">
+  <string name="revanced_advanced_video_quality_menu_title">Zobrazit rozšířené menu kvality videa</string>
+  <string name="revanced_advanced_video_quality_menu_summary_on">Zobrazuje se rozšířené menu kvality videa</string>
+  <string name="revanced_advanced_video_quality_menu_summary_off">Nezobrazuje se rozšířené menu kvality videa</string>
   </patch>
   <patch id="interaction.seekbar.enableSlideToSeekPatch">
   <string name="revanced_slide_to_seek_title">Povolit posun pro hledání</string>

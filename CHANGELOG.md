@@ -1,3 +1,31 @@
+# [5.14.0-dev.7](https://github.com/ReVanced/revanced-patches/compare/v5.14.0-dev.6...v5.14.0-dev.7) (2025-03-08)
+
+
+### Bug Fixes
+
+* **YouTube:** Change language settings menu to use native language names ([#4568](https://github.com/ReVanced/revanced-patches/issues/4568)) ([6f3f8fd](https://github.com/ReVanced/revanced-patches/commit/6f3f8fdce05501e4fa4423c2170a916fbea3b199))
+
+# [5.14.0-dev.6](https://github.com/ReVanced/revanced-patches/compare/v5.14.0-dev.5...v5.14.0-dev.6) (2025-03-07)
+
+
+### Bug Fixes
+
+* **YouTube - Hide layout components:** Do not hide Movie/Courses start page content if 'Hide horizontal shelves' is enabled ([62a6164](https://github.com/ReVanced/revanced-patches/commit/62a6164b88b64200b517a5ba6b800d8214dbbad8))
+
+# [5.14.0-dev.5](https://github.com/ReVanced/revanced-patches/compare/v5.14.0-dev.4...v5.14.0-dev.5) (2025-03-06)
+
+
+### Features
+
+* **Infinity for Reddit:** Add support for package name on IzzyOnDroid ([#4554](https://github.com/ReVanced/revanced-patches/issues/4554)) ([cf9f959](https://github.com/ReVanced/revanced-patches/commit/cf9f959923076c10a7f0a29f6ba277f5a055ec07))
+
+# [5.14.0-dev.4](https://github.com/ReVanced/revanced-patches/compare/v5.14.0-dev.3...v5.14.0-dev.4) (2025-03-06)
+
+
+### Bug Fixes
+
+* **YouTube:** Combine `Restore old video quality menu` and `Remember video quality` into `Video quality` patch ([#4552](https://github.com/ReVanced/revanced-patches/issues/4552)) ([ee67b76](https://github.com/ReVanced/revanced-patches/commit/ee67b763d5c5947a5b1ef4420b1efa820ed6af83))
+
 # [5.14.0-dev.3](https://github.com/ReVanced/revanced-patches/compare/v5.14.0-dev.2...v5.14.0-dev.3) (2025-03-06)
 
 

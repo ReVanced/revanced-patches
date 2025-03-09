@@ -48,57 +48,6 @@ Second \"item\" text"</string>
 
 Pentru a traduce noi limbi, vizitați translate.revanced.app"</string>
   <string name="revanced_language_DEFAULT">Limba aplicației</string>
-  <string name="revanced_language_AR">Arabă</string>
-  <string name="revanced_language_AZ">Azerbaidjană</string>
-  <string name="revanced_language_BG">Bulgară</string>
-  <string name="revanced_language_BN">Bengaleză</string>
-  <string name="revanced_language_CA">Catalană</string>
-  <string name="revanced_language_CS">Cehă</string>
-  <string name="revanced_language_DA">Daneză</string>
-  <string name="revanced_language_DE">Germană</string>
-  <string name="revanced_language_EL">Greacă</string>
-  <string name="revanced_language_EN">Engleză</string>
-  <string name="revanced_language_ES">Spaniolă</string>
-  <string name="revanced_language_ET">Estoniană</string>
-  <string name="revanced_language_FA">Persană</string>
-  <string name="revanced_language_FI">Finlandeză</string>
-  <string name="revanced_language_FR">Franceză</string>
-  <string name="revanced_language_GU">Gujarati</string>
-  <string name="revanced_language_HI">Hindi</string>
-  <string name="revanced_language_HR">Croată</string>
-  <string name="revanced_language_HU">Maghiară</string>
-  <string name="revanced_language_ID">Indoneziană</string>
-  <string name="revanced_language_IT">Italiană</string>
-  <string name="revanced_language_JA">Japoneză</string>
-  <string name="revanced_language_KK">Kazahă</string>
-  <string name="revanced_language_KO">Coreeană</string>
-  <string name="revanced_language_LT">Lituaniană</string>
-  <string name="revanced_language_LV">Letonă</string>
-  <string name="revanced_language_MK">Macedoneană</string>
-  <string name="revanced_language_MN">Mongolă</string>
-  <string name="revanced_language_MR">Marathi</string>
-  <string name="revanced_language_MS">Malaeză</string>
-  <string name="revanced_language_MY">Birmană</string>
-  <string name="revanced_language_NL">Olandeză</string>
-  <string name="revanced_language_OR">Odia</string>
-  <string name="revanced_language_PA">Punjabi</string>
-  <string name="revanced_language_PL">Poloneză</string>
-  <string name="revanced_language_PT">Portugheză</string>
-  <string name="revanced_language_RO">Română</string>
-  <string name="revanced_language_RU">Rusă</string>
-  <string name="revanced_language_SK">Slovacă</string>
-  <string name="revanced_language_SL">Slovenă</string>
-  <string name="revanced_language_SR">Sârbă</string>
-  <string name="revanced_language_SV">Suedeză</string>
-  <string name="revanced_language_SW">Swahili</string>
-  <string name="revanced_language_TA">Tamil</string>
-  <string name="revanced_language_TE">Telugu</string>
-  <string name="revanced_language_TH">Thailandeză</string>
-  <string name="revanced_language_TR">Turcă</string>
-  <string name="revanced_language_UK">Ucraineană</string>
-  <string name="revanced_language_UR">Urdu</string>
-  <string name="revanced_language_VI">Vietnameză</string>
-  <string name="revanced_language_ZH">Chineză</string>
   <string name="revanced_pref_import_export_title">Importă / Exportă</string>
   <string name="revanced_pref_import_export_summary">Import/Export setări ReVanced</string>
   <!-- Settings about dialog. -->
@@ -1245,8 +1194,6 @@ Trageți pentru a extinde sau a închide"</string>
   <string name="revanced_gradient_loading_screen_title">Activează ecranul de încărcare gradient</string>
   <string name="revanced_gradient_loading_screen_summary_on">Încărcarea ecranului va avea un fundal pentru gradient</string>
   <string name="revanced_gradient_loading_screen_summary_off">Ecranul de încărcare va avea un fundal solid</string>
-  </patch>
-  <patch id="layout.theme.themeResourcePatch">
   <string name="revanced_seekbar_custom_color_title">Activează culoarea barei de căutare personalizate</string>
   <string name="revanced_seekbar_custom_color_summary_on">Culoarea personalizată a barei de căutare este afișată</string>
   <string name="revanced_seekbar_custom_color_summary_off">Culoarea bara de căutare originală este afișată</string>
@@ -1360,7 +1307,6 @@ Activarea acestei opțiuni poate debloca calități video mai mari"</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
-  <string name="revanced_video_quality_screen_title">Calitatea video</string>
   <string name="revanced_video_quality_default_entry_1">Automat</string>
   <string name="revanced_remember_video_quality_last_selected_title">Memorează modificările calității video</string>
   <string name="revanced_remember_video_quality_last_selected_summary_on">Modificările de calitate se aplică tuturor videoclipurilor</string>
@@ -1368,8 +1314,8 @@ Activarea acestei opțiuni poate debloca calități video mai mari"</string>
   <string name="revanced_video_quality_default_wifi_title">Calitate video implicită în rețeaua Wi-Fi</string>
   <string name="revanced_video_quality_default_mobile_title">Calitatea video implicită în rețeaua mobilă</string>
   <string name="revanced_remember_shorts_quality_last_selected_title">Reține modificările calității pentru Shorts</string>
-  <string name="revanced_remember_shorts_quality_last_selected_summary_on">Modificările de calitate se aplică tuturor videoclipurilor Shorts</string>
-  <string name="revanced_remember_shorts_quality_last_selected_summary_off">Modificările de calitate se aplică doar videoclipului curent Shorts</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_on">Modificările de calitate se aplică tuturor Shorts</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_off">Modificările de calitate se aplică doar Shortului curent</string>
   <string name="revanced_shorts_quality_default_wifi_title">Calitatea implicită a Shorts în rețeaua Wi-Fi</string>
   <string name="revanced_shorts_quality_default_mobile_title">Calitatea implicită a Shorts în rețeaua mobilă</string>
   <string name="revanced_remember_video_quality_mobile">mobil</string>
@@ -1406,10 +1352,10 @@ Activarea acestei opțiuni poate debloca calități video mai mari"</string>
   <string name="revanced_disable_hdr_video_summary_on">Videoclipurile HDR sunt dezactivate</string>
   <string name="revanced_disable_hdr_video_summary_off">Videoclipurile HDR sunt activate</string>
   </patch>
-  <patch id="video.videoqualitymenu.restoreOldVideoQualityMenuResourcePatch">
-  <string name="revanced_restore_old_video_quality_menu_title">Restaurează meniul de calitate video vechi</string>
-  <string name="revanced_restore_old_video_quality_menu_summary_on">Vechea meniu de calitate a videoclipului este afișat</string>
-  <string name="revanced_restore_old_video_quality_menu_summary_off">Meniul vechi de calitate a videoclipului nu este afișat</string>
+  <patch id="video.quality.advancedVideoQualityMenuPatch">
+  <string name="revanced_advanced_video_quality_menu_title">Afișează meniul avansat de calitate video</string>
+  <string name="revanced_advanced_video_quality_menu_summary_on">Se afișează meniul avansat de calitate video</string>
+  <string name="revanced_advanced_video_quality_menu_summary_off">Nu se afișează meniul avansat de calitate video</string>
   </patch>
   <patch id="interaction.seekbar.enableSlideToSeekPatch">
   <string name="revanced_slide_to_seek_title">Activează diapozitivul pentru a căuta</string>

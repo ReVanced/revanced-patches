@@ -48,57 +48,6 @@ Second \"item\" text"</string>
 
 For at oversætte til nye sprog skal du besøge translate.revanced.app"</string>
   <string name="revanced_language_DEFAULT">App-sprog</string>
-  <string name="revanced_language_AR">Arabisk</string>
-  <string name="revanced_language_AZ">Aserbajdsjansk</string>
-  <string name="revanced_language_BG">Bulgarsk</string>
-  <string name="revanced_language_BN">Bengalsk</string>
-  <string name="revanced_language_CA">Catalansk</string>
-  <string name="revanced_language_CS">Tjekkisk</string>
-  <string name="revanced_language_DA">Dansk</string>
-  <string name="revanced_language_DE">Tysk</string>
-  <string name="revanced_language_EL">Græsk</string>
-  <string name="revanced_language_EN">Engelsk</string>
-  <string name="revanced_language_ES">Spansk</string>
-  <string name="revanced_language_ET">Estisk</string>
-  <string name="revanced_language_FA">Persisk</string>
-  <string name="revanced_language_FI">Finsk</string>
-  <string name="revanced_language_FR">Fransk</string>
-  <string name="revanced_language_GU">Gujarati</string>
-  <string name="revanced_language_HI">Hindi</string>
-  <string name="revanced_language_HR">Kroatisk</string>
-  <string name="revanced_language_HU">Ungarsk</string>
-  <string name="revanced_language_ID">Indonesisk</string>
-  <string name="revanced_language_IT">Italiensk</string>
-  <string name="revanced_language_JA">Japansk</string>
-  <string name="revanced_language_KK">Kasakhisk</string>
-  <string name="revanced_language_KO">Koreansk</string>
-  <string name="revanced_language_LT">Litauisk</string>
-  <string name="revanced_language_LV">Lettisk</string>
-  <string name="revanced_language_MK">Makedonsk</string>
-  <string name="revanced_language_MN">Mongolsk</string>
-  <string name="revanced_language_MR">Marathi</string>
-  <string name="revanced_language_MS">Malaysisk</string>
-  <string name="revanced_language_MY">Burmesisk</string>
-  <string name="revanced_language_NL">Hollandsk</string>
-  <string name="revanced_language_OR">Odia</string>
-  <string name="revanced_language_PA">Punjabi</string>
-  <string name="revanced_language_PL">Polsk</string>
-  <string name="revanced_language_PT">Portugisisk</string>
-  <string name="revanced_language_RO">Rumænsk</string>
-  <string name="revanced_language_RU">Russisk</string>
-  <string name="revanced_language_SK">Slovakisk</string>
-  <string name="revanced_language_SL">Slovensk</string>
-  <string name="revanced_language_SR">Serbisk</string>
-  <string name="revanced_language_SV">Svensk</string>
-  <string name="revanced_language_SW">Swahili</string>
-  <string name="revanced_language_TA">Tamil</string>
-  <string name="revanced_language_TE">Telugu</string>
-  <string name="revanced_language_TH">Thai</string>
-  <string name="revanced_language_TR">Tyrkisk</string>
-  <string name="revanced_language_UK">Ukrainisk</string>
-  <string name="revanced_language_UR">Urdu</string>
-  <string name="revanced_language_VI">Vietnamesisk</string>
-  <string name="revanced_language_ZH">Kinesisk</string>
   <string name="revanced_pref_import_export_title">Importér/Eksportér</string>
   <string name="revanced_pref_import_export_summary">Importér/Eksportér ReVanced-indstillinger</string>
   <!-- Settings about dialog. -->
@@ -1189,8 +1138,6 @@ Stryg for at udvide eller lukke"</string>
   <string name="revanced_gradient_loading_screen_title">Aktiver gradient indlæsning af skærmen</string>
   <string name="revanced_gradient_loading_screen_summary_on">Indlæser skærmen vil have en gradient baggrund</string>
   <string name="revanced_gradient_loading_screen_summary_off">Indlæser skærmen vil have en solid baggrund</string>
-  </patch>
-  <patch id="layout.theme.themeResourcePatch">
   <string name="revanced_seekbar_custom_color_title">Aktivér brugerdefineret søgelinjefarve</string>
   <string name="revanced_seekbar_custom_color_summary_on">Brugerdefineret søgelinje farve vises</string>
   <string name="revanced_seekbar_custom_color_summary_off">Original søgelinje farve vises</string>
@@ -1300,7 +1247,6 @@ Aktivering af dette kan låse op for højere videokvalitet"</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
-  <string name="revanced_video_quality_screen_title">Videokvalitet</string>
   <string name="revanced_video_quality_default_entry_1">Automatisk</string>
   <string name="revanced_remember_video_quality_last_selected_title">Husk ændringer i videokvalitet</string>
   <string name="revanced_remember_video_quality_last_selected_summary_on">Kvalitetsændringer gælder for alle videoer</string>
@@ -1308,8 +1254,8 @@ Aktivering af dette kan låse op for højere videokvalitet"</string>
   <string name="revanced_video_quality_default_wifi_title">Standard videokvalitet på Wi-Fi-netværk</string>
   <string name="revanced_video_quality_default_mobile_title">Standard videokvalitet på mobilnetværk</string>
   <string name="revanced_remember_shorts_quality_last_selected_title">Husk kvalitetsændringer for Shorts</string>
-  <string name="revanced_remember_shorts_quality_last_selected_summary_on">Kvalitetsændringer gælder for alle Shorts-videoer</string>
-  <string name="revanced_remember_shorts_quality_last_selected_summary_off">Kvalitetsændringer gælder kun for den aktuelle Shorts-video</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_on">Kvalitetsændringer gælder for alle Shorts</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_off">Kvalitetsændringer gælder kun for den aktuelle Short</string>
   <string name="revanced_shorts_quality_default_wifi_title">Standard Shorts-kvalitet på Wi-Fi-netværk</string>
   <string name="revanced_shorts_quality_default_mobile_title">Standard Shorts-kvalitet på mobilnetværk</string>
   <string name="revanced_remember_video_quality_mobile">mobil</string>
@@ -1346,10 +1292,10 @@ Aktivering af dette kan låse op for højere videokvalitet"</string>
   <string name="revanced_disable_hdr_video_summary_on">HDR-video er deaktiveret</string>
   <string name="revanced_disable_hdr_video_summary_off">HDR-video er aktiveret</string>
   </patch>
-  <patch id="video.videoqualitymenu.restoreOldVideoQualityMenuResourcePatch">
-  <string name="revanced_restore_old_video_quality_menu_title">Gendan gamle video kvalitet menu</string>
-  <string name="revanced_restore_old_video_quality_menu_summary_on">Gammel videokvalitetsmenu vises</string>
-  <string name="revanced_restore_old_video_quality_menu_summary_off">Gammel videokvalitetsmenu vises ikke</string>
+  <patch id="video.quality.advancedVideoQualityMenuPatch">
+  <string name="revanced_advanced_video_quality_menu_title">Vis avanceret menu for videokvalitet</string>
+  <string name="revanced_advanced_video_quality_menu_summary_on">Avanceret menu for videokvalitet vises</string>
+  <string name="revanced_advanced_video_quality_menu_summary_off">Avanceret menu for videokvalitet vises ikke</string>
   </patch>
   <patch id="interaction.seekbar.enableSlideToSeekPatch">
   <string name="revanced_slide_to_seek_title">Aktivér dias for at søge</string>

@@ -48,57 +48,6 @@ Second \"item\" text"</string>
 
 För att översätta till nya språk besök translate.revanced.app"</string>
   <string name="revanced_language_DEFAULT">Språk i app</string>
-  <string name="revanced_language_AR">Arabiska</string>
-  <string name="revanced_language_AZ">Azerbajdzjanska</string>
-  <string name="revanced_language_BG">Bulgariska</string>
-  <string name="revanced_language_BN">Bengali</string>
-  <string name="revanced_language_CA">Katalanska</string>
-  <string name="revanced_language_CS">Tjeckiska</string>
-  <string name="revanced_language_DA">Danska</string>
-  <string name="revanced_language_DE">Tyska</string>
-  <string name="revanced_language_EL">Grekiska</string>
-  <string name="revanced_language_EN">Engelska</string>
-  <string name="revanced_language_ES">Spanska</string>
-  <string name="revanced_language_ET">Estniska</string>
-  <string name="revanced_language_FA">Persiska</string>
-  <string name="revanced_language_FI">Finska</string>
-  <string name="revanced_language_FR">Franska</string>
-  <string name="revanced_language_GU">Gujarati</string>
-  <string name="revanced_language_HI">Hindi</string>
-  <string name="revanced_language_HR">Kroatiska</string>
-  <string name="revanced_language_HU">Ungerska</string>
-  <string name="revanced_language_ID">Indonesiska</string>
-  <string name="revanced_language_IT">Italienska</string>
-  <string name="revanced_language_JA">Japanska</string>
-  <string name="revanced_language_KK">Kazakiska</string>
-  <string name="revanced_language_KO">Koreanska</string>
-  <string name="revanced_language_LT">Litauiska</string>
-  <string name="revanced_language_LV">Lettiska</string>
-  <string name="revanced_language_MK">Makedonska</string>
-  <string name="revanced_language_MN">Mongoliska</string>
-  <string name="revanced_language_MR">Marathi</string>
-  <string name="revanced_language_MS">Malajiska</string>
-  <string name="revanced_language_MY">Burmesiska</string>
-  <string name="revanced_language_NL">Nederländska</string>
-  <string name="revanced_language_OR">Odia</string>
-  <string name="revanced_language_PA">Punjabi</string>
-  <string name="revanced_language_PL">Polska</string>
-  <string name="revanced_language_PT">Portugisiska</string>
-  <string name="revanced_language_RO">Rumänska</string>
-  <string name="revanced_language_RU">Ryska</string>
-  <string name="revanced_language_SK">Slovakiska</string>
-  <string name="revanced_language_SL">Slovenska</string>
-  <string name="revanced_language_SR">Serbiska</string>
-  <string name="revanced_language_SV">Svenska</string>
-  <string name="revanced_language_SW">Swahili</string>
-  <string name="revanced_language_TA">Tamil</string>
-  <string name="revanced_language_TE">Telugu</string>
-  <string name="revanced_language_TH">Thailändska</string>
-  <string name="revanced_language_TR">Turkiska</string>
-  <string name="revanced_language_UK">Ukrainska</string>
-  <string name="revanced_language_UR">Urdu</string>
-  <string name="revanced_language_VI">Vietnamesiska</string>
-  <string name="revanced_language_ZH">Kinesiska</string>
   <string name="revanced_pref_import_export_title">Importera / Exportera</string>
   <string name="revanced_pref_import_export_summary">Importera / Exportera ReVanced-inställningar</string>
   <!-- Settings about dialog. -->
@@ -1245,8 +1194,6 @@ Svep för att expandera eller stänga"</string>
   <string name="revanced_gradient_loading_screen_title">Aktivera gradient laddar skärmen</string>
   <string name="revanced_gradient_loading_screen_summary_on">Laddar skärmen kommer att ha en lutande bakgrund</string>
   <string name="revanced_gradient_loading_screen_summary_off">Laddar skärmen kommer att ha en solid bakgrund</string>
-  </patch>
-  <patch id="layout.theme.themeResourcePatch">
   <string name="revanced_seekbar_custom_color_title">Aktivera anpassad sökfält färg</string>
   <string name="revanced_seekbar_custom_color_summary_on">Anpassad sökfält färg visas</string>
   <string name="revanced_seekbar_custom_color_summary_off">Original sökfält färg visas</string>
@@ -1360,7 +1307,6 @@ Att aktivera detta kan låsa upp högre videokvalitet"</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
-  <string name="revanced_video_quality_screen_title">Videokvalitet</string>
   <string name="revanced_video_quality_default_entry_1">Automatiskt</string>
   <string name="revanced_remember_video_quality_last_selected_title">Kom ihåg förändringar i videokvaliteten</string>
   <string name="revanced_remember_video_quality_last_selected_summary_on">Kvalitetsändringar gäller för alla videor</string>
@@ -1368,8 +1314,8 @@ Att aktivera detta kan låsa upp högre videokvalitet"</string>
   <string name="revanced_video_quality_default_wifi_title">Standard videokvalitet på Wi-Fi-nätverk</string>
   <string name="revanced_video_quality_default_mobile_title">Standard videokvalitet på mobilt nätverk</string>
   <string name="revanced_remember_shorts_quality_last_selected_title">Kom ihåg kvalitetsändringar för Shorts</string>
-  <string name="revanced_remember_shorts_quality_last_selected_summary_on">Kvalitetsändringar gäller alla Shorts-videor</string>
-  <string name="revanced_remember_shorts_quality_last_selected_summary_off">Kvalitetsändringar gäller endast den aktuella Shorts-videon</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_on">Kvalitetsändringar gäller alla Shorts</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_off">Kvalitetsändringar gäller endast aktuell Short</string>
   <string name="revanced_shorts_quality_default_wifi_title">Standardkvalitet för Shorts på Wi-Fi-nätverk</string>
   <string name="revanced_shorts_quality_default_mobile_title">Standardkvalitet för Shorts på mobilnätverk</string>
   <string name="revanced_remember_video_quality_mobile">mobil</string>
@@ -1406,10 +1352,10 @@ Att aktivera detta kan låsa upp högre videokvalitet"</string>
   <string name="revanced_disable_hdr_video_summary_on">HDR-video är inaktiverat</string>
   <string name="revanced_disable_hdr_video_summary_off">HDR-video är aktiverat</string>
   </patch>
-  <patch id="video.videoqualitymenu.restoreOldVideoQualityMenuResourcePatch">
-  <string name="revanced_restore_old_video_quality_menu_title">Återställ gamla videokvalitetsmenyn</string>
-  <string name="revanced_restore_old_video_quality_menu_summary_on">Gammal videokvalitetsmeny visas</string>
-  <string name="revanced_restore_old_video_quality_menu_summary_off">Gamla videokvalitetsmenyn visas inte</string>
+  <patch id="video.quality.advancedVideoQualityMenuPatch">
+  <string name="revanced_advanced_video_quality_menu_title">Visa avancerad videokvalitetsmeny</string>
+  <string name="revanced_advanced_video_quality_menu_summary_on">Avancerad videokvalitetsmeny visas</string>
+  <string name="revanced_advanced_video_quality_menu_summary_off">Avancerad videokvalitetsmeny visas inte</string>
   </patch>
   <patch id="interaction.seekbar.enableSlideToSeekPatch">
   <string name="revanced_slide_to_seek_title">Aktivera glid för att söka</string>

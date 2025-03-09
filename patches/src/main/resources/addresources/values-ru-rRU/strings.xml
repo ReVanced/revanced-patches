@@ -48,57 +48,6 @@ Second \"item\" text"</string>
 
 Чтобы перевести новые языки, посетите translate.revanced.app"</string>
   <string name="revanced_language_DEFAULT">Язык приложения YouTube</string>
-  <string name="revanced_language_AR">Арабский</string>
-  <string name="revanced_language_AZ">Азербайджанский</string>
-  <string name="revanced_language_BG">Болгарский</string>
-  <string name="revanced_language_BN">Бенгальский</string>
-  <string name="revanced_language_CA">Каталонский</string>
-  <string name="revanced_language_CS">Чешский</string>
-  <string name="revanced_language_DA">Датский</string>
-  <string name="revanced_language_DE">Немецкий</string>
-  <string name="revanced_language_EL">Греческий</string>
-  <string name="revanced_language_EN">Английский</string>
-  <string name="revanced_language_ES">Испанский</string>
-  <string name="revanced_language_ET">Эстонский</string>
-  <string name="revanced_language_FA">Фарси</string>
-  <string name="revanced_language_FI">Финский</string>
-  <string name="revanced_language_FR">Французкий</string>
-  <string name="revanced_language_GU">Гуджарати</string>
-  <string name="revanced_language_HI">Хинди</string>
-  <string name="revanced_language_HR">Хорватский</string>
-  <string name="revanced_language_HU">Венгерский</string>
-  <string name="revanced_language_ID">Индонезийский</string>
-  <string name="revanced_language_IT">Итальянский</string>
-  <string name="revanced_language_JA">Японский</string>
-  <string name="revanced_language_KK">Казахский</string>
-  <string name="revanced_language_KO">Корейский</string>
-  <string name="revanced_language_LT">Литовский</string>
-  <string name="revanced_language_LV">Латышский</string>
-  <string name="revanced_language_MK">Македонский</string>
-  <string name="revanced_language_MN">Монгольский</string>
-  <string name="revanced_language_MR">Маратхи</string>
-  <string name="revanced_language_MS">Малайский</string>
-  <string name="revanced_language_MY">Бирманский</string>
-  <string name="revanced_language_NL">Нидерландский</string>
-  <string name="revanced_language_OR">Одиа</string>
-  <string name="revanced_language_PA">Панджаби</string>
-  <string name="revanced_language_PL">Польский</string>
-  <string name="revanced_language_PT">Португальский</string>
-  <string name="revanced_language_RO">Румынский</string>
-  <string name="revanced_language_RU">Русский</string>
-  <string name="revanced_language_SK">Словацкий</string>
-  <string name="revanced_language_SL">Словенский</string>
-  <string name="revanced_language_SR">Сербский</string>
-  <string name="revanced_language_SV">Шведский</string>
-  <string name="revanced_language_SW">Суахили</string>
-  <string name="revanced_language_TA">Тамильский</string>
-  <string name="revanced_language_TE">Телугу</string>
-  <string name="revanced_language_TH">Тайский</string>
-  <string name="revanced_language_TR">Турецкий</string>
-  <string name="revanced_language_UK">Украинский</string>
-  <string name="revanced_language_UR">Урду</string>
-  <string name="revanced_language_VI">Вьетнамский</string>
-  <string name="revanced_language_ZH">Китайский</string>
   <string name="revanced_pref_import_export_title">Резервное копирование настроек</string>
   <string name="revanced_pref_import_export_summary">Создание и восстановление резервной копии настроек ReVanced</string>
   <!-- Settings about dialog. -->
@@ -1246,8 +1195,6 @@ Second \"item\" text"</string>
   <string name="revanced_gradient_loading_screen_title">Включить градиентный фон экрана загрузки</string>
   <string name="revanced_gradient_loading_screen_summary_on">Градиентный фон экрана загрузки макета включен</string>
   <string name="revanced_gradient_loading_screen_summary_off">Сплошной фон экрана загрузки макета включен</string>
-  </patch>
-  <patch id="layout.theme.themeResourcePatch">
   <string name="revanced_seekbar_custom_color_title">Включить кастомный цвет полосы прогресса</string>
   <string name="revanced_seekbar_custom_color_summary_on">Кастомный цвет полосы прогресса включен</string>
   <string name="revanced_seekbar_custom_color_summary_off">Оригинальный цвет полосы прогресса включен</string>
@@ -1361,7 +1308,6 @@ Second \"item\" text"</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
-  <string name="revanced_video_quality_screen_title">Качество видео</string>
   <string name="revanced_video_quality_default_entry_1">Авто</string>
   <string name="revanced_remember_video_quality_last_selected_title">Запоминать изменения качества видео</string>
   <string name="revanced_remember_video_quality_last_selected_summary_on">Изменения качества воспроизведения применяются ко всем видео</string>
@@ -1369,8 +1315,8 @@ Second \"item\" text"</string>
   <string name="revanced_video_quality_default_wifi_title">Качество видео по умолчанию в Wi-Fi сети</string>
   <string name="revanced_video_quality_default_mobile_title">Качество видео по умолчанию в мобильной сети</string>
   <string name="revanced_remember_shorts_quality_last_selected_title">Запоминать изменения качества Shorts</string>
-  <string name="revanced_remember_shorts_quality_last_selected_summary_on">Изменения качества воспроизведения применяются ко всем видео Shorts</string>
-  <string name="revanced_remember_shorts_quality_last_selected_summary_off">Изменения качества воспроизведения применяются только к текущему видео Shorts</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_on">Изменения качества воспроизведения применяются ко всем Shorts</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_off">Изменения качества воспроизведения применяются только к текущему Short</string>
   <string name="revanced_shorts_quality_default_wifi_title">Качество Shorts по умолчанию в Wi-Fi сети</string>
   <string name="revanced_shorts_quality_default_mobile_title">Качество Shorts по умолчанию в мобильной сети</string>
   <string name="revanced_remember_video_quality_mobile">мобильной сети</string>
@@ -1407,10 +1353,10 @@ Second \"item\" text"</string>
   <string name="revanced_disable_hdr_video_summary_on">HDR видео отключено</string>
   <string name="revanced_disable_hdr_video_summary_off">HDR видео включено</string>
   </patch>
-  <patch id="video.videoqualitymenu.restoreOldVideoQualityMenuResourcePatch">
-  <string name="revanced_restore_old_video_quality_menu_title">Включить старое меню качества видео</string>
-  <string name="revanced_restore_old_video_quality_menu_summary_on">Старое меню качества видео включено</string>
-  <string name="revanced_restore_old_video_quality_menu_summary_off">Новое меню качества видео включено</string>
+  <patch id="video.quality.advancedVideoQualityMenuPatch">
+  <string name="revanced_advanced_video_quality_menu_title">Показать расширенное меню качества видео</string>
+  <string name="revanced_advanced_video_quality_menu_summary_on">Расширенное меню качества видео показано</string>
+  <string name="revanced_advanced_video_quality_menu_summary_off">Расширенное меню качества видео скрыто</string>
   </patch>
   <patch id="interaction.seekbar.enableSlideToSeekPatch">
   <string name="revanced_slide_to_seek_title">Включить перемотку видео слайдом</string>

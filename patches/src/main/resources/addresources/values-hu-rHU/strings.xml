@@ -48,57 +48,6 @@ Second \"item\" text"</string>
 
 Új nyelvek lefordításához látogasson el ide: translate.revanced.app"</string>
   <string name="revanced_language_DEFAULT">Alkalmazás nyelve</string>
-  <string name="revanced_language_AR">Arab</string>
-  <string name="revanced_language_AZ">Azeri</string>
-  <string name="revanced_language_BG">Bolgár</string>
-  <string name="revanced_language_BN">Bengáli</string>
-  <string name="revanced_language_CA">Katalán</string>
-  <string name="revanced_language_CS">Cseh</string>
-  <string name="revanced_language_DA">Dán</string>
-  <string name="revanced_language_DE">Német</string>
-  <string name="revanced_language_EL">Görög</string>
-  <string name="revanced_language_EN">Angol</string>
-  <string name="revanced_language_ES">Spanyol</string>
-  <string name="revanced_language_ET">Észt</string>
-  <string name="revanced_language_FA">Perzsa</string>
-  <string name="revanced_language_FI">Finn</string>
-  <string name="revanced_language_FR">Francia</string>
-  <string name="revanced_language_GU">Gudzsaráti</string>
-  <string name="revanced_language_HI">Hindi</string>
-  <string name="revanced_language_HR">Horvát</string>
-  <string name="revanced_language_HU">Magyar</string>
-  <string name="revanced_language_ID">Indonéz</string>
-  <string name="revanced_language_IT">Olasz</string>
-  <string name="revanced_language_JA">Japán</string>
-  <string name="revanced_language_KK">Kazah</string>
-  <string name="revanced_language_KO">Koreai</string>
-  <string name="revanced_language_LT">Litván</string>
-  <string name="revanced_language_LV">Lett</string>
-  <string name="revanced_language_MK">Macedón</string>
-  <string name="revanced_language_MN">Mongol</string>
-  <string name="revanced_language_MR">Maráthi</string>
-  <string name="revanced_language_MS">Maláj</string>
-  <string name="revanced_language_MY">Burmai</string>
-  <string name="revanced_language_NL">Holland</string>
-  <string name="revanced_language_OR">Odia</string>
-  <string name="revanced_language_PA">Pandzsábi</string>
-  <string name="revanced_language_PL">Lengyel</string>
-  <string name="revanced_language_PT">Portugál</string>
-  <string name="revanced_language_RO">Román</string>
-  <string name="revanced_language_RU">Orosz</string>
-  <string name="revanced_language_SK">Szlovák</string>
-  <string name="revanced_language_SL">Szlovén</string>
-  <string name="revanced_language_SR">Szerb</string>
-  <string name="revanced_language_SV">Svéd</string>
-  <string name="revanced_language_SW">Szuahéli</string>
-  <string name="revanced_language_TA">Tamil</string>
-  <string name="revanced_language_TE">Telugu</string>
-  <string name="revanced_language_TH">Thai</string>
-  <string name="revanced_language_TR">Török</string>
-  <string name="revanced_language_UK">Ukrán</string>
-  <string name="revanced_language_UR">Urdu</string>
-  <string name="revanced_language_VI">Vietnami</string>
-  <string name="revanced_language_ZH">Kínai</string>
   <string name="revanced_pref_import_export_title">Importálás / exportálás</string>
   <string name="revanced_pref_import_export_summary">ReVanced beállítások importálása / exportálása</string>
   <!-- Settings about dialog. -->
@@ -1245,8 +1194,6 @@ Húzza el a képernyőt a kibontáshoz vagy bezáráshoz"</string>
   <string name="revanced_gradient_loading_screen_title">Színátmenetes betöltési képernyő engedélyezése</string>
   <string name="revanced_gradient_loading_screen_summary_on">A betöltési képernyő színátmenetes hatterű lesz</string>
   <string name="revanced_gradient_loading_screen_summary_off">A betöltési képernyő egyszínű hátterű lesz</string>
-  </patch>
-  <patch id="layout.theme.themeResourcePatch">
   <string name="revanced_seekbar_custom_color_title">Egyéni keresősáv szín engedélyezése</string>
   <string name="revanced_seekbar_custom_color_summary_on">Az egyéni keresősáv szín megjelenik</string>
   <string name="revanced_seekbar_custom_color_summary_off">Az egyéni keresősáv szín nem jelenik meg</string>
@@ -1360,7 +1307,6 @@ Ez a beállítás lehetővé teszi a magasabb videóminőségek feloldását"</s
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
-  <string name="revanced_video_quality_screen_title">Videóminőség</string>
   <string name="revanced_video_quality_default_entry_1">Automatikus</string>
   <string name="revanced_remember_video_quality_last_selected_title">Felbontás változtatások mentése</string>
   <string name="revanced_remember_video_quality_last_selected_summary_on">Felbontás változtatások alkalmazása az összes videóra</string>
@@ -1368,8 +1314,8 @@ Ez a beállítás lehetővé teszi a magasabb videóminőségek feloldását"</s
   <string name="revanced_video_quality_default_wifi_title">Alapértelmezett videó minőség Wi-Fi hálózaton</string>
   <string name="revanced_video_quality_default_mobile_title">Alapértelmezett videó minőség mobilhálózaton</string>
   <string name="revanced_remember_shorts_quality_last_selected_title">A Shorts minőség módosításainak megjegyzése</string>
-  <string name="revanced_remember_shorts_quality_last_selected_summary_on">A minőségváltozások az összes Shorts-videóra érvényesek</string>
-  <string name="revanced_remember_shorts_quality_last_selected_summary_off">A minőségváltozások csak az aktuális Shorts-videóra érvényesek</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_on">A minőségi beállítások az összes Shorts videóra vonatkoznak</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_off">A minőségi beállítások csak a jelenlegi Short videóra vonatkoznak</string>
   <string name="revanced_shorts_quality_default_wifi_title">Alapértelmezett Shorts minőség Wi-Fi hálózaton</string>
   <string name="revanced_shorts_quality_default_mobile_title">Alapértelmezett Shorts minőség mobilhálózaton</string>
   <string name="revanced_remember_video_quality_mobile">mobil</string>
@@ -1406,10 +1352,10 @@ Ez a beállítás lehetővé teszi a magasabb videóminőségek feloldását"</s
   <string name="revanced_disable_hdr_video_summary_on">Az HDR videó le van tiltva</string>
   <string name="revanced_disable_hdr_video_summary_off">Az HDR videó engedélyezve van</string>
   </patch>
-  <patch id="video.videoqualitymenu.restoreOldVideoQualityMenuResourcePatch">
-  <string name="revanced_restore_old_video_quality_menu_title">Régi videóminőség menü visszaállítása</string>
-  <string name="revanced_restore_old_video_quality_menu_summary_on">A régi videóminőség menü jelenik meg</string>
-  <string name="revanced_restore_old_video_quality_menu_summary_off">A régi videóminőség menü nem jelenik meg</string>
+  <patch id="video.quality.advancedVideoQualityMenuPatch">
+  <string name="revanced_advanced_video_quality_menu_title">Speciális videóminőség menü megjelenítése</string>
+  <string name="revanced_advanced_video_quality_menu_summary_on">A speciális videóminőség menü látható</string>
+  <string name="revanced_advanced_video_quality_menu_summary_off">A speciális videóminőség menü nem látható</string>
   </patch>
   <patch id="interaction.seekbar.enableSlideToSeekPatch">
   <string name="revanced_slide_to_seek_title">Csúsztatás engedélyezése a kereséshez</string>

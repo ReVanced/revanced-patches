@@ -48,57 +48,6 @@ Second \"item\" text"</string>
 
 Yeni dilləri tərcümə etmək üçün translate.revanced.app 'ə daxil olun"</string>
   <string name="revanced_language_DEFAULT">Tətbiq dili</string>
-  <string name="revanced_language_AR">Ərəbcə</string>
-  <string name="revanced_language_AZ">Azərbaycanca</string>
-  <string name="revanced_language_BG">Bolqarca</string>
-  <string name="revanced_language_BN">Benqalca</string>
-  <string name="revanced_language_CA">Katalan dili</string>
-  <string name="revanced_language_CS">Çexcə</string>
-  <string name="revanced_language_DA">Dan dili</string>
-  <string name="revanced_language_DE">Almanca</string>
-  <string name="revanced_language_EL">Yunanca</string>
-  <string name="revanced_language_EN">İngiliscə</string>
-  <string name="revanced_language_ES">İspanca</string>
-  <string name="revanced_language_ET">Estonca</string>
-  <string name="revanced_language_FA">Farsca</string>
-  <string name="revanced_language_FI">Fincə</string>
-  <string name="revanced_language_FR">Fransızca</string>
-  <string name="revanced_language_GU">Qücərat dili</string>
-  <string name="revanced_language_HI">Hindcə</string>
-  <string name="revanced_language_HR">Xorvatca</string>
-  <string name="revanced_language_HU">Macarca</string>
-  <string name="revanced_language_ID">İndoneziya dili</string>
-  <string name="revanced_language_IT">İtalyanca</string>
-  <string name="revanced_language_JA">Yaponca</string>
-  <string name="revanced_language_KK">Qazax dili</string>
-  <string name="revanced_language_KO">Koreya dili</string>
-  <string name="revanced_language_LT">Litva Dili</string>
-  <string name="revanced_language_LV">Letonca</string>
-  <string name="revanced_language_MK">Makedon Dili</string>
-  <string name="revanced_language_MN">Monqolca</string>
-  <string name="revanced_language_MR">Marathi dili</string>
-  <string name="revanced_language_MS">Malay dili</string>
-  <string name="revanced_language_MY">Birmanca</string>
-  <string name="revanced_language_NL">Hollandca</string>
-  <string name="revanced_language_OR">Oriya dili</string>
-  <string name="revanced_language_PA">Pəncabca</string>
-  <string name="revanced_language_PL">Polyak dili</string>
-  <string name="revanced_language_PT">Portuqal dili</string>
-  <string name="revanced_language_RO">Rumınca</string>
-  <string name="revanced_language_RU">Rusca</string>
-  <string name="revanced_language_SK">Slovak dili</string>
-  <string name="revanced_language_SL">Slovencə</string>
-  <string name="revanced_language_SR">Serbcə</string>
-  <string name="revanced_language_SV">İsveçcə</string>
-  <string name="revanced_language_SW">Suahili dili</string>
-  <string name="revanced_language_TA">Tamilcə</string>
-  <string name="revanced_language_TE">Teluqu dili</string>
-  <string name="revanced_language_TH">Tayca</string>
-  <string name="revanced_language_TR">Türkcə</string>
-  <string name="revanced_language_UK">Ukrayna dili</string>
-  <string name="revanced_language_UR">Urdu dili</string>
-  <string name="revanced_language_VI">Vyetnamca</string>
-  <string name="revanced_language_ZH">Çincə</string>
   <string name="revanced_pref_import_export_title">İdxal/İxrac et</string>
   <string name="revanced_pref_import_export_summary">ReVanced tənzimləmələrin idxal/ixrac et</string>
   <!-- Settings about dialog. -->
@@ -404,6 +353,7 @@ Bu xüsusiyyət yalnız köhnə cihazlar üçün mövcuddur"</string>
   <string name="revanced_hide_self_sponsor_ads_title">Öz-sponsorlu kartları gizlət</string>
   <string name="revanced_hide_self_sponsor_ads_summary_on">Özünə sponsorluq edilən kartlar gizlidir</string>
   <string name="revanced_hide_self_sponsor_ads_summary_off">Özünə sponsorluq edilən kartlar göstərilir</string>
+  <string name="revanced_hide_products_banner_title">\"Məhsullara baxın\" etiketin gizlət</string>
   <string name="revanced_hide_products_banner_summary_on">Etiket gizlədilib</string>
   <string name="revanced_hide_products_banner_summary_off">Etiket göstərilir</string>
   <string name="revanced_hide_end_screen_store_banner_title">Son ekran mağaza etiketini gizlət</string>
@@ -662,6 +612,7 @@ Bu seçimi dəyişdirmə işə düşmürsə, Gizli rejimə keçməyə çalışı
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_off">Video keyfiyyət menyusu alt məlumatı göstərilir</string>
   </patch>
   <patch id="layout.buttons.overlay.hidePlayerOverlayButtonsPatch">
+  <string name="revanced_hide_player_previous_next_buttons_title">Əvvəlki və Növbəti düymələrin gizlət</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_on">Düymələr gizlidir</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">Düymələr göstərilir</string>
   <string name="revanced_hide_cast_button_title">Yayımla düyməsini gizlət</string>
@@ -1113,6 +1064,14 @@ Təqdim etməyə hazırdır?"</string>
   <string name="revanced_change_form_factor_entry_2">Telefon</string>
   <string name="revanced_change_form_factor_entry_3">Planşet</string>
   <string name="revanced_change_form_factor_entry_4">Avtomobil</string>
+  <string name="revanced_change_form_factor_user_dialog_message">"Dəyişikliklər ehtiva edir:
+
+Planşet tərtibatı
+• İcma elanları gizlədilib
+
+Avtomobil tərtibatı
+• Shorts müntəzəm oynadıcıda açılır
+• Axın mövzular və kanallardan ibarətdir"</string>
   </patch>
   <patch id="layout.spoofappversion.spoofAppVersionPatch">
   <string name="revanced_spoof_app_version_title">Tətbiq versiyasını saxtalaşdır</string>
@@ -1182,6 +1141,7 @@ Sonradan qapadılarsa, UI səhvlərin önləmək üçün tətbiq məlumatların 
   </patch>
   <patch id="layout.miniplayer.miniplayerPatch">
   <string name="revanced_miniplayer_screen_title">Kiçik oynadıcı</string>
+  <string name="revanced_miniplayer_screen_summary">Tətbiqdaxili kiçilən oynadıcı üslubunu dəyişdir</string>
   <string name="revanced_miniplayer_type_title">Kiçik oynadıcı növü</string>
   <string name="revanced_miniplayer_type_entry_0">Qeyri-aktivdir</string>
   <string name="revanced_miniplayer_type_entry_1">İlkin</string>
@@ -1234,8 +1194,6 @@ Genişləndirmək və ya bağlamaq üçün sürüşdür"</string>
   <string name="revanced_gradient_loading_screen_title">Dəyişkən yükləmə ekranını aktivləşdir</string>
   <string name="revanced_gradient_loading_screen_summary_on">Yükləmə ekranı, dəyişkən arxa plana malik olacaq</string>
   <string name="revanced_gradient_loading_screen_summary_off">Yükləmə ekranı, vahid arxa plana malik olacaq</string>
-  </patch>
-  <patch id="layout.theme.themeResourcePatch">
   <string name="revanced_seekbar_custom_color_title">Fərdi irəliləmə cizgisi rəngini aktivləşdir</string>
   <string name="revanced_seekbar_custom_color_summary_on">Fərdi irəliləmə cizgisi rəngi göstərilir</string>
   <string name="revanced_seekbar_custom_color_summary_off">Orijinal irəliləmə cizgisi rəngi göstərilir</string>
@@ -1327,6 +1285,8 @@ Bunu aktivləşdirmə daha yüksək video keyfiyyətləri əngəlin silə bilər
   </patch>
   <patch id="misc.links.openLinksExternallyPatch">
   <string name="revanced_external_browser_title">Bağlantıları brauzerdə aç</string>
+  <string name="revanced_external_browser_summary_on">Xarici brauzerdə bağlantıların açılması</string>
+  <string name="revanced_external_browser_summary_off">Tətbiqdaxili brauzerdə bağlantıların açılması</string>
   </patch>
   <patch id="misc.privacy.removeTrackingQueryParameterPatch">
   <string name="revanced_remove_tracking_query_parameter_title">İzləmə sorğusu faktorun sil</string>
@@ -1353,9 +1313,15 @@ Bunu aktivləşdirmə daha yüksək video keyfiyyətləri əngəlin silə bilər
   <string name="revanced_remember_video_quality_last_selected_summary_off">Keyfiyyət dəyişiklikləri yalnız cari videoya tətbiq edilir</string>
   <string name="revanced_video_quality_default_wifi_title">Wi-Fi şəbəkəsində ilkin video keyfiyyəti</string>
   <string name="revanced_video_quality_default_mobile_title">Mobil şəbəkədə ilkin video keyfiyyəti</string>
+  <string name="revanced_remember_shorts_quality_last_selected_title">Shorts keyfiyyət dəyişikliklərini xatırla</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_on">Keyfiyyət dəyişiklikləri bütün Shorts-a tətbiq edilir</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_off">Keyfiyyət dəyişiklikləri yalnız cari Short-a tətbiq edilir</string>
+  <string name="revanced_shorts_quality_default_wifi_title">Wi-Fi şəbəkəsində ilkin Shorts keyfiyyəti</string>
+  <string name="revanced_shorts_quality_default_mobile_title">Mobil şəbəkədə ilkin Shorts keyfiyyəti</string>
   <string name="revanced_remember_video_quality_mobile">mobil</string>
   <string name="revanced_remember_video_quality_wifi">wi-fi</string>
   <string name="revanced_remember_video_quality_toast">İlkin %1$s keyfiyyəti %2$s kimi dəyişdi</string>
+  <string name="revanced_remember_video_quality_toast_shorts">Shorts-un %1$s keyfiyyəti %2$s olaraq dəyişdirildi</string>
   </patch>
   <patch id="video.speed.button.playbackSpeedButtonPatch">
   <string name="revanced_playback_speed_dialog_button_title">Sürət dialoq düyməsini göstər</string>
@@ -1386,10 +1352,10 @@ Bunu aktivləşdirmə daha yüksək video keyfiyyətləri əngəlin silə bilər
   <string name="revanced_disable_hdr_video_summary_on">HDR video qapalıdır</string>
   <string name="revanced_disable_hdr_video_summary_off">HDR video aktivdir</string>
   </patch>
-  <patch id="video.videoqualitymenu.restoreOldVideoQualityMenuResourcePatch">
-  <string name="revanced_restore_old_video_quality_menu_title">Köhnə video keyfiyyət menusun qaytar</string>
-  <string name="revanced_restore_old_video_quality_menu_summary_on">Köhnə video keyfiyyət siyahısı göstərilir</string>
-  <string name="revanced_restore_old_video_quality_menu_summary_off">Köhnə video keyfiyyət siyahısı görünmür</string>
+  <patch id="video.quality.advancedVideoQualityMenuPatch">
+  <string name="revanced_advanced_video_quality_menu_title">Qabaqcıl video keyfiyyət siyahısın göstər</string>
+  <string name="revanced_advanced_video_quality_menu_summary_on">Qabaqcıl video keyfiyyət siyahısı göstərilir</string>
+  <string name="revanced_advanced_video_quality_menu_summary_off">Qabaqcıl video keyfiyyət siyahısı göstərilmir</string>
   </patch>
   <patch id="interaction.seekbar.enableSlideToSeekPatch">
   <string name="revanced_slide_to_seek_title">Axtarmaq üçün sürüşdürməni aktiv et</string>

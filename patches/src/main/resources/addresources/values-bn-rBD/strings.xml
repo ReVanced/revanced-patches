@@ -48,57 +48,6 @@ Second \"item\" text"</string>
 
 নতুন ভাষা অনুবাদ করতে translate.revanced.app দেখুন"</string>
   <string name="revanced_language_DEFAULT">অ্যাপ্লিকেশনের ভাষা</string>
-  <string name="revanced_language_AR">আরবি</string>
-  <string name="revanced_language_AZ">আজারবাইজানি</string>
-  <string name="revanced_language_BG">বুলগেরিয়ান</string>
-  <string name="revanced_language_BN">বাংলা</string>
-  <string name="revanced_language_CA">কাতালান</string>
-  <string name="revanced_language_CS">চেক</string>
-  <string name="revanced_language_DA">ড্যানিশ</string>
-  <string name="revanced_language_DE">জার্মান</string>
-  <string name="revanced_language_EL">গ্রিক</string>
-  <string name="revanced_language_EN">ইংরেজি</string>
-  <string name="revanced_language_ES">স্প্যানিশ</string>
-  <string name="revanced_language_ET">এস্তোনিয়ান</string>
-  <string name="revanced_language_FA">ফার্সি</string>
-  <string name="revanced_language_FI">ফিনিশ</string>
-  <string name="revanced_language_FR">ফরাসি</string>
-  <string name="revanced_language_GU">গুজরাটি</string>
-  <string name="revanced_language_HI">হিন্দি</string>
-  <string name="revanced_language_HR">ক্রোয়েশীয়</string>
-  <string name="revanced_language_HU">হাঙ্গেরিয়ান</string>
-  <string name="revanced_language_ID">ইন্দোনেশিয়ান</string>
-  <string name="revanced_language_IT">ইতালীয়</string>
-  <string name="revanced_language_JA">জাপানি</string>
-  <string name="revanced_language_KK">কাজাখ</string>
-  <string name="revanced_language_KO">কোরিয়ান</string>
-  <string name="revanced_language_LT">লিথুয়ানিয়ান</string>
-  <string name="revanced_language_LV">লাতভিয়ান</string>
-  <string name="revanced_language_MK">ম্যাসেডোনিয়ান</string>
-  <string name="revanced_language_MN">মঙ্গোলীয়</string>
-  <string name="revanced_language_MR">মারাঠি</string>
-  <string name="revanced_language_MS">মালয়</string>
-  <string name="revanced_language_MY">বর্মি</string>
-  <string name="revanced_language_NL">ডাচ</string>
-  <string name="revanced_language_OR">ওড়িয়া</string>
-  <string name="revanced_language_PA">পাঞ্জাবি</string>
-  <string name="revanced_language_PL">পোলিশ</string>
-  <string name="revanced_language_PT">পর্তুগিজ</string>
-  <string name="revanced_language_RO">রোমানীয়</string>
-  <string name="revanced_language_RU">রুশ</string>
-  <string name="revanced_language_SK">স্লোভাক</string>
-  <string name="revanced_language_SL">স্লোভেন</string>
-  <string name="revanced_language_SR">সার্বিয়ান</string>
-  <string name="revanced_language_SV">সুইডিশ</string>
-  <string name="revanced_language_SW">সোয়াহিলি</string>
-  <string name="revanced_language_TA">তামিল</string>
-  <string name="revanced_language_TE">তেলুগু</string>
-  <string name="revanced_language_TH">থাই</string>
-  <string name="revanced_language_TR">তুর্কি</string>
-  <string name="revanced_language_UK">ইউক্রেনীয়</string>
-  <string name="revanced_language_UR">উর্দু</string>
-  <string name="revanced_language_VI">ভিয়েতনামী</string>
-  <string name="revanced_language_ZH">চাইনিজ</string>
   <string name="revanced_pref_import_export_title">আমদানি এবং রপ্তানি</string>
   <string name="revanced_pref_import_export_summary">ReVanced সেটিং আমদানি বা রপ্তানি করুন</string>
   <!-- Settings about dialog. -->
@@ -1242,8 +1191,6 @@ Miniplayer স্ক্রিন থেকে বামে বা ডানে �
   <string name="revanced_gradient_loading_screen_title">গ্রেডিয়েন্ট লোডিং স্ক্রিণ সক্রিয় করুন</string>
   <string name="revanced_gradient_loading_screen_summary_on">লোডিং স্ক্রিণে একটি গ্রেডিয়েন্ড ব্যাকগ্রাউন্ড থাকবে</string>
   <string name="revanced_gradient_loading_screen_summary_off">লোডিং স্ক্রিণে একটি সলিড ব্যাকগ্রাউন্ড থাকবে</string>
-  </patch>
-  <patch id="layout.theme.themeResourcePatch">
   <string name="revanced_seekbar_custom_color_title">সিকবারে নিজস্ব রং সক্রিয় করুন</string>
   <string name="revanced_seekbar_custom_color_summary_on">সিকবারে নিজস্ব রং প্রদর্শিত হয়েছে</string>
   <string name="revanced_seekbar_custom_color_summary_off">সিকবারে মূল রং প্রদর্শিত হয়েছে</string>
@@ -1357,7 +1304,6 @@ DeArrow সম্পর্কে আরও জানতে এখানে ট�
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
-  <string name="revanced_video_quality_screen_title">ভিডিওর গুণমান</string>
   <string name="revanced_video_quality_default_entry_1">স্বতস্ফূর্তভাবে</string>
   <string name="revanced_remember_video_quality_last_selected_title">ভিডিও গুণমান পরিবর্তন মনে রাখুন</string>
   <string name="revanced_remember_video_quality_last_selected_summary_on">গুণমান পরিবর্তন সব ভিডিওতে প্রয়োগ করা হয়েছে</string>
@@ -1365,8 +1311,8 @@ DeArrow সম্পর্কে আরও জানতে এখানে ট�
   <string name="revanced_video_quality_default_wifi_title">ওয়াই-ফাই নেটওয়ার্কে ডিফল্ট ভিডিও গুণমান</string>
   <string name="revanced_video_quality_default_mobile_title">মোবাইল নেটওয়ার্কে ডিফল্ট ভিডিও গুণমান</string>
   <string name="revanced_remember_shorts_quality_last_selected_title">Shorts গুণমান পরিবর্তনের কথা মনে রাখুন</string>
-  <string name="revanced_remember_shorts_quality_last_selected_summary_on">গুণমানের পরিবর্তন সমস্ত Shorts ভিডিওগুলিতে প্রযোজ্য</string>
-  <string name="revanced_remember_shorts_quality_last_selected_summary_off">গুণমানের পরিবর্তনগুলি কেবল বর্তমান Shorts ভিডিওটিতে প্রযোজ্য</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_on">গুণমানের পরিবর্তনগুলি সমস্ত Shorts-এর জন্য প্রযোজ্য</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_off">গুণমানের পরিবর্তনগুলি শুধুমাত্র বর্তমান Short-এর জন্য প্রযোজ্য</string>
   <string name="revanced_shorts_quality_default_wifi_title">Wi-Fi নেটওয়ার্কে ডিফল্ট Shorts গুণমান</string>
   <string name="revanced_shorts_quality_default_mobile_title">মোবাইল নেটওয়ার্কে ডিফল্ট Shorts গুণমান</string>
   <string name="revanced_remember_video_quality_mobile">মোবাইল</string>
@@ -1403,10 +1349,10 @@ DeArrow সম্পর্কে আরও জানতে এখানে ট�
   <string name="revanced_disable_hdr_video_summary_on">HDR ভিডিও নিষ্ক্রিয় করা হয়েছে</string>
   <string name="revanced_disable_hdr_video_summary_off">HDR ভিডিও সক্রিয় হয়েছে</string>
   </patch>
-  <patch id="video.videoqualitymenu.restoreOldVideoQualityMenuResourcePatch">
-  <string name="revanced_restore_old_video_quality_menu_title">পুরোনো ভিডিও গুণমান উদ্ধার করুন</string>
-  <string name="revanced_restore_old_video_quality_menu_summary_on">পুরোনো ভিডিও গুণমান মেনু প্রদর্শিত হয়েছে</string>
-  <string name="revanced_restore_old_video_quality_menu_summary_off">পুরোনো ভিডিও গুণমান মেনু প্রদর্শিত হয়নি</string>
+  <patch id="video.quality.advancedVideoQualityMenuPatch">
+  <string name="revanced_advanced_video_quality_menu_title">উন্নত ভিডিও গুণমান মেনু দেখান</string>
+  <string name="revanced_advanced_video_quality_menu_summary_on">উন্নত ভিডিও গুণমান মেনু দেখানো হয়েছে</string>
+  <string name="revanced_advanced_video_quality_menu_summary_off">উন্নত ভিডিও গুণমান মেনু দেখানো হয়নি</string>
   </patch>
   <patch id="interaction.seekbar.enableSlideToSeekPatch">
   <string name="revanced_slide_to_seek_title">ভিডিওর নির্দিষ্ট অংশে যেতে টানুন সক্রিয় করুন</string>

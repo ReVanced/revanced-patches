@@ -48,57 +48,6 @@ Second \"item\" text"</string>
 
 Pour traduire dans de nouvelles langues, visitez translate.revanced.app"</string>
   <string name="revanced_language_DEFAULT">Langue de l\'application</string>
-  <string name="revanced_language_AR">Arabe</string>
-  <string name="revanced_language_AZ">Azéri</string>
-  <string name="revanced_language_BG">Bulgare</string>
-  <string name="revanced_language_BN">Bengali</string>
-  <string name="revanced_language_CA">Catalan</string>
-  <string name="revanced_language_CS">Tchèque</string>
-  <string name="revanced_language_DA">Danois</string>
-  <string name="revanced_language_DE">Allemand</string>
-  <string name="revanced_language_EL">Grec</string>
-  <string name="revanced_language_EN">Anglais</string>
-  <string name="revanced_language_ES">Espagnol</string>
-  <string name="revanced_language_ET">Estonien</string>
-  <string name="revanced_language_FA">Persan</string>
-  <string name="revanced_language_FI">Finnois</string>
-  <string name="revanced_language_FR">Français</string>
-  <string name="revanced_language_GU">Gujarati</string>
-  <string name="revanced_language_HI">Hindi</string>
-  <string name="revanced_language_HR">Croate</string>
-  <string name="revanced_language_HU">Hongrois</string>
-  <string name="revanced_language_ID">Indonésien</string>
-  <string name="revanced_language_IT">Italien</string>
-  <string name="revanced_language_JA">Japonais</string>
-  <string name="revanced_language_KK">Kazakh</string>
-  <string name="revanced_language_KO">Coréen</string>
-  <string name="revanced_language_LT">Lituanien</string>
-  <string name="revanced_language_LV">Letton</string>
-  <string name="revanced_language_MK">Macédonien</string>
-  <string name="revanced_language_MN">Mongol</string>
-  <string name="revanced_language_MR">Marathi</string>
-  <string name="revanced_language_MS">Malais</string>
-  <string name="revanced_language_MY">Birman</string>
-  <string name="revanced_language_NL">Néerlandais</string>
-  <string name="revanced_language_OR">Odia</string>
-  <string name="revanced_language_PA">Pendjabi</string>
-  <string name="revanced_language_PL">Polonais</string>
-  <string name="revanced_language_PT">Portugais</string>
-  <string name="revanced_language_RO">Roumain</string>
-  <string name="revanced_language_RU">Russe</string>
-  <string name="revanced_language_SK">Slovaque</string>
-  <string name="revanced_language_SL">Slovène</string>
-  <string name="revanced_language_SR">Serbe</string>
-  <string name="revanced_language_SV">Suédois</string>
-  <string name="revanced_language_SW">Swahili</string>
-  <string name="revanced_language_TA">Tamoul</string>
-  <string name="revanced_language_TE">Télougou</string>
-  <string name="revanced_language_TH">Thaï</string>
-  <string name="revanced_language_TR">Turc</string>
-  <string name="revanced_language_UK">Ukrainien</string>
-  <string name="revanced_language_UR">Ourdou</string>
-  <string name="revanced_language_VI">Vietnamien</string>
-  <string name="revanced_language_ZH">Chinois</string>
   <string name="revanced_pref_import_export_title">Importer/Exporter</string>
   <string name="revanced_pref_import_export_summary">Importer/Exporter les paramètres ReVanced</string>
   <!-- Settings about dialog. -->
@@ -1115,13 +1064,13 @@ Prêt à soumettre ?"</string>
   <string name="revanced_change_form_factor_entry_2">Téléphone</string>
   <string name="revanced_change_form_factor_entry_3">Tablette</string>
   <string name="revanced_change_form_factor_entry_4">Automotive</string>
-  <string name="revanced_change_form_factor_user_dialog_message">"Les modifications incluent :
+  <string name="revanced_change_form_factor_user_dialog_message">"Les modifications comprennent :
 
-Disposition pour tablette
-• Les publications de la communauté sont masquées
+Format Tablette
+• Les posts destinés à la communauté sont masqués
 
-Disposition Automotive
-• Les Shorts s'ouvrent dans le lecteur classique
+Format Automotive
+• Les Shorts s'ouvrent dans le lecteur standard
 • Le flux est organisé par sujets et par chaînes"</string>
   </patch>
   <patch id="layout.spoofappversion.spoofAppVersionPatch">
@@ -1179,8 +1128,8 @@ Si désactivé ultérieurement, il est recommandé d'effacer les données de l'a
   <patch id="layout.shortsplayer.shortsPlayerTypePatch">
   <string name="revanced_shorts_player_type_title">Ouvrir les Shorts avec</string>
   <string name="revanced_shorts_player_type_shorts">Lecteur Shorts</string>
-  <string name="revanced_shorts_player_type_regular_player">Lecteur classique</string>
-  <string name="revanced_shorts_player_type_regular_player_fullscreen">Lecteur classique en plein écran</string>
+  <string name="revanced_shorts_player_type_regular_player">Lecteur standard</string>
+  <string name="revanced_shorts_player_type_regular_player_fullscreen">Lecteur standard en plein écran</string>
   </patch>
   <patch id="layout.shortsautoplay.shortsAutoplayPatch">
   <string name="revanced_shorts_autoplay_title">Lire automatiquement les Shorts</string>
@@ -1245,8 +1194,6 @@ Balayez pour développer ou fermer"</string>
   <string name="revanced_gradient_loading_screen_title">Activer le dégradé sur l\'écran de chargement</string>
   <string name="revanced_gradient_loading_screen_summary_on">Le fond de l\'écran de chargement sera un dégradé de couleurs</string>
   <string name="revanced_gradient_loading_screen_summary_off">Le fond de l\'écran de chargement sera une couleur unie</string>
-  </patch>
-  <patch id="layout.theme.themeResourcePatch">
   <string name="revanced_seekbar_custom_color_title">Personnaliser la couleur de la barre de progression</string>
   <string name="revanced_seekbar_custom_color_summary_on">La couleur de la barre de progression est personnalisée</string>
   <string name="revanced_seekbar_custom_color_summary_off">La couleur originale de la barre de progression est affichée</string>
@@ -1360,22 +1307,21 @@ Activer cette option peut déverrouiller des qualités vidéo supérieures"</str
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
-  <string name="revanced_video_quality_screen_title">Qualité vidéo</string>
   <string name="revanced_video_quality_default_entry_1">Automatique</string>
-  <string name="revanced_remember_video_quality_last_selected_title">Se souvenir des modifications de la qualité vidéo</string>
-  <string name="revanced_remember_video_quality_last_selected_summary_on">Les modifications de qualité s\'appliquent à toutes les vidéos</string>
-  <string name="revanced_remember_video_quality_last_selected_summary_off">Les modifications de qualité s\'appliquent uniquement à la vidéo en cours</string>
-  <string name="revanced_video_quality_default_wifi_title">Qualité vidéo par défaut sur un réseau Wi-Fi</string>
+  <string name="revanced_remember_video_quality_last_selected_title">Mémoriser les changements de qualité vidéo</string>
+  <string name="revanced_remember_video_quality_last_selected_summary_on">Les changements de qualité s\'appliquent à toutes les vidéos</string>
+  <string name="revanced_remember_video_quality_last_selected_summary_off">Les changements de qualité s\'appliquent uniquement à la vidéo actuelle</string>
+  <string name="revanced_video_quality_default_wifi_title">Qualité vidéo par défaut sur les réseaux Wi-Fi</string>
   <string name="revanced_video_quality_default_mobile_title">Qualité vidéo par défaut sur le réseau mobile</string>
-  <string name="revanced_remember_shorts_quality_last_selected_title">Se souvenir des modifications de la qualité des Shorts</string>
-  <string name="revanced_remember_shorts_quality_last_selected_summary_on">Les modifications de qualité s\'appliquent à toutes les vidéos Shorts</string>
-  <string name="revanced_remember_shorts_quality_last_selected_summary_off">Les modifications de qualité s\'appliquent uniquement à la vidéo Shorts en cours</string>
-  <string name="revanced_shorts_quality_default_wifi_title">Qualité Shorts par défaut sur un réseau Wi-Fi</string>
-  <string name="revanced_shorts_quality_default_mobile_title">Qualité Shorts par défaut sur le réseau mobile</string>
+  <string name="revanced_remember_shorts_quality_last_selected_title">Mémoriser les changements de qualité des Shorts</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_on">Les changements de qualité s\'appliquent à tous les Shorts</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_off">Les changements de qualité s\'appliquent uniquement au Short actuel</string>
+  <string name="revanced_shorts_quality_default_wifi_title">Qualité par défaut des Shorts sur les réseaux Wi-Fi</string>
+  <string name="revanced_shorts_quality_default_mobile_title">Qualité par défaut des Shorts sur le réseau mobile</string>
   <string name="revanced_remember_video_quality_mobile">mobile</string>
   <string name="revanced_remember_video_quality_wifi">Wi-Fi</string>
   <string name="revanced_remember_video_quality_toast">Nouvelle qualité %1$s par défaut : %2$s</string>
-  <string name="revanced_remember_video_quality_toast_shorts">Nouvelle qualité Shorts %1$s par défaut : %2$s</string>
+  <string name="revanced_remember_video_quality_toast_shorts">Nouvelle qualité %1$s des Shorts par défaut : %2$s</string>
   </patch>
   <patch id="video.speed.button.playbackSpeedButtonPatch">
   <string name="revanced_playback_speed_dialog_button_title">Afficher un bouton Vitesse</string>
@@ -1395,9 +1341,9 @@ Activer cette option peut déverrouiller des qualités vidéo supérieures"</str
   <string name="revanced_speed_tap_and_hold_summary">Vitesse de lecture comprise entre 0 et 8</string>
   </patch>
   <patch id="video.speed.remember.rememberPlaybackSpeedPatch">
-  <string name="revanced_remember_playback_speed_last_selected_title">Se souvenir des modifications de la vitesse de lecture</string>
-  <string name="revanced_remember_playback_speed_last_selected_summary_on">Les modifications de vitesse de lecture s\'appliquent à toutes les vidéos</string>
-  <string name="revanced_remember_playback_speed_last_selected_summary_off">Les modifications de vitesse de lecture ne s\'appliquent qu\'à la vidéo actuelle</string>
+  <string name="revanced_remember_playback_speed_last_selected_title">Mémoriser les changements de vitesse de lecture</string>
+  <string name="revanced_remember_playback_speed_last_selected_summary_on">Les changements de vitesse de lecture s\'appliquent à toutes les vidéos</string>
+  <string name="revanced_remember_playback_speed_last_selected_summary_off">Les changements de vitesse de lecture ne s\'appliquent qu\'à la vidéo actuelle</string>
   <string name="revanced_playback_speed_default_title">Vitesse de lecture par défaut</string>
   <string name="revanced_remember_playback_speed_toast">Nouvelle vitesse par défaut : %s</string>
   </patch>
@@ -1406,10 +1352,10 @@ Activer cette option peut déverrouiller des qualités vidéo supérieures"</str
   <string name="revanced_disable_hdr_video_summary_on">Le HDR est désactivé dans les vidéos</string>
   <string name="revanced_disable_hdr_video_summary_off">Le HDR est activé dans les vidéos</string>
   </patch>
-  <patch id="video.videoqualitymenu.restoreOldVideoQualityMenuResourcePatch">
-  <string name="revanced_restore_old_video_quality_menu_title">Restaurer l\'ancien menu de qualité vidéo</string>
-  <string name="revanced_restore_old_video_quality_menu_summary_on">L\'ancien menu de qualité vidéo est affiché</string>
-  <string name="revanced_restore_old_video_quality_menu_summary_off">L\'ancien menu de qualité vidéo n\'est pas affiché</string>
+  <patch id="video.quality.advancedVideoQualityMenuPatch">
+  <string name="revanced_advanced_video_quality_menu_title">Afficher le menu de qualité vidéo avancé</string>
+  <string name="revanced_advanced_video_quality_menu_summary_on">Le menu de qualité vidéo avancé est affiché</string>
+  <string name="revanced_advanced_video_quality_menu_summary_off">Le menu de qualité vidéo avancé n\'est pas affiché</string>
   </patch>
   <patch id="interaction.seekbar.enableSlideToSeekPatch">
   <string name="revanced_slide_to_seek_title">Activer Glisser pour rechercher</string>

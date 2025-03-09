@@ -48,57 +48,6 @@ Second \"item\" text"</string>
 
 새로운 언어를 번역하려면 translate.revanced.app를 방문하세요"</string>
   <string name="revanced_language_DEFAULT">앱 언어</string>
-  <string name="revanced_language_AR">아랍어</string>
-  <string name="revanced_language_AZ">아제르바이잔어</string>
-  <string name="revanced_language_BG">불가리아어</string>
-  <string name="revanced_language_BN">벵골어</string>
-  <string name="revanced_language_CA">카탈루냐어</string>
-  <string name="revanced_language_CS">체코어</string>
-  <string name="revanced_language_DA">덴마크어</string>
-  <string name="revanced_language_DE">독일어</string>
-  <string name="revanced_language_EL">그리스어</string>
-  <string name="revanced_language_EN">영어</string>
-  <string name="revanced_language_ES">스페인어</string>
-  <string name="revanced_language_ET">에스토니아어</string>
-  <string name="revanced_language_FA">페르시아어</string>
-  <string name="revanced_language_FI">핀란드어</string>
-  <string name="revanced_language_FR">프랑스어</string>
-  <string name="revanced_language_GU">구자라트어</string>
-  <string name="revanced_language_HI">힌디어</string>
-  <string name="revanced_language_HR">크로아티아어</string>
-  <string name="revanced_language_HU">헝가리어</string>
-  <string name="revanced_language_ID">인도네시아어</string>
-  <string name="revanced_language_IT">이탈리아어</string>
-  <string name="revanced_language_JA">일본어</string>
-  <string name="revanced_language_KK">카자흐어</string>
-  <string name="revanced_language_KO">한국어</string>
-  <string name="revanced_language_LT">리투아니아어</string>
-  <string name="revanced_language_LV">라트비아어</string>
-  <string name="revanced_language_MK">마케도니아어</string>
-  <string name="revanced_language_MN">몽골어</string>
-  <string name="revanced_language_MR">마라티어</string>
-  <string name="revanced_language_MS">말레이어</string>
-  <string name="revanced_language_MY">버마어</string>
-  <string name="revanced_language_NL">네덜란드어</string>
-  <string name="revanced_language_OR">오리야어</string>
-  <string name="revanced_language_PA">펀자브어</string>
-  <string name="revanced_language_PL">폴란드어</string>
-  <string name="revanced_language_PT">포르투갈어</string>
-  <string name="revanced_language_RO">루마니아어</string>
-  <string name="revanced_language_RU">러시아어</string>
-  <string name="revanced_language_SK">슬로바키아어</string>
-  <string name="revanced_language_SL">슬로베니아어</string>
-  <string name="revanced_language_SR">세르비아어</string>
-  <string name="revanced_language_SV">스웨덴어</string>
-  <string name="revanced_language_SW">스와힐리어</string>
-  <string name="revanced_language_TA">타밀어</string>
-  <string name="revanced_language_TE">텔루구어</string>
-  <string name="revanced_language_TH">태국어</string>
-  <string name="revanced_language_TR">터키어</string>
-  <string name="revanced_language_UK">우크라이나어</string>
-  <string name="revanced_language_UR">우르두어</string>
-  <string name="revanced_language_VI">베트남어</string>
-  <string name="revanced_language_ZH">중국어</string>
   <string name="revanced_pref_import_export_title">가져오기 / 내보내기</string>
   <string name="revanced_pref_import_export_summary">ReVanced 설정을 가져오거나 내보낼 수 있습니다</string>
   <!-- Settings about dialog. -->
@@ -371,7 +320,7 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_hide_keyword_content_phrases_summary">"필터링할 키워드 및 구문을 줄바꿈으로 구분하여 설정합니다
 
 • 필터링 키워드는 채널 이름 또는 동영상 제목에 표시되는 모든 텍스트가 될 수 있습니다
-• 가운데 대문자가 있는 단어는 대소문자를 함께 입력해야 합니다 (예: iPhone, TikTok, LeBlanc)"</string>
+• 대문자가 있는 단어는 대소문자를 함께 입력해야 합니다 (예: iPhone, TikTok, LeBlanc)"</string>
   <string name="revanced_hide_keyword_content_about_title">키워드 필터링 정보</string>
   <string name="revanced_hide_keyword_content_about_summary">"홈 / 구독 / 검색 결과가 필터링되어 키워드 구문과 일치하는 콘텐츠가 숨겨집니다
 
@@ -484,15 +433,11 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   </patch>
   <patch id="interaction.swipecontrols.swipeControlsResourcePatch">
   <string name="revanced_swipe_brightness_title">스와이프 제스처로 밝기 조절 활성화하기</string>
-  <string name="revanced_swipe_brightness_summary_on">"전체 화면에서 스와이프 제스처로 밝기 조절을 활성화합니다
-
-• 화면 왼쪽에서 위로/아래로 스와이프하여 밝기 조절할 수 있습니다"</string>
-  <string name="revanced_swipe_brightness_summary_off">전체 화면에서 스와이프 제스처로 밝기 조절을 비활성화합니다</string>
+  <string name="revanced_swipe_brightness_summary_on">"전체 화면 왼쪽에서 위로/아래로 스와이프하여 밝기 조절합니다"</string>
+  <string name="revanced_swipe_brightness_summary_off">전체 화면 왼쪽에서 위로/아래로 스와이프하여 밝기 조절하지 않습니다</string>
   <string name="revanced_swipe_volume_title">스와이프 제스처로 볼륨 조절 활성화하기</string>
-  <string name="revanced_swipe_volume_summary_on">"전체 화면에서 스와이프 제스처로 볼륨 조절을 활성화합니다
-
-• 화면 오른쪽에서 위로/아래로 스와이프하여 볼륨 조절할 수 있습니다"</string>
-  <string name="revanced_swipe_volume_summary_off">전체 화면에서 스와이프 제스처로 볼륨 조절을 비활성화합니다</string>
+  <string name="revanced_swipe_volume_summary_on">"전체 화면 오른쪽에서 위로/아래로 스와이프하여 볼륨 조절합니다"</string>
+  <string name="revanced_swipe_volume_summary_off">전체 화면 오른쪽에서 위로/아래로 스와이프하여 볼륨 조절하지 않습니다</string>
   <string name="revanced_swipe_press_to_engage_title">길게 눌러서 스와이프 제스처 사용하기</string>
   <string name="revanced_swipe_press_to_engage_summary_on">화면을 길게 눌러서 스와이프 제스처를 사용합니다</string>
   <string name="revanced_swipe_press_to_engage_summary_off">화면을 짧게 눌러서 스와이프 제스처를 사용합니다</string>
@@ -503,8 +448,8 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_swipe_save_and_restore_brightness_summary_on">전체 화면에서 나가거나 들어갈 때마다 화면 밝기 값을 저장 및 복원합니다</string>
   <string name="revanced_swipe_save_and_restore_brightness_summary_off">전체 화면에서 나가거나 들어갈 때마다 화면 밝기 값을 저장 및 복원하지 않습니다</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_title">스와이프 제스처로 자동 밝기 활성화하기</string>
-  <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_on">스와이프 제스처로 밝기가 0이 되면 자동 밝기를 활성화합니다</string>
-  <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_off">스와이프 제스처로 밝기가 0이 되더라도 자동 밝기를 활성화하지 않습니다</string>
+  <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_on">전체 화면에서 스와이프하여 밝기가 0이 되면 자동 밝기를 활성화합니다</string>
+  <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_off">전체 화면에서 스와이프하여 밝기가 0이 되더라도 자동 밝기를 활성화하지 않습니다</string>
   <string name="revanced_swipe_overlay_timeout_title">오버레이 타임아웃</string>
   <string name="revanced_swipe_overlay_timeout_summary">오버레이가 표시되는 시간을 지정할 수 있습니다 (밀리초)</string>
   <string name="revanced_swipe_overlay_background_opacity_title">스와이프 오버레이 배경 불투명도</string>
@@ -519,8 +464,8 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_swipe_overlay_minimal_style_summary_on">최소화된 오버레이 스타일을 활성화합니다</string>
   <string name="revanced_swipe_overlay_minimal_style_summary_off">최소화된 오버레이 스타일을 비활성화합니다</string>
   <string name="revanced_swipe_change_video_title">스와이프 제스처로 동영상 전환 활성화하기</string>
-  <string name="revanced_swipe_change_video_summary_on">전체 화면에서 위로/아래로 스와이프하여 다음/이전 동영상으로 전환합니다</string>
-  <string name="revanced_swipe_change_video_summary_off">전체 화면에서 위로/아래로 스와이프하여 다음/이전 동영상으로 전환하지 않습니다</string>
+  <string name="revanced_swipe_change_video_summary_on">전체 화면 중앙에서 위로/아래로 스와이프하여 다음/이전 동영상으로 전환합니다</string>
+  <string name="revanced_swipe_change_video_summary_off">전체 화면 중앙에서 위로/아래로 스와이프하여 다음/이전 동영상으로 전환하지 않습니다</string>
   </patch>
   <patch id="layout.autocaptions.autoCaptionsPatch">
   <string name="revanced_auto_captions_title">자동 자막 비활성화하기</string>
@@ -1252,8 +1197,6 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_gradient_loading_screen_title">그라데이션 색상 로딩 화면 활성화하기</string>
   <string name="revanced_gradient_loading_screen_summary_on">그라데이션 색상 로딩 화면을 활성화합니다</string>
   <string name="revanced_gradient_loading_screen_summary_off">기본 로딩 화면을 활성화합니다</string>
-  </patch>
-  <patch id="layout.theme.themeResourcePatch">
   <string name="revanced_seekbar_custom_color_title">사용자 정의 재생바 색상 활성화하기</string>
   <string name="revanced_seekbar_custom_color_summary_on">사용자 정의 재생바 색상을 활성화합니다</string>
   <string name="revanced_seekbar_custom_color_summary_off">기본 재생바 색상을 활성화합니다</string>
@@ -1367,16 +1310,15 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요"</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
-  <string name="revanced_video_quality_screen_title">동영상 화질</string>
   <string name="revanced_video_quality_default_entry_1">자동</string>
   <string name="revanced_remember_video_quality_last_selected_title">동영상 화질 저장 활성화하기</string>
-  <string name="revanced_remember_video_quality_last_selected_summary_on">동영상 화질 값을 변경할 때마다 저장합니다</string>
-  <string name="revanced_remember_video_quality_last_selected_summary_off">동영상 화질 값을 변경할 때마다 저장하지 않습니다</string>
+  <string name="revanced_remember_video_quality_last_selected_summary_on">동영상 화질 값을 변경할 때마다 기본 동영상 화질으로 저장합니다</string>
+  <string name="revanced_remember_video_quality_last_selected_summary_off">동영상 화질 값을 변경할 때마다 기본 동영상 화질으로 저장하지 않습니다</string>
   <string name="revanced_video_quality_default_wifi_title">Wi-Fi 이용 시 기본 동영상 화질</string>
   <string name="revanced_video_quality_default_mobile_title">모바일 네트워크 이용 시 기본 동영상 화질</string>
   <string name="revanced_remember_shorts_quality_last_selected_title">Shorts 화질 저장 활성화하기</string>
-  <string name="revanced_remember_shorts_quality_last_selected_summary_on">Shorts 화질 값을 변경할 때마다 저장합니다</string>
-  <string name="revanced_remember_shorts_quality_last_selected_summary_off">Shorts 화질 값을 변경할 때마다 저장하지 않습니다</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_on">Shorts 화질 값을 변경할 때마다 기본 Shorts 화질으로 저장합니다</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_off">Shorts 화질 값을 변경할 때마다 기본 Shorts 화질으로 저장하지 않습니다</string>
   <string name="revanced_shorts_quality_default_wifi_title">Wi-Fi 이용 시 기본 Shorts 화질</string>
   <string name="revanced_shorts_quality_default_mobile_title">모바일 네트워크 이용 시 기본 Shorts 화질</string>
   <string name="revanced_remember_video_quality_mobile">모바일 네트워크</string>
@@ -1403,8 +1345,8 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요"</string>
   </patch>
   <patch id="video.speed.remember.rememberPlaybackSpeedPatch">
   <string name="revanced_remember_playback_speed_last_selected_title">동영상 재생 속도 저장 활성화하기</string>
-  <string name="revanced_remember_playback_speed_last_selected_summary_on">동영상 재생 속도 값을 변경할 때마다 저장합니다</string>
-  <string name="revanced_remember_playback_speed_last_selected_summary_off">동영상 재생 속도 값을 변경할 때마다 저장하지 않습니다</string>
+  <string name="revanced_remember_playback_speed_last_selected_summary_on">동영상 재생 속도 값을 변경할 때마다 기본 동영상 재생 속도로 저장합니다</string>
+  <string name="revanced_remember_playback_speed_last_selected_summary_off">동영상 재생 속도 값을 변경할 때마다 기본 동영상 재생 속도로 저장하지 않습니다</string>
   <string name="revanced_playback_speed_default_title">기본 동영상 재생 속도</string>
   <string name="revanced_remember_playback_speed_toast">기본 동영상 재생 속도 값을 %s 로 변경합니다</string>
   </patch>
@@ -1413,10 +1355,10 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요"</string>
   <string name="revanced_disable_hdr_video_summary_on">HDR 동영상을 비활성화합니다</string>
   <string name="revanced_disable_hdr_video_summary_off">HDR 동영상을 활성화합니다</string>
   </patch>
-  <patch id="video.videoqualitymenu.restoreOldVideoQualityMenuResourcePatch">
-  <string name="revanced_restore_old_video_quality_menu_title">이전 동영상 화질 설정 메뉴 활성화하기</string>
-  <string name="revanced_restore_old_video_quality_menu_summary_on">이전 동영상 화질 설정 메뉴를 활성화합니다</string>
-  <string name="revanced_restore_old_video_quality_menu_summary_off">이전 동영상 화질 설정 메뉴를 비활성화합니다</string>
+  <patch id="video.quality.advancedVideoQualityMenuPatch">
+  <string name="revanced_advanced_video_quality_menu_title">고급 동영상 화질 설정 메뉴 표시하기</string>
+  <string name="revanced_advanced_video_quality_menu_summary_on">고급 동영상 화질 설정 메뉴를 표시합니다</string>
+  <string name="revanced_advanced_video_quality_menu_summary_off">고급 동영상 화질 설정 메뉴를 표시하지 않습니다</string>
   </patch>
   <patch id="interaction.seekbar.enableSlideToSeekPatch">
   <string name="revanced_slide_to_seek_title">슬라이드하여 탐색 활성화하기</string>

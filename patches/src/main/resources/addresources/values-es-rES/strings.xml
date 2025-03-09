@@ -48,57 +48,6 @@ Second \"item\" text"</string>
 
 Para traducir nuevos idiomas, visita translate.revanced.app"</string>
   <string name="revanced_language_DEFAULT">Idioma de la aplicación</string>
-  <string name="revanced_language_AR">Árabe</string>
-  <string name="revanced_language_AZ">Azerbaiyano</string>
-  <string name="revanced_language_BG">Búlgaro</string>
-  <string name="revanced_language_BN">Bengalí</string>
-  <string name="revanced_language_CA">Catalán</string>
-  <string name="revanced_language_CS">Checo</string>
-  <string name="revanced_language_DA">Danés</string>
-  <string name="revanced_language_DE">Alemán</string>
-  <string name="revanced_language_EL">Griego</string>
-  <string name="revanced_language_EN">Inglés</string>
-  <string name="revanced_language_ES">Español</string>
-  <string name="revanced_language_ET">Estonio</string>
-  <string name="revanced_language_FA">Persa</string>
-  <string name="revanced_language_FI">Finlandés</string>
-  <string name="revanced_language_FR">Francés</string>
-  <string name="revanced_language_GU">Gujarati</string>
-  <string name="revanced_language_HI">Hindi</string>
-  <string name="revanced_language_HR">Croata</string>
-  <string name="revanced_language_HU">Húngaro</string>
-  <string name="revanced_language_ID">Indonesio</string>
-  <string name="revanced_language_IT">Italiano</string>
-  <string name="revanced_language_JA">Japonés</string>
-  <string name="revanced_language_KK">Kazajo</string>
-  <string name="revanced_language_KO">Coreano</string>
-  <string name="revanced_language_LT">Lituano</string>
-  <string name="revanced_language_LV">Letón</string>
-  <string name="revanced_language_MK">Macedonio</string>
-  <string name="revanced_language_MN">Mongol</string>
-  <string name="revanced_language_MR">Maratí</string>
-  <string name="revanced_language_MS">Malayo</string>
-  <string name="revanced_language_MY">Birmano</string>
-  <string name="revanced_language_NL">Holandés</string>
-  <string name="revanced_language_OR">Oriya</string>
-  <string name="revanced_language_PA">Panyabí</string>
-  <string name="revanced_language_PL">Polaco</string>
-  <string name="revanced_language_PT">Portugués</string>
-  <string name="revanced_language_RO">Rumano</string>
-  <string name="revanced_language_RU">Ruso</string>
-  <string name="revanced_language_SK">Eslovaco</string>
-  <string name="revanced_language_SL">Esloveno</string>
-  <string name="revanced_language_SR">Serbio</string>
-  <string name="revanced_language_SV">Sueco</string>
-  <string name="revanced_language_SW">Suajili</string>
-  <string name="revanced_language_TA">Tamil</string>
-  <string name="revanced_language_TE">Telugu</string>
-  <string name="revanced_language_TH">Tailandés</string>
-  <string name="revanced_language_TR">Turco</string>
-  <string name="revanced_language_UK">Ucraniano</string>
-  <string name="revanced_language_UR">Urdu</string>
-  <string name="revanced_language_VI">Vietnamita</string>
-  <string name="revanced_language_ZH">Chino</string>
   <string name="revanced_pref_import_export_title">Importar / Exportar</string>
   <string name="revanced_pref_import_export_summary">Importar / Exportar ajustes de ReVanced</string>
   <!-- Settings about dialog. -->
@@ -1227,8 +1176,6 @@ Desliza para expandir o cerrar"</string>
   <string name="revanced_gradient_loading_screen_title">Activar la pantalla de carga del degradado</string>
   <string name="revanced_gradient_loading_screen_summary_on">La pantalla de carga tendrá un fondo de degradado</string>
   <string name="revanced_gradient_loading_screen_summary_off">La pantalla de carga tendrá un fondo sólido</string>
-  </patch>
-  <patch id="layout.theme.themeResourcePatch">
   <string name="revanced_seekbar_custom_color_title">Activar el color personalizado de la barra de búsqueda</string>
   <string name="revanced_seekbar_custom_color_summary_on">Se muestra el color personalizado de la barra de búsqueda</string>
   <string name="revanced_seekbar_custom_color_summary_off">Se muestra el color original de la barra de búsqueda</string>
@@ -1342,7 +1289,6 @@ Habilitar esto puede desbloquear calidades de vídeo más altas"</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
-  <string name="revanced_video_quality_screen_title">Calidad de video</string>
   <string name="revanced_video_quality_default_entry_1">Automático</string>
   <string name="revanced_remember_video_quality_last_selected_title">Recordar cambios de calidad de vídeo</string>
   <string name="revanced_remember_video_quality_last_selected_summary_on">Los cambios de calidad se aplican a todos los vídeos</string>
@@ -1350,8 +1296,8 @@ Habilitar esto puede desbloquear calidades de vídeo más altas"</string>
   <string name="revanced_video_quality_default_wifi_title">Calidad de vídeo predeterminada en la red Wi-Fi</string>
   <string name="revanced_video_quality_default_mobile_title">Calidad de vídeo predeterminada en la red móvil</string>
   <string name="revanced_remember_shorts_quality_last_selected_title">Recordar cambios en la calidad de Shorts</string>
-  <string name="revanced_remember_shorts_quality_last_selected_summary_on">Los cambios de calidad se aplican a todos los videos de Shorts</string>
-  <string name="revanced_remember_shorts_quality_last_selected_summary_off">Los cambios de calidad solo se aplican al video de Shorts actual</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_on">Los cambios de calidad se aplican a todos los Shorts</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_off">Los cambios de calidad solo se aplican al Short actual</string>
   <string name="revanced_shorts_quality_default_wifi_title">Calidad predeterminada de Shorts en la red Wi-Fi</string>
   <string name="revanced_shorts_quality_default_mobile_title">Calidad predeterminada de Shorts en la red móvil</string>
   <string name="revanced_remember_video_quality_mobile">móvil</string>
@@ -1388,10 +1334,10 @@ Habilitar esto puede desbloquear calidades de vídeo más altas"</string>
   <string name="revanced_disable_hdr_video_summary_on">El vídeo HDR está desactivado</string>
   <string name="revanced_disable_hdr_video_summary_off">El vídeo HDR está activado</string>
   </patch>
-  <patch id="video.videoqualitymenu.restoreOldVideoQualityMenuResourcePatch">
-  <string name="revanced_restore_old_video_quality_menu_title">Restaurar menú de calidad de vídeo antiguo</string>
-  <string name="revanced_restore_old_video_quality_menu_summary_on">Se muestra el antiguo menú de calidad de vídeo</string>
-  <string name="revanced_restore_old_video_quality_menu_summary_off">El antiguo menú de calidad de vídeo no se muestra</string>
+  <patch id="video.quality.advancedVideoQualityMenuPatch">
+  <string name="revanced_advanced_video_quality_menu_title">Mostrar menú de calidad de vídeo avanzado</string>
+  <string name="revanced_advanced_video_quality_menu_summary_on">Se muestra el menú de calidad de vídeo avanzado</string>
+  <string name="revanced_advanced_video_quality_menu_summary_off">No se muestra el menú de calidad de vídeo avanzado</string>
   </patch>
   <patch id="interaction.seekbar.enableSlideToSeekPatch">
   <string name="revanced_slide_to_seek_title">Habilitar diapositiva para buscar</string>

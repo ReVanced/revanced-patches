@@ -48,57 +48,6 @@ Second \"item\" text"</string>
 
 لترجمة لغات جديدة، تفضل بزيارة translate.revanced.app"</string>
   <string name="revanced_language_DEFAULT">لغة التطبيق</string>
-  <string name="revanced_language_AR">العربية</string>
-  <string name="revanced_language_AZ">Azerbaijani</string>
-  <string name="revanced_language_BG">Bulgarian</string>
-  <string name="revanced_language_BN">Bengali</string>
-  <string name="revanced_language_CA">Catalan</string>
-  <string name="revanced_language_CS">Czech</string>
-  <string name="revanced_language_DA">Danish</string>
-  <string name="revanced_language_DE">German</string>
-  <string name="revanced_language_EL">Greek</string>
-  <string name="revanced_language_EN">English</string>
-  <string name="revanced_language_ES">Spanish</string>
-  <string name="revanced_language_ET">Estonian</string>
-  <string name="revanced_language_FA">فارسى</string>
-  <string name="revanced_language_FI">Finnish</string>
-  <string name="revanced_language_FR">French - Français</string>
-  <string name="revanced_language_GU">Gujarati</string>
-  <string name="revanced_language_HI">Hindi</string>
-  <string name="revanced_language_HR">Croatian</string>
-  <string name="revanced_language_HU">Hungarian</string>
-  <string name="revanced_language_ID">Indonesian</string>
-  <string name="revanced_language_IT">Italian</string>
-  <string name="revanced_language_JA">Japanese</string>
-  <string name="revanced_language_KK">Kazakh</string>
-  <string name="revanced_language_KO">Korean</string>
-  <string name="revanced_language_LT">Lithuanian</string>
-  <string name="revanced_language_LV">Latvian</string>
-  <string name="revanced_language_MK">Macedonian</string>
-  <string name="revanced_language_MN">Mongolian</string>
-  <string name="revanced_language_MR">Marathi</string>
-  <string name="revanced_language_MS">Malay</string>
-  <string name="revanced_language_MY">Burmese</string>
-  <string name="revanced_language_NL">Dutch</string>
-  <string name="revanced_language_OR">Odia</string>
-  <string name="revanced_language_PA">Punjabi</string>
-  <string name="revanced_language_PL">Polish</string>
-  <string name="revanced_language_PT">Portugese</string>
-  <string name="revanced_language_RO">Romanian</string>
-  <string name="revanced_language_RU">Russian - Русский</string>
-  <string name="revanced_language_SK">Slovak</string>
-  <string name="revanced_language_SL">Slovene</string>
-  <string name="revanced_language_SR">Serbian</string>
-  <string name="revanced_language_SV">Swedish</string>
-  <string name="revanced_language_SW">Swahili</string>
-  <string name="revanced_language_TA">Tamil</string>
-  <string name="revanced_language_TE">Telugu</string>
-  <string name="revanced_language_TH">Thai</string>
-  <string name="revanced_language_TR">Turkish</string>
-  <string name="revanced_language_UK">Ukrainian</string>
-  <string name="revanced_language_UR">Urdu</string>
-  <string name="revanced_language_VI">Vietnamese</string>
-  <string name="revanced_language_ZH">Chinese</string>
   <string name="revanced_pref_import_export_title">استيراد / تصدير</string>
   <string name="revanced_pref_import_export_summary">استيراد / تصدير إعدادات ReVanced</string>
   <!-- Settings about dialog. -->
@@ -1246,8 +1195,6 @@ Second \"item\" text"</string>
   <string name="revanced_gradient_loading_screen_title">تمكين شاشة التحميل المتدرجة</string>
   <string name="revanced_gradient_loading_screen_summary_on">ستحتوي شاشة التحميل على خلفية متدرجة</string>
   <string name="revanced_gradient_loading_screen_summary_off">ستحتوي شاشة التحميل على خلفية ثابتة</string>
-  </patch>
-  <patch id="layout.theme.themeResourcePatch">
   <string name="revanced_seekbar_custom_color_title">تمكين لون شريط تقدم الفيديو المخصص</string>
   <string name="revanced_seekbar_custom_color_summary_on">يتم عرض لون شريط تقدم الفيديو المخصص</string>
   <string name="revanced_seekbar_custom_color_summary_off">يتم عرض لون شريط تقدم الفيديو الاصلي</string>
@@ -1353,6 +1300,7 @@ Second \"item\" text"</string>
   <string name="revanced_disable_zoom_haptics_summary_off">تم تمكين الاهتزاز</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
+  <string name="revanced_force_original_audio_title">فرض لغة الصوت الأصلية</string>
   <string name="revanced_force_original_audio_summary_on">استخدام لغة الصوت الأصلية</string>
   <string name="revanced_force_original_audio_summary_off">استخدام الصوت الافتراضي</string>
   <!-- 'Spoof video streams' should be the same translation used for revanced_spoof_video_streams_screen_title -->
@@ -1360,7 +1308,6 @@ Second \"item\" text"</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
-  <string name="revanced_video_quality_screen_title">جودة الفيديو</string>
   <string name="revanced_video_quality_default_entry_1">تلقائي</string>
   <string name="revanced_remember_video_quality_last_selected_title">تذكر تغييرات جودة الفيديو</string>
   <string name="revanced_remember_video_quality_last_selected_summary_on">تنطبق تغييرات الجودة على جميع الفيديوهات</string>
@@ -1368,8 +1315,8 @@ Second \"item\" text"</string>
   <string name="revanced_video_quality_default_wifi_title">جودة الفيديو الافتراضية على شبكة Wi-Fi</string>
   <string name="revanced_video_quality_default_mobile_title">جودة الفيديو الافتراضية على شبكة الجوَّال</string>
   <string name="revanced_remember_shorts_quality_last_selected_title">تذكر تغييرات جودة Shorts</string>
-  <string name="revanced_remember_shorts_quality_last_selected_summary_on">تطبق تغييرات الجودة على جميع فيديوهات Shorts</string>
-  <string name="revanced_remember_shorts_quality_last_selected_summary_off">تطبق تغييرات الجودة على فيديو Shorts الحالي فقط</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_on">تنطبق تغييرات الجودة على جميع فيديوهات Shorts</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_off">تنطبق تغييرات الجودة فقط على فيديو Short الحالي</string>
   <string name="revanced_shorts_quality_default_wifi_title">جودة Shorts الافتراضية على شبكة Wi-Fi</string>
   <string name="revanced_shorts_quality_default_mobile_title">جودة Shorts الافتراضية على شبكة الجوال</string>
   <string name="revanced_remember_video_quality_mobile">الجوّال</string>
@@ -1406,10 +1353,10 @@ Second \"item\" text"</string>
   <string name="revanced_disable_hdr_video_summary_on">تم تعطيل فيديو HDR</string>
   <string name="revanced_disable_hdr_video_summary_off">تم تمكين فيديو HDR</string>
   </patch>
-  <patch id="video.videoqualitymenu.restoreOldVideoQualityMenuResourcePatch">
-  <string name="revanced_restore_old_video_quality_menu_title">استعادة قائمة جودة الفيديو القديمة</string>
-  <string name="revanced_restore_old_video_quality_menu_summary_on">يتم عرض قائمة جودة الفيديو القديمة</string>
-  <string name="revanced_restore_old_video_quality_menu_summary_off">لا يتم عرض قائمة جودة الفيديو القديمة</string>
+  <patch id="video.quality.advancedVideoQualityMenuPatch">
+  <string name="revanced_advanced_video_quality_menu_title">إظهار قائمة جودة الفيديو المتقدمة</string>
+  <string name="revanced_advanced_video_quality_menu_summary_on">يتم عرض قائمة جودة الفيديو المتقدمة</string>
+  <string name="revanced_advanced_video_quality_menu_summary_off">لا يتم عرض قائمة جودة الفيديو المتقدمة</string>
   </patch>
   <patch id="interaction.seekbar.enableSlideToSeekPatch">
   <string name="revanced_slide_to_seek_title">تمكين التمرير للتقديم أو الترجيع</string>

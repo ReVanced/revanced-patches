@@ -48,57 +48,6 @@ Second \"item\" text"</string>
 
 เพื่อแปลภาษาใหม่ ไปที่ translate.revanced.app"</string>
   <string name="revanced_language_DEFAULT">ภาษาของแอป</string>
-  <string name="revanced_language_AR">อาหรับ</string>
-  <string name="revanced_language_AZ">อาเซอร์ไบจาน</string>
-  <string name="revanced_language_BG">บัลแกเรีย</string>
-  <string name="revanced_language_BN">เบงกาลี</string>
-  <string name="revanced_language_CA">กาตาลัน</string>
-  <string name="revanced_language_CS">เช็ก</string>
-  <string name="revanced_language_DA">เดนมาร์ก</string>
-  <string name="revanced_language_DE">เยอรมัน</string>
-  <string name="revanced_language_EL">กรีก</string>
-  <string name="revanced_language_EN">อังกฤษ</string>
-  <string name="revanced_language_ES">สเปน</string>
-  <string name="revanced_language_ET">เอสโตเนีย</string>
-  <string name="revanced_language_FA">เปอร์เซีย</string>
-  <string name="revanced_language_FI">ฟินแลนด์</string>
-  <string name="revanced_language_FR">ฝรั่งเศส</string>
-  <string name="revanced_language_GU">คุชราต</string>
-  <string name="revanced_language_HI">ฮินดี</string>
-  <string name="revanced_language_HR">โครเอเชีย</string>
-  <string name="revanced_language_HU">ฮังการี</string>
-  <string name="revanced_language_ID">อินโดนีเซีย</string>
-  <string name="revanced_language_IT">อิตาลี</string>
-  <string name="revanced_language_JA">ญี่ปุ่น</string>
-  <string name="revanced_language_KK">คาซัค</string>
-  <string name="revanced_language_KO">เกาหลี</string>
-  <string name="revanced_language_LT">ลิทัวเนีย</string>
-  <string name="revanced_language_LV">ลัตเวีย</string>
-  <string name="revanced_language_MK">มาซิโดเนีย</string>
-  <string name="revanced_language_MN">มองโกเลีย</string>
-  <string name="revanced_language_MR">มราฐี</string>
-  <string name="revanced_language_MS">มาเลเซีย</string>
-  <string name="revanced_language_MY">พม่า</string>
-  <string name="revanced_language_NL">ดัตช์</string>
-  <string name="revanced_language_OR">โอเดีย</string>
-  <string name="revanced_language_PA">ปัญจาบ</string>
-  <string name="revanced_language_PL">โปแลนด์</string>
-  <string name="revanced_language_PT">โปรตุเกส</string>
-  <string name="revanced_language_RO">โรมาเนีย</string>
-  <string name="revanced_language_RU">รัสเซีย</string>
-  <string name="revanced_language_SK">สโลวัก</string>
-  <string name="revanced_language_SL">สโลวีเนีย</string>
-  <string name="revanced_language_SR">เซอร์เบีย</string>
-  <string name="revanced_language_SV">สวีเดน</string>
-  <string name="revanced_language_SW">สวาฮีลี</string>
-  <string name="revanced_language_TA">ทมิฬ</string>
-  <string name="revanced_language_TE">เตลูกู</string>
-  <string name="revanced_language_TH">ไทย</string>
-  <string name="revanced_language_TR">ตุรกี</string>
-  <string name="revanced_language_UK">ยูเครน</string>
-  <string name="revanced_language_UR">อูรดู</string>
-  <string name="revanced_language_VI">เวียดนาม</string>
-  <string name="revanced_language_ZH">จีน</string>
   <string name="revanced_pref_import_export_title">นำเข้า / ส่งออก</string>
   <string name="revanced_pref_import_export_summary">นำเข้า / ส่งออกการตั้งค่า ReVanced</string>
   <!-- Settings about dialog. -->
@@ -1244,8 +1193,6 @@ User id ของคุณเหมือนกับรหัสผ่าน �
   <string name="revanced_gradient_loading_screen_title">เปิดใช้งานหน้าจอโหลดแบบไล่ระดับสี</string>
   <string name="revanced_gradient_loading_screen_summary_on">หน้าจอโหลดจะมีพื้นหลังแบบไล่ระดับสี</string>
   <string name="revanced_gradient_loading_screen_summary_off">หน้าจอโหลดจะมีพื้นหลังแบบทึบ</string>
-  </patch>
-  <patch id="layout.theme.themeResourcePatch">
   <string name="revanced_seekbar_custom_color_title">เปิดใช้งานสีแถบเลื่อนแบบกำหนดเอง</string>
   <string name="revanced_seekbar_custom_color_summary_on">แสดงสีแถบเลื่อนแบบกำหนดเอง</string>
   <string name="revanced_seekbar_custom_color_summary_off">แสดงสีแถบเลื่อนดั้งเดิม</string>
@@ -1359,7 +1306,6 @@ User id ของคุณเหมือนกับรหัสผ่าน �
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
-  <string name="revanced_video_quality_screen_title">คุณภาพวิดีโอ</string>
   <string name="revanced_video_quality_default_entry_1">อัตโนมัติ</string>
   <string name="revanced_remember_video_quality_last_selected_title">จำการเปลี่ยนแปลงคุณภาพวิดีโอ</string>
   <string name="revanced_remember_video_quality_last_selected_summary_on">การเปลี่ยนแปลงคุณภาพใช้กับวิดีโอทั้งหมด</string>
@@ -1367,8 +1313,8 @@ User id ของคุณเหมือนกับรหัสผ่าน �
   <string name="revanced_video_quality_default_wifi_title">คุณภาพวิดีโอเริ่มต้นบนเครือข่าย Wi-Fi</string>
   <string name="revanced_video_quality_default_mobile_title">คุณภาพวิดีโอเริ่มต้นบนเครือข่ายมือถือ</string>
   <string name="revanced_remember_shorts_quality_last_selected_title">จดจำการเปลี่ยนแปลงคุณภาพของ Shorts</string>
-  <string name="revanced_remember_shorts_quality_last_selected_summary_on">การเปลี่ยนแปลงคุณภาพมีผลกับวิดีโอ Shorts ทั้งหมด</string>
-  <string name="revanced_remember_shorts_quality_last_selected_summary_off">การเปลี่ยนแปลงคุณภาพมีผลกับวิดีโอ Shorts ปัจจุบันเท่านั้น</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_on">การเปลี่ยนแปลงคุณภาพมีผลกับ Shorts ทั้งหมด</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_off">การเปลี่ยนแปลงคุณภาพมีผลกับ Short ปัจจุบันเท่านั้น</string>
   <string name="revanced_shorts_quality_default_wifi_title">คุณภาพ Shorts เริ่มต้นบนเครือข่าย Wi-Fi</string>
   <string name="revanced_shorts_quality_default_mobile_title">คุณภาพ Shorts เริ่มต้นบนเครือข่ายมือถือ</string>
   <string name="revanced_remember_video_quality_mobile">มือถือ</string>
@@ -1405,10 +1351,10 @@ User id ของคุณเหมือนกับรหัสผ่าน �
   <string name="revanced_disable_hdr_video_summary_on">ปิดใช้งานวิดีโอ HDR</string>
   <string name="revanced_disable_hdr_video_summary_off">เปิดใช้งานวิดีโอ HDR</string>
   </patch>
-  <patch id="video.videoqualitymenu.restoreOldVideoQualityMenuResourcePatch">
-  <string name="revanced_restore_old_video_quality_menu_title">คืนค่าเมนูกำหนดคุณภาพวิดีโอแบบเก่า</string>
-  <string name="revanced_restore_old_video_quality_menu_summary_on">แสดงเมนูกำหนดคุณภาพวิดีโอแบบเก่า</string>
-  <string name="revanced_restore_old_video_quality_menu_summary_off">ไม่แสดงเมนูกำหนดคุณภาพวิดีโอแบบเก่า</string>
+  <patch id="video.quality.advancedVideoQualityMenuPatch">
+  <string name="revanced_advanced_video_quality_menu_title">แสดงเมนูคุณภาพวิดีโอขั้นสูง</string>
+  <string name="revanced_advanced_video_quality_menu_summary_on">เมนูคุณภาพวิดีโอขั้นสูงปรากฏขึ้น</string>
+  <string name="revanced_advanced_video_quality_menu_summary_off">เมนูคุณภาพวิดีโอขั้นสูงไม่ปรากฏ</string>
   </patch>
   <patch id="interaction.seekbar.enableSlideToSeekPatch">
   <string name="revanced_slide_to_seek_title">เปิดใช้งานเลื่อนเพื่อค้นหา</string>

@@ -48,57 +48,6 @@ Second \"item\" text"</string>
 
 若要翻译为新语言，请访问 translate.revanced.app"</string>
   <string name="revanced_language_DEFAULT">应用语言</string>
-  <string name="revanced_language_AR">阿拉伯语</string>
-  <string name="revanced_language_AZ">阿塞拜疆语</string>
-  <string name="revanced_language_BG">保加利亚语</string>
-  <string name="revanced_language_BN">孟加拉语</string>
-  <string name="revanced_language_CA">加泰罗尼亚语</string>
-  <string name="revanced_language_CS">捷克语</string>
-  <string name="revanced_language_DA">丹麦语</string>
-  <string name="revanced_language_DE">德语</string>
-  <string name="revanced_language_EL">希腊语</string>
-  <string name="revanced_language_EN">英语</string>
-  <string name="revanced_language_ES">西班牙语</string>
-  <string name="revanced_language_ET">爱沙尼亚语</string>
-  <string name="revanced_language_FA">波斯语</string>
-  <string name="revanced_language_FI">芬兰语</string>
-  <string name="revanced_language_FR">法语</string>
-  <string name="revanced_language_GU">古吉拉特语</string>
-  <string name="revanced_language_HI">印地语</string>
-  <string name="revanced_language_HR">克罗地亚语</string>
-  <string name="revanced_language_HU">匈牙利语</string>
-  <string name="revanced_language_ID">印尼语</string>
-  <string name="revanced_language_IT">意大利语</string>
-  <string name="revanced_language_JA">日语</string>
-  <string name="revanced_language_KK">哈萨克语</string>
-  <string name="revanced_language_KO">朝鲜语</string>
-  <string name="revanced_language_LT">立陶宛语</string>
-  <string name="revanced_language_LV">拉脱维亚语</string>
-  <string name="revanced_language_MK">马其顿语</string>
-  <string name="revanced_language_MN">蒙古语</string>
-  <string name="revanced_language_MR">马拉地语</string>
-  <string name="revanced_language_MS">马来语</string>
-  <string name="revanced_language_MY">缅甸语</string>
-  <string name="revanced_language_NL">荷兰语</string>
-  <string name="revanced_language_OR">奥里亚语</string>
-  <string name="revanced_language_PA">旁遮普语</string>
-  <string name="revanced_language_PL">波兰语</string>
-  <string name="revanced_language_PT">葡萄牙语</string>
-  <string name="revanced_language_RO">罗马尼亚语</string>
-  <string name="revanced_language_RU">俄语</string>
-  <string name="revanced_language_SK">斯洛伐克语</string>
-  <string name="revanced_language_SL">斯洛文尼亚语</string>
-  <string name="revanced_language_SR">塞尔维亚语</string>
-  <string name="revanced_language_SV">瑞典语</string>
-  <string name="revanced_language_SW">斯瓦希里语</string>
-  <string name="revanced_language_TA">泰米尔语</string>
-  <string name="revanced_language_TE">泰卢固语</string>
-  <string name="revanced_language_TH">泰语</string>
-  <string name="revanced_language_TR">土耳其语</string>
-  <string name="revanced_language_UK">乌克兰语</string>
-  <string name="revanced_language_UR">乌尔都语</string>
-  <string name="revanced_language_VI">越南语</string>
-  <string name="revanced_language_ZH">中文</string>
   <string name="revanced_pref_import_export_title">导入/导出</string>
   <string name="revanced_pref_import_export_summary">导入/导出 ReVanced 设置</string>
   <!-- Settings about dialog. -->
@@ -1250,8 +1199,6 @@ Second \"item\" text"</string>
   <string name="revanced_gradient_loading_screen_title">启用渐变加载屏幕</string>
   <string name="revanced_gradient_loading_screen_summary_on">加载屏幕将具有渐变背景</string>
   <string name="revanced_gradient_loading_screen_summary_off">加载屏幕将具有纯色背景</string>
-  </patch>
-  <patch id="layout.theme.themeResourcePatch">
   <string name="revanced_seekbar_custom_color_title">启用自定义进度条颜色</string>
   <string name="revanced_seekbar_custom_color_summary_on">自定义进度条颜色显示</string>
   <string name="revanced_seekbar_custom_color_summary_off">显示原始进度条颜色</string>
@@ -1365,7 +1312,6 @@ Second \"item\" text"</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
-  <string name="revanced_video_quality_screen_title">视频画质</string>
   <string name="revanced_video_quality_default_entry_1">自动</string>
   <string name="revanced_remember_video_quality_last_selected_title">记住视频质量更改</string>
   <string name="revanced_remember_video_quality_last_selected_summary_on">质量更改适用于所有视频</string>
@@ -1373,8 +1319,8 @@ Second \"item\" text"</string>
   <string name="revanced_video_quality_default_wifi_title">Wi-Fi 网络上的默认视频质量</string>
   <string name="revanced_video_quality_default_mobile_title">移动网络上的默认视频质量</string>
   <string name="revanced_remember_shorts_quality_last_selected_title">记住 Shorts 画质更改</string>
-  <string name="revanced_remember_shorts_quality_last_selected_summary_on">画质更改将应用于所有 Shorts 视频</string>
-  <string name="revanced_remember_shorts_quality_last_selected_summary_off">画质更改仅应用于当前的 Shorts 视频</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_on">质量更改适用于所有 Shorts</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_off">质量更改仅适用于当前的 Short</string>
   <string name="revanced_shorts_quality_default_wifi_title">Wi-Fi 网络上的默认 Shorts 画质</string>
   <string name="revanced_shorts_quality_default_mobile_title">移动网络上的默认 Shorts 画质</string>
   <string name="revanced_remember_video_quality_mobile">移动网络</string>
@@ -1411,10 +1357,10 @@ Second \"item\" text"</string>
   <string name="revanced_disable_hdr_video_summary_on">HDR 视频已禁用</string>
   <string name="revanced_disable_hdr_video_summary_off">HDR 视频已启用</string>
   </patch>
-  <patch id="video.videoqualitymenu.restoreOldVideoQualityMenuResourcePatch">
-  <string name="revanced_restore_old_video_quality_menu_title">恢复旧的画质菜单</string>
-  <string name="revanced_restore_old_video_quality_menu_summary_on">旧的画质菜单已显示</string>
-  <string name="revanced_restore_old_video_quality_menu_summary_off">旧的画质菜单未显示</string>
+  <patch id="video.quality.advancedVideoQualityMenuPatch">
+  <string name="revanced_advanced_video_quality_menu_title">显示高级视频质量菜单</string>
+  <string name="revanced_advanced_video_quality_menu_summary_on">显示高级视频质量菜单</string>
+  <string name="revanced_advanced_video_quality_menu_summary_off">不显示高级视频质量菜单</string>
   </patch>
   <patch id="interaction.seekbar.enableSlideToSeekPatch">
   <string name="revanced_slide_to_seek_title">启用滑动拖动进度条</string>
