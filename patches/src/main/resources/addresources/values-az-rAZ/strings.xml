@@ -353,6 +353,7 @@ Bu xüsusiyyət yalnız köhnə cihazlar üçün mövcuddur"</string>
   <string name="revanced_hide_self_sponsor_ads_title">Öz-sponsorlu kartları gizlət</string>
   <string name="revanced_hide_self_sponsor_ads_summary_on">Özünə sponsorluq edilən kartlar gizlidir</string>
   <string name="revanced_hide_self_sponsor_ads_summary_off">Özünə sponsorluq edilən kartlar göstərilir</string>
+  <string name="revanced_hide_products_banner_title">\"Məhsullara baxın\" etiketin gizlət</string>
   <string name="revanced_hide_products_banner_summary_on">Etiket gizlədilib</string>
   <string name="revanced_hide_products_banner_summary_off">Etiket göstərilir</string>
   <string name="revanced_hide_end_screen_store_banner_title">Son ekran mağaza etiketini gizlət</string>
@@ -611,6 +612,7 @@ Bu seçimi dəyişdirmə işə düşmürsə, Gizli rejimə keçməyə çalışı
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_off">Video keyfiyyət menyusu alt məlumatı göstərilir</string>
   </patch>
   <patch id="layout.buttons.overlay.hidePlayerOverlayButtonsPatch">
+  <string name="revanced_hide_player_previous_next_buttons_title">Əvvəlki və Növbəti düymələrin gizlət</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_on">Düymələr gizlidir</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">Düymələr göstərilir</string>
   <string name="revanced_hide_cast_button_title">Yayımla düyməsini gizlət</string>
@@ -1062,6 +1064,14 @@ Təqdim etməyə hazırdır?"</string>
   <string name="revanced_change_form_factor_entry_2">Telefon</string>
   <string name="revanced_change_form_factor_entry_3">Planşet</string>
   <string name="revanced_change_form_factor_entry_4">Avtomobil</string>
+  <string name="revanced_change_form_factor_user_dialog_message">"Dəyişikliklər ehtiva edir:
+
+Planşet tərtibatı
+• İcma elanları gizlədilib
+
+Avtomobil tərtibatı
+• Shorts müntəzəm oynadıcıda açılır
+• Axın mövzular və kanallardan ibarətdir"</string>
   </patch>
   <patch id="layout.spoofappversion.spoofAppVersionPatch">
   <string name="revanced_spoof_app_version_title">Tətbiq versiyasını saxtalaşdır</string>
@@ -1131,6 +1141,7 @@ Sonradan qapadılarsa, UI səhvlərin önləmək üçün tətbiq məlumatların 
   </patch>
   <patch id="layout.miniplayer.miniplayerPatch">
   <string name="revanced_miniplayer_screen_title">Kiçik oynadıcı</string>
+  <string name="revanced_miniplayer_screen_summary">Tətbiqdaxili kiçilən oynadıcı üslubunu dəyişdir</string>
   <string name="revanced_miniplayer_type_title">Kiçik oynadıcı növü</string>
   <string name="revanced_miniplayer_type_entry_0">Qeyri-aktivdir</string>
   <string name="revanced_miniplayer_type_entry_1">İlkin</string>
@@ -1274,6 +1285,8 @@ Bunu aktivləşdirmə daha yüksək video keyfiyyətləri əngəlin silə bilər
   </patch>
   <patch id="misc.links.openLinksExternallyPatch">
   <string name="revanced_external_browser_title">Bağlantıları brauzerdə aç</string>
+  <string name="revanced_external_browser_summary_on">Xarici brauzerdə bağlantıların açılması</string>
+  <string name="revanced_external_browser_summary_off">Tətbiqdaxili brauzerdə bağlantıların açılması</string>
   </patch>
   <patch id="misc.privacy.removeTrackingQueryParameterPatch">
   <string name="revanced_remove_tracking_query_parameter_title">İzləmə sorğusu faktorun sil</string>
@@ -1300,9 +1313,15 @@ Bunu aktivləşdirmə daha yüksək video keyfiyyətləri əngəlin silə bilər
   <string name="revanced_remember_video_quality_last_selected_summary_off">Keyfiyyət dəyişiklikləri yalnız cari videoya tətbiq edilir</string>
   <string name="revanced_video_quality_default_wifi_title">Wi-Fi şəbəkəsində ilkin video keyfiyyəti</string>
   <string name="revanced_video_quality_default_mobile_title">Mobil şəbəkədə ilkin video keyfiyyəti</string>
+  <string name="revanced_remember_shorts_quality_last_selected_title">Shorts keyfiyyət dəyişikliklərini xatırla</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_on">Keyfiyyət dəyişiklikləri bütün Shorts-a tətbiq edilir</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_off">Keyfiyyət dəyişiklikləri yalnız cari Short-a tətbiq edilir</string>
+  <string name="revanced_shorts_quality_default_wifi_title">Wi-Fi şəbəkəsində ilkin Shorts keyfiyyəti</string>
+  <string name="revanced_shorts_quality_default_mobile_title">Mobil şəbəkədə ilkin Shorts keyfiyyəti</string>
   <string name="revanced_remember_video_quality_mobile">mobil</string>
   <string name="revanced_remember_video_quality_wifi">wi-fi</string>
   <string name="revanced_remember_video_quality_toast">İlkin %1$s keyfiyyəti %2$s kimi dəyişdi</string>
+  <string name="revanced_remember_video_quality_toast_shorts">Shorts-un %1$s keyfiyyəti %2$s olaraq dəyişdirildi</string>
   </patch>
   <patch id="video.speed.button.playbackSpeedButtonPatch">
   <string name="revanced_playback_speed_dialog_button_title">Sürət dialoq düyməsini göstər</string>
@@ -1334,6 +1353,9 @@ Bunu aktivləşdirmə daha yüksək video keyfiyyətləri əngəlin silə bilər
   <string name="revanced_disable_hdr_video_summary_off">HDR video aktivdir</string>
   </patch>
   <patch id="video.quality.advancedVideoQualityMenuPatch">
+  <string name="revanced_advanced_video_quality_menu_title">Qabaqcıl video keyfiyyət siyahısın göstər</string>
+  <string name="revanced_advanced_video_quality_menu_summary_on">Qabaqcıl video keyfiyyət siyahısı göstərilir</string>
+  <string name="revanced_advanced_video_quality_menu_summary_off">Qabaqcıl video keyfiyyət siyahısı göstərilmir</string>
   </patch>
   <patch id="interaction.seekbar.enableSlideToSeekPatch">
   <string name="revanced_slide_to_seek_title">Axtarmaq üçün sürüşdürməni aktiv et</string>
