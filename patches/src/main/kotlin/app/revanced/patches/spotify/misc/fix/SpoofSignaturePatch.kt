@@ -1,9 +1,9 @@
 package app.revanced.patches.spotify.misc.fix
 
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
-import app.revanced.patcher.extensions.InstructionExtensions.instructions
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.util.indexOfFirstInstructionReversedOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
@@ -17,8 +17,10 @@ val spoofSignaturePatch = bytecodePatch(
     execute {
         getAppSignatureFingerprint.method.apply {
             val failedToGetSignaturesStringMatch = getAppSignatureFingerprint.stringMatches!!.first()
-            val concatSignaturesIndex = instructions.subList(0, failedToGetSignaturesStringMatch.index).asReversed()
-                .first { it.opcode == Opcode.MOVE_RESULT_OBJECT }.location.index
+
+            val concatSignaturesIndex = indexOfFirstInstructionReversedOrThrow(failedToGetSignaturesStringMatch.index) {
+                opcode == Opcode.MOVE_RESULT_OBJECT
+            }
 
             val register = getInstruction<OneRegisterInstruction>(concatSignaturesIndex).registerA
 
