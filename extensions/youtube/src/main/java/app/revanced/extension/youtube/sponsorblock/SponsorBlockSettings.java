@@ -136,7 +136,8 @@ public class SponsorBlockSettings {
             for (SegmentCategory category : categories) {
                 JSONObject categoryObject = new JSONObject();
                 String categoryKey = category.keyValue;
-                categoryObject.put("color", category.colorString());
+                // Browser extension does not appear to support colors with alpha channel.
+                categoryObject.put("color", category.colorStringWithoutAlpha());
                 barTypesObject.put(categoryKey, categoryObject);
 
                 if (category.behaviour != CategoryBehaviour.IGNORE) {
