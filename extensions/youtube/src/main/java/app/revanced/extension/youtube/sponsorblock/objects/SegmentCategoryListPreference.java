@@ -88,10 +88,13 @@ public class SegmentCategoryListPreference extends ListPreference {
                             s.insert(0, "#"); // recursively calls back into this method
                             return;
                         }
-                        if (colorString.length() > 7) {
-                            s.delete(7, colorString.length());
+
+                        final int maxColorStringLength = 9; // #AARRGGBB
+                        if (colorString.length() > maxColorStringLength) {
+                            s.delete(maxColorStringLength, colorString.length());
                             return;
                         }
+
                         final int color = Color.parseColor(colorString);
                         colorDotView.setText(SegmentCategory.getCategoryColorDot(color));
                     } catch (IllegalArgumentException ex) {

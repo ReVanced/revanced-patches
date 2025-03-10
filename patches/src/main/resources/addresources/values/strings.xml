@@ -1068,6 +1068,8 @@ Already exists"</string>
             <string name="revanced_sb_vote_downvote">Downvote</string>
             <string name="revanced_sb_vote_category">Change category</string>
             <string name="revanced_sb_vote_no_segments">There are no segments to vote for</string>
+            <!-- A segment start and end time, such as "02:10 to 03:40" -->
+            <string name="revanced_sb_vote_segment_time_to_from">%1$s to %2$s</string>
             <string name="revanced_sb_new_segment_choose_category">Choose the segment category</string>
             <string name="revanced_sb_new_segment_disabled_category">Category is disabled in settings. Enable category to submit.</string>
             <string name="revanced_sb_new_segment_title">New SponsorBlock segment</string>

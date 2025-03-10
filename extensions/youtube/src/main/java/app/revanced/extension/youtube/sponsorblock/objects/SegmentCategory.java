@@ -5,9 +5,10 @@ import static app.revanced.extension.shared.StringRef.sf;
 
 import android.graphics.Color;
 import android.graphics.Paint;
-import android.text.Html;
-import android.text.Spanned;
+import android.text.Spannable;
+import android.text.SpannableString;
 import android.text.TextUtils;
+import android.text.style.ForegroundColorSpan;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -15,14 +16,15 @@ import androidx.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 import java.util.Objects;
 
+import app.revanced.extension.shared.Logger;
+import app.revanced.extension.shared.StringRef;
 import app.revanced.extension.shared.Utils;
 import app.revanced.extension.shared.settings.StringSetting;
 import app.revanced.extension.youtube.settings.Settings;
-import app.revanced.extension.shared.Logger;
-import app.revanced.extension.shared.StringRef;
 
 public enum SegmentCategory {
     SPONSOR("sponsor", sf("revanced_sb_segments_sponsor"), sf("revanced_sb_segments_sponsor_sum"), sf("revanced_sb_skip_button_sponsor"), sf("revanced_sb_skipped_sponsor"),
@@ -51,7 +53,7 @@ public enum SegmentCategory {
     MUSIC_OFFTOPIC("music_offtopic", sf("revanced_sb_segments_nomusic"), sf("revanced_sb_segments_nomusic_sum"), sf("revanced_sb_skip_button_nomusic"), sf("revanced_sb_skipped_nomusic"),
             SB_CATEGORY_MUSIC_OFFTOPIC, SB_CATEGORY_MUSIC_OFFTOPIC_COLOR),
     UNSUBMITTED("unsubmitted", StringRef.empty, StringRef.empty, sf("revanced_sb_skip_button_unsubmitted"), sf("revanced_sb_skipped_unsubmitted"),
-            SB_CATEGORY_UNSUBMITTED, SB_CATEGORY_UNSUBMITTED_COLOR),;
+            SB_CATEGORY_UNSUBMITTED, SB_CATEGORY_UNSUBMITTED_COLOR);
 
     private static final StringRef skipSponsorTextCompact = sf("revanced_sb_skip_button_compact");
     private static final StringRef skipSponsorTextCompactHighlight = sf("revanced_sb_skip_button_compact_highlight");
@@ -136,7 +138,7 @@ public enum SegmentCategory {
     @NonNull
     public final String keyValue;
     @NonNull
-    public final StringSetting behaviorSetting;
+    public final StringSetting behaviorSetting; // TODO: Replace with EnumSetting.
     @NonNull
     private final StringSetting colorSetting;
 
@@ -245,45 +247,71 @@ public enum SegmentCategory {
         this.behaviour = Objects.requireNonNull(behaviour);
         this.behaviorSetting.save(behaviour.reVancedKeyValue);
     }
-    /**
-     * @return HTML color format string
-     */
-    @NonNull
-    public String colorString() {
-        return String.format("#%06X", color);
-    }
-
-    public void setColor(@NonNull String colorString) throws IllegalArgumentException {
-        final int color = Color.parseColor(colorString) & 0xFFFFFF;
-        this.color = color;
-        paint.setColor(color);
-        paint.setAlpha(255);
-        colorSetting.save(colorString); // Save after parsing.
-    }
 
     public void resetColor() {
         setColor(colorSetting.defaultValue);
     }
 
+    /**
+     * @return Hex color string of RRGGBB format, or
+     *         if alpha channel is not opaque then returns AARRGGBB format.
+     */
     @NonNull
-    private static String getCategoryColorDotHTML(int color) {
-        color &= 0xFFFFFF;
-        return String.format("<font color=\"#%06X\">⬤</font>", color);
+    public String colorString() {
+        if (Color.alpha(color) == 255) {
+            return colorStringWithoutAlpha();
+        }
+
+        return String.format(Locale.US, "#%08X", color);
+    }
+
+    /**
+     * @return RRGGBB hex color string without an alpha channel.
+     */
+    @NonNull
+    public String colorStringWithoutAlpha() {
+        return String.format(Locale.US, "#%06X", color & 0x00FFFFFF);
+    }
+
+    public void setColor(@NonNull String colorString) throws IllegalArgumentException {
+        final int color = Color.parseColor(colorString);
+        paint.setColor(color);
+
+        if (colorString.length() <= 7) {
+            // 6 digit hex color with opaque alpha channel.
+            paint.setAlpha(255);
+        } else if (Color.alpha(color) == 255) {
+            // User enter #AARRGGBB with fully opaque color (alpha channel is FF).
+            // Save without alpha channel to keep text simpler.
+            colorString = colorStringWithoutAlpha();
+        }
+
+        // Save after parsing.
+        this.color = color;
+        colorSetting.save(colorString);
     }
 
     @NonNull
-    public static Spanned getCategoryColorDot(int color) {
-        return Html.fromHtml(getCategoryColorDotHTML(color));
+    private static SpannableString getCategoryColorDotSpan(String text, int color) {
+        SpannableString dotSpan = new SpannableString('⬤' + text);
+        dotSpan.setSpan(new ForegroundColorSpan(color), 0, 1,
+                Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+        return dotSpan;
     }
 
     @NonNull
-    public Spanned getCategoryColorDot() {
+    public static SpannableString getCategoryColorDot(int color) {
+        return getCategoryColorDotSpan("", color);
+    }
+
+    @NonNull
+    public SpannableString getCategoryColorDot() {
         return getCategoryColorDot(color);
     }
 
     @NonNull
-    public Spanned getTitleWithColorDot() {
-        return Html.fromHtml(getCategoryColorDotHTML(color) + " " + title);
+    public SpannableString getTitleWithColorDot() {
+        return getCategoryColorDotSpan(" " + title, color);
     }
 
     /**
