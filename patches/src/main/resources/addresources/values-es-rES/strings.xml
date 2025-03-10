@@ -1261,9 +1261,9 @@ Habilitar esto puede desbloquear calidades de vídeo más altas"</string>
   <string name="microg_settings_summary">Configuración de GmsCore</string>
   </patch>
   <patch id="misc.links.bypassURLRedirectsPatch">
-  <string name="revanced_bypass_url_redirects_title">Redirecciones URL Bypass</string>
-  <string name="revanced_bypass_url_redirects_summary_on">Se omiten las redirecciones URL</string>
-  <string name="revanced_bypass_url_redirects_summary_off">No se omiten las redirecciones URL</string>
+  <string name="revanced_bypass_url_redirects_title">Evitar redirecciones de URL</string>
+  <string name="revanced_bypass_url_redirects_summary_on">Se omiten las redirecciones de URL</string>
+  <string name="revanced_bypass_url_redirects_summary_off">No se omiten las redirecciones de URL</string>
   </patch>
   <patch id="misc.links.openLinksExternallyPatch">
   <string name="revanced_external_browser_title">Abrir enlaces en el navegador</string>
