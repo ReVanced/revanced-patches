@@ -2,6 +2,11 @@ public final class app/revanced/patches/all/misc/activity/exportall/ExportAllAct
 	public static final fun getExportAllActivitiesPatch ()Lapp/revanced/patcher/patch/ResourcePatch;
 }
 
+public final class app/revanced/patches/all/misc/adb/SpoofAdbEnabledPatchKt {
+	public static final fun getSETTINGS_GLOBAL_CLASS_DESCRIPTOR ()Ljava/lang/String;
+	public static final fun getSpoofAdbEnabledPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
 public final class app/revanced/patches/all/misc/build/BaseSpoofBuildInfoPatchKt {
 	public static final fun baseSpoofBuildInfoPatch (Lkotlin/jvm/functions/Function0;)Lapp/revanced/patcher/patch/BytecodePatch;
 }
