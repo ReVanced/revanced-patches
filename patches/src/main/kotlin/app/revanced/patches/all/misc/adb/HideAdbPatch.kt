@@ -12,12 +12,12 @@ internal const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/all/spo
 internal const val SETTINGS_GLOBAL_CLASS_DESCRIPTOR = "Landroid/provider/Settings\$Global;"
 
 @Suppress("unused")
-val spoofAdbStatusPatch = bytecodePatch(
-    name = "Spoof ADB status",
-    description = "Allows spoofing ADB and development settings status to appear disabled to apps.",
+val hideAdbStatusPatch = bytecodePatch(
+    name = "Hide ADB status",
+    description = "Hide enabled development settings and/or ADB",
     use = false,
 ) {
-    extendWith("extensions/all/misc/adb/spoof-adb.rve")
+    extendWith("extensions/all/misc/adb/hide-adb.rve")
 
     dependsOn(
         transformInstructionsPatch(
