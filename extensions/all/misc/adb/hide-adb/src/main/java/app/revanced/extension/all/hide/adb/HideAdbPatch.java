@@ -3,15 +3,9 @@ package app.revanced.extension.all.hide.adb;
 import android.content.ContentResolver;
 import android.provider.Settings;
 
-import java.util.Set;
-
 @SuppressWarnings("unused")
 public final class HideAdbPatch {
-    private static final String[] SPOOF_SETTINGS = new String[]{
-            "adb_enabled",
-            "adb_wifi_enabled",
-            "development_settings_enabled"
-    };
+    private static final String[] SPOOF_SETTINGS = new String[]{"adb_enabled", "adb_wifi_enabled", "development_settings_enabled"};
 
     private static boolean shouldSpoof(String name) {
         for (String spoofSetting : SPOOF_SETTINGS) {
