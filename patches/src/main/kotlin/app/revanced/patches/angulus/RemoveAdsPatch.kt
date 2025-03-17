@@ -5,7 +5,6 @@ import app.revanced.patcher.patch.bytecodePatch
 
 @Suppress("unused")
 val angulusPatch = bytecodePatch(
-    name = "Angulus Ad removal patch",
     name = "Hide ads",
     description = "Hides in app ads",
 ) {
