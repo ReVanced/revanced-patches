@@ -6,7 +6,8 @@ import app.revanced.patcher.patch.bytecodePatch
 @Suppress("unused")
 val angulusPatch = bytecodePatch(
     name = "Angulus Ad removal patch",
-    description = "Unlimited daily measurements.",
+    name = "Hide ads",
+    description = "Hides in app ads",
 ) {
     compatibleWith("com.drinkplusplus.angulus"("5.0.20"))
 
