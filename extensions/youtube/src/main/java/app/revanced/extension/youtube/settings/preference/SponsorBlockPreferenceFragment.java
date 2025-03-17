@@ -45,8 +45,8 @@ public class SponsorBlockPreferenceFragment extends PreferenceFragment {
     private SwitchPreference showTimeWithoutSegments;
     private SwitchPreference toastOnConnectionError;
 
-    private EditTextPreference newSegmentStep;
-    private EditTextPreference minSegmentDuration;
+    private ResettableEditTextPreference newSegmentStep;
+    private ResettableEditTextPreference minSegmentDuration;
     private EditTextPreference privateUserId;
     private EditTextPreference importExport;
     private Preference apiUrl;
@@ -272,6 +272,7 @@ public class SponsorBlockPreferenceFragment extends PreferenceFragment {
         });
 
         newSegmentStep = new ResettableEditTextPreference(context);
+        newSegmentStep.setSetting(Settings.SB_CREATE_NEW_SEGMENT_STEP);
         newSegmentStep.setTitle(str("revanced_sb_general_adjusting"));
         newSegmentStep.setSummary(str("revanced_sb_general_adjusting_sum"));
         newSegmentStep.getEditText().setInputType(InputType.TYPE_CLASS_NUMBER);
@@ -330,6 +331,7 @@ public class SponsorBlockPreferenceFragment extends PreferenceFragment {
         category.addPreference(trackSkips);
 
         minSegmentDuration = new ResettableEditTextPreference(context);
+        minSegmentDuration.setSetting(Settings.SB_SEGMENT_MIN_DURATION);
         minSegmentDuration.setTitle(str("revanced_sb_general_min_duration"));
         minSegmentDuration.setSummary(str("revanced_sb_general_min_duration_sum"));
         minSegmentDuration.getEditText().setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL);
