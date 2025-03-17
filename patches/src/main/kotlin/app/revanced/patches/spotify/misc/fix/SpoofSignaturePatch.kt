@@ -12,7 +12,10 @@ val spoofSignaturePatch = bytecodePatch(
     name = "Spoof signature",
     description = "Spoofs the signature of the app to fix various functions of the app.",
 ) {
-    compatibleWith("com.spotify.music")
+    compatibleWith(
+        "com.spotify.music",
+        "com.spotify.musix"
+    )
 
     execute {
         getAppSignatureFingerprint.method.apply {

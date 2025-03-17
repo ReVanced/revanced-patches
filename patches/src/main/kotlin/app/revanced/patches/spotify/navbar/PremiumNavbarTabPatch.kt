@@ -32,7 +32,10 @@ val premiumNavbarTabPatch = bytecodePatch(
 ) {
     dependsOn(premiumNavbarTabResourcePatch)
 
-    compatibleWith("com.spotify.music")
+    compatibleWith(
+        "com.spotify.music",
+        "com.spotify.musix"
+    )
 
     // If the navigation bar item is the premium tab, do not add it.
     execute {
