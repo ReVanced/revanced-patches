@@ -157,7 +157,8 @@ public class SegmentCategoryListPreference extends ListPreference {
                 @Override
                 public void afterTextChanged(Editable edit) {
                     try {
-                        final int opacityStringLength = edit.toString().length();
+                        String editString = edit.toString();
+                        final int opacityStringLength = editString.length();
 
                         final int maxOpacityStringLength = 4; // [0.00, 1.00]
                         if (opacityStringLength > maxOpacityStringLength) {
@@ -165,7 +166,9 @@ public class SegmentCategoryListPreference extends ListPreference {
                             return;
                         }
 
-                        final float opacity = Float.parseFloat(edit.toString());
+                        final float opacity = opacityStringLength == 0
+                                ? 0
+                                : Float.parseFloat(editString);
                         if (opacity < 0) {
                             categoryOpacity = 0;
                             edit.replace(0, opacityStringLength, "0");
@@ -174,13 +177,15 @@ public class SegmentCategoryListPreference extends ListPreference {
                             categoryOpacity = 1;
                             edit.replace(0, opacityStringLength, "1.0");
                             return;
-                        } else {
+                        } else if (!editString.endsWith(".")) {
+                            // Ignore "0." and "1." until the user finishes entering a valid number.
                             categoryOpacity = opacity;
                         }
 
                         updateCategoryColorDot();
-                    } catch (NumberFormatException e) {
-                        // Ignore.
+                    } catch (NumberFormatException ex) {
+                        // Should never happen.
+                        Logger.printException(() -> "Could not parse opacity string", ex);
                     }
                 }
             });
