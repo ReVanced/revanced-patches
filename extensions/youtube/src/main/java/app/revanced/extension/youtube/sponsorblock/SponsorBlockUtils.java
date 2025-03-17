@@ -5,9 +5,11 @@ import static app.revanced.extension.shared.StringRef.str;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.text.Html;
+import android.graphics.Color;
 import android.text.Spannable;
+import android.text.SpannableString;
 import android.text.SpannableStringBuilder;
+import android.text.style.ForegroundColorSpan;
 import android.text.style.StyleSpan;
 import android.widget.EditText;
 
@@ -36,7 +38,7 @@ import app.revanced.extension.youtube.sponsorblock.ui.SponsorBlockViewController
  * Not thread safe. All fields/methods must be accessed from the main thread.
  */
 public class SponsorBlockUtils {
-    private static final String LOCKED_COLOR = "#FFC83D";
+    private static final int LOCKED_COLOR = Color.parseColor("#FFC83D");
     private static final String MANUAL_EDIT_TIME_TEXT_HINT = "hh:mm:ss.sss";
     private static final Pattern manualEditTimePattern
             = Pattern.compile("((\\d{1,2}):)?(\\d{1,2}):(\\d{2})(\\.(\\d{1,3}))?");
@@ -163,32 +165,35 @@ public class SponsorBlockUtils {
             SegmentVote[] voteOptions = (segment.category == SegmentCategory.HIGHLIGHT)
                     ? SegmentVote.voteTypesWithoutCategoryChange // highlight segments cannot change category
                     : SegmentVote.values();
-            CharSequence[] items = new CharSequence[voteOptions.length];
+            final int voteOptionsLength = voteOptions.length;
+            final boolean userIsVip = Settings.SB_USER_IS_VIP.get();
+            CharSequence[] items = new CharSequence[voteOptionsLength];
 
-            for (int i = 0; i < voteOptions.length; i++) {
+            for (int i = 0; i < voteOptionsLength; i++) {
                 SegmentVote voteOption = voteOptions[i];
                 String title = voteOption.title.toString();
-                if (Settings.SB_USER_IS_VIP.get() && segment.isLocked && voteOption.shouldHighlight) {
-                    items[i] = Html.fromHtml(String.format("<font color=\"%s\">%s</font>", LOCKED_COLOR, title));
+                if (userIsVip && segment.isLocked && voteOption.highlightIfVipAndVideoIsLocked) {
+                    SpannableString dotSpan = new SpannableString(title);
+                    dotSpan.setSpan(new ForegroundColorSpan(LOCKED_COLOR), 0, title.length(),
+                            Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+                    items[i] = dotSpan;
                 } else {
                     items[i] = title;
                 }
             }
 
-            new AlertDialog.Builder(context)
-                    .setItems(items, (dialog1, which1) -> {
-                        SegmentVote voteOption = voteOptions[which1];
-                        switch (voteOption) {
-                            case UPVOTE:
-                            case DOWNVOTE:
-                                SBRequester.voteForSegmentOnBackgroundThread(segment, voteOption);
-                                break;
-                            case CATEGORY_CHANGE:
-                                onNewCategorySelect(segment, context);
-                                break;
-                        }
-                    })
-                    .show();
+            new AlertDialog.Builder(context).setItems(items, (dialog1, which1) -> {
+                SegmentVote voteOption = voteOptions[which1];
+                switch (voteOption) {
+                    case UPVOTE:
+                    case DOWNVOTE:
+                        SBRequester.voteForSegmentOnBackgroundThread(segment, voteOption);
+                        break;
+                    case CATEGORY_CHANGE:
+                        onNewCategorySelect(segment, context);
+                        break;
+                }
+            }).show();
         } catch (Exception ex) {
             Logger.printException(() -> "segmentVoteClickListener failure", ex);
         }

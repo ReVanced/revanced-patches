@@ -23,12 +23,15 @@ public class SponsorSegment implements Comparable<SponsorSegment> {
         @NonNull
         public final StringRef title;
         public final int apiVoteType;
-        public final boolean shouldHighlight;
+        /**
+         * If the option should be highlighted for VIP users.
+         */
+        public final boolean highlightIfVipAndVideoIsLocked;
 
-        SegmentVote(@NonNull StringRef title, int apiVoteType, boolean shouldHighlight) {
+        SegmentVote(@NonNull StringRef title, int apiVoteType, boolean highlightIfVipAndVideoIsLocked) {
             this.title = title;
             this.apiVoteType = apiVoteType;
-            this.shouldHighlight = shouldHighlight;
+            this.highlightIfVipAndVideoIsLocked = highlightIfVipAndVideoIsLocked;
         }
     }
 

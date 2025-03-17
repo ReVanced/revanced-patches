@@ -1,7 +1,7 @@
 package app.revanced.extension.youtube.sponsorblock.objects;
 
-import static app.revanced.extension.youtube.settings.Settings.*;
 import static app.revanced.extension.shared.StringRef.sf;
+import static app.revanced.extension.youtube.settings.Settings.*;
 
 import android.graphics.Color;
 import android.graphics.Paint;
@@ -23,37 +23,38 @@ import java.util.Objects;
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.StringRef;
 import app.revanced.extension.shared.Utils;
+import app.revanced.extension.shared.settings.FloatSetting;
 import app.revanced.extension.shared.settings.StringSetting;
 import app.revanced.extension.youtube.settings.Settings;
 
 public enum SegmentCategory {
     SPONSOR("sponsor", sf("revanced_sb_segments_sponsor"), sf("revanced_sb_segments_sponsor_sum"), sf("revanced_sb_skip_button_sponsor"), sf("revanced_sb_skipped_sponsor"),
-            SB_CATEGORY_SPONSOR, SB_CATEGORY_SPONSOR_COLOR),
+            SB_CATEGORY_SPONSOR, SB_CATEGORY_SPONSOR_COLOR, SB_CATEGORY_SPONSOR_OPACITY),
     SELF_PROMO("selfpromo", sf("revanced_sb_segments_selfpromo"), sf("revanced_sb_segments_selfpromo_sum"), sf("revanced_sb_skip_button_selfpromo"), sf("revanced_sb_skipped_selfpromo"),
-            SB_CATEGORY_SELF_PROMO, SB_CATEGORY_SELF_PROMO_COLOR),
+            SB_CATEGORY_SELF_PROMO, SB_CATEGORY_SELF_PROMO_COLOR, SB_CATEGORY_SELF_PROMO_OPACITY),
     INTERACTION("interaction", sf("revanced_sb_segments_interaction"), sf("revanced_sb_segments_interaction_sum"), sf("revanced_sb_skip_button_interaction"), sf("revanced_sb_skipped_interaction"),
-            SB_CATEGORY_INTERACTION, SB_CATEGORY_INTERACTION_COLOR),
+            SB_CATEGORY_INTERACTION, SB_CATEGORY_INTERACTION_COLOR, SB_CATEGORY_INTERACTION_OPACITY),
     /**
      * Unique category that is treated differently than the rest.
      */
     HIGHLIGHT("poi_highlight", sf("revanced_sb_segments_highlight"), sf("revanced_sb_segments_highlight_sum"), sf("revanced_sb_skip_button_highlight"), sf("revanced_sb_skipped_highlight"),
-            SB_CATEGORY_HIGHLIGHT, SB_CATEGORY_HIGHLIGHT_COLOR),
+            SB_CATEGORY_HIGHLIGHT, SB_CATEGORY_HIGHLIGHT_COLOR, SB_CATEGORY_HIGHLIGHT_OPACITY),
     INTRO("intro", sf("revanced_sb_segments_intro"), sf("revanced_sb_segments_intro_sum"),
             sf("revanced_sb_skip_button_intro_beginning"), sf("revanced_sb_skip_button_intro_middle"), sf("revanced_sb_skip_button_intro_end"),
             sf("revanced_sb_skipped_intro_beginning"), sf("revanced_sb_skipped_intro_middle"), sf("revanced_sb_skipped_intro_end"),
-            SB_CATEGORY_INTRO, SB_CATEGORY_INTRO_COLOR),
+            SB_CATEGORY_INTRO, SB_CATEGORY_INTRO_COLOR, SB_CATEGORY_INTRO_OPACITY),
     OUTRO("outro", sf("revanced_sb_segments_outro"), sf("revanced_sb_segments_outro_sum"), sf("revanced_sb_skip_button_outro"), sf("revanced_sb_skipped_outro"),
-            SB_CATEGORY_OUTRO, SB_CATEGORY_OUTRO_COLOR),
+            SB_CATEGORY_OUTRO, SB_CATEGORY_OUTRO_COLOR, SB_CATEGORY_OUTRO_OPACITY),
     PREVIEW("preview", sf("revanced_sb_segments_preview"), sf("revanced_sb_segments_preview_sum"),
             sf("revanced_sb_skip_button_preview_beginning"), sf("revanced_sb_skip_button_preview_middle"), sf("revanced_sb_skip_button_preview_end"),
             sf("revanced_sb_skipped_preview_beginning"), sf("revanced_sb_skipped_preview_middle"), sf("revanced_sb_skipped_preview_end"),
-            SB_CATEGORY_PREVIEW, SB_CATEGORY_PREVIEW_COLOR),
+            SB_CATEGORY_PREVIEW, SB_CATEGORY_PREVIEW_COLOR, SB_CATEGORY_PREVIEW_OPACITY),
     FILLER("filler", sf("revanced_sb_segments_filler"), sf("revanced_sb_segments_filler_sum"), sf("revanced_sb_skip_button_filler"), sf("revanced_sb_skipped_filler"),
-            SB_CATEGORY_FILLER, SB_CATEGORY_FILLER_COLOR),
+            SB_CATEGORY_FILLER, SB_CATEGORY_FILLER_COLOR, SB_CATEGORY_FILLER_OPACITY),
     MUSIC_OFFTOPIC("music_offtopic", sf("revanced_sb_segments_nomusic"), sf("revanced_sb_segments_nomusic_sum"), sf("revanced_sb_skip_button_nomusic"), sf("revanced_sb_skipped_nomusic"),
-            SB_CATEGORY_MUSIC_OFFTOPIC, SB_CATEGORY_MUSIC_OFFTOPIC_COLOR),
+            SB_CATEGORY_MUSIC_OFFTOPIC, SB_CATEGORY_MUSIC_OFFTOPIC_COLOR, SB_CATEGORY_MUSIC_OFFTOPIC_OPACITY),
     UNSUBMITTED("unsubmitted", StringRef.empty, StringRef.empty, sf("revanced_sb_skip_button_unsubmitted"), sf("revanced_sb_skipped_unsubmitted"),
-            SB_CATEGORY_UNSUBMITTED, SB_CATEGORY_UNSUBMITTED_COLOR);
+            SB_CATEGORY_UNSUBMITTED, SB_CATEGORY_UNSUBMITTED_COLOR, SB_CATEGORY_UNSUBMITTED_OPACITY);
 
     private static final StringRef skipSponsorTextCompact = sf("revanced_sb_skip_button_compact");
     private static final StringRef skipSponsorTextCompactHighlight = sf("revanced_sb_skip_button_compact_highlight");
@@ -92,12 +93,10 @@ public enum SegmentCategory {
             mValuesMap.put(value.keyValue, value);
     }
 
-    @NonNull
     public static SegmentCategory[] categoriesWithoutUnsubmitted() {
         return categoriesWithoutUnsubmitted;
     }
 
-    @NonNull
     public static SegmentCategory[] categoriesWithoutHighlights() {
         return categoriesWithoutHighlights;
     }
@@ -108,7 +107,7 @@ public enum SegmentCategory {
     }
 
     /**
-     * Must be called if behavior of any category is changed
+     * Must be called if behavior of any category is changed.
      */
     public static void updateEnabledCategories() {
         Utils.verifyOnMainThread();
@@ -135,32 +134,33 @@ public enum SegmentCategory {
         updateEnabledCategories();
     }
 
-    @NonNull
-    public final String keyValue;
-    @NonNull
-    public final StringSetting behaviorSetting; // TODO: Replace with EnumSetting.
-    @NonNull
-    private final StringSetting colorSetting;
+    public static int applyOpacityToColor(int color, float opacity) {
+        if (opacity < 0 || opacity > 1.0f) {
+            throw new IllegalArgumentException("Invalid opacity: " + opacity);
+        }
+        final int opacityInt = (int) (255 * opacity);
+        return (color & 0x00FFFFFF) | (opacityInt << 24);
+    }
 
-    @NonNull
+    public final String keyValue;
+    public final StringSetting behaviorSetting; // TODO: Replace with EnumSetting.
+    private final StringSetting colorSetting;
+    private final FloatSetting opacitySetting;
+
     public final StringRef title;
-    @NonNull
     public final StringRef description;
 
     /**
      * Skip button text, if the skip occurs in the first quarter of the video
      */
-    @NonNull
     public final StringRef skipButtonTextBeginning;
     /**
      * Skip button text, if the skip occurs in the middle half of the video
      */
-    @NonNull
     public final StringRef skipButtonTextMiddle;
     /**
      * Skip button text, if the skip occurs in the last quarter of the video
      */
-    @NonNull
     public final StringRef skipButtonTextEnd;
     /**
      * Skipped segment toast, if the skip occurred in the first quarter of the video
@@ -181,10 +181,7 @@ public enum SegmentCategory {
     @NonNull
     public final Paint paint;
 
-    /**
-     * Value must be changed using {@link #setColor(String)}.
-     */
-    public int color;
+    private int color;
 
     /**
      * Value must be changed using {@link #setBehaviour(CategoryBehaviour)}.
@@ -196,17 +193,20 @@ public enum SegmentCategory {
     SegmentCategory(String keyValue, StringRef title, StringRef description,
                     StringRef skipButtonText,
                     StringRef skippedToastText,
-                    StringSetting behavior, StringSetting color) {
+                    StringSetting behavior,
+                    StringSetting color, FloatSetting opacity) {
         this(keyValue, title, description,
                 skipButtonText, skipButtonText, skipButtonText,
                 skippedToastText, skippedToastText, skippedToastText,
-                behavior, color);
+                behavior,
+                color, opacity);
     }
 
     SegmentCategory(String keyValue, StringRef title, StringRef description,
                     StringRef skipButtonTextBeginning, StringRef skipButtonTextMiddle, StringRef skipButtonTextEnd,
                     StringRef skippedToastBeginning, StringRef skippedToastMiddle, StringRef skippedToastEnd,
-                    StringSetting behavior, StringSetting color) {
+                    StringSetting behavior,
+                    StringSetting color, FloatSetting opacity) {
         this.keyValue = Objects.requireNonNull(keyValue);
         this.title = Objects.requireNonNull(title);
         this.description = Objects.requireNonNull(description);
@@ -218,6 +218,7 @@ public enum SegmentCategory {
         this.skippedToastEnd = Objects.requireNonNull(skippedToastEnd);
         this.behaviorSetting = Objects.requireNonNull(behavior);
         this.colorSetting = Objects.requireNonNull(color);
+        this.opacitySetting = Objects.requireNonNull(opacity);
         this.paint = new Paint();
         loadFromSettings();
     }
@@ -234,11 +235,14 @@ public enum SegmentCategory {
         this.behaviour = savedBehavior;
 
         String colorString = colorSetting.get();
+        final float opacity = opacitySetting.get();
         try {
             setColor(colorString);
+            setOpacity(opacity);
         } catch (Exception ex) {
-            Logger.printException(() -> "Invalid color: " + colorString, ex);
+            Logger.printException(() -> "Invalid color: " + colorString + " opacity: " + opacity, ex);
             colorSetting.resetToDefault();
+            opacitySetting.resetToDefault();
             loadFromSettings();
         }
     }
@@ -248,50 +252,56 @@ public enum SegmentCategory {
         this.behaviorSetting.save(behaviour.reVancedKeyValue);
     }
 
-    public void resetColor() {
-        setColor(colorSetting.defaultValue);
-    }
-
-    /**
-     * @return Hex color string of RRGGBB format, or
-     *         if alpha channel is not opaque then returns AARRGGBB format.
-     */
-    @NonNull
-    public String colorString() {
-        if (Color.alpha(color) == 255) {
-            return colorStringWithoutAlpha();
-        }
-
-        return String.format(Locale.US, "#%08X", color);
-    }
-
-    /**
-     * @return RRGGBB hex color string without an alpha channel.
-     */
-    @NonNull
-    public String colorStringWithoutAlpha() {
-        return String.format(Locale.US, "#%06X", color & 0x00FFFFFF);
-    }
-
-    public void setColor(@NonNull String colorString) throws IllegalArgumentException {
-        final int color = Color.parseColor(colorString);
+    private void updateColor() {
+        color = applyOpacityToColor(color, opacitySetting.get());
         paint.setColor(color);
-
-        if (colorString.length() <= 7) {
-            // 6 digit hex color with opaque alpha channel.
-            paint.setAlpha(255);
-        } else if (Color.alpha(color) == 255) {
-            // User enter #AARRGGBB with fully opaque color (alpha channel is FF).
-            // Save without alpha channel to keep text simpler.
-            colorString = colorStringWithoutAlpha();
-        }
-
-        // Save after parsing.
-        this.color = color;
-        colorSetting.save(colorString);
     }
 
-    @NonNull
+    /**
+     * @param opacity Segment color opacity between [0, 1].
+     */
+    public void setOpacity(float opacity) throws IllegalArgumentException {
+        if (opacity < 0 || opacity > 1) {
+            throw new IllegalArgumentException("Invalid opacity: " + opacity);
+        }
+
+        opacitySetting.save(opacity);
+        updateColor();
+    }
+
+    public float getOpacity() {
+        return opacitySetting.get();
+    }
+
+    public void resetColorAndOpacity() {
+        setColor(colorSetting.defaultValue);
+        setOpacity(opacitySetting.defaultValue);
+    }
+
+    /**
+     * @param colorString Segment color with #RRGGBB format.
+     */
+    public void setColor(String colorString) throws IllegalArgumentException {
+        color = Color.parseColor(colorString);
+        colorSetting.save(colorString);
+
+        updateColor();
+    }
+
+    /**
+     * @return Integer color of #RRGGBB format.
+     */
+    public int getColorNoOpacity() {
+        return color & 0x00FFFFFF;
+    }
+
+    /**
+     * @return Hex color string of #RRGGBB format with no opacity level.
+     */
+    public String getColorString() {
+        return String.format(Locale.US, "#%06X", getColorNoOpacity());
+    }
+
     private static SpannableString getCategoryColorDotSpan(String text, int color) {
         SpannableString dotSpan = new SpannableString('⬤' + text);
         dotSpan.setSpan(new ForegroundColorSpan(color), 0, 1,
@@ -299,19 +309,20 @@ public enum SegmentCategory {
         return dotSpan;
     }
 
-    @NonNull
     public static SpannableString getCategoryColorDot(int color) {
         return getCategoryColorDotSpan("", color);
     }
 
-    @NonNull
     public SpannableString getCategoryColorDot() {
         return getCategoryColorDot(color);
     }
 
-    @NonNull
+    public SpannableString getTitleWithColorDot(int categoryColor) {
+        return getCategoryColorDotSpan(" " + title, categoryColor);
+    }
+
     public SpannableString getTitleWithColorDot() {
-        return getCategoryColorDotSpan(" " + title, color);
+        return getTitleWithColorDot(color);
     }
 
     /**
@@ -319,7 +330,6 @@ public enum SegmentCategory {
      * @param videoLength      length of the video
      * @return the skip button text
      */
-    @NonNull
     StringRef getSkipButtonText(long segmentStartTime, long videoLength) {
         if (Settings.SB_COMPACT_SKIP_BUTTON.get()) {
             return (this == SegmentCategory.HIGHLIGHT)
@@ -328,7 +338,7 @@ public enum SegmentCategory {
         }
 
         if (videoLength == 0) {
-            return skipButtonTextBeginning; // video is still loading.  Assume it's the beginning
+            return skipButtonTextBeginning; // Video is still loading. Assume it's the beginning.
         }
         final float position = segmentStartTime / (float) videoLength;
         if (position < 0.25f) {
@@ -344,10 +354,9 @@ public enum SegmentCategory {
      * @param videoLength      length of the video
      * @return 'skipped segment' toast message
      */
-    @NonNull
     StringRef getSkippedToastText(long segmentStartTime, long videoLength) {
         if (videoLength == 0) {
-            return skippedToastBeginning; // video is still loading.  Assume it's the beginning
+            return skippedToastBeginning; // Video is still loading. Assume it's the beginning.
         }
         final float position = segmentStartTime / (float) videoLength;
         if (position < 0.25f) {

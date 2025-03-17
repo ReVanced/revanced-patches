@@ -1117,6 +1117,7 @@ Ready to submit?"</string>
             <string name="revanced_sb_stats_saved_hour_format">%1$s hours %2$s minutes</string>
             <string name="revanced_sb_stats_saved_minute_format">%1$s minutes %2$s seconds</string>
             <string name="revanced_sb_stats_saved_second_format">%s seconds</string>
+            <string name="revanced_sb_color_opacity_label">Opacity:</string>
             <string name="revanced_sb_color_dot_label">Color:</string>
             <string name="revanced_sb_color_changed">Color changed</string>
             <string name="revanced_sb_color_reset">Color reset</string>
