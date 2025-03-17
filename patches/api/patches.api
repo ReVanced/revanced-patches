@@ -132,6 +132,10 @@ public final class app/revanced/patches/amazon/DeepLinkingPatchKt {
 	public static final fun getDeepLinkingPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
+public final class app/revanced/patches/angulus/RemoveAdsPatchKt {
+	public static final fun getAngulusPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
 public final class app/revanced/patches/backdrops/misc/pro/ProUnlockPatchKt {
 	public static final fun getProUnlockPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
