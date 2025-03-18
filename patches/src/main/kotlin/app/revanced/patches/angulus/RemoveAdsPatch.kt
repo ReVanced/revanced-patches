@@ -8,7 +8,7 @@ val angulusPatch = bytecodePatch(name = "Hide ads") {
     compatibleWith("com.drinkplusplus.angulus")
 
     execute {
-        // Always returns 0 as the daily measurement count
+        // Always return 0 as the daily measurement count.
         angulusAdsFingerprint.method.returnEarly()
     }
 
