@@ -8,8 +8,8 @@ import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction35c
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
-internal const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/all/spoof/adb/SpoofAdbPatch;"
-internal const val SETTINGS_GLOBAL_CLASS_DESCRIPTOR = "Landroid/provider/Settings\$Global;"
+private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/all/spoof/adb/SpoofAdbPatch;"
+private const val SETTINGS_GLOBAL_CLASS_DESCRIPTOR = "Landroid/provider/Settings\$Global;"
 
 @Suppress("unused")
 val hideAdbStatusPatch = bytecodePatch(
