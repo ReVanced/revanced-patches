@@ -1,4 +1,4 @@
-package app.revanced.patches.angulus
+package app.revanced.patches.angulus.ads
 
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.util.returnEarly
@@ -9,7 +9,7 @@ val angulusPatch = bytecodePatch(name = "Hide ads") {
 
     execute {
         // Always return 0 as the daily measurement count.
-        angulusAdsFingerprint.method.returnEarly()
+        getDailyMeasurementCountFingerprint.method.returnEarly()
     }
 
 }
