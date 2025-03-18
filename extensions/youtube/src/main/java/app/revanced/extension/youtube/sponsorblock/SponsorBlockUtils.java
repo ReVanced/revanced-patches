@@ -171,15 +171,14 @@ public class SponsorBlockUtils {
 
             for (int i = 0; i < voteOptionsLength; i++) {
                 SegmentVote voteOption = voteOptions[i];
-                String title = voteOption.title.toString();
+                CharSequence title = voteOption.title.toString();
                 if (userIsVip && segment.isLocked && voteOption.highlightIfVipAndVideoIsLocked) {
-                    SpannableString dotSpan = new SpannableString(title);
-                    dotSpan.setSpan(new ForegroundColorSpan(LOCKED_COLOR), 0, title.length(),
-                            Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
-                    items[i] = dotSpan;
-                } else {
-                    items[i] = title;
+                    SpannableString coloredTitle = new SpannableString(title);
+                    coloredTitle.setSpan(new ForegroundColorSpan(LOCKED_COLOR),
+                            0, title.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+                    title = coloredTitle;
                 }
+                items[i] = title;
             }
 
             new AlertDialog.Builder(context).setItems(items, (dialog1, which1) -> {
@@ -301,7 +300,7 @@ public class SponsorBlockUtils {
                 SpannableStringBuilder spannableBuilder = new SpannableStringBuilder();
 
                 spannableBuilder.append(segment.category.getTitleWithColorDot());
-                spannableBuilder.append("\n");
+                spannableBuilder.append('\n');
 
                 String startTime = formatSegmentTime(segment.start);
                 if (segment.category == SegmentCategory.HIGHLIGHT) {
@@ -314,7 +313,7 @@ public class SponsorBlockUtils {
 
                 if (i + 1 != numberOfSegments) {
                     // prevents trailing new line after last segment
-                    spannableBuilder.append("\n");
+                    spannableBuilder.append('\n');
                 }
 
                 spannableBuilder.setSpan(new StyleSpan(android.graphics.Typeface.BOLD),
