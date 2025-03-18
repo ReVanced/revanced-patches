@@ -8,7 +8,7 @@ val angulusPatch = bytecodePatch(
     name = "Hide ads",
     description = "Hides in app ads",
 ) {
-    compatibleWith("com.drinkplusplus.angulus"("5.0.20"))
+    compatibleWith("com.drinkplusplus.angulus")
 
     execute {
         // Always returns 0 as the daily measurement count
