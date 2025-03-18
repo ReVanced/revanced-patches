@@ -4,10 +4,7 @@ import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.util.returnEarly
 
 @Suppress("unused")
-val angulusPatch = bytecodePatch(
-    name = "Hide ads",
-    description = "Hides in app ads",
-) {
+val angulusPatch = bytecodePatch(name = "Hide ads") {
     compatibleWith("com.drinkplusplus.angulus")
 
     execute {
