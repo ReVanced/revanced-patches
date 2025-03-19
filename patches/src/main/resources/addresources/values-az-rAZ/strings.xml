@@ -48,57 +48,6 @@ Second \"item\" text"</string>
 
 Yeni dilləri tərcümə etmək üçün translate.revanced.app 'ə daxil olun"</string>
   <string name="revanced_language_DEFAULT">Tətbiq dili</string>
-  <string name="revanced_language_AR">Ərəbcə</string>
-  <string name="revanced_language_AZ">Azərbaycanca</string>
-  <string name="revanced_language_BG">Bolqarca</string>
-  <string name="revanced_language_BN">Benqalca</string>
-  <string name="revanced_language_CA">Katalan dili</string>
-  <string name="revanced_language_CS">Çexcə</string>
-  <string name="revanced_language_DA">Dan dili</string>
-  <string name="revanced_language_DE">Almanca</string>
-  <string name="revanced_language_EL">Yunanca</string>
-  <string name="revanced_language_EN">İngiliscə</string>
-  <string name="revanced_language_ES">İspanca</string>
-  <string name="revanced_language_ET">Estonca</string>
-  <string name="revanced_language_FA">Farsca</string>
-  <string name="revanced_language_FI">Fincə</string>
-  <string name="revanced_language_FR">Fransızca</string>
-  <string name="revanced_language_GU">Qücərat dili</string>
-  <string name="revanced_language_HI">Hindcə</string>
-  <string name="revanced_language_HR">Xorvatca</string>
-  <string name="revanced_language_HU">Macarca</string>
-  <string name="revanced_language_ID">İndoneziya dili</string>
-  <string name="revanced_language_IT">İtalyanca</string>
-  <string name="revanced_language_JA">Yaponca</string>
-  <string name="revanced_language_KK">Qazax dili</string>
-  <string name="revanced_language_KO">Koreya dili</string>
-  <string name="revanced_language_LT">Litva Dili</string>
-  <string name="revanced_language_LV">Letonca</string>
-  <string name="revanced_language_MK">Makedon Dili</string>
-  <string name="revanced_language_MN">Monqolca</string>
-  <string name="revanced_language_MR">Marathi dili</string>
-  <string name="revanced_language_MS">Malay dili</string>
-  <string name="revanced_language_MY">Birmanca</string>
-  <string name="revanced_language_NL">Hollandca</string>
-  <string name="revanced_language_OR">Oriya dili</string>
-  <string name="revanced_language_PA">Pəncabca</string>
-  <string name="revanced_language_PL">Polyak dili</string>
-  <string name="revanced_language_PT">Portuqal dili</string>
-  <string name="revanced_language_RO">Rumınca</string>
-  <string name="revanced_language_RU">Rusca</string>
-  <string name="revanced_language_SK">Slovak dili</string>
-  <string name="revanced_language_SL">Slovencə</string>
-  <string name="revanced_language_SR">Serbcə</string>
-  <string name="revanced_language_SV">İsveçcə</string>
-  <string name="revanced_language_SW">Suahili dili</string>
-  <string name="revanced_language_TA">Tamilcə</string>
-  <string name="revanced_language_TE">Teluqu dili</string>
-  <string name="revanced_language_TH">Tayca</string>
-  <string name="revanced_language_TR">Türkcə</string>
-  <string name="revanced_language_UK">Ukrayna dili</string>
-  <string name="revanced_language_UR">Urdu dili</string>
-  <string name="revanced_language_VI">Vyetnamca</string>
-  <string name="revanced_language_ZH">Çincə</string>
   <string name="revanced_pref_import_export_title">İdxal/İxrac et</string>
   <string name="revanced_pref_import_export_summary">ReVanced tənzimləmələrin idxal/ixrac et</string>
   <!-- Settings about dialog. -->
@@ -278,12 +227,12 @@ Gözlənilməz hallardan xəbərdar olmayacaqsınız."</string>
   <string name="revanced_hide_artist_cards_summary_on">Sənətçi kartları gizlidir</string>
   <string name="revanced_hide_artist_cards_summary_off">Sənətçi kartları göstərilir</string>
   <string name="revanced_hide_attributes_section_title">Atributları Gizlət</string>
-  <string name="revanced_hide_attributes_section_summary_on">Seçilən məkanlar, Oyunlar, Musiqi və qeyd edilən insanlar bölmələri gizlədilir</string>
-  <string name="revanced_hide_attributes_section_summary_off">Seçilən məkanlar, Oyunlar, Musiqi və qeyd edilən insanlar bölmələri görünür</string>
+  <string name="revanced_hide_attributes_section_summary_on">Seçilən yerlər, Oyunlar, Musiqi və qeyd edilən insanlar bölmələri gizlədilir</string>
+  <string name="revanced_hide_attributes_section_summary_off">Seçilən yerlər, Oyunlar, Musiqi və qeyd edilən insanlar bölmələri görünür</string>
   <string name="revanced_hide_chapters_section_title">Fəsilləri Gizlət</string>
   <string name="revanced_hide_chapters_section_summary_on">Bölümlər bölməsi gizlidir</string>
   <string name="revanced_hide_chapters_section_summary_off">Bölümlər bölməsi göstərilir</string>
-  <string name="revanced_hide_how_this_was_made_section_title">\'Bu məzmun necə hazırlanıb\'ı Gizlət</string>
+  <string name="revanced_hide_how_this_was_made_section_title">\'Bu kontent necə hazırlanıb\'ı Gizlət</string>
   <string name="revanced_hide_how_this_was_made_section_summary_on">Bu məzmunun necə hazırlandığı bölməsi gizlidir</string>
   <string name="revanced_hide_how_this_was_made_section_summary_off">Bu məzmunun necə hazırlandığı bölməsi görünür</string>
   <string name="revanced_hide_podcast_section_title">\'Podkastı araşdırın\"-ı Gizlət</string>
@@ -292,14 +241,14 @@ Gözlənilməz hallardan xəbərdar olmayacaqsınız."</string>
   <string name="revanced_hide_info_cards_section_title">Məlumat Kartlarını Gizlət</string>
   <string name="revanced_hide_info_cards_section_summary_on">Məlumat kartları bölməsi gizlədilir</string>
   <string name="revanced_hide_info_cards_section_summary_off">Məlumat kartları bölməsi göstərilir</string>
-  <string name="revanced_hide_key_concepts_section_title">\"Əsas anlayışları\" gizlət</string>
-  <string name="revanced_hide_key_concepts_section_summary_on">Əsas anlayışlar bölməsi gizlidir</string>
-  <string name="revanced_hide_key_concepts_section_summary_off">Əsas anlayışlar bölməsi görünür</string>
+  <string name="revanced_hide_key_concepts_section_title">\"Əsas konseptlər-i\" gizlət</string>
+  <string name="revanced_hide_key_concepts_section_summary_on">Əsas konseptlər bölməsi gizlidir</string>
+  <string name="revanced_hide_key_concepts_section_summary_off">Əsas konseptlər bölməsi görünür</string>
   <string name="revanced_hide_transcript_section_title">Transkript-i Gizlət</string>
   <string name="revanced_hide_transcript_section_summary_on">Transkripsiya bölməsi gizlidir</string>
   <string name="revanced_hide_transcript_section_summary_off">Transkripsiya bölməsi göstərilir</string>
-  <string name="revanced_hide_description_components_screen_title">Video açıqlaması</string>
-  <string name="revanced_hide_description_components_screen_summary">Video açıqlaması elementlərini gizlət və ya göstər</string>
+  <string name="revanced_hide_description_components_screen_title">Video təsviri</string>
+  <string name="revanced_hide_description_components_screen_summary">Video təsviri elementlərini gizlət və ya göstər</string>
   <string name="revanced_hide_filter_bar_screen_title">Filtr çubuğu</string>
   <string name="revanced_hide_filter_bar_screen_summary">Axında, axtarış nəticələrində və əlaqəli videolarda filtr cərgəsin gizlət və ya göstər</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_title">Axında gizlət</string>
@@ -404,6 +353,7 @@ Bu xüsusiyyət yalnız köhnə cihazlar üçün mövcuddur"</string>
   <string name="revanced_hide_self_sponsor_ads_title">Öz-sponsorlu kartları gizlət</string>
   <string name="revanced_hide_self_sponsor_ads_summary_on">Özünə sponsorluq edilən kartlar gizlidir</string>
   <string name="revanced_hide_self_sponsor_ads_summary_off">Özünə sponsorluq edilən kartlar göstərilir</string>
+  <string name="revanced_hide_products_banner_title">\"Məhsullara baxın\" etiketin gizlət</string>
   <string name="revanced_hide_products_banner_summary_on">Etiket gizlədilib</string>
   <string name="revanced_hide_products_banner_summary_off">Etiket göstərilir</string>
   <string name="revanced_hide_end_screen_store_banner_title">Son ekran mağaza etiketini gizlət</string>
@@ -662,6 +612,7 @@ Bu seçimi dəyişdirmə işə düşmürsə, Gizli rejimə keçməyə çalışı
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_off">Video keyfiyyət menyusu alt məlumatı göstərilir</string>
   </patch>
   <patch id="layout.buttons.overlay.hidePlayerOverlayButtonsPatch">
+  <string name="revanced_hide_player_previous_next_buttons_title">Əvvəlki və Növbəti düymələrin gizlət</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_on">Düymələr gizlidir</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">Düymələr göstərilir</string>
   <string name="revanced_hide_cast_button_title">Yayımla düyməsini gizlət</string>
@@ -853,7 +804,6 @@ Avtomatik oynatma YouTube ayarlarında dəyişdirilə bilər: Ayarlar → Oxunu�
   <string name="revanced_ryd_enable_summary_on">Bəyənməmələr göstərilir</string>
   <string name="revanced_ryd_enable_summary_off">Bəyənməmələr göstərilmir</string>
   <string name="revanced_ryd_shorts_title">\"Shorts\"da bəyənməmə sayını göstər</string>
-  <string name="revanced_ryd_shorts_summary_on">Bəyənməmələr Shorts-da göstərilir</string>
   <string name="revanced_ryd_shorts_summary_on_disclaimer">"Bəyənməmələr Shorts-da göstərilir
 
 Məhdudiyyət: Bəyənməmələr gizli rejimdə görünməyə bilər"</string>
@@ -1051,6 +1001,7 @@ Artıq mövcuddur"</string>
   <string name="revanced_sb_vote_downvote">Mənfi səs</string>
   <string name="revanced_sb_vote_category">Kateqoriyanı dəyişdir</string>
   <string name="revanced_sb_vote_no_segments">Səsvermə üçün bölüm yoxdur</string>
+  <!-- A segment start and end time, such as "02:10 to 03:40" -->
   <string name="revanced_sb_new_segment_choose_category">Bölüm kateqoriyasını seçin</string>
   <string name="revanced_sb_new_segment_disabled_category">Seçimlərdə kateqoriya qeyri-aktivdir. Göndərmək üçün kateqoriyanı aktiv et.</string>
   <string name="revanced_sb_new_segment_title">Yeni SponsorBlock bölümü</string>
@@ -1113,6 +1064,14 @@ Təqdim etməyə hazırdır?"</string>
   <string name="revanced_change_form_factor_entry_2">Telefon</string>
   <string name="revanced_change_form_factor_entry_3">Planşet</string>
   <string name="revanced_change_form_factor_entry_4">Avtomobil</string>
+  <string name="revanced_change_form_factor_user_dialog_message">"Dəyişikliklər ehtiva edir:
+
+Planşet tərtibatı
+• İcma elanları gizlədilib
+
+Avtomobil tərtibatı
+• Shorts müntəzəm oynadıcıda açılır
+• Axın mövzular və kanallardan ibarətdir"</string>
   </patch>
   <patch id="layout.spoofappversion.spoofAppVersionPatch">
   <string name="revanced_spoof_app_version_title">Tətbiq versiyasını saxtalaşdır</string>
@@ -1128,11 +1087,6 @@ Sonradan qapadılarsa, UI səhvlərin önləmək üçün tətbiq məlumatların 
   <string name="revanced_spoof_app_version_target_title">Saxta tətbiq versiyası hədəfi</string>
   <string name="revanced_spoof_app_version_target_entry_1">19.35.36 - Köhnə Shorts oynadıcı işarələrin bərpa et</string>
   <string name="revanced_spoof_app_version_target_entry_2">19.26.42 - Köhnə fəaliyyət simvolların bərpa et</string>
-  <!-- 'RYD' is 'Return YouTube Dislike' -->
-  <string name="revanced_spoof_app_version_target_legacy_entry_1">18.33.40 - Shorts gizli rejimində RYD-ni bərpa et</string>
-  <string name="revanced_spoof_app_version_target_legacy_entry_2">18.20.39 - Geniş video sürəti &amp; keyfiyyət menyusunu bərpa et</string>
-  <string name="revanced_spoof_app_version_target_legacy_entry_3">18.09.39 - Kitabxana panelini bərpa et</string>
-  <string name="revanced_spoof_app_version_target_legacy_entry_4">17.33.42 - Köhnə pleylist bölməsin bərpa et</string>
   </patch>
   <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">Başlanğıc səhifəsini təyin et</string>
@@ -1182,6 +1136,7 @@ Sonradan qapadılarsa, UI səhvlərin önləmək üçün tətbiq məlumatların 
   </patch>
   <patch id="layout.miniplayer.miniplayerPatch">
   <string name="revanced_miniplayer_screen_title">Kiçik oynadıcı</string>
+  <string name="revanced_miniplayer_screen_summary">Tətbiqdaxili kiçilən oynadıcı üslubunu dəyişdir</string>
   <string name="revanced_miniplayer_type_title">Kiçik oynadıcı növü</string>
   <string name="revanced_miniplayer_type_entry_0">Qeyri-aktivdir</string>
   <string name="revanced_miniplayer_type_entry_1">İlkin</string>
@@ -1325,6 +1280,8 @@ Bunu aktivləşdirmə daha yüksək video keyfiyyətləri əngəlin silə bilər
   </patch>
   <patch id="misc.links.openLinksExternallyPatch">
   <string name="revanced_external_browser_title">Bağlantıları brauzerdə aç</string>
+  <string name="revanced_external_browser_summary_on">Xarici brauzerdə bağlantıların açılması</string>
+  <string name="revanced_external_browser_summary_off">Tətbiqdaxili brauzerdə bağlantıların açılması</string>
   </patch>
   <patch id="misc.privacy.removeTrackingQueryParameterPatch">
   <string name="revanced_remove_tracking_query_parameter_title">İzləmə sorğusu faktorun sil</string>
@@ -1351,9 +1308,15 @@ Bunu aktivləşdirmə daha yüksək video keyfiyyətləri əngəlin silə bilər
   <string name="revanced_remember_video_quality_last_selected_summary_off">Keyfiyyət dəyişiklikləri yalnız cari videoya tətbiq edilir</string>
   <string name="revanced_video_quality_default_wifi_title">Wi-Fi şəbəkəsində ilkin video keyfiyyəti</string>
   <string name="revanced_video_quality_default_mobile_title">Mobil şəbəkədə ilkin video keyfiyyəti</string>
+  <string name="revanced_remember_shorts_quality_last_selected_title">Shorts keyfiyyət dəyişikliklərini xatırla</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_on">Keyfiyyət dəyişiklikləri bütün Shorts-a tətbiq edilir</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_off">Keyfiyyət dəyişiklikləri yalnız cari Short-a tətbiq edilir</string>
+  <string name="revanced_shorts_quality_default_wifi_title">Wi-Fi şəbəkəsində ilkin Shorts keyfiyyəti</string>
+  <string name="revanced_shorts_quality_default_mobile_title">Mobil şəbəkədə ilkin Shorts keyfiyyəti</string>
   <string name="revanced_remember_video_quality_mobile">mobil</string>
   <string name="revanced_remember_video_quality_wifi">wi-fi</string>
   <string name="revanced_remember_video_quality_toast">İlkin %1$s keyfiyyəti %2$s kimi dəyişdi</string>
+  <string name="revanced_remember_video_quality_toast_shorts">Shorts-un %1$s keyfiyyəti %2$s olaraq dəyişdirildi</string>
   </patch>
   <patch id="video.speed.button.playbackSpeedButtonPatch">
   <string name="revanced_playback_speed_dialog_button_title">Sürət dialoq düyməsini göstər</string>
@@ -1385,6 +1348,9 @@ Bunu aktivləşdirmə daha yüksək video keyfiyyətləri əngəlin silə bilər
   <string name="revanced_disable_hdr_video_summary_off">HDR video aktivdir</string>
   </patch>
   <patch id="video.quality.advancedVideoQualityMenuPatch">
+  <string name="revanced_advanced_video_quality_menu_title">Qabaqcıl video keyfiyyət siyahısın göstər</string>
+  <string name="revanced_advanced_video_quality_menu_summary_on">Qabaqcıl video keyfiyyət siyahısı göstərilir</string>
+  <string name="revanced_advanced_video_quality_menu_summary_off">Qabaqcıl video keyfiyyət siyahısı göstərilmir</string>
   </patch>
   <patch id="interaction.seekbar.enableSlideToSeekPatch">
   <string name="revanced_slide_to_seek_title">Axtarmaq üçün sürüşdürməni aktiv et</string>

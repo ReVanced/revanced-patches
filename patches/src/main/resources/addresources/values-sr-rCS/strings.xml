@@ -48,57 +48,6 @@ Second \"item\" text"</string>
 
 Da biste preveli nove jezike, posetite translate.revanced.app"</string>
   <string name="revanced_language_DEFAULT">Jezik aplikacije</string>
-  <string name="revanced_language_AR">Arapski</string>
-  <string name="revanced_language_AZ">Azerbejdžanski</string>
-  <string name="revanced_language_BG">Bugarski</string>
-  <string name="revanced_language_BN">Bengalski</string>
-  <string name="revanced_language_CA">Katalonski</string>
-  <string name="revanced_language_CS">Češki</string>
-  <string name="revanced_language_DA">Danski</string>
-  <string name="revanced_language_DE">Nemački</string>
-  <string name="revanced_language_EL">Grčki</string>
-  <string name="revanced_language_EN">Engleski</string>
-  <string name="revanced_language_ES">Španski</string>
-  <string name="revanced_language_ET">Estonski</string>
-  <string name="revanced_language_FA">Persijski</string>
-  <string name="revanced_language_FI">Finski</string>
-  <string name="revanced_language_FR">Francuski</string>
-  <string name="revanced_language_GU">Gudžarati</string>
-  <string name="revanced_language_HI">Hindi</string>
-  <string name="revanced_language_HR">Hrvatski</string>
-  <string name="revanced_language_HU">Mađarski</string>
-  <string name="revanced_language_ID">Indonežanski</string>
-  <string name="revanced_language_IT">Italijanski</string>
-  <string name="revanced_language_JA">Japanski</string>
-  <string name="revanced_language_KK">Kazaški</string>
-  <string name="revanced_language_KO">Korejski</string>
-  <string name="revanced_language_LT">Litvanski</string>
-  <string name="revanced_language_LV">Letonski</string>
-  <string name="revanced_language_MK">Makedonski</string>
-  <string name="revanced_language_MN">Mongolski</string>
-  <string name="revanced_language_MR">Marati</string>
-  <string name="revanced_language_MS">Malajski</string>
-  <string name="revanced_language_MY">Burmanski</string>
-  <string name="revanced_language_NL">Holandski</string>
-  <string name="revanced_language_OR">Odija</string>
-  <string name="revanced_language_PA">Pandžapski</string>
-  <string name="revanced_language_PL">Poljski</string>
-  <string name="revanced_language_PT">Portugalski</string>
-  <string name="revanced_language_RO">Rumunski</string>
-  <string name="revanced_language_RU">Ruski</string>
-  <string name="revanced_language_SK">Slovački</string>
-  <string name="revanced_language_SL">Slovenački</string>
-  <string name="revanced_language_SR">Srpski</string>
-  <string name="revanced_language_SV">Švedski</string>
-  <string name="revanced_language_SW">Svahili</string>
-  <string name="revanced_language_TA">Tamilski</string>
-  <string name="revanced_language_TE">Telugu</string>
-  <string name="revanced_language_TH">Tajlandski</string>
-  <string name="revanced_language_TR">Turski</string>
-  <string name="revanced_language_UK">Ukrajinski</string>
-  <string name="revanced_language_UR">Urdu</string>
-  <string name="revanced_language_VI">Vijetnamski</string>
-  <string name="revanced_language_ZH">Kineski</string>
   <string name="revanced_pref_import_export_title">Uvoz / Izvoz</string>
   <string name="revanced_pref_import_export_summary">Uvoz / Izvoz podešavanja ReVanceda</string>
   <!-- Settings about dialog. -->
@@ -856,7 +805,6 @@ Podešavanja → Reprodukcija → Automatski pusti sledeći video"</string>
   <string name="revanced_ryd_enable_summary_on">Nesviđanja su prikazana</string>
   <string name="revanced_ryd_enable_summary_off">Nesviđanja nisu prikazana</string>
   <string name="revanced_ryd_shorts_title">Prikaži nesviđanja na Shorts videima</string>
-  <string name="revanced_ryd_shorts_summary_on">Nesviđanja na Shorts videima su prikazana</string>
   <string name="revanced_ryd_shorts_summary_on_disclaimer">"Nesviđanja na Shorts videima su prikazana
 
 Ograničenje: Nesviđanja se možda neće pojaviti u režimu bez arhiviranja"</string>
@@ -1053,6 +1001,8 @@ Već postoji"</string>
   <string name="revanced_sb_vote_downvote">Glasaj protiv</string>
   <string name="revanced_sb_vote_category">Promeni kategoriju</string>
   <string name="revanced_sb_vote_no_segments">Nema nijednog segmenta za glasanje</string>
+  <!-- A segment start and end time, such as "02:10 to 03:40" -->
+  <string name="revanced_sb_vote_segment_time_to_from">%1$s do %2$s</string>
   <string name="revanced_sb_new_segment_choose_category">Izaberite kategoriju segmenta</string>
   <string name="revanced_sb_new_segment_disabled_category">Kategorija je onemogućena u podešavanjima. Omogućite kategoriju da biste podneli.</string>
   <string name="revanced_sb_new_segment_title">Novi SponsorBlock segment</string>
@@ -1100,6 +1050,7 @@ Spreman za podnošenje?"</string>
   <string name="revanced_sb_stats_saved_hour_format">%1$s sati %2$s minuta</string>
   <string name="revanced_sb_stats_saved_minute_format">%1$s minuta %2$s sekundi</string>
   <string name="revanced_sb_stats_saved_second_format">%s sekundi</string>
+  <string name="revanced_sb_color_opacity_label">Neprozirnost:</string>
   <string name="revanced_sb_color_dot_label">Boja:</string>
   <string name="revanced_sb_color_changed">Boja promenjena</string>
   <string name="revanced_sb_color_reset">Boja resetovana</string>
@@ -1117,12 +1068,12 @@ Spreman za podnošenje?"</string>
   <string name="revanced_change_form_factor_entry_4">Automobilski</string>
   <string name="revanced_change_form_factor_user_dialog_message">"Promene uključuju:
 
-Izgled za tablet
-• Objava zajednice su sakrivene
+Izgled tableta
+• Objave zajednice su skrivene
 
-Automotive izgled
-• Shorts se otvaraju u regularnom plejeru
-• Feed je organizovan po temama i kanalima"</string>
+Automobilski izgled
+• Shorts videi se otvaraju u običnom plejeru
+• Fid je organizovan po temama i kanalima"</string>
   </patch>
   <patch id="layout.spoofappversion.spoofAppVersionPatch">
   <string name="revanced_spoof_app_version_title">Lažirana verzija aplikacije</string>
@@ -1138,11 +1089,6 @@ Ako se kasnije isključi, preporučuje se da izbrišete podatke aplikacije da bi
   <string name="revanced_spoof_app_version_target_title">Ciljna verzija aplikacije za lažiranje</string>
   <string name="revanced_spoof_app_version_target_entry_1">19.35.36 - Vraća stare ikonice Shorts plejera</string>
   <string name="revanced_spoof_app_version_target_entry_2">19.26.42 - Vraća stare ikonice navigacije</string>
-  <!-- 'RYD' is 'Return YouTube Dislike' -->
-  <string name="revanced_spoof_app_version_target_legacy_entry_1">18.33.40 - Vraća Return YouTube Dislike u Shorts videima u režimu bez arhiviranja</string>
-  <string name="revanced_spoof_app_version_target_legacy_entry_2">18.20.39 - Vraća širok meni za brzinu i kvalitet videa</string>
-  <string name="revanced_spoof_app_version_target_legacy_entry_3">18.09.39 - Vraća karticu zbirke</string>
-  <string name="revanced_spoof_app_version_target_legacy_entry_4">17.33.42 - Vraća staru policu plejliste</string>
   </patch>
   <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">Polazna stranica</string>
@@ -1364,15 +1310,15 @@ Ako ovo omogućite, mogu biti otključani viši kvaliteti videa"</string>
   <string name="revanced_remember_video_quality_last_selected_summary_off">Promene kvaliteta se primenjuju samo na trenutni video</string>
   <string name="revanced_video_quality_default_wifi_title">Podrazumevani kvalitet videa na Wi-Fi mreži</string>
   <string name="revanced_video_quality_default_mobile_title">Podrazumevani kvalitet videa na mobilnoj mreži</string>
-  <string name="revanced_remember_shorts_quality_last_selected_title">Zapamti promene kvaliteta za Shorts</string>
-  <string name="revanced_remember_shorts_quality_last_selected_summary_on">Promene kvaliteta se primenjuju na sve Shorts</string>
-  <string name="revanced_remember_shorts_quality_last_selected_summary_off">Promene kvaliteta se primenjuju samo na trenutni Short</string>
-  <string name="revanced_shorts_quality_default_wifi_title">Podrazumevani kvalitet za Shorts na Wi-Fi mreži</string>
-  <string name="revanced_shorts_quality_default_mobile_title">Podrazumevani kvalitet za Shorts na mobilnoj mreži</string>
+  <string name="revanced_remember_shorts_quality_last_selected_title">Zapamti promene kvaliteta Shorts videa</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_on">Promene kvaliteta se primenjuju na sve Shorts videe</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_off">Promene kvaliteta se primenjuju samo na trenutni Shorts video</string>
+  <string name="revanced_shorts_quality_default_wifi_title">Podrazumevani kvalitet Shorts videa na Wi-Fi mreži</string>
+  <string name="revanced_shorts_quality_default_mobile_title">Podrazumevani kvalitet Shorts videa na mobilnoj mreži</string>
   <string name="revanced_remember_video_quality_mobile">mobilnoj mreži</string>
   <string name="revanced_remember_video_quality_wifi">Wi-Fi mreži</string>
   <string name="revanced_remember_video_quality_toast">Kvalitet na %1$s promenjen na: %2$s</string>
-  <string name="revanced_remember_video_quality_toast_shorts">Promenjen je kvalitet Shorts %1$s na: %2$s</string>
+  <string name="revanced_remember_video_quality_toast_shorts">Kvalitet Shorts videa na %1$s promenjen na: %2$s</string>
   </patch>
   <patch id="video.speed.button.playbackSpeedButtonPatch">
   <string name="revanced_playback_speed_dialog_button_title">Prikaži dugme dijaloga za brzinu</string>

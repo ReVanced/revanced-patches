@@ -48,57 +48,6 @@ Second \"item\" text"</string>
 
 Nové jazyky přeložíte na translate.revanced.app"</string>
   <string name="revanced_language_DEFAULT">Jazyk aplikace</string>
-  <string name="revanced_language_AR">Arabština</string>
-  <string name="revanced_language_AZ">Ázerbájdžánština</string>
-  <string name="revanced_language_BG">Bulharština</string>
-  <string name="revanced_language_BN">Bengálština</string>
-  <string name="revanced_language_CA">Katalánština</string>
-  <string name="revanced_language_CS">Čeština</string>
-  <string name="revanced_language_DA">Dánština</string>
-  <string name="revanced_language_DE">Němčina</string>
-  <string name="revanced_language_EL">Řečtina</string>
-  <string name="revanced_language_EN">Angličtina</string>
-  <string name="revanced_language_ES">Španělština</string>
-  <string name="revanced_language_ET">Estonština</string>
-  <string name="revanced_language_FA">Perština</string>
-  <string name="revanced_language_FI">Finština</string>
-  <string name="revanced_language_FR">Francouzština</string>
-  <string name="revanced_language_GU">Gudžarátština</string>
-  <string name="revanced_language_HI">Hindština</string>
-  <string name="revanced_language_HR">Chorvatština</string>
-  <string name="revanced_language_HU">Maďarština</string>
-  <string name="revanced_language_ID">Indonéština</string>
-  <string name="revanced_language_IT">Italština</string>
-  <string name="revanced_language_JA">Japonština</string>
-  <string name="revanced_language_KK">Kazachština</string>
-  <string name="revanced_language_KO">Korejština</string>
-  <string name="revanced_language_LT">Litevština</string>
-  <string name="revanced_language_LV">Lotyština</string>
-  <string name="revanced_language_MK">Makedonština</string>
-  <string name="revanced_language_MN">Mongolština</string>
-  <string name="revanced_language_MR">Maráthština</string>
-  <string name="revanced_language_MS">Malajština</string>
-  <string name="revanced_language_MY">Barmština</string>
-  <string name="revanced_language_NL">Nizozemština</string>
-  <string name="revanced_language_OR">Uríjština</string>
-  <string name="revanced_language_PA">Paňdžábština</string>
-  <string name="revanced_language_PL">Polština</string>
-  <string name="revanced_language_PT">Portugalština</string>
-  <string name="revanced_language_RO">Rumunština</string>
-  <string name="revanced_language_RU">Ruština</string>
-  <string name="revanced_language_SK">Slovenština</string>
-  <string name="revanced_language_SL">Slověnština</string>
-  <string name="revanced_language_SR">Srbština</string>
-  <string name="revanced_language_SV">Švédština</string>
-  <string name="revanced_language_SW">Svahilština</string>
-  <string name="revanced_language_TA">Tamilština</string>
-  <string name="revanced_language_TE">Telugština</string>
-  <string name="revanced_language_TH">Thajština</string>
-  <string name="revanced_language_TR">Turečtina</string>
-  <string name="revanced_language_UK">Ukrajinština</string>
-  <string name="revanced_language_UR">Urdština</string>
-  <string name="revanced_language_VI">Vietnamština</string>
-  <string name="revanced_language_ZH">Čínština</string>
   <string name="revanced_pref_import_export_title">Importovat / Exportovat</string>
   <string name="revanced_pref_import_export_summary">Importovat/exportovat nastavení ReVanced</string>
   <!-- Settings about dialog. -->
@@ -856,7 +805,6 @@ Nastavení → Přehrávání → Automatické přehrávání dalšího videa"</
   <string name="revanced_ryd_enable_summary_on">Nelíbí se se zobrazují</string>
   <string name="revanced_ryd_enable_summary_off">Nelíbí se se nezobrazují</string>
   <string name="revanced_ryd_shorts_title">Zobrazit nelíbí se v Shorts</string>
-  <string name="revanced_ryd_shorts_summary_on">Počty „Nelíbí se mi“ u Shorts jsou zobrazeny</string>
   <string name="revanced_ryd_shorts_summary_on_disclaimer">"Počty „Nelíbí se mi“ u Shorts jsou zobrazeny
 
 Omezení: Počty „Nelíbí se mi“ se nemusí zobrazit v anonymním režimu"</string>
@@ -1053,6 +1001,8 @@ Již existuje"</string>
   <string name="revanced_sb_vote_downvote">Hlasovat dolů</string>
   <string name="revanced_sb_vote_category">Změnit kategorii</string>
   <string name="revanced_sb_vote_no_segments">Nejsou žádné segmenty, pro které by se dalo hlasovat</string>
+  <!-- A segment start and end time, such as "02:10 to 03:40" -->
+  <string name="revanced_sb_vote_segment_time_to_from">%1$s až %2$s</string>
   <string name="revanced_sb_new_segment_choose_category">Zvolte kategorii segmentu</string>
   <string name="revanced_sb_new_segment_disabled_category">Kategorie je v nastavení zakázána. Povolte kategorii, abyste ji mohli odeslat.</string>
   <string name="revanced_sb_new_segment_title">Nový segment SponsorBlock</string>
@@ -1100,6 +1050,7 @@ Jste připraveni k odeslání?"</string>
   <string name="revanced_sb_stats_saved_hour_format">%1$s hodin %2$s minut</string>
   <string name="revanced_sb_stats_saved_minute_format">%1$s minut %2$s sekund</string>
   <string name="revanced_sb_stats_saved_second_format">%s sekund</string>
+  <string name="revanced_sb_color_opacity_label">Průhlednost:</string>
   <string name="revanced_sb_color_dot_label">Barva:</string>
   <string name="revanced_sb_color_changed">Barva změněna</string>
   <string name="revanced_sb_color_reset">Barva resetována</string>
@@ -1138,11 +1089,6 @@ Pokud bude později vypnuta, doporučujeme vymazat data aplikace, aby se zabrán
   <string name="revanced_spoof_app_version_target_title">Cíl napodobení verze aplikace</string>
   <string name="revanced_spoof_app_version_target_entry_1">19.35.36 - Obnovuje staré ikony Shorts přehrávače</string>
   <string name="revanced_spoof_app_version_target_entry_2">19.26.42 - Navrátit staré ikony pro navigaci</string>
-  <!-- 'RYD' is 'Return YouTube Dislike' -->
-  <string name="revanced_spoof_app_version_target_legacy_entry_1">18.33.40 - Obnovení RYD v režimu inkognito Shorts</string>
-  <string name="revanced_spoof_app_version_target_legacy_entry_2">18.20.39 - Obnovení široké nabídky rychlosti a kvality videa</string>
-  <string name="revanced_spoof_app_version_target_legacy_entry_3">18.09.39 - Obnovení karty Knihovna</string>
-  <string name="revanced_spoof_app_version_target_legacy_entry_4">17.33.42 - Obnovení staré police se seznamy skladeb</string>
   </patch>
   <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">Nastavit úvodní stránku</string>

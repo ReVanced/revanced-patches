@@ -48,57 +48,6 @@ Second \"item\" text"</string>
 
 За да преведете нови езици, посетете translate.revanced.app"</string>
   <string name="revanced_language_DEFAULT">Език на приложението</string>
-  <string name="revanced_language_AR">арабски</string>
-  <string name="revanced_language_AZ">Азербайджански</string>
-  <string name="revanced_language_BG">български</string>
-  <string name="revanced_language_BN">бенгалски</string>
-  <string name="revanced_language_CA">каталонски</string>
-  <string name="revanced_language_CS">Чешки</string>
-  <string name="revanced_language_DA">Датски</string>
-  <string name="revanced_language_DE">Немски</string>
-  <string name="revanced_language_EL">Гръцки</string>
-  <string name="revanced_language_EN">Английски</string>
-  <string name="revanced_language_ES">Испански</string>
-  <string name="revanced_language_ET">Естонски</string>
-  <string name="revanced_language_FA">Персийски</string>
-  <string name="revanced_language_FI">Финландски</string>
-  <string name="revanced_language_FR">Френски</string>
-  <string name="revanced_language_GU">Гуджарати</string>
-  <string name="revanced_language_HI">Хинди</string>
-  <string name="revanced_language_HR">Хърватски</string>
-  <string name="revanced_language_HU">Унгарски</string>
-  <string name="revanced_language_ID">Индонезийски</string>
-  <string name="revanced_language_IT">Италиански</string>
-  <string name="revanced_language_JA">Японски</string>
-  <string name="revanced_language_KK">Казахски</string>
-  <string name="revanced_language_KO">Корейски</string>
-  <string name="revanced_language_LT">Литовски</string>
-  <string name="revanced_language_LV">Латвийски</string>
-  <string name="revanced_language_MK">Македонски</string>
-  <string name="revanced_language_MN">Монголски</string>
-  <string name="revanced_language_MR">Маратхи</string>
-  <string name="revanced_language_MS">Малайски</string>
-  <string name="revanced_language_MY">Бирмански</string>
-  <string name="revanced_language_NL">Холандски</string>
-  <string name="revanced_language_OR">Одия</string>
-  <string name="revanced_language_PA">Пенджаби</string>
-  <string name="revanced_language_PL">Полски</string>
-  <string name="revanced_language_PT">Португалски</string>
-  <string name="revanced_language_RO">Румънски</string>
-  <string name="revanced_language_RU">Руски</string>
-  <string name="revanced_language_SK">Словашки</string>
-  <string name="revanced_language_SL">Словенски</string>
-  <string name="revanced_language_SR">Сръбски</string>
-  <string name="revanced_language_SV">Шведски</string>
-  <string name="revanced_language_SW">Суахили</string>
-  <string name="revanced_language_TA">Тамилски</string>
-  <string name="revanced_language_TE">Телугу</string>
-  <string name="revanced_language_TH">Тайландски</string>
-  <string name="revanced_language_TR">Турски</string>
-  <string name="revanced_language_UK">Украински</string>
-  <string name="revanced_language_UR">Урду</string>
-  <string name="revanced_language_VI">Виетнамски</string>
-  <string name="revanced_language_ZH">Китайски</string>
   <string name="revanced_pref_import_export_title">Импортиране / Експортиране</string>
   <string name="revanced_pref_import_export_summary">Импортиране / Експортиране на ReVanced настройките</string>
   <!-- Settings about dialog. -->
@@ -856,7 +805,6 @@ Second \"item\" text"</string>
   <string name="revanced_ryd_enable_summary_on">Нехаресванията се показват</string>
   <string name="revanced_ryd_enable_summary_off">Нехаресванията не се показват</string>
   <string name="revanced_ryd_shorts_title">Пок. нехаресвания в кратките клипове</string>
-  <string name="revanced_ryd_shorts_summary_on">Нехаресванията на Shorts са показани</string>
   <string name="revanced_ryd_shorts_summary_on_disclaimer">"Нехаресванията на Shorts са показани
 
 Ограничение: Нехаресванията може да не се показват в режим инкогнито"</string>
@@ -1054,6 +1002,8 @@ Second \"item\" text"</string>
   <string name="revanced_sb_vote_downvote">Отрицателен вот</string>
   <string name="revanced_sb_vote_category">Промяна на категорията</string>
   <string name="revanced_sb_vote_no_segments">Няма сегменти, за които да гласувате</string>
+  <!-- A segment start and end time, such as "02:10 to 03:40" -->
+  <string name="revanced_sb_vote_segment_time_to_from">%1$s до %2$s</string>
   <string name="revanced_sb_new_segment_choose_category">Изберете категория сегмент</string>
   <string name="revanced_sb_new_segment_disabled_category">Категорията е изкл. в настройките. Вкл. я за да можете да изпратите.</string>
   <string name="revanced_sb_new_segment_title">Нова част в SponsorBlock</string>
@@ -1101,6 +1051,7 @@ Second \"item\" text"</string>
   <string name="revanced_sb_stats_saved_hour_format">%1$s часове %2$s минути</string>
   <string name="revanced_sb_stats_saved_minute_format">%1$s минути %2$s секунди</string>
   <string name="revanced_sb_stats_saved_second_format">%s секунди</string>
+  <string name="revanced_sb_color_opacity_label">Непрозрачност:</string>
   <string name="revanced_sb_color_dot_label">Цвят:</string>
   <string name="revanced_sb_color_changed">Цветът е променен</string>
   <string name="revanced_sb_color_reset">Възстанови цвета</string>
@@ -1139,11 +1090,6 @@ Second \"item\" text"</string>
   <string name="revanced_spoof_app_version_target_title">Подлъгване за версията на</string>
   <string name="revanced_spoof_app_version_target_entry_1">19.35.36 - Възстановете старите икони на Shorts в плейъра</string>
   <string name="revanced_spoof_app_version_target_entry_2">19.26.42 - Възстановяване на старите икони за навигация</string>
-  <!-- 'RYD' is 'Return YouTube Dislike' -->
-  <string name="revanced_spoof_app_version_target_legacy_entry_1">18.33.40 - Възстановете RYD в режим „инкогнито“ на Shorts</string>
-  <string name="revanced_spoof_app_version_target_legacy_entry_2">18.20.39 - Възстановяване на видео скорост &amp; в менюто за качество</string>
-  <string name="revanced_spoof_app_version_target_legacy_entry_3">18.09.39 - Възстановяване на таб \"Библиотека\"</string>
-  <string name="revanced_spoof_app_version_target_legacy_entry_4">17.33.42 - Връщане на секцията с плейлиста към стария стил</string>
   </patch>
   <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">Задай начална страница</string>

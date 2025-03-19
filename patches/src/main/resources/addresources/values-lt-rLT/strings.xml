@@ -48,57 +48,6 @@ Second \"item\" text"</string>
 
 Norėdami išversti naujomis kalbomis apsilankykite translate.revanced.app"</string>
   <string name="revanced_language_DEFAULT">Programų kalba</string>
-  <string name="revanced_language_AR">Arabų</string>
-  <string name="revanced_language_AZ">Azerbaidžaniečių</string>
-  <string name="revanced_language_BG">Bulgarų</string>
-  <string name="revanced_language_BN">Bengalų</string>
-  <string name="revanced_language_CA">Katalonų</string>
-  <string name="revanced_language_CS">Čekų</string>
-  <string name="revanced_language_DA">Danių</string>
-  <string name="revanced_language_DE">Vokiečių</string>
-  <string name="revanced_language_EL">Graikų</string>
-  <string name="revanced_language_EN">Anglų</string>
-  <string name="revanced_language_ES">Ispanų</string>
-  <string name="revanced_language_ET">Estų</string>
-  <string name="revanced_language_FA">Persų</string>
-  <string name="revanced_language_FI">Suomių</string>
-  <string name="revanced_language_FR">Prancūzų</string>
-  <string name="revanced_language_GU">Gudžaratų</string>
-  <string name="revanced_language_HI">Hindų</string>
-  <string name="revanced_language_HR">Kroatų</string>
-  <string name="revanced_language_HU">Vengrų</string>
-  <string name="revanced_language_ID">Indoneziečių</string>
-  <string name="revanced_language_IT">Italų</string>
-  <string name="revanced_language_JA">Japonų</string>
-  <string name="revanced_language_KK">Kazachų</string>
-  <string name="revanced_language_KO">Korėjiečių</string>
-  <string name="revanced_language_LT">Lietuvių</string>
-  <string name="revanced_language_LV">Latvių</string>
-  <string name="revanced_language_MK">Makedonų</string>
-  <string name="revanced_language_MN">Mongolų</string>
-  <string name="revanced_language_MR">Maratų</string>
-  <string name="revanced_language_MS">Malajiečių</string>
-  <string name="revanced_language_MY">Birmos</string>
-  <string name="revanced_language_NL">Olandų</string>
-  <string name="revanced_language_OR">Odijos</string>
-  <string name="revanced_language_PA">Pandžabų</string>
-  <string name="revanced_language_PL">Lenkų</string>
-  <string name="revanced_language_PT">Portugalų</string>
-  <string name="revanced_language_RO">Rumunų</string>
-  <string name="revanced_language_RU">Rusų</string>
-  <string name="revanced_language_SK">Slovakų</string>
-  <string name="revanced_language_SL">Slovėnų</string>
-  <string name="revanced_language_SR">Serbų</string>
-  <string name="revanced_language_SV">Švedų</string>
-  <string name="revanced_language_SW">Suahilių</string>
-  <string name="revanced_language_TA">Tamilų</string>
-  <string name="revanced_language_TE">Telugų</string>
-  <string name="revanced_language_TH">Tajų</string>
-  <string name="revanced_language_TR">Turkų</string>
-  <string name="revanced_language_UK">Ukrainiečių</string>
-  <string name="revanced_language_UR">Urdu</string>
-  <string name="revanced_language_VI">Vietnamiečių</string>
-  <string name="revanced_language_ZH">Kinų</string>
   <string name="revanced_pref_import_export_title">Importuoti / Eksportuoti</string>
   <string name="revanced_pref_import_export_summary">Importuoti / Eksportuoti ReVanced nustatymus</string>
   <!-- Settings about dialog. -->
@@ -856,7 +805,6 @@ Nustatymai → Atkūrimas → Automatiškai leisti kitą vaizdo įrašą"</strin
   <string name="revanced_ryd_enable_summary_on">\"Nepatinka\" rodomi</string>
   <string name="revanced_ryd_enable_summary_off">\"Nepatinka\" nerodomi</string>
   <string name="revanced_ryd_shorts_title">Rodyti \"Nepatinka\" Shorts</string>
-  <string name="revanced_ryd_shorts_summary_on">Nepritarimai „Shorts“ rodomi</string>
   <string name="revanced_ryd_shorts_summary_on_disclaimer">"Nepritarimai „Shorts“ rodomi
 
 Apribojimas: nepritarimai gali būti nerodomi inkognito režimu"</string>
@@ -1055,6 +1003,8 @@ Jau egzistuoja"</string>
   <string name="revanced_sb_vote_downvote">Balsuoti prieš</string>
   <string name="revanced_sb_vote_category">Keisti kategoriją</string>
   <string name="revanced_sb_vote_no_segments">Nėra segmentų, už kuriuos būtų galima balsuoti</string>
+  <!-- A segment start and end time, such as "02:10 to 03:40" -->
+  <string name="revanced_sb_vote_segment_time_to_from">Nuo %1$s iki %2$s</string>
   <string name="revanced_sb_new_segment_choose_category">Pasirinkite segmento kategoriją</string>
   <string name="revanced_sb_new_segment_disabled_category">Kategorija išjungta nustatymuose. Įjunkite kategoriją, kad galėtumėte pateikti.</string>
   <string name="revanced_sb_new_segment_title">Naujas „SponsorBlock“ segmentas</string>
@@ -1102,6 +1052,7 @@ Ar paruošta pateikti?"</string>
   <string name="revanced_sb_stats_saved_hour_format">%1$s valandos %2$s minutės</string>
   <string name="revanced_sb_stats_saved_minute_format">%1$s minutės %2$s sekundės</string>
   <string name="revanced_sb_stats_saved_second_format">%s sekundės</string>
+  <string name="revanced_sb_color_opacity_label">Neskaidrumas:</string>
   <string name="revanced_sb_color_dot_label">Spalva:</string>
   <string name="revanced_sb_color_changed">Spalva pakeista</string>
   <string name="revanced_sb_color_reset">Spalva atstatyta</string>
@@ -1140,11 +1091,6 @@ Jei vėliau išjungta, rekomenduojama išvalyti programos duomenis, kad būtų i
   <string name="revanced_spoof_app_version_target_title">Programėlės versijos apsimetinėjimo tikslas</string>
   <string name="revanced_spoof_app_version_target_entry_1">19.35.36 - Atkurti senus \"Shorts\" grotuvo piktogramas</string>
   <string name="revanced_spoof_app_version_target_entry_2">19.26.42 - Senos narūyklės ikonų atkūrą</string>
-  <!-- 'RYD' is 'Return YouTube Dislike' -->
-  <string name="revanced_spoof_app_version_target_legacy_entry_1">18.33.40 - Atkurti RYD \"Shorts\" inkognito režime</string>
-  <string name="revanced_spoof_app_version_target_legacy_entry_2">18.20.39 - Atkurti platų vaizdo greičio ir kokybės meniu</string>
-  <string name="revanced_spoof_app_version_target_legacy_entry_3">18.09.39 - Atkurti bibliotekos skirtuką</string>
-  <string name="revanced_spoof_app_version_target_legacy_entry_4">17.33.42 - Atkurti seną grojaraščio lentyną</string>
   </patch>
   <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">Nustatyti pradinį puslapį</string>

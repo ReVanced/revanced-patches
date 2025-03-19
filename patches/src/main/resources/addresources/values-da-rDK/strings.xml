@@ -48,57 +48,6 @@ Second \"item\" text"</string>
 
 For at oversætte til nye sprog skal du besøge translate.revanced.app"</string>
   <string name="revanced_language_DEFAULT">App-sprog</string>
-  <string name="revanced_language_AR">Arabisk</string>
-  <string name="revanced_language_AZ">Aserbajdsjansk</string>
-  <string name="revanced_language_BG">Bulgarsk</string>
-  <string name="revanced_language_BN">Bengalsk</string>
-  <string name="revanced_language_CA">Catalansk</string>
-  <string name="revanced_language_CS">Tjekkisk</string>
-  <string name="revanced_language_DA">Dansk</string>
-  <string name="revanced_language_DE">Tysk</string>
-  <string name="revanced_language_EL">Græsk</string>
-  <string name="revanced_language_EN">Engelsk</string>
-  <string name="revanced_language_ES">Spansk</string>
-  <string name="revanced_language_ET">Estisk</string>
-  <string name="revanced_language_FA">Persisk</string>
-  <string name="revanced_language_FI">Finsk</string>
-  <string name="revanced_language_FR">Fransk</string>
-  <string name="revanced_language_GU">Gujarati</string>
-  <string name="revanced_language_HI">Hindi</string>
-  <string name="revanced_language_HR">Kroatisk</string>
-  <string name="revanced_language_HU">Ungarsk</string>
-  <string name="revanced_language_ID">Indonesisk</string>
-  <string name="revanced_language_IT">Italiensk</string>
-  <string name="revanced_language_JA">Japansk</string>
-  <string name="revanced_language_KK">Kasakhisk</string>
-  <string name="revanced_language_KO">Koreansk</string>
-  <string name="revanced_language_LT">Litauisk</string>
-  <string name="revanced_language_LV">Lettisk</string>
-  <string name="revanced_language_MK">Makedonsk</string>
-  <string name="revanced_language_MN">Mongolsk</string>
-  <string name="revanced_language_MR">Marathi</string>
-  <string name="revanced_language_MS">Malaysisk</string>
-  <string name="revanced_language_MY">Burmesisk</string>
-  <string name="revanced_language_NL">Hollandsk</string>
-  <string name="revanced_language_OR">Odia</string>
-  <string name="revanced_language_PA">Punjabi</string>
-  <string name="revanced_language_PL">Polsk</string>
-  <string name="revanced_language_PT">Portugisisk</string>
-  <string name="revanced_language_RO">Rumænsk</string>
-  <string name="revanced_language_RU">Russisk</string>
-  <string name="revanced_language_SK">Slovakisk</string>
-  <string name="revanced_language_SL">Slovensk</string>
-  <string name="revanced_language_SR">Serbisk</string>
-  <string name="revanced_language_SV">Svensk</string>
-  <string name="revanced_language_SW">Swahili</string>
-  <string name="revanced_language_TA">Tamil</string>
-  <string name="revanced_language_TE">Telugu</string>
-  <string name="revanced_language_TH">Thai</string>
-  <string name="revanced_language_TR">Tyrkisk</string>
-  <string name="revanced_language_UK">Ukrainisk</string>
-  <string name="revanced_language_UR">Urdu</string>
-  <string name="revanced_language_VI">Vietnamesisk</string>
-  <string name="revanced_language_ZH">Kinesisk</string>
   <string name="revanced_pref_import_export_title">Importér/Eksportér</string>
   <string name="revanced_pref_import_export_summary">Importér/Eksportér ReVanced-indstillinger</string>
   <!-- Settings about dialog. -->
@@ -1001,6 +950,8 @@ Eksisterer allerede"</string>
   <string name="revanced_sb_vote_downvote">Ned</string>
   <string name="revanced_sb_vote_category">Skift kategori</string>
   <string name="revanced_sb_vote_no_segments">Der er ingen segmenter at stemme for</string>
+  <!-- A segment start and end time, such as "02:10 to 03:40" -->
+  <string name="revanced_sb_vote_segment_time_to_from">%1$s til %2$s</string>
   <string name="revanced_sb_new_segment_choose_category">Vælg segmentkategori</string>
   <string name="revanced_sb_new_segment_disabled_category">Kategori er deaktiveret i indstillinger. Aktivér kategori for at indsende.</string>
   <string name="revanced_sb_new_segment_title">Nyt SponsorBlock segment</string>
@@ -1044,6 +995,7 @@ Er du klar til at indsende?"</string>
   <string name="revanced_sb_stats_saved_hour_format">%1$s timer %2$s minutter</string>
   <string name="revanced_sb_stats_saved_minute_format">%1$s minutter %2$s sekunder</string>
   <string name="revanced_sb_stats_saved_second_format">%s sekunder</string>
+  <string name="revanced_sb_color_opacity_label">Opacitet:</string>
   <string name="revanced_sb_color_dot_label">Farve:</string>
   <string name="revanced_sb_color_changed">Farve ændret</string>
   <string name="revanced_sb_color_reset">Nulstil farve</string>
@@ -1082,11 +1034,6 @@ Hvis det senere slås fra, anbefales det at rydde app-dataene for at forhindre U
   <string name="revanced_spoof_app_version_target_title">Spoof app version mål</string>
   <string name="revanced_spoof_app_version_target_entry_1">19.35.36 - Gendan gamle Shorts player ikoner</string>
   <string name="revanced_spoof_app_version_target_entry_2">19.26.42 - Gendan gamle navigationsikoner</string>
-  <!-- 'RYD' is 'Return YouTube Dislike' -->
-  <string name="revanced_spoof_app_version_target_legacy_entry_1">18.33.40 - Gendan RYD på Shorts inkognitotilstand</string>
-  <string name="revanced_spoof_app_version_target_legacy_entry_2">18.20.39 - Gendan bred video hastighed &amp; kvalitet menu</string>
-  <string name="revanced_spoof_app_version_target_legacy_entry_3">18.09.39 - Genopret biblioteks fane</string>
-  <string name="revanced_spoof_app_version_target_legacy_entry_4">17.33.42 - Gendan gammel spilleliste hylde</string>
   </patch>
   <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">Indstil startside</string>

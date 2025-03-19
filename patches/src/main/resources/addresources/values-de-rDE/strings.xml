@@ -48,57 +48,6 @@ Second \"item\" text"</string>
 
 Um neue Sprachen zu übersetzen, besuchen Sie translate.revanced.app"</string>
   <string name="revanced_language_DEFAULT">App-Sprache</string>
-  <string name="revanced_language_AR">Arabisch</string>
-  <string name="revanced_language_AZ">Aserbaidschanisch</string>
-  <string name="revanced_language_BG">Bulgarisch</string>
-  <string name="revanced_language_BN">Bengali</string>
-  <string name="revanced_language_CA">Katalanisch</string>
-  <string name="revanced_language_CS">Tschechisch</string>
-  <string name="revanced_language_DA">Dänisch</string>
-  <string name="revanced_language_DE">Deutsch</string>
-  <string name="revanced_language_EL">Griechisch</string>
-  <string name="revanced_language_EN">Englisch</string>
-  <string name="revanced_language_ES">Spanisch</string>
-  <string name="revanced_language_ET">Estnisch</string>
-  <string name="revanced_language_FA">Persisch</string>
-  <string name="revanced_language_FI">Finnisch</string>
-  <string name="revanced_language_FR">Französisch</string>
-  <string name="revanced_language_GU">Gujarati</string>
-  <string name="revanced_language_HI">Hindi</string>
-  <string name="revanced_language_HR">Kroatisch</string>
-  <string name="revanced_language_HU">Ungarisch</string>
-  <string name="revanced_language_ID">Indonesisch</string>
-  <string name="revanced_language_IT">Italienisch</string>
-  <string name="revanced_language_JA">Japanisch</string>
-  <string name="revanced_language_KK">Kasachisch</string>
-  <string name="revanced_language_KO">Koreanisch</string>
-  <string name="revanced_language_LT">Litauisch</string>
-  <string name="revanced_language_LV">Lettisch</string>
-  <string name="revanced_language_MK">Mazedonisch</string>
-  <string name="revanced_language_MN">Mongolisch</string>
-  <string name="revanced_language_MR">Marathi</string>
-  <string name="revanced_language_MS">Malaiisch</string>
-  <string name="revanced_language_MY">Burmesisch</string>
-  <string name="revanced_language_NL">Niederländisch</string>
-  <string name="revanced_language_OR">Odia</string>
-  <string name="revanced_language_PA">Pandschabi</string>
-  <string name="revanced_language_PL">Polnisch</string>
-  <string name="revanced_language_PT">Portugiesisch</string>
-  <string name="revanced_language_RO">Rumänisch</string>
-  <string name="revanced_language_RU">Russisch</string>
-  <string name="revanced_language_SK">Slovakisch</string>
-  <string name="revanced_language_SL">Slowenisch</string>
-  <string name="revanced_language_SR">Serbisch</string>
-  <string name="revanced_language_SV">Schwedisch</string>
-  <string name="revanced_language_SW">Suaheli</string>
-  <string name="revanced_language_TA">Tamilisch</string>
-  <string name="revanced_language_TE">Telugu</string>
-  <string name="revanced_language_TH">Thai</string>
-  <string name="revanced_language_TR">Türkisch</string>
-  <string name="revanced_language_UK">Ukrainisch</string>
-  <string name="revanced_language_UR">Urdu</string>
-  <string name="revanced_language_VI">Vietnamesisch</string>
-  <string name="revanced_language_ZH">Chinesisch</string>
   <string name="revanced_pref_import_export_title">Import/Export</string>
   <string name="revanced_pref_import_export_summary">ReVanced-Einstellungen importieren/exportieren</string>
   <!-- Settings about dialog. -->
@@ -849,7 +798,6 @@ Einstellungen → Wiedergabe → Nächstes Video automatisch abspielen"</string>
   <string name="revanced_ryd_enable_summary_on">Dislikes werden angezeigt</string>
   <string name="revanced_ryd_enable_summary_off">Dislikes werden nicht angezeigt</string>
   <string name="revanced_ryd_shorts_title">Dislikes auf Shorts anzeigen</string>
-  <string name="revanced_ryd_shorts_summary_on">Dislikes für Shorts werden angezeigt</string>
   <string name="revanced_ryd_shorts_summary_on_disclaimer">"Dislikes für Shorts werden angezeigt
 
 Einschränkung: Dislikes werden möglicherweise nicht im Inkognito-Modus angezeigt"</string>
@@ -1047,6 +995,8 @@ Existiert bereits"</string>
   <string name="revanced_sb_vote_downvote">Schlecht bewerten</string>
   <string name="revanced_sb_vote_category">Kategorie ändern</string>
   <string name="revanced_sb_vote_no_segments">Es gibt keine Segmente zur Abstimmung</string>
+  <!-- A segment start and end time, such as "02:10 to 03:40" -->
+  <string name="revanced_sb_vote_segment_time_to_from">%1$s bis %2$s</string>
   <string name="revanced_sb_new_segment_choose_category">Wähle die Segmentkategorie</string>
   <string name="revanced_sb_new_segment_disabled_category">Kategorie ist in den Einstellungen deaktiviert. Aktivieren zum Senden.</string>
   <string name="revanced_sb_new_segment_title">Neues SponsorBlock Segment</string>
@@ -1094,6 +1044,7 @@ Bereit zum Einreichen?"</string>
   <string name="revanced_sb_stats_saved_hour_format">%1$s Stunden %2$s Minuten</string>
   <string name="revanced_sb_stats_saved_minute_format">%1$s Minuten %2$s Sekunden</string>
   <string name="revanced_sb_stats_saved_second_format">%s Sekunden</string>
+  <string name="revanced_sb_color_opacity_label">Deckkraft:</string>
   <string name="revanced_sb_color_dot_label">Farbe:</string>
   <string name="revanced_sb_color_changed">Farbe geändert</string>
   <string name="revanced_sb_color_reset">Farbe zurücksetzen</string>
@@ -1132,11 +1083,6 @@ Wenn Sie die Funktion später deaktivieren, wird empfohlen, die App-Daten zu lö
   <string name="revanced_spoof_app_version_target_title">Spoof-App-Versionsziel</string>
   <string name="revanced_spoof_app_version_target_entry_1">19.35.36 - Alte Shorts Spielersymbole wiederherstellen</string>
   <string name="revanced_spoof_app_version_target_entry_2">19.26.42 - Alte Navigations-Symbole wiederherstellen</string>
-  <!-- 'RYD' is 'Return YouTube Dislike' -->
-  <string name="revanced_spoof_app_version_target_legacy_entry_1">18.33.40 - RYD auf Shorts Inkognito-Modus wiederherstellen</string>
-  <string name="revanced_spoof_app_version_target_legacy_entry_2">18.20.39 - Wiederherstellen der breiten Videogeschwindigkeit &amp; Qualitätsmenü</string>
-  <string name="revanced_spoof_app_version_target_legacy_entry_3">18.09.39 - Bibliotheks-Tab wiederherstellen</string>
-  <string name="revanced_spoof_app_version_target_legacy_entry_4">17.33.42 - Alte Wiedergabeliste wiederherstellen</string>
   </patch>
   <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">Startseite festlegen</string>

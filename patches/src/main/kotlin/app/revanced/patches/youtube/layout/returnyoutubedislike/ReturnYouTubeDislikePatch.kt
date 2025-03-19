@@ -1,9 +1,7 @@
 package app.revanced.patches.youtube.layout.returnyoutubedislike
 
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
-import app.revanced.patcher.extensions.InstructionExtensions.instructions
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.all.misc.resources.addResources
@@ -171,51 +169,7 @@ val returnYouTubeDislikePatch = bytecodePatch(
 
         // endregion
 
-        // region Hook for non-litho Short videos.
-        shortsTextViewFingerprint.method.apply {
-            val insertIndex = shortsTextViewFingerprint.patternMatch!!.endIndex + 1
-
-            // If the field is true, the TextView is for a dislike button.
-            val isDisLikesBooleanInstruction = instructions.first { instruction ->
-                instruction.opcode == Opcode.IGET_BOOLEAN
-            } as ReferenceInstruction
-
-            val isDisLikesBooleanReference = isDisLikesBooleanInstruction.reference
-
-            // Like/Dislike button TextView field.
-            val textViewFieldInstruction = instructions.first { instruction ->
-                instruction.opcode == Opcode.IGET_OBJECT
-            } as ReferenceInstruction
-
-            val textViewFieldReference = textViewFieldInstruction.reference
-
-            // Check if the hooked TextView object is that of the dislike button.
-            // If RYD is disabled, or the TextView object is not that of the dislike button, the execution flow is not interrupted.
-            // Otherwise, the TextView object is modified, and the execution flow is interrupted to prevent it from being changed afterward.
-            addInstructionsWithLabels(
-                insertIndex,
-                """
-                        # Check, if the TextView is for a dislike button
-                        iget-boolean v0, p0, $isDisLikesBooleanReference
-                        if-eqz v0, :is_like
-                        
-                        # Hook the TextView, if it is for the dislike button
-                        iget-object v0, p0, $textViewFieldReference
-                        invoke-static {v0}, $EXTENSION_CLASS_DESCRIPTOR->setShortsDislikes(Landroid/view/View;)Z
-                        move-result v0
-                        if-eqz v0, :ryd_disabled
-                        return-void
-                        
-                        :is_like
-                        :ryd_disabled
-                        nop
-                    """,
-            )
-        }
-
-        // endregion
-
-        // region Hook for litho Shorts
+        // region Hook Shorts
 
         // Filter that parses the video id from the UI
         addLithoFilter(FILTER_CLASS_DESCRIPTOR)
@@ -257,22 +211,25 @@ val returnYouTubeDislikePatch = bytecodePatch(
             )
         }
 
-        // Rolling Number text views use the measured width of the raw string for layout.
-        // Modify the measure text calculation to include the left drawable separator if needed.
-        val patternMatch = rollingNumberMeasureAnimatedTextFingerprint.patternMatch!!
-        // Additional check to verify the opcodes are at the start of the method
-        if (patternMatch.startIndex != 0) throw PatchException("Unexpected opcode location")
-        val endIndex = patternMatch.endIndex
-        rollingNumberMeasureAnimatedTextFingerprint.method.apply {
-            val measuredTextWidthRegister = getInstruction<OneRegisterInstruction>(endIndex).registerA
+        rollingNumberMeasureAnimatedTextFingerprint.let {
+            // Rolling Number text views use the measured width of the raw string for layout.
+            // Modify the measure text calculation to include the left drawable separator if needed.
+            val patternMatch = it.patternMatch!!
+            // Verify the opcodes are at the start of the method.
+            if (patternMatch.startIndex != 0) throw PatchException("Unexpected opcode location")
+            val endIndex = patternMatch.endIndex
 
-            addInstructions(
-                endIndex + 1,
-                """
-                    invoke-static {p1, v$measuredTextWidthRegister}, $EXTENSION_CLASS_DESCRIPTOR->onRollingNumberMeasured(Ljava/lang/String;F)F
-                    move-result v$measuredTextWidthRegister
-                """,
-            )
+            it.method.apply {
+                val measuredTextWidthRegister = getInstruction<OneRegisterInstruction>(endIndex).registerA
+
+                addInstructions(
+                    endIndex + 1,
+                    """
+                        invoke-static {p1, v$measuredTextWidthRegister}, $EXTENSION_CLASS_DESCRIPTOR->onRollingNumberMeasured(Ljava/lang/String;F)F
+                        move-result v$measuredTextWidthRegister
+                    """
+                )
+            }
         }
 
         // Additional text measurement method. Used if YouTube decides not to animate the likes count
@@ -293,15 +250,14 @@ val returnYouTubeDislikePatch = bytecodePatch(
                 )
             }
         }
-        // The rolling number Span is missing styling since it's initially set as a String.
-        // Modify the UI text view and use the styled like/dislike Span.
-        // Initial TextView is set in this method.
-        val initiallyCreatedTextViewMethod = rollingNumberTextViewFingerprint.method
 
-        // Videos less than 24 hours after uploaded, like counts will be updated in real time.
-        // Whenever like counts are updated, TextView is set in this method.
         arrayOf(
-            initiallyCreatedTextViewMethod,
+            // The rolling number Span is missing styling since it's initially set as a String.
+            // Modify the UI text view and use the styled like/dislike Span.
+            // Initial TextView is set in this method.
+            rollingNumberTextViewFingerprint.method,
+            // Videos less than 24 hours after uploaded, like counts will be updated in real time.
+            // Whenever like counts are updated, TextView is set in this method.
             rollingNumberTextViewAnimationUpdateFingerprint.method,
         ).forEach { insertMethod ->
             insertMethod.apply {
@@ -317,9 +273,9 @@ val returnYouTubeDislikePatch = bytecodePatch(
                 addInstructions(
                     setTextIndex,
                     """
-                            invoke-static {v$textViewRegister, v$textSpanRegister}, $EXTENSION_CLASS_DESCRIPTOR->updateRollingNumber(Landroid/widget/TextView;Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
-                            move-result-object v$textSpanRegister
-                        """,
+                        invoke-static {v$textViewRegister, v$textSpanRegister}, $EXTENSION_CLASS_DESCRIPTOR->updateRollingNumber(Landroid/widget/TextView;Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
+                        move-result-object v$textSpanRegister
+                    """
                 )
             }
         }
