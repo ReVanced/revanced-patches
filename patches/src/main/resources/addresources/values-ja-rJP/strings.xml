@@ -545,7 +545,7 @@ MicroG GmsCore に対する電池の最適化を無効にしても、バッテ�
   <string name="revanced_switch_create_with_notifications_button_user_dialog_message">"この設定を無効にすると、ショート動画の広告ブロックも無効になります。
 
 この設定を変更しても効果がない場合は、シークレット モードに切り替えてみてください。"</string>
-  <string name="revanced_hide_navigation_button_labels_title">ナビゲーション ボタンをアイコンのみで表示する</string>
+  <string name="revanced_hide_navigation_button_labels_title">ボタンをアイコンのみで表示する</string>
   <string name="revanced_hide_navigation_button_labels_summary_on">ナビゲーション ボタンはアイコンのみで表示されます</string>
   <string name="revanced_hide_navigation_button_labels_summary_off">ナビゲーション ボタンはアイコンと文字で表示されます</string>
   <string name="revanced_disable_translucent_status_bar_title">ステータス バーの半透明化を無効にする</string>
@@ -1196,13 +1196,13 @@ Automotive レイアウト
   <string name="revanced_gradient_loading_screen_title">グラデーション読み込み画面を有効にする</string>
   <string name="revanced_gradient_loading_screen_summary_on">画面読み込み時にグラデーションの背景が表示されます</string>
   <string name="revanced_gradient_loading_screen_summary_off">画面読み込み時に通常の背景が表示されます</string>
-  <string name="revanced_seekbar_custom_color_title">編集したシークバーの色を使用する</string>
-  <string name="revanced_seekbar_custom_color_summary_on">編集したシークバーの色が表示されます</string>
+  <string name="revanced_seekbar_custom_color_title">設定したシークバーの色を使用する</string>
+  <string name="revanced_seekbar_custom_color_summary_on">設定したシークバーの色が表示されます</string>
   <string name="revanced_seekbar_custom_color_summary_off">デフォルトのシークバーの色が表示されます</string>
   <string name="revanced_seekbar_custom_color_primary_title">シークバーの色</string>
-  <string name="revanced_seekbar_custom_color_primary_summary">シークバーの色を編集します</string>
+  <string name="revanced_seekbar_custom_color_primary_summary">シークバーの色を設定します</string>
   <string name="revanced_seekbar_custom_color_accent_title">シークバーのアクセントカラー</string>
-  <string name="revanced_seekbar_custom_color_accent_summary">シークバーのアクセントカラーを編集します</string>
+  <string name="revanced_seekbar_custom_color_accent_summary">シークバーのアクセントカラーを設定します</string>
   <string name="revanced_seekbar_custom_color_invalid">入力されたシークバーの色の値は無効です</string>
   </patch>
   <patch id="layout.thumbnails.bypassImageRegionRestrictionsPatch">

@@ -152,6 +152,7 @@ Et saa ilmoituksia odottamattomista tapahtumista."</string>
   <string name="revanced_hide_notify_me_button_summary_on">Painike on piilotettu</string>
   <string name="revanced_hide_notify_me_button_summary_off">Painike näytetään</string>
   <!-- 'People also watched' should be translated using the same localized wording YouTube displays. -->
+  <string name="revanced_hide_search_result_recommendations_title">Piilota \'\"Ihmiset katselivat myös\" -tunniste</string>
   <string name="revanced_hide_search_result_recommendations_summary_on">Tunniste on piilotettu</string>
   <string name="revanced_hide_search_result_recommendations_summary_off">Tunniste näytetään</string>
   <!-- 'Show more' should be translated with the same localized wording that YouTube displays.
@@ -225,6 +226,7 @@ Et saa ilmoituksia odottamattomista tapahtumista."</string>
   <string name="revanced_hide_artist_cards_title">Piilota artistikortit</string>
   <string name="revanced_hide_artist_cards_summary_on">Artistikortit on piilotettu</string>
   <string name="revanced_hide_artist_cards_summary_off">Artistikortit näytetään</string>
+  <string name="revanced_hide_attributes_section_title">Piilota Määritteet</string>
   <string name="revanced_hide_attributes_section_summary_on">Esitellyt paikat, Pelit, Musiikki ja Mainitut ihmiset -osiot on piilotettu</string>
   <string name="revanced_hide_attributes_section_summary_off">Esitellyt paikat, Pelit, Musiikki ja Mainitut ihmiset -osiot näytetään</string>
   <string name="revanced_hide_chapters_section_title">Piilota Videon osat</string>
@@ -351,6 +353,7 @@ Tämä ominaisuus on käytettävissä vain vanhemmilla laitteilla"</string>
   <string name="revanced_hide_self_sponsor_ads_title">Piilota itse-sponsoroidut kortit</string>
   <string name="revanced_hide_self_sponsor_ads_summary_on">Itse-sponsoroidut kortit ovat piilotettu</string>
   <string name="revanced_hide_self_sponsor_ads_summary_off">Itse-sponsoroidut kortit näytetään</string>
+  <string name="revanced_hide_products_banner_title">Piilota \"Näytä tuotteet\" -banneri</string>
   <string name="revanced_hide_products_banner_summary_on">Banneri on piilotettu</string>
   <string name="revanced_hide_products_banner_summary_off">Banneri näytetään</string>
   <string name="revanced_hide_end_screen_store_banner_title">Piilota loppunäytön kauppabanneri</string>
@@ -609,6 +612,7 @@ Jos tämän asetuksen muuttaminen ei tule voimaan, kokeile vaihtaa Incognito-til
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_off">Videolaatuvalikon alatunniste näytetään</string>
   </patch>
   <patch id="layout.buttons.overlay.hidePlayerOverlayButtonsPatch">
+  <string name="revanced_hide_player_previous_next_buttons_title">Piilota Edellinen ja Seuraava -painikkeeet</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_on">Painikkeet on piilotettu</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">Painikkeet näytetään</string>
   <string name="revanced_hide_cast_button_title">Piilota Cast-painike</string>
@@ -1061,6 +1065,14 @@ Oletko valmis lähettämään?"</string>
   <string name="revanced_change_form_factor_entry_2">Puhelin</string>
   <string name="revanced_change_form_factor_entry_3">Tabletti</string>
   <string name="revanced_change_form_factor_entry_4">Ajoneuvo</string>
+  <string name="revanced_change_form_factor_user_dialog_message">"Muutokset sisältävät:
+
+Tabletti-asettelu
+• Yhteisöpostaukset on piilotettu
+
+Ajoneuvo-asettelu
+• Shortsit avataan tavallisessa soittimessa
+• Syöte on järjestetty aiheiden ja kanavien mukaan"</string>
   </patch>
   <patch id="layout.spoofappversion.spoofAppVersionPatch">
   <string name="revanced_spoof_app_version_title">Naamioi sovellusversio</string>
@@ -1130,6 +1142,7 @@ Jos tämä poistetaan myöhemmin käytöstä, on suositeltavaa tyhjentää sovel
   </patch>
   <patch id="layout.miniplayer.miniplayerPatch">
   <string name="revanced_miniplayer_screen_title">Minisoitin</string>
+  <string name="revanced_miniplayer_screen_summary">Muuta sovelluksen sisäisen pienennetyn soittimen tyyliä</string>
   <string name="revanced_miniplayer_type_title">Minisoittimen tyyppi</string>
   <string name="revanced_miniplayer_type_entry_0">Pois käytöstä</string>
   <string name="revanced_miniplayer_type_entry_1">Oletus</string>
@@ -1273,6 +1286,8 @@ Tämä voi avata korkealaatuisemmat videot"</string>
   </patch>
   <patch id="misc.links.openLinksExternallyPatch">
   <string name="revanced_external_browser_title">Avaa linkit selaimessa</string>
+  <string name="revanced_external_browser_summary_on">Linkit avataan ulkoisessa selaimessa</string>
+  <string name="revanced_external_browser_summary_off">Linkit avataan sovelluksen sisäisessä selaimessa</string>
   </patch>
   <patch id="misc.privacy.removeTrackingQueryParameterPatch">
   <string name="revanced_remove_tracking_query_parameter_title">Poista seurantakyselyparametrit</string>
@@ -1299,9 +1314,15 @@ Tämä voi avata korkealaatuisemmat videot"</string>
   <string name="revanced_remember_video_quality_last_selected_summary_off">Laatumuutokset koskevat vain nykyistä videota</string>
   <string name="revanced_video_quality_default_wifi_title">Videon oletuslaatu Wi-Fi-verkossa</string>
   <string name="revanced_video_quality_default_mobile_title">Videon oletuslaatu mobiiliverkossa</string>
+  <string name="revanced_remember_shorts_quality_last_selected_title">Muista Shortsien laadun muutokset</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_on">Laatumuutokset koskevat kaikkia Shortseja</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_off">Laatumuutokset koskevat vain nykyistä Shorttia</string>
+  <string name="revanced_shorts_quality_default_wifi_title">Shorts-oletuslaatu Wi-Fi-verkossa</string>
+  <string name="revanced_shorts_quality_default_mobile_title">Shorts-oletuslaatu mobiiliverkossa</string>
   <string name="revanced_remember_video_quality_mobile">mobiili</string>
   <string name="revanced_remember_video_quality_wifi">wifi</string>
   <string name="revanced_remember_video_quality_toast">%1$s-oletuslaatu muutettiin: %2$s</string>
+  <string name="revanced_remember_video_quality_toast_shorts">Shortsien %1$s-laatu muutettiin: %2$s</string>
   </patch>
   <patch id="video.speed.button.playbackSpeedButtonPatch">
   <string name="revanced_playback_speed_dialog_button_title">Näytä nopeuden valintapainike</string>
@@ -1333,6 +1354,9 @@ Tämä voi avata korkealaatuisemmat videot"</string>
   <string name="revanced_disable_hdr_video_summary_off">HDR-video on käytössä</string>
   </patch>
   <patch id="video.quality.advancedVideoQualityMenuPatch">
+  <string name="revanced_advanced_video_quality_menu_title">Näytä edistynyt videolaatuvalikko</string>
+  <string name="revanced_advanced_video_quality_menu_summary_on">Edistynyt videolaatuvalikko näytetään</string>
+  <string name="revanced_advanced_video_quality_menu_summary_off">Edistynyttä videolaatuvalikkoa ei näytetä</string>
   </patch>
   <patch id="interaction.seekbar.enableSlideToSeekPatch">
   <string name="revanced_slide_to_seek_title">Ota kelaus liu\'uttamalla käyttöön</string>
