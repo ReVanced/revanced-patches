@@ -136,7 +136,7 @@ public class SponsorBlockSettings {
             for (SegmentCategory category : categories) {
                 JSONObject categoryObject = new JSONObject();
                 String categoryKey = category.keyValue;
-                categoryObject.put("color", category.colorString());
+                categoryObject.put("color", category.getColorString());
                 barTypesObject.put(categoryKey, categoryObject);
 
                 if (category.behaviour != CategoryBehaviour.IGNORE) {

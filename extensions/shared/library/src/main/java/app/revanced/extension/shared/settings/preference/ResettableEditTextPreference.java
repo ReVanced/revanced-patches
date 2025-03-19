@@ -1,5 +1,7 @@
 package app.revanced.extension.shared.settings.preference;
 
+import static app.revanced.extension.shared.StringRef.str;
+
 import android.app.AlertDialog;
 import android.content.Context;
 import android.os.Bundle;
@@ -8,16 +10,22 @@ import android.util.AttributeSet;
 import android.widget.Button;
 import android.widget.EditText;
 
-import app.revanced.extension.shared.Utils;
-import app.revanced.extension.shared.settings.Setting;
-import app.revanced.extension.shared.Logger;
+import androidx.annotation.Nullable;
 
 import java.util.Objects;
 
-import static app.revanced.extension.shared.StringRef.str;
+import app.revanced.extension.shared.Logger;
+import app.revanced.extension.shared.Utils;
+import app.revanced.extension.shared.settings.Setting;
 
 @SuppressWarnings({"unused", "deprecation"})
 public class ResettableEditTextPreference extends EditTextPreference {
+
+    /**
+     * Setting to reset.
+     */
+    @Nullable
+    private Setting<?> setting;
 
     public ResettableEditTextPreference(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
@@ -32,12 +40,22 @@ public class ResettableEditTextPreference extends EditTextPreference {
         super(context);
     }
 
+    public void setSetting(@Nullable Setting<?> setting) {
+        this.setting = setting;
+    }
+
     @Override
     protected void onPrepareDialogBuilder(AlertDialog.Builder builder) {
         super.onPrepareDialogBuilder(builder);
         Utils.setEditTextDialogTheme(builder);
 
-        Setting<?> setting = Setting.getSettingFromPath(getKey());
+        if (setting == null) {
+            String key = getKey();
+            if (key != null) {
+                setting = Setting.getSettingFromPath(key);
+            }
+        }
+
         if (setting != null) {
             builder.setNeutralButton(str("revanced_settings_reset"), null);
         }
@@ -54,8 +72,7 @@ public class ResettableEditTextPreference extends EditTextPreference {
         }
         button.setOnClickListener(v -> {
             try {
-                Setting<?> setting = Objects.requireNonNull(Setting.getSettingFromPath(getKey()));
-                String defaultStringValue = setting.defaultValue.toString();
+                String defaultStringValue = Objects.requireNonNull(setting).defaultValue.toString();
                 EditText editText = getEditText();
                 editText.setText(defaultStringValue);
                 editText.setSelection(defaultStringValue.length()); // move cursor to end of text

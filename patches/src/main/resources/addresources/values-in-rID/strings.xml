@@ -1238,7 +1238,7 @@ Ketuk di sini untuk mempelajari lebih lanjut tentang DeArrow"</string>
   <string name="revanced_alt_thumbnail_stills_fast_title">Gunakan tangkapan diam cepat</string>
   <string name="revanced_alt_thumbnail_stills_fast_summary_on">Menggunakan tangkapan diam kualitas sedang. Thumbnail akan dimuat lebih cepat, tetapi siaran langsung, video yang belum dirilis, atau video yang sangat lama mungkin menampilkan thumbnail kosong</string>
   <string name="revanced_alt_thumbnail_stills_fast_summary_off">Menggunakan tangkapan diam berkualitas tinggi</string>
-  <string name="revanced_alt_thumbnail_stills_time_title">Lama waktu menangkap layar video</string>
+  <string name="revanced_alt_thumbnail_stills_time_title">Waktu video untuk mengambil gambar diam</string>
   <string name="revanced_alt_thumbnail_stills_time_entry_1">Awal video</string>
   <string name="revanced_alt_thumbnail_stills_time_entry_2">Pertengahan video</string>
   <string name="revanced_alt_thumbnail_stills_time_entry_3">Akhir video</string>
