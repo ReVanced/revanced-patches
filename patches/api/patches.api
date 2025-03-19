@@ -1323,6 +1323,7 @@ public final class app/revanced/patches/youtube/misc/playservice/VersionCheckPat
 	public static final fun is_20_02_or_greater ()Z
 	public static final fun is_20_03_or_greater ()Z
 	public static final fun is_20_05_or_greater ()Z
+	public static final fun is_20_09_or_greater ()Z
 	public static final fun is_20_10_or_greater ()Z
 }
 

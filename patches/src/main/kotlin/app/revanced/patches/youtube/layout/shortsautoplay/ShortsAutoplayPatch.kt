@@ -3,12 +3,14 @@ package app.revanced.patches.youtube.layout.shortsautoplay
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
+import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.playservice.is_19_34_or_greater
+import app.revanced.patches.youtube.misc.playservice.is_20_09_or_greater
 import app.revanced.patches.youtube.misc.playservice.versionCheckPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
@@ -44,6 +46,10 @@ val shortsAutoplayPatch = bytecodePatch(
     )
 
     execute {
+        if (is_20_09_or_greater) {
+            throw PatchException("Shorts autoplay is not compatible with 20.09+")
+        }
+
         addResources("youtube", "layout.shortsautoplay.shortsAutoplayPatch")
 
         PreferenceScreen.SHORTS.addPreferences(

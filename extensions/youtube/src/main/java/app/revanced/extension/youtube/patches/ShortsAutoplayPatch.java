@@ -2,6 +2,8 @@ package app.revanced.extension.youtube.patches;
 
 import android.app.Activity;
 
+import androidx.annotation.Nullable;
+
 import java.lang.ref.WeakReference;
 import java.util.Objects;
 
@@ -28,10 +30,15 @@ public class ShortsAutoplayPatch {
 
         static void setYTEnumValue(Enum<?> ytBehavior) {
             for (ShortsLoopBehavior rvBehavior : values()) {
-                if (ytBehavior.name().endsWith(rvBehavior.name())) {
-                    rvBehavior.ytEnumValue = ytBehavior;
-
-                    Logger.printDebug(() -> rvBehavior + " set to YT enum: " + ytBehavior.name());
+                String ytName = ytBehavior.name();
+                if (ytName.endsWith(rvBehavior.name())) {
+                    if (rvBehavior.ytEnumValue != null) {
+                        Logger.printException(() -> "Conflicting behavior names: " + rvBehavior
+                                + " ytBehavior: " + ytName);
+                    } else {
+                        rvBehavior.ytEnumValue = ytBehavior;
+                        Logger.printDebug(() -> rvBehavior + " set to YT enum: " + ytName);
+                    }
                     return;
                 }
             }
@@ -76,8 +83,14 @@ public class ShortsAutoplayPatch {
     /**
      * Injection point.
      */
-    public static Enum<?> changeShortsRepeatBehavior(Enum<?> original) {
+    @Nullable
+    public static Enum<?> changeShortsRepeatBehavior(@Nullable Enum<?> original) {
         try {
+            if (original == null) {
+                Logger.printDebug(() -> "Original is null, returning null");
+                return null;
+            }
+
             final boolean autoplay;
 
             if (isAppInBackgroundPiPMode()) {
@@ -93,17 +106,17 @@ public class ShortsAutoplayPatch {
                 autoplay = Settings.SHORTS_AUTOPLAY.get();
             }
 
-            final ShortsLoopBehavior behavior = autoplay
+            Enum<?> overrideBehavior = (autoplay
                     ? ShortsLoopBehavior.SINGLE_PLAY
-                    : ShortsLoopBehavior.REPEAT;
+                    : ShortsLoopBehavior.REPEAT).ytEnumValue;
 
-            if (behavior.ytEnumValue != null) {
-                Logger.printDebug(() -> behavior.ytEnumValue == original
-                        ? "Changing Shorts repeat behavior from: " + original.name() + " to: " + behavior.ytEnumValue
-                        : "Behavior setting is same as original. Using original: " + original.name()
+            if (overrideBehavior != null) {
+                Logger.printDebug(() -> overrideBehavior == original
+                        ? "Behavior setting is same as original. Using original: " + original.name()
+                        : "Changing Shorts repeat behavior from: " + original.name() + " to: " + overrideBehavior.name()
                 );
 
-                return behavior.ytEnumValue;
+                return overrideBehavior;
             }
         } catch (Exception ex) {
             Logger.printException(() -> "changeShortsRepeatState failure", ex);
