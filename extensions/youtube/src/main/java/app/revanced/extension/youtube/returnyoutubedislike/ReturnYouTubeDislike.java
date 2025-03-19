@@ -180,10 +180,6 @@ public class ReturnYouTubeDislike {
      * Color of the left and middle separator, based on the color of the right separator.
      * It's unknown where YT gets the color from, and the values here are approximated by hand.
      * Ideally, this would be the actual color YT uses at runtime.
-     *
-     * Older versions before the 'Me' library tab use a slightly different color.
-     * If spoofing was previously used and is now turned off,
-     * or an old version was recently upgraded then the old colors are sometimes still used.
      */
     private static int getSeparatorColor() {
         return ThemeHelper.isDarkTheme()
