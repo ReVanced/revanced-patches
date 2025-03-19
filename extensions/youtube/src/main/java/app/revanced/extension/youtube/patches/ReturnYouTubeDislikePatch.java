@@ -21,7 +21,6 @@ import java.util.Objects;
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
 import app.revanced.extension.youtube.patches.components.ReturnYouTubeDislikeFilterPatch;
-import app.revanced.extension.youtube.patches.spoof.SpoofAppVersionPatch;
 import app.revanced.extension.youtube.returnyoutubedislike.ReturnYouTubeDislike;
 import app.revanced.extension.youtube.returnyoutubedislike.requests.ReturnYouTubeDislikeApi;
 import app.revanced.extension.youtube.settings.Settings;
@@ -46,9 +45,6 @@ import app.revanced.extension.youtube.shared.PlayerType;
  */
 @SuppressWarnings("unused")
 public class ReturnYouTubeDislikePatch {
-
-    public static final boolean IS_SPOOFING_TO_NON_LITHO_SHORTS_PLAYER =
-            SpoofAppVersionPatch.isSpoofingToLessThan("18.34.00");
 
     /**
      * RYD data for the current video on screen.
@@ -503,8 +499,7 @@ public class ReturnYouTubeDislikePatch {
             if (videoIdIsShort && (!isShortAndOpeningOrPlaying || !Settings.RYD_SHORTS.get())) {
                 return;
             }
-            final boolean waitForFetchToComplete = !IS_SPOOFING_TO_NON_LITHO_SHORTS_PLAYER
-                    && videoIdIsShort && !lastPlayerResponseWasShort;
+            final boolean waitForFetchToComplete = videoIdIsShort && !lastPlayerResponseWasShort;
 
             Logger.printDebug(() -> "Prefetching RYD for video: " + videoId);
             ReturnYouTubeDislike fetch = ReturnYouTubeDislike.getFetchForVideoId(videoId);
