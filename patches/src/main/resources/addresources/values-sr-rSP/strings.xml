@@ -805,7 +805,6 @@ Second \"item\" text"</string>
   <string name="revanced_ryd_enable_summary_on">Несвиђања су приказана</string>
   <string name="revanced_ryd_enable_summary_off">Несвиђања нису приказана</string>
   <string name="revanced_ryd_shorts_title">Прикажи несвиђања на Shorts видеима</string>
-  <string name="revanced_ryd_shorts_summary_on">Несвиђања на Shorts видеима су приказана</string>
   <string name="revanced_ryd_shorts_summary_on_disclaimer">"Несвиђања на Shorts видеима су приказана
 
 Ограничење: Несвиђања се можда неће појавити у режиму без архивирања"</string>
@@ -1002,6 +1001,8 @@ Second \"item\" text"</string>
   <string name="revanced_sb_vote_downvote">Гласај против</string>
   <string name="revanced_sb_vote_category">Промени категорију</string>
   <string name="revanced_sb_vote_no_segments">Нема ниједног сегмента за гласање</string>
+  <!-- A segment start and end time, such as "02:10 to 03:40" -->
+  <string name="revanced_sb_vote_segment_time_to_from">%1$s до %2$s</string>
   <string name="revanced_sb_new_segment_choose_category">Изаберите категорију сегмента</string>
   <string name="revanced_sb_new_segment_disabled_category">Категорија је онемогућена у подешавањима. Омогућите категорију да бисте поднели.</string>
   <string name="revanced_sb_new_segment_title">Нови SponsorBlock сегмент</string>
@@ -1049,6 +1050,7 @@ Second \"item\" text"</string>
   <string name="revanced_sb_stats_saved_hour_format">%1$s сати %2$s минута</string>
   <string name="revanced_sb_stats_saved_minute_format">%1$s минута %2$s секунди</string>
   <string name="revanced_sb_stats_saved_second_format">%s секунди</string>
+  <string name="revanced_sb_color_opacity_label">Непрозирност:</string>
   <string name="revanced_sb_color_dot_label">Боја:</string>
   <string name="revanced_sb_color_changed">Боја промењена</string>
   <string name="revanced_sb_color_reset">Боја ресетована</string>
@@ -1087,11 +1089,6 @@ Second \"item\" text"</string>
   <string name="revanced_spoof_app_version_target_title">Циљна верзија апликације за лажирање</string>
   <string name="revanced_spoof_app_version_target_entry_1">19.35.36 - Враћа старе иконице Shorts плејера</string>
   <string name="revanced_spoof_app_version_target_entry_2">19.26.42 - Враћа старе иконице навигације</string>
-  <!-- 'RYD' is 'Return YouTube Dislike' -->
-  <string name="revanced_spoof_app_version_target_legacy_entry_1">18.33.40 - Враћа Return YouTube Dislike у Shorts видеима у режиму без архивирања</string>
-  <string name="revanced_spoof_app_version_target_legacy_entry_2">18.20.39 - Враћа широк мени за брзину и квалитет видеа</string>
-  <string name="revanced_spoof_app_version_target_legacy_entry_3">18.09.39 - Враћа картицу збирке</string>
-  <string name="revanced_spoof_app_version_target_legacy_entry_4">17.33.42 - Враћа стару полицу плејлисте</string>
   </patch>
   <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">Полазна страница</string>

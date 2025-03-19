@@ -805,7 +805,6 @@ Cài đặt → Phát lại → Tự động phát video tiếp theo"</string>
   <string name="revanced_ryd_enable_summary_on">Số lượt không thích được hiện</string>
   <string name="revanced_ryd_enable_summary_off">Số lượt không thích không được hiện</string>
   <string name="revanced_ryd_shorts_title">Hiện số lượt không thích trong Shorts</string>
-  <string name="revanced_ryd_shorts_summary_on">Số lượt không thích trên Shorts được hiện</string>
   <string name="revanced_ryd_shorts_summary_on_disclaimer">"Số lượt không thích trên Shorts được hiện
 
 Hạn chế: Số lượt không thích có thể không xuất hiện ở chế độ ẩn danh"</string>
@@ -1002,6 +1001,8 @@ ID người dùng của bạn giống như mật khẩu và không bao giờ đ�
   <string name="revanced_sb_vote_downvote">Phản đối</string>
   <string name="revanced_sb_vote_category">Thay đổi danh mục</string>
   <string name="revanced_sb_vote_no_segments">Không có phân đoạn nào để bình chọn</string>
+  <!-- A segment start and end time, such as "02:10 to 03:40" -->
+  <string name="revanced_sb_vote_segment_time_to_from">%1$s đến %2$s</string>
   <string name="revanced_sb_new_segment_choose_category">Chọn danh mục phân đoạn</string>
   <string name="revanced_sb_new_segment_disabled_category">Danh mục này bị tắt trong cài đặt. Bật danh mục để gửi.</string>
   <string name="revanced_sb_new_segment_title">Tạo phân đoạn SponsorBlock mới</string>
@@ -1049,6 +1050,7 @@ Bạn đã sẵn sàng gửi?"</string>
   <string name="revanced_sb_stats_saved_hour_format">%1$s giờ %2$s phút</string>
   <string name="revanced_sb_stats_saved_minute_format">%1$s phút %2$s giây</string>
   <string name="revanced_sb_stats_saved_second_format">%s giây</string>
+  <string name="revanced_sb_color_opacity_label">Độ mờ:</string>
   <string name="revanced_sb_color_dot_label">Màu:</string>
   <string name="revanced_sb_color_changed">Màu sắc đã được thay đổi</string>
   <string name="revanced_sb_color_reset">Đặt lại màu sắc</string>
@@ -1087,11 +1089,6 @@ Nếu sau này tắt đi, bạn nên xóa dữ liệu ứng dụng để tránh 
   <string name="revanced_spoof_app_version_target_title">Phiên bản giả mạo mục tiêu</string>
   <string name="revanced_spoof_app_version_target_entry_1">19.35.36 - Khôi phục biểu tượng trình phát Shorts cũ</string>
   <string name="revanced_spoof_app_version_target_entry_2">19.26.42 - Cập nhật lại biểu tượng điều hướng cũ</string>
-  <!-- 'RYD' is 'Return YouTube Dislike' -->
-  <string name="revanced_spoof_app_version_target_legacy_entry_1">18.33.40 - Khôi phục RYD trong Shorts chế độ ẩn danh</string>
-  <string name="revanced_spoof_app_version_target_legacy_entry_2">18.20.39 - Khôi phục trình đơn tốc độ &amp; chất lượng cho video rộng</string>
-  <string name="revanced_spoof_app_version_target_legacy_entry_3">18.09.39 - Khôi phục thẻ thư viện</string>
-  <string name="revanced_spoof_app_version_target_legacy_entry_4">17.33.42 - Khôi phục kệ danh sách phát cũ</string>
   </patch>
   <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">Đặt trang bắt đầu</string>

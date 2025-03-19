@@ -801,7 +801,6 @@ YouTube সেটিংসে অটো প্লে পরিবর্তন �
   <string name="revanced_ryd_enable_summary_on">অপছন্দগুলো প্রদর্শিত হয়েছে</string>
   <string name="revanced_ryd_enable_summary_off">অপছন্দগুলো প্রদর্শিত হয়নি</string>
   <string name="revanced_ryd_shorts_title">Shorts এ অপছন্দ দেখান</string>
-  <string name="revanced_ryd_shorts_summary_on">Shorts-এ অপছন্দগুলি দেখানো হয়েছে</string>
   <string name="revanced_ryd_shorts_summary_on_disclaimer">"Shorts-এ অপছন্দগুলি দেখানো হয়েছে
 
 সীমাবদ্ধতা: ছদ্মবেশী মোডে অপছন্দগুলি নাও দেখা যেতে পারে"</string>
@@ -998,6 +997,8 @@ YouTube সেটিংসে অটো প্লে পরিবর্তন �
   <string name="revanced_sb_vote_downvote">ডাউন ভোট</string>
   <string name="revanced_sb_vote_category">বিভাগ পরিবর্তন করুন</string>
   <string name="revanced_sb_vote_no_segments">ভোট দেয়ার জন্য আর কোন সেগমেন্ট নেই</string>
+  <!-- A segment start and end time, such as "02:10 to 03:40" -->
+  <string name="revanced_sb_vote_segment_time_to_from">%1$s থেকে %2$s</string>
   <string name="revanced_sb_new_segment_choose_category">সেগমেন্টের বিভাগ নির্বাচন করুন</string>
   <string name="revanced_sb_new_segment_disabled_category">সেটিং থেকে বিভাগ নিস্ক্রিয় করা হয়েছে। জমা দিতে বিভাগ সক্রিয় করুন।</string>
   <string name="revanced_sb_new_segment_title">নতুন স্পন্সরব্লক সেগমেন্ট</string>
@@ -1046,6 +1047,7 @@ YouTube সেটিংসে অটো প্লে পরিবর্তন �
   <string name="revanced_sb_stats_saved_hour_format">%1$s ঘন্টা %2$s মিনিট</string>
   <string name="revanced_sb_stats_saved_minute_format">%1$s মিনিট %2$s সেকেন্ড</string>
   <string name="revanced_sb_stats_saved_second_format">%s সেকেন্ড</string>
+  <string name="revanced_sb_color_opacity_label">স্বচ্ছতা:</string>
   <string name="revanced_sb_color_dot_label">রং:</string>
   <string name="revanced_sb_color_changed">রং পরিবর্তন করা হয়েছে</string>
   <string name="revanced_sb_color_reset">রং আবার সেট করুন</string>
@@ -1084,11 +1086,6 @@ YouTube সেটিংসে অটো প্লে পরিবর্তন �
   <string name="revanced_spoof_app_version_target_title">স্পুফ অ্যাপ সংস্করণ লক্ষ্য</string>
   <string name="revanced_spoof_app_version_target_entry_1">19.35.36 - পুরনো Shorts প্লেয়ার আইকন পুনরুদ্ধার করুন</string>
   <string name="revanced_spoof_app_version_target_entry_2">19.26.42 - পুরনো নেভিগেশন আইকন পুনরুদ্ধার করুন</string>
-  <!-- 'RYD' is 'Return YouTube Dislike' -->
-  <string name="revanced_spoof_app_version_target_legacy_entry_1">18.33.40 - ছদ্মবেশি মোডে RYD পুনরুদ্ধার করে</string>
-  <string name="revanced_spoof_app_version_target_legacy_entry_2">18.20.39 - প্রশ্বস্ত ভিডিও স্পিড এবং গুণমান মেনু পুনরুদ্ধার করে</string>
-  <string name="revanced_spoof_app_version_target_legacy_entry_3">18.09.39 - লাইব্রেরি ট্যাপ পুনরুদ্ধার করে</string>
-  <string name="revanced_spoof_app_version_target_legacy_entry_4">17.33.42 - পুরোনো প্লেলিস্ট শেলফ পুনরুদ্ধার করে</string>
   </patch>
   <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">শুরুর পৃষ্ঠা সেট করুন</string>
