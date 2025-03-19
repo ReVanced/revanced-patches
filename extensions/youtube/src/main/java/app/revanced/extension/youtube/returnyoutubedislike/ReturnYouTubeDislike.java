@@ -37,7 +37,6 @@ import java.util.concurrent.*;
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
 import app.revanced.extension.youtube.ThemeHelper;
-import app.revanced.extension.youtube.patches.spoof.SpoofAppVersionPatch;
 import app.revanced.extension.youtube.returnyoutubedislike.requests.RYDVoteData;
 import app.revanced.extension.youtube.returnyoutubedislike.requests.ReturnYouTubeDislikeApi;
 import app.revanced.extension.youtube.settings.Settings;
@@ -86,9 +85,6 @@ public class ReturnYouTubeDislike {
      * Must be something YouTube is unlikely to use, as it's searched for in all usage of Rolling Number.
      */
     private static final char MIDDLE_SEPARATOR_CHARACTER = '◎'; // 'bullseye'
-
-    private static final boolean IS_SPOOFING_TO_OLD_SEPARATOR_COLOR
-            = SpoofAppVersionPatch.isSpoofingToLessThan("18.10.00");
 
     /**
      * Cached lookup of all video ids.
@@ -184,17 +180,8 @@ public class ReturnYouTubeDislike {
      * Color of the left and middle separator, based on the color of the right separator.
      * It's unknown where YT gets the color from, and the values here are approximated by hand.
      * Ideally, this would be the actual color YT uses at runtime.
-     *
-     * Older versions before the 'Me' library tab use a slightly different color.
-     * If spoofing was previously used and is now turned off,
-     * or an old version was recently upgraded then the old colors are sometimes still used.
      */
     private static int getSeparatorColor() {
-        if (IS_SPOOFING_TO_OLD_SEPARATOR_COLOR) {
-            return ThemeHelper.isDarkTheme()
-                    ? 0x29AAAAAA  // transparent dark gray
-                    : 0xFFD9D9D9; // light gray
-        }
         return ThemeHelper.isDarkTheme()
                 ? 0x33FFFFFF
                 : 0xFFD9D9D9;

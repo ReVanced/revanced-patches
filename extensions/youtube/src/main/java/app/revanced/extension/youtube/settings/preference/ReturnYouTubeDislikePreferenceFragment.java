@@ -86,9 +86,7 @@ public class ReturnYouTubeDislikePreferenceFragment extends PreferenceFragment {
             shortsPreference = new SwitchPreference(context);
             shortsPreference.setChecked(Settings.RYD_SHORTS.get());
             shortsPreference.setTitle(str("revanced_ryd_shorts_title"));
-            String shortsSummary = ReturnYouTubeDislikePatch.IS_SPOOFING_TO_NON_LITHO_SHORTS_PLAYER
-                            ? str("revanced_ryd_shorts_summary_on")
-                            : str("revanced_ryd_shorts_summary_on_disclaimer");
+            String shortsSummary = str("revanced_ryd_shorts_summary_on_disclaimer");
             shortsPreference.setSummaryOn(shortsSummary);
             shortsPreference.setSummaryOff(str("revanced_ryd_shorts_summary_off"));
             shortsPreference.setOnPreferenceChangeListener((pref, newValue) -> {
