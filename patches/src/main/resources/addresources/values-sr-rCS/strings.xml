@@ -805,7 +805,6 @@ Podešavanja → Reprodukcija → Automatski pusti sledeći video"</string>
   <string name="revanced_ryd_enable_summary_on">Nesviđanja su prikazana</string>
   <string name="revanced_ryd_enable_summary_off">Nesviđanja nisu prikazana</string>
   <string name="revanced_ryd_shorts_title">Prikaži nesviđanja na Shorts videima</string>
-  <string name="revanced_ryd_shorts_summary_on">Nesviđanja na Shorts videima su prikazana</string>
   <string name="revanced_ryd_shorts_summary_on_disclaimer">"Nesviđanja na Shorts videima su prikazana
 
 Ograničenje: Nesviđanja se možda neće pojaviti u režimu bez arhiviranja"</string>
@@ -1002,6 +1001,8 @@ Već postoji"</string>
   <string name="revanced_sb_vote_downvote">Glasaj protiv</string>
   <string name="revanced_sb_vote_category">Promeni kategoriju</string>
   <string name="revanced_sb_vote_no_segments">Nema nijednog segmenta za glasanje</string>
+  <!-- A segment start and end time, such as "02:10 to 03:40" -->
+  <string name="revanced_sb_vote_segment_time_to_from">%1$s do %2$s</string>
   <string name="revanced_sb_new_segment_choose_category">Izaberite kategoriju segmenta</string>
   <string name="revanced_sb_new_segment_disabled_category">Kategorija je onemogućena u podešavanjima. Omogućite kategoriju da biste podneli.</string>
   <string name="revanced_sb_new_segment_title">Novi SponsorBlock segment</string>
@@ -1049,6 +1050,7 @@ Spreman za podnošenje?"</string>
   <string name="revanced_sb_stats_saved_hour_format">%1$s sati %2$s minuta</string>
   <string name="revanced_sb_stats_saved_minute_format">%1$s minuta %2$s sekundi</string>
   <string name="revanced_sb_stats_saved_second_format">%s sekundi</string>
+  <string name="revanced_sb_color_opacity_label">Neprozirnost:</string>
   <string name="revanced_sb_color_dot_label">Boja:</string>
   <string name="revanced_sb_color_changed">Boja promenjena</string>
   <string name="revanced_sb_color_reset">Boja resetovana</string>
@@ -1087,11 +1089,6 @@ Ako se kasnije isključi, preporučuje se da izbrišete podatke aplikacije da bi
   <string name="revanced_spoof_app_version_target_title">Ciljna verzija aplikacije za lažiranje</string>
   <string name="revanced_spoof_app_version_target_entry_1">19.35.36 - Vraća stare ikonice Shorts plejera</string>
   <string name="revanced_spoof_app_version_target_entry_2">19.26.42 - Vraća stare ikonice navigacije</string>
-  <!-- 'RYD' is 'Return YouTube Dislike' -->
-  <string name="revanced_spoof_app_version_target_legacy_entry_1">18.33.40 - Vraća Return YouTube Dislike u Shorts videima u režimu bez arhiviranja</string>
-  <string name="revanced_spoof_app_version_target_legacy_entry_2">18.20.39 - Vraća širok meni za brzinu i kvalitet videa</string>
-  <string name="revanced_spoof_app_version_target_legacy_entry_3">18.09.39 - Vraća karticu zbirke</string>
-  <string name="revanced_spoof_app_version_target_legacy_entry_4">17.33.42 - Vraća staru policu plejliste</string>
   </patch>
   <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">Polazna stranica</string>

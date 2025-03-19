@@ -805,7 +805,6 @@ Second \"item\" text"</string>
   <string name="revanced_ryd_enable_summary_on">点踩数已显示</string>
   <string name="revanced_ryd_enable_summary_off">点踩数已隐藏</string>
   <string name="revanced_ryd_shorts_title">在 Shorts 上显示点踩数</string>
-  <string name="revanced_ryd_shorts_summary_on">Shorts 上显示“不喜欢”</string>
   <string name="revanced_ryd_shorts_summary_on_disclaimer">"Shorts 上显示“不喜欢”
 
 限制：在隐身模式下可能不显示“不喜欢”"</string>
@@ -1003,6 +1002,8 @@ Second \"item\" text"</string>
   <string name="revanced_sb_vote_downvote">反对票</string>
   <string name="revanced_sb_vote_category">变更类别</string>
   <string name="revanced_sb_vote_no_segments">没有要投票的片段</string>
+  <!-- A segment start and end time, such as "02:10 to 03:40" -->
+  <string name="revanced_sb_vote_segment_time_to_from">%1$s 到 %2$s</string>
   <string name="revanced_sb_new_segment_choose_category">选择片段的类别</string>
   <string name="revanced_sb_new_segment_disabled_category">类别已在设置中禁用。启用类别以提交。</string>
   <string name="revanced_sb_new_segment_title">新的 SpongorBlock 片段</string>
@@ -1054,6 +1055,7 @@ Second \"item\" text"</string>
   <string name="revanced_sb_stats_saved_hour_format">%1$s 小时 %2$s 分钟</string>
   <string name="revanced_sb_stats_saved_minute_format">%1$s 分钟 %2$s 秒</string>
   <string name="revanced_sb_stats_saved_second_format">%s 秒</string>
+  <string name="revanced_sb_color_opacity_label">不透明度：</string>
   <string name="revanced_sb_color_dot_label">颜色:</string>
   <string name="revanced_sb_color_changed">已更改颜色</string>
   <string name="revanced_sb_color_reset">重置颜色</string>
@@ -1092,11 +1094,6 @@ Second \"item\" text"</string>
   <string name="revanced_spoof_app_version_target_title">伪装应用程序版本为</string>
   <string name="revanced_spoof_app_version_target_entry_1">19.35.36 - 恢复旧的 Shorts 播放器图标</string>
   <string name="revanced_spoof_app_version_target_entry_2">19.26.42 - 恢复旧导航图标</string>
-  <!-- 'RYD' is 'Return YouTube Dislike' -->
-  <string name="revanced_spoof_app_version_target_legacy_entry_1">18.33.40 - 在隐身模式下恢复 RYD</string>
-  <string name="revanced_spoof_app_version_target_legacy_entry_2">18.20.39 - 还原宽视频速度 &amp; 画质菜单</string>
-  <string name="revanced_spoof_app_version_target_legacy_entry_3">18.09.39 - 恢复库标签</string>
-  <string name="revanced_spoof_app_version_target_legacy_entry_4">17.33.42 - 恢复旧的播放列表架子</string>
   </patch>
   <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">设置起始页</string>

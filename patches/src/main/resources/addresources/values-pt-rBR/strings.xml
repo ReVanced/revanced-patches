@@ -803,7 +803,6 @@ Configurações → Reprodução → Reproduzir próximo vídeo automaticamente"
   <string name="revanced_ryd_enable_summary_on">Não gostei está oculto</string>
   <string name="revanced_ryd_enable_summary_off">Não gostei não está oculto</string>
   <string name="revanced_ryd_shorts_title">Mostrar não gostei no Shorts</string>
-  <string name="revanced_ryd_shorts_summary_on">\"Não gostei\" nos Shorts são mostrados</string>
   <string name="revanced_ryd_shorts_summary_on_disclaimer">"\"Não gostei\" nos Shorts são mostrados
 
 Limitação: \"Não gostei\" podem não aparecer no modo anônimo"</string>
@@ -1000,6 +999,8 @@ Já existe"</string>
   <string name="revanced_sb_vote_downvote">Voto negativo</string>
   <string name="revanced_sb_vote_category">Alterar categoria</string>
   <string name="revanced_sb_vote_no_segments">Não há segmentos para votar</string>
+  <!-- A segment start and end time, such as "02:10 to 03:40" -->
+  <string name="revanced_sb_vote_segment_time_to_from">%1$s para %2$s</string>
   <string name="revanced_sb_new_segment_choose_category">Escolha a categoria do segmento</string>
   <string name="revanced_sb_new_segment_disabled_category">Categoria está desativada nas configurações. Ative a categoria para enviar.</string>
   <string name="revanced_sb_new_segment_title">Novo segmento SponsorBlock</string>
@@ -1047,6 +1048,7 @@ Pronto para enviar?"</string>
   <string name="revanced_sb_stats_saved_hour_format">%1$s horas %2$s minutos</string>
   <string name="revanced_sb_stats_saved_minute_format">%1$s minutos %2$s segundos</string>
   <string name="revanced_sb_stats_saved_second_format">%s segundos</string>
+  <string name="revanced_sb_color_opacity_label">Opacidade:</string>
   <string name="revanced_sb_color_dot_label">Cor:</string>
   <string name="revanced_sb_color_changed">Cor alterada</string>
   <string name="revanced_sb_color_reset">Redefinir cor</string>
@@ -1085,11 +1087,6 @@ Se posteriormente desativado, é recomendável limpar os dados do aplicativo par
   <string name="revanced_spoof_app_version_target_title">Versão de spoofing alvo</string>
   <string name="revanced_spoof_app_version_target_entry_1">19.35.36 - Restaurar ícones antigos do player dos Shorts</string>
   <string name="revanced_spoof_app_version_target_entry_2">19.26.42 - Restaurar ícones de navegação antigos</string>
-  <!-- 'RYD' is 'Return YouTube Dislike' -->
-  <string name="revanced_spoof_app_version_target_legacy_entry_1">18.33.40 - Restaurar RYD no modo de navegação anônima nos Shorts</string>
-  <string name="revanced_spoof_app_version_target_legacy_entry_2">18.20.39 - Restaurar a velocidade de vídeo ampla &amp; menu de qualidade</string>
-  <string name="revanced_spoof_app_version_target_legacy_entry_3">18.09.39 - Restaurar aba biblioteca</string>
-  <string name="revanced_spoof_app_version_target_legacy_entry_4">17.33.42 - Restaurar prateleira de lista de reprodução antiga</string>
   </patch>
   <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">Definir página inicial</string>

@@ -805,7 +805,6 @@ Seaded → Taasesitus → Esita järgmine video automaatselt"</string>
   <string name="revanced_ryd_enable_summary_on">Mittemeeldimised on nähtavad</string>
   <string name="revanced_ryd_enable_summary_off">Mittemeeldimised pole nähtavad</string>
   <string name="revanced_ryd_shorts_title">Näita mittemeeldimisi Shorts\'il</string>
-  <string name="revanced_ryd_shorts_summary_on">Ei meeldimised on kuvatud teenuses Shorts</string>
   <string name="revanced_ryd_shorts_summary_on_disclaimer">"Ei meeldimised on kuvatud teenuses Shorts
 
 Piirang: Ei meeldimised ei pruugi inkognito režiimis kuvada"</string>
@@ -1003,6 +1002,8 @@ Juba olemas"</string>
   <string name="revanced_sb_vote_downvote">Hääleta alla</string>
   <string name="revanced_sb_vote_category">Muuda kategooriat</string>
   <string name="revanced_sb_vote_no_segments">Hääletamiseks pole segmente</string>
+  <!-- A segment start and end time, such as "02:10 to 03:40" -->
+  <string name="revanced_sb_vote_segment_time_to_from">%1$s kuni %2$s</string>
   <string name="revanced_sb_new_segment_choose_category">Vali segmendi kategooria</string>
   <string name="revanced_sb_new_segment_disabled_category">Kategooria on seadetes keelatud. Luba kategooria esitamiseks.</string>
   <string name="revanced_sb_new_segment_title">Uus SponsorBlock segment</string>
@@ -1050,6 +1051,7 @@ Kas olete esitamiseks valmis?"</string>
   <string name="revanced_sb_stats_saved_hour_format">%1$s tundi %2$s minutit</string>
   <string name="revanced_sb_stats_saved_minute_format">%1$s minutit %2$s sekundit</string>
   <string name="revanced_sb_stats_saved_second_format">%s sekundit</string>
+  <string name="revanced_sb_color_opacity_label">Läbipaistmatus:</string>
   <string name="revanced_sb_color_dot_label">Värv:</string>
   <string name="revanced_sb_color_changed">Värv muudetud</string>
   <string name="revanced_sb_color_reset">Värv lähtestatud</string>
@@ -1088,11 +1090,6 @@ Kui see hiljem välja lülitatakse, on soovitatav rakenduse andmed kustutada, et
   <string name="revanced_spoof_app_version_target_title">Võltsitud rakenduse versiooni siht</string>
   <string name="revanced_spoof_app_version_target_entry_1">19.35.36 - Taastage vanad Shortsi esitajaikoonid</string>
   <string name="revanced_spoof_app_version_target_entry_2">19.26.42 - Taasta vanad navigeerimise ikoonid</string>
-  <!-- 'RYD' is 'Return YouTube Dislike' -->
-  <string name="revanced_spoof_app_version_target_legacy_entry_1">18.33.40 - Taastage RYD Shortsi incognito režiimis</string>
-  <string name="revanced_spoof_app_version_target_legacy_entry_2">18.20.39 - Taasta lai video kiiruse ja kvaliteedi menüü</string>
-  <string name="revanced_spoof_app_version_target_legacy_entry_3">18.09.39 - Taastage raamatukogu vaheleht</string>
-  <string name="revanced_spoof_app_version_target_legacy_entry_4">17.33.42 - Taastage vanad esitusloendi riiulid</string>
   </patch>
   <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">Määra algusleht</string>
