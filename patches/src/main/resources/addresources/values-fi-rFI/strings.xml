@@ -805,7 +805,6 @@ Asetukset → Toisto → Toista seuraava video automaattisesti"</string>
   <string name="revanced_ryd_enable_summary_on">Ei-tykkäykset näytetään</string>
   <string name="revanced_ryd_enable_summary_off">Ei-tykkäyksiä ei näytetä</string>
   <string name="revanced_ryd_shorts_title">Näytä ei-tykkykset Shortseissa</string>
-  <string name="revanced_ryd_shorts_summary_on">Ei-tykkäykset näytetään Shortseissa</string>
   <string name="revanced_ryd_shorts_summary_on_disclaimer">"Ei-tykkäykset näytetään Shortseissa
 
 Rajoitus: Ei-tykkäykset eivät välttämättä näy incognito-tilassa"</string>
@@ -1003,6 +1002,7 @@ On jo olemassa"</string>
   <string name="revanced_sb_vote_downvote">Alaääni</string>
   <string name="revanced_sb_vote_category">Muuta kategoriaa</string>
   <string name="revanced_sb_vote_no_segments">Äänestettäviä osioita ei ole</string>
+  <!-- A segment start and end time, such as "02:10 to 03:40" -->
   <string name="revanced_sb_new_segment_choose_category">Valitse osion kategoria</string>
   <string name="revanced_sb_new_segment_disabled_category">Kategoria on poistettu käytöstä asetuksissa. Salli kategoria lähettääksesi.</string>
   <string name="revanced_sb_new_segment_title">Uusi SponsorBlock-osio</string>
@@ -1088,11 +1088,6 @@ Jos tämä poistetaan myöhemmin käytöstä, on suositeltavaa tyhjentää sovel
   <string name="revanced_spoof_app_version_target_title">Naamioitava kohdeversio</string>
   <string name="revanced_spoof_app_version_target_entry_1">19.35.36 - Palauta vanhat Shorts-soittimen kuvakkeet</string>
   <string name="revanced_spoof_app_version_target_entry_2">19.26.42 - Palauta vanhat navigointikuvakkeet</string>
-  <!-- 'RYD' is 'Return YouTube Dislike' -->
-  <string name="revanced_spoof_app_version_target_legacy_entry_1">18.33.40 - Palauita RYD Shorts-videoissa incognito-tilassa</string>
-  <string name="revanced_spoof_app_version_target_legacy_entry_2">18.20.39 - Palauta leveä videonopeus- ja laatuvalikko</string>
-  <string name="revanced_spoof_app_version_target_legacy_entry_3">18.09.39 - Palauta kirjasto-välilehti</string>
-  <string name="revanced_spoof_app_version_target_legacy_entry_4">17.33.42 - Palauta vanha soittolistahylly</string>
   </patch>
   <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">Aseta aloitussivu</string>

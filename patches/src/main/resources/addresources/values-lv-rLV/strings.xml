@@ -805,7 +805,6 @@ Iestatījumi → Atskaņošana → Automātiski atskaņot nākamo video"</string
   <string name="revanced_ryd_enable_summary_on">Nepatīk pogas ir redzamas</string>
   <string name="revanced_ryd_enable_summary_off">Nepatīk pogas nav redzamas</string>
   <string name="revanced_ryd_shorts_title">Rādīt nepatīk pogas Shorts</string>
-  <string name="revanced_ryd_shorts_summary_on">Nepatīk pie Shorts ir redzami</string>
   <string name="revanced_ryd_shorts_summary_on_disclaimer">"Nepatīk pie Shorts ir redzami
 
 Ierobežojums: Nepatīk var neparādīties inkognito režīmā"</string>
@@ -1002,6 +1001,8 @@ Jau pastāv"</string>
   <string name="revanced_sb_vote_downvote">Novērtēt uz leju</string>
   <string name="revanced_sb_vote_category">Mainīt kategoriju</string>
   <string name="revanced_sb_vote_no_segments">Nav segmentu, par kuriem balsot</string>
+  <!-- A segment start and end time, such as "02:10 to 03:40" -->
+  <string name="revanced_sb_vote_segment_time_to_from">%1$s līdz %2$s</string>
   <string name="revanced_sb_new_segment_choose_category">Izvēlieties segmenta kategoriju</string>
   <string name="revanced_sb_new_segment_disabled_category">Kategorija ir atspējota iestatījumos. Iespējojiet kategoriju, lai iesniegtu.</string>
   <string name="revanced_sb_new_segment_title">Jauns SponsorBlock segments</string>
@@ -1049,6 +1050,7 @@ Vai esat gatavs iesniegt?"</string>
   <string name="revanced_sb_stats_saved_hour_format">%1$s stundas %2$s minūtes</string>
   <string name="revanced_sb_stats_saved_minute_format">%1$s minūtes %2$s sekundes</string>
   <string name="revanced_sb_stats_saved_second_format">%s sekundes</string>
+  <string name="revanced_sb_color_opacity_label">Necaurredzamība:</string>
   <string name="revanced_sb_color_dot_label">Krāsa:</string>
   <string name="revanced_sb_color_changed">Krāsa mainīta</string>
   <string name="revanced_sb_color_reset">Krāsa atiestatīta</string>
@@ -1087,11 +1089,6 @@ Ja vēlāk tiks izslēgts, ieteicams notīrīt lietotnes datus, lai novērstu li
   <string name="revanced_spoof_app_version_target_title">Viltot lietotnes versijas mērķis</string>
   <string name="revanced_spoof_app_version_target_entry_1">19.35.36 - Atjaunot vecās Shorts spēlētāja ikonas</string>
   <string name="revanced_spoof_app_version_target_entry_2">19.26.42 - Atjaunot vecās navigācijas ikonas</string>
-  <!-- 'RYD' is 'Return YouTube Dislike' -->
-  <string name="revanced_spoof_app_version_target_legacy_entry_1">18.33.40 - Atjaunot RYD uz Shorts inkognito režīmā</string>
-  <string name="revanced_spoof_app_version_target_legacy_entry_2">18.20.39 - Atjaunot plata video ātruma un kvalitātes izvēlni</string>
-  <string name="revanced_spoof_app_version_target_legacy_entry_3">18.09.39 - Atjaunot bibliotēkas cilni</string>
-  <string name="revanced_spoof_app_version_target_legacy_entry_4">17.33.42 - Atjaunot veco atskaņošanas saraksta plauktu</string>
   </patch>
   <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">Iestatīt sākotnējo lapu</string>

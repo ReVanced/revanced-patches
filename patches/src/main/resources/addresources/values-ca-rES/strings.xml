@@ -805,7 +805,6 @@ Configuració → Reproducció → Reprodueix el vídeo següent automàticament
   <string name="revanced_ryd_enable_summary_on">Els \"no m\'agrada\" es mostren</string>
   <string name="revanced_ryd_enable_summary_off">Els \"no m\'agrada\" no es mostren</string>
   <string name="revanced_ryd_shorts_title">Mostrar \"no m\'agrada\" a Shorts</string>
-  <string name="revanced_ryd_shorts_summary_on">Els \"no m\'agrada\" als Shorts es mostren</string>
   <string name="revanced_ryd_shorts_summary_on_disclaimer">"Els \"no m'agrada\" als Shorts es mostren
 
 Limitació: és possible que els \"no m'agrada\" no apareguin en mode d'incògnit"</string>
@@ -1002,6 +1001,8 @@ Ja existeix"</string>
   <string name="revanced_sb_vote_downvote">Vota en contra</string>
   <string name="revanced_sb_vote_category">Canvia la categoria</string>
   <string name="revanced_sb_vote_no_segments">No hi ha segments per votar</string>
+  <!-- A segment start and end time, such as "02:10 to 03:40" -->
+  <string name="revanced_sb_vote_segment_time_to_from">%1$s a %2$s</string>
   <string name="revanced_sb_new_segment_choose_category">Trieu la categoria del segment</string>
   <string name="revanced_sb_new_segment_disabled_category">La categoria està desactivada a la configuració. Habiliteu la categoria per enviar.</string>
   <string name="revanced_sb_new_segment_title">Nou segment de SponsorBlock</string>
@@ -1049,6 +1050,7 @@ Preparat per enviar?"</string>
   <string name="revanced_sb_stats_saved_hour_format">%1$s hores %2$s minuts</string>
   <string name="revanced_sb_stats_saved_minute_format">%1$s minuts %2$s segons</string>
   <string name="revanced_sb_stats_saved_second_format">%s segons</string>
+  <string name="revanced_sb_color_opacity_label">Opacitat:</string>
   <string name="revanced_sb_color_dot_label">Color:</string>
   <string name="revanced_sb_color_changed">Color canviat</string>
   <string name="revanced_sb_color_reset">Color restablert</string>
@@ -1087,11 +1089,6 @@ Si després es desactiva, es recomana esborrar les dades de l'aplicació per evi
   <string name="revanced_spoof_app_version_target_title">Objectiu de la versió falsa de l\'aplicació</string>
   <string name="revanced_spoof_app_version_target_entry_1">19.35.36 - Restaura els icones vells del reproductor de Shorts</string>
   <string name="revanced_spoof_app_version_target_entry_2">19.26.42 - Restaura les icones de navegació antigues</string>
-  <!-- 'RYD' is 'Return YouTube Dislike' -->
-  <string name="revanced_spoof_app_version_target_legacy_entry_1">18.33.40 - Restaura RYD al mode d\'incògnit de Shorts</string>
-  <string name="revanced_spoof_app_version_target_legacy_entry_2">18.20.39 - Restaura la velocitat àmplia del vídeo &amp; menú de qualitat</string>
-  <string name="revanced_spoof_app_version_target_legacy_entry_3">18.09.39 - Restaura la pestanya de la biblioteca</string>
-  <string name="revanced_spoof_app_version_target_legacy_entry_4">17.33.42 - Restaura l\'antic prestatge de la llista de reproducció</string>
   </patch>
   <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">Defineix la pàgina d\'inici</string>
