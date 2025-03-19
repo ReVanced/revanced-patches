@@ -1,3 +1,10 @@
+# [5.15.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.14.0...v5.15.0-dev.1) (2025-03-19)
+
+
+### Features
+
+* **YouTube - SponsorBlock:** Add opacity setting to category segment colors ([#4582](https://github.com/ReVanced/revanced-patches/issues/4582)) ([6e8ffba](https://github.com/ReVanced/revanced-patches/commit/6e8ffbade9e03658f725622631e44dabf2995861))
+
 # [5.14.0](https://github.com/ReVanced/revanced-patches/compare/v5.13.0...v5.14.0) (2025-03-09)
 
 
