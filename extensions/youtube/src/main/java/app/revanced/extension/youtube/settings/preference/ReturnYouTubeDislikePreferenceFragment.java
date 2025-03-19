@@ -14,6 +14,7 @@ import android.preference.PreferenceScreen;
 import android.preference.SwitchPreference;
 
 import app.revanced.extension.shared.Logger;
+import app.revanced.extension.shared.Utils;
 import app.revanced.extension.shared.settings.Setting;
 import app.revanced.extension.shared.settings.BaseSettings;
 import app.revanced.extension.youtube.patches.ReturnYouTubeDislikePatch;
@@ -235,6 +236,8 @@ public class ReturnYouTubeDislikePreferenceFragment extends PreferenceFragment {
                         "revanced_ryd_statistics_getNumberOfRateLimitRequestsEncountered_non_zero_summary"));
                 preferenceScreen.addPreference(statisticPreference);
             }
+
+            Utils.setPreferenceTitlesToMultiLineIfNeeded(preferenceScreen);
         } catch (Exception ex) {
             Logger.printException(() -> "onCreate failure", ex);
         }
