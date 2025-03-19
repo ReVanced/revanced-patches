@@ -1,19 +1,8 @@
 <!--
-   https://github.com/google/material-design-icons/blob/9beae745bb758f3ad56654fb377ea5cf62be4915/symbols/android/gallery_thumbnail/materialsymbolsoutlined/gallery_thumbnail_wght200_24px.xml
+   https://github.com/ajayyy/DeArrow/blob/4d9e85b41382de0cc8ec2053789455b374b7a70d/public/icons/logo.svg
+   Changes made: The DeArrow logo was resized.
 
-Copyright 2022 Google
-
-   Licensed under the Apache License, Version 2.0 (the "License");
-   you may not use this file except in compliance with the License.
-   You may obtain a copy of the License at
-
-       http://www.apache.org/licenses/LICENSE-2.0
-
-   Unless required by applicable law or agreed to in writing, software
-   distributed under the License is distributed on an "AS IS" BASIS,
-   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-   See the License for the specific language governing permissions and
-   limitations under the License.
+Copyright 2023 Ajay Ramachandran <dev@ajay.app>
 -->
 
 <vector xmlns:android="http://schemas.android.com/apk/res/android"
@@ -21,7 +10,12 @@ Copyright 2022 Google
         android:height="24dp"
         android:viewportWidth="24"
         android:viewportHeight="24">
+
+    <path
+            android:strokeColor="?ytTextPrimary"
+            android:strokeWidth="1"
+            android:pathData="M12.0814,1.99794 C9.37251,1.99794,6.97872,3.32778,5.20335,5.14149 C3.42798,6.9552,1.99794,9.39989,1.99794,12.1677 C1.99794,14.9355,3.10403,17.7107,4.87939,19.5244 C6.65476,21.3381,9.37195,21.9549,12.0814,21.9549 C14.7908,21.9549,17.0848,20.9067,18.8601,19.093 C20.6355,17.2793,22.002,14.9355,22.002,12.1677 C22.002,9.40046,20.8525,6.83638,19.0766,5.02267 C17.3013,3.20894,14.7903,1.99794,12.0814,1.99794 Z M11.9105,5.02102 C13.838,5.02102,15.5196,6.09439,16.7829,7.35711 C18.0462,8.61984,18.8878,10.3004,18.8878,12.2279 C18.8878,14.1554,18.2513,16.0427,16.988,17.3054 C15.7247,18.5681,13.8374,18.9333,11.9105,18.9333 C9.98355,18.9333,8.36976,18.2962,7.10645,17.0335 C5.84314,15.7708,5.11222,14.1554,5.11222,12.2278 C5.11222,10.3003,5.63697,8.47868,6.8997,7.21537 C8.16239,5.95218,9.98293,5.02102,11.9105,5.02102 Z" />
     <path
             android:fillColor="?ytTextPrimary"
-            android:pathData="M4.125,18Q3.45,18 2.975,17.525Q2.5,17.05 2.5,16.375V7.625Q2.5,6.95 2.975,6.475Q3.45,6 4.125,6H12.875Q13.55,6 14.025,6.475Q14.5,6.95 14.5,7.625V16.375Q14.5,17.05 14.025,17.525Q13.55,18 12.875,18ZM17.325,11Q16.95,11 16.725,10.775Q16.5,10.55 16.5,10.175V6.825Q16.5,6.45 16.725,6.225Q16.95,6 17.325,6H20.675Q21.05,6 21.275,6.225Q21.5,6.45 21.5,6.825V10.175Q21.5,10.55 21.275,10.775Q21.05,11 20.675,11ZM17.5,10H20.5V7H17.5ZM4.125,17H12.875Q13.15,17 13.325,16.825Q13.5,16.65 13.5,16.375V7.625Q13.5,7.35 13.325,7.175Q13.15,7 12.875,7H4.125Q3.85,7 3.675,7.175Q3.5,7.35 3.5,7.625V16.375Q3.5,16.65 3.675,16.825Q3.85,17 4.125,17ZM4.7,14.9H12.3L9.875,11.65L8,14.15L6.625,12.325ZM17.325,18Q16.95,18 16.725,17.775Q16.5,17.55 16.5,17.175V13.825Q16.5,13.45 16.725,13.225Q16.95,13 17.325,13H20.675Q21.05,13 21.275,13.225Q21.5,13.45 21.5,13.825V17.175Q21.5,17.55 21.275,17.775Q21.05,18 20.675,18ZM17.5,17H20.5V14H17.5ZM3.5,17Q3.5,17 3.5,16.825Q3.5,16.65 3.5,16.375V7.625Q3.5,7.35 3.5,7.175Q3.5,7 3.5,7Q3.5,7 3.5,7.175Q3.5,7.35 3.5,7.625V16.375Q3.5,16.65 3.5,16.825Q3.5,17 3.5,17ZM17.5,10V7V10ZM17.5,17V14V17Z"/>
+            android:pathData="M15.3108,11.899 C15.3108,13.6514,13.8411,15.1264,12.0887,15.1264 C10.3363,15.1264,8.97704,13.6515,8.97704,11.899 C8.97704,10.1466,10.3363,8.71961,12.0887,8.71961 C13.8411,8.71961,15.3108,10.1466,15.3108,11.899 Z" />
 </vector>
