@@ -805,7 +805,6 @@ Cilësimet → Luajtja → Luaj automatikisht videon tjetër"</string>
   <string name="revanced_ryd_enable_summary_on">\"Nuk më pëlqen\" janë të dukshme</string>
   <string name="revanced_ryd_enable_summary_off">\"Nuk më pëlqen\" nuk janë të dukshme</string>
   <string name="revanced_ryd_shorts_title">Shfaq \"Nuk më pëlqen\" në Shorts</string>
-  <string name="revanced_ryd_shorts_summary_on">Mospëlqimet në Shorts janë të shfaqura</string>
   <string name="revanced_ryd_shorts_summary_on_disclaimer">"Mospëlqimet në Shorts janë të shfaqura
 
 Kufizimi: Mospëlqimet mund të mos shfaqen në modalitetin incognito"</string>
@@ -1002,6 +1001,8 @@ Ekziston tashmë"</string>
   <string name="revanced_sb_vote_downvote">Voto poshtë</string>
   <string name="revanced_sb_vote_category">Ndrysho kategorinë</string>
   <string name="revanced_sb_vote_no_segments">Nuk ka segmente për të votuar</string>
+  <!-- A segment start and end time, such as "02:10 to 03:40" -->
+  <string name="revanced_sb_vote_segment_time_to_from">%1$s në %2$s</string>
   <string name="revanced_sb_new_segment_choose_category">Zgjidhni kategorinë e segmentit</string>
   <string name="revanced_sb_new_segment_disabled_category">Kategoria është e çaktivizuar në cilësime. Aktivizo kategorinë për të dorëzuar.</string>
   <string name="revanced_sb_new_segment_title">Segment i ri SponsorBlock</string>
@@ -1048,6 +1049,7 @@ Gati per te dhene?"</string>
   <string name="revanced_sb_stats_saved_hour_format">%1$s orë %2$s minuta</string>
   <string name="revanced_sb_stats_saved_minute_format">%1$s minuta %2$s sekonda</string>
   <string name="revanced_sb_stats_saved_second_format">%s sekonda</string>
+  <string name="revanced_sb_color_opacity_label">Opaciteti:</string>
   <string name="revanced_sb_color_dot_label">Ngjyra:</string>
   <string name="revanced_sb_color_changed">Ngjyra është ndryshuar</string>
   <string name="revanced_sb_color_reset">Ngjyra u rikthye</string>
@@ -1086,11 +1088,6 @@ Nëse më vonë është çaktivizuar, është e rekomanduar të fshiheni të dh�
   <string name="revanced_spoof_app_version_target_title">Shënjestër e versionit të aplikacionit të mashtuar</string>
   <string name="revanced_spoof_app_version_target_entry_1">19.35.36 - Rikthe ikonat e vjetra të lojtarit Shorts</string>
   <string name="revanced_spoof_app_version_target_entry_2">19.26.42 - Ristauro ikonave te vjetra te navigimit</string>
-  <!-- 'RYD' is 'Return YouTube Dislike' -->
-  <string name="revanced_spoof_app_version_target_legacy_entry_1">18.33.40 - Rikthe RYD në modin incognito të Shorts</string>
-  <string name="revanced_spoof_app_version_target_legacy_entry_2">18.20.39 - Rikthe menunë e shpejtësisë dhe cilësisë së videos së gjerë</string>
-  <string name="revanced_spoof_app_version_target_legacy_entry_3">18.09.39 - Rikthe skedën e bibliotekës</string>
-  <string name="revanced_spoof_app_version_target_legacy_entry_4">17.33.42 - Rikthe raftin e vjetër të listës së riprodhimit</string>
   </patch>
   <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">Vendos faqen e fillimit</string>

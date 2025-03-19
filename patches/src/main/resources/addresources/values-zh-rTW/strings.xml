@@ -805,7 +805,6 @@ Second \"item\" text"</string>
   <string name="revanced_ryd_enable_summary_on">已顯示不喜歡人數</string>
   <string name="revanced_ryd_enable_summary_off">不顯示不喜歡人數</string>
   <string name="revanced_ryd_shorts_title">在 Shorts 中顯示不喜歡人數</string>
-  <string name="revanced_ryd_shorts_summary_on">已顯示 Shorts 的不喜歡次數</string>
   <string name="revanced_ryd_shorts_summary_on_disclaimer">"已顯示 Shorts 的不喜歡人數
 
 限制：在無痕模式下可能不會顯示不喜歡人數"</string>
@@ -1003,6 +1002,7 @@ Second \"item\" text"</string>
   <string name="revanced_sb_vote_downvote">倒讚</string>
   <string name="revanced_sb_vote_category">變更類別</string>
   <string name="revanced_sb_vote_no_segments">沒有可以投票的片段</string>
+  <!-- A segment start and end time, such as "02:10 to 03:40" -->
   <string name="revanced_sb_new_segment_choose_category">選擇片段的類別</string>
   <string name="revanced_sb_new_segment_disabled_category">已在設定中停用類別。啟用類別以提交。</string>
   <string name="revanced_sb_new_segment_title">新 SponsorBlock 片段</string>
@@ -1089,11 +1089,6 @@ Second \"item\" text"</string>
   <string name="revanced_spoof_app_version_target_title">應用程式偽裝目標版本</string>
   <string name="revanced_spoof_app_version_target_entry_1">19.35.36 - 還原舊版 Shorts 播放圖示</string>
   <string name="revanced_spoof_app_version_target_entry_2">19.26.42 - 還原舊版導覽圖示</string>
-  <!-- 'RYD' is 'Return YouTube Dislike' -->
-  <string name="revanced_spoof_app_version_target_legacy_entry_1">18.33.40 - 在 Shorts 無痕模式中還原 RYD</string>
-  <string name="revanced_spoof_app_version_target_legacy_entry_2">18.20.39 - 還原寬影片速度與畫質選單</string>
-  <string name="revanced_spoof_app_version_target_legacy_entry_3">18.09.39 - 還原媒體庫分頁</string>
-  <string name="revanced_spoof_app_version_target_legacy_entry_4">17.33.42 - 還原舊版播放清單櫃</string>
   </patch>
   <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">設定起始頁面</string>

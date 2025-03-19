@@ -805,7 +805,6 @@ Second \"item\" text"</string>
   <string name="revanced_ryd_enable_summary_on">Дизлайки показаны</string>
   <string name="revanced_ryd_enable_summary_off">Дизлайки скрыты</string>
   <string name="revanced_ryd_shorts_title">Показать дизлайки в Shorts</string>
-  <string name="revanced_ryd_shorts_summary_on">Дизлайки в Shorts показаны</string>
   <string name="revanced_ryd_shorts_summary_on_disclaimer">"Дизлайки в Shorts показаны
 
 Ограничение: дизлайки могут не показываться в режиме инкогнито"</string>
@@ -1003,6 +1002,8 @@ Second \"item\" text"</string>
   <string name="revanced_sb_vote_downvote">Голос \"против\"</string>
   <string name="revanced_sb_vote_category">Изменить категорию</string>
   <string name="revanced_sb_vote_no_segments">Нет сегментов для голосования</string>
+  <!-- A segment start and end time, such as "02:10 to 03:40" -->
+  <string name="revanced_sb_vote_segment_time_to_from">%1$s – %2$s</string>
   <string name="revanced_sb_new_segment_choose_category">Выбрать категорию сегмента</string>
   <string name="revanced_sb_new_segment_disabled_category">Категория отключена в настройках. Включите категорию для отправки.</string>
   <string name="revanced_sb_new_segment_title">Новый сегмент SponsorBlock</string>
@@ -1050,6 +1051,7 @@ Second \"item\" text"</string>
   <string name="revanced_sb_stats_saved_hour_format">%1$s часов %2$s минут</string>
   <string name="revanced_sb_stats_saved_minute_format">%1$s минут(ы) %2$s секунд(ы)</string>
   <string name="revanced_sb_stats_saved_second_format">%s секунд</string>
+  <string name="revanced_sb_color_opacity_label">Непрозрачность:</string>
   <string name="revanced_sb_color_dot_label">Цвет:</string>
   <string name="revanced_sb_color_changed">Цвет изменен</string>
   <string name="revanced_sb_color_reset">Цвет сброшен</string>
@@ -1088,11 +1090,6 @@ Second \"item\" text"</string>
   <string name="revanced_spoof_app_version_target_title">Подменить версию приложения на</string>
   <string name="revanced_spoof_app_version_target_entry_1">19.35.36 - Восстановление старых иконок плеера Shorts</string>
   <string name="revanced_spoof_app_version_target_entry_2">19.26.42 - Восстановление старых иконок панели навигации</string>
-  <!-- 'RYD' is 'Return YouTube Dislike' -->
-  <string name="revanced_spoof_app_version_target_legacy_entry_1">18.33.40 - Восстановление Return Youtube Dislike в режиме инкогнито Shorts</string>
-  <string name="revanced_spoof_app_version_target_legacy_entry_2">18.20.39 - Восстановление расширенного меню скорости и качества видео</string>
-  <string name="revanced_spoof_app_version_target_legacy_entry_3">18.09.39 - Восстановление вкладки \"Библиотека\"</string>
-  <string name="revanced_spoof_app_version_target_legacy_entry_4">17.33.42 - Восстановление старой секции плейлистов</string>
   </patch>
   <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">Начальная страница</string>

@@ -803,7 +803,6 @@ Mga Setting → Pag-playback → I-autoplay ang susunod na video"</string>
   <string name="revanced_ryd_enable_summary_on">Ang mga hindi gusto ay ipinapakita</string>
   <string name="revanced_ryd_enable_summary_off">Hindi ipinapakita ang mga hindi gusto</string>
   <string name="revanced_ryd_shorts_title">Ipakita ang mga hindi gusto sa Shorts</string>
-  <string name="revanced_ryd_shorts_summary_on">Ipinapakita ang mga Dislike sa Shorts</string>
   <string name="revanced_ryd_shorts_summary_on_disclaimer">"Ipinapakita ang mga Dislike sa Shorts
 
 Limitasyon: Maaaring hindi lumabas ang mga Dislike sa incognito mode"</string>
@@ -1001,6 +1000,8 @@ Umiiral na"</string>
   <string name="revanced_sb_vote_downvote">I-downvote</string>
   <string name="revanced_sb_vote_category">Baguhin ang kategorya</string>
   <string name="revanced_sb_vote_no_segments">Walang mga segment na iboboto</string>
+  <!-- A segment start and end time, such as "02:10 to 03:40" -->
+  <string name="revanced_sb_vote_segment_time_to_from">%1$s hanggang %2$s</string>
   <string name="revanced_sb_new_segment_choose_category">Piliin ang kategorya ng segment</string>
   <string name="revanced_sb_new_segment_disabled_category">Naka-disable ang kategorya sa mga setting. Paganahin ang kategoryang isumite.</string>
   <string name="revanced_sb_new_segment_title">Bagong segment ng SponsorBlock</string>
@@ -1048,6 +1049,7 @@ Isumite na ba?"</string>
   <string name="revanced_sb_stats_saved_hour_format">%1$s oras %2$s minuto</string>
   <string name="revanced_sb_stats_saved_minute_format">%1$s minuto %2$s segundo</string>
   <string name="revanced_sb_stats_saved_second_format">%s segundo</string>
+  <string name="revanced_sb_color_opacity_label">Opacity:</string>
   <string name="revanced_sb_color_dot_label">Kulay:</string>
   <string name="revanced_sb_color_changed">Nagbago ang kulay</string>
   <string name="revanced_sb_color_reset">Pag-reset ng kulay</string>
@@ -1086,11 +1088,6 @@ Kung mamaya ay patayin, inirerekumenda na i-clear ang data ng app upang maiwasan
   <string name="revanced_spoof_app_version_target_title">Target na bersyon ng Spoof app</string>
   <string name="revanced_spoof_app_version_target_entry_1">19.35.36 - Ibalik ang mga lumang icon ng Shorts player</string>
   <string name="revanced_spoof_app_version_target_entry_2">19.26.42 - Ibalik ang mga lumang icon ng pag-navigate</string>
-  <!-- 'RYD' is 'Return YouTube Dislike' -->
-  <string name="revanced_spoof_app_version_target_legacy_entry_1">18.33.40 - Ibalik ang RYD sa incognito mode ng Shorts</string>
-  <string name="revanced_spoof_app_version_target_legacy_entry_2">18.20.39 - Ibalik ang malawak na bilis ng video &amp; kalidad na menu</string>
-  <string name="revanced_spoof_app_version_target_legacy_entry_3">18.09.39 - Ibalik ang tab ng library</string>
-  <string name="revanced_spoof_app_version_target_legacy_entry_4">17.33.42 - Ibalik ang lumang istante ng playlist</string>
   </patch>
   <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">Itakda ang panimulang pahina</string>

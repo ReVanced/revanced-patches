@@ -805,7 +805,6 @@ Paramètres → Lecture → Lecture automatique de la vidéo suivante"</string>
   <string name="revanced_ryd_enable_summary_on">Les \"Je n\'aime pas\" sont affichés</string>
   <string name="revanced_ryd_enable_summary_off">Les \"Je n\'aime pas\" ne sont pas affichés</string>
   <string name="revanced_ryd_shorts_title">Afficher les \"Je n\'aime pas\" sur les Shorts</string>
-  <string name="revanced_ryd_shorts_summary_on">Les \"Je n\'aime pas\" sont affichés sur les Shorts</string>
   <string name="revanced_ryd_shorts_summary_on_disclaimer">"Les \"Je n'aime pas\" sont affichés sur les Shorts
 
 Limitation : Il se peut que les \"Je n'aime pas\" n'apparaissent pas en mode navigation privée"</string>
@@ -1002,6 +1001,8 @@ Il existe déjà."</string>
   <string name="revanced_sb_vote_downvote">Voter contre</string>
   <string name="revanced_sb_vote_category">Modifier la catégorie</string>
   <string name="revanced_sb_vote_no_segments">Il n\'y a pas de segments où voter</string>
+  <!-- A segment start and end time, such as "02:10 to 03:40" -->
+  <string name="revanced_sb_vote_segment_time_to_from">%1$s à %2$s</string>
   <string name="revanced_sb_new_segment_choose_category">Choisissez la catégorie du segment</string>
   <string name="revanced_sb_new_segment_disabled_category">La catégorie est désactivée dans les paramètres. Activez la catégorie pour soumettre.</string>
   <string name="revanced_sb_new_segment_title">Nouveau segment SponsorBlock</string>
@@ -1049,6 +1050,7 @@ Prêt à soumettre ?"</string>
   <string name="revanced_sb_stats_saved_hour_format">%1$s heures et %2$s minutes</string>
   <string name="revanced_sb_stats_saved_minute_format">%1$s minutes et %2$s secondes</string>
   <string name="revanced_sb_stats_saved_second_format">%s secondes</string>
+  <string name="revanced_sb_color_opacity_label">Opacité\":</string>
   <string name="revanced_sb_color_dot_label">Couleur :</string>
   <string name="revanced_sb_color_changed">Couleur modifiée</string>
   <string name="revanced_sb_color_reset">Couleur réinitialisée</string>
@@ -1087,11 +1089,6 @@ Si désactivé ultérieurement, il est recommandé d'effacer les données de l'a
   <string name="revanced_spoof_app_version_target_title">Version cible</string>
   <string name="revanced_spoof_app_version_target_entry_1">19.35.36 - Restaurer les anciennes icônes du lecteur Shorts </string>
   <string name="revanced_spoof_app_version_target_entry_2">19.26.42 - Restaurer les anciennes icônes de navigation</string>
-  <!-- 'RYD' is 'Return YouTube Dislike' -->
-  <string name="revanced_spoof_app_version_target_legacy_entry_1">18.33.40 - Restaurer RYD dans le mode Shorts incognito</string>
-  <string name="revanced_spoof_app_version_target_legacy_entry_2">18.20.39 - Restaurer le menu grand format pour la vitesse et la qualité vidéo</string>
-  <string name="revanced_spoof_app_version_target_legacy_entry_3">18.09.39 - Restaurer l\'onglet Bibliothèque</string>
-  <string name="revanced_spoof_app_version_target_legacy_entry_4">17.33.42 - Restaurer l\'ancienne étagère Playlists</string>
   </patch>
   <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">Définir la page ouverte au lancement</string>

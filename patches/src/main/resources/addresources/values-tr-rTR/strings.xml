@@ -805,7 +805,6 @@ Ayarlar → Oynatma → Sonraki videoyu otomatik oynat"</string>
   <string name="revanced_ryd_enable_summary_on">Beğenilmeme sayıları gösteriliyor</string>
   <string name="revanced_ryd_enable_summary_off">Beğenilmeme sayıları gösterilmiyor</string>
   <string name="revanced_ryd_shorts_title">Shorts\'ta beğenilmeme sayılarını göster</string>
-  <string name="revanced_ryd_shorts_summary_on">Shorts\'ta beğenilmeme sayıları gösteriliyor</string>
   <string name="revanced_ryd_shorts_summary_on_disclaimer">"Shorts'ta beğenilmeme sayıları gösteriliyor
 
 Kısıtlama: Beğenilmeme sayıları gizli modda görünmeyebilir"</string>
@@ -1003,6 +1002,8 @@ Aynısı mevcut"</string>
   <string name="revanced_sb_vote_downvote">Olumsuz oy</string>
   <string name="revanced_sb_vote_category">Kategori değiştir</string>
   <string name="revanced_sb_vote_no_segments">Oylanılacak bir kısım yok</string>
+  <!-- A segment start and end time, such as "02:10 to 03:40" -->
+  <string name="revanced_sb_vote_segment_time_to_from">%1$s - %2$s</string>
   <string name="revanced_sb_new_segment_choose_category">Kısım kategorisini seçin</string>
   <string name="revanced_sb_new_segment_disabled_category">Kategori, ayarlarda devre dışı. Göndermek için etkinleştirin.</string>
   <string name="revanced_sb_new_segment_title">Yeni SponsorBlock kısmı</string>
@@ -1050,6 +1051,7 @@ Göndermeye hazır mısınız?"</string>
   <string name="revanced_sb_stats_saved_hour_format">%1$s saat %2$s dakika</string>
   <string name="revanced_sb_stats_saved_minute_format">%1$s dakika %2$s saniye</string>
   <string name="revanced_sb_stats_saved_second_format">%s saniye</string>
+  <string name="revanced_sb_color_opacity_label">Opaklık:</string>
   <string name="revanced_sb_color_dot_label">Renk:</string>
   <string name="revanced_sb_color_changed">Renk değiştirildi</string>
   <string name="revanced_sb_color_reset">Renk sıfırlandı</string>
@@ -1088,11 +1090,6 @@ Daha sonra kapatılırsa, arayüz hatalarını önlemek için uygulama verilerin
   <string name="revanced_spoof_app_version_target_title">Uygulama sürümü taklidi hedefi</string>
   <string name="revanced_spoof_app_version_target_entry_1">19.35.36 - Eski Shorts oynatıcı simgelerini geri getir</string>
   <string name="revanced_spoof_app_version_target_entry_2">19.26.42 - Eski gezinti simgelerini geri getir</string>
-  <!-- 'RYD' is 'Return YouTube Dislike' -->
-  <string name="revanced_spoof_app_version_target_legacy_entry_1">18.33.40 - Gizli modda Shorts için RYD\'yi geri getir</string>
-  <string name="revanced_spoof_app_version_target_legacy_entry_2">18.20.39 - Geniş video hızı &amp; kalitesi menüsünü geri getir</string>
-  <string name="revanced_spoof_app_version_target_legacy_entry_3">18.09.39 - Kitaplık sekmesini geri getir</string>
-  <string name="revanced_spoof_app_version_target_legacy_entry_4">17.33.42 - Eski oynatma listesi rafını geri getir</string>
   </patch>
   <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">Başlangıç sayfasını ayarla</string>

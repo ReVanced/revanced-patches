@@ -805,7 +805,6 @@ Pengaturan → Pemutaran → Putar otomatis video berikutnya"</string>
   <string name="revanced_ryd_enable_summary_on">Dislike ditampilkan</string>
   <string name="revanced_ryd_enable_summary_off">Dislike tidak ditampilkan</string>
   <string name="revanced_ryd_shorts_title">Tampilkan dislike di Shorts</string>
-  <string name="revanced_ryd_shorts_summary_on">Dislike pada Shorts ditampilkan</string>
   <string name="revanced_ryd_shorts_summary_on_disclaimer">"Dislike pada Shorts ditampilkan
 
 Batasan: Dislike mungkin tidak muncul dalam mode penyamaran"</string>
@@ -1002,6 +1001,8 @@ Sudah ada"</string>
   <string name="revanced_sb_vote_downvote">Tidak sukai</string>
   <string name="revanced_sb_vote_category">Ubah kategori</string>
   <string name="revanced_sb_vote_no_segments">Tidak ada segmen untuk dipilih</string>
+  <!-- A segment start and end time, such as "02:10 to 03:40" -->
+  <string name="revanced_sb_vote_segment_time_to_from">%1$s ke %2$s</string>
   <string name="revanced_sb_new_segment_choose_category">Pilih kategori segmen</string>
   <string name="revanced_sb_new_segment_disabled_category">Kategori dinonaktifkan di pengaturan. Aktifkan kategori untuk dikirim.</string>
   <string name="revanced_sb_new_segment_title">Segmen SponsorBlock Baru</string>
@@ -1049,6 +1050,7 @@ Siap mengirim?"</string>
   <string name="revanced_sb_stats_saved_hour_format">%1$s jam %2$s menit</string>
   <string name="revanced_sb_stats_saved_minute_format">%1$s menit %2$s detik</string>
   <string name="revanced_sb_stats_saved_second_format">%s detik</string>
+  <string name="revanced_sb_color_opacity_label">Opasitas:</string>
   <string name="revanced_sb_color_dot_label">Warna:</string>
   <string name="revanced_sb_color_changed">Warna berubah</string>
   <string name="revanced_sb_color_reset">Reset warna</string>
@@ -1087,11 +1089,6 @@ Jika kemudian dimatikan, disarankan untuk menghapus data aplikasi untuk mencegah
   <string name="revanced_spoof_app_version_target_title">Target versi app yang dipalsukan</string>
   <string name="revanced_spoof_app_version_target_entry_1">19.35.36 - Pulihkan ikon pemutar Shorts lama</string>
   <string name="revanced_spoof_app_version_target_entry_2">19.26.42 - Pulihkan ikon navigasi lama</string>
-  <!-- 'RYD' is 'Return YouTube Dislike' -->
-  <string name="revanced_spoof_app_version_target_legacy_entry_1">18.33.40 - Pulihkan RYD pada mode penyamaran Shorts</string>
-  <string name="revanced_spoof_app_version_target_legacy_entry_2">18.20.39 - Pulihkan menu kecepatan &amp; kualitas video lebar</string>
-  <string name="revanced_spoof_app_version_target_legacy_entry_3">18.09.39 - Pulihkan tab pustaka</string>
-  <string name="revanced_spoof_app_version_target_legacy_entry_4">17.33.42 - Pulihkan rak daftar putar lama</string>
   </patch>
   <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">Tetapkan halaman awal</string>
