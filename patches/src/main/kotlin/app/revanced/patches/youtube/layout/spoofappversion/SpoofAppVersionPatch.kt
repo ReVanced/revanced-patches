@@ -57,9 +57,9 @@ val spoofAppVersionPatch = bytecodePatch(
 
     compatibleWith(
         "com.google.android.youtube"(
-            // "19.16.39", // Cannot be supported because the lowest spoof target is higher.
-            // "19.25.37", // Cannot be supported because the lowest spoof target is higher.
-            // "19.34.42", // Cannot be supported because the lowest spoof target is higher.
+            "19.16.39",
+            "19.25.37",
+            "19.34.42",
             "19.43.41",
             "19.45.38",
             "19.46.42",
