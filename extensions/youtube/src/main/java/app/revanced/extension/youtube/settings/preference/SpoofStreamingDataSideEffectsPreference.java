@@ -73,6 +73,7 @@ public class SpoofStreamingDataSideEffectsPreference extends Preference {
         if (currentClientType == clientType) {
             return;
         }
+        currentClientType = clientType;
 
         Logger.printDebug(() -> "Updating spoof stream side effects preference");
         setEnabled(BaseSettings.SPOOF_VIDEO_STREAMS.get());
