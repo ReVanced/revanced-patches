@@ -1002,7 +1002,7 @@ Il existe déjà."</string>
   <string name="revanced_sb_vote_category">Modifier la catégorie</string>
   <string name="revanced_sb_vote_no_segments">Il n\'y a pas de segments où voter</string>
   <!-- A segment start and end time, such as "02:10 to 03:40" -->
-  <string name="revanced_sb_vote_segment_time_to_from">%1$s à %2$s</string>
+  <string name="revanced_sb_vote_segment_time_to_from">%1$s – %2$s</string>
   <string name="revanced_sb_new_segment_choose_category">Choisissez la catégorie du segment</string>
   <string name="revanced_sb_new_segment_disabled_category">La catégorie est désactivée dans les paramètres. Activez la catégorie pour soumettre.</string>
   <string name="revanced_sb_new_segment_title">Nouveau segment SponsorBlock</string>
@@ -1050,7 +1050,7 @@ Prêt à soumettre ?"</string>
   <string name="revanced_sb_stats_saved_hour_format">%1$s heures et %2$s minutes</string>
   <string name="revanced_sb_stats_saved_minute_format">%1$s minutes et %2$s secondes</string>
   <string name="revanced_sb_stats_saved_second_format">%s secondes</string>
-  <string name="revanced_sb_color_opacity_label">Opacité\":</string>
+  <string name="revanced_sb_color_opacity_label">Opacité :</string>
   <string name="revanced_sb_color_dot_label">Couleur :</string>
   <string name="revanced_sb_color_changed">Couleur modifiée</string>
   <string name="revanced_sb_color_reset">Couleur réinitialisée</string>
