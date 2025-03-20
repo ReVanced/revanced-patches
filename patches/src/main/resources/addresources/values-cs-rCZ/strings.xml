@@ -23,7 +23,7 @@ Second \"item\" text"</string>
   <app id="shared">
   <patch id="misc.checks.checkEnvironmentPatch">
   <string name="revanced_check_environment_failed_title">Kontrola proběhla neúspěšně</string>
-  <string name="revanced_check_environment_dialog_open_official_source_button">Otevřít oficiální webové stránky</string>
+  <string name="revanced_check_environment_dialog_open_official_source_button">Otevřít oficiální webovou stránku</string>
   <string name="revanced_check_environment_dialog_ignore_button">Ignorovat</string>
   <string name="revanced_check_environment_failed_message">&lt;h5&gt;Zdá se, že jste tuto upravenou verzi aplikace nevygenerovali vy.&lt;/h5&gt;&lt;br&gt;Aplikace nemusí fungovat správně, &lt;b&gt;může být škodlivá nebo nebezpečná&lt;/b&gt;.&lt;br&gt;&lt;br&gt;Z následujících kontrol vyplývá, že úpravy této aplikace byly provedeny někým jiným:&lt;br&gt;&lt;br&gt;&lt;small&gt;%1$s&lt;/small&gt;&lt;br&gt;Je důrazně doporučeno &lt;b&gt;odinstalovat tuto aplikaci a vygenerovat ji sami&lt;/b&gt;, abyste měli jistotu, že je aplikace ověřená a bezpečná.&lt;p&gt;&lt;br&gt;Pokud zvolíte Ignorovat, toto varování se zobrazí pouze dvakrát.</string>
   <string name="revanced_check_environment_not_same_patching_device">Vygenerována na jiném zařízení</string>
@@ -127,20 +127,20 @@ Nebudete informováni o žádné neočekávané události."</string>
   <string name="revanced_hide_floating_microphone_button_summary_on">Tlačítko mikrofonu je skryté</string>
   <string name="revanced_hide_floating_microphone_button_summary_off">Tlačítko mikrofonu se zobrazuje</string>
   <string name="revanced_hide_channel_watermark_title">Skrýt vodoznak kanálu</string>
-  <string name="revanced_hide_channel_watermark_summary_on">Vodoznak kanála je skrytý</string>
+  <string name="revanced_hide_channel_watermark_summary_on">Vodoznak kanálu je skrytý</string>
   <string name="revanced_hide_channel_watermark_summary_off">Vodoznak je zobrazen</string>
-  <string name="revanced_hide_horizontal_shelves_title">Skryť horizontálne police</string>
+  <string name="revanced_hide_horizontal_shelves_title">Skrýt horizontální police</string>
   <string name="revanced_hide_horizontal_shelves_summary_on">"Police jsou skryté, například:
 • Novinky
 • Pokračovat v sledování
 • Prozkoumat další kanály
 • Nákupy
 • Podívat se znovu"</string>
-  <string name="revanced_hide_horizontal_shelves_summary_off">Police sú zobrazené</string>
+  <string name="revanced_hide_horizontal_shelves_summary_off">Police jsou zobrazené</string>
   <!-- 'Join' should be translated using the same localized wording YouTube displays.
                  This appears in the video player for certain videos. -->
   <string name="revanced_hide_join_membership_button_title">Skrýt tlačítko Připojit se</string>
-  <string name="revanced_hide_join_membership_button_summary_on">Tlačidlo je skryté</string>
+  <string name="revanced_hide_join_membership_button_summary_on">Tlačitko je skryté</string>
   <string name="revanced_hide_join_membership_button_summary_off">Tlačítko je zobrazeno</string>
   <!-- 'For you' should be translated using the same localized wording YouTube displays. -->
   <string name="revanced_hide_for_you_shelf_title">Skrýt panel „Pro vás“</string>
@@ -148,7 +148,7 @@ Nebudete informováni o žádné neočekávané události."</string>
   <string name="revanced_hide_for_you_shelf_summary_off">Panel polic ve stránce kanálu je zobrazen</string>
   <!-- 'Notify me' should be translated using the same localized wording YouTube displays.
                  This item appear in the subscription feed for future livestreams or unreleased videos. -->
-  <string name="revanced_hide_notify_me_button_title">Skryť tlačidlo \'Upozornite ma\'</string>
+  <string name="revanced_hide_notify_me_button_title">Skrýt tlačitko \'Upozorněte mě\'</string>
   <string name="revanced_hide_notify_me_button_summary_on">Tlačítko je skryté</string>
   <string name="revanced_hide_notify_me_button_summary_off">Tlačítko je zobrazeno</string>
   <!-- 'People also watched' should be translated using the same localized wording YouTube displays. -->
@@ -165,7 +165,7 @@ Nebudete informováni o žádné neočekávané události."</string>
   <string name="revanced_hide_timed_reactions_summary_off">Reakce se zobrazují po čase</string>
   <string name="revanced_hide_channel_guidelines_title">Skrýt pravidla kanálu</string>
   <string name="revanced_hide_channel_guidelines_summary_on">Pokyny kanálu sa nezobrazujú</string>
-  <string name="revanced_hide_channel_guidelines_summary_off">Zobrazujú sa pokyny kanálu</string>
+  <string name="revanced_hide_channel_guidelines_summary_off">Zobrazují se pokyny kanálu</string>
   <string name="revanced_hide_chips_shelf_title">Skryť police \"Ďalsej videá\"</string>
   <string name="revanced_hide_chips_shelf_summary_on">Police \"Další videá\" sa nezobrazuje</string>
   <string name="revanced_hide_chips_shelf_summary_off">Zobrazuje sa polícia \"Další videá\"</string>

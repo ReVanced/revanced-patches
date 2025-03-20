@@ -1003,7 +1003,7 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_sb_vote_category">카테고리 변경</string>
   <string name="revanced_sb_vote_no_segments">투표할 구간이 없습니다</string>
   <!-- A segment start and end time, such as "02:10 to 03:40" -->
-  <string name="revanced_sb_vote_segment_time_to_from">%1$s~%2$s</string>
+  <string name="revanced_sb_vote_segment_time_to_from">%1$s ~ %2$s</string>
   <string name="revanced_sb_new_segment_choose_category">구간 카테고리를 선택하세요</string>
   <string name="revanced_sb_new_segment_disabled_category">이 카테고리는 비활성화되어 있습니다. 제출하려면 설정에서 활성화해야 합니다</string>
   <string name="revanced_sb_new_segment_title">새 SponsorBlock 구간</string>
@@ -1051,7 +1051,7 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_sb_stats_saved_hour_format">%1$s 시간 %2$s 분</string>
   <string name="revanced_sb_stats_saved_minute_format">%1$s 분 %2$s 초</string>
   <string name="revanced_sb_stats_saved_second_format">%s 초</string>
-  <string name="revanced_sb_color_opacity_label">투명도:</string>
+  <string name="revanced_sb_color_opacity_label">불투명도:</string>
   <string name="revanced_sb_color_dot_label">색상:</string>
   <string name="revanced_sb_color_changed">설정한 색상을 적용하였습니다</string>
   <string name="revanced_sb_color_reset">색상을 초기화하였습니다</string>
