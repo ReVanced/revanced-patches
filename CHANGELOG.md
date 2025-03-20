@@ -1,3 +1,10 @@
+# [5.15.0-dev.3](https://github.com/ReVanced/revanced-patches/compare/v5.15.0-dev.2...v5.15.0-dev.3) (2025-03-20)
+
+
+### Bug Fixes
+
+* **YouTube:** Do not show restart prompt more than once if setting change is canceled ([49797fe](https://github.com/ReVanced/revanced-patches/commit/49797fe8d0c4a0981ef621a31356c4315ae3777b))
+
 # [5.15.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.15.0-dev.1...v5.15.0-dev.2) (2025-03-19)
 
 
