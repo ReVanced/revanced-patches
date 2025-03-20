@@ -789,7 +789,7 @@ Second \"item\" text"</string>
   </patch>
   <patch id="layout.player.overlay.customPlayerOverlayOpacityResourcePatch">
   <string name="revanced_player_overlay_opacity_title">Затемнення плеєра при натисканні</string>
-  <string name="revanced_player_overlay_opacity_summary">Значення непрозорості затемнення при натисканні на плеєр в межах від 0 до 100, де 0 це прозоро</string>
+  <string name="revanced_player_overlay_opacity_summary">Значення затемнення при натисканні на плеєр в межах від 0 до 100, де 0 це прозоро</string>
   <string name="revanced_player_overlay_opacity_invalid_toast">Значення затемнення плеєра має бути в межах від 0 до 100</string>
   </patch>
   <patch id="layout.returnyoutubedislike.returnYouTubeDislikePatch">

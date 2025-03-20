@@ -1003,6 +1003,7 @@ Second \"item\" text"</string>
   <string name="revanced_sb_vote_category">變更類別</string>
   <string name="revanced_sb_vote_no_segments">沒有可以投票的片段</string>
   <!-- A segment start and end time, such as "02:10 to 03:40" -->
+  <string name="revanced_sb_vote_segment_time_to_from">%1$s 至 %2$s</string>
   <string name="revanced_sb_new_segment_choose_category">選擇片段的類別</string>
   <string name="revanced_sb_new_segment_disabled_category">已在設定中停用類別。啟用類別以提交。</string>
   <string name="revanced_sb_new_segment_title">新 SponsorBlock 片段</string>
@@ -1051,6 +1052,7 @@ Second \"item\" text"</string>
   <string name="revanced_sb_stats_saved_hour_format">%1$s 小時 %2$s 分鐘</string>
   <string name="revanced_sb_stats_saved_minute_format">%1$s 分鐘 %2$s 秒</string>
   <string name="revanced_sb_stats_saved_second_format">%s 秒</string>
+  <string name="revanced_sb_color_opacity_label">不透明度：</string>
   <string name="revanced_sb_color_dot_label">顏色：</string>
   <string name="revanced_sb_color_changed">已變更顏色</string>
   <string name="revanced_sb_color_reset">重設顏色</string>
