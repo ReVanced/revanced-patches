@@ -1002,6 +1002,7 @@ Artıq mövcuddur"</string>
   <string name="revanced_sb_vote_category">Kateqoriyanı dəyişdir</string>
   <string name="revanced_sb_vote_no_segments">Səsvermə üçün bölüm yoxdur</string>
   <!-- A segment start and end time, such as "02:10 to 03:40" -->
+  <string name="revanced_sb_vote_segment_time_to_from">%1$s - %2$s</string>
   <string name="revanced_sb_new_segment_choose_category">Bölüm kateqoriyasını seçin</string>
   <string name="revanced_sb_new_segment_disabled_category">Seçimlərdə kateqoriya qeyri-aktivdir. Göndərmək üçün kateqoriyanı aktiv et.</string>
   <string name="revanced_sb_new_segment_title">Yeni SponsorBlock bölümü</string>
@@ -1049,6 +1050,7 @@ Təqdim etməyə hazırdır?"</string>
   <string name="revanced_sb_stats_saved_hour_format">%1$s saat %2$s dəqiqə</string>
   <string name="revanced_sb_stats_saved_minute_format">%1$s dəqiqə %2$s saniyə</string>
   <string name="revanced_sb_stats_saved_second_format">%s saniyə</string>
+  <string name="revanced_sb_color_opacity_label">Qeyri-şəffaflıq:</string>
   <string name="revanced_sb_color_dot_label">Rəng:</string>
   <string name="revanced_sb_color_changed">Rəng dəyişdirildi</string>
   <string name="revanced_sb_color_reset">Rəngi sıfırla</string>

@@ -446,7 +446,7 @@ public class Settings extends BaseSettings {
         }
 
         // Old spoof versions that no longer work.
-        if (SPOOF_APP_VERSION_TARGET.get().compareTo(SPOOF_APP_VERSION_TARGET.defaultValue) < 0) {
+        if (SPOOF_APP_VERSION_TARGET.get().compareTo("19.00.00") < 0) {
             Logger.printInfo(() -> "Resetting spoof app version target");
             SPOOF_APP_VERSION_TARGET.resetToDefault();
         }
