@@ -144,7 +144,13 @@
             </string-array>
             <string-array name="revanced_spoof_app_version_target_entry_values">
                 <item>19.35.36</item>
-                <item>19.26.42</item>
+                <item>19.01.34</item>
+            </string-array>
+            <string-array name="revanced_spoof_app_version_target_legacy_entries">
+                <item>19.01.34</item>
+            </string-array>
+            <string-array name="revanced_spoof_app_version_target_legacy_entry_values">
+                <item>19.01.34</item>
             </string-array>
         </patch>
         <patch id="layout.formfactor.changeFormFactorPatch">

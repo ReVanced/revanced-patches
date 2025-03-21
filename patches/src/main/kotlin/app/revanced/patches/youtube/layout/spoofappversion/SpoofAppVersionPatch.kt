@@ -16,6 +16,7 @@ import app.revanced.patches.shared.misc.settings.preference.PreferenceCategory
 import app.revanced.patches.shared.misc.settings.preference.PreferenceScreenPreference.Sorting
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
+import app.revanced.patches.youtube.misc.playservice.is_19_43_or_greater
 import app.revanced.patches.youtube.misc.playservice.versionCheckPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
@@ -57,9 +58,9 @@ val spoofAppVersionPatch = bytecodePatch(
 
     compatibleWith(
         "com.google.android.youtube"(
-            // "19.16.39", // Cannot be supported because the lowest spoof target is higher.
-            // "19.25.37", // Cannot be supported because the lowest spoof target is higher.
-            // "19.34.42", // Cannot be supported because the lowest spoof target is higher.
+            "19.16.39",
+            "19.25.37",
+            "19.34.42",
             "19.43.41",
             "19.45.38",
             "19.46.42",
@@ -79,19 +80,27 @@ val spoofAppVersionPatch = bytecodePatch(
                 tag = "app.revanced.extension.shared.settings.preference.NoTitlePreferenceCategory",
                 preferences = setOf(
                     SwitchPreference("revanced_spoof_app_version"),
-                    ListPreference(
-                        key = "revanced_spoof_app_version_target",
-                        summaryKey = null,
-                    )
+                    if (is_19_43_or_greater) {
+                        ListPreference(
+                            key = "revanced_spoof_app_version_target",
+                            summaryKey = null,
+                        )
+                    } else {
+                        ListPreference(
+                            key = "revanced_spoof_app_version_target",
+                            summaryKey = null,
+                            entriesKey = "revanced_spoof_app_version_target_legacy_entries",
+                            entryValuesKey = "revanced_spoof_app_version_target_legacy_entry_values"
+                        )
+                    }
                 )
             )
         )
 
         /**
-         * If a user really wants to spoof to very old versions with the latest app target
-         * they can  modify the import/export spoof version.  But when spoofing the 19.20.xx
-         * or earlier the Library tab can crash due to missing image resources trying to load.
-         * As a temporary workaround, do not set an image in the toolbar when the enum name is UNKNOWN.
+         * If spoofing to target 19.20 or earlier the Library tab can crash due to
+         * missing image resources. As a workaround, do not set an image in the
+         * toolbar when the enum name is UNKNOWN.
          */
         toolBarButtonFingerprint.method.apply {
             val getDrawableIndex = indexOfGetDrawableInstruction(this)
