@@ -1,3 +1,10 @@
+# [5.15.0-dev.4](https://github.com/ReVanced/revanced-patches/compare/v5.15.0-dev.3...v5.15.0-dev.4) (2025-03-21)
+
+
+### Bug Fixes
+
+* **YouTube - Spoof app version:** Change oldest spoof target to 19.01.34 ([5012439](https://github.com/ReVanced/revanced-patches/commit/5012439a8e53b2a4ab5e85c47976e1ab28a51208))
+
 # [5.15.0-dev.3](https://github.com/ReVanced/revanced-patches/compare/v5.15.0-dev.2...v5.15.0-dev.3) (2025-03-20)
 
 
