@@ -12,6 +12,8 @@ import app.revanced.patches.youtube.misc.settings.settingsPatch
 import app.revanced.patches.youtube.shared.seekbarFingerprint
 import app.revanced.patches.youtube.shared.seekbarOnDrawFingerprint
 
+private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/youtube/patches/HideSeekbarPatch;"
+
 val hideSeekbarPatch = bytecodePatch(
     name = "Hide seekbar",
     description = "Adds an option to hide the seekbar.",
@@ -46,8 +48,7 @@ val hideSeekbarPatch = bytecodePatch(
         seekbarOnDrawFingerprint.match(seekbarFingerprint.originalClassDef).method.addInstructionsWithLabels(
             0,
             """
-                const/4 v0, 0x0
-                invoke-static { }, Lapp/revanced/extension/youtube/patches/HideSeekbarPatch;->hideSeekbar()Z
+                invoke-static { }, $EXTENSION_CLASS_DESCRIPTOR->hideSeekbar()Z
                 move-result v0
                 if-eqz v0, :hide_seekbar
                 return-void

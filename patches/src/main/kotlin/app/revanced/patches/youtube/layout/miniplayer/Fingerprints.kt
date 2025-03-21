@@ -5,6 +5,7 @@ package app.revanced.patches.youtube.layout.miniplayer
 import app.revanced.patcher.checkCast
 import app.revanced.patcher.fingerprint
 import app.revanced.patcher.literal
+import app.revanced.patcher.methodCall
 import app.revanced.patcher.opcode
 import app.revanced.patcher.string
 import app.revanced.patches.shared.misc.mapping.resourceLiteral
@@ -156,7 +157,12 @@ internal val miniplayerOverrideFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("L")
     instructions(
-        string("appName")
+        string("appName"),
+        methodCall(
+            parameters = listOf("Landroid/content/Context;"),
+            returnType = "Z",
+            maxAfter = 10
+        )
     )
 }
 

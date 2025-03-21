@@ -10,9 +10,11 @@ import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
+import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
-import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction35c
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
+
+private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/youtube/patches/SeekbarTappingPatch;"
 
 val enableSeekbarTappingPatch = bytecodePatch(
     name = "Enable tap to seek",
@@ -44,41 +46,43 @@ val enableSeekbarTappingPatch = bytecodePatch(
         )
 
         // Find the required methods to tap the seekbar.
-        val instructionMatches = onTouchEventHandlerFingerprint.instructionMatches
+        val seekbarTappingMethods = onTouchEventHandlerFingerprint.let {
+            fun getReference(index: Int) = it.method.getInstruction<ReferenceInstruction>(index)
+                .reference as MethodReference
 
-        fun getReference(index: Int) = onTouchEventHandlerFingerprint.method.getInstruction<ReferenceInstruction>(index)
-            .reference as MethodReference
-
-        val seekbarTappingMethods = buildMap {
-            put("N", getReference(instructionMatches.first().index))
-            put("O", getReference(instructionMatches.last().index))
+            buildMap {
+                put("N", getReference(it.instructionMatches.first().index))
+                put("O", getReference(it.instructionMatches.last().index))
+            }
         }
 
-        val insertIndex = seekbarTappingFingerprint.instructionMatches.last().index - 1
+        seekbarTappingFingerprint.let {
+            val insertIndex = it.instructionMatches.last().index + 1
 
-        seekbarTappingFingerprint.method.apply {
-            val thisInstanceRegister = getInstruction<Instruction35c>(insertIndex - 1).registerC
+            it.method.apply {
+                val thisInstanceRegister = getInstruction<FiveRegisterInstruction>(insertIndex - 1).registerD
 
-            val freeRegister = 0
-            val xAxisRegister = 2
+                val pointInstruction = getInstruction<FiveRegisterInstruction>(
+                    it.instructionMatches[2].index
+                )
+                val freeRegister = pointInstruction.registerE
+                val xAxisRegister = pointInstruction.registerD
 
-            val oMethod = seekbarTappingMethods["O"]!!
-            val nMethod = seekbarTappingMethods["N"]!!
+                val oMethod = seekbarTappingMethods["O"]!!
+                val nMethod = seekbarTappingMethods["N"]!!
 
-            fun MethodReference.toInvokeInstructionString() =
-                "invoke-virtual { v$thisInstanceRegister, v$xAxisRegister }, $this"
-
-            addInstructionsWithLabels(
-                insertIndex,
-                """
-                        invoke-static { }, Lapp/revanced/extension/youtube/patches/SeekbarTappingPatch;->seekbarTappingEnabled()Z
+                addInstructionsWithLabels(
+                    insertIndex,
+                    """
+                        invoke-static { }, $EXTENSION_CLASS_DESCRIPTOR->seekbarTappingEnabled()Z
                         move-result v$freeRegister
                         if-eqz v$freeRegister, :disabled
-                        ${oMethod.toInvokeInstructionString()}
-                        ${nMethod.toInvokeInstructionString()}
+                        invoke-virtual { v$thisInstanceRegister, v$xAxisRegister }, $oMethod
+                        invoke-virtual { v$thisInstanceRegister, v$xAxisRegister }, $nMethod
                     """,
-                ExternalLabel("disabled", getInstruction(insertIndex)),
-            )
+                    ExternalLabel("disabled", getInstruction(insertIndex)),
+                )
+            }
         }
     }
 }

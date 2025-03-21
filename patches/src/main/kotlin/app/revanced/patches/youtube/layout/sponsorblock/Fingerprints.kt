@@ -1,6 +1,9 @@
 package app.revanced.patches.youtube.layout.sponsorblock
 
 import app.revanced.patcher.fingerprint
+import app.revanced.patcher.methodCall
+import app.revanced.patcher.opcode
+import app.revanced.patches.shared.misc.mapping.resourceLiteral
 import app.revanced.patches.youtube.shared.seekbarFingerprint
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionReversed
@@ -13,22 +16,11 @@ internal val appendTimeFingerprint by fingerprint {
     returns("V")
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     parameters("Ljava/lang/CharSequence;", "Ljava/lang/CharSequence;", "Ljava/lang/CharSequence;")
-    opcodes(
-        Opcode.INVOKE_VIRTUAL,
-        Opcode.MOVE_RESULT_OBJECT,
-        Opcode.IGET_OBJECT,
-        Opcode.IGET_OBJECT,
-        Opcode.CHECK_CAST,
-        Opcode.INVOKE_VIRTUAL,
-        Opcode.MOVE_RESULT_OBJECT,
-        Opcode.INVOKE_STATIC,
-        Opcode.MOVE_RESULT,
-        Opcode.IF_NEZ,
-        Opcode.IGET_OBJECT,
-        Opcode.IGET_OBJECT,
-        Opcode.CHECK_CAST,
-        Opcode.INVOKE_VIRTUAL,
-        Opcode.RETURN_VOID,
+    instructions(
+        resourceLiteral("string", "total_time"),
+
+        methodCall(smali = "Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;"),
+        opcode(Opcode.MOVE_RESULT_OBJECT, maxAfter = 0)
     )
 }
 
@@ -58,17 +50,6 @@ internal val rectangleFieldInvalidatorFingerprint by fingerprint {
     parameters()
     custom  { method, _ ->
         indexOfInvalidateInstruction(method) >= 0
-    }
-}
-
-internal val segmentPlaybackControllerFingerprint by fingerprint {
-    returns("V")
-    accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
-    parameters("Ljava/lang/Object;")
-    opcodes(Opcode.CONST_STRING)
-    custom { method, _ ->
-        method.name == "setSponsorBarRect" &&
-                method.definingClass == EXTENSION_SEGMENT_PLAYBACK_CONTROLLER_CLASS_DESCRIPTOR
     }
 }
 

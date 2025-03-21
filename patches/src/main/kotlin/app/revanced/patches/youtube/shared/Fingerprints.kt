@@ -2,6 +2,7 @@ package app.revanced.patches.youtube.shared
 
 import app.revanced.patcher.fieldAccess
 import app.revanced.patcher.fingerprint
+import app.revanced.patcher.methodCall
 import app.revanced.patcher.newInstance
 import app.revanced.patcher.opcode
 import app.revanced.patcher.string
@@ -76,7 +77,14 @@ internal val seekbarFingerprint by fingerprint {
     )
 }
 
+/**
+ * Matches to _mutable_ class found in [seekbarFingerprint].
+ */
 internal val seekbarOnDrawFingerprint by fingerprint {
+    instructions(
+        methodCall(smali = "Ljava/lang/Math;->round(F)I"),
+        opcode(Opcode.MOVE_RESULT, maxAfter = 0)
+    )
     custom { method, _ -> method.name == "onDraw" }
 }
 

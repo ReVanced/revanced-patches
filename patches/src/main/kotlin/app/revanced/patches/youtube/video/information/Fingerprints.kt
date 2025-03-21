@@ -1,5 +1,6 @@
 package app.revanced.patches.youtube.video.information
 
+import app.revanced.patcher.fieldAccess
 import app.revanced.patcher.fingerprint
 import app.revanced.patcher.string
 import app.revanced.patches.youtube.shared.newVideoQualityChangedFingerprint
@@ -124,17 +125,7 @@ internal val playbackSpeedMenuSpeedChangedFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("L")
     parameters("L")
-    opcodes(
-        Opcode.IGET_OBJECT,
-        Opcode.INVOKE_INTERFACE,
-        Opcode.MOVE_RESULT_OBJECT,
-        Opcode.IF_EQZ,
-        Opcode.IGET_OBJECT,
-        Opcode.INVOKE_INTERFACE,
-        Opcode.MOVE_RESULT_OBJECT,
-        Opcode.IGET,
-        Opcode.INVOKE_VIRTUAL,
-        Opcode.SGET_OBJECT,
-        Opcode.RETURN_OBJECT,
+    instructions(
+        fieldAccess(opcode = Opcode.IGET, type = "F")
     )
 }

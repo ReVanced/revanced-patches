@@ -1,7 +1,11 @@
 package app.revanced.patches.youtube.interaction.seekbar
 
+import app.revanced.patcher.fieldAccess
 import app.revanced.patcher.fingerprint
 import app.revanced.patcher.literal
+import app.revanced.patcher.methodCall
+import app.revanced.patcher.newInstance
+import app.revanced.patcher.opcode
 import app.revanced.patches.youtube.misc.playservice.is_19_34_or_greater
 import app.revanced.patches.youtube.misc.playservice.is_19_47_or_greater
 import app.revanced.util.getReference
@@ -110,15 +114,19 @@ internal val onTouchEventHandlerFingerprint by fingerprint {
 internal val seekbarTappingFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("Z")
-    parameters("L")
-    opcodes(
-        Opcode.IPUT_OBJECT,
-        Opcode.INVOKE_VIRTUAL,
-        // Insert seekbar tapping instructions here.
-        Opcode.RETURN,
-        Opcode.INVOKE_VIRTUAL,
+    parameters("Landroid/view/MotionEvent;")
+    instructions(
+        literal(Int.MAX_VALUE),
+
+        newInstance("Landroid/graphics/Point;"),
+        methodCall(smali = "Landroid/graphics/Point;-><init>(II)V", maxAfter = 0),
+        methodCall(smali = "Lj\$/util/Optional;->of(Ljava/lang/Object;)Lj\$/util/Optional;", maxAfter = 0),
+        opcode(Opcode.MOVE_RESULT_OBJECT, maxAfter = 0),
+        fieldAccess(opcode = Opcode.IPUT_OBJECT, type = "Lj\$/util/Optional;", maxAfter = 0),
+
+        opcode(Opcode.INVOKE_VIRTUAL, maxAfter = 10)
     )
-    literal { Integer.MAX_VALUE.toLong() }
+    custom { method, _ -> method.name == "onTouchEvent" }
 }
 
 internal val slideToSeekFingerprint by fingerprint {

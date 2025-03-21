@@ -3,7 +3,6 @@ package app.revanced.patches.youtube.interaction.seekbar
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.instructions
-import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
@@ -14,6 +13,7 @@ import app.revanced.patches.youtube.misc.playservice.is_19_17_or_greater
 import app.revanced.patches.youtube.misc.playservice.is_20_09_or_greater
 import app.revanced.patches.youtube.misc.playservice.versionCheckPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
+import java.util.logging.Logger
 
 private const val EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/youtube/patches/SeekbarThumbnailsPatch;"
@@ -44,7 +44,8 @@ val seekbarThumbnailsPatch = bytecodePatch(
     execute {
         if (is_20_09_or_greater) {
             // TODO: merge this and other seekbar patches together.
-            throw PatchException("Seekbar thumbnails patch is not compatible with 20.09+")
+            return@execute Logger.getLogger(this::class.java.name)
+                .warning("Seekbar thumbnails patch is not compatible with 20.09+")
         }
 
         addResources("youtube", "layout.seekbar.seekbarThumbnailsPatch")

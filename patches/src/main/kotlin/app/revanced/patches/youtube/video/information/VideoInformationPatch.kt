@@ -194,12 +194,14 @@ val videoInformationPatch = bytecodePatch(
         // Handle new playback speed menu.
         playbackSpeedMenuSpeedChangedFingerprint.match(
             newVideoQualityChangedFingerprint.originalClassDef,
-        ).method.apply {
-            val index = indexOfFirstInstructionOrThrow(Opcode.IGET)
+        ).let {
+            it.method.apply {
+                val index = it.instructionMatches.first().index
 
-            speedSelectionInsertMethod = this
-            speedSelectionInsertIndex = index + 1
-            speedSelectionValueRegister = getInstruction<TwoRegisterInstruction>(index).registerA
+                speedSelectionInsertMethod = this
+                speedSelectionInsertIndex = index + 1
+                speedSelectionValueRegister = getInstruction<TwoRegisterInstruction>(index).registerA
+            }
         }
 
         videoSpeedChangedHook(EXTENSION_CLASS_DESCRIPTOR, "videoSpeedChanged")

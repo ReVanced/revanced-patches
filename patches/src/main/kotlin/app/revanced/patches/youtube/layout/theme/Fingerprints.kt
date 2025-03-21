@@ -1,7 +1,9 @@
 package app.revanced.patches.youtube.layout.theme
 
+import app.revanced.patcher.fieldAccess
 import app.revanced.patcher.fingerprint
 import app.revanced.patcher.literal
+import app.revanced.patcher.methodCall
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
@@ -9,22 +11,30 @@ internal val lithoThemeFingerprint by fingerprint {
     accessFlags(AccessFlags.PROTECTED, AccessFlags.FINAL)
     returns("V")
     parameters("Landroid/graphics/Rect;")
-    opcodes(
-        Opcode.APUT,
-        Opcode.NEW_INSTANCE,
-        Opcode.INVOKE_DIRECT,
-        Opcode.IGET_OBJECT,
-        Opcode.SGET_OBJECT,
-        Opcode.INVOKE_VIRTUAL,
-        Opcode.IPUT_OBJECT,
-        Opcode.IGET,
-        Opcode.IF_EQZ,
-        Opcode.INVOKE_VIRTUAL,
-        Opcode.MOVE_RESULT,
-        Opcode.IF_NEZ,
-        Opcode.IGET_OBJECT,
-        Opcode.INVOKE_VIRTUAL,
-        Opcode.RETURN_VOID,
+    instructions(
+        fieldAccess(
+            opcode = Opcode.IPUT_OBJECT,
+            definingClass = "this",
+            type = "Landroid/graphics/Path;"
+        ),
+
+        methodCall(
+            definingClass = "this",
+            name = "isStateful",
+            returnType = "Z",
+            maxAfter = 5
+        ),
+
+        fieldAccess(
+            opcode = Opcode.IGET_OBJECT,
+            definingClass = "this",
+            type = "Landroid/graphics/Paint",
+            maxAfter = 5
+        ),
+        methodCall(
+            smali = "Landroid/graphics/Paint;->setColor(I)V",
+            maxAfter = 0
+        )
     )
     custom { method, _ ->
         method.name == "onBoundsChange"
