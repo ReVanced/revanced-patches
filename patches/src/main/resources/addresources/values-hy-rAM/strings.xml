@@ -804,7 +804,6 @@ MicroG-ի համար մարտկոցի օպտիմալացումը անջատել�
   <string name="revanced_ryd_enable_summary_on">\"Dislike\"-երը  ցուցադրվում են</string>
   <string name="revanced_ryd_enable_summary_off">\"Dislike\"-երը  չեն ցուցադրվում</string>
   <string name="revanced_ryd_shorts_title">Ցուցադրել \"Dislike\"-երը  Shorts-ում</string>
-  <string name="revanced_ryd_shorts_summary_on">\"Dislike\"-երը Shorts-ում ցուցադրվում են</string>
   <string name="revanced_ryd_shorts_summary_on_disclaimer">"\"Dislike\"-երը Shorts-ում ցուցադրվում են
 
 Սահմանափակում. \"Dislike\"-երը կարող են չերևալ անհայտ ռեժիմում"</string>
@@ -1002,6 +1001,8 @@ Seekbar thumbnails-ները կօգտագործեն նույն որակը, ինչ
   <string name="revanced_sb_vote_downvote">Նվազեցնել</string>
   <string name="revanced_sb_vote_category">Փոխել կատեգորիան</string>
   <string name="revanced_sb_vote_no_segments">Քվեարկելու համար հատվածներ չկան</string>
+  <!-- A segment start and end time, such as "02:10 to 03:40" -->
+  <string name="revanced_sb_vote_segment_time_to_from">%1$s-ից %2$s</string>
   <string name="revanced_sb_new_segment_choose_category">Ընտրեք հատվածի կատեգորիան</string>
   <string name="revanced_sb_new_segment_disabled_category">Կատեգորիան անջատված է կարգավորումներում։ Անջատել կատեգորիան՝ լրացնելու համար։</string>
   <string name="revanced_sb_new_segment_title">Նոր SponsorBlock հատված</string>
@@ -1049,6 +1050,7 @@ Seekbar thumbnails-ները կօգտագործեն նույն որակը, ինչ
   <string name="revanced_sb_stats_saved_hour_format">%1$s ժամ %2$s րոպե</string>
   <string name="revanced_sb_stats_saved_minute_format">%1$s րոպե %2$s վայրկյան</string>
   <string name="revanced_sb_stats_saved_second_format">%s վայրկյան</string>
+  <string name="revanced_sb_color_opacity_label">Թափանցիկություն․</string>
   <string name="revanced_sb_color_dot_label">Գույն։</string>
   <string name="revanced_sb_color_changed">Գույնը փոխվել է</string>
   <string name="revanced_sb_color_reset">Գույնը վերագործարկվել է</string>
@@ -1086,12 +1088,7 @@ Seekbar thumbnails-ները կօգտագործեն նույն որակը, ինչ
                  This is because the 'General layout' menu uses alphabetic sorting, and it functionally works better if the spoof target selector appears below the 'Spoof app version' UI switch -->
   <string name="revanced_spoof_app_version_target_title">Spoof-ի կիրառության տարբերակի նպատակ</string>
   <string name="revanced_spoof_app_version_target_entry_1">19.35.36 - Վերականգնել հին Shorts պլեյերի պատկերակները</string>
-  <string name="revanced_spoof_app_version_target_entry_2">19.26.42 - Վերականգնել հին նավիգացիոն պատկերակները</string>
-  <!-- 'RYD' is 'Return YouTube Dislike' -->
-  <string name="revanced_spoof_app_version_target_legacy_entry_1">18.33.40 - Վերականգնել RYD-ը Shorts անանուն ռեժիմում</string>
-  <string name="revanced_spoof_app_version_target_legacy_entry_2">18.20.39 - Վերականգնել լայն տեսանյութի արագության &amp; որակի ընտրացանկը</string>
-  <string name="revanced_spoof_app_version_target_legacy_entry_3">18.09.39 - Վերականգնել գրադարանի ներդիրը</string>
-  <string name="revanced_spoof_app_version_target_legacy_entry_4">17.33.42 - Վերականգնել հին պլեյլիստի դարակը</string>
+  <string name="revanced_spoof_app_version_target_entry_2">19.01.34 - Վերականգնել հին նավիգացիոն պատկերակները</string>
   </patch>
   <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">Սահմանել մեկնարկային էջ</string>

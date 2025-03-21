@@ -143,23 +143,14 @@
                 <item>@string/revanced_spoof_app_version_target_entry_2</item>
             </string-array>
             <string-array name="revanced_spoof_app_version_target_entry_values">
-                <!-- Patching 19.23+ or later cannot spoof to 19.20 or lower
-                     due to a missing library tab image resource.  That can be fixed
-                     by patching the code that loads the images and ignoring unknown images. -->
                 <item>19.35.36</item>
-                <item>19.26.42</item>
+                <item>19.01.34</item>
             </string-array>
             <string-array name="revanced_spoof_app_version_target_legacy_entries">
-                <item>@string/revanced_spoof_app_version_target_legacy_entry_1</item>
-                <item>@string/revanced_spoof_app_version_target_legacy_entry_2</item>
-                <item>@string/revanced_spoof_app_version_target_legacy_entry_3</item>
-                <item>@string/revanced_spoof_app_version_target_legacy_entry_4</item>
+                <item>19.01.34</item>
             </string-array>
             <string-array name="revanced_spoof_app_version_target_legacy_entry_values">
-                <item>18.33.40</item>
-                <item>18.20.39</item>
-                <item>18.09.39</item>
-                <item>17.33.42</item>
+                <item>19.01.34</item>
             </string-array>
         </patch>
         <patch id="layout.formfactor.changeFormFactorPatch">

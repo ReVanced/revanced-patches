@@ -98,20 +98,6 @@ internal val rollingNumberTextViewFingerprint = fingerprint {
     }
 }
 
-internal val shortsTextViewFingerprint = fingerprint {
-    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("V")
-    parameters("L", "L")
-    opcodes(
-        Opcode.INVOKE_SUPER, // first instruction of method
-        Opcode.IF_NEZ,
-        null,
-        Opcode.INVOKE_VIRTUAL,
-        Opcode.MOVE_RESULT_OBJECT,
-        Opcode.CHECK_CAST,
-    )
-}
-
 internal val textComponentConstructorFingerprint = fingerprint {
     accessFlags(AccessFlags.CONSTRUCTOR, AccessFlags.PRIVATE)
     strings("TextComponent")
