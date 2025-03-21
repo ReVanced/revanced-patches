@@ -1003,7 +1003,7 @@ Second \"item\" text"</string>
   <string name="revanced_sb_vote_category">Изменить категорию</string>
   <string name="revanced_sb_vote_no_segments">Нет сегментов для голосования</string>
   <!-- A segment start and end time, such as "02:10 to 03:40" -->
-  <string name="revanced_sb_vote_segment_time_to_from">%1$s – %2$s</string>
+  <string name="revanced_sb_vote_segment_time_to_from">%1$s до %2$s</string>
   <string name="revanced_sb_new_segment_choose_category">Выбрать категорию сегмента</string>
   <string name="revanced_sb_new_segment_disabled_category">Категория отключена в настройках. Включите категорию для отправки.</string>
   <string name="revanced_sb_new_segment_title">Новый сегмент SponsorBlock</string>

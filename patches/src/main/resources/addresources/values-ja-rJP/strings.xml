@@ -1004,7 +1004,7 @@ MicroG GmsCore に対する電池の最適化を無効にしても、バッテ�
   <string name="revanced_sb_vote_category">カテゴリーの変更</string>
   <string name="revanced_sb_vote_no_segments">投票できるセグメントがありません</string>
   <!-- A segment start and end time, such as "02:10 to 03:40" -->
-  <string name="revanced_sb_vote_segment_time_to_from">%1$s ～ %2$s</string>
+  <string name="revanced_sb_vote_segment_time_to_from">%1$s-%2$s</string>
   <string name="revanced_sb_new_segment_choose_category">セグメントのカテゴリを選択してください</string>
   <string name="revanced_sb_new_segment_disabled_category">カテゴリは設定で無効になっています。提出するカテゴリを有効にしてください。</string>
   <string name="revanced_sb_new_segment_title">新しい SponsorBlock セグメント</string>
