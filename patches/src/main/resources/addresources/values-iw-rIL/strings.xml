@@ -353,6 +353,7 @@ Second \"item\" text"</string>
   <string name="revanced_hide_self_sponsor_ads_title">הסתר כרטיסים בחסות עצמית</string>
   <string name="revanced_hide_self_sponsor_ads_summary_on">כרטיסים בחסות עצמית מוסתרים</string>
   <string name="revanced_hide_self_sponsor_ads_summary_off">כרטיסים בחסות עצמית מוצגים</string>
+  <string name="revanced_hide_products_banner_title">הסתר כרזת \'ראה מוצרים\'</string>
   <string name="revanced_hide_products_banner_summary_on">כרזה מוסתרת</string>
   <string name="revanced_hide_products_banner_summary_off">כרזה מוצגת</string>
   <string name="revanced_hide_end_screen_store_banner_title">הסתר כרזת חנות של מסך סיום</string>
@@ -611,6 +612,7 @@ Second \"item\" text"</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_off">כותרת תחתונה של תפריט איכות סרטון מוצגת</string>
   </patch>
   <patch id="layout.buttons.overlay.hidePlayerOverlayButtonsPatch">
+  <string name="revanced_hide_player_previous_next_buttons_title">הסתר לחצני הקודם &amp; הבא</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_on">הלחצנים מוסתרים</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">הלחצנים מוצגים</string>
   <string name="revanced_hide_cast_button_title">הסתר לחצן העברה</string>
@@ -804,7 +806,6 @@ Second \"item\" text"</string>
   <string name="revanced_ryd_enable_summary_on">דיסלייקים מוצגים</string>
   <string name="revanced_ryd_enable_summary_off">דיסלייקים אינם מוצגים</string>
   <string name="revanced_ryd_shorts_title">הצג דיסלייקים ב-Shorts</string>
-  <string name="revanced_ryd_shorts_summary_on">דיסלייקים ב-Shorts מוצגים</string>
   <string name="revanced_ryd_shorts_summary_on_disclaimer">"דיסלייקים ב-Shorts מוצגים
 
 מגבלה: ייתכן שלא יופיעו דיסלייקים במצב פרטי"</string>
@@ -930,7 +931,7 @@ Second \"item\" text"</string>
   <string name="revanced_sb_diff_segments">שנה התנהגות מקטע</string>
   <string name="revanced_sb_segments_sponsor">נותן חסות</string>
   <string name="revanced_sb_segments_sponsor_sum">קידום בתשלום, הפניות בתשלום ופרסומות ישירות. לא בשביל מימון עצמי או הכרות תודה בחינם לגורמים/יוצרים/אתרים/מוצרים שהם אוהבים</string>
-  <string name="revanced_sb_segments_selfpromo">קידום ללא תשלום / עצמי</string>
+  <string name="revanced_sb_segments_selfpromo">קידום ללא תשלום/עצמי</string>
   <string name="revanced_sb_segments_selfpromo_sum">דומה לנותן חסות למעט קידום ללא תשלום או קידום עצמי. כולל קטעים על מרצ\'נדייז, תרומות, או מידע לגבי עם מי הם שיתפו פעולה</string>
   <string name="revanced_sb_segments_interaction">תזכורת לאינטראקציה (הרשמה למינוי)</string>
   <string name="revanced_sb_segments_interaction_sum">תזכורת קצרה לסמן \'אהבתי\', להירשם למינוי או לעקוב אחריהם באמצע התוכן. אם זה ארוך או על משהו ספציפי, זה צריך במקום להיות תחת קידום עצמי</string>
@@ -1001,6 +1002,8 @@ Second \"item\" text"</string>
   <string name="revanced_sb_vote_downvote">הצבע נגד</string>
   <string name="revanced_sb_vote_category">שנה קטגוריה</string>
   <string name="revanced_sb_vote_no_segments">אין מקטעים להצביע עבורם</string>
+  <!-- A segment start and end time, such as "02:10 to 03:40" -->
+  <string name="revanced_sb_vote_segment_time_to_from">%1$s עד %2$s</string>
   <string name="revanced_sb_new_segment_choose_category">בחר את קטגוריית המקטע</string>
   <string name="revanced_sb_new_segment_disabled_category">קטגוריה מושבתת בהגדרות. הפעל קטגוריה כדי לשלוח.</string>
   <string name="revanced_sb_new_segment_title">מקטע חדש של SponsorBloack</string>
@@ -1048,6 +1051,7 @@ Second \"item\" text"</string>
   <string name="revanced_sb_stats_saved_hour_format">%1$s שעות %2$s דקות</string>
   <string name="revanced_sb_stats_saved_minute_format">%1$s דקות %2$s שניות</string>
   <string name="revanced_sb_stats_saved_second_format">%s שניות</string>
+  <string name="revanced_sb_color_opacity_label">אטימות:</string>
   <string name="revanced_sb_color_dot_label">צבע:</string>
   <string name="revanced_sb_color_changed">צבע שונה</string>
   <string name="revanced_sb_color_reset">צבע אופס</string>
@@ -1063,6 +1067,14 @@ Second \"item\" text"</string>
   <string name="revanced_change_form_factor_entry_2">טלפון</string>
   <string name="revanced_change_form_factor_entry_3">טאבלט</string>
   <string name="revanced_change_form_factor_entry_4">רכב</string>
+  <string name="revanced_change_form_factor_user_dialog_message">"השינויים כוללים:
+
+פריסת טאבלט
+• פוסטים קהילתיים מוסתרים
+
+פריסת רכב
+• סרטוני Shorts נפתחים בנגן הרגיל
+• פיד מאורגן לפי נושאים וערוצים"</string>
   </patch>
   <patch id="layout.spoofappversion.spoofAppVersionPatch">
   <string name="revanced_spoof_app_version_title">זייף גרסת יישום</string>
@@ -1077,12 +1089,7 @@ Second \"item\" text"</string>
                  This is because the 'General layout' menu uses alphabetic sorting, and it functionally works better if the spoof target selector appears below the 'Spoof app version' UI switch -->
   <string name="revanced_spoof_app_version_target_title">יעד גרסת יישום מזויפת</string>
   <string name="revanced_spoof_app_version_target_entry_1">19.35.36 - שחזר סמלי נגן Shorts ישנים</string>
-  <string name="revanced_spoof_app_version_target_entry_2">19.26.42 - שחזר סמלי ניווט ישנים</string>
-  <!-- 'RYD' is 'Return YouTube Dislike' -->
-  <string name="revanced_spoof_app_version_target_legacy_entry_1">18.33.40 - שחזר RYD במצב פרטי של Shorts</string>
-  <string name="revanced_spoof_app_version_target_legacy_entry_2">18.20.39 - שחזר מהירות סרטון רחב &amp; תפריט איכות</string>
-  <string name="revanced_spoof_app_version_target_legacy_entry_3">18.09.39 - שחזר כרטיסיית ספרייה</string>
-  <string name="revanced_spoof_app_version_target_legacy_entry_4">17.33.42 - שחזר מדף פלייליסט ישן</string>
+  <string name="revanced_spoof_app_version_target_entry_2">19.01.34 - שחזר סמלי ניווט ישנים</string>
   </patch>
   <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">הגדר דף התחלה</string>
@@ -1132,6 +1139,7 @@ Second \"item\" text"</string>
   </patch>
   <patch id="layout.miniplayer.miniplayerPatch">
   <string name="revanced_miniplayer_screen_title">מיני-נגן</string>
+  <string name="revanced_miniplayer_screen_summary">שנה את הסגנון של הנגן הממוזער בתוך היישום</string>
   <string name="revanced_miniplayer_type_title">סוג מיני-נגן</string>
   <string name="revanced_miniplayer_type_entry_0">מושבת</string>
   <string name="revanced_miniplayer_type_entry_1">ברירת מחדל</string>
@@ -1275,6 +1283,8 @@ Second \"item\" text"</string>
   </patch>
   <patch id="misc.links.openLinksExternallyPatch">
   <string name="revanced_external_browser_title">פתח קישורים בדפדפן</string>
+  <string name="revanced_external_browser_summary_on">פותח קישורים בדפדפן חיצוני </string>
+  <string name="revanced_external_browser_summary_off">פותח קישורים בדפדפן בתוך היישום</string>
   </patch>
   <patch id="misc.privacy.removeTrackingQueryParameterPatch">
   <string name="revanced_remove_tracking_query_parameter_title">הסר פרמטר מעקב של שאילתה</string>
@@ -1301,9 +1311,15 @@ Second \"item\" text"</string>
   <string name="revanced_remember_video_quality_last_selected_summary_off">שינויי איכות חלים רק על הסרטון הנוכחי</string>
   <string name="revanced_video_quality_default_wifi_title">איכות סרטון ברירת מחדל ברשת אלחוטית</string>
   <string name="revanced_video_quality_default_mobile_title">איכות סרטון ברירת מחדל ברשת סלולרית</string>
+  <string name="revanced_remember_shorts_quality_last_selected_title">זכור שינויי איכות Shorts</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_on">שינויי איכות חלים על כל הסרטוני Shorts</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_off">שינויי איכות חלים רק על הסרטון Short הנוכחי</string>
+  <string name="revanced_shorts_quality_default_wifi_title">איכות Shorts ברירת מחדל ברשת אלחוטית</string>
+  <string name="revanced_shorts_quality_default_mobile_title">איכות Shorts ברירת מחדל ברשת סלולרית</string>
   <string name="revanced_remember_video_quality_mobile">סלולרית</string>
   <string name="revanced_remember_video_quality_wifi">אלחוטית</string>
   <string name="revanced_remember_video_quality_toast">איכות %1$s ברירת מחדל שונתה ל: %2$s</string>
+  <string name="revanced_remember_video_quality_toast_shorts">איכות %1$s Shorts שונתה ל: %2$s</string>
   </patch>
   <patch id="video.speed.button.playbackSpeedButtonPatch">
   <string name="revanced_playback_speed_dialog_button_title">הצג לחצן דו-שיח של מהירות</string>
@@ -1335,6 +1351,9 @@ Second \"item\" text"</string>
   <string name="revanced_disable_hdr_video_summary_off">סרטון HDR מופעל</string>
   </patch>
   <patch id="video.quality.advancedVideoQualityMenuPatch">
+  <string name="revanced_advanced_video_quality_menu_title">הצג תפריט איכות סרטון מתקדם</string>
+  <string name="revanced_advanced_video_quality_menu_summary_on">תפריט איכות סרטון מתקדם מוצג</string>
+  <string name="revanced_advanced_video_quality_menu_summary_off">תפריט איכות סרטון מתקדם אינו מוצג</string>
   </patch>
   <patch id="interaction.seekbar.enableSlideToSeekPatch">
   <string name="revanced_slide_to_seek_title">הפעל החלק כדי לדלג</string>

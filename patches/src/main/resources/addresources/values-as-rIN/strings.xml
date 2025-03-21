@@ -156,6 +156,7 @@ Second \"item\" text"</string>
   <patch id="layout.sponsorblock.sponsorBlockResourcePatch">
   <!-- Translations should use language similar to 'revanced_ryd_compact_layout_title' -->
   <!-- Toast shown if network connection times out. Translations of this should not be longer than the original English or the text can be clipped and not entirely shown. -->
+  <!-- A segment start and end time, such as "02:10 to 03:40" -->
   <!-- Shown in the settings preferences, and translations can be any text length. -->
   </patch>
   <patch id="layout.formfactor.changeFormFactorPatch">
@@ -163,7 +164,6 @@ Second \"item\" text"</string>
   <patch id="layout.spoofappversion.spoofAppVersionPatch">
   <!-- It is ideal, but not required, if the text here appears is alphabetically after the text used for 'revanced_spoof_app_version_title'.
                  This is because the 'General layout' menu uses alphabetic sorting, and it functionally works better if the spoof target selector appears below the 'Spoof app version' UI switch -->
-  <!-- 'RYD' is 'Return YouTube Dislike' -->
   </patch>
   <patch id="layout.startpage.changeStartPagePatch">
   </patch>

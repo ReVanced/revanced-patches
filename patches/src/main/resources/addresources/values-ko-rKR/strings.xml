@@ -805,7 +805,6 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_ryd_enable_summary_on">싫어요 수를 표시합니다</string>
   <string name="revanced_ryd_enable_summary_off">싫어요 수를 표시하지 않습니다</string>
   <string name="revanced_ryd_shorts_title">Shorts에서 싫어요 수 표시하기</string>
-  <string name="revanced_ryd_shorts_summary_on">Shorts에서 싫어요 수를 표시합니다</string>
   <string name="revanced_ryd_shorts_summary_on_disclaimer">"Shorts에서 싫어요 수를 표시합니다
 
 알려진 문제점:
@@ -1003,6 +1002,8 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_sb_vote_downvote">싫어요</string>
   <string name="revanced_sb_vote_category">카테고리 변경</string>
   <string name="revanced_sb_vote_no_segments">투표할 구간이 없습니다</string>
+  <!-- A segment start and end time, such as "02:10 to 03:40" -->
+  <string name="revanced_sb_vote_segment_time_to_from">%1$s ~ %2$s</string>
   <string name="revanced_sb_new_segment_choose_category">구간 카테고리를 선택하세요</string>
   <string name="revanced_sb_new_segment_disabled_category">이 카테고리는 비활성화되어 있습니다. 제출하려면 설정에서 활성화해야 합니다</string>
   <string name="revanced_sb_new_segment_title">새 SponsorBlock 구간</string>
@@ -1050,6 +1051,7 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_sb_stats_saved_hour_format">%1$s 시간 %2$s 분</string>
   <string name="revanced_sb_stats_saved_minute_format">%1$s 분 %2$s 초</string>
   <string name="revanced_sb_stats_saved_second_format">%s 초</string>
+  <string name="revanced_sb_color_opacity_label">불투명도:</string>
   <string name="revanced_sb_color_dot_label">색상:</string>
   <string name="revanced_sb_color_changed">설정한 색상을 적용하였습니다</string>
   <string name="revanced_sb_color_reset">색상을 초기화하였습니다</string>
@@ -1087,12 +1089,7 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
                  This is because the 'General layout' menu uses alphabetic sorting, and it functionally works better if the spoof target selector appears below the 'Spoof app version' UI switch -->
   <string name="revanced_spoof_app_version_target_title">변경할 앱 버전</string>
   <string name="revanced_spoof_app_version_target_entry_1">19.35.36 - 이전 Shorts 플레이어 아이콘을 복원합니다</string>
-  <string name="revanced_spoof_app_version_target_entry_2">19.26.42 - 이전 하단바 아이콘을 복원합니다</string>
-  <!-- 'RYD' is 'Return YouTube Dislike' -->
-  <string name="revanced_spoof_app_version_target_legacy_entry_1">18.33.40 - 시크릿 모드에서 Shorts RYD를 복원합니다</string>
-  <string name="revanced_spoof_app_version_target_legacy_entry_2">18.20.39 - 넓은 동영상 재생 속도 &amp; 화질 메뉴를 복원합니다</string>
-  <string name="revanced_spoof_app_version_target_legacy_entry_3">16.09.39 - 이전 보관함 탭을 복원합니다 (내 페이지 탭을 비활성화합니다)</string>
-  <string name="revanced_spoof_app_version_target_legacy_entry_4">17.33.42 - 이전 재생목록 선반을 복원합니다</string>
+  <string name="revanced_spoof_app_version_target_entry_2">19.01.34 - 이전 하단바 아이콘을 복원합니다</string>
   </patch>
   <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">앱 시작 페이지 변경하기</string>

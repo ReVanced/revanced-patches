@@ -805,7 +805,6 @@ Ustawienia → Odtwarzanie → Autoodtwarzanie następnego filmu"</string>
   <string name="revanced_ryd_enable_summary_on">Łapki w dół są widoczne</string>
   <string name="revanced_ryd_enable_summary_off">Łapki w dół są ukryte</string>
   <string name="revanced_ryd_shorts_title">Łapki w dół na Shortsach</string>
-  <string name="revanced_ryd_shorts_summary_on">Oceny negatywne na Shorts są widoczne</string>
   <string name="revanced_ryd_shorts_summary_on_disclaimer">"Oceny negatywne na Shorts są widoczne
 
 Ograniczenie: Oceny negatywne mogą nie pojawiać się w trybie incognito"</string>
@@ -1003,6 +1002,8 @@ Istnieje już"</string>
   <string name="revanced_sb_vote_downvote">Głos przeciw</string>
   <string name="revanced_sb_vote_category">Zmień kategorię</string>
   <string name="revanced_sb_vote_no_segments">Brak segmentów do zagłosowania</string>
+  <!-- A segment start and end time, such as "02:10 to 03:40" -->
+  <string name="revanced_sb_vote_segment_time_to_from">%1$s do %2$s</string>
   <string name="revanced_sb_new_segment_choose_category">Wybierz kategorię segmentu</string>
   <string name="revanced_sb_new_segment_disabled_category">Kategoria jest wyłączona w ustawieniach. Włącz kategorię do wysłania.</string>
   <string name="revanced_sb_new_segment_title">Nowy segment SponsorBlocka</string>
@@ -1050,6 +1051,7 @@ Gotowy do przesłania?"</string>
   <string name="revanced_sb_stats_saved_hour_format">%1$s godzin %2$s minut</string>
   <string name="revanced_sb_stats_saved_minute_format">%1$s minut %2$s sekund</string>
   <string name="revanced_sb_stats_saved_second_format">%s sekund</string>
+  <string name="revanced_sb_color_opacity_label">Krycie:</string>
   <string name="revanced_sb_color_dot_label">Kolor:</string>
   <string name="revanced_sb_color_changed">Zmieniono kolor</string>
   <string name="revanced_sb_color_reset">Zresetowano kolor</string>
@@ -1087,12 +1089,7 @@ Jeśli później zostanie wyłączony, zaleca się wyczyszczenie danych aplikacj
                  This is because the 'General layout' menu uses alphabetic sorting, and it functionally works better if the spoof target selector appears below the 'Spoof app version' UI switch -->
   <string name="revanced_spoof_app_version_target_title">Docelowa oszukiwana wersja aplikacji</string>
   <string name="revanced_spoof_app_version_target_entry_1">19.35.36 - Przywraca stare ikony odtwarzacza Shortsów</string>
-  <string name="revanced_spoof_app_version_target_entry_2">19.26.42 - Przywróć stare ikony nawigacji</string>
-  <!-- 'RYD' is 'Return YouTube Dislike' -->
-  <string name="revanced_spoof_app_version_target_legacy_entry_1">18.33.40 - Przywraca RYD w trybie incognito dla Shortsów</string>
-  <string name="revanced_spoof_app_version_target_legacy_entry_2">18.20.39 - Przywraca szerokie menu prędkości i jakości filmu</string>
-  <string name="revanced_spoof_app_version_target_legacy_entry_3">18.09.39 - Przywraca kartę biblioteki</string>
-  <string name="revanced_spoof_app_version_target_legacy_entry_4">17.33.42 - Przywraca starą półkę do playlist</string>
+  <string name="revanced_spoof_app_version_target_entry_2">19.01.34 - Przywróć stare ikony nawigacji</string>
   </patch>
   <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">Strona startowa</string>
