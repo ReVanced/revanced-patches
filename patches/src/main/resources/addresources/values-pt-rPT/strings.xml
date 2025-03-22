@@ -40,7 +40,7 @@ Second \"item\" text"</string>
   <string name="revanced_settings_restart">Reiniciar</string>
   <string name="revanced_settings_import">Importar</string>
   <string name="revanced_settings_import_copy">Copiar</string>
-  <string name="revanced_settings_import_reset">Configurações redefinidas para o padrão</string>
+  <string name="revanced_settings_import_reset">As definições do ReVanced foram redefinidas para a predefinição</string>
   <string name="revanced_settings_import_success">Configurações importadas: %d</string>
   <string name="revanced_settings_import_failure_parse">A importação falhou: %s</string>
   <string name="revanced_language_title">Idioma do ReVanced</string>
@@ -49,7 +49,7 @@ Second \"item\" text"</string>
 Para traduzir novas línguas, visite translate.revanced.app"</string>
   <string name="revanced_language_DEFAULT">Idioma da aplicação</string>
   <string name="revanced_pref_import_export_title">Importar / Exportar</string>
-  <string name="revanced_pref_import_export_summary">Importar / Exportar configurações do ReVanced</string>
+  <string name="revanced_pref_import_export_summary">Importar / Exportar as configurações do ReVanced</string>
   <!-- Settings about dialog. -->
   <string name="revanced_settings_about_links_body">Está a utilizar a versão ReVanced Patches &lt;i&gt;%s&lt;/i&gt;</string>
   <string name="revanced_settings_about_links_dev_header">Observação</string>
@@ -60,7 +60,7 @@ Para traduzir novas línguas, visite translate.revanced.app"</string>
   </patch>
   <patch id="misc.gms.gmsCoreSupportResourcePatch">
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
-  <string name="gms_core_toast_not_installed_message">MicroG GmsCore não está instalado. Instale-o.</string>
+  <string name="gms_core_toast_not_installed_message">MicroG GmsCore não está instalado. Instala-o.</string>
   <string name="gms_core_dialog_title">Ação necessária</string>
   <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"O MicroG GmsCore não tem permissão para ser executado em segundo plano.
 
@@ -127,8 +127,8 @@ Não será notificado de quaisquer eventos inesperados."</string>
   <string name="revanced_hide_floating_microphone_button_summary_on">Botão do microfone escondido</string>
   <string name="revanced_hide_floating_microphone_button_summary_off">Botão do microfone visível</string>
   <string name="revanced_hide_channel_watermark_title">Esconder a Marca D\'Água do canal</string>
-  <string name="revanced_hide_channel_watermark_summary_on">A marca d\'água está escondida</string>
-  <string name="revanced_hide_channel_watermark_summary_off">A marca d\'água está visível</string>
+  <string name="revanced_hide_channel_watermark_summary_on">A Marca D\'Água está escondida</string>
+  <string name="revanced_hide_channel_watermark_summary_off">A Marca D\'Água está visível</string>
   <string name="revanced_hide_horizontal_shelves_title">Esconder categorias horizontais</string>
   <string name="revanced_hide_horizontal_shelves_summary_on">"As prateleiras estão escondidas, tais como:
 - Notícias de última hora
@@ -141,7 +141,7 @@ Não será notificado de quaisquer eventos inesperados."</string>
                  This appears in the video player for certain videos. -->
   <string name="revanced_hide_join_membership_button_title">Ocultar botão \"Participar\"</string>
   <string name="revanced_hide_join_membership_button_summary_on">O botão está escondido</string>
-  <string name="revanced_hide_join_membership_button_summary_off">Botão é visível</string>
+  <string name="revanced_hide_join_membership_button_summary_off">O botão está visível</string>
   <!-- 'For you' should be translated using the same localized wording YouTube displays. -->
   <string name="revanced_hide_for_you_shelf_title">Ocultar estante \"Para você\"</string>
   <string name="revanced_hide_for_you_shelf_summary_on">A prateleira na página do canal está oculta</string>
@@ -150,7 +150,7 @@ Não será notificado de quaisquer eventos inesperados."</string>
                  This item appear in the subscription feed for future livestreams or unreleased videos. -->
   <string name="revanced_hide_notify_me_button_title">Ocultar botão \'Notificar-me\'</string>
   <string name="revanced_hide_notify_me_button_summary_on">O botão está escondido</string>
-  <string name="revanced_hide_notify_me_button_summary_off">Botão é visível</string>
+  <string name="revanced_hide_notify_me_button_summary_off">O botão está visível</string>
   <!-- 'People also watched' should be translated using the same localized wording YouTube displays. -->
   <string name="revanced_hide_search_result_recommendations_title">Ocultar o rótulo \"Pessoas também assistiram\"</string>
   <string name="revanced_hide_search_result_recommendations_summary_on">O rótulo está oculto</string>
@@ -159,7 +159,7 @@ Não será notificado de quaisquer eventos inesperados."</string>
                   This button usually appears when searching for a YT creator. -->
   <string name="revanced_hide_show_more_button_title">Ocultar botão \'Mostrar mais\'</string>
   <string name="revanced_hide_show_more_button_summary_on">O botão está escondido</string>
-  <string name="revanced_hide_show_more_button_summary_off">Botão é visível</string>
+  <string name="revanced_hide_show_more_button_summary_off">O botão está visível</string>
   <string name="revanced_hide_timed_reactions_title">Esconder reações cronometradas</string>
   <string name="revanced_hide_timed_reactions_summary_on">Reações temporizadas estão escondidas</string>
   <string name="revanced_hide_timed_reactions_summary_off">Reações temporizadas são visíveis</string>
@@ -249,7 +249,7 @@ Não será notificado de quaisquer eventos inesperados."</string>
   <string name="revanced_hide_transcript_section_summary_off">Secção de transcrição exibida</string>
   <string name="revanced_hide_description_components_screen_title">Descrição do vídeo</string>
   <string name="revanced_hide_description_components_screen_summary">Esconder ou mostrar componentes de descrição do vídeo</string>
-  <string name="revanced_hide_filter_bar_screen_title">Barra de filtro</string>
+  <string name="revanced_hide_filter_bar_screen_title">Barra de Filtro</string>
   <string name="revanced_hide_filter_bar_screen_summary">Ocultar ou mostrar a barra de filtro no feed, nos resultados da pesquisa e nos vídeos relacionados</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_title">Esconder no feed</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_summary_on">Escondido no feed</string>
@@ -393,7 +393,7 @@ Tính năng này chỉ khả dụng cho các thiết bị cũ"</string>
   <string name="revanced_share_copy_url_timestamp_success">URL com timestamp copiado</string>
   <string name="revanced_copy_video_url_title">Mostrar botão de URL de vídeo copiado</string>
   <string name="revanced_copy_video_url_summary_on">O botão é mostrado. Toque para copiar o URL do vídeo. Toque e segure para copiar com o carimbo de data/hora</string>
-  <string name="revanced_copy_video_url_summary_off">O botão NÃO está visível</string>
+  <string name="revanced_copy_video_url_summary_off">O botão não está visível</string>
   <string name="revanced_copy_video_url_timestamp_title">Mostrar botão de copiar timestamp URL</string>
   <string name="revanced_copy_video_url_timestamp_summary_on">O botão é mostrado. Toque para copiar o URL do vídeo com o carimbo de data/hora. Toque e segure para copiar sem o carimbo de data/hora</string>
   <string name="revanced_copy_video_url_timestamp_summary_off">O botão não está visível</string>
@@ -898,7 +898,7 @@ Tính năng này hoạt động tốt nhất với chất lg video là 720p tr�
   <string name="revanced_sb_guidelines_popup_content">Leia as diretrizes do Patrocinador antes de criar novos segmentos</string>
   <string name="revanced_sb_guidelines_popup_already_read">Já lido</string>
   <string name="revanced_sb_guidelines_popup_open">Mostre-me</string>
-  <string name="revanced_sb_general">Gerais</string>
+  <string name="revanced_sb_general">Geral</string>
   <string name="revanced_sb_toast_on_connection_error_title">Mostrar uma notificação flutuante se a API não estiver disponível</string>
   <string name="revanced_sb_toast_on_connection_error_summary_on">Toast é visível se o Patrocinador não está disponível</string>
   <string name="revanced_sb_toast_on_connection_error_summary_off">Toast não é visível se o Patrocinador não está disponível</string>
@@ -982,7 +982,7 @@ Seu ID de usuário é como uma senha e nunca deve ser compartilhado.
   <string name="revanced_sb_skip_automatically_once">Pular automaticamente uma vez</string>
   <string name="revanced_sb_skip_showbutton">Mostrar um botão Ignorar</string>
   <string name="revanced_sb_skip_seekbaronly">Mostrar na barra de busca</string>
-  <string name="revanced_sb_skip_ignore">Desligado</string>
+  <string name="revanced_sb_skip_ignore">Desativado</string>
   <string name="revanced_sb_submit_failed_invalid">Não é possível enviar segmento: %s</string>
   <string name="revanced_sb_submit_failed_timeout">Patrocinador está temporariamente desligado</string>
   <string name="revanced_sb_submit_failed_unknown_error">Não é possível enviar o segmento (estado: %1$d %2$s)</string>
@@ -1299,7 +1299,7 @@ Bật tính năng này có thể mở khóa chất lượng video cao hơn"</str
   <patch id="video.audio.forceOriginalAudioPatch">
   <string name="revanced_force_original_audio_title">Forçar idioma original do áudio</string>
   <string name="revanced_force_original_audio_summary_on">Usando o idioma de áudio original</string>
-  <string name="revanced_force_original_audio_summary_off">Usando áudio padrão</string>
+  <string name="revanced_force_original_audio_summary_off">Usando o áudio predefinido</string>
   <!-- 'Spoof video streams' should be the same translation used for revanced_spoof_video_streams_screen_title -->
   <string name="revanced_force_original_audio_not_available">Para usar este recurso, altere \"Spoof video streams\" para iOS TV</string>
   </patch>
@@ -1309,22 +1309,22 @@ Bật tính năng này có thể mở khóa chất lượng video cao hơn"</str
   <string name="revanced_remember_video_quality_last_selected_title">Lembrar mudanças na qualidade do vídeo</string>
   <string name="revanced_remember_video_quality_last_selected_summary_on">Alterações de qualidade se aplicam a todos os vídeos</string>
   <string name="revanced_remember_video_quality_last_selected_summary_off">As alterações de qualidade só se aplicam ao vídeo atual</string>
-  <string name="revanced_video_quality_default_wifi_title">Qualidade de vídeo padrão na rede Wi-Fi</string>
-  <string name="revanced_video_quality_default_mobile_title">Qualidade de vídeo padrão na rede móvel</string>
+  <string name="revanced_video_quality_default_wifi_title">Qualidade de vídeo predefinida na rede Wi-Fi</string>
+  <string name="revanced_video_quality_default_mobile_title">Qualidade de vídeo predefinida na rede móvel</string>
   <string name="revanced_remember_shorts_quality_last_selected_title">Lembrar alterações na qualidade dos Shorts</string>
   <string name="revanced_remember_shorts_quality_last_selected_summary_on">As alterações de qualidade se aplicam a todos os Shorts</string>
   <string name="revanced_remember_shorts_quality_last_selected_summary_off">As alterações de qualidade se aplicam apenas ao Short atual</string>
-  <string name="revanced_shorts_quality_default_wifi_title">Qualidade padrão de Shorts na rede Wi-Fi</string>
-  <string name="revanced_shorts_quality_default_mobile_title">Qualidade padrão de Shorts na rede móvel</string>
+  <string name="revanced_shorts_quality_default_wifi_title">Qualidade predefinida dos Shorts na rede Wi-Fi</string>
+  <string name="revanced_shorts_quality_default_mobile_title">Qualidade predefinida dos Shorts na rede móvel</string>
   <string name="revanced_remember_video_quality_mobile">telemóvel</string>
   <string name="revanced_remember_video_quality_wifi">Wi-Fi</string>
-  <string name="revanced_remember_video_quality_toast">Qualidade padrão %1$s alterada para: %2$s</string>
+  <string name="revanced_remember_video_quality_toast">A qualidade predefinida %1$s foi alterada para: %2$s</string>
   <string name="revanced_remember_video_quality_toast_shorts">Qualidade do Shorts %1$s alterada para: %2$s</string>
   </patch>
   <patch id="video.speed.button.playbackSpeedButtonPatch">
   <string name="revanced_playback_speed_dialog_button_title">Mostrar botão de diálogo de velocidade</string>
-  <string name="revanced_playback_speed_dialog_button_summary_on">Botão é visível</string>
-  <string name="revanced_playback_speed_dialog_button_summary_off">O botão NÃO está visível</string>
+  <string name="revanced_playback_speed_dialog_button_summary_on">O botão está visível</string>
+  <string name="revanced_playback_speed_dialog_button_summary_off">O botão não está visível</string>
   </patch>
   <patch id="video.speed.custom.customPlaybackSpeedPatch">
   <string name="revanced_custom_speed_menu_title">Menu personalizado de velocidade de reprodução</string>
@@ -1342,8 +1342,8 @@ Bật tính năng này có thể mở khóa chất lượng video cao hơn"</str
   <string name="revanced_remember_playback_speed_last_selected_title">Lembrar velocidade de reprodução</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_on">As mudanças de velocidade de reprodução aplicam-se a todos os vídeos</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_off">As mudanças de velocidade de reprodução só se aplicam ao vídeo atual</string>
-  <string name="revanced_playback_speed_default_title">Velocidade padrão de reprodução</string>
-  <string name="revanced_remember_playback_speed_toast">Velocidade padrão alterada para: %s</string>
+  <string name="revanced_playback_speed_default_title">Velocidade de reprodução predefinida</string>
+  <string name="revanced_remember_playback_speed_toast">Velocidade predefinida alterada para: %s</string>
   </patch>
   <patch id="video.hdr.disableHdrPatch">
   <string name="revanced_disable_hdr_video_title">Desabilitar vídeo HDR</string>
@@ -1369,7 +1369,7 @@ Bật tính năng này có thể mở khóa chất lượng video cao hơn"</str
 
 Phát video có thể không hoạt động"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Desativar essa configuração pode causar problemas de reprodução de vídeo.</string>
-  <string name="revanced_spoof_video_streams_client_type_title">Cliente padrão</string>
+  <string name="revanced_spoof_video_streams_client_type_title">Cliente predefinido</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_title">Força AVC iOS (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Codificação de vídeo forçada a AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Codificação de vídeo é automaticamente determinada</string>
@@ -1389,7 +1389,7 @@ A AVC tem resolução máxima de 1080p, Opus audio codec não está disponível,
   <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Mostrar em Estatísticas para nerds</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">O tipo de cliente é mostrado em Estatísticas para nerds</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">O cliente está oculto em Estatísticas para nerds</string>
-  <string name="revanced_spoof_video_streams_language_title">Idioma padrão do fluxo de áudio de VR</string>
+  <string name="revanced_spoof_video_streams_language_title">Idioma do fluxo do áudio do VR predefinido</string>
   </patch>
   </app>
   <app id="twitch">
