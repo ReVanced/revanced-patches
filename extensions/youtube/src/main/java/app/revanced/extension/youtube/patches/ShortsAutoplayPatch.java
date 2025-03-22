@@ -85,14 +85,6 @@ public class ShortsAutoplayPatch {
      */
     public static Enum<?> changeShortsRepeatBehavior(@Nullable Enum<?> original) {
         try {
-            if (original == null) {
-                // Target bytecode code replaces null with UNKNOWN, but not before this extension call.
-                // Must do the same behavior now because a null return value is used by
-                // patch helper code to indicate autoplay was performed.
-                Logger.printDebug(() -> "Original is null, returning unknown repeat state");
-                return ShortsLoopBehavior.UNKNOWN.ytEnumValue;
-            }
-
             final boolean autoplay;
             if (isAppInBackgroundPiPMode()) {
                 if (!VersionCheckPatch.IS_19_34_OR_GREATER) {
@@ -112,10 +104,12 @@ public class ShortsAutoplayPatch {
                     : ShortsLoopBehavior.REPEAT).ytEnumValue;
 
             if (overrideBehavior != null) {
-                Logger.printDebug(() -> overrideBehavior == original
-                        ? "Behavior setting is same as original. Using original: " + original.name()
-                        : "Changing Shorts repeat behavior from: " + original.name() + " to: " + overrideBehavior.name()
-                );
+                Logger.printDebug(() -> {
+                    String name = original == null ? "unknown (null)" : original.name();
+                    return overrideBehavior == original
+                            ? "Behavior setting is same as original. Using original: " + name
+                            : "Changing Shorts repeat behavior from: " + name + " to: " + overrideBehavior.name();
+                });
 
                 return overrideBehavior;
             }

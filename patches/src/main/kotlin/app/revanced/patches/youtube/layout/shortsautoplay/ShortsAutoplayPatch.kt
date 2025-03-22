@@ -74,13 +74,13 @@ val shortsAutoplayPatch = bytecodePatch(
                 "setMainActivity(Landroid/app/Activity;)V",
         )
 
-        val reelEnumClass = reelEnumConstructorFingerprint.originalClassDef.type
+        var reelEnumClass : String
 
-        reelEnumConstructorFingerprint.method.apply {
-            val insertIndex = reelEnumConstructorFingerprint.instructionMatches.first().index
+        reelEnumConstructorFingerprint.let {
+            reelEnumClass = it.originalClassDef.type
 
-            addInstructions(
-                insertIndex,
+            it.method.addInstructions(
+                it.instructionMatches.last().index,
                 """
                     # Pass the first enum value to extension.
                     # Any enum value of this type will work.
@@ -138,13 +138,14 @@ val shortsAutoplayPatch = bytecodePatch(
                 // Add a helper method to avoid finding multiple free registers.
                 // If enum is autoplay then method performs autoplay and returns null,
                 // otherwise returns the same enum.
-                val helperMethodClass = definingClass
-                val helperMethodName = "patch_handleAutoPlay"
+                val helperClass = definingClass
+                val helperName = "patch_handleAutoPlay"
+                val helperReturnType = "Ljava/lang/Enum;"
                 val helperMethod = ImmutableMethod(
-                    helperMethodClass,
-                    helperMethodName,
+                    helperClass,
+                    helperName,
                     listOf(ImmutableMethodParameter("Ljava/lang/Enum;", null, null)),
-                    "Ljava/lang/Enum;",
+                    helperReturnType,
                     AccessFlags.PRIVATE.value,
                     null,
                     null,
@@ -174,7 +175,7 @@ val shortsAutoplayPatch = bytecodePatch(
                 addInstructionsWithLabels(
                     extensionReturnResultIndex + 1,
                     """
-                        invoke-direct { p0, v$enumRegister }, $helperMethodClass->$helperMethodName(Ljava/lang/Enum;)Ljava/lang/Enum;
+                        invoke-direct { p0, v$enumRegister }, $helperClass->$helperName(Ljava/lang/Enum;)$helperReturnType
                         move-result-object v$enumRegister
                         if-nez v$enumRegister, :ignore
                         return-void     # Autoplay was performed.
