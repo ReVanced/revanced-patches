@@ -1,7 +1,6 @@
 <!--
-   https://github.com/google/material-design-icons/blob/9beae745bb758f3ad56654fb377ea5cf62be4915/symbols/android/compare/materialsymbolsoutlined/compare_wght200gradN25_24px.xml
-   Changes made: Icon has been resized.
-
+   https://github.com/google/material-design-icons/blob/9beae745bb758f3ad56654fb377ea5cf62be4915/symbols/android/compare/materialsymbolsoutlined/compare_wght200_24px.xml
+   Changes made: Icon has been resized to 30dp.
 
 Copyright 2022 Google
 
@@ -19,12 +18,11 @@ Copyright 2022 Google
 -->
 
 <vector xmlns:android="http://schemas.android.com/apk/res/android"
-        android:tint="#FFFFFF"
-        android:width="24dp"
-        android:height="24dp"
-        android:viewportWidth="24"
-        android:viewportHeight="24">
+        android:width="30dp"
+        android:height="30dp"
+        android:viewportWidth="30"
+        android:viewportHeight="30">
     <path
             android:fillColor="@android:color/white"
-            android:pathData="M 10.825834,24 V 21.361845 H 3.9569613 q -0.8248376,0 -1.3908832,-0.529956 Q 2,20.301968 2,19.535186 V 4.4648145 Q 2,3.6980325 2.5660781,3.1681093 3.1321238,2.6381557 3.9569613,2.6381557 H 10.825834 V 0 H 12 V 24 Z M 3.1741963,19.071741 h 7.6516377 v -8.583184 z m 11.2719827,2.290104 v -9.43514 l 6.379624,7.145036 V 4.4702328 q 0,-0.2748156 -0.244607,-0.503814 Q 20.336588,3.7374204 20.043037,3.7374204 H 14.446179 V 2.6381568 h 5.596858 q 0.824836,0 1.390889,0.5299536 Q 22,3.6980329 22,4.4648145 V 19.535186 q 0,0.766776 -0.566074,1.296706 -0.566053,0.529956 -1.390889,0.529956 z"/>
+            android:pathData="M13.75,27.7891 L13.75,25 L7.01953,25 C6.44531,25,5.96484,24.8086,5.57813,24.4219 C5.19141,24.0352,5,23.5547,5,22.9805 L5,7.01953 C5,6.44531,5.19141,5.96484,5.57813,5.57813 C5.96484,5.19141,6.44531,5,7.01953,5 L13.75,5 L13.75,2.21094 L15,2.21094 L15,27.7891 Z M6.25,22.5 L13.75,22.5 L13.75,13.5078 Z M17.5,25 L17.5,15 L23.75,22.5 L23.75,7.01953 C23.75,6.82813,23.668,6.65234,23.5078,6.49219 C23.3477,6.33203,23.1719,6.25,22.9805,6.25 L17.5,6.25 L17.5,5 L22.9805,5 C23.5547,5,24.0352,5.19141,24.4219,5.57813 C24.8086,5.96484,25,6.44531,25,7.01953 L25,22.9805 C25,23.5547,24.8086,24.0352,24.4219,24.4219 C24.0352,24.8086,23.5547,25,22.9805,25 Z M17.5,25"/>
 </vector>

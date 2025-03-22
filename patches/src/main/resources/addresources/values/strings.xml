@@ -43,6 +43,9 @@ Second \"item\" text"</string>
             <string name="revanced_settings_import_reset">ReVanced settings reset to default</string>
             <string name="revanced_settings_import_success">Imported %d settings</string>
             <string name="revanced_settings_import_failure_parse">Import failed: %s</string>
+            <string name="revanced_show_menu_icons_title">Show ReVanced setting icons</string>
+            <string name="revanced_show_menu_icons_summary_on">Setting icons are shown</string>
+            <string name="revanced_show_menu_icons_summary_off">Setting icons are not shown</string>
             <string name="revanced_language_title">ReVanced language</string>
             <string name="revanced_language_user_dialog_message">"Translations for some languages may be missing or incomplete.
 

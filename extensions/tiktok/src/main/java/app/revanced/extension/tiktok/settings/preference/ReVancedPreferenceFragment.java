@@ -9,7 +9,6 @@ import app.revanced.extension.tiktok.settings.preference.categories.DownloadsPre
 import app.revanced.extension.tiktok.settings.preference.categories.FeedFilterPreferenceCategory;
 import app.revanced.extension.tiktok.settings.preference.categories.ExtensionPreferenceCategory;
 import app.revanced.extension.tiktok.settings.preference.categories.SimSpoofPreferenceCategory;
-import org.jetbrains.annotations.NotNull;
 
 /**
  * Preference fragment for ReVanced settings
