@@ -8,9 +8,8 @@ import app.revanced.patcher.patch.resourcePatch
 import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
-import app.revanced.patches.shared.misc.mapping.get
+import app.revanced.patches.shared.misc.mapping.getResourceId
 import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
-import app.revanced.patches.shared.misc.mapping.resourceMappings
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.litho.filter.addLithoFilter
@@ -37,10 +36,10 @@ private val hideInfocardsResourcePatch = resourcePatch {
             SwitchPreference("revanced_hide_info_cards"),
         )
 
-        drawerResourceId = resourceMappings[
+        drawerResourceId = getResourceId(
             "id",
             "info_cards_drawer_header",
-        ]
+        )
     }
 }
 
@@ -83,7 +82,7 @@ val hideInfoCardsPatch = bytecodePatch(
 
         val hideInfoCardsCallMethod = infocardsMethodCallFingerprint.method
 
-        val invokeInterfaceIndex = infocardsMethodCallFingerprint.patternMatch!!.endIndex
+        val invokeInterfaceIndex = infocardsMethodCallFingerprint.instructionMatches.last().index
         val toggleRegister = infocardsMethodCallFingerprint.method.implementation!!.registerCount - 1
 
         hideInfoCardsCallMethod.addInstructionsWithLabels(

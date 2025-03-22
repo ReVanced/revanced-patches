@@ -37,6 +37,7 @@ import java.util.concurrent.*;
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
 import app.revanced.extension.youtube.ThemeHelper;
+import app.revanced.extension.youtube.patches.VersionCheckPatch;
 import app.revanced.extension.youtube.returnyoutubedislike.requests.RYDVoteData;
 import app.revanced.extension.youtube.returnyoutubedislike.requests.ReturnYouTubeDislikeApi;
 import app.revanced.extension.youtube.settings.Settings;
@@ -114,7 +115,7 @@ public class ReturnYouTubeDislike {
     private static final Rect middleSeparatorBounds;
 
     /**
-     * Left separator horizontal padding for Rolling Number layout.
+     * Horizontal padding between the left and middle separator.
      */
     public static final int leftSeparatorShapePaddingPixels;
     private static final ShapeDrawable leftSeparatorShape;
@@ -129,7 +130,7 @@ public class ReturnYouTubeDislike {
                 (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 3.7f, dp);
         middleSeparatorBounds = new Rect(0, 0, middleSeparatorSize, middleSeparatorSize);
 
-        leftSeparatorShapePaddingPixels = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 10.0f, dp);
+        leftSeparatorShapePaddingPixels = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 8.4f, dp);
 
         leftSeparatorShape = new ShapeDrawable(new RectShape());
         leftSeparatorShape.setBounds(leftSeparatorBounds);
@@ -258,8 +259,13 @@ public class ReturnYouTubeDislike {
 
         // middle separator
         String middleSeparatorString = compactLayout
-                ? "  " + MIDDLE_SEPARATOR_CHARACTER + "  "
-                : "  \u2009" + MIDDLE_SEPARATOR_CHARACTER + "\u2009  "; // u2009 = 'narrow space' character
+                ? " " + MIDDLE_SEPARATOR_CHARACTER + " "
+                : " \u2009" + MIDDLE_SEPARATOR_CHARACTER + "\u2009 "; // u2009 = 'narrow space' character
+        // 20.07+ uses a larger font and less inner padding is needed.
+        if (!VersionCheckPatch.IS_20_07_OR_GREATER) {
+            middleSeparatorString = " " + middleSeparatorString + " ";
+        }
+
         final int shapeInsertionIndex = middleSeparatorString.length() / 2;
         Spannable middleSeparatorSpan = new SpannableString(middleSeparatorString);
         ShapeDrawable shapeDrawable = new ShapeDrawable(new OvalShape());

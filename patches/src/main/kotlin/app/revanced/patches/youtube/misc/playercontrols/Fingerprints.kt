@@ -1,18 +1,15 @@
 package app.revanced.patches.youtube.misc.playercontrols
 
+import app.revanced.patcher.checkCast
 import app.revanced.patcher.fingerprint
-import app.revanced.util.containsLiteralInstruction
-import app.revanced.util.literal
+import app.revanced.patcher.literal
+import app.revanced.patcher.methodCall
+import app.revanced.patcher.opcode
+import app.revanced.patches.shared.misc.mapping.resourceLiteral
 import com.android.tools.smali.dexlib2.AccessFlags
+import com.android.tools.smali.dexlib2.Opcode
 
-internal val playerTopControlsInflateFingerprint = fingerprint {
-    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("V")
-    parameters()
-    literal { controlsLayoutStub }
-}
-
-internal val playerControlsExtensionHookListenersExistFingerprint = fingerprint {
+internal val playerControlsExtensionHookListenersExistFingerprint by fingerprint {
     accessFlags(AccessFlags.PRIVATE, AccessFlags.STATIC)
     returns("Z")
     parameters()
@@ -22,7 +19,7 @@ internal val playerControlsExtensionHookListenersExistFingerprint = fingerprint 
     }
 }
 
-internal val playerControlsExtensionHookFingerprint = fingerprint {
+internal val playerControlsExtensionHookFingerprint by fingerprint {
     accessFlags(AccessFlags.PRIVATE, AccessFlags.STATIC)
     returns("V")
     parameters("Z")
@@ -32,42 +29,62 @@ internal val playerControlsExtensionHookFingerprint = fingerprint {
     }
 }
 
-internal val playerBottomControlsInflateFingerprint = fingerprint {
-    returns("Ljava/lang/Object;")
+internal val playerTopControlsInflateFingerprint by fingerprint {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
+    returns("V")
     parameters()
-    literal { bottomUiContainerResourceId }
+    instructions(
+        resourceLiteral("id", "controls_layout_stub"),
+        methodCall("Landroid/view/ViewStub;", "inflate"),
+        opcode(Opcode.MOVE_RESULT_OBJECT, maxAfter = 0)
+    )
 }
 
-internal val overlayViewInflateFingerprint = fingerprint {
+internal val playerBottomControlsInflateFingerprint by fingerprint {
+    returns("Ljava/lang/Object;")
+    parameters()
+    instructions(
+        resourceLiteral("id", "bottom_ui_container_stub"),
+        methodCall("Landroid/view/ViewStub;", "inflate"),
+        opcode(Opcode.MOVE_RESULT_OBJECT, maxAfter = 0)
+    )
+}
+
+internal val overlayViewInflateFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("V")
     parameters("Landroid/view/View;")
-    custom { methodDef, _ ->
-        methodDef.containsLiteralInstruction(fullscreenButton) &&
-            methodDef.containsLiteralInstruction(heatseekerViewstub)
-    }
+    instructions(
+        resourceLiteral("id", "heatseeker_viewstub"),
+        resourceLiteral("id", "fullscreen_button"),
+        checkCast("Landroid/widget/ImageView;")
+    )
 }
 
 /**
  * Resolves to the class found in [playerTopControlsInflateFingerprint].
  */
-internal val controlsOverlayVisibilityFingerprint = fingerprint {
+internal val controlsOverlayVisibilityFingerprint by fingerprint {
     accessFlags(AccessFlags.PRIVATE, AccessFlags.FINAL)
     returns("V")
     parameters("Z", "Z")
 }
 
-internal val playerBottomControlsExploderFeatureFlagFingerprint = fingerprint {
+internal val playerBottomControlsExploderFeatureFlagFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("Z")
     parameters()
-    literal { 45643739L }
+    instructions(
+        literal(45643739L)
+    )
 }
 
-internal val playerTopControlsExperimentalLayoutFeatureFlagFingerprint = fingerprint {
+internal val playerTopControlsExperimentalLayoutFeatureFlagFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("I")
     parameters()
-    literal { 45629424L }
+    instructions(
+        literal(45629424L)
+    )
 }
 

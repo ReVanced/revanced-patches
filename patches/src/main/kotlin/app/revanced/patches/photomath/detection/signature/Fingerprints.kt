@@ -3,7 +3,7 @@ package app.revanced.patches.photomath.detection.signature
 import com.android.tools.smali.dexlib2.Opcode
 import app.revanced.patcher.fingerprint
 
-internal val checkSignatureFingerprint = fingerprint {
+internal val checkSignatureFingerprint by fingerprint {
     opcodes(
         Opcode.CONST_STRING,
         Opcode.INVOKE_STATIC,

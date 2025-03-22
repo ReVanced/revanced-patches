@@ -13,9 +13,8 @@ import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
-import app.revanced.patches.shared.misc.mapping.get
+import app.revanced.patches.shared.misc.mapping.getResourceId
 import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
-import app.revanced.patches.shared.misc.mapping.resourceMappings
 import app.revanced.patches.shared.misc.settings.preference.*
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.playservice.*
@@ -26,35 +25,16 @@ import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.builder.MutableMethodImplementation
 import com.android.tools.smali.dexlib2.iface.Method
-import com.android.tools.smali.dexlib2.iface.instruction.NarrowLiteralInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
-import com.android.tools.smali.dexlib2.iface.reference.TypeReference
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethodParameter
 
-var floatyBarButtonTopMargin = -1L
-    private set
-
 // Only available in 19.15 and upwards.
-var ytOutlineXWhite24 = -1L
+internal var ytOutlineXWhite24 = -1L
     private set
-var ytOutlinePictureInPictureWhite24 = -1L
-    private set
-var scrimOverlay = -1L
-    private set
-var modernMiniplayerClose = -1L
-    private set
-var modernMiniplayerExpand = -1L
-    private set
-var modernMiniplayerRewindButton = -1L
-    private set
-var modernMiniplayerForwardButton = -1L
-    private set
-var playerOverlays = -1L
-    private set
-var miniplayerMaxSize = -1L
+internal var ytOutlinePictureInPictureWhite24 = -1L
     private set
 
 private val miniplayerResourcePatch = resourcePatch {
@@ -64,67 +44,24 @@ private val miniplayerResourcePatch = resourcePatch {
     )
 
     execute {
-        floatyBarButtonTopMargin = resourceMappings[
-            "dimen",
-            "floaty_bar_button_top_margin",
-        ]
-
-        scrimOverlay = resourceMappings[
-            "id",
-            "scrim_overlay",
-        ]
-
-        playerOverlays = resourceMappings[
-            "layout",
-            "player_overlays",
-        ]
-
-
-        modernMiniplayerClose = resourceMappings[
-            "id",
-            "modern_miniplayer_close",
-        ]
-
-        modernMiniplayerExpand = resourceMappings[
-            "id",
-            "modern_miniplayer_expand",
-        ]
-
-        modernMiniplayerRewindButton = resourceMappings[
-            "id",
-            "modern_miniplayer_rewind_button",
-        ]
-
-        modernMiniplayerForwardButton = resourceMappings[
-            "id",
-            "modern_miniplayer_forward_button",
-        ]
-
         // Resource id is not used during patching, but is used by extension.
         // Verify the resource is present while patching.
-        resourceMappings[
+        getResourceId(
             "id",
             "modern_miniplayer_subtitle_text",
-        ]
+        )
 
         // Only required for exactly 19.16
         if (!is_19_17_or_greater) {
-            ytOutlinePictureInPictureWhite24 = resourceMappings[
+            ytOutlinePictureInPictureWhite24 = getResourceId(
                 "drawable",
                 "yt_outline_picture_in_picture_white_24",
-            ]
+            )
 
-            ytOutlineXWhite24 = resourceMappings[
+            ytOutlineXWhite24 = getResourceId(
                 "drawable",
                 "yt_outline_x_white_24",
-            ]
-        }
-
-        if (is_19_26_or_greater) {
-            miniplayerMaxSize = resourceMappings[
-                "dimen",
-                "miniplayer_max_size",
-            ]
+            )
         }
     }
 }
@@ -161,7 +98,6 @@ val miniplayerPatch = bytecodePatch(
             // 19.30.39 // Modern 3 is less broken when double tap expand is enabled, but cannot swipe to expand when double tap is off.
             // 19.31.36 // All Modern 1 buttons are missing. Unusable.
             // 19.32.36 // 19.32+ and beyond all work without issues.
-            // 19.33.35
             "19.34.42",
             "19.43.41",
             "19.45.38",
@@ -177,17 +113,24 @@ val miniplayerPatch = bytecodePatch(
 
 
         preferences +=
-            if (is_19_43_or_greater) {
+            if (is_20_03_or_greater) {
                 ListPreference(
                     "revanced_miniplayer_type",
                     summaryKey = null,
+                )
+            } else if (is_19_43_or_greater) {
+                ListPreference(
+                    "revanced_miniplayer_type",
+                    summaryKey = null,
+                    entriesKey = "revanced_miniplayer_type_legacy_19_43_entries",
+                    entryValuesKey = "revanced_miniplayer_type_legacy_19_43_entry_values",
                 )
             } else {
                 ListPreference(
                     "revanced_miniplayer_type",
                     summaryKey = null,
-                    entriesKey = "revanced_miniplayer_type_legacy_entries",
-                    entryValuesKey = "revanced_miniplayer_type_legacy_entry_values",
+                    entriesKey = "revanced_miniplayer_type_legacy_19_16_entries",
+                    entryValuesKey = "revanced_miniplayer_type_legacy_19_16_entry_values",
                 )
             }
 
@@ -209,13 +152,13 @@ val miniplayerPatch = bytecodePatch(
         preferences += SwitchPreference("revanced_miniplayer_hide_subtext")
 
         preferences += if (is_19_26_or_greater) {
-            SwitchPreference("revanced_miniplayer_hide_expand_close")
+            SwitchPreference("revanced_miniplayer_hide_overlay_buttons")
         } else {
             SwitchPreference(
-                key = "revanced_miniplayer_hide_expand_close",
-                titleKey = "revanced_miniplayer_hide_expand_close_legacy_title",
-                summaryOnKey = "revanced_miniplayer_hide_expand_close_legacy_summary_on",
-                summaryOffKey = "revanced_miniplayer_hide_expand_close_legacy_summary_off",
+                key = "revanced_miniplayer_hide_overlay_buttons",
+                titleKey = "revanced_miniplayer_hide_overlay_buttons_legacy_title",
+                summaryOnKey = "revanced_miniplayer_hide_overlay_buttons_legacy_summary_on",
+                summaryOffKey = "revanced_miniplayer_hide_overlay_buttons_legacy_summary_off",
             )
         }
 
@@ -306,24 +249,6 @@ val miniplayerPatch = bytecodePatch(
             )
         }
 
-        fun MutableMethod.hookInflatedView(
-            literalValue: Long,
-            hookedClassType: String,
-            extensionMethodName: String,
-        ) {
-            val imageViewIndex = indexOfFirstInstructionOrThrow(
-                indexOfFirstLiteralInstructionOrThrow(literalValue),
-            ) {
-                opcode == Opcode.CHECK_CAST && getReference<TypeReference>()?.type == hookedClassType
-            }
-
-            val register = getInstruction<OneRegisterInstruction>(imageViewIndex).registerA
-            addInstruction(
-                imageViewIndex + 1,
-                "invoke-static { v$register }, $extensionMethodName",
-            )
-        }
-
         // region Enable tablet miniplayer.
 
         miniplayerOverrideNoContextFingerprint.match(
@@ -335,13 +260,15 @@ val miniplayerPatch = bytecodePatch(
         // endregion
 
         // region Legacy tablet miniplayer hooks.
-        val appNameStringIndex = miniplayerOverrideFingerprint.stringMatches!!.first().index + 2
-        navigate(miniplayerOverrideFingerprint.originalMethod).to(appNameStringIndex).stop().apply {
-            findReturnIndicesReversed().forEach { index -> insertLegacyTabletMiniplayerOverride(index) }
+        miniplayerOverrideFingerprint.let {
+            val appNameStringIndex = it.instructionMatches.last().index
+            navigate(it.originalMethod).to(appNameStringIndex).stop().apply {
+                findReturnIndicesReversed().forEach { index -> insertLegacyTabletMiniplayerOverride(index) }
+            }
         }
 
         miniplayerResponseModelSizeCheckFingerprint.let {
-            it.method.insertLegacyTabletMiniplayerOverride(it.patternMatch!!.endIndex)
+            it.method.insertLegacyTabletMiniplayerOverride(it.instructionMatches.last().index)
         }
 
         // endregion
@@ -365,7 +292,7 @@ val miniplayerPatch = bytecodePatch(
         if (is_19_23_or_greater) {
             miniplayerModernConstructorFingerprint.insertMiniplayerFeatureFlagBooleanOverride(
                 MINIPLAYER_DRAG_DROP_FEATURE_KEY,
-                "enableMiniplayerDragAndDrop",
+                "getMiniplayerDragAndDrop",
             )
         }
 
@@ -382,7 +309,7 @@ val miniplayerPatch = bytecodePatch(
 
             miniplayerModernConstructorFingerprint.insertMiniplayerFeatureFlagBooleanOverride(
                 MINIPLAYER_DOUBLE_TAP_FEATURE_KEY,
-                "enableMiniplayerDoubleTapAction",
+                "getMiniplayerDoubleTapAction",
             )
         }
 
@@ -392,36 +319,35 @@ val miniplayerPatch = bytecodePatch(
                     MINIPLAYER_INITIAL_SIZE_FEATURE_KEY,
                 )
                 val targetIndex = indexOfFirstInstructionOrThrow(literalIndex, Opcode.LONG_TO_INT)
-
                 val register = getInstruction<OneRegisterInstruction>(targetIndex).registerA
 
                 addInstructions(
                     targetIndex + 1,
                     """
-                        invoke-static { v$register }, $EXTENSION_CLASS_DESCRIPTOR->setMiniplayerDefaultSize(I)I
+                        invoke-static { v$register }, $EXTENSION_CLASS_DESCRIPTOR->getMiniplayerDefaultSize(I)I
                         move-result v$register
                     """,
                 )
             }
 
             // Override a minimum size constant.
-            miniplayerMinimumSizeFingerprint.method.apply {
-                val index = indexOfFirstInstructionOrThrow {
-                    opcode == Opcode.CONST_16 && (this as NarrowLiteralInstruction).narrowLiteral == 192
-                }
-                val register = getInstruction<OneRegisterInstruction>(index).registerA
+            miniplayerMinimumSizeFingerprint.let {
+                it.method.apply {
+                    val index = it.instructionMatches[1].index
+                    val register = getInstruction<OneRegisterInstruction>(index).registerA
 
-                // Smaller sizes can be used, but the miniplayer will always start in size 170 if set any smaller.
-                // The 170 initial limit probably could be patched to allow even smaller initial sizes,
-                // but 170 is already half the horizontal space and smaller does not seem useful.
-                replaceInstruction(index, "const/16 v$register, 170")
+                    // Smaller sizes can be used, but the miniplayer will always start in size 170 if set any smaller.
+                    // The 170 initial limit probably could be patched to allow even smaller initial sizes,
+                    // but 170 is already half the horizontal space and smaller does not seem useful.
+                    replaceInstruction(index, "const/16 v$register, 170")
+                }
             }
         }
 
         if (is_19_36_or_greater) {
             miniplayerModernConstructorFingerprint.insertMiniplayerFeatureFlagBooleanOverride(
                 MINIPLAYER_ROUNDED_CORNERS_FEATURE_KEY,
-                "setRoundedCorners",
+                "getRoundedCorners",
             )
         }
 
@@ -433,7 +359,12 @@ val miniplayerPatch = bytecodePatch(
 
             miniplayerModernConstructorFingerprint.insertMiniplayerFeatureFlagBooleanOverride(
                 MINIPLAYER_HORIZONTAL_DRAG_FEATURE_KEY,
-                "setHorizontalDrag",
+                "getHorizontalDrag",
+            )
+
+            miniplayerModernConstructorFingerprint.insertMiniplayerFeatureFlagBooleanOverride(
+                MINIPLAYER_ANIMATED_EXPAND_FEATURE_KEY,
+                "getMaximizeAnimation",
             )
         }
 
@@ -442,7 +373,7 @@ val miniplayerPatch = bytecodePatch(
         // region Fix 19.16 using mixed up drawables for tablet modern.
         // YT fixed this mistake in 19.17.
         // Fix this, by swapping the drawable resource values with each other.
-        if (ytOutlinePictureInPictureWhite24 >= 0) {
+        if (!is_19_17_or_greater) {
             miniplayerModernExpandCloseDrawablesFingerprint.match(
                 miniplayerModernViewParentFingerprint.originalClassDef,
             ).method.apply {
@@ -463,39 +394,24 @@ val miniplayerPatch = bytecodePatch(
         // region Add hooks to hide modern miniplayer buttons.
 
         listOf(
-            Triple(
-                miniplayerModernExpandButtonFingerprint,
-                modernMiniplayerExpand,
-                "hideMiniplayerExpandClose",
-            ),
-            Triple(
-                miniplayerModernCloseButtonFingerprint,
-                modernMiniplayerClose,
-                "hideMiniplayerExpandClose",
-            ),
-            Triple(
-                miniplayerModernRewindButtonFingerprint,
-                modernMiniplayerRewindButton,
-                "hideMiniplayerRewindForward",
-            ),
-            Triple(
-                miniplayerModernForwardButtonFingerprint,
-                modernMiniplayerForwardButton,
-                "hideMiniplayerRewindForward",
-            ),
-            Triple(
-                miniplayerModernOverlayViewFingerprint,
-                scrimOverlay,
-                "adjustMiniplayerOpacity",
-            ),
-        ).forEach { (fingerprint, literalValue, methodName) ->
+            miniplayerModernExpandButtonFingerprint to "hideMiniplayerExpandClose",
+            miniplayerModernCloseButtonFingerprint to "hideMiniplayerExpandClose",
+            miniplayerModernActionButtonFingerprint to "hideMiniplayerActionButton",
+            miniplayerModernRewindButtonFingerprint to "hideMiniplayerRewindForward",
+            miniplayerModernForwardButtonFingerprint to "hideMiniplayerRewindForward",
+            miniplayerModernOverlayViewFingerprint to "adjustMiniplayerOpacity"
+        ).forEach { (fingerprint, methodName) ->
             fingerprint.match(
                 miniplayerModernViewParentFingerprint.classDef,
-            ).method.hookInflatedView(
-                literalValue,
-                "Landroid/widget/ImageView;",
-                "$EXTENSION_CLASS_DESCRIPTOR->$methodName(Landroid/widget/ImageView;)V",
-            )
+            ).method.apply {
+                val index = fingerprint.instructionMatches.last().index
+                val register = getInstruction<OneRegisterInstruction>(index).registerA
+
+                addInstruction(
+                    index + 1,
+                    "invoke-static { v$register }, $EXTENSION_CLASS_DESCRIPTOR->$methodName(Landroid/view/View;)V",
+                )
+            }
         }
 
         miniplayerModernAddViewListenerFingerprint.match(
@@ -510,33 +426,40 @@ val miniplayerPatch = bytecodePatch(
         // Modern 2 uses the same overlay controls as the regular video player,
         // and the overlay views are added at runtime.
         // Add a hook to the overlay class, and pass the added views to extension.
+        // Problem is fixed in 19.21+
         //
         // NOTE: Modern 2 uses the same video UI as the regular player except resized to smaller.
         // This patch code could be used to hide other player overlays that do not use Litho.
-        playerOverlaysLayoutFingerprint.classDef.methods.add(
-            ImmutableMethod(
-                YOUTUBE_PLAYER_OVERLAYS_LAYOUT_CLASS_NAME,
-                "addView",
-                listOf(
-                    ImmutableMethodParameter("Landroid/view/View;", null, null),
-                    ImmutableMethodParameter("I", null, null),
-                    ImmutableMethodParameter("Landroid/view/ViewGroup\$LayoutParams;", null, null),
-                ),
-                "V",
-                AccessFlags.PUBLIC.value,
-                null,
-                null,
-                MutableMethodImplementation(4),
-            ).toMutable().apply {
-                addInstructions(
-                    """
+        if (!is_19_17_or_greater) {
+            playerOverlaysLayoutFingerprint.classDef.methods.add(
+                ImmutableMethod(
+                    YOUTUBE_PLAYER_OVERLAYS_LAYOUT_CLASS_NAME,
+                    "addView",
+                    listOf(
+                        ImmutableMethodParameter("Landroid/view/View;", null, null),
+                        ImmutableMethodParameter("I", null, null),
+                        ImmutableMethodParameter(
+                            "Landroid/view/ViewGroup\$LayoutParams;",
+                            null,
+                            null
+                        ),
+                    ),
+                    "V",
+                    AccessFlags.PUBLIC.value,
+                    null,
+                    null,
+                    MutableMethodImplementation(4),
+                ).toMutable().apply {
+                    addInstructions(
+                        """
                         invoke-super { p0, p1, p2, p3 }, Landroid/view/ViewGroup;->addView(Landroid/view/View;ILandroid/view/ViewGroup${'$'}LayoutParams;)V
                         invoke-static { p1 }, $EXTENSION_CLASS_DESCRIPTOR->playerOverlayGroupCreated(Landroid/view/View;)V
                         return-void
                     """
-                )
-            }
-        )
+                    )
+                }
+            )
+        }
 
         // endregion
     }

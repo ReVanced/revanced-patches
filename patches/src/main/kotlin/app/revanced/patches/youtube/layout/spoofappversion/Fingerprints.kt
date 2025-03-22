@@ -1,31 +1,28 @@
 package app.revanced.patches.youtube.layout.spoofappversion
 
+import app.revanced.patcher.fieldAccess
 import app.revanced.patcher.fingerprint
-import app.revanced.util.containsLiteralInstruction
-import app.revanced.util.getReference
-import app.revanced.util.indexOfFirstInstruction
+import app.revanced.patcher.methodCall
+import app.revanced.patcher.opcode
+import app.revanced.patches.shared.misc.mapping.resourceLiteral
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
-import com.android.tools.smali.dexlib2.iface.Method
-import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
-internal val toolBarButtonFingerprint = fingerprint {
+internal val toolBarButtonFingerprint by fingerprint {
     returns("V")
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     parameters("Landroid/view/MenuItem;")
-    custom { method, _ ->
-        method.containsLiteralInstruction(menuItemView) &&
-                indexOfGetDrawableInstruction(method) >= 0
-    }
+    instructions(
+        resourceLiteral("id", "menu_item_view"),
+        methodCall(returnType = "I", opcode = Opcode.INVOKE_INTERFACE),
+        opcode(Opcode.MOVE_RESULT, maxAfter = 0), // Value is zero if resource does not exist.
+        fieldAccess(type = "Landroid/widget/ImageView;", opcode = Opcode.IGET_OBJECT, maxAfter = 6),
+        methodCall("Landroid/content/res/Resources;", "getDrawable", maxAfter = 8),
+        methodCall("Landroid/widget/ImageView;", "setImageDrawable", maxAfter = 4)
+    )
 }
 
-internal fun indexOfGetDrawableInstruction(method: Method) = method.indexOfFirstInstruction {
-    val reference = getReference<MethodReference>()
-    reference?.definingClass == "Landroid/content/res/Resources;" &&
-            reference.name == "getDrawable"
-}
-
-internal val spoofAppVersionFingerprint = fingerprint {
+internal val spoofAppVersionFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
     returns("L")
     parameters("L")

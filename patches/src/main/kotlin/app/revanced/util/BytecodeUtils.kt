@@ -11,9 +11,8 @@ import app.revanced.patcher.patch.BytecodePatchContext
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.util.proxy.mutableTypes.MutableClass
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
-import app.revanced.patches.shared.misc.mapping.get
+import app.revanced.patches.shared.misc.mapping.getResourceId
 import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
-import app.revanced.patches.shared.misc.mapping.resourceMappings
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.Method
 import com.android.tools.smali.dexlib2.iface.instruction.Instruction
@@ -104,7 +103,7 @@ internal fun MutableMethod.addInstructionsAtControlFlowLabel(
  * @see [indexOfFirstResourceIdOrThrow], [indexOfFirstLiteralInstructionReversed]
  */
 fun Method.indexOfFirstResourceId(resourceName: String): Int {
-    val resourceId = resourceMappings["id", resourceName]
+    val resourceId = getResourceId("id", resourceName)
     return indexOfFirstLiteralInstruction(resourceId)
 }
 
@@ -145,7 +144,57 @@ fun Method.indexOfFirstLiteralInstruction(literal: Long) = implementation?.let {
  */
 fun Method.indexOfFirstLiteralInstructionOrThrow(literal: Long): Int {
     val index = indexOfFirstLiteralInstruction(literal)
-    if (index < 0) throw PatchException("Could not find literal value: $literal")
+    if (index < 0) throw PatchException("Could not find literal long: $literal")
+    return index
+}
+
+/**
+ * Find the index of the first literal instruction with the given float value.
+ *
+ * @return the first literal instruction with the value, or -1 if not found.
+ * @see indexOfFirstLiteralInstructionOrThrow
+ */
+fun Method.indexOfFirstLiteralInstruction(literal: Float) = implementation?.let {
+    val floatBits = literal.toRawBits().toLong()
+    it.instructions.indexOfFirst { instruction ->
+        (instruction as? WideLiteralInstruction)?.wideLiteral == floatBits
+    }
+} ?: -1
+
+/**
+ * Find the index of the first literal instruction with the given float value,
+ * or throw an exception if not found.
+ *
+ * @return the first literal instruction with the value, or throws [PatchException] if not found.
+ */
+fun Method.indexOfFirstLiteralInstructionOrThrow(literal: Float): Int {
+    val index = indexOfFirstLiteralInstruction(literal)
+    if (index < 0) throw PatchException("Could not find literal float: $literal")
+    return index
+}
+
+/**
+ * Find the index of the first literal instruction with the given double value.
+ *
+ * @return the first literal instruction with the value, or -1 if not found.
+ * @see indexOfFirstLiteralInstructionOrThrow
+ */
+fun Method.indexOfFirstLiteralInstruction(literal: Double) = implementation?.let {
+    val floatBits = literal.toRawBits().toLong()
+    it.instructions.indexOfFirst { instruction ->
+        (instruction as? WideLiteralInstruction)?.wideLiteral == floatBits
+    }
+} ?: -1
+
+/**
+ * Find the index of the first literal instruction with the given double value,
+ * or throw an exception if not found.
+ *
+ * @return the first literal instruction with the value, or throws [PatchException] if not found.
+ */
+fun Method.indexOfFirstLiteralInstructionOrThrow(literal: Double): Int {
+    val index = indexOfFirstLiteralInstruction(literal)
+    if (index < 0) throw PatchException("Could not find literal double: $literal")
     return index
 }
 
@@ -191,7 +240,7 @@ fun BytecodePatchContext.traverseClassHierarchy(targetClass: MutableClass, callb
 
     targetClass.superclass ?: return
 
-    classBy { targetClass.superclass == it.type }?.mutableClass?.let {
+    mutableClassByOrNull(targetClass.superclass!!)?.let {
         traverseClassHierarchy(it, callback)
     }
 }
@@ -395,6 +444,10 @@ fun Method.findInstructionIndicesReversedOrThrow(opcode: Opcode): List<Int> {
 
 internal fun MutableMethod.insertFeatureFlagBooleanOverride(literal: Long, extensionsMethod: String) {
     val literalIndex = indexOfFirstLiteralInstructionOrThrow(literal)
+    insertFeatureFlagBooleanOverride(literalIndex, extensionsMethod)
+}
+
+internal fun MutableMethod.insertFeatureFlagBooleanOverride(literalIndex: Int, extensionsMethod: String) {
     val index = indexOfFirstInstructionOrThrow(literalIndex, Opcode.MOVE_RESULT)
     val register = getInstruction<OneRegisterInstruction>(index).registerA
 
@@ -426,7 +479,7 @@ fun BytecodePatchContext.forEachLiteralValueInstruction(
                 if (instruction.opcode == Opcode.CONST &&
                     (instruction as WideLiteralInstruction).wideLiteral == literal
                 ) {
-                    val mutableMethod = proxy(classDef).mutableClass.findMutableMethodOf(method)
+                    val mutableMethod = mutableClassBy(classDef).findMutableMethodOf(method)
                     block.invoke(mutableMethod, index)
                 }
             }
@@ -465,7 +518,7 @@ fun MutableMethod.returnEarly(bool: Boolean = false) {
  *
  * @param literalSupplier The supplier for the literal value to check for.
  */
-// TODO: add a way for subclasses to also use their own custom fingerprint.
+@Deprecated("Instead use instruction filters and `literal()`")
 fun FingerprintBuilder.literal(literalSupplier: () -> Long) {
     custom { method, _ ->
         method.containsLiteralInstruction(literalSupplier())

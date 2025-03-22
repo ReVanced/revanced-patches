@@ -1,10 +1,11 @@
 package app.revanced.patches.youtube.layout.returnyoutubedislike
 
 import app.revanced.patcher.fingerprint
+import app.revanced.patcher.string
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal val conversionContextFingerprint = fingerprint {
+internal val conversionContextFingerprint by fingerprint {
     returns("Ljava/lang/String;")
     parameters()
     strings(
@@ -16,22 +17,28 @@ internal val conversionContextFingerprint = fingerprint {
     )
 }
 
-internal val dislikeFingerprint = fingerprint {
+internal val dislikeFingerprint by fingerprint {
     returns("V")
-    strings("like/dislike")
+    instructions(
+        string("like/dislike")
+    )
 }
 
-internal val likeFingerprint = fingerprint {
+internal val likeFingerprint by fingerprint {
     returns("V")
-    strings("like/like")
+    instructions(
+        string("like/like")
+    )
 }
 
-internal val removeLikeFingerprint = fingerprint {
+internal val removeLikeFingerprint by fingerprint {
     returns("V")
-    strings("like/removelike")
+    instructions(
+        string("like/removelike")
+    )
 }
 
-internal val rollingNumberMeasureAnimatedTextFingerprint = fingerprint {
+internal val rollingNumberMeasureAnimatedTextFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
     returns("Lj\$/util/Optional;")
     parameters("L", "Ljava/lang/String;", "L")
@@ -52,7 +59,7 @@ internal val rollingNumberMeasureAnimatedTextFingerprint = fingerprint {
 /**
  * Matches to class found in [rollingNumberMeasureStaticLabelParentFingerprint].
  */
-internal val rollingNumberMeasureStaticLabelFingerprint = fingerprint {
+internal val rollingNumberMeasureStaticLabelFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("F")
     parameters("Ljava/lang/String;")
@@ -64,14 +71,16 @@ internal val rollingNumberMeasureStaticLabelFingerprint = fingerprint {
     )
 }
 
-internal val rollingNumberMeasureStaticLabelParentFingerprint = fingerprint {
+internal val rollingNumberMeasureStaticLabelParentFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("Ljava/lang/String;")
     parameters()
-    strings("RollingNumberFontProperties{paint=")
+    instructions(
+        string("RollingNumberFontProperties{paint=")
+    )
 }
 
-internal val rollingNumberSetterFingerprint = fingerprint {
+internal val rollingNumberSetterFingerprint by fingerprint {
     opcodes(
         Opcode.INVOKE_DIRECT,
         Opcode.IGET_OBJECT,
@@ -80,7 +89,7 @@ internal val rollingNumberSetterFingerprint = fingerprint {
     strings("RollingNumberType required properties missing! Need")
 }
 
-internal val rollingNumberTextViewFingerprint = fingerprint {
+internal val rollingNumberTextViewFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("V")
     parameters("L", "F", "F")
@@ -98,15 +107,19 @@ internal val rollingNumberTextViewFingerprint = fingerprint {
     }
 }
 
-internal val textComponentConstructorFingerprint = fingerprint {
+internal val textComponentConstructorFingerprint by fingerprint {
     accessFlags(AccessFlags.CONSTRUCTOR, AccessFlags.PRIVATE)
-    strings("TextComponent")
+    instructions(
+        string("TextComponent")
+    )
 }
 
-internal val textComponentDataFingerprint = fingerprint {
+internal val textComponentDataFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     parameters("L", "L")
-    strings("text")
+    instructions(
+        string("text")
+    )
     custom { _, classDef ->
         classDef.fields.find { it.type == "Ljava/util/BitSet;" } != null
     }
@@ -115,9 +128,11 @@ internal val textComponentDataFingerprint = fingerprint {
 /**
  * Matches against the same class found in [textComponentConstructorFingerprint].
  */
-internal val textComponentLookupFingerprint = fingerprint {
+internal val textComponentLookupFingerprint by fingerprint {
     accessFlags(AccessFlags.PROTECTED, AccessFlags.FINAL)
     returns("L")
     parameters("L")
-    strings("…")
+    instructions(
+        string("…")
+    )
 }
