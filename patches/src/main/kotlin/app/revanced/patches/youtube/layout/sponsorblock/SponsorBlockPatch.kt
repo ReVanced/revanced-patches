@@ -89,6 +89,7 @@ val sponsorBlockPatch = bytecodePatch(
 ) {
     dependsOn(
         sharedExtensionPatch,
+        resourceMappingPatch,
         videoIdPatch,
         // Required to skip segments on time.
         videoInformationPatch,

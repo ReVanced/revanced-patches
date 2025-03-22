@@ -45,7 +45,7 @@ val hideSeekbarPatch = bytecodePatch(
             SwitchPreference("revanced_hide_seekbar_thumbnail"),
         )
 
-        seekbarOnDrawFingerprint.match(seekbarFingerprint.originalClassDef).method.addInstructionsWithLabels(
+        seekbarOnDrawFingerprint.match(seekbarFingerprint.classDef).method.addInstructionsWithLabels(
             0,
             """
                 invoke-static { }, $EXTENSION_CLASS_DESCRIPTOR->hideSeekbar()Z
