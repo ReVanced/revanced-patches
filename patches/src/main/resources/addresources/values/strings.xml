@@ -1334,7 +1334,7 @@ Tap here to learn more about DeArrow"</string>
             <string name="revanced_spoof_device_dimensions_title">Spoof device dimensions</string>
             <string name="revanced_spoof_device_dimensions_summary_on">"Device dimensions spoofed
 
-Higher video qualities might be unlocked, but you may experience video playback stuttering, worse battery life, and unknown side effects"</string>
+Higher video qualities might be unlocked but you may experience video playback stuttering, worse battery life, and unknown side effects"</string>
             <string name="revanced_spoof_device_dimensions_summary_off">"Device dimensions not spoofed
 
 Enabling this can unlock higher video qualities"</string>
