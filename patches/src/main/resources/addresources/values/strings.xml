@@ -990,7 +990,7 @@ This feature works best with a video quality of 720p or lower and when using a v
             <string name="revanced_sb_settings_export_failed">Failed to export: %s</string>
             <string name="revanced_sb_settings_revanced_export_user_id_warning">"Your settings contain a private SponsorBlock userid.
 
-Your user id is like a password, and it should never be shared.
+Your user id is like a password and it should never be shared.
 "</string>
             <string name="revanced_sb_settings_revanced_export_user_id_warning_dismiss">Do not show again</string>
             <string name="revanced_sb_diff_segments">Change segment behavior</string>
