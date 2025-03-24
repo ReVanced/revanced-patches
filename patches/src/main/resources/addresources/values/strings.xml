@@ -321,9 +321,12 @@ You will not be notified of any unexpected events."</string>
 
             <string name="revanced_comments_screen_title">Comments</string>
             <string name="revanced_comments_screen_summary">Hide or show comments section components</string>
-            <string name="revanced_hide_comments_chat_summary_title">Hide \'Chat summary\'</string>
-            <string name="revanced_hide_comments_chat_summary_summary_on">Chat summary is hidden</string>
-            <string name="revanced_hide_comments_chat_summary_summary_off">Chat summary is shown</string>
+            <string name="revanced_hide_comments_ai_chat_summary_title">Hide AI Chat summary</string>
+            <string name="revanced_hide_comments_ai_chat_summary_summary_on">Chat summary is hidden</string>
+            <string name="revanced_hide_comments_ai_chat_summary_summary_off">Chat summary is shown</string>
+            <string name="revanced_hide_comments_ai_summary_title">Hide AI Comments summary</string>
+            <string name="revanced_hide_comments_ai_summary_summary_on">Comments summary is hidden</string>
+            <string name="revanced_hide_comments_ai_summary_summary_off">Comments summary is shown</string>
             <string name="revanced_hide_comments_by_members_header_title">Hide \'Comments by members\' header</string>
             <string name="revanced_hide_comments_by_members_header_summary_on">Comments by members header is hidden</string>
             <string name="revanced_hide_comments_by_members_header_summary_off">Comments by members header is shown</string>
