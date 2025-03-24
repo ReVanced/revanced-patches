@@ -19,7 +19,6 @@ import android.widget.Toolbar;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
@@ -139,11 +138,13 @@ public class ReVancedPreferenceFragment extends AbstractPreferenceFragment {
                                     .findViewById(android.R.id.content)
                                     .getParent();
 
-                            // Fix required for Android 15 and YT 19.45+
+                            // Fix edge-to-edge screen with Android 15 and YT 19.45+
+                            // https://developer.android.com/develop/ui/views/layout/edge-to-edge#system-bars-insets
                             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
                                 rootView.setOnApplyWindowInsetsListener((v, insets) -> {
                                     Insets statusInsets = insets.getInsets(WindowInsets.Type.statusBars());
-                                    v.setPadding(0, statusInsets.top, 0, 0);
+                                    Insets navInsets = insets.getInsets(WindowInsets.Type.navigationBars());
+                                    v.setPadding(0, statusInsets.top, 0, navInsets.bottom);
                                     return insets;
                                 });
                             }
