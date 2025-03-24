@@ -154,7 +154,8 @@ val hideLayoutComponentsPatch = bytecodePatch(
             PreferenceScreenPreference(
                 "revanced_comments_screen",
                 preferences = setOf(
-                    SwitchPreference("revanced_hide_comments_chat_summary"),
+                    SwitchPreference("revanced_hide_comments_ai_chat_summary"),
+                    SwitchPreference("revanced_hide_comments_ai_summary"),
                     SwitchPreference("revanced_hide_comments_by_members_header"),
                     SwitchPreference("revanced_hide_comments_section"),
                     SwitchPreference("revanced_hide_comments_create_a_short_button"),
