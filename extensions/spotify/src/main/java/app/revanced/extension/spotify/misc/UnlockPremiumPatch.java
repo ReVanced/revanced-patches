@@ -33,7 +33,7 @@ public final class UnlockPremiumPatch {
             // Changes the playlist type from mobile freetier.
             "catalogue", "premium",
             // Set the app's product state type.
-            "financial-product", "pr:premium,tc:0",
+            "financial-product", "pr:premium,tc:0"
     );
 
     public static void overrideAttribute(Map<String, AccountAttribute> attributes) {
