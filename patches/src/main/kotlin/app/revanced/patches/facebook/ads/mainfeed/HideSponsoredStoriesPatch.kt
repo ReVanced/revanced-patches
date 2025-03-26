@@ -14,7 +14,7 @@ import com.android.tools.smali.dexlib2.immutable.ImmutableMethodParameter
 val hideSponsoredStoriesPatch = bytecodePatch(
     name = "Hide 'Sponsored Stories'",
 ) {
-    compatibleWith("com.facebook.katana")
+    compatibleWith("com.facebook.katana"("490.0.0.63.82"))
 
     execute {
         val sponsoredDataModelTemplateMethod = getSponsoredDataModelTemplateFingerprint.originalMethod
