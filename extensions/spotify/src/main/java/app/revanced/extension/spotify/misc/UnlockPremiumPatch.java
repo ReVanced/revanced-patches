@@ -29,8 +29,9 @@ public final class UnlockPremiumPatch {
     );
 
     public static void overrideAttribute(Map<String, AccountAttribute> attributes) {
-        for (var key : OVERRIDES.keySet()) {
-            Objects.requireNonNull(attributes.get(key)).value_ = OVERRIDES.get(key);
+        for (var entry : OVERRIDES.entrySet()) {
+            var attribute = Objects.requireNonNull(attributes.get(entry.getKey()));
+            attribute.value_ = entry.getValue();
         }
     }
 }
