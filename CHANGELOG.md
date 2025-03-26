@@ -1,3 +1,10 @@
+## [5.16.2-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.16.1...v5.16.2-dev.1) (2025-03-26)
+
+
+### Bug Fixes
+
+* **Facebook - Hide 'Sponsored Stories':** Constrain patch to latest compatible version ([#4657](https://github.com/ReVanced/revanced-patches/issues/4657)) ([46bd1c8](https://github.com/ReVanced/revanced-patches/commit/46bd1c829acd5f83600025e0ceb7d482ae80be69))
+
 ## [5.16.1](https://github.com/ReVanced/revanced-patches/compare/v5.16.0...v5.16.1) (2025-03-26)
 
 
