@@ -18,6 +18,8 @@ public final class UnlockPremiumPatch {
             "shuffle", false,
             // Allows playing any song on-demand, without a shuffled order.
             "on-demand", true,
+            // Make sure playing songs is not disabled remotely and playlists show up.
+            "streaming", true,
             // Allows adding songs to queue and removes the smart shuffle mode restriction, 
             // allowing to pick any of the other modes.
             "pick-and-shuffle", false,
