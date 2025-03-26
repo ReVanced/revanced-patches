@@ -230,6 +230,9 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_hide_artist_cards_title">아티스트 카드 숨기기</string>
   <string name="revanced_hide_artist_cards_summary_on">아티스트 카드가 숨겨집니다</string>
   <string name="revanced_hide_artist_cards_summary_off">아티스트 카드가 표시됩니다</string>
+  <string name="revanced_hide_ai_generated_video_summary_section_title">AI 생성 동영상 요약 섹션 숨기기</string>
+  <string name="revanced_hide_ai_generated_video_summary_section_summary_on">AI 생성 동영상 요약 섹션이 숨겨집니다</string>
+  <string name="revanced_hide_ai_generated_video_summary_section_summary_off">AI 생성 동영상 요약 섹션이 표시됩니다</string>
   <string name="revanced_hide_attributes_section_title">속성 섹션 숨기기</string>
   <string name="revanced_hide_attributes_section_summary_on">게임, 음악, 동영상 속 장소 그리고 언급된 인물 섹션이 숨겨집니다</string>
   <string name="revanced_hide_attributes_section_summary_off">게임, 음악, 동영상 속 장소 그리고 언급된 인물 섹션이 표시됩니다</string>
@@ -266,9 +269,12 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">플레이어 하단에 있는 관련 동영상에서 카테고리 바가 표시됩니다</string>
   <string name="revanced_comments_screen_title">댓글</string>
   <string name="revanced_comments_screen_summary">댓글 섹션에서 구성요소가 숨기거나 표시할 수 있습니다</string>
-  <string name="revanced_hide_comments_chat_summary_title">실시간 채팅에서 채팅 요약 숨기기</string>
-  <string name="revanced_hide_comments_chat_summary_summary_on">채팅 요약이 숨겨집니다</string>
-  <string name="revanced_hide_comments_chat_summary_summary_off">채팅 요약이 표시됩니다</string>
+  <string name="revanced_hide_comments_ai_chat_summary_title">AI 채팅 요약 숨기기</string>
+  <string name="revanced_hide_comments_ai_chat_summary_summary_on">AI 채팅 요약이 숨겨집니다</string>
+  <string name="revanced_hide_comments_ai_chat_summary_summary_off">AI 채팅 요약이 표시됩니다</string>
+  <string name="revanced_hide_comments_ai_summary_title">AI 댓글 요약 숨기기</string>
+  <string name="revanced_hide_comments_ai_summary_summary_on">AI 댓글 요약이 숨겨집니다</string>
+  <string name="revanced_hide_comments_ai_summary_summary_off">AI 댓글 요약이 표시됩니다</string>
   <string name="revanced_hide_comments_by_members_header_title">회원별 댓글 헤더 숨기기</string>
   <string name="revanced_hide_comments_by_members_header_summary_on">회원별 댓글 헤더가 숨겨집니다</string>
   <string name="revanced_hide_comments_by_members_header_summary_off">회원별 댓글 헤더가 표시됩니다</string>
@@ -315,7 +321,7 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_hide_keyword_content_subscriptions_summary_on">구독 탭에서 키워드 필터를 활성화합니다</string>
   <string name="revanced_hide_keyword_content_subscriptions_summary_off">구독 탭에서 키워드 필터를 비활성화합니다</string>
   <string name="revanced_hide_keyword_content_phrases_title">키워드 필터</string>
-  <!-- For localization it is preferred, but not required, if 'LeBlanc' is replaced with a localized name or a familiar word that has upper case letters in the middle of the word.
+  <!-- For localization, it is preferred, but not required, if 'LeBlanc' is replaced with a localized name or a familiar word that has upper case letters in the middle of the word.
                  This is because keywords can be in any language, and showing an example in the localized script helps convey this. -->
   <string name="revanced_hide_keyword_content_phrases_summary">"필터링할 키워드 및 구문을 줄바꿈으로 구분하여 설정합니다
 
@@ -329,7 +335,7 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
 • 일부 화면 구성요소는 숨겨지지 않을 수 있습니다
 • 필터링 키워드를 검색하면 검색 결과가 표시되지 않을 수 있습니다"</string>
   <string name="revanced_hide_keyword_content_about_whole_words_title">전체 단어 일치시키기</string>
-  <!-- Translations _must_ use a localized example.  For languages that do not use spaces between words (Chinese, Japanese, etc) the English AI example should be used since no localized examples exist.  Or if using machine translations, or if nobody wants to think of a localized example, then the English 'ai' example should be left as-is. -->
+  <!-- Translations _must_ use a localized example.  For languages that do not use spaces between words (Chinese, Japanese, etc.) the English AI example should be used since no localized examples exist.  Or if using machine translations, or if nobody wants to think of a localized example, then the English 'ai' example should be left as-is. -->
   <string name="revanced_hide_keyword_content_about_whole_words_summary">필터링할 키워드 및 구문을 큰따옴표로 묶으면 동영상 제목과 채널 이름이 부분적으로 일치하지 않도록 방지할 수 있습니다&lt;br&gt;&lt;br&gt;• 예를 들어, &lt;b&gt;\"ai\"&lt;/b&gt;라는 키워드로 &lt;b&gt;AI 커리어 완벽 가이드&lt;/b&gt;라는 동영상을 숨길 수 있지만, &lt;b&gt;생성형AI가 바꿔놓은 세계&lt;/b&gt; 또는 &lt;b&gt;What does fair use mean?&lt;/b&gt;라는 동영상은 숨길 수 없습니다&lt;br&gt;• 그리고 구두점을 단어의 경계로 간주하기 때문에 &lt;b&gt;인공지능(AI)의 원리&lt;/b&gt;라는 동영상은 숨길 수 있습니다. 큰따옴표는 다른 단어 내부의 하위 문자열만 무시합니다 (예: &lt;b&gt;fair&lt;/b&gt;는 숨길 수 없지만, &lt;b&gt;f(ai)r&lt;/b&gt;는 숨김)</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_hide_keyword_toast_invalid_common">키워드를 사용할 수 없습니다: %s</string>
@@ -1390,7 +1396,7 @@ AVC의 최대 화질 값은 1080p이고, OPUS 코덱을 사용불가 및 HDR 동
   <string name="revanced_spoof_streaming_data_stats_for_nerds_title">전문 통계에서 표시하기</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">스트리밍 데이터를 가져오는 데 사용되는 클라이언트가 전문 통계에서 표시됩니다</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">스트리밍 데이터를 가져오는 데 사용되는 클라이언트가 전문 통계에서 표시되지 않습니다</string>
-  <string name="revanced_spoof_video_streams_language_title">Android VR 기본 오디오 스트림 언어</string>
+  <string name="revanced_spoof_video_streams_language_title">VR 기본 오디오 스트림 언어</string>
   </patch>
   </app>
   <app id="twitch">

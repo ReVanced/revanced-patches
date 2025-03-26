@@ -226,6 +226,9 @@ Anda tidak akan diberi tahu tentang kejadian yang tidak terduga."</string>
   <string name="revanced_hide_artist_cards_title">Sembunyikan kartu artis</string>
   <string name="revanced_hide_artist_cards_summary_on">Kartu artis disembunyikan</string>
   <string name="revanced_hide_artist_cards_summary_off">Kartu artis ditampilkan</string>
+  <string name="revanced_hide_ai_generated_video_summary_section_title">Sembunyikan \'Ringkasan video yang dibuat AI\'</string>
+  <string name="revanced_hide_ai_generated_video_summary_section_summary_on">Bagian ringkasan video disembunyikan</string>
+  <string name="revanced_hide_ai_generated_video_summary_section_summary_off">Bagian ringkasan video ditampilkan</string>
   <string name="revanced_hide_attributes_section_title">Sembunyikan Atribut</string>
   <string name="revanced_hide_attributes_section_summary_on">Bagian tempat Unggulan, Game, Musik, dan disebutkan Orang disembunyikan</string>
   <string name="revanced_hide_attributes_section_summary_off">Bagian tempat Unggulan, Game, Musik, dan disebutkan Orang ditampilkan</string>
@@ -262,9 +265,12 @@ Anda tidak akan diberi tahu tentang kejadian yang tidak terduga."</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">Ditampilkan di video terkait</string>
   <string name="revanced_comments_screen_title">Komentar</string>
   <string name="revanced_comments_screen_summary">Sembunyikan atau tampilkan komponen bagian komentar</string>
-  <string name="revanced_hide_comments_chat_summary_title">Sembunyikan \'Ringkasan obrolan\'</string>
-  <string name="revanced_hide_comments_chat_summary_summary_on">Ringkasan obrolan disembunyikan</string>
-  <string name="revanced_hide_comments_chat_summary_summary_off">Ringkasan obrolan ditampilkan</string>
+  <string name="revanced_hide_comments_ai_chat_summary_title">Sembunyikan ringkasan Obrolan AI</string>
+  <string name="revanced_hide_comments_ai_chat_summary_summary_on">Ringkasan obrolan disembunyikan</string>
+  <string name="revanced_hide_comments_ai_chat_summary_summary_off">Ringkasan obrolan ditampilkan</string>
+  <string name="revanced_hide_comments_ai_summary_title">Sembunyikan ringkasan Komentar AI</string>
+  <string name="revanced_hide_comments_ai_summary_summary_on">Ringkasan komentar disembunyikan</string>
+  <string name="revanced_hide_comments_ai_summary_summary_off">Ringkasan komentar ditampilkan</string>
   <string name="revanced_hide_comments_by_members_header_title">Sembunyikan header \'Komentar oleh anggota\'</string>
   <string name="revanced_hide_comments_by_members_header_summary_on">Header Komentar oleh anggota disembunyikan</string>
   <string name="revanced_hide_comments_by_members_header_summary_off">Header Komentar oleh anggota ditampilkan</string>
@@ -311,7 +317,7 @@ Jika Doodle saat ini ditampilkan di wilayah Anda dan pengaturan penyembunyi ini 
   <string name="revanced_hide_keyword_content_subscriptions_summary_on">Video di tab langganan disaring berdasarkan kata kunci</string>
   <string name="revanced_hide_keyword_content_subscriptions_summary_off">Video di tab langganan tidak disaring berdasarkan kata kunci</string>
   <string name="revanced_hide_keyword_content_phrases_title">Kata kunci yang ingin disembunyikan</string>
-  <!-- For localization it is preferred, but not required, if 'LeBlanc' is replaced with a localized name or a familiar word that has upper case letters in the middle of the word.
+  <!-- For localization, it is preferred, but not required, if 'LeBlanc' is replaced with a localized name or a familiar word that has upper case letters in the middle of the word.
                  This is because keywords can be in any language, and showing an example in the localized script helps convey this. -->
   <string name="revanced_hide_keyword_content_phrases_summary">"Kata kunci dan frasa yang akan disembunyikan, dipisahkan oleh baris baru
 
@@ -326,7 +332,7 @@ Keterbatasan
 • Beberapa komponen UI mungkin tidak disembunyikan
 • Pencarian kata kunci mungkin tidak menampilkan hasil"</string>
   <string name="revanced_hide_keyword_content_about_whole_words_title">Cocokkan seluruh kata</string>
-  <!-- Translations _must_ use a localized example.  For languages that do not use spaces between words (Chinese, Japanese, etc) the English AI example should be used since no localized examples exist.  Or if using machine translations, or if nobody wants to think of a localized example, then the English 'ai' example should be left as-is. -->
+  <!-- Translations _must_ use a localized example.  For languages that do not use spaces between words (Chinese, Japanese, etc.) the English AI example should be used since no localized examples exist.  Or if using machine translations, or if nobody wants to think of a localized example, then the English 'ai' example should be left as-is. -->
   <string name="revanced_hide_keyword_content_about_whole_words_summary">Melingkupi kata kunci/frasa dengan tanda kutip ganda akan mencegah pencocokan sebagian judul video dan nama saluran&lt;br&gt;&lt;br&gt;Misalnya,&lt;br&gt;&lt;b&gt;\"ai\"&lt;/b&gt; akan menyembunyikan video: &lt;b&gt;Bagaimana cara kerja AI?&lt;/b&gt;&lt;br&gt;tetapi tidak akan menyembunyikan: &lt;b&gt;Apa yang dimaksud dengan Jakarta Fair?&lt;/b&gt;</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_hide_keyword_toast_invalid_common">Tidak dapat menggunakan kata kunci: %s</string>
@@ -424,9 +430,9 @@ Fitur ini hanya tersedia untuk perangkat yang lebih lama"</string>
   <string name="revanced_disable_precise_seeking_gesture_summary_off">Gerakan diaktifkan</string>
   </patch>
   <patch id="interaction.seekbar.enableSeekbarTappingPatch">
-  <string name="revanced_seekbar_tapping_title">Aktifkan pengetukan seekbar</string>
-  <string name="revanced_seekbar_tapping_summary_on">Pengetukan seekbar diaktifkan</string>
-  <string name="revanced_seekbar_tapping_summary_off">Pengetukan seekbar dinonaktifkan</string>
+  <string name="revanced_seekbar_tapping_title">Aktifkan ketuk untuk mencari</string>
+  <string name="revanced_seekbar_tapping_summary_on">Ketuk untuk mencari diaktifkan</string>
+  <string name="revanced_seekbar_tapping_summary_off">Ketuk untuk mencari dinonaktifkan</string>
   </patch>
   <patch id="interaction.swipecontrols.swipeControlsResourcePatch">
   <string name="revanced_swipe_brightness_title">Aktifkan gerakan kecerahan</string>
@@ -439,9 +445,9 @@ Sesuaikan kecerahan dengan mengusap secara vertikal pada sisi kiri layar"</strin
 
 Menyesuaikan volume dengan mengusap secara vertikal di sisi kanan layar"</string>
   <string name="revanced_swipe_volume_summary_off">Pengusapan volume layar penuh dinonaktifkan</string>
-  <string name="revanced_swipe_press_to_engage_title">Aktifkan gerakan tekan-untuk-mengusap</string>
-  <string name="revanced_swipe_press_to_engage_summary_on">Tekan-untuk-mengusap diaktifkan</string>
-  <string name="revanced_swipe_press_to_engage_summary_off">Tekan-untuk-mengusap dinonaktifkan</string>
+  <string name="revanced_swipe_press_to_engage_title">Aktifkan tekan untuk gerakan geser</string>
+  <string name="revanced_swipe_press_to_engage_summary_on">Tekan untuk menggeser diaktifkan</string>
+  <string name="revanced_swipe_press_to_engage_summary_off">Tekan untuk menggeser dinonaktifkan</string>
   <string name="revanced_swipe_haptic_feedback_title">Aktifkan umpan balik sentuhan</string>
   <string name="revanced_swipe_haptic_feedback_summary_on">Umpan balik sentuhan diaktifkan</string>
   <string name="revanced_swipe_haptic_feedback_summary_off">Umpan balik sentuhan dinonaktifkan</string>

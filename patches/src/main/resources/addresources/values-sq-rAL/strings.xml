@@ -226,6 +226,9 @@ Ju nuk do të njoftoheni për ndonjë ngjarje të papritur."</string>
   <string name="revanced_hide_artist_cards_title">Fshi kartat e artistëve</string>
   <string name="revanced_hide_artist_cards_summary_on">Kartat e artistëve janë të fshehura</string>
   <string name="revanced_hide_artist_cards_summary_off">Kartat e artistëve janë të dukshme</string>
+  <string name="revanced_hide_ai_generated_video_summary_section_title">Fshih \"Përmbledhjen e videos të krijuar nga AI\"</string>
+  <string name="revanced_hide_ai_generated_video_summary_section_summary_on">Seksioni i përmbledhjes së videos është i fshehur</string>
+  <string name="revanced_hide_ai_generated_video_summary_section_summary_off">Seksioni i përmbledhjes së videos është i dukshme</string>
   <string name="revanced_hide_attributes_section_title">Fshih Atributet</string>
   <string name="revanced_hide_attributes_section_summary_on">Vendndodhjet e veçuara, Lojërat, Muzika dhe seksionet e personave të përmendur janë të fshehura</string>
   <string name="revanced_hide_attributes_section_summary_off">Vendndodhjet e veçuara, Lojërat, Muzika dhe seksionet e personave të përmendur janë të shfaqura</string>
@@ -262,9 +265,12 @@ Ju nuk do të njoftoheni për ndonjë ngjarje të papritur."</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">I dukshme në video të lidhura</string>
   <string name="revanced_comments_screen_title">Komentet</string>
   <string name="revanced_comments_screen_summary">Fshi ose shfaq komponentët e seksionit të komenteve</string>
-  <string name="revanced_hide_comments_chat_summary_title">Fshih \'Përmbledhjen e bisedës\'</string>
-  <string name="revanced_hide_comments_chat_summary_summary_on">Përmbledhja e bisedës është e fshehur</string>
-  <string name="revanced_hide_comments_chat_summary_summary_off">Përmbledhja e bisedës është e shfaqur</string>
+  <string name="revanced_hide_comments_ai_chat_summary_title">Fshih përmbledhjen e Bisedës me AI</string>
+  <string name="revanced_hide_comments_ai_chat_summary_summary_on">Përmbledhja e bisedës është e fshehur</string>
+  <string name="revanced_hide_comments_ai_chat_summary_summary_off">Përmbledhja e bisedës është e dukshme</string>
+  <string name="revanced_hide_comments_ai_summary_title">Fshih përmbledhjen e Komenteve me AI</string>
+  <string name="revanced_hide_comments_ai_summary_summary_on">Përmbledhja e komenteve është e fshehur</string>
+  <string name="revanced_hide_comments_ai_summary_summary_off">Përmbledhja e komenteve është e dukshme</string>
   <string name="revanced_hide_comments_by_members_header_title">Fshi kokën \"Komentet nga anëtarët\"</string>
   <string name="revanced_hide_comments_by_members_header_summary_on">Kreu i komenteve nga anëtarët është i fshehur</string>
   <string name="revanced_hide_comments_by_members_header_summary_off">Kreu i komenteve nga anëtarët është i shfaqur</string>
@@ -311,7 +317,7 @@ Nëse një Doodle po shfaqet aktualisht në rajonin tuaj dhe kjo fshehje është
   <string name="revanced_hide_keyword_content_subscriptions_summary_on">Videot në skedën e abonimeve filtrohen sipas fjalëve kyçe</string>
   <string name="revanced_hide_keyword_content_subscriptions_summary_off">Videot në skedën e abonimeve nuk filtrohen sipas fjalëve kyçe</string>
   <string name="revanced_hide_keyword_content_phrases_title">Fjalët kyçe për të fshehur</string>
-  <!-- For localization it is preferred, but not required, if 'LeBlanc' is replaced with a localized name or a familiar word that has upper case letters in the middle of the word.
+  <!-- For localization, it is preferred, but not required, if 'LeBlanc' is replaced with a localized name or a familiar word that has upper case letters in the middle of the word.
                  This is because keywords can be in any language, and showing an example in the localized script helps convey this. -->
   <string name="revanced_hide_keyword_content_phrases_summary">"Fjalët kyçe dhe frazat për t'u fshehur, të ndara nga rreshta të reja
 
@@ -326,7 +332,7 @@ Kufizime
 • Disa përbërës të UI mund të mos fshihen
 • Kërkimi për një fjalë kyçe mund të mos tregojë rezultate"</string>
   <string name="revanced_hide_keyword_content_about_whole_words_title">Përputh fjalët e plota</string>
-  <!-- Translations _must_ use a localized example.  For languages that do not use spaces between words (Chinese, Japanese, etc) the English AI example should be used since no localized examples exist.  Or if using machine translations, or if nobody wants to think of a localized example, then the English 'ai' example should be left as-is. -->
+  <!-- Translations _must_ use a localized example.  For languages that do not use spaces between words (Chinese, Japanese, etc.) the English AI example should be used since no localized examples exist.  Or if using machine translations, or if nobody wants to think of a localized example, then the English 'ai' example should be left as-is. -->
   <string name="revanced_hide_keyword_content_about_whole_words_summary">Rreth një fjale kyçe/fraze me thënë të thjeshta do të parandalojë përputhjet e pjesshme të titujve të videove dhe emrave të kanaleve&lt;br&gt;&lt;br&gt;Për shembull,&lt;br&gt;&lt;b&gt;\"ai\"&lt;/b&gt; do të fshehë videon: &lt;b&gt;Si funksionon AI?&lt;/b&gt;&lt;br&gt;por nuk do të fshehë: &lt;b&gt;What does fair use mean?&lt;/b&gt;</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_hide_keyword_toast_invalid_common">Nuk mund të përdoret fjala kyçe: %s</string>
@@ -424,9 +430,9 @@ Kjo veçori është e disponueshme vetëm për pajisje më të vjetra"</string>
   <string name="revanced_disable_precise_seeking_gesture_summary_off">Lëvizja është e aktivizuar</string>
   </patch>
   <patch id="interaction.seekbar.enableSeekbarTappingPatch">
-  <string name="revanced_seekbar_tapping_title">Aktivizo goditjen e shiritatit të kërkimit</string>
-  <string name="revanced_seekbar_tapping_summary_on">Goditja e shiritatit të kërkimit është e aktivizuar</string>
-  <string name="revanced_seekbar_tapping_summary_off">Goditja e shiritatit të kërkimit është e çaktivizuar</string>
+  <string name="revanced_seekbar_tapping_title">Aktivizo prekjen për të kërkuar</string>
+  <string name="revanced_seekbar_tapping_summary_on">Aktivizo prekjen për të kërkuar</string>
+  <string name="revanced_seekbar_tapping_summary_off">Prekja për të kërkuar është e çaktivizuar</string>
   </patch>
   <patch id="interaction.swipecontrols.swipeControlsResourcePatch">
   <string name="revanced_swipe_brightness_title">Aktivizo lëvizjen e ndriçimit</string>
@@ -439,9 +445,9 @@ Përshtate shkëlqimin duke rrëshqitur vertikalisht në anën e majtë të ekra
 
  Rregullo volumin duke rrëshqitur vertikalisht në anën e djathtë të ekranit"</string>
   <string name="revanced_swipe_volume_summary_off">Rrëshqitja e volumit në ekran të plotë është çaktivizuar</string>
-  <string name="revanced_swipe_press_to_engage_title">Aktivizo lëvizjen \"shtyp-për-të-shëruar\"</string>
-  <string name="revanced_swipe_press_to_engage_summary_on">\"Shtyp-për-të-shëruar\" është i aktivizuar</string>
-  <string name="revanced_swipe_press_to_engage_summary_off">\"Shtyp-për-të-shëruar\" është i çaktivizuar</string>
+  <string name="revanced_swipe_press_to_engage_title">Aktivizo shtypin për gjestin e rrëshqitjes</string>
+  <string name="revanced_swipe_press_to_engage_summary_on">Shtyp për të rrëshqitur është aktivizuar</string>
+  <string name="revanced_swipe_press_to_engage_summary_off">Shtyp për të rrëshqitur është çaktivizuar</string>
   <string name="revanced_swipe_haptic_feedback_title">Aktivizo reagimin haptic</string>
   <string name="revanced_swipe_haptic_feedback_summary_on">Reagimi haptic është i aktivizuar</string>
   <string name="revanced_swipe_haptic_feedback_summary_off">Reagimi haptic është i çaktivizuar</string>

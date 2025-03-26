@@ -262,9 +262,8 @@ Second \"item\" text"</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">מוצג בסרטונים קשורים</string>
   <string name="revanced_comments_screen_title">תגובות</string>
   <string name="revanced_comments_screen_summary">הסתר או הצג רכיבי מדור תגובות</string>
-  <string name="revanced_hide_comments_chat_summary_title">הסתר \'סיכום צ\'אט\'</string>
-  <string name="revanced_hide_comments_chat_summary_summary_on">סיכום צ\'אט מוסתר</string>
-  <string name="revanced_hide_comments_chat_summary_summary_off">סיכום צ\'אט מוצג</string>
+  <string name="revanced_hide_comments_ai_chat_summary_summary_on">סיכום צ\'אט מוסתר</string>
+  <string name="revanced_hide_comments_ai_chat_summary_summary_off">סיכום צ\'אט מוצג</string>
   <string name="revanced_hide_comments_by_members_header_title">הסתר כותרת \'תגובות של חברי מועדון\'</string>
   <string name="revanced_hide_comments_by_members_header_summary_on">כותרת \'תגובות של חברי מועדון\' מוסתרת</string>
   <string name="revanced_hide_comments_by_members_header_summary_off">כותרת \'תגובות של חברי מועדון\' מוצגת</string>
@@ -311,7 +310,7 @@ Second \"item\" text"</string>
   <string name="revanced_hide_keyword_content_subscriptions_summary_on">סרטונים בכרטיסיית המינויים מסוננים לפי מילות מפתח</string>
   <string name="revanced_hide_keyword_content_subscriptions_summary_off">סרטונים בכרטיסיית המינויים אינם מסוננים לפי מילות מפתח</string>
   <string name="revanced_hide_keyword_content_phrases_title">מילות מפתח להסתרה</string>
-  <!-- For localization it is preferred, but not required, if 'LeBlanc' is replaced with a localized name or a familiar word that has upper case letters in the middle of the word.
+  <!-- For localization, it is preferred, but not required, if 'LeBlanc' is replaced with a localized name or a familiar word that has upper case letters in the middle of the word.
                  This is because keywords can be in any language, and showing an example in the localized script helps convey this. -->
   <string name="revanced_hide_keyword_content_phrases_summary">"מילות מפתח וביטויים להסתרה, מופרדים על ידי שורות חדשות
 
@@ -326,7 +325,7 @@ Second \"item\" text"</string>
 • ייתכן שחלק מרכיבי ממשק המשתמש לא יוסתרו
 • חיפוש אחר מילת מפתח עשוי שלא להציג תוצאות"</string>
   <string name="revanced_hide_keyword_content_about_whole_words_title">התאם מילים שלמות</string>
-  <!-- Translations _must_ use a localized example.  For languages that do not use spaces between words (Chinese, Japanese, etc) the English AI example should be used since no localized examples exist.  Or if using machine translations, or if nobody wants to think of a localized example, then the English 'ai' example should be left as-is. -->
+  <!-- Translations _must_ use a localized example.  For languages that do not use spaces between words (Chinese, Japanese, etc.) the English AI example should be used since no localized examples exist.  Or if using machine translations, or if nobody wants to think of a localized example, then the English 'ai' example should be left as-is. -->
   <string name="revanced_hide_keyword_content_about_whole_words_summary">הקפת מילת מפתח/ביטוי עם מרכאות כפולות תמנע התאמות חלקיות של כותרות סרטונים ושמות ערוצים&lt;br&gt;&lt;br&gt;לדוגמא,&lt;br&gt;&lt;b&gt;\"ai\"&lt;/b&gt; יסתיר את הסרטון: &lt;b&gt;כיצד פועלת AI?&lt;/b&gt;&lt;br&gt;אבל אינו יסתיר את: &lt;b&gt;איך נשמעות ה-AirPods החדשות?&lt;/b&gt;</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_hide_keyword_toast_invalid_common">מילת מפתח לא שמישה: %s</string>
@@ -424,9 +423,6 @@ Second \"item\" text"</string>
   <string name="revanced_disable_precise_seeking_gesture_summary_off">מחווה מופעלת</string>
   </patch>
   <patch id="interaction.seekbar.enableSeekbarTappingPatch">
-  <string name="revanced_seekbar_tapping_title">הפעל הקשה על סרגל הדילוג</string>
-  <string name="revanced_seekbar_tapping_summary_on">הקשה על סרגל הדילוג מופעלת</string>
-  <string name="revanced_seekbar_tapping_summary_off">הקשה על סרגל הדילוג מושבתת</string>
   </patch>
   <patch id="interaction.swipecontrols.swipeControlsResourcePatch">
   <string name="revanced_swipe_brightness_title">הפעל מחוות בהירות</string>
@@ -439,9 +435,6 @@ Second \"item\" text"</string>
 
 כוונן את עוצמת הקול על ידי החלקה אנכית בצד הימני של המסך"</string>
   <string name="revanced_swipe_volume_summary_off">החלקת עוצמת קול במסך מלא מושבתת</string>
-  <string name="revanced_swipe_press_to_engage_title">הפעל מחוות לחץ כדי להחליק</string>
-  <string name="revanced_swipe_press_to_engage_summary_on">לחץ כדי להחליק מופעל</string>
-  <string name="revanced_swipe_press_to_engage_summary_off">לחץ כדי להחליק מושבת</string>
   <string name="revanced_swipe_haptic_feedback_title">הפעל משוב ברטט</string>
   <string name="revanced_swipe_haptic_feedback_summary_on">משוב ברטט מופעל</string>
   <string name="revanced_swipe_haptic_feedback_summary_off">משוב ברטט מושבת</string>

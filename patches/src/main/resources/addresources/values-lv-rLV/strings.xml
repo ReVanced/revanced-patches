@@ -226,6 +226,9 @@ Jūs netiksit informēts par neparedzētiem notikumiem."</string>
   <string name="revanced_hide_artist_cards_title">Slēpt mākslinieku kartītes</string>
   <string name="revanced_hide_artist_cards_summary_on">Mākslinieku kartītes ir paslēptas</string>
   <string name="revanced_hide_artist_cards_summary_off">Mākslinieku kartītes ir redzamas</string>
+  <string name="revanced_hide_ai_generated_video_summary_section_title">Paslēpt \"AI ģenerēta video kopsavilkums\"</string>
+  <string name="revanced_hide_ai_generated_video_summary_section_summary_on">Video kopsavilkuma sadaļa ir paslēpta</string>
+  <string name="revanced_hide_ai_generated_video_summary_section_summary_off">Video kopsavilkuma sadaļa ir rādīta</string>
   <string name="revanced_hide_attributes_section_title">Paslēpt atribūtus</string>
   <string name="revanced_hide_attributes_section_summary_on">Piedāvātās vietas, spēles, mūzika un pieminētie cilvēki ir paslēpti</string>
   <string name="revanced_hide_attributes_section_summary_off">Piedāvātās vietas, spēles, mūzika un pieminētie cilvēki ir redzami</string>
@@ -262,9 +265,12 @@ Jūs netiksit informēts par neparedzētiem notikumiem."</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">Redzams saistītajos videoklipos</string>
   <string name="revanced_comments_screen_title">Komentāri</string>
   <string name="revanced_comments_screen_summary">Slēpt vai parādīt komentāru sadaļas komponentus</string>
-  <string name="revanced_hide_comments_chat_summary_title">Paslēpt \"Tērzēšanas kopsavilkumu\"</string>
-  <string name="revanced_hide_comments_chat_summary_summary_on">Tērzēšanas kopsavilkums ir paslēpts</string>
-  <string name="revanced_hide_comments_chat_summary_summary_off">Tērzēšanas kopsavilkums ir redzams</string>
+  <string name="revanced_hide_comments_ai_chat_summary_title">Slēpt AI tērzēšanas kopsavilkumu</string>
+  <string name="revanced_hide_comments_ai_chat_summary_summary_on">Tērzēšanas kopsavilkums ir paslēpts</string>
+  <string name="revanced_hide_comments_ai_chat_summary_summary_off">Tērzēšanas kopsavilkums ir redzams</string>
+  <string name="revanced_hide_comments_ai_summary_title">Slēpt AI komentāru kopsavilkumu</string>
+  <string name="revanced_hide_comments_ai_summary_summary_on">Komentāru kopsavilkums ir paslēpts</string>
+  <string name="revanced_hide_comments_ai_summary_summary_off">Komentāru kopsavilkums ir redzams</string>
   <string name="revanced_hide_comments_by_members_header_title">Slēpt virsrakstu \"Dalībnieku komentāri\"</string>
   <string name="revanced_hide_comments_by_members_header_summary_on">Dalībnieku komentāru galvene ir paslēpta</string>
   <string name="revanced_hide_comments_by_members_header_summary_off">Dalībnieku komentāru galvene ir redzama</string>
@@ -311,7 +317,7 @@ Ja Doodle pašlaik tiek rādīts jūsu reģionā un šis slēpšanas iestatījum
   <string name="revanced_hide_keyword_content_subscriptions_summary_on">Abonementu cilnes video tiek filtrēti ar atslēgvārdiem</string>
   <string name="revanced_hide_keyword_content_subscriptions_summary_off">Abonementu cilnes video netiek filtrēti ar atslēgvārdiem</string>
   <string name="revanced_hide_keyword_content_phrases_title">Atslēgvārdi, kas jāslēpj</string>
-  <!-- For localization it is preferred, but not required, if 'LeBlanc' is replaced with a localized name or a familiar word that has upper case letters in the middle of the word.
+  <!-- For localization, it is preferred, but not required, if 'LeBlanc' is replaced with a localized name or a familiar word that has upper case letters in the middle of the word.
                  This is because keywords can be in any language, and showing an example in the localized script helps convey this. -->
   <string name="revanced_hide_keyword_content_phrases_summary">"Atslēgvārdi un frāzes, kas jāslēpj, atdalīti ar jaunām rindām
 
@@ -326,7 +332,7 @@ Ierobežojumi
 • Daži lietotāja saskarnes komponenti var nebūt paslēpti
 • Meklējot atslēgvārdu, rezultāti var nebūt parādīti"</string>
   <string name="revanced_hide_keyword_content_about_whole_words_title">Atbilst pilniem vārdiem</string>
-  <!-- Translations _must_ use a localized example.  For languages that do not use spaces between words (Chinese, Japanese, etc) the English AI example should be used since no localized examples exist.  Or if using machine translations, or if nobody wants to think of a localized example, then the English 'ai' example should be left as-is. -->
+  <!-- Translations _must_ use a localized example.  For languages that do not use spaces between words (Chinese, Japanese, etc.) the English AI example should be used since no localized examples exist.  Or if using machine translations, or if nobody wants to think of a localized example, then the English 'ai' example should be left as-is. -->
   <string name="revanced_hide_keyword_content_about_whole_words_summary">Atslēgvārda/frāzes ievietošana dubultpēdiņās novērsīs daļēju video nosaukumu un kanālu nosaukumu sakritību&lt;br&gt;&lt;br&gt;Piemēram,&lt;br&gt;&lt;b&gt;\"mākslīgais intelekts\"&lt;/b&gt; paslēps video: &lt;b&gt;Kā darbojas AI?&lt;/b&gt;&lt;br&gt;bet nepaslēps: &lt;b&gt;What does fair use mean?&lt;/b&gt;</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_hide_keyword_toast_invalid_common">Nevar izmantot atslēgvārdu: %s</string>
@@ -424,9 +430,9 @@ Ierobežojumi
   <string name="revanced_disable_precise_seeking_gesture_summary_off">Žests ir ieslēgts</string>
   </patch>
   <patch id="interaction.seekbar.enableSeekbarTappingPatch">
-  <string name="revanced_seekbar_tapping_title">Ieslēgt meklēšanas joslas pieskaršanās</string>
-  <string name="revanced_seekbar_tapping_summary_on">Meklēšanas joslas pieskaršanās ir ieslēgta</string>
-  <string name="revanced_seekbar_tapping_summary_off">Meklēšanas joslas pieskaršanās ir atslēgta</string>
+  <string name="revanced_seekbar_tapping_title">Iespējot pieskārienu, lai meklētu</string>
+  <string name="revanced_seekbar_tapping_summary_on">Pieskarieties, lai iespējotu meklēšanu</string>
+  <string name="revanced_seekbar_tapping_summary_off">Pieskāriens, lai meklētu, ir atspējots</string>
   </patch>
   <patch id="interaction.swipecontrols.swipeControlsResourcePatch">
   <string name="revanced_swipe_brightness_title">Ieslēgt spilgtuma žestu</string>
@@ -439,9 +445,9 @@ Regulējiet spilgtumu, velkot vertikāli ekrāna kreisajā pusē"</string>
 
 Regulējiet skaļumu, velkot vertikāli ekrāna labajā pusē"</string>
   <string name="revanced_swipe_volume_summary_off">Pilnekrāna skaļuma vilkšana ir atspējota</string>
-  <string name="revanced_swipe_press_to_engage_title">Ieslēgt pieskaršanās-lai-slīdētu žestu</string>
-  <string name="revanced_swipe_press_to_engage_summary_on">Pieskaršanās-lai-slīdētu ir ieslēgta</string>
-  <string name="revanced_swipe_press_to_engage_summary_off">Pieskaršanās-lai-slīdētu ir atslēgta</string>
+  <string name="revanced_swipe_press_to_engage_title">Iespējot nospiešanas žestu, lai vilktu</string>
+  <string name="revanced_swipe_press_to_engage_summary_on">Nospiediet, lai vilktu, ir iespējots</string>
+  <string name="revanced_swipe_press_to_engage_summary_off">Nospiediet, lai vilktu, ir atspējots</string>
   <string name="revanced_swipe_haptic_feedback_title">Ieslēgt taktilās atgriezeniskās saites</string>
   <string name="revanced_swipe_haptic_feedback_summary_on">Taktilā atgriezeniskā saite ir ieslēgta</string>
   <string name="revanced_swipe_haptic_feedback_summary_off">Taktilā atgriezeniskā saite ir atslēgta</string>

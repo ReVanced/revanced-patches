@@ -226,6 +226,9 @@ MicroG-এর জন্য ব্যাটারি অপ্টিমাইজ�
   <string name="revanced_hide_artist_cards_title">আর্টিস্ট কার্ড লুকান</string>
   <string name="revanced_hide_artist_cards_summary_on">আর্টিস্ট কার্ড লুকিয়ে রয়েছে</string>
   <string name="revanced_hide_artist_cards_summary_off">আর্টিস্ট কার্ড প্রদর্শিত হয়েছে</string>
+  <string name="revanced_hide_ai_generated_video_summary_section_title">\'AI-জেনারেটেড ভিডিও সারসংক্ষেপ\' লুকান</string>
+  <string name="revanced_hide_ai_generated_video_summary_section_summary_on">ভিডিও সারসংক্ষেপ বিভাগ লুকানো আছে</string>
+  <string name="revanced_hide_ai_generated_video_summary_section_summary_off">ভিডিও সারসংক্ষেপ বিভাগ দেখানো হয়েছে</string>
   <string name="revanced_hide_attributes_section_title">বৈশিষ্ট্যাবলী লুকান</string>
   <string name="revanced_hide_attributes_section_summary_on">বৈশিষ্ট্যযুক্ত স্থান, গেমস, সঙ্গীত, এবং উল্লিখিত ব্যক্তি বিভাগগুলি লুকানো আছে</string>
   <string name="revanced_hide_attributes_section_summary_off">বৈশিষ্ট্যযুক্ত স্থান, গেমস, সঙ্গীত, এবং উল্লিখিত ব্যক্তি বিভাগগুলি দেখানো হয়েছে</string>
@@ -250,6 +253,7 @@ MicroG-এর জন্য ব্যাটারি অপ্টিমাইজ�
   <string name="revanced_hide_description_components_screen_title">ভিডিওর বিবরণ</string>
   <string name="revanced_hide_description_components_screen_summary">ভিডিও বিবরণ এর উপাদান লুকান বা প্রদর্শন করুন</string>
   <string name="revanced_hide_filter_bar_screen_title">ফিল্টার বার</string>
+  <string name="revanced_hide_filter_bar_screen_summary">ফিড, অনুসন্ধানের ফলাফল এবং সম্পর্কিত ভিডিওগুলোতে ফিল্টার বার লুকান অথবা দেখান</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_title">ফিডে লুকান</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_summary_on">ফিডে লুকিয়ে রয়েছে</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_summary_off">ফিডে প্রদর্শিত হয়েছে</string>
@@ -261,9 +265,12 @@ MicroG-এর জন্য ব্যাটারি অপ্টিমাইজ�
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">সম্পর্কিত ভিডিওতে প্রদর্শিত হয়েছে</string>
   <string name="revanced_comments_screen_title">মন্তব্য</string>
   <string name="revanced_comments_screen_summary">মন্তব্য বিভাগের উপাদানগুলি লুকান বা দেখান৷</string>
-  <string name="revanced_hide_comments_chat_summary_title">\'Chat summary\' লুকান</string>
-  <string name="revanced_hide_comments_chat_summary_summary_on">চ্যাট সারসংক্ষেপ লুকানো আছে</string>
-  <string name="revanced_hide_comments_chat_summary_summary_off">চ্যাট সারসংক্ষেপ দেখানো হয়েছে</string>
+  <string name="revanced_hide_comments_ai_chat_summary_title">এআই চ্যাট সংক্ষিপ্তসার লুকান</string>
+  <string name="revanced_hide_comments_ai_chat_summary_summary_on">চ্যাট সংক্ষিপ্তসার লুকানো আছে</string>
+  <string name="revanced_hide_comments_ai_chat_summary_summary_off">চ্যাট সংক্ষিপ্তসার দেখানো হয়েছে</string>
+  <string name="revanced_hide_comments_ai_summary_title">এআই মন্তব্য সংক্ষিপ্তসার লুকান</string>
+  <string name="revanced_hide_comments_ai_summary_summary_on">মন্তব্য সংক্ষিপ্তসার লুকানো আছে</string>
+  <string name="revanced_hide_comments_ai_summary_summary_off">মন্তব্য সংক্ষিপ্তসার দেখানো হয়েছে</string>
   <string name="revanced_hide_comments_by_members_header_title">\'মেম্বারদের মন্তব্য\' হেডার লুকান</string>
   <string name="revanced_hide_comments_by_members_header_summary_on">সদস্যদের দ্বারা মন্তব্য হেডার লুকানো আছে</string>
   <string name="revanced_hide_comments_by_members_header_summary_off">সদস্যদের দ্বারা মন্তব্য হেডার দেখানো হয়েছে</string>
@@ -310,7 +317,7 @@ MicroG-এর জন্য ব্যাটারি অপ্টিমাইজ�
   <string name="revanced_hide_keyword_content_subscriptions_summary_on">সাবস্ক্রিপশন পাতার ভিডিও কীওয়ার্ড দ্বারা ফিল্টার করা হয়েছে</string>
   <string name="revanced_hide_keyword_content_subscriptions_summary_off">সাবস্ক্রিপশন পাতার ভিডিও কীওয়ার্ড দ্বারা ফিল্টার করা হয়নি</string>
   <string name="revanced_hide_keyword_content_phrases_title">লুকানোর জন্য কীওয়ার্ড</string>
-  <!-- For localization it is preferred, but not required, if 'LeBlanc' is replaced with a localized name or a familiar word that has upper case letters in the middle of the word.
+  <!-- For localization, it is preferred, but not required, if 'LeBlanc' is replaced with a localized name or a familiar word that has upper case letters in the middle of the word.
                  This is because keywords can be in any language, and showing an example in the localized script helps convey this. -->
   <string name="revanced_hide_keyword_content_phrases_summary">"নতুন লাইন দ্বারা পৃথক করা লুকানোর জন্য কিওয়ার্ড এবং বাক্যাংশ
 
@@ -325,7 +332,7 @@ MicroG-এর জন্য ব্যাটারি অপ্টিমাইজ�
 • কিছু UI উপাদান লুকানো নাও হতে পারে
 • কোনও কিওয়ার্ড অনুসন্ধান করলে কোনও ফলাফল নাও দেখাতে পারে"</string>
   <string name="revanced_hide_keyword_content_about_whole_words_title">সম্পূর্ণ শব্দ মেলাও</string>
-  <!-- Translations _must_ use a localized example.  For languages that do not use spaces between words (Chinese, Japanese, etc) the English AI example should be used since no localized examples exist.  Or if using machine translations, or if nobody wants to think of a localized example, then the English 'ai' example should be left as-is. -->
+  <!-- Translations _must_ use a localized example.  For languages that do not use spaces between words (Chinese, Japanese, etc.) the English AI example should be used since no localized examples exist.  Or if using machine translations, or if nobody wants to think of a localized example, then the English 'ai' example should be left as-is. -->
   <string name="revanced_hide_keyword_content_about_whole_words_summary">ডাবল কোটের মধ্যে একটি কীওয়ার্ড/ফ্রেজ রাখলে ভিডিও শিরোনাম এবং চ্যানেলের নামের আংশিক মিল সনাক্ত করা বন্ধ হয়ে যাবে&lt;br&gt;&lt;br&gt;উদাহরণস্বরূপ,&lt;br&gt;&lt;b&gt;\"ai\"&lt;/b&gt; ভিডিওটি লুকিয়ে দেবে: &lt;b&gt;How does AI work?&lt;/b&gt;&lt;br&gt;কিন্তু লুকিয়ে দেবে না: &lt;b&gt;What does fair use mean?&lt;/b&gt;</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_hide_keyword_toast_invalid_common">কিওয়ার্ড ব্যবহার করা যাবে না: %s</string>
@@ -423,9 +430,9 @@ MicroG-এর জন্য ব্যাটারি অপ্টিমাইজ�
   <string name="revanced_disable_precise_seeking_gesture_summary_off">অঙ্গভঙ্গি সক্রিয় করা হয়েছে</string>
   </patch>
   <patch id="interaction.seekbar.enableSeekbarTappingPatch">
-  <string name="revanced_seekbar_tapping_title">সিকবারে চাপ দেওয়া সক্রিয় করুন</string>
-  <string name="revanced_seekbar_tapping_summary_on">সিকবারে চাপ দেওয়া সক্রিয় করা হয়েছে</string>
-  <string name="revanced_seekbar_tapping_summary_off">সিকবারে চাপ দেওয়া নিষ্ক্রিয় করা হয়েছে</string>
+  <string name="revanced_seekbar_tapping_title">ভিডিওর নির্দিষ্ট অংশে যেতে ট্যাপ করা সক্রিয় করুন</string>
+  <string name="revanced_seekbar_tapping_summary_on">ট্যাপ করে খোঁজা সক্রিয় করা হয়েছে</string>
+  <string name="revanced_seekbar_tapping_summary_off">ভিডিওর নির্দিষ্ট অংশে যেতে ট্যাপ করা নিষ্ক্রিয় করা হয়েছে</string>
   </patch>
   <patch id="interaction.swipecontrols.swipeControlsResourcePatch">
   <string name="revanced_swipe_brightness_title">উজ্জ্বলতার সোয়াইপ অঙ্গভঙ্গি সক্রিয় করুন</string>
@@ -438,9 +445,9 @@ MicroG-এর জন্য ব্যাটারি অপ্টিমাইজ�
 
 স্ক্রিনের ডান দিকে উল্লম্বভাবে সোয়াইপ করে ভলিউম সামঞ্জস্য করুন"</string>
   <string name="revanced_swipe_volume_summary_off">পূর্ণ স্ক্রীন ভলিউম সোয়াইপ নিষ্ক্রিয় করা হয়েছে</string>
-  <string name="revanced_swipe_press_to_engage_title">প্রেস-টু-সোয়াইপ অঙ্গভঙ্গি সক্রিয় করুন</string>
-  <string name="revanced_swipe_press_to_engage_summary_on">প্রেস-টু-সোয়াইপ সক্রিয় করা হয়েছে</string>
-  <string name="revanced_swipe_press_to_engage_summary_off">প্রেস-টু-সোয়াইপ নিষ্ক্রিয় করা হয়েছে</string>
+  <string name="revanced_swipe_press_to_engage_title">সোয়াইপ করার জন্য প্রেস করা অঙ্গভঙ্গি সক্রিয় করুন</string>
+  <string name="revanced_swipe_press_to_engage_summary_on">সোয়াইপ করার জন্য প্রেস করা সক্রিয় করা হয়েছে</string>
+  <string name="revanced_swipe_press_to_engage_summary_off">সোয়াইপ করার জন্য প্রেস করা নিষ্ক্রিয় করা হয়েছে</string>
   <string name="revanced_swipe_haptic_feedback_title">কম্পন প্রতিক্রিয়া সক্রিয় করুন</string>
   <string name="revanced_swipe_haptic_feedback_summary_on">কম্পন প্রতিক্রিয়া সক্রিয় করা হয়েছে</string>
   <string name="revanced_swipe_haptic_feedback_summary_off">কম্পন প্রতিক্রিয়া নিষ্ক্রিয় করা হয়েছে</string>
@@ -530,6 +537,9 @@ MicroG-এর জন্য ব্যাটারি অপ্টিমাইজ�
   <string name="revanced_hide_subscriptions_button_title">সদস্যতা লুকান</string>
   <string name="revanced_hide_subscriptions_button_summary_on">সদস্যতা নিন বোতাম লুকিয়ে রয়েছে</string>
   <string name="revanced_hide_subscriptions_button_summary_off">সদস্যতা নিন বোতাম প্রদর্শিত হয়েছে</string>
+  <string name="revanced_hide_notifications_button_title">বিজ্ঞপ্তি লুকান</string>
+  <string name="revanced_hide_notifications_button_summary_on">বিজ্ঞপ্তি বোতাম লুকানো আছে</string>
+  <string name="revanced_hide_notifications_button_summary_off">বিজ্ঞপ্তি বোতাম দেখানো হয়েছে</string>
   <!-- 'Notifications' should be translated using the same localized wording YouTube displays the tab. -->
   <string name="revanced_switch_create_with_notifications_button_title">তৈরি বোতামকে বিজ্ঞপ্তি বোতাম দ্বারা সুইচ করুন</string>
   <string name="revanced_switch_create_with_notifications_button_summary_on">"তৈরি বোতামটি বিজ্ঞপ্তি বোতামের সাথে পরিবর্তন করা হয়
