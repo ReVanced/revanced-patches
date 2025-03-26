@@ -37,10 +37,7 @@ public final class UnlockPremiumPatch {
             // Set the app's product state type.
             "financial-product", "pr:premium,tc:0",
             // Enable Cross-Platform Spotify Car Thing.
-            "can_use_superbird", true,
-            // Disable the client-side subscription checks.
-            "com.spotify.madprops.delivered.by.ucs", false,
-            "com.spotify.madprops.use.ucs.product.state", false
+            "can_use_superbird", true
     );
 
     public static void overrideAttribute(Map<String, AccountAttribute> attributes) {
