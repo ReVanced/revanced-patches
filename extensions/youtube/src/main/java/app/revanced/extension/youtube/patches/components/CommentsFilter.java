@@ -12,10 +12,12 @@ final class CommentsFilter extends Filter {
 
     private final StringFilterGroup commentComposer;
     private final ByteArrayFilterGroup emojiPickerBufferGroup;
+    private final StringFilterGroup filterChipBar;
+    private final ByteArrayFilterGroup aiCommentsSummary;
     
     public CommentsFilter() {
         var chatSummary = new StringFilterGroup(
-                Settings.HIDE_COMMENTS_CHAT_SUMMARY,
+                Settings.HIDE_COMMENTS_AI_CHAT_SUMMARY,
                 "live_chat_summary_banner.eml"
         );
 
@@ -58,6 +60,16 @@ final class CommentsFilter extends Filter {
                 "id.comment.quick_emoji.button"
         );
 
+        filterChipBar = new StringFilterGroup(
+                Settings.HIDE_COMMENTS_AI_SUMMARY,
+                "filter_chip_bar.eml"
+        );
+
+        aiCommentsSummary = new ByteArrayFilterGroup(
+                null,
+                "yt_fill_spark_"
+        );
+
         addPathCallbacks(
                 chatSummary,
                 commentsByMembers,
@@ -65,7 +77,8 @@ final class CommentsFilter extends Filter {
                 createAShort,
                 previewComment,
                 thanksButton,
-                commentComposer
+                commentComposer,
+                filterChipBar
         );
     }
 
@@ -81,6 +94,13 @@ final class CommentsFilter extends Filter {
                 return super.isFiltered(identifier, path, protobufBufferArray, matchedGroup, contentType, contentIndex);
             }
 
+            return false;
+        }
+
+        if (matchedGroup == filterChipBar) {
+            if (aiCommentsSummary.check(protobufBufferArray).isFiltered()) {
+                return super.isFiltered(identifier, path, protobufBufferArray, matchedGroup, contentType, contentIndex);
+            }
             return false;
         }
 

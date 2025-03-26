@@ -226,6 +226,9 @@ Bạn sẽ không được thông báo về bất kỳ sự kiện bất ngờ n
   <string name="revanced_hide_artist_cards_title">Ẩn thẻ nghệ sĩ</string>
   <string name="revanced_hide_artist_cards_summary_on">Thẻ nghệ sĩ được ẩn</string>
   <string name="revanced_hide_artist_cards_summary_off">Thẻ nghệ sĩ được hiện</string>
+  <string name="revanced_hide_ai_generated_video_summary_section_title">Ẩn \'Tóm tắt video do AI tạo\'</string>
+  <string name="revanced_hide_ai_generated_video_summary_section_summary_on">Phần tóm tắt video bị ẩn</string>
+  <string name="revanced_hide_ai_generated_video_summary_section_summary_off">Phần tóm tắt video đang hiển thị</string>
   <string name="revanced_hide_attributes_section_title">Ẩn Thuộc tính</string>
   <string name="revanced_hide_attributes_section_summary_on">Phần Địa điểm nổi bật, Trò chơi, Âm nhạc và Người được đề cập bị ẩn</string>
   <string name="revanced_hide_attributes_section_summary_off">Phần Địa điểm nổi bật, Trò chơi, Âm nhạc và Người được đề cập được hiện</string>
@@ -262,9 +265,12 @@ Bạn sẽ không được thông báo về bất kỳ sự kiện bất ngờ n
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">Đã hiện trong video liên quan</string>
   <string name="revanced_comments_screen_title">Bình luận</string>
   <string name="revanced_comments_screen_summary">Ẩn hoặc hiện các thành phần bình luận</string>
-  <string name="revanced_hide_comments_chat_summary_title">Ẩn \'Tóm tắt trò chuyện\'</string>
-  <string name="revanced_hide_comments_chat_summary_summary_on">Tóm tắt trò chuyện được ẩn</string>
-  <string name="revanced_hide_comments_chat_summary_summary_off">Tóm tắt trò chuyện được hiện</string>
+  <string name="revanced_hide_comments_ai_chat_summary_title">Ẩn Tóm tắt Trò chuyện AI</string>
+  <string name="revanced_hide_comments_ai_chat_summary_summary_on">Tóm tắt trò chuyện được ẩn</string>
+  <string name="revanced_hide_comments_ai_chat_summary_summary_off">Tóm tắt trò chuyện được hiện</string>
+  <string name="revanced_hide_comments_ai_summary_title">Ẩn tóm tắt Bình luận AI</string>
+  <string name="revanced_hide_comments_ai_summary_summary_on">Tóm tắt bình luận đã ẩn</string>
+  <string name="revanced_hide_comments_ai_summary_summary_off">Tóm tắt bình luận được hiển thị</string>
   <string name="revanced_hide_comments_by_members_header_title">Ẩn tiêu đề \'Bình luận bởi hội viên\'</string>
   <string name="revanced_hide_comments_by_members_header_summary_on">Tiêu đề Bình luận bởi hội viên được ẩn</string>
   <string name="revanced_hide_comments_by_members_header_summary_off">Tiêu đề Bình luận bởi hội viên được hiện</string>
@@ -311,7 +317,7 @@ Nếu hiện đang hiển thị Doodle trong khu vực của bạn và cài đ�
   <string name="revanced_hide_keyword_content_subscriptions_summary_on">Video ở thẻ đăng ký đã được lọc bằng từ khóa</string>
   <string name="revanced_hide_keyword_content_subscriptions_summary_off">Video ở thẻ đăng ký không được lọc bằng từ khóa</string>
   <string name="revanced_hide_keyword_content_phrases_title">Từ khóa để ẩn</string>
-  <!-- For localization it is preferred, but not required, if 'LeBlanc' is replaced with a localized name or a familiar word that has upper case letters in the middle of the word.
+  <!-- For localization, it is preferred, but not required, if 'LeBlanc' is replaced with a localized name or a familiar word that has upper case letters in the middle of the word.
                  This is because keywords can be in any language, and showing an example in the localized script helps convey this. -->
   <string name="revanced_hide_keyword_content_phrases_summary">"Từ khóa và cụm từ cần ẩn, cách nhau bằng dòng mới
 
@@ -326,7 +332,7 @@ Hạn chế
 • Một số thành phần giao diện người dùng có thể không bị ẩn
 • Tìm kiếm từ khóa có thể không hiện kết quả"</string>
   <string name="revanced_hide_keyword_content_about_whole_words_title">Khớp toàn bộ từ</string>
-  <!-- Translations _must_ use a localized example.  For languages that do not use spaces between words (Chinese, Japanese, etc) the English AI example should be used since no localized examples exist.  Or if using machine translations, or if nobody wants to think of a localized example, then the English 'ai' example should be left as-is. -->
+  <!-- Translations _must_ use a localized example.  For languages that do not use spaces between words (Chinese, Japanese, etc.) the English AI example should be used since no localized examples exist.  Or if using machine translations, or if nobody wants to think of a localized example, then the English 'ai' example should be left as-is. -->
   <string name="revanced_hide_keyword_content_about_whole_words_summary">Việc đặt từ/cụm từ cần lọc trong dấu ngoặc kép sẽ ngăn chặn các kết quả chỉ trùng một phần với tiêu đề video và tên kênh&lt;br&gt;&lt;br&gt;Ví dụ,&lt;br&gt;&lt;b&gt;\"ai\"&lt;/b&gt; sẽ ẩn video: &lt;b&gt;AI hoạt động ra sao?&lt;/b&gt;&lt;br&gt;nhưng sẽ không ẩn: &lt;b&gt;Hai lai nghĩa là gì?&lt;/b&gt;</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_hide_keyword_toast_invalid_common">Không thể dùng từ khóa: %s</string>
@@ -424,9 +430,9 @@ Tính năng này chỉ khả dụng cho các thiết bị cũ hơn"</string>
   <string name="revanced_disable_precise_seeking_gesture_summary_off">Cử chỉ đã bật</string>
   </patch>
   <patch id="interaction.seekbar.enableSeekbarTappingPatch">
-  <string name="revanced_seekbar_tapping_title">Bật chạm tua tham tiến trình</string>
-  <string name="revanced_seekbar_tapping_summary_on">Chạm tua thanh tiến trình đã bật</string>
-  <string name="revanced_seekbar_tapping_summary_off">Chạm tua thanh tiến trình đã tắt</string>
+  <string name="revanced_seekbar_tapping_title">Bật nhấn để tua</string>
+  <string name="revanced_seekbar_tapping_summary_on">Nhấn để tua được bật</string>
+  <string name="revanced_seekbar_tapping_summary_off">Nhấn để tua bị tắt</string>
   </patch>
   <patch id="interaction.swipecontrols.swipeControlsResourcePatch">
   <string name="revanced_swipe_brightness_title">Bật cử chỉ độ sáng</string>
@@ -439,9 +445,9 @@ Tính năng này chỉ khả dụng cho các thiết bị cũ hơn"</string>
 
 Điều chỉnh âm lượng bằng cách vuốt dọc ở bên phải màn hình"</string>
   <string name="revanced_swipe_volume_summary_off">Vuốt âm lượng được tắt</string>
-  <string name="revanced_swipe_press_to_engage_title">Bật cử chỉ nhân-để-vuốt</string>
-  <string name="revanced_swipe_press_to_engage_summary_on">Nhân-để-vuốt đã bật</string>
-  <string name="revanced_swipe_press_to_engage_summary_off">Nhân-để-vuốt đã tắt</string>
+  <string name="revanced_swipe_press_to_engage_title">Bật cử chỉ nhấn-để-vuốt</string>
+  <string name="revanced_swipe_press_to_engage_summary_on">Nhấn-để-vuốt đã bật</string>
+  <string name="revanced_swipe_press_to_engage_summary_off">Nhấn-để-vuốt đã tắt</string>
   <string name="revanced_swipe_haptic_feedback_title">Bật phản hồi xúc giác</string>
   <string name="revanced_swipe_haptic_feedback_summary_on">Phản hồi xúc giác đã bật</string>
   <string name="revanced_swipe_haptic_feedback_summary_off">Phản hồi xúc giác đã tắt</string>
