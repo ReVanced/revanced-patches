@@ -1,3 +1,10 @@
+# [5.16.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.16.0-dev.1...v5.16.0-dev.2) (2025-03-26)
+
+
+### Features
+
+* **Spotify:** Add `Unlock premium` patch ([#4644](https://github.com/ReVanced/revanced-patches/issues/4644)) ([f048c50](https://github.com/ReVanced/revanced-patches/commit/f048c50e56fc1f5a5c607860be4206ef83b528fe))
+
 # [5.16.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.15.0...v5.16.0-dev.1) (2025-03-24)
 
 
