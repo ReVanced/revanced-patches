@@ -26,36 +26,12 @@ public final class UnlockPremiumPatch {
             "streaming-rules", "",
             // Enables premium UI in settings and removes the premium button in the nav-bar.
             "nft-disabled", "1",
-            
+            // Set the user's account type.
             "type", "premium",
-        
-            "offline", "1",
-        
-            "premium-mini", "1",
-        
-            "can_use_superbird", "1",
-        
+            // Changes the playlist type from mobile freetier.
             "catalogue", "premium",
-        
+            // Set the app's product state type.
             "financial-product", "pr:premium,tc:0",
-        
-            "in-on-demand-ad-free-perk", "1",
-        
-            "on-demand-trial-in-progress", "1",
-
-            "social-session", "1",
-        
-            "social-session-free-tier", "false",
-        
-            "ab-watch-now", "0",
-            
-            "ab-ad-player-targeting", "0",
-        
-            "ad-session-persistence", "0",
-        
-            "allow-advertising-id-transmission", "false",
-        
-            "exclude-from-marketing-and-advertising", "1"
     );
 
     public static void overrideAttribute(Map<String, AccountAttribute> attributes) {
