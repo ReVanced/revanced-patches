@@ -35,7 +35,7 @@ public final class UnlockPremiumPatch {
             // Changes the playlist type from mobile freetier.
             "catalogue", "premium",
             // Set the app's product state type.
-            "financial-product", "pr:premium,tc:0"
+            "financial-product", "pr:premium,tc:0",
             // Enable Cross-Platform Spotify Car Thing.
             "can_use_superbird", true,
             // Disable the client-side subscription checks.
