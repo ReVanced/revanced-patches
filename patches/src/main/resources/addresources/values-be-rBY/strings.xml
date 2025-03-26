@@ -226,6 +226,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_artist_cards_title">Схаваць карткі выканаўцаў</string>
   <string name="revanced_hide_artist_cards_summary_on">Карткі выканаўцаў схаваныя</string>
   <string name="revanced_hide_artist_cards_summary_off">Паказваюцца карткі выканаўцаў</string>
+  <string name="revanced_hide_ai_generated_video_summary_section_title">Схаваць «Зводку відэа, згенэраваную штучным інтэлектам»</string>
+  <string name="revanced_hide_ai_generated_video_summary_section_summary_on">Раздзел зводкі відэа схаваны</string>
+  <string name="revanced_hide_ai_generated_video_summary_section_summary_off">Раздзел зводкі відэа паказаны</string>
   <string name="revanced_hide_attributes_section_title">Схаваць атрыбуты</string>
   <string name="revanced_hide_attributes_section_summary_on">Раздзелы «Папулярныя месцы», «Гульні», «Музыка» і «Людзі, якіх згадвалі» схаваныя</string>
   <string name="revanced_hide_attributes_section_summary_off">Раздзелы «Папулярныя месцы», «Гульні», «Музыка» і «Людзі, якіх згадвалі» паказаныя</string>
@@ -262,9 +265,12 @@ Second \"item\" text"</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">Паказана ў звязаных відэа</string>
   <string name="revanced_comments_screen_title">Каментарыі</string>
   <string name="revanced_comments_screen_summary">Схаваць або паказаць кампаненты раздзела каментарыяў</string>
-  <string name="revanced_hide_comments_chat_summary_title">Схаваць «Зводку чата»</string>
-  <string name="revanced_hide_comments_chat_summary_summary_on">Зводка чата схаваная</string>
-  <string name="revanced_hide_comments_chat_summary_summary_off">Зводка чата паказаная</string>
+  <string name="revanced_hide_comments_ai_chat_summary_title">Схаваць зводку чата са штучным інтэлектам</string>
+  <string name="revanced_hide_comments_ai_chat_summary_summary_on">Зводка чата схаваная</string>
+  <string name="revanced_hide_comments_ai_chat_summary_summary_off">Зводка чата паказаная</string>
+  <string name="revanced_hide_comments_ai_summary_title">Схаваць зводку каментарыяў са штучным інтэлектам</string>
+  <string name="revanced_hide_comments_ai_summary_summary_on">Зводка каментарыяў схаваная</string>
+  <string name="revanced_hide_comments_ai_summary_summary_off">Зводка каментарыяў паказаная</string>
   <string name="revanced_hide_comments_by_members_header_title">Схаваць загаловак \"Каментарыі ўдзельнікаў\"</string>
   <string name="revanced_hide_comments_by_members_header_summary_on">Загаловак «Каментары ўдзельнікаў» схаваны</string>
   <string name="revanced_hide_comments_by_members_header_summary_off">Загаловак «Каментары ўдзельнікаў» паказаны</string>
@@ -311,7 +317,7 @@ Second \"item\" text"</string>
   <string name="revanced_hide_keyword_content_subscriptions_summary_on">Відэа ва ўкладцы «Падпіскі» фільтруюцца па ключавых словах</string>
   <string name="revanced_hide_keyword_content_subscriptions_summary_off">Відэа ва ўкладцы \"Падпіскі\" не фільтруюцца па ключавых словах</string>
   <string name="revanced_hide_keyword_content_phrases_title">Ключавыя словы, якія трэба схаваць</string>
-  <!-- For localization it is preferred, but not required, if 'LeBlanc' is replaced with a localized name or a familiar word that has upper case letters in the middle of the word.
+  <!-- For localization, it is preferred, but not required, if 'LeBlanc' is replaced with a localized name or a familiar word that has upper case letters in the middle of the word.
                  This is because keywords can be in any language, and showing an example in the localized script helps convey this. -->
   <string name="revanced_hide_keyword_content_phrases_summary">"Ключавыя словы і фразы для схавання, падзеленыя пераходамі на новую радок
 
@@ -326,7 +332,7 @@ Second \"item\" text"</string>
 • Некаторыя элементы інтэрфейсу могуць не быць схаваны
 • Пошук па ключавым слове можа не паказаць вынікі"</string>
   <string name="revanced_hide_keyword_content_about_whole_words_title">Супадзенне цэлых слоў</string>
-  <!-- Translations _must_ use a localized example.  For languages that do not use spaces between words (Chinese, Japanese, etc) the English AI example should be used since no localized examples exist.  Or if using machine translations, or if nobody wants to think of a localized example, then the English 'ai' example should be left as-is. -->
+  <!-- Translations _must_ use a localized example.  For languages that do not use spaces between words (Chinese, Japanese, etc.) the English AI example should be used since no localized examples exist.  Or if using machine translations, or if nobody wants to think of a localized example, then the English 'ai' example should be left as-is. -->
   <string name="revanced_hide_keyword_content_about_whole_words_summary">Калі вы ахінеце ключавое слова або фразу ў двухразовыя лапкі, гэта перашкодзіць частковаму супадзенню назваў відэа і каналаў&lt;br&gt;&lt;br&gt;Напрыклад,&lt;br&gt;&lt;b&gt;\"ai\"&lt;/b&gt; схавае відэа: &lt;b&gt;How does AI work?&lt;/b&gt;&lt;br&gt;але не схавае: &lt;b&gt;What does fair use mean?&lt;/b&gt;</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_hide_keyword_toast_invalid_common">Нельга выкарыстоўваць ключавое слова: %s</string>
@@ -424,9 +430,9 @@ Second \"item\" text"</string>
   <string name="revanced_disable_precise_seeking_gesture_summary_off">Жэст уключаны</string>
   </patch>
   <patch id="interaction.seekbar.enableSeekbarTappingPatch">
-  <string name="revanced_seekbar_tapping_title">Уключыць націск на панэлі пошуку</string>
-  <string name="revanced_seekbar_tapping_summary_on">Націск панэлі пошуку ўключаны</string>
-  <string name="revanced_seekbar_tapping_summary_off">Націск панэлі пошуку адключаны</string>
+  <string name="revanced_seekbar_tapping_title">Уключыць націсканне для пошуку</string>
+  <string name="revanced_seekbar_tapping_summary_on">Націсніце, каб уключыць пошук</string>
+  <string name="revanced_seekbar_tapping_summary_off">Націсканне для пошуку адключана</string>
   </patch>
   <patch id="interaction.swipecontrols.swipeControlsResourcePatch">
   <string name="revanced_swipe_brightness_title">Уключыць жэст яркасці</string>
@@ -439,9 +445,9 @@ Second \"item\" text"</string>
 
 Рэгулюйце гучнасць, праводзячы пальцам вертыкальна па правай частцы экрана"</string>
   <string name="revanced_swipe_volume_summary_off">Правядзенне пальцам для рэгулявання гучнасці ва ўвесь экран выключана</string>
-  <string name="revanced_swipe_press_to_engage_title">Уключыць жэст \"націсканне для правядзення пальцам\"</string>
-  <string name="revanced_swipe_press_to_engage_summary_on">Правядзенне пальцам уключана</string>
-  <string name="revanced_swipe_press_to_engage_summary_off">Правядзенне пальцам адключана</string>
+  <string name="revanced_swipe_press_to_engage_title">Уключыць жэст правядзення націскам</string>
+  <string name="revanced_swipe_press_to_engage_summary_on">Правядзенне націскам уключана</string>
+  <string name="revanced_swipe_press_to_engage_summary_off">Правядзенне націскам адключана</string>
   <string name="revanced_swipe_haptic_feedback_title">Уключыць тактыльную зваротную сувязь</string>
   <string name="revanced_swipe_haptic_feedback_summary_on">Тактыльная зваротная сувязь уключана</string>
   <string name="revanced_swipe_haptic_feedback_summary_off">Тактыльная зваротная сувязь адключана</string>

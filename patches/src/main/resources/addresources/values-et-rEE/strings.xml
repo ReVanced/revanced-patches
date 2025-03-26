@@ -226,6 +226,9 @@ Teid ei teavitata ühestki ootamatust sündmusest."</string>
   <string name="revanced_hide_artist_cards_title">Peida artisti kaardid</string>
   <string name="revanced_hide_artist_cards_summary_on">Kunstnerkortene er skjult</string>
   <string name="revanced_hide_artist_cards_summary_off">Kunstnerkortene vises</string>
+  <string name="revanced_hide_ai_generated_video_summary_section_title">Peida „AI-ga loodud video kokkuvõte”</string>
+  <string name="revanced_hide_ai_generated_video_summary_section_summary_on">Video kokkuvõtte osa on peidetud</string>
+  <string name="revanced_hide_ai_generated_video_summary_section_summary_off">Video kokkuvõtte osa on näidatud</string>
   <string name="revanced_hide_attributes_section_title">Peida atribuudid</string>
   <string name="revanced_hide_attributes_section_summary_on">Esiletõstetud kohad, mängud, muusika ja inimeste mainimise jaotised on peidetud</string>
   <string name="revanced_hide_attributes_section_summary_off">Esiletõstetud kohad, mängud, muusika ja inimeste mainimise jaotised on kuvatud</string>
@@ -262,9 +265,12 @@ Teid ei teavitata ühestki ootamatust sündmusest."</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">Näidatakse seotud videotes</string>
   <string name="revanced_comments_screen_title">Kommentaarid</string>
   <string name="revanced_comments_screen_summary">Peida või kuva kommentaaride sektsiooni komponendid</string>
-  <string name="revanced_hide_comments_chat_summary_title">Peida \'Chat kokkuv\u00f5te\'</string>
-  <string name="revanced_hide_comments_chat_summary_summary_on">Vestluse kokkuvõte on peidetud</string>
-  <string name="revanced_hide_comments_chat_summary_summary_off">Vestluse kokkuvõte on kuvatud</string>
+  <string name="revanced_hide_comments_ai_chat_summary_title">Peida tehisintellekti vestluse kokkuv\u00f5te</string>
+  <string name="revanced_hide_comments_ai_chat_summary_summary_on">Vestluse kokkuv\u00f5te on peidetud</string>
+  <string name="revanced_hide_comments_ai_chat_summary_summary_off">Vestluse kokkuv\u00f5te on n\u00e4idatud</string>
+  <string name="revanced_hide_comments_ai_summary_title">Peida tehisintellekti kommentaaride kokkuv\u00f5te</string>
+  <string name="revanced_hide_comments_ai_summary_summary_on">Kommentaaride kokkuv\u00f5te on peidetud</string>
+  <string name="revanced_hide_comments_ai_summary_summary_off">Kommentaaride kokkuv\u00f5te on n\u00e4idatud</string>
   <string name="revanced_hide_comments_by_members_header_title">Peida päis \'Liikmete kommentaarid\'</string>
   <string name="revanced_hide_comments_by_members_header_summary_on">Liikmete kommentaaride päis on peidetud</string>
   <string name="revanced_hide_comments_by_members_header_summary_off">Liikmete kommentaaride päis on kuvatud</string>
@@ -311,7 +317,7 @@ Kui Doodle on teie piirkonnas praegu nähtav ja see peitmise seade on sisse lül
   <string name="revanced_hide_keyword_content_subscriptions_summary_on">Avalehe videoid filtreeritakse võtmesõnade abil</string>
   <string name="revanced_hide_keyword_content_subscriptions_summary_off">Tellivideote ei filtreeritakse vastavalt võtmesõnadele</string>
   <string name="revanced_hide_keyword_content_phrases_title">Võtmesõnad peitmiseks</string>
-  <!-- For localization it is preferred, but not required, if 'LeBlanc' is replaced with a localized name or a familiar word that has upper case letters in the middle of the word.
+  <!-- For localization, it is preferred, but not required, if 'LeBlanc' is replaced with a localized name or a familiar word that has upper case letters in the middle of the word.
                  This is because keywords can be in any language, and showing an example in the localized script helps convey this. -->
   <string name="revanced_hide_keyword_content_phrases_summary">"Peidetavad märksõnad ja fraasid, eraldatud reavahetustega
 
@@ -326,7 +332,7 @@ Piirangud
 • Mõnda kasutajaliidese komponenti ei pruugi peita
 • Märksõna otsing ei pruugi anda tulemusi"</string>
   <string name="revanced_hide_keyword_content_about_whole_words_title">Sobita täpsed sõnad</string>
-  <!-- Translations _must_ use a localized example.  For languages that do not use spaces between words (Chinese, Japanese, etc) the English AI example should be used since no localized examples exist.  Or if using machine translations, or if nobody wants to think of a localized example, then the English 'ai' example should be left as-is. -->
+  <!-- Translations _must_ use a localized example.  For languages that do not use spaces between words (Chinese, Japanese, etc.) the English AI example should be used since no localized examples exist.  Or if using machine translations, or if nobody wants to think of a localized example, then the English 'ai' example should be left as-is. -->
   <string name="revanced_hide_keyword_content_about_whole_words_summary">Märksõna/fraasi ümbritsemine kahe topeltpakkumis märgiga takistab video pealkirjade ja kanali nimede osalist vastet.&lt;br&gt;&lt;br&gt;Näiteks&lt;br&gt;&lt;b&gt;\"ai\"&lt;/b&gt; peidab video: &lt;b&gt;How does AI work?&lt;/b&gt;&lt;br&gt;aga ei peida: &lt;b&gt;What does fair use mean?&lt;/b&gt;</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_hide_keyword_toast_invalid_common">Võti sõna: %s ei saa kasutada</string>
@@ -424,9 +430,9 @@ See funktsioon on saadaval ainult vanemates seadmetes"</string>
   <string name="revanced_disable_precise_seeking_gesture_summary_off">Žest on lubatud</string>
   </patch>
   <patch id="interaction.seekbar.enableSeekbarTappingPatch">
-  <string name="revanced_seekbar_tapping_title">Luba otsinguriba koputamine</string>
-  <string name="revanced_seekbar_tapping_summary_on">Otsinguriba koputamine on lubatud</string>
-  <string name="revanced_seekbar_tapping_summary_off">Otsinguriba koputamine on keelatud</string>
+  <string name="revanced_seekbar_tapping_title">Puudutusega otsimise lubamine</string>
+  <string name="revanced_seekbar_tapping_summary_on">Puudutusega otsimine on lubatud</string>
+  <string name="revanced_seekbar_tapping_summary_off">Puudutusega otsimine on keelatud</string>
   </patch>
   <patch id="interaction.swipecontrols.swipeControlsResourcePatch">
   <string name="revanced_swipe_brightness_title">Luba heleduse žest</string>
@@ -439,9 +445,9 @@ Reguleeri heledust ekraani vasakul küljel vertikaalselt pühkides"</string>
 
 Helitugevuse reguleerimiseks pühkige ekraani paremal küljel vertikaalselt"</string>
   <string name="revanced_swipe_volume_summary_off">Täisekraani helitugevuse pühkimine on keelatud</string>
-  <string name="revanced_swipe_press_to_engage_title">Luba pühkimise žest vajutamisega</string>
-  <string name="revanced_swipe_press_to_engage_summary_on">Pühkimise žest vajutamisega on lubatud</string>
-  <string name="revanced_swipe_press_to_engage_summary_off">Pühkimise žest vajutamisega on keelatud</string>
+  <string name="revanced_swipe_press_to_engage_title">Luba vajutusega libistamise žest</string>
+  <string name="revanced_swipe_press_to_engage_summary_on">Vajutusega libistamine on lubatud</string>
+  <string name="revanced_swipe_press_to_engage_summary_off">Vajutusega libistamine on keelatud</string>
   <string name="revanced_swipe_haptic_feedback_title">Luba haptilise tagasiside</string>
   <string name="revanced_swipe_haptic_feedback_summary_on">Haptilise tagasiside on lubatud</string>
   <string name="revanced_swipe_haptic_feedback_summary_off">Haptilise tagasiside on keelatud</string>
@@ -1089,7 +1095,7 @@ Kui see hiljem välja lülitatakse, on soovitatav rakenduse andmed kustutada, et
                  This is because the 'General layout' menu uses alphabetic sorting, and it functionally works better if the spoof target selector appears below the 'Spoof app version' UI switch -->
   <string name="revanced_spoof_app_version_target_title">Võltsitud rakenduse versiooni siht</string>
   <string name="revanced_spoof_app_version_target_entry_1">19.35.36 - Taastage vanad Shortsi esitajaikoonid</string>
-  <string name="revanced_spoof_app_version_target_entry_2">19.01.34 - Taasta vanad navigeerimise ikoonid</string>
+  <string name="revanced_spoof_app_version_target_entry_2">19.01.34 – Taasta vanad navigeerimisikoonid</string>
   </patch>
   <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">Määra algusleht</string>

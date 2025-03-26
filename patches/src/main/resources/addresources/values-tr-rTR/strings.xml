@@ -226,6 +226,9 @@ Beklenmedik olaylar hakkında bilgilendirilmeyeceksiniz."</string>
   <string name="revanced_hide_artist_cards_title">Sanatçı kartlarını gizle</string>
   <string name="revanced_hide_artist_cards_summary_on">Sanatçı kartları gizli</string>
   <string name="revanced_hide_artist_cards_summary_off">Sanatçı kartları görünür</string>
+  <string name="revanced_hide_ai_generated_video_summary_section_title">\'Yapay zeka tarafından oluşturulan video özeti\'ni gizle</string>
+  <string name="revanced_hide_ai_generated_video_summary_section_summary_on">Video özeti bölümü gizli</string>
+  <string name="revanced_hide_ai_generated_video_summary_section_summary_off">Video özeti bölümü görünür</string>
   <string name="revanced_hide_attributes_section_title">Nitelikleri gizle</string>
   <string name="revanced_hide_attributes_section_summary_on">Öne çıkan yerler, Oyunlar, Müzik ve Bahsedilen kişiler bölümleri gizli</string>
   <string name="revanced_hide_attributes_section_summary_off">Öne çıkan yerler, Oyunlar, Müzik ve Bahsedilen kişiler bölümleri görünür</string>
@@ -262,9 +265,12 @@ Beklenmedik olaylar hakkında bilgilendirilmeyeceksiniz."</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">Alâkalı videolardaki görünür</string>
   <string name="revanced_comments_screen_title">Yorumlar</string>
   <string name="revanced_comments_screen_summary">Yorumlar kısmı bileşenlerini gizle veya göster</string>
-  <string name="revanced_hide_comments_chat_summary_title">\'Sohbet özeti\'ni gizle</string>
-  <string name="revanced_hide_comments_chat_summary_summary_on">Sohbet özeti gizli</string>
-  <string name="revanced_hide_comments_chat_summary_summary_off">Sohbet özeti görünür</string>
+  <string name="revanced_hide_comments_ai_chat_summary_title">Yapay zeka sohbet özetini gizle</string>
+  <string name="revanced_hide_comments_ai_chat_summary_summary_on">Sohbet özeti gizli</string>
+  <string name="revanced_hide_comments_ai_chat_summary_summary_off">Sohbet özeti görünür</string>
+  <string name="revanced_hide_comments_ai_summary_title">Yapay zeka yorumlar özetini gizle</string>
+  <string name="revanced_hide_comments_ai_summary_summary_on">Yorumlar özeti gizli</string>
+  <string name="revanced_hide_comments_ai_summary_summary_off">Yorumlar özeti görünür</string>
   <string name="revanced_hide_comments_by_members_header_title">\'Üyelerin yorumları\' başlığını gizle</string>
   <string name="revanced_hide_comments_by_members_header_summary_on">Üyelerin yorumları başlığı gizli</string>
   <string name="revanced_hide_comments_by_members_header_summary_off">Üyelerin yorumları başlığı görünür</string>
@@ -311,7 +317,7 @@ Bir Doodle şu anda bölgenizde gösteriliyorsa ve bu gizleme ayarı açıksa, a
   <string name="revanced_hide_keyword_content_subscriptions_summary_on">Abonelikler sekmesindeki videolar anahtar kelimelerle filtrelenir</string>
   <string name="revanced_hide_keyword_content_subscriptions_summary_off">Abonelikler sekmesindeki videolar anahtar kelimelerle filtrelenmez</string>
   <string name="revanced_hide_keyword_content_phrases_title">Gizlenecek anahtar kelimeler</string>
-  <!-- For localization it is preferred, but not required, if 'LeBlanc' is replaced with a localized name or a familiar word that has upper case letters in the middle of the word.
+  <!-- For localization, it is preferred, but not required, if 'LeBlanc' is replaced with a localized name or a familiar word that has upper case letters in the middle of the word.
                  This is because keywords can be in any language, and showing an example in the localized script helps convey this. -->
   <string name="revanced_hide_keyword_content_phrases_summary">"Yeni satırlarla ayrılmış gizlenecek anahtar kelimeler ve ifadeler
 
@@ -326,7 +332,7 @@ Sınırlamalar
 • Bazı kullanıcı arayüzü bileşenleri gizlenemeyebilir
 • Bir anahtar kelime aranması sonuç göstermeyebilir"</string>
   <string name="revanced_hide_keyword_content_about_whole_words_title">Tam kelimeleri eşleştir</string>
-  <!-- Translations _must_ use a localized example.  For languages that do not use spaces between words (Chinese, Japanese, etc) the English AI example should be used since no localized examples exist.  Or if using machine translations, or if nobody wants to think of a localized example, then the English 'ai' example should be left as-is. -->
+  <!-- Translations _must_ use a localized example.  For languages that do not use spaces between words (Chinese, Japanese, etc.) the English AI example should be used since no localized examples exist.  Or if using machine translations, or if nobody wants to think of a localized example, then the English 'ai' example should be left as-is. -->
   <string name="revanced_hide_keyword_content_about_whole_words_summary">Bir anahtar kelimeyi veya ifadeyi tırnak işareti içine almak, video başlıkları ve kanal adlarının kısmi eşleşmelerini önleyecektir&lt;br&gt;&lt;br&gt;Örneğin,&lt;br&gt;&lt;b&gt;\"ağustos\"&lt;/b&gt;, &lt;b&gt;Ağustos ayında kardan adam yapmak!&lt;/b&gt; başlıklı videoyu gizleyecektir&lt;br&gt;ancak &lt;b&gt;Ağustosböcekleri hakkında bilgiler&lt;/b&gt; başlıklı videoyu gizlemeyecektir</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_hide_keyword_toast_invalid_common">Anahtar kelime kullanılamıyor: %s</string>
@@ -424,9 +430,9 @@ Bu özellik yalnızca eski cihazlarda kullanılabilir"</string>
   <string name="revanced_disable_precise_seeking_gesture_summary_off">Hareket etkin</string>
   </patch>
   <patch id="interaction.seekbar.enableSeekbarTappingPatch">
-  <string name="revanced_seekbar_tapping_title">Zaman çubuğuna dokunmayı etkinleştir</string>
-  <string name="revanced_seekbar_tapping_summary_on">Zaman çubuğuna dokunma etkin</string>
-  <string name="revanced_seekbar_tapping_summary_off">Zaman çubuğuna dokunma devre dışı</string>
+  <string name="revanced_seekbar_tapping_title">Dokunarak sardırmayı etkinleştir</string>
+  <string name="revanced_seekbar_tapping_summary_on">Dokunarak sardırma etkin</string>
+  <string name="revanced_seekbar_tapping_summary_off">Dokunarak sardırma devre dışı</string>
   </patch>
   <patch id="interaction.swipecontrols.swipeControlsResourcePatch">
   <string name="revanced_swipe_brightness_title">Parlaklık hareketini etkinleştir</string>

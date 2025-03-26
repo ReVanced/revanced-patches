@@ -226,6 +226,9 @@ No se t'informarà de cap esdeveniment inesperat."</string>
   <string name="revanced_hide_artist_cards_title">Amaga les targetes d\'artista</string>
   <string name="revanced_hide_artist_cards_summary_on">Les targetes d\'artista estan amagades</string>
   <string name="revanced_hide_artist_cards_summary_off">Es mostren les targetes d\'artista</string>
+  <string name="revanced_hide_ai_generated_video_summary_section_title">Amaga «Resum de vídeo generat per IA»</string>
+  <string name="revanced_hide_ai_generated_video_summary_section_summary_on">S\'ha amagat la secció de resum del vídeo</string>
+  <string name="revanced_hide_ai_generated_video_summary_section_summary_off">Es mostra la secció de resum del vídeo</string>
   <string name="revanced_hide_attributes_section_title">Amaga els atributs</string>
   <string name="revanced_hide_attributes_section_summary_on">Les seccions Llocs destacats, Jocs, Música i Persones esmentades s\'amaguen</string>
   <string name="revanced_hide_attributes_section_summary_off">Les seccions Llocs destacats, Jocs, Música i Persones esmentades es mostren</string>
@@ -262,9 +265,12 @@ No se t'informarà de cap esdeveniment inesperat."</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">Es mostren els vídeos relacionats</string>
   <string name="revanced_comments_screen_title">Comentaris</string>
   <string name="revanced_comments_screen_summary">Amaga o mostra els comentaris</string>
-  <string name="revanced_hide_comments_chat_summary_title">Amaga \"Resum del xat\"</string>
-  <string name="revanced_hide_comments_chat_summary_summary_on">El resum del xat s\'amaga</string>
-  <string name="revanced_hide_comments_chat_summary_summary_off">El resum del xat es mostra</string>
+  <string name="revanced_hide_comments_ai_chat_summary_title">Amaga el resum del xat de la IA</string>
+  <string name="revanced_hide_comments_ai_chat_summary_summary_on">El resum del xat està amagat</string>
+  <string name="revanced_hide_comments_ai_chat_summary_summary_off">Es mostra el resum del xat</string>
+  <string name="revanced_hide_comments_ai_summary_title">Amaga el resum dels comentaris de la IA</string>
+  <string name="revanced_hide_comments_ai_summary_summary_on">El resum dels comentaris està amagat</string>
+  <string name="revanced_hide_comments_ai_summary_summary_off">Es mostra el resum dels comentaris</string>
   <string name="revanced_hide_comments_by_members_header_title">Amaga el títol \'Comentaris dels membres\'</string>
   <string name="revanced_hide_comments_by_members_header_summary_on">La capçalera Comentaris dels membres s\'amaga</string>
   <string name="revanced_hide_comments_by_members_header_summary_off">La capçalera Comentaris dels membres es mostra</string>
@@ -311,7 +317,7 @@ Si actualment es mostra un Doodle a la teva regió i aquesta configuració d'ama
   <string name="revanced_hide_keyword_content_subscriptions_summary_on">Els vídeos a la pestanya de subscripcions es filtren per paraules clau</string>
   <string name="revanced_hide_keyword_content_subscriptions_summary_off">Els vídeos a la pestanya de subscriptors no es filtren per paraules clau</string>
   <string name="revanced_hide_keyword_content_phrases_title">Paraules clau per amagar</string>
-  <!-- For localization it is preferred, but not required, if 'LeBlanc' is replaced with a localized name or a familiar word that has upper case letters in the middle of the word.
+  <!-- For localization, it is preferred, but not required, if 'LeBlanc' is replaced with a localized name or a familiar word that has upper case letters in the middle of the word.
                  This is because keywords can be in any language, and showing an example in the localized script helps convey this. -->
   <string name="revanced_hide_keyword_content_phrases_summary">"Paraules clau i frases per amagar, separades per salts de línia
 
@@ -326,7 +332,7 @@ Limitacions
 • És possible que alguns components de la IU no estiguin ocults
 • Si cerques una paraula clau, és possible que no es mostrin resultats"</string>
   <string name="revanced_hide_keyword_content_about_whole_words_title">Coincideix amb les paraules senceres</string>
-  <!-- Translations _must_ use a localized example.  For languages that do not use spaces between words (Chinese, Japanese, etc) the English AI example should be used since no localized examples exist.  Or if using machine translations, or if nobody wants to think of a localized example, then the English 'ai' example should be left as-is. -->
+  <!-- Translations _must_ use a localized example.  For languages that do not use spaces between words (Chinese, Japanese, etc.) the English AI example should be used since no localized examples exist.  Or if using machine translations, or if nobody wants to think of a localized example, then the English 'ai' example should be left as-is. -->
   <string name="revanced_hide_keyword_content_about_whole_words_summary">Envoltar una paraula clau o frase amb cometes dobles impedirà que es trobin coincidències parcials en els títols dels vídeos i els noms dels canals&lt;br&gt;&lt;br&gt;Per exemple,&lt;br&gt;&lt;b&gt;\"ai\"&lt;/b&gt; amagarà el vídeo: &lt;b&gt;How does AI work?&lt;/b&gt;&lt;br&gt;però no amagarà: &lt;b&gt;What does fair use mean?&lt;/b&gt;</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_hide_keyword_toast_invalid_common">No es pot utilitzar la paraula clau: %s</string>
@@ -424,9 +430,9 @@ Aquesta funció només està disponible per a dispositius antics"</string>
   <string name="revanced_disable_precise_seeking_gesture_summary_off">El gest està activat</string>
   </patch>
   <patch id="interaction.seekbar.enableSeekbarTappingPatch">
-  <string name="revanced_seekbar_tapping_title">Habilitar el tapping de la barra de búsqueda</string>
-  <string name="revanced_seekbar_tapping_summary_on">La pulsació de la barra de cerca està habilitada</string>
-  <string name="revanced_seekbar_tapping_summary_off">La pulsació de la barra de cerca està inhabilitada</string>
+  <string name="revanced_seekbar_tapping_title">Habilita tocar per buscar</string>
+  <string name="revanced_seekbar_tapping_summary_on">S\'ha activat el toc per cercar</string>
+  <string name="revanced_seekbar_tapping_summary_off">Tocar per buscar està desactivat</string>
   </patch>
   <patch id="interaction.swipecontrols.swipeControlsResourcePatch">
   <string name="revanced_swipe_brightness_title">Habilita el control de brillo por gesto</string>
@@ -439,9 +445,9 @@ Ajusteu la brillantor lliscant verticalment a la part esquerra de la pantalla"</
 
 Ajusteu el volum lliscant verticalment a la part dreta de la pantalla"</string>
   <string name="revanced_swipe_volume_summary_off">Lliscar el dit a pantalla completa per al volum està desactivat</string>
-  <string name="revanced_swipe_press_to_engage_title">Activa el gest de polsar per lliscar</string>
-  <string name="revanced_swipe_press_to_engage_summary_on">Activat el gest de prémer per lliscar</string>
-  <string name="revanced_swipe_press_to_engage_summary_off">Desactivat el gest de prémer per lliscar</string>
+  <string name="revanced_swipe_press_to_engage_title">Habilita el gest de prémer per lliscar</string>
+  <string name="revanced_swipe_press_to_engage_summary_on">Prémer per lliscar està habilitat</string>
+  <string name="revanced_swipe_press_to_engage_summary_off">Prémer per lliscar està desactivat</string>
   <string name="revanced_swipe_haptic_feedback_title">Activa la resposta tàctil</string>
   <string name="revanced_swipe_haptic_feedback_summary_on">La resposta tàctil està activada</string>
   <string name="revanced_swipe_haptic_feedback_summary_off">La resposta tàctil està desactivada</string>
