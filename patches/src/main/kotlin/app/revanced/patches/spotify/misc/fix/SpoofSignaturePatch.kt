@@ -3,6 +3,8 @@ package app.revanced.patches.spotify.misc.fix
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.util.indexOfFirstInstructionReversedOrThrow
+import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Suppress("unused")
@@ -15,11 +17,16 @@ val spoofSignaturePatch = bytecodePatch(
     execute {
         getAppSignatureFingerprint.let {
             it.method.apply {
-                val index = it.instructionMatches[1].index
-                val register = getInstruction<OneRegisterInstruction>(index).registerA
+                val concatSignaturesIndex = indexOfFirstInstructionReversedOrThrow(
+                    it.instructionMatches.first().index,
+                    Opcode.MOVE_RESULT_OBJECT,
+                )
+
+                val register = getInstruction<OneRegisterInstruction>(concatSignaturesIndex).registerA
+
                 val expectedSignature = "d6a6dced4a85f24204bf9505ccc1fce114cadb32"
 
-                replaceInstruction(index, "const-string v$register, \"$expectedSignature\"")
+                replaceInstruction(concatSignaturesIndex, "const-string v$register, \"$expectedSignature\"")
             }
         }
     }

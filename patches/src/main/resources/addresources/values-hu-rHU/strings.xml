@@ -226,6 +226,9 @@ Nem fog értesülni semmilyen váratlan eseményről."</string>
   <string name="revanced_hide_artist_cards_title">Előadó kártyák elrejtése</string>
   <string name="revanced_hide_artist_cards_summary_on">Az előadó kártyák rejtve vannak</string>
   <string name="revanced_hide_artist_cards_summary_off">A előadó kártyák láthatók</string>
+  <string name="revanced_hide_ai_generated_video_summary_section_title">„AI-generált videó összefoglaló” elrejtése</string>
+  <string name="revanced_hide_ai_generated_video_summary_section_summary_on">A videó összefoglaló szekció rejtve</string>
+  <string name="revanced_hide_ai_generated_video_summary_section_summary_off">A videó összefoglaló szekció látható</string>
   <string name="revanced_hide_attributes_section_title">Attribútumok elrejtése</string>
   <string name="revanced_hide_attributes_section_summary_on">A kiemelt helyek, játékok, zene és említett személyek szakaszai rejtettek</string>
   <string name="revanced_hide_attributes_section_summary_off">A kiemelt helyek, játékok, zene és említett személyek szakaszai láthatók</string>
@@ -262,9 +265,12 @@ Nem fog értesülni semmilyen váratlan eseményről."</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">Megjelenik a kapcsolódó videók között</string>
   <string name="revanced_comments_screen_title">Megjegyzések</string>
   <string name="revanced_comments_screen_summary">Megjegyzések rész elrejtése vagy megjelenítése</string>
-  <string name="revanced_hide_comments_chat_summary_title">A „Csevegés összefoglalója” elrejtése</string>
-  <string name="revanced_hide_comments_chat_summary_summary_on">A csevegés összefoglalója rejtett</string>
-  <string name="revanced_hide_comments_chat_summary_summary_off">A csevegés összefoglalója látható</string>
+  <string name="revanced_hide_comments_ai_chat_summary_title">AI Chat összefoglaló elrejtése</string>
+  <string name="revanced_hide_comments_ai_chat_summary_summary_on">Chatösszefoglaló elrejtve</string>
+  <string name="revanced_hide_comments_ai_chat_summary_summary_off">Chatösszefoglaló megjelenítve</string>
+  <string name="revanced_hide_comments_ai_summary_title">AI-kommentárok összefoglalójának elrejtése</string>
+  <string name="revanced_hide_comments_ai_summary_summary_on">Kommentárok összefoglalója elrejtve</string>
+  <string name="revanced_hide_comments_ai_summary_summary_off">Kommentárok összefoglalója megjelenítve</string>
   <string name="revanced_hide_comments_by_members_header_title">A „Tagok megjegyzései” fejléc elrejtése</string>
   <string name="revanced_hide_comments_by_members_header_summary_on">A tagok hozzászólásainak fejléce rejtett</string>
   <string name="revanced_hide_comments_by_members_header_summary_off">A tagok hozzászólásainak fejléce látható</string>
@@ -311,7 +317,7 @@ Ha a Doodle jelenleg a régiódában látható, és ez a rejtés beállítás be
   <string name="revanced_hide_keyword_content_subscriptions_summary_on">A videók a feliratkozások lapon kulcsszavak alapján szűrve</string>
   <string name="revanced_hide_keyword_content_subscriptions_summary_off">A videók a feliratkozások lapon nincsenek szűrve</string>
   <string name="revanced_hide_keyword_content_phrases_title">Elrejtendő kulcsszavak</string>
-  <!-- For localization it is preferred, but not required, if 'LeBlanc' is replaced with a localized name or a familiar word that has upper case letters in the middle of the word.
+  <!-- For localization, it is preferred, but not required, if 'LeBlanc' is replaced with a localized name or a familiar word that has upper case letters in the middle of the word.
                  This is because keywords can be in any language, and showing an example in the localized script helps convey this. -->
   <string name="revanced_hide_keyword_content_phrases_summary">"Kulcsszavak és kifejezések a rejtéshez, új sorokkal elválasztva
 
@@ -326,7 +332,7 @@ Korlátozások
 • Egyes felület elemek nem rejtőknek el
 • A kulcsszó keresése nem eredményezhet eredményt"</string>
   <string name="revanced_hide_keyword_content_about_whole_words_title">Párosítson egész szavakat</string>
-  <!-- Translations _must_ use a localized example.  For languages that do not use spaces between words (Chinese, Japanese, etc) the English AI example should be used since no localized examples exist.  Or if using machine translations, or if nobody wants to think of a localized example, then the English 'ai' example should be left as-is. -->
+  <!-- Translations _must_ use a localized example.  For languages that do not use spaces between words (Chinese, Japanese, etc.) the English AI example should be used since no localized examples exist.  Or if using machine translations, or if nobody wants to think of a localized example, then the English 'ai' example should be left as-is. -->
   <string name="revanced_hide_keyword_content_about_whole_words_summary">Ha egy kulcsszót/kifejezést dupla idézőjelekkel vesz körül, akkor elkerülhető a videócímek és a csatornanevek részleges egyezése&lt;br&gt;&lt;br&gt;Például:&lt;br&gt;&lt;b&gt;\"ai\"&lt;/b&gt; elrejti a videót: &lt;b&gt;Hogyan működik az AI?&lt;/b&gt;&lt;br&gt;de nem rejti el: &lt;b&gt;Mit jelent a fair use?&lt;/b&gt;</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_hide_keyword_toast_invalid_common">Nem használható kulcsszó: %s</string>
@@ -424,9 +430,9 @@ Ez a funkció csak régebbi eszközökön érhető el"</string>
   <string name="revanced_disable_precise_seeking_gesture_summary_off">A kézmozdulat engedélyezve</string>
   </patch>
   <patch id="interaction.seekbar.enableSeekbarTappingPatch">
-  <string name="revanced_seekbar_tapping_title">Érintés engedélyezése a keresősávon</string>
-  <string name="revanced_seekbar_tapping_summary_on">A keresősáv érintése engedélyezve van</string>
-  <string name="revanced_seekbar_tapping_summary_off">A keresősáv érintése le van tiltva</string>
+  <string name="revanced_seekbar_tapping_title">Érintésre keresés engedélyezése</string>
+  <string name="revanced_seekbar_tapping_summary_on">A koppintással történő keresés engedélyezve van</string>
+  <string name="revanced_seekbar_tapping_summary_off">Az érintésre keresés le van tiltva</string>
   </patch>
   <patch id="interaction.swipecontrols.swipeControlsResourcePatch">
   <string name="revanced_swipe_brightness_title">Fényerő kézmozdulat engedélyezése</string>
@@ -439,9 +445,9 @@ A fényerő beállítása a képernyő bal oldalán történő függőleges húz
 
 A hangerő a képernyő jobb oldalán függőlegesen húzva állítható be"</string>
   <string name="revanced_swipe_volume_summary_off">A teljes képernyős hangerőhúzás le van tiltva</string>
-  <string name="revanced_swipe_press_to_engage_title">Nyomva húzás kézmozdulat engedélyezése</string>
-  <string name="revanced_swipe_press_to_engage_summary_on">A nyomva húzás engedélyezve van</string>
-  <string name="revanced_swipe_press_to_engage_summary_off">A nyomva húzás le van tiltva</string>
+  <string name="revanced_swipe_press_to_engage_title">Csúsztatáshoz nyomva tartás engedélyezése</string>
+  <string name="revanced_swipe_press_to_engage_summary_on">A csúsztatáshoz nyomva tartás engedélyezve</string>
+  <string name="revanced_swipe_press_to_engage_summary_off">A csúsztatáshoz nyomva tartás le van tiltva</string>
   <string name="revanced_swipe_haptic_feedback_title">Haptikus visszajelzés engedélyezése</string>
   <string name="revanced_swipe_haptic_feedback_summary_on">A haptikus visszajelzés engedélyezve van</string>
   <string name="revanced_swipe_haptic_feedback_summary_off">A haptikus visszajelzés le van tiltva</string>

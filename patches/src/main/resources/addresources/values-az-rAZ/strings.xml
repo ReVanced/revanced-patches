@@ -262,9 +262,8 @@ Gözlənilməz hallardan xəbərdar olmayacaqsınız."</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">Əlaqəli videolarda görünür</string>
   <string name="revanced_comments_screen_title">Şərhlər</string>
   <string name="revanced_comments_screen_summary">Şərhlər bölməsi elementlərin gizlət və ya göstər</string>
-  <string name="revanced_hide_comments_chat_summary_title">\'Söhbət yekunun\' Gizlət</string>
-  <string name="revanced_hide_comments_chat_summary_summary_on">Söhbət yekunu gizlidir </string>
-  <string name="revanced_hide_comments_chat_summary_summary_off">Söhbət yekunu görünür</string>
+  <string name="revanced_hide_comments_ai_chat_summary_summary_on">Söhbət yekunu gizlidir </string>
+  <string name="revanced_hide_comments_ai_chat_summary_summary_off">Söhbət yekunu görünür</string>
   <string name="revanced_hide_comments_by_members_header_title">\'Üzvlərin şərhləri\' başlığını gizlət</string>
   <string name="revanced_hide_comments_by_members_header_summary_on">Üzvlərin şərhləri başlığı gizlidir</string>
   <string name="revanced_hide_comments_by_members_header_summary_off">Üzvlərin şərhləri başlığı görünür</string>
@@ -311,7 +310,7 @@ Gözlənilməz hallardan xəbərdar olmayacaqsınız."</string>
   <string name="revanced_hide_keyword_content_subscriptions_summary_on">Abunəliklər bölməsindəki videolar açar sözlərlə filtrlənir</string>
   <string name="revanced_hide_keyword_content_subscriptions_summary_off">Abunəliklər bölməsindəki videolar açar sözlərlə filtrlənmir</string>
   <string name="revanced_hide_keyword_content_phrases_title">Gizlədiləcək açar sözlər</string>
-  <!-- For localization it is preferred, but not required, if 'LeBlanc' is replaced with a localized name or a familiar word that has upper case letters in the middle of the word.
+  <!-- For localization, it is preferred, but not required, if 'LeBlanc' is replaced with a localized name or a familiar word that has upper case letters in the middle of the word.
                  This is because keywords can be in any language, and showing an example in the localized script helps convey this. -->
   <string name="revanced_hide_keyword_content_phrases_summary">"Yeni sətirlərlə ayrılan, gizlədiləcək açar sözlər və ifadələr
 
@@ -326,7 +325,7 @@ Məhdudiyyətlər
 • Bəzi UI hissəcikləri gizlənə bilməz
 • Açar söz axtarma nəticə verməyə bilər"</string>
   <string name="revanced_hide_keyword_content_about_whole_words_title">Bütün sözləri uyğunlaşdır</string>
-  <!-- Translations _must_ use a localized example.  For languages that do not use spaces between words (Chinese, Japanese, etc) the English AI example should be used since no localized examples exist.  Or if using machine translations, or if nobody wants to think of a localized example, then the English 'ai' example should be left as-is. -->
+  <!-- Translations _must_ use a localized example.  For languages that do not use spaces between words (Chinese, Japanese, etc.) the English AI example should be used since no localized examples exist.  Or if using machine translations, or if nobody wants to think of a localized example, then the English 'ai' example should be left as-is. -->
   <string name="revanced_hide_keyword_content_about_whole_words_summary">Açar söz/frazanın qoşa dırnaqlarla əhatə olunması video adları və kanal adlarının qismən uyğunlaşmasına mane olacaq &lt;br&gt;&lt;br&gt;Məsələn,&lt;br&gt;&lt;b&gt;\"ai\"&lt;/b&gt; videonu gizlədəcək:&lt;b&gt;How does AI work?&lt;/b&gt;&lt;br&gt; lakin gizlətməyəcək: Düzgün;&lt;b&gt;What does fair use mean?&lt;/b&gt;</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_hide_keyword_toast_invalid_common">Açar söz istifadə edilə bilmir: %s</string>
@@ -424,9 +423,6 @@ Bu xüsusiyyət yalnız köhnə cihazlar üçün mövcuddur"</string>
   <string name="revanced_disable_precise_seeking_gesture_summary_off">Jest aktivləşdirilib</string>
   </patch>
   <patch id="interaction.seekbar.enableSeekbarTappingPatch">
-  <string name="revanced_seekbar_tapping_title">İrəliləmə cizgisi toxunmasını aktivləşdir</string>
-  <string name="revanced_seekbar_tapping_summary_on">İrəliləyiş cizgisi toxunması aktivdir</string>
-  <string name="revanced_seekbar_tapping_summary_off">İrəliləyiş cizgisi toxunması qapalıdır</string>
   </patch>
   <patch id="interaction.swipecontrols.swipeControlsResourcePatch">
   <string name="revanced_swipe_brightness_title">Parlaqlıq jestini aktivləşdir</string>
@@ -439,9 +435,6 @@ Ekranın sol tərəfində dikinə sürüşdürərək parlaqlığı tənzimləyin
 
 Ekranın sağ tərəfində düzünə sürüşdürərək səs səviyyəsini tənzimlə"</string>
   <string name="revanced_swipe_volume_summary_off">Tam ekran səs sürüşdürməsi qapalıdır</string>
-  <string name="revanced_swipe_press_to_engage_title">Basıb sürüşdürmə jestini aktivləşdir</string>
-  <string name="revanced_swipe_press_to_engage_summary_on">Sürüşdürmək üçün basma aktivdir</string>
-  <string name="revanced_swipe_press_to_engage_summary_off">Sürüşdürmək üçün basma qeyri-aktivdir</string>
   <string name="revanced_swipe_haptic_feedback_title">Əks-əlaqə reaksiyasını aktivləşdir</string>
   <string name="revanced_swipe_haptic_feedback_summary_on">Əks-əlaqə reaksiyası aktivləşdirilib</string>
   <string name="revanced_swipe_haptic_feedback_summary_off">Əks-əlaqə reaksiyası qeyri-aktivdir</string>

@@ -226,6 +226,9 @@ Non sarai notificato di eventi imprevisti."</string>
   <string name="revanced_hide_artist_cards_title">Nascondi le schede artista</string>
   <string name="revanced_hide_artist_cards_summary_on">Le schede artista sono nascoste</string>
   <string name="revanced_hide_artist_cards_summary_off">Le schede artista sono visibili</string>
+  <string name="revanced_hide_ai_generated_video_summary_section_title">Nascondi \"Riepilogo video generato dall\'AI\"</string>
+  <string name="revanced_hide_ai_generated_video_summary_section_summary_on">La sezione del riepilogo video è nascosta</string>
+  <string name="revanced_hide_ai_generated_video_summary_section_summary_off">La sezione del riepilogo video è visibile</string>
   <string name="revanced_hide_attributes_section_title">Nascondi Attributi</string>
   <string name="revanced_hide_attributes_section_summary_on">Le sezioni Luoghi in evidenza, Giochi, Musica e Persone menzionate sono nascoste</string>
   <string name="revanced_hide_attributes_section_summary_off">Le sezioni Luoghi in evidenza, Giochi, Musica e Persone menzionate sono visibili</string>
@@ -262,9 +265,12 @@ Non sarai notificato di eventi imprevisti."</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">È visibile nei video correlati</string>
   <string name="revanced_comments_screen_title">Commenti</string>
   <string name="revanced_comments_screen_summary">Mostra o nascondi i componenti della sezione commenti</string>
-  <string name="revanced_hide_comments_chat_summary_title">Nascondi \"Riepilogo chat\"</string>
-  <string name="revanced_hide_comments_chat_summary_summary_on">Riepilogo chat è nascosto</string>
-  <string name="revanced_hide_comments_chat_summary_summary_off">Riepilogo chat è visibile</string>
+  <string name="revanced_hide_comments_ai_chat_summary_title">Nascondi il riepilogo della chat AI</string>
+  <string name="revanced_hide_comments_ai_chat_summary_summary_on">Riepilogo chat nascosto</string>
+  <string name="revanced_hide_comments_ai_chat_summary_summary_off">Riepilogo chat visualizzato</string>
+  <string name="revanced_hide_comments_ai_summary_title">Nascondi il riepilogo dei commenti AI</string>
+  <string name="revanced_hide_comments_ai_summary_summary_on">Riepilogo dei commenti nascosto</string>
+  <string name="revanced_hide_comments_ai_summary_summary_off">Riepilogo dei commenti visualizzato</string>
   <string name="revanced_hide_comments_by_members_header_title">Nascondi l\'intestazione \'Commenti dai membri\'</string>
   <string name="revanced_hide_comments_by_members_header_summary_on">L\'intestazione dei commenti dei membri è nascosta</string>
   <string name="revanced_hide_comments_by_members_header_summary_off">L\'intestazione dei commenti dei membri è visibile</string>
@@ -311,7 +317,7 @@ Se al momento un Doodle è visibile nella tua regione e questa impostazione nasc
   <string name="revanced_hide_keyword_content_subscriptions_summary_on">I video nella scheda Iscrizioni sono filtrati per parole chiave</string>
   <string name="revanced_hide_keyword_content_subscriptions_summary_off">I video nella scheda Iscrizioni non sono filtrati per parole chiave</string>
   <string name="revanced_hide_keyword_content_phrases_title">Parole chiave da nascondere</string>
-  <!-- For localization it is preferred, but not required, if 'LeBlanc' is replaced with a localized name or a familiar word that has upper case letters in the middle of the word.
+  <!-- For localization, it is preferred, but not required, if 'LeBlanc' is replaced with a localized name or a familiar word that has upper case letters in the middle of the word.
                  This is because keywords can be in any language, and showing an example in the localized script helps convey this. -->
   <string name="revanced_hide_keyword_content_phrases_summary">"L'elenco delle parole chiave e frasi da nascondere, separate da nuove righe
 
@@ -326,7 +332,7 @@ Note:
 • Alcuni componenti dell'interfaccia potrebbero non essere nascosti
 • La ricerca di una parola chiave potrebbe non mostrare alcun risultato"</string>
   <string name="revanced_hide_keyword_content_about_whole_words_title">Solo parole intere</string>
-  <!-- Translations _must_ use a localized example.  For languages that do not use spaces between words (Chinese, Japanese, etc) the English AI example should be used since no localized examples exist.  Or if using machine translations, or if nobody wants to think of a localized example, then the English 'ai' example should be left as-is. -->
+  <!-- Translations _must_ use a localized example.  For languages that do not use spaces between words (Chinese, Japanese, etc.) the English AI example should be used since no localized examples exist.  Or if using machine translations, or if nobody wants to think of a localized example, then the English 'ai' example should be left as-is. -->
   <string name="revanced_hide_keyword_content_about_whole_words_summary">Racchiudendo una parola chiave o frase tra virgolette doppie si impediranno corrispondenze parziali dei titoli dei video e dei nomi dei canali&lt;br&gt;&lt;br&gt;Ad esempio:&lt;br&gt;&lt;b&gt;\"ia\"&lt;/b&gt; nasconderà il video &lt;b&gt;\"Come funziona la IA?\"&lt;/b&gt;&lt;br&gt;Ma non nasconderà il video &lt;b&gt;\"Cosa significa imparzialità?\"&lt;/b&gt;</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_hide_keyword_toast_invalid_common">Impossibile usare la parola chiave: %s</string>
@@ -424,9 +430,9 @@ Questa funzione è disponibile solo per i dispositivi più vecchi"</string>
   <string name="revanced_disable_precise_seeking_gesture_summary_off">Il gesto è abilitato</string>
   </patch>
   <patch id="interaction.seekbar.enableSeekbarTappingPatch">
-  <string name="revanced_seekbar_tapping_title">Attiva il tocco della barra di avanzamento</string>
-  <string name="revanced_seekbar_tapping_summary_on">Il tocco della barra di avanzamento è attivato</string>
-  <string name="revanced_seekbar_tapping_summary_off">Il tocco della barra di avanzamento è disattivato</string>
+  <string name="revanced_seekbar_tapping_title">Abilita tocco per cercare</string>
+  <string name="revanced_seekbar_tapping_summary_on">Tocco per cercare è abilitato</string>
+  <string name="revanced_seekbar_tapping_summary_off">Tocco per cercare è disabilitato</string>
   </patch>
   <patch id="interaction.swipecontrols.swipeControlsResourcePatch">
   <string name="revanced_swipe_brightness_title">Attiva il gesto per modificare la luminosità</string>
@@ -439,9 +445,9 @@ Regola la luminosità scorrendo verticalmente sul lato sinistro dello schermo"</
 
 Regola il volume scorrendo verticalmente sul lato destro dello schermo"</string>
   <string name="revanced_swipe_volume_summary_off">Lo scorrimento del volume a schermo intero è disabilitato</string>
-  <string name="revanced_swipe_press_to_engage_title">Attiva il gesto Premi-per-Scorrere</string>
-  <string name="revanced_swipe_press_to_engage_summary_on">Premi-per-Scorrere è attivato</string>
-  <string name="revanced_swipe_press_to_engage_summary_off">Premi-per-Scorrere è disattivato</string>
+  <string name="revanced_swipe_press_to_engage_title">Abilita gesto di pressione per scorrere</string>
+  <string name="revanced_swipe_press_to_engage_summary_on">Pressione per scorrere è abilitata</string>
+  <string name="revanced_swipe_press_to_engage_summary_off">Pressione per scorrere è disabilitata</string>
   <string name="revanced_swipe_haptic_feedback_title">Abilita il feedback aptico</string>
   <string name="revanced_swipe_haptic_feedback_summary_on">Il feedback aptico è abilitato</string>
   <string name="revanced_swipe_haptic_feedback_summary_off">Il feedback aptico è disabilitato</string>

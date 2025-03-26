@@ -224,6 +224,9 @@ Nebudete informovaní o žiadnych nepredvídaných udalostiach."</string>
   <string name="revanced_hide_artist_cards_title">Skryť karty umelcov</string>
   <string name="revanced_hide_artist_cards_summary_on">Karty umelcov sú skryté</string>
   <string name="revanced_hide_artist_cards_summary_off">Zobrazia sa karty umelcov</string>
+  <string name="revanced_hide_ai_generated_video_summary_section_title">Skryť „Súhrn videa generovaný AI“</string>
+  <string name="revanced_hide_ai_generated_video_summary_section_summary_on">Sekcia so súhrnom videa je skrytá</string>
+  <string name="revanced_hide_ai_generated_video_summary_section_summary_off">Sekcia so súhrnom videa je zobrazená</string>
   <string name="revanced_hide_attributes_section_title">Skryť atribúty</string>
   <string name="revanced_hide_attributes_section_summary_on">Sekcie Odporúčané miesta, Hry, Hudba a Spomenutí ľudia sú skryté</string>
   <string name="revanced_hide_attributes_section_summary_off">Sekcie Odporúčané miesta, Hry, Hudba a Spomenutí ľudia sú zobrazené</string>
@@ -260,9 +263,12 @@ Nebudete informovaní o žiadnych nepredvídaných udalostiach."</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">Zobrazuje sa v súvisiacich videách</string>
   <string name="revanced_comments_screen_title">Komentáre</string>
   <string name="revanced_comments_screen_summary">Skryť alebo zobraziť komponenty sekcie komentárov</string>
-  <string name="revanced_hide_comments_chat_summary_title">Skryť „Súhrn chatu“</string>
-  <string name="revanced_hide_comments_chat_summary_summary_on">Súhrn chatu je skrytý</string>
-  <string name="revanced_hide_comments_chat_summary_summary_off">Súhrn chatu je zobrazený</string>
+  <string name="revanced_hide_comments_ai_chat_summary_title">Skryť súhrn chatu s AI</string>
+  <string name="revanced_hide_comments_ai_chat_summary_summary_on">Súhrn chatu je skrytý</string>
+  <string name="revanced_hide_comments_ai_chat_summary_summary_off">Súhrn chatu je zobrazený</string>
+  <string name="revanced_hide_comments_ai_summary_title">Skryť súhrn komentárov AI</string>
+  <string name="revanced_hide_comments_ai_summary_summary_on">Súhrn komentárov je skrytý</string>
+  <string name="revanced_hide_comments_ai_summary_summary_off">Súhrn komentárov je zobrazený</string>
   <string name="revanced_hide_comments_by_members_header_title">Skryť hlavičku \"Komentáre členov\"</string>
   <string name="revanced_hide_comments_by_members_header_summary_on">Hlavička Komentáre od členov je skrytá</string>
   <string name="revanced_hide_comments_by_members_header_summary_off">Hlavička Komentáre od členov je zobrazená</string>
@@ -309,7 +315,7 @@ Ak sa Doodle v súčasnosti zobrazuje vo vašom regióne a toto nastavenie skryt
   <string name="revanced_hide_keyword_content_subscriptions_summary_on">Videá na karte odbery sú filtrované podľa kľúčových slov</string>
   <string name="revanced_hide_keyword_content_subscriptions_summary_off">Videá na karte odbery nie sú filtrované podľa kľúčových slov</string>
   <string name="revanced_hide_keyword_content_phrases_title">Kľúčové slová na skrytie</string>
-  <!-- For localization it is preferred, but not required, if 'LeBlanc' is replaced with a localized name or a familiar word that has upper case letters in the middle of the word.
+  <!-- For localization, it is preferred, but not required, if 'LeBlanc' is replaced with a localized name or a familiar word that has upper case letters in the middle of the word.
                  This is because keywords can be in any language, and showing an example in the localized script helps convey this. -->
   <string name="revanced_hide_keyword_content_phrases_summary">"Kľúčové slová a frázy, ktoré sa majú skryť, oddelené novými riadkami
 
@@ -319,7 +325,7 @@ Slová s veľkými písmenami v strede musia byť zadané s použitím veľkých
   <string name="revanced_hide_keyword_content_about_title">O filtrovaní kľúčových slov</string>
   <string name="revanced_hide_keyword_content_about_summary">"Výsledky vyhľadávania domovskej stránky/odberov/hľadania sa filtrujú, aby sa skryli"</string>
   <string name="revanced_hide_keyword_content_about_whole_words_title">Zhodovať celé slová</string>
-  <!-- Translations _must_ use a localized example.  For languages that do not use spaces between words (Chinese, Japanese, etc) the English AI example should be used since no localized examples exist.  Or if using machine translations, or if nobody wants to think of a localized example, then the English 'ai' example should be left as-is. -->
+  <!-- Translations _must_ use a localized example.  For languages that do not use spaces between words (Chinese, Japanese, etc.) the English AI example should be used since no localized examples exist.  Or if using machine translations, or if nobody wants to think of a localized example, then the English 'ai' example should be left as-is. -->
   <string name="revanced_hide_keyword_content_about_whole_words_summary">Obkľúčenie kľúčového slova/frázy dvojitými úvodzovkami zabráni čiastočným zhodám názvov videí a mien kanálov&lt;br&gt;&lt;br&gt;Napríklad,&lt;br&gt;&lt;b&gt;\"ai\"&lt;/b&gt;  skryje video: &lt;b&gt;Ako funguje AI?&lt;/b&gt;&lt;br&gt;ale neskryje: &lt;b&gt;What does fair use mean?&lt;/b&gt;</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_hide_keyword_toast_invalid_common">Nemožno použiť kľúčové slovo: %s</string>
@@ -417,9 +423,9 @@ Táto funkcia je dostupná len pre staršie zariadenia"</string>
   <string name="revanced_disable_precise_seeking_gesture_summary_off">Gesto je povolené</string>
   </patch>
   <patch id="interaction.seekbar.enableSeekbarTappingPatch">
-  <string name="revanced_seekbar_tapping_title">Povoliť klepanie na panel vyhľadávania</string>
-  <string name="revanced_seekbar_tapping_summary_on">Ťuknutie na panel vyhľadávania je povolené</string>
-  <string name="revanced_seekbar_tapping_summary_off">Ťuknutie na panel vyhľadávania je zakázané</string>
+  <string name="revanced_seekbar_tapping_title">Povoliť ťuknutie pre vyhľadávanie</string>
+  <string name="revanced_seekbar_tapping_summary_on">Klepnutím prejdete do povoleného režimu vyhľadávania</string>
+  <string name="revanced_seekbar_tapping_summary_off">Ťuknutie pre vyhľadávanie je vypnuté</string>
   </patch>
   <patch id="interaction.swipecontrols.swipeControlsResourcePatch">
   <string name="revanced_swipe_brightness_title">Povoliť gesto jasu</string>
@@ -432,9 +438,9 @@ Upravte jas potiahnutím prsta zvisle na ľavej strane obrazovky"</string>
 
 Upravte hlasitosť posúvaním vertikálne na pravej strane obrazovky"</string>
   <string name="revanced_swipe_volume_summary_off">Posúvanie hlasitosti na celú obrazovku je zakázané</string>
-  <string name="revanced_swipe_press_to_engage_title">Povoliť gesto potiahnutia stlačením</string>
-  <string name="revanced_swipe_press_to_engage_summary_on">Potiahnutie stlačením je povolené</string>
-  <string name="revanced_swipe_press_to_engage_summary_off">Potiahnutie stlačením je zakázané</string>
+  <string name="revanced_swipe_press_to_engage_title">Povoliť stlačenie pre potiahnutie</string>
+  <string name="revanced_swipe_press_to_engage_summary_on">Stlačenie pre potiahnutie je povolené</string>
+  <string name="revanced_swipe_press_to_engage_summary_off">Stlačenie pre potiahnutie je vypnuté</string>
   <string name="revanced_swipe_haptic_feedback_title">Povoliť hmatovú spätnú väzbu</string>
   <string name="revanced_swipe_haptic_feedback_summary_on">Hmatová spätná väzba je povolená</string>
   <string name="revanced_swipe_haptic_feedback_summary_off">Hmatová spätná väzba je zakázaná</string>
@@ -1079,7 +1085,7 @@ Ak sa neskôr vypne, odporúča sa vymazať údaje aplikácie, aby sa zabránilo
                  This is because the 'General layout' menu uses alphabetic sorting, and it functionally works better if the spoof target selector appears below the 'Spoof app version' UI switch -->
   <string name="revanced_spoof_app_version_target_title">Falošná cieľová verzia aplikácie</string>
   <string name="revanced_spoof_app_version_target_entry_1">19.35.36 - Obnoviť staré ikony Shorts prehrávača</string>
-  <string name="revanced_spoof_app_version_target_entry_2">19.01.34 - Obnoviť staré ikony navigácie</string>
+  <string name="revanced_spoof_app_version_target_entry_2">19.01.34 – Obnoviť staré ikony navigácie</string>
   </patch>
   <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">Nastaviť úvodnú stránku</string>

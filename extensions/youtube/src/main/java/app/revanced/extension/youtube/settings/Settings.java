@@ -168,7 +168,8 @@ public class Settings extends BaseSettings {
     public static final StringSetting EXTERNAL_DOWNLOADER_PACKAGE_NAME = new StringSetting("revanced_external_downloader_name",
             "org.schabi.newpipe" /* NewPipe */, parentsAny(EXTERNAL_DOWNLOADER, EXTERNAL_DOWNLOADER_ACTION_BUTTON));
     // Comments
-    public static final BooleanSetting HIDE_COMMENTS_CHAT_SUMMARY = new BooleanSetting("revanced_hide_comments_chat_summary", FALSE);
+    public static final BooleanSetting HIDE_COMMENTS_AI_CHAT_SUMMARY = new BooleanSetting("revanced_hide_comments_ai_chat_summary", FALSE);
+    public static final BooleanSetting HIDE_COMMENTS_AI_SUMMARY = new BooleanSetting("revanced_hide_comments_ai_summary", FALSE);
     public static final BooleanSetting HIDE_COMMENTS_BY_MEMBERS_HEADER = new BooleanSetting("revanced_hide_comments_by_members_header", FALSE);
     public static final BooleanSetting HIDE_COMMENTS_CREATE_A_SHORT_BUTTON = new BooleanSetting("revanced_hide_comments_create_a_short_button", TRUE);
     public static final BooleanSetting HIDE_COMMENTS_TIMESTAMP_AND_EMOJI_BUTTONS = new BooleanSetting("revanced_hide_comments_timestamp_and_emoji_buttons", TRUE);
@@ -176,6 +177,7 @@ public class Settings extends BaseSettings {
     public static final BooleanSetting HIDE_COMMENTS_SECTION = new BooleanSetting("revanced_hide_comments_section", FALSE);
     public static final BooleanSetting HIDE_COMMENTS_THANKS_BUTTON = new BooleanSetting("revanced_hide_comments_thanks_button", TRUE);
     // Description
+    public static final BooleanSetting HIDE_AI_GENERATED_VIDEO_SUMMARY_SECTION = new BooleanSetting("revanced_hide_ai_generated_video_summary_section", FALSE);
     public static final BooleanSetting HIDE_ATTRIBUTES_SECTION = new BooleanSetting("revanced_hide_attributes_section", FALSE);
     public static final BooleanSetting HIDE_CHAPTERS_SECTION = new BooleanSetting("revanced_hide_chapters_section", TRUE);
     public static final BooleanSetting HIDE_HOW_THIS_WAS_MADE_SECTION = new BooleanSetting("revanced_hide_how_this_was_made_section", FALSE);

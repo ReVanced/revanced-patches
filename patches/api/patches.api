@@ -799,6 +799,10 @@ public final class app/revanced/patches/spotify/lite/ondemand/OnDemandPatchKt {
 	public static final fun getOnDemandPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
+public final class app/revanced/patches/spotify/misc/UnlockPremiumPatchKt {
+	public static final fun getUnlockPremiumPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
 public final class app/revanced/patches/spotify/misc/fix/SpoofSignaturePatchKt {
 	public static final fun getSpoofSignaturePatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }

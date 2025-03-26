@@ -226,6 +226,9 @@ Ní bheidh a fhios agat faoi aon imeachtaí neamhghnácha."</string>
   <string name="revanced_hide_artist_cards_title">Folaigh cártaí ealaíontóirí</string>
   <string name="revanced_hide_artist_cards_summary_on">Tá cártaí ealaíontóirí i bhfolach</string>
   <string name="revanced_hide_artist_cards_summary_off">Taispeántar cártaí ealaíonta</string>
+  <string name="revanced_hide_ai_generated_video_summary_section_title">Folaigh \'Achoimre físeáin arna giniúint ag AI\'</string>
+  <string name="revanced_hide_ai_generated_video_summary_section_summary_on">Tá an chuid achoimre físeáin i bhfolach</string>
+  <string name="revanced_hide_ai_generated_video_summary_section_summary_off">Taispeántar an chuid achoimre físeáin</string>
   <string name="revanced_hide_attributes_section_title">Folaigh Tréithe</string>
   <string name="revanced_hide_attributes_section_summary_on">Tá ailt d\'áiteanna sonracha, Cluichí, Ceol agus Daoine a luaitear i bhfolach</string>
   <string name="revanced_hide_attributes_section_summary_off">Taispeántar ailt d\'áiteanna sonracha, Cluichí, Ceol agus Daoine a luaitear</string>
@@ -262,9 +265,12 @@ Ní bheidh a fhios agat faoi aon imeachtaí neamhghnácha."</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">Taispeántar i bhfíseáin ghaolmhara</string>
   <string name="revanced_comments_screen_title">Tuairimí</string>
   <string name="revanced_comments_screen_summary">Folaigh nó taispeáin comhpháirteanna na rannóige tuairimí</string>
-  <string name="revanced_hide_comments_chat_summary_title">Folaigh \'Achoimre comhrá\'</string>
-  <string name="revanced_hide_comments_chat_summary_summary_on">Tá achoimre comhrá i bhfolach</string>
-  <string name="revanced_hide_comments_chat_summary_summary_off">Taispeántar achoimre comhrá</string>
+  <string name="revanced_hide_comments_ai_chat_summary_title">Folaigh achoimre Comhrá AI</string>
+  <string name="revanced_hide_comments_ai_chat_summary_summary_on">Tá achoimre comhrá i bhfolach</string>
+  <string name="revanced_hide_comments_ai_chat_summary_summary_off">Taispeántar achoimre comhrá</string>
+  <string name="revanced_hide_comments_ai_summary_title">Folaigh achoimre Tuairimí AI</string>
+  <string name="revanced_hide_comments_ai_summary_summary_on">Tá achoimre tuairimí i bhfolach</string>
+  <string name="revanced_hide_comments_ai_summary_summary_off">Taispeántar achoimre tuairimí</string>
   <string name="revanced_hide_comments_by_members_header_title">Folaigh ceanntásc \'Tuairimí ag baill \'</string>
   <string name="revanced_hide_comments_by_members_header_summary_on">Tá ceanntásc na dtuairimí ó chomhaltaí i bhfolach</string>
   <string name="revanced_hide_comments_by_members_header_summary_off">Taispeántar ceanntásc na dtuairimí ó chomhaltaí</string>
@@ -311,7 +317,7 @@ Má tá Doodle á thaispeáint faoi láthair i do réigiún agus má tá an tsu�
   <string name="revanced_hide_keyword_content_subscriptions_summary_on">Déantar físeáin sa chluaisín síntiús a scagadh de réir eochairfhocail</string>
   <string name="revanced_hide_keyword_content_subscriptions_summary_off">Ní scagtar físeáin sa chluaisín síntiúis ag eochairfhocail</string>
   <string name="revanced_hide_keyword_content_phrases_title">Eochairfhocail le cur i bhfolach</string>
-  <!-- For localization it is preferred, but not required, if 'LeBlanc' is replaced with a localized name or a familiar word that has upper case letters in the middle of the word.
+  <!-- For localization, it is preferred, but not required, if 'LeBlanc' is replaced with a localized name or a familiar word that has upper case letters in the middle of the word.
                  This is because keywords can be in any language, and showing an example in the localized script helps convey this. -->
   <string name="revanced_hide_keyword_content_phrases_summary">"Focail agus frásaí le cur i bhfolach, ar leithligh le líne nua
 
@@ -326,7 +332,7 @@ Teorainneacha
 • Ní fhéadfar cuid de chomhpháirteanna UI a chur i bhfolach
 • D'fhéadfadh gan aon torthaí a thaispeáint má chuirtear cuardach ar fhocal eochair"</string>
   <string name="revanced_hide_keyword_content_about_whole_words_title">Meaitseáil focail iomlána</string>
-  <!-- Translations _must_ use a localized example.  For languages that do not use spaces between words (Chinese, Japanese, etc) the English AI example should be used since no localized examples exist.  Or if using machine translations, or if nobody wants to think of a localized example, then the English 'ai' example should be left as-is. -->
+  <!-- Translations _must_ use a localized example.  For languages that do not use spaces between words (Chinese, Japanese, etc.) the English AI example should be used since no localized examples exist.  Or if using machine translations, or if nobody wants to think of a localized example, then the English 'ai' example should be left as-is. -->
   <string name="revanced_hide_keyword_content_about_whole_words_summary">Má bhaineann tú eochairfhocal/frása le comharthaí athfhriotail dhúbailte, cuirfear cosc ​​ar mheaitseáil pháirteach de theidil físeáin agus ainmneacha cainéal&lt;br&gt;&lt;br&gt;Mar shampla,&lt;br&gt;&lt;b&gt;\"ai\"&lt;/b&gt; ceilteoidh sé an físeán: &lt;b&gt;Conas a oibríonn AI?&lt;/b&gt;&lt;br&gt;ach ní cheiltfidh sé: &lt;b&gt;Cad is brí le hainm féinig?&lt;/b&gt;</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_hide_keyword_toast_invalid_common">Ní féidir eochairfhocal a úsáid: %s</string>
@@ -424,9 +430,9 @@ Níl an ghné seo ar fáil ach do ghléasanna níos sine"</string>
   <string name="revanced_disable_precise_seeking_gesture_summary_off">Tá comhartha cumasaithe</string>
   </patch>
   <patch id="interaction.seekbar.enableSeekbarTappingPatch">
-  <string name="revanced_seekbar_tapping_title">Cumasaigh tapáil barra iarratais</string>
-  <string name="revanced_seekbar_tapping_summary_on">Tá tapáil Seekbar cumasaithe</string>
-  <string name="revanced_seekbar_tapping_summary_off">Tá tapáil Seekbar díchumasaithe</string>
+  <string name="revanced_seekbar_tapping_title">Cumasaigh sconna chun lorg a dhéanamh</string>
+  <string name="revanced_seekbar_tapping_summary_on">Tá sconna chun cuardach a dhéanamh cumasaithe</string>
+  <string name="revanced_seekbar_tapping_summary_off">Tá sconna chun lorg a dhéanamh díchumasaithe</string>
   </patch>
   <patch id="interaction.swipecontrols.swipeControlsResourcePatch">
   <string name="revanced_swipe_brightness_title">Cumasaigh comhartha gile</string>
@@ -439,9 +445,9 @@ Coigeartaigh gile trí swipe a dhéanamh go hingearach ar thaobh na láimhe clé
 
 Coigeartaigh an toirt trí haisceartán go hingearach ar thaobh deas an scáileáin"</string>
   <string name="revanced_swipe_volume_summary_off">Tá an haiscairt toirte lánscáileáin díchumasaithe</string>
-  <string name="revanced_swipe_press_to_engage_title">Cumasaigh gothaí brúigh-go-swipe</string>
-  <string name="revanced_swipe_press_to_engage_summary_on">Tá brúigh-go-swipe cumasaithe</string>
-  <string name="revanced_swipe_press_to_engage_summary_off">Tá brúigh-go-swipe díchumasaithe</string>
+  <string name="revanced_swipe_press_to_engage_title">Cumasaigh brúigh chun haisc a chur i ngníomh</string>
+  <string name="revanced_swipe_press_to_engage_summary_on">Tá brúigh chun haisc a chur i ngníomh cumasaithe</string>
+  <string name="revanced_swipe_press_to_engage_summary_off">Tá brúigh chun haisc a chur i ngníomh díchumasaithe</string>
   <string name="revanced_swipe_haptic_feedback_title">Cumasaigh aiseolas haptic</string>
   <string name="revanced_swipe_haptic_feedback_summary_on">Tá aiseolas haptic cumasaithe</string>
   <string name="revanced_swipe_haptic_feedback_summary_off">Tá aiseolas haptic míchumasaithe</string>
