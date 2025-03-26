@@ -28,6 +28,8 @@ public final class UnlockPremiumPatch {
             "streaming-rules", "",
             // Enables premium UI in settings and removes the premium button in the nav-bar.
             "nft-disabled", "1",
+            // Set the subscription name.
+            "name", "Spotify Premium",
             // Set the user's account type.
             "type", "premium",
             // Changes the playlist type from mobile freetier.
