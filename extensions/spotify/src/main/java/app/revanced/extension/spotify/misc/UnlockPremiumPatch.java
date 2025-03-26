@@ -36,6 +36,9 @@ public final class UnlockPremiumPatch {
             "catalogue", "premium",
             // Set the app's product state type.
             "financial-product", "pr:premium,tc:0"
+            // Disable the client-side subscription checks.
+            "com.spotify.madprops.delivered.by.ucs", "false",
+            "com.spotify.madprops.use.ucs.product.state", "false"
     );
 
     public static void overrideAttribute(Map<String, AccountAttribute> attributes) {
