@@ -4,7 +4,8 @@ import com.spotify.remoteconfig.internal.AccountAttribute;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Objects;
+
+import app.revanced.extension.shared.Logger;
 
 /**
  * @noinspection unused
@@ -42,10 +43,22 @@ public final class UnlockPremiumPatch {
         put("can_use_superbird", true);
     }};
 
+    /**
+     * Injection point.
+     */
     public static void overrideAttribute(Map<String, AccountAttribute> attributes) {
-        for (var entry : OVERRIDES.entrySet()) {
-            var attribute = Objects.requireNonNull(attributes.get(entry.getKey()));
-            attribute.value_ = entry.getValue();
+        try {
+            for (var entry : OVERRIDES.entrySet()) {
+                String key = entry.getKey();
+                var attribute = attributes.get(key);
+                if (attribute == null) {
+                    Logger.printException(() -> "Account attribute not found: " + key);
+                } else {
+                    attribute.value_ = entry.getValue();
+                }
+            }
+        } catch (Exception ex) {
+            Logger.printException(() -> "overrideAttribute failure", ex);
         }
     }
 }
