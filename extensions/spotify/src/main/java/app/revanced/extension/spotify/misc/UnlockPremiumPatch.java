@@ -33,12 +33,6 @@ public final class UnlockPremiumPatch {
         put("nft-disabled", "1");
         // Set the subscription name.
         put("name", "Spotify Premium");
-        // Set the user's account type.
-        put("type", "premium");
-        // Changes the playlist type from mobile freetier.
-        put("catalogue", "premium");
-        // Set the app's product state type.
-        put("financial-product", "pr:premium,tc:0");
         // Enable Cross-Platform Spotify Car Thing.
         put("can_use_superbird", true);
     }};
