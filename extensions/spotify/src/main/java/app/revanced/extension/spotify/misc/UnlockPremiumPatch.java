@@ -26,6 +26,23 @@ public final class UnlockPremiumPatch {
             "streaming-rules", "",
             // Enables premium UI in settings and removes the premium button in the nav-bar.
             "nft-disabled", "1"
+            
+            "type", "premium"
+            "ab-ad-player-targeting", "0"
+            "ab-watch-now", "0"
+            "ad-session-persistence", "0"
+            "allow-advertising-id-transmission", "false"
+            "can_use_superbird", "1"
+            "exclude-from-marketing-and-advertising", "1"
+            "expiry", "0"
+            "financial-product", "pr:premium,tc:0"
+            "catalogue", "premium"
+            "in-on-demand-ad-free-perk", "1"
+            "offline", "1"
+            "on-demand-trial-in-progress", "1"
+            "premium-mini", "1"
+            "social-session", "1"
+            "social-session-free-tier", "false"
     );
 
     public static void overrideAttribute(Map<String, AccountAttribute> attributes) {
