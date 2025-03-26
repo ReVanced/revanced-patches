@@ -262,9 +262,8 @@ Et saa ilmoituksia odottamattomista tapahtumista."</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">Näytetään liittyvissä videoissa</string>
   <string name="revanced_comments_screen_title">Kommentit</string>
   <string name="revanced_comments_screen_summary">Piilota tai näytä kommenttiosion osia</string>
-  <string name="revanced_hide_comments_chat_summary_title">Piilota \"Chat-yhteenveto\"</string>
-  <string name="revanced_hide_comments_chat_summary_summary_on">Chat-yhteenveto on piilotettu</string>
-  <string name="revanced_hide_comments_chat_summary_summary_off">Chat-yhteenveto näytetään</string>
+  <string name="revanced_hide_comments_ai_chat_summary_summary_on">Chat-yhteenveto on piilotettu</string>
+  <string name="revanced_hide_comments_ai_chat_summary_summary_off">Chat-yhteenveto näytetään</string>
   <string name="revanced_hide_comments_by_members_header_title">Piilota \"Jäsenten kommentit\" -ylätunniste</string>
   <string name="revanced_hide_comments_by_members_header_summary_on">Jäsenten kommentit -ylätunniste on piilotettu</string>
   <string name="revanced_hide_comments_by_members_header_summary_off">Jäsenten kommentit -ylätunniste näytetään</string>
@@ -311,7 +310,7 @@ Jos Doodle näkyy tällä hetkellä alueellasi ja tämä piilotusasetus on käyt
   <string name="revanced_hide_keyword_content_subscriptions_summary_on">Tilaukset-välilehden videoita suodatetaan avainsanojen mukaan</string>
   <string name="revanced_hide_keyword_content_subscriptions_summary_off">Tilaukset-välilehden videoita ei suodateta avainsanojen mukaan</string>
   <string name="revanced_hide_keyword_content_phrases_title">Piilotettavat avainsanat</string>
-  <!-- For localization it is preferred, but not required, if 'LeBlanc' is replaced with a localized name or a familiar word that has upper case letters in the middle of the word.
+  <!-- For localization, it is preferred, but not required, if 'LeBlanc' is replaced with a localized name or a familiar word that has upper case letters in the middle of the word.
                  This is because keywords can be in any language, and showing an example in the localized script helps convey this. -->
   <string name="revanced_hide_keyword_content_phrases_summary">"Piilotettavat avainsanat ja lausekkeet, erotettuina rivinvaihdoilla
 
@@ -326,7 +325,7 @@ Rajoitukset
 • Joitain käyttöliittymän osia ei välttämättä piiloteta
 • Avainsanan haku ei välttämättä näytä tuloksia"</string>
   <string name="revanced_hide_keyword_content_about_whole_words_title">Täsmää koko sanaan</string>
-  <!-- Translations _must_ use a localized example.  For languages that do not use spaces between words (Chinese, Japanese, etc) the English AI example should be used since no localized examples exist.  Or if using machine translations, or if nobody wants to think of a localized example, then the English 'ai' example should be left as-is. -->
+  <!-- Translations _must_ use a localized example.  For languages that do not use spaces between words (Chinese, Japanese, etc.) the English AI example should be used since no localized examples exist.  Or if using machine translations, or if nobody wants to think of a localized example, then the English 'ai' example should be left as-is. -->
   <string name="revanced_hide_keyword_content_about_whole_words_summary">Hakusanan/lauseen ympäröiminen kaksoislainauksilla estää videon oitsikoiden ja kanavien nimien osittaisia vastaavuuksia&lt;br&gt;&lt;br&gt;Esimerkiksi,&lt;br&gt;&lt;b&gt;\"ai\"&lt;/b&gt; piilottaa videon: &lt;b&gt;How does AI work?&lt;/b&gt;&lt;br&gt;mutta ei piilota: &lt;b&gt;What does fair use mean?&lt;/b&gt;</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_hide_keyword_toast_invalid_common">Ei voi käyttää avainsanaa: %s</string>
@@ -424,9 +423,6 @@ Tämä ominaisuus on käytettävissä vain vanhemmilla laitteilla"</string>
   <string name="revanced_disable_precise_seeking_gesture_summary_off">Ele on käytössä</string>
   </patch>
   <patch id="interaction.seekbar.enableSeekbarTappingPatch">
-  <string name="revanced_seekbar_tapping_title">Ota liukusäätimen napautus käyttöön</string>
-  <string name="revanced_seekbar_tapping_summary_on">Liukusäätimen napautus on käytössä</string>
-  <string name="revanced_seekbar_tapping_summary_off">Liukusäätimen napautus ei ole käytössä</string>
   </patch>
   <patch id="interaction.swipecontrols.swipeControlsResourcePatch">
   <string name="revanced_swipe_brightness_title">Ota kirkkauden ele käyttöön</string>
@@ -439,9 +435,6 @@ Säädä kirkkautta pyyhkäisemällä pystysuoraan näytön vasemmalla puolella"
 
 Säädä äänenvoimakkuutta pyyhkäisemällä pystysuoraan näytön oikealta puolella"</string>
   <string name="revanced_swipe_volume_summary_off">Koko näytön äänenvoimakkuuden pyyhkäisy ei ole käytössä</string>
-  <string name="revanced_swipe_press_to_engage_title">Ota pyyhkäise painamalla -ele käyttöön</string>
-  <string name="revanced_swipe_press_to_engage_summary_on">Pyyhkäise painamalla -ele on käytössä</string>
-  <string name="revanced_swipe_press_to_engage_summary_off">Pyyhkäise painamalla -ele ei ole käytössä</string>
   <string name="revanced_swipe_haptic_feedback_title">Ota haptinen palaute käyttöön</string>
   <string name="revanced_swipe_haptic_feedback_summary_on">Haptinen palaute on käytössä</string>
   <string name="revanced_swipe_haptic_feedback_summary_off">Haptinen palaute ei ole käytössä</string>
@@ -1003,6 +996,7 @@ On jo olemassa"</string>
   <string name="revanced_sb_vote_category">Muuta kategoriaa</string>
   <string name="revanced_sb_vote_no_segments">Äänestettäviä osioita ei ole</string>
   <!-- A segment start and end time, such as "02:10 to 03:40" -->
+  <string name="revanced_sb_vote_segment_time_to_from">%1$s–%2$s</string>
   <string name="revanced_sb_new_segment_choose_category">Valitse osion kategoria</string>
   <string name="revanced_sb_new_segment_disabled_category">Kategoria on poistettu käytöstä asetuksissa. Salli kategoria lähettääksesi.</string>
   <string name="revanced_sb_new_segment_title">Uusi SponsorBlock-osio</string>
@@ -1050,6 +1044,7 @@ Oletko valmis lähettämään?"</string>
   <string name="revanced_sb_stats_saved_hour_format">%1$s tuntia %2$s minuuttia</string>
   <string name="revanced_sb_stats_saved_minute_format">%1$s minuuttia %2$s sekuntia</string>
   <string name="revanced_sb_stats_saved_second_format">%s sekuntia</string>
+  <string name="revanced_sb_color_opacity_label">Läpikuultamattomuus:</string>
   <string name="revanced_sb_color_dot_label">Väri:</string>
   <string name="revanced_sb_color_changed">Väri vaihdettu</string>
   <string name="revanced_sb_color_reset">Väri nollattu</string>

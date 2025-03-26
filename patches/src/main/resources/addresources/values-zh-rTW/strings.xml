@@ -262,9 +262,8 @@ Second \"item\" text"</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">已在相關影片中顯示</string>
   <string name="revanced_comments_screen_title">留言區</string>
   <string name="revanced_comments_screen_summary">隱藏或顯示影片留言區內容</string>
-  <string name="revanced_hide_comments_chat_summary_title">隱藏「聊天室摘要」</string>
-  <string name="revanced_hide_comments_chat_summary_summary_on">已隱藏聊天室摘要</string>
-  <string name="revanced_hide_comments_chat_summary_summary_off">已顯示聊天室摘要</string>
+  <string name="revanced_hide_comments_ai_chat_summary_summary_on">已隱藏聊天室摘要</string>
+  <string name="revanced_hide_comments_ai_chat_summary_summary_off">已顯示聊天室摘要</string>
   <string name="revanced_hide_comments_by_members_header_title">隱藏「會員留言」標題</string>
   <string name="revanced_hide_comments_by_members_header_summary_on">已隱藏會員留言標題</string>
   <string name="revanced_hide_comments_by_members_header_summary_off">已顯示會員留言標題</string>
@@ -311,7 +310,7 @@ Second \"item\" text"</string>
   <string name="revanced_hide_keyword_content_subscriptions_summary_on">訂閱內容分頁的影片將會被關鍵字篩選</string>
   <string name="revanced_hide_keyword_content_subscriptions_summary_off">訂閱內容分頁的影片將不會被關鍵字篩選</string>
   <string name="revanced_hide_keyword_content_phrases_title">要隱藏的關鍵字</string>
-  <!-- For localization it is preferred, but not required, if 'LeBlanc' is replaced with a localized name or a familiar word that has upper case letters in the middle of the word.
+  <!-- For localization, it is preferred, but not required, if 'LeBlanc' is replaced with a localized name or a familiar word that has upper case letters in the middle of the word.
                  This is because keywords can be in any language, and showing an example in the localized script helps convey this. -->
   <string name="revanced_hide_keyword_content_phrases_summary">"要隱藏的關鍵字和詞語，請用換行符號分隔
 
@@ -326,8 +325,8 @@ Second \"item\" text"</string>
 • 某些使用者介面可能無法隱藏
 • 搜尋關鍵字可能顯示無結果"</string>
   <string name="revanced_hide_keyword_content_about_whole_words_title">比對整個字詞</string>
-  <!-- Translations _must_ use a localized example.  For languages that do not use spaces between words (Chinese, Japanese, etc) the English AI example should be used since no localized examples exist.  Or if using machine translations, or if nobody wants to think of a localized example, then the English 'ai' example should be left as-is. -->
-  <string name="revanced_hide_keyword_content_about_whole_words_summary">將關鍵字或詞組用雙引號括起來，可以防止影片標題和頻道名稱的部分匹配&lt;br&gt;&lt;br&gt;例如：&lt;br&gt;&lt;b&gt;\"ai\"&lt;/b&gt; 會隱藏影片：&lt;b&gt;How does AI work?&lt;/b&gt;&lt;br&gt;但不會隱藏：&lt;b&gt;What does fair use mean?&lt;/b&gt;</string>
+  <!-- Translations _must_ use a localized example.  For languages that do not use spaces between words (Chinese, Japanese, etc.) the English AI example should be used since no localized examples exist.  Or if using machine translations, or if nobody wants to think of a localized example, then the English 'ai' example should be left as-is. -->
+  <string name="revanced_hide_keyword_content_about_whole_words_summary">將關鍵字或詞組用雙引號括起來，可以防止影片標題和頻道名稱的部分相符&lt;br&gt;&lt;br&gt;例如：&lt;br&gt;&lt;b&gt;\"ai\"&lt;/b&gt; 會隱藏影片：&lt;b&gt;How does AI work?&lt;/b&gt;&lt;br&gt;但不會隱藏：&lt;b&gt;What does fair use mean?&lt;/b&gt;</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_hide_keyword_toast_invalid_common">無法使用關鍵字：%s</string>
   <string name="revanced_hide_keyword_toast_invalid_common_whole_word_required">請加上引號來使用關鍵字：%s</string>
@@ -362,11 +361,11 @@ Second \"item\" text"</string>
   <string name="revanced_hide_player_store_shelf_title">隱藏播放器購物區塊</string>
   <string name="revanced_hide_player_store_shelf_summary_on">已隱藏購物區塊</string>
   <string name="revanced_hide_player_store_shelf_summary_off">已顯示購物區塊</string>
-  <string name="revanced_hide_shopping_links_title">隱藏影片描述欄商店連結</string>
+  <string name="revanced_hide_shopping_links_title">隱藏購物連結</string>
   <string name="revanced_hide_shopping_links_summary_on">已隱藏影片說明中的購物連結</string>
   <string name="revanced_hide_shopping_links_summary_off">已顯示影片說明中的購物連結</string>
   <!-- 'Visit store' should be translated with the same localized wording that YouTube displays. -->
-  <string name="revanced_hide_visit_store_button_title">在頻道頁面中隱藏「造訪商店」</string>
+  <string name="revanced_hide_visit_store_button_title">隱藏「造訪商店」按鈕</string>
   <string name="revanced_hide_visit_store_button_summary_on">已隱藏頻道頁面中的按鈕</string>
   <string name="revanced_hide_visit_store_button_summary_off">已顯示頻道頁面中的按鈕</string>
   <string name="revanced_hide_web_search_results_title">隱藏網頁搜尋結果</string>
@@ -424,9 +423,6 @@ Second \"item\" text"</string>
   <string name="revanced_disable_precise_seeking_gesture_summary_off">已啟用手勢</string>
   </patch>
   <patch id="interaction.seekbar.enableSeekbarTappingPatch">
-  <string name="revanced_seekbar_tapping_title">啟用跳轉列輕觸</string>
-  <string name="revanced_seekbar_tapping_summary_on">已啟用跳轉列輕觸</string>
-  <string name="revanced_seekbar_tapping_summary_off">已停用跳轉列輕觸</string>
   </patch>
   <patch id="interaction.swipecontrols.swipeControlsResourcePatch">
   <string name="revanced_swipe_brightness_title">啟用亮度手勢</string>
@@ -439,9 +435,6 @@ Second \"item\" text"</string>
 
 在螢幕右側垂直滑動即可調整音量"</string>
   <string name="revanced_swipe_volume_summary_off">已停用全螢幕音量滑動調整</string>
-  <string name="revanced_swipe_press_to_engage_title">啟用長按滑動手勢</string>
-  <string name="revanced_swipe_press_to_engage_summary_on">已啟用長按滑動</string>
-  <string name="revanced_swipe_press_to_engage_summary_off">已停用長按滑動</string>
   <string name="revanced_swipe_haptic_feedback_title">啟用震動回饋</string>
   <string name="revanced_swipe_haptic_feedback_summary_on">已啟用震動回饋</string>
   <string name="revanced_swipe_haptic_feedback_summary_off">已停用震動回饋</string>
@@ -921,7 +914,7 @@ Second \"item\" text"</string>
   <string name="revanced_sb_settings_copy">複製</string>
   <string name="revanced_sb_settings_ie_sum">這是你的 SponsorBlock JSON 設定檔，可以匯入/匯出到 ReVanced 和其他 SponsorBlock 平台</string>
   <string name="revanced_sb_settings_ie_sum_warning">這是你的 SponsorBlock JSON 設定檔，可以匯入/匯出到 ReVanced 和其他 SponsorBlock 平台。這包含你的私人使用者 ID。請務必謹慎分享。</string>
-  <string name="revanced_sb_settings_import_successful">已成功匯入設定</string>
+  <string name="revanced_sb_settings_import_successful">設定匯入成功</string>
   <string name="revanced_sb_settings_import_failed">無法匯入：%s</string>
   <string name="revanced_sb_settings_export_failed">無法匯出：%s</string>
   <string name="revanced_sb_settings_revanced_export_user_id_warning">"您的設定中包含一組私人的 SponsorBlock 使用者 ID。
@@ -990,7 +983,7 @@ Second \"item\" text"</string>
   <string name="revanced_sb_submit_failed_forbidden">無法提交片段：%s</string>
   <string name="revanced_sb_submit_failed_duplicate">"無法提交片段。
 已經存在"</string>
-  <string name="revanced_sb_submit_succeeded">成功提交新片段</string>
+  <string name="revanced_sb_submit_succeeded">新片段提交成功</string>
   <!-- Toast shown if network connection times out. Translations of this should not be longer than the original English or the text can be clipped and not entirely shown. -->
   <string name="revanced_sb_sponsorblock_connection_failure_timeout">SponsorBlock 暫時無法使用（API 逾時）</string>
   <string name="revanced_sb_sponsorblock_connection_failure_status">SponsorBlock 暫時無法使用（狀態 %d）</string>
