@@ -226,6 +226,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_artist_cards_title">Сакриј картице извођача</string>
   <string name="revanced_hide_artist_cards_summary_on">Картице извођача су скривене</string>
   <string name="revanced_hide_artist_cards_summary_off">Картице извођача су приказане</string>
+  <string name="revanced_hide_ai_generated_video_summary_section_title">Сакриј „Резиме видеа који је генерисала вештачка интелигенција”</string>
+  <string name="revanced_hide_ai_generated_video_summary_section_summary_on">Одељак „Резиме видеа” је скривен</string>
+  <string name="revanced_hide_ai_generated_video_summary_section_summary_off">Одељак „Резиме видеа” је приказан</string>
   <string name="revanced_hide_attributes_section_title">Сакриј атрибуте</string>
   <string name="revanced_hide_attributes_section_summary_on">Одељци „Истакнута места”, „Игре”, „Музика” и „Поменути људи” су скривени</string>
   <string name="revanced_hide_attributes_section_summary_off">Одељци „Истакнута места”, „Игре”, „Музика” и „Поменути људи” су приказани</string>
@@ -262,9 +265,12 @@ Second \"item\" text"</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">Приказано у сродним видеима</string>
   <string name="revanced_comments_screen_title">Коментари</string>
   <string name="revanced_comments_screen_summary">Сакријте или прикажите компоненте одељка за коментаре</string>
-  <string name="revanced_hide_comments_chat_summary_title">Сакриј „Резиме ћаскања”</string>
-  <string name="revanced_hide_comments_chat_summary_summary_on">„Резиме ћаскања” је скривен</string>
-  <string name="revanced_hide_comments_chat_summary_summary_off">„Резиме ћаскања” је приказан</string>
+  <string name="revanced_hide_comments_ai_chat_summary_title">Сакриј „Резиме ћаскања који је генерисала вештачка интелигенција”</string>
+  <string name="revanced_hide_comments_ai_chat_summary_summary_on">„Резиме ћаскања” је скривен</string>
+  <string name="revanced_hide_comments_ai_chat_summary_summary_off">„Резиме ћаскања” је приказан</string>
+  <string name="revanced_hide_comments_ai_summary_title">Сакриј „Резиме коментара који је генерисала вештачка интелигенција”</string>
+  <string name="revanced_hide_comments_ai_summary_summary_on">„Резиме коментара” је скривен</string>
+  <string name="revanced_hide_comments_ai_summary_summary_off">„Резиме коментара” је приказан</string>
   <string name="revanced_hide_comments_by_members_header_title">Сакриј заглавље „Коментари од чланова”</string>
   <string name="revanced_hide_comments_by_members_header_summary_on">Заглавље „Коментари чланова” је скривено</string>
   <string name="revanced_hide_comments_by_members_header_summary_off">Заглавље „Коментари чланова” је приказано</string>
@@ -311,7 +317,7 @@ Second \"item\" text"</string>
   <string name="revanced_hide_keyword_content_subscriptions_summary_on">Видеи на картици „Праћења” су филтрирани према кључним речима</string>
   <string name="revanced_hide_keyword_content_subscriptions_summary_off">Видеи на картици „Праћења” нису филтрирани према кључним речима</string>
   <string name="revanced_hide_keyword_content_phrases_title">Кључне речи за сакривање</string>
-  <!-- For localization it is preferred, but not required, if 'LeBlanc' is replaced with a localized name or a familiar word that has upper case letters in the middle of the word.
+  <!-- For localization, it is preferred, but not required, if 'LeBlanc' is replaced with a localized name or a familiar word that has upper case letters in the middle of the word.
                  This is because keywords can be in any language, and showing an example in the localized script helps convey this. -->
   <string name="revanced_hide_keyword_content_phrases_summary">"Кључне речи и фразе за сакривање, одвојене новим редовима
 
@@ -326,7 +332,7 @@ Second \"item\" text"</string>
 • Неке компоненте корисничког интерфејса можда неће бити сакривене
 • Претраживање кључне речи можда неће дати резултате"</string>
   <string name="revanced_hide_keyword_content_about_whole_words_title">Само целе речи</string>
-  <!-- Translations _must_ use a localized example.  For languages that do not use spaces between words (Chinese, Japanese, etc) the English AI example should be used since no localized examples exist.  Or if using machine translations, or if nobody wants to think of a localized example, then the English 'ai' example should be left as-is. -->
+  <!-- Translations _must_ use a localized example.  For languages that do not use spaces between words (Chinese, Japanese, etc.) the English AI example should be used since no localized examples exist.  Or if using machine translations, or if nobody wants to think of a localized example, then the English 'ai' example should be left as-is. -->
   <string name="revanced_hide_keyword_content_about_whole_words_summary">Обележавање кључне речи/фразе двоструким наводницима ће спречити делимична подударања наслова видеа и назива канала&lt;br&gt;&lt;br&gt;На пример,&lt;br&gt;&lt;b&gt;\"ai\"&lt;/b&gt; ће сакрити видео: &lt;b&gt;How does AI work?&lt;/b&gt;&lt;br&gt;али неће сакрити: &lt;b&gt;What does fair use mean?&lt;br&gt;</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_hide_keyword_toast_invalid_common">Није могуће користити кључну реч: %s</string>
@@ -424,9 +430,9 @@ Second \"item\" text"</string>
   <string name="revanced_disable_precise_seeking_gesture_summary_off">Покрет прецизног премотавања је омогућен</string>
   </patch>
   <patch id="interaction.seekbar.enableSeekbarTappingPatch">
-  <string name="revanced_seekbar_tapping_title">Омогући додиривање траке за премотавање</string>
-  <string name="revanced_seekbar_tapping_summary_on">Додиривање траке за премотавање је омогућено</string>
-  <string name="revanced_seekbar_tapping_summary_off">Додиривање траке за премотавање је онемогућено</string>
+  <string name="revanced_seekbar_tapping_title">Омогући додир за премотавање</string>
+  <string name="revanced_seekbar_tapping_summary_on">Додир за премотавање је омогућен</string>
+  <string name="revanced_seekbar_tapping_summary_off">Додир за премотавање је онемогућен</string>
   </patch>
   <patch id="interaction.swipecontrols.swipeControlsResourcePatch">
   <string name="revanced_swipe_brightness_title">Омогући покрет за осветљеност</string>
@@ -439,9 +445,9 @@ Second \"item\" text"</string>
 
 Подесите јачину звука превлачењем вертикално на десној страни екрана"</string>
   <string name="revanced_swipe_volume_summary_off">Превлачење за јачину звука у режиму целог екрана је онемогућено</string>
-  <string name="revanced_swipe_press_to_engage_title">Омогући покрет притиском за превлачење</string>
-  <string name="revanced_swipe_press_to_engage_summary_on">Покрет притиском за превлачење је омогућен</string>
-  <string name="revanced_swipe_press_to_engage_summary_off">Покрет притиском за превлачење је онемогућен</string>
+  <string name="revanced_swipe_press_to_engage_title">Омогући притисак за превлачење</string>
+  <string name="revanced_swipe_press_to_engage_summary_on">Притисак за превлачење је омогућен</string>
+  <string name="revanced_swipe_press_to_engage_summary_off">Притисак за превлачење је онемогућен</string>
   <string name="revanced_swipe_haptic_feedback_title">Омогући вибрацију при додиру</string>
   <string name="revanced_swipe_haptic_feedback_summary_on">Вибрација при додиру је омогућена</string>
   <string name="revanced_swipe_haptic_feedback_summary_off">Вибрација при додиру је онемогућена</string>

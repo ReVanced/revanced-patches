@@ -22,8 +22,28 @@ Second \"item\" text"</string>
 <resources>
   <app id="shared">
   <patch id="misc.checks.checkEnvironmentPatch">
+  <string name="revanced_check_environment_failed_title">بررسی ناموفق بود</string>
+  <string name="revanced_check_environment_dialog_open_official_source_button">رفتن به وبسایت رسمی</string>
+  <string name="revanced_check_environment_dialog_ignore_button">نادیده بگیر</string>
+  <string name="revanced_check_environment_failed_message">&lt;h5&gt;به نظر نمی‌رسد این برنامه توسط شما وصله شده باشد.&lt;/h5&gt;&lt;br&gt;این برنامه ممکن است به درستی کار نکند، &lt;b&gt;ممکن است استفاده از آن مضر یا حتی خطرناک باشد&lt;/b&gt;.&lt;br&gt;&lt;بر&gt;این برنامه از قبل دریافت شده است یا این چک از قبل دریافت شده است  else:&lt;br&gt;&lt;br&gt;&lt;small&gt;%1$s&lt;/small&gt;&lt;br&gt;اکیداً توصیه می‌شود که &lt;b&gt;این برنامه را حذف نصب کنید و خودتان آن را وصله کنید&lt;/b&gt;  برای اطمینان از اینکه از یک برنامه معتبر و ایمن استفاده می‌کنید.&lt;p&gt;&lt;br&gt;اگر نادیده گرفته شود، این هشدار فقط دو بار نشان داده می‌شود.</string>
+  <string name="revanced_check_environment_not_same_patching_device">روی دستگاه دیگری وصله شده است</string>
+  <string name="revanced_check_environment_manager_not_expected_installer">به وسیله ReVanced Manager نصب نشده است</string>
+  <string name="revanced_check_environment_not_near_patch_time">بیشتر از ۱۰ دقیقه پیش وصله شده است</string>
+  <string name="revanced_check_environment_not_near_patch_time_days">%s روز پیش وصله شده است</string>
+  <string name="revanced_check_environment_not_near_patch_time_invalid">تاریخ ایجاد APK مخدوش شده است</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
+  <string name="revanced_settings_submenu_title">تنظیمات</string>
+  <string name="revanced_settings_confirm_user_dialog_title">آیا مایل به ادامه هستید؟</string>
+  <string name="revanced_settings_reset">بازنشانی</string>
+  <string name="revanced_settings_restart_title">تازه‌سازی و راه‌اندازی مجدد</string>
+  <string name="revanced_settings_restart">راه‌اندازی مجدد</string>
+  <string name="revanced_settings_import">واردکردن</string>
+  <string name="revanced_settings_import_copy">رونوشت‌</string>
+  <string name="revanced_settings_import_reset">بازگرداندن تنظیمات ReVanced به پیش‌فرض</string>
+  <string name="revanced_settings_import_success">%d تنظیمات وارد شدند</string>
+  <string name="revanced_settings_import_failure_parse">واردکردن انجام نشد: %s</string>
+  <string name="revanced_language_title">زبان ReVanced</string>
   <!-- Settings about dialog. -->
   <!-- NOTE: the about strings above are duplicated in the TikTok about screen code,
                  and changes made here must also be made there. -->
@@ -50,9 +70,9 @@ Second \"item\" text"</string>
                   This button usually appears when searching for a YT creator. -->
   <!-- https://logos.fandom.com/wiki/YouTube/Yoodles -->
   <!-- 'Component path builder strings' is the technical name for identifying the Litho UI layout items to hide. This is an advanced feature and most users will never use this. -->
-  <!-- For localization it is preferred, but not required, if 'LeBlanc' is replaced with a localized name or a familiar word that has upper case letters in the middle of the word.
+  <!-- For localization, it is preferred, but not required, if 'LeBlanc' is replaced with a localized name or a familiar word that has upper case letters in the middle of the word.
                  This is because keywords can be in any language, and showing an example in the localized script helps convey this. -->
-  <!-- Translations _must_ use a localized example.  For languages that do not use spaces between words (Chinese, Japanese, etc) the English AI example should be used since no localized examples exist.  Or if using machine translations, or if nobody wants to think of a localized example, then the English 'ai' example should be left as-is. -->
+  <!-- Translations _must_ use a localized example.  For languages that do not use spaces between words (Chinese, Japanese, etc.) the English AI example should be used since no localized examples exist.  Or if using machine translations, or if nobody wants to think of a localized example, then the English 'ai' example should be left as-is. -->
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   </patch>
   <patch id="ad.general.hideAdsResourcePatch">

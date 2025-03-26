@@ -226,6 +226,9 @@ Vous ne serez pas informé des événements inattendus."</string>
   <string name="revanced_hide_artist_cards_title">Masquer les fiches d\'artiste</string>
   <string name="revanced_hide_artist_cards_summary_on">Les fiches d\'artiste sont masquées</string>
   <string name="revanced_hide_artist_cards_summary_off">Les fiches d\'artiste sont affichées</string>
+  <string name="revanced_hide_ai_generated_video_summary_section_title">Masquer \"Résumé de la vidéo généré par IA\"</string>
+  <string name="revanced_hide_ai_generated_video_summary_section_summary_on">La section du résumé de la vidéo est masquée</string>
+  <string name="revanced_hide_ai_generated_video_summary_section_summary_off">La section du résumé de la vidéo est affichée</string>
   <string name="revanced_hide_attributes_section_title">Masquer les attributions</string>
   <string name="revanced_hide_attributes_section_summary_on">Les sections Lieux mentionnés, Jeux, Musique et Personnes mentionnées sont masquées</string>
   <string name="revanced_hide_attributes_section_summary_off">Les sections Lieux mentionnés, Jeux, Musique et Personnes mentionnées sont affichées</string>
@@ -262,9 +265,12 @@ Vous ne serez pas informé des événements inattendus."</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">Affichée dans les vidéos similaires</string>
   <string name="revanced_comments_screen_title">Commentaires</string>
   <string name="revanced_comments_screen_summary">Masquez ou affichez des composants de la section commentaires</string>
-  <string name="revanced_hide_comments_chat_summary_title">Masquer \"Résumé du chat\"</string>
-  <string name="revanced_hide_comments_chat_summary_summary_on">Le résumé du chat est masqué</string>
-  <string name="revanced_hide_comments_chat_summary_summary_off">Le résumé du chat est affiché</string>
+  <string name="revanced_hide_comments_ai_chat_summary_title">Masquer le résumé IA du chat</string>
+  <string name="revanced_hide_comments_ai_chat_summary_summary_on">Le résumé du chat est masqué</string>
+  <string name="revanced_hide_comments_ai_chat_summary_summary_off">Le résumé du chat est affiché</string>
+  <string name="revanced_hide_comments_ai_summary_title">Masquer le résumé IA des commentaires</string>
+  <string name="revanced_hide_comments_ai_summary_summary_on">Le résumé des commentaires est masqué</string>
+  <string name="revanced_hide_comments_ai_summary_summary_off">Le résumé des commentaires est affiché</string>
   <string name="revanced_hide_comments_by_members_header_title">Masquer l\'en-tête \"Commentaires des membres\"</string>
   <string name="revanced_hide_comments_by_members_header_summary_on">L\'en-tête \"Commentaires des membres\" est masqué</string>
   <string name="revanced_hide_comments_by_members_header_summary_off">L\'en-tête \"Commentaires des membres\" est affiché</string>
@@ -311,7 +317,7 @@ Si un Doodle est actuellement affiché dans votre région et que cette option de
   <string name="revanced_hide_keyword_content_subscriptions_summary_on">Les vidéos de l\'onglet Abonnements sont filtrées par mot-clé</string>
   <string name="revanced_hide_keyword_content_subscriptions_summary_off">Les vidéos de l\'onglet Abonnements ne sont pas filtrées par mot-clé</string>
   <string name="revanced_hide_keyword_content_phrases_title">Mots-clés à masquer</string>
-  <!-- For localization it is preferred, but not required, if 'LeBlanc' is replaced with a localized name or a familiar word that has upper case letters in the middle of the word.
+  <!-- For localization, it is preferred, but not required, if 'LeBlanc' is replaced with a localized name or a familiar word that has upper case letters in the middle of the word.
                  This is because keywords can be in any language, and showing an example in the localized script helps convey this. -->
   <string name="revanced_hide_keyword_content_phrases_summary">"Mots-clés et phrases à masquer, séparés par des sauts de ligne
 
@@ -326,7 +332,7 @@ Limitations
 • Impossible de masquer certains composants de l'interface
 • Rechercher un mot-clé peut ne pas fonctionner"</string>
   <string name="revanced_hide_keyword_content_about_whole_words_title">Correspondance par mots entiers</string>
-  <!-- Translations _must_ use a localized example.  For languages that do not use spaces between words (Chinese, Japanese, etc) the English AI example should be used since no localized examples exist.  Or if using machine translations, or if nobody wants to think of a localized example, then the English 'ai' example should be left as-is. -->
+  <!-- Translations _must_ use a localized example.  For languages that do not use spaces between words (Chinese, Japanese, etc.) the English AI example should be used since no localized examples exist.  Or if using machine translations, or if nobody wants to think of a localized example, then the English 'ai' example should be left as-is. -->
   <string name="revanced_hide_keyword_content_about_whole_words_summary">Mettre un mot-clé ou une expression entre guillemets permet d\'empêcher les correspondances partielles avec le titre des vidéos et le nom des chaînes.&lt;br&gt;&lt;br&gt;Par exemple,&lt;br&gt;&lt;b&gt;\"ia\"&lt;/b&gt; masquera la vidéo : &lt;b&gt;Comment fonctionnent les IA ?&lt;/b&gt;&lt;br&gt;mais ne masquera pas : &lt;b&gt;Quelles études pour devenir commercial ?&lt;/b&gt;</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_hide_keyword_toast_invalid_common">Impossible d\'utiliser ce mot-clé : %s</string>
@@ -424,9 +430,9 @@ Cette fonctionnalité est disponible uniquement pour les appareils anciens"</str
   <string name="revanced_disable_precise_seeking_gesture_summary_off">Le geste est activé</string>
   </patch>
   <patch id="interaction.seekbar.enableSeekbarTappingPatch">
-  <string name="revanced_seekbar_tapping_title">Activer les appuis sur la barre de progression</string>
-  <string name="revanced_seekbar_tapping_summary_on">Les appuis sur la barre de progression sont activés</string>
-  <string name="revanced_seekbar_tapping_summary_off">Les appuis sur la barre de progression sont désactivés</string>
+  <string name="revanced_seekbar_tapping_title">Activer Appuyer pour rechercher</string>
+  <string name="revanced_seekbar_tapping_summary_on">Appuyer pour rechercher est activé</string>
+  <string name="revanced_seekbar_tapping_summary_off">Appuyer pour rechercher est désactivé</string>
   </patch>
   <patch id="interaction.swipecontrols.swipeControlsResourcePatch">
   <string name="revanced_swipe_brightness_title">Activer le geste de contrôle de la luminosité</string>

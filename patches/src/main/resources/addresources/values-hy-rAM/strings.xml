@@ -226,6 +226,9 @@ MicroG-ի համար մարտկոցի օպտիմալացումը անջատել�
   <string name="revanced_hide_artist_cards_title">Թաքցնել կատարողների քարտերը</string>
   <string name="revanced_hide_artist_cards_summary_on">Կատարողների քարտերը թաքցված են</string>
   <string name="revanced_hide_artist_cards_summary_off">Կատարողների քարտերը երևում են</string>
+  <string name="revanced_hide_ai_generated_video_summary_section_title">Թաքցնել «AI-ով ստեղծված տեսանյութի ամփոփումը»</string>
+  <string name="revanced_hide_ai_generated_video_summary_section_summary_on">Տեսանյութի ամփոփման բաժինը թաքցված է</string>
+  <string name="revanced_hide_ai_generated_video_summary_section_summary_off">Տեսանյութի ամփոփման բաժինը ցուցադրվում է</string>
   <string name="revanced_hide_attributes_section_title">Թաքցնել հատկանիշները</string>
   <string name="revanced_hide_attributes_section_summary_on">Առաջարկվող վայրերը, խաղերը, երաժշտությունը և նշված անձանց բաժինները թաքցված են</string>
   <string name="revanced_hide_attributes_section_summary_off">Առաջարկվող վայրերը, խաղերը, երաժշտությունը և նշված անձանց բաժինները ցուցադրվում են</string>
@@ -262,9 +265,12 @@ MicroG-ի համար մարտկոցի օպտիմալացումը անջատել�
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">Ցույց է տրվում կապված տեսանյութերում</string>
   <string name="revanced_comments_screen_title">Մեկնաբանություններ</string>
   <string name="revanced_comments_screen_summary">Թաքցնել կամ ցույց տալ մեկնաբանությունների բաժնի բաղադրամասերը</string>
-  <string name="revanced_hide_comments_chat_summary_title">Թաքցնել \"Զրույցի ամփոփումը\"</string>
-  <string name="revanced_hide_comments_chat_summary_summary_on">Զրույցի ամփոփումը թաքցված է</string>
-  <string name="revanced_hide_comments_chat_summary_summary_off">Զրույցի ամփոփումը ցուցադրվում է</string>
+  <string name="revanced_hide_comments_ai_chat_summary_title">Թաքցնել AI զրույցի ամփոփումը</string>
+  <string name="revanced_hide_comments_ai_chat_summary_summary_on">Զրույցի ամփոփումը թաքցված է</string>
+  <string name="revanced_hide_comments_ai_chat_summary_summary_off">Զրույցի ամփոփումը ցուցադրվում է</string>
+  <string name="revanced_hide_comments_ai_summary_title">Թաքցնել AI մեկնաբանությունների ամփոփումը</string>
+  <string name="revanced_hide_comments_ai_summary_summary_on">Մեկնաբանությունների ամփոփումը թաքցված է</string>
+  <string name="revanced_hide_comments_ai_summary_summary_off">Մեկնաբանությունների ամփոփումը ցուցադրվում է</string>
   <string name="revanced_hide_comments_by_members_header_title">Թաքցնել \"Մեկնաբանություններ անդամների կողմից\" վերնագիրը</string>
   <string name="revanced_hide_comments_by_members_header_summary_on">Մասնակիցների կողմից մեկնաբանությունների վերնագիրը թաքցված է</string>
   <string name="revanced_hide_comments_by_members_header_summary_off">Մասնակիցների կողմից մեկնաբանությունների վերնագիրը ցուցադրվում է</string>
@@ -311,7 +317,7 @@ MicroG-ի համար մարտկոցի օպտիմալացումը անջատել�
   <string name="revanced_hide_keyword_content_subscriptions_summary_on">Արձանագրության ներդիրի տեսանյութերը լրացուցիչ կարգավորվում են բանալի բառերի միջոցով</string>
   <string name="revanced_hide_keyword_content_subscriptions_summary_off">Արձանագրության ներդիրի տեսանյութերը չեն լրացուցիչ կարգավորվում բանալի բառերի միջոցով</string>
   <string name="revanced_hide_keyword_content_phrases_title">Թաքցնելու բանալի բառեր</string>
-  <!-- For localization it is preferred, but not required, if 'LeBlanc' is replaced with a localized name or a familiar word that has upper case letters in the middle of the word.
+  <!-- For localization, it is preferred, but not required, if 'LeBlanc' is replaced with a localized name or a familiar word that has upper case letters in the middle of the word.
                  This is because keywords can be in any language, and showing an example in the localized script helps convey this. -->
   <string name="revanced_hide_keyword_content_phrases_summary">"Թաքցնելու բառեր և արտահայտություններ, որոնք բաժանված են նոր տողերով
 
@@ -326,7 +332,7 @@ MicroG-ի համար մարտկոցի օպտիմալացումը անջատել�
 • Որոշ UI մասեր կարող է չթաքցվեն
 • Բառով որոնումը կարող է ոչ մի արդյունք չտալ"</string>
   <string name="revanced_hide_keyword_content_about_whole_words_title">Համապատասխանեցնել ամբողջական բառերին</string>
-  <!-- Translations _must_ use a localized example.  For languages that do not use spaces between words (Chinese, Japanese, etc) the English AI example should be used since no localized examples exist.  Or if using machine translations, or if nobody wants to think of a localized example, then the English 'ai' example should be left as-is. -->
+  <!-- Translations _must_ use a localized example.  For languages that do not use spaces between words (Chinese, Japanese, etc.) the English AI example should be used since no localized examples exist.  Or if using machine translations, or if nobody wants to think of a localized example, then the English 'ai' example should be left as-is. -->
   <string name="revanced_hide_keyword_content_about_whole_words_summary">Կէյվըրդ/պհրազան կրկնակի մեջբերման նշանների մեջ դնելը կանխում է վիդեո վերնագրերի և ալիքների անունների մասնակի համընկնումները&lt;br&gt;&lt;br&gt;Օրինակ,&lt;br&gt;&lt;b&gt;\"ai\"&lt;/b&gt; կը թաքցնի հետևյալ վիդեոն․ &lt;b&gt;How does AI work?&lt;/b&gt;&lt;br&gt;բայց չի թաքցնի․ &lt;b&gt;What does fair use mean?&lt;/b&gt;</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_hide_keyword_toast_invalid_common">Չի կարող օգտագործվել բանալի բառը։ %s</string>
@@ -353,6 +359,7 @@ MicroG-ի համար մարտկոցի օպտիմալացումը անջատել�
   <string name="revanced_hide_self_sponsor_ads_title">Թաքցնել ինքնահովանավորված քարտերը</string>
   <string name="revanced_hide_self_sponsor_ads_summary_on">Ինքնահովանավորված քարտերը թաքցված են</string>
   <string name="revanced_hide_self_sponsor_ads_summary_off">Ինքնահովանավորված քարտերը երևում են</string>
+  <string name="revanced_hide_products_banner_title">Թաքցնել «Դիտել ապրանքները» պաստառը</string>
   <string name="revanced_hide_products_banner_summary_on">Բաները թաքցված են</string>
   <string name="revanced_hide_products_banner_summary_off">Բաները երևում են</string>
   <string name="revanced_hide_end_screen_store_banner_title">Թաքցնել վերջնական էկրանի խանութի բաները</string>
@@ -423,9 +430,9 @@ MicroG-ի համար մարտկոցի օպտիմալացումը անջատել�
   <string name="revanced_disable_precise_seeking_gesture_summary_off">Ժեստը միացված է</string>
   </patch>
   <patch id="interaction.seekbar.enableSeekbarTappingPatch">
-  <string name="revanced_seekbar_tapping_title">Միացնել seekbar-ի սեղմումը</string>
-  <string name="revanced_seekbar_tapping_summary_on">Seekbar-ի սեղմումը միացված է</string>
-  <string name="revanced_seekbar_tapping_summary_off">Seekbar-ի սեղմումը անջատված է</string>
+  <string name="revanced_seekbar_tapping_title">Միացնել հպելը՝ որոնելու համար</string>
+  <string name="revanced_seekbar_tapping_summary_on">Հպեք՝ որոնումը միացնելու համար</string>
+  <string name="revanced_seekbar_tapping_summary_off">Հպելը՝ որոնելու համար, անջատված է</string>
   </patch>
   <patch id="interaction.swipecontrols.swipeControlsResourcePatch">
   <string name="revanced_swipe_brightness_title">Միացնել լուսավորության ժեստը</string>
@@ -438,9 +445,9 @@ MicroG-ի համար մարտկոցի օպտիմալացումը անջատել�
 
 Կարգավորեք ձայնի ձայնը՝ ուղղահայաց սահեցնելով էկրանի աջ կողմում"</string>
   <string name="revanced_swipe_volume_summary_off">Ամբողջ էկրանով ձայնի սահեցումը անջատված է</string>
-  <string name="revanced_swipe_press_to_engage_title">Միացնել սեղմելու համար սահման ժեստը</string>
-  <string name="revanced_swipe_press_to_engage_summary_on">Սեղմելու համար սահմանը միացված է</string>
-  <string name="revanced_swipe_press_to_engage_summary_off">Սեղմելու համար սահմանը անջատված է</string>
+  <string name="revanced_swipe_press_to_engage_title">Միացնել սեղմելով սահեցման ժեստը</string>
+  <string name="revanced_swipe_press_to_engage_summary_on">Սեղմելով սահեցումը միացված է</string>
+  <string name="revanced_swipe_press_to_engage_summary_off">Սեղմելով սահեցումն անջատված է</string>
   <string name="revanced_swipe_haptic_feedback_title">Միացնել հապտիկական արձագանքը</string>
   <string name="revanced_swipe_haptic_feedback_summary_on">Հապտիկական արձագանքը միացված է</string>
   <string name="revanced_swipe_haptic_feedback_summary_off">Հապտիկական արձագանքը անջատված է</string>
@@ -1138,6 +1145,7 @@ Seekbar thumbnails-ները կօգտագործեն նույն որակը, ինչ
   </patch>
   <patch id="layout.miniplayer.miniplayerPatch">
   <string name="revanced_miniplayer_screen_title">Մինի նվագարկիչ</string>
+  <string name="revanced_miniplayer_screen_summary">Փոխել ներծրագրային փոքրացված նվագարկչի ոճը</string>
   <string name="revanced_miniplayer_type_title">Miniplayer-ի տեսակ</string>
   <string name="revanced_miniplayer_type_entry_0">Անջատված է</string>
   <string name="revanced_miniplayer_type_entry_1">Ըստ լռելյայնի</string>
