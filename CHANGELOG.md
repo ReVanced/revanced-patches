@@ -1,3 +1,17 @@
+## [5.16.1](https://github.com/ReVanced/revanced-patches/compare/v5.16.0...v5.16.1) (2025-03-26)
+
+
+### Bug Fixes
+
+* **Spotify - Unlock Premium:** Override streaming attribute attempting to fix streaming issues ([06be36c](https://github.com/ReVanced/revanced-patches/commit/06be36cddf3430b4179dff696b3d15718cd6963b))
+
+## [5.16.1-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.16.0...v5.16.1-dev.1) (2025-03-26)
+
+
+### Bug Fixes
+
+* **Spotify - Unlock Premium:** Override streaming attribute attempting to fix streaming issues ([06be36c](https://github.com/ReVanced/revanced-patches/commit/06be36cddf3430b4179dff696b3d15718cd6963b))
+
 # [5.16.0](https://github.com/ReVanced/revanced-patches/compare/v5.15.0...v5.16.0) (2025-03-26)
 
 
