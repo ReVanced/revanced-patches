@@ -15,7 +15,7 @@ val unlockPremiumPatch = bytecodePatch(
     extendWith("extensions/spotify.rve")
 
     execute {
-        // Make _value ,accessible so that it can be overridden in the extension.
+        // Make _value accessible so that it can be overridden in the extension.
         accountAttributeFingerprint.classDef.fields.first { it.name == "value_" }.apply {
             accessFlags = accessFlags.or(AccessFlags.PUBLIC.value).and(AccessFlags.PRIVATE.value.inv())
         }
