@@ -10,7 +10,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 @Suppress("unused")
 val unlockPremiumPatch = bytecodePatch(
     name = "Unlock Spotify Premium",
-    description = "Unlock Spotify Premium features. Server-sided features like downloading songs are still locked.",
+    description = "Unlocks Spotify Premium features. Server-sided features like downloading songs are still locked.",
 ) {
     compatibleWith("com.spotify.music")
 
