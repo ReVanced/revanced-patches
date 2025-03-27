@@ -1,3 +1,10 @@
+# [5.17.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.17.0-dev.1...v5.17.0-dev.2) (2025-03-27)
+
+
+### Bug Fixes
+
+* **YouTube - Navigation buttons:** Add user dialog message to 'Disable translucent status bar' ([a4a0e68](https://github.com/ReVanced/revanced-patches/commit/a4a0e6869e23d15ee09262460f4e290c90629eeb))
+
 # [5.17.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.16.2-dev.1...v5.17.0-dev.1) (2025-03-27)
 
 
