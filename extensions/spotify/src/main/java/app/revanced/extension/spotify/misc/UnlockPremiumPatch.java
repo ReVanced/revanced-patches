@@ -43,7 +43,7 @@ public final class UnlockPremiumPatch {
     public static void overrideAttribute(Map<String, AccountAttribute> attributes) {
         try {
             for (var entry : OVERRIDES.entrySet()) {
-                String key = entry.getKey();
+                var key = entry.getKey();
                 var attribute = attributes.get(key);
                 if (attribute == null) {
                     Logger.printException(() -> "Account attribute not found: " + key);
