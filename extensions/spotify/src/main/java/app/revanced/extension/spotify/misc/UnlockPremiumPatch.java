@@ -35,6 +35,8 @@ public final class UnlockPremiumPatch {
         put("name", "Spotify Premium");
         // Enable Cross-Platform Spotify Car Thing.
         put("can_use_superbird", true);
+        // Removes the premium button in the nav-bar for tablet users.
+        put("tablet-free", false);
     }};
 
     /**
