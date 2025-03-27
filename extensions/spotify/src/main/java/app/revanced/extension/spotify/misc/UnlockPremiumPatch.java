@@ -31,8 +31,6 @@ public final class UnlockPremiumPatch {
         put("streaming-rules", "");
         // Enables premium UI in settings and removes the premium button in the nav-bar.
         put("nft-disabled", "1");
-        // Set the subscription name.
-        put("name", "Spotify Premium");
         // Enable Cross-Platform Spotify Car Thing.
         put("can_use_superbird", true);
         // Removes the premium button in the nav-bar for tablet users.
