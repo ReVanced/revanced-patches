@@ -16,3 +16,8 @@ internal val productStateProtoFingerprint = fingerprint {
 internal val buildQueryParametersFingerprint = fingerprint {
     strings("trackRows", "device_type:tablet")
 }
+
+internal val contextMenuExperimentsFingerprint = fingerprint {
+    parameters("L")
+    strings("remove_ads_upsell_enabled")
+}

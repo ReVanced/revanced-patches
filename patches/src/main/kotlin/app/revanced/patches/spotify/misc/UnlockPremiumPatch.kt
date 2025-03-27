@@ -1,9 +1,11 @@
 package app.revanced.patches.spotify.misc
 
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
+import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.patch.bytecodePatch
 import com.android.tools.smali.dexlib2.AccessFlags
+import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Suppress("unused")
 val unlockPremiumPatch = bytecodePatch(
@@ -32,5 +34,12 @@ val unlockPremiumPatch = bytecodePatch(
         // Add the query parameter trackRows to show popular tracks in the artist page.
         val addQueryParameterIndex = buildQueryParametersFingerprint.stringMatches!!.first().index - 1
         buildQueryParametersFingerprint.method.replaceInstruction(addQueryParameterIndex, "nop")
+
+        // Disable the "Spotify Premium" upsell experiment in context menus.
+        with(contextMenuExperimentsFingerprint) {
+            val moveIsEnabledIndex = stringMatches!!.first().index + 2
+            val isUpsellEnabledRegister = method.getInstruction<OneRegisterInstruction>(moveIsEnabledIndex).registerA
+            method.replaceInstruction(moveIsEnabledIndex, "const/4 v$isUpsellEnabledRegister, 0")
+        }
     }
 }
