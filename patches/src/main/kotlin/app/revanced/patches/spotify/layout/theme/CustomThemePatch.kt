@@ -10,6 +10,7 @@ import org.w3c.dom.Element
 val customThemePatch = resourcePatch(
     name = "Custom theme",
     description = "Applies a custom theme.",
+    use = false,
 ) {
     compatibleWith("com.spotify.music")
 
