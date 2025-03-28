@@ -1,3 +1,10 @@
+# [5.17.0-dev.3](https://github.com/ReVanced/revanced-patches/compare/v5.17.0-dev.2...v5.17.0-dev.3) (2025-03-28)
+
+
+### Bug Fixes
+
+* **Spotify - Unlock Premium:** Override additional attributes ([#4651](https://github.com/ReVanced/revanced-patches/issues/4651)) ([568b40d](https://github.com/ReVanced/revanced-patches/commit/568b40da9692eae9039bbb3cec513a61ca627c24))
+
 # [5.17.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.17.0-dev.1...v5.17.0-dev.2) (2025-03-27)
 
 
