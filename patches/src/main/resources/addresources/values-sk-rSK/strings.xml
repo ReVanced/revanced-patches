@@ -1162,14 +1162,14 @@ Ak sa neskôr vypne, odporúča sa vymazať údaje aplikácie, aby sa zabránilo
 
 Miniprehrávač sa dá potiahnuť mimo obrazovky doľava alebo doprava"</string>
   <string name="revanced_miniplayer_horizontal_drag_summary_off">Zakázané je horizontálne posunutie</string>
-  <string name="revanced_miniplayer_hide_expand_close_title">Skryť tlačidlo pre zatvorenie</string>
-  <string name="revanced_miniplayer_hide_expand_close_summary_on">Tlačidlo pre zatvorenie je skryté</string>
-  <string name="revanced_miniplayer_hide_expand_close_summary_off">Tlačidlo pre zatvorenie je zobrazené</string>
-  <string name="revanced_miniplayer_hide_expand_close_legacy_title">Skryť tlačidlá rozbalenia a zatvorenia</string>
-  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_on">"Tlačidlá sú skryté
+  <string name="revanced_miniplayer_hide_overlay_buttons_title">Skryť tlačidlo pre zatvorenie</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">Tlačidlo pre zatvorenie je skryté</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">Tlačidlo pre zatvorenie je zobrazené</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_title">Skryť tlačidlá rozbalenia a zatvorenia</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_on">"Tlačidlá sú skryté
 
 Potiahnite prstom na rozbalenie alebo zatvorenie"</string>
-  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_off">Zobrazia sa tlačidlá rozbalenia a zatvorenia</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_off">Zobrazia sa tlačidlá rozbalenia a zatvorenia</string>
   <string name="revanced_miniplayer_hide_subtext_title">Skryť podtexty</string>
   <string name="revanced_miniplayer_hide_subtext_summary_on">Podtexty sú skryté</string>
   <string name="revanced_miniplayer_hide_subtext_summary_off">Zobrazia sa podtexty</string>

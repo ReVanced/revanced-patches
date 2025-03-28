@@ -239,7 +239,7 @@ public class ReturnYouTubeDislike {
             String leftSeparatorString = getTextDirectionString();
             final Spannable leftSeparatorSpan;
             if (isRollingNumber) {
-                 leftSeparatorSpan = new SpannableString(leftSeparatorString);
+                leftSeparatorSpan = new SpannableString(leftSeparatorString);
             } else {
                 leftSeparatorString += "  ";
                 leftSeparatorSpan = new SpannableString(leftSeparatorString);
@@ -629,7 +629,7 @@ public class ReturnYouTubeDislike {
                 userVote = vote;
                 clearUICache();
             }
-            
+
             if (future.isDone()) {
                 // Update the fetched vote data.
                 RYDVoteData voteData = getFetchData(MAX_MILLISECONDS_TO_BLOCK_UI_WAITING_FOR_FETCH);

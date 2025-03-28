@@ -1160,14 +1160,14 @@ Minisoitin voidaan vetää mihin tahansa näytön kulmaan"</string>
 
 Minisoitin voidaan vetää pois näytöltä vasemmalle tai oikealle"</string>
   <string name="revanced_miniplayer_horizontal_drag_summary_off">Vaakasuuntainen vetoele ei ole käytössä</string>
-  <string name="revanced_miniplayer_hide_expand_close_title">Piilota sulje-painike</string>
-  <string name="revanced_miniplayer_hide_expand_close_summary_on">Sulje-painike on piilotettu</string>
-  <string name="revanced_miniplayer_hide_expand_close_summary_off">Sulje-painike näytetään</string>
-  <string name="revanced_miniplayer_hide_expand_close_legacy_title">Piilota laajenna- ja sulje-painikkeet</string>
-  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_on">"Painikkeet piilotetaan
+  <string name="revanced_miniplayer_hide_overlay_buttons_title">Piilota sulje-painike</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">Sulje-painike on piilotettu</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">Sulje-painike näytetään</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_title">Piilota laajenna- ja sulje-painikkeet</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_on">"Painikkeet piilotetaan
 
 Pyyhkäise laajentaaksesi tai sulkeaksesi"</string>
-  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_off">Laajenna- ja sulje-painikkeet näytetään</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_off">Laajenna- ja sulje-painikkeet näytetään</string>
   <string name="revanced_miniplayer_hide_subtext_title">Piilota alatekstit</string>
   <string name="revanced_miniplayer_hide_subtext_summary_on">Alatekstit on piilotettu</string>
   <string name="revanced_miniplayer_hide_subtext_summary_off">Alatekstit näytetään</string>

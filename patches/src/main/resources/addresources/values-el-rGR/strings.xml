@@ -1175,14 +1175,14 @@ Second \"item\" text"</string>
 
 Η ελαχιστοποιημένη οθόνη μπορεί να συρθεί εκτός οθόνης προς τα αριστερά ή δεξιά"</string>
   <string name="revanced_miniplayer_horizontal_drag_summary_off">Η χειρονομία οριζόντιας σύρσης είναι απενεργοποιημένη</string>
-  <string name="revanced_miniplayer_hide_expand_close_title">Κουμπί κλεισίματος</string>
-  <string name="revanced_miniplayer_hide_expand_close_summary_on">Κρυμμένο</string>
-  <string name="revanced_miniplayer_hide_expand_close_summary_off">Εμφανίζεται</string>
-  <string name="revanced_miniplayer_hide_expand_close_legacy_title">Κουμπιά επέκτασης και κλεισίματος</string>
-  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_on">"Κρυμμένα
+  <string name="revanced_miniplayer_hide_overlay_buttons_title">Κουμπί κλεισίματος</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">Κρυμμένο</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">Εμφανίζεται</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_title">Κουμπιά επέκτασης και κλεισίματος</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_on">"Κρυμμένα
 
 Σύρετε την ελαχιστοποιημένη οθόνη αναπαραγωγής για επέκταση ή κλείσιμο του βίντεο"</string>
-  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_off">Εμφανίζονται</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_off">Εμφανίζονται</string>
   <string name="revanced_miniplayer_hide_subtext_title">Κείμενα οθόνης αναπαραγωγής</string>
   <string name="revanced_miniplayer_hide_subtext_summary_on">Κρυμμένα</string>
   <string name="revanced_miniplayer_hide_subtext_summary_off">Εμφανίζονται</string>

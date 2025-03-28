@@ -29,7 +29,7 @@ internal val playerParameterBuilderFingerprint by fingerprint {
         "Z"
     )
     instructions(
-        string("psps"),
+        string("psps")
     )
 }
 
@@ -84,7 +84,7 @@ internal val playerParameterBuilder1925Fingerprint by fingerprint {
         "Z",
     )
     instructions(
-        string("psps"),
+        string("psps")
     )
 }
 

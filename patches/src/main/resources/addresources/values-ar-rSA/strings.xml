@@ -1174,14 +1174,14 @@ Second \"item\" text"</string>
 
 يمكن سحب المشغل المصغر خارج الشاشة إلى اليسار أو اليمين"</string>
   <string name="revanced_miniplayer_horizontal_drag_summary_off">تم تعطيل إيماءة السحب الأفقية</string>
-  <string name="revanced_miniplayer_hide_expand_close_title">إخفاء زر الإغلاق</string>
-  <string name="revanced_miniplayer_hide_expand_close_summary_on">تم إخفاء زر الإغلاق</string>
-  <string name="revanced_miniplayer_hide_expand_close_summary_off">يتم عرض زر الإغلاق</string>
-  <string name="revanced_miniplayer_hide_expand_close_legacy_title">إخفاء أزرار التوسيع والإغلاق</string>
-  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_on">"تم إخفاء الأزرار
+  <string name="revanced_miniplayer_hide_overlay_buttons_title">إخفاء زر الإغلاق</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">تم إخفاء زر الإغلاق</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">يتم عرض زر الإغلاق</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_title">إخفاء أزرار التوسيع والإغلاق</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_on">"تم إخفاء الأزرار
 
 مرر للتوسيع أو الإغلاق"</string>
-  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_off">يتم عرض أزرار التوسيع والإغلاق</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_off">يتم عرض أزرار التوسيع والإغلاق</string>
   <string name="revanced_miniplayer_hide_subtext_title">إخفاء النصوص الفرعية</string>
   <string name="revanced_miniplayer_hide_subtext_summary_on">تم إخفاء النصوص الفرعية</string>
   <string name="revanced_miniplayer_hide_subtext_summary_off">يتم عرض النصوص الفرعية</string>

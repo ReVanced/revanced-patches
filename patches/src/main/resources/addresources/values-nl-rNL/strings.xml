@@ -1173,14 +1173,14 @@ De miniplayer kan naar elke hoek van het scherm worden gesleept"</string>
 
 De miniplayer kan naar links of rechts van het scherm worden gesleept"</string>
   <string name="revanced_miniplayer_horizontal_drag_summary_off">Horizontaal sleepgebaar uitgeschakeld</string>
-  <string name="revanced_miniplayer_hide_expand_close_title">Verberg de sluitknop</string>
-  <string name="revanced_miniplayer_hide_expand_close_summary_on">De sluitknop is verborgen</string>
-  <string name="revanced_miniplayer_hide_expand_close_summary_off">De sluitknop is zichtbaar</string>
-  <string name="revanced_miniplayer_hide_expand_close_legacy_title">Verberg uitvouwen en sluiten knoppen</string>
-  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_on">"Knoppen zijn verborgen
+  <string name="revanced_miniplayer_hide_overlay_buttons_title">Verberg de sluitknop</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">De sluitknop is verborgen</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">De sluitknop is zichtbaar</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_title">Verberg uitvouwen en sluiten knoppen</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_on">"Knoppen zijn verborgen
 
 Veeg om uit te vouwen of te sluiten"</string>
-  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_off">Uitvouwen en sluiten knoppen zijn zichtbaar</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_off">Uitvouwen en sluiten knoppen zijn zichtbaar</string>
   <string name="revanced_miniplayer_hide_subtext_title">Verberg subteksten</string>
   <string name="revanced_miniplayer_hide_subtext_summary_on">Subteksten zijn verborgen</string>
   <string name="revanced_miniplayer_hide_subtext_summary_off">Subteksten zijn zichtbaar</string>

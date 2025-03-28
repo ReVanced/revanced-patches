@@ -1159,14 +1159,14 @@ Kiçik oynadıcı ekranın istənilən küncünə sürüklənə bilər"</string>
 
 Kiçik oynadıcı ekrandan sola və ya sağa sürüklənə bilər"</string>
   <string name="revanced_miniplayer_horizontal_drag_summary_off">Üfüqi sürükləmə jesti qapatıldı</string>
-  <string name="revanced_miniplayer_hide_expand_close_title">\"Bağla\" düyməsini gizlət</string>
-  <string name="revanced_miniplayer_hide_expand_close_summary_on">\"Bağla\" düyməsi gizlidir</string>
-  <string name="revanced_miniplayer_hide_expand_close_summary_off">\"Bağla\" düyməsi göstərilir</string>
-  <string name="revanced_miniplayer_hide_expand_close_legacy_title">Genişləndir və bağla düymələrini gizlət</string>
-  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_on">"Düymələr gizlidir
+  <string name="revanced_miniplayer_hide_overlay_buttons_title">\"Bağla\" düyməsini gizlət</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">\"Bağla\" düyməsi gizlidir</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">\"Bağla\" düyməsi göstərilir</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_title">Genişləndir və bağla düymələrini gizlət</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_on">"Düymələr gizlidir
 
 Genişləndirmək və ya bağlamaq üçün sürüşdür"</string>
-  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_off">Genişləndir və bağla düymələri göstərilir</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_off">Genişləndir və bağla düymələri göstərilir</string>
   <string name="revanced_miniplayer_hide_subtext_title">Alt mətnləri gizlət</string>
   <string name="revanced_miniplayer_hide_subtext_summary_on">Alt mətnlər gizlədilir</string>
   <string name="revanced_miniplayer_hide_subtext_summary_off">Alt mətnlər göstərilir</string>

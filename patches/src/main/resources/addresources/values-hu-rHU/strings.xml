@@ -1173,14 +1173,14 @@ A miniatűr képernyőt a képernyő bármely sarkába húzhatja"</string>
 
 A miniatűr képernyőt a képernyő bal vagy jobb szélére húzhatja"</string>
   <string name="revanced_miniplayer_horizontal_drag_summary_off">A vízszintes húzómozdulat letiltva</string>
-  <string name="revanced_miniplayer_hide_expand_close_title">Bezárás gomb elrejtése</string>
-  <string name="revanced_miniplayer_hide_expand_close_summary_on">A Bezárás gomb el van rejtve</string>
-  <string name="revanced_miniplayer_hide_expand_close_summary_off">A Bezárás gomb látható</string>
-  <string name="revanced_miniplayer_hide_expand_close_legacy_title">Kibontás és bezárás gombok elrejtése</string>
-  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_on">"A gombok el vannak rejtve
+  <string name="revanced_miniplayer_hide_overlay_buttons_title">Bezárás gomb elrejtése</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">A Bezárás gomb el van rejtve</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">A Bezárás gomb látható</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_title">Kibontás és bezárás gombok elrejtése</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_on">"A gombok el vannak rejtve
 
 Húzza el a képernyőt a kibontáshoz vagy bezáráshoz"</string>
-  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_off">A Kibontás és Bezárás gombok láthatók</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_off">A Kibontás és Bezárás gombok láthatók</string>
   <string name="revanced_miniplayer_hide_subtext_title">Alszövegek elrejtése</string>
   <string name="revanced_miniplayer_hide_subtext_summary_on">Az alfeliratok el vannak rejtve</string>
   <string name="revanced_miniplayer_hide_subtext_summary_off">Az alfeliratok meg vannak jelenítve</string>
