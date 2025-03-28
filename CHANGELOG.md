@@ -1,3 +1,15 @@
+# [5.18.0](https://github.com/ReVanced/revanced-patches/compare/v5.17.0...v5.18.0) (2025-03-28)
+
+
+### Bug Fixes
+
+* **Spotify:** Ignore optional attributes if not present ([#4688](https://github.com/ReVanced/revanced-patches/issues/4688)) ([84f5854](https://github.com/ReVanced/revanced-patches/commit/84f585492e4be3604c6c7680ffb3bebcea5a675f))
+
+
+### Features
+
+* **YouTube:** Support version `20.07.39` ([#4677](https://github.com/ReVanced/revanced-patches/issues/4677)) ([c1379f6](https://github.com/ReVanced/revanced-patches/commit/c1379f6e520c683d2c9d6a490a69ca542168b3b3))
+
 # [5.18.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.18.0-dev.1...v5.18.0-dev.2) (2025-03-28)
 
 
