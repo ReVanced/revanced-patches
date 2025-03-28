@@ -20,8 +20,8 @@ Second \"item\" text"</string>
 
 -->
 <resources>
-  <app id="shared">
-  <patch id="misc.checks.checkEnvironmentPatch">
+  <!-- <app id="shared"> -->
+  <!-- <patch id="misc.checks.checkEnvironmentPatch"> -->
   <string name="revanced_check_environment_failed_title">Kiểm tra thất bại</string>
   <string name="revanced_check_environment_dialog_open_official_source_button">Mở trang web chính thức</string>
   <string name="revanced_check_environment_dialog_ignore_button">Phớt lờ</string>
@@ -31,8 +31,8 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time">Đã vá hơn 10 phút trước</string>
   <string name="revanced_check_environment_not_near_patch_time_days">Đã vá %s ngày trước</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">Ngày dựng APK bị hỏng</string>
-  </patch>
-  <patch id="misc.settings.settingsResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.settings.settingsResourcePatch"> -->
   <string name="revanced_settings_submenu_title">Thiết lập</string>
   <string name="revanced_settings_confirm_user_dialog_title">Bạn có muốn tiếp tục không?</string>
   <string name="revanced_settings_reset">Đặt lại</string>
@@ -57,8 +57,8 @@ Second \"item\" text"</string>
   <string name="revanced_settings_about_links_header">Các liên kết chính thức</string>
   <!-- NOTE: the about strings above are duplicated in the TikTok about screen code,
                  and changes made here must also be made there. -->
-  </patch>
-  <patch id="misc.gms.gmsCoreSupportResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.gms.gmsCoreSupportResourcePatch"> -->
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="gms_core_toast_not_installed_message">MicroG GmsCore chưa được cài đặt. Cài nó.</string>
   <string name="gms_core_dialog_title">Hành động cần thiết</string>
@@ -74,10 +74,10 @@ Tắt tối ưu hóa pin cho MicroG sẽ không ảnh hưởng tiêu cực đế
 
 Nhấn nút tiếp tục và cho phép thay đổi tối ưu hóa."</string>
   <string name="gms_core_dialog_continue_text">Tiếp tục</string>
-  </patch>
-  </app>
-  <app id="youtube">
-  <patch id="misc.settings.settingsPatch">
+  <!-- </patch> -->
+  <!-- </app> -->
+  <!-- <app id="youtube"> -->
+  <!-- <patch id="misc.settings.settingsPatch"> -->
   <string name="revanced_settings_screen_00_about_title">Giới thiệu</string>
   <string name="revanced_settings_screen_01_ads_title">Quảng cáo</string>
   <string name="revanced_settings_screen_02_alt_thumbnails_title">Hình thu nhỏ thay thế</string>
@@ -91,13 +91,13 @@ Nhấn nút tiếp tục và cho phép thay đổi tối ưu hóa."</string>
   <string name="revanced_restore_old_settings_menus_title">Khôi phục trình đơn cài đặt cũ</string>
   <string name="revanced_restore_old_settings_menus_summary_on">Các trình đơn cài đặt cũ được hiện</string>
   <string name="revanced_restore_old_settings_menus_summary_off">Các trình đơn cài đặt cũ không được hiện</string>
-  </patch>
-  <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.backgroundplayback.backgroundPlaybackPatch"> -->
   <string name="revanced_shorts_disable_background_playback_title">Tắt phát nền cho Shorts</string>
   <string name="revanced_shorts_disable_background_playback_summary_on">Chạy nền cho Shorts được tắt</string>
   <string name="revanced_shorts_disable_background_playback_summary_off">Chạy nền cho Shorts được bật</string>
-  </patch>
-  <patch id="misc.debugging.enableDebuggingPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.debugging.enableDebuggingPatch"> -->
   <string name="revanced_debug_screen_title">Gỡ lỗi</string>
   <string name="revanced_debug_screen_summary">Bật hoặc tắt tùy chọn gỡ lỗi</string>
   <string name="revanced_debug_title">Nhật ký gỡ lỗi</string>
@@ -115,8 +115,8 @@ Nhấn nút tiếp tục và cho phép thay đổi tối ưu hóa."</string>
   <string name="revanced_debug_toast_on_error_user_dialog_message">"Tắt thông báo lỗi sẽ ẩn tất cả thông báo lỗi của ReVanced.
 
 Bạn sẽ không được thông báo về bất kỳ sự kiện bất ngờ nào."</string>
-  </patch>
-  <patch id="layout.hide.general.hideLayoutComponentsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.general.hideLayoutComponentsPatch"> -->
   <string name="revanced_hide_album_cards_title">Ẩn các thẻ album</string>
   <string name="revanced_hide_album_cards_summary_on">Các thẻ album được ẩn</string>
   <string name="revanced_hide_album_cards_summary_off">Các thẻ album được hiện</string>
@@ -340,8 +340,8 @@ Hạn chế
   <string name="revanced_hide_keyword_toast_invalid_conflicting">Từ khóa có các định nghĩa mâu thuẫn với nhau. %s</string>
   <string name="revanced_hide_keyword_toast_invalid_length">Từ khóa quá ngắn và cần phải có dấu ngoặc kép: %s</string>
   <string name="revanced_hide_keyword_toast_invalid_broad">Từ khóa sẽ ẩn tất cả video: %s</string>
-  </patch>
-  <patch id="ad.general.hideAdsResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="ad.general.hideAdsResourcePatch"> -->
   <string name="revanced_hide_general_ads_title">Ẩn quảng cáo chung</string>
   <string name="revanced_hide_general_ads_summary_on">Quảng cáo chung được ẩn</string>
   <string name="revanced_hide_general_ads_summary_off">Quảng cáo chung được hiện</string>
@@ -383,18 +383,18 @@ Tính năng này chỉ khả dụng cho các thiết bị cũ hơn"</string>
   <string name="revanced_hide_merchandise_banners_summary_off">Biểu ngữ hàng hóa được hiện</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_hide_fullscreen_ads_feature_not_available_toast">Ẩn QC toàn màn hình chỉ hoạt động với các thiết bị cũ</string>
-  </patch>
-  <patch id="ad.getpremium.hideGetPremiumPatch">
+  <!-- </patch> -->
+  <!-- <patch id="ad.getpremium.hideGetPremiumPatch"> -->
   <string name="revanced_hide_get_premium_title">Ẩn quảng cáo YouTube Premium</string>
   <string name="revanced_hide_get_premium_summary_on">Quảng cáo Youtube Premium bên dưới video được ẩn</string>
   <string name="revanced_hide_get_premium_summary_off">Quảng cáo Youtube Premium bên dưới video được hiện</string>
-  </patch>
-  <patch id="ad.video.videoAdsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="ad.video.videoAdsPatch"> -->
   <string name="revanced_hide_video_ads_title">Ẩn quảng cáo trên video</string>
   <string name="revanced_hide_video_ads_summary_on">Quảng cáo trên video được ẩn</string>
   <string name="revanced_hide_video_ads_summary_off">Quảng cáo trên video được hiện</string>
-  </patch>
-  <patch id="interaction.copyvideourl.copyVideoUrlResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="interaction.copyvideourl.copyVideoUrlResourcePatch"> -->
   <string name="revanced_share_copy_url_success">Đã chép URL vào bảng nhớ tạm</string>
   <string name="revanced_share_copy_url_timestamp_success">Đã chép URL với dấu thời gian</string>
   <string name="revanced_copy_video_url_title">Hiện nút sao chép url video</string>
@@ -403,14 +403,14 @@ Tính năng này chỉ khả dụng cho các thiết bị cũ hơn"</string>
   <string name="revanced_copy_video_url_timestamp_title">Hiện nút sao chép URL với dấu thời gian</string>
   <string name="revanced_copy_video_url_timestamp_summary_on">Nút được hiện. Chạm để sao chép video URL với dấu thời gian. Chạm và giữ để sao chép video không dấu thời gian</string>
   <string name="revanced_copy_video_url_timestamp_summary_off">Nút không được hiện</string>
-  </patch>
-  <patch id="interaction.dialog.removeViewerDiscretionDialogPatch">
+  <!-- </patch> -->
+  <!-- <patch id="interaction.dialog.removeViewerDiscretionDialogPatch"> -->
   <string name="revanced_remove_viewer_discretion_dialog_title">Loại bỏ hộp thoại cảnh báo trước khi xem</string>
   <string name="revanced_remove_viewer_discretion_dialog_summary_on">Hộp thoại sẽ bị loại bỏ</string>
   <string name="revanced_remove_viewer_discretion_dialog_summary_off">Hộp thoại sẽ được hiện</string>
   <string name="revanced_remove_viewer_discretion_dialog_user_dialog_message">Điều này sẽ không qua mặt hạn chế độ tuổi. Nó chỉ tự động chấp nhận.</string>
-  </patch>
-  <patch id="interaction.downloads.downloadsResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="interaction.downloads.downloadsResourcePatch"> -->
   <string name="revanced_external_downloader_screen_title">Tải xuống bên ngoài</string>
   <string name="revanced_external_downloader_screen_summary">Các thiết lập trình tải xuống bên ngoài</string>
   <string name="revanced_external_downloader_title">Hiện nút tải xuống bên ngoài</string>
@@ -423,18 +423,18 @@ Tính năng này chỉ khả dụng cho các thiết bị cũ hơn"</string>
   <string name="revanced_external_downloader_name_title">Tên gói trình tải xuống</string>
   <string name="revanced_external_downloader_name_summary">Tên gói của ứng dụng tải xuống bên ngoài đã cài đặt của bạn, chẳng hạn như NewPipe hoặc Seal</string>
   <string name="revanced_external_downloader_not_installed_warning">%s chưa được cài đặt. Hãy cài đặt nó.</string>
-  </patch>
-  <patch id="interaction.seekbar.disablePreciseSeekingGesturePatch">
+  <!-- </patch> -->
+  <!-- <patch id="interaction.seekbar.disablePreciseSeekingGesturePatch"> -->
   <string name="revanced_disable_precise_seeking_gesture_title">Vô hiệu cử chỉ dò tìm chính xác</string>
   <string name="revanced_disable_precise_seeking_gesture_summary_on">Cử chỉ đã tắt</string>
   <string name="revanced_disable_precise_seeking_gesture_summary_off">Cử chỉ đã bật</string>
-  </patch>
-  <patch id="interaction.seekbar.enableSeekbarTappingPatch">
+  <!-- </patch> -->
+  <!-- <patch id="interaction.seekbar.enableSeekbarTappingPatch"> -->
   <string name="revanced_seekbar_tapping_title">Bật nhấn để tua</string>
   <string name="revanced_seekbar_tapping_summary_on">Nhấn để tua được bật</string>
   <string name="revanced_seekbar_tapping_summary_off">Nhấn để tua bị tắt</string>
-  </patch>
-  <patch id="interaction.swipecontrols.swipeControlsResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="interaction.swipecontrols.swipeControlsResourcePatch"> -->
   <string name="revanced_swipe_brightness_title">Bật cử chỉ độ sáng</string>
   <string name="revanced_swipe_brightness_summary_on">"Đã bật vuốt độ sáng toàn màn hình
 
@@ -473,13 +473,13 @@ Tính năng này chỉ khả dụng cho các thiết bị cũ hơn"</string>
   <string name="revanced_swipe_change_video_title">Bật vuốt để thay đổi video</string>
   <string name="revanced_swipe_change_video_summary_on">Vuốt trong chế độ toàn màn hình sẽ chuyển sang video tiếp theo/trước</string>
   <string name="revanced_swipe_change_video_summary_off">Vuốt trong chế độ toàn màn hình sẽ không chuyển sang video tiếp theo/trước</string>
-  </patch>
-  <patch id="layout.autocaptions.autoCaptionsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.autocaptions.autoCaptionsPatch"> -->
   <string name="revanced_auto_captions_title">Tắt phụ đề tự động</string>
   <string name="revanced_auto_captions_summary_on">Phụ đề tự động đã tắt</string>
   <string name="revanced_auto_captions_summary_off">Phụ đề tự động đã bật</string>
-  </patch>
-  <patch id="layout.buttons.action.hideButtonsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.buttons.action.hideButtonsPatch"> -->
   <string name="revanced_hide_buttons_screen_title">Các nút hành động</string>
   <string name="revanced_hide_buttons_screen_summary">Ẩn hoặc hiện nút dưới video</string>
   <string name="revanced_disable_like_subscribe_glow_title">Tắt hiệu ứng phát sáng nút Thích và Đăng ký</string>
@@ -517,8 +517,8 @@ Tính năng này chỉ khả dụng cho các thiết bị cũ hơn"</string>
   <string name="revanced_hide_playlist_button_title">Ẩn Lưu vào danh sách phát</string>
   <string name="revanced_hide_playlist_button_summary_on">Nút lưu vào danh sách phát được ẩn</string>
   <string name="revanced_hide_playlist_button_summary_off">Nút lưu vào danh sách phát được hiện</string>
-  </patch>
-  <patch id="layout.buttons.navigation.navigationButtonsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.buttons.navigation.navigationButtonsPatch"> -->
   <string name="revanced_navigation_buttons_screen_title">Các nút điều hướng</string>
   <string name="revanced_navigation_buttons_screen_summary">Ẩn hoặc hiện các nút ở thanh điều hướng</string>
   <!-- 'Home' should be translated using the same localized wording YouTube displays for the tab. -->
@@ -555,14 +555,15 @@ Nếu việc thay đổi cài đặt này không có hiệu lực, hãy thử ch
   <string name="revanced_disable_translucent_status_bar_title">Vô hiệu hóa thanh trạng thái trong suốt</string>
   <string name="revanced_disable_translucent_status_bar_summary_on">Thanh trạng thái là đục</string>
   <string name="revanced_disable_translucent_status_bar_summary_off">Thanh trạng thái là đục hoặc trong mờ</string>
+  <string name="revanced_disable_translucent_status_bar_user_dialog_message">Trên một số thiết bị, việc bật tính năng này có thể thay đổi thanh điều hướng hệ thống thành trong suốt.</string>
   <string name="revanced_disable_translucent_navigation_bar_light_title">Vô hiệu hóa thanh điều hướng trong suốt ở chế độ sáng</string>
   <string name="revanced_disable_translucent_navigation_bar_light_summary_on">Thanh điều hướng ở chế độ sáng không trong suốt</string>
   <string name="revanced_disable_translucent_navigation_bar_light_summary_off">Thanh điều hướng ở chế độ sáng là đục hoặc trong mờ</string>
   <string name="revanced_disable_translucent_navigation_bar_dark_title">Vô hiệu hoá thanh điều hướng trong mờ tối</string>
   <string name="revanced_disable_translucent_navigation_bar_dark_summary_on">Thanh điều hướng ở chế độ tối không trong suốt</string>
   <string name="revanced_disable_translucent_navigation_bar_dark_summary_off">Thanh điều hướng ở chế độ tối là đục hoặc trong mờ</string>
-  </patch>
-  <patch id="layout.hide.player.flyoutmenupanel.hidePlayerFlyoutMenuPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.player.flyoutmenupanel.hidePlayerFlyoutMenuPatch"> -->
   <string name="revanced_hide_player_flyout_title">Trình đơn nổi</string>
   <string name="revanced_hide_player_flyout_summary">Ẩn hoặc hiện các mục trình đơn nổi</string>
   <!-- 'Captions' should be translated using the same localized wording YouTube displays for the menu item. -->
@@ -616,8 +617,8 @@ Nếu việc thay đổi cài đặt này không có hiệu lực, hãy thử ch
   <string name="revanced_hide_player_flyout_video_quality_footer_title">Ẩn trình đơn chất lượng video dưới</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_on">Trình đơn chất lượng video bên dưới được ẩn</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_off">Trình đơn chất lượng video bên dưới được hiện</string>
-  </patch>
-  <patch id="layout.buttons.overlay.hidePlayerOverlayButtonsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.buttons.overlay.hidePlayerOverlayButtonsPatch"> -->
   <string name="revanced_hide_player_previous_next_buttons_title">Ẩn các nút Trước &amp; Tiếp theo</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_on">Các nút được ẩn</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">Các nút được hiện</string>
@@ -631,36 +632,36 @@ Nếu việc thay đổi cài đặt này không có hiệu lực, hãy thử ch
   <string name="revanced_hide_autoplay_button_title">Ẩn nút Phát tự động</string>
   <string name="revanced_hide_autoplay_button_summary_on">Nút tự động phát được ẩn</string>
   <string name="revanced_hide_autoplay_button_summary_off">Nút tự động phát được hiện</string>
-  </patch>
-  <patch id="layout.hide.endscreencards.hideEndscreenCardsResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.endscreencards.hideEndscreenCardsResourcePatch"> -->
   <string name="revanced_hide_endscreen_cards_title">Ẩn thẻ kết thúc màn hình</string>
   <string name="revanced_hide_endscreen_cards_summary_on">Thẻ kết thúc màn hình được ẩn</string>
   <string name="revanced_hide_endscreen_cards_summary_off">Thẻ kết thúc màn hình được hiện</string>
-  </patch>
-  <patch id="layout.hide.fullscreenambientmode.disableFullscreenAmbientModePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.fullscreenambientmode.disableFullscreenAmbientModePatch"> -->
   <string name="revanced_disable_fullscreen_ambient_mode_title">Tắt chế độ Ambient khi toàn màn hình</string>
   <string name="revanced_disable_fullscreen_ambient_mode_summary_on">Chế độ môi trường được tắt</string>
   <string name="revanced_disable_fullscreen_ambient_mode_summary_off">Chế độ môi trường được bật</string>
-  </patch>
-  <patch id="layout.hide.infocards.hideInfocardsResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.infocards.hideInfocardsResourcePatch"> -->
   <string name="revanced_hide_info_cards_title">Ẩn thẻ thông tin</string>
   <string name="revanced_hide_info_cards_summary_on">Thẻ thông tin được ẩn</string>
   <string name="revanced_hide_info_cards_summary_off">Thẻ thông tin được hiện</string>
-  </patch>
-  <patch id="layout.hide.rollingnumber.disableRollingNumberAnimationPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.rollingnumber.disableRollingNumberAnimationPatch"> -->
   <string name="revanced_disable_rolling_number_animations_title">Tắt chuyển động cuộn số</string>
   <string name="revanced_disable_rolling_number_animations_summary_on">Số cuộn không chuyển động</string>
   <string name="revanced_disable_rolling_number_animations_summary_off">Số cuộn được chuyển động</string>
-  </patch>
-  <patch id="layout.hide.seekbar.hideSeekbarPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.seekbar.hideSeekbarPatch"> -->
   <string name="revanced_hide_seekbar_title">Ẩn thanh tiến trình trong trình phát video</string>
   <string name="revanced_hide_seekbar_summary_on">Thanh tiến trình trong trình phát video được ẩn</string>
   <string name="revanced_hide_seekbar_summary_off">Thanh tiến trình trong trình phát video được hiện</string>
   <string name="revanced_hide_seekbar_thumbnail_title">Ẩn thanh tiến trình trong hình thu nhỏ video</string>
   <string name="revanced_hide_seekbar_thumbnail_summary_on">Thanh tiến trình hình thu nhỏ được ẩn</string>
   <string name="revanced_hide_seekbar_thumbnail_summary_off">Thanh tiến trình hình thu nhỏ được hiện</string>
-  </patch>
-  <patch id="layout.hide.shorts.hideShortsComponentsResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.shorts.hideShortsComponentsResourcePatch"> -->
   <string name="revanced_shorts_player_screen_title">Trình phát Shorts</string>
   <string name="revanced_shorts_player_screen_summary">Ẩn hoặc hiện các thành phần trong trình phát Shorts</string>
   <!-- 'home' should be translated using the same localized wording YouTube displays for the home tab. -->
@@ -762,43 +763,43 @@ Nếu việc thay đổi cài đặt này không có hiệu lực, hãy thử ch
   <string name="revanced_hide_shorts_navigation_bar_title">Ẩn thanh điều hướng</string>
   <string name="revanced_hide_shorts_navigation_bar_summary_on">Thanh điều hướng được ẩn</string>
   <string name="revanced_hide_shorts_navigation_bar_summary_off">Thanh điều hướng được hiện</string>
-  </patch>
-  <patch id="layout.hide.endscreensuggestion.hideEndScreenSuggestedVideoPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.endscreensuggestion.hideEndScreenSuggestedVideoPatch"> -->
   <string name="revanced_end_screen_suggested_video_title">Ẩn video được đề xuất ở màn hình kết thúc</string>
   <string name="revanced_end_screen_suggested_video_summary_on">"Video được đề xuất ở màn hình kết thúc bị ẩn khi tự động phát bị tắt
 
 Có thể thay đổi Tự động phát trong phần cài đặt YouTube:
 Cài đặt → Phát lại → Tự động phát video tiếp theo"</string>
   <string name="revanced_end_screen_suggested_video_summary_off">Video được đề xuất ở màn hình kết thúc được hiện</string>
-  </patch>
-  <patch id="layout.hide.time.hideTimestampPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.time.hideTimestampPatch"> -->
   <string name="revanced_hide_timestamp_title">Ẩn mốc thời gian video</string>
   <string name="revanced_hide_timestamp_summary_on">Mốc thời gian được ẩn</string>
   <string name="revanced_hide_timestamp_summary_off">Mốc thời gian được hiện</string>
-  </patch>
-  <patch id="layout.panels.popup.playerPopupPanelsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.panels.popup.playerPopupPanelsPatch"> -->
   <string name="revanced_hide_player_popup_panels_title">Ẩn bảng tự bật lên trên trình phát</string>
   <string name="revanced_hide_player_popup_panels_summary_on">Bảng bật lên trên trình phát được ẩn</string>
   <string name="revanced_hide_player_popup_panels_summary_off">Bảng bật lên trên trình phát được hiện</string>
-  </patch>
-  <patch id="layout.player.fullscreen.exitFullscreenPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.player.fullscreen.exitFullscreenPatch"> -->
   <string name="revanced_exit_fullscreen_title">Thoát chế độ toàn màn hình khi kết thúc video</string>
   <string name="revanced_exit_fullscreen_entry_1">Đã tắt</string>
   <string name="revanced_exit_fullscreen_entry_2">Chân dung</string>
   <string name="revanced_exit_fullscreen_entry_3">Phong cảnh</string>
   <string name="revanced_exit_fullscreen_entry_4">Chân dung và phong cảnh</string>
-  </patch>
-  <patch id="layout.player.fullscreen.openVideosFullscreen">
+  <!-- </patch> -->
+  <!-- <patch id="layout.player.fullscreen.openVideosFullscreen"> -->
   <string name="revanced_open_videos_fullscreen_portrait_title">Mở video ở chế độ toàn màn hình dọc</string>
   <string name="revanced_open_videos_fullscreen_portrait_summary_on">Video mở ở chế độ toàn màn hình</string>
   <string name="revanced_open_videos_fullscreen_portrait_summary_off">Video không mở ở chế độ toàn màn hình</string>
-  </patch>
-  <patch id="layout.player.overlay.customPlayerOverlayOpacityResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.player.overlay.customPlayerOverlayOpacityResourcePatch"> -->
   <string name="revanced_player_overlay_opacity_title">Độ mờ của lớp phủ trình phát</string>
   <string name="revanced_player_overlay_opacity_summary">Giá trị độ mờ của lớp phủ trình phát trong khoảng từ 0 đến 100, trong đó 0 là trong suốt</string>
   <string name="revanced_player_overlay_opacity_invalid_toast">Độ phủ mờ trình phát phải nằm giữa 0-100</string>
-  </patch>
-  <patch id="layout.returnyoutubedislike.returnYouTubeDislikePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.returnyoutubedislike.returnYouTubeDislikePatch"> -->
   <!-- Toast shown if network connection times out. Translations of this should not be longer than the original English or the text can be clipped and not entirely shown. -->
   <string name="revanced_ryd_failure_connection_timeout">Lượt ko thích tạm thời ko khả dụng (API hết giờ)</string>
   <string name="revanced_ryd_failure_connection_status_code">Lượt không thích không khả dụng ( trạng thái %d)</string>
@@ -847,13 +848,13 @@ Hạn chế: Số lượt không thích có thể không xuất hiện ở chế
   <string name="revanced_ryd_statistics_getNumberOfRateLimitRequestsEncountered_zero_summary">Không gặp phải giới hạn truy cập máy khách</string>
   <string name="revanced_ryd_statistics_getNumberOfRateLimitRequestsEncountered_non_zero_summary">Gặp phải %d lần đạt giới hạn truy cập máy khách</string>
   <string name="revanced_ryd_statistics_millisecond_text">%d mili-giây</string>
-  </patch>
-  <patch id="layout.searchbar.wideSearchbarPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.searchbar.wideSearchbarPatch"> -->
   <string name="revanced_wide_searchbar_title">Bật thanh tìm kiếm rộng</string>
   <string name="revanced_wide_searchbar_summary_on">Thanh tìm kiếm rộng được bật</string>
   <string name="revanced_wide_searchbar_summary_off">Thanh tìm kiếm rộng được tắt</string>
-  </patch>
-  <patch id="layout.seekbar.seekbarThumbnailsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.seekbar.seekbarThumbnailsPatch"> -->
   <string name="revanced_seekbar_thumbnails_high_quality_title">Bật hình thu nhỏ chất lượng cao</string>
   <string name="revanced_seekbar_thumbnails_high_quality_summary_on">Hình thu nhỏ khi tua có chất lượng cao</string>
   <string name="revanced_seekbar_thumbnails_high_quality_summary_off">Hình thu nhỏ khi tua có chất lượng trung bình</string>
@@ -867,8 +868,8 @@ Tính năng này hoạt động tốt nhất với chất lượng video 720p tr
   <string name="revanced_restore_old_seekbar_thumbnails_title">Khôi phục thanh tiến trình hình thu nhỏ kiểu cũ</string>
   <string name="revanced_restore_old_seekbar_thumbnails_summary_on">Thanh tiến trình hình thu nhỏ sẽ xuất hiện phía trên thanh tiến trình</string>
   <string name="revanced_restore_old_seekbar_thumbnails_summary_off">Thanh tiến trình hình thu nhỏ sẽ xuất hiện khi toàn màn hình</string>
-  </patch>
-  <patch id="layout.sponsorblock.sponsorBlockResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.sponsorblock.sponsorBlockResourcePatch"> -->
   <string name="revanced_sb_enable_sb">Bật SponsorBlock</string>
   <string name="revanced_sb_enable_sb_sum">SponsorBlock là một hệ thống cộng đồng để bỏ qua các phần quảng cáo trong video YouTube</string>
   <string name="revanced_sb_appearance_category">Giao diện</string>
@@ -1065,8 +1066,8 @@ Bạn đã sẵn sàng gửi?"</string>
   <string name="revanced_sb_reset">Đặt lại</string>
   <string name="revanced_sb_about">Giới thiệu</string>
   <string name="revanced_sb_about_api_sum">Dữ liệu được cung cấp bởi API SponsorBlock. Nhấn vào đây để tìm hiểu thêm và xem các bản tải cho các nền tảng khác</string>
-  </patch>
-  <patch id="layout.formfactor.changeFormFactorPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.formfactor.changeFormFactorPatch"> -->
   <string name="revanced_change_form_factor_title">Bố cục dạng yếu tố</string>
   <string name="revanced_change_form_factor_entry_1">Mặc định</string>
   <string name="revanced_change_form_factor_entry_2">Điện thoại</string>
@@ -1080,8 +1081,8 @@ Bố cục máy tính bảng
 Bố cục ô tô
 • Shorts mở trong trình phát thông thường
 • Bảng Feed được sắp xếp theo chủ đề và kênh"</string>
-  </patch>
-  <patch id="layout.spoofappversion.spoofAppVersionPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.spoofappversion.spoofAppVersionPatch"> -->
   <string name="revanced_spoof_app_version_title">Giả mạo phiên bản ứng dụng</string>
   <string name="revanced_spoof_app_version_summary_on">Phiên bản đã được giả mạo</string>
   <string name="revanced_spoof_app_version_summary_off">Phiên bản không được giả mạo</string>
@@ -1095,8 +1096,8 @@ Nếu sau này tắt đi, bạn nên xóa dữ liệu ứng dụng để tránh 
   <string name="revanced_spoof_app_version_target_title">Phiên bản giả mạo mục tiêu</string>
   <string name="revanced_spoof_app_version_target_entry_1">19.35.36 - Khôi phục biểu tượng trình phát Shorts cũ</string>
   <string name="revanced_spoof_app_version_target_entry_2">19.01.34 - Cập nhật lại biểu tượng điều hướng cũ</string>
-  </patch>
-  <patch id="layout.startpage.changeStartPagePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.startpage.changeStartPagePatch"> -->
   <string name="revanced_change_start_page_title">Đặt trang bắt đầu</string>
   <string name="revanced_change_start_page_entry_default">Mặc định</string>
   <string name="revanced_change_start_page_entry_all_subscriptions">Tất cả đăng ký</string>
@@ -1122,27 +1123,27 @@ Nếu sau này tắt đi, bạn nên xóa dữ liệu ứng dụng để tránh 
   <string name="revanced_change_start_page_entry_virtual_reality">Thực tế ảo</string>
   <string name="revanced_change_start_page_entry_watch_later">Xem sau</string>
   <string name="revanced_change_start_page_entry_your_clips">Clip của bạn</string>
-  </patch>
-  <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch"> -->
   <string name="revanced_disable_resuming_shorts_player_title">Tắt tiếp tục trình phát Shorts</string>
   <string name="revanced_disable_resuming_shorts_player_summary_on">Trinh phát Shorts sẽ không tiếp tục khi ứng dụng khởi chạy</string>
   <string name="revanced_disable_resuming_shorts_player_summary_off">Trinh phát Shorts sẽ tiếp tục khi ứng dụng khởi chạy</string>
-  </patch>
-  <patch id="layout.shortsplayer.shortsPlayerTypePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.shortsplayer.shortsPlayerTypePatch"> -->
   <string name="revanced_shorts_player_type_title">Mở Shorts bằng</string>
   <string name="revanced_shorts_player_type_shorts">Trình phát Shorts</string>
   <string name="revanced_shorts_player_type_regular_player">Trình phát thông thường</string>
   <string name="revanced_shorts_player_type_regular_player_fullscreen">Trình phát thông thường toàn màn hình</string>
-  </patch>
-  <patch id="layout.shortsautoplay.shortsAutoplayPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.shortsautoplay.shortsAutoplayPatch"> -->
   <string name="revanced_shorts_autoplay_title">Tự động phát Shorts</string>
   <string name="revanced_shorts_autoplay_summary_on">Shorts sẽ phát tự động</string>
   <string name="revanced_shorts_autoplay_summary_off">Shorts sẽ phát lặp lại</string>
   <string name="revanced_shorts_autoplay_background_title">Tự động phát nền cho Shorts</string>
   <string name="revanced_shorts_autoplay_background_summary_on">Phát nền cho Shorts được phát tự động</string>
   <string name="revanced_shorts_autoplay_background_summary_off">Phát nền cho Shorts được phát lặp lại</string>
-  </patch>
-  <patch id="layout.miniplayer.miniplayerPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.miniplayer.miniplayerPatch"> -->
   <string name="revanced_miniplayer_screen_title">Trình phát thu nhỏ</string>
   <string name="revanced_miniplayer_screen_summary">Thay đổi kiểu trình phát thu nhỏ trong ứng dụng</string>
   <string name="revanced_miniplayer_type_title">Loại trình phát thu nhỏ</string>
@@ -1192,8 +1193,8 @@ Vuốt để mở rộng hoặc đóng"</string>
   <string name="revanced_miniplayer_opacity_title">Độ mờ lớp phủ</string>
   <string name="revanced_miniplayer_opacity_summary">Giá trị độ mờ của lớp phủ trình phát trong khoảng từ 0 đến 100, trong đó 0 là trong suốt</string>
   <string name="revanced_miniplayer_opacity_invalid_toast">Độ phủ mờ trình phát thu nhỏ phải nằm giữa 0-100</string>
-  </patch>
-  <patch id="layout.theme.themePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.theme.themePatch"> -->
   <string name="revanced_gradient_loading_screen_title">Bật màn hình tải màu dốc</string>
   <string name="revanced_gradient_loading_screen_summary_on">Màn hình tải sẽ có một nền màu dốc</string>
   <string name="revanced_gradient_loading_screen_summary_off">Màn hình tải sẽ có một nền màu đặc</string>
@@ -1205,15 +1206,15 @@ Vuốt để mở rộng hoặc đóng"</string>
   <string name="revanced_seekbar_custom_color_accent_title">Tùy chỉnh màu sắc nổi bật của thanh tìm kiếm</string>
   <string name="revanced_seekbar_custom_color_accent_summary">Màu sắc nổi bật của thanh tìm kiếm</string>
   <string name="revanced_seekbar_custom_color_invalid">Giá trị màu thanh tiến trình không hợp lệ</string>
-  </patch>
-  <patch id="layout.thumbnails.bypassImageRegionRestrictionsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.thumbnails.bypassImageRegionRestrictionsPatch"> -->
   <string name="revanced_bypass_image_region_restrictions_title">Vượt qua hạn chế khu vực cho hình ảnh</string>
   <string name="revanced_bypass_image_region_restrictions_summary_on">Sử dụng máy chủ hình ảnh yt4.ggpht.com</string>
   <string name="revanced_bypass_image_region_restrictions_summary_off">"Đang sử dụng máy chủ hình ảnh gốc
 
 Bật tính năng này có thể khắc phục hình ảnh bị thiếu khi bị chặn ở một số khu vực"</string>
-  </patch>
-  <patch id="layout.thumbnails.alternativeThumbnailsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.thumbnails.alternativeThumbnailsPatch"> -->
   <!-- 'Home' should be translated using the same localized wording YouTube displays for the home tab. -->
   <string name="revanced_alt_thumbnail_home_title">Thẻ trang chủ</string>
   <!-- 'Subscription' should be translated using the same localized wording YouTube displays for the subscription tab. -->
@@ -1248,26 +1249,26 @@ Nhấn vào đây để tìm hiểu thêm về DeArrow"</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_alt_thumbnail_dearrow_error">DeArrow tạm thời không khả dụng (mã trạng thái: %s)</string>
   <string name="revanced_alt_thumbnail_dearrow_error_generic">DeArrow tạm thời không khả dụng</string>
-  </patch>
-  <patch id="misc.announcements.announcementsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.announcements.announcementsPatch"> -->
   <string name="revanced_announcements_title">Hiện công bố của ReVanced</string>
   <string name="revanced_announcements_summary_on">Thông báo khi khởi động được hiện</string>
   <string name="revanced_announcements_summary_off">Thông báo khi khởi động không được hiện</string>
   <string name="revanced_announcements_enabled_summary">Hiện công bố khi khởi chạy</string>
   <string name="revanced_announcements_connection_failed">Kết nối đến nguồn cấp công bố thất bại</string>
   <string name="revanced_announcements_dialog_dismiss">Từ bỏ</string>
-  </patch>
-  <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch"> -->
   <string name="revanced_check_watch_history_domain_name_dialog_title">Cảnh báo</string>
   <string name="revanced_check_watch_history_domain_name_dialog_message">Lịch sử xem của bạn chưa được lưu.&lt;br&gt;&lt;br&gt;Điều này hầu hết gây ra bởi một DNS trình chặn quảng cáo hoặc proxy mạng.&lt;br&gt;&lt;br&gt;Để sửa nó, cho phép &lt;b&gt;s.youtube.com&lt;/b&gt; hoặc tắt tất cả trình chặn DNS và các proxy.</string>
   <string name="revanced_check_watch_history_domain_name_dialog_ignore">Không hiện lại</string>
-  </patch>
-  <patch id="misc.autorepeat.autoRepeatPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.autorepeat.autoRepeatPatch"> -->
   <string name="revanced_auto_repeat_title">Bật tự phát lại</string>
   <string name="revanced_auto_repeat_summary_on">Tự phát lại được bật</string>
   <string name="revanced_auto_repeat_summary_off">Tự phát lại được tắt</string>
-  </patch>
-  <patch id="misc.dimensions.spoof.spoofDeviceDimensionsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.dimensions.spoof.spoofDeviceDimensionsPatch"> -->
   <string name="revanced_spoof_device_dimensions_title">Giả mạo kích thước thiết bị</string>
   <string name="revanced_spoof_device_dimensions_summary_on">"Kích thước thiết bị bị giả mạo
 
@@ -1276,39 +1277,39 @@ Chất lượng video cao hơn có thể được mở khóa nhưng bạn có th
 
 Bật tính năng này có thể mở khóa chất lượng video cao hơn"</string>
   <string name="revanced_spoof_device_dimensions_user_dialog_message">Bật tính năng này có thể làm video phát lắp, hao pin, và các tác dụng phụ chưa biết.</string>
-  </patch>
-  <patch id="misc.gms.gmsCoreSupportResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.gms.gmsCoreSupportResourcePatch"> -->
   <string name="microg_settings_title">Cài đặt GmsCore</string>
   <string name="microg_settings_summary">Các cài đặt cho GmsCore</string>
-  </patch>
-  <patch id="misc.links.bypassURLRedirectsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.links.bypassURLRedirectsPatch"> -->
   <string name="revanced_bypass_url_redirects_title">Vượt chuyển hướng URL</string>
   <string name="revanced_bypass_url_redirects_summary_on">Chuyển hướng URL được vượt</string>
   <string name="revanced_bypass_url_redirects_summary_off">Chuyển hướng URL không được vượt</string>
-  </patch>
-  <patch id="misc.links.openLinksExternallyPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.links.openLinksExternallyPatch"> -->
   <string name="revanced_external_browser_title">Mở liên kết trong trình duyệt</string>
   <string name="revanced_external_browser_summary_on">Đang mở liên kết trong trình duyệt bên ngoài</string>
   <string name="revanced_external_browser_summary_off">Đang mở liên kết trình duyệt trong ứng dụng</string>
-  </patch>
-  <patch id="misc.privacy.removeTrackingQueryParameterPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.privacy.removeTrackingQueryParameterPatch"> -->
   <string name="revanced_remove_tracking_query_parameter_title">Loại bỏ tham số truy vấn theo dõi</string>
   <string name="revanced_remove_tracking_query_parameter_summary_on">Tham số truy vấn theo dõi được loại bỏ khỏi liên kết</string>
   <string name="revanced_remove_tracking_query_parameter_summary_off">Tham số truy vấn theo dõi không được loại bỏ khỏi liên kết</string>
-  </patch>
-  <patch id="misc.zoomhaptics.zoomHapticsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.zoomhaptics.zoomHapticsPatch"> -->
   <string name="revanced_disable_zoom_haptics_title">Tắt phản hồi xúc giác khi thu phóng</string>
   <string name="revanced_disable_zoom_haptics_summary_on">Phản hồi xúc giác được tắt</string>
   <string name="revanced_disable_zoom_haptics_summary_off">Phản hồi xúc giác được bật</string>
-  </patch>
-  <patch id="video.audio.forceOriginalAudioPatch">
+  <!-- </patch> -->
+  <!-- <patch id="video.audio.forceOriginalAudioPatch"> -->
   <string name="revanced_force_original_audio_title">Buộc sử dụng ngôn ngữ âm thanh gốc</string>
   <string name="revanced_force_original_audio_summary_on">Sử dụng ngôn ngữ âm thanh gốc</string>
   <string name="revanced_force_original_audio_summary_off">Sử dụng âm thanh mặc định</string>
   <!-- 'Spoof video streams' should be the same translation used for revanced_spoof_video_streams_screen_title -->
   <string name="revanced_force_original_audio_not_available">Để sử dụng tính năng này, hãy thay đổi \'Giả mạo luồng video\' thành iOS TV</string>
-  </patch>
-  <patch id="video.quality.rememberVideoQualityPatch">
+  <!-- </patch> -->
+  <!-- <patch id="video.quality.rememberVideoQualityPatch"> -->
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
   <string name="revanced_video_quality_default_entry_1">Tự động</string>
   <string name="revanced_remember_video_quality_last_selected_title">Nhớ các thay đổi chất lượng video</string>
@@ -1325,13 +1326,13 @@ Bật tính năng này có thể mở khóa chất lượng video cao hơn"</str
   <string name="revanced_remember_video_quality_wifi">wifi</string>
   <string name="revanced_remember_video_quality_toast">Đã thay đổi chất lượng %1$s mặc định: %2$s</string>
   <string name="revanced_remember_video_quality_toast_shorts">Đã thay đổi chất lượng Shorts %1$s: %2$s</string>
-  </patch>
-  <patch id="video.speed.button.playbackSpeedButtonPatch">
+  <!-- </patch> -->
+  <!-- <patch id="video.speed.button.playbackSpeedButtonPatch"> -->
   <string name="revanced_playback_speed_dialog_button_title">Hiện nút hộp thoại tốc độ phát</string>
   <string name="revanced_playback_speed_dialog_button_summary_on">Nút được hiện</string>
   <string name="revanced_playback_speed_dialog_button_summary_off">Nút không được hiện</string>
-  </patch>
-  <patch id="video.speed.custom.customPlaybackSpeedPatch">
+  <!-- </patch> -->
+  <!-- <patch id="video.speed.custom.customPlaybackSpeedPatch"> -->
   <string name="revanced_custom_speed_menu_title">Trình đơn tốc độ phát tùy chỉnh</string>
   <string name="revanced_custom_speed_menu_summary_on">Trình đơn tốc độ phát tùy chỉnh được hiện</string>
   <string name="revanced_custom_speed_menu_summary_off">Trình đơn tốc độ phát tùy chỉnh không được hiện</string>
@@ -1342,30 +1343,30 @@ Bật tính năng này có thể mở khóa chất lượng video cao hơn"</str
   <string name="revanced_custom_playback_speeds_auto">Tự động</string>
   <string name="revanced_speed_tap_and_hold_title">Tốc độ chạm và giữ tùy chỉnh</string>
   <string name="revanced_speed_tap_and_hold_summary">Tốc độ phát lại giữa 0-8</string>
-  </patch>
-  <patch id="video.speed.remember.rememberPlaybackSpeedPatch">
+  <!-- </patch> -->
+  <!-- <patch id="video.speed.remember.rememberPlaybackSpeedPatch"> -->
   <string name="revanced_remember_playback_speed_last_selected_title">Nhớ các thay đổi tốc độ phát</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_on">Thay đổi tốc độ phát áp dụng cho tất cả video</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_off">Thay đổi tốc độ phát chỉ áp dụng cho video hiện tại</string>
   <string name="revanced_playback_speed_default_title">Tốc độ phát mặc định</string>
   <string name="revanced_remember_playback_speed_toast">Đã thay đổi tốc độ phát mặc định thành: %s</string>
-  </patch>
-  <patch id="video.hdr.disableHdrPatch">
+  <!-- </patch> -->
+  <!-- <patch id="video.hdr.disableHdrPatch"> -->
   <string name="revanced_disable_hdr_video_title">Vô hiệu hóa video HDR</string>
   <string name="revanced_disable_hdr_video_summary_on">Video HDR đã bị tắt</string>
   <string name="revanced_disable_hdr_video_summary_off">Video HDR đã được bật</string>
-  </patch>
-  <patch id="video.quality.advancedVideoQualityMenuPatch">
+  <!-- </patch> -->
+  <!-- <patch id="video.quality.advancedVideoQualityMenuPatch"> -->
   <string name="revanced_advanced_video_quality_menu_title">Hiện trình đơn chất lượng video nâng cao</string>
   <string name="revanced_advanced_video_quality_menu_summary_on">Trình đơn chất lượng video nâng cao được hiện</string>
   <string name="revanced_advanced_video_quality_menu_summary_off">Trình đơn chất lượng video nâng cao không được hiện</string>
-  </patch>
-  <patch id="interaction.seekbar.enableSlideToSeekPatch">
+  <!-- </patch> -->
+  <!-- <patch id="interaction.seekbar.enableSlideToSeekPatch"> -->
   <string name="revanced_slide_to_seek_title">Bật vuốt để tua</string>
   <string name="revanced_slide_to_seek_summary_on">Vuốt để tua được bật</string>
   <string name="revanced_slide_to_seek_summary_off">Vuốt để tua không được bật</string>
-  </patch>
-  <patch id="misc.fix.playback.spoofVideoStreamsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.fix.playback.spoofVideoStreamsPatch"> -->
   <string name="revanced_spoof_video_streams_screen_title">Giả mạo luồng phát video trực tuyến</string>
   <string name="revanced_spoof_video_streams_screen_summary">Giả mạo luồng video máy khách để ngăn ngừa sự cố khi phát nền</string>
   <string name="revanced_spoof_video_streams_title">Giả mạo luồng phát video trực tuyến</string>
@@ -1395,46 +1396,46 @@ AVC có độ phân giải tối đa là 1080p, bộ giải mã âm thanh Opus k
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Loại máy khách được hiện trong Stats for nerds</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Máy khách bị ẩn trong Stats for nerds</string>
   <string name="revanced_spoof_video_streams_language_title">Ngôn ngữ âm thanh mặc định của VR</string>
-  </patch>
-  </app>
-  <app id="twitch">
-  <patch id="ad.audio.audioAdsPatch">
+  <!-- </patch> -->
+  <!-- </app> -->
+  <!-- <app id="twitch"> -->
+  <!-- <patch id="ad.audio.audioAdsPatch"> -->
   <string name="revanced_block_audio_ads_title">Chặn quảng cáo âm thanh</string>
   <string name="revanced_block_audio_ads_summary_on">Quảng cáo âm thanh được chặn</string>
   <string name="revanced_block_audio_ads_summary_off">Quảng cáo âm thanh không được chặn</string>
-  </patch>
-  <patch id="ad.embedded.embeddedAdsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="ad.embedded.embeddedAdsPatch"> -->
   <string name="revanced_embedded_ads_service_unavailable">%s không khả dụng, quảng cáo có thể hiện. Hãy thử thay đổi dịch vụ chặn quảng cáo trong cài đặt.</string>
   <string name="revanced_embedded_ads_service_failed">%s đã trả về lỗi, quảng cáo có thể hiện. Hãy thử thay đổi dịch vụ chặn quảng cáo trong cài đặt.</string>
   <string name="revanced_block_embedded_ads_title">Chặn quảng cáo video nhúng</string>
   <string name="revanced_block_embedded_ads_entry_1">Đã tắt</string>
   <string name="revanced_block_embedded_ads_entry_2">Ủy thác Luminous</string>
   <string name="revanced_block_embedded_ads_entry_3">Ủy thác PurpleAdBlock</string>
-  </patch>
-  <patch id="ad.video.videoAdsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="ad.video.videoAdsPatch"> -->
   <string name="revanced_block_video_ads_title">Chặn quảng cáo video</string>
   <string name="revanced_block_video_ads_summary_on">Quảng cáo video được chặn</string>
   <string name="revanced_block_video_ads_summary_off">Quảng cáo video không được chặn</string>
-  </patch>
-  <patch id="chat.antidelete.showDeletedMessagesPatch">
+  <!-- </patch> -->
+  <!-- <patch id="chat.antidelete.showDeletedMessagesPatch"> -->
   <string name="revanced_deleted_msg">đã xóa tin nhắn</string>
   <string name="revanced_show_deleted_messages_title">Hiện tin nhắn đã xóa</string>
   <string name="revanced_show_deleted_messages_entry_1">Không hiện tin nhắn đã xóa</string>
   <string name="revanced_show_deleted_messages_entry_2">Che tin nhắn đã xóa</string>
   <string name="revanced_show_deleted_messages_entry_3">Hiện tin nhắn đã xóa dưới dạnh gạch ngang</string>
-  </patch>
-  <patch id="chat.autoclaim.autoClaimChannelPointsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="chat.autoclaim.autoClaimChannelPointsPatch"> -->
   <string name="revanced_auto_claim_channel_points_title">Tự nhận Điểm Kênh</string>
   <string name="revanced_auto_claim_channel_points_summary_on">Điểm Kênh được nhận tự động</string>
   <string name="revanced_auto_claim_channel_points_summary_off">Điểm Kênh không được nhận tự động</string>
-  </patch>
-  <patch id="debug.debugModePatch">
+  <!-- </patch> -->
+  <!-- <patch id="debug.debugModePatch"> -->
   <!-- Twitch specific internal debug mode, and not the same as 'revanced_debug_title' -->
   <string name="revanced_twitch_debug_mode_title">Bật chế độ gỡ lỗi Twitch</string>
   <string name="revanced_twitch_debug_mode_summary_on">Chế độ gỡ lỗi Twitch được bật (không khuyến nghị)</string>
   <string name="revanced_twitch_debug_mode_summary_off">Chế độ gỡ lỗi Twitch được tắt</string>
-  </patch>
-  <patch id="misc.settings.settingsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.settings.settingsPatch"> -->
   <string name="revanced_settings">Cài đặt ReVanced</string>
   <string name="revanced_about_title">Giới thiệu</string>
   <string name="revanced_about_summary">Giới thiệu về ReVanced</string>
@@ -1451,6 +1452,6 @@ AVC có độ phân giải tối đa là 1080p, bộ giải mã âm thanh Opus k
   <string name="revanced_twitch_debug_title">Nhật ký gỡ lỗi</string>
   <string name="revanced_twitch_debug_summary_on">Nhật ký gỡ lỗi được bật</string>
   <string name="revanced_twitch_debug_summary_off">Nhật ký gỡ lỗi được tắt</string>
-  </patch>
-  </app>
+  <!-- </patch> -->
+  <!-- </app> -->
 </resources>

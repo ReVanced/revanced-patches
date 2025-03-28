@@ -20,8 +20,8 @@ Second \"item\" text"</string>
 
 -->
 <resources>
-  <app id="shared">
-  <patch id="misc.checks.checkEnvironmentPatch">
+  <!-- <app id="shared"> -->
+  <!-- <patch id="misc.checks.checkEnvironmentPatch"> -->
   <string name="revanced_check_environment_failed_title">Kontroller misslyckades</string>
   <string name="revanced_check_environment_dialog_open_official_source_button">Öppna officiell hemsida</string>
   <string name="revanced_check_environment_dialog_ignore_button">Ignorera</string>
@@ -31,8 +31,8 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time">Patchad för mer än 10 minuter sedan</string>
   <string name="revanced_check_environment_not_near_patch_time_days">Patchad för %s dagar sedan</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">Byggdatum för APK är skadat</string>
-  </patch>
-  <patch id="misc.settings.settingsResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.settings.settingsResourcePatch"> -->
   <string name="revanced_settings_submenu_title">Inställningar</string>
   <string name="revanced_settings_confirm_user_dialog_title">Vill du fortsätta?</string>
   <string name="revanced_settings_reset">Återställ</string>
@@ -57,8 +57,8 @@ För att översätta till nya språk besök translate.revanced.app"</string>
   <string name="revanced_settings_about_links_header">Officiella länkar</string>
   <!-- NOTE: the about strings above are duplicated in the TikTok about screen code,
                  and changes made here must also be made there. -->
-  </patch>
-  <patch id="misc.gms.gmsCoreSupportResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.gms.gmsCoreSupportResourcePatch"> -->
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="gms_core_toast_not_installed_message">MicroG GmsCore är inte installerat. Installera den.</string>
   <string name="gms_core_dialog_title">Åtgärd krävs</string>
@@ -74,10 +74,10 @@ Inaktivering av batterioptimeringar för MicroG kommer inte att påverka batteri
 
 Tryck på Fortsätt-knappen och tillåt optimeringsändringar."</string>
   <string name="gms_core_dialog_continue_text">Fortsätt</string>
-  </patch>
-  </app>
-  <app id="youtube">
-  <patch id="misc.settings.settingsPatch">
+  <!-- </patch> -->
+  <!-- </app> -->
+  <!-- <app id="youtube"> -->
+  <!-- <patch id="misc.settings.settingsPatch"> -->
   <string name="revanced_settings_screen_00_about_title">Om</string>
   <string name="revanced_settings_screen_01_ads_title">Annonser</string>
   <string name="revanced_settings_screen_02_alt_thumbnails_title">Alternativa miniatyrbilder</string>
@@ -91,13 +91,13 @@ Tryck på Fortsätt-knappen och tillåt optimeringsändringar."</string>
   <string name="revanced_restore_old_settings_menus_title">Återställ gamla inställningsmenyer</string>
   <string name="revanced_restore_old_settings_menus_summary_on">Gamla inställningsmenyer visas</string>
   <string name="revanced_restore_old_settings_menus_summary_off">Gamla inställningsmenyer visas inte</string>
-  </patch>
-  <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.backgroundplayback.backgroundPlaybackPatch"> -->
   <string name="revanced_shorts_disable_background_playback_title">Inaktivera Shorts bakgrundsuppspelning</string>
   <string name="revanced_shorts_disable_background_playback_summary_on">Shorts bakgrundsuppspelning är inaktiverat</string>
   <string name="revanced_shorts_disable_background_playback_summary_off">Shorts bakgrundsuppspelning är aktiverat</string>
-  </patch>
-  <patch id="misc.debugging.enableDebuggingPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.debugging.enableDebuggingPatch"> -->
   <string name="revanced_debug_screen_title">Felsökning</string>
   <string name="revanced_debug_screen_summary">Aktivera eller inaktivera felsökningsalternativ</string>
   <string name="revanced_debug_title">Felsökningsloggning</string>
@@ -115,8 +115,8 @@ Tryck på Fortsätt-knappen och tillåt optimeringsändringar."</string>
   <string name="revanced_debug_toast_on_error_user_dialog_message">"Att stänga av felmeddelanden döljer alla ReVanced-felmeddelanden.
 
 Du kommer inte att bli meddelad om oväntade händelser."</string>
-  </patch>
-  <patch id="layout.hide.general.hideLayoutComponentsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.general.hideLayoutComponentsPatch"> -->
   <string name="revanced_hide_album_cards_title">Dölj albumkort</string>
   <string name="revanced_hide_album_cards_summary_on">Skivkorten är dolda</string>
   <string name="revanced_hide_album_cards_summary_off">Albumkort är synliga</string>
@@ -340,8 +340,8 @@ Begränsningar
   <string name="revanced_hide_keyword_toast_invalid_conflicting">Nyckelordet har motstridiga deklarationer: %s</string>
   <string name="revanced_hide_keyword_toast_invalid_length">Nyckelordet är för kort och kräver citattecken: %s</string>
   <string name="revanced_hide_keyword_toast_invalid_broad">Nyckelord döljer alla videor: %s</string>
-  </patch>
-  <patch id="ad.general.hideAdsResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="ad.general.hideAdsResourcePatch"> -->
   <string name="revanced_hide_general_ads_title">Dölj allmänna annonser</string>
   <string name="revanced_hide_general_ads_summary_on">Allmänna annonser är dolda</string>
   <string name="revanced_hide_general_ads_summary_off">Allmänna annonser är synliga</string>
@@ -383,18 +383,18 @@ Den här funktionen är endast tillgänglig för äldre enheter"</string>
   <string name="revanced_hide_merchandise_banners_summary_off">Reklambanners är synliga</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_hide_fullscreen_ads_feature_not_available_toast">Dölj fullskärmsannonser fungerar endast med äldre enheter</string>
-  </patch>
-  <patch id="ad.getpremium.hideGetPremiumPatch">
+  <!-- </patch> -->
+  <!-- <patch id="ad.getpremium.hideGetPremiumPatch"> -->
   <string name="revanced_hide_get_premium_title">Dölj YouTube Premium-kampanjer</string>
   <string name="revanced_hide_get_premium_summary_on">YouTube Premium-kampanjer under videospelare är dolda</string>
   <string name="revanced_hide_get_premium_summary_off">YouTube Premium-kampanjer under videospelare är synliga</string>
-  </patch>
-  <patch id="ad.video.videoAdsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="ad.video.videoAdsPatch"> -->
   <string name="revanced_hide_video_ads_title">Dölj videoannonser</string>
   <string name="revanced_hide_video_ads_summary_on">Videoannonser är dolda</string>
   <string name="revanced_hide_video_ads_summary_off">Videoannonser är synliga</string>
-  </patch>
-  <patch id="interaction.copyvideourl.copyVideoUrlResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="interaction.copyvideourl.copyVideoUrlResourcePatch"> -->
   <string name="revanced_share_copy_url_success">Webbadress kopierad till urklipp</string>
   <string name="revanced_share_copy_url_timestamp_success">Webbadress med tidsstämpel kopierad</string>
   <string name="revanced_copy_video_url_title">Visa knappen för kopiering av video-URL</string>
@@ -403,14 +403,14 @@ Den här funktionen är endast tillgänglig för äldre enheter"</string>
   <string name="revanced_copy_video_url_timestamp_title">Visa knappen för kopiering av tidsstämpel</string>
   <string name="revanced_copy_video_url_timestamp_summary_on">Knappen visas. Tryck för att kopiera videons URL med tidsstämpel. Tryck och håll ned för att kopiera utan tidsstämpel</string>
   <string name="revanced_copy_video_url_timestamp_summary_off">Knappen är dold</string>
-  </patch>
-  <patch id="interaction.dialog.removeViewerDiscretionDialogPatch">
+  <!-- </patch> -->
+  <!-- <patch id="interaction.dialog.removeViewerDiscretionDialogPatch"> -->
   <string name="revanced_remove_viewer_discretion_dialog_title">Ta bort dialogrutan för diskretion</string>
   <string name="revanced_remove_viewer_discretion_dialog_summary_on">Dialog kommer att tas bort</string>
   <string name="revanced_remove_viewer_discretion_dialog_summary_off">Dialoger är synliga</string>
   <string name="revanced_remove_viewer_discretion_dialog_user_dialog_message">Detta kringgår inte åldersbegränsningen. Det accepterar bara det automatiskt.</string>
-  </patch>
-  <patch id="interaction.downloads.downloadsResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="interaction.downloads.downloadsResourcePatch"> -->
   <string name="revanced_external_downloader_screen_title">Externa nerladdningar</string>
   <string name="revanced_external_downloader_screen_summary">Inställningar för att använda en extern nerladdare</string>
   <string name="revanced_external_downloader_title">Visa extern nerladdningsknapp</string>
@@ -423,18 +423,18 @@ Den här funktionen är endast tillgänglig för äldre enheter"</string>
   <string name="revanced_external_downloader_name_title">Paketets namn för nedladdning</string>
   <string name="revanced_external_downloader_name_summary">Paketnamn för din installerade externa nedladdningsapp, till exempel NewPipe eller Seal</string>
   <string name="revanced_external_downloader_not_installed_warning">%s är inte installerat. Installera det.</string>
-  </patch>
-  <patch id="interaction.seekbar.disablePreciseSeekingGesturePatch">
+  <!-- </patch> -->
+  <!-- <patch id="interaction.seekbar.disablePreciseSeekingGesturePatch"> -->
   <string name="revanced_disable_precise_seeking_gesture_title">Inaktivera exakt sök-gest</string>
   <string name="revanced_disable_precise_seeking_gesture_summary_on">Gest är inaktiverad</string>
   <string name="revanced_disable_precise_seeking_gesture_summary_off">Gest är aktiverad</string>
-  </patch>
-  <patch id="interaction.seekbar.enableSeekbarTappingPatch">
+  <!-- </patch> -->
+  <!-- <patch id="interaction.seekbar.enableSeekbarTappingPatch"> -->
   <string name="revanced_seekbar_tapping_title">Aktivera tryck för att söka</string>
   <string name="revanced_seekbar_tapping_summary_on">Tryck för att söka är aktiverat</string>
   <string name="revanced_seekbar_tapping_summary_off">Tryck för att söka är inaktiverat</string>
-  </patch>
-  <patch id="interaction.swipecontrols.swipeControlsResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="interaction.swipecontrols.swipeControlsResourcePatch"> -->
   <string name="revanced_swipe_brightness_title">Aktivera ljusstyrkegest</string>
   <string name="revanced_swipe_brightness_summary_on">"Helskärmens ljusstyrkesvep är aktiverat
 
@@ -473,13 +473,13 @@ Justera volymen genom att svepa vertikalt på höger sida av skärmen"</string>
   <string name="revanced_swipe_change_video_title">Aktivera svepning för att byta video</string>
   <string name="revanced_swipe_change_video_summary_on">Svepning i helskärmsläge ändrar till följande/föregående video</string>
   <string name="revanced_swipe_change_video_summary_off">Svepning i helskärmsläge ändrar inte till följande/föregående video</string>
-  </patch>
-  <patch id="layout.autocaptions.autoCaptionsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.autocaptions.autoCaptionsPatch"> -->
   <string name="revanced_auto_captions_title">Inaktivera automatisk bildtext</string>
   <string name="revanced_auto_captions_summary_on">Auto-bildtexter är inaktiverade</string>
   <string name="revanced_auto_captions_summary_off">Automatisk bildtext är aktiverad</string>
-  </patch>
-  <patch id="layout.buttons.action.hideButtonsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.buttons.action.hideButtonsPatch"> -->
   <string name="revanced_hide_buttons_screen_title">Åtgärd knappar</string>
   <string name="revanced_hide_buttons_screen_summary">Dölj eller visa knappar under videor</string>
   <string name="revanced_disable_like_subscribe_glow_title">Avaktivera glöd för Gilla- och prenumerera-knappen</string>
@@ -517,8 +517,8 @@ Justera volymen genom att svepa vertikalt på höger sida av skärmen"</string>
   <string name="revanced_hide_playlist_button_title">Dölj Spara i spellista</string>
   <string name="revanced_hide_playlist_button_summary_on">Spara till spellistan knappen är dold</string>
   <string name="revanced_hide_playlist_button_summary_off">Knappen spara till spellista är synlig</string>
-  </patch>
-  <patch id="layout.buttons.navigation.navigationButtonsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.buttons.navigation.navigationButtonsPatch"> -->
   <string name="revanced_navigation_buttons_screen_title">Navigeringsknappar</string>
   <string name="revanced_navigation_buttons_screen_summary">Dölj eller ändra knappar i navigeringsfältet</string>
   <!-- 'Home' should be translated using the same localized wording YouTube displays for the tab. -->
@@ -555,14 +555,15 @@ Om du ändrar den här inställningen och det inte får effekt kan du försöka 
   <string name="revanced_disable_translucent_status_bar_title">Inaktivera genomskinlig statusfält</string>
   <string name="revanced_disable_translucent_status_bar_summary_on">Statusraden är ogenomskinlig</string>
   <string name="revanced_disable_translucent_status_bar_summary_off">Statusraden är ogenomskinlig eller genomskinlig</string>
+  <string name="revanced_disable_translucent_status_bar_user_dialog_message">På vissa enheter kan aktivering av den här funktionen ändra systemets navigeringsfält till genomskinligt.</string>
   <string name="revanced_disable_translucent_navigation_bar_light_title">Inaktivera ljus genomskinlig navigeringsfält</string>
   <string name="revanced_disable_translucent_navigation_bar_light_summary_on">Ljusläge navigeringsfält är ogenomskinlig</string>
   <string name="revanced_disable_translucent_navigation_bar_light_summary_off">Ljusläge navigeringsfältet är ogenomskinligt eller genomskinligt</string>
   <string name="revanced_disable_translucent_navigation_bar_dark_title">Inaktivera mörk genomskinlig fält</string>
   <string name="revanced_disable_translucent_navigation_bar_dark_summary_on">Mörkläge navigeringsfält är ogenomskinlig</string>
   <string name="revanced_disable_translucent_navigation_bar_dark_summary_off">Mörkerläge navigeringsfältet är ogenomskinligt eller genomskinligt</string>
-  </patch>
-  <patch id="layout.hide.player.flyoutmenupanel.hidePlayerFlyoutMenuPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.player.flyoutmenupanel.hidePlayerFlyoutMenuPatch"> -->
   <string name="revanced_hide_player_flyout_title">Flyout-meny</string>
   <string name="revanced_hide_player_flyout_summary">Dölj eller visa spelarflyout menyobjekt</string>
   <!-- 'Captions' should be translated using the same localized wording YouTube displays for the menu item. -->
@@ -616,8 +617,8 @@ Om du ändrar den här inställningen och det inte får effekt kan du försöka 
   <string name="revanced_hide_player_flyout_video_quality_footer_title">Dölj sidfot för videokvalitet</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_on">Videokvalitets sidfot är dold</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_off">Videokvalitets sidfot visas</string>
-  </patch>
-  <patch id="layout.buttons.overlay.hidePlayerOverlayButtonsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.buttons.overlay.hidePlayerOverlayButtonsPatch"> -->
   <string name="revanced_hide_player_previous_next_buttons_title">Dölj Föregående &amp; Nästa knappar</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_on">Knappar är dolda</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">Knappar är synliga</string>
@@ -631,36 +632,36 @@ Om du ändrar den här inställningen och det inte får effekt kan du försöka 
   <string name="revanced_hide_autoplay_button_title">Dölj knappen för automatisk uppspelning</string>
   <string name="revanced_hide_autoplay_button_summary_on">Knappen för automatisk uppspelning är dold</string>
   <string name="revanced_hide_autoplay_button_summary_off">Knappen för automatisk uppspelning är synlig</string>
-  </patch>
-  <patch id="layout.hide.endscreencards.hideEndscreenCardsResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.endscreencards.hideEndscreenCardsResourcePatch"> -->
   <string name="revanced_hide_endscreen_cards_title">Dölj slutskärmskort</string>
   <string name="revanced_hide_endscreen_cards_summary_on">Slutskärmskort är dolda</string>
   <string name="revanced_hide_endscreen_cards_summary_off">Slutskärmskort är synliga</string>
-  </patch>
-  <patch id="layout.hide.fullscreenambientmode.disableFullscreenAmbientModePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.fullscreenambientmode.disableFullscreenAmbientModePatch"> -->
   <string name="revanced_disable_fullscreen_ambient_mode_title">Inaktivera omgivningsläge i helskärm</string>
   <string name="revanced_disable_fullscreen_ambient_mode_summary_on">Omgivningsläge inaktiverat</string>
   <string name="revanced_disable_fullscreen_ambient_mode_summary_off">Omgivningsläge aktiverat</string>
-  </patch>
-  <patch id="layout.hide.infocards.hideInfocardsResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.infocards.hideInfocardsResourcePatch"> -->
   <string name="revanced_hide_info_cards_title">Dölj infokort</string>
   <string name="revanced_hide_info_cards_summary_on">Informationskort är dolda</string>
   <string name="revanced_hide_info_cards_summary_off">Informationskort är synliga</string>
-  </patch>
-  <patch id="layout.hide.rollingnumber.disableRollingNumberAnimationPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.rollingnumber.disableRollingNumberAnimationPatch"> -->
   <string name="revanced_disable_rolling_number_animations_title">Inaktivera animationer med rullande nummer</string>
   <string name="revanced_disable_rolling_number_animations_summary_on">Rullande nummer är inte animerade</string>
   <string name="revanced_disable_rolling_number_animations_summary_off">Rullande nummer är animerade</string>
-  </patch>
-  <patch id="layout.hide.seekbar.hideSeekbarPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.seekbar.hideSeekbarPatch"> -->
   <string name="revanced_hide_seekbar_title">Dölj sökfältet i videospelare</string>
   <string name="revanced_hide_seekbar_summary_on">Sökfältet för videospelare är dolt</string>
   <string name="revanced_hide_seekbar_summary_off">Sökfältet för videospelaren är synlig</string>
   <string name="revanced_hide_seekbar_thumbnail_title">Dölj sökfältet i videominiatyrer</string>
   <string name="revanced_hide_seekbar_thumbnail_summary_on">Miniatyrsökningsfältet är dolt</string>
   <string name="revanced_hide_seekbar_thumbnail_summary_off">Miniatyrens sökfält är synlig</string>
-  </patch>
-  <patch id="layout.hide.shorts.hideShortsComponentsResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.shorts.hideShortsComponentsResourcePatch"> -->
   <string name="revanced_shorts_player_screen_title">Shorts spelare</string>
   <string name="revanced_shorts_player_screen_summary">Dölj eller visa komponenter i Shorts spelaren</string>
   <!-- 'home' should be translated using the same localized wording YouTube displays for the home tab. -->
@@ -762,43 +763,43 @@ Om du ändrar den här inställningen och det inte får effekt kan du försöka 
   <string name="revanced_hide_shorts_navigation_bar_title">Dölj navigeringsfältet</string>
   <string name="revanced_hide_shorts_navigation_bar_summary_on">Navigeringsfältet är dolt</string>
   <string name="revanced_hide_shorts_navigation_bar_summary_off">Navigeringsfältet visas</string>
-  </patch>
-  <patch id="layout.hide.endscreensuggestion.hideEndScreenSuggestedVideoPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.endscreensuggestion.hideEndScreenSuggestedVideoPatch"> -->
   <string name="revanced_end_screen_suggested_video_title">Dölj föreslagen video på slutskärmen</string>
   <string name="revanced_end_screen_suggested_video_summary_on">"Föreslagen video på slutskärmen döljs när automatisk uppspelning är avstängd
 
 Automatisk uppspelning kan ändras i YouTube-inställningarna:
 Inställningar → Uppspelning → Spela upp nästa video automatiskt"</string>
   <string name="revanced_end_screen_suggested_video_summary_off">Föreslagen video på slutskärmen visas</string>
-  </patch>
-  <patch id="layout.hide.time.hideTimestampPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.time.hideTimestampPatch"> -->
   <string name="revanced_hide_timestamp_title">Dölj videotidsstämpel</string>
   <string name="revanced_hide_timestamp_summary_on">Tidsstämpel är dold</string>
   <string name="revanced_hide_timestamp_summary_off">Tidsstämpel visas</string>
-  </patch>
-  <patch id="layout.panels.popup.playerPopupPanelsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.panels.popup.playerPopupPanelsPatch"> -->
   <string name="revanced_hide_player_popup_panels_title">Dölj popup-paneler för spelare</string>
   <string name="revanced_hide_player_popup_panels_summary_on">Spelare popup-paneler är dolda</string>
   <string name="revanced_hide_player_popup_panels_summary_off">Spelarens popup-paneler visas</string>
-  </patch>
-  <patch id="layout.player.fullscreen.exitFullscreenPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.player.fullscreen.exitFullscreenPatch"> -->
   <string name="revanced_exit_fullscreen_title">Åvsluta helägesläge i slutet av videon</string>
   <string name="revanced_exit_fullscreen_entry_1">Inaktiverad</string>
   <string name="revanced_exit_fullscreen_entry_2">Porträtt</string>
   <string name="revanced_exit_fullscreen_entry_3">Liggande</string>
   <string name="revanced_exit_fullscreen_entry_4">Porträtt och liggande</string>
-  </patch>
-  <patch id="layout.player.fullscreen.openVideosFullscreen">
+  <!-- </patch> -->
+  <!-- <patch id="layout.player.fullscreen.openVideosFullscreen"> -->
   <string name="revanced_open_videos_fullscreen_portrait_title">Öppna videor i helskärmsporträtt</string>
   <string name="revanced_open_videos_fullscreen_portrait_summary_on">Videor öppna helskärm</string>
   <string name="revanced_open_videos_fullscreen_portrait_summary_off">Videor öppnar inte fullskärm</string>
-  </patch>
-  <patch id="layout.player.overlay.customPlayerOverlayOpacityResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.player.overlay.customPlayerOverlayOpacityResourcePatch"> -->
   <string name="revanced_player_overlay_opacity_title">Överlagring av spelarens opacitet</string>
   <string name="revanced_player_overlay_opacity_summary">Opacitetsvärde mellan 0-100, där 0 är transparent</string>
   <string name="revanced_player_overlay_opacity_invalid_toast">Överlagrad spelaropacitet måste vara mellan 0-100</string>
-  </patch>
-  <patch id="layout.returnyoutubedislike.returnYouTubeDislikePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.returnyoutubedislike.returnYouTubeDislikePatch"> -->
   <!-- Toast shown if network connection times out. Translations of this should not be longer than the original English or the text can be clipped and not entirely shown. -->
   <string name="revanced_ryd_failure_connection_timeout">Dislikes inte tillgängligt (API timed out)</string>
   <string name="revanced_ryd_failure_connection_status_code">Gillar inte tillgänglig (status %d)</string>
@@ -847,13 +848,13 @@ Begränsning: Ogillanden kanske inte visas i inkognitoläge"</string>
   <string name="revanced_ryd_statistics_getNumberOfRateLimitRequestsEncountered_zero_summary">Inga gränser för klientpriser påträffade</string>
   <string name="revanced_ryd_statistics_getNumberOfRateLimitRequestsEncountered_non_zero_summary">Gräns för kundfrekvens påträffad %d gånger</string>
   <string name="revanced_ryd_statistics_millisecond_text">%d millisekunder</string>
-  </patch>
-  <patch id="layout.searchbar.wideSearchbarPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.searchbar.wideSearchbarPatch"> -->
   <string name="revanced_wide_searchbar_title">Aktivera brett sökfält</string>
   <string name="revanced_wide_searchbar_summary_on">Brett sökfält är aktiverat</string>
   <string name="revanced_wide_searchbar_summary_off">Brett sökfält är inaktiverat</string>
-  </patch>
-  <patch id="layout.seekbar.seekbarThumbnailsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.seekbar.seekbarThumbnailsPatch"> -->
   <string name="revanced_seekbar_thumbnails_high_quality_title">Aktivera högkvalitativa miniatyrer</string>
   <string name="revanced_seekbar_thumbnails_high_quality_summary_on">Seekbar miniatyrer är av hög kvalitet</string>
   <string name="revanced_seekbar_thumbnails_high_quality_summary_off">Seekbar miniatyrer är av medelhög kvalitet</string>
@@ -867,8 +868,8 @@ Den här funktionen fungerar bäst med en videokvalitet på 720p eller lägre oc
   <string name="revanced_restore_old_seekbar_thumbnails_title">Återställ gamla miniatyrer i sökfältet</string>
   <string name="revanced_restore_old_seekbar_thumbnails_summary_on">Seekbar miniatyrer visas ovanför sökfältet</string>
   <string name="revanced_restore_old_seekbar_thumbnails_summary_off">Seekbar miniatyrer visas i helskärm</string>
-  </patch>
-  <patch id="layout.sponsorblock.sponsorBlockResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.sponsorblock.sponsorBlockResourcePatch"> -->
   <string name="revanced_sb_enable_sb">Aktivera SponsorBlock</string>
   <string name="revanced_sb_enable_sb_sum">SponsorBlock är ett crowdsourcat system för att hoppa över irriterande delar av YouTube-videor</string>
   <string name="revanced_sb_appearance_category">Utseende</string>
@@ -1065,8 +1066,8 @@ Redo att skicka in?"</string>
   <string name="revanced_sb_reset">Återställ</string>
   <string name="revanced_sb_about">Om</string>
   <string name="revanced_sb_about_api_sum">Data tillhandahålls av SponsorBlock API. Tryck här för att läsa mer och se nedladdningar för andra plattformar</string>
-  </patch>
-  <patch id="layout.formfactor.changeFormFactorPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.formfactor.changeFormFactorPatch"> -->
   <string name="revanced_change_form_factor_title">Formulärformfaktor</string>
   <string name="revanced_change_form_factor_entry_1">Standard</string>
   <string name="revanced_change_form_factor_entry_2">Telefon</string>
@@ -1080,8 +1081,8 @@ Tabletlayout
 Automotive-layout
 • Shorts öppnas i den vanliga spelaren
 • Flödet är organiserat efter ämnen och kanaler"</string>
-  </patch>
-  <patch id="layout.spoofappversion.spoofAppVersionPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.spoofappversion.spoofAppVersionPatch"> -->
   <string name="revanced_spoof_app_version_title">Spoof app-version</string>
   <string name="revanced_spoof_app_version_summary_on">Version förfalskad</string>
   <string name="revanced_spoof_app_version_summary_off">Version inte förfalskad</string>
@@ -1094,8 +1095,8 @@ Om det senare stängs av rekommenderas det att rensa appens data för att förhi
                  This is because the 'General layout' menu uses alphabetic sorting, and it functionally works better if the spoof target selector appears below the 'Spoof app version' UI switch -->
   <string name="revanced_spoof_app_version_target_title">Spoof app-versionsmål</string>
   <string name="revanced_spoof_app_version_target_entry_1">19.35.36 - Återställ gamla Shorts-spelarikoner</string>
-  </patch>
-  <patch id="layout.startpage.changeStartPagePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.startpage.changeStartPagePatch"> -->
   <string name="revanced_change_start_page_title">Ställ in startsida</string>
   <string name="revanced_change_start_page_entry_default">Standard</string>
   <string name="revanced_change_start_page_entry_all_subscriptions">Alla prenumerationer</string>
@@ -1121,27 +1122,27 @@ Om det senare stängs av rekommenderas det att rensa appens data för att förhi
   <string name="revanced_change_start_page_entry_virtual_reality">Virtual reality</string>
   <string name="revanced_change_start_page_entry_watch_later">Titta senare</string>
   <string name="revanced_change_start_page_entry_your_clips">Dina klipp</string>
-  </patch>
-  <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch"> -->
   <string name="revanced_disable_resuming_shorts_player_title">Inaktivera återupptagande av Shorts spelare</string>
   <string name="revanced_disable_resuming_shorts_player_summary_on">Shorts spelare kommer inte att återupptas vid appstart</string>
   <string name="revanced_disable_resuming_shorts_player_summary_off">Shorts spelare kommer att återupptas vid appstart</string>
-  </patch>
-  <patch id="layout.shortsplayer.shortsPlayerTypePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.shortsplayer.shortsPlayerTypePatch"> -->
   <string name="revanced_shorts_player_type_title">Öppna Shorts med</string>
   <string name="revanced_shorts_player_type_shorts">Shorts spelare</string>
   <string name="revanced_shorts_player_type_regular_player">Vanlig spelare</string>
   <string name="revanced_shorts_player_type_regular_player_fullscreen">Vanlig spelare, helskärm</string>
-  </patch>
-  <patch id="layout.shortsautoplay.shortsAutoplayPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.shortsautoplay.shortsAutoplayPatch"> -->
   <string name="revanced_shorts_autoplay_title">Shorts automatisk uppspelning</string>
   <string name="revanced_shorts_autoplay_summary_on">Shorts kommer automatiskt spela upp</string>
   <string name="revanced_shorts_autoplay_summary_off">Shorts kommer att upprepas</string>
   <string name="revanced_shorts_autoplay_background_title">Autoplay Shorts bakgrund spela</string>
   <string name="revanced_shorts_autoplay_background_summary_on">Shorts bakgrundsuppspelning kommer automatiskt spela</string>
   <string name="revanced_shorts_autoplay_background_summary_off">Shorts bakgrundsuppspelning upprepas</string>
-  </patch>
-  <patch id="layout.miniplayer.miniplayerPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.miniplayer.miniplayerPatch"> -->
   <string name="revanced_miniplayer_screen_title">Minispelare</string>
   <string name="revanced_miniplayer_screen_summary">Ändra stilen på den minimerade spelaren i appen</string>
   <string name="revanced_miniplayer_type_title">Miniplayer typ</string>
@@ -1191,8 +1192,8 @@ Svep för att expandera eller stänga"</string>
   <string name="revanced_miniplayer_opacity_title">Överlager opacitet</string>
   <string name="revanced_miniplayer_opacity_summary">Opacitetsvärde mellan 0-100, där 0 är transparent</string>
   <string name="revanced_miniplayer_opacity_invalid_toast">Miniplayer overlay opacitet måste vara mellan 0-100</string>
-  </patch>
-  <patch id="layout.theme.themePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.theme.themePatch"> -->
   <string name="revanced_gradient_loading_screen_title">Aktivera gradient laddar skärmen</string>
   <string name="revanced_gradient_loading_screen_summary_on">Laddar skärmen kommer att ha en lutande bakgrund</string>
   <string name="revanced_gradient_loading_screen_summary_off">Laddar skärmen kommer att ha en solid bakgrund</string>
@@ -1204,15 +1205,15 @@ Svep för att expandera eller stänga"</string>
   <string name="revanced_seekbar_custom_color_accent_title">Egendefinierad accentfärg för sökfältet</string>
   <string name="revanced_seekbar_custom_color_accent_summary">Accentfärgen på sökfältet</string>
   <string name="revanced_seekbar_custom_color_invalid">Ogiltigt sökfältets färgvärde</string>
-  </patch>
-  <patch id="layout.thumbnails.bypassImageRegionRestrictionsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.thumbnails.bypassImageRegionRestrictionsPatch"> -->
   <string name="revanced_bypass_image_region_restrictions_title">Begränsningar för förbipassering av bildregionen</string>
   <string name="revanced_bypass_image_region_restrictions_summary_on">Använder bildvärd yt4.ggpht.com</string>
   <string name="revanced_bypass_image_region_restrictions_summary_off">"Använder originalbildvärd
 
 Att aktivera detta kan åtgärda saknade bilder som är blockerade i vissa regioner"</string>
-  </patch>
-  <patch id="layout.thumbnails.alternativeThumbnailsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.thumbnails.alternativeThumbnailsPatch"> -->
   <!-- 'Home' should be translated using the same localized wording YouTube displays for the home tab. -->
   <string name="revanced_alt_thumbnail_home_title">Hemflik</string>
   <!-- 'Subscription' should be translated using the same localized wording YouTube displays for the subscription tab. -->
@@ -1247,26 +1248,26 @@ Klicka här för att lära dig mer om DeArrow"</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_alt_thumbnail_dearrow_error">DeArrow är tillfälligt inte tillgänglig (statuskod: %s)</string>
   <string name="revanced_alt_thumbnail_dearrow_error_generic">DeArrow är tillfälligt inte tillgänglig</string>
-  </patch>
-  <patch id="misc.announcements.announcementsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.announcements.announcementsPatch"> -->
   <string name="revanced_announcements_title">Visa vansade notiser</string>
   <string name="revanced_announcements_summary_on">Meddelanden vid start visas</string>
   <string name="revanced_announcements_summary_off">Meddelanden vid start visas inte</string>
   <string name="revanced_announcements_enabled_summary">Visa notiser vid start</string>
   <string name="revanced_announcements_connection_failed">Det gick inte att ansluta till meddelandeleverantören</string>
   <string name="revanced_announcements_dialog_dismiss">Avfärda</string>
-  </patch>
-  <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch"> -->
   <string name="revanced_check_watch_history_domain_name_dialog_title">Varningar</string>
   <string name="revanced_check_watch_history_domain_name_dialog_message">Din klockhistorik sparas inte.&lt;br&gt;&lt;br&gt;Detta troligen orsakas av en DNS-annonsblockerare eller nätverksproxy.&lt;br&gt;&lt;br&gt;För att åtgärda detta, whitelist &lt;b&gt;s.youtube.com&lt;/b&gt; eller stäng av alla DNS-blockerare och proxyer.</string>
   <string name="revanced_check_watch_history_domain_name_dialog_ignore">Visa inte igen</string>
-  </patch>
-  <patch id="misc.autorepeat.autoRepeatPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.autorepeat.autoRepeatPatch"> -->
   <string name="revanced_auto_repeat_title">Aktivera automatisk upprepning</string>
   <string name="revanced_auto_repeat_summary_on">Automatisk upprepning är aktiverad</string>
   <string name="revanced_auto_repeat_summary_off">Automatisk upprepning är inaktiverad</string>
-  </patch>
-  <patch id="misc.dimensions.spoof.spoofDeviceDimensionsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.dimensions.spoof.spoofDeviceDimensionsPatch"> -->
   <string name="revanced_spoof_device_dimensions_title">Enhetsdimensioner för Spoof</string>
   <string name="revanced_spoof_device_dimensions_summary_on">"Enhetens dimensioner förfalskas
 
@@ -1275,39 +1276,39 @@ Högre videokvalitet kan låsas upp men du kan uppleva hackig videouppspelning, 
 
 Att aktivera detta kan låsa upp högre videokvalitet"</string>
   <string name="revanced_spoof_device_dimensions_user_dialog_message">Att aktivera detta kan orsaka uppspelning av videouppspelning, sämre batteritid och okända biverkningar.</string>
-  </patch>
-  <patch id="misc.gms.gmsCoreSupportResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.gms.gmsCoreSupportResourcePatch"> -->
   <string name="microg_settings_title">GmsCore inställningar</string>
   <string name="microg_settings_summary">Inställningar för GmsCore</string>
-  </patch>
-  <patch id="misc.links.bypassURLRedirectsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.links.bypassURLRedirectsPatch"> -->
   <string name="revanced_bypass_url_redirects_title">Bypass URL omdirigerar</string>
   <string name="revanced_bypass_url_redirects_summary_on">URL-omdirigeringar förbigås</string>
   <string name="revanced_bypass_url_redirects_summary_off">URL-omdirigeringar förbigås inte</string>
-  </patch>
-  <patch id="misc.links.openLinksExternallyPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.links.openLinksExternallyPatch"> -->
   <string name="revanced_external_browser_title">Öppna länkar i webbläsaren</string>
   <string name="revanced_external_browser_summary_on">Öppna länkar i extern webbläsare</string>
   <string name="revanced_external_browser_summary_off">Öppna länkar i webbläsaren i appen</string>
-  </patch>
-  <patch id="misc.privacy.removeTrackingQueryParameterPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.privacy.removeTrackingQueryParameterPatch"> -->
   <string name="revanced_remove_tracking_query_parameter_title">Ta bort spårningsfrågeparameter</string>
   <string name="revanced_remove_tracking_query_parameter_summary_on">Spårnings frågeparameter har tagits bort från länkar</string>
   <string name="revanced_remove_tracking_query_parameter_summary_off">Spårnings frågeparameter har inte tagits bort från länkar</string>
-  </patch>
-  <patch id="misc.zoomhaptics.zoomHapticsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.zoomhaptics.zoomHapticsPatch"> -->
   <string name="revanced_disable_zoom_haptics_title">Inaktivera zoomhaptik</string>
   <string name="revanced_disable_zoom_haptics_summary_on">Haptikerna är inaktiverade</string>
   <string name="revanced_disable_zoom_haptics_summary_off">Haptikerna är aktiverade</string>
-  </patch>
-  <patch id="video.audio.forceOriginalAudioPatch">
+  <!-- </patch> -->
+  <!-- <patch id="video.audio.forceOriginalAudioPatch"> -->
   <string name="revanced_force_original_audio_title">Forcera originalljudspråk</string>
   <string name="revanced_force_original_audio_summary_on">Använder originalljudspråk</string>
   <string name="revanced_force_original_audio_summary_off">Använder standardljud</string>
   <!-- 'Spoof video streams' should be the same translation used for revanced_spoof_video_streams_screen_title -->
   <string name="revanced_force_original_audio_not_available">För att använda den här funktionen, ändra \"Förfalska videoströmmar\" till iOS TV</string>
-  </patch>
-  <patch id="video.quality.rememberVideoQualityPatch">
+  <!-- </patch> -->
+  <!-- <patch id="video.quality.rememberVideoQualityPatch"> -->
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
   <string name="revanced_video_quality_default_entry_1">Automatiskt</string>
   <string name="revanced_remember_video_quality_last_selected_title">Kom ihåg förändringar i videokvaliteten</string>
@@ -1324,13 +1325,13 @@ Att aktivera detta kan låsa upp högre videokvalitet"</string>
   <string name="revanced_remember_video_quality_wifi">wifi</string>
   <string name="revanced_remember_video_quality_toast">Ändrade standardkvalitet %1$s till: %2$s</string>
   <string name="revanced_remember_video_quality_toast_shorts">Ändrade Shorts %1$s-kvalitet till: %2$s</string>
-  </patch>
-  <patch id="video.speed.button.playbackSpeedButtonPatch">
+  <!-- </patch> -->
+  <!-- <patch id="video.speed.button.playbackSpeedButtonPatch"> -->
   <string name="revanced_playback_speed_dialog_button_title">Visa hastighetsdialogruta knapp</string>
   <string name="revanced_playback_speed_dialog_button_summary_on">Knappen är synlig</string>
   <string name="revanced_playback_speed_dialog_button_summary_off">Knappen är dold</string>
-  </patch>
-  <patch id="video.speed.custom.customPlaybackSpeedPatch">
+  <!-- </patch> -->
+  <!-- <patch id="video.speed.custom.customPlaybackSpeedPatch"> -->
   <string name="revanced_custom_speed_menu_title">Anpassad meny för uppspelningshastighet</string>
   <string name="revanced_custom_speed_menu_summary_on">Anpassad hastighetsmeny visas</string>
   <string name="revanced_custom_speed_menu_summary_off">Anpassad hastighetsmeny visas inte</string>
@@ -1341,30 +1342,30 @@ Att aktivera detta kan låsa upp högre videokvalitet"</string>
   <string name="revanced_custom_playback_speeds_auto">Automatiskt</string>
   <string name="revanced_speed_tap_and_hold_title">Anpassad hastighet vid tryck och håll</string>
   <string name="revanced_speed_tap_and_hold_summary">Uppspelningshastighet mellan 0 och 8.</string>
-  </patch>
-  <patch id="video.speed.remember.rememberPlaybackSpeedPatch">
+  <!-- </patch> -->
+  <!-- <patch id="video.speed.remember.rememberPlaybackSpeedPatch"> -->
   <string name="revanced_remember_playback_speed_last_selected_title">Kom ihåg ändringar i uppspelningshastighet</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_on">Ändring av uppspelningshastighet gäller för alla videor</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_off">Ändring av uppspelningshastighet gäller endast för den aktuella videon</string>
   <string name="revanced_playback_speed_default_title">Standarduppspelningshastighet</string>
   <string name="revanced_remember_playback_speed_toast">Ändrade standardhastigheten till: %s</string>
-  </patch>
-  <patch id="video.hdr.disableHdrPatch">
+  <!-- </patch> -->
+  <!-- <patch id="video.hdr.disableHdrPatch"> -->
   <string name="revanced_disable_hdr_video_title">Inaktivera HDR-video</string>
   <string name="revanced_disable_hdr_video_summary_on">HDR-video är inaktiverat</string>
   <string name="revanced_disable_hdr_video_summary_off">HDR-video är aktiverat</string>
-  </patch>
-  <patch id="video.quality.advancedVideoQualityMenuPatch">
+  <!-- </patch> -->
+  <!-- <patch id="video.quality.advancedVideoQualityMenuPatch"> -->
   <string name="revanced_advanced_video_quality_menu_title">Visa avancerad videokvalitetsmeny</string>
   <string name="revanced_advanced_video_quality_menu_summary_on">Avancerad videokvalitetsmeny visas</string>
   <string name="revanced_advanced_video_quality_menu_summary_off">Avancerad videokvalitetsmeny visas inte</string>
-  </patch>
-  <patch id="interaction.seekbar.enableSlideToSeekPatch">
+  <!-- </patch> -->
+  <!-- <patch id="interaction.seekbar.enableSlideToSeekPatch"> -->
   <string name="revanced_slide_to_seek_title">Aktivera glid för att söka</string>
   <string name="revanced_slide_to_seek_summary_on">Glid för att söka är aktiverat</string>
   <string name="revanced_slide_to_seek_summary_off">Glid för att söka är inaktiverat</string>
-  </patch>
-  <patch id="misc.fix.playback.spoofVideoStreamsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.fix.playback.spoofVideoStreamsPatch"> -->
   <string name="revanced_spoof_video_streams_screen_title">Spoof videoströmmar</string>
   <string name="revanced_spoof_video_streams_screen_summary">Spoof klientens videoströmmar för att förhindra uppspelningsproblem</string>
   <string name="revanced_spoof_video_streams_title">Spoof videoströmmar</string>
@@ -1394,46 +1395,46 @@ AVC har en maximal upplösning på 1080p, Opus-ljudkodek är inte tillgänglig o
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Klienttyp visas i statistik för nördar</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Klienten är dold i statistik för nördar</string>
   <string name="revanced_spoof_video_streams_language_title">VR standardinställningsspråk för ljudström</string>
-  </patch>
-  </app>
-  <app id="twitch">
-  <patch id="ad.audio.audioAdsPatch">
+  <!-- </patch> -->
+  <!-- </app> -->
+  <!-- <app id="twitch"> -->
+  <!-- <patch id="ad.audio.audioAdsPatch"> -->
   <string name="revanced_block_audio_ads_title">Blockera ljudannonser</string>
   <string name="revanced_block_audio_ads_summary_on">Ljudannonser är blockerade</string>
   <string name="revanced_block_audio_ads_summary_off">Ljudannonser är inte blockerade</string>
-  </patch>
-  <patch id="ad.embedded.embeddedAdsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="ad.embedded.embeddedAdsPatch"> -->
   <string name="revanced_embedded_ads_service_unavailable">%s är inte tillgänglig, annonser kan visas. Försök att ändra annonsblockeringstjänsten i inställningarna.</string>
   <string name="revanced_embedded_ads_service_failed">%s returnerade ett fel, annonser kan visas. Försök att ändra annonsblockeringstjänsten i inställningarna.</string>
   <string name="revanced_block_embedded_ads_title">Blockera inbäddade videoannonser</string>
   <string name="revanced_block_embedded_ads_entry_1">Inaktiverad</string>
   <string name="revanced_block_embedded_ads_entry_2">Luminous-proxy</string>
   <string name="revanced_block_embedded_ads_entry_3">PurpleAdBlock-proxy</string>
-  </patch>
-  <patch id="ad.video.videoAdsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="ad.video.videoAdsPatch"> -->
   <string name="revanced_block_video_ads_title">Blockera videoannonser</string>
   <string name="revanced_block_video_ads_summary_on">Videoannonser är blockerade</string>
   <string name="revanced_block_video_ads_summary_off">Videoannonser är inte blockerade</string>
-  </patch>
-  <patch id="chat.antidelete.showDeletedMessagesPatch">
+  <!-- </patch> -->
+  <!-- <patch id="chat.antidelete.showDeletedMessagesPatch"> -->
   <string name="revanced_deleted_msg">meddelande borttaget</string>
   <string name="revanced_show_deleted_messages_title">Visa borttagna meddelanden</string>
   <string name="revanced_show_deleted_messages_entry_1">Visa inte borttagna meddelanden</string>
   <string name="revanced_show_deleted_messages_entry_2">Dölj borttagna meddelanden bakom en spoiler</string>
   <string name="revanced_show_deleted_messages_entry_3">Visa borttagna meddelanden som överstruken text</string>
-  </patch>
-  <patch id="chat.autoclaim.autoClaimChannelPointsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="chat.autoclaim.autoClaimChannelPointsPatch"> -->
   <string name="revanced_auto_claim_channel_points_title">Gör anspråk på kanalpoäng automatiskt</string>
   <string name="revanced_auto_claim_channel_points_summary_on">Kanalpoäng hämtas automatiskt</string>
   <string name="revanced_auto_claim_channel_points_summary_off">Kanalpoäng hämtas inte automatiskt</string>
-  </patch>
-  <patch id="debug.debugModePatch">
+  <!-- </patch> -->
+  <!-- <patch id="debug.debugModePatch"> -->
   <!-- Twitch specific internal debug mode, and not the same as 'revanced_debug_title' -->
   <string name="revanced_twitch_debug_mode_title">Aktivera felsökningsläge för Twitch</string>
   <string name="revanced_twitch_debug_mode_summary_on">Felsökningsläget på Twitch är aktiverat (rekommenderas inte)</string>
   <string name="revanced_twitch_debug_mode_summary_off">Twitch-felsökningsläget är inaktiverat</string>
-  </patch>
-  <patch id="misc.settings.settingsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.settings.settingsPatch"> -->
   <string name="revanced_settings">ReVanced-inställningar</string>
   <string name="revanced_about_title">Om</string>
   <string name="revanced_about_summary">Om ReVanced</string>
@@ -1450,6 +1451,6 @@ AVC har en maximal upplösning på 1080p, Opus-ljudkodek är inte tillgänglig o
   <string name="revanced_twitch_debug_title">Felsökningsloggning</string>
   <string name="revanced_twitch_debug_summary_on">Felsökningsloggar är aktiverade</string>
   <string name="revanced_twitch_debug_summary_off">Felsökningsloggar är inaktiverade</string>
-  </patch>
-  </app>
+  <!-- </patch> -->
+  <!-- </app> -->
 </resources>

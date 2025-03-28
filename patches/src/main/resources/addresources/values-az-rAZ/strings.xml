@@ -20,8 +20,8 @@ Second \"item\" text"</string>
 
 -->
 <resources>
-  <app id="shared">
-  <patch id="misc.checks.checkEnvironmentPatch">
+  <!-- <app id="shared"> -->
+  <!-- <patch id="misc.checks.checkEnvironmentPatch"> -->
   <string name="revanced_check_environment_failed_title">Yoxlamalar uğursuz oldu</string>
   <string name="revanced_check_environment_dialog_open_official_source_button">Xidməti veb saytı aç</string>
   <string name="revanced_check_environment_dialog_ignore_button">Məhəl qoyma</string>
@@ -31,8 +31,8 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time">10 dəqiqədən çox əvvəl yamaqlanıb</string>
   <string name="revanced_check_environment_not_near_patch_time_days">%s gün əvvəl yamaqlanıb</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">APK qurulma vaxtı pozulub</string>
-  </patch>
-  <patch id="misc.settings.settingsResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.settings.settingsResourcePatch"> -->
   <string name="revanced_settings_submenu_title">Tənzimləmələr</string>
   <string name="revanced_settings_confirm_user_dialog_title">Davam etmək istəyirsiniz?</string>
   <string name="revanced_settings_reset">Sıfırla</string>
@@ -57,8 +57,8 @@ Yeni dilləri tərcümə etmək üçün translate.revanced.app 'ə daxil olun"</
   <string name="revanced_settings_about_links_header">Rəsmi bağlantılar</string>
   <!-- NOTE: the about strings above are duplicated in the TikTok about screen code,
                  and changes made here must also be made there. -->
-  </patch>
-  <patch id="misc.gms.gmsCoreSupportResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.gms.gmsCoreSupportResourcePatch"> -->
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="gms_core_toast_not_installed_message">MicroG GmsCore quraşdırılmayıb. Bunu quraşdır.</string>
   <string name="gms_core_dialog_title">Fəaliyyət lazımdır</string>
@@ -74,10 +74,10 @@ MicroG üçün batareya optimallaşmasın qapatma batareya istifadəsinə mənfi
 
 Davam et düyməsinə toxun və optimallaşdırma dəyişikliklərin qəbul et."</string>
   <string name="gms_core_dialog_continue_text">Davam et</string>
-  </patch>
-  </app>
-  <app id="youtube">
-  <patch id="misc.settings.settingsPatch">
+  <!-- </patch> -->
+  <!-- </app> -->
+  <!-- <app id="youtube"> -->
+  <!-- <patch id="misc.settings.settingsPatch"> -->
   <string name="revanced_settings_screen_00_about_title">Haqqında</string>
   <string name="revanced_settings_screen_01_ads_title">Reklamlar</string>
   <string name="revanced_settings_screen_02_alt_thumbnails_title">Seçmə miniatürlər</string>
@@ -91,13 +91,13 @@ Davam et düyməsinə toxun və optimallaşdırma dəyişikliklərin qəbul et."
   <string name="revanced_restore_old_settings_menus_title">Köhnə tənzimləmələr bölmələrin bərpa et</string>
   <string name="revanced_restore_old_settings_menus_summary_on">Köhnə tənzimləmələr bölmələri göstərilir</string>
   <string name="revanced_restore_old_settings_menus_summary_off">Köhnə tənzimləmələr bölmələri göstərilmir</string>
-  </patch>
-  <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.backgroundplayback.backgroundPlaybackPatch"> -->
   <string name="revanced_shorts_disable_background_playback_title">Shorts arxa plan oynatmasın qapat</string>
   <string name="revanced_shorts_disable_background_playback_summary_on">Shorts arxa plan oynatma qapalıdır</string>
   <string name="revanced_shorts_disable_background_playback_summary_off">Shorts arxa plan oynatma aktivdir</string>
-  </patch>
-  <patch id="misc.debugging.enableDebuggingPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.debugging.enableDebuggingPatch"> -->
   <string name="revanced_debug_screen_title">Sazlama</string>
   <string name="revanced_debug_screen_summary">Sazlama seçimlərini aktiv/qeyri-aktiv et</string>
   <string name="revanced_debug_title">Sazlama jurnalı</string>
@@ -115,8 +115,8 @@ Davam et düyməsinə toxun və optimallaşdırma dəyişikliklərin qəbul et."
   <string name="revanced_debug_toast_on_error_user_dialog_message">"Xəta ani bildirişlərin qapatmaq, bütün ReVanced xəta bildirişlərin gizlədir.
 
 Gözlənilməz hallardan xəbərdar olmayacaqsınız."</string>
-  </patch>
-  <patch id="layout.hide.general.hideLayoutComponentsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.general.hideLayoutComponentsPatch"> -->
   <string name="revanced_hide_album_cards_title">Albom kartlarını gizlət</string>
   <string name="revanced_hide_album_cards_summary_on">Albom kartları gizlidir</string>
   <string name="revanced_hide_album_cards_summary_off">Albom kartları göstərilir</string>
@@ -333,8 +333,8 @@ Məhdudiyyətlər
   <string name="revanced_hide_keyword_toast_invalid_conflicting">Açar sözün ziddiyyətli hissəcikləri var: %s</string>
   <string name="revanced_hide_keyword_toast_invalid_length">Açar söz çox qısadır və istinad tələb edir: %s</string>
   <string name="revanced_hide_keyword_toast_invalid_broad">Açar söz, bütün videoları gizlədəcək: %s</string>
-  </patch>
-  <patch id="ad.general.hideAdsResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="ad.general.hideAdsResourcePatch"> -->
   <string name="revanced_hide_general_ads_title">Ümumi reklamları gizlət</string>
   <string name="revanced_hide_general_ads_summary_on">Ümumi reklamlar gizlidir</string>
   <string name="revanced_hide_general_ads_summary_off">Ümumi reklamlar göstərilir</string>
@@ -376,18 +376,18 @@ Bu xüsusiyyət yalnız köhnə cihazlar üçün mövcuddur"</string>
   <string name="revanced_hide_merchandise_banners_summary_off">Məhsul etiketləri göstərilir</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_hide_fullscreen_ads_feature_not_available_toast">Tam ekran reklamları gizlətmə yalnız köhnə cihazlarda işləyir</string>
-  </patch>
-  <patch id="ad.getpremium.hideGetPremiumPatch">
+  <!-- </patch> -->
+  <!-- <patch id="ad.getpremium.hideGetPremiumPatch"> -->
   <string name="revanced_hide_get_premium_title">YouTube Premium reklamlarını gizlət</string>
   <string name="revanced_hide_get_premium_summary_on">Video oynadıcı altında YouTube Premium elanları gizlidir</string>
   <string name="revanced_hide_get_premium_summary_off">Video oynadıcı altındakı YouTube Premium elanları göstərilir</string>
-  </patch>
-  <patch id="ad.video.videoAdsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="ad.video.videoAdsPatch"> -->
   <string name="revanced_hide_video_ads_title">Video reklamlarını gizlət</string>
   <string name="revanced_hide_video_ads_summary_on">Video reklamlar gizlədilir</string>
   <string name="revanced_hide_video_ads_summary_off">Video reklamlar göstərilir</string>
-  </patch>
-  <patch id="interaction.copyvideourl.copyVideoUrlResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="interaction.copyvideourl.copyVideoUrlResourcePatch"> -->
   <string name="revanced_share_copy_url_success">URL buferə köçürüldü</string>
   <string name="revanced_share_copy_url_timestamp_success">Vaxt möhürlü URL köçürüldü</string>
   <string name="revanced_copy_video_url_title">Video URL-i köçürmə düyməsin göstər</string>
@@ -396,14 +396,14 @@ Bu xüsusiyyət yalnız köhnə cihazlar üçün mövcuddur"</string>
   <string name="revanced_copy_video_url_timestamp_title">Vaxt möhürü URL köçür düyməsi göstər</string>
   <string name="revanced_copy_video_url_timestamp_summary_on">Düymə göstərilir. Video URL-ni vaxt möhürü ilə köçürmək üçün toxun. Vaxt möhürü olmadan köçürmək üçün basıb saxlayın</string>
   <string name="revanced_copy_video_url_timestamp_summary_off">Düymə göstərilmir</string>
-  </patch>
-  <patch id="interaction.dialog.removeViewerDiscretionDialogPatch">
+  <!-- </patch> -->
+  <!-- <patch id="interaction.dialog.removeViewerDiscretionDialogPatch"> -->
   <string name="revanced_remove_viewer_discretion_dialog_title">İzləyici mülahizə dialoqun sil</string>
   <string name="revanced_remove_viewer_discretion_dialog_summary_on">Dialoq silindi</string>
   <string name="revanced_remove_viewer_discretion_dialog_summary_off">Dialoq göstərilir</string>
   <string name="revanced_remove_viewer_discretion_dialog_user_dialog_message">Bu, yaş məhdudiyyətini ötürmür. Sadəcə birbaşa qəbul edir.</string>
-  </patch>
-  <patch id="interaction.downloads.downloadsResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="interaction.downloads.downloadsResourcePatch"> -->
   <string name="revanced_external_downloader_screen_title">Xarici yükləmələr</string>
   <string name="revanced_external_downloader_screen_summary">Xarici yükləyici istifadəsi üçün tənzimləmələr</string>
   <string name="revanced_external_downloader_title">Xarici yükləmə düyməsini göstər</string>
@@ -416,15 +416,15 @@ Bu xüsusiyyət yalnız köhnə cihazlar üçün mövcuddur"</string>
   <string name="revanced_external_downloader_name_title">Yükləyici paketi adı</string>
   <string name="revanced_external_downloader_name_summary">NewPipe və ya Seal kimi quraşdırılan xarici yükləmə tətbiqinizin paket adı</string>
   <string name="revanced_external_downloader_not_installed_warning">%s quraşdırılmayıb. Lütfən, bunu quraşdır.</string>
-  </patch>
-  <patch id="interaction.seekbar.disablePreciseSeekingGesturePatch">
+  <!-- </patch> -->
+  <!-- <patch id="interaction.seekbar.disablePreciseSeekingGesturePatch"> -->
   <string name="revanced_disable_precise_seeking_gesture_title">Dəqiq axtarış jestini qapadın</string>
   <string name="revanced_disable_precise_seeking_gesture_summary_on">Jest qeyri-aktiv edilib</string>
   <string name="revanced_disable_precise_seeking_gesture_summary_off">Jest aktivləşdirilib</string>
-  </patch>
-  <patch id="interaction.seekbar.enableSeekbarTappingPatch">
-  </patch>
-  <patch id="interaction.swipecontrols.swipeControlsResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="interaction.seekbar.enableSeekbarTappingPatch"> -->
+  <!-- </patch> -->
+  <!-- <patch id="interaction.swipecontrols.swipeControlsResourcePatch"> -->
   <string name="revanced_swipe_brightness_title">Parlaqlıq jestini aktivləşdir</string>
   <string name="revanced_swipe_brightness_summary_on">"Tam ekran parlaqlıq sürüşdürməsi aktivdir
 
@@ -460,13 +460,13 @@ Ekranın sağ tərəfində düzünə sürüşdürərək səs səviyyəsini tənz
   <string name="revanced_swipe_change_video_title">Videoları ötürmək üçün sürüşdürməni aktiv et</string>
   <string name="revanced_swipe_change_video_summary_on">Tam ekran rejimində sürüşdürmə növbəti/əvvəlki videoya ötürəcək</string>
   <string name="revanced_swipe_change_video_summary_off">Tam ekran rejimində sürüşdürmə növbəti/əvvəlki videoya ötürməyəcək</string>
-  </patch>
-  <patch id="layout.autocaptions.autoCaptionsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.autocaptions.autoCaptionsPatch"> -->
   <string name="revanced_auto_captions_title">Avtomatik titrləri qeyri-aktiv et</string>
   <string name="revanced_auto_captions_summary_on">Avtomatik titrlər qeyri-aktivdir</string>
   <string name="revanced_auto_captions_summary_off">Avtomatik titrlər aktivdir</string>
-  </patch>
-  <patch id="layout.buttons.action.hideButtonsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.buttons.action.hideButtonsPatch"> -->
   <string name="revanced_hide_buttons_screen_title">Fəaliyyət düymələri</string>
   <string name="revanced_hide_buttons_screen_summary">Videonun altındakı düymələri gizlət və ya göstər</string>
   <string name="revanced_disable_like_subscribe_glow_title">Bəyən və Abunə Ol parıltısını söndür</string>
@@ -504,8 +504,8 @@ Ekranın sağ tərəfində düzünə sürüşdürərək səs səviyyəsini tənz
   <string name="revanced_hide_playlist_button_title">\"Pleylistdə saxla\"nı gizlət</string>
   <string name="revanced_hide_playlist_button_summary_on">Pleylistdə saxla düyməsi gizlidir</string>
   <string name="revanced_hide_playlist_button_summary_off">Pleylistdə saxla düyməsi göstərilir</string>
-  </patch>
-  <patch id="layout.buttons.navigation.navigationButtonsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.buttons.navigation.navigationButtonsPatch"> -->
   <string name="revanced_navigation_buttons_screen_title">Fəaliyyət düymələri</string>
   <string name="revanced_navigation_buttons_screen_summary">Fəaliyyət cərgəsindəki düymələri gizlət və ya dəyiş</string>
   <!-- 'Home' should be translated using the same localized wording YouTube displays for the tab. -->
@@ -548,8 +548,8 @@ Bu seçimi dəyişdirmə işə düşmürsə, Gizli rejimə keçməyə çalışı
   <string name="revanced_disable_translucent_navigation_bar_dark_title">Qaranlıq rejimdə şəffaf cərgəni qapat</string>
   <string name="revanced_disable_translucent_navigation_bar_dark_summary_on">Qaranlıq rejimdə fəaliyyət cərgəsi qeyri-şəffafdır</string>
   <string name="revanced_disable_translucent_navigation_bar_dark_summary_off">Qaranlıq rejim fəaliyyət cərgəsi qeyri-şəffaf və ya şəffafdır</string>
-  </patch>
-  <patch id="layout.hide.player.flyoutmenupanel.hidePlayerFlyoutMenuPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.player.flyoutmenupanel.hidePlayerFlyoutMenuPatch"> -->
   <string name="revanced_hide_player_flyout_title">Açılan menyu</string>
   <string name="revanced_hide_player_flyout_summary">Oynadıcı açılan menyu elementlərini gizlət və ya göstər</string>
   <!-- 'Captions' should be translated using the same localized wording YouTube displays for the menu item. -->
@@ -603,8 +603,8 @@ Bu seçimi dəyişdirmə işə düşmürsə, Gizli rejimə keçməyə çalışı
   <string name="revanced_hide_player_flyout_video_quality_footer_title">Video keyfiyyət menyusu alt məlumatını gizlət</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_on">Video keyfiyyət menyusu alt məlumatı gizlidir</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_off">Video keyfiyyət menyusu alt məlumatı göstərilir</string>
-  </patch>
-  <patch id="layout.buttons.overlay.hidePlayerOverlayButtonsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.buttons.overlay.hidePlayerOverlayButtonsPatch"> -->
   <string name="revanced_hide_player_previous_next_buttons_title">Əvvəlki və Növbəti düymələrin gizlət</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_on">Düymələr gizlidir</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">Düymələr göstərilir</string>
@@ -618,36 +618,36 @@ Bu seçimi dəyişdirmə işə düşmürsə, Gizli rejimə keçməyə çalışı
   <string name="revanced_hide_autoplay_button_title">Avtomatik oynatma düyməsini gizlət</string>
   <string name="revanced_hide_autoplay_button_summary_on">Avtomatik oynatma düyməsi gizlidir</string>
   <string name="revanced_hide_autoplay_button_summary_off">Avtomatik oynatma düyməsi göstərilir</string>
-  </patch>
-  <patch id="layout.hide.endscreencards.hideEndscreenCardsResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.endscreencards.hideEndscreenCardsResourcePatch"> -->
   <string name="revanced_hide_endscreen_cards_title">Son ekran kartlarını gizlət</string>
   <string name="revanced_hide_endscreen_cards_summary_on">Son ekran kartları gizlidir</string>
   <string name="revanced_hide_endscreen_cards_summary_off">Son ekran kartları göstərilir</string>
-  </patch>
-  <patch id="layout.hide.fullscreenambientmode.disableFullscreenAmbientModePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.fullscreenambientmode.disableFullscreenAmbientModePatch"> -->
   <string name="revanced_disable_fullscreen_ambient_mode_title">Tam ekranda Ambient rejimini qapat</string>
   <string name="revanced_disable_fullscreen_ambient_mode_summary_on">Ambient rejimi qeyri-aktiv edilib</string>
   <string name="revanced_disable_fullscreen_ambient_mode_summary_off">Ambient rejimi aktivləşdirildi</string>
-  </patch>
-  <patch id="layout.hide.infocards.hideInfocardsResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.infocards.hideInfocardsResourcePatch"> -->
   <string name="revanced_hide_info_cards_title">Məlumat kartlarını gizlət</string>
   <string name="revanced_hide_info_cards_summary_on">Məlumat kartları gizlidir</string>
   <string name="revanced_hide_info_cards_summary_off">Məlumat kartları göstərilir</string>
-  </patch>
-  <patch id="layout.hide.rollingnumber.disableRollingNumberAnimationPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.rollingnumber.disableRollingNumberAnimationPatch"> -->
   <string name="revanced_disable_rolling_number_animations_title">Sürüşən rəqəm animasiyaların söndür</string>
   <string name="revanced_disable_rolling_number_animations_summary_on">Sürüşən say animasiyası bağlıdır</string>
   <string name="revanced_disable_rolling_number_animations_summary_off">Sürüşən say animasiyası açıqdır</string>
-  </patch>
-  <patch id="layout.hide.seekbar.hideSeekbarPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.seekbar.hideSeekbarPatch"> -->
   <string name="revanced_hide_seekbar_title">Video oynadıcıda irəliləyiş cizgisin gizlə</string>
   <string name="revanced_hide_seekbar_summary_on">Video oynadıcı irəliləyiş cizgisi gizlidir</string>
   <string name="revanced_hide_seekbar_summary_off">Video oynadıcı irəliləyiş cizgisi göstərilir</string>
   <string name="revanced_hide_seekbar_thumbnail_title">Video miniatürdə irəliləmə cizgisin gizlə</string>
   <string name="revanced_hide_seekbar_thumbnail_summary_on">Miniatür irəliləmə cizgisi gizlədilib</string>
   <string name="revanced_hide_seekbar_thumbnail_summary_off">Miniatür irəliləmə cizgisi göstərilir</string>
-  </patch>
-  <patch id="layout.hide.shorts.hideShortsComponentsResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.shorts.hideShortsComponentsResourcePatch"> -->
   <string name="revanced_shorts_player_screen_title">Shorts oynadıcı</string>
   <string name="revanced_shorts_player_screen_summary">Shorts oynadıcıda hissəcikləri gizlət və ya göstər</string>
   <!-- 'home' should be translated using the same localized wording YouTube displays for the home tab. -->
@@ -749,42 +749,42 @@ Bu seçimi dəyişdirmə işə düşmürsə, Gizli rejimə keçməyə çalışı
   <string name="revanced_hide_shorts_navigation_bar_title">Fəaliyyət çubuğunu gizlət</string>
   <string name="revanced_hide_shorts_navigation_bar_summary_on">Fəaliyyət çubuğu gizlidir</string>
   <string name="revanced_hide_shorts_navigation_bar_summary_off">Fəaliyyət çubuğu göstərilir</string>
-  </patch>
-  <patch id="layout.hide.endscreensuggestion.hideEndScreenSuggestedVideoPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.endscreensuggestion.hideEndScreenSuggestedVideoPatch"> -->
   <string name="revanced_end_screen_suggested_video_title">Son ekran bildirilən videonu gizlət</string>
   <string name="revanced_end_screen_suggested_video_summary_on">"Avtomatik oynatma qapadılanda son ekran bildirilən video gizlədilir
 
 Avtomatik oynatma YouTube ayarlarında dəyişdirilə bilər: Ayarlar → Oxunuş → Növbəti videonu avtomatik oxudun"</string>
   <string name="revanced_end_screen_suggested_video_summary_off">Son ekranda bildirilən video göstərilir</string>
-  </patch>
-  <patch id="layout.hide.time.hideTimestampPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.time.hideTimestampPatch"> -->
   <string name="revanced_hide_timestamp_title">Video vaxt möhürünü gizlət</string>
   <string name="revanced_hide_timestamp_summary_on">Vaxt möhürü gizlidir</string>
   <string name="revanced_hide_timestamp_summary_off">Vaxt möhürü göstərilir</string>
-  </patch>
-  <patch id="layout.panels.popup.playerPopupPanelsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.panels.popup.playerPopupPanelsPatch"> -->
   <string name="revanced_hide_player_popup_panels_title">Oynadıcı açılan pəncərə panellərin gizlə</string>
   <string name="revanced_hide_player_popup_panels_summary_on">Oynadıcı açılan pəncərə panelləri gizlidir</string>
   <string name="revanced_hide_player_popup_panels_summary_off">Oynadıcı açılan pəncərə panelləri göstərilir</string>
-  </patch>
-  <patch id="layout.player.fullscreen.exitFullscreenPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.player.fullscreen.exitFullscreenPatch"> -->
   <string name="revanced_exit_fullscreen_title">Video sonunda tam ekran rejimindən çıx</string>
   <string name="revanced_exit_fullscreen_entry_1">Qapalı</string>
   <string name="revanced_exit_fullscreen_entry_2">Şaquli</string>
   <string name="revanced_exit_fullscreen_entry_3">Üfüqi</string>
   <string name="revanced_exit_fullscreen_entry_4">Şaquli və üfüqi</string>
-  </patch>
-  <patch id="layout.player.fullscreen.openVideosFullscreen">
+  <!-- </patch> -->
+  <!-- <patch id="layout.player.fullscreen.openVideosFullscreen"> -->
   <string name="revanced_open_videos_fullscreen_portrait_title">Videoları şaquli tam ekranda aç</string>
   <string name="revanced_open_videos_fullscreen_portrait_summary_on">Videolar tam ekranda açılır</string>
   <string name="revanced_open_videos_fullscreen_portrait_summary_off">Videolar tam ekranda açılmır</string>
-  </patch>
-  <patch id="layout.player.overlay.customPlayerOverlayOpacityResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.player.overlay.customPlayerOverlayOpacityResourcePatch"> -->
   <string name="revanced_player_overlay_opacity_title">Oynadıcı örtüyünün qeyri-şəffaflığı</string>
   <string name="revanced_player_overlay_opacity_summary">0-100 arası qeyri-şəffaflıq dəyəri, 0 şəffafdır</string>
   <string name="revanced_player_overlay_opacity_invalid_toast">Oynadıcı örtüyü qeyri-şəffaflığı 0-100 arası olmalıdır</string>
-  </patch>
-  <patch id="layout.returnyoutubedislike.returnYouTubeDislikePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.returnyoutubedislike.returnYouTubeDislikePatch"> -->
   <!-- Toast shown if network connection times out. Translations of this should not be longer than the original English or the text can be clipped and not entirely shown. -->
   <string name="revanced_ryd_failure_connection_timeout">\"Bəyənməmə\" müvəqqəti əlçatmazdır (API vaxtı bitdi)</string>
   <string name="revanced_ryd_failure_connection_status_code">Bəyənməmə əlçatmazdır (status %d)</string>
@@ -833,13 +833,13 @@ Məhdudiyyət: Bəyənməmələr gizli rejimdə görünməyə bilər"</string>
   <string name="revanced_ryd_statistics_getNumberOfRateLimitRequestsEncountered_zero_summary">Qəbuledici sürət məhdudiyyəti olmadı</string>
   <string name="revanced_ryd_statistics_getNumberOfRateLimitRequestsEncountered_non_zero_summary">Qəbuledici sürət limiti %d dəfə baş verdi</string>
   <string name="revanced_ryd_statistics_millisecond_text">%d millisaniyə</string>
-  </patch>
-  <patch id="layout.searchbar.wideSearchbarPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.searchbar.wideSearchbarPatch"> -->
   <string name="revanced_wide_searchbar_title">Geniş axtarış cizgisin aktivləşdir</string>
   <string name="revanced_wide_searchbar_summary_on">Geniş axtarış cizgisi aktivdir</string>
   <string name="revanced_wide_searchbar_summary_off">Geniş axtarış cizgisi qeyri-aktivdir</string>
-  </patch>
-  <patch id="layout.seekbar.seekbarThumbnailsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.seekbar.seekbarThumbnailsPatch"> -->
   <string name="revanced_seekbar_thumbnails_high_quality_title">Yüksək keyfiyyətli miniatürləri aktivləşdir</string>
   <string name="revanced_seekbar_thumbnails_high_quality_summary_on">İrəliləyiş cizgisi miniatürləri yüksək keyfiyyətlidir</string>
   <string name="revanced_seekbar_thumbnails_high_quality_summary_off">İrəliləyiş cizgisi miniatürləri orta keyfiyyətlidir</string>
@@ -853,8 +853,8 @@ Bu funksiya 720p və ya daha aşağı video keyfiyyəti ilə və çox sürətli 
   <string name="revanced_restore_old_seekbar_thumbnails_title">Köhnə irəliləmə cizgi miniatürün al</string>
   <string name="revanced_restore_old_seekbar_thumbnails_summary_on">Axtarış cizgisi miniatürləri axtarış çubuğu üstündə görünəcək</string>
   <string name="revanced_restore_old_seekbar_thumbnails_summary_off">Axtarış cizgisi miniatürləri tam ekranda görünəcək</string>
-  </patch>
-  <patch id="layout.sponsorblock.sponsorBlockResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.sponsorblock.sponsorBlockResourcePatch"> -->
   <string name="revanced_sb_enable_sb">\"SponsorBlock\"u aktivləşdir</string>
   <string name="revanced_sb_enable_sb_sum">SponsorBlock YouTube videolarının cansıxıcı hissələrini ötürmək üçün toplu sistemdir</string>
   <string name="revanced_sb_appearance_category">Görünüş</string>
@@ -1052,8 +1052,8 @@ Təqdim etməyə hazırdır?"</string>
   <string name="revanced_sb_reset">Sıfırlayın</string>
   <string name="revanced_sb_about">Haqqında</string>
   <string name="revanced_sb_about_api_sum">Məlumat SponsorBlock API tərəfindən təqdim edilir. Daha ətraflı öyrənmək və digər platformalar üzrə yükləmələrə baxmaq üçün bura toxunun</string>
-  </patch>
-  <patch id="layout.formfactor.changeFormFactorPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.formfactor.changeFormFactorPatch"> -->
   <string name="revanced_change_form_factor_title">Tərtibat forma göstəricisi</string>
   <string name="revanced_change_form_factor_entry_1">İlkin</string>
   <string name="revanced_change_form_factor_entry_2">Telefon</string>
@@ -1067,8 +1067,8 @@ Planşet tərtibatı
 Avtomobil tərtibatı
 • Shorts müntəzəm oynadıcıda açılır
 • Axın mövzular və kanallardan ibarətdir"</string>
-  </patch>
-  <patch id="layout.spoofappversion.spoofAppVersionPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.spoofappversion.spoofAppVersionPatch"> -->
   <string name="revanced_spoof_app_version_title">Tətbiq versiyasını saxtalaşdır</string>
   <string name="revanced_spoof_app_version_summary_on">Versiya saxtalaşdırıldı</string>
   <string name="revanced_spoof_app_version_summary_off">Versiya saxtalaşdırılmadı</string>
@@ -1082,8 +1082,8 @@ Sonradan qapadılarsa, UI səhvlərin önləmək üçün tətbiq məlumatların 
   <string name="revanced_spoof_app_version_target_title">Saxta tətbiq versiyası hədəfi</string>
   <string name="revanced_spoof_app_version_target_entry_1">19.35.36 - Köhnə Shorts oynadıcı işarələrin bərpa et</string>
   <string name="revanced_spoof_app_version_target_entry_2">19.01.34 - Köhnə fəaliyyət simvolların bərpa et</string>
-  </patch>
-  <patch id="layout.startpage.changeStartPagePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.startpage.changeStartPagePatch"> -->
   <string name="revanced_change_start_page_title">Başlanğıc səhifəsini təyin et</string>
   <string name="revanced_change_start_page_entry_default">İlkin</string>
   <string name="revanced_change_start_page_entry_all_subscriptions">Bütün abunəliklər</string>
@@ -1109,27 +1109,27 @@ Sonradan qapadılarsa, UI səhvlərin önləmək üçün tətbiq məlumatların 
   <string name="revanced_change_start_page_entry_virtual_reality">Faktiki Həyat</string>
   <string name="revanced_change_start_page_entry_watch_later">Sonra izlə</string>
   <string name="revanced_change_start_page_entry_your_clips">Klipləriniz</string>
-  </patch>
-  <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch"> -->
   <string name="revanced_disable_resuming_shorts_player_title">Shorts oynadıcı başladıcını qapat</string>
   <string name="revanced_disable_resuming_shorts_player_summary_on">Tətbiq açılanda Shorts oynadıcı davam etməyəcək</string>
   <string name="revanced_disable_resuming_shorts_player_summary_off">Tətbiq açılanda Shorts oynadıcı davam edəcək</string>
-  </patch>
-  <patch id="layout.shortsplayer.shortsPlayerTypePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.shortsplayer.shortsPlayerTypePatch"> -->
   <string name="revanced_shorts_player_type_title">Shorts-u bununla aç</string>
   <string name="revanced_shorts_player_type_shorts">Shorts oynadıcı</string>
   <string name="revanced_shorts_player_type_regular_player">Müntəzəm oynadıcı</string>
   <string name="revanced_shorts_player_type_regular_player_fullscreen">Müntəzəm oynadıcı tam ekran</string>
-  </patch>
-  <patch id="layout.shortsautoplay.shortsAutoplayPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.shortsautoplay.shortsAutoplayPatch"> -->
   <string name="revanced_shorts_autoplay_title">Shorts-ları avto-oynatma</string>
   <string name="revanced_shorts_autoplay_summary_on">Shorts-lar avto-oynadılacaq</string>
   <string name="revanced_shorts_autoplay_summary_off">Shorts-lar təkrarlanacaq</string>
   <string name="revanced_shorts_autoplay_background_title">Shorts-ları arxa planda avto-oynat</string>
   <string name="revanced_shorts_autoplay_background_summary_on">Shorts-lar arxa planda avto-oynadılacaq</string>
   <string name="revanced_shorts_autoplay_background_summary_off">Shorts-lar arxa planda təkrarlanacaq</string>
-  </patch>
-  <patch id="layout.miniplayer.miniplayerPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.miniplayer.miniplayerPatch"> -->
   <string name="revanced_miniplayer_screen_title">Kiçik oynadıcı</string>
   <string name="revanced_miniplayer_screen_summary">Tətbiqdaxili kiçilən oynadıcı üslubunu dəyişdir</string>
   <string name="revanced_miniplayer_type_title">Kiçik oynadıcı növü</string>
@@ -1179,8 +1179,8 @@ Genişləndirmək və ya bağlamaq üçün sürüşdür"</string>
   <string name="revanced_miniplayer_opacity_title">Örtük qeyri-şəffaflığı</string>
   <string name="revanced_miniplayer_opacity_summary">0-100 arası qeyri-şəffaflıq dəyəri, 0 şəffafdır</string>
   <string name="revanced_miniplayer_opacity_invalid_toast">Kiçik Oynadıcı örtük qeyri-şəffaflığı 0-100 arası olmalıdır</string>
-  </patch>
-  <patch id="layout.theme.themePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.theme.themePatch"> -->
   <string name="revanced_gradient_loading_screen_title">Dəyişkən yükləmə ekranını aktivləşdir</string>
   <string name="revanced_gradient_loading_screen_summary_on">Yükləmə ekranı, dəyişkən arxa plana malik olacaq</string>
   <string name="revanced_gradient_loading_screen_summary_off">Yükləmə ekranı, vahid arxa plana malik olacaq</string>
@@ -1192,15 +1192,15 @@ Genişləndirmək və ya bağlamaq üçün sürüşdür"</string>
   <string name="revanced_seekbar_custom_color_accent_title">Fərdi irəliləyiş cizgisi vurğu rəngi</string>
   <string name="revanced_seekbar_custom_color_accent_summary">İrəliləyiş cizgisi vurğu rəngi</string>
   <string name="revanced_seekbar_custom_color_invalid">Etibarsız irəliləmə cizgisi rəng dəyəri</string>
-  </patch>
-  <patch id="layout.thumbnails.bypassImageRegionRestrictionsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.thumbnails.bypassImageRegionRestrictionsPatch"> -->
   <string name="revanced_bypass_image_region_restrictions_title">Təsvir bölgə məhdudiyyətlərini ötür</string>
   <string name="revanced_bypass_image_region_restrictions_summary_on">Yt4.ggpht.com təsvir serveri istifadə edilir</string>
   <string name="revanced_bypass_image_region_restrictions_summary_off">"Orijinal şəkil təminatçısın işlətmə
 
 Bunu aktivləşdirmə, bəzi regionlarda əngəllənib silinən şəkilləri düzəldə bilər"</string>
-  </patch>
-  <patch id="layout.thumbnails.alternativeThumbnailsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.thumbnails.alternativeThumbnailsPatch"> -->
   <!-- 'Home' should be translated using the same localized wording YouTube displays for the home tab. -->
   <string name="revanced_alt_thumbnail_home_title">Ev paneli</string>
   <!-- 'Subscription' should be translated using the same localized wording YouTube displays for the subscription tab. -->
@@ -1235,26 +1235,26 @@ DeArrow haqqında ətraflı öyrənmək üçün bura toxun"</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_alt_thumbnail_dearrow_error">DeArrow müvəqqəti mövcud deyil (status kodu: %s) </string>
   <string name="revanced_alt_thumbnail_dearrow_error_generic">DeArrow müvəqqəti olaraq mövcud deyil</string>
-  </patch>
-  <patch id="misc.announcements.announcementsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.announcements.announcementsPatch"> -->
   <string name="revanced_announcements_title">ReVanced elanlarını göstər</string>
   <string name="revanced_announcements_summary_on">Elanlar başlanğıcda göstərilir</string>
   <string name="revanced_announcements_summary_off">Elanlar başlanğıcda göstərilmir</string>
   <string name="revanced_announcements_enabled_summary">Elanları açılışda göstər</string>
   <string name="revanced_announcements_connection_failed">Elan provayderinə bağlanmaq olmadı</string>
   <string name="revanced_announcements_dialog_dismiss">Ləğv et</string>
-  </patch>
-  <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch"> -->
   <string name="revanced_check_watch_history_domain_name_dialog_title">Xәbәrdarlıq</string>
   <string name="revanced_check_watch_history_domain_name_dialog_message">Baxış tarixçəniz saxlanmır.&lt;br&gt;&lt;br&gt;Bu çox güman ki, DNS reklam bloklayıcı və ya şəbəkə proksisinə görədir.&lt;br&gt;&lt;br&gt;.Bunu düzəltmək üçün s.youtube.com-u&lt;/b&gt; &lt;b&gt;ağ siyahıya salın və ya bütün DNS bloklayıcıları və proksiləri bağlayın.</string>
   <string name="revanced_check_watch_history_domain_name_dialog_ignore">Təkrar göstərmə</string>
-  </patch>
-  <patch id="misc.autorepeat.autoRepeatPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.autorepeat.autoRepeatPatch"> -->
   <string name="revanced_auto_repeat_title">Avto-təkrarlamanı aktivləşdir</string>
   <string name="revanced_auto_repeat_summary_on">Avtomatik təkrar aktivləşdirilib</string>
   <string name="revanced_auto_repeat_summary_off">Avtomatik təkrarlama qeyri-aktiv edilib</string>
-  </patch>
-  <patch id="misc.dimensions.spoof.spoofDeviceDimensionsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.dimensions.spoof.spoofDeviceDimensionsPatch"> -->
   <string name="revanced_spoof_device_dimensions_title">Cihaz ölçülərini saxtalaşdır</string>
   <string name="revanced_spoof_device_dimensions_summary_on">"Cihaz ölçüləri saxtalaşdırıldı
 
@@ -1263,39 +1263,39 @@ Yüksək video keyfiyyətlər görünə bilər, ancaq video oynadılmasında qı
 
 Bunu aktivləşdirmə daha yüksək video keyfiyyətləri əngəlin silə bilər"</string>
   <string name="revanced_spoof_device_dimensions_user_dialog_message">Bunu aktivləşdirmə, video oynatma donmalarına, daha pis batareya istismarına və bilinməyən yan təsirlərə səbəb ola bilər.</string>
-  </patch>
-  <patch id="misc.gms.gmsCoreSupportResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.gms.gmsCoreSupportResourcePatch"> -->
   <string name="microg_settings_title">GmsCore Tənzimləmələri</string>
   <string name="microg_settings_summary">GmsCore üçün Tənzimləmələr</string>
-  </patch>
-  <patch id="misc.links.bypassURLRedirectsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.links.bypassURLRedirectsPatch"> -->
   <string name="revanced_bypass_url_redirects_title">URL yönləndirmələrini ötür</string>
   <string name="revanced_bypass_url_redirects_summary_on">URL yönləndirmələri ötürülür</string>
   <string name="revanced_bypass_url_redirects_summary_off">URL yönləndirmələri ötürülmür</string>
-  </patch>
-  <patch id="misc.links.openLinksExternallyPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.links.openLinksExternallyPatch"> -->
   <string name="revanced_external_browser_title">Bağlantıları brauzerdə aç</string>
   <string name="revanced_external_browser_summary_on">Xarici brauzerdə bağlantıların açılması</string>
   <string name="revanced_external_browser_summary_off">Tətbiqdaxili brauzerdə bağlantıların açılması</string>
-  </patch>
-  <patch id="misc.privacy.removeTrackingQueryParameterPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.privacy.removeTrackingQueryParameterPatch"> -->
   <string name="revanced_remove_tracking_query_parameter_title">İzləmə sorğusu faktorun sil</string>
   <string name="revanced_remove_tracking_query_parameter_summary_on">İzləmə sorğusu faktoru bağlantılardan silinir</string>
   <string name="revanced_remove_tracking_query_parameter_summary_off">İzləmə sorğusu faktoru bağlantılardan silinmir</string>
-  </patch>
-  <patch id="misc.zoomhaptics.zoomHapticsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.zoomhaptics.zoomHapticsPatch"> -->
   <string name="revanced_disable_zoom_haptics_title">Yaxınlaşdırma reaksiyasın qapat</string>
   <string name="revanced_disable_zoom_haptics_summary_on">Reaksiya qapalıdır</string>
   <string name="revanced_disable_zoom_haptics_summary_off">Reaksiya aktivdir</string>
-  </patch>
-  <patch id="video.audio.forceOriginalAudioPatch">
+  <!-- </patch> -->
+  <!-- <patch id="video.audio.forceOriginalAudioPatch"> -->
   <string name="revanced_force_original_audio_title">Orijinal səs dilini zorla</string>
   <string name="revanced_force_original_audio_summary_on">Orijinal səs dilini istifadə</string>
   <string name="revanced_force_original_audio_summary_off">İlkin səs istifadəsi</string>
   <!-- 'Spoof video streams' should be the same translation used for revanced_spoof_video_streams_screen_title -->
   <string name="revanced_force_original_audio_not_available">Bu xüsusiyyəti istifadə etmək üçün \"Saxta video yayımların\" iOS TV-yə dəyiş</string>
-  </patch>
-  <patch id="video.quality.rememberVideoQualityPatch">
+  <!-- </patch> -->
+  <!-- <patch id="video.quality.rememberVideoQualityPatch"> -->
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
   <string name="revanced_video_quality_default_entry_1">Avtomatik</string>
   <string name="revanced_remember_video_quality_last_selected_title">Video keyfiyyəti dəyişikliklərini xatırla</string>
@@ -1312,13 +1312,13 @@ Bunu aktivləşdirmə daha yüksək video keyfiyyətləri əngəlin silə bilər
   <string name="revanced_remember_video_quality_wifi">wi-fi</string>
   <string name="revanced_remember_video_quality_toast">İlkin %1$s keyfiyyəti %2$s kimi dəyişdi</string>
   <string name="revanced_remember_video_quality_toast_shorts">Shorts-un %1$s keyfiyyəti %2$s olaraq dəyişdirildi</string>
-  </patch>
-  <patch id="video.speed.button.playbackSpeedButtonPatch">
+  <!-- </patch> -->
+  <!-- <patch id="video.speed.button.playbackSpeedButtonPatch"> -->
   <string name="revanced_playback_speed_dialog_button_title">Sürət dialoq düyməsini göstər</string>
   <string name="revanced_playback_speed_dialog_button_summary_on">Düymə göstərilir</string>
   <string name="revanced_playback_speed_dialog_button_summary_off">Düymə göstərilmir</string>
-  </patch>
-  <patch id="video.speed.custom.customPlaybackSpeedPatch">
+  <!-- </patch> -->
+  <!-- <patch id="video.speed.custom.customPlaybackSpeedPatch"> -->
   <string name="revanced_custom_speed_menu_title">Fərdi oynatma sürəti siyahısı</string>
   <string name="revanced_custom_speed_menu_summary_on">Fərdi sürət siyahısı göstərilir</string>
   <string name="revanced_custom_speed_menu_summary_off">Fərdi sürət siyahısı göstərilmir</string>
@@ -1329,30 +1329,30 @@ Bunu aktivləşdirmə daha yüksək video keyfiyyətləri əngəlin silə bilər
   <string name="revanced_custom_playback_speeds_auto">Avtomatik</string>
   <string name="revanced_speed_tap_and_hold_title">Xüsusi toxunma və saxlanılma sürəti</string>
   <string name="revanced_speed_tap_and_hold_summary">0-8 arası oynatma sürəti</string>
-  </patch>
-  <patch id="video.speed.remember.rememberPlaybackSpeedPatch">
+  <!-- </patch> -->
+  <!-- <patch id="video.speed.remember.rememberPlaybackSpeedPatch"> -->
   <string name="revanced_remember_playback_speed_last_selected_title">Oynatma sürəti dəyişikliklərin xatırla</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_on">Oynatma sürəti dəyişiklikləri bütün videolara aiddir</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_off">Oynatma sürəti dəyişiklikləri yalnız cari videoya aiddir</string>
   <string name="revanced_playback_speed_default_title">İlkin oynatma sürəti</string>
   <string name="revanced_remember_playback_speed_toast">İlkin sürət %s kimi dəyişdirildi</string>
-  </patch>
-  <patch id="video.hdr.disableHdrPatch">
+  <!-- </patch> -->
+  <!-- <patch id="video.hdr.disableHdrPatch"> -->
   <string name="revanced_disable_hdr_video_title">HDR Videonu Qapat</string>
   <string name="revanced_disable_hdr_video_summary_on">HDR video qapalıdır</string>
   <string name="revanced_disable_hdr_video_summary_off">HDR video aktivdir</string>
-  </patch>
-  <patch id="video.quality.advancedVideoQualityMenuPatch">
+  <!-- </patch> -->
+  <!-- <patch id="video.quality.advancedVideoQualityMenuPatch"> -->
   <string name="revanced_advanced_video_quality_menu_title">Qabaqcıl video keyfiyyət siyahısın göstər</string>
   <string name="revanced_advanced_video_quality_menu_summary_on">Qabaqcıl video keyfiyyət siyahısı göstərilir</string>
   <string name="revanced_advanced_video_quality_menu_summary_off">Qabaqcıl video keyfiyyət siyahısı göstərilmir</string>
-  </patch>
-  <patch id="interaction.seekbar.enableSlideToSeekPatch">
+  <!-- </patch> -->
+  <!-- <patch id="interaction.seekbar.enableSlideToSeekPatch"> -->
   <string name="revanced_slide_to_seek_title">Axtarmaq üçün sürüşdürməni aktiv et</string>
   <string name="revanced_slide_to_seek_summary_on">Axtarmaq üçün sürüşdürmə aktivdir</string>
   <string name="revanced_slide_to_seek_summary_off">Axtarmaq üçün sürüşdürmə aktiv deyil</string>
-  </patch>
-  <patch id="misc.fix.playback.spoofVideoStreamsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.fix.playback.spoofVideoStreamsPatch"> -->
   <string name="revanced_spoof_video_streams_screen_title">Video yayımları saxtalaşdır</string>
   <string name="revanced_spoof_video_streams_screen_summary">Oynatma problemlərin önləmək üçün qəbuledici video yayımların saxtalaşdır</string>
   <string name="revanced_spoof_video_streams_title">Video yayımları saxtalaşdır</string>
@@ -1382,46 +1382,46 @@ AVC maksimum 1080p görüntü imkanına malikdir, Opus audio kodlama olmur və v
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Qəbuledici növü İstək üçün statistikada göstərilir</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Qəbuledici nerd üçün Statistikada gizlidir</string>
   <string name="revanced_spoof_video_streams_language_title">VR-da ilkin səs yayımı dili</string>
-  </patch>
-  </app>
-  <app id="twitch">
-  <patch id="ad.audio.audioAdsPatch">
+  <!-- </patch> -->
+  <!-- </app> -->
+  <!-- <app id="twitch"> -->
+  <!-- <patch id="ad.audio.audioAdsPatch"> -->
   <string name="revanced_block_audio_ads_title">Səs reklamların əngəllə</string>
   <string name="revanced_block_audio_ads_summary_on">Səs reklamları bloklanıb</string>
   <string name="revanced_block_audio_ads_summary_off">Səs reklamları bloklanmayıb</string>
-  </patch>
-  <patch id="ad.embedded.embeddedAdsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="ad.embedded.embeddedAdsPatch"> -->
   <string name="revanced_embedded_ads_service_unavailable">%s əlçatmazdır, reklamlar göstərilə bilər. Tənzimləmədə reklam əngəlləmə xidmətin dəyişməyə çalışın.</string>
   <string name="revanced_embedded_ads_service_failed">%s xəta qaytardı, reklamlar görünə bilər. Tənzimləmədə reklam əngəlləmə xidmətin dəyişməyə çalışın.</string>
   <string name="revanced_block_embedded_ads_title">Yerləşdirilən video reklamlarını əngəllə</string>
   <string name="revanced_block_embedded_ads_entry_1">Qeyri-aktiv edildi</string>
   <string name="revanced_block_embedded_ads_entry_2">Luminous proxy</string>
   <string name="revanced_block_embedded_ads_entry_3">PurpleAdBlock proksi</string>
-  </patch>
-  <patch id="ad.video.videoAdsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="ad.video.videoAdsPatch"> -->
   <string name="revanced_block_video_ads_title">Video reklamları əngəllə</string>
   <string name="revanced_block_video_ads_summary_on">Video reklamlar bloklanıb</string>
   <string name="revanced_block_video_ads_summary_off">Video reklamlar bloklanmır</string>
-  </patch>
-  <patch id="chat.antidelete.showDeletedMessagesPatch">
+  <!-- </patch> -->
+  <!-- <patch id="chat.antidelete.showDeletedMessagesPatch"> -->
   <string name="revanced_deleted_msg">mesaj silindi</string>
   <string name="revanced_show_deleted_messages_title">Silinən mesajları göstər</string>
   <string name="revanced_show_deleted_messages_entry_1">Silinən mesajlar göstərilməsin</string>
   <string name="revanced_show_deleted_messages_entry_2">Silinmiş mesajları boz panel arxasında gizlət</string>
   <string name="revanced_show_deleted_messages_entry_3">Silinən mesajları cızılmış mətn kimi göstər</string>
-  </patch>
-  <patch id="chat.autoclaim.autoClaimChannelPointsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="chat.autoclaim.autoClaimChannelPointsPatch"> -->
   <string name="revanced_auto_claim_channel_points_title">Kanal Xallarını avtomatik təsdiqlə</string>
   <string name="revanced_auto_claim_channel_points_summary_on">Kanal Xalları avtomatik olaraq təsdiqlənir</string>
   <string name="revanced_auto_claim_channel_points_summary_off">Kanal Xalları avtomatik olaraq təsdiqlənmir</string>
-  </patch>
-  <patch id="debug.debugModePatch">
+  <!-- </patch> -->
+  <!-- <patch id="debug.debugModePatch"> -->
   <!-- Twitch specific internal debug mode, and not the same as 'revanced_debug_title' -->
   <string name="revanced_twitch_debug_mode_title">Twitch sazlama rejimini aktivləşdir</string>
   <string name="revanced_twitch_debug_mode_summary_on">Twitch sazlama rejimi aktivdir (tövsiyə edilmir)</string>
   <string name="revanced_twitch_debug_mode_summary_off">Twitch sazlama rejimi qeyri-aktiv edilib</string>
-  </patch>
-  <patch id="misc.settings.settingsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.settings.settingsPatch"> -->
   <string name="revanced_settings">ReVanced Tənzimləmələri</string>
   <string name="revanced_about_title">Haqqında</string>
   <string name="revanced_about_summary">ReVanced Haqqında</string>
@@ -1438,6 +1438,6 @@ AVC maksimum 1080p görüntü imkanına malikdir, Opus audio kodlama olmur və v
   <string name="revanced_twitch_debug_title">Sazlama jurnalı</string>
   <string name="revanced_twitch_debug_summary_on">Sazlama jurnalları aktivləşdirilib</string>
   <string name="revanced_twitch_debug_summary_off">Sazlama jurnalları qeyri-aktiv edilib</string>
-  </patch>
-  </app>
+  <!-- </patch> -->
+  <!-- </app> -->
 </resources>

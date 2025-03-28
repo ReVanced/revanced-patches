@@ -20,8 +20,8 @@ Second \"item\" text"</string>
 
 -->
 <resources>
-  <app id="shared">
-  <patch id="misc.checks.checkEnvironmentPatch">
+  <!-- <app id="shared"> -->
+  <!-- <patch id="misc.checks.checkEnvironmentPatch"> -->
   <string name="revanced_check_environment_failed_title">Αποτυχία ελέγχων</string>
   <string name="revanced_check_environment_dialog_open_official_source_button">Άνοιγμα επίσημης ιστοσελίδας</string>
   <string name="revanced_check_environment_dialog_ignore_button">Παράλειψη</string>
@@ -31,8 +31,8 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time">Τροποποιήθηκε πάνω από 10 λεπτά πριν</string>
   <string name="revanced_check_environment_not_near_patch_time_days">Τροποποιήθηκε πριν %s μέρες</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">Η ημερομηνία κατασκευής του APK είναι κατεστραμμένη</string>
-  </patch>
-  <patch id="misc.settings.settingsResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.settings.settingsResourcePatch"> -->
   <string name="revanced_settings_submenu_title">Ρυθμίσεις</string>
   <string name="revanced_settings_confirm_user_dialog_title">Θέλετε να συνεχίσετε;</string>
   <string name="revanced_settings_reset">Επαναφορά</string>
@@ -57,8 +57,8 @@ Second \"item\" text"</string>
   <string name="revanced_settings_about_links_header">Επίσημοι σύνδεσμοι</string>
   <!-- NOTE: the about strings above are duplicated in the TikTok about screen code,
                  and changes made here must also be made there. -->
-  </patch>
-  <patch id="misc.gms.gmsCoreSupportResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.gms.gmsCoreSupportResourcePatch"> -->
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="gms_core_toast_not_installed_message">Το MicroG GmsCore δεν έχει εγκατασταθεί. Εγκαταστήστε το.</string>
   <string name="gms_core_dialog_title">Απαιτείται ενέργεια</string>
@@ -74,10 +74,10 @@ Second \"item\" text"</string>
 
 Πατήστε το κουμπί «Συνέχεια» και επιτρέψτε τις αλλαγές βελτιστοποίησης."</string>
   <string name="gms_core_dialog_continue_text">Συνέχεια</string>
-  </patch>
-  </app>
-  <app id="youtube">
-  <patch id="misc.settings.settingsPatch">
+  <!-- </patch> -->
+  <!-- </app> -->
+  <!-- <app id="youtube"> -->
+  <!-- <patch id="misc.settings.settingsPatch"> -->
   <string name="revanced_settings_screen_00_about_title">Σχετικά με</string>
   <string name="revanced_settings_screen_01_ads_title">Διαφημίσεις</string>
   <string name="revanced_settings_screen_02_alt_thumbnails_title">Εναλλακτικές μικρογραφίες</string>
@@ -91,13 +91,13 @@ Second \"item\" text"</string>
   <string name="revanced_restore_old_settings_menus_title">Επαναφορά παλιών μενού ρυθμίσεων</string>
   <string name="revanced_restore_old_settings_menus_summary_on">Τα παλιά μενού ρυθμίσεων εμφανίζονται</string>
   <string name="revanced_restore_old_settings_menus_summary_off">Τα νέα μενού ρυθμίσεων εμφανίζονται</string>
-  </patch>
-  <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.backgroundplayback.backgroundPlaybackPatch"> -->
   <string name="revanced_shorts_disable_background_playback_title">Απενεργοποίηση αναπαραγωγής παρασκηνίου για τα Shorts</string>
   <string name="revanced_shorts_disable_background_playback_summary_on">Η αναπαραγωγή παρασκηνίου είναι απενεργοποιημένη για τα Shorts</string>
   <string name="revanced_shorts_disable_background_playback_summary_off">Η αναπαραγωγή παρασκηνίου είναι ενεργοποιημένη για τα Shorts</string>
-  </patch>
-  <patch id="misc.debugging.enableDebuggingPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.debugging.enableDebuggingPatch"> -->
   <string name="revanced_debug_screen_title">Εντοπισμός σφαλμάτων</string>
   <string name="revanced_debug_screen_summary">Ενεργοποίηση ή απενεργοποίηση επιλογών εντοπισμού σφαλμάτων</string>
   <string name="revanced_debug_title">Καταγραφή σφαλμάτων</string>
@@ -115,8 +115,8 @@ Second \"item\" text"</string>
   <string name="revanced_debug_toast_on_error_user_dialog_message">"Η απενεργοποίηση των μηνυμάτων σφαλμάτων κρύβει όλες τις ειδοποιήσεις σφαλμάτων που αφορούν το ReVanced.
 
 Δεν θα ειδοποιηθείτε για τυχόν απρόβλεπτα γεγονότα."</string>
-  </patch>
-  <patch id="layout.hide.general.hideLayoutComponentsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.general.hideLayoutComponentsPatch"> -->
   <string name="revanced_hide_album_cards_title">Κάρτες άλμπουμ</string>
   <string name="revanced_hide_album_cards_summary_on">Κρυμμένες</string>
   <string name="revanced_hide_album_cards_summary_off">Εμφανίζονται</string>
@@ -228,9 +228,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_artist_cards_title">Κάρτες καλλιτεχνών</string>
   <string name="revanced_hide_artist_cards_summary_on">Κρυμμένες</string>
   <string name="revanced_hide_artist_cards_summary_off">Εμφανίζονται</string>
-  <string name="revanced_hide_ai_generated_video_summary_section_title">Απόκρυψη της ενότητας \"Σύνοψη βίντεο που δημιουργήθηκε από AI\"</string>
-  <string name="revanced_hide_ai_generated_video_summary_section_summary_on">Η ενότητα σύνοψης βίντεο είναι κρυμμένη</string>
-  <string name="revanced_hide_ai_generated_video_summary_section_summary_off">Η ενότητα σύνοψης βίντεο εμφανίζεται</string>
+  <string name="revanced_hide_ai_generated_video_summary_section_title">Σύνοψη βίντεο που δημιουργήθηκε από AI</string>
+  <string name="revanced_hide_ai_generated_video_summary_section_summary_on">Κρυμμένη</string>
+  <string name="revanced_hide_ai_generated_video_summary_section_summary_off">Εμφανίζεται</string>
   <string name="revanced_hide_attributes_section_title">Ενότητα ιδιοτήτων</string>
   <string name="revanced_hide_attributes_section_summary_on">Κρυμμένη.\n\nΑφορά τις ιδιότητες: Επιλεγμένα μέρη, Παιχνίδια, Μουσική, και «Οι χρήστες ανέφεραν»</string>
   <string name="revanced_hide_attributes_section_summary_off">Εμφανίζεται.\n\nΑφορά τις ιδιότητες: Επιλεγμένα μέρη, Παιχνίδια, Μουσική, και «Οι χρήστες ανέφεραν»</string>
@@ -267,12 +267,12 @@ Second \"item\" text"</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">Εμφανίζεται</string>
   <string name="revanced_comments_screen_title">Σχόλια</string>
   <string name="revanced_comments_screen_summary">Απόκρυψη ή εμφάνιση στοιχείων στα σχόλια</string>
-  <string name="revanced_hide_comments_ai_chat_summary_title">Απόκρυψη σύνοψης συνομιλίας AI</string>
+  <string name="revanced_hide_comments_ai_chat_summary_title">Σύνοψη συνομιλίας που δημιουργήθηκε από AI</string>
   <string name="revanced_hide_comments_ai_chat_summary_summary_on">Κρυμμένη</string>
   <string name="revanced_hide_comments_ai_chat_summary_summary_off">Εμφανίζεται</string>
-  <string name="revanced_hide_comments_ai_summary_title">Απόκρυψη σύνοψης σχολίων AI</string>
-  <string name="revanced_hide_comments_ai_summary_summary_on">Η σύνοψη σχολίων είναι κρυμμένη</string>
-  <string name="revanced_hide_comments_ai_summary_summary_off">Εμφανίζεται η σύνοψη σχολίων</string>
+  <string name="revanced_hide_comments_ai_summary_title">Σύνοψη σχολίων που δημιουργήθηκε από AI</string>
+  <string name="revanced_hide_comments_ai_summary_summary_on">Κρυμμένη</string>
+  <string name="revanced_hide_comments_ai_summary_summary_off">Εμφανίζεται</string>
   <string name="revanced_hide_comments_by_members_header_title">Κεφαλίδα «Σχόλια από μέλη»</string>
   <string name="revanced_hide_comments_by_members_header_summary_on">Κρυμμένη</string>
   <string name="revanced_hide_comments_by_members_header_summary_off">Εμφανίζεται</string>
@@ -342,8 +342,8 @@ Second \"item\" text"</string>
   <string name="revanced_hide_keyword_toast_invalid_conflicting">Λέξη-κλειδί έχει αντικρουόμενες δηλώσεις: %s</string>
   <string name="revanced_hide_keyword_toast_invalid_length">Η λέξη-κλειδί είναι πολύ σύντομη και απαιτεί εισαγωγικά: %s</string>
   <string name="revanced_hide_keyword_toast_invalid_broad">Θα κρυφτούν όλα τα βίντεο με την λέξη-κλειδί: %s</string>
-  </patch>
-  <patch id="ad.general.hideAdsResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="ad.general.hideAdsResourcePatch"> -->
   <string name="revanced_hide_general_ads_title">Γενικές διαφημίσεις</string>
   <string name="revanced_hide_general_ads_summary_on">Κρυμμένες</string>
   <string name="revanced_hide_general_ads_summary_off">Εμφανίζονται</string>
@@ -385,18 +385,18 @@ Second \"item\" text"</string>
   <string name="revanced_hide_merchandise_banners_summary_off">Εμφανίζονται</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_hide_fullscreen_ads_feature_not_available_toast">Η απόκρυψη διαφημίσεων πλήρους οθόνης λειτουργεί μόνο με παλαιότερες συσκευές</string>
-  </patch>
-  <patch id="ad.getpremium.hideGetPremiumPatch">
+  <!-- </patch> -->
+  <!-- <patch id="ad.getpremium.hideGetPremiumPatch"> -->
   <string name="revanced_hide_get_premium_title">Προωθήσεις για απόκτηση YouTube Premium</string>
   <string name="revanced_hide_get_premium_summary_on">Κρυμμένες</string>
   <string name="revanced_hide_get_premium_summary_off">Εμφανίζονται</string>
-  </patch>
-  <patch id="ad.video.videoAdsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="ad.video.videoAdsPatch"> -->
   <string name="revanced_hide_video_ads_title">Διαφημίσεις βίντεο</string>
   <string name="revanced_hide_video_ads_summary_on">Κρυμμένες</string>
   <string name="revanced_hide_video_ads_summary_off">Εμφανίζονται</string>
-  </patch>
-  <patch id="interaction.copyvideourl.copyVideoUrlResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="interaction.copyvideourl.copyVideoUrlResourcePatch"> -->
   <string name="revanced_share_copy_url_success">Η διεύθυνση URL αντιγράφηκε στο πρόχειρο</string>
   <string name="revanced_share_copy_url_timestamp_success">Η διεύθυνση URL αντιγράφηκε με χρονική σήμανση</string>
   <string name="revanced_copy_video_url_title">Εμφάνιση κουμπιού αντιγραφής URL του βίντεο</string>
@@ -405,14 +405,14 @@ Second \"item\" text"</string>
   <string name="revanced_copy_video_url_timestamp_title">Εμφάνιση κουμπιού αντιγραφής URL με χρονική σήμανση</string>
   <string name="revanced_copy_video_url_timestamp_summary_on">Το κουμπί εμφανίζεται. Πατήστε για να αντιγράψετε τη διεύθυνση URL του βίντεο με χρονική σήμανση. Πατήστε παρατεταμένα για να αντιγράψετε τη διεύθυνση URL χωρίς χρονική σήμανση</string>
   <string name="revanced_copy_video_url_timestamp_summary_off">Το κουμπί δεν εμφανίζεται</string>
-  </patch>
-  <patch id="interaction.dialog.removeViewerDiscretionDialogPatch">
+  <!-- </patch> -->
+  <!-- <patch id="interaction.dialog.removeViewerDiscretionDialogPatch"> -->
   <string name="revanced_remove_viewer_discretion_dialog_title">Παράθυρο ηλικιακού περιορισμού</string>
   <string name="revanced_remove_viewer_discretion_dialog_summary_on">Κρυμμένο</string>
   <string name="revanced_remove_viewer_discretion_dialog_summary_off">Εμφανίζεται</string>
   <string name="revanced_remove_viewer_discretion_dialog_user_dialog_message">Αυτό δεν παρακάμπτει τον ηλικιακό περιορισμό. Απλώς τον αποδέχεται αυτόματα.</string>
-  </patch>
-  <patch id="interaction.downloads.downloadsResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="interaction.downloads.downloadsResourcePatch"> -->
   <string name="revanced_external_downloader_screen_title">Εξωτερικές λήψεις</string>
   <string name="revanced_external_downloader_screen_summary">Ρυθμίσεις για χρήση εξωτερικού προγράμματος λήψης</string>
   <string name="revanced_external_downloader_title">Εμφάνιση κουμπιού εξωτερικής λήψης</string>
@@ -425,18 +425,18 @@ Second \"item\" text"</string>
   <string name="revanced_external_downloader_name_title">Όνομα πακέτου προγράμματος λήψης</string>
   <string name="revanced_external_downloader_name_summary">Το όνομα πακέτου της εγκατεστημένης σας εξωτερικής εφαρμογής λήψης όπως το NewPipe ή το Seal</string>
   <string name="revanced_external_downloader_not_installed_warning">Το %s δεν είναι εγκατεστημένο. Παρακαλούμε εγκαταστήστε το.</string>
-  </patch>
-  <patch id="interaction.seekbar.disablePreciseSeekingGesturePatch">
+  <!-- </patch> -->
+  <!-- <patch id="interaction.seekbar.disablePreciseSeekingGesturePatch"> -->
   <string name="revanced_disable_precise_seeking_gesture_title">Απενεργοποίηση ακριβής αναζήτησης</string>
   <string name="revanced_disable_precise_seeking_gesture_summary_on">Η χειρονομία αναζήτησης καρέ-καρέ είναι απενεργοποιημένη</string>
   <string name="revanced_disable_precise_seeking_gesture_summary_off">Η χειρονομία αναζήτησης καρέ-καρέ είναι ενεργοποιημένη</string>
-  </patch>
-  <patch id="interaction.seekbar.enableSeekbarTappingPatch">
-  <string name="revanced_seekbar_tapping_title">Ενεργοποίηση πατήματος για αναζήτηση</string>
-  <string name="revanced_seekbar_tapping_summary_on">Ενεργοποιήθηκε η λειτουργία \"Πατήστε για αναζήτηση\"</string>
-  <string name="revanced_seekbar_tapping_summary_off">Η λειτουργία \"Πατήστε για αναζήτηση\" είναι απενεργοποιημένη</string>
-  </patch>
-  <patch id="interaction.swipecontrols.swipeControlsResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="interaction.seekbar.enableSeekbarTappingPatch"> -->
+  <string name="revanced_seekbar_tapping_title">Πάτημα για αναζήτηση στη γραμμή προόδου</string>
+  <string name="revanced_seekbar_tapping_summary_on">Το πάτημα για αναζήτηση στη γραμμή προόδου είναι ενεργοποιημένο</string>
+  <string name="revanced_seekbar_tapping_summary_off">Το πάτημα για αναζήτηση στη γραμμή προόδου είναι απενεργοποιημένο</string>
+  <!-- </patch> -->
+  <!-- <patch id="interaction.swipecontrols.swipeControlsResourcePatch"> -->
   <string name="revanced_swipe_brightness_title">Σάρωση οθόνης για φωτεινότητα</string>
   <string name="revanced_swipe_brightness_summary_on">"Η χειρονομία σάρωσης για αλλαγή φωτεινότητας στην πλήρη οθόνη είναι ενεργοποιημένη
 
@@ -447,9 +447,9 @@ Second \"item\" text"</string>
 
 Προσαρμόστε την ένταση ήχου σαρώνοντας κάθετα στη δεξιά πλευρά της οθόνης"</string>
   <string name="revanced_swipe_volume_summary_off">Η χειρονομία σάρωσης για αλλαγή έντασης ήχου στην πλήρη οθόνη είναι απενεργοποιημένη</string>
-  <string name="revanced_swipe_press_to_engage_title">Ενεργοποίηση χειρονομίας πατήματος για σάρωση</string>
-  <string name="revanced_swipe_press_to_engage_summary_on">Η λειτουργία \"Πατήστε για σάρωση\" είναι ενεργοποιημένη</string>
-  <string name="revanced_swipe_press_to_engage_summary_off">Η λειτουργία \"Πατήστε για σάρωση\" είναι απενεργοποιημένη</string>
+  <string name="revanced_swipe_press_to_engage_title">Πάτημα για σάρωση</string>
+  <string name="revanced_swipe_press_to_engage_summary_on">Η χειρονομία πατήματος για σάρωση είναι ενεργοποιημένη</string>
+  <string name="revanced_swipe_press_to_engage_summary_off">Η χειρονομία πατήματος για σάρωση είναι απενεργοποιημένη</string>
   <string name="revanced_swipe_haptic_feedback_title">Απόκριση δόνησης</string>
   <string name="revanced_swipe_haptic_feedback_summary_on">Η απόκριση δόνησης είναι ενεργοποιημένη</string>
   <string name="revanced_swipe_haptic_feedback_summary_off">Η απόκριση δόνησης είναι απενεργοποιημένη</string>
@@ -475,13 +475,13 @@ Second \"item\" text"</string>
   <string name="revanced_swipe_change_video_title">Χειρονομία εναλλαγής βίντεο στην πλήρη οθόνη</string>
   <string name="revanced_swipe_change_video_summary_on">Σάρωση αριστερά/δεξιά κατά τη λειτουργία πλήρους οθόνης για αλλαγή σε επόμενο/προηγούμενο βίντεο</string>
   <string name="revanced_swipe_change_video_summary_off">Η χειρονομία αλλαγής βίντεο κατά τη λειτουργία πλήρους οθόνης είναι ανενεργή</string>
-  </patch>
-  <patch id="layout.autocaptions.autoCaptionsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.autocaptions.autoCaptionsPatch"> -->
   <string name="revanced_auto_captions_title">Απενεργοποίηση αυτόματων υπότιτλων</string>
   <string name="revanced_auto_captions_summary_on">Οι αυτόματοι υπότιτλοι είναι απενεργοποιημένοι</string>
   <string name="revanced_auto_captions_summary_off">Οι αυτόματοι υπότιτλοι είναι ενεργοποιημένοι</string>
-  </patch>
-  <patch id="layout.buttons.action.hideButtonsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.buttons.action.hideButtonsPatch"> -->
   <string name="revanced_hide_buttons_screen_title">Κουμπιά ενεργειών</string>
   <string name="revanced_hide_buttons_screen_summary">Απόκρυψη ή εμφάνιση κουμπιών κάτω από βίντεο</string>
   <string name="revanced_disable_like_subscribe_glow_title">Απενεργοποίηση λάμψης κουμπιών «Μου αρέσει» και «Εγγραφή»</string>
@@ -519,8 +519,8 @@ Second \"item\" text"</string>
   <string name="revanced_hide_playlist_button_title">Κουμπί «Αποθήκευση»</string>
   <string name="revanced_hide_playlist_button_summary_on">Κρυμμένο</string>
   <string name="revanced_hide_playlist_button_summary_off">Εμφανίζεται</string>
-  </patch>
-  <patch id="layout.buttons.navigation.navigationButtonsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.buttons.navigation.navigationButtonsPatch"> -->
   <string name="revanced_navigation_buttons_screen_title">Κουμπιά γραμμής πλοήγησης</string>
   <string name="revanced_navigation_buttons_screen_summary">Απόκρυψη ή αλλαγή κουμπιών στη γραμμή πλοήγησης</string>
   <!-- 'Home' should be translated using the same localized wording YouTube displays for the tab. -->
@@ -557,14 +557,15 @@ Second \"item\" text"</string>
   <string name="revanced_disable_translucent_status_bar_title">Απενεργοποίηση διαφανούς γραμμής κατάστασης</string>
   <string name="revanced_disable_translucent_status_bar_summary_on">Η γραμμή κατάστασης δεν είναι διαφανής</string>
   <string name="revanced_disable_translucent_status_bar_summary_off">Η διαφάνεια της γραμμής κατάστασης ορίζεται αυτόματα</string>
+  <string name="revanced_disable_translucent_status_bar_user_dialog_message">Σε ορισμένες συσκευές, η ενεργοποίηση αυτής της λειτουργίας μπορεί να αλλάξει τη γραμμή πλοήγησης του συστήματος σε διαφανή.</string>
   <string name="revanced_disable_translucent_navigation_bar_light_title">Απενεργοποίηση διαφανούς γραμμής στο φωτεινό θέμα</string>
   <string name="revanced_disable_translucent_navigation_bar_light_summary_on">Η γραμμή πλοήγησης στο φωτεινό θέμα δεν είναι διαφανής</string>
   <string name="revanced_disable_translucent_navigation_bar_light_summary_off">Η διαφάνεια της γραμμής πλοήγησης στο φωτεινό θέμα ορίζεται αυτόματα</string>
   <string name="revanced_disable_translucent_navigation_bar_dark_title">Απενεργοποίηση διαφανούς γραμμής στο σκούρο θέμα</string>
   <string name="revanced_disable_translucent_navigation_bar_dark_summary_on">Η γραμμή πλοήγησης στο σκούρο θέμα δεν είναι διαφανής</string>
   <string name="revanced_disable_translucent_navigation_bar_dark_summary_off">Η διαφάνεια της γραμμής πλοήγησης στο σκούρο θέμα ορίζεται αυτόματα</string>
-  </patch>
-  <patch id="layout.hide.player.flyoutmenupanel.hidePlayerFlyoutMenuPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.player.flyoutmenupanel.hidePlayerFlyoutMenuPatch"> -->
   <string name="revanced_hide_player_flyout_title">Αναδυόμενο μενού ρυθμίσεων</string>
   <string name="revanced_hide_player_flyout_summary">Απόκρυψη ή εμφάνιση στοιχείων του αναδυόμενου μενού στην οθόνη αναπαραγωγής</string>
   <!-- 'Captions' should be translated using the same localized wording YouTube displays for the menu item. -->
@@ -618,8 +619,8 @@ Second \"item\" text"</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_title">Οδηγίες του μενού ποιότητας βίντεο</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_on">Κρυμμένες</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_off">Εμφανίζονται</string>
-  </patch>
-  <patch id="layout.buttons.overlay.hidePlayerOverlayButtonsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.buttons.overlay.hidePlayerOverlayButtonsPatch"> -->
   <string name="revanced_hide_player_previous_next_buttons_title">Κουμπιά προηγούμενου &amp; επόμενου βίντεο</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_on">Κρυμμένα</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">Εμφανίζονται</string>
@@ -633,36 +634,36 @@ Second \"item\" text"</string>
   <string name="revanced_hide_autoplay_button_title">Κουμπί αυτόματης αναπαραγωγής</string>
   <string name="revanced_hide_autoplay_button_summary_on">Κρυμμένο</string>
   <string name="revanced_hide_autoplay_button_summary_off">Εμφανίζεται</string>
-  </patch>
-  <patch id="layout.hide.endscreencards.hideEndscreenCardsResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.endscreencards.hideEndscreenCardsResourcePatch"> -->
   <string name="revanced_hide_endscreen_cards_title">Κάρτες τελικής οθόνης</string>
   <string name="revanced_hide_endscreen_cards_summary_on">Κρυμμένες</string>
   <string name="revanced_hide_endscreen_cards_summary_off">Εμφανίζονται</string>
-  </patch>
-  <patch id="layout.hide.fullscreenambientmode.disableFullscreenAmbientModePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.fullscreenambientmode.disableFullscreenAmbientModePatch"> -->
   <string name="revanced_disable_fullscreen_ambient_mode_title">Απενεργοποίηση λειτουργίας περιβάλλοντος σε πλήρη οθόνη</string>
   <string name="revanced_disable_fullscreen_ambient_mode_summary_on">Η λειτουργία περιβάλλοντος σε πλήρη οθόνη είναι απενεργοποιημένη</string>
   <string name="revanced_disable_fullscreen_ambient_mode_summary_off">Η λειτουργία περιβάλλοντος σε πλήρη οθόνη είναι ενεργοποιημένη</string>
-  </patch>
-  <patch id="layout.hide.infocards.hideInfocardsResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.infocards.hideInfocardsResourcePatch"> -->
   <string name="revanced_hide_info_cards_title">Κάρτες πληροφοριών</string>
   <string name="revanced_hide_info_cards_summary_on">Κρυμμένες</string>
   <string name="revanced_hide_info_cards_summary_off">Εμφανίζονται</string>
-  </patch>
-  <patch id="layout.hide.rollingnumber.disableRollingNumberAnimationPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.rollingnumber.disableRollingNumberAnimationPatch"> -->
   <string name="revanced_disable_rolling_number_animations_title">Απενεργοποίηση κινήσεων αριθμών</string>
   <string name="revanced_disable_rolling_number_animations_summary_on">Οι αριθμοί δε θα κινούνται αυξανόμενοι εκθετικά</string>
   <string name="revanced_disable_rolling_number_animations_summary_off">Οι αριθμοί κινούνται αυξανόμενοι εκθετικά</string>
-  </patch>
-  <patch id="layout.hide.seekbar.hideSeekbarPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.seekbar.hideSeekbarPatch"> -->
   <string name="revanced_hide_seekbar_title">Γραμμή προόδου στην οθόνη αναπαραγωγής</string>
   <string name="revanced_hide_seekbar_summary_on">Κρυμμένη</string>
   <string name="revanced_hide_seekbar_summary_off">Εμφανίζεται</string>
   <string name="revanced_hide_seekbar_thumbnail_title">Γραμμή προόδου σε μικρογραφίες βίντεο</string>
   <string name="revanced_hide_seekbar_thumbnail_summary_on">Κρυμμένη</string>
   <string name="revanced_hide_seekbar_thumbnail_summary_off">Εμφανίζεται</string>
-  </patch>
-  <patch id="layout.hide.shorts.hideShortsComponentsResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.shorts.hideShortsComponentsResourcePatch"> -->
   <string name="revanced_shorts_player_screen_title">Οθόνη αναπαραγωγής Shorts</string>
   <string name="revanced_shorts_player_screen_summary">Απόκρυψη ή εμφάνιση στοιχείων στην οθόνη αναπαραγωγής Shorts</string>
   <!-- 'home' should be translated using the same localized wording YouTube displays for the home tab. -->
@@ -764,43 +765,43 @@ Second \"item\" text"</string>
   <string name="revanced_hide_shorts_navigation_bar_title">Γραμμή πλοήγησης</string>
   <string name="revanced_hide_shorts_navigation_bar_summary_on">Η γραμμή πλοήγησης θα είναι κρυμμένη κατά την αναπαραγωγή Shorts</string>
   <string name="revanced_hide_shorts_navigation_bar_summary_off">Η γραμμή πλοήγησης εμφανίζεται κατά την αναπαραγωγή Shorts</string>
-  </patch>
-  <patch id="layout.hide.endscreensuggestion.hideEndScreenSuggestedVideoPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.endscreensuggestion.hideEndScreenSuggestedVideoPatch"> -->
   <string name="revanced_end_screen_suggested_video_title">Προτεινόμενο βίντεο τελικής οθόνης</string>
   <string name="revanced_end_screen_suggested_video_summary_on">"Κρυμμένο όταν η αυτόματη αναπαραγωγή είναι απενεργοποιημένη
 
 Η αυτόματη αναπαραγωγή μπορεί να αλλαχτεί στις ρυθμίσεις YouTube:
 Ρυθμίσεις → Αναπαραγωγή→ Αυτόματη αναπαραγωγή επόμενου βίντεο"</string>
   <string name="revanced_end_screen_suggested_video_summary_off">Εμφανίζεται</string>
-  </patch>
-  <patch id="layout.hide.time.hideTimestampPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.time.hideTimestampPatch"> -->
   <string name="revanced_hide_timestamp_title">Χρονική πρόοδος βίντεο</string>
   <string name="revanced_hide_timestamp_summary_on">Κρυμμένη</string>
   <string name="revanced_hide_timestamp_summary_off">Εμφανίζεται</string>
-  </patch>
-  <patch id="layout.panels.popup.playerPopupPanelsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.panels.popup.playerPopupPanelsPatch"> -->
   <string name="revanced_hide_player_popup_panels_title">Αναδυόμενα παράθυρα οθόνης αναπαραγωγής</string>
   <string name="revanced_hide_player_popup_panels_summary_on">Κρυμμένα</string>
   <string name="revanced_hide_player_popup_panels_summary_off">Εμφανίζονται</string>
-  </patch>
-  <patch id="layout.player.fullscreen.exitFullscreenPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.player.fullscreen.exitFullscreenPatch"> -->
   <string name="revanced_exit_fullscreen_title">Έξοδος από την λειτουργία πλήρους οθόνης στο τέλος του βίντεο</string>
   <string name="revanced_exit_fullscreen_entry_1">Ανενεργό</string>
   <string name="revanced_exit_fullscreen_entry_2">Κατακόρυφη</string>
   <string name="revanced_exit_fullscreen_entry_3">Οριζόντια</string>
   <string name="revanced_exit_fullscreen_entry_4">Κατακόρυφη και οριζόντια</string>
-  </patch>
-  <patch id="layout.player.fullscreen.openVideosFullscreen">
+  <!-- </patch> -->
+  <!-- <patch id="layout.player.fullscreen.openVideosFullscreen"> -->
   <string name="revanced_open_videos_fullscreen_portrait_title">Άνοιγμα των βίντεο σε πλήρη οθόνη με κατακόρυφη προβολή</string>
   <string name="revanced_open_videos_fullscreen_portrait_summary_on">Τα βίντεο ανοίγουν σε λειτουργία πλήρους οθόνης</string>
   <string name="revanced_open_videos_fullscreen_portrait_summary_off">Τα βίντεο δεν ανοίγουν σε λειτουργία πλήρους οθόνης</string>
-  </patch>
-  <patch id="layout.player.overlay.customPlayerOverlayOpacityResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.player.overlay.customPlayerOverlayOpacityResourcePatch"> -->
   <string name="revanced_player_overlay_opacity_title">Αδιαφάνεια φόντου οθόνης αναπαραγωγής</string>
   <string name="revanced_player_overlay_opacity_summary">Τιμή αδιαφάνειας μεταξύ 0-100, όπου το 0 είναι διαφανές</string>
   <string name="revanced_player_overlay_opacity_invalid_toast">Η αδιαφάνεια φόντου οθόνης αναπαραγωγής πρέπει να είναι μεταξύ 0-100</string>
-  </patch>
-  <patch id="layout.returnyoutubedislike.returnYouTubeDislikePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.returnyoutubedislike.returnYouTubeDislikePatch"> -->
   <!-- Toast shown if network connection times out. Translations of this should not be longer than the original English or the text can be clipped and not entirely shown. -->
   <string name="revanced_ryd_failure_connection_timeout">Dislike προσωρινά μη διαθέσιμα (καθυστέρηση API)</string>
   <string name="revanced_ryd_failure_connection_status_code">Δεδομένα dislike μη διαθέσιμα (κατάσταση %d)</string>
@@ -849,13 +850,13 @@ Second \"item\" text"</string>
   <string name="revanced_ryd_statistics_getNumberOfRateLimitRequestsEncountered_zero_summary">Δεν ανιχνεύτηκαν περιορισμοί ορίου πελάτη</string>
   <string name="revanced_ryd_statistics_getNumberOfRateLimitRequestsEncountered_non_zero_summary">Ανιχνεύθηκαν %d φορές περιορισμοί ορίου πελάτη</string>
   <string name="revanced_ryd_statistics_millisecond_text">%d χιλιοστά δευτερολέπτου</string>
-  </patch>
-  <patch id="layout.searchbar.wideSearchbarPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.searchbar.wideSearchbarPatch"> -->
   <string name="revanced_wide_searchbar_title">Ευρεία γραμμή αναζήτησης</string>
   <string name="revanced_wide_searchbar_summary_on">Η ευρεία γραμμή αναζήτησης είναι ενεργοποιημένη</string>
   <string name="revanced_wide_searchbar_summary_off">Η ευρεία γραμμή αναζήτησης είναι απενεργοποιημένη</string>
-  </patch>
-  <patch id="layout.seekbar.seekbarThumbnailsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.seekbar.seekbarThumbnailsPatch"> -->
   <string name="revanced_seekbar_thumbnails_high_quality_title">Μικρογραφίες υψηλής ποιότητας</string>
   <string name="revanced_seekbar_thumbnails_high_quality_summary_on">Οι μικρογραφίες της γραμμής προόδου είναι υψηλής ποιότητας</string>
   <string name="revanced_seekbar_thumbnails_high_quality_summary_off">Οι μικρογραφίες της γραμμής προόδου είναι μέτριας ποιότητας</string>
@@ -869,8 +870,8 @@ Second \"item\" text"</string>
   <string name="revanced_restore_old_seekbar_thumbnails_title">Παλιές μικρογραφίες γραμμής προόδου</string>
   <string name="revanced_restore_old_seekbar_thumbnails_summary_on">Οι μικρογραφίες προεπισκόπησης θα εμφανίζονται πάνω από τη γραμμή προόδου</string>
   <string name="revanced_restore_old_seekbar_thumbnails_summary_off">Οι μικρογραφίες προεπισκόπησης θα εμφανίζονται σε πλήρη οθόνη</string>
-  </patch>
-  <patch id="layout.sponsorblock.sponsorBlockResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.sponsorblock.sponsorBlockResourcePatch"> -->
   <string name="revanced_sb_enable_sb">Ενεργοποίηση του SponsorBlock</string>
   <string name="revanced_sb_enable_sb_sum">Το SponsorBlock είναι ένα σύστημα που προέρχεται από το κοινό για παράλειψη ενοχλητικών τμημάτων σε βίντεο YouTube</string>
   <string name="revanced_sb_appearance_category">Εμφάνιση</string>
@@ -1067,8 +1068,8 @@ Second \"item\" text"</string>
   <string name="revanced_sb_reset">Επαναφορά</string>
   <string name="revanced_sb_about">Σχετικά με</string>
   <string name="revanced_sb_about_api_sum">Τα δεδομένα παρέχονται από το SponsorBlock API. Πατήστε για να μάθετε περισσότερα και να δείτε λήψεις για άλλες πλατφόρμες</string>
-  </patch>
-  <patch id="layout.formfactor.changeFormFactorPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.formfactor.changeFormFactorPatch"> -->
   <string name="revanced_change_form_factor_title">Αλλαγή μορφής διάταξης</string>
   <string name="revanced_change_form_factor_entry_1">Προεπιλογή</string>
   <string name="revanced_change_form_factor_entry_2">Τηλέφωνο</string>
@@ -1082,8 +1083,8 @@ Second \"item\" text"</string>
 Διάταξη αυτοκινήτου
 • Τα Shorts ανοίγουν στην κανονική οθόνη αναπαραγωγής
 • Η ροή οργανώνεται ανά θέματα και κανάλια"</string>
-  </patch>
-  <patch id="layout.spoofappversion.spoofAppVersionPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.spoofappversion.spoofAppVersionPatch"> -->
   <string name="revanced_spoof_app_version_title">Τροποποίηση έκδοσης εφαρμογής</string>
   <string name="revanced_spoof_app_version_summary_on">Η έκδοση τροποποιείται</string>
   <string name="revanced_spoof_app_version_summary_off">Η έκδοση δεν τροποποιείται</string>
@@ -1097,8 +1098,8 @@ Second \"item\" text"</string>
   <string name="revanced_spoof_app_version_target_title">Έκδοση τροποποίησης της εφαρμογής</string>
   <string name="revanced_spoof_app_version_target_entry_1">19.35.36 - Επαναφορά των παλιών εικονιδίων της οθόνης αναπαραγωγής Shorts</string>
   <string name="revanced_spoof_app_version_target_entry_2">19.01.34 - Επαναφορά παλιών εικονιδίων γραμμής πλοήγησης</string>
-  </patch>
-  <patch id="layout.startpage.changeStartPagePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.startpage.changeStartPagePatch"> -->
   <string name="revanced_change_start_page_title">Αλλαγή της αρχικής σελίδας</string>
   <string name="revanced_change_start_page_entry_default">Προεπιλογή</string>
   <string name="revanced_change_start_page_entry_all_subscriptions">Όλες οι εγγραφές</string>
@@ -1124,27 +1125,27 @@ Second \"item\" text"</string>
   <string name="revanced_change_start_page_entry_virtual_reality">Εικονική Πραγματικότητα</string>
   <string name="revanced_change_start_page_entry_watch_later">Παρακολούθηση αργότερα</string>
   <string name="revanced_change_start_page_entry_your_clips">Τα κλιπ σας</string>
-  </patch>
-  <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch"> -->
   <string name="revanced_disable_resuming_shorts_player_title">Απενεργοποίηση συνέχισης των Shorts</string>
   <string name="revanced_disable_resuming_shorts_player_summary_on">Η αναπαραγωγή Shorts δε θα συνεχίζεται κατά την εκκίνηση της εφαρμογής</string>
   <string name="revanced_disable_resuming_shorts_player_summary_off">Η αναπαραγωγή Shorts θα συνεχίζεται κατά την εκκίνηση της εφαρμογής</string>
-  </patch>
-  <patch id="layout.shortsplayer.shortsPlayerTypePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.shortsplayer.shortsPlayerTypePatch"> -->
   <string name="revanced_shorts_player_type_title">Άνοιγμα Shorts με</string>
   <string name="revanced_shorts_player_type_shorts">Οθόνη αναπαραγωγής Shorts</string>
   <string name="revanced_shorts_player_type_regular_player">Οθόνη αναπαραγωγής κανονικών βίντεο </string>
   <string name="revanced_shorts_player_type_regular_player_fullscreen">Πλήρη οθόνη αναπαραγωγής κανονικών βίντεο </string>
-  </patch>
-  <patch id="layout.shortsautoplay.shortsAutoplayPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.shortsautoplay.shortsAutoplayPatch"> -->
   <string name="revanced_shorts_autoplay_title">Αυτόματη αναπαραγωγή Shorts</string>
   <string name="revanced_shorts_autoplay_summary_on">Τα επόμενα Shorts θα αναπαράγονται αυτόματα</string>
   <string name="revanced_shorts_autoplay_summary_off">Τα Shorts θα επαναλαμβάνονται</string>
   <string name="revanced_shorts_autoplay_background_title">Αυτόματη αναπαραγωγή Shorts στο παρασκήνιο</string>
   <string name="revanced_shorts_autoplay_background_summary_on">Τα επόμενα Shorts θα αναπαράγονται αυτόματα στο παρασκήνιο</string>
   <string name="revanced_shorts_autoplay_background_summary_off">Τα Shorts στο παρασκήνιο θα επαναλαμβάνονται</string>
-  </patch>
-  <patch id="layout.miniplayer.miniplayerPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.miniplayer.miniplayerPatch"> -->
   <string name="revanced_miniplayer_screen_title">Ελαχιστοποιημένη οθόνη αναπαραγωγής</string>
   <string name="revanced_miniplayer_screen_summary">Αλλαγή του στυλ της ελαχιστοποιημένης οθόνης αναπαραγωγής της εφαρμογής</string>
   <string name="revanced_miniplayer_type_title">Τύπος ελαχιστοποιημένης οθόνης αναπαραγωγής</string>
@@ -1194,8 +1195,8 @@ Second \"item\" text"</string>
   <string name="revanced_miniplayer_opacity_title">Αδιαφάνεια φόντου παρασκηνίου</string>
   <string name="revanced_miniplayer_opacity_summary">Τιμή αδιαφάνειας μεταξύ 0-100, όπου το 0 είναι διαφανές</string>
   <string name="revanced_miniplayer_opacity_invalid_toast">Η αδιαφάνεια φόντου οθόνης αναπαραγωγής πρέπει να είναι μεταξύ 0-100</string>
-  </patch>
-  <patch id="layout.theme.themePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.theme.themePatch"> -->
   <string name="revanced_gradient_loading_screen_title">Διαβάθμιση οθόνης φόρτωσης</string>
   <string name="revanced_gradient_loading_screen_summary_on">Η οθόνη φόρτωσης θα έχει σταδιακές αποχρώσεις φόντο</string>
   <string name="revanced_gradient_loading_screen_summary_off">Η οθόνη φόρτωσης θα έχει στατική απόχρωση φόντο</string>
@@ -1207,15 +1208,15 @@ Second \"item\" text"</string>
   <string name="revanced_seekbar_custom_color_accent_title">Προσαρμοσμένο χρώμα έμφασης γραμμής προόδου</string>
   <string name="revanced_seekbar_custom_color_accent_summary">Το χρώμα έμφασης της γραμμής προόδου</string>
   <string name="revanced_seekbar_custom_color_invalid">Μη έγκυρη τιμή χρώματος γραμμής προόδου</string>
-  </patch>
-  <patch id="layout.thumbnails.bypassImageRegionRestrictionsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.thumbnails.bypassImageRegionRestrictionsPatch"> -->
   <string name="revanced_bypass_image_region_restrictions_title">Παράκαμψη μπλοκαρίσματος φόρτωσης εικόνων</string>
   <string name="revanced_bypass_image_region_restrictions_summary_on">Χρησιμοποιείται το domain yt4.ggpht.com για την φόρτωση εικόνων</string>
   <string name="revanced_bypass_image_region_restrictions_summary_off">"Χρησιμοποιείται το αρχικό domain για την φόρτωση εικόνων
 
 Η ενεργοποίηση αυτής της ρύθμισης μπορεί να διορθώσει την φόρτωση εικόνων που είναι μπλοκαρισμένες σε ορισμένες περιοχές"</string>
-  </patch>
-  <patch id="layout.thumbnails.alternativeThumbnailsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.thumbnails.alternativeThumbnailsPatch"> -->
   <!-- 'Home' should be translated using the same localized wording YouTube displays for the home tab. -->
   <string name="revanced_alt_thumbnail_home_title">Αρχική σελίδα</string>
   <!-- 'Subscription' should be translated using the same localized wording YouTube displays for the subscription tab. -->
@@ -1248,26 +1249,26 @@ Second \"item\" text"</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_alt_thumbnail_dearrow_error">Το DeArrow είναι προσωρινά μη διαθέσιμο. (κωδικός κατάστασης: %s)</string>
   <string name="revanced_alt_thumbnail_dearrow_error_generic">Το DeArrow είναι προσωρινά μη διαθέσιμο</string>
-  </patch>
-  <patch id="misc.announcements.announcementsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.announcements.announcementsPatch"> -->
   <string name="revanced_announcements_title">Εμφάνιση ανακοινώσεων ReVanced</string>
   <string name="revanced_announcements_summary_on">Οι ανακοινώσεις κατά την εκκίνηση εμφανίζονται</string>
   <string name="revanced_announcements_summary_off">Οι ανακοινώσεις κατά την εκκίνηση δεν εμφανίζονται</string>
   <string name="revanced_announcements_enabled_summary">Εμφάνιση ανακοινώσεων κατά την εκκίνηση</string>
   <string name="revanced_announcements_connection_failed">Αποτυχία σύνδεσης με τον πάροχο ανακοινώσεων</string>
   <string name="revanced_announcements_dialog_dismiss">Παράλειψη</string>
-  </patch>
-  <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch"> -->
   <string name="revanced_check_watch_history_domain_name_dialog_title">Προειδοποίηση</string>
   <string name="revanced_check_watch_history_domain_name_dialog_message">Το ιστορικό παρακολούθησης δεν αποθηκεύεται.&lt;br&gt;&lt;br&gt;Πιθανό να συμβαίνει λόγω αποκλεισμού διαφημίσεων μέσω DNS ή μέσω διακομιστή μεσολάβησης δικτύου.&lt;br&gt;&lt;br&gt;Μια λύση γι\'αυτό θα ήταν να προσθέσετε σε whitelist το &lt;b&gt;s.youtube.com&lt;/b&gt; ή να απενεργοποιήστε τους DNS/proxy blockers.</string>
   <string name="revanced_check_watch_history_domain_name_dialog_ignore">Να μην εμφανιστεί ξανά</string>
-  </patch>
-  <patch id="misc.autorepeat.autoRepeatPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.autorepeat.autoRepeatPatch"> -->
   <string name="revanced_auto_repeat_title">Ενεργοποίηση αυτόματης επανάληψης</string>
   <string name="revanced_auto_repeat_summary_on">Η αυτόματη επανάληψη είναι ενεργοποιημένη</string>
   <string name="revanced_auto_repeat_summary_off">Η αυτόματη επανάληψη είναι απενεργοποιημένη</string>
-  </patch>
-  <patch id="misc.dimensions.spoof.spoofDeviceDimensionsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.dimensions.spoof.spoofDeviceDimensionsPatch"> -->
   <string name="revanced_spoof_device_dimensions_title">Παραποίηση διαστάσεων συσκευής</string>
   <string name="revanced_spoof_device_dimensions_summary_on">"Οι διαστάσεις συσκευής παραποιούνται
 
@@ -1276,39 +1277,39 @@ Second \"item\" text"</string>
 
 Η ενεργοποίηση αυτής της λειτουργίας μπορεί να ξεκλειδώσει υψηλότερες ποιότητες βίντεο"</string>
   <string name="revanced_spoof_device_dimensions_user_dialog_message">Η ενεργοποίηση αυτής της λειτουργίας μπορεί να προκαλέσει μικρο-κολλήματα κατά την αναπαραγωγή, χειρότερη διάρκεια ζωής μπαταρίας, και άλλες άγνωστες παρενέργειες.</string>
-  </patch>
-  <patch id="misc.gms.gmsCoreSupportResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.gms.gmsCoreSupportResourcePatch"> -->
   <string name="microg_settings_title">Ρυθμίσεις GmsCore</string>
   <string name="microg_settings_summary">Ρυθμίσεις για το MicroG GmsCore</string>
-  </patch>
-  <patch id="misc.links.bypassURLRedirectsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.links.bypassURLRedirectsPatch"> -->
   <string name="revanced_bypass_url_redirects_title">Παράκαμψη ανακατευθύνσεων συνδέσμων</string>
   <string name="revanced_bypass_url_redirects_summary_on">Οι ανακατευθύνσεις συνδέσμων URL παρακάμπτονται</string>
   <string name="revanced_bypass_url_redirects_summary_off">Οι ανακατευθύνσεις συνδέσμων URL δεν παρακάμπτονται</string>
-  </patch>
-  <patch id="misc.links.openLinksExternallyPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.links.openLinksExternallyPatch"> -->
   <string name="revanced_external_browser_title">Άνοιγμα συνδέσμων σε πρόγραμμα περιήγησης</string>
   <string name="revanced_external_browser_summary_on">Οι σύνδεσμοι ανοίγουν σε εξωτερικό πρόγραμμα περιήγησης</string>
   <string name="revanced_external_browser_summary_off">Οι σύνδεσμοι ανοίγουν στο εσωτερικό πρόγραμμα περιήγησης της εφαρμογής</string>
-  </patch>
-  <patch id="misc.privacy.removeTrackingQueryParameterPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.privacy.removeTrackingQueryParameterPatch"> -->
   <string name="revanced_remove_tracking_query_parameter_title">Καθαρισμός συνδέσμων κοινοποίησης</string>
   <string name="revanced_remove_tracking_query_parameter_summary_on">Η παράμετρος παρακολούθησης αφαιρείται από τους συνδέσμους στην κοινοποίηση</string>
   <string name="revanced_remove_tracking_query_parameter_summary_off">Η παράμετρος παρακολούθησης δεν αφαιρείται από τους συνδέσμους στην κοινοποίηση</string>
-  </patch>
-  <patch id="misc.zoomhaptics.zoomHapticsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.zoomhaptics.zoomHapticsPatch"> -->
   <string name="revanced_disable_zoom_haptics_title">Απενεργοποίηση απόκρισης δόνησης χειρονομίας ζουμ</string>
   <string name="revanced_disable_zoom_haptics_summary_on">Η απόκριση δόνησης είναι απενεργοποιημένη</string>
   <string name="revanced_disable_zoom_haptics_summary_off">Η απόκριση δόνησης είναι ενεργοποιημένη</string>
-  </patch>
-  <patch id="video.audio.forceOriginalAudioPatch">
+  <!-- </patch> -->
+  <!-- <patch id="video.audio.forceOriginalAudioPatch"> -->
   <string name="revanced_force_original_audio_title">Εξαναγκασμός αρχικής γλώσσας ήχου</string>
   <string name="revanced_force_original_audio_summary_on">Χρησιμοποιείται η αρχική γλώσσα ήχου</string>
   <string name="revanced_force_original_audio_summary_off">Χρησιμοποιείται ο προεπιλεγμένος ήχος</string>
   <!-- 'Spoof video streams' should be the same translation used for revanced_spoof_video_streams_screen_title -->
   <string name="revanced_force_original_audio_not_available">Για να χρησιμοποιήσετε αυτήν τη λειτουργία, αλλάξτε την επιλογή «Παραποίηση ροών βίντεο» σε iOS TV</string>
-  </patch>
-  <patch id="video.quality.rememberVideoQualityPatch">
+  <!-- </patch> -->
+  <!-- <patch id="video.quality.rememberVideoQualityPatch"> -->
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
   <string name="revanced_video_quality_default_entry_1">Αυτόματη</string>
   <string name="revanced_remember_video_quality_last_selected_title">Απομνημόνευση αλλαγών ποιότητας βίντεο</string>
@@ -1325,13 +1326,13 @@ Second \"item\" text"</string>
   <string name="revanced_remember_video_quality_wifi">Wi-Fi</string>
   <string name="revanced_remember_video_quality_toast">Η προεπιλεγμένη ποιότητα %1$s άλλαξε σε: %2$s</string>
   <string name="revanced_remember_video_quality_toast_shorts">Η ποιότητα Shorts με %1$s άλλαξε σε: %2$s</string>
-  </patch>
-  <patch id="video.speed.button.playbackSpeedButtonPatch">
+  <!-- </patch> -->
+  <!-- <patch id="video.speed.button.playbackSpeedButtonPatch"> -->
   <string name="revanced_playback_speed_dialog_button_title">Εμφάνιση κουμπιού αλλαγής ταχύτητας</string>
   <string name="revanced_playback_speed_dialog_button_summary_on">Το κουμπί εμφανίζεται</string>
   <string name="revanced_playback_speed_dialog_button_summary_off">Το κουμπί δεν εμφανίζεται</string>
-  </patch>
-  <patch id="video.speed.custom.customPlaybackSpeedPatch">
+  <!-- </patch> -->
+  <!-- <patch id="video.speed.custom.customPlaybackSpeedPatch"> -->
   <string name="revanced_custom_speed_menu_title">Μενού προσαρμοσμένης ταχύτητας αναπαραγωγής</string>
   <string name="revanced_custom_speed_menu_summary_on">Το μενού προσαρμοσμένης ταχύτητας αναπαραγωγής εμφανίζεται</string>
   <string name="revanced_custom_speed_menu_summary_off">Το μενού προσαρμοσμένης ταχύτητας αναπαραγωγής δεν εμφανίζεται</string>
@@ -1342,30 +1343,30 @@ Second \"item\" text"</string>
   <string name="revanced_custom_playback_speeds_auto">Αυτόματη</string>
   <string name="revanced_speed_tap_and_hold_title">Προσαρμοσμένη ταχύτητα παρατεταμένου πατήματος</string>
   <string name="revanced_speed_tap_and_hold_summary">Ταχύτητα αναπαραγωγής μεταξύ 0-8</string>
-  </patch>
-  <patch id="video.speed.remember.rememberPlaybackSpeedPatch">
+  <!-- </patch> -->
+  <!-- <patch id="video.speed.remember.rememberPlaybackSpeedPatch"> -->
   <string name="revanced_remember_playback_speed_last_selected_title">Απομνημόνευση αλλαγών ταχύτητας αναπαραγωγής</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_on">Οι αλλαγές ταχύτητας αναπαραγωγής ισχύουν για όλα τα βίντεο</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_off">Οι αλλαγές ταχύτητας αναπαραγωγής ισχύουν μόνο για το τρέχον βίντεο</string>
   <string name="revanced_playback_speed_default_title">Προεπιλεγμένη ταχύτητα αναπαραγωγής</string>
   <string name="revanced_remember_playback_speed_toast">Η προεπιλεγμένη ταχύτητα άλλαξε σε: %s</string>
-  </patch>
-  <patch id="video.hdr.disableHdrPatch">
+  <!-- </patch> -->
+  <!-- <patch id="video.hdr.disableHdrPatch"> -->
   <string name="revanced_disable_hdr_video_title">Απενεργοποίηση βίντεο HDR</string>
   <string name="revanced_disable_hdr_video_summary_on">Τα βίντεο HDR είναι απενεργοποιημένα</string>
   <string name="revanced_disable_hdr_video_summary_off">Τα βίντεο HDR είναι ενεργοποιημένα</string>
-  </patch>
-  <patch id="video.quality.advancedVideoQualityMenuPatch">
+  <!-- </patch> -->
+  <!-- <patch id="video.quality.advancedVideoQualityMenuPatch"> -->
   <string name="revanced_advanced_video_quality_menu_title">Εμφάνιση προχωρημένου μενού ποιότητας βίντεο</string>
   <string name="revanced_advanced_video_quality_menu_summary_on">Εμφανίζεται το προχωρημένο μενού ποιότητας βίντεο</string>
   <string name="revanced_advanced_video_quality_menu_summary_off">Δεν εμφανίζεται το προχωρημένο μενού ποιότητας βίντεο</string>
-  </patch>
-  <patch id="interaction.seekbar.enableSlideToSeekPatch">
+  <!-- </patch> -->
+  <!-- <patch id="interaction.seekbar.enableSlideToSeekPatch"> -->
   <string name="revanced_slide_to_seek_title">Χειρονομία συρσίματος για αναζήτηση</string>
   <string name="revanced_slide_to_seek_summary_on">Η χειρονομία συρσίματος για αναζήτηση στη γραμμή προόδου είναι ενεργοποιημένη</string>
   <string name="revanced_slide_to_seek_summary_off">Η χειρονομία συρσίματος για αναζήτηση στη γραμμή προόδου είναι απενεργοποιημένη</string>
-  </patch>
-  <patch id="misc.fix.playback.spoofVideoStreamsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.fix.playback.spoofVideoStreamsPatch"> -->
   <string name="revanced_spoof_video_streams_screen_title">Παραποίηση ροών βίντεο</string>
   <string name="revanced_spoof_video_streams_screen_summary">Παραποίηση ροών βίντεο του προγράμματος πελάτη για την αποφυγή προβλημάτων αναπαραγωγής</string>
   <string name="revanced_spoof_video_streams_title">Παραποίηση ροών βίντεο</string>
@@ -1395,46 +1396,46 @@ Second \"item\" text"</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Το πρόγραμμα πελάτη εμφανίζεται στο μενού «Στατιστικά για σπασίκλες»</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Το πρόγραμμα πελάτη δεν εμφανίζεται στο μενού «Στατιστικά για σπασίκλες»</string>
   <string name="revanced_spoof_video_streams_language_title">Προεπιλεγμένη γλώσσα ροής ήχου VR</string>
-  </patch>
-  </app>
-  <app id="twitch">
-  <patch id="ad.audio.audioAdsPatch">
+  <!-- </patch> -->
+  <!-- </app> -->
+  <!-- <app id="twitch"> -->
+  <!-- <patch id="ad.audio.audioAdsPatch"> -->
   <string name="revanced_block_audio_ads_title">Αποκλεισμός διαφημίσεων ήχου</string>
   <string name="revanced_block_audio_ads_summary_on">Οι διαφημίσεις ήχου έχουν αποκλειστεί</string>
   <string name="revanced_block_audio_ads_summary_off">Οι διαφημίσεις ήχου δεν έχουν αποκλειστεί</string>
-  </patch>
-  <patch id="ad.embedded.embeddedAdsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="ad.embedded.embeddedAdsPatch"> -->
   <string name="revanced_embedded_ads_service_unavailable">%s δεν είναι διαθέσιμο, ενδέχεται να εμφανιστούν διαφημίσεις. Δοκιμάστε να αλλάξετε την υπηρεσία αποκλεισμού διαφημίσεων στις ρυθμίσεις.</string>
   <string name="revanced_embedded_ads_service_failed">%s επέστρεψε ένα σφάλμα, ενδέχεται να εμφανιστούν διαφημίσεις. Δοκιμάστε να αλλάξετε την υπηρεσία αποκλεισμού διαφημίσεων στις ρυθμίσεις.</string>
   <string name="revanced_block_embedded_ads_title">Αποκλεισμός ενσωματωμένων διαφημίσεων βίντεο</string>
   <string name="revanced_block_embedded_ads_entry_1">Ανενεργό</string>
   <string name="revanced_block_embedded_ads_entry_2">Διαμεσολαβητής Luminous</string>
   <string name="revanced_block_embedded_ads_entry_3">Διαμεσολαβητής PurpleAdBlock</string>
-  </patch>
-  <patch id="ad.video.videoAdsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="ad.video.videoAdsPatch"> -->
   <string name="revanced_block_video_ads_title">Αποκλεισμός διαφημίσεων βίντεο</string>
   <string name="revanced_block_video_ads_summary_on">Οι διαφημίσεις βίντεο έχουν αποκλειστεί</string>
   <string name="revanced_block_video_ads_summary_off">Οι διαφημίσεις βίντεο δεν έχουν αποκλειστεί</string>
-  </patch>
-  <patch id="chat.antidelete.showDeletedMessagesPatch">
+  <!-- </patch> -->
+  <!-- <patch id="chat.antidelete.showDeletedMessagesPatch"> -->
   <string name="revanced_deleted_msg">το μήνυμα διαγράφηκε</string>
   <string name="revanced_show_deleted_messages_title">Εμφάνιση διαγραμμένων μηνυμάτων</string>
   <string name="revanced_show_deleted_messages_entry_1">Να μην εμφανίζονται διαγραμμένα μηνύματα</string>
   <string name="revanced_show_deleted_messages_entry_2">Απόκρυψη διαγραμμένων μηνυμάτων πίσω από ένα spoiler</string>
   <string name="revanced_show_deleted_messages_entry_3">Εμφάνιση διαγραμμένων μηνυμάτων ως σβησμένο κείμενο</string>
-  </patch>
-  <patch id="chat.autoclaim.autoClaimChannelPointsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="chat.autoclaim.autoClaimChannelPointsPatch"> -->
   <string name="revanced_auto_claim_channel_points_title">Αυτόματη εξαργύρωση Πόντων Καναλιού</string>
   <string name="revanced_auto_claim_channel_points_summary_on">Οι Πόντοι Καναλιών εξαργυρώνονται αυτόματα</string>
   <string name="revanced_auto_claim_channel_points_summary_off">Οι Πόντοι Καναλιών δεν εξαργυρώνονται αυτόματα</string>
-  </patch>
-  <patch id="debug.debugModePatch">
+  <!-- </patch> -->
+  <!-- <patch id="debug.debugModePatch"> -->
   <!-- Twitch specific internal debug mode, and not the same as 'revanced_debug_title' -->
   <string name="revanced_twitch_debug_mode_title">Λειτουργία εντοπισμού σφαλμάτων Twitch</string>
   <string name="revanced_twitch_debug_mode_summary_on">Η λειτουργία εντοπισμού σφαλμάτων Twitch είναι ενεργοποιημένη (δε συνιστάται)</string>
   <string name="revanced_twitch_debug_mode_summary_off">Η λειτουργία εντοπισμού σφαλμάτων Twitch είναι απενεργοποιημένη</string>
-  </patch>
-  <patch id="misc.settings.settingsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.settings.settingsPatch"> -->
   <string name="revanced_settings">Ρυθμίσεις ReVanced</string>
   <string name="revanced_about_title">Ομάδα προγραμματιστών</string>
   <string name="revanced_about_summary">Σχετικά με το ReVanced</string>
@@ -1451,6 +1452,6 @@ Second \"item\" text"</string>
   <string name="revanced_twitch_debug_title">Καταγραφή σφαλμάτων</string>
   <string name="revanced_twitch_debug_summary_on">Η καταγραφή σφαλμάτων είναι ενεργή</string>
   <string name="revanced_twitch_debug_summary_off">Η καταγραφή σφαλμάτων είναι ανενεργή</string>
-  </patch>
-  </app>
+  <!-- </patch> -->
+  <!-- </app> -->
 </resources>

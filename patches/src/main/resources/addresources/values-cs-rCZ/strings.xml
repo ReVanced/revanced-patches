@@ -20,8 +20,8 @@ Second \"item\" text"</string>
 
 -->
 <resources>
-  <app id="shared">
-  <patch id="misc.checks.checkEnvironmentPatch">
+  <!-- <app id="shared"> -->
+  <!-- <patch id="misc.checks.checkEnvironmentPatch"> -->
   <string name="revanced_check_environment_failed_title">Kontrola proběhla neúspěšně</string>
   <string name="revanced_check_environment_dialog_open_official_source_button">Otevřít oficiální webovou stránku</string>
   <string name="revanced_check_environment_dialog_ignore_button">Ignorovat</string>
@@ -31,8 +31,8 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time">Vygenerována před více než 10 minutami</string>
   <string name="revanced_check_environment_not_near_patch_time_days">Vygenerována před %s dny</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">Datum sestavení souboru APK je poškozeno</string>
-  </patch>
-  <patch id="misc.settings.settingsResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.settings.settingsResourcePatch"> -->
   <string name="revanced_settings_submenu_title">Nastavení</string>
   <string name="revanced_settings_confirm_user_dialog_title">Přejete si pokračovat?</string>
   <string name="revanced_settings_reset">Výchozí</string>
@@ -57,8 +57,8 @@ Nové jazyky přeložíte na translate.revanced.app"</string>
   <string name="revanced_settings_about_links_header">Odkazy na oficiální stránky</string>
   <!-- NOTE: the about strings above are duplicated in the TikTok about screen code,
                  and changes made here must also be made there. -->
-  </patch>
-  <patch id="misc.gms.gmsCoreSupportResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.gms.gmsCoreSupportResourcePatch"> -->
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="gms_core_toast_not_installed_message">MicroG GmsCore není nainstalován. Nainstalujte jej.</string>
   <string name="gms_core_dialog_title">Požadovaná akce</string>
@@ -74,10 +74,10 @@ Zakázání optimalizace baterie pro MicroG nebude mít negativní vliv na spot�
 
 Klepněte na tlačítko Pokračovat a povolte změny optimalizace."</string>
   <string name="gms_core_dialog_continue_text">Pokračovat</string>
-  </patch>
-  </app>
-  <app id="youtube">
-  <patch id="misc.settings.settingsPatch">
+  <!-- </patch> -->
+  <!-- </app> -->
+  <!-- <app id="youtube"> -->
+  <!-- <patch id="misc.settings.settingsPatch"> -->
   <string name="revanced_settings_screen_00_about_title">O aplikaci</string>
   <string name="revanced_settings_screen_01_ads_title">Reklamy</string>
   <string name="revanced_settings_screen_02_alt_thumbnails_title">Alternativní náhledy</string>
@@ -91,13 +91,13 @@ Klepněte na tlačítko Pokračovat a povolte změny optimalizace."</string>
   <string name="revanced_restore_old_settings_menus_title">Obnovit staré menu nastavení</string>
   <string name="revanced_restore_old_settings_menus_summary_on">Staré menu nastavení se zobrazují</string>
   <string name="revanced_restore_old_settings_menus_summary_off">Staré menu nastavení se nezobrazují</string>
-  </patch>
-  <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.backgroundplayback.backgroundPlaybackPatch"> -->
   <string name="revanced_shorts_disable_background_playback_title">Zakázat automatické přehrávání Shorts v pozadí</string>
   <string name="revanced_shorts_disable_background_playback_summary_on">Přehrávání Shorts v pozadí je zakázáno</string>
   <string name="revanced_shorts_disable_background_playback_summary_off">Přehrávání Shorts v pozadí je povoleno</string>
-  </patch>
-  <patch id="misc.debugging.enableDebuggingPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.debugging.enableDebuggingPatch"> -->
   <string name="revanced_debug_screen_title">Debugování</string>
   <string name="revanced_debug_screen_summary">Povolit nebo zakázat debugovací možnosti</string>
   <string name="revanced_debug_title">Debugovací záznamy</string>
@@ -115,8 +115,8 @@ Klepněte na tlačítko Pokračovat a povolte změny optimalizace."</string>
   <string name="revanced_debug_toast_on_error_user_dialog_message">"Vypnutí chybových toastů skryje všechna chybová oznámení ReVanced.
 
 Nebudete informováni o žádné neočekávané události."</string>
-  </patch>
-  <patch id="layout.hide.general.hideLayoutComponentsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.general.hideLayoutComponentsPatch"> -->
   <string name="revanced_hide_album_cards_title">Skrýt karty alb</string>
   <string name="revanced_hide_album_cards_summary_on">Karty alb jsou skryté</string>
   <string name="revanced_hide_album_cards_summary_off">Karty alb jsou zobrazeny</string>
@@ -340,8 +340,8 @@ Omezení:
   <string name="revanced_hide_keyword_toast_invalid_conflicting">Klíčové slovo má konfliktní deklarace: %s</string>
   <string name="revanced_hide_keyword_toast_invalid_length">Klíčové slovo je příliš krátké a vyžaduje uvozovky: %s</string>
   <string name="revanced_hide_keyword_toast_invalid_broad">Klíčové slovo skryje všechna videa: %s</string>
-  </patch>
-  <patch id="ad.general.hideAdsResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="ad.general.hideAdsResourcePatch"> -->
   <string name="revanced_hide_general_ads_title">Skrýt běžné reklamy</string>
   <string name="revanced_hide_general_ads_summary_on">Běžné reklamy jsou skryty</string>
   <string name="revanced_hide_general_ads_summary_off">Běžné reklamy jsou zobrazeny</string>
@@ -383,18 +383,18 @@ Tato funkce je dostupná pouze pro starší zařízení"</string>
   <string name="revanced_hide_merchandise_banners_summary_off">Merchandise bannery jsou zobrazeny</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_hide_fullscreen_ads_feature_not_available_toast">Blokování reklam na celou obrazovku je funkční pouze na starších zařízeních</string>
-  </patch>
-  <patch id="ad.getpremium.hideGetPremiumPatch">
+  <!-- </patch> -->
+  <!-- <patch id="ad.getpremium.hideGetPremiumPatch"> -->
   <string name="revanced_hide_get_premium_title">Skrýt nabídky YouTube Premium</string>
   <string name="revanced_hide_get_premium_summary_on">Nabídky YouTube Premium pod videem jsou skryty</string>
   <string name="revanced_hide_get_premium_summary_off">Nabídky YouTube Premium pod videem jsou zobrazeny</string>
-  </patch>
-  <patch id="ad.video.videoAdsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="ad.video.videoAdsPatch"> -->
   <string name="revanced_hide_video_ads_title">Skrýt reklamy ve videu</string>
   <string name="revanced_hide_video_ads_summary_on">Reklamy ve videu jsou skryty</string>
   <string name="revanced_hide_video_ads_summary_off">Reklamy ve videu jsou zobrazeny</string>
-  </patch>
-  <patch id="interaction.copyvideourl.copyVideoUrlResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="interaction.copyvideourl.copyVideoUrlResourcePatch"> -->
   <string name="revanced_share_copy_url_success">URL zkopírováno do schránky</string>
   <string name="revanced_share_copy_url_timestamp_success">Adresa URL s časovým razítkem zkopírována</string>
   <string name="revanced_copy_video_url_title">Zobrazit tlačítko pro kopírování adresy URL videa</string>
@@ -403,14 +403,14 @@ Tato funkce je dostupná pouze pro starší zařízení"</string>
   <string name="revanced_copy_video_url_timestamp_title">Zobrazit tlačítko pro kopírování adresy URL videa s časovým razítkem</string>
   <string name="revanced_copy_video_url_timestamp_summary_on">Zobrazí se tlačítko. Klepnutím zkopírujete URL videa s časovou značkou. Klepnutím a podržením zkopírujete bez časové značky</string>
   <string name="revanced_copy_video_url_timestamp_summary_off">Tlačítko se nezobrazuje</string>
-  </patch>
-  <patch id="interaction.dialog.removeViewerDiscretionDialogPatch">
+  <!-- </patch> -->
+  <!-- <patch id="interaction.dialog.removeViewerDiscretionDialogPatch"> -->
   <string name="revanced_remove_viewer_discretion_dialog_title">Odstranit dialog s upozorněním na věkové omezení</string>
   <string name="revanced_remove_viewer_discretion_dialog_summary_on">Dialog bude odstraněn</string>
   <string name="revanced_remove_viewer_discretion_dialog_summary_off">Dialog bude zobrazen</string>
   <string name="revanced_remove_viewer_discretion_dialog_user_dialog_message">Tímto krokem neobcházíte věkové omezení. Pouze jej automaticky akceptujete.</string>
-  </patch>
-  <patch id="interaction.downloads.downloadsResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="interaction.downloads.downloadsResourcePatch"> -->
   <string name="revanced_external_downloader_screen_title">Externí stahování</string>
   <string name="revanced_external_downloader_screen_summary">Nastavení pro použití externího stahování</string>
   <string name="revanced_external_downloader_title">Zobrazit tlačítko pro externí stahování</string>
@@ -423,18 +423,18 @@ Tato funkce je dostupná pouze pro starší zařízení"</string>
   <string name="revanced_external_downloader_name_title">Název balíčku stahovače</string>
   <string name="revanced_external_downloader_name_summary">Název balíčku vaší nainstalované externí aplikace pro stahování, například NewPipe nebo Seal</string>
   <string name="revanced_external_downloader_not_installed_warning">%s není nainstalováno. Prosím, nainstalujte.</string>
-  </patch>
-  <patch id="interaction.seekbar.disablePreciseSeekingGesturePatch">
+  <!-- </patch> -->
+  <!-- <patch id="interaction.seekbar.disablePreciseSeekingGesturePatch"> -->
   <string name="revanced_disable_precise_seeking_gesture_title">Zakázat gesto pro přesné hledání</string>
   <string name="revanced_disable_precise_seeking_gesture_summary_on">Gesto je zakázáno</string>
   <string name="revanced_disable_precise_seeking_gesture_summary_off">Gesto je povoleno</string>
-  </patch>
-  <patch id="interaction.seekbar.enableSeekbarTappingPatch">
+  <!-- </patch> -->
+  <!-- <patch id="interaction.seekbar.enableSeekbarTappingPatch"> -->
   <string name="revanced_seekbar_tapping_title">Povolit klepnutím přejít na</string>
   <string name="revanced_seekbar_tapping_summary_on">Klepnutím aktivujete vyhledávání</string>
   <string name="revanced_seekbar_tapping_summary_off">Klepnutím přejít na je zakázané</string>
-  </patch>
-  <patch id="interaction.swipecontrols.swipeControlsResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="interaction.swipecontrols.swipeControlsResourcePatch"> -->
   <string name="revanced_swipe_brightness_title">Povolit gesto pro jas</string>
   <string name="revanced_swipe_brightness_summary_on">"Potažení jasu na celou obrazovku je povoleno
 
@@ -473,13 +473,13 @@ Hlasitost se upravuje svislým přejetím po pravé straně obrazovky"</string>
   <string name="revanced_swipe_change_video_title">Povolit přejetí prstem pro změnu videa</string>
   <string name="revanced_swipe_change_video_summary_on">Přejetí prstem v režimu celé obrazovky změní video na další/předchozí</string>
   <string name="revanced_swipe_change_video_summary_off">Přejetí prstem v režimu celé obrazovky nebude video měnit na další/předchozí</string>
-  </patch>
-  <patch id="layout.autocaptions.autoCaptionsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.autocaptions.autoCaptionsPatch"> -->
   <string name="revanced_auto_captions_title">Zakázat automatické titulky</string>
   <string name="revanced_auto_captions_summary_on">Automatické titulky jsou zakázány</string>
   <string name="revanced_auto_captions_summary_off">Automatické titulky jsou povoleny</string>
-  </patch>
-  <patch id="layout.buttons.action.hideButtonsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.buttons.action.hideButtonsPatch"> -->
   <string name="revanced_hide_buttons_screen_title">Akční tlačítka</string>
   <string name="revanced_hide_buttons_screen_summary">Skrýt nebo zobrazit tlačítka pod videi</string>
   <string name="revanced_disable_like_subscribe_glow_title">Deaktivovat zvýraznění tlačítek Like a Subscribe</string>
@@ -517,8 +517,8 @@ Hlasitost se upravuje svislým přejetím po pravé straně obrazovky"</string>
   <string name="revanced_hide_playlist_button_title">Skrýt Uložit do playlistu</string>
   <string name="revanced_hide_playlist_button_summary_on">Tlačítko Uložit do playlistu je skryto</string>
   <string name="revanced_hide_playlist_button_summary_off">Tlačítko Uložit do seznamu skladeb je zobrazeno</string>
-  </patch>
-  <patch id="layout.buttons.navigation.navigationButtonsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.buttons.navigation.navigationButtonsPatch"> -->
   <string name="revanced_navigation_buttons_screen_title">Navigační tlačítka</string>
   <string name="revanced_navigation_buttons_screen_summary">Skrýt nebo změnit tlačítka na navigačním panelu</string>
   <!-- 'Home' should be translated using the same localized wording YouTube displays for the tab. -->
@@ -555,14 +555,15 @@ Pokud změna tohoto nastavení nemá žádný účinek, zkuste přepnout do rež
   <string name="revanced_disable_translucent_status_bar_title">Deaktivovat průsvitný stavový řádek</string>
   <string name="revanced_disable_translucent_status_bar_summary_on">Statusový řádek je neprůhledný</string>
   <string name="revanced_disable_translucent_status_bar_summary_off">Statusový řádek je neprůhledný nebo průsvitný</string>
+  <string name="revanced_disable_translucent_status_bar_user_dialog_message">Na některých zařízeních může aktivace této funkce změnit navigační lištu systému na průhlednou.</string>
   <string name="revanced_disable_translucent_navigation_bar_light_title">Deaktivovat světlý průsvitný navigační panel</string>
   <string name="revanced_disable_translucent_navigation_bar_light_summary_on">Navigační panel v světlém režimu je neprůhledný</string>
   <string name="revanced_disable_translucent_navigation_bar_light_summary_off">Navigační lišta v světlém režimu je neprůhledná nebo průsvitná</string>
   <string name="revanced_disable_translucent_navigation_bar_dark_title">Zakázat tmavý průsvitný panel</string>
   <string name="revanced_disable_translucent_navigation_bar_dark_summary_on">Navigační panel v tmavém režimu je neprůhledný</string>
   <string name="revanced_disable_translucent_navigation_bar_dark_summary_off">Navigační lišta v tmavém režimu je neprůhledná nebo průsvitná</string>
-  </patch>
-  <patch id="layout.hide.player.flyoutmenupanel.hidePlayerFlyoutMenuPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.player.flyoutmenupanel.hidePlayerFlyoutMenuPatch"> -->
   <string name="revanced_hide_player_flyout_title">Menu vyskakovacích oken</string>
   <string name="revanced_hide_player_flyout_summary">Skrýt nebo zobrazit položky menu vyskakovacích oken přehrávače</string>
   <!-- 'Captions' should be translated using the same localized wording YouTube displays for the menu item. -->
@@ -616,8 +617,8 @@ Pokud změna tohoto nastavení nemá žádný účinek, zkuste přepnout do rež
   <string name="revanced_hide_player_flyout_video_quality_footer_title">Skrýt zápatí menu kvality videa</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_on">Zápatí menu kvality videa je skryto</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_off">Zápatí menu kvality videa je zobrazeno</string>
-  </patch>
-  <patch id="layout.buttons.overlay.hidePlayerOverlayButtonsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.buttons.overlay.hidePlayerOverlayButtonsPatch"> -->
   <string name="revanced_hide_player_previous_next_buttons_title">Skrýt tlačítka Předchozí a Další</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_on">Tlačítka jsou skryta</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">Tlačítka jsou zobrazena</string>
@@ -631,36 +632,36 @@ Pokud změna tohoto nastavení nemá žádný účinek, zkuste přepnout do rež
   <string name="revanced_hide_autoplay_button_title">Skrýt tlačítko Automatické přehrávání</string>
   <string name="revanced_hide_autoplay_button_summary_on">Tlačítko automatického přehrávání je skryto</string>
   <string name="revanced_hide_autoplay_button_summary_off">Tlačítko automatického přehrávání je zobrazeno</string>
-  </patch>
-  <patch id="layout.hide.endscreencards.hideEndscreenCardsResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.endscreencards.hideEndscreenCardsResourcePatch"> -->
   <string name="revanced_hide_endscreen_cards_title">Skrýt karty s informacemi o videu</string>
   <string name="revanced_hide_endscreen_cards_summary_on">Karty s informacemi o videu jsou skryty</string>
   <string name="revanced_hide_endscreen_cards_summary_off">Karty s informacemi o videu jsou zobrazeny</string>
-  </patch>
-  <patch id="layout.hide.fullscreenambientmode.disableFullscreenAmbientModePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.fullscreenambientmode.disableFullscreenAmbientModePatch"> -->
   <string name="revanced_disable_fullscreen_ambient_mode_title">Deaktivovat okolní režim v celoobrazovkovém režimu</string>
   <string name="revanced_disable_fullscreen_ambient_mode_summary_on">Režim Ambient je zakázán</string>
   <string name="revanced_disable_fullscreen_ambient_mode_summary_off">Režim Ambient je povolen</string>
-  </patch>
-  <patch id="layout.hide.infocards.hideInfocardsResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.infocards.hideInfocardsResourcePatch"> -->
   <string name="revanced_hide_info_cards_title">Skrýt informační karty</string>
   <string name="revanced_hide_info_cards_summary_on">Informační karty jsou skryty</string>
   <string name="revanced_hide_info_cards_summary_off">Informační karty jsou zobrazeny</string>
-  </patch>
-  <patch id="layout.hide.rollingnumber.disableRollingNumberAnimationPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.rollingnumber.disableRollingNumberAnimationPatch"> -->
   <string name="revanced_disable_rolling_number_animations_title">Zakázat animaci číselného posuvníku</string>
   <string name="revanced_disable_rolling_number_animations_summary_on">Čísla posuvníku se neanimují</string>
   <string name="revanced_disable_rolling_number_animations_summary_off">Čísla posuvníku se animují</string>
-  </patch>
-  <patch id="layout.hide.seekbar.hideSeekbarPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.seekbar.hideSeekbarPatch"> -->
   <string name="revanced_hide_seekbar_title">Skrýt posuvník ve video přehrávači</string>
   <string name="revanced_hide_seekbar_summary_on">Posuvník ve video přehrávači je skryt</string>
   <string name="revanced_hide_seekbar_summary_off">Posuvník ve video přehrávači je zobrazen</string>
   <string name="revanced_hide_seekbar_thumbnail_title">Skrýt posuvník v miniaturách videa</string>
   <string name="revanced_hide_seekbar_thumbnail_summary_on">Posuvník miniatur je skryt</string>
   <string name="revanced_hide_seekbar_thumbnail_summary_off">Posuvník miniatur je zobrazen</string>
-  </patch>
-  <patch id="layout.hide.shorts.hideShortsComponentsResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.shorts.hideShortsComponentsResourcePatch"> -->
   <string name="revanced_shorts_player_screen_title">Přehrávač Shorts</string>
   <string name="revanced_shorts_player_screen_summary">Skrýt nebo zobrazit komponenty v přehrávači Shorts</string>
   <!-- 'home' should be translated using the same localized wording YouTube displays for the home tab. -->
@@ -762,43 +763,43 @@ Pokud změna tohoto nastavení nemá žádný účinek, zkuste přepnout do rež
   <string name="revanced_hide_shorts_navigation_bar_title">Skrýt navigační panel</string>
   <string name="revanced_hide_shorts_navigation_bar_summary_on">Navigační panel je skrytý</string>
   <string name="revanced_hide_shorts_navigation_bar_summary_off">Navigační panel je zobrazen</string>
-  </patch>
-  <patch id="layout.hide.endscreensuggestion.hideEndScreenSuggestedVideoPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.endscreensuggestion.hideEndScreenSuggestedVideoPatch"> -->
   <string name="revanced_end_screen_suggested_video_title">Skrýt navrhované video na konci obrazovky</string>
   <string name="revanced_end_screen_suggested_video_summary_on">"Navrhované video na konci obrazovky je skryté, když je automatické přehrávání vypnuté.
 
 Automatické přehrávání lze změnit v nastavení YouTube:
 Nastavení → Přehrávání → Automatické přehrávání dalšího videa"</string>
   <string name="revanced_end_screen_suggested_video_summary_off">Navrhované video na konci obrazovky se zobrazuje</string>
-  </patch>
-  <patch id="layout.hide.time.hideTimestampPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.time.hideTimestampPatch"> -->
   <string name="revanced_hide_timestamp_title">Skrýt čas videa</string>
   <string name="revanced_hide_timestamp_summary_on">Čas je skrytý</string>
   <string name="revanced_hide_timestamp_summary_off">Čas je zobrazen</string>
-  </patch>
-  <patch id="layout.panels.popup.playerPopupPanelsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.panels.popup.playerPopupPanelsPatch"> -->
   <string name="revanced_hide_player_popup_panels_title">Skrýt vyskakovací panely přehrávače</string>
   <string name="revanced_hide_player_popup_panels_summary_on">Vyskakovací panely přehrávače jsou skryté</string>
   <string name="revanced_hide_player_popup_panels_summary_off">Vyskakovací panely přehrávače jsou zobrazeny</string>
-  </patch>
-  <patch id="layout.player.fullscreen.exitFullscreenPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.player.fullscreen.exitFullscreenPatch"> -->
   <string name="revanced_exit_fullscreen_title">Ukončete režim celé obrazovky na konci videa</string>
   <string name="revanced_exit_fullscreen_entry_1">Zakázáno</string>
   <string name="revanced_exit_fullscreen_entry_2">Na výšku</string>
   <string name="revanced_exit_fullscreen_entry_3">Na šířku</string>
   <string name="revanced_exit_fullscreen_entry_4">Na výšku i na šířku</string>
-  </patch>
-  <patch id="layout.player.fullscreen.openVideosFullscreen">
+  <!-- </patch> -->
+  <!-- <patch id="layout.player.fullscreen.openVideosFullscreen"> -->
   <string name="revanced_open_videos_fullscreen_portrait_title">Otevřít videa v režimu na celou obrazovku na výšku</string>
   <string name="revanced_open_videos_fullscreen_portrait_summary_on">Videa se otevírají na celou obrazovku</string>
   <string name="revanced_open_videos_fullscreen_portrait_summary_off">Videa se neotevírají na celou obrazovku</string>
-  </patch>
-  <patch id="layout.player.overlay.customPlayerOverlayOpacityResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.player.overlay.customPlayerOverlayOpacityResourcePatch"> -->
   <string name="revanced_player_overlay_opacity_title">Průhlednost překrytí přehrávače</string>
   <string name="revanced_player_overlay_opacity_summary">Hodnota průhlednosti mezi 0-100, kde 0 je průhledné</string>
   <string name="revanced_player_overlay_opacity_invalid_toast">Průhlednost překrytí přehrávače musí být mezi 0-100</string>
-  </patch>
-  <patch id="layout.returnyoutubedislike.returnYouTubeDislikePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.returnyoutubedislike.returnYouTubeDislikePatch"> -->
   <!-- Toast shown if network connection times out. Translations of this should not be longer than the original English or the text can be clipped and not entirely shown. -->
   <string name="revanced_ryd_failure_connection_timeout">Nelíbí se se dočasně nedají použít (časový limit API)</string>
   <string name="revanced_ryd_failure_connection_status_code">Nelíbí se se nedají použít (stav %d)</string>
@@ -847,13 +848,13 @@ Omezení: Počty „Nelíbí se mi“ se nemusí zobrazit v anonymním režimu"<
   <string name="revanced_ryd_statistics_getNumberOfRateLimitRequestsEncountered_zero_summary">Nebyl zaznamenán žádný limit rychlosti klienta</string>
   <string name="revanced_ryd_statistics_getNumberOfRateLimitRequestsEncountered_non_zero_summary">Limit rychlosti klienta byl zaznamenán %d krát</string>
   <string name="revanced_ryd_statistics_millisecond_text">%d milisekund</string>
-  </patch>
-  <patch id="layout.searchbar.wideSearchbarPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.searchbar.wideSearchbarPatch"> -->
   <string name="revanced_wide_searchbar_title">Povolit široký vyhledávací panel</string>
   <string name="revanced_wide_searchbar_summary_on">Široký vyhledávací panel je povolen</string>
   <string name="revanced_wide_searchbar_summary_off">Široký vyhledávací panel je zakázán</string>
-  </patch>
-  <patch id="layout.seekbar.seekbarThumbnailsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.seekbar.seekbarThumbnailsPatch"> -->
   <string name="revanced_seekbar_thumbnails_high_quality_title">Povolit miniatury vysoké kvality</string>
   <string name="revanced_seekbar_thumbnails_high_quality_summary_on">Miniatury posuvníku jsou vysoké kvality</string>
   <string name="revanced_seekbar_thumbnails_high_quality_summary_off">Miniatury posuvníku jsou střední kvality</string>
@@ -867,8 +868,8 @@ Tato funkce funguje nejlépe s kvalitou videa 720p nebo nižší a při použit�
   <string name="revanced_restore_old_seekbar_thumbnails_title">Obnovit staré miniatury posuvníku</string>
   <string name="revanced_restore_old_seekbar_thumbnails_summary_on">Miniatury posuvníku se zobrazí nad posuvníkem</string>
   <string name="revanced_restore_old_seekbar_thumbnails_summary_off">Miniatury posuvníku se zobrazí na celou obrazovku</string>
-  </patch>
-  <patch id="layout.sponsorblock.sponsorBlockResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.sponsorblock.sponsorBlockResourcePatch"> -->
   <string name="revanced_sb_enable_sb">Povolit SponsorBlock</string>
   <string name="revanced_sb_enable_sb_sum">SponsorBlock je systém s participací komunity pro přeskakování otravných částí videí na YouTube</string>
   <string name="revanced_sb_appearance_category">Vzhled</string>
@@ -1065,8 +1066,8 @@ Jste připraveni k odeslání?"</string>
   <string name="revanced_sb_reset">Výchozí</string>
   <string name="revanced_sb_about">O aplikaci</string>
   <string name="revanced_sb_about_api_sum">Data poskytuje rozhraní API SponsorBlock. Klepněte zde, abyste se dozvěděli více a zobrazili si soubory ke stažení pro další platformy</string>
-  </patch>
-  <patch id="layout.formfactor.changeFormFactorPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.formfactor.changeFormFactorPatch"> -->
   <string name="revanced_change_form_factor_title">Rozvržení formuláře</string>
   <string name="revanced_change_form_factor_entry_1">Výchozí</string>
   <string name="revanced_change_form_factor_entry_2">Telefon</string>
@@ -1080,8 +1081,8 @@ Rozložení tabletu
 Rozložení automobilu
 • Shorts se otevírají v běžném přehrávači
 • Kanál je uspořádán podle témat a kanálů"</string>
-  </patch>
-  <patch id="layout.spoofappversion.spoofAppVersionPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.spoofappversion.spoofAppVersionPatch"> -->
   <string name="revanced_spoof_app_version_title">Napodobit verzi aplikace</string>
   <string name="revanced_spoof_app_version_summary_on">Verze napodobena</string>
   <string name="revanced_spoof_app_version_summary_off">Verze není napodobena</string>
@@ -1095,8 +1096,8 @@ Pokud bude později vypnuta, doporučujeme vymazat data aplikace, aby se zabrán
   <string name="revanced_spoof_app_version_target_title">Cíl napodobení verze aplikace</string>
   <string name="revanced_spoof_app_version_target_entry_1">19.35.36 - Obnovuje staré ikony Shorts přehrávače</string>
   <string name="revanced_spoof_app_version_target_entry_2">19.01.34 – Obnovit staré ikony navigace</string>
-  </patch>
-  <patch id="layout.startpage.changeStartPagePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.startpage.changeStartPagePatch"> -->
   <string name="revanced_change_start_page_title">Nastavit úvodní stránku</string>
   <string name="revanced_change_start_page_entry_default">Výchozí</string>
   <string name="revanced_change_start_page_entry_all_subscriptions">Všechna předplatná</string>
@@ -1122,27 +1123,27 @@ Pokud bude později vypnuta, doporučujeme vymazat data aplikace, aby se zabrán
   <string name="revanced_change_start_page_entry_virtual_reality">Virtuální realita</string>
   <string name="revanced_change_start_page_entry_watch_later">Sledovat později</string>
   <string name="revanced_change_start_page_entry_your_clips">Vaše klipy</string>
-  </patch>
-  <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch"> -->
   <string name="revanced_disable_resuming_shorts_player_title">Zakázat obnovení přehrávače Shorts</string>
   <string name="revanced_disable_resuming_shorts_player_summary_on">Přehrávač Shorts nebude obnoven při spuštění aplikace</string>
   <string name="revanced_disable_resuming_shorts_player_summary_off">Přehrávač Shorts se po spuštění aplikace znovu spustí</string>
-  </patch>
-  <patch id="layout.shortsplayer.shortsPlayerTypePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.shortsplayer.shortsPlayerTypePatch"> -->
   <string name="revanced_shorts_player_type_title">Otevřít Shorts s</string>
   <string name="revanced_shorts_player_type_shorts">Přehrávač Shorts</string>
   <string name="revanced_shorts_player_type_regular_player">Běžný přehrávač</string>
   <string name="revanced_shorts_player_type_regular_player_fullscreen">Normální přehrávač (celá obrazovka)</string>
-  </patch>
-  <patch id="layout.shortsautoplay.shortsAutoplayPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.shortsautoplay.shortsAutoplayPatch"> -->
   <string name="revanced_shorts_autoplay_title">Automatické přehrávání Shorts</string>
   <string name="revanced_shorts_autoplay_summary_on">Shorts se budou automaticky přehrávat</string>
   <string name="revanced_shorts_autoplay_summary_off">Shorts se budou opakovat</string>
   <string name="revanced_shorts_autoplay_background_title">Automatické přehrávání Shorts v pozadí</string>
   <string name="revanced_shorts_autoplay_background_summary_on">Přehrávání Shorts v pozadí se bude automaticky přehrávat</string>
   <string name="revanced_shorts_autoplay_background_summary_off">Přehrávání Shorts v pozadí se bude opakovat</string>
-  </patch>
-  <patch id="layout.miniplayer.miniplayerPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.miniplayer.miniplayerPatch"> -->
   <string name="revanced_miniplayer_screen_title">Mini přehrávač</string>
   <string name="revanced_miniplayer_screen_summary">Změnit styl minimalizovaného přehrávače v aplikaci</string>
   <string name="revanced_miniplayer_type_title">Typ přehrávače</string>
@@ -1192,8 +1193,8 @@ Přejeďte prstem pro rozbalení nebo zavření"</string>
   <string name="revanced_miniplayer_opacity_title">Neprůhlednost překrytí</string>
   <string name="revanced_miniplayer_opacity_summary">Hodnota průhlednosti v rozmezí 0-100, kde 0 je průhledné</string>
   <string name="revanced_miniplayer_opacity_invalid_toast">Průhlednost překrytí přehrávače musí být v rozmezí 0-100</string>
-  </patch>
-  <patch id="layout.theme.themePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.theme.themePatch"> -->
   <string name="revanced_gradient_loading_screen_title">Povolit přechodovou obrazovku načítání</string>
   <string name="revanced_gradient_loading_screen_summary_on">Obrazovka načítání bude mít přechodové pozadí</string>
   <string name="revanced_gradient_loading_screen_summary_off">Obrazovka načítání bude mít pevné pozadí</string>
@@ -1205,15 +1206,15 @@ Přejeďte prstem pro rozbalení nebo zavření"</string>
   <string name="revanced_seekbar_custom_color_accent_title">Vlastní zvýrazněná barva posuvníku</string>
   <string name="revanced_seekbar_custom_color_accent_summary">Zvýrazněná barva posuvníku</string>
   <string name="revanced_seekbar_custom_color_invalid">Neplatná hodnota barvy posuvníku</string>
-  </patch>
-  <patch id="layout.thumbnails.bypassImageRegionRestrictionsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.thumbnails.bypassImageRegionRestrictionsPatch"> -->
   <string name="revanced_bypass_image_region_restrictions_title">Obcházet omezení oblasti obrázků</string>
   <string name="revanced_bypass_image_region_restrictions_summary_on">Používá se hostitel obrázků yt4.ggpht.com</string>
   <string name="revanced_bypass_image_region_restrictions_summary_off">"Používá se původní hostitel obrázků
 
 Povolení této funkce může opravit chybějící obrázky, které jsou v některých oblastech blokovány"</string>
-  </patch>
-  <patch id="layout.thumbnails.alternativeThumbnailsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.thumbnails.alternativeThumbnailsPatch"> -->
   <!-- 'Home' should be translated using the same localized wording YouTube displays for the home tab. -->
   <string name="revanced_alt_thumbnail_home_title">Karta Domů</string>
   <!-- 'Subscription' should be translated using the same localized wording YouTube displays for the subscription tab. -->
@@ -1248,26 +1249,26 @@ Klepnutím sem se dozvíte více o DeArrow"</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_alt_thumbnail_dearrow_error">DeArrow je dočasně nedostupný (kód stavu: %s)</string>
   <string name="revanced_alt_thumbnail_dearrow_error_generic">DeArrow je dočasně nedostupný</string>
-  </patch>
-  <patch id="misc.announcements.announcementsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.announcements.announcementsPatch"> -->
   <string name="revanced_announcements_title">Zobrazit oznámení ReVanced</string>
   <string name="revanced_announcements_summary_on">Oznámení při spuštění jsou zobrazena</string>
   <string name="revanced_announcements_summary_off">Oznámení při spuštění nejsou zobrazena</string>
   <string name="revanced_announcements_enabled_summary">Zobrazit oznámení při spuštění</string>
   <string name="revanced_announcements_connection_failed">Nepodařilo se připojit k poskytovateli oznámení</string>
   <string name="revanced_announcements_dialog_dismiss">Zrušit</string>
-  </patch>
-  <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch"> -->
   <string name="revanced_check_watch_history_domain_name_dialog_title">Varování</string>
   <string name="revanced_check_watch_history_domain_name_dialog_message">Vaše historie sledování není ukládána.&lt;br&gt;&lt;br&gt;Příčinou je s největší pravděpodobností DNS blokátor reklam nebo síťový proxy server.&lt;br&gt;&lt;br&gt;Chcete-li to opravit, přidejte&lt;b&gt;s.youtube.com&lt;/b&gt; na whitelist nebo vypněte všechny DNS blokátory a proxy servery.</string>
   <string name="revanced_check_watch_history_domain_name_dialog_ignore">Už nezobrazovat</string>
-  </patch>
-  <patch id="misc.autorepeat.autoRepeatPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.autorepeat.autoRepeatPatch"> -->
   <string name="revanced_auto_repeat_title">Povolit automatické opakování</string>
   <string name="revanced_auto_repeat_summary_on">Automatické opakování je povoleno</string>
   <string name="revanced_auto_repeat_summary_off">Automatické opakování je zakázáno</string>
-  </patch>
-  <patch id="misc.dimensions.spoof.spoofDeviceDimensionsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.dimensions.spoof.spoofDeviceDimensionsPatch"> -->
   <string name="revanced_spoof_device_dimensions_title">Napodobovat rozměry zařízení</string>
   <string name="revanced_spoof_device_dimensions_summary_on">"Rozměry zařízení jsou zfalšovány
 
@@ -1276,39 +1277,39 @@ Mohou být odemčeny vyšší kvality videa, ale může dojít k zadrhávání p
 
 Povolením této funkce lze odemknout vyšší kvality videa"</string>
   <string name="revanced_spoof_device_dimensions_user_dialog_message">Povolení může způsobit zasekávání přehrávání, zhoršenou výdrž baterie a neznámé vedlejší účinky.</string>
-  </patch>
-  <patch id="misc.gms.gmsCoreSupportResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.gms.gmsCoreSupportResourcePatch"> -->
   <string name="microg_settings_title">Nastavení GmsCore</string>
   <string name="microg_settings_summary">Nastavení pro GmsCore</string>
-  </patch>
-  <patch id="misc.links.bypassURLRedirectsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.links.bypassURLRedirectsPatch"> -->
   <string name="revanced_bypass_url_redirects_title">Obcházet přesměrování URL</string>
   <string name="revanced_bypass_url_redirects_summary_on">Přesměrování URL jsou obcházena</string>
   <string name="revanced_bypass_url_redirects_summary_off">Přesměrování URL nejsou obcházena</string>
-  </patch>
-  <patch id="misc.links.openLinksExternallyPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.links.openLinksExternallyPatch"> -->
   <string name="revanced_external_browser_title">Otevírat odkazy v prohlížeči</string>
   <string name="revanced_external_browser_summary_on">Otevírání odkazů v externím prohlížeči</string>
   <string name="revanced_external_browser_summary_off">Otevírání odkazů v prohlížeči v aplikaci</string>
-  </patch>
-  <patch id="misc.privacy.removeTrackingQueryParameterPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.privacy.removeTrackingQueryParameterPatch"> -->
   <string name="revanced_remove_tracking_query_parameter_title">Odstranit sledovací parametr dotazu</string>
   <string name="revanced_remove_tracking_query_parameter_summary_on">Sledovací parametr dotazu je odstraněn z odkazů</string>
   <string name="revanced_remove_tracking_query_parameter_summary_off">Sledovací parametr dotazu není odstraněn z odkazů</string>
-  </patch>
-  <patch id="misc.zoomhaptics.zoomHapticsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.zoomhaptics.zoomHapticsPatch"> -->
   <string name="revanced_disable_zoom_haptics_title">Zakázat haptiku pro zoom</string>
   <string name="revanced_disable_zoom_haptics_summary_on">Haptika je zakázána</string>
   <string name="revanced_disable_zoom_haptics_summary_off">Haptika je povolena</string>
-  </patch>
-  <patch id="video.audio.forceOriginalAudioPatch">
+  <!-- </patch> -->
+  <!-- <patch id="video.audio.forceOriginalAudioPatch"> -->
   <string name="revanced_force_original_audio_title">Vynutit původní jazyk zvuku</string>
   <string name="revanced_force_original_audio_summary_on">Použít původní jazyk zvuku</string>
   <string name="revanced_force_original_audio_summary_off">Používání výchozího zvuku</string>
   <!-- 'Spoof video streams' should be the same translation used for revanced_spoof_video_streams_screen_title -->
   <string name="revanced_force_original_audio_not_available">Chcete-li používat tuto funkci, změňte možnost „Zfalšovat datové proudy videa“ na iOS TV</string>
-  </patch>
-  <patch id="video.quality.rememberVideoQualityPatch">
+  <!-- </patch> -->
+  <!-- <patch id="video.quality.rememberVideoQualityPatch"> -->
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
   <string name="revanced_video_quality_default_entry_1">Automaticky</string>
   <string name="revanced_remember_video_quality_last_selected_title">Pamatovat si změny kvality videa</string>
@@ -1325,13 +1326,13 @@ Povolením této funkce lze odemknout vyšší kvality videa"</string>
   <string name="revanced_remember_video_quality_wifi">Wi-Fi</string>
   <string name="revanced_remember_video_quality_toast">Výchozí kvalita %1$s změněna na: %2$s</string>
   <string name="revanced_remember_video_quality_toast_shorts">Změněna kvalita Shorts %1$s na: %2$s</string>
-  </patch>
-  <patch id="video.speed.button.playbackSpeedButtonPatch">
+  <!-- </patch> -->
+  <!-- <patch id="video.speed.button.playbackSpeedButtonPatch"> -->
   <string name="revanced_playback_speed_dialog_button_title">Zobrazit tlačítko dialogu rychlosti</string>
   <string name="revanced_playback_speed_dialog_button_summary_on">Tlačítko je zobrazeno</string>
   <string name="revanced_playback_speed_dialog_button_summary_off">Tlačítko se nezobrazuje</string>
-  </patch>
-  <patch id="video.speed.custom.customPlaybackSpeedPatch">
+  <!-- </patch> -->
+  <!-- <patch id="video.speed.custom.customPlaybackSpeedPatch"> -->
   <string name="revanced_custom_speed_menu_title">Menu vlastní rychlosti přehrávání</string>
   <string name="revanced_custom_speed_menu_summary_on">Menu vlastní rychlosti se zobrazuje</string>
   <string name="revanced_custom_speed_menu_summary_off">Menu vlastní rychlosti se nezobrazuje</string>
@@ -1342,30 +1343,30 @@ Povolením této funkce lze odemknout vyšší kvality videa"</string>
   <string name="revanced_custom_playback_speeds_auto">Automaticky</string>
   <string name="revanced_speed_tap_and_hold_title">Vlastní rychlost stisknutí a podržení</string>
   <string name="revanced_speed_tap_and_hold_summary">Rychlost přehrávání 0 až 8</string>
-  </patch>
-  <patch id="video.speed.remember.rememberPlaybackSpeedPatch">
+  <!-- </patch> -->
+  <!-- <patch id="video.speed.remember.rememberPlaybackSpeedPatch"> -->
   <string name="revanced_remember_playback_speed_last_selected_title">Pamatovat si změny rychlosti přehrávání</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_on">Změny rychlosti přehrávání se vztahují na všechna videa</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_off">Změny rychlosti přehrávání se vztahují pouze na aktuální video</string>
   <string name="revanced_playback_speed_default_title">Výchozí rychlost přehrávání</string>
   <string name="revanced_remember_playback_speed_toast">Výchozí rychlost změněna na: %s</string>
-  </patch>
-  <patch id="video.hdr.disableHdrPatch">
+  <!-- </patch> -->
+  <!-- <patch id="video.hdr.disableHdrPatch"> -->
   <string name="revanced_disable_hdr_video_title">Vypnout HDR video</string>
   <string name="revanced_disable_hdr_video_summary_on">HDR video je vypnuté.</string>
   <string name="revanced_disable_hdr_video_summary_off">HDR video je zapnuté.</string>
-  </patch>
-  <patch id="video.quality.advancedVideoQualityMenuPatch">
+  <!-- </patch> -->
+  <!-- <patch id="video.quality.advancedVideoQualityMenuPatch"> -->
   <string name="revanced_advanced_video_quality_menu_title">Zobrazit rozšířené menu kvality videa</string>
   <string name="revanced_advanced_video_quality_menu_summary_on">Zobrazuje se rozšířené menu kvality videa</string>
   <string name="revanced_advanced_video_quality_menu_summary_off">Nezobrazuje se rozšířené menu kvality videa</string>
-  </patch>
-  <patch id="interaction.seekbar.enableSlideToSeekPatch">
+  <!-- </patch> -->
+  <!-- <patch id="interaction.seekbar.enableSlideToSeekPatch"> -->
   <string name="revanced_slide_to_seek_title">Povolit posun pro hledání</string>
   <string name="revanced_slide_to_seek_summary_on">Posun pro hledání je povolen</string>
   <string name="revanced_slide_to_seek_summary_off">Posun pro hledání není povolen</string>
-  </patch>
-  <patch id="misc.fix.playback.spoofVideoStreamsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.fix.playback.spoofVideoStreamsPatch"> -->
   <string name="revanced_spoof_video_streams_screen_title">Napodobovat video streamy</string>
   <string name="revanced_spoof_video_streams_screen_summary">Napodobovat klientské video streamy, aby se zabránilo problémům s přehráváním</string>
   <string name="revanced_spoof_video_streams_title">Napodobovat video streamy</string>
@@ -1395,46 +1396,46 @@ AVC má maximální rozlišení 1080p, zvukový kodek Opus není dostupný a př
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Typ klienta se zobrazuje ve statistikách pro nadšence</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Klient je skrytý ve statistikách pro nadšence</string>
   <string name="revanced_spoof_video_streams_language_title">Výchozí jazyk zvukového streamu ve VR</string>
-  </patch>
-  </app>
-  <app id="twitch">
-  <patch id="ad.audio.audioAdsPatch">
+  <!-- </patch> -->
+  <!-- </app> -->
+  <!-- <app id="twitch"> -->
+  <!-- <patch id="ad.audio.audioAdsPatch"> -->
   <string name="revanced_block_audio_ads_title">Blokovat zvukové reklamy</string>
   <string name="revanced_block_audio_ads_summary_on">Zvukové reklamy jsou blokovány</string>
   <string name="revanced_block_audio_ads_summary_off">Zvukové reklamy jsou neblokované</string>
-  </patch>
-  <patch id="ad.embedded.embeddedAdsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="ad.embedded.embeddedAdsPatch"> -->
   <string name="revanced_embedded_ads_service_unavailable">%s nedostupný, reklamy se mohou zobrazit. Zkuste změnit službu blokování reklam v nastavení.</string>
   <string name="revanced_embedded_ads_service_failed">%s vrátil chybu, reklamy se mohou zobrazit. Zkuste změnit službu blokování reklam v nastavení.</string>
   <string name="revanced_block_embedded_ads_title">Blokovat vložené video reklamy</string>
   <string name="revanced_block_embedded_ads_entry_1">Vypnuto</string>
   <string name="revanced_block_embedded_ads_entry_2">Proxy Luminous</string>
   <string name="revanced_block_embedded_ads_entry_3">Proxy PurpleAdBlock</string>
-  </patch>
-  <patch id="ad.video.videoAdsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="ad.video.videoAdsPatch"> -->
   <string name="revanced_block_video_ads_title">Blokovat video reklamy</string>
   <string name="revanced_block_video_ads_summary_on">Video reklamy jsou blokovány</string>
   <string name="revanced_block_video_ads_summary_off">Video reklamy jsou neblokované</string>
-  </patch>
-  <patch id="chat.antidelete.showDeletedMessagesPatch">
+  <!-- </patch> -->
+  <!-- <patch id="chat.antidelete.showDeletedMessagesPatch"> -->
   <string name="revanced_deleted_msg">zpráva smazána</string>
   <string name="revanced_show_deleted_messages_title">Zobrazit smazané zprávy</string>
   <string name="revanced_show_deleted_messages_entry_1">Nezobrazovat smazané zprávy</string>
   <string name="revanced_show_deleted_messages_entry_2">Skrýt smazané zprávy za spoiler</string>
   <string name="revanced_show_deleted_messages_entry_3">Zobrazit smazané zprávy jako přeškrtnutý text</string>
-  </patch>
-  <patch id="chat.autoclaim.autoClaimChannelPointsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="chat.autoclaim.autoClaimChannelPointsPatch"> -->
   <string name="revanced_auto_claim_channel_points_title">Automaticky získat Channel Points</string>
   <string name="revanced_auto_claim_channel_points_summary_on">Channel Points se získávají automaticky</string>
   <string name="revanced_auto_claim_channel_points_summary_off">Channel Points se nezískávají automaticky</string>
-  </patch>
-  <patch id="debug.debugModePatch">
+  <!-- </patch> -->
+  <!-- <patch id="debug.debugModePatch"> -->
   <!-- Twitch specific internal debug mode, and not the same as 'revanced_debug_title' -->
   <string name="revanced_twitch_debug_mode_title">Povolit režim ladění Twitch</string>
   <string name="revanced_twitch_debug_mode_summary_on">Režim ladění Twitch je povolen (nedoporučeno)</string>
   <string name="revanced_twitch_debug_mode_summary_off">Režim ladění Twitch je zakázán</string>
-  </patch>
-  <patch id="misc.settings.settingsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.settings.settingsPatch"> -->
   <string name="revanced_settings">Nastavení ReVanced</string>
   <string name="revanced_about_title">O aplikaci</string>
   <string name="revanced_about_summary">O ReVanced</string>
@@ -1451,6 +1452,6 @@ AVC má maximální rozlišení 1080p, zvukový kodek Opus není dostupný a př
   <string name="revanced_twitch_debug_title">Debugovací záznamy</string>
   <string name="revanced_twitch_debug_summary_on">Debugovací záznamy jsou zapnuty</string>
   <string name="revanced_twitch_debug_summary_off">Debugovací záznamy jsou vypnuty</string>
-  </patch>
-  </app>
+  <!-- </patch> -->
+  <!-- </app> -->
 </resources>

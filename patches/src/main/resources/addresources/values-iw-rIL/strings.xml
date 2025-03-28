@@ -20,8 +20,8 @@ Second \"item\" text"</string>
 
 -->
 <resources>
-  <app id="shared">
-  <patch id="misc.checks.checkEnvironmentPatch">
+  <!-- <app id="shared"> -->
+  <!-- <patch id="misc.checks.checkEnvironmentPatch"> -->
   <string name="revanced_check_environment_failed_title">בדיקות נכשלו</string>
   <string name="revanced_check_environment_dialog_open_official_source_button">פתח אתר רשמי</string>
   <string name="revanced_check_environment_dialog_ignore_button">התעלם</string>
@@ -31,8 +31,8 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time">תוקן לפני יותר מ-10 דקות</string>
   <string name="revanced_check_environment_not_near_patch_time_days">תוקן לפני %s ימים</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">תאריך בניית ה-APK פגום</string>
-  </patch>
-  <patch id="misc.settings.settingsResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.settings.settingsResourcePatch"> -->
   <string name="revanced_settings_submenu_title">הגדרות</string>
   <string name="revanced_settings_confirm_user_dialog_title">האם ברצונך להמשיך?</string>
   <string name="revanced_settings_reset">איפוס</string>
@@ -57,8 +57,8 @@ Second \"item\" text"</string>
   <string name="revanced_settings_about_links_header">קישורים רשמיים</string>
   <!-- NOTE: the about strings above are duplicated in the TikTok about screen code,
                  and changes made here must also be made there. -->
-  </patch>
-  <patch id="misc.gms.gmsCoreSupportResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.gms.gmsCoreSupportResourcePatch"> -->
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="gms_core_toast_not_installed_message">היישום MicroG GmsCore אינו מותקן. התקן אותו.</string>
   <string name="gms_core_dialog_title">דרושה פעולה</string>
@@ -74,10 +74,10 @@ Second \"item\" text"</string>
 
 הקש על הלחצן 'המשך' ואפשר שינויי מיטוב."</string>
   <string name="gms_core_dialog_continue_text">המשך</string>
-  </patch>
-  </app>
-  <app id="youtube">
-  <patch id="misc.settings.settingsPatch">
+  <!-- </patch> -->
+  <!-- </app> -->
+  <!-- <app id="youtube"> -->
+  <!-- <patch id="misc.settings.settingsPatch"> -->
   <string name="revanced_settings_screen_00_about_title">אודות</string>
   <string name="revanced_settings_screen_01_ads_title">מודעות</string>
   <string name="revanced_settings_screen_02_alt_thumbnails_title">תמונות ממוזערות חלופיות</string>
@@ -91,13 +91,13 @@ Second \"item\" text"</string>
   <string name="revanced_restore_old_settings_menus_title">שחזר תפריטי הגדרות ישנים</string>
   <string name="revanced_restore_old_settings_menus_summary_on">תפריטי הגדרות ישנים מוצגים</string>
   <string name="revanced_restore_old_settings_menus_summary_off">תפריטי הגדרות ישנים אינם מוצגים</string>
-  </patch>
-  <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.backgroundplayback.backgroundPlaybackPatch"> -->
   <string name="revanced_shorts_disable_background_playback_title">השבת הפעלה ברקע של Shorts</string>
   <string name="revanced_shorts_disable_background_playback_summary_on">הפעלה ברקע של Shorts מושבתת</string>
   <string name="revanced_shorts_disable_background_playback_summary_off">הפעלה ברקע של Shorts מופעלת</string>
-  </patch>
-  <patch id="misc.debugging.enableDebuggingPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.debugging.enableDebuggingPatch"> -->
   <string name="revanced_debug_screen_title">איתור באגים</string>
   <string name="revanced_debug_screen_summary">הפעל או השבת אפשרויות לאיתור באגים</string>
   <string name="revanced_debug_title">רישום איתור באגים</string>
@@ -115,8 +115,8 @@ Second \"item\" text"</string>
   <string name="revanced_debug_toast_on_error_user_dialog_message">"השבתת הודעות שגיאה קופצות מסתירה את כל הודעות השגיאה של ReVanced.
 
 לא תקבל הודעה על אירועים בלתי צפויים."</string>
-  </patch>
-  <patch id="layout.hide.general.hideLayoutComponentsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.general.hideLayoutComponentsPatch"> -->
   <string name="revanced_hide_album_cards_title">הסתר כרטיסי אלבום</string>
   <string name="revanced_hide_album_cards_summary_on">כרטיסי אלבום מוסתרים</string>
   <string name="revanced_hide_album_cards_summary_off">כרטיסי אלבום מוצגים</string>
@@ -333,8 +333,8 @@ Second \"item\" text"</string>
   <string name="revanced_hide_keyword_toast_invalid_conflicting">למילת מפתח יש הצהרות סותרות: %s</string>
   <string name="revanced_hide_keyword_toast_invalid_length">מילת מפתח קצרה מדי ודורשת מרכאות: %s</string>
   <string name="revanced_hide_keyword_toast_invalid_broad">מילת מפתח תסתיר את כל הסרטונים: %s</string>
-  </patch>
-  <patch id="ad.general.hideAdsResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="ad.general.hideAdsResourcePatch"> -->
   <string name="revanced_hide_general_ads_title">הסתר מודעות כלליות</string>
   <string name="revanced_hide_general_ads_summary_on">מודעות כלליות מוסתרות</string>
   <string name="revanced_hide_general_ads_summary_off">מודעות כלליות מוצגות</string>
@@ -376,18 +376,18 @@ Second \"item\" text"</string>
   <string name="revanced_hide_merchandise_banners_summary_off">כרזות מרצ\'נדייז מוצגות</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_hide_fullscreen_ads_feature_not_available_toast">הסתר מודעות מסך מלא עובד רק עם מכשירים ישנים יותר</string>
-  </patch>
-  <patch id="ad.getpremium.hideGetPremiumPatch">
+  <!-- </patch> -->
+  <!-- <patch id="ad.getpremium.hideGetPremiumPatch"> -->
   <string name="revanced_hide_get_premium_title">הסתר קידומי YouTube Premium</string>
   <string name="revanced_hide_get_premium_summary_on">קידומי YouTube Premium תחת נגן הוידאו מוסתרים</string>
   <string name="revanced_hide_get_premium_summary_off">קידומי YouTube Premium תחת נגן הוידאו מוצגים</string>
-  </patch>
-  <patch id="ad.video.videoAdsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="ad.video.videoAdsPatch"> -->
   <string name="revanced_hide_video_ads_title">הסתר מודעות סרטון</string>
   <string name="revanced_hide_video_ads_summary_on">מודעות סרטון מוסתרות</string>
   <string name="revanced_hide_video_ads_summary_off">מודעות סרטון מוצגות</string>
-  </patch>
-  <patch id="interaction.copyvideourl.copyVideoUrlResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="interaction.copyvideourl.copyVideoUrlResourcePatch"> -->
   <string name="revanced_share_copy_url_success">כתובת URL הועתקה אל הלוח</string>
   <string name="revanced_share_copy_url_timestamp_success">כתובת URL עם חותמת זמן הועתקה</string>
   <string name="revanced_copy_video_url_title">הצג לחצן העתקת כתובת ה-URL של הסרטון</string>
@@ -396,14 +396,14 @@ Second \"item\" text"</string>
   <string name="revanced_copy_video_url_timestamp_title">הצג לחצן העתקת כתובת ה-URL של הסרטון עם חותמת זמן</string>
   <string name="revanced_copy_video_url_timestamp_summary_on">הלחצן מוצג. הקש כדי להעתיק את כתובת ה-URL של הסרטון עם חותמת זמן. הקש והחזק כדי להעתיק ללא חותמת זמן</string>
   <string name="revanced_copy_video_url_timestamp_summary_off">הלחצן אינו מוצג</string>
-  </patch>
-  <patch id="interaction.dialog.removeViewerDiscretionDialogPatch">
+  <!-- </patch> -->
+  <!-- <patch id="interaction.dialog.removeViewerDiscretionDialogPatch"> -->
   <string name="revanced_remove_viewer_discretion_dialog_title">הסר דו-שיח שיקול דעת הצופים</string>
   <string name="revanced_remove_viewer_discretion_dialog_summary_on">דו-שיח יוסר</string>
   <string name="revanced_remove_viewer_discretion_dialog_summary_off">דו-שיח יוצג</string>
   <string name="revanced_remove_viewer_discretion_dialog_user_dialog_message">זה לא עוקף את מגבלת הגיל. זה רק מסכים לזה באופן אוטומטי.</string>
-  </patch>
-  <patch id="interaction.downloads.downloadsResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="interaction.downloads.downloadsResourcePatch"> -->
   <string name="revanced_external_downloader_screen_title">הורדות חיצוניות</string>
   <string name="revanced_external_downloader_screen_summary">הגדרות לשימוש במוריד חיצונית</string>
   <string name="revanced_external_downloader_title">הצג לחצן הורדה חיצונית</string>
@@ -416,15 +416,15 @@ Second \"item\" text"</string>
   <string name="revanced_external_downloader_name_title">שם חבילת מוריד</string>
   <string name="revanced_external_downloader_name_summary">שם החבילה של המוריד החיצוני המותקן שלך, כגון NewPipe או Seal</string>
   <string name="revanced_external_downloader_not_installed_warning">%s אינו מותקן. נא להתקין אותו.</string>
-  </patch>
-  <patch id="interaction.seekbar.disablePreciseSeekingGesturePatch">
+  <!-- </patch> -->
+  <!-- <patch id="interaction.seekbar.disablePreciseSeekingGesturePatch"> -->
   <string name="revanced_disable_precise_seeking_gesture_title">השבת מחוות דילוג מדויקת</string>
   <string name="revanced_disable_precise_seeking_gesture_summary_on">מחווה מושבתת</string>
   <string name="revanced_disable_precise_seeking_gesture_summary_off">מחווה מופעלת</string>
-  </patch>
-  <patch id="interaction.seekbar.enableSeekbarTappingPatch">
-  </patch>
-  <patch id="interaction.swipecontrols.swipeControlsResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="interaction.seekbar.enableSeekbarTappingPatch"> -->
+  <!-- </patch> -->
+  <!-- <patch id="interaction.swipecontrols.swipeControlsResourcePatch"> -->
   <string name="revanced_swipe_brightness_title">הפעל מחוות בהירות</string>
   <string name="revanced_swipe_brightness_summary_on">"החלקת בהירות במסך מלא מופעלת
 
@@ -460,13 +460,13 @@ Second \"item\" text"</string>
   <string name="revanced_swipe_change_video_title">הפעל החלקה כדי לשנות סרטונים</string>
   <string name="revanced_swipe_change_video_summary_on">החלקה במצב מסך מלא תשנה לסרטון הבא/הקודם</string>
   <string name="revanced_swipe_change_video_summary_off">החלקה במצב מסך מלא לא תשנה לסרטון הבא/הקודם</string>
-  </patch>
-  <patch id="layout.autocaptions.autoCaptionsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.autocaptions.autoCaptionsPatch"> -->
   <string name="revanced_auto_captions_title">השבת כתוביות אוטומטיות</string>
   <string name="revanced_auto_captions_summary_on">כתוביות אוטומטיות מופעלות</string>
   <string name="revanced_auto_captions_summary_off">כתוביות אוטומטיות מושבתות</string>
-  </patch>
-  <patch id="layout.buttons.action.hideButtonsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.buttons.action.hideButtonsPatch"> -->
   <string name="revanced_hide_buttons_screen_title">פעולות לחצנים</string>
   <string name="revanced_hide_buttons_screen_summary">הסתר או הצג לחצנים תחת סרטונים</string>
   <string name="revanced_disable_like_subscribe_glow_title">השבת זוהר אהבתי והרשמה למינוי</string>
@@ -504,8 +504,8 @@ Second \"item\" text"</string>
   <string name="revanced_hide_playlist_button_title">הסתר שמירה בפלייליסט</string>
   <string name="revanced_hide_playlist_button_summary_on">לחצן שמירה בפלייליסט מוסתר</string>
   <string name="revanced_hide_playlist_button_summary_off">לחצן שמירה בפלייליסט מוצג</string>
-  </patch>
-  <patch id="layout.buttons.navigation.navigationButtonsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.buttons.navigation.navigationButtonsPatch"> -->
   <string name="revanced_navigation_buttons_screen_title">לחצני ניווט</string>
   <string name="revanced_navigation_buttons_screen_summary">הסתר או שנה לחצנים בסרגל הניווט</string>
   <!-- 'Home' should be translated using the same localized wording YouTube displays for the tab. -->
@@ -548,8 +548,8 @@ Second \"item\" text"</string>
   <string name="revanced_disable_translucent_navigation_bar_dark_title">השבת סרגל כהה שקוף</string>
   <string name="revanced_disable_translucent_navigation_bar_dark_summary_on">סרגל ניווט במצב כהה הוא אטום</string>
   <string name="revanced_disable_translucent_navigation_bar_dark_summary_off">סרגל ניווט במצב כהה הוא אטום או שקוף</string>
-  </patch>
-  <patch id="layout.hide.player.flyoutmenupanel.hidePlayerFlyoutMenuPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.player.flyoutmenupanel.hidePlayerFlyoutMenuPatch"> -->
   <string name="revanced_hide_player_flyout_title">תפריט נשלף</string>
   <string name="revanced_hide_player_flyout_summary">הסתר או הצג פריטי תפריט נשלף של נגן</string>
   <!-- 'Captions' should be translated using the same localized wording YouTube displays for the menu item. -->
@@ -603,8 +603,8 @@ Second \"item\" text"</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_title">הסתר כותרת תחתונה של תפריט איכות סרטון</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_on">כותרת תחתונה של תפריט איכות סרטון מוסתרת</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_off">כותרת תחתונה של תפריט איכות סרטון מוצגת</string>
-  </patch>
-  <patch id="layout.buttons.overlay.hidePlayerOverlayButtonsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.buttons.overlay.hidePlayerOverlayButtonsPatch"> -->
   <string name="revanced_hide_player_previous_next_buttons_title">הסתר לחצני הקודם &amp; הבא</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_on">הלחצנים מוסתרים</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">הלחצנים מוצגים</string>
@@ -618,36 +618,36 @@ Second \"item\" text"</string>
   <string name="revanced_hide_autoplay_button_title">הסתר לחצן הפעלה אוטומטית</string>
   <string name="revanced_hide_autoplay_button_summary_on">לחצן הפעלה אוטומטית מוסתר</string>
   <string name="revanced_hide_autoplay_button_summary_off">לחצן הפעלה אוטומטית מוצג</string>
-  </patch>
-  <patch id="layout.hide.endscreencards.hideEndscreenCardsResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.endscreencards.hideEndscreenCardsResourcePatch"> -->
   <string name="revanced_hide_endscreen_cards_title">הסתר כרטיסי מסך סיום</string>
   <string name="revanced_hide_endscreen_cards_summary_on">כרטיסי מסך מסיום מוסתרים</string>
   <string name="revanced_hide_endscreen_cards_summary_off">כרטיסי מסך מסיום מוצגים</string>
-  </patch>
-  <patch id="layout.hide.fullscreenambientmode.disableFullscreenAmbientModePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.fullscreenambientmode.disableFullscreenAmbientModePatch"> -->
   <string name="revanced_disable_fullscreen_ambient_mode_title">השבת תאורת אווירה במסך מלא</string>
   <string name="revanced_disable_fullscreen_ambient_mode_summary_on">תאורת אווירה מושבתת</string>
   <string name="revanced_disable_fullscreen_ambient_mode_summary_off">תאורת אווירה מופעלת</string>
-  </patch>
-  <patch id="layout.hide.infocards.hideInfocardsResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.infocards.hideInfocardsResourcePatch"> -->
   <string name="revanced_hide_info_cards_title">הסתר כרטיסי מידע</string>
   <string name="revanced_hide_info_cards_summary_on">כרטיסי המידע מוסתרים</string>
   <string name="revanced_hide_info_cards_summary_off">כרטיסי המידע מוצגים</string>
-  </patch>
-  <patch id="layout.hide.rollingnumber.disableRollingNumberAnimationPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.rollingnumber.disableRollingNumberAnimationPatch"> -->
   <string name="revanced_disable_rolling_number_animations_title">השבת הנפשות מספר מתגלגל</string>
   <string name="revanced_disable_rolling_number_animations_summary_on">מספרים מתגלגלים אינם מונפשים</string>
   <string name="revanced_disable_rolling_number_animations_summary_off">מספרים מתגלגלים מונפשים</string>
-  </patch>
-  <patch id="layout.hide.seekbar.hideSeekbarPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.seekbar.hideSeekbarPatch"> -->
   <string name="revanced_hide_seekbar_title">הסתר סרגל דילוג בנגן וידאו</string>
   <string name="revanced_hide_seekbar_summary_on">סרגל דילוג של נגן וידאו מוסתר</string>
   <string name="revanced_hide_seekbar_summary_off">סרגל דילוג של נגן וידאו מוצג</string>
   <string name="revanced_hide_seekbar_thumbnail_title">הסתר סרגל דילוג בתמונות ממוזערות של סרטונים</string>
   <string name="revanced_hide_seekbar_thumbnail_summary_on">סרגל דילוג תמונות ממוזערות מוסתר</string>
   <string name="revanced_hide_seekbar_thumbnail_summary_off">סרגל דילוג תמונות ממוזערות מוצג</string>
-  </patch>
-  <patch id="layout.hide.shorts.hideShortsComponentsResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.shorts.hideShortsComponentsResourcePatch"> -->
   <string name="revanced_shorts_player_screen_title">נגן Shorts</string>
   <string name="revanced_shorts_player_screen_summary">הסתר או הצג רכיבים בנגן ה-Shorts</string>
   <!-- 'home' should be translated using the same localized wording YouTube displays for the home tab. -->
@@ -749,8 +749,8 @@ Second \"item\" text"</string>
   <string name="revanced_hide_shorts_navigation_bar_title">הסתר סרגל ניווט</string>
   <string name="revanced_hide_shorts_navigation_bar_summary_on">סרגל ניווט מוסתר</string>
   <string name="revanced_hide_shorts_navigation_bar_summary_off">סרגל ניווט מוצג</string>
-  </patch>
-  <patch id="layout.hide.endscreensuggestion.hideEndScreenSuggestedVideoPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.endscreensuggestion.hideEndScreenSuggestedVideoPatch"> -->
   <string name="revanced_end_screen_suggested_video_title">הסתר סרטון מוצע של מסך סיום</string>
   <string name="revanced_end_screen_suggested_video_summary_on">"סרטון מוצע של מסך סיום מוסתר כאשר הפעלה אוטומטית כבויה
 
@@ -758,35 +758,35 @@ Second \"item\" text"</string>
 הפעלה אוטומטית ניתנת לשינוי בהגדרות YouTube:
 הגדרות ← הפעלה ← הפעלה אוטומטית של הסרטון הבא"</string>
   <string name="revanced_end_screen_suggested_video_summary_off">סרטון מוצע של מסך סיום מוצג</string>
-  </patch>
-  <patch id="layout.hide.time.hideTimestampPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.time.hideTimestampPatch"> -->
   <string name="revanced_hide_timestamp_title">הסתר חותמת זמן של סרטון</string>
   <string name="revanced_hide_timestamp_summary_on">חותמת זמן מוסתרת</string>
   <string name="revanced_hide_timestamp_summary_off">חותמת זמן מוצגת</string>
-  </patch>
-  <patch id="layout.panels.popup.playerPopupPanelsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.panels.popup.playerPopupPanelsPatch"> -->
   <string name="revanced_hide_player_popup_panels_title">הסתר לוחות נגן צצים</string>
   <string name="revanced_hide_player_popup_panels_summary_on">לוחות נגן צצים מוסתרים</string>
   <string name="revanced_hide_player_popup_panels_summary_off">לוחות נגן צצים מוצגים</string>
-  </patch>
-  <patch id="layout.player.fullscreen.exitFullscreenPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.player.fullscreen.exitFullscreenPatch"> -->
   <string name="revanced_exit_fullscreen_title">צא ממצב מסך מלא בסוף סרטון</string>
   <string name="revanced_exit_fullscreen_entry_1">מושבת</string>
   <string name="revanced_exit_fullscreen_entry_2">לאורך</string>
   <string name="revanced_exit_fullscreen_entry_3">לרוחב</string>
   <string name="revanced_exit_fullscreen_entry_4">לאורך ולרוחב</string>
-  </patch>
-  <patch id="layout.player.fullscreen.openVideosFullscreen">
+  <!-- </patch> -->
+  <!-- <patch id="layout.player.fullscreen.openVideosFullscreen"> -->
   <string name="revanced_open_videos_fullscreen_portrait_title">פתח סרטונים במסך מלא לאורך</string>
   <string name="revanced_open_videos_fullscreen_portrait_summary_on">סרטונים פותחים מסך מלא</string>
   <string name="revanced_open_videos_fullscreen_portrait_summary_off">סרטונים אינם פותחים מסך מלא</string>
-  </patch>
-  <patch id="layout.player.overlay.customPlayerOverlayOpacityResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.player.overlay.customPlayerOverlayOpacityResourcePatch"> -->
   <string name="revanced_player_overlay_opacity_title">אטימות שכבת-על של נגן</string>
   <string name="revanced_player_overlay_opacity_summary">ערך אטימות בין 0 ל-100, כאשר 0 שקוף</string>
   <string name="revanced_player_overlay_opacity_invalid_toast">אטימות שכבת-על של נגן חייבת להיות בין 0 ל-100</string>
-  </patch>
-  <patch id="layout.returnyoutubedislike.returnYouTubeDislikePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.returnyoutubedislike.returnYouTubeDislikePatch"> -->
   <!-- Toast shown if network connection times out. Translations of this should not be longer than the original English or the text can be clipped and not entirely shown. -->
   <string name="revanced_ryd_failure_connection_timeout">דיסלייקים אינם זמינים באופן זמני (תם פסק הזמן של ה-API)</string>
   <string name="revanced_ryd_failure_connection_status_code">דיסלייקים אינם זמינים (מצב %d)</string>
@@ -835,13 +835,13 @@ Second \"item\" text"</string>
   <string name="revanced_ryd_statistics_getNumberOfRateLimitRequestsEncountered_zero_summary">לא נתקלו מגבלות קצב לקוח</string>
   <string name="revanced_ryd_statistics_getNumberOfRateLimitRequestsEncountered_non_zero_summary">מגבלת קצב לקוח נתקלו %d פעמים</string>
   <string name="revanced_ryd_statistics_millisecond_text">%d אלפיות שנייה</string>
-  </patch>
-  <patch id="layout.searchbar.wideSearchbarPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.searchbar.wideSearchbarPatch"> -->
   <string name="revanced_wide_searchbar_title">הפעל סרגל חיפוש רחב</string>
   <string name="revanced_wide_searchbar_summary_on">סרגל חיפוש רחב מופעל</string>
   <string name="revanced_wide_searchbar_summary_off">סרגל חיפוש רחב מושבת</string>
-  </patch>
-  <patch id="layout.seekbar.seekbarThumbnailsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.seekbar.seekbarThumbnailsPatch"> -->
   <string name="revanced_seekbar_thumbnails_high_quality_title">הפעל תמונות ממוזערות באיכות גבוהה</string>
   <string name="revanced_seekbar_thumbnails_high_quality_summary_on">תמונות ממוזערות של סרגל דילוג הן באיכות גבוהה</string>
   <string name="revanced_seekbar_thumbnails_high_quality_summary_off">תמונות ממוזערות של סרגל דילוג הן באיכות בינונית</string>
@@ -855,8 +855,8 @@ Second \"item\" text"</string>
   <string name="revanced_restore_old_seekbar_thumbnails_title">שחזר תמונות ממוזערות של סרגל דילוג ישנות</string>
   <string name="revanced_restore_old_seekbar_thumbnails_summary_on">תמונות ממוזערות של סרגל דילוג יופיעו מעל סרגל הדילוג</string>
   <string name="revanced_restore_old_seekbar_thumbnails_summary_off">תמונות ממוזערות של סרגל דילוג יופיעו במסך מלא</string>
-  </patch>
-  <patch id="layout.sponsorblock.sponsorBlockResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.sponsorblock.sponsorBlockResourcePatch"> -->
   <string name="revanced_sb_enable_sb">הפעל את SponsorBlock</string>
   <string name="revanced_sb_enable_sb_sum">המערכת SponsorBlock היא מערכת מיקור המונים לדילוג על חלקים מעצבנים של סרטוני YouTube</string>
   <string name="revanced_sb_appearance_category">מראה</string>
@@ -1053,8 +1053,8 @@ Second \"item\" text"</string>
   <string name="revanced_sb_reset">איפוס</string>
   <string name="revanced_sb_about">אודות</string>
   <string name="revanced_sb_about_api_sum">הנתונים מסופקים על ידי SponsorBlock API. הקש כאן כדי ללמוד עוד ולראות הורדות עבור פלטפורמות אחרות</string>
-  </patch>
-  <patch id="layout.formfactor.changeFormFactorPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.formfactor.changeFormFactorPatch"> -->
   <string name="revanced_change_form_factor_title">גורם צורת הפריסה</string>
   <string name="revanced_change_form_factor_entry_1">ברירת מחדל</string>
   <string name="revanced_change_form_factor_entry_2">טלפון</string>
@@ -1068,8 +1068,8 @@ Second \"item\" text"</string>
 פריסת רכב
 • סרטוני Shorts נפתחים בנגן הרגיל
 • פיד מאורגן לפי נושאים וערוצים"</string>
-  </patch>
-  <patch id="layout.spoofappversion.spoofAppVersionPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.spoofappversion.spoofAppVersionPatch"> -->
   <string name="revanced_spoof_app_version_title">זייף גרסת יישום</string>
   <string name="revanced_spoof_app_version_summary_on">גרסה מזויפת</string>
   <string name="revanced_spoof_app_version_summary_off">גרסה לא מזויפת</string>
@@ -1083,8 +1083,8 @@ Second \"item\" text"</string>
   <string name="revanced_spoof_app_version_target_title">יעד גרסת יישום מזויפת</string>
   <string name="revanced_spoof_app_version_target_entry_1">19.35.36 - שחזר סמלי נגן Shorts ישנים</string>
   <string name="revanced_spoof_app_version_target_entry_2">19.01.34 - שחזר סמלי ניווט ישנים</string>
-  </patch>
-  <patch id="layout.startpage.changeStartPagePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.startpage.changeStartPagePatch"> -->
   <string name="revanced_change_start_page_title">הגדר דף התחלה</string>
   <string name="revanced_change_start_page_entry_default">ברירת מחדל</string>
   <string name="revanced_change_start_page_entry_all_subscriptions">כל המינויים</string>
@@ -1110,27 +1110,27 @@ Second \"item\" text"</string>
   <string name="revanced_change_start_page_entry_virtual_reality">מציאות מדומה</string>
   <string name="revanced_change_start_page_entry_watch_later">לצפייה בהמשך</string>
   <string name="revanced_change_start_page_entry_your_clips">הקליפים שלך</string>
-  </patch>
-  <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch"> -->
   <string name="revanced_disable_resuming_shorts_player_title">השבת חידוש נגן Shorts</string>
   <string name="revanced_disable_resuming_shorts_player_summary_on">נגן Shorts לא יתחדש בעת הפעלת היישום</string>
   <string name="revanced_disable_resuming_shorts_player_summary_off">נגן Shorts יתחדש בעת הפעלת היישום</string>
-  </patch>
-  <patch id="layout.shortsplayer.shortsPlayerTypePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.shortsplayer.shortsPlayerTypePatch"> -->
   <string name="revanced_shorts_player_type_title">פתח Shorts עם</string>
   <string name="revanced_shorts_player_type_shorts">נגן Shorts</string>
   <string name="revanced_shorts_player_type_regular_player">נגן רגיל</string>
   <string name="revanced_shorts_player_type_regular_player_fullscreen">נגן רגיל במסך מלא</string>
-  </patch>
-  <patch id="layout.shortsautoplay.shortsAutoplayPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.shortsautoplay.shortsAutoplayPatch"> -->
   <string name="revanced_shorts_autoplay_title">הפעלה אוטומטית של Shorts</string>
   <string name="revanced_shorts_autoplay_summary_on">סרטוני Shorts יפעילו אוטומטית</string>
   <string name="revanced_shorts_autoplay_summary_off">סרטוני Shorts יחזרו על עצמם</string>
   <string name="revanced_shorts_autoplay_background_title">הפעלה אוטומטית בעת הפעלה ברקע של Shorts</string>
   <string name="revanced_shorts_autoplay_background_summary_on">הפעלה ברקע של Shorts תפעיל אוטומטית</string>
   <string name="revanced_shorts_autoplay_background_summary_off">הפעלה ברקע של Shorts תחזור על עצמה</string>
-  </patch>
-  <patch id="layout.miniplayer.miniplayerPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.miniplayer.miniplayerPatch"> -->
   <string name="revanced_miniplayer_screen_title">מיני-נגן</string>
   <string name="revanced_miniplayer_screen_summary">שנה את הסגנון של הנגן הממוזער בתוך היישום</string>
   <string name="revanced_miniplayer_type_title">סוג מיני-נגן</string>
@@ -1180,8 +1180,8 @@ Second \"item\" text"</string>
   <string name="revanced_miniplayer_opacity_title">אטימות שכבת-על</string>
   <string name="revanced_miniplayer_opacity_summary">ערך אטימות בין 0 ל-100, כאשר 0 שקוף</string>
   <string name="revanced_miniplayer_opacity_invalid_toast">אטימות שכבת-על של מיני-נגן חייבת להיות בין 0 ל-100</string>
-  </patch>
-  <patch id="layout.theme.themePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.theme.themePatch"> -->
   <string name="revanced_gradient_loading_screen_title">הפעל מסך טעינה עם מעבר צבע</string>
   <string name="revanced_gradient_loading_screen_summary_on">מסך הטעינה יהיה בעל רקע עם מעבר צבע</string>
   <string name="revanced_gradient_loading_screen_summary_off">מסך הטעינה יהיה בעל רקע מוצק</string>
@@ -1193,15 +1193,15 @@ Second \"item\" text"</string>
   <string name="revanced_seekbar_custom_color_accent_title">צבע הדגשת סרגל דילוג מותאם אישית</string>
   <string name="revanced_seekbar_custom_color_accent_summary">צבע ההדגשה של סרגל הדילוג</string>
   <string name="revanced_seekbar_custom_color_invalid">ערך צבע סרגל דילוג לא חוקי</string>
-  </patch>
-  <patch id="layout.thumbnails.bypassImageRegionRestrictionsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.thumbnails.bypassImageRegionRestrictionsPatch"> -->
   <string name="revanced_bypass_image_region_restrictions_title">עקוף מגבלות תמונה אזוריות</string>
   <string name="revanced_bypass_image_region_restrictions_summary_on">שימוב במארח תמונות yt4.ggpht.com</string>
   <string name="revanced_bypass_image_region_restrictions_summary_off">"שימוש במארח תמונות מקורי
 
 הפעלת אפשרות זו יכולה לתקן תמונות חסרות שנחסמו באזורים מסוימים"</string>
-  </patch>
-  <patch id="layout.thumbnails.alternativeThumbnailsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.thumbnails.alternativeThumbnailsPatch"> -->
   <!-- 'Home' should be translated using the same localized wording YouTube displays for the home tab. -->
   <string name="revanced_alt_thumbnail_home_title">כרטיסיית דף הבית</string>
   <!-- 'Subscription' should be translated using the same localized wording YouTube displays for the subscription tab. -->
@@ -1236,26 +1236,26 @@ Second \"item\" text"</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_alt_thumbnail_dearrow_error">השירות DeArrow אינו זמין באופן זמני (קוד מצב: %s)</string>
   <string name="revanced_alt_thumbnail_dearrow_error_generic">השירות DeArrow אינו זמין באופן זמני</string>
-  </patch>
-  <patch id="misc.announcements.announcementsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.announcements.announcementsPatch"> -->
   <string name="revanced_announcements_title">הצג הכרזות של ReVanced</string>
   <string name="revanced_announcements_summary_on">הכרזות בעת הפעלה מוצגות</string>
   <string name="revanced_announcements_summary_off">הכרזות בעת הפעלה אינן מוצגות</string>
   <string name="revanced_announcements_enabled_summary">הצג הכרזות בעת הפעלה</string>
   <string name="revanced_announcements_connection_failed">נכשל בהתחברות לספק הכרזות</string>
   <string name="revanced_announcements_dialog_dismiss">דחה</string>
-  </patch>
-  <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch"> -->
   <string name="revanced_check_watch_history_domain_name_dialog_title">אזהרה</string>
   <string name="revanced_check_watch_history_domain_name_dialog_message">היסטוריית הצפייה שלך לא נשמרת.&lt;br&gt;&lt;br&gt;סביר להניח שזה נגרם על ידי חוסם מודעות ברמת DNS או פרוקסי רשת.&lt;br&gt;&lt;br&gt;כדי לתקן זאת, רשום את &lt;b&gt;s.youtube.com&lt;/b&gt; ברשימת ההיתרים או כבה את כל חוסמי ה-DNS והפרוקסים.</string>
   <string name="revanced_check_watch_history_domain_name_dialog_ignore">אל תציג שוב</string>
-  </patch>
-  <patch id="misc.autorepeat.autoRepeatPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.autorepeat.autoRepeatPatch"> -->
   <string name="revanced_auto_repeat_title">הפעל החזרה אוטומטית</string>
   <string name="revanced_auto_repeat_summary_on">החזרה אוטומטית מופעלת</string>
   <string name="revanced_auto_repeat_summary_off">החזרה אוטומטית מושבתת</string>
-  </patch>
-  <patch id="misc.dimensions.spoof.spoofDeviceDimensionsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.dimensions.spoof.spoofDeviceDimensionsPatch"> -->
   <string name="revanced_spoof_device_dimensions_title">זייף ממדי מכשיר</string>
   <string name="revanced_spoof_device_dimensions_summary_on">"מימדי המכשיר מזויפים
 
@@ -1264,39 +1264,39 @@ Second \"item\" text"</string>
 
 הפעלת אפשרות זו יכולה לפתוח איכויות סרטון גבוהות יותר"</string>
   <string name="revanced_spoof_device_dimensions_user_dialog_message">הפעלת אפשרות זו עלולה לגרום לגמגום בהפעלת סרטון, חיי סוללה גרועים יותר, ותופעות לוואי לא ידועות.</string>
-  </patch>
-  <patch id="misc.gms.gmsCoreSupportResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.gms.gmsCoreSupportResourcePatch"> -->
   <string name="microg_settings_title">הגדרות GmsCore</string>
   <string name="microg_settings_summary">הגדרות עבור GmsCore</string>
-  </patch>
-  <patch id="misc.links.bypassURLRedirectsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.links.bypassURLRedirectsPatch"> -->
   <string name="revanced_bypass_url_redirects_title">עקוף הפניות מחדש של URL</string>
   <string name="revanced_bypass_url_redirects_summary_on">הפניות מחדש של URL נעקפות</string>
   <string name="revanced_bypass_url_redirects_summary_off">הפניות מחדש של URL אינן נעקפות</string>
-  </patch>
-  <patch id="misc.links.openLinksExternallyPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.links.openLinksExternallyPatch"> -->
   <string name="revanced_external_browser_title">פתח קישורים בדפדפן</string>
   <string name="revanced_external_browser_summary_on">פותח קישורים בדפדפן חיצוני </string>
   <string name="revanced_external_browser_summary_off">פותח קישורים בדפדפן בתוך היישום</string>
-  </patch>
-  <patch id="misc.privacy.removeTrackingQueryParameterPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.privacy.removeTrackingQueryParameterPatch"> -->
   <string name="revanced_remove_tracking_query_parameter_title">הסר פרמטר מעקב של שאילתה</string>
   <string name="revanced_remove_tracking_query_parameter_summary_on">פרמטר מעקב של שאילתה מוסר מקישורים</string>
   <string name="revanced_remove_tracking_query_parameter_summary_off">פרמטר מעקב של שאילתה אינו מוסר מקישורים</string>
-  </patch>
-  <patch id="misc.zoomhaptics.zoomHapticsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.zoomhaptics.zoomHapticsPatch"> -->
   <string name="revanced_disable_zoom_haptics_title">השבת משוב זום ברטט</string>
   <string name="revanced_disable_zoom_haptics_summary_on">משוב ברטט מושבת</string>
   <string name="revanced_disable_zoom_haptics_summary_off">משוב ברטט מופעל</string>
-  </patch>
-  <patch id="video.audio.forceOriginalAudioPatch">
+  <!-- </patch> -->
+  <!-- <patch id="video.audio.forceOriginalAudioPatch"> -->
   <string name="revanced_force_original_audio_title">כפה שפת שמע מקורית</string>
   <string name="revanced_force_original_audio_summary_on">שימוש בשפת שמע מקורית</string>
   <string name="revanced_force_original_audio_summary_off">שימוש בשמע ברירת מחדל</string>
   <!-- 'Spoof video streams' should be the same translation used for revanced_spoof_video_streams_screen_title -->
   <string name="revanced_force_original_audio_not_available">כדי להשתמש בתכונה זו, שנה את \'זייף זרמי וידאו\' ל-iOS TV</string>
-  </patch>
-  <patch id="video.quality.rememberVideoQualityPatch">
+  <!-- </patch> -->
+  <!-- <patch id="video.quality.rememberVideoQualityPatch"> -->
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
   <string name="revanced_video_quality_default_entry_1">אוטומטי</string>
   <string name="revanced_remember_video_quality_last_selected_title">זכור שינויי איכות סרטון</string>
@@ -1313,13 +1313,13 @@ Second \"item\" text"</string>
   <string name="revanced_remember_video_quality_wifi">אלחוטית</string>
   <string name="revanced_remember_video_quality_toast">איכות %1$s ברירת מחדל שונתה ל: %2$s</string>
   <string name="revanced_remember_video_quality_toast_shorts">איכות %1$s Shorts שונתה ל: %2$s</string>
-  </patch>
-  <patch id="video.speed.button.playbackSpeedButtonPatch">
+  <!-- </patch> -->
+  <!-- <patch id="video.speed.button.playbackSpeedButtonPatch"> -->
   <string name="revanced_playback_speed_dialog_button_title">הצג לחצן דו-שיח של מהירות</string>
   <string name="revanced_playback_speed_dialog_button_summary_on">הלחצן מוצג</string>
   <string name="revanced_playback_speed_dialog_button_summary_off">הלחצן אינו מוצג</string>
-  </patch>
-  <patch id="video.speed.custom.customPlaybackSpeedPatch">
+  <!-- </patch> -->
+  <!-- <patch id="video.speed.custom.customPlaybackSpeedPatch"> -->
   <string name="revanced_custom_speed_menu_title">תפריט מהירות הפעלה מותאם אישית</string>
   <string name="revanced_custom_speed_menu_summary_on">תפריט מהירות מותאם אישית מוצג</string>
   <string name="revanced_custom_speed_menu_summary_off">תפריט מהירות מותאם אישית אינו מוצג</string>
@@ -1330,30 +1330,30 @@ Second \"item\" text"</string>
   <string name="revanced_custom_playback_speeds_auto">אוטומטי</string>
   <string name="revanced_speed_tap_and_hold_title">מהירות הקשה והחזקה מותאמת אישית</string>
   <string name="revanced_speed_tap_and_hold_summary">מהירות הפעלה בין 0 ל-8</string>
-  </patch>
-  <patch id="video.speed.remember.rememberPlaybackSpeedPatch">
+  <!-- </patch> -->
+  <!-- <patch id="video.speed.remember.rememberPlaybackSpeedPatch"> -->
   <string name="revanced_remember_playback_speed_last_selected_title">זכור שינויי מהירות הפעלה</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_on">שינויי מהירות הפעלה חלים על כל הסרטונים</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_off">שינויי מהירות הפעלה חלים רק על הסרטון הנוכחי</string>
   <string name="revanced_playback_speed_default_title">מהירות הפעלה ברירת מחדל</string>
   <string name="revanced_remember_playback_speed_toast">מהירות ברירת המחדל שונתה ל: %s</string>
-  </patch>
-  <patch id="video.hdr.disableHdrPatch">
+  <!-- </patch> -->
+  <!-- <patch id="video.hdr.disableHdrPatch"> -->
   <string name="revanced_disable_hdr_video_title">השבת סרטון HDR</string>
   <string name="revanced_disable_hdr_video_summary_on">סרטון HDR מושבת</string>
   <string name="revanced_disable_hdr_video_summary_off">סרטון HDR מופעל</string>
-  </patch>
-  <patch id="video.quality.advancedVideoQualityMenuPatch">
+  <!-- </patch> -->
+  <!-- <patch id="video.quality.advancedVideoQualityMenuPatch"> -->
   <string name="revanced_advanced_video_quality_menu_title">הצג תפריט איכות סרטון מתקדם</string>
   <string name="revanced_advanced_video_quality_menu_summary_on">תפריט איכות סרטון מתקדם מוצג</string>
   <string name="revanced_advanced_video_quality_menu_summary_off">תפריט איכות סרטון מתקדם אינו מוצג</string>
-  </patch>
-  <patch id="interaction.seekbar.enableSlideToSeekPatch">
+  <!-- </patch> -->
+  <!-- <patch id="interaction.seekbar.enableSlideToSeekPatch"> -->
   <string name="revanced_slide_to_seek_title">הפעל החלק כדי לדלג</string>
   <string name="revanced_slide_to_seek_summary_on">החלק כדי לדלג מופעל</string>
   <string name="revanced_slide_to_seek_summary_off">החלק כדי לדלג אינו מופעל</string>
-  </patch>
-  <patch id="misc.fix.playback.spoofVideoStreamsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.fix.playback.spoofVideoStreamsPatch"> -->
   <string name="revanced_spoof_video_streams_screen_title">זייף זרמי וידאו</string>
   <string name="revanced_spoof_video_streams_screen_summary">זייף זרמי וידאו של לקוח כדי למנוע בעיות הפעלה</string>
   <string name="revanced_spoof_video_streams_title">זייף זרמי וידאו</string>
@@ -1383,46 +1383,46 @@ Second \"item\" text"</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">סוג הלקוח מוצג בנתונים לגיקים</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">הלקוח מוסתר בנתונים לגיקים</string>
   <string name="revanced_spoof_video_streams_language_title">שפת זרם שמע ברירת מחדל ב-VR</string>
-  </patch>
-  </app>
-  <app id="twitch">
-  <patch id="ad.audio.audioAdsPatch">
+  <!-- </patch> -->
+  <!-- </app> -->
+  <!-- <app id="twitch"> -->
+  <!-- <patch id="ad.audio.audioAdsPatch"> -->
   <string name="revanced_block_audio_ads_title">חסום מודעות שמע</string>
   <string name="revanced_block_audio_ads_summary_on">מודעות שמע חסומות</string>
   <string name="revanced_block_audio_ads_summary_off">מודעות שמע אינן חסומות</string>
-  </patch>
-  <patch id="ad.embedded.embeddedAdsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="ad.embedded.embeddedAdsPatch"> -->
   <string name="revanced_embedded_ads_service_unavailable">%s אינו זמין, מודעות עשויות להופיע. נסה לשנות את שירות חוסם המודעות בהגדרות.</string>
   <string name="revanced_embedded_ads_service_failed">%s החזיר שגיאה, מודעות עשויות להופיע. נסה לשנות את שירות חוסם המודעות בהגדרות.</string>
   <string name="revanced_block_embedded_ads_title">חסום מודעות סרטון מוטמעות</string>
   <string name="revanced_block_embedded_ads_entry_1">מושבת</string>
   <string name="revanced_block_embedded_ads_entry_2">פרוקסי Luminous</string>
   <string name="revanced_block_embedded_ads_entry_3">פרוקסי PurpleAdBlock</string>
-  </patch>
-  <patch id="ad.video.videoAdsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="ad.video.videoAdsPatch"> -->
   <string name="revanced_block_video_ads_title">חסום מודעות סרטון</string>
   <string name="revanced_block_video_ads_summary_on">מודעות סרטון חסומות</string>
   <string name="revanced_block_video_ads_summary_off">מודעות סרטון אינן חסומות</string>
-  </patch>
-  <patch id="chat.antidelete.showDeletedMessagesPatch">
+  <!-- </patch> -->
+  <!-- <patch id="chat.antidelete.showDeletedMessagesPatch"> -->
   <string name="revanced_deleted_msg">ההודעה נמחקה</string>
   <string name="revanced_show_deleted_messages_title">הצג הודעות שנמחקו</string>
   <string name="revanced_show_deleted_messages_entry_1">אל תציג הודעות שנמחקו</string>
   <string name="revanced_show_deleted_messages_entry_2">הסתר מודעות שנמחקו מאחורי ספויילר</string>
   <string name="revanced_show_deleted_messages_entry_3">הצג מודעות שנמחקו כטקסט מחוק</string>
-  </patch>
-  <patch id="chat.autoclaim.autoClaimChannelPointsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="chat.autoclaim.autoClaimChannelPointsPatch"> -->
   <string name="revanced_auto_claim_channel_points_title">קבל נקודות ערוץ באופן אוטומטי</string>
   <string name="revanced_auto_claim_channel_points_summary_on">נקודות ערוץ מתקבלות באופן אוטומטי</string>
   <string name="revanced_auto_claim_channel_points_summary_off">נקודות ערוץ אינן מתקבלות באופן אוטומטי</string>
-  </patch>
-  <patch id="debug.debugModePatch">
+  <!-- </patch> -->
+  <!-- <patch id="debug.debugModePatch"> -->
   <!-- Twitch specific internal debug mode, and not the same as 'revanced_debug_title' -->
   <string name="revanced_twitch_debug_mode_title">הפעל מצב איתור באגים של Twitch</string>
   <string name="revanced_twitch_debug_mode_summary_on">מצב איתור באגים של Twitch מופעל (לא מומלץ)</string>
   <string name="revanced_twitch_debug_mode_summary_off">מצב איתור באגים של Twitch מושבת</string>
-  </patch>
-  <patch id="misc.settings.settingsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.settings.settingsPatch"> -->
   <string name="revanced_settings">הגדרות ReVanced</string>
   <string name="revanced_about_title">אודות</string>
   <string name="revanced_about_summary">אודות ReVanced</string>
@@ -1439,6 +1439,6 @@ Second \"item\" text"</string>
   <string name="revanced_twitch_debug_title">רישום איתור באגים</string>
   <string name="revanced_twitch_debug_summary_on">יומני איתור באגים מופעלים</string>
   <string name="revanced_twitch_debug_summary_off">יומני איתור באגים מושבתים</string>
-  </patch>
-  </app>
+  <!-- </patch> -->
+  <!-- </app> -->
 </resources>

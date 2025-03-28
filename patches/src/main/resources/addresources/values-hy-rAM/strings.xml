@@ -20,8 +20,8 @@ Second \"item\" text"</string>
 
 -->
 <resources>
-  <app id="shared">
-  <patch id="misc.checks.checkEnvironmentPatch">
+  <!-- <app id="shared"> -->
+  <!-- <patch id="misc.checks.checkEnvironmentPatch"> -->
   <string name="revanced_check_environment_failed_title">Վերահսկումները ձախողվել են</string>
   <string name="revanced_check_environment_dialog_open_official_source_button">Բացել պաշտոնական կայքը</string>
   <string name="revanced_check_environment_dialog_ignore_button">Մերժել</string>
@@ -31,8 +31,8 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time">Պատչված է ավելի քան 10 րոպե առաջ</string>
   <string name="revanced_check_environment_not_near_patch_time_days">Մշակվել է %s օր առաջ</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">APK-ի կառուցման ամսաթիվը վնասված է</string>
-  </patch>
-  <patch id="misc.settings.settingsResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.settings.settingsResourcePatch"> -->
   <string name="revanced_settings_submenu_title">Կարգավորումներ</string>
   <string name="revanced_settings_confirm_user_dialog_title">Դուք ցանկանում եք շարունակել?</string>
   <string name="revanced_settings_reset">Վերականգնել</string>
@@ -57,8 +57,8 @@ Second \"item\" text"</string>
   <string name="revanced_settings_about_links_header">Պաշտոնական հղումներ</string>
   <!-- NOTE: the about strings above are duplicated in the TikTok about screen code,
                  and changes made here must also be made there. -->
-  </patch>
-  <patch id="misc.gms.gmsCoreSupportResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.gms.gmsCoreSupportResourcePatch"> -->
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="gms_core_toast_not_installed_message">MicroG GmsCore-ը տեղադրված չէ։ Տեղադրեք այն։</string>
   <string name="gms_core_dialog_title">Անհրաժեշտ գործողություն</string>
@@ -74,10 +74,10 @@ MicroG-ի համար մարտկոցի օպտիմալացումը անջատել�
 
 Սեղմեք շարունակել կոճակը և թույլ տվեք օպտիմալացման փոփոխությունները։"</string>
   <string name="gms_core_dialog_continue_text">Շարունակել</string>
-  </patch>
-  </app>
-  <app id="youtube">
-  <patch id="misc.settings.settingsPatch">
+  <!-- </patch> -->
+  <!-- </app> -->
+  <!-- <app id="youtube"> -->
+  <!-- <patch id="misc.settings.settingsPatch"> -->
   <string name="revanced_settings_screen_00_about_title">Ծրագրի մասին</string>
   <string name="revanced_settings_screen_01_ads_title">Գովազդներ</string>
   <string name="revanced_settings_screen_02_alt_thumbnails_title">Ալտերնատիվ մանրապատկերներ</string>
@@ -91,13 +91,13 @@ MicroG-ի համար մարտկոցի օպտիմալացումը անջատել�
   <string name="revanced_restore_old_settings_menus_title">Վերականգնել հին սահմանումների մենյուները</string>
   <string name="revanced_restore_old_settings_menus_summary_on">Նախկին կարգավորումների մենյուները ցուցադրվում են</string>
   <string name="revanced_restore_old_settings_menus_summary_off">Նախկին կարգավորումների մենյուները չեն ցուցադրվում</string>
-  </patch>
-  <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.backgroundplayback.backgroundPlaybackPatch"> -->
   <string name="revanced_shorts_disable_background_playback_title">Անջատել  Shorts-ի  ֆոնային  վերարտադրությունը</string>
   <string name="revanced_shorts_disable_background_playback_summary_on">Shorts-ի  ֆոնային  վերարտադրությունը  անջատված  է</string>
   <string name="revanced_shorts_disable_background_playback_summary_off">Shorts-ի  ֆոնային  վերարտադրությունը  հնարավոր  է</string>
-  </patch>
-  <patch id="misc.debugging.enableDebuggingPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.debugging.enableDebuggingPatch"> -->
   <string name="revanced_debug_screen_title">Debug</string>
   <string name="revanced_debug_screen_summary">Միացնել կամ անջատել առաջնորդման ռեժիմի ֆունկցիաները</string>
   <string name="revanced_debug_title">Առաջնորդման մատնանշում</string>
@@ -115,8 +115,8 @@ MicroG-ի համար մարտկոցի օպտիմալացումը անջատել�
   <string name="revanced_debug_toast_on_error_user_dialog_message">"Սխալների տոաստի անջատումը թաքցնում է ReVanced-ի բոլոր սխալների ծանուցումները։
 
 Դուք չեք ստանա ան予期した出来事ի մասին ծանուցում։"</string>
-  </patch>
-  <patch id="layout.hide.general.hideLayoutComponentsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.general.hideLayoutComponentsPatch"> -->
   <string name="revanced_hide_album_cards_title">Թաքցնել  ալբոմի  քարտերը</string>
   <string name="revanced_hide_album_cards_summary_on">Ալբոմի  քարտերը  թաքցված  են</string>
   <string name="revanced_hide_album_cards_summary_off">Ալբոմի  քարտերը  ցույց  են  տրվում</string>
@@ -340,8 +340,8 @@ MicroG-ի համար մարտկոցի օպտիմալացումը անջատել�
   <string name="revanced_hide_keyword_toast_invalid_conflicting">Բանալի բառը ունի հակասող հայտարարություններ։ %s</string>
   <string name="revanced_hide_keyword_toast_invalid_length">Բանալի բառը շատ կարճ է և պահանջում է մեջբերման նշաններ։ %s</string>
   <string name="revanced_hide_keyword_toast_invalid_broad">Բանալի բառը կթաքցնի բոլոր տեսանյութերը։ %s</string>
-  </patch>
-  <patch id="ad.general.hideAdsResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="ad.general.hideAdsResourcePatch"> -->
   <string name="revanced_hide_general_ads_title">Թաքցնել ընդհանուր գովազդները</string>
   <string name="revanced_hide_general_ads_summary_on">Ընդհանուր գովազդները թաքցված են</string>
   <string name="revanced_hide_general_ads_summary_off">Ընդհանուր գովազդները երևում են</string>
@@ -383,18 +383,18 @@ MicroG-ի համար մարտկոցի օպտիմալացումը անջատել�
   <string name="revanced_hide_merchandise_banners_summary_off">Ապրանքների բաները երևում են</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_hide_fullscreen_ads_feature_not_available_toast">Լի էկրանի գովազդների թաքցումը գործում է միայն հին սարքերի համար</string>
-  </patch>
-  <patch id="ad.getpremium.hideGetPremiumPatch">
+  <!-- </patch> -->
+  <!-- <patch id="ad.getpremium.hideGetPremiumPatch"> -->
   <string name="revanced_hide_get_premium_title">Թաքցնել YouTube Premium-ի խթանումները</string>
   <string name="revanced_hide_get_premium_summary_on">YouTube Premium-ի խթանումները տեսանյութի խաղացողի տակ թաքցված են</string>
   <string name="revanced_hide_get_premium_summary_off">YouTube Premium-ի խթանումները տեսանյութի խաղացողի տակ երևում են</string>
-  </patch>
-  <patch id="ad.video.videoAdsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="ad.video.videoAdsPatch"> -->
   <string name="revanced_hide_video_ads_title">Թաքցնել տեսահոլովակների գովազդները</string>
   <string name="revanced_hide_video_ads_summary_on">Տեսահոլովակների գովազդները բլոկավորված են</string>
   <string name="revanced_hide_video_ads_summary_off">Տեսահոլովակների գովազդները երևում են</string>
-  </patch>
-  <patch id="interaction.copyvideourl.copyVideoUrlResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="interaction.copyvideourl.copyVideoUrlResourcePatch"> -->
   <string name="revanced_share_copy_url_success">URL-ը կրկնօրինակվել է բացման տախտակին</string>
   <string name="revanced_share_copy_url_timestamp_success">URL-ը ժամանակի կնիքով կրկնօրինակվել է</string>
   <string name="revanced_copy_video_url_title">Ցույց տալ տեսանյութի URL-ի կրկնօրինակման կոճակը</string>
@@ -403,14 +403,14 @@ MicroG-ի համար մարտկոցի օպտիմալացումը անջատել�
   <string name="revanced_copy_video_url_timestamp_title">Ցույց տալ ժամանակի կնիքով URL-ի կրկնօրինակման կոճակը</string>
   <string name="revanced_copy_video_url_timestamp_summary_on">Կոճակը ցուցադրվում է: Հպեք ժամանակային նշումով վիդեոյի URL-ը պատճենելու համար: Հպեք և պահեք առանց ժամանակային նշման պատճենելու համար</string>
   <string name="revanced_copy_video_url_timestamp_summary_off">Կոճակը չի երևում</string>
-  </patch>
-  <patch id="interaction.dialog.removeViewerDiscretionDialogPatch">
+  <!-- </patch> -->
+  <!-- <patch id="interaction.dialog.removeViewerDiscretionDialogPatch"> -->
   <string name="revanced_remove_viewer_discretion_dialog_title">Հեռացնել դիտողի խոհեմության երկխոսությունը</string>
   <string name="revanced_remove_viewer_discretion_dialog_summary_on">Երկխոսությունը հեռացվելու է</string>
   <string name="revanced_remove_viewer_discretion_dialog_summary_off">Զրույցը կցուցադրվի</string>
   <string name="revanced_remove_viewer_discretion_dialog_user_dialog_message">Սա չի խուսափում տարիքային սահմանափակումից։ Այն պարզապես ավտոմատ կերպով ընդունում է այն։</string>
-  </patch>
-  <patch id="interaction.downloads.downloadsResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="interaction.downloads.downloadsResourcePatch"> -->
   <string name="revanced_external_downloader_screen_title">Արտաքին ներբեռնումներ</string>
   <string name="revanced_external_downloader_screen_summary">Արտաքին ներբեռնող օգտագործելու համար կարգավորումներ</string>
   <string name="revanced_external_downloader_title">Ցույց տալ արտաքին ներբեռնման կոճակը</string>
@@ -423,18 +423,18 @@ MicroG-ի համար մարտկոցի օպտիմալացումը անջատել�
   <string name="revanced_external_downloader_name_title">Ներբեռնողի փաթեթի անունը</string>
   <string name="revanced_external_downloader_name_summary">Ձեր տեղադրված արտաքին ներբեռնողի ծրագրի փաթեթի անունը, օրինակ՝ NewPipe կամ Seal</string>
   <string name="revanced_external_downloader_not_installed_warning">%s չի տեղադրված։ Խնդրում ենք տեղադրել այն։</string>
-  </patch>
-  <patch id="interaction.seekbar.disablePreciseSeekingGesturePatch">
+  <!-- </patch> -->
+  <!-- <patch id="interaction.seekbar.disablePreciseSeekingGesturePatch"> -->
   <string name="revanced_disable_precise_seeking_gesture_title">Անջատել ճշգրիտ փնտրման ժեստը</string>
   <string name="revanced_disable_precise_seeking_gesture_summary_on">Ժեստը անջատված է</string>
   <string name="revanced_disable_precise_seeking_gesture_summary_off">Ժեստը միացված է</string>
-  </patch>
-  <patch id="interaction.seekbar.enableSeekbarTappingPatch">
+  <!-- </patch> -->
+  <!-- <patch id="interaction.seekbar.enableSeekbarTappingPatch"> -->
   <string name="revanced_seekbar_tapping_title">Միացնել հպելը՝ որոնելու համար</string>
   <string name="revanced_seekbar_tapping_summary_on">Հպեք՝ որոնումը միացնելու համար</string>
   <string name="revanced_seekbar_tapping_summary_off">Հպելը՝ որոնելու համար, անջատված է</string>
-  </patch>
-  <patch id="interaction.swipecontrols.swipeControlsResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="interaction.swipecontrols.swipeControlsResourcePatch"> -->
   <string name="revanced_swipe_brightness_title">Միացնել լուսավորության ժեստը</string>
   <string name="revanced_swipe_brightness_summary_on">"Մեծ էկրանով պայծառության սահեցումը միացված է։
 
@@ -473,13 +473,13 @@ MicroG-ի համար մարտկոցի օպտիմալացումը անջատել�
   <string name="revanced_swipe_change_video_title">Վայրէջքով տեսանյութերը փոխելու ակտիվացում</string>
   <string name="revanced_swipe_change_video_summary_on">Լիարժեք ռեժիմով վայրէջքը կփոխվի հաջորդ / նախորդ տեսանյութին</string>
   <string name="revanced_swipe_change_video_summary_off">Լիարժեք ռեժիմով վայրէջքը չի փոխվի հաջորդ / նախորդ տեսանյութին</string>
-  </patch>
-  <patch id="layout.autocaptions.autoCaptionsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.autocaptions.autoCaptionsPatch"> -->
   <string name="revanced_auto_captions_title">Անջատել ավտոմատ ենթագրերը</string>
   <string name="revanced_auto_captions_summary_on">Ավտոմատ ենթագրերը անջատված են</string>
   <string name="revanced_auto_captions_summary_off">Ավտոմատ ենթագրերը միացված են</string>
-  </patch>
-  <patch id="layout.buttons.action.hideButtonsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.buttons.action.hideButtonsPatch"> -->
   <string name="revanced_hide_buttons_screen_title">Գործողության կոճակներ</string>
   <string name="revanced_hide_buttons_screen_summary">Թաքցնել կամ ցույց տալ կոճակները տեսանյութերի տակ</string>
   <string name="revanced_disable_like_subscribe_glow_title">Հանել «Like» և «Subscribe» լուսավորումը</string>
@@ -517,8 +517,8 @@ MicroG-ի համար մարտկոցի օպտիմալացումը անջատել�
   <string name="revanced_hide_playlist_button_title">Թաքցնել Save to playlist</string>
   <string name="revanced_hide_playlist_button_summary_on">Save to playlist կոճակը թաքցված է</string>
   <string name="revanced_hide_playlist_button_summary_off">Save to playlist կոճակը ցուցադրվում է</string>
-  </patch>
-  <patch id="layout.buttons.navigation.navigationButtonsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.buttons.navigation.navigationButtonsPatch"> -->
   <string name="revanced_navigation_buttons_screen_title">Նավիգացիայի կոճակներ</string>
   <string name="revanced_navigation_buttons_screen_summary">Թաքցնել կամ փոխել կոճակները նավիգացիայի վանդակում</string>
   <!-- 'Home' should be translated using the same localized wording YouTube displays for the tab. -->
@@ -555,14 +555,15 @@ MicroG-ի համար մարտկոցի օպտիմալացումը անջատել�
   <string name="revanced_disable_translucent_status_bar_title">Անջատել կիսաթափանց կարգավիճակի տողը</string>
   <string name="revanced_disable_translucent_status_bar_summary_on">Վիճակի նوارը անթափանց է</string>
   <string name="revanced_disable_translucent_status_bar_summary_off">Վիճակի նշագիծը անթափանց է կամ կիսաթափանց</string>
+  <string name="revanced_disable_translucent_status_bar_user_dialog_message">Որոշ սարքերում այս գործառույթի միացումը կարող է համակարգի նավիգացիոն տողը դարձնել թափանցիկ։</string>
   <string name="revanced_disable_translucent_navigation_bar_light_title">Անջատել կիսաթափանց լուսավոր շերտը</string>
   <string name="revanced_disable_translucent_navigation_bar_light_summary_on">Լուսավոր ռեժիմի նավիգացիոն շերտը անթափանց է</string>
   <string name="revanced_disable_translucent_navigation_bar_light_summary_off">Լույսի ռեժիմի նավիգացիոն նշագիծը անթափանց է կամ կիսաթափանց</string>
   <string name="revanced_disable_translucent_navigation_bar_dark_title">Անջատել մուգ կիսաթափանց նշագիծ</string>
   <string name="revanced_disable_translucent_navigation_bar_dark_summary_on">Մութ ռեժիմի նավիգացիոն շերտը անթափանց է</string>
   <string name="revanced_disable_translucent_navigation_bar_dark_summary_off">Մուգ ռեժիմի նավիգացիոն նշագիծը անթափանց է կամ կիսաթափանց</string>
-  </patch>
-  <patch id="layout.hide.player.flyoutmenupanel.hidePlayerFlyoutMenuPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.player.flyoutmenupanel.hidePlayerFlyoutMenuPatch"> -->
   <string name="revanced_hide_player_flyout_title">Flyout մենյու</string>
   <string name="revanced_hide_player_flyout_summary">Թաքցնել կամ ցույց տալ խաղացողի flyout մենյուի կետերը</string>
   <!-- 'Captions' should be translated using the same localized wording YouTube displays for the menu item. -->
@@ -616,8 +617,8 @@ MicroG-ի համար մարտկոցի օպտիմալացումը անջատել�
   <string name="revanced_hide_player_flyout_video_quality_footer_title">Տեսանյութի որակի մենյուի ստորագրությունը թաքցնել</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_on">Տեսանյութի որակի մենյուի ստորագրությունը թաքցված է</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_off">Տեսանյութի որակի մենյուի ստորագրությունը երևում է</string>
-  </patch>
-  <patch id="layout.buttons.overlay.hidePlayerOverlayButtonsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.buttons.overlay.hidePlayerOverlayButtonsPatch"> -->
   <string name="revanced_hide_player_previous_next_buttons_title">Թաքցնել \"Նախորդ\" և \"Հաջորդ\" կոճակները</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_on">Կոճակները թաքցված են</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">Կոճակները երևում են</string>
@@ -631,36 +632,36 @@ MicroG-ի համար մարտկոցի օպտիմալացումը անջատել�
   <string name="revanced_hide_autoplay_button_title">Թաքցնել Ավտոմատ կրկնում կոճակը</string>
   <string name="revanced_hide_autoplay_button_summary_on">Ավտոմատ վերարտադրման կոճակը թաքցված է</string>
   <string name="revanced_hide_autoplay_button_summary_off">Ավտոմատ վերարտադրման կոճակը երևում է</string>
-  </patch>
-  <patch id="layout.hide.endscreencards.hideEndscreenCardsResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.endscreencards.hideEndscreenCardsResourcePatch"> -->
   <string name="revanced_hide_endscreen_cards_title">Էկրանի վերջում քարտերը թաքցնել</string>
   <string name="revanced_hide_endscreen_cards_summary_on">Էկրանի վերջում քարտերը թաքցված են</string>
   <string name="revanced_hide_endscreen_cards_summary_off">Էկրանի վերջում քարտերը երևում են</string>
-  </patch>
-  <patch id="layout.hide.fullscreenambientmode.disableFullscreenAmbientModePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.fullscreenambientmode.disableFullscreenAmbientModePatch"> -->
   <string name="revanced_disable_fullscreen_ambient_mode_title">Անջատել շրջապատող ռեժիմը լիարժեք էկրանում</string>
   <string name="revanced_disable_fullscreen_ambient_mode_summary_on">Ամբիենտ ռեժիմը անջատված է</string>
   <string name="revanced_disable_fullscreen_ambient_mode_summary_off">Ամբիենտ ռեժիմը միացված է</string>
-  </patch>
-  <patch id="layout.hide.infocards.hideInfocardsResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.infocards.hideInfocardsResourcePatch"> -->
   <string name="revanced_hide_info_cards_title">Տեղեկատվական քարտերը թաքցնել</string>
   <string name="revanced_hide_info_cards_summary_on">Տեղեկատվական քարտերը թաքցված են</string>
   <string name="revanced_hide_info_cards_summary_off">Տեղեկատվական քարտերը երևում են</string>
-  </patch>
-  <patch id="layout.hide.rollingnumber.disableRollingNumberAnimationPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.rollingnumber.disableRollingNumberAnimationPatch"> -->
   <string name="revanced_disable_rolling_number_animations_title">Հաշվողական թվերի մուլտիպլիկացիան անջատել</string>
   <string name="revanced_disable_rolling_number_animations_summary_on">Հաշվողական թվերը մուլտիպլիկացված չեն</string>
   <string name="revanced_disable_rolling_number_animations_summary_off">Հաշվողական թվերը մուլտիպլիկացված են</string>
-  </patch>
-  <patch id="layout.hide.seekbar.hideSeekbarPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.seekbar.hideSeekbarPatch"> -->
   <string name="revanced_hide_seekbar_title">Տեսանյութի կրողի վրա տեղաշարժի ձողը թաքցնել</string>
   <string name="revanced_hide_seekbar_summary_on">Տեսանյութի կրողի վրա տեղաշարժի ձողը թաքցված է</string>
   <string name="revanced_hide_seekbar_summary_off">Տեսանյութի կրողի վրա տեղաշարժի ձողը երևում է</string>
   <string name="revanced_hide_seekbar_thumbnail_title">Մանրապատկերների վրա տեղաշարժի ձողը թաքցնել</string>
   <string name="revanced_hide_seekbar_thumbnail_summary_on">Մանրապատկերների վրա տեղաշարժի ձողը թաքցված է</string>
   <string name="revanced_hide_seekbar_thumbnail_summary_off">Մանրապատկերների վրա տեղաշարժի ձողը երևում է</string>
-  </patch>
-  <patch id="layout.hide.shorts.hideShortsComponentsResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.shorts.hideShortsComponentsResourcePatch"> -->
   <string name="revanced_shorts_player_screen_title">Shorts կրող</string>
   <string name="revanced_shorts_player_screen_summary">Թաքցնել կամ ցույց տալ Shorts կրողի բաղադրիչները</string>
   <!-- 'home' should be translated using the same localized wording YouTube displays for the home tab. -->
@@ -762,43 +763,43 @@ MicroG-ի համար մարտկոցի օպտիմալացումը անջատել�
   <string name="revanced_hide_shorts_navigation_bar_title">Թաքցնել նավիգացիայի ձողը</string>
   <string name="revanced_hide_shorts_navigation_bar_summary_on">Նավիգացիայի ձողը թաքցված է</string>
   <string name="revanced_hide_shorts_navigation_bar_summary_off">Նավիգացիայի ձողը երևում է</string>
-  </patch>
-  <patch id="layout.hide.endscreensuggestion.hideEndScreenSuggestedVideoPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.endscreensuggestion.hideEndScreenSuggestedVideoPatch"> -->
   <string name="revanced_end_screen_suggested_video_title">Թաքցնել վերջնական էկրանին առաջարկվող տեսանյութը</string>
   <string name="revanced_end_screen_suggested_video_summary_on">"Վերջնական էկրանին առաջարկվող տեսանյութը թաքցված է, երբ ավտոմատ նվագարկումն անջատված է
 
 Ավտոմատ նվագարկումը կարելի է փոխել YouTube-ի կարգավորումներում.
 Կարգավորումներ → Վերարտադրում → Ավտոմատ նվագարկել հաջորդ տեսանյութը"</string>
   <string name="revanced_end_screen_suggested_video_summary_off">Վերջնական էկրանին առաջարկվող տեսանյութը ցուցադրվում է</string>
-  </patch>
-  <patch id="layout.hide.time.hideTimestampPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.time.hideTimestampPatch"> -->
   <string name="revanced_hide_timestamp_title">Թաքցնել տեսանյութի ժամանակային կետը</string>
   <string name="revanced_hide_timestamp_summary_on">Ժամանակային կետը թաքցված է</string>
   <string name="revanced_hide_timestamp_summary_off">Ժամանակային կետը երևում է</string>
-  </patch>
-  <patch id="layout.panels.popup.playerPopupPanelsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.panels.popup.playerPopupPanelsPatch"> -->
   <string name="revanced_hide_player_popup_panels_title">Թաքցնել հաղորդակցման վահանակների ելնող պատուհանները</string>
   <string name="revanced_hide_player_popup_panels_summary_on">Հաղորդակցման վահանակների ելնող պատուհանները թաքցված են</string>
   <string name="revanced_hide_player_popup_panels_summary_off">Հաղորդակցման վահանակների ելնող պատուհանները երևում են</string>
-  </patch>
-  <patch id="layout.player.fullscreen.exitFullscreenPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.player.fullscreen.exitFullscreenPatch"> -->
   <string name="revanced_exit_fullscreen_title">Տեսանյութի ավարտին դուրս գալ լիաէկրան ռեժիմից</string>
   <string name="revanced_exit_fullscreen_entry_1">Անջատված</string>
   <string name="revanced_exit_fullscreen_entry_2">Դիմանկար</string>
   <string name="revanced_exit_fullscreen_entry_3">Լանդշաֆտ</string>
   <string name="revanced_exit_fullscreen_entry_4">Դիմանկար և լանդշաֆտ</string>
-  </patch>
-  <patch id="layout.player.fullscreen.openVideosFullscreen">
+  <!-- </patch> -->
+  <!-- <patch id="layout.player.fullscreen.openVideosFullscreen"> -->
   <string name="revanced_open_videos_fullscreen_portrait_title">Բացել տեսանյութերը լի էկրանի պորտրետային ռեժիմով</string>
   <string name="revanced_open_videos_fullscreen_portrait_summary_on">Տեսանյութերը բացվում են լի էկրանով</string>
   <string name="revanced_open_videos_fullscreen_portrait_summary_off">Տեսանյութերը չեն բացվում լի էկրանով</string>
-  </patch>
-  <patch id="layout.player.overlay.customPlayerOverlayOpacityResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.player.overlay.customPlayerOverlayOpacityResourcePatch"> -->
   <string name="revanced_player_overlay_opacity_title">Հաղորդակցման վահանակի թափանցիկություն</string>
   <string name="revanced_player_overlay_opacity_summary">Թափանցիկության արժեքը 0-100 միջակայքում, որտեղ 0-ը թափանցիկ է</string>
   <string name="revanced_player_overlay_opacity_invalid_toast">Խաղացողի վերածածկի թափանցիկությունը պետք է լինի 0-100 միջակայքում</string>
-  </patch>
-  <patch id="layout.returnyoutubedislike.returnYouTubeDislikePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.returnyoutubedislike.returnYouTubeDislikePatch"> -->
   <!-- Toast shown if network connection times out. Translations of this should not be longer than the original English or the text can be clipped and not entirely shown. -->
   <string name="revanced_ryd_failure_connection_timeout">\"Dislike\"-երը  մի որոշ ժամանակ  հասանելի չեն (API-ն ժամանակի սահմանը  անցել է)</string>
   <string name="revanced_ryd_failure_connection_status_code">\"Dislike\"-երը  հասանելի չեն (կարգավիճակ %d)</string>
@@ -847,13 +848,13 @@ MicroG-ի համար մարտկոցի օպտիմալացումը անջատել�
   <string name="revanced_ryd_statistics_getNumberOfRateLimitRequestsEncountered_zero_summary">Client-ի կողմից սահմանված արագության սահմանափակումներ չեն հանդիպել</string>
   <string name="revanced_ryd_statistics_getNumberOfRateLimitRequestsEncountered_non_zero_summary">Client-ի կողմից սահմանված արագության սահմանափակումը հանդիպել է %d անգամ</string>
   <string name="revanced_ryd_statistics_millisecond_text">%d միլիվայրկյան</string>
-  </patch>
-  <patch id="layout.searchbar.wideSearchbarPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.searchbar.wideSearchbarPatch"> -->
   <string name="revanced_wide_searchbar_title">Ակտիվացնել լայն որոնման տողը</string>
   <string name="revanced_wide_searchbar_summary_on">Լայն որոնման տողը ակտիվացված է</string>
   <string name="revanced_wide_searchbar_summary_off">Լայն որոնման տողը անակտիվ է</string>
-  </patch>
-  <patch id="layout.seekbar.seekbarThumbnailsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.seekbar.seekbarThumbnailsPatch"> -->
   <string name="revanced_seekbar_thumbnails_high_quality_title">Ակտիվացնել բարձր որակի մանրապատկերները</string>
   <string name="revanced_seekbar_thumbnails_high_quality_summary_on">Seekbar-ի մանրապատկերները բարձր որակի են</string>
   <string name="revanced_seekbar_thumbnails_high_quality_summary_off">Seekbar-ի մանրապատկերները միջին որակի են</string>
@@ -867,8 +868,8 @@ Seekbar thumbnails-ները կօգտագործեն նույն որակը, ինչ
   <string name="revanced_restore_old_seekbar_thumbnails_title">Վերականգնել հին Seekbar մանրապատկերները</string>
   <string name="revanced_restore_old_seekbar_thumbnails_summary_on">Seekbar մանրապատկերները կհայտնվեն Seekbar-ի վերևում</string>
   <string name="revanced_restore_old_seekbar_thumbnails_summary_off">Seekbar մանրապատկերները կհայտնվեն fullscreen-ում</string>
-  </patch>
-  <patch id="layout.sponsorblock.sponsorBlockResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.sponsorblock.sponsorBlockResourcePatch"> -->
   <string name="revanced_sb_enable_sb">Ակտիվացնել SponsorBlock</string>
   <string name="revanced_sb_enable_sb_sum">SponsorBlock е կամավարական համակարգ, որը նախատեսված է YouTube տեսանյութերի ձանձրալի հատվածները բաց թողնելու համար</string>
   <string name="revanced_sb_appearance_category">Արտաքին տեսք</string>
@@ -1066,8 +1067,8 @@ Seekbar thumbnails-ները կօգտագործեն նույն որակը, ինչ
   <string name="revanced_sb_reset">Վերագործարկել</string>
   <string name="revanced_sb_about">Ծրագրի մասին</string>
   <string name="revanced_sb_about_api_sum">Տվյալները մատուցվում են SponsorBlock API-ի կողմից։ Սեղմեք այստեղ՝ ավելի շատ իմանալու և այլ հարթակների համար ներբեռնումները տեսնելու</string>
-  </patch>
-  <patch id="layout.formfactor.changeFormFactorPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.formfactor.changeFormFactorPatch"> -->
   <string name="revanced_change_form_factor_title">Ձևաչափի փոփոխություն</string>
   <string name="revanced_change_form_factor_entry_1">Ընտրված</string>
   <string name="revanced_change_form_factor_entry_2">Հեռախոս</string>
@@ -1081,8 +1082,8 @@ Seekbar thumbnails-ները կօգտագործեն նույն որակը, ինչ
 Ավտոմեքենայի դասավորություն
 • Shorts-ը բացվում է սովորական նվագարկչում
 • Ֆիդը կազմակերպվում է ըստ թեմաների և ալիքների"</string>
-  </patch>
-  <patch id="layout.spoofappversion.spoofAppVersionPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.spoofappversion.spoofAppVersionPatch"> -->
   <string name="revanced_spoof_app_version_title">Կեղծել հավելվածի տարբերակը</string>
   <string name="revanced_spoof_app_version_summary_on">Տարբերակը կեղծված է</string>
   <string name="revanced_spoof_app_version_summary_off">Տարբերակը կեղծված չէ</string>
@@ -1096,8 +1097,8 @@ Seekbar thumbnails-ները կօգտագործեն նույն որակը, ինչ
   <string name="revanced_spoof_app_version_target_title">Spoof-ի կիրառության տարբերակի նպատակ</string>
   <string name="revanced_spoof_app_version_target_entry_1">19.35.36 - Վերականգնել հին Shorts պլեյերի պատկերակները</string>
   <string name="revanced_spoof_app_version_target_entry_2">19.01.34 - Վերականգնել հին նավիգացիոն պատկերակները</string>
-  </patch>
-  <patch id="layout.startpage.changeStartPagePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.startpage.changeStartPagePatch"> -->
   <string name="revanced_change_start_page_title">Սահմանել մեկնարկային էջ</string>
   <string name="revanced_change_start_page_entry_default">Ըստ լռելյայնի</string>
   <string name="revanced_change_start_page_entry_all_subscriptions">Բոլոր բաժանորդագրությունները</string>
@@ -1123,27 +1124,27 @@ Seekbar thumbnails-ները կօգտագործեն նույն որակը, ինչ
   <string name="revanced_change_start_page_entry_virtual_reality">Վիրտուալ իրականություն</string>
   <string name="revanced_change_start_page_entry_watch_later">Դիտել հետո</string>
   <string name="revanced_change_start_page_entry_your_clips">Your clips</string>
-  </patch>
-  <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch"> -->
   <string name="revanced_disable_resuming_shorts_player_title">Անջատել Shorts պլեյերի վերսկսումը</string>
   <string name="revanced_disable_resuming_shorts_player_summary_on">Shorts պլեյերը չի վերսկսվի կիրառության մեկնարկի ժամանակ</string>
   <string name="revanced_disable_resuming_shorts_player_summary_off">Shorts պլեյերը կվերսկսվի կիրառության մեկնարկի ժամանակ</string>
-  </patch>
-  <patch id="layout.shortsplayer.shortsPlayerTypePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.shortsplayer.shortsPlayerTypePatch"> -->
   <string name="revanced_shorts_player_type_title">Բացեք Shorts</string>
   <string name="revanced_shorts_player_type_shorts">Shorts կրող</string>
   <string name="revanced_shorts_player_type_regular_player">Կանոնավոր նվագարկիչ</string>
   <string name="revanced_shorts_player_type_regular_player_fullscreen">Կանոնավոր նվագարկիչ լիարժեք էկրանով</string>
-  </patch>
-  <patch id="layout.shortsautoplay.shortsAutoplayPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.shortsautoplay.shortsAutoplayPatch"> -->
   <string name="revanced_shorts_autoplay_title">Ավտոմատ կարճ տեսանյութերի միացում</string>
   <string name="revanced_shorts_autoplay_summary_on">Shorts-ը կվերարտադրվի ավտոմատ կերպով</string>
   <string name="revanced_shorts_autoplay_summary_off">Shorts-ը կկրկնվի</string>
   <string name="revanced_shorts_autoplay_background_title">Autoplay Shorts ֆոնային վերարտադրում</string>
   <string name="revanced_shorts_autoplay_background_summary_on">Shorts-ի ֆոնային վերարտադրումը կվերարտադրվի ավտոմատ կերպով</string>
   <string name="revanced_shorts_autoplay_background_summary_off">Shorts-ի ֆոնային վերարտադրումը կկրկնվի</string>
-  </patch>
-  <patch id="layout.miniplayer.miniplayerPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.miniplayer.miniplayerPatch"> -->
   <string name="revanced_miniplayer_screen_title">Մինի նվագարկիչ</string>
   <string name="revanced_miniplayer_screen_summary">Փոխել ներծրագրային փոքրացված նվագարկչի ոճը</string>
   <string name="revanced_miniplayer_type_title">Miniplayer-ի տեսակ</string>
@@ -1193,8 +1194,8 @@ Mini-player-ը կարող է գրավվել էկրանից դուրս՝ դեպի
   <string name="revanced_miniplayer_opacity_title">Գերդրման թափանցիկություն</string>
   <string name="revanced_miniplayer_opacity_summary">Թափանցիկության արժեքը 0-100 միջև, որտեղ 0-ը թափանցիկ է</string>
   <string name="revanced_miniplayer_opacity_invalid_toast">Miniplayer-ի գերդրման թափանցիկությունը պետք է լինի 0-100 միջև</string>
-  </patch>
-  <patch id="layout.theme.themePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.theme.themePatch"> -->
   <string name="revanced_gradient_loading_screen_title">Աктиվացնել գրադիենտի բեռնման էկրանը</string>
   <string name="revanced_gradient_loading_screen_summary_on">Բեռնման էկրանը կունենա գրադիենտի ֆոն</string>
   <string name="revanced_gradient_loading_screen_summary_off">Բեռնման էկրանը կունենա մեկ գույնի ֆոն</string>
@@ -1206,15 +1207,15 @@ Mini-player-ը կարող է գրավվել էկրանից դուրս՝ դեպի
   <string name="revanced_seekbar_custom_color_accent_title">Նշման գույնի ընտրում</string>
   <string name="revanced_seekbar_custom_color_accent_summary">Մարզումից դուրս ողորկության նշման գույնը</string>
   <string name="revanced_seekbar_custom_color_invalid">Սխալ seekbar-ի գույնի արժեք</string>
-  </patch>
-  <patch id="layout.thumbnails.bypassImageRegionRestrictionsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.thumbnails.bypassImageRegionRestrictionsPatch"> -->
   <string name="revanced_bypass_image_region_restrictions_title">Անտեսել պատկերի տարածաշրջանի սահմանափակումները</string>
   <string name="revanced_bypass_image_region_restrictions_summary_on">Օգտագործելով yt4.ggpht.com պատկերային հոսքը</string>
   <string name="revanced_bypass_image_region_restrictions_summary_off">"Օգտագործվում է սկզբնական պատկերների հոսքը
 
 Այս կարգավորման միացումը կարող է լուծել որոշ տարածաշրջաններում կասեցված պատկերների խնդիրը։"</string>
-  </patch>
-  <patch id="layout.thumbnails.alternativeThumbnailsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.thumbnails.alternativeThumbnailsPatch"> -->
   <!-- 'Home' should be translated using the same localized wording YouTube displays for the home tab. -->
   <string name="revanced_alt_thumbnail_home_title">Գլխավոր ներդիր</string>
   <!-- 'Subscription' should be translated using the same localized wording YouTube displays for the subscription tab. -->
@@ -1249,26 +1250,26 @@ Mini-player-ը կարող է գրավվել էկրանից դուրս՝ դեպի
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_alt_thumbnail_dearrow_error">DeArrow-ը ժամանակավորապես հասանելի չէ (կարգավիճակի կոդը՝ %s)</string>
   <string name="revanced_alt_thumbnail_dearrow_error_generic">DeArrow-ը ժամանակավորապես հասանելի չէ</string>
-  </patch>
-  <patch id="misc.announcements.announcementsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.announcements.announcementsPatch"> -->
   <string name="revanced_announcements_title">Ցուցադրել ReVanced հայտարարությունները</string>
   <string name="revanced_announcements_summary_on">Գործարկման մասին հայտարարությունները ցուցադրվում են</string>
   <string name="revanced_announcements_summary_off">Գործարկման մասին հայտարարությունները չեն ցուցադրվում</string>
   <string name="revanced_announcements_enabled_summary">Ցուցադրել հայտարարությունները մեկնարկի ժամանակ</string>
   <string name="revanced_announcements_connection_failed">Հայտարարությունների մատակարարի հետ կապի  անհաջողություն</string>
   <string name="revanced_announcements_dialog_dismiss">Մերժել</string>
-  </patch>
-  <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch"> -->
   <string name="revanced_check_watch_history_domain_name_dialog_title">Զգուշացում</string>
   <string name="revanced_check_watch_history_domain_name_dialog_message">Ձեր դիտման պատմությունը չի պահպանվում.&lt;br&gt;&lt;br&gt;Այս  հավանական  պատճառը DNS  գովազդների  բլոկավորիչ կամ ցանցային պրոքսի  է.&lt;br&gt;&lt;br&gt;Խնդրում ենք  գործարկել &lt;b&gt;s.youtube.com&lt;/b&gt;  կամ անջատել  DNS  բլոկավորիչներ  և  պրոքսիներ:</string>
   <string name="revanced_check_watch_history_domain_name_dialog_ignore">Ավելի  չցուցադրել</string>
-  </patch>
-  <patch id="misc.autorepeat.autoRepeatPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.autorepeat.autoRepeatPatch"> -->
   <string name="revanced_auto_repeat_title">Ավտոմատ կրկնումը  ակտիվացնել</string>
   <string name="revanced_auto_repeat_summary_on">Ավտոմատ կրկնումը  ակտիվացված է</string>
   <string name="revanced_auto_repeat_summary_off">Ավտոմատ կրկնումը  անջատված է</string>
-  </patch>
-  <patch id="misc.dimensions.spoof.spoofDeviceDimensionsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.dimensions.spoof.spoofDeviceDimensionsPatch"> -->
   <string name="revanced_spoof_device_dimensions_title">Հեռախոսի  չափերը  հնարավոր է  փոփոխել</string>
   <string name="revanced_spoof_device_dimensions_summary_on">"Սարքի չափերը կեղծվում են
 
@@ -1277,39 +1278,39 @@ Mini-player-ը կարող է գրավվել էկրանից դուրս՝ դեպի
 
 Այս կարգավորման միացումը կարող է բացել տեսանյութի ավելի բարձր որակ։"</string>
   <string name="revanced_spoof_device_dimensions_user_dialog_message">Այս  ընտրության  ակտիվացումը  կարող է  առաջացնել  տեսանյութի  վերարտադրման  հետ  կապված  պրոբլեմների,  ավելի  վատ  մարտկոցի  վերջնական  համարձակության  և  անհայտ  կողմնակի  ազդեցությունների</string>
-  </patch>
-  <patch id="misc.gms.gmsCoreSupportResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.gms.gmsCoreSupportResourcePatch"> -->
   <string name="microg_settings_title">GmsCore  կարգավորումներ</string>
   <string name="microg_settings_summary">GmsCore-ի  կարգավորումներ</string>
-  </patch>
-  <patch id="misc.links.bypassURLRedirectsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.links.bypassURLRedirectsPatch"> -->
   <string name="revanced_bypass_url_redirects_title">URL-ի  վերահղումների  հնարավորությունը  անջատել</string>
   <string name="revanced_bypass_url_redirects_summary_on">URL-ի  վերահղումները  անջատված են</string>
   <string name="revanced_bypass_url_redirects_summary_off">URL-ի  վերահղումները  անջատված  չեն</string>
-  </patch>
-  <patch id="misc.links.openLinksExternallyPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.links.openLinksExternallyPatch"> -->
   <string name="revanced_external_browser_title">Բրաուզերում  հղումներ  բացել</string>
   <string name="revanced_external_browser_summary_on">Բացել հղումները արտաքին բրաուզերում</string>
   <string name="revanced_external_browser_summary_off">Բացել հղումները ներծրագրային բրաուզերում</string>
-  </patch>
-  <patch id="misc.privacy.removeTrackingQueryParameterPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.privacy.removeTrackingQueryParameterPatch"> -->
   <string name="revanced_remove_tracking_query_parameter_title">Հետևողականության  հարցումի  պարամետրը  հեռացնել</string>
   <string name="revanced_remove_tracking_query_parameter_summary_on">Հետևողականության  հարցումի  պարամետրը  հեռացվում է  հղումներից</string>
   <string name="revanced_remove_tracking_query_parameter_summary_off">Հետևողականության  հարցումի  պարամետրը  չի  հեռացվում  հղումներից</string>
-  </patch>
-  <patch id="misc.zoomhaptics.zoomHapticsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.zoomhaptics.zoomHapticsPatch"> -->
   <string name="revanced_disable_zoom_haptics_title">Զուումի  հպումների  ակտիվացումը  անջատել</string>
   <string name="revanced_disable_zoom_haptics_summary_on">Հպումները  անջատված են</string>
   <string name="revanced_disable_zoom_haptics_summary_off">Հպումները  ակտիվացված են</string>
-  </patch>
-  <patch id="video.audio.forceOriginalAudioPatch">
+  <!-- </patch> -->
+  <!-- <patch id="video.audio.forceOriginalAudioPatch"> -->
   <string name="revanced_force_original_audio_title">Բնօրինակ ձայն օգտագործել լեզուն</string>
   <string name="revanced_force_original_audio_summary_on">Օգտագործելով ձայնային օրիգինալ լեզուն</string>
   <string name="revanced_force_original_audio_summary_off">Վերջնական ձայն օգտագործվում է</string>
   <!-- 'Spoof video streams' should be the same translation used for revanced_spoof_video_streams_screen_title -->
   <string name="revanced_force_original_audio_not_available">Այս գործառույթն օգտագործելու համար փոխեք «Կեղծել տեսահոսքերը» iOS TV-ի</string>
-  </patch>
-  <patch id="video.quality.rememberVideoQualityPatch">
+  <!-- </patch> -->
+  <!-- <patch id="video.quality.rememberVideoQualityPatch"> -->
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
   <string name="revanced_video_quality_default_entry_1">Ավտո</string>
   <string name="revanced_remember_video_quality_last_selected_title">Հիշել  տեսանյութի  որակի  փոփոխությունները</string>
@@ -1326,13 +1327,13 @@ Mini-player-ը կարող է գրավվել էկրանից դուրս՝ դեպի
   <string name="revanced_remember_video_quality_wifi">ուայ-ֆայ</string>
   <string name="revanced_remember_video_quality_toast">Փոփոխվել է  դեֆոլտ  %1$s  որակը: %2$s</string>
   <string name="revanced_remember_video_quality_toast_shorts">Փոխվել է Shorts %1$s-ի որակը հետևյալի վրա. %2$s</string>
-  </patch>
-  <patch id="video.speed.button.playbackSpeedButtonPatch">
+  <!-- </patch> -->
+  <!-- <patch id="video.speed.button.playbackSpeedButtonPatch"> -->
   <string name="revanced_playback_speed_dialog_button_title">Ցուցադրել  արագության  դիալոգի  պատուհանի  կոճակը</string>
   <string name="revanced_playback_speed_dialog_button_summary_on">Կոճակը  ցուցադրվում է</string>
   <string name="revanced_playback_speed_dialog_button_summary_off">Կոճակը  չի  ցուցադրվում</string>
-  </patch>
-  <patch id="video.speed.custom.customPlaybackSpeedPatch">
+  <!-- </patch> -->
+  <!-- <patch id="video.speed.custom.customPlaybackSpeedPatch"> -->
   <string name="revanced_custom_speed_menu_title">Տեսանյութի  արագության  հարմարեցված  մենյու</string>
   <string name="revanced_custom_speed_menu_summary_on">Հարմարեցված  արագության  մենյուը  ցուցադրվում է</string>
   <string name="revanced_custom_speed_menu_summary_off">Հարմարեցված  արագության  մենյուը  չի  ցուցադրվում</string>
@@ -1343,30 +1344,30 @@ Mini-player-ը կարող է գրավվել էկրանից դուրս՝ դեպի
   <string name="revanced_custom_playback_speeds_auto">Ավտո</string>
   <string name="revanced_speed_tap_and_hold_title">Զգայական վերահսկում՝ անվանափոխման համար</string>
   <string name="revanced_speed_tap_and_hold_summary">Վերարտադրման արագությունը 0-8 միջակայքում</string>
-  </patch>
-  <patch id="video.speed.remember.rememberPlaybackSpeedPatch">
+  <!-- </patch> -->
+  <!-- <patch id="video.speed.remember.rememberPlaybackSpeedPatch"> -->
   <string name="revanced_remember_playback_speed_last_selected_title">Հիշել  տեսանյութի  վերարտադրման  արագության  փոփոխությունները</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_on">Վերարտադրման  արագության  փոփոխությունները  կիրառվում են  բոլոր  տեսանյութերի  համար</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_off">Վերարտադրման  արագության  փոփոխությունները  կիրառվում են  միայն  ներկայիս  տեսանյութի  համար</string>
   <string name="revanced_playback_speed_default_title">Տեսանյութի  վերարտադրման  դեֆոլտ  արագությունը</string>
   <string name="revanced_remember_playback_speed_toast">Փոփոխվել է  դեֆոլտ  արագությունը: %s</string>
-  </patch>
-  <patch id="video.hdr.disableHdrPatch">
+  <!-- </patch> -->
+  <!-- <patch id="video.hdr.disableHdrPatch"> -->
   <string name="revanced_disable_hdr_video_title">HDR տեսանյութը անջատված է</string>
   <string name="revanced_disable_hdr_video_summary_on">HDR տեսանյութը անջատված է</string>
   <string name="revanced_disable_hdr_video_summary_off">HDR տեսանյութը միացված է</string>
-  </patch>
-  <patch id="video.quality.advancedVideoQualityMenuPatch">
+  <!-- </patch> -->
+  <!-- <patch id="video.quality.advancedVideoQualityMenuPatch"> -->
   <string name="revanced_advanced_video_quality_menu_title">Ցուցադրել տեսանյութի որակի ընդլայնված մենյուն</string>
   <string name="revanced_advanced_video_quality_menu_summary_on">Տեսանյութի որակի ընդլայնված մենյուն ցուցադրվում է</string>
   <string name="revanced_advanced_video_quality_menu_summary_off">Տեսանյութի որակի ընդլայնված մենյուն չի ցուցադրվում</string>
-  </patch>
-  <patch id="interaction.seekbar.enableSlideToSeekPatch">
+  <!-- </patch> -->
+  <!-- <patch id="interaction.seekbar.enableSlideToSeekPatch"> -->
   <string name="revanced_slide_to_seek_title">Ակտիվացնել  սահելը  համար  ընտրելու</string>
   <string name="revanced_slide_to_seek_summary_on">Սահելը  համար  ընտրելը  ակտիվացված է</string>
   <string name="revanced_slide_to_seek_summary_off">Սահելը  համար  ընտրելը  անջատված է</string>
-  </patch>
-  <patch id="misc.fix.playback.spoofVideoStreamsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.fix.playback.spoofVideoStreamsPatch"> -->
   <string name="revanced_spoof_video_streams_screen_title">Հնարավոր է  տեսանյութի  հոսքերը  փոփոխել</string>
   <string name="revanced_spoof_video_streams_screen_summary">Փոփոխել  տեսանյութի  հոսքերը  համար  խուսափել  վերարտադրման  հետ  կապված  պրոբլեմներից</string>
   <string name="revanced_spoof_video_streams_title">Հնարավոր է  տեսանյութի  հոսքերը  փոփոխել</string>
@@ -1396,46 +1397,46 @@ AVC-ի առավելագույն թույլտվությունը 1080p է, Opus ա
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Հաճախորդի տեսակը ցուցադրվում է վիճակագրության ակնոցներում</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Հաճախորդը թաքնված է վիճակագրության ակնոցներում</string>
   <string name="revanced_spoof_video_streams_language_title">VR-ի համար նախապես ընտրված ձայնի գրառման լեզու</string>
-  </patch>
-  </app>
-  <app id="twitch">
-  <patch id="ad.audio.audioAdsPatch">
+  <!-- </patch> -->
+  <!-- </app> -->
+  <!-- <app id="twitch"> -->
+  <!-- <patch id="ad.audio.audioAdsPatch"> -->
   <string name="revanced_block_audio_ads_title">Բլոկել ձայնային գովազդները</string>
   <string name="revanced_block_audio_ads_summary_on">Ձայնային գովազդները բլոկավորված են</string>
   <string name="revanced_block_audio_ads_summary_off">Ձայնային գովազդները բլոկավորված չեն</string>
-  </patch>
-  <patch id="ad.embedded.embeddedAdsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="ad.embedded.embeddedAdsPatch"> -->
   <string name="revanced_embedded_ads_service_unavailable">%s հասանելի չէ, կարող է ցուցադրվել գովազդ։ Փորձեք փոխել գովազդների կասեցման ծառայությունը կարգավորումներում։</string>
   <string name="revanced_embedded_ads_service_failed">%s-ը սխալ է վերադարձել, կարող է ցուցադրվել գովազդ։ Փորձեք փոխել գովազդների կասեցման ծառայությունը կարգավորումներում։</string>
   <string name="revanced_block_embedded_ads_title">Բլոկել ներդրված տեսահոլովակների գովազդները</string>
   <string name="revanced_block_embedded_ads_entry_1">Անջատված է</string>
   <string name="revanced_block_embedded_ads_entry_2">Luminous պրոքսի</string>
   <string name="revanced_block_embedded_ads_entry_3">PurpleAdBlock պրոքսի</string>
-  </patch>
-  <patch id="ad.video.videoAdsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="ad.video.videoAdsPatch"> -->
   <string name="revanced_block_video_ads_title">Բլոկել տեսահոլովակների գովազդները</string>
   <string name="revanced_block_video_ads_summary_on">Տեսահոլովակների գովազդները բլոկավորված են</string>
   <string name="revanced_block_video_ads_summary_off">Տեսահոլովակների գովազդները բլոկավորված չեն</string>
-  </patch>
-  <patch id="chat.antidelete.showDeletedMessagesPatch">
+  <!-- </patch> -->
+  <!-- <patch id="chat.antidelete.showDeletedMessagesPatch"> -->
   <string name="revanced_deleted_msg">հաղորդագրությունը ջնջվել է</string>
   <string name="revanced_show_deleted_messages_title">Ցուցադրել հեռացված հաղորդագրությունները</string>
   <string name="revanced_show_deleted_messages_entry_1">Մի ցուցադրել հեռացված հաղորդագրությունները</string>
   <string name="revanced_show_deleted_messages_entry_2">Թաքցնել ջնջված հաղորդագրությունները սպոիլերով</string>
   <string name="revanced_show_deleted_messages_entry_3">Ցուցադրել ջնջված հաղորդագրությունները, ինչպես խաչված տեքստ</string>
-  </patch>
-  <patch id="chat.autoclaim.autoClaimChannelPointsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="chat.autoclaim.autoClaimChannelPointsPatch"> -->
   <string name="revanced_auto_claim_channel_points_title">Ավտոմատ կերպով ստանալ ալիքի կետեր</string>
   <string name="revanced_auto_claim_channel_points_summary_on">Ալիքի կետերը ստացվում են ավտոմատ կերպով</string>
   <string name="revanced_auto_claim_channel_points_summary_off">Ալիքի կետերը ստացվում են ավտոմատ կերպով</string>
-  </patch>
-  <patch id="debug.debugModePatch">
+  <!-- </patch> -->
+  <!-- <patch id="debug.debugModePatch"> -->
   <!-- Twitch specific internal debug mode, and not the same as 'revanced_debug_title' -->
   <string name="revanced_twitch_debug_mode_title">Աктиվացնել Twitch-ի լրացուցիչ ռեժիմը</string>
   <string name="revanced_twitch_debug_mode_summary_on">Twitch-ի լրացուցիչ ռեժիմը գործարկված է (չի խորհուրդ տրվում)</string>
   <string name="revanced_twitch_debug_mode_summary_off">Twitch-ի լրացուցիչ ռեժիմը անջատված է</string>
-  </patch>
-  <patch id="misc.settings.settingsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.settings.settingsPatch"> -->
   <string name="revanced_settings">ReVanced կարգավորումներ</string>
   <string name="revanced_about_title">Ծրագրի մասին</string>
   <string name="revanced_about_summary">ReVanced-ի մասին</string>
@@ -1452,6 +1453,6 @@ AVC-ի առավելագույն թույլտվությունը 1080p է, Opus ա
   <string name="revanced_twitch_debug_title">Վրիպման օրագիր</string>
   <string name="revanced_twitch_debug_summary_on">Վրիպման օրագիրը միացվել է</string>
   <string name="revanced_twitch_debug_summary_off">Վրիպման օրագիրը անջատվել է</string>
-  </patch>
-  </app>
+  <!-- </patch> -->
+  <!-- </app> -->
 </resources>

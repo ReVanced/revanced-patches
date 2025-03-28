@@ -20,8 +20,8 @@ Second \"item\" text"</string>
 
 -->
 <resources>
-  <app id="shared">
-  <patch id="misc.checks.checkEnvironmentPatch">
+  <!-- <app id="shared"> -->
+  <!-- <patch id="misc.checks.checkEnvironmentPatch"> -->
   <string name="revanced_check_environment_failed_title">Nabigo ang mga pagsusuri</string>
   <string name="revanced_check_environment_dialog_open_official_source_button">Buksan ang Opisyal na Website</string>
   <string name="revanced_check_environment_dialog_ignore_button">Balewalain</string>
@@ -31,8 +31,8 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time">Naka-patch mahigit sa 10 minuto ang nakararaan</string>
   <string name="revanced_check_environment_not_near_patch_time_days">Naka-patch %s araw ang nakalipas</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">Ang petsa ng pagbuo ng APK ay sira</string>
-  </patch>
-  <patch id="misc.settings.settingsResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.settings.settingsResourcePatch"> -->
   <string name="revanced_settings_submenu_title">Mga Setting</string>
   <string name="revanced_settings_confirm_user_dialog_title">Gusto mo bang magpatuloy?</string>
   <string name="revanced_settings_reset">I-reset</string>
@@ -57,8 +57,8 @@ Upang magsalin ng mga bagong wika, bisitahin ang translate.revanced.app"</string
   <string name="revanced_settings_about_links_header">Mga opisyal na link</string>
   <!-- NOTE: the about strings above are duplicated in the TikTok about screen code,
                  and changes made here must also be made there. -->
-  </patch>
-  <patch id="misc.gms.gmsCoreSupportResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.gms.gmsCoreSupportResourcePatch"> -->
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="gms_core_toast_not_installed_message">Hindi naka-install ang MicroG GmsCore. I-install ito.</string>
   <string name="gms_core_dialog_title">Kailangan ng aksyon</string>
@@ -74,10 +74,10 @@ Ang pag-disable ng mga pag-optimize ng baterya para sa MicroG ay hindi makakaape
 
 Tapikin ang pindutan ng pagpapatuloy at payagan ang mga pagbabago sa pag-optimize."</string>
   <string name="gms_core_dialog_continue_text">Magpatuloy</string>
-  </patch>
-  </app>
-  <app id="youtube">
-  <patch id="misc.settings.settingsPatch">
+  <!-- </patch> -->
+  <!-- </app> -->
+  <!-- <app id="youtube"> -->
+  <!-- <patch id="misc.settings.settingsPatch"> -->
   <string name="revanced_settings_screen_00_about_title">Tungkol</string>
   <string name="revanced_settings_screen_01_ads_title">Mga ad</string>
   <string name="revanced_settings_screen_02_alt_thumbnails_title">Mga alternatibong thumbnail</string>
@@ -91,13 +91,13 @@ Tapikin ang pindutan ng pagpapatuloy at payagan ang mga pagbabago sa pag-optimiz
   <string name="revanced_restore_old_settings_menus_title">Ibalik ang dating mga menu ng setting</string>
   <string name="revanced_restore_old_settings_menus_summary_on">Ipinapakita ang mga lumang menu ng setting</string>
   <string name="revanced_restore_old_settings_menus_summary_off">Hindi ipinapakita ang mga lumang menu ng setting</string>
-  </patch>
-  <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.backgroundplayback.backgroundPlaybackPatch"> -->
   <string name="revanced_shorts_disable_background_playback_title">I-disable ang pag-playback ng Shorts sa background</string>
   <string name="revanced_shorts_disable_background_playback_summary_on">Ang pag-playback ng Shorts sa background ay hindi pinagana</string>
   <string name="revanced_shorts_disable_background_playback_summary_off">Ang pag-playback ng Shorts sa background ay pinagana</string>
-  </patch>
-  <patch id="misc.debugging.enableDebuggingPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.debugging.enableDebuggingPatch"> -->
   <string name="revanced_debug_screen_title">Pagde-debug</string>
   <string name="revanced_debug_screen_summary">Paganahin o huwag paganahin ang mga opsyon sa pag-debug</string>
   <string name="revanced_debug_title">Pag-log sa pag-debug</string>
@@ -115,8 +115,8 @@ Tapikin ang pindutan ng pagpapatuloy at payagan ang mga pagbabago sa pag-optimiz
   <string name="revanced_debug_toast_on_error_user_dialog_message">"Ang pag-off ng mga toast ng error ay nagtatago ng lahat ng mga abiso ng error ng ReVanced.
 
 Hindi ka aabisuhan ng anumang hindi inaasahang mga kaganapan."</string>
-  </patch>
-  <patch id="layout.hide.general.hideLayoutComponentsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.general.hideLayoutComponentsPatch"> -->
   <string name="revanced_hide_album_cards_title">Itago ang mga album card</string>
   <string name="revanced_hide_album_cards_summary_on">Nakatago ang mga card ng album</string>
   <string name="revanced_hide_album_cards_summary_off">Ipinapakita ang mga album card</string>
@@ -340,8 +340,8 @@ Mga limitasyon
   <string name="revanced_hide_keyword_toast_invalid_conflicting">Ang keyword ay may mga salungat na deklarasyon: %s</string>
   <string name="revanced_hide_keyword_toast_invalid_length">Masyadong maikli ang keyword at nangangailangan ng mga quote: %s</string>
   <string name="revanced_hide_keyword_toast_invalid_broad">Ang keyword ay magtatago ng lahat ng mga video: %s</string>
-  </patch>
-  <patch id="ad.general.hideAdsResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="ad.general.hideAdsResourcePatch"> -->
   <string name="revanced_hide_general_ads_title">Itago ang mga pangkalahatang ad</string>
   <string name="revanced_hide_general_ads_summary_on">Nakatago ang mga pangkalahatang ad</string>
   <string name="revanced_hide_general_ads_summary_off">Ipinapakita ang mga pangkalahatang ad</string>
@@ -383,18 +383,18 @@ Ang tampok na ito ay magagamit lamang para sa mga mas lumang device"</string>
   <string name="revanced_hide_merchandise_banners_summary_off">Ipinapakita ang mga banner ng merchandise</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_hide_fullscreen_ads_feature_not_available_toast">Gumagana lang ang Itago ang mga fullscreen na ad sa mga mas lumang device</string>
-  </patch>
-  <patch id="ad.getpremium.hideGetPremiumPatch">
+  <!-- </patch> -->
+  <!-- <patch id="ad.getpremium.hideGetPremiumPatch"> -->
   <string name="revanced_hide_get_premium_title">Itago ang mga promosyon sa YouTube Premium</string>
   <string name="revanced_hide_get_premium_summary_on">Nakatago ang mga promosyon ng YouTube Premium sa ilalim ng video player</string>
   <string name="revanced_hide_get_premium_summary_off">Ipinapakita ang mga promosyon sa YouTube Premium sa ilalim ng video player</string>
-  </patch>
-  <patch id="ad.video.videoAdsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="ad.video.videoAdsPatch"> -->
   <string name="revanced_hide_video_ads_title">Itago ang mga video ad</string>
   <string name="revanced_hide_video_ads_summary_on">Nakatago ang mga video ad</string>
   <string name="revanced_hide_video_ads_summary_off">Ipinapakita ang mga video ad</string>
-  </patch>
-  <patch id="interaction.copyvideourl.copyVideoUrlResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="interaction.copyvideourl.copyVideoUrlResourcePatch"> -->
   <string name="revanced_share_copy_url_success">Nakopya ang URL sa clipboard</string>
   <string name="revanced_share_copy_url_timestamp_success">URL na may timestamp na kinopya</string>
   <string name="revanced_copy_video_url_title">Ipakita ang pindutan ng URL ng kopya ng video</string>
@@ -403,14 +403,14 @@ Ang tampok na ito ay magagamit lamang para sa mga mas lumang device"</string>
   <string name="revanced_copy_video_url_timestamp_title">Ipakita ang pindutan ng URL ng kopya ng timestamp</string>
   <string name="revanced_copy_video_url_timestamp_summary_on">Ipinapakita ang button. I-tap para kopyahin ang URL ng video kasama ang timestamp. I-tap nang matagal para kopyahin nang walang timestamp</string>
   <string name="revanced_copy_video_url_timestamp_summary_off">Hindi ipinapakita ang button</string>
-  </patch>
-  <patch id="interaction.dialog.removeViewerDiscretionDialogPatch">
+  <!-- </patch> -->
+  <!-- <patch id="interaction.dialog.removeViewerDiscretionDialogPatch"> -->
   <string name="revanced_remove_viewer_discretion_dialog_title">Alisin ang dialog ng paghuhusga ng manonood</string>
   <string name="revanced_remove_viewer_discretion_dialog_summary_on">Aalisin ang dialog</string>
   <string name="revanced_remove_viewer_discretion_dialog_summary_off">Ipapakita ang dialog</string>
   <string name="revanced_remove_viewer_discretion_dialog_user_dialog_message">Hindi nito nilalampasan ang paghihigpit sa edad. Awtomatiko lang itong tinatanggap.</string>
-  </patch>
-  <patch id="interaction.downloads.downloadsResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="interaction.downloads.downloadsResourcePatch"> -->
   <string name="revanced_external_downloader_screen_title">Mga panlabas na pag-download</string>
   <string name="revanced_external_downloader_screen_summary">Mga setting para sa paggamit ng external na downloader</string>
   <string name="revanced_external_downloader_title">Ipakita ang external na button sa pag-download</string>
@@ -423,18 +423,18 @@ Ang tampok na ito ay magagamit lamang para sa mga mas lumang device"</string>
   <string name="revanced_external_downloader_name_title">Pangalan ng package ng downloader</string>
   <string name="revanced_external_downloader_name_summary">Pangalan ng package ng iyong naka-install na external na downloader app, gaya ng NewPipe o Seal</string>
   <string name="revanced_external_downloader_not_installed_warning">Hindi naka-install ang %s. Mangyaring i-install ito.</string>
-  </patch>
-  <patch id="interaction.seekbar.disablePreciseSeekingGesturePatch">
+  <!-- </patch> -->
+  <!-- <patch id="interaction.seekbar.disablePreciseSeekingGesturePatch"> -->
   <string name="revanced_disable_precise_seeking_gesture_title">Huwag paganahin ang tumpak na kilos sa paghahanap</string>
   <string name="revanced_disable_precise_seeking_gesture_summary_on">Naka-disable ang galaw</string>
   <string name="revanced_disable_precise_seeking_gesture_summary_off">Naka-enable ang galaw</string>
-  </patch>
-  <patch id="interaction.seekbar.enableSeekbarTappingPatch">
+  <!-- </patch> -->
+  <!-- <patch id="interaction.seekbar.enableSeekbarTappingPatch"> -->
   <string name="revanced_seekbar_tapping_title">Paganahin ang pag-tap para maghanap</string>
   <string name="revanced_seekbar_tapping_summary_on">Naka-enable ang Tap para maghanap</string>
   <string name="revanced_seekbar_tapping_summary_off">Hindi naka-enable ang pag-tap para maghanap</string>
-  </patch>
-  <patch id="interaction.swipecontrols.swipeControlsResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="interaction.swipecontrols.swipeControlsResourcePatch"> -->
   <string name="revanced_swipe_brightness_title">I-enable ang brightness gesture</string>
   <string name="revanced_swipe_brightness_summary_on">"Naka-enable ang pag-swipe ng brightness sa fullscreen
 
@@ -473,13 +473,13 @@ Ayusin ang volume sa pamamagitan ng pag-swipe nang patayo sa kanang bahagi ng sc
   <string name="revanced_swipe_change_video_title">I-enable ang swipe para magpalit ng mga video</string>
   <string name="revanced_swipe_change_video_summary_on">Ang pag-swipe sa full screen mode ay magpapalit sa susunod/nakaraang video</string>
   <string name="revanced_swipe_change_video_summary_off">Ang pag-swipe sa full screen ay hindi magpapalit sa susunod/nakaraang video</string>
-  </patch>
-  <patch id="layout.autocaptions.autoCaptionsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.autocaptions.autoCaptionsPatch"> -->
   <string name="revanced_auto_captions_title">Huwag paganahin ang mga auto caption</string>
   <string name="revanced_auto_captions_summary_on">Naka-disable ang mga auto caption</string>
   <string name="revanced_auto_captions_summary_off">Ang mga auto caption ay pinagana</string>
-  </patch>
-  <patch id="layout.buttons.action.hideButtonsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.buttons.action.hideButtonsPatch"> -->
   <string name="revanced_hide_buttons_screen_title">Mga pindutan ng pagkilos</string>
   <string name="revanced_hide_buttons_screen_summary">Itago o ipakita ang mga button sa ilalim ng mga video</string>
   <string name="revanced_disable_like_subscribe_glow_title">Huwag paganahin ang glow ng Like at Subscribe</string>
@@ -517,8 +517,8 @@ Ayusin ang volume sa pamamagitan ng pag-swipe nang patayo sa kanang bahagi ng sc
   <string name="revanced_hide_playlist_button_title">Itago ang I-save sa playlist</string>
   <string name="revanced_hide_playlist_button_summary_on">Nakatago ang button na I-save sa playlist</string>
   <string name="revanced_hide_playlist_button_summary_off">I-save sa playlist button ay ipinapakita</string>
-  </patch>
-  <patch id="layout.buttons.navigation.navigationButtonsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.buttons.navigation.navigationButtonsPatch"> -->
   <string name="revanced_navigation_buttons_screen_title">Mga pindutan ng nabigasyon</string>
   <string name="revanced_navigation_buttons_screen_summary">Itago o baguhin ang mga button sa navigation bar</string>
   <!-- 'Home' should be translated using the same localized wording YouTube displays for the tab. -->
@@ -553,14 +553,15 @@ Tandaan: Ang pagpapagana nito ay nagtatago rin ng mga ad ng video"</string>
   <string name="revanced_disable_translucent_status_bar_title">Huwag paganahin ang translucent status bar</string>
   <string name="revanced_disable_translucent_status_bar_summary_on">Ang status bar ay opaque</string>
   <string name="revanced_disable_translucent_status_bar_summary_off">Ang status bar ay opaque o translucent</string>
+  <string name="revanced_disable_translucent_status_bar_user_dialog_message">Sa ilang device, ang pagpapagana sa feature na ito ay maaaring magpabago sa navigation bar ng system sa transparent.</string>
   <string name="revanced_disable_translucent_navigation_bar_light_title">Huwag paganahin ang light translucent bar</string>
   <string name="revanced_disable_translucent_navigation_bar_light_summary_on">Ang light mode navigation bar ay opaque</string>
   <string name="revanced_disable_translucent_navigation_bar_light_summary_off">Ang light mode navigation bar ay opaque o translucent</string>
   <string name="revanced_disable_translucent_navigation_bar_dark_title">Huwag paganahin ang dark translucent bar</string>
   <string name="revanced_disable_translucent_navigation_bar_dark_summary_on">Ang dark mode navigation bar ay opaque</string>
   <string name="revanced_disable_translucent_navigation_bar_dark_summary_off">Ang dark mode navigation bar ay opaque o translucent</string>
-  </patch>
-  <patch id="layout.hide.player.flyoutmenupanel.hidePlayerFlyoutMenuPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.player.flyoutmenupanel.hidePlayerFlyoutMenuPatch"> -->
   <string name="revanced_hide_player_flyout_title">Menu ng flyout</string>
   <string name="revanced_hide_player_flyout_summary">Itago o ipakita ang mga item sa menu ng player flyout</string>
   <!-- 'Captions' should be translated using the same localized wording YouTube displays for the menu item. -->
@@ -614,8 +615,8 @@ Tandaan: Ang pagpapagana nito ay nagtatago rin ng mga ad ng video"</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_title">Itago ang footer ng menu ng kalidad ng video</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_on">Nakatago ang footer ng menu ng kalidad ng video</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_off">Ang footer ng menu ng kalidad ng video ay ipinapakita</string>
-  </patch>
-  <patch id="layout.buttons.overlay.hidePlayerOverlayButtonsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.buttons.overlay.hidePlayerOverlayButtonsPatch"> -->
   <string name="revanced_hide_player_previous_next_buttons_title">Itago ang Nakaraan at Susunod na mga pindutan</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_on">Nakatago ang mga pindutan</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">Ang mga pindutan ay ipinapakita</string>
@@ -629,36 +630,36 @@ Tandaan: Ang pagpapagana nito ay nagtatago rin ng mga ad ng video"</string>
   <string name="revanced_hide_autoplay_button_title">Itago ang Autoplay button</string>
   <string name="revanced_hide_autoplay_button_summary_on">Nakatago ang autoplay button</string>
   <string name="revanced_hide_autoplay_button_summary_off">Ang autoplay na button ay ipinapakita</string>
-  </patch>
-  <patch id="layout.hide.endscreencards.hideEndscreenCardsResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.endscreencards.hideEndscreenCardsResourcePatch"> -->
   <string name="revanced_hide_endscreen_cards_title">Itago ang mga end screen card</string>
   <string name="revanced_hide_endscreen_cards_summary_on">Nakatago ang mga end screen card</string>
   <string name="revanced_hide_endscreen_cards_summary_off">Ipinapakita ang mga end screen card</string>
-  </patch>
-  <patch id="layout.hide.fullscreenambientmode.disableFullscreenAmbientModePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.fullscreenambientmode.disableFullscreenAmbientModePatch"> -->
   <string name="revanced_disable_fullscreen_ambient_mode_title">Huwag paganahin ang Ambient mode sa fullscreen</string>
   <string name="revanced_disable_fullscreen_ambient_mode_summary_on">Naka-disable ang ambient mode</string>
   <string name="revanced_disable_fullscreen_ambient_mode_summary_off">Pinagana ang ambient mode</string>
-  </patch>
-  <patch id="layout.hide.infocards.hideInfocardsResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.infocards.hideInfocardsResourcePatch"> -->
   <string name="revanced_hide_info_cards_title">Itago ang mga card ng impormasyon</string>
   <string name="revanced_hide_info_cards_summary_on">Nakatago ang info cards</string>
   <string name="revanced_hide_info_cards_summary_off">Nakalabas ang info cards</string>
-  </patch>
-  <patch id="layout.hide.rollingnumber.disableRollingNumberAnimationPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.rollingnumber.disableRollingNumberAnimationPatch"> -->
   <string name="revanced_disable_rolling_number_animations_title">Huwag paganahin ang rolling number animation</string>
   <string name="revanced_disable_rolling_number_animations_summary_on">Ang mga rolling number ay hindi animated</string>
   <string name="revanced_disable_rolling_number_animations_summary_off">Ang mga rolling number ay animated</string>
-  </patch>
-  <patch id="layout.hide.seekbar.hideSeekbarPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.seekbar.hideSeekbarPatch"> -->
   <string name="revanced_hide_seekbar_title">Itago ang seekbar sa video player</string>
   <string name="revanced_hide_seekbar_summary_on">Nakatago ang seekbar ng video player</string>
   <string name="revanced_hide_seekbar_summary_off">Ipinapakita ang seekbar ng video player</string>
   <string name="revanced_hide_seekbar_thumbnail_title">Itago ang seekbar sa mga thumbnail ng video</string>
   <string name="revanced_hide_seekbar_thumbnail_summary_on">Nakatago ang thumbnail seekbar</string>
   <string name="revanced_hide_seekbar_thumbnail_summary_off">Ipinapakita ang thumbnail seekbar</string>
-  </patch>
-  <patch id="layout.hide.shorts.hideShortsComponentsResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.shorts.hideShortsComponentsResourcePatch"> -->
   <string name="revanced_shorts_player_screen_title">Shorts player</string>
   <string name="revanced_shorts_player_screen_summary">Itago o ipakita ang mga sangkap sa Shorts player</string>
   <!-- 'home' should be translated using the same localized wording YouTube displays for the home tab. -->
@@ -760,43 +761,43 @@ Tandaan: Ang pagpapagana nito ay nagtatago rin ng mga ad ng video"</string>
   <string name="revanced_hide_shorts_navigation_bar_title">Itago ang navigation bar</string>
   <string name="revanced_hide_shorts_navigation_bar_summary_on">Nakatago ang navigation bar</string>
   <string name="revanced_hide_shorts_navigation_bar_summary_off">Ipinapakita ang navigation bar</string>
-  </patch>
-  <patch id="layout.hide.endscreensuggestion.hideEndScreenSuggestedVideoPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.endscreensuggestion.hideEndScreenSuggestedVideoPatch"> -->
   <string name="revanced_end_screen_suggested_video_title">Itago ang iminungkahing video sa dulo ng screen</string>
   <string name="revanced_end_screen_suggested_video_summary_on">"Nakatago ang iminungkahing video sa dulo ng screen kapag nakapatay ang autoplay
 
 Maaaring baguhin ang Autoplay sa mga setting ng YouTube:
 Mga Setting → Pag-playback → I-autoplay ang susunod na video"</string>
   <string name="revanced_end_screen_suggested_video_summary_off">Ipinapakita ang iminungkahing video sa dulo ng screen</string>
-  </patch>
-  <patch id="layout.hide.time.hideTimestampPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.time.hideTimestampPatch"> -->
   <string name="revanced_hide_timestamp_title">Itago ang timestamp ng video</string>
   <string name="revanced_hide_timestamp_summary_on">Nakatago ang timestamp</string>
   <string name="revanced_hide_timestamp_summary_off">Ipinapakita ang timestamp</string>
-  </patch>
-  <patch id="layout.panels.popup.playerPopupPanelsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.panels.popup.playerPopupPanelsPatch"> -->
   <string name="revanced_hide_player_popup_panels_title">Itago ang mga popup panel ng player</string>
   <string name="revanced_hide_player_popup_panels_summary_on">Nakatago ang mga popup panel ng player</string>
   <string name="revanced_hide_player_popup_panels_summary_off">Ipinapakita ang mga popup panel ng player</string>
-  </patch>
-  <patch id="layout.player.fullscreen.exitFullscreenPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.player.fullscreen.exitFullscreenPatch"> -->
   <string name="revanced_exit_fullscreen_title">Lumabas sa fullscreen mode sa katapusan ng video</string>
   <string name="revanced_exit_fullscreen_entry_1">Na-disable</string>
   <string name="revanced_exit_fullscreen_entry_2">Portrait</string>
   <string name="revanced_exit_fullscreen_entry_3">Landscape</string>
   <string name="revanced_exit_fullscreen_entry_4">Portrait at landscape</string>
-  </patch>
-  <patch id="layout.player.fullscreen.openVideosFullscreen">
+  <!-- </patch> -->
+  <!-- <patch id="layout.player.fullscreen.openVideosFullscreen"> -->
   <string name="revanced_open_videos_fullscreen_portrait_title">Buksan ang mga video sa fullscreen portrait</string>
   <string name="revanced_open_videos_fullscreen_portrait_summary_on">Binubuksan ang mga video sa fullscreen</string>
   <string name="revanced_open_videos_fullscreen_portrait_summary_off">Hindi binubuksan ang mga video sa fullscreen</string>
-  </patch>
-  <patch id="layout.player.overlay.customPlayerOverlayOpacityResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.player.overlay.customPlayerOverlayOpacityResourcePatch"> -->
   <string name="revanced_player_overlay_opacity_title">Opacity ng overlay ng player</string>
   <string name="revanced_player_overlay_opacity_summary">Ang halaga ng opacity sa pagitan ng 0-100, kung saan ang 0 ay transparent</string>
   <string name="revanced_player_overlay_opacity_invalid_toast">Ang opacity ng overlay ng player ay dapat nasa pagitan ng 0-100</string>
-  </patch>
-  <patch id="layout.returnyoutubedislike.returnYouTubeDislikePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.returnyoutubedislike.returnYouTubeDislikePatch"> -->
   <!-- Toast shown if network connection times out. Translations of this should not be longer than the original English or the text can be clipped and not entirely shown. -->
   <string name="revanced_ryd_failure_connection_timeout">Pansamantalang hindi available ang mga hindi gusto (nag-time out ang API)</string>
   <string name="revanced_ryd_failure_connection_status_code">Hindi available ang mga hindi gusto (status %d)</string>
@@ -845,13 +846,13 @@ Limitasyon: Maaaring hindi lumabas ang mga Dislike sa incognito mode"</string>
   <string name="revanced_ryd_statistics_getNumberOfRateLimitRequestsEncountered_zero_summary">Walang nakatagpo na limitasyon sa rate ng kliyente</string>
   <string name="revanced_ryd_statistics_getNumberOfRateLimitRequestsEncountered_non_zero_summary">Nakatagpo ng %d beses ang limitasyon sa rate ng kliyente</string>
   <string name="revanced_ryd_statistics_millisecond_text">%d millisecond</string>
-  </patch>
-  <patch id="layout.searchbar.wideSearchbarPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.searchbar.wideSearchbarPatch"> -->
   <string name="revanced_wide_searchbar_title">Paganahin ang malawak na search bar</string>
   <string name="revanced_wide_searchbar_summary_on">Ang malawak na search bar ay pinagana</string>
   <string name="revanced_wide_searchbar_summary_off">Naka-disable ang malawak na search bar</string>
-  </patch>
-  <patch id="layout.seekbar.seekbarThumbnailsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.seekbar.seekbarThumbnailsPatch"> -->
   <string name="revanced_seekbar_thumbnails_high_quality_title">Paganahin ang mataas na kalidad na mga thumbnail</string>
   <string name="revanced_seekbar_thumbnails_high_quality_summary_on">Mataas ang kalidad ng mga thumbnail ng seekbar</string>
   <string name="revanced_seekbar_thumbnails_high_quality_summary_off">Katamtaman ang kalidad ng mga thumbnail ng seekbar</string>
@@ -865,8 +866,8 @@ Ang tampok na ito ay pinakamahusay na gumagana sa kalidad ng video na 720p o mas
   <string name="revanced_restore_old_seekbar_thumbnails_title">Ibalik ang mga lumang thumbnail ng seekbar</string>
   <string name="revanced_restore_old_seekbar_thumbnails_summary_on">Lalabas ang mga thumbnail ng Seekbar sa itaas ng seekbar</string>
   <string name="revanced_restore_old_seekbar_thumbnails_summary_off">Lalabas ang mga thumbnail ng Seekbar sa fullscreen</string>
-  </patch>
-  <patch id="layout.sponsorblock.sponsorBlockResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.sponsorblock.sponsorBlockResourcePatch"> -->
   <string name="revanced_sb_enable_sb">I-enable ang SponsorBlock</string>
   <string name="revanced_sb_enable_sb_sum">Ang SponsorBlock ay isang crowdsourced system para sa pag-skip ng mga nakakainis na bahagi ng mga video sa YouTube</string>
   <string name="revanced_sb_appearance_category">Hitsura</string>
@@ -1064,8 +1065,8 @@ Isumite na ba?"</string>
   <string name="revanced_sb_reset">I-reset</string>
   <string name="revanced_sb_about">Tungkol</string>
   <string name="revanced_sb_about_api_sum">Ang data ay ibinibigay ng SponsorBlock API. Mag-tap dito para matuto pa at makakita ng mga download para sa iba pang platform</string>
-  </patch>
-  <patch id="layout.formfactor.changeFormFactorPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.formfactor.changeFormFactorPatch"> -->
   <string name="revanced_change_form_factor_title">Layout form factor</string>
   <string name="revanced_change_form_factor_entry_1">Regular</string>
   <string name="revanced_change_form_factor_entry_2">Telepono</string>
@@ -1079,8 +1080,8 @@ Layout ng tablet
 Layout ng automotive
 • Nagbubukas ang Shorts sa regular na player
 • Inorganisa ang feed ayon sa mga paksa at channel"</string>
-  </patch>
-  <patch id="layout.spoofappversion.spoofAppVersionPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.spoofappversion.spoofAppVersionPatch"> -->
   <string name="revanced_spoof_app_version_title">Spoof na bersyon ng app</string>
   <string name="revanced_spoof_app_version_summary_on">Na-spoof ang bersyon</string>
   <string name="revanced_spoof_app_version_summary_off">Hindi na-spoof ang bersyon</string>
@@ -1094,8 +1095,8 @@ Kung mamaya ay patayin, inirerekumenda na i-clear ang data ng app upang maiwasan
   <string name="revanced_spoof_app_version_target_title">Target na bersyon ng Spoof app</string>
   <string name="revanced_spoof_app_version_target_entry_1">19.35.36 - Ibalik ang mga lumang icon ng Shorts player</string>
   <string name="revanced_spoof_app_version_target_entry_2">19.01.34 - Ibalik ang mga lumang icon ng navigation</string>
-  </patch>
-  <patch id="layout.startpage.changeStartPagePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.startpage.changeStartPagePatch"> -->
   <string name="revanced_change_start_page_title">Itakda ang panimulang pahina</string>
   <string name="revanced_change_start_page_entry_default">Regular</string>
   <string name="revanced_change_start_page_entry_all_subscriptions">Lahat ng mga subscription</string>
@@ -1121,27 +1122,27 @@ Kung mamaya ay patayin, inirerekumenda na i-clear ang data ng app upang maiwasan
   <string name="revanced_change_start_page_entry_virtual_reality">Virtual Reality</string>
   <string name="revanced_change_start_page_entry_watch_later">Panoorin mamaya</string>
   <string name="revanced_change_start_page_entry_your_clips">Mga clip mo</string>
-  </patch>
-  <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch"> -->
   <string name="revanced_disable_resuming_shorts_player_title">Huwag paganahin ang pagpapatuloy na manlalaro ng Shorts</string>
   <string name="revanced_disable_resuming_shorts_player_summary_on">Hindi magpapatuloy ang Shorts player sa pagsisimula ng app</string>
   <string name="revanced_disable_resuming_shorts_player_summary_off">Magpapatuloy ang manlalaro ng shorts sa pagsisimula ng app</string>
-  </patch>
-  <patch id="layout.shortsplayer.shortsPlayerTypePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.shortsplayer.shortsPlayerTypePatch"> -->
   <string name="revanced_shorts_player_type_title">Buksan ang Shorts gamit ang</string>
   <string name="revanced_shorts_player_type_shorts">Shorts player</string>
   <string name="revanced_shorts_player_type_regular_player">Regular player</string>
   <string name="revanced_shorts_player_type_regular_player_fullscreen">Regular player fullscreen</string>
-  </patch>
-  <patch id="layout.shortsautoplay.shortsAutoplayPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.shortsautoplay.shortsAutoplayPatch"> -->
   <string name="revanced_shorts_autoplay_title">Awtomatikong pag-play ng Shorts</string>
   <string name="revanced_shorts_autoplay_summary_on">Awtomatikong magpa-play ang mga Shorts</string>
   <string name="revanced_shorts_autoplay_summary_off">Uulitin ang mga Shorts</string>
   <string name="revanced_shorts_autoplay_background_title">Awtomatikong pag-play ng Shorts sa background</string>
   <string name="revanced_shorts_autoplay_background_summary_on">Awtomatikong magpa-play ang mga Shorts sa background</string>
   <string name="revanced_shorts_autoplay_background_summary_off">Uulitin ang mga Shorts sa background</string>
-  </patch>
-  <patch id="layout.miniplayer.miniplayerPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.miniplayer.miniplayerPatch"> -->
   <string name="revanced_miniplayer_screen_title">Miniplayer</string>
   <string name="revanced_miniplayer_screen_summary">Baguhin ang estilo ng naka-minimize na in-app player</string>
   <string name="revanced_miniplayer_type_title">Uri ng miniplayer</string>
@@ -1191,8 +1192,8 @@ Mag-swipe upang palawakin o isara"</string>
   <string name="revanced_miniplayer_opacity_title">Opacity ng overlay</string>
   <string name="revanced_miniplayer_opacity_summary">Ang halaga ng opacity sa pagitan ng 0-100, kung saan ang 0 ay transparent</string>
   <string name="revanced_miniplayer_opacity_invalid_toast">Ang opacity ng miniplayer overlay ay dapat nasa pagitan ng 0-100</string>
-  </patch>
-  <patch id="layout.theme.themePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.theme.themePatch"> -->
   <string name="revanced_gradient_loading_screen_title">Paganahin ang gradient loading screen</string>
   <string name="revanced_gradient_loading_screen_summary_on">Ang paglo-load ng screen ay magkakaroon ng gradient na background</string>
   <string name="revanced_gradient_loading_screen_summary_off">Ang paglo-load ng screen ay magkakaroon ng solidong background</string>
@@ -1204,15 +1205,15 @@ Mag-swipe upang palawakin o isara"</string>
   <string name="revanced_seekbar_custom_color_accent_title">Kulay ng pasadyang accent ng seekbar</string>
   <string name="revanced_seekbar_custom_color_accent_summary">Ang accent na kulay ng seekbar</string>
   <string name="revanced_seekbar_custom_color_invalid">Hindi wastong halaga ng kulay ng seekbar</string>
-  </patch>
-  <patch id="layout.thumbnails.bypassImageRegionRestrictionsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.thumbnails.bypassImageRegionRestrictionsPatch"> -->
   <string name="revanced_bypass_image_region_restrictions_title">Bypass ang mga paghihigpit sa rehiyon ng imahe</string>
   <string name="revanced_bypass_image_region_restrictions_summary_on">Ginagamit ang image host yt4.ggpht.com</string>
   <string name="revanced_bypass_image_region_restrictions_summary_off">"Gumagamit ng orihinal na image host
 
 Ang pagpapagana nito ay maaaring ayusin ang mga nawawalang imahe na hinarangan sa ilang mga rehiyon"</string>
-  </patch>
-  <patch id="layout.thumbnails.alternativeThumbnailsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.thumbnails.alternativeThumbnailsPatch"> -->
   <!-- 'Home' should be translated using the same localized wording YouTube displays for the home tab. -->
   <string name="revanced_alt_thumbnail_home_title">Tab ng tahanan</string>
   <!-- 'Subscription' should be translated using the same localized wording YouTube displays for the subscription tab. -->
@@ -1247,26 +1248,26 @@ Mag-tap dito upang matuto nang higit pa tungkol sa DeArrow"</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_alt_thumbnail_dearrow_error">Pansamantalang hindi available ang DeArrow (status code: %s)</string>
   <string name="revanced_alt_thumbnail_dearrow_error_generic">Pansamantalang hindi available ang DeArrow</string>
-  </patch>
-  <patch id="misc.announcements.announcementsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.announcements.announcementsPatch"> -->
   <string name="revanced_announcements_title">Ipakita ang mga anunsyo ng ReVanced</string>
   <string name="revanced_announcements_summary_on">Ipinapakita ang mga Anunsyo sa pagsisimula</string>
   <string name="revanced_announcements_summary_off">Hindi ipinapakita ang mga Anunsyo sa pagsisimula</string>
   <string name="revanced_announcements_enabled_summary">Ipakita ang mga anunsyo sa startup</string>
   <string name="revanced_announcements_connection_failed">Nabigong kumonekta sa provider ng mga anunsyo</string>
   <string name="revanced_announcements_dialog_dismiss">Kalimutan</string>
-  </patch>
-  <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch"> -->
   <string name="revanced_check_watch_history_domain_name_dialog_title">Babala</string>
   <string name="revanced_check_watch_history_domain_name_dialog_message">Hindi nai-save ang iyong kasaysayan ng panonood.&lt;br&gt;&lt;br&gt;Karaniwang sanhi nito ay ang DNS ad blocker o network proxy.&lt;br&gt;&lt;br&gt;Para maayos ito, i-whitelist ang &lt;b&gt;s.youtube.com&lt;/b&gt; o i-off ang lahat ng DNS blocker at proxy.</string>
   <string name="revanced_check_watch_history_domain_name_dialog_ignore">Huwag ipakitang muli</string>
-  </patch>
-  <patch id="misc.autorepeat.autoRepeatPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.autorepeat.autoRepeatPatch"> -->
   <string name="revanced_auto_repeat_title">Paganahin ang auto-repeat</string>
   <string name="revanced_auto_repeat_summary_on">Naka-enable ang auto-repeat</string>
   <string name="revanced_auto_repeat_summary_off">Naka-disable ang auto-repeat</string>
-  </patch>
-  <patch id="misc.dimensions.spoof.spoofDeviceDimensionsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.dimensions.spoof.spoofDeviceDimensionsPatch"> -->
   <string name="revanced_spoof_device_dimensions_title">Mga dimensyon ng spoof device</string>
   <string name="revanced_spoof_device_dimensions_summary_on">"Ang mga sukat ng device ay mapapang-ulol
 
@@ -1275,39 +1276,39 @@ Ang mas mataas na kalidad ng video ay maaaring mabuksan ngunit maaari kang makar
 
 Ang pagpapagana nito ay maaaring magbukas ng mas mataas na kalidad ng video"</string>
   <string name="revanced_spoof_device_dimensions_user_dialog_message">Ang pagpapagana nito ay maaaring magdulot ng pagkautal sa pag-playback ng video, mas malala ang buhay ng baterya, at hindi kilalang mga side effect.</string>
-  </patch>
-  <patch id="misc.gms.gmsCoreSupportResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.gms.gmsCoreSupportResourcePatch"> -->
   <string name="microg_settings_title">Mga Setting ng GmsCore</string>
   <string name="microg_settings_summary">Mga setting para sa GmsCore</string>
-  </patch>
-  <patch id="misc.links.bypassURLRedirectsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.links.bypassURLRedirectsPatch"> -->
   <string name="revanced_bypass_url_redirects_title">I-bypass ang mga pag-redirect ng URL</string>
   <string name="revanced_bypass_url_redirects_summary_on">Ang mga pag-redirect ng URL ay na-bypass</string>
   <string name="revanced_bypass_url_redirects_summary_off">Hindi na-bypass ang mga pag-redirect ng URL</string>
-  </patch>
-  <patch id="misc.links.openLinksExternallyPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.links.openLinksExternallyPatch"> -->
   <string name="revanced_external_browser_title">Buksan ang mga link sa browser</string>
   <string name="revanced_external_browser_summary_on">Binubuksan ang mga link sa panlabas na browser</string>
   <string name="revanced_external_browser_summary_off">Binubuksan ang mga link sa in-app na browser</string>
-  </patch>
-  <patch id="misc.privacy.removeTrackingQueryParameterPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.privacy.removeTrackingQueryParameterPatch"> -->
   <string name="revanced_remove_tracking_query_parameter_title">Alisin ang parameter ng query sa pagsubaybay</string>
   <string name="revanced_remove_tracking_query_parameter_summary_on">Ang parameter ng query sa pagsubaybay ay tinanggal mula sa mga link</string>
   <string name="revanced_remove_tracking_query_parameter_summary_off">Ang parameter ng query sa pagsubaybay ay hindi inaalis sa mga link</string>
-  </patch>
-  <patch id="misc.zoomhaptics.zoomHapticsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.zoomhaptics.zoomHapticsPatch"> -->
   <string name="revanced_disable_zoom_haptics_title">Huwag paganahin ang zoom haptics</string>
   <string name="revanced_disable_zoom_haptics_summary_on">Naka-disable ang Haptics</string>
   <string name="revanced_disable_zoom_haptics_summary_off">Pinagana ang Haptics</string>
-  </patch>
-  <patch id="video.audio.forceOriginalAudioPatch">
+  <!-- </patch> -->
+  <!-- <patch id="video.audio.forceOriginalAudioPatch"> -->
   <string name="revanced_force_original_audio_title">Pilitin ang orihinal na wika ng audio</string>
   <string name="revanced_force_original_audio_summary_on">Ginagamit ang orihinal na wika ng audio</string>
   <string name="revanced_force_original_audio_summary_off">Gumagamit ng default audio</string>
   <!-- 'Spoof video streams' should be the same translation used for revanced_spoof_video_streams_screen_title -->
   <string name="revanced_force_original_audio_not_available">Para magamit ang feature na ito, palitan ang \'Magpanggap na video stream\' sa iOS TV</string>
-  </patch>
-  <patch id="video.quality.rememberVideoQualityPatch">
+  <!-- </patch> -->
+  <!-- <patch id="video.quality.rememberVideoQualityPatch"> -->
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
   <string name="revanced_video_quality_default_entry_1">Awtomatik</string>
   <string name="revanced_remember_video_quality_last_selected_title">Tandaan ang mga pagbabago sa kalidad ng video</string>
@@ -1324,13 +1325,13 @@ Ang pagpapagana nito ay maaaring magbukas ng mas mataas na kalidad ng video"</st
   <string name="revanced_remember_video_quality_wifi">Wifi</string>
   <string name="revanced_remember_video_quality_toast">Binago ang default na kalidad ng %1$s sa: %2$s</string>
   <string name="revanced_remember_video_quality_toast_shorts">Binago ang kalidad ng Shorts %1$s sa: %2$s</string>
-  </patch>
-  <patch id="video.speed.button.playbackSpeedButtonPatch">
+  <!-- </patch> -->
+  <!-- <patch id="video.speed.button.playbackSpeedButtonPatch"> -->
   <string name="revanced_playback_speed_dialog_button_title">Ipakita ang pindutan ng dialog ng bilis</string>
   <string name="revanced_playback_speed_dialog_button_summary_on">Ang pindutan ay ipinapakita</string>
   <string name="revanced_playback_speed_dialog_button_summary_off">Hindi ipinapakita ang button</string>
-  </patch>
-  <patch id="video.speed.custom.customPlaybackSpeedPatch">
+  <!-- </patch> -->
+  <!-- <patch id="video.speed.custom.customPlaybackSpeedPatch"> -->
   <string name="revanced_custom_speed_menu_title">Menu ng pasadyang bilis ng pag-playback</string>
   <string name="revanced_custom_speed_menu_summary_on">Ipinapakita ang menu ng pasadyang bilis</string>
   <string name="revanced_custom_speed_menu_summary_off">Hindi ipinapakita ang menu ng pasadyang bilis</string>
@@ -1341,30 +1342,30 @@ Ang pagpapagana nito ay maaaring magbukas ng mas mataas na kalidad ng video"</st
   <string name="revanced_custom_playback_speeds_auto">Awtomatik</string>
   <string name="revanced_speed_tap_and_hold_title">Custom speed para sa pag-tap at pag-hold</string>
   <string name="revanced_speed_tap_and_hold_summary">Tugtugin ang bilis ng playback sa pagitan ng 0-8</string>
-  </patch>
-  <patch id="video.speed.remember.rememberPlaybackSpeedPatch">
+  <!-- </patch> -->
+  <!-- <patch id="video.speed.remember.rememberPlaybackSpeedPatch"> -->
   <string name="revanced_remember_playback_speed_last_selected_title">Tandaan ang mga pagbabago sa bilis ng pag-playback</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_on">Nalalapat ang mga pagbabago sa bilis ng pag-playback sa lahat ng video</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_off">Nalalapat lamang ang mga pagbabago sa bilis ng pag-playback sa kasalukuyang video</string>
   <string name="revanced_playback_speed_default_title">Default na bilis ng pag-playback</string>
   <string name="revanced_remember_playback_speed_toast">Binago ang default na bilis sa: %s</string>
-  </patch>
-  <patch id="video.hdr.disableHdrPatch">
+  <!-- </patch> -->
+  <!-- <patch id="video.hdr.disableHdrPatch"> -->
   <string name="revanced_disable_hdr_video_title">Huwag paganahin ang HDR video</string>
   <string name="revanced_disable_hdr_video_summary_on">Hindi pinagana ang HDR video</string>
   <string name="revanced_disable_hdr_video_summary_off">Pinagana ang HDR video</string>
-  </patch>
-  <patch id="video.quality.advancedVideoQualityMenuPatch">
+  <!-- </patch> -->
+  <!-- <patch id="video.quality.advancedVideoQualityMenuPatch"> -->
   <string name="revanced_advanced_video_quality_menu_title">Ipakita ang advanced na menu ng kalidad ng video</string>
   <string name="revanced_advanced_video_quality_menu_summary_on">Ipinapakita ang advanced na menu ng kalidad ng video</string>
   <string name="revanced_advanced_video_quality_menu_summary_off">Hindi ipinapakita ang advanced na menu ng kalidad ng video</string>
-  </patch>
-  <patch id="interaction.seekbar.enableSlideToSeekPatch">
+  <!-- </patch> -->
+  <!-- <patch id="interaction.seekbar.enableSlideToSeekPatch"> -->
   <string name="revanced_slide_to_seek_title">Paganahin ang slide para maghanap</string>
   <string name="revanced_slide_to_seek_summary_on">Naka-enable ang slide to seek</string>
   <string name="revanced_slide_to_seek_summary_off">Hindi pinagana ang slide to seek</string>
-  </patch>
-  <patch id="misc.fix.playback.spoofVideoStreamsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.fix.playback.spoofVideoStreamsPatch"> -->
   <string name="revanced_spoof_video_streams_screen_title">Spoof ng mga video stream</string>
   <string name="revanced_spoof_video_streams_screen_summary">Spoof ang mga video stream ng client upang maiwasan ang mga problema sa pag-playback</string>
   <string name="revanced_spoof_video_streams_title">Spoof ng mga video stream</string>
@@ -1394,46 +1395,46 @@ Ang AVC ay may pinakamataas na resolusyon na 1080p, ang codec ng audio ng Opus a
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Ipinapakita ang uri ng kliyente sa Mga Istatistika para sa mga nerds</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Nakatago ang kliyente sa Mga Istatistika para sa mga nerds</string>
   <string name="revanced_spoof_video_streams_language_title">Wika ng default na audio stream ng VR</string>
-  </patch>
-  </app>
-  <app id="twitch">
-  <patch id="ad.audio.audioAdsPatch">
+  <!-- </patch> -->
+  <!-- </app> -->
+  <!-- <app id="twitch"> -->
+  <!-- <patch id="ad.audio.audioAdsPatch"> -->
   <string name="revanced_block_audio_ads_title">I-block ang mga audio ad</string>
   <string name="revanced_block_audio_ads_summary_on">Naka-block ang mga audio ad</string>
   <string name="revanced_block_audio_ads_summary_off">Na-unblock ang mga audio ad</string>
-  </patch>
-  <patch id="ad.embedded.embeddedAdsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="ad.embedded.embeddedAdsPatch"> -->
   <string name="revanced_embedded_ads_service_unavailable">%s hindi magagamit, maaaring magpakita ng mga ad. Subukang baguhin ang serbisyo ng ad block sa mga setting.</string>
   <string name="revanced_embedded_ads_service_failed">%s nagbalik ng isang error, maaaring magpakita ng mga ad. Subukang baguhin ang serbisyo ng ad block sa mga setting.</string>
   <string name="revanced_block_embedded_ads_title">I-block ang mga naka-embed na video ad</string>
   <string name="revanced_block_embedded_ads_entry_1">Hindi</string>
   <string name="revanced_block_embedded_ads_entry_2">Luminous na proxy</string>
   <string name="revanced_block_embedded_ads_entry_3">PurpleAdBlock proxy</string>
-  </patch>
-  <patch id="ad.video.videoAdsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="ad.video.videoAdsPatch"> -->
   <string name="revanced_block_video_ads_title">I-block ang mga video ad</string>
   <string name="revanced_block_video_ads_summary_on">Naka-block ang mga video ad</string>
   <string name="revanced_block_video_ads_summary_off">Na-unblock ang mga video ad</string>
-  </patch>
-  <patch id="chat.antidelete.showDeletedMessagesPatch">
+  <!-- </patch> -->
+  <!-- <patch id="chat.antidelete.showDeletedMessagesPatch"> -->
   <string name="revanced_deleted_msg">mensaheng binura</string>
   <string name="revanced_show_deleted_messages_title">Ipakita ang mga tinanggal na mensahe</string>
   <string name="revanced_show_deleted_messages_entry_1">Huwag ipakita ang mga tinanggal na mensahe</string>
   <string name="revanced_show_deleted_messages_entry_2">Itago ang mga tinanggal na mensahe sa likod ng isang spoiler</string>
   <string name="revanced_show_deleted_messages_entry_3">Ipakita ang mga tinanggal na mensahe bilang naka-cross-out na text</string>
-  </patch>
-  <patch id="chat.autoclaim.autoClaimChannelPointsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="chat.autoclaim.autoClaimChannelPointsPatch"> -->
   <string name="revanced_auto_claim_channel_points_title">Awtomatikong i-claim ang Channel Points</string>
   <string name="revanced_auto_claim_channel_points_summary_on">Awtomatikong kine-claim ang Mga Channel Point</string>
   <string name="revanced_auto_claim_channel_points_summary_off">Hindi awtomatikong kine-claim ang Mga Channel Point</string>
-  </patch>
-  <patch id="debug.debugModePatch">
+  <!-- </patch> -->
+  <!-- <patch id="debug.debugModePatch"> -->
   <!-- Twitch specific internal debug mode, and not the same as 'revanced_debug_title' -->
   <string name="revanced_twitch_debug_mode_title">Paganahin ang Twitch debug mode</string>
   <string name="revanced_twitch_debug_mode_summary_on">Naka-enable ang twitch debug mode (hindi inirerekomenda)</string>
   <string name="revanced_twitch_debug_mode_summary_off">Naka-disable ang twitch debug mode</string>
-  </patch>
-  <patch id="misc.settings.settingsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.settings.settingsPatch"> -->
   <string name="revanced_settings">Mga Setting ng ReVanced</string>
   <string name="revanced_about_title">Mga Tungkol</string>
   <string name="revanced_about_summary">Tungkol sa ReVanced</string>
@@ -1450,6 +1451,6 @@ Ang AVC ay may pinakamataas na resolusyon na 1080p, ang codec ng audio ng Opus a
   <string name="revanced_twitch_debug_title">Pag-log sa pag-debug</string>
   <string name="revanced_twitch_debug_summary_on">Ang mga debug log ay pinagana</string>
   <string name="revanced_twitch_debug_summary_off">Ang mga debug log ay hindi pinagana</string>
-  </patch>
-  </app>
+  <!-- </patch> -->
+  <!-- </app> -->
 </resources>

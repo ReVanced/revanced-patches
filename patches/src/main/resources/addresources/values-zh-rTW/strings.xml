@@ -20,8 +20,8 @@ Second \"item\" text"</string>
 
 -->
 <resources>
-  <app id="shared">
-  <patch id="misc.checks.checkEnvironmentPatch">
+  <!-- <app id="shared"> -->
+  <!-- <patch id="misc.checks.checkEnvironmentPatch"> -->
   <string name="revanced_check_environment_failed_title">檢查失敗</string>
   <string name="revanced_check_environment_dialog_open_official_source_button">開啟官方網站</string>
   <string name="revanced_check_environment_dialog_ignore_button">忽略</string>
@@ -31,8 +31,8 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time">修補時間超過 10 分鐘</string>
   <string name="revanced_check_environment_not_near_patch_time_days">修補於 %s 天前</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">APK 建構日期已損毀</string>
-  </patch>
-  <patch id="misc.settings.settingsResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.settings.settingsResourcePatch"> -->
   <string name="revanced_settings_submenu_title">設定</string>
   <string name="revanced_settings_confirm_user_dialog_title">確定要繼續嗎？</string>
   <string name="revanced_settings_reset">重設</string>
@@ -57,8 +57,8 @@ Second \"item\" text"</string>
   <string name="revanced_settings_about_links_header">官方連結</string>
   <!-- NOTE: the about strings above are duplicated in the TikTok about screen code,
                  and changes made here must also be made there. -->
-  </patch>
-  <patch id="misc.gms.gmsCoreSupportResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.gms.gmsCoreSupportResourcePatch"> -->
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="gms_core_toast_not_installed_message">未安裝 MicroG GmsCore。請前往安裝。</string>
   <string name="gms_core_dialog_title">需要採取行動</string>
@@ -74,10 +74,10 @@ Second \"item\" text"</string>
 
 輕觸「繼續」按鈕並允許最佳化變更。"</string>
   <string name="gms_core_dialog_continue_text">繼續</string>
-  </patch>
-  </app>
-  <app id="youtube">
-  <patch id="misc.settings.settingsPatch">
+  <!-- </patch> -->
+  <!-- </app> -->
+  <!-- <app id="youtube"> -->
+  <!-- <patch id="misc.settings.settingsPatch"> -->
   <string name="revanced_settings_screen_00_about_title">關於</string>
   <string name="revanced_settings_screen_01_ads_title">廣告</string>
   <string name="revanced_settings_screen_02_alt_thumbnails_title">替代縮圖</string>
@@ -91,13 +91,13 @@ Second \"item\" text"</string>
   <string name="revanced_restore_old_settings_menus_title">還原舊版設定選單</string>
   <string name="revanced_restore_old_settings_menus_summary_on">已顯示舊版設定選單</string>
   <string name="revanced_restore_old_settings_menus_summary_off">不顯示舊版設定選單</string>
-  </patch>
-  <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.backgroundplayback.backgroundPlaybackPatch"> -->
   <string name="revanced_shorts_disable_background_playback_title">停用背景播放 Shorts</string>
   <string name="revanced_shorts_disable_background_playback_summary_on">已停用背景播放 Shorts</string>
   <string name="revanced_shorts_disable_background_playback_summary_off">已啟用背景播放 Shorts</string>
-  </patch>
-  <patch id="misc.debugging.enableDebuggingPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.debugging.enableDebuggingPatch"> -->
   <string name="revanced_debug_screen_title">偵錯</string>
   <string name="revanced_debug_screen_summary">啟用或停用偵錯選項</string>
   <string name="revanced_debug_title">偵錯記錄</string>
@@ -115,8 +115,8 @@ Second \"item\" text"</string>
   <string name="revanced_debug_toast_on_error_user_dialog_message">"關閉錯誤提示訊息會隱藏所有 ReVanced 的錯誤通知。
 
 你將不會收到任何非預期的事件通知。"</string>
-  </patch>
-  <patch id="layout.hide.general.hideLayoutComponentsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.general.hideLayoutComponentsPatch"> -->
   <string name="revanced_hide_album_cards_title">隱藏專輯資訊卡</string>
   <string name="revanced_hide_album_cards_summary_on">已隱藏專輯資訊卡</string>
   <string name="revanced_hide_album_cards_summary_off">已顯示專輯資訊卡</string>
@@ -226,6 +226,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_artist_cards_title">隱藏藝人資訊卡</string>
   <string name="revanced_hide_artist_cards_summary_on">已隱藏藝人資訊卡</string>
   <string name="revanced_hide_artist_cards_summary_off">已顯示藝人資訊卡</string>
+  <string name="revanced_hide_ai_generated_video_summary_section_title">隱藏「AI 產生的影片摘要」</string>
+  <string name="revanced_hide_ai_generated_video_summary_section_summary_on">已隱藏影片摘要區塊</string>
+  <string name="revanced_hide_ai_generated_video_summary_section_summary_off">已顯示影片摘要區塊</string>
   <string name="revanced_hide_attributes_section_title">隱藏屬性</string>
   <string name="revanced_hide_attributes_section_summary_on">已隱藏精選地點、遊戲、音樂和提及的人區塊</string>
   <string name="revanced_hide_attributes_section_summary_off">已顯示精選地點、遊戲、音樂和提及的人區塊</string>
@@ -262,8 +265,12 @@ Second \"item\" text"</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">已在相關影片中顯示</string>
   <string name="revanced_comments_screen_title">留言區</string>
   <string name="revanced_comments_screen_summary">隱藏或顯示影片留言區內容</string>
+  <string name="revanced_hide_comments_ai_chat_summary_title">隱藏 AI 聊天室摘要</string>
   <string name="revanced_hide_comments_ai_chat_summary_summary_on">已隱藏聊天室摘要</string>
   <string name="revanced_hide_comments_ai_chat_summary_summary_off">已顯示聊天室摘要</string>
+  <string name="revanced_hide_comments_ai_summary_title">隱藏 AI 留言摘要</string>
+  <string name="revanced_hide_comments_ai_summary_summary_on">已隱藏留言摘要</string>
+  <string name="revanced_hide_comments_ai_summary_summary_off">已顯示留言摘要</string>
   <string name="revanced_hide_comments_by_members_header_title">隱藏「會員留言」標題</string>
   <string name="revanced_hide_comments_by_members_header_summary_on">已隱藏會員留言標題</string>
   <string name="revanced_hide_comments_by_members_header_summary_off">已顯示會員留言標題</string>
@@ -333,8 +340,8 @@ Second \"item\" text"</string>
   <string name="revanced_hide_keyword_toast_invalid_conflicting">關鍵字存在衝突聲明：%s</string>
   <string name="revanced_hide_keyword_toast_invalid_length">關鍵字過短，需要加上引號：%s</string>
   <string name="revanced_hide_keyword_toast_invalid_broad">關鍵字將隱藏所有影片：%s</string>
-  </patch>
-  <patch id="ad.general.hideAdsResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="ad.general.hideAdsResourcePatch"> -->
   <string name="revanced_hide_general_ads_title">隱藏一般廣告</string>
   <string name="revanced_hide_general_ads_summary_on">已隱藏一般廣告</string>
   <string name="revanced_hide_general_ads_summary_off">已顯示一般廣告</string>
@@ -376,18 +383,18 @@ Second \"item\" text"</string>
   <string name="revanced_hide_merchandise_banners_summary_off">已顯示商品橫幅</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_hide_fullscreen_ads_feature_not_available_toast">只能在舊裝置上使用隱藏全螢幕廣告</string>
-  </patch>
-  <patch id="ad.getpremium.hideGetPremiumPatch">
+  <!-- </patch> -->
+  <!-- <patch id="ad.getpremium.hideGetPremiumPatch"> -->
   <string name="revanced_hide_get_premium_title">隱藏 YouTube Premium 促銷內容</string>
   <string name="revanced_hide_get_premium_summary_on">已隱藏影片播放器下方 YouTube Premium 促銷內容</string>
   <string name="revanced_hide_get_premium_summary_off">已顯示影片播放器下方 YouTube Premium 促銷內容</string>
-  </patch>
-  <patch id="ad.video.videoAdsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="ad.video.videoAdsPatch"> -->
   <string name="revanced_hide_video_ads_title">隱藏影片廣告</string>
   <string name="revanced_hide_video_ads_summary_on">已隱藏影片廣告</string>
   <string name="revanced_hide_video_ads_summary_off">已顯示影片廣告</string>
-  </patch>
-  <patch id="interaction.copyvideourl.copyVideoUrlResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="interaction.copyvideourl.copyVideoUrlResourcePatch"> -->
   <string name="revanced_share_copy_url_success">已將網址複製到剪貼簿</string>
   <string name="revanced_share_copy_url_timestamp_success">已複製時間戳記網址</string>
   <string name="revanced_copy_video_url_title">顯示複製影片網址按鈕</string>
@@ -396,14 +403,14 @@ Second \"item\" text"</string>
   <string name="revanced_copy_video_url_timestamp_title">顯示複製時間戳記網址按鈕</string>
   <string name="revanced_copy_video_url_timestamp_summary_on">已顯示按鈕。輕觸以複製包含時間戳記影片網址。按住以複製不包含時間戳記的影片網址</string>
   <string name="revanced_copy_video_url_timestamp_summary_off">不顯示按鈕</string>
-  </patch>
-  <patch id="interaction.dialog.removeViewerDiscretionDialogPatch">
+  <!-- </patch> -->
+  <!-- <patch id="interaction.dialog.removeViewerDiscretionDialogPatch"> -->
   <string name="revanced_remove_viewer_discretion_dialog_title">移除觀眾謹慎觀看對話方塊</string>
   <string name="revanced_remove_viewer_discretion_dialog_summary_on">將移除對話方塊</string>
   <string name="revanced_remove_viewer_discretion_dialog_summary_off">將顯示對話方塊</string>
   <string name="revanced_remove_viewer_discretion_dialog_user_dialog_message">這不會繞過年齡限制，只是自動按下同意。</string>
-  </patch>
-  <patch id="interaction.downloads.downloadsResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="interaction.downloads.downloadsResourcePatch"> -->
   <string name="revanced_external_downloader_screen_title">外部下載</string>
   <string name="revanced_external_downloader_screen_summary">使用外部下載器的設定</string>
   <string name="revanced_external_downloader_title">顯示外部下載按鈕</string>
@@ -416,15 +423,15 @@ Second \"item\" text"</string>
   <string name="revanced_external_downloader_name_title">下載器套件名稱</string>
   <string name="revanced_external_downloader_name_summary">你已安裝的外部下載器應用程式的套件名稱，例如 NewPipe 或 Seal</string>
   <string name="revanced_external_downloader_not_installed_warning">未安裝 %s。請前往安裝。</string>
-  </patch>
-  <patch id="interaction.seekbar.disablePreciseSeekingGesturePatch">
+  <!-- </patch> -->
+  <!-- <patch id="interaction.seekbar.disablePreciseSeekingGesturePatch"> -->
   <string name="revanced_disable_precise_seeking_gesture_title">停用精準跳轉手勢</string>
   <string name="revanced_disable_precise_seeking_gesture_summary_on">已停用手勢</string>
   <string name="revanced_disable_precise_seeking_gesture_summary_off">已啟用手勢</string>
-  </patch>
-  <patch id="interaction.seekbar.enableSeekbarTappingPatch">
-  </patch>
-  <patch id="interaction.swipecontrols.swipeControlsResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="interaction.seekbar.enableSeekbarTappingPatch"> -->
+  <!-- </patch> -->
+  <!-- <patch id="interaction.swipecontrols.swipeControlsResourcePatch"> -->
   <string name="revanced_swipe_brightness_title">啟用亮度手勢</string>
   <string name="revanced_swipe_brightness_summary_on">"已啟用全螢幕亮度滑動調整
 
@@ -460,13 +467,13 @@ Second \"item\" text"</string>
   <string name="revanced_swipe_change_video_title">啟用滑動切換影片</string>
   <string name="revanced_swipe_change_video_summary_on">在全螢幕模式下滑動將切換到下一部/上一部影片</string>
   <string name="revanced_swipe_change_video_summary_off">在全螢幕模式下滑動將不會切換到下一部/上一部影片</string>
-  </patch>
-  <patch id="layout.autocaptions.autoCaptionsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.autocaptions.autoCaptionsPatch"> -->
   <string name="revanced_auto_captions_title">停用自動產生的字幕</string>
   <string name="revanced_auto_captions_summary_on">已停用自動產生的字幕</string>
   <string name="revanced_auto_captions_summary_off">已啟用自動產生的字幕</string>
-  </patch>
-  <patch id="layout.buttons.action.hideButtonsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.buttons.action.hideButtonsPatch"> -->
   <string name="revanced_hide_buttons_screen_title">動作按鈕</string>
   <string name="revanced_hide_buttons_screen_summary">隱藏或顯示影片下方的按鈕</string>
   <string name="revanced_disable_like_subscribe_glow_title">停用「喜歡」和「訂閱」的發光效果</string>
@@ -504,8 +511,8 @@ Second \"item\" text"</string>
   <string name="revanced_hide_playlist_button_title">隱藏儲存至播放清單</string>
   <string name="revanced_hide_playlist_button_summary_on">已隱藏儲存至播放清單按鈕</string>
   <string name="revanced_hide_playlist_button_summary_off">已顯示儲存至播放清單按鈕</string>
-  </patch>
-  <patch id="layout.buttons.navigation.navigationButtonsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.buttons.navigation.navigationButtonsPatch"> -->
   <string name="revanced_navigation_buttons_screen_title">導覽列按鈕</string>
   <string name="revanced_navigation_buttons_screen_summary">隱藏或變更導覽列中的按鈕</string>
   <!-- 'Home' should be translated using the same localized wording YouTube displays for the tab. -->
@@ -548,8 +555,8 @@ Second \"item\" text"</string>
   <string name="revanced_disable_translucent_navigation_bar_dark_title">停用深色半透明狀態列</string>
   <string name="revanced_disable_translucent_navigation_bar_dark_summary_on">深色模式導覽列為不透明</string>
   <string name="revanced_disable_translucent_navigation_bar_dark_summary_off">深色模式導覽列為不透明或半透明</string>
-  </patch>
-  <patch id="layout.hide.player.flyoutmenupanel.hidePlayerFlyoutMenuPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.player.flyoutmenupanel.hidePlayerFlyoutMenuPatch"> -->
   <string name="revanced_hide_player_flyout_title">介面選單</string>
   <string name="revanced_hide_player_flyout_summary">隱藏或顯示播放器彈出式選單</string>
   <!-- 'Captions' should be translated using the same localized wording YouTube displays for the menu item. -->
@@ -603,8 +610,8 @@ Second \"item\" text"</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_title">隱藏影片畫質選單頁尾</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_on">已隱藏影片畫質選單頁尾</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_off">已顯示影片畫質選單頁尾</string>
-  </patch>
-  <patch id="layout.buttons.overlay.hidePlayerOverlayButtonsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.buttons.overlay.hidePlayerOverlayButtonsPatch"> -->
   <string name="revanced_hide_player_previous_next_buttons_title">隱藏「上一部」和「下一部」按鈕</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_on">已隱藏按鈕</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">已顯示按鈕</string>
@@ -618,36 +625,36 @@ Second \"item\" text"</string>
   <string name="revanced_hide_autoplay_button_title">隱藏「自動播放」按鈕</string>
   <string name="revanced_hide_autoplay_button_summary_on">已隱藏「自動播放」按鈕</string>
   <string name="revanced_hide_autoplay_button_summary_off">已顯示「自動播放」按鈕</string>
-  </patch>
-  <patch id="layout.hide.endscreencards.hideEndscreenCardsResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.endscreencards.hideEndscreenCardsResourcePatch"> -->
   <string name="revanced_hide_endscreen_cards_title">隱藏片尾資訊卡</string>
   <string name="revanced_hide_endscreen_cards_summary_on">已隱藏片尾資訊卡</string>
   <string name="revanced_hide_endscreen_cards_summary_off">已顯示片尾資訊卡</string>
-  </patch>
-  <patch id="layout.hide.fullscreenambientmode.disableFullscreenAmbientModePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.fullscreenambientmode.disableFullscreenAmbientModePatch"> -->
   <string name="revanced_disable_fullscreen_ambient_mode_title">在全螢幕狀態下，取消微光模式</string>
   <string name="revanced_disable_fullscreen_ambient_mode_summary_on">已停用微光效果</string>
   <string name="revanced_disable_fullscreen_ambient_mode_summary_off">已啟用微光效果</string>
-  </patch>
-  <patch id="layout.hide.infocards.hideInfocardsResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.infocards.hideInfocardsResourcePatch"> -->
   <string name="revanced_hide_info_cards_title">隱藏資訊卡</string>
   <string name="revanced_hide_info_cards_summary_on">已隱藏資訊卡</string>
   <string name="revanced_hide_info_cards_summary_off">已顯示資訊卡</string>
-  </patch>
-  <patch id="layout.hide.rollingnumber.disableRollingNumberAnimationPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.rollingnumber.disableRollingNumberAnimationPatch"> -->
   <string name="revanced_disable_rolling_number_animations_title">停用數字滾動動畫效果</string>
   <string name="revanced_disable_rolling_number_animations_summary_on">滾動的數字將不會有動畫效果</string>
   <string name="revanced_disable_rolling_number_animations_summary_off">滾動的數字將會有動畫效果</string>
-  </patch>
-  <patch id="layout.hide.seekbar.hideSeekbarPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.seekbar.hideSeekbarPatch"> -->
   <string name="revanced_hide_seekbar_title">隱藏影片播放器跳轉列</string>
   <string name="revanced_hide_seekbar_summary_on">已隱藏影片播放器跳轉列</string>
   <string name="revanced_hide_seekbar_summary_off">已顯示影片播放器跳轉列</string>
   <string name="revanced_hide_seekbar_thumbnail_title">在縮圖中隱藏跳轉列</string>
   <string name="revanced_hide_seekbar_thumbnail_summary_on">已隱藏縮圖跳轉列</string>
   <string name="revanced_hide_seekbar_thumbnail_summary_off">已顯示縮圖跳轉列</string>
-  </patch>
-  <patch id="layout.hide.shorts.hideShortsComponentsResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.shorts.hideShortsComponentsResourcePatch"> -->
   <string name="revanced_shorts_player_screen_title">Shorts 播放器</string>
   <string name="revanced_shorts_player_screen_summary">隱藏或顯示 Shorts 播放器的元件</string>
   <!-- 'home' should be translated using the same localized wording YouTube displays for the home tab. -->
@@ -749,43 +756,43 @@ Second \"item\" text"</string>
   <string name="revanced_hide_shorts_navigation_bar_title">隱藏導覽列</string>
   <string name="revanced_hide_shorts_navigation_bar_summary_on">已隱藏導覽列</string>
   <string name="revanced_hide_shorts_navigation_bar_summary_off">已顯示導覽列</string>
-  </patch>
-  <patch id="layout.hide.endscreensuggestion.hideEndScreenSuggestedVideoPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.endscreensuggestion.hideEndScreenSuggestedVideoPatch"> -->
   <string name="revanced_end_screen_suggested_video_title">隱藏片尾推薦影片</string>
   <string name="revanced_end_screen_suggested_video_summary_on">"當自動播放關閉時，片尾推薦影片會被隱藏。
 
 你可以在 YouTube 設定中變更自動播放設定：
 設定 → 播放 → 自動播放下一個影片"</string>
   <string name="revanced_end_screen_suggested_video_summary_off">已顯示片尾推薦影片</string>
-  </patch>
-  <patch id="layout.hide.time.hideTimestampPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.time.hideTimestampPatch"> -->
   <string name="revanced_hide_timestamp_title">隱藏影片時間戳記</string>
   <string name="revanced_hide_timestamp_summary_on">已隱藏時間戳記</string>
   <string name="revanced_hide_timestamp_summary_off">已顯示時間戳記</string>
-  </patch>
-  <patch id="layout.panels.popup.playerPopupPanelsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.panels.popup.playerPopupPanelsPatch"> -->
   <string name="revanced_hide_player_popup_panels_title">隱藏播放器彈出面板</string>
   <string name="revanced_hide_player_popup_panels_summary_on">已隱藏播放器彈出面板</string>
   <string name="revanced_hide_player_popup_panels_summary_off">已顯示播放器彈出面板</string>
-  </patch>
-  <patch id="layout.player.fullscreen.exitFullscreenPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.player.fullscreen.exitFullscreenPatch"> -->
   <string name="revanced_exit_fullscreen_title">視窗模式結束後退出全螢幕</string>
   <string name="revanced_exit_fullscreen_entry_1">停用</string>
   <string name="revanced_exit_fullscreen_entry_2">直立</string>
   <string name="revanced_exit_fullscreen_entry_3">橫向</string>
   <string name="revanced_exit_fullscreen_entry_4">直立和橫向</string>
-  </patch>
-  <patch id="layout.player.fullscreen.openVideosFullscreen">
+  <!-- </patch> -->
+  <!-- <patch id="layout.player.fullscreen.openVideosFullscreen"> -->
   <string name="revanced_open_videos_fullscreen_portrait_title">以全螢幕開啟影片</string>
   <string name="revanced_open_videos_fullscreen_portrait_summary_on">以全螢幕開啟影片</string>
   <string name="revanced_open_videos_fullscreen_portrait_summary_off">影片不會以全螢幕開啟</string>
-  </patch>
-  <patch id="layout.player.overlay.customPlayerOverlayOpacityResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.player.overlay.customPlayerOverlayOpacityResourcePatch"> -->
   <string name="revanced_player_overlay_opacity_title">播放器覆蓋透明度</string>
   <string name="revanced_player_overlay_opacity_summary">不透明度值介於 0 到 100 之間，其中 0 為完全透明</string>
   <string name="revanced_player_overlay_opacity_invalid_toast">播放器覆蓋層的不透明度必須在 0 到 100 之間</string>
-  </patch>
-  <patch id="layout.returnyoutubedislike.returnYouTubeDislikePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.returnyoutubedislike.returnYouTubeDislikePatch"> -->
   <!-- Toast shown if network connection times out. Translations of this should not be longer than the original English or the text can be clipped and not entirely shown. -->
   <string name="revanced_ryd_failure_connection_timeout">暫時無法顯示不喜歡人數（API 逾時）</string>
   <string name="revanced_ryd_failure_connection_status_code">無法顯示不喜歡人數（狀態 %d）</string>
@@ -834,13 +841,13 @@ Second \"item\" text"</string>
   <string name="revanced_ryd_statistics_getNumberOfRateLimitRequestsEncountered_zero_summary">未遇到用戶端速率限制</string>
   <string name="revanced_ryd_statistics_getNumberOfRateLimitRequestsEncountered_non_zero_summary">遇到 %d 次用戶端速率限制</string>
   <string name="revanced_ryd_statistics_millisecond_text">%d 毫秒</string>
-  </patch>
-  <patch id="layout.searchbar.wideSearchbarPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.searchbar.wideSearchbarPatch"> -->
   <string name="revanced_wide_searchbar_title">啟用寬搜尋列</string>
   <string name="revanced_wide_searchbar_summary_on">已啟用寬搜尋列</string>
   <string name="revanced_wide_searchbar_summary_off">已停用寬搜尋列</string>
-  </patch>
-  <patch id="layout.seekbar.seekbarThumbnailsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.seekbar.seekbarThumbnailsPatch"> -->
   <string name="revanced_seekbar_thumbnails_high_quality_title">啟用高畫質縮圖</string>
   <string name="revanced_seekbar_thumbnails_high_quality_summary_on">已將跳轉列設為高畫質縮圖</string>
   <string name="revanced_seekbar_thumbnails_high_quality_summary_off">已將跳轉列設為中畫質縮圖</string>
@@ -855,8 +862,8 @@ Second \"item\" text"</string>
   <string name="revanced_restore_old_seekbar_thumbnails_title">還原舊版跳轉列縮圖</string>
   <string name="revanced_restore_old_seekbar_thumbnails_summary_on">跳轉列縮圖將出現在跳轉列上方</string>
   <string name="revanced_restore_old_seekbar_thumbnails_summary_off">跳轉列縮圖將出現在全螢幕畫面</string>
-  </patch>
-  <patch id="layout.sponsorblock.sponsorBlockResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.sponsorblock.sponsorBlockResourcePatch"> -->
   <string name="revanced_sb_enable_sb">啟用 SponsorBlock</string>
   <string name="revanced_sb_enable_sb_sum">SponsorBlock 是一個眾包系統，用於跳過 YouTube 影片中惱人的部分</string>
   <string name="revanced_sb_appearance_category">外觀</string>
@@ -1054,8 +1061,8 @@ Second \"item\" text"</string>
   <string name="revanced_sb_reset">重設</string>
   <string name="revanced_sb_about">關於</string>
   <string name="revanced_sb_about_api_sum">資料由 SponsorBlock API 提供。輕觸這裡來了解更多資訊和查看其他平台的下載</string>
-  </patch>
-  <patch id="layout.formfactor.changeFormFactorPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.formfactor.changeFormFactorPatch"> -->
   <string name="revanced_change_form_factor_title">版面配置形式</string>
   <string name="revanced_change_form_factor_entry_1">預設</string>
   <string name="revanced_change_form_factor_entry_2">手機</string>
@@ -1069,8 +1076,8 @@ Second \"item\" text"</string>
 汽車版面配置
 • Shorts 會以一般播放器開啟
 • 動態內容會依主題和頻道整理"</string>
-  </patch>
-  <patch id="layout.spoofappversion.spoofAppVersionPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.spoofappversion.spoofAppVersionPatch"> -->
   <string name="revanced_spoof_app_version_title">偽裝應用程式版本</string>
   <string name="revanced_spoof_app_version_summary_on">已偽裝版本</string>
   <string name="revanced_spoof_app_version_summary_off">未偽裝版本</string>
@@ -1084,8 +1091,8 @@ Second \"item\" text"</string>
   <string name="revanced_spoof_app_version_target_title">應用程式偽裝目標版本</string>
   <string name="revanced_spoof_app_version_target_entry_1">19.35.36 - 還原舊版 Shorts 播放圖示</string>
   <string name="revanced_spoof_app_version_target_entry_2">19.01.34 - 還原舊版導覽圖示</string>
-  </patch>
-  <patch id="layout.startpage.changeStartPagePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.startpage.changeStartPagePatch"> -->
   <string name="revanced_change_start_page_title">設定起始頁面</string>
   <string name="revanced_change_start_page_entry_default">預設</string>
   <string name="revanced_change_start_page_entry_all_subscriptions">所有訂閱內容</string>
@@ -1111,27 +1118,27 @@ Second \"item\" text"</string>
   <string name="revanced_change_start_page_entry_virtual_reality">虛擬實境</string>
   <string name="revanced_change_start_page_entry_watch_later">稍後觀看</string>
   <string name="revanced_change_start_page_entry_your_clips">你的剪輯</string>
-  </patch>
-  <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch"> -->
   <string name="revanced_disable_resuming_shorts_player_title">停用 Shorts 播放器接續播放功能</string>
   <string name="revanced_disable_resuming_shorts_player_summary_on">應用程式啟動時，Shorts 播放器將不會接續播放</string>
   <string name="revanced_disable_resuming_shorts_player_summary_off">應用程式啟動時，Shorts 播放器將接續播放</string>
-  </patch>
-  <patch id="layout.shortsplayer.shortsPlayerTypePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.shortsplayer.shortsPlayerTypePatch"> -->
   <string name="revanced_shorts_player_type_title">Shorts 開啟方式</string>
   <string name="revanced_shorts_player_type_shorts">Shorts 播放器</string>
   <string name="revanced_shorts_player_type_regular_player">一般播放器</string>
   <string name="revanced_shorts_player_type_regular_player_fullscreen">一般播放器全螢幕</string>
-  </patch>
-  <patch id="layout.shortsautoplay.shortsAutoplayPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.shortsautoplay.shortsAutoplayPatch"> -->
   <string name="revanced_shorts_autoplay_title">自動播放 Shorts</string>
   <string name="revanced_shorts_autoplay_summary_on">Shorts 將自動播放</string>
   <string name="revanced_shorts_autoplay_summary_off">Shorts 將重複播放</string>
   <string name="revanced_shorts_autoplay_background_title">在背景自動播放 Shorts</string>
   <string name="revanced_shorts_autoplay_background_summary_on">Shorts 將在背景自動播放</string>
   <string name="revanced_shorts_autoplay_background_summary_off">Shorts 將在背景重複播放</string>
-  </patch>
-  <patch id="layout.miniplayer.miniplayerPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.miniplayer.miniplayerPatch"> -->
   <string name="revanced_miniplayer_screen_title">迷你播放器</string>
   <string name="revanced_miniplayer_screen_summary">變更應用程式內最小化播放器的樣式</string>
   <string name="revanced_miniplayer_type_title">迷你播放器類型</string>
@@ -1181,8 +1188,8 @@ Second \"item\" text"</string>
   <string name="revanced_miniplayer_opacity_title">覆蓋層不透明度</string>
   <string name="revanced_miniplayer_opacity_summary">不透明度值介於 0 到 100 之間，其中 0 為完全透明</string>
   <string name="revanced_miniplayer_opacity_invalid_toast">迷你播放器覆蓋層的不透明度必須介於 0 到 100 之間</string>
-  </patch>
-  <patch id="layout.theme.themePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.theme.themePatch"> -->
   <string name="revanced_gradient_loading_screen_title">啟用漸層載入畫面</string>
   <string name="revanced_gradient_loading_screen_summary_on">載入畫面將具有漸層背景</string>
   <string name="revanced_gradient_loading_screen_summary_off">載入畫面將具有純色背景</string>
@@ -1194,8 +1201,8 @@ Second \"item\" text"</string>
   <string name="revanced_seekbar_custom_color_accent_title">自訂跳轉列強調色彩</string>
   <string name="revanced_seekbar_custom_color_accent_summary">跳轉列強調色彩</string>
   <string name="revanced_seekbar_custom_color_invalid">跳轉列色彩值無效</string>
-  </patch>
-  <patch id="layout.thumbnails.bypassImageRegionRestrictionsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.thumbnails.bypassImageRegionRestrictionsPatch"> -->
   <string name="revanced_bypass_image_region_restrictions_title">繞過圖片區域限制</string>
   <string name="revanced_bypass_image_region_restrictions_summary_on">使用圖片主機 yt4.ggpht.com</string>
   <string name="revanced_bypass_image_region_restrictions_summary_off">"使用原圖主機
@@ -1203,8 +1210,8 @@ Second \"item\" text"</string>
 啟用此設定可以修正在某些地區遭到封鎖而無法顯示的圖片
 
 "</string>
-  </patch>
-  <patch id="layout.thumbnails.alternativeThumbnailsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.thumbnails.alternativeThumbnailsPatch"> -->
   <!-- 'Home' should be translated using the same localized wording YouTube displays for the home tab. -->
   <string name="revanced_alt_thumbnail_home_title">首頁分頁</string>
   <!-- 'Subscription' should be translated using the same localized wording YouTube displays for the subscription tab. -->
@@ -1241,26 +1248,26 @@ Second \"item\" text"</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_alt_thumbnail_dearrow_error">DeArrow 暫時無法使用（狀態碼：%s）</string>
   <string name="revanced_alt_thumbnail_dearrow_error_generic">DeArrow 暫時無法使用</string>
-  </patch>
-  <patch id="misc.announcements.announcementsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.announcements.announcementsPatch"> -->
   <string name="revanced_announcements_title">顯示 ReVanced 公告</string>
   <string name="revanced_announcements_summary_on">啟動時顯示公告</string>
   <string name="revanced_announcements_summary_off">啟動時顯示公告</string>
   <string name="revanced_announcements_enabled_summary">啟動時顯示公告</string>
   <string name="revanced_announcements_connection_failed">無法連線到公告提供者</string>
   <string name="revanced_announcements_dialog_dismiss">忽略</string>
-  </patch>
-  <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch"> -->
   <string name="revanced_check_watch_history_domain_name_dialog_title">警告</string>
   <string name="revanced_check_watch_history_domain_name_dialog_message">你的觀看記錄未被儲存。&lt;br&gt;&lt;br&gt;這很可能是由於 DNS 廣告封鎖器或網路代理所導致。&lt;br&gt;&lt;br&gt;若要解決此問題，請將 &lt;b&gt;s.youtube.com&lt;/b&gt; 加入白名單，或關閉所有 DNS 封鎖器和代理。</string>
   <string name="revanced_check_watch_history_domain_name_dialog_ignore">不再顯示</string>
-  </patch>
-  <patch id="misc.autorepeat.autoRepeatPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.autorepeat.autoRepeatPatch"> -->
   <string name="revanced_auto_repeat_title">啟用自動循環播放</string>
   <string name="revanced_auto_repeat_summary_on">已啟用自動循環播放</string>
   <string name="revanced_auto_repeat_summary_off">已停用自動循環播放</string>
-  </patch>
-  <patch id="misc.dimensions.spoof.spoofDeviceDimensionsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.dimensions.spoof.spoofDeviceDimensionsPatch"> -->
   <string name="revanced_spoof_device_dimensions_title">偽裝裝置尺寸</string>
   <string name="revanced_spoof_device_dimensions_summary_on">"已偽裝裝置尺寸
 
@@ -1269,39 +1276,39 @@ Second \"item\" text"</string>
 
 啟用此設定可以解鎖更高的影片畫質"</string>
   <string name="revanced_spoof_device_dimensions_user_dialog_message">啟用這個功能可能會導致影片播放卡頓、電池續航力變差，以及未知的副作用。</string>
-  </patch>
-  <patch id="misc.gms.gmsCoreSupportResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.gms.gmsCoreSupportResourcePatch"> -->
   <string name="microg_settings_title">GmsCore 設定</string>
   <string name="microg_settings_summary">GmsCore 設定</string>
-  </patch>
-  <patch id="misc.links.bypassURLRedirectsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.links.bypassURLRedirectsPatch"> -->
   <string name="revanced_bypass_url_redirects_title">繞過 URL 重新導向</string>
   <string name="revanced_bypass_url_redirects_summary_on">已繞過 URL 重新導向</string>
   <string name="revanced_bypass_url_redirects_summary_off">未繞過 URL 重新導向</string>
-  </patch>
-  <patch id="misc.links.openLinksExternallyPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.links.openLinksExternallyPatch"> -->
   <string name="revanced_external_browser_title">在瀏覽器中開啟連結</string>
   <string name="revanced_external_browser_summary_on">在外部瀏覽器中開啟連結</string>
   <string name="revanced_external_browser_summary_off">在應用程式內瀏覽器中開啟連結</string>
-  </patch>
-  <patch id="misc.privacy.removeTrackingQueryParameterPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.privacy.removeTrackingQueryParameterPatch"> -->
   <string name="revanced_remove_tracking_query_parameter_title">移除追蹤查詢參數</string>
   <string name="revanced_remove_tracking_query_parameter_summary_on">已從連結移除追蹤查詢參數</string>
   <string name="revanced_remove_tracking_query_parameter_summary_off">未從連結移除追蹤查詢參數</string>
-  </patch>
-  <patch id="misc.zoomhaptics.zoomHapticsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.zoomhaptics.zoomHapticsPatch"> -->
   <string name="revanced_disable_zoom_haptics_title">停用縮放震動</string>
   <string name="revanced_disable_zoom_haptics_summary_on">已停用震動</string>
   <string name="revanced_disable_zoom_haptics_summary_off">已啟用震動</string>
-  </patch>
-  <patch id="video.audio.forceOriginalAudioPatch">
+  <!-- </patch> -->
+  <!-- <patch id="video.audio.forceOriginalAudioPatch"> -->
   <string name="revanced_force_original_audio_title">強制使用原始音訊語言</string>
   <string name="revanced_force_original_audio_summary_on">正在使用原始音訊語言</string>
   <string name="revanced_force_original_audio_summary_off">使用預設音訊</string>
   <!-- 'Spoof video streams' should be the same translation used for revanced_spoof_video_streams_screen_title -->
   <string name="revanced_force_original_audio_not_available">如要使用這項功能，請將「偽裝視訊串流」變更為 iOS TV</string>
-  </patch>
-  <patch id="video.quality.rememberVideoQualityPatch">
+  <!-- </patch> -->
+  <!-- <patch id="video.quality.rememberVideoQualityPatch"> -->
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
   <string name="revanced_video_quality_default_entry_1">自動</string>
   <string name="revanced_remember_video_quality_last_selected_title">記住影片畫質</string>
@@ -1318,13 +1325,13 @@ Second \"item\" text"</string>
   <string name="revanced_remember_video_quality_wifi">Wi-Fi</string>
   <string name="revanced_remember_video_quality_toast">已將預設 %1$s 畫質變更為：%2$s</string>
   <string name="revanced_remember_video_quality_toast_shorts">已將 Shorts %1$s 畫質變更為：%2$s</string>
-  </patch>
-  <patch id="video.speed.button.playbackSpeedButtonPatch">
+  <!-- </patch> -->
+  <!-- <patch id="video.speed.button.playbackSpeedButtonPatch"> -->
   <string name="revanced_playback_speed_dialog_button_title">顯示速度對話方塊按鈕</string>
   <string name="revanced_playback_speed_dialog_button_summary_on">已顯示按鈕</string>
   <string name="revanced_playback_speed_dialog_button_summary_off">不顯示按鈕</string>
-  </patch>
-  <patch id="video.speed.custom.customPlaybackSpeedPatch">
+  <!-- </patch> -->
+  <!-- <patch id="video.speed.custom.customPlaybackSpeedPatch"> -->
   <string name="revanced_custom_speed_menu_title">自訂播放速度選單</string>
   <string name="revanced_custom_speed_menu_summary_on">已顯示自訂播放速度選單</string>
   <string name="revanced_custom_speed_menu_summary_off">不顯示自訂播放速度選單</string>
@@ -1335,30 +1342,30 @@ Second \"item\" text"</string>
   <string name="revanced_custom_playback_speeds_auto">自動</string>
   <string name="revanced_speed_tap_and_hold_title">自訂輕觸和按住的速度</string>
   <string name="revanced_speed_tap_and_hold_summary">播放速度介於 0 到 8 之間</string>
-  </patch>
-  <patch id="video.speed.remember.rememberPlaybackSpeedPatch">
+  <!-- </patch> -->
+  <!-- <patch id="video.speed.remember.rememberPlaybackSpeedPatch"> -->
   <string name="revanced_remember_playback_speed_last_selected_title">記住播放速度</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_on">播放速度變更適用於所有影片</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_off">播放速度變更僅適用於目前的影片</string>
   <string name="revanced_playback_speed_default_title">預設播放速度</string>
   <string name="revanced_remember_playback_speed_toast">已將預設速度變更為：%s</string>
-  </patch>
-  <patch id="video.hdr.disableHdrPatch">
+  <!-- </patch> -->
+  <!-- <patch id="video.hdr.disableHdrPatch"> -->
   <string name="revanced_disable_hdr_video_title">停用 HDR 影片</string>
   <string name="revanced_disable_hdr_video_summary_on">已停用 HDR 影片</string>
   <string name="revanced_disable_hdr_video_summary_off">已啟用 HDR 影片</string>
-  </patch>
-  <patch id="video.quality.advancedVideoQualityMenuPatch">
+  <!-- </patch> -->
+  <!-- <patch id="video.quality.advancedVideoQualityMenuPatch"> -->
   <string name="revanced_advanced_video_quality_menu_title">顯示進階影片畫質選單</string>
   <string name="revanced_advanced_video_quality_menu_summary_on">已顯示進階影片畫質選單</string>
   <string name="revanced_advanced_video_quality_menu_summary_off">不顯示進階影片畫質選單</string>
-  </patch>
-  <patch id="interaction.seekbar.enableSlideToSeekPatch">
+  <!-- </patch> -->
+  <!-- <patch id="interaction.seekbar.enableSlideToSeekPatch"> -->
   <string name="revanced_slide_to_seek_title">啟用滑動預覽</string>
   <string name="revanced_slide_to_seek_summary_on">已啟用滑動預覽</string>
   <string name="revanced_slide_to_seek_summary_off">未啟用滑動預覽</string>
-  </patch>
-  <patch id="misc.fix.playback.spoofVideoStreamsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.fix.playback.spoofVideoStreamsPatch"> -->
   <string name="revanced_spoof_video_streams_screen_title">欺騙影片串流</string>
   <string name="revanced_spoof_video_streams_screen_summary">欺騙用戶端影片串流以避免播放問題</string>
   <string name="revanced_spoof_video_streams_title">欺騙影片串流</string>
@@ -1388,46 +1395,46 @@ A​VC 的最高解析度為 1080p，不支援 Opus 音訊解碼器，而且與 
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">已在統計資料中顯示用戶端類型</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">已在統計資料中隱藏用戶端類型</string>
   <string name="revanced_spoof_video_streams_language_title">預設 VR 音訊串流語言</string>
-  </patch>
-  </app>
-  <app id="twitch">
-  <patch id="ad.audio.audioAdsPatch">
+  <!-- </patch> -->
+  <!-- </app> -->
+  <!-- <app id="twitch"> -->
+  <!-- <patch id="ad.audio.audioAdsPatch"> -->
   <string name="revanced_block_audio_ads_title">阻擋音訊廣告</string>
   <string name="revanced_block_audio_ads_summary_on">已阻擋音訊廣告</string>
   <string name="revanced_block_audio_ads_summary_off">未阻擋音訊廣告</string>
-  </patch>
-  <patch id="ad.embedded.embeddedAdsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="ad.embedded.embeddedAdsPatch"> -->
   <string name="revanced_embedded_ads_service_unavailable">%s 無法使用，可能會顯示廣告。請嘗試在設定中變更廣告封鎖服務。</string>
   <string name="revanced_embedded_ads_service_failed">%s 傳回錯誤，可能會顯示廣告。請嘗試在設定中變更廣告封鎖服務。</string>
   <string name="revanced_block_embedded_ads_title">阻擋嵌入式影片廣告</string>
   <string name="revanced_block_embedded_ads_entry_1">已停用</string>
   <string name="revanced_block_embedded_ads_entry_2">Luminous 代理</string>
   <string name="revanced_block_embedded_ads_entry_3">PurpleAdBlock 代理</string>
-  </patch>
-  <patch id="ad.video.videoAdsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="ad.video.videoAdsPatch"> -->
   <string name="revanced_block_video_ads_title">攔截影片廣告</string>
   <string name="revanced_block_video_ads_summary_on">已攔截影片廣告</string>
   <string name="revanced_block_video_ads_summary_off">未攔截影片廣告</string>
-  </patch>
-  <patch id="chat.antidelete.showDeletedMessagesPatch">
+  <!-- </patch> -->
+  <!-- <patch id="chat.antidelete.showDeletedMessagesPatch"> -->
   <string name="revanced_deleted_msg">已刪除訊息</string>
   <string name="revanced_show_deleted_messages_title">顯示已刪除的訊息</string>
   <string name="revanced_show_deleted_messages_entry_1">不顯示已刪除的訊息</string>
   <string name="revanced_show_deleted_messages_entry_2">將已刪除的訊息隱藏在劇透後面</string>
   <string name="revanced_show_deleted_messages_entry_3">將已刪除的訊息顯示為劃掉的文字</string>
-  </patch>
-  <patch id="chat.autoclaim.autoClaimChannelPointsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="chat.autoclaim.autoClaimChannelPointsPatch"> -->
   <string name="revanced_auto_claim_channel_points_title">自動化領取頻道忠誠點數</string>
   <string name="revanced_auto_claim_channel_points_summary_on">已開啟自動化領取頻道忠誠點數</string>
   <string name="revanced_auto_claim_channel_points_summary_off">已關閉自動化領取頻道忠誠點數</string>
-  </patch>
-  <patch id="debug.debugModePatch">
+  <!-- </patch> -->
+  <!-- <patch id="debug.debugModePatch"> -->
   <!-- Twitch specific internal debug mode, and not the same as 'revanced_debug_title' -->
   <string name="revanced_twitch_debug_mode_title">啟用 Twitch 偵錯模式</string>
   <string name="revanced_twitch_debug_mode_summary_on">已啟用 Twitch 偵錯模式（不推薦啟用）</string>
   <string name="revanced_twitch_debug_mode_summary_off">已停用 Twitch 偵錯模式</string>
-  </patch>
-  <patch id="misc.settings.settingsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.settings.settingsPatch"> -->
   <string name="revanced_settings">ReVanced 設定</string>
   <string name="revanced_about_title">關於</string>
   <string name="revanced_about_summary">關於 ReVanced</string>
@@ -1444,6 +1451,6 @@ A​VC 的最高解析度為 1080p，不支援 Opus 音訊解碼器，而且與 
   <string name="revanced_twitch_debug_title">偵錯記錄檔</string>
   <string name="revanced_twitch_debug_summary_on">已啟用偵錯記錄檔</string>
   <string name="revanced_twitch_debug_summary_off">已停用偵錯記錄檔</string>
-  </patch>
-  </app>
+  <!-- </patch> -->
+  <!-- </app> -->
 </resources>

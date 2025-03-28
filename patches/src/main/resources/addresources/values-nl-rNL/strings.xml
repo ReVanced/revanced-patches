@@ -20,8 +20,8 @@ Second \"item\" text"</string>
 
 -->
 <resources>
-  <app id="shared">
-  <patch id="misc.checks.checkEnvironmentPatch">
+  <!-- <app id="shared"> -->
+  <!-- <patch id="misc.checks.checkEnvironmentPatch"> -->
   <string name="revanced_check_environment_failed_title">Controle mislukt</string>
   <string name="revanced_check_environment_dialog_open_official_source_button">Open officiële website</string>
   <string name="revanced_check_environment_dialog_ignore_button">Negeren</string>
@@ -31,8 +31,8 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time">Meer dan 10 minuten geleden gepatcht</string>
   <string name="revanced_check_environment_not_near_patch_time_days">Gepatcht %s dagen geleden</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">APK-bouwdatum is beschadigd</string>
-  </patch>
-  <patch id="misc.settings.settingsResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.settings.settingsResourcePatch"> -->
   <string name="revanced_settings_submenu_title">Instellingen</string>
   <string name="revanced_settings_confirm_user_dialog_title">Wilt u doorgaan?</string>
   <string name="revanced_settings_reset">Terugzetten</string>
@@ -57,8 +57,8 @@ Om nieuwe talen te vertalen, gaat u naar translate.revanced.app"</string>
   <string name="revanced_settings_about_links_header">Officiële links</string>
   <!-- NOTE: the about strings above are duplicated in the TikTok about screen code,
                  and changes made here must also be made there. -->
-  </patch>
-  <patch id="misc.gms.gmsCoreSupportResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.gms.gmsCoreSupportResourcePatch"> -->
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="gms_core_toast_not_installed_message">MicroG GmsCore is niet geïnstalleerd. Installeer het.</string>
   <string name="gms_core_dialog_title">Actie vereist</string>
@@ -74,10 +74,10 @@ Door batterijoptimalisaties voor MicroG uit te schakelen, wordt het batterijgebr
 
 Tik op de knop Doorgaan en sta wijzigingen in de optimalisatie toe."</string>
   <string name="gms_core_dialog_continue_text">Doorgaan</string>
-  </patch>
-  </app>
-  <app id="youtube">
-  <patch id="misc.settings.settingsPatch">
+  <!-- </patch> -->
+  <!-- </app> -->
+  <!-- <app id="youtube"> -->
+  <!-- <patch id="misc.settings.settingsPatch"> -->
   <string name="revanced_settings_screen_00_about_title">Info</string>
   <string name="revanced_settings_screen_01_ads_title">Advertenties</string>
   <string name="revanced_settings_screen_02_alt_thumbnails_title">Alternatieve miniaturen</string>
@@ -91,13 +91,13 @@ Tik op de knop Doorgaan en sta wijzigingen in de optimalisatie toe."</string>
   <string name="revanced_restore_old_settings_menus_title">Oude instellingenmenu\'s herstellen</string>
   <string name="revanced_restore_old_settings_menus_summary_on">Oude instellingenmenu\'s worden getoond</string>
   <string name="revanced_restore_old_settings_menus_summary_off">Oude instellingenmenu\'s worden niet getoond</string>
-  </patch>
-  <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.backgroundplayback.backgroundPlaybackPatch"> -->
   <string name="revanced_shorts_disable_background_playback_title">Shorts-achtergrondafspelen uitschakelen</string>
   <string name="revanced_shorts_disable_background_playback_summary_on">Shorts-achtergrondafspelen is uitgeschakeld</string>
   <string name="revanced_shorts_disable_background_playback_summary_off">Shorts-achtergrondafspelen is ingeschakeld</string>
-  </patch>
-  <patch id="misc.debugging.enableDebuggingPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.debugging.enableDebuggingPatch"> -->
   <string name="revanced_debug_screen_title">Debuggen</string>
   <string name="revanced_debug_screen_summary">Schakel debugopties in of uit</string>
   <string name="revanced_debug_title">Debuglogboek</string>
@@ -115,8 +115,8 @@ Tik op de knop Doorgaan en sta wijzigingen in de optimalisatie toe."</string>
   <string name="revanced_debug_toast_on_error_user_dialog_message">"Het uitschakelen van foutmeldingen verbergt alle ReVanced-foutmeldingen.
 
 U wordt niet op de hoogte gesteld van onverwachte gebeurtenissen."</string>
-  </patch>
-  <patch id="layout.hide.general.hideLayoutComponentsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.general.hideLayoutComponentsPatch"> -->
   <string name="revanced_hide_album_cards_title">Verberg albumkaarten</string>
   <string name="revanced_hide_album_cards_summary_on">Albumkaarten zijn verborgen</string>
   <string name="revanced_hide_album_cards_summary_off">Albumkaarten worden getoond</string>
@@ -340,8 +340,8 @@ Beperkingen
   <string name="revanced_hide_keyword_toast_invalid_conflicting">Keyword heeft tegenstrijdige verklaringen: %s</string>
   <string name="revanced_hide_keyword_toast_invalid_length">Keyword is te kort en vereist aanhalingstekens: %s</string>
   <string name="revanced_hide_keyword_toast_invalid_broad">Keyword verbergt alle video\'s: %s</string>
-  </patch>
-  <patch id="ad.general.hideAdsResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="ad.general.hideAdsResourcePatch"> -->
   <string name="revanced_hide_general_ads_title">Algemene advertenties verbergen</string>
   <string name="revanced_hide_general_ads_summary_on">Algemene advertenties zijn verborgen</string>
   <string name="revanced_hide_general_ads_summary_off">Algemene advertenties worden getoond</string>
@@ -383,18 +383,18 @@ Deze functie is alleen beschikbaar voor oudere apparaten"</string>
   <string name="revanced_hide_merchandise_banners_summary_off">Merchandise banners worden getoond</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_hide_fullscreen_ads_feature_not_available_toast">Volledig scherm advertenties werkt alleen met oudere apparaten</string>
-  </patch>
-  <patch id="ad.getpremium.hideGetPremiumPatch">
+  <!-- </patch> -->
+  <!-- <patch id="ad.getpremium.hideGetPremiumPatch"> -->
   <string name="revanced_hide_get_premium_title">YouTube Premium promoties verbergen</string>
   <string name="revanced_hide_get_premium_summary_on">YouTube Premium promoties onder de videospeler zijn verborgen</string>
   <string name="revanced_hide_get_premium_summary_off">YouTube Premium promoties onder de videospeler worden getoond</string>
-  </patch>
-  <patch id="ad.video.videoAdsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="ad.video.videoAdsPatch"> -->
   <string name="revanced_hide_video_ads_title">Video-advertenties verbergen</string>
   <string name="revanced_hide_video_ads_summary_on">Video-advertenties zijn verborgen</string>
   <string name="revanced_hide_video_ads_summary_off">Video-advertenties worden getoond</string>
-  </patch>
-  <patch id="interaction.copyvideourl.copyVideoUrlResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="interaction.copyvideourl.copyVideoUrlResourcePatch"> -->
   <string name="revanced_share_copy_url_success">URL gekopieerd naar klembord</string>
   <string name="revanced_share_copy_url_timestamp_success">URL met tijdstempel gekopieerd</string>
   <string name="revanced_copy_video_url_title">Knop \"Video-URL kopiëren\" weergeven</string>
@@ -403,14 +403,14 @@ Deze functie is alleen beschikbaar voor oudere apparaten"</string>
   <string name="revanced_copy_video_url_timestamp_title">Knop \"Tijdstempel URL kopiëren\" weergeven</string>
   <string name="revanced_copy_video_url_timestamp_summary_on">Knop wordt weergegeven. Tik om de video-URL met tijdstempel te kopiëren. Tik en houd vast om zonder tijdstempel te kopiëren</string>
   <string name="revanced_copy_video_url_timestamp_summary_off">Knop wordt niet getoond</string>
-  </patch>
-  <patch id="interaction.dialog.removeViewerDiscretionDialogPatch">
+  <!-- </patch> -->
+  <!-- <patch id="interaction.dialog.removeViewerDiscretionDialogPatch"> -->
   <string name="revanced_remove_viewer_discretion_dialog_title">Dialog van kijker discretie verwijderen</string>
   <string name="revanced_remove_viewer_discretion_dialog_summary_on">Dialog wordt verwijderd</string>
   <string name="revanced_remove_viewer_discretion_dialog_summary_off">Dialog wordt getoond</string>
   <string name="revanced_remove_viewer_discretion_dialog_user_dialog_message">Dit omzeilt de leeftijdsbeperking niet. Het accepteert het alleen automatisch.</string>
-  </patch>
-  <patch id="interaction.downloads.downloadsResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="interaction.downloads.downloadsResourcePatch"> -->
   <string name="revanced_external_downloader_screen_title">Externe downloads</string>
   <string name="revanced_external_downloader_screen_summary">Instellingen voor het gebruik van een externe downloader</string>
   <string name="revanced_external_downloader_title">Externe downloadknop weergeven</string>
@@ -423,18 +423,18 @@ Deze functie is alleen beschikbaar voor oudere apparaten"</string>
   <string name="revanced_external_downloader_name_title">Downloader pakketnaam</string>
   <string name="revanced_external_downloader_name_summary">Pakketnaam van je geïnstalleerde externe downloader-app, zoals NewPipe of Seal</string>
   <string name="revanced_external_downloader_not_installed_warning">%s is niet geïnstalleerd. Installeer het.</string>
-  </patch>
-  <patch id="interaction.seekbar.disablePreciseSeekingGesturePatch">
+  <!-- </patch> -->
+  <!-- <patch id="interaction.seekbar.disablePreciseSeekingGesturePatch"> -->
   <string name="revanced_disable_precise_seeking_gesture_title">Precisie-zoekbeweging uitschakelen</string>
   <string name="revanced_disable_precise_seeking_gesture_summary_on">Beweging is uitgeschakeld</string>
   <string name="revanced_disable_precise_seeking_gesture_summary_off">Beweging is ingeschakeld</string>
-  </patch>
-  <patch id="interaction.seekbar.enableSeekbarTappingPatch">
+  <!-- </patch> -->
+  <!-- <patch id="interaction.seekbar.enableSeekbarTappingPatch"> -->
   <string name="revanced_seekbar_tapping_title">Tikken om te zoeken inschakelen</string>
   <string name="revanced_seekbar_tapping_summary_on">Tikken om te zoeken is ingeschakeld</string>
   <string name="revanced_seekbar_tapping_summary_off">Tikken om te zoeken is uitgeschakeld</string>
-  </patch>
-  <patch id="interaction.swipecontrols.swipeControlsResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="interaction.swipecontrols.swipeControlsResourcePatch"> -->
   <string name="revanced_swipe_brightness_title">Helderheidsbeweging inschakelen</string>
   <string name="revanced_swipe_brightness_summary_on">"Volledig scherm helderheid swipe is ingeschakeld
 
@@ -473,13 +473,13 @@ Pas het volume aan door verticaal over de rechterkant van het scherm te vegen"</
   <string name="revanced_swipe_change_video_title">Schakel vegen in om te wisselen tussen video\'s</string>
   <string name="revanced_swipe_change_video_summary_on">Vegen in de modus volledig scherm weergegeven, verandert naar de volgende/vorige video</string>
   <string name="revanced_swipe_change_video_summary_off">Vegen in de modus volledig scherm weergegeven, verandert niet naar de volgende/vorige video</string>
-  </patch>
-  <patch id="layout.autocaptions.autoCaptionsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.autocaptions.autoCaptionsPatch"> -->
   <string name="revanced_auto_captions_title">Automatische ondertitels uitschakelen</string>
   <string name="revanced_auto_captions_summary_on">Automatische ondertitels zijn uitgeschakeld</string>
   <string name="revanced_auto_captions_summary_off">Automatische ondertitels zijn ingeschakeld</string>
-  </patch>
-  <patch id="layout.buttons.action.hideButtonsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.buttons.action.hideButtonsPatch"> -->
   <string name="revanced_hide_buttons_screen_title">Actieknoppen</string>
   <string name="revanced_hide_buttons_screen_summary">Knoppen onder video\'s verbergen of weergeven</string>
   <string name="revanced_disable_like_subscribe_glow_title">Schakel de gloed van Vind ik leuk en Abonneren uit</string>
@@ -517,8 +517,8 @@ Pas het volume aan door verticaal over de rechterkant van het scherm te vegen"</
   <string name="revanced_hide_playlist_button_title">Opslaan in afspeellijst verbergen</string>
   <string name="revanced_hide_playlist_button_summary_on">Opslaan in afspeellijst-knop is verborgen</string>
   <string name="revanced_hide_playlist_button_summary_off">Opslaan in afspeellijst-knop wordt weergegeven</string>
-  </patch>
-  <patch id="layout.buttons.navigation.navigationButtonsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.buttons.navigation.navigationButtonsPatch"> -->
   <string name="revanced_navigation_buttons_screen_title">Navigatieknoppen</string>
   <string name="revanced_navigation_buttons_screen_summary">Knoppen in de navigatiebalk verbergen of wijzigen</string>
   <!-- 'Home' should be translated using the same localized wording YouTube displays for the tab. -->
@@ -555,14 +555,15 @@ Als het wijzigen van deze instelling geen effect heeft, probeer dan over te scha
   <string name="revanced_disable_translucent_status_bar_title">Transparante statusbalk uitschakelen</string>
   <string name="revanced_disable_translucent_status_bar_summary_on">Statusbalk is ondoorzichtig</string>
   <string name="revanced_disable_translucent_status_bar_summary_off">Statusbalk is ondoorzichtig of doorschijnend</string>
+  <string name="revanced_disable_translucent_status_bar_user_dialog_message">Op sommige apparaten kan het inschakelen van deze functie de systeemnavigatiebalk transparant maken.</string>
   <string name="revanced_disable_translucent_navigation_bar_light_title">Transparante lichte navigatiebalk uitschakelen</string>
   <string name="revanced_disable_translucent_navigation_bar_light_summary_on">De lichte navigatiebalk is ondoorzichtig</string>
   <string name="revanced_disable_translucent_navigation_bar_light_summary_off">De lichtmodus navigatiebalk is ondoorzichtig of doorschijnend</string>
   <string name="revanced_disable_translucent_navigation_bar_dark_title">Schakel de donkere doorschijnende balk uit</string>
   <string name="revanced_disable_translucent_navigation_bar_dark_summary_on">De donkere navigatiebalk is ondoorzichtig</string>
   <string name="revanced_disable_translucent_navigation_bar_dark_summary_off">De donkermodus navigatiebalk is ondoorzichtig of doorschijnend</string>
-  </patch>
-  <patch id="layout.hide.player.flyoutmenupanel.hidePlayerFlyoutMenuPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.player.flyoutmenupanel.hidePlayerFlyoutMenuPatch"> -->
   <string name="revanced_hide_player_flyout_title">Uitklapmenu</string>
   <string name="revanced_hide_player_flyout_summary">Items in het uitklapmenu van de speler verbergen of weergeven</string>
   <!-- 'Captions' should be translated using the same localized wording YouTube displays for the menu item. -->
@@ -616,8 +617,8 @@ Als het wijzigen van deze instelling geen effect heeft, probeer dan over te scha
   <string name="revanced_hide_player_flyout_video_quality_footer_title">Verberg voettekst van video-kwaliteitsmenu</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_on">Voettekst van video-kwaliteitsmenu is verborgen</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_off">Voettekst van video-kwaliteitsmenu wordt weergegeven</string>
-  </patch>
-  <patch id="layout.buttons.overlay.hidePlayerOverlayButtonsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.buttons.overlay.hidePlayerOverlayButtonsPatch"> -->
   <string name="revanced_hide_player_previous_next_buttons_title">Verberg Vorige &amp; Volgende knoppen</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_on">Knoppen zijn verborgen</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">Knoppen worden weergegeven</string>
@@ -631,36 +632,36 @@ Als het wijzigen van deze instelling geen effect heeft, probeer dan over te scha
   <string name="revanced_hide_autoplay_button_title">Verberg knop voor automatisch afspelen</string>
   <string name="revanced_hide_autoplay_button_summary_on">Automatische afspeelknop is verborgen</string>
   <string name="revanced_hide_autoplay_button_summary_off">Automatische afspeelknop wordt weergegeven</string>
-  </patch>
-  <patch id="layout.hide.endscreencards.hideEndscreenCardsResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.endscreencards.hideEndscreenCardsResourcePatch"> -->
   <string name="revanced_hide_endscreen_cards_title">Verberg eindschermkaarten</string>
   <string name="revanced_hide_endscreen_cards_summary_on">Eindschermkaarten zijn verborgen</string>
   <string name="revanced_hide_endscreen_cards_summary_off">Eindschermkaarten worden weergegeven</string>
-  </patch>
-  <patch id="layout.hide.fullscreenambientmode.disableFullscreenAmbientModePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.fullscreenambientmode.disableFullscreenAmbientModePatch"> -->
   <string name="revanced_disable_fullscreen_ambient_mode_title">Schakel de ambientmodus in volledig scherm uit</string>
   <string name="revanced_disable_fullscreen_ambient_mode_summary_on">Omgevingsmodus uitgeschakeld</string>
   <string name="revanced_disable_fullscreen_ambient_mode_summary_off">Omgevingsmodus ingeschakeld</string>
-  </patch>
-  <patch id="layout.hide.infocards.hideInfocardsResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.infocards.hideInfocardsResourcePatch"> -->
   <string name="revanced_hide_info_cards_title">Verberg infokaarten</string>
   <string name="revanced_hide_info_cards_summary_on">Infokaarten zijn verborgen</string>
   <string name="revanced_hide_info_cards_summary_off">Infokaarten worden weergegeven</string>
-  </patch>
-  <patch id="layout.hide.rollingnumber.disableRollingNumberAnimationPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.rollingnumber.disableRollingNumberAnimationPatch"> -->
   <string name="revanced_disable_rolling_number_animations_title">Schakel rollende nummeranimaties uit</string>
   <string name="revanced_disable_rolling_number_animations_summary_on">Rollende nummers zijn niet geanimeerd</string>
   <string name="revanced_disable_rolling_number_animations_summary_off">Rollende nummers zijn geanimeerd</string>
-  </patch>
-  <patch id="layout.hide.seekbar.hideSeekbarPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.seekbar.hideSeekbarPatch"> -->
   <string name="revanced_hide_seekbar_title">Verberg zoekbalk in videospeler</string>
   <string name="revanced_hide_seekbar_summary_on">Zoekbalk videospeler verborgen</string>
   <string name="revanced_hide_seekbar_summary_off">Zoekbalk videospeler is weergegeven</string>
   <string name="revanced_hide_seekbar_thumbnail_title">Verberg zoekbalk in video miniaturen</string>
   <string name="revanced_hide_seekbar_thumbnail_summary_on">Zoekbalk in miniaturen is verborgen</string>
   <string name="revanced_hide_seekbar_thumbnail_summary_off">Zoekbalk in miniaturen wordt weergegeven</string>
-  </patch>
-  <patch id="layout.hide.shorts.hideShortsComponentsResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.shorts.hideShortsComponentsResourcePatch"> -->
   <string name="revanced_shorts_player_screen_title">Shorts-speler</string>
   <string name="revanced_shorts_player_screen_summary">Verberg of toon onderdelen in de Shorts-speler</string>
   <!-- 'home' should be translated using the same localized wording YouTube displays for the home tab. -->
@@ -762,43 +763,43 @@ Als het wijzigen van deze instelling geen effect heeft, probeer dan over te scha
   <string name="revanced_hide_shorts_navigation_bar_title">Verberg de navigatiebalk</string>
   <string name="revanced_hide_shorts_navigation_bar_summary_on">De navigatiebalk is verborgen</string>
   <string name="revanced_hide_shorts_navigation_bar_summary_off">De navigatiebalk is zichtbaar</string>
-  </patch>
-  <patch id="layout.hide.endscreensuggestion.hideEndScreenSuggestedVideoPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.endscreensuggestion.hideEndScreenSuggestedVideoPatch"> -->
   <string name="revanced_end_screen_suggested_video_title">Voorgestelde video op eindscherm verbergen</string>
   <string name="revanced_end_screen_suggested_video_summary_on">"De voorgestelde video op het eindscherm is verborgen wanneer automatisch afspelen is uitgeschakeld.
 
 Automatisch afspelen kan worden gewijzigd in de YouTube-instellingen:
 Instellingen → Afspelen → Volgende video automatisch afspelen"</string>
   <string name="revanced_end_screen_suggested_video_summary_off">Voorgestelde video op eindscherm wordt getoond</string>
-  </patch>
-  <patch id="layout.hide.time.hideTimestampPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.time.hideTimestampPatch"> -->
   <string name="revanced_hide_timestamp_title">Verberg de videotijd</string>
   <string name="revanced_hide_timestamp_summary_on">De tijd is verborgen</string>
   <string name="revanced_hide_timestamp_summary_off">De tijd is zichtbaar</string>
-  </patch>
-  <patch id="layout.panels.popup.playerPopupPanelsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.panels.popup.playerPopupPanelsPatch"> -->
   <string name="revanced_hide_player_popup_panels_title">Verberg de pop-upvensters van de speler</string>
   <string name="revanced_hide_player_popup_panels_summary_on">De pop-upvensters van de speler zijn verborgen</string>
   <string name="revanced_hide_player_popup_panels_summary_off">De pop-upvensters van de speler zijn zichtbaar</string>
-  </patch>
-  <patch id="layout.player.fullscreen.exitFullscreenPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.player.fullscreen.exitFullscreenPatch"> -->
   <string name="revanced_exit_fullscreen_title">Afsluiten van volledig scherm modus bij einde van de video</string>
   <string name="revanced_exit_fullscreen_entry_1">Uitgeschakeld</string>
   <string name="revanced_exit_fullscreen_entry_2">Portret</string>
   <string name="revanced_exit_fullscreen_entry_3">Landschap</string>
   <string name="revanced_exit_fullscreen_entry_4">Portret en landschap</string>
-  </patch>
-  <patch id="layout.player.fullscreen.openVideosFullscreen">
+  <!-- </patch> -->
+  <!-- <patch id="layout.player.fullscreen.openVideosFullscreen"> -->
   <string name="revanced_open_videos_fullscreen_portrait_title">Open video\'s in volledig schermmodus (portret)</string>
   <string name="revanced_open_videos_fullscreen_portrait_summary_on">Video\'s openen in volledig schermmodus</string>
   <string name="revanced_open_videos_fullscreen_portrait_summary_off">Video\'s openen niet in volledig schermmodus</string>
-  </patch>
-  <patch id="layout.player.overlay.customPlayerOverlayOpacityResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.player.overlay.customPlayerOverlayOpacityResourcePatch"> -->
   <string name="revanced_player_overlay_opacity_title">Speler-overlaytransparantie</string>
   <string name="revanced_player_overlay_opacity_summary">Transparantiewaarde tussen 0-100, waarbij 0 transparant is</string>
   <string name="revanced_player_overlay_opacity_invalid_toast">De transparantie van de speler-overlay moet tussen 0-100 liggen</string>
-  </patch>
-  <patch id="layout.returnyoutubedislike.returnYouTubeDislikePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.returnyoutubedislike.returnYouTubeDislikePatch"> -->
   <!-- Toast shown if network connection times out. Translations of this should not be longer than the original English or the text can be clipped and not entirely shown. -->
   <string name="revanced_ryd_failure_connection_timeout">\"Dislikes\" tijdelijk niet beschikbaar (API-time-out)</string>
   <string name="revanced_ryd_failure_connection_status_code">\"Dislikes\" niet beschikbaar (status %d)</string>
@@ -847,13 +848,13 @@ Beperking: Vind ik niet leuk verschijnen mogelijk niet in de incognitomodus"</st
   <string name="revanced_ryd_statistics_getNumberOfRateLimitRequestsEncountered_zero_summary">Geen client limieten zijn geconstateerd</string>
   <string name="revanced_ryd_statistics_getNumberOfRateLimitRequestsEncountered_non_zero_summary">Client limiet %d keer geconstateerd</string>
   <string name="revanced_ryd_statistics_millisecond_text">%d milliseconden</string>
-  </patch>
-  <patch id="layout.searchbar.wideSearchbarPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.searchbar.wideSearchbarPatch"> -->
   <string name="revanced_wide_searchbar_title">Schakel de brede zoekbalk in</string>
   <string name="revanced_wide_searchbar_summary_on">De brede zoekbalk is ingeschakeld</string>
   <string name="revanced_wide_searchbar_summary_off">De brede zoekbalk is uitgeschakeld</string>
-  </patch>
-  <patch id="layout.seekbar.seekbarThumbnailsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.seekbar.seekbarThumbnailsPatch"> -->
   <string name="revanced_seekbar_thumbnails_high_quality_title">Schakel miniatuurweergaven van hoge kwaliteit in</string>
   <string name="revanced_seekbar_thumbnails_high_quality_summary_on">Miniatuurweergaven van de zoekbalk zijn van hoge kwaliteit</string>
   <string name="revanced_seekbar_thumbnails_high_quality_summary_off">Miniatuurweergaven van de zoekbalk zijn van gemiddelde kwaliteit</string>
@@ -867,8 +868,8 @@ Deze functie werkt het beste met een videokwaliteit van 720p of lager en wanneer
   <string name="revanced_restore_old_seekbar_thumbnails_title">Herstel oude miniatuurweergaven van de zoekbalk</string>
   <string name="revanced_restore_old_seekbar_thumbnails_summary_on">Miniatuurweergaven van de zoekbalk worden boven de zoekbalk weergegeven</string>
   <string name="revanced_restore_old_seekbar_thumbnails_summary_off">Miniatuurweergaven van de zoekbalk worden in volledig scherm weergegeven</string>
-  </patch>
-  <patch id="layout.sponsorblock.sponsorBlockResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.sponsorblock.sponsorBlockResourcePatch"> -->
   <string name="revanced_sb_enable_sb">Schakel SponsorBlock in</string>
   <string name="revanced_sb_enable_sb_sum">SponsorBlock is een crowdsourced systeem om vervelende delen van YouTube-video\'s over te slaan</string>
   <string name="revanced_sb_appearance_category">Uiterlijk</string>
@@ -1066,8 +1067,8 @@ Klaar om in te dienen?"</string>
   <string name="revanced_sb_reset">Herstellen naar standaard</string>
   <string name="revanced_sb_about">Over</string>
   <string name="revanced_sb_about_api_sum">Gegevens worden geleverd door de SponsorBlock API. Tik hier om meer te weten te komen en downloads te bekijken voor andere platforms</string>
-  </patch>
-  <patch id="layout.formfactor.changeFormFactorPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.formfactor.changeFormFactorPatch"> -->
   <string name="revanced_change_form_factor_title">Indelingsvormfactor</string>
   <string name="revanced_change_form_factor_entry_1">Standaard</string>
   <string name="revanced_change_form_factor_entry_2">Telefoon</string>
@@ -1081,8 +1082,8 @@ Tablet lay-out
 Automotive lay-out
 • Shorts worden geopend in de normale speler
 • Feed is georganiseerd op onderwerp en kanalen"</string>
-  </patch>
-  <patch id="layout.spoofappversion.spoofAppVersionPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.spoofappversion.spoofAppVersionPatch"> -->
   <string name="revanced_spoof_app_version_title">App-versie vervalsen</string>
   <string name="revanced_spoof_app_version_summary_on">Versie vervalst</string>
   <string name="revanced_spoof_app_version_summary_off">Versie niet vervalst</string>
@@ -1095,8 +1096,8 @@ Als het later wordt uitgeschakeld, wordt aanbevolen om de app-gegevens te wissen
                  This is because the 'General layout' menu uses alphabetic sorting, and it functionally works better if the spoof target selector appears below the 'Spoof app version' UI switch -->
   <string name="revanced_spoof_app_version_target_title">Doel voor vervalsen app-versie</string>
   <string name="revanced_spoof_app_version_target_entry_1">19.35.36 - Herstel oude pictogrammen voor Shorts-speler</string>
-  </patch>
-  <patch id="layout.startpage.changeStartPagePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.startpage.changeStartPagePatch"> -->
   <string name="revanced_change_start_page_title">Startpagina instellen</string>
   <string name="revanced_change_start_page_entry_default">Standaard</string>
   <string name="revanced_change_start_page_entry_all_subscriptions">Alle abonnementen</string>
@@ -1122,27 +1123,27 @@ Als het later wordt uitgeschakeld, wordt aanbevolen om de app-gegevens te wissen
   <string name="revanced_change_start_page_entry_virtual_reality">Virtuele realiteit</string>
   <string name="revanced_change_start_page_entry_watch_later">Later bekijken</string>
   <string name="revanced_change_start_page_entry_your_clips">Je clips</string>
-  </patch>
-  <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch"> -->
   <string name="revanced_disable_resuming_shorts_player_title">Schakel het hervatten van Shorts-speler uit</string>
   <string name="revanced_disable_resuming_shorts_player_summary_on">Shorts-speler wordt niet hervat bij het opstarten van de app</string>
   <string name="revanced_disable_resuming_shorts_player_summary_off">Shorts-speler wordt hervat bij het opstarten van de app</string>
-  </patch>
-  <patch id="layout.shortsplayer.shortsPlayerTypePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.shortsplayer.shortsPlayerTypePatch"> -->
   <string name="revanced_shorts_player_type_title">Shorts openen met</string>
   <string name="revanced_shorts_player_type_shorts">Shorts-speler</string>
   <string name="revanced_shorts_player_type_regular_player">Normale speler</string>
   <string name="revanced_shorts_player_type_regular_player_fullscreen">Normale speler op volledig scherm</string>
-  </patch>
-  <patch id="layout.shortsautoplay.shortsAutoplayPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.shortsautoplay.shortsAutoplayPatch"> -->
   <string name="revanced_shorts_autoplay_title">Shorts automatisch afspelen</string>
   <string name="revanced_shorts_autoplay_summary_on">Shorts worden automatisch afgespeeld</string>
   <string name="revanced_shorts_autoplay_summary_off">Shorts worden herhaald</string>
   <string name="revanced_shorts_autoplay_background_title">Automatisch afspelen van Shorts op de achtergrond</string>
   <string name="revanced_shorts_autoplay_background_summary_on">Shorts op de achtergrond worden automatisch afgespeeld</string>
   <string name="revanced_shorts_autoplay_background_summary_off">Shorts op de achtergrond worden herhaald</string>
-  </patch>
-  <patch id="layout.miniplayer.miniplayerPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.miniplayer.miniplayerPatch"> -->
   <string name="revanced_miniplayer_screen_title">Minispeler</string>
   <string name="revanced_miniplayer_screen_summary">De stijl van de geminimaliseerde speler in de app wijzigen</string>
   <string name="revanced_miniplayer_type_title">\"miniplayer\"-type</string>
@@ -1192,8 +1193,8 @@ Veeg om uit te vouwen of te sluiten"</string>
   <string name="revanced_miniplayer_opacity_title">Dekking van de overlay</string>
   <string name="revanced_miniplayer_opacity_summary">De waarde van de dekking moet tussen 0-100 liggen, waarbij 0 transparant is</string>
   <string name="revanced_miniplayer_opacity_invalid_toast">Minispeler overlay transparantie moet tussen de 0-100 zijn</string>
-  </patch>
-  <patch id="layout.theme.themePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.theme.themePatch"> -->
   <string name="revanced_gradient_loading_screen_title">Schakel het laden van het verloopscherm in</string>
   <string name="revanced_gradient_loading_screen_summary_on">Het laadscherm heeft een verlopende achtergrond</string>
   <string name="revanced_gradient_loading_screen_summary_off">Het laadscherm heeft een effen achtergrond</string>
@@ -1205,15 +1206,15 @@ Veeg om uit te vouwen of te sluiten"</string>
   <string name="revanced_seekbar_custom_color_accent_title">Aangepaste accentkleur van de zoekbalk</string>
   <string name="revanced_seekbar_custom_color_accent_summary">De accentkleur van de zoekbalk</string>
   <string name="revanced_seekbar_custom_color_invalid">Ongeldige waarde voor de kleur van de schuifregelaar</string>
-  </patch>
-  <patch id="layout.thumbnails.bypassImageRegionRestrictionsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.thumbnails.bypassImageRegionRestrictionsPatch"> -->
   <string name="revanced_bypass_image_region_restrictions_title">Omzeil beperkingen voor het weergeven van afbeeldingen in bepaalde regio\'s</string>
   <string name="revanced_bypass_image_region_restrictions_summary_on">Gebruik de afbeeldinghost yt4.ggpht.com</string>
   <string name="revanced_bypass_image_region_restrictions_summary_off">"Gebruik oorspronkelijke afbeeldingshost
 
 Het inschakelen hiervan kan ontbrekende afbeeldingen oplossen die in sommige regio's worden geblokkeerd"</string>
-  </patch>
-  <patch id="layout.thumbnails.alternativeThumbnailsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.thumbnails.alternativeThumbnailsPatch"> -->
   <!-- 'Home' should be translated using the same localized wording YouTube displays for the home tab. -->
   <string name="revanced_alt_thumbnail_home_title">\"Home\"-tabblad</string>
   <!-- 'Subscription' should be translated using the same localized wording YouTube displays for the subscription tab. -->
@@ -1248,26 +1249,26 @@ Tik hier om meer te weten te komen over DeArrow"</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_alt_thumbnail_dearrow_error">DeArrow is tijdelijk niet beschikbaar (statuscode: %s)</string>
   <string name="revanced_alt_thumbnail_dearrow_error_generic">DeArrow is tijdelijk niet beschikbaar</string>
-  </patch>
-  <patch id="misc.announcements.announcementsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.announcements.announcementsPatch"> -->
   <string name="revanced_announcements_title">Toon ReVanced aankondigingen</string>
   <string name="revanced_announcements_summary_on">Aankondigingen bij opstarten worden weergegeven</string>
   <string name="revanced_announcements_summary_off">Aankondigingen bij opstarten worden niet weergegeven</string>
   <string name="revanced_announcements_enabled_summary">Toon aankondigingen bij het opstarten</string>
   <string name="revanced_announcements_connection_failed">Kan geen verbinding maken met de leverancier van aankondigingen</string>
   <string name="revanced_announcements_dialog_dismiss">Afwijzen</string>
-  </patch>
-  <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch"> -->
   <string name="revanced_check_watch_history_domain_name_dialog_title">Waarschuwing</string>
   <string name="revanced_check_watch_history_domain_name_dialog_message">Uw kijkgeschiedenis wordt niet opgeslagen.&lt;br&gt;&lt;br&gt;Dit wordt hoogstwaarschijnlijk veroorzaakt door een DNS-adblocker of netwerkproxy.&lt;br&gt;&lt;br&gt;Om dit te verhelpen, voegt u &lt;b&gt;s.youtube.com&lt;/b&gt; toe aan de witte lijst of schakelt u alle DNS-blokkers en proxies uit.</string>
   <string name="revanced_check_watch_history_domain_name_dialog_ignore">Niet meer weergeven</string>
-  </patch>
-  <patch id="misc.autorepeat.autoRepeatPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.autorepeat.autoRepeatPatch"> -->
   <string name="revanced_auto_repeat_title">Schakel automatisch herhalen in</string>
   <string name="revanced_auto_repeat_summary_on">Automatisch herhalen is ingeschakeld</string>
   <string name="revanced_auto_repeat_summary_off">Automatisch herhalen is uitgeschakeld</string>
-  </patch>
-  <patch id="misc.dimensions.spoof.spoofDeviceDimensionsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.dimensions.spoof.spoofDeviceDimensionsPatch"> -->
   <string name="revanced_spoof_device_dimensions_title">Spoof apparaatdimensies</string>
   <string name="revanced_spoof_device_dimensions_summary_on">"Apparaatdimensies gespoofed
 
@@ -1276,39 +1277,39 @@ Hogere videokwaliteiten kunnen worden ontgrendeld, maar u kunt video-playback ha
 
 Het inschakelen hiervan kan hogere videokwaliteiten ontgrendelen"</string>
   <string name="revanced_spoof_device_dimensions_user_dialog_message">Het inschakelen hiervan kan haperingen tijdens het afspelen van video\'s, een kortere batterijduur en onbekende bijwerkingen veroorzaken.</string>
-  </patch>
-  <patch id="misc.gms.gmsCoreSupportResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.gms.gmsCoreSupportResourcePatch"> -->
   <string name="microg_settings_title">GmsCore-instellingen</string>
   <string name="microg_settings_summary">Instellingen voor GmsCore</string>
-  </patch>
-  <patch id="misc.links.bypassURLRedirectsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.links.bypassURLRedirectsPatch"> -->
   <string name="revanced_bypass_url_redirects_title">Omzeil URL-omleidingen</string>
   <string name="revanced_bypass_url_redirects_summary_on">URL-omleidingen worden omzeild</string>
   <string name="revanced_bypass_url_redirects_summary_off">URL-doorverwijzingen worden niet omzeild</string>
-  </patch>
-  <patch id="misc.links.openLinksExternallyPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.links.openLinksExternallyPatch"> -->
   <string name="revanced_external_browser_title">Koppelingen openen in browser</string>
   <string name="revanced_external_browser_summary_on">Koppelingen openen in externe browser</string>
   <string name="revanced_external_browser_summary_off">Koppelingen openen in in-app browser</string>
-  </patch>
-  <patch id="misc.privacy.removeTrackingQueryParameterPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.privacy.removeTrackingQueryParameterPatch"> -->
   <string name="revanced_remove_tracking_query_parameter_title">Verwijder tracking-queryparameter</string>
   <string name="revanced_remove_tracking_query_parameter_summary_on">Tracking-queryparameter wordt verwijderd uit koppelingen</string>
   <string name="revanced_remove_tracking_query_parameter_summary_off">Tracking-queryparameter wordt niet verwijderd uit koppelingen</string>
-  </patch>
-  <patch id="misc.zoomhaptics.zoomHapticsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.zoomhaptics.zoomHapticsPatch"> -->
   <string name="revanced_disable_zoom_haptics_title">Zoom-haptics uitschakelen</string>
   <string name="revanced_disable_zoom_haptics_summary_on">Haptics zijn uitgeschakeld</string>
   <string name="revanced_disable_zoom_haptics_summary_off">Haptics zijn ingeschakeld</string>
-  </patch>
-  <patch id="video.audio.forceOriginalAudioPatch">
+  <!-- </patch> -->
+  <!-- <patch id="video.audio.forceOriginalAudioPatch"> -->
   <string name="revanced_force_original_audio_title">Forceer de originele audiotaal</string>
   <string name="revanced_force_original_audio_summary_on">De oorspronkelijke audiotaal gebruiken</string>
   <string name="revanced_force_original_audio_summary_off">Standaard audio gebruiken</string>
   <!-- 'Spoof video streams' should be the same translation used for revanced_spoof_video_streams_screen_title -->
   <string name="revanced_force_original_audio_not_available">Om deze functie te gebruiken, wijzig je \'Videostreams vervalsen\' in iOS TV</string>
-  </patch>
-  <patch id="video.quality.rememberVideoQualityPatch">
+  <!-- </patch> -->
+  <!-- <patch id="video.quality.rememberVideoQualityPatch"> -->
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
   <string name="revanced_video_quality_default_entry_1">Automatisch</string>
   <string name="revanced_remember_video_quality_last_selected_title">Onthoud wijzigingen in videokwaliteit</string>
@@ -1325,13 +1326,13 @@ Het inschakelen hiervan kan hogere videokwaliteiten ontgrendelen"</string>
   <string name="revanced_remember_video_quality_wifi">wifi</string>
   <string name="revanced_remember_video_quality_toast">Standaard %1$s-kwaliteit gewijzigd naar: %2$s</string>
   <string name="revanced_remember_video_quality_toast_shorts">De kwaliteit van Shorts %1$s is gewijzigd in: %2$s</string>
-  </patch>
-  <patch id="video.speed.button.playbackSpeedButtonPatch">
+  <!-- </patch> -->
+  <!-- <patch id="video.speed.button.playbackSpeedButtonPatch"> -->
   <string name="revanced_playback_speed_dialog_button_title">Snelheidsdialoogknop weergeven</string>
   <string name="revanced_playback_speed_dialog_button_summary_on">Knop wordt weergegeven</string>
   <string name="revanced_playback_speed_dialog_button_summary_off">Knop wordt niet weergegeven</string>
-  </patch>
-  <patch id="video.speed.custom.customPlaybackSpeedPatch">
+  <!-- </patch> -->
+  <!-- <patch id="video.speed.custom.customPlaybackSpeedPatch"> -->
   <string name="revanced_custom_speed_menu_title">Menu voor aangepaste afspeelsnelheid</string>
   <string name="revanced_custom_speed_menu_summary_on">Menu voor aangepaste snelheid wordt weergegeven</string>
   <string name="revanced_custom_speed_menu_summary_off">Menu voor aangepaste snelheid wordt niet weergegeven</string>
@@ -1342,30 +1343,30 @@ Het inschakelen hiervan kan hogere videokwaliteiten ontgrendelen"</string>
   <string name="revanced_custom_playback_speeds_auto">Automatisch</string>
   <string name="revanced_speed_tap_and_hold_title">De snelheid van aangepast tikken en vasthouden</string>
   <string name="revanced_speed_tap_and_hold_summary">Afspeelsnelheid tussen 0-8</string>
-  </patch>
-  <patch id="video.speed.remember.rememberPlaybackSpeedPatch">
+  <!-- </patch> -->
+  <!-- <patch id="video.speed.remember.rememberPlaybackSpeedPatch"> -->
   <string name="revanced_remember_playback_speed_last_selected_title">Onthoud wijzigingen in afspeelsnelheid</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_on">Wijzigingen in afspeelsnelheid worden op alle video\'s toegepast</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_off">Wijzigingen in afspeelsnelheid worden alleen op de huidige video toegepast</string>
   <string name="revanced_playback_speed_default_title">Standaard afspeelsnelheid</string>
   <string name="revanced_remember_playback_speed_toast">Standaard snelheid gewijzigd naar: %s</string>
-  </patch>
-  <patch id="video.hdr.disableHdrPatch">
+  <!-- </patch> -->
+  <!-- <patch id="video.hdr.disableHdrPatch"> -->
   <string name="revanced_disable_hdr_video_title">HDR-video uitschakelen</string>
   <string name="revanced_disable_hdr_video_summary_on">HDR-video is uitgeschakeld</string>
   <string name="revanced_disable_hdr_video_summary_off">HDR-video is ingeschakeld</string>
-  </patch>
-  <patch id="video.quality.advancedVideoQualityMenuPatch">
+  <!-- </patch> -->
+  <!-- <patch id="video.quality.advancedVideoQualityMenuPatch"> -->
   <string name="revanced_advanced_video_quality_menu_title">Geavanceerd menu voor videokwaliteit weergeven</string>
   <string name="revanced_advanced_video_quality_menu_summary_on">Geavanceerd menu voor videokwaliteit wordt weergegeven</string>
   <string name="revanced_advanced_video_quality_menu_summary_off">Geavanceerd menu voor videokwaliteit wordt niet weergegeven</string>
-  </patch>
-  <patch id="interaction.seekbar.enableSlideToSeekPatch">
+  <!-- </patch> -->
+  <!-- <patch id="interaction.seekbar.enableSlideToSeekPatch"> -->
   <string name="revanced_slide_to_seek_title">Schuiven om te zoeken inschakelen</string>
   <string name="revanced_slide_to_seek_summary_on">Schuiven om te zoeken is ingeschakeld</string>
   <string name="revanced_slide_to_seek_summary_off">Schuiven om te zoeken is niet ingeschakeld</string>
-  </patch>
-  <patch id="misc.fix.playback.spoofVideoStreamsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.fix.playback.spoofVideoStreamsPatch"> -->
   <string name="revanced_spoof_video_streams_screen_title">Videostreams vervalsen</string>
   <string name="revanced_spoof_video_streams_screen_summary">Vervals de client-videostreams om afspeelproblemen te voorkomen</string>
   <string name="revanced_spoof_video_streams_title">Videostreams vervalsen</string>
@@ -1395,46 +1396,46 @@ AVC heeft een maximale resolutie van 1080p, de Opus-audiocodec is niet beschikba
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Het clienttype wordt getoond in Stats for nerds</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Client is verborgen in Stats for nerds</string>
   <string name="revanced_spoof_video_streams_language_title">Standaardtaal van VR-audiostream</string>
-  </patch>
-  </app>
-  <app id="twitch">
-  <patch id="ad.audio.audioAdsPatch">
+  <!-- </patch> -->
+  <!-- </app> -->
+  <!-- <app id="twitch"> -->
+  <!-- <patch id="ad.audio.audioAdsPatch"> -->
   <string name="revanced_block_audio_ads_title">Blokkeer audio-advertenties</string>
   <string name="revanced_block_audio_ads_summary_on">Audio-advertenties zijn geblokkeerd</string>
   <string name="revanced_block_audio_ads_summary_off">Audio-advertenties zijn niet geblokkeerd</string>
-  </patch>
-  <patch id="ad.embedded.embeddedAdsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="ad.embedded.embeddedAdsPatch"> -->
   <string name="revanced_embedded_ads_service_unavailable">%s niet beschikbaar, advertenties kunnen worden weergegeven. Probeer de advertentieblokkeerservice in de instellingen te wijzigen.</string>
   <string name="revanced_embedded_ads_service_failed">%s heeft een fout geretourneerd, advertenties kunnen worden weergegeven. Probeer de advertentieblokkeerservice in de instellingen te wijzigen.</string>
   <string name="revanced_block_embedded_ads_title">Blokkeer ingesloten videoadvertenties</string>
   <string name="revanced_block_embedded_ads_entry_1">Uitgeschakeld</string>
   <string name="revanced_block_embedded_ads_entry_2">Luminous-proxy</string>
   <string name="revanced_block_embedded_ads_entry_3">PurpleAdBlock-proxy</string>
-  </patch>
-  <patch id="ad.video.videoAdsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="ad.video.videoAdsPatch"> -->
   <string name="revanced_block_video_ads_title">Blokkeer video-advertenties</string>
   <string name="revanced_block_video_ads_summary_on">Video-advertenties zijn geblokkeerd</string>
   <string name="revanced_block_video_ads_summary_off">Video-advertenties zijn niet geblokkeerd</string>
-  </patch>
-  <patch id="chat.antidelete.showDeletedMessagesPatch">
+  <!-- </patch> -->
+  <!-- <patch id="chat.antidelete.showDeletedMessagesPatch"> -->
   <string name="revanced_deleted_msg">bericht verwijderd</string>
   <string name="revanced_show_deleted_messages_title">Toon verwijderde berichten</string>
   <string name="revanced_show_deleted_messages_entry_1">Toon geen verwijderde berichten</string>
   <string name="revanced_show_deleted_messages_entry_2">Verberg verwijderde berichten achter een spoiler</string>
   <string name="revanced_show_deleted_messages_entry_3">Toon verwijderde berichten als doorgestreept tekst</string>
-  </patch>
-  <patch id="chat.autoclaim.autoClaimChannelPointsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="chat.autoclaim.autoClaimChannelPointsPatch"> -->
   <string name="revanced_auto_claim_channel_points_title">Claim Channel Points automatisch</string>
   <string name="revanced_auto_claim_channel_points_summary_on">Channel Points worden automatisch geclaimd</string>
   <string name="revanced_auto_claim_channel_points_summary_off">Channel Points worden niet automatisch geclaimd</string>
-  </patch>
-  <patch id="debug.debugModePatch">
+  <!-- </patch> -->
+  <!-- <patch id="debug.debugModePatch"> -->
   <!-- Twitch specific internal debug mode, and not the same as 'revanced_debug_title' -->
   <string name="revanced_twitch_debug_mode_title">Schakel Twitch debug-modus in</string>
   <string name="revanced_twitch_debug_mode_summary_on">Twitch debug-modus is ingeschakeld (niet aanbevolen)</string>
   <string name="revanced_twitch_debug_mode_summary_off">Twitch debug-modus is uitgeschakeld</string>
-  </patch>
-  <patch id="misc.settings.settingsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.settings.settingsPatch"> -->
   <string name="revanced_settings">ReVanced-instellingen</string>
   <string name="revanced_about_title">Over</string>
   <string name="revanced_about_summary">Over ReVanced</string>
@@ -1451,6 +1452,6 @@ AVC heeft een maximale resolutie van 1080p, de Opus-audiocodec is niet beschikba
   <string name="revanced_twitch_debug_title">Logboek foutopsporing</string>
   <string name="revanced_twitch_debug_summary_on">Debug logboeken zijn ingeschakeld</string>
   <string name="revanced_twitch_debug_summary_off">Debug logboeken zijn uitgeschakeld</string>
-  </patch>
-  </app>
+  <!-- </patch> -->
+  <!-- </app> -->
 </resources>

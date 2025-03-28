@@ -20,8 +20,8 @@ Second \"item\" text"</string>
 
 -->
 <resources>
-  <app id="shared">
-  <patch id="misc.checks.checkEnvironmentPatch">
+  <!-- <app id="shared"> -->
+  <!-- <patch id="misc.checks.checkEnvironmentPatch"> -->
   <string name="revanced_check_environment_failed_title">การตรวจสอบล้มเหลว</string>
   <string name="revanced_check_environment_dialog_open_official_source_button">เปิดเว็บไซต์อย่างเป็นทางการ</string>
   <string name="revanced_check_environment_dialog_ignore_button">ละเว้น</string>
@@ -31,8 +31,8 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time">แก้ไขเมื่อมากกว่า 10 นาทีที่แล้ว</string>
   <string name="revanced_check_environment_not_near_patch_time_days">แก้ไขเมื่อ %s วันที่แล้ว</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">วันที่สร้าง APK เสียหาย</string>
-  </patch>
-  <patch id="misc.settings.settingsResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.settings.settingsResourcePatch"> -->
   <string name="revanced_settings_submenu_title">การตั้งค่า</string>
   <string name="revanced_settings_confirm_user_dialog_title">คุณต้องการดำเนินการต่อหรือไม่?</string>
   <string name="revanced_settings_reset">รีเซ็ต</string>
@@ -57,8 +57,8 @@ Second \"item\" text"</string>
   <string name="revanced_settings_about_links_header">ลิงก์อย่างเป็นทางการ</string>
   <!-- NOTE: the about strings above are duplicated in the TikTok about screen code,
                  and changes made here must also be made there. -->
-  </patch>
-  <patch id="misc.gms.gmsCoreSupportResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.gms.gmsCoreSupportResourcePatch"> -->
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="gms_core_toast_not_installed_message">MicroG GmsCore ไม่ได้ติดตั้ง ติดตั้ง</string>
   <string name="gms_core_dialog_title">ต้องดำเนินการ</string>
@@ -74,10 +74,10 @@ Second \"item\" text"</string>
 
 แตะปุ่มตกลง และอนุญาตการเปลี่ยนแปลงการปรับแต่ง"</string>
   <string name="gms_core_dialog_continue_text">ดำเนินการต่อ</string>
-  </patch>
-  </app>
-  <app id="youtube">
-  <patch id="misc.settings.settingsPatch">
+  <!-- </patch> -->
+  <!-- </app> -->
+  <!-- <app id="youtube"> -->
+  <!-- <patch id="misc.settings.settingsPatch"> -->
   <string name="revanced_settings_screen_00_about_title">เกี่ยวกับ</string>
   <string name="revanced_settings_screen_01_ads_title">โฆษณา</string>
   <string name="revanced_settings_screen_02_alt_thumbnails_title">รูปขนาดย่อทางเลือก</string>
@@ -91,13 +91,13 @@ Second \"item\" text"</string>
   <string name="revanced_restore_old_settings_menus_title">กู้คืนเมนูการตั้งค่าแบบเก่า</string>
   <string name="revanced_restore_old_settings_menus_summary_on">แสดงเมนูการตั้งค่าแบบเก่า</string>
   <string name="revanced_restore_old_settings_menus_summary_off">ไม่แสดงเมนูการตั้งค่าแบบเก่า</string>
-  </patch>
-  <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.backgroundplayback.backgroundPlaybackPatch"> -->
   <string name="revanced_shorts_disable_background_playback_title">ปิดการเล่นพื้นหลัง Shorts</string>
   <string name="revanced_shorts_disable_background_playback_summary_on">การเล่นพื้นหลัง Shorts ถูกปิดใช้งาน</string>
   <string name="revanced_shorts_disable_background_playback_summary_off">การเล่นพื้นหลัง Shorts ถูกเปิดใช้งาน</string>
-  </patch>
-  <patch id="misc.debugging.enableDebuggingPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.debugging.enableDebuggingPatch"> -->
   <string name="revanced_debug_screen_title">ดีบัก</string>
   <string name="revanced_debug_screen_summary">เปิดใช้งานหรือปิดใช้งานตัวเลือกการแก้ไขข้อบกพร่อง</string>
   <string name="revanced_debug_title">การบันทึกการแก้ไขข้อบกพร่อง</string>
@@ -115,8 +115,8 @@ Second \"item\" text"</string>
   <string name="revanced_debug_toast_on_error_user_dialog_message">"การปิดการแจ้งเตือนข้อผิดพลาดจะซ่อนการแจ้งเตือนข้อผิดพลาดของ ReVanced ทั้งหมด
 
 คุณจะไม่ได้รับแจ้งเกี่ยวกับเหตุการณ์ที่ไม่คาดคิดใดๆ"</string>
-  </patch>
-  <patch id="layout.hide.general.hideLayoutComponentsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.general.hideLayoutComponentsPatch"> -->
   <string name="revanced_hide_album_cards_title">ซ่อนการ์ดอัลบั้ม</string>
   <string name="revanced_hide_album_cards_summary_on">การ์ดอัลบั้มถูกซ่อน</string>
   <string name="revanced_hide_album_cards_summary_off">การ์ดอัลบั้มถูกแสดง</string>
@@ -340,8 +340,8 @@ Second \"item\" text"</string>
   <string name="revanced_hide_keyword_toast_invalid_conflicting">คำสำคัญมีการประกาศที่ขัดแย้งกัน: %s</string>
   <string name="revanced_hide_keyword_toast_invalid_length">คำสำคัญสั้นเกินไปและต้องใช้เครื่องหมายคำพูด: %s</string>
   <string name="revanced_hide_keyword_toast_invalid_broad">คำสำคัญจะซ่อนวิดีโอทั้งหมด: %s</string>
-  </patch>
-  <patch id="ad.general.hideAdsResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="ad.general.hideAdsResourcePatch"> -->
   <string name="revanced_hide_general_ads_title">ซ่อนโฆษณาโดยทั่วไป</string>
   <string name="revanced_hide_general_ads_summary_on">โฆษณาโดยทั่วไปถูกซ่อน</string>
   <string name="revanced_hide_general_ads_summary_off">โฆษณาโดยทั่วไปจะแสดง</string>
@@ -383,18 +383,18 @@ Second \"item\" text"</string>
   <string name="revanced_hide_merchandise_banners_summary_off">แบนเนอร์สินค้าจะแสดง</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_hide_fullscreen_ads_feature_not_available_toast">ซ่อนโฆษณาแบบเต็มหน้าจอใช้งานได้กับอุปกรณ์รุ่นเก่าเท่านั้น</string>
-  </patch>
-  <patch id="ad.getpremium.hideGetPremiumPatch">
+  <!-- </patch> -->
+  <!-- <patch id="ad.getpremium.hideGetPremiumPatch"> -->
   <string name="revanced_hide_get_premium_title">ซ่อนการโปรโมต YouTube Premium</string>
   <string name="revanced_hide_get_premium_summary_on">การโปรโมต YouTube Premium ใต้เครื่องเล่นวิดีโอถูกซ่อน</string>
   <string name="revanced_hide_get_premium_summary_off">การโปรโมต YouTube Premium ใต้เครื่องเล่นวิดีโอจะแสดง</string>
-  </patch>
-  <patch id="ad.video.videoAdsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="ad.video.videoAdsPatch"> -->
   <string name="revanced_hide_video_ads_title">ซ่อนโฆษณาวิดีโอ</string>
   <string name="revanced_hide_video_ads_summary_on">โฆษณาวิดีโอถูกซ่อน</string>
   <string name="revanced_hide_video_ads_summary_off">โฆษณาวิดีโอจะแสดง</string>
-  </patch>
-  <patch id="interaction.copyvideourl.copyVideoUrlResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="interaction.copyvideourl.copyVideoUrlResourcePatch"> -->
   <string name="revanced_share_copy_url_success">คัดลอก URL ไปยังคลิปบอร์ด</string>
   <string name="revanced_share_copy_url_timestamp_success">คัดลอก URL พร้อมเวลาไปยังคลิปบอร์ด</string>
   <string name="revanced_copy_video_url_title">แสดงปุ่มคัดลอก URL วิดีโอ</string>
@@ -403,14 +403,14 @@ Second \"item\" text"</string>
   <string name="revanced_copy_video_url_timestamp_title">แสดงปุ่มคัดลอก URL เวลา</string>
   <string name="revanced_copy_video_url_timestamp_summary_on">ปุ่มแสดงอยู่ แตะเพื่อคัดลอก URL วิดีโอพร้อมการประทับเวลา แตะค้างไว้เพื่อคัดลอกโดยไม่มีการประทับเวลา</string>
   <string name="revanced_copy_video_url_timestamp_summary_off">ปุ่มไม่แสดง</string>
-  </patch>
-  <patch id="interaction.dialog.removeViewerDiscretionDialogPatch">
+  <!-- </patch> -->
+  <!-- <patch id="interaction.dialog.removeViewerDiscretionDialogPatch"> -->
   <string name="revanced_remove_viewer_discretion_dialog_title">ลบกล่องโต้ตอบการพิจารณาของผู้ชม</string>
   <string name="revanced_remove_viewer_discretion_dialog_summary_on">กล่องโต้ตอบจะถูกลบ</string>
   <string name="revanced_remove_viewer_discretion_dialog_summary_off">กล่องโต้ตอบจะแสดง</string>
   <string name="revanced_remove_viewer_discretion_dialog_user_dialog_message">สิ่งนี้ไม่ได้ข้ามข้อจำกัดอายุ มันแค่ยอมรับอายุโดยอัตโนมัติ</string>
-  </patch>
-  <patch id="interaction.downloads.downloadsResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="interaction.downloads.downloadsResourcePatch"> -->
   <string name="revanced_external_downloader_screen_title">การดาวน์โหลดภายนอก</string>
   <string name="revanced_external_downloader_screen_summary">การตั้งค่าสำหรับการใช้โปรแกรมดาวน์โหลดภายนอก</string>
   <string name="revanced_external_downloader_title">แสดงปุ่มดาวน์โหลดภายนอก</string>
@@ -423,18 +423,18 @@ Second \"item\" text"</string>
   <string name="revanced_external_downloader_name_title">ชื่อแพ็คเกจโปรแกรมดาวน์โหลด</string>
   <string name="revanced_external_downloader_name_summary">ชื่อแพ็คเกจของโปรแกรมดาวน์โหลดภายนอกที่ติดตั้งของคุณ เช่น NewPipe หรือ Seal</string>
   <string name="revanced_external_downloader_not_installed_warning">%s ไม่ได้ติดตั้ง โปรดติดตั้ง</string>
-  </patch>
-  <patch id="interaction.seekbar.disablePreciseSeekingGesturePatch">
+  <!-- </patch> -->
+  <!-- <patch id="interaction.seekbar.disablePreciseSeekingGesturePatch"> -->
   <string name="revanced_disable_precise_seeking_gesture_title">ปิดใช้งานท่าทางการค้นหาแบบแม่นยำ</string>
   <string name="revanced_disable_precise_seeking_gesture_summary_on">ท่าทางถูกปิดใช้งาน</string>
   <string name="revanced_disable_precise_seeking_gesture_summary_off">ท่าทางถูกเปิดใช้งาน</string>
-  </patch>
-  <patch id="interaction.seekbar.enableSeekbarTappingPatch">
+  <!-- </patch> -->
+  <!-- <patch id="interaction.seekbar.enableSeekbarTappingPatch"> -->
   <string name="revanced_seekbar_tapping_title">เปิดใช้งานแตะเพื่อค้นหา</string>
   <string name="revanced_seekbar_tapping_summary_on">แตะเพื่อค้นหาเปิดใช้งานอยู่</string>
   <string name="revanced_seekbar_tapping_summary_off">ปิดใช้งานการแตะเพื่อค้นหา</string>
-  </patch>
-  <patch id="interaction.swipecontrols.swipeControlsResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="interaction.swipecontrols.swipeControlsResourcePatch"> -->
   <string name="revanced_swipe_brightness_title">เปิดใช้งานท่าทางความสว่าง</string>
   <string name="revanced_swipe_brightness_summary_on">"เปิดใช้งานการเลื่อนความสว่างแบบเต็มหน้าจอ
 
@@ -471,13 +471,13 @@ Second \"item\" text"</string>
   <string name="revanced_swipe_change_video_title">เปิดใช้การปัดเพื่อเปลี่ยนวิดีโอ</string>
   <string name="revanced_swipe_change_video_summary_on">การปัดในโหมดเต็มหน้าจอจะเปลี่ยนไปเป็นวิดีโอถัดไป/ก่อนหน้า</string>
   <string name="revanced_swipe_change_video_summary_off">การปัดในโหมดเต็มหน้าจอจะไม่เปลี่ยนเป็นวิดีโอถัดไป/ก่อนหน้า</string>
-  </patch>
-  <patch id="layout.autocaptions.autoCaptionsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.autocaptions.autoCaptionsPatch"> -->
   <string name="revanced_auto_captions_title">ปิดใช้งานคำบรรยายอัตโนมัติ</string>
   <string name="revanced_auto_captions_summary_on">คำบรรยายอัตโนมัติถูกปิดใช้งาน</string>
   <string name="revanced_auto_captions_summary_off">คำบรรยายอัตโนมัติถูกเปิดใช้งาน</string>
-  </patch>
-  <patch id="layout.buttons.action.hideButtonsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.buttons.action.hideButtonsPatch"> -->
   <string name="revanced_hide_buttons_screen_title">ปุ่มการกระทำ</string>
   <string name="revanced_hide_buttons_screen_summary">ซ่อนหรือแสดงปุ่มใต้วิดีโอ</string>
   <string name="revanced_disable_like_subscribe_glow_title">ปิดการเรืองแสงถูกใจและติดตาม</string>
@@ -515,8 +515,8 @@ Second \"item\" text"</string>
   <string name="revanced_hide_playlist_button_title">ซ่อนบันทึกไปยังเพลย์ลิสต์</string>
   <string name="revanced_hide_playlist_button_summary_on">ปุ่มบันทึกไปยังเพลย์ลิสต์ถูกซ่อน</string>
   <string name="revanced_hide_playlist_button_summary_off">ปุ่มบันทึกไปยังเพลย์ลิสต์ถูกแสดง</string>
-  </patch>
-  <patch id="layout.buttons.navigation.navigationButtonsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.buttons.navigation.navigationButtonsPatch"> -->
   <string name="revanced_navigation_buttons_screen_title">ปุ่มนำทาง</string>
   <string name="revanced_navigation_buttons_screen_summary">ซ่อนหรือเปลี่ยนปุ่มในแถบนำทาง</string>
   <!-- 'Home' should be translated using the same localized wording YouTube displays for the tab. -->
@@ -553,14 +553,15 @@ Second \"item\" text"</string>
   <string name="revanced_disable_translucent_status_bar_title">ปิดใช้งานแถบสถานะแบบโปร่งแสง</string>
   <string name="revanced_disable_translucent_status_bar_summary_on">แถบสถานะไม่โปร่งแสง</string>
   <string name="revanced_disable_translucent_status_bar_summary_off">แถบสถานะโปร่งแสงหรือไม่โปร่งแสง</string>
+  <string name="revanced_disable_translucent_status_bar_user_dialog_message">ในอุปกรณ์บางรุ่น การเปิดใช้งานคุณสมบัตินี้อาจเปลี่ยนแถบนำทางระบบให้โปร่งใสได้</string>
   <string name="revanced_disable_translucent_navigation_bar_light_title">ปิดใช้งานแถบนำทางแบบโปร่งแสงสีอ่อน</string>
   <string name="revanced_disable_translucent_navigation_bar_light_summary_on">แถบนำทางโหมดสว่างเป็นแบบทึบแสง</string>
   <string name="revanced_disable_translucent_navigation_bar_light_summary_off">แถบนำทางโหมดสว่างโปร่งแสงหรือไม่โปร่งแสง</string>
   <string name="revanced_disable_translucent_navigation_bar_dark_title">ปิดใช้แถบโปร่งแสงสีเข้ม</string>
   <string name="revanced_disable_translucent_navigation_bar_dark_summary_on">แถบนำทางโหมดมืดเป็นแบบทึบแสง</string>
   <string name="revanced_disable_translucent_navigation_bar_dark_summary_off">แถบนำทางโหมดมืดโปร่งแสงหรือไม่โปร่งแสง</string>
-  </patch>
-  <patch id="layout.hide.player.flyoutmenupanel.hidePlayerFlyoutMenuPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.player.flyoutmenupanel.hidePlayerFlyoutMenuPatch"> -->
   <string name="revanced_hide_player_flyout_title">เมนูแบบเลื่อนลง</string>
   <string name="revanced_hide_player_flyout_summary">ซ่อนหรือแสดงรายการเมนูแบบเลื่อนลงของเครื่องเล่น</string>
   <!-- 'Captions' should be translated using the same localized wording YouTube displays for the menu item. -->
@@ -614,8 +615,8 @@ Second \"item\" text"</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_title">ซ่อนส่วนท้ายเมนูคุณภาพวิดีโอ</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_on">ส่วนท้ายเมนูคุณภาพวิดีโอซ่อนอยู่</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_off">ส่วนท้ายเมนูคุณภาพวิดีโอแสดงอยู่</string>
-  </patch>
-  <patch id="layout.buttons.overlay.hidePlayerOverlayButtonsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.buttons.overlay.hidePlayerOverlayButtonsPatch"> -->
   <string name="revanced_hide_player_previous_next_buttons_title">ซ่อนปุ่มก่อนหน้า &amp; ถัดไป</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_on">ปุ่มซ่อนอยู่</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">ปุ่มแสดงอยู่</string>
@@ -629,36 +630,36 @@ Second \"item\" text"</string>
   <string name="revanced_hide_autoplay_button_title">ซ่อนปุ่มเล่นอัตโนมัติ</string>
   <string name="revanced_hide_autoplay_button_summary_on">ปุ่มเล่นอัตโนมัติซ่อนอยู่</string>
   <string name="revanced_hide_autoplay_button_summary_off">ปุ่มเล่นอัตโนมัติแสดงอยู่</string>
-  </patch>
-  <patch id="layout.hide.endscreencards.hideEndscreenCardsResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.endscreencards.hideEndscreenCardsResourcePatch"> -->
   <string name="revanced_hide_endscreen_cards_title">ซ่อนการ์ดหน้าจอสิ้นสุด</string>
   <string name="revanced_hide_endscreen_cards_summary_on">การ์ดหน้าจอสิ้นสุดซ่อนอยู่</string>
   <string name="revanced_hide_endscreen_cards_summary_off">การ์ดหน้าจอสิ้นสุดแสดงอยู่</string>
-  </patch>
-  <patch id="layout.hide.fullscreenambientmode.disableFullscreenAmbientModePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.fullscreenambientmode.disableFullscreenAmbientModePatch"> -->
   <string name="revanced_disable_fullscreen_ambient_mode_title">ปิดใช้งานโหมดแวดล้อมในโหมดเต็มหน้าจอ</string>
   <string name="revanced_disable_fullscreen_ambient_mode_summary_on">โหมดพักผ่อนปิดใช้งาน</string>
   <string name="revanced_disable_fullscreen_ambient_mode_summary_off">โหมดพักผ่อนเปิดใช้งาน</string>
-  </patch>
-  <patch id="layout.hide.infocards.hideInfocardsResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.infocards.hideInfocardsResourcePatch"> -->
   <string name="revanced_hide_info_cards_title">ซ่อนการ์ดข้อมูล</string>
   <string name="revanced_hide_info_cards_summary_on">บัตรข้อมูลซ่อนอยู่</string>
   <string name="revanced_hide_info_cards_summary_off">บัตรข้อมูลแสดงแล้ว</string>
-  </patch>
-  <patch id="layout.hide.rollingnumber.disableRollingNumberAnimationPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.rollingnumber.disableRollingNumberAnimationPatch"> -->
   <string name="revanced_disable_rolling_number_animations_title">ปิดใช้งานการเคลื่อนไหวตัวเลขแบบหมุน</string>
   <string name="revanced_disable_rolling_number_animations_summary_on">ตัวเลขแบบหมุนไม่มีการเคลื่อนไหว</string>
   <string name="revanced_disable_rolling_number_animations_summary_off">ตัวเลขแบบหมุนมีการเคลื่อนไหว</string>
-  </patch>
-  <patch id="layout.hide.seekbar.hideSeekbarPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.seekbar.hideSeekbarPatch"> -->
   <string name="revanced_hide_seekbar_title">ซ่อนแถบเลื่อนในเครื่องเล่นวิดีโอ</string>
   <string name="revanced_hide_seekbar_summary_on">แถบเลื่อนเครื่องเล่นวิดีโอซ่อนอยู่</string>
   <string name="revanced_hide_seekbar_summary_off">แถบเลื่อนเครื่องเล่นวิดีโอแสดงอยู่</string>
   <string name="revanced_hide_seekbar_thumbnail_title">ซ่อนแถบเลื่อนในรูปขนาดย่อวิดีโอ</string>
   <string name="revanced_hide_seekbar_thumbnail_summary_on">แถบเลื่อนรูปขนาดย่อซ่อนอยู่</string>
   <string name="revanced_hide_seekbar_thumbnail_summary_off">แถบเลื่อนรูปขนาดย่อแสดงอยู่</string>
-  </patch>
-  <patch id="layout.hide.shorts.hideShortsComponentsResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.shorts.hideShortsComponentsResourcePatch"> -->
   <string name="revanced_shorts_player_screen_title">Shorts Player</string>
   <string name="revanced_shorts_player_screen_summary">ซ่อนหรือแสดงส่วนประกอบใน Shorts Player</string>
   <!-- 'home' should be translated using the same localized wording YouTube displays for the home tab. -->
@@ -760,43 +761,43 @@ Second \"item\" text"</string>
   <string name="revanced_hide_shorts_navigation_bar_title">ซ่อนแถบนำทาง</string>
   <string name="revanced_hide_shorts_navigation_bar_summary_on">ซ่อนแถบนำทางแล้ว</string>
   <string name="revanced_hide_shorts_navigation_bar_summary_off">ไม่ซ่อนแถบนำทาง</string>
-  </patch>
-  <patch id="layout.hide.endscreensuggestion.hideEndScreenSuggestedVideoPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.endscreensuggestion.hideEndScreenSuggestedVideoPatch"> -->
   <string name="revanced_end_screen_suggested_video_title">ซ่อนวิดีโอแนะนำในหน้าจอสิ้นสุด</string>
   <string name="revanced_end_screen_suggested_video_summary_on">"วิดีโอแนะนำในหน้าจอสิ้นสุดจะถูกซ่อนเมื่อปิดเล่นอัตโนมัติ
 
 สามารถเปลี่ยนการเล่นอัตโนมัติได้ในการตั้งค่า YouTube:
 การตั้งค่า → การเล่น → เล่นวิดีโอถัดไปอัตโนมัติ"</string>
   <string name="revanced_end_screen_suggested_video_summary_off">วิดีโอแนะนำในหน้าจอสิ้นสุดจะปรากฏ</string>
-  </patch>
-  <patch id="layout.hide.time.hideTimestampPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.time.hideTimestampPatch"> -->
   <string name="revanced_hide_timestamp_title">ซ่อนเวลาของวิดีโอ</string>
   <string name="revanced_hide_timestamp_summary_on">เวลาถูกซ่อนอยู่</string>
   <string name="revanced_hide_timestamp_summary_off">เวลาแสดงอยู่</string>
-  </patch>
-  <patch id="layout.panels.popup.playerPopupPanelsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.panels.popup.playerPopupPanelsPatch"> -->
   <string name="revanced_hide_player_popup_panels_title">ซ่อนแผงป๊อปอัปของเครื่องเล่น</string>
   <string name="revanced_hide_player_popup_panels_summary_on">แผงป๊อปอัปของเครื่องเล่นถูกซ่อนอยู่</string>
   <string name="revanced_hide_player_popup_panels_summary_off">แผงป๊อปอัปของเครื่องเล่นแสดงอยู่</string>
-  </patch>
-  <patch id="layout.player.fullscreen.exitFullscreenPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.player.fullscreen.exitFullscreenPatch"> -->
   <string name="revanced_exit_fullscreen_title">ออกจากโหมดเต็มหน้าจอเมื่อสิ้นสุดวิดีโอ</string>
   <string name="revanced_exit_fullscreen_entry_1">ปิดใช้งาน</string>
   <string name="revanced_exit_fullscreen_entry_2">แนวตั้ง</string>
   <string name="revanced_exit_fullscreen_entry_3">แนวนอน</string>
   <string name="revanced_exit_fullscreen_entry_4">แนวตั้งและแนวนอน</string>
-  </patch>
-  <patch id="layout.player.fullscreen.openVideosFullscreen">
+  <!-- </patch> -->
+  <!-- <patch id="layout.player.fullscreen.openVideosFullscreen"> -->
   <string name="revanced_open_videos_fullscreen_portrait_title">เปิดวิดีโอในโหมดเต็มหน้าจอสแนวตั้ง</string>
   <string name="revanced_open_videos_fullscreen_portrait_summary_on">วิดีโอเปิดแบบเต็มหน้าจอ</string>
   <string name="revanced_open_videos_fullscreen_portrait_summary_off">วิดีโอไม่เปิดแบบเต็มหน้าจอ</string>
-  </patch>
-  <patch id="layout.player.overlay.customPlayerOverlayOpacityResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.player.overlay.customPlayerOverlayOpacityResourcePatch"> -->
   <string name="revanced_player_overlay_opacity_title">ความโปร่งใสของการซ้อนทับของเครื่องเล่น</string>
   <string name="revanced_player_overlay_opacity_summary">ค่าความโปร่งใสระหว่าง 0-100, โดยที่ 0 คือโปร่งใส</string>
   <string name="revanced_player_overlay_opacity_invalid_toast">ความทึบของเลเยอร์เล่นวิดีโอต้องอยู่ระหว่าง 0-100</string>
-  </patch>
-  <patch id="layout.returnyoutubedislike.returnYouTubeDislikePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.returnyoutubedislike.returnYouTubeDislikePatch"> -->
   <!-- Toast shown if network connection times out. Translations of this should not be longer than the original English or the text can be clipped and not entirely shown. -->
   <string name="revanced_ryd_failure_connection_timeout">ไม่สามารถแสดงความไม่ชอบชั่วคราว (API หมดเวลา)</string>
   <string name="revanced_ryd_failure_connection_status_code">ไม่สามารถแสดงความไม่ชอบได้ (รหัสสถานะ %d)</string>
@@ -845,13 +846,13 @@ Second \"item\" text"</string>
   <string name="revanced_ryd_statistics_getNumberOfRateLimitRequestsEncountered_zero_summary">เลือนต้องกายการบางาน</string>
   <string name="revanced_ryd_statistics_getNumberOfRateLimitRequestsEncountered_non_zero_summary">%d คุณ ที่ซีแต่องกายการบางาน</string>
   <string name="revanced_ryd_statistics_millisecond_text">%d มิกเวฮราธี</string>
-  </patch>
-  <patch id="layout.searchbar.wideSearchbarPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.searchbar.wideSearchbarPatch"> -->
   <string name="revanced_wide_searchbar_title">ทั้งหละเย้ยนตะโรกเลียด</string>
   <string name="revanced_wide_searchbar_summary_on">ทั้งละเย้ยนตะโรกเลียด รตรอกลาดต้อง</string>
   <string name="revanced_wide_searchbar_summary_off">ทั้งหละเย้ยนตะโรกเลียด รบกใหม่ยเทศไทย</string>
-  </patch>
-  <patch id="layout.seekbar.seekbarThumbnailsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.seekbar.seekbarThumbnailsPatch"> -->
   <string name="revanced_seekbar_thumbnails_high_quality_title">เปิดใช้งานรูปขนาดย่อคุณภาพสูง</string>
   <string name="revanced_seekbar_thumbnails_high_quality_summary_on">รูปขนาดย่อแถบ Seek มีคุณภาพสูง</string>
   <string name="revanced_seekbar_thumbnails_high_quality_summary_off">รูปขนาดย่อแถบ Seek มีคุณภาพปานกลาง</string>
@@ -865,8 +866,8 @@ Second \"item\" text"</string>
   <string name="revanced_restore_old_seekbar_thumbnails_title">คืนค่าภาพขนาดย่อสำหรับแถบเลื่อนแบบเก่า</string>
   <string name="revanced_restore_old_seekbar_thumbnails_summary_on">ภาพขนาดย่อสำหรับแถบเลื่อนจะปรากฏเหนือแถบเลื่อน</string>
   <string name="revanced_restore_old_seekbar_thumbnails_summary_off">ภาพขนาดย่อสำหรับแถบเลื่อนจะปรากฏในโหมดเต็มจอ</string>
-  </patch>
-  <patch id="layout.sponsorblock.sponsorBlockResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.sponsorblock.sponsorBlockResourcePatch"> -->
   <string name="revanced_sb_enable_sb">เปิดใช้งาน SponsorBlock</string>
   <string name="revanced_sb_enable_sb_sum">SponsorBlock เป็นระบบ crowdsourced สำหรับการข้ามส่วนที่น่ารำคาญของวิดีโอ YouTube</string>
   <string name="revanced_sb_appearance_category">หน้าตา</string>
@@ -1064,8 +1065,8 @@ User id ของคุณเหมือนกับรหัสผ่าน �
   <string name="revanced_sb_reset">รีเซ็ต</string>
   <string name="revanced_sb_about">เกี่ยวกับ</string>
   <string name="revanced_sb_about_api_sum">ข้อมูลนี้มาจาก SponsorBlock API แตะที่นี่เพื่อเรียนรู้เพิ่มเติมและดูการดาวน์โหลดสำหรับแพลตฟอร์มอื่น ๆ</string>
-  </patch>
-  <patch id="layout.formfactor.changeFormFactorPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.formfactor.changeFormFactorPatch"> -->
   <string name="revanced_change_form_factor_title">รูปแบบเค้าโครง</string>
   <string name="revanced_change_form_factor_entry_1">ค่าเริ่มต้น</string>
   <string name="revanced_change_form_factor_entry_2">โทรศัพท์</string>
@@ -1079,8 +1080,8 @@ User id ของคุณเหมือนกับรหัสผ่าน �
 รูปแบบยานยนต์
 • Shorts เปิดในเครื่องเล่นปกติ
 • ฟีดจัดระเบียบตามหัวข้อและช่อง"</string>
-  </patch>
-  <patch id="layout.spoofappversion.spoofAppVersionPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.spoofappversion.spoofAppVersionPatch"> -->
   <string name="revanced_spoof_app_version_title">ปลอมแปลงเวอร์ชันแอป</string>
   <string name="revanced_spoof_app_version_summary_on">เวอร์ชันปลอมแปลง</string>
   <string name="revanced_spoof_app_version_summary_off">เวอร์ชันไม่ได้ปลอมแปลง</string>
@@ -1094,8 +1095,8 @@ User id ของคุณเหมือนกับรหัสผ่าน �
   <string name="revanced_spoof_app_version_target_title">เป้าหมายการปลอมแปลงเวอร์ชันแอป</string>
   <string name="revanced_spoof_app_version_target_entry_1">19.35.36 - คืนค่าไอคอนเครื่องเล่น Shorts เก่า</string>
   <string name="revanced_spoof_app_version_target_entry_2">19.01.34 - กู้คืนไอคอนการนำทางแบบเก่า</string>
-  </patch>
-  <patch id="layout.startpage.changeStartPagePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.startpage.changeStartPagePatch"> -->
   <string name="revanced_change_start_page_title">ตั้งค่าหน้าเริ่มต้น</string>
   <string name="revanced_change_start_page_entry_default">ค่าเริ่มต้น</string>
   <string name="revanced_change_start_page_entry_all_subscriptions">สยงสนดการตเปนี</string>
@@ -1121,27 +1122,27 @@ User id ของคุณเหมือนกับรหัสผ่าน �
   <string name="revanced_change_start_page_entry_virtual_reality">กทบทาคส์ชียอลัด</string>
   <string name="revanced_change_start_page_entry_watch_later">ดูต่อภายหลัง</string>
   <string name="revanced_change_start_page_entry_your_clips">คลิปของคุณ</string>
-  </patch>
-  <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch"> -->
   <string name="revanced_disable_resuming_shorts_player_title">ปิดใช้งานการกลับมาทำงานต่อของเครื่องเล่น Shorts</string>
   <string name="revanced_disable_resuming_shorts_player_summary_on">เครื่องเล่น Shorts จะไม่กลับมาทำงานต่อเมื่อเริ่มต้นแอป</string>
   <string name="revanced_disable_resuming_shorts_player_summary_off">เครื่องเล่น Shorts จะกลับมาทำงานต่อเมื่อเริ่มต้นแอป</string>
-  </patch>
-  <patch id="layout.shortsplayer.shortsPlayerTypePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.shortsplayer.shortsPlayerTypePatch"> -->
   <string name="revanced_shorts_player_type_title">เปิด \"Shorts\" ด้วย</string>
   <string name="revanced_shorts_player_type_shorts">Shorts Player</string>
   <string name="revanced_shorts_player_type_regular_player">เครื่องเล่นปกติ</string>
   <string name="revanced_shorts_player_type_regular_player_fullscreen">เครื่องเล่นปกติ (เต็มหน้าจอ)</string>
-  </patch>
-  <patch id="layout.shortsautoplay.shortsAutoplayPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.shortsautoplay.shortsAutoplayPatch"> -->
   <string name="revanced_shorts_autoplay_title">เล่น Shorts อัตโนมัติ</string>
   <string name="revanced_shorts_autoplay_summary_on">Shorts จะเล่นอัตโนมัติ</string>
   <string name="revanced_shorts_autoplay_summary_off">Shorts จะวนซ้ำ</string>
   <string name="revanced_shorts_autoplay_background_title">เล่น Shorts อัตโนมัติแบบพื้นหลัง</string>
   <string name="revanced_shorts_autoplay_background_summary_on">การเล่น Shorts แบบพื้นหลังจะเล่นอัตโนมัติ</string>
   <string name="revanced_shorts_autoplay_background_summary_off">การเล่น Shorts แบบพื้นหลังจะวนซ้ำ</string>
-  </patch>
-  <patch id="layout.miniplayer.miniplayerPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.miniplayer.miniplayerPatch"> -->
   <string name="revanced_miniplayer_screen_title">มินิเพลเยอร์</string>
   <string name="revanced_miniplayer_screen_summary">เปลี่ยนรูปแบบของเครื่องเล่นขนาดเล็กในแอป</string>
   <string name="revanced_miniplayer_type_title">ประเภทของเครื่องเล่นย่อขนาด</string>
@@ -1191,8 +1192,8 @@ User id ของคุณเหมือนกับรหัสผ่าน �
   <string name="revanced_miniplayer_opacity_title">ความทึบแสงของโอเวอร์เลย์</string>
   <string name="revanced_miniplayer_opacity_summary">ค่าความทึบแสงระหว่าง 0-100 โดย 0 คือโปร่งใส</string>
   <string name="revanced_miniplayer_opacity_invalid_toast">ความทึบแสงของโอเวอร์เลย์เครื่องเล่นย่อขนาดต้องอยู่ระหว่าง 0-100</string>
-  </patch>
-  <patch id="layout.theme.themePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.theme.themePatch"> -->
   <string name="revanced_gradient_loading_screen_title">เปิดใช้งานหน้าจอโหลดแบบไล่ระดับสี</string>
   <string name="revanced_gradient_loading_screen_summary_on">หน้าจอโหลดจะมีพื้นหลังแบบไล่ระดับสี</string>
   <string name="revanced_gradient_loading_screen_summary_off">หน้าจอโหลดจะมีพื้นหลังแบบทึบ</string>
@@ -1204,15 +1205,15 @@ User id ของคุณเหมือนกับรหัสผ่าน �
   <string name="revanced_seekbar_custom_color_accent_title">สีเน้น seekbar แบบกำหนดเอง</string>
   <string name="revanced_seekbar_custom_color_accent_summary">สีเน้นของ seekbar</string>
   <string name="revanced_seekbar_custom_color_invalid">ค่าสีแถบเลื่อนไม่ถูกต้อง</string>
-  </patch>
-  <patch id="layout.thumbnails.bypassImageRegionRestrictionsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.thumbnails.bypassImageRegionRestrictionsPatch"> -->
   <string name="revanced_bypass_image_region_restrictions_title">เลี่ยงข้อจำกัดด้านภูมิภาคของรูปภาพ</string>
   <string name="revanced_bypass_image_region_restrictions_summary_on">ใช้โฮสต์รูปภาพ yt4.ggpht.com</string>
   <string name="revanced_bypass_image_region_restrictions_summary_off">"ใช้โฮสต์รูปภาพดั้งเดิม
 
 การเปิดใช้งานสิ่งนี้สามารถแก้ไขรูปภาพที่หายไปซึ่งถูกบล็อกในบางภูมิภาค"</string>
-  </patch>
-  <patch id="layout.thumbnails.alternativeThumbnailsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.thumbnails.alternativeThumbnailsPatch"> -->
   <!-- 'Home' should be translated using the same localized wording YouTube displays for the home tab. -->
   <string name="revanced_alt_thumbnail_home_title">แท็บหน้าแรก</string>
   <!-- 'Subscription' should be translated using the same localized wording YouTube displays for the subscription tab. -->
@@ -1247,26 +1248,26 @@ User id ของคุณเหมือนกับรหัสผ่าน �
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_alt_thumbnail_dearrow_error">DeArrow ไม่พร้อมใช้งานชั่วคราว (รหัสสถานะ: %s)</string>
   <string name="revanced_alt_thumbnail_dearrow_error_generic">DeArrow ไม่พร้อมใช้งานชั่วคราว</string>
-  </patch>
-  <patch id="misc.announcements.announcementsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.announcements.announcementsPatch"> -->
   <string name="revanced_announcements_title">แสดงการประกาศของ ReVanced</string>
   <string name="revanced_announcements_summary_on">ประกาศเมื่อเริ่มต้นระบบแสดงอยู่</string>
   <string name="revanced_announcements_summary_off">ประกาศเมื่อเริ่มต้นระบบไม่ได้แสดงอยู่</string>
   <string name="revanced_announcements_enabled_summary">แสดงการประกาศเมื่อเริ่มต้น</string>
   <string name="revanced_announcements_connection_failed">การเชื่อมต่อกับผู้ให้บริการการประกาศล้มเหลว</string>
   <string name="revanced_announcements_dialog_dismiss">ปิด</string>
-  </patch>
-  <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch"> -->
   <string name="revanced_check_watch_history_domain_name_dialog_title">คำเตือน</string>
   <string name="revanced_check_watch_history_domain_name_dialog_message">ประวัติการรับชมของคุณไม่ได้ถูกบันทึก&lt;br&gt;&lt;br&gt;สาเหตุที่เป็นไปได้มากที่สุดคือตัวบล็อกโฆษณา DNS หรือพร็อกซีเครือข่าย&lt;br&gt;&lt;br&gt;เพื่อแก้ไขปัญหานี้ ให้เพิ่ม &lt;b&gt;s.youtube.com&lt;/b&gt; ในรายการที่อนุญาต หรือปิดตัวบล็อกโฆษณา DNS และพร็อกซีทั้งหมด</string>
   <string name="revanced_check_watch_history_domain_name_dialog_ignore">อย่าแสดงอีก</string>
-  </patch>
-  <patch id="misc.autorepeat.autoRepeatPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.autorepeat.autoRepeatPatch"> -->
   <string name="revanced_auto_repeat_title">เปิดใช้งานเล่นซ้ำอัตโนมัติ</string>
   <string name="revanced_auto_repeat_summary_on">เล่นซ้ำอัตโนมัติเปิดใช้งาน</string>
   <string name="revanced_auto_repeat_summary_off">เล่นซ้ำอัตโนมัติปิดใช้งาน</string>
-  </patch>
-  <patch id="misc.dimensions.spoof.spoofDeviceDimensionsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.dimensions.spoof.spoofDeviceDimensionsPatch"> -->
   <string name="revanced_spoof_device_dimensions_title">ปลอมแปลงมิติของอุปกรณ์</string>
   <string name="revanced_spoof_device_dimensions_summary_on">"มิติของอุปกรณ์ถูกปลอมแปลง
 
@@ -1275,39 +1276,39 @@ User id ของคุณเหมือนกับรหัสผ่าน �
 
 การเปิดใช้งานสิ่งนี้สามารถปลดล็อกคุณภาพวิดีโอที่สูงขึ้น"</string>
   <string name="revanced_spoof_device_dimensions_user_dialog_message">การเปิดใช้งานนี้สามารถทำให้การเล่นวิดีโอสะดุด อายุการใช้งานแบตเตอรี่แย่ลง และผลข้างเคียงที่ไม่ทราบสาเหตุ</string>
-  </patch>
-  <patch id="misc.gms.gmsCoreSupportResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.gms.gmsCoreSupportResourcePatch"> -->
   <string name="microg_settings_title">การตั้งค่า GmsCore</string>
   <string name="microg_settings_summary">การตั้งค่าสำหรับ GmsCore</string>
-  </patch>
-  <patch id="misc.links.bypassURLRedirectsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.links.bypassURLRedirectsPatch"> -->
   <string name="revanced_bypass_url_redirects_title">เลี่ยงการเปลี่ยนเส้นทาง URL</string>
   <string name="revanced_bypass_url_redirects_summary_on">การเปลี่ยนเส้นทาง URL ถูกเลี่ยง</string>
   <string name="revanced_bypass_url_redirects_summary_off">การเปลี่ยนเส้นทาง URL ไม่ถูกเลี่ยง</string>
-  </patch>
-  <patch id="misc.links.openLinksExternallyPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.links.openLinksExternallyPatch"> -->
   <string name="revanced_external_browser_title">เปิดลิงก์ในเบราว์เซอร์</string>
   <string name="revanced_external_browser_summary_on">เปิดลิงก์ในเบราว์เซอร์ภายนอก</string>
   <string name="revanced_external_browser_summary_off">เปิดลิงก์ในเบราว์เซอร์ในแอป</string>
-  </patch>
-  <patch id="misc.privacy.removeTrackingQueryParameterPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.privacy.removeTrackingQueryParameterPatch"> -->
   <string name="revanced_remove_tracking_query_parameter_title">ลบพารามิเตอร์การติดตามแบบสอบถาม</string>
   <string name="revanced_remove_tracking_query_parameter_summary_on">พารามิเตอร์การติดตามแบบสอบถามถูกลบออกจากลิงก์</string>
   <string name="revanced_remove_tracking_query_parameter_summary_off">พารามิเตอร์การติดตามแบบสอบถามไม่ได้ถูกลบออกจากลิงก์</string>
-  </patch>
-  <patch id="misc.zoomhaptics.zoomHapticsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.zoomhaptics.zoomHapticsPatch"> -->
   <string name="revanced_disable_zoom_haptics_title">ปิดใช้งานแฮปติกซูม</string>
   <string name="revanced_disable_zoom_haptics_summary_on">แฮปติกถูกปิดใช้งาน</string>
   <string name="revanced_disable_zoom_haptics_summary_off">แฮปติกเปิดใช้งาน</string>
-  </patch>
-  <patch id="video.audio.forceOriginalAudioPatch">
+  <!-- </patch> -->
+  <!-- <patch id="video.audio.forceOriginalAudioPatch"> -->
   <string name="revanced_force_original_audio_title">บังคับใช้ภาษาเสียงต้นฉบับ</string>
   <string name="revanced_force_original_audio_summary_on">กำลังใช้ภาษาเสียงต้นฉบับ</string>
   <string name="revanced_force_original_audio_summary_off">กำลังใช้ออดิโอเริ่มต้น</string>
   <!-- 'Spoof video streams' should be the same translation used for revanced_spoof_video_streams_screen_title -->
   <string name="revanced_force_original_audio_not_available">หากต้องการใช้คุณสมบัตินี้ ให้เปลี่ยน \'ปลอมแปลงสตรีมวิดีโอ\' เป็น iOS TV</string>
-  </patch>
-  <patch id="video.quality.rememberVideoQualityPatch">
+  <!-- </patch> -->
+  <!-- <patch id="video.quality.rememberVideoQualityPatch"> -->
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
   <string name="revanced_video_quality_default_entry_1">อัตโนมัติ</string>
   <string name="revanced_remember_video_quality_last_selected_title">จำการเปลี่ยนแปลงคุณภาพวิดีโอ</string>
@@ -1324,13 +1325,13 @@ User id ของคุณเหมือนกับรหัสผ่าน �
   <string name="revanced_remember_video_quality_wifi">wifi</string>
   <string name="revanced_remember_video_quality_toast">เปลี่ยนคุณภาพ %1$s เริ่มต้นเป็น: %2$s</string>
   <string name="revanced_remember_video_quality_toast_shorts">เปลี่ยนคุณภาพ Shorts %1$s เป็น: %2$s</string>
-  </patch>
-  <patch id="video.speed.button.playbackSpeedButtonPatch">
+  <!-- </patch> -->
+  <!-- <patch id="video.speed.button.playbackSpeedButtonPatch"> -->
   <string name="revanced_playback_speed_dialog_button_title">แสดงปุ่มกล่องโต้ตอบความเร็ว</string>
   <string name="revanced_playback_speed_dialog_button_summary_on">แสดงปุ่ม</string>
   <string name="revanced_playback_speed_dialog_button_summary_off">ไม่แสดงปุ่ม</string>
-  </patch>
-  <patch id="video.speed.custom.customPlaybackSpeedPatch">
+  <!-- </patch> -->
+  <!-- <patch id="video.speed.custom.customPlaybackSpeedPatch"> -->
   <string name="revanced_custom_speed_menu_title">เมนูกำหนดความเร็วในการเล่นแบบกำหนดเอง</string>
   <string name="revanced_custom_speed_menu_summary_on">แสดงเมนูกำหนดความเร็ว</string>
   <string name="revanced_custom_speed_menu_summary_off">ไม่แสดงเมนูกำหนดความเร็ว</string>
@@ -1341,30 +1342,30 @@ User id ของคุณเหมือนกับรหัสผ่าน �
   <string name="revanced_custom_playback_speeds_auto">อัตโนมัติ</string>
   <string name="revanced_speed_tap_and_hold_title">**Custom tap and hold speed**</string>
   <string name="revanced_speed_tap_and_hold_summary">ความเร็วในการเล่นระหว่าง 0-8</string>
-  </patch>
-  <patch id="video.speed.remember.rememberPlaybackSpeedPatch">
+  <!-- </patch> -->
+  <!-- <patch id="video.speed.remember.rememberPlaybackSpeedPatch"> -->
   <string name="revanced_remember_playback_speed_last_selected_title">จำการเปลี่ยนแปลงความเร็วในการเล่น</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_on">การเปลี่ยนแปลงความเร็วในการเล่นใช้กับวิดีโอทั้งหมด</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_off">การเปลี่ยนแปลงความเร็วในการเล่นใช้กับวิดีโอปัจจุบันเท่านั้น</string>
   <string name="revanced_playback_speed_default_title">ความเร็วในการเล่นเริ่มต้น</string>
   <string name="revanced_remember_playback_speed_toast">เปลี่ยนความเร็วเริ่มต้นเป็น: %s</string>
-  </patch>
-  <patch id="video.hdr.disableHdrPatch">
+  <!-- </patch> -->
+  <!-- <patch id="video.hdr.disableHdrPatch"> -->
   <string name="revanced_disable_hdr_video_title">ปิดใช้งานวิดีโอ HDR</string>
   <string name="revanced_disable_hdr_video_summary_on">ปิดใช้งานวิดีโอ HDR</string>
   <string name="revanced_disable_hdr_video_summary_off">เปิดใช้งานวิดีโอ HDR</string>
-  </patch>
-  <patch id="video.quality.advancedVideoQualityMenuPatch">
+  <!-- </patch> -->
+  <!-- <patch id="video.quality.advancedVideoQualityMenuPatch"> -->
   <string name="revanced_advanced_video_quality_menu_title">แสดงเมนูคุณภาพวิดีโอขั้นสูง</string>
   <string name="revanced_advanced_video_quality_menu_summary_on">เมนูคุณภาพวิดีโอขั้นสูงปรากฏขึ้น</string>
   <string name="revanced_advanced_video_quality_menu_summary_off">เมนูคุณภาพวิดีโอขั้นสูงไม่ปรากฏ</string>
-  </patch>
-  <patch id="interaction.seekbar.enableSlideToSeekPatch">
+  <!-- </patch> -->
+  <!-- <patch id="interaction.seekbar.enableSlideToSeekPatch"> -->
   <string name="revanced_slide_to_seek_title">เปิดใช้งานเลื่อนเพื่อค้นหา</string>
   <string name="revanced_slide_to_seek_summary_on">เลื่อนเพื่อค้นหาเปิดใช้งาน</string>
   <string name="revanced_slide_to_seek_summary_off">เลื่อนเพื่อค้นหาไม่ได้เปิดใช้งาน</string>
-  </patch>
-  <patch id="misc.fix.playback.spoofVideoStreamsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.fix.playback.spoofVideoStreamsPatch"> -->
   <string name="revanced_spoof_video_streams_screen_title">วิดีโอปลอม</string>
   <string name="revanced_spoof_video_streams_screen_summary">ปลอมสตรีมวิดีโอของไคลเอ็นต์เพื่อป้องกันปัญหาการเล่น</string>
   <string name="revanced_spoof_video_streams_title">วิดีโอปลอม</string>
@@ -1394,46 +1395,46 @@ AVC มีความละเอียดสูงสุด 1080p, ตัว�
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">แสดงชนิดไคลเอ็นต์ในสถิติสำหรับพวกเนิร์ด</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">ซ่อนไคลเอ็นต์ในสถิติสำหรับพวกเนิร์ด</string>
   <string name="revanced_spoof_video_streams_language_title">ภาษาของสตรีมเสียงเริ่มต้นของ VR</string>
-  </patch>
-  </app>
-  <app id="twitch">
-  <patch id="ad.audio.audioAdsPatch">
+  <!-- </patch> -->
+  <!-- </app> -->
+  <!-- <app id="twitch"> -->
+  <!-- <patch id="ad.audio.audioAdsPatch"> -->
   <string name="revanced_block_audio_ads_title">ถางอารู้กินโออกืภล็อค่าออย่าง</string>
   <string name="revanced_block_audio_ads_summary_on">เสียงโฆษณาถูกบล็อก</string>
   <string name="revanced_block_audio_ads_summary_off">เสียงโฆษณาไม่ได้ถูกบล็อก</string>
-  </patch>
-  <patch id="ad.embedded.embeddedAdsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="ad.embedded.embeddedAdsPatch"> -->
   <string name="revanced_embedded_ads_service_unavailable">%s ไม่พร้อมใช้งาน โฆษณาอาจปรากฏ ลองเปลี่ยนบริการบล็อกโฆษณาใน การตั้งค่า</string>
   <string name="revanced_embedded_ads_service_failed">%s เกิดข้อผิดพลาด โฆษณาอาจปรากฏ ลองเปลี่ยนบริการบล็อกโฆษณาใน การตั้งค่า</string>
   <string name="revanced_block_embedded_ads_title">ปิดกั้นโฆษณาวิดีโอฝัง</string>
   <string name="revanced_block_embedded_ads_entry_1">ปิดการใช้งานอยู่</string>
   <string name="revanced_block_embedded_ads_entry_2">Luminous Proxy</string>
   <string name="revanced_block_embedded_ads_entry_3">PurpleAdBlock Proxy</string>
-  </patch>
-  <patch id="ad.video.videoAdsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="ad.video.videoAdsPatch"> -->
   <string name="revanced_block_video_ads_title">ปิดกั้นโฆษณาวิดีโอ</string>
   <string name="revanced_block_video_ads_summary_on">วิดีโอโฆษณาถูกบล็อก</string>
   <string name="revanced_block_video_ads_summary_off">วิดีโอโฆษณาไม่ได้รับการบล็อก</string>
-  </patch>
-  <patch id="chat.antidelete.showDeletedMessagesPatch">
+  <!-- </patch> -->
+  <!-- <patch id="chat.antidelete.showDeletedMessagesPatch"> -->
   <string name="revanced_deleted_msg">ข้อความถูกลบ</string>
   <string name="revanced_show_deleted_messages_title">แสดงข้อความที่ถูกลบ</string>
   <string name="revanced_show_deleted_messages_entry_1">ไม่แสดงข้อความที่ถูกลบ</string>
   <string name="revanced_show_deleted_messages_entry_2">ซ่อนข้อความที่ถูกลบไว้หลังสปอยเลอร์</string>
   <string name="revanced_show_deleted_messages_entry_3">แสดงข้อความที่ถูกลบเป็นข้อความที่ถูกขีดทับ</string>
-  </patch>
-  <patch id="chat.autoclaim.autoClaimChannelPointsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="chat.autoclaim.autoClaimChannelPointsPatch"> -->
   <string name="revanced_auto_claim_channel_points_title">เรียก Channel Points โดยอัตโนมัติ</string>
   <string name="revanced_auto_claim_channel_points_summary_on">เรียก Channel Points โดยอัตโนมัติ</string>
   <string name="revanced_auto_claim_channel_points_summary_off">ไม่เรียก Channel Points โดยอัตโนมัติ</string>
-  </patch>
-  <patch id="debug.debugModePatch">
+  <!-- </patch> -->
+  <!-- <patch id="debug.debugModePatch"> -->
   <!-- Twitch specific internal debug mode, and not the same as 'revanced_debug_title' -->
   <string name="revanced_twitch_debug_mode_title">เปิดใช้งานโหมดดีบัก Twitch</string>
   <string name="revanced_twitch_debug_mode_summary_on">โหมดดีบัก Twitch เปิดใช้งาน (ไม่แนะนำ)</string>
   <string name="revanced_twitch_debug_mode_summary_off">โหมดดีบัก Twitch ปิดใช้งาน</string>
-  </patch>
-  <patch id="misc.settings.settingsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.settings.settingsPatch"> -->
   <string name="revanced_settings">ต้องค่า ReVanced เพิ่มเติม</string>
   <string name="revanced_about_title">เกี่ยวกับ</string>
   <string name="revanced_about_summary">เกี่ยวกับ ReVanced</string>
@@ -1450,6 +1451,6 @@ AVC มีความละเอียดสูงสุด 1080p, ตัว�
   <string name="revanced_twitch_debug_title">การบันทึกเพื่อแก้จุดบกพร่อง</string>
   <string name="revanced_twitch_debug_summary_on">เปิดใช้งานการบันทึกเพื่อแก้จุดบกพร่อง</string>
   <string name="revanced_twitch_debug_summary_off">การบันทึกข้อผิดพลาดถูกปิดใช้งาน</string>
-  </patch>
-  </app>
+  <!-- </patch> -->
+  <!-- </app> -->
 </resources>

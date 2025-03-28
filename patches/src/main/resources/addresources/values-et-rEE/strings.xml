@@ -20,8 +20,8 @@ Second \"item\" text"</string>
 
 -->
 <resources>
-  <app id="shared">
-  <patch id="misc.checks.checkEnvironmentPatch">
+  <!-- <app id="shared"> -->
+  <!-- <patch id="misc.checks.checkEnvironmentPatch"> -->
   <string name="revanced_check_environment_failed_title">Kontrollid ebaõnnestusid</string>
   <string name="revanced_check_environment_dialog_open_official_source_button">Ava oficial veebileht</string>
   <string name="revanced_check_environment_dialog_ignore_button">Eira</string>
@@ -31,8 +31,8 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time">Parandatud rohkem kui 10 minutit tagasi</string>
   <string name="revanced_check_environment_not_near_patch_time_days">Parandatud %s päeva tagasi</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">APK ehituskuupäev on rikutud</string>
-  </patch>
-  <patch id="misc.settings.settingsResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.settings.settingsResourcePatch"> -->
   <string name="revanced_settings_submenu_title">Seaded</string>
   <string name="revanced_settings_confirm_user_dialog_title">Kas soovite jätkata?</string>
   <string name="revanced_settings_reset">Lähtesta</string>
@@ -57,8 +57,8 @@ Uute keelte tõlkimiseks külastage saiti translate.revanced.app"</string>
   <string name="revanced_settings_about_links_header">Ametlikud lingid</string>
   <!-- NOTE: the about strings above are duplicated in the TikTok about screen code,
                  and changes made here must also be made there. -->
-  </patch>
-  <patch id="misc.gms.gmsCoreSupportResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.gms.gmsCoreSupportResourcePatch"> -->
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="gms_core_toast_not_installed_message">MicroG GmsCore pole installitud. Installi see.</string>
   <string name="gms_core_dialog_title">Tegevus on vajalik</string>
@@ -74,10 +74,10 @@ MicroG aku optimeerimise keelamine ei mõjuta aku kestvust negatiivselt.
 
 Vajutage jätkamise nuppu ja lubage optimeerimismuutused."</string>
   <string name="gms_core_dialog_continue_text">Jätka</string>
-  </patch>
-  </app>
-  <app id="youtube">
-  <patch id="misc.settings.settingsPatch">
+  <!-- </patch> -->
+  <!-- </app> -->
+  <!-- <app id="youtube"> -->
+  <!-- <patch id="misc.settings.settingsPatch"> -->
   <string name="revanced_settings_screen_00_about_title">Teave</string>
   <string name="revanced_settings_screen_01_ads_title">Reklaamid</string>
   <string name="revanced_settings_screen_02_alt_thumbnails_title">Alternatiivsed pisipildid</string>
@@ -91,13 +91,13 @@ Vajutage jätkamise nuppu ja lubage optimeerimismuutused."</string>
   <string name="revanced_restore_old_settings_menus_title">Taasta vanad seadete menüüd</string>
   <string name="revanced_restore_old_settings_menus_summary_on">Vanad seadete menüüd on kuvatud</string>
   <string name="revanced_restore_old_settings_menus_summary_off">Vanad seadete menüüd ei ole kuvatud</string>
-  </patch>
-  <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.backgroundplayback.backgroundPlaybackPatch"> -->
   <string name="revanced_shorts_disable_background_playback_title">Shorts taustavideo esitamine lülitada</string>
   <string name="revanced_shorts_disable_background_playback_summary_on">Lühivideod taasesitus taustal on keelatud</string>
   <string name="revanced_shorts_disable_background_playback_summary_off">Lühivideod taasesitus taustal on lubatud</string>
-  </patch>
-  <patch id="misc.debugging.enableDebuggingPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.debugging.enableDebuggingPatch"> -->
   <string name="revanced_debug_screen_title">Veaotsing</string>
   <string name="revanced_debug_screen_summary">Veaotsinguvalikud lubamiseks või keelamiseks</string>
   <string name="revanced_debug_title">Veaotsingulogimine</string>
@@ -115,8 +115,8 @@ Vajutage jätkamise nuppu ja lubage optimeerimismuutused."</string>
   <string name="revanced_debug_toast_on_error_user_dialog_message">"Vea teadete väljalülitamine peidab kõik ReVanced i veateadete märguanded.
 
 Teid ei teavitata ühestki ootamatust sündmusest."</string>
-  </patch>
-  <patch id="layout.hide.general.hideLayoutComponentsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.general.hideLayoutComponentsPatch"> -->
   <string name="revanced_hide_album_cards_title">Peida albumikaardid</string>
   <string name="revanced_hide_album_cards_summary_on">Albumikaardid on peidetud</string>
   <string name="revanced_hide_album_cards_summary_off">Albumikaardid on nähtavad</string>
@@ -340,8 +340,8 @@ Piirangud
   <string name="revanced_hide_keyword_toast_invalid_conflicting">Võtmesõnal on vastuolulised deklareeringud: %s</string>
   <string name="revanced_hide_keyword_toast_invalid_length">Võtmesõna on liiga lühike ja vajab jutumärke: %s</string>
   <string name="revanced_hide_keyword_toast_invalid_broad">Võti sõna: %s peidab kõik videod</string>
-  </patch>
-  <patch id="ad.general.hideAdsResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="ad.general.hideAdsResourcePatch"> -->
   <string name="revanced_hide_general_ads_title">Peida üldine reklaamid</string>
   <string name="revanced_hide_general_ads_summary_on">Üldine reklaamid on peidetud</string>
   <string name="revanced_hide_general_ads_summary_off">Üldreklaamid kuvatakse</string>
@@ -383,18 +383,18 @@ See funktsioon on saadaval ainult vanemates seadmetes"</string>
   <string name="revanced_hide_merchandise_banners_summary_off">Reklaamipõhjad on nähtavad</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_hide_fullscreen_ads_feature_not_available_toast">Terveekraanireklaamide peitmine toimib ainult vanemate seadmetega</string>
-  </patch>
-  <patch id="ad.getpremium.hideGetPremiumPatch">
+  <!-- </patch> -->
+  <!-- <patch id="ad.getpremium.hideGetPremiumPatch"> -->
   <string name="revanced_hide_get_premium_title">Peida YouTube Premiumi reklaamid</string>
   <string name="revanced_hide_get_premium_summary_on">Videoall mängija all olevad YouTube Premiumi reklaamid on peidetud</string>
   <string name="revanced_hide_get_premium_summary_off">YouTube Premium reklaamide alla esitatakse YouTube Premiumi reklaamkampaaniad</string>
-  </patch>
-  <patch id="ad.video.videoAdsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="ad.video.videoAdsPatch"> -->
   <string name="revanced_hide_video_ads_title">Peida video reklaamid</string>
   <string name="revanced_hide_video_ads_summary_on">Videoreklaamid on peidetud</string>
   <string name="revanced_hide_video_ads_summary_off">Videoreklaamid on kuvatud</string>
-  </patch>
-  <patch id="interaction.copyvideourl.copyVideoUrlResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="interaction.copyvideourl.copyVideoUrlResourcePatch"> -->
   <string name="revanced_share_copy_url_success">URL kopeeritud clipboardi</string>
   <string name="revanced_share_copy_url_timestamp_success">Aadres URL ajaga kopeeritud</string>
   <string name="revanced_copy_video_url_title">Kuva video URL kopeerimise nupp</string>
@@ -403,14 +403,14 @@ See funktsioon on saadaval ainult vanemates seadmetes"</string>
   <string name="revanced_copy_video_url_timestamp_title">Näita video URL-i ajatempliga kopeerimise nuppu</string>
   <string name="revanced_copy_video_url_timestamp_summary_on">Nupp on nähtav. Ajakoodiga video URL-i kopeerimiseks puuduta. Ilma ajakoodita kopeerimiseks puuduta pikalt</string>
   <string name="revanced_copy_video_url_timestamp_summary_off">Nupud ei ole näha</string>
-  </patch>
-  <patch id="interaction.dialog.removeViewerDiscretionDialogPatch">
+  <!-- </patch> -->
+  <!-- <patch id="interaction.dialog.removeViewerDiscretionDialogPatch"> -->
   <string name="revanced_remove_viewer_discretion_dialog_title">Eemalda vaataja arvamuse dialoog</string>
   <string name="revanced_remove_viewer_discretion_dialog_summary_on">Dialoog eemaldatakse</string>
   <string name="revanced_remove_viewer_discretion_dialog_summary_off">Dialoog kuvatakse</string>
   <string name="revanced_remove_viewer_discretion_dialog_user_dialog_message">See ei mööda vanusepiirangust. See lihtsalt aktsepteerib seda automaatselt.</string>
-  </patch>
-  <patch id="interaction.downloads.downloadsResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="interaction.downloads.downloadsResourcePatch"> -->
   <string name="revanced_external_downloader_screen_title">Välised allalaadimised</string>
   <string name="revanced_external_downloader_screen_summary">Seaded välise allalaadija kasutamiseks</string>
   <string name="revanced_external_downloader_title">Näita välise allalaadimise nuppu</string>
@@ -423,18 +423,18 @@ See funktsioon on saadaval ainult vanemates seadmetes"</string>
   <string name="revanced_external_downloader_name_title">Allalaadija paketi nimi</string>
   <string name="revanced_external_downloader_name_summary">Teie installitud välise allalaadija rakenduse paketi nimi, näiteks NewPipe või Seal</string>
   <string name="revanced_external_downloader_not_installed_warning">%s ei ole installitud. Palun installige see.</string>
-  </patch>
-  <patch id="interaction.seekbar.disablePreciseSeekingGesturePatch">
+  <!-- </patch> -->
+  <!-- <patch id="interaction.seekbar.disablePreciseSeekingGesturePatch"> -->
   <string name="revanced_disable_precise_seeking_gesture_title">Keela täpne otsingu žest</string>
   <string name="revanced_disable_precise_seeking_gesture_summary_on">Žest on keelatud</string>
   <string name="revanced_disable_precise_seeking_gesture_summary_off">Žest on lubatud</string>
-  </patch>
-  <patch id="interaction.seekbar.enableSeekbarTappingPatch">
+  <!-- </patch> -->
+  <!-- <patch id="interaction.seekbar.enableSeekbarTappingPatch"> -->
   <string name="revanced_seekbar_tapping_title">Puudutusega otsimise lubamine</string>
   <string name="revanced_seekbar_tapping_summary_on">Puudutusega otsimine on lubatud</string>
   <string name="revanced_seekbar_tapping_summary_off">Puudutusega otsimine on keelatud</string>
-  </patch>
-  <patch id="interaction.swipecontrols.swipeControlsResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="interaction.swipecontrols.swipeControlsResourcePatch"> -->
   <string name="revanced_swipe_brightness_title">Luba heleduse žest</string>
   <string name="revanced_swipe_brightness_summary_on">"Täisekraani heleduse pühkimine on lubatud
 
@@ -473,13 +473,13 @@ Helitugevuse reguleerimiseks pühkige ekraani paremal küljel vertikaalselt"</st
   <string name="revanced_swipe_change_video_title">Luba pühkimine videote vahetamiseks</string>
   <string name="revanced_swipe_change_video_summary_on">Täisekraanrežiimis pühkimine vahetab järgmise/eelmise video</string>
   <string name="revanced_swipe_change_video_summary_off">Täisekraanrežiimis pühkimine ei vaheta järgmise/eelmise video</string>
-  </patch>
-  <patch id="layout.autocaptions.autoCaptionsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.autocaptions.autoCaptionsPatch"> -->
   <string name="revanced_auto_captions_title">Keela automaatsed pealdised</string>
   <string name="revanced_auto_captions_summary_on">Automaatsed pealdised on keelatud</string>
   <string name="revanced_auto_captions_summary_off">Automaatsed pealdised on lubatud</string>
-  </patch>
-  <patch id="layout.buttons.action.hideButtonsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.buttons.action.hideButtonsPatch"> -->
   <string name="revanced_hide_buttons_screen_title">Tegevuse nupud</string>
   <string name="revanced_hide_buttons_screen_summary">Peida või näita videote all olevaid nuppe</string>
   <string name="revanced_disable_like_subscribe_glow_title">Eemalda Meeldi ja Telli nuppude helk</string>
@@ -517,8 +517,8 @@ Helitugevuse reguleerimiseks pühkige ekraani paremal küljel vertikaalselt"</st
   <string name="revanced_hide_playlist_button_title">Peida Salvesta esitusloendisse</string>
   <string name="revanced_hide_playlist_button_summary_on">Salvesta esitusloendisse nupp on peidetud</string>
   <string name="revanced_hide_playlist_button_summary_off">Salvesta esitusloendisse nupp on nähtav</string>
-  </patch>
-  <patch id="layout.buttons.navigation.navigationButtonsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.buttons.navigation.navigationButtonsPatch"> -->
   <string name="revanced_navigation_buttons_screen_title">Navigeerimisnupud</string>
   <string name="revanced_navigation_buttons_screen_summary">Peida või muuda navigeerimisriba nuppe</string>
   <!-- 'Home' should be translated using the same localized wording YouTube displays for the tab. -->
@@ -555,14 +555,15 @@ Kui selle sätte muutmine ei avalda mõju, proovige lülituda Inkognito režiimi
   <string name="revanced_disable_translucent_status_bar_title">Keela läbipaistev olekuriba</string>
   <string name="revanced_disable_translucent_status_bar_summary_on">Staatusriba on läbipaistev</string>
   <string name="revanced_disable_translucent_status_bar_summary_off">Olekubuuri on matt või läbipaistev</string>
+  <string name="revanced_disable_translucent_status_bar_user_dialog_message">Mõnedes seadmetes võib selle funktsiooni lubamine muuta süsteemi navigeerimisriba läbipaistvaks.</string>
   <string name="revanced_disable_translucent_navigation_bar_light_title">Keela hele läbipaistev riba</string>
   <string name="revanced_disable_translucent_navigation_bar_light_summary_on">Heleda režiimi navigeerimisriba on läbipaistmatu</string>
   <string name="revanced_disable_translucent_navigation_bar_light_summary_off">Hele režiimi navigeerimisriba on matt või läbipaistev</string>
   <string name="revanced_disable_translucent_navigation_bar_dark_title">Keela tume õhuke riba</string>
   <string name="revanced_disable_translucent_navigation_bar_dark_summary_on">Tumeda režiimi navigeerimisriba on läbipaistmatu</string>
   <string name="revanced_disable_translucent_navigation_bar_dark_summary_off">Tume režiimi navigeerimisriba on matt või läbipaistev</string>
-  </patch>
-  <patch id="layout.hide.player.flyoutmenupanel.hidePlayerFlyoutMenuPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.player.flyoutmenupanel.hidePlayerFlyoutMenuPatch"> -->
   <string name="revanced_hide_player_flyout_title">Väljuv menüü</string>
   <string name="revanced_hide_player_flyout_summary">Peida või näita esitusprogrammi väljaulatuva menüü esemeid</string>
   <!-- 'Captions' should be translated using the same localized wording YouTube displays for the menu item. -->
@@ -616,8 +617,8 @@ Kui selle sätte muutmine ei avalda mõju, proovige lülituda Inkognito režiimi
   <string name="revanced_hide_player_flyout_video_quality_footer_title">Peida video kvaliteedi menüü jalg</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_on">Video kvaliteedi menüü jalg on peidetud</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_off">Video kvaliteedi menüü jalg on nähtav</string>
-  </patch>
-  <patch id="layout.buttons.overlay.hidePlayerOverlayButtonsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.buttons.overlay.hidePlayerOverlayButtonsPatch"> -->
   <string name="revanced_hide_player_previous_next_buttons_title">Peida eelmine &amp; järgmine nupp</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_on">Nupud on peidetud</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">Nupud on nähtavad</string>
@@ -631,36 +632,36 @@ Kui selle sätte muutmine ei avalda mõju, proovige lülituda Inkognito režiimi
   <string name="revanced_hide_autoplay_button_title">Peida Automaatse esitamise nupp</string>
   <string name="revanced_hide_autoplay_button_summary_on">Automaatse esituse nupp on peidetud</string>
   <string name="revanced_hide_autoplay_button_summary_off">Automaatse esituse nupp on nähtav</string>
-  </patch>
-  <patch id="layout.hide.endscreencards.hideEndscreenCardsResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.endscreencards.hideEndscreenCardsResourcePatch"> -->
   <string name="revanced_hide_endscreen_cards_title">Peida lõpukujunduse kaardid</string>
   <string name="revanced_hide_endscreen_cards_summary_on">Lõpukujunduse kaardid on peidetud</string>
   <string name="revanced_hide_endscreen_cards_summary_off">Lõpukujunduse kaardid on nähtavad</string>
-  </patch>
-  <patch id="layout.hide.fullscreenambientmode.disableFullscreenAmbientModePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.fullscreenambientmode.disableFullscreenAmbientModePatch"> -->
   <string name="revanced_disable_fullscreen_ambient_mode_title">Keela ümbritseva režiim täisekraanil</string>
   <string name="revanced_disable_fullscreen_ambient_mode_summary_on">Ümbritseva režiimi keelatud</string>
   <string name="revanced_disable_fullscreen_ambient_mode_summary_off">Ümbritseva režiimi lubatud</string>
-  </patch>
-  <patch id="layout.hide.infocards.hideInfocardsResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.infocards.hideInfocardsResourcePatch"> -->
   <string name="revanced_hide_info_cards_title">Peida infokaardid</string>
   <string name="revanced_hide_info_cards_summary_on">Infokaardid on peidetud</string>
   <string name="revanced_hide_info_cards_summary_off">Infokaardid on nähtaval</string>
-  </patch>
-  <patch id="layout.hide.rollingnumber.disableRollingNumberAnimationPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.rollingnumber.disableRollingNumberAnimationPatch"> -->
   <string name="revanced_disable_rolling_number_animations_title">Keela rulluvate numbrite animatsioonid</string>
   <string name="revanced_disable_rolling_number_animations_summary_on">Rulluvad numbrid ei ole animeeritud</string>
   <string name="revanced_disable_rolling_number_animations_summary_off">Rulluvad numbrid on animeeritud</string>
-  </patch>
-  <patch id="layout.hide.seekbar.hideSeekbarPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.seekbar.hideSeekbarPatch"> -->
   <string name="revanced_hide_seekbar_title">Peida otsimisriba videopleieris</string>
   <string name="revanced_hide_seekbar_summary_on">Videopleieri otsimisriba on peidetud</string>
   <string name="revanced_hide_seekbar_summary_off">Videopleieri otsimisriba on nähtav</string>
   <string name="revanced_hide_seekbar_thumbnail_title">Peida otsimisriba videominiatuurides</string>
   <string name="revanced_hide_seekbar_thumbnail_summary_on">Miniatuuri otsimisriba on peidetud</string>
   <string name="revanced_hide_seekbar_thumbnail_summary_off">Miniatuuri otsimisriba on nähtav</string>
-  </patch>
-  <patch id="layout.hide.shorts.hideShortsComponentsResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.shorts.hideShortsComponentsResourcePatch"> -->
   <string name="revanced_shorts_player_screen_title">Shorts esitusprogramm</string>
   <string name="revanced_shorts_player_screen_summary">Peida või näita komponente Shorts esitusprogrammis</string>
   <!-- 'home' should be translated using the same localized wording YouTube displays for the home tab. -->
@@ -762,43 +763,43 @@ Kui selle sätte muutmine ei avalda mõju, proovige lülituda Inkognito režiimi
   <string name="revanced_hide_shorts_navigation_bar_title">Peida navigeerimisriba</string>
   <string name="revanced_hide_shorts_navigation_bar_summary_on">Navigeerimisriba on peidetud</string>
   <string name="revanced_hide_shorts_navigation_bar_summary_off">Navigeerimisriba on nähtav</string>
-  </patch>
-  <patch id="layout.hide.endscreensuggestion.hideEndScreenSuggestedVideoPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.endscreensuggestion.hideEndScreenSuggestedVideoPatch"> -->
   <string name="revanced_end_screen_suggested_video_title">Peida lõpuekraani soovitatud video</string>
   <string name="revanced_end_screen_suggested_video_summary_on">"Lõpuekraani soovitatud video on peidetud, kui automaatesitus on välja lülitatud.
 
 Automaatesitust saab muuta YouTube'i seadetes:
 Seaded → Taasesitus → Esita järgmine video automaatselt"</string>
   <string name="revanced_end_screen_suggested_video_summary_off">Lõpuekraani soovitatud video on näidatud</string>
-  </patch>
-  <patch id="layout.hide.time.hideTimestampPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.time.hideTimestampPatch"> -->
   <string name="revanced_hide_timestamp_title">Peida video ajamärk</string>
   <string name="revanced_hide_timestamp_summary_on">Ajamärk on peidetud</string>
   <string name="revanced_hide_timestamp_summary_off">Ajamärk on nähtav</string>
-  </patch>
-  <patch id="layout.panels.popup.playerPopupPanelsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.panels.popup.playerPopupPanelsPatch"> -->
   <string name="revanced_hide_player_popup_panels_title">Peida esitaja hüpikaknad</string>
   <string name="revanced_hide_player_popup_panels_summary_on">Esitaja hüpikaknad on peidetud</string>
   <string name="revanced_hide_player_popup_panels_summary_off">Esitaja hüpikaknad on nähtavad</string>
-  </patch>
-  <patch id="layout.player.fullscreen.exitFullscreenPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.player.fullscreen.exitFullscreenPatch"> -->
   <string name="revanced_exit_fullscreen_title">Video lõpus välju täisekraanirežiimist</string>
   <string name="revanced_exit_fullscreen_entry_1">Keelatud</string>
   <string name="revanced_exit_fullscreen_entry_2">Portree</string>
   <string name="revanced_exit_fullscreen_entry_3">Maastiku</string>
   <string name="revanced_exit_fullscreen_entry_4">Portree ja maastiku</string>
-  </patch>
-  <patch id="layout.player.fullscreen.openVideosFullscreen">
+  <!-- </patch> -->
+  <!-- <patch id="layout.player.fullscreen.openVideosFullscreen"> -->
   <string name="revanced_open_videos_fullscreen_portrait_title">Ava videod täisekraani portreerežiimis</string>
   <string name="revanced_open_videos_fullscreen_portrait_summary_on">Videod avanevad täisekraani režiimis</string>
   <string name="revanced_open_videos_fullscreen_portrait_summary_off">Videod ei avane täisekraani režiimis</string>
-  </patch>
-  <patch id="layout.player.overlay.customPlayerOverlayOpacityResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.player.overlay.customPlayerOverlayOpacityResourcePatch"> -->
   <string name="revanced_player_overlay_opacity_title">Esitaja kattekihi läbipaistvus</string>
   <string name="revanced_player_overlay_opacity_summary">Läbipaistvuse väärtus vahemikus 0-100, kus 0 on läbipaistev</string>
   <string name="revanced_player_overlay_opacity_invalid_toast">Mängija kattekihi läbipaistvus peab olema 0-100 vahel</string>
-  </patch>
-  <patch id="layout.returnyoutubedislike.returnYouTubeDislikePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.returnyoutubedislike.returnYouTubeDislikePatch"> -->
   <!-- Toast shown if network connection times out. Translations of this should not be longer than the original English or the text can be clipped and not entirely shown. -->
   <string name="revanced_ryd_failure_connection_timeout">Mittemeeldimised pole ajutiselt saadaval (API aegus)</string>
   <string name="revanced_ryd_failure_connection_status_code">Mittemeeldimised pole saadaval (olek %d)</string>
@@ -847,13 +848,13 @@ Piirang: Ei meeldimised ei pruugi inkognito režiimis kuvada"</string>
   <string name="revanced_ryd_statistics_getNumberOfRateLimitRequestsEncountered_zero_summary">Kliendi kiirusepiiranguid ei ole kohatud</string>
   <string name="revanced_ryd_statistics_getNumberOfRateLimitRequestsEncountered_non_zero_summary">Kliendi kiirusepiirang on kohatud %d korda</string>
   <string name="revanced_ryd_statistics_millisecond_text">%d millisekundit</string>
-  </patch>
-  <patch id="layout.searchbar.wideSearchbarPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.searchbar.wideSearchbarPatch"> -->
   <string name="revanced_wide_searchbar_title">Luba lai otsinguriba</string>
   <string name="revanced_wide_searchbar_summary_on">Lai otsinguriba on lubatud</string>
   <string name="revanced_wide_searchbar_summary_off">Lai otsinguriba on keelatud</string>
-  </patch>
-  <patch id="layout.seekbar.seekbarThumbnailsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.seekbar.seekbarThumbnailsPatch"> -->
   <string name="revanced_seekbar_thumbnails_high_quality_title">Luba kvaliteetsed pisipildid</string>
   <string name="revanced_seekbar_thumbnails_high_quality_summary_on">Pisipildid on kvaliteetsed</string>
   <string name="revanced_seekbar_thumbnails_high_quality_summary_off">Pisipildid on keskmiselt kvaliteetsed</string>
@@ -867,8 +868,8 @@ See funktsioon toimib kõige paremini 720p või madalama video kvaliteedi ja vä
   <string name="revanced_restore_old_seekbar_thumbnails_title">Taasta vanad pisipildid</string>
   <string name="revanced_restore_old_seekbar_thumbnails_summary_on">Pisipildid ilmuvad otsinguriba kohale</string>
   <string name="revanced_restore_old_seekbar_thumbnails_summary_off">Pisipildid ilmuvad täisekraanil</string>
-  </patch>
-  <patch id="layout.sponsorblock.sponsorBlockResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.sponsorblock.sponsorBlockResourcePatch"> -->
   <string name="revanced_sb_enable_sb">Luba SponsorBlock</string>
   <string name="revanced_sb_enable_sb_sum">SponsorBlock on rahvahulga loodud süsteem YouTube\'i videote tüütute osade vahelejätmiseks</string>
   <string name="revanced_sb_appearance_category">Välimus</string>
@@ -1066,8 +1067,8 @@ Kas olete esitamiseks valmis?"</string>
   <string name="revanced_sb_reset">Lähtesta</string>
   <string name="revanced_sb_about">Teave</string>
   <string name="revanced_sb_about_api_sum">Andmed on pärit SponsorBlock API-st. Puudutage siia, et saada lisateavet ja vaadata allalaadimisi teistele platvormidele</string>
-  </patch>
-  <patch id="layout.formfactor.changeFormFactorPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.formfactor.changeFormFactorPatch"> -->
   <string name="revanced_change_form_factor_title">Paigutuse vormitegur</string>
   <string name="revanced_change_form_factor_entry_1">Vaikimisi</string>
   <string name="revanced_change_form_factor_entry_2">Telefon</string>
@@ -1081,8 +1082,8 @@ Tahvelarvuti paigutus
 Autode paigutus
 • Shorts avanevad tavalises pleieris
 • Voog on korraldatud teemade ja kanalite järgi"</string>
-  </patch>
-  <patch id="layout.spoofappversion.spoofAppVersionPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.spoofappversion.spoofAppVersionPatch"> -->
   <string name="revanced_spoof_app_version_title">Võltsitud rakenduse versioon</string>
   <string name="revanced_spoof_app_version_summary_on">Versioon on võltsitud</string>
   <string name="revanced_spoof_app_version_summary_off">Versiooni ei ole võltsitud</string>
@@ -1096,8 +1097,8 @@ Kui see hiljem välja lülitatakse, on soovitatav rakenduse andmed kustutada, et
   <string name="revanced_spoof_app_version_target_title">Võltsitud rakenduse versiooni siht</string>
   <string name="revanced_spoof_app_version_target_entry_1">19.35.36 - Taastage vanad Shortsi esitajaikoonid</string>
   <string name="revanced_spoof_app_version_target_entry_2">19.01.34 – Taasta vanad navigeerimisikoonid</string>
-  </patch>
-  <patch id="layout.startpage.changeStartPagePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.startpage.changeStartPagePatch"> -->
   <string name="revanced_change_start_page_title">Määra algusleht</string>
   <string name="revanced_change_start_page_entry_default">Vaikimisi</string>
   <string name="revanced_change_start_page_entry_all_subscriptions">Kõik tellimused</string>
@@ -1123,27 +1124,27 @@ Kui see hiljem välja lülitatakse, on soovitatav rakenduse andmed kustutada, et
   <string name="revanced_change_start_page_entry_virtual_reality">Virtuaalne Reaalsus</string>
   <string name="revanced_change_start_page_entry_watch_later">Vaata hiljem</string>
   <string name="revanced_change_start_page_entry_your_clips">Teie klipid</string>
-  </patch>
-  <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch"> -->
   <string name="revanced_disable_resuming_shorts_player_title">Keela Shortsi esitaja jätkamine</string>
   <string name="revanced_disable_resuming_shorts_player_summary_on">Shortsi esitaja ei jätka rakenduse käivitamisel</string>
   <string name="revanced_disable_resuming_shorts_player_summary_off">Shortsi esitaja jätkub rakenduse käivitamisel</string>
-  </patch>
-  <patch id="layout.shortsplayer.shortsPlayerTypePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.shortsplayer.shortsPlayerTypePatch"> -->
   <string name="revanced_shorts_player_type_title">Ava Shorts</string>
   <string name="revanced_shorts_player_type_shorts">Shorts esitusprogramm</string>
   <string name="revanced_shorts_player_type_regular_player">Tavaline mängija</string>
   <string name="revanced_shorts_player_type_regular_player_fullscreen">Tavaline mängija täisekraanil</string>
-  </patch>
-  <patch id="layout.shortsautoplay.shortsAutoplayPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.shortsautoplay.shortsAutoplayPatch"> -->
   <string name="revanced_shorts_autoplay_title">Shortsi automaatne esitus</string>
   <string name="revanced_shorts_autoplay_summary_on">Shortsid esitatakse automaatselt</string>
   <string name="revanced_shorts_autoplay_summary_off">Shortsid korratakse</string>
   <string name="revanced_shorts_autoplay_background_title">Shortsi automaatne esitus taustal</string>
   <string name="revanced_shorts_autoplay_background_summary_on">Shortsi taustal esitamine toimub automaatselt</string>
   <string name="revanced_shorts_autoplay_background_summary_off">Shortsi taustal esitamine korratakse</string>
-  </patch>
-  <patch id="layout.miniplayer.miniplayerPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.miniplayer.miniplayerPatch"> -->
   <string name="revanced_miniplayer_screen_title">Minimängija</string>
   <string name="revanced_miniplayer_screen_summary">Muuda rakendusesisese minipleieri stiili</string>
   <string name="revanced_miniplayer_type_title">Miniplayeri tüüp</string>
@@ -1193,8 +1194,8 @@ Pühkige laiendamiseks või sulgemiseks"</string>
   <string name="revanced_miniplayer_opacity_title">Katte läbipaistvus</string>
   <string name="revanced_miniplayer_opacity_summary">Läbipaistvuse väärtus vahemikus 0-100, kus 0 on läbipaistev</string>
   <string name="revanced_miniplayer_opacity_invalid_toast">Miniplayeri katte läbipaistvus peab olema vahemikus 0-100</string>
-  </patch>
-  <patch id="layout.theme.themePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.theme.themePatch"> -->
   <string name="revanced_gradient_loading_screen_title">Lülita gradientega laadimiskuva sisse</string>
   <string name="revanced_gradient_loading_screen_summary_on">Laadimiskuval on gradientega taust</string>
   <string name="revanced_gradient_loading_screen_summary_off">Laadimiskuval on tahke taust</string>
@@ -1206,15 +1207,15 @@ Pühkige laiendamiseks või sulgemiseks"</string>
   <string name="revanced_seekbar_custom_color_accent_title">Kohandatud otsinguriba esiletõiduv värv</string>
   <string name="revanced_seekbar_custom_color_accent_summary">Otsinguriba esiletõiduv värv</string>
   <string name="revanced_seekbar_custom_color_invalid">Vigane edastusriba värvi väärtus</string>
-  </patch>
-  <patch id="layout.thumbnails.bypassImageRegionRestrictionsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.thumbnails.bypassImageRegionRestrictionsPatch"> -->
   <string name="revanced_bypass_image_region_restrictions_title">Ületa pildi piirkondlike piirangute keelud</string>
   <string name="revanced_bypass_image_region_restrictions_summary_on">Kasutatakse pildi hosti yt4.ggpht.com</string>
   <string name="revanced_bypass_image_region_restrictions_summary_off">"Kasutatakse originaalset piltide hosti
 
 Selle lubamine võib parandada puuduvate piltide probleemi, mis mõnes piirkonnas on blokeeritud"</string>
-  </patch>
-  <patch id="layout.thumbnails.alternativeThumbnailsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.thumbnails.alternativeThumbnailsPatch"> -->
   <!-- 'Home' should be translated using the same localized wording YouTube displays for the home tab. -->
   <string name="revanced_alt_thumbnail_home_title">Avalehe vaheleht</string>
   <!-- 'Subscription' should be translated using the same localized wording YouTube displays for the subscription tab. -->
@@ -1249,26 +1250,26 @@ Puudutage siia, et saada lisateavet DeArrow kohta"</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_alt_thumbnail_dearrow_error">DeArrow pole ajutiselt kättesaadav (oleku kood: %s)</string>
   <string name="revanced_alt_thumbnail_dearrow_error_generic">DeArrow pole ajutiselt kättesaadav</string>
-  </patch>
-  <patch id="misc.announcements.announcementsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.announcements.announcementsPatch"> -->
   <string name="revanced_announcements_title">Kuva ReVancedi teated</string>
   <string name="revanced_announcements_summary_on">Teadaanded käivitamisel on kuvatud</string>
   <string name="revanced_announcements_summary_off">Teadaanded käivitamisel pole kuvatud</string>
   <string name="revanced_announcements_enabled_summary">Kuva teated käivitamisel</string>
   <string name="revanced_announcements_connection_failed">Ühenduse loomine teatepakkujaga ebaõnnestus</string>
   <string name="revanced_announcements_dialog_dismiss">Loobu</string>
-  </patch>
-  <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch"> -->
   <string name="revanced_check_watch_history_domain_name_dialog_title">Hoiatus</string>
   <string name="revanced_check_watch_history_domain_name_dialog_message">Teie vaatamise ajalugu ei salvestata.&lt;br&gt;&lt;br&gt;See on tõenäoliselt tingitud DNS-i reklaamiblokeerijast või võrguproksilt.&lt;br&gt;&lt;br&gt;Selle parandamiseks lisage valgesse nimekirja &lt;b&gt;s.youtube.com&lt;/b&gt; või lülitage kõik DNS-i reklaamiblokeerijad ja proksid välja.</string>
   <string name="revanced_check_watch_history_domain_name_dialog_ignore">Ära kuva uuesti</string>
-  </patch>
-  <patch id="misc.autorepeat.autoRepeatPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.autorepeat.autoRepeatPatch"> -->
   <string name="revanced_auto_repeat_title">Luba automaatne kordamine</string>
   <string name="revanced_auto_repeat_summary_on">Automaatne kordamine on lubatud</string>
   <string name="revanced_auto_repeat_summary_off">Automaatne kordamine on keelatud</string>
-  </patch>
-  <patch id="misc.dimensions.spoof.spoofDeviceDimensionsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.dimensions.spoof.spoofDeviceDimensionsPatch"> -->
   <string name="revanced_spoof_device_dimensions_title">Võltsitud seadme mõõtmed</string>
   <string name="revanced_spoof_device_dimensions_summary_on">"Seadme mõõtmed võltsitakse
 
@@ -1277,39 +1278,39 @@ Võib avada kõrgema video kvaliteedi, kuid see võib põhjustada video taasesit
 
 Selle lubamine võib avada kõrgema video kvaliteedi"</string>
   <string name="revanced_spoof_device_dimensions_user_dialog_message">Selle funktsiooni lubamine võib põhjustada videote taasesituse häireid, kehvema aku kestvuse ja tundmatud kõrvalmõjud.</string>
-  </patch>
-  <patch id="misc.gms.gmsCoreSupportResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.gms.gmsCoreSupportResourcePatch"> -->
   <string name="microg_settings_title">GmsCore seaded</string>
   <string name="microg_settings_summary">GmsCore seaded</string>
-  </patch>
-  <patch id="misc.links.bypassURLRedirectsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.links.bypassURLRedirectsPatch"> -->
   <string name="revanced_bypass_url_redirects_title">Ümbersuunamiste URL-id mööda minna</string>
   <string name="revanced_bypass_url_redirects_summary_on">Ümbersuunamiste URL-id mööda minnakse</string>
   <string name="revanced_bypass_url_redirects_summary_off">Ümbersuunamiste URL-id ei mööda minnakse</string>
-  </patch>
-  <patch id="misc.links.openLinksExternallyPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.links.openLinksExternallyPatch"> -->
   <string name="revanced_external_browser_title">Ava lingid brauseris</string>
   <string name="revanced_external_browser_summary_on">Linkide avamine välises brauseris</string>
   <string name="revanced_external_browser_summary_off">Linkide avamine rakendusesiseses brauseris</string>
-  </patch>
-  <patch id="misc.privacy.removeTrackingQueryParameterPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.privacy.removeTrackingQueryParameterPatch"> -->
   <string name="revanced_remove_tracking_query_parameter_title">Eemalda jälgimise päringuparameeter</string>
   <string name="revanced_remove_tracking_query_parameter_summary_on">Jälgimise päringuparameeter eemaldatakse linkidest</string>
   <string name="revanced_remove_tracking_query_parameter_summary_off">Jälgimise päringuparameeter ei eemaldata linkidest</string>
-  </patch>
-  <patch id="misc.zoomhaptics.zoomHapticsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.zoomhaptics.zoomHapticsPatch"> -->
   <string name="revanced_disable_zoom_haptics_title">Keela suumimise hääled</string>
   <string name="revanced_disable_zoom_haptics_summary_on">Hääled on keelatud</string>
   <string name="revanced_disable_zoom_haptics_summary_off">Hääled on lubatud</string>
-  </patch>
-  <patch id="video.audio.forceOriginalAudioPatch">
+  <!-- </patch> -->
+  <!-- <patch id="video.audio.forceOriginalAudioPatch"> -->
   <string name="revanced_force_original_audio_title">Sunni originaalheli keel</string>
   <string name="revanced_force_original_audio_summary_on">Algse helikeele kasutamine</string>
   <string name="revanced_force_original_audio_summary_off">Kasutan vaikeheli</string>
   <!-- 'Spoof video streams' should be the same translation used for revanced_spoof_video_streams_screen_title -->
   <string name="revanced_force_original_audio_not_available">Selle funktsiooni kasutamiseks muuda valik „Pettemanööver videovoogudele” iOS TV peale</string>
-  </patch>
-  <patch id="video.quality.rememberVideoQualityPatch">
+  <!-- </patch> -->
+  <!-- <patch id="video.quality.rememberVideoQualityPatch"> -->
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
   <string name="revanced_video_quality_default_entry_1">Automaatne</string>
   <string name="revanced_remember_video_quality_last_selected_title">Määle video kvaliteedi muudatused meelde</string>
@@ -1326,13 +1327,13 @@ Selle lubamine võib avada kõrgema video kvaliteedi"</string>
   <string name="revanced_remember_video_quality_wifi">wifi</string>
   <string name="revanced_remember_video_quality_toast">Vaikimisi %1$s kvaliteet muudeti: %2$s</string>
   <string name="revanced_remember_video_quality_toast_shorts">Muudetud Shorts %1$s kvaliteet: %2$s</string>
-  </patch>
-  <patch id="video.speed.button.playbackSpeedButtonPatch">
+  <!-- </patch> -->
+  <!-- <patch id="video.speed.button.playbackSpeedButtonPatch"> -->
   <string name="revanced_playback_speed_dialog_button_title">Kuva kiiruse dialoogi nupp</string>
   <string name="revanced_playback_speed_dialog_button_summary_on">Nupp kuvatakse</string>
   <string name="revanced_playback_speed_dialog_button_summary_off">Nuppi ei kuvata</string>
-  </patch>
-  <patch id="video.speed.custom.customPlaybackSpeedPatch">
+  <!-- </patch> -->
+  <!-- <patch id="video.speed.custom.customPlaybackSpeedPatch"> -->
   <string name="revanced_custom_speed_menu_title">Kohandatud taasesituse kiiruse menüü</string>
   <string name="revanced_custom_speed_menu_summary_on">Kohandatud kiiruse menüü kuvatakse</string>
   <string name="revanced_custom_speed_menu_summary_off">Kohandatud kiiruse menüüd ei kuvata</string>
@@ -1343,30 +1344,30 @@ Selle lubamine võib avada kõrgema video kvaliteedi"</string>
   <string name="revanced_custom_playback_speeds_auto">Automaatne</string>
   <string name="revanced_speed_tap_and_hold_title">Kohandatud puuduta ja hoia kiiruse tase</string>
   <string name="revanced_speed_tap_and_hold_summary">Taasesituse kiirus vahemikus 0-8</string>
-  </patch>
-  <patch id="video.speed.remember.rememberPlaybackSpeedPatch">
+  <!-- </patch> -->
+  <!-- <patch id="video.speed.remember.rememberPlaybackSpeedPatch"> -->
   <string name="revanced_remember_playback_speed_last_selected_title">Määle taasesituse kiiruse muudatused meelde</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_on">Taasesituse kiiruse muudatused kehtivad kõigile videotele</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_off">Taasesituse kiiruse muudatused kehtivad ainult praegusele videole</string>
   <string name="revanced_playback_speed_default_title">Vaikimisi taasesituse kiirus</string>
   <string name="revanced_remember_playback_speed_toast">Vaikimisi kiirus muudeti: %s</string>
-  </patch>
-  <patch id="video.hdr.disableHdrPatch">
+  <!-- </patch> -->
+  <!-- <patch id="video.hdr.disableHdrPatch"> -->
   <string name="revanced_disable_hdr_video_title">Keela HDR video</string>
   <string name="revanced_disable_hdr_video_summary_on">HDR video on keelatud</string>
   <string name="revanced_disable_hdr_video_summary_off">HDR video on lubatud</string>
-  </patch>
-  <patch id="video.quality.advancedVideoQualityMenuPatch">
+  <!-- </patch> -->
+  <!-- <patch id="video.quality.advancedVideoQualityMenuPatch"> -->
   <string name="revanced_advanced_video_quality_menu_title">Kuva täiustatud video kvaliteedi menüü</string>
   <string name="revanced_advanced_video_quality_menu_summary_on">Täiustatud video kvaliteedi menüü on kuvatud</string>
   <string name="revanced_advanced_video_quality_menu_summary_off">Täiustatud video kvaliteedi menüü ei ole kuvatud</string>
-  </patch>
-  <patch id="interaction.seekbar.enableSlideToSeekPatch">
+  <!-- </patch> -->
+  <!-- <patch id="interaction.seekbar.enableSlideToSeekPatch"> -->
   <string name="revanced_slide_to_seek_title">Luba libistamine otsimiseks</string>
   <string name="revanced_slide_to_seek_summary_on">Libistamine otsimiseks on lubatud</string>
   <string name="revanced_slide_to_seek_summary_off">Libistamine otsimiseks on keelatud</string>
-  </patch>
-  <patch id="misc.fix.playback.spoofVideoStreamsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.fix.playback.spoofVideoStreamsPatch"> -->
   <string name="revanced_spoof_video_streams_screen_title">Võltsitud video voogedastused</string>
   <string name="revanced_spoof_video_streams_screen_summary">Võltsitud kliendi video voogedastused, et vältida taasesituse probleeme</string>
   <string name="revanced_spoof_video_streams_title">Võltsitud video voogedastused</string>
@@ -1396,46 +1397,46 @@ AVC-l on maksimaalne eraldusvõime 1080p, Opus-i heli kodek pole saadaval ning v
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Klienditüüp on statistikas \"Nerdide jaoks\" nähtav</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Klient on statistikas \"Nerdide jaoks\" peidetud</string>
   <string name="revanced_spoof_video_streams_language_title">VR vaikeväärtus heli voo keelele</string>
-  </patch>
-  </app>
-  <app id="twitch">
-  <patch id="ad.audio.audioAdsPatch">
+  <!-- </patch> -->
+  <!-- </app> -->
+  <!-- <app id="twitch"> -->
+  <!-- <patch id="ad.audio.audioAdsPatch"> -->
   <string name="revanced_block_audio_ads_title">Blokeeri helireklaamid</string>
   <string name="revanced_block_audio_ads_summary_on">Helireklaamid on blokeeritud</string>
   <string name="revanced_block_audio_ads_summary_off">Helireklaamid on avatud</string>
-  </patch>
-  <patch id="ad.embedded.embeddedAdsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="ad.embedded.embeddedAdsPatch"> -->
   <string name="revanced_embedded_ads_service_unavailable">%s pole saadaval, reklaamid võivad kuvada. Proovige muuta reklaamiblokeerimise teenust seadetes.</string>
   <string name="revanced_embedded_ads_service_failed">%s tagastas vea, reklaamid võivad kuvada. Proovige muuta reklaamiblokeerimise teenust seadetes.</string>
   <string name="revanced_block_embedded_ads_title">Blokeeri videoreklaamid videotes</string>
   <string name="revanced_block_embedded_ads_entry_1">Väljas</string>
   <string name="revanced_block_embedded_ads_entry_2">Luminous proksi</string>
   <string name="revanced_block_embedded_ads_entry_3">PurpleAdBlock proksi</string>
-  </patch>
-  <patch id="ad.video.videoAdsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="ad.video.videoAdsPatch"> -->
   <string name="revanced_block_video_ads_title">Blokeeri videoreklaamid</string>
   <string name="revanced_block_video_ads_summary_on">Videoreklaamid on blokeeritud</string>
   <string name="revanced_block_video_ads_summary_off">Videoreklaamid on avatud</string>
-  </patch>
-  <patch id="chat.antidelete.showDeletedMessagesPatch">
+  <!-- </patch> -->
+  <!-- <patch id="chat.antidelete.showDeletedMessagesPatch"> -->
   <string name="revanced_deleted_msg">sõnum kustutatud</string>
   <string name="revanced_show_deleted_messages_title">Näita kustutatud sõnumeid</string>
   <string name="revanced_show_deleted_messages_entry_1">Ära näita kustutatud sõnumeid</string>
   <string name="revanced_show_deleted_messages_entry_2">Peida kustutatud sõnumid spoileri taha</string>
   <string name="revanced_show_deleted_messages_entry_3">Näita kustutatud sõnumeid läbistatud tekstina</string>
-  </patch>
-  <patch id="chat.autoclaim.autoClaimChannelPointsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="chat.autoclaim.autoClaimChannelPointsPatch"> -->
   <string name="revanced_auto_claim_channel_points_title">Nõua Kanalipunkte automaatselt</string>
   <string name="revanced_auto_claim_channel_points_summary_on">Kanalipunkte nõutakse automaatselt</string>
   <string name="revanced_auto_claim_channel_points_summary_off">Kanalipunkte ei nõuta automaatselt</string>
-  </patch>
-  <patch id="debug.debugModePatch">
+  <!-- </patch> -->
+  <!-- <patch id="debug.debugModePatch"> -->
   <!-- Twitch specific internal debug mode, and not the same as 'revanced_debug_title' -->
   <string name="revanced_twitch_debug_mode_title">Luba Twitchi debug režiim</string>
   <string name="revanced_twitch_debug_mode_summary_on">Twitchi debug režiim on lubatud (ei ole soovitatav)</string>
   <string name="revanced_twitch_debug_mode_summary_off">Twitchi debug režiim on keelatud</string>
-  </patch>
-  <patch id="misc.settings.settingsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.settings.settingsPatch"> -->
   <string name="revanced_settings">ReVancedi seaded</string>
   <string name="revanced_about_title">Teave</string>
   <string name="revanced_about_summary">ReVancedi kohta</string>
@@ -1452,6 +1453,6 @@ AVC-l on maksimaalne eraldusvõime 1080p, Opus-i heli kodek pole saadaval ning v
   <string name="revanced_twitch_debug_title">Debug logi</string>
   <string name="revanced_twitch_debug_summary_on">Debug logid on lubatud</string>
   <string name="revanced_twitch_debug_summary_off">Debug logid on keelatud</string>
-  </patch>
-  </app>
+  <!-- </patch> -->
+  <!-- </app> -->
 </resources>

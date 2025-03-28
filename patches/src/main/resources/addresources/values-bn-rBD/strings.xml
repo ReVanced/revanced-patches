@@ -20,8 +20,8 @@ Second \"item\" text"</string>
 
 -->
 <resources>
-  <app id="shared">
-  <patch id="misc.checks.checkEnvironmentPatch">
+  <!-- <app id="shared"> -->
+  <!-- <patch id="misc.checks.checkEnvironmentPatch"> -->
   <string name="revanced_check_environment_failed_title">চেক ফেইল করেছে</string>
   <string name="revanced_check_environment_dialog_open_official_source_button">অফিশ্যাল ওয়েবসাইট খুলুন</string>
   <string name="revanced_check_environment_dialog_ignore_button">অবজ্ঞা করুন</string>
@@ -31,8 +31,8 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time">১০ মিনিটেরও বেশি আগে প্যাচ করা হয়েছে</string>
   <string name="revanced_check_environment_not_near_patch_time_days">%s দিন আগে প্যাচ করা হয়েছে</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">APK তৈরির তারিখ ত্রুটিপূর্ণ</string>
-  </patch>
-  <patch id="misc.settings.settingsResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.settings.settingsResourcePatch"> -->
   <string name="revanced_settings_submenu_title">সেটিংস</string>
   <string name="revanced_settings_confirm_user_dialog_title">আপনি কি এগিয়ে যেতে ইচ্ছুক?</string>
   <string name="revanced_settings_reset">আবার সেট করুন</string>
@@ -57,8 +57,8 @@ Second \"item\" text"</string>
   <string name="revanced_settings_about_links_header">অফিশ্যাল লিংকসমূহ</string>
   <!-- NOTE: the about strings above are duplicated in the TikTok about screen code,
                  and changes made here must also be made there. -->
-  </patch>
-  <patch id="misc.gms.gmsCoreSupportResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.gms.gmsCoreSupportResourcePatch"> -->
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="gms_core_toast_not_installed_message">MicroG GmsCore ইনস্টল করা হয়নি। ইনস্টল করুন।</string>
   <string name="gms_core_dialog_title">পদক্ষেপ প্রয়োজন</string>
@@ -74,10 +74,10 @@ MicroG-এর জন্য ব্যাটারি অপ্টিমাইজ�
 
 চালিয়ে যান বোতামটি ট্যাপ করুন এবং অপ্টিমাইজেশন পরিবর্তনগুলি অনুমোদন করুন।"</string>
   <string name="gms_core_dialog_continue_text">এগিয়ে যান</string>
-  </patch>
-  </app>
-  <app id="youtube">
-  <patch id="misc.settings.settingsPatch">
+  <!-- </patch> -->
+  <!-- </app> -->
+  <!-- <app id="youtube"> -->
+  <!-- <patch id="misc.settings.settingsPatch"> -->
   <string name="revanced_settings_screen_00_about_title">সম্পর্কিত</string>
   <string name="revanced_settings_screen_01_ads_title">বিজ্ঞাপন</string>
   <string name="revanced_settings_screen_02_alt_thumbnails_title">বিকল্প থাম্বনেইল</string>
@@ -91,13 +91,13 @@ MicroG-এর জন্য ব্যাটারি অপ্টিমাইজ�
   <string name="revanced_restore_old_settings_menus_title">পুরানো সেটিংস মেনু পুনরুদ্ধার করুন</string>
   <string name="revanced_restore_old_settings_menus_summary_on">পুরাতন সেটিংস মেনু দেখানো হচ্ছে</string>
   <string name="revanced_restore_old_settings_menus_summary_off">পুরাতন সেটিংস মেনু দেখানো হচ্ছে না</string>
-  </patch>
-  <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.backgroundplayback.backgroundPlaybackPatch"> -->
   <string name="revanced_shorts_disable_background_playback_title">Shorts ব্যাকগ্রাউন্ড প্লে অক্ষম করুন</string>
   <string name="revanced_shorts_disable_background_playback_summary_on">Shorts ব্যাকগ্রাউন্ড প্লে অক্ষম করা হয়েছে</string>
   <string name="revanced_shorts_disable_background_playback_summary_off">Shorts ব্যাকগ্রাউন্ড প্লে সক্ষম করা হয়েছে</string>
-  </patch>
-  <patch id="misc.debugging.enableDebuggingPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.debugging.enableDebuggingPatch"> -->
   <string name="revanced_debug_screen_title">ডিবাগিং</string>
   <string name="revanced_debug_screen_summary">ডিবাগিং অপশন সক্রিয় বা নিষ্ক্রিয় করুন</string>
   <string name="revanced_debug_title">ডিবাগ লগিং</string>
@@ -115,8 +115,8 @@ MicroG-এর জন্য ব্যাটারি অপ্টিমাইজ�
   <string name="revanced_debug_toast_on_error_user_dialog_message">"ত্রুটি \"toast\" বন্ধ করে ReVanced ত্রুটি বিজ্ঞপ্তিগুলি লুকানো হয়।
 
 আপনি কোনও অপ্রত্যাশিত ঘটনার বিষয়ে অবহিত হবেন না।"</string>
-  </patch>
-  <patch id="layout.hide.general.hideLayoutComponentsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.general.hideLayoutComponentsPatch"> -->
   <string name="revanced_hide_album_cards_title">অ্যালবাম কার্ড লুকান</string>
   <string name="revanced_hide_album_cards_summary_on">অ্যালবাম কার্ড লুকিয়ে রয়েছে</string>
   <string name="revanced_hide_album_cards_summary_off">অ্যালবাম কার্ড প্রদর্শিত হয়েছে</string>
@@ -340,8 +340,8 @@ MicroG-এর জন্য ব্যাটারি অপ্টিমাইজ�
   <string name="revanced_hide_keyword_toast_invalid_conflicting">কিওয়ার্ডের দ্বন্দ্বপূর্ণ ঘোষণা আছে: %s</string>
   <string name="revanced_hide_keyword_toast_invalid_length">কিওয়ার্ড খুব ছোট এবং উদ্ধৃতি প্রয়োজন: %s</string>
   <string name="revanced_hide_keyword_toast_invalid_broad">কিওয়ার্ড সমস্ত ভিডিও লুকিয়ে রাখবে: %s</string>
-  </patch>
-  <patch id="ad.general.hideAdsResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="ad.general.hideAdsResourcePatch"> -->
   <string name="revanced_hide_general_ads_title">সাধারণ বিজ্ঞাপন লুকান</string>
   <string name="revanced_hide_general_ads_summary_on">সাধারণ বিজ্ঞাপন লুকিয়ে রয়েছে</string>
   <string name="revanced_hide_general_ads_summary_off">সাধারণ বিজ্ঞাপন প্রদর্শিত হয়েছে</string>
@@ -383,18 +383,18 @@ MicroG-এর জন্য ব্যাটারি অপ্টিমাইজ�
   <string name="revanced_hide_merchandise_banners_summary_off">পণ্যদ্রব্যের ব্যানার প্রদর্শিত হয়েছে</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_hide_fullscreen_ads_feature_not_available_toast">পূর্ণস্ক্রীন বিজ্ঞাপন লুকানো পুরোনো ডিভাইসে কাজ করে</string>
-  </patch>
-  <patch id="ad.getpremium.hideGetPremiumPatch">
+  <!-- </patch> -->
+  <!-- <patch id="ad.getpremium.hideGetPremiumPatch"> -->
   <string name="revanced_hide_get_premium_title">YouTube প্রিমিয়াম প্রচারণা লুকান</string>
   <string name="revanced_hide_get_premium_summary_on">ভিডিওর নিচের YouTube প্রিমিয়াম প্রচারণা লুকিয়ে রয়েছে</string>
   <string name="revanced_hide_get_premium_summary_off">ভিডিওর নিচের YouTube প্রিমিয়াম প্রচারণা প্রদর্শিত হয়েছে</string>
-  </patch>
-  <patch id="ad.video.videoAdsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="ad.video.videoAdsPatch"> -->
   <string name="revanced_hide_video_ads_title">ভিডিও বিজ্ঞাপন লুকান</string>
   <string name="revanced_hide_video_ads_summary_on">ভিডিও বিজ্ঞাপন লুকিয়ে রয়েছে</string>
   <string name="revanced_hide_video_ads_summary_off">ভিডিও বিজ্ঞাপন প্রদর্শিত হয়েছে</string>
-  </patch>
-  <patch id="interaction.copyvideourl.copyVideoUrlResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="interaction.copyvideourl.copyVideoUrlResourcePatch"> -->
   <string name="revanced_share_copy_url_success">ক্লিপবোর্ডে URL অনুলিপি করা হয়েছে</string>
   <string name="revanced_share_copy_url_timestamp_success">টাইমস্ট্যাম্প সহ URL অনুলিপি করা হয়েছে</string>
   <string name="revanced_copy_video_url_title">ভিডিও URL অনুলিপি বোতাম দেখান</string>
@@ -403,14 +403,14 @@ MicroG-এর জন্য ব্যাটারি অপ্টিমাইজ�
   <string name="revanced_copy_video_url_timestamp_title">টাইমস্ট্যাম্প URL অনুলিপি বোতাম দেখান</string>
   <string name="revanced_copy_video_url_timestamp_summary_on">বোতামটি দেখানো হয়েছে। টাইমস্ট্যাম্প সহ ভিডিও URL কপি করতে আলতো চাপুন। টাইমস্ট্যাম্প ছাড়া কপি করতে টিপুন এবং ধরে রাখুন।</string>
   <string name="revanced_copy_video_url_timestamp_summary_off">বোতাম প্রদর্শিত হয়নি</string>
-  </patch>
-  <patch id="interaction.dialog.removeViewerDiscretionDialogPatch">
+  <!-- </patch> -->
+  <!-- <patch id="interaction.dialog.removeViewerDiscretionDialogPatch"> -->
   <string name="revanced_remove_viewer_discretion_dialog_title">দর্শকের বিচক্ষণতা ডায়ালগ সরান</string>
   <string name="revanced_remove_viewer_discretion_dialog_summary_on">ডায়ালগ সরানো হবে</string>
   <string name="revanced_remove_viewer_discretion_dialog_summary_off">ডায়ালগ প্রদর্শিত হবে</string>
   <string name="revanced_remove_viewer_discretion_dialog_user_dialog_message">এটি বয়সের সীমাবদ্ধতাকে বাইপাস করে না। এটা শুধু স্বয়ংক্রিয়ভাবে গ্রহণ করে।</string>
-  </patch>
-  <patch id="interaction.downloads.downloadsResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="interaction.downloads.downloadsResourcePatch"> -->
   <string name="revanced_external_downloader_screen_title">বাহিরে ডাউনলোড</string>
   <string name="revanced_external_downloader_screen_summary">বাহিরের ডাউনলোডার ব্যবহার করার সেটিং</string>
   <string name="revanced_external_downloader_title">বাহিরের ডাউনলোডার বাটন দেখান</string>
@@ -423,18 +423,18 @@ MicroG-এর জন্য ব্যাটারি অপ্টিমাইজ�
   <string name="revanced_external_downloader_name_title">ডাউনলোডারের প্যাকেজ নাম</string>
   <string name="revanced_external_downloader_name_summary">আপনার ইনস্টল করা বাইরের ডাউনলোডার অ্যাপের প্যাকেজ নাম, যেমন NewPipe বা Seal</string>
   <string name="revanced_external_downloader_not_installed_warning">%s ইনস্টল করা নেই, ইনস্টল করুন।</string>
-  </patch>
-  <patch id="interaction.seekbar.disablePreciseSeekingGesturePatch">
+  <!-- </patch> -->
+  <!-- <patch id="interaction.seekbar.disablePreciseSeekingGesturePatch"> -->
   <string name="revanced_disable_precise_seeking_gesture_title">ভিডিওর নির্দিষ্ট অংশে যাওয়ার অঙ্গভঙ্গি নিষ্ক্রিয় করুন</string>
   <string name="revanced_disable_precise_seeking_gesture_summary_on">অঙ্গভঙ্গি নিষ্ক্রিয় করা হয়েছে</string>
   <string name="revanced_disable_precise_seeking_gesture_summary_off">অঙ্গভঙ্গি সক্রিয় করা হয়েছে</string>
-  </patch>
-  <patch id="interaction.seekbar.enableSeekbarTappingPatch">
+  <!-- </patch> -->
+  <!-- <patch id="interaction.seekbar.enableSeekbarTappingPatch"> -->
   <string name="revanced_seekbar_tapping_title">ভিডিওর নির্দিষ্ট অংশে যেতে ট্যাপ করা সক্রিয় করুন</string>
   <string name="revanced_seekbar_tapping_summary_on">ট্যাপ করে খোঁজা সক্রিয় করা হয়েছে</string>
   <string name="revanced_seekbar_tapping_summary_off">ভিডিওর নির্দিষ্ট অংশে যেতে ট্যাপ করা নিষ্ক্রিয় করা হয়েছে</string>
-  </patch>
-  <patch id="interaction.swipecontrols.swipeControlsResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="interaction.swipecontrols.swipeControlsResourcePatch"> -->
   <string name="revanced_swipe_brightness_title">উজ্জ্বলতার সোয়াইপ অঙ্গভঙ্গি সক্রিয় করুন</string>
   <string name="revanced_swipe_brightness_summary_on">"Fullscreen brightness swipe enabled আছে
 
@@ -473,13 +473,13 @@ MicroG-এর জন্য ব্যাটারি অপ্টিমাইজ�
   <string name="revanced_swipe_change_video_title">ভিডিও পরিবর্তন করতে সোয়াইপ করে সক্ষম করুন</string>
   <string name="revanced_swipe_change_video_summary_on">ফুলস্ক্রিন মোডে সোয়াইপ করলে পরবর্তী/পূর্ববর্তী ভিডিওতে পরিবর্তন হবে</string>
   <string name="revanced_swipe_change_video_summary_off">ফুলস্ক্রিন মোডে সোয়াইপ করলে পরবর্তী /পূর্ববর্তী ভিডিওতে পরিবর্তন হবে না</string>
-  </patch>
-  <patch id="layout.autocaptions.autoCaptionsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.autocaptions.autoCaptionsPatch"> -->
   <string name="revanced_auto_captions_title">স্বয়ংক্রিয় ক্যাপশন বন্ধ করুন</string>
   <string name="revanced_auto_captions_summary_on">অটো ক্যাপশন বন্ধ করা হয়েছে</string>
   <string name="revanced_auto_captions_summary_off">অটো ক্যাপশন চালু করা হয়েছে</string>
-  </patch>
-  <patch id="layout.buttons.action.hideButtonsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.buttons.action.hideButtonsPatch"> -->
   <string name="revanced_hide_buttons_screen_title">অ্যাকশন বোতাম</string>
   <string name="revanced_hide_buttons_screen_summary">ভিডিওর নীচে বোতাম লুকানো বা দেখানো</string>
   <string name="revanced_disable_like_subscribe_glow_title">লাইক এবং সাবস্ক্রাইব বোতাম গ্লো বন্ধ করুন</string>
@@ -517,8 +517,8 @@ MicroG-এর জন্য ব্যাটারি অপ্টিমাইজ�
   <string name="revanced_hide_playlist_button_title">প্লেলিস্টে Save লুকান</string>
   <string name="revanced_hide_playlist_button_summary_on">প্লেলিস্টে Save বোতাম লুকানো আছে</string>
   <string name="revanced_hide_playlist_button_summary_off">প্লেলিস্টে Save বোতাম দেখানো হচ্ছে</string>
-  </patch>
-  <patch id="layout.buttons.navigation.navigationButtonsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.buttons.navigation.navigationButtonsPatch"> -->
   <string name="revanced_navigation_buttons_screen_title">নেভিগেশন বোতাম</string>
   <string name="revanced_navigation_buttons_screen_summary">নেভিগেশন বারে বোতাম লুকান বা পরিবর্তন করুন</string>
   <!-- 'Home' should be translated using the same localized wording YouTube displays for the tab. -->
@@ -555,14 +555,15 @@ MicroG-এর জন্য ব্যাটারি অপ্টিমাইজ�
   <string name="revanced_disable_translucent_status_bar_title">অর্ধস্বচ্ছ স্থিতি বার নিষ্ক্রিয় করুন</string>
   <string name="revanced_disable_translucent_status_bar_summary_on">স্ট্যাটাস বারটি অস্বচ্ছ</string>
   <string name="revanced_disable_translucent_status_bar_summary_off">স্ট্যাটাস বারটি অস্বচ্ছ বা স্বচ্ছ</string>
+  <string name="revanced_disable_translucent_status_bar_user_dialog_message">কিছু ডিভাইসে, এই বৈশিষ্ট্যটি সক্ষম করলে সিস্টেম নেভিগেশন বার স্বচ্ছ হয়ে যেতে পারে।</string>
   <string name="revanced_disable_translucent_navigation_bar_light_title">অর্ধস্বচ্ছ হালকা বার নিষ্ক্রিয় করুন</string>
   <string name="revanced_disable_translucent_navigation_bar_light_summary_on">হালকা মোড নেভিগেশন বার অস্বচ্ছ</string>
   <string name="revanced_disable_translucent_navigation_bar_light_summary_off">লাইট মোড ন্যাভিগেশন বারটি অস্বচ্ছ বা স্বচ্ছ</string>
   <string name="revanced_disable_translucent_navigation_bar_dark_title">গাঢ় স্বচ্ছ বার অক্ষম করুন</string>
   <string name="revanced_disable_translucent_navigation_bar_dark_summary_on">গাঢ় মোড নেভিগেশন বার অস্বচ্ছ</string>
   <string name="revanced_disable_translucent_navigation_bar_dark_summary_off">গাঢ় মোড ন্যাভিগেশন বারটি অস্বচ্ছ বা স্বচ্ছ</string>
-  </patch>
-  <patch id="layout.hide.player.flyoutmenupanel.hidePlayerFlyoutMenuPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.player.flyoutmenupanel.hidePlayerFlyoutMenuPatch"> -->
   <string name="revanced_hide_player_flyout_title">ফ্লাইআউট মেনু</string>
   <string name="revanced_hide_player_flyout_summary">ফ্লাইআউট মেনুর আইটেম দেখান বা লুকান</string>
   <!-- 'Captions' should be translated using the same localized wording YouTube displays for the menu item. -->
@@ -616,8 +617,8 @@ MicroG-এর জন্য ব্যাটারি অপ্টিমাইজ�
   <string name="revanced_hide_player_flyout_video_quality_footer_title">ভিডিও গুণমান মেনুর ফুটার লুকান</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_on">ভিডিও গুণমান মেনু ফুটার লুকানো আছে</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_off">ভিডিও গুণমান মেনু ফুটার দেখানো হচ্ছে</string>
-  </patch>
-  <patch id="layout.buttons.overlay.hidePlayerOverlayButtonsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.buttons.overlay.hidePlayerOverlayButtonsPatch"> -->
   <string name="revanced_hide_player_previous_next_buttons_title">পূর্ববর্তী লুকান &amp; পরবর্তী বোতাম</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_on">বোতাম লুকানো হয়</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">বোতাম দেখানো হয়</string>
@@ -631,36 +632,36 @@ MicroG-এর জন্য ব্যাটারি অপ্টিমাইজ�
   <string name="revanced_hide_autoplay_button_title">অটোপ্লে বোতামটি লুকান</string>
   <string name="revanced_hide_autoplay_button_summary_on">autoplay বোতাম লুকানো আছে</string>
   <string name="revanced_hide_autoplay_button_summary_off">autoplay বোতাম দেখানো হচ্ছে</string>
-  </patch>
-  <patch id="layout.hide.endscreencards.hideEndscreenCardsResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.endscreencards.hideEndscreenCardsResourcePatch"> -->
   <string name="revanced_hide_endscreen_cards_title">শেষ স্ক্রীন কার্ড লুকান</string>
   <string name="revanced_hide_endscreen_cards_summary_on">শেষ স্ক্রীন কার্ড লুকিয়ে রয়েছে</string>
   <string name="revanced_hide_endscreen_cards_summary_off">শেষ স্ক্রীন কার্ড প্রদর্শিত হয়েছে</string>
-  </patch>
-  <patch id="layout.hide.fullscreenambientmode.disableFullscreenAmbientModePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.fullscreenambientmode.disableFullscreenAmbientModePatch"> -->
   <string name="revanced_disable_fullscreen_ambient_mode_title">ফুলস্ক্রিনে অ্যাম্বিয়েন্ট মোডটি অক্ষম করুন</string>
   <string name="revanced_disable_fullscreen_ambient_mode_summary_on">অ্যাম্বিয়েন্ট মোড নিষ্ক্রিয় করা হয়েছে</string>
   <string name="revanced_disable_fullscreen_ambient_mode_summary_off">অ্যাম্বিয়েন্ট মোড সক্রিয় করা হয়েছে</string>
-  </patch>
-  <patch id="layout.hide.infocards.hideInfocardsResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.infocards.hideInfocardsResourcePatch"> -->
   <string name="revanced_hide_info_cards_title">তথ্য কার্ড লুকান</string>
   <string name="revanced_hide_info_cards_summary_on">তথ্য কার্ড লুকিয়ে রয়েছে</string>
   <string name="revanced_hide_info_cards_summary_off">তথ্য কার্ড প্রদর্শিত হয়েছে</string>
-  </patch>
-  <patch id="layout.hide.rollingnumber.disableRollingNumberAnimationPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.rollingnumber.disableRollingNumberAnimationPatch"> -->
   <string name="revanced_disable_rolling_number_animations_title">রোলিং নাম্বার অ্যানিমেশন নিষ্ক্রিয় করুন</string>
   <string name="revanced_disable_rolling_number_animations_summary_on">রোলিং নাম্বার অ্যানিমেটেড নয়</string>
   <string name="revanced_disable_rolling_number_animations_summary_off">রোলিং নাম্বার অ্যানিমেটেড</string>
-  </patch>
-  <patch id="layout.hide.seekbar.hideSeekbarPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.seekbar.hideSeekbarPatch"> -->
   <string name="revanced_hide_seekbar_title">ভিডিও প্লেয়ারে সিকবার লুকান</string>
   <string name="revanced_hide_seekbar_summary_on">ভিডিও প্লেয়ারে সিকবার লুকিয়ে রয়েছে</string>
   <string name="revanced_hide_seekbar_summary_off">ভিডিও প্লেয়ারে সিকবার প্রদর্শিত হয়েছে</string>
   <string name="revanced_hide_seekbar_thumbnail_title">ভিডিও থাম্বনেইলে সিকবার লুকান</string>
   <string name="revanced_hide_seekbar_thumbnail_summary_on">থাম্বনেইলে সিকবার লুকিয়ে রয়েছে</string>
   <string name="revanced_hide_seekbar_thumbnail_summary_off">থাম্বনেইলে সিকবার প্রদর্শিত হয়েছে</string>
-  </patch>
-  <patch id="layout.hide.shorts.hideShortsComponentsResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.shorts.hideShortsComponentsResourcePatch"> -->
   <string name="revanced_shorts_player_screen_title">Shorts প্লেয়ার</string>
   <string name="revanced_shorts_player_screen_summary">Shorts প্লেয়ারে উপাদান লুকানো বা দেখানো</string>
   <!-- 'home' should be translated using the same localized wording YouTube displays for the home tab. -->
@@ -762,43 +763,43 @@ MicroG-এর জন্য ব্যাটারি অপ্টিমাইজ�
   <string name="revanced_hide_shorts_navigation_bar_title">নেভিগেশন বার লুকান</string>
   <string name="revanced_hide_shorts_navigation_bar_summary_on">নেভিগেশন বার লুকিয়ে রয়েছে</string>
   <string name="revanced_hide_shorts_navigation_bar_summary_off">পনেভিগেশন বার প্রদর্শিত হয়েছে</string>
-  </patch>
-  <patch id="layout.hide.endscreensuggestion.hideEndScreenSuggestedVideoPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.endscreensuggestion.hideEndScreenSuggestedVideoPatch"> -->
   <string name="revanced_end_screen_suggested_video_title">শেষ স্ক্রীনে প্রস্তাবিত ভিডিও লুকানো হবে</string>
   <string name="revanced_end_screen_suggested_video_summary_on">"অটো প্লে বন্ধ থাকলে শেষ স্ক্রীনে প্রস্তাবিত ভিডিও লুকানো থাকে
 
 YouTube সেটিংসে অটো প্লে পরিবর্তন করা যেতে পারে:
 সেটিংস → প্লেব্যাক → অটো প্লে পরবর্তী ভিডিও"</string>
   <string name="revanced_end_screen_suggested_video_summary_off">শেষ স্ক্রীনে প্রস্তাবিত ভিডিও দেখানো হয়েছে</string>
-  </patch>
-  <patch id="layout.hide.time.hideTimestampPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.time.hideTimestampPatch"> -->
   <string name="revanced_hide_timestamp_title">ভিডিওর সময়স্ট্যাম্প লুকান</string>
   <string name="revanced_hide_timestamp_summary_on">সময়স্ট্যাম্প লুকিয়ে রয়েছে</string>
   <string name="revanced_hide_timestamp_summary_off">সময়স্ট্যাম্প প্রদর্শিত হয়েছে</string>
-  </patch>
-  <patch id="layout.panels.popup.playerPopupPanelsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.panels.popup.playerPopupPanelsPatch"> -->
   <string name="revanced_hide_player_popup_panels_title">প্লেয়ার পপআপ প্যানেলগুলো লুকান</string>
   <string name="revanced_hide_player_popup_panels_summary_on">প্লেয়ার পপআপ প্যানেলগুলো লুকিয়ে রয়েছে</string>
   <string name="revanced_hide_player_popup_panels_summary_off">প্লেয়ার পপআপ প্যানেলগুলো প্রদর্শিত হয়েছে</string>
-  </patch>
-  <patch id="layout.player.fullscreen.exitFullscreenPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.player.fullscreen.exitFullscreenPatch"> -->
   <string name="revanced_exit_fullscreen_title">ভিডিও শেষ হওয়ার সময় পূর্ণ পর্দা মোড থেকে বেরিয়ে যান</string>
   <string name="revanced_exit_fullscreen_entry_1">নিষ্ক্রিয়</string>
   <string name="revanced_exit_fullscreen_entry_2">আনুভূমিক</string>
   <string name="revanced_exit_fullscreen_entry_3">ল্যান্ডস্কেপ</string>
   <string name="revanced_exit_fullscreen_entry_4">আনুভূমিক এবং ল্যান্ডস্কেপ</string>
-  </patch>
-  <patch id="layout.player.fullscreen.openVideosFullscreen">
+  <!-- </patch> -->
+  <!-- <patch id="layout.player.fullscreen.openVideosFullscreen"> -->
   <string name="revanced_open_videos_fullscreen_portrait_title">পূর্ণ পর্দায় ভিডিও খুলুন</string>
   <string name="revanced_open_videos_fullscreen_portrait_summary_on">ভিডিও পূর্ণ পর্দায় খুলবে</string>
   <string name="revanced_open_videos_fullscreen_portrait_summary_off">ভিডিও পূর্ণ পর্দায় খুলবে না</string>
-  </patch>
-  <patch id="layout.player.overlay.customPlayerOverlayOpacityResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.player.overlay.customPlayerOverlayOpacityResourcePatch"> -->
   <string name="revanced_player_overlay_opacity_title">প্লেয়ার ওভারলে অস্বচ্ছতা</string>
   <string name="revanced_player_overlay_opacity_summary">অসচ্ছতা মান ০-১০০ এর মধ্যে, যেখানে ০ হল সম্পূর্ণ স্বচ্ছ</string>
   <string name="revanced_player_overlay_opacity_invalid_toast">প্লেয়ার ওভারলে অস্বচ্ছতা অবশ্যই ০-১০০ এর মধ্যে হতে হবে</string>
-  </patch>
-  <patch id="layout.returnyoutubedislike.returnYouTubeDislikePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.returnyoutubedislike.returnYouTubeDislikePatch"> -->
   <!-- Toast shown if network connection times out. Translations of this should not be longer than the original English or the text can be clipped and not entirely shown. -->
   <string name="revanced_ryd_failure_connection_timeout">অপছন্দ সাময়িকভাবে উপলভ্য নয় (API সময় শেষ হয়েছে)</string>
   <string name="revanced_ryd_failure_connection_status_code">অপছন্দ উপলভ্য নয় (অবস্থা %d)</string>
@@ -847,13 +848,13 @@ YouTube সেটিংসে অটো প্লে পরিবর্তন �
   <string name="revanced_ryd_statistics_getNumberOfRateLimitRequestsEncountered_zero_summary">কোন ক্লায়েন্ট লিমিট এর সম্মুখীন হয়নি</string>
   <string name="revanced_ryd_statistics_getNumberOfRateLimitRequestsEncountered_non_zero_summary">%d বার ক্লায়েন্ট রেট লিমিট এর সম্মুখীন হয়েছে</string>
   <string name="revanced_ryd_statistics_millisecond_text">%d মিলিসেকেন্ড</string>
-  </patch>
-  <patch id="layout.searchbar.wideSearchbarPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.searchbar.wideSearchbarPatch"> -->
   <string name="revanced_wide_searchbar_title">প্রশস্ত অনুসন্ধান বার সক্রিয় করুন</string>
   <string name="revanced_wide_searchbar_summary_on">প্রশস্ত অনুসন্ধান বার সক্রিয় হয়েছে</string>
   <string name="revanced_wide_searchbar_summary_off">প্রশস্ত অনুসন্ধান বার নিষ্ক্রিয় হয়েছে</string>
-  </patch>
-  <patch id="layout.seekbar.seekbarThumbnailsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.seekbar.seekbarThumbnailsPatch"> -->
   <string name="revanced_seekbar_thumbnails_high_quality_title">উচ্চমানের থাম্বনেইল সক্ষম করুন</string>
   <string name="revanced_seekbar_thumbnails_high_quality_summary_on">সিকবার থাম্বনেইল উচ্চমানের</string>
   <string name="revanced_seekbar_thumbnails_high_quality_summary_off">সিকবার থাম্বনেইল মাঝারিমানের</string>
@@ -867,8 +868,8 @@ YouTube সেটিংসে অটো প্লে পরিবর্তন �
   <string name="revanced_restore_old_seekbar_thumbnails_title">পুরোনো সিকবার থাম্বনেইল পুনরুদ্ধার করুন</string>
   <string name="revanced_restore_old_seekbar_thumbnails_summary_on">সিকবার এর উপরে সিকবার থাম্বনেইল দেখানো হবে</string>
   <string name="revanced_restore_old_seekbar_thumbnails_summary_off">পূর্ণস্ক্রীণে সিকবার থাম্বনেইল দেখানো হবে</string>
-  </patch>
-  <patch id="layout.sponsorblock.sponsorBlockResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.sponsorblock.sponsorBlockResourcePatch"> -->
   <string name="revanced_sb_enable_sb">SponsorBlock সক্রিয় করুন</string>
   <string name="revanced_sb_enable_sb_sum">SponsorBlock হল YouTube ভিডিওর বিরক্তিকর অংশগুলি স্কিপ করার জন্য একটি ক্রাউডসোর্সড সিস্টেম</string>
   <string name="revanced_sb_appearance_category">রূপ</string>
@@ -1066,8 +1067,8 @@ YouTube সেটিংসে অটো প্লে পরিবর্তন �
   <string name="revanced_sb_reset">পুনরায় সেট করুন</string>
   <string name="revanced_sb_about">সম্পর্কিত</string>
   <string name="revanced_sb_about_api_sum">ডেটা SponsorBlock API দ্বারা সরবরাহ করা হয়। আরও জানতে এবং অন্যান্য প্ল্যাটফর্মের ডাউনলোড দেখতে এখানে ট্যাপ করুন</string>
-  </patch>
-  <patch id="layout.formfactor.changeFormFactorPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.formfactor.changeFormFactorPatch"> -->
   <string name="revanced_change_form_factor_title">লেআউট ফর্ম ফ্যাক্টর</string>
   <string name="revanced_change_form_factor_entry_1">ডিফল্ট</string>
   <string name="revanced_change_form_factor_entry_2">ফোন</string>
@@ -1081,8 +1082,8 @@ YouTube সেটিংসে অটো প্লে পরিবর্তন �
 অটোমোটিভ লেআউট
 • Shorts নিয়মিত প্লেয়ারে খোলে
 • ফিড বিষয় এবং চ্যানেল দ্বারা সংগঠিত"</string>
-  </patch>
-  <patch id="layout.spoofappversion.spoofAppVersionPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.spoofappversion.spoofAppVersionPatch"> -->
   <string name="revanced_spoof_app_version_title">অ্যাপ সংস্করণ স্পুফ করুন</string>
   <string name="revanced_spoof_app_version_summary_on">সংস্করণ স্পুফ করা হয়েছে</string>
   <string name="revanced_spoof_app_version_summary_off">সংস্করণ স্পুফ করা হয়নি</string>
@@ -1096,8 +1097,8 @@ YouTube সেটিংসে অটো প্লে পরিবর্তন �
   <string name="revanced_spoof_app_version_target_title">স্পুফ অ্যাপ সংস্করণ লক্ষ্য</string>
   <string name="revanced_spoof_app_version_target_entry_1">19.35.36 - পুরনো Shorts প্লেয়ার আইকন পুনরুদ্ধার করুন</string>
   <string name="revanced_spoof_app_version_target_entry_2">19.01.34 - পুরনো নেভিগেশন আইকন পুনরুদ্ধার করুন</string>
-  </patch>
-  <patch id="layout.startpage.changeStartPagePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.startpage.changeStartPagePatch"> -->
   <string name="revanced_change_start_page_title">শুরুর পৃষ্ঠা সেট করুন</string>
   <string name="revanced_change_start_page_entry_default">পূর্ব-নির্ধারিত</string>
   <string name="revanced_change_start_page_entry_all_subscriptions">অন্য়াসব রভর্বাশার চিয়ুট</string>
@@ -1123,27 +1124,27 @@ YouTube সেটিংসে অটো প্লে পরিবর্তন �
   <string name="revanced_change_start_page_entry_virtual_reality">বির্চুভ্য়াল টিএলিটি</string>
   <string name="revanced_change_start_page_entry_watch_later">পরে দেখুন</string>
   <string name="revanced_change_start_page_entry_your_clips">আপ্নার কলিপ</string>
-  </patch>
-  <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch"> -->
   <string name="revanced_disable_resuming_shorts_player_title">Shorts প্লেয়ার আবার চালানো নিষ্ক্রিয় করুন</string>
   <string name="revanced_disable_resuming_shorts_player_summary_on">অ্যাপের শুরুতে Shorts প্লেয়ার আবার চলবে না</string>
   <string name="revanced_disable_resuming_shorts_player_summary_off">অ্যাপের শুরুতে Shorts প্লেয়ার আবার চলবে</string>
-  </patch>
-  <patch id="layout.shortsplayer.shortsPlayerTypePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.shortsplayer.shortsPlayerTypePatch"> -->
   <string name="revanced_shorts_player_type_title">Shorts সঙ্গে খুলুন</string>
   <string name="revanced_shorts_player_type_shorts">Shorts প্লেয়ার</string>
   <string name="revanced_shorts_player_type_regular_player">নিয়মিত প্লেয়ার</string>
   <string name="revanced_shorts_player_type_regular_player_fullscreen">নিয়মিত প্লেয়ার পূর্ণ পর্দা</string>
-  </patch>
-  <patch id="layout.shortsautoplay.shortsAutoplayPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.shortsautoplay.shortsAutoplayPatch"> -->
   <string name="revanced_shorts_autoplay_title">অটোপ্লে Shorts</string>
   <string name="revanced_shorts_autoplay_summary_on">Shorts অটোপ্লে হবে</string>
   <string name="revanced_shorts_autoplay_summary_off">Shorts পুনরাবৃত্তি হবে</string>
   <string name="revanced_shorts_autoplay_background_title">পটভূমিতে Shorts অটোপ্লে</string>
   <string name="revanced_shorts_autoplay_background_summary_on">পটভূমিতে Shorts অটোপ্লে হবে</string>
   <string name="revanced_shorts_autoplay_background_summary_off">পটভূমিতে Shorts পুনরাবৃত্তি হবে</string>
-  </patch>
-  <patch id="layout.miniplayer.miniplayerPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.miniplayer.miniplayerPatch"> -->
   <string name="revanced_miniplayer_screen_title">মিনিপ্লেয়ার</string>
   <string name="revanced_miniplayer_screen_summary">ইন-অ্যাপ মিনিমাইজড প্লেয়ারের শৈলী পরিবর্তন করুন</string>
   <string name="revanced_miniplayer_type_title">মিনিপ্লেয়ার ধরণ</string>
@@ -1193,8 +1194,8 @@ Miniplayer স্ক্রিন থেকে বামে বা ডানে �
   <string name="revanced_miniplayer_opacity_title">ওভারলে অস্বচ্ছতা</string>
   <string name="revanced_miniplayer_opacity_summary">অসচ্ছতা মান ০-১০০ এর মধ্যে, যেখানে ০ হল সম্পূর্ণ স্বচ্ছ</string>
   <string name="revanced_miniplayer_opacity_invalid_toast">মিনিপ্লেয়ার ওভারলে অস্বচ্ছতা অবশ্যই ০-১০০ এর মধ্যে হতে হবে</string>
-  </patch>
-  <patch id="layout.theme.themePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.theme.themePatch"> -->
   <string name="revanced_gradient_loading_screen_title">গ্রেডিয়েন্ট লোডিং স্ক্রিণ সক্রিয় করুন</string>
   <string name="revanced_gradient_loading_screen_summary_on">লোডিং স্ক্রিণে একটি গ্রেডিয়েন্ড ব্যাকগ্রাউন্ড থাকবে</string>
   <string name="revanced_gradient_loading_screen_summary_off">লোডিং স্ক্রিণে একটি সলিড ব্যাকগ্রাউন্ড থাকবে</string>
@@ -1206,15 +1207,15 @@ Miniplayer স্ক্রিন থেকে বামে বা ডানে �
   <string name="revanced_seekbar_custom_color_accent_title">সিলেক্ট কাস্টম সিকবার এক্সেন্ট কালার</string>
   <string name="revanced_seekbar_custom_color_accent_summary">সিকবারের এক্সেন্ট রঙ</string>
   <string name="revanced_seekbar_custom_color_invalid">অবৈধ সিকবার রঙ মান</string>
-  </patch>
-  <patch id="layout.thumbnails.bypassImageRegionRestrictionsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.thumbnails.bypassImageRegionRestrictionsPatch"> -->
   <string name="revanced_bypass_image_region_restrictions_title">ছবি অঞ্চল সীমাবদ্ধতা বাইপাস করুন</string>
   <string name="revanced_bypass_image_region_restrictions_summary_on">yt4.ggpht.com ছবি হোস্ট ব্যবহার করে</string>
   <string name="revanced_bypass_image_region_restrictions_summary_off">"মূল ছবি হোস্ট ব্যবহার করে
 
 এটি সক্ষম করলে কিছু অঞ্চলে ব্লক করা থাকা অনুপস্থিত ছবিগুলি সংশোধন করতে পারে"</string>
-  </patch>
-  <patch id="layout.thumbnails.alternativeThumbnailsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.thumbnails.alternativeThumbnailsPatch"> -->
   <!-- 'Home' should be translated using the same localized wording YouTube displays for the home tab. -->
   <string name="revanced_alt_thumbnail_home_title">হোম ট্যাব</string>
   <!-- 'Subscription' should be translated using the same localized wording YouTube displays for the subscription tab. -->
@@ -1249,26 +1250,26 @@ DeArrow সম্পর্কে আরও জানতে এখানে ট�
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_alt_thumbnail_dearrow_error">DeArrow সাময়িকভাবে উপলব্ধ নেই (স্ট্যাটাস কোড: %s)</string>
   <string name="revanced_alt_thumbnail_dearrow_error_generic">DeArrow সাময়িকভাবে উপলব্ধ নেই</string>
-  </patch>
-  <patch id="misc.announcements.announcementsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.announcements.announcementsPatch"> -->
   <string name="revanced_announcements_title">ReVanced ঘোষণা দেখান</string>
   <string name="revanced_announcements_summary_on">স্টার্টআপে ঘোষণাগুলি দেখানো হয়েছে</string>
   <string name="revanced_announcements_summary_off">স্টার্টআপে ঘোষণাগুলি দেখানো হয়নি</string>
   <string name="revanced_announcements_enabled_summary">শুরুতে ঘোষণা দেখান</string>
   <string name="revanced_announcements_connection_failed">ঘোষনাদাতার সাথে সম্পর্ক স্থাপন ব্যর্থ হয়েছে</string>
   <string name="revanced_announcements_dialog_dismiss">বাতিল করুন</string>
-  </patch>
-  <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch"> -->
   <string name="revanced_check_watch_history_domain_name_dialog_title">সতর্কীকরণ</string>
   <string name="revanced_check_watch_history_domain_name_dialog_message">আপনার দেখার ইতিহাস সংরক্ষিত হচ্ছে না।&lt;br&gt;&lt;br&gt;এটি সম্ভবত DNS অ্যাড ব্লকার অথবা নেটওয়ার্ক প্রক্সির কারণে।&lt;br&gt;&lt;br&gt;এটি ঠিক করার জন্য, &lt;b&gt;s.youtube.com&lt;/b&gt;  সাদা তালিকাভুক্ত করুন অথবা সকল DNS ব্লকার এবং প্রক্সি বন্ধ করুন।</string>
   <string name="revanced_check_watch_history_domain_name_dialog_ignore">আবার দেখাবেন না</string>
-  </patch>
-  <patch id="misc.autorepeat.autoRepeatPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.autorepeat.autoRepeatPatch"> -->
   <string name="revanced_auto_repeat_title">স্বয়ংক্রিয়ভাবে-আবার দেখানো সক্রিয় করুন</string>
   <string name="revanced_auto_repeat_summary_on">স্বয়ংক্রিয়ভাবে-আবার দেখানো সক্রিয় হয়েছে</string>
   <string name="revanced_auto_repeat_summary_off">স্বয়ংক্রিয়ভাবে-আবার দেখানো সক্রিয় নিষ্ক্রিয় হয়েছে</string>
-  </patch>
-  <patch id="misc.dimensions.spoof.spoofDeviceDimensionsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.dimensions.spoof.spoofDeviceDimensionsPatch"> -->
   <string name="revanced_spoof_device_dimensions_title">ডিভাইস ডাইমেনশন স্পুফ করুন</string>
   <string name="revanced_spoof_device_dimensions_summary_on">"ডিভাইসের মাত্রা ভুয়া
 
@@ -1277,39 +1278,39 @@ DeArrow সম্পর্কে আরও জানতে এখানে ট�
 
 এটি সক্রিয় করা উচ্চ ভিডিও গুণমানগুলি আনলক করতে পারে"</string>
   <string name="revanced_spoof_device_dimensions_user_dialog_message">এটি সক্রিয় করার ফলে আপনি ভিডিও চলার ক্ষেত্রে আটকে চলা, খারাপ ব্যাটারি লাইফ এবং অজানা পার্শ্ব-প্রতিক্রিয়ার সম্মুখিন হতে পারেন।</string>
-  </patch>
-  <patch id="misc.gms.gmsCoreSupportResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.gms.gmsCoreSupportResourcePatch"> -->
   <string name="microg_settings_title">GmsCore সেটিং</string>
   <string name="microg_settings_summary">GmsCore এর জন্য সেটিং</string>
-  </patch>
-  <patch id="misc.links.bypassURLRedirectsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.links.bypassURLRedirectsPatch"> -->
   <string name="revanced_bypass_url_redirects_title">URL পুনঃনির্দেশ বাইপাস করুন</string>
   <string name="revanced_bypass_url_redirects_summary_on">URL পুনঃনির্দেশ বাইপাস করছে</string>
   <string name="revanced_bypass_url_redirects_summary_off">URL পুনঃনির্দেশ বাইপাস করেনি</string>
-  </patch>
-  <patch id="misc.links.openLinksExternallyPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.links.openLinksExternallyPatch"> -->
   <string name="revanced_external_browser_title">লিংক ব্রাউজারে খুলুন</string>
   <string name="revanced_external_browser_summary_on">বাহ্যিক ব্রাউজারে লিঙ্ক খোলা হচ্ছে</string>
   <string name="revanced_external_browser_summary_off">ইন-অ্যাপ ব্রাউজারে লিঙ্ক খোলা হচ্ছে</string>
-  </patch>
-  <patch id="misc.privacy.removeTrackingQueryParameterPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.privacy.removeTrackingQueryParameterPatch"> -->
   <string name="revanced_remove_tracking_query_parameter_title">ট্র্যাকিং করার প্যারামিটার মুছুন</string>
   <string name="revanced_remove_tracking_query_parameter_summary_on">লিংক থেকে ট্র্যাকিং করার প্যারামিটার মুছে ফেলা হয়েছে</string>
   <string name="revanced_remove_tracking_query_parameter_summary_off">লিংক থেকে ট্র্যাকিং করার প্যারামিটার মুছে ফেলা হয়নি</string>
-  </patch>
-  <patch id="misc.zoomhaptics.zoomHapticsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.zoomhaptics.zoomHapticsPatch"> -->
   <string name="revanced_disable_zoom_haptics_title">জুম করার কম্পন নিষ্ক্রিয় করুন</string>
   <string name="revanced_disable_zoom_haptics_summary_on">কম্পন নিষ্ক্রিয় করা হয়েছে</string>
   <string name="revanced_disable_zoom_haptics_summary_off">কম্পন সক্রিয় করা হয়েছে</string>
-  </patch>
-  <patch id="video.audio.forceOriginalAudioPatch">
+  <!-- </patch> -->
+  <!-- <patch id="video.audio.forceOriginalAudioPatch"> -->
   <string name="revanced_force_original_audio_title">মূল অডিও ভাষা বলপূর্বক চালু করুন</string>
   <string name="revanced_force_original_audio_summary_on">মূল অডিও ভাষা ব্যবহার করা হচ্ছে</string>
   <string name="revanced_force_original_audio_summary_off">ডিফল্ট অডিও ব্যবহার করছে</string>
   <!-- 'Spoof video streams' should be the same translation used for revanced_spoof_video_streams_screen_title -->
   <string name="revanced_force_original_audio_not_available">এই বৈশিষ্ট্যটি ব্যবহার করতে, \'স্পুফ ভিডিও স্ট্রীম\' কে iOS TV-তে পরিবর্তন করুন</string>
-  </patch>
-  <patch id="video.quality.rememberVideoQualityPatch">
+  <!-- </patch> -->
+  <!-- <patch id="video.quality.rememberVideoQualityPatch"> -->
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
   <string name="revanced_video_quality_default_entry_1">স্বতস্ফূর্তভাবে</string>
   <string name="revanced_remember_video_quality_last_selected_title">ভিডিও গুণমান পরিবর্তন মনে রাখুন</string>
@@ -1326,13 +1327,13 @@ DeArrow সম্পর্কে আরও জানতে এখানে ট�
   <string name="revanced_remember_video_quality_wifi">ওয়াই-ফাই</string>
   <string name="revanced_remember_video_quality_toast">ডিফল্ট %1$s গুণমান পরিবর্তন হচ্ছে: %2$s</string>
   <string name="revanced_remember_video_quality_toast_shorts">Shorts %1$s এর গুণমান পরিবর্তন করে: %2$s</string>
-  </patch>
-  <patch id="video.speed.button.playbackSpeedButtonPatch">
+  <!-- </patch> -->
+  <!-- <patch id="video.speed.button.playbackSpeedButtonPatch"> -->
   <string name="revanced_playback_speed_dialog_button_title">স্পিড ডায়ালগ বোতাম দেখান</string>
   <string name="revanced_playback_speed_dialog_button_summary_on">বোতাম প্রদর্শিত হয়েছে</string>
   <string name="revanced_playback_speed_dialog_button_summary_off">বোতাম প্রদর্শিত হয়নি</string>
-  </patch>
-  <patch id="video.speed.custom.customPlaybackSpeedPatch">
+  <!-- </patch> -->
+  <!-- <patch id="video.speed.custom.customPlaybackSpeedPatch"> -->
   <string name="revanced_custom_speed_menu_title">কাস্টম প্লেব্যাক গতি মেনু</string>
   <string name="revanced_custom_speed_menu_summary_on">কাস্টম স্পিড মেনু দেখানো হচ্ছে</string>
   <string name="revanced_custom_speed_menu_summary_off">কাস্টম স্পিড মেনু দেখানো হচ্ছে না</string>
@@ -1343,30 +1344,30 @@ DeArrow সম্পর্কে আরও জানতে এখানে ট�
   <string name="revanced_custom_playback_speeds_auto">স্বতস্ফূর্তভাবে</string>
   <string name="revanced_speed_tap_and_hold_title">কাস্টম ট্যাপ এন্ড হোল্ড স্পিড</string>
   <string name="revanced_speed_tap_and_hold_summary">০-৮ এর মধ্যে প্লেব্যাক স্পিড</string>
-  </patch>
-  <patch id="video.speed.remember.rememberPlaybackSpeedPatch">
+  <!-- </patch> -->
+  <!-- <patch id="video.speed.remember.rememberPlaybackSpeedPatch"> -->
   <string name="revanced_remember_playback_speed_last_selected_title">প্লেব্যাকের স্পিড পরিবর্তন মনে রাখুন</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_on">প্লেব্যাকের স্পিড পরিবর্তন সকল ভিডিওতে প্রয়োগ হবে</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_off">প্লেব্যাকের স্পিড পরিবর্তন এই ভিডিওতে প্রয়োগ হবে</string>
   <string name="revanced_playback_speed_default_title">প্লেব্যাকের মূল স্পিড</string>
   <string name="revanced_remember_playback_speed_toast">মূল স্পিড পরিবর্তন হচ্ছে: %s</string>
-  </patch>
-  <patch id="video.hdr.disableHdrPatch">
+  <!-- </patch> -->
+  <!-- <patch id="video.hdr.disableHdrPatch"> -->
   <string name="revanced_disable_hdr_video_title">HDR ভিডিও নিষ্ক্রিয় করুন</string>
   <string name="revanced_disable_hdr_video_summary_on">HDR ভিডিও নিষ্ক্রিয় করা হয়েছে</string>
   <string name="revanced_disable_hdr_video_summary_off">HDR ভিডিও সক্রিয় হয়েছে</string>
-  </patch>
-  <patch id="video.quality.advancedVideoQualityMenuPatch">
+  <!-- </patch> -->
+  <!-- <patch id="video.quality.advancedVideoQualityMenuPatch"> -->
   <string name="revanced_advanced_video_quality_menu_title">উন্নত ভিডিও গুণমান মেনু দেখান</string>
   <string name="revanced_advanced_video_quality_menu_summary_on">উন্নত ভিডিও গুণমান মেনু দেখানো হয়েছে</string>
   <string name="revanced_advanced_video_quality_menu_summary_off">উন্নত ভিডিও গুণমান মেনু দেখানো হয়নি</string>
-  </patch>
-  <patch id="interaction.seekbar.enableSlideToSeekPatch">
+  <!-- </patch> -->
+  <!-- <patch id="interaction.seekbar.enableSlideToSeekPatch"> -->
   <string name="revanced_slide_to_seek_title">ভিডিওর নির্দিষ্ট অংশে যেতে টানুন সক্রিয় করুন</string>
   <string name="revanced_slide_to_seek_summary_on">ভিডিওর নির্দিষ্ট অংশে যেতে টানুন সক্রিয় করা হয়েছে</string>
   <string name="revanced_slide_to_seek_summary_off">ভিডিওর নির্দিষ্ট অংশে যেতে টানুন সক্রিয় করা হয়নি</string>
-  </patch>
-  <patch id="misc.fix.playback.spoofVideoStreamsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.fix.playback.spoofVideoStreamsPatch"> -->
   <string name="revanced_spoof_video_streams_screen_title">ভিডিও স্ট্রিমিং স্পুফ করুন</string>
   <string name="revanced_spoof_video_streams_screen_summary">প্লেব্যাক সমস্যা প্রতিরোধ করতে ক্লায়েন্ট ভিডিও স্ট্রিম স্পুফ করুন</string>
   <string name="revanced_spoof_video_streams_title">ভিডিও স্ট্রিমিং স্পুফ করুন</string>
@@ -1396,46 +1397,46 @@ AVC-এর সর্বোচ্চ রেজোলিউশন হল 1080p, Op
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">স্ট্যাটস ফর নার্ডসে ক্লায়েন্ট প্রকার দেখানো হবে</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">স্ট্যাটস ফর নার্ডসে ক্লায়েন্ট লুকানো হবে</string>
   <string name="revanced_spoof_video_streams_language_title">VR ডিফল্ট অডিও স্ট্রিম ভাষা</string>
-  </patch>
-  </app>
-  <app id="twitch">
-  <patch id="ad.audio.audioAdsPatch">
+  <!-- </patch> -->
+  <!-- </app> -->
+  <!-- <app id="twitch"> -->
+  <!-- <patch id="ad.audio.audioAdsPatch"> -->
   <string name="revanced_block_audio_ads_title">অডিও বিজ্ঞাপন আটকান</string>
   <string name="revanced_block_audio_ads_summary_on">অডিও বিজ্ঞাপন আটকানো হয়েছে</string>
   <string name="revanced_block_audio_ads_summary_off">অডিও বিজ্ঞাপন আনবব্লক করা হয়েছে</string>
-  </patch>
-  <patch id="ad.embedded.embeddedAdsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="ad.embedded.embeddedAdsPatch"> -->
   <string name="revanced_embedded_ads_service_unavailable">%s উপলব্ধ নয়, বিজ্ঞাপন দেখানো হতে পারে। সেটিংসে বিজ্ঞাপন ব্লক পরিষেবা পরিবর্তন করার চেষ্টা করুন।</string>
   <string name="revanced_embedded_ads_service_failed">%s একটি ত্রুটি ফিরিয়েছে, বিজ্ঞাপন দেখানো হতে পারে। সেটিংসে বিজ্ঞাপন ব্লক পরিষেবা পরিবর্তন করার চেষ্টা করুন।</string>
   <string name="revanced_block_embedded_ads_title">এমবেড করা ভিডিও বিজ্ঞাপন আটকান</string>
   <string name="revanced_block_embedded_ads_entry_1">নিষ্ক্রিয় হয়েছে</string>
   <string name="revanced_block_embedded_ads_entry_2">Luminous প্রক্সি</string>
   <string name="revanced_block_embedded_ads_entry_3">PurpleAdBlock প্রক্সি</string>
-  </patch>
-  <patch id="ad.video.videoAdsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="ad.video.videoAdsPatch"> -->
   <string name="revanced_block_video_ads_title">ভিডিও বিজ্ঞাপন আটকান</string>
   <string name="revanced_block_video_ads_summary_on">ভিডিও বিজ্ঞাপন আটকানো হয়েছে</string>
   <string name="revanced_block_video_ads_summary_off">ভিডিও বিজ্ঞাপন আটকানো হয়নি</string>
-  </patch>
-  <patch id="chat.antidelete.showDeletedMessagesPatch">
+  <!-- </patch> -->
+  <!-- <patch id="chat.antidelete.showDeletedMessagesPatch"> -->
   <string name="revanced_deleted_msg">মুছে ফেলা বার্তা</string>
   <string name="revanced_show_deleted_messages_title">মুছে ফেলা বার্তা দেখান</string>
   <string name="revanced_show_deleted_messages_entry_1">মুছে ফেলা বার্তা দেখাবেন না</string>
   <string name="revanced_show_deleted_messages_entry_2">স্পয়লার এর পেছনে থাকা মুছে ফেলা বার্তা লুকান</string>
   <string name="revanced_show_deleted_messages_entry_3">মুছে ফেলা বার্তাগুলো ক্রসড-আউট পাঠ্য হিসেবে দেখান</string>
-  </patch>
-  <patch id="chat.autoclaim.autoClaimChannelPointsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="chat.autoclaim.autoClaimChannelPointsPatch"> -->
   <string name="revanced_auto_claim_channel_points_title">স্বয়ংক্রিয়ভাবে চ্যানেল পয়েন্ট নিয়ে নিন</string>
   <string name="revanced_auto_claim_channel_points_summary_on">চ্যানেল পয়েন্ট স্বয়ংক্রিয়ভাবে নেওয়া হয়েছে</string>
   <string name="revanced_auto_claim_channel_points_summary_off">চ্যানেল পয়েন্ট স্বয়ংক্রিয়ভাবে নেওয়া হয়নি</string>
-  </patch>
-  <patch id="debug.debugModePatch">
+  <!-- </patch> -->
+  <!-- <patch id="debug.debugModePatch"> -->
   <!-- Twitch specific internal debug mode, and not the same as 'revanced_debug_title' -->
   <string name="revanced_twitch_debug_mode_title">Twitch ডিবাগ মোড সক্রিয় করুন</string>
   <string name="revanced_twitch_debug_mode_summary_on">Twitch ডিবাগ মোড সক্রিয় করুন (প্রস্তাবিত নয়)</string>
   <string name="revanced_twitch_debug_mode_summary_off">Twitch ডিবাগ মোড নিষ্ক্রিয় করা হয়েছে</string>
-  </patch>
-  <patch id="misc.settings.settingsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.settings.settingsPatch"> -->
   <string name="revanced_settings">ReVanced সেটিং</string>
   <string name="revanced_about_title">সম্পর্কিত</string>
   <string name="revanced_about_summary">ReVanced সম্পর্কে</string>
@@ -1452,6 +1453,6 @@ AVC-এর সর্বোচ্চ রেজোলিউশন হল 1080p, Op
   <string name="revanced_twitch_debug_title">ডিবাগ লগিং</string>
   <string name="revanced_twitch_debug_summary_on">ডিবাগ লগ সক্রিয় হয়েছে</string>
   <string name="revanced_twitch_debug_summary_off">ডিবাগ লগ নিষ্ক্রিয় হয়েছে</string>
-  </patch>
-  </app>
+  <!-- </patch> -->
+  <!-- </app> -->
 </resources>

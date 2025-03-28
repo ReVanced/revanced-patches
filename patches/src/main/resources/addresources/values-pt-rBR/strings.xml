@@ -20,8 +20,8 @@ Second \"item\" text"</string>
 
 -->
 <resources>
-  <app id="shared">
-  <patch id="misc.checks.checkEnvironmentPatch">
+  <!-- <app id="shared"> -->
+  <!-- <patch id="misc.checks.checkEnvironmentPatch"> -->
   <string name="revanced_check_environment_failed_title">Verificação falhou</string>
   <string name="revanced_check_environment_dialog_open_official_source_button">Abrir o site oficial</string>
   <string name="revanced_check_environment_dialog_ignore_button">Ignorar</string>
@@ -31,8 +31,8 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time">Patcheado há mais de 10 minutos</string>
   <string name="revanced_check_environment_not_near_patch_time_days">Patcheado há %s dias</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">Data de compilação do APK está corrompida</string>
-  </patch>
-  <patch id="misc.settings.settingsResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.settings.settingsResourcePatch"> -->
   <string name="revanced_settings_submenu_title">Configurações</string>
   <string name="revanced_settings_confirm_user_dialog_title">Você deseja prosseguir?</string>
   <string name="revanced_settings_reset">Resetar</string>
@@ -55,8 +55,8 @@ Second \"item\" text"</string>
   <string name="revanced_settings_about_links_header">Links oficiais</string>
   <!-- NOTE: the about strings above are duplicated in the TikTok about screen code,
                  and changes made here must also be made there. -->
-  </patch>
-  <patch id="misc.gms.gmsCoreSupportResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.gms.gmsCoreSupportResourcePatch"> -->
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="gms_core_toast_not_installed_message">O MicroG GmsCore não está instalado. Instale-o.</string>
   <string name="gms_core_dialog_title">Ação necessária</string>
@@ -72,10 +72,10 @@ Desabilitar as otimizações de bateria para o MicroG não afetará negativament
 
 Toque no botão continuar e permita as mudanças de otimização. "</string>
   <string name="gms_core_dialog_continue_text">Continuar</string>
-  </patch>
-  </app>
-  <app id="youtube">
-  <patch id="misc.settings.settingsPatch">
+  <!-- </patch> -->
+  <!-- </app> -->
+  <!-- <app id="youtube"> -->
+  <!-- <patch id="misc.settings.settingsPatch"> -->
   <string name="revanced_settings_screen_00_about_title">Sobre</string>
   <string name="revanced_settings_screen_01_ads_title">Anúncios</string>
   <string name="revanced_settings_screen_02_alt_thumbnails_title">Miniaturas alternativas</string>
@@ -89,13 +89,13 @@ Toque no botão continuar e permita as mudanças de otimização. "</string>
   <string name="revanced_restore_old_settings_menus_title">Restaurar menus de configurações antigos</string>
   <string name="revanced_restore_old_settings_menus_summary_on">Os menus de configurações antigos são mostrados.</string>
   <string name="revanced_restore_old_settings_menus_summary_off">Os menus de configurações antigos não são mostrados.</string>
-  </patch>
-  <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.backgroundplayback.backgroundPlaybackPatch"> -->
   <string name="revanced_shorts_disable_background_playback_title">Desativar reprodução de fundo dos Shorts</string>
   <string name="revanced_shorts_disable_background_playback_summary_on">Reprodução de fundo dos Shorts está desativada</string>
   <string name="revanced_shorts_disable_background_playback_summary_off">Reprodução de fundo dos Shorts está ativada</string>
-  </patch>
-  <patch id="misc.debugging.enableDebuggingPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.debugging.enableDebuggingPatch"> -->
   <string name="revanced_debug_screen_title">Depuração</string>
   <string name="revanced_debug_screen_summary">Ativar ou desativar opções de depuração</string>
   <string name="revanced_debug_title">Registro de depuração</string>
@@ -113,8 +113,8 @@ Toque no botão continuar e permita as mudanças de otimização. "</string>
   <string name="revanced_debug_toast_on_error_user_dialog_message">"Desligar as notificações de erro oculta todas as notificações de erro do ReVanced. 
 
 Você não será notificado sobre nenhum evento inesperado."</string>
-  </patch>
-  <patch id="layout.hide.general.hideLayoutComponentsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.general.hideLayoutComponentsPatch"> -->
   <string name="revanced_hide_album_cards_title">Ocultar cartões de álbum</string>
   <string name="revanced_hide_album_cards_summary_on">Cartões de álbum estão ocultos</string>
   <string name="revanced_hide_album_cards_summary_off">Cartões de álbum não estão ocultos</string>
@@ -338,8 +338,8 @@ Linitações
   <string name="revanced_hide_keyword_toast_invalid_conflicting">A palavra-chave tem declarações conflitantes: %s</string>
   <string name="revanced_hide_keyword_toast_invalid_length">A palavra-chave é muito curta e requer aspas: %s</string>
   <string name="revanced_hide_keyword_toast_invalid_broad">A palavra-chave irá ocultar todos os vídeos: %s</string>
-  </patch>
-  <patch id="ad.general.hideAdsResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="ad.general.hideAdsResourcePatch"> -->
   <string name="revanced_hide_general_ads_title">Ocultar anúncios gerais</string>
   <string name="revanced_hide_general_ads_summary_on">Anúncios gerais estão ocultos</string>
   <string name="revanced_hide_general_ads_summary_off">Os anúncios gerais são mostrados</string>
@@ -381,18 +381,18 @@ Este recurso está disponível apenas para dispositivos mais antigos"</string>
   <string name="revanced_hide_merchandise_banners_summary_off">Os banners de mercadorias são mostrados</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_hide_fullscreen_ads_feature_not_available_toast">Ocultar anúncios em tela cheia só funciona com dispositivos antigos</string>
-  </patch>
-  <patch id="ad.getpremium.hideGetPremiumPatch">
+  <!-- </patch> -->
+  <!-- <patch id="ad.getpremium.hideGetPremiumPatch"> -->
   <string name="revanced_hide_get_premium_title">Ocultar promoções do YouTube Premium</string>
   <string name="revanced_hide_get_premium_summary_on">Promoções do YouTube Premium sob o reprodutor de vídeo estão ocultas</string>
   <string name="revanced_hide_get_premium_summary_off">Promoções do YouTube Premium sob o reprodutor de vídeo não estão ocultas</string>
-  </patch>
-  <patch id="ad.video.videoAdsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="ad.video.videoAdsPatch"> -->
   <string name="revanced_hide_video_ads_title">Ocultar anúncios do vídeo</string>
   <string name="revanced_hide_video_ads_summary_on">Anúncios do vídeo estão ocultos</string>
   <string name="revanced_hide_video_ads_summary_off">Anúncios do vídeo não estão ocultos</string>
-  </patch>
-  <patch id="interaction.copyvideourl.copyVideoUrlResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="interaction.copyvideourl.copyVideoUrlResourcePatch"> -->
   <string name="revanced_share_copy_url_success">URL copiada para a área de transferência</string>
   <string name="revanced_share_copy_url_timestamp_success">URL com tempo copiado</string>
   <string name="revanced_copy_video_url_title">Mostrar botão copiar URL no vídeo</string>
@@ -401,14 +401,14 @@ Este recurso está disponível apenas para dispositivos mais antigos"</string>
   <string name="revanced_copy_video_url_timestamp_title">Mostrar botão copiar URL com tempo</string>
   <string name="revanced_copy_video_url_timestamp_summary_on">O botão é mostrado. Toque para copiar a URL do vídeo com carimbo de data/hora. Toque e segure para copiar sem carimbo de data/hora</string>
   <string name="revanced_copy_video_url_timestamp_summary_off">O botão não está visível</string>
-  </patch>
-  <patch id="interaction.dialog.removeViewerDiscretionDialogPatch">
+  <!-- </patch> -->
+  <!-- <patch id="interaction.dialog.removeViewerDiscretionDialogPatch"> -->
   <string name="revanced_remove_viewer_discretion_dialog_title">Remover diálogo de restrição</string>
   <string name="revanced_remove_viewer_discretion_dialog_summary_on">Diálogo foi removido</string>
   <string name="revanced_remove_viewer_discretion_dialog_summary_off">O diálogo vai ser mostrado</string>
   <string name="revanced_remove_viewer_discretion_dialog_user_dialog_message">Isto não ignora a restrição de idade, apenas a aceita automaticamente.</string>
-  </patch>
-  <patch id="interaction.downloads.downloadsResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="interaction.downloads.downloadsResourcePatch"> -->
   <string name="revanced_external_downloader_screen_title">App de download externo</string>
   <string name="revanced_external_downloader_screen_summary">Configurações para usar um app de download externo</string>
   <string name="revanced_external_downloader_title">Mostrar botão de download externo</string>
@@ -421,18 +421,18 @@ Este recurso está disponível apenas para dispositivos mais antigos"</string>
   <string name="revanced_external_downloader_name_title">Nome do pacote do app de download</string>
   <string name="revanced_external_downloader_name_summary">Nome do pacote do seu app de baixar externo instalado, como NewPipe ou Seal</string>
   <string name="revanced_external_downloader_not_installed_warning">%s não está instalado. Por favor, instale.</string>
-  </patch>
-  <patch id="interaction.seekbar.disablePreciseSeekingGesturePatch">
+  <!-- </patch> -->
+  <!-- <patch id="interaction.seekbar.disablePreciseSeekingGesturePatch"> -->
   <string name="revanced_disable_precise_seeking_gesture_title">Desativar gesto de busca precisa</string>
   <string name="revanced_disable_precise_seeking_gesture_summary_on">Gesto desativado</string>
   <string name="revanced_disable_precise_seeking_gesture_summary_off">O gesto está ativado</string>
-  </patch>
-  <patch id="interaction.seekbar.enableSeekbarTappingPatch">
+  <!-- </patch> -->
+  <!-- <patch id="interaction.seekbar.enableSeekbarTappingPatch"> -->
   <string name="revanced_seekbar_tapping_title">Ativar \"Toque para buscar\"</string>
   <string name="revanced_seekbar_tapping_summary_on">Toque para buscar está ativado</string>
   <string name="revanced_seekbar_tapping_summary_off">Toque para buscar está desativado</string>
-  </patch>
-  <patch id="interaction.swipecontrols.swipeControlsResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="interaction.swipecontrols.swipeControlsResourcePatch"> -->
   <string name="revanced_swipe_brightness_title">Ativar gesto de brilho</string>
   <string name="revanced_swipe_brightness_summary_on">"O gesto de brilho em tela cheia está ativado
 
@@ -471,13 +471,13 @@ Ajuste o volume deslizando verticalmente no lado direito da tela"</string>
   <string name="revanced_swipe_change_video_title">Ativar deslize para mudar os vídeos</string>
   <string name="revanced_swipe_change_video_summary_on">Deslizar no modo tela cheia mudará para o vídeo anterior/seguinte</string>
   <string name="revanced_swipe_change_video_summary_off">Deslizar no modo tela cheia não mudará para o próximo/vídeo anterior</string>
-  </patch>
-  <patch id="layout.autocaptions.autoCaptionsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.autocaptions.autoCaptionsPatch"> -->
   <string name="revanced_auto_captions_title">Desativar legendas automáticas</string>
   <string name="revanced_auto_captions_summary_on">Legendas automáticas estão desativadas</string>
   <string name="revanced_auto_captions_summary_off">Legendas automáticas estão ativadas</string>
-  </patch>
-  <patch id="layout.buttons.action.hideButtonsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.buttons.action.hideButtonsPatch"> -->
   <string name="revanced_hide_buttons_screen_title">Botões de ação</string>
   <string name="revanced_hide_buttons_screen_summary">Ocultar ou mostrar botões sob vídeos</string>
   <string name="revanced_disable_like_subscribe_glow_title">Desativar o brilho do botão Curtir e Inscrever-se</string>
@@ -515,8 +515,8 @@ Ajuste o volume deslizando verticalmente no lado direito da tela"</string>
   <string name="revanced_hide_playlist_button_title">Ocultar Salvar</string>
   <string name="revanced_hide_playlist_button_summary_on">Botão salvar na playlist está oculto</string>
   <string name="revanced_hide_playlist_button_summary_off">O botão salvar na playlist é mostrado</string>
-  </patch>
-  <patch id="layout.buttons.navigation.navigationButtonsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.buttons.navigation.navigationButtonsPatch"> -->
   <string name="revanced_navigation_buttons_screen_title">Botões de navegação</string>
   <string name="revanced_navigation_buttons_screen_summary">Ocultar ou alterar botões na barra de navegação</string>
   <!-- 'Home' should be translated using the same localized wording YouTube displays for the tab. -->
@@ -553,14 +553,15 @@ Se alterar esta configuração não fizer efeito, tente mudar para o modo anôni
   <string name="revanced_disable_translucent_status_bar_title">Desabilitar barra de status translúcida</string>
   <string name="revanced_disable_translucent_status_bar_summary_on">A barra de status é opaca</string>
   <string name="revanced_disable_translucent_status_bar_summary_off">A barra de status é opaca ou translúcida</string>
+  <string name="revanced_disable_translucent_status_bar_user_dialog_message">Em alguns dispositivos, ativar este recurso pode alterar a barra de navegação do sistema para transparente.</string>
   <string name="revanced_disable_translucent_navigation_bar_light_title">Desabilitar barra de navegação translúcida clara</string>
   <string name="revanced_disable_translucent_navigation_bar_light_summary_on">A barra de navegação no modo claro é opaca</string>
   <string name="revanced_disable_translucent_navigation_bar_light_summary_off">A barra de navegação do modo claro é opaca ou translúcida</string>
   <string name="revanced_disable_translucent_navigation_bar_dark_title">Desabilitar barra translúcida escura</string>
   <string name="revanced_disable_translucent_navigation_bar_dark_summary_on">A barra de navegação no modo escuro é opaca</string>
   <string name="revanced_disable_translucent_navigation_bar_dark_summary_off">A barra de navegação do modo escuro é opaca ou translúcida</string>
-  </patch>
-  <patch id="layout.hide.player.flyoutmenupanel.hidePlayerFlyoutMenuPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.player.flyoutmenupanel.hidePlayerFlyoutMenuPatch"> -->
   <string name="revanced_hide_player_flyout_title">Menu flutuante</string>
   <string name="revanced_hide_player_flyout_summary">Ocultar ou mostrar itens no menu suspenso do reprodutor</string>
   <!-- 'Captions' should be translated using the same localized wording YouTube displays for the menu item. -->
@@ -614,8 +615,8 @@ Se alterar esta configuração não fizer efeito, tente mudar para o modo anôni
   <string name="revanced_hide_player_flyout_video_quality_footer_title">Ocultar rodapé do menu de qualidade de vídeo</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_on">O rodapé do menu de qualidade de vídeo está oculto</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_off">Rodapé do menu de qualidade de vídeo não está ocultos</string>
-  </patch>
-  <patch id="layout.buttons.overlay.hidePlayerOverlayButtonsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.buttons.overlay.hidePlayerOverlayButtonsPatch"> -->
   <string name="revanced_hide_player_previous_next_buttons_title">Ocultar botões Anterior e Próximo</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_on">Os botões estão ocultos</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">Os botões serão exibidos</string>
@@ -629,36 +630,36 @@ Se alterar esta configuração não fizer efeito, tente mudar para o modo anôni
   <string name="revanced_hide_autoplay_button_title">Ocultar botão Reprodução automática</string>
   <string name="revanced_hide_autoplay_button_summary_on">Botão de reprodução automática está oculto</string>
   <string name="revanced_hide_autoplay_button_summary_off">Botão de reprodução automática não está oculto</string>
-  </patch>
-  <patch id="layout.hide.endscreencards.hideEndscreenCardsResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.endscreencards.hideEndscreenCardsResourcePatch"> -->
   <string name="revanced_hide_endscreen_cards_title">Ocultar cartões de tela final</string>
   <string name="revanced_hide_endscreen_cards_summary_on">Cartões de tela final estão ocultos</string>
   <string name="revanced_hide_endscreen_cards_summary_off">Cartões de tela final não estão ocultos</string>
-  </patch>
-  <patch id="layout.hide.fullscreenambientmode.disableFullscreenAmbientModePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.fullscreenambientmode.disableFullscreenAmbientModePatch"> -->
   <string name="revanced_disable_fullscreen_ambient_mode_title">Desativar modo Ambiente em tela cheia</string>
   <string name="revanced_disable_fullscreen_ambient_mode_summary_on">Modo ambiente desativado</string>
   <string name="revanced_disable_fullscreen_ambient_mode_summary_off">Modo ambiente ativado</string>
-  </patch>
-  <patch id="layout.hide.infocards.hideInfocardsResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.infocards.hideInfocardsResourcePatch"> -->
   <string name="revanced_hide_info_cards_title">Ocultar cartões de informações</string>
   <string name="revanced_hide_info_cards_summary_on">Cartões de informações estão ocultos</string>
   <string name="revanced_hide_info_cards_summary_off">Cartões de informações não estão ocultos</string>
-  </patch>
-  <patch id="layout.hide.rollingnumber.disableRollingNumberAnimationPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.rollingnumber.disableRollingNumberAnimationPatch"> -->
   <string name="revanced_disable_rolling_number_animations_title">Desativar animações de números rodando</string>
   <string name="revanced_disable_rolling_number_animations_summary_on">Os números rolantes não são animados</string>
   <string name="revanced_disable_rolling_number_animations_summary_off">Os números rolantes são animados</string>
-  </patch>
-  <patch id="layout.hide.seekbar.hideSeekbarPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.seekbar.hideSeekbarPatch"> -->
   <string name="revanced_hide_seekbar_title">Ocultar barra de busca no reprodutor de vídeo</string>
   <string name="revanced_hide_seekbar_summary_on">Barra de busca no reprodutor de vídeo está oculto</string>
   <string name="revanced_hide_seekbar_summary_off">Barra de busca no reprodutor de vídeo é mostrada</string>
   <string name="revanced_hide_seekbar_thumbnail_title">Ocultar barra de busca nas miniaturas de vídeo</string>
   <string name="revanced_hide_seekbar_thumbnail_summary_on">A barra de busca nas miniaturas está oculta</string>
   <string name="revanced_hide_seekbar_thumbnail_summary_off">Barra de busca nas miniaturas é mostrada</string>
-  </patch>
-  <patch id="layout.hide.shorts.hideShortsComponentsResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.shorts.hideShortsComponentsResourcePatch"> -->
   <string name="revanced_shorts_player_screen_title">Reprodutor do Shorts</string>
   <string name="revanced_shorts_player_screen_summary">Ocultar ou mostrar componentes no reprodutor de Shorts</string>
   <!-- 'home' should be translated using the same localized wording YouTube displays for the home tab. -->
@@ -760,43 +761,43 @@ Se alterar esta configuração não fizer efeito, tente mudar para o modo anôni
   <string name="revanced_hide_shorts_navigation_bar_title">Ocultar barra de navegação</string>
   <string name="revanced_hide_shorts_navigation_bar_summary_on">Barra de navegação está oculta</string>
   <string name="revanced_hide_shorts_navigation_bar_summary_off">Barra de navegação não está oculta</string>
-  </patch>
-  <patch id="layout.hide.endscreensuggestion.hideEndScreenSuggestedVideoPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.endscreensuggestion.hideEndScreenSuggestedVideoPatch"> -->
   <string name="revanced_end_screen_suggested_video_title">Ocultar o vídeo sugerido na tela final</string>
   <string name="revanced_end_screen_suggested_video_summary_on">"O vídeo sugerido na tela final fica oculto quando a reprodução automática está desativada
 
 A reprodução automática pode ser alterada nas configurações do YouTube:
 Configurações → Reprodução → Reproduzir próximo vídeo automaticamente"</string>
   <string name="revanced_end_screen_suggested_video_summary_off">O vídeo sugerido na tela final é exibido</string>
-  </patch>
-  <patch id="layout.hide.time.hideTimestampPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.time.hideTimestampPatch"> -->
   <string name="revanced_hide_timestamp_title">Ocultar tempo do vídeo</string>
   <string name="revanced_hide_timestamp_summary_on">Tempo está oculto</string>
   <string name="revanced_hide_timestamp_summary_off">Tempo não está oculto</string>
-  </patch>
-  <patch id="layout.panels.popup.playerPopupPanelsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.panels.popup.playerPopupPanelsPatch"> -->
   <string name="revanced_hide_player_popup_panels_title">Ocultar painel popup de reprodutor</string>
   <string name="revanced_hide_player_popup_panels_summary_on">Painel pop-up do reprodutor está oculto</string>
   <string name="revanced_hide_player_popup_panels_summary_off">Painel pop-up do reprodutor não está oculto</string>
-  </patch>
-  <patch id="layout.player.fullscreen.exitFullscreenPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.player.fullscreen.exitFullscreenPatch"> -->
   <string name="revanced_exit_fullscreen_title">Sair do modo de tela cheia ao final do vídeo</string>
   <string name="revanced_exit_fullscreen_entry_1">Desativado</string>
   <string name="revanced_exit_fullscreen_entry_2">Retrato</string>
   <string name="revanced_exit_fullscreen_entry_3">Paisagem</string>
   <string name="revanced_exit_fullscreen_entry_4">Retrato e paisagem</string>
-  </patch>
-  <patch id="layout.player.fullscreen.openVideosFullscreen">
+  <!-- </patch> -->
+  <!-- <patch id="layout.player.fullscreen.openVideosFullscreen"> -->
   <string name="revanced_open_videos_fullscreen_portrait_title">Abrir vídeos em tela cheia retrato</string>
   <string name="revanced_open_videos_fullscreen_portrait_summary_on">Vídeos abrem em tela cheia</string>
   <string name="revanced_open_videos_fullscreen_portrait_summary_off">Vídeos não abrem em tela cheia</string>
-  </patch>
-  <patch id="layout.player.overlay.customPlayerOverlayOpacityResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.player.overlay.customPlayerOverlayOpacityResourcePatch"> -->
   <string name="revanced_player_overlay_opacity_title">Opacidade do reprodutor</string>
   <string name="revanced_player_overlay_opacity_summary">Valor de opacidade entre 0-100, onde 0 é transparente</string>
   <string name="revanced_player_overlay_opacity_invalid_toast">Opacidade do reprodutor deve estar entre 0-100</string>
-  </patch>
-  <patch id="layout.returnyoutubedislike.returnYouTubeDislikePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.returnyoutubedislike.returnYouTubeDislikePatch"> -->
   <!-- Toast shown if network connection times out. Translations of this should not be longer than the original English or the text can be clipped and not entirely shown. -->
   <string name="revanced_ryd_failure_connection_timeout">Não gostei indisponível por um tempo (API expirou)</string>
   <string name="revanced_ryd_failure_connection_status_code">Não gostei indisponível (status %d)</string>
@@ -845,13 +846,13 @@ Limitação: \"Não gostei\" podem não aparecer no modo anônimo"</string>
   <string name="revanced_ryd_statistics_getNumberOfRateLimitRequestsEncountered_zero_summary">Nenhum taxa limite do cliente encontrado</string>
   <string name="revanced_ryd_statistics_getNumberOfRateLimitRequestsEncountered_non_zero_summary">%d taxa limite do cliente encontrado</string>
   <string name="revanced_ryd_statistics_millisecond_text">%d milisegundos</string>
-  </patch>
-  <patch id="layout.searchbar.wideSearchbarPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.searchbar.wideSearchbarPatch"> -->
   <string name="revanced_wide_searchbar_title">Ativar barra de busca ampla</string>
   <string name="revanced_wide_searchbar_summary_on">Barra de busca ampla está ativada</string>
   <string name="revanced_wide_searchbar_summary_off">Barra de busca ampla está desativada</string>
-  </patch>
-  <patch id="layout.seekbar.seekbarThumbnailsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.seekbar.seekbarThumbnailsPatch"> -->
   <string name="revanced_seekbar_thumbnails_high_quality_title">Ativar miniaturas de alta qualidade</string>
   <string name="revanced_seekbar_thumbnails_high_quality_summary_on">As miniaturas na barra de busca são de qualidade alta</string>
   <string name="revanced_seekbar_thumbnails_high_quality_summary_off">As miniaturas na barra de busca são de qualidade média</string>
@@ -865,8 +866,8 @@ Este recurso funciona melhor com uma qualidade de vídeo de 720p ou inferior e a
   <string name="revanced_restore_old_seekbar_thumbnails_title">Restaurar as miniaturas antigas da barra de busca</string>
   <string name="revanced_restore_old_seekbar_thumbnails_summary_on">As miniaturas vão aparecer acima da barra de busca</string>
   <string name="revanced_restore_old_seekbar_thumbnails_summary_off">As miniaturas na barra de busca vão aparecer em tela cheia</string>
-  </patch>
-  <patch id="layout.sponsorblock.sponsorBlockResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.sponsorblock.sponsorBlockResourcePatch"> -->
   <string name="revanced_sb_enable_sb">Ativar SponsorBlock</string>
   <string name="revanced_sb_enable_sb_sum">SponsorBlock é um sistema de crowdsourcing para pular partes irritantes de vídeos do YouTube</string>
   <string name="revanced_sb_appearance_category">Aparência</string>
@@ -1063,8 +1064,8 @@ Pronto para enviar?"</string>
   <string name="revanced_sb_reset">Resetar</string>
   <string name="revanced_sb_about">Sobre</string>
   <string name="revanced_sb_about_api_sum">Os dados são fornecidos pela API do SponsorBlock. Toque aqui para aprender mais e ver como baixar para outras plataformas</string>
-  </patch>
-  <patch id="layout.formfactor.changeFormFactorPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.formfactor.changeFormFactorPatch"> -->
   <string name="revanced_change_form_factor_title">Layout fator de forma</string>
   <string name="revanced_change_form_factor_entry_1">Padrão</string>
   <string name="revanced_change_form_factor_entry_2">Telefone</string>
@@ -1078,8 +1079,8 @@ Layout para tablet
 Layout automotivo
 • Shorts são abertos no reprodutor normal
 • O feed é organizado por tópicos e canais"</string>
-  </patch>
-  <patch id="layout.spoofappversion.spoofAppVersionPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.spoofappversion.spoofAppVersionPatch"> -->
   <string name="revanced_spoof_app_version_title">Spoofing da versão do aplicativo</string>
   <string name="revanced_spoof_app_version_summary_on">Versão spoofada</string>
   <string name="revanced_spoof_app_version_summary_off">Versão não spoofada</string>
@@ -1092,8 +1093,8 @@ Se posteriormente desativado, é recomendável limpar os dados do aplicativo par
                  This is because the 'General layout' menu uses alphabetic sorting, and it functionally works better if the spoof target selector appears below the 'Spoof app version' UI switch -->
   <string name="revanced_spoof_app_version_target_title">Versão de spoofing alvo</string>
   <string name="revanced_spoof_app_version_target_entry_1">19.35.36 - Restaurar ícones antigos do player dos Shorts</string>
-  </patch>
-  <patch id="layout.startpage.changeStartPagePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.startpage.changeStartPagePatch"> -->
   <string name="revanced_change_start_page_title">Definir página inicial</string>
   <string name="revanced_change_start_page_entry_default">Padrão</string>
   <string name="revanced_change_start_page_entry_all_subscriptions">Todas as inscrições</string>
@@ -1119,27 +1120,27 @@ Se posteriormente desativado, é recomendável limpar os dados do aplicativo par
   <string name="revanced_change_start_page_entry_virtual_reality">Realidade virtual</string>
   <string name="revanced_change_start_page_entry_watch_later">Assistir mais tarde</string>
   <string name="revanced_change_start_page_entry_your_clips">Seus clipes</string>
-  </patch>
-  <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch"> -->
   <string name="revanced_disable_resuming_shorts_player_title">Desativar continuar a reproduzir Shorts</string>
   <string name="revanced_disable_resuming_shorts_player_summary_on">Shorts não irá continuar reproduzindo ao iniciar o aplicativo</string>
   <string name="revanced_disable_resuming_shorts_player_summary_off">Shorts irá continuar reproduzindo ao iniciar o aplicativo</string>
-  </patch>
-  <patch id="layout.shortsplayer.shortsPlayerTypePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.shortsplayer.shortsPlayerTypePatch"> -->
   <string name="revanced_shorts_player_type_title">Abrir Shorts com</string>
   <string name="revanced_shorts_player_type_shorts">Reprodutor do Shorts</string>
   <string name="revanced_shorts_player_type_regular_player">Player regular</string>
   <string name="revanced_shorts_player_type_regular_player_fullscreen">Tela cheia do player regular</string>
-  </patch>
-  <patch id="layout.shortsautoplay.shortsAutoplayPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.shortsautoplay.shortsAutoplayPatch"> -->
   <string name="revanced_shorts_autoplay_title">Reprodução automática nos Shorts</string>
   <string name="revanced_shorts_autoplay_summary_on">Os Shorts vão ser reproduzidos automaticamente</string>
   <string name="revanced_shorts_autoplay_summary_off">Os Shorts vão repetir</string>
   <string name="revanced_shorts_autoplay_background_title">Reprodução automática nos Shorts em segundo plano</string>
   <string name="revanced_shorts_autoplay_background_summary_on">A reprodução em segundo plano dos Shorts vai ser reproduzidas automaticamente</string>
   <string name="revanced_shorts_autoplay_background_summary_off">A reprodução em segundo plano dos Shorts vai ser reproduzidas automaticamente</string>
-  </patch>
-  <patch id="layout.miniplayer.miniplayerPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.miniplayer.miniplayerPatch"> -->
   <string name="revanced_miniplayer_screen_title">Minireprodutor</string>
   <string name="revanced_miniplayer_screen_summary">Alterar o estilo do player minimizado no app</string>
   <string name="revanced_miniplayer_type_title">Tipo de miniplayer</string>
@@ -1189,8 +1190,8 @@ Deslize para expandir ou fechar"</string>
   <string name="revanced_miniplayer_opacity_title">Opacidade de sobreposição</string>
   <string name="revanced_miniplayer_opacity_summary">Valor de opacidade entre 0-100, onde 0 é transparente</string>
   <string name="revanced_miniplayer_opacity_invalid_toast">Opacidade da sobreposição de miniplayer deve estar entre 0-100</string>
-  </patch>
-  <patch id="layout.theme.themePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.theme.themePatch"> -->
   <string name="revanced_gradient_loading_screen_title">Ativar tela de carregamento em gradiente</string>
   <string name="revanced_gradient_loading_screen_summary_on">Tela de carregamento terá um fundo em gradiente</string>
   <string name="revanced_gradient_loading_screen_summary_off">Tela de carregamento terá um fundo sólido</string>
@@ -1202,15 +1203,15 @@ Deslize para expandir ou fechar"</string>
   <string name="revanced_seekbar_custom_color_accent_title">Cor de destaque personalizada para a barra de progresso</string>
   <string name="revanced_seekbar_custom_color_accent_summary">A cor de destaque da barra de progresso</string>
   <string name="revanced_seekbar_custom_color_invalid">Valor de cor da barra de busca inválido</string>
-  </patch>
-  <patch id="layout.thumbnails.bypassImageRegionRestrictionsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.thumbnails.bypassImageRegionRestrictionsPatch"> -->
   <string name="revanced_bypass_image_region_restrictions_title">Ignorar restrições de região de imagem</string>
   <string name="revanced_bypass_image_region_restrictions_summary_on">Usando imagem host yt4.ggpht.com</string>
   <string name="revanced_bypass_image_region_restrictions_summary_off">"Usando o host de imagem original 
 
 Habilitar isso pode corrigir imagens ausentes que estão bloqueadas em algumas regiões"</string>
-  </patch>
-  <patch id="layout.thumbnails.alternativeThumbnailsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.thumbnails.alternativeThumbnailsPatch"> -->
   <!-- 'Home' should be translated using the same localized wording YouTube displays for the home tab. -->
   <string name="revanced_alt_thumbnail_home_title">Início</string>
   <!-- 'Subscription' should be translated using the same localized wording YouTube displays for the subscription tab. -->
@@ -1245,26 +1246,26 @@ Toque aqui para saber mais sobre DeArrow"</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_alt_thumbnail_dearrow_error">DeArrow não está disponível temporariamente (código de status: %s)</string>
   <string name="revanced_alt_thumbnail_dearrow_error_generic">DeArrow não está disponível temporariamente</string>
-  </patch>
-  <patch id="misc.announcements.announcementsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.announcements.announcementsPatch"> -->
   <string name="revanced_announcements_title">Exibir avisos do ReVanced</string>
   <string name="revanced_announcements_summary_on">Anúncios na inicialização são mostrados</string>
   <string name="revanced_announcements_summary_off">Anúncios na inicialização não são mostrados</string>
   <string name="revanced_announcements_enabled_summary">Mostrar avisos na inicialização</string>
   <string name="revanced_announcements_connection_failed">Falha ao conectar ao provedor de avisos</string>
   <string name="revanced_announcements_dialog_dismiss">Dispensar</string>
-  </patch>
-  <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch"> -->
   <string name="revanced_check_watch_history_domain_name_dialog_title">Atenção</string>
   <string name="revanced_check_watch_history_domain_name_dialog_message">Seu histórico de exibição não está sendo salvo.&lt;br&gt;&lt;br&gt;Na maioria dos casos isso é causado por um bloqueador de anúncios por DNS ou proxy de rede.&lt;br&gt;&lt;br&gt;Para corrigir isso, permita &lt;b&gt;s.youtube.com&lt;/b&gt; na sua lista ou desative todos os bloqueadores de DNS e proxies.</string>
   <string name="revanced_check_watch_history_domain_name_dialog_ignore">Não exibir novamente</string>
-  </patch>
-  <patch id="misc.autorepeat.autoRepeatPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.autorepeat.autoRepeatPatch"> -->
   <string name="revanced_auto_repeat_title">Ativar repetição automática</string>
   <string name="revanced_auto_repeat_summary_on">Repetição automática está ativada</string>
   <string name="revanced_auto_repeat_summary_off">Repetição automática está desativada</string>
-  </patch>
-  <patch id="misc.dimensions.spoof.spoofDeviceDimensionsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.dimensions.spoof.spoofDeviceDimensionsPatch"> -->
   <string name="revanced_spoof_device_dimensions_title">Spoofing de dimensões do dispositivo</string>
   <string name="revanced_spoof_device_dimensions_summary_on">"Dimensões do dispositivo falsificadas 
 
@@ -1273,39 +1274,39 @@ Qualidades de vídeo mais altas podem ser desbloqueadas, mas você pode ter prob
 
 Habilitar isso pode desbloquear qualidades de vídeo mais altas"</string>
   <string name="revanced_spoof_device_dimensions_user_dialog_message">Ativar isto pode causar travamentos na reprodução de vídeo, maior gasto de bateria e efeitos colaterais desconhecidos.</string>
-  </patch>
-  <patch id="misc.gms.gmsCoreSupportResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.gms.gmsCoreSupportResourcePatch"> -->
   <string name="microg_settings_title">Configurações do GmsCore</string>
   <string name="microg_settings_summary">Configurações do GmsCore</string>
-  </patch>
-  <patch id="misc.links.bypassURLRedirectsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.links.bypassURLRedirectsPatch"> -->
   <string name="revanced_bypass_url_redirects_title">Ignorar redirecionamentos de URL</string>
   <string name="revanced_bypass_url_redirects_summary_on">Redirecionamentos de URL estão ignorados</string>
   <string name="revanced_bypass_url_redirects_summary_off">Redirecionamentos de URL não estão ignorados</string>
-  </patch>
-  <patch id="misc.links.openLinksExternallyPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.links.openLinksExternallyPatch"> -->
   <string name="revanced_external_browser_title">Abrir links no navegador</string>
   <string name="revanced_external_browser_summary_on">Abrindo links no navegador externo</string>
   <string name="revanced_external_browser_summary_off">Abrindo links no navegador interno do app</string>
-  </patch>
-  <patch id="misc.privacy.removeTrackingQueryParameterPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.privacy.removeTrackingQueryParameterPatch"> -->
   <string name="revanced_remove_tracking_query_parameter_title">Remover parâmetro de consulta de rastreamento</string>
   <string name="revanced_remove_tracking_query_parameter_summary_on">Parâmetro da consulta de rastreamento foi removido dos links</string>
   <string name="revanced_remove_tracking_query_parameter_summary_off">Parâmetro da consulta de rastreamento não foi removido dos links</string>
-  </patch>
-  <patch id="misc.zoomhaptics.zoomHapticsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.zoomhaptics.zoomHapticsPatch"> -->
   <string name="revanced_disable_zoom_haptics_title">Desativar zoom tátil</string>
   <string name="revanced_disable_zoom_haptics_summary_on">Zoom tátil está ativado</string>
   <string name="revanced_disable_zoom_haptics_summary_off">Zoom tátil está desativado</string>
-  </patch>
-  <patch id="video.audio.forceOriginalAudioPatch">
+  <!-- </patch> -->
+  <!-- <patch id="video.audio.forceOriginalAudioPatch"> -->
   <string name="revanced_force_original_audio_title">Forçar idioma do áudio original</string>
   <string name="revanced_force_original_audio_summary_on">Usar o idioma original do áudio</string>
   <string name="revanced_force_original_audio_summary_off">Usando áudio padrão</string>
   <!-- 'Spoof video streams' should be the same translation used for revanced_spoof_video_streams_screen_title -->
   <string name="revanced_force_original_audio_not_available">Para usar este recurso, altere \"Spoof video streams\" para iOS TV</string>
-  </patch>
-  <patch id="video.quality.rememberVideoQualityPatch">
+  <!-- </patch> -->
+  <!-- <patch id="video.quality.rememberVideoQualityPatch"> -->
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
   <string name="revanced_video_quality_default_entry_1">Automático</string>
   <string name="revanced_remember_video_quality_last_selected_title">Lembrar mudanças na qualidade do vídeo</string>
@@ -1322,13 +1323,13 @@ Habilitar isso pode desbloquear qualidades de vídeo mais altas"</string>
   <string name="revanced_remember_video_quality_wifi">Wi-Fi</string>
   <string name="revanced_remember_video_quality_toast">Qualidade padrão %1$s alterada para: %2$s</string>
   <string name="revanced_remember_video_quality_toast_shorts">Qualidade dos Shorts %1$s alterada para: %2$s</string>
-  </patch>
-  <patch id="video.speed.button.playbackSpeedButtonPatch">
+  <!-- </patch> -->
+  <!-- <patch id="video.speed.button.playbackSpeedButtonPatch"> -->
   <string name="revanced_playback_speed_dialog_button_title">Mostrar botão de velocidade</string>
   <string name="revanced_playback_speed_dialog_button_summary_on">Botão não esta oculto</string>
   <string name="revanced_playback_speed_dialog_button_summary_off">Botão não está visível</string>
-  </patch>
-  <patch id="video.speed.custom.customPlaybackSpeedPatch">
+  <!-- </patch> -->
+  <!-- <patch id="video.speed.custom.customPlaybackSpeedPatch"> -->
   <string name="revanced_custom_speed_menu_title">Menu de velocidade de reprodução personalizado</string>
   <string name="revanced_custom_speed_menu_summary_on">O menu de velocidade personalizado é mostrado</string>
   <string name="revanced_custom_speed_menu_summary_off">O menu de velocidade personalizado não é mostrado</string>
@@ -1339,30 +1340,30 @@ Habilitar isso pode desbloquear qualidades de vídeo mais altas"</string>
   <string name="revanced_custom_playback_speeds_auto">Automático</string>
   <string name="revanced_speed_tap_and_hold_title">Velocidade personalizada de tocar e segurar</string>
   <string name="revanced_speed_tap_and_hold_summary">Velocidade de reprodução entre 0-8</string>
-  </patch>
-  <patch id="video.speed.remember.rememberPlaybackSpeedPatch">
+  <!-- </patch> -->
+  <!-- <patch id="video.speed.remember.rememberPlaybackSpeedPatch"> -->
   <string name="revanced_remember_playback_speed_last_selected_title">Lembrar mudança na velocidade de reprodução</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_on">Mudanças de velocidade de reprodução se aplicam a todos os vídeos</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_off">Mudanças na velocidade de reprodução só se aplicam ao vídeo atual</string>
   <string name="revanced_playback_speed_default_title">Velocidade padrão de reprodução</string>
   <string name="revanced_remember_playback_speed_toast">Velocidade padrão alterada para: %s</string>
-  </patch>
-  <patch id="video.hdr.disableHdrPatch">
+  <!-- </patch> -->
+  <!-- <patch id="video.hdr.disableHdrPatch"> -->
   <string name="revanced_disable_hdr_video_title">Desativar vídeo HDR</string>
   <string name="revanced_disable_hdr_video_summary_on">O vídeo HDR está desabilitado</string>
   <string name="revanced_disable_hdr_video_summary_off">O vídeo HDR está habilitado</string>
-  </patch>
-  <patch id="video.quality.advancedVideoQualityMenuPatch">
+  <!-- </patch> -->
+  <!-- <patch id="video.quality.advancedVideoQualityMenuPatch"> -->
   <string name="revanced_advanced_video_quality_menu_title">Mostrar menu de qualidade de vídeo avançado</string>
   <string name="revanced_advanced_video_quality_menu_summary_on">O menu de qualidade de vídeo avançado é exibido</string>
   <string name="revanced_advanced_video_quality_menu_summary_off">O menu de qualidade de vídeo avançado não é exibido</string>
-  </patch>
-  <patch id="interaction.seekbar.enableSlideToSeekPatch">
+  <!-- </patch> -->
+  <!-- <patch id="interaction.seekbar.enableSlideToSeekPatch"> -->
   <string name="revanced_slide_to_seek_title">Ativar gesto na barra de busca</string>
   <string name="revanced_slide_to_seek_summary_on">Gesto na barra de busca está ativado</string>
   <string name="revanced_slide_to_seek_summary_off">Gesto na barra de busca está desativado</string>
-  </patch>
-  <patch id="misc.fix.playback.spoofVideoStreamsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.fix.playback.spoofVideoStreamsPatch"> -->
   <string name="revanced_spoof_video_streams_screen_title">Spoofing do fluxo de vídeo</string>
   <string name="revanced_spoof_video_streams_screen_summary">Spoofa o fluxo de vídeo do cliente para evitar problemas de reprodução</string>
   <string name="revanced_spoof_video_streams_title">Spoofing do fluxo de vídeo</string>
@@ -1392,46 +1393,46 @@ A AVC tem uma resolução máxima de 1080p, o codec de áudio Opus não está di
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">O tipo de cliente é mostrado em Estatísticas para nerds</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">O cliente está oculto em Estatísticas para nerds</string>
   <string name="revanced_spoof_video_streams_language_title">Idioma do fluxo de áudio padrão de VR</string>
-  </patch>
-  </app>
-  <app id="twitch">
-  <patch id="ad.audio.audioAdsPatch">
+  <!-- </patch> -->
+  <!-- </app> -->
+  <!-- <app id="twitch"> -->
+  <!-- <patch id="ad.audio.audioAdsPatch"> -->
   <string name="revanced_block_audio_ads_title">Bloquear anúncios de áudio</string>
   <string name="revanced_block_audio_ads_summary_on">Anúncios de áudio estão bloqueados</string>
   <string name="revanced_block_audio_ads_summary_off">Anúncios de áudio não estão bloqueados</string>
-  </patch>
-  <patch id="ad.embedded.embeddedAdsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="ad.embedded.embeddedAdsPatch"> -->
   <string name="revanced_embedded_ads_service_unavailable">%s indisponível, os anúncios podem ser exibidos. Tente alterar o serviço de bloqueio de anúncios nas configurações.</string>
   <string name="revanced_embedded_ads_service_failed">%s retornou um erro, os anúncios podem ser exibidos. Tente alterar o serviço de bloqueio de anúncios nas configurações.</string>
   <string name="revanced_block_embedded_ads_title">Bloquear anúncios de vídeo incorporados</string>
   <string name="revanced_block_embedded_ads_entry_1">Desativado</string>
   <string name="revanced_block_embedded_ads_entry_2">Proxy Luminous</string>
   <string name="revanced_block_embedded_ads_entry_3">Proxy PurpleAdBlock</string>
-  </patch>
-  <patch id="ad.video.videoAdsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="ad.video.videoAdsPatch"> -->
   <string name="revanced_block_video_ads_title">Bloquear anúncios em vídeo</string>
   <string name="revanced_block_video_ads_summary_on">Anúncios de vídeo estão bloqueados</string>
   <string name="revanced_block_video_ads_summary_off">Anúncios de vídeo não estão bloqueados</string>
-  </patch>
-  <patch id="chat.antidelete.showDeletedMessagesPatch">
+  <!-- </patch> -->
+  <!-- <patch id="chat.antidelete.showDeletedMessagesPatch"> -->
   <string name="revanced_deleted_msg">Mensagem excluída</string>
   <string name="revanced_show_deleted_messages_title">Mostrar mensagens apagadas</string>
   <string name="revanced_show_deleted_messages_entry_1">Não mostrar mensagens apagadas</string>
   <string name="revanced_show_deleted_messages_entry_2">Ocultar mensagens apagadas atrás de um spoiler</string>
   <string name="revanced_show_deleted_messages_entry_3">Mostrar mensagens apagadas como texto riscado</string>
-  </patch>
-  <patch id="chat.autoclaim.autoClaimChannelPointsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="chat.autoclaim.autoClaimChannelPointsPatch"> -->
   <string name="revanced_auto_claim_channel_points_title">Resgatar Pontos do Canal automaticamente</string>
   <string name="revanced_auto_claim_channel_points_summary_on">Pontos do Canal estão sendo resgatados automaticamente</string>
   <string name="revanced_auto_claim_channel_points_summary_off">Pontos do Canal não estão sendo resgatados automaticamente</string>
-  </patch>
-  <patch id="debug.debugModePatch">
+  <!-- </patch> -->
+  <!-- <patch id="debug.debugModePatch"> -->
   <!-- Twitch specific internal debug mode, and not the same as 'revanced_debug_title' -->
   <string name="revanced_twitch_debug_mode_title">Ativar modo de depuração da Twitch</string>
   <string name="revanced_twitch_debug_mode_summary_on">Modo de depuração da Twitch ativado (não recomendado)</string>
   <string name="revanced_twitch_debug_mode_summary_off">Modo de depuração da Twitch está desativado</string>
-  </patch>
-  <patch id="misc.settings.settingsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.settings.settingsPatch"> -->
   <string name="revanced_settings">Configurações do ReVanced</string>
   <string name="revanced_about_title">Sobre</string>
   <string name="revanced_about_summary">Sobre ReVanced</string>
@@ -1448,6 +1449,6 @@ A AVC tem uma resolução máxima de 1080p, o codec de áudio Opus não está di
   <string name="revanced_twitch_debug_title">Registro de depuração</string>
   <string name="revanced_twitch_debug_summary_on">Registro de depuração está ativado</string>
   <string name="revanced_twitch_debug_summary_off">Registro de depuração está desativado</string>
-  </patch>
-  </app>
+  <!-- </patch> -->
+  <!-- </app> -->
 </resources>
