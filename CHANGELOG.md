@@ -1,3 +1,29 @@
+# [5.17.0-dev.3](https://github.com/ReVanced/revanced-patches/compare/v5.17.0-dev.2...v5.17.0-dev.3) (2025-03-28)
+
+
+### Bug Fixes
+
+* **Spotify - Unlock Premium:** Override additional attributes ([#4651](https://github.com/ReVanced/revanced-patches/issues/4651)) ([568b40d](https://github.com/ReVanced/revanced-patches/commit/568b40da9692eae9039bbb3cec513a61ca627c24))
+
+# [5.17.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.17.0-dev.1...v5.17.0-dev.2) (2025-03-27)
+
+
+### Bug Fixes
+
+* **YouTube - Navigation buttons:** Add user dialog message to 'Disable translucent status bar' ([a4a0e68](https://github.com/ReVanced/revanced-patches/commit/a4a0e6869e23d15ee09262460f4e290c90629eeb))
+
+# [5.17.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.16.2-dev.1...v5.17.0-dev.1) (2025-03-27)
+
+
+### Bug Fixes
+
+* **Spotify - Unlock Premium:** Use correct patch description convention ([a486522](https://github.com/ReVanced/revanced-patches/commit/a4865228f8481d2efc8fbf4e90902a03289d9a3f))
+
+
+### Features
+
+* **Spotify - Unlock Premium:** Disable the "Spotify Premium" upsell experiment in context menus ([9a10ee4](https://github.com/ReVanced/revanced-patches/commit/9a10ee4d22fb53da2012a182e038749d3ad72377))
+
 ## [5.16.2-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.16.1...v5.16.2-dev.1) (2025-03-26)
 
 

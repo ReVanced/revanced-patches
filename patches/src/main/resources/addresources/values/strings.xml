@@ -616,6 +616,7 @@ If changing this setting does not take effect, try switching to Incognito mode."
             <string name="revanced_disable_translucent_status_bar_title">Disable translucent status bar</string>
             <string name="revanced_disable_translucent_status_bar_summary_on">Status bar is opaque</string>
             <string name="revanced_disable_translucent_status_bar_summary_off">Status bar is opaque or translucent</string>
+            <string name="revanced_disable_translucent_status_bar_user_dialog_message">On some devices, enabling this feature can change the system navigation bar to transparent.</string>
             <string name="revanced_disable_translucent_navigation_bar_light_title">Disable light translucent bar</string>
             <string name="revanced_disable_translucent_navigation_bar_light_summary_on">Light mode navigation bar is opaque</string>
             <string name="revanced_disable_translucent_navigation_bar_light_summary_off">Light mode navigation bar is opaque or translucent</string>
