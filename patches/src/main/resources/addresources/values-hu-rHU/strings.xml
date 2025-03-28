@@ -1154,6 +1154,7 @@ Ha később kikapcsolja, akkor ajánlott az alkalmazás adatait törölni, hogy 
   <string name="revanced_miniplayer_type_entry_4">Modern 1</string>
   <string name="revanced_miniplayer_type_entry_5">Modern 2</string>
   <string name="revanced_miniplayer_type_entry_6">Modern 3</string>
+  <string name="revanced_miniplayer_type_entry_7">Modern 4</string>
   <string name="revanced_miniplayer_rounded_corners_title">Lekerekített sarkok engedélyezése</string>
   <string name="revanced_miniplayer_rounded_corners_summary_on">A sarkok lekerekítettek</string>
   <string name="revanced_miniplayer_rounded_corners_summary_off">A sarkok négyzet alakúak</string>
@@ -1173,10 +1174,10 @@ A miniatűr képernyőt a képernyő bármely sarkába húzhatja"</string>
 
 A miniatűr képernyőt a képernyő bal vagy jobb szélére húzhatja"</string>
   <string name="revanced_miniplayer_horizontal_drag_summary_off">A vízszintes húzómozdulat letiltva</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_title">Bezárás gomb elrejtése</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">A Bezárás gomb el van rejtve</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">A Bezárás gomb látható</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_title">Kibontás és bezárás gombok elrejtése</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_title">Fedőgomb elrejtése</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">A fedőgombok rejtve vannak</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">A fedőgombok láthatók</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_title">A kibontás és bezárás gombok elrejtése</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_on">"A gombok el vannak rejtve
 
 Húzza el a képernyőt a kibontáshoz vagy bezáráshoz"</string>

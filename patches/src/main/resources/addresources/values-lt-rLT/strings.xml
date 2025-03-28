@@ -1156,6 +1156,7 @@ Jei vėliau išjungta, rekomenduojama išvalyti programos duomenis, kad būtų i
   <string name="revanced_miniplayer_type_entry_4">Modernus 1</string>
   <string name="revanced_miniplayer_type_entry_5">Modernus 2</string>
   <string name="revanced_miniplayer_type_entry_6">Modernus 3</string>
+  <string name="revanced_miniplayer_type_entry_7">Modernus 4</string>
   <string name="revanced_miniplayer_rounded_corners_title">Įgalinti suapvalintus kampus</string>
   <string name="revanced_miniplayer_rounded_corners_summary_on">Kampai yra suapvalinti</string>
   <string name="revanced_miniplayer_rounded_corners_summary_off">Kampai yra kvadratiniai</string>
@@ -1175,9 +1176,9 @@ Jei vėliau išjungta, rekomenduojama išvalyti programos duomenis, kad būtų i
 
 \"Miniplayer\" galima vilkti nuo ekrano į kairę arba dešinę"</string>
   <string name="revanced_miniplayer_horizontal_drag_summary_off">Horizontalaus vilkimo gestas išjungtas</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_title">Slėpti uždarymo mygtuką</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">Uždarymo mygtukas yra paslėptas</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">Uždarymo mygtukas yra rodomas</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_title">Slėpti perdangos mygtukus</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">Perdangos mygtukai paslėpti</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">Perdangos mygtukai rodomi</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_legacy_title">Slėpti išplėtimo ir uždarymo mygtukus</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_on">"Mygtukai paslėpti
 
