@@ -1172,14 +1172,14 @@ Trình phát nhỏ có thể được kéo đến bất kỳ góc nào của mà
 
 Trình phát nhỏ có thể được kéo ra khỏi màn hình sang trái hoặc phải"</string>
   <string name="revanced_miniplayer_horizontal_drag_summary_off">Cử chỉ kéo ngang được tắt</string>
-  <string name="revanced_miniplayer_hide_expand_close_title">Ẩn nút đóng</string>
-  <string name="revanced_miniplayer_hide_expand_close_summary_on">Nút đóng được ẩn</string>
-  <string name="revanced_miniplayer_hide_expand_close_summary_off">Nút đóng được hiện</string>
-  <string name="revanced_miniplayer_hide_expand_close_legacy_title">Ẩn các nút mở rộng và đóng</string>
-  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_on">"Nút bị ẩn
+  <string name="revanced_miniplayer_hide_overlay_buttons_title">Ẩn nút đóng</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">Nút đóng được ẩn</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">Nút đóng được hiện</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_title">Ẩn các nút mở rộng và đóng</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_on">"Nút bị ẩn
 
 Vuốt để mở rộng hoặc đóng"</string>
-  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_off">Các nút mở rộng và đóng được hiện</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_off">Các nút mở rộng và đóng được hiện</string>
   <string name="revanced_miniplayer_hide_subtext_title">Ẩn văn bản phụ</string>
   <string name="revanced_miniplayer_hide_subtext_summary_on">Văn bản phụ được ẩn</string>
   <string name="revanced_miniplayer_hide_subtext_summary_off">Văn bản phụ được hiện</string>

@@ -1172,14 +1172,14 @@ Minipredvajalnik lahko povlečete v kateri koli kot zaslona"</string>
 
 Minipredvajalnik lahko povlečete z zaslona na levo ali desno"</string>
   <string name="revanced_miniplayer_horizontal_drag_summary_off">Vodoravna kretnja vlečenja je onemogočena</string>
-  <string name="revanced_miniplayer_hide_expand_close_title">Skrij gumb za zapiranje</string>
-  <string name="revanced_miniplayer_hide_expand_close_summary_on">Gumb za zapiranje je skrit</string>
-  <string name="revanced_miniplayer_hide_expand_close_summary_off">Gumb za zapiranje je prikazan</string>
-  <string name="revanced_miniplayer_hide_expand_close_legacy_title">Skrij gumbe za razširitev in zapiranje</string>
-  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_on">"Gumbi so skriti
+  <string name="revanced_miniplayer_hide_overlay_buttons_title">Skrij gumb za zapiranje</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">Gumb za zapiranje je skrit</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">Gumb za zapiranje je prikazan</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_title">Skrij gumbe za razširitev in zapiranje</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_on">"Gumbi so skriti
 
 Podrsnite za razširitev ali zapiranje"</string>
-  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_off">Gumbi za razširitev in zapiranje so prikazani</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_off">Gumbi za razširitev in zapiranje so prikazani</string>
   <string name="revanced_miniplayer_hide_subtext_title">Skrij podnaslove</string>
   <string name="revanced_miniplayer_hide_subtext_summary_on">Podnaslovi so skriti</string>
   <string name="revanced_miniplayer_hide_subtext_summary_off">Podnaslovi so prikazani</string>

@@ -1173,14 +1173,14 @@ Miniplayer có thể được kéo đến bất kỳ góc nào của màn hình"
 
 Miniplayer có thể được kéo ra khỏi màn hình sang trái hoặc phải"</string>
   <string name="revanced_miniplayer_horizontal_drag_summary_off">Gestos de arrastar horizontais desativados</string>
-  <string name="revanced_miniplayer_hide_expand_close_title">Ocultar botão fechar</string>
-  <string name="revanced_miniplayer_hide_expand_close_summary_on">O botão fechar está oculto</string>
-  <string name="revanced_miniplayer_hide_expand_close_summary_off">Botão fechar é mostrado</string>
-  <string name="revanced_miniplayer_hide_expand_close_legacy_title">Ocultar botões de expansão e fechamento</string>
-  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_on">"Nút bị ẩn
+  <string name="revanced_miniplayer_hide_overlay_buttons_title">Ocultar botão fechar</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">O botão fechar está oculto</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">Botão fechar é mostrado</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_title">Ocultar botões de expansão e fechamento</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_on">"Nút bị ẩn
 
 Vuốt để mở rộng hoặc đóng"</string>
-  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_off">Botões de expansão e fechamento são mostrados</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_off">Botões de expansão e fechamento são mostrados</string>
   <string name="revanced_miniplayer_hide_subtext_title">Ocultar subtextos</string>
   <string name="revanced_miniplayer_hide_subtext_summary_on">Subtextos estão ocultos</string>
   <string name="revanced_miniplayer_hide_subtext_summary_off">Subtextos são exibidos</string>

@@ -1172,14 +1172,14 @@ Miniatskaņotāju var pārvilkt uz jebkuru ekrāna stūri"</string>
 
 Miniatskaņotāju var pārvilkt no ekrāna uz kreiso vai labo pusi"</string>
   <string name="revanced_miniplayer_horizontal_drag_summary_off">Horizontāls velci ir atspējots</string>
-  <string name="revanced_miniplayer_hide_expand_close_title">Slēpt aizvēršanas pogu</string>
-  <string name="revanced_miniplayer_hide_expand_close_summary_on">Aizvēršanas poga ir paslēpta</string>
-  <string name="revanced_miniplayer_hide_expand_close_summary_off">Aizvēršanas poga ir redzama</string>
-  <string name="revanced_miniplayer_hide_expand_close_legacy_title">Slēpt izvēršanas un aizvēršanas pogas</string>
-  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_on">"Pogas ir paslēptas
+  <string name="revanced_miniplayer_hide_overlay_buttons_title">Slēpt aizvēršanas pogu</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">Aizvēršanas poga ir paslēpta</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">Aizvēršanas poga ir redzama</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_title">Slēpt izvēršanas un aizvēršanas pogas</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_on">"Pogas ir paslēptas
 
 Pārvelciet, lai paplašinātu vai aizvērtu"</string>
-  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_off">Izvēršanas un aizvēršanas pogas ir redzamas</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_off">Izvēršanas un aizvēršanas pogas ir redzamas</string>
   <string name="revanced_miniplayer_hide_subtext_title">Slēpt apakštekstu</string>
   <string name="revanced_miniplayer_hide_subtext_summary_on">Apakšteksts ir paslēpts</string>
   <string name="revanced_miniplayer_hide_subtext_summary_off">Apakšteksts ir redzams</string>

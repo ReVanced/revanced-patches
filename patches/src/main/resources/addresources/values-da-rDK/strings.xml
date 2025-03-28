@@ -1118,14 +1118,14 @@ Miniafspiller kan trækkes til et hvilket som helst hjørne af skærmen"</string
 
 Miniafspiller kan trækkes ud over skærmen til venstre eller højre"</string>
   <string name="revanced_miniplayer_horizontal_drag_summary_off">Vandret trækbevægelse deaktiveret</string>
-  <string name="revanced_miniplayer_hide_expand_close_title">Skjul lukkeknap</string>
-  <string name="revanced_miniplayer_hide_expand_close_summary_on">Luk knappen er skjult</string>
-  <string name="revanced_miniplayer_hide_expand_close_summary_off">Luk knappen vises</string>
-  <string name="revanced_miniplayer_hide_expand_close_legacy_title">Skjul udvid og luk knapper</string>
-  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_on">"Knapper er skjult
+  <string name="revanced_miniplayer_hide_overlay_buttons_title">Skjul lukkeknap</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">Luk knappen er skjult</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">Luk knappen vises</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_title">Skjul udvid og luk knapper</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_on">"Knapper er skjult
 
 Stryg for at udvide eller lukke"</string>
-  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_off">Udvid og luk knapper vises</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_off">Udvid og luk knapper vises</string>
   <string name="revanced_miniplayer_hide_subtext_title">Skjul undertekster</string>
   <string name="revanced_miniplayer_hide_subtext_summary_on">Undertekster er skjult</string>
   <string name="revanced_miniplayer_hide_subtext_summary_off">Undertekster er vist</string>

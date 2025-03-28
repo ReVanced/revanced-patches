@@ -1154,14 +1154,14 @@ El minireproductor se puede arrastrar a cualquier esquina de la pantalla"</strin
 
 El minireproductor se puede arrastrar fuera de la pantalla hacia la izquierda o la derecha"</string>
   <string name="revanced_miniplayer_horizontal_drag_summary_off">Gesto de arrastre horizontal desactivado</string>
-  <string name="revanced_miniplayer_hide_expand_close_title">Ocultar botón de cerrar</string>
-  <string name="revanced_miniplayer_hide_expand_close_summary_on">El botón de cierre está oculto</string>
-  <string name="revanced_miniplayer_hide_expand_close_summary_off">Se muestra el botón de cerrar</string>
-  <string name="revanced_miniplayer_hide_expand_close_legacy_title">Ocultar botones de expansión y cierre</string>
-  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_on">"Los botones están ocultos
+  <string name="revanced_miniplayer_hide_overlay_buttons_title">Ocultar botón de cerrar</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">El botón de cierre está oculto</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">Se muestra el botón de cerrar</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_title">Ocultar botones de expansión y cierre</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_on">"Los botones están ocultos
 
 Desliza para expandir o cerrar"</string>
-  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_off">Mostrar los botones de ampliación y cierre</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_off">Mostrar los botones de ampliación y cierre</string>
   <string name="revanced_miniplayer_hide_subtext_title">Ocultar subtextos</string>
   <string name="revanced_miniplayer_hide_subtext_summary_on">Los subtextos están ocultos</string>
   <string name="revanced_miniplayer_hide_subtext_summary_off">Los subtextos se muestran</string>

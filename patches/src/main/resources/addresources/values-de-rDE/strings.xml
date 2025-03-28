@@ -1166,14 +1166,14 @@ Der Mini-Player kann in jede Ecke des Bildschirms gezogen werden"</string>
 
 Der Mini-Player kann mit einer Wischgeste vom Bildschirm nach links oder rechts gezogen werden"</string>
   <string name="revanced_miniplayer_horizontal_drag_summary_off">Horizontale Drag Geste deaktiviert</string>
-  <string name="revanced_miniplayer_hide_expand_close_title">Schließen-Button ausblenden</string>
-  <string name="revanced_miniplayer_hide_expand_close_summary_on">Schließen-Button ist ausgeblendet</string>
-  <string name="revanced_miniplayer_hide_expand_close_summary_off">Schließen-Schaltfläche wird angezeigt</string>
-  <string name="revanced_miniplayer_hide_expand_close_legacy_title">Ausklappen und Schließen der Tasten ausblenden</string>
-  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_on">"Schaltflächen sind ausgeblendet
+  <string name="revanced_miniplayer_hide_overlay_buttons_title">Schließen-Button ausblenden</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">Schließen-Button ist ausgeblendet</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">Schließen-Schaltfläche wird angezeigt</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_title">Ausklappen und Schließen der Tasten ausblenden</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_on">"Schaltflächen sind ausgeblendet
 
 Wischen Sie, um zu erweitern oder zu schließen"</string>
-  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_off">Erweitern und Schließen Tasten werden angezeigt</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_off">Erweitern und Schließen Tasten werden angezeigt</string>
   <string name="revanced_miniplayer_hide_subtext_title">Untertexte ausblenden</string>
   <string name="revanced_miniplayer_hide_subtext_summary_on">Subtexte sind ausgeblendet</string>
   <string name="revanced_miniplayer_hide_subtext_summary_off">Untertexte werden angezeigt</string>

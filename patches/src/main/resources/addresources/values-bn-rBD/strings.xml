@@ -1173,14 +1173,14 @@ Miniplayer স্ক্রিনের যেকোনো কোণে টান
 
 Miniplayer স্ক্রিন থেকে বামে বা ডানে টানা যাবে"</string>
   <string name="revanced_miniplayer_horizontal_drag_summary_off">অনুভূমিক ড্র্যাগ অঙ্গভঙ্গি অক্ষম</string>
-  <string name="revanced_miniplayer_hide_expand_close_title">বন্ধ বোতাম লুকান</string>
-  <string name="revanced_miniplayer_hide_expand_close_summary_on">বন্ধ বোতাম লুকানো আছে</string>
-  <string name="revanced_miniplayer_hide_expand_close_summary_off">বন্ধ বোতাম দেখানো হচ্ছে</string>
-  <string name="revanced_miniplayer_hide_expand_close_legacy_title">বিস্তৃত ও বন্ধ করার বোতাম লুকান</string>
-  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_on">"বোতামগুলি লুকানো হয়
+  <string name="revanced_miniplayer_hide_overlay_buttons_title">বন্ধ বোতাম লুকান</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">বন্ধ বোতাম লুকানো আছে</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">বন্ধ বোতাম দেখানো হচ্ছে</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_title">বিস্তৃত ও বন্ধ করার বোতাম লুকান</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_on">"বোতামগুলি লুকানো হয়
 
 বিস্তৃত করতে বা বন্ধ করতে সোয়াইপ করুন"</string>
-  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_off">বিস্তৃত এবং বন্ধ বোতাম দেখানো হচ্ছে</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_off">বিস্তৃত এবং বন্ধ বোতাম দেখানো হচ্ছে</string>
   <string name="revanced_miniplayer_hide_subtext_title">উপপাঠ লুকান</string>
   <string name="revanced_miniplayer_hide_subtext_summary_on">উপপাঠ লুকিয়ে রয়েছে</string>
   <string name="revanced_miniplayer_hide_subtext_summary_off">উপপাঠ প্রদর্শিত হয়েছে</string>

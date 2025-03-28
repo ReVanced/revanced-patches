@@ -1172,14 +1172,14 @@ Pokud bude později vypnuta, doporučujeme vymazat data aplikace, aby se zabrán
 
 \"Miniplayer\" lze přetáhnout z obrazovky doleva nebo doprava"</string>
   <string name="revanced_miniplayer_horizontal_drag_summary_off">Horizontální posun je zakázán</string>
-  <string name="revanced_miniplayer_hide_expand_close_title">Skrýt tlačítko zavření</string>
-  <string name="revanced_miniplayer_hide_expand_close_summary_on">Tlačítko zavření je skryto</string>
-  <string name="revanced_miniplayer_hide_expand_close_summary_off">Tlačítko zavření je zobrazeno</string>
-  <string name="revanced_miniplayer_hide_expand_close_legacy_title">Skrýt tlačítka pro rozbalení a zavření</string>
-  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_on">"Tlačítka jsou skryta
+  <string name="revanced_miniplayer_hide_overlay_buttons_title">Skrýt tlačítko zavření</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">Tlačítko zavření je skryto</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">Tlačítko zavření je zobrazeno</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_title">Skrýt tlačítka pro rozbalení a zavření</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_on">"Tlačítka jsou skryta
 
 Přejeďte prstem pro rozbalení nebo zavření"</string>
-  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_off">Tlačítka pro rozbalení a zavření jsou zobrazena</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_off">Tlačítka pro rozbalení a zavření jsou zobrazena</string>
   <string name="revanced_miniplayer_hide_subtext_title">Skrýt podtexty</string>
   <string name="revanced_miniplayer_hide_subtext_summary_on">Podtexty jsou skryty</string>
   <string name="revanced_miniplayer_hide_subtext_summary_off">Podtexty jsou zobrazeny</string>

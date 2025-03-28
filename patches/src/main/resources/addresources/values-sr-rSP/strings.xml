@@ -1172,14 +1172,14 @@ Second \"item\" text"</string>
 
 Мини-плејер се може превући са екрана улево или удесно"</string>
   <string name="revanced_miniplayer_horizontal_drag_summary_off">Покрет хоризонталног превлачења је онемогућен</string>
-  <string name="revanced_miniplayer_hide_expand_close_title">Сакриј дугме за затварање</string>
-  <string name="revanced_miniplayer_hide_expand_close_summary_on">Дугме за затварање је скривено</string>
-  <string name="revanced_miniplayer_hide_expand_close_summary_off">Дугме за затварање је приказано</string>
-  <string name="revanced_miniplayer_hide_expand_close_legacy_title">Сакриј дугмад за проширење и затварање</string>
-  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_on">"Дугмад су скривена
+  <string name="revanced_miniplayer_hide_overlay_buttons_title">Сакриј дугме за затварање</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">Дугме за затварање је скривено</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">Дугме за затварање је приказано</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_title">Сакриј дугмад за проширење и затварање</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_on">"Дугмад су скривена
 
 Превуците за проширење или затварање"</string>
-  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_off">Дугмад за проширење и затварање су приказана</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_off">Дугмад за проширење и затварање су приказана</string>
   <string name="revanced_miniplayer_hide_subtext_title">Сакриј подтекстове</string>
   <string name="revanced_miniplayer_hide_subtext_summary_on">Подтекстови су скривени</string>
   <string name="revanced_miniplayer_hide_subtext_summary_off">Подтекстови су приказани</string>

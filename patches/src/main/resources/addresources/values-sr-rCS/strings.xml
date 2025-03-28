@@ -1172,14 +1172,14 @@ Mini-plejer se može prevući u bilo koji ugao ekrana"</string>
 
 Mini-plejer se može prevući sa ekrana ulevo ili udesno"</string>
   <string name="revanced_miniplayer_horizontal_drag_summary_off">Pokret horizontalnog prevlačenja je onemogućen</string>
-  <string name="revanced_miniplayer_hide_expand_close_title">Sakrij dugme za zatvaranje</string>
-  <string name="revanced_miniplayer_hide_expand_close_summary_on">Dugme za zatvaranje je skriveno</string>
-  <string name="revanced_miniplayer_hide_expand_close_summary_off">Dugme za zatvaranje je prikazano</string>
-  <string name="revanced_miniplayer_hide_expand_close_legacy_title">Sakrij dugmad za proširenje i zatvaranje</string>
-  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_on">"Dugmad su skrivena
+  <string name="revanced_miniplayer_hide_overlay_buttons_title">Sakrij dugme za zatvaranje</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">Dugme za zatvaranje je skriveno</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">Dugme za zatvaranje je prikazano</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_title">Sakrij dugmad za proširenje i zatvaranje</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_on">"Dugmad su skrivena
 
 Prevucite za proširenje ili zatvaranje"</string>
-  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_off">Dugmad za proširenje i zatvaranje su prikazana</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_off">Dugmad za proširenje i zatvaranje su prikazana</string>
   <string name="revanced_miniplayer_hide_subtext_title">Sakrij podtekstove</string>
   <string name="revanced_miniplayer_hide_subtext_summary_on">Podtekstovi su skriveni</string>
   <string name="revanced_miniplayer_hide_subtext_summary_off">Podtekstovi su prikazani</string>

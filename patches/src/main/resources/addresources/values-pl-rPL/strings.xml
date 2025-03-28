@@ -1173,14 +1173,14 @@ Odtwarzacz można przeciągnąć do dowolnego rogu ekranu"</string>
 
 Odtwarzacz można przeciągnąć poza ekran w lewo lub w prawo"</string>
   <string name="revanced_miniplayer_horizontal_drag_summary_off">Gest przeciągania w poziomie jest wyłączony</string>
-  <string name="revanced_miniplayer_hide_expand_close_title">Przycisk zamykania</string>
-  <string name="revanced_miniplayer_hide_expand_close_summary_on">Przycisk zamykania jest ukryty</string>
-  <string name="revanced_miniplayer_hide_expand_close_summary_off">Przycisk zamykania jest widoczny</string>
-  <string name="revanced_miniplayer_hide_expand_close_legacy_title">Przyciski rozszerzania i zamykania</string>
-  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_on">"Przyciski są ukryte
+  <string name="revanced_miniplayer_hide_overlay_buttons_title">Przycisk zamykania</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">Przycisk zamykania jest ukryty</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">Przycisk zamykania jest widoczny</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_title">Przyciski rozszerzania i zamykania</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_on">"Przyciski są ukryte
 
 Przesuń, aby rozwinąć lub zamknąć"</string>
-  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_off">Przyciski są widoczne</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_off">Przyciski są widoczne</string>
   <string name="revanced_miniplayer_hide_subtext_title">Podteksty</string>
   <string name="revanced_miniplayer_hide_subtext_summary_on">Podteksty są ukryte</string>
   <string name="revanced_miniplayer_hide_subtext_summary_off">Podteksty są widoczne</string>
