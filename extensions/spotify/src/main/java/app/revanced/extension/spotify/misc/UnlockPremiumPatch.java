@@ -11,9 +11,7 @@ import java.util.Objects;
 
 import app.revanced.extension.shared.Logger;
 
-/**
- * @noinspection unused
- */
+@SuppressWarnings("unused")
 public final class UnlockPremiumPatch {
 
     private static class OverrideAttribute {
