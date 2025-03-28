@@ -1160,14 +1160,14 @@ Second \"item\" text"</string>
 
 מיני-נגן ניתן לגרירה מחוץ למסך לשמאל או לימין"</string>
   <string name="revanced_miniplayer_horizontal_drag_summary_off">מחוות גרירה אופקית מושבתת</string>
-  <string name="revanced_miniplayer_hide_expand_close_title">הסתר לחצן סגירה</string>
-  <string name="revanced_miniplayer_hide_expand_close_summary_on">לחצן סגירה מוסתר</string>
-  <string name="revanced_miniplayer_hide_expand_close_summary_off">לחצן סגירה מוצג</string>
-  <string name="revanced_miniplayer_hide_expand_close_legacy_title">הסתר לחצני סגירה והרחבה</string>
-  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_on">"הלחצנים מוסתרים
+  <string name="revanced_miniplayer_hide_overlay_buttons_title">הסתר לחצן סגירה</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">לחצן סגירה מוסתר</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">לחצן סגירה מוצג</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_title">הסתר לחצני סגירה והרחבה</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_on">"הלחצנים מוסתרים
 
 החלק כדי להרחיב או לסגור"</string>
-  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_off">לחצני הרחבה וסגירה מוצגים</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_off">לחצני הרחבה וסגירה מוצגים</string>
   <string name="revanced_miniplayer_hide_subtext_title">הסתר תת-טקסטים</string>
   <string name="revanced_miniplayer_hide_subtext_summary_on">תת-טקסטים מוסתרים</string>
   <string name="revanced_miniplayer_hide_subtext_summary_off">תת-טקסטים מוצגים</string>

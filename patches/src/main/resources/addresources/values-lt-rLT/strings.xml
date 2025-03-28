@@ -1175,14 +1175,14 @@ Jei vėliau išjungta, rekomenduojama išvalyti programos duomenis, kad būtų i
 
 \"Miniplayer\" galima vilkti nuo ekrano į kairę arba dešinę"</string>
   <string name="revanced_miniplayer_horizontal_drag_summary_off">Horizontalaus vilkimo gestas išjungtas</string>
-  <string name="revanced_miniplayer_hide_expand_close_title">Slėpti uždarymo mygtuką</string>
-  <string name="revanced_miniplayer_hide_expand_close_summary_on">Uždarymo mygtukas yra paslėptas</string>
-  <string name="revanced_miniplayer_hide_expand_close_summary_off">Uždarymo mygtukas yra rodomas</string>
-  <string name="revanced_miniplayer_hide_expand_close_legacy_title">Slėpti išplėtimo ir uždarymo mygtukus</string>
-  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_on">"Mygtukai paslėpti
+  <string name="revanced_miniplayer_hide_overlay_buttons_title">Slėpti uždarymo mygtuką</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">Uždarymo mygtukas yra paslėptas</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">Uždarymo mygtukas yra rodomas</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_title">Slėpti išplėtimo ir uždarymo mygtukus</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_on">"Mygtukai paslėpti
 
 Braukite, kad išplėstumėte arba uždarytumėte"</string>
-  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_off">Išplėtimo ir uždarymo mygtukai yra rodomi</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_off">Išplėtimo ir uždarymo mygtukai yra rodomi</string>
   <string name="revanced_miniplayer_hide_subtext_title">Slėpti antraštes</string>
   <string name="revanced_miniplayer_hide_subtext_summary_on">Antraštės yra paslėptos</string>
   <string name="revanced_miniplayer_hide_subtext_summary_off">Antraštės yra rodomos</string>

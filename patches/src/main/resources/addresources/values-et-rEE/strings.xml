@@ -1174,14 +1174,14 @@ Minimaalset mängijat saab lohistada ekraani mis tahes nurka"</string>
 
 Minimaalset mängijat saab lohistada ekraanilt vasakule või paremale"</string>
   <string name="revanced_miniplayer_horizontal_drag_summary_off">Horisontaalse lohistamise žest on keelatud</string>
-  <string name="revanced_miniplayer_hide_expand_close_title">Peida sulgemisnupp</string>
-  <string name="revanced_miniplayer_hide_expand_close_summary_on">Sulgemisnupp on peidetud</string>
-  <string name="revanced_miniplayer_hide_expand_close_summary_off">Sulgemisnupp on nähtav</string>
-  <string name="revanced_miniplayer_hide_expand_close_legacy_title">Peida laiendamis- ja sulgemisnupud</string>
-  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_on">"Nupud on peidetud
+  <string name="revanced_miniplayer_hide_overlay_buttons_title">Peida sulgemisnupp</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">Sulgemisnupp on peidetud</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">Sulgemisnupp on nähtav</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_title">Peida laiendamis- ja sulgemisnupud</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_on">"Nupud on peidetud
 
 Pühkige laiendamiseks või sulgemiseks"</string>
-  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_off">Laiendamis- ja sulgemisnupud on nähtavad</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_off">Laiendamis- ja sulgemisnupud on nähtavad</string>
   <string name="revanced_miniplayer_hide_subtext_title">Peida alatähed</string>
   <string name="revanced_miniplayer_hide_subtext_summary_on">Alatähed on peidetud</string>
   <string name="revanced_miniplayer_hide_subtext_summary_off">Alatähed on nähtavad</string>

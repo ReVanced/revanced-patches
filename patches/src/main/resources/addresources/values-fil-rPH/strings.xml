@@ -1172,14 +1172,14 @@ Ang \"miniplayer\" ay maaaring i-drag sa anumang sulok ng screen"</string>
 
 Ang \"miniplayer\" ay maaaring i-drag palabas ng screen sa kaliwa o kanan"</string>
   <string name="revanced_miniplayer_horizontal_drag_summary_off">Hindi pinagana ang pahalang na drag gesture</string>
-  <string name="revanced_miniplayer_hide_expand_close_title">Itago ang pindutan ng pagsara</string>
-  <string name="revanced_miniplayer_hide_expand_close_summary_on">Nakatago ang pindutan ng pagsara</string>
-  <string name="revanced_miniplayer_hide_expand_close_summary_off">Ipinapakita ang pindutan ng pagsara</string>
-  <string name="revanced_miniplayer_hide_expand_close_legacy_title">Itago ang mga button na palawakin at isara</string>
-  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_on">"Ang mga pindutan ay nakatago
+  <string name="revanced_miniplayer_hide_overlay_buttons_title">Itago ang pindutan ng pagsara</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">Nakatago ang pindutan ng pagsara</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">Ipinapakita ang pindutan ng pagsara</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_title">Itago ang mga button na palawakin at isara</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_on">"Ang mga pindutan ay nakatago
 
 Mag-swipe upang palawakin o isara"</string>
-  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_off">Ang mga pindutan ng palawakin at isara ay ipinapakita</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_off">Ang mga pindutan ng palawakin at isara ay ipinapakita</string>
   <string name="revanced_miniplayer_hide_subtext_title">Itago ang mga subtext</string>
   <string name="revanced_miniplayer_hide_subtext_summary_on">Nakatago ang mga subtext</string>
   <string name="revanced_miniplayer_hide_subtext_summary_off">Ipinapakita ang mga subtext</string>

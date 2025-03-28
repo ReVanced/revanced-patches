@@ -4,7 +4,17 @@ import app.revanced.patcher.fingerprint
 import app.revanced.util.literal
 import com.android.tools.smali.dexlib2.AccessFlags
 
-internal val userWasInShortsFingerprint = fingerprint {
+/**
+ * YouTube 20.02.08 ~
+ */
+internal val userWasInShortsAlternativeFingerprint = fingerprint {
+    returns("V")
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
+    parameters("Ljava/lang/Object;")
+    strings("userIsInShorts: ")
+}
+
+internal val userWasInShortsLegacyFingerprint = fingerprint {
     returns("V")
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     parameters("Ljava/lang/Object;")

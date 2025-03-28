@@ -1177,14 +1177,14 @@ Second \"item\" text"</string>
 
 迷你播放器可以拖动到屏幕的左侧或右侧"</string>
   <string name="revanced_miniplayer_horizontal_drag_summary_off">已禁用水平拖动</string>
-  <string name="revanced_miniplayer_hide_expand_close_title">隐藏关闭按钮</string>
-  <string name="revanced_miniplayer_hide_expand_close_summary_on">关闭按钮已隐藏</string>
-  <string name="revanced_miniplayer_hide_expand_close_summary_off">关闭按钮已显示</string>
-  <string name="revanced_miniplayer_hide_expand_close_legacy_title">隐藏展开和关闭按钮</string>
-  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_on">"按钮已隐藏
+  <string name="revanced_miniplayer_hide_overlay_buttons_title">隐藏关闭按钮</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">关闭按钮已隐藏</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">关闭按钮已显示</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_title">隐藏展开和关闭按钮</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_on">"按钮已隐藏
 
 滑动以展开或关闭"</string>
-  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_off">展开和关闭按钮显示</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_off">展开和关闭按钮显示</string>
   <string name="revanced_miniplayer_hide_subtext_title">隐藏副标题</string>
   <string name="revanced_miniplayer_hide_subtext_summary_on">副标题已隐藏</string>
   <string name="revanced_miniplayer_hide_subtext_summary_off">副标题已显示</string>

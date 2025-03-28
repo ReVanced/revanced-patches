@@ -1174,14 +1174,14 @@ Second \"item\" text"</string>
 
 Мини плейърът може да бъде плъзган извън екрана наляво или надясно"</string>
   <string name="revanced_miniplayer_horizontal_drag_summary_off">Жестът за хоризонтално плъзгане е деактивиран</string>
-  <string name="revanced_miniplayer_hide_expand_close_title">Скриване на бутона за затваряне</string>
-  <string name="revanced_miniplayer_hide_expand_close_summary_on">Бутонът за затваряне е скрит</string>
-  <string name="revanced_miniplayer_hide_expand_close_summary_off">Показан е бутон за затваряне</string>
-  <string name="revanced_miniplayer_hide_expand_close_legacy_title">Бутони за разширяване и свиване на екрана</string>
-  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_on">"Бутоните са скрити
+  <string name="revanced_miniplayer_hide_overlay_buttons_title">Скриване на бутона за затваряне</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">Бутонът за затваряне е скрит</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">Показан е бутон за затваряне</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_title">Бутони за разширяване и свиване на екрана</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_on">"Бутоните са скрити
 
 Плъзнете, за да разгънете или затворите"</string>
-  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_off">Бутони за разширяване и свиване на екрана са видими</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_off">Бутони за разширяване и свиване на екрана са видими</string>
   <string name="revanced_miniplayer_hide_subtext_title">Екранни текстове, етикети</string>
   <string name="revanced_miniplayer_hide_subtext_summary_on">Скрити</string>
   <string name="revanced_miniplayer_hide_subtext_summary_off">Показват се</string>

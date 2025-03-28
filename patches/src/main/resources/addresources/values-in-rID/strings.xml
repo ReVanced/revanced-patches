@@ -1173,14 +1173,14 @@ Miniplayer dapat diseret ke sudut layar mana pun"</string>
 
 Miniplayer dapat diseret keluar layar ke kiri atau kanan"</string>
   <string name="revanced_miniplayer_horizontal_drag_summary_off">Gerakan seret horizontal dinonaktifkan</string>
-  <string name="revanced_miniplayer_hide_expand_close_title">Sembunyikan tombol tutup</string>
-  <string name="revanced_miniplayer_hide_expand_close_summary_on">Tombol tutup disembunyikan</string>
-  <string name="revanced_miniplayer_hide_expand_close_summary_off">Tombol tutup ditampilkan</string>
-  <string name="revanced_miniplayer_hide_expand_close_legacy_title">Sembunyikan perbesar dan tutup</string>
-  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_on">"Tombol disembunyikan
+  <string name="revanced_miniplayer_hide_overlay_buttons_title">Sembunyikan tombol tutup</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">Tombol tutup disembunyikan</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">Tombol tutup ditampilkan</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_title">Sembunyikan perbesar dan tutup</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_on">"Tombol disembunyikan
 
 Usap untuk memperluas atau menutup"</string>
-  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_off">Tombol bentang dan tutup ditampilkan</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_off">Tombol bentang dan tutup ditampilkan</string>
   <string name="revanced_miniplayer_hide_subtext_title">Sembunyikan subteks</string>
   <string name="revanced_miniplayer_hide_subtext_summary_on">Subteks disembunyikan</string>
   <string name="revanced_miniplayer_hide_subtext_summary_off">Subteks ditampilkan</string>

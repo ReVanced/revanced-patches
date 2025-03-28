@@ -1173,14 +1173,14 @@ Second \"item\" text"</string>
 
 Мініплеєр можна перетягнути за межі екрана вліво або вправо"</string>
   <string name="revanced_miniplayer_horizontal_drag_summary_off">Жест горизонтального перетягування вимкнено</string>
-  <string name="revanced_miniplayer_hide_expand_close_title">Приховати кнопку закриття</string>
-  <string name="revanced_miniplayer_hide_expand_close_summary_on">Кнопку закриття мініплеєру приховано</string>
-  <string name="revanced_miniplayer_hide_expand_close_summary_off">Кнопка закриття мініплеєру показується</string>
-  <string name="revanced_miniplayer_hide_expand_close_legacy_title">Кнопки розгортання та закриття</string>
-  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_on">"Кнопки розгортання та закриття приховано
+  <string name="revanced_miniplayer_hide_overlay_buttons_title">Приховати кнопку закриття</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">Кнопку закриття мініплеєру приховано</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">Кнопка закриття мініплеєру показується</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_title">Кнопки розгортання та закриття</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_on">"Кнопки розгортання та закриття приховано
 
 Проведіть по мініплеєру, щоб розгорнути чи закрити"</string>
-  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_off">Кнопки розгортання та закриття показуються</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_off">Кнопки розгортання та закриття показуються</string>
   <string name="revanced_miniplayer_hide_subtext_title">Приховати підтексти</string>
   <string name="revanced_miniplayer_hide_subtext_summary_on">Підтексти в мініплеєрі приховано</string>
   <string name="revanced_miniplayer_hide_subtext_summary_off">Підтексти в мініплеєрі показуються</string>

@@ -11,12 +11,21 @@ internal val abUriParserFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("Ljava/lang/Object")
     parameters("Ljava/lang/Object")
-    strings(
-        "Found entityKey=`",
-        "` that does not contain a PlaylistVideoEntityId message as it's identifier.",
-    )
     custom { method, _ ->
-        method.findUriParseIndex() >= 0
+        method.findUriParseIndex() >= 0 && method.findWebViewCheckCastIndex() >= 0
+    }
+}
+
+/**
+ * Target 19.33+
+ */
+internal val httpUriParserFingerprint = fingerprint {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
+    returns("Landroid/net/Uri")
+    parameters("Ljava/lang/String")
+    strings("https", "://", "https:")
+    custom { methodDef, _ ->
+        methodDef.findUriParseIndex() >= 0
     }
 }
 
@@ -44,19 +53,6 @@ internal val abUriParserLegacyFingerprint = fingerprint {
 
         val count = classDef.methods.count()
         count == 2 || count == 3
-    }
-}
-
-/**
- * Target 19.33+
- */
-internal val httpUriParserFingerprint = fingerprint {
-    accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
-    returns("Landroid/net/Uri")
-    parameters("Ljava/lang/String")
-    strings("https", "https:", "://")
-    custom { methodDef, _ ->
-        methodDef.findUriParseIndex() >= 0
     }
 }
 

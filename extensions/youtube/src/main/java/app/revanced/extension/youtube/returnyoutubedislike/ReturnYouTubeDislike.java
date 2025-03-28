@@ -114,7 +114,7 @@ public class ReturnYouTubeDislike {
     private static final Rect middleSeparatorBounds;
 
     /**
-     * Left separator horizontal padding for Rolling Number layout.
+     * Horizontal padding between the left and middle separator.
      */
     public static final int leftSeparatorShapePaddingPixels;
     private static final ShapeDrawable leftSeparatorShape;
@@ -129,7 +129,7 @@ public class ReturnYouTubeDislike {
                 (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 3.7f, dp);
         middleSeparatorBounds = new Rect(0, 0, middleSeparatorSize, middleSeparatorSize);
 
-        leftSeparatorShapePaddingPixels = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 10.0f, dp);
+        leftSeparatorShapePaddingPixels = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 8.4f, dp);
 
         leftSeparatorShape = new ShapeDrawable(new RectShape());
         leftSeparatorShape.setBounds(leftSeparatorBounds);
@@ -238,7 +238,7 @@ public class ReturnYouTubeDislike {
             String leftSeparatorString = getTextDirectionString();
             final Spannable leftSeparatorSpan;
             if (isRollingNumber) {
-                 leftSeparatorSpan = new SpannableString(leftSeparatorString);
+                leftSeparatorSpan = new SpannableString(leftSeparatorString);
             } else {
                 leftSeparatorString += "  ";
                 leftSeparatorSpan = new SpannableString(leftSeparatorString);
@@ -623,7 +623,7 @@ public class ReturnYouTubeDislike {
                 userVote = vote;
                 clearUICache();
             }
-            
+
             if (future.isDone()) {
                 // Update the fetched vote data.
                 RYDVoteData voteData = getFetchData(MAX_MILLISECONDS_TO_BLOCK_UI_WAITING_FOR_FETCH);
