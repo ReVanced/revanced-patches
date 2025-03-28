@@ -37,11 +37,24 @@ internal val shortsSeekbarColorFingerprint = fingerprint {
     literal { reelTimeBarPlayedColorId }
 }
 
-internal val playerSeekbarHandleColorFingerprint = fingerprint {
+internal val playerSeekbarHandle1ColorFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     parameters("Landroid/content/Context;")
-    literal { ytStaticBrandRedId }
+    custom { method, _ ->
+        method.containsLiteralInstruction(ytTextSecondaryId) &&
+                method.containsLiteralInstruction(ytStaticBrandRedId)
+    }
 }
+
+internal val playerSeekbarHandle2ColorFingerprint = fingerprint {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
+    parameters("Landroid/content/Context;")
+    custom { method, _ ->
+        method.containsLiteralInstruction(inlineTimeBarLiveSeekableRangeId) &&
+                method.containsLiteralInstruction(ytStaticBrandRedId)
+    }
+}
+
 
 internal val watchHistoryMenuUseProgressDrawableFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)

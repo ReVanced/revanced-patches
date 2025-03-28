@@ -34,27 +34,29 @@ import com.android.tools.smali.dexlib2.iface.reference.TypeReference
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethodParameter
 
-var floatyBarButtonTopMargin = -1L
+internal var floatyBarButtonTopMargin = -1L
     private set
 
 // Only available in 19.15 and upwards.
-var ytOutlineXWhite24 = -1L
+internal var ytOutlineXWhite24 = -1L
     private set
-var ytOutlinePictureInPictureWhite24 = -1L
+internal var ytOutlinePictureInPictureWhite24 = -1L
     private set
-var scrimOverlay = -1L
+internal var scrimOverlay = -1L
     private set
-var modernMiniplayerClose = -1L
+internal var modernMiniplayerClose = -1L
     private set
-var modernMiniplayerExpand = -1L
+internal var modernMiniplayerExpand = -1L
     private set
-var modernMiniplayerRewindButton = -1L
+internal var modernMiniplayerRewindButton = -1L
     private set
-var modernMiniplayerForwardButton = -1L
+internal var modernMiniplayerForwardButton = -1L
     private set
-var playerOverlays = -1L
+internal var modernMiniPlayerOverlayActionButton = -1L
     private set
-var miniplayerMaxSize = -1L
+internal var playerOverlays = -1L
+    private set
+internal var miniplayerMaxSize = -1L
     private set
 
 private val miniplayerResourcePatch = resourcePatch {
@@ -98,6 +100,11 @@ private val miniplayerResourcePatch = resourcePatch {
         modernMiniplayerForwardButton = resourceMappings[
             "id",
             "modern_miniplayer_forward_button",
+        ]
+
+        modernMiniPlayerOverlayActionButton = resourceMappings[
+            "id",
+            "modern_miniplayer_overlay_action_button"
         ]
 
         // Resource id is not used during patching, but is used by extension.
@@ -175,19 +182,25 @@ val miniplayerPatch = bytecodePatch(
 
         val preferences = mutableSetOf<BasePreference>()
 
-
         preferences +=
-            if (is_19_43_or_greater) {
+            if (is_20_03_or_greater) {
                 ListPreference(
                     "revanced_miniplayer_type",
                     summaryKey = null,
+                )
+            } else if (is_19_43_or_greater) {
+                ListPreference(
+                    "revanced_miniplayer_type",
+                    summaryKey = null,
+                    entriesKey = "revanced_miniplayer_type_legacy_19_43_entries",
+                    entryValuesKey = "revanced_miniplayer_type_legacy_19_43_entry_values",
                 )
             } else {
                 ListPreference(
                     "revanced_miniplayer_type",
                     summaryKey = null,
-                    entriesKey = "revanced_miniplayer_type_legacy_entries",
-                    entryValuesKey = "revanced_miniplayer_type_legacy_entry_values",
+                    entriesKey = "revanced_miniplayer_type_legacy_19_16_entries",
+                    entryValuesKey = "revanced_miniplayer_type_legacy_19_16_entry_values",
                 )
             }
 
@@ -209,13 +222,13 @@ val miniplayerPatch = bytecodePatch(
         preferences += SwitchPreference("revanced_miniplayer_hide_subtext")
 
         preferences += if (is_19_26_or_greater) {
-            SwitchPreference("revanced_miniplayer_hide_expand_close")
+            SwitchPreference("revanced_miniplayer_hide_overlay_buttons")
         } else {
             SwitchPreference(
-                key = "revanced_miniplayer_hide_expand_close",
-                titleKey = "revanced_miniplayer_hide_expand_close_legacy_title",
-                summaryOnKey = "revanced_miniplayer_hide_expand_close_legacy_summary_on",
-                summaryOffKey = "revanced_miniplayer_hide_expand_close_legacy_summary_off",
+                key = "revanced_miniplayer_hide_overlay_buttons",
+                titleKey = "revanced_miniplayer_hide_overlay_buttons_legacy_title",
+                summaryOnKey = "revanced_miniplayer_hide_overlay_buttons_legacy_summary_on",
+                summaryOffKey = "revanced_miniplayer_hide_overlay_buttons_legacy_summary_off",
             )
         }
 
@@ -365,7 +378,7 @@ val miniplayerPatch = bytecodePatch(
         if (is_19_23_or_greater) {
             miniplayerModernConstructorFingerprint.insertMiniplayerFeatureFlagBooleanOverride(
                 MINIPLAYER_DRAG_DROP_FEATURE_KEY,
-                "enableMiniplayerDragAndDrop",
+                "getMiniplayerDragAndDrop",
             )
         }
 
@@ -382,7 +395,7 @@ val miniplayerPatch = bytecodePatch(
 
             miniplayerModernConstructorFingerprint.insertMiniplayerFeatureFlagBooleanOverride(
                 MINIPLAYER_DOUBLE_TAP_FEATURE_KEY,
-                "enableMiniplayerDoubleTapAction",
+                "getMiniplayerDoubleTapAction",
             )
         }
 
@@ -398,7 +411,7 @@ val miniplayerPatch = bytecodePatch(
                 addInstructions(
                     targetIndex + 1,
                     """
-                        invoke-static { v$register }, $EXTENSION_CLASS_DESCRIPTOR->setMiniplayerDefaultSize(I)I
+                        invoke-static { v$register }, $EXTENSION_CLASS_DESCRIPTOR->getMiniplayerDefaultSize(I)I
                         move-result v$register
                     """,
                 )
@@ -421,7 +434,7 @@ val miniplayerPatch = bytecodePatch(
         if (is_19_36_or_greater) {
             miniplayerModernConstructorFingerprint.insertMiniplayerFeatureFlagBooleanOverride(
                 MINIPLAYER_ROUNDED_CORNERS_FEATURE_KEY,
-                "setRoundedCorners",
+                "getRoundedCorners",
             )
         }
 
@@ -433,7 +446,7 @@ val miniplayerPatch = bytecodePatch(
 
             miniplayerModernConstructorFingerprint.insertMiniplayerFeatureFlagBooleanOverride(
                 MINIPLAYER_HORIZONTAL_DRAG_FEATURE_KEY,
-                "setHorizontalDrag",
+                "getHorizontalDrag",
             )
         }
 
@@ -474,6 +487,11 @@ val miniplayerPatch = bytecodePatch(
                 "hideMiniplayerExpandClose",
             ),
             Triple(
+                miniplayerModernActionButtonFingerprint,
+                modernMiniPlayerOverlayActionButton,
+                "hideMiniplayerActionButton"
+            ),
+            Triple(
                 miniplayerModernRewindButtonFingerprint,
                 modernMiniplayerRewindButton,
                 "hideMiniplayerRewindForward",
@@ -490,12 +508,25 @@ val miniplayerPatch = bytecodePatch(
             ),
         ).forEach { (fingerprint, literalValue, methodName) ->
             fingerprint.match(
-                miniplayerModernViewParentFingerprint.classDef,
-            ).method.hookInflatedView(
-                literalValue,
-                "Landroid/widget/ImageView;",
-                "$EXTENSION_CLASS_DESCRIPTOR->$methodName(Landroid/widget/ImageView;)V",
-            )
+                miniplayerModernViewParentFingerprint.originalClassDef
+            ).method.apply {
+                val literalIndex = indexOfFirstLiteralInstructionOrThrow(literalValue)
+                val checkCastIndex = indexOfFirstInstruction(literalIndex) {
+                    opcode == Opcode.CHECK_CAST &&
+                            getReference<TypeReference>()?.type == "Landroid/widget/ImageView;"
+                }
+                val viewIndex = if (checkCastIndex >= 0) {
+                    checkCastIndex
+                } else {
+                    indexOfFirstInstructionOrThrow(literalIndex, Opcode.MOVE_RESULT_OBJECT)
+                }
+                val viewRegister = getInstruction<OneRegisterInstruction>(viewIndex).registerA
+
+                addInstruction(
+                    viewIndex + 1,
+                    "invoke-static { v$viewRegister }, $EXTENSION_CLASS_DESCRIPTOR->$methodName(Landroid/view/View;)V"
+                )
+            }
         }
 
         miniplayerModernAddViewListenerFingerprint.match(
@@ -510,33 +541,40 @@ val miniplayerPatch = bytecodePatch(
         // Modern 2 uses the same overlay controls as the regular video player,
         // and the overlay views are added at runtime.
         // Add a hook to the overlay class, and pass the added views to extension.
+        // Problem is fixed in 19.21+
         //
         // NOTE: Modern 2 uses the same video UI as the regular player except resized to smaller.
         // This patch code could be used to hide other player overlays that do not use Litho.
-        playerOverlaysLayoutFingerprint.classDef.methods.add(
-            ImmutableMethod(
-                YOUTUBE_PLAYER_OVERLAYS_LAYOUT_CLASS_NAME,
-                "addView",
-                listOf(
-                    ImmutableMethodParameter("Landroid/view/View;", null, null),
-                    ImmutableMethodParameter("I", null, null),
-                    ImmutableMethodParameter("Landroid/view/ViewGroup\$LayoutParams;", null, null),
-                ),
-                "V",
-                AccessFlags.PUBLIC.value,
-                null,
-                null,
-                MutableMethodImplementation(4),
-            ).toMutable().apply {
-                addInstructions(
-                    """
-                        invoke-super { p0, p1, p2, p3 }, Landroid/view/ViewGroup;->addView(Landroid/view/View;ILandroid/view/ViewGroup${'$'}LayoutParams;)V
-                        invoke-static { p1 }, $EXTENSION_CLASS_DESCRIPTOR->playerOverlayGroupCreated(Landroid/view/View;)V
-                        return-void
-                    """
-                )
-            }
-        )
+        if (!is_19_17_or_greater) {
+            playerOverlaysLayoutFingerprint.classDef.methods.add(
+                ImmutableMethod(
+                    YOUTUBE_PLAYER_OVERLAYS_LAYOUT_CLASS_NAME,
+                    "addView",
+                    listOf(
+                        ImmutableMethodParameter("Landroid/view/View;", null, null),
+                        ImmutableMethodParameter("I", null, null),
+                        ImmutableMethodParameter(
+                            "Landroid/view/ViewGroup\$LayoutParams;",
+                            null,
+                            null
+                        ),
+                    ),
+                    "V",
+                    AccessFlags.PUBLIC.value,
+                    null,
+                    null,
+                    MutableMethodImplementation(4),
+                ).toMutable().apply {
+                    addInstructions(
+                        """
+                            invoke-super { p0, p1, p2, p3 }, Landroid/view/ViewGroup;->addView(Landroid/view/View;ILandroid/view/ViewGroup${'$'}LayoutParams;)V
+                            invoke-static { p1 }, $EXTENSION_CLASS_DESCRIPTOR->playerOverlayGroupCreated(Landroid/view/View;)V
+                            return-void
+                        """
+                    )
+                }
+            )
+        }
 
         // endregion
     }

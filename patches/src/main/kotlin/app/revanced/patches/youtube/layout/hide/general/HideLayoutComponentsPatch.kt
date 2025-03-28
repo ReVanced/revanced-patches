@@ -26,6 +26,8 @@ import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
 import app.revanced.util.findInstructionIndicesReversedOrThrow
 import app.revanced.util.getReference
+import app.revanced.util.indexOfFirstInstructionOrThrow
+import app.revanced.util.indexOfFirstLiteralInstructionOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.Method
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
@@ -345,19 +347,18 @@ val hideLayoutComponentsPatch = bytecodePatch(
 
         // region hide floating microphone
 
-        showFloatingMicrophoneButtonFingerprint.let {
-            it.method.apply {
-                val startIndex = it.patternMatch!!.startIndex
-                val register = getInstruction<TwoRegisterInstruction>(startIndex).registerA
+        showFloatingMicrophoneButtonFingerprint.method.apply {
+            val literalIndex = indexOfFirstLiteralInstructionOrThrow(fabButtonId)
+            val booleanIndex = indexOfFirstInstructionOrThrow(literalIndex, Opcode.IGET_BOOLEAN)
+            val register = getInstruction<TwoRegisterInstruction>(booleanIndex).registerA
 
-                addInstructions(
-                    startIndex + 1,
-                    """
+            addInstructions(
+                booleanIndex + 1,
+                """
                     invoke-static { v$register }, $LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR->hideFloatingMicrophoneButton(Z)Z
                     move-result v$register
-                """,
-                )
-            }
+                """
+            )
         }
 
         // endregion

@@ -1222,6 +1222,7 @@ If later turned off, it is recommended to clear the app data to prevent UI bugs.
             <string name="revanced_miniplayer_type_entry_4">Modern 1</string>
             <string name="revanced_miniplayer_type_entry_5">Modern 2</string>
             <string name="revanced_miniplayer_type_entry_6">Modern 3</string>
+            <string name="revanced_miniplayer_type_entry_7">Modern 4</string>
             <string name="revanced_miniplayer_rounded_corners_title">Enable rounded corners</string>
             <string name="revanced_miniplayer_rounded_corners_summary_on">Corners are rounded</string>
             <string name="revanced_miniplayer_rounded_corners_summary_off">Corners are square</string>
@@ -1241,14 +1242,14 @@ Miniplayer can be dragged to any corner of the screen"</string>
 
 Miniplayer can be dragged off-screen to the left or right"</string>
             <string name="revanced_miniplayer_horizontal_drag_summary_off">Horizontal drag gesture disabled</string>
-            <string name="revanced_miniplayer_hide_expand_close_title">Hide close button</string>
-            <string name="revanced_miniplayer_hide_expand_close_summary_on">Close button is hidden</string>
-            <string name="revanced_miniplayer_hide_expand_close_summary_off">Close button is shown</string>
-            <string name="revanced_miniplayer_hide_expand_close_legacy_title">Hide expand and close buttons</string>
-            <string name="revanced_miniplayer_hide_expand_close_legacy_summary_on">"Buttons are hidden
+            <string name="revanced_miniplayer_hide_overlay_buttons_title">Hide overlay buttons</string>
+            <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">Overlay buttons are hidden</string>
+            <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">Overlay buttons are shown</string>
+            <string name="revanced_miniplayer_hide_overlay_buttons_legacy_title">Hide expand and close buttons</string>
+            <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_on">"Buttons are hidden
 
 Swipe to expand or close"</string>
-            <string name="revanced_miniplayer_hide_expand_close_legacy_summary_off">Expand and close buttons are shown</string>
+            <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_off">Expand and close buttons are shown</string>
             <string name="revanced_miniplayer_hide_subtext_title">Hide subtexts</string>
             <string name="revanced_miniplayer_hide_subtext_summary_on">Subtexts are hidden</string>
             <string name="revanced_miniplayer_hide_subtext_summary_off">Subtexts are shown</string>

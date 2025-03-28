@@ -1185,17 +1185,7 @@ public final class app/revanced/patches/youtube/layout/hide/time/HideTimestampPa
 }
 
 public final class app/revanced/patches/youtube/layout/miniplayer/MiniplayerPatchKt {
-	public static final fun getFloatyBarButtonTopMargin ()J
-	public static final fun getMiniplayerMaxSize ()J
 	public static final fun getMiniplayerPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
-	public static final fun getModernMiniplayerClose ()J
-	public static final fun getModernMiniplayerExpand ()J
-	public static final fun getModernMiniplayerForwardButton ()J
-	public static final fun getModernMiniplayerRewindButton ()J
-	public static final fun getPlayerOverlays ()J
-	public static final fun getScrimOverlay ()J
-	public static final fun getYtOutlinePictureInPictureWhite24 ()J
-	public static final fun getYtOutlineXWhite24 ()J
 }
 
 public final class app/revanced/patches/youtube/layout/panels/popup/PlayerPopupPanelsPatchKt {
@@ -1390,6 +1380,11 @@ public final class app/revanced/patches/youtube/misc/playservice/VersionCheckPat
 	public static final fun is_19_46_or_greater ()Z
 	public static final fun is_19_47_or_greater ()Z
 	public static final fun is_19_49_or_greater ()Z
+	public static final fun is_20_02_or_greater ()Z
+	public static final fun is_20_03_or_greater ()Z
+	public static final fun is_20_05_or_greater ()Z
+	public static final fun is_20_09_or_greater ()Z
+	public static final fun is_20_10_or_greater ()Z
 }
 
 public final class app/revanced/patches/youtube/misc/privacy/RemoveTrackingQueryParameterPatchKt {
