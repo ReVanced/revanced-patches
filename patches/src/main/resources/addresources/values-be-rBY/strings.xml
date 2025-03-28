@@ -555,6 +555,7 @@ Second \"item\" text"</string>
   <string name="revanced_disable_translucent_status_bar_title">Адключыць празрыстую панэль стану</string>
   <string name="revanced_disable_translucent_status_bar_summary_on">Панэль стану непразрыстая.</string>
   <string name="revanced_disable_translucent_status_bar_summary_off">Панэль стану няпразрыстая ці празрыстая.</string>
+  <string name="revanced_disable_translucent_status_bar_user_dialog_message">На некаторых прыладах уключэнне гэтай функцыі можа змяніць панэль навігацыі сістэмы на празрыстую.</string>
   <string name="revanced_disable_translucent_navigation_bar_light_title">Адключыць светлую празрыстую панэль</string>
   <string name="revanced_disable_translucent_navigation_bar_light_summary_on">Панэль навігацыі ў светлым рэжыме непразрыстая</string>
   <string name="revanced_disable_translucent_navigation_bar_light_summary_off">Панэль навігацыі ў светлай тэме няпразрыстая ці празрыстая.</string>

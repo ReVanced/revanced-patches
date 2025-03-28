@@ -555,6 +555,7 @@ Ha a beállítás módosítása nem lép életbe, próbáljon meg Inkognitó mó
   <string name="revanced_disable_translucent_status_bar_title">Átlátszó állapotsor letiltása</string>
   <string name="revanced_disable_translucent_status_bar_summary_on">Az állapotsor nem áttetsző</string>
   <string name="revanced_disable_translucent_status_bar_summary_off">Az állapotsor nem áttetsző vagy áttetsző</string>
+  <string name="revanced_disable_translucent_status_bar_user_dialog_message">Egyes eszközökön ennek a funkciónak az engedélyezése átlátszóvá teheti a rendszer navigációs sávját.</string>
   <string name="revanced_disable_translucent_navigation_bar_light_title">Világos, átlátszó sáv letiltása</string>
   <string name="revanced_disable_translucent_navigation_bar_light_summary_on">Világos módban az átlátszó navigációs sáv átlátszatlan</string>
   <string name="revanced_disable_translucent_navigation_bar_light_summary_off">A világos módú navigációs sáv nem áttetsző vagy áttetsző</string>
