@@ -555,6 +555,7 @@ Als het wijzigen van deze instelling geen effect heeft, probeer dan over te scha
   <string name="revanced_disable_translucent_status_bar_title">Transparante statusbalk uitschakelen</string>
   <string name="revanced_disable_translucent_status_bar_summary_on">Statusbalk is ondoorzichtig</string>
   <string name="revanced_disable_translucent_status_bar_summary_off">Statusbalk is ondoorzichtig of doorschijnend</string>
+  <string name="revanced_disable_translucent_status_bar_user_dialog_message">Op sommige apparaten kan het inschakelen van deze functie de systeemnavigatiebalk transparant maken.</string>
   <string name="revanced_disable_translucent_navigation_bar_light_title">Transparante lichte navigatiebalk uitschakelen</string>
   <string name="revanced_disable_translucent_navigation_bar_light_summary_on">De lichte navigatiebalk is ondoorzichtig</string>
   <string name="revanced_disable_translucent_navigation_bar_light_summary_off">De lichtmodus navigatiebalk is ondoorzichtig of doorschijnend</string>

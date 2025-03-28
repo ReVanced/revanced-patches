@@ -555,6 +555,7 @@ Ja šī iestatījuma maiņa nestājas spēkā, mēģiniet pārslēgties uz inkog
   <string name="revanced_disable_translucent_status_bar_title">Atspējojiet puscaurspīdu statusa joslu</string>
   <string name="revanced_disable_translucent_status_bar_summary_on">Statusa josla ir necaurspīdīga</string>
   <string name="revanced_disable_translucent_status_bar_summary_off">Statusa josla ir necaurspīdīga vai caurspīdīga</string>
+  <string name="revanced_disable_translucent_status_bar_user_dialog_message">Dažās ierīcēs, iespējojot šo funkciju, sistēmas navigācijas josla var kļūt caurspīdīga.</string>
   <string name="revanced_disable_translucent_navigation_bar_light_title">Atspējojiet gaišo caurspīdu joslu</string>
   <string name="revanced_disable_translucent_navigation_bar_light_summary_on">Gaišais režīma navigācijas josla ir necaurspīdiga</string>
   <string name="revanced_disable_translucent_navigation_bar_light_summary_off">Gaišā režīma navigācijas josla ir necaurspīdīga vai caurspīdīga</string>

@@ -339,10 +339,10 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_hide_keyword_content_about_whole_words_summary">필터링할 키워드 및 구문을 큰따옴표로 묶으면 동영상 제목과 채널 이름이 부분적으로 일치하지 않도록 방지할 수 있습니다&lt;br&gt;&lt;br&gt;• 예를 들어, &lt;b&gt;\"ai\"&lt;/b&gt;라는 키워드로 &lt;b&gt;AI 커리어 완벽 가이드&lt;/b&gt;라는 동영상을 숨길 수 있지만, &lt;b&gt;생성형AI가 바꿔놓은 세계&lt;/b&gt; 또는 &lt;b&gt;What does fair use mean?&lt;/b&gt;라는 동영상은 숨길 수 없습니다&lt;br&gt;• 그리고 구두점을 단어의 경계로 간주하기 때문에 &lt;b&gt;인공지능(AI)의 원리&lt;/b&gt;라는 동영상은 숨길 수 있습니다. 큰따옴표는 다른 단어 내부의 하위 문자열만 무시합니다 (예: &lt;b&gt;fair&lt;/b&gt;는 숨길 수 없지만, &lt;b&gt;f(ai)r&lt;/b&gt;는 숨김)</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_hide_keyword_toast_invalid_common">키워드를 사용할 수 없습니다: %s</string>
-  <string name="revanced_hide_keyword_toast_invalid_common_whole_word_required">따옴표를 추가하여 키워드를 사용합니다: %s</string>
+  <string name="revanced_hide_keyword_toast_invalid_common_whole_word_required">키워드를 사용하려면 따옴표를 추가하세요: %s</string>
   <string name="revanced_hide_keyword_toast_invalid_conflicting">키워드에 충돌하는 선언이 있습니다: %s</string>
   <string name="revanced_hide_keyword_toast_invalid_length">키워드가 너무 짧아서 따옴표가 필요합니다: %s</string>
-  <string name="revanced_hide_keyword_toast_invalid_broad">키워드가 모든 동영상을 숨깁니다: %s</string>
+  <string name="revanced_hide_keyword_toast_invalid_broad">키워드가 모든 동영상을 숨길 것입니다: %s</string>
   </patch>
   <patch id="ad.general.hideAdsResourcePatch">
   <string name="revanced_hide_general_ads_title">일반 레이아웃 광고 숨기기</string>
@@ -463,9 +463,9 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">스와이프 불투명도 값은 0-100 사이여야 합니다</string>
   <string name="revanced_swipe_threshold_title">스와이프 한계치</string>
   <string name="revanced_swipe_threshold_summary">제스처 인식을 위해 얼마나 스와이프를 해야 할지를 지정할 수 있으며, 원하지 않은 제스처 인식을 방지할 수 있습니다</string>
-  <string name="revanced_swipe_show_circular_overlay_title">원형 조절 오버레이 표시하기</string>
-  <string name="revanced_swipe_show_circular_overlay_summary_on">원형 조절 오버레이를 표시합니다</string>
-  <string name="revanced_swipe_show_circular_overlay_summary_off">바형 조절 오버레이를 표시합니다</string>
+  <string name="revanced_swipe_show_circular_overlay_title">원형 오버레이 표시하기</string>
+  <string name="revanced_swipe_show_circular_overlay_summary_on">원형 오버레이를 표시합니다</string>
+  <string name="revanced_swipe_show_circular_overlay_summary_off">바형 오버레이를 표시합니다</string>
   <string name="revanced_swipe_overlay_minimal_style_title">최소화된 스타일 활성화하기</string>
   <string name="revanced_swipe_overlay_minimal_style_summary_on">최소화된 오버레이 스타일을 활성화합니다</string>
   <string name="revanced_swipe_overlay_minimal_style_summary_off">최소화된 오버레이 스타일을 비활성화합니다</string>
@@ -555,6 +555,7 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_disable_translucent_status_bar_title">반투명 상태바 비활성화하기</string>
   <string name="revanced_disable_translucent_status_bar_summary_on">상태바가 불투명합니다</string>
   <string name="revanced_disable_translucent_status_bar_summary_off">상태바가 불투명하거나 반투명합니다</string>
+  <string name="revanced_disable_translucent_status_bar_user_dialog_message">일부 기기에서는 이 기능을 활성화하면 시스템 네비게이션 바가 투명하게 변경될 수 있습니다</string>
   <string name="revanced_disable_translucent_navigation_bar_light_title">밝은 반투명 하단바 비활성화하기</string>
   <string name="revanced_disable_translucent_navigation_bar_light_summary_on">밝은 테마에서 하단바가 불투명합니다</string>
   <string name="revanced_disable_translucent_navigation_bar_light_summary_off">밝은 테마에서 하단바가 불투명하거나 반투명합니다</string>
@@ -1326,8 +1327,8 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요"</string>
   <string name="revanced_shorts_quality_default_mobile_title">모바일 네트워크 이용 시 기본 Shorts 화질</string>
   <string name="revanced_remember_video_quality_mobile">모바일 네트워크</string>
   <string name="revanced_remember_video_quality_wifi">Wi-Fi</string>
-  <string name="revanced_remember_video_quality_toast">%1$s 이용 시 기본 동영상 화질을 %2$s 로 변경합니다</string>
-  <string name="revanced_remember_video_quality_toast_shorts">%1$s 이용 시 기본 Shorts 화질을 %2$s 로 변경합니다</string>
+  <string name="revanced_remember_video_quality_toast">%1$s 이용 시 기본 동영상 화질 값을 %2$s 로 변경하였습니다</string>
+  <string name="revanced_remember_video_quality_toast_shorts">%1$s 이용 시 기본 Shorts 화질 값을 %2$s 로 변경하였습니다</string>
   </patch>
   <patch id="video.speed.button.playbackSpeedButtonPatch">
   <string name="revanced_playback_speed_dialog_button_title">동영상 재생 속도 다이얼로그 버튼 표시하기</string>
@@ -1351,7 +1352,7 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요"</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_on">동영상 재생 속도 값을 변경할 때마다 기본 동영상 재생 속도로 저장합니다</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_off">동영상 재생 속도 값을 변경할 때마다 기본 동영상 재생 속도로 저장하지 않습니다</string>
   <string name="revanced_playback_speed_default_title">기본 동영상 재생 속도</string>
-  <string name="revanced_remember_playback_speed_toast">기본 동영상 재생 속도 값을 %s 로 변경합니다</string>
+  <string name="revanced_remember_playback_speed_toast">기본 동영상 재생 속도 값을 %s 로 변경하였습니다</string>
   </patch>
   <patch id="video.hdr.disableHdrPatch">
   <string name="revanced_disable_hdr_video_title">HDR 동영상 비활성화하기</string>

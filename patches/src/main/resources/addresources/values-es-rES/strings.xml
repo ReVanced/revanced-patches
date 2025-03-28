@@ -51,9 +51,9 @@ Para traducir nuevos idiomas, visita translate.revanced.app"</string>
   <string name="revanced_pref_import_export_title">Importar / Exportar</string>
   <string name="revanced_pref_import_export_summary">Importar / Exportar ajustes de ReVanced</string>
   <!-- Settings about dialog. -->
-  <string name="revanced_settings_about_links_body">Estás usando la versión de ReVanced Patches &lt;i&gt;%s&lt;/i&gt;</string>
+  <string name="revanced_settings_about_links_body">Estás usando la versión de ReVanced Patches: &lt;i&gt;%s&lt;/i&gt;</string>
   <string name="revanced_settings_about_links_dev_header">Nota</string>
-  <string name="revanced_settings_about_links_dev_body">Esta versión es un pre-lanzamiento y puede que experimentes problemas inesperados</string>
+  <string name="revanced_settings_about_links_dev_body">Esta versión es una pre-versión y puedes experimentar problemas inesperados</string>
   <string name="revanced_settings_about_links_header">Enlaces oficiales</string>
   <!-- NOTE: the about strings above are duplicated in the TikTok about screen code,
                  and changes made here must also be made there. -->
@@ -62,9 +62,16 @@ Para traducir nuevos idiomas, visita translate.revanced.app"</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="gms_core_toast_not_installed_message">MicroG GmsCore no está instalado. Instálala.</string>
   <string name="gms_core_dialog_title">Acción necesaria</string>
-  <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"MicroG GmsCore no tiene permiso para ejecutarse en segundo plano."</string>
+  <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"MicroG GmsCore no tiene permiso para ejecutarse en segundo plano.
+
+Sigue la guía \"No cierres mi aplicación\" para su teléfono, y aplica las instrucciones a tu instalación de MicroG
+
+Esto es requerido para el funcionamiento de la APP"</string>
   <string name="gms_core_dialog_open_website_text">Abrir sitio web</string>
-  <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">"La optimización de la batería de MicroG GmsCore debe estar deshabilitada para evitar problemas."</string>
+  <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">"La optimización de la batería de MicroG GmsCore debe estar deshabilitada para evitar problemas.
+
+Desactivar las optimizaciones de batería para MicroG no afectará negativamente el gasto de la batería
+"</string>
   <string name="gms_core_dialog_continue_text">Continuar</string>
   </patch>
   </app>
@@ -545,6 +552,7 @@ Si cambiar este ajuste no tiene efecto, intenta cambiar al modo incógnito."</st
   <string name="revanced_disable_translucent_status_bar_title">Desactivar la barra de estado translúcida</string>
   <string name="revanced_disable_translucent_status_bar_summary_on">La barra de estado es opaca</string>
   <string name="revanced_disable_translucent_status_bar_summary_off">La barra de estado es opaca o translúcida</string>
+  <string name="revanced_disable_translucent_status_bar_user_dialog_message">En algunos dispositivos, habilitar esta función puede cambiar la barra de navegación del sistema a transparente.</string>
   <string name="revanced_disable_translucent_navigation_bar_light_title">Desactivar la barra translúcida clara</string>
   <string name="revanced_disable_translucent_navigation_bar_light_summary_on">La barra de navegación en modo claro es opaca</string>
   <string name="revanced_disable_translucent_navigation_bar_light_summary_off">La barra de navegación del modo claro es opaca o translúcida</string>
@@ -1086,11 +1094,11 @@ Si se desactiva posteriormente, se recomienda borrar los datos de la aplicación
   <string name="revanced_change_start_page_entry_courses">Cursos / Aprendizaje</string>
   <string name="revanced_change_start_page_entry_explore">Explorar</string>
   <string name="revanced_change_start_page_entry_fashion">Moda y Belleza</string>
-  <string name="revanced_change_start_page_entry_gaming">Juego</string>
+  <string name="revanced_change_start_page_entry_gaming">Gaming</string>
   <string name="revanced_change_start_page_entry_history">Historial</string>
   <string name="revanced_change_start_page_entry_library">Biblioteca</string>
-  <string name="revanced_change_start_page_entry_liked_videos">Vídeos gustados</string>
-  <string name="revanced_change_start_page_entry_live">Vivo</string>
+  <string name="revanced_change_start_page_entry_liked_videos">Vídeos que me gustan</string>
+  <string name="revanced_change_start_page_entry_live">En directo</string>
   <string name="revanced_change_start_page_entry_movies">Películas</string>
   <string name="revanced_change_start_page_entry_music">Música</string>
   <string name="revanced_change_start_page_entry_news">Noticias</string>
@@ -1127,7 +1135,7 @@ Si se desactiva posteriormente, se recomienda borrar los datos de la aplicación
   <patch id="layout.miniplayer.miniplayerPatch">
   <string name="revanced_miniplayer_screen_title">Minireproductor</string>
   <string name="revanced_miniplayer_screen_summary">Cambiar el estilo del reproductor minimizado en la aplicación</string>
-  <string name="revanced_miniplayer_type_title">Tipo de minreproductor</string>
+  <string name="revanced_miniplayer_type_title">Tipo de minireproductor</string>
   <string name="revanced_miniplayer_type_entry_0">Desactivado</string>
   <string name="revanced_miniplayer_type_entry_1">Predeterminado</string>
   <string name="revanced_miniplayer_type_entry_2">Mínimo</string>
