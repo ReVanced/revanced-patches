@@ -10,6 +10,7 @@ import app.revanced.patcher.patch.BytecodePatchContext
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
 import app.revanced.patches.all.misc.resources.addResourcesPatch
+import app.revanced.util.findFreeRegister
 import app.revanced.util.findInstructionIndicesReversedOrThrow
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
@@ -94,7 +95,7 @@ fun spoofVideoStreamsPatch(
             it.method.apply {
                 val builderIndex = it.instructionMatches.first().index
                 val urlRegister = getInstruction<FiveRegisterInstruction>(builderIndex).registerD
-                val freeRegister = getInstruction<OneRegisterInstruction>(builderIndex + 1).registerA
+                val freeRegister = findFreeRegister(builderIndex, urlRegister)
 
                 addInstructions(
                     builderIndex,

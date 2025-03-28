@@ -14,11 +14,8 @@ import app.revanced.patches.youtube.misc.playservice.is_19_25_or_greater
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
 import app.revanced.patches.youtube.shared.mainActivityOnCreateFingerprint
-import app.revanced.util.getReference
-import app.revanced.util.indexOfFirstInstructionOrThrow
-import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
+import app.revanced.util.findFreeRegister
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
-import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 private const val EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/youtube/patches/OpenShortsInRegularPlayerPatch;"
@@ -97,11 +94,12 @@ val openShortsInRegularPlayerPatch = bytecodePatch(
             shortsPlaybackIntentLegacyFingerprint.let {
                 it.method.apply {
                     val index = it.instructionMatches.first().index
-                    val freeRegister = getInstruction<FiveRegisterInstruction>(index).registerC
                     val playbackStartRegister = getInstruction<OneRegisterInstruction>(index + 1).registerA
+                    val insertIndex = index + 2
+                    val freeRegister = findFreeRegister(insertIndex, playbackStartRegister)
 
                     addInstructionsWithLabels(
-                        index + 2,
+                        insertIndex,
                         extensionInstructions(playbackStartRegister, freeRegister)
                     )
                 }

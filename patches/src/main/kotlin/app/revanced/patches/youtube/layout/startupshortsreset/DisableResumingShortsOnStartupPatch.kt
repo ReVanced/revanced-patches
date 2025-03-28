@@ -1,7 +1,6 @@
 package app.revanced.patches.youtube.layout.startupshortsreset
 
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
-import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
@@ -12,6 +11,7 @@ import app.revanced.patches.youtube.misc.playservice.versionCheckPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
 import app.revanced.util.addInstructionsAtControlFlowLabel
+import app.revanced.util.findFreeRegister
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
 import com.android.tools.smali.dexlib2.Opcode
@@ -73,7 +73,7 @@ val disableResumingShortsOnStartupPatch = bytecodePatch(
                             getReference<MethodReference>()?.definingClass == "Lcom/google/common/util/concurrent/ListenableFuture;" &&
                             getReference<MethodReference>()?.name == "isDone"
                 }
-                val freeRegister = getInstruction<OneRegisterInstruction>(listenableInstructionIndex + 1).registerA
+                val freeRegister = findFreeRegister(listenableInstructionIndex)
 
                 addInstructionsAtControlFlowLabel(
                     listenableInstructionIndex,

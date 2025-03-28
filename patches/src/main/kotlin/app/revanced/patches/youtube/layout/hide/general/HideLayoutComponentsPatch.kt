@@ -15,14 +15,17 @@ import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.shared.misc.mapping.getResourceId
 import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
-import app.revanced.patches.shared.misc.settings.preference.*
+import app.revanced.patches.shared.misc.settings.preference.InputType
+import app.revanced.patches.shared.misc.settings.preference.NonInteractivePreference
+import app.revanced.patches.shared.misc.settings.preference.PreferenceScreenPreference
+import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
+import app.revanced.patches.shared.misc.settings.preference.TextPreference
 import app.revanced.patches.youtube.misc.litho.filter.addLithoFilter
 import app.revanced.patches.youtube.misc.litho.filter.lithoFilterPatch
 import app.revanced.patches.youtube.misc.navigation.navigationBarHookPatch
-import app.revanced.patches.youtube.misc.playservice.is_19_47_or_greater
-import app.revanced.patches.youtube.misc.playservice.versionCheckPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
+import app.revanced.util.findFreeRegister
 import app.revanced.util.findInstructionIndicesReversedOrThrow
 import app.revanced.util.getReference
 import com.android.tools.smali.dexlib2.Opcode
@@ -96,7 +99,6 @@ val hideLayoutComponentsPatch = bytecodePatch(
         addResourcesPatch,
         hideLayoutComponentsResourcePatch,
         navigationBarHookPatch,
-        versionCheckPatch,
         resourceMappingPatch
     )
 
@@ -225,16 +227,16 @@ val hideLayoutComponentsPatch = bytecodePatch(
 
         parseElementFromBufferFingerprint.method.apply {
             val startIndex = parseElementFromBufferFingerprint.instructionMatches.first().index
-            // Target code is a mess with a lot of register moves.
-            // There is no simple way to find a free register for all versions so this is hard coded.
-            val freeRegister = if (is_19_47_or_greater) 6 else 0
+            val insertIndex = startIndex + 1
+
             val byteArrayParameter = "p3"
             val conversionContextRegister = getInstruction<TwoRegisterInstruction>(startIndex).registerA
             val returnEmptyComponentInstruction = instructions.last { it.opcode == Opcode.INVOKE_STATIC }
             val returnEmptyComponentRegister = (returnEmptyComponentInstruction as FiveRegisterInstruction).registerC
+            val freeRegister = findFreeRegister(insertIndex, conversionContextRegister, returnEmptyComponentRegister)
 
             addInstructionsWithLabels(
-                startIndex + 1,
+                insertIndex,
                 """
                     invoke-static { v$conversionContextRegister, $byteArrayParameter }, $LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR->filterMixPlaylists(Ljava/lang/Object;[B)Z
                     move-result v$freeRegister 
