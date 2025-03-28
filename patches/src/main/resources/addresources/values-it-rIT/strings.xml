@@ -1173,14 +1173,14 @@ Il riproduttore minimizzato può essere trascinato in qualsiasi angolo dello sch
 
 Il riproduttore minimizzato può essere trascinato fuori dallo schermo a sinistra o a destra"</string>
   <string name="revanced_miniplayer_horizontal_drag_summary_off">Gesto di trascinamento orizzontale disabilitato</string>
-  <string name="revanced_miniplayer_hide_expand_close_title">Nascondi pulsante di chiusura</string>
-  <string name="revanced_miniplayer_hide_expand_close_summary_on">Il pulsante di chiusura è nascosto</string>
-  <string name="revanced_miniplayer_hide_expand_close_summary_off">Il pulsante Chiudi è visibile</string>
-  <string name="revanced_miniplayer_hide_expand_close_legacy_title">Nascondi i pulsanti Espandi e Chiudi</string>
-  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_on">"I pulsanti sono nascosti
+  <string name="revanced_miniplayer_hide_overlay_buttons_title">Nascondi pulsante di chiusura</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">Il pulsante di chiusura è nascosto</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">Il pulsante Chiudi è visibile</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_title">Nascondi i pulsanti Espandi e Chiudi</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_on">"I pulsanti sono nascosti
 
 Scorrere per espandere o chiudere"</string>
-  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_off">I pulsanti Espandi e chiudi sono visibili</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_off">I pulsanti Espandi e chiudi sono visibili</string>
   <string name="revanced_miniplayer_hide_subtext_title">Nascondi sottotitoli</string>
   <string name="revanced_miniplayer_hide_subtext_summary_on">I sottotitoli sono nascosti</string>
   <string name="revanced_miniplayer_hide_subtext_summary_off">I sottotitoli sono visibili</string>

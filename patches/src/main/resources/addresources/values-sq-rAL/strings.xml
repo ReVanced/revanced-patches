@@ -1172,14 +1172,14 @@ Miniplayer mund të tërhiqet në çdo qoshe të ekranit"</string>
 
 Miniplayer mund të tërhiqet jashtë ekranit në të majtë ose në të djathtë"</string>
   <string name="revanced_miniplayer_horizontal_drag_summary_off">Gjestet e tërheqjes horizontale janë të çaktivizuara</string>
-  <string name="revanced_miniplayer_hide_expand_close_title">Fsheh butonin e mbylljes</string>
-  <string name="revanced_miniplayer_hide_expand_close_summary_on">Butoni i mbylljes është i fshehur</string>
-  <string name="revanced_miniplayer_hide_expand_close_summary_off">Butoni i mbylljes është i dukshëm</string>
-  <string name="revanced_miniplayer_hide_expand_close_legacy_title">Fsheh butonat e zgjerimit dhe mbylljes</string>
-  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_on">"Butonat janë të fshehura
+  <string name="revanced_miniplayer_hide_overlay_buttons_title">Fsheh butonin e mbylljes</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">Butoni i mbylljes është i fshehur</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">Butoni i mbylljes është i dukshëm</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_title">Fsheh butonat e zgjerimit dhe mbylljes</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_on">"Butonat janë të fshehura
 
 Lëviz gishtin për të zgjeruar ose mbyllur"</string>
-  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_off">Butonat e zgjerimit dhe mbylljes janë të dukshëm</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_off">Butonat e zgjerimit dhe mbylljes janë të dukshëm</string>
   <string name="revanced_miniplayer_hide_subtext_title">Fsheh nëntekstet</string>
   <string name="revanced_miniplayer_hide_subtext_summary_on">Nëntekstet janë të fshehura</string>
   <string name="revanced_miniplayer_hide_subtext_summary_off">Nëntekstet janë të dukshme</string>

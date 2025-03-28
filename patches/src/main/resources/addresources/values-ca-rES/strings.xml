@@ -1173,14 +1173,14 @@ El minireproductor es pot arrossegar a qualsevol racó de la pantalla"</string>
 
 El minireproductor es pot arrossegar fora de la pantalla cap a l'esquerra o la dreta"</string>
   <string name="revanced_miniplayer_horizontal_drag_summary_off">Gest d\'arrossegar horitzontalment deshabilitat</string>
-  <string name="revanced_miniplayer_hide_expand_close_title">Amaga el botó de tancament</string>
-  <string name="revanced_miniplayer_hide_expand_close_summary_on">El botó de tancament està amagat</string>
-  <string name="revanced_miniplayer_hide_expand_close_summary_off">El botó de tancament es mostra</string>
-  <string name="revanced_miniplayer_hide_expand_close_legacy_title">Amaga els botons d\'expansió i tancament</string>
-  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_on">"Els botons estan ocults
+  <string name="revanced_miniplayer_hide_overlay_buttons_title">Amaga el botó de tancament</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">El botó de tancament està amagat</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">El botó de tancament es mostra</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_title">Amaga els botons d\'expansió i tancament</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_on">"Els botons estan ocults
 
 Desliza para ampliar o cerrar"</string>
-  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_off">Els botons d\'expansió i tancament es mostren</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_off">Els botons d\'expansió i tancament es mostren</string>
   <string name="revanced_miniplayer_hide_subtext_title">Amaga els subtítols</string>
   <string name="revanced_miniplayer_hide_subtext_summary_on">Els subtítols estan amagats</string>
   <string name="revanced_miniplayer_hide_subtext_summary_off">Els subtítols es mostren</string>

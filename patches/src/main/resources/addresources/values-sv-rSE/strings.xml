@@ -1172,14 +1172,14 @@ Minispelaren kan dras till valfritt hörn av skärmen"</string>
 
 Minispelare kan dras av skärmen till vänster eller höger"</string>
   <string name="revanced_miniplayer_horizontal_drag_summary_off">Horisontell drag gest inaktiverad</string>
-  <string name="revanced_miniplayer_hide_expand_close_title">Dölj stängningsknappen</string>
-  <string name="revanced_miniplayer_hide_expand_close_summary_on">Stäng knappen är dold</string>
-  <string name="revanced_miniplayer_hide_expand_close_summary_off">Stäng knappen visas</string>
-  <string name="revanced_miniplayer_hide_expand_close_legacy_title">Dölj expandera och stäng knappar</string>
-  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_on">"Knappar är dolda
+  <string name="revanced_miniplayer_hide_overlay_buttons_title">Dölj stängningsknappen</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">Stäng knappen är dold</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">Stäng knappen visas</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_title">Dölj expandera och stäng knappar</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_on">"Knappar är dolda
 
 Svep för att expandera eller stänga"</string>
-  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_off">Expandera och stäng knappar visas</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_off">Expandera och stäng knappar visas</string>
   <string name="revanced_miniplayer_hide_subtext_title">Dölj undertexter</string>
   <string name="revanced_miniplayer_hide_subtext_summary_on">Undertexter är dolda</string>
   <string name="revanced_miniplayer_hide_subtext_summary_off">Undertexter visas</string>

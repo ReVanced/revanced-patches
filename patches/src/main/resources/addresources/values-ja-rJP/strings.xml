@@ -1175,14 +1175,14 @@ Automotive レイアウト
 
 ミニプレーヤーを画面の左または右端で最小化できます"</string>
   <string name="revanced_miniplayer_horizontal_drag_summary_off">横方向ドラッグ ジェスチャーは無効です</string>
-  <string name="revanced_miniplayer_hide_expand_close_title">閉じるボタンを非表示</string>
-  <string name="revanced_miniplayer_hide_expand_close_summary_on">閉じるボタンは表示されません</string>
-  <string name="revanced_miniplayer_hide_expand_close_summary_off">閉じるボタンは表示されます</string>
-  <string name="revanced_miniplayer_hide_expand_close_legacy_title">拡大ボタンと閉じるボタンを非表示</string>
-  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_on">"ボタンは表示されません
+  <string name="revanced_miniplayer_hide_overlay_buttons_title">閉じるボタンを非表示</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">閉じるボタンは表示されません</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">閉じるボタンは表示されます</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_title">拡大ボタンと閉じるボタンを非表示</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_on">"ボタンは表示されません
 
 拡大する / 閉じるにはスワイプしてください"</string>
-  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_off">拡大ボタンと閉じるボタンは表示されます</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_off">拡大ボタンと閉じるボタンは表示されます</string>
   <string name="revanced_miniplayer_hide_subtext_title">サブテキストを非表示</string>
   <string name="revanced_miniplayer_hide_subtext_summary_on">サブテキストは表示されません</string>
   <string name="revanced_miniplayer_hide_subtext_summary_off">サブテキストは表示されます</string>
