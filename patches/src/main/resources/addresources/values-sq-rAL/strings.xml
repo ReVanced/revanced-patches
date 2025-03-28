@@ -555,6 +555,7 @@ Nëse ndryshimi i këtij konfigurimi nuk ka efekt, provoni të kaloni në modali
   <string name="revanced_disable_translucent_status_bar_title">Çaktivizo barin transparent të statusit</string>
   <string name="revanced_disable_translucent_status_bar_summary_on">Shiriti i statusit është opak</string>
   <string name="revanced_disable_translucent_status_bar_summary_off">Shiriti i statusit është opak ose translucent</string>
+  <string name="revanced_disable_translucent_status_bar_user_dialog_message">Në disa pajisje, aktivizimi i këtij funksioni mund ta ndryshojë shiritin e navigimit të sistemit në transparent.</string>
   <string name="revanced_disable_translucent_navigation_bar_light_title">Çaktivizo barin transparent të navigacionit të lehtë</string>
   <string name="revanced_disable_translucent_navigation_bar_light_summary_on">Barra e navigacionit në modalitetin e dritës është e paqartë</string>
   <string name="revanced_disable_translucent_navigation_bar_light_summary_off">Shiriti i navigimit në modalitetin e ndritshëm është opak ose translucent</string>

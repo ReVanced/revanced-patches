@@ -553,6 +553,7 @@ Tandaan: Ang pagpapagana nito ay nagtatago rin ng mga ad ng video"</string>
   <string name="revanced_disable_translucent_status_bar_title">Huwag paganahin ang translucent status bar</string>
   <string name="revanced_disable_translucent_status_bar_summary_on">Ang status bar ay opaque</string>
   <string name="revanced_disable_translucent_status_bar_summary_off">Ang status bar ay opaque o translucent</string>
+  <string name="revanced_disable_translucent_status_bar_user_dialog_message">Sa ilang device, ang pagpapagana sa feature na ito ay maaaring magpabago sa navigation bar ng system sa transparent.</string>
   <string name="revanced_disable_translucent_navigation_bar_light_title">Huwag paganahin ang light translucent bar</string>
   <string name="revanced_disable_translucent_navigation_bar_light_summary_on">Ang light mode navigation bar ay opaque</string>
   <string name="revanced_disable_translucent_navigation_bar_light_summary_off">Ang light mode navigation bar ay opaque o translucent</string>
