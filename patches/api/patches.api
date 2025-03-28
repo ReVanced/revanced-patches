@@ -776,8 +776,8 @@ public final class app/revanced/patches/shared/misc/settings/preference/TextPref
 }
 
 public final class app/revanced/patches/shared/misc/spoof/SpoofVideoStreamsPatchKt {
-	public static final fun spoofVideoStreamsPatch (Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;)Lapp/revanced/patcher/patch/BytecodePatch;
-	public static synthetic fun spoofVideoStreamsPatch$default (Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)Lapp/revanced/patcher/patch/BytecodePatch;
+	public static final fun spoofVideoStreamsPatch (Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;)Lapp/revanced/patcher/patch/BytecodePatch;
+	public static synthetic fun spoofVideoStreamsPatch$default (Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
 public final class app/revanced/patches/shared/misc/spoof/UserAgentClientSpoofPatchKt {
