@@ -1151,6 +1151,7 @@ Se posteriormente desativado, é recomendável limpar os dados do aplicativo par
   <string name="revanced_miniplayer_type_entry_4">Moderno 1</string>
   <string name="revanced_miniplayer_type_entry_5">Moderno 2</string>
   <string name="revanced_miniplayer_type_entry_6">Moderno 3</string>
+  <string name="revanced_miniplayer_type_entry_7">Moderno 4</string>
   <string name="revanced_miniplayer_rounded_corners_title">Ativar cantos arredondados</string>
   <string name="revanced_miniplayer_rounded_corners_summary_on">Os cantos são arredondados</string>
   <string name="revanced_miniplayer_rounded_corners_summary_off">Os cantos são quadrados</string>
@@ -1170,14 +1171,14 @@ O miniplayer pode ser arrastado para qualquer canto da tela"</string>
 
 O miniplayer pode ser arrastado para fora da tela para a esquerda ou direita"</string>
   <string name="revanced_miniplayer_horizontal_drag_summary_off">Gesto de arrastar horizontal desativado</string>
-  <string name="revanced_miniplayer_hide_expand_close_title">Ocultar botão fechar</string>
-  <string name="revanced_miniplayer_hide_expand_close_summary_on">O botão fechar está oculto</string>
-  <string name="revanced_miniplayer_hide_expand_close_summary_off">Botão fechar é mostrado</string>
-  <string name="revanced_miniplayer_hide_expand_close_legacy_title">Ocultar botões de expansão e fechar</string>
-  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_on">"Os botões estão ocultos 
+  <string name="revanced_miniplayer_hide_overlay_buttons_title">Ocultar botões de sobreposição</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">Botões de sobreposição estão ocultos</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">Botões de sobreposição são mostrados</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_title">Ocultar botões de expandir e fechar</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_on">"Botões estão ocultos
 
-Deslize para expandir ou fechar"</string>
-  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_off">Os botões de expansão e fechar são mostrados</string>
+Passe o dedo para expandir ou fechar"</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_off">Botões de expandir e fechar são mostrados</string>
   <string name="revanced_miniplayer_hide_subtext_title">Ocultar subtextos</string>
   <string name="revanced_miniplayer_hide_subtext_summary_on">Subtextos estão ocultos</string>
   <string name="revanced_miniplayer_hide_subtext_summary_off">Subtextos são exibidos</string>

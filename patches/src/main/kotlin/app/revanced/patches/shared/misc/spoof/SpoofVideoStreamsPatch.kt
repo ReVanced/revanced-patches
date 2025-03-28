@@ -31,7 +31,9 @@ internal const val EXTENSION_CLASS_DESCRIPTOR =
 
 fun spoofVideoStreamsPatch(
     block: BytecodePatchBuilder.() -> Unit = {},
-    applyMediaFetchHotConfigChanges: BytecodePatchBuilder.() -> Boolean = { false },
+    fixMediaFetchHotConfigChanges: BytecodePatchBuilder.() -> Boolean = { false },
+    fixMediaFetchHotConfigAlternativeChanges: BytecodePatchBuilder.() -> Boolean = { false },
+    fixParsePlaybackResponseFeatureFlag: BytecodePatchBuilder.() -> Boolean = { false },
     executeBlock: BytecodePatchContext.() -> Unit = {},
 ) = bytecodePatch(
     name = "Spoof video streams",
@@ -241,10 +243,24 @@ fun spoofVideoStreamsPatch(
 
         // region turn off stream config replacement feature flag.
 
-        if (applyMediaFetchHotConfigChanges()) {
+        if (fixMediaFetchHotConfigChanges()) {
             mediaFetchHotConfigFingerprint.method.insertFeatureFlagBooleanOverride(
                 MEDIA_FETCH_HOT_CONFIG_FEATURE_FLAG,
                 "$EXTENSION_CLASS_DESCRIPTOR->useMediaFetchHotConfigReplacement(Z)Z"
+            )
+        }
+
+        if (fixMediaFetchHotConfigAlternativeChanges()) {
+            mediaFetchHotConfigAlternativeFingerprint.method.insertFeatureFlagBooleanOverride(
+                MEDIA_FETCH_HOT_CONFIG_ALTERNATIVE_FEATURE_FLAG,
+                "$EXTENSION_CLASS_DESCRIPTOR->useMediaFetchHotConfigReplacement(Z)Z"
+            )
+        }
+
+        if (fixParsePlaybackResponseFeatureFlag()) {
+            playbackStartDescriptorFeatureFlagFingerprint.method.insertFeatureFlagBooleanOverride(
+                PLAYBACK_START_CHECK_ENDPOINT_USED_FEATURE_FLAG,
+                "$EXTENSION_CLASS_DESCRIPTOR->usePlaybackStartFeatureFlag(Z)Z"
             )
         }
 

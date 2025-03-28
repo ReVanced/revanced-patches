@@ -1154,6 +1154,7 @@ Dacă este dezactivat ulterior, se recomandă să ștergeți datele aplicației 
   <string name="revanced_miniplayer_type_entry_4">Modern 1</string>
   <string name="revanced_miniplayer_type_entry_5">Modern 2</string>
   <string name="revanced_miniplayer_type_entry_6">Modern 3</string>
+  <string name="revanced_miniplayer_type_entry_7">Modern 4</string>
   <string name="revanced_miniplayer_rounded_corners_title">Activează colțurile rotunjite</string>
   <string name="revanced_miniplayer_rounded_corners_summary_on">Colţurile sunt rotunjite</string>
   <string name="revanced_miniplayer_rounded_corners_summary_off">Colţurile sunt pătrate</string>
@@ -1173,14 +1174,14 @@ Miniplayerul poate fi tras în orice colț al ecranului"</string>
 
 Miniplayerul poate fi tras pe ecran spre stânga sau spre dreapta"</string>
   <string name="revanced_miniplayer_horizontal_drag_summary_off">Gest de tragere orizontal dezactivat</string>
-  <string name="revanced_miniplayer_hide_expand_close_title">Ascunde butonul de închidere</string>
-  <string name="revanced_miniplayer_hide_expand_close_summary_on">Butonul de închidere este ascuns</string>
-  <string name="revanced_miniplayer_hide_expand_close_summary_off">Butonul de închidere este afișat</string>
-  <string name="revanced_miniplayer_hide_expand_close_legacy_title">Ascunde extinderea și închiderea butoanelor</string>
-  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_on">"Butoanele sunt ascunse
+  <string name="revanced_miniplayer_hide_overlay_buttons_title">Ascunde butoanele suprapuse</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">Butoanele suprapuse sunt ascunse</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">Butoanele suprapuse sunt afișate</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_title">Ascunde extinderea și închiderea butoanelor</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_on">"Butoanele sunt ascunse
 
 Trageți pentru a extinde sau a închide"</string>
-  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_off">Afișarea și închiderea butoanelor sunt afișate</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_off">Butoanele de extindere și închidere sunt afișate</string>
   <string name="revanced_miniplayer_hide_subtext_title">Ascunde subtexte</string>
   <string name="revanced_miniplayer_hide_subtext_summary_on">Subtexte sunt ascunse</string>
   <string name="revanced_miniplayer_hide_subtext_summary_off">Subtexte sunt afișate</string>

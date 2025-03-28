@@ -1153,6 +1153,7 @@ Nëse më vonë është çaktivizuar, është e rekomanduar të fshiheni të dh�
   <string name="revanced_miniplayer_type_entry_4">Modern 1</string>
   <string name="revanced_miniplayer_type_entry_5">Modern 2</string>
   <string name="revanced_miniplayer_type_entry_6">Modern 3</string>
+  <string name="revanced_miniplayer_type_entry_7">Modern 4</string>
   <string name="revanced_miniplayer_rounded_corners_title">Aktivizo qoshet e rrumbullakosura</string>
   <string name="revanced_miniplayer_rounded_corners_summary_on">Qoshet janë të rrumbullakosura</string>
   <string name="revanced_miniplayer_rounded_corners_summary_off">Qoshet janë katrore</string>
@@ -1172,14 +1173,14 @@ Miniplayer mund të tërhiqet në çdo qoshe të ekranit"</string>
 
 Miniplayer mund të tërhiqet jashtë ekranit në të majtë ose në të djathtë"</string>
   <string name="revanced_miniplayer_horizontal_drag_summary_off">Gjestet e tërheqjes horizontale janë të çaktivizuara</string>
-  <string name="revanced_miniplayer_hide_expand_close_title">Fsheh butonin e mbylljes</string>
-  <string name="revanced_miniplayer_hide_expand_close_summary_on">Butoni i mbylljes është i fshehur</string>
-  <string name="revanced_miniplayer_hide_expand_close_summary_off">Butoni i mbylljes është i dukshëm</string>
-  <string name="revanced_miniplayer_hide_expand_close_legacy_title">Fsheh butonat e zgjerimit dhe mbylljes</string>
-  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_on">"Butonat janë të fshehura
+  <string name="revanced_miniplayer_hide_overlay_buttons_title">Fshih butonat e mbivendosjes</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">Butonat e mbivendosjes janë të fshehur</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">Butonat e mbivendosjes janë të dukshëm</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_title">Fshih butonat e zgjerimit dhe mbylljes</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_on">"Butonat janë të fshehur
 
-Lëviz gishtin për të zgjeruar ose mbyllur"</string>
-  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_off">Butonat e zgjerimit dhe mbylljes janë të dukshëm</string>
+Rrëshqit për të zgjeruar ose mbyllur"</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_off">Butonat e zgjerimit dhe mbylljes janë të dukshëm</string>
   <string name="revanced_miniplayer_hide_subtext_title">Fsheh nëntekstet</string>
   <string name="revanced_miniplayer_hide_subtext_summary_on">Nëntekstet janë të fshehura</string>
   <string name="revanced_miniplayer_hide_subtext_summary_off">Nëntekstet janë të dukshme</string>

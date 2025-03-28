@@ -13,9 +13,11 @@ import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstruction
+import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.Method
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
+import com.android.tools.smali.dexlib2.iface.reference.TypeReference
 
 val bypassURLRedirectsPatch = bytecodePatch(
     name = "Bypass URL redirects",
@@ -37,6 +39,7 @@ val bypassURLRedirectsPatch = bytecodePatch(
             "19.45.38",
             "19.46.42",
             "19.47.53",
+            "20.07.39",
         ),
     )
 
@@ -79,4 +82,9 @@ val bypassURLRedirectsPatch = bytecodePatch(
 internal fun Method.findUriParseIndex() = indexOfFirstInstruction {
     val reference = getReference<MethodReference>()
     reference?.returnType == "Landroid/net/Uri;" && reference.name == "parse"
+}
+
+internal fun Method.findWebViewCheckCastIndex() = indexOfFirstInstruction {
+    val reference = getReference<TypeReference>()
+    opcode == Opcode.CHECK_CAST && reference?.type?.endsWith("/WebviewEndpointOuterClass${'$'}WebviewEndpoint;") == true
 }

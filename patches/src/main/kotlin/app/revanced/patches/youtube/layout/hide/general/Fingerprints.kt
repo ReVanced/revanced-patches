@@ -15,7 +15,21 @@ internal val hideShowMoreButtonFingerprint = fingerprint {
     literal { expandButtonDownId }
 }
 
+/**
+ * 20.07+
+ */
 internal val parseElementFromBufferFingerprint = fingerprint {
+    parameters("L", "L", "[B", "L", "L")
+    opcodes(
+        Opcode.IGET_OBJECT,
+        Opcode.IGET_BOOLEAN,
+        Opcode.INVOKE_INTERFACE,
+        Opcode.MOVE_RESULT_OBJECT,
+    )
+    strings("Failed to parse Element") // String is a partial match.
+}
+
+internal val parseElementFromBufferLegacyFingerprint = fingerprint {
     parameters("L", "L", "[B", "L", "L")
     opcodes(
         Opcode.IGET_OBJECT,
@@ -110,7 +124,6 @@ internal val showFloatingMicrophoneButtonFingerprint = fingerprint {
     opcodes(
         Opcode.IGET_BOOLEAN,
         Opcode.IF_EQZ,
-        Opcode.RETURN_VOID,
     )
     literal { fabButtonId }
 }

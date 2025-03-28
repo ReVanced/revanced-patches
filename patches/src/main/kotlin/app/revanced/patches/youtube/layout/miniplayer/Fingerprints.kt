@@ -30,7 +30,7 @@ internal val miniplayerModernAddViewListenerFingerprint = fingerprint {
 
 internal val miniplayerModernCloseButtonFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("Landroid/widget/ImageView;")
+    returns("L")
     parameters()
     literal { modernMiniplayerClose }
 }
@@ -62,7 +62,7 @@ internal val miniplayerOnCloseHandlerFingerprint = fingerprint {
  */
 internal val miniplayerModernExpandButtonFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("Landroid/widget/ImageView;")
+    returns("L")
     parameters()
     literal { modernMiniplayerExpand }
 }
@@ -82,7 +82,7 @@ internal val miniplayerModernExpandCloseDrawablesFingerprint = fingerprint {
  */
 internal val miniplayerModernForwardButtonFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("Landroid/widget/ImageView;")
+    returns("L")
     parameters()
     literal { modernMiniplayerForwardButton }
 }
@@ -92,7 +92,6 @@ internal val miniplayerModernForwardButtonFingerprint = fingerprint {
  */
 internal val miniplayerModernOverlayViewFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("V")
     parameters()
     literal { scrimOverlay }
 }
@@ -102,7 +101,7 @@ internal val miniplayerModernOverlayViewFingerprint = fingerprint {
  */
 internal val miniplayerModernRewindButtonFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("Landroid/widget/ImageView;")
+    returns("L")
     parameters()
     literal { modernMiniplayerRewindButton }
 }
@@ -112,6 +111,13 @@ internal val miniplayerModernViewParentFingerprint = fingerprint {
     returns("Ljava/lang/String;")
     parameters()
     strings("player_overlay_modern_mini_player_controls")
+}
+
+internal val miniplayerModernActionButtonFingerprint = fingerprint {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
+    returns("L")
+    parameters()
+    literal { modernMiniPlayerOverlayActionButton }
 }
 
 internal val miniplayerMinimumSizeFingerprint = fingerprint {

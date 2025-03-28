@@ -1155,6 +1155,7 @@ Second \"item\" text"</string>
   <string name="revanced_miniplayer_type_entry_4">حديث 1</string>
   <string name="revanced_miniplayer_type_entry_5">حديث 2</string>
   <string name="revanced_miniplayer_type_entry_6">حديث 3</string>
+  <string name="revanced_miniplayer_type_entry_7">الوضع الحديث 4</string>
   <string name="revanced_miniplayer_rounded_corners_title">تمكين الزوايا المستديرة</string>
   <string name="revanced_miniplayer_rounded_corners_summary_on">الزوايا مستديرة</string>
   <string name="revanced_miniplayer_rounded_corners_summary_off">الزوايا مربعة</string>
@@ -1174,14 +1175,14 @@ Second \"item\" text"</string>
 
 يمكن سحب المشغل المصغر خارج الشاشة إلى اليسار أو اليمين"</string>
   <string name="revanced_miniplayer_horizontal_drag_summary_off">تم تعطيل إيماءة السحب الأفقية</string>
-  <string name="revanced_miniplayer_hide_expand_close_title">إخفاء زر الإغلاق</string>
-  <string name="revanced_miniplayer_hide_expand_close_summary_on">تم إخفاء زر الإغلاق</string>
-  <string name="revanced_miniplayer_hide_expand_close_summary_off">يتم عرض زر الإغلاق</string>
-  <string name="revanced_miniplayer_hide_expand_close_legacy_title">إخفاء أزرار التوسيع والإغلاق</string>
-  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_on">"تم إخفاء الأزرار
+  <string name="revanced_miniplayer_hide_overlay_buttons_title">إخفاء أزرار التراكب</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">أزرار التراكب مخفية</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">أزرار التراكب ظاهرة</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_title">إخفاء زري التوسيع والإغلاق</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_on">"الأزرار مخفية
 
-مرر للتوسيع أو الإغلاق"</string>
-  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_off">يتم عرض أزرار التوسيع والإغلاق</string>
+اسحب للتوسيع أو الإغلاق"</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_off">زرا التوسيع والإغلاق ظاهران</string>
   <string name="revanced_miniplayer_hide_subtext_title">إخفاء النصوص الفرعية</string>
   <string name="revanced_miniplayer_hide_subtext_summary_on">تم إخفاء النصوص الفرعية</string>
   <string name="revanced_miniplayer_hide_subtext_summary_off">يتم عرض النصوص الفرعية</string>
