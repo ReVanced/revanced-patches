@@ -1,3 +1,10 @@
+# [5.17.0-dev.4](https://github.com/ReVanced/revanced-patches/compare/v5.17.0-dev.3...v5.17.0-dev.4) (2025-03-28)
+
+
+### Bug Fixes
+
+* **X / Twitter:** Constrain patches to latest compatible versions ([#4683](https://github.com/ReVanced/revanced-patches/issues/4683)) ([f579728](https://github.com/ReVanced/revanced-patches/commit/f5797289f45186052537982c7f5db6f2b0769aee))
+
 # [5.17.0-dev.3](https://github.com/ReVanced/revanced-patches/compare/v5.17.0-dev.2...v5.17.0-dev.3) (2025-03-28)
 
 

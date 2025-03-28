@@ -555,6 +555,7 @@ MicroG-ի համար մարտկոցի օպտիմալացումը անջատել�
   <string name="revanced_disable_translucent_status_bar_title">Անջատել կիսաթափանց կարգավիճակի տողը</string>
   <string name="revanced_disable_translucent_status_bar_summary_on">Վիճակի նوارը անթափանց է</string>
   <string name="revanced_disable_translucent_status_bar_summary_off">Վիճակի նշագիծը անթափանց է կամ կիսաթափանց</string>
+  <string name="revanced_disable_translucent_status_bar_user_dialog_message">Որոշ սարքերում այս գործառույթի միացումը կարող է համակարգի նավիգացիոն տողը դարձնել թափանցիկ։</string>
   <string name="revanced_disable_translucent_navigation_bar_light_title">Անջատել կիսաթափանց լուսավոր շերտը</string>
   <string name="revanced_disable_translucent_navigation_bar_light_summary_on">Լուսավոր ռեժիմի նավիգացիոն շերտը անթափանց է</string>
   <string name="revanced_disable_translucent_navigation_bar_light_summary_off">Լույսի ռեժիմի նավիգացիոն նշագիծը անթափանց է կամ կիսաթափանց</string>

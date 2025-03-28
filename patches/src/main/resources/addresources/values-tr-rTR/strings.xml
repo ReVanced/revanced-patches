@@ -555,6 +555,7 @@ Bu ayarı değiştirmek etkili olmazsa, Gizli moda geçmeyi deneyin."</string>
   <string name="revanced_disable_translucent_status_bar_title">Yarı saydam durum çubuğunu devre dışı bırak</string>
   <string name="revanced_disable_translucent_status_bar_summary_on">Durum çubuğu opak</string>
   <string name="revanced_disable_translucent_status_bar_summary_off">Durum çubuğu opak veya yarı saydam</string>
+  <string name="revanced_disable_translucent_status_bar_user_dialog_message">Bazı cihazlarda, bu özelliği etkinleştirmek sistem gezinme çubuğunu şeffaf hale getirebilir.</string>
   <string name="revanced_disable_translucent_navigation_bar_light_title">Aydınlık temada yarı saydam çubuğu devre dışı bırak</string>
   <string name="revanced_disable_translucent_navigation_bar_light_summary_on">Aydınlık temada gezinti çubuğu opak</string>
   <string name="revanced_disable_translucent_navigation_bar_light_summary_off">Aydınlık temada gezinti çubuğu opak veya yarı saydam</string>

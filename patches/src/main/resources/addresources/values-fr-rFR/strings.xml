@@ -555,6 +555,7 @@ Si la modification de ce paramètre ne prend pas effet, essayez de passer en mod
   <string name="revanced_disable_translucent_status_bar_title">Désactiver la barre d\'état translucide</string>
   <string name="revanced_disable_translucent_status_bar_summary_on">La barre d\'état est opaque</string>
   <string name="revanced_disable_translucent_status_bar_summary_off">La barre d\'état est opaque ou translucide</string>
+  <string name="revanced_disable_translucent_status_bar_user_dialog_message">Sur certains appareils, l\'activation de cette fonctionnalité peut rendre la barre de navigation du système transparente.</string>
   <string name="revanced_disable_translucent_navigation_bar_light_title">Désactiver la barre claire translucide</string>
   <string name="revanced_disable_translucent_navigation_bar_light_summary_on">La barre de navigation en mode clair est opaque</string>
   <string name="revanced_disable_translucent_navigation_bar_light_summary_off">La barre de navigation en mode clair est opaque ou translucide</string>

@@ -555,6 +555,7 @@ Second \"item\" text"</string>
   <string name="revanced_disable_translucent_status_bar_title">禁用半透明状态栏</string>
   <string name="revanced_disable_translucent_status_bar_summary_on">状态栏为不透明</string>
   <string name="revanced_disable_translucent_status_bar_summary_off">状态栏为不透明或半透明</string>
+  <string name="revanced_disable_translucent_status_bar_user_dialog_message">在某些设备上，启用此功能可能会将系统导航栏更改为透明。</string>
   <string name="revanced_disable_translucent_navigation_bar_light_title">禁用浅色半透明导航栏</string>
   <string name="revanced_disable_translucent_navigation_bar_light_summary_on">浅色模式的导航栏不透明</string>
   <string name="revanced_disable_translucent_navigation_bar_light_summary_off">浅色模式导航栏为不透明或半透明</string>

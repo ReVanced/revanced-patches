@@ -555,6 +555,7 @@ Dacă modificarea acestei setări nu are efect, încercați să comutați la mod
   <string name="revanced_disable_translucent_status_bar_title">Dezactivează bara de stare translucidă</string>
   <string name="revanced_disable_translucent_status_bar_summary_on">Bara de stare este opaca</string>
   <string name="revanced_disable_translucent_status_bar_summary_off">Bara de stare este opaca sau translucida</string>
+  <string name="revanced_disable_translucent_status_bar_user_dialog_message">Pe unele dispozitive, activarea acestei funcții poate schimba bara de navigare a sistemului în una transparentă.</string>
   <string name="revanced_disable_translucent_navigation_bar_light_title">Dezactivează bara de navigare translucidă deschisă</string>
   <string name="revanced_disable_translucent_navigation_bar_light_summary_on">Bara de navigare în modul deschis este opacă</string>
   <string name="revanced_disable_translucent_navigation_bar_light_summary_off">Bara de navigare în modul deschis este opaca sau translucida</string>
