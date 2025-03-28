@@ -555,6 +555,7 @@ Second \"item\" text"</string>
   <string name="revanced_disable_translucent_status_bar_title">Вимкнути напівпрозорість рядка стану</string>
   <string name="revanced_disable_translucent_status_bar_summary_on">Рядок стану непрозорий</string>
   <string name="revanced_disable_translucent_status_bar_summary_off">Рядок стану непрозорий або напівпрозорий</string>
+  <string name="revanced_disable_translucent_status_bar_user_dialog_message">На деяких пристроях увімкнення цієї функції може змінити панель навігації системи на прозору.</string>
   <string name="revanced_disable_translucent_navigation_bar_light_title">Вимкнути напівпрозорість світлої панелі</string>
   <string name="revanced_disable_translucent_navigation_bar_light_summary_on">Панель навігації світлого режиму непрозора</string>
   <string name="revanced_disable_translucent_navigation_bar_light_summary_off">Панель навігації світлого режиму непрозора або напівпрозора</string>

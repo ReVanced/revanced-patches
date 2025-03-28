@@ -518,6 +518,7 @@ Hvis ændring af denne indstilling ikke træder i kraft, kan du prøve at skifte
   <string name="revanced_disable_translucent_status_bar_title">Deaktiver gennemsigtig statuslinje</string>
   <string name="revanced_disable_translucent_status_bar_summary_on">Statuslinjen er opak</string>
   <string name="revanced_disable_translucent_status_bar_summary_off">Statuslinjen er opak eller gennemsigtig</string>
+  <string name="revanced_disable_translucent_status_bar_user_dialog_message">På nogle enheder kan aktivering af denne funktion ændre systemets navigationslinje til gennemsigtig.</string>
   <string name="revanced_disable_translucent_navigation_bar_light_title">Deaktiver lys gennemsigtig linje</string>
   <string name="revanced_disable_translucent_navigation_bar_light_summary_on">Navigationslinjen i lys tilstand er ikke gennemsigtig</string>
   <string name="revanced_disable_translucent_navigation_bar_light_summary_off">Lys tilstand navigationslinjen er opak eller gennemsigtig</string>

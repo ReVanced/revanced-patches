@@ -555,6 +555,7 @@ Pokud změna tohoto nastavení nemá žádný účinek, zkuste přepnout do rež
   <string name="revanced_disable_translucent_status_bar_title">Deaktivovat průsvitný stavový řádek</string>
   <string name="revanced_disable_translucent_status_bar_summary_on">Statusový řádek je neprůhledný</string>
   <string name="revanced_disable_translucent_status_bar_summary_off">Statusový řádek je neprůhledný nebo průsvitný</string>
+  <string name="revanced_disable_translucent_status_bar_user_dialog_message">Na některých zařízeních může aktivace této funkce změnit navigační lištu systému na průhlednou.</string>
   <string name="revanced_disable_translucent_navigation_bar_light_title">Deaktivovat světlý průsvitný navigační panel</string>
   <string name="revanced_disable_translucent_navigation_bar_light_summary_on">Navigační panel v světlém režimu je neprůhledný</string>
   <string name="revanced_disable_translucent_navigation_bar_light_summary_off">Navigační lišta v světlém režimu je neprůhledná nebo průsvitná</string>

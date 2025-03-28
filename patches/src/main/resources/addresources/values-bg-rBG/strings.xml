@@ -555,6 +555,7 @@ Second \"item\" text"</string>
   <string name="revanced_disable_translucent_status_bar_title">Деактивирай полупрозрачната лента на състоянието</string>
   <string name="revanced_disable_translucent_status_bar_summary_on">Статусная лента е непрозрачна</string>
   <string name="revanced_disable_translucent_status_bar_summary_off">Статусная лента е непрозрачна или прозрачна</string>
+  <string name="revanced_disable_translucent_status_bar_user_dialog_message">На някои устройства активирането на тази функция може да промени навигационната лента на системата на прозрачна.</string>
   <string name="revanced_disable_translucent_navigation_bar_light_title">Деактивирай полупрозрачната светла лента за навигация</string>
   <string name="revanced_disable_translucent_navigation_bar_light_summary_on">Светлата лента за навигация е непрозрачна</string>
   <string name="revanced_disable_translucent_navigation_bar_light_summary_off">Светлата лента за навигация е непрозрачна или прозрачна</string>

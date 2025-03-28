@@ -555,6 +555,7 @@ Second \"item\" text"</string>
   <string name="revanced_disable_translucent_status_bar_title">Онемогући прозирну статусну траку</string>
   <string name="revanced_disable_translucent_status_bar_summary_on">Статусна трака је непрозирна</string>
   <string name="revanced_disable_translucent_status_bar_summary_off">Статусна трака је непрозирна или прозирна</string>
+  <string name="revanced_disable_translucent_status_bar_user_dialog_message">На неким уређајима, омогућавање ове функције може да промени траку за навигацију кроз систем у прозирну.</string>
   <string name="revanced_disable_translucent_navigation_bar_light_title">Онемогући светлу прозирну траку за навигацију</string>
   <string name="revanced_disable_translucent_navigation_bar_light_summary_on">Трака за навигацију у светлом режиму је непрозирна</string>
   <string name="revanced_disable_translucent_navigation_bar_light_summary_off">Трака за навигацију у светлом режиму је непрозирна или прозирна</string>

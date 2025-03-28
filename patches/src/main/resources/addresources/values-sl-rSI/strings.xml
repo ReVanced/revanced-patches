@@ -555,6 +555,7 @@ Opomba: Omogočanje tega tudi prisilno skrije video oglase"</string>
   <string name="revanced_disable_translucent_status_bar_title">Onemogoči prosojno statusno vrstico</string>
   <string name="revanced_disable_translucent_status_bar_summary_on">Statusna vrstica je neprozorna</string>
   <string name="revanced_disable_translucent_status_bar_summary_off">Statusna vrstica je neprozorna ali prosojna</string>
+  <string name="revanced_disable_translucent_status_bar_user_dialog_message">Na nekaterih napravah lahko omogočitev te funkcije spremeni sistemsko navigacijsko vrstico v prozorno.</string>
   <string name="revanced_disable_translucent_navigation_bar_light_title">Onemogoči svetlo prosojno vrstico</string>
   <string name="revanced_disable_translucent_navigation_bar_light_summary_on">Navigacijska vrstica v svetlem načinu je neprosojna</string>
   <string name="revanced_disable_translucent_navigation_bar_light_summary_off">Navigacijska vrstica v svetlem načinu je neprozorna ali prosojna</string>

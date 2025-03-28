@@ -555,6 +555,7 @@ Se alterar esta configuração não fizer efeito, tente alternar para o modo an�
   <string name="revanced_disable_translucent_status_bar_title">Desativar a barra de status translúcida</string>
   <string name="revanced_disable_translucent_status_bar_summary_on">A barra de status é opaca</string>
   <string name="revanced_disable_translucent_status_bar_summary_off">A barra de status é opaca ou translúcida</string>
+  <string name="revanced_disable_translucent_status_bar_user_dialog_message">Em alguns dispositivos, habilitar este recurso pode mudar a barra de navegação do sistema para transparente.</string>
   <string name="revanced_disable_translucent_navigation_bar_light_title">Desativar a barra translúcida clara</string>
   <string name="revanced_disable_translucent_navigation_bar_light_summary_on">A barra de navegação no modo claro é opaca</string>
   <string name="revanced_disable_translucent_navigation_bar_light_summary_off">A barra de navegação em modo claro é opaca ou translúcida</string>

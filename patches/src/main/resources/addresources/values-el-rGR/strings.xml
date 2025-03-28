@@ -228,9 +228,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_artist_cards_title">Κάρτες καλλιτεχνών</string>
   <string name="revanced_hide_artist_cards_summary_on">Κρυμμένες</string>
   <string name="revanced_hide_artist_cards_summary_off">Εμφανίζονται</string>
-  <string name="revanced_hide_ai_generated_video_summary_section_title">Απόκρυψη της ενότητας \"Σύνοψη βίντεο που δημιουργήθηκε από AI\"</string>
-  <string name="revanced_hide_ai_generated_video_summary_section_summary_on">Η ενότητα σύνοψης βίντεο είναι κρυμμένη</string>
-  <string name="revanced_hide_ai_generated_video_summary_section_summary_off">Η ενότητα σύνοψης βίντεο εμφανίζεται</string>
+  <string name="revanced_hide_ai_generated_video_summary_section_title">Σύνοψη βίντεο που δημιουργήθηκε από AI</string>
+  <string name="revanced_hide_ai_generated_video_summary_section_summary_on">Κρυμμένη</string>
+  <string name="revanced_hide_ai_generated_video_summary_section_summary_off">Εμφανίζεται</string>
   <string name="revanced_hide_attributes_section_title">Ενότητα ιδιοτήτων</string>
   <string name="revanced_hide_attributes_section_summary_on">Κρυμμένη.\n\nΑφορά τις ιδιότητες: Επιλεγμένα μέρη, Παιχνίδια, Μουσική, και «Οι χρήστες ανέφεραν»</string>
   <string name="revanced_hide_attributes_section_summary_off">Εμφανίζεται.\n\nΑφορά τις ιδιότητες: Επιλεγμένα μέρη, Παιχνίδια, Μουσική, και «Οι χρήστες ανέφεραν»</string>
@@ -267,12 +267,12 @@ Second \"item\" text"</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">Εμφανίζεται</string>
   <string name="revanced_comments_screen_title">Σχόλια</string>
   <string name="revanced_comments_screen_summary">Απόκρυψη ή εμφάνιση στοιχείων στα σχόλια</string>
-  <string name="revanced_hide_comments_ai_chat_summary_title">Απόκρυψη σύνοψης συνομιλίας AI</string>
+  <string name="revanced_hide_comments_ai_chat_summary_title">Σύνοψη συνομιλίας που δημιουργήθηκε από AI</string>
   <string name="revanced_hide_comments_ai_chat_summary_summary_on">Κρυμμένη</string>
   <string name="revanced_hide_comments_ai_chat_summary_summary_off">Εμφανίζεται</string>
-  <string name="revanced_hide_comments_ai_summary_title">Απόκρυψη σύνοψης σχολίων AI</string>
-  <string name="revanced_hide_comments_ai_summary_summary_on">Η σύνοψη σχολίων είναι κρυμμένη</string>
-  <string name="revanced_hide_comments_ai_summary_summary_off">Εμφανίζεται η σύνοψη σχολίων</string>
+  <string name="revanced_hide_comments_ai_summary_title">Σύνοψη σχολίων που δημιουργήθηκε από AI</string>
+  <string name="revanced_hide_comments_ai_summary_summary_on">Κρυμμένη</string>
+  <string name="revanced_hide_comments_ai_summary_summary_off">Εμφανίζεται</string>
   <string name="revanced_hide_comments_by_members_header_title">Κεφαλίδα «Σχόλια από μέλη»</string>
   <string name="revanced_hide_comments_by_members_header_summary_on">Κρυμμένη</string>
   <string name="revanced_hide_comments_by_members_header_summary_off">Εμφανίζεται</string>
@@ -432,9 +432,9 @@ Second \"item\" text"</string>
   <string name="revanced_disable_precise_seeking_gesture_summary_off">Η χειρονομία αναζήτησης καρέ-καρέ είναι ενεργοποιημένη</string>
   </patch>
   <patch id="interaction.seekbar.enableSeekbarTappingPatch">
-  <string name="revanced_seekbar_tapping_title">Ενεργοποίηση πατήματος για αναζήτηση</string>
-  <string name="revanced_seekbar_tapping_summary_on">Ενεργοποιήθηκε η λειτουργία \"Πατήστε για αναζήτηση\"</string>
-  <string name="revanced_seekbar_tapping_summary_off">Η λειτουργία \"Πατήστε για αναζήτηση\" είναι απενεργοποιημένη</string>
+  <string name="revanced_seekbar_tapping_title">Πάτημα για αναζήτηση στη γραμμή προόδου</string>
+  <string name="revanced_seekbar_tapping_summary_on">Το πάτημα για αναζήτηση στη γραμμή προόδου είναι ενεργοποιημένο</string>
+  <string name="revanced_seekbar_tapping_summary_off">Το πάτημα για αναζήτηση στη γραμμή προόδου είναι απενεργοποιημένο</string>
   </patch>
   <patch id="interaction.swipecontrols.swipeControlsResourcePatch">
   <string name="revanced_swipe_brightness_title">Σάρωση οθόνης για φωτεινότητα</string>
@@ -447,9 +447,9 @@ Second \"item\" text"</string>
 
 Προσαρμόστε την ένταση ήχου σαρώνοντας κάθετα στη δεξιά πλευρά της οθόνης"</string>
   <string name="revanced_swipe_volume_summary_off">Η χειρονομία σάρωσης για αλλαγή έντασης ήχου στην πλήρη οθόνη είναι απενεργοποιημένη</string>
-  <string name="revanced_swipe_press_to_engage_title">Ενεργοποίηση χειρονομίας πατήματος για σάρωση</string>
-  <string name="revanced_swipe_press_to_engage_summary_on">Η λειτουργία \"Πατήστε για σάρωση\" είναι ενεργοποιημένη</string>
-  <string name="revanced_swipe_press_to_engage_summary_off">Η λειτουργία \"Πατήστε για σάρωση\" είναι απενεργοποιημένη</string>
+  <string name="revanced_swipe_press_to_engage_title">Πάτημα για σάρωση</string>
+  <string name="revanced_swipe_press_to_engage_summary_on">Η χειρονομία πατήματος για σάρωση είναι ενεργοποιημένη</string>
+  <string name="revanced_swipe_press_to_engage_summary_off">Η χειρονομία πατήματος για σάρωση είναι απενεργοποιημένη</string>
   <string name="revanced_swipe_haptic_feedback_title">Απόκριση δόνησης</string>
   <string name="revanced_swipe_haptic_feedback_summary_on">Η απόκριση δόνησης είναι ενεργοποιημένη</string>
   <string name="revanced_swipe_haptic_feedback_summary_off">Η απόκριση δόνησης είναι απενεργοποιημένη</string>
@@ -557,6 +557,7 @@ Second \"item\" text"</string>
   <string name="revanced_disable_translucent_status_bar_title">Απενεργοποίηση διαφανούς γραμμής κατάστασης</string>
   <string name="revanced_disable_translucent_status_bar_summary_on">Η γραμμή κατάστασης δεν είναι διαφανής</string>
   <string name="revanced_disable_translucent_status_bar_summary_off">Η διαφάνεια της γραμμής κατάστασης ορίζεται αυτόματα</string>
+  <string name="revanced_disable_translucent_status_bar_user_dialog_message">Σε ορισμένες συσκευές, η ενεργοποίηση αυτής της λειτουργίας μπορεί να αλλάξει τη γραμμή πλοήγησης του συστήματος σε διαφανή.</string>
   <string name="revanced_disable_translucent_navigation_bar_light_title">Απενεργοποίηση διαφανούς γραμμής στο φωτεινό θέμα</string>
   <string name="revanced_disable_translucent_navigation_bar_light_summary_on">Η γραμμή πλοήγησης στο φωτεινό θέμα δεν είναι διαφανής</string>
   <string name="revanced_disable_translucent_navigation_bar_light_summary_off">Η διαφάνεια της γραμμής πλοήγησης στο φωτεινό θέμα ορίζεται αυτόματα</string>

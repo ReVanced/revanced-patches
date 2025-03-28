@@ -555,6 +555,7 @@ Si canviar aquesta opció no té cap efecte, prova a canviar al mode d'incògnit
   <string name="revanced_disable_translucent_status_bar_title">Desactiva la barra d\'estat translúcida</string>
   <string name="revanced_disable_translucent_status_bar_summary_on">La barra d\'estat és opaca</string>
   <string name="revanced_disable_translucent_status_bar_summary_off">La barra d\'estat és opaca o translúcida</string>
+  <string name="revanced_disable_translucent_status_bar_user_dialog_message">En alguns dispositius, habilitar aquesta funció pot canviar la barra de navegació del sistema a transparent.</string>
   <string name="revanced_disable_translucent_navigation_bar_light_title">Desactiva la barra translúcida de navegació clara</string>
   <string name="revanced_disable_translucent_navigation_bar_light_summary_on">La barra de navegació del mode clar és opaca</string>
   <string name="revanced_disable_translucent_navigation_bar_light_summary_off">La barra de navegació del mode clar és opaca o translúcida</string>

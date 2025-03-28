@@ -555,6 +555,7 @@ Om du ändrar den här inställningen och det inte får effekt kan du försöka 
   <string name="revanced_disable_translucent_status_bar_title">Inaktivera genomskinlig statusfält</string>
   <string name="revanced_disable_translucent_status_bar_summary_on">Statusraden är ogenomskinlig</string>
   <string name="revanced_disable_translucent_status_bar_summary_off">Statusraden är ogenomskinlig eller genomskinlig</string>
+  <string name="revanced_disable_translucent_status_bar_user_dialog_message">På vissa enheter kan aktivering av den här funktionen ändra systemets navigeringsfält till genomskinligt.</string>
   <string name="revanced_disable_translucent_navigation_bar_light_title">Inaktivera ljus genomskinlig navigeringsfält</string>
   <string name="revanced_disable_translucent_navigation_bar_light_summary_on">Ljusläge navigeringsfält är ogenomskinlig</string>
   <string name="revanced_disable_translucent_navigation_bar_light_summary_off">Ljusläge navigeringsfältet är ogenomskinligt eller genomskinligt</string>

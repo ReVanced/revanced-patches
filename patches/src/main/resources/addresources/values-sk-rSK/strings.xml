@@ -548,6 +548,7 @@ Ak zmena tohto nastavenia nemá žiadny účinok, skúste prepnúť do režimu i
   <string name="revanced_disable_translucent_status_bar_title">Deaktivovať priesvitný stavový riadok</string>
   <string name="revanced_disable_translucent_status_bar_summary_on">Stavový riadok je nepriehľadný</string>
   <string name="revanced_disable_translucent_status_bar_summary_off">Stavový riadok je nepriehľadný alebo priesvitný</string>
+  <string name="revanced_disable_translucent_status_bar_user_dialog_message">Na niektorých zariadeniach môže povolenie tejto funkcie zmeniť navigačný panel systému na priehľadný.</string>
   <string name="revanced_disable_translucent_navigation_bar_light_title">Deaktivovať priesvitný panel s navigáciou</string>
   <string name="revanced_disable_translucent_navigation_bar_light_summary_on">Panel s navigáciou v svetlom režime je nepriehľadný</string>
   <string name="revanced_disable_translucent_navigation_bar_light_summary_off">Navigačný panel v svetlom režime je nepriehľadný alebo priesvitný</string>

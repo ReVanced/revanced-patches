@@ -253,7 +253,7 @@ MicroG GmsCore に対する電池の最適化を無効にしても、バッテ�
   <string name="revanced_hide_transcript_section_summary_on">文字起こしセクションは表示されません</string>
   <string name="revanced_hide_transcript_section_summary_off">文字起こしセクションは表示されます</string>
   <string name="revanced_hide_description_components_screen_title">概要欄</string>
-  <string name="revanced_hide_description_components_screen_summary">概要欄を編集します</string>
+  <string name="revanced_hide_description_components_screen_summary">概要欄の設定</string>
   <string name="revanced_hide_filter_bar_screen_title">カテゴリー バー</string>
   <string name="revanced_hide_filter_bar_screen_summary">フィード、検索結果、関連動画の上部にカテゴリーごとに表示されるバーの設定</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_title">フィードのカテゴリー バーを非表示</string>
@@ -266,7 +266,7 @@ MicroG GmsCore に対する電池の最適化を無効にしても、バッテ�
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_on">関連動画にカテゴリー バーは表示されません</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">関連動画にカテゴリー バーが表示されます</string>
   <string name="revanced_comments_screen_title">コメント</string>
-  <string name="revanced_comments_screen_summary">コメント セクションを編集します</string>
+  <string name="revanced_comments_screen_summary">コメント セクションの設定</string>
   <string name="revanced_hide_comments_ai_chat_summary_title">「チャットの要約」を非表示</string>
   <string name="revanced_hide_comments_ai_chat_summary_summary_on">「チャットの要約」は表示されません</string>
   <string name="revanced_hide_comments_ai_chat_summary_summary_off">「チャットの要約」は表示されます</string>
@@ -299,7 +299,7 @@ MicroG GmsCore に対する電池の最適化を無効にしても、バッテ�
 
 あなたの地域で Doodle が表示されている時に、この設定がオンになっている場合、検索結果にカテゴリー バーが表示されなくなります。"</string>
   <string name="revanced_custom_filter_screen_title">カスタム フィルタ</string>
-  <string name="revanced_custom_filter_screen_summary">フィルタを設定して component を非表示にします</string>
+  <string name="revanced_custom_filter_screen_summary">アプリ内に表示される component を非表示にするフィルタの設定</string>
   <string name="revanced_custom_filter_title">カスタム フィルタを有効にする</string>
   <string name="revanced_custom_filter_summary_on">カスタム フィルタは有効です</string>
   <string name="revanced_custom_filter_summary_off">カスタム フィルタは無効です</string>
@@ -308,7 +308,7 @@ MicroG GmsCore に対する電池の最適化を無効にしても、バッテ�
   <string name="revanced_custom_filter_strings_summary">非表示にしたい component の path builder string を改行区切りで入力します</string>
   <string name="revanced_custom_filter_toast_invalid_syntax">無効なカスタム フィルタ: %s</string>
   <string name="revanced_hide_keyword_content_screen_title">キーワード フィルタ</string>
-  <string name="revanced_hide_keyword_content_screen_summary">フィード、検索結果、関連動画をキーワードでフィルタリングします</string>
+  <string name="revanced_hide_keyword_content_screen_summary">フィード、検索結果、関連動画に表示される動画をキーワードで除外するフィルタの設定</string>
   <string name="revanced_hide_keyword_content_home_title">キーワードに合致する動画をホーム フィードから除外する</string>
   <string name="revanced_hide_keyword_content_home_summary_on">キーワードに合致する動画はホーム フィードに表示されません</string>
   <string name="revanced_hide_keyword_content_home_summary_off">ホーム フィードはキーワードでフィルタリングされません</string>
@@ -438,37 +438,37 @@ MicroG GmsCore に対する電池の最適化を無効にしても、バッテ�
   </patch>
   <patch id="interaction.swipecontrols.swipeControlsResourcePatch">
   <string name="revanced_swipe_brightness_title">明るさジェスチャーを有効にする</string>
-  <string name="revanced_swipe_brightness_summary_on">"全画面表示の明るさスワイプは有効です
+  <string name="revanced_swipe_brightness_summary_on">"全画面表示の明るさジェスチャーは有効です
 
-画面の左側を垂直にスワイプして明るさを調整します"</string>
-  <string name="revanced_swipe_brightness_summary_off">全画面表示の明るさスワイプは無効です</string>
+画面の左側を縦にスワイプして明るさを調節します"</string>
+  <string name="revanced_swipe_brightness_summary_off">全画面表示の明るさジェスチャーは無効です</string>
   <string name="revanced_swipe_volume_title">音量ジェスチャーを有効にする</string>
-  <string name="revanced_swipe_volume_summary_on">"全画面表示の音量スワイプは有効です
+  <string name="revanced_swipe_volume_summary_on">"全画面表示の音量ジェスチャーは有効です
 
-画面の右側を縦にスワイプして音量を調整します"</string>
-  <string name="revanced_swipe_volume_summary_off">全画面表示時の音量スワイプは無効です</string>
-  <string name="revanced_swipe_press_to_engage_title">長押しスワイプ ジェスチャーを有効にする</string>
-  <string name="revanced_swipe_press_to_engage_summary_on">長押しスワイプ ジェスチャーが有効です</string>
-  <string name="revanced_swipe_press_to_engage_summary_off">通常のスワイプ ジェスチャーが有効です</string>
+画面の右側を縦にスワイプして音量を調節します"</string>
+  <string name="revanced_swipe_volume_summary_off">全画面表示の音量ジェスチャーは無効です</string>
+  <string name="revanced_swipe_press_to_engage_title">長押しスワイプを有効にする</string>
+  <string name="revanced_swipe_press_to_engage_summary_on">画面を縦に長押しスワイプして明るさや音量を調節します</string>
+  <string name="revanced_swipe_press_to_engage_summary_off">画面を縦にスワイプして明るさや音量を調節します</string>
   <string name="revanced_swipe_haptic_feedback_title">触覚フィードバックを有効にする</string>
   <string name="revanced_swipe_haptic_feedback_summary_on">触覚フィードバックは有効です</string>
   <string name="revanced_swipe_haptic_feedback_summary_off">触覚フィードバックは無効です</string>
-  <string name="revanced_swipe_save_and_restore_brightness_title">明るさの保存と復元</string>
-  <string name="revanced_swipe_save_and_restore_brightness_summary_on">全画面表示を解除 / 開始したときに明るさを保存 / 復元します</string>
-  <string name="revanced_swipe_save_and_restore_brightness_summary_off">全画面表示を解除 / 開始したときに明るさを保存 / 復元しません</string>
-  <string name="revanced_swipe_lowest_value_enable_auto_brightness_title">自動明るさジェスチャーを有効にする</string>
-  <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_on">明るさジェスチャーの最小値まで下にスワイプすると、自動明るさが有効になります</string>
-  <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_off">最小値まで下にスワイプしても、自動明るさの自動調節は有効になりません</string>
-  <string name="revanced_swipe_overlay_timeout_title">スワイプ オーバーレイのタイムアウト</string>
-  <string name="revanced_swipe_overlay_timeout_summary">オーバーレイが表示される時間 (ミリ秒)</string>
-  <string name="revanced_swipe_overlay_background_opacity_title">スワイプ オーバーレイの背景の透明度</string>
-  <string name="revanced_swipe_overlay_background_opacity_summary">透明度の値は 0-100 の範囲で、0が透明です</string>
+  <string name="revanced_swipe_save_and_restore_brightness_title">明るさを保存する</string>
+  <string name="revanced_swipe_save_and_restore_brightness_summary_on">全画面表示を開始、解除するとき、明るさを復元、保存します</string>
+  <string name="revanced_swipe_save_and_restore_brightness_summary_off">全画面表示を開始、解除するとき、明るさを復元、保存しません</string>
+  <string name="revanced_swipe_lowest_value_enable_auto_brightness_title">明るさジェスチャーの自動調節を有効にする</string>
+  <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_on">ジェスチャーで明るさを最小値まで下げると、明るさが自動調節されます</string>
+  <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_off">ジェスチャーで明るさを最小値まで下げても、明るさは自動調節されません</string>
+  <string name="revanced_swipe_overlay_timeout_title">オーバーレイ表示のタイムアウト</string>
+  <string name="revanced_swipe_overlay_timeout_summary">オーバーレイが表示される時間（ミリ秒）</string>
+  <string name="revanced_swipe_overlay_background_opacity_title">オーバーレイの背景の透明度</string>
+  <string name="revanced_swipe_overlay_background_opacity_summary">透明度の値は 0-100 の範囲で、0 が透明です</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">透明度の値は 0-100 の間でなければなりません</string>
   <string name="revanced_swipe_threshold_title">スワイプのしきい値</string>
   <string name="revanced_swipe_threshold_summary">スワイプと判定される最小の距離</string>
-  <string name="revanced_swipe_show_circular_overlay_title">円形のオーバーレイを表示する</string>
-  <string name="revanced_swipe_show_circular_overlay_summary_on">ジェスチャー中に現在値が円グラフで表示されます</string>
-  <string name="revanced_swipe_show_circular_overlay_summary_off">ジェスチャー中に現在値が横方向の棒グラフで表示されます</string>
+  <string name="revanced_swipe_show_circular_overlay_title">オーバーレイを円形にする</string>
+  <string name="revanced_swipe_show_circular_overlay_summary_on">円形のオーバーレイが表示されます</string>
+  <string name="revanced_swipe_show_circular_overlay_summary_off">横長のオーバーレイが表示されます</string>
   <string name="revanced_swipe_overlay_minimal_style_title">オーバーレイを最小限化する</string>
   <string name="revanced_swipe_overlay_minimal_style_summary_on">最小限のオーバーレイが表示されます</string>
   <string name="revanced_swipe_overlay_minimal_style_summary_off">通常のオーバーレイが表示されます</string>
@@ -483,7 +483,7 @@ MicroG GmsCore に対する電池の最適化を無効にしても、バッテ�
   </patch>
   <patch id="layout.buttons.action.hideButtonsPatch">
   <string name="revanced_hide_buttons_screen_title">アクション ボタン</string>
-  <string name="revanced_hide_buttons_screen_summary">プレーヤー画面下のボタンを編集します</string>
+  <string name="revanced_hide_buttons_screen_summary">プレーヤー画面下のボタンの設定</string>
   <string name="revanced_disable_like_subscribe_glow_title">高評価とチャンネル登録のエフェクトを無効にする</string>
   <string name="revanced_disable_like_subscribe_glow_summary_on">高評価ボタンとチャンネル登録ボタンのエフェクトは無効です</string>
   <string name="revanced_disable_like_subscribe_glow_summary_off">高評価ボタンとチャンネル登録ボタンのエフェクトは有効です</string>
@@ -522,7 +522,7 @@ MicroG GmsCore に対する電池の最適化を無効にしても、バッテ�
   </patch>
   <patch id="layout.buttons.navigation.navigationButtonsPatch">
   <string name="revanced_navigation_buttons_screen_title">ナビゲーション ボタン</string>
-  <string name="revanced_navigation_buttons_screen_summary">画面下部のナビゲーション バー上のボタンを編集します</string>
+  <string name="revanced_navigation_buttons_screen_summary">画面下部のナビゲーション バー上のボタンの設定</string>
   <!-- 'Home' should be translated using the same localized wording YouTube displays for the tab. -->
   <string name="revanced_hide_home_button_title">「ホーム」を非表示</string>
   <string name="revanced_hide_home_button_summary_on">ホーム ボタンは表示されません</string>
@@ -557,6 +557,7 @@ MicroG GmsCore に対する電池の最適化を無効にしても、バッテ�
   <string name="revanced_disable_translucent_status_bar_title">ステータス バーの半透明化を無効にする</string>
   <string name="revanced_disable_translucent_status_bar_summary_on">ステータス バーは透けません</string>
   <string name="revanced_disable_translucent_status_bar_summary_off">ステータス バーは状況に応じて透けます</string>
+  <string name="revanced_disable_translucent_status_bar_user_dialog_message">一部のデバイスでは、この機能を有効にすると、システムのナビゲーション バーが半透明になりアプリ内の component に重なってしまう可能性があります。</string>
   <string name="revanced_disable_translucent_navigation_bar_light_title">ライトモード時のナビゲーション バーの半透明化を無効にする</string>
   <string name="revanced_disable_translucent_navigation_bar_light_summary_on">ライトモード時にナビゲーション バーは透けません</string>
   <string name="revanced_disable_translucent_navigation_bar_light_summary_off">ライトモード時にナビゲーション バーが状況に応じて透けます</string>
@@ -566,7 +567,7 @@ MicroG GmsCore に対する電池の最適化を無効にしても、バッテ�
   </patch>
   <patch id="layout.hide.player.flyoutmenupanel.hidePlayerFlyoutMenuPatch">
   <string name="revanced_hide_player_flyout_title">フライアウト メニュー</string>
-  <string name="revanced_hide_player_flyout_summary">オーバーレイ上の歯車アイコンから表示されるメニューを編集します</string>
+  <string name="revanced_hide_player_flyout_summary">オーバーレイ上の歯車アイコンから表示されるメニューの設定</string>
   <!-- 'Captions' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_captions_title">「字幕」を非表示</string>
   <string name="revanced_hide_player_flyout_captions_summary_on">「字幕」は表示されません</string>
@@ -640,9 +641,9 @@ MicroG GmsCore に対する電池の最適化を無効にしても、バッテ�
   <string name="revanced_hide_endscreen_cards_summary_off">動画の終了画面は表示されます</string>
   </patch>
   <patch id="layout.hide.fullscreenambientmode.disableFullscreenAmbientModePatch">
-  <string name="revanced_disable_fullscreen_ambient_mode_title">全画面表示時にアンビエント モードを無効にする</string>
-  <string name="revanced_disable_fullscreen_ambient_mode_summary_on">全画面表示時にアンビエント モードは無効です</string>
-  <string name="revanced_disable_fullscreen_ambient_mode_summary_off">全画面表示時にアンビエント モードは有効です</string>
+  <string name="revanced_disable_fullscreen_ambient_mode_title">全画面表示中のアンビエント モードを無効にする</string>
+  <string name="revanced_disable_fullscreen_ambient_mode_summary_on">全画面表示中のアンビエント モードは無効です</string>
+  <string name="revanced_disable_fullscreen_ambient_mode_summary_off">全画面表示中のアンビエント モードは有効です</string>
   </patch>
   <patch id="layout.hide.infocards.hideInfocardsResourcePatch">
   <string name="revanced_hide_info_cards_title">情報カードを非表示</string>
@@ -1199,13 +1200,13 @@ Automotive レイアウト
   <string name="revanced_gradient_loading_screen_title">グラデーション読み込み画面を有効にする</string>
   <string name="revanced_gradient_loading_screen_summary_on">画面読み込み時にグラデーションの背景が表示されます</string>
   <string name="revanced_gradient_loading_screen_summary_off">画面読み込み時に通常の背景が表示されます</string>
-  <string name="revanced_seekbar_custom_color_title">設定したシークバーの色を使用する</string>
-  <string name="revanced_seekbar_custom_color_summary_on">設定したシークバーの色が表示されます</string>
+  <string name="revanced_seekbar_custom_color_title">編集したシークバーの色を使用する</string>
+  <string name="revanced_seekbar_custom_color_summary_on">編集したシークバーの色が表示されます</string>
   <string name="revanced_seekbar_custom_color_summary_off">デフォルトのシークバーの色が表示されます</string>
   <string name="revanced_seekbar_custom_color_primary_title">シークバーの色</string>
-  <string name="revanced_seekbar_custom_color_primary_summary">シークバーの色を設定します</string>
-  <string name="revanced_seekbar_custom_color_accent_title">シークバーのアクセントカラー</string>
-  <string name="revanced_seekbar_custom_color_accent_summary">シークバーのアクセントカラーを設定します</string>
+  <string name="revanced_seekbar_custom_color_primary_summary">シークバーの色を編集します</string>
+  <string name="revanced_seekbar_custom_color_accent_title">シークバーのアクセント カラー</string>
+  <string name="revanced_seekbar_custom_color_accent_summary">シークバーのアクセントカラーを編集します</string>
   <string name="revanced_seekbar_custom_color_invalid">入力されたシークバーの色の値は無効です</string>
   </patch>
   <patch id="layout.thumbnails.bypassImageRegionRestrictionsPatch">

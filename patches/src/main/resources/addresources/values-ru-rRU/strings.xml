@@ -555,6 +555,7 @@ Second \"item\" text"</string>
   <string name="revanced_disable_translucent_status_bar_title">Отключить полупрозрачность строки состояния</string>
   <string name="revanced_disable_translucent_status_bar_summary_on">Строка состояния непрозрачная</string>
   <string name="revanced_disable_translucent_status_bar_summary_off">Строка состояния непрозрачная или полупрозрачная</string>
+  <string name="revanced_disable_translucent_status_bar_user_dialog_message">На некоторых устройствах включение этой функции может сделать панель навигации системы прозрачной.</string>
   <string name="revanced_disable_translucent_navigation_bar_light_title">Отключить полупрозрачность светлой панели навигации</string>
   <string name="revanced_disable_translucent_navigation_bar_light_summary_on">Панель навигации при светлой теме непрозрачная</string>
   <string name="revanced_disable_translucent_navigation_bar_light_summary_off">Панель навигации при светлой теме непрозрачная или полупрозрачная</string>

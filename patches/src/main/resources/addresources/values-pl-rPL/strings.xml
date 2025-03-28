@@ -555,6 +555,7 @@ Jeśli zmiana tego ustawienia nie przyniesie efektu, spróbuj przełączyć się
   <string name="revanced_disable_translucent_status_bar_title">Wyłącz przezroczysty pasek statusu</string>
   <string name="revanced_disable_translucent_status_bar_summary_on">Pasek statusu jest nieprzezroczysty</string>
   <string name="revanced_disable_translucent_status_bar_summary_off">Pasek statusu jest nieprzezroczysty lub półprzezroczysty</string>
+  <string name="revanced_disable_translucent_status_bar_user_dialog_message">Na niektórych urządzeniach włączenie tej funkcji może zmienić przezroczystość systemowego paska nawigacyjnego.</string>
   <string name="revanced_disable_translucent_navigation_bar_light_title">Wyłącz świetny, przezroczysty pasek</string>
   <string name="revanced_disable_translucent_navigation_bar_light_summary_on">Pasek nawigacyjny w trybie świetnym jest nieprzezroczysty</string>
   <string name="revanced_disable_translucent_navigation_bar_light_summary_off">Pasek nawigacji w trybie jasnym jest nieprzezroczysty lub półprzezroczysty</string>

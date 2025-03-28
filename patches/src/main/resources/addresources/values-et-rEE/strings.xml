@@ -555,6 +555,7 @@ Kui selle sätte muutmine ei avalda mõju, proovige lülituda Inkognito režiimi
   <string name="revanced_disable_translucent_status_bar_title">Keela läbipaistev olekuriba</string>
   <string name="revanced_disable_translucent_status_bar_summary_on">Staatusriba on läbipaistev</string>
   <string name="revanced_disable_translucent_status_bar_summary_off">Olekubuuri on matt või läbipaistev</string>
+  <string name="revanced_disable_translucent_status_bar_user_dialog_message">Mõnedes seadmetes võib selle funktsiooni lubamine muuta süsteemi navigeerimisriba läbipaistvaks.</string>
   <string name="revanced_disable_translucent_navigation_bar_light_title">Keela hele läbipaistev riba</string>
   <string name="revanced_disable_translucent_navigation_bar_light_summary_on">Heleda režiimi navigeerimisriba on läbipaistmatu</string>
   <string name="revanced_disable_translucent_navigation_bar_light_summary_off">Hele režiimi navigeerimisriba on matt või läbipaistev</string>

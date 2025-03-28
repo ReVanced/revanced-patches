@@ -555,6 +555,7 @@ Jei pakeitus šį nustatymą neįsigalioja, pabandykite perjungti į inkognito r
   <string name="revanced_disable_translucent_status_bar_title">Išjungti permatomą būsenos juostą</string>
   <string name="revanced_disable_translucent_status_bar_summary_on">Bžas statuso juosta nepermatoma</string>
   <string name="revanced_disable_translucent_status_bar_summary_off">Bžas statuso juosta yra nepermatoma arba permatoma</string>
+  <string name="revanced_disable_translucent_status_bar_user_dialog_message">Kai kuriuose įrenginiuose, įgalinus šią funkciją, sistemos naršymo juosta gali tapti permatoma.</string>
   <string name="revanced_disable_translucent_navigation_bar_light_title">Išjungti permatomą šviesią naršymo juostą</string>
   <string name="revanced_disable_translucent_navigation_bar_light_summary_on">Šviesios spalvos naršymo juosta yra nepermatoma</string>
   <string name="revanced_disable_translucent_navigation_bar_light_summary_off">Šviesiosios temos narūybos juosta yra nepermatoma arba permatoma</string>
