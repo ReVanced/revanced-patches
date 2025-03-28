@@ -1155,6 +1155,7 @@ Second \"item\" text"</string>
   <string name="revanced_miniplayer_type_entry_4">Современный 1</string>
   <string name="revanced_miniplayer_type_entry_5">Современный 2</string>
   <string name="revanced_miniplayer_type_entry_6">Современный 3</string>
+  <string name="revanced_miniplayer_type_entry_7">Современный 4</string>
   <string name="revanced_miniplayer_rounded_corners_title">Включить закругление углов</string>
   <string name="revanced_miniplayer_rounded_corners_summary_on">Углы миниплеера закруглены</string>
   <string name="revanced_miniplayer_rounded_corners_summary_off">Углы миниплеера квадратны</string>
@@ -1174,14 +1175,14 @@ Second \"item\" text"</string>
 
 Миниплеер можно перетаскивать за пределы экрана влево или вправо"</string>
   <string name="revanced_miniplayer_horizontal_drag_summary_off">Жест горизонтального перетаскивания отключен</string>
-  <string name="revanced_miniplayer_hide_expand_close_title">Скрыть кнопку закрытия</string>
-  <string name="revanced_miniplayer_hide_expand_close_summary_on">Кнопка закрытия миниплеера скрыта</string>
-  <string name="revanced_miniplayer_hide_expand_close_summary_off">Кнопка закрытия миниплеера показана</string>
-  <string name="revanced_miniplayer_hide_expand_close_legacy_title">Скрыть кнопки разворачивания и закрытия</string>
-  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_on">"Кнопки разворачивания и закрытия скрыты
+  <string name="revanced_miniplayer_hide_overlay_buttons_title">Скрыть кнопки наложения</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">Кнопки наложения скрыты</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">Кнопки наложения отображаются</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_title">Скрыть кнопки разворачивания и закрытия</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_on">"Кнопки разворачивания и закрытия скрыты
 
 Проведите по миниплееру для его разворачивания или закрытия"</string>
-  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_off">Кнопки разворачивания и закрытия показаны</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_off">Кнопки разворачивания и закрытия показаны</string>
   <string name="revanced_miniplayer_hide_subtext_title">Скрыть подтексты</string>
   <string name="revanced_miniplayer_hide_subtext_summary_on">Подтексты в миниплеере скрыты</string>
   <string name="revanced_miniplayer_hide_subtext_summary_off">Подтексты в миниплеере показаны</string>

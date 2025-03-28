@@ -1155,6 +1155,7 @@ Má dhiúltaítear é níos déanaí, moltar sonraí an aip a ghlanadh chun buga
   <string name="revanced_miniplayer_type_entry_4">Nua-aimseartha 1</string>
   <string name="revanced_miniplayer_type_entry_5">Nua-Aimseartha 2</string>
   <string name="revanced_miniplayer_type_entry_6">Nua-aimseartha 3</string>
+  <string name="revanced_miniplayer_type_entry_7">Nua-aimseartha 4</string>
   <string name="revanced_miniplayer_rounded_corners_title">Cumasaigh coirnéil chothromú</string>
   <string name="revanced_miniplayer_rounded_corners_summary_on">Déantar coirnéil a shlánú</string>
   <string name="revanced_miniplayer_rounded_corners_summary_off">Tá coirnéil cearnach</string>
@@ -1174,14 +1175,14 @@ Is féidir an mhion-imreoir a tharraingt go haon chúinne den scáileán"</strin
 
 Is féidir an mhion-imreoir a tharraingt as an scáileán ar chlé nó ar dheis"</string>
   <string name="revanced_miniplayer_horizontal_drag_summary_off">Díchumasaíodh an comhartha tarraingthe cothrománach</string>
-  <string name="revanced_miniplayer_hide_expand_close_title">Folaigh cnaipe dúnta</string>
-  <string name="revanced_miniplayer_hide_expand_close_summary_on">Tá an cnaipe dúnta i bhfolach</string>
-  <string name="revanced_miniplayer_hide_expand_close_summary_off">Taispeántar an cnaipe dúnta</string>
-  <string name="revanced_miniplayer_hide_expand_close_legacy_title">Folaigh cnaipí leathnú agus dún</string>
-  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_on">"Tá cnaipí i bhfolach
+  <string name="revanced_miniplayer_hide_overlay_buttons_title">Folaigh cnaipí forleathana</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">Tá cnaipí forleathana i bhfolach</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">Taispeántar cnaipí forleathana</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_title">Folaigh cnaipí leathnaithe agus dún</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_on">"Tá cnaipí i bhfolach
 
-Swipe chun leathnú nó dúnadh"</string>
-  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_off">Taispeántar cnaipí leathnaigh agus dún</string>
+Svaidhpeáil chun leathnú nó dúnadh"</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_off">Taispeántar cnaipí leathnaithe agus dún</string>
   <string name="revanced_miniplayer_hide_subtext_title">Folaigh fothéacsanna</string>
   <string name="revanced_miniplayer_hide_subtext_summary_on">Tá fothéacsanna i bhfolach</string>
   <string name="revanced_miniplayer_hide_subtext_summary_off">Taispeántar fothéacsanna</string>

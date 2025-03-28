@@ -1154,6 +1154,7 @@ Si després es desactiva, es recomana esborrar les dades de l'aplicació per evi
   <string name="revanced_miniplayer_type_entry_4">Modern 1</string>
   <string name="revanced_miniplayer_type_entry_5">Modern 2</string>
   <string name="revanced_miniplayer_type_entry_6">Modern 3</string>
+  <string name="revanced_miniplayer_type_entry_7">Modern 4</string>
   <string name="revanced_miniplayer_rounded_corners_title">Habilita cantonades arrodonides</string>
   <string name="revanced_miniplayer_rounded_corners_summary_on">Les cantonades són arrodonides</string>
   <string name="revanced_miniplayer_rounded_corners_summary_off">Les cantonades són quadrades</string>
@@ -1173,14 +1174,14 @@ El minireproductor es pot arrossegar a qualsevol racó de la pantalla"</string>
 
 El minireproductor es pot arrossegar fora de la pantalla cap a l'esquerra o la dreta"</string>
   <string name="revanced_miniplayer_horizontal_drag_summary_off">Gest d\'arrossegar horitzontalment deshabilitat</string>
-  <string name="revanced_miniplayer_hide_expand_close_title">Amaga el botó de tancament</string>
-  <string name="revanced_miniplayer_hide_expand_close_summary_on">El botó de tancament està amagat</string>
-  <string name="revanced_miniplayer_hide_expand_close_summary_off">El botó de tancament es mostra</string>
-  <string name="revanced_miniplayer_hide_expand_close_legacy_title">Amaga els botons d\'expansió i tancament</string>
-  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_on">"Els botons estan ocults
+  <string name="revanced_miniplayer_hide_overlay_buttons_title">Amaga els botons de superposició</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">Els botons de superposició estan amagats</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">Es mostren els botons de superposició</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_title">Amaga els botons per expandir i tancar</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_on">"S'han amagat els botons
 
-Desliza para ampliar o cerrar"</string>
-  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_off">Els botons d\'expansió i tancament es mostren</string>
+Llisca per expandir o tancar"</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_off">Es mostren els botons per expandir i tancar</string>
   <string name="revanced_miniplayer_hide_subtext_title">Amaga els subtítols</string>
   <string name="revanced_miniplayer_hide_subtext_summary_on">Els subtítols estan amagats</string>
   <string name="revanced_miniplayer_hide_subtext_summary_off">Els subtítols es mostren</string>

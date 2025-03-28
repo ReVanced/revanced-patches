@@ -12,6 +12,7 @@ import app.revanced.patches.youtube.misc.litho.filter.addLithoFilter
 import app.revanced.patches.youtube.misc.litho.filter.lithoFilterPatch
 import app.revanced.patches.youtube.misc.playertype.playerTypeHookPatch
 import app.revanced.patches.youtube.misc.playservice.is_19_33_or_greater
+import app.revanced.patches.youtube.misc.playservice.is_20_10_or_greater
 import app.revanced.patches.youtube.misc.playservice.versionCheckPatch
 import app.revanced.patches.youtube.misc.settings.addSettingPreference
 import app.revanced.patches.youtube.misc.settings.newIntent
@@ -56,9 +57,8 @@ val returnYouTubeDislikePatch = bytecodePatch(
             "19.25.37",
             "19.34.42",
             "19.43.41",
-            "19.45.38",
-            "19.46.42",
             "19.47.53",
+            "20.07.39",
         ),
     )
 
@@ -121,7 +121,7 @@ val returnYouTubeDislikePatch = bytecodePatch(
             val tempRegister: Int
             val charSequenceRegister: Int
 
-            if (is_19_33_or_greater) {
+            if (is_19_33_or_greater  && !is_20_10_or_greater) {
                 insertIndex = indexOfFirstInstructionOrThrow {
                     (opcode == Opcode.INVOKE_STATIC || opcode == Opcode.INVOKE_STATIC_RANGE)
                             && getReference<MethodReference>()?.returnType == textDataClassType

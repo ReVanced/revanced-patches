@@ -1154,6 +1154,7 @@ Se in seguito verrà disattivato, si consiglia di cancellare i dati dell'app per
   <string name="revanced_miniplayer_type_entry_4">Moderno 1</string>
   <string name="revanced_miniplayer_type_entry_5">Moderno 2</string>
   <string name="revanced_miniplayer_type_entry_6">Moderno 3</string>
+  <string name="revanced_miniplayer_type_entry_7">Moderno 4</string>
   <string name="revanced_miniplayer_rounded_corners_title">Abilita angoli arrotondati</string>
   <string name="revanced_miniplayer_rounded_corners_summary_on">Gli angoli sono arrotondati</string>
   <string name="revanced_miniplayer_rounded_corners_summary_off">Gli angoli sono quadrati</string>
@@ -1173,14 +1174,14 @@ Il riproduttore minimizzato può essere trascinato in qualsiasi angolo dello sch
 
 Il riproduttore minimizzato può essere trascinato fuori dallo schermo a sinistra o a destra"</string>
   <string name="revanced_miniplayer_horizontal_drag_summary_off">Gesto di trascinamento orizzontale disabilitato</string>
-  <string name="revanced_miniplayer_hide_expand_close_title">Nascondi pulsante di chiusura</string>
-  <string name="revanced_miniplayer_hide_expand_close_summary_on">Il pulsante di chiusura è nascosto</string>
-  <string name="revanced_miniplayer_hide_expand_close_summary_off">Il pulsante Chiudi è visibile</string>
-  <string name="revanced_miniplayer_hide_expand_close_legacy_title">Nascondi i pulsanti Espandi e Chiudi</string>
-  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_on">"I pulsanti sono nascosti
+  <string name="revanced_miniplayer_hide_overlay_buttons_title">Nascondi i pulsanti di overlay</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">I pulsanti di overlay sono nascosti</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">I pulsanti di overlay sono visualizzati</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_title">Nascondi i pulsanti di espansione e chiusura</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_on">"I pulsanti sono nascosti
 
-Scorrere per espandere o chiudere"</string>
-  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_off">I pulsanti Espandi e chiudi sono visibili</string>
+Scorri per espandere o chiudere"</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_off">I pulsanti Espandi e chiudi sono visibili</string>
   <string name="revanced_miniplayer_hide_subtext_title">Nascondi sottotitoli</string>
   <string name="revanced_miniplayer_hide_subtext_summary_on">I sottotitoli sono nascosti</string>
   <string name="revanced_miniplayer_hide_subtext_summary_off">I sottotitoli sono visibili</string>

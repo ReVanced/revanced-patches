@@ -1155,6 +1155,7 @@ Daha sonra kapatılırsa, arayüz hatalarını önlemek için uygulama verilerin
   <string name="revanced_miniplayer_type_entry_4">Modern 1</string>
   <string name="revanced_miniplayer_type_entry_5">Modern 2</string>
   <string name="revanced_miniplayer_type_entry_6">Modern 3</string>
+  <string name="revanced_miniplayer_type_entry_7">Modern 4</string>
   <string name="revanced_miniplayer_rounded_corners_title">Yuvarlatılmış köşeleri etkinleştir</string>
   <string name="revanced_miniplayer_rounded_corners_summary_on">Köşeler yuvarlatılmış</string>
   <string name="revanced_miniplayer_rounded_corners_summary_off">Köşeler kare şeklinde</string>
@@ -1174,14 +1175,14 @@ Mini oynatıcı, ekranın herhangi bir köşesine sürüklenebilir"</string>
 
 Mini oynatıcı, ekranın dışına sağa veya sola sürüklenebilir"</string>
   <string name="revanced_miniplayer_horizontal_drag_summary_off">Yatay sürükleme hareketi devre dışı</string>
-  <string name="revanced_miniplayer_hide_expand_close_title">Kapatma düğmesini gizle</string>
-  <string name="revanced_miniplayer_hide_expand_close_summary_on">Kapatma düğmesi gizli</string>
-  <string name="revanced_miniplayer_hide_expand_close_summary_off">Kapatma düğmesi görünür</string>
-  <string name="revanced_miniplayer_hide_expand_close_legacy_title">Büyütme ve kapatma düğmelerini gizle</string>
-  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_on">"Düğmeler gizli
+  <string name="revanced_miniplayer_hide_overlay_buttons_title">Katman düğmelerini gizle</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">Katman düğmeleri gizli</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">Katman düğmeleri görünür</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_title">Büyütme ve kapatma düğmelerini gizle</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_on">"Düğmeler gizli
 
 Genişletmek veya kapatmak için kaydırın"</string>
-  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_off">Büyütme ve kapatma düğmeleri görünür</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_off">Büyütme ve kapatma düğmeleri görünür</string>
   <string name="revanced_miniplayer_hide_subtext_title">Alt metinleri gizle</string>
   <string name="revanced_miniplayer_hide_subtext_summary_on">Alt metinler gizli</string>
   <string name="revanced_miniplayer_hide_subtext_summary_off">Alt metinler görünür</string>

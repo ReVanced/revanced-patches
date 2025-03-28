@@ -1153,6 +1153,7 @@ User id ของคุณเหมือนกับรหัสผ่าน �
   <string name="revanced_miniplayer_type_entry_4">ทันสมัย 1</string>
   <string name="revanced_miniplayer_type_entry_5">ทันสมัย 2</string>
   <string name="revanced_miniplayer_type_entry_6">ทันสมัย 3</string>
+  <string name="revanced_miniplayer_type_entry_7">ทันสมัย 4</string>
   <string name="revanced_miniplayer_rounded_corners_title">เปิดใช้งานมุมโค้งมน</string>
   <string name="revanced_miniplayer_rounded_corners_summary_on">มุมโค้งมน</string>
   <string name="revanced_miniplayer_rounded_corners_summary_off">มุมเป็นสี่เหลี่ยม</string>
@@ -1172,14 +1173,14 @@ User id ของคุณเหมือนกับรหัสผ่าน �
 
 สามารถลาก miniplayer ออกจากหน้าจอไปทางซ้ายหรือขวา"</string>
   <string name="revanced_miniplayer_horizontal_drag_summary_off">ท่าทางการลากแบบแนวนอนปิดใช้งานแล้ว</string>
-  <string name="revanced_miniplayer_hide_expand_close_title">ซ่อนปุ่มปิด</string>
-  <string name="revanced_miniplayer_hide_expand_close_summary_on">ปุ่มปิดถูกซ่อน</string>
-  <string name="revanced_miniplayer_hide_expand_close_summary_off">ปุ่มปิดแสดงอยู่</string>
-  <string name="revanced_miniplayer_hide_expand_close_legacy_title">ซ่อนปุ่มขยายและปิด</string>
-  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_on">"ปุ่มถูกซ่อน
+  <string name="revanced_miniplayer_hide_overlay_buttons_title">ซ่อนปุ่มโอเวอร์เลย์</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">ปุ่มโอเวอร์เลย์ถูกซ่อน</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">ปุ่มโอเวอร์เลย์ถูกแสดง</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_title">ซ่อนปุ่มขยายและปิด</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_on">"ปุ่มถูกซ่อน
 
 ปัดเพื่อขยายหรือปิด"</string>
-  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_off">ปุ่มขยายและปิดแสดงอยู่</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_off">ปุ่มขยายและปิดถูกแสดง</string>
   <string name="revanced_miniplayer_hide_subtext_title">ซ่อนข้อความย่อย</string>
   <string name="revanced_miniplayer_hide_subtext_summary_on">ข้อความย่อยถูกซ่อน</string>
   <string name="revanced_miniplayer_hide_subtext_summary_off">ข้อความย่อยแสดงอยู่</string>

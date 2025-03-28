@@ -1143,6 +1143,7 @@ Si se desactiva posteriormente, se recomienda borrar los datos de la aplicación
   <string name="revanced_miniplayer_type_entry_4">Moderna 1</string>
   <string name="revanced_miniplayer_type_entry_5">Moderna 2</string>
   <string name="revanced_miniplayer_type_entry_6">Moderna 3</string>
+  <string name="revanced_miniplayer_type_entry_7">Moderno 4</string>
   <string name="revanced_miniplayer_rounded_corners_title">Habilitar esquinas redondeadas</string>
   <string name="revanced_miniplayer_rounded_corners_summary_on">Las esquinas están redondeadas</string>
   <string name="revanced_miniplayer_rounded_corners_summary_off">Las esquinas son cuadradas</string>
@@ -1162,14 +1163,14 @@ El minireproductor se puede arrastrar a cualquier esquina de la pantalla"</strin
 
 El minireproductor se puede arrastrar fuera de la pantalla hacia la izquierda o la derecha"</string>
   <string name="revanced_miniplayer_horizontal_drag_summary_off">Gesto de arrastre horizontal desactivado</string>
-  <string name="revanced_miniplayer_hide_expand_close_title">Ocultar botón de cerrar</string>
-  <string name="revanced_miniplayer_hide_expand_close_summary_on">El botón de cierre está oculto</string>
-  <string name="revanced_miniplayer_hide_expand_close_summary_off">Se muestra el botón de cerrar</string>
-  <string name="revanced_miniplayer_hide_expand_close_legacy_title">Ocultar botones de expansión y cierre</string>
-  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_on">"Los botones están ocultos
+  <string name="revanced_miniplayer_hide_overlay_buttons_title">Ocultar botones de superposición</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">Los botones de superposición están ocultos</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">Se muestran los botones de superposición</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_title">Ocultar botones de expandir y cerrar</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_on">"Los botones están ocultos
 
-Desliza para expandir o cerrar"</string>
-  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_off">Mostrar los botones de ampliación y cierre</string>
+Desliza el dedo para expandir o cerrar"</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_off">Se muestran los botones de expandir y cerrar</string>
   <string name="revanced_miniplayer_hide_subtext_title">Ocultar subtextos</string>
   <string name="revanced_miniplayer_hide_subtext_summary_on">Los subtextos están ocultos</string>
   <string name="revanced_miniplayer_hide_subtext_summary_off">Los subtextos se muestran</string>

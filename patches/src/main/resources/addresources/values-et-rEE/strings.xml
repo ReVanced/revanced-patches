@@ -1155,6 +1155,7 @@ Kui see hiljem välja lülitatakse, on soovitatav rakenduse andmed kustutada, et
   <string name="revanced_miniplayer_type_entry_4">Kaasaegne 1</string>
   <string name="revanced_miniplayer_type_entry_5">Kaasaegne 2</string>
   <string name="revanced_miniplayer_type_entry_6">Kaasaegne 3</string>
+  <string name="revanced_miniplayer_type_entry_7">Moodne 4</string>
   <string name="revanced_miniplayer_rounded_corners_title">Lülita ümarate nurkade režiim sisse</string>
   <string name="revanced_miniplayer_rounded_corners_summary_on">Nurgad on ümarad</string>
   <string name="revanced_miniplayer_rounded_corners_summary_off">Nurgad on ruudukujulised</string>
@@ -1174,14 +1175,14 @@ Minimaalset mängijat saab lohistada ekraani mis tahes nurka"</string>
 
 Minimaalset mängijat saab lohistada ekraanilt vasakule või paremale"</string>
   <string name="revanced_miniplayer_horizontal_drag_summary_off">Horisontaalse lohistamise žest on keelatud</string>
-  <string name="revanced_miniplayer_hide_expand_close_title">Peida sulgemisnupp</string>
-  <string name="revanced_miniplayer_hide_expand_close_summary_on">Sulgemisnupp on peidetud</string>
-  <string name="revanced_miniplayer_hide_expand_close_summary_off">Sulgemisnupp on nähtav</string>
-  <string name="revanced_miniplayer_hide_expand_close_legacy_title">Peida laiendamis- ja sulgemisnupud</string>
-  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_on">"Nupud on peidetud
+  <string name="revanced_miniplayer_hide_overlay_buttons_title">Peida ülekatteliidese nupud</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">Ülekatteliidese nupud on peidetud</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">Ülekatteliidese nupud on nähtaval</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_title">Peida laiendus- ja sulgemisnupud</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_on">"Nupud on peidetud
 
-Pühkige laiendamiseks või sulgemiseks"</string>
-  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_off">Laiendamis- ja sulgemisnupud on nähtavad</string>
+Laiendamiseks või sulgemiseks libista"</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_off">Laiendus- ja sulgemisnupud on nähtaval</string>
   <string name="revanced_miniplayer_hide_subtext_title">Peida alatähed</string>
   <string name="revanced_miniplayer_hide_subtext_summary_on">Alatähed on peidetud</string>
   <string name="revanced_miniplayer_hide_subtext_summary_off">Alatähed on nähtavad</string>

@@ -14,6 +14,7 @@ import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.playservice.is_19_18_or_greater
 import app.revanced.patches.youtube.misc.playservice.is_19_25_or_greater
+import app.revanced.patches.youtube.misc.playservice.is_20_05_or_greater
 import app.revanced.patches.youtube.misc.playservice.versionCheckPatch
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
@@ -235,7 +236,10 @@ val lithoFilterPatch = bytecodePatch(
 
         // Turn off native code that handles litho component names.  If this feature is on then nearly
         // all litho components have a null name and identifier/path filtering is completely broken.
-        if (is_19_25_or_greater) {
+        //
+        // Flag was removed in 20.05. It appears a new flag might be used instead (45660109L),
+        // but if the flag is forced on then litho filtering still works correctly.
+        if (is_19_25_or_greater && !is_20_05_or_greater) {
             lithoComponentNameUpbFeatureFlagFingerprint.method.apply {
                 // Don't use return early, so the debug patch logs if this was originally on.
                 val insertIndex = indexOfFirstInstructionOrThrow(Opcode.RETURN)
