@@ -20,8 +20,8 @@ Second \"item\" text"</string>
 
 -->
 <resources>
-  <app id="shared">
-  <patch id="misc.checks.checkEnvironmentPatch">
+  <!-- <app id="shared"> -->
+  <!-- <patch id="misc.checks.checkEnvironmentPatch"> -->
   <string name="revanced_check_environment_failed_title">Pārbaudes neizdevās</string>
   <string name="revanced_check_environment_dialog_open_official_source_button">Atvērt oficiālo vietni</string>
   <string name="revanced_check_environment_dialog_ignore_button">Ignorēt</string>
@@ -31,8 +31,8 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time">Labots pirms vairāk nekā 10 minūtēm</string>
   <string name="revanced_check_environment_not_near_patch_time_days">Labots pirms %s dienām</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">APK veidošanas datums ir bojāts</string>
-  </patch>
-  <patch id="misc.settings.settingsResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.settings.settingsResourcePatch"> -->
   <string name="revanced_settings_submenu_title">Iestatījumi</string>
   <string name="revanced_settings_confirm_user_dialog_title">Vai vēlaties turpināt?</string>
   <string name="revanced_settings_reset">Atiestatīt</string>
@@ -57,8 +57,8 @@ Lai palīdzētu tulkot jaunās valodās, apmeklējiet vietni translate.revanced.
   <string name="revanced_settings_about_links_header">Oficiālās saites</string>
   <!-- NOTE: the about strings above are duplicated in the TikTok about screen code,
                  and changes made here must also be made there. -->
-  </patch>
-  <patch id="misc.gms.gmsCoreSupportResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.gms.gmsCoreSupportResourcePatch"> -->
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="gms_core_toast_not_installed_message">MicroG GmsCore nav instalēts. Instalējiet to.</string>
   <string name="gms_core_dialog_title">Nepieciešama darbība</string>
@@ -74,10 +74,10 @@ Akumulatora optimizāciju atspējošana MicroG neietekmēs akumulatora lietojumu
 
 Nospiediet turpināt pogu un atļaujiet optimizācijas izmaiņas."</string>
   <string name="gms_core_dialog_continue_text">Turpināt</string>
-  </patch>
-  </app>
-  <app id="youtube">
-  <patch id="misc.settings.settingsPatch">
+  <!-- </patch> -->
+  <!-- </app> -->
+  <!-- <app id="youtube"> -->
+  <!-- <patch id="misc.settings.settingsPatch"> -->
   <string name="revanced_settings_screen_00_about_title">Par</string>
   <string name="revanced_settings_screen_01_ads_title">Reklāmas</string>
   <string name="revanced_settings_screen_02_alt_thumbnails_title">Alternatīvi sīktēli</string>
@@ -91,13 +91,13 @@ Nospiediet turpināt pogu un atļaujiet optimizācijas izmaiņas."</string>
   <string name="revanced_restore_old_settings_menus_title">Atjaunot vecās iestatījumu izvēlnes</string>
   <string name="revanced_restore_old_settings_menus_summary_on">Tiek rādītas vecās iestatījumu izvēlnes</string>
   <string name="revanced_restore_old_settings_menus_summary_off">Vecās iestatījumu izvēlnes netiek rādītas</string>
-  </patch>
-  <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.backgroundplayback.backgroundPlaybackPatch"> -->
   <string name="revanced_shorts_disable_background_playback_title">Atspējot Shorts fonu atskaņošanu</string>
   <string name="revanced_shorts_disable_background_playback_summary_on">Shorts fonu atskaņošana ir atspējota</string>
   <string name="revanced_shorts_disable_background_playback_summary_off">Shorts fonu atskaņošana ir iespējota</string>
-  </patch>
-  <patch id="misc.debugging.enableDebuggingPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.debugging.enableDebuggingPatch"> -->
   <string name="revanced_debug_screen_title">Atkļūdošana</string>
   <string name="revanced_debug_screen_summary">Iespējot vai atspējot atkļūdošanas opcijas</string>
   <string name="revanced_debug_title">Atkļūdošanas žurnāls</string>
@@ -115,8 +115,8 @@ Nospiediet turpināt pogu un atļaujiet optimizācijas izmaiņas."</string>
   <string name="revanced_debug_toast_on_error_user_dialog_message">"Kļūdu paziņojumu izslēgšana paslēpj visus ReVanced kļūdu paziņojumus.
 
 Jūs netiksit informēts par neparedzētiem notikumiem."</string>
-  </patch>
-  <patch id="layout.hide.general.hideLayoutComponentsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.general.hideLayoutComponentsPatch"> -->
   <string name="revanced_hide_album_cards_title">Paslēpt albumu kartītes</string>
   <string name="revanced_hide_album_cards_summary_on">Albumu kartītes ir paslēptas</string>
   <string name="revanced_hide_album_cards_summary_off">Albumu kartītes ir redzamas</string>
@@ -340,8 +340,8 @@ Ierobežojumi
   <string name="revanced_hide_keyword_toast_invalid_conflicting">Atslēgvārdam ir pretrunīgi apgalvojumi: %s</string>
   <string name="revanced_hide_keyword_toast_invalid_length">Atslēgvārds ir pārāk īss un nepieciešamas pēdiņas: %s</string>
   <string name="revanced_hide_keyword_toast_invalid_broad">Atslēgvārds paslēps visus video: %s</string>
-  </patch>
-  <patch id="ad.general.hideAdsResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="ad.general.hideAdsResourcePatch"> -->
   <string name="revanced_hide_general_ads_title">Paslēpt vispārējas reklāmas</string>
   <string name="revanced_hide_general_ads_summary_on">Vispārējas reklāmas ir paslēptas</string>
   <string name="revanced_hide_general_ads_summary_off">Vispārējas reklāmas ir redzamas</string>
@@ -383,18 +383,18 @@ Ierobežojumi
   <string name="revanced_hide_merchandise_banners_summary_off">Preču reklāmas ir redzamas</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_hide_fullscreen_ads_feature_not_available_toast">Paslēpt pilnekrāna reklāmas darbojas tikai ar vecākām ierīcēm</string>
-  </patch>
-  <patch id="ad.getpremium.hideGetPremiumPatch">
+  <!-- </patch> -->
+  <!-- <patch id="ad.getpremium.hideGetPremiumPatch"> -->
   <string name="revanced_hide_get_premium_title">Paslēpt YouTube Premium reklāmas</string>
   <string name="revanced_hide_get_premium_summary_on">YouTube Premium reklāmas zem video atskaņotāja ir paslēptas</string>
   <string name="revanced_hide_get_premium_summary_off">YouTube Premium reklāmas zem video atskaņotāja ir redzamas</string>
-  </patch>
-  <patch id="ad.video.videoAdsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="ad.video.videoAdsPatch"> -->
   <string name="revanced_hide_video_ads_title">Paslēpt video reklāmas</string>
   <string name="revanced_hide_video_ads_summary_on">Video reklāmas ir paslēptas</string>
   <string name="revanced_hide_video_ads_summary_off">Video reklāmas ir redzamas</string>
-  </patch>
-  <patch id="interaction.copyvideourl.copyVideoUrlResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="interaction.copyvideourl.copyVideoUrlResourcePatch"> -->
   <string name="revanced_share_copy_url_success">URL kopēts starpliktuvē</string>
   <string name="revanced_share_copy_url_timestamp_success">URL ar laika zīmi kopēts</string>
   <string name="revanced_copy_video_url_title">Rādīt video URL kopēšanas pogu</string>
@@ -403,14 +403,14 @@ Ierobežojumi
   <string name="revanced_copy_video_url_timestamp_title">Rādīt pogu \"Kopēt saiti ar laika zīmi\"</string>
   <string name="revanced_copy_video_url_timestamp_summary_on">Poga ir redzama. Pieskarieties, lai kopētu video URL ar laika zīmogu. Pieskarieties un turiet, lai kopētu bez laika zīmoga</string>
   <string name="revanced_copy_video_url_timestamp_summary_off">Pogas nav redzamas</string>
-  </patch>
-  <patch id="interaction.dialog.removeViewerDiscretionDialogPatch">
+  <!-- </patch> -->
+  <!-- <patch id="interaction.dialog.removeViewerDiscretionDialogPatch"> -->
   <string name="revanced_remove_viewer_discretion_dialog_title">Noņemt brīdinājuma dialogu</string>
   <string name="revanced_remove_viewer_discretion_dialog_summary_on">Dialogs tiks noņemts</string>
   <string name="revanced_remove_viewer_discretion_dialog_summary_off">Dialogs tiks rādīts</string>
   <string name="revanced_remove_viewer_discretion_dialog_user_dialog_message">Tas neapiet vecuma ierobežojumu. Tas vienkārši automātiski to pieņem.</string>
-  </patch>
-  <patch id="interaction.downloads.downloadsResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="interaction.downloads.downloadsResourcePatch"> -->
   <string name="revanced_external_downloader_screen_title">Ārējie lejupielādētāji</string>
   <string name="revanced_external_downloader_screen_summary">Iestatījumi, lai izmantotu ārējo lejupielādētāju</string>
   <string name="revanced_external_downloader_title">Rādīt ārējo lejupielādēšanas pogu</string>
@@ -423,18 +423,18 @@ Ierobežojumi
   <string name="revanced_external_downloader_name_title">Lejupielādētāja pakotnes nosaukums</string>
   <string name="revanced_external_downloader_name_summary">Instalētā ārējā lejupielādētāja lietotnes pakotnes nosaukums, piemēram, NewPipe vai Seal</string>
   <string name="revanced_external_downloader_not_installed_warning">%s nav instalēts. Lūdzu, instalējiet to.</string>
-  </patch>
-  <patch id="interaction.seekbar.disablePreciseSeekingGesturePatch">
+  <!-- </patch> -->
+  <!-- <patch id="interaction.seekbar.disablePreciseSeekingGesturePatch"> -->
   <string name="revanced_disable_precise_seeking_gesture_title">Atslēgt precīzu meklēšanas žestu</string>
   <string name="revanced_disable_precise_seeking_gesture_summary_on">Žests ir atslēgts</string>
   <string name="revanced_disable_precise_seeking_gesture_summary_off">Žests ir ieslēgts</string>
-  </patch>
-  <patch id="interaction.seekbar.enableSeekbarTappingPatch">
+  <!-- </patch> -->
+  <!-- <patch id="interaction.seekbar.enableSeekbarTappingPatch"> -->
   <string name="revanced_seekbar_tapping_title">Iespējot pieskārienu, lai meklētu</string>
   <string name="revanced_seekbar_tapping_summary_on">Pieskarieties, lai iespējotu meklēšanu</string>
   <string name="revanced_seekbar_tapping_summary_off">Pieskāriens, lai meklētu, ir atspējots</string>
-  </patch>
-  <patch id="interaction.swipecontrols.swipeControlsResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="interaction.swipecontrols.swipeControlsResourcePatch"> -->
   <string name="revanced_swipe_brightness_title">Ieslēgt spilgtuma žestu</string>
   <string name="revanced_swipe_brightness_summary_on">"Pilnekrāna spilgtuma slīdēšana ir ieslēgta
 
@@ -473,13 +473,13 @@ Regulējiet skaļumu, velkot vertikāli ekrāna labajā pusē"</string>
   <string name="revanced_swipe_change_video_title">Iespējot pārvilkšanu, lai mainītu videoklipus</string>
   <string name="revanced_swipe_change_video_summary_on">Pārvelkot pilnekrāna režīmā, tiks mainīts nākamais/iepriekšējais videoklips</string>
   <string name="revanced_swipe_change_video_summary_off">Pārvelkot pilnekrāna režīmā, nākamais/iepriekšējais videoklips netiks mainīts</string>
-  </patch>
-  <patch id="layout.autocaptions.autoCaptionsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.autocaptions.autoCaptionsPatch"> -->
   <string name="revanced_auto_captions_title">Atslēgt automātiskos titrus</string>
   <string name="revanced_auto_captions_summary_on">Automātiskie titri ir atslēgti</string>
   <string name="revanced_auto_captions_summary_off">Automātiskie titri ir ieslēgti</string>
-  </patch>
-  <patch id="layout.buttons.action.hideButtonsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.buttons.action.hideButtonsPatch"> -->
   <string name="revanced_hide_buttons_screen_title">Darbības pogas</string>
   <string name="revanced_hide_buttons_screen_summary">Paslēpt vai rādīt pogas zem video</string>
   <string name="revanced_disable_like_subscribe_glow_title">Atspējot pogas \"Like and Subscribe\" mirgošanu</string>
@@ -517,8 +517,8 @@ Regulējiet skaļumu, velkot vertikāli ekrāna labajā pusē"</string>
   <string name="revanced_hide_playlist_button_title">Paslēpt Saglabāt atskaņošanas sarakstā</string>
   <string name="revanced_hide_playlist_button_summary_on">Saglabāt atskaņošanas sarakstā poga ir paslēpta</string>
   <string name="revanced_hide_playlist_button_summary_off">Saglabāt atskaņošanas sarakstā poga ir redzama</string>
-  </patch>
-  <patch id="layout.buttons.navigation.navigationButtonsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.buttons.navigation.navigationButtonsPatch"> -->
   <string name="revanced_navigation_buttons_screen_title">Navigācijas pogas</string>
   <string name="revanced_navigation_buttons_screen_summary">Paslēpt vai mainīt pogas navigācijas joslā</string>
   <!-- 'Home' should be translated using the same localized wording YouTube displays for the tab. -->
@@ -555,14 +555,15 @@ Ja šī iestatījuma maiņa nestājas spēkā, mēģiniet pārslēgties uz inkog
   <string name="revanced_disable_translucent_status_bar_title">Atspējojiet puscaurspīdu statusa joslu</string>
   <string name="revanced_disable_translucent_status_bar_summary_on">Statusa josla ir necaurspīdīga</string>
   <string name="revanced_disable_translucent_status_bar_summary_off">Statusa josla ir necaurspīdīga vai caurspīdīga</string>
+  <string name="revanced_disable_translucent_status_bar_user_dialog_message">Dažās ierīcēs, iespējojot šo funkciju, sistēmas navigācijas josla var kļūt caurspīdīga.</string>
   <string name="revanced_disable_translucent_navigation_bar_light_title">Atspējojiet gaišo caurspīdu joslu</string>
   <string name="revanced_disable_translucent_navigation_bar_light_summary_on">Gaišais režīma navigācijas josla ir necaurspīdiga</string>
   <string name="revanced_disable_translucent_navigation_bar_light_summary_off">Gaišā režīma navigācijas josla ir necaurspīdīga vai caurspīdīga</string>
   <string name="revanced_disable_translucent_navigation_bar_dark_title">Atspējot tumšo caurspīdīgo joslu</string>
   <string name="revanced_disable_translucent_navigation_bar_dark_summary_on">Tumšais režīma navigācijas josla ir necaurspīdiga</string>
   <string name="revanced_disable_translucent_navigation_bar_dark_summary_off">Tumšā režīma navigācijas josla ir necaurspīdīga vai caurspīdīga</string>
-  </patch>
-  <patch id="layout.hide.player.flyoutmenupanel.hidePlayerFlyoutMenuPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.player.flyoutmenupanel.hidePlayerFlyoutMenuPatch"> -->
   <string name="revanced_hide_player_flyout_title">Izvelkamo izvēlni</string>
   <string name="revanced_hide_player_flyout_summary">Paslēpt vai rādīt atskaņotāja izvelkamo izvēlni</string>
   <!-- 'Captions' should be translated using the same localized wording YouTube displays for the menu item. -->
@@ -616,8 +617,8 @@ Ja šī iestatījuma maiņa nestājas spēkā, mēģiniet pārslēgties uz inkog
   <string name="revanced_hide_player_flyout_video_quality_footer_title">Paslēpt video kvalitātes izvēlnes apakšējo daļu</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_on">Video kvalitātes izvēlnes apakšējā daļa ir paslēpta</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_off">Video kvalitātes izvēlnes apakšējā daļa ir redzama</string>
-  </patch>
-  <patch id="layout.buttons.overlay.hidePlayerOverlayButtonsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.buttons.overlay.hidePlayerOverlayButtonsPatch"> -->
   <string name="revanced_hide_player_previous_next_buttons_title">Paslēpt iepriekšējo un nākamo pogas</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_on">Pogas ir paslēptas</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">Pogas ir redzamas</string>
@@ -631,36 +632,36 @@ Ja šī iestatījuma maiņa nestājas spēkā, mēģiniet pārslēgties uz inkog
   <string name="revanced_hide_autoplay_button_title">Paslēpt pogu \"Automātiskā atskaņošana\"</string>
   <string name="revanced_hide_autoplay_button_summary_on">Automātiskās atskaņošanas poga ir paslēpta</string>
   <string name="revanced_hide_autoplay_button_summary_off">Automātiskās atskaņošanas poga ir redzama</string>
-  </patch>
-  <patch id="layout.hide.endscreencards.hideEndscreenCardsResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.endscreencards.hideEndscreenCardsResourcePatch"> -->
   <string name="revanced_hide_endscreen_cards_title">Paslēpt ekrāna beigās esošās kartītes</string>
   <string name="revanced_hide_endscreen_cards_summary_on">Ekrāna beigās esošās kartītes ir paslēptas</string>
   <string name="revanced_hide_endscreen_cards_summary_off">Ekrāna beigās esošās kartītes ir redzamas</string>
-  </patch>
-  <patch id="layout.hide.fullscreenambientmode.disableFullscreenAmbientModePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.fullscreenambientmode.disableFullscreenAmbientModePatch"> -->
   <string name="revanced_disable_fullscreen_ambient_mode_title">Atspējot apkārtējās vides režīmu pilnekrāna režīmā</string>
   <string name="revanced_disable_fullscreen_ambient_mode_summary_on">Aptuveni režīms ir atspējots</string>
   <string name="revanced_disable_fullscreen_ambient_mode_summary_off">Aptuveni režīms ir iespējots</string>
-  </patch>
-  <patch id="layout.hide.infocards.hideInfocardsResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.infocards.hideInfocardsResourcePatch"> -->
   <string name="revanced_hide_info_cards_title">Paslēpt informācijas kartītes</string>
   <string name="revanced_hide_info_cards_summary_on">Informācijas kartītes ir paslēptas</string>
   <string name="revanced_hide_info_cards_summary_off">Informācijas kartītes ir redzamas</string>
-  </patch>
-  <patch id="layout.hide.rollingnumber.disableRollingNumberAnimationPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.rollingnumber.disableRollingNumberAnimationPatch"> -->
   <string name="revanced_disable_rolling_number_animations_title">Atspējot ritināšanas skaitļu animācijas</string>
   <string name="revanced_disable_rolling_number_animations_summary_on">Ritinošie skaitļi nav animēti</string>
   <string name="revanced_disable_rolling_number_animations_summary_off">Ritinošie skaitļi ir animēti</string>
-  </patch>
-  <patch id="layout.hide.seekbar.hideSeekbarPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.seekbar.hideSeekbarPatch"> -->
   <string name="revanced_hide_seekbar_title">Paslēpt meklēšanas joslu video atskaņotājā</string>
   <string name="revanced_hide_seekbar_summary_on">Video atskaņotāja meklēšanas josla ir paslēpta</string>
   <string name="revanced_hide_seekbar_summary_off">Video atskaņotāja meklēšanas josla ir redzama</string>
   <string name="revanced_hide_seekbar_thumbnail_title">Paslēpt meklēšanas joslu video sīktēlos</string>
   <string name="revanced_hide_seekbar_thumbnail_summary_on">Sīktēlu meklēšanas josla ir paslēpta</string>
   <string name="revanced_hide_seekbar_thumbnail_summary_off">Sīktēlu meklēšanas josla ir redzama</string>
-  </patch>
-  <patch id="layout.hide.shorts.hideShortsComponentsResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.shorts.hideShortsComponentsResourcePatch"> -->
   <string name="revanced_shorts_player_screen_title">Shorts atskaņotājs</string>
   <string name="revanced_shorts_player_screen_summary">Paslēpt vai rādīt komponentus Shorts atskaņotājā</string>
   <!-- 'home' should be translated using the same localized wording YouTube displays for the home tab. -->
@@ -762,43 +763,43 @@ Ja šī iestatījuma maiņa nestājas spēkā, mēģiniet pārslēgties uz inkog
   <string name="revanced_hide_shorts_navigation_bar_title">Paslēpt navigācijas joslu</string>
   <string name="revanced_hide_shorts_navigation_bar_summary_on">Navigācijas josla ir paslēpta</string>
   <string name="revanced_hide_shorts_navigation_bar_summary_off">Navigācijas josla ir redzama</string>
-  </patch>
-  <patch id="layout.hide.endscreensuggestion.hideEndScreenSuggestedVideoPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.endscreensuggestion.hideEndScreenSuggestedVideoPatch"> -->
   <string name="revanced_end_screen_suggested_video_title">Slēpt ieteikto video beigu ekrānā</string>
   <string name="revanced_end_screen_suggested_video_summary_on">"Ieteiktais video beigu ekrānā ir paslēpts, kad automātiskā atskaņošana ir izslēgta
 
 Automātisko atskaņošanu var mainīt YouTube iestatījumos:
 Iestatījumi → Atskaņošana → Automātiski atskaņot nākamo video"</string>
   <string name="revanced_end_screen_suggested_video_summary_off">Ieteiktais video beigu ekrānā ir redzams</string>
-  </patch>
-  <patch id="layout.hide.time.hideTimestampPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.time.hideTimestampPatch"> -->
   <string name="revanced_hide_timestamp_title">Paslēpt video laika zīmi</string>
   <string name="revanced_hide_timestamp_summary_on">Laika zīme ir paslēpta</string>
   <string name="revanced_hide_timestamp_summary_off">Laika zīme ir redzama</string>
-  </patch>
-  <patch id="layout.panels.popup.playerPopupPanelsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.panels.popup.playerPopupPanelsPatch"> -->
   <string name="revanced_hide_player_popup_panels_title">Paslēpt atskaņotāja uznirstošos paneļus</string>
   <string name="revanced_hide_player_popup_panels_summary_on">Atskaņotāja uznirstošie paneļi ir paslēpti</string>
   <string name="revanced_hide_player_popup_panels_summary_off">Atskaņotāja uznirstošie paneļi ir redzami</string>
-  </patch>
-  <patch id="layout.player.fullscreen.exitFullscreenPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.player.fullscreen.exitFullscreenPatch"> -->
   <string name="revanced_exit_fullscreen_title">Iziet no pilnekrāna režīma video beigās</string>
   <string name="revanced_exit_fullscreen_entry_1">Atspējots</string>
   <string name="revanced_exit_fullscreen_entry_2">Portrets</string>
   <string name="revanced_exit_fullscreen_entry_3">Ainava</string>
   <string name="revanced_exit_fullscreen_entry_4">Portrets un ainava</string>
-  </patch>
-  <patch id="layout.player.fullscreen.openVideosFullscreen">
+  <!-- </patch> -->
+  <!-- <patch id="layout.player.fullscreen.openVideosFullscreen"> -->
   <string name="revanced_open_videos_fullscreen_portrait_title">Atvērt video pilnekrāna portreta režīmā</string>
   <string name="revanced_open_videos_fullscreen_portrait_summary_on">Video tiek atvērti pilnekrāna režīmā</string>
   <string name="revanced_open_videos_fullscreen_portrait_summary_off">Video netiek atvērti pilnekrāna režīmā</string>
-  </patch>
-  <patch id="layout.player.overlay.customPlayerOverlayOpacityResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.player.overlay.customPlayerOverlayOpacityResourcePatch"> -->
   <string name="revanced_player_overlay_opacity_title">Atskaņotāja pārklājuma caurspīdīgums</string>
   <string name="revanced_player_overlay_opacity_summary">Caurspīdīguma vērtība no 0 līdz 100, kur 0 ir caurspīdīgs</string>
   <string name="revanced_player_overlay_opacity_invalid_toast">Atskaņotāja pārklājuma caurspīdīgumam jābūt no 0 līdz 100</string>
-  </patch>
-  <patch id="layout.returnyoutubedislike.returnYouTubeDislikePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.returnyoutubedislike.returnYouTubeDislikePatch"> -->
   <!-- Toast shown if network connection times out. Translations of this should not be longer than the original English or the text can be clipped and not entirely shown. -->
   <string name="revanced_ryd_failure_connection_timeout">Nepatīk pogas īslaicīgi nav pieejamas (API savienojuma termiņš ir beidzies)</string>
   <string name="revanced_ryd_failure_connection_status_code">Nepatīk pogas nav pieejamas (statuss %d)</string>
@@ -847,13 +848,13 @@ Ierobežojums: Nepatīk var neparādīties inkognito režīmā"</string>
   <string name="revanced_ryd_statistics_getNumberOfRateLimitRequestsEncountered_zero_summary">Nav sastapts neviens klienta ātruma ierobežojums</string>
   <string name="revanced_ryd_statistics_getNumberOfRateLimitRequestsEncountered_non_zero_summary">Klienta ātruma ierobežojums sastapts %d reizes</string>
   <string name="revanced_ryd_statistics_millisecond_text">%d milisekundes</string>
-  </patch>
-  <patch id="layout.searchbar.wideSearchbarPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.searchbar.wideSearchbarPatch"> -->
   <string name="revanced_wide_searchbar_title">Iespējot platu meklēšanas joslu</string>
   <string name="revanced_wide_searchbar_summary_on">Plata meklēšanas josla ir iespējota</string>
   <string name="revanced_wide_searchbar_summary_off">Plata meklēšanas josla ir atspējota</string>
-  </patch>
-  <patch id="layout.seekbar.seekbarThumbnailsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.seekbar.seekbarThumbnailsPatch"> -->
   <string name="revanced_seekbar_thumbnails_high_quality_title">Iespējot augstas kvalitātes sīktēlus</string>
   <string name="revanced_seekbar_thumbnails_high_quality_summary_on">Meklēšanas joslas sīktēli ir augstas kvalitātes</string>
   <string name="revanced_seekbar_thumbnails_high_quality_summary_off">Meklēšanas joslas sīktēli ir vidējas kvalitātes</string>
@@ -867,8 +868,8 @@ Laika skalas miniatūras izmantos tādu pašu kvalitāti kā pašreizējais vide
   <string name="revanced_restore_old_seekbar_thumbnails_title">Atjaunot vecās meklēšanas joslas sīktēlus</string>
   <string name="revanced_restore_old_seekbar_thumbnails_summary_on">Meklēšanas joslas sīktēli parādīsies virs meklēšanas joslas</string>
   <string name="revanced_restore_old_seekbar_thumbnails_summary_off">Meklēšanas joslas sīktēli parādīsies pilnekrānā</string>
-  </patch>
-  <patch id="layout.sponsorblock.sponsorBlockResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.sponsorblock.sponsorBlockResourcePatch"> -->
   <string name="revanced_sb_enable_sb">Iespējot SponsorBlock</string>
   <string name="revanced_sb_enable_sb_sum">SponsorBlock ir kopienas sistēma YouTube videoklipu kaitinošo daļu izlaišanai</string>
   <string name="revanced_sb_appearance_category">Izskats</string>
@@ -1065,8 +1066,8 @@ Vai esat gatavs iesniegt?"</string>
   <string name="revanced_sb_reset">Atiestatīt</string>
   <string name="revanced_sb_about">Par</string>
   <string name="revanced_sb_about_api_sum">Dati tiek sniegti no SponsorBlock API. Pieskarieties šeit, lai uzzinātu vairāk un skatītu lejupielādes citām platformām</string>
-  </patch>
-  <patch id="layout.formfactor.changeFormFactorPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.formfactor.changeFormFactorPatch"> -->
   <string name="revanced_change_form_factor_title">Izmēģinājuma formāts</string>
   <string name="revanced_change_form_factor_entry_1">Noklusējums</string>
   <string name="revanced_change_form_factor_entry_2">Tālrunis</string>
@@ -1080,8 +1081,8 @@ Planšetdatora izkārtojums
 Automobiļu izkārtojums
 • Shorts tiek atvērti parastajā atskaņotājā
 • Plūsma ir sakārtota pēc tēmām un kanāliem"</string>
-  </patch>
-  <patch id="layout.spoofappversion.spoofAppVersionPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.spoofappversion.spoofAppVersionPatch"> -->
   <string name="revanced_spoof_app_version_title">Vilto lietotnes versiju</string>
   <string name="revanced_spoof_app_version_summary_on">Versija viltota</string>
   <string name="revanced_spoof_app_version_summary_off">Versija nav viltota</string>
@@ -1095,8 +1096,8 @@ Ja vēlāk tiks izslēgts, ieteicams notīrīt lietotnes datus, lai novērstu li
   <string name="revanced_spoof_app_version_target_title">Viltot lietotnes versijas mērķis</string>
   <string name="revanced_spoof_app_version_target_entry_1">19.35.36 - Atjaunot vecās Shorts spēlētāja ikonas</string>
   <string name="revanced_spoof_app_version_target_entry_2">19.01.34 - Atjaunot vecās navigācijas ikonas</string>
-  </patch>
-  <patch id="layout.startpage.changeStartPagePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.startpage.changeStartPagePatch"> -->
   <string name="revanced_change_start_page_title">Iestatīt sākotnējo lapu</string>
   <string name="revanced_change_start_page_entry_default">Noklusētais</string>
   <string name="revanced_change_start_page_entry_all_subscriptions">Visi abonementi</string>
@@ -1122,27 +1123,27 @@ Ja vēlāk tiks izslēgts, ieteicams notīrīt lietotnes datus, lai novērstu li
   <string name="revanced_change_start_page_entry_virtual_reality">Virtuālā realitāte</string>
   <string name="revanced_change_start_page_entry_watch_later">Skaties vēlāk</string>
   <string name="revanced_change_start_page_entry_your_clips">Tavi klipi</string>
-  </patch>
-  <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch"> -->
   <string name="revanced_disable_resuming_shorts_player_title">Atspējot Shorts atskaņotāja atsākšanu</string>
   <string name="revanced_disable_resuming_shorts_player_summary_on">Shorts atskaņotājs neatjaunosies lietotnes palaišanas laikā</string>
   <string name="revanced_disable_resuming_shorts_player_summary_off">Shorts atskaņotājs tiks atsākts lietotnes palaišanas laikā</string>
-  </patch>
-  <patch id="layout.shortsplayer.shortsPlayerTypePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.shortsplayer.shortsPlayerTypePatch"> -->
   <string name="revanced_shorts_player_type_title">Atvērt Shorts ar</string>
   <string name="revanced_shorts_player_type_shorts">Shorts atskaņotājs</string>
   <string name="revanced_shorts_player_type_regular_player">Parastais atskaņotājs</string>
   <string name="revanced_shorts_player_type_regular_player_fullscreen">Pilnekrāna parastais atskaņotājs</string>
-  </patch>
-  <patch id="layout.shortsautoplay.shortsAutoplayPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.shortsautoplay.shortsAutoplayPatch"> -->
   <string name="revanced_shorts_autoplay_title">Automātiskā īso videoklipu atskaņošana</string>
   <string name="revanced_shorts_autoplay_summary_on">Shorts tiks atskaņoti automātiski</string>
   <string name="revanced_shorts_autoplay_summary_off">Shorts tiks atkārtoti</string>
   <string name="revanced_shorts_autoplay_background_title">Autoplay Shorts fonā atskaņošana</string>
   <string name="revanced_shorts_autoplay_background_summary_on">Shorts fonā atskaņošana tiks atskaņota automātiski</string>
   <string name="revanced_shorts_autoplay_background_summary_off">Shorts fonā atskaņošana tiks atkārtota</string>
-  </patch>
-  <patch id="layout.miniplayer.miniplayerPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.miniplayer.miniplayerPatch"> -->
   <string name="revanced_miniplayer_screen_title">Minispēlētājs</string>
   <string name="revanced_miniplayer_screen_summary">Mainīt lietotnē minimizētā atskaņotāja stilu</string>
   <string name="revanced_miniplayer_type_title">Miniplayer tips</string>
@@ -1192,8 +1193,8 @@ Pārvelciet, lai paplašinātu vai aizvērtu"</string>
   <string name="revanced_miniplayer_opacity_title">Pārklājuma caurspīdīgums</string>
   <string name="revanced_miniplayer_opacity_summary">Caurspīdīguma vērtība no 0-100, kur 0 ir caurspīdīgs</string>
   <string name="revanced_miniplayer_opacity_invalid_toast">Miniplayer pārklājuma caurspīdīgumam jābūt no 0-100</string>
-  </patch>
-  <patch id="layout.theme.themePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.theme.themePatch"> -->
   <string name="revanced_gradient_loading_screen_title">Iespējot gradientu ielādes ekrānu</string>
   <string name="revanced_gradient_loading_screen_summary_on">Ielādes ekrānam būs gradientu fons</string>
   <string name="revanced_gradient_loading_screen_summary_off">Ielādes ekrānam būs ciets fons</string>
@@ -1205,15 +1206,15 @@ Pārvelciet, lai paplašinātu vai aizvērtu"</string>
   <string name="revanced_seekbar_custom_color_accent_title">Pielāgots meklētājjoslas akcenta fons</string>
   <string name="revanced_seekbar_custom_color_accent_summary">Meklētājjoslas akcenta krāsa</string>
   <string name="revanced_seekbar_custom_color_invalid">Nederīga meklētāja joslas krāsas vērtība</string>
-  </patch>
-  <patch id="layout.thumbnails.bypassImageRegionRestrictionsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.thumbnails.bypassImageRegionRestrictionsPatch"> -->
   <string name="revanced_bypass_image_region_restrictions_title">Apsaisīt attēlu reģiona ierobežojumus</string>
   <string name="revanced_bypass_image_region_restrictions_summary_on">Izmantojot attēlu mitināšanas pakalpojumu yt4.ggpht.com</string>
   <string name="revanced_bypass_image_region_restrictions_summary_off">"Izmantojot sākotnējo attēla mitināšanas pakalpojumu
 
 Šī iestatījuma ieslēgšana var novērst trūkstošus attēlus, kas dažu reģionu lietotājiem ir bloķēti"</string>
-  </patch>
-  <patch id="layout.thumbnails.alternativeThumbnailsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.thumbnails.alternativeThumbnailsPatch"> -->
   <!-- 'Home' should be translated using the same localized wording YouTube displays for the home tab. -->
   <string name="revanced_alt_thumbnail_home_title">Sākums</string>
   <!-- 'Subscription' should be translated using the same localized wording YouTube displays for the subscription tab. -->
@@ -1248,26 +1249,26 @@ Nospiediet šeit, lai uzzinātu vairāk par DeArrow"</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_alt_thumbnail_dearrow_error">DeArrow īslaicīgi nav pieejams (statusa kods: %s)</string>
   <string name="revanced_alt_thumbnail_dearrow_error_generic">DeArrow īslaicīgi nav pieejams</string>
-  </patch>
-  <patch id="misc.announcements.announcementsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.announcements.announcementsPatch"> -->
   <string name="revanced_announcements_title">Rādīt ReVanced paziņojumus</string>
   <string name="revanced_announcements_summary_on">Paziņojumi startējot ir redzami</string>
   <string name="revanced_announcements_summary_off">Paziņojumi startējot nav redzami</string>
   <string name="revanced_announcements_enabled_summary">Rādīt paziņojumus palaišanas laikā</string>
   <string name="revanced_announcements_connection_failed">Neizdevās izveidot savienojumu ar paziņojumu nodrošinātāju</string>
   <string name="revanced_announcements_dialog_dismiss">Aizvērt</string>
-  </patch>
-  <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch"> -->
   <string name="revanced_check_watch_history_domain_name_dialog_title">Brīdinājums</string>
   <string name="revanced_check_watch_history_domain_name_dialog_message">Jūsu skatīšanās vēsture netiek saglabāta.&lt;br&gt;&lt;br&gt;Visticamāk, to izraisa DNS reklāmu bloķētājs vai tīkla starpniekserveris.&lt;br&gt;&lt;br&gt;Lai to novērstu, pievienojiet baltajam sarakstam &lt;b&gt;s.youtube.com&lt;/b&gt; vai izslēdziet visus DNS bloķētājus un starpniekservera serverus.</string>
   <string name="revanced_check_watch_history_domain_name_dialog_ignore">Nerādīt vēlreiz</string>
-  </patch>
-  <patch id="misc.autorepeat.autoRepeatPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.autorepeat.autoRepeatPatch"> -->
   <string name="revanced_auto_repeat_title">Iespējot automātisko atkārtošanu</string>
   <string name="revanced_auto_repeat_summary_on">Automātiskā atkārtošana ir iespējota</string>
   <string name="revanced_auto_repeat_summary_off">Automātiskā atkārtošana ir atspējota</string>
-  </patch>
-  <patch id="misc.dimensions.spoof.spoofDeviceDimensionsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.dimensions.spoof.spoofDeviceDimensionsPatch"> -->
   <string name="revanced_spoof_device_dimensions_title">Viltot ierīces izmērus</string>
   <string name="revanced_spoof_device_dimensions_summary_on">"Ierīces izmēri ir viltoti
 
@@ -1276,39 +1277,39 @@ Var tikt atbloķētas augstākas video kvalitātes, taču var rasties video atsk
 
 Šī iestatījuma ieslēgšana var atbloķēt augstākas video kvalitātes"</string>
   <string name="revanced_spoof_device_dimensions_user_dialog_message">Šīs iespējošana var izraisīt video atskaņošanas aizķeršanos, īsāku akumulatora darbības laiku un nezināmas blakusparādības.</string>
-  </patch>
-  <patch id="misc.gms.gmsCoreSupportResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.gms.gmsCoreSupportResourcePatch"> -->
   <string name="microg_settings_title">GmsCore iestatījumi</string>
   <string name="microg_settings_summary">GmsCore iestatījumi</string>
-  </patch>
-  <patch id="misc.links.bypassURLRedirectsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.links.bypassURLRedirectsPatch"> -->
   <string name="revanced_bypass_url_redirects_title">Aiziet garām URL pāradresācijai</string>
   <string name="revanced_bypass_url_redirects_summary_on">URL pāradresācija tiek apiet</string>
   <string name="revanced_bypass_url_redirects_summary_off">URL pāradresācija netiek apiet</string>
-  </patch>
-  <patch id="misc.links.openLinksExternallyPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.links.openLinksExternallyPatch"> -->
   <string name="revanced_external_browser_title">Atvērt saites pārlūkprogrammā</string>
   <string name="revanced_external_browser_summary_on">Saišu atvēršana ārējā pārlūkprogrammā</string>
   <string name="revanced_external_browser_summary_off">Saišu atvēršana lietotnes pārlūkprogrammā</string>
-  </patch>
-  <patch id="misc.privacy.removeTrackingQueryParameterPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.privacy.removeTrackingQueryParameterPatch"> -->
   <string name="revanced_remove_tracking_query_parameter_title">Noņemt izsekošanas vaicājuma parametru</string>
   <string name="revanced_remove_tracking_query_parameter_summary_on">Izsekošanas vaicājuma parametrs tiek noņemts no saitēm</string>
   <string name="revanced_remove_tracking_query_parameter_summary_off">Izsekošanas vaicājuma parametrs netiek noņemts no saitēm</string>
-  </patch>
-  <patch id="misc.zoomhaptics.zoomHapticsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.zoomhaptics.zoomHapticsPatch"> -->
   <string name="revanced_disable_zoom_haptics_title">Atspējot tālummaiņas haptisko atgriezenisko saiti</string>
   <string name="revanced_disable_zoom_haptics_summary_on">Haptiskā atgriezeniskā saite ir atspējota</string>
   <string name="revanced_disable_zoom_haptics_summary_off">Haptiskā atgriezeniskā saite ir iespējota</string>
-  </patch>
-  <patch id="video.audio.forceOriginalAudioPatch">
+  <!-- </patch> -->
+  <!-- <patch id="video.audio.forceOriginalAudioPatch"> -->
   <string name="revanced_force_original_audio_title">Piespiest oriģinālo audio valodu</string>
   <string name="revanced_force_original_audio_summary_on">Izmantot oriģinālo audio valodu</string>
   <string name="revanced_force_original_audio_summary_off">Tiek izmantots noklusējuma audio</string>
   <!-- 'Spoof video streams' should be the same translation used for revanced_spoof_video_streams_screen_title -->
   <string name="revanced_force_original_audio_not_available">Lai izmantotu šo funkciju, nomainiet \"Video straumju viltošana\" uz iOS TV</string>
-  </patch>
-  <patch id="video.quality.rememberVideoQualityPatch">
+  <!-- </patch> -->
+  <!-- <patch id="video.quality.rememberVideoQualityPatch"> -->
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
   <string name="revanced_video_quality_default_entry_1">Automātiski</string>
   <string name="revanced_remember_video_quality_last_selected_title">Atcerēties video kvalitātes izmaiņas</string>
@@ -1325,13 +1326,13 @@ Var tikt atbloķētas augstākas video kvalitātes, taču var rasties video atsk
   <string name="revanced_remember_video_quality_wifi">bezvadu tīkls</string>
   <string name="revanced_remember_video_quality_toast">Izmainīta noklusējuma %1$s kvalitāte uz: %2$s</string>
   <string name="revanced_remember_video_quality_toast_shorts">Mainīta Shorts %1$s kvalitāte uz: %2$s</string>
-  </patch>
-  <patch id="video.speed.button.playbackSpeedButtonPatch">
+  <!-- </patch> -->
+  <!-- <patch id="video.speed.button.playbackSpeedButtonPatch"> -->
   <string name="revanced_playback_speed_dialog_button_title">Rādīt ātruma dialoga pogu</string>
   <string name="revanced_playback_speed_dialog_button_summary_on">Poga tiek rādīta</string>
   <string name="revanced_playback_speed_dialog_button_summary_off">Poga netiek rādīta</string>
-  </patch>
-  <patch id="video.speed.custom.customPlaybackSpeedPatch">
+  <!-- </patch> -->
+  <!-- <patch id="video.speed.custom.customPlaybackSpeedPatch"> -->
   <string name="revanced_custom_speed_menu_title">Pielāgotas atskaņošanas ātruma izvēlne</string>
   <string name="revanced_custom_speed_menu_summary_on">Pielāgotas ātruma izvēlne tiek rādīta</string>
   <string name="revanced_custom_speed_menu_summary_off">Pielāgotas ātruma izvēlne netiek rādīta</string>
@@ -1342,30 +1343,30 @@ Var tikt atbloķētas augstākas video kvalitātes, taču var rasties video atsk
   <string name="revanced_custom_playback_speeds_auto">Automātiski</string>
   <string name="revanced_speed_tap_and_hold_title">Pielāgots pieskaršanās un turēšanas ātrums</string>
   <string name="revanced_speed_tap_and_hold_summary">Atskaņošanas ātrums no 0 līdz 8</string>
-  </patch>
-  <patch id="video.speed.remember.rememberPlaybackSpeedPatch">
+  <!-- </patch> -->
+  <!-- <patch id="video.speed.remember.rememberPlaybackSpeedPatch"> -->
   <string name="revanced_remember_playback_speed_last_selected_title">Atcerēties atskaņošanas ātruma izmaiņas</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_on">Atskaņošanas ātruma izmaiņas attiecas uz visiem videoklipiem</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_off">Atskaņošanas ātruma izmaiņas attiecas tikai uz pašreizējo videoklipu</string>
   <string name="revanced_playback_speed_default_title">Noklusējuma atskaņošanas ātrums</string>
   <string name="revanced_remember_playback_speed_toast">Izmainīts noklusējuma ātrums uz: %s</string>
-  </patch>
-  <patch id="video.hdr.disableHdrPatch">
+  <!-- </patch> -->
+  <!-- <patch id="video.hdr.disableHdrPatch"> -->
   <string name="revanced_disable_hdr_video_title">Deaktivējiet HDR video</string>
   <string name="revanced_disable_hdr_video_summary_on">HDR video ir deaktivizēts</string>
   <string name="revanced_disable_hdr_video_summary_off">HDR video ir aktivizēts</string>
-  </patch>
-  <patch id="video.quality.advancedVideoQualityMenuPatch">
+  <!-- </patch> -->
+  <!-- <patch id="video.quality.advancedVideoQualityMenuPatch"> -->
   <string name="revanced_advanced_video_quality_menu_title">Rādīt izvērsto video kvalitātes izvēlni</string>
   <string name="revanced_advanced_video_quality_menu_summary_on">Tiek rādīta izvērstā video kvalitātes izvēlne</string>
   <string name="revanced_advanced_video_quality_menu_summary_off">Izvērstā video kvalitātes izvēlne netiek rādīta</string>
-  </patch>
-  <patch id="interaction.seekbar.enableSlideToSeekPatch">
+  <!-- </patch> -->
+  <!-- <patch id="interaction.seekbar.enableSlideToSeekPatch"> -->
   <string name="revanced_slide_to_seek_title">Iespējot slīdēšanu, lai meklētu</string>
   <string name="revanced_slide_to_seek_summary_on">Slīdēšana, lai meklētu, ir iespējota</string>
   <string name="revanced_slide_to_seek_summary_off">Slīdēšana, lai meklētu, nav iespējota</string>
-  </patch>
-  <patch id="misc.fix.playback.spoofVideoStreamsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.fix.playback.spoofVideoStreamsPatch"> -->
   <string name="revanced_spoof_video_streams_screen_title">Viltot video straumes</string>
   <string name="revanced_spoof_video_streams_screen_summary">Viltot klienta video straumes, lai novērstu atskaņošanas problēmas</string>
   <string name="revanced_spoof_video_streams_title">Viltot video straumes</string>
@@ -1395,46 +1396,46 @@ AVC maksimālā izšķirtspēja ir 1080p, Opus audio kodeks nav pieejams, un vid
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Klienta tips tiek rādīts statistiskos datos entuziastiem</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Klients ir paslēpts statistiskos datos entuziastiem</string>
   <string name="revanced_spoof_video_streams_language_title">VR noklusējuma audio straumes valoda</string>
-  </patch>
-  </app>
-  <app id="twitch">
-  <patch id="ad.audio.audioAdsPatch">
+  <!-- </patch> -->
+  <!-- </app> -->
+  <!-- <app id="twitch"> -->
+  <!-- <patch id="ad.audio.audioAdsPatch"> -->
   <string name="revanced_block_audio_ads_title">Bloķēt audio reklāmas</string>
   <string name="revanced_block_audio_ads_summary_on">Audio reklāmas ir bloķētas</string>
   <string name="revanced_block_audio_ads_summary_off">Audio reklāmas ir atbloķētas</string>
-  </patch>
-  <patch id="ad.embedded.embeddedAdsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="ad.embedded.embeddedAdsPatch"> -->
   <string name="revanced_embedded_ads_service_unavailable">%s nav pieejams, var parādīties reklāmas. Mēģiniet mainīt reklāmu bloķēšanas pakalpojumu iestatījumos.</string>
   <string name="revanced_embedded_ads_service_failed">%s radās kļūda, var parādīties reklāmas. Mēģiniet mainīt reklāmu bloķēšanas pakalpojumu iestatījumos.</string>
   <string name="revanced_block_embedded_ads_title">Bloķēt iebūvētās video reklāmas</string>
   <string name="revanced_block_embedded_ads_entry_1">Atspējots</string>
   <string name="revanced_block_embedded_ads_entry_2">Luminous starpniekserveris</string>
   <string name="revanced_block_embedded_ads_entry_3">PurpleAdBlock starpniekserveris</string>
-  </patch>
-  <patch id="ad.video.videoAdsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="ad.video.videoAdsPatch"> -->
   <string name="revanced_block_video_ads_title">Bloķēt video reklāmas</string>
   <string name="revanced_block_video_ads_summary_on">Video reklāmas ir bloķētas</string>
   <string name="revanced_block_video_ads_summary_off">Video reklāmas ir atbloķētas</string>
-  </patch>
-  <patch id="chat.antidelete.showDeletedMessagesPatch">
+  <!-- </patch> -->
+  <!-- <patch id="chat.antidelete.showDeletedMessagesPatch"> -->
   <string name="revanced_deleted_msg">ziņa izdzēsta</string>
   <string name="revanced_show_deleted_messages_title">Rādīt izdzēstās ziņas</string>
   <string name="revanced_show_deleted_messages_entry_1">Nerādīt izdzēstās ziņas</string>
   <string name="revanced_show_deleted_messages_entry_2">Slēpt izdzēstās ziņas aiz spoileriem</string>
   <string name="revanced_show_deleted_messages_entry_3">Rādīt izdzēstās ziņas kā pārvilktas</string>
-  </patch>
-  <patch id="chat.autoclaim.autoClaimChannelPointsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="chat.autoclaim.autoClaimChannelPointsPatch"> -->
   <string name="revanced_auto_claim_channel_points_title">Automātiski pieprasīt kanāla punktus</string>
   <string name="revanced_auto_claim_channel_points_summary_on">Kanāla punkti tiek pieprasīti automātiski</string>
   <string name="revanced_auto_claim_channel_points_summary_off">Kanāla punkti netiek pieprasīti automātiski</string>
-  </patch>
-  <patch id="debug.debugModePatch">
+  <!-- </patch> -->
+  <!-- <patch id="debug.debugModePatch"> -->
   <!-- Twitch specific internal debug mode, and not the same as 'revanced_debug_title' -->
   <string name="revanced_twitch_debug_mode_title">Iespējot Twitch debug režīmu</string>
   <string name="revanced_twitch_debug_mode_summary_on">Twitch debug režīms ir iespējots (nav ieteicams)</string>
   <string name="revanced_twitch_debug_mode_summary_off">Twitch debug režīms ir atspējots</string>
-  </patch>
-  <patch id="misc.settings.settingsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.settings.settingsPatch"> -->
   <string name="revanced_settings">ReVanced iestatījumi</string>
   <string name="revanced_about_title">Par</string>
   <string name="revanced_about_summary">Par ReVanced</string>
@@ -1451,6 +1452,6 @@ AVC maksimālā izšķirtspēja ir 1080p, Opus audio kodeks nav pieejams, un vid
   <string name="revanced_twitch_debug_title">Debug žurnāls</string>
   <string name="revanced_twitch_debug_summary_on">Debug žurnāli ir iespējoti</string>
   <string name="revanced_twitch_debug_summary_off">Debug žurnāli ir atspējoti</string>
-  </patch>
-  </app>
+  <!-- </patch> -->
+  <!-- </app> -->
 </resources>

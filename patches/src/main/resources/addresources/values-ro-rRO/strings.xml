@@ -20,8 +20,8 @@ Second \"item\" text"</string>
 
 -->
 <resources>
-  <app id="shared">
-  <patch id="misc.checks.checkEnvironmentPatch">
+  <!-- <app id="shared"> -->
+  <!-- <patch id="misc.checks.checkEnvironmentPatch"> -->
   <string name="revanced_check_environment_failed_title">Verificările au eșuat</string>
   <string name="revanced_check_environment_dialog_open_official_source_button">Deschidere site oficial</string>
   <string name="revanced_check_environment_dialog_ignore_button">Ignorare</string>
@@ -31,8 +31,8 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time">Patch-at acum mai mult de 10 minute</string>
   <string name="revanced_check_environment_not_near_patch_time_days">Patch-at acum %s zile în urmă</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">Data construirii APK-ului este coruptă</string>
-  </patch>
-  <patch id="misc.settings.settingsResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.settings.settingsResourcePatch"> -->
   <string name="revanced_settings_submenu_title">Setări</string>
   <string name="revanced_settings_confirm_user_dialog_title">Doriți să continuați?</string>
   <string name="revanced_settings_reset">Resetare</string>
@@ -57,8 +57,8 @@ Pentru a traduce noi limbi, vizitați translate.revanced.app"</string>
   <string name="revanced_settings_about_links_header">Link-uri oficiale</string>
   <!-- NOTE: the about strings above are duplicated in the TikTok about screen code,
                  and changes made here must also be made there. -->
-  </patch>
-  <patch id="misc.gms.gmsCoreSupportResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.gms.gmsCoreSupportResourcePatch"> -->
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="gms_core_toast_not_installed_message">MicroG GmsCore nu este instalat. Instalați-l.</string>
   <string name="gms_core_dialog_title">Acțiune necesară</string>
@@ -74,10 +74,10 @@ Dezactivare optimizărilor bateriei pentru MicroG nu va afecta negativ utilizare
 
 Apăsați butonul continuare și permiteți modificările de optimizare."</string>
   <string name="gms_core_dialog_continue_text">Continuă</string>
-  </patch>
-  </app>
-  <app id="youtube">
-  <patch id="misc.settings.settingsPatch">
+  <!-- </patch> -->
+  <!-- </app> -->
+  <!-- <app id="youtube"> -->
+  <!-- <patch id="misc.settings.settingsPatch"> -->
   <string name="revanced_settings_screen_00_about_title">Despre</string>
   <string name="revanced_settings_screen_01_ads_title">Reclame</string>
   <string name="revanced_settings_screen_02_alt_thumbnails_title">Miniaturi alternative</string>
@@ -91,13 +91,13 @@ Apăsați butonul continuare și permiteți modificările de optimizare."</strin
   <string name="revanced_restore_old_settings_menus_title">Restaurare meniuri setări vechi</string>
   <string name="revanced_restore_old_settings_menus_summary_on">Meniurile de setări vechi sunt afișate</string>
   <string name="revanced_restore_old_settings_menus_summary_off">Meniurile de setări vechi nu sunt afișate</string>
-  </patch>
-  <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.backgroundplayback.backgroundPlaybackPatch"> -->
   <string name="revanced_shorts_disable_background_playback_title">Dezactivează redarea în fundal a Shorts</string>
   <string name="revanced_shorts_disable_background_playback_summary_on">Redarea în fundal a Shorts este dezactivată</string>
   <string name="revanced_shorts_disable_background_playback_summary_off">Redarea Shorts în fundal este activată</string>
-  </patch>
-  <patch id="misc.debugging.enableDebuggingPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.debugging.enableDebuggingPatch"> -->
   <string name="revanced_debug_screen_title">Depanare</string>
   <string name="revanced_debug_screen_summary">Activează sau dezactivează opțiunile de depanare</string>
   <string name="revanced_debug_title">Jurnal depanare</string>
@@ -115,8 +115,8 @@ Apăsați butonul continuare și permiteți modificările de optimizare."</strin
   <string name="revanced_debug_toast_on_error_user_dialog_message">"Oprirea toasturilor de eroare ascunde toate notificările de eroare ReVanced.
 
 Nu veți fi notificat de niciun eveniment neașteptat."</string>
-  </patch>
-  <patch id="layout.hide.general.hideLayoutComponentsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.general.hideLayoutComponentsPatch"> -->
   <string name="revanced_hide_album_cards_title">Ascundeți cardurile de album</string>
   <string name="revanced_hide_album_cards_summary_on">Cardurile de album sunt ascunse</string>
   <string name="revanced_hide_album_cards_summary_off">Cardurile de album sunt afișate</string>
@@ -340,8 +340,8 @@ Limitări
   <string name="revanced_hide_keyword_toast_invalid_conflicting">Cuvântul-cheie are declarații contradictorii: %s</string>
   <string name="revanced_hide_keyword_toast_invalid_length">Cuvântul cheie este prea scurt și necesită oferte: %s</string>
   <string name="revanced_hide_keyword_toast_invalid_broad">Cuvântul cheie va ascunde toate videoclipurile: %s</string>
-  </patch>
-  <patch id="ad.general.hideAdsResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="ad.general.hideAdsResourcePatch"> -->
   <string name="revanced_hide_general_ads_title">Ascunde reclamele generale</string>
   <string name="revanced_hide_general_ads_summary_on">Anunțurile generale sunt ascunse</string>
   <string name="revanced_hide_general_ads_summary_off">Anunțurile generale sunt afișate</string>
@@ -383,18 +383,18 @@ Această funcție este disponibilă numai pentru dispozitivele mai vechi"</strin
   <string name="revanced_hide_merchandise_banners_summary_off">Bannerele de marfă sunt afișate</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_hide_fullscreen_ads_feature_not_available_toast">Ascunde reclamele pe tot ecranul funcționează doar cu dispozitive mai vechi</string>
-  </patch>
-  <patch id="ad.getpremium.hideGetPremiumPatch">
+  <!-- </patch> -->
+  <!-- <patch id="ad.getpremium.hideGetPremiumPatch"> -->
   <string name="revanced_hide_get_premium_title">Ascunde promoțiile YouTube Premium</string>
   <string name="revanced_hide_get_premium_summary_on">Promoțiile YouTube Premium sub video player sunt ascunse</string>
   <string name="revanced_hide_get_premium_summary_off">Promoțiile YouTube Premium sub video player sunt afișate</string>
-  </patch>
-  <patch id="ad.video.videoAdsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="ad.video.videoAdsPatch"> -->
   <string name="revanced_hide_video_ads_title">Ascunde reclamele video</string>
   <string name="revanced_hide_video_ads_summary_on">Anunțurile video sunt ascunse</string>
   <string name="revanced_hide_video_ads_summary_off">Anunțurile video sunt afișate</string>
-  </patch>
-  <patch id="interaction.copyvideourl.copyVideoUrlResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="interaction.copyvideourl.copyVideoUrlResourcePatch"> -->
   <string name="revanced_share_copy_url_success">URL copiat în clipboard</string>
   <string name="revanced_share_copy_url_timestamp_success">URL cu marcaj de timp copiat</string>
   <string name="revanced_copy_video_url_title">Afișare buton copie URL</string>
@@ -403,14 +403,14 @@ Această funcție este disponibilă numai pentru dispozitivele mai vechi"</strin
   <string name="revanced_copy_video_url_timestamp_title">Afișare buton copie marcaj URL</string>
   <string name="revanced_copy_video_url_timestamp_summary_on">Butonul este afișat. Atingeți pentru a copia adresa URL a videoclipului cu marcaj temporal. Atingeți și mențineți apăsat pentru a copia fără marcaj temporal</string>
   <string name="revanced_copy_video_url_timestamp_summary_off">Butonul nu este afișat</string>
-  </patch>
-  <patch id="interaction.dialog.removeViewerDiscretionDialogPatch">
+  <!-- </patch> -->
+  <!-- <patch id="interaction.dialog.removeViewerDiscretionDialogPatch"> -->
   <string name="revanced_remove_viewer_discretion_dialog_title">Eliminați dialogul discreționar al vizualizatorului</string>
   <string name="revanced_remove_viewer_discretion_dialog_summary_on">Dialogul va fi șters</string>
   <string name="revanced_remove_viewer_discretion_dialog_summary_off">Va fi afișat catalogul</string>
   <string name="revanced_remove_viewer_discretion_dialog_user_dialog_message">Aceasta nu ocolește restricția de vârstă. O acceptă automat.</string>
-  </patch>
-  <patch id="interaction.downloads.downloadsResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="interaction.downloads.downloadsResourcePatch"> -->
   <string name="revanced_external_downloader_screen_title">Descărcări externe</string>
   <string name="revanced_external_downloader_screen_summary">Setări pentru utilizarea unui downloader extern</string>
   <string name="revanced_external_downloader_title">Arată butonul extern de descărcare</string>
@@ -423,18 +423,18 @@ Această funcție este disponibilă numai pentru dispozitivele mai vechi"</strin
   <string name="revanced_external_downloader_name_title">Descărcător nume pachet</string>
   <string name="revanced_external_downloader_name_summary">Numele pachetului aplicaţiei externe downloader instalate, cum ar fi NewPipe sau Seal</string>
   <string name="revanced_external_downloader_not_installed_warning">%s nu este instalat. Vă rugăm să-l instalaţi.</string>
-  </patch>
-  <patch id="interaction.seekbar.disablePreciseSeekingGesturePatch">
+  <!-- </patch> -->
+  <!-- <patch id="interaction.seekbar.disablePreciseSeekingGesturePatch"> -->
   <string name="revanced_disable_precise_seeking_gesture_title">Dezactivează gestul de căutare precis</string>
   <string name="revanced_disable_precise_seeking_gesture_summary_on">Gestul este dezactivat</string>
   <string name="revanced_disable_precise_seeking_gesture_summary_off">Gestul este activat</string>
-  </patch>
-  <patch id="interaction.seekbar.enableSeekbarTappingPatch">
+  <!-- </patch> -->
+  <!-- <patch id="interaction.seekbar.enableSeekbarTappingPatch"> -->
   <string name="revanced_seekbar_tapping_title">Activează atingerea pentru a căuta</string>
   <string name="revanced_seekbar_tapping_summary_on">Atingeți pentru a activa căutarea</string>
   <string name="revanced_seekbar_tapping_summary_off">Atingerea pentru a căuta este dezactivată</string>
-  </patch>
-  <patch id="interaction.swipecontrols.swipeControlsResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="interaction.swipecontrols.swipeControlsResourcePatch"> -->
   <string name="revanced_swipe_brightness_title">Activează gestul de luminozitate</string>
   <string name="revanced_swipe_brightness_summary_on">"Tragerea luminozității pe tot ecranul este activată
 
@@ -473,13 +473,13 @@ Reglați volumul glisând vertical pe partea dreaptă a ecranului"</string>
   <string name="revanced_swipe_change_video_title">Activați glisarea pentru a schimba videoclipurile</string>
   <string name="revanced_swipe_change_video_summary_on">Glisarea în modul pe ecran complet va trece la următorul/anteriorul videoclip</string>
   <string name="revanced_swipe_change_video_summary_off">Glisarea în modul pe ecran complet nu va trece la următorul/anteriorul videoclip</string>
-  </patch>
-  <patch id="layout.autocaptions.autoCaptionsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.autocaptions.autoCaptionsPatch"> -->
   <string name="revanced_auto_captions_title">Dezactivează subtitrările automate</string>
   <string name="revanced_auto_captions_summary_on">Legendele automate sunt dezactivate</string>
   <string name="revanced_auto_captions_summary_off">Legenda automată este activată</string>
-  </patch>
-  <patch id="layout.buttons.action.hideButtonsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.buttons.action.hideButtonsPatch"> -->
   <string name="revanced_hide_buttons_screen_title">Butoane de acţiune</string>
   <string name="revanced_hide_buttons_screen_summary">Ascunde sau arată butoanele sub videoclipuri</string>
   <string name="revanced_disable_like_subscribe_glow_title">Dezactivați luminozitatea butonului Like and Subscribe</string>
@@ -517,8 +517,8 @@ Reglați volumul glisând vertical pe partea dreaptă a ecranului"</string>
   <string name="revanced_hide_playlist_button_title">Ascunde Salvare în lista de redare</string>
   <string name="revanced_hide_playlist_button_summary_on">Butonul Salvare în lista de redare este ascuns</string>
   <string name="revanced_hide_playlist_button_summary_off">Butonul Salvare în lista de redare este afișat</string>
-  </patch>
-  <patch id="layout.buttons.navigation.navigationButtonsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.buttons.navigation.navigationButtonsPatch"> -->
   <string name="revanced_navigation_buttons_screen_title">Butoane de navigare</string>
   <string name="revanced_navigation_buttons_screen_summary">Ascunde sau modifică butoanele din bara de navigare</string>
   <!-- 'Home' should be translated using the same localized wording YouTube displays for the tab. -->
@@ -555,14 +555,15 @@ Dacă modificarea acestei setări nu are efect, încercați să comutați la mod
   <string name="revanced_disable_translucent_status_bar_title">Dezactivează bara de stare translucidă</string>
   <string name="revanced_disable_translucent_status_bar_summary_on">Bara de stare este opaca</string>
   <string name="revanced_disable_translucent_status_bar_summary_off">Bara de stare este opaca sau translucida</string>
+  <string name="revanced_disable_translucent_status_bar_user_dialog_message">Pe unele dispozitive, activarea acestei funcții poate schimba bara de navigare a sistemului în una transparentă.</string>
   <string name="revanced_disable_translucent_navigation_bar_light_title">Dezactivează bara de navigare translucidă deschisă</string>
   <string name="revanced_disable_translucent_navigation_bar_light_summary_on">Bara de navigare în modul deschis este opacă</string>
   <string name="revanced_disable_translucent_navigation_bar_light_summary_off">Bara de navigare în modul deschis este opaca sau translucida</string>
   <string name="revanced_disable_translucent_navigation_bar_dark_title">Dezactivați bara translucidă închisă la culoare</string>
   <string name="revanced_disable_translucent_navigation_bar_dark_summary_on">Bara de navigare în modul întunecat este opacă</string>
   <string name="revanced_disable_translucent_navigation_bar_dark_summary_off">Bara de navigare în modul întunecat este opaca sau translucida</string>
-  </patch>
-  <patch id="layout.hide.player.flyoutmenupanel.hidePlayerFlyoutMenuPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.player.flyoutmenupanel.hidePlayerFlyoutMenuPatch"> -->
   <string name="revanced_hide_player_flyout_title">Meniu flyout</string>
   <string name="revanced_hide_player_flyout_summary">Ascunde sau arată elementele de meniu Flyout ale jucătorului</string>
   <!-- 'Captions' should be translated using the same localized wording YouTube displays for the menu item. -->
@@ -616,8 +617,8 @@ Dacă modificarea acestei setări nu are efect, încercați să comutați la mod
   <string name="revanced_hide_player_flyout_video_quality_footer_title">Ascunde subsol meniu calitate video</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_on">Subsolul meniului calităţii video este ascuns</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_off">Subsolul meniului calității video este afișat</string>
-  </patch>
-  <patch id="layout.buttons.overlay.hidePlayerOverlayButtonsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.buttons.overlay.hidePlayerOverlayButtonsPatch"> -->
   <string name="revanced_hide_player_previous_next_buttons_title">Ascunde butoanele Anterior &amp; Următorul</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_on">Butoanele sunt ascunse</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">Butoanele sunt afișate</string>
@@ -631,36 +632,36 @@ Dacă modificarea acestei setări nu are efect, încercați să comutați la mod
   <string name="revanced_hide_autoplay_button_title">Ascunde butonul Redare automată</string>
   <string name="revanced_hide_autoplay_button_summary_on">Butonul Autoplay este ascuns</string>
   <string name="revanced_hide_autoplay_button_summary_off">Butonul Auto-redare este afișat</string>
-  </patch>
-  <patch id="layout.hide.endscreencards.hideEndscreenCardsResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.endscreencards.hideEndscreenCardsResourcePatch"> -->
   <string name="revanced_hide_endscreen_cards_title">Ascunde cardurile ecranului final</string>
   <string name="revanced_hide_endscreen_cards_summary_on">Cardurile de pe ecranul de închidere sunt ascunse</string>
   <string name="revanced_hide_endscreen_cards_summary_off">Cardurile de închidere ecran sunt afișate</string>
-  </patch>
-  <patch id="layout.hide.fullscreenambientmode.disableFullscreenAmbientModePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.fullscreenambientmode.disableFullscreenAmbientModePatch"> -->
   <string name="revanced_disable_fullscreen_ambient_mode_title">Dezactivați modul Ambient în ecran complet</string>
   <string name="revanced_disable_fullscreen_ambient_mode_summary_on">Mod ambiental dezactivat</string>
   <string name="revanced_disable_fullscreen_ambient_mode_summary_off">Mod Ambient activat</string>
-  </patch>
-  <patch id="layout.hide.infocards.hideInfocardsResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.infocards.hideInfocardsResourcePatch"> -->
   <string name="revanced_hide_info_cards_title">Ascunde cardurile cu informații</string>
   <string name="revanced_hide_info_cards_summary_on">Cardurile de informații sunt ascunse</string>
   <string name="revanced_hide_info_cards_summary_off">Cardurile de informații sunt afișate</string>
-  </patch>
-  <patch id="layout.hide.rollingnumber.disableRollingNumberAnimationPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.rollingnumber.disableRollingNumberAnimationPatch"> -->
   <string name="revanced_disable_rolling_number_animations_title">Dezactivează animațiile cu numere de rulare</string>
   <string name="revanced_disable_rolling_number_animations_summary_on">Numerele de rulare nu sunt animate</string>
   <string name="revanced_disable_rolling_number_animations_summary_off">Numerele de rulare sunt animate</string>
-  </patch>
-  <patch id="layout.hide.seekbar.hideSeekbarPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.seekbar.hideSeekbarPatch"> -->
   <string name="revanced_hide_seekbar_title">Ascunde bara de căutare în playerul video</string>
   <string name="revanced_hide_seekbar_summary_on">Bara de căutare a playerului video este ascunsă</string>
   <string name="revanced_hide_seekbar_summary_off">Se afișează bara de căutare a playerului video</string>
   <string name="revanced_hide_seekbar_thumbnail_title">Ascunde bara de căutare în miniaturile video</string>
   <string name="revanced_hide_seekbar_thumbnail_summary_on">Pictograma bara de căutare este ascunsă</string>
   <string name="revanced_hide_seekbar_thumbnail_summary_off">Pictograma bara de căutare este afișată</string>
-  </patch>
-  <patch id="layout.hide.shorts.hideShortsComponentsResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.shorts.hideShortsComponentsResourcePatch"> -->
   <string name="revanced_shorts_player_screen_title">Player Shorts</string>
   <string name="revanced_shorts_player_screen_summary">Ascunde sau afișează componente în playerul Shorts</string>
   <!-- 'home' should be translated using the same localized wording YouTube displays for the home tab. -->
@@ -762,43 +763,43 @@ Dacă modificarea acestei setări nu are efect, încercați să comutați la mod
   <string name="revanced_hide_shorts_navigation_bar_title">Ascunde bara de navigare</string>
   <string name="revanced_hide_shorts_navigation_bar_summary_on">Bara de navigare este ascunsă</string>
   <string name="revanced_hide_shorts_navigation_bar_summary_off">Bara de navigare este afișată</string>
-  </patch>
-  <patch id="layout.hide.endscreensuggestion.hideEndScreenSuggestedVideoPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.endscreensuggestion.hideEndScreenSuggestedVideoPatch"> -->
   <string name="revanced_end_screen_suggested_video_title">Ascunde videoclipul sugerat de pe ecranul final</string>
   <string name="revanced_end_screen_suggested_video_summary_on">"Videoclipul sugerat de pe ecranul final este ascuns când redarea automată este oprită
 
 Redarea automată poate fi modificată în setările YouTube:
 Setări → Redare → Redare automată videoclipul următor"</string>
   <string name="revanced_end_screen_suggested_video_summary_off">Videoclipul sugerat de pe ecranul final este afișat</string>
-  </patch>
-  <patch id="layout.hide.time.hideTimestampPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.time.hideTimestampPatch"> -->
   <string name="revanced_hide_timestamp_title">Ascunde marcajul temporal video</string>
   <string name="revanced_hide_timestamp_summary_on">Marcajul de timp este ascuns</string>
   <string name="revanced_hide_timestamp_summary_off">Ora este afișată</string>
-  </patch>
-  <patch id="layout.panels.popup.playerPopupPanelsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.panels.popup.playerPopupPanelsPatch"> -->
   <string name="revanced_hide_player_popup_panels_title">Ascunde panourile pop-up jucător</string>
   <string name="revanced_hide_player_popup_panels_summary_on">Panourile pop-up ale jucătorilor sunt ascunse</string>
   <string name="revanced_hide_player_popup_panels_summary_off">Panourile pop-up ale jucătorului sunt afișate</string>
-  </patch>
-  <patch id="layout.player.fullscreen.exitFullscreenPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.player.fullscreen.exitFullscreenPatch"> -->
   <string name="revanced_exit_fullscreen_title">Ieșiți din modul ecran complet la sfârșitul videoclipului</string>
   <string name="revanced_exit_fullscreen_entry_1">Dezactivat</string>
   <string name="revanced_exit_fullscreen_entry_2">Portret</string>
   <string name="revanced_exit_fullscreen_entry_3">Peisaj</string>
   <string name="revanced_exit_fullscreen_entry_4">Portret și peisaj</string>
-  </patch>
-  <patch id="layout.player.fullscreen.openVideosFullscreen">
+  <!-- </patch> -->
+  <!-- <patch id="layout.player.fullscreen.openVideosFullscreen"> -->
   <string name="revanced_open_videos_fullscreen_portrait_title">Deschide videoclipurile în modul ecran complet</string>
   <string name="revanced_open_videos_fullscreen_portrait_summary_on">Videoclipuri deschide tot ecranul</string>
   <string name="revanced_open_videos_fullscreen_portrait_summary_off">Videoclipurile nu deschid tot ecranul</string>
-  </patch>
-  <patch id="layout.player.overlay.customPlayerOverlayOpacityResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.player.overlay.customPlayerOverlayOpacityResourcePatch"> -->
   <string name="revanced_player_overlay_opacity_title">Opacitate suprapusă jucătorului</string>
   <string name="revanced_player_overlay_opacity_summary">Valoarea Opacității între 0-100, unde 0 este transparent</string>
   <string name="revanced_player_overlay_opacity_invalid_toast">Opacitatea suportată de jucător trebuie să fie între 0-100</string>
-  </patch>
-  <patch id="layout.returnyoutubedislike.returnYouTubeDislikePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.returnyoutubedislike.returnYouTubeDislikePatch"> -->
   <!-- Toast shown if network connection times out. Translations of this should not be longer than the original English or the text can be clipped and not entirely shown. -->
   <string name="revanced_ryd_failure_connection_timeout">Dislike-uri temporar indisponibile (API a expirat)</string>
   <string name="revanced_ryd_failure_connection_status_code">Dislike-uri indisponibile (status %d)</string>
@@ -847,13 +848,13 @@ Limitare: Este posibil ca aprecierile negative să nu apară în modul incognito
   <string name="revanced_ryd_statistics_getNumberOfRateLimitRequestsEncountered_zero_summary">Nici o limită pentru rata clientului</string>
   <string name="revanced_ryd_statistics_getNumberOfRateLimitRequestsEncountered_non_zero_summary">Limita ratei clientului a fost întâlnită de %d ori</string>
   <string name="revanced_ryd_statistics_millisecond_text">%d milisecunde</string>
-  </patch>
-  <patch id="layout.searchbar.wideSearchbarPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.searchbar.wideSearchbarPatch"> -->
   <string name="revanced_wide_searchbar_title">Activează bara de căutare largă</string>
   <string name="revanced_wide_searchbar_summary_on">Bara de căutare largă este activată</string>
   <string name="revanced_wide_searchbar_summary_off">Bara de căutare largă este dezactivată</string>
-  </patch>
-  <patch id="layout.seekbar.seekbarThumbnailsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.seekbar.seekbarThumbnailsPatch"> -->
   <string name="revanced_seekbar_thumbnails_high_quality_title">Permite miniaturi de înaltă calitate</string>
   <string name="revanced_seekbar_thumbnails_high_quality_summary_on">Miniaturile din bara de afișare sunt de înaltă calitate</string>
   <string name="revanced_seekbar_thumbnails_high_quality_summary_off">Miniaturile din bara de afișare sunt de calitate medie</string>
@@ -867,8 +868,8 @@ Această caracteristică funcționează cel mai bine cu o calitate video de 720p
   <string name="revanced_restore_old_seekbar_thumbnails_title">Restaurează miniaturile vechi din bara de căutare</string>
   <string name="revanced_restore_old_seekbar_thumbnails_summary_on">Miniaturile din bara de căutare vor apărea deasupra barei de căutare</string>
   <string name="revanced_restore_old_seekbar_thumbnails_summary_off">Miniaturile din bara de afișare vor apărea pe tot ecranul</string>
-  </patch>
-  <patch id="layout.sponsorblock.sponsorBlockResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.sponsorblock.sponsorBlockResourcePatch"> -->
   <string name="revanced_sb_enable_sb">Activează SponsorBlock</string>
   <string name="revanced_sb_enable_sb_sum">SponsorBlock este un sistem bazat pe crowdsourcing pentru a sări peste părțile enervante din videoclipurile de pe YouTube</string>
   <string name="revanced_sb_appearance_category">Aspect</string>
@@ -1065,8 +1066,8 @@ Ești gata să trimiți?"</string>
   <string name="revanced_sb_reset">Resetează</string>
   <string name="revanced_sb_about">Despre</string>
   <string name="revanced_sb_about_api_sum">Datele sunt furnizate de API-ul SponsorBlock. Apasă aici pentru a afla mai multe și a vedea descărcările pentru alte platforme</string>
-  </patch>
-  <patch id="layout.formfactor.changeFormFactorPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.formfactor.changeFormFactorPatch"> -->
   <string name="revanced_change_form_factor_title">Formatul aspectului formularului</string>
   <string name="revanced_change_form_factor_entry_1">Implicit</string>
   <string name="revanced_change_form_factor_entry_2">Telefon</string>
@@ -1080,8 +1081,8 @@ Aspect tabletă
 Aspect auto
 • Shorts se deschid în playerul obișnuit
 • Fluxul este organizat pe teme și canale"</string>
-  </patch>
-  <patch id="layout.spoofappversion.spoofAppVersionPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.spoofappversion.spoofAppVersionPatch"> -->
   <string name="revanced_spoof_app_version_title">Falsifică versiunea aplicației</string>
   <string name="revanced_spoof_app_version_summary_on">Versiune falsificată</string>
   <string name="revanced_spoof_app_version_summary_off">Versiune neafectată</string>
@@ -1095,8 +1096,8 @@ Dacă este dezactivat ulterior, se recomandă să ștergeți datele aplicației 
   <string name="revanced_spoof_app_version_target_title">Țintă versiune falsificată a aplicației</string>
   <string name="revanced_spoof_app_version_target_entry_1">19.35.36 - Restaurează pictogramele vechi ale playerului Shorts</string>
   <string name="revanced_spoof_app_version_target_entry_2">19.01.34 - Restaurați pictogramele de navigare vechi</string>
-  </patch>
-  <patch id="layout.startpage.changeStartPagePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.startpage.changeStartPagePatch"> -->
   <string name="revanced_change_start_page_title">Setaţi pagina de start</string>
   <string name="revanced_change_start_page_entry_default">Implicit</string>
   <string name="revanced_change_start_page_entry_all_subscriptions">Toate abonamentele</string>
@@ -1122,27 +1123,27 @@ Dacă este dezactivat ulterior, se recomandă să ștergeți datele aplicației 
   <string name="revanced_change_start_page_entry_virtual_reality">Realitate virtuală</string>
   <string name="revanced_change_start_page_entry_watch_later">Urmărește mai târziu</string>
   <string name="revanced_change_start_page_entry_your_clips">Clipurile tale</string>
-  </patch>
-  <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch"> -->
   <string name="revanced_disable_resuming_shorts_player_title">Dezactivează reluarea playerului Shorts</string>
   <string name="revanced_disable_resuming_shorts_player_summary_on">Playerul Shorts nu va relua la pornirea aplicației</string>
   <string name="revanced_disable_resuming_shorts_player_summary_off">Scurtătura va fi reluată la pornirea aplicației</string>
-  </patch>
-  <patch id="layout.shortsplayer.shortsPlayerTypePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.shortsplayer.shortsPlayerTypePatch"> -->
   <string name="revanced_shorts_player_type_title">Deschide Shorts cu</string>
   <string name="revanced_shorts_player_type_shorts">Player Shorts</string>
   <string name="revanced_shorts_player_type_regular_player">Player obișnuit</string>
   <string name="revanced_shorts_player_type_regular_player_fullscreen">Player Obișnuit pe tot ecranul</string>
-  </patch>
-  <patch id="layout.shortsautoplay.shortsAutoplayPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.shortsautoplay.shortsAutoplayPatch"> -->
   <string name="revanced_shorts_autoplay_title">Redare automată Shorts</string>
   <string name="revanced_shorts_autoplay_summary_on">Shorts-urile se vor reda automat</string>
   <string name="revanced_shorts_autoplay_summary_off">Shorts-urile se vor repeta</string>
   <string name="revanced_shorts_autoplay_background_title">Redare automată Shorts în fundal</string>
   <string name="revanced_shorts_autoplay_background_summary_on">Redarea în fundal a Shorts-urilor se va reda automat</string>
   <string name="revanced_shorts_autoplay_background_summary_off">Redarea în fundal a Shorts-urilor se va repeta</string>
-  </patch>
-  <patch id="layout.miniplayer.miniplayerPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.miniplayer.miniplayerPatch"> -->
   <string name="revanced_miniplayer_screen_title">Minijucător</string>
   <string name="revanced_miniplayer_screen_summary">Schimbă stilul playerului minimizat în aplicație</string>
   <string name="revanced_miniplayer_type_title">Tip minijucător</string>
@@ -1192,8 +1193,8 @@ Trageți pentru a extinde sau a închide"</string>
   <string name="revanced_miniplayer_opacity_title">Opacitatea suprapunerii</string>
   <string name="revanced_miniplayer_opacity_summary">Valoarea Opacității între 0-100, unde 0 este transparent</string>
   <string name="revanced_miniplayer_opacity_invalid_toast">Opacitatea miniplayer suprapusă trebuie să fie între 0-100</string>
-  </patch>
-  <patch id="layout.theme.themePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.theme.themePatch"> -->
   <string name="revanced_gradient_loading_screen_title">Activează ecranul de încărcare gradient</string>
   <string name="revanced_gradient_loading_screen_summary_on">Încărcarea ecranului va avea un fundal pentru gradient</string>
   <string name="revanced_gradient_loading_screen_summary_off">Ecranul de încărcare va avea un fundal solid</string>
@@ -1205,15 +1206,15 @@ Trageți pentru a extinde sau a închide"</string>
   <string name="revanced_seekbar_custom_color_accent_title">Culoare personalizată a accentului barei de căutare</string>
   <string name="revanced_seekbar_custom_color_accent_summary">Culoarea de accent a barei de căutare</string>
   <string name="revanced_seekbar_custom_color_invalid">Valoare culoare bară căutare nevalidă</string>
-  </patch>
-  <patch id="layout.thumbnails.bypassImageRegionRestrictionsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.thumbnails.bypassImageRegionRestrictionsPatch"> -->
   <string name="revanced_bypass_image_region_restrictions_title">Ignoră restricțiile regiunii imaginii</string>
   <string name="revanced_bypass_image_region_restrictions_summary_on">Utilizarea imaginii host yt4.ggpht.com</string>
   <string name="revanced_bypass_image_region_restrictions_summary_off">"Utilizarea gazdei originale a imaginii
 
 Activarea acestei opțiuni poate remedia imaginile lipsă care sunt blocate în anumite regiuni"</string>
-  </patch>
-  <patch id="layout.thumbnails.alternativeThumbnailsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.thumbnails.alternativeThumbnailsPatch"> -->
   <!-- 'Home' should be translated using the same localized wording YouTube displays for the home tab. -->
   <string name="revanced_alt_thumbnail_home_title">Fila \"Acasă\"</string>
   <!-- 'Subscription' should be translated using the same localized wording YouTube displays for the subscription tab. -->
@@ -1248,26 +1249,26 @@ Atingeți aici pentru a afla mai multe despre DeArrow"</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_alt_thumbnail_dearrow_error">DeArrow nu este disponibil temporar (cod de stare: %s)</string>
   <string name="revanced_alt_thumbnail_dearrow_error_generic">DeArrow nu este disponibil temporar</string>
-  </patch>
-  <patch id="misc.announcements.announcementsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.announcements.announcementsPatch"> -->
   <string name="revanced_announcements_title">Afișează anunțurile ReVanced</string>
   <string name="revanced_announcements_summary_on">Anunțurile la pornire sunt afișate</string>
   <string name="revanced_announcements_summary_off">Anunțurile la pornire nu sunt afișate</string>
   <string name="revanced_announcements_enabled_summary">Afișare anunțuri la pornire</string>
   <string name="revanced_announcements_connection_failed">Conectarea la furnizorul de anunțuri a eșuat</string>
   <string name="revanced_announcements_dialog_dismiss">Anulare</string>
-  </patch>
-  <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch"> -->
   <string name="revanced_check_watch_history_domain_name_dialog_title">Atenție</string>
   <string name="revanced_check_watch_history_domain_name_dialog_message">Istoricul de vizionare nu este salvat.&lt;br&gt;&lt;br&gt;Cel mai probabil este cauzată de un DNS de blocare a anunțurilor sau de un proxy de rețea.&lt;br&gt;&lt;br&gt;Pentru a remedia acest lucru, lista albă &lt;b&gt;s.youtube.com&lt;/b&gt; sau pentru a opri toate blocantele DNS și proxy-urile.</string>
   <string name="revanced_check_watch_history_domain_name_dialog_ignore">Nu mai afișa</string>
-  </patch>
-  <patch id="misc.autorepeat.autoRepeatPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.autorepeat.autoRepeatPatch"> -->
   <string name="revanced_auto_repeat_title">Activare auto-repetare</string>
   <string name="revanced_auto_repeat_summary_on">Auto-repetarea este activată</string>
   <string name="revanced_auto_repeat_summary_off">Auto-Repetarea este dezactivată</string>
-  </patch>
-  <patch id="misc.dimensions.spoof.spoofDeviceDimensionsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.dimensions.spoof.spoofDeviceDimensionsPatch"> -->
   <string name="revanced_spoof_device_dimensions_title">Spoul dimensiunilor dispozitivului</string>
   <string name="revanced_spoof_device_dimensions_summary_on">"Dimensiunile dispozitivului falsificate
 
@@ -1276,39 +1277,39 @@ Calitățile video mai mari ar putea fi deblocate, dar este posibil să întâmp
 
 Activarea acestei opțiuni poate debloca calități video mai mari"</string>
   <string name="revanced_spoof_device_dimensions_user_dialog_message">Activarea acestei opțiuni poate provoca redare video care rulează, o durată de viață mai slabă a bateriei și efecte secundare necunoscute.</string>
-  </patch>
-  <patch id="misc.gms.gmsCoreSupportResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.gms.gmsCoreSupportResourcePatch"> -->
   <string name="microg_settings_title">Setări GmsCore</string>
   <string name="microg_settings_summary">Setări pentru GmsCore</string>
-  </patch>
-  <patch id="misc.links.bypassURLRedirectsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.links.bypassURLRedirectsPatch"> -->
   <string name="revanced_bypass_url_redirects_title">Ignoră redirecționările adreselor URL</string>
   <string name="revanced_bypass_url_redirects_summary_on">Redirecționările URL sunt ocolite</string>
   <string name="revanced_bypass_url_redirects_summary_off">Redirecționările URL nu sunt ocolite</string>
-  </patch>
-  <patch id="misc.links.openLinksExternallyPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.links.openLinksExternallyPatch"> -->
   <string name="revanced_external_browser_title">Deschide link-uri în browser</string>
   <string name="revanced_external_browser_summary_on">Deschiderea linkurilor în browserul extern</string>
   <string name="revanced_external_browser_summary_off">Deschiderea linkurilor în browserul din aplicație</string>
-  </patch>
-  <patch id="misc.privacy.removeTrackingQueryParameterPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.privacy.removeTrackingQueryParameterPatch"> -->
   <string name="revanced_remove_tracking_query_parameter_title">Elimină parametrul de urmărire interogare</string>
   <string name="revanced_remove_tracking_query_parameter_summary_on">Parametrul de urmărire a interogării este eliminat din link-uri</string>
   <string name="revanced_remove_tracking_query_parameter_summary_off">Parametrul de urmărire a interogării nu este eliminat din link-uri</string>
-  </patch>
-  <patch id="misc.zoomhaptics.zoomHapticsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.zoomhaptics.zoomHapticsPatch"> -->
   <string name="revanced_disable_zoom_haptics_title">Dezactivare haptics zoom</string>
   <string name="revanced_disable_zoom_haptics_summary_on">Hapticele sunt dezactivate</string>
   <string name="revanced_disable_zoom_haptics_summary_off">Haptic-urile sunt activate</string>
-  </patch>
-  <patch id="video.audio.forceOriginalAudioPatch">
+  <!-- </patch> -->
+  <!-- <patch id="video.audio.forceOriginalAudioPatch"> -->
   <string name="revanced_force_original_audio_title">Forțează limba audio originală</string>
   <string name="revanced_force_original_audio_summary_on">Folosind limba audio originală</string>
   <string name="revanced_force_original_audio_summary_off">Utilizează audio implicit</string>
   <!-- 'Spoof video streams' should be the same translation used for revanced_spoof_video_streams_screen_title -->
   <string name="revanced_force_original_audio_not_available">Pentru a utiliza această funcție, schimbați „Spoof video streams” în iOS TV</string>
-  </patch>
-  <patch id="video.quality.rememberVideoQualityPatch">
+  <!-- </patch> -->
+  <!-- <patch id="video.quality.rememberVideoQualityPatch"> -->
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
   <string name="revanced_video_quality_default_entry_1">Automat</string>
   <string name="revanced_remember_video_quality_last_selected_title">Memorează modificările calității video</string>
@@ -1325,13 +1326,13 @@ Activarea acestei opțiuni poate debloca calități video mai mari"</string>
   <string name="revanced_remember_video_quality_wifi">wifi</string>
   <string name="revanced_remember_video_quality_toast">Calitate %1$s modificată implicit: %2$s</string>
   <string name="revanced_remember_video_quality_toast_shorts">Calitatea Shorts %1$s a fost modificată la: %2$s</string>
-  </patch>
-  <patch id="video.speed.button.playbackSpeedButtonPatch">
+  <!-- </patch> -->
+  <!-- <patch id="video.speed.button.playbackSpeedButtonPatch"> -->
   <string name="revanced_playback_speed_dialog_button_title">Arată butonul de dialog de viteză</string>
   <string name="revanced_playback_speed_dialog_button_summary_on">Butonul este afișat</string>
   <string name="revanced_playback_speed_dialog_button_summary_off">Butonul nu este afișat</string>
-  </patch>
-  <patch id="video.speed.custom.customPlaybackSpeedPatch">
+  <!-- </patch> -->
+  <!-- <patch id="video.speed.custom.customPlaybackSpeedPatch"> -->
   <string name="revanced_custom_speed_menu_title">Meniu de redare personalizat</string>
   <string name="revanced_custom_speed_menu_summary_on">Meniul de viteză personalizat este afișat</string>
   <string name="revanced_custom_speed_menu_summary_off">Meniul de viteză personalizat nu este afișat</string>
@@ -1342,30 +1343,30 @@ Activarea acestei opțiuni poate debloca calități video mai mari"</string>
   <string name="revanced_custom_playback_speeds_auto">Automat</string>
   <string name="revanced_speed_tap_and_hold_title">Viteză personalizată de apăsare și menținere</string>
   <string name="revanced_speed_tap_and_hold_summary">Viteză de redare între 0-8</string>
-  </patch>
-  <patch id="video.speed.remember.rememberPlaybackSpeedPatch">
+  <!-- </patch> -->
+  <!-- <patch id="video.speed.remember.rememberPlaybackSpeedPatch"> -->
   <string name="revanced_remember_playback_speed_last_selected_title">Memorează schimbările vitezei de redare</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_on">Schimbarea vitezei de redare se aplică tuturor videoclipurilor</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_off">Modificările vitezei de redare se aplică numai videoclipului curent</string>
   <string name="revanced_playback_speed_default_title">Viteza de redare implicită</string>
   <string name="revanced_remember_playback_speed_toast">Viteza implicită a fost modificată la: %s</string>
-  </patch>
-  <patch id="video.hdr.disableHdrPatch">
+  <!-- </patch> -->
+  <!-- <patch id="video.hdr.disableHdrPatch"> -->
   <string name="revanced_disable_hdr_video_title">Dezactivați videoclipurile HDR</string>
   <string name="revanced_disable_hdr_video_summary_on">Videoclipurile HDR sunt dezactivate</string>
   <string name="revanced_disable_hdr_video_summary_off">Videoclipurile HDR sunt activate</string>
-  </patch>
-  <patch id="video.quality.advancedVideoQualityMenuPatch">
+  <!-- </patch> -->
+  <!-- <patch id="video.quality.advancedVideoQualityMenuPatch"> -->
   <string name="revanced_advanced_video_quality_menu_title">Afișează meniul avansat de calitate video</string>
   <string name="revanced_advanced_video_quality_menu_summary_on">Se afișează meniul avansat de calitate video</string>
   <string name="revanced_advanced_video_quality_menu_summary_off">Nu se afișează meniul avansat de calitate video</string>
-  </patch>
-  <patch id="interaction.seekbar.enableSlideToSeekPatch">
+  <!-- </patch> -->
+  <!-- <patch id="interaction.seekbar.enableSlideToSeekPatch"> -->
   <string name="revanced_slide_to_seek_title">Activează diapozitivul pentru a căuta</string>
   <string name="revanced_slide_to_seek_summary_on">Slide pentru căutare este activat</string>
   <string name="revanced_slide_to_seek_summary_off">Slide pentru a căuta nu este activat</string>
-  </patch>
-  <patch id="misc.fix.playback.spoofVideoStreamsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.fix.playback.spoofVideoStreamsPatch"> -->
   <string name="revanced_spoof_video_streams_screen_title">Spoof video stream-uri</string>
   <string name="revanced_spoof_video_streams_screen_summary">Sporirea canalelor video client pentru a preveni problemele de redare</string>
   <string name="revanced_spoof_video_streams_title">Spoof video stream-uri</string>
@@ -1395,46 +1396,46 @@ AVC are o rezoluție maximă de 1080p, codecul audio Opus nu este disponibil, ia
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Tipul clientului este afișat în Statistici pentru pasionați</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Clientul este ascuns în Statistici pentru pasionați</string>
   <string name="revanced_spoof_video_streams_language_title">Limba implicită a fluxului audio VR</string>
-  </patch>
-  </app>
-  <app id="twitch">
-  <patch id="ad.audio.audioAdsPatch">
+  <!-- </patch> -->
+  <!-- </app> -->
+  <!-- <app id="twitch"> -->
+  <!-- <patch id="ad.audio.audioAdsPatch"> -->
   <string name="revanced_block_audio_ads_title">Blochează reclamele audio</string>
   <string name="revanced_block_audio_ads_summary_on">Anunţurile audio sunt blocate</string>
   <string name="revanced_block_audio_ads_summary_off">Anunţurile audio sunt deblocate</string>
-  </patch>
-  <patch id="ad.embedded.embeddedAdsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="ad.embedded.embeddedAdsPatch"> -->
   <string name="revanced_embedded_ads_service_unavailable">%s indisponibil, este posibil să se afișeze reclame. Încercați să schimbați serviciul de blocare a reclamelor în setări.</string>
   <string name="revanced_embedded_ads_service_failed">%s a returnat o eroare, este posibil să se afișeze reclame. Încercați să schimbați serviciul de blocare a reclamelor în setări.</string>
   <string name="revanced_block_embedded_ads_title">Blocare reclame video integrate</string>
   <string name="revanced_block_embedded_ads_entry_1">Dezactivat</string>
   <string name="revanced_block_embedded_ads_entry_2">Proxy luminos</string>
   <string name="revanced_block_embedded_ads_entry_3">Proxy PurpleAdBlock</string>
-  </patch>
-  <patch id="ad.video.videoAdsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="ad.video.videoAdsPatch"> -->
   <string name="revanced_block_video_ads_title">Blocare reclame video</string>
   <string name="revanced_block_video_ads_summary_on">Anunțurile video sunt blocate</string>
   <string name="revanced_block_video_ads_summary_off">Anunţurile video sunt deblocate</string>
-  </patch>
-  <patch id="chat.antidelete.showDeletedMessagesPatch">
+  <!-- </patch> -->
+  <!-- <patch id="chat.antidelete.showDeletedMessagesPatch"> -->
   <string name="revanced_deleted_msg">mesaj șters</string>
   <string name="revanced_show_deleted_messages_title">Arată mesajele șterse</string>
   <string name="revanced_show_deleted_messages_entry_1">Nu afișa mesajele șterse</string>
   <string name="revanced_show_deleted_messages_entry_2">Ascunde mesajele șterse în spatele unui spoiler</string>
   <string name="revanced_show_deleted_messages_entry_3">Arată mesajele șterse ca text interceptat</string>
-  </patch>
-  <patch id="chat.autoclaim.autoClaimChannelPointsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="chat.autoclaim.autoClaimChannelPointsPatch"> -->
   <string name="revanced_auto_claim_channel_points_title">Solicită automat punctele canalului</string>
   <string name="revanced_auto_claim_channel_points_summary_on">Punctele canalului sunt revendicate automat</string>
   <string name="revanced_auto_claim_channel_points_summary_off">Punctele canalului nu sunt revendicate automat</string>
-  </patch>
-  <patch id="debug.debugModePatch">
+  <!-- </patch> -->
+  <!-- <patch id="debug.debugModePatch"> -->
   <!-- Twitch specific internal debug mode, and not the same as 'revanced_debug_title' -->
   <string name="revanced_twitch_debug_mode_title">Activează modul de depanare Twitch</string>
   <string name="revanced_twitch_debug_mode_summary_on">Modul de depanare Twitch este activat (nu este recomandat)</string>
   <string name="revanced_twitch_debug_mode_summary_off">Modul de depanare Twitch este dezactivat</string>
-  </patch>
-  <patch id="misc.settings.settingsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.settings.settingsPatch"> -->
   <string name="revanced_settings">Setări ReVanced</string>
   <string name="revanced_about_title">Despre</string>
   <string name="revanced_about_summary">Despre ReVanced</string>
@@ -1451,6 +1452,6 @@ AVC are o rezoluție maximă de 1080p, codecul audio Opus nu este disponibil, ia
   <string name="revanced_twitch_debug_title">Jurnal depanare</string>
   <string name="revanced_twitch_debug_summary_on">Jurnalele de depanare sunt activate</string>
   <string name="revanced_twitch_debug_summary_off">Jurnalele de depanare sunt dezactivate</string>
-  </patch>
-  </app>
+  <!-- </patch> -->
+  <!-- </app> -->
 </resources>

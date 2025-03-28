@@ -20,8 +20,8 @@ Second \"item\" text"</string>
 
 -->
 <resources>
-  <app id="shared">
-  <patch id="misc.checks.checkEnvironmentPatch">
+  <!-- <app id="shared"> -->
+  <!-- <patch id="misc.checks.checkEnvironmentPatch"> -->
   <string name="revanced_check_environment_failed_title">Tarkastuksia epäonnistui</string>
   <string name="revanced_check_environment_dialog_open_official_source_button">Avaa virallinen sivusto</string>
   <string name="revanced_check_environment_dialog_ignore_button">Jätä huomiotta</string>
@@ -31,8 +31,8 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time">Paikattu yli 10 minuuttia sitten</string>
   <string name="revanced_check_environment_not_near_patch_time_days">Paikattu %s päivää sitten</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">APK käännöspäivä on vioittunut</string>
-  </patch>
-  <patch id="misc.settings.settingsResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.settings.settingsResourcePatch"> -->
   <string name="revanced_settings_submenu_title">Asetukset</string>
   <string name="revanced_settings_confirm_user_dialog_title">Haluatko jatkaa?</string>
   <string name="revanced_settings_reset">Nollaa</string>
@@ -57,8 +57,8 @@ Voit auttaa uusien kielten kääntämisessä osoitteessa translate.revanced.app"
   <string name="revanced_settings_about_links_header">Viralliset linkit</string>
   <!-- NOTE: the about strings above are duplicated in the TikTok about screen code,
                  and changes made here must also be made there. -->
-  </patch>
-  <patch id="misc.gms.gmsCoreSupportResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.gms.gmsCoreSupportResourcePatch"> -->
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="gms_core_toast_not_installed_message">MicroG GmsCorea ei ole asennettu. Asenna se.</string>
   <string name="gms_core_dialog_title">Vaatii toimenpiteitä</string>
@@ -74,10 +74,10 @@ MicroG:n akun optimointien poistaminen käytöstä ei vaikuta akun käyttöön n
 
 Napauta jatka-painiketta ja salli optimoinnin muutokset."</string>
   <string name="gms_core_dialog_continue_text">Jatka</string>
-  </patch>
-  </app>
-  <app id="youtube">
-  <patch id="misc.settings.settingsPatch">
+  <!-- </patch> -->
+  <!-- </app> -->
+  <!-- <app id="youtube"> -->
+  <!-- <patch id="misc.settings.settingsPatch"> -->
   <string name="revanced_settings_screen_00_about_title">Tietoja</string>
   <string name="revanced_settings_screen_01_ads_title">Mainokset</string>
   <string name="revanced_settings_screen_02_alt_thumbnails_title">Vaihtoehtoiset pikkukuvat</string>
@@ -91,13 +91,13 @@ Napauta jatka-painiketta ja salli optimoinnin muutokset."</string>
   <string name="revanced_restore_old_settings_menus_title">Palauta vanhat asetusvalikot</string>
   <string name="revanced_restore_old_settings_menus_summary_on">Vanhat asetusvalikot näytetään</string>
   <string name="revanced_restore_old_settings_menus_summary_off">Vanhoja asetusvalikoita ei näytetä</string>
-  </patch>
-  <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.backgroundplayback.backgroundPlaybackPatch"> -->
   <string name="revanced_shorts_disable_background_playback_title">Poista Shortsien taustatoisto käytöstä</string>
   <string name="revanced_shorts_disable_background_playback_summary_on">Shortsien taustatoisto ei ole käytössä</string>
   <string name="revanced_shorts_disable_background_playback_summary_off">Shortsien taustatoisto on käytössä</string>
-  </patch>
-  <patch id="misc.debugging.enableDebuggingPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.debugging.enableDebuggingPatch"> -->
   <string name="revanced_debug_screen_title">Virheenkorjaus</string>
   <string name="revanced_debug_screen_summary">Ota tai poista virheenkorjausasetukset käytöstä</string>
   <string name="revanced_debug_title">Virheenkorjauksen kirjaaminen</string>
@@ -115,8 +115,8 @@ Napauta jatka-painiketta ja salli optimoinnin muutokset."</string>
   <string name="revanced_debug_toast_on_error_user_dialog_message">"Virheilmoitusten poistaminen käytöstä piilottaa kaikki ReVancedin virheilmoitukset.
 
 Et saa ilmoituksia odottamattomista tapahtumista."</string>
-  </patch>
-  <patch id="layout.hide.general.hideLayoutComponentsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.general.hideLayoutComponentsPatch"> -->
   <string name="revanced_hide_album_cards_title">Piilota albumikortit</string>
   <string name="revanced_hide_album_cards_summary_on">Albumikortit on piilotettu</string>
   <string name="revanced_hide_album_cards_summary_off">Albumikortit näytetään</string>
@@ -333,8 +333,8 @@ Rajoitukset
   <string name="revanced_hide_keyword_toast_invalid_conflicting">Avainsanalla on ristiriitaiset ilmoitukset: %s</string>
   <string name="revanced_hide_keyword_toast_invalid_length">Avainsana on liian lyhyt ja vaatii lainausmerkkejä: %s</string>
   <string name="revanced_hide_keyword_toast_invalid_broad">Avainsana piilottaa kaikki videot: %s</string>
-  </patch>
-  <patch id="ad.general.hideAdsResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="ad.general.hideAdsResourcePatch"> -->
   <string name="revanced_hide_general_ads_title">Piilota yleiset mainokset</string>
   <string name="revanced_hide_general_ads_summary_on">Yleiset mainokset on piilotettu</string>
   <string name="revanced_hide_general_ads_summary_off">Yleiset mainokset näytetään</string>
@@ -376,18 +376,18 @@ Tämä ominaisuus on käytettävissä vain vanhemmilla laitteilla"</string>
   <string name="revanced_hide_merchandise_banners_summary_off">Tuotebannerit näytetään</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_hide_fullscreen_ads_feature_not_available_toast">Koko näytön mainosten piilottaminen toimii vain vanhemmilla laitteilla</string>
-  </patch>
-  <patch id="ad.getpremium.hideGetPremiumPatch">
+  <!-- </patch> -->
+  <!-- <patch id="ad.getpremium.hideGetPremiumPatch"> -->
   <string name="revanced_hide_get_premium_title">Piilota YouTube Premium -mainokset</string>
   <string name="revanced_hide_get_premium_summary_on">YouTube Premium -mainokset videosoittimen alla on piilotettu</string>
   <string name="revanced_hide_get_premium_summary_off">YouTube Premium -mainokset videosoittimen alla näytetään</string>
-  </patch>
-  <patch id="ad.video.videoAdsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="ad.video.videoAdsPatch"> -->
   <string name="revanced_hide_video_ads_title">Piilota videomainokset</string>
   <string name="revanced_hide_video_ads_summary_on">Videomainokset on piilotettu</string>
   <string name="revanced_hide_video_ads_summary_off">Videomainokset näytetään</string>
-  </patch>
-  <patch id="interaction.copyvideourl.copyVideoUrlResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="interaction.copyvideourl.copyVideoUrlResourcePatch"> -->
   <string name="revanced_share_copy_url_success">URL-osoite kopioitiin leikepöydälle</string>
   <string name="revanced_share_copy_url_timestamp_success">Aikaleimattu URL-osoite kopioitiin</string>
   <string name="revanced_copy_video_url_title">Näytä videon URL-osoitteen kopiointipainike</string>
@@ -396,14 +396,14 @@ Tämä ominaisuus on käytettävissä vain vanhemmilla laitteilla"</string>
   <string name="revanced_copy_video_url_timestamp_title">Näytä videon aikaleimatun URL-osoitteen kopiointipainike</string>
   <string name="revanced_copy_video_url_timestamp_summary_on">Painike näytetään. Napauta kopioidaksesi videon URL-osoitteen aikaleimattuna. Napauta ja pidä pohjassa kopioidaksesi ilman aikaleimaa</string>
   <string name="revanced_copy_video_url_timestamp_summary_off">Painiketta ei näytetä</string>
-  </patch>
-  <patch id="interaction.dialog.removeViewerDiscretionDialogPatch">
+  <!-- </patch> -->
+  <!-- <patch id="interaction.dialog.removeViewerDiscretionDialogPatch"> -->
   <string name="revanced_remove_viewer_discretion_dialog_title">Poista katsojan harkinta -valintaikkuna</string>
   <string name="revanced_remove_viewer_discretion_dialog_summary_on">Valintaikkuna poistetaan</string>
   <string name="revanced_remove_viewer_discretion_dialog_summary_off">Valintaikkuna näytetään</string>
   <string name="revanced_remove_viewer_discretion_dialog_user_dialog_message">Tämä ei ohita ikärajoitusta. Se vain hyväksyy sen automaattisesti.</string>
-  </patch>
-  <patch id="interaction.downloads.downloadsResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="interaction.downloads.downloadsResourcePatch"> -->
   <string name="revanced_external_downloader_screen_title">Ulkoiset lataukset</string>
   <string name="revanced_external_downloader_screen_summary">Asetukset ulkoisen lataajan käyttämiselle</string>
   <string name="revanced_external_downloader_title">Näytä ulkoinen lataus -painike</string>
@@ -416,15 +416,15 @@ Tämä ominaisuus on käytettävissä vain vanhemmilla laitteilla"</string>
   <string name="revanced_external_downloader_name_title">Lataajan paketin nimi</string>
   <string name="revanced_external_downloader_name_summary">Asentamasi ulkoisen lataussovelluksen, kuten NewPipen tai Sealin, paketin nimi</string>
   <string name="revanced_external_downloader_not_installed_warning">%s ei ole asennettu. Asenna se.</string>
-  </patch>
-  <patch id="interaction.seekbar.disablePreciseSeekingGesturePatch">
+  <!-- </patch> -->
+  <!-- <patch id="interaction.seekbar.disablePreciseSeekingGesturePatch"> -->
   <string name="revanced_disable_precise_seeking_gesture_title">Poista tarkka hakuele käytöstä</string>
   <string name="revanced_disable_precise_seeking_gesture_summary_on">Ele ei ole käytössä</string>
   <string name="revanced_disable_precise_seeking_gesture_summary_off">Ele on käytössä</string>
-  </patch>
-  <patch id="interaction.seekbar.enableSeekbarTappingPatch">
-  </patch>
-  <patch id="interaction.swipecontrols.swipeControlsResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="interaction.seekbar.enableSeekbarTappingPatch"> -->
+  <!-- </patch> -->
+  <!-- <patch id="interaction.swipecontrols.swipeControlsResourcePatch"> -->
   <string name="revanced_swipe_brightness_title">Ota kirkkauden ele käyttöön</string>
   <string name="revanced_swipe_brightness_summary_on">"Koko näytön kirkkauden pyyhkäisy on käytössä
 
@@ -460,13 +460,13 @@ Säädä äänenvoimakkuutta pyyhkäisemällä pystysuoraan näytön oikealta pu
   <string name="revanced_swipe_change_video_title">Ota videon vaihto pyyhkäisemällä käyttöön</string>
   <string name="revanced_swipe_change_video_summary_on">Pyyhkäisemällä kokoruututilassa siirrytään seuraavaan/edelliseen videoon</string>
   <string name="revanced_swipe_change_video_summary_off">Pyyhkäisemällä kokoruututilassa ei siirrytä seuraavaan/edelliseen videoon</string>
-  </patch>
-  <patch id="layout.autocaptions.autoCaptionsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.autocaptions.autoCaptionsPatch"> -->
   <string name="revanced_auto_captions_title">Poista automaattiset tekstitykset käytöstä</string>
   <string name="revanced_auto_captions_summary_on">Automaattiset tekstitykset eivät ole käytössä</string>
   <string name="revanced_auto_captions_summary_off">Automaattiset tekstitykset ovat käytössä</string>
-  </patch>
-  <patch id="layout.buttons.action.hideButtonsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.buttons.action.hideButtonsPatch"> -->
   <string name="revanced_hide_buttons_screen_title">Toimintopainikkeet</string>
   <string name="revanced_hide_buttons_screen_summary">Piilota tai näytä painikkeet videoiden alla</string>
   <string name="revanced_disable_like_subscribe_glow_title">Poista Tykkää- ja Tilaa-painikkeiden hehku</string>
@@ -504,8 +504,8 @@ Säädä äänenvoimakkuutta pyyhkäisemällä pystysuoraan näytön oikealta pu
   <string name="revanced_hide_playlist_button_title">Piilota Tallenna soittolistalle</string>
   <string name="revanced_hide_playlist_button_summary_on">Tallenna soittolistalle -painike on piilotettu</string>
   <string name="revanced_hide_playlist_button_summary_off">Tallenna soittolistalle -painike näytetään</string>
-  </patch>
-  <patch id="layout.buttons.navigation.navigationButtonsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.buttons.navigation.navigationButtonsPatch"> -->
   <string name="revanced_navigation_buttons_screen_title">Navigointipainikkeet</string>
   <string name="revanced_navigation_buttons_screen_summary">Piilota tai muuta navigointipalkin painikkeita</string>
   <!-- 'Home' should be translated using the same localized wording YouTube displays for the tab. -->
@@ -548,8 +548,8 @@ Jos tämän asetuksen muuttaminen ei tule voimaan, kokeile vaihtaa Incognito-til
   <string name="revanced_disable_translucent_navigation_bar_dark_title">Poista tumma läpikuultava palkki käytöstä</string>
   <string name="revanced_disable_translucent_navigation_bar_dark_summary_on">Tumman tilan navigointipalkki on läpinäkymätön</string>
   <string name="revanced_disable_translucent_navigation_bar_dark_summary_off">Tumman tilan navigointipalkki on läpinäkymätön tai läpikuultava</string>
-  </patch>
-  <patch id="layout.hide.player.flyoutmenupanel.hidePlayerFlyoutMenuPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.player.flyoutmenupanel.hidePlayerFlyoutMenuPatch"> -->
   <string name="revanced_hide_player_flyout_title">Flyout-valikko</string>
   <string name="revanced_hide_player_flyout_summary">Piilota tai näytä soittimen flyout-valikon kohteita</string>
   <!-- 'Captions' should be translated using the same localized wording YouTube displays for the menu item. -->
@@ -603,8 +603,8 @@ Jos tämän asetuksen muuttaminen ei tule voimaan, kokeile vaihtaa Incognito-til
   <string name="revanced_hide_player_flyout_video_quality_footer_title">Piilota videolaatuvalikon alatunniste</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_on">Videolaatuvalikon alatunniste on piilotettu</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_off">Videolaatuvalikon alatunniste näytetään</string>
-  </patch>
-  <patch id="layout.buttons.overlay.hidePlayerOverlayButtonsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.buttons.overlay.hidePlayerOverlayButtonsPatch"> -->
   <string name="revanced_hide_player_previous_next_buttons_title">Piilota Edellinen ja Seuraava -painikkeeet</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_on">Painikkeet on piilotettu</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">Painikkeet näytetään</string>
@@ -618,36 +618,36 @@ Jos tämän asetuksen muuttaminen ei tule voimaan, kokeile vaihtaa Incognito-til
   <string name="revanced_hide_autoplay_button_title">Piilota Automaattinen toisto -painike</string>
   <string name="revanced_hide_autoplay_button_summary_on">Automaattinen toisto -painike on piilotettu</string>
   <string name="revanced_hide_autoplay_button_summary_off">Automaattinen toisto -painike näytetään</string>
-  </patch>
-  <patch id="layout.hide.endscreencards.hideEndscreenCardsResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.endscreencards.hideEndscreenCardsResourcePatch"> -->
   <string name="revanced_hide_endscreen_cards_title">Piilota loppunäytön kortit</string>
   <string name="revanced_hide_endscreen_cards_summary_on">Loppunäytön kortit on piilotettu</string>
   <string name="revanced_hide_endscreen_cards_summary_off">Loppunäytön kortit näytetään</string>
-  </patch>
-  <patch id="layout.hide.fullscreenambientmode.disableFullscreenAmbientModePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.fullscreenambientmode.disableFullscreenAmbientModePatch"> -->
   <string name="revanced_disable_fullscreen_ambient_mode_title">Poista Tunnelmavalaistus käytöstä kokoruututilassa</string>
   <string name="revanced_disable_fullscreen_ambient_mode_summary_on">Elokuvatila ei ole käytössä</string>
   <string name="revanced_disable_fullscreen_ambient_mode_summary_off">Elokuvatila on käytössä</string>
-  </patch>
-  <patch id="layout.hide.infocards.hideInfocardsResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.infocards.hideInfocardsResourcePatch"> -->
   <string name="revanced_hide_info_cards_title">Piilota tietokortit</string>
   <string name="revanced_hide_info_cards_summary_on">Tietokortit on piilotettu</string>
   <string name="revanced_hide_info_cards_summary_off">Tietokortit näytetään</string>
-  </patch>
-  <patch id="layout.hide.rollingnumber.disableRollingNumberAnimationPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.rollingnumber.disableRollingNumberAnimationPatch"> -->
   <string name="revanced_disable_rolling_number_animations_title">Poista vierivät numeroanimaatiot käytöstä</string>
   <string name="revanced_disable_rolling_number_animations_summary_on">Vieriviä numeroita ei animoida</string>
   <string name="revanced_disable_rolling_number_animations_summary_off">Vierivät numerot animoidaan</string>
-  </patch>
-  <patch id="layout.hide.seekbar.hideSeekbarPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.seekbar.hideSeekbarPatch"> -->
   <string name="revanced_hide_seekbar_title">Piilota liukusäädin videosoittimessa</string>
   <string name="revanced_hide_seekbar_summary_on">Videosoittimen liukusäädin on piilotettu</string>
   <string name="revanced_hide_seekbar_summary_off">Videosoittimen liukusäädin näytetään</string>
   <string name="revanced_hide_seekbar_thumbnail_title">Piilota liukusäädin videon pikkukuvissa</string>
   <string name="revanced_hide_seekbar_thumbnail_summary_on">Pikkukuvan liukusäädin on piilotettu</string>
   <string name="revanced_hide_seekbar_thumbnail_summary_off">Pikkukuvan liukusäädin näytetään</string>
-  </patch>
-  <patch id="layout.hide.shorts.hideShortsComponentsResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.shorts.hideShortsComponentsResourcePatch"> -->
   <string name="revanced_shorts_player_screen_title">Shorts-soitin</string>
   <string name="revanced_shorts_player_screen_summary">Piilota tai näytä Shorts-soittimen osia</string>
   <!-- 'home' should be translated using the same localized wording YouTube displays for the home tab. -->
@@ -749,43 +749,43 @@ Jos tämän asetuksen muuttaminen ei tule voimaan, kokeile vaihtaa Incognito-til
   <string name="revanced_hide_shorts_navigation_bar_title">Piilota navigointipalkki</string>
   <string name="revanced_hide_shorts_navigation_bar_summary_on">Navigointipalkki on piilotettu</string>
   <string name="revanced_hide_shorts_navigation_bar_summary_off">Navigointipalkki näytetään</string>
-  </patch>
-  <patch id="layout.hide.endscreensuggestion.hideEndScreenSuggestedVideoPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.endscreensuggestion.hideEndScreenSuggestedVideoPatch"> -->
   <string name="revanced_end_screen_suggested_video_title">Piilota loppunäytön ehdotettu video</string>
   <string name="revanced_end_screen_suggested_video_summary_on">"Loppunäytön ehdotettu video on piilotettu, kun automaattinen toisto ei ole käytössä
 
 Automaattista toistoa voidaan muuttaa YouTube-asetuksissa:
 Asetukset → Toisto → Toista seuraava video automaattisesti"</string>
   <string name="revanced_end_screen_suggested_video_summary_off">Loppunäytön ehdotettu video näytetään</string>
-  </patch>
-  <patch id="layout.hide.time.hideTimestampPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.time.hideTimestampPatch"> -->
   <string name="revanced_hide_timestamp_title">Piilota videon aikaleima</string>
   <string name="revanced_hide_timestamp_summary_on">Aikaleima on piilotettu</string>
   <string name="revanced_hide_timestamp_summary_off">Aikaleima näytetään</string>
-  </patch>
-  <patch id="layout.panels.popup.playerPopupPanelsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.panels.popup.playerPopupPanelsPatch"> -->
   <string name="revanced_hide_player_popup_panels_title">Piilota soittimen ponnahdusikkunat</string>
   <string name="revanced_hide_player_popup_panels_summary_on">Soittimen ponnahdusikkunat on piilotettu</string>
   <string name="revanced_hide_player_popup_panels_summary_off">Soittimen ponnahdusikkunat näytetään</string>
-  </patch>
-  <patch id="layout.player.fullscreen.exitFullscreenPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.player.fullscreen.exitFullscreenPatch"> -->
   <string name="revanced_exit_fullscreen_title">Poistu kokoruututilasta videon lopussa</string>
   <string name="revanced_exit_fullscreen_entry_1">Pois käytöstä</string>
   <string name="revanced_exit_fullscreen_entry_2">Pysty</string>
   <string name="revanced_exit_fullscreen_entry_3">Vaaka</string>
   <string name="revanced_exit_fullscreen_entry_4">Pysty ja vaaka</string>
-  </patch>
-  <patch id="layout.player.fullscreen.openVideosFullscreen">
+  <!-- </patch> -->
+  <!-- <patch id="layout.player.fullscreen.openVideosFullscreen"> -->
   <string name="revanced_open_videos_fullscreen_portrait_title">Avaa videot koko näytöllä pystyasennossa</string>
   <string name="revanced_open_videos_fullscreen_portrait_summary_on">Videot avataan koko näytöllä</string>
   <string name="revanced_open_videos_fullscreen_portrait_summary_off">Videoita ei avata koko näytöllä</string>
-  </patch>
-  <patch id="layout.player.overlay.customPlayerOverlayOpacityResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.player.overlay.customPlayerOverlayOpacityResourcePatch"> -->
   <string name="revanced_player_overlay_opacity_title">Soittimen peittokuvan läpinäkymättömyys</string>
   <string name="revanced_player_overlay_opacity_summary">Läpinäkymättömyysarvo välillä 0–100, jossa 0 on läpinäkyvä</string>
   <string name="revanced_player_overlay_opacity_invalid_toast">Soittimen peittokuvan läpinäkymättömyyden on oltava välillä 0–100</string>
-  </patch>
-  <patch id="layout.returnyoutubedislike.returnYouTubeDislikePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.returnyoutubedislike.returnYouTubeDislikePatch"> -->
   <!-- Toast shown if network connection times out. Translations of this should not be longer than the original English or the text can be clipped and not entirely shown. -->
   <string name="revanced_ryd_failure_connection_timeout">Ei-tykkäykset eivät ole tilapäisesti käytettävissä</string>
   <string name="revanced_ryd_failure_connection_status_code">Ei-tykkäykset eivät ole saatavilla (tila %d)</string>
@@ -834,13 +834,13 @@ Rajoitus: Ei-tykkäykset eivät välttämättä näy incognito-tilassa"</string>
   <string name="revanced_ryd_statistics_getNumberOfRateLimitRequestsEncountered_zero_summary">Asiakasmäärän rajoja ei havaittu</string>
   <string name="revanced_ryd_statistics_getNumberOfRateLimitRequestsEncountered_non_zero_summary">Asiakkaan hintaraja kohdistettu %d kertaa</string>
   <string name="revanced_ryd_statistics_millisecond_text">%d millisekuntia</string>
-  </patch>
-  <patch id="layout.searchbar.wideSearchbarPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.searchbar.wideSearchbarPatch"> -->
   <string name="revanced_wide_searchbar_title">Ota leveä hakupalkki käyttöön</string>
   <string name="revanced_wide_searchbar_summary_on">Leveä hakupalkki on käytössä</string>
   <string name="revanced_wide_searchbar_summary_off">Leveä hakupalkki ei ole käytössä</string>
-  </patch>
-  <patch id="layout.seekbar.seekbarThumbnailsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.seekbar.seekbarThumbnailsPatch"> -->
   <string name="revanced_seekbar_thumbnails_high_quality_title">Ota korkealaatuiset pikkukuvat käyttöön</string>
   <string name="revanced_seekbar_thumbnails_high_quality_summary_on">Liukusäätimen pikkukuvat ovat korkealaatuisia</string>
   <string name="revanced_seekbar_thumbnails_high_quality_summary_off">Liukusäätimen pikkukuvat ovat keskilaatuisia</string>
@@ -854,8 +854,8 @@ Tämä ominaisuus toimii parhaiten, kun videon laatu on 720p tai alhaisempi ja k
   <string name="revanced_restore_old_seekbar_thumbnails_title">Palauta vanhat liukusäätimen pikkukuvat</string>
   <string name="revanced_restore_old_seekbar_thumbnails_summary_on">Liukusäätimen pikkukuvat näkyvät liukusäätimen yläpuolella</string>
   <string name="revanced_restore_old_seekbar_thumbnails_summary_off">Liukusäätimen pikkukuvat näkyvät kokoruututilassa</string>
-  </patch>
-  <patch id="layout.sponsorblock.sponsorBlockResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.sponsorblock.sponsorBlockResourcePatch"> -->
   <string name="revanced_sb_enable_sb">Ota SponsorBlock käyttöön</string>
   <string name="revanced_sb_enable_sb_sum">SponsorBlock on joukkoistettu järjestelmä, jolla voidaan ohittaa YouTube-videoiden ärsyttäviä osia</string>
   <string name="revanced_sb_appearance_category">Ulkoasu</string>
@@ -1053,8 +1053,8 @@ Oletko valmis lähettämään?"</string>
   <string name="revanced_sb_reset">Nollaa</string>
   <string name="revanced_sb_about">Tietoja</string>
   <string name="revanced_sb_about_api_sum">Tiedot tarjoaa SponsorBlock API. Napauta tätä saadaksesi lisätietoja ja nähdäksesi lataukset muille alustoille</string>
-  </patch>
-  <patch id="layout.formfactor.changeFormFactorPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.formfactor.changeFormFactorPatch"> -->
   <string name="revanced_change_form_factor_title">Ulkoasun asettelu</string>
   <string name="revanced_change_form_factor_entry_1">Oletus</string>
   <string name="revanced_change_form_factor_entry_2">Puhelin</string>
@@ -1068,8 +1068,8 @@ Tabletti-asettelu
 Ajoneuvo-asettelu
 • Shortsit avataan tavallisessa soittimessa
 • Syöte on järjestetty aiheiden ja kanavien mukaan"</string>
-  </patch>
-  <patch id="layout.spoofappversion.spoofAppVersionPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.spoofappversion.spoofAppVersionPatch"> -->
   <string name="revanced_spoof_app_version_title">Naamioi sovellusversio</string>
   <string name="revanced_spoof_app_version_summary_on">Versio on naamioitu</string>
   <string name="revanced_spoof_app_version_summary_off">Versiota ei ole naamioitu</string>
@@ -1083,8 +1083,8 @@ Jos tämä poistetaan myöhemmin käytöstä, on suositeltavaa tyhjentää sovel
   <string name="revanced_spoof_app_version_target_title">Naamioitava kohdeversio</string>
   <string name="revanced_spoof_app_version_target_entry_1">19.35.36 - Palauta vanhat Shorts-soittimen kuvakkeet</string>
   <string name="revanced_spoof_app_version_target_entry_2">19.01.34 - Palauta vanhat navigointikuvakkeet</string>
-  </patch>
-  <patch id="layout.startpage.changeStartPagePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.startpage.changeStartPagePatch"> -->
   <string name="revanced_change_start_page_title">Aseta aloitussivu</string>
   <string name="revanced_change_start_page_entry_default">Oletus</string>
   <string name="revanced_change_start_page_entry_all_subscriptions">Kaikki tilaukset</string>
@@ -1110,27 +1110,27 @@ Jos tämä poistetaan myöhemmin käytöstä, on suositeltavaa tyhjentää sovel
   <string name="revanced_change_start_page_entry_virtual_reality">Virtuaalitodellisuus</string>
   <string name="revanced_change_start_page_entry_watch_later">Katso myöhemmin</string>
   <string name="revanced_change_start_page_entry_your_clips">Omat klipit</string>
-  </patch>
-  <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch"> -->
   <string name="revanced_disable_resuming_shorts_player_title">Poista Shorts-soittimen jatkaminen käytöstä</string>
   <string name="revanced_disable_resuming_shorts_player_summary_on">Shorts-soitin ei jatka sovelluksen käynnistyessä</string>
   <string name="revanced_disable_resuming_shorts_player_summary_off">Shorts-soitin jatkaa sovelluksen käynnistyessä</string>
-  </patch>
-  <patch id="layout.shortsplayer.shortsPlayerTypePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.shortsplayer.shortsPlayerTypePatch"> -->
   <string name="revanced_shorts_player_type_title">Shortsien avaustapa</string>
   <string name="revanced_shorts_player_type_shorts">Shorts-soitin</string>
   <string name="revanced_shorts_player_type_regular_player">Tavallinen soitin</string>
   <string name="revanced_shorts_player_type_regular_player_fullscreen">Tavallinen soitin kokoruututilassa</string>
-  </patch>
-  <patch id="layout.shortsautoplay.shortsAutoplayPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.shortsautoplay.shortsAutoplayPatch"> -->
   <string name="revanced_shorts_autoplay_title">Toista Shortsit automaattisesti</string>
   <string name="revanced_shorts_autoplay_summary_on">Shortsit toistetaan automaattisesti</string>
   <string name="revanced_shorts_autoplay_summary_off">Shortsit toistuvat uudelleen</string>
   <string name="revanced_shorts_autoplay_background_title">Shortsien automaattinen toisto taustalla</string>
   <string name="revanced_shorts_autoplay_background_summary_on">Shortsit toistetaan automaattisesti taustalla</string>
   <string name="revanced_shorts_autoplay_background_summary_off">Shortsit toistuvat uudelleen taustalla</string>
-  </patch>
-  <patch id="layout.miniplayer.miniplayerPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.miniplayer.miniplayerPatch"> -->
   <string name="revanced_miniplayer_screen_title">Minisoitin</string>
   <string name="revanced_miniplayer_screen_summary">Muuta sovelluksen sisäisen pienennetyn soittimen tyyliä</string>
   <string name="revanced_miniplayer_type_title">Minisoittimen tyyppi</string>
@@ -1180,8 +1180,8 @@ Pyyhkäise laajentaaksesi tai sulkeaksesi"</string>
   <string name="revanced_miniplayer_opacity_title">Peittokuvan läpinäkymättömyys</string>
   <string name="revanced_miniplayer_opacity_summary">Läpinäkymättömyysarvo välillä 0–100, jossa 0 on läpinäkyvä</string>
   <string name="revanced_miniplayer_opacity_invalid_toast">Minisoittimen peittokuvan läpinäkymättömyyden on oltava välillä 0–100</string>
-  </patch>
-  <patch id="layout.theme.themePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.theme.themePatch"> -->
   <string name="revanced_gradient_loading_screen_title">Ota liukuvärillinen latausruutu käyttöön</string>
   <string name="revanced_gradient_loading_screen_summary_on">Latausruudulla on liukuvärillinen tausta</string>
   <string name="revanced_gradient_loading_screen_summary_off">Latausruudulla on yksivärinen tausta</string>
@@ -1193,15 +1193,15 @@ Pyyhkäise laajentaaksesi tai sulkeaksesi"</string>
   <string name="revanced_seekbar_custom_color_accent_title">Oma liukusäätimen korostusväri</string>
   <string name="revanced_seekbar_custom_color_accent_summary">Liukusäätimen korostusväri</string>
   <string name="revanced_seekbar_custom_color_invalid">Virheellinen liukusäätimen väriarvo</string>
-  </patch>
-  <patch id="layout.thumbnails.bypassImageRegionRestrictionsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.thumbnails.bypassImageRegionRestrictionsPatch"> -->
   <string name="revanced_bypass_image_region_restrictions_title">Ohita kuvien alueelliset rajoitukset</string>
   <string name="revanced_bypass_image_region_restrictions_summary_on">Käyttämällä kuvan isäntä yt4.ggpht.com</string>
   <string name="revanced_bypass_image_region_restrictions_summary_off">"Käytetään alkuperäistä kuvien isäntää
 
 Tämä voi korjata puuttuvat kuvat, jotka on estetty tietyillä alueilla"</string>
-  </patch>
-  <patch id="layout.thumbnails.alternativeThumbnailsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.thumbnails.alternativeThumbnailsPatch"> -->
   <!-- 'Home' should be translated using the same localized wording YouTube displays for the home tab. -->
   <string name="revanced_alt_thumbnail_home_title">Koti-välilehti</string>
   <!-- 'Subscription' should be translated using the same localized wording YouTube displays for the subscription tab. -->
@@ -1236,26 +1236,26 @@ Napauta tästä saadaksesi lisätietoja DeArrowista"</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_alt_thumbnail_dearrow_error">DeArrow ei ole tilapäisesti käytettävissä (tila: %s)</string>
   <string name="revanced_alt_thumbnail_dearrow_error_generic">DeArrow ei ole tilapäisesti käytettävissä</string>
-  </patch>
-  <patch id="misc.announcements.announcementsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.announcements.announcementsPatch"> -->
   <string name="revanced_announcements_title">Näytä ReVanced-tiedotukset</string>
   <string name="revanced_announcements_summary_on">Tiedotukset näytetään käynnistettäessä</string>
   <string name="revanced_announcements_summary_off">Tiedotuksia ei näytetä käynnistettäessä</string>
   <string name="revanced_announcements_enabled_summary">Näytä tiedotukset käynnistettäessä</string>
   <string name="revanced_announcements_connection_failed">Yhteyden muodostaminen tietodusten tarjoajaan epäonnistui</string>
   <string name="revanced_announcements_dialog_dismiss">Hylkää</string>
-  </patch>
-  <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch"> -->
   <string name="revanced_check_watch_history_domain_name_dialog_title">Varoitus</string>
   <string name="revanced_check_watch_history_domain_name_dialog_message">Kellon historiaa ei tallenneta.&lt;br&gt;&lt;br&gt;Tämä todennäköisesti johtuu DNS mainosten estäjä tai verkkovälityspalvelin.&lt;br&gt;&lt;br&gt;Korjataksesi tämän, valkoiselle listalle &lt;b&gt;s.youtube.com&lt;/b&gt; tai poistaaksesi kaikki DNS-estäjät ja -profiilit.</string>
   <string name="revanced_check_watch_history_domain_name_dialog_ignore">Älä näytä uudelleen</string>
-  </patch>
-  <patch id="misc.autorepeat.autoRepeatPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.autorepeat.autoRepeatPatch"> -->
   <string name="revanced_auto_repeat_title">Ota automaattinen toisto käyttöön</string>
   <string name="revanced_auto_repeat_summary_on">Automaattinen toisto on käytössä</string>
   <string name="revanced_auto_repeat_summary_off">Automaattinen toisto ei ole käytössä</string>
-  </patch>
-  <patch id="misc.dimensions.spoof.spoofDeviceDimensionsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.dimensions.spoof.spoofDeviceDimensionsPatch"> -->
   <string name="revanced_spoof_device_dimensions_title">Naamioi laitteen mitat</string>
   <string name="revanced_spoof_device_dimensions_summary_on">"Laitteen mitat naamioidaan
 
@@ -1264,39 +1264,39 @@ Korkealaatuisemmat videot saattavat avautua, mutta videotoisto voi tökkiä, aku
 
 Tämä voi avata korkealaatuisemmat videot"</string>
   <string name="revanced_spoof_device_dimensions_user_dialog_message">Tämän käyttöönotto voi aiheuttaa videotoiston tökkimistä, huonompaa akun kestoa ja tuntemattomia sivuvaikutuksia.</string>
-  </patch>
-  <patch id="misc.gms.gmsCoreSupportResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.gms.gmsCoreSupportResourcePatch"> -->
   <string name="microg_settings_title">GmsCore-asetukset</string>
   <string name="microg_settings_summary">GmsCoren asetukset</string>
-  </patch>
-  <patch id="misc.links.bypassURLRedirectsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.links.bypassURLRedirectsPatch"> -->
   <string name="revanced_bypass_url_redirects_title">Ohita URL-osoitteen uudelleenohjaukset</string>
   <string name="revanced_bypass_url_redirects_summary_on">URL-osoitteen uudelleenohjaukset ohitetaan</string>
   <string name="revanced_bypass_url_redirects_summary_off">URL-osoitteen uudelleenohjauksia ei ohiteta</string>
-  </patch>
-  <patch id="misc.links.openLinksExternallyPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.links.openLinksExternallyPatch"> -->
   <string name="revanced_external_browser_title">Avaa linkit selaimessa</string>
   <string name="revanced_external_browser_summary_on">Linkit avataan ulkoisessa selaimessa</string>
   <string name="revanced_external_browser_summary_off">Linkit avataan sovelluksen sisäisessä selaimessa</string>
-  </patch>
-  <patch id="misc.privacy.removeTrackingQueryParameterPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.privacy.removeTrackingQueryParameterPatch"> -->
   <string name="revanced_remove_tracking_query_parameter_title">Poista seurantakyselyparametrit</string>
   <string name="revanced_remove_tracking_query_parameter_summary_on">Seurantakyselyparametrit poistetaan linkeistä</string>
   <string name="revanced_remove_tracking_query_parameter_summary_off">Seurantakyselyparametrejä ei poisteta linkeistä</string>
-  </patch>
-  <patch id="misc.zoomhaptics.zoomHapticsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.zoomhaptics.zoomHapticsPatch"> -->
   <string name="revanced_disable_zoom_haptics_title">Poista zoomaushaptiikka käytöstä</string>
   <string name="revanced_disable_zoom_haptics_summary_on">Haptiikka ei ole käytössä</string>
   <string name="revanced_disable_zoom_haptics_summary_off">Haptiikka on käytössä</string>
-  </patch>
-  <patch id="video.audio.forceOriginalAudioPatch">
+  <!-- </patch> -->
+  <!-- <patch id="video.audio.forceOriginalAudioPatch"> -->
   <string name="revanced_force_original_audio_title">Pakota alkuperäinen äänen kieli</string>
   <string name="revanced_force_original_audio_summary_on">Käytetään alkuperäistä ääntä</string>
   <string name="revanced_force_original_audio_summary_off">Käytetään oletusääntä</string>
   <!-- 'Spoof video streams' should be the same translation used for revanced_spoof_video_streams_screen_title -->
   <string name="revanced_force_original_audio_not_available">Voit käyttää tätä ominaisuutta muuttamalla \"Naamioi videovirrat\" iOS TV:ksi</string>
-  </patch>
-  <patch id="video.quality.rememberVideoQualityPatch">
+  <!-- </patch> -->
+  <!-- <patch id="video.quality.rememberVideoQualityPatch"> -->
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
   <string name="revanced_video_quality_default_entry_1">Automaattinen</string>
   <string name="revanced_remember_video_quality_last_selected_title">Muista videolaadun muutokset</string>
@@ -1313,13 +1313,13 @@ Tämä voi avata korkealaatuisemmat videot"</string>
   <string name="revanced_remember_video_quality_wifi">wifi</string>
   <string name="revanced_remember_video_quality_toast">%1$s-oletuslaatu muutettiin: %2$s</string>
   <string name="revanced_remember_video_quality_toast_shorts">Shortsien %1$s-laatu muutettiin: %2$s</string>
-  </patch>
-  <patch id="video.speed.button.playbackSpeedButtonPatch">
+  <!-- </patch> -->
+  <!-- <patch id="video.speed.button.playbackSpeedButtonPatch"> -->
   <string name="revanced_playback_speed_dialog_button_title">Näytä nopeuden valintapainike</string>
   <string name="revanced_playback_speed_dialog_button_summary_on">Painike näytetään</string>
   <string name="revanced_playback_speed_dialog_button_summary_off">Painiketta ei näytetä</string>
-  </patch>
-  <patch id="video.speed.custom.customPlaybackSpeedPatch">
+  <!-- </patch> -->
+  <!-- <patch id="video.speed.custom.customPlaybackSpeedPatch"> -->
   <string name="revanced_custom_speed_menu_title">Oma toistonopeusvalikko</string>
   <string name="revanced_custom_speed_menu_summary_on">Oma nopeusvalikko näytetään</string>
   <string name="revanced_custom_speed_menu_summary_off">Omaa nopeusvalikkoa ei näytetä</string>
@@ -1330,30 +1330,30 @@ Tämä voi avata korkealaatuisemmat videot"</string>
   <string name="revanced_custom_playback_speeds_auto">Automaattinen</string>
   <string name="revanced_speed_tap_and_hold_title">Oma napauta ja pidä pohjassa -nopeus</string>
   <string name="revanced_speed_tap_and_hold_summary">Toistonopeus 0–8 välillä</string>
-  </patch>
-  <patch id="video.speed.remember.rememberPlaybackSpeedPatch">
+  <!-- </patch> -->
+  <!-- <patch id="video.speed.remember.rememberPlaybackSpeedPatch"> -->
   <string name="revanced_remember_playback_speed_last_selected_title">Muista toistonopeuden muutokset</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_on">Toistonopeuden muutokset koskevat kaikkia videoita</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_off">Toistonopeuden muutokset koskevat vain nykyistä videota</string>
   <string name="revanced_playback_speed_default_title">Toiston oletusnopeus</string>
   <string name="revanced_remember_playback_speed_toast">Toiston oletusnopeus muutettiin: %s</string>
-  </patch>
-  <patch id="video.hdr.disableHdrPatch">
+  <!-- </patch> -->
+  <!-- <patch id="video.hdr.disableHdrPatch"> -->
   <string name="revanced_disable_hdr_video_title">Poista HDR-video käytöstä</string>
   <string name="revanced_disable_hdr_video_summary_on">HDR-video ei ole käytössä</string>
   <string name="revanced_disable_hdr_video_summary_off">HDR-video on käytössä</string>
-  </patch>
-  <patch id="video.quality.advancedVideoQualityMenuPatch">
+  <!-- </patch> -->
+  <!-- <patch id="video.quality.advancedVideoQualityMenuPatch"> -->
   <string name="revanced_advanced_video_quality_menu_title">Näytä edistynyt videolaatuvalikko</string>
   <string name="revanced_advanced_video_quality_menu_summary_on">Edistynyt videolaatuvalikko näytetään</string>
   <string name="revanced_advanced_video_quality_menu_summary_off">Edistynyttä videolaatuvalikkoa ei näytetä</string>
-  </patch>
-  <patch id="interaction.seekbar.enableSlideToSeekPatch">
+  <!-- </patch> -->
+  <!-- <patch id="interaction.seekbar.enableSlideToSeekPatch"> -->
   <string name="revanced_slide_to_seek_title">Ota kelaus liu\'uttamalla käyttöön</string>
   <string name="revanced_slide_to_seek_summary_on">Kelaus liu\'uttamalla on käytössä</string>
   <string name="revanced_slide_to_seek_summary_off">Kelaus liu\'uttamalla ei ole käytössä</string>
-  </patch>
-  <patch id="misc.fix.playback.spoofVideoStreamsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.fix.playback.spoofVideoStreamsPatch"> -->
   <string name="revanced_spoof_video_streams_screen_title">Naamioi videovirrat</string>
   <string name="revanced_spoof_video_streams_screen_summary">Naamioi asiakasohjelman videovirrat toisto-ongelmien estämiseksi</string>
   <string name="revanced_spoof_video_streams_title">Naamioi videovirrat</string>
@@ -1383,46 +1383,46 @@ AVC:n maksimiresoluutio on 1080p, Opus-äänikoodekki ei ole käytettävissä, j
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Asiakastyyppi näytetään teknisissä tiedoissa</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Asiakastyyppi on piilotettu teknisissä tiedoissa</string>
   <string name="revanced_spoof_video_streams_language_title">VR-äänivirran oletuskieli</string>
-  </patch>
-  </app>
-  <app id="twitch">
-  <patch id="ad.audio.audioAdsPatch">
+  <!-- </patch> -->
+  <!-- </app> -->
+  <!-- <app id="twitch"> -->
+  <!-- <patch id="ad.audio.audioAdsPatch"> -->
   <string name="revanced_block_audio_ads_title">Estä äänimainokset</string>
   <string name="revanced_block_audio_ads_summary_on">Äänimainokset estetään</string>
   <string name="revanced_block_audio_ads_summary_off">Äänimainoksia ei estetä</string>
-  </patch>
-  <patch id="ad.embedded.embeddedAdsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="ad.embedded.embeddedAdsPatch"> -->
   <string name="revanced_embedded_ads_service_unavailable">%s ei ole käytettävissä, mainoksia saattaa näkyä. Kokeile muuttaa mainosten estopalvelua asetuksissa.</string>
   <string name="revanced_embedded_ads_service_failed">%s palautti virheen, mainoksia saattaa näkyä. Kokeile muuttaa mainosten estopalvelua asetuksissa.</string>
   <string name="revanced_block_embedded_ads_title">Estä upotetut videomainokset</string>
   <string name="revanced_block_embedded_ads_entry_1">Pois käytöstä</string>
   <string name="revanced_block_embedded_ads_entry_2">Luminous-välityspalvelin</string>
   <string name="revanced_block_embedded_ads_entry_3">PurpleAdBlock-välityspalvelin</string>
-  </patch>
-  <patch id="ad.video.videoAdsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="ad.video.videoAdsPatch"> -->
   <string name="revanced_block_video_ads_title">Estä videomainokset</string>
   <string name="revanced_block_video_ads_summary_on">Videomainokset estetään</string>
   <string name="revanced_block_video_ads_summary_off">Videomainoksia ei estetä</string>
-  </patch>
-  <patch id="chat.antidelete.showDeletedMessagesPatch">
+  <!-- </patch> -->
+  <!-- <patch id="chat.antidelete.showDeletedMessagesPatch"> -->
   <string name="revanced_deleted_msg">viesti poistettu</string>
   <string name="revanced_show_deleted_messages_title">Näytä poistetut viestit</string>
   <string name="revanced_show_deleted_messages_entry_1">Älä näytä poistettuja viestejä</string>
   <string name="revanced_show_deleted_messages_entry_2">Piilota poistetut viestit spoilereilla</string>
   <string name="revanced_show_deleted_messages_entry_3">Näytä poistetut viestit yliviivattuna tekstinä</string>
-  </patch>
-  <patch id="chat.autoclaim.autoClaimChannelPointsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="chat.autoclaim.autoClaimChannelPointsPatch"> -->
   <string name="revanced_auto_claim_channel_points_title">Lunasta kanavapisteet automaattisesti</string>
   <string name="revanced_auto_claim_channel_points_summary_on">Kanavapisteet lunastetaan automaattisesti</string>
   <string name="revanced_auto_claim_channel_points_summary_off">Kanavapisteitä ei lunasteta automaattisesti</string>
-  </patch>
-  <patch id="debug.debugModePatch">
+  <!-- </patch> -->
+  <!-- <patch id="debug.debugModePatch"> -->
   <!-- Twitch specific internal debug mode, and not the same as 'revanced_debug_title' -->
   <string name="revanced_twitch_debug_mode_title">Ota Twitch-virheenkorjaustila käyttöön</string>
   <string name="revanced_twitch_debug_mode_summary_on">Twitch-virheenkorjaustila on käytössä (ei suositeltu)</string>
   <string name="revanced_twitch_debug_mode_summary_off">Twitch-virheenkorjaustila ei ole käytössä</string>
-  </patch>
-  <patch id="misc.settings.settingsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.settings.settingsPatch"> -->
   <string name="revanced_settings">ReVanced-asetukset</string>
   <string name="revanced_about_title">Tietoja</string>
   <string name="revanced_about_summary">Tietoja ReVancedista</string>
@@ -1439,6 +1439,6 @@ AVC:n maksimiresoluutio on 1080p, Opus-äänikoodekki ei ole käytettävissä, j
   <string name="revanced_twitch_debug_title">Virheenkorjauksen kirjaaminen</string>
   <string name="revanced_twitch_debug_summary_on">Virheenkorjauslokit ovat käytössä</string>
   <string name="revanced_twitch_debug_summary_off">Virheenkorjauslokit eivät ole käytössä</string>
-  </patch>
-  </app>
+  <!-- </patch> -->
+  <!-- </app> -->
 </resources>

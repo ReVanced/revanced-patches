@@ -20,8 +20,8 @@ Second \"item\" text"</string>
 
 -->
 <resources>
-  <app id="shared">
-  <patch id="misc.checks.checkEnvironmentPatch">
+  <!-- <app id="shared"> -->
+  <!-- <patch id="misc.checks.checkEnvironmentPatch"> -->
   <string name="revanced_check_environment_failed_title">Patikrinimai nepavyko</string>
   <string name="revanced_check_environment_dialog_open_official_source_button">Atidaryti oficialią svetainę</string>
   <string name="revanced_check_environment_dialog_ignore_button">Ignoruoti</string>
@@ -31,8 +31,8 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time">Pataisyta daugiau nei prieš 10 minučių</string>
   <string name="revanced_check_environment_not_near_patch_time_days">Pataisyta prieš %s dienas</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">APK sukurties data yra sugadinta</string>
-  </patch>
-  <patch id="misc.settings.settingsResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.settings.settingsResourcePatch"> -->
   <string name="revanced_settings_submenu_title">Nustatymai</string>
   <string name="revanced_settings_confirm_user_dialog_title">Ar norite tęsti?</string>
   <string name="revanced_settings_reset">Atstatyti</string>
@@ -57,8 +57,8 @@ Norėdami išversti naujomis kalbomis apsilankykite translate.revanced.app"</str
   <string name="revanced_settings_about_links_header">Oficialios nuorodos</string>
   <!-- NOTE: the about strings above are duplicated in the TikTok about screen code,
                  and changes made here must also be made there. -->
-  </patch>
-  <patch id="misc.gms.gmsCoreSupportResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.gms.gmsCoreSupportResourcePatch"> -->
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="gms_core_toast_not_installed_message">MicroG GmsCore nėra įdiegta. Įdiekite.</string>
   <string name="gms_core_dialog_title">Reikalingas veiksmas</string>
@@ -74,10 +74,10 @@ Išjungus „MicroG“ akumuliatoriaus optimizavimą, akumuliatoriaus naudojimas
 
 Palieskite mygtuką Tęsti ir leiskite optimizavimo pakeitimus."</string>
   <string name="gms_core_dialog_continue_text">Tęsti</string>
-  </patch>
-  </app>
-  <app id="youtube">
-  <patch id="misc.settings.settingsPatch">
+  <!-- </patch> -->
+  <!-- </app> -->
+  <!-- <app id="youtube"> -->
+  <!-- <patch id="misc.settings.settingsPatch"> -->
   <string name="revanced_settings_screen_00_about_title">Apie</string>
   <string name="revanced_settings_screen_01_ads_title">Skelbimai</string>
   <string name="revanced_settings_screen_02_alt_thumbnails_title">Alternatyvūs miniatiūrai</string>
@@ -91,13 +91,13 @@ Palieskite mygtuką Tęsti ir leiskite optimizavimo pakeitimus."</string>
   <string name="revanced_restore_old_settings_menus_title">Atkurti senus nustatymų meniu</string>
   <string name="revanced_restore_old_settings_menus_summary_on">Rodomi seni nustatymų meniu</string>
   <string name="revanced_restore_old_settings_menus_summary_off">Seni nustatymų meniu nerodomi</string>
-  </patch>
-  <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.backgroundplayback.backgroundPlaybackPatch"> -->
   <string name="revanced_shorts_disable_background_playback_title">Išjungti \"Shorts\" foninį atkūrimą</string>
   <string name="revanced_shorts_disable_background_playback_summary_on">\"Shorts\" foninis atkūrimas yra išjungtas</string>
   <string name="revanced_shorts_disable_background_playback_summary_off">\"Shorts\" foninis atkūrimas yra įjungtas</string>
-  </patch>
-  <patch id="misc.debugging.enableDebuggingPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.debugging.enableDebuggingPatch"> -->
   <string name="revanced_debug_screen_title">Debugavimas</string>
   <string name="revanced_debug_screen_summary">Įgalinti arba išjungti derinimo parinktis</string>
   <string name="revanced_debug_title">Debugavimo žurnalas</string>
@@ -115,8 +115,8 @@ Palieskite mygtuką Tęsti ir leiskite optimizavimo pakeitimus."</string>
   <string name="revanced_debug_toast_on_error_user_dialog_message">"Klaidos isjungimas paslepia visus „ReVanced“ klaidu pranesimus.
 
 Apie netikėtus įvykius nebus pranešta."</string>
-  </patch>
-  <patch id="layout.hide.general.hideLayoutComponentsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.general.hideLayoutComponentsPatch"> -->
   <string name="revanced_hide_album_cards_title">Slėpti albumo korteles</string>
   <string name="revanced_hide_album_cards_summary_on">Albumo kortelės yra paslėptos</string>
   <string name="revanced_hide_album_cards_summary_off">Albumo kortelės yra rodomos</string>
@@ -340,8 +340,8 @@ Apribojimai
   <string name="revanced_hide_keyword_toast_invalid_conflicting">Raktiniam žodžiui yra prieštaraujančios deklaracijos: %s</string>
   <string name="revanced_hide_keyword_toast_invalid_length">Raktiniam žodžiui per trumpas ilgis ir reikia kabučių: %s</string>
   <string name="revanced_hide_keyword_toast_invalid_broad">Raktiniu žodžiu bus paslėpti visi vaizdo įrašai: %s</string>
-  </patch>
-  <patch id="ad.general.hideAdsResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="ad.general.hideAdsResourcePatch"> -->
   <string name="revanced_hide_general_ads_title">Slėpti bendras reklamas</string>
   <string name="revanced_hide_general_ads_summary_on">Bendros reklamos yra paslėptos</string>
   <string name="revanced_hide_general_ads_summary_off">Bendros reklamos yra rodomos</string>
@@ -383,18 +383,18 @@ Apribojimai
   <string name="revanced_hide_merchandise_banners_summary_off">Prekių baneriai yra rodomi</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_hide_fullscreen_ads_feature_not_available_toast">Slėpti viso ekrano reklamas veikia tik senesniuose įrenginiuose</string>
-  </patch>
-  <patch id="ad.getpremium.hideGetPremiumPatch">
+  <!-- </patch> -->
+  <!-- <patch id="ad.getpremium.hideGetPremiumPatch"> -->
   <string name="revanced_hide_get_premium_title">Slėpti YouTube Premium reklamą</string>
   <string name="revanced_hide_get_premium_summary_on">YouTube Premium reklama po vaizdo įrašo grotuvu yra paslėpta</string>
   <string name="revanced_hide_get_premium_summary_off">YouTube Premium reklama po vaizdo įrašo grotuvu yra rodoma</string>
-  </patch>
-  <patch id="ad.video.videoAdsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="ad.video.videoAdsPatch"> -->
   <string name="revanced_hide_video_ads_title">Slėpti vaizdo įrašų reklamas</string>
   <string name="revanced_hide_video_ads_summary_on">Vaizdo įrašų reklamos yra paslėptos</string>
   <string name="revanced_hide_video_ads_summary_off">Vaizdo įrašų reklamos yra rodomos</string>
-  </patch>
-  <patch id="interaction.copyvideourl.copyVideoUrlResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="interaction.copyvideourl.copyVideoUrlResourcePatch"> -->
   <string name="revanced_share_copy_url_success">URL nukopijuotas į iškarpinę</string>
   <string name="revanced_share_copy_url_timestamp_success">URL su laiko žyma nukopijuotas</string>
   <string name="revanced_copy_video_url_title">Rodyti kopijuoti vaizdo įrašo URL mygtuką</string>
@@ -403,14 +403,14 @@ Apribojimai
   <string name="revanced_copy_video_url_timestamp_title">Rodyti mygtuką kopijuoti laikrodžio URL</string>
   <string name="revanced_copy_video_url_timestamp_summary_on">Mygtukas rodomas. Palieskite, kad nukopijuotumėte vaizdo įrašo URL su laiko žyma. Palieskite ir palaikykite, kad nukopijuotumėte be laiko žymos</string>
   <string name="revanced_copy_video_url_timestamp_summary_off">Mygtukas nerodomas</string>
-  </patch>
-  <patch id="interaction.dialog.removeViewerDiscretionDialogPatch">
+  <!-- </patch> -->
+  <!-- <patch id="interaction.dialog.removeViewerDiscretionDialogPatch"> -->
   <string name="revanced_remove_viewer_discretion_dialog_title">Pašalinti žiūrovo nuožiūra dialogo langą</string>
   <string name="revanced_remove_viewer_discretion_dialog_summary_on">Dialogas bus pašalintas</string>
   <string name="revanced_remove_viewer_discretion_dialog_summary_off">Dialogas bus rodomas</string>
   <string name="revanced_remove_viewer_discretion_dialog_user_dialog_message">Tai neaplenkia amžiaus apribojimo. Jis tiesiog jį automatiškai priima.</string>
-  </patch>
-  <patch id="interaction.downloads.downloadsResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="interaction.downloads.downloadsResourcePatch"> -->
   <string name="revanced_external_downloader_screen_title">Išoriniai atsisiuntimai</string>
   <string name="revanced_external_downloader_screen_summary">Nustatymai naudojant išorinį atsisiuntimo įrankį</string>
   <string name="revanced_external_downloader_title">Rodyti išorinį atsisiuntimo mygtuką</string>
@@ -423,18 +423,18 @@ Apribojimai
   <string name="revanced_external_downloader_name_title">Atsisiuntimo įrankio paketo pavadinimas</string>
   <string name="revanced_external_downloader_name_summary">Jūsų įdiegtos išorinės atsisiuntimo programėlės paketo pavadinimas, pvz., NewPipe arba Seal</string>
   <string name="revanced_external_downloader_not_installed_warning">%s nėra įdiegtas. Prašome įdiegti.</string>
-  </patch>
-  <patch id="interaction.seekbar.disablePreciseSeekingGesturePatch">
+  <!-- </patch> -->
+  <!-- <patch id="interaction.seekbar.disablePreciseSeekingGesturePatch"> -->
   <string name="revanced_disable_precise_seeking_gesture_title">Išjungti tikslų slinkties gestą</string>
   <string name="revanced_disable_precise_seeking_gesture_summary_on">Gestas išjungtas</string>
   <string name="revanced_disable_precise_seeking_gesture_summary_off">Gestas įjungtas</string>
-  </patch>
-  <patch id="interaction.seekbar.enableSeekbarTappingPatch">
+  <!-- </patch> -->
+  <!-- <patch id="interaction.seekbar.enableSeekbarTappingPatch"> -->
   <string name="revanced_seekbar_tapping_title">Įgalinti palietimą, kad būtų galima ieškoti</string>
   <string name="revanced_seekbar_tapping_summary_on">Bakstelėkite, kad įgalintumėte paiešką</string>
   <string name="revanced_seekbar_tapping_summary_off">Palietimas, kad būtų galima ieškoti, yra išjungtas</string>
-  </patch>
-  <patch id="interaction.swipecontrols.swipeControlsResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="interaction.swipecontrols.swipeControlsResourcePatch"> -->
   <string name="revanced_swipe_brightness_title">Įjungti ryškumo gestą</string>
   <string name="revanced_swipe_brightness_summary_on">"Įjungtas viso ekrano ryškumo perbraukimas
 
@@ -473,13 +473,13 @@ Reguliuokite garsumą braukdami vertikaliai dešinėje ekrano pusėje"</string>
   <string name="revanced_swipe_change_video_title">Braukimas norint pakeisti vaizdo įrašus</string>
   <string name="revanced_swipe_change_video_summary_on">Braukimas viso ekrano režimu pakeis į kitą/ankstesnį vaizdo įrašą</string>
   <string name="revanced_swipe_change_video_summary_off">Braukimas viso ekrano režimu nepakeis į kitą/ankstesnį vaizdo įrašą</string>
-  </patch>
-  <patch id="layout.autocaptions.autoCaptionsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.autocaptions.autoCaptionsPatch"> -->
   <string name="revanced_auto_captions_title">Išjungti automatinius antraštus</string>
   <string name="revanced_auto_captions_summary_on">Automatiniai antraštės išjungti</string>
   <string name="revanced_auto_captions_summary_off">Automatiniai antraštės įjungti</string>
-  </patch>
-  <patch id="layout.buttons.action.hideButtonsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.buttons.action.hideButtonsPatch"> -->
   <string name="revanced_hide_buttons_screen_title">Veiksmo mygtukai</string>
   <string name="revanced_hide_buttons_screen_summary">Slėpti arba rodyti mygtukus po vaizdo įrašais</string>
   <string name="revanced_disable_like_subscribe_glow_title">Išjungti „Patinka“ ir „Prenumeruoti“ švytėjimą</string>
@@ -517,8 +517,8 @@ Reguliuokite garsumą braukdami vertikaliai dešinėje ekrano pusėje"</string>
   <string name="revanced_hide_playlist_button_title">Slėpti Išsaugoti į grojaraštį</string>
   <string name="revanced_hide_playlist_button_summary_on">Išsaugoti į grojaraštį mygtukas paslėptas</string>
   <string name="revanced_hide_playlist_button_summary_off">Išsaugoti į grojaraštį mygtukas rodomas</string>
-  </patch>
-  <patch id="layout.buttons.navigation.navigationButtonsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.buttons.navigation.navigationButtonsPatch"> -->
   <string name="revanced_navigation_buttons_screen_title">Navigacijos mygtukai</string>
   <string name="revanced_navigation_buttons_screen_summary">Slėpti arba keisti mygtukus navigacijos juostoje</string>
   <!-- 'Home' should be translated using the same localized wording YouTube displays for the tab. -->
@@ -555,14 +555,15 @@ Jei pakeitus šį nustatymą neįsigalioja, pabandykite perjungti į inkognito r
   <string name="revanced_disable_translucent_status_bar_title">Išjungti permatomą būsenos juostą</string>
   <string name="revanced_disable_translucent_status_bar_summary_on">Bžas statuso juosta nepermatoma</string>
   <string name="revanced_disable_translucent_status_bar_summary_off">Bžas statuso juosta yra nepermatoma arba permatoma</string>
+  <string name="revanced_disable_translucent_status_bar_user_dialog_message">Kai kuriuose įrenginiuose, įgalinus šią funkciją, sistemos naršymo juosta gali tapti permatoma.</string>
   <string name="revanced_disable_translucent_navigation_bar_light_title">Išjungti permatomą šviesią naršymo juostą</string>
   <string name="revanced_disable_translucent_navigation_bar_light_summary_on">Šviesios spalvos naršymo juosta yra nepermatoma</string>
   <string name="revanced_disable_translucent_navigation_bar_light_summary_off">Šviesiosios temos narūybos juosta yra nepermatoma arba permatoma</string>
   <string name="revanced_disable_translucent_navigation_bar_dark_title">Išjunkite tamsios temos permatomą narūybos juostą</string>
   <string name="revanced_disable_translucent_navigation_bar_dark_summary_on">Tamsios spalvos naršymo juosta yra nepermatoma</string>
   <string name="revanced_disable_translucent_navigation_bar_dark_summary_off">Tamsios temos narūybos juosta yra nepermatoma arba permatoma</string>
-  </patch>
-  <patch id="layout.hide.player.flyoutmenupanel.hidePlayerFlyoutMenuPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.player.flyoutmenupanel.hidePlayerFlyoutMenuPatch"> -->
   <string name="revanced_hide_player_flyout_title">Išskleidžiamasis meniu</string>
   <string name="revanced_hide_player_flyout_summary">Slėpti arba rodyti žaidėjo išskleidžiamojo meniu elementus</string>
   <!-- 'Captions' should be translated using the same localized wording YouTube displays for the menu item. -->
@@ -616,8 +617,8 @@ Jei pakeitus šį nustatymą neįsigalioja, pabandykite perjungti į inkognito r
   <string name="revanced_hide_player_flyout_video_quality_footer_title">Slėpti vaizdo kokybės meniu apatinę juostą</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_on">Vaizdo kokybės meniu apatinė juosta yra paslėpta</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_off">Vaizdo kokybės meniu apatinė juosta yra rodoma</string>
-  </patch>
-  <patch id="layout.buttons.overlay.hidePlayerOverlayButtonsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.buttons.overlay.hidePlayerOverlayButtonsPatch"> -->
   <string name="revanced_hide_player_previous_next_buttons_title">Slėpti ankstesnius ir kitus mygtukus</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_on">Mygtukai yra paslėpti</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">Mygtukai yra rodomi</string>
@@ -631,36 +632,36 @@ Jei pakeitus šį nustatymą neįsigalioja, pabandykite perjungti į inkognito r
   <string name="revanced_hide_autoplay_button_title">Paslėpti mygtuką „Automatinis atkūrimas\"</string>
   <string name="revanced_hide_autoplay_button_summary_on">Automatinio paleidimo mygtukas yra paslėptas</string>
   <string name="revanced_hide_autoplay_button_summary_off">Automatinio paleidimo mygtukas yra rodomas</string>
-  </patch>
-  <patch id="layout.hide.endscreencards.hideEndscreenCardsResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.endscreencards.hideEndscreenCardsResourcePatch"> -->
   <string name="revanced_hide_endscreen_cards_title">Slėpti ekrano pabaigos korteles</string>
   <string name="revanced_hide_endscreen_cards_summary_on">Ekrano pabaigos kortelės yra paslėptos</string>
   <string name="revanced_hide_endscreen_cards_summary_off">Ekrano pabaigos kortelės yra rodomos</string>
-  </patch>
-  <patch id="layout.hide.fullscreenambientmode.disableFullscreenAmbientModePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.fullscreenambientmode.disableFullscreenAmbientModePatch"> -->
   <string name="revanced_disable_fullscreen_ambient_mode_title">Išjungti aplinkos režimą visame ekrane</string>
   <string name="revanced_disable_fullscreen_ambient_mode_summary_on">Aplinkos režimas išjungtas</string>
   <string name="revanced_disable_fullscreen_ambient_mode_summary_off">Aplinkos režimas įjungtas</string>
-  </patch>
-  <patch id="layout.hide.infocards.hideInfocardsResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.infocards.hideInfocardsResourcePatch"> -->
   <string name="revanced_hide_info_cards_title">Slėpti informacines korteles</string>
   <string name="revanced_hide_info_cards_summary_on">Informacinės kortelės yra paslėptos</string>
   <string name="revanced_hide_info_cards_summary_off">Informacinės kortelės yra rodomos</string>
-  </patch>
-  <patch id="layout.hide.rollingnumber.disableRollingNumberAnimationPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.rollingnumber.disableRollingNumberAnimationPatch"> -->
   <string name="revanced_disable_rolling_number_animations_title">Išjungti besisukančių skaičių animacijas</string>
   <string name="revanced_disable_rolling_number_animations_summary_on">Besisukantys skaičiai nėra animuoti</string>
   <string name="revanced_disable_rolling_number_animations_summary_off">Besisukantys skaičiai yra animuoti</string>
-  </patch>
-  <patch id="layout.hide.seekbar.hideSeekbarPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.seekbar.hideSeekbarPatch"> -->
   <string name="revanced_hide_seekbar_title">Slėpti ieškojimo juostą vaizdo įrašų grotuve</string>
   <string name="revanced_hide_seekbar_summary_on">Vaizdo įrašų grotuvo ieškojimo juosta yra paslėpta</string>
   <string name="revanced_hide_seekbar_summary_off">Vaizdo įrašų grotuvo ieškojimo juosta yra rodoma</string>
   <string name="revanced_hide_seekbar_thumbnail_title">Slėpti ieškojimo juostą vaizdo įrašų miniatiūrose</string>
   <string name="revanced_hide_seekbar_thumbnail_summary_on">Miniatiūrų ieškojimo juosta yra paslėpta</string>
   <string name="revanced_hide_seekbar_thumbnail_summary_off">Miniatiūrų ieškojimo juosta yra rodoma</string>
-  </patch>
-  <patch id="layout.hide.shorts.hideShortsComponentsResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.shorts.hideShortsComponentsResourcePatch"> -->
   <string name="revanced_shorts_player_screen_title">Shorts grotuvas</string>
   <string name="revanced_shorts_player_screen_summary">Slėpti arba rodyti komponentus Shorts grotuve</string>
   <!-- 'home' should be translated using the same localized wording YouTube displays for the home tab. -->
@@ -762,43 +763,43 @@ Jei pakeitus šį nustatymą neįsigalioja, pabandykite perjungti į inkognito r
   <string name="revanced_hide_shorts_navigation_bar_title">Slėpti naršymo juostą</string>
   <string name="revanced_hide_shorts_navigation_bar_summary_on">Naršymo juosta paslėpta</string>
   <string name="revanced_hide_shorts_navigation_bar_summary_off">Naršymo juosta rodoma</string>
-  </patch>
-  <patch id="layout.hide.endscreensuggestion.hideEndScreenSuggestedVideoPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.endscreensuggestion.hideEndScreenSuggestedVideoPatch"> -->
   <string name="revanced_end_screen_suggested_video_title">Slėpti pabaigos ekrano siūlomą vaizdo įrašą</string>
   <string name="revanced_end_screen_suggested_video_summary_on">"Pabaigos ekrane siūlomas vaizdo įrašas yra paslėptas, kai automatinis paleidimas yra išjungtas.
 
 Automatinį paleidimą galima pakeisti „YouTube“ nustatymuose:
 Nustatymai → Atkūrimas → Automatiškai leisti kitą vaizdo įrašą"</string>
   <string name="revanced_end_screen_suggested_video_summary_off">Pabaigos ekrane siūlomas vaizdo įrašas rodomas</string>
-  </patch>
-  <patch id="layout.hide.time.hideTimestampPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.time.hideTimestampPatch"> -->
   <string name="revanced_hide_timestamp_title">Slėpti vaizdo įrašo laiko žymę</string>
   <string name="revanced_hide_timestamp_summary_on">Laiko žymė paslėpta</string>
   <string name="revanced_hide_timestamp_summary_off">Laiko žymė rodoma</string>
-  </patch>
-  <patch id="layout.panels.popup.playerPopupPanelsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.panels.popup.playerPopupPanelsPatch"> -->
   <string name="revanced_hide_player_popup_panels_title">Slėpti grotuvo iššokančius skydelius</string>
   <string name="revanced_hide_player_popup_panels_summary_on">Grotuvo iššokančius skydelius paslėpti</string>
   <string name="revanced_hide_player_popup_panels_summary_off">Grotuvo iššokančius skydelius rodyti</string>
-  </patch>
-  <patch id="layout.player.fullscreen.exitFullscreenPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.player.fullscreen.exitFullscreenPatch"> -->
   <string name="revanced_exit_fullscreen_title">Išeiti iš viso ekrano režimo pasibaigus vaizdo įrašui</string>
   <string name="revanced_exit_fullscreen_entry_1">Išjungta</string>
   <string name="revanced_exit_fullscreen_entry_2">Portreto</string>
   <string name="revanced_exit_fullscreen_entry_3">Kraštovaizdžio</string>
   <string name="revanced_exit_fullscreen_entry_4">Portreto ir kraštovaizdžio</string>
-  </patch>
-  <patch id="layout.player.fullscreen.openVideosFullscreen">
+  <!-- </patch> -->
+  <!-- <patch id="layout.player.fullscreen.openVideosFullscreen"> -->
   <string name="revanced_open_videos_fullscreen_portrait_title">Atidaryti vaizdo įrašus pilno ekrano vertikalioje orientacijoje</string>
   <string name="revanced_open_videos_fullscreen_portrait_summary_on">Vaizdo įrašai atidaromi pilnu ekranu</string>
   <string name="revanced_open_videos_fullscreen_portrait_summary_off">Vaizdo įrašai neatsidaro pilnu ekranu</string>
-  </patch>
-  <patch id="layout.player.overlay.customPlayerOverlayOpacityResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.player.overlay.customPlayerOverlayOpacityResourcePatch"> -->
   <string name="revanced_player_overlay_opacity_title">Grotuvo persidengimo nepermatomumas</string>
   <string name="revanced_player_overlay_opacity_summary">Permatumo vertė nuo 0 iki 100, kur 0 yra skaidrus</string>
   <string name="revanced_player_overlay_opacity_invalid_toast">Grotuvo persidengimo permatomumas turi būti nuo 0 iki 100</string>
-  </patch>
-  <patch id="layout.returnyoutubedislike.returnYouTubeDislikePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.returnyoutubedislike.returnYouTubeDislikePatch"> -->
   <!-- Toast shown if network connection times out. Translations of this should not be longer than the original English or the text can be clipped and not entirely shown. -->
   <string name="revanced_ryd_failure_connection_timeout">\"Nepatinka\" laikinai nepasiekiami (API laikas baigėsi)</string>
   <string name="revanced_ryd_failure_connection_status_code">\"Nepatinka\" nepasiekiami (būsena %d)</string>
@@ -847,13 +848,13 @@ Apribojimas: nepritarimai gali būti nerodomi inkognito režimu"</string>
   <string name="revanced_ryd_statistics_getNumberOfRateLimitRequestsEncountered_zero_summary">Nėra kliento normos ribojimo</string>
   <string name="revanced_ryd_statistics_getNumberOfRateLimitRequestsEncountered_non_zero_summary">Kliento normos ribojimas įvyko %d kartus</string>
   <string name="revanced_ryd_statistics_millisecond_text">%d milisekundžių</string>
-  </patch>
-  <patch id="layout.searchbar.wideSearchbarPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.searchbar.wideSearchbarPatch"> -->
   <string name="revanced_wide_searchbar_title">Įjungti plačią paieškos juostą</string>
   <string name="revanced_wide_searchbar_summary_on">Plačioji paieškos juosta įjungta</string>
   <string name="revanced_wide_searchbar_summary_off">Plačioji paieškos juosta išjungta</string>
-  </patch>
-  <patch id="layout.seekbar.seekbarThumbnailsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.seekbar.seekbarThumbnailsPatch"> -->
   <string name="revanced_seekbar_thumbnails_high_quality_title">Įjungti aukštos kokybės miniatiūras</string>
   <string name="revanced_seekbar_thumbnails_high_quality_summary_on">Paieškos juostos miniatiūros yra aukštos kokybės</string>
   <string name="revanced_seekbar_thumbnails_high_quality_summary_off">Paieškos juostos miniatiūros yra vidutinės kokybės</string>
@@ -867,8 +868,8 @@ Paieškos juostos miniatiūros bus naudojamos tos pačios kokybės kaip dabartin
   <string name="revanced_restore_old_seekbar_thumbnails_title">Atkurti senas paieškos juostos miniatiūras</string>
   <string name="revanced_restore_old_seekbar_thumbnails_summary_on">Paieškos juostos miniatiūros bus rodomos virš paieškos juostos</string>
   <string name="revanced_restore_old_seekbar_thumbnails_summary_off">Paieškos juostos miniatiūros bus rodomos viso ekrano režimu</string>
-  </patch>
-  <patch id="layout.sponsorblock.sponsorBlockResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.sponsorblock.sponsorBlockResourcePatch"> -->
   <string name="revanced_sb_enable_sb">Įjungti SponsorBlock</string>
   <string name="revanced_sb_enable_sb_sum">SponsorBlock – tai sutelktinė sistema, skirta praleisti erzinamam YouTube vaizdo įrašo dalims</string>
   <string name="revanced_sb_appearance_category">Išvaizda</string>
@@ -1067,8 +1068,8 @@ Ar paruošta pateikti?"</string>
   <string name="revanced_sb_reset">Atstatyti</string>
   <string name="revanced_sb_about">Apie</string>
   <string name="revanced_sb_about_api_sum">Duomenys pateikiami per \"SponsorBlock\" API. Bakstelėkite čia, kad sužinotumėte daugiau ir pamatytumėte atsisiuntimus kitoms platformoms</string>
-  </patch>
-  <patch id="layout.formfactor.changeFormFactorPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.formfactor.changeFormFactorPatch"> -->
   <string name="revanced_change_form_factor_title">Išdėstymas: formos faktorius</string>
   <string name="revanced_change_form_factor_entry_1">Numatyta</string>
   <string name="revanced_change_form_factor_entry_2">Telefonas</string>
@@ -1082,8 +1083,8 @@ Planšetės išdėstymas
 Automobilinis išdėstymas
 • „Shorts“ atidaromi įprastame grotuve
 • Sklaida suskirstyta pagal temas ir kanalus"</string>
-  </patch>
-  <patch id="layout.spoofappversion.spoofAppVersionPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.spoofappversion.spoofAppVersionPatch"> -->
   <string name="revanced_spoof_app_version_title">Programėlės versijos apsimetinėjimas</string>
   <string name="revanced_spoof_app_version_summary_on">Versija apsimeta</string>
   <string name="revanced_spoof_app_version_summary_off">Versija neapsimeta</string>
@@ -1097,8 +1098,8 @@ Jei vėliau išjungta, rekomenduojama išvalyti programos duomenis, kad būtų i
   <string name="revanced_spoof_app_version_target_title">Programėlės versijos apsimetinėjimo tikslas</string>
   <string name="revanced_spoof_app_version_target_entry_1">19.35.36 - Atkurti senus \"Shorts\" grotuvo piktogramas</string>
   <string name="revanced_spoof_app_version_target_entry_2">19.01.34 – Atkurti senas naršymo piktogramas</string>
-  </patch>
-  <patch id="layout.startpage.changeStartPagePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.startpage.changeStartPagePatch"> -->
   <string name="revanced_change_start_page_title">Nustatyti pradinį puslapį</string>
   <string name="revanced_change_start_page_entry_default">Numatytasis</string>
   <string name="revanced_change_start_page_entry_all_subscriptions">Visos Prenumeratos</string>
@@ -1124,27 +1125,27 @@ Jei vėliau išjungta, rekomenduojama išvalyti programos duomenis, kad būtų i
   <string name="revanced_change_start_page_entry_virtual_reality">Virtualioji realybė</string>
   <string name="revanced_change_start_page_entry_watch_later">Pažiūrėti vėliau</string>
   <string name="revanced_change_start_page_entry_your_clips">Tavo klipai</string>
-  </patch>
-  <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch"> -->
   <string name="revanced_disable_resuming_shorts_player_title">Išjungti \"Shorts\" grotuvo atnaujinimą</string>
   <string name="revanced_disable_resuming_shorts_player_summary_on">\"Shorts\" grotuvas nebus atnaujintas paleidžiant programėlę</string>
   <string name="revanced_disable_resuming_shorts_player_summary_off">\"Shorts\" grotuvas bus atnaujintas paleidžiant programėlę</string>
-  </patch>
-  <patch id="layout.shortsplayer.shortsPlayerTypePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.shortsplayer.shortsPlayerTypePatch"> -->
   <string name="revanced_shorts_player_type_title">Atidarykite Šortus su</string>
   <string name="revanced_shorts_player_type_shorts">Shorts grotuvas</string>
   <string name="revanced_shorts_player_type_regular_player">Paprastas grotuvas</string>
   <string name="revanced_shorts_player_type_regular_player_fullscreen">Paprastas grotuvo viso ekrano režimas</string>
-  </patch>
-  <patch id="layout.shortsautoplay.shortsAutoplayPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.shortsautoplay.shortsAutoplayPatch"> -->
   <string name="revanced_shorts_autoplay_title">\"Autoplay\" Shorts</string>
   <string name="revanced_shorts_autoplay_summary_on">\"Shorts\" bus atliekama \"Autoplay\"</string>
   <string name="revanced_shorts_autoplay_summary_off">\"Shorts\" bus kartojami</string>
   <string name="revanced_shorts_autoplay_background_title">\"Autoplay\" Shorts foninis atkūrimas</string>
   <string name="revanced_shorts_autoplay_background_summary_on">\"Shorts\" foninis atkūrimas bus atliekama \"Autoplay\"</string>
   <string name="revanced_shorts_autoplay_background_summary_off">\"Shorts\" foninis atkūrimas bus kartojamas</string>
-  </patch>
-  <patch id="layout.miniplayer.miniplayerPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.miniplayer.miniplayerPatch"> -->
   <string name="revanced_miniplayer_screen_title">Mažas grotuvas</string>
   <string name="revanced_miniplayer_screen_summary">Pakeisti programėlėje sumažinto grotuvo stilių</string>
   <string name="revanced_miniplayer_type_title">Minigrotuvo tipas</string>
@@ -1194,8 +1195,8 @@ Braukite, kad išplėstumėte arba uždarytumėte"</string>
   <string name="revanced_miniplayer_opacity_title">Permatomumo lygis</string>
   <string name="revanced_miniplayer_opacity_summary">Permatomumo vertė nuo 0 iki 100, kur 0 yra skaidrus</string>
   <string name="revanced_miniplayer_opacity_invalid_toast">Miniplayer permatomumo lygis turi būti nuo 0 iki 100</string>
-  </patch>
-  <patch id="layout.theme.themePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.theme.themePatch"> -->
   <string name="revanced_gradient_loading_screen_title">Įgalinti gradientinį įkėlimo ekraną</string>
   <string name="revanced_gradient_loading_screen_summary_on">Įkėlimo ekranas turės gradientinį foną</string>
   <string name="revanced_gradient_loading_screen_summary_off">Įkėlimo ekranas turės tvirtą foną</string>
@@ -1207,15 +1208,15 @@ Braukite, kad išplėstumėte arba uždarytumėte"</string>
   <string name="revanced_seekbar_custom_color_accent_title">Individualizuota ieškojimo juostos akcento spalva</string>
   <string name="revanced_seekbar_custom_color_accent_summary">Ieškojimo juostos akcento spalva</string>
   <string name="revanced_seekbar_custom_color_invalid">Netinkama slankiklio spalvos vertė</string>
-  </patch>
-  <patch id="layout.thumbnails.bypassImageRegionRestrictionsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.thumbnails.bypassImageRegionRestrictionsPatch"> -->
   <string name="revanced_bypass_image_region_restrictions_title">Aplenkti vaizdo regiono apribojimus</string>
   <string name="revanced_bypass_image_region_restrictions_summary_on">Naudojant vaizdo talpinimo svetainę yt4.ggpht.com</string>
   <string name="revanced_bypass_image_region_restrictions_summary_off">"Naudojamas originalus vaizdų šeimininkas
 
 Įjungus šį nustatymą, gali būti ištaisytos trūkstamos nuotraukos, kurios kai kuriuose regionuose yra užblokuotos"</string>
-  </patch>
-  <patch id="layout.thumbnails.alternativeThumbnailsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.thumbnails.alternativeThumbnailsPatch"> -->
   <!-- 'Home' should be translated using the same localized wording YouTube displays for the home tab. -->
   <string name="revanced_alt_thumbnail_home_title">Pagrindinis skirtukas</string>
   <!-- 'Subscription' should be translated using the same localized wording YouTube displays for the subscription tab. -->
@@ -1250,26 +1251,26 @@ Palieskite čia, kad sužinotumėte daugiau apie DeArrow"</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_alt_thumbnail_dearrow_error">DeArrow laikinai nepasiekiamas (būsenos kodas: %s)</string>
   <string name="revanced_alt_thumbnail_dearrow_error_generic">DeArrow laikinai nepasiekiamas</string>
-  </patch>
-  <patch id="misc.announcements.announcementsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.announcements.announcementsPatch"> -->
   <string name="revanced_announcements_title">Rodyti „ReVanced“ pranešimus</string>
   <string name="revanced_announcements_summary_on">Pranešimai paleidžiant rodomi</string>
   <string name="revanced_announcements_summary_off">Pranešimai paleidžiant nerodomi</string>
   <string name="revanced_announcements_enabled_summary">Rodyti pranešimus paleidžiant programą</string>
   <string name="revanced_announcements_connection_failed">Nepavyko prisijungti prie pranešimų teikėjo</string>
   <string name="revanced_announcements_dialog_dismiss">Atmesti</string>
-  </patch>
-  <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch"> -->
   <string name="revanced_check_watch_history_domain_name_dialog_title">Įspėjimas</string>
   <string name="revanced_check_watch_history_domain_name_dialog_message">Jūsų žiūrėjimo istorija nėra išsaugoma.&lt;br&gt;&lt;br&gt;Tikėtina, kad tai sukelia DNS skelbimų blokatorius arba tinklo tarpinis serveris.&lt;br&gt;&lt;br&gt;Norėdami išspręsti šią problemą, įtraukite į baltąjį sąrašą &lt;b&gt;s.youtube.com&lt;/b&gt; arba išjunkite visus DNS blokatorius ir tarpinį serverį.</string>
   <string name="revanced_check_watch_history_domain_name_dialog_ignore">Nerodyti daugiau</string>
-  </patch>
-  <patch id="misc.autorepeat.autoRepeatPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.autorepeat.autoRepeatPatch"> -->
   <string name="revanced_auto_repeat_title">Įjungti automatinį kartojimą</string>
   <string name="revanced_auto_repeat_summary_on">Automatinis kartojimas įjungtas</string>
   <string name="revanced_auto_repeat_summary_off">Automatinis kartojimas išjungtas</string>
-  </patch>
-  <patch id="misc.dimensions.spoof.spoofDeviceDimensionsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.dimensions.spoof.spoofDeviceDimensionsPatch"> -->
   <string name="revanced_spoof_device_dimensions_title">Susifalsifikuoti įrenginio matmenis</string>
   <string name="revanced_spoof_device_dimensions_summary_on">"Įrenginio matmenys padirbti
 
@@ -1278,39 +1279,39 @@ Gali būti atrakinta aukštesnės vaizdo įrašų kokybės, bet galite patirti v
 
 Įjungus šį nustatymą, gali būti atrakinta aukštesnės vaizdo įrašų kokybės"</string>
   <string name="revanced_spoof_device_dimensions_user_dialog_message">Įjungus šią funkciją, gali būti pastebimas vaizdo atkūrimo mikčiojimas, blogesnė baterijos trukmė ir nežinomi šalutiniai poveikiai.</string>
-  </patch>
-  <patch id="misc.gms.gmsCoreSupportResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.gms.gmsCoreSupportResourcePatch"> -->
   <string name="microg_settings_title">„GmsCore“ nustatymai</string>
   <string name="microg_settings_summary">„GmsCore“ nustatymai</string>
-  </patch>
-  <patch id="misc.links.bypassURLRedirectsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.links.bypassURLRedirectsPatch"> -->
   <string name="revanced_bypass_url_redirects_title">Aplenkti URL nukreipimus</string>
   <string name="revanced_bypass_url_redirects_summary_on">URL nukreipimai aplenkiami</string>
   <string name="revanced_bypass_url_redirects_summary_off">URL nukreipimai nėra aplenkiami</string>
-  </patch>
-  <patch id="misc.links.openLinksExternallyPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.links.openLinksExternallyPatch"> -->
   <string name="revanced_external_browser_title">Atidaryti nuorodas naršyklėje</string>
   <string name="revanced_external_browser_summary_on">Nuorodos atidaromos išorinėje naršyklėje</string>
   <string name="revanced_external_browser_summary_off">Nuorodos atidaromos programėlės naršyklėje</string>
-  </patch>
-  <patch id="misc.privacy.removeTrackingQueryParameterPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.privacy.removeTrackingQueryParameterPatch"> -->
   <string name="revanced_remove_tracking_query_parameter_title">Pašalinti stebėjimo užklausų parametrą</string>
   <string name="revanced_remove_tracking_query_parameter_summary_on">Stebėjimo užklausų parametras pašalinamas iš nuorodų</string>
   <string name="revanced_remove_tracking_query_parameter_summary_off">Stebėjimo užklausų parametras nėra pašalinamas iš nuorodų</string>
-  </patch>
-  <patch id="misc.zoomhaptics.zoomHapticsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.zoomhaptics.zoomHapticsPatch"> -->
   <string name="revanced_disable_zoom_haptics_title">Išjungti priartinimo vibraciją</string>
   <string name="revanced_disable_zoom_haptics_summary_on">Vibracija išjungta</string>
   <string name="revanced_disable_zoom_haptics_summary_off">Vibracija įjungta</string>
-  </patch>
-  <patch id="video.audio.forceOriginalAudioPatch">
+  <!-- </patch> -->
+  <!-- <patch id="video.audio.forceOriginalAudioPatch"> -->
   <string name="revanced_force_original_audio_title">Priversti originalią garso kalbą</string>
   <string name="revanced_force_original_audio_summary_on">Naudojama originali garso kalba</string>
   <string name="revanced_force_original_audio_summary_off">Naudojamas numatytasis garsas</string>
   <!-- 'Spoof video streams' should be the same translation used for revanced_spoof_video_streams_screen_title -->
   <string name="revanced_force_original_audio_not_available">Norėdami naudoti šią funkciją, pakeiskite „Klastoti vaizdo srautus“ į iOS TV</string>
-  </patch>
-  <patch id="video.quality.rememberVideoQualityPatch">
+  <!-- </patch> -->
+  <!-- <patch id="video.quality.rememberVideoQualityPatch"> -->
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
   <string name="revanced_video_quality_default_entry_1">Automatinis</string>
   <string name="revanced_remember_video_quality_last_selected_title">Atsiminti vaizdo įrašų kokybės pakeitimus</string>
@@ -1327,13 +1328,13 @@ Gali būti atrakinta aukštesnės vaizdo įrašų kokybės, bet galite patirti v
   <string name="revanced_remember_video_quality_wifi">wifi</string>
   <string name="revanced_remember_video_quality_toast">Pakeista numatytoji %1$s kokybė į: %2$s</string>
   <string name="revanced_remember_video_quality_toast_shorts">Pakeista \"Shorts\" %1$s kokybė į: %2$s</string>
-  </patch>
-  <patch id="video.speed.button.playbackSpeedButtonPatch">
+  <!-- </patch> -->
+  <!-- <patch id="video.speed.button.playbackSpeedButtonPatch"> -->
   <string name="revanced_playback_speed_dialog_button_title">Rodyti greičio dialogo mygtuką</string>
   <string name="revanced_playback_speed_dialog_button_summary_on">Mygtukas rodomas</string>
   <string name="revanced_playback_speed_dialog_button_summary_off">Mygtukas nerodomas</string>
-  </patch>
-  <patch id="video.speed.custom.customPlaybackSpeedPatch">
+  <!-- </patch> -->
+  <!-- <patch id="video.speed.custom.customPlaybackSpeedPatch"> -->
   <string name="revanced_custom_speed_menu_title">Tinkintas atkūrimo greičio meniu</string>
   <string name="revanced_custom_speed_menu_summary_on">Tinkintas greičio meniu rodomas</string>
   <string name="revanced_custom_speed_menu_summary_off">Tinkintas greičio meniu nerodomas</string>
@@ -1344,30 +1345,30 @@ Gali būti atrakinta aukštesnės vaizdo įrašų kokybės, bet galite patirti v
   <string name="revanced_custom_playback_speeds_auto">Automatinis</string>
   <string name="revanced_speed_tap_and_hold_title">Pritaikytas bakstelėjimo ir laikymo greitis</string>
   <string name="revanced_speed_tap_and_hold_summary">Atkūrimo greitis: nuo 0 iki 8</string>
-  </patch>
-  <patch id="video.speed.remember.rememberPlaybackSpeedPatch">
+  <!-- </patch> -->
+  <!-- <patch id="video.speed.remember.rememberPlaybackSpeedPatch"> -->
   <string name="revanced_remember_playback_speed_last_selected_title">Atsiminti atkūrimo greičio pakeitimus</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_on">Atkūrimo greičio pakeitimai taikomi visiems vaizdo įrašams</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_off">Atkūrimo greičio pakeitimai taikomi tik dabartiniam vaizdo įrašui</string>
   <string name="revanced_playback_speed_default_title">Numatytasis atkūrimo greitis</string>
   <string name="revanced_remember_playback_speed_toast">Pakeistas numatytasis greitis į: %s</string>
-  </patch>
-  <patch id="video.hdr.disableHdrPatch">
+  <!-- </patch> -->
+  <!-- <patch id="video.hdr.disableHdrPatch"> -->
   <string name="revanced_disable_hdr_video_title">Išjungti HDR vaizdo įrašą</string>
   <string name="revanced_disable_hdr_video_summary_on">HDR vaizdo įrašas išjungtas</string>
   <string name="revanced_disable_hdr_video_summary_off">HDR vaizdo įrašas įjungtas</string>
-  </patch>
-  <patch id="video.quality.advancedVideoQualityMenuPatch">
+  <!-- </patch> -->
+  <!-- <patch id="video.quality.advancedVideoQualityMenuPatch"> -->
   <string name="revanced_advanced_video_quality_menu_title">Rodyti išplėstinį vaizdo įrašo kokybės meniu</string>
   <string name="revanced_advanced_video_quality_menu_summary_on">Rodomas išplėstinis vaizdo įrašo kokybės meniu</string>
   <string name="revanced_advanced_video_quality_menu_summary_off">Nerodomas išplėstinis vaizdo įrašo kokybės meniu</string>
-  </patch>
-  <patch id="interaction.seekbar.enableSlideToSeekPatch">
+  <!-- </patch> -->
+  <!-- <patch id="interaction.seekbar.enableSlideToSeekPatch"> -->
   <string name="revanced_slide_to_seek_title">Įjungti slinkimą, kad ieškotumėte</string>
   <string name="revanced_slide_to_seek_summary_on">Slinkimas, kad ieškotumėte, įjungtas</string>
   <string name="revanced_slide_to_seek_summary_off">Slinkimas, kad ieškotumėte, neišjungtas</string>
-  </patch>
-  <patch id="misc.fix.playback.spoofVideoStreamsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.fix.playback.spoofVideoStreamsPatch"> -->
   <string name="revanced_spoof_video_streams_screen_title">Susifalsifikuoti vaizdo įrašų srautus</string>
   <string name="revanced_spoof_video_streams_screen_summary">Susifalsifikuoti kliento vaizdo įrašų srautus, kad būtų išvengta atkūrimo problemų</string>
   <string name="revanced_spoof_video_streams_title">Susifalsifikuoti vaizdo įrašų srautus</string>
@@ -1397,46 +1398,46 @@ AVC didžiausia skiriamoji geba yra 1080 p, „Opus“ garso kodekas negalimas,
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Kliento tipas rodomas statistinėje informacijoje \"tik profesionalams\"</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Klientas paslėptas statistinėje informacijoje \"tik profesionalams\"</string>
   <string name="revanced_spoof_video_streams_language_title">VR numatytoji srautinio garso kalba</string>
-  </patch>
-  </app>
-  <app id="twitch">
-  <patch id="ad.audio.audioAdsPatch">
+  <!-- </patch> -->
+  <!-- </app> -->
+  <!-- <app id="twitch"> -->
+  <!-- <patch id="ad.audio.audioAdsPatch"> -->
   <string name="revanced_block_audio_ads_title">Blokuoti garso reklamas</string>
   <string name="revanced_block_audio_ads_summary_on">Garso reklamos blokuojamos</string>
   <string name="revanced_block_audio_ads_summary_off">Garso reklamos nėra blokuojamos</string>
-  </patch>
-  <patch id="ad.embedded.embeddedAdsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="ad.embedded.embeddedAdsPatch"> -->
   <string name="revanced_embedded_ads_service_unavailable">%s neprieinamas, reklamos gali rodytis. Pabandykite pakeisti skelbimų blokavimo paslaugą nustatymuose.</string>
   <string name="revanced_embedded_ads_service_failed">%s grąžino klaidą, reklamos gali rodytis. Pabandykite pakeisti skelbimų blokavimo paslaugą nustatymuose.</string>
   <string name="revanced_block_embedded_ads_title">Blokuoti įterptas vaizdo reklamas</string>
   <string name="revanced_block_embedded_ads_entry_1">Išjungta</string>
   <string name="revanced_block_embedded_ads_entry_2">\"Luminous\" tarpinis serveris</string>
   <string name="revanced_block_embedded_ads_entry_3">\"PurpleAdBlock\" tarpinis serveris</string>
-  </patch>
-  <patch id="ad.video.videoAdsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="ad.video.videoAdsPatch"> -->
   <string name="revanced_block_video_ads_title">Blokuoti vaizdo reklamas</string>
   <string name="revanced_block_video_ads_summary_on">Vaizdo reklamos blokuojamos</string>
   <string name="revanced_block_video_ads_summary_off">Vaizdo reklamos nėra blokuojamos</string>
-  </patch>
-  <patch id="chat.antidelete.showDeletedMessagesPatch">
+  <!-- </patch> -->
+  <!-- <patch id="chat.antidelete.showDeletedMessagesPatch"> -->
   <string name="revanced_deleted_msg">Žinutė ištrinta</string>
   <string name="revanced_show_deleted_messages_title">Rodyti ištrintas žinutes</string>
   <string name="revanced_show_deleted_messages_entry_1">Nerodyti ištrintų žinučių</string>
   <string name="revanced_show_deleted_messages_entry_2">Slėpti ištrintas žinutes po spoileriu</string>
   <string name="revanced_show_deleted_messages_entry_3">Rodyti ištrintas žinutes kaip perbrauktas tekstą</string>
-  </patch>
-  <patch id="chat.autoclaim.autoClaimChannelPointsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="chat.autoclaim.autoClaimChannelPointsPatch"> -->
   <string name="revanced_auto_claim_channel_points_title">Automatiškai gauti kanalo taškus</string>
   <string name="revanced_auto_claim_channel_points_summary_on">Kanalo taškai gaunami automatiškai</string>
   <string name="revanced_auto_claim_channel_points_summary_off">Kanalo taškai nėra gaunami automatiškai</string>
-  </patch>
-  <patch id="debug.debugModePatch">
+  <!-- </patch> -->
+  <!-- <patch id="debug.debugModePatch"> -->
   <!-- Twitch specific internal debug mode, and not the same as 'revanced_debug_title' -->
   <string name="revanced_twitch_debug_mode_title">Įjungti Twitch derinimo režimą</string>
   <string name="revanced_twitch_debug_mode_summary_on">Twitch derinimo režimas yra įjungtas (nerekomenduojama)</string>
   <string name="revanced_twitch_debug_mode_summary_off">Twitch derinimo režimas yra išjungtas</string>
-  </patch>
-  <patch id="misc.settings.settingsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.settings.settingsPatch"> -->
   <string name="revanced_settings">ReVanced nustatymai</string>
   <string name="revanced_about_title">Apie</string>
   <string name="revanced_about_summary">Apie ReVanced</string>
@@ -1453,6 +1454,6 @@ AVC didžiausia skiriamoji geba yra 1080 p, „Opus“ garso kodekas negalimas,
   <string name="revanced_twitch_debug_title">Derinimo žurnalas</string>
   <string name="revanced_twitch_debug_summary_on">Derinimo žurnalai yra įjungti</string>
   <string name="revanced_twitch_debug_summary_off">Derinimo žurnalai yra išjungti</string>
-  </patch>
-  </app>
+  <!-- </patch> -->
+  <!-- </app> -->
 </resources>

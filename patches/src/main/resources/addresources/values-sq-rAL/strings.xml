@@ -20,8 +20,8 @@ Second \"item\" text"</string>
 
 -->
 <resources>
-  <app id="shared">
-  <patch id="misc.checks.checkEnvironmentPatch">
+  <!-- <app id="shared"> -->
+  <!-- <patch id="misc.checks.checkEnvironmentPatch"> -->
   <string name="revanced_check_environment_failed_title">Kontrollat ​​dështu</string>
   <string name="revanced_check_environment_dialog_open_official_source_button">Hap faqen zyrtare</string>
   <string name="revanced_check_environment_dialog_ignore_button">Injoro</string>
@@ -31,8 +31,8 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time">E rregulluar më shumë se 10 minuta më parë</string>
   <string name="revanced_check_environment_not_near_patch_time_days">E rregulluar para %s ditësh</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">Data e ndërtimit të APK është e korruptuar</string>
-  </patch>
-  <patch id="misc.settings.settingsResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.settings.settingsResourcePatch"> -->
   <string name="revanced_settings_submenu_title">Cilësimet</string>
   <string name="revanced_settings_confirm_user_dialog_title">Dëshironi të vazhdoni?</string>
   <string name="revanced_settings_reset">Rivendos</string>
@@ -57,8 +57,8 @@ Për të përkthyer gjuhë të reja vizitoni translate.revanced.app"</string>
   <string name="revanced_settings_about_links_header">Lidhjet zyrtare</string>
   <!-- NOTE: the about strings above are duplicated in the TikTok about screen code,
                  and changes made here must also be made there. -->
-  </patch>
-  <patch id="misc.gms.gmsCoreSupportResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.gms.gmsCoreSupportResourcePatch"> -->
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="gms_core_toast_not_installed_message">MicroG GmsCore nuk është instaluar. Instalojeni.</string>
   <string name="gms_core_dialog_title">Veprim i nevojshëm</string>
@@ -74,10 +74,10 @@ Kjo është e nevojshme që aplikacioni të funksionojë."</string>
 
 Prekni butonin vazhdo dhe lejoni ndryshimet e optimizimit."</string>
   <string name="gms_core_dialog_continue_text">Vazhdo</string>
-  </patch>
-  </app>
-  <app id="youtube">
-  <patch id="misc.settings.settingsPatch">
+  <!-- </patch> -->
+  <!-- </app> -->
+  <!-- <app id="youtube"> -->
+  <!-- <patch id="misc.settings.settingsPatch"> -->
   <string name="revanced_settings_screen_00_about_title">Rreth</string>
   <string name="revanced_settings_screen_01_ads_title">Anunet</string>
   <string name="revanced_settings_screen_02_alt_thumbnails_title">Miniatura alternative</string>
@@ -91,13 +91,13 @@ Prekni butonin vazhdo dhe lejoni ndryshimet e optimizimit."</string>
   <string name="revanced_restore_old_settings_menus_title">Rikthe menutë e vjetër të konfigurimeve</string>
   <string name="revanced_restore_old_settings_menus_summary_on">Menutë e vjetër të cilësimeve shfaqen</string>
   <string name="revanced_restore_old_settings_menus_summary_off">Menutë e vjetër të cilësimeve nuk shfaqen</string>
-  </patch>
-  <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.backgroundplayback.backgroundPlaybackPatch"> -->
   <string name="revanced_shorts_disable_background_playback_title">Çaktivizo luajtjen në sfond të Shorts</string>
   <string name="revanced_shorts_disable_background_playback_summary_on">Lujtja në sfond e Shorts është e çaktivizuar</string>
   <string name="revanced_shorts_disable_background_playback_summary_off">Lujtja në sfond e Shorts është e aktivizuar</string>
-  </patch>
-  <patch id="misc.debugging.enableDebuggingPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.debugging.enableDebuggingPatch"> -->
   <string name="revanced_debug_screen_title">Depurimi</string>
   <string name="revanced_debug_screen_summary">Aktivizo ose çaktivizo opsionet e depurimit</string>
   <string name="revanced_debug_title">Regjistrimi i depurimit</string>
@@ -115,8 +115,8 @@ Prekni butonin vazhdo dhe lejoni ndryshimet e optimizimit."</string>
   <string name="revanced_debug_toast_on_error_user_dialog_message">"Fshirja e toast-eve të gabimit fsheh të gjitha njoftimet e gabimeve të ReVanced.
 
 Ju nuk do të njoftoheni për ndonjë ngjarje të papritur."</string>
-  </patch>
-  <patch id="layout.hide.general.hideLayoutComponentsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.general.hideLayoutComponentsPatch"> -->
   <string name="revanced_hide_album_cards_title">Fshih kartat e albumit</string>
   <string name="revanced_hide_album_cards_summary_on">Kartat e albumit janë të fshehura</string>
   <string name="revanced_hide_album_cards_summary_off">Kartat e albumit janë të dukshme</string>
@@ -340,8 +340,8 @@ Kufizime
   <string name="revanced_hide_keyword_toast_invalid_conflicting">Fjala kyçe ka deklarime në konflikt: %s</string>
   <string name="revanced_hide_keyword_toast_invalid_length">Fjala kyçe është shumë e shkurtër dhe kërkon thonjëza: %s</string>
   <string name="revanced_hide_keyword_toast_invalid_broad">Fjala kyçe do të fshehë të gjitha videot: %s</string>
-  </patch>
-  <patch id="ad.general.hideAdsResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="ad.general.hideAdsResourcePatch"> -->
   <string name="revanced_hide_general_ads_title">Fsheh reklamimet e përgjithshme</string>
   <string name="revanced_hide_general_ads_summary_on">Reklamimet e përgjithshme janë të fshehur</string>
   <string name="revanced_hide_general_ads_summary_off">Reklamimet e përgjithshme janë të dukshme</string>
@@ -383,18 +383,18 @@ Kjo veçori është e disponueshme vetëm për pajisje më të vjetra"</string>
   <string name="revanced_hide_merchandise_banners_summary_off">Bannerat e mallrave janë të dukshme</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_hide_fullscreen_ads_feature_not_available_toast">Fshehja e reklamave me ekran të plotë funksionon vetëm me pajisje më të vjetra</string>
-  </patch>
-  <patch id="ad.getpremium.hideGetPremiumPatch">
+  <!-- </patch> -->
+  <!-- <patch id="ad.getpremium.hideGetPremiumPatch"> -->
   <string name="revanced_hide_get_premium_title">Fsheh promovimet e YouTube Premium</string>
   <string name="revanced_hide_get_premium_summary_on">Promovimet e YouTube Premium nën lojtarin e videos janë të fshehur</string>
   <string name="revanced_hide_get_premium_summary_off">Promovimet e YouTube Premium nën lojtarin e videos janë të dukshme</string>
-  </patch>
-  <patch id="ad.video.videoAdsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="ad.video.videoAdsPatch"> -->
   <string name="revanced_hide_video_ads_title">Fsheh reklamimet e videos</string>
   <string name="revanced_hide_video_ads_summary_on">Reklamimet e videos janë të fshehur</string>
   <string name="revanced_hide_video_ads_summary_off">Reklamimet e videos janë të dukshme</string>
-  </patch>
-  <patch id="interaction.copyvideourl.copyVideoUrlResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="interaction.copyvideourl.copyVideoUrlResourcePatch"> -->
   <string name="revanced_share_copy_url_success">URL u kopjua në shkëmbim</string>
   <string name="revanced_share_copy_url_timestamp_success">URL me kohëzgjatje u kopjua</string>
   <string name="revanced_copy_video_url_title">Shfaq butonin e kopjimit të URL-së së videos</string>
@@ -403,14 +403,14 @@ Kjo veçori është e disponueshme vetëm për pajisje më të vjetra"</string>
   <string name="revanced_copy_video_url_timestamp_title">Shfaq butonin \"Kopjo URL-në me vulë kohe\"</string>
   <string name="revanced_copy_video_url_timestamp_summary_on">Butoni shfaqet. Trokitni për të kopjuar URL-në e videos me vulë kohore. Trokitni dhe mbani për të kopjuar pa vulë kohore</string>
   <string name="revanced_copy_video_url_timestamp_summary_off">Butoni nuk shfaqet</string>
-  </patch>
-  <patch id="interaction.dialog.removeViewerDiscretionDialogPatch">
+  <!-- </patch> -->
+  <!-- <patch id="interaction.dialog.removeViewerDiscretionDialogPatch"> -->
   <string name="revanced_remove_viewer_discretion_dialog_title">Hiq kutinë e dialogut \"Diskrecioni i shikuesit\"</string>
   <string name="revanced_remove_viewer_discretion_dialog_summary_on">Kutia e dialogut do të hiqet</string>
   <string name="revanced_remove_viewer_discretion_dialog_summary_off">Kutia e dialogut do të shfaqet</string>
   <string name="revanced_remove_viewer_discretion_dialog_user_dialog_message">Kjo nuk e anashkalon kufizimin e moshës. Thjesht e pranon atë automatikisht.</string>
-  </patch>
-  <patch id="interaction.downloads.downloadsResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="interaction.downloads.downloadsResourcePatch"> -->
   <string name="revanced_external_downloader_screen_title">Shkarkime të jashtme</string>
   <string name="revanced_external_downloader_screen_summary">Cilësimet për përdorimin e një shkarkuesi të jashtëm</string>
   <string name="revanced_external_downloader_title">Shfaq butonin \"Shkarko\" të jashtëm</string>
@@ -423,18 +423,18 @@ Kjo veçori është e disponueshme vetëm për pajisje më të vjetra"</string>
   <string name="revanced_external_downloader_name_title">Emri i paketave të shkarkuesit</string>
   <string name="revanced_external_downloader_name_summary">Emri i paketave të aplikacionit tuaj të shkarkuesit të jashtëm të instaluar, siç janë NewPipe ose Seal</string>
   <string name="revanced_external_downloader_not_installed_warning">%s nuk është instaluar. Ju lutemi instaloni atë.</string>
-  </patch>
-  <patch id="interaction.seekbar.disablePreciseSeekingGesturePatch">
+  <!-- </patch> -->
+  <!-- <patch id="interaction.seekbar.disablePreciseSeekingGesturePatch"> -->
   <string name="revanced_disable_precise_seeking_gesture_title">Çaktivizo lëvizjen e saktë të kërkimit</string>
   <string name="revanced_disable_precise_seeking_gesture_summary_on">Lëvizja është e çaktivizuar</string>
   <string name="revanced_disable_precise_seeking_gesture_summary_off">Lëvizja është e aktivizuar</string>
-  </patch>
-  <patch id="interaction.seekbar.enableSeekbarTappingPatch">
+  <!-- </patch> -->
+  <!-- <patch id="interaction.seekbar.enableSeekbarTappingPatch"> -->
   <string name="revanced_seekbar_tapping_title">Aktivizo prekjen për të kërkuar</string>
   <string name="revanced_seekbar_tapping_summary_on">Aktivizo prekjen për të kërkuar</string>
   <string name="revanced_seekbar_tapping_summary_off">Prekja për të kërkuar është e çaktivizuar</string>
-  </patch>
-  <patch id="interaction.swipecontrols.swipeControlsResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="interaction.swipecontrols.swipeControlsResourcePatch"> -->
   <string name="revanced_swipe_brightness_title">Aktivizo lëvizjen e ndriçimit</string>
   <string name="revanced_swipe_brightness_summary_on">"Rrëshqitja e shkëlqimit në ekran të plotë është aktivizuar
 
@@ -473,13 +473,13 @@ Përshtate shkëlqimin duke rrëshqitur vertikalisht në anën e majtë të ekra
   <string name="revanced_swipe_change_video_title">Aktivizoni lëshimin për të ndryshuar videot</string>
   <string name="revanced_swipe_change_video_summary_on">Lëvizja në modalitetin në ekran të plotë do të ndryshojë në videon e ardhshme/të mëparshme</string>
   <string name="revanced_swipe_change_video_summary_off">Lëvizja në modalitetin në ekran të plotë nuk do të ndryshojë në videon e ardhshme/të mëparshme</string>
-  </patch>
-  <patch id="layout.autocaptions.autoCaptionsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.autocaptions.autoCaptionsPatch"> -->
   <string name="revanced_auto_captions_title">Çaktivizo titrat automatikë</string>
   <string name="revanced_auto_captions_summary_on">Titrat automatikë janë të çaktivizuar</string>
   <string name="revanced_auto_captions_summary_off">Titrat automatikë janë të aktivizuar</string>
-  </patch>
-  <patch id="layout.buttons.action.hideButtonsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.buttons.action.hideButtonsPatch"> -->
   <string name="revanced_hide_buttons_screen_title">Butonat e veprimit</string>
   <string name="revanced_hide_buttons_screen_summary">Fsheh ose shfaq butonat nën video</string>
   <string name="revanced_disable_like_subscribe_glow_title">Çaktivizo dritën Të Pëlqej dhe Abonohu</string>
@@ -517,8 +517,8 @@ Përshtate shkëlqimin duke rrëshqitur vertikalisht në anën e majtë të ekra
   <string name="revanced_hide_playlist_button_title">Fsheh \"Ruaj në listën e riprodhimit\"</string>
   <string name="revanced_hide_playlist_button_summary_on">Butoni \"Ruaj në listën e riprodhimit\" është i fshehur</string>
   <string name="revanced_hide_playlist_button_summary_off">Butoni \"Ruaj në listën e riprodhimit\" është i dukshëm</string>
-  </patch>
-  <patch id="layout.buttons.navigation.navigationButtonsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.buttons.navigation.navigationButtonsPatch"> -->
   <string name="revanced_navigation_buttons_screen_title">Butonat e navigimit</string>
   <string name="revanced_navigation_buttons_screen_summary">Fsheh ose ndrysho butonat në shiritin e navigimit</string>
   <!-- 'Home' should be translated using the same localized wording YouTube displays for the tab. -->
@@ -555,14 +555,15 @@ Nëse ndryshimi i këtij konfigurimi nuk ka efekt, provoni të kaloni në modali
   <string name="revanced_disable_translucent_status_bar_title">Çaktivizo barin transparent të statusit</string>
   <string name="revanced_disable_translucent_status_bar_summary_on">Shiriti i statusit është opak</string>
   <string name="revanced_disable_translucent_status_bar_summary_off">Shiriti i statusit është opak ose translucent</string>
+  <string name="revanced_disable_translucent_status_bar_user_dialog_message">Në disa pajisje, aktivizimi i këtij funksioni mund ta ndryshojë shiritin e navigimit të sistemit në transparent.</string>
   <string name="revanced_disable_translucent_navigation_bar_light_title">Çaktivizo barin transparent të navigacionit të lehtë</string>
   <string name="revanced_disable_translucent_navigation_bar_light_summary_on">Barra e navigacionit në modalitetin e dritës është e paqartë</string>
   <string name="revanced_disable_translucent_navigation_bar_light_summary_off">Shiriti i navigimit në modalitetin e ndritshëm është opak ose translucent</string>
   <string name="revanced_disable_translucent_navigation_bar_dark_title">Çaktivizoni shiritin e errët translucent</string>
   <string name="revanced_disable_translucent_navigation_bar_dark_summary_on">Barra e navigacionit në modalitetin e errët është e paqartë</string>
   <string name="revanced_disable_translucent_navigation_bar_dark_summary_off">Shiriti i navigimit në modalitetin e errët është opak ose translucent</string>
-  </patch>
-  <patch id="layout.hide.player.flyoutmenupanel.hidePlayerFlyoutMenuPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.player.flyoutmenupanel.hidePlayerFlyoutMenuPatch"> -->
   <string name="revanced_hide_player_flyout_title">Menyja \"Fshi\"</string>
   <string name="revanced_hide_player_flyout_summary">Fsheh ose shfaq elementet e menusë \"Fshi\" të lojtarit</string>
   <!-- 'Captions' should be translated using the same localized wording YouTube displays for the menu item. -->
@@ -616,8 +617,8 @@ Nëse ndryshimi i këtij konfigurimi nuk ka efekt, provoni të kaloni në modali
   <string name="revanced_hide_player_flyout_video_quality_footer_title">Fsheh fundin e menusë së cilësisë së videos</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_on">Funda e menusë së cilësisë së videos është e fshehur</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_off">Funda e menusë së cilësisë së videos është e dukshme</string>
-  </patch>
-  <patch id="layout.buttons.overlay.hidePlayerOverlayButtonsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.buttons.overlay.hidePlayerOverlayButtonsPatch"> -->
   <string name="revanced_hide_player_previous_next_buttons_title">Fsheh Butonat e Mëparshme &amp; Tjetër</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_on">Butonat janë të fshehur</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">Butonat janë të dukshme</string>
@@ -631,36 +632,36 @@ Nëse ndryshimi i këtij konfigurimi nuk ka efekt, provoni të kaloni në modali
   <string name="revanced_hide_autoplay_button_title">Fsheh butonin Autoplay</string>
   <string name="revanced_hide_autoplay_button_summary_on">Butoni \"Riprodho automatikisht\" është i fshehur</string>
   <string name="revanced_hide_autoplay_button_summary_off">Butoni \"Riprodho automatikisht\" është i dukshëm</string>
-  </patch>
-  <patch id="layout.hide.endscreencards.hideEndscreenCardsResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.endscreencards.hideEndscreenCardsResourcePatch"> -->
   <string name="revanced_hide_endscreen_cards_title">Fsheh kartat e ekranit të fundit</string>
   <string name="revanced_hide_endscreen_cards_summary_on">Kartat e ekranit të fundit janë të fshehura</string>
   <string name="revanced_hide_endscreen_cards_summary_off">Kartat e ekranit të fundit janë të dukshme</string>
-  </patch>
-  <patch id="layout.hide.fullscreenambientmode.disableFullscreenAmbientModePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.fullscreenambientmode.disableFullscreenAmbientModePatch"> -->
   <string name="revanced_disable_fullscreen_ambient_mode_title">Çaktivizo modalitetin Ambient në ekran të plotë</string>
   <string name="revanced_disable_fullscreen_ambient_mode_summary_on">\"Modaliteti Ambient\" është i çaktivizuar</string>
   <string name="revanced_disable_fullscreen_ambient_mode_summary_off">\"Modaliteti Ambient\" është i aktivizuar</string>
-  </patch>
-  <patch id="layout.hide.infocards.hideInfocardsResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.infocards.hideInfocardsResourcePatch"> -->
   <string name="revanced_hide_info_cards_title">Fsheh kartat e informacionit</string>
   <string name="revanced_hide_info_cards_summary_on">Kartat e informacionit janë të fshehura</string>
   <string name="revanced_hide_info_cards_summary_off">Kartat e informacionit janë të dukshme</string>
-  </patch>
-  <patch id="layout.hide.rollingnumber.disableRollingNumberAnimationPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.rollingnumber.disableRollingNumberAnimationPatch"> -->
   <string name="revanced_disable_rolling_number_animations_title">Çaktivizo animacionet e numrave rrotullues</string>
   <string name="revanced_disable_rolling_number_animations_summary_on">Numrat rrotullues nuk janë të animuar</string>
   <string name="revanced_disable_rolling_number_animations_summary_off">Numrat rrotullues janë të animuar</string>
-  </patch>
-  <patch id="layout.hide.seekbar.hideSeekbarPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.seekbar.hideSeekbarPatch"> -->
   <string name="revanced_hide_seekbar_title">Fsheh shkallën e kërkimit në lojtarin e videos</string>
   <string name="revanced_hide_seekbar_summary_on">Shkalla e kërkimit e lojtarit të videos është e fshehur</string>
   <string name="revanced_hide_seekbar_summary_off">Shkalla e kërkimit e lojtarit të videos është e dukshme</string>
   <string name="revanced_hide_seekbar_thumbnail_title">Fsheh shkallën e kërkimit në miniaturat e videos</string>
   <string name="revanced_hide_seekbar_thumbnail_summary_on">Shkalla e kërkimit e miniaturës është e fshehur</string>
   <string name="revanced_hide_seekbar_thumbnail_summary_off">Shkalla e kërkimit e miniaturës është e dukshme</string>
-  </patch>
-  <patch id="layout.hide.shorts.hideShortsComponentsResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.shorts.hideShortsComponentsResourcePatch"> -->
   <string name="revanced_shorts_player_screen_title">Lojtari i Shorts</string>
   <string name="revanced_shorts_player_screen_summary">Fsheh ose shfaq komponentët në lojtarin e Shorts</string>
   <!-- 'home' should be translated using the same localized wording YouTube displays for the home tab. -->
@@ -762,43 +763,43 @@ Nëse ndryshimi i këtij konfigurimi nuk ka efekt, provoni të kaloni në modali
   <string name="revanced_hide_shorts_navigation_bar_title">Fsheh shiritin e navigimit</string>
   <string name="revanced_hide_shorts_navigation_bar_summary_on">Shiriti i navigimit është i fshehur</string>
   <string name="revanced_hide_shorts_navigation_bar_summary_off">Shiriti i navigimit është i dukshëm</string>
-  </patch>
-  <patch id="layout.hide.endscreensuggestion.hideEndScreenSuggestedVideoPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.endscreensuggestion.hideEndScreenSuggestedVideoPatch"> -->
   <string name="revanced_end_screen_suggested_video_title">Fshih videon e sugjeruar në ekranin fundor</string>
   <string name="revanced_end_screen_suggested_video_summary_on">"Videoja e sugjeruar në ekranin fundor fshihet kur çaktivizohet luajtja automatike
 
 Luajtja automatike mund të ndryshohet në cilësimet e YouTube:
 Cilësimet → Luajtja → Luaj automatikisht videon tjetër"</string>
   <string name="revanced_end_screen_suggested_video_summary_off">Videoja e sugjeruar në ekranin fundor shfaqet</string>
-  </patch>
-  <patch id="layout.hide.time.hideTimestampPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.time.hideTimestampPatch"> -->
   <string name="revanced_hide_timestamp_title">Fsheh vulën e kohës së videos</string>
   <string name="revanced_hide_timestamp_summary_on">Vula e kohës është e fshehur</string>
   <string name="revanced_hide_timestamp_summary_off">Vula e kohës është e dukshme</string>
-  </patch>
-  <patch id="layout.panels.popup.playerPopupPanelsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.panels.popup.playerPopupPanelsPatch"> -->
   <string name="revanced_hide_player_popup_panels_title">Fsheh panelet pop-up të riprodhuesit</string>
   <string name="revanced_hide_player_popup_panels_summary_on">Panelet pop-up të riprodhuesit janë të fshehura</string>
   <string name="revanced_hide_player_popup_panels_summary_off">Panelet pop-up të riprodhuesit janë të dukshme</string>
-  </patch>
-  <patch id="layout.player.fullscreen.exitFullscreenPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.player.fullscreen.exitFullscreenPatch"> -->
   <string name="revanced_exit_fullscreen_title">Dilni nga gjithëshkëmbja në fund të videos</string>
   <string name="revanced_exit_fullscreen_entry_1">Çaktivizuar</string>
   <string name="revanced_exit_fullscreen_entry_2">Portret</string>
   <string name="revanced_exit_fullscreen_entry_3">Peisazh</string>
   <string name="revanced_exit_fullscreen_entry_4">Portret dhe peisazh</string>
-  </patch>
-  <patch id="layout.player.fullscreen.openVideosFullscreen">
+  <!-- </patch> -->
+  <!-- <patch id="layout.player.fullscreen.openVideosFullscreen"> -->
   <string name="revanced_open_videos_fullscreen_portrait_title">Hap videot në ekran të plotë portret</string>
   <string name="revanced_open_videos_fullscreen_portrait_summary_on">Videot hapen në ekran të plotë</string>
   <string name="revanced_open_videos_fullscreen_portrait_summary_off">Videot nuk hapen në ekran të plotë</string>
-  </patch>
-  <patch id="layout.player.overlay.customPlayerOverlayOpacityResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.player.overlay.customPlayerOverlayOpacityResourcePatch"> -->
   <string name="revanced_player_overlay_opacity_title">Opaciteti i mbivendosjes së riprodhuesit</string>
   <string name="revanced_player_overlay_opacity_summary">Vlera e opacitetit midis 0-100, ku 0 është transparent</string>
   <string name="revanced_player_overlay_opacity_invalid_toast">Opaciteti i mbivendosjes së riprodhuesit duhet të jetë midis 0-100</string>
-  </patch>
-  <patch id="layout.returnyoutubedislike.returnYouTubeDislikePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.returnyoutubedislike.returnYouTubeDislikePatch"> -->
   <!-- Toast shown if network connection times out. Translations of this should not be longer than the original English or the text can be clipped and not entirely shown. -->
   <string name="revanced_ryd_failure_connection_timeout">Nuk pëlqen përkohësisht nuk është në dispozicion (API ka kaluar kohën)</string>
   <string name="revanced_ryd_failure_connection_status_code">\"Nuk më pëlqen\" nuk është në dispozicion (statusi %d)</string>
@@ -847,13 +848,13 @@ Kufizimi: Mospëlqimet mund të mos shfaqen në modalitetin incognito"</string>
   <string name="revanced_ryd_statistics_getNumberOfRateLimitRequestsEncountered_zero_summary">Nuk është hasur asnjë kufizim i klientit</string>
   <string name="revanced_ryd_statistics_getNumberOfRateLimitRequestsEncountered_non_zero_summary">Kuota e klientit është hasur %d herë</string>
   <string name="revanced_ryd_statistics_millisecond_text">%d milisekonda</string>
-  </patch>
-  <patch id="layout.searchbar.wideSearchbarPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.searchbar.wideSearchbarPatch"> -->
   <string name="revanced_wide_searchbar_title">Aktivizo shiritin e gjerë kërkimi</string>
   <string name="revanced_wide_searchbar_summary_on">Shiriti i gjerë kërkimi është i aktivizuar</string>
   <string name="revanced_wide_searchbar_summary_off">Shiriti i gjerë kërkimi është i deaktivizuar</string>
-  </patch>
-  <patch id="layout.seekbar.seekbarThumbnailsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.seekbar.seekbarThumbnailsPatch"> -->
   <string name="revanced_seekbar_thumbnails_high_quality_title">Aktivizo miniatiurat me cilësi të lartë</string>
   <string name="revanced_seekbar_thumbnails_high_quality_summary_on">Miniatiurat e shiritit të kërkimi janë me cilësi të lartë</string>
   <string name="revanced_seekbar_thumbnails_high_quality_summary_off">Miniatiurat e shiritit të kërkimi janë me cilësi të mesme</string>
@@ -867,8 +868,8 @@ Kjo veçori funksionon më mirë me një cilësi video prej 720p ose më të ul�
   <string name="revanced_restore_old_seekbar_thumbnails_title">Rivendos miniatiurat e vjetra të shiritit të kërkimit</string>
   <string name="revanced_restore_old_seekbar_thumbnails_summary_on">Miniatiurat e shiritit të kërkimit do të shfaqen mbi shiritin e kërkimit</string>
   <string name="revanced_restore_old_seekbar_thumbnails_summary_off">Miniatiurat e shiritit të kërkimit do të shfaqen në ekran të plotë</string>
-  </patch>
-  <patch id="layout.sponsorblock.sponsorBlockResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.sponsorblock.sponsorBlockResourcePatch"> -->
   <string name="revanced_sb_enable_sb">Aktivizo SponsorBlock</string>
   <string name="revanced_sb_enable_sb_sum">SponsorBlock është një sistem me burim të shpërndarë për të hequr pjesët e bezdisshme të videove të YouTube</string>
   <string name="revanced_sb_appearance_category">Pamja</string>
@@ -1064,8 +1065,8 @@ Gati per te dhene?"</string>
   <string name="revanced_sb_reset">Rikthe</string>
   <string name="revanced_sb_about">Rreth</string>
   <string name="revanced_sb_about_api_sum">Të dhënat janë siguruar nga API e SponsorBlock. Prekni këtu për të mësuar më shumë dhe për të parë shkarkimet për platformat e tjera</string>
-  </patch>
-  <patch id="layout.formfactor.changeFormFactorPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.formfactor.changeFormFactorPatch"> -->
   <string name="revanced_change_form_factor_title">Faktor i formularit të shtrirjes</string>
   <string name="revanced_change_form_factor_entry_1">Paradrejtuar</string>
   <string name="revanced_change_form_factor_entry_2">Telefon</string>
@@ -1079,8 +1080,8 @@ Paraqitja e tabletit
 Paraqitja e makinës
 • Shorts hapen në luajtësin e rregullt
 • Feed organizohet sipas temave dhe kanaleve"</string>
-  </patch>
-  <patch id="layout.spoofappversion.spoofAppVersionPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.spoofappversion.spoofAppVersionPatch"> -->
   <string name="revanced_spoof_app_version_title">Mashtro versionin e aplikacionit</string>
   <string name="revanced_spoof_app_version_summary_on">Versioni i mashtuar</string>
   <string name="revanced_spoof_app_version_summary_off">Versioni nuk është i mashtuar</string>
@@ -1094,8 +1095,8 @@ Nëse më vonë është çaktivizuar, është e rekomanduar të fshiheni të dh�
   <string name="revanced_spoof_app_version_target_title">Shënjestër e versionit të aplikacionit të mashtuar</string>
   <string name="revanced_spoof_app_version_target_entry_1">19.35.36 - Rikthe ikonat e vjetra të lojtarit Shorts</string>
   <string name="revanced_spoof_app_version_target_entry_2">19.01.34 - Ristauro ikonave te vjetra te navigimit</string>
-  </patch>
-  <patch id="layout.startpage.changeStartPagePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.startpage.changeStartPagePatch"> -->
   <string name="revanced_change_start_page_title">Vendos faqen e fillimit</string>
   <string name="revanced_change_start_page_entry_default">Paragjykja</string>
   <string name="revanced_change_start_page_entry_all_subscriptions">Të gjitha abonimet</string>
@@ -1121,27 +1122,27 @@ Nëse më vonë është çaktivizuar, është e rekomanduar të fshiheni të dh�
   <string name="revanced_change_start_page_entry_virtual_reality">Realiteti Virtual</string>
   <string name="revanced_change_start_page_entry_watch_later">Shiko më vonë</string>
   <string name="revanced_change_start_page_entry_your_clips">Klipët tuaj</string>
-  </patch>
-  <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch"> -->
   <string name="revanced_disable_resuming_shorts_player_title">Fik rifillon lojtarin Shorts</string>
   <string name="revanced_disable_resuming_shorts_player_summary_on">Lojtari Shorts nuk do të rifillojë në fillimin e aplikacionit</string>
   <string name="revanced_disable_resuming_shorts_player_summary_off">Lojtari Shorts do të rifillojë në fillimin e aplikacionit</string>
-  </patch>
-  <patch id="layout.shortsplayer.shortsPlayerTypePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.shortsplayer.shortsPlayerTypePatch"> -->
   <string name="revanced_shorts_player_type_title">Hap Shorts me</string>
   <string name="revanced_shorts_player_type_shorts">Lojtari i Shorts</string>
   <string name="revanced_shorts_player_type_regular_player">Lojtari i zakonshëm</string>
   <string name="revanced_shorts_player_type_regular_player_fullscreen">Lojtari i zakonshëm në ekran të plotë</string>
-  </patch>
-  <patch id="layout.shortsautoplay.shortsAutoplayPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.shortsautoplay.shortsAutoplayPatch"> -->
   <string name="revanced_shorts_autoplay_title">Autoplay Shorts</string>
   <string name="revanced_shorts_autoplay_summary_on">Shorts do të luajnë automatikisht</string>
   <string name="revanced_shorts_autoplay_summary_off">Shorts do të përsëriten</string>
   <string name="revanced_shorts_autoplay_background_title">Autoplay Shorts luaj në sfond</string>
   <string name="revanced_shorts_autoplay_background_summary_on">Luaj në sfond Shorts do të luajë automatikisht</string>
   <string name="revanced_shorts_autoplay_background_summary_off">Luaj në sfond Shorts do të përsëritet</string>
-  </patch>
-  <patch id="layout.miniplayer.miniplayerPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.miniplayer.miniplayerPatch"> -->
   <string name="revanced_miniplayer_screen_title">Miniplayer</string>
   <string name="revanced_miniplayer_screen_summary">Ndrysho stilin e luajtësit të minimizuar brenda aplikacionit</string>
   <string name="revanced_miniplayer_type_title">Lloji i \"miniplayer\"</string>
@@ -1191,8 +1192,8 @@ Lëviz gishtin për të zgjeruar ose mbyllur"</string>
   <string name="revanced_miniplayer_opacity_title">Paqartësia e mbivendosjes</string>
   <string name="revanced_miniplayer_opacity_summary">Vlera e paqartësisë midis 0-100, ku 0 është transparente</string>
   <string name="revanced_miniplayer_opacity_invalid_toast">Paqartësia e mbivendosjes së \"miniplayer\" duhet të jetë midis 0-100</string>
-  </patch>
-  <patch id="layout.theme.themePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.theme.themePatch"> -->
   <string name="revanced_gradient_loading_screen_title">Aktivizo ekranin e ngarkimit me gradient</string>
   <string name="revanced_gradient_loading_screen_summary_on">Ekrani i ngarkimit do të ketë një sfond me gradient</string>
   <string name="revanced_gradient_loading_screen_summary_off">Ekrani i ngarkimit do të ketë një sfond të ngurtë</string>
@@ -1204,15 +1205,15 @@ Lëviz gishtin për të zgjeruar ose mbyllur"</string>
   <string name="revanced_seekbar_custom_color_accent_title">Ngjyra e theksuar e zakonshme e shiritit të kërkimit</string>
   <string name="revanced_seekbar_custom_color_accent_summary">Ngjyra e theksuar e shiritit të kërkimit</string>
   <string name="revanced_seekbar_custom_color_invalid">Vlerë e pavlefshme e ngjyrës së shkallës së kërkimit</string>
-  </patch>
-  <patch id="layout.thumbnails.bypassImageRegionRestrictionsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.thumbnails.bypassImageRegionRestrictionsPatch"> -->
   <string name="revanced_bypass_image_region_restrictions_title">Anashkalo kufizimet e rajonit të imazhit</string>
   <string name="revanced_bypass_image_region_restrictions_summary_on">Duke përdorur hostin e imazhit yt4.ggpht.com</string>
   <string name="revanced_bypass_image_region_restrictions_summary_off">"Përdorimi i hostit origjinal të imazheve
 
 Aktivizimi i kësaj mund të rregullojë imazhet e munguar që janë të bllokuara në disa rajone"</string>
-  </patch>
-  <patch id="layout.thumbnails.alternativeThumbnailsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.thumbnails.alternativeThumbnailsPatch"> -->
   <!-- 'Home' should be translated using the same localized wording YouTube displays for the home tab. -->
   <string name="revanced_alt_thumbnail_home_title">Kasa \"Home\"</string>
   <!-- 'Subscription' should be translated using the same localized wording YouTube displays for the subscription tab. -->
@@ -1247,26 +1248,26 @@ Prekni këtu për të mësuar më shumë rreth DeArrow"</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_alt_thumbnail_dearrow_error">DeArrow nuk është i disponueshëm përkohësisht (kodi i statusit: %s)</string>
   <string name="revanced_alt_thumbnail_dearrow_error_generic">DeArrow nuk është i disponueshëm përkohësisht</string>
-  </patch>
-  <patch id="misc.announcements.announcementsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.announcements.announcementsPatch"> -->
   <string name="revanced_announcements_title">Shfaq njoftimet e ReVanced</string>
   <string name="revanced_announcements_summary_on">Njoftimet gjatë fillimit janë të shfaqura</string>
   <string name="revanced_announcements_summary_off">Njoftimet gjatë fillimit nuk janë të shfaqura</string>
   <string name="revanced_announcements_enabled_summary">Shfaq njoftime në fillim</string>
   <string name="revanced_announcements_connection_failed">Lidhja me ofruesin e njoftimeve dështoi</string>
   <string name="revanced_announcements_dialog_dismiss">Anulo</string>
-  </patch>
-  <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch"> -->
   <string name="revanced_check_watch_history_domain_name_dialog_title">Kujdes</string>
   <string name="revanced_check_watch_history_domain_name_dialog_message">Historia juaj e shikimit nuk po ruhet.&lt;br&gt;&lt;br&gt;Kjo me shumë mundësi shkaktohet nga një bllokues DNS reklamash ose një prokuri rrjeti.&lt;br&gt;&lt;br&gt;Për të zgjidhur këtë, shto në listën e bardhë &lt;b&gt;s.youtube.com&lt;/b&gt; ose çaktivizo të gjithë bllokuesit DNS dhe prokuritë.</string>
   <string name="revanced_check_watch_history_domain_name_dialog_ignore">Mos shfaq përsëri</string>
-  </patch>
-  <patch id="misc.autorepeat.autoRepeatPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.autorepeat.autoRepeatPatch"> -->
   <string name="revanced_auto_repeat_title">Aktivizo përsëritjen automatike</string>
   <string name="revanced_auto_repeat_summary_on">Përsëritja automatike është e aktivizuar</string>
   <string name="revanced_auto_repeat_summary_off">Përsëritja automatike është e çaktivizuar</string>
-  </patch>
-  <patch id="misc.dimensions.spoof.spoofDeviceDimensionsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.dimensions.spoof.spoofDeviceDimensionsPatch"> -->
   <string name="revanced_spoof_device_dimensions_title">Mashtro dimensionet e pajisjes</string>
   <string name="revanced_spoof_device_dimensions_summary_on">"Dimensionet e pajisjes janë spoofed
 
@@ -1275,39 +1276,39 @@ Cilësitë e videove më të larta mund të zhbllokohen, por mund të përjetoni
 
 Aktivizimi i kësaj mund të zhbllokojë cilësi më të larta video"</string>
   <string name="revanced_spoof_device_dimensions_user_dialog_message">Aktivizimi i kësaj mund të shkaktojë bllokim të luajtjes së videos, jetëgjatësi më të shkurtër të baterisë dhe efekte anësore të panjohura.</string>
-  </patch>
-  <patch id="misc.gms.gmsCoreSupportResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.gms.gmsCoreSupportResourcePatch"> -->
   <string name="microg_settings_title">Cilësimet e GmsCore</string>
   <string name="microg_settings_summary">Cilësimet për GmsCore</string>
-  </patch>
-  <patch id="misc.links.bypassURLRedirectsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.links.bypassURLRedirectsPatch"> -->
   <string name="revanced_bypass_url_redirects_title">Anulo redirektimin e URL</string>
   <string name="revanced_bypass_url_redirects_summary_on">Redirektimet e URL janë të anuluara</string>
   <string name="revanced_bypass_url_redirects_summary_off">Redirektimet e URL nuk janë të anuluara</string>
-  </patch>
-  <patch id="misc.links.openLinksExternallyPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.links.openLinksExternallyPatch"> -->
   <string name="revanced_external_browser_title">Hap linket në shfletues</string>
   <string name="revanced_external_browser_summary_on">Hapja e linkeve në shfletuesin e jashtëm</string>
   <string name="revanced_external_browser_summary_off">Hapja e linkeve në shfletuesin brenda aplikacionit</string>
-  </patch>
-  <patch id="misc.privacy.removeTrackingQueryParameterPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.privacy.removeTrackingQueryParameterPatch"> -->
   <string name="revanced_remove_tracking_query_parameter_title">Hiq parametrin e gjurmimit të kërkesës</string>
   <string name="revanced_remove_tracking_query_parameter_summary_on">Parametri i gjurmimit të kërkesës hiqet nga linket</string>
   <string name="revanced_remove_tracking_query_parameter_summary_off">Parametri i gjurmimit të kërkesës nuk hiqet nga linket</string>
-  </patch>
-  <patch id="misc.zoomhaptics.zoomHapticsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.zoomhaptics.zoomHapticsPatch"> -->
   <string name="revanced_disable_zoom_haptics_title">Çaktivizo haptikën e zmadhimit</string>
   <string name="revanced_disable_zoom_haptics_summary_on">Haptikët janë të çaktivizuar</string>
   <string name="revanced_disable_zoom_haptics_summary_off">Haptikët janë të aktivizuar</string>
-  </patch>
-  <patch id="video.audio.forceOriginalAudioPatch">
+  <!-- </patch> -->
+  <!-- <patch id="video.audio.forceOriginalAudioPatch"> -->
   <string name="revanced_force_original_audio_title">Forco gjuhën origjinale të audios</string>
   <string name="revanced_force_original_audio_summary_on">Duke përdorur gjuhën origjinale audio</string>
   <string name="revanced_force_original_audio_summary_off">Përdorimi i Zërit Parazgjedhur</string>
   <!-- 'Spoof video streams' should be the same translation used for revanced_spoof_video_streams_screen_title -->
   <string name="revanced_force_original_audio_not_available">Për ta përdorur këtë veçori, ndryshoni \'Rrjedhat e videos tallëse\' në iOS TV</string>
-  </patch>
-  <patch id="video.quality.rememberVideoQualityPatch">
+  <!-- </patch> -->
+  <!-- <patch id="video.quality.rememberVideoQualityPatch"> -->
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
   <string name="revanced_video_quality_default_entry_1">Automatik</string>
   <string name="revanced_remember_video_quality_last_selected_title">Mbani mend ndryshimet e cilësisë së videos</string>
@@ -1324,13 +1325,13 @@ Aktivizimi i kësaj mund të zhbllokojë cilësi më të larta video"</string>
   <string name="revanced_remember_video_quality_wifi">wifi</string>
   <string name="revanced_remember_video_quality_toast">Ndryshuar cilësia parazgjedhëse %1$s në: %2$s</string>
   <string name="revanced_remember_video_quality_toast_shorts">Cilësia e Shorts u ndryshua nga %1$s në: %2$s</string>
-  </patch>
-  <patch id="video.speed.button.playbackSpeedButtonPatch">
+  <!-- </patch> -->
+  <!-- <patch id="video.speed.button.playbackSpeedButtonPatch"> -->
   <string name="revanced_playback_speed_dialog_button_title">Shfaq butonin e dialogut të shpejtësisë</string>
   <string name="revanced_playback_speed_dialog_button_summary_on">Butoni shfaqet</string>
   <string name="revanced_playback_speed_dialog_button_summary_off">Butoni nuk shfaqet</string>
-  </patch>
-  <patch id="video.speed.custom.customPlaybackSpeedPatch">
+  <!-- </patch> -->
+  <!-- <patch id="video.speed.custom.customPlaybackSpeedPatch"> -->
   <string name="revanced_custom_speed_menu_title">Menyja e shpejtësisë së përsëritjes së përshtatshme</string>
   <string name="revanced_custom_speed_menu_summary_on">Menyja e shpejtësisë së përshtatshme shfaqet</string>
   <string name="revanced_custom_speed_menu_summary_off">Menyja e shpejtësisë së përshtatshme nuk shfaqet</string>
@@ -1341,30 +1342,30 @@ Aktivizimi i kësaj mund të zhbllokojë cilësi më të larta video"</string>
   <string name="revanced_custom_playback_speeds_auto">Automatik</string>
   <string name="revanced_speed_tap_and_hold_title">Shpejtësia sipas dëshirës së përdoruesit gjatë përdorimit</string>
   <string name="revanced_speed_tap_and_hold_summary">Shpejtësi e riprodhimit midis 0 dhe 8</string>
-  </patch>
-  <patch id="video.speed.remember.rememberPlaybackSpeedPatch">
+  <!-- </patch> -->
+  <!-- <patch id="video.speed.remember.rememberPlaybackSpeedPatch"> -->
   <string name="revanced_remember_playback_speed_last_selected_title">Mbani mend ndryshimet e shpejtësisë së përsëritjes</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_on">Ndryshimet e shpejtësisë së përsëritjes zbatohen për të gjitha videot</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_off">Ndryshimet e shpejtësisë së përsëritjes zbatohen vetëm për videon aktuale</string>
   <string name="revanced_playback_speed_default_title">Shpejtësia e përsëritjes parazgjedhëse</string>
   <string name="revanced_remember_playback_speed_toast">Ndryshuar shpejtësia parazgjedhëse në: %s</string>
-  </patch>
-  <patch id="video.hdr.disableHdrPatch">
+  <!-- </patch> -->
+  <!-- <patch id="video.hdr.disableHdrPatch"> -->
   <string name="revanced_disable_hdr_video_title">Çaktivizoni videot HDR</string>
   <string name="revanced_disable_hdr_video_summary_on">Videoja HDR është çaktivizuar</string>
   <string name="revanced_disable_hdr_video_summary_off">Videoja HDR është aktivizuar</string>
-  </patch>
-  <patch id="video.quality.advancedVideoQualityMenuPatch">
+  <!-- </patch> -->
+  <!-- <patch id="video.quality.advancedVideoQualityMenuPatch"> -->
   <string name="revanced_advanced_video_quality_menu_title">Shfaq menunë e avancuar të cilësisë së videos</string>
   <string name="revanced_advanced_video_quality_menu_summary_on">Shfaqet menyja e avancuar e cilësisë së videos</string>
   <string name="revanced_advanced_video_quality_menu_summary_off">Menyja e avancuar e cilësisë së videos nuk shfaqet</string>
-  </patch>
-  <patch id="interaction.seekbar.enableSlideToSeekPatch">
+  <!-- </patch> -->
+  <!-- <patch id="interaction.seekbar.enableSlideToSeekPatch"> -->
   <string name="revanced_slide_to_seek_title">Aktivizo rrëshqitjen për kërkim</string>
   <string name="revanced_slide_to_seek_summary_on">Rrëshqitja për kërkim është e aktivizuar</string>
   <string name="revanced_slide_to_seek_summary_off">Rrëshqitja për kërkim nuk është e aktivizuar</string>
-  </patch>
-  <patch id="misc.fix.playback.spoofVideoStreamsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.fix.playback.spoofVideoStreamsPatch"> -->
   <string name="revanced_spoof_video_streams_screen_title">Mashtro rrjedhat e videos</string>
   <string name="revanced_spoof_video_streams_screen_summary">Mashtro rrjedhat e videos së klientit për të parandaluar problemet e luajtjes</string>
   <string name="revanced_spoof_video_streams_title">Mashtro rrjedhat e videos</string>
@@ -1394,46 +1395,46 @@ AVC ka një rezolucion maksimal prej 1080p, kodeku audio Opus nuk është i disp
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Lloji i klientit shfaqet në Statistikat për nerds</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Klienti është fshehur në statistikat për nerds</string>
   <string name="revanced_spoof_video_streams_language_title">Gjuha e rrjedhës audio VR</string>
-  </patch>
-  </app>
-  <app id="twitch">
-  <patch id="ad.audio.audioAdsPatch">
+  <!-- </patch> -->
+  <!-- </app> -->
+  <!-- <app id="twitch"> -->
+  <!-- <patch id="ad.audio.audioAdsPatch"> -->
   <string name="revanced_block_audio_ads_title">Blloko reklamat audio</string>
   <string name="revanced_block_audio_ads_summary_on">Reklamat audio janë të bllokuara</string>
   <string name="revanced_block_audio_ads_summary_off">Reklamat audio nuk janë të bllokuara</string>
-  </patch>
-  <patch id="ad.embedded.embeddedAdsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="ad.embedded.embeddedAdsPatch"> -->
   <string name="revanced_embedded_ads_service_unavailable">%s i padisponueshëm, mund të shfaqen reklama. Provoni të ndryshoni shërbimin e bllokimit të reklamave në settings.</string>
   <string name="revanced_embedded_ads_service_failed">%s ktheu një gabim, mund të shfaqen reklama. Provoni të ndryshoni shërbimin e bllokimit të reklamave në settings.</string>
   <string name="revanced_block_embedded_ads_title">Blloko reklamat e videove të ngulitura</string>
   <string name="revanced_block_embedded_ads_entry_1">E çaktivizuar</string>
   <string name="revanced_block_embedded_ads_entry_2">Proxy Luminous</string>
   <string name="revanced_block_embedded_ads_entry_3">Proxy PurpleAdBlock</string>
-  </patch>
-  <patch id="ad.video.videoAdsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="ad.video.videoAdsPatch"> -->
   <string name="revanced_block_video_ads_title">Blloko reklamat e videove</string>
   <string name="revanced_block_video_ads_summary_on">Reklamat e videove janë të bllokuara</string>
   <string name="revanced_block_video_ads_summary_off">Reklamat e videove nuk janë të bllokuara</string>
-  </patch>
-  <patch id="chat.antidelete.showDeletedMessagesPatch">
+  <!-- </patch> -->
+  <!-- <patch id="chat.antidelete.showDeletedMessagesPatch"> -->
   <string name="revanced_deleted_msg">mesazhi i fshirë</string>
   <string name="revanced_show_deleted_messages_title">Shfaq mesazhet e fshira</string>
   <string name="revanced_show_deleted_messages_entry_1">Mos shfaq mesazhet e fshira</string>
   <string name="revanced_show_deleted_messages_entry_2">Fshih mesazhet e fshira pas një spoileri</string>
   <string name="revanced_show_deleted_messages_entry_3">Shfaq mesazhet e fshira si tekst i kaluar</string>
-  </patch>
-  <patch id="chat.autoclaim.autoClaimChannelPointsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="chat.autoclaim.autoClaimChannelPointsPatch"> -->
   <string name="revanced_auto_claim_channel_points_title">Kërko automatikisht pikat e kanalit</string>
   <string name="revanced_auto_claim_channel_points_summary_on">Pikat e kanalit kërkohen automatikisht</string>
   <string name="revanced_auto_claim_channel_points_summary_off">Pikat e kanalit nuk kërkohen automatikisht</string>
-  </patch>
-  <patch id="debug.debugModePatch">
+  <!-- </patch> -->
+  <!-- <patch id="debug.debugModePatch"> -->
   <!-- Twitch specific internal debug mode, and not the same as 'revanced_debug_title' -->
   <string name="revanced_twitch_debug_mode_title">Aktivizo mënyrën e debugimit të Twitch</string>
   <string name="revanced_twitch_debug_mode_summary_on">Mënyra e debugimit të Twitch është e aktivizuar (nuk rekomandohet)</string>
   <string name="revanced_twitch_debug_mode_summary_off">Mënyra e debugimit të Twitch është e çaktivizuar</string>
-  </patch>
-  <patch id="misc.settings.settingsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.settings.settingsPatch"> -->
   <string name="revanced_settings">Cilësimet e ReVanced</string>
   <string name="revanced_about_title">Rreth</string>
   <string name="revanced_about_summary">Rreth ReVanced</string>
@@ -1450,6 +1451,6 @@ AVC ka një rezolucion maksimal prej 1080p, kodeku audio Opus nuk është i disp
   <string name="revanced_twitch_debug_title">Regjistrimi i debugimit</string>
   <string name="revanced_twitch_debug_summary_on">Regjistrimet e debugimit janë të aktivizuara</string>
   <string name="revanced_twitch_debug_summary_off">Regjistrimet e debugimit janë të çaktivizuara</string>
-  </patch>
-  </app>
+  <!-- </patch> -->
+  <!-- </app> -->
 </resources>

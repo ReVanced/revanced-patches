@@ -20,8 +20,8 @@ Second \"item\" text"</string>
 
 -->
 <resources>
-  <app id="shared">
-  <patch id="misc.checks.checkEnvironmentPatch">
+  <!-- <app id="shared"> -->
+  <!-- <patch id="misc.checks.checkEnvironmentPatch"> -->
   <string name="revanced_check_environment_failed_title">Провере нису успеле</string>
   <string name="revanced_check_environment_dialog_open_official_source_button">Отвори званични веб-сајт</string>
   <string name="revanced_check_environment_dialog_ignore_button">Занемари</string>
@@ -31,8 +31,8 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time">Печовано пре више од 10 минута</string>
   <string name="revanced_check_environment_not_near_patch_time_days">Печовано пре %s дана</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">Датум израде APK-а је оштећен</string>
-  </patch>
-  <patch id="misc.settings.settingsResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.settings.settingsResourcePatch"> -->
   <string name="revanced_settings_submenu_title">Подешавања</string>
   <string name="revanced_settings_confirm_user_dialog_title">Желите ли да наставите?</string>
   <string name="revanced_settings_reset">Ресетуј</string>
@@ -57,8 +57,8 @@ Second \"item\" text"</string>
   <string name="revanced_settings_about_links_header">Званични линкови</string>
   <!-- NOTE: the about strings above are duplicated in the TikTok about screen code,
                  and changes made here must also be made there. -->
-  </patch>
-  <patch id="misc.gms.gmsCoreSupportResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.gms.gmsCoreSupportResourcePatch"> -->
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="gms_core_toast_not_installed_message">MicroG GmsCore није инсталиран. Инсталирајте га.</string>
   <string name="gms_core_dialog_title">Неопходна радња</string>
@@ -74,10 +74,10 @@ Second \"item\" text"</string>
 
 Додирните дугме „Настави” и дозволите промене оптимизације."</string>
   <string name="gms_core_dialog_continue_text">Настави</string>
-  </patch>
-  </app>
-  <app id="youtube">
-  <patch id="misc.settings.settingsPatch">
+  <!-- </patch> -->
+  <!-- </app> -->
+  <!-- <app id="youtube"> -->
+  <!-- <patch id="misc.settings.settingsPatch"> -->
   <string name="revanced_settings_screen_00_about_title">О програму</string>
   <string name="revanced_settings_screen_01_ads_title">Огласи</string>
   <string name="revanced_settings_screen_02_alt_thumbnails_title">Алтернативне сличице</string>
@@ -91,13 +91,13 @@ Second \"item\" text"</string>
   <string name="revanced_restore_old_settings_menus_title">Врати старе меније подешавања</string>
   <string name="revanced_restore_old_settings_menus_summary_on">Приказују се стари менији подешавања</string>
   <string name="revanced_restore_old_settings_menus_summary_off">Не приказују се стари менији подешавања</string>
-  </patch>
-  <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.backgroundplayback.backgroundPlaybackPatch"> -->
   <string name="revanced_shorts_disable_background_playback_title">Онемогући пуштање Shorts видеа у позадини</string>
   <string name="revanced_shorts_disable_background_playback_summary_on">Пуштање Shorts видеа у позадини је онемогућено</string>
   <string name="revanced_shorts_disable_background_playback_summary_off">Пуштање Shorts видеа у позадини је омогућено</string>
-  </patch>
-  <patch id="misc.debugging.enableDebuggingPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.debugging.enableDebuggingPatch"> -->
   <string name="revanced_debug_screen_title">Отклањање грешака</string>
   <string name="revanced_debug_screen_summary">Омогућите или онемогућите опције за отклањање грешака</string>
   <string name="revanced_debug_title">Евидентирање отклањања грешака</string>
@@ -115,8 +115,8 @@ Second \"item\" text"</string>
   <string name="revanced_debug_toast_on_error_user_dialog_message">"Искључивање искачућих обавештења о грешкама сакрива сва обавештења о грешкама у ReVanced-у.
 
 Нећете бити обавештени ни о каквим неочекиваним догађајима."</string>
-  </patch>
-  <patch id="layout.hide.general.hideLayoutComponentsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.general.hideLayoutComponentsPatch"> -->
   <string name="revanced_hide_album_cards_title">Сакриј картице албума</string>
   <string name="revanced_hide_album_cards_summary_on">Картице албума су скривене</string>
   <string name="revanced_hide_album_cards_summary_off">Картице албума су приказане</string>
@@ -340,8 +340,8 @@ Second \"item\" text"</string>
   <string name="revanced_hide_keyword_toast_invalid_conflicting">Кључна реч има конфликтне изјаве: %s</string>
   <string name="revanced_hide_keyword_toast_invalid_length">Кључна реч је прекратка и захтева наводнике: %s</string>
   <string name="revanced_hide_keyword_toast_invalid_broad">Кључна реч ће сакрити све видее: %s</string>
-  </patch>
-  <patch id="ad.general.hideAdsResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="ad.general.hideAdsResourcePatch"> -->
   <string name="revanced_hide_general_ads_title">Сакриј опште огласе</string>
   <string name="revanced_hide_general_ads_summary_on">Општи огласи су скривени</string>
   <string name="revanced_hide_general_ads_summary_off">Општи огласи су приказани</string>
@@ -383,18 +383,18 @@ Second \"item\" text"</string>
   <string name="revanced_hide_merchandise_banners_summary_off">Банери за робу су приказани</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_hide_fullscreen_ads_feature_not_available_toast">Сакривање огласа преко целог екрана ради само са старијим уређајима</string>
-  </patch>
-  <patch id="ad.getpremium.hideGetPremiumPatch">
+  <!-- </patch> -->
+  <!-- <patch id="ad.getpremium.hideGetPremiumPatch"> -->
   <string name="revanced_hide_get_premium_title">Сакриј промоције за YouTube Premium</string>
   <string name="revanced_hide_get_premium_summary_on">Промоције за YouTube Premium испод видео плејера су скривене</string>
   <string name="revanced_hide_get_premium_summary_off">Промоције за YouTube Premium испод видео плејера су приказане</string>
-  </patch>
-  <patch id="ad.video.videoAdsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="ad.video.videoAdsPatch"> -->
   <string name="revanced_hide_video_ads_title">Сакриј видео огласе</string>
   <string name="revanced_hide_video_ads_summary_on">Видео огласи су скривени</string>
   <string name="revanced_hide_video_ads_summary_off">Видео огласи су приказани</string>
-  </patch>
-  <patch id="interaction.copyvideourl.copyVideoUrlResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="interaction.copyvideourl.copyVideoUrlResourcePatch"> -->
   <string name="revanced_share_copy_url_success">Линк је копиран у привремену меморију</string>
   <string name="revanced_share_copy_url_timestamp_success">Линк с временском ознаком је копиран</string>
   <string name="revanced_copy_video_url_title">Прикажи дугме за копирање линка видеа</string>
@@ -403,14 +403,14 @@ Second \"item\" text"</string>
   <string name="revanced_copy_video_url_timestamp_title">Прикажи дугме за копирање линка видеа с временском ознаком</string>
   <string name="revanced_copy_video_url_timestamp_summary_on">Дугме је приказано. Додирните да бисте копирали линк видеа с временском ознаком. Додирните и задржите да бисте копирали линк без временске ознаке</string>
   <string name="revanced_copy_video_url_timestamp_summary_off">Дугме за копирање линка видеа с временском ознаком није приказано</string>
-  </patch>
-  <patch id="interaction.dialog.removeViewerDiscretionDialogPatch">
+  <!-- </patch> -->
+  <!-- <patch id="interaction.dialog.removeViewerDiscretionDialogPatch"> -->
   <string name="revanced_remove_viewer_discretion_dialog_title">Уклони дијалог о дискрецији гледаоца</string>
   <string name="revanced_remove_viewer_discretion_dialog_summary_on">Дијалог о дискрецији гледаоца ће бити уклоњен</string>
   <string name="revanced_remove_viewer_discretion_dialog_summary_off">Дијалог о дискрецији гледаоца ће бити приказан</string>
   <string name="revanced_remove_viewer_discretion_dialog_user_dialog_message">Ово не заобилази старосно ограничење. Само га аутоматски прихвата.</string>
-  </patch>
-  <patch id="interaction.downloads.downloadsResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="interaction.downloads.downloadsResourcePatch"> -->
   <string name="revanced_external_downloader_screen_title">Спољна преузимања</string>
   <string name="revanced_external_downloader_screen_summary">Подешавања за коришћење спољног програма за преузимање</string>
   <string name="revanced_external_downloader_title">Прикажи дугме за спољно преузимање</string>
@@ -423,18 +423,18 @@ Second \"item\" text"</string>
   <string name="revanced_external_downloader_name_title">Назив пакета програма за преузимање</string>
   <string name="revanced_external_downloader_name_summary">Назив пакета инсталираног спољног програма за преузимање, као што је NewPipe или Seal</string>
   <string name="revanced_external_downloader_not_installed_warning">%s није инсталиран. Инсталирајте га.</string>
-  </patch>
-  <patch id="interaction.seekbar.disablePreciseSeekingGesturePatch">
+  <!-- </patch> -->
+  <!-- <patch id="interaction.seekbar.disablePreciseSeekingGesturePatch"> -->
   <string name="revanced_disable_precise_seeking_gesture_title">Онемогући покрет прецизног премотавања</string>
   <string name="revanced_disable_precise_seeking_gesture_summary_on">Покрет прецизног премотавања је онемогућен</string>
   <string name="revanced_disable_precise_seeking_gesture_summary_off">Покрет прецизног премотавања је омогућен</string>
-  </patch>
-  <patch id="interaction.seekbar.enableSeekbarTappingPatch">
+  <!-- </patch> -->
+  <!-- <patch id="interaction.seekbar.enableSeekbarTappingPatch"> -->
   <string name="revanced_seekbar_tapping_title">Омогући додир за премотавање</string>
   <string name="revanced_seekbar_tapping_summary_on">Додир за премотавање је омогућен</string>
   <string name="revanced_seekbar_tapping_summary_off">Додир за премотавање је онемогућен</string>
-  </patch>
-  <patch id="interaction.swipecontrols.swipeControlsResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="interaction.swipecontrols.swipeControlsResourcePatch"> -->
   <string name="revanced_swipe_brightness_title">Омогући покрет за осветљеност</string>
   <string name="revanced_swipe_brightness_summary_on">"Превлачење за осветљеност у режиму целог екрана је омогућено
 
@@ -473,13 +473,13 @@ Second \"item\" text"</string>
   <string name="revanced_swipe_change_video_title">Омогући превлачење за промену видеа</string>
   <string name="revanced_swipe_change_video_summary_on">Превлачење у режиму целог екрана ће променити на следећи/претходни видео</string>
   <string name="revanced_swipe_change_video_summary_off">Превлачење у режиму целог екрана неће променити на следећи/претходни видео</string>
-  </patch>
-  <patch id="layout.autocaptions.autoCaptionsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.autocaptions.autoCaptionsPatch"> -->
   <string name="revanced_auto_captions_title">Онемогући аутоматске титлове</string>
   <string name="revanced_auto_captions_summary_on">Аутоматски титлови су онемогућени</string>
   <string name="revanced_auto_captions_summary_off">Аутоматски титлови су омогућени</string>
-  </patch>
-  <patch id="layout.buttons.action.hideButtonsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.buttons.action.hideButtonsPatch"> -->
   <string name="revanced_hide_buttons_screen_title">Дугмад радњи</string>
   <string name="revanced_hide_buttons_screen_summary">Сакријте или прикажите дугмад испод видеа</string>
   <string name="revanced_disable_like_subscribe_glow_title">Онемогући сјај дугмади „Свиђање” и „Запрати”</string>
@@ -517,8 +517,8 @@ Second \"item\" text"</string>
   <string name="revanced_hide_playlist_button_title">Сакриј дугме „Сачувај на плејлисту”</string>
   <string name="revanced_hide_playlist_button_summary_on">Дугме „Сачувај на плејлисту” је скривено</string>
   <string name="revanced_hide_playlist_button_summary_off">Дугме „Сачувај на плејлисту” је приказано</string>
-  </patch>
-  <patch id="layout.buttons.navigation.navigationButtonsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.buttons.navigation.navigationButtonsPatch"> -->
   <string name="revanced_navigation_buttons_screen_title">Дугмад навигације</string>
   <string name="revanced_navigation_buttons_screen_summary">Сакријте или промените дугмад на траци за навигацију</string>
   <!-- 'Home' should be translated using the same localized wording YouTube displays for the tab. -->
@@ -555,14 +555,15 @@ Second \"item\" text"</string>
   <string name="revanced_disable_translucent_status_bar_title">Онемогући прозирну статусну траку</string>
   <string name="revanced_disable_translucent_status_bar_summary_on">Статусна трака је непрозирна</string>
   <string name="revanced_disable_translucent_status_bar_summary_off">Статусна трака је непрозирна или прозирна</string>
+  <string name="revanced_disable_translucent_status_bar_user_dialog_message">На неким уређајима, омогућавање ове функције може да промени траку за навигацију кроз систем у прозирну.</string>
   <string name="revanced_disable_translucent_navigation_bar_light_title">Онемогући светлу прозирну траку за навигацију</string>
   <string name="revanced_disable_translucent_navigation_bar_light_summary_on">Трака за навигацију у светлом режиму је непрозирна</string>
   <string name="revanced_disable_translucent_navigation_bar_light_summary_off">Трака за навигацију у светлом режиму је непрозирна или прозирна</string>
   <string name="revanced_disable_translucent_navigation_bar_dark_title">Онемогући тамну прозирну траку за навигацију</string>
   <string name="revanced_disable_translucent_navigation_bar_dark_summary_on">Трака за навигацију у тамном режиму је непрозирна</string>
   <string name="revanced_disable_translucent_navigation_bar_dark_summary_off">Трака за навигацију у тамном режиму је непрозирна или прозирна</string>
-  </patch>
-  <patch id="layout.hide.player.flyoutmenupanel.hidePlayerFlyoutMenuPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.player.flyoutmenupanel.hidePlayerFlyoutMenuPatch"> -->
   <string name="revanced_hide_player_flyout_title">Падајући мени</string>
   <string name="revanced_hide_player_flyout_summary">Сакријте или прикажите предмете у падајућем менију плејера</string>
   <!-- 'Captions' should be translated using the same localized wording YouTube displays for the menu item. -->
@@ -616,8 +617,8 @@ Second \"item\" text"</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_title">Сакриј подножје менија квалитета видеа</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_on">Подножје менија квалитета видеа је скривено</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_off">Подножје менија квалитета видеа је приказано</string>
-  </patch>
-  <patch id="layout.buttons.overlay.hidePlayerOverlayButtonsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.buttons.overlay.hidePlayerOverlayButtonsPatch"> -->
   <string name="revanced_hide_player_previous_next_buttons_title">Сакриј дугмад за претходни и следећи видео</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_on">Дугмад за претходни и следећи видео су скривена</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">Дугмад за претходни и следећи видео су приказана</string>
@@ -631,36 +632,36 @@ Second \"item\" text"</string>
   <string name="revanced_hide_autoplay_button_title">Сакриј дугме „Аутоплеј”</string>
   <string name="revanced_hide_autoplay_button_summary_on">Дугме „Аутоплеј” је скривено</string>
   <string name="revanced_hide_autoplay_button_summary_off">Дугме „Аутоплеј” је приказано</string>
-  </patch>
-  <patch id="layout.hide.endscreencards.hideEndscreenCardsResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.endscreencards.hideEndscreenCardsResourcePatch"> -->
   <string name="revanced_hide_endscreen_cards_title">Сакриј картице завршног екрана</string>
   <string name="revanced_hide_endscreen_cards_summary_on">Картице завршног екрана су скривене</string>
   <string name="revanced_hide_endscreen_cards_summary_off">Картице завршног екрана су приказане</string>
-  </patch>
-  <patch id="layout.hide.fullscreenambientmode.disableFullscreenAmbientModePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.fullscreenambientmode.disableFullscreenAmbientModePatch"> -->
   <string name="revanced_disable_fullscreen_ambient_mode_title">Онемогући „Амбијентални режим” у режиму преко целог екрана</string>
   <string name="revanced_disable_fullscreen_ambient_mode_summary_on">Амбијентални режим у режиму целог екрана је онемогућен</string>
   <string name="revanced_disable_fullscreen_ambient_mode_summary_off">Амбијентални режим у режиму целог екрана је омогућен</string>
-  </patch>
-  <patch id="layout.hide.infocards.hideInfocardsResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.infocards.hideInfocardsResourcePatch"> -->
   <string name="revanced_hide_info_cards_title">Сакриј картице са информацијама</string>
   <string name="revanced_hide_info_cards_summary_on">Картице са информацијама су скривене</string>
   <string name="revanced_hide_info_cards_summary_off">Картице са информацијама су приказане</string>
-  </patch>
-  <patch id="layout.hide.rollingnumber.disableRollingNumberAnimationPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.rollingnumber.disableRollingNumberAnimationPatch"> -->
   <string name="revanced_disable_rolling_number_animations_title">Онемогући анимације бројева</string>
   <string name="revanced_disable_rolling_number_animations_summary_on">Бројеви нису анимирани</string>
   <string name="revanced_disable_rolling_number_animations_summary_off">Бројеви су анимирани</string>
-  </patch>
-  <patch id="layout.hide.seekbar.hideSeekbarPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.seekbar.hideSeekbarPatch"> -->
   <string name="revanced_hide_seekbar_title">Сакриј траку за премотавање у видео плејеру</string>
   <string name="revanced_hide_seekbar_summary_on">Трака за премотавање у видео плејеру је скривена</string>
   <string name="revanced_hide_seekbar_summary_off">Трака за премотавање у видео плејеру је приказана</string>
   <string name="revanced_hide_seekbar_thumbnail_title">Сакриј траку за премотавање на сличици видеа</string>
   <string name="revanced_hide_seekbar_thumbnail_summary_on">Трака за премотавање на сличици видеа је скривена</string>
   <string name="revanced_hide_seekbar_thumbnail_summary_off">Трака за премотавање на сличици видеа је приказана</string>
-  </patch>
-  <patch id="layout.hide.shorts.hideShortsComponentsResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.shorts.hideShortsComponentsResourcePatch"> -->
   <string name="revanced_shorts_player_screen_title">Shorts плејер</string>
   <string name="revanced_shorts_player_screen_summary">Сакријте или прикажите компоненте у Shorts плејеру</string>
   <!-- 'home' should be translated using the same localized wording YouTube displays for the home tab. -->
@@ -762,43 +763,43 @@ Second \"item\" text"</string>
   <string name="revanced_hide_shorts_navigation_bar_title">Сакриј траку за навигацију</string>
   <string name="revanced_hide_shorts_navigation_bar_summary_on">Трака за навигацију је скривена</string>
   <string name="revanced_hide_shorts_navigation_bar_summary_off">Трака за навигацију је приказана</string>
-  </patch>
-  <patch id="layout.hide.endscreensuggestion.hideEndScreenSuggestedVideoPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.endscreensuggestion.hideEndScreenSuggestedVideoPatch"> -->
   <string name="revanced_end_screen_suggested_video_title">Сакриј предложени видео на завршном екрану</string>
   <string name="revanced_end_screen_suggested_video_summary_on">"Предложени видео на завршном екрану је скривен, када је аутоплеј искључен
 
 Аутоплеј се може променити у подешавањима YouTube-а:
 Подешавања → Репродукција → Аутоматски пусти следећи видео"</string>
   <string name="revanced_end_screen_suggested_video_summary_off">Предложени видео на завршном екрану је приказан</string>
-  </patch>
-  <patch id="layout.hide.time.hideTimestampPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.time.hideTimestampPatch"> -->
   <string name="revanced_hide_timestamp_title">Сакриј временску ознаку видеа</string>
   <string name="revanced_hide_timestamp_summary_on">Временска ознака видеа је скривена</string>
   <string name="revanced_hide_timestamp_summary_off">Временска ознака видеа је приказана</string>
-  </patch>
-  <patch id="layout.panels.popup.playerPopupPanelsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.panels.popup.playerPopupPanelsPatch"> -->
   <string name="revanced_hide_player_popup_panels_title">Сакриј искачуће табле у плејеру</string>
   <string name="revanced_hide_player_popup_panels_summary_on">Искачуће табле у плејеру су скривене</string>
   <string name="revanced_hide_player_popup_panels_summary_off">Искачуће табле у плејеру су приказане</string>
-  </patch>
-  <patch id="layout.player.fullscreen.exitFullscreenPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.player.fullscreen.exitFullscreenPatch"> -->
   <string name="revanced_exit_fullscreen_title">Излаз из режима целог екрана на крају видеа</string>
   <string name="revanced_exit_fullscreen_entry_1">Онемогућено</string>
   <string name="revanced_exit_fullscreen_entry_2">Усправно</string>
   <string name="revanced_exit_fullscreen_entry_3">Водоравно</string>
   <string name="revanced_exit_fullscreen_entry_4">Усправно и водоравно</string>
-  </patch>
-  <patch id="layout.player.fullscreen.openVideosFullscreen">
+  <!-- </patch> -->
+  <!-- <patch id="layout.player.fullscreen.openVideosFullscreen"> -->
   <string name="revanced_open_videos_fullscreen_portrait_title">Отвори видее преко целог екрана усправно</string>
   <string name="revanced_open_videos_fullscreen_portrait_summary_on">Видеи се отварају преко целог екрана усправно</string>
   <string name="revanced_open_videos_fullscreen_portrait_summary_off">Видеи се не отварају преко целог екрана усправно</string>
-  </patch>
-  <patch id="layout.player.overlay.customPlayerOverlayOpacityResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.player.overlay.customPlayerOverlayOpacityResourcePatch"> -->
   <string name="revanced_player_overlay_opacity_title">Непрозирност преклопа плејера</string>
   <string name="revanced_player_overlay_opacity_summary">Вредност непрозирности између 0 и 100, где је 0 прозирно</string>
   <string name="revanced_player_overlay_opacity_invalid_toast">Непрозирност преклопа плејера мора бити између 0 и 100</string>
-  </patch>
-  <patch id="layout.returnyoutubedislike.returnYouTubeDislikePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.returnyoutubedislike.returnYouTubeDislikePatch"> -->
   <!-- Toast shown if network connection times out. Translations of this should not be longer than the original English or the text can be clipped and not entirely shown. -->
   <string name="revanced_ryd_failure_connection_timeout">Несвиђања привремено нису доступна (API истекао)</string>
   <string name="revanced_ryd_failure_connection_status_code">Несвиђања нису доступна (статус %d)</string>
@@ -847,13 +848,13 @@ Second \"item\" text"</string>
   <string name="revanced_ryd_statistics_getNumberOfRateLimitRequestsEncountered_zero_summary">Није остварено ниједно ограничење стопе клијента</string>
   <string name="revanced_ryd_statistics_getNumberOfRateLimitRequestsEncountered_non_zero_summary">Број остварених ограничења стопе клијента: %d</string>
   <string name="revanced_ryd_statistics_millisecond_text">%d милисекунди</string>
-  </patch>
-  <patch id="layout.searchbar.wideSearchbarPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.searchbar.wideSearchbarPatch"> -->
   <string name="revanced_wide_searchbar_title">Омогући широку траку за претрагу</string>
   <string name="revanced_wide_searchbar_summary_on">Широка трака за претрагу је омогућена</string>
   <string name="revanced_wide_searchbar_summary_off">Широка трака за претрагу је онемогућена</string>
-  </patch>
-  <patch id="layout.seekbar.seekbarThumbnailsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.seekbar.seekbarThumbnailsPatch"> -->
   <string name="revanced_seekbar_thumbnails_high_quality_title">Омогући висококвалитетне сличице</string>
   <string name="revanced_seekbar_thumbnails_high_quality_summary_on">Сличице траке за премотавање су високог квалитета</string>
   <string name="revanced_seekbar_thumbnails_high_quality_summary_off">Сличице траке за премотавање су средњег квалитета</string>
@@ -867,8 +868,8 @@ Second \"item\" text"</string>
   <string name="revanced_restore_old_seekbar_thumbnails_title">Врати старе сличице траке за премотавање</string>
   <string name="revanced_restore_old_seekbar_thumbnails_summary_on">Сличице траке за премотавање ће се појавити изнад ње</string>
   <string name="revanced_restore_old_seekbar_thumbnails_summary_off">Сличице траке за премотавање ће се појавити у режиму целог екрана</string>
-  </patch>
-  <patch id="layout.sponsorblock.sponsorBlockResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.sponsorblock.sponsorBlockResourcePatch"> -->
   <string name="revanced_sb_enable_sb">Омогући SponsorBlock</string>
   <string name="revanced_sb_enable_sb_sum">SponsorBlock је систем заснован на доприносима корисника и служи за прескакање досадних делова YouTube видеа</string>
   <string name="revanced_sb_appearance_category">Изглед</string>
@@ -1065,8 +1066,8 @@ Second \"item\" text"</string>
   <string name="revanced_sb_reset">Ресетуј</string>
   <string name="revanced_sb_about">О програму</string>
   <string name="revanced_sb_about_api_sum">Податке обезбеђује SponsorBlock API. Додирните овде да сазнате више и видите преузимања за друге платформе</string>
-  </patch>
-  <patch id="layout.formfactor.changeFormFactorPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.formfactor.changeFormFactorPatch"> -->
   <string name="revanced_change_form_factor_title">Фактор форме изгледа</string>
   <string name="revanced_change_form_factor_entry_1">Подразумевани</string>
   <string name="revanced_change_form_factor_entry_2">Телефон</string>
@@ -1080,8 +1081,8 @@ Second \"item\" text"</string>
 Аутомобилски изглед
 • Shorts видеи се отварају у обичном плејеру
 • Фид је организован по темама и каналима"</string>
-  </patch>
-  <patch id="layout.spoofappversion.spoofAppVersionPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.spoofappversion.spoofAppVersionPatch"> -->
   <string name="revanced_spoof_app_version_title">Лажирана верзија апликације</string>
   <string name="revanced_spoof_app_version_summary_on">Верзија је лажирана</string>
   <string name="revanced_spoof_app_version_summary_off">Верзија није лажирана</string>
@@ -1095,8 +1096,8 @@ Second \"item\" text"</string>
   <string name="revanced_spoof_app_version_target_title">Циљна верзија апликације за лажирање</string>
   <string name="revanced_spoof_app_version_target_entry_1">19.35.36 - Враћа старе иконице Shorts плејера</string>
   <string name="revanced_spoof_app_version_target_entry_2">19.01.34 - Враћа старе иконице навигације</string>
-  </patch>
-  <patch id="layout.startpage.changeStartPagePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.startpage.changeStartPagePatch"> -->
   <string name="revanced_change_start_page_title">Полазна страница</string>
   <string name="revanced_change_start_page_entry_default">Подразумевана</string>
   <string name="revanced_change_start_page_entry_all_subscriptions">Сва праћења</string>
@@ -1122,27 +1123,27 @@ Second \"item\" text"</string>
   <string name="revanced_change_start_page_entry_virtual_reality">Виртуелна реалност</string>
   <string name="revanced_change_start_page_entry_watch_later">За касније</string>
   <string name="revanced_change_start_page_entry_your_clips">Ваши клипови</string>
-  </patch>
-  <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch"> -->
   <string name="revanced_disable_resuming_shorts_player_title">Онемогући наставак репродукције Shorts плејера</string>
   <string name="revanced_disable_resuming_shorts_player_summary_on">Shorts плејер неће наставити репродукцију при покретању апликације</string>
   <string name="revanced_disable_resuming_shorts_player_summary_off">Shorts плејер ће наставити репродукцију при покретању апликације</string>
-  </patch>
-  <patch id="layout.shortsplayer.shortsPlayerTypePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.shortsplayer.shortsPlayerTypePatch"> -->
   <string name="revanced_shorts_player_type_title">Отворите Shorts помоћу</string>
   <string name="revanced_shorts_player_type_shorts">Shorts плејера</string>
   <string name="revanced_shorts_player_type_regular_player">Обичног плејера</string>
   <string name="revanced_shorts_player_type_regular_player_fullscreen">Обичног плејера у режиму целог екрана</string>
-  </patch>
-  <patch id="layout.shortsautoplay.shortsAutoplayPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.shortsautoplay.shortsAutoplayPatch"> -->
   <string name="revanced_shorts_autoplay_title">Аутоплеј Shorts видеа</string>
   <string name="revanced_shorts_autoplay_summary_on">Shorts видеи ће се аутоматски пуштати</string>
   <string name="revanced_shorts_autoplay_summary_off">Shorts видеи ће се понављати</string>
   <string name="revanced_shorts_autoplay_background_title">Аутоплеј Shorts видеа у позадини</string>
   <string name="revanced_shorts_autoplay_background_summary_on">Shorts видеи ће се аутоматски пуштати у позадини</string>
   <string name="revanced_shorts_autoplay_background_summary_off">Shorts видеи ће се понављати у позадини</string>
-  </patch>
-  <patch id="layout.miniplayer.miniplayerPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.miniplayer.miniplayerPatch"> -->
   <string name="revanced_miniplayer_screen_title">Мини-плејер</string>
   <string name="revanced_miniplayer_screen_summary">Промените стил минимизираног плејера у апликацији</string>
   <string name="revanced_miniplayer_type_title">Тип мини-плејера</string>
@@ -1192,8 +1193,8 @@ Second \"item\" text"</string>
   <string name="revanced_miniplayer_opacity_title">Непрозирност преклопа</string>
   <string name="revanced_miniplayer_opacity_summary">Вредност непрозирности између 0 и 100, где је 0 прозирно</string>
   <string name="revanced_miniplayer_opacity_invalid_toast">Непрозирност преклопа мини-плејера мора бити између 0 и 100</string>
-  </patch>
-  <patch id="layout.theme.themePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.theme.themePatch"> -->
   <string name="revanced_gradient_loading_screen_title">Омогући градијентну позадину екрана учитавања</string>
   <string name="revanced_gradient_loading_screen_summary_on">Екран учитавања ће имати градијентну позадину</string>
   <string name="revanced_gradient_loading_screen_summary_off">Екран учитавања ће имати обичну позадину</string>
@@ -1205,15 +1206,15 @@ Second \"item\" text"</string>
   <string name="revanced_seekbar_custom_color_accent_title">Прилагођена боја наглашавања траке за премотавање</string>
   <string name="revanced_seekbar_custom_color_accent_summary">Боја наглашавања траке за премотавање</string>
   <string name="revanced_seekbar_custom_color_invalid">Неважећа вредност боје траке за премотавање</string>
-  </patch>
-  <patch id="layout.thumbnails.bypassImageRegionRestrictionsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.thumbnails.bypassImageRegionRestrictionsPatch"> -->
   <string name="revanced_bypass_image_region_restrictions_title">Заобиђи ограничења региона слике</string>
   <string name="revanced_bypass_image_region_restrictions_summary_on">Коришћење хоста слике yt4.ggpht.com</string>
   <string name="revanced_bypass_image_region_restrictions_summary_off">"Коришћење оригиналног хоста слика
 
 Ако ово омогућите, могу се поправити недостајуће слике које су блокиране у неким регионима"</string>
-  </patch>
-  <patch id="layout.thumbnails.alternativeThumbnailsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.thumbnails.alternativeThumbnailsPatch"> -->
   <!-- 'Home' should be translated using the same localized wording YouTube displays for the home tab. -->
   <string name="revanced_alt_thumbnail_home_title">Картица „Почетна”</string>
   <!-- 'Subscription' should be translated using the same localized wording YouTube displays for the subscription tab. -->
@@ -1248,26 +1249,26 @@ Second \"item\" text"</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_alt_thumbnail_dearrow_error">DeArrow привремено није доступан (кôд статуса: %s)</string>
   <string name="revanced_alt_thumbnail_dearrow_error_generic">DeArrow привремено није доступан</string>
-  </patch>
-  <patch id="misc.announcements.announcementsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.announcements.announcementsPatch"> -->
   <string name="revanced_announcements_title">Прикажи саопштења ReVanced-а</string>
   <string name="revanced_announcements_summary_on">Саопштења при покретању су приказана</string>
   <string name="revanced_announcements_summary_off">Саопштења при покретању нису приказана</string>
   <string name="revanced_announcements_enabled_summary">Приказивање саопштења при покретању</string>
   <string name="revanced_announcements_connection_failed">Неуспешно повезивање са пружаоцем саопштења</string>
   <string name="revanced_announcements_dialog_dismiss">Одбаци</string>
-  </patch>
-  <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch"> -->
   <string name="revanced_check_watch_history_domain_name_dialog_title">Упозорење</string>
   <string name="revanced_check_watch_history_domain_name_dialog_message">Ваша историја гледања се не чува.&lt;br&gt;&lt;br&gt;Ово је највероватније узроковано DNS блокатором огласа или мрежним проксијем.&lt;br&gt;&lt;br&gt;Да бисте ово поправили, ставите на белу листу &lt;b&gt;s.youtube.com&lt;/b&gt; или искључите све DNS блокаторе и проксије.</string>
   <string name="revanced_check_watch_history_domain_name_dialog_ignore">Не приказуј поново</string>
-  </patch>
-  <patch id="misc.autorepeat.autoRepeatPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.autorepeat.autoRepeatPatch"> -->
   <string name="revanced_auto_repeat_title">Омогући аутоматско понављање видеа</string>
   <string name="revanced_auto_repeat_summary_on">Аутоматско понављање видеа је омогућено</string>
   <string name="revanced_auto_repeat_summary_off">Аутоматско понављање видеа је онемогућено</string>
-  </patch>
-  <patch id="misc.dimensions.spoof.spoofDeviceDimensionsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.dimensions.spoof.spoofDeviceDimensionsPatch"> -->
   <string name="revanced_spoof_device_dimensions_title">Лажиране димензије уређаја</string>
   <string name="revanced_spoof_device_dimensions_summary_on">"Димензије уређаја су лажиране
 
@@ -1276,39 +1277,39 @@ Second \"item\" text"</string>
 
 Ако ово омогућите, могу бити откључани виши квалитети видеа"</string>
   <string name="revanced_spoof_device_dimensions_user_dialog_message">Ако ово омогућите, може доћи до застоја при репродукцији видеа, краћег трајања батерије и непознатих нежељених ефеката.</string>
-  </patch>
-  <patch id="misc.gms.gmsCoreSupportResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.gms.gmsCoreSupportResourcePatch"> -->
   <string name="microg_settings_title">Подешавања GmsCore-а</string>
   <string name="microg_settings_summary">Подешавања за GmsCore</string>
-  </patch>
-  <patch id="misc.links.bypassURLRedirectsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.links.bypassURLRedirectsPatch"> -->
   <string name="revanced_bypass_url_redirects_title">Заобиђи URL преусмеравања</string>
   <string name="revanced_bypass_url_redirects_summary_on">URL преусмеравања се заобилазе</string>
   <string name="revanced_bypass_url_redirects_summary_off">URL преусмеравања се не заобилазе</string>
-  </patch>
-  <patch id="misc.links.openLinksExternallyPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.links.openLinksExternallyPatch"> -->
   <string name="revanced_external_browser_title">Отвори линкове у прегледачу</string>
   <string name="revanced_external_browser_summary_on">Отварање линкова у спољном прегледачу</string>
   <string name="revanced_external_browser_summary_off">Отварање линкова у прегледачу у апликацији</string>
-  </patch>
-  <patch id="misc.privacy.removeTrackingQueryParameterPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.privacy.removeTrackingQueryParameterPatch"> -->
   <string name="revanced_remove_tracking_query_parameter_title">Уклони параметар упита за праћење</string>
   <string name="revanced_remove_tracking_query_parameter_summary_on">Параметар упита за праћење је уклоњен из линкова</string>
   <string name="revanced_remove_tracking_query_parameter_summary_off">Параметар упита за праћење није уклоњен из линкова</string>
-  </patch>
-  <patch id="misc.zoomhaptics.zoomHapticsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.zoomhaptics.zoomHapticsPatch"> -->
   <string name="revanced_disable_zoom_haptics_title">Онемогући вибрацију при увеличавању</string>
   <string name="revanced_disable_zoom_haptics_summary_on">Вибрација при увеличавању је онемогућена</string>
   <string name="revanced_disable_zoom_haptics_summary_off">Вибрација при увеличавању је омогућена</string>
-  </patch>
-  <patch id="video.audio.forceOriginalAudioPatch">
+  <!-- </patch> -->
+  <!-- <patch id="video.audio.forceOriginalAudioPatch"> -->
   <string name="revanced_force_original_audio_title">Присили оригинални језик звука</string>
   <string name="revanced_force_original_audio_summary_on">Коришћење оригиналног језика звука</string>
   <string name="revanced_force_original_audio_summary_off">Коришћење подразумеваног звука</string>
   <!-- 'Spoof video streams' should be the same translation used for revanced_spoof_video_streams_screen_title -->
   <string name="revanced_force_original_audio_not_available">Да бисте користили ову функцију, промените „Лажирани видео стримови” на iOS TV</string>
-  </patch>
-  <patch id="video.quality.rememberVideoQualityPatch">
+  <!-- </patch> -->
+  <!-- <patch id="video.quality.rememberVideoQualityPatch"> -->
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
   <string name="revanced_video_quality_default_entry_1">Аутоматски</string>
   <string name="revanced_remember_video_quality_last_selected_title">Запамти промене квалитета видеа</string>
@@ -1325,13 +1326,13 @@ Second \"item\" text"</string>
   <string name="revanced_remember_video_quality_wifi">Wi-Fi мрежи</string>
   <string name="revanced_remember_video_quality_toast">Квалитет на %1$s промењен на: %2$s</string>
   <string name="revanced_remember_video_quality_toast_shorts">Квалитет Shorts видеа на %1$s промењен на: %2$s</string>
-  </patch>
-  <patch id="video.speed.button.playbackSpeedButtonPatch">
+  <!-- </patch> -->
+  <!-- <patch id="video.speed.button.playbackSpeedButtonPatch"> -->
   <string name="revanced_playback_speed_dialog_button_title">Прикажи дугме дијалога за брзину</string>
   <string name="revanced_playback_speed_dialog_button_summary_on">Дугме дијалога за брзину је приказано</string>
   <string name="revanced_playback_speed_dialog_button_summary_off">Дугме дијалога за брзину није приказано</string>
-  </patch>
-  <patch id="video.speed.custom.customPlaybackSpeedPatch">
+  <!-- </patch> -->
+  <!-- <patch id="video.speed.custom.customPlaybackSpeedPatch"> -->
   <string name="revanced_custom_speed_menu_title">Мени прилагођене брзине репродукције</string>
   <string name="revanced_custom_speed_menu_summary_on">Мени прилагођене брзине репродукције је приказан</string>
   <string name="revanced_custom_speed_menu_summary_off">Мени прилагођене брзине репродукције није приказан</string>
@@ -1342,30 +1343,30 @@ Second \"item\" text"</string>
   <string name="revanced_custom_playback_speeds_auto">Аутоматски</string>
   <string name="revanced_speed_tap_and_hold_title">Прилагођена брзина додиривања и задржавања</string>
   <string name="revanced_speed_tap_and_hold_summary">Брзина репродукције између 0 и 8</string>
-  </patch>
-  <patch id="video.speed.remember.rememberPlaybackSpeedPatch">
+  <!-- </patch> -->
+  <!-- <patch id="video.speed.remember.rememberPlaybackSpeedPatch"> -->
   <string name="revanced_remember_playback_speed_last_selected_title">Запамти промене брзине репродукције</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_on">Промене брзине репродукције се примењују на све видее</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_off">Промене брзине репродукције се примењују само на тренутни видео</string>
   <string name="revanced_playback_speed_default_title">Подразумевана брзина репродукције</string>
   <string name="revanced_remember_playback_speed_toast">Брзина репродукције промењена на: %s</string>
-  </patch>
-  <patch id="video.hdr.disableHdrPatch">
+  <!-- </patch> -->
+  <!-- <patch id="video.hdr.disableHdrPatch"> -->
   <string name="revanced_disable_hdr_video_title">Онемогући HDR видео</string>
   <string name="revanced_disable_hdr_video_summary_on">HDR видео је онемогућен</string>
   <string name="revanced_disable_hdr_video_summary_off">HDR видео је омогућен</string>
-  </patch>
-  <patch id="video.quality.advancedVideoQualityMenuPatch">
+  <!-- </patch> -->
+  <!-- <patch id="video.quality.advancedVideoQualityMenuPatch"> -->
   <string name="revanced_advanced_video_quality_menu_title">Прикажи напредни мени квалитета видеа</string>
   <string name="revanced_advanced_video_quality_menu_summary_on">Напредни мени квалитета видеа је приказан</string>
   <string name="revanced_advanced_video_quality_menu_summary_off">Напредни мени квалитета видеа није приказан</string>
-  </patch>
-  <patch id="interaction.seekbar.enableSlideToSeekPatch">
+  <!-- </patch> -->
+  <!-- <patch id="interaction.seekbar.enableSlideToSeekPatch"> -->
   <string name="revanced_slide_to_seek_title">Омогући превлачење за премотавање</string>
   <string name="revanced_slide_to_seek_summary_on">Превлачење за премотавање је омогућено</string>
   <string name="revanced_slide_to_seek_summary_off">Превлачење за премотавање није омогућено</string>
-  </patch>
-  <patch id="misc.fix.playback.spoofVideoStreamsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.fix.playback.spoofVideoStreamsPatch"> -->
   <string name="revanced_spoof_video_streams_screen_title">Лажирани видео стримови</string>
   <string name="revanced_spoof_video_streams_screen_summary">Лажирање клијента видео стримова да би се спречили проблеми са репродукцијом</string>
   <string name="revanced_spoof_video_streams_title">Лажирани видео стримови</string>
@@ -1395,46 +1396,46 @@ AVC има максималну резолуцију од 1080p, аудио ко
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Тип клијента је приказан у „Статистици за зналце”</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Тип клијента је скривен у „Статистици за зналце”</string>
   <string name="revanced_spoof_video_streams_language_title">Подразумевани језик аудио стрима за ВР</string>
-  </patch>
-  </app>
-  <app id="twitch">
-  <patch id="ad.audio.audioAdsPatch">
+  <!-- </patch> -->
+  <!-- </app> -->
+  <!-- <app id="twitch"> -->
+  <!-- <patch id="ad.audio.audioAdsPatch"> -->
   <string name="revanced_block_audio_ads_title">Блокирај аудио огласе</string>
   <string name="revanced_block_audio_ads_summary_on">Аудио огласи су блокирани</string>
   <string name="revanced_block_audio_ads_summary_off">Аудио огласи су одблокирани</string>
-  </patch>
-  <patch id="ad.embedded.embeddedAdsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="ad.embedded.embeddedAdsPatch"> -->
   <string name="revanced_embedded_ads_service_unavailable">%s није доступан, огласи се можда приказују. Покушајте да промените услугу блокирања огласа у подешавањима.</string>
   <string name="revanced_embedded_ads_service_failed">%s је вратио грешку, огласи се можда приказују. Покушајте да промените услугу блокирања огласа у подешавањима.</string>
   <string name="revanced_block_embedded_ads_title">Блокирај уграђене видео огласе</string>
   <string name="revanced_block_embedded_ads_entry_1">Онемогућено</string>
   <string name="revanced_block_embedded_ads_entry_2">Luminous прокси</string>
   <string name="revanced_block_embedded_ads_entry_3">PurpleAdBlock прокси</string>
-  </patch>
-  <patch id="ad.video.videoAdsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="ad.video.videoAdsPatch"> -->
   <string name="revanced_block_video_ads_title">Блокирај видео огласе</string>
   <string name="revanced_block_video_ads_summary_on">Видео огласи су блокирани</string>
   <string name="revanced_block_video_ads_summary_off">Видео огласи су одблокирани</string>
-  </patch>
-  <patch id="chat.antidelete.showDeletedMessagesPatch">
+  <!-- </patch> -->
+  <!-- <patch id="chat.antidelete.showDeletedMessagesPatch"> -->
   <string name="revanced_deleted_msg">порука избрисана</string>
   <string name="revanced_show_deleted_messages_title">Приказ избрисаних порука</string>
   <string name="revanced_show_deleted_messages_entry_1">Не приказуј избрисане поруке</string>
   <string name="revanced_show_deleted_messages_entry_2">Сакриј избрисане поруке иза спојлера</string>
   <string name="revanced_show_deleted_messages_entry_3">Прикажи избрисане поруке као прецртан текст</string>
-  </patch>
-  <patch id="chat.autoclaim.autoClaimChannelPointsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="chat.autoclaim.autoClaimChannelPointsPatch"> -->
   <string name="revanced_auto_claim_channel_points_title">Аутоматски преузми бодове канала</string>
   <string name="revanced_auto_claim_channel_points_summary_on">Бодови канала су аутоматски преузети</string>
   <string name="revanced_auto_claim_channel_points_summary_off">Бодови канала нису аутоматски преузети</string>
-  </patch>
-  <patch id="debug.debugModePatch">
+  <!-- </patch> -->
+  <!-- <patch id="debug.debugModePatch"> -->
   <!-- Twitch specific internal debug mode, and not the same as 'revanced_debug_title' -->
   <string name="revanced_twitch_debug_mode_title">Омогући режим отклањања грешака Twitch</string>
   <string name="revanced_twitch_debug_mode_summary_on">Режим отклањања грешака Twitch је омогућен (није препоручено)</string>
   <string name="revanced_twitch_debug_mode_summary_off">Режим отклањања грешака Twitch је онемогућен</string>
-  </patch>
-  <patch id="misc.settings.settingsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.settings.settingsPatch"> -->
   <string name="revanced_settings">Подешавања ReVanced-а</string>
   <string name="revanced_about_title">О програму</string>
   <string name="revanced_about_summary">О ReVanced-у</string>
@@ -1451,6 +1452,6 @@ AVC има максималну резолуцију од 1080p, аудио ко
   <string name="revanced_twitch_debug_title">Евидентирање отклањања грешака</string>
   <string name="revanced_twitch_debug_summary_on">Евиденције отклањања грешака су омогућене</string>
   <string name="revanced_twitch_debug_summary_off">Евиденције отклањања грешака су онемогућене</string>
-  </patch>
-  </app>
+  <!-- </patch> -->
+  <!-- </app> -->
 </resources>

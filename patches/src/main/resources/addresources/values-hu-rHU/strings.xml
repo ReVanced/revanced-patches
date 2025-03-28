@@ -20,8 +20,8 @@ Second \"item\" text"</string>
 
 -->
 <resources>
-  <app id="shared">
-  <patch id="misc.checks.checkEnvironmentPatch">
+  <!-- <app id="shared"> -->
+  <!-- <patch id="misc.checks.checkEnvironmentPatch"> -->
   <string name="revanced_check_environment_failed_title">Az ellenőrzések sikertelenek</string>
   <string name="revanced_check_environment_dialog_open_official_source_button">Hivatalos weboldal megnyitása</string>
   <string name="revanced_check_environment_dialog_ignore_button">Mellőzés</string>
@@ -31,8 +31,8 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time">Több mint 10 perce patchelve</string>
   <string name="revanced_check_environment_not_near_patch_time_days">%s napja patchelve</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">Az APK build dátuma sérült</string>
-  </patch>
-  <patch id="misc.settings.settingsResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.settings.settingsResourcePatch"> -->
   <string name="revanced_settings_submenu_title">Beállítások</string>
   <string name="revanced_settings_confirm_user_dialog_title">Szeretné folytatni?</string>
   <string name="revanced_settings_reset">Visszaállítás</string>
@@ -57,8 +57,8 @@ Second \"item\" text"</string>
   <string name="revanced_settings_about_links_header">Hivatalos linkek</string>
   <!-- NOTE: the about strings above are duplicated in the TikTok about screen code,
                  and changes made here must also be made there. -->
-  </patch>
-  <patch id="misc.gms.gmsCoreSupportResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.gms.gmsCoreSupportResourcePatch"> -->
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="gms_core_toast_not_installed_message">MicroG GmsCore nincs telepítve. Telepítse.</string>
   <string name="gms_core_dialog_title">Művelet szükséges</string>
@@ -74,10 +74,10 @@ A MicroG akkumulátor-optimalizálásának letiltása nem befolyásolja negatív
 
 Kattintson a folytatás gombra, és engedélyezze az optimalizálási módosításokat."</string>
   <string name="gms_core_dialog_continue_text">Folytatás</string>
-  </patch>
-  </app>
-  <app id="youtube">
-  <patch id="misc.settings.settingsPatch">
+  <!-- </patch> -->
+  <!-- </app> -->
+  <!-- <app id="youtube"> -->
+  <!-- <patch id="misc.settings.settingsPatch"> -->
   <string name="revanced_settings_screen_00_about_title">Rólunk</string>
   <string name="revanced_settings_screen_01_ads_title">Hirdetések</string>
   <string name="revanced_settings_screen_02_alt_thumbnails_title">Alternatív indexképek</string>
@@ -91,13 +91,13 @@ Kattintson a folytatás gombra, és engedélyezze az optimalizálási módosít�
   <string name="revanced_restore_old_settings_menus_title">Régi beállítási menük visszaállítása</string>
   <string name="revanced_restore_old_settings_menus_summary_on">A régi beállítások menüpontok megjelennek</string>
   <string name="revanced_restore_old_settings_menus_summary_off">A régi beállítások menüpontok nem jelennek meg</string>
-  </patch>
-  <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.backgroundplayback.backgroundPlaybackPatch"> -->
   <string name="revanced_shorts_disable_background_playback_title">A Shorts háttérben történő lejátszásának letiltása</string>
   <string name="revanced_shorts_disable_background_playback_summary_on">A Shorts háttérben történő lejátszása le van tiltva</string>
   <string name="revanced_shorts_disable_background_playback_summary_off">A Shorts háttérben történő lejátszása engedélyezve van</string>
-  </patch>
-  <patch id="misc.debugging.enableDebuggingPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.debugging.enableDebuggingPatch"> -->
   <string name="revanced_debug_screen_title">Hibakeresés</string>
   <string name="revanced_debug_screen_summary">Hibakeresési beállítások engedélyezése vagy letiltása</string>
   <string name="revanced_debug_title">Hibakeresési naplózás</string>
@@ -115,8 +115,8 @@ Kattintson a folytatás gombra, és engedélyezze az optimalizálási módosít�
   <string name="revanced_debug_toast_on_error_user_dialog_message">"A hibaüzenetek kikapcsolása elrejti az összes ReVanced hibaértesítést.
 
 Nem fog értesülni semmilyen váratlan eseményről."</string>
-  </patch>
-  <patch id="layout.hide.general.hideLayoutComponentsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.general.hideLayoutComponentsPatch"> -->
   <string name="revanced_hide_album_cards_title">Album kártyák elrejtése</string>
   <string name="revanced_hide_album_cards_summary_on">Az album kártyák el vannak rejtve</string>
   <string name="revanced_hide_album_cards_summary_off">Az album kártyák láthatóak</string>
@@ -340,8 +340,8 @@ Korlátozások
   <string name="revanced_hide_keyword_toast_invalid_conflicting">A kulcsszónak ütköző deklarációi vannak: %s</string>
   <string name="revanced_hide_keyword_toast_invalid_length">A kulcsszó túl rövid, és idézőjeleket igényel: %s</string>
   <string name="revanced_hide_keyword_toast_invalid_broad">A kulcsszó elrejti az összes videót: %s</string>
-  </patch>
-  <patch id="ad.general.hideAdsResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="ad.general.hideAdsResourcePatch"> -->
   <string name="revanced_hide_general_ads_title">Általános hirdetések elrejtése</string>
   <string name="revanced_hide_general_ads_summary_on">Az általános hirdetések el vannak rejtve</string>
   <string name="revanced_hide_general_ads_summary_off">Az általános hirdetések megjelennek</string>
@@ -383,18 +383,18 @@ Ez a funkció csak régebbi eszközökön érhető el"</string>
   <string name="revanced_hide_merchandise_banners_summary_off">Az áruszalaghirdetések megjelennek</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_hide_fullscreen_ads_feature_not_available_toast">A teljes képernyős hirdetések elrejtése csak régebbi eszközökön működik</string>
-  </patch>
-  <patch id="ad.getpremium.hideGetPremiumPatch">
+  <!-- </patch> -->
+  <!-- <patch id="ad.getpremium.hideGetPremiumPatch"> -->
   <string name="revanced_hide_get_premium_title">YouTube Premium promóciók elrejtése</string>
   <string name="revanced_hide_get_premium_summary_on">A YouTube Premium promóciók a videólejátszó alatt el vannak rejtve</string>
   <string name="revanced_hide_get_premium_summary_off">A YouTube Premium promóciók a videólejátszó alatt láthatók</string>
-  </patch>
-  <patch id="ad.video.videoAdsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="ad.video.videoAdsPatch"> -->
   <string name="revanced_hide_video_ads_title">Videó hirdetések elrejtése</string>
   <string name="revanced_hide_video_ads_summary_on">A videó hirdetések el vannak rejtve</string>
   <string name="revanced_hide_video_ads_summary_off">A videó hirdetések láthatók</string>
-  </patch>
-  <patch id="interaction.copyvideourl.copyVideoUrlResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="interaction.copyvideourl.copyVideoUrlResourcePatch"> -->
   <string name="revanced_share_copy_url_success">Az URL a vágólapra másolva</string>
   <string name="revanced_share_copy_url_timestamp_success">Az URL időbélyeggel a vágólapra másolva</string>
   <string name="revanced_copy_video_url_title">A videó URL másolása gomb megjelenítése</string>
@@ -403,14 +403,14 @@ Ez a funkció csak régebbi eszközökön érhető el"</string>
   <string name="revanced_copy_video_url_timestamp_title">A videó URL másolása időbélyeggel gomb megjelenítése</string>
   <string name="revanced_copy_video_url_timestamp_summary_on">A gomb látható. Koppintson a videó URL-jének másolásához időbélyeggel. Tartsa nyomva az időbélyeg nélküli másoláshoz</string>
   <string name="revanced_copy_video_url_timestamp_summary_off">A gomb nem látható</string>
-  </patch>
-  <patch id="interaction.dialog.removeViewerDiscretionDialogPatch">
+  <!-- </patch> -->
+  <!-- <patch id="interaction.dialog.removeViewerDiscretionDialogPatch"> -->
   <string name="revanced_remove_viewer_discretion_dialog_title">Távolítsa el a nézői diszkréciós párbeszédpanelt</string>
   <string name="revanced_remove_viewer_discretion_dialog_summary_on">A párbeszédpanel el lesz rejtve</string>
   <string name="revanced_remove_viewer_discretion_dialog_summary_off">A párbeszédpanel megjelenik</string>
   <string name="revanced_remove_viewer_discretion_dialog_user_dialog_message">Ez nem kerüli meg a korhatárt, csak automatikusan elfogadja.</string>
-  </patch>
-  <patch id="interaction.downloads.downloadsResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="interaction.downloads.downloadsResourcePatch"> -->
   <string name="revanced_external_downloader_screen_title">Külső letöltések</string>
   <string name="revanced_external_downloader_screen_summary">Beállítások külső letöltő használatához</string>
   <string name="revanced_external_downloader_title">Külső letöltés gomb megjelenítése</string>
@@ -423,18 +423,18 @@ Ez a funkció csak régebbi eszközökön érhető el"</string>
   <string name="revanced_external_downloader_name_title">Letöltő csomag neve</string>
   <string name="revanced_external_downloader_name_summary">A telepített külső letöltő alkalmazás csomagneve, például NewPipe vagy Seal</string>
   <string name="revanced_external_downloader_not_installed_warning">%s nincs telepítve. Kérjük telepítse.</string>
-  </patch>
-  <patch id="interaction.seekbar.disablePreciseSeekingGesturePatch">
+  <!-- </patch> -->
+  <!-- <patch id="interaction.seekbar.disablePreciseSeekingGesturePatch"> -->
   <string name="revanced_disable_precise_seeking_gesture_title">Pontos keresési kézmozdulat letiltása</string>
   <string name="revanced_disable_precise_seeking_gesture_summary_on">A kézmozdulat letiltva</string>
   <string name="revanced_disable_precise_seeking_gesture_summary_off">A kézmozdulat engedélyezve</string>
-  </patch>
-  <patch id="interaction.seekbar.enableSeekbarTappingPatch">
+  <!-- </patch> -->
+  <!-- <patch id="interaction.seekbar.enableSeekbarTappingPatch"> -->
   <string name="revanced_seekbar_tapping_title">Érintésre keresés engedélyezése</string>
   <string name="revanced_seekbar_tapping_summary_on">A koppintással történő keresés engedélyezve van</string>
   <string name="revanced_seekbar_tapping_summary_off">Az érintésre keresés le van tiltva</string>
-  </patch>
-  <patch id="interaction.swipecontrols.swipeControlsResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="interaction.swipecontrols.swipeControlsResourcePatch"> -->
   <string name="revanced_swipe_brightness_title">Fényerő kézmozdulat engedélyezése</string>
   <string name="revanced_swipe_brightness_summary_on">"A teljes képernyős fényerő-húzás engedélyezve
 
@@ -473,13 +473,13 @@ A hangerő a képernyő jobb oldalán függőlegesen húzva állítható be"</st
   <string name="revanced_swipe_change_video_title">Engedélyezze az ujjbegyújtással történő videóváltást</string>
   <string name="revanced_swipe_change_video_summary_on">Teljes képernyős módban történő ujjbegyújtás megváltoztatja a következő/előző videóra</string>
   <string name="revanced_swipe_change_video_summary_off">Teljes képernyős módban történő ujjbegyújtás nem változtatja meg a következő/előző videóra</string>
-  </patch>
-  <patch id="layout.autocaptions.autoCaptionsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.autocaptions.autoCaptionsPatch"> -->
   <string name="revanced_auto_captions_title">Automatikus feliratok letiltása</string>
   <string name="revanced_auto_captions_summary_on">Az automatikus feliratok le vannak tiltva</string>
   <string name="revanced_auto_captions_summary_off">Az automatikus feliratok engedélyezve vannak</string>
-  </patch>
-  <patch id="layout.buttons.action.hideButtonsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.buttons.action.hideButtonsPatch"> -->
   <string name="revanced_hide_buttons_screen_title">Művelet gombok</string>
   <string name="revanced_hide_buttons_screen_summary">Gombok megjelenítése vagy elrejtése a videók alatt</string>
   <string name="revanced_disable_like_subscribe_glow_title">A Tetszik és Iratkozz fel gomb fényének kikapcsolása</string>
@@ -517,8 +517,8 @@ A hangerő a képernyő jobb oldalán függőlegesen húzva állítható be"</st
   <string name="revanced_hide_playlist_button_title">Mentés elrejtése</string>
   <string name="revanced_hide_playlist_button_summary_on">A mentés gomb el van rejtve</string>
   <string name="revanced_hide_playlist_button_summary_off">A mentés gomb látható</string>
-  </patch>
-  <patch id="layout.buttons.navigation.navigationButtonsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.buttons.navigation.navigationButtonsPatch"> -->
   <string name="revanced_navigation_buttons_screen_title">Navigációs gombok</string>
   <string name="revanced_navigation_buttons_screen_summary">Gombok elrejtése vagy módosítása a navigációs sávon</string>
   <!-- 'Home' should be translated using the same localized wording YouTube displays for the tab. -->
@@ -555,14 +555,15 @@ Ha a beállítás módosítása nem lép életbe, próbáljon meg Inkognitó mó
   <string name="revanced_disable_translucent_status_bar_title">Átlátszó állapotsor letiltása</string>
   <string name="revanced_disable_translucent_status_bar_summary_on">Az állapotsor nem áttetsző</string>
   <string name="revanced_disable_translucent_status_bar_summary_off">Az állapotsor nem áttetsző vagy áttetsző</string>
+  <string name="revanced_disable_translucent_status_bar_user_dialog_message">Egyes eszközökön ennek a funkciónak az engedélyezése átlátszóvá teheti a rendszer navigációs sávját.</string>
   <string name="revanced_disable_translucent_navigation_bar_light_title">Világos, átlátszó sáv letiltása</string>
   <string name="revanced_disable_translucent_navigation_bar_light_summary_on">Világos módban az átlátszó navigációs sáv átlátszatlan</string>
   <string name="revanced_disable_translucent_navigation_bar_light_summary_off">A világos módú navigációs sáv nem áttetsző vagy áttetsző</string>
   <string name="revanced_disable_translucent_navigation_bar_dark_title">Sötét áttetsző sáv letiltása</string>
   <string name="revanced_disable_translucent_navigation_bar_dark_summary_on">Sötét módban az átlátszó navigációs sáv átlátszatlan</string>
   <string name="revanced_disable_translucent_navigation_bar_dark_summary_off">A sötét módú navigációs sáv nem áttetsző vagy áttetsző</string>
-  </patch>
-  <patch id="layout.hide.player.flyoutmenupanel.hidePlayerFlyoutMenuPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.player.flyoutmenupanel.hidePlayerFlyoutMenuPatch"> -->
   <string name="revanced_hide_player_flyout_title">Előugró menü</string>
   <string name="revanced_hide_player_flyout_summary">A lejátszó előugró menüpontjainak elrejtése vagy megjelenítése</string>
   <!-- 'Captions' should be translated using the same localized wording YouTube displays for the menu item. -->
@@ -616,8 +617,8 @@ Ha a beállítás módosítása nem lép életbe, próbáljon meg Inkognitó mó
   <string name="revanced_hide_player_flyout_video_quality_footer_title">A videóminőség menü láblécének elrejtése</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_on">A videóminőség menü lábléce el van rejtve</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_off">Megjelenik a videóminőség menü lábléce</string>
-  </patch>
-  <patch id="layout.buttons.overlay.hidePlayerOverlayButtonsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.buttons.overlay.hidePlayerOverlayButtonsPatch"> -->
   <string name="revanced_hide_player_previous_next_buttons_title">Az Előző és a Következő gombok elrejtése</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_on">A gombok elrejtve</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">A gombok megjelennek</string>
@@ -631,36 +632,36 @@ Ha a beállítás módosítása nem lép életbe, próbáljon meg Inkognitó mó
   <string name="revanced_hide_autoplay_button_title">Automatikus lejátszás gomb elrejtése</string>
   <string name="revanced_hide_autoplay_button_summary_on">Az automatikus lejátszás gomb el van rejtve</string>
   <string name="revanced_hide_autoplay_button_summary_off">Az automatikus lejátszás gomb látható</string>
-  </patch>
-  <patch id="layout.hide.endscreencards.hideEndscreenCardsResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.endscreencards.hideEndscreenCardsResourcePatch"> -->
   <string name="revanced_hide_endscreen_cards_title">Záróképernyő kártyák elrejtése</string>
   <string name="revanced_hide_endscreen_cards_summary_on">A záróképernyő kártyák el vannak rejtve</string>
   <string name="revanced_hide_endscreen_cards_summary_off">A záróképernyő kártyák megjelennek</string>
-  </patch>
-  <patch id="layout.hide.fullscreenambientmode.disableFullscreenAmbientModePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.fullscreenambientmode.disableFullscreenAmbientModePatch"> -->
   <string name="revanced_disable_fullscreen_ambient_mode_title">Ambient mód letiltása teljes képernyős módban</string>
   <string name="revanced_disable_fullscreen_ambient_mode_summary_on">Mozifilmes világítás kikapcsolva</string>
   <string name="revanced_disable_fullscreen_ambient_mode_summary_off">Mozifilmes világítás engedélyezve</string>
-  </patch>
-  <patch id="layout.hide.infocards.hideInfocardsResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.infocards.hideInfocardsResourcePatch"> -->
   <string name="revanced_hide_info_cards_title">Infó kártyák elrejtése</string>
   <string name="revanced_hide_info_cards_summary_on">Az info kártyák el vannak rejtve</string>
   <string name="revanced_hide_info_cards_summary_off">Az info kártyák megjelennek</string>
-  </patch>
-  <patch id="layout.hide.rollingnumber.disableRollingNumberAnimationPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.rollingnumber.disableRollingNumberAnimationPatch"> -->
   <string name="revanced_disable_rolling_number_animations_title">Gördülőszám-animációk letiltása</string>
   <string name="revanced_disable_rolling_number_animations_summary_on">A gördülő számok nem animáltak</string>
   <string name="revanced_disable_rolling_number_animations_summary_off">A gördülő számok animálva vannak</string>
-  </patch>
-  <patch id="layout.hide.seekbar.hideSeekbarPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.seekbar.hideSeekbarPatch"> -->
   <string name="revanced_hide_seekbar_title">Folyamatsáv elrejtése a videólejátszóban</string>
   <string name="revanced_hide_seekbar_summary_on">A videólejátszó folyamatsávja el van rejtve</string>
   <string name="revanced_hide_seekbar_summary_off">A videólejátszó folyamatsávja megjelenik</string>
   <string name="revanced_hide_seekbar_thumbnail_title">Folyamatsáv elrejtése a minilejátszóban</string>
   <string name="revanced_hide_seekbar_thumbnail_summary_on">A minilejátszó folyamatsávja el van rejtve</string>
   <string name="revanced_hide_seekbar_thumbnail_summary_off">A minilejátszó folyamatsávja megjelenik</string>
-  </patch>
-  <patch id="layout.hide.shorts.hideShortsComponentsResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.shorts.hideShortsComponentsResourcePatch"> -->
   <string name="revanced_shorts_player_screen_title">Shorts lejátszó</string>
   <string name="revanced_shorts_player_screen_summary">Összetevők elrejtése vagy megjelenítése a Shorts lejátszóban</string>
   <!-- 'home' should be translated using the same localized wording YouTube displays for the home tab. -->
@@ -762,43 +763,43 @@ Ha a beállítás módosítása nem lép életbe, próbáljon meg Inkognitó mó
   <string name="revanced_hide_shorts_navigation_bar_title">Navigációs sáv elrejtése</string>
   <string name="revanced_hide_shorts_navigation_bar_summary_on">A navigációs sáv el van rejtve</string>
   <string name="revanced_hide_shorts_navigation_bar_summary_off">A navigációs sáv megjelenik</string>
-  </patch>
-  <patch id="layout.hide.endscreensuggestion.hideEndScreenSuggestedVideoPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.endscreensuggestion.hideEndScreenSuggestedVideoPatch"> -->
   <string name="revanced_end_screen_suggested_video_title">Javasolt videó elrejtése a befejező képernyőn</string>
   <string name="revanced_end_screen_suggested_video_summary_on">"A befejező képernyőn lévő javasolt videó el van rejtve, ha az automatikus lejátszás ki van kapcsolva.
 
 Az automatikus lejátszás a YouTube beállításaiban módosítható:
 Beállítások → Lejátszás → Következő videó automatikus lejátszása"</string>
   <string name="revanced_end_screen_suggested_video_summary_off">A befejező képernyőn lévő javasolt videó látható</string>
-  </patch>
-  <patch id="layout.hide.time.hideTimestampPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.time.hideTimestampPatch"> -->
   <string name="revanced_hide_timestamp_title">Videó időbélyegzőjének elrejtése</string>
   <string name="revanced_hide_timestamp_summary_on">Az időbélyegző elrejtve</string>
   <string name="revanced_hide_timestamp_summary_off">Az időbélyegző megjelenik</string>
-  </patch>
-  <patch id="layout.panels.popup.playerPopupPanelsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.panels.popup.playerPopupPanelsPatch"> -->
   <string name="revanced_hide_player_popup_panels_title">Lejátszó előugró paneleinek elrejtése</string>
   <string name="revanced_hide_player_popup_panels_summary_on">A lejátszó előugró panelei el vannak rejtve</string>
   <string name="revanced_hide_player_popup_panels_summary_off">A lejátszó előugró panelei megjelennek</string>
-  </patch>
-  <patch id="layout.player.fullscreen.exitFullscreenPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.player.fullscreen.exitFullscreenPatch"> -->
   <string name="revanced_exit_fullscreen_title">Kilépés a teljes képernyőből</string>
   <string name="revanced_exit_fullscreen_entry_1">Letiltva</string>
   <string name="revanced_exit_fullscreen_entry_2">Portré</string>
   <string name="revanced_exit_fullscreen_entry_3">Tájkép</string>
   <string name="revanced_exit_fullscreen_entry_4">Portré és tájkép</string>
-  </patch>
-  <patch id="layout.player.fullscreen.openVideosFullscreen">
+  <!-- </patch> -->
+  <!-- <patch id="layout.player.fullscreen.openVideosFullscreen"> -->
   <string name="revanced_open_videos_fullscreen_portrait_title">Nyissa meg a videókat teljes képernyős portréban</string>
   <string name="revanced_open_videos_fullscreen_portrait_summary_on">A videók teljes képernyőn nyílnak meg</string>
   <string name="revanced_open_videos_fullscreen_portrait_summary_off">A videók nem nyílnak meg teljes képernyőn</string>
-  </patch>
-  <patch id="layout.player.overlay.customPlayerOverlayOpacityResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.player.overlay.customPlayerOverlayOpacityResourcePatch"> -->
   <string name="revanced_player_overlay_opacity_title">Lejátszó fedőrétegének átlátszatlansága</string>
   <string name="revanced_player_overlay_opacity_summary">Az átlátszatlanság értéke 0 és 100 között van, ahol a 0 átlátszó</string>
   <string name="revanced_player_overlay_opacity_invalid_toast">A lejátszó fedvény átlátszatlanságának 0 és 100 között kell lennie</string>
-  </patch>
-  <patch id="layout.returnyoutubedislike.returnYouTubeDislikePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.returnyoutubedislike.returnYouTubeDislikePatch"> -->
   <!-- Toast shown if network connection times out. Translations of this should not be longer than the original English or the text can be clipped and not entirely shown. -->
   <string name="revanced_ryd_failure_connection_timeout">A nem tetszik funkció átmenetileg nem elérhető</string>
   <string name="revanced_ryd_failure_connection_status_code">A nem tetszik funkció nem elérhető (állapot: %d)</string>
@@ -847,13 +848,13 @@ Korlátozás: A nem tetszések inkognitómódban nem jelenhetnek meg"</string>
   <string name="revanced_ryd_statistics_getNumberOfRateLimitRequestsEncountered_zero_summary">Nem történtek kliens korlátozások</string>
   <string name="revanced_ryd_statistics_getNumberOfRateLimitRequestsEncountered_non_zero_summary">Kliens korlátozás %d alkalommal történt</string>
   <string name="revanced_ryd_statistics_millisecond_text">%d ezredmásodperc</string>
-  </patch>
-  <patch id="layout.searchbar.wideSearchbarPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.searchbar.wideSearchbarPatch"> -->
   <string name="revanced_wide_searchbar_title">Széles keresősáv bekapcsolása</string>
   <string name="revanced_wide_searchbar_summary_on">Széles keresősáv bekapcsolva</string>
   <string name="revanced_wide_searchbar_summary_off">Széles keresősáv kikapcsolva</string>
-  </patch>
-  <patch id="layout.seekbar.seekbarThumbnailsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.seekbar.seekbarThumbnailsPatch"> -->
   <string name="revanced_seekbar_thumbnails_high_quality_title">Jó minőségű miniatűrök engedélyezése</string>
   <string name="revanced_seekbar_thumbnails_high_quality_summary_on">A keresősáv bélyegképei kiváló minőségűek</string>
   <string name="revanced_seekbar_thumbnails_high_quality_summary_off">A keresősáv bélyegképei közepes minőségűek</string>
@@ -867,8 +868,8 @@ Ez a funkció a legjobban 720p vagy annál alacsonyabb videóminőség mellett �
   <string name="revanced_restore_old_seekbar_thumbnails_title">Régi keresősáv bélyegképek visszaállítása</string>
   <string name="revanced_restore_old_seekbar_thumbnails_summary_on">A keresősáv bélyegképei megjelennek a keresősáv felett</string>
   <string name="revanced_restore_old_seekbar_thumbnails_summary_off">A keresősáv bélyegképei megjelennek a teljes képernyőn</string>
-  </patch>
-  <patch id="layout.sponsorblock.sponsorBlockResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.sponsorblock.sponsorBlockResourcePatch"> -->
   <string name="revanced_sb_enable_sb">SponsorBlock bekapcsolása</string>
   <string name="revanced_sb_enable_sb_sum">A SponsorBlock egy közösségi finanszírozású rendszer, amellyel kihagyhatod a YouTube videók idegesítő részeit</string>
   <string name="revanced_sb_appearance_category">Megjelenés</string>
@@ -1065,8 +1066,8 @@ Készen állsz a beküldésre?"</string>
   <string name="revanced_sb_reset">Visszaállítás</string>
   <string name="revanced_sb_about">Rólunk</string>
   <string name="revanced_sb_about_api_sum">Az adatokat a SponsorBlock API biztosítja. Koppintson ide, ha többet szeretne megtudni és megtekintené a letöltéseket más platformokra</string>
-  </patch>
-  <patch id="layout.formfactor.changeFormFactorPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.formfactor.changeFormFactorPatch"> -->
   <string name="revanced_change_form_factor_title">Elrendezési űrlap faktor</string>
   <string name="revanced_change_form_factor_entry_1">Alapértelmezett</string>
   <string name="revanced_change_form_factor_entry_2">Telefon</string>
@@ -1080,8 +1081,8 @@ Tablet elrendezés
 Autóipari elrendezés
 • A \"Shorts\" a szokásos lejátszóban nyílik meg
 • A hírcsatorna témák és csatornák szerint van rendezve"</string>
-  </patch>
-  <patch id="layout.spoofappversion.spoofAppVersionPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.spoofappversion.spoofAppVersionPatch"> -->
   <string name="revanced_spoof_app_version_title">Alkalmazásverzió hamisítása</string>
   <string name="revanced_spoof_app_version_summary_on">A verzió hamisítva</string>
   <string name="revanced_spoof_app_version_summary_off">A verzió nincs hamisítva</string>
@@ -1095,8 +1096,8 @@ Ha később kikapcsolja, akkor ajánlott az alkalmazás adatait törölni, hogy 
   <string name="revanced_spoof_app_version_target_title">Hamisított alkalmazásverzió célja</string>
   <string name="revanced_spoof_app_version_target_entry_1">19.35.36 - A régi Shorts lejátszó ikonok visszaállítása</string>
   <string name="revanced_spoof_app_version_target_entry_2">19.01.34 - Állítsa vissza a régi navigációs ikonokat</string>
-  </patch>
-  <patch id="layout.startpage.changeStartPagePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.startpage.changeStartPagePatch"> -->
   <string name="revanced_change_start_page_title">Kezdőlap beállítása</string>
   <string name="revanced_change_start_page_entry_default">Alapértelmezett</string>
   <string name="revanced_change_start_page_entry_all_subscriptions">Összes feliratkozás</string>
@@ -1122,27 +1123,27 @@ Ha később kikapcsolja, akkor ajánlott az alkalmazás adatait törölni, hogy 
   <string name="revanced_change_start_page_entry_virtual_reality">Virtuális valóság</string>
   <string name="revanced_change_start_page_entry_watch_later">Megnézem később</string>
   <string name="revanced_change_start_page_entry_your_clips">A saját klipjeid</string>
-  </patch>
-  <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch"> -->
   <string name="revanced_disable_resuming_shorts_player_title">A Shorts lejátszás folytatásának kikapcsolása</string>
   <string name="revanced_disable_resuming_shorts_player_summary_on">A Shorts lejátszás nem indul el az alkalmazás indításakor</string>
   <string name="revanced_disable_resuming_shorts_player_summary_off">A Shorts lejátszás folytatódik az alkalmazás indításakor</string>
-  </patch>
-  <patch id="layout.shortsplayer.shortsPlayerTypePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.shortsplayer.shortsPlayerTypePatch"> -->
   <string name="revanced_shorts_player_type_title">Shorts megnyitása ezzel:</string>
   <string name="revanced_shorts_player_type_shorts">Shorts lejátszó</string>
   <string name="revanced_shorts_player_type_regular_player">Normál lejátszó</string>
   <string name="revanced_shorts_player_type_regular_player_fullscreen">Teljes képernyős normál lejátszó</string>
-  </patch>
-  <patch id="layout.shortsautoplay.shortsAutoplayPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.shortsautoplay.shortsAutoplayPatch"> -->
   <string name="revanced_shorts_autoplay_title">Shorts automatikus lejátszása</string>
   <string name="revanced_shorts_autoplay_summary_on">Shorts automatikusan elindul</string>
   <string name="revanced_shorts_autoplay_summary_off">Shorts ismétlődik</string>
   <string name="revanced_shorts_autoplay_background_title">Shorts automatikus lejátszása a háttérben</string>
   <string name="revanced_shorts_autoplay_background_summary_on">Shorts automatikusan elindul a háttérben</string>
   <string name="revanced_shorts_autoplay_background_summary_off">Shorts háttérben történő lejátszása megismétlődik</string>
-  </patch>
-  <patch id="layout.miniplayer.miniplayerPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.miniplayer.miniplayerPatch"> -->
   <string name="revanced_miniplayer_screen_title">Minilejátszó</string>
   <string name="revanced_miniplayer_screen_summary">Az alkalmazáson belüli minimalizált lejátszó stílusának módosítása</string>
   <string name="revanced_miniplayer_type_title">Minilejátszó típus</string>
@@ -1192,8 +1193,8 @@ Húzza el a képernyőt a kibontáshoz vagy bezáráshoz"</string>
   <string name="revanced_miniplayer_opacity_title">Átfedés átlátszósága</string>
   <string name="revanced_miniplayer_opacity_summary">Az átlátszatlanság értéke 0 és 100 között van, ahol a 0 átlátszó</string>
   <string name="revanced_miniplayer_opacity_invalid_toast">A minilejátszó fedvény átlátszatlanságának 0 és 100 között kell lennie</string>
-  </patch>
-  <patch id="layout.theme.themePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.theme.themePatch"> -->
   <string name="revanced_gradient_loading_screen_title">Színátmenetes betöltési képernyő engedélyezése</string>
   <string name="revanced_gradient_loading_screen_summary_on">A betöltési képernyő színátmenetes hatterű lesz</string>
   <string name="revanced_gradient_loading_screen_summary_off">A betöltési képernyő egyszínű hátterű lesz</string>
@@ -1205,15 +1206,15 @@ Húzza el a képernyőt a kibontáshoz vagy bezáráshoz"</string>
   <string name="revanced_seekbar_custom_color_accent_title">Egyéni keresősáv kiemelő színe</string>
   <string name="revanced_seekbar_custom_color_accent_summary">A keresősáv kiemelõ színe</string>
   <string name="revanced_seekbar_custom_color_invalid">Érvénytelen keresősáv színértéke</string>
-  </patch>
-  <patch id="layout.thumbnails.bypassImageRegionRestrictionsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.thumbnails.bypassImageRegionRestrictionsPatch"> -->
   <string name="revanced_bypass_image_region_restrictions_title">Területi kép-korlátozások megkerülése</string>
   <string name="revanced_bypass_image_region_restrictions_summary_on">A yt4.ggpht.com képtár használata</string>
   <string name="revanced_bypass_image_region_restrictions_summary_off">"Az eredeti képgazdagép használatával
 
 Ez a beállítás megoldhatja a hiányzó képek problémáját, amelyek blokkolva vannak egyes régiókban"</string>
-  </patch>
-  <patch id="layout.thumbnails.alternativeThumbnailsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.thumbnails.alternativeThumbnailsPatch"> -->
   <!-- 'Home' should be translated using the same localized wording YouTube displays for the home tab. -->
   <string name="revanced_alt_thumbnail_home_title">Kezdőlap</string>
   <!-- 'Subscription' should be translated using the same localized wording YouTube displays for the subscription tab. -->
@@ -1248,26 +1249,26 @@ Ha engedélyezve van, akkor a videók URL-jeit elküldjük az API kiszolgálóna
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_alt_thumbnail_dearrow_error">A DeArrow átmenetileg nem érhető el (állapotkód: %s)</string>
   <string name="revanced_alt_thumbnail_dearrow_error_generic">A DeArrow átmenetileg nem érhető el</string>
-  </patch>
-  <patch id="misc.announcements.announcementsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.announcements.announcementsPatch"> -->
   <string name="revanced_announcements_title">ReVanced közlemények megjelenítése</string>
   <string name="revanced_announcements_summary_on">A bejelentések indításkor megjelennek</string>
   <string name="revanced_announcements_summary_off">A bejelentések indításkor nem jelennek meg</string>
   <string name="revanced_announcements_enabled_summary">Közlemények megjelenítése indításkor</string>
   <string name="revanced_announcements_connection_failed">Nem sikerült csatlakozni a közlemény szolgáltatóhoz</string>
   <string name="revanced_announcements_dialog_dismiss">Elvetés</string>
-  </patch>
-  <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch"> -->
   <string name="revanced_check_watch_history_domain_name_dialog_title">Figyelmeztetés</string>
   <string name="revanced_check_watch_history_domain_name_dialog_message">A megtekintési előzmények mentése nem történik meg.&lt;br&gt;&lt;br&gt;Ezt valószínűleg egy DNS-hirdetésblokkoló vagy hálózati proxy okozza.&lt;br&gt;&lt;br&gt;A probléma megoldásához vegye fel az engedélyezőlistára az &lt;b&gt;s.youtube.com&lt;/b&gt; domaint vagy kapcsolja ki az összes DNS-blokkolót és proxyt.</string>
   <string name="revanced_check_watch_history_domain_name_dialog_ignore">Ne jelenjen meg többet</string>
-  </patch>
-  <patch id="misc.autorepeat.autoRepeatPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.autorepeat.autoRepeatPatch"> -->
   <string name="revanced_auto_repeat_title">Automatikus ismétlés engedélyezése</string>
   <string name="revanced_auto_repeat_summary_on">Az automatikus ismétlés be van kapcsolva</string>
   <string name="revanced_auto_repeat_summary_off">Az automatikus ismétlés ki van kapcsolva</string>
-  </patch>
-  <patch id="misc.dimensions.spoof.spoofDeviceDimensionsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.dimensions.spoof.spoofDeviceDimensionsPatch"> -->
   <string name="revanced_spoof_device_dimensions_title">Eszközméret hamisítása</string>
   <string name="revanced_spoof_device_dimensions_summary_on">"Az eszköz méretei hamisítva vannak
 
@@ -1276,39 +1277,39 @@ Lehet, hogy magasabb videóminőségek válnak elérhetővé, de a videólejáts
 
 Ez a beállítás lehetővé teszi a magasabb videóminőségek feloldását"</string>
   <string name="revanced_spoof_device_dimensions_user_dialog_message">Ennek engedélyezése a videólejátszás akadozását, rosszabb akkuidőt és ismeretlen hatásokat okozhat.</string>
-  </patch>
-  <patch id="misc.gms.gmsCoreSupportResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.gms.gmsCoreSupportResourcePatch"> -->
   <string name="microg_settings_title">GmsCore beállítások</string>
   <string name="microg_settings_summary">A GmsCore beállításai</string>
-  </patch>
-  <patch id="misc.links.bypassURLRedirectsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.links.bypassURLRedirectsPatch"> -->
   <string name="revanced_bypass_url_redirects_title">URL átirányítások kikerülése</string>
   <string name="revanced_bypass_url_redirects_summary_on">URL átirányítások kikerülve</string>
   <string name="revanced_bypass_url_redirects_summary_off">Az URL átirányítások nincsenek kikerülve</string>
-  </patch>
-  <patch id="misc.links.openLinksExternallyPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.links.openLinksExternallyPatch"> -->
   <string name="revanced_external_browser_title">Hivatkozások megnyitása a böngészőben</string>
   <string name="revanced_external_browser_summary_on">Hivatkozások megnyitása külső böngészőben</string>
   <string name="revanced_external_browser_summary_off">Hivatkozások megnyitása az alkalmazáson belüli böngészőben</string>
-  </patch>
-  <patch id="misc.privacy.removeTrackingQueryParameterPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.privacy.removeTrackingQueryParameterPatch"> -->
   <string name="revanced_remove_tracking_query_parameter_title">Nyomkövetési lekérdezési paraméter eltávolítása</string>
   <string name="revanced_remove_tracking_query_parameter_summary_on">A nyomkövetési lekérdezési paraméter eltávolítva a linkekből</string>
   <string name="revanced_remove_tracking_query_parameter_summary_off">A nyomkövetési lekérdezési paraméter nincs eltávolítva a linkekből</string>
-  </patch>
-  <patch id="misc.zoomhaptics.zoomHapticsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.zoomhaptics.zoomHapticsPatch"> -->
   <string name="revanced_disable_zoom_haptics_title">Haptikus zoom letiltása</string>
   <string name="revanced_disable_zoom_haptics_summary_on">A haptikus zoom letiltva</string>
   <string name="revanced_disable_zoom_haptics_summary_off">A haptikus zoom engedélyezve</string>
-  </patch>
-  <patch id="video.audio.forceOriginalAudioPatch">
+  <!-- </patch> -->
+  <!-- <patch id="video.audio.forceOriginalAudioPatch"> -->
   <string name="revanced_force_original_audio_title">Eredeti hang kikényszerítése</string>
   <string name="revanced_force_original_audio_summary_on">Eredeti hang használata a hang nyelvén</string>
   <string name="revanced_force_original_audio_summary_off">Alapértelmezett hang használata</string>
   <!-- 'Spoof video streams' should be the same translation used for revanced_spoof_video_streams_screen_title -->
   <string name="revanced_force_original_audio_not_available">A funkció használatához módosítsa a „Videófolyamok hamisítása” beállítást iOS TV-re</string>
-  </patch>
-  <patch id="video.quality.rememberVideoQualityPatch">
+  <!-- </patch> -->
+  <!-- <patch id="video.quality.rememberVideoQualityPatch"> -->
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
   <string name="revanced_video_quality_default_entry_1">Automatikus</string>
   <string name="revanced_remember_video_quality_last_selected_title">Felbontás változtatások mentése</string>
@@ -1325,13 +1326,13 @@ Ez a beállítás lehetővé teszi a magasabb videóminőségek feloldását"</s
   <string name="revanced_remember_video_quality_wifi">wi-fi</string>
   <string name="revanced_remember_video_quality_toast">A(z) %1$s alapértelmezett felbontása erre módosult: %2$s</string>
   <string name="revanced_remember_video_quality_toast_shorts">A Shorts %1$s minősége megváltozott: %2$s</string>
-  </patch>
-  <patch id="video.speed.button.playbackSpeedButtonPatch">
+  <!-- </patch> -->
+  <!-- <patch id="video.speed.button.playbackSpeedButtonPatch"> -->
   <string name="revanced_playback_speed_dialog_button_title">Sebesség párbeszédpanel megjelenítése</string>
   <string name="revanced_playback_speed_dialog_button_summary_on">A gomb megjelenik</string>
   <string name="revanced_playback_speed_dialog_button_summary_off">A gomb nem látható</string>
-  </patch>
-  <patch id="video.speed.custom.customPlaybackSpeedPatch">
+  <!-- </patch> -->
+  <!-- <patch id="video.speed.custom.customPlaybackSpeedPatch"> -->
   <string name="revanced_custom_speed_menu_title">Egyedi lejátszási sebesség menü</string>
   <string name="revanced_custom_speed_menu_summary_on">Megjelenik az egyéni sebesség menü</string>
   <string name="revanced_custom_speed_menu_summary_off">Az egyéni sebesség menü nem jelenik meg</string>
@@ -1342,30 +1343,30 @@ Ez a beállítás lehetővé teszi a magasabb videóminőségek feloldását"</s
   <string name="revanced_custom_playback_speeds_auto">Automatikus</string>
   <string name="revanced_speed_tap_and_hold_title">Egyéni koppintás és tartás sebesség</string>
   <string name="revanced_speed_tap_and_hold_summary">Lejátszási sebesség 0-8 között</string>
-  </patch>
-  <patch id="video.speed.remember.rememberPlaybackSpeedPatch">
+  <!-- </patch> -->
+  <!-- <patch id="video.speed.remember.rememberPlaybackSpeedPatch"> -->
   <string name="revanced_remember_playback_speed_last_selected_title">Lejátszási sebesség módosításainak megjegyzése</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_on">A lejátszási sebesség módosítása minden videóra érvényes</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_off">A lejátszási sebesség módosítása csak a jelenlegi videóra érvényes</string>
   <string name="revanced_playback_speed_default_title">Alapértelmezett lejátszási sebesség</string>
   <string name="revanced_remember_playback_speed_toast">Alapértelmezett sebesség módosítva: %s</string>
-  </patch>
-  <patch id="video.hdr.disableHdrPatch">
+  <!-- </patch> -->
+  <!-- <patch id="video.hdr.disableHdrPatch"> -->
   <string name="revanced_disable_hdr_video_title">Az HDR videó letiltása</string>
   <string name="revanced_disable_hdr_video_summary_on">Az HDR videó le van tiltva</string>
   <string name="revanced_disable_hdr_video_summary_off">Az HDR videó engedélyezve van</string>
-  </patch>
-  <patch id="video.quality.advancedVideoQualityMenuPatch">
+  <!-- </patch> -->
+  <!-- <patch id="video.quality.advancedVideoQualityMenuPatch"> -->
   <string name="revanced_advanced_video_quality_menu_title">Speciális videóminőség menü megjelenítése</string>
   <string name="revanced_advanced_video_quality_menu_summary_on">A speciális videóminőség menü látható</string>
   <string name="revanced_advanced_video_quality_menu_summary_off">A speciális videóminőség menü nem látható</string>
-  </patch>
-  <patch id="interaction.seekbar.enableSlideToSeekPatch">
+  <!-- </patch> -->
+  <!-- <patch id="interaction.seekbar.enableSlideToSeekPatch"> -->
   <string name="revanced_slide_to_seek_title">Csúsztatás engedélyezése a kereséshez</string>
   <string name="revanced_slide_to_seek_summary_on">A csúsztatás a kereséshez engedélyezve van</string>
   <string name="revanced_slide_to_seek_summary_off">A csúsztatás a kereséshez nincs engedélyezve</string>
-  </patch>
-  <patch id="misc.fix.playback.spoofVideoStreamsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.fix.playback.spoofVideoStreamsPatch"> -->
   <string name="revanced_spoof_video_streams_screen_title">Hamis videó stream</string>
   <string name="revanced_spoof_video_streams_screen_summary">Hamisítsa meg az ügyfél videó streamet a lejátszási problémák elkerülése érdekében</string>
   <string name="revanced_spoof_video_streams_title">Hamis videó stream</string>
@@ -1395,46 +1396,46 @@ Az AVC maximális felbontása 1080p, az Opus audiokodek nem érhető el, és a v
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">A kliens típusa a Statisztikákban látható</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">A kliens el van rejtve a Statisztikákban</string>
   <string name="revanced_spoof_video_streams_language_title">VR alapértelmezett audio adatfolyam nyelve</string>
-  </patch>
-  </app>
-  <app id="twitch">
-  <patch id="ad.audio.audioAdsPatch">
+  <!-- </patch> -->
+  <!-- </app> -->
+  <!-- <app id="twitch"> -->
+  <!-- <patch id="ad.audio.audioAdsPatch"> -->
   <string name="revanced_block_audio_ads_title">Audio hirdetések letiltása</string>
   <string name="revanced_block_audio_ads_summary_on">Az audiohirdetések le vannak tiltva</string>
   <string name="revanced_block_audio_ads_summary_off">Az audiohirdetések letiltása fel van oldva</string>
-  </patch>
-  <patch id="ad.embedded.embeddedAdsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="ad.embedded.embeddedAdsPatch"> -->
   <string name="revanced_embedded_ads_service_unavailable">%s nem érhető el, a hirdetések megjelennek. Próbáljon meg más hirdetésblokkoló szolgáltatást választani a beállításokban.</string>
   <string name="revanced_embedded_ads_service_failed">%s hiba történt, a hirdetések megjelennek. Próbáljon meg más hirdetésblokkoló szolgáltatást választani a beállításokban.</string>
   <string name="revanced_block_embedded_ads_title">Beágyazott videóhirdetések blokkolása</string>
   <string name="revanced_block_embedded_ads_entry_1">Letiltva</string>
   <string name="revanced_block_embedded_ads_entry_2">Luminous proxy</string>
   <string name="revanced_block_embedded_ads_entry_3">PurpleAdBlock proxy</string>
-  </patch>
-  <patch id="ad.video.videoAdsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="ad.video.videoAdsPatch"> -->
   <string name="revanced_block_video_ads_title">Videós hirdetések blokkolása</string>
   <string name="revanced_block_video_ads_summary_on">Videós hirdetések blokkolva</string>
   <string name="revanced_block_video_ads_summary_off">A videós hirdetések nincsenek blokkolva</string>
-  </patch>
-  <patch id="chat.antidelete.showDeletedMessagesPatch">
+  <!-- </patch> -->
+  <!-- <patch id="chat.antidelete.showDeletedMessagesPatch"> -->
   <string name="revanced_deleted_msg">üzenet törölve</string>
   <string name="revanced_show_deleted_messages_title">Törölt üzenetek megjelenítése</string>
   <string name="revanced_show_deleted_messages_entry_1">Ne mutassa a törölt üzeneteket</string>
   <string name="revanced_show_deleted_messages_entry_2">A törölt üzenetek elrejtése egy spoiler mögé</string>
   <string name="revanced_show_deleted_messages_entry_3">Törölt üzenetek megjelenítése áthúzott szövegként</string>
-  </patch>
-  <patch id="chat.autoclaim.autoClaimChannelPointsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="chat.autoclaim.autoClaimChannelPointsPatch"> -->
   <string name="revanced_auto_claim_channel_points_title">Csatornapontok automatikus gyűjtése</string>
   <string name="revanced_auto_claim_channel_points_summary_on">A csatornapontok automatikusan begyűjtődnek</string>
   <string name="revanced_auto_claim_channel_points_summary_off">A csatornapontok nem gyűjtődnek be automatikusan</string>
-  </patch>
-  <patch id="debug.debugModePatch">
+  <!-- </patch> -->
+  <!-- <patch id="debug.debugModePatch"> -->
   <!-- Twitch specific internal debug mode, and not the same as 'revanced_debug_title' -->
   <string name="revanced_twitch_debug_mode_title">Twitch hibakeresési mód bekapcsolása</string>
   <string name="revanced_twitch_debug_mode_summary_on">Twitch hibakeresési mód bekapcsolva (nem ajánlott)</string>
   <string name="revanced_twitch_debug_mode_summary_off">Twitch hibakeresési mód kikapcsolva</string>
-  </patch>
-  <patch id="misc.settings.settingsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.settings.settingsPatch"> -->
   <string name="revanced_settings">ReVanced beállítások</string>
   <string name="revanced_about_title">Rólunk</string>
   <string name="revanced_about_summary">ReVanced névjegy</string>
@@ -1451,6 +1452,6 @@ Az AVC maximális felbontása 1080p, az Opus audiokodek nem érhető el, és a v
   <string name="revanced_twitch_debug_title">Hibakeresési naplózás</string>
   <string name="revanced_twitch_debug_summary_on">A hibakeresési naplók engedélyezve vannak</string>
   <string name="revanced_twitch_debug_summary_off">A hibakeresési naplók le vannak tiltva</string>
-  </patch>
-  </app>
+  <!-- </patch> -->
+  <!-- </app> -->
 </resources>

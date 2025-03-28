@@ -20,8 +20,8 @@ Second \"item\" text"</string>
 
 -->
 <resources>
-  <app id="shared">
-  <patch id="misc.checks.checkEnvironmentPatch">
+  <!-- <app id="shared"> -->
+  <!-- <patch id="misc.checks.checkEnvironmentPatch"> -->
   <string name="revanced_check_environment_failed_title">Pemeriksaan gagal</string>
   <string name="revanced_check_environment_dialog_open_official_source_button">Buka situs resminya</string>
   <string name="revanced_check_environment_dialog_ignore_button">Abaikan</string>
@@ -31,8 +31,8 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time">Dipatch lebih dari 10 menit yang lalu</string>
   <string name="revanced_check_environment_not_near_patch_time_days">Dipatch %s hari yang lalu</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">Tanggal pembuatan APK rusak</string>
-  </patch>
-  <patch id="misc.settings.settingsResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.settings.settingsResourcePatch"> -->
   <string name="revanced_settings_submenu_title">Pengaturan</string>
   <string name="revanced_settings_confirm_user_dialog_title">Apakah Anda ingin melanjutkan?</string>
   <string name="revanced_settings_reset">Setel ulang</string>
@@ -57,8 +57,8 @@ Untuk menerjemahkan bahasa baru kunjungi translate.revanced.app"</string>
   <string name="revanced_settings_about_links_header">Tautan resmi</string>
   <!-- NOTE: the about strings above are duplicated in the TikTok about screen code,
                  and changes made here must also be made there. -->
-  </patch>
-  <patch id="misc.gms.gmsCoreSupportResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.gms.gmsCoreSupportResourcePatch"> -->
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="gms_core_toast_not_installed_message">MicroG GmsCore belum dipasang. Pasang dulu.</string>
   <string name="gms_core_dialog_title">Tindakan diperlukan</string>
@@ -74,10 +74,10 @@ Menonaktifkan pengoptimalan baterai MicroG tidak akan berdampak buruk pada pengg
 
 Ketuk tombol lanjutkan dan izinkan perubahan pengoptimalan."</string>
   <string name="gms_core_dialog_continue_text">Lanjutkan</string>
-  </patch>
-  </app>
-  <app id="youtube">
-  <patch id="misc.settings.settingsPatch">
+  <!-- </patch> -->
+  <!-- </app> -->
+  <!-- <app id="youtube"> -->
+  <!-- <patch id="misc.settings.settingsPatch"> -->
   <string name="revanced_settings_screen_00_about_title">Tentang</string>
   <string name="revanced_settings_screen_01_ads_title">Iklan</string>
   <string name="revanced_settings_screen_02_alt_thumbnails_title">Thumbnail alternatif</string>
@@ -91,13 +91,13 @@ Ketuk tombol lanjutkan dan izinkan perubahan pengoptimalan."</string>
   <string name="revanced_restore_old_settings_menus_title">Pulihkan menu pengaturan lama</string>
   <string name="revanced_restore_old_settings_menus_summary_on">Menu pengaturan lama ditampilkan</string>
   <string name="revanced_restore_old_settings_menus_summary_off">Menu pengaturan lama tidak ditampilkan</string>
-  </patch>
-  <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.backgroundplayback.backgroundPlaybackPatch"> -->
   <string name="revanced_shorts_disable_background_playback_title">Nonaktifkan pemutaran Shorts di latar belakang</string>
   <string name="revanced_shorts_disable_background_playback_summary_on">Pemutaran Shorts di latar belakang dinonaktifkan</string>
   <string name="revanced_shorts_disable_background_playback_summary_off">Pemutaran Shorts di latar belakang diaktifkan</string>
-  </patch>
-  <patch id="misc.debugging.enableDebuggingPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.debugging.enableDebuggingPatch"> -->
   <string name="revanced_debug_screen_title">Debug</string>
   <string name="revanced_debug_screen_summary">Mengaktifkan atau menonaktifkan pilihan debugging</string>
   <string name="revanced_debug_title">Pencatatan debug</string>
@@ -115,8 +115,8 @@ Ketuk tombol lanjutkan dan izinkan perubahan pengoptimalan."</string>
   <string name="revanced_debug_toast_on_error_user_dialog_message">"Mematikan notifikasi kesalahan menyembunyikan semua notifikasi kesalahan ReVanced.
 
 Anda tidak akan diberi tahu tentang kejadian yang tidak terduga."</string>
-  </patch>
-  <patch id="layout.hide.general.hideLayoutComponentsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.general.hideLayoutComponentsPatch"> -->
   <string name="revanced_hide_album_cards_title">Sembunyikan kartu album</string>
   <string name="revanced_hide_album_cards_summary_on">Kartu album disembunyikan</string>
   <string name="revanced_hide_album_cards_summary_off">Kartu album ditampilkan</string>
@@ -340,8 +340,8 @@ Keterbatasan
   <string name="revanced_hide_keyword_toast_invalid_conflicting">Kata kunci punya keterangan yang bertentangan: %s</string>
   <string name="revanced_hide_keyword_toast_invalid_length">Kata kunci terlalu pendek dan butuh tanda kutip: %s</string>
   <string name="revanced_hide_keyword_toast_invalid_broad">Kata kunci akan menyembunyikan semua video: %s</string>
-  </patch>
-  <patch id="ad.general.hideAdsResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="ad.general.hideAdsResourcePatch"> -->
   <string name="revanced_hide_general_ads_title">Sembunyikan iklan umum</string>
   <string name="revanced_hide_general_ads_summary_on">Iklan umum disembunyikan</string>
   <string name="revanced_hide_general_ads_summary_off">Iklan umum ditampilkan</string>
@@ -383,18 +383,18 @@ Fitur ini hanya tersedia untuk perangkat yang lebih lama"</string>
   <string name="revanced_hide_merchandise_banners_summary_off">Spanduk merchandise ditampilkan</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_hide_fullscreen_ads_feature_not_available_toast">Menyembunyikan iklan layar penuh hanya berfungsi pada perangkat lama</string>
-  </patch>
-  <patch id="ad.getpremium.hideGetPremiumPatch">
+  <!-- </patch> -->
+  <!-- <patch id="ad.getpremium.hideGetPremiumPatch"> -->
   <string name="revanced_hide_get_premium_title">Sembunyikan promosi YouTube Premium</string>
   <string name="revanced_hide_get_premium_summary_on">Promosi YouTube Premium di bawah pemutar video disembunyikan</string>
   <string name="revanced_hide_get_premium_summary_off">Promosi YouTube Premium di bawah pemutar video ditampilkan</string>
-  </patch>
-  <patch id="ad.video.videoAdsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="ad.video.videoAdsPatch"> -->
   <string name="revanced_hide_video_ads_title">Sembunyikan iklan video</string>
   <string name="revanced_hide_video_ads_summary_on">Iklan video disembunyikan</string>
   <string name="revanced_hide_video_ads_summary_off">Iklan video ditampilkan</string>
-  </patch>
-  <patch id="interaction.copyvideourl.copyVideoUrlResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="interaction.copyvideourl.copyVideoUrlResourcePatch"> -->
   <string name="revanced_share_copy_url_success">URL disalin ke papan klip</string>
   <string name="revanced_share_copy_url_timestamp_success">URL dengan timestamp telah disalin</string>
   <string name="revanced_copy_video_url_title">Tampilkan tombol salin URL video</string>
@@ -403,14 +403,14 @@ Fitur ini hanya tersedia untuk perangkat yang lebih lama"</string>
   <string name="revanced_copy_video_url_timestamp_title">Tampilkan tombol salin timestamp URL</string>
   <string name="revanced_copy_video_url_timestamp_summary_on">Tombol ditampilkan. Ketuk untuk menyalin URL video dengan stempel waktu. Ketuk dan tahan untuk menyalin tanpa stempel waktu</string>
   <string name="revanced_copy_video_url_timestamp_summary_off">Tombol tidak ditampilkan</string>
-  </patch>
-  <patch id="interaction.dialog.removeViewerDiscretionDialogPatch">
+  <!-- </patch> -->
+  <!-- <patch id="interaction.dialog.removeViewerDiscretionDialogPatch"> -->
   <string name="revanced_remove_viewer_discretion_dialog_title">Hapus dialog pembatasan penonton</string>
   <string name="revanced_remove_viewer_discretion_dialog_summary_on">Dialog akan dihapus</string>
   <string name="revanced_remove_viewer_discretion_dialog_summary_off">Dialog akan ditampilkan</string>
   <string name="revanced_remove_viewer_discretion_dialog_user_dialog_message">Ini tidak mengabaikan batasan usia. Ini hanya menerimanya secara otomatis.</string>
-  </patch>
-  <patch id="interaction.downloads.downloadsResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="interaction.downloads.downloadsResourcePatch"> -->
   <string name="revanced_external_downloader_screen_title">Unduhan eksternal</string>
   <string name="revanced_external_downloader_screen_summary">Pengaturan untuk menggunakan pengunduh eksternal</string>
   <string name="revanced_external_downloader_title">Tampilkan tombol unduhan eksternal</string>
@@ -423,18 +423,18 @@ Fitur ini hanya tersedia untuk perangkat yang lebih lama"</string>
   <string name="revanced_external_downloader_name_title">Nama paket pengunduh</string>
   <string name="revanced_external_downloader_name_summary">Nama paket aplikasi pengunduh eksternal yang Anda pasang, seperti NewPipe atau Seal</string>
   <string name="revanced_external_downloader_not_installed_warning">%s belum terpasang. Silahkan pasang.</string>
-  </patch>
-  <patch id="interaction.seekbar.disablePreciseSeekingGesturePatch">
+  <!-- </patch> -->
+  <!-- <patch id="interaction.seekbar.disablePreciseSeekingGesturePatch"> -->
   <string name="revanced_disable_precise_seeking_gesture_title">Matikan gerakan pencarian presisi</string>
   <string name="revanced_disable_precise_seeking_gesture_summary_on">Gerakan dinonaktifkan</string>
   <string name="revanced_disable_precise_seeking_gesture_summary_off">Gerakan diaktifkan</string>
-  </patch>
-  <patch id="interaction.seekbar.enableSeekbarTappingPatch">
+  <!-- </patch> -->
+  <!-- <patch id="interaction.seekbar.enableSeekbarTappingPatch"> -->
   <string name="revanced_seekbar_tapping_title">Aktifkan ketuk untuk mencari</string>
   <string name="revanced_seekbar_tapping_summary_on">Ketuk untuk mencari diaktifkan</string>
   <string name="revanced_seekbar_tapping_summary_off">Ketuk untuk mencari dinonaktifkan</string>
-  </patch>
-  <patch id="interaction.swipecontrols.swipeControlsResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="interaction.swipecontrols.swipeControlsResourcePatch"> -->
   <string name="revanced_swipe_brightness_title">Aktifkan gerakan kecerahan</string>
   <string name="revanced_swipe_brightness_summary_on">"Pengusapan kecerahan layar penuh diaktifkan
 
@@ -473,13 +473,13 @@ Menyesuaikan volume dengan mengusap secara vertikal di sisi kanan layar"</string
   <string name="revanced_swipe_change_video_title">Aktifkan usapan untuk beralih video</string>
   <string name="revanced_swipe_change_video_summary_on">Mengusap dalam mode layar penuh akan beralih ke video berikutnya/sebelumnya</string>
   <string name="revanced_swipe_change_video_summary_off">Mengusap dalam mode layar penuh tidak akan beralih ke video berikutnya/sebelumnya</string>
-  </patch>
-  <patch id="layout.autocaptions.autoCaptionsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.autocaptions.autoCaptionsPatch"> -->
   <string name="revanced_auto_captions_title">Matikan teks otomatis</string>
   <string name="revanced_auto_captions_summary_on">Teks otomatis dinonaktifkan</string>
   <string name="revanced_auto_captions_summary_off">Teks otomatis diaktifkan</string>
-  </patch>
-  <patch id="layout.buttons.action.hideButtonsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.buttons.action.hideButtonsPatch"> -->
   <string name="revanced_hide_buttons_screen_title">Tombol tindakan</string>
   <string name="revanced_hide_buttons_screen_summary">Sembunyikan atau tampilkan tombol di bawah video</string>
   <string name="revanced_disable_like_subscribe_glow_title">Nonaktifkan kilauan Suka dan Langganan</string>
@@ -517,8 +517,8 @@ Menyesuaikan volume dengan mengusap secara vertikal di sisi kanan layar"</string
   <string name="revanced_hide_playlist_button_title">Sembunyikan Simpan ke daftar putar</string>
   <string name="revanced_hide_playlist_button_summary_on">Tombol Simpan ke daftar putar disembunyikan</string>
   <string name="revanced_hide_playlist_button_summary_off">Tombol simpan ke daftar putar ditampilkan</string>
-  </patch>
-  <patch id="layout.buttons.navigation.navigationButtonsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.buttons.navigation.navigationButtonsPatch"> -->
   <string name="revanced_navigation_buttons_screen_title">Tombol navigasi</string>
   <string name="revanced_navigation_buttons_screen_summary">Sembunyikan atau ganti tombol di bilah navigasi</string>
   <!-- 'Home' should be translated using the same localized wording YouTube displays for the tab. -->
@@ -555,14 +555,15 @@ Jika mengubah setelan ini tidak berpengaruh, coba beralih ke mode Penyamaran."</
   <string name="revanced_disable_translucent_status_bar_title">Nonaktifkan bilah status tembus cahaya</string>
   <string name="revanced_disable_translucent_status_bar_summary_on">Bilah status buram</string>
   <string name="revanced_disable_translucent_status_bar_summary_off">Bilah status buram atau tembus pandang</string>
+  <string name="revanced_disable_translucent_status_bar_user_dialog_message">Di beberapa perangkat, mengaktifkan fitur ini dapat mengubah bilah navigasi sistem menjadi transparan.</string>
   <string name="revanced_disable_translucent_navigation_bar_light_title">Nonaktifkan bilah tembus cahaya terang</string>
   <string name="revanced_disable_translucent_navigation_bar_light_summary_on">Bilah navigasi mode terang adalah buram</string>
   <string name="revanced_disable_translucent_navigation_bar_light_summary_off">Bilah navigasi mode terang buram atau tembus pandang</string>
   <string name="revanced_disable_translucent_navigation_bar_dark_title">Nonaktifkan bilah tembus pandang gelap</string>
   <string name="revanced_disable_translucent_navigation_bar_dark_summary_on">Bilah navigasi mode gelap adalah buram</string>
   <string name="revanced_disable_translucent_navigation_bar_dark_summary_off">Bilah navigasi mode gelap buram atau tembus pandang</string>
-  </patch>
-  <patch id="layout.hide.player.flyoutmenupanel.hidePlayerFlyoutMenuPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.player.flyoutmenupanel.hidePlayerFlyoutMenuPatch"> -->
   <string name="revanced_hide_player_flyout_title">Menu flyout</string>
   <string name="revanced_hide_player_flyout_summary">Sembunyikan atau tampilkan item menu pemutar flyout</string>
   <!-- 'Captions' should be translated using the same localized wording YouTube displays for the menu item. -->
@@ -616,8 +617,8 @@ Jika mengubah setelan ini tidak berpengaruh, coba beralih ke mode Penyamaran."</
   <string name="revanced_hide_player_flyout_video_quality_footer_title">Sembunyikan footer menu kualitas video</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_on">Footer menu kualitas video disembunyikan</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_off">Footer menu kualitas video ditampilkan</string>
-  </patch>
-  <patch id="layout.buttons.overlay.hidePlayerOverlayButtonsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.buttons.overlay.hidePlayerOverlayButtonsPatch"> -->
   <string name="revanced_hide_player_previous_next_buttons_title">Sembunyikan tombol Sebelumnya &amp; Berikutnya</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_on">Tombol disembunyikan</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">Tombol ditampilkan</string>
@@ -631,36 +632,36 @@ Jika mengubah setelan ini tidak berpengaruh, coba beralih ke mode Penyamaran."</
   <string name="revanced_hide_autoplay_button_title">Sembunyikan tombol Putar Otomatis</string>
   <string name="revanced_hide_autoplay_button_summary_on">Tombol putar otomatis disembunyikan</string>
   <string name="revanced_hide_autoplay_button_summary_off">Tombol putar otomatis ditampilkan</string>
-  </patch>
-  <patch id="layout.hide.endscreencards.hideEndscreenCardsResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.endscreencards.hideEndscreenCardsResourcePatch"> -->
   <string name="revanced_hide_endscreen_cards_title">Sembunyikan kartu layar akhir</string>
   <string name="revanced_hide_endscreen_cards_summary_on">Kartu layar akhir disembunyikan</string>
   <string name="revanced_hide_endscreen_cards_summary_off">Kartu layar akhir ditampilkan</string>
-  </patch>
-  <patch id="layout.hide.fullscreenambientmode.disableFullscreenAmbientModePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.fullscreenambientmode.disableFullscreenAmbientModePatch"> -->
   <string name="revanced_disable_fullscreen_ambient_mode_title">Nonaktifkan mode Senematik dalam layar penuh</string>
   <string name="revanced_disable_fullscreen_ambient_mode_summary_on">Mode sinematik dinonaktifkan</string>
   <string name="revanced_disable_fullscreen_ambient_mode_summary_off">Mode sinematik diaktifkan</string>
-  </patch>
-  <patch id="layout.hide.infocards.hideInfocardsResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.infocards.hideInfocardsResourcePatch"> -->
   <string name="revanced_hide_info_cards_title">Sembunyikan kartu info</string>
   <string name="revanced_hide_info_cards_summary_on">Kartu info disembunyikan</string>
   <string name="revanced_hide_info_cards_summary_off">Kartu info ditampilkan</string>
-  </patch>
-  <patch id="layout.hide.rollingnumber.disableRollingNumberAnimationPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.rollingnumber.disableRollingNumberAnimationPatch"> -->
   <string name="revanced_disable_rolling_number_animations_title">Nonaktifkan animasi angka bergulir</string>
   <string name="revanced_disable_rolling_number_animations_summary_on">Angka bergulir tidak dianimasikan</string>
   <string name="revanced_disable_rolling_number_animations_summary_off">Angka bergulir dianimasikan</string>
-  </patch>
-  <patch id="layout.hide.seekbar.hideSeekbarPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.seekbar.hideSeekbarPatch"> -->
   <string name="revanced_hide_seekbar_title">Sembunyikan seekbar di pemutar video</string>
   <string name="revanced_hide_seekbar_summary_on">Seekbar pemutar video disembunyikan</string>
   <string name="revanced_hide_seekbar_summary_off">Seekbar pemutar video ditampilkan</string>
   <string name="revanced_hide_seekbar_thumbnail_title">Sembunyikan seekbar di thumbnail video</string>
   <string name="revanced_hide_seekbar_thumbnail_summary_on">Seekbar thumbnail disembunyikan</string>
   <string name="revanced_hide_seekbar_thumbnail_summary_off">Seekbar thumbnail ditampilkan</string>
-  </patch>
-  <patch id="layout.hide.shorts.hideShortsComponentsResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.shorts.hideShortsComponentsResourcePatch"> -->
   <string name="revanced_shorts_player_screen_title">Pemutar Shorts</string>
   <string name="revanced_shorts_player_screen_summary">Sembunyikan atau tampilkan komponen di pemutar Shorts</string>
   <!-- 'home' should be translated using the same localized wording YouTube displays for the home tab. -->
@@ -762,43 +763,43 @@ Jika mengubah setelan ini tidak berpengaruh, coba beralih ke mode Penyamaran."</
   <string name="revanced_hide_shorts_navigation_bar_title">Sembunyikan bilah navigasi</string>
   <string name="revanced_hide_shorts_navigation_bar_summary_on">Bilah navigasi disembunyikan</string>
   <string name="revanced_hide_shorts_navigation_bar_summary_off">Bilah navigasi ditampilkan</string>
-  </patch>
-  <patch id="layout.hide.endscreensuggestion.hideEndScreenSuggestedVideoPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.endscreensuggestion.hideEndScreenSuggestedVideoPatch"> -->
   <string name="revanced_end_screen_suggested_video_title">Sembunyikan video yang disarankan di layar akhir</string>
   <string name="revanced_end_screen_suggested_video_summary_on">"Video yang disarankan di layar akhir disembunyikan saat pemutaran otomatis dimatikan
 
 Pemutaran otomatis dapat diubah di pengaturan YouTube:
 Pengaturan → Pemutaran → Putar otomatis video berikutnya"</string>
   <string name="revanced_end_screen_suggested_video_summary_off">Video yang disarankan di layar akhir ditampilkan</string>
-  </patch>
-  <patch id="layout.hide.time.hideTimestampPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.hide.time.hideTimestampPatch"> -->
   <string name="revanced_hide_timestamp_title">Sembunyikan timestamp video</string>
   <string name="revanced_hide_timestamp_summary_on">Timestamp disembunyikan</string>
   <string name="revanced_hide_timestamp_summary_off">Timestamp ditampilkan</string>
-  </patch>
-  <patch id="layout.panels.popup.playerPopupPanelsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.panels.popup.playerPopupPanelsPatch"> -->
   <string name="revanced_hide_player_popup_panels_title">Sembunyikan panel popup pemutar</string>
   <string name="revanced_hide_player_popup_panels_summary_on">Panel popup pemutar disembunyikan</string>
   <string name="revanced_hide_player_popup_panels_summary_off">Panel popup pemutar ditampilkan</string>
-  </patch>
-  <patch id="layout.player.fullscreen.exitFullscreenPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.player.fullscreen.exitFullscreenPatch"> -->
   <string name="revanced_exit_fullscreen_title">Keluar dari mode layar penuh di akhir video</string>
   <string name="revanced_exit_fullscreen_entry_1">Nonaktif</string>
   <string name="revanced_exit_fullscreen_entry_2">Potret</string>
   <string name="revanced_exit_fullscreen_entry_3">Lanskap</string>
   <string name="revanced_exit_fullscreen_entry_4">Potret dan lanskap</string>
-  </patch>
-  <patch id="layout.player.fullscreen.openVideosFullscreen">
+  <!-- </patch> -->
+  <!-- <patch id="layout.player.fullscreen.openVideosFullscreen"> -->
   <string name="revanced_open_videos_fullscreen_portrait_title">Buka video dalam potret layar penuh</string>
   <string name="revanced_open_videos_fullscreen_portrait_summary_on">Video terbuka dalam layar penuh</string>
   <string name="revanced_open_videos_fullscreen_portrait_summary_off">Video tidak terbuka dalam layar penuh</string>
-  </patch>
-  <patch id="layout.player.overlay.customPlayerOverlayOpacityResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.player.overlay.customPlayerOverlayOpacityResourcePatch"> -->
   <string name="revanced_player_overlay_opacity_title">Opasitas hamparan pemutar</string>
   <string name="revanced_player_overlay_opacity_summary">Nilai opasitas antara 0-100, dimana 0 adalah transparan</string>
   <string name="revanced_player_overlay_opacity_invalid_toast">Opasitas hamparan pemutar harus di antara 0-100</string>
-  </patch>
-  <patch id="layout.returnyoutubedislike.returnYouTubeDislikePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.returnyoutubedislike.returnYouTubeDislikePatch"> -->
   <!-- Toast shown if network connection times out. Translations of this should not be longer than the original English or the text can be clipped and not entirely shown. -->
   <string name="revanced_ryd_failure_connection_timeout">Dislike sementara tidak tersedia (waktu API habis)</string>
   <string name="revanced_ryd_failure_connection_status_code">Dislike tidak tersedia (status %d)</string>
@@ -847,13 +848,13 @@ Batasan: Dislike mungkin tidak muncul dalam mode penyamaran"</string>
   <string name="revanced_ryd_statistics_getNumberOfRateLimitRequestsEncountered_zero_summary">Tidak ada pembatasan tarif klien terjadi</string>
   <string name="revanced_ryd_statistics_getNumberOfRateLimitRequestsEncountered_non_zero_summary">Pembatasan tarif klien terjadi %d kali</string>
   <string name="revanced_ryd_statistics_millisecond_text">%d milidetik</string>
-  </patch>
-  <patch id="layout.searchbar.wideSearchbarPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.searchbar.wideSearchbarPatch"> -->
   <string name="revanced_wide_searchbar_title">Aktifkan bilah pencarian lebar</string>
   <string name="revanced_wide_searchbar_summary_on">Bilah pencarian lebar diaktifkan</string>
   <string name="revanced_wide_searchbar_summary_off">Bilah pencarian lebar dinonaktifkan</string>
-  </patch>
-  <patch id="layout.seekbar.seekbarThumbnailsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.seekbar.seekbarThumbnailsPatch"> -->
   <string name="revanced_seekbar_thumbnails_high_quality_title">Aktifkan thumbnail berkualitas tinggi</string>
   <string name="revanced_seekbar_thumbnails_high_quality_summary_on">Thumbnail seekbar berkualitas tinggi</string>
   <string name="revanced_seekbar_thumbnails_high_quality_summary_off">Thumbnail seekbar berkualitas sedang</string>
@@ -867,8 +868,8 @@ Fitur ini bekerja paling baik dengan kualitas video 720p atau lebih rendah dan s
   <string name="revanced_restore_old_seekbar_thumbnails_title">Pulihkan thumbnail seekbar yang lama</string>
   <string name="revanced_restore_old_seekbar_thumbnails_summary_on">Thumbnail seekbar akan muncul di atas seekbar</string>
   <string name="revanced_restore_old_seekbar_thumbnails_summary_off">Thumbnail seekbar akan muncul di layar penuh</string>
-  </patch>
-  <patch id="layout.sponsorblock.sponsorBlockResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.sponsorblock.sponsorBlockResourcePatch"> -->
   <string name="revanced_sb_enable_sb">Aktifkan SponsorBlock</string>
   <string name="revanced_sb_enable_sb_sum">SponsorBlock adalah sistem yang bersumber dari banyak orang untuk melewatkan bagian video YouTube yang mengganggu</string>
   <string name="revanced_sb_appearance_category">Tampilan</string>
@@ -1065,8 +1066,8 @@ Siap mengirim?"</string>
   <string name="revanced_sb_reset">Setel ulang</string>
   <string name="revanced_sb_about">Tentang</string>
   <string name="revanced_sb_about_api_sum">Data disediakan oleh API SponsorBlock. Tekan di sini untuk mempelajari lebih lanjut dan melihat hasil pengunduhan untuk platform lain</string>
-  </patch>
-  <patch id="layout.formfactor.changeFormFactorPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.formfactor.changeFormFactorPatch"> -->
   <string name="revanced_change_form_factor_title">Faktor bentuk tata letak</string>
   <string name="revanced_change_form_factor_entry_1">Bawaan</string>
   <string name="revanced_change_form_factor_entry_2">Ponsel</string>
@@ -1080,8 +1081,8 @@ Tata letak tablet
 Tata letak otomotif
 • Shorts dibuka di pemutar biasa
 • Umpan diatur berdasarkan topik dan channel"</string>
-  </patch>
-  <patch id="layout.spoofappversion.spoofAppVersionPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.spoofappversion.spoofAppVersionPatch"> -->
   <string name="revanced_spoof_app_version_title">Palsukan versi app</string>
   <string name="revanced_spoof_app_version_summary_on">Versi yang dipalsukan</string>
   <string name="revanced_spoof_app_version_summary_off">Versi asli</string>
@@ -1095,8 +1096,8 @@ Jika kemudian dimatikan, disarankan untuk menghapus data aplikasi untuk mencegah
   <string name="revanced_spoof_app_version_target_title">Target versi app yang dipalsukan</string>
   <string name="revanced_spoof_app_version_target_entry_1">19.35.36 - Pulihkan ikon pemutar Shorts lama</string>
   <string name="revanced_spoof_app_version_target_entry_2">19.01.34 - Pulihkan ikon navigasi lama</string>
-  </patch>
-  <patch id="layout.startpage.changeStartPagePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.startpage.changeStartPagePatch"> -->
   <string name="revanced_change_start_page_title">Tetapkan halaman awal</string>
   <string name="revanced_change_start_page_entry_default">Bawaan</string>
   <string name="revanced_change_start_page_entry_all_subscriptions">Semua langganan</string>
@@ -1122,27 +1123,27 @@ Jika kemudian dimatikan, disarankan untuk menghapus data aplikasi untuk mencegah
   <string name="revanced_change_start_page_entry_virtual_reality">Realitas Virtual</string>
   <string name="revanced_change_start_page_entry_watch_later">Tonton nanti</string>
   <string name="revanced_change_start_page_entry_your_clips">Klip Anda</string>
-  </patch>
-  <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch"> -->
   <string name="revanced_disable_resuming_shorts_player_title">Matikan melanjutkan pemutar video Shorts</string>
   <string name="revanced_disable_resuming_shorts_player_summary_on">Pemutaran Shorts tidak akan dilanjutkan saat aplikasi dimulai</string>
   <string name="revanced_disable_resuming_shorts_player_summary_off">Pemutaran Shorts akan dilanjutkan saat aplikasi dimulai</string>
-  </patch>
-  <patch id="layout.shortsplayer.shortsPlayerTypePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.shortsplayer.shortsPlayerTypePatch"> -->
   <string name="revanced_shorts_player_type_title">Buka Shorts dengan</string>
   <string name="revanced_shorts_player_type_shorts">Pemutar Shorts</string>
   <string name="revanced_shorts_player_type_regular_player">Pemutar biasa</string>
   <string name="revanced_shorts_player_type_regular_player_fullscreen">Pemutar biasa layar penuh</string>
-  </patch>
-  <patch id="layout.shortsautoplay.shortsAutoplayPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.shortsautoplay.shortsAutoplayPatch"> -->
   <string name="revanced_shorts_autoplay_title">Putar otomatis Shorts</string>
   <string name="revanced_shorts_autoplay_summary_on">Shorts akan diputar otomatis</string>
   <string name="revanced_shorts_autoplay_summary_off">Shorts akan diulangi</string>
   <string name="revanced_shorts_autoplay_background_title">Putar otomatis Shorts di latar belakang</string>
   <string name="revanced_shorts_autoplay_background_summary_on">Pemutaran latar belakang Shorts akan diputar otomatis</string>
   <string name="revanced_shorts_autoplay_background_summary_off">Pemutaran latar belakang Shorts akan diulangi</string>
-  </patch>
-  <patch id="layout.miniplayer.miniplayerPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.miniplayer.miniplayerPatch"> -->
   <string name="revanced_miniplayer_screen_title">Pemutar Mini</string>
   <string name="revanced_miniplayer_screen_summary">Ubah gaya pemutar mini dalam aplikasi</string>
   <string name="revanced_miniplayer_type_title">Jenis pemutar mini</string>
@@ -1192,8 +1193,8 @@ Usap untuk memperluas atau menutup"</string>
   <string name="revanced_miniplayer_opacity_title">Opasitas hamparan</string>
   <string name="revanced_miniplayer_opacity_summary">Nilai opasitas antara 0-100, dimana 0 adalah transparan</string>
   <string name="revanced_miniplayer_opacity_invalid_toast">Opasitas hamparan pemutar mini antara 0-100</string>
-  </patch>
-  <patch id="layout.theme.themePatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.theme.themePatch"> -->
   <string name="revanced_gradient_loading_screen_title">Aktifkan layar pemuatan gradien</string>
   <string name="revanced_gradient_loading_screen_summary_on">Layar pemuatan akan memiliki latar belakang gradien</string>
   <string name="revanced_gradient_loading_screen_summary_off">Layar pemuatan akan memiliki latar belakang yang solid</string>
@@ -1205,15 +1206,15 @@ Usap untuk memperluas atau menutup"</string>
   <string name="revanced_seekbar_custom_color_accent_title">Warna aksen seekbar khusus</string>
   <string name="revanced_seekbar_custom_color_accent_summary">Warna aksen seekbar</string>
   <string name="revanced_seekbar_custom_color_invalid">Nilai warna seekbar tidak sah</string>
-  </patch>
-  <patch id="layout.thumbnails.bypassImageRegionRestrictionsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.thumbnails.bypassImageRegionRestrictionsPatch"> -->
   <string name="revanced_bypass_image_region_restrictions_title">Abaikan pembatasan wilayah gambar</string>
   <string name="revanced_bypass_image_region_restrictions_summary_on">Menggunakan sumber gambar yt4.ggpht.com</string>
   <string name="revanced_bypass_image_region_restrictions_summary_off">"Menggunakan host gambar asli
 
 Mengaktifkan ini dapat memperbaiki gambar yang hilang yang diblokir di beberapa wilayah"</string>
-  </patch>
-  <patch id="layout.thumbnails.alternativeThumbnailsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="layout.thumbnails.alternativeThumbnailsPatch"> -->
   <!-- 'Home' should be translated using the same localized wording YouTube displays for the home tab. -->
   <string name="revanced_alt_thumbnail_home_title">Tab beranda</string>
   <!-- 'Subscription' should be translated using the same localized wording YouTube displays for the subscription tab. -->
@@ -1248,26 +1249,26 @@ Ketuk di sini untuk mempelajari lebih lanjut tentang DeArrow"</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_alt_thumbnail_dearrow_error">DeArrow sementara tidak tersedia (kode status: %s)</string>
   <string name="revanced_alt_thumbnail_dearrow_error_generic">DeArrow sementara tidak tersedia</string>
-  </patch>
-  <patch id="misc.announcements.announcementsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.announcements.announcementsPatch"> -->
   <string name="revanced_announcements_title">Tampilkan pengumuman ReVanced</string>
   <string name="revanced_announcements_summary_on">Pengumuman saat memulai ditampilkan</string>
   <string name="revanced_announcements_summary_off">Pengumuman saat memulai tidak ditampilkan</string>
   <string name="revanced_announcements_enabled_summary">Tampilkan pengumuman saat memulai</string>
   <string name="revanced_announcements_connection_failed">Gagal menghubungkan ke penyedia pengumuman</string>
   <string name="revanced_announcements_dialog_dismiss">Abaikan</string>
-  </patch>
-  <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch"> -->
   <string name="revanced_check_watch_history_domain_name_dialog_title">Peringatan </string>
   <string name="revanced_check_watch_history_domain_name_dialog_message">Riwayat tontonan Anda tidak disimpan.&lt;br&gt;&lt;br&gt;Hal ini kemungkinan besar disebabkan oleh pemblokir iklan DNS atau proksi jaringan.&lt;br&gt;&lt;br&gt;Untuk memperbaikinya, masukkan daftar putih &lt;b&gt;s.youtube.com&lt;/b&gt; atau matikan semua pemblokir DNS dan proksi.</string>
   <string name="revanced_check_watch_history_domain_name_dialog_ignore">Jangan tampilkan lagi</string>
-  </patch>
-  <patch id="misc.autorepeat.autoRepeatPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.autorepeat.autoRepeatPatch"> -->
   <string name="revanced_auto_repeat_title">Aktifkan pengulangan otomatis</string>
   <string name="revanced_auto_repeat_summary_on">Pengulangan otomatis diaktifkan</string>
   <string name="revanced_auto_repeat_summary_off">Pengulangan otomatis dinonaktifkan</string>
-  </patch>
-  <patch id="misc.dimensions.spoof.spoofDeviceDimensionsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.dimensions.spoof.spoofDeviceDimensionsPatch"> -->
   <string name="revanced_spoof_device_dimensions_title">Palsukan dimensi perangkat</string>
   <string name="revanced_spoof_device_dimensions_summary_on">"Dimensi perangkat dipalsukan
 
@@ -1276,39 +1277,39 @@ Kualitas video yang lebih tinggi mungkin tidak terkunci, tetapi Anda mungkin men
 
 Mengaktifkan ini dapat membuka kualitas video yang lebih tinggi"</string>
   <string name="revanced_spoof_device_dimensions_user_dialog_message">Mengaktifkan ini dapat menyebabkan pemutaran video tersendat-sendat, masa pakai baterai yang lebih buruk, dan efek samping yang tidak diketahui.</string>
-  </patch>
-  <patch id="misc.gms.gmsCoreSupportResourcePatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.gms.gmsCoreSupportResourcePatch"> -->
   <string name="microg_settings_title">Pengaturan GmsCore</string>
   <string name="microg_settings_summary">Pengaturan untuk GmsCore</string>
-  </patch>
-  <patch id="misc.links.bypassURLRedirectsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.links.bypassURLRedirectsPatch"> -->
   <string name="revanced_bypass_url_redirects_title">Abaikan pengalihan URL</string>
   <string name="revanced_bypass_url_redirects_summary_on">Pengalihan URL diabaikan</string>
   <string name="revanced_bypass_url_redirects_summary_off">Pengalihan URL tidak diabaikan</string>
-  </patch>
-  <patch id="misc.links.openLinksExternallyPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.links.openLinksExternallyPatch"> -->
   <string name="revanced_external_browser_title">Buka tautan di peramban</string>
   <string name="revanced_external_browser_summary_on">Membuka tautan di peramban eksternal</string>
   <string name="revanced_external_browser_summary_off">Membuka tautan di peramban dalam aplikasi</string>
-  </patch>
-  <patch id="misc.privacy.removeTrackingQueryParameterPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.privacy.removeTrackingQueryParameterPatch"> -->
   <string name="revanced_remove_tracking_query_parameter_title">Hapus parameter kueri pelacakan</string>
   <string name="revanced_remove_tracking_query_parameter_summary_on">Parameter kueri pelacakan dihapus dari tautan</string>
   <string name="revanced_remove_tracking_query_parameter_summary_off">Parameter kueri pelacakan tidak dihapus dari tautan</string>
-  </patch>
-  <patch id="misc.zoomhaptics.zoomHapticsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.zoomhaptics.zoomHapticsPatch"> -->
   <string name="revanced_disable_zoom_haptics_title">Matikan sentuh getar zoom</string>
   <string name="revanced_disable_zoom_haptics_summary_on">Sentuh getar dinonaktifkan</string>
   <string name="revanced_disable_zoom_haptics_summary_off">Sentuh getar diaktifkan</string>
-  </patch>
-  <patch id="video.audio.forceOriginalAudioPatch">
+  <!-- </patch> -->
+  <!-- <patch id="video.audio.forceOriginalAudioPatch"> -->
   <string name="revanced_force_original_audio_title">Paksa bahasa audio asli</string>
   <string name="revanced_force_original_audio_summary_on">Menggunakan bahasa audio asli</string>
   <string name="revanced_force_original_audio_summary_off">Menggunakan audio bawaan</string>
   <!-- 'Spoof video streams' should be the same translation used for revanced_spoof_video_streams_screen_title -->
   <string name="revanced_force_original_audio_not_available">Untuk menggunakan fitur ini, ubah \'Palsukan aliran video\' ke iOS TV</string>
-  </patch>
-  <patch id="video.quality.rememberVideoQualityPatch">
+  <!-- </patch> -->
+  <!-- <patch id="video.quality.rememberVideoQualityPatch"> -->
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
   <string name="revanced_video_quality_default_entry_1">Otomatis</string>
   <string name="revanced_remember_video_quality_last_selected_title">Ingat perubahan kualitas video</string>
@@ -1325,13 +1326,13 @@ Mengaktifkan ini dapat membuka kualitas video yang lebih tinggi"</string>
   <string name="revanced_remember_video_quality_wifi">wifi</string>
   <string name="revanced_remember_video_quality_toast">Kualitas bawaan %1$s diubah ke: %2$s</string>
   <string name="revanced_remember_video_quality_toast_shorts">Kualitas Shorts %1$s diubah menjadi: %2$s</string>
-  </patch>
-  <patch id="video.speed.button.playbackSpeedButtonPatch">
+  <!-- </patch> -->
+  <!-- <patch id="video.speed.button.playbackSpeedButtonPatch"> -->
   <string name="revanced_playback_speed_dialog_button_title">Tampilkan tombol dialog kecepatan</string>
   <string name="revanced_playback_speed_dialog_button_summary_on">Tombol ditampilkan</string>
   <string name="revanced_playback_speed_dialog_button_summary_off">Tombol tidak ditampilkan</string>
-  </patch>
-  <patch id="video.speed.custom.customPlaybackSpeedPatch">
+  <!-- </patch> -->
+  <!-- <patch id="video.speed.custom.customPlaybackSpeedPatch"> -->
   <string name="revanced_custom_speed_menu_title">Menu kecepatan pemutaran khusus</string>
   <string name="revanced_custom_speed_menu_summary_on">Menu kecepatan khusus ditampilkan</string>
   <string name="revanced_custom_speed_menu_summary_off">Menu kecepatan khusus tidak ditampilkan</string>
@@ -1342,30 +1343,30 @@ Mengaktifkan ini dapat membuka kualitas video yang lebih tinggi"</string>
   <string name="revanced_custom_playback_speeds_auto">Otomatis</string>
   <string name="revanced_speed_tap_and_hold_title">Kecepatan ketuk dan tahan khusus</string>
   <string name="revanced_speed_tap_and_hold_summary">Kecepatan pemutaran antara 0-8</string>
-  </patch>
-  <patch id="video.speed.remember.rememberPlaybackSpeedPatch">
+  <!-- </patch> -->
+  <!-- <patch id="video.speed.remember.rememberPlaybackSpeedPatch"> -->
   <string name="revanced_remember_playback_speed_last_selected_title">Ingat perubahan kecepatan pemutaran</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_on">Perubahan kecepatan pemutaran berlaku untuk semua video</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_off">Perubahan kecepatan pemutaran berlaku untuk video saat ini</string>
   <string name="revanced_playback_speed_default_title">Kecepatan pemutaran bawaan</string>
   <string name="revanced_remember_playback_speed_toast">Mengubah kecepatan bawaan menjadi: %s</string>
-  </patch>
-  <patch id="video.hdr.disableHdrPatch">
+  <!-- </patch> -->
+  <!-- <patch id="video.hdr.disableHdrPatch"> -->
   <string name="revanced_disable_hdr_video_title">Nonaktifkan video HDR</string>
   <string name="revanced_disable_hdr_video_summary_on">Video HDR dinonaktifkan</string>
   <string name="revanced_disable_hdr_video_summary_off">Video HDR diaktifkan</string>
-  </patch>
-  <patch id="video.quality.advancedVideoQualityMenuPatch">
+  <!-- </patch> -->
+  <!-- <patch id="video.quality.advancedVideoQualityMenuPatch"> -->
   <string name="revanced_advanced_video_quality_menu_title">Tampilkan menu kualitas video lanjutan</string>
   <string name="revanced_advanced_video_quality_menu_summary_on">Menu kualitas video lanjutan ditampilkan</string>
   <string name="revanced_advanced_video_quality_menu_summary_off">Menu kualitas video lanjutan tidak ditampilkan</string>
-  </patch>
-  <patch id="interaction.seekbar.enableSlideToSeekPatch">
+  <!-- </patch> -->
+  <!-- <patch id="interaction.seekbar.enableSlideToSeekPatch"> -->
   <string name="revanced_slide_to_seek_title">Aktifkan geser untuk mencari</string>
   <string name="revanced_slide_to_seek_summary_on">Geser untuk mencari diaktifkan</string>
   <string name="revanced_slide_to_seek_summary_off">Geser untuk mencari tidak diaktifkan</string>
-  </patch>
-  <patch id="misc.fix.playback.spoofVideoStreamsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.fix.playback.spoofVideoStreamsPatch"> -->
   <string name="revanced_spoof_video_streams_screen_title">Palsukan aliran video</string>
   <string name="revanced_spoof_video_streams_screen_summary">Palsukan klien aliran video untuk mencegah masalah pemutaran</string>
   <string name="revanced_spoof_video_streams_title">Palsukan aliran video</string>
@@ -1395,46 +1396,46 @@ AVC memiliki resolusi maksimum 1080p, codec audio Opus tidak tersedia, dan pemut
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Jenis klien ditampilkan di Statistik untuk nerds</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Klien disembunyikan di Statistik untuk nerds</string>
   <string name="revanced_spoof_video_streams_language_title">Bahasa aliran audio bawaan VR</string>
-  </patch>
-  </app>
-  <app id="twitch">
-  <patch id="ad.audio.audioAdsPatch">
+  <!-- </patch> -->
+  <!-- </app> -->
+  <!-- <app id="twitch"> -->
+  <!-- <patch id="ad.audio.audioAdsPatch"> -->
   <string name="revanced_block_audio_ads_title">Blokir iklan audio</string>
   <string name="revanced_block_audio_ads_summary_on">Iklan audio diblokir</string>
   <string name="revanced_block_audio_ads_summary_off">Iklan audio tidak diblokir</string>
-  </patch>
-  <patch id="ad.embedded.embeddedAdsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="ad.embedded.embeddedAdsPatch"> -->
   <string name="revanced_embedded_ads_service_unavailable">%s tidak tersedia, iklan mungkin muncul. Coba ubah layanan pemblokiran iklan di pengaturan.</string>
   <string name="revanced_embedded_ads_service_failed">%s mengembalikan kesalahan, iklan mungkin muncul. Coba ubah layanan pemblokiran iklan di pengaturan.</string>
   <string name="revanced_block_embedded_ads_title">Blokir iklan video yang disematkan</string>
   <string name="revanced_block_embedded_ads_entry_1">Nonaktif</string>
   <string name="revanced_block_embedded_ads_entry_2">Proksi Luminous</string>
   <string name="revanced_block_embedded_ads_entry_3">Proksi PurpleAdBlock</string>
-  </patch>
-  <patch id="ad.video.videoAdsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="ad.video.videoAdsPatch"> -->
   <string name="revanced_block_video_ads_title">Blokir iklan video</string>
   <string name="revanced_block_video_ads_summary_on">Iklan video diblokir</string>
   <string name="revanced_block_video_ads_summary_off">Iklan video tidak diblokir</string>
-  </patch>
-  <patch id="chat.antidelete.showDeletedMessagesPatch">
+  <!-- </patch> -->
+  <!-- <patch id="chat.antidelete.showDeletedMessagesPatch"> -->
   <string name="revanced_deleted_msg">pesan terhapus</string>
   <string name="revanced_show_deleted_messages_title">Tampilkan pesan yang terhapus</string>
   <string name="revanced_show_deleted_messages_entry_1">Jangan tampilkan pesan yang terhapus</string>
   <string name="revanced_show_deleted_messages_entry_2">Sembunyikan pesan yang dihapus di balik spoiler</string>
   <string name="revanced_show_deleted_messages_entry_3">Tampilkan pesan yang dihapus sebagai teks yang dicoret</string>
-  </patch>
-  <patch id="chat.autoclaim.autoClaimChannelPointsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="chat.autoclaim.autoClaimChannelPointsPatch"> -->
   <string name="revanced_auto_claim_channel_points_title">Klaim Poin Saluran secara otomatis</string>
   <string name="revanced_auto_claim_channel_points_summary_on">Poin Saluran diklaim secara otomatis</string>
   <string name="revanced_auto_claim_channel_points_summary_off">Poin Saluran tidak diklaim secara otomatis</string>
-  </patch>
-  <patch id="debug.debugModePatch">
+  <!-- </patch> -->
+  <!-- <patch id="debug.debugModePatch"> -->
   <!-- Twitch specific internal debug mode, and not the same as 'revanced_debug_title' -->
   <string name="revanced_twitch_debug_mode_title">Nyalakan mode debug Twitch</string>
   <string name="revanced_twitch_debug_mode_summary_on">Mode debug Twitch diaktifkan (tidak disarankan)</string>
   <string name="revanced_twitch_debug_mode_summary_off">Mode debug Twitch dinonaktifkan</string>
-  </patch>
-  <patch id="misc.settings.settingsPatch">
+  <!-- </patch> -->
+  <!-- <patch id="misc.settings.settingsPatch"> -->
   <string name="revanced_settings">Pengaturan ReVanced</string>
   <string name="revanced_about_title">Tentang</string>
   <string name="revanced_about_summary">Tentang ReVanced</string>
@@ -1451,6 +1452,6 @@ AVC memiliki resolusi maksimum 1080p, codec audio Opus tidak tersedia, dan pemut
   <string name="revanced_twitch_debug_title">Pencatatan debug</string>
   <string name="revanced_twitch_debug_summary_on">Log debug diaktifkan</string>
   <string name="revanced_twitch_debug_summary_off">Log debug dinonaktifkan</string>
-  </patch>
-  </app>
+  <!-- </patch> -->
+  <!-- </app> -->
 </resources>
