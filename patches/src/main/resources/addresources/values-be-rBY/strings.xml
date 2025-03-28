@@ -1156,6 +1156,7 @@ Second \"item\" text"</string>
   <string name="revanced_miniplayer_type_entry_4">Сучасны 1</string>
   <string name="revanced_miniplayer_type_entry_5">Сучасны 2</string>
   <string name="revanced_miniplayer_type_entry_6">Сучасны 3</string>
+  <string name="revanced_miniplayer_type_entry_7">Сучасны 4</string>
   <string name="revanced_miniplayer_rounded_corners_title">Включить закругленные углы</string>
   <string name="revanced_miniplayer_rounded_corners_summary_on">Углы закруглены</string>
   <string name="revanced_miniplayer_rounded_corners_summary_off">Углы квадратные</string>
@@ -1175,14 +1176,14 @@ Second \"item\" text"</string>
 
 Міні-прайгравальнік можна перацягнуць за межы экрана ўлева ці ўправа"</string>
   <string name="revanced_miniplayer_horizontal_drag_summary_off">Горизонтальный жест перетаскивания отключен</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_title">Скрыть кнопку закрытия</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">Кнопка закрытия скрыта</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">Кнопка закрытия отображается</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_title">Схаваць кнопкі накладання</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">Кнопкі накладання схаваныя</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">Кнопкі накладання паказаны</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_legacy_title">Схаваць кнопкі разгортвання і закрыцця</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_on">"Кнопкі схаваны
+  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_on">"Кнопкі схаваныя
 
-Працягвайце пальцам, каб разгарнуць або закрыць"</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_off">Паказваюцца кнопкі разгарнуць і закрыць</string>
+Правядзіце пальцам, каб разгарнуць ці закрыць"</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_off">Кнопкі разгортвання і закрыцця паказаны</string>
   <string name="revanced_miniplayer_hide_subtext_title">Схаваць падтэксты</string>
   <string name="revanced_miniplayer_hide_subtext_summary_on">Падтэксты схаваныя</string>
   <string name="revanced_miniplayer_hide_subtext_summary_off">Паказваюцца падтэксты</string>

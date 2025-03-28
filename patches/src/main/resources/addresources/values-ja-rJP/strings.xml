@@ -1156,6 +1156,7 @@ Automotive レイアウト
   <string name="revanced_miniplayer_type_entry_4">モダン 1</string>
   <string name="revanced_miniplayer_type_entry_5">モダン 2</string>
   <string name="revanced_miniplayer_type_entry_6">モダン 3</string>
+  <string name="revanced_miniplayer_type_entry_7">モダン 4</string>
   <string name="revanced_miniplayer_rounded_corners_title">角を丸くする</string>
   <string name="revanced_miniplayer_rounded_corners_summary_on">ミニプレーヤーの四角は丸角です</string>
   <string name="revanced_miniplayer_rounded_corners_summary_off">ミニプレーヤーの四角は直角です</string>
@@ -1175,9 +1176,9 @@ Automotive レイアウト
 
 ミニプレーヤーを画面の左または右端で最小化できます"</string>
   <string name="revanced_miniplayer_horizontal_drag_summary_off">横方向ドラッグ ジェスチャーは無効です</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_title">閉じるボタンを非表示</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">閉じるボタンは表示されません</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">閉じるボタンは表示されます</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_title">オーバーレイ ボタンを非表示</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">オーバーレイ ボタンは非表示</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">オーバーレイ ボタンは表示されます</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_legacy_title">拡大ボタンと閉じるボタンを非表示</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_on">"ボタンは表示されません
 

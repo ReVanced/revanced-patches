@@ -1154,6 +1154,7 @@ To bo spremenilo videz in funkcije aplikacije, vendar se lahko pojavijo neznani 
   <string name="revanced_miniplayer_type_entry_4">Sodobno 1</string>
   <string name="revanced_miniplayer_type_entry_5">Sodobno 2</string>
   <string name="revanced_miniplayer_type_entry_6">Sodobno 3</string>
+  <string name="revanced_miniplayer_type_entry_7">Sodobno 4</string>
   <string name="revanced_miniplayer_rounded_corners_title">Omogoči zaobljene robove</string>
   <string name="revanced_miniplayer_rounded_corners_summary_on">Robovi so zaobljeni</string>
   <string name="revanced_miniplayer_rounded_corners_summary_off">Robovi so kvadratni</string>
@@ -1173,9 +1174,9 @@ Minipredvajalnik lahko povlečete v kateri koli kot zaslona"</string>
 
 Minipredvajalnik lahko povlečete z zaslona na levo ali desno"</string>
   <string name="revanced_miniplayer_horizontal_drag_summary_off">Vodoravna kretnja vlečenja je onemogočena</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_title">Skrij gumb za zapiranje</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">Gumb za zapiranje je skrit</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">Gumb za zapiranje je prikazan</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_title">Skrij prekrivne gumbe</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">Prekrivni gumbi so skriti</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">Prekrivni gumbi so prikazani</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_legacy_title">Skrij gumbe za razširitev in zapiranje</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_on">"Gumbi so skriti
 

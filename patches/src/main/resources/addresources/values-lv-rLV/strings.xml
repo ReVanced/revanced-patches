@@ -1154,6 +1154,7 @@ Ja vēlāk tiks izslēgts, ieteicams notīrīt lietotnes datus, lai novērstu li
   <string name="revanced_miniplayer_type_entry_4">Moderns 1</string>
   <string name="revanced_miniplayer_type_entry_5">Moderns 2</string>
   <string name="revanced_miniplayer_type_entry_6">Moderns 3</string>
+  <string name="revanced_miniplayer_type_entry_7">Moderns 4</string>
   <string name="revanced_miniplayer_rounded_corners_title">Iespējot noapaļotus stūrus</string>
   <string name="revanced_miniplayer_rounded_corners_summary_on">Stūri ir noapaļoti</string>
   <string name="revanced_miniplayer_rounded_corners_summary_off">Stūri ir kvadrātveida</string>
@@ -1173,13 +1174,13 @@ Miniatskaņotāju var pārvilkt uz jebkuru ekrāna stūri"</string>
 
 Miniatskaņotāju var pārvilkt no ekrāna uz kreiso vai labo pusi"</string>
   <string name="revanced_miniplayer_horizontal_drag_summary_off">Horizontāls velci ir atspējots</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_title">Slēpt aizvēršanas pogu</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">Aizvēršanas poga ir paslēpta</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">Aizvēršanas poga ir redzama</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_title">Slēpt izvēršanas un aizvēršanas pogas</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_title">Paslēpt pārklājuma pogas</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">Pārklājuma pogas ir paslēptas</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">Pārklājuma pogas ir redzamas</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_title">Paslēpt izvēršanas un aizvēršanas pogas</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_on">"Pogas ir paslēptas
 
-Pārvelciet, lai paplašinātu vai aizvērtu"</string>
+Velciet, lai izvērstu vai aizvērtu"</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_off">Izvēršanas un aizvēršanas pogas ir redzamas</string>
   <string name="revanced_miniplayer_hide_subtext_title">Slēpt apakštekstu</string>
   <string name="revanced_miniplayer_hide_subtext_summary_on">Apakšteksts ir paslēpts</string>

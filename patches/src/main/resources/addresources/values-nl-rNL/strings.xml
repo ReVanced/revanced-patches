@@ -1154,6 +1154,7 @@ Als het later wordt uitgeschakeld, wordt aanbevolen om de app-gegevens te wissen
   <string name="revanced_miniplayer_type_entry_4">Modern 1</string>
   <string name="revanced_miniplayer_type_entry_5">Modern 2</string>
   <string name="revanced_miniplayer_type_entry_6">Modern 3</string>
+  <string name="revanced_miniplayer_type_entry_7">Modern 4</string>
   <string name="revanced_miniplayer_rounded_corners_title">Schakel afgeronde hoeken in</string>
   <string name="revanced_miniplayer_rounded_corners_summary_on">Hoeken zijn afgerond</string>
   <string name="revanced_miniplayer_rounded_corners_summary_off">Hoeken zijn vierkant</string>
@@ -1173,14 +1174,14 @@ De miniplayer kan naar elke hoek van het scherm worden gesleept"</string>
 
 De miniplayer kan naar links of rechts van het scherm worden gesleept"</string>
   <string name="revanced_miniplayer_horizontal_drag_summary_off">Horizontaal sleepgebaar uitgeschakeld</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_title">Verberg de sluitknop</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">De sluitknop is verborgen</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">De sluitknop is zichtbaar</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_title">Verberg uitvouwen en sluiten knoppen</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_title">Overlayknoppen verbergen</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">Overlayknoppen zijn verborgen</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">Overlayknoppen worden weergegeven</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_title">Knoppen voor uitvouwen en sluiten verbergen</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_on">"Knoppen zijn verborgen
 
-Veeg om uit te vouwen of te sluiten"</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_off">Uitvouwen en sluiten knoppen zijn zichtbaar</string>
+Swipe om uit te vouwen of te sluiten"</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_off">Knoppen voor uitvouwen en sluiten worden weergegeven</string>
   <string name="revanced_miniplayer_hide_subtext_title">Verberg subteksten</string>
   <string name="revanced_miniplayer_hide_subtext_summary_on">Subteksten zijn verborgen</string>
   <string name="revanced_miniplayer_hide_subtext_summary_off">Subteksten zijn zichtbaar</string>

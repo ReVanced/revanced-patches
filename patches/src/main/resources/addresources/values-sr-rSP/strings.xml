@@ -1154,6 +1154,7 @@ Second \"item\" text"</string>
   <string name="revanced_miniplayer_type_entry_4">Модеран 1</string>
   <string name="revanced_miniplayer_type_entry_5">Модеран 2</string>
   <string name="revanced_miniplayer_type_entry_6">Модеран 3</string>
+  <string name="revanced_miniplayer_type_entry_7">Модеран 4</string>
   <string name="revanced_miniplayer_rounded_corners_title">Омогући заобљене углове</string>
   <string name="revanced_miniplayer_rounded_corners_summary_on">Углови су заобљени</string>
   <string name="revanced_miniplayer_rounded_corners_summary_off">Углови су квадратни</string>
@@ -1173,14 +1174,14 @@ Second \"item\" text"</string>
 
 Мини-плејер се може превући са екрана улево или удесно"</string>
   <string name="revanced_miniplayer_horizontal_drag_summary_off">Покрет хоризонталног превлачења је онемогућен</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_title">Сакриј дугме за затварање</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">Дугме за затварање је скривено</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">Дугме за затварање је приказано</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_title">Сакриј дугмад за проширење и затварање</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_on">"Дугмад су скривена
+  <string name="revanced_miniplayer_hide_overlay_buttons_title">Сакриј дугмад преклапања</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">Дугмад преклапања су сакривена</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">Дугмад преклапања су приказана</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_title">Сакриј дугмад за проширивање и затварање</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_on">"Дугмад су сакривена
 
-Превуците за проширење или затварање"</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_off">Дугмад за проширење и затварање су приказана</string>
+Превуците да бисте проширили или затворили"</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_off">Дугмад за проширивање и затварање су приказана</string>
   <string name="revanced_miniplayer_hide_subtext_title">Сакриј подтекстове</string>
   <string name="revanced_miniplayer_hide_subtext_summary_on">Подтекстови су скривени</string>
   <string name="revanced_miniplayer_hide_subtext_summary_off">Подтекстови су приказани</string>

@@ -1153,6 +1153,7 @@ Kung mamaya ay patayin, inirerekumenda na i-clear ang data ng app upang maiwasan
   <string name="revanced_miniplayer_type_entry_4">Moderno 1</string>
   <string name="revanced_miniplayer_type_entry_5">Moderno 2</string>
   <string name="revanced_miniplayer_type_entry_6">Moderno 3</string>
+  <string name="revanced_miniplayer_type_entry_7">Makabagong 4</string>
   <string name="revanced_miniplayer_rounded_corners_title">Paganahin ang mga bilugan na sulok</string>
   <string name="revanced_miniplayer_rounded_corners_summary_on">Bilugan ang mga sulok</string>
   <string name="revanced_miniplayer_rounded_corners_summary_off">Parihaba ang mga sulok</string>
@@ -1172,14 +1173,14 @@ Ang \"miniplayer\" ay maaaring i-drag sa anumang sulok ng screen"</string>
 
 Ang \"miniplayer\" ay maaaring i-drag palabas ng screen sa kaliwa o kanan"</string>
   <string name="revanced_miniplayer_horizontal_drag_summary_off">Hindi pinagana ang pahalang na drag gesture</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_title">Itago ang pindutan ng pagsara</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">Nakatago ang pindutan ng pagsara</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">Ipinapakita ang pindutan ng pagsara</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_title">Itago ang mga button na palawakin at isara</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_on">"Ang mga pindutan ay nakatago
+  <string name="revanced_miniplayer_hide_overlay_buttons_title">Itago ang mga button ng overlay</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">Nakatago ang mga button ng overlay</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">Ipinapakita ang mga button ng overlay</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_title">Itago ang mga button para palawakin at isara</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_on">"Nakatago ang mga button
 
-Mag-swipe upang palawakin o isara"</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_off">Ang mga pindutan ng palawakin at isara ay ipinapakita</string>
+Mag-swipe para palawakin o isara"</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_off">Ipinapakita ang mga button para palawakin at isara</string>
   <string name="revanced_miniplayer_hide_subtext_title">Itago ang mga subtext</string>
   <string name="revanced_miniplayer_hide_subtext_summary_on">Nakatago ang mga subtext</string>
   <string name="revanced_miniplayer_hide_subtext_summary_off">Ipinapakita ang mga subtext</string>

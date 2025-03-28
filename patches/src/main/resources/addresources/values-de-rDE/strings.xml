@@ -1148,6 +1148,7 @@ Wenn Sie die Funktion später deaktivieren, wird empfohlen, die App-Daten zu lö
   <string name="revanced_miniplayer_type_entry_4">Modern 1</string>
   <string name="revanced_miniplayer_type_entry_5">Modern 2</string>
   <string name="revanced_miniplayer_type_entry_6">Modern 3</string>
+  <string name="revanced_miniplayer_type_entry_7">Modern 4</string>
   <string name="revanced_miniplayer_rounded_corners_title">Abgerundete Ecken aktivieren</string>
   <string name="revanced_miniplayer_rounded_corners_summary_on">Ecken sind abgerundet</string>
   <string name="revanced_miniplayer_rounded_corners_summary_off">Ecken sind Quadrat</string>
@@ -1167,14 +1168,14 @@ Der Mini-Player kann in jede Ecke des Bildschirms gezogen werden"</string>
 
 Der Mini-Player kann mit einer Wischgeste vom Bildschirm nach links oder rechts gezogen werden"</string>
   <string name="revanced_miniplayer_horizontal_drag_summary_off">Horizontale Drag Geste deaktiviert</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_title">Schließen-Button ausblenden</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">Schließen-Button ist ausgeblendet</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">Schließen-Schaltfläche wird angezeigt</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_title">Ausklappen und Schließen der Tasten ausblenden</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_title">Overlay-Buttons ausblenden</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">Overlay-Buttons sind ausgeblendet</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">Overlay-Buttons werden angezeigt</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_title">Schaltflächen zum Erweitern und Schließen ausblenden</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_on">"Schaltflächen sind ausgeblendet
 
-Wischen Sie, um zu erweitern oder zu schließen"</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_off">Erweitern und Schließen Tasten werden angezeigt</string>
+Zum Erweitern oder Schließen wischen"</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_off">Schaltflächen zum Erweitern und Schließen werden angezeigt</string>
   <string name="revanced_miniplayer_hide_subtext_title">Untertexte ausblenden</string>
   <string name="revanced_miniplayer_hide_subtext_summary_on">Subtexte sind ausgeblendet</string>
   <string name="revanced_miniplayer_hide_subtext_summary_off">Untertexte werden angezeigt</string>

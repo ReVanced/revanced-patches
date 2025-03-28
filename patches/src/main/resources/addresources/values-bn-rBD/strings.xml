@@ -1155,6 +1155,7 @@ YouTube সেটিংসে অটো প্লে পরিবর্তন �
   <string name="revanced_miniplayer_type_entry_4">মর্ডান ১</string>
   <string name="revanced_miniplayer_type_entry_5">মর্ডান ২</string>
   <string name="revanced_miniplayer_type_entry_6">মর্ডান ৩</string>
+  <string name="revanced_miniplayer_type_entry_7">আধুনিক ৪</string>
   <string name="revanced_miniplayer_rounded_corners_title">গোলাকার কোণ সক্ষম করুন</string>
   <string name="revanced_miniplayer_rounded_corners_summary_on">কোণগুলি গোলাকার</string>
   <string name="revanced_miniplayer_rounded_corners_summary_off">কোণগুলি বর্গাকার</string>
@@ -1174,14 +1175,14 @@ Miniplayer স্ক্রিনের যেকোনো কোণে টান
 
 Miniplayer স্ক্রিন থেকে বামে বা ডানে টানা যাবে"</string>
   <string name="revanced_miniplayer_horizontal_drag_summary_off">অনুভূমিক ড্র্যাগ অঙ্গভঙ্গি অক্ষম</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_title">বন্ধ বোতাম লুকান</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">বন্ধ বোতাম লুকানো আছে</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">বন্ধ বোতাম দেখানো হচ্ছে</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_title">বিস্তৃত ও বন্ধ করার বোতাম লুকান</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_on">"বোতামগুলি লুকানো হয়
+  <string name="revanced_miniplayer_hide_overlay_buttons_title">ওভারলে বোতাম লুকান</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">ওভারলে বোতাম লুকানো আছে</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">ওভারলে বোতাম দেখানো হয়েছে</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_title">বিস্তৃত এবং বন্ধ বোতাম লুকান</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_on">"বোতাম লুকানো আছে
 
-বিস্তৃত করতে বা বন্ধ করতে সোয়াইপ করুন"</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_off">বিস্তৃত এবং বন্ধ বোতাম দেখানো হচ্ছে</string>
+বিস্তৃত করতে বা বন্ধ করতে সোয়াইপ করুন"</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_off">বিস্তৃত এবং বন্ধ করার বোতাম দেখানো হয়েছে</string>
   <string name="revanced_miniplayer_hide_subtext_title">উপপাঠ লুকান</string>
   <string name="revanced_miniplayer_hide_subtext_summary_on">উপপাঠ লুকিয়ে রয়েছে</string>
   <string name="revanced_miniplayer_hide_subtext_summary_off">উপপাঠ প্রদর্শিত হয়েছে</string>

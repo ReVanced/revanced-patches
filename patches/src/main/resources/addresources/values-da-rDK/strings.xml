@@ -1100,6 +1100,7 @@ Hvis det senere slås fra, anbefales det at rydde app-dataene for at forhindre U
   <string name="revanced_miniplayer_type_entry_4">Moderne 1</string>
   <string name="revanced_miniplayer_type_entry_5">Moderne 2</string>
   <string name="revanced_miniplayer_type_entry_6">Moderne 3</string>
+  <string name="revanced_miniplayer_type_entry_7">Moderne 4</string>
   <string name="revanced_miniplayer_rounded_corners_title">Aktiver afrundede hjørner</string>
   <string name="revanced_miniplayer_rounded_corners_summary_on">Hjørner er afrundede</string>
   <string name="revanced_miniplayer_rounded_corners_summary_off">Hjørner er firkantede</string>
@@ -1119,14 +1120,14 @@ Miniafspiller kan trækkes til et hvilket som helst hjørne af skærmen"</string
 
 Miniafspiller kan trækkes ud over skærmen til venstre eller højre"</string>
   <string name="revanced_miniplayer_horizontal_drag_summary_off">Vandret trækbevægelse deaktiveret</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_title">Skjul lukkeknap</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">Luk knappen er skjult</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">Luk knappen vises</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_title">Skjul udvid og luk knapper</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_title">Skjul overlay-knapper</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">Overlay-knapper er skjult</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">Overlay-knapper vises</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_title">Skjul udvid- og luk-knapper</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_on">"Knapper er skjult
 
 Stryg for at udvide eller lukke"</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_off">Udvid og luk knapper vises</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_off">Udvid- og luk-knapper vises</string>
   <string name="revanced_miniplayer_hide_subtext_title">Skjul undertekster</string>
   <string name="revanced_miniplayer_hide_subtext_summary_on">Undertekster er skjult</string>
   <string name="revanced_miniplayer_hide_subtext_summary_off">Undertekster er vist</string>
