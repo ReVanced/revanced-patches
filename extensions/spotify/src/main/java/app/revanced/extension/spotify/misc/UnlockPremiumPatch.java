@@ -63,8 +63,10 @@ public final class UnlockPremiumPatch {
             new OverrideAttribute("streaming-rules", ""),
             // Enables premium UI in settings and removes the premium button in the nav-bar.
             new OverrideAttribute("nft-disabled", "1"),
-            // Enable Cross-Platform Spotify Car Thing.
-            new OverrideAttribute("can_use_superbird", TRUE),
+            // Enable Spotify Car Thing hardware device.
+            // Device is discontinued and no longer works with the latest releases,
+            // but it might still work with older app targets.
+            new OverrideAttribute("can_use_superbird", TRUE, false),
             // Removes the premium button in the nav-bar for tablet users.
             new OverrideAttribute("tablet-free", FALSE, false)
     );
