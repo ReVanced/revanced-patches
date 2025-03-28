@@ -555,6 +555,7 @@ Mura dtagann aon athrú ar an socrú seo, bain triail as mód Incognito a chur a
   <string name="revanced_disable_translucent_status_bar_title">Díchumas trasúlacht staidéir a dhíchumas</string>
   <string name="revanced_disable_translucent_status_bar_summary_on">Tá an barra stádais neamhshainiúil</string>
   <string name="revanced_disable_translucent_status_bar_summary_off">Tá an barra stádais neamhshainiúil nó tríluchtúil</string>
+  <string name="revanced_disable_translucent_status_bar_user_dialog_message">Ar roinnt feistí, má chuirtear an ghné seo ar siúl, is féidir an barra nascleanúna córais a athrú go trédhearcach.</string>
   <string name="revanced_disable_translucent_navigation_bar_light_title">Díchumas barra soiléir trasúlachta</string>
   <string name="revanced_disable_translucent_navigation_bar_light_summary_on">Tá barra nascleanúna mód soiléir dochrach</string>
   <string name="revanced_disable_translucent_navigation_bar_light_summary_off">Tá an barra nascleanúna sa mód solas neamhshainiúil nó tríluchtúil</string>

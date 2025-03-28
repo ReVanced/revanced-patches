@@ -555,6 +555,7 @@ Ako se promena ove opcije ne primeni, pokušajte da pređete u režim bez arhivi
   <string name="revanced_disable_translucent_status_bar_title">Onemogući prozirnu statusnu traku</string>
   <string name="revanced_disable_translucent_status_bar_summary_on">Statusna traka je neprozirna</string>
   <string name="revanced_disable_translucent_status_bar_summary_off">Statusna traka je neprozirna ili prozirna</string>
+  <string name="revanced_disable_translucent_status_bar_user_dialog_message">Na nekim uređajima, omogućavanje ove funkcije može da promeni traku za navigaciju kroz sistem u prozirnu.</string>
   <string name="revanced_disable_translucent_navigation_bar_light_title">Onemogući svetlu prozirnu traku za navigaciju</string>
   <string name="revanced_disable_translucent_navigation_bar_light_summary_on">Traka za navigaciju u svetlom režimu je neprozirna</string>
   <string name="revanced_disable_translucent_navigation_bar_light_summary_off">Traka za navigaciju u svetlom režimu je neprozirna ili prozirna</string>
