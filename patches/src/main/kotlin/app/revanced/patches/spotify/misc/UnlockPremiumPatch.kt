@@ -36,12 +36,12 @@ val unlockPremiumPatch = bytecodePatch(
         )
 
         // Add the query parameter trackRows to show popular tracks in the artist page.
-        val addQueryParameterIndex = buildQueryParametersFingerprint.stringMatches!!.first().index - 1
+        val addQueryParameterIndex = buildQueryParametersFingerprint.stringMatches.first().index - 1
         buildQueryParametersFingerprint.method.replaceInstruction(addQueryParameterIndex, "nop")
 
         // Disable the "Spotify Premium" upsell experiment in context menus.
         with(contextMenuExperimentsFingerprint) {
-            val moveIsEnabledIndex = stringMatches!!.first().index + 2
+            val moveIsEnabledIndex = stringMatches.first().index + 2
             val isUpsellEnabledRegister = method.getInstruction<OneRegisterInstruction>(moveIsEnabledIndex).registerA
             method.replaceInstruction(moveIsEnabledIndex, "const/4 v$isUpsellEnabledRegister, 0")
         }

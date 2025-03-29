@@ -13,22 +13,21 @@ import app.revanced.patcher.patch.resourcePatch
 import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
-import app.revanced.patches.shared.misc.mapping.get
+import app.revanced.patches.shared.misc.mapping.getResourceId
 import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
-import app.revanced.patches.shared.misc.mapping.resourceMappings
-import app.revanced.patches.shared.misc.settings.preference.*
+import app.revanced.patches.shared.misc.settings.preference.InputType
+import app.revanced.patches.shared.misc.settings.preference.NonInteractivePreference
+import app.revanced.patches.shared.misc.settings.preference.PreferenceScreenPreference
+import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
+import app.revanced.patches.shared.misc.settings.preference.TextPreference
 import app.revanced.patches.youtube.misc.litho.filter.addLithoFilter
 import app.revanced.patches.youtube.misc.litho.filter.lithoFilterPatch
 import app.revanced.patches.youtube.misc.navigation.navigationBarHookPatch
-import app.revanced.patches.youtube.misc.playservice.is_19_47_or_greater
-import app.revanced.patches.youtube.misc.playservice.is_20_07_or_greater
-import app.revanced.patches.youtube.misc.playservice.versionCheckPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
+import app.revanced.util.findFreeRegister
 import app.revanced.util.findInstructionIndicesReversedOrThrow
 import app.revanced.util.getReference
-import app.revanced.util.indexOfFirstInstructionOrThrow
-import app.revanced.util.indexOfFirstLiteralInstructionOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.Method
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
@@ -36,68 +35,45 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
-var expandButtonDownId = -1L
+internal var albumCardId = -1L
     private set
-var albumCardId = -1L
+internal var crowdfundingBoxId = -1L
     private set
-var crowdfundingBoxId = -1L
+internal var filterBarHeightId = -1L
     private set
-var youTubeLogo = -1L
+internal var relatedChipCloudMarginId = -1L
     private set
-
-var filterBarHeightId = -1L
-    private set
-var relatedChipCloudMarginId = -1L
-    private set
-var barContainerHeightId = -1L
-    private set
-
-var fabButtonId = -1L
+internal var barContainerHeightId = -1L
     private set
 
 private val hideLayoutComponentsResourcePatch = resourcePatch {
     dependsOn(resourceMappingPatch)
 
     execute {
-        expandButtonDownId = resourceMappings[
-            "layout",
-            "expand_button_down",
-        ]
-
-        albumCardId = resourceMappings[
+        albumCardId = getResourceId(
             "layout",
             "album_card",
-        ]
+        )
 
-        crowdfundingBoxId = resourceMappings[
+        crowdfundingBoxId = getResourceId(
             "layout",
             "donation_companion",
-        ]
+        )
 
-        youTubeLogo = resourceMappings[
-            "id",
-            "youtube_logo",
-        ]
-
-        relatedChipCloudMarginId = resourceMappings[
+        relatedChipCloudMarginId = getResourceId(
             "layout",
             "related_chip_cloud_reduced_margins",
-        ]
+        )
 
-        filterBarHeightId = resourceMappings[
+        filterBarHeightId = getResourceId(
             "dimen",
             "filter_bar_height",
-        ]
+        )
 
-        barContainerHeightId = resourceMappings[
+        barContainerHeightId = getResourceId(
             "dimen",
             "bar_container_height",
-        ]
-
-        fabButtonId = resourceMappings[
-            "id",
-            "fab",
-        ]
+        )
     }
 }
 
@@ -123,7 +99,7 @@ val hideLayoutComponentsPatch = bytecodePatch(
         addResourcesPatch,
         hideLayoutComponentsResourcePatch,
         navigationBarHookPatch,
-        versionCheckPatch
+        resourceMappingPatch
     )
 
     compatibleWith(
@@ -132,8 +108,6 @@ val hideLayoutComponentsPatch = bytecodePatch(
             "19.25.37",
             "19.34.42",
             "19.43.41",
-            "19.45.38",
-            "19.46.42",
             "19.47.53",
             "20.07.39",
         ),
@@ -251,32 +225,29 @@ val hideLayoutComponentsPatch = bytecodePatch(
 
         // region Mix playlists
 
-        (if (is_20_07_or_greater) parseElementFromBufferFingerprint
-        else parseElementFromBufferLegacyFingerprint).let {
-            it.method.apply {
-                // Target code is a mess with a lot of register moves.
-                // There is no simple way to find a free register for all versions so this is hard coded.
-                val freeRegister = if (is_19_47_or_greater) 6 else 0
-                val byteArrayParameter = "p3"
-                val startIndex = it.patternMatch!!.startIndex
-                val conversionContextRegister = getInstruction<TwoRegisterInstruction>(startIndex).registerA
-                val returnEmptyComponentInstruction = instructions.last { it.opcode == Opcode.INVOKE_STATIC }
-                val returnEmptyComponentRegister = (returnEmptyComponentInstruction as FiveRegisterInstruction).registerC
+        parseElementFromBufferFingerprint.method.apply {
+            val startIndex = parseElementFromBufferFingerprint.instructionMatches.first().index
+            val insertIndex = startIndex + 1
 
-                addInstructionsWithLabels(
-                    startIndex + 1,
-                    """
-                        invoke-static { v$conversionContextRegister, $byteArrayParameter }, $LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR->filterMixPlaylists(Ljava/lang/Object;[B)Z
-                        move-result v$freeRegister 
-                        if-eqz v$freeRegister, :show
-                        move-object v$returnEmptyComponentRegister, p1   # Required for 19.47
-                        goto :return_empty_component
-                        :show
-                        const/4 v$freeRegister, 0x0   # Restore register, required for 19.16
-                    """,
-                    ExternalLabel("return_empty_component", returnEmptyComponentInstruction),
-                )
-            }
+            val byteArrayParameter = "p3"
+            val conversionContextRegister = getInstruction<TwoRegisterInstruction>(startIndex).registerA
+            val returnEmptyComponentInstruction = instructions.last { it.opcode == Opcode.INVOKE_STATIC }
+            val returnEmptyComponentRegister = (returnEmptyComponentInstruction as FiveRegisterInstruction).registerC
+            val freeRegister = findFreeRegister(insertIndex, conversionContextRegister, returnEmptyComponentRegister)
+
+            addInstructionsWithLabels(
+                insertIndex,
+                """
+                    invoke-static { v$conversionContextRegister, $byteArrayParameter }, $LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR->filterMixPlaylists(Ljava/lang/Object;[B)Z
+                    move-result v$freeRegister 
+                    if-eqz v$freeRegister, :show
+                    move-object v$returnEmptyComponentRegister, p1   # Required for 19.47
+                    goto :return_empty_component
+                    :show
+                    const/4 v$freeRegister, 0x0   # Restore register, required for 19.16
+                """,
+                ExternalLabel("return_empty_component", returnEmptyComponentInstruction),
+            )
         }
 
         // endregion
@@ -303,7 +274,7 @@ val hideLayoutComponentsPatch = bytecodePatch(
         // region Show more button
 
         hideShowMoreButtonFingerprint.method.apply {
-            val moveRegisterIndex = hideShowMoreButtonFingerprint.patternMatch!!.endIndex
+            val moveRegisterIndex = hideShowMoreButtonFingerprint.instructionMatches.last().index
             val viewRegister = getInstruction<OneRegisterInstruction>(moveRegisterIndex).registerA
 
             val insertIndex = moveRegisterIndex + 1
@@ -319,7 +290,7 @@ val hideLayoutComponentsPatch = bytecodePatch(
         // region crowdfunding box
         crowdfundingBoxFingerprint.let {
             it.method.apply {
-                val insertIndex = it.patternMatch!!.endIndex
+                val insertIndex = it.instructionMatches.last().index
                 val objectRegister = getInstruction<TwoRegisterInstruction>(insertIndex).registerA
 
                 addInstruction(
@@ -336,7 +307,7 @@ val hideLayoutComponentsPatch = bytecodePatch(
 
         albumCardsFingerprint.let {
             it.method.apply {
-                val checkCastAnchorIndex = it.patternMatch!!.endIndex
+                val checkCastAnchorIndex = it.instructionMatches.last().index
                 val insertIndex = checkCastAnchorIndex + 1
                 val register = getInstruction<OneRegisterInstruction>(checkCastAnchorIndex).registerA
 
@@ -352,18 +323,19 @@ val hideLayoutComponentsPatch = bytecodePatch(
 
         // region hide floating microphone
 
-        showFloatingMicrophoneButtonFingerprint.method.apply {
-            val literalIndex = indexOfFirstLiteralInstructionOrThrow(fabButtonId)
-            val booleanIndex = indexOfFirstInstructionOrThrow(literalIndex, Opcode.IGET_BOOLEAN)
-            val register = getInstruction<TwoRegisterInstruction>(booleanIndex).registerA
+        showFloatingMicrophoneButtonFingerprint.let {
+            it.method.apply {
+                val index = it.instructionMatches.last().index
+                val register = getInstruction<TwoRegisterInstruction>(index).registerA
 
-            addInstructions(
-                booleanIndex + 1,
-                """
-                    invoke-static { v$register }, $LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR->hideFloatingMicrophoneButton(Z)Z
-                    move-result v$register
-                """
-            )
+                addInstructions(
+                    index + 1,
+                    """
+                        invoke-static { v$register }, $LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR->hideFloatingMicrophoneButton(Z)Z
+                        move-result v$register
+                    """,
+                )
+            }
         }
 
         // endregion
@@ -405,11 +377,9 @@ val hideLayoutComponentsPatch = bytecodePatch(
             hookRegisterOffset: Int = 0,
             instructions: (Int) -> String,
         ) = method.apply {
-            val endIndex = patternMatch!!.endIndex
-
+            val endIndex = instructionMatches.last().index
             val insertIndex = endIndex + insertIndexOffset
-            val register =
-                getInstruction<RegisterInstruction>(endIndex + hookRegisterOffset).registerA
+            val register = getInstruction<RegisterInstruction>(endIndex + hookRegisterOffset).registerA
 
             addInstructions(insertIndex, instructions(register))
         }

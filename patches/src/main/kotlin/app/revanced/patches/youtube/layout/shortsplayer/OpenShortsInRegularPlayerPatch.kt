@@ -11,16 +11,11 @@ import app.revanced.patches.youtube.layout.player.fullscreen.openVideosFullscree
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.navigation.navigationBarHookPatch
 import app.revanced.patches.youtube.misc.playservice.is_19_25_or_greater
-import app.revanced.patches.youtube.misc.playservice.is_19_46_or_greater
-import app.revanced.patches.youtube.misc.playservice.versionCheckPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
 import app.revanced.patches.youtube.shared.mainActivityOnCreateFingerprint
-import app.revanced.util.getReference
-import app.revanced.util.indexOfFirstInstructionOrThrow
-import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
+import app.revanced.util.findFreeRegister
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
-import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 private const val EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/youtube/patches/OpenShortsInRegularPlayerPatch;"
@@ -36,7 +31,6 @@ val openShortsInRegularPlayerPatch = bytecodePatch(
         addResourcesPatch,
         openVideosFullscreenHookPatch,
         navigationBarHookPatch,
-        versionCheckPatch
     )
 
     compatibleWith(
@@ -54,19 +48,10 @@ val openShortsInRegularPlayerPatch = bytecodePatch(
         addResources("youtube", "layout.shortsplayer.shortsPlayerTypePatch")
 
         PreferenceScreen.SHORTS.addPreferences(
-            if (is_19_46_or_greater) {
-                ListPreference(
-                    key = "revanced_shorts_player_type",
-                    summaryKey = null,
-                )
-            } else {
-                ListPreference(
-                    key = "revanced_shorts_player_type",
-                    summaryKey = null,
-                    entriesKey = "revanced_shorts_player_type_legacy_entries",
-                    entryValuesKey = "revanced_shorts_player_type_legacy_entry_values"
-                )
-            }
+            ListPreference(
+                key = "revanced_shorts_player_type",
+                summaryKey = null
+            )
         )
 
         // Activity is used as the context to launch an Intent.
@@ -77,14 +62,11 @@ val openShortsInRegularPlayerPatch = bytecodePatch(
         )
 
         // Find the obfuscated method name for PlaybackStartDescriptor.videoId()
-        val playbackStartVideoIdMethodName = playbackStartFeatureFlagFingerprint.method.let {
-            val stringMethodIndex = it.indexOfFirstInstructionOrThrow {
-                val reference = getReference<MethodReference>()
-                reference?.definingClass == "Lcom/google/android/libraries/youtube/player/model/PlaybackStartDescriptor;"
-                        && reference.returnType == "Ljava/lang/String;"
+        val playbackStartVideoIdMethodName = playbackStartFeatureFlagFingerprint.let {
+            val stringMethodIndex = it.instructionMatches.first().index
+            it.method.let {
+                navigate(it).to(stringMethodIndex).stop().name
             }
-
-            navigate(it).to(stringMethodIndex).stop().name
         }
 
         fun extensionInstructions(playbackStartRegister: Int, freeRegister: Int) =
@@ -100,30 +82,28 @@ val openShortsInRegularPlayerPatch = bytecodePatch(
                 nop
             """
 
-        if (!is_19_25_or_greater) {
-            shortsPlaybackIntentLegacyFingerprint.method.apply {
-                val index = indexOfFirstInstructionOrThrow {
-                    getReference<MethodReference>()?.returnType ==
-                            "Lcom/google/android/libraries/youtube/player/model/PlaybackStartDescriptor;"
+        if (is_19_25_or_greater) {
+            shortsPlaybackIntentFingerprint.method.addInstructionsWithLabels(
+                0,
+                """
+                    move-object/from16 v0, p1
+                    ${extensionInstructions(0, 1)}
+                """
+            )
+        } else {
+            shortsPlaybackIntentLegacyFingerprint.let {
+                it.method.apply {
+                    val index = it.instructionMatches.first().index
+                    val playbackStartRegister = getInstruction<OneRegisterInstruction>(index + 1).registerA
+                    val insertIndex = index + 2
+                    val freeRegister = findFreeRegister(insertIndex, playbackStartRegister)
+
+                    addInstructionsWithLabels(
+                        insertIndex,
+                        extensionInstructions(playbackStartRegister, freeRegister)
+                    )
                 }
-                val freeRegister = getInstruction<FiveRegisterInstruction>(index).registerC
-                val playbackStartRegister = getInstruction<OneRegisterInstruction>(index + 1).registerA
-
-                addInstructionsWithLabels(
-                    index + 2,
-                    extensionInstructions(playbackStartRegister, freeRegister)
-                )
             }
-
-            return@execute
         }
-
-        shortsPlaybackIntentFingerprint.method.addInstructionsWithLabels(
-            0,
-            """
-                move-object/from16 v0, p1
-                ${extensionInstructions(0, 1)}
-            """
-        )
     }
 }

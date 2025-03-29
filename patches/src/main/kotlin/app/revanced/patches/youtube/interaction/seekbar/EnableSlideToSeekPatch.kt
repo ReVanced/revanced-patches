@@ -55,7 +55,7 @@ val enableSlideToSeekPatch = bytecodePatch(
 
         // Restore the behaviour to slide to seek.
 
-        val checkIndex = slideToSeekFingerprint.patternMatch!!.startIndex
+        val checkIndex = slideToSeekFingerprint.instructionMatches.first().index
         val checkReference = slideToSeekFingerprint.method.getInstruction(checkIndex)
             .getReference<MethodReference>()!!
 
@@ -89,7 +89,7 @@ val enableSlideToSeekPatch = bytecodePatch(
                 disableFastForwardNoticeFingerprint,
             ).forEach { fingerprint ->
                 fingerprint.method.apply {
-                    val targetIndex = fingerprint.patternMatch!!.endIndex
+                    val targetIndex = fingerprint.instructionMatches.last().index
                     val targetRegister = getInstruction<OneRegisterInstruction>(targetIndex).registerA
 
                     addInstructions(
@@ -102,17 +102,19 @@ val enableSlideToSeekPatch = bytecodePatch(
                 }
             }
         } else {
-            disableFastForwardLegacyFingerprint.method.apply {
-                val insertIndex = disableFastForwardLegacyFingerprint.patternMatch!!.endIndex + 1
-                val targetRegister = getInstruction<OneRegisterInstruction>(insertIndex).registerA
+            disableFastForwardLegacyFingerprint.let {
+                it.method.apply {
+                    val insertIndex = it.instructionMatches.last().index + 1
+                    val targetRegister = getInstruction<OneRegisterInstruction>(insertIndex).registerA
 
-                addInstructions(
-                    insertIndex,
-                    """
-                        invoke-static { v$targetRegister }, $EXTENSION_METHOD_DESCRIPTOR
-                        move-result v$targetRegister
-                    """,
-                )
+                    addInstructions(
+                        insertIndex,
+                        """
+                            invoke-static { v$targetRegister }, $EXTENSION_METHOD_DESCRIPTOR
+                            move-result v$targetRegister
+                        """,
+                    )
+                }
             }
         }
     }

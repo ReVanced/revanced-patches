@@ -8,7 +8,7 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import com.android.tools.smali.dexlib2.immutable.reference.ImmutableMethodReference
 
 // Located @ ub.i0.h#p (9.5.0)
-internal val createTabsFingerprint = fingerprint {
+internal val createTabsFingerprint by fingerprint {
     accessFlags(AccessFlags.PRIVATE)
     returns("Ljava/util/List;")
     custom { method, _ ->
@@ -26,7 +26,7 @@ internal val createTabsFingerprint = fingerprint {
 }
 
 // Located @ com.sony.songpal.mdr.vim.activity.MdrRemoteBaseActivity.e#run (9.5.0)
-internal val showNotificationFingerprint = fingerprint {
+internal val showNotificationFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC)
     returns("V")
     custom { method, _ ->

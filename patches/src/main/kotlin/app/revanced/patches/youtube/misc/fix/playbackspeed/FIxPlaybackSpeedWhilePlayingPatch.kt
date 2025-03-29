@@ -8,6 +8,7 @@ import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.playertype.playerTypeHookPatch
 import app.revanced.patches.youtube.misc.playservice.is_19_34_or_greater
 import app.revanced.patches.youtube.misc.playservice.versionCheckPatch
+import app.revanced.util.findFreeRegister
 import app.revanced.util.indexOfFirstInstructionOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
@@ -42,13 +43,14 @@ val fixPlaybackSpeedWhilePlayingPatch = bytecodePatch{
         }
 
         playbackSpeedInFeedsFingerprint.method.apply {
-            val freeRegister = implementation!!.registerCount - parameters.size - 2
             val playbackSpeedIndex = indexOfGetPlaybackSpeedInstruction(this)
             val playbackSpeedRegister = getInstruction<TwoRegisterInstruction>(playbackSpeedIndex).registerA
             val returnIndex = indexOfFirstInstructionOrThrow(playbackSpeedIndex, Opcode.RETURN_VOID)
+            val insertIndex = playbackSpeedIndex + 1
+            val freeRegister = findFreeRegister(insertIndex, playbackSpeedRegister)
 
             addInstructionsWithLabels(
-                playbackSpeedIndex + 1,
+                insertIndex,
                 """
                     invoke-static { v$playbackSpeedRegister }, $EXTENSION_CLASS_DESCRIPTOR->playbackSpeedChanged(F)Z
                     move-result v$freeRegister

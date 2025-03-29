@@ -103,17 +103,18 @@ val returnYouTubeDislikePatch = bytecodePatch(
 
         // region Hook code for creation and cached lookup of text Spans.
 
-        // Alternatively the hook can be made at tht it fails to update the Span when the user dislikes,
-        //        // since the underlying (likes only) tee creation of Spans in TextComponentSpec,
-        // And it works in all situations excepxt did not change.
+        // Alternatively the hook can be made in the creation of Spans in TextComponentSpec.
+        // And it works in all situations except if the likes do not such as disliking.
         // This hook handles all situations, as it's where the created Spans are stored and later reused.
+
         // Find the field name of the conversion context.
         val conversionContextField = textComponentConstructorFingerprint.originalClassDef.fields.find {
             it.type == conversionContextFingerprint.originalClassDef.type
         } ?: throw PatchException("Could not find conversion context field")
 
-        textComponentLookupFingerprint.match(textComponentConstructorFingerprint.originalClassDef)
-        textComponentLookupFingerprint.method.apply {
+        textComponentLookupFingerprint.match(
+            textComponentConstructorFingerprint.originalClassDef
+        ).method.apply {
             // Find the instruction for creating the text data object.
             val textDataClassType = textComponentDataFingerprint.originalClassDef.type
 
@@ -121,22 +122,21 @@ val returnYouTubeDislikePatch = bytecodePatch(
             val tempRegister: Int
             val charSequenceRegister: Int
 
-            if (is_19_33_or_greater  && !is_20_10_or_greater) {
-                insertIndex = indexOfFirstInstructionOrThrow {
+            if (is_19_33_or_greater && !is_20_10_or_greater) {
+                val index = indexOfFirstInstructionOrThrow {
                     (opcode == Opcode.INVOKE_STATIC || opcode == Opcode.INVOKE_STATIC_RANGE)
                             && getReference<MethodReference>()?.returnType == textDataClassType
                 }
 
-                tempRegister = getInstruction<OneRegisterInstruction>(insertIndex + 1).registerA
-
-                // Find the instruction that sets the span to an instance field.
-                // The instruction is only a few lines after the creation of the instance.
-                charSequenceRegister = getInstruction<FiveRegisterInstruction>(
-                    indexOfFirstInstructionOrThrow(insertIndex) {
-                        opcode == Opcode.INVOKE_VIRTUAL &&
+                insertIndex = indexOfFirstInstructionOrThrow(index) {
+                    opcode == Opcode.INVOKE_VIRTUAL &&
                             getReference<MethodReference>()?.parameterTypes?.firstOrNull() == "Ljava/lang/CharSequence;"
-                    },
-                ).registerD
+                }
+
+                charSequenceRegister = getInstruction<FiveRegisterInstruction>(insertIndex).registerD
+
+                val tempRegisterIndex = indexOfFirstInstructionOrThrow(insertIndex, Opcode.IGET_OBJECT)
+                tempRegister = getInstruction<TwoRegisterInstruction>(tempRegisterIndex).registerA
             } else {
                 insertIndex = indexOfFirstInstructionOrThrow {
                     opcode == Opcode.NEW_INSTANCE &&
@@ -145,23 +145,22 @@ val returnYouTubeDislikePatch = bytecodePatch(
 
                 tempRegister = getInstruction<OneRegisterInstruction>(insertIndex).registerA
 
-                charSequenceRegister = getInstruction<TwoRegisterInstruction>(
-                    indexOfFirstInstructionOrThrow(insertIndex) {
-                        opcode == Opcode.IPUT_OBJECT &&
+                val charSequenceIndex = indexOfFirstInstructionOrThrow(insertIndex) {
+                    opcode == Opcode.IPUT_OBJECT &&
                             getReference<FieldReference>()?.type == "Ljava/lang/CharSequence;"
-                    },
-                ).registerA
+                }
+                charSequenceRegister = getInstruction<TwoRegisterInstruction>(charSequenceIndex).registerA
             }
 
             addInstructionsAtControlFlowLabel(
                 insertIndex,
                 """
-                        # Copy conversion context
-                        move-object/from16 v$tempRegister, p0
-                        iget-object v$tempRegister, v$tempRegister, $conversionContextField
-                        invoke-static { v$tempRegister, v$charSequenceRegister }, $EXTENSION_CLASS_DESCRIPTOR->onLithoTextLoaded(Ljava/lang/Object;Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
-                        move-result-object v$charSequenceRegister
-                    """,
+                    # Copy conversion context
+                    move-object/from16 v$tempRegister, p0
+                    iget-object v$tempRegister, v$tempRegister, $conversionContextField
+                    invoke-static { v$tempRegister, v$charSequenceRegister }, $EXTENSION_CLASS_DESCRIPTOR->onLithoTextLoaded(Ljava/lang/Object;Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
+                    move-result-object v$charSequenceRegister
+                """
             )
         }
 
@@ -179,14 +178,9 @@ val returnYouTubeDislikePatch = bytecodePatch(
 
         // region Hook rolling numbers.
 
-        // Do this last to allow patching old unsupported versions (if the user really wants),
-        // On older unsupported version this will fail to match and throw an exception,
-        // but everything will still work correctly anyway.
-        val dislikesIndex = rollingNumberSetterFingerprint.patternMatch!!.endIndex
-
         rollingNumberSetterFingerprint.method.apply {
             val insertIndex = 1
-
+            val dislikesIndex = rollingNumberSetterFingerprint.instructionMatches.last().index
             val charSequenceInstanceRegister =
                 getInstruction<OneRegisterInstruction>(0).registerA
             val charSequenceFieldReference =
@@ -205,17 +199,16 @@ val returnYouTubeDislikePatch = bytecodePatch(
                     invoke-static {v$conversionContextRegister, v$freeRegister}, $EXTENSION_CLASS_DESCRIPTOR->onRollingNumberLoaded(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/String;
                     move-result-object v$freeRegister
                     iput-object v$freeRegister, v$charSequenceInstanceRegister, $charSequenceFieldReference
-                """,
+                """
             )
         }
 
+        // Rolling Number text views use the measured width of the raw string for layout.
+        // Modify the measure text calculation to include the left drawable separator if needed.
         rollingNumberMeasureAnimatedTextFingerprint.let {
-            // Rolling Number text views use the measured width of the raw string for layout.
-            // Modify the measure text calculation to include the left drawable separator if needed.
-            val patternMatch = it.patternMatch!!
-            // Verify the opcodes are at the start of the method.
-            if (patternMatch.startIndex != 0) throw PatchException("Unexpected opcode location")
-            val endIndex = patternMatch.endIndex
+            // Additional check to verify the opcodes are at the start of the method
+            if (it.instructionMatches.first().index != 0) throw PatchException("Unexpected opcode location")
+            val endIndex = it.instructionMatches.last().index
 
             it.method.apply {
                 val measuredTextWidthRegister = getInstruction<OneRegisterInstruction>(endIndex).registerA
@@ -235,7 +228,7 @@ val returnYouTubeDislikePatch = bytecodePatch(
         rollingNumberMeasureStaticLabelFingerprint.match(
             rollingNumberMeasureStaticLabelParentFingerprint.originalClassDef,
         ).let {
-            val measureTextIndex = it.patternMatch!!.startIndex + 1
+            val measureTextIndex = it.instructionMatches.first().index + 1
             it.method.apply {
                 val freeRegister = getInstruction<TwoRegisterInstruction>(0).registerA
 
@@ -244,7 +237,7 @@ val returnYouTubeDislikePatch = bytecodePatch(
                     """
                         move-result v$freeRegister
                         invoke-static {p1, v$freeRegister}, $EXTENSION_CLASS_DESCRIPTOR->onRollingNumberMeasured(Ljava/lang/String;F)F
-                    """,
+                    """
                 )
             }
         }
@@ -263,10 +256,8 @@ val returnYouTubeDislikePatch = bytecodePatch(
                     getReference<MethodReference>()?.name == "setText"
                 }
 
-                val textViewRegister =
-                    getInstruction<FiveRegisterInstruction>(setTextIndex).registerC
-                val textSpanRegister =
-                    getInstruction<FiveRegisterInstruction>(setTextIndex).registerD
+                val textViewRegister = getInstruction<FiveRegisterInstruction>(setTextIndex).registerC
+                val textSpanRegister = getInstruction<FiveRegisterInstruction>(setTextIndex).registerD
 
                 addInstructions(
                     setTextIndex,

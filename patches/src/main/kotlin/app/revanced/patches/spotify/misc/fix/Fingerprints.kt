@@ -1,5 +1,10 @@
 package app.revanced.patches.spotify.misc.fix
 
 import app.revanced.patcher.fingerprint
+import app.revanced.patcher.string
 
-internal val getAppSignatureFingerprint = fingerprint { strings("Failed to get the application signatures") }
+internal val getAppSignatureFingerprint by fingerprint {
+    instructions(
+        string("Failed to get the application signatures")
+    )
+}
