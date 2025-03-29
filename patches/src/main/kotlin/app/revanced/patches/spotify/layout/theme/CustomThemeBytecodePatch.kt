@@ -28,19 +28,17 @@ internal val customThemeByteCodePatch = bytecodePatch {
                 .getReference<FieldReference>()!!.definingClass
         }
 
-        val encoreColorLiteral = 0xFF121212
-
         val encoreColorsConstructorFingerprint = fingerprint {
             accessFlags(AccessFlags.STATIC, AccessFlags.CONSTRUCTOR)
             custom { method, classDef ->
                 classDef.type == encoreColorsClassName &&
-                        method.containsLiteralInstruction(encoreColorLiteral)
+                        method.containsLiteralInstruction(PLAYLIST_BACKGROUND_COLOR_LITERAL)
             }
         }
 
         // Playlist song list background color.
         encoreColorsConstructorFingerprint.method.apply {
-            val colorResourceIndex = indexOfFirstLiteralInstructionOrThrow(encoreColorLiteral)
+            val colorResourceIndex = indexOfFirstLiteralInstructionOrThrow(PLAYLIST_BACKGROUND_COLOR_LITERAL)
             val register = getInstruction<OneRegisterInstruction>(colorResourceIndex).registerA
 
             addInstructions(
