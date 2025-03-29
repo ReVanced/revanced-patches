@@ -14,11 +14,6 @@ val customThemePatch = resourcePatch(
     dependsOn(customThemeByteCodePatch)
 
     execute {
-        val backgroundColor = spotifyBackgroundColor!!
-        val backgroundColorSecondary = spotifyBackgroundColorSecondary!!
-        val accentColor = spotifyAccentColor!!
-        val accentColorPressed = spotifyAccentColorPressed!!
-
         document("res/values/colors.xml").use { document ->
             val resourcesNode = document.getElementsByTagName("resources").item(0) as Element
 
@@ -26,36 +21,35 @@ val customThemePatch = resourcePatch(
             for (i in 0 until childNodes.length) {
                 val node = childNodes.item(i) as? Element ?: continue
 
-                node.textContent =
-                    when (node.getAttribute("name")) {
-                        // Gradient next to user photo and "All" in home page
-                        "dark_base_background_base",
+                node.textContent = when (node.getAttribute("name")) {
+                    // Gradient next to user photo and "All" in home page
+                    "dark_base_background_base",
                         // Main background
-                        "gray_7",
+                    "gray_7",
                         // Left sidebar background in tablet mode
-                        "gray_10",
+                    "gray_10",
                         // Add account, Settings and privacy, View Profile left sidebar background
-                        "dark_base_background_elevated_base",
+                    "dark_base_background_elevated_base",
                         // Song/player background
-                        "bg_gradient_start_color", "bg_gradient_end_color",
+                    "bg_gradient_start_color", "bg_gradient_end_color",
                         // Login screen
-                        "sthlm_blk", "sthlm_blk_grad_start", "stockholm_black",
+                    "sthlm_blk", "sthlm_blk_grad_start", "stockholm_black",
                         // Misc
-                        "image_placeholder_color",
-                        -> backgroundColor
+                    "image_placeholder_color",
+                        -> spotifyBackgroundColor
 
-                        // Track credits, merch in song player
-                        "track_credits_card_bg", "benefit_list_default_color", "merch_card_background",
+                    // Track credits, merch in song player
+                    "track_credits_card_bg", "benefit_list_default_color", "merch_card_background",
                         // Playlist list background in home page
-                        "opacity_white_10",
+                    "opacity_white_10",
                         // About artist background in song player
-                        "gray_15"
-                        -> backgroundColorSecondary
+                    "gray_15"
+                        -> spotifyBackgroundColorSecondary
 
-                        "dark_brightaccent_background_base", "dark_base_text_brightaccent", "green_light" -> accentColor
-                        "dark_brightaccent_background_press" -> accentColorPressed
-                        else -> continue
-                    }
+                    "dark_brightaccent_background_base", "dark_base_text_brightaccent", "green_light" -> spotifyAccentColor
+                    "dark_brightaccent_background_press" -> spotifyAccentColorPressed
+                    else -> continue
+                }
             }
         }
     }

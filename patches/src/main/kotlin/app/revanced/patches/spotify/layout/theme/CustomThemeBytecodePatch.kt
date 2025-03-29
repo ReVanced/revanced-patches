@@ -17,19 +17,14 @@ internal val customThemeByteCodePatch = bytecodePatch {
     dependsOn(sharedExtensionPatch)
 
     execute {
-        val encoreColorsClassName : String
-
-        encoreThemeFingerprint.let {
+        val encoreColorsClassName = with(encoreThemeFingerprint) {
             // Find index of the first static get found after the string constant.
-            val encoreColorsFieldReferenceIndex = encoreThemeFingerprint.let {
-                it.method.indexOfFirstInstructionOrThrow(
-                    it.stringMatches!!.first().index,
-                    Opcode.SGET_OBJECT
-                )
-            }
+            val encoreColorsFieldReferenceIndex = method.indexOfFirstInstructionOrThrow(
+                stringMatches!!.first().index,
+                Opcode.SGET_OBJECT
+            )
 
-            encoreColorsClassName = it.originalMethod
-                .getInstruction(encoreColorsFieldReferenceIndex)
+            originalMethod.getInstruction(encoreColorsFieldReferenceIndex)
                 .getReference<FieldReference>()!!.definingClass
         }
 
@@ -58,18 +53,9 @@ internal val customThemeByteCodePatch = bytecodePatch {
             )
         }
 
-        val homeCategoryPillColor = 0xFF333333
-
-        val homeCategoryPillColorsFingerprint = fingerprint{
-            accessFlags(AccessFlags.STATIC, AccessFlags.CONSTRUCTOR)
-            custom { method, _ ->
-                method.containsLiteralInstruction(0x33000000) && method.containsLiteralInstruction(homeCategoryPillColor)
-            }
-        }
-
         // Home category pills background color.
         homeCategoryPillColorsFingerprint.method.apply {
-            val pillBackgroundColorInstructionIndex = indexOfFirstLiteralInstructionOrThrow(homeCategoryPillColor)
+            val pillBackgroundColorInstructionIndex = indexOfFirstLiteralInstructionOrThrow(HOME_CATEGORY_PILL_COLOR_LITERAL)
             val register = getInstruction<OneRegisterInstruction>(pillBackgroundColorInstructionIndex).registerA
 
             addInstructions(
