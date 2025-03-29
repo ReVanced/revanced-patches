@@ -24,9 +24,9 @@ val customThemePatch = resourcePatch(
 
     val backgroundColorSecondary by stringOption(
         key = "backgroundColorSecondary",
-        default = "#ff282828",
+        default = "#ff121212",
         title = "Secondary background color",
-        description = "The secondary background color. (e.g. search box, artist & podcast). Can be a hex color or a resource reference.",
+        description = "The secondary background color. (e.g. playlist list, player arist, credits). Can be a hex color or a resource reference.",
         required = true,
     )
 
@@ -43,8 +43,7 @@ val customThemePatch = resourcePatch(
         default = "#ff169c46",
         title = "Pressed dark theme accent color",
         description =
-        "The color when accented buttons are pressed, by default slightly darker than accent. " +
-            "Can be a hex color or a resource reference.",
+        "The color when accented buttons are pressed, by default slightly darker than accent. Can be a hex color or a resource reference.",
         required = true,
     )
 
@@ -63,15 +62,31 @@ val customThemePatch = resourcePatch(
 
                 node.textContent =
                     when (node.getAttribute("name")) {
-                        "dark_base_background_elevated_base", "design_dark_default_color_background",
-                        "design_dark_default_color_surface", "gray_7", "gray_background", "gray_layer",
-                        "sthlm_blk",
+                        // Gradient next to user photo and "All" in home page
+                        "dark_base_background_base",
+                        // Main background
+                        "gray_7",
+                        // Left sidebar background in tablet mode
+                        "gray_10",
+                        // Add account, Settings and privacy, View Profile left sidebar background
+                        "dark_base_background_elevated_base",
+                        // Song/player background
+                        "bg_gradient_start_color", "bg_gradient_end_color",
+                        // Login screen
+                        "sthlm_blk", "sthlm_blk_grad_start", "stockholm_black",
+                        // Misc
+                        "image_placeholder_color",
                         -> backgroundColor
 
-                        "gray_15" -> backgroundColorSecondary
+                        // Track credits, merch in song player
+                        "track_credits_card_bg", "benefit_list_default_color", "merch_card_background",
+                        // Playlist list background in home page
+                        "opacity_white_10",
+                        // About artist background in song player
+                        "gray_15"
+                        -> backgroundColorSecondary
 
                         "dark_brightaccent_background_base", "dark_base_text_brightaccent", "green_light" -> accentColor
-
                         "dark_brightaccent_background_press" -> accentColorPressed
                         else -> continue
                     }
