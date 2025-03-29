@@ -33,7 +33,7 @@ internal val customThemeByteCodePatch = bytecodePatch {
                 .getReference<FieldReference>()!!.definingClass
         }
 
-        val encoreColorLiteral = 0xff121212L
+        val encoreColorLiteral = 0xFF121212
 
         val encoreColorsConstructorFingerprint = fingerprint {
             accessFlags(AccessFlags.STATIC, AccessFlags.CONSTRUCTOR)
@@ -49,7 +49,7 @@ internal val customThemeByteCodePatch = bytecodePatch {
             val register = getInstruction<OneRegisterInstruction>(colorResourceIndex).registerA
 
             addInstructions(
-                colorResourceIndex,
+                colorResourceIndex + 1,
                 """
                     const-string v$register, "$spotifyBackgroundColor"
                     invoke-static { v$register }, $EXTENSION_CLASS_DESCRIPTOR->getColorInt(Ljava/lang/String;)J
@@ -60,8 +60,9 @@ internal val customThemeByteCodePatch = bytecodePatch {
 
         val homeCategoryPillColorsFingerprint = fingerprint{
             accessFlags(AccessFlags.STATIC, AccessFlags.CONSTRUCTOR)
-            literal { 4281545523L }
-            literal { 855638016 }
+            custom { method, _ ->
+                method.containsLiteralInstruction(4281545523L) && method.containsLiteralInstruction(855638016)
+            }
         }
 
         // Home category pills background color.
