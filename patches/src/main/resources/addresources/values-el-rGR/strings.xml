@@ -1156,6 +1156,7 @@ Second \"item\" text"</string>
   <string name="revanced_miniplayer_type_entry_4">Μοντέρνος 1</string>
   <string name="revanced_miniplayer_type_entry_5">Μοντέρνος 2</string>
   <string name="revanced_miniplayer_type_entry_6">Μοντέρνος 3</string>
+  <string name="revanced_miniplayer_type_entry_7">Μοντέρνος 4</string>
   <string name="revanced_miniplayer_rounded_corners_title">Στρογγυλεμένες γωνίες</string>
   <string name="revanced_miniplayer_rounded_corners_summary_on">Οι γωνίες είναι στρογγυλεμένες</string>
   <string name="revanced_miniplayer_rounded_corners_summary_off">Οι γωνίες είναι τετράγωνες</string>
@@ -1175,14 +1176,14 @@ Second \"item\" text"</string>
 
 Η ελαχιστοποιημένη οθόνη μπορεί να συρθεί εκτός οθόνης προς τα αριστερά ή δεξιά"</string>
   <string name="revanced_miniplayer_horizontal_drag_summary_off">Η χειρονομία οριζόντιας σύρσης είναι απενεργοποιημένη</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_title">Κουμπί κλεισίματος</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">Κρυμμένο</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">Εμφανίζεται</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_title">Κουμπιά επικάλυψης οθόνης αναπαραγωγής</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">Κρυμμένα</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">Εμφανίζονται</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_legacy_title">Κουμπιά επέκτασης και κλεισίματος</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_on">"Κρυμμένα
+  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_on">"Τα κουμπιά δεν εμφανίζονται
 
-Σύρετε την ελαχιστοποιημένη οθόνη αναπαραγωγής για επέκταση ή κλείσιμο του βίντεο"</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_off">Εμφανίζονται</string>
+Σύρετε για να αναπτύξετε ή να κλείσετε"</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_off">Τα κουμπιά εμφανίζονται</string>
   <string name="revanced_miniplayer_hide_subtext_title">Κείμενα οθόνης αναπαραγωγής</string>
   <string name="revanced_miniplayer_hide_subtext_summary_on">Κρυμμένα</string>
   <string name="revanced_miniplayer_hide_subtext_summary_off">Εμφανίζονται</string>

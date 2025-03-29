@@ -1154,6 +1154,7 @@ Nếu sau này tắt đi, bạn nên xóa dữ liệu ứng dụng để tránh 
   <string name="revanced_miniplayer_type_entry_4">Hiện đại 1</string>
   <string name="revanced_miniplayer_type_entry_5">Hiện đại 2</string>
   <string name="revanced_miniplayer_type_entry_6">Hiện đại 3</string>
+  <string name="revanced_miniplayer_type_entry_7">Hiện đại 4</string>
   <string name="revanced_miniplayer_rounded_corners_title">Bật góc bo tròn</string>
   <string name="revanced_miniplayer_rounded_corners_summary_on">Góc được bo tròn</string>
   <string name="revanced_miniplayer_rounded_corners_summary_off">Góc vuông</string>
@@ -1173,9 +1174,9 @@ Trình phát nhỏ có thể được kéo đến bất kỳ góc nào của mà
 
 Trình phát nhỏ có thể được kéo ra khỏi màn hình sang trái hoặc phải"</string>
   <string name="revanced_miniplayer_horizontal_drag_summary_off">Cử chỉ kéo ngang được tắt</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_title">Ẩn nút đóng</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">Nút đóng được ẩn</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">Nút đóng được hiện</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_title">Ẩn các nút lớp phủ</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">Các nút lớp phủ bị ẩn</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">Các nút lớp phủ được hiển thị</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_legacy_title">Ẩn các nút mở rộng và đóng</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_on">"Nút bị ẩn
 

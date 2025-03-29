@@ -1154,6 +1154,7 @@ Second \"item\" text"</string>
   <string name="revanced_miniplayer_type_entry_4">Новітній 1</string>
   <string name="revanced_miniplayer_type_entry_5">Новітній 2</string>
   <string name="revanced_miniplayer_type_entry_6">Новітній 3</string>
+  <string name="revanced_miniplayer_type_entry_7">Новітній 4</string>
   <string name="revanced_miniplayer_rounded_corners_title">Увімкнути закруглені кути</string>
   <string name="revanced_miniplayer_rounded_corners_summary_on">Кути закруглені</string>
   <string name="revanced_miniplayer_rounded_corners_summary_off">Кути квадратні</string>
@@ -1173,9 +1174,9 @@ Second \"item\" text"</string>
 
 Мініплеєр можна перетягнути за межі екрана вліво або вправо"</string>
   <string name="revanced_miniplayer_horizontal_drag_summary_off">Жест горизонтального перетягування вимкнено</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_title">Приховати кнопку закриття</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">Кнопку закриття мініплеєру приховано</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">Кнопка закриття мініплеєру показується</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_title">Приховати кнопки накладання</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">Кнопки накладання приховано</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">Кнопки накладання відображаються</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_legacy_title">Кнопки розгортання та закриття</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_on">"Кнопки розгортання та закриття приховано
 
