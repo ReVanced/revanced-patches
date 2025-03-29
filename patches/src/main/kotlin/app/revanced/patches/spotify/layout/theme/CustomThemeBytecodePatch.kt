@@ -58,7 +58,6 @@ internal val customThemeByteCodePatch = bytecodePatch {
             )
         }
 
-
         val homeCategoryPillColor = 0xFF333333
 
         val homeCategoryPillColorsFingerprint = fingerprint{
