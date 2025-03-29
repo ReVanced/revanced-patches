@@ -28,7 +28,6 @@ internal val customThemeByteCodePatch = bytecodePatch {
                 )
             }
 
-            // Playlist song list background color.
             encoreColorsClassName = it.originalMethod
                 .getInstruction(encoreColorsFieldReferenceIndex)
                 .getReference<FieldReference>()!!.definingClass
@@ -44,6 +43,7 @@ internal val customThemeByteCodePatch = bytecodePatch {
             }
         }
 
+        // Playlist song list background color.
         encoreColorsConstructorFingerprint.method.apply {
             val colorResourceIndex = indexOfFirstLiteralInstructionOrThrow(encoreColorLiteral)
             val register = getInstruction<OneRegisterInstruction>(colorResourceIndex).registerA
@@ -64,6 +64,7 @@ internal val customThemeByteCodePatch = bytecodePatch {
             literal { 855638016 }
         }
 
+        // Home category pills background color.
         homeCategoryPillColorsFingerprint.method.let {
             val pillBackgroundColorIndex = it.indexOfFirstInstructionOrThrow(Opcode.CONST_WIDE)
 
