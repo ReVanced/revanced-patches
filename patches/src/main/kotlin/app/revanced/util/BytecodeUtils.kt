@@ -115,7 +115,7 @@ internal fun Method.findFreeRegister(startIndex: Int, vararg registersToExclude:
             }
         }
 
-        instruction.getRegistersUsed().forEach { usedRegisters.add(it) }
+        usedRegisters.addAll(instruction.getRegistersUsed())
     }
 
     // Cannot be reached since a branch or return statement will
