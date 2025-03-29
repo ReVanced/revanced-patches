@@ -70,11 +70,11 @@ internal val customThemeByteCodePatch = bytecodePatch {
 
         // Home category pills background color.
         homeCategoryPillColorsFingerprint.method.apply {
-            val colorResourceIndex = indexOfFirstLiteralInstructionOrThrow(homeCategoryPillColor)
-            val register = getInstruction<OneRegisterInstruction>(colorResourceIndex).registerA
+            val pillBackgroundColorInstructionIndex = indexOfFirstLiteralInstructionOrThrow(homeCategoryPillColor)
+            val register = getInstruction<OneRegisterInstruction>(pillBackgroundColorInstructionIndex).registerA
 
             addInstructions(
-                colorResourceIndex + 1,
+                pillBackgroundColorInstructionIndex + 1,
                 """
                     const-string v$register, "$spotifyBackgroundColorSecondary"
                     invoke-static { v$register }, $EXTENSION_CLASS_DESCRIPTOR->getColorInt(Ljava/lang/String;)J
