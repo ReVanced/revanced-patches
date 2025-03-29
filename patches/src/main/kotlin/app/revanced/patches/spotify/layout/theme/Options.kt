@@ -4,7 +4,7 @@ import app.revanced.patcher.patch.stringOption
 
 internal val spotifyBackgroundColor by stringOption(
     key = "backgroundColor",
-    default = "#FFF2D2BD",
+    default = "@android:color/black",
     title = "Primary background color",
     description = "The background color. Can be a hex color or a resource reference.",
     required = true,
