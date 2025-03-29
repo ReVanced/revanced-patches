@@ -163,7 +163,7 @@ internal object TwiFucker {
 
     private fun JSONObject.entryIsWhoToFollow(): Boolean =
         optString("entryId").let {
-            it.startsWith("whoToFollow-") || it.startsWith("who-to-follow-") || it.startsWith("connect-module-")
+            it.startsWith("whoToFollow-") || it.startsWith("who-to-follow-") || it.startsWith("connect-module-") || it.startsWith("who-to-subscribe-")
         }
 
     private fun JSONObject.itemContainsPromotedUser(): Boolean =
