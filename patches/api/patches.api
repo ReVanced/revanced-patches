@@ -812,13 +812,6 @@ public final class app/revanced/patches/spotify/layout/theme/CustomThemePatchKt 
 	public static final fun getCustomThemePatch ()Lapp/revanced/patcher/patch/ResourcePatch;
 }
 
-public final class app/revanced/patches/spotify/layout/theme/OptionsKt {
-	public static final fun getAccentColor ()Ljava/lang/String;
-	public static final fun getAccentColorPressed ()Ljava/lang/String;
-	public static final fun getBackgroundColor ()Ljava/lang/String;
-	public static final fun getBackgroundColorSecondary ()Ljava/lang/String;
-}
-
 public final class app/revanced/patches/spotify/lite/ondemand/OnDemandPatchKt {
 	public static final fun getOnDemandPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }

@@ -53,7 +53,7 @@ internal val customThemeByteCodePatch = bytecodePatch {
             addInstructions(
                 colorResourceIndex,
                 """
-                    const-string v$register, "$backgroundColor"
+                    const-string v$register, "$spotifyBackgroundColor"
                     invoke-static { v$register }, $EXTENSION_CLASS_DESCRIPTOR->getColorInt(Ljava/lang/String;)J
                     move-result-wide v$register
                 """

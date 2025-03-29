@@ -14,10 +14,10 @@ val customThemePatch = resourcePatch(
     dependsOn(customThemeByteCodePatch)
 
     execute {
-        val backgroundColor = backgroundColor!!
-        val backgroundColorSecondary = backgroundColorSecondary!!
-        val accentColor = accentColor!!
-        val accentColorPressed = accentColorPressed!!
+        val backgroundColor = spotifyBackgroundColor!!
+        val backgroundColorSecondary = spotifyBackgroundColorSecondary!!
+        val accentColor = spotifyAccentColor!!
+        val accentColorPressed = spotifyAccentColorPressed!!
 
         document("res/values/colors.xml").use { document ->
             val resourcesNode = document.getElementsByTagName("resources").item(0) as Element
