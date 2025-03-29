@@ -58,23 +58,28 @@ internal val customThemeByteCodePatch = bytecodePatch {
             )
         }
 
+
+        val homeCategoryPillColor = 0xFF333333
+
         val homeCategoryPillColorsFingerprint = fingerprint{
             accessFlags(AccessFlags.STATIC, AccessFlags.CONSTRUCTOR)
             custom { method, _ ->
-                method.containsLiteralInstruction(4281545523L) && method.containsLiteralInstruction(855638016)
+                method.containsLiteralInstruction(0x33000000) && method.containsLiteralInstruction(homeCategoryPillColor)
             }
         }
 
         // Home category pills background color.
-        homeCategoryPillColorsFingerprint.method.let {
-            val pillBackgroundColorIndex = it.indexOfFirstInstructionOrThrow(Opcode.CONST_WIDE)
+        homeCategoryPillColorsFingerprint.method.apply {
+            val colorResourceIndex = indexOfFirstLiteralInstructionOrThrow(homeCategoryPillColor)
+            val pillBackgroundColorIndex = indexOfFirstInstructionOrThrow(colorResourceIndex, Opcode.CONST_WIDE)
+            val register = getInstruction<OneRegisterInstruction>(pillBackgroundColorIndex).registerA
 
-            it.addInstructions(
+            addInstructions(
                 pillBackgroundColorIndex + 1,
                 """
-                    const-string v0, "$spotifyBackgroundColorSecondary"
-                    invoke-static {v0}, Lapp/revanced/extension/spotify/layout/theme/CustomThemePatch;->getColorInt(Ljava/lang/String;)J
-                    move-result-wide v0
+                    const-string v$register, "$spotifyBackgroundColorSecondary"
+                    invoke-static { v$register }, $EXTENSION_CLASS_DESCRIPTOR->getColorInt(Ljava/lang/String;)J
+                    move-result-wide v$register
                 """
             )
         }
