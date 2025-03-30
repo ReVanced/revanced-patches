@@ -19,7 +19,6 @@ import com.android.tools.smali.dexlib2.Opcode.*
 import com.android.tools.smali.dexlib2.iface.Method
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.Instruction
-import com.android.tools.smali.dexlib2.iface.instruction.OffsetInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.RegisterRangeInstruction
@@ -48,8 +47,7 @@ internal fun Method.findFreeRegister(startIndex: Int, vararg registersToExclude:
     if (implementation == null) {
         throw IllegalArgumentException("Method has no implementation: $this")
     }
-    val instructionsCount = instructions.count()
-    if (startIndex < 0 || startIndex >= instructionsCount) {
+    if (startIndex < 0 || startIndex >= instructions.count()) {
         throw IllegalArgumentException("startIndex out of bounds: $startIndex")
     }
 
@@ -79,11 +77,8 @@ internal fun Method.findFreeRegister(startIndex: Int, vararg registersToExclude:
         SGET, SGET_WIDE, SGET_OBJECT, SGET_BOOLEAN, SGET_BYTE, SGET_CHAR, SGET_SHORT,
     )
 
-    val unconditionalBranchOpcodes = EnumSet.of(
+    val branchOpcodes = EnumSet.of(
         GOTO, GOTO_16, GOTO_32,
-    )
-
-    val conditionalBranchOpcodes = EnumSet.of(
         IF_EQ, IF_NE, IF_LT, IF_GE, IF_GT, IF_LE,
         IF_EQZ, IF_NEZ, IF_LTZ, IF_GEZ, IF_GTZ, IF_LEZ,
     )
@@ -97,9 +92,8 @@ internal fun Method.findFreeRegister(startIndex: Int, vararg registersToExclude:
     var bestFreeRegisterFound: Int? = null
     val usedRegisters = registersToExclude.toMutableSet()
 
-    var index = startIndex
-    instructionLoop@while (index < instructionsCount) {
-        val instruction = getInstruction(index)
+    for (i in startIndex until instructions.count()) {
+        val instruction = getInstruction(i)
 
         if (instruction.opcode in returnOpcodes) {
             // Method returns. Use lowest register that hasn't been encountered.
@@ -119,44 +113,7 @@ internal fun Method.findFreeRegister(startIndex: Int, vararg registersToExclude:
                     "$startIndex excluding: $registersToExclude")
         }
 
-        if (instruction.opcode in unconditionalBranchOpcodes) {
-            // Unconditional branch. Continue searching from the goto location.
-            // Goto index is a relative offset using 16-bit word indexes.
-            //
-            // To find the correct instruction index, increment or decrement
-            // from the current instruction index while adding
-            // the code units (word length of the opcode) until the total code offset is reached.
-            var codeOffset = (instruction as OffsetInstruction).codeOffset
-            var cumulativeOffset = 0
-            var subIndex = index
-
-            while (true) {
-                if (codeOffset < 0) {
-                    val subInstructionCodeUnits = getInstruction(--subIndex).codeUnits
-                    cumulativeOffset -= subInstructionCodeUnits
-                    if (cumulativeOffset < codeOffset) {
-                        throw IllegalStateException("Unexpected codeOffset. " +
-                                "Expected $codeOffset but reached $cumulativeOffset")
-                    }
-                } else {
-                    val subInstructionCodeUnits = getInstruction(subIndex++).codeUnits
-                    cumulativeOffset += subInstructionCodeUnits
-                    if (cumulativeOffset > codeOffset) {
-                        throw IllegalStateException("Unexpected codeOffset. " +
-                                "Expected $codeOffset but reached $cumulativeOffset")
-                    }
-                }
-
-                if (cumulativeOffset == codeOffset) {
-                    break;
-                }
-            }
-
-            index = subIndex
-            continue@instructionLoop
-        }
-
-        if (instruction.opcode in conditionalBranchOpcodes) {
+        if (instruction.opcode in branchOpcodes) {
             if (bestFreeRegisterFound != null) {
                 return bestFreeRegisterFound;
             }
@@ -180,7 +137,6 @@ internal fun Method.findFreeRegister(startIndex: Int, vararg registersToExclude:
         }
 
         usedRegisters.addAll(instruction.getRegistersUsed())
-        index++
     }
 
     // Cannot be reached since a branch or return statement will
