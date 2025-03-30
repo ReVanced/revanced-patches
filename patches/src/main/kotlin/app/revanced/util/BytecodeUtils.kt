@@ -33,6 +33,9 @@ import java.util.EnumSet
  * finds the next register that is wrote to and not read from. If a return instruction
  * is encountered, then the lowest unused register is returned.
  *
+ * This method can return a non 4-bit register, and the calling code may need to temporarily
+ * swap register contents if a 4-bit register is required.
+ *
  * @param startIndex Inclusive starting index.
  * @param registersToExclude Registers to exclude, and consider as used. For most use cases,
  *                           all registers used in injected code should be specified.
@@ -54,7 +57,7 @@ internal fun Method.findFreeRegister(startIndex: Int, vararg registersToExclude:
         is TwoRegisterInstruction -> listOf(registerA, registerB)
         is OneRegisterInstruction -> listOf(registerA)
         is RegisterRangeInstruction -> (startRegister until (startRegister + registerCount)).toList()
-        else -> throw IllegalStateException("Unrecognized instruction: $this")
+        else -> emptyList()
     }
 
     // Register that is written to by an instruction.
@@ -62,10 +65,10 @@ internal fun Method.findFreeRegister(startIndex: Int, vararg registersToExclude:
         is ThreeRegisterInstruction -> registerA
         is TwoRegisterInstruction -> registerA
         is OneRegisterInstruction -> registerA
-        else -> null
+        else -> throw IllegalStateException("Not a write instruction: $this")
     }
 
-    val writeOpcodes = EnumSet<Opcode>.of(
+    val writeOpcodes = EnumSet.of(
         NEW_INSTANCE, NEW_ARRAY,
         MOVE, MOVE_FROM16, MOVE_16, MOVE_WIDE, MOVE_WIDE_FROM16, MOVE_WIDE_16, MOVE_OBJECT,
         MOVE_OBJECT_FROM16, MOVE_OBJECT_16, MOVE_RESULT, MOVE_RESULT_WIDE, MOVE_RESULT_OBJECT, MOVE_EXCEPTION,
@@ -73,16 +76,19 @@ internal fun Method.findFreeRegister(startIndex: Int, vararg registersToExclude:
         SGET, SGET_WIDE, SGET_OBJECT, SGET_BOOLEAN, SGET_BYTE, SGET_CHAR, SGET_SHORT,
     )
 
-    val branchOpcodes = EnumSet<Opcode>.of(
+    val branchOpcodes = EnumSet.of(
         GOTO, GOTO_16, GOTO_32,
         IF_EQ, IF_NE, IF_LT, IF_GE, IF_GT, IF_LE,
         IF_EQZ, IF_NEZ, IF_LTZ, IF_GEZ, IF_GTZ, IF_LEZ,
     )
 
-    val returnOpcodes = EnumSet<Opcode>.of(
+    val returnOpcodes = EnumSet.of(
         RETURN_VOID, RETURN, RETURN_WIDE, RETURN_OBJECT,
     )
 
+    // Highest 4-bit register available, exclusive. Ideally return a free register less than this.
+    val maxRegister4Bits = 16
+    var bestFreeRegisterFound: Int? = null
     val usedRegisters = registersToExclude.toMutableSet()
 
     for (i in startIndex until instructions.count()) {
@@ -96,6 +102,10 @@ internal fun Method.findFreeRegister(startIndex: Int, vararg registersToExclude:
             if (freeRegister != null) {
                 return freeRegister
             }
+            if (bestFreeRegisterFound != null) {
+                return bestFreeRegisterFound;
+            }
+
             // Somehow every method register was read from before any register was wrote to.
             // In practice this never occurs.
             throw IllegalArgumentException("Could not find a free register from startIndex: " +
@@ -103,15 +113,25 @@ internal fun Method.findFreeRegister(startIndex: Int, vararg registersToExclude:
         }
 
         if (instruction.opcode in branchOpcodes) {
+            if (bestFreeRegisterFound != null) {
+                return bestFreeRegisterFound;
+            }
             // This method is simple and does not follow branching.
             throw IllegalArgumentException("Encountered a branch statement before a free register could be found")
         }
 
         if (instruction.opcode in writeOpcodes) {
             val freeRegister = instruction.getRegisterWritten()
-            if (freeRegister != null && freeRegister !in usedRegisters) {
-                // Found a suitable register.
-                return freeRegister
+            if (freeRegister !in usedRegisters) {
+                if (freeRegister < maxRegister4Bits) {
+                    // Found an ideal register.
+                    return freeRegister
+                }
+
+                // Continue searching for a 4-bit register if available.
+                if (bestFreeRegisterFound == null || freeRegister < bestFreeRegisterFound) {
+                    bestFreeRegisterFound = freeRegister
+                }
             }
         }
 
