@@ -16,7 +16,6 @@ import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
 import app.revanced.util.indexOfFirstInstructionReversedOrThrow
 import com.android.tools.smali.dexlib2.Opcode
-import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
@@ -80,8 +79,6 @@ val disableResumingShortsOnStartupPatch = bytecodePatch(
                             reference?.definingClass == "Lcom/google/common/util/concurrent/ListenableFuture;" &&
                             reference.name == "isDone"
                 }
-                val originalInstructionRegister =
-                    getInstruction<FiveRegisterInstruction>(listenableInstructionIndex).registerC
                 val freeRegister = findFreeRegister(listenableInstructionIndex)
 
                 addInstructionsAtControlFlowLabel(
@@ -92,7 +89,7 @@ val disableResumingShortsOnStartupPatch = bytecodePatch(
                         if-eqz v$freeRegister, :show
                         return-void
                         :show
-                        invoke-interface {v$originalInstructionRegister}, Lcom/google/common/util/concurrent/ListenableFuture;->isDone()Z
+                        nop
                     """
                 )
             }
