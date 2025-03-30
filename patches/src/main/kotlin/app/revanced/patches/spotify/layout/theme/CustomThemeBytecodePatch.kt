@@ -4,6 +4,7 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.fingerprint
 import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patches.spotify.misc.extension.sharedExtensionPatch
 import app.revanced.util.*
 import com.android.tools.smali.dexlib2.AccessFlags
@@ -17,6 +18,20 @@ internal val customThemeByteCodePatch = bytecodePatch {
     dependsOn(sharedExtensionPatch)
 
     execute {
+        fun MutableMethod.addColorChangeInstructions(literal: Long, colorString: String) {
+            val index = indexOfFirstLiteralInstructionOrThrow(literal)
+            val register = getInstruction<OneRegisterInstruction>(index).registerA
+
+            addInstructions(
+                index + 1,
+                """
+                    const-string v$register, "$colorString"
+                    invoke-static { v$register }, $EXTENSION_CLASS_DESCRIPTOR->getColorLong(Ljava/lang/String;)J
+                    move-result-wide v$register
+                """
+            )
+        }
+
         val encoreColorsClassName = with(encoreThemeFingerprint) {
             // Find index of the first static get found after the string constant.
             val encoreColorsFieldReferenceIndex = originalMethod.indexOfFirstInstructionOrThrow(
@@ -37,61 +52,21 @@ internal val customThemeByteCodePatch = bytecodePatch {
         }
 
         encoreColorsConstructorFingerprint.method.apply {
-            val songListBackgroundColorInstructionIndex = indexOfFirstLiteralInstructionOrThrow(PLAYLIST_BACKGROUND_COLOR_LITERAL)
-            val songListBackgroundColorRegister = getInstruction<OneRegisterInstruction>(songListBackgroundColorInstructionIndex).registerA
-
             // Playlist song list background color.
-            addInstructions(
-                songListBackgroundColorInstructionIndex + 1,
-                """
-                    const-string v$songListBackgroundColorRegister, "$spotifyBackgroundColor"
-                    invoke-static { v$songListBackgroundColorRegister }, $EXTENSION_CLASS_DESCRIPTOR->getColorLong(Ljava/lang/String;)J
-                    move-result-wide v$songListBackgroundColorRegister
-                """
-            )
-
-            val shareMenuBackgroundColorInstructionIndex = indexOfFirstLiteralInstructionOrThrow(SHARE_MENU_BACKGROUND_COLOR_LITERAL)
-            val shareMenuBackgroundColorRegister = getInstruction<OneRegisterInstruction>(shareMenuBackgroundColorInstructionIndex).registerA
+            addColorChangeInstructions(PLAYLIST_BACKGROUND_COLOR_LITERAL, spotifyBackgroundColor!!)
 
             // Share menu background color.
-            addInstructions(
-                shareMenuBackgroundColorInstructionIndex + 1,
-                """
-                    const-string v$shareMenuBackgroundColorRegister, "$spotifyBackgroundColorSecondary"
-                    invoke-static { v$shareMenuBackgroundColorRegister }, $EXTENSION_CLASS_DESCRIPTOR->getColorLong(Ljava/lang/String;)J
-                    move-result-wide v$shareMenuBackgroundColorRegister
-                """
-            )
+            addColorChangeInstructions(SHARE_MENU_BACKGROUND_COLOR_LITERAL, spotifyBackgroundColorSecondary!!)
         }
 
-        // Home category pills background color.
         homeCategoryPillColorsFingerprint.method.apply {
-            val pillBackgroundColorInstructionIndex = indexOfFirstLiteralInstructionOrThrow(HOME_CATEGORY_PILL_COLOR_LITERAL)
-            val register = getInstruction<OneRegisterInstruction>(pillBackgroundColorInstructionIndex).registerA
-
-            addInstructions(
-                pillBackgroundColorInstructionIndex + 1,
-                """
-                    const-string v$register, "$spotifyBackgroundColorSecondary"
-                    invoke-static { v$register }, $EXTENSION_CLASS_DESCRIPTOR->getColorLong(Ljava/lang/String;)J
-                    move-result-wide v$register
-                """
-            )
+            // Home category pills background color.
+            addColorChangeInstructions(HOME_CATEGORY_PILL_COLOR_LITERAL, spotifyBackgroundColorSecondary!!)
         }
 
-        // Settings header background color.
         settingsHeaderColorFingerprint.method.apply {
-            val headerBackgroundColorInstructionIndex = indexOfFirstLiteralInstructionOrThrow(SETTINGS_HEADER_COLOR_LITERAL)
-            val register = getInstruction<OneRegisterInstruction>(headerBackgroundColorInstructionIndex).registerA
-
-            addInstructions(
-                headerBackgroundColorInstructionIndex + 1,
-                """
-                    const-string v$register, "$spotifyBackgroundColorSecondary"
-                    invoke-static { v$register }, $EXTENSION_CLASS_DESCRIPTOR->getColorLong(Ljava/lang/String;)J
-                    move-result-wide v$register
-                """
-            )
+            // Settings header background color.
+            addColorChangeInstructions(SETTINGS_HEADER_COLOR_LITERAL, spotifyBackgroundColorSecondary!!)
         }
     }
 }
