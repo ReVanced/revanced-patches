@@ -17,6 +17,9 @@ private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/spotify/
 internal val customThemeByteCodePatch = bytecodePatch {
     dependsOn(sharedExtensionPatch)
 
+    val backgroundColor by spotifyBackgroundColor
+    val backgroundColorSecondary by spotifyBackgroundColorSecondary
+
     execute {
         fun MutableMethod.addColorChangeInstructions(literal: Long, colorString: String) {
             val index = indexOfFirstLiteralInstructionOrThrow(literal)
@@ -53,20 +56,20 @@ internal val customThemeByteCodePatch = bytecodePatch {
 
         encoreColorsConstructorFingerprint.method.apply {
             // Playlist song list background color.
-            addColorChangeInstructions(PLAYLIST_BACKGROUND_COLOR_LITERAL, spotifyBackgroundColor!!)
+            addColorChangeInstructions(PLAYLIST_BACKGROUND_COLOR_LITERAL, backgroundColor!!)
 
             // Share menu background color.
-            addColorChangeInstructions(SHARE_MENU_BACKGROUND_COLOR_LITERAL, spotifyBackgroundColorSecondary!!)
+            addColorChangeInstructions(SHARE_MENU_BACKGROUND_COLOR_LITERAL, backgroundColorSecondary!!)
         }
 
         homeCategoryPillColorsFingerprint.method.apply {
             // Home category pills background color.
-            addColorChangeInstructions(HOME_CATEGORY_PILL_COLOR_LITERAL, spotifyBackgroundColorSecondary!!)
+            addColorChangeInstructions(HOME_CATEGORY_PILL_COLOR_LITERAL, backgroundColorSecondary!!)
         }
 
         settingsHeaderColorFingerprint.method.apply {
             // Settings header background color.
-            addColorChangeInstructions(SETTINGS_HEADER_COLOR_LITERAL, spotifyBackgroundColorSecondary!!)
+            addColorChangeInstructions(SETTINGS_HEADER_COLOR_LITERAL, backgroundColorSecondary!!)
         }
     }
 }

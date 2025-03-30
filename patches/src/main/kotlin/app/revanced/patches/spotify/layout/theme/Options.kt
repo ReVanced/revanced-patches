@@ -2,7 +2,7 @@ package app.revanced.patches.spotify.layout.theme
 
 import app.revanced.patcher.patch.stringOption
 
-internal val spotifyBackgroundColor by stringOption(
+internal val spotifyBackgroundColor = stringOption(
     key = "backgroundColor",
     default = "@android:color/black",
     title = "Primary background color",
@@ -10,7 +10,7 @@ internal val spotifyBackgroundColor by stringOption(
     required = true,
 )
 
-internal val spotifyBackgroundColorSecondary by stringOption(
+internal val spotifyBackgroundColorSecondary = stringOption(
     key = "backgroundColorSecondary",
     default = "#FF121212",
     title = "Secondary background color",
@@ -18,7 +18,7 @@ internal val spotifyBackgroundColorSecondary by stringOption(
     required = true,
 )
 
-internal val spotifyAccentColor by stringOption(
+internal val spotifyAccentColor = stringOption(
     key = "accentColor",
     default = "#FF1ED760",
     title = "Accent color",
@@ -26,7 +26,7 @@ internal val spotifyAccentColor by stringOption(
     required = true,
 )
 
-internal val spotifyAccentColorPressed by stringOption(
+internal val spotifyAccentColorPressed = stringOption(
     key = "accentColorPressed",
     default = "#FF169C46",
     title = "Pressed dark theme accent color",
