@@ -88,7 +88,7 @@ internal val customThemeByteCodePatch = bytecodePatch {
                 headerBackgroundColorInstructionIndex + 1,
                 """
                     const-string v$register, "$spotifyBackgroundColorSecondary"
-                    invoke-static { v$register }, $EXTENSION_CLASS_DESCRIPTOR->getColorInt(Ljava/lang/String;)J
+                    invoke-static { v$register }, $EXTENSION_CLASS_DESCRIPTOR->getColorLong(Ljava/lang/String;)J
                     move-result-wide v$register
                 """
             )
