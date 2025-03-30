@@ -16,8 +16,8 @@ internal const val HOME_CATEGORY_PILL_COLOR_LITERAL = 0xFF333333
 internal val homeCategoryPillColorsFingerprint = fingerprint{
     accessFlags(AccessFlags.STATIC, AccessFlags.CONSTRUCTOR)
     custom { method, _ ->
-        method.containsLiteralInstruction(0x33000000)
-                && method.containsLiteralInstruction(HOME_CATEGORY_PILL_COLOR_LITERAL)
+        method.containsLiteralInstruction(HOME_CATEGORY_PILL_COLOR_LITERAL) &&
+                method.containsLiteralInstruction(0x33000000)
     }
 }
 
@@ -26,7 +26,7 @@ internal const val SETTINGS_HEADER_COLOR_LITERAL = 0xFF282828
 internal val settingsHeaderColorFingerprint = fingerprint {
     accessFlags(AccessFlags.STATIC, AccessFlags.CONSTRUCTOR)
     custom { method, _ ->
-        method.containsLiteralInstruction(9)
-                && method.containsLiteralInstruction(SETTINGS_HEADER_COLOR_LITERAL)
+        method.containsLiteralInstruction(SETTINGS_HEADER_COLOR_LITERAL) &&
+                method.containsLiteralInstruction(0)
     }
 }
