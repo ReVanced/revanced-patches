@@ -45,7 +45,7 @@ internal val customThemeByteCodePatch = bytecodePatch {
                 songListBackgroundColorInstructionIndex + 1,
                 """
                     const-string v$songListBackgroundColorRegister, "$spotifyBackgroundColor"
-                    invoke-static { v$songListBackgroundColorRegister }, $EXTENSION_CLASS_DESCRIPTOR->getColorInt(Ljava/lang/String;)J
+                    invoke-static { v$songListBackgroundColorRegister }, $EXTENSION_CLASS_DESCRIPTOR->getColorLong(Ljava/lang/String;)J
                     move-result-wide v$songListBackgroundColorRegister
                 """
             )
@@ -58,7 +58,7 @@ internal val customThemeByteCodePatch = bytecodePatch {
                 shareMenuBackgroundColorInstructionIndex + 1,
                 """
                     const-string v$shareMenuBackgroundColorRegister, "$spotifyBackgroundColorSecondary"
-                    invoke-static { v$shareMenuBackgroundColorRegister }, $EXTENSION_CLASS_DESCRIPTOR->getColorInt(Ljava/lang/String;)J
+                    invoke-static { v$shareMenuBackgroundColorRegister }, $EXTENSION_CLASS_DESCRIPTOR->getColorLong(Ljava/lang/String;)J
                     move-result-wide v$shareMenuBackgroundColorRegister
                 """
             )
@@ -73,7 +73,7 @@ internal val customThemeByteCodePatch = bytecodePatch {
                 pillBackgroundColorInstructionIndex + 1,
                 """
                     const-string v$register, "$spotifyBackgroundColorSecondary"
-                    invoke-static { v$register }, $EXTENSION_CLASS_DESCRIPTOR->getColorInt(Ljava/lang/String;)J
+                    invoke-static { v$register }, $EXTENSION_CLASS_DESCRIPTOR->getColorLong(Ljava/lang/String;)J
                     move-result-wide v$register
                 """
             )

@@ -11,7 +11,7 @@ public final class CustomThemePatch {
     /**
      * Injection point.
      */
-    public static long getColorInt(String colorString) {
+    public static long getColorLong(String colorString) {
         try {
             if (colorString.startsWith("#")) {
                 return Color.parseColor(colorString);
