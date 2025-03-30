@@ -19,7 +19,7 @@ internal val customThemeByteCodePatch = bytecodePatch {
     execute {
         val encoreColorsClassName = with(encoreThemeFingerprint) {
             // Find index of the first static get found after the string constant.
-            val encoreColorsFieldReferenceIndex = method.indexOfFirstInstructionOrThrow(
+            val encoreColorsFieldReferenceIndex = originalMethod.indexOfFirstInstructionOrThrow(
                 stringMatches!!.first().index,
                 Opcode.SGET_OBJECT
             )
@@ -36,17 +36,30 @@ internal val customThemeByteCodePatch = bytecodePatch {
             }
         }
 
-        // Playlist song list background color.
         encoreColorsConstructorFingerprint.method.apply {
-            val colorResourceIndex = indexOfFirstLiteralInstructionOrThrow(PLAYLIST_BACKGROUND_COLOR_LITERAL)
-            val register = getInstruction<OneRegisterInstruction>(colorResourceIndex).registerA
+            val songListBackgroundColorInstructionIndex = indexOfFirstLiteralInstructionOrThrow(PLAYLIST_BACKGROUND_COLOR_LITERAL)
+            val songListBackgroundColorRegister = getInstruction<OneRegisterInstruction>(songListBackgroundColorInstructionIndex).registerA
 
+            // Playlist song list background color.
             addInstructions(
-                colorResourceIndex + 1,
+                songListBackgroundColorInstructionIndex + 1,
                 """
-                    const-string v$register, "$spotifyBackgroundColor"
-                    invoke-static { v$register }, $EXTENSION_CLASS_DESCRIPTOR->getColorInt(Ljava/lang/String;)J
-                    move-result-wide v$register
+                    const-string v$songListBackgroundColorRegister, "$spotifyBackgroundColor"
+                    invoke-static { v$songListBackgroundColorRegister }, $EXTENSION_CLASS_DESCRIPTOR->getColorInt(Ljava/lang/String;)J
+                    move-result-wide v$songListBackgroundColorRegister
+                """
+            )
+
+            val shareMenuBackgroundColorInstructionIndex = indexOfFirstLiteralInstructionOrThrow(SHARE_MENU_BACKGROUND_COLOR_LITERAL)
+            val shareMenuBackgroundColorRegister = getInstruction<OneRegisterInstruction>(shareMenuBackgroundColorInstructionIndex).registerA
+
+            // Share menu background color.
+            addInstructions(
+                shareMenuBackgroundColorInstructionIndex + 1,
+                """
+                    const-string v$shareMenuBackgroundColorRegister, "$spotifyBackgroundColorSecondary"
+                    invoke-static { v$shareMenuBackgroundColorRegister }, $EXTENSION_CLASS_DESCRIPTOR->getColorInt(Ljava/lang/String;)J
+                    move-result-wide v$shareMenuBackgroundColorRegister
                 """
             )
         }
@@ -58,6 +71,21 @@ internal val customThemeByteCodePatch = bytecodePatch {
 
             addInstructions(
                 pillBackgroundColorInstructionIndex + 1,
+                """
+                    const-string v$register, "$spotifyBackgroundColorSecondary"
+                    invoke-static { v$register }, $EXTENSION_CLASS_DESCRIPTOR->getColorInt(Ljava/lang/String;)J
+                    move-result-wide v$register
+                """
+            )
+        }
+
+        // Settings header background color.
+        settingsHeaderColorFingerprint.method.apply {
+            val headerBackgroundColorInstructionIndex = indexOfFirstLiteralInstructionOrThrow(SETTINGS_HEADER_COLOR_LITERAL)
+            val register = getInstruction<OneRegisterInstruction>(headerBackgroundColorInstructionIndex).registerA
+
+            addInstructions(
+                headerBackgroundColorInstructionIndex + 1,
                 """
                     const-string v$register, "$spotifyBackgroundColorSecondary"
                     invoke-static { v$register }, $EXTENSION_CLASS_DESCRIPTOR->getColorInt(Ljava/lang/String;)J
