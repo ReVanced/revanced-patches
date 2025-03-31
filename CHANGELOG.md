@@ -1,3 +1,10 @@
+## [5.18.1-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.18.0...v5.18.1-dev.1) (2025-03-31)
+
+
+### Bug Fixes
+
+* **YouTube - Remove background playback restrictions:** Do not show media controls when playing Shorts from the feed ([2ed675c](https://github.com/ReVanced/revanced-patches/commit/2ed675cdd058fb5876381a9d30dee5263f6b2e26))
+
 # [5.18.0](https://github.com/ReVanced/revanced-patches/compare/v5.17.0...v5.18.0) (2025-03-28)
 
 
