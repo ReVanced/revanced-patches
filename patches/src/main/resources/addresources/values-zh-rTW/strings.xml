@@ -1168,6 +1168,11 @@ Second \"item\" text"</string>
 
 迷你播放器可水平拖曳至螢幕左右兩側之外"</string>
   <string name="revanced_miniplayer_horizontal_drag_summary_off">已停用水平拖曳手勢</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_title">隱藏展開和關閉按鈕</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_on">"已隱藏按鈕
+
+滑動即可展開或關閉"</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_off">已顯示展開和關閉按鈕</string>
   <string name="revanced_miniplayer_hide_subtext_title">隱藏字幕</string>
   <string name="revanced_miniplayer_hide_subtext_summary_on">已隱藏字幕</string>
   <string name="revanced_miniplayer_hide_subtext_summary_off">已顯示字幕</string>
