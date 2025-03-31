@@ -8,7 +8,7 @@ import app.revanced.patches.spotify.misc.extension.sharedExtensionPatch
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
-private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/spotify/misc/UnlockPremiumPatch;"
+private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/spotify/premium/UnlockPremiumPatch;"
 
 @Suppress("unused")
 val unlockPremiumPatch = bytecodePatch(

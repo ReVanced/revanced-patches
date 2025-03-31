@@ -1,4 +1,4 @@
-package app.revanced.extension.spotify.misc;
+package app.revanced.extension.spotify.premium;
 
 import static java.lang.Boolean.FALSE;
 import static java.lang.Boolean.TRUE;
