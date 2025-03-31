@@ -1174,11 +1174,11 @@ Second \"item\" text"</string>
 
 Мини-плејер се може превући са екрана улево или удесно"</string>
   <string name="revanced_miniplayer_horizontal_drag_summary_off">Покрет хоризонталног превлачења је онемогућен</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_title">Сакриј дугмад преклапања</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">Дугмад преклапања су сакривена</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">Дугмад преклапања су приказана</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_title">Сакриј дугмад преклопа</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">Дугмад преклопа су скривена</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">Дугмад преклопа су приказана</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_legacy_title">Сакриј дугмад за проширивање и затварање</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_on">"Дугмад су сакривена
+  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_on">"Дугмад су скривена
 
 Превуците да бисте проширили или затворили"</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_off">Дугмад за проширивање и затварање су приказана</string>

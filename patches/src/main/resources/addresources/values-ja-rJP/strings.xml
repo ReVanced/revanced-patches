@@ -365,8 +365,8 @@ MicroG GmsCore に対する電池の最適化を無効にしても、バッテ�
   <string name="revanced_hide_products_banner_summary_on">動画上に「商品を表示」ボタンや商品ボタンは表示されません</string>
   <string name="revanced_hide_products_banner_summary_off">動画上に「商品を表示」ボタンや商品ボタンが表示されます</string>
   <string name="revanced_hide_end_screen_store_banner_title">終了画面のストア バナーを非表示</string>
-  <string name="revanced_hide_end_screen_store_banner_summary_on">終了画面のストア バナーは表示されません</string>
-  <string name="revanced_hide_end_screen_store_banner_summary_off">終了画面のストア バナーは表示されます</string>
+  <string name="revanced_hide_end_screen_store_banner_summary_on">動画の終了画面にストア バナーは表示されません</string>
+  <string name="revanced_hide_end_screen_store_banner_summary_off">動画の終了画面にストア バナーが表示されます</string>
   <string name="revanced_hide_player_store_shelf_title">ストア広告を非表示</string>
   <string name="revanced_hide_player_store_shelf_summary_on">ストア広告は表示されません</string>
   <string name="revanced_hide_player_store_shelf_summary_off">ストア広告は表示されます</string>
@@ -438,18 +438,18 @@ MicroG GmsCore に対する電池の最適化を無効にしても、バッテ�
   </patch>
   <patch id="interaction.swipecontrols.swipeControlsResourcePatch">
   <string name="revanced_swipe_brightness_title">明るさジェスチャーを有効にする</string>
-  <string name="revanced_swipe_brightness_summary_on">"全画面表示の明るさジェスチャーは有効です
+  <string name="revanced_swipe_brightness_summary_on">"全画面表示中の明るさジェスチャーは有効です
 
-画面の左側を縦にスワイプして明るさを調節します"</string>
-  <string name="revanced_swipe_brightness_summary_off">全画面表示の明るさジェスチャーは無効です</string>
+画面左側を縦にスワイプして明るさを調節します"</string>
+  <string name="revanced_swipe_brightness_summary_off">全画面表示中の明るさジェスチャーは無効です</string>
   <string name="revanced_swipe_volume_title">音量ジェスチャーを有効にする</string>
-  <string name="revanced_swipe_volume_summary_on">"全画面表示の音量ジェスチャーは有効です
+  <string name="revanced_swipe_volume_summary_on">"全画面表示中の音量ジェスチャーは有効です
 
-画面の右側を縦にスワイプして音量を調節します"</string>
-  <string name="revanced_swipe_volume_summary_off">全画面表示の音量ジェスチャーは無効です</string>
+画面右側を縦にスワイプして音量を調節します"</string>
+  <string name="revanced_swipe_volume_summary_off">全画面表示中の音量ジェスチャーは無効です</string>
   <string name="revanced_swipe_press_to_engage_title">長押しスワイプを有効にする</string>
-  <string name="revanced_swipe_press_to_engage_summary_on">画面を縦に長押しスワイプして明るさや音量を調節します</string>
-  <string name="revanced_swipe_press_to_engage_summary_off">画面を縦にスワイプして明るさや音量を調節します</string>
+  <string name="revanced_swipe_press_to_engage_summary_on">全画面表示中、長押し後に画面を縦にスワイプして明るさや音量を調節します</string>
+  <string name="revanced_swipe_press_to_engage_summary_off">全画面表示中、画面を縦にスワイプして明るさや音量を調節します</string>
   <string name="revanced_swipe_haptic_feedback_title">触覚フィードバックを有効にする</string>
   <string name="revanced_swipe_haptic_feedback_summary_on">触覚フィードバックは有効です</string>
   <string name="revanced_swipe_haptic_feedback_summary_off">触覚フィードバックは無効です</string>
@@ -768,7 +768,7 @@ MicroG GmsCore に対する電池の最適化を無効にしても、バッテ�
   </patch>
   <patch id="layout.hide.endscreensuggestion.hideEndScreenSuggestedVideoPatch">
   <string name="revanced_end_screen_suggested_video_title">再生終了時に「関連動画」を表示しない</string>
-  <string name="revanced_end_screen_suggested_video_summary_on">"自動再生を無効にすると、再生終了時に「関連動画」は表示されません 
+  <string name="revanced_end_screen_suggested_video_summary_on">"再生終了時に「関連動画」は表示されませんが、自動再生がオンの場合は自動で再生されます
 
 自動再生の設定は YouTube の設定で変更できます:
 設定 → 再生 → 次の動画を自動再生"</string>
@@ -891,8 +891,8 @@ MicroG GmsCore に対する電池の最適化を無効にしても、バッテ�
   <string name="revanced_sb_general_skiptoast">スキップ時にトーストを表示</string>
   <string name="revanced_sb_general_skiptoast_sum_on">セグメントが自動的にスキップされたときにトースト ポップアップが表示されます。例を見るにはここをタップしてください</string>
   <string name="revanced_sb_general_skiptoast_sum_off">トースト ポップアップは表示されません。例を見るにはここをタップしてください</string>
-  <string name="revanced_sb_general_time_without">セグメントを除いた時間を表示</string>
-  <string name="revanced_sb_general_time_without_sum_on">動画からセグメントを除いた時間が、動画全体の再生時間の横に括弧で表示されます</string>
+  <string name="revanced_sb_general_time_without">セグメントを除いた再生時間を表示</string>
+  <string name="revanced_sb_general_time_without_sum_on">動画全体からセグメントを除いた再生時間が、動画全体の再生時間の横に括弧付きで表示されます</string>
   <string name="revanced_sb_general_time_without_sum_off">動画全体の再生時間のみが表示されます</string>
   <string name="revanced_sb_create_segment_category">新しいセグメントを作成する</string>
   <string name="revanced_sb_enable_create_segment">新しいセグメント作成ボタンを表示</string>
@@ -1112,7 +1112,7 @@ Automotive レイアウト
   <string name="revanced_change_start_page_entry_library">マイページ</string>
   <string name="revanced_change_start_page_entry_liked_videos">高く評価した動画</string>
   <string name="revanced_change_start_page_entry_live">ライブ</string>
-  <string name="revanced_change_start_page_entry_movies">映画</string>
+  <string name="revanced_change_start_page_entry_movies">ムービー＆TV</string>
   <string name="revanced_change_start_page_entry_music">音楽</string>
   <string name="revanced_change_start_page_entry_news">ニュース</string>
   <string name="revanced_change_start_page_entry_notifications">通知</string>
@@ -1177,7 +1177,7 @@ Automotive レイアウト
 ミニプレーヤーを画面の左または右端で最小化できます"</string>
   <string name="revanced_miniplayer_horizontal_drag_summary_off">横方向ドラッグ ジェスチャーは無効です</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_title">オーバーレイ ボタンを非表示</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">オーバーレイ ボタンは非表示</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">オーバーレイ ボタンは表示されません</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">オーバーレイ ボタンは表示されます</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_legacy_title">拡大ボタンと閉じるボタンを非表示</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_on">"ボタンは表示されません

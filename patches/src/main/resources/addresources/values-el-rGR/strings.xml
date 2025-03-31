@@ -1183,7 +1183,7 @@ Second \"item\" text"</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_on">"Τα κουμπιά δεν εμφανίζονται
 
 Σύρετε για να αναπτύξετε ή να κλείσετε"</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_off">Τα κουμπιά εμφανίζονται</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_off">Εμφανίζονται</string>
   <string name="revanced_miniplayer_hide_subtext_title">Κείμενα οθόνης αναπαραγωγής</string>
   <string name="revanced_miniplayer_hide_subtext_summary_on">Κρυμμένα</string>
   <string name="revanced_miniplayer_hide_subtext_summary_off">Εμφανίζονται</string>

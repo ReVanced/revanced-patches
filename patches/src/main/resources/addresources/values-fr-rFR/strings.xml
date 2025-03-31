@@ -1174,13 +1174,13 @@ Le lecteur réduit peut être déplacé vers n'importe quel coin de l'écran"</s
 
 Le lecteur réduit peut être déplacé hors de l'écran, à gauche comme à droite"</string>
   <string name="revanced_miniplayer_horizontal_drag_summary_off">Geste de déplacement horizontal désactivé</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_title">Masquer les boutons de superposition</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">Les boutons de superposition sont masqués</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">Les boutons de superposition sont affichés</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_title">Masquer les boutons en superposition</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">Les boutons en superposition sont masqués</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">Les boutons en superposition sont affichés</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_legacy_title">Masquer les boutons Agrandir et Fermer</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_on">"Les boutons sont masqués
 
-Balayez pour développer ou fermer"</string>
+Balayez pour agrandir ou fermer"</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_off">Les boutons Agrandir et Fermer sont affichés</string>
   <string name="revanced_miniplayer_hide_subtext_title">Masquer les sous-textes</string>
   <string name="revanced_miniplayer_hide_subtext_summary_on">Les sous-textes sont masqués</string>
