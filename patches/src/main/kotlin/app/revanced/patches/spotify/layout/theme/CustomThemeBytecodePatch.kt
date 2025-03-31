@@ -1,7 +1,7 @@
 package app.revanced.patches.spotify.layout.theme
 
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
+import app.revanced.patcher.extensions.InstructionExtensions.replaceInstructions
 import app.revanced.patcher.fingerprint
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
@@ -25,8 +25,8 @@ internal val customThemeByteCodePatch = bytecodePatch {
             val index = indexOfFirstLiteralInstructionOrThrow(literal)
             val register = getInstruction<OneRegisterInstruction>(index).registerA
 
-            addInstructions(
-                index + 1,
+            replaceInstructions(
+                index,
                 """
                     const-string v$register, "$colorString"
                     invoke-static { v$register }, $EXTENSION_CLASS_DESCRIPTOR->getColorLong(Ljava/lang/String;)J
