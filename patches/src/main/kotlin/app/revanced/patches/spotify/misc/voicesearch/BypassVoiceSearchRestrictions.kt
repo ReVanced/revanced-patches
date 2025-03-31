@@ -6,7 +6,6 @@ import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.spotify.misc.extension.sharedExtensionPatch
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
-import com.android.tools.smali.dexlib2.builder.instruction.BuilderInstruction35c
 
 private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/spotify/misc/UnlockPremiumPatch;"
 
@@ -23,8 +22,8 @@ val bypassVoiceSearchRestrictions = bytecodePatch(
 
         contextFromJsonFingerprint.method.apply {
             val insertIndex = contextFromJsonFingerprint.patternMatch!!.startIndex
-            val registerUrl = getInstruction<OneRegisterInstruction>(insertIndex).registerA;
-            val registerUri = getInstruction<TwoRegisterInstruction>(insertIndex + 2).registerB;
+            val registerUrl = getInstruction<OneRegisterInstruction>(insertIndex).registerA
+            val registerUri = getInstruction<TwoRegisterInstruction>(insertIndex + 2).registerB
 
             addInstructions(
                 insertIndex,
