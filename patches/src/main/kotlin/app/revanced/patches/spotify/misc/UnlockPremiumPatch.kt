@@ -71,7 +71,7 @@ val unlockPremiumPatch = bytecodePatch(
             )
         }
 
-        // Removed forced shuffle when asking for an album/playlist via Voice assistant.
+        // Disable forced shuffle when asking for an album/playlist via Voice assistant.
         readPlayerOptionOverridesFingerprint.method.apply {
             val shufflingContextCallIndex = indexOfFirstInstructionOrThrow {
                 getReference<MethodReference>()?.name == "shufflingContext"
