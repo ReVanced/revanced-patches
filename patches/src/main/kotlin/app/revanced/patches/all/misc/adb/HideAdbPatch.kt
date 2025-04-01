@@ -34,7 +34,7 @@ val hideAdbStatusPatch = bytecodePatch(
                 Triple(instruction as Instruction35c, instructionIndex, reference.parameterTypes)
             },
             transform = { method, entry ->
-                val (instruction, idx, parameterTypes) = entry
+                val (instruction, index, parameterTypes) = entry
                 val parameterString = parameterTypes.joinToString(separator = "")
 
                 val registerString = when (parameterTypes.size) {
@@ -43,7 +43,7 @@ val hideAdbStatusPatch = bytecodePatch(
                 }
 
                 method.replaceInstruction(
-                    idx,
+                    index,
                     "invoke-static { $registerString }, $EXTENSION_CLASS_DESCRIPTOR->getInt($parameterString)I"
                 )
             }
