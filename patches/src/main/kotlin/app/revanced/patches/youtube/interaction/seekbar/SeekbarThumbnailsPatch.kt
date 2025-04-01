@@ -19,7 +19,6 @@ private const val EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/youtube/patches/SeekbarThumbnailsPatch;"
 
 val seekbarThumbnailsPatch = bytecodePatch(
-    name = "Seekbar thumbnails",
     description = "Adds an option to use high quality fullscreen seekbar thumbnails. " +
             "Patching 19.16.39 adds an option to restore old seekbar thumbnails.",
 ) {
@@ -29,22 +28,11 @@ val seekbarThumbnailsPatch = bytecodePatch(
         versionCheckPatch,
     )
 
-    compatibleWith(
-        "com.google.android.youtube"(
-            "19.16.39",
-            "19.25.37",
-            "19.34.42",
-            "19.43.41",
-            "19.47.53",
-            "20.07.39",
-        )
-    )
-
     execute {
         if (is_20_09_or_greater) {
-            // TODO: merge this and other seekbar patches together.
-            return@execute Logger.getLogger(this::class.java.name)
-                .warning("Seekbar thumbnails patch is not compatible with 20.09+")
+            // High quality seekbar thumbnails is partially broken in 20.09
+            // and the code is completely removed in 20.10+
+            return@execute
         }
 
         addResources("youtube", "layout.seekbar.seekbarThumbnailsPatch")

@@ -18,24 +18,12 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/youtube/patches/SeekbarTappingPatch;"
 
 val enableSeekbarTappingPatch = bytecodePatch(
-    name = "Enable tap to seek",
     description = "Adds an option to enable tap to seek on the seekbar of the video player.",
 ) {
     dependsOn(
         sharedExtensionPatch,
         settingsPatch,
         addResourcesPatch,
-    )
-
-    compatibleWith(
-        "com.google.android.youtube"(
-            "19.16.39",
-            "19.25.37",
-            "19.34.42",
-            "19.43.41",
-            "19.47.53",
-            "20.07.39",
-        ),
     )
 
     execute {
