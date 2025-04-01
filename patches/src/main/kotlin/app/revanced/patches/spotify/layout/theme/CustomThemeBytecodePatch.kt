@@ -5,17 +5,18 @@ import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.fingerprint
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
-import app.revanced.patches.spotify.misc.extension.sharedExtensionPatch
+import app.revanced.patches.shared.misc.extension.sharedExtensionPatch
+import app.revanced.patches.spotify.misc.extension.spotifyMainActivityOnCreate
 import app.revanced.util.*
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 
-private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/spotify/layout/theme/CustomThemePatch;"
+private const val UTILS_EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/shared/Utils;"
 
 internal val customThemeByteCodePatch = bytecodePatch {
-    dependsOn(sharedExtensionPatch)
+    dependsOn(sharedExtensionPatch(spotifyMainActivityOnCreate))
 
     val backgroundColor by spotifyBackgroundColor
     val backgroundColorSecondary by spotifyBackgroundColorSecondary
@@ -29,7 +30,7 @@ internal val customThemeByteCodePatch = bytecodePatch {
                 index + 1,
                 """
                     const-string v$register, "$colorString"
-                    invoke-static { v$register }, $EXTENSION_CLASS_DESCRIPTOR->getColorLong(Ljava/lang/String;)J
+                    invoke-static { v$register }, $UTILS_EXTENSION_CLASS_DESCRIPTOR->getColorLong(Ljava/lang/String;)J
                     move-result-wide v$register
                 """
             )

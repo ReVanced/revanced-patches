@@ -1,7 +1,6 @@
 package app.revanced.extension.youtube;
 
 import android.app.Activity;
-import android.graphics.Color;
 
 import androidx.annotation.Nullable;
 
@@ -51,7 +50,7 @@ public class ThemeHelper {
      */
     public static int getDarkThemeColor() {
         if (darkThemeColor == null) {
-            darkThemeColor = getColorInt(darkThemeResourceName());
+            darkThemeColor = Utils.getColorInt(darkThemeResourceName());
         }
         return darkThemeColor;
     }
@@ -71,16 +70,9 @@ public class ThemeHelper {
      */
     public static int getLightThemeColor() {
         if (lightThemeColor == null) {
-            lightThemeColor = getColorInt(lightThemeResourceName());
+            lightThemeColor = Utils.getColorInt(lightThemeResourceName());
         }
         return lightThemeColor;
-    }
-
-    private static int getColorInt(String colorString) {
-        if (colorString.startsWith("#")) {
-            return Color.parseColor(colorString);
-        }
-        return Utils.getResourceColor(colorString);
     }
 
     public static int getBackgroundColor() {
@@ -96,6 +88,6 @@ public class ThemeHelper {
                 ? "yt_black3"
                 : "yt_white1";
 
-        return getColorInt(colorName);
+        return Utils.getColorInt(colorName);
     }
 }
