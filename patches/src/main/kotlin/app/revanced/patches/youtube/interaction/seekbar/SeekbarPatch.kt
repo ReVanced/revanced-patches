@@ -5,14 +5,16 @@ import app.revanced.patcher.patch.bytecodePatch
 @Suppress("unused")
 val seekbarPatch = bytecodePatch(
     name = "Seekbar",
-    description = "Adds an option to disable precise seeking when swiping up on the seekbar, " +
-            "an option to slide to seek instead of playing at 2x speed when pressing and holding, " +
-            "and an option to tap the player seekbar to seek."
+    description = "Adds options to disable precise seeking when swiping up on the seekbar, " +
+            "slide to seek instead of playing at 2x speed when pressing and holding, " +
+            "tapping the player seekbar to seek, " +
+            "and hiding the video player seekbar."
 ) {
     dependsOn(
         disablePreciseSeekingGesturePatch,
         enableSlideToSeekPatch,
         enableSeekbarTappingPatch,
+        hideSeekbarPatch,
         seekbarThumbnailsPatch
     )
 

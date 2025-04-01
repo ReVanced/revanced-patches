@@ -1096,7 +1096,11 @@ public final class app/revanced/patches/youtube/interaction/seekbar/EnableSlideT
 	public static final fun getEnableSlideToSeekPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/youtube/interaction/seekbar/SeekbarKt {
+public final class app/revanced/patches/youtube/interaction/seekbar/HideSeekbarPatchKt {
+	public static final fun getHideSeekbarPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
+public final class app/revanced/patches/youtube/interaction/seekbar/SeekbarPatchKt {
 	public static final fun getSeekbarPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
