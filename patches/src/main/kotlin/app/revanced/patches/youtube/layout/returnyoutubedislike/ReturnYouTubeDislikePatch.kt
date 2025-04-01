@@ -179,9 +179,6 @@ val returnYouTubeDislikePatch = bytecodePatch(
 
         // region Hook rolling numbers.
 
-        // Do this last to allow patching old unsupported versions (if the user really wants),
-        // On older unsupported version this will fail to match and throw an exception,
-        // but everything will still work correctly anyway.
         val dislikesIndex = rollingNumberSetterFingerprint.patternMatch!!.endIndex
 
         rollingNumberSetterFingerprint.method.apply {
