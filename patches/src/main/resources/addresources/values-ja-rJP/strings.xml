@@ -448,7 +448,7 @@ MicroG GmsCore に対する電池の最適化を無効にしても、バッテ�
 画面右側を縦にスワイプして音量を調節します"</string>
   <string name="revanced_swipe_volume_summary_off">全画面表示中の音量ジェスチャーは無効です</string>
   <string name="revanced_swipe_press_to_engage_title">長押しスワイプを有効にする</string>
-  <string name="revanced_swipe_press_to_engage_summary_on">全画面表示中、長押し後に画面を縦にスワイプして明るさや音量を調節します</string>
+  <string name="revanced_swipe_press_to_engage_summary_on">全画面表示中、画面を長押ししてから縦にスワイプして明るさや音量を調節します</string>
   <string name="revanced_swipe_press_to_engage_summary_off">全画面表示中、画面を縦にスワイプして明るさや音量を調節します</string>
   <string name="revanced_swipe_haptic_feedback_title">触覚フィードバックを有効にする</string>
   <string name="revanced_swipe_haptic_feedback_summary_on">触覚フィードバックは有効です</string>
@@ -889,10 +889,10 @@ MicroG GmsCore に対する電池の最適化を無効にしても、バッテ�
   <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_on">スキップボタンは数秒後に非表示になります</string>
   <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_off">セグメント全体に「スキップ」ボタンが表示されます</string>
   <string name="revanced_sb_general_skiptoast">スキップ時にトーストを表示</string>
-  <string name="revanced_sb_general_skiptoast_sum_on">セグメントが自動的にスキップされたときにトースト ポップアップが表示されます。例を見るにはここをタップしてください</string>
+  <string name="revanced_sb_general_skiptoast_sum_on">セグメントが自動的にスキップされたときにトースト ポップアップが表示されます。ここをタップすると、サンプルが表示されます</string>
   <string name="revanced_sb_general_skiptoast_sum_off">トースト ポップアップは表示されません。例を見るにはここをタップしてください</string>
   <string name="revanced_sb_general_time_without">セグメントを除いた再生時間を表示</string>
-  <string name="revanced_sb_general_time_without_sum_on">動画全体からセグメントを除いた再生時間が、動画全体の再生時間の横に括弧付きで表示されます</string>
+  <string name="revanced_sb_general_time_without_sum_on">セグメントを除いた再生時間が、動画全体の再生時間の横に括弧付きで表示されます</string>
   <string name="revanced_sb_general_time_without_sum_off">動画全体の再生時間のみが表示されます</string>
   <string name="revanced_sb_create_segment_category">新しいセグメントを作成する</string>
   <string name="revanced_sb_enable_create_segment">新しいセグメント作成ボタンを表示</string>
@@ -943,8 +943,8 @@ MicroG GmsCore に対する電池の最適化を無効にしても、バッテ�
   <string name="revanced_sb_segments_selfpromo_sum">スポンサーと同様に、無給または自己宣伝の場合。商品、寄付、またはコラボレーション相手に関する情報を記載したセクションが含まれます</string>
   <string name="revanced_sb_segments_interaction">インタラクション リマインダー (チャンネル登録)</string>
   <string name="revanced_sb_segments_interaction_sum">コンテンツの途中で、購読したりフォローしたりするための短いリマインダーです。 それが長いまたは特定の何かについてである場合、それは代わりに自己宣伝の下にあるべきである。</string>
-  <string name="revanced_sb_segments_highlight">強調表示</string>
-  <string name="revanced_sb_segments_highlight_sum">動画の中で多くの人々が見たい部分</string>
+  <string name="revanced_sb_segments_highlight">ハイライト</string>
+  <string name="revanced_sb_segments_highlight_sum">動画の中で最も興味を引く場面</string>
   <string name="revanced_sb_segments_intro">休憩/イントロ アニメーション</string>
   <string name="revanced_sb_segments_intro_sum">実際のコンテンツを含まない間隔。一時停止、固定フレーム、繰り返しアニメーションを使用できます。情報を含むトランジションは含まれません。</string>
   <string name="revanced_sb_segments_outro">エンドカード/クレジット</string>
@@ -953,14 +953,14 @@ MicroG GmsCore に対する電池の最適化を無効にしても、バッテ�
   <string name="revanced_sb_segments_preview_sum">ビデオやシリーズの他のビデオで何が起こったのかを示すクリップのコレクション 全ての情報が他の場所で繰り返されます</string>
   <string name="revanced_sb_segments_filler">無駄な脱線/冗談</string>
   <string name="revanced_sb_segments_filler_sum">Tangential シーンは、ビデオの主な内容を理解する必要がないフィラーやユーモアにのみ追加されました。 コンテキストや背景の詳細を提供するセグメントが含まれていません</string>
-  <string name="revanced_sb_segments_nomusic">音楽: 音楽ではない区間</string>
-  <string name="revanced_sb_segments_nomusic_sum">ミュージックビデオでのみ使用できます。音楽がないミュージックビデオのセクションでは、別のカテゴリでカバーされていません。</string>
+  <string name="revanced_sb_segments_nomusic">音楽: 楽曲以外の区間</string>
+  <string name="revanced_sb_segments_nomusic_sum">ミュージックビデオ専用。ミュージックビデオの中の楽曲以外の区間、公式の音源やミュージックビデオに含まれていない区間</string>
   <string name="revanced_sb_skip_button_compact">スキップ</string>
-  <string name="revanced_sb_skip_button_compact_highlight">強調表示</string>
+  <string name="revanced_sb_skip_button_compact_highlight">ハイライト</string>
   <string name="revanced_sb_skip_button_sponsor">スポンサーをスキップ</string>
   <string name="revanced_sb_skip_button_selfpromo">プロモーションをスキップ</string>
   <string name="revanced_sb_skip_button_interaction">対話をスキップ</string>
-  <string name="revanced_sb_skip_button_highlight">スキップ</string>
+  <string name="revanced_sb_skip_button_highlight">ハイライトまでスキップ</string>
   <string name="revanced_sb_skip_button_intro_beginning">イントロをスキップ</string>
   <string name="revanced_sb_skip_button_intro_middle">間隔をスキップ</string>
   <string name="revanced_sb_skip_button_intro_end">間隔をスキップ</string>
@@ -969,12 +969,12 @@ MicroG GmsCore に対する電池の最適化を無効にしても、バッテ�
   <string name="revanced_sb_skip_button_preview_middle">プレビューをスキップ</string>
   <string name="revanced_sb_skip_button_preview_end">要約をスキップ</string>
   <string name="revanced_sb_skip_button_filler">フィラーをスキップ</string>
-  <string name="revanced_sb_skip_button_nomusic">音楽以外をスキップ</string>
+  <string name="revanced_sb_skip_button_nomusic">楽曲以外をスキップ</string>
   <string name="revanced_sb_skip_button_unsubmitted">セグメントをスキップ</string>
   <string name="revanced_sb_skipped_sponsor">スキップしたスポンサー</string>
   <string name="revanced_sb_skipped_selfpromo">スキップしたセルフプロモーション</string>
   <string name="revanced_sb_skipped_interaction">スキップした迷惑なリマインダー</string>
-  <string name="revanced_sb_skipped_highlight">ハイライト表示にスキップ</string>
+  <string name="revanced_sb_skipped_highlight">ハイライトまでスキップしました</string>
   <string name="revanced_sb_skipped_intro_beginning">スキップしたイントロ</string>
   <string name="revanced_sb_skipped_intro_middle">スキップされた休憩時間</string>
   <string name="revanced_sb_skipped_intro_end">スキップされた休憩時間</string>
@@ -983,7 +983,7 @@ MicroG GmsCore に対する電池の最適化を無効にしても、バッテ�
   <string name="revanced_sb_skipped_preview_middle">スキップしたプレビュー</string>
   <string name="revanced_sb_skipped_preview_end">スキップされた要約</string>
   <string name="revanced_sb_skipped_filler">つなぎシーンをスキップしました</string>
-  <string name="revanced_sb_skipped_nomusic">スキップした無音</string>
+  <string name="revanced_sb_skipped_nomusic">楽曲以外の区間をスキップしました</string>
   <string name="revanced_sb_skipped_unsubmitted">未送信のセグメントをスキップしました</string>
   <string name="revanced_sb_skipped_multiple_segments">複数のセグメントをスキップ</string>
   <string name="revanced_sb_skip_automatically">自動的にスキップ</string>
@@ -1100,11 +1100,11 @@ Automotive レイアウト
   <string name="revanced_spoof_app_version_target_entry_2">19.01.34 - ナビゲーション アイコンが旧バージョン</string>
   </patch>
   <patch id="layout.startpage.changeStartPagePatch">
-  <string name="revanced_change_start_page_title">起動画面</string>
+  <string name="revanced_change_start_page_title">スタート画面</string>
   <string name="revanced_change_start_page_entry_default">デフォルト</string>
   <string name="revanced_change_start_page_entry_all_subscriptions">すべての登録チャンネル</string>
   <string name="revanced_change_start_page_entry_browse">チャンネル一覧</string>
-  <string name="revanced_change_start_page_entry_courses">コース / 学び</string>
+  <string name="revanced_change_start_page_entry_courses">学び</string>
   <string name="revanced_change_start_page_entry_explore">探索</string>
   <string name="revanced_change_start_page_entry_fashion">ファッションと美容</string>
   <string name="revanced_change_start_page_entry_gaming">ゲーム</string>
@@ -1112,7 +1112,7 @@ Automotive レイアウト
   <string name="revanced_change_start_page_entry_library">マイページ</string>
   <string name="revanced_change_start_page_entry_liked_videos">高く評価した動画</string>
   <string name="revanced_change_start_page_entry_live">ライブ</string>
-  <string name="revanced_change_start_page_entry_movies">ムービー＆TV</string>
+  <string name="revanced_change_start_page_entry_movies">映画とテレビ</string>
   <string name="revanced_change_start_page_entry_music">音楽</string>
   <string name="revanced_change_start_page_entry_news">ニュース</string>
   <string name="revanced_change_start_page_entry_notifications">通知</string>
@@ -1385,8 +1385,8 @@ DeArrow の詳細については、ここをタップしてください"</string
 
 AVC の最大解像度は 1080p であり、Opus オーディオ コーデックは使用できず、動画の再生時に VP9 や AV1 より多くの通信量を使用します。"</string>
   <string name="revanced_spoof_video_streams_about_ios_tv_title">iOS クライアントの副作用</string>
-  <string name="revanced_spoof_video_streams_about_ios_tv_summary">"• 映画や有料動画が再生されない場合があります
-• 一定音量は使用できません
+  <string name="revanced_spoof_video_streams_about_ios_tv_summary">"• 映画や有料動画が再生されない可能性があります
+• 一定音量は利用できません
 • 動画が 1 秒早く終了します"</string>
   <string name="revanced_spoof_video_streams_about_android_title">Android クライアントの副作用</string>
   <string name="revanced_spoof_video_streams_about_android_summary">"• 音声トラック メニューが表示されません
