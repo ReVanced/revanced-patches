@@ -14,7 +14,7 @@ private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/spotify/
 
 @Suppress("unused")
 val bypassVoiceSearchRestrictions = bytecodePatch(
-    name = "Bypass Voice Search Restrictions",
+    name = "Remove voice search restrictions",
     description = "Enable playing the requested song/artist when asking it via Voice Search (Google Assistant and similar), rather it's station/radio",
 ) {
     compatibleWith("com.spotify.music")
