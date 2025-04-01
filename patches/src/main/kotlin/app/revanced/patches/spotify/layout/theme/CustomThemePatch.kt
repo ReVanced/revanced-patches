@@ -6,7 +6,7 @@ import org.w3c.dom.Element
 @Suppress("unused")
 val customThemePatch = resourcePatch(
     name = "Custom theme",
-    description = "Applies a custom theme.",
+    description = "Applies a custom theme (defaults to amoled black).",
     use = false,
 ) {
     compatibleWith("com.spotify.music")
