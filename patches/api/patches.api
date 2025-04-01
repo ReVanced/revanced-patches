@@ -828,10 +828,6 @@ public final class app/revanced/patches/spotify/misc/fix/SpoofSignaturePatchKt {
 	public static final fun getSpoofSignaturePatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/spotify/misc/voicesearch/BypassVoiceSearchRestrictionsKt {
-	public static final fun getBypassVoiceSearchRestrictions ()Lapp/revanced/patcher/patch/BytecodePatch;
-}
-
 public final class app/revanced/patches/spotify/navbar/PremiumNavbarTabPatchKt {
 	public static final fun getPremiumNavbarTabPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }

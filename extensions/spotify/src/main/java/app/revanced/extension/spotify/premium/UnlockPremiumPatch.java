@@ -88,4 +88,8 @@ public final class UnlockPremiumPatch {
             Logger.printException(() -> "overrideAttribute failure", ex);
         }
     }
+
+    public static String removeStationString(String s) {
+        return s.replace("spotify:station:", "spotify:");
+    }
 }
