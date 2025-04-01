@@ -44,7 +44,7 @@ val hideAdbStatusPatch = bytecodePatch(
 
                 method.replaceInstruction(
                     idx,
-                    "invoke-static {$registerString}, $EXTENSION_CLASS_DESCRIPTOR->getInt($parameterString)I"
+                    "invoke-static { $registerString }, $EXTENSION_CLASS_DESCRIPTOR->getInt($parameterString)I"
                 )
             }
         )
