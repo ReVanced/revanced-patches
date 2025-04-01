@@ -15,3 +15,9 @@ internal val contextFromJsonFingerprint = fingerprint {
         classDef.endsWith("voiceassistants/playermodels/ContextJsonAdapter;") && methodDef.name == "fromJson"
     }
 }
+
+internal val readPlayerOptionOverridesFingerprint = fingerprint {
+    custom { methodDef, classDef ->
+        classDef.endsWith("voiceassistants/playermodels/PreparePlayOptionsJsonAdapter;") && methodDef.name == "readPlayerOptionOverrides"
+    }
+}
