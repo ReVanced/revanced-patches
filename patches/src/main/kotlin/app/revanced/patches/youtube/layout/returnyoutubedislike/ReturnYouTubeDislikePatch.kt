@@ -119,7 +119,6 @@ val returnYouTubeDislikePatch = bytecodePatch(
             val textDataClassType = textComponentDataFingerprint.originalClassDef.type
 
             val insertIndex: Int
-            val tempRegister: Int
             val charSequenceRegister: Int
 
             if (is_19_33_or_greater && !is_20_10_or_greater) {
@@ -134,16 +133,11 @@ val returnYouTubeDislikePatch = bytecodePatch(
                 }
 
                 charSequenceRegister = getInstruction<FiveRegisterInstruction>(insertIndex).registerD
-
-                val tempRegisterIndex = indexOfFirstInstructionOrThrow(insertIndex, Opcode.IGET_OBJECT)
-                tempRegister = getInstruction<TwoRegisterInstruction>(tempRegisterIndex).registerA
             } else {
                 insertIndex = indexOfFirstInstructionOrThrow {
                     opcode == Opcode.NEW_INSTANCE &&
                         getReference<TypeReference>()?.type == textDataClassType
                 }
-
-                tempRegister = getInstruction<OneRegisterInstruction>(insertIndex).registerA
 
                 val charSequenceIndex = indexOfFirstInstructionOrThrow(insertIndex) {
                     opcode == Opcode.IPUT_OBJECT &&
@@ -151,6 +145,8 @@ val returnYouTubeDislikePatch = bytecodePatch(
                 }
                 charSequenceRegister = getInstruction<TwoRegisterInstruction>(charSequenceIndex).registerA
             }
+
+            val tempRegister = findFreeRegister(insertIndex, charSequenceRegister)
 
             addInstructionsAtControlFlowLabel(
                 insertIndex,

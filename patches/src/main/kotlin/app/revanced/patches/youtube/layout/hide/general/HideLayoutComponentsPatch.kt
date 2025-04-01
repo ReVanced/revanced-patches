@@ -244,7 +244,7 @@ val hideLayoutComponentsPatch = bytecodePatch(
                     move-object v$returnEmptyComponentRegister, p1   # Required for 19.47
                     goto :return_empty_component
                     :show
-                    const/4 v$freeRegister, 0x0   # Restore register, required for 19.16
+                    nop
                 """,
                 ExternalLabel("return_empty_component", returnEmptyComponentInstruction),
             )

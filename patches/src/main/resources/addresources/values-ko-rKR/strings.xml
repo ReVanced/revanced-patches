@@ -409,8 +409,8 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   </patch>
   <patch id="interaction.dialog.removeViewerDiscretionDialogPatch">
   <string name="revanced_remove_viewer_discretion_dialog_title">시청 경고 다이얼로그 제거하기</string>
-  <string name="revanced_remove_viewer_discretion_dialog_summary_on">다음 동영상을 시청하기 전에 표시되는 시청 경고 다이얼로그를 제거합니다:\n• 연령 제한 동영상\n• 혐오감을 주는 동영상\n• 자살 또는 자해와 관련된 동영상, etc.</string>
-  <string name="revanced_remove_viewer_discretion_dialog_summary_off">다음 동영상을 시청하기 전에 표시되는 시청 경고 다이얼로그를 제거하지 않습니다:\n• 연령 제한 동영상\n• 혐오감을 주는 동영상\n• 자살 또는 자해와 관련된 동영상, etc.</string>
+  <string name="revanced_remove_viewer_discretion_dialog_summary_on">다음 동영상을 시청하기 전에 표시되는 시청 경고 다이얼로그를 제거합니다:\n• 연령 제한 동영상\n• 자살 또는 자해와 관련된 동영상\n• 일부 사용자에게 부적절한 동영상, etc.</string>
+  <string name="revanced_remove_viewer_discretion_dialog_summary_off">다음 동영상을 시청하기 전에 표시되는 시청 경고 다이얼로그를 제거하지 않습니다:\n• 연령 제한 동영상\n• 자살 또는 자해와 관련된 동영상\n• 일부 사용자에게 부적절한 동영상, etc.</string>
   <string name="revanced_remove_viewer_discretion_dialog_user_dialog_message">이 설정은 다이얼로그를 자동으로 허용하기만 하며 연령 제한(성인인증 절차)을 우회할 수 없습니다</string>
   </patch>
   <patch id="interaction.downloads.downloadsResourcePatch">
