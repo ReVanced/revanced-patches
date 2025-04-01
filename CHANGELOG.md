@@ -1,3 +1,10 @@
+## [5.18.1-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.18.1-dev.1...v5.18.1-dev.2) (2025-04-01)
+
+
+### Bug Fixes
+
+* **YouTube:** Combine multiple seekbar patches into a single patch ([#4705](https://github.com/ReVanced/revanced-patches/issues/4705)) ([503b7eb](https://github.com/ReVanced/revanced-patches/commit/503b7eb8d413ef7f248394f128f3b2a6f3192ba6))
+
 ## [5.18.1-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.18.0...v5.18.1-dev.1) (2025-03-31)
 
 
