@@ -45,13 +45,24 @@ public class ThemeHelper {
         return "@color/yt_black3";
     }
 
+    private static int getThemeColor(String resourceName, int defaultColor) {
+        try {
+            return Utils.getColorFromString(resourceName);
+        } catch (Exception ex) {
+            // User entered an invalid custom theme color.
+            // Normally this should never be reached, and no localized strings are needed.
+            Utils.showToastLong("Invalid custom theme color: " + resourceName);
+            return defaultColor;
+        }
+    }
+
     /**
      * @return The dark theme color as specified by the Theme patch (if included),
      *         or the dark mode background color unpatched YT uses.
      */
     public static int getDarkThemeColor() {
         if (darkThemeColor == null) {
-            darkThemeColor = getColorInt(darkThemeResourceName());
+            darkThemeColor = getThemeColor(darkThemeResourceName(), Color.BLACK);
         }
         return darkThemeColor;
     }
@@ -71,16 +82,9 @@ public class ThemeHelper {
      */
     public static int getLightThemeColor() {
         if (lightThemeColor == null) {
-            lightThemeColor = getColorInt(lightThemeResourceName());
+            lightThemeColor = getThemeColor(lightThemeResourceName(), Color.WHITE);
         }
         return lightThemeColor;
-    }
-
-    private static int getColorInt(String colorString) {
-        if (colorString.startsWith("#")) {
-            return Color.parseColor(colorString);
-        }
-        return Utils.getResourceColor(colorString);
     }
 
     public static int getBackgroundColor() {
@@ -96,6 +100,6 @@ public class ThemeHelper {
                 ? "yt_black3"
                 : "yt_white1";
 
-        return getColorInt(colorName);
+        return Utils.getColorFromString(colorName);
     }
 }
