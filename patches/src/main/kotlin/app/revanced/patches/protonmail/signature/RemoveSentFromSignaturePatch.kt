@@ -1,7 +1,9 @@
 package app.revanced.patches.protonmail.signature
 
+import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.resourcePatch
-import app.revanced.util.findElementByAttributeValueOrThrow
+import app.revanced.util.findElementByAttributeValue
+import java.io.File
 
 @Suppress("unused")
 val removeSentFromSignaturePatch = resourcePatch(
@@ -11,50 +13,30 @@ val removeSentFromSignaturePatch = resourcePatch(
     compatibleWith("ch.protonmail.android")
 
     execute {
-        //TODO: If Proton Mail adds additional languages then those languages will be ignored.
-        // This could be improved by dynamically iterating through all directories in /res
-        val directories = listOf(
-            "res/values",
-            "res/values-b+es+419",
-            "res/values-be",
-            "res/values-ca",
-            "res/values-cs",
-            "res/values-da",
-            "res/values-de",
-            "res/values-el",
-            "res/values-es-rES",
-            "res/values-fr",
-            "res/values-hr",
-            "res/values-hu",
-            "res/values-in",
-            "res/values-it",
-            "res/values-ja",
-            "res/values-ka",
-            "res/values-kab",
-            "res/values-ko",
-            "res/values-nb-rNO",
-            "res/values-nl",
-            "res/values-pl",
-            "res/values-pt-rBR",
-            "res/values-pt-rPT",
-            "res/values-ro",
-            "res/values-ru",
-            "res/values-sk",
-            "res/values-sl",
-            "res/values-sv-rSE",
-            "res/values-tr",
-            "res/values-uk",
-            "res/values-zh-rCN",
-            "res/values-zh-rTW",
-        )
+        val stringResourceFiles = mutableListOf<File>()
 
-        directories.forEach { directory ->
-            document("$directory/strings.xml").use { document ->
-                document.documentElement.childNodes.findElementByAttributeValueOrThrow(
-                    "name",
-                    "mail_settings_identity_mobile_footer_default_free"
-                ).textContent = ""
+        get("res").walk().forEach { file ->
+            if (file.isFile && file.name.equals("strings.xml", ignoreCase = true)) {
+                stringResourceFiles.add(file)
             }
         }
+
+        var foundString = false
+        stringResourceFiles.forEach { filePath ->
+            document(filePath.absolutePath).use { document ->
+                var node = document.documentElement.childNodes.findElementByAttributeValue(
+                    "name",
+                    "mail_settings_identity_mobile_footer_default_free"
+                )
+
+                // String is not localized in all languages.
+                if (node != null) {
+                    node.textContent = ""
+                    foundString = true
+                }
+            }
+        }
+
+        if (!foundString) throw PatchException("Could not find 'sent from' string in resources")
     }
 }
