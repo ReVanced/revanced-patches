@@ -75,7 +75,7 @@ val unlockPremiumPatch = bytecodePatch(
                 reference?.type?.endsWith("homeapi/proto/Section;") ?: false
             }
 
-            val sectionClassName = getInstruction<OneRegisterInstruction>(sectionCastIndex).getReference<TypeReference>()?.type
+            val sectionClassName = getInstruction<OneRegisterInstruction>(sectionCastIndex).getReference<TypeReference>()!!.type
             val sectionRegister = getInstruction<OneRegisterInstruction>(sectionCastIndex).registerA
             val freeRegister = findFreeRegister(sectionCastIndex, sectionRegister)
 
