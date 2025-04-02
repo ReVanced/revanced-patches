@@ -11,7 +11,7 @@ val unlockPlusPatch = bytecodePatch(
 ) {
     dependsOn(signatureDetectionPatch, enableBookpointPatch)
 
-    compatibleWith("com.microblink.photomath"("8.37.0"))
+    compatibleWith("com.microblink.photomath")
 
     execute {
         isPlusUnlockedFingerprint.method.addInstructions(

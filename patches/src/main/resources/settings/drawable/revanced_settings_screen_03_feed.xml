@@ -1,0 +1,27 @@
+<!--
+   https://github.com/google/material-design-icons/blob/9beae745bb758f3ad56654fb377ea5cf62be4915/symbols/android/dynamic_feed/materialsymbolsoutlined/dynamic_feed_wght200_24px.xml
+
+Copyright 2022 Google
+
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+-->
+
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+        android:width="24dp"
+        android:height="24dp"
+        android:viewportWidth="24"
+        android:viewportHeight="24">
+    <path
+            android:fillColor="?ytTextPrimary"
+            android:pathData="M4.85,19.775Q4.15,19.775 3.688,19.312Q3.225,18.85 3.225,18.15V12.55H4.225V18.15Q4.225,18.375 4.425,18.575Q4.625,18.775 4.85,18.775H12.45V19.775ZM8.625,16Q7.925,16 7.463,15.537Q7,15.075 7,14.375V8.775H8V14.375Q8,14.625 8.188,14.812Q8.375,15 8.625,15H16.225V16ZM12.375,12.225Q11.7,12.225 11.238,11.762Q10.775,11.3 10.775,10.625V5.85Q10.775,5.15 11.238,4.687Q11.7,4.225 12.375,4.225H19.15Q19.85,4.225 20.312,4.687Q20.775,5.15 20.775,5.85V10.625Q20.775,11.3 20.312,11.762Q19.85,12.225 19.15,12.225ZM12.375,11.225H19.15Q19.375,11.225 19.575,11.037Q19.775,10.85 19.775,10.625V7.225H11.775V10.625Q11.775,10.85 11.963,11.037Q12.15,11.225 12.375,11.225Z"/>
+</vector>

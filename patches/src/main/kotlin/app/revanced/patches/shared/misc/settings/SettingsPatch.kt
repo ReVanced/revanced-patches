@@ -6,6 +6,8 @@ import app.revanced.patches.all.misc.resources.addResource
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.shared.misc.settings.preference.BasePreference
+import app.revanced.patches.shared.misc.settings.preference.PreferenceCategory
+import app.revanced.patches.shared.misc.settings.preference.PreferenceScreenPreference
 import app.revanced.util.ResourceGroup
 import app.revanced.util.copyResources
 import app.revanced.util.getNode
@@ -28,14 +30,14 @@ fun settingsPatch (
     execute {
         copyResources(
             "settings",
-            ResourceGroup("xml", "revanced_prefs.xml"),
+            ResourceGroup("xml", "revanced_prefs.xml", "revanced_prefs_icons.xml"),
         )
 
         addResources("shared", "misc.settings.settingsResourcePatch")
     }
 
     finalize {
-        fun Node.addPreference(preference: BasePreference, prepend: Boolean = false) {
+        fun Node.addPreference(preference: BasePreference) {
             preference.serialize(ownerDocument) { resource ->
                 // TODO: Currently, resources can only be added to "values", which may not be the correct place.
                 //  It may be necessary to ask for the desired resourceValue in the future.
@@ -53,7 +55,7 @@ fun settingsPatch (
                 val preferenceFileName = "res/xml/$fileName.xml"
                 if (get(preferenceFileName).exists()) {
                     document(preferenceFileName).use { document ->
-                        document.getNode("PreferenceScreen").addPreference(intent, true)
+                        document.getNode("PreferenceScreen").addPreference(intent)
                     }
                     modified = true
                 }
@@ -63,6 +65,29 @@ fun settingsPatch (
         }
 
         // Add all preferences to the ReVanced fragment.
+        document("res/xml/revanced_prefs_icons.xml").use { document ->
+            val revancedPreferenceScreenNode = document.getNode("PreferenceScreen")
+            preferences.forEach { revancedPreferenceScreenNode.addPreference(it) }
+        }
+
+        // Because the icon preferences require declaring a layout resource,
+        // there is no easy way to change to the Android default preference layout
+        // after the preference is inflated.
+        // Using two different preference files is the simplest and most robust solution.
+        fun removeIconsAndLayout(preferences: Collection<BasePreference>) {
+            preferences.forEach { preference ->
+                preference.icon = null
+                preference.layout = null
+
+                if (preference is PreferenceCategory) {
+                    removeIconsAndLayout(preference.preferences)
+                } else if (preference is PreferenceScreenPreference) {
+                    removeIconsAndLayout(preference.preferences)
+                }
+            }
+        }
+        removeIconsAndLayout(preferences)
+
         document("res/xml/revanced_prefs.xml").use { document ->
             val revancedPreferenceScreenNode = document.getNode("PreferenceScreen")
             preferences.forEach { revancedPreferenceScreenNode.addPreference(it) }
