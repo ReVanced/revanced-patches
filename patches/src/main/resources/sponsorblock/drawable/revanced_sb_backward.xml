@@ -1,7 +1,6 @@
 <!--
-   https://github.com/google/material-design-icons/blob/9beae745bb758f3ad56654fb377ea5cf62be4915/symbols/android/fast_forward/materialsymbolsoutlined/fast_forward_wght200gradN25_24px.xml
-   Changes made: The icon has been mirrored and resized
-
+   https://github.com/google/material-design-icons/blob/9beae745bb758f3ad56654fb377ea5cf62be4915/symbols/android/fast_rewind/materialsymbolsoutlined/fast_rewind_wght200_24px.xml
+   Changes made: Icon has been resized to 30dp.
 
 Copyright 2022 Google
 
@@ -19,12 +18,11 @@ Copyright 2022 Google
 -->
 
 <vector xmlns:android="http://schemas.android.com/apk/res/android"
-        android:tint="#FFFFFF"
-        android:width="24dp"
-        android:height="24dp"
-        android:viewportWidth="24"
-        android:viewportHeight="24">
+        android:width="30dp"
+        android:height="30dp"
+        android:viewportWidth="30"
+        android:viewportHeight="30">
     <path
             android:fillColor="@android:color/white"
-            android:pathData="M 22,17.799197 V 6.2 l -8.689607,5.799598 z m -11.310393,0 V 6.2 L 2,11.999598 Z m 10.114551,-5.799599 z m -11.3103926,0 z m 11.3103926,3.582383 -5.351233,-3.582383 5.351233,-3.582384 z m -11.3103926,0 -5.3512316,-3.582383 5.3512316,-3.582384 z"/>
+            android:pathData="M24.8789,20.7695 L16.2266,15 L24.8789,9.23047 Z M13.7734,20.7695 L5.12109,15 L13.7734,9.23047 Z M12.5234,15 Z M23.6289,15 Z M12.5234,18.4375 L12.5234,11.5625 L7.35938,15 Z M23.6289,18.4375 L23.6289,11.5625 L18.4648,15 Z M23.6289,18.4375"/>
 </vector>

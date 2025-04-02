@@ -86,7 +86,6 @@ public abstract class AbstractPreferenceFragment extends PreferenceFragment {
         }
     };
 
-
     /**
      * Initialize this instance, and do any custom behavior.
      * <p>
@@ -95,7 +94,10 @@ public abstract class AbstractPreferenceFragment extends PreferenceFragment {
      * so all app specific {@link Setting} instances are loaded before this method returns.
      */
     protected void initialize() {
-        final var identifier = Utils.getResourceIdentifier("revanced_prefs", "xml");
+        String preferenceResourceName = BaseSettings.SHOW_MENU_ICONS.get()
+                ? "revanced_prefs_icons"
+                : "revanced_prefs";
+        final var identifier = Utils.getResourceIdentifier(preferenceResourceName, "xml");
         if (identifier == 0) return;
         addPreferencesFromResource(identifier);
 
