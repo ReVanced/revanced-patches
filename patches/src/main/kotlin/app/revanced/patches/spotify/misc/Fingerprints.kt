@@ -21,3 +21,11 @@ internal val contextMenuExperimentsFingerprint = fingerprint {
     parameters("L")
     strings("remove_ads_upsell_enabled")
 }
+
+internal val homeSectionFingerprint = fingerprint {
+    custom { _, c -> c.endsWith("homeapi/proto/Section;") }
+}
+
+internal val mapHomeSectionFingerprint = fingerprint {
+    strings("ResolvedHome is null")
+}
