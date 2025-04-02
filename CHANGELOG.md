@@ -1,3 +1,10 @@
+# [5.19.0-dev.3](https://github.com/ReVanced/revanced-patches/compare/v5.19.0-dev.2...v5.19.0-dev.3) (2025-04-02)
+
+
+### Features
+
+* **Proton Mail:** Add `Remove 'Sent from' signature` patch ([#4514](https://github.com/ReVanced/revanced-patches/issues/4514)) ([34c14c9](https://github.com/ReVanced/revanced-patches/commit/34c14c9b443092824d035afd77adb678c6f89e3e))
+
 # [5.19.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.19.0-dev.1...v5.19.0-dev.2) (2025-04-02)
 
 
