@@ -96,7 +96,7 @@ val unlockPremiumPatch = bytecodePatch(
             addInstructionsWithLabels(
                 sectionCastIndex + 1,
                 """
-                    # Continue to mapping next section if the current section needs to be removed
+                    # Continue to mapping next section if the current section needs to be removed.
 
                     invoke-static { v$sectionRegister }, $EXTENSION_CLASS_DESCRIPTOR->isRemovedHomeSection($sectionClassName)Z
                     move-result v$freeRegister
