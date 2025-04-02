@@ -1,3 +1,10 @@
+# [5.19.0-dev.5](https://github.com/ReVanced/revanced-patches/compare/v5.19.0-dev.4...v5.19.0-dev.5) (2025-04-02)
+
+
+### Bug Fixes
+
+* **Spotify - Custom theme:** Override more color resources ([#4690](https://github.com/ReVanced/revanced-patches/issues/4690)) ([d7a7a0b](https://github.com/ReVanced/revanced-patches/commit/d7a7a0b982dbafa181b04f984a5f7618fb067c2a))
+
 # [5.19.0-dev.4](https://github.com/ReVanced/revanced-patches/compare/v5.19.0-dev.3...v5.19.0-dev.4) (2025-04-02)
 
 
