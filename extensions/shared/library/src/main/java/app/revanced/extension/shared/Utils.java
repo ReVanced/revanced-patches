@@ -804,22 +804,10 @@ public class Utils {
     /**
      * Parse a color resource or hex code to an int representation of the color.
      */
-    public static int getColorInt(String colorString) {
-        try {
-            if (colorString.startsWith("#")) {
-                return Color.parseColor(colorString);
-            }
-            return getResourceColor(colorString);
-        } catch (Exception ex) {
-            Logger.printException(() -> "Invalid custom color: " + colorString, ex);
-            return Color.BLACK;
+    public static int getColorFromString(String colorString) throws IllegalArgumentException, Resources.NotFoundException {
+        if (colorString.startsWith("#")) {
+            return Color.parseColor(colorString);
         }
-    }
-
-    /**
-     * Parse a color resource or hex code to a long representation of the color.
-     */
-    public static long getColorLong(String colorString) {
-        return getColorInt(colorString);
+        return getResourceColor(colorString);
     }
 }
