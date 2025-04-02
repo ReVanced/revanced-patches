@@ -1,3 +1,10 @@
+# [5.19.0-dev.4](https://github.com/ReVanced/revanced-patches/compare/v5.19.0-dev.3...v5.19.0-dev.4) (2025-04-02)
+
+
+### Bug Fixes
+
+* **YouTube - Seekbar:** Correctly hide the feed seekbar with target 20.07 ([ddc6e4c](https://github.com/ReVanced/revanced-patches/commit/ddc6e4c34fe35fa34bd859bf34e25645a23dbdc9))
+
 # [5.19.0-dev.3](https://github.com/ReVanced/revanced-patches/compare/v5.19.0-dev.2...v5.19.0-dev.3) (2025-04-02)
 
 
