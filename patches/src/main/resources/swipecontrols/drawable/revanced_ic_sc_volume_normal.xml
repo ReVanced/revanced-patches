@@ -21,8 +21,7 @@ Copyright 2022 Google
         android:width="24dp"
         android:height="24dp"
         android:viewportWidth="24"
-        android:viewportHeight="24"
-        android:tint="?attr/colorControlNormal">
+        android:viewportHeight="24">
     <path
             android:fillColor="@android:color/white"
             android:pathData="M3.8,14.5 L3.8,9.5 L7.5,9.5 L11.8,5.2 L11.8,18.8 L7.5,14.5 Z M14.175,15.65 L14.175,8.3 Q15.15,8.825,15.725,9.825 Q16.3,10.825,16.3,12 Q16.3,13.175,15.725,14.15 Q15.15,15.125,14.175,15.65 Z M10.3,8.85 L8.15,11 L5.3,11 L5.3,13 L8.15,13 L10.3,15.15 Z M7.8,12 Z"/>

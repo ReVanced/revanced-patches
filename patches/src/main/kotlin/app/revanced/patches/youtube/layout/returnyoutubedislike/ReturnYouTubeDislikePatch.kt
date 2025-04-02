@@ -70,6 +70,8 @@ val returnYouTubeDislikePatch = bytecodePatch(
                 key = "revanced_settings_screen_09",
                 titleKey = "revanced_ryd_settings_title",
                 summaryKey = null,
+                icon = "@drawable/revanced_settings_screen_09_ryd",
+                layout = "@layout/preference_with_icon",
                 intent = newIntent("revanced_ryd_settings_intent"),
             ),
         )
