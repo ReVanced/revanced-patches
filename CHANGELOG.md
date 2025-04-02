@@ -1,3 +1,10 @@
+# [5.19.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.19.0-dev.1...v5.19.0-dev.2) (2025-04-02)
+
+
+### Features
+
+* **YouTube - Settings:** Add icons to the ReVanced settings ([#4496](https://github.com/ReVanced/revanced-patches/issues/4496)) ([d0c85f0](https://github.com/ReVanced/revanced-patches/commit/d0c85f044083d720c63a8ea4ff15d42eefeb9db7))
+
 # [5.19.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.18.1-dev.2...v5.19.0-dev.1) (2025-04-01)
 
 
