@@ -1,20 +1,19 @@
 package app.revanced.patches.spotify.misc
 
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
+import app.revanced.patcher.extensions.InstructionExtensions.removeInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
+import app.revanced.patcher.fingerprint
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.spotify.misc.extension.sharedExtensionPatch
 import app.revanced.util.*
-import app.revanced.util.findFreeRegister
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
-import com.android.tools.smali.dexlib2.iface.reference.TypeReference
 
 private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/spotify/misc/UnlockPremiumPatch;"
 
@@ -67,32 +66,35 @@ val unlockPremiumPatch = bytecodePatch(
             accessFlags = accessFlags.or(AccessFlags.PUBLIC.value).and(AccessFlags.PRIVATE.value.inv())
         }
 
+        val protobufListClassName = with(protobufListsFingerprint.originalMethod) {
+            val emptyProtobufListGetIndex = indexOfFirstInstructionOrThrow(Opcode.SGET_OBJECT)
+            getInstruction(emptyProtobufListGetIndex).getReference<FieldReference>()!!.definingClass
+        }
+
+        val protobufListRemoveFigerprint = fingerprint {
+            custom { m, c ->
+                m.name == "remove" && c.type == protobufListClassName
+            }
+        }
+
+        // Make protobufList remove method not throw an error when the list is unmodifiable.
+        // The patch below uses the remove method to remove ads sections from home.
+        with(protobufListRemoveFigerprint.method) {
+            val invokeThrowUnmodifiableIndex = indexOfFirstInstructionOrThrow {
+                opcode == Opcode.INVOKE_VIRTUAL && getReference<MethodReference>()?.returnType == "V"
+            }
+
+            removeInstruction(invokeThrowUnmodifiableIndex)
+        }
+
         // Remove ads sections from home.
-        with(mapHomeSectionFingerprint.method) {
-            val sectionClassName = "Lcom/spotify/home/evopage/homeapi/proto/Section;"
+        with(homeStructureFingerprint.method) {
+            val getSectionsIndex = indexOfFirstInstructionOrThrow(Opcode.IGET_OBJECT)
+            val sectionsRegister = getInstruction<TwoRegisterInstruction>(getSectionsIndex).registerA
 
-            val sectionCastIndex = indexOfFirstInstructionOrThrow {
-                val reference = getReference<TypeReference>()
-                opcode == Opcode.CHECK_CAST && reference?.type == sectionClassName
-            }
-
-            val sectionRegister = getInstruction<OneRegisterInstruction>(sectionCastIndex).registerA
-            val freeRegister = findFreeRegister(sectionCastIndex, sectionRegister)
-
-            val iteratorHasNextIndex = indexOfFirstInstructionReversedOrThrow(sectionCastIndex) {
-                opcode == Opcode.INVOKE_INTERFACE && getReference<MethodReference>()?.name == "hasNext"
-            }
-
-            addInstructionsWithLabels(
-                sectionCastIndex + 1,
-                """
-                    # Continue to mapping next section if the current section needs to be removed.
-
-                    invoke-static { v$sectionRegister }, $EXTENSION_CLASS_DESCRIPTOR->isRemovedHomeSection($sectionClassName)Z
-                    move-result v$freeRegister
-                    if-nez v$freeRegister, :map_section_start
-                """,
-                ExternalLabel("map_section_start", getInstruction(iteratorHasNextIndex))
+            addInstruction(
+                getSectionsIndex + 1,
+                "invoke-static { v$sectionsRegister }, $EXTENSION_CLASS_DESCRIPTOR->removeHomeSections(Ljava/util/List;)V"
             )
         }
     }

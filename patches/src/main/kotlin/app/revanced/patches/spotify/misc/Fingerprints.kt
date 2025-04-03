@@ -1,6 +1,8 @@
 package app.revanced.patches.spotify.misc
 
 import app.revanced.patcher.fingerprint
+import com.android.tools.smali.dexlib2.AccessFlags
+import com.android.tools.smali.dexlib2.Opcode
 
 internal val accountAttributeFingerprint = fingerprint {
     custom { _, c -> c.endsWith("internal/AccountAttribute;") }
@@ -8,9 +10,7 @@ internal val accountAttributeFingerprint = fingerprint {
 
 internal val productStateProtoFingerprint = fingerprint {
     returns("Ljava/util/Map;")
-    custom { _, classDef ->
-        classDef.endsWith("ProductStateProto;")
-    }
+    custom { _, c -> c.endsWith("ProductStateProto;") }
 }
 
 internal val buildQueryParametersFingerprint = fingerprint {
@@ -26,6 +26,12 @@ internal val homeSectionFingerprint = fingerprint {
     custom { _, c -> c.endsWith("homeapi/proto/Section;") }
 }
 
-internal val mapHomeSectionFingerprint = fingerprint {
-    strings("ResolvedHome is null")
+internal val protobufListsFingerprint = fingerprint {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
+    custom { m, _ -> m.name == "emptyProtobufList" }
+}
+
+internal val homeStructureFingerprint = fingerprint {
+    opcodes(Opcode.IGET_OBJECT, Opcode.RETURN_OBJECT)
+    custom { _, c -> c.endsWith("homeapi/proto/HomeStructure;") }
 }

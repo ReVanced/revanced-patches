@@ -98,7 +98,11 @@ public final class UnlockPremiumPatch {
     /**
      * Remove ads sections from home injection point.
      */
-    public static boolean isRemovedHomeSection(Section section) {
-        return REMOVED_HOME_SECTIONS.contains(section.featureTypeCase_);
+    public static void removeHomeSections(List<Section> sections) {
+        try {
+            sections.removeIf(section -> REMOVED_HOME_SECTIONS.contains(section.featureTypeCase_));
+        } catch (Exception ex) {
+            Logger.printException(() -> "Remove home sections failure", ex);
+        }
     }
 }
