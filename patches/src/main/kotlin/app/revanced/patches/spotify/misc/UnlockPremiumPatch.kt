@@ -40,7 +40,8 @@ val unlockPremiumPatch = bytecodePatch(
 
             addInstruction(
                 getAttributesMapIndex + 1,
-                "invoke-static { v$attributesMapRegister }, $EXTENSION_CLASS_DESCRIPTOR->overrideAttribute(Ljava/util/Map;)V"
+                "invoke-static { v$attributesMapRegister }, " +
+                        "$EXTENSION_CLASS_DESCRIPTOR->overrideAttribute(Ljava/util/Map;)V"
             )
         }
 
@@ -71,24 +72,22 @@ val unlockPremiumPatch = bytecodePatch(
             getInstruction(emptyProtobufListGetIndex).getReference<FieldReference>()!!.definingClass
         }
 
-        val protobufListRemoveFigerprint = fingerprint {
-            custom { m, c ->
-                m.name == "remove" && c.type == protobufListClassName
+        val protobufListRemoveFingerprint = fingerprint {
+            custom { method, classDef ->
+                method.name == "remove" && classDef.type == protobufListClassName
             }
         }
 
         // Make protobufList remove method not throw an error when the list is unmodifiable.
         // The patch below uses the remove method to remove ads sections from home.
-        with(protobufListRemoveFigerprint.method) {
+        with(protobufListRemoveFingerprint.method) {
             val invokeThrowUnmodifiableIndex = indexOfFirstInstructionOrThrow {
-                if (opcode != Opcode.INVOKE_VIRTUAL) {
-                    return@indexOfFirstInstructionOrThrow false
-                }
-
                 val reference = getReference<MethodReference>()
-                reference?.returnType == "V" && reference.parameterTypes.size == 0
+                opcode == Opcode.INVOKE_VIRTUAL &&
+                        reference?.returnType == "V" && reference.parameterTypes.isEmpty()
             }
 
+            // Remove method call that checks if the list is unmodifiable and throws an exception.
             removeInstruction(invokeThrowUnmodifiableIndex)
         }
 
@@ -99,7 +98,8 @@ val unlockPremiumPatch = bytecodePatch(
 
             addInstruction(
                 getSectionsIndex + 1,
-                "invoke-static { v$sectionsRegister }, $EXTENSION_CLASS_DESCRIPTOR->removeHomeSections(Ljava/util/List;)V"
+                "invoke-static { v$sectionsRegister }, " +
+                        "$EXTENSION_CLASS_DESCRIPTOR->removeHomeSections(Ljava/util/List;)V"
             )
         }
     }

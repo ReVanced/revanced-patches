@@ -54,14 +54,12 @@ internal fun Method.findFreeRegister(startIndex: Int, vararg registersToExclude:
     // All registers used by an instruction.
     fun Instruction.getRegistersUsed() = when (this) {
         is FiveRegisterInstruction -> {
-            when (this.registerCount) {
-                0 -> emptyList()
+            when (registerCount) {
                 1 -> listOf(registerC)
                 2 -> listOf(registerC, registerD)
                 3 -> listOf(registerC, registerD, registerE)
                 4 -> listOf(registerC, registerD, registerE, registerF)
-                5 -> listOf(registerC, registerD, registerE, registerF, registerG)
-                else -> throw IllegalStateException()
+                else -> listOf(registerC, registerD, registerE, registerF, registerG)
             }
         }
         is ThreeRegisterInstruction -> listOf(registerA, registerB, registerC)
@@ -72,11 +70,10 @@ internal fun Method.findFreeRegister(startIndex: Int, vararg registersToExclude:
     }
 
     // Register that is written to by an instruction.
-    fun Instruction.getRegisterWritten() = when (this) {
-        is ThreeRegisterInstruction -> registerA
-        is TwoRegisterInstruction -> registerA
-        is OneRegisterInstruction -> registerA
-        else -> throw IllegalStateException("Not a write instruction: $this")
+    fun Instruction.getWriteRegister() : Int {
+        // Two and three register instructions extend OneRegisterInstruction.
+        if (this is OneRegisterInstruction) return registerA
+        throw IllegalStateException("Not a write instruction: $this")
     }
 
     val writeOpcodes = EnumSet.of(
@@ -169,7 +166,7 @@ internal fun Method.findFreeRegister(startIndex: Int, vararg registersToExclude:
         }
 
         if (instruction.opcode in writeOpcodes) {
-            val writeRegister = instruction.getRegisterWritten()
+            val writeRegister = instruction.getWriteRegister()
 
             if (writeRegister !in usedRegisters) {
                 // Verify the register is only used for write and not also as a parameter.
