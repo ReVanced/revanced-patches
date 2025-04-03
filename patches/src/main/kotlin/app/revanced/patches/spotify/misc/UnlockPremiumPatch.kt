@@ -81,7 +81,12 @@ val unlockPremiumPatch = bytecodePatch(
         // The patch below uses the remove method to remove ads sections from home.
         with(protobufListRemoveFigerprint.method) {
             val invokeThrowUnmodifiableIndex = indexOfFirstInstructionOrThrow {
-                opcode == Opcode.INVOKE_VIRTUAL && getReference<MethodReference>()?.returnType == "V"
+                if (opcode != Opcode.INVOKE_VIRTUAL) {
+                    return@indexOfFirstInstructionOrThrow false
+                }
+
+                val reference = getReference<MethodReference>()
+                reference?.returnType == "V" && reference.parameterTypes.size == 0
             }
 
             removeInstruction(invokeThrowUnmodifiableIndex)
