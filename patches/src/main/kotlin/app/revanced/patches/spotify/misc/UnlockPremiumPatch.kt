@@ -78,7 +78,7 @@ val unlockPremiumPatch = bytecodePatch(
             }
         }
 
-        // Need to allow mutation of the list so the home ad sections can be removed.
+        // Need to allow mutation of the list so the home ads sections can be removed.
         // Protobuffer list has an 'isMutable' boolean parameter that sets the mutability.
         // Forcing that always on breaks unrelated code in strange ways.
         // Instead, remove the method call that checks if the list is unmodifiable.
