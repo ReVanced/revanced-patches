@@ -51,7 +51,7 @@ val unlockPremiumPatch = bytecodePatch(
             method.replaceInstruction(moveIsEnabledIndex, "const/4 v$isUpsellEnabledRegister, 0")
         }
 
-        // Enable choosing a specific song/artist via voice assistant.
+        // Enable choosing a specific song/artist via Google Assistant.
         contextFromJsonFingerprint.method.apply {
             val insertIndex = contextFromJsonFingerprint.patternMatch!!.startIndex
             val registerUrl = getInstruction<FiveRegisterInstruction>(insertIndex).registerC
@@ -71,7 +71,7 @@ val unlockPremiumPatch = bytecodePatch(
             )
         }
 
-        // Disable forced shuffle when asking for an album/playlist via voice assistant.
+        // Disable forced shuffle when asking for an album/playlist via Google Assistant.
         readPlayerOptionOverridesFingerprint.method.apply {
             val shufflingContextCallIndex = indexOfFirstInstructionOrThrow {
                 getReference<MethodReference>()?.name == "shufflingContext"
