@@ -84,7 +84,7 @@ public final class UnlockPremiumPatch {
                 var attribute = attributes.get(override.key);
                 if (attribute == null) {
                     if (override.isExpected) {
-                        Logger.printException(() -> "''" + override.key + "' expected but not found");
+                        Logger.printException(() -> "'" + override.key + "' expected but not found");
                     }
                 } else {
                     attribute.value_ = override.overrideValue;

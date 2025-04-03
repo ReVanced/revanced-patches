@@ -47,13 +47,17 @@ val unlockPremiumPatch = bytecodePatch(
 
         // Add the query parameter trackRows to show popular tracks in the artist page.
         with(buildQueryParametersFingerprint) {
-            val addQueryParameterConditionIndex = method.indexOfFirstInstructionReversedOrThrow(stringMatches!!.first().index, Opcode.IF_EQZ)
+            val addQueryParameterConditionIndex = method.indexOfFirstInstructionReversedOrThrow(
+                stringMatches!!.first().index, Opcode.IF_EQZ
+            )
             method.replaceInstruction(addQueryParameterConditionIndex, "nop")
         }
 
         // Disable the "Spotify Premium" upsell experiment in context menus.
         with(contextMenuExperimentsFingerprint) {
-            val moveIsEnabledIndex = method.indexOfFirstInstructionOrThrow(stringMatches!!.first().index, Opcode.MOVE_RESULT)
+            val moveIsEnabledIndex = method.indexOfFirstInstructionOrThrow(
+                stringMatches!!.first().index, Opcode.MOVE_RESULT
+            )
             val isUpsellEnabledRegister = method.getInstruction<OneRegisterInstruction>(moveIsEnabledIndex).registerA
             method.replaceInstruction(moveIsEnabledIndex, "const/4 v$isUpsellEnabledRegister, 0")
         }
@@ -65,28 +69,19 @@ val unlockPremiumPatch = bytecodePatch(
 
         // Remove ads sections from home.
         with(mapHomeSectionFingerprint.method) {
-            val sectionCastIndex = indexOfFirstInstructionOrThrow {
-                if (opcode != Opcode.CHECK_CAST) {
-                    return@indexOfFirstInstructionOrThrow false
-                }
+            val sectionClassName = "Lcom/spotify/home/evopage/homeapi/proto/Section;"
 
+            val sectionCastIndex = indexOfFirstInstructionOrThrow {
                 val reference = getReference<TypeReference>()
-                reference?.type?.endsWith("homeapi/proto/Section;") ?: false
+                opcode == Opcode.CHECK_CAST && reference?.type == sectionClassName
             }
 
             val sectionRegister = getInstruction<OneRegisterInstruction>(sectionCastIndex).registerA
             val freeRegister = findFreeRegister(sectionCastIndex, sectionRegister)
 
             val iteratorHasNextIndex = indexOfFirstInstructionReversedOrThrow(sectionCastIndex) {
-                if (opcode != Opcode.INVOKE_INTERFACE) {
-                    return@indexOfFirstInstructionReversedOrThrow false
-                }
-
-                val reference = getReference<MethodReference>()
-                reference?.name == "hasNext"
+                opcode == Opcode.INVOKE_INTERFACE && getReference<MethodReference>()?.name == "hasNext"
             }
-
-            val sectionClassName = "Lcom/spotify/home/evopage/homeapi/proto/Section;"
 
             addInstructionsWithLabels(
                 sectionCastIndex + 1,
