@@ -1,7 +1,9 @@
 package app.revanced.patches.messenger.navbar
 
 import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Suppress("unused")
 val removeMetaAITabPatch = bytecodePatch(
@@ -11,9 +13,13 @@ val removeMetaAITabPatch = bytecodePatch(
     compatibleWith("com.facebook.orca")
 
     execute {
-        createTabConfigurationFingerprint.method.replaceInstruction(
-            createTabConfigurationFingerprint.patternMatch!!.startIndex + 1,
-            "const/4 v2, 0x0"
-        )
+        createTabConfigurationFingerprint.let {
+            val moveResultIndex = it.patternMatch!!.startIndex + 1
+            val enabledRegister = it.method.getInstruction<OneRegisterInstruction>(moveResultIndex).registerA
+            it.method.replaceInstruction(
+                moveResultIndex,
+                "const/4 v$enabledRegister, 0x0"
+            )
+        }
     }
 }
