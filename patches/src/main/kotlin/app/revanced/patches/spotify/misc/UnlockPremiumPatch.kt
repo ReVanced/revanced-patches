@@ -75,23 +75,19 @@ val unlockPremiumPatch = bytecodePatch(
                 reference?.type?.endsWith("homeapi/proto/Section;") ?: false
             }
 
-            val sectionClassName = getInstruction<OneRegisterInstruction>(sectionCastIndex).getReference<TypeReference>()!!.type
             val sectionRegister = getInstruction<OneRegisterInstruction>(sectionCastIndex).registerA
             val freeRegister = findFreeRegister(sectionCastIndex, sectionRegister)
 
-            val arrayListAddSectionIndex = indexOfFirstInstructionOrThrow(sectionCastIndex) {
-                if (opcode != Opcode.INVOKE_VIRTUAL) {
-                    return@indexOfFirstInstructionOrThrow false
+            val iteratorHasNextIndex = indexOfFirstInstructionReversedOrThrow(sectionCastIndex) {
+                if (opcode != Opcode.INVOKE_INTERFACE) {
+                    return@indexOfFirstInstructionReversedOrThrow false
                 }
 
                 val reference = getReference<MethodReference>()
-                reference?.definingClass?.endsWith("ArrayList;") ?: false
+                reference?.name == "hasNext"
             }
 
-            val gotoMapSectionStartIndex = indexOfFirstInstructionOrThrow(arrayListAddSectionIndex, Opcode.GOTO)
-            val mapSectionStartIndex = getInstruction<Instruction10t>(gotoMapSectionStartIndex).codeOffset.let { offset ->
-                gotoMapSectionStartIndex + offset/2
-            }
+            val sectionClassName = "Lcom/spotify/home/evopage/homeapi/proto/Section;"
 
             addInstructionsWithLabels(
                 sectionCastIndex + 1,
@@ -100,10 +96,9 @@ val unlockPremiumPatch = bytecodePatch(
 
                     invoke-static { v$sectionRegister }, $EXTENSION_CLASS_DESCRIPTOR->isRemovedHomeSection($sectionClassName)Z
                     move-result v$freeRegister
-                    xor-int/lit8 v$freeRegister, v$freeRegister, 0x1
-                    if-eqz v$freeRegister, :map_section_start
+                    if-nez v$freeRegister, :map_section_start
                 """,
-                ExternalLabel("map_section_start", getInstruction(mapSectionStartIndex))
+                ExternalLabel("map_section_start", getInstruction(iteratorHasNextIndex))
             )
         }
     }
