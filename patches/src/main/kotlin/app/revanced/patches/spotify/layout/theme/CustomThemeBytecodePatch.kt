@@ -46,7 +46,7 @@ internal val customThemeByteCodePatch = bytecodePatch {
                 .getReference<FieldReference>()!!.definingClass
         }
 
-        val encoreColorsConstructorFingerprint = fingerprint {
+        val encoreColorsConstructorFingerprint by fingerprint {
             accessFlags(AccessFlags.STATIC, AccessFlags.CONSTRUCTOR)
             custom { method, classDef ->
                 classDef.type == encoreColorsClassName &&

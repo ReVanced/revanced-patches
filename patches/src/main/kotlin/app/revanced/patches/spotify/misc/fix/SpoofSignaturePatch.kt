@@ -15,19 +15,19 @@ val spoofSignaturePatch = bytecodePatch(
     compatibleWith("com.spotify.music")
 
     execute {
-        getAppSignatureFingerprint.method.apply {
-            val failedToGetSignaturesStringMatch = getAppSignatureFingerprint.stringMatches!!.first()
+        getAppSignatureFingerprint.let {
+            it.method.apply {
+                val concatSignaturesIndex = indexOfFirstInstructionReversedOrThrow(
+                    it.instructionMatches.first().index,
+                    Opcode.MOVE_RESULT_OBJECT,
+                )
 
-            val concatSignaturesIndex = indexOfFirstInstructionReversedOrThrow(
-                failedToGetSignaturesStringMatch.index,
-                Opcode.MOVE_RESULT_OBJECT,
-            )
+                val register = getInstruction<OneRegisterInstruction>(concatSignaturesIndex).registerA
 
-            val register = getInstruction<OneRegisterInstruction>(concatSignaturesIndex).registerA
+                val expectedSignature = "d6a6dced4a85f24204bf9505ccc1fce114cadb32"
 
-            val expectedSignature = "d6a6dced4a85f24204bf9505ccc1fce114cadb32"
-
-            replaceInstruction(concatSignaturesIndex, "const-string v$register, \"$expectedSignature\"")
+                replaceInstruction(concatSignaturesIndex, "const-string v$register, \"$expectedSignature\"")
+            }
         }
     }
 }

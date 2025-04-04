@@ -48,7 +48,7 @@ val unlockPremiumPatch = bytecodePatch(
         // Add the query parameter trackRows to show popular tracks in the artist page.
         with(buildQueryParametersFingerprint) {
             val addQueryParameterConditionIndex = method.indexOfFirstInstructionReversedOrThrow(
-                stringMatches!!.first().index, Opcode.IF_EQZ
+                stringMatches.first().index, Opcode.IF_EQZ
             )
             method.replaceInstruction(addQueryParameterConditionIndex, "nop")
         }
@@ -56,7 +56,7 @@ val unlockPremiumPatch = bytecodePatch(
         // Disable the "Spotify Premium" upsell experiment in context menus.
         with(contextMenuExperimentsFingerprint) {
             val moveIsEnabledIndex = method.indexOfFirstInstructionOrThrow(
-                stringMatches!!.first().index, Opcode.MOVE_RESULT
+                stringMatches.first().index, Opcode.MOVE_RESULT
             )
             val isUpsellEnabledRegister = method.getInstruction<OneRegisterInstruction>(moveIsEnabledIndex).registerA
             method.replaceInstruction(moveIsEnabledIndex, "const/4 v$isUpsellEnabledRegister, 0")
@@ -72,7 +72,7 @@ val unlockPremiumPatch = bytecodePatch(
             getInstruction(emptyProtobufListGetIndex).getReference<FieldReference>()!!.definingClass
         }
 
-        val protobufListRemoveFingerprint = fingerprint {
+        val protobufListRemoveFingerprint by fingerprint {
             custom { method, classDef ->
                 method.name == "remove" && classDef.type == protobufListClassName
             }

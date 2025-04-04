@@ -13,7 +13,7 @@ import app.revanced.patches.youtube.misc.playertype.playerTypeHookPatch
 import app.revanced.patches.youtube.misc.playservice.is_19_43_or_greater
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
-import app.revanced.patches.youtube.shared.mainActivityFingerprint
+import app.revanced.patches.youtube.shared.mainActivityOnCreateFingerprint
 import app.revanced.util.*
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
@@ -91,7 +91,7 @@ val swipeControlsPatch = bytecodePatch(
 
     execute {
         val wrapperClass = swipeControlsHostActivityFingerprint.classDef
-        val targetClass = mainActivityFingerprint.classDef
+        val targetClass = mainActivityOnCreateFingerprint.classDef
 
         // Inject the wrapper class from the extension into the class hierarchy of MainActivity.
         wrapperClass.setSuperClass(targetClass.superclass)
@@ -117,10 +117,12 @@ val swipeControlsPatch = bytecodePatch(
         // region patch to enable/disable swipe to change video.
 
         if (is_19_43_or_greater) {
-            swipeChangeVideoFingerprint.method.insertFeatureFlagBooleanOverride(
-                SWIPE_CHANGE_VIDEO_FEATURE_FLAG,
-                "$EXTENSION_CLASS_DESCRIPTOR->allowSwipeChangeVideo(Z)Z"
-            )
+            swipeChangeVideoFingerprint.let {
+                it.method.insertFeatureFlagBooleanOverride(
+                    it.instructionMatches.last().index,
+                    "$EXTENSION_CLASS_DESCRIPTOR->allowSwipeChangeVideo(Z)Z"
+                )
+            }
         }
 
         // endregion

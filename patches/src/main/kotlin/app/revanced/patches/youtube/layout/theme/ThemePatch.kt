@@ -27,8 +27,6 @@ import org.w3c.dom.Element
 private const val EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/youtube/patches/theme/ThemePatch;"
 
-internal const val GRADIENT_LOADING_SCREEN_AB_CONSTANT = 45412406L
-
 val themePatch = bytecodePatch(
     name = "Theme",
     description = "Adds options for theming and applies a custom background theme (dark background theme defaults to amoled black).",
@@ -233,10 +231,12 @@ val themePatch = bytecodePatch(
             SwitchPreference("revanced_gradient_loading_screen"),
         )
 
-        useGradientLoadingScreenFingerprint.method.insertFeatureFlagBooleanOverride(
-            GRADIENT_LOADING_SCREEN_AB_CONSTANT,
-            "$EXTENSION_CLASS_DESCRIPTOR->gradientLoadingScreenEnabled(Z)Z"
-        )
+        useGradientLoadingScreenFingerprint.let {
+            it.method.insertFeatureFlagBooleanOverride(
+                it.instructionMatches.first().index,
+                "$EXTENSION_CLASS_DESCRIPTOR->gradientLoadingScreenEnabled(Z)Z"
+            )
+        }
 
         mapOf(
             themeHelperLightColorFingerprint to lightThemeBackgroundColor,

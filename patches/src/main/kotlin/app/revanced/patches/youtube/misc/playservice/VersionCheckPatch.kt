@@ -5,15 +5,6 @@ package app.revanced.patches.youtube.misc.playservice
 import app.revanced.patcher.patch.resourcePatch
 import app.revanced.util.findElementByAttributeValueOrThrow
 
-@Deprecated("19.16.39 is the lowest supported version")
-var is_19_03_or_greater = false
-    private set
-@Deprecated("19.16.39 is the lowest supported version")
-var is_19_04_or_greater = false
-    private set
-@Deprecated("19.16.39 is the lowest supported version")
-var is_19_16_or_greater = false
-    private set
 var is_19_17_or_greater = false
     private set
 var is_19_18_or_greater = false
@@ -52,11 +43,11 @@ var is_20_03_or_greater = false
     private set
 var is_20_05_or_greater = false
     private set
-var is_20_07_or_greater = false
-    private set
 var is_20_09_or_greater = false
     private set
 var is_20_10_or_greater = false
+    private set
+var is_20_14_or_greater = false
     private set
 
 val versionCheckPatch = resourcePatch(
@@ -73,9 +64,6 @@ val versionCheckPatch = resourcePatch(
         }
 
         // All bug fix releases always seem to use the same play store version as the minor version.
-        is_19_03_or_greater = 240402000 <= playStoreServicesVersion
-        is_19_04_or_greater = 240502000 <= playStoreServicesVersion
-        is_19_16_or_greater = 241702000 <= playStoreServicesVersion
         is_19_17_or_greater = 241802000 <= playStoreServicesVersion
         is_19_18_or_greater = 241902000 <= playStoreServicesVersion
         is_19_23_or_greater = 242402000 <= playStoreServicesVersion
@@ -95,8 +83,8 @@ val versionCheckPatch = resourcePatch(
         is_20_02_or_greater = 250299000 <= playStoreServicesVersion
         is_20_03_or_greater = 250405000 <= playStoreServicesVersion
         is_20_05_or_greater = 250605000 <= playStoreServicesVersion
-        is_20_07_or_greater = 250805000 <= playStoreServicesVersion
         is_20_09_or_greater = 251006000 <= playStoreServicesVersion
         is_20_10_or_greater = 251105000 <= playStoreServicesVersion
+        is_20_14_or_greater = 251505000 <= playStoreServicesVersion
     }
 }
