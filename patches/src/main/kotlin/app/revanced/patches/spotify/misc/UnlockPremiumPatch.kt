@@ -1,16 +1,20 @@
 package app.revanced.patches.spotify.misc
 
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
+import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.removeInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.fingerprint
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.spotify.misc.extension.sharedExtensionPatch
-import app.revanced.util.*
+import app.revanced.util.getReference
+import app.revanced.util.indexOfFirstInstructionOrThrow
 import com.android.tools.smali.dexlib2.AccessFlags
-import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
+import app.revanced.util.*
+import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
@@ -62,47 +66,82 @@ val unlockPremiumPatch = bytecodePatch(
             method.replaceInstruction(moveIsEnabledIndex, "const/4 v$isUpsellEnabledRegister, 0")
         }
 
+        // Enable choosing a specific song/artist via Google Assistant.
+        contextFromJsonFingerprint.method.apply {
+            val insertIndex = contextFromJsonFingerprint.patternMatch!!.startIndex
+            val registerUrl = getInstruction<FiveRegisterInstruction>(insertIndex).registerC
+            val registerUri = getInstruction<FiveRegisterInstruction>(insertIndex + 2).registerD
+
+            val extensionMethodDescriptor = "$EXTENSION_CLASS_DESCRIPTOR->" +
+                    "removeStationString(Ljava/lang/String;)Ljava/lang/String;"
+
+            addInstructions(
+                insertIndex,
+                """
+                    invoke-static { v$registerUrl }, $extensionMethodDescriptor
+                    move-result-object v$registerUrl
+                    invoke-static { v$registerUri }, $extensionMethodDescriptor
+                    move-result-object v$registerUri
+                """
+            )
+        }
+
+        // Disable forced shuffle when asking for an album/playlist via Google Assistant.
+        readPlayerOptionOverridesFingerprint.method.apply {
+            val shufflingContextCallIndex = indexOfFirstInstructionOrThrow {
+                getReference<MethodReference>()?.name == "shufflingContext"
+            }
+
+            val registerBool = getInstruction<FiveRegisterInstruction>(shufflingContextCallIndex).registerD
+            addInstruction(
+                shufflingContextCallIndex,
+                "sget-object v$registerBool, Ljava/lang/Boolean;->FALSE:Ljava/lang/Boolean;"
+            )
+
+        }
+
         // Make featureTypeCase_ accessible so we can check the home section type in the extension.
         homeSectionFingerprint.classDef.fields.first { it.name == "featureTypeCase_" }.apply {
             accessFlags = accessFlags.or(AccessFlags.PUBLIC.value).and(AccessFlags.PRIVATE.value.inv())
-        }
 
-        val protobufListClassName = with(protobufListsFingerprint.originalMethod) {
-            val emptyProtobufListGetIndex = indexOfFirstInstructionOrThrow(Opcode.SGET_OBJECT)
-            getInstruction(emptyProtobufListGetIndex).getReference<FieldReference>()!!.definingClass
-        }
 
-        val protobufListRemoveFingerprint = fingerprint {
-            custom { method, classDef ->
-                method.name == "remove" && classDef.type == protobufListClassName
-            }
-        }
-
-        // Need to allow mutation of the list so the home ads sections can be removed.
-        // Protobuffer list has an 'isMutable' boolean parameter that sets the mutability.
-        // Forcing that always on breaks unrelated code in strange ways.
-        // Instead, remove the method call that checks if the list is unmodifiable.
-        with(protobufListRemoveFingerprint.method) {
-            val invokeThrowUnmodifiableIndex = indexOfFirstInstructionOrThrow {
-                val reference = getReference<MethodReference>()
-                opcode == Opcode.INVOKE_VIRTUAL &&
-                        reference?.returnType == "V" && reference.parameterTypes.isEmpty()
+            val protobufListClassName = with(protobufListsFingerprint.originalMethod) {
+                val emptyProtobufListGetIndex = indexOfFirstInstructionOrThrow(Opcode.SGET_OBJECT)
+                getInstruction(emptyProtobufListGetIndex).getReference<FieldReference>()!!.definingClass
             }
 
-            // Remove the method call that throws an exception if the list is not mutable.
-            removeInstruction(invokeThrowUnmodifiableIndex)
-        }
+            val protobufListRemoveFingerprint = fingerprint {
+                custom { method, classDef ->
+                    method.name == "remove" && classDef.type == protobufListClassName
+                }
+            }
 
-        // Remove ads sections from home.
-        with(homeStructureFingerprint.method) {
-            val getSectionsIndex = indexOfFirstInstructionOrThrow(Opcode.IGET_OBJECT)
-            val sectionsRegister = getInstruction<TwoRegisterInstruction>(getSectionsIndex).registerA
+            // Need to allow mutation of the list so the home ads sections can be removed.
+            // Protobuffer list has an 'isMutable' boolean parameter that sets the mutability.
+            // Forcing that always on breaks unrelated code in strange ways.
+            // Instead, remove the method call that checks if the list is unmodifiable.
+            with(protobufListRemoveFingerprint.method) {
+                val invokeThrowUnmodifiableIndex = indexOfFirstInstructionOrThrow {
+                    val reference = getReference<MethodReference>()
+                    opcode == Opcode.INVOKE_VIRTUAL &&
+                            reference?.returnType == "V" && reference.parameterTypes.isEmpty()
+                }
 
-            addInstruction(
-                getSectionsIndex + 1,
-                "invoke-static { v$sectionsRegister }, " +
-                        "$EXTENSION_CLASS_DESCRIPTOR->removeHomeSections(Ljava/util/List;)V"
-            )
+                // Remove the method call that throws an exception if the list is not mutable.
+                removeInstruction(invokeThrowUnmodifiableIndex)
+            }
+
+            // Remove ads sections from home.
+            with(homeStructureFingerprint.method) {
+                val getSectionsIndex = indexOfFirstInstructionOrThrow(Opcode.IGET_OBJECT)
+                val sectionsRegister = getInstruction<TwoRegisterInstruction>(getSectionsIndex).registerA
+
+                addInstruction(
+                    getSectionsIndex + 1,
+                    "invoke-static { v$sectionsRegister }, " +
+                            "$EXTENSION_CLASS_DESCRIPTOR->removeHomeSections(Ljava/util/List;)V"
+                )
+            }
         }
     }
 }

@@ -95,6 +95,10 @@ public final class UnlockPremiumPatch {
         }
     }
 
+    public static String removeStationString(String s) {
+        return s.replace("spotify:station:", "spotify:");
+    }
+
     /**
      * Remove ads sections from home injection point.
      */

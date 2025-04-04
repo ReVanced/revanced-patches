@@ -22,6 +22,25 @@ internal val contextMenuExperimentsFingerprint = fingerprint {
     strings("remove_ads_upsell_enabled")
 }
 
+internal val contextFromJsonFingerprint = fingerprint {
+    opcodes(
+        Opcode.INVOKE_STATIC,
+        Opcode.MOVE_RESULT_OBJECT,
+        Opcode.INVOKE_VIRTUAL,
+        Opcode.MOVE_RESULT_OBJECT,
+        Opcode.INVOKE_STATIC
+    )
+    custom { methodDef, classDef ->
+        classDef.endsWith("voiceassistants/playermodels/ContextJsonAdapter;") && methodDef.name == "fromJson"
+    }
+}
+
+internal val readPlayerOptionOverridesFingerprint = fingerprint {
+    custom { methodDef, classDef ->
+        classDef.endsWith("voiceassistants/playermodels/PreparePlayOptionsJsonAdapter;") && methodDef.name == "readPlayerOptionOverrides"
+    }
+}
+
 internal val homeSectionFingerprint = fingerprint {
     custom { _, classDef -> classDef.endsWith("homeapi/proto/Section;") }
 }
