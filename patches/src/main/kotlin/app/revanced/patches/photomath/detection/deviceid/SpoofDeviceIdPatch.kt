@@ -12,7 +12,7 @@ val getDeviceIdPatch = bytecodePatch(
 ) {
     dependsOn(signatureDetectionPatch)
 
-    compatibleWith("com.microblink.photomath"("8.37.0"))
+    compatibleWith("com.microblink.photomath")
 
     execute {
         getDeviceIdFingerprint.method.replaceInstructions(

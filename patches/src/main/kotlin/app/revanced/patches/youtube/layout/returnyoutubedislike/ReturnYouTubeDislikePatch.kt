@@ -70,6 +70,8 @@ val returnYouTubeDislikePatch = bytecodePatch(
                 key = "revanced_settings_screen_09",
                 titleKey = "revanced_ryd_settings_title",
                 summaryKey = null,
+                icon = "@drawable/revanced_settings_screen_09_ryd",
+                layout = "@layout/preference_with_icon",
                 intent = newIntent("revanced_ryd_settings_intent"),
             ),
         )
@@ -179,9 +181,6 @@ val returnYouTubeDislikePatch = bytecodePatch(
 
         // region Hook rolling numbers.
 
-        // Do this last to allow patching old unsupported versions (if the user really wants),
-        // On older unsupported version this will fail to match and throw an exception,
-        // but everything will still work correctly anyway.
         val dislikesIndex = rollingNumberSetterFingerprint.patternMatch!!.endIndex
 
         rollingNumberSetterFingerprint.method.apply {

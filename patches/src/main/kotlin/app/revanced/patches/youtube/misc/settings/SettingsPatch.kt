@@ -73,7 +73,22 @@ private val settingsResourcePatch = resourcePatch {
         appearanceStringId = resourceMappings["string", "app_theme_appearance_dark"]
 
         arrayOf(
-            ResourceGroup("drawable", "revanced_settings_icon.xml"),
+            ResourceGroup("drawable",
+                "revanced_settings_icon.xml",
+                "revanced_settings_screen_00_about.xml",
+                "revanced_settings_screen_01_ads.xml",
+                "revanced_settings_screen_02_alt_thumbnails.xml",
+                "revanced_settings_screen_03_feed.xml",
+                "revanced_settings_screen_04_general.xml",
+                "revanced_settings_screen_05_player.xml",
+                "revanced_settings_screen_06_shorts.xml",
+                "revanced_settings_screen_07_seekbar.xml",
+                "revanced_settings_screen_08_swipe_controls.xml",
+                "revanced_settings_screen_09_ryd.xml",
+                "revanced_settings_screen_10_sb.xml",
+                "revanced_settings_screen_11_misc.xml",
+                "revanced_settings_screen_12_video.xml",
+            ),
             ResourceGroup("layout", "revanced_settings_with_toolbar.xml"),
         ).forEach { resourceGroup ->
             copyResources("settings", resourceGroup)
@@ -159,6 +174,8 @@ val settingsPatch = bytecodePatch(
         // Add an "about" preference to the top.
         preferences += NonInteractivePreference(
             key = "revanced_settings_screen_00_about",
+            icon = "@drawable/revanced_settings_screen_00_about",
+            layout = "@layout/preference_with_icon",
             summaryKey = null,
             tag = "app.revanced.extension.youtube.settings.preference.ReVancedYouTubeAboutPreference",
             selectable = true,
@@ -169,6 +186,10 @@ val settingsPatch = bytecodePatch(
                 SwitchPreference("revanced_restore_old_settings_menus")
             )
         }
+
+        PreferenceScreen.GENERAL_LAYOUT.addPreferences(
+            SwitchPreference("revanced_show_menu_icons")
+        )
 
         PreferenceScreen.MISC.addPreferences(
             TextPreference(
@@ -277,37 +298,53 @@ object PreferenceScreen : BasePreferenceScreen() {
     val ADS = Screen(
         key = "revanced_settings_screen_01_ads",
         summaryKey = null,
+        icon = "@drawable/revanced_settings_screen_01_ads",
+        layout = "@layout/preference_with_icon",
     )
     val ALTERNATIVE_THUMBNAILS = Screen(
         key = "revanced_settings_screen_02_alt_thumbnails",
         summaryKey = null,
+        icon = "@drawable/revanced_settings_screen_02_alt_thumbnails",
+        layout = "@layout/preference_with_icon",
         sorting = Sorting.UNSORTED,
     )
     val FEED = Screen(
         key = "revanced_settings_screen_03_feed",
         summaryKey = null,
+        icon = "@drawable/revanced_settings_screen_03_feed",
+        layout = "@layout/preference_with_icon",
     )
     val GENERAL_LAYOUT = Screen(
         key = "revanced_settings_screen_04_general",
         summaryKey = null,
+        icon = "@drawable/revanced_settings_screen_04_general",
+        layout = "@layout/preference_with_icon",
     )
     val PLAYER = Screen(
         key = "revanced_settings_screen_05_player",
         summaryKey = null,
+        icon = "@drawable/revanced_settings_screen_05_player",
+        layout = "@layout/preference_with_icon",
     )
 
     val SHORTS = Screen(
         key = "revanced_settings_screen_06_shorts",
         summaryKey = null,
+        icon = "@drawable/revanced_settings_screen_06_shorts",
+        layout = "@layout/preference_with_icon",
     )
 
     val SEEKBAR = Screen(
         key = "revanced_settings_screen_07_seekbar",
         summaryKey = null,
-    )
+        icon = "@drawable/revanced_settings_screen_07_seekbar",
+        layout = "@layout/preference_with_icon",
+        )
     val SWIPE_CONTROLS = Screen(
         key = "revanced_settings_screen_08_swipe_controls",
         summaryKey = null,
+        icon = "@drawable/revanced_settings_screen_08_swipe_controls",
+        layout = "@layout/preference_with_icon",
         sorting = Sorting.UNSORTED,
     )
 
@@ -317,10 +354,14 @@ object PreferenceScreen : BasePreferenceScreen() {
     val MISC = Screen(
         key = "revanced_settings_screen_11_misc",
         summaryKey = null,
+        icon = "@drawable/revanced_settings_screen_11_misc",
+        layout = "@layout/preference_with_icon",
     )
     val VIDEO = Screen(
         key = "revanced_settings_screen_12_video",
         summaryKey = null,
+        icon = "@drawable/revanced_settings_screen_12_video",
+        layout = "@layout/preference_with_icon",
         sorting = Sorting.BY_KEY,
     )
 

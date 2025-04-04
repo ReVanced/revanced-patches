@@ -1,17 +1,16 @@
 package app.revanced.patches.spotify.misc
 
 import app.revanced.patcher.fingerprint
+import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
 internal val accountAttributeFingerprint = fingerprint {
-    custom { _, c -> c.endsWith("internal/AccountAttribute;") }
+    custom { _, classDef -> classDef.endsWith("internal/AccountAttribute;") }
 }
 
 internal val productStateProtoFingerprint = fingerprint {
     returns("Ljava/util/Map;")
-    custom { _, classDef ->
-        classDef.endsWith("ProductStateProto;")
-    }
+    custom { _, classDef -> classDef.endsWith("ProductStateProto;") }
 }
 
 internal val buildQueryParametersFingerprint = fingerprint {
@@ -40,4 +39,18 @@ internal val readPlayerOptionOverridesFingerprint = fingerprint {
     custom { methodDef, classDef ->
         classDef.endsWith("voiceassistants/playermodels/PreparePlayOptionsJsonAdapter;") && methodDef.name == "readPlayerOptionOverrides"
     }
+}
+
+internal val homeSectionFingerprint = fingerprint {
+    custom { _, classDef -> classDef.endsWith("homeapi/proto/Section;") }
+}
+
+internal val protobufListsFingerprint = fingerprint {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
+    custom { method, _ -> method.name == "emptyProtobufList" }
+}
+
+internal val homeStructureFingerprint = fingerprint {
+    opcodes(Opcode.IGET_OBJECT, Opcode.RETURN_OBJECT)
+    custom { _, classDef -> classDef.endsWith("homeapi/proto/HomeStructure;") }
 }

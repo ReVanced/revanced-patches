@@ -226,6 +226,8 @@ Et saa ilmoituksia odottamattomista tapahtumista."</string>
   <string name="revanced_hide_artist_cards_title">Piilota artistikortit</string>
   <string name="revanced_hide_artist_cards_summary_on">Artistikortit on piilotettu</string>
   <string name="revanced_hide_artist_cards_summary_off">Artistikortit näytetään</string>
+  <string name="revanced_hide_ai_generated_video_summary_section_summary_on">Videon yhteenveto-osio on piilotettu</string>
+  <string name="revanced_hide_ai_generated_video_summary_section_summary_off">Videon yhteenveto-osio näytetään</string>
   <string name="revanced_hide_attributes_section_title">Piilota Määritteet</string>
   <string name="revanced_hide_attributes_section_summary_on">Esitellyt paikat, Pelit, Musiikki ja Mainitut ihmiset -osiot on piilotettu</string>
   <string name="revanced_hide_attributes_section_summary_off">Esitellyt paikat, Pelit, Musiikki ja Mainitut ihmiset -osiot näytetään</string>
@@ -264,6 +266,8 @@ Et saa ilmoituksia odottamattomista tapahtumista."</string>
   <string name="revanced_comments_screen_summary">Piilota tai näytä kommenttiosion osia</string>
   <string name="revanced_hide_comments_ai_chat_summary_summary_on">Chat-yhteenveto on piilotettu</string>
   <string name="revanced_hide_comments_ai_chat_summary_summary_off">Chat-yhteenveto näytetään</string>
+  <string name="revanced_hide_comments_ai_summary_summary_on">Kommenttien yhteenveto on piilotettu</string>
+  <string name="revanced_hide_comments_ai_summary_summary_off">Kommenttien yhteenveto näytetään</string>
   <string name="revanced_hide_comments_by_members_header_title">Piilota \"Jäsenten kommentit\" -ylätunniste</string>
   <string name="revanced_hide_comments_by_members_header_summary_on">Jäsenten kommentit -ylätunniste on piilotettu</string>
   <string name="revanced_hide_comments_by_members_header_summary_off">Jäsenten kommentit -ylätunniste näytetään</string>
@@ -423,6 +427,9 @@ Tämä ominaisuus on käytettävissä vain vanhemmilla laitteilla"</string>
   <string name="revanced_disable_precise_seeking_gesture_summary_off">Ele on käytössä</string>
   </patch>
   <patch id="interaction.seekbar.enableSeekbarTappingPatch">
+  <string name="revanced_seekbar_tapping_title">Ota kelaus napauttamalla käyttöön</string>
+  <string name="revanced_seekbar_tapping_summary_on">Kelaus napauttamalla on käytössä</string>
+  <string name="revanced_seekbar_tapping_summary_off">Kelaus napauttamalla ei ole käytössä</string>
   </patch>
   <patch id="interaction.swipecontrols.swipeControlsResourcePatch">
   <string name="revanced_swipe_brightness_title">Ota kirkkauden ele käyttöön</string>
@@ -435,6 +442,9 @@ Säädä kirkkautta pyyhkäisemällä pystysuoraan näytön vasemmalla puolella"
 
 Säädä äänenvoimakkuutta pyyhkäisemällä pystysuoraan näytön oikealta puolella"</string>
   <string name="revanced_swipe_volume_summary_off">Koko näytön äänenvoimakkuuden pyyhkäisy ei ole käytössä</string>
+  <string name="revanced_swipe_press_to_engage_title">Ota pyyhkäise painamalla -ele käyttöön</string>
+  <string name="revanced_swipe_press_to_engage_summary_on">Pyyhkäise painamalla -ele on käytössä</string>
+  <string name="revanced_swipe_press_to_engage_summary_off">Pyyhkäise painamalla -ele ei ole käytössä</string>
   <string name="revanced_swipe_haptic_feedback_title">Ota haptinen palaute käyttöön</string>
   <string name="revanced_swipe_haptic_feedback_summary_on">Haptinen palaute on käytössä</string>
   <string name="revanced_swipe_haptic_feedback_summary_off">Haptinen palaute ei ole käytössä</string>
@@ -542,6 +552,7 @@ Jos tämän asetuksen muuttaminen ei tule voimaan, kokeile vaihtaa Incognito-til
   <string name="revanced_disable_translucent_status_bar_title">Poista läpikuultava tilapalkki käytöstä</string>
   <string name="revanced_disable_translucent_status_bar_summary_on">Tilapalkki on läpinäkymätön</string>
   <string name="revanced_disable_translucent_status_bar_summary_off">Tilapalkki on läpinäkymätön tai läpikuultava</string>
+  <string name="revanced_disable_translucent_status_bar_user_dialog_message">Joillakin laitteilla tämän ominaisuuden käyttöönotto voi muuttaa järjestelmän navigointipalkin läpinäkyväksi.</string>
   <string name="revanced_disable_translucent_navigation_bar_light_title">Poista vaalea läpikuultava palkki käytöstä</string>
   <string name="revanced_disable_translucent_navigation_bar_light_summary_on">Vaalean tilan navigointipalkki on läpinäkymätön</string>
   <string name="revanced_disable_translucent_navigation_bar_light_summary_off">Vaalean tilan navigointipalkki on läpinäkymätön tai läpikuultava</string>
@@ -1161,6 +1172,9 @@ Minisoitin voidaan vetää mihin tahansa näytön kulmaan"</string>
 
 Minisoitin voidaan vetää pois näytöltä vasemmalle tai oikealle"</string>
   <string name="revanced_miniplayer_horizontal_drag_summary_off">Vaakasuuntainen vetoele ei ole käytössä</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_title">Piilota peittokuvan painikkeet</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">Peittokuvan painikkeet on piilotettu</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">Peittokuvan painikkeet näytetään</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_legacy_title">Piilota laajenna- ja sulje-painikkeet</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_on">"Painikkeet piilotetaan
 

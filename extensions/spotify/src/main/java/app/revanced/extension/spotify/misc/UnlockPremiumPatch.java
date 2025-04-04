@@ -4,6 +4,7 @@ import static java.lang.Boolean.FALSE;
 import static java.lang.Boolean.TRUE;
 
 import com.spotify.remoteconfig.internal.AccountAttribute;
+import com.spotify.home.evopage.homeapi.proto.Section;
 
 import java.util.List;
 import java.util.Map;
@@ -69,8 +70,13 @@ public final class UnlockPremiumPatch {
             new OverrideAttribute("tablet-free", FALSE, false)
     );
 
+    private static final List<Integer> REMOVED_HOME_SECTIONS = List.of(
+            Section.VIDEO_BRAND_AD_FIELD_NUMBER,
+            Section.IMAGE_BRAND_AD_FIELD_NUMBER
+    );
+
     /**
-     * Injection point.
+     * Override attributes injection point.
      */
     public static void overrideAttribute(Map<String, AccountAttribute> attributes) {
         try {
@@ -91,5 +97,16 @@ public final class UnlockPremiumPatch {
 
     public static String removeStationString(String s) {
         return s.replace("spotify:station:", "spotify:");
+    }
+
+    /**
+     * Remove ads sections from home injection point.
+     */
+    public static void removeHomeSections(List<Section> sections) {
+        try {
+            sections.removeIf(section -> REMOVED_HOME_SECTIONS.contains(section.featureTypeCase_));
+        } catch (Exception ex) {
+            Logger.printException(() -> "Remove home sections failure", ex);
+        }
     }
 }
