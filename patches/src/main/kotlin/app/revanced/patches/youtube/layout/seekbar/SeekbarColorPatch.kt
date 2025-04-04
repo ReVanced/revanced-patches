@@ -1,5 +1,6 @@
 package app.revanced.patches.youtube.layout.seekbar
 
+import app.revanced.patcher.Fingerprint
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
@@ -255,14 +256,15 @@ val seekbarColorPatch = bytecodePatch(
             """
         )
 
-        val playerFingerprint =
-            if (is_19_49_or_greater) {
-                playerLinearGradientFingerprint
-            } else if (is_19_46_or_greater) {
-                playerLinearGradientLegacy1946Fingerprint
-            } else {
-                playerLinearGradientLegacy1925Fingerprint
-            }
+        val playerFingerprint: Fingerprint
+        val checkGradientCoordinates: Boolean
+        if (is_19_49_or_greater) {
+            playerFingerprint = playerLinearGradientFingerprint
+            checkGradientCoordinates = true
+        } else {
+            playerFingerprint = playerLinearGradientLegacyFingerprint
+            checkGradientCoordinates = false
+        }
 
         playerFingerprint.let {
             it.method.apply {
@@ -271,10 +273,17 @@ val seekbarColorPatch = bytecodePatch(
 
                 addInstructions(
                     index + 1,
-                    """
-                       invoke-static { v$register }, $EXTENSION_CLASS_DESCRIPTOR->getPlayerLinearGradient([I)[I
-                       move-result-object v$register
-                    """
+                    if (checkGradientCoordinates) {
+                        """
+                           invoke-static { v$register, p0, p1 }, $EXTENSION_CLASS_DESCRIPTOR->getPlayerLinearGradient([III)[I
+                           move-result-object v$register
+                        """
+                    } else {
+                        """
+                           invoke-static { v$register }, $EXTENSION_CLASS_DESCRIPTOR->getPlayerLinearGradient([I)[I
+                           move-result-object v$register
+                        """
+                    }
                 )
             }
         }

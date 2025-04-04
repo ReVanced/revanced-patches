@@ -92,33 +92,14 @@ internal val playerLinearGradientFingerprint by fingerprint {
 }
 
 /**
- * 19.46 - 19.47
+ * 19.25 - 19.47
  */
-internal val playerLinearGradientLegacy1946Fingerprint by fingerprint {
-    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    parameters("I", "I", "I", "I")
+internal val playerLinearGradientLegacyFingerprint by fingerprint {
     returns("V")
     instructions(
         resourceLiteral("color", "yt_youtube_magenta"),
 
         opcode(Opcode.FILLED_NEW_ARRAY),
-        opcode(Opcode.MOVE_RESULT_OBJECT, maxAfter = 0),
-    )
-    custom { method, _ ->
-        method.name == "setBounds"
-    }
-}
-
-/**
- * 19.25 - 19.45
- */
-internal val playerLinearGradientLegacy1925Fingerprint by fingerprint {
-    accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
-    parameters("Landroid/content/Context;")
-    instructions(
-        resourceLiteral("color", "yt_youtube_magenta"),
-
-        opcode(Opcode.FILLED_NEW_ARRAY, maxAfter = 10),
         opcode(Opcode.MOVE_RESULT_OBJECT, maxAfter = 0),
     )
 }

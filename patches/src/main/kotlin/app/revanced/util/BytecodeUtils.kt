@@ -52,7 +52,15 @@ internal fun Method.findFreeRegister(startIndex: Int, vararg registersToExclude:
 
     // All registers used by an instruction.
     fun Instruction.getRegistersUsed() = when (this) {
-        is FiveRegisterInstruction -> listOf(registerC, registerD, registerE, registerF, registerG)
+        is FiveRegisterInstruction -> {
+            when (registerCount) {
+                1 -> listOf(registerC)
+                2 -> listOf(registerC, registerD)
+                3 -> listOf(registerC, registerD, registerE)
+                4 -> listOf(registerC, registerD, registerE, registerF)
+                else -> listOf(registerC, registerD, registerE, registerF, registerG)
+            }
+        }
         is ThreeRegisterInstruction -> listOf(registerA, registerB, registerC)
         is TwoRegisterInstruction -> listOf(registerA, registerB)
         is OneRegisterInstruction -> listOf(registerA)
@@ -61,15 +69,15 @@ internal fun Method.findFreeRegister(startIndex: Int, vararg registersToExclude:
     }
 
     // Register that is written to by an instruction.
-    fun Instruction.getRegisterWritten() = when (this) {
-        is ThreeRegisterInstruction -> registerA
-        is TwoRegisterInstruction -> registerA
-        is OneRegisterInstruction -> registerA
-        else -> throw IllegalStateException("Not a write instruction: $this")
+    fun Instruction.getWriteRegister() : Int {
+        // Two and three register instructions extend OneRegisterInstruction.
+        if (this is OneRegisterInstruction) return registerA
+        throw IllegalStateException("Not a write instruction: $this")
     }
 
     val writeOpcodes = EnumSet.of(
         ARRAY_LENGTH,
+        INSTANCE_OF,
         NEW_INSTANCE, NEW_ARRAY,
         MOVE, MOVE_FROM16, MOVE_16, MOVE_WIDE, MOVE_WIDE_FROM16, MOVE_WIDE_16, MOVE_OBJECT,
         MOVE_OBJECT_FROM16, MOVE_OBJECT_16, MOVE_RESULT, MOVE_RESULT_WIDE, MOVE_RESULT_OBJECT, MOVE_EXCEPTION,
@@ -139,7 +147,7 @@ internal fun Method.findFreeRegister(startIndex: Int, vararg registersToExclude:
                 return freeRegister
             }
             if (bestFreeRegisterFound != null) {
-                return bestFreeRegisterFound;
+                return bestFreeRegisterFound
             }
 
             // Somehow every method register was read from before any register was wrote to.
@@ -150,14 +158,14 @@ internal fun Method.findFreeRegister(startIndex: Int, vararg registersToExclude:
 
         if (instruction.opcode in branchOpcodes) {
             if (bestFreeRegisterFound != null) {
-                return bestFreeRegisterFound;
+                return bestFreeRegisterFound
             }
             // This method is simple and does not follow branching.
             throw IllegalArgumentException("Encountered a branch statement before a free register could be found")
         }
 
         if (instruction.opcode in writeOpcodes) {
-            val writeRegister = instruction.getRegisterWritten()
+            val writeRegister = instruction.getWriteRegister()
 
             if (writeRegister !in usedRegisters) {
                 // Verify the register is only used for write and not also as a parameter.
