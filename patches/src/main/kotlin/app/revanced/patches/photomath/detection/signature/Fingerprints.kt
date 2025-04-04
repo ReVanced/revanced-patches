@@ -14,5 +14,5 @@ internal val checkSignatureFingerprint = fingerprint {
         Opcode.INVOKE_STATIC,
         Opcode.MOVE_RESULT,
     )
-    strings("signatures")
+    strings("SHA")
 }

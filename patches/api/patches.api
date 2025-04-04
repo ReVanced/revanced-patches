@@ -132,6 +132,10 @@ public final class app/revanced/patches/amazon/DeepLinkingPatchKt {
 	public static final fun getDeepLinkingPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
+public final class app/revanced/patches/angulus/ads/RemoveAdsPatchKt {
+	public static final fun getAngulusPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
 public final class app/revanced/patches/backdrops/misc/pro/ProUnlockPatchKt {
 	public static final fun getProUnlockPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
@@ -394,6 +398,10 @@ public final class app/revanced/patches/piccomafr/tracking/DisableTrackingPatchK
 
 public final class app/revanced/patches/pixiv/ads/HideAdsPatchKt {
 	public static final fun getHideAdsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
+public final class app/revanced/patches/protonmail/signature/RemoveSentFromSignaturePatchKt {
+	public static final fun getRemoveSentFromSignaturePatch ()Lapp/revanced/patcher/patch/ResourcePatch;
 }
 
 public final class app/revanced/patches/rar/misc/annoyances/purchasereminder/HidePurchaseReminderPatchKt {
@@ -1094,6 +1102,14 @@ public final class app/revanced/patches/youtube/interaction/seekbar/EnableSeekba
 
 public final class app/revanced/patches/youtube/interaction/seekbar/EnableSlideToSeekPatchKt {
 	public static final fun getEnableSlideToSeekPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
+public final class app/revanced/patches/youtube/interaction/seekbar/HideSeekbarPatchKt {
+	public static final fun getHideSeekbarPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
+public final class app/revanced/patches/youtube/interaction/seekbar/SeekbarPatchKt {
+	public static final fun getSeekbarPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
 public final class app/revanced/patches/youtube/interaction/seekbar/SeekbarThumbnailsPatchKt {

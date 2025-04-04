@@ -1,7 +1,6 @@
 <!--
-   https://github.com/google/material-design-icons/blob/9beae745bb758f3ad56654fb377ea5cf62be4915/symbols/android/publish/materialsymbolsoutlined/publish_wght200gradN25_24px.xml
-   Changes made: Icon has been resized.
-
+   https://github.com/google/material-design-icons/blob/9beae745bb758f3ad56654fb377ea5cf62be4915/symbols/android/publish/materialsymbolsoutlined/publish_wght200_24px.xml
+   Changes made: Icon has been resized to 32dp.
 
 Copyright 2022 Google
 
@@ -19,12 +18,11 @@ Copyright 2022 Google
 -->
 
 <vector xmlns:android="http://schemas.android.com/apk/res/android"
-        android:tint="#FFFFFF"
-        android:width="24dp"
-        android:height="24dp"
-        android:viewportWidth="24"
-        android:viewportHeight="24">
+        android:width="32dp"
+        android:height="32dp"
+        android:viewportWidth="32"
+        android:viewportHeight="32">
     <path
             android:fillColor="@android:color/white"
-            android:pathData="M 11.332873,22 V 9.436807 L 7.973321,12.79636 7.0294692,11.858168 12,6.8876376 16.984553,11.858168 16.040737,12.79636 12.681187,9.436807 V 22 Z M 2,7.723326 V 4.2422092 Q 2,3.3000372 2.6500003,2.6500003 3.3000372,2 4.2433411,2 H 19.756696 Q 20.699964,2 21.35,2.6500003 22,3.3000372 22,4.2422092 V 7.723326 H 20.651687 V 4.2471755 q 0,-0.3370874 -0.280888,-0.6179751 Q 20.089912,3.3483125 19.752825,3.3483125 H 4.2471755 q -0.3370874,0 -0.6179751,0.2808879 Q 3.3483125,3.9100881 3.3483125,4.2471755 V 7.723326 Z"/>
+            android:pathData="M15.4375,25.332 L15.4375,13.3281 L12.1602,16.6055 L11.3516,15.8086 L16,11.1602 L20.6484,15.8086 L19.8398,16.6055 L16.5625,13.3281 L16.5625,25.332 Z M6.66797,12.082 L6.66797,8.61719 C6.66797,8.07031,6.85547,7.60938,7.23047,7.23047 C7.60938,6.85547,8.07031,6.66797,8.61719,6.66797 L23.3828,6.66797 C23.9297,6.66797,24.3906,6.85547,24.7695,7.23047 C25.1445,7.60938,25.332,8.07031,25.332,8.61719 L25.332,12.082 L24.2031,12.082 L24.2031,8.61719 C24.2031,8.41016,24.1211,8.22266,23.9492,8.05078 C23.7773,7.87891,23.5898,7.79688,23.3828,7.79688 L8.61719,7.79688 C8.41016,7.79688,8.22266,7.87891,8.05078,8.05078 C7.87891,8.22266,7.79688,8.41016,7.79688,8.61719 L7.79688,12.082 Z M6.66797,12.082"/>
 </vector>

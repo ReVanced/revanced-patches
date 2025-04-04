@@ -15,13 +15,185 @@ import app.revanced.patches.shared.misc.mapping.get
 import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
 import app.revanced.patches.shared.misc.mapping.resourceMappings
 import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.Opcode.*
 import com.android.tools.smali.dexlib2.iface.Method
+import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.Instruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.RegisterRangeInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.ThreeRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.WideLiteralInstruction
 import com.android.tools.smali.dexlib2.iface.reference.Reference
 import com.android.tools.smali.dexlib2.util.MethodUtil
+import java.util.EnumSet
+
+/**
+ * Starting from and including the instruction at index [startIndex],
+ * finds the next register that is wrote to and not read from. If a return instruction
+ * is encountered, then the lowest unused register is returned.
+ *
+ * This method can return a non 4-bit register, and the calling code may need to temporarily
+ * swap register contents if a 4-bit register is required.
+ *
+ * @param startIndex Inclusive starting index.
+ * @param registersToExclude Registers to exclude, and consider as used. For most use cases,
+ *                           all registers used in injected code should be specified.
+ * @throws IllegalArgumentException If a branch or conditional statement is encountered
+ *                                  before a suitable register is found.
+ */
+internal fun Method.findFreeRegister(startIndex: Int, vararg registersToExclude: Int): Int {
+    if (implementation == null) {
+        throw IllegalArgumentException("Method has no implementation: $this")
+    }
+    if (startIndex < 0 || startIndex >= instructions.count()) {
+        throw IllegalArgumentException("startIndex out of bounds: $startIndex")
+    }
+
+    // All registers used by an instruction.
+    fun Instruction.getRegistersUsed() = when (this) {
+        is FiveRegisterInstruction -> {
+            when (registerCount) {
+                1 -> listOf(registerC)
+                2 -> listOf(registerC, registerD)
+                3 -> listOf(registerC, registerD, registerE)
+                4 -> listOf(registerC, registerD, registerE, registerF)
+                else -> listOf(registerC, registerD, registerE, registerF, registerG)
+            }
+        }
+        is ThreeRegisterInstruction -> listOf(registerA, registerB, registerC)
+        is TwoRegisterInstruction -> listOf(registerA, registerB)
+        is OneRegisterInstruction -> listOf(registerA)
+        is RegisterRangeInstruction -> (startRegister until (startRegister + registerCount)).toList()
+        else -> emptyList()
+    }
+
+    // Register that is written to by an instruction.
+    fun Instruction.getWriteRegister() : Int {
+        // Two and three register instructions extend OneRegisterInstruction.
+        if (this is OneRegisterInstruction) return registerA
+        throw IllegalStateException("Not a write instruction: $this")
+    }
+
+    val writeOpcodes = EnumSet.of(
+        ARRAY_LENGTH,
+        INSTANCE_OF,
+        NEW_INSTANCE, NEW_ARRAY,
+        MOVE, MOVE_FROM16, MOVE_16, MOVE_WIDE, MOVE_WIDE_FROM16, MOVE_WIDE_16, MOVE_OBJECT,
+        MOVE_OBJECT_FROM16, MOVE_OBJECT_16, MOVE_RESULT, MOVE_RESULT_WIDE, MOVE_RESULT_OBJECT, MOVE_EXCEPTION,
+        CONST, CONST_4, CONST_16, CONST_HIGH16, CONST_WIDE_16, CONST_WIDE_32,
+        CONST_WIDE, CONST_WIDE_HIGH16, CONST_STRING, CONST_STRING_JUMBO,
+        IGET, IGET_WIDE, IGET_OBJECT, IGET_BOOLEAN, IGET_BYTE, IGET_CHAR, IGET_SHORT,
+        IGET_VOLATILE, IGET_WIDE_VOLATILE, IGET_OBJECT_VOLATILE,
+        SGET, SGET_WIDE, SGET_OBJECT, SGET_BOOLEAN, SGET_BYTE, SGET_CHAR, SGET_SHORT,
+        SGET_VOLATILE, SGET_WIDE_VOLATILE, SGET_OBJECT_VOLATILE,
+        AGET, AGET_WIDE, AGET_OBJECT, AGET_BOOLEAN, AGET_BYTE, AGET_CHAR, AGET_SHORT,
+        // Arithmetic and logical operations.
+        ADD_DOUBLE_2ADDR, ADD_DOUBLE, ADD_FLOAT_2ADDR, ADD_FLOAT, ADD_INT_2ADDR,
+        ADD_INT_LIT8, ADD_INT, ADD_LONG_2ADDR, ADD_LONG, ADD_INT_LIT16,
+        AND_INT_2ADDR, AND_INT_LIT8, AND_INT_LIT16, AND_INT, AND_LONG_2ADDR, AND_LONG,
+        DIV_DOUBLE_2ADDR, DIV_DOUBLE, DIV_FLOAT_2ADDR, DIV_FLOAT, DIV_INT_2ADDR,
+        DIV_INT_LIT16, DIV_INT_LIT8, DIV_INT, DIV_LONG_2ADDR, DIV_LONG,
+        DOUBLE_TO_FLOAT, DOUBLE_TO_INT, DOUBLE_TO_LONG,
+        FLOAT_TO_DOUBLE, FLOAT_TO_INT, FLOAT_TO_LONG,
+        INT_TO_BYTE, INT_TO_CHAR, INT_TO_DOUBLE, INT_TO_FLOAT, INT_TO_LONG, INT_TO_SHORT,
+        LONG_TO_DOUBLE, LONG_TO_FLOAT, LONG_TO_INT,
+        MUL_DOUBLE_2ADDR, MUL_DOUBLE, MUL_FLOAT_2ADDR, MUL_FLOAT, MUL_INT_2ADDR,
+        MUL_INT_LIT16, MUL_INT_LIT8, MUL_INT, MUL_LONG_2ADDR, MUL_LONG,
+        NEG_DOUBLE, NEG_FLOAT, NEG_INT, NEG_LONG,
+        NOT_INT, NOT_LONG,
+        OR_INT_2ADDR, OR_INT_LIT16, OR_INT_LIT8, OR_INT, OR_LONG_2ADDR, OR_LONG,
+        REM_DOUBLE_2ADDR, REM_DOUBLE, REM_FLOAT_2ADDR, REM_FLOAT, REM_INT_2ADDR,
+        REM_INT_LIT16, REM_INT_LIT8, REM_INT, REM_LONG_2ADDR, REM_LONG,
+        RSUB_INT_LIT8, RSUB_INT,
+        SHL_INT_2ADDR, SHL_INT_LIT8, SHL_INT, SHL_LONG_2ADDR, SHL_LONG,
+        SHR_INT_2ADDR, SHR_INT_LIT8, SHR_INT, SHR_LONG_2ADDR, SHR_LONG,
+        SUB_DOUBLE_2ADDR, SUB_DOUBLE, SUB_FLOAT_2ADDR, SUB_FLOAT, SUB_INT_2ADDR,
+        SUB_INT, SUB_LONG_2ADDR, SUB_LONG,
+        USHR_INT_2ADDR, USHR_INT_LIT8, USHR_INT, USHR_LONG_2ADDR, USHR_LONG,
+        XOR_INT_2ADDR, XOR_INT_LIT16, XOR_INT_LIT8, XOR_INT, XOR_LONG_2ADDR, XOR_LONG,
+    )
+
+    val branchOpcodes = EnumSet.of(
+        GOTO, GOTO_16, GOTO_32,
+        IF_EQ, IF_NE, IF_LT, IF_GE, IF_GT, IF_LE,
+        IF_EQZ, IF_NEZ, IF_LTZ, IF_GEZ, IF_GTZ, IF_LEZ,
+        PACKED_SWITCH_PAYLOAD, SPARSE_SWITCH_PAYLOAD
+    )
+
+    val returnOpcodes = EnumSet.of(
+        RETURN_VOID, RETURN, RETURN_WIDE, RETURN_OBJECT, RETURN_VOID_NO_BARRIER,
+        THROW
+    )
+
+    // Highest 4-bit register available, exclusive. Ideally return a free register less than this.
+    val maxRegister4Bits = 16
+    var bestFreeRegisterFound: Int? = null
+    val usedRegisters = registersToExclude.toMutableSet()
+
+    for (i in startIndex until instructions.count()) {
+        val instruction = getInstruction(i)
+        val instructionRegisters = instruction.getRegistersUsed()
+
+        if (instruction.opcode in returnOpcodes) {
+            // Method returns.
+            usedRegisters.addAll(instructionRegisters)
+
+            // Use lowest register that hasn't been encountered.
+            val freeRegister = (0 until implementation!!.registerCount).find {
+                it !in usedRegisters
+            }
+            if (freeRegister != null) {
+                return freeRegister
+            }
+            if (bestFreeRegisterFound != null) {
+                return bestFreeRegisterFound
+            }
+
+            // Somehow every method register was read from before any register was wrote to.
+            // In practice this never occurs.
+            throw IllegalArgumentException("Could not find a free register from startIndex: " +
+                    "$startIndex excluding: $registersToExclude")
+        }
+
+        if (instruction.opcode in branchOpcodes) {
+            if (bestFreeRegisterFound != null) {
+                return bestFreeRegisterFound
+            }
+            // This method is simple and does not follow branching.
+            throw IllegalArgumentException("Encountered a branch statement before a free register could be found")
+        }
+
+        if (instruction.opcode in writeOpcodes) {
+            val writeRegister = instruction.getWriteRegister()
+
+            if (writeRegister !in usedRegisters) {
+                // Verify the register is only used for write and not also as a parameter.
+                // If the instruction uses the write register once then it's not also a read register.
+                if (instructionRegisters.count { register -> register == writeRegister } == 1) {
+                    if (writeRegister < maxRegister4Bits) {
+                        // Found an ideal register.
+                        return writeRegister
+                    }
+
+                    // Continue searching for a 4-bit register if available.
+                    if (bestFreeRegisterFound == null || writeRegister < bestFreeRegisterFound) {
+                        bestFreeRegisterFound = writeRegister
+                    }
+                }
+            }
+        }
+
+        usedRegisters.addAll(instructionRegisters)
+    }
+
+    // Some methods can have array payloads at the end of the method after a return statement.
+    // But in normal usage this cannot be reached since a branch or return statement
+    // will be encountered before the end of the method.
+    throw IllegalArgumentException("Start index is outside the range of normal control flow: $startIndex")
+}
+
 
 /**
  * Find the [MutableMethod] from a given [Method] in a [MutableClass].
@@ -395,7 +567,7 @@ fun Method.findInstructionIndicesReversedOrThrow(opcode: Opcode): List<Int> {
 
 internal fun MutableMethod.insertFeatureFlagBooleanOverride(literal: Long, extensionsMethod: String) {
     val literalIndex = indexOfFirstLiteralInstructionOrThrow(literal)
-    val index = indexOfFirstInstructionOrThrow(literalIndex, Opcode.MOVE_RESULT)
+    val index = indexOfFirstInstructionOrThrow(literalIndex, MOVE_RESULT)
     val register = getInstruction<OneRegisterInstruction>(index).registerA
 
     val operation = if (register < 16) {
@@ -423,7 +595,7 @@ fun BytecodePatchContext.forEachLiteralValueInstruction(
     classes.forEach { classDef ->
         classDef.methods.forEach { method ->
             method.implementation?.instructions?.forEachIndexed { index, instruction ->
-                if (instruction.opcode == Opcode.CONST &&
+                if (instruction.opcode == CONST &&
                     (instruction as WideLiteralInstruction).wideLiteral == literal
                 ) {
                     val mutableMethod = proxy(classDef).mutableClass.findMutableMethodOf(method)

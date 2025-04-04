@@ -1,9 +1,7 @@
 package app.revanced.patches.youtube.layout.startupshortsreset
 
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
-import app.revanced.patcher.extensions.InstructionExtensions.removeInstruction
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
@@ -12,11 +10,12 @@ import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.playservice.is_20_02_or_greater
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
+import app.revanced.util.addInstructionsAtControlFlowLabel
+import app.revanced.util.findFreeRegister
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
 import app.revanced.util.indexOfFirstInstructionReversedOrThrow
 import com.android.tools.smali.dexlib2.Opcode
-import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
@@ -80,23 +79,19 @@ val disableResumingShortsOnStartupPatch = bytecodePatch(
                             reference?.definingClass == "Lcom/google/common/util/concurrent/ListenableFuture;" &&
                             reference.name == "isDone"
                 }
-                val originalInstructionRegister =
-                    getInstruction<FiveRegisterInstruction>(listenableInstructionIndex).registerC
-                val freeRegister =
-                    getInstruction<OneRegisterInstruction>(listenableInstructionIndex + 1).registerA
+                val freeRegister = findFreeRegister(listenableInstructionIndex)
 
-                addInstructionsWithLabels(
-                    listenableInstructionIndex + 1,
+                addInstructionsAtControlFlowLabel(
+                    listenableInstructionIndex,
                     """
                         invoke-static {}, $EXTENSION_CLASS_DESCRIPTOR->disableResumingStartupShortsPlayer()Z
                         move-result v$freeRegister
                         if-eqz v$freeRegister, :show
                         return-void
                         :show
-                        invoke-interface {v$originalInstructionRegister}, Lcom/google/common/util/concurrent/ListenableFuture;->isDone()Z
+                        nop
                     """
                 )
-                removeInstruction(listenableInstructionIndex)
             }
         }
 

@@ -10,6 +10,7 @@ import app.revanced.patcher.patch.BytecodePatchContext
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
 import app.revanced.patches.all.misc.resources.addResourcesPatch
+import app.revanced.util.findFreeRegister
 import app.revanced.util.findInstructionIndicesReversedOrThrow
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
@@ -94,14 +95,14 @@ fun spoofVideoStreamsPatch(
                     getReference<MethodReference>()?.name == "newUrlRequestBuilder"
             }
             val urlRegister = getInstruction<FiveRegisterInstruction>(newRequestBuilderIndex).registerD
-            val freeRegister = getInstruction<OneRegisterInstruction>(newRequestBuilderIndex + 1).registerA
+            val freeRegister = findFreeRegister(newRequestBuilderIndex, urlRegister)
 
             addInstructions(
                 newRequestBuilderIndex,
                 """
-                move-object v$freeRegister, p1
-                invoke-static { v$urlRegister, v$freeRegister }, $EXTENSION_CLASS_DESCRIPTOR->fetchStreams(Ljava/lang/String;Ljava/util/Map;)V
-            """,
+                    move-object v$freeRegister, p1
+                    invoke-static { v$urlRegister, v$freeRegister }, $EXTENSION_CLASS_DESCRIPTOR->fetchStreams(Ljava/lang/String;Ljava/util/Map;)V
+                """
             )
         }
 

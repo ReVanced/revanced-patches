@@ -1,6 +1,7 @@
 package app.revanced.extension.youtube.patches;
 
 import app.revanced.extension.youtube.settings.Settings;
+import app.revanced.extension.youtube.shared.PlayerType;
 import app.revanced.extension.youtube.shared.ShortsPlayerState;
 
 @SuppressWarnings("unused")
@@ -23,7 +24,13 @@ public class BackgroundPlaybackPatch {
         // 7. Close the Short
         // 8. Resume playing the regular video
         // 9. Minimize the app (PIP should appear)
-        return !ShortsPlayerState.isOpen();
+        if (ShortsPlayerState.isOpen()) {
+            return false;
+        }
+
+        // Check if the video player is opened and it's not playing in the feed.
+        PlayerType current = PlayerType.getCurrent();
+        return !current.isNoneOrHidden() && current != PlayerType.INLINE_MINIMAL;
     }
 
     /**

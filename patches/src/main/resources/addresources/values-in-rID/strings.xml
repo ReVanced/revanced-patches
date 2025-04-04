@@ -1174,9 +1174,9 @@ Miniplayer dapat diseret ke sudut layar mana pun"</string>
 
 Miniplayer dapat diseret keluar layar ke kiri atau kanan"</string>
   <string name="revanced_miniplayer_horizontal_drag_summary_off">Gerakan seret horizontal dinonaktifkan</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_title">Sembunyikan tombol overlay</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">Tombol overlay disembunyikan</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">Tombol overlay ditampilkan</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_title">Sembunyikan tombol hamparan</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">Tombol hamparan disembunyikan</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">Tombol hamparan ditampilkan</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_legacy_title">Sembunyikan tombol perluas dan tutup</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_on">"Tombol disembunyikan
 

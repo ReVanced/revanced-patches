@@ -1176,7 +1176,7 @@ Second \"item\" text"</string>
   <string name="revanced_miniplayer_horizontal_drag_summary_off">Жест горизонтального перетягування вимкнено</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_title">Приховати кнопки накладання</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">Кнопки накладання приховано</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">Кнопки накладання відображаються</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">Кнопки накладання показуються</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_legacy_title">Кнопки розгортання та закриття</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_on">"Кнопки розгортання та закриття приховано
 

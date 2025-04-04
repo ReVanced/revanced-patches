@@ -1,3 +1,65 @@
+# [5.19.0-dev.6](https://github.com/ReVanced/revanced-patches/compare/v5.19.0-dev.5...v5.19.0-dev.6) (2025-04-04)
+
+
+### Bug Fixes
+
+* **Spotify:** Remove ads sections from home ([#4722](https://github.com/ReVanced/revanced-patches/issues/4722)) ([0b9a5e7](https://github.com/ReVanced/revanced-patches/commit/0b9a5e7f89a89d971762b3539166d4f145111481))
+
+# [5.19.0-dev.5](https://github.com/ReVanced/revanced-patches/compare/v5.19.0-dev.4...v5.19.0-dev.5) (2025-04-02)
+
+
+### Bug Fixes
+
+* **Spotify - Custom theme:** Override more color resources ([#4690](https://github.com/ReVanced/revanced-patches/issues/4690)) ([d7a7a0b](https://github.com/ReVanced/revanced-patches/commit/d7a7a0b982dbafa181b04f984a5f7618fb067c2a))
+
+# [5.19.0-dev.4](https://github.com/ReVanced/revanced-patches/compare/v5.19.0-dev.3...v5.19.0-dev.4) (2025-04-02)
+
+
+### Bug Fixes
+
+* **YouTube - Seekbar:** Correctly hide the feed seekbar with target 20.07 ([ddc6e4c](https://github.com/ReVanced/revanced-patches/commit/ddc6e4c34fe35fa34bd859bf34e25645a23dbdc9))
+
+# [5.19.0-dev.3](https://github.com/ReVanced/revanced-patches/compare/v5.19.0-dev.2...v5.19.0-dev.3) (2025-04-02)
+
+
+### Features
+
+* **Proton Mail:** Add `Remove 'Sent from' signature` patch ([#4514](https://github.com/ReVanced/revanced-patches/issues/4514)) ([34c14c9](https://github.com/ReVanced/revanced-patches/commit/34c14c9b443092824d035afd77adb678c6f89e3e))
+
+# [5.19.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.19.0-dev.1...v5.19.0-dev.2) (2025-04-02)
+
+
+### Features
+
+* **YouTube - Settings:** Add icons to the ReVanced settings ([#4496](https://github.com/ReVanced/revanced-patches/issues/4496)) ([d0c85f0](https://github.com/ReVanced/revanced-patches/commit/d0c85f044083d720c63a8ea4ff15d42eefeb9db7))
+
+# [5.19.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.18.1-dev.2...v5.19.0-dev.1) (2025-04-01)
+
+
+### Bug Fixes
+
+* **Twitter - Hide recommended users:** Make hiding work again by filtering for new entryId prefix ([#4456](https://github.com/ReVanced/revanced-patches/issues/4456)) ([ff846b0](https://github.com/ReVanced/revanced-patches/commit/ff846b0b7ef5060caaffedb08c1f901172f5b2d1))
+
+
+### Features
+
+* **Angulus:** Add `Hide ads` patch ([#4604](https://github.com/ReVanced/revanced-patches/issues/4604)) ([87c86b5](https://github.com/ReVanced/revanced-patches/commit/87c86b53a91b0054ac892a3f02bbe7bf83bbf813))
+* **Photomath:** Support latest version ([#4672](https://github.com/ReVanced/revanced-patches/issues/4672)) ([8e16483](https://github.com/ReVanced/revanced-patches/commit/8e1648322948151e4565fb0d86e0f37d0a02d73f))
+
+## [5.18.1-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.18.1-dev.1...v5.18.1-dev.2) (2025-04-01)
+
+
+### Bug Fixes
+
+* **YouTube:** Combine multiple seekbar patches into a single patch ([#4705](https://github.com/ReVanced/revanced-patches/issues/4705)) ([503b7eb](https://github.com/ReVanced/revanced-patches/commit/503b7eb8d413ef7f248394f128f3b2a6f3192ba6))
+
+## [5.18.1-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.18.0...v5.18.1-dev.1) (2025-03-31)
+
+
+### Bug Fixes
+
+* **YouTube - Remove background playback restrictions:** Do not show media controls when playing Shorts from the feed ([2ed675c](https://github.com/ReVanced/revanced-patches/commit/2ed675cdd058fb5876381a9d30dee5263f6b2e26))
+
 # [5.18.0](https://github.com/ReVanced/revanced-patches/compare/v5.17.0...v5.18.0) (2025-03-28)
 
 
