@@ -1,3 +1,10 @@
+# [5.19.0-dev.6](https://github.com/ReVanced/revanced-patches/compare/v5.19.0-dev.5...v5.19.0-dev.6) (2025-04-04)
+
+
+### Bug Fixes
+
+* **Spotify:** Remove ads sections from home ([#4722](https://github.com/ReVanced/revanced-patches/issues/4722)) ([0b9a5e7](https://github.com/ReVanced/revanced-patches/commit/0b9a5e7f89a89d971762b3539166d4f145111481))
+
 # [5.19.0-dev.5](https://github.com/ReVanced/revanced-patches/compare/v5.19.0-dev.4...v5.19.0-dev.5) (2025-04-02)
 
 
