@@ -138,27 +138,27 @@ val customThemePatch = resourcePatch(
                 node.textContent = when (node.getAttribute("name")) {
                     // Gradient next to user photo and "All" in home page.
                     "dark_base_background_base",
-                        // Main background.
+                    // Main background.
                     "gray_7",
-                        // Left sidebar background in tablet mode.
+                    // Left sidebar background in tablet mode.
                     "gray_10",
-                        // "Add account", "Settings and privacy", "View Profile" left sidebar background.
+                    // "Add account", "Settings and privacy", "View Profile" left sidebar background.
                     "dark_base_background_elevated_base",
-                        // Song/player background.
+                    // Song/player background.
                     "bg_gradient_start_color", "bg_gradient_end_color",
-                        // Login screen background.
+                    // Login screen background.
                     "sthlm_blk", "sthlm_blk_grad_start", "stockholm_black",
-                        // Misc.
+                    // Misc.
                     "image_placeholder_color",
                         -> backgroundColor
 
                     // Track credits, merch background in song player.
                     "track_credits_card_bg", "benefit_list_default_color", "merch_card_background",
-                        // Playlist list background in home page.
+                    // Playlist list background in home page.
                     "opacity_white_10",
-                        // "About the artist" background in song player.
+                    // "About the artist" background in song player.
                     "gray_15",
-                        // "What's New" pills background.
+                    // "What's New" pills background.
                     "dark_base_background_tinted_highlight"
                         -> backgroundColorSecondary
 
