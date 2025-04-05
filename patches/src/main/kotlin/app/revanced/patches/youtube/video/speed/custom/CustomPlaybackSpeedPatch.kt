@@ -121,11 +121,11 @@ internal val customPlaybackSpeedPatch = bytecodePatch(
 
         // Override the min/max speeds that can be used.
         speedLimiterFingerprint.method.apply {
-            val limitMinIndex = indexOfFirstLiteralInstructionOrThrow(0.25f.toRawBits().toLong())
-            var limitMaxIndex = indexOfFirstLiteralInstruction(2.0f.toRawBits().toLong())
+            val limitMinIndex = indexOfFirstLiteralInstructionOrThrow(0.25f)
+            var limitMaxIndex = indexOfFirstLiteralInstruction(2.0f)
             // Newer targets have 4x max speed.
             if (limitMaxIndex < 0) {
-                limitMaxIndex = indexOfFirstLiteralInstructionOrThrow(4.0f.toRawBits().toLong())
+                limitMaxIndex = indexOfFirstLiteralInstructionOrThrow(4.0f)
             }
 
             val limitMinRegister = getInstruction<OneRegisterInstruction>(limitMinIndex).registerA

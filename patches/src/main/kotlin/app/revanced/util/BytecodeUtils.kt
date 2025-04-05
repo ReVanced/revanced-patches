@@ -317,7 +317,49 @@ fun Method.indexOfFirstLiteralInstruction(literal: Long) = implementation?.let {
  */
 fun Method.indexOfFirstLiteralInstructionOrThrow(literal: Long): Int {
     val index = indexOfFirstLiteralInstruction(literal)
-    if (index < 0) throw PatchException("Could not find literal value: $literal")
+    if (index < 0) throw PatchException("Could not find long literal: $literal")
+    return index
+}
+
+/**
+ * Find the index of the first literal instruction with the given float value.
+ *
+ * @return the first literal instruction with the value, or -1 if not found.
+ * @see indexOfFirstLiteralInstructionOrThrow
+ */
+fun Method.indexOfFirstLiteralInstruction(literal: Float) =
+    indexOfFirstLiteralInstruction(literal.toRawBits().toLong())
+
+/**
+ * Find the index of the first literal instruction with the given float value,
+ * or throw an exception if not found.
+ *
+ * @return the first literal instruction with the value, or throws [PatchException] if not found.
+ */
+fun Method.indexOfFirstLiteralInstructionOrThrow(literal: Float): Int {
+    val index = indexOfFirstLiteralInstruction(literal)
+    if (index < 0) throw PatchException("Could not find float literal: $literal")
+    return index
+}
+
+/**
+ * Find the index of the first literal instruction with the given double value.
+ *
+ * @return the first literal instruction with the value, or -1 if not found.
+ * @see indexOfFirstLiteralInstructionOrThrow
+ */
+fun Method.indexOfFirstLiteralInstruction(literal: Double) =
+    indexOfFirstLiteralInstruction(literal.toRawBits().toLong())
+
+/**
+ * Find the index of the first literal instruction with the given double value,
+ * or throw an exception if not found.
+ *
+ * @return the first literal instruction with the value, or throws [PatchException] if not found.
+ */
+fun Method.indexOfFirstLiteralInstructionOrThrow(literal: Double): Int {
+    val index = indexOfFirstLiteralInstruction(literal)
+    if (index < 0) throw PatchException("Could not find double literal: $literal")
     return index
 }
 

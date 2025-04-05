@@ -1542,7 +1542,11 @@ public final class app/revanced/util/BytecodeUtilsKt {
 	public static final fun indexOfFirstInstructionReversedOrThrow (Lcom/android/tools/smali/dexlib2/iface/Method;Ljava/lang/Integer;Lkotlin/jvm/functions/Function1;)I
 	public static synthetic fun indexOfFirstInstructionReversedOrThrow$default (Lcom/android/tools/smali/dexlib2/iface/Method;Ljava/lang/Integer;Lcom/android/tools/smali/dexlib2/Opcode;ILjava/lang/Object;)I
 	public static synthetic fun indexOfFirstInstructionReversedOrThrow$default (Lcom/android/tools/smali/dexlib2/iface/Method;Ljava/lang/Integer;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)I
+	public static final fun indexOfFirstLiteralInstruction (Lcom/android/tools/smali/dexlib2/iface/Method;D)I
+	public static final fun indexOfFirstLiteralInstruction (Lcom/android/tools/smali/dexlib2/iface/Method;F)I
 	public static final fun indexOfFirstLiteralInstruction (Lcom/android/tools/smali/dexlib2/iface/Method;J)I
+	public static final fun indexOfFirstLiteralInstructionOrThrow (Lcom/android/tools/smali/dexlib2/iface/Method;D)I
+	public static final fun indexOfFirstLiteralInstructionOrThrow (Lcom/android/tools/smali/dexlib2/iface/Method;F)I
 	public static final fun indexOfFirstLiteralInstructionOrThrow (Lcom/android/tools/smali/dexlib2/iface/Method;J)I
 	public static final fun indexOfFirstLiteralInstructionReversed (Lcom/android/tools/smali/dexlib2/iface/Method;J)I
 	public static final fun indexOfFirstLiteralInstructionReversedOrThrow (Lcom/android/tools/smali/dexlib2/iface/Method;J)I
