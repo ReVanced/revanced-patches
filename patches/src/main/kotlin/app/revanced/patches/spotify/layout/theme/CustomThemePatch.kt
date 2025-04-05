@@ -32,7 +32,8 @@ internal val spotifyBackgroundColorSecondary = stringOption(
     key = "backgroundColorSecondary",
     default = "#FF121212",
     title = "Secondary background color",
-    description = "The secondary background color. (e.g. playlist list, player arist, credits). Can be a hex color or a resource reference.",
+    description =
+        "The secondary background color. (e.g. playlist list in home, player artist, song credits). Can be a hex color or a resource reference.",
     required = true,
 )
 
@@ -61,7 +62,7 @@ val customThemePatch = resourcePatch(
 ) {
     compatibleWith("com.spotify.music")
 
-    dependsOn(customThemebyteCodePatch)
+    dependsOn(customThemeBytecodePatch)
 
     val backgroundColor by spotifyBackgroundColor()
     val backgroundColorSecondary by spotifyBackgroundColorSecondary()
@@ -112,7 +113,7 @@ val customThemePatch = resourcePatch(
     }
 }
 
-internal val customThemebyteCodePatch = bytecodePatch {
+internal val customThemeBytecodePatch = bytecodePatch {
     dependsOn(sharedExtensionPatch)
 
     execute {
