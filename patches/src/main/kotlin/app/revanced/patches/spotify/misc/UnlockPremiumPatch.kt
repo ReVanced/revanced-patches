@@ -30,7 +30,7 @@ val unlockPremiumPatch = bytecodePatch(
         // Make _value accessible so that it can be overridden in the extension.
         accountAttributeFingerprint.classDef.fields.first { it.name == "value_" }.apply {
             // Add public flag and remove private.
-            accessFlags = accessFlags or AccessFlags.PUBLIC.value and AccessFlags.PRIVATE.value.inv()
+            accessFlags = accessFlags.or(AccessFlags.PUBLIC.value).and(AccessFlags.PRIVATE.value.inv())
         }
 
         // Override the attributes map in the getter method.
@@ -67,7 +67,7 @@ val unlockPremiumPatch = bytecodePatch(
         // Make featureTypeCase_ accessible so we can check the home section type in the extension.
         homeSectionFingerprint.classDef.fields.first { it.name == "featureTypeCase_" }.apply {
             // Add public flag and remove private.
-            accessFlags = accessFlags or AccessFlags.PUBLIC.value and AccessFlags.PRIVATE.value.inv()
+            accessFlags = accessFlags.or(AccessFlags.PUBLIC.value).and(AccessFlags.PRIVATE.value.inv())
         }
 
         val protobufListClassName = with(protobufListsFingerprint.originalMethod) {
