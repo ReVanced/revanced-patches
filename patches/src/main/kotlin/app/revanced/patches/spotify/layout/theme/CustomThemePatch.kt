@@ -8,10 +8,7 @@ import app.revanced.patcher.patch.resourcePatch
 import app.revanced.patcher.patch.stringOption
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patches.spotify.misc.extension.sharedExtensionPatch
-import app.revanced.util.containsLiteralInstruction
-import app.revanced.util.getReference
-import app.revanced.util.indexOfFirstInstructionOrThrow
-import app.revanced.util.indexOfFirstLiteralInstructionOrThrow
+import app.revanced.util.*
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
@@ -72,14 +69,16 @@ internal val customThemeBytecodePatch = bytecodePatch {
             )
         }
 
-        val encoreColorsClassName = with(encoreThemeFingerprint) {
-            // Find index of the first static get found after the string constant.
-            val encoreColorsFieldReferenceIndex = originalMethod.indexOfFirstInstructionOrThrow(
-                stringMatches!!.first().index,
+        val encoreColorsClassName = with(encoreThemeFingerprint.originalMethod) {
+            // "Encore" colors are referenced right before the value of POSITIVE_INFINITY is returned.
+            // So, begin the reversed instruction find using the index of where POSITIVE_INFINITY is set into the register.
+            val positiveInfinityIndex = indexOfFirstLiteralInstructionOrThrow(Float.POSITIVE_INFINITY.toRawBits().toLong())
+            val encoreColorsFieldReferenceIndex = indexOfFirstInstructionReversedOrThrow(
+                positiveInfinityIndex,
                 Opcode.SGET_OBJECT
             )
 
-            originalMethod.getInstruction(encoreColorsFieldReferenceIndex)
+            getInstruction(encoreColorsFieldReferenceIndex)
                 .getReference<FieldReference>()!!.definingClass
         }
 
