@@ -71,8 +71,10 @@ internal val customThemeBytecodePatch = bytecodePatch {
 
         val encoreColorsClassName = with(encoreThemeFingerprint.originalMethod) {
             // "Encore" colors are referenced right before the value of POSITIVE_INFINITY is returned.
-            // So, begin the reversed instruction find using the index of where POSITIVE_INFINITY is set into the register.
-            val positiveInfinityIndex = indexOfFirstLiteralInstructionOrThrow(Float.POSITIVE_INFINITY.toRawBits().toLong())
+            // Begin the instruction find using the index of where POSITIVE_INFINITY is set into the register.
+            val positiveInfinityIndex = indexOfFirstLiteralInstructionOrThrow(
+                Float.POSITIVE_INFINITY.toRawBits().toLong()
+            )
             val encoreColorsFieldReferenceIndex = indexOfFirstInstructionReversedOrThrow(
                 positiveInfinityIndex,
                 Opcode.SGET_OBJECT
