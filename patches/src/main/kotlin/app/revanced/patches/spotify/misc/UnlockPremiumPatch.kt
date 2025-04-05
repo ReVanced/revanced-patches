@@ -30,11 +30,11 @@ val unlockPremiumPatch = bytecodePatch(
         // Make _value accessible so that it can be overridden in the extension.
         accountAttributeFingerprint.classDef.fields.first { it.name == "value_" }.apply {
             // Add public flag and remove private.
-            accessFlags = accessFlags.or(AccessFlags.PUBLIC.value).and(AccessFlags.PRIVATE.value.inv())
+            accessFlags = accessFlags or AccessFlags.PUBLIC.value and AccessFlags.PRIVATE.value.inv()
         }
 
         // Override the attributes map in the getter method.
-        with(productStateProtoFingerprint.method) {
+        productStateProtoFingerprint.method.apply {
             val getAttributesMapIndex = indexOfFirstInstructionOrThrow(Opcode.IGET_OBJECT)
             val attributesMapRegister = getInstruction<TwoRegisterInstruction>(getAttributesMapIndex).registerA
 
@@ -46,25 +46,28 @@ val unlockPremiumPatch = bytecodePatch(
         }
 
         // Add the query parameter trackRows to show popular tracks in the artist page.
-        with(buildQueryParametersFingerprint) {
+        buildQueryParametersFingerprint.apply {
             val addQueryParameterConditionIndex = method.indexOfFirstInstructionReversedOrThrow(
                 stringMatches!!.first().index, Opcode.IF_EQZ
             )
+
             method.replaceInstruction(addQueryParameterConditionIndex, "nop")
         }
 
         // Disable the "Spotify Premium" upsell experiment in context menus.
-        with(contextMenuExperimentsFingerprint) {
+        contextMenuExperimentsFingerprint.apply {
             val moveIsEnabledIndex = method.indexOfFirstInstructionOrThrow(
                 stringMatches!!.first().index, Opcode.MOVE_RESULT
             )
             val isUpsellEnabledRegister = method.getInstruction<OneRegisterInstruction>(moveIsEnabledIndex).registerA
+
             method.replaceInstruction(moveIsEnabledIndex, "const/4 v$isUpsellEnabledRegister, 0")
         }
 
         // Make featureTypeCase_ accessible so we can check the home section type in the extension.
         homeSectionFingerprint.classDef.fields.first { it.name == "featureTypeCase_" }.apply {
-            accessFlags = accessFlags.or(AccessFlags.PUBLIC.value).and(AccessFlags.PRIVATE.value.inv())
+            // Add public flag and remove private.
+            accessFlags = accessFlags or AccessFlags.PUBLIC.value and AccessFlags.PRIVATE.value.inv()
         }
 
         val protobufListClassName = with(protobufListsFingerprint.originalMethod) {
@@ -82,7 +85,7 @@ val unlockPremiumPatch = bytecodePatch(
         // Protobuffer list has an 'isMutable' boolean parameter that sets the mutability.
         // Forcing that always on breaks unrelated code in strange ways.
         // Instead, remove the method call that checks if the list is unmodifiable.
-        with(protobufListRemoveFingerprint.method) {
+        protobufListRemoveFingerprint.method.apply {
             val invokeThrowUnmodifiableIndex = indexOfFirstInstructionOrThrow {
                 val reference = getReference<MethodReference>()
                 opcode == Opcode.INVOKE_VIRTUAL &&
@@ -94,7 +97,7 @@ val unlockPremiumPatch = bytecodePatch(
         }
 
         // Remove ads sections from home.
-        with(homeStructureFingerprint.method) {
+        homeStructureFingerprint.method.apply {
             val getSectionsIndex = indexOfFirstInstructionOrThrow(Opcode.IGET_OBJECT)
             val sectionsRegister = getInstruction<TwoRegisterInstruction>(getSectionsIndex).registerA
 
