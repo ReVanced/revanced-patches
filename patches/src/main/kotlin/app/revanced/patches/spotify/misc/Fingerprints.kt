@@ -13,7 +13,11 @@ internal const val SPOTIFY_ACCOUNT_ATTRIBUTE_LEGACY = "Lcom/spotify/useraccount/
 
 internal val accountAttributeFingerprint = fingerprint {
     custom { _, classDef ->
-        classDef.type == SPOTIFY_ACCOUNT_ATTRIBUTE || classDef.type == SPOTIFY_ACCOUNT_ATTRIBUTE_LEGACY
+        if (SPOTIFY_LEGACY_APP_TARGET) {
+            classDef.type == SPOTIFY_ACCOUNT_ATTRIBUTE_LEGACY
+        } else {
+            classDef.type == SPOTIFY_ACCOUNT_ATTRIBUTE
+        }
     }
 }
 
