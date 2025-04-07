@@ -37,7 +37,6 @@ import java.util.concurrent.*;
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
 import app.revanced.extension.youtube.ThemeHelper;
-import app.revanced.extension.youtube.patches.VersionCheckPatch;
 import app.revanced.extension.youtube.returnyoutubedislike.requests.RYDVoteData;
 import app.revanced.extension.youtube.returnyoutubedislike.requests.ReturnYouTubeDislikeApi;
 import app.revanced.extension.youtube.settings.Settings;
@@ -259,12 +258,8 @@ public class ReturnYouTubeDislike {
 
         // middle separator
         String middleSeparatorString = compactLayout
-                ? " " + MIDDLE_SEPARATOR_CHARACTER + " "
-                : " \u2009" + MIDDLE_SEPARATOR_CHARACTER + "\u2009 "; // u2009 = 'narrow space' character
-        // 20.07+ uses a larger font and less inner padding is needed.
-        if (!VersionCheckPatch.IS_20_07_OR_GREATER) {
-            middleSeparatorString = " " + middleSeparatorString + " ";
-        }
+                ? "  " + MIDDLE_SEPARATOR_CHARACTER + "  "
+                : "  \u2009" + MIDDLE_SEPARATOR_CHARACTER + "\u2009  "; // u2009 = 'narrow space' character
 
         final int shapeInsertionIndex = middleSeparatorString.length() / 2;
         Spannable middleSeparatorSpan = new SpannableString(middleSeparatorString);
