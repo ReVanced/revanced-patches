@@ -1,3 +1,10 @@
+# [5.19.0-dev.7](https://github.com/ReVanced/revanced-patches/compare/v5.19.0-dev.6...v5.19.0-dev.7) (2025-04-07)
+
+
+### Bug Fixes
+
+* **YouTube - Return YouTube Dislike:** Correctly update label after disliking a Short with 20.07 ([0bb3e32](https://github.com/ReVanced/revanced-patches/commit/0bb3e32244fa10809aee5c4e549f77ed4054537e))
+
 # [5.19.0-dev.6](https://github.com/ReVanced/revanced-patches/compare/v5.19.0-dev.5...v5.19.0-dev.6) (2025-04-04)
 
 
