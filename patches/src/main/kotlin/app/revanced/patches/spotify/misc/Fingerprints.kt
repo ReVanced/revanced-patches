@@ -1,22 +1,16 @@
 package app.revanced.patches.spotify.misc
 
 import app.revanced.patcher.fingerprint
+import app.revanced.patches.spotify.misc.extension.IS_SPOTIFY_LEGACY_APP_TARGET
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal const val SPOTIFY_ACCOUNT_ATTRIBUTE = "Lcom/spotify/remoteconfig/internal/AccountAttribute;"
-
-/**
- * Version 8.6.98.900.
- */
-private const val SPOTIFY_ACCOUNT_ATTRIBUTE_LEGACY = "Lcom/spotify/useraccount/v1/AccountAttribute;"
-
 internal val accountAttributeFingerprint = fingerprint {
     custom { _, classDef ->
-        classDef.type == if (SPOTIFY_LEGACY_APP_TARGET) {
-            SPOTIFY_ACCOUNT_ATTRIBUTE_LEGACY
+        classDef.type == if (IS_SPOTIFY_LEGACY_APP_TARGET) {
+            "Lcom/spotify/useraccount/v1/AccountAttribute;"
         } else {
-            SPOTIFY_ACCOUNT_ATTRIBUTE
+            "Lcom/spotify/remoteconfig/internal/AccountAttribute;"
         }
     }
 }
@@ -24,7 +18,7 @@ internal val accountAttributeFingerprint = fingerprint {
 internal val productStateProtoFingerprint = fingerprint {
     returns("Ljava/util/Map;")
     custom { _, classDef ->
-        classDef.type == if (SPOTIFY_LEGACY_APP_TARGET) {
+        classDef.type == if (IS_SPOTIFY_LEGACY_APP_TARGET) {
             "Lcom/spotify/ucs/proto/v0/UcsResponseWrapper${'$'}AccountAttributesResponse;"
         } else {
             "Lcom/spotify/remoteconfig/internal/ProductStateProto;"

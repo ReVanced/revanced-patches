@@ -6,6 +6,7 @@ import app.revanced.patcher.extensions.InstructionExtensions.removeInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.fingerprint
 import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.patches.spotify.misc.extension.IS_SPOTIFY_LEGACY_APP_TARGET
 import app.revanced.patches.spotify.misc.extension.sharedExtensionPatch
 import app.revanced.util.*
 import com.android.tools.smali.dexlib2.AccessFlags
@@ -18,11 +19,6 @@ import java.util.logging.Logger
 
 private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/spotify/misc/UnlockPremiumPatch;"
 
-/**
- * If patching 8.6.98.900.
- */
-internal var SPOTIFY_LEGACY_APP_TARGET = false
-
 @Suppress("unused")
 val unlockPremiumPatch = bytecodePatch(
     name = "Unlock Spotify Premium",
@@ -33,9 +29,6 @@ val unlockPremiumPatch = bytecodePatch(
     dependsOn(sharedExtensionPatch)
 
     execute {
-        // Check if patching 8.6.98.900.
-        SPOTIFY_LEGACY_APP_TARGET = (classes.find { it.type == SPOTIFY_ACCOUNT_ATTRIBUTE } == null)
-
         // Make _value accessible so that it can be overridden in the extension.
         accountAttributeFingerprint.classDef.fields.first { it.name == "value_" }.apply {
             // Add public flag and remove private.
@@ -62,9 +55,9 @@ val unlockPremiumPatch = bytecodePatch(
             method.replaceInstruction(addQueryParameterConditionIndex, "nop")
         }
 
-        if (SPOTIFY_LEGACY_APP_TARGET) {
+        if (IS_SPOTIFY_LEGACY_APP_TARGET) {
             return@execute Logger.getLogger(this::class.java.name).warning(
-                "Using a legacy app target and patch functionality may be limited."
+                "Using a legacy app target. Patch functionality may be limited."
             )
         }
 
