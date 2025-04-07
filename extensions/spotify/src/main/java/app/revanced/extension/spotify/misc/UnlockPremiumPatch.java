@@ -15,19 +15,19 @@ import app.revanced.extension.shared.Logger;
 public final class UnlockPremiumPatch {
 
     /**
-     * If the app is target is not 8.6.98.900.
+     * If the app is target is 8.6.98.900.
      */
-    private static final boolean USING_NON_LEGACY_APP_TARGET;
+    private static final boolean USING_LEGACY_APP_TARGET;
     static {
-        boolean nonLegacy;
+        boolean legacy;
         try {
             Class.forName("com.spotify.remoteconfig.internal.AccountAttribute");
-            nonLegacy = false;
+            legacy = false;
         } catch (ClassNotFoundException ex) {
-            nonLegacy = true;
+            legacy = true;
         }
 
-        USING_NON_LEGACY_APP_TARGET = nonLegacy;
+        USING_LEGACY_APP_TARGET = legacy;
     }
 
     private static class OverrideAttribute {
@@ -71,7 +71,7 @@ public final class UnlockPremiumPatch {
             new OverrideAttribute("streaming", TRUE),
             // Allows adding songs to queue and removes the smart shuffle mode restriction,
             // allowing to pick any of the other modes. Flag is not present in legacy app target.
-            new OverrideAttribute("pick-and-shuffle", FALSE, !USING_NON_LEGACY_APP_TARGET),
+            new OverrideAttribute("pick-and-shuffle", FALSE, !USING_LEGACY_APP_TARGET),
             // Disables shuffle-mode streaming-rule, which forces songs to be played shuffled
             // and breaks the player when other patches are applied.
             new OverrideAttribute("streaming-rules", ""),
@@ -103,7 +103,7 @@ public final class UnlockPremiumPatch {
                     }
                 } else {
                     Object overrideValue = override.overrideValue;
-                    if (USING_NON_LEGACY_APP_TARGET) {
+                    if (USING_LEGACY_APP_TARGET) {
                         ((com.spotify.useraccount.v1.AccountAttribute) attribute).value_ = overrideValue;
                     } else {
                         ((com.spotify.remoteconfig.internal.AccountAttribute) attribute).value_ = overrideValue;
