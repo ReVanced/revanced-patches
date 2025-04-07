@@ -54,9 +54,10 @@ val unlockPremiumPatch = bytecodePatch(
             method.replaceInstruction(addQueryParameterConditionIndex, "nop")
         }
 
-        if (classes.find { it.type == "Lcom/spotify/useraccount/v1/AccountAttribute;" } != null) {
+        // Check if patching 8.6.98.900.
+        if (classes.find { it.type == "Lcom/spotify/remoteconfig/internal/AccountAttribute;" } == null) {
             return@execute Logger.getLogger(this::class.java.name).warning(
-                "Patching a legacy app target and patch may have limited functionality."
+                "Using a legacy app target and patch functionality may be limited."
             )
         }
 

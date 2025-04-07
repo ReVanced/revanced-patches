@@ -12,7 +12,7 @@ internal val productStateProtoFingerprint = fingerprint {
     returns("Ljava/util/Map;")
     custom { _, classDef ->
         classDef.endsWith("/ProductStateProto;")
-                // Legacy app target 8.6.98.900
+                // Legacy app target 8.6.98.900.
                 || classDef.type == "Lcom/spotify/ucs/proto/v0/UcsResponseWrapper${'$'}AccountAttributesResponse;"
     }
 }
