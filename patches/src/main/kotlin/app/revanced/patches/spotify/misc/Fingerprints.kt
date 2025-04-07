@@ -9,14 +9,14 @@ internal const val SPOTIFY_ACCOUNT_ATTRIBUTE = "Lcom/spotify/remoteconfig/intern
 /**
  * Version 8.6.98.900.
  */
-internal const val SPOTIFY_ACCOUNT_ATTRIBUTE_LEGACY = "Lcom/spotify/useraccount/v1/AccountAttribute;"
+private const val SPOTIFY_ACCOUNT_ATTRIBUTE_LEGACY = "Lcom/spotify/useraccount/v1/AccountAttribute;"
 
 internal val accountAttributeFingerprint = fingerprint {
     custom { _, classDef ->
-        if (SPOTIFY_LEGACY_APP_TARGET) {
-            classDef.type == SPOTIFY_ACCOUNT_ATTRIBUTE_LEGACY
+        classDef.type == if (SPOTIFY_LEGACY_APP_TARGET) {
+            SPOTIFY_ACCOUNT_ATTRIBUTE_LEGACY
         } else {
-            classDef.type == SPOTIFY_ACCOUNT_ATTRIBUTE
+            SPOTIFY_ACCOUNT_ATTRIBUTE
         }
     }
 }
@@ -24,9 +24,11 @@ internal val accountAttributeFingerprint = fingerprint {
 internal val productStateProtoFingerprint = fingerprint {
     returns("Ljava/util/Map;")
     custom { _, classDef ->
-        classDef.endsWith("/ProductStateProto;")
-                // Legacy app target 8.6.98.900.
-                || classDef.type == "Lcom/spotify/ucs/proto/v0/UcsResponseWrapper${'$'}AccountAttributesResponse;"
+        classDef.type == if (SPOTIFY_LEGACY_APP_TARGET) {
+            "Lcom/spotify/remoteconfig/internal/ProductStateProto;"
+        } else {
+            "Lcom/spotify/ucs/proto/v0/UcsResponseWrapper${'$'}AccountAttributesResponse;"
+        }
     }
 }
 
