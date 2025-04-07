@@ -15,7 +15,7 @@ import app.revanced.extension.shared.Logger;
 public final class UnlockPremiumPatch {
 
     /**
-     * If the app is target is 8.6.98.900.
+     * If the app target is 8.6.98.900.
      */
     private static final boolean USING_LEGACY_APP_TARGET;
     static {

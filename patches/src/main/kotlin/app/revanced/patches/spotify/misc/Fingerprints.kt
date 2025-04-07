@@ -25,9 +25,9 @@ internal val productStateProtoFingerprint = fingerprint {
     returns("Ljava/util/Map;")
     custom { _, classDef ->
         classDef.type == if (SPOTIFY_LEGACY_APP_TARGET) {
-            "Lcom/spotify/remoteconfig/internal/ProductStateProto;"
-        } else {
             "Lcom/spotify/ucs/proto/v0/UcsResponseWrapper${'$'}AccountAttributesResponse;"
+        } else {
+            "Lcom/spotify/remoteconfig/internal/ProductStateProto;"
         }
     }
 }
