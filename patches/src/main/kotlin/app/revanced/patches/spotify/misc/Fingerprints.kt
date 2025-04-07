@@ -5,12 +5,16 @@ import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
 internal val accountAttributeFingerprint = fingerprint {
-    custom { _, classDef -> classDef.endsWith("internal/AccountAttribute;") }
+    custom { _, classDef -> classDef.endsWith("/AccountAttribute;") }
 }
 
 internal val productStateProtoFingerprint = fingerprint {
     returns("Ljava/util/Map;")
-    custom { _, classDef -> classDef.endsWith("ProductStateProto;") }
+    custom { _, classDef ->
+        classDef.endsWith("/ProductStateProto;")
+                // Legacy app target 8.6.98.900
+                || classDef.type == "Lcom/spotify/ucs/proto/v0/UcsResponseWrapper${'$'}AccountAttributesResponse;"
+    }
 }
 
 internal val buildQueryParametersFingerprint = fingerprint {

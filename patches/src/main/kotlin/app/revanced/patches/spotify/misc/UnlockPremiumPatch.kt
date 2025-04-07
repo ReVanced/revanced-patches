@@ -14,6 +14,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
+import java.util.logging.Logger
 
 private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/spotify/misc/UnlockPremiumPatch;"
 
@@ -51,6 +52,12 @@ val unlockPremiumPatch = bytecodePatch(
                 stringMatches!!.first().index, Opcode.IF_EQZ
             )
             method.replaceInstruction(addQueryParameterConditionIndex, "nop")
+        }
+
+        if (classes.find { it.type == "Lcom/spotify/useraccount/v1/AccountAttribute;" } != null) {
+            return@execute Logger.getLogger(this::class.java.name).warning(
+                "Patching a legacy app target and patch may have limited functionality."
+            )
         }
 
         // Disable the "Spotify Premium" upsell experiment in context menus.

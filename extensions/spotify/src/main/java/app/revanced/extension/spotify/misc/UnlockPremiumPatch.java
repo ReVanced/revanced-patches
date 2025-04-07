@@ -3,7 +3,6 @@ package app.revanced.extension.spotify.misc;
 import static java.lang.Boolean.FALSE;
 import static java.lang.Boolean.TRUE;
 
-import com.spotify.remoteconfig.internal.AccountAttribute;
 import com.spotify.home.evopage.homeapi.proto.Section;
 
 import java.util.List;
@@ -14,6 +13,21 @@ import app.revanced.extension.shared.Logger;
 
 @SuppressWarnings("unused")
 public final class UnlockPremiumPatch {
+
+    /**
+     * If the app is target 8.6.98.900.
+     */
+    private static final boolean USING_LEGACY_APP_TARGET;
+    static {
+        boolean legacyClassFound;
+        try {
+            Class.forName("com.spotify.useraccount.v1.AccountAttribute");
+            legacyClassFound = true;
+        } catch (ClassNotFoundException ex) {
+            legacyClassFound = false;
+        }
+        USING_LEGACY_APP_TARGET = legacyClassFound;
+    }
 
     private static class OverrideAttribute {
         /**
@@ -55,8 +69,8 @@ public final class UnlockPremiumPatch {
             // Make sure playing songs is not disabled remotely and playlists show up.
             new OverrideAttribute("streaming", TRUE),
             // Allows adding songs to queue and removes the smart shuffle mode restriction,
-            // allowing to pick any of the other modes.
-            new OverrideAttribute("pick-and-shuffle", FALSE),
+            // allowing to pick any of the other modes. Flag is not present in legacy app target.
+            new OverrideAttribute("pick-and-shuffle", FALSE, !USING_LEGACY_APP_TARGET),
             // Disables shuffle-mode streaming-rule, which forces songs to be played shuffled
             // and breaks the player when other patches are applied.
             new OverrideAttribute("streaming-rules", ""),
@@ -78,7 +92,7 @@ public final class UnlockPremiumPatch {
     /**
      * Override attributes injection point.
      */
-    public static void overrideAttribute(Map<String, AccountAttribute> attributes) {
+    public static void overrideAttribute(Map<String, /*AccountAttribute*/ Object> attributes) {
         try {
             for (var override : OVERRIDES) {
                 var attribute = attributes.get(override.key);
@@ -87,7 +101,12 @@ public final class UnlockPremiumPatch {
                         Logger.printException(() -> "'" + override.key + "' expected but not found");
                     }
                 } else {
-                    attribute.value_ = override.overrideValue;
+                    Object overrideValue = override.overrideValue;
+                    if (USING_LEGACY_APP_TARGET) {
+                        ((com.spotify.useraccount.v1.AccountAttribute) attribute).value_ = overrideValue;
+                    } else {
+                        ((com.spotify.remoteconfig.internal.AccountAttribute) attribute).value_ = overrideValue;
+                    }
                 }
             }
         } catch (Exception ex) {
