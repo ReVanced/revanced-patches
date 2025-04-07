@@ -4,8 +4,17 @@ import app.revanced.patcher.fingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
+internal const val SPOTIFY_ACCOUNT_ATTRIBUTE = "Lcom/spotify/remoteconfig/internal/AccountAttribute;"
+
+/**
+ * Version 8.6.98.900.
+ */
+internal const val SPOTIFY_ACCOUNT_ATTRIBUTE_LEGACY = "Lcom/spotify/useraccount/v1/AccountAttribute;"
+
 internal val accountAttributeFingerprint = fingerprint {
-    custom { _, classDef -> classDef.endsWith("/AccountAttribute;") }
+    custom { _, classDef ->
+        classDef.type == SPOTIFY_ACCOUNT_ATTRIBUTE || classDef.type == SPOTIFY_ACCOUNT_ATTRIBUTE_LEGACY
+    }
 }
 
 internal val productStateProtoFingerprint = fingerprint {
