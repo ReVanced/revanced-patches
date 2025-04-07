@@ -2,9 +2,7 @@ package app.revanced.extension.youtube.patches;
 
 import static app.revanced.extension.youtube.returnyoutubedislike.ReturnYouTubeDislike.Vote;
 
-import android.graphics.Rect;
 import android.graphics.drawable.ShapeDrawable;
-import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.Spanned;
 import android.view.View;
@@ -13,10 +11,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import java.lang.ref.WeakReference;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Objects;
+import java.util.concurrent.atomic.AtomicInteger;
 
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
@@ -63,9 +59,9 @@ public class ReturnYouTubeDislikePatch {
      * Because the litho Shorts spans are created after {@link ReturnYouTubeDislikeFilterPatch}
      * detects the video ids, after the user votes the litho will update
      * but {@link #lastLithoShortsVideoData} is not the correct data to use.
-     * If this is true, then instead use {@link #currentVideoData}.
+     * If this is non zero, then instead decrement this value and use {@link #currentVideoData}.
      */
-    private static volatile boolean lithoShortsShouldUseCurrentData;
+    private static final AtomicInteger lithoShortsUseCurrentVideoData = new AtomicInteger();
 
     /**
      * Last video id prefetched. Field is to prevent prefetching the same video id multiple times in a row.
@@ -83,7 +79,7 @@ public class ReturnYouTubeDislikePatch {
     private static void clearData() {
         currentVideoData = null;
         lastLithoShortsVideoData = null;
-        lithoShortsShouldUseCurrentData = false;
+        lithoShortsUseCurrentVideoData.set(0);
         // Rolling number text should not be cleared,
         // as it's used if incognito Short is opened/closed
         // while a regular video is on screen.
@@ -179,10 +175,10 @@ public class ReturnYouTubeDislikePatch {
         }
 
         // Use the correct dislikes data after voting.
-        if (lithoShortsShouldUseCurrentData) {
-            if (isDislikesSpan) {
-                lithoShortsShouldUseCurrentData = false;
-            }
+        // Must check if positive and cannot check for zero,
+        // because multiple get and add calls could be interleaved together.
+        if (lithoShortsUseCurrentVideoData.get() > 0) {
+            lithoShortsUseCurrentVideoData.getAndAdd(-1);
             videoData = currentVideoData;
             if (videoData == null) {
                 Logger.printException(() -> "currentVideoData is null"); // Should never happen
@@ -445,7 +441,7 @@ public class ReturnYouTubeDislikePatch {
         ReturnYouTubeDislike videoData = ReturnYouTubeDislike.getFetchForVideoId(videoId);
         videoData.setVideoIdIsShort(true);
         lastLithoShortsVideoData = videoData;
-        lithoShortsShouldUseCurrentData = false;
+        lithoShortsUseCurrentVideoData.set(0);
     }
 
     private static boolean videoIdIsSame(@Nullable ReturnYouTubeDislike fetch, @Nullable String videoId) {
@@ -483,7 +479,9 @@ public class ReturnYouTubeDislikePatch {
 
                     if (isNoneHiddenOrMinimized) {
                         if (lastLithoShortsVideoData != null) {
-                            lithoShortsShouldUseCurrentData = true;
+                            // Like and dislikes can be loaded out of order,
+                            // so allow the next 2 litho text replacements to use the current video.
+                            lithoShortsUseCurrentVideoData.set(2);
                         }
                     }
 
