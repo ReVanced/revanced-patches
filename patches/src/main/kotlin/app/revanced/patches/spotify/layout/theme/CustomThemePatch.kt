@@ -3,6 +3,7 @@ package app.revanced.patches.spotify.layout.theme
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.fingerprint
+import app.revanced.patcher.patch.booleanOption
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.resourcePatch
 import app.revanced.patcher.patch.stringOption
@@ -23,6 +24,14 @@ internal val spotifyBackgroundColor = stringOption(
     title = "Primary background color",
     description = "The background color. Can be a hex color or a resource reference.",
     required = true,
+)
+
+internal val overridePlayerGradientColor = booleanOption(
+    key = "overridePlayerGradientColor",
+    default = true,
+    title = "Override player gradient color",
+    description = "Apply primary background color to the player gradient color, which changes dynamically with the song.",
+    required = false
 )
 
 internal val spotifyBackgroundColorSecondary = stringOption(
@@ -123,6 +132,7 @@ val customThemePatch = resourcePatch(
     dependsOn(customThemeBytecodePatch)
 
     val backgroundColor by spotifyBackgroundColor()
+    val overridePlayerGradientColor by overridePlayerGradientColor()
     val backgroundColorSecondary by spotifyBackgroundColorSecondary()
     val accentColor by spotifyAccentColor()
     val accentColorPressed by spotifyAccentColorPressed()
@@ -134,8 +144,14 @@ val customThemePatch = resourcePatch(
             val childNodes = resourcesNode.childNodes
             for (i in 0 until childNodes.length) {
                 val node = childNodes.item(i) as? Element ?: continue
+                val name = node.getAttribute("name")
 
-                node.textContent = when (node.getAttribute("name")) {
+                // Skip overriding song/player gradient start color if the option is disabled.
+                if (name == "bg_gradient_start_color" && !overridePlayerGradientColor!!) {
+                    continue
+                }
+
+                node.textContent = when (name) {
                     // Gradient next to user photo and "All" in home page.
                     "dark_base_background_base",
                     // Main background.
@@ -144,7 +160,7 @@ val customThemePatch = resourcePatch(
                     "gray_10",
                     // "Add account", "Settings and privacy", "View Profile" left sidebar background.
                     "dark_base_background_elevated_base",
-                    // Song/player background.
+                    // Song/player gradient start/end color.
                     "bg_gradient_start_color", "bg_gradient_end_color",
                     // Login screen background.
                     "sthlm_blk", "sthlm_blk_grad_start", "stockholm_black",
