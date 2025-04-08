@@ -28,7 +28,7 @@ internal val spotifyBackgroundColor = stringOption(
 
 internal val overridePlayerGradientColor = booleanOption(
     key = "overridePlayerGradientColor",
-    default = true,
+    default = false,
     title = "Override player gradient color",
     description = "Apply primary background color to the player gradient color, which changes dynamically with the song.",
     required = false
@@ -164,8 +164,8 @@ val customThemePatch = resourcePatch(
                     "dark_base_background_elevated_base",
                     // Song/player gradient start/end color.
                     "bg_gradient_start_color", "bg_gradient_end_color",
-                    // Login screen background.
-                    "sthlm_blk", "sthlm_blk_grad_start", "stockholm_black",
+                    // Login screen background and gradient start.
+                    "sthlm_blk", "sthlm_blk_grad_start",
                     // Misc.
                     "image_placeholder_color",
                         -> backgroundColor
@@ -185,6 +185,14 @@ val customThemePatch = resourcePatch(
                     else -> continue
                 }
             }
+        }
+
+        // Login screen gradient.
+        document("res/drawable/start_screen_gradient.xml").use { document ->
+            val gradientNode = document.getElementsByTagName("gradient").item(0) as Element
+
+            gradientNode.setAttribute("android:startColor", backgroundColor)
+            gradientNode.setAttribute("android:endColor", backgroundColor)
         }
     }
 }
