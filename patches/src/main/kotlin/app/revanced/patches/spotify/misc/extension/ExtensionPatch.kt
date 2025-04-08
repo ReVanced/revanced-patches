@@ -14,6 +14,7 @@ val sharedExtensionPatch = bytecodePatch {
     dependsOn(sharedExtensionPatch("spotify", spotifyMainActivityOnCreate))
 
     execute {
-        IS_SPOTIFY_LEGACY_APP_TARGET = (classes.find { it.type == SPOTIFY_MAIN_ACTIVITY_LEGACY } != null)
+        IS_SPOTIFY_LEGACY_APP_TARGET = spotifyMainActivityOnCreate.fingerprint
+            .originalClassDef.type == SPOTIFY_MAIN_ACTIVITY_LEGACY
     }
 }
