@@ -147,6 +147,8 @@ val customThemePatch = resourcePatch(
                 val name = node.getAttribute("name")
 
                 // Skip overriding song/player gradient start color if the option is disabled.
+                // Gradient end color should be themed regardless to allow the gradient to connect with
+                // our primary background color.
                 if (name == "bg_gradient_start_color" && !overridePlayerGradientColor!!) {
                     continue
                 }
