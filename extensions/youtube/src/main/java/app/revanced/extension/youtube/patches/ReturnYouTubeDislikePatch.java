@@ -175,10 +175,8 @@ public class ReturnYouTubeDislikePatch {
         }
 
         // Use the correct dislikes data after voting.
-        // Must check if positive and cannot check for zero,
-        // because multiple get and add calls could be interleaved together.
-        if (lithoShortsUseCurrentVideoData.get() > 0) {
-            lithoShortsUseCurrentVideoData.getAndAdd(-1);
+        if (lithoShortsUseCurrentVideoData.compareAndSet(2, 1)
+                || lithoShortsUseCurrentVideoData.compareAndSet(1, 0)) {
             videoData = currentVideoData;
             if (videoData == null) {
                 Logger.printException(() -> "currentVideoData is null"); // Should never happen
