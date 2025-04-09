@@ -43,6 +43,9 @@ Second \"item\" text"</string>
   <string name="revanced_settings_import_reset">ReVancedi seaded on lähtestatud</string>
   <string name="revanced_settings_import_success">Imporditi %d seadet</string>
   <string name="revanced_settings_import_failure_parse">Importimine ebaõnnestus: %s</string>
+  <string name="revanced_show_menu_icons_title">Näita ReVancedi seadete ikoone</string>
+  <string name="revanced_show_menu_icons_summary_on">Seadete ikoonid on näidatud</string>
+  <string name="revanced_show_menu_icons_summary_off">Seadete ikoonid ei ole nähtavad</string>
   <string name="revanced_language_title">Revancedi keel</string>
   <string name="revanced_language_user_dialog_message">"Mõnede keelte tõlked võivad olla puudulikud või ebatäielikud.
 

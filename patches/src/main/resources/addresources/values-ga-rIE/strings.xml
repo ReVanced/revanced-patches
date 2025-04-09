@@ -43,6 +43,9 @@ Second \"item\" text"</string>
   <string name="revanced_settings_import_reset">Athshocraigh socruithe ReVanced go réamhshocrú</string>
   <string name="revanced_settings_import_success">Iompórtáladh %d socruithe</string>
   <string name="revanced_settings_import_failure_parse">Theip ar allmhairiú: %s</string>
+  <string name="revanced_show_menu_icons_title">Taispeáin deilbhíní socruithe ReVanced</string>
+  <string name="revanced_show_menu_icons_summary_on">Taispeántar deilbhíní socruithe</string>
+  <string name="revanced_show_menu_icons_summary_off">Ní thaispeántar deilbhíní socraithe</string>
   <string name="revanced_language_title">Teanga ReVanced</string>
   <string name="revanced_language_user_dialog_message">"D'fhéadfadh aistriúcháin do roinnt teangacha a bheith ar iarraidh nó mí-iomlán.
 

@@ -43,6 +43,9 @@ Second \"item\" text"</string>
   <string name="revanced_settings_import_reset">A ReVanced beállítások visszaállnak az alapértelmezettre</string>
   <string name="revanced_settings_import_success">%d beállítás importálva</string>
   <string name="revanced_settings_import_failure_parse">Sikertelen importálás: %s</string>
+  <string name="revanced_show_menu_icons_title">ReVanced beállításikonok megjelenítése</string>
+  <string name="revanced_show_menu_icons_summary_on">A beállításikonok láthatók</string>
+  <string name="revanced_show_menu_icons_summary_off">A beállítások ikonjai nem jelennek meg</string>
   <string name="revanced_language_title">ReVanced nyelve</string>
   <string name="revanced_language_user_dialog_message">"A fordítások hiányozhatnak vagy hiányosak lehetnek néhány nyelven.
 

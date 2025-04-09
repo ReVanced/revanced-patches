@@ -43,6 +43,9 @@ Second \"item\" text"</string>
   <string name="revanced_settings_import_reset">ReVanced-Einstellungen auf Standardwerte zurückgesetzt</string>
   <string name="revanced_settings_import_success">%d Einstellungen importiert</string>
   <string name="revanced_settings_import_failure_parse">Import fehlgeschlagen: %s</string>
+  <string name="revanced_show_menu_icons_title">ReVanced-Einstellungssymbole anzeigen</string>
+  <string name="revanced_show_menu_icons_summary_on">Einstellungssymbole werden angezeigt</string>
+  <string name="revanced_show_menu_icons_summary_off">Einstellungssymbole werden nicht angezeigt</string>
   <string name="revanced_language_title">ReVanced-Sprache</string>
   <string name="revanced_language_user_dialog_message">"Übersetzungen für einige Sprachen fehlen möglicherweise oder sind unvollständig.
 

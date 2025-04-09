@@ -43,6 +43,9 @@ Second \"item\" text"</string>
   <string name="revanced_settings_import_reset">Επαναφέρθηκαν οι προεπιλεγμένες ρυθμίσεις ReVanced</string>
   <string name="revanced_settings_import_success">Έγινε εισαγωγή %d ρυθμίσεων</string>
   <string name="revanced_settings_import_failure_parse">Η εισαγωγή απέτυχε: %s</string>
+  <string name="revanced_show_menu_icons_title">Εμφάνιση εικονιδίων στις ρυθμίσεις ReVanced</string>
+  <string name="revanced_show_menu_icons_summary_on">Τα εικονίδια ρυθμίσεων εμφανίζονται</string>
+  <string name="revanced_show_menu_icons_summary_off">Τα εικονίδια ρυθμίσεων δεν εμφανίζονται</string>
   <string name="revanced_language_title">Γλώσσα ρυθμίσεων ReVanced</string>
   <string name="revanced_language_user_dialog_message">"Οι μεταφράσεις για κάποιες γλώσσες ενδέχεται να λείπουν ή να είναι ελλιπείς. 
 
@@ -1180,7 +1183,7 @@ Second \"item\" text"</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">Κρυμμένα</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">Εμφανίζονται</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_legacy_title">Κουμπιά επέκτασης και κλεισίματος</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_on">"Τα κουμπιά δεν εμφανίζονται
+  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_on">"Κρυμμένα
 
 Σύρετε για να αναπτύξετε ή να κλείσετε"</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_off">Εμφανίζονται</string>

@@ -43,6 +43,9 @@ Second \"item\" text"</string>
   <string name="revanced_settings_import_reset">Pengaturan ReVanced diatur ke setelan awal</string>
   <string name="revanced_settings_import_success">Mengimpor setelan %d</string>
   <string name="revanced_settings_import_failure_parse">Impor gagal: %s</string>
+  <string name="revanced_show_menu_icons_title">Tampilkan ikon pengaturan ReVanced</string>
+  <string name="revanced_show_menu_icons_summary_on">Ikon pengaturan ditampilkan</string>
+  <string name="revanced_show_menu_icons_summary_off">Ikon pengaturan tidak ditampilkan</string>
   <string name="revanced_language_title">Bahasa ReVanced</string>
   <string name="revanced_language_user_dialog_message">"Terjemahan untuk beberapa bahasa mungkin hilang atau tidak lengkap.
 
