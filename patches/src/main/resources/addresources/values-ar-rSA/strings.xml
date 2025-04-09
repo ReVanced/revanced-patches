@@ -43,6 +43,9 @@ Second \"item\" text"</string>
   <string name="revanced_settings_import_reset">إعادة تعيين إعدادات ReVanced إلى الوضع الافتراضي</string>
   <string name="revanced_settings_import_success">تم استيراد %d إعدادات</string>
   <string name="revanced_settings_import_failure_parse">فشل الاستيراد: %s</string>
+  <string name="revanced_show_menu_icons_title">عرض أيقونات إعدادات ReVanced</string>
+  <string name="revanced_show_menu_icons_summary_on">يتم عرض أيقونات الإعدادات</string>
+  <string name="revanced_show_menu_icons_summary_off">لا يتم عرض أيقونات الإعدادات</string>
   <string name="revanced_language_title">لغة ReVanced</string>
   <string name="revanced_language_user_dialog_message">"قد تكون الترجمات لبعض اللغات مفقودة أو غير مكتملة.
 

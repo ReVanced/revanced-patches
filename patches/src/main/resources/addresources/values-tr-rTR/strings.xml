@@ -43,6 +43,9 @@ Second \"item\" text"</string>
   <string name="revanced_settings_import_reset">ReVanced ayarları varsayılanlara sıfırlandı</string>
   <string name="revanced_settings_import_success">%d ayar içe aktarıldı</string>
   <string name="revanced_settings_import_failure_parse">İçe aktarılamadı: %s</string>
+  <string name="revanced_show_menu_icons_title">ReVanced ayar simgelerini göster</string>
+  <string name="revanced_show_menu_icons_summary_on">Ayar simgeleri gösteriliyor</string>
+  <string name="revanced_show_menu_icons_summary_off">Ayar simgeleri gösterilmiyor</string>
   <string name="revanced_language_title">ReVanced dili</string>
   <string name="revanced_language_user_dialog_message">"Bazı diller için çeviriler eksik veya tamamlanmamış olabilir. 
 

@@ -43,6 +43,9 @@ Second \"item\" text"</string>
   <string name="revanced_settings_import_reset">ReVanced সেটিং ডিফল্ট সেট করা হয়েছে</string>
   <string name="revanced_settings_import_success">%d সেটিং আমদানি হয়েছে</string>
   <string name="revanced_settings_import_failure_parse">আমদানি করা যায়নি: %s</string>
+  <string name="revanced_show_menu_icons_title">ReVanced সেটিং আইকন দেখান</string>
+  <string name="revanced_show_menu_icons_summary_on">সেটিং আইকন দেখানো হয়েছে</string>
+  <string name="revanced_show_menu_icons_summary_off">সেটিং আইকন দেখানো হচ্ছে না</string>
   <string name="revanced_language_title">ReVanced ভাষা</string>
   <string name="revanced_language_user_dialog_message">"কিছু ভাষার জন্য অনুবাদ অনুপস্থিত বা অসম্পূর্ণ হতে পারে।
 

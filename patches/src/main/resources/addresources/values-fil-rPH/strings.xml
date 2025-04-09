@@ -43,6 +43,9 @@ Second \"item\" text"</string>
   <string name="revanced_settings_import_reset">I-reset ang mga ReVanced na setting sa default</string>
   <string name="revanced_settings_import_success">Na-import ang %d na mga setting</string>
   <string name="revanced_settings_import_failure_parse">Nabigo ang pag-import: %s</string>
+  <string name="revanced_show_menu_icons_title">Ipakita ang mga icon ng setting ng ReVanced</string>
+  <string name="revanced_show_menu_icons_summary_on">Ipinapakita ang mga icon ng setting</string>
+  <string name="revanced_show_menu_icons_summary_off">Hindi ipinapakita ang mga icon ng setting</string>
   <string name="revanced_language_title">Wika ng ReVanced</string>
   <string name="revanced_language_user_dialog_message">"Ang mga pagsasalin para sa ilang mga wika ay maaaring nawawala o hindi kumpleto.
 

@@ -43,6 +43,9 @@ Second \"item\" text"</string>
   <string name="revanced_settings_import_reset">將 ReVanced 設定重設為預設值</string>
   <string name="revanced_settings_import_success">已匯入 %d 個設定</string>
   <string name="revanced_settings_import_failure_parse">無法匯入：%s</string>
+  <string name="revanced_show_menu_icons_title">顯示 ReVanced 設定圖示</string>
+  <string name="revanced_show_menu_icons_summary_on">已顯示設定圖示</string>
+  <string name="revanced_show_menu_icons_summary_off">未顯示設定圖示</string>
   <string name="revanced_language_title">ReVanced 語言</string>
   <string name="revanced_language_user_dialog_message">"部分語言的翻譯可能缺少或不完整。
 
@@ -430,6 +433,9 @@ Second \"item\" text"</string>
   <string name="revanced_disable_precise_seeking_gesture_summary_off">已啟用手勢</string>
   </patch>
   <patch id="interaction.seekbar.enableSeekbarTappingPatch">
+  <string name="revanced_seekbar_tapping_title">啟用輕觸以跳轉</string>
+  <string name="revanced_seekbar_tapping_summary_on">已啟用輕觸以跳轉</string>
+  <string name="revanced_seekbar_tapping_summary_off">已停用輕觸以跳轉</string>
   </patch>
   <patch id="interaction.swipecontrols.swipeControlsResourcePatch">
   <string name="revanced_swipe_brightness_title">啟用亮度手勢</string>
@@ -549,6 +555,7 @@ Second \"item\" text"</string>
   <string name="revanced_disable_translucent_status_bar_title">停用半透明狀態列</string>
   <string name="revanced_disable_translucent_status_bar_summary_on">狀態列為不透明</string>
   <string name="revanced_disable_translucent_status_bar_summary_off">狀態列為不透明或半透明</string>
+  <string name="revanced_disable_translucent_status_bar_user_dialog_message">在部分裝置上，啟用這項功能可能會使系統導覽列變成透明。</string>
   <string name="revanced_disable_translucent_navigation_bar_light_title">停用淺色半透明狀態列</string>
   <string name="revanced_disable_translucent_navigation_bar_light_summary_on">淺色模式導覽列為不透明</string>
   <string name="revanced_disable_translucent_navigation_bar_light_summary_off">淺色模式導覽列為不透明或半透明</string>

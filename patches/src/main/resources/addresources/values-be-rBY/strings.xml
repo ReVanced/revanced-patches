@@ -43,6 +43,9 @@ Second \"item\" text"</string>
   <string name="revanced_settings_import_reset">Налады ReVanced скінуты да стандартных</string>
   <string name="revanced_settings_import_success">Імпартавана %d налад</string>
   <string name="revanced_settings_import_failure_parse">Памылка імпарту: %s</string>
+  <string name="revanced_show_menu_icons_title">Паказваць значкі налад ReVanced</string>
+  <string name="revanced_show_menu_icons_summary_on">Значкі налад паказваюцца</string>
+  <string name="revanced_show_menu_icons_summary_off">Значкі налад не паказваюцца</string>
   <string name="revanced_language_title">Мова ReVanced</string>
   <string name="revanced_language_user_dialog_message">"Пераклады для некаторых моў могуць быць адсутнымі або няпоўнымі.
 

@@ -43,6 +43,9 @@ Second \"item\" text"</string>
   <string name="revanced_settings_import_reset">ReVanced nastavitve ponastavljene na privzeto</string>
   <string name="revanced_settings_import_success">Uvoženih %d nastavitev</string>
   <string name="revanced_settings_import_failure_parse">Uvoz ni uspel: %s</string>
+  <string name="revanced_show_menu_icons_title">Pokaži ikone nastavitev ReVanced</string>
+  <string name="revanced_show_menu_icons_summary_on">Ikone nastavitev so prikazane</string>
+  <string name="revanced_show_menu_icons_summary_off">Ikone nastavitev niso prikazane</string>
   <string name="revanced_language_title">ReVanced jezik</string>
   <string name="revanced_language_user_dialog_message">"Prevodi za nekatere jezike morda manjkajo ali so nepopolni.
 

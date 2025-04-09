@@ -43,6 +43,9 @@ Second \"item\" text"</string>
   <string name="revanced_settings_import_reset">Cilësimet e ReVanced u rivendosën në cilësimet e parazgjedhura</string>
   <string name="revanced_settings_import_success">Importuan %d cilësime</string>
   <string name="revanced_settings_import_failure_parse">Importimi dështoi: %s</string>
+  <string name="revanced_show_menu_icons_title">Shfaq ikonat e cilësimeve të ReVanced</string>
+  <string name="revanced_show_menu_icons_summary_on">Ikonat e cilësimeve shfaqen</string>
+  <string name="revanced_show_menu_icons_summary_off">Ikonat e cilësimeve nuk shfaqen</string>
   <string name="revanced_language_title">Gjuha e ReVanced</string>
   <string name="revanced_language_user_dialog_message">"Përkthimet për disa gjuhë mund të jenë të humbura ose të paplota.
 

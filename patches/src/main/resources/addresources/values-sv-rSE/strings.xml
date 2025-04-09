@@ -43,6 +43,9 @@ Second \"item\" text"</string>
   <string name="revanced_settings_import_reset">ReVanced-inställningarna återställda till standard</string>
   <string name="revanced_settings_import_success">Importerade %d inställningar</string>
   <string name="revanced_settings_import_failure_parse">Importen misslyckades: %s</string>
+  <string name="revanced_show_menu_icons_title">Visa ikoner för ReVanced-inställningar</string>
+  <string name="revanced_show_menu_icons_summary_on">Inställningsikoner visas</string>
+  <string name="revanced_show_menu_icons_summary_off">Ikoner för inställningar visas inte</string>
   <string name="revanced_language_title">Språket för ReVanced</string>
   <string name="revanced_language_user_dialog_message">"Översättningar till vissa språk kan vara ofullständiga eller saknas.
 
