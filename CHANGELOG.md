@@ -1,3 +1,10 @@
+# [5.19.0-dev.10](https://github.com/ReVanced/revanced-patches/compare/v5.19.0-dev.9...v5.19.0-dev.10) (2025-04-10)
+
+
+### Bug Fixes
+
+* **YouTube - Hide layout components:** Do not hide video description music/game links if hide horizontal shelves is enabled ([3864f35](https://github.com/ReVanced/revanced-patches/commit/3864f3550153617e23ad9979fb543d8a7fb4dc0a))
+
 # [5.19.0-dev.9](https://github.com/ReVanced/revanced-patches/compare/v5.19.0-dev.8...v5.19.0-dev.9) (2025-04-10)
 
 
