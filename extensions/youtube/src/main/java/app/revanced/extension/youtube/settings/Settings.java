@@ -20,6 +20,7 @@ import static app.revanced.extension.youtube.patches.MiniplayerPatch.MiniplayerT
 import static app.revanced.extension.youtube.patches.MiniplayerPatch.MiniplayerType.MODERN_4;
 import static app.revanced.extension.youtube.patches.OpenShortsInRegularPlayerPatch.ShortsPlayerType;
 import static app.revanced.extension.youtube.patches.SeekbarThumbnailsPatch.SeekbarThumbnailsHighQualityAvailability;
+import static app.revanced.extension.youtube.patches.components.PlayerFlyoutMenuItemsFilter.HideAudioFlyoutMenuAvailability;
 import static app.revanced.extension.youtube.sponsorblock.objects.CategoryBehaviour.IGNORE;
 import static app.revanced.extension.youtube.sponsorblock.objects.CategoryBehaviour.MANUAL_SKIP;
 import static app.revanced.extension.youtube.sponsorblock.objects.CategoryBehaviour.SKIP_AUTOMATICALLY;
@@ -198,7 +199,7 @@ public class Settings extends BaseSettings {
     // Player flyout menu items
     public static final BooleanSetting HIDE_PLAYER_FLYOUT_ADDITIONAL_SETTINGS = new BooleanSetting("revanced_hide_player_flyout_additional_settings", FALSE);
     public static final BooleanSetting HIDE_PLAYER_FLYOUT_AMBIENT_MODE = new BooleanSetting("revanced_hide_player_flyout_ambient_mode", FALSE);
-    public static final BooleanSetting HIDE_PLAYER_FLYOUT_AUDIO_TRACK = new BooleanSetting("revanced_hide_player_flyout_audio_track", FALSE);
+    public static final BooleanSetting HIDE_PLAYER_FLYOUT_AUDIO_TRACK = new BooleanSetting("revanced_hide_player_flyout_audio_track", FALSE, new HideAudioFlyoutMenuAvailability());
     public static final BooleanSetting HIDE_PLAYER_FLYOUT_CAPTIONS = new BooleanSetting("revanced_hide_player_flyout_captions", FALSE);
     public static final BooleanSetting HIDE_PLAYER_FLYOUT_HELP = new BooleanSetting("revanced_hide_player_flyout_help", TRUE);
     public static final BooleanSetting HIDE_PLAYER_FLYOUT_LOCK_SCREEN = new BooleanSetting("revanced_hide_player_flyout_lock_screen", FALSE);

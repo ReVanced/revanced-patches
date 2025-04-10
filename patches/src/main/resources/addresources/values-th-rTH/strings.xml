@@ -43,6 +43,9 @@ Second \"item\" text"</string>
   <string name="revanced_settings_import_reset">การตั้งค่า ReVanced ถูกตั้งค่าเป็นค่าเริ่มต้น</string>
   <string name="revanced_settings_import_success">นำเข้าการตั้งค่า %d</string>
   <string name="revanced_settings_import_failure_parse">การนำเข้าล้มเหลว: %s</string>
+  <string name="revanced_show_menu_icons_title">แสดงไอคอนการตั้งค่า ReVanced</string>
+  <string name="revanced_show_menu_icons_summary_on">ไอคอนการตั้งค่าจะปรากฏขึ้น</string>
+  <string name="revanced_show_menu_icons_summary_off">ไม่แสดงไอคอนการตั้งค่า</string>
   <string name="revanced_language_title">ภาษา ReVanced</string>
   <string name="revanced_language_user_dialog_message">"การแปลบางภาษาอาจหายไปหรือไม่สมบูรณ์
 

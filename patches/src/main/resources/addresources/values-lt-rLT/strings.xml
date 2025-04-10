@@ -43,6 +43,9 @@ Second \"item\" text"</string>
   <string name="revanced_settings_import_reset">ReVanced nustatymai atstatyti į numatytuosius</string>
   <string name="revanced_settings_import_success">Importuota %d nustatymų</string>
   <string name="revanced_settings_import_failure_parse">Importavimas nepavyko: %s</string>
+  <string name="revanced_show_menu_icons_title">Rodyti „ReVanced“ nustatymų piktogramas</string>
+  <string name="revanced_show_menu_icons_summary_on">Nustatymų piktogramos yra rodomos</string>
+  <string name="revanced_show_menu_icons_summary_off">Nenurodomos nustatymų piktogramos</string>
   <string name="revanced_language_title">ReVanced kalba</string>
   <string name="revanced_language_user_dialog_message">"Kai kurių kalbų vertimai gali būti neišsamūs ar trūkti.
 

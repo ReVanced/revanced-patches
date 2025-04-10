@@ -43,6 +43,9 @@ Second \"item\" text"</string>
   <string name="revanced_settings_import_reset">Paramètres ReVanced réinitialisés aux valeurs par défaut</string>
   <string name="revanced_settings_import_success">%d paramètres importés</string>
   <string name="revanced_settings_import_failure_parse">Importation échouée : %s</string>
+  <string name="revanced_show_menu_icons_title">Afficher les icônes des paramètres ReVanced</string>
+  <string name="revanced_show_menu_icons_summary_on">Les icônes des paramètres sont affichées</string>
+  <string name="revanced_show_menu_icons_summary_off">Les icônes des paramètres ne sont pas affichées</string>
   <string name="revanced_language_title">Langue de ReVanced</string>
   <string name="revanced_language_user_dialog_message">"Il se peut que les traductions dans certaines langues soient manquantes ou incomplètes.
 

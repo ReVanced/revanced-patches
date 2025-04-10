@@ -43,6 +43,9 @@ Second \"item\" text"</string>
   <string name="revanced_settings_import_reset">Nastavenia ReVanced sa obnovia na predvolené</string>
   <string name="revanced_settings_import_success">Počet importovaných nastavení: %d</string>
   <string name="revanced_settings_import_failure_parse">Import zlyhal: %s</string>
+  <string name="revanced_show_menu_icons_title">Zobraziť ikony nastavení ReVanced</string>
+  <string name="revanced_show_menu_icons_summary_on">Ikony nastavení sa zobrazujú</string>
+  <string name="revanced_show_menu_icons_summary_off">Ikony nastavení sa nezobrazujú</string>
   <string name="revanced_language_title">Jazyk reVanced</string>
   <string name="revanced_language_user_dialog_message">"Pre niektoré jazyky môžu chýbať preklady alebo môžu byť neúplné.
 

@@ -43,6 +43,9 @@ Second \"item\" text"</string>
   <string name="revanced_settings_import_reset">ReVanced-instellingen zijn teruggezet naar de standaardinstellingen</string>
   <string name="revanced_settings_import_success">%d instellingen geïmporteerd</string>
   <string name="revanced_settings_import_failure_parse">Importeren mislukt: %s</string>
+  <string name="revanced_show_menu_icons_title">Pictogrammen voor ReVanced-instellingen weergeven</string>
+  <string name="revanced_show_menu_icons_summary_on">Instellingspictogrammen worden weergegeven</string>
+  <string name="revanced_show_menu_icons_summary_off">Pictogrammen voor instellingen worden niet weergegeven</string>
   <string name="revanced_language_title">ReVanced-taal</string>
   <string name="revanced_language_user_dialog_message">"Vertalingen voor sommige talen kunnen ontbreken of onvolledig zijn.
 

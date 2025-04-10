@@ -43,6 +43,9 @@ Second \"item\" text"</string>
   <string name="revanced_settings_import_reset">ReVanced կարգավորումները վերադրվել են դեֆոլտային</string>
   <string name="revanced_settings_import_success">Import %d կարգավորում</string>
   <string name="revanced_settings_import_failure_parse">Import-ը ձախողվել է։ %s</string>
+  <string name="revanced_show_menu_icons_title">Ցուցադրել ReVanced-ի կարգավորումների պատկերակները</string>
+  <string name="revanced_show_menu_icons_summary_on">Կարգավորումների պատկերակները ցուցադրվում են</string>
+  <string name="revanced_show_menu_icons_summary_off">Կարգավորումների պատկերակները ցուցադրված չեն</string>
   <string name="revanced_language_title">ReVanced լեզվի</string>
   <string name="revanced_language_user_dialog_message">"Որոշ լեզուների թարգմանությունները կարող են լինել բացակայուն կամ անավարտ:
 

@@ -1,3 +1,10 @@
+# [5.19.0-dev.8](https://github.com/ReVanced/revanced-patches/compare/v5.19.0-dev.7...v5.19.0-dev.8) (2025-04-09)
+
+
+### Bug Fixes
+
+* **YouTube - Return YouTube Dislike:** Fix inconsistent label after disliking a Short ([ea92a2e](https://github.com/ReVanced/revanced-patches/commit/ea92a2e36c7aab3bd115f7d0ec40467179485b32))
+
 # [5.19.0-dev.7](https://github.com/ReVanced/revanced-patches/compare/v5.19.0-dev.6...v5.19.0-dev.7) (2025-04-07)
 
 

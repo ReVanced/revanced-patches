@@ -43,6 +43,9 @@ Second \"item\" text"</string>
   <string name="revanced_settings_import_reset">Revanced-asetukset nollattiin</string>
   <string name="revanced_settings_import_success">%d asetusta tuotiin</string>
   <string name="revanced_settings_import_failure_parse">Tuonti epäonnistui: %s</string>
+  <string name="revanced_show_menu_icons_title">Näytä ReVanced-asetuskuvakkeet</string>
+  <string name="revanced_show_menu_icons_summary_on">Asetuskuvakkeet näytetään</string>
+  <string name="revanced_show_menu_icons_summary_off">Asetuskuvakkeita ei näytetä</string>
   <string name="revanced_language_title">ReVancedin kieli</string>
   <string name="revanced_language_user_dialog_message">"Joidenkin kielten käännökset saattavat puuttua tai olla puutteellisia.
 
@@ -226,6 +229,7 @@ Et saa ilmoituksia odottamattomista tapahtumista."</string>
   <string name="revanced_hide_artist_cards_title">Piilota artistikortit</string>
   <string name="revanced_hide_artist_cards_summary_on">Artistikortit on piilotettu</string>
   <string name="revanced_hide_artist_cards_summary_off">Artistikortit näytetään</string>
+  <string name="revanced_hide_ai_generated_video_summary_section_title">Piilota \"tekoälyn luoma videoyhteenveto\"</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_on">Videon yhteenveto-osio on piilotettu</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_off">Videon yhteenveto-osio näytetään</string>
   <string name="revanced_hide_attributes_section_title">Piilota Määritteet</string>
@@ -264,8 +268,10 @@ Et saa ilmoituksia odottamattomista tapahtumista."</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">Näytetään liittyvissä videoissa</string>
   <string name="revanced_comments_screen_title">Kommentit</string>
   <string name="revanced_comments_screen_summary">Piilota tai näytä kommenttiosion osia</string>
+  <string name="revanced_hide_comments_ai_chat_summary_title">Piilota tekoälyn luoma chat-yhteenveto</string>
   <string name="revanced_hide_comments_ai_chat_summary_summary_on">Chat-yhteenveto on piilotettu</string>
   <string name="revanced_hide_comments_ai_chat_summary_summary_off">Chat-yhteenveto näytetään</string>
+  <string name="revanced_hide_comments_ai_summary_title">Piilota tekoälyn luoma kommenttiyhteenveto</string>
   <string name="revanced_hide_comments_ai_summary_summary_on">Kommenttien yhteenveto on piilotettu</string>
   <string name="revanced_hide_comments_ai_summary_summary_off">Kommenttien yhteenveto näytetään</string>
   <string name="revanced_hide_comments_by_members_header_title">Piilota \"Jäsenten kommentit\" -ylätunniste</string>

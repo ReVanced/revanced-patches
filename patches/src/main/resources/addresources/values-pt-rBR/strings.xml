@@ -43,6 +43,9 @@ Second \"item\" text"</string>
   <string name="revanced_settings_import_reset">Configurações do ReVanced redefinidas para o padrão</string>
   <string name="revanced_settings_import_success">Configurações %d importadas</string>
   <string name="revanced_settings_import_failure_parse">Importação falhou: %s</string>
+  <string name="revanced_show_menu_icons_title">Mostrar ícones de configuração do ReVanced</string>
+  <string name="revanced_show_menu_icons_summary_on">Ícones de configuração são mostrados</string>
+  <string name="revanced_show_menu_icons_summary_off">Os ícones de configuração não são mostrados</string>
   <string name="revanced_language_title">Idioma do ReVanced</string>
   <string name="revanced_language_user_dialog_message">"As traduções para alguns idiomas podem estar ausentes ou incompletas.\n\nPara traduzir novos idiomas, acesse translate.revanced.app"</string>
   <string name="revanced_language_DEFAULT">Idioma do aplicativo</string>

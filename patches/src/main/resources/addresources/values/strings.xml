@@ -3,7 +3,6 @@
     All strings must have a unique path, even if the same string is declared in two different apps.
     This is because Crowdin requires temporarily flattening this file and removing the <app> and <patch> elements.
 
-
     Strings with new lines must be raw strings where they're wrapped in quotes and new lines are not encoded.
     Raw strings still requires escaping embedded double quotes but escaping embedded single quotes is optional.
 
@@ -674,6 +673,10 @@ If changing this setting does not take effect, try switching to Incognito mode."
             <string name="revanced_hide_player_flyout_audio_track_title">Hide Audio track</string>
             <string name="revanced_hide_player_flyout_audio_track_summary_on">Audio track menu is hidden</string>
             <string name="revanced_hide_player_flyout_audio_track_summary_off">Audio track menu is shown</string>
+            <!-- 'Spoof video streams' should be the same translation used for revanced_spoof_video_streams_screen_title -->
+            <string name="revanced_hide_player_flyout_audio_track_not_available">"Audio track menu is hidden
+
+To show the Audio track menu, change \'Spoof video streams\' to iOS TV"</string>
             <!-- 'Watch in VR' should be translated using the same localized wording YouTube displays for the menu item. -->
             <string name="revanced_hide_player_flyout_watch_in_vr_title">Hide Watch in VR</string>
             <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">Watch in VR menu is hidden</string>

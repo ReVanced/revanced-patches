@@ -43,6 +43,9 @@ Second \"item\" text"</string>
   <string name="revanced_settings_import_reset">ReVanced iestatījumi atiestatīti uz noklusējuma vērtībām</string>
   <string name="revanced_settings_import_success">Importēti %d iestatījumi</string>
   <string name="revanced_settings_import_failure_parse">Importēšana neizdevās: %s</string>
+  <string name="revanced_show_menu_icons_title">Rādīt ReVanced iestatījumu ikonas</string>
+  <string name="revanced_show_menu_icons_summary_on">Iestatījumu ikonas tiek rādītas</string>
+  <string name="revanced_show_menu_icons_summary_off">Ikonas iestatījumos netiek rādītas</string>
   <string name="revanced_language_title">ReVanced valoda</string>
   <string name="revanced_language_user_dialog_message">"Tulkojuma dažām valodām var būt nepilnīgs vai nebūt vispār.
 
