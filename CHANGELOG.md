@@ -1,3 +1,10 @@
+# [5.19.0-dev.9](https://github.com/ReVanced/revanced-patches/compare/v5.19.0-dev.8...v5.19.0-dev.9) (2025-04-10)
+
+
+### Bug Fixes
+
+* **YouTube - Hide player flyout menu items:** Show more detailed summary text for 'Hide Audio track' if using Android spoof client ([#4756](https://github.com/ReVanced/revanced-patches/issues/4756)) ([b67bbb2](https://github.com/ReVanced/revanced-patches/commit/b67bbb299669336addb68cf52a8ce5b39c68cec0))
+
 # [5.19.0-dev.8](https://github.com/ReVanced/revanced-patches/compare/v5.19.0-dev.7...v5.19.0-dev.8) (2025-04-09)
 
 
