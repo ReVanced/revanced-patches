@@ -1,3 +1,10 @@
+# [5.19.0-dev.11](https://github.com/ReVanced/revanced-patches/compare/v5.19.0-dev.10...v5.19.0-dev.11) (2025-04-10)
+
+
+### Features
+
+* **Messenger:** Add `Remove Meta AI tab` patch ([#4726](https://github.com/ReVanced/revanced-patches/issues/4726)) ([e3fad97](https://github.com/ReVanced/revanced-patches/commit/e3fad97484d7eb962aeb53d44a0047b34a881071))
+
 # [5.19.0-dev.10](https://github.com/ReVanced/revanced-patches/compare/v5.19.0-dev.9...v5.19.0-dev.10) (2025-04-10)
 
 
