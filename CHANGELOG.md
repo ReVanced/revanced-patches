@@ -1,3 +1,10 @@
+# [5.19.0-dev.14](https://github.com/ReVanced/revanced-patches/compare/v5.19.0-dev.13...v5.19.0-dev.14) (2025-04-11)
+
+
+### Bug Fixes
+
+* **Spotify - Unlock Spotify Premium:** Remove restrictions for Google voice assistant ([#4702](https://github.com/ReVanced/revanced-patches/issues/4702)) ([106202f](https://github.com/ReVanced/revanced-patches/commit/106202f9ebb7699c4ba4ae46b82133e35f1ac6b9))
+
 # [5.19.0-dev.13](https://github.com/ReVanced/revanced-patches/compare/v5.19.0-dev.12...v5.19.0-dev.13) (2025-04-11)
 
 
