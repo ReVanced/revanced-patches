@@ -123,8 +123,9 @@ val unlockPremiumPatch = bytecodePatch(
             with(protobufListRemoveFingerprint.method) {
                 val invokeThrowUnmodifiableIndex = indexOfFirstInstructionOrThrow {
                     val reference = getReference<MethodReference>()
-                    opcode == Opcode.INVOKE_VIRTUAL &&
-                            reference?.returnType == "V" && reference.parameterTypes.isEmpty()
+                    	?: return@indexOfFirstInstructionOrThrow null
+                    	
+                    reference.returnType == "V" && reference.parameterTypes.isEmpty()
                 }
 
                 // Remove the method call that throws an exception if the list is not mutable.
