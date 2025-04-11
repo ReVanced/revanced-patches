@@ -27,7 +27,7 @@ val gmsCoreSupportPatch = gmsCoreSupportPatch(
                     !!!
                     !!! At this time, Google Photos cannot be patched using ReVanced Manager.
                     !!!
-                    !!! Until this limitation is fixed, please patch using command prompt and ReVanced CLI tools:
+                    !!! Until this limitation is fixed, you can use ReVanced CLI:
                     !!! https://github.com/revanced/revanced-cli
                     !!! 
                 """.trimIndent()
