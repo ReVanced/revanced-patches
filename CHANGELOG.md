@@ -1,3 +1,10 @@
+# [5.19.0-dev.15](https://github.com/ReVanced/revanced-patches/compare/v5.19.0-dev.14...v5.19.0-dev.15) (2025-04-11)
+
+
+### Bug Fixes
+
+* **Google Photos - Restore hidden 'Back up while charging' toggle:** Constrain to last working app target ([#4761](https://github.com/ReVanced/revanced-patches/issues/4761)) ([152bb7c](https://github.com/ReVanced/revanced-patches/commit/152bb7c3ee7cf36bc07460e7a3444631ec540441))
+
 # [5.19.0-dev.14](https://github.com/ReVanced/revanced-patches/compare/v5.19.0-dev.13...v5.19.0-dev.14) (2025-04-11)
 
 
