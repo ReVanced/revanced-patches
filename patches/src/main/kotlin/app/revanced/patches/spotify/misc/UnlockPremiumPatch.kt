@@ -122,13 +122,13 @@ val unlockPremiumPatch = bytecodePatch(
             // Forcing that always on breaks unrelated code in strange ways.
             // Instead, remove the method call that checks if the list is unmodifiable.
             with(protobufListRemoveFingerprint.method) {
-                val invokeThrowUnmodifiableIndex = indexOfFirstInstructionOrThrow {
-                    val reference = getReference<MethodReference>()
-                    reference?.returnType == "V" && reference.parameterTypes.isEmpty()
-                }
-
                 // Remove the method call that throws an exception if the list is not mutable.
-                removeInstruction(invokeThrowUnmodifiableIndex)
+                removeInstruction(
+                    indexOfFirstInstructionOrThrow {
+                        val reference = getReference<MethodReference>()
+                        reference?.returnType == "V" && reference.parameterTypes.isEmpty()
+                    }
+                )
             }
 
             // Remove ads sections from home.
