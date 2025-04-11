@@ -20,7 +20,7 @@ val gmsCoreSupportPatch = gmsCoreSupportPatch(
         // This check is only needed for GmsCore support since all other patches
         // are bytecode and should work if using root install without GmsCore.
         // TODO: Remove this logic after Manager resource compilation is fixed.
-        if (isAndroidRuntime()) {
+        if (isAndroidRuntime) {
             Logger.getLogger(this::class.java.name).severe(
                 """
                     !!! Patching in this environment is not yet supported.
