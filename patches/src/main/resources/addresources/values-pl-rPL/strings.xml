@@ -4,7 +4,6 @@
     All strings must have a unique path, even if the same string is declared in two different apps.
     This is because Crowdin requires temporarily flattening this file and removing the <app> and <patch> elements.
 
-
     Strings with new lines must be raw strings where they're wrapped in quotes and new lines are not encoded.
     Raw strings still requires escaping embedded double quotes but escaping embedded single quotes is optional.
 
@@ -613,6 +612,10 @@ Jeśli zmiana tego ustawienia nie przyniesie efektu, spróbuj przełączyć się
   <string name="revanced_hide_player_flyout_audio_track_title">Menu ścieżki dźwiękowej</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_on">Menu ścieżki dźwiękowej jest ukryte</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_off">Menu ścieżki dźwiękowej jest widoczne</string>
+  <!-- 'Spoof video streams' should be the same translation used for revanced_spoof_video_streams_screen_title -->
+  <string name="revanced_hide_player_flyout_audio_track_not_available">"Menu ścieżki audio jest ukryte
+
+Aby pokazać menu ścieżki audio, zmień opcję „Fałszuj strumienie wideo” na iOS TV"</string>
   <!-- 'Watch in VR' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_watch_in_vr_title">Menu oglądania w VR</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">Menu oglądania w VR jest ukryte</string>
