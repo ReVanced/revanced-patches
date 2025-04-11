@@ -7,11 +7,10 @@ import app.revanced.util.indexOfFirstInstructionOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
+@Deprecated("This patch no longer works and this code will soon be deleted")
 @Suppress("unused")
 val restoreHiddenBackUpWhileChargingTogglePatch = bytecodePatch(
-    name = "Restore hidden 'Back up while charging' toggle",
-    description = "Restores a hidden toggle to only run backups when the device is charging.",
-    use = false
+    description = "Restores a hidden toggle to only run backups when the device is charging."
 ) {
     compatibleWith("com.google.android.apps.photos"("7.11.0.705590205"))
 
