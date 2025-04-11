@@ -43,6 +43,9 @@ Second \"item\" text"</string>
   <string name="revanced_settings_import_reset">ReVanced 设置重置为默认</string>
   <string name="revanced_settings_import_success">导入 %d 个设置</string>
   <string name="revanced_settings_import_failure_parse">导入失败：%s</string>
+  <string name="revanced_show_menu_icons_title">显示ReVanced设置图标</string>
+  <string name="revanced_show_menu_icons_summary_on">设置图标已显示</string>
+  <string name="revanced_show_menu_icons_summary_off">未显示设置图标</string>
   <string name="revanced_language_title">ReVanced 语言</string>
   <string name="revanced_language_user_dialog_message">"某些语言的翻译可能缺失或不完整。
 
@@ -362,9 +365,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_products_banner_title">隐藏“查看商品”横幅</string>
   <string name="revanced_hide_products_banner_summary_on">横幅已隐藏</string>
   <string name="revanced_hide_products_banner_summary_off">横幅已显示</string>
-  <string name="revanced_hide_end_screen_store_banner_title">隐藏片尾画面商店横幅</string>
+  <string name="revanced_hide_end_screen_store_banner_title">商店横幅已隐藏</string>
   <string name="revanced_hide_end_screen_store_banner_summary_on">隐藏商店横幅</string>
-  <string name="revanced_hide_end_screen_store_banner_summary_off">显示商店横幅</string>
+  <string name="revanced_hide_end_screen_store_banner_summary_off">商店横幅已显示</string>
   <string name="revanced_hide_player_store_shelf_title">隐藏播放器购物栏</string>
   <string name="revanced_hide_player_store_shelf_summary_on">购物展示栏已隐藏</string>
   <string name="revanced_hide_player_store_shelf_summary_off">购物展示栏已显示</string>
@@ -877,8 +880,8 @@ Second \"item\" text"</string>
   <string name="revanced_sb_enable_voting_sum_on">显示片段投票按钮</string>
   <string name="revanced_sb_enable_voting_sum_off">不显示片段投票按钮</string>
   <string name="revanced_sb_square_layout">使用方形布局</string>
-  <string name="revanced_sb_square_layout_sum_on">按钮和控件为方形</string>
-  <string name="revanced_sb_square_layout_sum_off">按钮和控件已四舍五入</string>
+  <string name="revanced_sb_square_layout_sum_on">使用方形的按钮和控件</string>
+  <string name="revanced_sb_square_layout_sum_off">使用圆角的按钮和控件</string>
   <!-- Translations should use language similar to 'revanced_ryd_compact_layout_title' -->
   <string name="revanced_sb_enable_compact_skip_button">使用紧凑的跳过按钮</string>
   <string name="revanced_sb_enable_compact_skip_button_sum_on">跳过按钮样式为最小宽度</string>
@@ -939,7 +942,7 @@ Second \"item\" text"</string>
   <string name="revanced_sb_segments_sponsor">赞助</string>
   <string name="revanced_sb_segments_sponsor_sum">付费推广、付费推荐和直接广告。不适用于自我推广或对他们喜欢的公益事业/创作者/网站/产品的免费宣传</string>
   <string name="revanced_sb_segments_selfpromo">非付费/自我推广</string>
-  <string name="revanced_sb_segments_selfpromo_sum">与 Sponsor 类似，但排除未付款或自我宣传。包括关于商品、捐款或他们与谁合作的信息的部分</string>
+  <string name="revanced_sb_segments_selfpromo_sum">与赞助类似，但没有报酬或是自我推广。包括与商品、捐款或合作方信息相关的部分</string>
   <string name="revanced_sb_segments_interaction">互动提醒 (订阅)</string>
   <string name="revanced_sb_segments_interaction_sum">视频中间简短提醒观众来点赞、订阅或关注。 如果片段较长，或是关于某个具体事物，则应分类为自我推广</string>
   <string name="revanced_sb_segments_highlight">重点</string>
@@ -1100,6 +1103,7 @@ Second \"item\" text"</string>
                  This is because the 'General layout' menu uses alphabetic sorting, and it functionally works better if the spoof target selector appears below the 'Spoof app version' UI switch -->
   <string name="revanced_spoof_app_version_target_title">伪装应用程序版本为</string>
   <string name="revanced_spoof_app_version_target_entry_1">19.35.36 - 恢复旧的 Shorts 播放器图标</string>
+  <string name="revanced_spoof_app_version_target_entry_2">19.01.34 - 还原旧的导航图标</string>
   </patch>
   <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">设置起始页</string>

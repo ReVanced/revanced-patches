@@ -43,6 +43,9 @@ Second \"item\" text"</string>
   <string name="revanced_settings_import_reset">Podešavanja ReVanceda su vraćena na podrazumevane vrednosti</string>
   <string name="revanced_settings_import_success">Uvezeno %d podešavanja</string>
   <string name="revanced_settings_import_failure_parse">Neuspešan uvoz: %s</string>
+  <string name="revanced_show_menu_icons_title">Prikaži ikonice podešavanja ReVanceda</string>
+  <string name="revanced_show_menu_icons_summary_on">Ikonice podešavanja su prikazane</string>
+  <string name="revanced_show_menu_icons_summary_off">Ikonice podešavanja nisu prikazane</string>
   <string name="revanced_language_title">Jezik ReVanceda</string>
   <string name="revanced_language_user_dialog_message">"Prevodi za neke jezike mogu nedostajati ili biti nepotpuni.
 

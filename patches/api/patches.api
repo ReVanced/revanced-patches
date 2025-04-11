@@ -272,6 +272,10 @@ public final class app/revanced/patches/messenger/inputfield/DisableTypingIndica
 	public static final fun getDisableTypingIndicatorPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
+public final class app/revanced/patches/messenger/navbar/RemoveMetaAITabPatchKt {
+	public static final fun getRemoveMetaAITabPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
 public final class app/revanced/patches/mifitness/misc/locale/ForceEnglishLocalePatchKt {
 	public static final fun getForceEnglishLocalePatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }

@@ -43,6 +43,9 @@ Second \"item\" text"</string>
   <string name="revanced_settings_import_reset">ReVanced-indstillinger nulstillet til standard</string>
   <string name="revanced_settings_import_success">%d indstillinger importeret</string>
   <string name="revanced_settings_import_failure_parse">Import mislykkedes: %s</string>
+  <string name="revanced_show_menu_icons_title">Vis ReVanced-indstillingsikoner</string>
+  <string name="revanced_show_menu_icons_summary_on">Indstillingsikoner vises</string>
+  <string name="revanced_show_menu_icons_summary_off">Indstillingsikoner vises ikke</string>
   <string name="revanced_language_title">ReVanced-sprog</string>
   <string name="revanced_language_user_dialog_message">"Oversættelser for nogle sprog mangler muligvis eller er ufuldstændige.
 

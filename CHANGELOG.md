@@ -1,3 +1,45 @@
+# [5.19.0-dev.12](https://github.com/ReVanced/revanced-patches/compare/v5.19.0-dev.11...v5.19.0-dev.12) (2025-04-11)
+
+
+### Features
+
+* **Strava - Disable subscription suggestions:** Make compatible with latest version ([#4739](https://github.com/ReVanced/revanced-patches/issues/4739)) ([649a2c0](https://github.com/ReVanced/revanced-patches/commit/649a2c06161c72a2040b179dbed5b415847d7527))
+
+# [5.19.0-dev.11](https://github.com/ReVanced/revanced-patches/compare/v5.19.0-dev.10...v5.19.0-dev.11) (2025-04-10)
+
+
+### Features
+
+* **Messenger:** Add `Remove Meta AI tab` patch ([#4726](https://github.com/ReVanced/revanced-patches/issues/4726)) ([e3fad97](https://github.com/ReVanced/revanced-patches/commit/e3fad97484d7eb962aeb53d44a0047b34a881071))
+
+# [5.19.0-dev.10](https://github.com/ReVanced/revanced-patches/compare/v5.19.0-dev.9...v5.19.0-dev.10) (2025-04-10)
+
+
+### Bug Fixes
+
+* **YouTube - Hide layout components:** Do not hide video description music/game links if hide horizontal shelves is enabled ([3864f35](https://github.com/ReVanced/revanced-patches/commit/3864f3550153617e23ad9979fb543d8a7fb4dc0a))
+
+# [5.19.0-dev.9](https://github.com/ReVanced/revanced-patches/compare/v5.19.0-dev.8...v5.19.0-dev.9) (2025-04-10)
+
+
+### Bug Fixes
+
+* **YouTube - Hide player flyout menu items:** Show more detailed summary text for 'Hide Audio track' if using Android spoof client ([#4756](https://github.com/ReVanced/revanced-patches/issues/4756)) ([b67bbb2](https://github.com/ReVanced/revanced-patches/commit/b67bbb299669336addb68cf52a8ce5b39c68cec0))
+
+# [5.19.0-dev.8](https://github.com/ReVanced/revanced-patches/compare/v5.19.0-dev.7...v5.19.0-dev.8) (2025-04-09)
+
+
+### Bug Fixes
+
+* **YouTube - Return YouTube Dislike:** Fix inconsistent label after disliking a Short ([ea92a2e](https://github.com/ReVanced/revanced-patches/commit/ea92a2e36c7aab3bd115f7d0ec40467179485b32))
+
+# [5.19.0-dev.7](https://github.com/ReVanced/revanced-patches/compare/v5.19.0-dev.6...v5.19.0-dev.7) (2025-04-07)
+
+
+### Bug Fixes
+
+* **YouTube - Return YouTube Dislike:** Correctly update label after disliking a Short with 20.07 ([0bb3e32](https://github.com/ReVanced/revanced-patches/commit/0bb3e32244fa10809aee5c4e549f77ed4054537e))
+
 # [5.19.0-dev.6](https://github.com/ReVanced/revanced-patches/compare/v5.19.0-dev.5...v5.19.0-dev.6) (2025-04-04)
 
 

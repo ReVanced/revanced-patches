@@ -43,6 +43,9 @@ Second \"item\" text"</string>
   <string name="revanced_settings_import_reset">Khôi phục mặc định cài đặt ReVanced</string>
   <string name="revanced_settings_import_success">Đã nhập cài đặt %d</string>
   <string name="revanced_settings_import_failure_parse">Nhập thất bại: %s</string>
+  <string name="revanced_show_menu_icons_title">Hiện biểu tượng cài đặt ReVanced</string>
+  <string name="revanced_show_menu_icons_summary_on">Các biểu tượng cài đặt được hiện</string>
+  <string name="revanced_show_menu_icons_summary_off">Các biểu tượng cài đặt không được hiện</string>
   <string name="revanced_language_title">Ngôn ngữ ReVanced</string>
   <string name="revanced_language_user_dialog_message">"Dịch cho một số ngôn ngữ có thể bị thiếu hoặc không đầy đủ.
 
@@ -227,8 +230,8 @@ Bạn sẽ không được thông báo về bất kỳ sự kiện bất ngờ n
   <string name="revanced_hide_artist_cards_summary_on">Thẻ nghệ sĩ được ẩn</string>
   <string name="revanced_hide_artist_cards_summary_off">Thẻ nghệ sĩ được hiện</string>
   <string name="revanced_hide_ai_generated_video_summary_section_title">Ẩn \'Tóm tắt video do AI tạo\'</string>
-  <string name="revanced_hide_ai_generated_video_summary_section_summary_on">Phần tóm tắt video bị ẩn</string>
-  <string name="revanced_hide_ai_generated_video_summary_section_summary_off">Phần tóm tắt video đang hiển thị</string>
+  <string name="revanced_hide_ai_generated_video_summary_section_summary_on">Phần tóm tắt video được ẩn</string>
+  <string name="revanced_hide_ai_generated_video_summary_section_summary_off">Phần tóm tắt video được hiện</string>
   <string name="revanced_hide_attributes_section_title">Ẩn Thuộc tính</string>
   <string name="revanced_hide_attributes_section_summary_on">Phần Địa điểm nổi bật, Trò chơi, Âm nhạc và Người được đề cập bị ẩn</string>
   <string name="revanced_hide_attributes_section_summary_off">Phần Địa điểm nổi bật, Trò chơi, Âm nhạc và Người được đề cập được hiện</string>
@@ -269,8 +272,8 @@ Bạn sẽ không được thông báo về bất kỳ sự kiện bất ngờ n
   <string name="revanced_hide_comments_ai_chat_summary_summary_on">Tóm tắt trò chuyện được ẩn</string>
   <string name="revanced_hide_comments_ai_chat_summary_summary_off">Tóm tắt trò chuyện được hiện</string>
   <string name="revanced_hide_comments_ai_summary_title">Ẩn tóm tắt Bình luận AI</string>
-  <string name="revanced_hide_comments_ai_summary_summary_on">Tóm tắt bình luận đã ẩn</string>
-  <string name="revanced_hide_comments_ai_summary_summary_off">Tóm tắt bình luận được hiển thị</string>
+  <string name="revanced_hide_comments_ai_summary_summary_on">Tóm tắt bình luận được ẩn</string>
+  <string name="revanced_hide_comments_ai_summary_summary_off">Tóm tắt bình luận được hiện</string>
   <string name="revanced_hide_comments_by_members_header_title">Ẩn tiêu đề \'Bình luận bởi hội viên\'</string>
   <string name="revanced_hide_comments_by_members_header_summary_on">Tiêu đề Bình luận bởi hội viên được ẩn</string>
   <string name="revanced_hide_comments_by_members_header_summary_off">Tiêu đề Bình luận bởi hội viên được hiện</string>
@@ -432,7 +435,7 @@ Tính năng này chỉ khả dụng cho các thiết bị cũ hơn"</string>
   <patch id="interaction.seekbar.enableSeekbarTappingPatch">
   <string name="revanced_seekbar_tapping_title">Bật nhấn để tua</string>
   <string name="revanced_seekbar_tapping_summary_on">Nhấn để tua được bật</string>
-  <string name="revanced_seekbar_tapping_summary_off">Nhấn để tua bị tắt</string>
+  <string name="revanced_seekbar_tapping_summary_off">Nhấn để tua được tắt</string>
   </patch>
   <patch id="interaction.swipecontrols.swipeControlsResourcePatch">
   <string name="revanced_swipe_brightness_title">Bật cử chỉ độ sáng</string>
@@ -446,8 +449,8 @@ Tính năng này chỉ khả dụng cho các thiết bị cũ hơn"</string>
 Điều chỉnh âm lượng bằng cách vuốt dọc ở bên phải màn hình"</string>
   <string name="revanced_swipe_volume_summary_off">Vuốt âm lượng được tắt</string>
   <string name="revanced_swipe_press_to_engage_title">Bật cử chỉ nhấn-để-vuốt</string>
-  <string name="revanced_swipe_press_to_engage_summary_on">Nhấn-để-vuốt đã bật</string>
-  <string name="revanced_swipe_press_to_engage_summary_off">Nhấn-để-vuốt đã tắt</string>
+  <string name="revanced_swipe_press_to_engage_summary_on">Nhấn-để-vuốt được bật</string>
+  <string name="revanced_swipe_press_to_engage_summary_off">Nhấn-để-vuốt được tắt</string>
   <string name="revanced_swipe_haptic_feedback_title">Bật phản hồi xúc giác</string>
   <string name="revanced_swipe_haptic_feedback_summary_on">Phản hồi xúc giác đã bật</string>
   <string name="revanced_swipe_haptic_feedback_summary_off">Phản hồi xúc giác đã tắt</string>
@@ -622,7 +625,7 @@ Nếu việc thay đổi cài đặt này không có hiệu lực, hãy thử ch
   <string name="revanced_hide_player_previous_next_buttons_title">Ẩn các nút Trước &amp; Tiếp theo</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_on">Các nút được ẩn</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">Các nút được hiện</string>
-  <string name="revanced_hide_cast_button_title">Ẩn nút Phát sóng</string>
+  <string name="revanced_hide_cast_button_title">Ẩn nút truyền</string>
   <string name="revanced_hide_cast_button_summary_on">Nút Truyền được ẩn</string>
   <string name="revanced_hide_cast_button_summary_off">Nút Truyền được hiện</string>
   <!-- This button does not display any text, but 'captions' should be translated using the same wording used as the translation of 'revanced_hide_player_flyout_captions_title' -->
@@ -1095,7 +1098,7 @@ Nếu sau này tắt đi, bạn nên xóa dữ liệu ứng dụng để tránh 
                  This is because the 'General layout' menu uses alphabetic sorting, and it functionally works better if the spoof target selector appears below the 'Spoof app version' UI switch -->
   <string name="revanced_spoof_app_version_target_title">Phiên bản giả mạo mục tiêu</string>
   <string name="revanced_spoof_app_version_target_entry_1">19.35.36 - Khôi phục biểu tượng trình phát Shorts cũ</string>
-  <string name="revanced_spoof_app_version_target_entry_2">19.01.34 - Cập nhật lại biểu tượng điều hướng cũ</string>
+  <string name="revanced_spoof_app_version_target_entry_2">19.01.34 - Khôi phục biểu tượng điều hướng cũ</string>
   </patch>
   <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">Đặt trang bắt đầu</string>
@@ -1175,10 +1178,10 @@ Trình phát nhỏ có thể được kéo đến bất kỳ góc nào của mà
 Trình phát nhỏ có thể được kéo ra khỏi màn hình sang trái hoặc phải"</string>
   <string name="revanced_miniplayer_horizontal_drag_summary_off">Cử chỉ kéo ngang được tắt</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_title">Ẩn các nút lớp phủ</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">Các nút lớp phủ bị ẩn</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">Các nút lớp phủ được hiển thị</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">Các nút lớp phủ được ẩn</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">Các nút lớp phủ được hiện</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_legacy_title">Ẩn các nút mở rộng và đóng</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_on">"Nút bị ẩn
+  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_on">"Nút được ẩn
 
 Vuốt để mở rộng hoặc đóng"</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_off">Các nút mở rộng và đóng được hiện</string>

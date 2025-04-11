@@ -43,6 +43,9 @@ Second \"item\" text"</string>
   <string name="revanced_settings_import_reset">Setările ReVanced au fost resetate la valorile implicite</string>
   <string name="revanced_settings_import_success">Au fost importate %d setări</string>
   <string name="revanced_settings_import_failure_parse">Importare eșuată: %s</string>
+  <string name="revanced_show_menu_icons_title">Afișați pictogramele de setări ReVanced</string>
+  <string name="revanced_show_menu_icons_summary_on">Pictogramele de setări sunt afișate</string>
+  <string name="revanced_show_menu_icons_summary_off">Pictogramele setărilor nu sunt afișate</string>
   <string name="revanced_language_title">Limba ReVanced</string>
   <string name="revanced_language_user_dialog_message">"Traducerile pentru unele limbi pot lipsi sau pot fi incomplete.
 

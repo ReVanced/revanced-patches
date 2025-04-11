@@ -43,6 +43,9 @@ Second \"item\" text"</string>
   <string name="revanced_settings_import_reset">Configuración ReVanced restablecida por defecto</string>
   <string name="revanced_settings_import_success">Configuración importada de %d</string>
   <string name="revanced_settings_import_failure_parse">Error de importación: %s</string>
+  <string name="revanced_show_menu_icons_title">Mostrar iconos de configuración de ReVanced</string>
+  <string name="revanced_show_menu_icons_summary_on">Se muestran los iconos de configuración</string>
+  <string name="revanced_show_menu_icons_summary_off">No se muestran los iconos de configuración</string>
   <string name="revanced_language_title">Idioma de ReVanced</string>
   <string name="revanced_language_user_dialog_message">"Las traducciones para algunos idiomas pueden faltar o estar incompletas.
 
@@ -699,7 +702,7 @@ Si cambiar este ajuste no tiene efecto, intenta cambiar al modo incógnito."</st
   <string name="revanced_hide_shorts_location_label_summary_on">Etiqueta de ubicación oculta</string>
   <string name="revanced_hide_shorts_location_label_summary_off">Etiqueta de ubicación mostrada</string>
   <string name="revanced_hide_shorts_save_sound_button_title">Ocultar el botón Guardar música</string>
-  <string name="revanced_hide_shorts_save_sound_button_summary_on">Guardar botón de música está oculto</string>
+  <string name="revanced_hide_shorts_save_sound_button_summary_on">El botón Guardar música está oculto</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_off">Mostrar el botón de guardar música</string>
   <string name="revanced_hide_shorts_use_template_button_title">Ocultar el botón Usar plantilla</string>
   <string name="revanced_hide_shorts_use_template_button_summary_on">Botón de plantilla de uso está oculto</string>
