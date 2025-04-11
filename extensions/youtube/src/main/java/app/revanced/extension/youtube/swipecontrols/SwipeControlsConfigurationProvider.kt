@@ -1,6 +1,5 @@
 package app.revanced.extension.youtube.swipecontrols
 
-import android.content.Context
 import android.graphics.Color
 import app.revanced.extension.shared.StringRef.str
 import app.revanced.extension.shared.Utils
@@ -9,12 +8,8 @@ import app.revanced.extension.youtube.shared.PlayerType
 
 /**
  * provider for configuration for volume and brightness swipe controls
- *
- * @param context the context to create in
  */
-class SwipeControlsConfigurationProvider(
-    private val context: Context,
-) {
+class SwipeControlsConfigurationProvider {
 //region swipe enable
     /**
      * should swipe controls be enabled? (global setting)
