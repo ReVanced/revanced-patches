@@ -31,7 +31,8 @@ internal val contextFromJsonFingerprint = fingerprint {
         Opcode.INVOKE_STATIC
     )
     custom { methodDef, classDef ->
-        classDef.endsWith("voiceassistants/playermodels/ContextJsonAdapter;") && methodDef.name == "fromJson"
+        methodDef.name == "fromJson" &&
+                classDef.endsWith("voiceassistants/playermodels/ContextJsonAdapter;")
     }
 }
 
