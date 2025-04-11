@@ -12,7 +12,7 @@ val restoreHiddenBackUpWhileChargingTogglePatch = bytecodePatch(
     name = "Restore hidden 'Back up while charging' toggle",
     description = "Restores a hidden toggle to only run backups when the device is charging.",
 ) {
-    compatibleWith("com.google.android.apps.photos"("7.11.0.706764148"))
+    compatibleWith("com.google.android.apps.photos"("7.11.0.705590205"))
 
     execute {
         // Patches 'backup_prefs_had_backup_only_when_charging_enabled' to always be true.
