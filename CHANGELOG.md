@@ -1,3 +1,10 @@
+# [5.19.0-dev.12](https://github.com/ReVanced/revanced-patches/compare/v5.19.0-dev.11...v5.19.0-dev.12) (2025-04-11)
+
+
+### Features
+
+* **Strava - Disable subscription suggestions:** Make compatible with latest version ([#4739](https://github.com/ReVanced/revanced-patches/issues/4739)) ([649a2c0](https://github.com/ReVanced/revanced-patches/commit/649a2c06161c72a2040b179dbed5b415847d7527))
+
 # [5.19.0-dev.11](https://github.com/ReVanced/revanced-patches/compare/v5.19.0-dev.10...v5.19.0-dev.11) (2025-04-10)
 
 
