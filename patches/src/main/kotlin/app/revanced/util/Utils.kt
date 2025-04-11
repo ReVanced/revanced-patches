@@ -9,13 +9,13 @@ internal object Utils {
 
 /**
  * If the current VM environment is an Android device. This will return false
- *         if running Termux or any other virtualized environment inside Android.
+ * if running Termux or any other virtualized environment inside Android.
  */
 internal val isAndroidRuntime by lazy {
     try {
         Class.forName("android.os.Build")
         true
-    } catch (e: ClassNotFoundException) {
+    } catch (_: ClassNotFoundException) {
         false
     }
 }

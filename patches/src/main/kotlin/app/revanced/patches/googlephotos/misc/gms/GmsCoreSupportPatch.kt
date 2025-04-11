@@ -21,20 +21,9 @@ val gmsCoreSupportPatch = gmsCoreSupportPatch(
         // are bytecode and should work if using root install without GmsCore.
         // TODO: Remove this logic after Manager resource compilation is fixed.
         if (isAndroidRuntime) {
-            throw PatchException(
-                """
-                    !!!
-                    !!!
-                    !!! At this time, Google Photos cannot 
-                    !!! be patched using ReVanced Manager.
-                    !!!
-                    !!! Until this limitation is fixed,
-                    !!! you can patch Google Photos
-                    !!! use ReVanced CLI:
-                    !!!
-                    !!! https://github.com/revanced/revanced-cli
-                    !!! 
-                """.trimIndent()
+            throw PatchException("At this time, Google Photos cannot be patched using ReVanced Manager. " +
+                    "Until this limitation is fixed, you can patch Google Photos use ReVanced CLI: " +
+                    "https://github.com/revanced/revanced-cli"
             )
         }
     }
