@@ -69,6 +69,7 @@ val unlockPremiumPatch = bytecodePatch(
         // Enable choosing a specific song/artist via Google Assistant.
         contextFromJsonFingerprint.method.apply {
             val insertIndex = contextFromJsonFingerprint.patternMatch!!.startIndex
+            // Both the URI and URL need to be modified.
             val registerUrl = getInstruction<FiveRegisterInstruction>(insertIndex).registerC
             val registerUri = getInstruction<FiveRegisterInstruction>(insertIndex + 2).registerD
 
