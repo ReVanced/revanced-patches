@@ -1,3 +1,10 @@
+# [5.19.0-dev.13](https://github.com/ReVanced/revanced-patches/compare/v5.19.0-dev.12...v5.19.0-dev.13) (2025-04-11)
+
+
+### Features
+
+* **Spotify:** Add limited support for version `8.6.98.900` (last version that supports Kenwood and Pioneer car stereos) ([#4750](https://github.com/ReVanced/revanced-patches/issues/4750)) ([a3fde87](https://github.com/ReVanced/revanced-patches/commit/a3fde874af993125ba7a741820e7bd48e3641b84))
+
 # [5.19.0-dev.12](https://github.com/ReVanced/revanced-patches/compare/v5.19.0-dev.11...v5.19.0-dev.12) (2025-04-11)
 
 
