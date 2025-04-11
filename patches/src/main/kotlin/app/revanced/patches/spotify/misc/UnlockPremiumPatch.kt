@@ -104,44 +104,44 @@ val unlockPremiumPatch = bytecodePatch(
         // Make featureTypeCase_ accessible so we can check the home section type in the extension.
         homeSectionFingerprint.classDef.fields.first { it.name == "featureTypeCase_" }.apply {
             accessFlags = accessFlags.or(AccessFlags.PUBLIC.value).and(AccessFlags.PRIVATE.value.inv())
+        }
 
+        val protobufListClassName = with(protobufListsFingerprint.originalMethod) {
+            val emptyProtobufListGetIndex = indexOfFirstInstructionOrThrow(Opcode.SGET_OBJECT)
+            getInstruction(emptyProtobufListGetIndex).getReference<FieldReference>()!!.definingClass
+        }
 
-            val protobufListClassName = with(protobufListsFingerprint.originalMethod) {
-                val emptyProtobufListGetIndex = indexOfFirstInstructionOrThrow(Opcode.SGET_OBJECT)
-                getInstruction(emptyProtobufListGetIndex).getReference<FieldReference>()!!.definingClass
+        val protobufListRemoveFingerprint = fingerprint {
+            custom { method, classDef ->
+                method.name == "remove" && classDef.type == protobufListClassName
             }
+        }
 
-            val protobufListRemoveFingerprint = fingerprint {
-                custom { method, classDef ->
-                    method.name == "remove" && classDef.type == protobufListClassName
-                }
-            }
-
-            // Need to allow mutation of the list so the home ads sections can be removed.
-            // Protobuffer list has an 'isMutable' boolean parameter that sets the mutability.
-            // Forcing that always on breaks unrelated code in strange ways.
-            // Instead, remove the method call that checks if the list is unmodifiable.
-            with(protobufListRemoveFingerprint.method) {
-                // Remove the method call that throws an exception if the list is not mutable.
-                removeInstruction(
-                    indexOfFirstInstructionOrThrow {
-                        val reference = getReference<MethodReference>()
+        // Need to allow mutation of the list so the home ads sections can be removed.
+        // Protobuffer list has an 'isMutable' boolean parameter that sets the mutability.
+        // Forcing that always on breaks unrelated code in strange ways.
+        // Instead, remove the method call that checks if the list is unmodifiable.
+        with(protobufListRemoveFingerprint.method) {
+            val invokeThrowUnmodifiableIndex = indexOfFirstInstructionOrThrow {
+                val reference = getReference<MethodReference>()
+                opcode == Opcode.INVOKE_VIRTUAL &&
                         reference?.returnType == "V" && reference.parameterTypes.isEmpty()
-                    }
-                )
             }
 
-            // Remove ads sections from home.
-            with(homeStructureFingerprint.method) {
-                val getSectionsIndex = indexOfFirstInstructionOrThrow(Opcode.IGET_OBJECT)
-                val sectionsRegister = getInstruction<TwoRegisterInstruction>(getSectionsIndex).registerA
+            // Remove the method call that throws an exception if the list is not mutable.
+            removeInstruction(invokeThrowUnmodifiableIndex)
+        }
 
-                addInstruction(
-                    getSectionsIndex + 1,
-                    "invoke-static { v$sectionsRegister }, " +
-                            "$EXTENSION_CLASS_DESCRIPTOR->removeHomeSections(Ljava/util/List;)V"
-                )
-            }
+        // Remove ads sections from home.
+        with(homeStructureFingerprint.method) {
+            val getSectionsIndex = indexOfFirstInstructionOrThrow(Opcode.IGET_OBJECT)
+            val sectionsRegister = getInstruction<TwoRegisterInstruction>(getSectionsIndex).registerA
+
+            addInstruction(
+                getSectionsIndex + 1,
+                "invoke-static { v$sectionsRegister }, " +
+                        "$EXTENSION_CLASS_DESCRIPTOR->removeHomeSections(Ljava/util/List;)V"
+            )
         }
     }
 }
