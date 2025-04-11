@@ -49,6 +49,7 @@ val unlockPremiumPatch = bytecodePatch(
             )
         }
 
+
         // Add the query parameter trackRows to show popular tracks in the artist page.
         with(buildQueryParametersFingerprint) {
             val addQueryParameterConditionIndex = method.indexOfFirstInstructionReversedOrThrow(
@@ -57,14 +58,6 @@ val unlockPremiumPatch = bytecodePatch(
             method.replaceInstruction(addQueryParameterConditionIndex, "nop")
         }
 
-        // Disable the "Spotify Premium" upsell experiment in context menus.
-        with(contextMenuExperimentsFingerprint) {
-            val moveIsEnabledIndex = method.indexOfFirstInstructionOrThrow(
-                stringMatches!!.first().index, Opcode.MOVE_RESULT
-            )
-            val isUpsellEnabledRegister = method.getInstruction<OneRegisterInstruction>(moveIsEnabledIndex).registerA
-            method.replaceInstruction(moveIsEnabledIndex, "const/4 v$isUpsellEnabledRegister, 0")
-        }
 
         // Enable choosing a specific song/artist via Google Assistant.
         contextFromJsonFingerprint.method.apply {
@@ -87,6 +80,7 @@ val unlockPremiumPatch = bytecodePatch(
             )
         }
 
+
         // Disable forced shuffle when asking for an album/playlist via Google Assistant.
         readPlayerOptionOverridesFingerprint.method.apply {
             val shufflingContextCallIndex = indexOfFirstInstructionOrThrow {
@@ -99,6 +93,17 @@ val unlockPremiumPatch = bytecodePatch(
                 "sget-object v$registerBool, Ljava/lang/Boolean;->FALSE:Ljava/lang/Boolean;"
             )
         }
+
+
+        // Disable the "Spotify Premium" upsell experiment in context menus.
+        with(contextMenuExperimentsFingerprint) {
+            val moveIsEnabledIndex = method.indexOfFirstInstructionOrThrow(
+                stringMatches!!.first().index, Opcode.MOVE_RESULT
+            )
+            val isUpsellEnabledRegister = method.getInstruction<OneRegisterInstruction>(moveIsEnabledIndex).registerA
+            method.replaceInstruction(moveIsEnabledIndex, "const/4 v$isUpsellEnabledRegister, 0")
+        }
+
 
         // Make featureTypeCase_ accessible so we can check the home section type in the extension.
         homeSectionFingerprint.classDef.fields.first { it.name == "featureTypeCase_" }.apply {
