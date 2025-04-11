@@ -196,10 +196,6 @@ public final class app/revanced/patches/googlephotos/misc/gms/GmsCoreSupportPatc
 	public static final fun getGmsCoreSupportPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/googlephotos/misc/preferences/RestoreHiddenBackUpWhileChargingTogglePatchKt {
-	public static final fun getRestoreHiddenBackUpWhileChargingTogglePatch ()Lapp/revanced/patcher/patch/BytecodePatch;
-}
-
 public final class app/revanced/patches/googlerecorder/restrictions/RemoveDeviceRestrictionsKt {
 	public static final fun getRemoveDeviceRestrictionsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
