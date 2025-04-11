@@ -4,7 +4,6 @@
     All strings must have a unique path, even if the same string is declared in two different apps.
     This is because Crowdin requires temporarily flattening this file and removing the <app> and <patch> elements.
 
-
     Strings with new lines must be raw strings where they're wrapped in quotes and new lines are not encoded.
     Raw strings still requires escaping embedded double quotes but escaping embedded single quotes is optional.
 
@@ -610,6 +609,7 @@ Second \"item\" text"</string>
   <string name="revanced_hide_player_flyout_audio_track_title">隱藏音軌</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_on">已隱藏音軌選單</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_off">已顯示音軌選單</string>
+  <!-- 'Spoof video streams' should be the same translation used for revanced_spoof_video_streams_screen_title -->
   <!-- 'Watch in VR' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_watch_in_vr_title">隱藏以 VR 模式觀看</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">已隱藏以 VR 模式觀看</string>
