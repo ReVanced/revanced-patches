@@ -12,7 +12,7 @@ import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
 val disableSubscriptionSuggestionsPatch = bytecodePatch(
     name = "Disable subscription suggestions",
 ) {
-    compatibleWith("com.strava"("320.12"))
+    compatibleWith("com.strava")
 
     execute {
         val helperMethodName = "getModulesIfNotUpselling"
