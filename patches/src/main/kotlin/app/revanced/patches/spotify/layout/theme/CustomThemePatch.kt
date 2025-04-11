@@ -60,7 +60,7 @@ internal val spotifyAccentColorPressed = stringOption(
     required = true,
 )
 
-internal val customThemeBytecodePatch = bytecodePatch {
+private val customThemeBytecodePatch = bytecodePatch {
     dependsOn(sharedExtensionPatch)
 
     execute {
