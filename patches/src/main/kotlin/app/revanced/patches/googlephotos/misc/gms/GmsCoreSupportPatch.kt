@@ -1,12 +1,12 @@
 package app.revanced.patches.googlephotos.misc.gms
 
 import app.revanced.patcher.patch.Option
+import app.revanced.patcher.patch.PatchException
 import app.revanced.patches.googlephotos.misc.extension.extensionPatch
 import app.revanced.patches.googlephotos.misc.gms.Constants.PHOTOS_PACKAGE_NAME
 import app.revanced.patches.googlephotos.misc.gms.Constants.REVANCED_PHOTOS_PACKAGE_NAME
 import app.revanced.patches.shared.misc.gms.gmsCoreSupportPatch
 import app.revanced.util.isAndroidRuntime
-import java.util.logging.Logger
 
 @Suppress("unused")
 val gmsCoreSupportPatch = gmsCoreSupportPatch(
@@ -21,19 +21,17 @@ val gmsCoreSupportPatch = gmsCoreSupportPatch(
         // are bytecode and should work if using root install without GmsCore.
         // TODO: Remove this logic after Manager resource compilation is fixed.
         if (isAndroidRuntime) {
-            Logger.getLogger(this::class.java.name).severe(
+            throw PatchException(
                 """
-                    !!! Patching in this environment is not yet supported.
                     !!!
-                    !!! Google Photos cannot be patched using ReVanced Manager.
                     !!!
-                    !!! To Patch Google Photos, please patch using command prompt and ReVanced CLI tools.
+                    !!! At this time, Google Photos cannot be patched using ReVanced Manager.
+                    !!!
+                    !!! Until this limitation is fixed, please patch using command prompt and ReVanced CLI tools:
+                    !!! https://github.com/revanced/revanced-cli
                     !!! 
                 """.trimIndent()
             )
-
-            // Add a delay, so the user is more likely to read the warning.
-            Thread.sleep(30_000)
         }
     }
 ) {
