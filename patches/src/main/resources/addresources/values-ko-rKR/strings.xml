@@ -4,7 +4,6 @@
     All strings must have a unique path, even if the same string is declared in two different apps.
     This is because Crowdin requires temporarily flattening this file and removing the <app> and <patch> elements.
 
-
     Strings with new lines must be raw strings where they're wrapped in quotes and new lines are not encoded.
     Raw strings still requires escaping embedded double quotes but escaping embedded single quotes is optional.
 
@@ -613,6 +612,10 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_hide_player_flyout_audio_track_title">오디오 트랙 메뉴 숨기기</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_on">오디오 트랙 메뉴가 숨겨집니다</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_off">오디오 트랙 메뉴가 표시됩니다</string>
+  <!-- 'Spoof video streams' should be the same translation used for revanced_spoof_video_streams_screen_title -->
+  <string name="revanced_hide_player_flyout_audio_track_not_available">"오디오 트랙 메뉴가 숨겨집니다
+
+오디오 트랙 메뉴를 표시하려면 '스트리밍 데이터 변경하기'에서 기본 클라이언트를 iOS TV로 변경하세요"</string>
   <!-- 'Watch in VR' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_watch_in_vr_title">VR로 보기 메뉴 숨기기</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">VR로 보기 메뉴가 숨겨집니다</string>

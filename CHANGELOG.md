@@ -1,3 +1,45 @@
+# [5.19.0-dev.14](https://github.com/ReVanced/revanced-patches/compare/v5.19.0-dev.13...v5.19.0-dev.14) (2025-04-11)
+
+
+### Bug Fixes
+
+* **Spotify - Unlock Spotify Premium:** Remove restrictions for Google voice assistant ([#4702](https://github.com/ReVanced/revanced-patches/issues/4702)) ([106202f](https://github.com/ReVanced/revanced-patches/commit/106202f9ebb7699c4ba4ae46b82133e35f1ac6b9))
+
+# [5.19.0-dev.13](https://github.com/ReVanced/revanced-patches/compare/v5.19.0-dev.12...v5.19.0-dev.13) (2025-04-11)
+
+
+### Features
+
+* **Spotify:** Add limited support for version `8.6.98.900` (last version that supports Kenwood and Pioneer car stereos) ([#4750](https://github.com/ReVanced/revanced-patches/issues/4750)) ([a3fde87](https://github.com/ReVanced/revanced-patches/commit/a3fde874af993125ba7a741820e7bd48e3641b84))
+
+# [5.19.0-dev.12](https://github.com/ReVanced/revanced-patches/compare/v5.19.0-dev.11...v5.19.0-dev.12) (2025-04-11)
+
+
+### Features
+
+* **Strava - Disable subscription suggestions:** Make compatible with latest version ([#4739](https://github.com/ReVanced/revanced-patches/issues/4739)) ([649a2c0](https://github.com/ReVanced/revanced-patches/commit/649a2c06161c72a2040b179dbed5b415847d7527))
+
+# [5.19.0-dev.11](https://github.com/ReVanced/revanced-patches/compare/v5.19.0-dev.10...v5.19.0-dev.11) (2025-04-10)
+
+
+### Features
+
+* **Messenger:** Add `Remove Meta AI tab` patch ([#4726](https://github.com/ReVanced/revanced-patches/issues/4726)) ([e3fad97](https://github.com/ReVanced/revanced-patches/commit/e3fad97484d7eb962aeb53d44a0047b34a881071))
+
+# [5.19.0-dev.10](https://github.com/ReVanced/revanced-patches/compare/v5.19.0-dev.9...v5.19.0-dev.10) (2025-04-10)
+
+
+### Bug Fixes
+
+* **YouTube - Hide layout components:** Do not hide video description music/game links if hide horizontal shelves is enabled ([3864f35](https://github.com/ReVanced/revanced-patches/commit/3864f3550153617e23ad9979fb543d8a7fb4dc0a))
+
+# [5.19.0-dev.9](https://github.com/ReVanced/revanced-patches/compare/v5.19.0-dev.8...v5.19.0-dev.9) (2025-04-10)
+
+
+### Bug Fixes
+
+* **YouTube - Hide player flyout menu items:** Show more detailed summary text for 'Hide Audio track' if using Android spoof client ([#4756](https://github.com/ReVanced/revanced-patches/issues/4756)) ([b67bbb2](https://github.com/ReVanced/revanced-patches/commit/b67bbb299669336addb68cf52a8ce5b39c68cec0))
+
 # [5.19.0-dev.8](https://github.com/ReVanced/revanced-patches/compare/v5.19.0-dev.7...v5.19.0-dev.8) (2025-04-09)
 
 
