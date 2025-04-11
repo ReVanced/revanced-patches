@@ -76,7 +76,7 @@ public final class UnlockPremiumPatch {
     );
 
     /**
-     * Override attributes injection point.
+     * Injection point. Override account attributes.
      */
     public static void overrideAttribute(Map<String, AccountAttribute> attributes) {
         try {
@@ -95,12 +95,15 @@ public final class UnlockPremiumPatch {
         }
     }
 
-    public static String removeStationString(String s) {
-        return s.replace("spotify:station:", "spotify:");
+    /**
+     * Injection point. Remove station data from Google assistant URI.
+     */
+    public static String removeStationString(String spotifyUriOrUrl) {
+        return spotifyUriOrUrl.replace("spotify:station:", "spotify:");
     }
 
     /**
-     * Remove ads sections from home injection point.
+     * Injection point. Remove ads sections from home.
      */
     public static void removeHomeSections(List<Section> sections) {
         try {
