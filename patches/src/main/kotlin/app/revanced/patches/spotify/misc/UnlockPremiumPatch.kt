@@ -98,7 +98,6 @@ val unlockPremiumPatch = bytecodePatch(
                 shufflingContextCallIndex,
                 "sget-object v$registerBool, Ljava/lang/Boolean;->FALSE:Ljava/lang/Boolean;"
             )
-
         }
 
         // Make featureTypeCase_ accessible so we can check the home section type in the extension.
