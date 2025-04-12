@@ -1,3 +1,10 @@
+# [5.19.0-dev.16](https://github.com/ReVanced/revanced-patches/compare/v5.19.0-dev.15...v5.19.0-dev.16) (2025-04-11)
+
+
+### Bug Fixes
+
+* **Google Photos:** Remove obsolete non functional patch `Restore hidden 'Back up while charging' toggle` ([#4764](https://github.com/ReVanced/revanced-patches/issues/4764)) ([56e48f4](https://github.com/ReVanced/revanced-patches/commit/56e48f4c89da51f81ff11a79a164eaa5b440690e))
+
 # [5.19.0-dev.15](https://github.com/ReVanced/revanced-patches/compare/v5.19.0-dev.14...v5.19.0-dev.15) (2025-04-11)
 
 
