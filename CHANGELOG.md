@@ -1,3 +1,10 @@
+## [5.19.1-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.19.0...v5.19.1-dev.1) (2025-04-12)
+
+
+### Bug Fixes
+
+* **Spotify:** Restore patching with ReVanced Manager ([#4769](https://github.com/ReVanced/revanced-patches/issues/4769)) ([89d44da](https://github.com/ReVanced/revanced-patches/commit/89d44da171c3f56f13112d1d82bc4ea4a56c7c06))
+
 # [5.19.0](https://github.com/ReVanced/revanced-patches/compare/v5.18.0...v5.19.0) (2025-04-12)
 
 
