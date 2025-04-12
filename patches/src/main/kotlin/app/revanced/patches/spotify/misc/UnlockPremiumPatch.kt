@@ -7,6 +7,7 @@ import app.revanced.patcher.extensions.InstructionExtensions.removeInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.fingerprint
 import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.patches.spotify.misc.check.checkEnvironmentPatch
 import app.revanced.patches.spotify.misc.extension.IS_SPOTIFY_LEGACY_APP_TARGET
 import app.revanced.patches.spotify.misc.extension.sharedExtensionPatch
 import app.revanced.util.getReference
@@ -30,7 +31,12 @@ val unlockPremiumPatch = bytecodePatch(
 ) {
     compatibleWith("com.spotify.music")
 
-    dependsOn(sharedExtensionPatch)
+    dependsOn(
+        sharedExtensionPatch,
+        // Currently there is no easy way to make a mandatory patch,
+        // so for now this is a dependent of this patch.
+        checkEnvironmentPatch,
+    )
 
     execute {
         // Make _value accessible so that it can be overridden in the extension.
