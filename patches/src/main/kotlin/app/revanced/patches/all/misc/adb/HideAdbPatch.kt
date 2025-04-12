@@ -22,7 +22,7 @@ private val SETTINGS_GLOBAL_GET_INT_METHOD_REFERENCE = ImmutableMethodReference(
 @Suppress("unused")
 val hideAdbStatusPatch = bytecodePatch(
     name = "Hide ADB status",
-    description = "Hide enabled development settings and/or ADB",
+    description = "Hides enabled development settings and/or ADB.",
     use = false,
 ) {
     extendWith("extensions/all/misc/adb/hide-adb.rve")
