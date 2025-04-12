@@ -41,11 +41,12 @@ fun sharedExtensionPatch(
 
     execute {
         if (classes.none { EXTENSION_CLASS_DESCRIPTOR == it.type }) {
-            throw PatchException(
-                "Shared extension has not been merged yet. This patch can not succeed without merging it.",
-            )
+            throw PatchException("Shared extension is not available. This patch can not succeed without it.")
         }
+    }
 
+    finalize {
+        // The hooks are made in finalize to ensure that the context is hooked before any other patches.
         hooks.forEach { hook -> hook(EXTENSION_CLASS_DESCRIPTOR) }
 
         // Modify Utils method to include the patches release version.
