@@ -547,6 +547,7 @@ internal fun gmsCoreSupportResourcePatch(
     val gmsCoreVendorGroupId by gmsCoreVendorGroupIdOption
 
     execute {
+        // Some patches don't use shared String resources so they can be excluded.
         if (addStringResources) {
             addResources("shared", "misc.gms.gmsCoreSupportResourcePatch")
         }
