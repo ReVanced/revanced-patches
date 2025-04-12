@@ -500,7 +500,7 @@ private object Constants {
  * @param executeBlock The additional execution block of the patch.
  * @param block The additional block to build the patch.
  */
-fun gmsCoreSupportResourcePatch(
+fun gmsCoreSupportResourcePatch( // This is here only for binary compatibility.
     fromPackageName: String,
     toPackageName: String,
     spoofedPackageSignature: String,
