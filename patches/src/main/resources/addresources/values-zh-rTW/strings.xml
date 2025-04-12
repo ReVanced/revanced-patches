@@ -447,6 +447,9 @@ Second \"item\" text"</string>
 
 在螢幕右側垂直滑動即可調整音量"</string>
   <string name="revanced_swipe_volume_summary_off">已停用全螢幕音量滑動調整</string>
+  <string name="revanced_swipe_press_to_engage_title">啟用按壓滑動手勢</string>
+  <string name="revanced_swipe_press_to_engage_summary_on">已啟用按壓滑動</string>
+  <string name="revanced_swipe_press_to_engage_summary_off">已停用按壓滑動</string>
   <string name="revanced_swipe_haptic_feedback_title">啟用震動回饋</string>
   <string name="revanced_swipe_haptic_feedback_summary_on">已啟用震動回饋</string>
   <string name="revanced_swipe_haptic_feedback_summary_off">已停用震動回饋</string>
@@ -610,6 +613,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_on">已隱藏音軌選單</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_off">已顯示音軌選單</string>
   <!-- 'Spoof video streams' should be the same translation used for revanced_spoof_video_streams_screen_title -->
+  <string name="revanced_hide_player_flyout_audio_track_not_available">"已隱藏音軌選單
+
+如要顯示音軌選單，請將「欺騙視訊串流」變更為 iOS TV。"</string>
   <!-- 'Watch in VR' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_watch_in_vr_title">隱藏以 VR 模式觀看</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">已隱藏以 VR 模式觀看</string>
@@ -707,9 +713,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_shorts_use_template_button_title">隱藏「使用範本」按鈕</string>
   <string name="revanced_hide_shorts_use_template_button_summary_on">已隱藏「使用範本」按鈕</string>
   <string name="revanced_hide_shorts_use_template_button_summary_off">已顯示「使用範本」按鈕</string>
-  <string name="revanced_hide_shorts_upcoming_button_title">隱藏「即將到來」按鈕</string>
-  <string name="revanced_hide_shorts_upcoming_button_summary_on">已隱藏「即將到來」按鈕</string>
-  <string name="revanced_hide_shorts_upcoming_button_summary_off">已顯示「即將到來」按鈕</string>
+  <string name="revanced_hide_shorts_upcoming_button_title">隱藏「即將直播/首播」按鈕</string>
+  <string name="revanced_hide_shorts_upcoming_button_summary_on">已隱藏「即將直播/首播」按鈕</string>
+  <string name="revanced_hide_shorts_upcoming_button_summary_off">已顯示「即將直播/首播」按鈕</string>
   <string name="revanced_hide_shorts_green_screen_button_title">隱藏「綠幕」按鈕</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_on">已隱藏「綠幕」按鈕</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_off">已顯示「綠幕」按鈕</string>
@@ -797,7 +803,7 @@ Second \"item\" text"</string>
   <patch id="layout.player.overlay.customPlayerOverlayOpacityResourcePatch">
   <string name="revanced_player_overlay_opacity_title">播放器覆蓋透明度</string>
   <string name="revanced_player_overlay_opacity_summary">不透明度值介於 0 到 100 之間，其中 0 為完全透明</string>
-  <string name="revanced_player_overlay_opacity_invalid_toast">播放器覆蓋層的不透明度必須在 0 到 100 之間</string>
+  <string name="revanced_player_overlay_opacity_invalid_toast">播放器覆蓋的不透明度必須在 0 到 100 之間</string>
   </patch>
   <patch id="layout.returnyoutubedislike.returnYouTubeDislikePatch">
   <!-- Toast shown if network connection times out. Translations of this should not be longer than the original English or the text can be clipped and not entirely shown. -->
@@ -1176,6 +1182,9 @@ Second \"item\" text"</string>
 
 迷你播放器可水平拖曳至螢幕左右兩側之外"</string>
   <string name="revanced_miniplayer_horizontal_drag_summary_off">已停用水平拖曳手勢</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_title">隱藏暫停時顯示的按鈕</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">已隱藏暫停時顯示的按鈕</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">已顯示暫停時顯示的按鈕</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_legacy_title">隱藏展開和關閉按鈕</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_on">"已隱藏按鈕
 
@@ -1190,9 +1199,9 @@ Second \"item\" text"</string>
   <string name="revanced_miniplayer_width_dip_title">初始大小</string>
   <string name="revanced_miniplayer_width_dip_summary">螢幕初始大小（像素）</string>
   <string name="revanced_miniplayer_width_dip_invalid_toast">像素大小必須介於 %1$s 和 %2$s 之間</string>
-  <string name="revanced_miniplayer_opacity_title">覆蓋層不透明度</string>
+  <string name="revanced_miniplayer_opacity_title">覆蓋不透明度</string>
   <string name="revanced_miniplayer_opacity_summary">不透明度值介於 0 到 100 之間，其中 0 為完全透明</string>
-  <string name="revanced_miniplayer_opacity_invalid_toast">迷你播放器覆蓋層的不透明度必須介於 0 到 100 之間</string>
+  <string name="revanced_miniplayer_opacity_invalid_toast">迷你播放器覆蓋的不透明度必須介於 0 到 100 之間</string>
   </patch>
   <patch id="layout.theme.themePatch">
   <string name="revanced_gradient_loading_screen_title">啟用漸層載入畫面</string>
@@ -1371,11 +1380,11 @@ Second \"item\" text"</string>
   <string name="revanced_slide_to_seek_summary_off">未啟用滑動預覽</string>
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
-  <string name="revanced_spoof_video_streams_screen_title">欺騙影片串流</string>
-  <string name="revanced_spoof_video_streams_screen_summary">欺騙用戶端影片串流以避免播放問題</string>
-  <string name="revanced_spoof_video_streams_title">欺騙影片串流</string>
-  <string name="revanced_spoof_video_streams_summary_on">已欺騙影片串流</string>
-  <string name="revanced_spoof_video_streams_summary_off">"沒有模擬影片串流
+  <string name="revanced_spoof_video_streams_screen_title">偽裝影片串流</string>
+  <string name="revanced_spoof_video_streams_screen_summary">偽裝用戶端影片串流以避免播放問題</string>
+  <string name="revanced_spoof_video_streams_title">偽裝影片串流</string>
+  <string name="revanced_spoof_video_streams_summary_on">已偽裝影片串流</string>
+  <string name="revanced_spoof_video_streams_summary_off">"沒有偽裝影片串流
 
 影片播放可能無法正常運作"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">關閉此設定可能會導致影片播放發生問題</string>
