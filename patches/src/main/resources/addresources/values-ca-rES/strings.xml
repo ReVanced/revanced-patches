@@ -4,7 +4,6 @@
     All strings must have a unique path, even if the same string is declared in two different apps.
     This is because Crowdin requires temporarily flattening this file and removing the <app> and <patch> elements.
 
-
     Strings with new lines must be raw strings where they're wrapped in quotes and new lines are not encoded.
     Raw strings still requires escaping embedded double quotes but escaping embedded single quotes is optional.
 
@@ -43,6 +42,9 @@ Second \"item\" text"</string>
   <string name="revanced_settings_import_reset">La configuració de ReVanced s\'ha restablert als valors predeterminats</string>
   <string name="revanced_settings_import_success">S\'han importat %d configuracions</string>
   <string name="revanced_settings_import_failure_parse">No s\'ha pogut importar: %s</string>
+  <string name="revanced_show_menu_icons_title">Mostra les icones de configuració de ReVanced</string>
+  <string name="revanced_show_menu_icons_summary_on">Es mostren les icones de configuració</string>
+  <string name="revanced_show_menu_icons_summary_off">No es mostren les icones de configuració</string>
   <string name="revanced_language_title">Llenguatge de ReVanced</string>
   <string name="revanced_language_user_dialog_message">"Les traduccions per a algunes llengües poden faltar o ser incompletes.
 
@@ -610,6 +612,10 @@ Si canviar aquesta opció no té cap efecte, prova a canviar al mode d'incògnit
   <string name="revanced_hide_player_flyout_audio_track_title">Amaga la pista d\'àudio</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_on">El menú de la pista d\'àudio s\'amaga</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_off">Es mostra el menú de la pista d\'àudio</string>
+  <!-- 'Spoof video streams' should be the same translation used for revanced_spoof_video_streams_screen_title -->
+  <string name="revanced_hide_player_flyout_audio_track_not_available">"El menú de la pista d'àudio està amagat
+
+Per mostrar el menú de la pista d'àudio, canvieu \"Suplanta els fluxos de vídeo\" a iOS TV"</string>
   <!-- 'Watch in VR' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_watch_in_vr_title">Amaga Mira en VR</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">El menú Mira en VR s\'amaga</string>

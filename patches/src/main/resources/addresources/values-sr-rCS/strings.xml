@@ -4,7 +4,6 @@
     All strings must have a unique path, even if the same string is declared in two different apps.
     This is because Crowdin requires temporarily flattening this file and removing the <app> and <patch> elements.
 
-
     Strings with new lines must be raw strings where they're wrapped in quotes and new lines are not encoded.
     Raw strings still requires escaping embedded double quotes but escaping embedded single quotes is optional.
 
@@ -43,6 +42,9 @@ Second \"item\" text"</string>
   <string name="revanced_settings_import_reset">Podešavanja ReVanceda su vraćena na podrazumevane vrednosti</string>
   <string name="revanced_settings_import_success">Uvezeno %d podešavanja</string>
   <string name="revanced_settings_import_failure_parse">Neuspešan uvoz: %s</string>
+  <string name="revanced_show_menu_icons_title">Prikaži ikonice podešavanja ReVanceda</string>
+  <string name="revanced_show_menu_icons_summary_on">Ikonice podešavanja su prikazane</string>
+  <string name="revanced_show_menu_icons_summary_off">Ikonice podešavanja nisu prikazane</string>
   <string name="revanced_language_title">Jezik ReVanceda</string>
   <string name="revanced_language_user_dialog_message">"Prevodi za neke jezike mogu nedostajati ili biti nepotpuni.
 
@@ -610,6 +612,10 @@ Ako se promena ove opcije ne primeni, pokušajte da pređete u režim bez arhivi
   <string name="revanced_hide_player_flyout_audio_track_title">Sakrij meni „Audio snimak”</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_on">Meni „Audio snimak” je skriven</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_off">Meni „Audio snimak” je prikazan</string>
+  <!-- 'Spoof video streams' should be the same translation used for revanced_spoof_video_streams_screen_title -->
+  <string name="revanced_hide_player_flyout_audio_track_not_available">"Meni „Audio snimak” je skriven
+
+Da biste prikazali meni „Audio snimak”, promenite opciju „Lažirani video strimovi” na iOS TV"</string>
   <!-- 'Watch in VR' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_watch_in_vr_title">Sakrij dugme „Gledaj u VR”</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">Dugme „Gledaj u VR” je skriveno</string>
@@ -1154,7 +1160,7 @@ Ako se kasnije isključi, preporučuje se da izbrišete podatke aplikacije da bi
   <string name="revanced_miniplayer_type_entry_4">Moderan 1</string>
   <string name="revanced_miniplayer_type_entry_5">Moderan 2</string>
   <string name="revanced_miniplayer_type_entry_6">Moderan 3</string>
-  <string name="revanced_miniplayer_type_entry_7">Moderno 4</string>
+  <string name="revanced_miniplayer_type_entry_7">Moderan 4</string>
   <string name="revanced_miniplayer_rounded_corners_title">Omogući zaobljene uglove</string>
   <string name="revanced_miniplayer_rounded_corners_summary_on">Uglovi su zaobljeni</string>
   <string name="revanced_miniplayer_rounded_corners_summary_off">Uglovi su kvadratni</string>
@@ -1174,9 +1180,9 @@ Mini-plejer se može prevući u bilo koji ugao ekrana"</string>
 
 Mini-plejer se može prevući sa ekrana ulevo ili udesno"</string>
   <string name="revanced_miniplayer_horizontal_drag_summary_off">Pokret horizontalnog prevlačenja je onemogućen</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_title">Sakrij dugmad za preklapanje</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">Dugmad za preklapanje su skrivena</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">Dugmad za preklapanje su prikazana</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_title">Sakrij dugmad preklopa</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">Dugmad preklopa su skrivena</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">Dugmad preklopa su prikazana</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_legacy_title">Sakrij dugmad za proširivanje i zatvaranje</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_on">"Dugmad su skrivena
 

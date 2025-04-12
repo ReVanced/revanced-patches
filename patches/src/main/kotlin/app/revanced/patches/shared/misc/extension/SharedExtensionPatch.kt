@@ -41,11 +41,12 @@ fun sharedExtensionPatch(
 
     execute {
         if (classes.none { EXTENSION_CLASS_DESCRIPTOR == it.type }) {
-            throw PatchException(
-                "Shared extension has not been merged yet. This patch can not succeed without merging it.",
-            )
+            throw PatchException("Shared extension is not available. This patch can not succeed without it.")
         }
+    }
 
+    finalize {
+        // The hooks are made in finalize to ensure that the context is hooked before any other patches.
         hooks.forEach { hook -> hook(EXTENSION_CLASS_DESCRIPTOR) }
 
         // Modify Utils method to include the patches release version.
@@ -92,7 +93,7 @@ fun sharedExtensionPatch(
 }
 
 class ExtensionHook internal constructor(
-    private val fingerprint: Fingerprint,
+    internal val fingerprint: Fingerprint,
     private val insertIndexResolver: ((Method) -> Int),
     private val contextRegisterResolver: (Method) -> String,
 ) {
@@ -112,5 +113,11 @@ class ExtensionHook internal constructor(
 fun extensionHook(
     insertIndexResolver: ((Method) -> Int) = { 0 },
     contextRegisterResolver: (Method) -> String = { "p0" },
+    fingerprint: Fingerprint,
+) = ExtensionHook(fingerprint, insertIndexResolver, contextRegisterResolver)
+
+fun extensionHook(
+    insertIndexResolver: ((Method) -> Int) = { 0 },
+    contextRegisterResolver: (Method) -> String = { "p0" },
     fingerprintBuilderBlock: FingerprintBuilder.() -> Unit,
-) = ExtensionHook(fingerprint(block = fingerprintBuilderBlock), insertIndexResolver, contextRegisterResolver)
+) = extensionHook(insertIndexResolver, contextRegisterResolver, fingerprint(block = fingerprintBuilderBlock))

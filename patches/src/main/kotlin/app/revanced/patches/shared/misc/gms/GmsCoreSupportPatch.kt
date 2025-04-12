@@ -17,7 +17,6 @@ import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.builder.instruction.BuilderInstruction21c
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction21c
-import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import com.android.tools.smali.dexlib2.iface.reference.StringReference
 import com.android.tools.smali.dexlib2.immutable.reference.ImmutableStringReference
 import com.android.tools.smali.dexlib2.util.MethodUtil
@@ -110,19 +109,18 @@ fun gmsCoreSupportPatch(
 
         // region Collection of transformations that are applied to all strings.
 
-        fun commonTransform(referencedString: String): String? =
-            when (referencedString) {
-                "com.google",
-                "com.google.android.gms",
-                in PERMISSIONS,
-                in ACTIONS,
-                in AUTHORITIES,
-                -> referencedString.replace("com.google", gmsCoreVendorGroupId!!)
+        fun commonTransform(referencedString: String): String? = when (referencedString) {
+            "com.google",
+            "com.google.android.gms",
+            in PERMISSIONS,
+            in ACTIONS,
+            in AUTHORITIES,
+            -> referencedString.replace("com.google", gmsCoreVendorGroupId!!)
 
-                // No vendor prefix for whatever reason...
-                "subscribedfeeds" -> "$gmsCoreVendorGroupId.subscribedfeeds"
-                else -> null
-            }
+            // No vendor prefix for whatever reason...
+            "subscribedfeeds" -> "$gmsCoreVendorGroupId.subscribedfeeds"
+            else -> null
+        }
 
         fun contentUrisTransform(str: String): String? {
             // only when content:// uri
@@ -205,16 +203,8 @@ fun gmsCoreSupportPatch(
 
         // Verify GmsCore is installed and whitelisted for power optimizations and background usage.
         mainActivityOnCreateFingerprint.method.apply {
-            // Temporary fix for patches with an extension patch that hook the onCreate method as well.
-            val setContextIndex = indexOfFirstInstruction {
-                val reference = getReference<MethodReference>() ?: return@indexOfFirstInstruction false
-
-                reference.toString() == "Lapp/revanced/extension/shared/Utils;->setContext(Landroid/content/Context;)V"
-            }
-
-            // Add after setContext call, because this patch needs the context.
             addInstructions(
-                if (setContextIndex < 0) 0 else setContextIndex + 1,
+                0,
                 "invoke-static/range { p0 .. p0 }, Lapp/revanced/extension/shared/GmsCoreSupport;->" +
                     "checkGmsCore(Landroid/app/Activity;)V",
             )

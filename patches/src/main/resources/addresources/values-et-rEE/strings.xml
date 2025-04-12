@@ -4,7 +4,6 @@
     All strings must have a unique path, even if the same string is declared in two different apps.
     This is because Crowdin requires temporarily flattening this file and removing the <app> and <patch> elements.
 
-
     Strings with new lines must be raw strings where they're wrapped in quotes and new lines are not encoded.
     Raw strings still requires escaping embedded double quotes but escaping embedded single quotes is optional.
 
@@ -43,6 +42,9 @@ Second \"item\" text"</string>
   <string name="revanced_settings_import_reset">ReVancedi seaded on lähtestatud</string>
   <string name="revanced_settings_import_success">Imporditi %d seadet</string>
   <string name="revanced_settings_import_failure_parse">Importimine ebaõnnestus: %s</string>
+  <string name="revanced_show_menu_icons_title">Näita ReVancedi seadete ikoone</string>
+  <string name="revanced_show_menu_icons_summary_on">Seadete ikoonid on näidatud</string>
+  <string name="revanced_show_menu_icons_summary_off">Seadete ikoonid ei ole nähtavad</string>
   <string name="revanced_language_title">Revancedi keel</string>
   <string name="revanced_language_user_dialog_message">"Mõnede keelte tõlked võivad olla puudulikud või ebatäielikud.
 
@@ -610,6 +612,10 @@ Kui selle sätte muutmine ei avalda mõju, proovige lülituda Inkognito režiimi
   <string name="revanced_hide_player_flyout_audio_track_title">Peida Helitraek</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_on">Helitraekide menüü on peidetud</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_off">Helitraekide menüü on nähtav</string>
+  <!-- 'Spoof video streams' should be the same translation used for revanced_spoof_video_streams_screen_title -->
+  <string name="revanced_hide_player_flyout_audio_track_not_available">"Heliriba menüü on peidetud
+
+Heliriba menüü kuvamiseks muutke valikut „Võltsitud videovoogedastus“ väärtuseks iOS TV"</string>
   <!-- 'Watch in VR' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_watch_in_vr_title">Peida Vaata VR-is</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">Vaata VR-is menüü on peidetud</string>
