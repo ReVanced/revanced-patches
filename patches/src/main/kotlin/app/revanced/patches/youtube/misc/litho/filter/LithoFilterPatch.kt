@@ -8,26 +8,28 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWith
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.removeInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
-import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.playservice.is_19_18_or_greater
 import app.revanced.patches.youtube.misc.playservice.is_19_25_or_greater
+import app.revanced.patches.youtube.misc.playservice.is_20_05_or_greater
 import app.revanced.patches.youtube.misc.playservice.versionCheckPatch
+import app.revanced.util.findFreeRegister
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
 import app.revanced.util.indexOfFirstInstructionReversedOrThrow
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
-import com.android.tools.smali.dexlib2.iface.instruction.*
+import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 lateinit var addLithoFilter: (String) -> Unit
     private set
 
-internal const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/youtube/patches/components/LithoFilterPatch;"
+private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/youtube/patches/components/LithoFilterPatch;"
 
 val lithoFilterPatch = bytecodePatch(
     description = "Hooks the method which parses the bytes into a ComponentContext to filter components.",
@@ -190,17 +192,7 @@ val lithoFilterPatch = bytecodePatch(
                 },
             ).registerA
 
-            // Find a free temporary register.
-            val freeRegister = getInstruction<OneRegisterInstruction>(
-                // Immediately before is a StringBuilder append constant character.
-                indexOfFirstInstructionReversedOrThrow(insertHookIndex, Opcode.CONST_16),
-            ).registerA
-
-            // Verify the temp register will not clobber the method result register.
-            if (stringBuilderRegister == freeRegister) {
-                throw PatchException("Free register will clobber StringBuilder register")
-            }
-
+            val freeRegister = findFreeRegister(insertHookIndex, identifierRegister, stringBuilderRegister)
             val invokeFilterInstructions = """
                 invoke-static { v$identifierRegister, v$stringBuilderRegister }, $EXTENSION_CLASS_DESCRIPTOR->filter(Ljava/lang/String;Ljava/lang/StringBuilder;)Z
                 move-result v$freeRegister
@@ -235,7 +227,10 @@ val lithoFilterPatch = bytecodePatch(
 
         // Turn off native code that handles litho component names.  If this feature is on then nearly
         // all litho components have a null name and identifier/path filtering is completely broken.
-        if (is_19_25_or_greater) {
+        //
+        // Flag was removed in 20.05. It appears a new flag might be used instead (45660109L),
+        // but if the flag is forced on then litho filtering still works correctly.
+        if (is_19_25_or_greater && !is_20_05_or_greater) {
             lithoComponentNameUpbFeatureFlagFingerprint.method.apply {
                 // Don't use return early, so the debug patch logs if this was originally on.
                 val insertIndex = indexOfFirstInstructionOrThrow(Opcode.RETURN)

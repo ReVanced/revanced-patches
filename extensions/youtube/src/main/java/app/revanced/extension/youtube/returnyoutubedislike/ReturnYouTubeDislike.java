@@ -37,7 +37,6 @@ import java.util.concurrent.*;
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
 import app.revanced.extension.youtube.ThemeHelper;
-import app.revanced.extension.youtube.patches.spoof.SpoofAppVersionPatch;
 import app.revanced.extension.youtube.returnyoutubedislike.requests.RYDVoteData;
 import app.revanced.extension.youtube.returnyoutubedislike.requests.ReturnYouTubeDislikeApi;
 import app.revanced.extension.youtube.settings.Settings;
@@ -87,9 +86,6 @@ public class ReturnYouTubeDislike {
      */
     private static final char MIDDLE_SEPARATOR_CHARACTER = '◎'; // 'bullseye'
 
-    private static final boolean IS_SPOOFING_TO_OLD_SEPARATOR_COLOR
-            = SpoofAppVersionPatch.isSpoofingToLessThan("18.10.00");
-
     /**
      * Cached lookup of all video ids.
      */
@@ -118,7 +114,7 @@ public class ReturnYouTubeDislike {
     private static final Rect middleSeparatorBounds;
 
     /**
-     * Left separator horizontal padding for Rolling Number layout.
+     * Horizontal padding between the left and middle separator.
      */
     public static final int leftSeparatorShapePaddingPixels;
     private static final ShapeDrawable leftSeparatorShape;
@@ -133,7 +129,7 @@ public class ReturnYouTubeDislike {
                 (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 3.7f, dp);
         middleSeparatorBounds = new Rect(0, 0, middleSeparatorSize, middleSeparatorSize);
 
-        leftSeparatorShapePaddingPixels = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 10.0f, dp);
+        leftSeparatorShapePaddingPixels = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 8.4f, dp);
 
         leftSeparatorShape = new ShapeDrawable(new RectShape());
         leftSeparatorShape.setBounds(leftSeparatorBounds);
@@ -184,17 +180,8 @@ public class ReturnYouTubeDislike {
      * Color of the left and middle separator, based on the color of the right separator.
      * It's unknown where YT gets the color from, and the values here are approximated by hand.
      * Ideally, this would be the actual color YT uses at runtime.
-     *
-     * Older versions before the 'Me' library tab use a slightly different color.
-     * If spoofing was previously used and is now turned off,
-     * or an old version was recently upgraded then the old colors are sometimes still used.
      */
     private static int getSeparatorColor() {
-        if (IS_SPOOFING_TO_OLD_SEPARATOR_COLOR) {
-            return ThemeHelper.isDarkTheme()
-                    ? 0x29AAAAAA  // transparent dark gray
-                    : 0xFFD9D9D9; // light gray
-        }
         return ThemeHelper.isDarkTheme()
                 ? 0x33FFFFFF
                 : 0xFFD9D9D9;
@@ -251,7 +238,7 @@ public class ReturnYouTubeDislike {
             String leftSeparatorString = getTextDirectionString();
             final Spannable leftSeparatorSpan;
             if (isRollingNumber) {
-                 leftSeparatorSpan = new SpannableString(leftSeparatorString);
+                leftSeparatorSpan = new SpannableString(leftSeparatorString);
             } else {
                 leftSeparatorString += "  ";
                 leftSeparatorSpan = new SpannableString(leftSeparatorString);
@@ -636,7 +623,7 @@ public class ReturnYouTubeDislike {
                 userVote = vote;
                 clearUICache();
             }
-            
+
             if (future.isDone()) {
                 // Update the fetched vote data.
                 RYDVoteData voteData = getFetchData(MAX_MILLISECONDS_TO_BLOCK_UI_WAITING_FOR_FETCH);

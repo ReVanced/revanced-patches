@@ -48,6 +48,8 @@ private val sponsorBlockResourcePatch = resourcePatch {
                 key = "revanced_settings_screen_10",
                 titleKey = "revanced_sb_settings_title",
                 summaryKey = null,
+                icon = "@drawable/revanced_settings_screen_10_sb",
+                layout = "@layout/preference_with_icon",
                 intent = newIntent("revanced_sb_settings_intent"),
             ),
         )
@@ -110,9 +112,8 @@ val sponsorBlockPatch = bytecodePatch(
             "19.25.37",
             "19.34.42",
             "19.43.41",
-            "19.45.38",
-            "19.46.42",
             "19.47.53",
+            "20.07.39",
         ),
     )
 

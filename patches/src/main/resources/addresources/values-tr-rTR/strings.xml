@@ -4,7 +4,6 @@
     All strings must have a unique path, even if the same string is declared in two different apps.
     This is because Crowdin requires temporarily flattening this file and removing the <app> and <patch> elements.
 
-
     Strings with new lines must be raw strings where they're wrapped in quotes and new lines are not encoded.
     Raw strings still requires escaping embedded double quotes but escaping embedded single quotes is optional.
 
@@ -43,62 +42,14 @@ Second \"item\" text"</string>
   <string name="revanced_settings_import_reset">ReVanced ayarları varsayılanlara sıfırlandı</string>
   <string name="revanced_settings_import_success">%d ayar içe aktarıldı</string>
   <string name="revanced_settings_import_failure_parse">İçe aktarılamadı: %s</string>
+  <string name="revanced_show_menu_icons_title">ReVanced ayar simgelerini göster</string>
+  <string name="revanced_show_menu_icons_summary_on">Ayar simgeleri gösteriliyor</string>
+  <string name="revanced_show_menu_icons_summary_off">Ayar simgeleri gösterilmiyor</string>
   <string name="revanced_language_title">ReVanced dili</string>
   <string name="revanced_language_user_dialog_message">"Bazı diller için çeviriler eksik veya tamamlanmamış olabilir. 
 
 Yeni dilleri çevirmek için translate.revanced.app adresini ziyaret edin"</string>
   <string name="revanced_language_DEFAULT">Uygulama dili</string>
-  <string name="revanced_language_AR">Arapça</string>
-  <string name="revanced_language_AZ">Azerice</string>
-  <string name="revanced_language_BG">Bulgarca</string>
-  <string name="revanced_language_BN">Bengalce</string>
-  <string name="revanced_language_CA">Katalanca</string>
-  <string name="revanced_language_CS">Çekçe</string>
-  <string name="revanced_language_DA">Danca</string>
-  <string name="revanced_language_DE">Almanca</string>
-  <string name="revanced_language_EL">Yunanca</string>
-  <string name="revanced_language_EN">İngilizce</string>
-  <string name="revanced_language_ES">İspanyolca</string>
-  <string name="revanced_language_ET">Estonca</string>
-  <string name="revanced_language_FA">Farsça</string>
-  <string name="revanced_language_FI">Fince</string>
-  <string name="revanced_language_FR">Fransızca</string>
-  <string name="revanced_language_GU">Gujarati</string>
-  <string name="revanced_language_HI">Hintçe</string>
-  <string name="revanced_language_HR">Hırvatça</string>
-  <string name="revanced_language_HU">Macarca</string>
-  <string name="revanced_language_ID">Endonezce</string>
-  <string name="revanced_language_IT">İtalyanca</string>
-  <string name="revanced_language_JA">Japonca</string>
-  <string name="revanced_language_KK">Kazakça</string>
-  <string name="revanced_language_KO">Korece</string>
-  <string name="revanced_language_LT">Litvanyaca</string>
-  <string name="revanced_language_LV">Letonca</string>
-  <string name="revanced_language_MK">Makedonca</string>
-  <string name="revanced_language_MN">Moğolca</string>
-  <string name="revanced_language_MR">Marathi</string>
-  <string name="revanced_language_MS">Malayca</string>
-  <string name="revanced_language_MY">Birmanca</string>
-  <string name="revanced_language_NL">Hollandaca</string>
-  <string name="revanced_language_OR">Odia</string>
-  <string name="revanced_language_PA">Pencapça</string>
-  <string name="revanced_language_PL">Lehçe</string>
-  <string name="revanced_language_PT">Portekizce</string>
-  <string name="revanced_language_RO">Romence</string>
-  <string name="revanced_language_RU">Rusça</string>
-  <string name="revanced_language_SK">Slovakça</string>
-  <string name="revanced_language_SL">Slovence</string>
-  <string name="revanced_language_SR">Sırpça</string>
-  <string name="revanced_language_SV">İsveççe</string>
-  <string name="revanced_language_SW">Svahili Dili</string>
-  <string name="revanced_language_TA">Tamilce</string>
-  <string name="revanced_language_TE">Teluguca</string>
-  <string name="revanced_language_TH">Tayca</string>
-  <string name="revanced_language_TR">Türkçe</string>
-  <string name="revanced_language_UK">Ukraynaca</string>
-  <string name="revanced_language_UR">Urduca</string>
-  <string name="revanced_language_VI">Vietnamca</string>
-  <string name="revanced_language_ZH">Çince</string>
   <string name="revanced_pref_import_export_title">İçe / Dışa aktar</string>
   <string name="revanced_pref_import_export_summary">ReVanced ayarlarını içe / dışa aktar</string>
   <!-- Settings about dialog. -->
@@ -277,6 +228,9 @@ Beklenmedik olaylar hakkında bilgilendirilmeyeceksiniz."</string>
   <string name="revanced_hide_artist_cards_title">Sanatçı kartlarını gizle</string>
   <string name="revanced_hide_artist_cards_summary_on">Sanatçı kartları gizli</string>
   <string name="revanced_hide_artist_cards_summary_off">Sanatçı kartları görünür</string>
+  <string name="revanced_hide_ai_generated_video_summary_section_title">\'Yapay zeka tarafından oluşturulan video özeti\'ni gizle</string>
+  <string name="revanced_hide_ai_generated_video_summary_section_summary_on">Video özeti bölümü gizli</string>
+  <string name="revanced_hide_ai_generated_video_summary_section_summary_off">Video özeti bölümü görünür</string>
   <string name="revanced_hide_attributes_section_title">Nitelikleri gizle</string>
   <string name="revanced_hide_attributes_section_summary_on">Öne çıkan yerler, Oyunlar, Müzik ve Bahsedilen kişiler bölümleri gizli</string>
   <string name="revanced_hide_attributes_section_summary_off">Öne çıkan yerler, Oyunlar, Müzik ve Bahsedilen kişiler bölümleri görünür</string>
@@ -313,9 +267,12 @@ Beklenmedik olaylar hakkında bilgilendirilmeyeceksiniz."</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">Alâkalı videolardaki görünür</string>
   <string name="revanced_comments_screen_title">Yorumlar</string>
   <string name="revanced_comments_screen_summary">Yorumlar kısmı bileşenlerini gizle veya göster</string>
-  <string name="revanced_hide_comments_chat_summary_title">\'Sohbet özeti\'ni gizle</string>
-  <string name="revanced_hide_comments_chat_summary_summary_on">Sohbet özeti gizli</string>
-  <string name="revanced_hide_comments_chat_summary_summary_off">Sohbet özeti görünür</string>
+  <string name="revanced_hide_comments_ai_chat_summary_title">Yapay zeka sohbet özetini gizle</string>
+  <string name="revanced_hide_comments_ai_chat_summary_summary_on">Sohbet özeti gizli</string>
+  <string name="revanced_hide_comments_ai_chat_summary_summary_off">Sohbet özeti görünür</string>
+  <string name="revanced_hide_comments_ai_summary_title">Yapay zeka yorumlar özetini gizle</string>
+  <string name="revanced_hide_comments_ai_summary_summary_on">Yorumlar özeti gizli</string>
+  <string name="revanced_hide_comments_ai_summary_summary_off">Yorumlar özeti görünür</string>
   <string name="revanced_hide_comments_by_members_header_title">\'Üyelerin yorumları\' başlığını gizle</string>
   <string name="revanced_hide_comments_by_members_header_summary_on">Üyelerin yorumları başlığı gizli</string>
   <string name="revanced_hide_comments_by_members_header_summary_off">Üyelerin yorumları başlığı görünür</string>
@@ -362,7 +319,7 @@ Bir Doodle şu anda bölgenizde gösteriliyorsa ve bu gizleme ayarı açıksa, a
   <string name="revanced_hide_keyword_content_subscriptions_summary_on">Abonelikler sekmesindeki videolar anahtar kelimelerle filtrelenir</string>
   <string name="revanced_hide_keyword_content_subscriptions_summary_off">Abonelikler sekmesindeki videolar anahtar kelimelerle filtrelenmez</string>
   <string name="revanced_hide_keyword_content_phrases_title">Gizlenecek anahtar kelimeler</string>
-  <!-- For localization it is preferred, but not required, if 'LeBlanc' is replaced with a localized name or a familiar word that has upper case letters in the middle of the word.
+  <!-- For localization, it is preferred, but not required, if 'LeBlanc' is replaced with a localized name or a familiar word that has upper case letters in the middle of the word.
                  This is because keywords can be in any language, and showing an example in the localized script helps convey this. -->
   <string name="revanced_hide_keyword_content_phrases_summary">"Yeni satırlarla ayrılmış gizlenecek anahtar kelimeler ve ifadeler
 
@@ -377,7 +334,7 @@ Sınırlamalar
 • Bazı kullanıcı arayüzü bileşenleri gizlenemeyebilir
 • Bir anahtar kelime aranması sonuç göstermeyebilir"</string>
   <string name="revanced_hide_keyword_content_about_whole_words_title">Tam kelimeleri eşleştir</string>
-  <!-- Translations _must_ use a localized example.  For languages that do not use spaces between words (Chinese, Japanese, etc) the English AI example should be used since no localized examples exist.  Or if using machine translations, or if nobody wants to think of a localized example, then the English 'ai' example should be left as-is. -->
+  <!-- Translations _must_ use a localized example.  For languages that do not use spaces between words (Chinese, Japanese, etc.) the English AI example should be used since no localized examples exist.  Or if using machine translations, or if nobody wants to think of a localized example, then the English 'ai' example should be left as-is. -->
   <string name="revanced_hide_keyword_content_about_whole_words_summary">Bir anahtar kelimeyi veya ifadeyi tırnak işareti içine almak, video başlıkları ve kanal adlarının kısmi eşleşmelerini önleyecektir&lt;br&gt;&lt;br&gt;Örneğin,&lt;br&gt;&lt;b&gt;\"ağustos\"&lt;/b&gt;, &lt;b&gt;Ağustos ayında kardan adam yapmak!&lt;/b&gt; başlıklı videoyu gizleyecektir&lt;br&gt;ancak &lt;b&gt;Ağustosböcekleri hakkında bilgiler&lt;/b&gt; başlıklı videoyu gizlemeyecektir</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_hide_keyword_toast_invalid_common">Anahtar kelime kullanılamıyor: %s</string>
@@ -404,7 +361,7 @@ Bu özellik yalnızca eski cihazlarda kullanılabilir"</string>
   <string name="revanced_hide_self_sponsor_ads_title">Kendine sponsor kartları gizle</string>
   <string name="revanced_hide_self_sponsor_ads_summary_on">Kendine sponsor kartlar gizli</string>
   <string name="revanced_hide_self_sponsor_ads_summary_off">Kendine sponsor kartlar görünür</string>
-  <string name="revanced_hide_products_banner_title">Ürünleri görme afişini gizle</string>
+  <string name="revanced_hide_products_banner_title">\'Ürünleri görüntüle\' başlığını gizle</string>
   <string name="revanced_hide_products_banner_summary_on">Afiş gizli</string>
   <string name="revanced_hide_products_banner_summary_off">Afiş görünür</string>
   <string name="revanced_hide_end_screen_store_banner_title">Bitiş ekranındaki mağaza afişini gizle</string>
@@ -475,9 +432,9 @@ Bu özellik yalnızca eski cihazlarda kullanılabilir"</string>
   <string name="revanced_disable_precise_seeking_gesture_summary_off">Hareket etkin</string>
   </patch>
   <patch id="interaction.seekbar.enableSeekbarTappingPatch">
-  <string name="revanced_seekbar_tapping_title">Zaman çubuğuna dokunmayı etkinleştir</string>
-  <string name="revanced_seekbar_tapping_summary_on">Zaman çubuğuna dokunma etkin</string>
-  <string name="revanced_seekbar_tapping_summary_off">Zaman çubuğuna dokunma devre dışı</string>
+  <string name="revanced_seekbar_tapping_title">Dokunarak sardırmayı etkinleştir</string>
+  <string name="revanced_seekbar_tapping_summary_on">Dokunarak sardırma etkin</string>
+  <string name="revanced_seekbar_tapping_summary_off">Dokunarak sardırma devre dışı</string>
   </patch>
   <patch id="interaction.swipecontrols.swipeControlsResourcePatch">
   <string name="revanced_swipe_brightness_title">Parlaklık hareketini etkinleştir</string>
@@ -600,6 +557,7 @@ Bu ayarı değiştirmek etkili olmazsa, Gizli moda geçmeyi deneyin."</string>
   <string name="revanced_disable_translucent_status_bar_title">Yarı saydam durum çubuğunu devre dışı bırak</string>
   <string name="revanced_disable_translucent_status_bar_summary_on">Durum çubuğu opak</string>
   <string name="revanced_disable_translucent_status_bar_summary_off">Durum çubuğu opak veya yarı saydam</string>
+  <string name="revanced_disable_translucent_status_bar_user_dialog_message">Bazı cihazlarda, bu özelliği etkinleştirmek sistem gezinme çubuğunu şeffaf hale getirebilir.</string>
   <string name="revanced_disable_translucent_navigation_bar_light_title">Aydınlık temada yarı saydam çubuğu devre dışı bırak</string>
   <string name="revanced_disable_translucent_navigation_bar_light_summary_on">Aydınlık temada gezinti çubuğu opak</string>
   <string name="revanced_disable_translucent_navigation_bar_light_summary_off">Aydınlık temada gezinti çubuğu opak veya yarı saydam</string>
@@ -654,6 +612,10 @@ Bu ayarı değiştirmek etkili olmazsa, Gizli moda geçmeyi deneyin."</string>
   <string name="revanced_hide_player_flyout_audio_track_title">Ses parçası\'nı gizle</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_on">Ses parçası menüsü gizli</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_off">Ses parçası menüsü görünür</string>
+  <!-- 'Spoof video streams' should be the same translation used for revanced_spoof_video_streams_screen_title -->
+  <string name="revanced_hide_player_flyout_audio_track_not_available">"Ses parçası menüsü gizli
+
+Ses parçası menüsünü göstermek için \"Video akışlarını taklit et\" ayarını iOS TV olarak değiştirin"</string>
   <!-- 'Watch in VR' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_watch_in_vr_title">VR modunda izle\'yi gizle</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">VR modunda izle menüsü gizli</string>
@@ -663,7 +625,7 @@ Bu ayarı değiştirmek etkili olmazsa, Gizli moda geçmeyi deneyin."</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_off">Video kalite menüsü alt bilgisi görünür</string>
   </patch>
   <patch id="layout.buttons.overlay.hidePlayerOverlayButtonsPatch">
-  <string name="revanced_hide_player_previous_next_buttons_title">Önceki &amp; Sonraki video düğmelerini gizle</string>
+  <string name="revanced_hide_player_previous_next_buttons_title">Önceki &amp; Sonraki düğmelerini gizle</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_on">Düğmeler gizli</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">Düğmeler görünür</string>
   <string name="revanced_hide_cast_button_title">Yayınla düğmesini gizle</string>
@@ -856,7 +818,6 @@ Ayarlar → Oynatma → Sonraki videoyu otomatik oynat"</string>
   <string name="revanced_ryd_enable_summary_on">Beğenilmeme sayıları gösteriliyor</string>
   <string name="revanced_ryd_enable_summary_off">Beğenilmeme sayıları gösterilmiyor</string>
   <string name="revanced_ryd_shorts_title">Shorts\'ta beğenilmeme sayılarını göster</string>
-  <string name="revanced_ryd_shorts_summary_on">Shorts\'ta beğenilmeme sayıları gösteriliyor</string>
   <string name="revanced_ryd_shorts_summary_on_disclaimer">"Shorts'ta beğenilmeme sayıları gösteriliyor
 
 Kısıtlama: Beğenilmeme sayıları gizli modda görünmeyebilir"</string>
@@ -1054,6 +1015,8 @@ Aynısı mevcut"</string>
   <string name="revanced_sb_vote_downvote">Olumsuz oy</string>
   <string name="revanced_sb_vote_category">Kategori değiştir</string>
   <string name="revanced_sb_vote_no_segments">Oylanılacak bir kısım yok</string>
+  <!-- A segment start and end time, such as "02:10 to 03:40" -->
+  <string name="revanced_sb_vote_segment_time_to_from">%1$s - %2$s</string>
   <string name="revanced_sb_new_segment_choose_category">Kısım kategorisini seçin</string>
   <string name="revanced_sb_new_segment_disabled_category">Kategori, ayarlarda devre dışı. Göndermek için etkinleştirin.</string>
   <string name="revanced_sb_new_segment_title">Yeni SponsorBlock kısmı</string>
@@ -1101,6 +1064,7 @@ Göndermeye hazır mısınız?"</string>
   <string name="revanced_sb_stats_saved_hour_format">%1$s saat %2$s dakika</string>
   <string name="revanced_sb_stats_saved_minute_format">%1$s dakika %2$s saniye</string>
   <string name="revanced_sb_stats_saved_second_format">%s saniye</string>
+  <string name="revanced_sb_color_opacity_label">Opaklık:</string>
   <string name="revanced_sb_color_dot_label">Renk:</string>
   <string name="revanced_sb_color_changed">Renk değiştirildi</string>
   <string name="revanced_sb_color_reset">Renk sıfırlandı</string>
@@ -1122,10 +1086,8 @@ Tablet düzeni
 • Topluluk yayınları gizlenir
 
 Otomotiv düzeni
-• İzleme geçmişi menüsü gizlenir
-• Keşfet sekmesi geri getirilir
-• Shorts normal oynatıcıda açılır
-• Akış, konulara ve kanala göre düzenlenir"</string>
+• Shorts, normal oynatıcıda açılır
+• Akış, konulara ve kanallara göre düzenlenir"</string>
   </patch>
   <patch id="layout.spoofappversion.spoofAppVersionPatch">
   <string name="revanced_spoof_app_version_title">Uygulama sürümünü taklit et</string>
@@ -1140,12 +1102,7 @@ Daha sonra kapatılırsa, arayüz hatalarını önlemek için uygulama verilerin
                  This is because the 'General layout' menu uses alphabetic sorting, and it functionally works better if the spoof target selector appears below the 'Spoof app version' UI switch -->
   <string name="revanced_spoof_app_version_target_title">Uygulama sürümü taklidi hedefi</string>
   <string name="revanced_spoof_app_version_target_entry_1">19.35.36 - Eski Shorts oynatıcı simgelerini geri getir</string>
-  <string name="revanced_spoof_app_version_target_entry_2">19.26.42 - Eski gezinti simgelerini geri getir</string>
-  <!-- 'RYD' is 'Return YouTube Dislike' -->
-  <string name="revanced_spoof_app_version_target_legacy_entry_1">18.33.40 - Gizli modda Shorts için RYD\'yi geri getir</string>
-  <string name="revanced_spoof_app_version_target_legacy_entry_2">18.20.39 - Geniş video hızı &amp; kalitesi menüsünü geri getir</string>
-  <string name="revanced_spoof_app_version_target_legacy_entry_3">18.09.39 - Kitaplık sekmesini geri getir</string>
-  <string name="revanced_spoof_app_version_target_legacy_entry_4">17.33.42 - Eski oynatma listesi rafını geri getir</string>
+  <string name="revanced_spoof_app_version_target_entry_2">19.01.34 - Eski gezinti simgelerini geri getir</string>
   </patch>
   <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">Başlangıç sayfasını ayarla</string>
@@ -1204,6 +1161,7 @@ Daha sonra kapatılırsa, arayüz hatalarını önlemek için uygulama verilerin
   <string name="revanced_miniplayer_type_entry_4">Modern 1</string>
   <string name="revanced_miniplayer_type_entry_5">Modern 2</string>
   <string name="revanced_miniplayer_type_entry_6">Modern 3</string>
+  <string name="revanced_miniplayer_type_entry_7">Modern 4</string>
   <string name="revanced_miniplayer_rounded_corners_title">Yuvarlatılmış köşeleri etkinleştir</string>
   <string name="revanced_miniplayer_rounded_corners_summary_on">Köşeler yuvarlatılmış</string>
   <string name="revanced_miniplayer_rounded_corners_summary_off">Köşeler kare şeklinde</string>
@@ -1223,14 +1181,14 @@ Mini oynatıcı, ekranın herhangi bir köşesine sürüklenebilir"</string>
 
 Mini oynatıcı, ekranın dışına sağa veya sola sürüklenebilir"</string>
   <string name="revanced_miniplayer_horizontal_drag_summary_off">Yatay sürükleme hareketi devre dışı</string>
-  <string name="revanced_miniplayer_hide_expand_close_title">Kapatma düğmesini gizle</string>
-  <string name="revanced_miniplayer_hide_expand_close_summary_on">Kapatma düğmesi gizli</string>
-  <string name="revanced_miniplayer_hide_expand_close_summary_off">Kapatma düğmesi görünür</string>
-  <string name="revanced_miniplayer_hide_expand_close_legacy_title">Büyütme ve kapatma düğmelerini gizle</string>
-  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_on">"Düğmeler gizli
+  <string name="revanced_miniplayer_hide_overlay_buttons_title">Katman düğmelerini gizle</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">Katman düğmeleri gizli</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">Katman düğmeleri görünür</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_title">Büyütme ve kapatma düğmelerini gizle</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_on">"Düğmeler gizli
 
 Genişletmek veya kapatmak için kaydırın"</string>
-  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_off">Büyütme ve kapatma düğmeleri görünür</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_off">Büyütme ve kapatma düğmeleri görünür</string>
   <string name="revanced_miniplayer_hide_subtext_title">Alt metinleri gizle</string>
   <string name="revanced_miniplayer_hide_subtext_summary_on">Alt metinler gizli</string>
   <string name="revanced_miniplayer_hide_subtext_summary_off">Alt metinler görünür</string>
@@ -1248,8 +1206,6 @@ Genişletmek veya kapatmak için kaydırın"</string>
   <string name="revanced_gradient_loading_screen_title">Gradyan yükleme ekranını etkinleştir</string>
   <string name="revanced_gradient_loading_screen_summary_on">Yükleme ekranı gradyan bir arka plana sahip olacak</string>
   <string name="revanced_gradient_loading_screen_summary_off">Yükleme ekranı tek renk bir arka plana sahip olacak</string>
-  </patch>
-  <patch id="layout.theme.themeResourcePatch">
   <string name="revanced_seekbar_custom_color_title">Özel zaman çubuğu rengini etkinleştir</string>
   <string name="revanced_seekbar_custom_color_summary_on">Özel zaman çubuğu rengi gösterilir</string>
   <string name="revanced_seekbar_custom_color_summary_off">Orijinal zaman çubuğu rengi gösterilir</string>
@@ -1341,8 +1297,8 @@ Bunu etkinleştirmek daha yüksek video kalitelerini açabilir"</string>
   </patch>
   <patch id="misc.links.openLinksExternallyPatch">
   <string name="revanced_external_browser_title">Bağlantıları tarayıcıda aç</string>
-  <string name="revanced_external_browser_summary_on">Bağlantılar harici olarak açılıyor</string>
-  <string name="revanced_external_browser_summary_off">Bağlantılar uygulamada açılıyor</string>
+  <string name="revanced_external_browser_summary_on">Bağlantılar harici tarayıcıda açılıyor</string>
+  <string name="revanced_external_browser_summary_off">Bağlantılar uygulama içi tarayıcıda açılıyor</string>
   </patch>
   <patch id="misc.privacy.removeTrackingQueryParameterPatch">
   <string name="revanced_remove_tracking_query_parameter_title">İzleyici sorgu parametresini kaldır</string>
@@ -1369,9 +1325,15 @@ Bunu etkinleştirmek daha yüksek video kalitelerini açabilir"</string>
   <string name="revanced_remember_video_quality_last_selected_summary_off">Kalite değişiklikleri sadece oynatılan videoya uygulanır</string>
   <string name="revanced_video_quality_default_wifi_title">Wi-Fi ağındaki varsayılan video kalitesi</string>
   <string name="revanced_video_quality_default_mobile_title">Mobil ağdaki varsayılan video kalitesi</string>
+  <string name="revanced_remember_shorts_quality_last_selected_title">Shorts kalitesi değişikliklerini hatırla</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_on">Kalite değişiklikleri tüm Shorts\'lara uygulanır</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_off">Kalite değişiklikleri sadece oynatılan Short\'a uygulanır</string>
+  <string name="revanced_shorts_quality_default_wifi_title">Wi-Fi ağındaki varsayılan Shorts kalitesi</string>
+  <string name="revanced_shorts_quality_default_mobile_title">Mobil ağdaki varsayılan Shorts kalitesi</string>
   <string name="revanced_remember_video_quality_mobile">mobil ağ</string>
   <string name="revanced_remember_video_quality_wifi">wifi</string>
   <string name="revanced_remember_video_quality_toast">Varsayılan %1$s kalitesi, %2$s olarak ayarlandı</string>
+  <string name="revanced_remember_video_quality_toast_shorts">Shorts %1$s kalitesi, %2$s olarak ayarlandı</string>
   </patch>
   <patch id="video.speed.button.playbackSpeedButtonPatch">
   <string name="revanced_playback_speed_dialog_button_title">Hız diyaloğu düğmesini göster</string>
@@ -1402,10 +1364,10 @@ Bunu etkinleştirmek daha yüksek video kalitelerini açabilir"</string>
   <string name="revanced_disable_hdr_video_summary_on">HDR video devre dışı</string>
   <string name="revanced_disable_hdr_video_summary_off">HDR video etkin</string>
   </patch>
-  <patch id="video.videoqualitymenu.restoreOldVideoQualityMenuResourcePatch">
-  <string name="revanced_restore_old_video_quality_menu_title">Eski video kalite menüsünü geri getir</string>
-  <string name="revanced_restore_old_video_quality_menu_summary_on">Eski video kalite menüsü gösterilir</string>
-  <string name="revanced_restore_old_video_quality_menu_summary_off">Eski video kalite menüsü gösterilmez</string>
+  <patch id="video.quality.advancedVideoQualityMenuPatch">
+  <string name="revanced_advanced_video_quality_menu_title">Gelişmiş video kalitesi menüsünü göster</string>
+  <string name="revanced_advanced_video_quality_menu_summary_on">Gelişmiş video kalitesi menüsü gösterilir</string>
+  <string name="revanced_advanced_video_quality_menu_summary_off">Gelişmiş video kalitesi menüsü gösterilmez</string>
   </patch>
   <patch id="interaction.seekbar.enableSlideToSeekPatch">
   <string name="revanced_slide_to_seek_title">Kaydırarak sardırmayı etkinleştir</string>

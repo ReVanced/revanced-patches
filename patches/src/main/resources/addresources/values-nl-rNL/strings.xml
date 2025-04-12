@@ -4,7 +4,6 @@
     All strings must have a unique path, even if the same string is declared in two different apps.
     This is because Crowdin requires temporarily flattening this file and removing the <app> and <patch> elements.
 
-
     Strings with new lines must be raw strings where they're wrapped in quotes and new lines are not encoded.
     Raw strings still requires escaping embedded double quotes but escaping embedded single quotes is optional.
 
@@ -43,62 +42,14 @@ Second \"item\" text"</string>
   <string name="revanced_settings_import_reset">ReVanced-instellingen zijn teruggezet naar de standaardinstellingen</string>
   <string name="revanced_settings_import_success">%d instellingen geïmporteerd</string>
   <string name="revanced_settings_import_failure_parse">Importeren mislukt: %s</string>
+  <string name="revanced_show_menu_icons_title">Pictogrammen voor ReVanced-instellingen weergeven</string>
+  <string name="revanced_show_menu_icons_summary_on">Instellingspictogrammen worden weergegeven</string>
+  <string name="revanced_show_menu_icons_summary_off">Pictogrammen voor instellingen worden niet weergegeven</string>
   <string name="revanced_language_title">ReVanced-taal</string>
   <string name="revanced_language_user_dialog_message">"Vertalingen voor sommige talen kunnen ontbreken of onvolledig zijn.
 
 Om nieuwe talen te vertalen, gaat u naar translate.revanced.app"</string>
   <string name="revanced_language_DEFAULT">App-taal</string>
-  <string name="revanced_language_AR">Arabisch</string>
-  <string name="revanced_language_AZ">Azerbeidzjaans</string>
-  <string name="revanced_language_BG">Bulgaars</string>
-  <string name="revanced_language_BN">Bengaals</string>
-  <string name="revanced_language_CA">Catalaans</string>
-  <string name="revanced_language_CS">Tsjechisch</string>
-  <string name="revanced_language_DA">Deens</string>
-  <string name="revanced_language_DE">Duits</string>
-  <string name="revanced_language_EL">Grieks</string>
-  <string name="revanced_language_EN">Engels</string>
-  <string name="revanced_language_ES">Spaans</string>
-  <string name="revanced_language_ET">Ests</string>
-  <string name="revanced_language_FA">Perzisch</string>
-  <string name="revanced_language_FI">Fins</string>
-  <string name="revanced_language_FR">Frans</string>
-  <string name="revanced_language_GU">Gujarati</string>
-  <string name="revanced_language_HI">Hindi</string>
-  <string name="revanced_language_HR">Kroatisch</string>
-  <string name="revanced_language_HU">Hongaars</string>
-  <string name="revanced_language_ID">Indonesisch</string>
-  <string name="revanced_language_IT">Italiaans</string>
-  <string name="revanced_language_JA">Japans</string>
-  <string name="revanced_language_KK">Kazachs</string>
-  <string name="revanced_language_KO">Koreaans</string>
-  <string name="revanced_language_LT">Litouws</string>
-  <string name="revanced_language_LV">Lets</string>
-  <string name="revanced_language_MK">Macedonisch</string>
-  <string name="revanced_language_MN">Mongools</string>
-  <string name="revanced_language_MR">Marathi</string>
-  <string name="revanced_language_MS">Maleis</string>
-  <string name="revanced_language_MY">Birmaans</string>
-  <string name="revanced_language_NL">Nederlands</string>
-  <string name="revanced_language_OR">Odia</string>
-  <string name="revanced_language_PA">Punjabi</string>
-  <string name="revanced_language_PL">Pools</string>
-  <string name="revanced_language_PT">Portugees</string>
-  <string name="revanced_language_RO">Roemeens</string>
-  <string name="revanced_language_RU">Russisch</string>
-  <string name="revanced_language_SK">Slowaaks</string>
-  <string name="revanced_language_SL">Sloveens</string>
-  <string name="revanced_language_SR">Servisch</string>
-  <string name="revanced_language_SV">Zweeds</string>
-  <string name="revanced_language_SW">Swahili</string>
-  <string name="revanced_language_TA">Tamil</string>
-  <string name="revanced_language_TE">Telugu</string>
-  <string name="revanced_language_TH">Thais</string>
-  <string name="revanced_language_TR">Turks</string>
-  <string name="revanced_language_UK">Oekraïens</string>
-  <string name="revanced_language_UR">Urdu</string>
-  <string name="revanced_language_VI">Vietnamees</string>
-  <string name="revanced_language_ZH">Chinees</string>
   <string name="revanced_pref_import_export_title">Importeren / Exporteren</string>
   <string name="revanced_pref_import_export_summary">ReVanced-instellingen importeren / exporteren</string>
   <!-- Settings about dialog. -->
@@ -277,6 +228,9 @@ U wordt niet op de hoogte gesteld van onverwachte gebeurtenissen."</string>
   <string name="revanced_hide_artist_cards_title">Verberg artistkaarten</string>
   <string name="revanced_hide_artist_cards_summary_on">De artistkaarten zijn verborgen</string>
   <string name="revanced_hide_artist_cards_summary_off">De artistkaarten worden weergegeven</string>
+  <string name="revanced_hide_ai_generated_video_summary_section_title">\'AI-gegenereerde videosamenvatting\' verbergen</string>
+  <string name="revanced_hide_ai_generated_video_summary_section_summary_on">Transcriptgedeelte is verborgen</string>
+  <string name="revanced_hide_ai_generated_video_summary_section_summary_off">Videobeschrijvingssectie is zichtbaar</string>
   <string name="revanced_hide_attributes_section_title">Kenmerken verbergen</string>
   <string name="revanced_hide_attributes_section_summary_on">Specifieke plaatsen, Games, Muziek en Mensen genoemd secties zijn verborgen</string>
   <string name="revanced_hide_attributes_section_summary_off">Specifieke plaatsen, Games, Muziek en Mensen genoemd secties worden weergegeven</string>
@@ -313,9 +267,12 @@ U wordt niet op de hoogte gesteld van onverwachte gebeurtenissen."</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">Weergegeven in gerelateerde video\'s</string>
   <string name="revanced_comments_screen_title">Reacties</string>
   <string name="revanced_comments_screen_summary">Reacties verbergen of tonen</string>
-  <string name="revanced_hide_comments_chat_summary_title">\'Chatsamenvatting\' verbergen</string>
-  <string name="revanced_hide_comments_chat_summary_summary_on">Chatsamenenvatting is verborgen</string>
-  <string name="revanced_hide_comments_chat_summary_summary_off">Chatsamenenvatting wordt weergegeven</string>
+  <string name="revanced_hide_comments_ai_chat_summary_title">AI Chat-samenvatting verbergen</string>
+  <string name="revanced_hide_comments_ai_chat_summary_summary_on">Chatsamenvatting is verborgen</string>
+  <string name="revanced_hide_comments_ai_chat_summary_summary_off">Chatsamenvatting wordt weergegeven</string>
+  <string name="revanced_hide_comments_ai_summary_title">AI-opmerkingensamenvatting verbergen</string>
+  <string name="revanced_hide_comments_ai_summary_summary_on">Samenvatting van opmerkingen is verborgen</string>
+  <string name="revanced_hide_comments_ai_summary_summary_off">Samenvatting van opmerkingen wordt weergegeven</string>
   <string name="revanced_hide_comments_by_members_header_title">Verberg kop \'Comments by members\'</string>
   <string name="revanced_hide_comments_by_members_header_summary_on">Koptekst \'Reacties van leden\' is verborgen</string>
   <string name="revanced_hide_comments_by_members_header_summary_off">Koptekst \'Reacties van leden\' wordt weergegeven</string>
@@ -362,7 +319,7 @@ Als er momenteel een Doodle wordt getoond in je regio en deze instelling voor ve
   <string name="revanced_hide_keyword_content_subscriptions_summary_on">Video\'s in het tabblad Abonnements worden gefilterd door keywords</string>
   <string name="revanced_hide_keyword_content_subscriptions_summary_off">Video\'s in het tabblad Abonnements worden niet gefilterd door keywords</string>
   <string name="revanced_hide_keyword_content_phrases_title">Keywords om te verbergen</string>
-  <!-- For localization it is preferred, but not required, if 'LeBlanc' is replaced with a localized name or a familiar word that has upper case letters in the middle of the word.
+  <!-- For localization, it is preferred, but not required, if 'LeBlanc' is replaced with a localized name or a familiar word that has upper case letters in the middle of the word.
                  This is because keywords can be in any language, and showing an example in the localized script helps convey this. -->
   <string name="revanced_hide_keyword_content_phrases_summary">"Trefwoorden en zinnen om te verbergen, gescheiden door nieuwe regels
 
@@ -377,7 +334,7 @@ Beperkingen
 • Sommige UI-componenten zijn mogelijk niet verborgen
 • Zoeken naar een trefwoord kan geen resultaten opleveren"</string>
   <string name="revanced_hide_keyword_content_about_whole_words_title">Match hele woorden</string>
-  <!-- Translations _must_ use a localized example.  For languages that do not use spaces between words (Chinese, Japanese, etc) the English AI example should be used since no localized examples exist.  Or if using machine translations, or if nobody wants to think of a localized example, then the English 'ai' example should be left as-is. -->
+  <!-- Translations _must_ use a localized example.  For languages that do not use spaces between words (Chinese, Japanese, etc.) the English AI example should be used since no localized examples exist.  Or if using machine translations, or if nobody wants to think of a localized example, then the English 'ai' example should be left as-is. -->
   <string name="revanced_hide_keyword_content_about_whole_words_summary">Omkeren van een trefwoord/zin met dubbele aanhalingstekens zal voorkomen dat deel-matches van videotitels en kanaalnamen&lt;br&gt;&lt;br&gt;Bijvoorbeeld,&lt;br&gt;&lt;b&gt;\"ai\"&lt;/b&gt; verbergt de video: &lt;b&gt;How does AI work?&lt;/b&gt;&lt;br&gt;maar zal deze niet verbergen: &lt;b&gt;What does fair use mean?&lt;/b&gt;</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_hide_keyword_toast_invalid_common">Keyword kan niet worden gebruikt: %s</string>
@@ -404,7 +361,7 @@ Deze functie is alleen beschikbaar voor oudere apparaten"</string>
   <string name="revanced_hide_self_sponsor_ads_title">Zelf gesponsorde kaarten verbergen</string>
   <string name="revanced_hide_self_sponsor_ads_summary_on">Zelf gesponsorde kaarten zijn verborgen</string>
   <string name="revanced_hide_self_sponsor_ads_summary_off">Zelf gesponsorde kaarten worden getoond</string>
-  <string name="revanced_hide_products_banner_title">Banner om producten te bekijken verbergen</string>
+  <string name="revanced_hide_products_banner_title">Verberg de banner \'Producten bekijken\'</string>
   <string name="revanced_hide_products_banner_summary_on">Banner is verborgen</string>
   <string name="revanced_hide_products_banner_summary_off">Banner wordt getoond</string>
   <string name="revanced_hide_end_screen_store_banner_title">Verberg de Store-banner op het eindscherm</string>
@@ -475,9 +432,9 @@ Deze functie is alleen beschikbaar voor oudere apparaten"</string>
   <string name="revanced_disable_precise_seeking_gesture_summary_off">Beweging is ingeschakeld</string>
   </patch>
   <patch id="interaction.seekbar.enableSeekbarTappingPatch">
-  <string name="revanced_seekbar_tapping_title">Zoekbalk tikken inschakelen</string>
-  <string name="revanced_seekbar_tapping_summary_on">Zoekbalk tikken is ingeschakeld</string>
-  <string name="revanced_seekbar_tapping_summary_off">Zoekbalk tikken is uitgeschakeld</string>
+  <string name="revanced_seekbar_tapping_title">Tikken om te zoeken inschakelen</string>
+  <string name="revanced_seekbar_tapping_summary_on">Tikken om te zoeken is ingeschakeld</string>
+  <string name="revanced_seekbar_tapping_summary_off">Tikken om te zoeken is uitgeschakeld</string>
   </patch>
   <patch id="interaction.swipecontrols.swipeControlsResourcePatch">
   <string name="revanced_swipe_brightness_title">Helderheidsbeweging inschakelen</string>
@@ -490,7 +447,7 @@ Pas de helderheid aan door verticaal te swipen aan de linkerkant van het scherm"
 
 Pas het volume aan door verticaal over de rechterkant van het scherm te vegen"</string>
   <string name="revanced_swipe_volume_summary_off">Volume aanpassen in volledig scherm is uitgeschakeld</string>
-  <string name="revanced_swipe_press_to_engage_title">Druk-om-te-swipen-beweging inschakelen</string>
+  <string name="revanced_swipe_press_to_engage_title">\"Druk om te vegen\" beweging inschakelen</string>
   <string name="revanced_swipe_press_to_engage_summary_on">Druk-om-te-swipen is ingeschakeld</string>
   <string name="revanced_swipe_press_to_engage_summary_off">Druk-om-te-swipen is uitgeschakeld</string>
   <string name="revanced_swipe_haptic_feedback_title">Haptische feedback inschakelen</string>
@@ -600,6 +557,7 @@ Als het wijzigen van deze instelling geen effect heeft, probeer dan over te scha
   <string name="revanced_disable_translucent_status_bar_title">Transparante statusbalk uitschakelen</string>
   <string name="revanced_disable_translucent_status_bar_summary_on">Statusbalk is ondoorzichtig</string>
   <string name="revanced_disable_translucent_status_bar_summary_off">Statusbalk is ondoorzichtig of doorschijnend</string>
+  <string name="revanced_disable_translucent_status_bar_user_dialog_message">Op sommige apparaten kan het inschakelen van deze functie de systeemnavigatiebalk transparant maken.</string>
   <string name="revanced_disable_translucent_navigation_bar_light_title">Transparante lichte navigatiebalk uitschakelen</string>
   <string name="revanced_disable_translucent_navigation_bar_light_summary_on">De lichte navigatiebalk is ondoorzichtig</string>
   <string name="revanced_disable_translucent_navigation_bar_light_summary_off">De lichtmodus navigatiebalk is ondoorzichtig of doorschijnend</string>
@@ -654,6 +612,10 @@ Als het wijzigen van deze instelling geen effect heeft, probeer dan over te scha
   <string name="revanced_hide_player_flyout_audio_track_title">Verberg Audiotrack</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_on">Menu Audiotrack is verborgen</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_off">Menu Audiotrack wordt weergegeven</string>
+  <!-- 'Spoof video streams' should be the same translation used for revanced_spoof_video_streams_screen_title -->
+  <string name="revanced_hide_player_flyout_audio_track_not_available">"Audiotrackmenu is verborgen
+
+Om het audiotrackmenu weer te geven, wijzigt u 'Videostreams vervalsen' in iOS TV"</string>
   <!-- 'Watch in VR' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_watch_in_vr_title">Verberg Bekijk in VR</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">Menu Bekijk in VR is verborgen</string>
@@ -663,7 +625,7 @@ Als het wijzigen van deze instelling geen effect heeft, probeer dan over te scha
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_off">Voettekst van video-kwaliteitsmenu wordt weergegeven</string>
   </patch>
   <patch id="layout.buttons.overlay.hidePlayerOverlayButtonsPatch">
-  <string name="revanced_hide_player_previous_next_buttons_title">Verberg vorige &amp; volgende videoknoppen</string>
+  <string name="revanced_hide_player_previous_next_buttons_title">Verberg Vorige &amp; Volgende knoppen</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_on">Knoppen zijn verborgen</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">Knoppen worden weergegeven</string>
   <string name="revanced_hide_cast_button_title">Verberg Cast-knop</string>
@@ -856,7 +818,6 @@ Instellingen → Afspelen → Volgende video automatisch afspelen"</string>
   <string name="revanced_ryd_enable_summary_on">\"Dislikes\" worden weergegeven</string>
   <string name="revanced_ryd_enable_summary_off">\"Dislikes\" worden niet weergegeven</string>
   <string name="revanced_ryd_shorts_title">Toon onlikes op Shorts</string>
-  <string name="revanced_ryd_shorts_summary_on">Vind ik niet leuk op Shorts worden weergegeven</string>
   <string name="revanced_ryd_shorts_summary_on_disclaimer">"Vind ik niet leuk op Shorts worden weergegeven
 
 Beperking: Vind ik niet leuk verschijnen mogelijk niet in de incognitomodus"</string>
@@ -1054,6 +1015,8 @@ Bestaat al"</string>
   <string name="revanced_sb_vote_downvote">Stem omlaag</string>
   <string name="revanced_sb_vote_category">Verander categorie</string>
   <string name="revanced_sb_vote_no_segments">Er zijn geen segmenten om voor te stemmen</string>
+  <!-- A segment start and end time, such as "02:10 to 03:40" -->
+  <string name="revanced_sb_vote_segment_time_to_from">%1$s tot %2$s</string>
   <string name="revanced_sb_new_segment_choose_category">Kies de segmentcategorie</string>
   <string name="revanced_sb_new_segment_disabled_category">Categorie is uitgeschakeld in de instellingen. Schakel de categorie in om in te dienen.</string>
   <string name="revanced_sb_new_segment_title">Nieuw SponsorBlock-segment</string>
@@ -1101,6 +1064,7 @@ Klaar om in te dienen?"</string>
   <string name="revanced_sb_stats_saved_hour_format">%1$s uren %2$s minuten</string>
   <string name="revanced_sb_stats_saved_minute_format">%1$s minuten %2$s seconden</string>
   <string name="revanced_sb_stats_saved_second_format">%s seconden</string>
+  <string name="revanced_sb_color_opacity_label">Ondoorzichtigheid:</string>
   <string name="revanced_sb_color_dot_label">Kleur:</string>
   <string name="revanced_sb_color_changed">Kleur gewijzigd</string>
   <string name="revanced_sb_color_reset">Kleur gereset</string>
@@ -1116,16 +1080,14 @@ Klaar om in te dienen?"</string>
   <string name="revanced_change_form_factor_entry_2">Telefoon</string>
   <string name="revanced_change_form_factor_entry_3">Tablet</string>
   <string name="revanced_change_form_factor_entry_4">Automobiel</string>
-  <string name="revanced_change_form_factor_user_dialog_message">"De wijzigingen omvatten:
+  <string name="revanced_change_form_factor_user_dialog_message">"Wijzigingen omvatten:
 
-Tablet-indeling
-• Community-berichten zijn verborgen
+Tablet lay-out
+• Community posts zijn verborgen
 
-Automobielindeling
-• Het menu \"Wachthistorie\" is verborgen
-• Het tabblad \"Verkennen\" is hersteld
-• Shorts openen in de gewone speler
-• De feed is georganiseerd op onderwerpen en kanaal"</string>
+Automotive lay-out
+• Shorts worden geopend in de normale speler
+• Feed is georganiseerd op onderwerp en kanalen"</string>
   </patch>
   <patch id="layout.spoofappversion.spoofAppVersionPatch">
   <string name="revanced_spoof_app_version_title">App-versie vervalsen</string>
@@ -1140,12 +1102,7 @@ Als het later wordt uitgeschakeld, wordt aanbevolen om de app-gegevens te wissen
                  This is because the 'General layout' menu uses alphabetic sorting, and it functionally works better if the spoof target selector appears below the 'Spoof app version' UI switch -->
   <string name="revanced_spoof_app_version_target_title">Doel voor vervalsen app-versie</string>
   <string name="revanced_spoof_app_version_target_entry_1">19.35.36 - Herstel oude pictogrammen voor Shorts-speler</string>
-  <string name="revanced_spoof_app_version_target_entry_2">19.26.42 - Oude navigatie-pictogrammen herstellen</string>
-  <!-- 'RYD' is 'Return YouTube Dislike' -->
-  <string name="revanced_spoof_app_version_target_legacy_entry_1">18.33.40 - Herstel RYD op Shorts incognitomodus</string>
-  <string name="revanced_spoof_app_version_target_legacy_entry_2">18.20.39 - Herstel breed snelheids- en kwaliteitsmenu voor video\'s</string>
-  <string name="revanced_spoof_app_version_target_legacy_entry_3">18.09.39 - Herstel bibliotheektabblad</string>
-  <string name="revanced_spoof_app_version_target_legacy_entry_4">17.33.42 - Herstel oude afspeellijstplank</string>
+  <string name="revanced_spoof_app_version_target_entry_2">19.01.34 - Herstel oude navigatie-iconen</string>
   </patch>
   <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">Startpagina instellen</string>
@@ -1195,7 +1152,7 @@ Als het later wordt uitgeschakeld, wordt aanbevolen om de app-gegevens te wissen
   </patch>
   <patch id="layout.miniplayer.miniplayerPatch">
   <string name="revanced_miniplayer_screen_title">Minispeler</string>
-  <string name="revanced_miniplayer_screen_summary">Wijzig de stijl van de geminimaliseerde speler in de app</string>
+  <string name="revanced_miniplayer_screen_summary">De stijl van de geminimaliseerde speler in de app wijzigen</string>
   <string name="revanced_miniplayer_type_title">\"miniplayer\"-type</string>
   <string name="revanced_miniplayer_type_entry_0">Uitgeschakeld</string>
   <string name="revanced_miniplayer_type_entry_1">Standaard</string>
@@ -1204,6 +1161,7 @@ Als het later wordt uitgeschakeld, wordt aanbevolen om de app-gegevens te wissen
   <string name="revanced_miniplayer_type_entry_4">Modern 1</string>
   <string name="revanced_miniplayer_type_entry_5">Modern 2</string>
   <string name="revanced_miniplayer_type_entry_6">Modern 3</string>
+  <string name="revanced_miniplayer_type_entry_7">Modern 4</string>
   <string name="revanced_miniplayer_rounded_corners_title">Schakel afgeronde hoeken in</string>
   <string name="revanced_miniplayer_rounded_corners_summary_on">Hoeken zijn afgerond</string>
   <string name="revanced_miniplayer_rounded_corners_summary_off">Hoeken zijn vierkant</string>
@@ -1223,14 +1181,14 @@ De miniplayer kan naar elke hoek van het scherm worden gesleept"</string>
 
 De miniplayer kan naar links of rechts van het scherm worden gesleept"</string>
   <string name="revanced_miniplayer_horizontal_drag_summary_off">Horizontaal sleepgebaar uitgeschakeld</string>
-  <string name="revanced_miniplayer_hide_expand_close_title">Verberg de sluitknop</string>
-  <string name="revanced_miniplayer_hide_expand_close_summary_on">De sluitknop is verborgen</string>
-  <string name="revanced_miniplayer_hide_expand_close_summary_off">De sluitknop is zichtbaar</string>
-  <string name="revanced_miniplayer_hide_expand_close_legacy_title">Verberg uitvouwen en sluiten knoppen</string>
-  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_on">"Knoppen zijn verborgen
+  <string name="revanced_miniplayer_hide_overlay_buttons_title">Overlayknoppen verbergen</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">Overlayknoppen zijn verborgen</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">Overlayknoppen worden weergegeven</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_title">Knoppen voor uitvouwen en sluiten verbergen</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_on">"Knoppen zijn verborgen
 
-Veeg om uit te vouwen of te sluiten"</string>
-  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_off">Uitvouwen en sluiten knoppen zijn zichtbaar</string>
+Swipe om uit te vouwen of te sluiten"</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_off">Knoppen voor uitvouwen en sluiten worden weergegeven</string>
   <string name="revanced_miniplayer_hide_subtext_title">Verberg subteksten</string>
   <string name="revanced_miniplayer_hide_subtext_summary_on">Subteksten zijn verborgen</string>
   <string name="revanced_miniplayer_hide_subtext_summary_off">Subteksten zijn zichtbaar</string>
@@ -1248,8 +1206,6 @@ Veeg om uit te vouwen of te sluiten"</string>
   <string name="revanced_gradient_loading_screen_title">Schakel het laden van het verloopscherm in</string>
   <string name="revanced_gradient_loading_screen_summary_on">Het laadscherm heeft een verlopende achtergrond</string>
   <string name="revanced_gradient_loading_screen_summary_off">Het laadscherm heeft een effen achtergrond</string>
-  </patch>
-  <patch id="layout.theme.themeResourcePatch">
   <string name="revanced_seekbar_custom_color_title">Schakel aangepaste schuifregelaar kleur in</string>
   <string name="revanced_seekbar_custom_color_summary_on">De aangepaste kleur van de schuifregelaar is zichtbaar</string>
   <string name="revanced_seekbar_custom_color_summary_off">De oorspronkelijke kleur van de schuifregelaar is zichtbaar</string>
@@ -1341,8 +1297,8 @@ Het inschakelen hiervan kan hogere videokwaliteiten ontgrendelen"</string>
   </patch>
   <patch id="misc.links.openLinksExternallyPatch">
   <string name="revanced_external_browser_title">Koppelingen openen in browser</string>
-  <string name="revanced_external_browser_summary_on">Koppelingen extern openen</string>
-  <string name="revanced_external_browser_summary_off">Koppelingen openen in app</string>
+  <string name="revanced_external_browser_summary_on">Koppelingen openen in externe browser</string>
+  <string name="revanced_external_browser_summary_off">Koppelingen openen in in-app browser</string>
   </patch>
   <patch id="misc.privacy.removeTrackingQueryParameterPatch">
   <string name="revanced_remove_tracking_query_parameter_title">Verwijder tracking-queryparameter</string>
@@ -1369,9 +1325,15 @@ Het inschakelen hiervan kan hogere videokwaliteiten ontgrendelen"</string>
   <string name="revanced_remember_video_quality_last_selected_summary_off">Kwaliteitswijzigingen worden alleen op de huidige video toegepast</string>
   <string name="revanced_video_quality_default_wifi_title">Standaard videokwaliteit op Wi-Fi-netwerk</string>
   <string name="revanced_video_quality_default_mobile_title">Standaard videokwaliteit op mobiel netwerk</string>
+  <string name="revanced_remember_shorts_quality_last_selected_title">Onthoud kwaliteitswijzigingen voor Shorts</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_on">Kwaliteitswijzigingen zijn van toepassing op alle Shorts</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_off">Kwaliteitswijzigingen zijn alleen van toepassing op de huidige Short</string>
+  <string name="revanced_shorts_quality_default_wifi_title">Standaardkwaliteit voor Shorts op wifi-netwerk</string>
+  <string name="revanced_shorts_quality_default_mobile_title">Standaardkwaliteit voor Shorts op mobiel netwerk</string>
   <string name="revanced_remember_video_quality_mobile">mobiel</string>
   <string name="revanced_remember_video_quality_wifi">wifi</string>
   <string name="revanced_remember_video_quality_toast">Standaard %1$s-kwaliteit gewijzigd naar: %2$s</string>
+  <string name="revanced_remember_video_quality_toast_shorts">De kwaliteit van Shorts %1$s is gewijzigd in: %2$s</string>
   </patch>
   <patch id="video.speed.button.playbackSpeedButtonPatch">
   <string name="revanced_playback_speed_dialog_button_title">Snelheidsdialoogknop weergeven</string>
@@ -1402,10 +1364,10 @@ Het inschakelen hiervan kan hogere videokwaliteiten ontgrendelen"</string>
   <string name="revanced_disable_hdr_video_summary_on">HDR-video is uitgeschakeld</string>
   <string name="revanced_disable_hdr_video_summary_off">HDR-video is ingeschakeld</string>
   </patch>
-  <patch id="video.videoqualitymenu.restoreOldVideoQualityMenuResourcePatch">
-  <string name="revanced_restore_old_video_quality_menu_title">Oud menu voor videokwaliteit herstellen</string>
-  <string name="revanced_restore_old_video_quality_menu_summary_on">Oud menu voor videokwaliteit wordt weergegeven</string>
-  <string name="revanced_restore_old_video_quality_menu_summary_off">Oud menu voor videokwaliteit wordt niet weergegeven</string>
+  <patch id="video.quality.advancedVideoQualityMenuPatch">
+  <string name="revanced_advanced_video_quality_menu_title">Geavanceerd menu voor videokwaliteit weergeven</string>
+  <string name="revanced_advanced_video_quality_menu_summary_on">Geavanceerd menu voor videokwaliteit wordt weergegeven</string>
+  <string name="revanced_advanced_video_quality_menu_summary_off">Geavanceerd menu voor videokwaliteit wordt niet weergegeven</string>
   </patch>
   <patch id="interaction.seekbar.enableSlideToSeekPatch">
   <string name="revanced_slide_to_seek_title">Schuiven om te zoeken inschakelen</string>

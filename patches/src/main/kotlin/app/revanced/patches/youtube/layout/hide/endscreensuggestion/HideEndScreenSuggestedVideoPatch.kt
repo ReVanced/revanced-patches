@@ -22,7 +22,7 @@ private const val EXTENSION_CLASS_DESCRIPTOR =
 @Suppress("unused")
 val hideEndScreenSuggestedVideoPatch = bytecodePatch(
     name = "Hide end screen suggested video",
-    description = "Adds an option to hide the recommended video at the end of each video.",
+    description = "Adds an option to hide the suggested video at the end of videos.",
 ) {
     dependsOn(
         sharedExtensionPatch,
@@ -35,9 +35,8 @@ val hideEndScreenSuggestedVideoPatch = bytecodePatch(
             "19.25.37",
             "19.34.42",
             "19.43.41",
-            "19.45.38",
-            "19.46.42",
             "19.47.53",
+            "20.07.39",
         ),
     )
 

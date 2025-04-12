@@ -16,9 +16,9 @@ import app.revanced.patches.youtube.misc.playservice.versionCheckPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
 import app.revanced.patches.youtube.shared.mainActivityOnCreateFingerprint
+import app.revanced.util.findFreeRegister
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
-import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
@@ -45,9 +45,8 @@ val openShortsInRegularPlayerPatch = bytecodePatch(
             "19.25.37",
             "19.34.42",
             "19.43.41",
-            "19.45.38",
-            "19.46.42",
             "19.47.53",
+            "20.07.39",
         ),
     )
 
@@ -107,11 +106,12 @@ val openShortsInRegularPlayerPatch = bytecodePatch(
                     getReference<MethodReference>()?.returnType ==
                             "Lcom/google/android/libraries/youtube/player/model/PlaybackStartDescriptor;"
                 }
-                val freeRegister = getInstruction<FiveRegisterInstruction>(index).registerC
                 val playbackStartRegister = getInstruction<OneRegisterInstruction>(index + 1).registerA
+                val insertIndex = index + 2
+                val freeRegister = findFreeRegister(insertIndex, playbackStartRegister)
 
                 addInstructionsWithLabels(
-                    index + 2,
+                    insertIndex,
                     extensionInstructions(playbackStartRegister, freeRegister)
                 )
             }

@@ -136,6 +136,10 @@ public final class app/revanced/patches/amazon/DeepLinkingPatchKt {
 	public static final fun getDeepLinkingPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
+public final class app/revanced/patches/angulus/ads/RemoveAdsPatchKt {
+	public static final fun getAngulusPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
 public final class app/revanced/patches/backdrops/misc/pro/ProUnlockPatchKt {
 	public static final fun getProUnlockPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
@@ -272,6 +276,10 @@ public final class app/revanced/patches/messenger/inputfield/DisableTypingIndica
 	public static final fun getDisableTypingIndicatorPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
+public final class app/revanced/patches/messenger/navbar/RemoveMetaAITabPatchKt {
+	public static final fun getRemoveMetaAITabPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
 public final class app/revanced/patches/mifitness/misc/locale/ForceEnglishLocalePatchKt {
 	public static final fun getForceEnglishLocalePatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
@@ -398,6 +406,10 @@ public final class app/revanced/patches/piccomafr/tracking/DisableTrackingPatchK
 
 public final class app/revanced/patches/pixiv/ads/HideAdsPatchKt {
 	public static final fun getHideAdsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
+public final class app/revanced/patches/protonmail/signature/RemoveSentFromSignaturePatchKt {
+	public static final fun getRemoveSentFromSignaturePatch ()Lapp/revanced/patcher/patch/ResourcePatch;
 }
 
 public final class app/revanced/patches/rar/misc/annoyances/purchasereminder/HidePurchaseReminderPatchKt {
@@ -780,8 +792,8 @@ public final class app/revanced/patches/shared/misc/settings/preference/TextPref
 }
 
 public final class app/revanced/patches/shared/misc/spoof/SpoofVideoStreamsPatchKt {
-	public static final fun spoofVideoStreamsPatch (Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;)Lapp/revanced/patcher/patch/BytecodePatch;
-	public static synthetic fun spoofVideoStreamsPatch$default (Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)Lapp/revanced/patcher/patch/BytecodePatch;
+	public static final fun spoofVideoStreamsPatch (Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;)Lapp/revanced/patcher/patch/BytecodePatch;
+	public static synthetic fun spoofVideoStreamsPatch$default (Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
 public final class app/revanced/patches/shared/misc/spoof/UserAgentClientSpoofPatchKt {
@@ -818,6 +830,18 @@ public final class app/revanced/patches/spotify/layout/theme/CustomThemePatchKt 
 
 public final class app/revanced/patches/spotify/lite/ondemand/OnDemandPatchKt {
 	public static final fun getOnDemandPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
+public final class app/revanced/patches/spotify/misc/UnlockPremiumPatchKt {
+	public static final fun getUnlockPremiumPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
+public final class app/revanced/patches/spotify/misc/extension/ExtensionPatchKt {
+	public static final fun getSharedExtensionPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
+public final class app/revanced/patches/spotify/misc/fix/SpoofSignaturePatchKt {
+	public static final fun getSpoofSignaturePatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
 public final class app/revanced/patches/spotify/navbar/PremiumNavbarTabPatchKt {
@@ -1088,6 +1112,14 @@ public final class app/revanced/patches/youtube/interaction/seekbar/EnableSlideT
 	public static final fun getEnableSlideToSeekPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
+public final class app/revanced/patches/youtube/interaction/seekbar/HideSeekbarPatchKt {
+	public static final fun getHideSeekbarPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
+public final class app/revanced/patches/youtube/interaction/seekbar/SeekbarPatchKt {
+	public static final fun getSeekbarPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
 public final class app/revanced/patches/youtube/interaction/seekbar/SeekbarThumbnailsPatchKt {
 	public static final fun getSeekbarThumbnailsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
@@ -1177,17 +1209,7 @@ public final class app/revanced/patches/youtube/layout/hide/time/HideTimestampPa
 }
 
 public final class app/revanced/patches/youtube/layout/miniplayer/MiniplayerPatchKt {
-	public static final fun getFloatyBarButtonTopMargin ()J
-	public static final fun getMiniplayerMaxSize ()J
 	public static final fun getMiniplayerPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
-	public static final fun getModernMiniplayerClose ()J
-	public static final fun getModernMiniplayerExpand ()J
-	public static final fun getModernMiniplayerForwardButton ()J
-	public static final fun getModernMiniplayerRewindButton ()J
-	public static final fun getPlayerOverlays ()J
-	public static final fun getScrimOverlay ()J
-	public static final fun getYtOutlinePictureInPictureWhite24 ()J
-	public static final fun getYtOutlineXWhite24 ()J
 }
 
 public final class app/revanced/patches/youtube/layout/panels/popup/PlayerPopupPanelsPatchKt {
@@ -1382,6 +1404,12 @@ public final class app/revanced/patches/youtube/misc/playservice/VersionCheckPat
 	public static final fun is_19_46_or_greater ()Z
 	public static final fun is_19_47_or_greater ()Z
 	public static final fun is_19_49_or_greater ()Z
+	public static final fun is_20_02_or_greater ()Z
+	public static final fun is_20_03_or_greater ()Z
+	public static final fun is_20_05_or_greater ()Z
+	public static final fun is_20_07_or_greater ()Z
+	public static final fun is_20_09_or_greater ()Z
+	public static final fun is_20_10_or_greater ()Z
 }
 
 public final class app/revanced/patches/youtube/misc/privacy/RemoveTrackingQueryParameterPatchKt {
@@ -1465,6 +1493,10 @@ public final class app/revanced/patches/youtube/video/playerresponse/PlayerRespo
 
 public final class app/revanced/patches/youtube/video/quality/RememberVideoQualityPatchKt {
 	public static final fun getRememberVideoQualityPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
+public final class app/revanced/patches/youtube/video/quality/VideoQualityPatchKt {
+	public static final fun getVideoQualityPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
 public final class app/revanced/patches/youtube/video/speed/PlaybackSpeedPatchKt {

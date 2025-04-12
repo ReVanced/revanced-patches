@@ -4,7 +4,6 @@
     All strings must have a unique path, even if the same string is declared in two different apps.
     This is because Crowdin requires temporarily flattening this file and removing the <app> and <patch> elements.
 
-
     Strings with new lines must be raw strings where they're wrapped in quotes and new lines are not encoded.
     Raw strings still requires escaping embedded double quotes but escaping embedded single quotes is optional.
 
@@ -43,62 +42,14 @@ Second \"item\" text"</string>
   <string name="revanced_settings_import_reset">Pengaturan ReVanced diatur ke setelan awal</string>
   <string name="revanced_settings_import_success">Mengimpor setelan %d</string>
   <string name="revanced_settings_import_failure_parse">Impor gagal: %s</string>
+  <string name="revanced_show_menu_icons_title">Tampilkan ikon pengaturan ReVanced</string>
+  <string name="revanced_show_menu_icons_summary_on">Ikon pengaturan ditampilkan</string>
+  <string name="revanced_show_menu_icons_summary_off">Ikon pengaturan tidak ditampilkan</string>
   <string name="revanced_language_title">Bahasa ReVanced</string>
   <string name="revanced_language_user_dialog_message">"Terjemahan untuk beberapa bahasa mungkin hilang atau tidak lengkap.
 
 Untuk menerjemahkan bahasa baru kunjungi translate.revanced.app"</string>
   <string name="revanced_language_DEFAULT">Bahasa Aplikasi</string>
-  <string name="revanced_language_AR">Arab</string>
-  <string name="revanced_language_AZ">Azerbaijan</string>
-  <string name="revanced_language_BG">Bulgaria</string>
-  <string name="revanced_language_BN">Benggala</string>
-  <string name="revanced_language_CA">Katalan</string>
-  <string name="revanced_language_CS">Ceko</string>
-  <string name="revanced_language_DA">Denmark</string>
-  <string name="revanced_language_DE">Jerman</string>
-  <string name="revanced_language_EL">Yunani</string>
-  <string name="revanced_language_EN">Inggris</string>
-  <string name="revanced_language_ES">Spanyol</string>
-  <string name="revanced_language_ET">Estonia</string>
-  <string name="revanced_language_FA">Persia</string>
-  <string name="revanced_language_FI">Finlandia</string>
-  <string name="revanced_language_FR">Prancis</string>
-  <string name="revanced_language_GU">Gujarat</string>
-  <string name="revanced_language_HI">Hindi</string>
-  <string name="revanced_language_HR">Kroasia</string>
-  <string name="revanced_language_HU">Hungaria</string>
-  <string name="revanced_language_ID">Indonesia</string>
-  <string name="revanced_language_IT">Italia</string>
-  <string name="revanced_language_JA">Jepang</string>
-  <string name="revanced_language_KK">Kazakh</string>
-  <string name="revanced_language_KO">Korea</string>
-  <string name="revanced_language_LT">Lituania</string>
-  <string name="revanced_language_LV">Latvia</string>
-  <string name="revanced_language_MK">Makedonia</string>
-  <string name="revanced_language_MN">Mongolia</string>
-  <string name="revanced_language_MR">Marathi</string>
-  <string name="revanced_language_MS">Melayu</string>
-  <string name="revanced_language_MY">Burma</string>
-  <string name="revanced_language_NL">Belanda</string>
-  <string name="revanced_language_OR">Oriya</string>
-  <string name="revanced_language_PA">Punjab</string>
-  <string name="revanced_language_PL">Polandia</string>
-  <string name="revanced_language_PT">Portugis</string>
-  <string name="revanced_language_RO">Rumania</string>
-  <string name="revanced_language_RU">Rusia</string>
-  <string name="revanced_language_SK">Slovakia</string>
-  <string name="revanced_language_SL">Slovenia</string>
-  <string name="revanced_language_SR">Serbia</string>
-  <string name="revanced_language_SV">Swedia</string>
-  <string name="revanced_language_SW">Swahili</string>
-  <string name="revanced_language_TA">Tamil</string>
-  <string name="revanced_language_TE">Telugu</string>
-  <string name="revanced_language_TH">Thai</string>
-  <string name="revanced_language_TR">Turki</string>
-  <string name="revanced_language_UK">Ukraina</string>
-  <string name="revanced_language_UR">Urdu</string>
-  <string name="revanced_language_VI">Vietnam</string>
-  <string name="revanced_language_ZH">Tiongkok</string>
   <string name="revanced_pref_import_export_title">Impor / Ekspor</string>
   <string name="revanced_pref_import_export_summary">Impor / Ekspor setelan ReVanced</string>
   <!-- Settings about dialog. -->
@@ -277,6 +228,9 @@ Anda tidak akan diberi tahu tentang kejadian yang tidak terduga."</string>
   <string name="revanced_hide_artist_cards_title">Sembunyikan kartu artis</string>
   <string name="revanced_hide_artist_cards_summary_on">Kartu artis disembunyikan</string>
   <string name="revanced_hide_artist_cards_summary_off">Kartu artis ditampilkan</string>
+  <string name="revanced_hide_ai_generated_video_summary_section_title">Sembunyikan \'Ringkasan video yang dibuat AI\'</string>
+  <string name="revanced_hide_ai_generated_video_summary_section_summary_on">Bagian ringkasan video disembunyikan</string>
+  <string name="revanced_hide_ai_generated_video_summary_section_summary_off">Bagian ringkasan video ditampilkan</string>
   <string name="revanced_hide_attributes_section_title">Sembunyikan Atribut</string>
   <string name="revanced_hide_attributes_section_summary_on">Bagian tempat Unggulan, Game, Musik, dan disebutkan Orang disembunyikan</string>
   <string name="revanced_hide_attributes_section_summary_off">Bagian tempat Unggulan, Game, Musik, dan disebutkan Orang ditampilkan</string>
@@ -313,9 +267,12 @@ Anda tidak akan diberi tahu tentang kejadian yang tidak terduga."</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">Ditampilkan di video terkait</string>
   <string name="revanced_comments_screen_title">Komentar</string>
   <string name="revanced_comments_screen_summary">Sembunyikan atau tampilkan komponen bagian komentar</string>
-  <string name="revanced_hide_comments_chat_summary_title">Sembunyikan \'Ringkasan obrolan\'</string>
-  <string name="revanced_hide_comments_chat_summary_summary_on">Ringkasan obrolan disembunyikan</string>
-  <string name="revanced_hide_comments_chat_summary_summary_off">Ringkasan obrolan ditampilkan</string>
+  <string name="revanced_hide_comments_ai_chat_summary_title">Sembunyikan ringkasan Obrolan AI</string>
+  <string name="revanced_hide_comments_ai_chat_summary_summary_on">Ringkasan obrolan disembunyikan</string>
+  <string name="revanced_hide_comments_ai_chat_summary_summary_off">Ringkasan obrolan ditampilkan</string>
+  <string name="revanced_hide_comments_ai_summary_title">Sembunyikan ringkasan Komentar AI</string>
+  <string name="revanced_hide_comments_ai_summary_summary_on">Ringkasan komentar disembunyikan</string>
+  <string name="revanced_hide_comments_ai_summary_summary_off">Ringkasan komentar ditampilkan</string>
   <string name="revanced_hide_comments_by_members_header_title">Sembunyikan header \'Komentar oleh anggota\'</string>
   <string name="revanced_hide_comments_by_members_header_summary_on">Header Komentar oleh anggota disembunyikan</string>
   <string name="revanced_hide_comments_by_members_header_summary_off">Header Komentar oleh anggota ditampilkan</string>
@@ -362,7 +319,7 @@ Jika Doodle saat ini ditampilkan di wilayah Anda dan pengaturan penyembunyi ini 
   <string name="revanced_hide_keyword_content_subscriptions_summary_on">Video di tab langganan disaring berdasarkan kata kunci</string>
   <string name="revanced_hide_keyword_content_subscriptions_summary_off">Video di tab langganan tidak disaring berdasarkan kata kunci</string>
   <string name="revanced_hide_keyword_content_phrases_title">Kata kunci yang ingin disembunyikan</string>
-  <!-- For localization it is preferred, but not required, if 'LeBlanc' is replaced with a localized name or a familiar word that has upper case letters in the middle of the word.
+  <!-- For localization, it is preferred, but not required, if 'LeBlanc' is replaced with a localized name or a familiar word that has upper case letters in the middle of the word.
                  This is because keywords can be in any language, and showing an example in the localized script helps convey this. -->
   <string name="revanced_hide_keyword_content_phrases_summary">"Kata kunci dan frasa yang akan disembunyikan, dipisahkan oleh baris baru
 
@@ -377,7 +334,7 @@ Keterbatasan
 • Beberapa komponen UI mungkin tidak disembunyikan
 • Pencarian kata kunci mungkin tidak menampilkan hasil"</string>
   <string name="revanced_hide_keyword_content_about_whole_words_title">Cocokkan seluruh kata</string>
-  <!-- Translations _must_ use a localized example.  For languages that do not use spaces between words (Chinese, Japanese, etc) the English AI example should be used since no localized examples exist.  Or if using machine translations, or if nobody wants to think of a localized example, then the English 'ai' example should be left as-is. -->
+  <!-- Translations _must_ use a localized example.  For languages that do not use spaces between words (Chinese, Japanese, etc.) the English AI example should be used since no localized examples exist.  Or if using machine translations, or if nobody wants to think of a localized example, then the English 'ai' example should be left as-is. -->
   <string name="revanced_hide_keyword_content_about_whole_words_summary">Melingkupi kata kunci/frasa dengan tanda kutip ganda akan mencegah pencocokan sebagian judul video dan nama saluran&lt;br&gt;&lt;br&gt;Misalnya,&lt;br&gt;&lt;b&gt;\"ai\"&lt;/b&gt; akan menyembunyikan video: &lt;b&gt;Bagaimana cara kerja AI?&lt;/b&gt;&lt;br&gt;tetapi tidak akan menyembunyikan: &lt;b&gt;Apa yang dimaksud dengan Jakarta Fair?&lt;/b&gt;</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_hide_keyword_toast_invalid_common">Tidak dapat menggunakan kata kunci: %s</string>
@@ -404,9 +361,9 @@ Fitur ini hanya tersedia untuk perangkat yang lebih lama"</string>
   <string name="revanced_hide_self_sponsor_ads_title">Sembunyikan kartu bersponsor pribadi</string>
   <string name="revanced_hide_self_sponsor_ads_summary_on">Kartu bersponsor pribadi disembunyikan</string>
   <string name="revanced_hide_self_sponsor_ads_summary_off">Kartu bersponsor pribadi ditampilkan</string>
-  <string name="revanced_hide_products_banner_title">Sembunyikan banner untuk melihat produk</string>
-  <string name="revanced_hide_products_banner_summary_on">Banner disembunyikan</string>
-  <string name="revanced_hide_products_banner_summary_off">Banner ditampilkan</string>
+  <string name="revanced_hide_products_banner_title">Sembunyikan spanduk \'Lihat produk\'</string>
+  <string name="revanced_hide_products_banner_summary_on">Spanduk disembunyikan</string>
+  <string name="revanced_hide_products_banner_summary_off">Spanduk ditampilkan</string>
   <string name="revanced_hide_end_screen_store_banner_title">Sembunyikan spanduk toko di layar akhir</string>
   <string name="revanced_hide_end_screen_store_banner_summary_on">Spanduk toko disembunyikan</string>
   <string name="revanced_hide_end_screen_store_banner_summary_off">Spanduk toko ditampilkan</string>
@@ -475,9 +432,9 @@ Fitur ini hanya tersedia untuk perangkat yang lebih lama"</string>
   <string name="revanced_disable_precise_seeking_gesture_summary_off">Gerakan diaktifkan</string>
   </patch>
   <patch id="interaction.seekbar.enableSeekbarTappingPatch">
-  <string name="revanced_seekbar_tapping_title">Aktifkan pengetukan seekbar</string>
-  <string name="revanced_seekbar_tapping_summary_on">Pengetukan seekbar diaktifkan</string>
-  <string name="revanced_seekbar_tapping_summary_off">Pengetukan seekbar dinonaktifkan</string>
+  <string name="revanced_seekbar_tapping_title">Aktifkan ketuk untuk mencari</string>
+  <string name="revanced_seekbar_tapping_summary_on">Ketuk untuk mencari diaktifkan</string>
+  <string name="revanced_seekbar_tapping_summary_off">Ketuk untuk mencari dinonaktifkan</string>
   </patch>
   <patch id="interaction.swipecontrols.swipeControlsResourcePatch">
   <string name="revanced_swipe_brightness_title">Aktifkan gerakan kecerahan</string>
@@ -490,9 +447,9 @@ Sesuaikan kecerahan dengan mengusap secara vertikal pada sisi kiri layar"</strin
 
 Menyesuaikan volume dengan mengusap secara vertikal di sisi kanan layar"</string>
   <string name="revanced_swipe_volume_summary_off">Pengusapan volume layar penuh dinonaktifkan</string>
-  <string name="revanced_swipe_press_to_engage_title">Aktifkan gerakan tekan-untuk-mengusap</string>
-  <string name="revanced_swipe_press_to_engage_summary_on">Tekan-untuk-mengusap diaktifkan</string>
-  <string name="revanced_swipe_press_to_engage_summary_off">Tekan-untuk-mengusap dinonaktifkan</string>
+  <string name="revanced_swipe_press_to_engage_title">Aktifkan tekan untuk gerakan geser</string>
+  <string name="revanced_swipe_press_to_engage_summary_on">Tekan untuk menggeser diaktifkan</string>
+  <string name="revanced_swipe_press_to_engage_summary_off">Tekan untuk menggeser dinonaktifkan</string>
   <string name="revanced_swipe_haptic_feedback_title">Aktifkan umpan balik sentuhan</string>
   <string name="revanced_swipe_haptic_feedback_summary_on">Umpan balik sentuhan diaktifkan</string>
   <string name="revanced_swipe_haptic_feedback_summary_off">Umpan balik sentuhan dinonaktifkan</string>
@@ -600,6 +557,7 @@ Jika mengubah setelan ini tidak berpengaruh, coba beralih ke mode Penyamaran."</
   <string name="revanced_disable_translucent_status_bar_title">Nonaktifkan bilah status tembus cahaya</string>
   <string name="revanced_disable_translucent_status_bar_summary_on">Bilah status buram</string>
   <string name="revanced_disable_translucent_status_bar_summary_off">Bilah status buram atau tembus pandang</string>
+  <string name="revanced_disable_translucent_status_bar_user_dialog_message">Di beberapa perangkat, mengaktifkan fitur ini dapat mengubah bilah navigasi sistem menjadi transparan.</string>
   <string name="revanced_disable_translucent_navigation_bar_light_title">Nonaktifkan bilah tembus cahaya terang</string>
   <string name="revanced_disable_translucent_navigation_bar_light_summary_on">Bilah navigasi mode terang adalah buram</string>
   <string name="revanced_disable_translucent_navigation_bar_light_summary_off">Bilah navigasi mode terang buram atau tembus pandang</string>
@@ -654,6 +612,10 @@ Jika mengubah setelan ini tidak berpengaruh, coba beralih ke mode Penyamaran."</
   <string name="revanced_hide_player_flyout_audio_track_title">Sembunyikan trek Audio</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_on">Menu trek audio disembunyikan</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_off">Menu trek audio ditampilkan</string>
+  <!-- 'Spoof video streams' should be the same translation used for revanced_spoof_video_streams_screen_title -->
+  <string name="revanced_hide_player_flyout_audio_track_not_available">"Menu jalur audio disembunyikan
+
+Untuk menampilkan menu jalur Audio, ubah 'Spoof aliran video' ke iOS TV"</string>
   <!-- 'Watch in VR' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_watch_in_vr_title">Sembunyikan Tonton di VR</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">Menu tonton di VR disembunyikan</string>
@@ -663,7 +625,7 @@ Jika mengubah setelan ini tidak berpengaruh, coba beralih ke mode Penyamaran."</
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_off">Footer menu kualitas video ditampilkan</string>
   </patch>
   <patch id="layout.buttons.overlay.hidePlayerOverlayButtonsPatch">
-  <string name="revanced_hide_player_previous_next_buttons_title">Sembunyikan tombol video sebelumnya &amp; berikutnya</string>
+  <string name="revanced_hide_player_previous_next_buttons_title">Sembunyikan tombol Sebelumnya &amp; Berikutnya</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_on">Tombol disembunyikan</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">Tombol ditampilkan</string>
   <string name="revanced_hide_cast_button_title">Sembunyikan tombol Transmisi</string>
@@ -856,7 +818,6 @@ Pengaturan → Pemutaran → Putar otomatis video berikutnya"</string>
   <string name="revanced_ryd_enable_summary_on">Dislike ditampilkan</string>
   <string name="revanced_ryd_enable_summary_off">Dislike tidak ditampilkan</string>
   <string name="revanced_ryd_shorts_title">Tampilkan dislike di Shorts</string>
-  <string name="revanced_ryd_shorts_summary_on">Dislike pada Shorts ditampilkan</string>
   <string name="revanced_ryd_shorts_summary_on_disclaimer">"Dislike pada Shorts ditampilkan
 
 Batasan: Dislike mungkin tidak muncul dalam mode penyamaran"</string>
@@ -1053,6 +1014,8 @@ Sudah ada"</string>
   <string name="revanced_sb_vote_downvote">Tidak sukai</string>
   <string name="revanced_sb_vote_category">Ubah kategori</string>
   <string name="revanced_sb_vote_no_segments">Tidak ada segmen untuk dipilih</string>
+  <!-- A segment start and end time, such as "02:10 to 03:40" -->
+  <string name="revanced_sb_vote_segment_time_to_from">%1$s ke %2$s</string>
   <string name="revanced_sb_new_segment_choose_category">Pilih kategori segmen</string>
   <string name="revanced_sb_new_segment_disabled_category">Kategori dinonaktifkan di pengaturan. Aktifkan kategori untuk dikirim.</string>
   <string name="revanced_sb_new_segment_title">Segmen SponsorBlock Baru</string>
@@ -1100,6 +1063,7 @@ Siap mengirim?"</string>
   <string name="revanced_sb_stats_saved_hour_format">%1$s jam %2$s menit</string>
   <string name="revanced_sb_stats_saved_minute_format">%1$s menit %2$s detik</string>
   <string name="revanced_sb_stats_saved_second_format">%s detik</string>
+  <string name="revanced_sb_color_opacity_label">Opasitas:</string>
   <string name="revanced_sb_color_dot_label">Warna:</string>
   <string name="revanced_sb_color_changed">Warna berubah</string>
   <string name="revanced_sb_color_reset">Reset warna</string>
@@ -1117,14 +1081,12 @@ Siap mengirim?"</string>
   <string name="revanced_change_form_factor_entry_4">Otomotif</string>
   <string name="revanced_change_form_factor_user_dialog_message">"Perubahan meliputi:
 
-Tata letak Tablet
-• Postingan Komunitas disembunyikan
+Tata letak tablet
+• Postingan komunitas disembunyikan
 
-Tata letak Otomotif
-• Menu riwayat tontonan disembunyikan
-• Tab Jelajahi dipulihkan
-• Shorts terbuka di pemutar reguler
-• Umpan diatur menurut topik dan saluran"</string>
+Tata letak otomotif
+• Shorts dibuka di pemutar biasa
+• Umpan diatur berdasarkan topik dan channel"</string>
   </patch>
   <patch id="layout.spoofappversion.spoofAppVersionPatch">
   <string name="revanced_spoof_app_version_title">Palsukan versi app</string>
@@ -1139,12 +1101,7 @@ Jika kemudian dimatikan, disarankan untuk menghapus data aplikasi untuk mencegah
                  This is because the 'General layout' menu uses alphabetic sorting, and it functionally works better if the spoof target selector appears below the 'Spoof app version' UI switch -->
   <string name="revanced_spoof_app_version_target_title">Target versi app yang dipalsukan</string>
   <string name="revanced_spoof_app_version_target_entry_1">19.35.36 - Pulihkan ikon pemutar Shorts lama</string>
-  <string name="revanced_spoof_app_version_target_entry_2">19.26.42 - Pulihkan ikon navigasi lama</string>
-  <!-- 'RYD' is 'Return YouTube Dislike' -->
-  <string name="revanced_spoof_app_version_target_legacy_entry_1">18.33.40 - Pulihkan RYD pada mode penyamaran Shorts</string>
-  <string name="revanced_spoof_app_version_target_legacy_entry_2">18.20.39 - Pulihkan menu kecepatan &amp; kualitas video lebar</string>
-  <string name="revanced_spoof_app_version_target_legacy_entry_3">18.09.39 - Pulihkan tab pustaka</string>
-  <string name="revanced_spoof_app_version_target_legacy_entry_4">17.33.42 - Pulihkan rak daftar putar lama</string>
+  <string name="revanced_spoof_app_version_target_entry_2">19.01.34 - Pulihkan ikon navigasi lama</string>
   </patch>
   <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">Tetapkan halaman awal</string>
@@ -1194,7 +1151,7 @@ Jika kemudian dimatikan, disarankan untuk menghapus data aplikasi untuk mencegah
   </patch>
   <patch id="layout.miniplayer.miniplayerPatch">
   <string name="revanced_miniplayer_screen_title">Pemutar Mini</string>
-  <string name="revanced_miniplayer_screen_summary">Mengubah gaya pemutar aplikasi saat diciuitkan</string>
+  <string name="revanced_miniplayer_screen_summary">Ubah gaya pemutar mini dalam aplikasi</string>
   <string name="revanced_miniplayer_type_title">Jenis pemutar mini</string>
   <string name="revanced_miniplayer_type_entry_0">Nonaktif</string>
   <string name="revanced_miniplayer_type_entry_1">Bawaan</string>
@@ -1203,6 +1160,7 @@ Jika kemudian dimatikan, disarankan untuk menghapus data aplikasi untuk mencegah
   <string name="revanced_miniplayer_type_entry_4">Modern 1</string>
   <string name="revanced_miniplayer_type_entry_5">Modern 2</string>
   <string name="revanced_miniplayer_type_entry_6">Modern 3</string>
+  <string name="revanced_miniplayer_type_entry_7">Modern 4</string>
   <string name="revanced_miniplayer_rounded_corners_title">Aktifkan sudut membulat</string>
   <string name="revanced_miniplayer_rounded_corners_summary_on">Sudutnya membulat</string>
   <string name="revanced_miniplayer_rounded_corners_summary_off">Sudutnya persegi</string>
@@ -1222,14 +1180,14 @@ Miniplayer dapat diseret ke sudut layar mana pun"</string>
 
 Miniplayer dapat diseret keluar layar ke kiri atau kanan"</string>
   <string name="revanced_miniplayer_horizontal_drag_summary_off">Gerakan seret horizontal dinonaktifkan</string>
-  <string name="revanced_miniplayer_hide_expand_close_title">Sembunyikan tombol tutup</string>
-  <string name="revanced_miniplayer_hide_expand_close_summary_on">Tombol tutup disembunyikan</string>
-  <string name="revanced_miniplayer_hide_expand_close_summary_off">Tombol tutup ditampilkan</string>
-  <string name="revanced_miniplayer_hide_expand_close_legacy_title">Sembunyikan perbesar dan tutup</string>
-  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_on">"Tombol disembunyikan
+  <string name="revanced_miniplayer_hide_overlay_buttons_title">Sembunyikan tombol hamparan</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">Tombol hamparan disembunyikan</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">Tombol hamparan ditampilkan</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_title">Sembunyikan tombol perluas dan tutup</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_on">"Tombol disembunyikan
 
-Usap untuk memperluas atau menutup"</string>
-  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_off">Tombol bentang dan tutup ditampilkan</string>
+Geser untuk memperluas atau menutup"</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_off">Tombol perluas dan tutup ditampilkan</string>
   <string name="revanced_miniplayer_hide_subtext_title">Sembunyikan subteks</string>
   <string name="revanced_miniplayer_hide_subtext_summary_on">Subteks disembunyikan</string>
   <string name="revanced_miniplayer_hide_subtext_summary_off">Subteks ditampilkan</string>
@@ -1247,8 +1205,6 @@ Usap untuk memperluas atau menutup"</string>
   <string name="revanced_gradient_loading_screen_title">Aktifkan layar pemuatan gradien</string>
   <string name="revanced_gradient_loading_screen_summary_on">Layar pemuatan akan memiliki latar belakang gradien</string>
   <string name="revanced_gradient_loading_screen_summary_off">Layar pemuatan akan memiliki latar belakang yang solid</string>
-  </patch>
-  <patch id="layout.theme.themeResourcePatch">
   <string name="revanced_seekbar_custom_color_title">Aktifkan warna seekbar khusus</string>
   <string name="revanced_seekbar_custom_color_summary_on">Warna seekbar khusus ditampilkan</string>
   <string name="revanced_seekbar_custom_color_summary_off">Warna seekbar asli ditampilkan</string>
@@ -1293,7 +1249,7 @@ Ketuk di sini untuk mempelajari lebih lanjut tentang DeArrow"</string>
   <string name="revanced_alt_thumbnail_stills_fast_title">Gunakan tangkapan diam cepat</string>
   <string name="revanced_alt_thumbnail_stills_fast_summary_on">Menggunakan tangkapan diam kualitas sedang. Thumbnail akan dimuat lebih cepat, tetapi siaran langsung, video yang belum dirilis, atau video yang sangat lama mungkin menampilkan thumbnail kosong</string>
   <string name="revanced_alt_thumbnail_stills_fast_summary_off">Menggunakan tangkapan diam berkualitas tinggi</string>
-  <string name="revanced_alt_thumbnail_stills_time_title">Lama waktu menangkap layar video</string>
+  <string name="revanced_alt_thumbnail_stills_time_title">Waktu video untuk mengambil gambar diam</string>
   <string name="revanced_alt_thumbnail_stills_time_entry_1">Awal video</string>
   <string name="revanced_alt_thumbnail_stills_time_entry_2">Pertengahan video</string>
   <string name="revanced_alt_thumbnail_stills_time_entry_3">Akhir video</string>
@@ -1340,8 +1296,8 @@ Mengaktifkan ini dapat membuka kualitas video yang lebih tinggi"</string>
   </patch>
   <patch id="misc.links.openLinksExternallyPatch">
   <string name="revanced_external_browser_title">Buka tautan di peramban</string>
-  <string name="revanced_external_browser_summary_on">Membuka tautan di eksternal</string>
-  <string name="revanced_external_browser_summary_off">Membuka tautan di aplikasi</string>
+  <string name="revanced_external_browser_summary_on">Membuka tautan di peramban eksternal</string>
+  <string name="revanced_external_browser_summary_off">Membuka tautan di peramban dalam aplikasi</string>
   </patch>
   <patch id="misc.privacy.removeTrackingQueryParameterPatch">
   <string name="revanced_remove_tracking_query_parameter_title">Hapus parameter kueri pelacakan</string>
@@ -1368,9 +1324,15 @@ Mengaktifkan ini dapat membuka kualitas video yang lebih tinggi"</string>
   <string name="revanced_remember_video_quality_last_selected_summary_off">Perubahan kualitas hanya diatur di video saat ini</string>
   <string name="revanced_video_quality_default_wifi_title">Kualitas video bawaan di jaringan Wi-Fi</string>
   <string name="revanced_video_quality_default_mobile_title">Kualitas video bawaan di jaringan selular</string>
+  <string name="revanced_remember_shorts_quality_last_selected_title">Ingat perubahan kualitas Shorts</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_on">Perubahan kualitas berlaku untuk semua Shorts</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_off">Perubahan kualitas hanya berlaku untuk Short saat ini</string>
+  <string name="revanced_shorts_quality_default_wifi_title">Kualitas Shorts bawaan di jaringan Wi-Fi</string>
+  <string name="revanced_shorts_quality_default_mobile_title">Kualitas Shorts bawaan di jaringan seluler</string>
   <string name="revanced_remember_video_quality_mobile">seluler</string>
   <string name="revanced_remember_video_quality_wifi">wifi</string>
   <string name="revanced_remember_video_quality_toast">Kualitas bawaan %1$s diubah ke: %2$s</string>
+  <string name="revanced_remember_video_quality_toast_shorts">Kualitas Shorts %1$s diubah menjadi: %2$s</string>
   </patch>
   <patch id="video.speed.button.playbackSpeedButtonPatch">
   <string name="revanced_playback_speed_dialog_button_title">Tampilkan tombol dialog kecepatan</string>
@@ -1401,10 +1363,10 @@ Mengaktifkan ini dapat membuka kualitas video yang lebih tinggi"</string>
   <string name="revanced_disable_hdr_video_summary_on">Video HDR dinonaktifkan</string>
   <string name="revanced_disable_hdr_video_summary_off">Video HDR diaktifkan</string>
   </patch>
-  <patch id="video.videoqualitymenu.restoreOldVideoQualityMenuResourcePatch">
-  <string name="revanced_restore_old_video_quality_menu_title">Pulihkan menu kualitas video lawas</string>
-  <string name="revanced_restore_old_video_quality_menu_summary_on">Menu kualitas video lawas ditampilkan</string>
-  <string name="revanced_restore_old_video_quality_menu_summary_off">Menu kualitas video lawas tidak ditampilkan</string>
+  <patch id="video.quality.advancedVideoQualityMenuPatch">
+  <string name="revanced_advanced_video_quality_menu_title">Tampilkan menu kualitas video lanjutan</string>
+  <string name="revanced_advanced_video_quality_menu_summary_on">Menu kualitas video lanjutan ditampilkan</string>
+  <string name="revanced_advanced_video_quality_menu_summary_off">Menu kualitas video lanjutan tidak ditampilkan</string>
   </patch>
   <patch id="interaction.seekbar.enableSlideToSeekPatch">
   <string name="revanced_slide_to_seek_title">Aktifkan geser untuk mencari</string>

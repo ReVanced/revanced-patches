@@ -4,7 +4,6 @@
     All strings must have a unique path, even if the same string is declared in two different apps.
     This is because Crowdin requires temporarily flattening this file and removing the <app> and <patch> elements.
 
-
     Strings with new lines must be raw strings where they're wrapped in quotes and new lines are not encoded.
     Raw strings still requires escaping embedded double quotes but escaping embedded single quotes is optional.
 
@@ -43,62 +42,14 @@ Second \"item\" text"</string>
   <string name="revanced_settings_import_reset">ReVanced-Einstellungen auf Standardwerte zurückgesetzt</string>
   <string name="revanced_settings_import_success">%d Einstellungen importiert</string>
   <string name="revanced_settings_import_failure_parse">Import fehlgeschlagen: %s</string>
+  <string name="revanced_show_menu_icons_title">ReVanced-Einstellungssymbole anzeigen</string>
+  <string name="revanced_show_menu_icons_summary_on">Einstellungssymbole werden angezeigt</string>
+  <string name="revanced_show_menu_icons_summary_off">Einstellungssymbole werden nicht angezeigt</string>
   <string name="revanced_language_title">ReVanced-Sprache</string>
   <string name="revanced_language_user_dialog_message">"Übersetzungen für einige Sprachen fehlen möglicherweise oder sind unvollständig.
 
 Um neue Sprachen zu übersetzen, besuchen Sie translate.revanced.app"</string>
   <string name="revanced_language_DEFAULT">App-Sprache</string>
-  <string name="revanced_language_AR">Arabisch</string>
-  <string name="revanced_language_AZ">Aserbaidschanisch</string>
-  <string name="revanced_language_BG">Bulgarisch</string>
-  <string name="revanced_language_BN">Bengali</string>
-  <string name="revanced_language_CA">Katalanisch</string>
-  <string name="revanced_language_CS">Tschechisch</string>
-  <string name="revanced_language_DA">Dänisch</string>
-  <string name="revanced_language_DE">Deutsch</string>
-  <string name="revanced_language_EL">Griechisch</string>
-  <string name="revanced_language_EN">Englisch</string>
-  <string name="revanced_language_ES">Spanisch</string>
-  <string name="revanced_language_ET">Estnisch</string>
-  <string name="revanced_language_FA">Persisch</string>
-  <string name="revanced_language_FI">Finnisch</string>
-  <string name="revanced_language_FR">Französisch</string>
-  <string name="revanced_language_GU">Gujarati</string>
-  <string name="revanced_language_HI">Hindi</string>
-  <string name="revanced_language_HR">Kroatisch</string>
-  <string name="revanced_language_HU">Ungarisch</string>
-  <string name="revanced_language_ID">Indonesisch</string>
-  <string name="revanced_language_IT">Italienisch</string>
-  <string name="revanced_language_JA">Japanisch</string>
-  <string name="revanced_language_KK">Kasachisch</string>
-  <string name="revanced_language_KO">Koreanisch</string>
-  <string name="revanced_language_LT">Litauisch</string>
-  <string name="revanced_language_LV">Lettisch</string>
-  <string name="revanced_language_MK">Mazedonisch</string>
-  <string name="revanced_language_MN">Mongolisch</string>
-  <string name="revanced_language_MR">Marathi</string>
-  <string name="revanced_language_MS">Malaiisch</string>
-  <string name="revanced_language_MY">Burmesisch</string>
-  <string name="revanced_language_NL">Niederländisch</string>
-  <string name="revanced_language_OR">Odia</string>
-  <string name="revanced_language_PA">Pandschabi</string>
-  <string name="revanced_language_PL">Polnisch</string>
-  <string name="revanced_language_PT">Portugiesisch</string>
-  <string name="revanced_language_RO">Rumänisch</string>
-  <string name="revanced_language_RU">Russisch</string>
-  <string name="revanced_language_SK">Slovakisch</string>
-  <string name="revanced_language_SL">Slowenisch</string>
-  <string name="revanced_language_SR">Serbisch</string>
-  <string name="revanced_language_SV">Schwedisch</string>
-  <string name="revanced_language_SW">Suaheli</string>
-  <string name="revanced_language_TA">Tamilisch</string>
-  <string name="revanced_language_TE">Telugu</string>
-  <string name="revanced_language_TH">Thai</string>
-  <string name="revanced_language_TR">Türkisch</string>
-  <string name="revanced_language_UK">Ukrainisch</string>
-  <string name="revanced_language_UR">Urdu</string>
-  <string name="revanced_language_VI">Vietnamesisch</string>
-  <string name="revanced_language_ZH">Chinesisch</string>
   <string name="revanced_pref_import_export_title">Import/Export</string>
   <string name="revanced_pref_import_export_summary">ReVanced-Einstellungen importieren/exportieren</string>
   <!-- Settings about dialog. -->
@@ -273,6 +224,9 @@ Sie werden nicht über unerwartete Ereignisse informiert."</string>
   <string name="revanced_hide_artist_cards_title">Interpretenkarten ausblenden</string>
   <string name="revanced_hide_artist_cards_summary_on">Künstlerkarten sind ausgeblendet</string>
   <string name="revanced_hide_artist_cards_summary_off">Interpretenkarten werden angezeigt</string>
+  <string name="revanced_hide_ai_generated_video_summary_section_title">\'KI-generierte Videozusammenfassung\' ausblenden</string>
+  <string name="revanced_hide_ai_generated_video_summary_section_summary_on">Videozusammenfassungsbereich ist ausgeblendet</string>
+  <string name="revanced_hide_ai_generated_video_summary_section_summary_off">Videozusammenfassungsbereich wird angezeigt</string>
   <string name="revanced_hide_attributes_section_title">Attribute ausblenden</string>
   <string name="revanced_hide_attributes_section_summary_on">Empfohlene Orte, Spiele, Musik und Erwähnungen von Personen sind ausgeblendet</string>
   <string name="revanced_hide_attributes_section_summary_off">Empfohlene Orte, Spiele, Musik und Erwähnungen von Personen werden angezeigt</string>
@@ -309,9 +263,12 @@ Sie werden nicht über unerwartete Ereignisse informiert."</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">In verwandten Videos angezeigt</string>
   <string name="revanced_comments_screen_title">Kommentare</string>
   <string name="revanced_comments_screen_summary">Komponenten der Kommentar-Sektion ausblenden oder anzeigen</string>
-  <string name="revanced_hide_comments_chat_summary_title">\'Chat-Übersicht\' ausblenden</string>
-  <string name="revanced_hide_comments_chat_summary_summary_on">Chat-Übersicht ist ausgeblendet</string>
-  <string name="revanced_hide_comments_chat_summary_summary_off">Chat-Übersicht wird angezeigt</string>
+  <string name="revanced_hide_comments_ai_chat_summary_title">KI-Chat-Zusammenfassung ausblenden</string>
+  <string name="revanced_hide_comments_ai_chat_summary_summary_on">Chat-Übersichtsanzeige ist ausgeblendet</string>
+  <string name="revanced_hide_comments_ai_chat_summary_summary_off">Die Chat-Zusammenfassung wird angezeigt</string>
+  <string name="revanced_hide_comments_ai_summary_title">KI-Kommentarübersicht ausblenden</string>
+  <string name="revanced_hide_comments_ai_summary_summary_on">Kommentarübersicht ist ausgeblendet</string>
+  <string name="revanced_hide_comments_ai_summary_summary_off">Kommentarübersicht wird angezeigt</string>
   <string name="revanced_hide_comments_by_members_header_title">\'Kommentare von Mitglieder\' im Kopfbereich ausblenden</string>
   <string name="revanced_hide_comments_by_members_header_summary_on">Kopfzeile \"Kommentare von Mitgliedern\" ist ausgeblendet</string>
   <string name="revanced_hide_comments_by_members_header_summary_off">Kopfzeile \"Kommentare von Mitgliedern\" wird angezeigt</string>
@@ -357,7 +314,7 @@ Wenn ein Doodle zurzeit in Ihrer Region angezeigt wird und diese Einstellung zum
   <string name="revanced_hide_keyword_content_subscriptions_summary_on">Videos auf der Registerkarte Abonnements werden nach Schlüsselwörtern gefiltert</string>
   <string name="revanced_hide_keyword_content_subscriptions_summary_off">Videos auf der Registerkarte Abonnements werden nicht nach Schlüsselwörtern gefiltert</string>
   <string name="revanced_hide_keyword_content_phrases_title">Zu versteckende Stichwörter</string>
-  <!-- For localization it is preferred, but not required, if 'LeBlanc' is replaced with a localized name or a familiar word that has upper case letters in the middle of the word.
+  <!-- For localization, it is preferred, but not required, if 'LeBlanc' is replaced with a localized name or a familiar word that has upper case letters in the middle of the word.
                  This is because keywords can be in any language, and showing an example in the localized script helps convey this. -->
   <string name="revanced_hide_keyword_content_phrases_summary">"Stichwörter und Ausdrücke, die ausgeblendet werden sollen, durch neue Zeilen getrennt
 
@@ -372,7 +329,7 @@ Einschränkungen
 • Einige UI-Komponenten können nicht ausgeblendet werden
 • Die Suche nach einem Stichwort kann zu keinen Ergebnissen führen"</string>
   <string name="revanced_hide_keyword_content_about_whole_words_title">Ganze Wörter abgleichen</string>
-  <!-- Translations _must_ use a localized example.  For languages that do not use spaces between words (Chinese, Japanese, etc) the English AI example should be used since no localized examples exist.  Or if using machine translations, or if nobody wants to think of a localized example, then the English 'ai' example should be left as-is. -->
+  <!-- Translations _must_ use a localized example.  For languages that do not use spaces between words (Chinese, Japanese, etc.) the English AI example should be used since no localized examples exist.  Or if using machine translations, or if nobody wants to think of a localized example, then the English 'ai' example should be left as-is. -->
   <string name="revanced_hide_keyword_content_about_whole_words_summary">Durch das Umschließen mit doppelten Anführungszeichen wird verhindert, dass teilweise Videotitel und Kanalnamen&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;\"ai\"&lt;/b&gt; wird das Video ausblenden: &lt;b&gt;How does AI work?&lt;/b&gt;&lt;br&gt;aber nicht versteckt: &lt;b&gt;What does fair use mean?&lt;/b&gt;</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_hide_keyword_toast_invalid_common">Kann Schlüsselwort nicht verwenden: %s</string>
@@ -399,7 +356,7 @@ Diese Funktion ist nur für ältere Geräte verfügbar"</string>
   <string name="revanced_hide_self_sponsor_ads_title">Selbst gesponserte Karten ausblenden</string>
   <string name="revanced_hide_self_sponsor_ads_summary_on">Selbst gesponserte Karten sind ausgeblendet</string>
   <string name="revanced_hide_self_sponsor_ads_summary_off">Selbstgesponserte Karten werden angezeigt</string>
-  <string name="revanced_hide_products_banner_title">Banner ausblenden, um Produkte anzuzeigen</string>
+  <string name="revanced_hide_products_banner_title">Banner \"Produkte ansehen\" ausblenden</string>
   <string name="revanced_hide_products_banner_summary_on">Banner ist ausgeblendet</string>
   <string name="revanced_hide_products_banner_summary_off">Banner wird angezeigt</string>
   <string name="revanced_hide_end_screen_store_banner_title">Endbild-Banner ausblenden</string>
@@ -470,9 +427,9 @@ Diese Funktion ist nur für ältere Geräte verfügbar"</string>
   <string name="revanced_disable_precise_seeking_gesture_summary_off">Geste ist aktiviert</string>
   </patch>
   <patch id="interaction.seekbar.enableSeekbarTappingPatch">
-  <string name="revanced_seekbar_tapping_title">Suchleisten-Tippen aktivieren</string>
-  <string name="revanced_seekbar_tapping_summary_on">Tippen der Suchleiste ist aktiviert</string>
-  <string name="revanced_seekbar_tapping_summary_off">Tippen der Suchleiste ist deaktiviert</string>
+  <string name="revanced_seekbar_tapping_title">Tippen zum Suchen aktivieren</string>
+  <string name="revanced_seekbar_tapping_summary_on">Tippen zum Suchen ist aktiviert</string>
+  <string name="revanced_seekbar_tapping_summary_off">Tippen zum Suchen ist deaktiviert</string>
   </patch>
   <patch id="interaction.swipecontrols.swipeControlsResourcePatch">
   <string name="revanced_swipe_brightness_title">Helligkeitsgeste aktivieren</string>
@@ -483,9 +440,9 @@ Passen Sie die Helligkeit an, indem Sie auf der linken Seite des Bildschirms ver
   <string name="revanced_swipe_volume_title">Lautstärke-Geste aktivieren</string>
   <string name="revanced_swipe_volume_summary_on">"Die Vollbild-Lautstärkegeste ist aktiviert\n\nPassen Sie die Lautstärke an, indem Sie auf der rechten Seite des Bildschirms vertikal wischen"</string>
   <string name="revanced_swipe_volume_summary_off">Die Vollbild-Lautstärkegeste ist deaktiviert</string>
-  <string name="revanced_swipe_press_to_engage_title">Aktiviere Drücken-zu-Wischgeste</string>
-  <string name="revanced_swipe_press_to_engage_summary_on">Drücken zum Wischen ist aktiviert</string>
-  <string name="revanced_swipe_press_to_engage_summary_off">Drücken zum Wischen ist deaktiviert</string>
+  <string name="revanced_swipe_press_to_engage_title">Wischen durch Drücken aktivieren</string>
+  <string name="revanced_swipe_press_to_engage_summary_on">Wischen durch Drücken ist aktiviert</string>
+  <string name="revanced_swipe_press_to_engage_summary_off">Wischen durch Drücken ist deaktiviert</string>
   <string name="revanced_swipe_haptic_feedback_title">Haptisches Feedback aktivieren</string>
   <string name="revanced_swipe_haptic_feedback_summary_on">Haptisches Feedback ist aktiviert</string>
   <string name="revanced_swipe_haptic_feedback_summary_off">Haptisches Feedback ist deaktiviert</string>
@@ -593,6 +550,7 @@ Wenn diese Änderung nicht wirksam wird, versuchen Sie, in den Inkognito-Modus z
   <string name="revanced_disable_translucent_status_bar_title">Transluzente Statusleiste deaktivieren</string>
   <string name="revanced_disable_translucent_status_bar_summary_on">Statusleiste ist undurchsichtig</string>
   <string name="revanced_disable_translucent_status_bar_summary_off">Die Statusleiste ist undurchsichtig oder durchscheinend</string>
+  <string name="revanced_disable_translucent_status_bar_user_dialog_message">Auf einigen Geräten kann die Aktivierung dieser Funktion die Systemnavigationsleiste in transparent ändern.</string>
   <string name="revanced_disable_translucent_navigation_bar_light_title">Hellen, lichtdurchlässigen Balken deaktivieren</string>
   <string name="revanced_disable_translucent_navigation_bar_light_summary_on">Heller Navigationsbalken ist opak</string>
   <string name="revanced_disable_translucent_navigation_bar_light_summary_off">Die Navigationsleiste im hellen Modus ist undurchsichtig oder durchscheinend</string>
@@ -647,6 +605,10 @@ Wenn diese Änderung nicht wirksam wird, versuchen Sie, in den Inkognito-Modus z
   <string name="revanced_hide_player_flyout_audio_track_title">Audiospur ausblenden</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_on">Audiospur-Menü ist ausgeblendet</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_off">Audiospurmenü wird angezeigt</string>
+  <!-- 'Spoof video streams' should be the same translation used for revanced_spoof_video_streams_screen_title -->
+  <string name="revanced_hide_player_flyout_audio_track_not_available">"Das Audiotrack-Menü ist ausgeblendet.
+
+Um das Audiotrack-Menü anzuzeigen, ändere \"Video-Streams fälschen\" zu iOS TV"</string>
   <!-- 'Watch in VR' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_watch_in_vr_title">Überwachung in VR ausblenden</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">Im VR-Menü beobachten ist ausgeblendet</string>
@@ -656,7 +618,7 @@ Wenn diese Änderung nicht wirksam wird, versuchen Sie, in den Inkognito-Modus z
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_off">Video-Qualität Menü-Fußzeile wird angezeigt</string>
   </patch>
   <patch id="layout.buttons.overlay.hidePlayerOverlayButtonsPatch">
-  <string name="revanced_hide_player_previous_next_buttons_title">Vorherige &amp; Nächste Video-Tasten ausblenden</string>
+  <string name="revanced_hide_player_previous_next_buttons_title">Vorherige &amp; Nächste Tasten ausblenden</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_on">Buttons sind ausgeblendet</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">Tasten werden angezeigt</string>
   <string name="revanced_hide_cast_button_title">Cast-Button ausblenden</string>
@@ -849,7 +811,6 @@ Einstellungen → Wiedergabe → Nächstes Video automatisch abspielen"</string>
   <string name="revanced_ryd_enable_summary_on">Dislikes werden angezeigt</string>
   <string name="revanced_ryd_enable_summary_off">Dislikes werden nicht angezeigt</string>
   <string name="revanced_ryd_shorts_title">Dislikes auf Shorts anzeigen</string>
-  <string name="revanced_ryd_shorts_summary_on">Dislikes für Shorts werden angezeigt</string>
   <string name="revanced_ryd_shorts_summary_on_disclaimer">"Dislikes für Shorts werden angezeigt
 
 Einschränkung: Dislikes werden möglicherweise nicht im Inkognito-Modus angezeigt"</string>
@@ -1047,6 +1008,8 @@ Existiert bereits"</string>
   <string name="revanced_sb_vote_downvote">Schlecht bewerten</string>
   <string name="revanced_sb_vote_category">Kategorie ändern</string>
   <string name="revanced_sb_vote_no_segments">Es gibt keine Segmente zur Abstimmung</string>
+  <!-- A segment start and end time, such as "02:10 to 03:40" -->
+  <string name="revanced_sb_vote_segment_time_to_from">%1$s bis %2$s</string>
   <string name="revanced_sb_new_segment_choose_category">Wähle die Segmentkategorie</string>
   <string name="revanced_sb_new_segment_disabled_category">Kategorie ist in den Einstellungen deaktiviert. Aktivieren zum Senden.</string>
   <string name="revanced_sb_new_segment_title">Neues SponsorBlock Segment</string>
@@ -1094,6 +1057,7 @@ Bereit zum Einreichen?"</string>
   <string name="revanced_sb_stats_saved_hour_format">%1$s Stunden %2$s Minuten</string>
   <string name="revanced_sb_stats_saved_minute_format">%1$s Minuten %2$s Sekunden</string>
   <string name="revanced_sb_stats_saved_second_format">%s Sekunden</string>
+  <string name="revanced_sb_color_opacity_label">Deckkraft:</string>
   <string name="revanced_sb_color_dot_label">Farbe:</string>
   <string name="revanced_sb_color_changed">Farbe geändert</string>
   <string name="revanced_sb_color_reset">Farbe zurücksetzen</string>
@@ -1109,16 +1073,14 @@ Bereit zum Einreichen?"</string>
   <string name="revanced_change_form_factor_entry_2">Telefon</string>
   <string name="revanced_change_form_factor_entry_3">Tablets</string>
   <string name="revanced_change_form_factor_entry_4">Automobil</string>
-  <string name="revanced_change_form_factor_user_dialog_message">"Änderungen umfassen:
+  <string name="revanced_change_form_factor_user_dialog_message">"Zu den Änderungen gehören:
 
 Tablet-Layout
-• Community-Beiträge werden ausgeblendet
+• Community-Beiträge sind ausgeblendet
 
-Auto-Layout
-• Der Verlaufsmenü ist ausgeblendet
-• Der Explore-Tab wird wiederhergestellt
-• Shorts werden im regulären Player geöffnet
-• Der Feed ist nach Themen und Kanälen organisiert"</string>
+Automotive-Layout
+• Shorts werden im normalen Player geöffnet
+• Feed ist nach Themen und Kanälen geordnet"</string>
   </patch>
   <patch id="layout.spoofappversion.spoofAppVersionPatch">
   <string name="revanced_spoof_app_version_title">Spoof-App-Version</string>
@@ -1133,12 +1095,7 @@ Wenn Sie die Funktion später deaktivieren, wird empfohlen, die App-Daten zu lö
                  This is because the 'General layout' menu uses alphabetic sorting, and it functionally works better if the spoof target selector appears below the 'Spoof app version' UI switch -->
   <string name="revanced_spoof_app_version_target_title">Spoof-App-Versionsziel</string>
   <string name="revanced_spoof_app_version_target_entry_1">19.35.36 - Alte Shorts Spielersymbole wiederherstellen</string>
-  <string name="revanced_spoof_app_version_target_entry_2">19.26.42 - Alte Navigations-Symbole wiederherstellen</string>
-  <!-- 'RYD' is 'Return YouTube Dislike' -->
-  <string name="revanced_spoof_app_version_target_legacy_entry_1">18.33.40 - RYD auf Shorts Inkognito-Modus wiederherstellen</string>
-  <string name="revanced_spoof_app_version_target_legacy_entry_2">18.20.39 - Wiederherstellen der breiten Videogeschwindigkeit &amp; Qualitätsmenü</string>
-  <string name="revanced_spoof_app_version_target_legacy_entry_3">18.09.39 - Bibliotheks-Tab wiederherstellen</string>
-  <string name="revanced_spoof_app_version_target_legacy_entry_4">17.33.42 - Alte Wiedergabeliste wiederherstellen</string>
+  <string name="revanced_spoof_app_version_target_entry_2">19.01.34 - Alte Navigations-Symbole wiederherstellen</string>
   </patch>
   <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">Startseite festlegen</string>
@@ -1188,7 +1145,7 @@ Wenn Sie die Funktion später deaktivieren, wird empfohlen, die App-Daten zu lö
   </patch>
   <patch id="layout.miniplayer.miniplayerPatch">
   <string name="revanced_miniplayer_screen_title">Minispieler</string>
-  <string name="revanced_miniplayer_screen_summary">Ändere den Stil des in App minimierten Players</string>
+  <string name="revanced_miniplayer_screen_summary">Das Aussehen des minimierten In-App-Players ändern</string>
   <string name="revanced_miniplayer_type_title">Minispielertyp</string>
   <string name="revanced_miniplayer_type_entry_0">Deaktiviert</string>
   <string name="revanced_miniplayer_type_entry_1">Standard</string>
@@ -1197,6 +1154,7 @@ Wenn Sie die Funktion später deaktivieren, wird empfohlen, die App-Daten zu lö
   <string name="revanced_miniplayer_type_entry_4">Modern 1</string>
   <string name="revanced_miniplayer_type_entry_5">Modern 2</string>
   <string name="revanced_miniplayer_type_entry_6">Modern 3</string>
+  <string name="revanced_miniplayer_type_entry_7">Modern 4</string>
   <string name="revanced_miniplayer_rounded_corners_title">Abgerundete Ecken aktivieren</string>
   <string name="revanced_miniplayer_rounded_corners_summary_on">Ecken sind abgerundet</string>
   <string name="revanced_miniplayer_rounded_corners_summary_off">Ecken sind Quadrat</string>
@@ -1216,14 +1174,14 @@ Der Mini-Player kann in jede Ecke des Bildschirms gezogen werden"</string>
 
 Der Mini-Player kann mit einer Wischgeste vom Bildschirm nach links oder rechts gezogen werden"</string>
   <string name="revanced_miniplayer_horizontal_drag_summary_off">Horizontale Drag Geste deaktiviert</string>
-  <string name="revanced_miniplayer_hide_expand_close_title">Schließen-Button ausblenden</string>
-  <string name="revanced_miniplayer_hide_expand_close_summary_on">Schließen-Button ist ausgeblendet</string>
-  <string name="revanced_miniplayer_hide_expand_close_summary_off">Schließen-Schaltfläche wird angezeigt</string>
-  <string name="revanced_miniplayer_hide_expand_close_legacy_title">Ausklappen und Schließen der Tasten ausblenden</string>
-  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_on">"Schaltflächen sind ausgeblendet
+  <string name="revanced_miniplayer_hide_overlay_buttons_title">Overlay-Buttons ausblenden</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">Overlay-Buttons sind ausgeblendet</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">Overlay-Buttons werden angezeigt</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_title">Schaltflächen zum Erweitern und Schließen ausblenden</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_on">"Schaltflächen sind ausgeblendet
 
-Wischen Sie, um zu erweitern oder zu schließen"</string>
-  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_off">Erweitern und Schließen Tasten werden angezeigt</string>
+Zum Erweitern oder Schließen wischen"</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_off">Schaltflächen zum Erweitern und Schließen werden angezeigt</string>
   <string name="revanced_miniplayer_hide_subtext_title">Untertexte ausblenden</string>
   <string name="revanced_miniplayer_hide_subtext_summary_on">Subtexte sind ausgeblendet</string>
   <string name="revanced_miniplayer_hide_subtext_summary_off">Untertexte werden angezeigt</string>
@@ -1241,8 +1199,6 @@ Wischen Sie, um zu erweitern oder zu schließen"</string>
   <string name="revanced_gradient_loading_screen_title">Gradientenladebildschirm aktivieren</string>
   <string name="revanced_gradient_loading_screen_summary_on">Lade Bildschirm hat einen Farbverlauf Hintergrund</string>
   <string name="revanced_gradient_loading_screen_summary_off">Das Laden des Bildschirms wird einen soliden Hintergrund haben</string>
-  </patch>
-  <patch id="layout.theme.themeResourcePatch">
   <string name="revanced_seekbar_custom_color_title">Eigene Suchleistenfarbe aktivieren</string>
   <string name="revanced_seekbar_custom_color_summary_on">Angepasste Suchleistenfarbe wird angezeigt</string>
   <string name="revanced_seekbar_custom_color_summary_off">Originalfarbe der Suchleiste wird angezeigt</string>
@@ -1334,8 +1290,8 @@ Durch Aktivieren dieser Option können höhere Videoqualitäten freigeschaltet w
   </patch>
   <patch id="misc.links.openLinksExternallyPatch">
   <string name="revanced_external_browser_title">Links im Browser öffnen</string>
-  <string name="revanced_external_browser_summary_on">Links extern öffnen</string>
-  <string name="revanced_external_browser_summary_off">Öffne Links in der App</string>
+  <string name="revanced_external_browser_summary_on">Links im externen Browser öffnen</string>
+  <string name="revanced_external_browser_summary_off">Links im In-App-Browser öffnen</string>
   </patch>
   <patch id="misc.privacy.removeTrackingQueryParameterPatch">
   <string name="revanced_remove_tracking_query_parameter_title">Tracking-Abfrageparameter entfernen</string>
@@ -1362,9 +1318,15 @@ Durch Aktivieren dieser Option können höhere Videoqualitäten freigeschaltet w
   <string name="revanced_remember_video_quality_last_selected_summary_off">Qualitätsänderungen gelten nur für das aktuelle Video</string>
   <string name="revanced_video_quality_default_wifi_title">Standard-Videoqualität im Wi-Fi-Netzwerk</string>
   <string name="revanced_video_quality_default_mobile_title">Standard-Videoqualität im Mobilfunknetz</string>
+  <string name="revanced_remember_shorts_quality_last_selected_title">Änderungen der Shorts-Qualität speichern</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_on">Qualitätsänderungen gelten für alle Shorts</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_off">Qualitätsänderungen gelten nur für den aktuellen Short</string>
+  <string name="revanced_shorts_quality_default_wifi_title">Standardmäßige Shorts-Qualität im WLAN</string>
+  <string name="revanced_shorts_quality_default_mobile_title">Standard-Shorts-Qualität im Mobilfunknetz</string>
   <string name="revanced_remember_video_quality_mobile">Mobile</string>
   <string name="revanced_remember_video_quality_wifi">WLAN</string>
   <string name="revanced_remember_video_quality_toast">Standard %1$s Qualität geändert zu: %2$s</string>
+  <string name="revanced_remember_video_quality_toast_shorts">Shorts-Qualität von %1$s geändert in: %2$s</string>
   </patch>
   <patch id="video.speed.button.playbackSpeedButtonPatch">
   <string name="revanced_playback_speed_dialog_button_title">Zeige Geschwindigkeitsdialog Taste</string>
@@ -1395,10 +1357,10 @@ Durch Aktivieren dieser Option können höhere Videoqualitäten freigeschaltet w
   <string name="revanced_disable_hdr_video_summary_on">HDR-Video ist deaktiviert</string>
   <string name="revanced_disable_hdr_video_summary_off">HDR-Video ist aktiviert</string>
   </patch>
-  <patch id="video.videoqualitymenu.restoreOldVideoQualityMenuResourcePatch">
-  <string name="revanced_restore_old_video_quality_menu_title">Altes Videoqualitätsmenü wiederherstellen</string>
-  <string name="revanced_restore_old_video_quality_menu_summary_on">Altes Video-Qualitätsmenü wird angezeigt</string>
-  <string name="revanced_restore_old_video_quality_menu_summary_off">Altes Video-Qualitätsmenü wird nicht angezeigt</string>
+  <patch id="video.quality.advancedVideoQualityMenuPatch">
+  <string name="revanced_advanced_video_quality_menu_title">Erweitertes Videoqualitätsmenü anzeigen</string>
+  <string name="revanced_advanced_video_quality_menu_summary_on">Erweitertes Videoqualitätsmenü wird angezeigt</string>
+  <string name="revanced_advanced_video_quality_menu_summary_off">Erweitertes Videoqualitätsmenü wird nicht angezeigt</string>
   </patch>
   <patch id="interaction.seekbar.enableSlideToSeekPatch">
   <string name="revanced_slide_to_seek_title">Folie zum Suchen aktivieren</string>

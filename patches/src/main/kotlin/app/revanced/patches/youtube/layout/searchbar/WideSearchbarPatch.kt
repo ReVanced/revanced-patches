@@ -18,7 +18,7 @@ private const val EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/youtube/patches/WideSearchbarPatch;"
 
 val wideSearchbarPatch = bytecodePatch(
-    name = "Wide searchbar",
+    name = "Wide search bar",
     description = "Adds an option to replace the search icon with a wide search bar. This will hide the YouTube logo when active.",
 ) {
     dependsOn(
@@ -33,9 +33,8 @@ val wideSearchbarPatch = bytecodePatch(
             "19.25.37",
             "19.34.42",
             "19.43.41",
-            "19.45.38",
-            "19.46.42",
             "19.47.53",
+            "20.07.39",
         ),
     )
 

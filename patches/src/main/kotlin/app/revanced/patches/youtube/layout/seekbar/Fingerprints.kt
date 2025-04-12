@@ -37,11 +37,24 @@ internal val shortsSeekbarColorFingerprint = fingerprint {
     literal { reelTimeBarPlayedColorId }
 }
 
-internal val playerSeekbarHandleColorFingerprint = fingerprint {
+internal val playerSeekbarHandle1ColorFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     parameters("Landroid/content/Context;")
-    literal { ytStaticBrandRedId }
+    custom { method, _ ->
+        method.containsLiteralInstruction(ytTextSecondaryId) &&
+                method.containsLiteralInstruction(ytStaticBrandRedId)
+    }
 }
+
+internal val playerSeekbarHandle2ColorFingerprint = fingerprint {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
+    parameters("Landroid/content/Context;")
+    custom { method, _ ->
+        method.containsLiteralInstruction(inlineTimeBarLiveSeekableRangeId) &&
+                method.containsLiteralInstruction(ytStaticBrandRedId)
+    }
+}
+
 
 internal val watchHistoryMenuUseProgressDrawableFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
@@ -71,27 +84,10 @@ internal val playerLinearGradientFingerprint = fingerprint {
 }
 
 /**
- * 19.46 - 19.47
+ * 19.25 - 19.47
  */
-internal val playerLinearGradientLegacy1946Fingerprint = fingerprint {
-    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    parameters("I", "I", "I", "I")
+internal val playerLinearGradientLegacyFingerprint = fingerprint {
     returns("V")
-    opcodes(
-        Opcode.FILLED_NEW_ARRAY,
-        Opcode.MOVE_RESULT_OBJECT
-    )
-    custom { method, _ ->
-        method.name == "setBounds" && method.containsLiteralInstruction(ytYoutubeMagentaColorId)
-    }
-}
-
-/**
- * 19.25 - 19.45
- */
-internal val playerLinearGradientLegacy1925Fingerprint = fingerprint {
-    accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
-    parameters("Landroid/content/Context;")
     opcodes(
         Opcode.FILLED_NEW_ARRAY,
         Opcode.MOVE_RESULT_OBJECT

@@ -1,3 +1,397 @@
+# [5.19.0-dev.16](https://github.com/ReVanced/revanced-patches/compare/v5.19.0-dev.15...v5.19.0-dev.16) (2025-04-11)
+
+
+### Bug Fixes
+
+* **Google Photos:** Remove obsolete non functional patch `Restore hidden 'Back up while charging' toggle` ([#4764](https://github.com/ReVanced/revanced-patches/issues/4764)) ([56e48f4](https://github.com/ReVanced/revanced-patches/commit/56e48f4c89da51f81ff11a79a164eaa5b440690e))
+
+# [5.19.0-dev.15](https://github.com/ReVanced/revanced-patches/compare/v5.19.0-dev.14...v5.19.0-dev.15) (2025-04-11)
+
+
+### Bug Fixes
+
+* **Google Photos - Restore hidden 'Back up while charging' toggle:** Constrain to last working app target ([#4761](https://github.com/ReVanced/revanced-patches/issues/4761)) ([152bb7c](https://github.com/ReVanced/revanced-patches/commit/152bb7c3ee7cf36bc07460e7a3444631ec540441))
+
+# [5.19.0-dev.14](https://github.com/ReVanced/revanced-patches/compare/v5.19.0-dev.13...v5.19.0-dev.14) (2025-04-11)
+
+
+### Bug Fixes
+
+* **Spotify - Unlock Spotify Premium:** Remove restrictions for Google voice assistant ([#4702](https://github.com/ReVanced/revanced-patches/issues/4702)) ([106202f](https://github.com/ReVanced/revanced-patches/commit/106202f9ebb7699c4ba4ae46b82133e35f1ac6b9))
+
+# [5.19.0-dev.13](https://github.com/ReVanced/revanced-patches/compare/v5.19.0-dev.12...v5.19.0-dev.13) (2025-04-11)
+
+
+### Features
+
+* **Spotify:** Add limited support for version `8.6.98.900` (last version that supports Kenwood and Pioneer car stereos) ([#4750](https://github.com/ReVanced/revanced-patches/issues/4750)) ([a3fde87](https://github.com/ReVanced/revanced-patches/commit/a3fde874af993125ba7a741820e7bd48e3641b84))
+
+# [5.19.0-dev.12](https://github.com/ReVanced/revanced-patches/compare/v5.19.0-dev.11...v5.19.0-dev.12) (2025-04-11)
+
+
+### Features
+
+* **Strava - Disable subscription suggestions:** Make compatible with latest version ([#4739](https://github.com/ReVanced/revanced-patches/issues/4739)) ([649a2c0](https://github.com/ReVanced/revanced-patches/commit/649a2c06161c72a2040b179dbed5b415847d7527))
+
+# [5.19.0-dev.11](https://github.com/ReVanced/revanced-patches/compare/v5.19.0-dev.10...v5.19.0-dev.11) (2025-04-10)
+
+
+### Features
+
+* **Messenger:** Add `Remove Meta AI tab` patch ([#4726](https://github.com/ReVanced/revanced-patches/issues/4726)) ([e3fad97](https://github.com/ReVanced/revanced-patches/commit/e3fad97484d7eb962aeb53d44a0047b34a881071))
+
+# [5.19.0-dev.10](https://github.com/ReVanced/revanced-patches/compare/v5.19.0-dev.9...v5.19.0-dev.10) (2025-04-10)
+
+
+### Bug Fixes
+
+* **YouTube - Hide layout components:** Do not hide video description music/game links if hide horizontal shelves is enabled ([3864f35](https://github.com/ReVanced/revanced-patches/commit/3864f3550153617e23ad9979fb543d8a7fb4dc0a))
+
+# [5.19.0-dev.9](https://github.com/ReVanced/revanced-patches/compare/v5.19.0-dev.8...v5.19.0-dev.9) (2025-04-10)
+
+
+### Bug Fixes
+
+* **YouTube - Hide player flyout menu items:** Show more detailed summary text for 'Hide Audio track' if using Android spoof client ([#4756](https://github.com/ReVanced/revanced-patches/issues/4756)) ([b67bbb2](https://github.com/ReVanced/revanced-patches/commit/b67bbb299669336addb68cf52a8ce5b39c68cec0))
+
+# [5.19.0-dev.8](https://github.com/ReVanced/revanced-patches/compare/v5.19.0-dev.7...v5.19.0-dev.8) (2025-04-09)
+
+
+### Bug Fixes
+
+* **YouTube - Return YouTube Dislike:** Fix inconsistent label after disliking a Short ([ea92a2e](https://github.com/ReVanced/revanced-patches/commit/ea92a2e36c7aab3bd115f7d0ec40467179485b32))
+
+# [5.19.0-dev.7](https://github.com/ReVanced/revanced-patches/compare/v5.19.0-dev.6...v5.19.0-dev.7) (2025-04-07)
+
+
+### Bug Fixes
+
+* **YouTube - Return YouTube Dislike:** Correctly update label after disliking a Short with 20.07 ([0bb3e32](https://github.com/ReVanced/revanced-patches/commit/0bb3e32244fa10809aee5c4e549f77ed4054537e))
+
+# [5.19.0-dev.6](https://github.com/ReVanced/revanced-patches/compare/v5.19.0-dev.5...v5.19.0-dev.6) (2025-04-04)
+
+
+### Bug Fixes
+
+* **Spotify:** Remove ads sections from home ([#4722](https://github.com/ReVanced/revanced-patches/issues/4722)) ([0b9a5e7](https://github.com/ReVanced/revanced-patches/commit/0b9a5e7f89a89d971762b3539166d4f145111481))
+
+# [5.19.0-dev.5](https://github.com/ReVanced/revanced-patches/compare/v5.19.0-dev.4...v5.19.0-dev.5) (2025-04-02)
+
+
+### Bug Fixes
+
+* **Spotify - Custom theme:** Override more color resources ([#4690](https://github.com/ReVanced/revanced-patches/issues/4690)) ([d7a7a0b](https://github.com/ReVanced/revanced-patches/commit/d7a7a0b982dbafa181b04f984a5f7618fb067c2a))
+
+# [5.19.0-dev.4](https://github.com/ReVanced/revanced-patches/compare/v5.19.0-dev.3...v5.19.0-dev.4) (2025-04-02)
+
+
+### Bug Fixes
+
+* **YouTube - Seekbar:** Correctly hide the feed seekbar with target 20.07 ([ddc6e4c](https://github.com/ReVanced/revanced-patches/commit/ddc6e4c34fe35fa34bd859bf34e25645a23dbdc9))
+
+# [5.19.0-dev.3](https://github.com/ReVanced/revanced-patches/compare/v5.19.0-dev.2...v5.19.0-dev.3) (2025-04-02)
+
+
+### Features
+
+* **Proton Mail:** Add `Remove 'Sent from' signature` patch ([#4514](https://github.com/ReVanced/revanced-patches/issues/4514)) ([34c14c9](https://github.com/ReVanced/revanced-patches/commit/34c14c9b443092824d035afd77adb678c6f89e3e))
+
+# [5.19.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.19.0-dev.1...v5.19.0-dev.2) (2025-04-02)
+
+
+### Features
+
+* **YouTube - Settings:** Add icons to the ReVanced settings ([#4496](https://github.com/ReVanced/revanced-patches/issues/4496)) ([d0c85f0](https://github.com/ReVanced/revanced-patches/commit/d0c85f044083d720c63a8ea4ff15d42eefeb9db7))
+
+# [5.19.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.18.1-dev.2...v5.19.0-dev.1) (2025-04-01)
+
+
+### Bug Fixes
+
+* **Twitter - Hide recommended users:** Make hiding work again by filtering for new entryId prefix ([#4456](https://github.com/ReVanced/revanced-patches/issues/4456)) ([ff846b0](https://github.com/ReVanced/revanced-patches/commit/ff846b0b7ef5060caaffedb08c1f901172f5b2d1))
+
+
+### Features
+
+* **Angulus:** Add `Hide ads` patch ([#4604](https://github.com/ReVanced/revanced-patches/issues/4604)) ([87c86b5](https://github.com/ReVanced/revanced-patches/commit/87c86b53a91b0054ac892a3f02bbe7bf83bbf813))
+* **Photomath:** Support latest version ([#4672](https://github.com/ReVanced/revanced-patches/issues/4672)) ([8e16483](https://github.com/ReVanced/revanced-patches/commit/8e1648322948151e4565fb0d86e0f37d0a02d73f))
+
+## [5.18.1-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.18.1-dev.1...v5.18.1-dev.2) (2025-04-01)
+
+
+### Bug Fixes
+
+* **YouTube:** Combine multiple seekbar patches into a single patch ([#4705](https://github.com/ReVanced/revanced-patches/issues/4705)) ([503b7eb](https://github.com/ReVanced/revanced-patches/commit/503b7eb8d413ef7f248394f128f3b2a6f3192ba6))
+
+## [5.18.1-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.18.0...v5.18.1-dev.1) (2025-03-31)
+
+
+### Bug Fixes
+
+* **YouTube - Remove background playback restrictions:** Do not show media controls when playing Shorts from the feed ([2ed675c](https://github.com/ReVanced/revanced-patches/commit/2ed675cdd058fb5876381a9d30dee5263f6b2e26))
+
+# [5.18.0](https://github.com/ReVanced/revanced-patches/compare/v5.17.0...v5.18.0) (2025-03-28)
+
+
+### Bug Fixes
+
+* **Spotify:** Ignore optional attributes if not present ([#4688](https://github.com/ReVanced/revanced-patches/issues/4688)) ([84f5854](https://github.com/ReVanced/revanced-patches/commit/84f585492e4be3604c6c7680ffb3bebcea5a675f))
+
+
+### Features
+
+* **YouTube:** Support version `20.07.39` ([#4677](https://github.com/ReVanced/revanced-patches/issues/4677)) ([c1379f6](https://github.com/ReVanced/revanced-patches/commit/c1379f6e520c683d2c9d6a490a69ca542168b3b3))
+
+# [5.18.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.18.0-dev.1...v5.18.0-dev.2) (2025-03-28)
+
+
+### Bug Fixes
+
+* **Spotify:** Ignore optional attributes if not present ([#4688](https://github.com/ReVanced/revanced-patches/issues/4688)) ([84f5854](https://github.com/ReVanced/revanced-patches/commit/84f585492e4be3604c6c7680ffb3bebcea5a675f))
+
+# [5.18.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.17.0...v5.18.0-dev.1) (2025-03-28)
+
+
+### Features
+
+* **YouTube:** Support version `20.07.39` ([#4677](https://github.com/ReVanced/revanced-patches/issues/4677)) ([c1379f6](https://github.com/ReVanced/revanced-patches/commit/c1379f6e520c683d2c9d6a490a69ca542168b3b3))
+
+# [5.17.0](https://github.com/ReVanced/revanced-patches/compare/v5.16.1...v5.17.0) (2025-03-28)
+
+
+### Bug Fixes
+
+* **Facebook - Hide 'Sponsored Stories':** Constrain patch to latest compatible version ([#4657](https://github.com/ReVanced/revanced-patches/issues/4657)) ([46bd1c8](https://github.com/ReVanced/revanced-patches/commit/46bd1c829acd5f83600025e0ceb7d482ae80be69))
+* **Spotify - Unlock Premium:** Override additional attributes ([#4651](https://github.com/ReVanced/revanced-patches/issues/4651)) ([568b40d](https://github.com/ReVanced/revanced-patches/commit/568b40da9692eae9039bbb3cec513a61ca627c24))
+* **Spotify - Unlock Premium:** Use correct patch description convention ([a486522](https://github.com/ReVanced/revanced-patches/commit/a4865228f8481d2efc8fbf4e90902a03289d9a3f))
+* **X / Twitter:** Constrain patches to latest compatible versions ([#4683](https://github.com/ReVanced/revanced-patches/issues/4683)) ([f579728](https://github.com/ReVanced/revanced-patches/commit/f5797289f45186052537982c7f5db6f2b0769aee))
+* **YouTube - Navigation buttons:** Add user dialog message to 'Disable translucent status bar' ([a4a0e68](https://github.com/ReVanced/revanced-patches/commit/a4a0e6869e23d15ee09262460f4e290c90629eeb))
+
+
+### Features
+
+* **Spotify - Unlock Premium:** Disable the "Spotify Premium" upsell experiment in context menus ([9a10ee4](https://github.com/ReVanced/revanced-patches/commit/9a10ee4d22fb53da2012a182e038749d3ad72377))
+
+# [5.17.0-dev.4](https://github.com/ReVanced/revanced-patches/compare/v5.17.0-dev.3...v5.17.0-dev.4) (2025-03-28)
+
+
+### Bug Fixes
+
+* **X / Twitter:** Constrain patches to latest compatible versions ([#4683](https://github.com/ReVanced/revanced-patches/issues/4683)) ([f579728](https://github.com/ReVanced/revanced-patches/commit/f5797289f45186052537982c7f5db6f2b0769aee))
+
+# [5.17.0-dev.3](https://github.com/ReVanced/revanced-patches/compare/v5.17.0-dev.2...v5.17.0-dev.3) (2025-03-28)
+
+
+### Bug Fixes
+
+* **Spotify - Unlock Premium:** Override additional attributes ([#4651](https://github.com/ReVanced/revanced-patches/issues/4651)) ([568b40d](https://github.com/ReVanced/revanced-patches/commit/568b40da9692eae9039bbb3cec513a61ca627c24))
+
+# [5.17.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.17.0-dev.1...v5.17.0-dev.2) (2025-03-27)
+
+
+### Bug Fixes
+
+* **YouTube - Navigation buttons:** Add user dialog message to 'Disable translucent status bar' ([a4a0e68](https://github.com/ReVanced/revanced-patches/commit/a4a0e6869e23d15ee09262460f4e290c90629eeb))
+
+# [5.17.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.16.2-dev.1...v5.17.0-dev.1) (2025-03-27)
+
+
+### Bug Fixes
+
+* **Spotify - Unlock Premium:** Use correct patch description convention ([a486522](https://github.com/ReVanced/revanced-patches/commit/a4865228f8481d2efc8fbf4e90902a03289d9a3f))
+
+
+### Features
+
+* **Spotify - Unlock Premium:** Disable the "Spotify Premium" upsell experiment in context menus ([9a10ee4](https://github.com/ReVanced/revanced-patches/commit/9a10ee4d22fb53da2012a182e038749d3ad72377))
+
+## [5.16.2-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.16.1...v5.16.2-dev.1) (2025-03-26)
+
+
+### Bug Fixes
+
+* **Facebook - Hide 'Sponsored Stories':** Constrain patch to latest compatible version ([#4657](https://github.com/ReVanced/revanced-patches/issues/4657)) ([46bd1c8](https://github.com/ReVanced/revanced-patches/commit/46bd1c829acd5f83600025e0ceb7d482ae80be69))
+
+## [5.16.1](https://github.com/ReVanced/revanced-patches/compare/v5.16.0...v5.16.1) (2025-03-26)
+
+
+### Bug Fixes
+
+* **Spotify - Unlock Premium:** Override streaming attribute attempting to fix streaming issues ([06be36c](https://github.com/ReVanced/revanced-patches/commit/06be36cddf3430b4179dff696b3d15718cd6963b))
+
+## [5.16.1-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.16.0...v5.16.1-dev.1) (2025-03-26)
+
+
+### Bug Fixes
+
+* **Spotify - Unlock Premium:** Override streaming attribute attempting to fix streaming issues ([06be36c](https://github.com/ReVanced/revanced-patches/commit/06be36cddf3430b4179dff696b3d15718cd6963b))
+
+# [5.16.0](https://github.com/ReVanced/revanced-patches/compare/v5.15.0...v5.16.0) (2025-03-26)
+
+
+### Bug Fixes
+
+* **YouTube - Settings:** System navigation bar is located above the settings ui on Android 15+ ([f7497be](https://github.com/ReVanced/revanced-patches/commit/f7497be2c5e4abcde6eb55b84955124a28f55cae))
+
+
+### Features
+
+* **Spotify:** Add `Unlock premium` patch ([#4644](https://github.com/ReVanced/revanced-patches/issues/4644)) ([f048c50](https://github.com/ReVanced/revanced-patches/commit/f048c50e56fc1f5a5c607860be4206ef83b528fe))
+* **YouTube - Comments:** Add `Hide AI Comments summary` ([#4634](https://github.com/ReVanced/revanced-patches/issues/4634)) ([e9b7f26](https://github.com/ReVanced/revanced-patches/commit/e9b7f263f739bd130f6ea79913851a52355977c5))
+* **YouTube - Video description:** Add `Hide AI-generated video summary` ([#4636](https://github.com/ReVanced/revanced-patches/issues/4636)) ([521fd48](https://github.com/ReVanced/revanced-patches/commit/521fd48602432ab436d8711c19d7130b2b05af12))
+
+# [5.16.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.16.0-dev.1...v5.16.0-dev.2) (2025-03-26)
+
+
+### Features
+
+* **Spotify:** Add `Unlock premium` patch ([#4644](https://github.com/ReVanced/revanced-patches/issues/4644)) ([f048c50](https://github.com/ReVanced/revanced-patches/commit/f048c50e56fc1f5a5c607860be4206ef83b528fe))
+
+# [5.16.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.15.0...v5.16.0-dev.1) (2025-03-24)
+
+
+### Bug Fixes
+
+* **YouTube - Settings:** System navigation bar is located above the settings ui on Android 15+ ([f7497be](https://github.com/ReVanced/revanced-patches/commit/f7497be2c5e4abcde6eb55b84955124a28f55cae))
+
+
+### Features
+
+* **YouTube - Comments:** Add `Hide AI Comments summary` ([#4634](https://github.com/ReVanced/revanced-patches/issues/4634)) ([e9b7f26](https://github.com/ReVanced/revanced-patches/commit/e9b7f263f739bd130f6ea79913851a52355977c5))
+* **YouTube - Video description:** Add `Hide AI-generated video summary` ([#4636](https://github.com/ReVanced/revanced-patches/issues/4636)) ([521fd48](https://github.com/ReVanced/revanced-patches/commit/521fd48602432ab436d8711c19d7130b2b05af12))
+
+# [5.15.0](https://github.com/ReVanced/revanced-patches/compare/v5.14.0...v5.15.0) (2025-03-21)
+
+
+### Bug Fixes
+
+* **YouTube - Spoof app version:** Change oldest spoof target to 19.01.34 ([5012439](https://github.com/ReVanced/revanced-patches/commit/5012439a8e53b2a4ab5e85c47976e1ab28a51208))
+* **YouTube - Spoof app version:** Remove broken spoof targets that YouTube no longer supports ([#4610](https://github.com/ReVanced/revanced-patches/issues/4610)) ([883fbe7](https://github.com/ReVanced/revanced-patches/commit/883fbe71233c57cb1241e57c122b43f40722acc7))
+* **YouTube:** Do not show restart prompt more than once if setting change is canceled ([49797fe](https://github.com/ReVanced/revanced-patches/commit/49797fe8d0c4a0981ef621a31356c4315ae3777b))
+
+
+### Features
+
+* **YouTube - SponsorBlock:** Add opacity setting to category segment colors ([#4582](https://github.com/ReVanced/revanced-patches/issues/4582)) ([6e8ffba](https://github.com/ReVanced/revanced-patches/commit/6e8ffbade9e03658f725622631e44dabf2995861))
+
+# [5.15.0-dev.4](https://github.com/ReVanced/revanced-patches/compare/v5.15.0-dev.3...v5.15.0-dev.4) (2025-03-21)
+
+
+### Bug Fixes
+
+* **YouTube - Spoof app version:** Change oldest spoof target to 19.01.34 ([5012439](https://github.com/ReVanced/revanced-patches/commit/5012439a8e53b2a4ab5e85c47976e1ab28a51208))
+
+# [5.15.0-dev.3](https://github.com/ReVanced/revanced-patches/compare/v5.15.0-dev.2...v5.15.0-dev.3) (2025-03-20)
+
+
+### Bug Fixes
+
+* **YouTube:** Do not show restart prompt more than once if setting change is canceled ([49797fe](https://github.com/ReVanced/revanced-patches/commit/49797fe8d0c4a0981ef621a31356c4315ae3777b))
+
+# [5.15.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.15.0-dev.1...v5.15.0-dev.2) (2025-03-19)
+
+
+### Bug Fixes
+
+* **YouTube - Spoof app version:** Remove broken spoof targets that YouTube no longer supports ([#4610](https://github.com/ReVanced/revanced-patches/issues/4610)) ([883fbe7](https://github.com/ReVanced/revanced-patches/commit/883fbe71233c57cb1241e57c122b43f40722acc7))
+
+# [5.15.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.14.0...v5.15.0-dev.1) (2025-03-19)
+
+
+### Features
+
+* **YouTube - SponsorBlock:** Add opacity setting to category segment colors ([#4582](https://github.com/ReVanced/revanced-patches/issues/4582)) ([6e8ffba](https://github.com/ReVanced/revanced-patches/commit/6e8ffbade9e03658f725622631e44dabf2995861))
+
+# [5.14.0](https://github.com/ReVanced/revanced-patches/compare/v5.13.0...v5.14.0) (2025-03-09)
+
+
+### Bug Fixes
+
+* **Boost for reddit - Client spoof:** Use a different user agent to combat Reddit's API issues ([5d3c817](https://github.com/ReVanced/revanced-patches/commit/5d3c8175b34a3f6ae2732b25db0851773a8c000d))
+* **YouTube - Change form factor:** Restore Automotive form factor watch history menu, channel pages, and community posts ([#4541](https://github.com/ReVanced/revanced-patches/issues/4541)) ([aa5c001](https://github.com/ReVanced/revanced-patches/commit/aa5c001968446e5270c756256724e917009612cd))
+* **YouTube - Hide ads:** Hide new type of buttoned ad ([#4528](https://github.com/ReVanced/revanced-patches/issues/4528)) ([4387a7b](https://github.com/ReVanced/revanced-patches/commit/4387a7b131f49729e902e008bb4cec073635c040))
+* **YouTube - Hide layout components:** Do not hide Movie/Courses start page content if 'Hide horizontal shelves' is enabled ([62a6164](https://github.com/ReVanced/revanced-patches/commit/62a6164b88b64200b517a5ba6b800d8214dbbad8))
+* **YouTube - Theme:** Resolve dark mode startup crash with Android 9.0 ([741c2d5](https://github.com/ReVanced/revanced-patches/commit/741c2d59406f5d602554bb3a3c0b8982f42848b4))
+* **YouTube:** Change language settings menu to use native language names ([#4568](https://github.com/ReVanced/revanced-patches/issues/4568)) ([6f3f8fd](https://github.com/ReVanced/revanced-patches/commit/6f3f8fdce05501e4fa4423c2170a916fbea3b199))
+* **YouTube:** Combine `Restore old video quality menu` and `Remember video quality` into `Video quality` patch ([#4552](https://github.com/ReVanced/revanced-patches/issues/4552)) ([ee67b76](https://github.com/ReVanced/revanced-patches/commit/ee67b763d5c5947a5b1ef4420b1efa820ed6af83))
+
+
+### Features
+
+* **Infinity for Reddit:** Add support for package name on IzzyOnDroid ([#4554](https://github.com/ReVanced/revanced-patches/issues/4554)) ([cf9f959](https://github.com/ReVanced/revanced-patches/commit/cf9f959923076c10a7f0a29f6ba277f5a055ec07))
+* **Spotify:** Add `Spoof signature` patch ([#4576](https://github.com/ReVanced/revanced-patches/issues/4576)) ([3646c70](https://github.com/ReVanced/revanced-patches/commit/3646c70556b67a6b7ecf9b86869ebf03c3611333))
+* **YouTube - Remember video quality:** Add separate Shorts default quality settings ([#4543](https://github.com/ReVanced/revanced-patches/issues/4543)) ([88142ab](https://github.com/ReVanced/revanced-patches/commit/88142ab464192b564b1b8d56a6b45663f77f5e00))
+
+# [5.14.0-dev.9](https://github.com/ReVanced/revanced-patches/compare/v5.14.0-dev.8...v5.14.0-dev.9) (2025-03-09)
+
+
+### Features
+
+* **Spotify:** Add `Spoof signature` patch ([#4576](https://github.com/ReVanced/revanced-patches/issues/4576)) ([3646c70](https://github.com/ReVanced/revanced-patches/commit/3646c70556b67a6b7ecf9b86869ebf03c3611333))
+
+# [5.14.0-dev.8](https://github.com/ReVanced/revanced-patches/compare/v5.14.0-dev.7...v5.14.0-dev.8) (2025-03-09)
+
+
+### Bug Fixes
+
+* **YouTube - Theme:** Resolve dark mode startup crash with Android 9.0 ([741c2d5](https://github.com/ReVanced/revanced-patches/commit/741c2d59406f5d602554bb3a3c0b8982f42848b4))
+
+# [5.14.0-dev.7](https://github.com/ReVanced/revanced-patches/compare/v5.14.0-dev.6...v5.14.0-dev.7) (2025-03-08)
+
+
+### Bug Fixes
+
+* **YouTube:** Change language settings menu to use native language names ([#4568](https://github.com/ReVanced/revanced-patches/issues/4568)) ([6f3f8fd](https://github.com/ReVanced/revanced-patches/commit/6f3f8fdce05501e4fa4423c2170a916fbea3b199))
+
+# [5.14.0-dev.6](https://github.com/ReVanced/revanced-patches/compare/v5.14.0-dev.5...v5.14.0-dev.6) (2025-03-07)
+
+
+### Bug Fixes
+
+* **YouTube - Hide layout components:** Do not hide Movie/Courses start page content if 'Hide horizontal shelves' is enabled ([62a6164](https://github.com/ReVanced/revanced-patches/commit/62a6164b88b64200b517a5ba6b800d8214dbbad8))
+
+# [5.14.0-dev.5](https://github.com/ReVanced/revanced-patches/compare/v5.14.0-dev.4...v5.14.0-dev.5) (2025-03-06)
+
+
+### Features
+
+* **Infinity for Reddit:** Add support for package name on IzzyOnDroid ([#4554](https://github.com/ReVanced/revanced-patches/issues/4554)) ([cf9f959](https://github.com/ReVanced/revanced-patches/commit/cf9f959923076c10a7f0a29f6ba277f5a055ec07))
+
+# [5.14.0-dev.4](https://github.com/ReVanced/revanced-patches/compare/v5.14.0-dev.3...v5.14.0-dev.4) (2025-03-06)
+
+
+### Bug Fixes
+
+* **YouTube:** Combine `Restore old video quality menu` and `Remember video quality` into `Video quality` patch ([#4552](https://github.com/ReVanced/revanced-patches/issues/4552)) ([ee67b76](https://github.com/ReVanced/revanced-patches/commit/ee67b763d5c5947a5b1ef4420b1efa820ed6af83))
+
+# [5.14.0-dev.3](https://github.com/ReVanced/revanced-patches/compare/v5.14.0-dev.2...v5.14.0-dev.3) (2025-03-06)
+
+
+### Bug Fixes
+
+* **Boost for reddit - Client spoof:** Use a different user agent to combat Reddit's API issues ([5d3c817](https://github.com/ReVanced/revanced-patches/commit/5d3c8175b34a3f6ae2732b25db0851773a8c000d))
+
+# [5.14.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.14.0-dev.1...v5.14.0-dev.2) (2025-03-06)
+
+
+### Bug Fixes
+
+* **YouTube - Hide ads:** Hide new type of buttoned ad ([#4528](https://github.com/ReVanced/revanced-patches/issues/4528)) ([4387a7b](https://github.com/ReVanced/revanced-patches/commit/4387a7b131f49729e902e008bb4cec073635c040))
+
+# [5.14.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.13.1-dev.1...v5.14.0-dev.1) (2025-03-06)
+
+
+### Features
+
+* **YouTube - Remember video quality:** Add separate Shorts default quality settings ([#4543](https://github.com/ReVanced/revanced-patches/issues/4543)) ([88142ab](https://github.com/ReVanced/revanced-patches/commit/88142ab464192b564b1b8d56a6b45663f77f5e00))
+
+## [5.13.1-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.13.0...v5.13.1-dev.1) (2025-03-06)
+
+
+### Bug Fixes
+
+* **YouTube - Change form factor:** Restore Automotive form factor watch history menu, channel pages, and community posts ([#4541](https://github.com/ReVanced/revanced-patches/issues/4541)) ([aa5c001](https://github.com/ReVanced/revanced-patches/commit/aa5c001968446e5270c756256724e917009612cd))
+
 # [5.13.0](https://github.com/ReVanced/revanced-patches/compare/v5.12.0...v5.13.0) (2025-03-03)
 
 

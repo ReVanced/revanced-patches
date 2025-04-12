@@ -7,11 +7,14 @@ import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
+import app.revanced.patches.youtube.misc.playservice.is_20_02_or_greater
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
 import app.revanced.util.addInstructionsAtControlFlowLabel
+import app.revanced.util.findFreeRegister
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
+import app.revanced.util.indexOfFirstInstructionReversedOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
@@ -35,9 +38,8 @@ val disableResumingShortsOnStartupPatch = bytecodePatch(
             "19.25.37",
             "19.34.42",
             "19.43.41",
-            "19.45.38",
-            "19.46.42",
             "19.47.53",
+            "20.07.39",
         ),
     )
 
@@ -48,25 +50,47 @@ val disableResumingShortsOnStartupPatch = bytecodePatch(
             SwitchPreference("revanced_disable_resuming_shorts_player"),
         )
 
-        userWasInShortsFingerprint.method.apply {
-            val listenableInstructionIndex = indexOfFirstInstructionOrThrow {
-                opcode == Opcode.INVOKE_INTERFACE &&
-                    getReference<MethodReference>()?.definingClass == "Lcom/google/common/util/concurrent/ListenableFuture;" &&
-                    getReference<MethodReference>()?.name == "isDone"
-            }
-            val freeRegister = getInstruction<OneRegisterInstruction>(listenableInstructionIndex + 1).registerA
+        if (is_20_02_or_greater) {
+            userWasInShortsAlternativeFingerprint.let {
+                it.method.apply {
+                    val stringIndex = it.stringMatches!!.first().index
+                    val booleanValueIndex = indexOfFirstInstructionReversedOrThrow(stringIndex) {
+                        opcode == Opcode.INVOKE_VIRTUAL &&
+                                getReference<MethodReference>()?.name == "booleanValue"
+                    }
+                    val booleanValueRegister =
+                        getInstruction<OneRegisterInstruction>(booleanValueIndex + 1).registerA
 
-            addInstructionsAtControlFlowLabel(
-                listenableInstructionIndex,
-                """
-                    invoke-static { }, $EXTENSION_CLASS_DESCRIPTOR->disableResumingStartupShortsPlayer()Z
-                    move-result v$freeRegister
-                    if-eqz v$freeRegister, :show_startup_shorts_player
-                    return-void
-                    :show_startup_shorts_player
-                    nop
-                """,
-            )
+                    addInstructions(
+                        booleanValueIndex + 2, """
+                            invoke-static {v$booleanValueRegister}, $EXTENSION_CLASS_DESCRIPTOR->disableResumingStartupShortsPlayer(Z)Z
+                            move-result v$booleanValueRegister
+                            """
+                    )
+                }
+            }
+        } else {
+            userWasInShortsLegacyFingerprint.method.apply {
+                val listenableInstructionIndex = indexOfFirstInstructionOrThrow {
+                    val reference = getReference<MethodReference>()
+                    opcode == Opcode.INVOKE_INTERFACE &&
+                            reference?.definingClass == "Lcom/google/common/util/concurrent/ListenableFuture;" &&
+                            reference.name == "isDone"
+                }
+                val freeRegister = findFreeRegister(listenableInstructionIndex)
+
+                addInstructionsAtControlFlowLabel(
+                    listenableInstructionIndex,
+                    """
+                        invoke-static {}, $EXTENSION_CLASS_DESCRIPTOR->disableResumingStartupShortsPlayer()Z
+                        move-result v$freeRegister
+                        if-eqz v$freeRegister, :show
+                        return-void
+                        :show
+                        nop
+                    """
+                )
+            }
         }
 
         userWasInShortsConfigFingerprint.method.addInstructions(

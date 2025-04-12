@@ -20,7 +20,7 @@ private const val EXTENSION_CLASS_DESCRIPTOR =
 
 val removeTrackingQueryParameterPatch = bytecodePatch(
     name = "Remove tracking query parameter",
-    description = "Adds an option to remove the tracking info from links you share.",
+    description = "Adds an option to remove the tracking parameter from links you share.",
 ) {
     dependsOn(
         sharedExtensionPatch,
@@ -34,9 +34,8 @@ val removeTrackingQueryParameterPatch = bytecodePatch(
             "19.25.37",
             "19.34.42",
             "19.43.41",
-            "19.45.38",
-            "19.46.42",
             "19.47.53",
+            "20.07.39",
         ),
     )
 

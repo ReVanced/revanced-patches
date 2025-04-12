@@ -14,6 +14,7 @@ import android.preference.PreferenceScreen;
 import android.preference.SwitchPreference;
 
 import app.revanced.extension.shared.Logger;
+import app.revanced.extension.shared.Utils;
 import app.revanced.extension.shared.settings.Setting;
 import app.revanced.extension.shared.settings.BaseSettings;
 import app.revanced.extension.youtube.patches.ReturnYouTubeDislikePatch;
@@ -85,9 +86,7 @@ public class ReturnYouTubeDislikePreferenceFragment extends PreferenceFragment {
             shortsPreference = new SwitchPreference(context);
             shortsPreference.setChecked(Settings.RYD_SHORTS.get());
             shortsPreference.setTitle(str("revanced_ryd_shorts_title"));
-            String shortsSummary = ReturnYouTubeDislikePatch.IS_SPOOFING_TO_NON_LITHO_SHORTS_PLAYER
-                            ? str("revanced_ryd_shorts_summary_on")
-                            : str("revanced_ryd_shorts_summary_on_disclaimer");
+            String shortsSummary = str("revanced_ryd_shorts_summary_on_disclaimer");
             shortsPreference.setSummaryOn(shortsSummary);
             shortsPreference.setSummaryOff(str("revanced_ryd_shorts_summary_off"));
             shortsPreference.setOnPreferenceChangeListener((pref, newValue) -> {
@@ -237,6 +236,8 @@ public class ReturnYouTubeDislikePreferenceFragment extends PreferenceFragment {
                         "revanced_ryd_statistics_getNumberOfRateLimitRequestsEncountered_non_zero_summary"));
                 preferenceScreen.addPreference(statisticPreference);
             }
+
+            Utils.setPreferenceTitlesToMultiLineIfNeeded(preferenceScreen);
         } catch (Exception ex) {
             Logger.printException(() -> "onCreate failure", ex);
         }

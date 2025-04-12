@@ -11,8 +11,10 @@ import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
 
+private const val EXTENSION_CLASS_DESCRIPTOR =
+    "Lapp/revanced/extension/youtube/patches/DisablePreciseSeekingGesturePatch;"
+
 val disablePreciseSeekingGesturePatch = bytecodePatch(
-    name = "Disable precise seeking gesture",
     description = "Adds an option to disable precise seeking when swiping up on the seekbar.",
 ) {
     dependsOn(
@@ -21,26 +23,12 @@ val disablePreciseSeekingGesturePatch = bytecodePatch(
         addResourcesPatch,
     )
 
-    compatibleWith(
-        "com.google.android.youtube"(
-            "19.16.39",
-            "19.25.37",
-            "19.34.42",
-            "19.43.41",
-            "19.45.38",
-            "19.46.42",
-            "19.47.53",
-        ),
-    )
-
     execute {
         addResources("youtube", "interaction.seekbar.disablePreciseSeekingGesturePatch")
 
         PreferenceScreen.SEEKBAR.addPreferences(
             SwitchPreference("revanced_disable_precise_seeking_gesture"),
         )
-        val extensionMethodDescriptor =
-            "Lapp/revanced/extension/youtube/patches/DisablePreciseSeekingGesturePatch;"
 
         allowSwipingUpGestureFingerprint.match(
             swipingUpGestureParentFingerprint.originalClassDef,
@@ -48,7 +36,7 @@ val disablePreciseSeekingGesturePatch = bytecodePatch(
             addInstructionsWithLabels(
                 0,
                 """
-                    invoke-static { }, $extensionMethodDescriptor->isGestureDisabled()Z
+                    invoke-static { }, $EXTENSION_CLASS_DESCRIPTOR->isGestureDisabled()Z
                     move-result v0
                     if-eqz v0, :disabled
                     return-void
@@ -63,7 +51,7 @@ val disablePreciseSeekingGesturePatch = bytecodePatch(
             addInstructionsWithLabels(
                 0,
                 """
-                    invoke-static { }, $extensionMethodDescriptor->isGestureDisabled()Z
+                    invoke-static { }, $EXTENSION_CLASS_DESCRIPTOR->isGestureDisabled()Z
                     move-result v0
                     if-eqz v0, :disabled
                     const/4 v0, 0x0

@@ -15,25 +15,12 @@ import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction35c
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 val enableSeekbarTappingPatch = bytecodePatch(
-    name = "Seekbar tapping",
-    description = "Adds an option to enable tap-to-seek on the seekbar of the video player.",
+    description = "Adds an option to enable tap to seek on the seekbar of the video player.",
 ) {
     dependsOn(
         sharedExtensionPatch,
         settingsPatch,
         addResourcesPatch,
-    )
-
-    compatibleWith(
-        "com.google.android.youtube"(
-            "19.16.39",
-            "19.25.37",
-            "19.34.42",
-            "19.43.41",
-            "19.45.38",
-            "19.46.42",
-            "19.47.53",
-        ),
     )
 
     execute {

@@ -11,7 +11,15 @@ fun hookPatch(
 ) = bytecodePatch(name) {
     dependsOn(jsonHookPatch)
 
-    compatibleWith("com.twitter.android")
+    compatibleWith(
+        "com.twitter.android"(
+            // 10.85+ uses Pairip and requires additional changes to work.
+            "10.84.0-release.0",
+            // Confirmed to not show reply ads. Slightly newer versions may also work.
+            "10.60.0-release.0",
+            "10.48.0-release.0"
+        )
+    )
 
     execute {
         addJsonHook(JsonHook(hookClassDescriptor))

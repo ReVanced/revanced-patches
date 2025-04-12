@@ -4,7 +4,6 @@
     All strings must have a unique path, even if the same string is declared in two different apps.
     This is because Crowdin requires temporarily flattening this file and removing the <app> and <patch> elements.
 
-
     Strings with new lines must be raw strings where they're wrapped in quotes and new lines are not encoded.
     Raw strings still requires escaping embedded double quotes but escaping embedded single quotes is optional.
 
@@ -23,7 +22,7 @@ Second \"item\" text"</string>
   <app id="shared">
   <patch id="misc.checks.checkEnvironmentPatch">
   <string name="revanced_check_environment_failed_title">Kontrola proběhla neúspěšně</string>
-  <string name="revanced_check_environment_dialog_open_official_source_button">Otevřít oficiální webové stránky</string>
+  <string name="revanced_check_environment_dialog_open_official_source_button">Otevřít oficiální webovou stránku</string>
   <string name="revanced_check_environment_dialog_ignore_button">Ignorovat</string>
   <string name="revanced_check_environment_failed_message">&lt;h5&gt;Zdá se, že jste tuto upravenou verzi aplikace nevygenerovali vy.&lt;/h5&gt;&lt;br&gt;Aplikace nemusí fungovat správně, &lt;b&gt;může být škodlivá nebo nebezpečná&lt;/b&gt;.&lt;br&gt;&lt;br&gt;Z následujících kontrol vyplývá, že úpravy této aplikace byly provedeny někým jiným:&lt;br&gt;&lt;br&gt;&lt;small&gt;%1$s&lt;/small&gt;&lt;br&gt;Je důrazně doporučeno &lt;b&gt;odinstalovat tuto aplikaci a vygenerovat ji sami&lt;/b&gt;, abyste měli jistotu, že je aplikace ověřená a bezpečná.&lt;p&gt;&lt;br&gt;Pokud zvolíte Ignorovat, toto varování se zobrazí pouze dvakrát.</string>
   <string name="revanced_check_environment_not_same_patching_device">Vygenerována na jiném zařízení</string>
@@ -43,62 +42,14 @@ Second \"item\" text"</string>
   <string name="revanced_settings_import_reset">Nastavení ReVanced obnoveno do výchozího stavu</string>
   <string name="revanced_settings_import_success">Importováno %d nastavení</string>
   <string name="revanced_settings_import_failure_parse">Importováni selhalo: %s</string>
+  <string name="revanced_show_menu_icons_title">Zobrazit ikony nastavení ReVanced</string>
+  <string name="revanced_show_menu_icons_summary_on">Ikony nastavení se zobrazují</string>
+  <string name="revanced_show_menu_icons_summary_off">Ikony nastavení se nezobrazují</string>
   <string name="revanced_language_title">Jazyk ReVanced</string>
   <string name="revanced_language_user_dialog_message">"Překlady pro některé jazyky mohou chybět nebo být neúplné.
 
 Nové jazyky přeložíte na translate.revanced.app"</string>
   <string name="revanced_language_DEFAULT">Jazyk aplikace</string>
-  <string name="revanced_language_AR">Arabština</string>
-  <string name="revanced_language_AZ">Ázerbájdžánština</string>
-  <string name="revanced_language_BG">Bulharština</string>
-  <string name="revanced_language_BN">Bengálština</string>
-  <string name="revanced_language_CA">Katalánština</string>
-  <string name="revanced_language_CS">Čeština</string>
-  <string name="revanced_language_DA">Dánština</string>
-  <string name="revanced_language_DE">Němčina</string>
-  <string name="revanced_language_EL">Řečtina</string>
-  <string name="revanced_language_EN">Angličtina</string>
-  <string name="revanced_language_ES">Španělština</string>
-  <string name="revanced_language_ET">Estonština</string>
-  <string name="revanced_language_FA">Perština</string>
-  <string name="revanced_language_FI">Finština</string>
-  <string name="revanced_language_FR">Francouzština</string>
-  <string name="revanced_language_GU">Gudžarátština</string>
-  <string name="revanced_language_HI">Hindština</string>
-  <string name="revanced_language_HR">Chorvatština</string>
-  <string name="revanced_language_HU">Maďarština</string>
-  <string name="revanced_language_ID">Indonéština</string>
-  <string name="revanced_language_IT">Italština</string>
-  <string name="revanced_language_JA">Japonština</string>
-  <string name="revanced_language_KK">Kazachština</string>
-  <string name="revanced_language_KO">Korejština</string>
-  <string name="revanced_language_LT">Litevština</string>
-  <string name="revanced_language_LV">Lotyština</string>
-  <string name="revanced_language_MK">Makedonština</string>
-  <string name="revanced_language_MN">Mongolština</string>
-  <string name="revanced_language_MR">Maráthština</string>
-  <string name="revanced_language_MS">Malajština</string>
-  <string name="revanced_language_MY">Barmština</string>
-  <string name="revanced_language_NL">Nizozemština</string>
-  <string name="revanced_language_OR">Uríjština</string>
-  <string name="revanced_language_PA">Paňdžábština</string>
-  <string name="revanced_language_PL">Polština</string>
-  <string name="revanced_language_PT">Portugalština</string>
-  <string name="revanced_language_RO">Rumunština</string>
-  <string name="revanced_language_RU">Ruština</string>
-  <string name="revanced_language_SK">Slovenština</string>
-  <string name="revanced_language_SL">Slověnština</string>
-  <string name="revanced_language_SR">Srbština</string>
-  <string name="revanced_language_SV">Švédština</string>
-  <string name="revanced_language_SW">Svahilština</string>
-  <string name="revanced_language_TA">Tamilština</string>
-  <string name="revanced_language_TE">Telugština</string>
-  <string name="revanced_language_TH">Thajština</string>
-  <string name="revanced_language_TR">Turečtina</string>
-  <string name="revanced_language_UK">Ukrajinština</string>
-  <string name="revanced_language_UR">Urdština</string>
-  <string name="revanced_language_VI">Vietnamština</string>
-  <string name="revanced_language_ZH">Čínština</string>
   <string name="revanced_pref_import_export_title">Importovat / Exportovat</string>
   <string name="revanced_pref_import_export_summary">Importovat/exportovat nastavení ReVanced</string>
   <!-- Settings about dialog. -->
@@ -178,20 +129,20 @@ Nebudete informováni o žádné neočekávané události."</string>
   <string name="revanced_hide_floating_microphone_button_summary_on">Tlačítko mikrofonu je skryté</string>
   <string name="revanced_hide_floating_microphone_button_summary_off">Tlačítko mikrofonu se zobrazuje</string>
   <string name="revanced_hide_channel_watermark_title">Skrýt vodoznak kanálu</string>
-  <string name="revanced_hide_channel_watermark_summary_on">Vodoznak kanála je skrytý</string>
+  <string name="revanced_hide_channel_watermark_summary_on">Vodoznak kanálu je skrytý</string>
   <string name="revanced_hide_channel_watermark_summary_off">Vodoznak je zobrazen</string>
-  <string name="revanced_hide_horizontal_shelves_title">Skryť horizontálne police</string>
+  <string name="revanced_hide_horizontal_shelves_title">Skrýt horizontální police</string>
   <string name="revanced_hide_horizontal_shelves_summary_on">"Police jsou skryté, například:
 • Novinky
 • Pokračovat v sledování
 • Prozkoumat další kanály
 • Nákupy
 • Podívat se znovu"</string>
-  <string name="revanced_hide_horizontal_shelves_summary_off">Police sú zobrazené</string>
+  <string name="revanced_hide_horizontal_shelves_summary_off">Police jsou zobrazené</string>
   <!-- 'Join' should be translated using the same localized wording YouTube displays.
                  This appears in the video player for certain videos. -->
   <string name="revanced_hide_join_membership_button_title">Skrýt tlačítko Připojit se</string>
-  <string name="revanced_hide_join_membership_button_summary_on">Tlačidlo je skryté</string>
+  <string name="revanced_hide_join_membership_button_summary_on">Tlačitko je skryté</string>
   <string name="revanced_hide_join_membership_button_summary_off">Tlačítko je zobrazeno</string>
   <!-- 'For you' should be translated using the same localized wording YouTube displays. -->
   <string name="revanced_hide_for_you_shelf_title">Skrýt panel „Pro vás“</string>
@@ -199,7 +150,7 @@ Nebudete informováni o žádné neočekávané události."</string>
   <string name="revanced_hide_for_you_shelf_summary_off">Panel polic ve stránce kanálu je zobrazen</string>
   <!-- 'Notify me' should be translated using the same localized wording YouTube displays.
                  This item appear in the subscription feed for future livestreams or unreleased videos. -->
-  <string name="revanced_hide_notify_me_button_title">Skryť tlačidlo \'Upozornite ma\'</string>
+  <string name="revanced_hide_notify_me_button_title">Skrýt tlačitko \'Upozorněte mě\'</string>
   <string name="revanced_hide_notify_me_button_summary_on">Tlačítko je skryté</string>
   <string name="revanced_hide_notify_me_button_summary_off">Tlačítko je zobrazeno</string>
   <!-- 'People also watched' should be translated using the same localized wording YouTube displays. -->
@@ -216,7 +167,7 @@ Nebudete informováni o žádné neočekávané události."</string>
   <string name="revanced_hide_timed_reactions_summary_off">Reakce se zobrazují po čase</string>
   <string name="revanced_hide_channel_guidelines_title">Skrýt pravidla kanálu</string>
   <string name="revanced_hide_channel_guidelines_summary_on">Pokyny kanálu sa nezobrazujú</string>
-  <string name="revanced_hide_channel_guidelines_summary_off">Zobrazujú sa pokyny kanálu</string>
+  <string name="revanced_hide_channel_guidelines_summary_off">Zobrazují se pokyny kanálu</string>
   <string name="revanced_hide_chips_shelf_title">Skryť police \"Ďalsej videá\"</string>
   <string name="revanced_hide_chips_shelf_summary_on">Police \"Další videá\" sa nezobrazuje</string>
   <string name="revanced_hide_chips_shelf_summary_off">Zobrazuje sa polícia \"Další videá\"</string>
@@ -277,6 +228,9 @@ Nebudete informováni o žádné neočekávané události."</string>
   <string name="revanced_hide_artist_cards_title">Skrýt karty umělců</string>
   <string name="revanced_hide_artist_cards_summary_on">Karty umělců jsou skryty</string>
   <string name="revanced_hide_artist_cards_summary_off">Karty umělců se zobrazují</string>
+  <string name="revanced_hide_ai_generated_video_summary_section_title">Skrýt „Souhrn videa generovaný pomocí AI“</string>
+  <string name="revanced_hide_ai_generated_video_summary_section_summary_on">Sekce se souhrnem videa je skrytá</string>
+  <string name="revanced_hide_ai_generated_video_summary_section_summary_off">Sekce se souhrnem videa je zobrazena</string>
   <string name="revanced_hide_attributes_section_title">Skrýt atributy</string>
   <string name="revanced_hide_attributes_section_summary_on">Sekce Doporučená místa, Hry, Hudba a Zmínění lidé jsou skryté</string>
   <string name="revanced_hide_attributes_section_summary_off">Sekce Doporučená místa, Hry, Hudba a Zmínění lidé jsou zobrazené</string>
@@ -313,9 +267,12 @@ Nebudete informováni o žádné neočekávané události."</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">V souvisejících videích zobrazeno</string>
   <string name="revanced_comments_screen_title">Komentáře</string>
   <string name="revanced_comments_screen_summary">Skrýt nebo zobrazit komponenty sekce komentářů</string>
-  <string name="revanced_hide_comments_chat_summary_title">Skrýt „Shrnutí chatu“</string>
-  <string name="revanced_hide_comments_chat_summary_summary_on">Shrnutí chatu je skryto</string>
-  <string name="revanced_hide_comments_chat_summary_summary_off">Shrnutí chatu je zobrazeno</string>
+  <string name="revanced_hide_comments_ai_chat_summary_title">Skrýt souhrn chatu AI</string>
+  <string name="revanced_hide_comments_ai_chat_summary_summary_on">Souhrn chatu je skrytý</string>
+  <string name="revanced_hide_comments_ai_chat_summary_summary_off">Souhrn chatu je zobrazen</string>
+  <string name="revanced_hide_comments_ai_summary_title">Skrýt souhrn komentářů AI</string>
+  <string name="revanced_hide_comments_ai_summary_summary_on">Souhrn komentářů je skrytý</string>
+  <string name="revanced_hide_comments_ai_summary_summary_off">Souhrn komentářů je zobrazen</string>
   <string name="revanced_hide_comments_by_members_header_title">Skrýt záhlaví \"Komentáře od členů\"</string>
   <string name="revanced_hide_comments_by_members_header_summary_on">Záhlaví Komentáře od členů je skryto</string>
   <string name="revanced_hide_comments_by_members_header_summary_off">Záhlaví Komentáře od členů je zobrazeno</string>
@@ -362,7 +319,7 @@ Pokud se Doodle v současné době zobrazuje ve vaší oblasti a toto nastavení
   <string name="revanced_hide_keyword_content_subscriptions_summary_on">Videa na kartě odběrů jsou filtrována podle klíčových slov</string>
   <string name="revanced_hide_keyword_content_subscriptions_summary_off">Videa na kartě odběrů nejsou filtrována podle klíčových slov</string>
   <string name="revanced_hide_keyword_content_phrases_title">Klíčová slova ke skrytí</string>
-  <!-- For localization it is preferred, but not required, if 'LeBlanc' is replaced with a localized name or a familiar word that has upper case letters in the middle of the word.
+  <!-- For localization, it is preferred, but not required, if 'LeBlanc' is replaced with a localized name or a familiar word that has upper case letters in the middle of the word.
                  This is because keywords can be in any language, and showing an example in the localized script helps convey this. -->
   <string name="revanced_hide_keyword_content_phrases_summary">"Klíčová slova a fráze, které mají být skryty, oddělené novými řádky
 
@@ -377,7 +334,7 @@ Omezení:
 • Některé komponenty uživatelského rozhraní nemusí být skryty
 • Hledání klíčového slova nemusí zobrazit žádné výsledky"</string>
   <string name="revanced_hide_keyword_content_about_whole_words_title">Hledat shodu v celých slovech</string>
-  <!-- Translations _must_ use a localized example.  For languages that do not use spaces between words (Chinese, Japanese, etc) the English AI example should be used since no localized examples exist.  Or if using machine translations, or if nobody wants to think of a localized example, then the English 'ai' example should be left as-is. -->
+  <!-- Translations _must_ use a localized example.  For languages that do not use spaces between words (Chinese, Japanese, etc.) the English AI example should be used since no localized examples exist.  Or if using machine translations, or if nobody wants to think of a localized example, then the English 'ai' example should be left as-is. -->
   <string name="revanced_hide_keyword_content_about_whole_words_summary">Zaokrouhlení klíčového slova/fráze s dvojitými uvozovkami zabrání částečným shodám s názvy videí a kanálů&lt;br&gt;&lt;br&gt;Například&lt;br&gt;&lt;b&gt;\"ai\"&lt;/b&gt; skryje video: &lt;b&gt;How does AI work?&lt;/b&gt;&lt;br&gt;, ale nebude skrýt: &lt;b&gt;What does fair use mean?&lt;/b&gt;</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_hide_keyword_toast_invalid_common">Nelze použít klíčové slovo: %s</string>
@@ -404,7 +361,7 @@ Tato funkce je dostupná pouze pro starší zařízení"</string>
   <string name="revanced_hide_self_sponsor_ads_title">Skrýt karty se sponzorovanými produkty</string>
   <string name="revanced_hide_self_sponsor_ads_summary_on">Karty se sponzorovanými produkty jsou skryty</string>
   <string name="revanced_hide_self_sponsor_ads_summary_off">Karty se sponzorovanými produkty jsou zobrazeny</string>
-  <string name="revanced_hide_products_banner_title">Skrýt banner pro prohlížení produktů</string>
+  <string name="revanced_hide_products_banner_title">Skrýt banner „Zobrazit produkty“</string>
   <string name="revanced_hide_products_banner_summary_on">Banner je skryt</string>
   <string name="revanced_hide_products_banner_summary_off">Banner je zobrazen</string>
   <string name="revanced_hide_end_screen_store_banner_title">Skrýt koncový banner obchodu</string>
@@ -475,9 +432,9 @@ Tato funkce je dostupná pouze pro starší zařízení"</string>
   <string name="revanced_disable_precise_seeking_gesture_summary_off">Gesto je povoleno</string>
   </patch>
   <patch id="interaction.seekbar.enableSeekbarTappingPatch">
-  <string name="revanced_seekbar_tapping_title">Povolit klepání na posuvník</string>
-  <string name="revanced_seekbar_tapping_summary_on">Klepání na posuvník je povoleno</string>
-  <string name="revanced_seekbar_tapping_summary_off">Klepání na posuvník je zakázáno</string>
+  <string name="revanced_seekbar_tapping_title">Povolit klepnutím přejít na</string>
+  <string name="revanced_seekbar_tapping_summary_on">Klepnutím aktivujete vyhledávání</string>
+  <string name="revanced_seekbar_tapping_summary_off">Klepnutím přejít na je zakázané</string>
   </patch>
   <patch id="interaction.swipecontrols.swipeControlsResourcePatch">
   <string name="revanced_swipe_brightness_title">Povolit gesto pro jas</string>
@@ -490,9 +447,9 @@ Upravte jas přejetím svisle po levé straně obrazovky"</string>
 
 Hlasitost se upravuje svislým přejetím po pravé straně obrazovky"</string>
   <string name="revanced_swipe_volume_summary_off">Přejetí prstem na celou obrazovku je zakázáno</string>
-  <string name="revanced_swipe_press_to_engage_title">Povolit gesto stisknutí pro přejetí</string>
-  <string name="revanced_swipe_press_to_engage_summary_on">Stisknutí pro přejetí je povoleno</string>
-  <string name="revanced_swipe_press_to_engage_summary_off">Stisknutí pro přejetí je zakázáno</string>
+  <string name="revanced_swipe_press_to_engage_title">Povolit gesto stisknutím pro přejetí</string>
+  <string name="revanced_swipe_press_to_engage_summary_on">Stisknutím pro přejetí je povoleno</string>
+  <string name="revanced_swipe_press_to_engage_summary_off">Stisknutím pro přejetí je zakázáno</string>
   <string name="revanced_swipe_haptic_feedback_title">Povolit haptickou odezvu</string>
   <string name="revanced_swipe_haptic_feedback_summary_on">Haptická odezva je povolena</string>
   <string name="revanced_swipe_haptic_feedback_summary_off">Haptická odezva je zakázána</string>
@@ -600,6 +557,7 @@ Pokud změna tohoto nastavení nemá žádný účinek, zkuste přepnout do rež
   <string name="revanced_disable_translucent_status_bar_title">Deaktivovat průsvitný stavový řádek</string>
   <string name="revanced_disable_translucent_status_bar_summary_on">Statusový řádek je neprůhledný</string>
   <string name="revanced_disable_translucent_status_bar_summary_off">Statusový řádek je neprůhledný nebo průsvitný</string>
+  <string name="revanced_disable_translucent_status_bar_user_dialog_message">Na některých zařízeních může aktivace této funkce změnit navigační lištu systému na průhlednou.</string>
   <string name="revanced_disable_translucent_navigation_bar_light_title">Deaktivovat světlý průsvitný navigační panel</string>
   <string name="revanced_disable_translucent_navigation_bar_light_summary_on">Navigační panel v světlém režimu je neprůhledný</string>
   <string name="revanced_disable_translucent_navigation_bar_light_summary_off">Navigační lišta v světlém režimu je neprůhledná nebo průsvitná</string>
@@ -654,6 +612,10 @@ Pokud změna tohoto nastavení nemá žádný účinek, zkuste přepnout do rež
   <string name="revanced_hide_player_flyout_audio_track_title">Skrýt Zvuková stopa</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_on">Menu Zvuková stopa je skryto</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_off">Menu Zvuková stopa je zobrazeno</string>
+  <!-- 'Spoof video streams' should be the same translation used for revanced_spoof_video_streams_screen_title -->
+  <string name="revanced_hide_player_flyout_audio_track_not_available">"Nabídka zvukové stopy je skrytá.
+
+Chcete-li zobrazit nabídku zvukové stopy, změňte možnost „Zfalšovat streamy videa“ na iOS TV"</string>
   <!-- 'Watch in VR' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_watch_in_vr_title">Skrýt Sledovat ve VR</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">Menu Sledovat ve VR je skryto</string>
@@ -663,7 +625,7 @@ Pokud změna tohoto nastavení nemá žádný účinek, zkuste přepnout do rež
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_off">Zápatí menu kvality videa je zobrazeno</string>
   </patch>
   <patch id="layout.buttons.overlay.hidePlayerOverlayButtonsPatch">
-  <string name="revanced_hide_player_previous_next_buttons_title">Skrýt tlačítka pro předchozí a další video</string>
+  <string name="revanced_hide_player_previous_next_buttons_title">Skrýt tlačítka Předchozí a Další</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_on">Tlačítka jsou skryta</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">Tlačítka jsou zobrazena</string>
   <string name="revanced_hide_cast_button_title">Skrýt tlačítko Odeslat</string>
@@ -856,7 +818,6 @@ Nastavení → Přehrávání → Automatické přehrávání dalšího videa"</
   <string name="revanced_ryd_enable_summary_on">Nelíbí se se zobrazují</string>
   <string name="revanced_ryd_enable_summary_off">Nelíbí se se nezobrazují</string>
   <string name="revanced_ryd_shorts_title">Zobrazit nelíbí se v Shorts</string>
-  <string name="revanced_ryd_shorts_summary_on">Počty „Nelíbí se mi“ u Shorts jsou zobrazeny</string>
   <string name="revanced_ryd_shorts_summary_on_disclaimer">"Počty „Nelíbí se mi“ u Shorts jsou zobrazeny
 
 Omezení: Počty „Nelíbí se mi“ se nemusí zobrazit v anonymním režimu"</string>
@@ -1053,6 +1014,8 @@ Již existuje"</string>
   <string name="revanced_sb_vote_downvote">Hlasovat dolů</string>
   <string name="revanced_sb_vote_category">Změnit kategorii</string>
   <string name="revanced_sb_vote_no_segments">Nejsou žádné segmenty, pro které by se dalo hlasovat</string>
+  <!-- A segment start and end time, such as "02:10 to 03:40" -->
+  <string name="revanced_sb_vote_segment_time_to_from">%1$s až %2$s</string>
   <string name="revanced_sb_new_segment_choose_category">Zvolte kategorii segmentu</string>
   <string name="revanced_sb_new_segment_disabled_category">Kategorie je v nastavení zakázána. Povolte kategorii, abyste ji mohli odeslat.</string>
   <string name="revanced_sb_new_segment_title">Nový segment SponsorBlock</string>
@@ -1100,6 +1063,7 @@ Jste připraveni k odeslání?"</string>
   <string name="revanced_sb_stats_saved_hour_format">%1$s hodin %2$s minut</string>
   <string name="revanced_sb_stats_saved_minute_format">%1$s minut %2$s sekund</string>
   <string name="revanced_sb_stats_saved_second_format">%s sekund</string>
+  <string name="revanced_sb_color_opacity_label">Průhlednost:</string>
   <string name="revanced_sb_color_dot_label">Barva:</string>
   <string name="revanced_sb_color_changed">Barva změněna</string>
   <string name="revanced_sb_color_reset">Barva resetována</string>
@@ -1121,10 +1085,8 @@ Rozložení tabletu
 • Příspěvky komunity jsou skryté
 
 Rozložení automobilu
-• Menu historie sledování je skryté
-• Karta Prozkoumat je obnovena
 • Shorts se otevírají v běžném přehrávači
-• Kanál je organizován podle témat a kanálu"</string>
+• Kanál je uspořádán podle témat a kanálů"</string>
   </patch>
   <patch id="layout.spoofappversion.spoofAppVersionPatch">
   <string name="revanced_spoof_app_version_title">Napodobit verzi aplikace</string>
@@ -1139,12 +1101,7 @@ Pokud bude později vypnuta, doporučujeme vymazat data aplikace, aby se zabrán
                  This is because the 'General layout' menu uses alphabetic sorting, and it functionally works better if the spoof target selector appears below the 'Spoof app version' UI switch -->
   <string name="revanced_spoof_app_version_target_title">Cíl napodobení verze aplikace</string>
   <string name="revanced_spoof_app_version_target_entry_1">19.35.36 - Obnovuje staré ikony Shorts přehrávače</string>
-  <string name="revanced_spoof_app_version_target_entry_2">19.26.42 - Navrátit staré ikony pro navigaci</string>
-  <!-- 'RYD' is 'Return YouTube Dislike' -->
-  <string name="revanced_spoof_app_version_target_legacy_entry_1">18.33.40 - Obnovení RYD v režimu inkognito Shorts</string>
-  <string name="revanced_spoof_app_version_target_legacy_entry_2">18.20.39 - Obnovení široké nabídky rychlosti a kvality videa</string>
-  <string name="revanced_spoof_app_version_target_legacy_entry_3">18.09.39 - Obnovení karty Knihovna</string>
-  <string name="revanced_spoof_app_version_target_legacy_entry_4">17.33.42 - Obnovení staré police se seznamy skladeb</string>
+  <string name="revanced_spoof_app_version_target_entry_2">19.01.34 – Obnovit staré ikony navigace</string>
   </patch>
   <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">Nastavit úvodní stránku</string>
@@ -1203,6 +1160,7 @@ Pokud bude později vypnuta, doporučujeme vymazat data aplikace, aby se zabrán
   <string name="revanced_miniplayer_type_entry_4">Moderní 1</string>
   <string name="revanced_miniplayer_type_entry_5">Moderní 2</string>
   <string name="revanced_miniplayer_type_entry_6">Moderní 3</string>
+  <string name="revanced_miniplayer_type_entry_7">Moderní 4</string>
   <string name="revanced_miniplayer_rounded_corners_title">Povolit zaoblené rohy</string>
   <string name="revanced_miniplayer_rounded_corners_summary_on">Rohy jsou zaoblené</string>
   <string name="revanced_miniplayer_rounded_corners_summary_off">Rohy jsou čtvercové</string>
@@ -1222,14 +1180,14 @@ Pokud bude později vypnuta, doporučujeme vymazat data aplikace, aby se zabrán
 
 \"Miniplayer\" lze přetáhnout z obrazovky doleva nebo doprava"</string>
   <string name="revanced_miniplayer_horizontal_drag_summary_off">Horizontální posun je zakázán</string>
-  <string name="revanced_miniplayer_hide_expand_close_title">Skrýt tlačítko zavření</string>
-  <string name="revanced_miniplayer_hide_expand_close_summary_on">Tlačítko zavření je skryto</string>
-  <string name="revanced_miniplayer_hide_expand_close_summary_off">Tlačítko zavření je zobrazeno</string>
-  <string name="revanced_miniplayer_hide_expand_close_legacy_title">Skrýt tlačítka pro rozbalení a zavření</string>
-  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_on">"Tlačítka jsou skryta
+  <string name="revanced_miniplayer_hide_overlay_buttons_title">Skrýt tlačítka překrytí</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">Tlačítka překrytí jsou skrytá</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">Tlačítka překrytí jsou zobrazena</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_title">Skrýt tlačítka rozbalení a zavření</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_on">"Tlačítka jsou skrytá
 
-Přejeďte prstem pro rozbalení nebo zavření"</string>
-  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_off">Tlačítka pro rozbalení a zavření jsou zobrazena</string>
+Rozbalte nebo zavřete přejetím prstem"</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_off">Tlačítka rozbalení a zavření jsou zobrazena</string>
   <string name="revanced_miniplayer_hide_subtext_title">Skrýt podtexty</string>
   <string name="revanced_miniplayer_hide_subtext_summary_on">Podtexty jsou skryty</string>
   <string name="revanced_miniplayer_hide_subtext_summary_off">Podtexty jsou zobrazeny</string>
@@ -1247,8 +1205,6 @@ Přejeďte prstem pro rozbalení nebo zavření"</string>
   <string name="revanced_gradient_loading_screen_title">Povolit přechodovou obrazovku načítání</string>
   <string name="revanced_gradient_loading_screen_summary_on">Obrazovka načítání bude mít přechodové pozadí</string>
   <string name="revanced_gradient_loading_screen_summary_off">Obrazovka načítání bude mít pevné pozadí</string>
-  </patch>
-  <patch id="layout.theme.themeResourcePatch">
   <string name="revanced_seekbar_custom_color_title">Povolit vlastní barvu posuvníku</string>
   <string name="revanced_seekbar_custom_color_summary_on">Vlasní barva posuvníku je zobrazena</string>
   <string name="revanced_seekbar_custom_color_summary_off">Původní barva posuvníku je zobrazena</string>
@@ -1340,8 +1296,8 @@ Povolením této funkce lze odemknout vyšší kvality videa"</string>
   </patch>
   <patch id="misc.links.openLinksExternallyPatch">
   <string name="revanced_external_browser_title">Otevírat odkazy v prohlížeči</string>
-  <string name="revanced_external_browser_summary_on">Otevírání odkazů externě</string>
-  <string name="revanced_external_browser_summary_off">Otevírání odkazů v aplikaci</string>
+  <string name="revanced_external_browser_summary_on">Otevírání odkazů v externím prohlížeči</string>
+  <string name="revanced_external_browser_summary_off">Otevírání odkazů v prohlížeči v aplikaci</string>
   </patch>
   <patch id="misc.privacy.removeTrackingQueryParameterPatch">
   <string name="revanced_remove_tracking_query_parameter_title">Odstranit sledovací parametr dotazu</string>
@@ -1368,9 +1324,15 @@ Povolením této funkce lze odemknout vyšší kvality videa"</string>
   <string name="revanced_remember_video_quality_last_selected_summary_off">Změny kvality se vztahují pouze na aktuální video</string>
   <string name="revanced_video_quality_default_wifi_title">Výchozí kvalita videa v síti Wi-Fi</string>
   <string name="revanced_video_quality_default_mobile_title">Výchozí kvalita videa v mobilní síti</string>
+  <string name="revanced_remember_shorts_quality_last_selected_title">Zapamatovat si změny kvality u položky Shorts</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_on">Změny kvality se vztahují na všechny {Shorts}</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_off">Změny kvality se vztahují pouze na aktuální {Shorts}</string>
+  <string name="revanced_shorts_quality_default_wifi_title">Výchozí kvalita Shorts v síti Wi-Fi</string>
+  <string name="revanced_shorts_quality_default_mobile_title">Výchozí kvalita Shorts v mobilní síti</string>
   <string name="revanced_remember_video_quality_mobile">mobilní</string>
   <string name="revanced_remember_video_quality_wifi">Wi-Fi</string>
   <string name="revanced_remember_video_quality_toast">Výchozí kvalita %1$s změněna na: %2$s</string>
+  <string name="revanced_remember_video_quality_toast_shorts">Změněna kvalita Shorts %1$s na: %2$s</string>
   </patch>
   <patch id="video.speed.button.playbackSpeedButtonPatch">
   <string name="revanced_playback_speed_dialog_button_title">Zobrazit tlačítko dialogu rychlosti</string>
@@ -1401,10 +1363,10 @@ Povolením této funkce lze odemknout vyšší kvality videa"</string>
   <string name="revanced_disable_hdr_video_summary_on">HDR video je vypnuté.</string>
   <string name="revanced_disable_hdr_video_summary_off">HDR video je zapnuté.</string>
   </patch>
-  <patch id="video.videoqualitymenu.restoreOldVideoQualityMenuResourcePatch">
-  <string name="revanced_restore_old_video_quality_menu_title">Obnovit staré menu kvality videa</string>
-  <string name="revanced_restore_old_video_quality_menu_summary_on">Staré menu kvality videa se zobrazuje</string>
-  <string name="revanced_restore_old_video_quality_menu_summary_off">Staré menu kvality videa se nezobrazuje</string>
+  <patch id="video.quality.advancedVideoQualityMenuPatch">
+  <string name="revanced_advanced_video_quality_menu_title">Zobrazit rozšířené menu kvality videa</string>
+  <string name="revanced_advanced_video_quality_menu_summary_on">Zobrazuje se rozšířené menu kvality videa</string>
+  <string name="revanced_advanced_video_quality_menu_summary_off">Nezobrazuje se rozšířené menu kvality videa</string>
   </patch>
   <patch id="interaction.seekbar.enableSlideToSeekPatch">
   <string name="revanced_slide_to_seek_title">Povolit posun pro hledání</string>

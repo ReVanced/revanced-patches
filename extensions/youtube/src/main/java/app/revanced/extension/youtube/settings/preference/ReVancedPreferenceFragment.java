@@ -18,7 +18,6 @@ import android.widget.TextView;
 import android.widget.Toolbar;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 import app.revanced.extension.shared.Logger;
@@ -74,7 +73,8 @@ public class ReVancedPreferenceFragment extends AbstractPreferenceFragment {
             }
         }
 
-        Collections.sort(pairsToSort, (pair1, pair2) -> pair1.first.compareToIgnoreCase(pair2.first));
+        pairsToSort.sort((pair1, pair2)
+                -> pair1.first.compareToIgnoreCase(pair2.first));
 
         CharSequence[] sortedEntries = new CharSequence[entrySize];
         CharSequence[] sortedEntryValues = new CharSequence[entrySize];
@@ -109,6 +109,7 @@ public class ReVancedPreferenceFragment extends AbstractPreferenceFragment {
                 CustomPlaybackSpeedPatch.initializeListPreference(playbackPreference);
             }
 
+            sortPreferenceListMenu(Settings.CHANGE_START_PAGE);
             sortPreferenceListMenu(Settings.SPOOF_VIDEO_STREAMS_LANGUAGE);
             sortPreferenceListMenu(BaseSettings.REVANCED_LANGUAGE);
         } catch (Exception ex) {
@@ -137,11 +138,13 @@ public class ReVancedPreferenceFragment extends AbstractPreferenceFragment {
                                     .findViewById(android.R.id.content)
                                     .getParent();
 
-                            // Fix required for Android 15 and YT 19.45+
+                            // Fix edge-to-edge screen with Android 15 and YT 19.45+
+                            // https://developer.android.com/develop/ui/views/layout/edge-to-edge#system-bars-insets
                             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
                                 rootView.setOnApplyWindowInsetsListener((v, insets) -> {
                                     Insets statusInsets = insets.getInsets(WindowInsets.Type.statusBars());
-                                    v.setPadding(0, statusInsets.top, 0, 0);
+                                    Insets navInsets = insets.getInsets(WindowInsets.Type.navigationBars());
+                                    v.setPadding(0, statusInsets.top, 0, navInsets.bottom);
                                     return insets;
                                 });
                             }

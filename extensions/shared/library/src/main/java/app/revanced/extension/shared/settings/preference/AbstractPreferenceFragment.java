@@ -22,11 +22,22 @@ import app.revanced.extension.shared.settings.Setting;
 
 @SuppressWarnings("deprecation")
 public abstract class AbstractPreferenceFragment extends PreferenceFragment {
+
     /**
      * Indicates that if a preference changes,
      * to apply the change from the Setting to the UI component.
      */
     public static boolean settingImportInProgress;
+
+    /**
+     * Prevents recursive calls during preference <-> UI syncing from showing extra dialogs.
+     */
+    private static boolean updatingPreference;
+
+    /**
+     * Used to prevent showing reboot dialog, if user cancels a setting user dialog.
+     */
+    private static boolean showingUserDialogMessage;
 
     /**
      * Confirm and restart dialog button text and title.
@@ -35,13 +46,13 @@ public abstract class AbstractPreferenceFragment extends PreferenceFragment {
     @Nullable
     protected static String restartDialogButtonText, restartDialogTitle, confirmDialogTitle;
 
-    /**
-     * Used to prevent showing reboot dialog, if user cancels a setting user dialog.
-     */
-    private boolean showingUserDialogMessage;
-
     private final SharedPreferences.OnSharedPreferenceChangeListener listener = (sharedPreferences, str) -> {
         try {
+            if (updatingPreference) {
+                Logger.printDebug(() -> "Ignoring preference change as sync is in progress");
+                return;
+            }
+
             Setting<?> setting = Setting.getSettingFromPath(Objects.requireNonNull(str));
             if (setting == null) {
                 return;
@@ -63,15 +74,17 @@ public abstract class AbstractPreferenceFragment extends PreferenceFragment {
                 }
             }
 
+            updatingPreference = true;
             // Apply 'Setting <- Preference', unless during importing when it needs to be 'Setting -> Preference'.
+            // Updating here can can cause a recursive call back into this same method.
             updatePreference(pref, setting, true, settingImportInProgress);
             // Update any other preference availability that may now be different.
             updateUIAvailability();
+            updatingPreference = false;
         } catch (Exception ex) {
             Logger.printException(() -> "OnSharedPreferenceChangeListener failure", ex);
         }
     };
-
 
     /**
      * Initialize this instance, and do any custom behavior.
@@ -81,7 +94,10 @@ public abstract class AbstractPreferenceFragment extends PreferenceFragment {
      * so all app specific {@link Setting} instances are loaded before this method returns.
      */
     protected void initialize() {
-        final var identifier = Utils.getResourceIdentifier("revanced_prefs", "xml");
+        String preferenceResourceName = BaseSettings.SHOW_MENU_ICONS.get()
+                ? "revanced_prefs_icons"
+                : "revanced_prefs";
+        final var identifier = Utils.getResourceIdentifier(preferenceResourceName, "xml");
         if (identifier == 0) return;
         addPreferencesFromResource(identifier);
 
@@ -97,7 +113,9 @@ public abstract class AbstractPreferenceFragment extends PreferenceFragment {
         if (confirmDialogTitle == null) {
             confirmDialogTitle = str("revanced_settings_confirm_user_dialog_title");
         }
+
         showingUserDialogMessage = true;
+
         new AlertDialog.Builder(context)
                 .setTitle(confirmDialogTitle)
                 .setMessage(Objects.requireNonNull(setting.userDialogMessage).toString())
@@ -141,14 +159,16 @@ public abstract class AbstractPreferenceFragment extends PreferenceFragment {
      * @return If the preference is currently set to the default value of the Setting.
      */
     protected boolean prefIsSetToDefault(Preference pref, Setting<?> setting) {
+        Object defaultValue = setting.defaultValue;
         if (pref instanceof SwitchPreference switchPref) {
-            return switchPref.isChecked() == (Boolean) setting.defaultValue;
+            return switchPref.isChecked() == (Boolean) defaultValue;
         }
+        String defaultValueString = defaultValue.toString();
         if (pref instanceof EditTextPreference editPreference) {
-            return editPreference.getText().equals(setting.defaultValue.toString());
+            return editPreference.getText().equals(defaultValueString);
         }
         if (pref instanceof ListPreference listPref) {
-            return listPref.getValue().equals(setting.defaultValue.toString());
+            return listPref.getValue().equals(defaultValueString);
         }
 
         throw new IllegalStateException("Must override method to handle "
@@ -158,16 +178,16 @@ public abstract class AbstractPreferenceFragment extends PreferenceFragment {
     /**
      * Syncs all UI Preferences to any {@link Setting} they represent.
      */
-    private void updatePreferenceScreen(@NonNull PreferenceScreen screen,
+    private void updatePreferenceScreen(@NonNull PreferenceGroup group,
                                         boolean syncSettingValue,
                                         boolean applySettingToPreference) {
         // Alternatively this could iterate thru all Settings and check for any matching Preferences,
         // but there are many more Settings than UI preferences so it's more efficient to only check
         // the Preferences.
-        for (int i = 0, prefCount = screen.getPreferenceCount(); i < prefCount; i++) {
-            Preference pref = screen.getPreference(i);
-            if (pref instanceof PreferenceScreen) {
-                updatePreferenceScreen((PreferenceScreen) pref, syncSettingValue, applySettingToPreference);
+        for (int i = 0, prefCount = group.getPreferenceCount(); i < prefCount; i++) {
+            Preference pref = group.getPreference(i);
+            if (pref instanceof PreferenceGroup subGroup) {
+                updatePreferenceScreen(subGroup, syncSettingValue, applySettingToPreference);
             } else if (pref.hasKey()) {
                 String key = pref.getKey();
                 Setting<?> setting = Setting.getSettingFromPath(key);
@@ -255,7 +275,7 @@ public abstract class AbstractPreferenceFragment extends PreferenceFragment {
         }
     }
 
-    public static void showRestartDialog(@NonNull final Context context) {
+    public static void showRestartDialog(Context context) {
         Utils.verifyOnMainThread();
         if (restartDialogTitle == null) {
             restartDialogTitle = str("revanced_settings_restart_title");
@@ -263,6 +283,7 @@ public abstract class AbstractPreferenceFragment extends PreferenceFragment {
         if (restartDialogButtonText == null) {
             restartDialogButtonText = str("revanced_settings_restart");
         }
+
         new AlertDialog.Builder(context)
                 .setMessage(restartDialogTitle)
                 .setPositiveButton(restartDialogButtonText, (dialog, id)

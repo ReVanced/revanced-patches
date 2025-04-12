@@ -10,6 +10,7 @@ import app.revanced.patcher.patch.BytecodePatchContext
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
 import app.revanced.patches.all.misc.resources.addResourcesPatch
+import app.revanced.util.findFreeRegister
 import app.revanced.util.findInstructionIndicesReversedOrThrow
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
@@ -31,11 +32,13 @@ internal const val EXTENSION_CLASS_DESCRIPTOR =
 
 fun spoofVideoStreamsPatch(
     block: BytecodePatchBuilder.() -> Unit = {},
-    applyMediaFetchHotConfigChanges: BytecodePatchBuilder.() -> Boolean = { false },
+    fixMediaFetchHotConfigChanges: BytecodePatchBuilder.() -> Boolean = { false },
+    fixMediaFetchHotConfigAlternativeChanges: BytecodePatchBuilder.() -> Boolean = { false },
+    fixParsePlaybackResponseFeatureFlag: BytecodePatchBuilder.() -> Boolean = { false },
     executeBlock: BytecodePatchContext.() -> Unit = {},
 ) = bytecodePatch(
     name = "Spoof video streams",
-    description = "Spoofs the client video streams to fix playback.",
+    description = "Adds options to spoof the client video streams to fix playback.",
 ) {
     block()
 
@@ -92,14 +95,14 @@ fun spoofVideoStreamsPatch(
                     getReference<MethodReference>()?.name == "newUrlRequestBuilder"
             }
             val urlRegister = getInstruction<FiveRegisterInstruction>(newRequestBuilderIndex).registerD
-            val freeRegister = getInstruction<OneRegisterInstruction>(newRequestBuilderIndex + 1).registerA
+            val freeRegister = findFreeRegister(newRequestBuilderIndex, urlRegister)
 
             addInstructions(
                 newRequestBuilderIndex,
                 """
-                move-object v$freeRegister, p1
-                invoke-static { v$urlRegister, v$freeRegister }, $EXTENSION_CLASS_DESCRIPTOR->fetchStreams(Ljava/lang/String;Ljava/util/Map;)V
-            """,
+                    move-object v$freeRegister, p1
+                    invoke-static { v$urlRegister, v$freeRegister }, $EXTENSION_CLASS_DESCRIPTOR->fetchStreams(Ljava/lang/String;Ljava/util/Map;)V
+                """
             )
         }
 
@@ -241,10 +244,24 @@ fun spoofVideoStreamsPatch(
 
         // region turn off stream config replacement feature flag.
 
-        if (applyMediaFetchHotConfigChanges()) {
+        if (fixMediaFetchHotConfigChanges()) {
             mediaFetchHotConfigFingerprint.method.insertFeatureFlagBooleanOverride(
                 MEDIA_FETCH_HOT_CONFIG_FEATURE_FLAG,
                 "$EXTENSION_CLASS_DESCRIPTOR->useMediaFetchHotConfigReplacement(Z)Z"
+            )
+        }
+
+        if (fixMediaFetchHotConfigAlternativeChanges()) {
+            mediaFetchHotConfigAlternativeFingerprint.method.insertFeatureFlagBooleanOverride(
+                MEDIA_FETCH_HOT_CONFIG_ALTERNATIVE_FEATURE_FLAG,
+                "$EXTENSION_CLASS_DESCRIPTOR->useMediaFetchHotConfigReplacement(Z)Z"
+            )
+        }
+
+        if (fixParsePlaybackResponseFeatureFlag()) {
+            playbackStartDescriptorFeatureFlagFingerprint.method.insertFeatureFlagBooleanOverride(
+                PLAYBACK_START_CHECK_ENDPOINT_USED_FEATURE_FLAG,
+                "$EXTENSION_CLASS_DESCRIPTOR->usePlaybackStartFeatureFlag(Z)Z"
             )
         }
 

@@ -23,6 +23,11 @@ final class DescriptionComponentsFilter extends Filter {
                 "metadata"
         );
 
+        final StringFilterGroup aiGeneratedVideoSummarySection = new StringFilterGroup(
+                Settings.HIDE_AI_GENERATED_VIDEO_SUMMARY_SECTION,
+                "cell_expandable_metadata.eml"
+        );
+
         final StringFilterGroup attributesSection = new StringFilterGroup(
                 Settings.HIDE_ATTRIBUTES_SECTION,
                 "gaming_section",
@@ -67,6 +72,7 @@ final class DescriptionComponentsFilter extends Filter {
         );
 
         addPathCallbacks(
+                aiGeneratedVideoSummarySection,
                 attributesSection,
                 infoCardsSection,
                 howThisWasMadeSection,

@@ -4,7 +4,6 @@
     All strings must have a unique path, even if the same string is declared in two different apps.
     This is because Crowdin requires temporarily flattening this file and removing the <app> and <patch> elements.
 
-
     Strings with new lines must be raw strings where they're wrapped in quotes and new lines are not encoded.
     Raw strings still requires escaping embedded double quotes but escaping embedded single quotes is optional.
 
@@ -43,62 +42,14 @@ Second \"item\" text"</string>
   <string name="revanced_settings_import_reset">การตั้งค่า ReVanced ถูกตั้งค่าเป็นค่าเริ่มต้น</string>
   <string name="revanced_settings_import_success">นำเข้าการตั้งค่า %d</string>
   <string name="revanced_settings_import_failure_parse">การนำเข้าล้มเหลว: %s</string>
+  <string name="revanced_show_menu_icons_title">แสดงไอคอนการตั้งค่า ReVanced</string>
+  <string name="revanced_show_menu_icons_summary_on">ไอคอนการตั้งค่าจะปรากฏขึ้น</string>
+  <string name="revanced_show_menu_icons_summary_off">ไม่แสดงไอคอนการตั้งค่า</string>
   <string name="revanced_language_title">ภาษา ReVanced</string>
   <string name="revanced_language_user_dialog_message">"การแปลบางภาษาอาจหายไปหรือไม่สมบูรณ์
 
 เพื่อแปลภาษาใหม่ ไปที่ translate.revanced.app"</string>
   <string name="revanced_language_DEFAULT">ภาษาของแอป</string>
-  <string name="revanced_language_AR">อาหรับ</string>
-  <string name="revanced_language_AZ">อาเซอร์ไบจาน</string>
-  <string name="revanced_language_BG">บัลแกเรีย</string>
-  <string name="revanced_language_BN">เบงกาลี</string>
-  <string name="revanced_language_CA">กาตาลัน</string>
-  <string name="revanced_language_CS">เช็ก</string>
-  <string name="revanced_language_DA">เดนมาร์ก</string>
-  <string name="revanced_language_DE">เยอรมัน</string>
-  <string name="revanced_language_EL">กรีก</string>
-  <string name="revanced_language_EN">อังกฤษ</string>
-  <string name="revanced_language_ES">สเปน</string>
-  <string name="revanced_language_ET">เอสโตเนีย</string>
-  <string name="revanced_language_FA">เปอร์เซีย</string>
-  <string name="revanced_language_FI">ฟินแลนด์</string>
-  <string name="revanced_language_FR">ฝรั่งเศส</string>
-  <string name="revanced_language_GU">คุชราต</string>
-  <string name="revanced_language_HI">ฮินดี</string>
-  <string name="revanced_language_HR">โครเอเชีย</string>
-  <string name="revanced_language_HU">ฮังการี</string>
-  <string name="revanced_language_ID">อินโดนีเซีย</string>
-  <string name="revanced_language_IT">อิตาลี</string>
-  <string name="revanced_language_JA">ญี่ปุ่น</string>
-  <string name="revanced_language_KK">คาซัค</string>
-  <string name="revanced_language_KO">เกาหลี</string>
-  <string name="revanced_language_LT">ลิทัวเนีย</string>
-  <string name="revanced_language_LV">ลัตเวีย</string>
-  <string name="revanced_language_MK">มาซิโดเนีย</string>
-  <string name="revanced_language_MN">มองโกเลีย</string>
-  <string name="revanced_language_MR">มราฐี</string>
-  <string name="revanced_language_MS">มาเลเซีย</string>
-  <string name="revanced_language_MY">พม่า</string>
-  <string name="revanced_language_NL">ดัตช์</string>
-  <string name="revanced_language_OR">โอเดีย</string>
-  <string name="revanced_language_PA">ปัญจาบ</string>
-  <string name="revanced_language_PL">โปแลนด์</string>
-  <string name="revanced_language_PT">โปรตุเกส</string>
-  <string name="revanced_language_RO">โรมาเนีย</string>
-  <string name="revanced_language_RU">รัสเซีย</string>
-  <string name="revanced_language_SK">สโลวัก</string>
-  <string name="revanced_language_SL">สโลวีเนีย</string>
-  <string name="revanced_language_SR">เซอร์เบีย</string>
-  <string name="revanced_language_SV">สวีเดน</string>
-  <string name="revanced_language_SW">สวาฮีลี</string>
-  <string name="revanced_language_TA">ทมิฬ</string>
-  <string name="revanced_language_TE">เตลูกู</string>
-  <string name="revanced_language_TH">ไทย</string>
-  <string name="revanced_language_TR">ตุรกี</string>
-  <string name="revanced_language_UK">ยูเครน</string>
-  <string name="revanced_language_UR">อูรดู</string>
-  <string name="revanced_language_VI">เวียดนาม</string>
-  <string name="revanced_language_ZH">จีน</string>
   <string name="revanced_pref_import_export_title">นำเข้า / ส่งออก</string>
   <string name="revanced_pref_import_export_summary">นำเข้า / ส่งออกการตั้งค่า ReVanced</string>
   <!-- Settings about dialog. -->
@@ -277,6 +228,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_artist_cards_title">ซ่อนบัตรศิลปิน</string>
   <string name="revanced_hide_artist_cards_summary_on">บัตรศิลปินถูกซ่อนไว้</string>
   <string name="revanced_hide_artist_cards_summary_off">บัตรศิลปินแสดงอยู่</string>
+  <string name="revanced_hide_ai_generated_video_summary_section_title">ซ่อน \",สรุปวิดีโอที่สร้างโดย AI\"</string>
+  <string name="revanced_hide_ai_generated_video_summary_section_summary_on">ส่วนสรุปวิดีโอถูกซ่อน</string>
+  <string name="revanced_hide_ai_generated_video_summary_section_summary_off">ส่วนสรุปวิดีโอปรากฏ</string>
   <string name="revanced_hide_attributes_section_title">ซ่อนแอตทริบิวต์</string>
   <string name="revanced_hide_attributes_section_summary_on">ส่วนสถานที่แนะนำ, เกม, เพลง และบุคคลที่กล่าวถึงถูกซ่อน</string>
   <string name="revanced_hide_attributes_section_summary_off">ส่วนสถานที่แนะนำ, เกม, เพลง และบุคคลที่กล่าวถึงแสดงอยู่</string>
@@ -313,9 +267,12 @@ Second \"item\" text"</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">แสดงในวิดีโอที่เกี่ยวข้อง</string>
   <string name="revanced_comments_screen_title">ความคิดเห็น</string>
   <string name="revanced_comments_screen_summary">ซ่อนหรือแสดงส่วนประกอบของส่วนความคิดเห็น</string>
-  <string name="revanced_hide_comments_chat_summary_title">ซ่อน \'สรุปแชท\'</string>
-  <string name="revanced_hide_comments_chat_summary_summary_on">สรุปแชทถูกซ่อน</string>
-  <string name="revanced_hide_comments_chat_summary_summary_off">สรุปแชทแสดงอยู่</string>
+  <string name="revanced_hide_comments_ai_chat_summary_title">ซ่อนสรุปแชท AI</string>
+  <string name="revanced_hide_comments_ai_chat_summary_summary_on">ซ่อนสรุปแชท</string>
+  <string name="revanced_hide_comments_ai_chat_summary_summary_off">แสดงสรุปแชท</string>
+  <string name="revanced_hide_comments_ai_summary_title">ซ่อนสรุปความคิดเห็น AI</string>
+  <string name="revanced_hide_comments_ai_summary_summary_on">ซ่อนสรุปความคิดเห็น</string>
+  <string name="revanced_hide_comments_ai_summary_summary_off">แสดงสรุปความคิดเห็น</string>
   <string name="revanced_hide_comments_by_members_header_title">ซ่อนส่วนหัว \'ความคิดเห็นโดยสมาชิก\'</string>
   <string name="revanced_hide_comments_by_members_header_summary_on">ส่วนหัวความคิดเห็นโดยสมาชิกถูกซ่อน</string>
   <string name="revanced_hide_comments_by_members_header_summary_off">ส่วนหัวความคิดเห็นโดยสมาชิกแสดงอยู่</string>
@@ -362,7 +319,7 @@ Second \"item\" text"</string>
   <string name="revanced_hide_keyword_content_subscriptions_summary_on">วิดีโอในแท็บการสมัครสมาชิกถูกกรองตามคำสำคัญ</string>
   <string name="revanced_hide_keyword_content_subscriptions_summary_off">วิดีโอในแท็บการสมัครสมาชิกไม่ได้ถูกกรองตามคำสำคัญ</string>
   <string name="revanced_hide_keyword_content_phrases_title">คำสำคัญที่จะซ่อน</string>
-  <!-- For localization it is preferred, but not required, if 'LeBlanc' is replaced with a localized name or a familiar word that has upper case letters in the middle of the word.
+  <!-- For localization, it is preferred, but not required, if 'LeBlanc' is replaced with a localized name or a familiar word that has upper case letters in the middle of the word.
                  This is because keywords can be in any language, and showing an example in the localized script helps convey this. -->
   <string name="revanced_hide_keyword_content_phrases_summary">"คําหลักและวลีที่จะซ่อน แยกด้วยบรรทัดใหม่
 
@@ -377,7 +334,7 @@ Second \"item\" text"</string>
 • บางส่วนของ UI อาจไม่ถูกซ่อน
 • การค้นหาคําหลักอาจไม่แสดงผลลัพธ์"</string>
   <string name="revanced_hide_keyword_content_about_whole_words_title">จับคู่ทั้งคำ</string>
-  <!-- Translations _must_ use a localized example.  For languages that do not use spaces between words (Chinese, Japanese, etc) the English AI example should be used since no localized examples exist.  Or if using machine translations, or if nobody wants to think of a localized example, then the English 'ai' example should be left as-is. -->
+  <!-- Translations _must_ use a localized example.  For languages that do not use spaces between words (Chinese, Japanese, etc.) the English AI example should be used since no localized examples exist.  Or if using machine translations, or if nobody wants to think of a localized example, then the English 'ai' example should be left as-is. -->
   <string name="revanced_hide_keyword_content_about_whole_words_summary">การล้อมรอบคีย์เวิร์ด/วลีด้วยเครื่องหมายคำพูดคู่จะป้องกันการจับคู่บางส่วนของชื่อวิดีโอและชื่อช่อง&lt;br&gt;&lt;br&gt;ตัวอย่างเช่น&lt;br&gt;&lt;b&gt;\"ai\"&lt;/b&gt; จะซ่อนวิดีโอ: &lt;b&gt;AI ทำงานอย่างไร?&lt;/b&gt;&lt;br&gt;แต่จะไม่ซ่อน: &lt;b&gt;What does fair use mean?&lt;/b&gt;</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_hide_keyword_toast_invalid_common">ไม่สามารถใช้คำสำคัญ: %s</string>
@@ -404,7 +361,7 @@ Second \"item\" text"</string>
   <string name="revanced_hide_self_sponsor_ads_title">ซ่อนการ์ดที่สนับสนุนตัวเอง</string>
   <string name="revanced_hide_self_sponsor_ads_summary_on">การ์ดที่สนับสนุนตัวเองถูกซ่อน</string>
   <string name="revanced_hide_self_sponsor_ads_summary_off">การ์ดที่สนับสนุนตัวเองจะแสดง</string>
-  <string name="revanced_hide_products_banner_title">ซ่อนแบนเนอร์เพื่อดูผลิตภัณฑ์</string>
+  <string name="revanced_hide_products_banner_title">ซ่อนแบนเนอร์ \'ดูผลิตภัณฑ์\'</string>
   <string name="revanced_hide_products_banner_summary_on">แบนเนอร์ถูกซ่อน</string>
   <string name="revanced_hide_products_banner_summary_off">แบนเนอร์จะแสดง</string>
   <string name="revanced_hide_end_screen_store_banner_title">ซ่อนแบนเนอร์ร้านค้าท้ายจอ</string>
@@ -475,9 +432,9 @@ Second \"item\" text"</string>
   <string name="revanced_disable_precise_seeking_gesture_summary_off">ท่าทางถูกเปิดใช้งาน</string>
   </patch>
   <patch id="interaction.seekbar.enableSeekbarTappingPatch">
-  <string name="revanced_seekbar_tapping_title">เปิดใช้งานการแตะแถบเลื่อน</string>
-  <string name="revanced_seekbar_tapping_summary_on">การแตะแถบเลื่อนถูกเปิดใช้งาน</string>
-  <string name="revanced_seekbar_tapping_summary_off">การแตะแถบเลื่อนถูกปิดใช้งาน</string>
+  <string name="revanced_seekbar_tapping_title">เปิดใช้งานแตะเพื่อค้นหา</string>
+  <string name="revanced_seekbar_tapping_summary_on">แตะเพื่อค้นหาเปิดใช้งานอยู่</string>
+  <string name="revanced_seekbar_tapping_summary_off">ปิดใช้งานการแตะเพื่อค้นหา</string>
   </patch>
   <patch id="interaction.swipecontrols.swipeControlsResourcePatch">
   <string name="revanced_swipe_brightness_title">เปิดใช้งานท่าทางความสว่าง</string>
@@ -488,9 +445,9 @@ Second \"item\" text"</string>
   <string name="revanced_swipe_volume_title">เปิดใช้งานท่าทางระดับเสียง</string>
   <string name="revanced_swipe_volume_summary_on">"เปิดใช้งานการปัดระดับเสียงแบบเต็มหน้าจอ\n\nปรับระดับเสียงโดยปัดในแนวตั้งที่ด้านขวาของหน้าจอ"</string>
   <string name="revanced_swipe_volume_summary_off">ปิดใช้งานการปัดระดับเสียงแบบเต็มหน้าจอ</string>
-  <string name="revanced_swipe_press_to_engage_title">เปิดใช้งานท่าทางการกดเพื่อปัด</string>
-  <string name="revanced_swipe_press_to_engage_summary_on">การกดเพื่อปัดถูกเปิดใช้งาน</string>
-  <string name="revanced_swipe_press_to_engage_summary_off">การกดเพื่อปัดถูกปิดใช้งาน</string>
+  <string name="revanced_swipe_press_to_engage_title">เปิดใช้งานท่าทางกดเพื่อปัด</string>
+  <string name="revanced_swipe_press_to_engage_summary_on">เปิดใช้งานกดเพื่อปัด</string>
+  <string name="revanced_swipe_press_to_engage_summary_off">ปิดใช้งานกดเพื่อปัด</string>
   <string name="revanced_swipe_haptic_feedback_title">เปิดใช้งานการตอบสนองแบบสัมผัส</string>
   <string name="revanced_swipe_haptic_feedback_summary_on">การตอบสนองแบบสัมผัสถูกเปิดใช้งาน</string>
   <string name="revanced_swipe_haptic_feedback_summary_off">การตอบสนองแบบสัมผัสถูกปิดใช้งาน</string>
@@ -598,6 +555,7 @@ Second \"item\" text"</string>
   <string name="revanced_disable_translucent_status_bar_title">ปิดใช้งานแถบสถานะแบบโปร่งแสง</string>
   <string name="revanced_disable_translucent_status_bar_summary_on">แถบสถานะไม่โปร่งแสง</string>
   <string name="revanced_disable_translucent_status_bar_summary_off">แถบสถานะโปร่งแสงหรือไม่โปร่งแสง</string>
+  <string name="revanced_disable_translucent_status_bar_user_dialog_message">ในอุปกรณ์บางรุ่น การเปิดใช้งานคุณสมบัตินี้อาจเปลี่ยนแถบนำทางระบบให้โปร่งใสได้</string>
   <string name="revanced_disable_translucent_navigation_bar_light_title">ปิดใช้งานแถบนำทางแบบโปร่งแสงสีอ่อน</string>
   <string name="revanced_disable_translucent_navigation_bar_light_summary_on">แถบนำทางโหมดสว่างเป็นแบบทึบแสง</string>
   <string name="revanced_disable_translucent_navigation_bar_light_summary_off">แถบนำทางโหมดสว่างโปร่งแสงหรือไม่โปร่งแสง</string>
@@ -652,6 +610,10 @@ Second \"item\" text"</string>
   <string name="revanced_hide_player_flyout_audio_track_title">ซ่อนแทร็กเสียง</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_on">เมนูแทร็กเสียงซ่อนอยู่</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_off">เมนูแทร็กเสียงแสดงอยู่</string>
+  <!-- 'Spoof video streams' should be the same translation used for revanced_spoof_video_streams_screen_title -->
+  <string name="revanced_hide_player_flyout_audio_track_not_available">"เมนูแทร็กเสียงถูกซ่อนอยู่
+
+หากต้องการแสดงเมนูแทร็กเสียง ให้เปลี่ยน 'จำลองสตรีมวิดีโอ' เป็น iOS TV"</string>
   <!-- 'Watch in VR' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_watch_in_vr_title">ซ่อนดูใน VR</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">เมนูดูใน VR ซ่อนอยู่</string>
@@ -661,7 +623,7 @@ Second \"item\" text"</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_off">ส่วนท้ายเมนูคุณภาพวิดีโอแสดงอยู่</string>
   </patch>
   <patch id="layout.buttons.overlay.hidePlayerOverlayButtonsPatch">
-  <string name="revanced_hide_player_previous_next_buttons_title">ซ่อนปุ่มวิดีโอก่อนหน้าและถัดไป</string>
+  <string name="revanced_hide_player_previous_next_buttons_title">ซ่อนปุ่มก่อนหน้า &amp; ถัดไป</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_on">ปุ่มซ่อนอยู่</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">ปุ่มแสดงอยู่</string>
   <string name="revanced_hide_cast_button_title">ซ่อนปุ่มส่ง</string>
@@ -854,7 +816,6 @@ Second \"item\" text"</string>
   <string name="revanced_ryd_enable_summary_on">แสดง \"ไม่ชอบ\"</string>
   <string name="revanced_ryd_enable_summary_off">ไม่แสดง \"ไม่ชอบ\"</string>
   <string name="revanced_ryd_shorts_title">แสดง \"ไม่ชอบ\" ใน Shorts</string>
-  <string name="revanced_ryd_shorts_summary_on">การไม่ถูกใจใน Shorts แสดงอยู่</string>
   <string name="revanced_ryd_shorts_summary_on_disclaimer">"การไม่ถูกใจใน Shorts แสดงอยู่
 
 ข้อจำกัด: การไม่ถูกใจอาจไม่ปรากฏในโหมดไม่ระบุตัวตน"</string>
@@ -1052,6 +1013,8 @@ User id ของคุณเหมือนกับรหัสผ่าน �
   <string name="revanced_sb_vote_downvote">โหวตลง</string>
   <string name="revanced_sb_vote_category">เปลี่ยนหมวดหมู่</string>
   <string name="revanced_sb_vote_no_segments">ไม่มีส่วนใดจะให้โหวต</string>
+  <!-- A segment start and end time, such as "02:10 to 03:40" -->
+  <string name="revanced_sb_vote_segment_time_to_from">%1$s ถึง %2$s</string>
   <string name="revanced_sb_new_segment_choose_category">กรุณาเลือกหมวดหมู่ของส่วน</string>
   <string name="revanced_sb_new_segment_disabled_category">หมวดหมู่ถูกปิดใช้งานใน การตั้งค่า เปิดใช้งานหมวดหมู่เพื่อส่ง</string>
   <string name="revanced_sb_new_segment_title">SponsorBlockส่วนใหม่</string>
@@ -1099,6 +1062,7 @@ User id ของคุณเหมือนกับรหัสผ่าน �
   <string name="revanced_sb_stats_saved_hour_format">%1$s ชั่วโมง %2$s นาที</string>
   <string name="revanced_sb_stats_saved_minute_format">%1$s นาที %2$s วินาที</string>
   <string name="revanced_sb_stats_saved_second_format">%s วินาที</string>
+  <string name="revanced_sb_color_opacity_label">ความทึบ:</string>
   <string name="revanced_sb_color_dot_label">สี:</string>
   <string name="revanced_sb_color_changed">เปลื่ยนสีแล้ว</string>
   <string name="revanced_sb_color_reset">สีเปลื่ยนเป็นค่าเริ่มต้นแล้ว</string>
@@ -1114,16 +1078,14 @@ User id ของคุณเหมือนกับรหัสผ่าน �
   <string name="revanced_change_form_factor_entry_2">โทรศัพท์</string>
   <string name="revanced_change_form_factor_entry_3">แท็บเล็ต</string>
   <string name="revanced_change_form_factor_entry_4">ยานยนต์</string>
-  <string name="revanced_change_form_factor_user_dialog_message">"การเปลี่ยนแปลงรวม:
+  <string name="revanced_change_form_factor_user_dialog_message">"การเปลี่ยนแปลงรวมถึง:
 
-เค้าโครงแท็บเล็ต
+รูปแบบแท็บเล็ต
 • โพสต์ชุมชนถูกซ่อน
 
-เค้าโครงยานยนต์
-• เมนูดูประวัติถูกลบ
-• แท็บสำรวจได้รับการกู้คืน
-• ช็อตเปิดในเครื่องเล่นปกติ
-• ฟีดถูกจัดระเบียบตามหัวข้อและช่อง"</string>
+รูปแบบยานยนต์
+• Shorts เปิดในเครื่องเล่นปกติ
+• ฟีดจัดระเบียบตามหัวข้อและช่อง"</string>
   </patch>
   <patch id="layout.spoofappversion.spoofAppVersionPatch">
   <string name="revanced_spoof_app_version_title">ปลอมแปลงเวอร์ชันแอป</string>
@@ -1138,12 +1100,7 @@ User id ของคุณเหมือนกับรหัสผ่าน �
                  This is because the 'General layout' menu uses alphabetic sorting, and it functionally works better if the spoof target selector appears below the 'Spoof app version' UI switch -->
   <string name="revanced_spoof_app_version_target_title">เป้าหมายการปลอมแปลงเวอร์ชันแอป</string>
   <string name="revanced_spoof_app_version_target_entry_1">19.35.36 - คืนค่าไอคอนเครื่องเล่น Shorts เก่า</string>
-  <string name="revanced_spoof_app_version_target_entry_2">19.26.42 - แบนเพิ่มยุธการพันเข้าเนียงเลขนระบเจะหวัด</string>
-  <!-- 'RYD' is 'Return YouTube Dislike' -->
-  <string name="revanced_spoof_app_version_target_legacy_entry_1">18.33.40 - คืนค่า RYD บนโหมดไม่ระบุตัวตน Shorts</string>
-  <string name="revanced_spoof_app_version_target_legacy_entry_2">18.20.39 - คืนค่าเมนูความเร็วและคุณภาพวิดีโอแบบกว้าง</string>
-  <string name="revanced_spoof_app_version_target_legacy_entry_3">18.09.39 - คืนค่าแท็บคลัง</string>
-  <string name="revanced_spoof_app_version_target_legacy_entry_4">17.33.42 - คืนค่าชั้นวางเพลย์ลิสต์เก่า</string>
+  <string name="revanced_spoof_app_version_target_entry_2">19.01.34 - กู้คืนไอคอนการนำทางแบบเก่า</string>
   </patch>
   <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">ตั้งค่าหน้าเริ่มต้น</string>
@@ -1193,7 +1150,7 @@ User id ของคุณเหมือนกับรหัสผ่าน �
   </patch>
   <patch id="layout.miniplayer.miniplayerPatch">
   <string name="revanced_miniplayer_screen_title">มินิเพลเยอร์</string>
-  <string name="revanced_miniplayer_screen_summary">เปลี่ยนสไตล์ของเครื่องเล่นย่อขนาดในแอป</string>
+  <string name="revanced_miniplayer_screen_summary">เปลี่ยนรูปแบบของเครื่องเล่นขนาดเล็กในแอป</string>
   <string name="revanced_miniplayer_type_title">ประเภทของเครื่องเล่นย่อขนาด</string>
   <string name="revanced_miniplayer_type_entry_0">ปิดการใช้งานอยู่</string>
   <string name="revanced_miniplayer_type_entry_1">ค่าเริ่มต้น</string>
@@ -1202,6 +1159,7 @@ User id ของคุณเหมือนกับรหัสผ่าน �
   <string name="revanced_miniplayer_type_entry_4">ทันสมัย 1</string>
   <string name="revanced_miniplayer_type_entry_5">ทันสมัย 2</string>
   <string name="revanced_miniplayer_type_entry_6">ทันสมัย 3</string>
+  <string name="revanced_miniplayer_type_entry_7">ทันสมัย 4</string>
   <string name="revanced_miniplayer_rounded_corners_title">เปิดใช้งานมุมโค้งมน</string>
   <string name="revanced_miniplayer_rounded_corners_summary_on">มุมโค้งมน</string>
   <string name="revanced_miniplayer_rounded_corners_summary_off">มุมเป็นสี่เหลี่ยม</string>
@@ -1221,14 +1179,14 @@ User id ของคุณเหมือนกับรหัสผ่าน �
 
 สามารถลาก miniplayer ออกจากหน้าจอไปทางซ้ายหรือขวา"</string>
   <string name="revanced_miniplayer_horizontal_drag_summary_off">ท่าทางการลากแบบแนวนอนปิดใช้งานแล้ว</string>
-  <string name="revanced_miniplayer_hide_expand_close_title">ซ่อนปุ่มปิด</string>
-  <string name="revanced_miniplayer_hide_expand_close_summary_on">ปุ่มปิดถูกซ่อน</string>
-  <string name="revanced_miniplayer_hide_expand_close_summary_off">ปุ่มปิดแสดงอยู่</string>
-  <string name="revanced_miniplayer_hide_expand_close_legacy_title">ซ่อนปุ่มขยายและปิด</string>
-  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_on">"ปุ่มถูกซ่อน
+  <string name="revanced_miniplayer_hide_overlay_buttons_title">ซ่อนปุ่มโอเวอร์เลย์</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">ปุ่มโอเวอร์เลย์ถูกซ่อน</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">ปุ่มโอเวอร์เลย์ถูกแสดง</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_title">ซ่อนปุ่มขยายและปิด</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_on">"ปุ่มถูกซ่อน
 
 ปัดเพื่อขยายหรือปิด"</string>
-  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_off">ปุ่มขยายและปิดแสดงอยู่</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_off">ปุ่มขยายและปิดถูกแสดง</string>
   <string name="revanced_miniplayer_hide_subtext_title">ซ่อนข้อความย่อย</string>
   <string name="revanced_miniplayer_hide_subtext_summary_on">ข้อความย่อยถูกซ่อน</string>
   <string name="revanced_miniplayer_hide_subtext_summary_off">ข้อความย่อยแสดงอยู่</string>
@@ -1246,8 +1204,6 @@ User id ของคุณเหมือนกับรหัสผ่าน �
   <string name="revanced_gradient_loading_screen_title">เปิดใช้งานหน้าจอโหลดแบบไล่ระดับสี</string>
   <string name="revanced_gradient_loading_screen_summary_on">หน้าจอโหลดจะมีพื้นหลังแบบไล่ระดับสี</string>
   <string name="revanced_gradient_loading_screen_summary_off">หน้าจอโหลดจะมีพื้นหลังแบบทึบ</string>
-  </patch>
-  <patch id="layout.theme.themeResourcePatch">
   <string name="revanced_seekbar_custom_color_title">เปิดใช้งานสีแถบเลื่อนแบบกำหนดเอง</string>
   <string name="revanced_seekbar_custom_color_summary_on">แสดงสีแถบเลื่อนแบบกำหนดเอง</string>
   <string name="revanced_seekbar_custom_color_summary_off">แสดงสีแถบเลื่อนดั้งเดิม</string>
@@ -1339,8 +1295,8 @@ User id ของคุณเหมือนกับรหัสผ่าน �
   </patch>
   <patch id="misc.links.openLinksExternallyPatch">
   <string name="revanced_external_browser_title">เปิดลิงก์ในเบราว์เซอร์</string>
-  <string name="revanced_external_browser_summary_on">เปิดลิงก์ภายนอก</string>
-  <string name="revanced_external_browser_summary_off">เปิดลิงก์ในแอป</string>
+  <string name="revanced_external_browser_summary_on">เปิดลิงก์ในเบราว์เซอร์ภายนอก</string>
+  <string name="revanced_external_browser_summary_off">เปิดลิงก์ในเบราว์เซอร์ในแอป</string>
   </patch>
   <patch id="misc.privacy.removeTrackingQueryParameterPatch">
   <string name="revanced_remove_tracking_query_parameter_title">ลบพารามิเตอร์การติดตามแบบสอบถาม</string>
@@ -1367,9 +1323,15 @@ User id ของคุณเหมือนกับรหัสผ่าน �
   <string name="revanced_remember_video_quality_last_selected_summary_off">การเปลี่ยนแปลงคุณภาพใช้กับวิดีโอปัจจุบันเท่านั้น</string>
   <string name="revanced_video_quality_default_wifi_title">คุณภาพวิดีโอเริ่มต้นบนเครือข่าย Wi-Fi</string>
   <string name="revanced_video_quality_default_mobile_title">คุณภาพวิดีโอเริ่มต้นบนเครือข่ายมือถือ</string>
+  <string name="revanced_remember_shorts_quality_last_selected_title">จดจำการเปลี่ยนแปลงคุณภาพของ Shorts</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_on">การเปลี่ยนแปลงคุณภาพมีผลกับ Shorts ทั้งหมด</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_off">การเปลี่ยนแปลงคุณภาพมีผลกับ Short ปัจจุบันเท่านั้น</string>
+  <string name="revanced_shorts_quality_default_wifi_title">คุณภาพ Shorts เริ่มต้นบนเครือข่าย Wi-Fi</string>
+  <string name="revanced_shorts_quality_default_mobile_title">คุณภาพ Shorts เริ่มต้นบนเครือข่ายมือถือ</string>
   <string name="revanced_remember_video_quality_mobile">มือถือ</string>
   <string name="revanced_remember_video_quality_wifi">wifi</string>
   <string name="revanced_remember_video_quality_toast">เปลี่ยนคุณภาพ %1$s เริ่มต้นเป็น: %2$s</string>
+  <string name="revanced_remember_video_quality_toast_shorts">เปลี่ยนคุณภาพ Shorts %1$s เป็น: %2$s</string>
   </patch>
   <patch id="video.speed.button.playbackSpeedButtonPatch">
   <string name="revanced_playback_speed_dialog_button_title">แสดงปุ่มกล่องโต้ตอบความเร็ว</string>
@@ -1400,10 +1362,10 @@ User id ของคุณเหมือนกับรหัสผ่าน �
   <string name="revanced_disable_hdr_video_summary_on">ปิดใช้งานวิดีโอ HDR</string>
   <string name="revanced_disable_hdr_video_summary_off">เปิดใช้งานวิดีโอ HDR</string>
   </patch>
-  <patch id="video.videoqualitymenu.restoreOldVideoQualityMenuResourcePatch">
-  <string name="revanced_restore_old_video_quality_menu_title">คืนค่าเมนูกำหนดคุณภาพวิดีโอแบบเก่า</string>
-  <string name="revanced_restore_old_video_quality_menu_summary_on">แสดงเมนูกำหนดคุณภาพวิดีโอแบบเก่า</string>
-  <string name="revanced_restore_old_video_quality_menu_summary_off">ไม่แสดงเมนูกำหนดคุณภาพวิดีโอแบบเก่า</string>
+  <patch id="video.quality.advancedVideoQualityMenuPatch">
+  <string name="revanced_advanced_video_quality_menu_title">แสดงเมนูคุณภาพวิดีโอขั้นสูง</string>
+  <string name="revanced_advanced_video_quality_menu_summary_on">เมนูคุณภาพวิดีโอขั้นสูงปรากฏขึ้น</string>
+  <string name="revanced_advanced_video_quality_menu_summary_off">เมนูคุณภาพวิดีโอขั้นสูงไม่ปรากฏ</string>
   </patch>
   <patch id="interaction.seekbar.enableSlideToSeekPatch">
   <string name="revanced_slide_to_seek_title">เปิดใช้งานเลื่อนเพื่อค้นหา</string>

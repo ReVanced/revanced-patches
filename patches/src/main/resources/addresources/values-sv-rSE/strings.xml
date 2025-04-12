@@ -4,7 +4,6 @@
     All strings must have a unique path, even if the same string is declared in two different apps.
     This is because Crowdin requires temporarily flattening this file and removing the <app> and <patch> elements.
 
-
     Strings with new lines must be raw strings where they're wrapped in quotes and new lines are not encoded.
     Raw strings still requires escaping embedded double quotes but escaping embedded single quotes is optional.
 
@@ -43,62 +42,14 @@ Second \"item\" text"</string>
   <string name="revanced_settings_import_reset">ReVanced-inställningarna återställda till standard</string>
   <string name="revanced_settings_import_success">Importerade %d inställningar</string>
   <string name="revanced_settings_import_failure_parse">Importen misslyckades: %s</string>
+  <string name="revanced_show_menu_icons_title">Visa ikoner för ReVanced-inställningar</string>
+  <string name="revanced_show_menu_icons_summary_on">Inställningsikoner visas</string>
+  <string name="revanced_show_menu_icons_summary_off">Ikoner för inställningar visas inte</string>
   <string name="revanced_language_title">Språket för ReVanced</string>
   <string name="revanced_language_user_dialog_message">"Översättningar till vissa språk kan vara ofullständiga eller saknas.
 
 För att översätta till nya språk besök translate.revanced.app"</string>
   <string name="revanced_language_DEFAULT">Språk i app</string>
-  <string name="revanced_language_AR">Arabiska</string>
-  <string name="revanced_language_AZ">Azerbajdzjanska</string>
-  <string name="revanced_language_BG">Bulgariska</string>
-  <string name="revanced_language_BN">Bengali</string>
-  <string name="revanced_language_CA">Katalanska</string>
-  <string name="revanced_language_CS">Tjeckiska</string>
-  <string name="revanced_language_DA">Danska</string>
-  <string name="revanced_language_DE">Tyska</string>
-  <string name="revanced_language_EL">Grekiska</string>
-  <string name="revanced_language_EN">Engelska</string>
-  <string name="revanced_language_ES">Spanska</string>
-  <string name="revanced_language_ET">Estniska</string>
-  <string name="revanced_language_FA">Persiska</string>
-  <string name="revanced_language_FI">Finska</string>
-  <string name="revanced_language_FR">Franska</string>
-  <string name="revanced_language_GU">Gujarati</string>
-  <string name="revanced_language_HI">Hindi</string>
-  <string name="revanced_language_HR">Kroatiska</string>
-  <string name="revanced_language_HU">Ungerska</string>
-  <string name="revanced_language_ID">Indonesiska</string>
-  <string name="revanced_language_IT">Italienska</string>
-  <string name="revanced_language_JA">Japanska</string>
-  <string name="revanced_language_KK">Kazakiska</string>
-  <string name="revanced_language_KO">Koreanska</string>
-  <string name="revanced_language_LT">Litauiska</string>
-  <string name="revanced_language_LV">Lettiska</string>
-  <string name="revanced_language_MK">Makedonska</string>
-  <string name="revanced_language_MN">Mongoliska</string>
-  <string name="revanced_language_MR">Marathi</string>
-  <string name="revanced_language_MS">Malajiska</string>
-  <string name="revanced_language_MY">Burmesiska</string>
-  <string name="revanced_language_NL">Nederländska</string>
-  <string name="revanced_language_OR">Odia</string>
-  <string name="revanced_language_PA">Punjabi</string>
-  <string name="revanced_language_PL">Polska</string>
-  <string name="revanced_language_PT">Portugisiska</string>
-  <string name="revanced_language_RO">Rumänska</string>
-  <string name="revanced_language_RU">Ryska</string>
-  <string name="revanced_language_SK">Slovakiska</string>
-  <string name="revanced_language_SL">Slovenska</string>
-  <string name="revanced_language_SR">Serbiska</string>
-  <string name="revanced_language_SV">Svenska</string>
-  <string name="revanced_language_SW">Swahili</string>
-  <string name="revanced_language_TA">Tamil</string>
-  <string name="revanced_language_TE">Telugu</string>
-  <string name="revanced_language_TH">Thailändska</string>
-  <string name="revanced_language_TR">Turkiska</string>
-  <string name="revanced_language_UK">Ukrainska</string>
-  <string name="revanced_language_UR">Urdu</string>
-  <string name="revanced_language_VI">Vietnamesiska</string>
-  <string name="revanced_language_ZH">Kinesiska</string>
   <string name="revanced_pref_import_export_title">Importera / Exportera</string>
   <string name="revanced_pref_import_export_summary">Importera / Exportera ReVanced-inställningar</string>
   <!-- Settings about dialog. -->
@@ -277,6 +228,9 @@ Du kommer inte att bli meddelad om oväntade händelser."</string>
   <string name="revanced_hide_artist_cards_title">Dölj artistkort</string>
   <string name="revanced_hide_artist_cards_summary_on">Konstnärskort är dolda</string>
   <string name="revanced_hide_artist_cards_summary_off">Artistkort är synliga</string>
+  <string name="revanced_hide_ai_generated_video_summary_section_title">Dölj \"AI-genererad videosammanfattning\"</string>
+  <string name="revanced_hide_ai_generated_video_summary_section_summary_on">Videoöversiktssektionen är dold</string>
+  <string name="revanced_hide_ai_generated_video_summary_section_summary_off">Videoöversiktssektionen visas</string>
   <string name="revanced_hide_attributes_section_title">Dölj attribut</string>
   <string name="revanced_hide_attributes_section_summary_on">Avsnitten Utvalda platser, Spel, Musik och Personer som nämns är dolda</string>
   <string name="revanced_hide_attributes_section_summary_off">Avsnitten Utvalda platser, Spel, Musik och Personer som nämns visas</string>
@@ -313,9 +267,12 @@ Du kommer inte att bli meddelad om oväntade händelser."</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">Visas i relaterade videor</string>
   <string name="revanced_comments_screen_title">Kommentarer</string>
   <string name="revanced_comments_screen_summary">Dölj eller visa kommentarskomponenter</string>
-  <string name="revanced_hide_comments_chat_summary_title">Dölj \"Chattsammanfattning\"</string>
-  <string name="revanced_hide_comments_chat_summary_summary_on">Chattsammanfattningen är dold</string>
-  <string name="revanced_hide_comments_chat_summary_summary_off">Chattsammanfattningen visas</string>
+  <string name="revanced_hide_comments_ai_chat_summary_title">Dölj sammanfattning av AI-chatt</string>
+  <string name="revanced_hide_comments_ai_chat_summary_summary_on">Chattsammanfattningen är dold</string>
+  <string name="revanced_hide_comments_ai_chat_summary_summary_off">Chattsammanfattningen visas</string>
+  <string name="revanced_hide_comments_ai_summary_title">Dölj sammanfattning av AI-kommentarer</string>
+  <string name="revanced_hide_comments_ai_summary_summary_on">Kommentarssammanfattningen är dold</string>
+  <string name="revanced_hide_comments_ai_summary_summary_off">Kommentarssammanfattningen visas</string>
   <string name="revanced_hide_comments_by_members_header_title">Dölj \'Kommentarer från medlemmar\' header</string>
   <string name="revanced_hide_comments_by_members_header_summary_on">Rubriken Kommentarer från medlemmar är dold</string>
   <string name="revanced_hide_comments_by_members_header_summary_off">Rubriken Kommentarer från medlemmar visas</string>
@@ -362,7 +319,7 @@ Om ett klotter visas för närvarande i din region och den här döljningsinstä
   <string name="revanced_hide_keyword_content_subscriptions_summary_on">Videor i fliken prenumerationer filtreras med sökord</string>
   <string name="revanced_hide_keyword_content_subscriptions_summary_off">Videor i fliken prenumerationer filtreras inte efter sökord</string>
   <string name="revanced_hide_keyword_content_phrases_title">Nyckelord att dölja</string>
-  <!-- For localization it is preferred, but not required, if 'LeBlanc' is replaced with a localized name or a familiar word that has upper case letters in the middle of the word.
+  <!-- For localization, it is preferred, but not required, if 'LeBlanc' is replaced with a localized name or a familiar word that has upper case letters in the middle of the word.
                  This is because keywords can be in any language, and showing an example in the localized script helps convey this. -->
   <string name="revanced_hide_keyword_content_phrases_summary">"Nyckelord och fraser att dölja, separerade med radbrytningar
 
@@ -377,7 +334,7 @@ Begränsningar
 • Vissa UI-komponenter kanske inte döljs
 • Att söka efter ett nyckelord kan visa inga resultat"</string>
   <string name="revanced_hide_keyword_content_about_whole_words_title">Matcha hela ord</string>
-  <!-- Translations _must_ use a localized example.  For languages that do not use spaces between words (Chinese, Japanese, etc) the English AI example should be used since no localized examples exist.  Or if using machine translations, or if nobody wants to think of a localized example, then the English 'ai' example should be left as-is. -->
+  <!-- Translations _must_ use a localized example.  For languages that do not use spaces between words (Chinese, Japanese, etc.) the English AI example should be used since no localized examples exist.  Or if using machine translations, or if nobody wants to think of a localized example, then the English 'ai' example should be left as-is. -->
   <string name="revanced_hide_keyword_content_about_whole_words_summary">Om du omger ett sökord/fras med dubbelcitat kommer det att förhindra partiella matchningar av videotitlar och kanalnamn&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;\"ai\"&lt;/b&gt; kommer att dölja videon: &lt;b&gt;How does AI work?&lt;/b&gt;&lt;br&gt;men döljer inte: &lt;b&gt;What does fair use mean?&lt;/b&gt;</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_hide_keyword_toast_invalid_common">Kan inte använda sökord: %s</string>
@@ -404,7 +361,7 @@ Den här funktionen är endast tillgänglig för äldre enheter"</string>
   <string name="revanced_hide_self_sponsor_ads_title">Dölj självsponsrade kort</string>
   <string name="revanced_hide_self_sponsor_ads_summary_on">Självsponsrade kort är dolda</string>
   <string name="revanced_hide_self_sponsor_ads_summary_off">Självsponsrade kort är synliga</string>
-  <string name="revanced_hide_products_banner_title">Dölj banner för att visa produkter</string>
+  <string name="revanced_hide_products_banner_title">Dölj \"Visa produkter\"-banner</string>
   <string name="revanced_hide_products_banner_summary_on">Banner är dold</string>
   <string name="revanced_hide_products_banner_summary_off">Banner är synlig</string>
   <string name="revanced_hide_end_screen_store_banner_title">Dölj bannern för butik på slutskärmen</string>
@@ -475,9 +432,9 @@ Den här funktionen är endast tillgänglig för äldre enheter"</string>
   <string name="revanced_disable_precise_seeking_gesture_summary_off">Gest är aktiverad</string>
   </patch>
   <patch id="interaction.seekbar.enableSeekbarTappingPatch">
-  <string name="revanced_seekbar_tapping_title">Aktivera sökfältsknapp</string>
-  <string name="revanced_seekbar_tapping_summary_on">Seekbar tryck är aktiverat</string>
-  <string name="revanced_seekbar_tapping_summary_off">Seekbar tryck är inaktiverat</string>
+  <string name="revanced_seekbar_tapping_title">Aktivera tryck för att söka</string>
+  <string name="revanced_seekbar_tapping_summary_on">Tryck för att söka är aktiverat</string>
+  <string name="revanced_seekbar_tapping_summary_off">Tryck för att söka är inaktiverat</string>
   </patch>
   <patch id="interaction.swipecontrols.swipeControlsResourcePatch">
   <string name="revanced_swipe_brightness_title">Aktivera ljusstyrkegest</string>
@@ -490,9 +447,9 @@ Justera ljusstyrkan genom att svepa vertikalt på vänster sida av skärmen"</st
 
 Justera volymen genom att svepa vertikalt på höger sida av skärmen"</string>
   <string name="revanced_swipe_volume_summary_off">Helskärmsvolymsvep är inaktiverat</string>
-  <string name="revanced_swipe_press_to_engage_title">Aktivera gester för att svepa</string>
-  <string name="revanced_swipe_press_to_engage_summary_on">Press-till-svep är aktiverat</string>
-  <string name="revanced_swipe_press_to_engage_summary_off">Press-till-svepning är inaktiverad</string>
+  <string name="revanced_swipe_press_to_engage_title">Aktivera tryck för att svepa-gest</string>
+  <string name="revanced_swipe_press_to_engage_summary_on">Tryck för att svepa är aktiverat</string>
+  <string name="revanced_swipe_press_to_engage_summary_off">Tryck för att svepa är inaktiverat</string>
   <string name="revanced_swipe_haptic_feedback_title">Aktivera haptisk feedback</string>
   <string name="revanced_swipe_haptic_feedback_summary_on">Haptisk feedback är aktiverad</string>
   <string name="revanced_swipe_haptic_feedback_summary_off">Haptisk feedback är inaktiverad</string>
@@ -600,6 +557,7 @@ Om du ändrar den här inställningen och det inte får effekt kan du försöka 
   <string name="revanced_disable_translucent_status_bar_title">Inaktivera genomskinlig statusfält</string>
   <string name="revanced_disable_translucent_status_bar_summary_on">Statusraden är ogenomskinlig</string>
   <string name="revanced_disable_translucent_status_bar_summary_off">Statusraden är ogenomskinlig eller genomskinlig</string>
+  <string name="revanced_disable_translucent_status_bar_user_dialog_message">På vissa enheter kan aktivering av den här funktionen ändra systemets navigeringsfält till genomskinligt.</string>
   <string name="revanced_disable_translucent_navigation_bar_light_title">Inaktivera ljus genomskinlig navigeringsfält</string>
   <string name="revanced_disable_translucent_navigation_bar_light_summary_on">Ljusläge navigeringsfält är ogenomskinlig</string>
   <string name="revanced_disable_translucent_navigation_bar_light_summary_off">Ljusläge navigeringsfältet är ogenomskinligt eller genomskinligt</string>
@@ -654,6 +612,10 @@ Om du ändrar den här inställningen och det inte får effekt kan du försöka 
   <string name="revanced_hide_player_flyout_audio_track_title">Dölj ljudspår</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_on">Ljudspårsmenyn är dold</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_off">Ljudspårsmenyn är synlig</string>
+  <!-- 'Spoof video streams' should be the same translation used for revanced_spoof_video_streams_screen_title -->
+  <string name="revanced_hide_player_flyout_audio_track_not_available">"Ljudspårsmenyn är dold
+
+För att visa ljudspårsmenyn, ändra \"Spoof video streams\" till iOS TV"</string>
   <!-- 'Watch in VR' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_watch_in_vr_title">Dölj klocka i VR</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">Titta i VR-menyn är dold</string>
@@ -663,7 +625,7 @@ Om du ändrar den här inställningen och det inte får effekt kan du försöka 
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_off">Videokvalitets sidfot visas</string>
   </patch>
   <patch id="layout.buttons.overlay.hidePlayerOverlayButtonsPatch">
-  <string name="revanced_hide_player_previous_next_buttons_title">Dölj tidigare &amp; nästa videoknappar</string>
+  <string name="revanced_hide_player_previous_next_buttons_title">Dölj Föregående &amp; Nästa knappar</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_on">Knappar är dolda</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">Knappar är synliga</string>
   <string name="revanced_hide_cast_button_title">Dölj cast-knappen</string>
@@ -856,7 +818,6 @@ Inställningar → Uppspelning → Spela upp nästa video automatiskt"</string>
   <string name="revanced_ryd_enable_summary_on">Ogilla är synliga</string>
   <string name="revanced_ryd_enable_summary_off">Ogilla visas inte</string>
   <string name="revanced_ryd_shorts_title">Visa ogillande på Shorts</string>
-  <string name="revanced_ryd_shorts_summary_on">Ogillanden på Shorts visas</string>
   <string name="revanced_ryd_shorts_summary_on_disclaimer">"Ogillanden visas på Shorts
 
 Begränsning: Ogillanden kanske inte visas i inkognitoläge"</string>
@@ -986,7 +947,7 @@ Ditt användar-ID är som ett lösenord och det bör aldrig delas."</string>
   <string name="revanced_sb_segments_selfpromo_sum">Liknande sponsor men för obetald eller egen marknadsföring. Inkluderar avsnitt om varor, donationer eller information om vem de samarbetade med</string>
   <string name="revanced_sb_segments_interaction">Interaktionspåminnelse (Prenumerera)</string>
   <string name="revanced_sb_segments_interaction_sum">En kort påminnelse om att gilla, prenumerera eller följa dem mitt i innehållet. Om den är lång eller om något specifikt, bör den istället vara under självfrämjande</string>
-  <string name="revanced_sb_segments_highlight">Markera</string>
+  <string name="revanced_sb_segments_highlight">Höjdpunkt</string>
   <string name="revanced_sb_segments_highlight_sum">Den del av videon som de flesta letar efter</string>
   <string name="revanced_sb_segments_intro">Paus/introduktionsanimation</string>
   <string name="revanced_sb_segments_intro_sum">Ett intervall utan faktiskt innehåll. Kan vara en paus, statisk ram eller upprepande animation. Inkluderar inte övergångar som innehåller information</string>
@@ -999,11 +960,11 @@ Ditt användar-ID är som ett lösenord och det bör aldrig delas."</string>
   <string name="revanced_sb_segments_nomusic">Musik: Icke-musiksektionen</string>
   <string name="revanced_sb_segments_nomusic_sum">Endast för användning i musikvideor. Sektioner av musikvideor utan musik, som inte redan omfattas av en annan kategori</string>
   <string name="revanced_sb_skip_button_compact">Hoppa</string>
-  <string name="revanced_sb_skip_button_compact_highlight">Markera</string>
+  <string name="revanced_sb_skip_button_compact_highlight">Höjdpunkt</string>
   <string name="revanced_sb_skip_button_sponsor">Hoppa över sponsor</string>
   <string name="revanced_sb_skip_button_selfpromo">Hoppa över kampanjerbjudande</string>
   <string name="revanced_sb_skip_button_interaction">Hoppa över interagera</string>
-  <string name="revanced_sb_skip_button_highlight">Hoppa över för att markera</string>
+  <string name="revanced_sb_skip_button_highlight">Hoppa till höjdpunkten</string>
   <string name="revanced_sb_skip_button_intro_beginning">Hoppa över intro</string>
   <string name="revanced_sb_skip_button_intro_middle">Hoppa över paus</string>
   <string name="revanced_sb_skip_button_intro_end">Hoppa över paus</string>
@@ -1017,7 +978,7 @@ Ditt användar-ID är som ett lösenord och det bör aldrig delas."</string>
   <string name="revanced_sb_skipped_sponsor">Hoppade över sponsor</string>
   <string name="revanced_sb_skipped_selfpromo">Hoppade över självmarknadsföring</string>
   <string name="revanced_sb_skipped_interaction">Överhoppad irriterande påminnelse</string>
-  <string name="revanced_sb_skipped_highlight">Hoppas över för att markera</string>
+  <string name="revanced_sb_skipped_highlight">Hoppade till höjdpunkten</string>
   <string name="revanced_sb_skipped_intro_beginning">Hoppade över intro</string>
   <string name="revanced_sb_skipped_intro_middle">Överhoppad paus</string>
   <string name="revanced_sb_skipped_intro_end">Överhoppad paus</string>
@@ -1053,6 +1014,8 @@ Redan finns"</string>
   <string name="revanced_sb_vote_downvote">Nedrösta</string>
   <string name="revanced_sb_vote_category">Ändra kategori</string>
   <string name="revanced_sb_vote_no_segments">Det finns inga segment att rösta på</string>
+  <!-- A segment start and end time, such as "02:10 to 03:40" -->
+  <string name="revanced_sb_vote_segment_time_to_from">%1$s till %2$s</string>
   <string name="revanced_sb_new_segment_choose_category">Välj segmentkategori</string>
   <string name="revanced_sb_new_segment_disabled_category">Kategorin är inaktiverad i inställningar. Aktivera kategori för att skicka.</string>
   <string name="revanced_sb_new_segment_title">Nytt Sponsorblock-segment</string>
@@ -1100,6 +1063,7 @@ Redo att skicka in?"</string>
   <string name="revanced_sb_stats_saved_hour_format">%1$s timmar %2$s minuter</string>
   <string name="revanced_sb_stats_saved_minute_format">%1$s minuter %2$s sekunder</string>
   <string name="revanced_sb_stats_saved_second_format">%s sekunder</string>
+  <string name="revanced_sb_color_opacity_label">Opacitet:</string>
   <string name="revanced_sb_color_dot_label">Färg:</string>
   <string name="revanced_sb_color_changed">Färg ändrad</string>
   <string name="revanced_sb_color_reset">Färg återställning</string>
@@ -1117,14 +1081,12 @@ Redo att skicka in?"</string>
   <string name="revanced_change_form_factor_entry_4">Bil</string>
   <string name="revanced_change_form_factor_user_dialog_message">"Ändringar inkluderar:
 
-Surfplatta-layout
-• Community-inlägg är dolda
+Tabletlayout
+• Communityinlägg är dolda
 
-Billautomation
-• Tittningshistorikmenyn är dold
-• Utforska-fliken är återställd
+Automotive-layout
 • Shorts öppnas i den vanliga spelaren
-• Flödet är organiserat efter ämnen och kanal"</string>
+• Flödet är organiserat efter ämnen och kanaler"</string>
   </patch>
   <patch id="layout.spoofappversion.spoofAppVersionPatch">
   <string name="revanced_spoof_app_version_title">Spoof app-version</string>
@@ -1139,12 +1101,7 @@ Om det senare stängs av rekommenderas det att rensa appens data för att förhi
                  This is because the 'General layout' menu uses alphabetic sorting, and it functionally works better if the spoof target selector appears below the 'Spoof app version' UI switch -->
   <string name="revanced_spoof_app_version_target_title">Spoof app-versionsmål</string>
   <string name="revanced_spoof_app_version_target_entry_1">19.35.36 - Återställ gamla Shorts-spelarikoner</string>
-  <string name="revanced_spoof_app_version_target_entry_2">19.26.42 - Återställ originalnavigeringsbilder</string>
-  <!-- 'RYD' is 'Return YouTube Dislike' -->
-  <string name="revanced_spoof_app_version_target_legacy_entry_1">18.33.40 - Återställ RYD på Shorts inkognitoläge</string>
-  <string name="revanced_spoof_app_version_target_legacy_entry_2">18.20.39 - Återställ videons hastighet &amp; kvalitetsmeny</string>
-  <string name="revanced_spoof_app_version_target_legacy_entry_3">18.09.39 - Återställ biblioteksfliken</string>
-  <string name="revanced_spoof_app_version_target_legacy_entry_4">17.33.42 - Återställ gamla spellisthyllor</string>
+  <string name="revanced_spoof_app_version_target_entry_2">19.01.34 - Återställ gamla navigeringsikoner</string>
   </patch>
   <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">Ställ in startsida</string>
@@ -1194,7 +1151,7 @@ Om det senare stängs av rekommenderas det att rensa appens data för att förhi
   </patch>
   <patch id="layout.miniplayer.miniplayerPatch">
   <string name="revanced_miniplayer_screen_title">Minispelare</string>
-  <string name="revanced_miniplayer_screen_summary">Ändra stilen på appen minimerad spelare</string>
+  <string name="revanced_miniplayer_screen_summary">Ändra stilen på den minimerade spelaren i appen</string>
   <string name="revanced_miniplayer_type_title">Miniplayer typ</string>
   <string name="revanced_miniplayer_type_entry_0">Inaktiverad</string>
   <string name="revanced_miniplayer_type_entry_1">Standard</string>
@@ -1203,6 +1160,7 @@ Om det senare stängs av rekommenderas det att rensa appens data för att förhi
   <string name="revanced_miniplayer_type_entry_4">Modern 1</string>
   <string name="revanced_miniplayer_type_entry_5">Modern 2</string>
   <string name="revanced_miniplayer_type_entry_6">Modern 3</string>
+  <string name="revanced_miniplayer_type_entry_7">Modern 4</string>
   <string name="revanced_miniplayer_rounded_corners_title">Aktivera rundade hörn</string>
   <string name="revanced_miniplayer_rounded_corners_summary_on">Hörnen är rundade</string>
   <string name="revanced_miniplayer_rounded_corners_summary_off">Hörnen är kvadratiska</string>
@@ -1222,14 +1180,14 @@ Minispelaren kan dras till valfritt hörn av skärmen"</string>
 
 Minispelare kan dras av skärmen till vänster eller höger"</string>
   <string name="revanced_miniplayer_horizontal_drag_summary_off">Horisontell drag gest inaktiverad</string>
-  <string name="revanced_miniplayer_hide_expand_close_title">Dölj stängningsknappen</string>
-  <string name="revanced_miniplayer_hide_expand_close_summary_on">Stäng knappen är dold</string>
-  <string name="revanced_miniplayer_hide_expand_close_summary_off">Stäng knappen visas</string>
-  <string name="revanced_miniplayer_hide_expand_close_legacy_title">Dölj expandera och stäng knappar</string>
-  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_on">"Knappar är dolda
+  <string name="revanced_miniplayer_hide_overlay_buttons_title">Dölj överlagringsknappar</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">Överlagringsknappar är dolda</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">Överlagringsknappar visas</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_title">Dölj expanderings- och stängningsknappar</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_on">"Knapparna är dolda
 
 Svep för att expandera eller stänga"</string>
-  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_off">Expandera och stäng knappar visas</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_off">Expanderings- och stängningsknappar visas</string>
   <string name="revanced_miniplayer_hide_subtext_title">Dölj undertexter</string>
   <string name="revanced_miniplayer_hide_subtext_summary_on">Undertexter är dolda</string>
   <string name="revanced_miniplayer_hide_subtext_summary_off">Undertexter visas</string>
@@ -1247,8 +1205,6 @@ Svep för att expandera eller stänga"</string>
   <string name="revanced_gradient_loading_screen_title">Aktivera gradient laddar skärmen</string>
   <string name="revanced_gradient_loading_screen_summary_on">Laddar skärmen kommer att ha en lutande bakgrund</string>
   <string name="revanced_gradient_loading_screen_summary_off">Laddar skärmen kommer att ha en solid bakgrund</string>
-  </patch>
-  <patch id="layout.theme.themeResourcePatch">
   <string name="revanced_seekbar_custom_color_title">Aktivera anpassad sökfält färg</string>
   <string name="revanced_seekbar_custom_color_summary_on">Anpassad sökfält färg visas</string>
   <string name="revanced_seekbar_custom_color_summary_off">Original sökfält färg visas</string>
@@ -1340,8 +1296,8 @@ Att aktivera detta kan låsa upp högre videokvalitet"</string>
   </patch>
   <patch id="misc.links.openLinksExternallyPatch">
   <string name="revanced_external_browser_title">Öppna länkar i webbläsaren</string>
-  <string name="revanced_external_browser_summary_on">Öppna länkar externt</string>
-  <string name="revanced_external_browser_summary_off">Öppna länkar i appen</string>
+  <string name="revanced_external_browser_summary_on">Öppna länkar i extern webbläsare</string>
+  <string name="revanced_external_browser_summary_off">Öppna länkar i webbläsaren i appen</string>
   </patch>
   <patch id="misc.privacy.removeTrackingQueryParameterPatch">
   <string name="revanced_remove_tracking_query_parameter_title">Ta bort spårningsfrågeparameter</string>
@@ -1368,9 +1324,15 @@ Att aktivera detta kan låsa upp högre videokvalitet"</string>
   <string name="revanced_remember_video_quality_last_selected_summary_off">Kvalitetsförändringar gäller endast för den aktuella videon</string>
   <string name="revanced_video_quality_default_wifi_title">Standard videokvalitet på Wi-Fi-nätverk</string>
   <string name="revanced_video_quality_default_mobile_title">Standard videokvalitet på mobilt nätverk</string>
+  <string name="revanced_remember_shorts_quality_last_selected_title">Kom ihåg kvalitetsändringar för Shorts</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_on">Kvalitetsändringar gäller alla Shorts</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_off">Kvalitetsändringar gäller endast aktuell Short</string>
+  <string name="revanced_shorts_quality_default_wifi_title">Standardkvalitet för Shorts på Wi-Fi-nätverk</string>
+  <string name="revanced_shorts_quality_default_mobile_title">Standardkvalitet för Shorts på mobilnätverk</string>
   <string name="revanced_remember_video_quality_mobile">mobil</string>
   <string name="revanced_remember_video_quality_wifi">wifi</string>
   <string name="revanced_remember_video_quality_toast">Ändrade standardkvalitet %1$s till: %2$s</string>
+  <string name="revanced_remember_video_quality_toast_shorts">Ändrade Shorts %1$s-kvalitet till: %2$s</string>
   </patch>
   <patch id="video.speed.button.playbackSpeedButtonPatch">
   <string name="revanced_playback_speed_dialog_button_title">Visa hastighetsdialogruta knapp</string>
@@ -1401,10 +1363,10 @@ Att aktivera detta kan låsa upp högre videokvalitet"</string>
   <string name="revanced_disable_hdr_video_summary_on">HDR-video är inaktiverat</string>
   <string name="revanced_disable_hdr_video_summary_off">HDR-video är aktiverat</string>
   </patch>
-  <patch id="video.videoqualitymenu.restoreOldVideoQualityMenuResourcePatch">
-  <string name="revanced_restore_old_video_quality_menu_title">Återställ gamla videokvalitetsmenyn</string>
-  <string name="revanced_restore_old_video_quality_menu_summary_on">Gammal videokvalitetsmeny visas</string>
-  <string name="revanced_restore_old_video_quality_menu_summary_off">Gamla videokvalitetsmenyn visas inte</string>
+  <patch id="video.quality.advancedVideoQualityMenuPatch">
+  <string name="revanced_advanced_video_quality_menu_title">Visa avancerad videokvalitetsmeny</string>
+  <string name="revanced_advanced_video_quality_menu_summary_on">Avancerad videokvalitetsmeny visas</string>
+  <string name="revanced_advanced_video_quality_menu_summary_off">Avancerad videokvalitetsmeny visas inte</string>
   </patch>
   <patch id="interaction.seekbar.enableSlideToSeekPatch">
   <string name="revanced_slide_to_seek_title">Aktivera glid för att söka</string>

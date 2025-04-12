@@ -4,7 +4,6 @@
     All strings must have a unique path, even if the same string is declared in two different apps.
     This is because Crowdin requires temporarily flattening this file and removing the <app> and <patch> elements.
 
-
     Strings with new lines must be raw strings where they're wrapped in quotes and new lines are not encoded.
     Raw strings still requires escaping embedded double quotes but escaping embedded single quotes is optional.
 
@@ -43,62 +42,14 @@ Second \"item\" text"</string>
   <string name="revanced_settings_import_reset">Revanced-asetukset nollattiin</string>
   <string name="revanced_settings_import_success">%d asetusta tuotiin</string>
   <string name="revanced_settings_import_failure_parse">Tuonti epäonnistui: %s</string>
+  <string name="revanced_show_menu_icons_title">Näytä ReVanced-asetuskuvakkeet</string>
+  <string name="revanced_show_menu_icons_summary_on">Asetuskuvakkeet näytetään</string>
+  <string name="revanced_show_menu_icons_summary_off">Asetuskuvakkeita ei näytetä</string>
   <string name="revanced_language_title">ReVancedin kieli</string>
   <string name="revanced_language_user_dialog_message">"Joidenkin kielten käännökset saattavat puuttua tai olla puutteellisia.
 
 Voit auttaa uusien kielten kääntämisessä osoitteessa translate.revanced.app"</string>
   <string name="revanced_language_DEFAULT">Sovelluksen kieli</string>
-  <string name="revanced_language_AR">Arabia</string>
-  <string name="revanced_language_AZ">Azeri</string>
-  <string name="revanced_language_BG">Bulgaria</string>
-  <string name="revanced_language_BN">Bengali</string>
-  <string name="revanced_language_CA">Katalaani</string>
-  <string name="revanced_language_CS">Tšekki</string>
-  <string name="revanced_language_DA">Tanska</string>
-  <string name="revanced_language_DE">Saksa</string>
-  <string name="revanced_language_EL">Kreikka</string>
-  <string name="revanced_language_EN">Englanti</string>
-  <string name="revanced_language_ES">Espanja</string>
-  <string name="revanced_language_ET">Viro</string>
-  <string name="revanced_language_FA">Persia</string>
-  <string name="revanced_language_FI">Suomi</string>
-  <string name="revanced_language_FR">Ranska</string>
-  <string name="revanced_language_GU">Gudžarati</string>
-  <string name="revanced_language_HI">Hindi</string>
-  <string name="revanced_language_HR">Kroaatti</string>
-  <string name="revanced_language_HU">Unkari</string>
-  <string name="revanced_language_ID">Indonesia</string>
-  <string name="revanced_language_IT">Italia</string>
-  <string name="revanced_language_JA">Japani</string>
-  <string name="revanced_language_KK">Kazakki</string>
-  <string name="revanced_language_KO">Korea</string>
-  <string name="revanced_language_LT">Liettua</string>
-  <string name="revanced_language_LV">Latvia</string>
-  <string name="revanced_language_MK">Makedonia</string>
-  <string name="revanced_language_MN">Mongoli</string>
-  <string name="revanced_language_MR">Marathi</string>
-  <string name="revanced_language_MS">Malaiji</string>
-  <string name="revanced_language_MY">Burma</string>
-  <string name="revanced_language_NL">Hollanti</string>
-  <string name="revanced_language_OR">Orija</string>
-  <string name="revanced_language_PA">Pandžabi</string>
-  <string name="revanced_language_PL">Puola</string>
-  <string name="revanced_language_PT">Portugali</string>
-  <string name="revanced_language_RO">Romania</string>
-  <string name="revanced_language_RU">Venäjä</string>
-  <string name="revanced_language_SK">Slovakki</string>
-  <string name="revanced_language_SL">Sloveeni</string>
-  <string name="revanced_language_SR">Serbia</string>
-  <string name="revanced_language_SV">Ruotsi</string>
-  <string name="revanced_language_SW">Swahili</string>
-  <string name="revanced_language_TA">Tamil</string>
-  <string name="revanced_language_TE">Telugu</string>
-  <string name="revanced_language_TH">Thai</string>
-  <string name="revanced_language_TR">Turkki</string>
-  <string name="revanced_language_UK">Ukraina</string>
-  <string name="revanced_language_UR">Urdu</string>
-  <string name="revanced_language_VI">Vietnam</string>
-  <string name="revanced_language_ZH">Kiina</string>
   <string name="revanced_pref_import_export_title">Tuonti/vienti</string>
   <string name="revanced_pref_import_export_summary">Tuo/vie ReVanced-asetukset</string>
   <!-- Settings about dialog. -->
@@ -203,6 +154,7 @@ Et saa ilmoituksia odottamattomista tapahtumista."</string>
   <string name="revanced_hide_notify_me_button_summary_on">Painike on piilotettu</string>
   <string name="revanced_hide_notify_me_button_summary_off">Painike näytetään</string>
   <!-- 'People also watched' should be translated using the same localized wording YouTube displays. -->
+  <string name="revanced_hide_search_result_recommendations_title">Piilota \'\"Ihmiset katselivat myös\" -tunniste</string>
   <string name="revanced_hide_search_result_recommendations_summary_on">Tunniste on piilotettu</string>
   <string name="revanced_hide_search_result_recommendations_summary_off">Tunniste näytetään</string>
   <!-- 'Show more' should be translated with the same localized wording that YouTube displays.
@@ -276,6 +228,10 @@ Et saa ilmoituksia odottamattomista tapahtumista."</string>
   <string name="revanced_hide_artist_cards_title">Piilota artistikortit</string>
   <string name="revanced_hide_artist_cards_summary_on">Artistikortit on piilotettu</string>
   <string name="revanced_hide_artist_cards_summary_off">Artistikortit näytetään</string>
+  <string name="revanced_hide_ai_generated_video_summary_section_title">Piilota \"tekoälyn luoma videoyhteenveto\"</string>
+  <string name="revanced_hide_ai_generated_video_summary_section_summary_on">Videon yhteenveto-osio on piilotettu</string>
+  <string name="revanced_hide_ai_generated_video_summary_section_summary_off">Videon yhteenveto-osio näytetään</string>
+  <string name="revanced_hide_attributes_section_title">Piilota Määritteet</string>
   <string name="revanced_hide_attributes_section_summary_on">Esitellyt paikat, Pelit, Musiikki ja Mainitut ihmiset -osiot on piilotettu</string>
   <string name="revanced_hide_attributes_section_summary_off">Esitellyt paikat, Pelit, Musiikki ja Mainitut ihmiset -osiot näytetään</string>
   <string name="revanced_hide_chapters_section_title">Piilota Videon osat</string>
@@ -311,9 +267,12 @@ Et saa ilmoituksia odottamattomista tapahtumista."</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">Näytetään liittyvissä videoissa</string>
   <string name="revanced_comments_screen_title">Kommentit</string>
   <string name="revanced_comments_screen_summary">Piilota tai näytä kommenttiosion osia</string>
-  <string name="revanced_hide_comments_chat_summary_title">Piilota \"Chat-yhteenveto\"</string>
-  <string name="revanced_hide_comments_chat_summary_summary_on">Chat-yhteenveto on piilotettu</string>
-  <string name="revanced_hide_comments_chat_summary_summary_off">Chat-yhteenveto näytetään</string>
+  <string name="revanced_hide_comments_ai_chat_summary_title">Piilota tekoälyn luoma chat-yhteenveto</string>
+  <string name="revanced_hide_comments_ai_chat_summary_summary_on">Chat-yhteenveto on piilotettu</string>
+  <string name="revanced_hide_comments_ai_chat_summary_summary_off">Chat-yhteenveto näytetään</string>
+  <string name="revanced_hide_comments_ai_summary_title">Piilota tekoälyn luoma kommenttiyhteenveto</string>
+  <string name="revanced_hide_comments_ai_summary_summary_on">Kommenttien yhteenveto on piilotettu</string>
+  <string name="revanced_hide_comments_ai_summary_summary_off">Kommenttien yhteenveto näytetään</string>
   <string name="revanced_hide_comments_by_members_header_title">Piilota \"Jäsenten kommentit\" -ylätunniste</string>
   <string name="revanced_hide_comments_by_members_header_summary_on">Jäsenten kommentit -ylätunniste on piilotettu</string>
   <string name="revanced_hide_comments_by_members_header_summary_off">Jäsenten kommentit -ylätunniste näytetään</string>
@@ -360,7 +319,7 @@ Jos Doodle näkyy tällä hetkellä alueellasi ja tämä piilotusasetus on käyt
   <string name="revanced_hide_keyword_content_subscriptions_summary_on">Tilaukset-välilehden videoita suodatetaan avainsanojen mukaan</string>
   <string name="revanced_hide_keyword_content_subscriptions_summary_off">Tilaukset-välilehden videoita ei suodateta avainsanojen mukaan</string>
   <string name="revanced_hide_keyword_content_phrases_title">Piilotettavat avainsanat</string>
-  <!-- For localization it is preferred, but not required, if 'LeBlanc' is replaced with a localized name or a familiar word that has upper case letters in the middle of the word.
+  <!-- For localization, it is preferred, but not required, if 'LeBlanc' is replaced with a localized name or a familiar word that has upper case letters in the middle of the word.
                  This is because keywords can be in any language, and showing an example in the localized script helps convey this. -->
   <string name="revanced_hide_keyword_content_phrases_summary">"Piilotettavat avainsanat ja lausekkeet, erotettuina rivinvaihdoilla
 
@@ -375,7 +334,7 @@ Rajoitukset
 • Joitain käyttöliittymän osia ei välttämättä piiloteta
 • Avainsanan haku ei välttämättä näytä tuloksia"</string>
   <string name="revanced_hide_keyword_content_about_whole_words_title">Täsmää koko sanaan</string>
-  <!-- Translations _must_ use a localized example.  For languages that do not use spaces between words (Chinese, Japanese, etc) the English AI example should be used since no localized examples exist.  Or if using machine translations, or if nobody wants to think of a localized example, then the English 'ai' example should be left as-is. -->
+  <!-- Translations _must_ use a localized example.  For languages that do not use spaces between words (Chinese, Japanese, etc.) the English AI example should be used since no localized examples exist.  Or if using machine translations, or if nobody wants to think of a localized example, then the English 'ai' example should be left as-is. -->
   <string name="revanced_hide_keyword_content_about_whole_words_summary">Hakusanan/lauseen ympäröiminen kaksoislainauksilla estää videon oitsikoiden ja kanavien nimien osittaisia vastaavuuksia&lt;br&gt;&lt;br&gt;Esimerkiksi,&lt;br&gt;&lt;b&gt;\"ai\"&lt;/b&gt; piilottaa videon: &lt;b&gt;How does AI work?&lt;/b&gt;&lt;br&gt;mutta ei piilota: &lt;b&gt;What does fair use mean?&lt;/b&gt;</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_hide_keyword_toast_invalid_common">Ei voi käyttää avainsanaa: %s</string>
@@ -402,7 +361,7 @@ Tämä ominaisuus on käytettävissä vain vanhemmilla laitteilla"</string>
   <string name="revanced_hide_self_sponsor_ads_title">Piilota itse-sponsoroidut kortit</string>
   <string name="revanced_hide_self_sponsor_ads_summary_on">Itse-sponsoroidut kortit ovat piilotettu</string>
   <string name="revanced_hide_self_sponsor_ads_summary_off">Itse-sponsoroidut kortit näytetään</string>
-  <string name="revanced_hide_products_banner_title">Piilota tuotebanneri</string>
+  <string name="revanced_hide_products_banner_title">Piilota \"Näytä tuotteet\" -banneri</string>
   <string name="revanced_hide_products_banner_summary_on">Banneri on piilotettu</string>
   <string name="revanced_hide_products_banner_summary_off">Banneri näytetään</string>
   <string name="revanced_hide_end_screen_store_banner_title">Piilota loppunäytön kauppabanneri</string>
@@ -473,9 +432,9 @@ Tämä ominaisuus on käytettävissä vain vanhemmilla laitteilla"</string>
   <string name="revanced_disable_precise_seeking_gesture_summary_off">Ele on käytössä</string>
   </patch>
   <patch id="interaction.seekbar.enableSeekbarTappingPatch">
-  <string name="revanced_seekbar_tapping_title">Ota liukusäätimen napautus käyttöön</string>
-  <string name="revanced_seekbar_tapping_summary_on">Liukusäätimen napautus on käytössä</string>
-  <string name="revanced_seekbar_tapping_summary_off">Liukusäätimen napautus ei ole käytössä</string>
+  <string name="revanced_seekbar_tapping_title">Ota kelaus napauttamalla käyttöön</string>
+  <string name="revanced_seekbar_tapping_summary_on">Kelaus napauttamalla on käytössä</string>
+  <string name="revanced_seekbar_tapping_summary_off">Kelaus napauttamalla ei ole käytössä</string>
   </patch>
   <patch id="interaction.swipecontrols.swipeControlsResourcePatch">
   <string name="revanced_swipe_brightness_title">Ota kirkkauden ele käyttöön</string>
@@ -598,6 +557,7 @@ Jos tämän asetuksen muuttaminen ei tule voimaan, kokeile vaihtaa Incognito-til
   <string name="revanced_disable_translucent_status_bar_title">Poista läpikuultava tilapalkki käytöstä</string>
   <string name="revanced_disable_translucent_status_bar_summary_on">Tilapalkki on läpinäkymätön</string>
   <string name="revanced_disable_translucent_status_bar_summary_off">Tilapalkki on läpinäkymätön tai läpikuultava</string>
+  <string name="revanced_disable_translucent_status_bar_user_dialog_message">Joillakin laitteilla tämän ominaisuuden käyttöönotto voi muuttaa järjestelmän navigointipalkin läpinäkyväksi.</string>
   <string name="revanced_disable_translucent_navigation_bar_light_title">Poista vaalea läpikuultava palkki käytöstä</string>
   <string name="revanced_disable_translucent_navigation_bar_light_summary_on">Vaalean tilan navigointipalkki on läpinäkymätön</string>
   <string name="revanced_disable_translucent_navigation_bar_light_summary_off">Vaalean tilan navigointipalkki on läpinäkymätön tai läpikuultava</string>
@@ -652,6 +612,7 @@ Jos tämän asetuksen muuttaminen ei tule voimaan, kokeile vaihtaa Incognito-til
   <string name="revanced_hide_player_flyout_audio_track_title">Piilota Ääniraita</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_on">Ääniraitavalikko on piilotettu</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_off">Ääniraitavalikko näytetään</string>
+  <!-- 'Spoof video streams' should be the same translation used for revanced_spoof_video_streams_screen_title -->
   <!-- 'Watch in VR' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_watch_in_vr_title">Piilota Katso VR-tilassa</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">Katso VR-tilassa -valinta on piilotettu</string>
@@ -661,7 +622,7 @@ Jos tämän asetuksen muuttaminen ei tule voimaan, kokeile vaihtaa Incognito-til
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_off">Videolaatuvalikon alatunniste näytetään</string>
   </patch>
   <patch id="layout.buttons.overlay.hidePlayerOverlayButtonsPatch">
-  <string name="revanced_hide_player_previous_next_buttons_title">Piilota edellinen- ja seuraava video -painikkeet</string>
+  <string name="revanced_hide_player_previous_next_buttons_title">Piilota Edellinen ja Seuraava -painikkeeet</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_on">Painikkeet on piilotettu</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">Painikkeet näytetään</string>
   <string name="revanced_hide_cast_button_title">Piilota Cast-painike</string>
@@ -854,7 +815,6 @@ Asetukset → Toisto → Toista seuraava video automaattisesti"</string>
   <string name="revanced_ryd_enable_summary_on">Ei-tykkäykset näytetään</string>
   <string name="revanced_ryd_enable_summary_off">Ei-tykkäyksiä ei näytetä</string>
   <string name="revanced_ryd_shorts_title">Näytä ei-tykkykset Shortseissa</string>
-  <string name="revanced_ryd_shorts_summary_on">Ei-tykkäykset näytetään Shortseissa</string>
   <string name="revanced_ryd_shorts_summary_on_disclaimer">"Ei-tykkäykset näytetään Shortseissa
 
 Rajoitus: Ei-tykkäykset eivät välttämättä näy incognito-tilassa"</string>
@@ -1052,6 +1012,8 @@ On jo olemassa"</string>
   <string name="revanced_sb_vote_downvote">Alaääni</string>
   <string name="revanced_sb_vote_category">Muuta kategoriaa</string>
   <string name="revanced_sb_vote_no_segments">Äänestettäviä osioita ei ole</string>
+  <!-- A segment start and end time, such as "02:10 to 03:40" -->
+  <string name="revanced_sb_vote_segment_time_to_from">%1$s–%2$s</string>
   <string name="revanced_sb_new_segment_choose_category">Valitse osion kategoria</string>
   <string name="revanced_sb_new_segment_disabled_category">Kategoria on poistettu käytöstä asetuksissa. Salli kategoria lähettääksesi.</string>
   <string name="revanced_sb_new_segment_title">Uusi SponsorBlock-osio</string>
@@ -1099,6 +1061,7 @@ Oletko valmis lähettämään?"</string>
   <string name="revanced_sb_stats_saved_hour_format">%1$s tuntia %2$s minuuttia</string>
   <string name="revanced_sb_stats_saved_minute_format">%1$s minuuttia %2$s sekuntia</string>
   <string name="revanced_sb_stats_saved_second_format">%s sekuntia</string>
+  <string name="revanced_sb_color_opacity_label">Läpikuultamattomuus:</string>
   <string name="revanced_sb_color_dot_label">Väri:</string>
   <string name="revanced_sb_color_changed">Väri vaihdettu</string>
   <string name="revanced_sb_color_reset">Väri nollattu</string>
@@ -1120,9 +1083,7 @@ Tabletti-asettelu
 • Yhteisöpostaukset on piilotettu
 
 Ajoneuvo-asettelu
-• Katseluhistoriavalikko on piilotettu
-• Tutustu-välilehti on palautettu
-• Shortsit avautuvat tavallisessa soittimessa
+• Shortsit avataan tavallisessa soittimessa
 • Syöte on järjestetty aiheiden ja kanavien mukaan"</string>
   </patch>
   <patch id="layout.spoofappversion.spoofAppVersionPatch">
@@ -1138,12 +1099,7 @@ Jos tämä poistetaan myöhemmin käytöstä, on suositeltavaa tyhjentää sovel
                  This is because the 'General layout' menu uses alphabetic sorting, and it functionally works better if the spoof target selector appears below the 'Spoof app version' UI switch -->
   <string name="revanced_spoof_app_version_target_title">Naamioitava kohdeversio</string>
   <string name="revanced_spoof_app_version_target_entry_1">19.35.36 - Palauta vanhat Shorts-soittimen kuvakkeet</string>
-  <string name="revanced_spoof_app_version_target_entry_2">19.26.42 - Palauta vanhat navigointikuvakkeet</string>
-  <!-- 'RYD' is 'Return YouTube Dislike' -->
-  <string name="revanced_spoof_app_version_target_legacy_entry_1">18.33.40 - Palauita RYD Shorts-videoissa incognito-tilassa</string>
-  <string name="revanced_spoof_app_version_target_legacy_entry_2">18.20.39 - Palauta leveä videonopeus- ja laatuvalikko</string>
-  <string name="revanced_spoof_app_version_target_legacy_entry_3">18.09.39 - Palauta kirjasto-välilehti</string>
-  <string name="revanced_spoof_app_version_target_legacy_entry_4">17.33.42 - Palauta vanha soittolistahylly</string>
+  <string name="revanced_spoof_app_version_target_entry_2">19.01.34 - Palauta vanhat navigointikuvakkeet</string>
   </patch>
   <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">Aseta aloitussivu</string>
@@ -1202,6 +1158,7 @@ Jos tämä poistetaan myöhemmin käytöstä, on suositeltavaa tyhjentää sovel
   <string name="revanced_miniplayer_type_entry_4">Moderni 1</string>
   <string name="revanced_miniplayer_type_entry_5">Moderni 2</string>
   <string name="revanced_miniplayer_type_entry_6">Moderni 3</string>
+  <string name="revanced_miniplayer_type_entry_7">Moderni 4</string>
   <string name="revanced_miniplayer_rounded_corners_title">Ota pyöristetyt kulmat käyttöön</string>
   <string name="revanced_miniplayer_rounded_corners_summary_on">Kulmat on pyöristetty</string>
   <string name="revanced_miniplayer_rounded_corners_summary_off">Kulmat ovat suorakulmaisia</string>
@@ -1221,14 +1178,14 @@ Minisoitin voidaan vetää mihin tahansa näytön kulmaan"</string>
 
 Minisoitin voidaan vetää pois näytöltä vasemmalle tai oikealle"</string>
   <string name="revanced_miniplayer_horizontal_drag_summary_off">Vaakasuuntainen vetoele ei ole käytössä</string>
-  <string name="revanced_miniplayer_hide_expand_close_title">Piilota sulje-painike</string>
-  <string name="revanced_miniplayer_hide_expand_close_summary_on">Sulje-painike on piilotettu</string>
-  <string name="revanced_miniplayer_hide_expand_close_summary_off">Sulje-painike näytetään</string>
-  <string name="revanced_miniplayer_hide_expand_close_legacy_title">Piilota laajenna- ja sulje-painikkeet</string>
-  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_on">"Painikkeet piilotetaan
+  <string name="revanced_miniplayer_hide_overlay_buttons_title">Piilota peittokuvan painikkeet</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">Peittokuvan painikkeet on piilotettu</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">Peittokuvan painikkeet näytetään</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_title">Piilota laajenna- ja sulje-painikkeet</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_on">"Painikkeet piilotetaan
 
 Pyyhkäise laajentaaksesi tai sulkeaksesi"</string>
-  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_off">Laajenna- ja sulje-painikkeet näytetään</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_off">Laajenna- ja sulje-painikkeet näytetään</string>
   <string name="revanced_miniplayer_hide_subtext_title">Piilota alatekstit</string>
   <string name="revanced_miniplayer_hide_subtext_summary_on">Alatekstit on piilotettu</string>
   <string name="revanced_miniplayer_hide_subtext_summary_off">Alatekstit näytetään</string>
@@ -1246,8 +1203,6 @@ Pyyhkäise laajentaaksesi tai sulkeaksesi"</string>
   <string name="revanced_gradient_loading_screen_title">Ota liukuvärillinen latausruutu käyttöön</string>
   <string name="revanced_gradient_loading_screen_summary_on">Latausruudulla on liukuvärillinen tausta</string>
   <string name="revanced_gradient_loading_screen_summary_off">Latausruudulla on yksivärinen tausta</string>
-  </patch>
-  <patch id="layout.theme.themeResourcePatch">
   <string name="revanced_seekbar_custom_color_title">Ota oma liukusäätimen väri käyttöön</string>
   <string name="revanced_seekbar_custom_color_summary_on">Oma liukusäätimen väri näytetään</string>
   <string name="revanced_seekbar_custom_color_summary_off">Alkuperäinen liukusäätimen väri näytetään</string>
@@ -1339,8 +1294,8 @@ Tämä voi avata korkealaatuisemmat videot"</string>
   </patch>
   <patch id="misc.links.openLinksExternallyPatch">
   <string name="revanced_external_browser_title">Avaa linkit selaimessa</string>
-  <string name="revanced_external_browser_summary_on">Linkit avataan ulkoisesti</string>
-  <string name="revanced_external_browser_summary_off">Linkit avataan sovelluksessa</string>
+  <string name="revanced_external_browser_summary_on">Linkit avataan ulkoisessa selaimessa</string>
+  <string name="revanced_external_browser_summary_off">Linkit avataan sovelluksen sisäisessä selaimessa</string>
   </patch>
   <patch id="misc.privacy.removeTrackingQueryParameterPatch">
   <string name="revanced_remove_tracking_query_parameter_title">Poista seurantakyselyparametrit</string>
@@ -1367,9 +1322,15 @@ Tämä voi avata korkealaatuisemmat videot"</string>
   <string name="revanced_remember_video_quality_last_selected_summary_off">Laatumuutokset koskevat vain nykyistä videota</string>
   <string name="revanced_video_quality_default_wifi_title">Videon oletuslaatu Wi-Fi-verkossa</string>
   <string name="revanced_video_quality_default_mobile_title">Videon oletuslaatu mobiiliverkossa</string>
+  <string name="revanced_remember_shorts_quality_last_selected_title">Muista Shortsien laadun muutokset</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_on">Laatumuutokset koskevat kaikkia Shortseja</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_off">Laatumuutokset koskevat vain nykyistä Shorttia</string>
+  <string name="revanced_shorts_quality_default_wifi_title">Shorts-oletuslaatu Wi-Fi-verkossa</string>
+  <string name="revanced_shorts_quality_default_mobile_title">Shorts-oletuslaatu mobiiliverkossa</string>
   <string name="revanced_remember_video_quality_mobile">mobiili</string>
   <string name="revanced_remember_video_quality_wifi">wifi</string>
   <string name="revanced_remember_video_quality_toast">%1$s-oletuslaatu muutettiin: %2$s</string>
+  <string name="revanced_remember_video_quality_toast_shorts">Shortsien %1$s-laatu muutettiin: %2$s</string>
   </patch>
   <patch id="video.speed.button.playbackSpeedButtonPatch">
   <string name="revanced_playback_speed_dialog_button_title">Näytä nopeuden valintapainike</string>
@@ -1400,10 +1361,10 @@ Tämä voi avata korkealaatuisemmat videot"</string>
   <string name="revanced_disable_hdr_video_summary_on">HDR-video ei ole käytössä</string>
   <string name="revanced_disable_hdr_video_summary_off">HDR-video on käytössä</string>
   </patch>
-  <patch id="video.videoqualitymenu.restoreOldVideoQualityMenuResourcePatch">
-  <string name="revanced_restore_old_video_quality_menu_title">Palauta vanha videolaatuvalikko</string>
-  <string name="revanced_restore_old_video_quality_menu_summary_on">Vanha videolaatuvalikko näytetään</string>
-  <string name="revanced_restore_old_video_quality_menu_summary_off">Vanhaa videolaatuvalikkoa ei näytetä</string>
+  <patch id="video.quality.advancedVideoQualityMenuPatch">
+  <string name="revanced_advanced_video_quality_menu_title">Näytä edistynyt videolaatuvalikko</string>
+  <string name="revanced_advanced_video_quality_menu_summary_on">Edistynyt videolaatuvalikko näytetään</string>
+  <string name="revanced_advanced_video_quality_menu_summary_off">Edistynyttä videolaatuvalikkoa ei näytetä</string>
   </patch>
   <patch id="interaction.seekbar.enableSlideToSeekPatch">
   <string name="revanced_slide_to_seek_title">Ota kelaus liu\'uttamalla käyttöön</string>

@@ -1,5 +1,6 @@
 package app.revanced.patches.youtube.layout.seekbar
 
+import app.revanced.patcher.Fingerprint
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
@@ -53,6 +54,10 @@ internal var ytYoutubeMagentaColorId = -1L
     private set
 internal var ytStaticBrandRedId = -1L
     private set
+internal var ytTextSecondaryId = -1L
+    private set
+internal var inlineTimeBarLiveSeekableRangeId = -1L
+    private set
 
 internal const val splashSeekbarColorAttributeName = "splash_custom_seekbar_color"
 
@@ -75,6 +80,18 @@ private val seekbarColorResourcePatch = resourcePatch {
         inlineTimeBarPlayedNotHighlightedColorId = resourceMappings[
             "color",
             "inline_time_bar_played_not_highlighted_color",
+        ]
+        ytStaticBrandRedId = resourceMappings[
+            "attr",
+            "ytStaticBrandRed"
+        ]
+        ytTextSecondaryId = resourceMappings[
+            "attr",
+            "ytTextSecondary"
+        ]
+        inlineTimeBarLiveSeekableRangeId = resourceMappings[
+            "color",
+            "inline_time_bar_live_seekable_range"
         ]
 
         // Modify the resume playback drawable and replace the progress bar with a custom drawable.
@@ -211,7 +228,7 @@ val seekbarColorPatch = bytecodePatch(
     )
 
     execute {
-        fun MutableMethod.addColorChangeInstructions(resourceId: Long, methodName: String) {
+        fun MutableMethod.addColorChangeInstructions(resourceId: Long) {
             val index = indexOfFirstLiteralInstructionOrThrow(resourceId)
             val insertIndex = indexOfFirstInstructionOrThrow(index, Opcode.MOVE_RESULT)
             val register = getInstruction<OneRegisterInstruction>(insertIndex).registerA
@@ -219,19 +236,19 @@ val seekbarColorPatch = bytecodePatch(
             addInstructions(
                 insertIndex + 1,
                 """
-                    invoke-static { v$register }, $EXTENSION_CLASS_DESCRIPTOR->$methodName(I)I
+                    invoke-static { v$register }, $EXTENSION_CLASS_DESCRIPTOR->getVideoPlayerSeekbarColor(I)I
                     move-result v$register
                 """
             )
         }
 
         playerSeekbarColorFingerprint.method.apply {
-            addColorChangeInstructions(inlineTimeBarColorizedBarPlayedColorDarkId, "getVideoPlayerSeekbarColor")
-            addColorChangeInstructions(inlineTimeBarPlayedNotHighlightedColorId, "getVideoPlayerSeekbarColor")
+            addColorChangeInstructions(inlineTimeBarColorizedBarPlayedColorDarkId)
+            addColorChangeInstructions(inlineTimeBarPlayedNotHighlightedColorId)
         }
 
         shortsSeekbarColorFingerprint.method.apply {
-            addColorChangeInstructions(reelTimeBarPlayedColorId, "getVideoPlayerSeekbarColor")
+            addColorChangeInstructions(reelTimeBarPlayedColorId)
         }
 
         setSeekbarClickedColorFingerprint.originalMethod.let {
@@ -257,8 +274,11 @@ val seekbarColorPatch = bytecodePatch(
 
         // 19.25+ changes
 
-        playerSeekbarHandleColorFingerprint.method.apply {
-            addColorChangeInstructions(ytStaticBrandRedId, "getVideoPlayerSeekbarColor")
+        arrayOf(
+            playerSeekbarHandle1ColorFingerprint,
+            playerSeekbarHandle2ColorFingerprint
+        ).forEach {
+            it.method.addColorChangeInstructions(ytStaticBrandRedId)
         }
 
         // If hiding feed seekbar thumbnails, then turn off the cairo gradient
@@ -291,14 +311,15 @@ val seekbarColorPatch = bytecodePatch(
             """
         )
 
-        val playerFingerprint =
-            if (is_19_49_or_greater) {
-                playerLinearGradientFingerprint
-            } else if (is_19_46_or_greater) {
-                playerLinearGradientLegacy1946Fingerprint
-            } else {
-                playerLinearGradientLegacy1925Fingerprint
-            }
+        val playerFingerprint: Fingerprint
+        val checkGradientCoordinates: Boolean
+        if (is_19_49_or_greater) {
+            playerFingerprint = playerLinearGradientFingerprint
+            checkGradientCoordinates = true
+        } else {
+            playerFingerprint = playerLinearGradientLegacyFingerprint
+            checkGradientCoordinates = false
+        }
 
         playerFingerprint.let {
             it.method.apply {
@@ -307,10 +328,17 @@ val seekbarColorPatch = bytecodePatch(
 
                 addInstructions(
                     index + 1,
-                    """
-                       invoke-static { v$register }, $EXTENSION_CLASS_DESCRIPTOR->getPlayerLinearGradient([I)[I
-                       move-result-object v$register
-                    """
+                    if (checkGradientCoordinates) {
+                        """
+                           invoke-static { v$register, p0, p1 }, $EXTENSION_CLASS_DESCRIPTOR->getPlayerLinearGradient([III)[I
+                           move-result-object v$register
+                        """
+                    } else {
+                        """
+                           invoke-static { v$register }, $EXTENSION_CLASS_DESCRIPTOR->getPlayerLinearGradient([I)[I
+                           move-result-object v$register
+                        """
+                    }
                 )
             }
         }

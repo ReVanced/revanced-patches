@@ -10,7 +10,11 @@ import com.android.tools.smali.dexlib2.Opcode
  * In 19.18+ this resolves to a different method.
  */
 internal val componentContextParserFingerprint = fingerprint {
-    strings("Component was not found %s because it was removed due to duplicate converter bindings.")
+    strings(
+        "TreeNode result must be set.",
+        // String is a partial match and changed slightly in 20.03+
+        "it was removed due to duplicate converter bindings."
+    )
 }
 
 internal val lithoFilterFingerprint = fingerprint {

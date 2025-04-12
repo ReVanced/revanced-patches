@@ -4,7 +4,6 @@
     All strings must have a unique path, even if the same string is declared in two different apps.
     This is because Crowdin requires temporarily flattening this file and removing the <app> and <patch> elements.
 
-
     Strings with new lines must be raw strings where they're wrapped in quotes and new lines are not encoded.
     Raw strings still requires escaping embedded double quotes but escaping embedded single quotes is optional.
 
@@ -43,62 +42,14 @@ Second \"item\" text"</string>
   <string name="revanced_settings_import_reset">ReVanced nastavitve ponastavljene na privzeto</string>
   <string name="revanced_settings_import_success">Uvoženih %d nastavitev</string>
   <string name="revanced_settings_import_failure_parse">Uvoz ni uspel: %s</string>
+  <string name="revanced_show_menu_icons_title">Pokaži ikone nastavitev ReVanced</string>
+  <string name="revanced_show_menu_icons_summary_on">Ikone nastavitev so prikazane</string>
+  <string name="revanced_show_menu_icons_summary_off">Ikone nastavitev niso prikazane</string>
   <string name="revanced_language_title">ReVanced jezik</string>
   <string name="revanced_language_user_dialog_message">"Prevodi za nekatere jezike morda manjkajo ali so nepopolni.
 
 Če želite prevesti nove jezike, obiščite translate.revanced.app"</string>
   <string name="revanced_language_DEFAULT">Jezik aplikacije</string>
-  <string name="revanced_language_AR">Arabščina</string>
-  <string name="revanced_language_AZ">Azerbajdžanščina</string>
-  <string name="revanced_language_BG">Bolgarščina</string>
-  <string name="revanced_language_BN">**Bengali**</string>
-  <string name="revanced_language_CA">Katalonščina</string>
-  <string name="revanced_language_CS">Češčina</string>
-  <string name="revanced_language_DA">Danščina</string>
-  <string name="revanced_language_DE">Nemščina</string>
-  <string name="revanced_language_EL">Grščina</string>
-  <string name="revanced_language_EN">Angleščina</string>
-  <string name="revanced_language_ES">Španščina</string>
-  <string name="revanced_language_ET">Estonščina</string>
-  <string name="revanced_language_FA">Perzijščina</string>
-  <string name="revanced_language_FI">Finščina</string>
-  <string name="revanced_language_FR">Francoščina</string>
-  <string name="revanced_language_GU">Gudžaratščina</string>
-  <string name="revanced_language_HI">Hindujščina</string>
-  <string name="revanced_language_HR">Hrvaščina</string>
-  <string name="revanced_language_HU">Madžarščina</string>
-  <string name="revanced_language_ID">Indonezijščina</string>
-  <string name="revanced_language_IT">Italijanščina</string>
-  <string name="revanced_language_JA">Japonščina</string>
-  <string name="revanced_language_KK">Kazahstanščina</string>
-  <string name="revanced_language_KO">Korejščina</string>
-  <string name="revanced_language_LT">Litovščina</string>
-  <string name="revanced_language_LV">Latvijščina</string>
-  <string name="revanced_language_MK">Makedonščina</string>
-  <string name="revanced_language_MN">Mongolščina</string>
-  <string name="revanced_language_MR">Maratščina</string>
-  <string name="revanced_language_MS">Malajščina</string>
-  <string name="revanced_language_MY">Burmanščina</string>
-  <string name="revanced_language_NL">Nizozemščina</string>
-  <string name="revanced_language_OR">Odiščina</string>
-  <string name="revanced_language_PA">Pandžabščina</string>
-  <string name="revanced_language_PL">Poljščina</string>
-  <string name="revanced_language_PT">Portugalščina</string>
-  <string name="revanced_language_RO">Romunščina</string>
-  <string name="revanced_language_RU">Ruščina</string>
-  <string name="revanced_language_SK">Slovaščina</string>
-  <string name="revanced_language_SL">Slovenščina</string>
-  <string name="revanced_language_SR">Srbščina</string>
-  <string name="revanced_language_SV">Švedščina</string>
-  <string name="revanced_language_SW">Svahili</string>
-  <string name="revanced_language_TA">Tamilščina</string>
-  <string name="revanced_language_TE">**Telugu**</string>
-  <string name="revanced_language_TH">Tajščina</string>
-  <string name="revanced_language_TR">Turščina</string>
-  <string name="revanced_language_UK">Ukrajinščina</string>
-  <string name="revanced_language_UR">Urdujščina</string>
-  <string name="revanced_language_VI">Vietnamščina</string>
-  <string name="revanced_language_ZH">Kitajščina</string>
   <string name="revanced_pref_import_export_title">Uvozi / Izvozi</string>
   <string name="revanced_pref_import_export_summary">Uvozi / Izvozi ReVanced nastavitve</string>
   <!-- Settings about dialog. -->
@@ -277,6 +228,9 @@ Ne boste obveščeni o nobenih nepričakovanih dogodkih."</string>
   <string name="revanced_hide_artist_cards_title">Skrij kartice izvajalcev</string>
   <string name="revanced_hide_artist_cards_summary_on">Kartice izvajalcev so skrite</string>
   <string name="revanced_hide_artist_cards_summary_off">Kartice izvajalcev so prikazane</string>
+  <string name="revanced_hide_ai_generated_video_summary_section_title">Skrij »Povzetek videoposnetka, ustvarjenega z umetno inteligenco«</string>
+  <string name="revanced_hide_ai_generated_video_summary_section_summary_on">Razdelek s povzetkom videoposnetka je skrit</string>
+  <string name="revanced_hide_ai_generated_video_summary_section_summary_off">Razdelek s povzetkom videoposnetka je prikazan</string>
   <string name="revanced_hide_attributes_section_title">Skrij atribute</string>
   <string name="revanced_hide_attributes_section_summary_on">Razdelki s priporočenimi kraji, igrami, glasbo in omenjenimi osebami so skriti</string>
   <string name="revanced_hide_attributes_section_summary_off">Razdelki s priporočenimi kraji, igrami, glasbo in omenjenimi osebami so prikazani</string>
@@ -313,9 +267,12 @@ Ne boste obveščeni o nobenih nepričakovanih dogodkih."</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">Prikazana v povezanih videoposnetkih</string>
   <string name="revanced_comments_screen_title">Komentarji</string>
   <string name="revanced_comments_screen_summary">Skrij ali prikaži komponente oddelka s komentarji</string>
-  <string name="revanced_hide_comments_chat_summary_title">Skrij »Povzetek klepeta«</string>
-  <string name="revanced_hide_comments_chat_summary_summary_on">Povzetek klepeta je skrit</string>
-  <string name="revanced_hide_comments_chat_summary_summary_off">Povzetek klepeta je prikazan</string>
+  <string name="revanced_hide_comments_ai_chat_summary_title">Skrij povzetek klepeta z umetno inteligenco</string>
+  <string name="revanced_hide_comments_ai_chat_summary_summary_on">Povzetek klepeta je skrit</string>
+  <string name="revanced_hide_comments_ai_chat_summary_summary_off">Povzetek klepeta je prikazan</string>
+  <string name="revanced_hide_comments_ai_summary_title">Skrij povzetek komentarjev z umetno inteligenco</string>
+  <string name="revanced_hide_comments_ai_summary_summary_on">Povzetek komentarjev je skrit</string>
+  <string name="revanced_hide_comments_ai_summary_summary_off">Povzetek komentarjev je prikazan</string>
   <string name="revanced_hide_comments_by_members_header_title">Skrij naslov \"Komentarji članov\"</string>
   <string name="revanced_hide_comments_by_members_header_summary_on">Glava s komentarji članov je skrita</string>
   <string name="revanced_hide_comments_by_members_header_summary_off">Glava s komentarji članov je prikazana</string>
@@ -362,7 +319,7 @@ Ne boste obveščeni o nobenih nepričakovanih dogodkih."</string>
   <string name="revanced_hide_keyword_content_subscriptions_summary_on">Videoposnetki na zavihku naročnin so filtrirani s ključnimi besedami</string>
   <string name="revanced_hide_keyword_content_subscriptions_summary_off">Videoposnetki na zavihku naročnin niso filtrirani s ključnimi besedami</string>
   <string name="revanced_hide_keyword_content_phrases_title">Ključne besede za skritje</string>
-  <!-- For localization it is preferred, but not required, if 'LeBlanc' is replaced with a localized name or a familiar word that has upper case letters in the middle of the word.
+  <!-- For localization, it is preferred, but not required, if 'LeBlanc' is replaced with a localized name or a familiar word that has upper case letters in the middle of the word.
                  This is because keywords can be in any language, and showing an example in the localized script helps convey this. -->
   <string name="revanced_hide_keyword_content_phrases_summary">"Ključne besede in besedne zveze, ki jih je treba skriti, so ločene z novimi vrsticami
 
@@ -377,7 +334,7 @@ Omejitve
 • Nekatere komponente uporabniškega vmesnika morda ne bodo skrite
 • Iskanje ključne besede morda ne bo prikazalo nobenih rezultatov"</string>
   <string name="revanced_hide_keyword_content_about_whole_words_title">Ujemanje celotnih besed</string>
-  <!-- Translations _must_ use a localized example.  For languages that do not use spaces between words (Chinese, Japanese, etc) the English AI example should be used since no localized examples exist.  Or if using machine translations, or if nobody wants to think of a localized example, then the English 'ai' example should be left as-is. -->
+  <!-- Translations _must_ use a localized example.  For languages that do not use spaces between words (Chinese, Japanese, etc.) the English AI example should be used since no localized examples exist.  Or if using machine translations, or if nobody wants to think of a localized example, then the English 'ai' example should be left as-is. -->
   <string name="revanced_hide_keyword_content_about_whole_words_summary">Obkrožanje ključne besede/fraze z dvojnimi narekovaji prepreči delne ujemanja naslovov videoposnetkov in imen kanalov&lt;br&gt;&lt;br&gt;Na primer,&lt;br&gt;&lt;b&gt;\"ai\"&lt;/b&gt; bo skril video: &lt;b&gt;Kako deluje AI?&lt;/b&gt;&lt;br&gt;vendar ne bo skril: &lt;b&gt;What does fair use mean?&lt;/b&gt;</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_hide_keyword_toast_invalid_common">Ključne besede ni mogoče uporabiti: %s</string>
@@ -404,7 +361,7 @@ Ta funkcija je na voljo samo za starejše naprave"</string>
   <string name="revanced_hide_self_sponsor_ads_title">Skrij samoproizvedene oglase</string>
   <string name="revanced_hide_self_sponsor_ads_summary_on">Samoproizvedeni oglasi so skriti</string>
   <string name="revanced_hide_self_sponsor_ads_summary_off">Samoproizvedeni oglasi so prikazani</string>
-  <string name="revanced_hide_products_banner_title">Skrij pasico za ogled izdelkov</string>
+  <string name="revanced_hide_products_banner_title">Skrij pasico »Ogled izdelkov«</string>
   <string name="revanced_hide_products_banner_summary_on">Pasica je skrita</string>
   <string name="revanced_hide_products_banner_summary_off">Pasica je prikazana</string>
   <string name="revanced_hide_end_screen_store_banner_title">Skrij pasico trgovine na koncu zaslona</string>
@@ -475,9 +432,9 @@ Ta funkcija je na voljo samo za starejše naprave"</string>
   <string name="revanced_disable_precise_seeking_gesture_summary_off">Kretnja je omogočena</string>
   </patch>
   <patch id="interaction.seekbar.enableSeekbarTappingPatch">
-  <string name="revanced_seekbar_tapping_title">Omogoči tapkanje iskalne vrstice</string>
-  <string name="revanced_seekbar_tapping_summary_on">Tapkanje iskalne vrstice je omogočeno</string>
-  <string name="revanced_seekbar_tapping_summary_off">Tapkanje iskalne vrstice je onemogočeno</string>
+  <string name="revanced_seekbar_tapping_title">Omogoči dotik za iskanje</string>
+  <string name="revanced_seekbar_tapping_summary_on">Dotik za iskanje je omogočen</string>
+  <string name="revanced_seekbar_tapping_summary_off">Dotik za iskanje je onemogočen</string>
   </patch>
   <patch id="interaction.swipecontrols.swipeControlsResourcePatch">
   <string name="revanced_swipe_brightness_title">Omogoči kretnjo za svetlost</string>
@@ -490,9 +447,9 @@ Prilagodite svetlost s potezanjem navpično na levi strani zaslona"</string>
 
 Prilagodite glasnost s potegom navpično na desni strani zaslona"</string>
   <string name="revanced_swipe_volume_summary_off">Poteg s prstom za celozaslonski nadzor glasnosti je onemogočen</string>
-  <string name="revanced_swipe_press_to_engage_title">Omogoči kretnjo pritisni za pomikanje</string>
-  <string name="revanced_swipe_press_to_engage_summary_on">Pritisni za pomikanje je omogočeno</string>
-  <string name="revanced_swipe_press_to_engage_summary_off">Pritisni za pomikanje je onemogočeno</string>
+  <string name="revanced_swipe_press_to_engage_title">Omogoči pritisk za potezno kretnjo</string>
+  <string name="revanced_swipe_press_to_engage_summary_on">Pritisk za potezo je omogočen</string>
+  <string name="revanced_swipe_press_to_engage_summary_off">Pritisk za potezo je onemogočen</string>
   <string name="revanced_swipe_haptic_feedback_title">Omogoči taktilno povratno informacijo</string>
   <string name="revanced_swipe_haptic_feedback_summary_on">Taktilna povratna informacija je omogočena</string>
   <string name="revanced_swipe_haptic_feedback_summary_off">Taktilna povratna informacija je onemogočena</string>
@@ -600,6 +557,7 @@ Opomba: Omogočanje tega tudi prisilno skrije video oglase"</string>
   <string name="revanced_disable_translucent_status_bar_title">Onemogoči prosojno statusno vrstico</string>
   <string name="revanced_disable_translucent_status_bar_summary_on">Statusna vrstica je neprozorna</string>
   <string name="revanced_disable_translucent_status_bar_summary_off">Statusna vrstica je neprozorna ali prosojna</string>
+  <string name="revanced_disable_translucent_status_bar_user_dialog_message">Na nekaterih napravah lahko omogočitev te funkcije spremeni sistemsko navigacijsko vrstico v prozorno.</string>
   <string name="revanced_disable_translucent_navigation_bar_light_title">Onemogoči svetlo prosojno vrstico</string>
   <string name="revanced_disable_translucent_navigation_bar_light_summary_on">Navigacijska vrstica v svetlem načinu je neprosojna</string>
   <string name="revanced_disable_translucent_navigation_bar_light_summary_off">Navigacijska vrstica v svetlem načinu je neprozorna ali prosojna</string>
@@ -654,6 +612,10 @@ Opomba: Omogočanje tega tudi prisilno skrije video oglase"</string>
   <string name="revanced_hide_player_flyout_audio_track_title">Skrij zvočni posnetek</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_on">Meni z zvočnim posnetkom je skrit</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_off">Meni z zvočnim posnetkom je prikazan</string>
+  <!-- 'Spoof video streams' should be the same translation used for revanced_spoof_video_streams_screen_title -->
+  <string name="revanced_hide_player_flyout_audio_track_not_available">"Meni zvočnega posnetka je skrit
+
+Če želite prikazati meni zvočnega posnetka, spremenite možnost »Prikazovalnik video tokov« v iOS TV"</string>
   <!-- 'Watch in VR' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_watch_in_vr_title">Skrij gledanje v VR</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">Meni z gledanjem v VR je skrit</string>
@@ -663,7 +625,7 @@ Opomba: Omogočanje tega tudi prisilno skrije video oglase"</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_off">Noga menija s kakovostjo videa je prikazana</string>
   </patch>
   <patch id="layout.buttons.overlay.hidePlayerOverlayButtonsPatch">
-  <string name="revanced_hide_player_previous_next_buttons_title">Skrij gumbe \"Prejšnji\" &amp; \"Naslednji\" video</string>
+  <string name="revanced_hide_player_previous_next_buttons_title">Skrij gumbe »Prejšnji« &amp; »Naslednji«</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_on">Gumbi so skriti</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">Gumbi so prikazani</string>
   <string name="revanced_hide_cast_button_title">Skrij gumb \'Predvajaj\'</string>
@@ -856,7 +818,6 @@ Nastavitve → Predvajanje → Samodejno predvajanje naslednjega videoposnetka"<
   <string name="revanced_ryd_enable_summary_on">Všečkov ne so prikazani</string>
   <string name="revanced_ryd_enable_summary_off">Všečkov ne niso prikazani</string>
   <string name="revanced_ryd_shorts_title">Pokaži všečkov ne na Shorts</string>
-  <string name="revanced_ryd_shorts_summary_on">Število »Ni mi všeč« pri elementih Shorts je prikazano</string>
   <string name="revanced_ryd_shorts_summary_on_disclaimer">"Število »Ni mi všeč« pri elementih Shorts je prikazano
 
 Omejitev: Število »Ni mi všeč« se morda ne bo prikazalo v načinu brez beleženja zgodovine"</string>
@@ -1053,6 +1014,8 @@ Uporabniški ID je, kot je geslo, zato ga nikoli ne delite."</string>
   <string name="revanced_sb_vote_downvote">Glasuj navzdol</string>
   <string name="revanced_sb_vote_category">Spremeni kategorijo</string>
   <string name="revanced_sb_vote_no_segments">Za glasovanje ni nobenih segmentov</string>
+  <!-- A segment start and end time, such as "02:10 to 03:40" -->
+  <string name="revanced_sb_vote_segment_time_to_from">%1$s do %2$s</string>
   <string name="revanced_sb_new_segment_choose_category">Izberi kategorijo segmenta</string>
   <string name="revanced_sb_new_segment_disabled_category">Kategorija je v nastavitvah onemogočena. Omogoči kategorijo, da lahko oddaš.</string>
   <string name="revanced_sb_new_segment_title">Nov segment SponsorBlocka</string>
@@ -1100,6 +1063,7 @@ Ali ste pripravljeni na oddajo?"</string>
   <string name="revanced_sb_stats_saved_hour_format">%1$s ur %2$s minut</string>
   <string name="revanced_sb_stats_saved_minute_format">%1$s minut %2$s sekund</string>
   <string name="revanced_sb_stats_saved_second_format">%s sekund</string>
+  <string name="revanced_sb_color_opacity_label">Prosojnost:</string>
   <string name="revanced_sb_color_dot_label">Barva:</string>
   <string name="revanced_sb_color_changed">Barva spremenjena</string>
   <string name="revanced_sb_color_reset">Barva ponastavljena</string>
@@ -1117,13 +1081,11 @@ Ali ste pripravljeni na oddajo?"</string>
   <string name="revanced_change_form_factor_entry_4">Avtomobilska</string>
   <string name="revanced_change_form_factor_user_dialog_message">"Spremembe vključujejo:
 
-Postavitev tabličnega računalnika
+Postavitev za tablične računalnike
 • Objave skupnosti so skrite
 
-Postavitev za vozila
-• Meni zgodovine ogledov je skrit
-• Zavihek Raziskovanje je obnovljen
-• Posnetki Shorts se odprejo v običajnem predvajalniku
+Avtomobilska postavitev
+• Shorts se odprejo v običajnem predvajalniku
 • Vir je organiziran po temah in kanalih"</string>
   </patch>
   <patch id="layout.spoofappversion.spoofAppVersionPatch">
@@ -1139,12 +1101,7 @@ To bo spremenilo videz in funkcije aplikacije, vendar se lahko pojavijo neznani 
                  This is because the 'General layout' menu uses alphabetic sorting, and it functionally works better if the spoof target selector appears below the 'Spoof app version' UI switch -->
   <string name="revanced_spoof_app_version_target_title">Cilj spoofa različice aplikacije</string>
   <string name="revanced_spoof_app_version_target_entry_1">19.35.36 - Obnovi stare ikone predvajalnika Shorts</string>
-  <string name="revanced_spoof_app_version_target_entry_2">19.26.42 - Obnovi stare ikone za krmarjenje</string>
-  <!-- 'RYD' is 'Return YouTube Dislike' -->
-  <string name="revanced_spoof_app_version_target_legacy_entry_1">18.33.40 - Obnovi RYD v načinu inkognito za Shorts</string>
-  <string name="revanced_spoof_app_version_target_legacy_entry_2">18.20.39 - Obnovi meni hitrosti in kakovosti videa</string>
-  <string name="revanced_spoof_app_version_target_legacy_entry_3">18.09.39 - Obnovi zavihek knjižnice</string>
-  <string name="revanced_spoof_app_version_target_legacy_entry_4">17.33.42 - Obnovi staro polico seznamov predvajanja</string>
+  <string name="revanced_spoof_app_version_target_entry_2">19.01.34 – Obnovi stare ikone za krmarjenje</string>
   </patch>
   <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">Nastavi začetno stran</string>
@@ -1194,7 +1151,7 @@ To bo spremenilo videz in funkcije aplikacije, vendar se lahko pojavijo neznani 
   </patch>
   <patch id="layout.miniplayer.miniplayerPatch">
   <string name="revanced_miniplayer_screen_title">\"Miniplayer\"</string>
-  <string name="revanced_miniplayer_screen_summary">Spremeni slog zmanjšanega predvajalnika v aplikaciji</string>
+  <string name="revanced_miniplayer_screen_summary">Spremenite slog minimiziranega predvajalnika v aplikaciji</string>
   <string name="revanced_miniplayer_type_title">Vrsta mini predvajalnika</string>
   <string name="revanced_miniplayer_type_entry_0">Onemogočeno</string>
   <string name="revanced_miniplayer_type_entry_1">Privzeto</string>
@@ -1203,6 +1160,7 @@ To bo spremenilo videz in funkcije aplikacije, vendar se lahko pojavijo neznani 
   <string name="revanced_miniplayer_type_entry_4">Sodobno 1</string>
   <string name="revanced_miniplayer_type_entry_5">Sodobno 2</string>
   <string name="revanced_miniplayer_type_entry_6">Sodobno 3</string>
+  <string name="revanced_miniplayer_type_entry_7">Sodobno 4</string>
   <string name="revanced_miniplayer_rounded_corners_title">Omogoči zaobljene robove</string>
   <string name="revanced_miniplayer_rounded_corners_summary_on">Robovi so zaobljeni</string>
   <string name="revanced_miniplayer_rounded_corners_summary_off">Robovi so kvadratni</string>
@@ -1222,14 +1180,14 @@ Minipredvajalnik lahko povlečete v kateri koli kot zaslona"</string>
 
 Minipredvajalnik lahko povlečete z zaslona na levo ali desno"</string>
   <string name="revanced_miniplayer_horizontal_drag_summary_off">Vodoravna kretnja vlečenja je onemogočena</string>
-  <string name="revanced_miniplayer_hide_expand_close_title">Skrij gumb za zapiranje</string>
-  <string name="revanced_miniplayer_hide_expand_close_summary_on">Gumb za zapiranje je skrit</string>
-  <string name="revanced_miniplayer_hide_expand_close_summary_off">Gumb za zapiranje je prikazan</string>
-  <string name="revanced_miniplayer_hide_expand_close_legacy_title">Skrij gumbe za razširitev in zapiranje</string>
-  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_on">"Gumbi so skriti
+  <string name="revanced_miniplayer_hide_overlay_buttons_title">Skrij prekrivne gumbe</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">Prekrivni gumbi so skriti</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">Prekrivni gumbi so prikazani</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_title">Skrij gumbe za razširitev in zapiranje</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_on">"Gumbi so skriti
 
 Podrsnite za razširitev ali zapiranje"</string>
-  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_off">Gumbi za razširitev in zapiranje so prikazani</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_off">Gumbi za razširitev in zapiranje so prikazani</string>
   <string name="revanced_miniplayer_hide_subtext_title">Skrij podnaslove</string>
   <string name="revanced_miniplayer_hide_subtext_summary_on">Podnaslovi so skriti</string>
   <string name="revanced_miniplayer_hide_subtext_summary_off">Podnaslovi so prikazani</string>
@@ -1247,8 +1205,6 @@ Podrsnite za razširitev ali zapiranje"</string>
   <string name="revanced_gradient_loading_screen_title">Omogoči zaslon za nalaganje z gradientom</string>
   <string name="revanced_gradient_loading_screen_summary_on">Zaslon za nalaganje bo imel ozadje z gradientom</string>
   <string name="revanced_gradient_loading_screen_summary_off">Zaslon za nalaganje bo imel enobarvno ozadje</string>
-  </patch>
-  <patch id="layout.theme.themeResourcePatch">
   <string name="revanced_seekbar_custom_color_title">Omogoči prilagojeno barvo drsnika</string>
   <string name="revanced_seekbar_custom_color_summary_on">Prilagojena barva drsnika je prikazana</string>
   <string name="revanced_seekbar_custom_color_summary_off">Izvorna barva drsnika je prikazana</string>
@@ -1340,8 +1296,8 @@ Omogočanje tega lahko odklene višje kakovosti videa"</string>
   </patch>
   <patch id="misc.links.openLinksExternallyPatch">
   <string name="revanced_external_browser_title">Odpri povezave v brskalniku</string>
-  <string name="revanced_external_browser_summary_on">Odpiranje povezav zunaj aplikacije</string>
-  <string name="revanced_external_browser_summary_off">Odpiranje povezav v aplikaciji</string>
+  <string name="revanced_external_browser_summary_on">Odpiranje povezav v zunanjem brskalniku</string>
+  <string name="revanced_external_browser_summary_off">Odpiranje povezav v brskalniku v aplikaciji</string>
   </patch>
   <patch id="misc.privacy.removeTrackingQueryParameterPatch">
   <string name="revanced_remove_tracking_query_parameter_title">Odstrani parameter poizvedbe za sledenje</string>
@@ -1368,9 +1324,15 @@ Omogočanje tega lahko odklene višje kakovosti videa"</string>
   <string name="revanced_remember_video_quality_last_selected_summary_off">Spremembe kakovosti se uporabijo le za trenutni videoposnetek</string>
   <string name="revanced_video_quality_default_wifi_title">Privzeta kakovost videoposnetka v omrežju Wi-Fi</string>
   <string name="revanced_video_quality_default_mobile_title">Privzeta kakovost videoposnetka v mobilnem omrežju</string>
+  <string name="revanced_remember_shorts_quality_last_selected_title">Zapomni si spremembe kakovosti za Shorts</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_on">Spremembe kakovosti veljajo za vse Shorts</string>
+  <string name="revanced_remember_shorts_quality_last_selected_summary_off">Spremembe kakovosti veljajo samo za trenutni Short</string>
+  <string name="revanced_shorts_quality_default_wifi_title">Privzeta kakovost za Shorts v omrežju Wi-Fi</string>
+  <string name="revanced_shorts_quality_default_mobile_title">Privzeta kakovost za Shorts v mobilnem omrežju</string>
   <string name="revanced_remember_video_quality_mobile">mobilni</string>
   <string name="revanced_remember_video_quality_wifi">Wi-Fi</string>
   <string name="revanced_remember_video_quality_toast">Spremenjena privzeta kakovost %1$s na: %2$s</string>
+  <string name="revanced_remember_video_quality_toast_shorts">Spremenjena kakovost Shorts %1$s v: %2$s</string>
   </patch>
   <patch id="video.speed.button.playbackSpeedButtonPatch">
   <string name="revanced_playback_speed_dialog_button_title">Pokaži gumb za pogovor o hitrosti</string>
@@ -1401,10 +1363,10 @@ Omogočanje tega lahko odklene višje kakovosti videa"</string>
   <string name="revanced_disable_hdr_video_summary_on">HDR video je onemogočen</string>
   <string name="revanced_disable_hdr_video_summary_off">HDR video je omogočen</string>
   </patch>
-  <patch id="video.videoqualitymenu.restoreOldVideoQualityMenuResourcePatch">
-  <string name="revanced_restore_old_video_quality_menu_title">Obnovi stari meni za kakovost videoposnetkov</string>
-  <string name="revanced_restore_old_video_quality_menu_summary_on">Stari meni za kakovost videoposnetkov je prikazan</string>
-  <string name="revanced_restore_old_video_quality_menu_summary_off">Stari meni za kakovost videoposnetkov ni prikazan</string>
+  <patch id="video.quality.advancedVideoQualityMenuPatch">
+  <string name="revanced_advanced_video_quality_menu_title">Pokaži napredni meni za kakovost videoposnetkov</string>
+  <string name="revanced_advanced_video_quality_menu_summary_on">Napredni meni za kakovost videoposnetkov je prikazan</string>
+  <string name="revanced_advanced_video_quality_menu_summary_off">Napredni meni za kakovost videoposnetkov ni prikazan</string>
   </patch>
   <patch id="interaction.seekbar.enableSlideToSeekPatch">
   <string name="revanced_slide_to_seek_title">Omogoči drsno iskanje</string>

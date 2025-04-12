@@ -43,7 +43,7 @@ private const val EXTENSION_CLASS_DESCRIPTOR =
 
 val hidePlayerOverlayButtonsPatch = bytecodePatch(
     name = "Hide player overlay buttons",
-    description = "Adds options to hide the player cast, autoplay, caption button and next/ previous buttons.",
+    description = "Adds options to hide the player Cast, Autoplay, Captions, and Previous & Next buttons.",
 ) {
     dependsOn(
         sharedExtensionPatch,
@@ -58,9 +58,8 @@ val hidePlayerOverlayButtonsPatch = bytecodePatch(
             "19.25.37",
             "19.34.42",
             "19.43.41",
-            "19.45.38",
-            "19.46.42",
             "19.47.53",
+            "20.07.39",
         ),
     )
 

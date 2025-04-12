@@ -17,12 +17,19 @@ import org.w3c.dom.Element
 @Suppress("MemberVisibilityCanBePrivate")
 abstract class BasePreference(
     val key: String? = null,
-    val titleKey: String = "${key}_title",
+    val titleKey: String? = "${key}_title",
     val summaryKey: String? = "${key}_summary",
-    val icon: String? = null,
-    val layout: String? = null,
+    icon: String? = null,
+    layout: String? = null,
     val tag: String
 ) {
+
+    var icon: String? = icon
+        internal set
+
+    var layout: String? = layout
+        internal set
+
     /**
      * Serialize preference element to XML.
      * Overriding methods should invoke super and operate on its return value.
@@ -35,7 +42,7 @@ abstract class BasePreference(
     open fun serialize(ownerDocument: Document, resourceCallback: (BaseResource) -> Unit): Element =
         ownerDocument.createElement(tag).apply {
             key?.let { setAttribute("android:key", it) }
-            setAttribute("android:title", "@string/${titleKey}")
+            titleKey?.let { setAttribute("android:title", "@string/${titleKey}") }
             summaryKey?.let { addSummary(it) }
             icon?.let {
                 setAttribute("android:icon", it)

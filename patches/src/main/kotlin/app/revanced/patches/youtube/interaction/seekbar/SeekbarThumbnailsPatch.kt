@@ -10,6 +10,7 @@ import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.youtube.layout.seekbar.fullscreenSeekbarThumbnailsFingerprint
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.playservice.is_19_17_or_greater
+import app.revanced.patches.youtube.misc.playservice.is_20_09_or_greater
 import app.revanced.patches.youtube.misc.playservice.versionCheckPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 
@@ -17,7 +18,6 @@ private const val EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/youtube/patches/SeekbarThumbnailsPatch;"
 
 val seekbarThumbnailsPatch = bytecodePatch(
-    name = "Seekbar thumbnails",
     description = "Adds an option to use high quality fullscreen seekbar thumbnails. " +
             "Patching 19.16.39 adds an option to restore old seekbar thumbnails.",
 ) {
@@ -27,19 +27,13 @@ val seekbarThumbnailsPatch = bytecodePatch(
         versionCheckPatch,
     )
 
-    compatibleWith(
-        "com.google.android.youtube"(
-            "19.16.39",
-            "19.25.37",
-            "19.34.42",
-            "19.43.41",
-            "19.45.38",
-            "19.46.42",
-            "19.47.53",
-        )
-    )
-
     execute {
+        if (is_20_09_or_greater) {
+            // High quality seekbar thumbnails is partially broken in 20.09
+            // and the code is completely removed in 20.10+
+            return@execute
+        }
+
         addResources("youtube", "layout.seekbar.seekbarThumbnailsPatch")
 
         if (is_19_17_or_greater) {

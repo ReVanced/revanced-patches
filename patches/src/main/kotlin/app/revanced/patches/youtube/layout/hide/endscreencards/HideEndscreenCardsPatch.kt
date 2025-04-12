@@ -49,7 +49,7 @@ private const val EXTENSION_CLASS_DESCRIPTOR =
 
 @Suppress("unused")
 val hideEndscreenCardsPatch = bytecodePatch(
-    name = "Hide endscreen cards",
+    name = "Hide end screen cards",
     description = "Adds an option to hide suggested video cards at the end of videos.",
 ) {
     dependsOn(
@@ -63,9 +63,8 @@ val hideEndscreenCardsPatch = bytecodePatch(
             "19.25.37",
             "19.34.42",
             "19.43.41",
-            "19.45.38",
-            "19.46.42",
             "19.47.53",
+            "20.07.39",
         ),
     )
 

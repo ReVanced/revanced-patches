@@ -12,7 +12,7 @@ import com.android.tools.smali.dexlib2.iface.reference.StringReference
 
 val openLinksExternallyPatch = bytecodePatch(
     name = "Open links externally",
-    description = "Adds an option to always open links in your browser instead of in the in-app-browser.",
+    description = "Adds an option to always open links in your browser instead of the in-app browser.",
 ) {
     dependsOn(
         transformInstructionsPatch(
@@ -45,9 +45,8 @@ val openLinksExternallyPatch = bytecodePatch(
             "19.25.37",
             "19.34.42",
             "19.43.41",
-            "19.45.38",
-            "19.46.42",
             "19.47.53",
+            "20.07.39",
         ),
     )
 

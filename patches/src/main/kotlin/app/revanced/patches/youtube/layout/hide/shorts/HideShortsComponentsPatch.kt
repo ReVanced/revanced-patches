@@ -159,7 +159,7 @@ private const val FILTER_CLASS_DESCRIPTOR = "Lapp/revanced/extension/youtube/pat
 @Suppress("unused")
 val hideShortsComponentsPatch = bytecodePatch(
     name = "Hide Shorts components",
-    description = "Adds options to hide components related to YouTube Shorts.",
+    description = "Adds options to hide components related to Shorts.",
 ) {
     dependsOn(
         sharedExtensionPatch,
@@ -176,9 +176,8 @@ val hideShortsComponentsPatch = bytecodePatch(
             "19.25.37",
             "19.34.42",
             "19.43.41",
-            "19.45.38",
-            "19.46.42",
             "19.47.53",
+            "20.07.39",
         ),
     )
 
