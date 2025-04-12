@@ -1,3 +1,10 @@
+# [5.19.0-dev.17](https://github.com/ReVanced/revanced-patches/compare/v5.19.0-dev.16...v5.19.0-dev.17) (2025-04-12)
+
+
+### Features
+
+* **Spotify:** Add `Check environment` patch ([#4765](https://github.com/ReVanced/revanced-patches/issues/4765)) ([6d7101c](https://github.com/ReVanced/revanced-patches/commit/6d7101cb2e546e01a934eff9cad1264367aeafe3))
+
 # [5.19.0-dev.16](https://github.com/ReVanced/revanced-patches/compare/v5.19.0-dev.15...v5.19.0-dev.16) (2025-04-11)
 
 
