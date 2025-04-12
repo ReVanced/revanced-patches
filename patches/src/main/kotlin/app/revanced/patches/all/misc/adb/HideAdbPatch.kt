@@ -7,9 +7,17 @@ import app.revanced.util.getReference
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction35c
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
+import com.android.tools.smali.dexlib2.immutable.reference.ImmutableMethodReference
+import com.android.tools.smali.dexlib2.util.MethodUtil
 
 private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/all/spoof/adb/SpoofAdbPatch;"
-private const val SETTINGS_GLOBAL_CLASS_DESCRIPTOR = "Landroid/provider/Settings\$Global;"
+
+private val SETTINGS_GLOBAL_GET_INT_METHOD_REFERENCE = ImmutableMethodReference(
+    "Landroid/provider/Settings\$Global;",
+    "getInt",
+   emptyList(),
+    "I"
+)
 
 @Suppress("unused")
 val hideAdbStatusPatch = bytecodePatch(
@@ -22,14 +30,11 @@ val hideAdbStatusPatch = bytecodePatch(
     dependsOn(
         transformInstructionsPatch(
             filterMap = filterMap@{ classDef, method, instruction, instructionIndex ->
-                if (instruction.opcode != Opcode.INVOKE_STATIC) return@filterMap null
-
-                val reference = instruction.getReference<MethodReference>() ?: return@filterMap null
-
-                if (reference.definingClass != SETTINGS_GLOBAL_CLASS_DESCRIPTOR
-                    || reference.name != "getInt"
-                    || reference.returnType != "I"
-                ) return@filterMap null
+                val reference = instruction
+                    .takeIf { it.opcode == Opcode.INVOKE_STATIC }
+                    ?.getReference<MethodReference>()
+                    ?.takeIf { MethodUtil.methodSignaturesMatch(SETTINGS_GLOBAL_GET_INT_METHOD_REFERENCE, it) }
+                    ?: return@filterMap null
 
                 Triple(instruction as Instruction35c, instructionIndex, reference.parameterTypes)
             },
