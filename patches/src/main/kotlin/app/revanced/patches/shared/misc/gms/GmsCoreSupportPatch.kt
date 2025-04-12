@@ -500,7 +500,6 @@ private object Constants {
  * @param executeBlock The additional execution block of the patch.
  * @param block The additional block to build the patch.
  */
-// TODO: Delete this binary compatibility method in the next major release.
 fun gmsCoreSupportResourcePatch(
     fromPackageName: String,
     toPackageName: String,
@@ -530,7 +529,8 @@ fun gmsCoreSupportResourcePatch(
  * @param executeBlock The additional execution block of the patch.
  * @param block The additional block to build the patch.
  */
-fun gmsCoreSupportResourcePatch(
+// TODO: On the next major release make this public and delete the public overloaded constructor.
+internal fun gmsCoreSupportResourcePatch(
     fromPackageName: String,
     toPackageName: String,
     spoofedPackageSignature: String,
