@@ -35,7 +35,10 @@ val unlockPremiumPatch = bytecodePatch(
         sharedExtensionPatch,
         // Currently there is no easy way to make a mandatory patch,
         // so for now this is a dependent of this patch.
-        checkEnvironmentPatch,
+        //
+        // FIXME: Modifying string resources (such as adding patch strings)
+        //  is currently failing with ReVanced manager.
+        // checkEnvironmentPatch,
     )
 
     execute {
