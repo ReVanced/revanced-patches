@@ -4,7 +4,6 @@
     All strings must have a unique path, even if the same string is declared in two different apps.
     This is because Crowdin requires temporarily flattening this file and removing the <app> and <patch> elements.
 
-
     Strings with new lines must be raw strings where they're wrapped in quotes and new lines are not encoded.
     Raw strings still requires escaping embedded double quotes but escaping embedded single quotes is optional.
 
@@ -43,6 +42,9 @@ Second \"item\" text"</string>
   <string name="revanced_settings_import_reset">Налаштування ReVanced скинуто до стандартних</string>
   <string name="revanced_settings_import_success">Імпортовано %d налаштувань</string>
   <string name="revanced_settings_import_failure_parse">Не вдалося імпортувати: %s</string>
+  <string name="revanced_show_menu_icons_title">Показувати іконки в налаштуваннях ReVanced</string>
+  <string name="revanced_show_menu_icons_summary_on">Іконки в налаштуваннях показуються</string>
+  <string name="revanced_show_menu_icons_summary_off">Іконки в налаштуваннях не показуються</string>
   <string name="revanced_language_title">Мова налаштувань ReVanced</string>
   <string name="revanced_language_user_dialog_message">"Переклади для деяких мов можуть бути відсутні або неповні.
 
@@ -610,6 +612,10 @@ Second \"item\" text"</string>
   <string name="revanced_hide_player_flyout_audio_track_title">Приховати \"Звукова доріжка\"</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_on">Пункт меню \"Звукова доріжка\" приховано</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_off">Пункт меню \"Звукова доріжка\" показується</string>
+  <!-- 'Spoof video streams' should be the same translation used for revanced_spoof_video_streams_screen_title -->
+  <string name="revanced_hide_player_flyout_audio_track_not_available">"Пункт меню \"Звукова доріжка\" приховано
+
+Для того, щоб пункт меню \"Звукова доріжка\" показувався, змініть клієнт \"Підробки відеопотоків\" на iOS TV"</string>
   <!-- 'Watch in VR' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_watch_in_vr_title">Приховати \"Дивитись у VR\"</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">Пункт меню \"Дивитись у VR\" приховано</string>
@@ -810,12 +816,12 @@ Second \"item\" text"</string>
   <!-- Video likes have been set to hidden by the video uploader. -->
   <string name="revanced_ryd_video_likes_hidden_by_video_owner">Приховано власником</string>
   <string name="revanced_ryd_enable_summary_on">Відмітки \"Не подобається\" показуються</string>
-  <string name="revanced_ryd_enable_summary_off">Відмітки \"Не подобається\" приховано</string>
+  <string name="revanced_ryd_enable_summary_off">Відмітки \"Не подобається\" не показуються</string>
   <string name="revanced_ryd_shorts_title">Відмітки \"Не подобається\" в Shorts</string>
   <string name="revanced_ryd_shorts_summary_on_disclaimer">"Відмітки \"Не подобається\" в Shorts показуються
 
 Обмеження: Відмітки \"Не подобається\" не можуть показуватися в анонімному режимі"</string>
-  <string name="revanced_ryd_shorts_summary_off">Відмітки \"Не подобається\" в Shorts приховано</string>
+  <string name="revanced_ryd_shorts_summary_off">Відмітки \"Не подобається\" в Shorts не показуються</string>
   <string name="revanced_ryd_dislike_percentage_title">Відмітки \"Не подобається\" у відсотках</string>
   <string name="revanced_ryd_dislike_percentage_summary_on">Відмітки \"Не подобається\" показуються у відсотках</string>
   <string name="revanced_ryd_dislike_percentage_summary_off">Відмітки \"Не подобається\" показуються як число</string>
@@ -1176,7 +1182,7 @@ Second \"item\" text"</string>
   <string name="revanced_miniplayer_horizontal_drag_summary_off">Жест горизонтального перетягування вимкнено</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_title">Приховати кнопки накладання</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">Кнопки накладання приховано</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">Кнопки накладання відображаються</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">Кнопки накладання показуються</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_legacy_title">Кнопки розгортання та закриття</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_on">"Кнопки розгортання та закриття приховано
 

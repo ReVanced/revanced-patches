@@ -4,7 +4,6 @@
     All strings must have a unique path, even if the same string is declared in two different apps.
     This is because Crowdin requires temporarily flattening this file and removing the <app> and <patch> elements.
 
-
     Strings with new lines must be raw strings where they're wrapped in quotes and new lines are not encoded.
     Raw strings still requires escaping embedded double quotes but escaping embedded single quotes is optional.
 
@@ -43,6 +42,9 @@ Second \"item\" text"</string>
   <string name="revanced_settings_import_reset">ReVanced সেটিং ডিফল্ট সেট করা হয়েছে</string>
   <string name="revanced_settings_import_success">%d সেটিং আমদানি হয়েছে</string>
   <string name="revanced_settings_import_failure_parse">আমদানি করা যায়নি: %s</string>
+  <string name="revanced_show_menu_icons_title">ReVanced সেটিং আইকন দেখান</string>
+  <string name="revanced_show_menu_icons_summary_on">সেটিং আইকন দেখানো হয়েছে</string>
+  <string name="revanced_show_menu_icons_summary_off">সেটিং আইকন দেখানো হচ্ছে না</string>
   <string name="revanced_language_title">ReVanced ভাষা</string>
   <string name="revanced_language_user_dialog_message">"কিছু ভাষার জন্য অনুবাদ অনুপস্থিত বা অসম্পূর্ণ হতে পারে।
 
@@ -610,6 +612,10 @@ MicroG-এর জন্য ব্যাটারি অপ্টিমাইজ�
   <string name="revanced_hide_player_flyout_audio_track_title">অডিও ট্র্যাক লুকান</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_on">অডিও ট্র্যাক মেনু লুকানো আছে</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_off">অডিও ট্র্যাক মেনু দেখানো হয়</string>
+  <!-- 'Spoof video streams' should be the same translation used for revanced_spoof_video_streams_screen_title -->
+  <string name="revanced_hide_player_flyout_audio_track_not_available">"অডিও ট্র্যাক মেনু লুকানো আছে
+
+অডিও ট্র্যাক মেনু দেখাতে, 'স্পুফ ভিডিও স্ট্রিম' পরিবর্তন করে iOS TV করুন"</string>
   <!-- 'Watch in VR' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_watch_in_vr_title">ভিআর-এ ঘড়ি লুকান</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">ভিআর মেনুতে দেখুন লুকানো আছে</string>

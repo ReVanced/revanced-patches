@@ -4,7 +4,6 @@
     All strings must have a unique path, even if the same string is declared in two different apps.
     This is because Crowdin requires temporarily flattening this file and removing the <app> and <patch> elements.
 
-
     Strings with new lines must be raw strings where they're wrapped in quotes and new lines are not encoded.
     Raw strings still requires escaping embedded double quotes but escaping embedded single quotes is optional.
 
@@ -43,6 +42,9 @@ Second \"item\" text"</string>
   <string name="revanced_settings_import_reset">ReVanced կարգավորումները վերադրվել են դեֆոլտային</string>
   <string name="revanced_settings_import_success">Import %d կարգավորում</string>
   <string name="revanced_settings_import_failure_parse">Import-ը ձախողվել է։ %s</string>
+  <string name="revanced_show_menu_icons_title">Ցուցադրել ReVanced-ի կարգավորումների պատկերակները</string>
+  <string name="revanced_show_menu_icons_summary_on">Կարգավորումների պատկերակները ցուցադրվում են</string>
+  <string name="revanced_show_menu_icons_summary_off">Կարգավորումների պատկերակները ցուցադրված չեն</string>
   <string name="revanced_language_title">ReVanced լեզվի</string>
   <string name="revanced_language_user_dialog_message">"Որոշ լեզուների թարգմանությունները կարող են լինել բացակայուն կամ անավարտ:
 
@@ -610,6 +612,10 @@ MicroG-ի համար մարտկոցի օպտիմալացումը անջատել�
   <string name="revanced_hide_player_flyout_audio_track_title">Աուդիո ձայնագրությունը թաքցնել</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_on">Աուդիո ձայնագրման մենյուը թաքցված է</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_off">Աուդիո ձայնագրման մենյուը երևում է</string>
+  <!-- 'Spoof video streams' should be the same translation used for revanced_spoof_video_streams_screen_title -->
+  <string name="revanced_hide_player_flyout_audio_track_not_available">"Աուդիո ուղու ընտրացանկը թաքնված է:
+
+Աուդիո ուղու ընտրացանկը ցուցադրելու համար փոխեք «Կեղծել տեսահոսքերը»-ը iOS TV-ի"</string>
   <!-- 'Watch in VR' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_watch_in_vr_title">Դիտել VR-ով թաքցնել</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">VR-ով դիտել մենյուը թաքցված է</string>

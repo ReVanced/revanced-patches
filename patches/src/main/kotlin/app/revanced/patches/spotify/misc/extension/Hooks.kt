@@ -1,10 +1,6 @@
 package app.revanced.patches.spotify.misc.extension
 
 import app.revanced.patches.shared.misc.extension.extensionHook
+import app.revanced.patches.spotify.shared.mainActivityOnCreateFingerprint
 
-internal val spotifyMainActivityOnCreate = extensionHook {
-    custom { method, classDef ->
-        classDef.type == "Lcom/spotify/music/SpotifyMainActivity;" &&
-                method.name == "onCreate"
-    }
-}
+internal val mainActivityOnCreateHook = extensionHook(fingerprint = mainActivityOnCreateFingerprint)

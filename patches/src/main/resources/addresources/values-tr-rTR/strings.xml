@@ -4,7 +4,6 @@
     All strings must have a unique path, even if the same string is declared in two different apps.
     This is because Crowdin requires temporarily flattening this file and removing the <app> and <patch> elements.
 
-
     Strings with new lines must be raw strings where they're wrapped in quotes and new lines are not encoded.
     Raw strings still requires escaping embedded double quotes but escaping embedded single quotes is optional.
 
@@ -43,6 +42,9 @@ Second \"item\" text"</string>
   <string name="revanced_settings_import_reset">ReVanced ayarları varsayılanlara sıfırlandı</string>
   <string name="revanced_settings_import_success">%d ayar içe aktarıldı</string>
   <string name="revanced_settings_import_failure_parse">İçe aktarılamadı: %s</string>
+  <string name="revanced_show_menu_icons_title">ReVanced ayar simgelerini göster</string>
+  <string name="revanced_show_menu_icons_summary_on">Ayar simgeleri gösteriliyor</string>
+  <string name="revanced_show_menu_icons_summary_off">Ayar simgeleri gösterilmiyor</string>
   <string name="revanced_language_title">ReVanced dili</string>
   <string name="revanced_language_user_dialog_message">"Bazı diller için çeviriler eksik veya tamamlanmamış olabilir. 
 
@@ -610,6 +612,10 @@ Bu ayarı değiştirmek etkili olmazsa, Gizli moda geçmeyi deneyin."</string>
   <string name="revanced_hide_player_flyout_audio_track_title">Ses parçası\'nı gizle</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_on">Ses parçası menüsü gizli</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_off">Ses parçası menüsü görünür</string>
+  <!-- 'Spoof video streams' should be the same translation used for revanced_spoof_video_streams_screen_title -->
+  <string name="revanced_hide_player_flyout_audio_track_not_available">"Ses parçası menüsü gizli
+
+Ses parçası menüsünü göstermek için \"Video akışlarını taklit et\" ayarını iOS TV olarak değiştirin"</string>
   <!-- 'Watch in VR' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_watch_in_vr_title">VR modunda izle\'yi gizle</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">VR modunda izle menüsü gizli</string>

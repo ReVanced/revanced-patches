@@ -4,7 +4,6 @@
     All strings must have a unique path, even if the same string is declared in two different apps.
     This is because Crowdin requires temporarily flattening this file and removing the <app> and <patch> elements.
 
-
     Strings with new lines must be raw strings where they're wrapped in quotes and new lines are not encoded.
     Raw strings still requires escaping embedded double quotes but escaping embedded single quotes is optional.
 
@@ -43,6 +42,9 @@ Second \"item\" text"</string>
   <string name="revanced_settings_import_reset">Configuración ReVanced restablecida por defecto</string>
   <string name="revanced_settings_import_success">Configuración importada de %d</string>
   <string name="revanced_settings_import_failure_parse">Error de importación: %s</string>
+  <string name="revanced_show_menu_icons_title">Mostrar iconos de configuración de ReVanced</string>
+  <string name="revanced_show_menu_icons_summary_on">Se muestran los iconos de configuración</string>
+  <string name="revanced_show_menu_icons_summary_off">No se muestran los iconos de configuración</string>
   <string name="revanced_language_title">Idioma de ReVanced</string>
   <string name="revanced_language_user_dialog_message">"Las traducciones para algunos idiomas pueden faltar o estar incompletas.
 
@@ -607,6 +609,10 @@ Si cambiar este ajuste no tiene efecto, intenta cambiar al modo incógnito."</st
   <string name="revanced_hide_player_flyout_audio_track_title">Ocultar pista de audio</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_on">El menú de pista de audio está oculto</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_off">El menú de pista de audio se muestra</string>
+  <!-- 'Spoof video streams' should be the same translation used for revanced_spoof_video_streams_screen_title -->
+  <string name="revanced_hide_player_flyout_audio_track_not_available">"El menú de la pista de audio está oculto.
+
+Para mostrar el menú de la pista de audio, cambia \"Suplantar transmisiones de video\" a iOS TV"</string>
   <!-- 'Watch in VR' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_watch_in_vr_title">Ocultar reloj en VR</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">Ver en el menú VR está oculto</string>
@@ -699,7 +705,7 @@ Si cambiar este ajuste no tiene efecto, intenta cambiar al modo incógnito."</st
   <string name="revanced_hide_shorts_location_label_summary_on">Etiqueta de ubicación oculta</string>
   <string name="revanced_hide_shorts_location_label_summary_off">Etiqueta de ubicación mostrada</string>
   <string name="revanced_hide_shorts_save_sound_button_title">Ocultar el botón Guardar música</string>
-  <string name="revanced_hide_shorts_save_sound_button_summary_on">Guardar botón de música está oculto</string>
+  <string name="revanced_hide_shorts_save_sound_button_summary_on">El botón Guardar música está oculto</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_off">Mostrar el botón de guardar música</string>
   <string name="revanced_hide_shorts_use_template_button_title">Ocultar el botón Usar plantilla</string>
   <string name="revanced_hide_shorts_use_template_button_summary_on">Botón de plantilla de uso está oculto</string>

@@ -4,7 +4,6 @@
     All strings must have a unique path, even if the same string is declared in two different apps.
     This is because Crowdin requires temporarily flattening this file and removing the <app> and <patch> elements.
 
-
     Strings with new lines must be raw strings where they're wrapped in quotes and new lines are not encoded.
     Raw strings still requires escaping embedded double quotes but escaping embedded single quotes is optional.
 
@@ -43,6 +42,9 @@ Second \"item\" text"</string>
   <string name="revanced_settings_import_reset">Настройки ReVanced восстановлены до значений по умолчанию</string>
   <string name="revanced_settings_import_success">Импортировано %d настроек</string>
   <string name="revanced_settings_import_failure_parse">Ошибка импорта: %s</string>
+  <string name="revanced_show_menu_icons_title">Показать иконки в настройках ReVanced</string>
+  <string name="revanced_show_menu_icons_summary_on">Иконки в настройках ReVanced показаны</string>
+  <string name="revanced_show_menu_icons_summary_off">Иконки в настройках ReVanced скрыты</string>
   <string name="revanced_language_title">Язык настроек ReVanced</string>
   <string name="revanced_language_user_dialog_message">"Переводы для некоторых языков могут отсутствовать или быть неполными.
 
@@ -226,9 +228,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_artist_cards_title">Скрыть карточки исполнителей</string>
   <string name="revanced_hide_artist_cards_summary_on">Карточки исполнителей под плеером скрыты</string>
   <string name="revanced_hide_artist_cards_summary_off">Карточки исполнителей под плеером показаны</string>
-  <string name="revanced_hide_ai_generated_video_summary_section_title">Скрыть «Краткое содержание видео, созданное ИИ»</string>
-  <string name="revanced_hide_ai_generated_video_summary_section_summary_on">Раздел с кратким содержанием видео скрыт</string>
-  <string name="revanced_hide_ai_generated_video_summary_section_summary_off">Раздел с кратким содержанием видео показан</string>
+  <string name="revanced_hide_ai_generated_video_summary_section_title">Скрыть секцию AI-резюме видео</string>
+  <string name="revanced_hide_ai_generated_video_summary_section_summary_on">Секция AI-резюме видео в описании видео скрыта</string>
+  <string name="revanced_hide_ai_generated_video_summary_section_summary_off">Секция AI-резюме видео в описании видео показана</string>
   <string name="revanced_hide_attributes_section_title">Скрыть раздел атрибутов</string>
   <string name="revanced_hide_attributes_section_summary_on">Разделы \"Упомянутые или показанные места\", \"Игры\", \"Музыка\" и \"Люди, которых упоминали\" скрыты</string>
   <string name="revanced_hide_attributes_section_summary_off">Разделы \"Упомянутые или показанные места\", \"Игры\", \"Музыка\" и \"Люди, которых упоминали\" показаны</string>
@@ -265,12 +267,12 @@ Second \"item\" text"</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">Панель фильтров в похожих видео показана</string>
   <string name="revanced_comments_screen_title">Комментарии</string>
   <string name="revanced_comments_screen_summary">Скрыть или показать компоненты раздела комментариев</string>
-  <string name="revanced_hide_comments_ai_chat_summary_title">Скрыть сводку чата на базе ИИ</string>
-  <string name="revanced_hide_comments_ai_chat_summary_summary_on">Баннер \"Обзор чата\" в чатах прямых трансляций скрыт</string>
-  <string name="revanced_hide_comments_ai_chat_summary_summary_off">Баннер \"Обзор чата\" в чатах прямых трансляций показан</string>
-  <string name="revanced_hide_comments_ai_summary_title">Скрыть сводку комментариев на базе ИИ</string>
-  <string name="revanced_hide_comments_ai_summary_summary_on">Сводка комментариев скрыта</string>
-  <string name="revanced_hide_comments_ai_summary_summary_off">Сводка комментариев показана</string>
+  <string name="revanced_hide_comments_ai_chat_summary_title">Скрыть секцию AI-обзора чата</string>
+  <string name="revanced_hide_comments_ai_chat_summary_summary_on">Секция AI-обзора чата в чатах прямых трансляций скрыта</string>
+  <string name="revanced_hide_comments_ai_chat_summary_summary_off">Секция AI-обзора чата в чатах прямых трансляций показана</string>
+  <string name="revanced_hide_comments_ai_summary_title">Скрыть вкладку AI-сводки по темам комментариев </string>
+  <string name="revanced_hide_comments_ai_summary_summary_on">Вкладка AI-сводки по темам комментариев скрыта </string>
+  <string name="revanced_hide_comments_ai_summary_summary_off">Вкладка AI-сводки по темам комментариев показана</string>
   <string name="revanced_hide_comments_by_members_header_title">Скрыть заголовок \"Комментарии спонсоров\"</string>
   <string name="revanced_hide_comments_by_members_header_summary_on">Заголовок \"Комментарии спонсоров\" в комментариях скрыт</string>
   <string name="revanced_hide_comments_by_members_header_summary_off">Заголовок \"Комментарии спонсоров\" в комментариях показан</string>
@@ -430,9 +432,9 @@ Second \"item\" text"</string>
   <string name="revanced_disable_precise_seeking_gesture_summary_off">Жест покадровой перемотки включен</string>
   </patch>
   <patch id="interaction.seekbar.enableSeekbarTappingPatch">
-  <string name="revanced_seekbar_tapping_title">Включить нажатие для поиска</string>
-  <string name="revanced_seekbar_tapping_summary_on">Нажатие для поиска включено</string>
-  <string name="revanced_seekbar_tapping_summary_off">Нажатие для поиска отключено</string>
+  <string name="revanced_seekbar_tapping_title">Включить перемотку нажатием</string>
+  <string name="revanced_seekbar_tapping_summary_on">Перемотка нажатием на полосу прогресса включена</string>
+  <string name="revanced_seekbar_tapping_summary_off">Перемотка нажатием на полосу прогресса отключена</string>
   </patch>
   <patch id="interaction.swipecontrols.swipeControlsResourcePatch">
   <string name="revanced_swipe_brightness_title">Включить регулировку яркости жестом</string>
@@ -555,7 +557,7 @@ Second \"item\" text"</string>
   <string name="revanced_disable_translucent_status_bar_title">Отключить полупрозрачность строки состояния</string>
   <string name="revanced_disable_translucent_status_bar_summary_on">Строка состояния непрозрачная</string>
   <string name="revanced_disable_translucent_status_bar_summary_off">Строка состояния непрозрачная или полупрозрачная</string>
-  <string name="revanced_disable_translucent_status_bar_user_dialog_message">На некоторых устройствах включение этой функции может сделать панель навигации системы прозрачной.</string>
+  <string name="revanced_disable_translucent_status_bar_user_dialog_message">На некоторых устройствах включение данной опции может сделать системную панель навигации прозрачной.</string>
   <string name="revanced_disable_translucent_navigation_bar_light_title">Отключить полупрозрачность светлой панели навигации</string>
   <string name="revanced_disable_translucent_navigation_bar_light_summary_on">Панель навигации при светлой теме непрозрачная</string>
   <string name="revanced_disable_translucent_navigation_bar_light_summary_off">Панель навигации при светлой теме непрозрачная или полупрозрачная</string>
@@ -610,6 +612,10 @@ Second \"item\" text"</string>
   <string name="revanced_hide_player_flyout_audio_track_title">Скрыть пункт \"Звуковая дорожка\"</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_on">Пункт \"Звуковая дорожка\" в выдвижном меню плеера скрыт</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_off">Пункт \"Звуковая дорожка\" в выдвижном меню плеера показан</string>
+  <!-- 'Spoof video streams' should be the same translation used for revanced_spoof_video_streams_screen_title -->
+  <string name="revanced_hide_player_flyout_audio_track_not_available">"Пункт \"Звуковая дорожка\" в выдвижном меню плеера скрыт
+
+Для показа пункта \"Звуковая дорожка\" измените клиент \"Подмены видеопотоков\" на iOS TV"</string>
   <!-- 'Watch in VR' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_watch_in_vr_title">Скрыть пункт \"Смотреть в VR-режиме\"</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">Пункт \"Смотреть в VR-режиме\" в выдвижном меню плеера скрыт</string>
@@ -1175,9 +1181,9 @@ Second \"item\" text"</string>
 
 Миниплеер можно перетаскивать за пределы экрана влево или вправо"</string>
   <string name="revanced_miniplayer_horizontal_drag_summary_off">Жест горизонтального перетаскивания отключен</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_title">Скрыть кнопки наложения</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">Кнопки наложения скрыты</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">Кнопки наложения отображаются</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_title">Скрыть кнопки миниплеера</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">Кнопки миниплеера скрыты</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">Кнопки миниплеера показаны</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_legacy_title">Скрыть кнопки разворачивания и закрытия</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_on">"Кнопки разворачивания и закрытия скрыты
 
@@ -1370,7 +1376,7 @@ Second \"item\" text"</string>
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
   <string name="revanced_spoof_video_streams_screen_title">Подмена видеопотоков</string>
-  <string name="revanced_spoof_video_streams_screen_summary">Подмена видеопотоков клиента для предотвращения проблем с воспроизведением видео</string>
+  <string name="revanced_spoof_video_streams_screen_summary">Подмена клиента видеопотоков для предотвращения проблем с воспроизведением видео</string>
   <string name="revanced_spoof_video_streams_title">Подменить видеопотоки</string>
   <string name="revanced_spoof_video_streams_summary_on">Видеопотоки подменены</string>
   <string name="revanced_spoof_video_streams_summary_off">"Видеопотоки не подменены

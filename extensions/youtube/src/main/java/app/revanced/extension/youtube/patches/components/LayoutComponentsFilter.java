@@ -454,16 +454,20 @@ public final class LayoutComponentsFilter extends Filter {
     }
 
     private static boolean hideShelves() {
-        // If the player is opened while library is selected,
-        // then filter any recommendations below the player.
-        if (PlayerType.getCurrent().isMaximizedOrFullscreen()
-                // Or if the search is active while library is selected, then also filter.
-                || NavigationBar.isSearchBarActive()) {
+        // Horizontal shelves are used for music/game links in video descriptions,
+        // such as https://youtube.com/watch?v=W8kI1na3S2M
+        if (PlayerType.getCurrent().isMaximizedOrFullscreen()) {
+            return false;
+        }
+
+        // Must check search bar after player type, since search results
+        // can be in the background behind an open player.
+        if (NavigationBar.isSearchBarActive()) {
             return true;
         }
 
         // Do not hide if the navigation back button is visible,
-        // otherwise the content shelves in the YouTube Movie/Courses pages is hidden.
+        // otherwise the content shelves in the explore/music/courses pages are hidde.
         if (NavigationBar.isBackButtonVisible()) {
             return false;
         }

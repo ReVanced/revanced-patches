@@ -4,7 +4,6 @@
     All strings must have a unique path, even if the same string is declared in two different apps.
     This is because Crowdin requires temporarily flattening this file and removing the <app> and <patch> elements.
 
-
     Strings with new lines must be raw strings where they're wrapped in quotes and new lines are not encoded.
     Raw strings still requires escaping embedded double quotes but escaping embedded single quotes is optional.
 
@@ -43,6 +42,9 @@ Second \"item\" text"</string>
   <string name="revanced_settings_import_reset">I-reset ang mga ReVanced na setting sa default</string>
   <string name="revanced_settings_import_success">Na-import ang %d na mga setting</string>
   <string name="revanced_settings_import_failure_parse">Nabigo ang pag-import: %s</string>
+  <string name="revanced_show_menu_icons_title">Ipakita ang mga icon ng setting ng ReVanced</string>
+  <string name="revanced_show_menu_icons_summary_on">Ipinapakita ang mga icon ng setting</string>
+  <string name="revanced_show_menu_icons_summary_off">Hindi ipinapakita ang mga icon ng setting</string>
   <string name="revanced_language_title">Wika ng ReVanced</string>
   <string name="revanced_language_user_dialog_message">"Ang mga pagsasalin para sa ilang mga wika ay maaaring nawawala o hindi kumpleto.
 
@@ -608,6 +610,10 @@ Tandaan: Ang pagpapagana nito ay nagtatago rin ng mga ad ng video"</string>
   <string name="revanced_hide_player_flyout_audio_track_title">Itago ang Audio track</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_on">Nakatago ang menu ng audio track</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_off">Ipinapakita ang menu ng audio track</string>
+  <!-- 'Spoof video streams' should be the same translation used for revanced_spoof_video_streams_screen_title -->
+  <string name="revanced_hide_player_flyout_audio_track_not_available">"Nakatago ang menu ng audio track
+
+Upang ipakita ang menu ng Audio track, baguhin ang 'Spoof video streams' sa iOS TV"</string>
   <!-- 'Watch in VR' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_watch_in_vr_title">Itago ang Panoorin sa VR</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">Nakatago ang panonood sa VR menu</string>

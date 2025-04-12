@@ -1,0 +1,27 @@
+<!--
+   https://github.com/google/material-design-icons/blob/cde278b1c4bbca87b8b6d8eff846a8a6a3a4e2be/symbols/android/campaign/materialsymbolsoutlined/campaign_wght200_24px.xml
+
+Copyright 2022 Google
+
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+-->
+
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+        android:width="24dp"
+        android:height="24dp"
+        android:viewportWidth="24"
+        android:viewportHeight="24">
+    <path
+            android:fillColor="?ytTextPrimary"
+            android:pathData="M17.9219,12.5 L17.9219,11.5 L21.1523,11.5 L21.1523,12.5 Z M19.0078,18.9609 L16.4219,17.0234 L17.0469,16.2305 L19.6289,18.168 Z M16.9688,7.69141 L16.3477,6.89844 L18.9297,4.96094 L19.5547,5.75391 Z M5.5,17.9609 L5.5,14.1523 L4.46094,14.1523 C4.01563,14.1523,3.63281,13.9961,3.31641,13.6836 C3.00391,13.3672,2.84766,12.9844,2.84766,12.5391 L2.84766,11.4609 C2.84766,11.0156,3.00391,10.6328,3.31641,10.3164 C3.63281,10.0039,4.01563,9.84766,4.46094,9.84766 L8.19141,9.84766 L12.1523,7.5 L12.1523,16.5 L8.19141,14.1523 L6.5,14.1523 L6.5,17.9609 Z M11.1523,14.7188 L11.1523,9.28125 L8.47266,10.8477 L4.46094,10.8477 C4.30859,10.8477,4.16797,10.9102,4.03906,11.0391 C3.91016,11.168,3.84766,11.3086,3.84766,11.4609 L3.84766,12.5391 C3.84766,12.6914,3.91016,12.832,4.03906,12.9609 C4.16797,13.0898,4.30859,13.1523,4.46094,13.1523 L8.47266,13.1523 Z M13.9219,14.8867 L13.9219,9.11328 C14.2578,9.42188,14.5273,9.82813,14.7305,10.332 C14.9375,10.8398,15.0391,11.3945,15.0391,12 C15.0391,12.6055,14.9375,13.1602,14.7305,13.668 C14.5273,14.1719,14.2578,14.5781,13.9219,14.8867 Z M7.5,12 Z M7.5,12" />
+</vector>

@@ -18,11 +18,9 @@ import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
-internal const val EXTENSION_METHOD_DESCRIPTOR =
-    "Lapp/revanced/extension/youtube/patches/SlideToSeekPatch;->isSlideToSeekDisabled(Z)Z"
+private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/youtube/patches/SlideToSeekPatch;"
 
 val enableSlideToSeekPatch = bytecodePatch(
-    name = "Enable slide to seek",
     description = "Adds an option to enable slide to seek " +
         "instead of playing at 2x speed when pressing and holding in the video player."
 ) {
@@ -31,17 +29,6 @@ val enableSlideToSeekPatch = bytecodePatch(
         settingsPatch,
         addResourcesPatch,
         versionCheckPatch,
-    )
-
-    compatibleWith(
-        "com.google.android.youtube"(
-            "19.16.39",
-            "19.25.37",
-            "19.34.42",
-            "19.43.41",
-            "19.47.53",
-            "20.07.39",
-        ),
     )
 
     execute {
@@ -59,6 +46,8 @@ val enableSlideToSeekPatch = bytecodePatch(
         val checkReference = slideToSeekFingerprint.method.getInstruction(checkIndex)
             .getReference<MethodReference>()!!
 
+        val extensionMethodDescriptor = "$EXTENSION_CLASS_DESCRIPTOR->isSlideToSeekDisabled(Z)Z"
+
         // A/B check method was only called on this class.
         slideToSeekFingerprint.classDef.methods.forEach { method ->
             method.findInstructionIndicesReversed {
@@ -70,7 +59,7 @@ val enableSlideToSeekPatch = bytecodePatch(
                     addInstructions(
                         index + 2,
                         """
-                            invoke-static { v$register }, $EXTENSION_METHOD_DESCRIPTOR
+                            invoke-static { v$register }, $extensionMethodDescriptor
                             move-result v$register
                        """,
                     )
@@ -95,7 +84,7 @@ val enableSlideToSeekPatch = bytecodePatch(
                     addInstructions(
                         targetIndex + 1,
                         """
-                            invoke-static { v$targetRegister }, $EXTENSION_METHOD_DESCRIPTOR
+                            invoke-static { v$targetRegister }, $extensionMethodDescriptor
                             move-result v$targetRegister
                         """,
                     )
@@ -109,7 +98,7 @@ val enableSlideToSeekPatch = bytecodePatch(
                 addInstructions(
                     insertIndex,
                     """
-                        invoke-static { v$targetRegister }, $EXTENSION_METHOD_DESCRIPTOR
+                        invoke-static { v$targetRegister }, $extensionMethodDescriptor
                         move-result v$targetRegister
                     """,
                 )

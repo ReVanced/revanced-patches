@@ -4,7 +4,6 @@
     All strings must have a unique path, even if the same string is declared in two different apps.
     This is because Crowdin requires temporarily flattening this file and removing the <app> and <patch> elements.
 
-
     Strings with new lines must be raw strings where they're wrapped in quotes and new lines are not encoded.
     Raw strings still requires escaping embedded double quotes but escaping embedded single quotes is optional.
 
@@ -43,6 +42,9 @@ Second \"item\" text"</string>
   <string name="revanced_settings_import_reset">ReVanced nustatymai atstatyti į numatytuosius</string>
   <string name="revanced_settings_import_success">Importuota %d nustatymų</string>
   <string name="revanced_settings_import_failure_parse">Importavimas nepavyko: %s</string>
+  <string name="revanced_show_menu_icons_title">Rodyti „ReVanced“ nustatymų piktogramas</string>
+  <string name="revanced_show_menu_icons_summary_on">Nustatymų piktogramos yra rodomos</string>
+  <string name="revanced_show_menu_icons_summary_off">Nenurodomos nustatymų piktogramos</string>
   <string name="revanced_language_title">ReVanced kalba</string>
   <string name="revanced_language_user_dialog_message">"Kai kurių kalbų vertimai gali būti neišsamūs ar trūkti.
 
@@ -610,6 +612,8 @@ Jei pakeitus šį nustatymą neįsigalioja, pabandykite perjungti į inkognito r
   <string name="revanced_hide_player_flyout_audio_track_title">Slėpti Garso takelius</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_on">Garso takelių meniu yra paslėptas</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_off">Garso takelių meniu yra rodomas</string>
+  <!-- 'Spoof video streams' should be the same translation used for revanced_spoof_video_streams_screen_title -->
+  <string name="revanced_hide_player_flyout_audio_track_not_available">"Garso takelio meniu yra paslėptas.\n\nNorėdami parodyti garso takelio meniu, pakeiskite „Apsimesti vaizdo srautais“ į „iOS TV“"</string>
   <!-- 'Watch in VR' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_watch_in_vr_title">Slėpti Žiūrėti VR</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">Žiūrėti VR meniu yra paslėptas</string>

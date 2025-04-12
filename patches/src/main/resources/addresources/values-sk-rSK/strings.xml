@@ -4,7 +4,6 @@
     All strings must have a unique path, even if the same string is declared in two different apps.
     This is because Crowdin requires temporarily flattening this file and removing the <app> and <patch> elements.
 
-
     Strings with new lines must be raw strings where they're wrapped in quotes and new lines are not encoded.
     Raw strings still requires escaping embedded double quotes but escaping embedded single quotes is optional.
 
@@ -43,6 +42,9 @@ Second \"item\" text"</string>
   <string name="revanced_settings_import_reset">Nastavenia ReVanced sa obnovia na predvolené</string>
   <string name="revanced_settings_import_success">Počet importovaných nastavení: %d</string>
   <string name="revanced_settings_import_failure_parse">Import zlyhal: %s</string>
+  <string name="revanced_show_menu_icons_title">Zobraziť ikony nastavení ReVanced</string>
+  <string name="revanced_show_menu_icons_summary_on">Ikony nastavení sa zobrazujú</string>
+  <string name="revanced_show_menu_icons_summary_off">Ikony nastavení sa nezobrazujú</string>
   <string name="revanced_language_title">Jazyk reVanced</string>
   <string name="revanced_language_user_dialog_message">"Pre niektoré jazyky môžu chýbať preklady alebo môžu byť neúplné.
 
@@ -603,6 +605,10 @@ Ak zmena tohto nastavenia nemá žiadny účinok, skúste prepnúť do režimu i
   <string name="revanced_hide_player_flyout_audio_track_title">Skryť zvukovú stopu</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_on">Ponuka zvukovej stopy je skrytá</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_off">Zobrazí sa ponuka zvukovej stopy</string>
+  <!-- 'Spoof video streams' should be the same translation used for revanced_spoof_video_streams_screen_title -->
+  <string name="revanced_hide_player_flyout_audio_track_not_available">"Ponuka zvukovej stopy je skrytá
+
+Ak chcete zobraziť ponuku zvukovej stopy, zmeňte možnosť „Oklamať videostreamy“ na iOS TV"</string>
   <!-- 'Watch in VR' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_watch_in_vr_title">Skryť hodinky vo VR</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">Sledovanie v ponuke VR je skryté</string>
