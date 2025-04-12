@@ -497,6 +497,7 @@ private object Constants {
  * @param toPackageName The package name to fall back to if no custom package name is specified in patch options.
  * @param spoofedPackageSignature The signature of the package to spoof to.
  * @param gmsCoreVendorGroupIdOption The option to get the vendor group ID of GmsCore.
+ * @param addStringResources If the GmsCore shared strings should be added to the patched app.
  * @param executeBlock The additional execution block of the patch.
  * @param block The additional block to build the patch.
  */
@@ -505,6 +506,7 @@ fun gmsCoreSupportResourcePatch(
     toPackageName: String,
     spoofedPackageSignature: String,
     gmsCoreVendorGroupIdOption: Option<String>,
+    addStringResources: Boolean = true,
     executeBlock: ResourcePatchContext.() -> Unit = {},
     block: ResourcePatchBuilder.() -> Unit = {},
 ) = resourcePatch {
@@ -516,7 +518,9 @@ fun gmsCoreSupportResourcePatch(
     val gmsCoreVendorGroupId by gmsCoreVendorGroupIdOption
 
     execute {
-        addResources("shared", "misc.gms.gmsCoreSupportResourcePatch")
+        if (addStringResources) {
+            addResources("shared", "misc.gms.gmsCoreSupportResourcePatch")
+        }
 
         /**
          * Add metadata to manifest to support spoofing the package name and signature of GmsCore.
