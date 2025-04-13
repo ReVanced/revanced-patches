@@ -2,6 +2,7 @@ package app.revanced.patches.shared.misc.extension
 
 import app.revanced.patcher.Fingerprint
 import app.revanced.patcher.FingerprintBuilder
+import app.revanced.patcher.FingerprintDelegate
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.patch.BytecodePatchContext
@@ -19,7 +20,7 @@ internal const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/shared/
  */
 fun sharedExtensionPatch(
     extensionName: String,
-    vararg hooks: ExtensionHook,
+    vararg hooks: () -> ExtensionHook,
 ) = bytecodePatch {
     dependsOn(sharedExtensionPatch(*hooks))
 
@@ -33,7 +34,7 @@ fun sharedExtensionPatch(
  * commonly for the onCreate method of exported activities.
  */
 fun sharedExtensionPatch(
-    vararg hooks: ExtensionHook,
+    vararg hooks: () -> ExtensionHook,
 ) = bytecodePatch {
     extendWith("extensions/shared.rve")
 
@@ -44,7 +45,7 @@ fun sharedExtensionPatch(
 
     finalize {
         // The hooks are made in finalize to ensure that the context is hooked before any other patches.
-        hooks.forEach { hook -> hook(EXTENSION_CLASS_DESCRIPTOR) }
+        hooks.forEach { hook -> hook()(EXTENSION_CLASS_DESCRIPTOR) }
 
         // Modify Utils method to include the patches release version.
         revancedUtilsPatchesVersionFingerprint.method.apply {
@@ -90,7 +91,7 @@ fun sharedExtensionPatch(
 }
 
 class ExtensionHook internal constructor(
-    internal val fingerprint: Fingerprint,
+    private val fingerprint: Fingerprint,
     private val insertIndexResolver: ((Method) -> Int),
     private val contextRegisterResolver: (Method) -> String,
 ) {
@@ -117,4 +118,7 @@ fun extensionHook(
     insertIndexResolver: ((Method) -> Int) = { 0 },
     contextRegisterResolver: (Method) -> String = { "p0" },
     fingerprintBuilderBlock: FingerprintBuilder.() -> Unit,
-) = ExtensionHook(fingerprint(block = fingerprintBuilderBlock), insertIndexResolver, contextRegisterResolver)
+) = {
+    val fingerprint by FingerprintDelegate(block = fingerprintBuilderBlock)
+    ExtensionHook(fingerprint, insertIndexResolver, contextRegisterResolver)
+}
