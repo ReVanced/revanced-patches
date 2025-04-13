@@ -8,6 +8,7 @@ import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.resourcePatch
 import app.revanced.patcher.patch.stringOption
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
+import app.revanced.patches.spotify.misc.extension.IS_SPOTIFY_LEGACY_APP_TARGET
 import app.revanced.patches.spotify.misc.extension.sharedExtensionPatch
 import app.revanced.util.*
 import com.android.tools.smali.dexlib2.AccessFlags
@@ -64,6 +65,12 @@ private val customThemeBytecodePatch = bytecodePatch {
     dependsOn(sharedExtensionPatch)
 
     execute {
+        if (IS_SPOTIFY_LEGACY_APP_TARGET) {
+            // Bytecode changes are not needed for legacy app target.
+            // Player background color is changed with existing resource patch.
+            return@execute
+        }
+
         fun MutableMethod.addColorChangeInstructions(literal: Long, colorString: String) {
             val index = indexOfFirstLiteralInstructionOrThrow(literal)
             val register = getInstruction<OneRegisterInstruction>(index).registerA
