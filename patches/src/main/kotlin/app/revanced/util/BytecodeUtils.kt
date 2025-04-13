@@ -636,7 +636,12 @@ fun Method.findInstructionIndicesReversedOrThrow(opcode: Opcode): List<Int> {
     return instructions
 }
 
-internal fun MutableMethod.insertFeatureFlagBooleanOverride(literal: Long, extensionsMethod: String) {
+/**
+ * Overrides the first move result with an extension call.
+ * Suitable for calls to extension code to override boolean and integer values.
+ */
+internal fun MutableMethod.insertLiteralOverride(literal: Long, extensionMethodDescriptor: String) {
+    // TODO: make this work with objects and wide values.
     val literalIndex = indexOfFirstLiteralInstructionOrThrow(literal)
     val index = indexOfFirstInstructionOrThrow(literalIndex, MOVE_RESULT)
     val register = getInstruction<OneRegisterInstruction>(index).registerA
@@ -650,9 +655,24 @@ internal fun MutableMethod.insertFeatureFlagBooleanOverride(literal: Long, exten
     addInstructions(
         index + 1,
         """
-            $operation, $extensionsMethod
+            $operation, $extensionMethodDescriptor
             move-result v$register
-        """,
+        """
+    )
+}
+
+/**
+ * Overrides a literal value result with a constant value.
+ */
+internal fun MutableMethod.insertLiteralOverride(literal: Long, override: Boolean) {
+    val literalIndex = indexOfFirstLiteralInstructionOrThrow(literal)
+    val index = indexOfFirstInstructionOrThrow(literalIndex, MOVE_RESULT)
+    val register = getInstruction<OneRegisterInstruction>(index).registerA
+    val overrideValue = if (override) "0x1" else "0x0"
+
+    addInstruction(
+        index + 1,
+        "const v$register, $overrideValue"
     )
 }
 
