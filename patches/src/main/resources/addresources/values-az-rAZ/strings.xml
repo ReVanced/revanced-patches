@@ -613,6 +613,9 @@ Bu seçimi dəyişdirmə işə düşmürsə, Gizli rejimə keçməyə çalışı
   <string name="revanced_hide_player_flyout_audio_track_summary_on">Səs axını menyusu gizlidir</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_off">Səs axını menyusu göstərilir</string>
   <!-- 'Spoof video streams' should be the same translation used for revanced_spoof_video_streams_screen_title -->
+  <string name="revanced_hide_player_flyout_audio_track_not_available">"Audio trek seçimi gizlədilib
+
+Audio trek seçimin göstərmək üçün \"Video axınları saxtalaşdır\"ı iOS TV-yə dəyiş"</string>
   <!-- 'Watch in VR' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_watch_in_vr_title">\"VR-da İzləni\" gizlət</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">VR menyusunda izləmə gizlidir</string>
