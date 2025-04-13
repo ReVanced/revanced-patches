@@ -80,14 +80,14 @@ public final class UnlockPremiumPatch {
             new OverrideAttribute("streaming-rules", ""),
             // Enables premium UI in settings and removes the premium button in the nav-bar.
             new OverrideAttribute("nft-disabled", "1"),
+            // Removes Spotify Connect as a premium only feature.
+            new OverrideAttribute("type", "premium"),
             // Enable Spotify Car Thing hardware device.
             // Device is discontinued and no longer works with the latest releases,
             // but it might still work with older app targets.
             new OverrideAttribute("can_use_superbird", TRUE, false),
             // Removes the premium button in the nav-bar for tablet users.
-            new OverrideAttribute("tablet-free", FALSE, false),
-            // Removes Spotify Connect as a premium only feature.
-            new OverrideAttribute("type", "premium")
+            new OverrideAttribute("tablet-free", FALSE, false)
     );
 
     private static final List<Integer> REMOVED_HOME_SECTIONS = List.of(
