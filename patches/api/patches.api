@@ -64,10 +64,6 @@ public final class app/revanced/patches/all/misc/directory/documentsprovider/Exp
 	public static final fun getExportInternalDataDocumentsProviderPatch ()Lapp/revanced/patcher/patch/ResourcePatch;
 }
 
-public final class app/revanced/patches/all/misc/display/DisableEdgeToEdgeDisplayPatchKt {
-	public static final fun getDisableEdgeToEdgeDisplayPatch ()Lapp/revanced/patcher/patch/ResourcePatch;
-}
-
 public final class app/revanced/patches/all/misc/hex/HexPatchKt {
 	public static final fun getHexPatch ()Lapp/revanced/patcher/patch/RawResourcePatch;
 }
@@ -110,6 +106,10 @@ public final class app/revanced/patches/all/misc/screenshot/RemoveScreenshotRest
 
 public final class app/revanced/patches/all/misc/shortcut/sharetargets/RemoveShareTargetsPatchKt {
 	public static final fun getRemoveShareTargetsPatch ()Lapp/revanced/patcher/patch/ResourcePatch;
+}
+
+public final class app/revanced/patches/all/misc/targetSdk/SetTargetSdkVersion34Kt {
+	public static final fun getSetTargetSdkVersion34 ()Lapp/revanced/patcher/patch/ResourcePatch;
 }
 
 public abstract interface class app/revanced/patches/all/misc/transformation/IMethodCall {

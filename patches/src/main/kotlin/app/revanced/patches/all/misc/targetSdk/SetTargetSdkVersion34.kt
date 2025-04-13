@@ -1,4 +1,4 @@
-package app.revanced.patches.all.misc.display
+package app.revanced.patches.all.misc.targetSdk
 
 import app.revanced.patcher.patch.resourcePatch
 import app.revanced.util.getNode
@@ -6,9 +6,10 @@ import org.w3c.dom.Element
 import java.util.logging.Logger
 
 @Suppress("unused")
-val disableEdgeToEdgeDisplayPatch = resourcePatch(
-    name = "Disable edge-to-edge display",
-    description = "Disables forced edge-to-edge display on Android 15+ by downgrading the target Android SDK version.",
+val setTargetSdkVersion34 = resourcePatch(
+    name = "Set target SDK version 34",
+    description = "Changes the target SDK version to 34 (Android 14). " +
+            " For devices running Android 15+, this change will disable edge-to-edge display.",
     use = false,
 ) {
     execute {
@@ -25,7 +26,7 @@ val disableEdgeToEdgeDisplayPatch = resourcePatch(
                 )
                 if (compileSdkVersion < 35) {
                     getLogger().warning(
-                        "This app does not appear to use Android 15 edge-to-edge display " +
+                        "This app does not appear to use a target SDK above 34: " +
                                 "(compileSdkVersion: $compileSdkVersion)"
                     )
                 }
