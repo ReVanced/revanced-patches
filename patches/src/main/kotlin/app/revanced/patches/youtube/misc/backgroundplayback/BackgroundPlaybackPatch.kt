@@ -105,10 +105,12 @@ val backgroundPlaybackPatch = bytecodePatch(
 
         // Fix PiP buttons not working after locking/unlocking device screen.
         if (is_19_34_or_greater) {
-            pipInputConsumerFeatureFlagFingerprint.method.insertLiteralOverride(
-                PIP_INPUT_CONSUMER_FEATURE_FLAG,
-                false
-            )
+            pipInputConsumerFeatureFlagFingerprint.let {
+                it.method.insertLiteralOverride(
+                    it.instructionMatches.first().index,
+                    false
+                )
+            }
         }
     }
 }

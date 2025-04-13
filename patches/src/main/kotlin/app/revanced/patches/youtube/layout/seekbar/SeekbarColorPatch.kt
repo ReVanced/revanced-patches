@@ -19,6 +19,7 @@ import app.revanced.patches.youtube.misc.playservice.is_19_34_or_greater
 import app.revanced.patches.youtube.misc.playservice.is_19_46_or_greater
 import app.revanced.patches.youtube.misc.playservice.is_19_49_or_greater
 import app.revanced.patches.youtube.misc.playservice.versionCheckPatch
+import app.revanced.patches.youtube.shared.mainActivityOnCreateFingerprint
 import app.revanced.util.copyXmlNode
 import app.revanced.util.findElementByAttributeValueOrThrow
 import app.revanced.util.findInstructionIndicesReversedOrThrow
@@ -174,9 +175,9 @@ val seekbarColorPatch = bytecodePatch(
     )
 
     execute {
-        fun MutableMethod.addColorChangeInstructions(resourceId: Long) {
+        fun MutableMethod.addColorChangeInstructions(index: Int) {
             insertLiteralOverride(
-                resourceId,
+                index,
                 "$EXTENSION_CLASS_DESCRIPTOR->getVideoPlayerSeekbarColor(I)I"
             )
         }
@@ -293,7 +294,7 @@ val seekbarColorPatch = bytecodePatch(
             launchScreenLayoutTypeFingerprint,
             mainActivityOnCreateFingerprint
         ).forEach { fingerprint ->
-            fingerprint.method.insertFeatureFlagBooleanOverride(
+            fingerprint.method.insertLiteralOverride(
                 launchScreenLayoutTypeLotteFeatureFlag,
                 "$EXTENSION_CLASS_DESCRIPTOR->useLotteLaunchSplashScreen(Z)Z"
             )
@@ -309,30 +310,29 @@ val seekbarColorPatch = bytecodePatch(
             val checkCastIndex = indexOfFirstInstructionOrThrow(drawableIndex, Opcode.CHECK_CAST)
             val drawableRegister = getInstruction<OneRegisterInstruction>(checkCastIndex).registerA
 
-                addInstruction(
-                    checkCastIndex + 1,
-                    "invoke-static { v$drawableRegister }, $EXTENSION_CLASS_DESCRIPTOR->" +
-                            "setSplashAnimationDrawableTheme(Landroid/graphics/drawable/AnimatedVectorDrawable;)V"
+            addInstruction(
+                checkCastIndex + 1,
+                "invoke-static { v$drawableRegister }, $EXTENSION_CLASS_DESCRIPTOR->" +
+                        "setSplashAnimationDrawableTheme(Landroid/graphics/drawable/AnimatedVectorDrawable;)V"
+            )
+
+            // Replace the Lottie animation view setAnimation(int) call.
+            val setAnimationIntMethodName =
+                lottieAnimationViewSetAnimationIntFingerprint.originalMethod.name
+
+            findInstructionIndicesReversedOrThrow {
+                val reference = getReference<MethodReference>()
+                reference?.definingClass == LOTTIE_ANIMATION_VIEW_CLASS_TYPE
+                        && reference.name == setAnimationIntMethodName
+            }.forEach { index ->
+                val instruction = getInstruction<FiveRegisterInstruction>(index)
+
+                replaceInstruction(
+                    index,
+                    "invoke-static { v${instruction.registerC}, v${instruction.registerD} }, " +
+                        "$EXTENSION_CLASS_DESCRIPTOR->setSplashAnimationLottie" +
+                        "(Lcom/airbnb/lottie/LottieAnimationView;I)V"
                 )
-
-                // Replace the Lottie animation view setAnimation(int) call.
-                val setAnimationIntMethodName =
-                    lottieAnimationViewSetAnimationIntFingerprint.originalMethod.name
-
-                findInstructionIndicesReversedOrThrow {
-                    val reference = getReference<MethodReference>()
-                    reference?.definingClass == LOTTIE_ANIMATION_VIEW_CLASS_TYPE
-                            && reference.name == setAnimationIntMethodName
-                }.forEach { index ->
-                    val instruction = getInstruction<FiveRegisterInstruction>(index)
-
-                    replaceInstruction(
-                        index,
-                        "invoke-static { v${instruction.registerC}, v${instruction.registerD} }, " +
-                                "$EXTENSION_CLASS_DESCRIPTOR->setSplashAnimationLottie" +
-                                "(Lcom/airbnb/lottie/LottieAnimationView;I)V"
-                    )
-                }
             }
         }
 
@@ -404,7 +404,7 @@ val seekbarColorPatch = bytecodePatch(
             launchScreenLayoutTypeFingerprint,
             mainActivityOnCreateSplashScreenImageViewFingerprint
         ).forEach { fingerprint ->
-            fingerprint.method.insertFeatureFlagBooleanOverride(
+            fingerprint.method.insertLiteralOverride(
                 launchScreenLayoutTypeLotteFeatureFlag,
                 "$EXTENSION_CLASS_DESCRIPTOR->useLotteLaunchSplashScreen(Z)Z"
             )

@@ -640,12 +640,12 @@ fun Method.findInstructionIndicesReversedOrThrow(opcode: Opcode): List<Int> {
  * Suitable for calls to extension code to override boolean and integer values.
  */
 internal fun MutableMethod.insertLiteralOverride(literal: Long, extensionMethodDescriptor: String) {
-    // TODO: make this work with objects and wide values.
     val literalIndex = indexOfFirstLiteralInstructionOrThrow(literal)
-    insertFeatureFlagBooleanOverride(literalIndex, extensionsMethod)
+    insertLiteralOverride(literalIndex, extensionMethodDescriptor)
 }
 
-internal fun MutableMethod.insertFeatureFlagBooleanOverride(literalIndex: Int, extensionsMethod: String) {
+internal fun MutableMethod.insertLiteralOverride(literalIndex: Int, extensionMethodDescriptor: String) {
+    // TODO: make this work with objects and wide primitive values.
     val index = indexOfFirstInstructionOrThrow(literalIndex, MOVE_RESULT)
     val register = getInstruction<OneRegisterInstruction>(index).registerA
 
@@ -669,6 +669,13 @@ internal fun MutableMethod.insertFeatureFlagBooleanOverride(literalIndex: Int, e
  */
 internal fun MutableMethod.insertLiteralOverride(literal: Long, override: Boolean) {
     val literalIndex = indexOfFirstLiteralInstructionOrThrow(literal)
+    return insertLiteralOverride(literalIndex, override)
+}
+
+/**
+ * Constant value override of the first MOVE_RESULT after the index parameter.
+ */
+internal fun MutableMethod.insertLiteralOverride(literalIndex: Int, override: Boolean) {
     val index = indexOfFirstInstructionOrThrow(literalIndex, MOVE_RESULT)
     val register = getInstruction<OneRegisterInstruction>(index).registerA
     val overrideValue = if (override) "0x1" else "0x0"

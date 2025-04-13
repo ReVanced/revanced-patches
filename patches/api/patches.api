@@ -567,8 +567,8 @@ public final class app/revanced/patches/shared/misc/fix/verticalscroll/VerticalS
 public final class app/revanced/patches/shared/misc/gms/GmsCoreSupportPatchKt {
 	public static final fun gmsCoreSupportPatch (Ljava/lang/String;Ljava/lang/String;Lapp/revanced/patcher/Fingerprint;Ljava/util/Set;Lapp/revanced/patcher/Fingerprint;Lapp/revanced/patcher/patch/Patch;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;)Lapp/revanced/patcher/patch/BytecodePatch;
 	public static synthetic fun gmsCoreSupportPatch$default (Ljava/lang/String;Ljava/lang/String;Lapp/revanced/patcher/Fingerprint;Ljava/util/Set;Lapp/revanced/patcher/Fingerprint;Lapp/revanced/patcher/patch/Patch;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)Lapp/revanced/patcher/patch/BytecodePatch;
-	public static final fun gmsCoreSupportResourcePatch (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lapp/revanced/patcher/patch/Option;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;)Lapp/revanced/patcher/patch/ResourcePatch;
-	public static synthetic fun gmsCoreSupportResourcePatch$default (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lapp/revanced/patcher/patch/Option;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)Lapp/revanced/patcher/patch/ResourcePatch;
+	public static final fun gmsCoreSupportResourcePatch (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lapp/revanced/patcher/patch/Option;ZLkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;)Lapp/revanced/patcher/patch/ResourcePatch;
+	public static synthetic fun gmsCoreSupportResourcePatch$default (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lapp/revanced/patcher/patch/Option;ZLkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)Lapp/revanced/patcher/patch/ResourcePatch;
 }
 
 public final class app/revanced/patches/shared/misc/hex/HexPatchKt {

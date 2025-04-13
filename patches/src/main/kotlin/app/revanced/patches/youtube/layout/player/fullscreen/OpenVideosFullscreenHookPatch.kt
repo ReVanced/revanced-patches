@@ -1,7 +1,6 @@
 package app.revanced.patches.youtube.layout.player.fullscreen
 
 import app.revanced.patcher.Fingerprint
-import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.bytecodePatch
@@ -33,16 +32,14 @@ internal val openVideosFullscreenHookPatch = bytecodePatch {
             insertIndex = fingerprint.instructionMatches.first().index
 
             openVideosFullscreenPortraitFingerprint.let {
-                it.method.apply {
-                    // Remove A/B feature call that forces what this patch already does.
-                    // Cannot use the A/B flag to accomplish the same goal because 19.50+
-                    // Shorts fullscreen regular player does not use fullscreen
-                    // if the player is minimized and it must be forced using other conditional check.
-                    val featureFlagIndex = it.instructionMatches.last().index
-                    val featureFlagRegister = getInstruction<OneRegisterInstruction>(featureFlagIndex).registerA
-
-                    addInstruction(featureFlagIndex + 1, "const/4 v$featureFlagRegister, 0x0")
-                }
+                // Remove A/B feature call that forces what this patch already does.
+                // Cannot use the A/B flag to accomplish the same goal because 19.50+
+                // Shorts fullscreen regular player does not use fullscreen
+                // if the player is minimized and it must be forced using other conditional check.
+                it.method.insertLiteralOverride(
+                    it.instructionMatches.last().index,
+                    false
+                )
             }
         } else {
             fingerprint = openVideosFullscreenPortraitLegacyFingerprint

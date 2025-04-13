@@ -495,40 +495,11 @@ private object Constants {
  * @param toPackageName The package name to fall back to if no custom package name is specified in patch options.
  * @param spoofedPackageSignature The signature of the package to spoof to.
  * @param gmsCoreVendorGroupIdOption The option to get the vendor group ID of GmsCore.
- * @param executeBlock The additional execution block of the patch.
- * @param block The additional block to build the patch.
- */
-fun gmsCoreSupportResourcePatch( // This is here only for binary compatibility.
-    fromPackageName: String,
-    toPackageName: String,
-    spoofedPackageSignature: String,
-    gmsCoreVendorGroupIdOption: Option<String>,
-    executeBlock: ResourcePatchContext.() -> Unit = {},
-    block: ResourcePatchBuilder.() -> Unit = {},
-) = gmsCoreSupportResourcePatch(
-    fromPackageName,
-    toPackageName,
-    spoofedPackageSignature,
-    gmsCoreVendorGroupIdOption,
-    true,
-    executeBlock,
-    block
-)
-
-/**
- * Abstract resource patch that allows Google apps to run without root and under a different package name
- * by using GmsCore instead of Google Play Services.
- *
- * @param fromPackageName The package name of the original app.
- * @param toPackageName The package name to fall back to if no custom package name is specified in patch options.
- * @param spoofedPackageSignature The signature of the package to spoof to.
- * @param gmsCoreVendorGroupIdOption The option to get the vendor group ID of GmsCore.
  * @param addStringResources If the GmsCore shared strings should be added to the patched app.
  * @param executeBlock The additional execution block of the patch.
  * @param block The additional block to build the patch.
  */
-// TODO: On the next major release make this public and delete the public overloaded constructor.
-internal fun gmsCoreSupportResourcePatch(
+fun gmsCoreSupportResourcePatch(
     fromPackageName: String,
     toPackageName: String,
     spoofedPackageSignature: String,
