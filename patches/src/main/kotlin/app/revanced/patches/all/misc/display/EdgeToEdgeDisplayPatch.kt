@@ -13,18 +13,24 @@ val edgeToEdgeDisplayPatch = resourcePatch(
 ) {
     execute {
         document("AndroidManifest.xml").use { document ->
+            fun getLogger() = Logger.getLogger(this::class.java.name)
+
             // Ideally, this patch should only be applied when targetSdkVersion is 35 or greater.
             // Since ApkTool does not add targetSdkVersion to AndroidManifest, there is no way
             // to check targetSdkVersion.  Instead, check compileSdkVersion and print a warning.
-            val manifestElement = document.getNode("manifest") as Element
-            val compileSdkVersion = Integer.parseInt(
-                manifestElement.getAttribute("android:compileSdkVersion")
-            )
-            if (compileSdkVersion < 35) {
-                Logger.getLogger(this::class.java.name).warning(
-                    "This app may not use edge-to-edge display (compileSdkVersion: $compileSdkVersion)"
+            try {
+                val manifestElement = document.getNode("manifest") as Element
+                val compileSdkVersion = Integer.parseInt(
+                    manifestElement.getAttribute("android:compileSdkVersion")
                 )
-                return@execute
+                if (compileSdkVersion < 35) {
+                    getLogger().warning(
+                        "This app does not appear to use Android 15 edge-to-edge display " +
+                                "(compileSdkVersion: $compileSdkVersion)"
+                    )
+                }
+            } catch (_: Exception) {
+                getLogger().warning("Could not check compileSdkVersion")
             }
 
             // Change targetSdkVersion to 34 (Android 14).
