@@ -1,3 +1,10 @@
+# [5.20.0-dev.3](https://github.com/ReVanced/revanced-patches/compare/v5.20.0-dev.2...v5.20.0-dev.3) (2025-04-13)
+
+
+### Bug Fixes
+
+* **YouTube - Remove background playback restrictions:** Restore PiP button functionality after screen is unlocked ([6837348](https://github.com/ReVanced/revanced-patches/commit/6837348c45156d6743a63fef8b6e045087afbda8))
+
 # [5.20.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.20.0-dev.1...v5.20.0-dev.2) (2025-04-13)
 
 
