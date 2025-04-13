@@ -85,7 +85,9 @@ public final class UnlockPremiumPatch {
             // but it might still work with older app targets.
             new OverrideAttribute("can_use_superbird", TRUE, false),
             // Removes the premium button in the nav-bar for tablet users.
-            new OverrideAttribute("tablet-free", FALSE, false)
+            new OverrideAttribute("tablet-free", FALSE, false),
+            // Removes Spotify Connect as a premium only feature.
+            new OverrideAttribute("type", "premium")
     );
 
     private static final List<Integer> REMOVED_HOME_SECTIONS = List.of(
