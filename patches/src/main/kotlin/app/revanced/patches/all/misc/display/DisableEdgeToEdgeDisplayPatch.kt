@@ -6,7 +6,7 @@ import org.w3c.dom.Element
 import java.util.logging.Logger
 
 @Suppress("unused")
-val edgeToEdgeDisplayPatch = resourcePatch(
+val disableEdgeToEdgeDisplayPatch = resourcePatch(
     name = "Disable edge-to-edge display",
     description = "Disables forced edge-to-edge display on Android 15+ by downgrading the target Android SDK version.",
     use = false,

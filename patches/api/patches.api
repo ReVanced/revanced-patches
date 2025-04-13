@@ -64,8 +64,8 @@ public final class app/revanced/patches/all/misc/directory/documentsprovider/Exp
 	public static final fun getExportInternalDataDocumentsProviderPatch ()Lapp/revanced/patcher/patch/ResourcePatch;
 }
 
-public final class app/revanced/patches/all/misc/display/EdgeToEdgeDisplayPatchKt {
-	public static final fun getEdgeToEdgeDisplayPatch ()Lapp/revanced/patcher/patch/ResourcePatch;
+public final class app/revanced/patches/all/misc/display/DisableEdgeToEdgeDisplayPatchKt {
+	public static final fun getDisableEdgeToEdgeDisplayPatch ()Lapp/revanced/patcher/patch/ResourcePatch;
 }
 
 public final class app/revanced/patches/all/misc/hex/HexPatchKt {
