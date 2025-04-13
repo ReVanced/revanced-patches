@@ -118,7 +118,7 @@ val swipeControlsPatch = bytecodePatch(
 
         if (is_19_43_or_greater) {
             swipeChangeVideoFingerprint.let {
-                it.method.insertFeatureFlagBooleanOverride(
+                it.method.insertLiteralOverride(
                     it.instructionMatches.last().index,
                     "$EXTENSION_CLASS_DESCRIPTOR->allowSwipeChangeVideo(Z)Z"
                 )

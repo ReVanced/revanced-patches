@@ -248,7 +248,7 @@ val settingsPatch = bytecodePatch(
 
         // Add setting to force cairo settings fragment on/off.
         cairoFragmentConfigFingerprint.let {
-                it.method.insertFeatureFlagBooleanOverride(
+                it.method.insertLiteralOverride(
                     it.instructionMatches.last().index,
                     "$activityHookClassDescriptor->useCairoSettingsFragment(Z)Z"
                 )

@@ -25,7 +25,7 @@ import app.revanced.util.findInstructionIndicesReversedOrThrow
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
 import app.revanced.util.inputStreamFromBundledResource
-import app.revanced.util.insertFeatureFlagBooleanOverride
+import app.revanced.util.insertLiteralOverride
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.builder.MutableMethodImplementation
@@ -174,16 +174,10 @@ val seekbarColorPatch = bytecodePatch(
     )
 
     execute {
-        fun MutableMethod.addColorChangeInstructions(resourceIndex: Int) {
-            val moveResultIndex = indexOfFirstInstructionOrThrow(resourceIndex, Opcode.MOVE_RESULT)
-            val register = getInstruction<OneRegisterInstruction>(moveResultIndex).registerA
-
-            addInstructions(
-                moveResultIndex + 1,
-                """
-                    invoke-static { v$register }, $EXTENSION_CLASS_DESCRIPTOR->getVideoPlayerSeekbarColor(I)I
-                    move-result v$register
-                """
+        fun MutableMethod.addColorChangeInstructions(resourceId: Long) {
+            insertLiteralOverride(
+                resourceId,
+                "$EXTENSION_CLASS_DESCRIPTOR->getVideoPlayerSeekbarColor(I)I"
             )
         }
 
@@ -294,12 +288,26 @@ val seekbarColorPatch = bytecodePatch(
             return@execute // 19.25 does not have a cairo launch animation.
         }
 
-        // Hook the splash animation to set a seekbar color.
-        mainActivityOnCreateSplashScreenImageViewFingerprint.let {
-            it.method.apply {
-                val checkCastIndex = it.instructionMatches.last().index
-                val drawableRegister =
-                    getInstruction<OneRegisterInstruction>(checkCastIndex).registerA
+        // Add development hook to force old drawable splash animation.
+        arrayOf(
+            launchScreenLayoutTypeFingerprint,
+            mainActivityOnCreateFingerprint
+        ).forEach { fingerprint ->
+            fingerprint.method.insertFeatureFlagBooleanOverride(
+                launchScreenLayoutTypeLotteFeatureFlag,
+                "$EXTENSION_CLASS_DESCRIPTOR->useLotteLaunchSplashScreen(Z)Z"
+            )
+        }
+
+        // Hook the splash animation to set the a seekbar color.
+        mainActivityOnCreateFingerprint.method.apply {
+            val drawableIndex = indexOfFirstInstructionOrThrow {
+                val reference = getReference<MethodReference>()
+                reference?.definingClass == "Landroid/widget/ImageView;"
+                        && reference.name == "getDrawable"
+            }
+            val checkCastIndex = indexOfFirstInstructionOrThrow(drawableIndex, Opcode.CHECK_CAST)
+            val drawableRegister = getInstruction<OneRegisterInstruction>(checkCastIndex).registerA
 
                 addInstruction(
                     checkCastIndex + 1,

@@ -16,7 +16,7 @@ import app.revanced.patches.youtube.misc.playservice.is_19_25_or_greater
 import app.revanced.patches.youtube.misc.playservice.versionCheckPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
-import app.revanced.util.insertFeatureFlagBooleanOverride
+import app.revanced.util.insertLiteralOverride
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
@@ -114,21 +114,21 @@ val navigationButtonsPatch = bytecodePatch(
         // Force on/off translucent effect on status bar and navigation buttons.
         if (is_19_25_or_greater) {
             translucentNavigationStatusBarFeatureFlagFingerprint.let {
-                it.method.insertFeatureFlagBooleanOverride(
+                it.method.insertLiteralOverride(
                     it.instructionMatches.first().index,
                     "$EXTENSION_CLASS_DESCRIPTOR->useTranslucentNavigationStatusBar(Z)Z",
                 )
             }
 
             translucentNavigationButtonsFeatureFlagFingerprint.let {
-                it.method.insertFeatureFlagBooleanOverride(
+                it.method.insertLiteralOverride(
                     it.instructionMatches.first().index,
                     "$EXTENSION_CLASS_DESCRIPTOR->useTranslucentNavigationButtons(Z)Z",
                 )
             }
 
             translucentNavigationButtonsSystemFeatureFlagFingerprint.let {
-                it.method.insertFeatureFlagBooleanOverride(
+                it.method.insertLiteralOverride(
                     it.instructionMatches.first().index,
                     "$EXTENSION_CLASS_DESCRIPTOR->useTranslucentNavigationButtons(Z)Z",
                 )

@@ -14,7 +14,7 @@ import app.revanced.util.findFreeRegister
 import app.revanced.util.findInstructionIndicesReversedOrThrow
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
-import app.revanced.util.insertFeatureFlagBooleanOverride
+import app.revanced.util.insertLiteralOverride
 import app.revanced.util.returnEarly
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
@@ -237,7 +237,7 @@ fun spoofVideoStreamsPatch(
         // region Fix iOS livestream current time.
 
         hlsCurrentTimeFingerprint.let {
-            it.method.insertFeatureFlagBooleanOverride(
+            it.method.insertLiteralOverride(
                 it.instructionMatches.first().index,
                 "$EXTENSION_CLASS_DESCRIPTOR->fixHLSCurrentTime(Z)Z"
             )
@@ -249,7 +249,7 @@ fun spoofVideoStreamsPatch(
 
         if (fixMediaFetchHotConfigChanges()) {
             mediaFetchHotConfigFingerprint.let {
-                it.method.insertFeatureFlagBooleanOverride(
+                it.method.insertLiteralOverride(
                     it.instructionMatches.first().index,
                     "$EXTENSION_CLASS_DESCRIPTOR->useMediaFetchHotConfigReplacement(Z)Z"
                 )
@@ -258,7 +258,7 @@ fun spoofVideoStreamsPatch(
 
         if (fixMediaFetchHotConfigAlternativeChanges()) {
             mediaFetchHotConfigAlternativeFingerprint.let {
-                it.method.insertFeatureFlagBooleanOverride(
+                it.method.insertLiteralOverride(
                     it.instructionMatches.first().index,
                     "$EXTENSION_CLASS_DESCRIPTOR->useMediaFetchHotConfigReplacement(Z)Z"
                 )
@@ -267,7 +267,7 @@ fun spoofVideoStreamsPatch(
 
         if (fixParsePlaybackResponseFeatureFlag()) {
             playbackStartDescriptorFeatureFlagFingerprint.let {
-                it.method.insertFeatureFlagBooleanOverride(
+                it.method.insertLiteralOverride(
                     it.instructionMatches.first().index,
                     "$EXTENSION_CLASS_DESCRIPTOR->usePlaybackStartFeatureFlag(Z)Z"
                 )

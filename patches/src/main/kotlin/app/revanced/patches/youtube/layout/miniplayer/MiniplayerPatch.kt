@@ -209,7 +209,7 @@ val miniplayerPatch = bytecodePatch(
         fun Fingerprint.insertMiniplayerFeatureFlagBooleanOverride(
             literal: Long,
             extensionMethod: String,
-        ) = method.insertFeatureFlagBooleanOverride(
+        ) = method.insertLiteralOverride(
             literal,
             "$EXTENSION_CLASS_DESCRIPTOR->$extensionMethod(Z)Z"
         )

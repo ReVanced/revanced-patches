@@ -9,6 +9,7 @@ import app.revanced.patches.youtube.layout.shortsplayer.openShortsInRegularPlaye
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.playservice.is_19_46_or_greater
 import app.revanced.patches.youtube.misc.playservice.versionCheckPatch
+import app.revanced.util.insertLiteralOverride
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 internal const val EXTENSION_CLASS_DESCRIPTOR =
