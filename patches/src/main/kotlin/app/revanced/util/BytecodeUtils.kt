@@ -14,6 +14,9 @@ import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patches.shared.misc.mapping.get
 import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
 import app.revanced.patches.shared.misc.mapping.resourceMappings
+import app.revanced.util.InstructionUtils.Companion.branchOpcodes
+import app.revanced.util.InstructionUtils.Companion.returnOpcodes
+import app.revanced.util.InstructionUtils.Companion.writeOpcodes
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.Opcode.*
 import com.android.tools.smali.dexlib2.iface.Method
@@ -43,89 +46,13 @@ import java.util.EnumSet
  * @throws IllegalArgumentException If a branch or conditional statement is encountered
  *                                  before a suitable register is found.
  */
-internal fun Method.findFreeRegister(startIndex: Int, vararg registersToExclude: Int): Int {
+fun Method.findFreeRegister(startIndex: Int, vararg registersToExclude: Int): Int {
     if (implementation == null) {
         throw IllegalArgumentException("Method has no implementation: $this")
     }
     if (startIndex < 0 || startIndex >= instructions.count()) {
         throw IllegalArgumentException("startIndex out of bounds: $startIndex")
     }
-
-    // All registers used by an instruction.
-    fun Instruction.getRegistersUsed() = when (this) {
-        is FiveRegisterInstruction -> {
-            when (registerCount) {
-                1 -> listOf(registerC)
-                2 -> listOf(registerC, registerD)
-                3 -> listOf(registerC, registerD, registerE)
-                4 -> listOf(registerC, registerD, registerE, registerF)
-                else -> listOf(registerC, registerD, registerE, registerF, registerG)
-            }
-        }
-        is ThreeRegisterInstruction -> listOf(registerA, registerB, registerC)
-        is TwoRegisterInstruction -> listOf(registerA, registerB)
-        is OneRegisterInstruction -> listOf(registerA)
-        is RegisterRangeInstruction -> (startRegister until (startRegister + registerCount)).toList()
-        else -> emptyList()
-    }
-
-    // Register that is written to by an instruction.
-    fun Instruction.getWriteRegister() : Int {
-        // Two and three register instructions extend OneRegisterInstruction.
-        if (this is OneRegisterInstruction) return registerA
-        throw IllegalStateException("Not a write instruction: $this")
-    }
-
-    val writeOpcodes = EnumSet.of(
-        ARRAY_LENGTH,
-        INSTANCE_OF,
-        NEW_INSTANCE, NEW_ARRAY,
-        MOVE, MOVE_FROM16, MOVE_16, MOVE_WIDE, MOVE_WIDE_FROM16, MOVE_WIDE_16, MOVE_OBJECT,
-        MOVE_OBJECT_FROM16, MOVE_OBJECT_16, MOVE_RESULT, MOVE_RESULT_WIDE, MOVE_RESULT_OBJECT, MOVE_EXCEPTION,
-        CONST, CONST_4, CONST_16, CONST_HIGH16, CONST_WIDE_16, CONST_WIDE_32,
-        CONST_WIDE, CONST_WIDE_HIGH16, CONST_STRING, CONST_STRING_JUMBO,
-        IGET, IGET_WIDE, IGET_OBJECT, IGET_BOOLEAN, IGET_BYTE, IGET_CHAR, IGET_SHORT,
-        IGET_VOLATILE, IGET_WIDE_VOLATILE, IGET_OBJECT_VOLATILE,
-        SGET, SGET_WIDE, SGET_OBJECT, SGET_BOOLEAN, SGET_BYTE, SGET_CHAR, SGET_SHORT,
-        SGET_VOLATILE, SGET_WIDE_VOLATILE, SGET_OBJECT_VOLATILE,
-        AGET, AGET_WIDE, AGET_OBJECT, AGET_BOOLEAN, AGET_BYTE, AGET_CHAR, AGET_SHORT,
-        // Arithmetic and logical operations.
-        ADD_DOUBLE_2ADDR, ADD_DOUBLE, ADD_FLOAT_2ADDR, ADD_FLOAT, ADD_INT_2ADDR,
-        ADD_INT_LIT8, ADD_INT, ADD_LONG_2ADDR, ADD_LONG, ADD_INT_LIT16,
-        AND_INT_2ADDR, AND_INT_LIT8, AND_INT_LIT16, AND_INT, AND_LONG_2ADDR, AND_LONG,
-        DIV_DOUBLE_2ADDR, DIV_DOUBLE, DIV_FLOAT_2ADDR, DIV_FLOAT, DIV_INT_2ADDR,
-        DIV_INT_LIT16, DIV_INT_LIT8, DIV_INT, DIV_LONG_2ADDR, DIV_LONG,
-        DOUBLE_TO_FLOAT, DOUBLE_TO_INT, DOUBLE_TO_LONG,
-        FLOAT_TO_DOUBLE, FLOAT_TO_INT, FLOAT_TO_LONG,
-        INT_TO_BYTE, INT_TO_CHAR, INT_TO_DOUBLE, INT_TO_FLOAT, INT_TO_LONG, INT_TO_SHORT,
-        LONG_TO_DOUBLE, LONG_TO_FLOAT, LONG_TO_INT,
-        MUL_DOUBLE_2ADDR, MUL_DOUBLE, MUL_FLOAT_2ADDR, MUL_FLOAT, MUL_INT_2ADDR,
-        MUL_INT_LIT16, MUL_INT_LIT8, MUL_INT, MUL_LONG_2ADDR, MUL_LONG,
-        NEG_DOUBLE, NEG_FLOAT, NEG_INT, NEG_LONG,
-        NOT_INT, NOT_LONG,
-        OR_INT_2ADDR, OR_INT_LIT16, OR_INT_LIT8, OR_INT, OR_LONG_2ADDR, OR_LONG,
-        REM_DOUBLE_2ADDR, REM_DOUBLE, REM_FLOAT_2ADDR, REM_FLOAT, REM_INT_2ADDR,
-        REM_INT_LIT16, REM_INT_LIT8, REM_INT, REM_LONG_2ADDR, REM_LONG,
-        RSUB_INT_LIT8, RSUB_INT,
-        SHL_INT_2ADDR, SHL_INT_LIT8, SHL_INT, SHL_LONG_2ADDR, SHL_LONG,
-        SHR_INT_2ADDR, SHR_INT_LIT8, SHR_INT, SHR_LONG_2ADDR, SHR_LONG,
-        SUB_DOUBLE_2ADDR, SUB_DOUBLE, SUB_FLOAT_2ADDR, SUB_FLOAT, SUB_INT_2ADDR,
-        SUB_INT, SUB_LONG_2ADDR, SUB_LONG,
-        USHR_INT_2ADDR, USHR_INT_LIT8, USHR_INT, USHR_LONG_2ADDR, USHR_LONG,
-        XOR_INT_2ADDR, XOR_INT_LIT16, XOR_INT_LIT8, XOR_INT, XOR_LONG_2ADDR, XOR_LONG,
-    )
-
-    val branchOpcodes = EnumSet.of(
-        GOTO, GOTO_16, GOTO_32,
-        IF_EQ, IF_NE, IF_LT, IF_GE, IF_GT, IF_LE,
-        IF_EQZ, IF_NEZ, IF_LTZ, IF_GEZ, IF_GTZ, IF_LEZ,
-        PACKED_SWITCH_PAYLOAD, SPARSE_SWITCH_PAYLOAD
-    )
-
-    val returnOpcodes = EnumSet.of(
-        RETURN_VOID, RETURN, RETURN_WIDE, RETURN_OBJECT, RETURN_VOID_NO_BARRIER,
-        THROW
-    )
 
     // Highest 4-bit register available, exclusive. Ideally return a free register less than this.
     val maxRegister4Bits = 16
@@ -134,10 +61,9 @@ internal fun Method.findFreeRegister(startIndex: Int, vararg registersToExclude:
 
     for (i in startIndex until instructions.count()) {
         val instruction = getInstruction(i)
-        val instructionRegisters = instruction.getRegistersUsed()
+        val instructionRegisters = instruction.registersUsed
 
-        if (instruction.opcode in returnOpcodes) {
-            // Method returns.
+        if (instruction.isReturnInstruction) {
             usedRegisters.addAll(instructionRegisters)
 
             // Use lowest register that hasn't been encountered.
@@ -157,7 +83,7 @@ internal fun Method.findFreeRegister(startIndex: Int, vararg registersToExclude:
                     "$startIndex excluding: $registersToExclude")
         }
 
-        if (instruction.opcode in branchOpcodes) {
+        if (instruction.isBranchInstruction) {
             if (bestFreeRegisterFound != null) {
                 return bestFreeRegisterFound
             }
@@ -165,9 +91,9 @@ internal fun Method.findFreeRegister(startIndex: Int, vararg registersToExclude:
             throw IllegalArgumentException("Encountered a branch statement before a free register could be found")
         }
 
-        if (instruction.opcode in writeOpcodes) {
-            val writeRegister = instruction.getWriteRegister()
 
+        val writeRegister = instruction.writeRegister
+        if (writeRegister != null) {
             if (writeRegister !in usedRegisters) {
                 // Verify the register is only used for write and not also as a parameter.
                 // If the instruction uses the write register once then it's not also a read register.
@@ -194,6 +120,53 @@ internal fun Method.findFreeRegister(startIndex: Int, vararg registersToExclude:
     throw IllegalArgumentException("Start index is outside the range of normal control flow: $startIndex")
 }
 
+/**
+ * @return The registers used by this instruction.
+ */
+internal val Instruction.registersUsed: List<Int>
+    get() = when (this) {
+        is FiveRegisterInstruction -> {
+            when (registerCount) {
+                1 -> listOf(registerC)
+                2 -> listOf(registerC, registerD)
+                3 -> listOf(registerC, registerD, registerE)
+                4 -> listOf(registerC, registerD, registerE, registerF)
+                else -> listOf(registerC, registerD, registerE, registerF, registerG)
+            }
+        }
+        is ThreeRegisterInstruction -> listOf(registerA, registerB, registerC)
+        is TwoRegisterInstruction -> listOf(registerA, registerB)
+        is OneRegisterInstruction -> listOf(registerA)
+        is RegisterRangeInstruction -> (startRegister until (startRegister + registerCount)).toList()
+        else -> emptyList()
+    }
+
+/**
+ * @return The register that is written to by this instruction,
+ *         or NULL if this is not a write opcode.
+ */
+internal val Instruction.writeRegister: Int?
+    get() {
+        if (this.opcode !in writeOpcodes) {
+            return null
+        }
+        if (this !is OneRegisterInstruction) {
+            throw IllegalStateException("Not a write instruction: $this")
+        }
+        return registerA
+    }
+
+/**
+ * @return If this instruction is an unconditional or conditional branch opcode.
+ */
+internal val Instruction.isBranchInstruction: Boolean
+    get() = this.opcode in branchOpcodes
+
+/**
+ * @return If this instruction returns or throws.
+ */
+internal val Instruction.isReturnInstruction: Boolean
+    get() = this.opcode in returnOpcodes
 
 /**
  * Find the [MutableMethod] from a given [Method] in a [MutableClass].
@@ -247,7 +220,7 @@ fun MutableMethod.injectHideViewCall(
  * (patch code)
  * (original code)
  */
-internal fun MutableMethod.addInstructionsAtControlFlowLabel(
+fun MutableMethod.addInstructionsAtControlFlowLabel(
     insertIndex: Int,
     instructions: String,
 ) {
@@ -298,7 +271,7 @@ fun Method.indexOfFirstResourceIdOrThrow(resourceName: String): Int {
 }
 
 /**
- * Find the index of the first literal instruction with the given value.
+ * Find the index of the first literal instruction with the given long value.
  *
  * @return the first literal instruction with the value, or -1 if not found.
  * @see indexOfFirstLiteralInstructionOrThrow
@@ -310,14 +283,56 @@ fun Method.indexOfFirstLiteralInstruction(literal: Long) = implementation?.let {
 } ?: -1
 
 /**
- * Find the index of the first literal instruction with the given value,
+ * Find the index of the first literal instruction with the given long value,
  * or throw an exception if not found.
  *
  * @return the first literal instruction with the value, or throws [PatchException] if not found.
  */
 fun Method.indexOfFirstLiteralInstructionOrThrow(literal: Long): Int {
     val index = indexOfFirstLiteralInstruction(literal)
-    if (index < 0) throw PatchException("Could not find literal value: $literal")
+    if (index < 0) throw PatchException("Could not find long literal: $literal")
+    return index
+}
+
+/**
+ * Find the index of the first literal instruction with the given float value.
+ *
+ * @return the first literal instruction with the value, or -1 if not found.
+ * @see indexOfFirstLiteralInstructionOrThrow
+ */
+fun Method.indexOfFirstLiteralInstruction(literal: Float) =
+    indexOfFirstLiteralInstruction(literal.toRawBits().toLong())
+
+/**
+ * Find the index of the first literal instruction with the given float value,
+ * or throw an exception if not found.
+ *
+ * @return the first literal instruction with the value, or throws [PatchException] if not found.
+ */
+fun Method.indexOfFirstLiteralInstructionOrThrow(literal: Float): Int {
+    val index = indexOfFirstLiteralInstruction(literal)
+    if (index < 0) throw PatchException("Could not find float literal: $literal")
+    return index
+}
+
+/**
+ * Find the index of the first literal instruction with the given double value.
+ *
+ * @return the first literal instruction with the value, or -1 if not found.
+ * @see indexOfFirstLiteralInstructionOrThrow
+ */
+fun Method.indexOfFirstLiteralInstruction(literal: Double) =
+    indexOfFirstLiteralInstruction(literal.toRawBits().toLong())
+
+/**
+ * Find the index of the first literal instruction with the given double value,
+ * or throw an exception if not found.
+ *
+ * @return the first literal instruction with the value, or throws [PatchException] if not found.
+ */
+fun Method.indexOfFirstLiteralInstructionOrThrow(literal: Double): Int {
+    val index = indexOfFirstLiteralInstruction(literal)
+    if (index < 0) throw PatchException("Could not find double literal: $literal")
     return index
 }
 
@@ -334,23 +349,79 @@ fun Method.indexOfFirstLiteralInstructionReversed(literal: Long) = implementatio
 } ?: -1
 
 /**
- * Find the index of the last wide literal instruction with the given value,
+ * Find the index of the last wide literal instruction with the given long value,
  * or throw an exception if not found.
  *
  * @return the last literal instruction with the value, or throws [PatchException] if not found.
  */
 fun Method.indexOfFirstLiteralInstructionReversedOrThrow(literal: Long): Int {
     val index = indexOfFirstLiteralInstructionReversed(literal)
-    if (index < 0) throw PatchException("Could not find literal value: $literal")
+    if (index < 0) throw PatchException("Could not find long literal: $literal")
     return index
 }
 
 /**
- * Check if the method contains a literal with the given value.
+ * Find the index of the last literal instruction with the given float value.
+ *
+ * @return the last literal instruction with the value, or -1 if not found.
+ * @see indexOfFirstLiteralInstructionOrThrow
+ */
+fun Method.indexOfFirstLiteralInstructionReversed(literal: Float) =
+    indexOfFirstLiteralInstructionReversed(literal.toRawBits().toLong())
+
+/**
+ * Find the index of the last wide literal instruction with the given float value,
+ * or throw an exception if not found.
+ *
+ * @return the last literal instruction with the value, or throws [PatchException] if not found.
+ */
+fun Method.indexOfFirstLiteralInstructionReversedOrThrow(literal: Float): Int {
+    val index = indexOfFirstLiteralInstructionReversed(literal)
+    if (index < 0) throw PatchException("Could not find float literal: $literal")
+    return index
+}
+
+/**
+ * Find the index of the last literal instruction with the given double value.
+ *
+ * @return the last literal instruction with the value, or -1 if not found.
+ * @see indexOfFirstLiteralInstructionOrThrow
+ */
+fun Method.indexOfFirstLiteralInstructionReversed(literal: Double) =
+    indexOfFirstLiteralInstructionReversed(literal.toRawBits().toLong())
+
+/**
+ * Find the index of the last wide literal instruction with the given double value,
+ * or throw an exception if not found.
+ *
+ * @return the last literal instruction with the value, or throws [PatchException] if not found.
+ */
+fun Method.indexOfFirstLiteralInstructionReversedOrThrow(literal: Double): Int {
+    val index = indexOfFirstLiteralInstructionReversed(literal)
+    if (index < 0) throw PatchException("Could not find double literal: $literal")
+    return index
+}
+
+/**
+ * Check if the method contains a literal with the given long value.
  *
  * @return if the method contains a literal with the given value.
  */
 fun Method.containsLiteralInstruction(literal: Long) = indexOfFirstLiteralInstruction(literal) >= 0
+
+/**
+ * Check if the method contains a literal with the given float value.
+ *
+ * @return if the method contains a literal with the given value.
+ */
+fun Method.containsLiteralInstruction(literal: Float) = indexOfFirstLiteralInstruction(literal) >= 0
+
+/**
+ * Check if the method contains a literal with the given double value.
+ *
+ * @return if the method contains a literal with the given value.
+ */
+fun Method.containsLiteralInstruction(literal: Double) = indexOfFirstLiteralInstruction(literal) >= 0
 
 /**
  * Traverse the class hierarchy starting from the given root class.
@@ -641,5 +712,60 @@ fun MutableMethod.returnEarly(bool: Boolean = false) {
 fun FingerprintBuilder.literal(literalSupplier: () -> Long) {
     custom { method, _ ->
         method.containsLiteralInstruction(literalSupplier())
+    }
+}
+
+private class InstructionUtils {
+    companion object {
+        val branchOpcodes: EnumSet<Opcode> = EnumSet.of(
+            GOTO, GOTO_16, GOTO_32,
+            IF_EQ, IF_NE, IF_LT, IF_GE, IF_GT, IF_LE,
+            IF_EQZ, IF_NEZ, IF_LTZ, IF_GEZ, IF_GTZ, IF_LEZ,
+            PACKED_SWITCH_PAYLOAD, SPARSE_SWITCH_PAYLOAD
+        )
+
+        val returnOpcodes: EnumSet<Opcode> = EnumSet.of(
+            RETURN_VOID, RETURN, RETURN_WIDE, RETURN_OBJECT, RETURN_VOID_NO_BARRIER,
+            THROW
+        )
+
+        val writeOpcodes: EnumSet<Opcode> = EnumSet.of(
+            ARRAY_LENGTH,
+            INSTANCE_OF,
+            NEW_INSTANCE, NEW_ARRAY,
+            MOVE, MOVE_FROM16, MOVE_16, MOVE_WIDE, MOVE_WIDE_FROM16, MOVE_WIDE_16, MOVE_OBJECT,
+            MOVE_OBJECT_FROM16, MOVE_OBJECT_16, MOVE_RESULT, MOVE_RESULT_WIDE, MOVE_RESULT_OBJECT, MOVE_EXCEPTION,
+            CONST, CONST_4, CONST_16, CONST_HIGH16, CONST_WIDE_16, CONST_WIDE_32,
+            CONST_WIDE, CONST_WIDE_HIGH16, CONST_STRING, CONST_STRING_JUMBO,
+            IGET, IGET_WIDE, IGET_OBJECT, IGET_BOOLEAN, IGET_BYTE, IGET_CHAR, IGET_SHORT,
+            IGET_VOLATILE, IGET_WIDE_VOLATILE, IGET_OBJECT_VOLATILE,
+            SGET, SGET_WIDE, SGET_OBJECT, SGET_BOOLEAN, SGET_BYTE, SGET_CHAR, SGET_SHORT,
+            SGET_VOLATILE, SGET_WIDE_VOLATILE, SGET_OBJECT_VOLATILE,
+            AGET, AGET_WIDE, AGET_OBJECT, AGET_BOOLEAN, AGET_BYTE, AGET_CHAR, AGET_SHORT,
+            // Arithmetic and logical operations.
+            ADD_DOUBLE_2ADDR, ADD_DOUBLE, ADD_FLOAT_2ADDR, ADD_FLOAT, ADD_INT_2ADDR,
+            ADD_INT_LIT8, ADD_INT, ADD_LONG_2ADDR, ADD_LONG, ADD_INT_LIT16,
+            AND_INT_2ADDR, AND_INT_LIT8, AND_INT_LIT16, AND_INT, AND_LONG_2ADDR, AND_LONG,
+            DIV_DOUBLE_2ADDR, DIV_DOUBLE, DIV_FLOAT_2ADDR, DIV_FLOAT, DIV_INT_2ADDR,
+            DIV_INT_LIT16, DIV_INT_LIT8, DIV_INT, DIV_LONG_2ADDR, DIV_LONG,
+            DOUBLE_TO_FLOAT, DOUBLE_TO_INT, DOUBLE_TO_LONG,
+            FLOAT_TO_DOUBLE, FLOAT_TO_INT, FLOAT_TO_LONG,
+            INT_TO_BYTE, INT_TO_CHAR, INT_TO_DOUBLE, INT_TO_FLOAT, INT_TO_LONG, INT_TO_SHORT,
+            LONG_TO_DOUBLE, LONG_TO_FLOAT, LONG_TO_INT,
+            MUL_DOUBLE_2ADDR, MUL_DOUBLE, MUL_FLOAT_2ADDR, MUL_FLOAT, MUL_INT_2ADDR,
+            MUL_INT_LIT16, MUL_INT_LIT8, MUL_INT, MUL_LONG_2ADDR, MUL_LONG,
+            NEG_DOUBLE, NEG_FLOAT, NEG_INT, NEG_LONG,
+            NOT_INT, NOT_LONG,
+            OR_INT_2ADDR, OR_INT_LIT16, OR_INT_LIT8, OR_INT, OR_LONG_2ADDR, OR_LONG,
+            REM_DOUBLE_2ADDR, REM_DOUBLE, REM_FLOAT_2ADDR, REM_FLOAT, REM_INT_2ADDR,
+            REM_INT_LIT16, REM_INT_LIT8, REM_INT, REM_LONG_2ADDR, REM_LONG,
+            RSUB_INT_LIT8, RSUB_INT,
+            SHL_INT_2ADDR, SHL_INT_LIT8, SHL_INT, SHL_LONG_2ADDR, SHL_LONG,
+            SHR_INT_2ADDR, SHR_INT_LIT8, SHR_INT, SHR_LONG_2ADDR, SHR_LONG,
+            SUB_DOUBLE_2ADDR, SUB_DOUBLE, SUB_FLOAT_2ADDR, SUB_FLOAT, SUB_INT_2ADDR,
+            SUB_INT, SUB_LONG_2ADDR, SUB_LONG,
+            USHR_INT_2ADDR, USHR_INT_LIT8, USHR_INT, USHR_LONG_2ADDR, USHR_LONG,
+            XOR_INT_2ADDR, XOR_INT_LIT16, XOR_INT_LIT8, XOR_INT, XOR_LONG_2ADDR, XOR_LONG,
+        )
     }
 }
