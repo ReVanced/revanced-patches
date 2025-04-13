@@ -46,7 +46,8 @@ val navigationButtonsPatch = bytecodePatch(
             "19.43.41",
             "19.47.53",
             "20.07.39",
-        ),
+            "20.13.41",
+        )
     )
 
     execute {
