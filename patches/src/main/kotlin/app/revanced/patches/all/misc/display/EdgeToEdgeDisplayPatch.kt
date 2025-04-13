@@ -8,7 +8,7 @@ import java.util.logging.Logger
 @Suppress("unused")
 val edgeToEdgeDisplayPatch = resourcePatch(
     name = "Disable edge-to-edge display",
-    description = "Disable forced edge-to-edge display on Android 15+ by changing the app target SDK version.",
+    description = "Disables forced edge-to-edge display on Android 15+ by downgrading the target Android SDK version.",
     use = false,
 ) {
     execute {
