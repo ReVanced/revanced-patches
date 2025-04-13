@@ -108,6 +108,10 @@ public final class app/revanced/patches/all/misc/shortcut/sharetargets/RemoveSha
 	public static final fun getRemoveShareTargetsPatch ()Lapp/revanced/patcher/patch/ResourcePatch;
 }
 
+public final class app/revanced/patches/all/misc/targetSdk/SetTargetSdkVersion34Kt {
+	public static final fun getSetTargetSdkVersion34 ()Lapp/revanced/patcher/patch/ResourcePatch;
+}
+
 public abstract interface class app/revanced/patches/all/misc/transformation/IMethodCall {
 	public abstract fun getDefinedClassName ()Ljava/lang/String;
 	public abstract fun getMethodName ()Ljava/lang/String;
