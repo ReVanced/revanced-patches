@@ -1,3 +1,10 @@
+# [5.20.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.20.0-dev.1...v5.20.0-dev.2) (2025-04-13)
+
+
+### Features
+
+* **Spotify - Custom theme:** Add option to use unmodified player background gradient ([#4741](https://github.com/ReVanced/revanced-patches/issues/4741)) ([0ee3693](https://github.com/ReVanced/revanced-patches/commit/0ee36939f43f325afca37119db1cf1af3b63be27))
+
 # [5.20.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.19.1...v5.20.0-dev.1) (2025-04-13)
 
 
