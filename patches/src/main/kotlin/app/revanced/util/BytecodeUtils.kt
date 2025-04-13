@@ -607,29 +607,54 @@ fun BytecodePatchContext.forEachLiteralValueInstruction(
 }
 
 /**
- * Return the method early.
+ * Overrides the first instruction of a method with a constant return value.
+ * None of the method code will ever execute.
  */
-fun MutableMethod.returnEarly(bool: Boolean = false) {
+fun MutableMethod.returnEarly(overrideValue: Boolean = false) = overrideReturnValue(overrideValue, false)
+
+/**
+ * Overrides all return statements with a constant value.
+ * All method code is executed the same as unpatched.
+ *
+ * @see returnEarly
+ */
+internal fun MutableMethod.returnLate(overrideValue: Boolean = false) = overrideReturnValue(overrideValue, true)
+
+private fun MutableMethod.overrideReturnValue(bool: Boolean, returnLate: Boolean) {
     val const = if (bool) "0x1" else "0x0"
 
-    val stringInstructions = when (returnType.first()) {
-        'L' ->
+    val instructions = when (returnType.first()) {
+        'L' -> {
             """
                 const/4 v0, $const
                 return-object v0
             """
+        }
 
-        'V' -> "return-void"
-        'I', 'Z' ->
+        'V' -> {
+            if (returnLate) throw IllegalArgumentException("Cannot return late for method of void type")
+            "return-void"
+        }
+
+        'I', 'Z' -> {
             """
                 const/4 v0, $const
                 return v0
             """
+        }
 
         else -> throw Exception("Return type is not supported: $this")
     }
 
-    addInstructions(0, stringInstructions)
+    if (returnLate) {
+        findInstructionIndicesReversed {
+            opcode == RETURN || opcode == RETURN_OBJECT
+        }.forEach { index ->
+            addInstructionsAtControlFlowLabel(index, instructions)
+        }
+    } else {
+        addInstructions(0, instructions)
+    }
 }
 
 /**

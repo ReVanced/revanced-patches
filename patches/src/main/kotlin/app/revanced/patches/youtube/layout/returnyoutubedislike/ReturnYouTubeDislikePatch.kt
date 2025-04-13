@@ -180,7 +180,8 @@ val returnYouTubeDislikePatch = bytecodePatch(
             // Turn off a/b flag that enables new code for creating litho spans.
             // If enabled then the litho text span hook is never called.
             // Target code is very obfuscated and exactly what the code does is not clear.
-            textComponentFeatureFlagFingerprint.method.returnEarly(false)
+            // Return late so debug patch logs if the flag is enabled.
+            textComponentFeatureFlagFingerprint.method.returnLate(false)
         }
 
         // Player response video id is needed to search for the video ids in Shorts litho components.
