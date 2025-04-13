@@ -17,7 +17,6 @@ import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.builder.instruction.BuilderInstruction21c
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction21c
-import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import com.android.tools.smali.dexlib2.iface.reference.StringReference
 import com.android.tools.smali.dexlib2.immutable.reference.ImmutableStringReference
 import com.android.tools.smali.dexlib2.util.MethodUtil
@@ -110,19 +109,18 @@ fun gmsCoreSupportPatch(
 
         // region Collection of transformations that are applied to all strings.
 
-        fun commonTransform(referencedString: String): String? =
-            when (referencedString) {
-                "com.google",
-                "com.google.android.gms",
-                in PERMISSIONS,
-                in ACTIONS,
-                in AUTHORITIES,
-                -> referencedString.replace("com.google", gmsCoreVendorGroupId!!)
+        fun commonTransform(referencedString: String): String? = when (referencedString) {
+            "com.google",
+            "com.google.android.gms",
+            in PERMISSIONS,
+            in ACTIONS,
+            in AUTHORITIES,
+            -> referencedString.replace("com.google", gmsCoreVendorGroupId!!)
 
-                // No vendor prefix for whatever reason...
-                "subscribedfeeds" -> "$gmsCoreVendorGroupId.subscribedfeeds"
-                else -> null
-            }
+            // No vendor prefix for whatever reason...
+            "subscribedfeeds" -> "$gmsCoreVendorGroupId.subscribedfeeds"
+            else -> null
+        }
 
         fun contentUrisTransform(str: String): String? {
             // only when content:// uri
@@ -205,16 +203,8 @@ fun gmsCoreSupportPatch(
 
         // Verify GmsCore is installed and whitelisted for power optimizations and background usage.
         mainActivityOnCreateFingerprint.method.apply {
-            // Temporary fix for patches with an extension patch that hook the onCreate method as well.
-            val setContextIndex = indexOfFirstInstruction {
-                val reference = getReference<MethodReference>() ?: return@indexOfFirstInstruction false
-
-                reference.toString() == "Lapp/revanced/extension/shared/Utils;->setContext(Landroid/content/Context;)V"
-            }
-
-            // Add after setContext call, because this patch needs the context.
             addInstructions(
-                if (setContextIndex < 0) 0 else setContextIndex + 1,
+                0,
                 "invoke-static/range { p0 .. p0 }, Lapp/revanced/extension/shared/GmsCoreSupport;->" +
                     "checkGmsCore(Landroid/app/Activity;)V",
             )
@@ -508,11 +498,42 @@ private object Constants {
  * @param executeBlock The additional execution block of the patch.
  * @param block The additional block to build the patch.
  */
-fun gmsCoreSupportResourcePatch(
+fun gmsCoreSupportResourcePatch( // This is here only for binary compatibility.
     fromPackageName: String,
     toPackageName: String,
     spoofedPackageSignature: String,
     gmsCoreVendorGroupIdOption: Option<String>,
+    executeBlock: ResourcePatchContext.() -> Unit = {},
+    block: ResourcePatchBuilder.() -> Unit = {},
+) = gmsCoreSupportResourcePatch(
+    fromPackageName,
+    toPackageName,
+    spoofedPackageSignature,
+    gmsCoreVendorGroupIdOption,
+    true,
+    executeBlock,
+    block
+)
+
+/**
+ * Abstract resource patch that allows Google apps to run without root and under a different package name
+ * by using GmsCore instead of Google Play Services.
+ *
+ * @param fromPackageName The package name of the original app.
+ * @param toPackageName The package name to fall back to if no custom package name is specified in patch options.
+ * @param spoofedPackageSignature The signature of the package to spoof to.
+ * @param gmsCoreVendorGroupIdOption The option to get the vendor group ID of GmsCore.
+ * @param addStringResources If the GmsCore shared strings should be added to the patched app.
+ * @param executeBlock The additional execution block of the patch.
+ * @param block The additional block to build the patch.
+ */
+// TODO: On the next major release make this public and delete the public overloaded constructor.
+internal fun gmsCoreSupportResourcePatch(
+    fromPackageName: String,
+    toPackageName: String,
+    spoofedPackageSignature: String,
+    gmsCoreVendorGroupIdOption: Option<String>,
+    addStringResources: Boolean = true,
     executeBlock: ResourcePatchContext.() -> Unit = {},
     block: ResourcePatchBuilder.() -> Unit = {},
 ) = resourcePatch {
@@ -524,7 +545,10 @@ fun gmsCoreSupportResourcePatch(
     val gmsCoreVendorGroupId by gmsCoreVendorGroupIdOption
 
     execute {
-        addResources("shared", "misc.gms.gmsCoreSupportResourcePatch")
+        // Some patches don't use shared String resources so there's no need to add them.
+        if (addStringResources) {
+            addResources("shared", "misc.gms.gmsCoreSupportResourcePatch")
+        }
 
         /**
          * Add metadata to manifest to support spoofing the package name and signature of GmsCore.

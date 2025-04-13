@@ -40,7 +40,10 @@ fun sharedExtensionPatch(
     execute {
         // Verify the extension class exists.
         classBy(EXTENSION_CLASS_DESCRIPTOR)
+    }
 
+    finalize {
+        // The hooks are made in finalize to ensure that the context is hooked before any other patches.
         hooks.forEach { hook -> hook(EXTENSION_CLASS_DESCRIPTOR) }
 
         // Modify Utils method to include the patches release version.
@@ -107,11 +110,11 @@ class ExtensionHook internal constructor(
 fun extensionHook(
     insertIndexResolver: ((Method) -> Int) = { 0 },
     contextRegisterResolver: (Method) -> String = { "p0" },
+    fingerprint: Fingerprint,
+) = ExtensionHook(fingerprint, insertIndexResolver, contextRegisterResolver)
+
+fun extensionHook(
+    insertIndexResolver: ((Method) -> Int) = { 0 },
+    contextRegisterResolver: (Method) -> String = { "p0" },
     fingerprintBuilderBlock: FingerprintBuilder.() -> Unit,
-) = ExtensionHook(
-    FingerprintBuilder("extension").also {
-        it.fingerprintBuilderBlock()
-    }.build(),
-    insertIndexResolver,
-    contextRegisterResolver
-)
+) = ExtensionHook(fingerprint(block = fingerprintBuilderBlock), insertIndexResolver, contextRegisterResolver)
