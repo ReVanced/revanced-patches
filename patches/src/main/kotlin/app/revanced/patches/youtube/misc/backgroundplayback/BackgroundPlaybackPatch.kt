@@ -12,6 +12,8 @@ import app.revanced.patches.shared.misc.mapping.resourceMappings
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.playertype.playerTypeHookPatch
+import app.revanced.patches.youtube.misc.playservice.is_19_34_or_greater
+import app.revanced.patches.youtube.misc.playservice.versionCheckPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
 import app.revanced.patches.youtube.video.information.videoInformationPatch
@@ -44,6 +46,7 @@ val backgroundPlaybackPatch = bytecodePatch(
         playerTypeHookPatch,
         videoInformationPatch,
         settingsPatch,
+        versionCheckPatch
     )
 
     compatibleWith(
@@ -101,5 +104,13 @@ val backgroundPlaybackPatch = bytecodePatch(
 
         // Force allowing background play for videos labeled for kids.
         kidsBackgroundPlaybackPolicyControllerFingerprint.method.returnEarly()
+
+        // Fix PiP buttons not working after locking/unlocking device screen.
+        if (is_19_34_or_greater) {
+            pipInputConsumerFeatureFlagFingerprint.method.insertLiteralOverride(
+                PIP_INPUT_CONSUMER_FEATURE_FLAG,
+                false
+            )
+        }
     }
 }

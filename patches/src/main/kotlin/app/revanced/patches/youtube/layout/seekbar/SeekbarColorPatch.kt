@@ -28,9 +28,8 @@ import app.revanced.util.findElementByAttributeValueOrThrow
 import app.revanced.util.findInstructionIndicesReversedOrThrow
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
-import app.revanced.util.indexOfFirstLiteralInstructionOrThrow
 import app.revanced.util.inputStreamFromBundledResource
-import app.revanced.util.insertFeatureFlagBooleanOverride
+import app.revanced.util.insertLiteralOverride
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.builder.MutableMethodImplementation
@@ -229,16 +228,9 @@ val seekbarColorPatch = bytecodePatch(
 
     execute {
         fun MutableMethod.addColorChangeInstructions(resourceId: Long) {
-            val index = indexOfFirstLiteralInstructionOrThrow(resourceId)
-            val insertIndex = indexOfFirstInstructionOrThrow(index, Opcode.MOVE_RESULT)
-            val register = getInstruction<OneRegisterInstruction>(insertIndex).registerA
-
-            addInstructions(
-                insertIndex + 1,
-                """
-                    invoke-static { v$register }, $EXTENSION_CLASS_DESCRIPTOR->getVideoPlayerSeekbarColor(I)I
-                    move-result v$register
-                """
+            insertLiteralOverride(
+                resourceId,
+                "$EXTENSION_CLASS_DESCRIPTOR->getVideoPlayerSeekbarColor(I)I"
             )
         }
 
@@ -354,7 +346,7 @@ val seekbarColorPatch = bytecodePatch(
             launchScreenLayoutTypeFingerprint,
             mainActivityOnCreateFingerprint
         ).forEach { fingerprint ->
-            fingerprint.method.insertFeatureFlagBooleanOverride(
+            fingerprint.method.insertLiteralOverride(
                 launchScreenLayoutTypeLotteFeatureFlag,
                 "$EXTENSION_CLASS_DESCRIPTOR->useLotteLaunchSplashScreen(Z)Z"
             )

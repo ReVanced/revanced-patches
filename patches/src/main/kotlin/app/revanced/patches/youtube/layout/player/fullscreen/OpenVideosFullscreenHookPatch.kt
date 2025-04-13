@@ -5,7 +5,7 @@ import app.revanced.patches.youtube.layout.shortsplayer.openShortsInRegularPlaye
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.playservice.is_19_46_or_greater
 import app.revanced.patches.youtube.misc.playservice.versionCheckPatch
-import app.revanced.util.insertFeatureFlagBooleanOverride
+import app.revanced.util.insertLiteralOverride
 
 internal const val EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/youtube/patches/OpenVideosFullscreenHookPatch;"
@@ -24,7 +24,7 @@ internal val openVideosFullscreenHookPatch = bytecodePatch {
             return@execute
         }
 
-        openVideosFullscreenPortraitFingerprint.method.insertFeatureFlagBooleanOverride(
+        openVideosFullscreenPortraitFingerprint.method.insertLiteralOverride(
             OPEN_VIDEOS_FULLSCREEN_PORTRAIT_FEATURE_FLAG,
             "$EXTENSION_CLASS_DESCRIPTOR->openVideoFullscreenPortrait(Z)Z"
         )

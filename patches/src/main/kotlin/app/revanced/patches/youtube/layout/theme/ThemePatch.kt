@@ -21,7 +21,7 @@ import app.revanced.patches.youtube.misc.playservice.versionCheckPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
 import app.revanced.util.forEachChildElement
-import app.revanced.util.insertFeatureFlagBooleanOverride
+import app.revanced.util.insertLiteralOverride
 import org.w3c.dom.Element
 
 private const val EXTENSION_CLASS_DESCRIPTOR =
@@ -234,7 +234,7 @@ val themePatch = bytecodePatch(
             SwitchPreference("revanced_gradient_loading_screen"),
         )
 
-        useGradientLoadingScreenFingerprint.method.insertFeatureFlagBooleanOverride(
+        useGradientLoadingScreenFingerprint.method.insertLiteralOverride(
             GRADIENT_LOADING_SCREEN_AB_CONSTANT,
             "$EXTENSION_CLASS_DESCRIPTOR->gradientLoadingScreenEnabled(Z)Z"
         )
