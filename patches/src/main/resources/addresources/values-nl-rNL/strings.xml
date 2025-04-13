@@ -4,7 +4,6 @@
     All strings must have a unique path, even if the same string is declared in two different apps.
     This is because Crowdin requires temporarily flattening this file and removing the <app> and <patch> elements.
 
-
     Strings with new lines must be raw strings where they're wrapped in quotes and new lines are not encoded.
     Raw strings still requires escaping embedded double quotes but escaping embedded single quotes is optional.
 
@@ -43,6 +42,9 @@ Second \"item\" text"</string>
   <string name="revanced_settings_import_reset">ReVanced-instellingen zijn teruggezet naar de standaardinstellingen</string>
   <string name="revanced_settings_import_success">%d instellingen geïmporteerd</string>
   <string name="revanced_settings_import_failure_parse">Importeren mislukt: %s</string>
+  <string name="revanced_show_menu_icons_title">Pictogrammen voor ReVanced-instellingen weergeven</string>
+  <string name="revanced_show_menu_icons_summary_on">Instellingspictogrammen worden weergegeven</string>
+  <string name="revanced_show_menu_icons_summary_off">Pictogrammen voor instellingen worden niet weergegeven</string>
   <string name="revanced_language_title">ReVanced-taal</string>
   <string name="revanced_language_user_dialog_message">"Vertalingen voor sommige talen kunnen ontbreken of onvolledig zijn.
 
@@ -610,6 +612,10 @@ Als het wijzigen van deze instelling geen effect heeft, probeer dan over te scha
   <string name="revanced_hide_player_flyout_audio_track_title">Verberg Audiotrack</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_on">Menu Audiotrack is verborgen</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_off">Menu Audiotrack wordt weergegeven</string>
+  <!-- 'Spoof video streams' should be the same translation used for revanced_spoof_video_streams_screen_title -->
+  <string name="revanced_hide_player_flyout_audio_track_not_available">"Audiotrackmenu is verborgen
+
+Om het audiotrackmenu weer te geven, wijzigt u 'Videostreams vervalsen' in iOS TV"</string>
   <!-- 'Watch in VR' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_watch_in_vr_title">Verberg Bekijk in VR</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">Menu Bekijk in VR is verborgen</string>

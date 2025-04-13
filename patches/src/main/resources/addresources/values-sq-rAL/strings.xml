@@ -4,7 +4,6 @@
     All strings must have a unique path, even if the same string is declared in two different apps.
     This is because Crowdin requires temporarily flattening this file and removing the <app> and <patch> elements.
 
-
     Strings with new lines must be raw strings where they're wrapped in quotes and new lines are not encoded.
     Raw strings still requires escaping embedded double quotes but escaping embedded single quotes is optional.
 
@@ -43,6 +42,9 @@ Second \"item\" text"</string>
   <string name="revanced_settings_import_reset">Cilësimet e ReVanced u rivendosën në cilësimet e parazgjedhura</string>
   <string name="revanced_settings_import_success">Importuan %d cilësime</string>
   <string name="revanced_settings_import_failure_parse">Importimi dështoi: %s</string>
+  <string name="revanced_show_menu_icons_title">Shfaq ikonat e cilësimeve të ReVanced</string>
+  <string name="revanced_show_menu_icons_summary_on">Ikonat e cilësimeve shfaqen</string>
+  <string name="revanced_show_menu_icons_summary_off">Ikonat e cilësimeve nuk shfaqen</string>
   <string name="revanced_language_title">Gjuha e ReVanced</string>
   <string name="revanced_language_user_dialog_message">"Përkthimet për disa gjuhë mund të jenë të humbura ose të paplota.
 
@@ -610,6 +612,10 @@ Nëse ndryshimi i këtij konfigurimi nuk ka efekt, provoni të kaloni në modali
   <string name="revanced_hide_player_flyout_audio_track_title">Fsheh \"Shina e audios\"</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_on">Menyja \"Shina e audios\" është e fshehur</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_off">Menyja \"Shina e audios\" është e dukshme</string>
+  <!-- 'Spoof video streams' should be the same translation used for revanced_spoof_video_streams_screen_title -->
+  <string name="revanced_hide_player_flyout_audio_track_not_available">"Menyja e pistës audio është e fshehur
+
+Për të shfaqur menunë e pistës audio, ndryshoni 'Falsifiko transmetimet video' në iOS TV"</string>
   <!-- 'Watch in VR' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_watch_in_vr_title">Fsheh \"Shikoni në VR\"</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">Menyja \"Shikoni në VR\" është e fshehur</string>

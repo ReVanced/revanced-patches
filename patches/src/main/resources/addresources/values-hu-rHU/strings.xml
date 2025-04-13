@@ -4,7 +4,6 @@
     All strings must have a unique path, even if the same string is declared in two different apps.
     This is because Crowdin requires temporarily flattening this file and removing the <app> and <patch> elements.
 
-
     Strings with new lines must be raw strings where they're wrapped in quotes and new lines are not encoded.
     Raw strings still requires escaping embedded double quotes but escaping embedded single quotes is optional.
 
@@ -43,6 +42,9 @@ Second \"item\" text"</string>
   <string name="revanced_settings_import_reset">A ReVanced beállítások visszaállnak az alapértelmezettre</string>
   <string name="revanced_settings_import_success">%d beállítás importálva</string>
   <string name="revanced_settings_import_failure_parse">Sikertelen importálás: %s</string>
+  <string name="revanced_show_menu_icons_title">ReVanced beállításikonok megjelenítése</string>
+  <string name="revanced_show_menu_icons_summary_on">A beállításikonok láthatók</string>
+  <string name="revanced_show_menu_icons_summary_off">A beállítások ikonjai nem jelennek meg</string>
   <string name="revanced_language_title">ReVanced nyelve</string>
   <string name="revanced_language_user_dialog_message">"A fordítások hiányozhatnak vagy hiányosak lehetnek néhány nyelven.
 
@@ -610,6 +612,10 @@ Ha a beállítás módosítása nem lép életbe, próbáljon meg Inkognitó mó
   <string name="revanced_hide_player_flyout_audio_track_title">Hangsáv elrejtése</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_on">A hangsáv menü el van rejtve</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_off">A hangsáv menü megjelenik</string>
+  <!-- 'Spoof video streams' should be the same translation used for revanced_spoof_video_streams_screen_title -->
+  <string name="revanced_hide_player_flyout_audio_track_not_available">"Az audiosáv menü rejtett
+
+Az audiosáv menü megjelenítéséhez módosítsa a \"Videófolyamok hamisítása\" beállítást iOS TV-re"</string>
   <!-- 'Watch in VR' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_watch_in_vr_title">\"Megtekintés VR-módban\" elrejtése</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">A megtekintés VR-módban menü el van rejtve</string>

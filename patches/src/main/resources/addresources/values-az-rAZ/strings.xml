@@ -4,7 +4,6 @@
     All strings must have a unique path, even if the same string is declared in two different apps.
     This is because Crowdin requires temporarily flattening this file and removing the <app> and <patch> elements.
 
-
     Strings with new lines must be raw strings where they're wrapped in quotes and new lines are not encoded.
     Raw strings still requires escaping embedded double quotes but escaping embedded single quotes is optional.
 
@@ -43,6 +42,9 @@ Second \"item\" text"</string>
   <string name="revanced_settings_import_reset">ReVanced tənzimləmələr standarta təyin edildi</string>
   <string name="revanced_settings_import_success">%d tənzimləmə idxal edildi</string>
   <string name="revanced_settings_import_failure_parse">Uğursuz idxal prosesi: %s</string>
+  <string name="revanced_show_menu_icons_title">ReVanced tənzimləmə nişanların göstər</string>
+  <string name="revanced_show_menu_icons_summary_on">Tənzimləmə nişanları göstərilir</string>
+  <string name="revanced_show_menu_icons_summary_off">Tənzimləmə nişanları göstərilmir</string>
   <string name="revanced_language_title">ReVanced dili</string>
   <string name="revanced_language_user_dialog_message">"Bəzi dillər üçün tərcümələr əskik və ya səhv ola bilər.
 
@@ -610,6 +612,7 @@ Bu seçimi dəyişdirmə işə düşmürsə, Gizli rejimə keçməyə çalışı
   <string name="revanced_hide_player_flyout_audio_track_title">Səs trekini gizlət</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_on">Səs axını menyusu gizlidir</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_off">Səs axını menyusu göstərilir</string>
+  <!-- 'Spoof video streams' should be the same translation used for revanced_spoof_video_streams_screen_title -->
   <!-- 'Watch in VR' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_watch_in_vr_title">\"VR-da İzləni\" gizlət</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">VR menyusunda izləmə gizlidir</string>

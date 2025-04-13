@@ -4,7 +4,6 @@
     All strings must have a unique path, even if the same string is declared in two different apps.
     This is because Crowdin requires temporarily flattening this file and removing the <app> and <patch> elements.
 
-
     Strings with new lines must be raw strings where they're wrapped in quotes and new lines are not encoded.
     Raw strings still requires escaping embedded double quotes but escaping embedded single quotes is optional.
 
@@ -43,6 +42,9 @@ Second \"item\" text"</string>
   <string name="revanced_settings_import_reset">Setările ReVanced au fost resetate la valorile implicite</string>
   <string name="revanced_settings_import_success">Au fost importate %d setări</string>
   <string name="revanced_settings_import_failure_parse">Importare eșuată: %s</string>
+  <string name="revanced_show_menu_icons_title">Afișați pictogramele de setări ReVanced</string>
+  <string name="revanced_show_menu_icons_summary_on">Pictogramele de setări sunt afișate</string>
+  <string name="revanced_show_menu_icons_summary_off">Pictogramele setărilor nu sunt afișate</string>
   <string name="revanced_language_title">Limba ReVanced</string>
   <string name="revanced_language_user_dialog_message">"Traducerile pentru unele limbi pot lipsi sau pot fi incomplete.
 
@@ -610,6 +612,10 @@ Dacă modificarea acestei setări nu are efect, încercați să comutați la mod
   <string name="revanced_hide_player_flyout_audio_track_title">Ascunde piesa audio</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_on">Meniul piesei audio este ascuns</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_off">Meniul piesei audio este afișat</string>
+  <!-- 'Spoof video streams' should be the same translation used for revanced_spoof_video_streams_screen_title -->
+  <string name="revanced_hide_player_flyout_audio_track_not_available">"Meniul pentru pista audio este ascuns
+
+Pentru a afișa meniul pentru pista audio, schimbați opțiunea „Falsifică fluxurile video” în iOS TV"</string>
   <!-- 'Watch in VR' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_watch_in_vr_title">Ascunde ceas în VR</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">Vizionarea în meniul VR este ascunsă</string>

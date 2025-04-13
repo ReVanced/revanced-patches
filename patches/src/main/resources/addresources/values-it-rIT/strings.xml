@@ -4,7 +4,6 @@
     All strings must have a unique path, even if the same string is declared in two different apps.
     This is because Crowdin requires temporarily flattening this file and removing the <app> and <patch> elements.
 
-
     Strings with new lines must be raw strings where they're wrapped in quotes and new lines are not encoded.
     Raw strings still requires escaping embedded double quotes but escaping embedded single quotes is optional.
 
@@ -43,6 +42,9 @@ Second \"item\" text"</string>
   <string name="revanced_settings_import_reset">Reimposta le impostazioni di ReVanced a quelle predefinite</string>
   <string name="revanced_settings_import_success">Importate %d impostazioni</string>
   <string name="revanced_settings_import_failure_parse">Importazione non riuscita: %s</string>
+  <string name="revanced_show_menu_icons_title">Mostra le icone delle impostazioni di ReVanced</string>
+  <string name="revanced_show_menu_icons_summary_on">Le icone delle impostazioni vengono mostrate</string>
+  <string name="revanced_show_menu_icons_summary_off">Le icone delle impostazioni non vengono mostrate</string>
   <string name="revanced_language_title">Lingua di ReVanced</string>
   <string name="revanced_language_user_dialog_message">"Le traduzioni per alcune lingue potrebbero essere mancanti o incomplete.
 
@@ -610,6 +612,10 @@ Se la modifica di questa impostazione non ha effetto, prova a passare alla modal
   <string name="revanced_hide_player_flyout_audio_track_title">Nascondi Traccia audio</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_on">Il menu Traccia audio è nascosto</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_off">Il menu Traccia audio è visibile</string>
+  <!-- 'Spoof video streams' should be the same translation used for revanced_spoof_video_streams_screen_title -->
+  <string name="revanced_hide_player_flyout_audio_track_not_available">"Il menu della traccia audio è nascosto
+
+Per mostrare il menu della traccia audio, cambia \"Spoof video streams\" in iOS TV"</string>
   <!-- 'Watch in VR' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_watch_in_vr_title">Nascondi Guarda in VR</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">Il menu Guarda in VR è nascosto</string>

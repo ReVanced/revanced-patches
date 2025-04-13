@@ -4,7 +4,6 @@
     All strings must have a unique path, even if the same string is declared in two different apps.
     This is because Crowdin requires temporarily flattening this file and removing the <app> and <patch> elements.
 
-
     Strings with new lines must be raw strings where they're wrapped in quotes and new lines are not encoded.
     Raw strings still requires escaping embedded double quotes but escaping embedded single quotes is optional.
 
@@ -43,6 +42,9 @@ Second \"item\" text"</string>
   <string name="revanced_settings_import_reset">Подешавања ReVanced-а су враћена на подразумеване вредности</string>
   <string name="revanced_settings_import_success">Увезено %d подешавања</string>
   <string name="revanced_settings_import_failure_parse">Неуспешан увоз: %s</string>
+  <string name="revanced_show_menu_icons_title">Прикажи иконице подешавања ReVanced-а</string>
+  <string name="revanced_show_menu_icons_summary_on">Иконице подешавања су приказане</string>
+  <string name="revanced_show_menu_icons_summary_off">Иконице подешавања нису приказане</string>
   <string name="revanced_language_title">Језик ReVanced-a</string>
   <string name="revanced_language_user_dialog_message">"Преводи за неке језике могу недостајати или бити непотпуни.
 
@@ -610,6 +612,10 @@ Second \"item\" text"</string>
   <string name="revanced_hide_player_flyout_audio_track_title">Сакриј мени „Аудио снимак”</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_on">Мени „Аудио снимак” је скривен</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_off">Мени „Аудио снимак” је приказан</string>
+  <!-- 'Spoof video streams' should be the same translation used for revanced_spoof_video_streams_screen_title -->
+  <string name="revanced_hide_player_flyout_audio_track_not_available">"Мени „Аудио снимак” је скривен
+
+Да бисте приказали мени „Аудио снимак”, промените опцију „Лажирани видео стримови” на iOS TV"</string>
   <!-- 'Watch in VR' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_watch_in_vr_title">Сакриј дугме „Гледај у ВР”</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">Дугме „Гледај у ВР” је скривено</string>

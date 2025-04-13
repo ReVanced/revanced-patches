@@ -4,7 +4,6 @@
     All strings must have a unique path, even if the same string is declared in two different apps.
     This is because Crowdin requires temporarily flattening this file and removing the <app> and <patch> elements.
 
-
     Strings with new lines must be raw strings where they're wrapped in quotes and new lines are not encoded.
     Raw strings still requires escaping embedded double quotes but escaping embedded single quotes is optional.
 
@@ -43,6 +42,9 @@ Second \"item\" text"</string>
   <string name="revanced_settings_import_reset">ReVanced 설정을 기본값으로 초기화합니다</string>
   <string name="revanced_settings_import_success">%d 설정을 가져왔습니다</string>
   <string name="revanced_settings_import_failure_parse">설정을 가져올 수 없습니다: %s</string>
+  <string name="revanced_show_menu_icons_title">ReVanced 설정 아이콘 표시하기</string>
+  <string name="revanced_show_menu_icons_summary_on">설정 아이콘을 표시합니다</string>
+  <string name="revanced_show_menu_icons_summary_off">설정 아이콘을 표시하지 않습니다</string>
   <string name="revanced_language_title">ReVanced 언어</string>
   <string name="revanced_language_user_dialog_message">"일부 언어의 번역이 누락되었거나 완료되지 않았을 수 있습니다
 
@@ -409,8 +411,8 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   </patch>
   <patch id="interaction.dialog.removeViewerDiscretionDialogPatch">
   <string name="revanced_remove_viewer_discretion_dialog_title">시청 경고 다이얼로그 제거하기</string>
-  <string name="revanced_remove_viewer_discretion_dialog_summary_on">다음 동영상을 시청하기 전에 표시되는 시청 경고 다이얼로그를 제거합니다:\n• 연령 제한 동영상\n• 자살 또는 자해와 관련된 동영상\n• 일부 사용자에게 부적절한 동영상, etc.</string>
-  <string name="revanced_remove_viewer_discretion_dialog_summary_off">다음 동영상을 시청하기 전에 표시되는 시청 경고 다이얼로그를 제거하지 않습니다:\n• 연령 제한 동영상\n• 자살 또는 자해와 관련된 동영상\n• 일부 사용자에게 부적절한 동영상, etc.</string>
+  <string name="revanced_remove_viewer_discretion_dialog_summary_on">다음 동영상을 시청하기 전에 표시되는 시청 경고 다이얼로그를 제거합니다:\n• 연령 제한 동영상\n• 자살 또는 자해와 관련된 동영상, etc.</string>
+  <string name="revanced_remove_viewer_discretion_dialog_summary_off">다음 동영상을 시청하기 전에 표시되는 시청 경고 다이얼로그를 제거하지 않습니다:\n• 연령 제한 동영상\n• 자살 또는 자해와 관련된 동영상, etc.</string>
   <string name="revanced_remove_viewer_discretion_dialog_user_dialog_message">이 설정은 다이얼로그를 자동으로 허용하기만 하며 연령 제한(성인인증 절차)을 우회할 수 없습니다</string>
   </patch>
   <patch id="interaction.downloads.downloadsResourcePatch">
@@ -610,6 +612,10 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_hide_player_flyout_audio_track_title">오디오 트랙 메뉴 숨기기</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_on">오디오 트랙 메뉴가 숨겨집니다</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_off">오디오 트랙 메뉴가 표시됩니다</string>
+  <!-- 'Spoof video streams' should be the same translation used for revanced_spoof_video_streams_screen_title -->
+  <string name="revanced_hide_player_flyout_audio_track_not_available">"오디오 트랙 메뉴가 숨겨집니다
+
+오디오 트랙 메뉴를 표시하려면 '스트리밍 데이터 변경하기'에서 기본 클라이언트를 iOS TV로 변경하세요"</string>
   <!-- 'Watch in VR' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_watch_in_vr_title">VR로 보기 메뉴 숨기기</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">VR로 보기 메뉴가 숨겨집니다</string>

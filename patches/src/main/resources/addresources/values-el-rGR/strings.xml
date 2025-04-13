@@ -4,7 +4,6 @@
     All strings must have a unique path, even if the same string is declared in two different apps.
     This is because Crowdin requires temporarily flattening this file and removing the <app> and <patch> elements.
 
-
     Strings with new lines must be raw strings where they're wrapped in quotes and new lines are not encoded.
     Raw strings still requires escaping embedded double quotes but escaping embedded single quotes is optional.
 
@@ -43,6 +42,9 @@ Second \"item\" text"</string>
   <string name="revanced_settings_import_reset">Επαναφέρθηκαν οι προεπιλεγμένες ρυθμίσεις ReVanced</string>
   <string name="revanced_settings_import_success">Έγινε εισαγωγή %d ρυθμίσεων</string>
   <string name="revanced_settings_import_failure_parse">Η εισαγωγή απέτυχε: %s</string>
+  <string name="revanced_show_menu_icons_title">Εμφάνιση εικονιδίων στις ρυθμίσεις ReVanced</string>
+  <string name="revanced_show_menu_icons_summary_on">Τα εικονίδια ρυθμίσεων εμφανίζονται</string>
+  <string name="revanced_show_menu_icons_summary_off">Τα εικονίδια ρυθμίσεων δεν εμφανίζονται</string>
   <string name="revanced_language_title">Γλώσσα ρυθμίσεων ReVanced</string>
   <string name="revanced_language_user_dialog_message">"Οι μεταφράσεις για κάποιες γλώσσες ενδέχεται να λείπουν ή να είναι ελλιπείς. 
 
@@ -612,6 +614,10 @@ Second \"item\" text"</string>
   <string name="revanced_hide_player_flyout_audio_track_title">Μενού «Κομμάτι ήχου»</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_on">Κρυμμένο</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_off">Εμφανίζεται</string>
+  <!-- 'Spoof video streams' should be the same translation used for revanced_spoof_video_streams_screen_title -->
+  <string name="revanced_hide_player_flyout_audio_track_not_available">"Το μενού «Κομμάτι ήχου» είναι κρυμμένο
+
+Για να εμφανίζεται το μενού κομματιού ήχου, αλλάξτε την «Παραποίηση ροών βίντεο» σε iOS TV"</string>
   <!-- 'Watch in VR' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_watch_in_vr_title">Μενού «Προβολή σε VR»</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">Κρυμμένο</string>
@@ -1180,7 +1186,7 @@ Second \"item\" text"</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">Κρυμμένα</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">Εμφανίζονται</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_legacy_title">Κουμπιά επέκτασης και κλεισίματος</string>
-  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_on">"Τα κουμπιά δεν εμφανίζονται
+  <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_on">"Κρυμμένα
 
 Σύρετε για να αναπτύξετε ή να κλείσετε"</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_off">Εμφανίζονται</string>

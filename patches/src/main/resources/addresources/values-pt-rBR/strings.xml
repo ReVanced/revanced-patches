@@ -4,7 +4,6 @@
     All strings must have a unique path, even if the same string is declared in two different apps.
     This is because Crowdin requires temporarily flattening this file and removing the <app> and <patch> elements.
 
-
     Strings with new lines must be raw strings where they're wrapped in quotes and new lines are not encoded.
     Raw strings still requires escaping embedded double quotes but escaping embedded single quotes is optional.
 
@@ -43,6 +42,9 @@ Second \"item\" text"</string>
   <string name="revanced_settings_import_reset">Configurações do ReVanced redefinidas para o padrão</string>
   <string name="revanced_settings_import_success">Configurações %d importadas</string>
   <string name="revanced_settings_import_failure_parse">Importação falhou: %s</string>
+  <string name="revanced_show_menu_icons_title">Mostrar ícones de configuração do ReVanced</string>
+  <string name="revanced_show_menu_icons_summary_on">Ícones de configuração são mostrados</string>
+  <string name="revanced_show_menu_icons_summary_off">Os ícones de configuração não são mostrados</string>
   <string name="revanced_language_title">Idioma do ReVanced</string>
   <string name="revanced_language_user_dialog_message">"As traduções para alguns idiomas podem estar ausentes ou incompletas.\n\nPara traduzir novos idiomas, acesse translate.revanced.app"</string>
   <string name="revanced_language_DEFAULT">Idioma do aplicativo</string>
@@ -608,6 +610,10 @@ Se alterar esta configuração não fizer efeito, tente mudar para o modo anôni
   <string name="revanced_hide_player_flyout_audio_track_title">Ocultar Faixa de áudio</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_on">Menu faixa de áudio está oculto</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_off">Menu faixa de áudio não está oculto</string>
+  <!-- 'Spoof video streams' should be the same translation used for revanced_spoof_video_streams_screen_title -->
+  <string name="revanced_hide_player_flyout_audio_track_not_available">"O menu da faixa de áudio está oculto
+
+Para exibir o menu da faixa de áudio, altere \"Spoof video streams\" para iOS TV"</string>
   <!-- 'Watch in VR' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_watch_in_vr_title">Ocultar Assistir no VR</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">Menu assistir no VR está oculto</string>

@@ -168,11 +168,8 @@ val miniplayerPatch = bytecodePatch(
             // 19.30.39 // Modern 3 is less broken when double tap expand is enabled, but cannot swipe to expand when double tap is off.
             // 19.31.36 // All Modern 1 buttons are missing. Unusable.
             // 19.32.36 // 19.32+ and beyond all work without issues.
-            // 19.33.35
             "19.34.42",
             "19.43.41",
-            "19.45.38",
-            "19.46.42",
             "19.47.53",
             "20.07.39",
         ),

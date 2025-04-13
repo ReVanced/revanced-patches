@@ -4,7 +4,6 @@
     All strings must have a unique path, even if the same string is declared in two different apps.
     This is because Crowdin requires temporarily flattening this file and removing the <app> and <patch> elements.
 
-
     Strings with new lines must be raw strings where they're wrapped in quotes and new lines are not encoded.
     Raw strings still requires escaping embedded double quotes but escaping embedded single quotes is optional.
 
@@ -43,6 +42,9 @@ Second \"item\" text"</string>
   <string name="revanced_settings_import_reset">Настройки ReVanced восстановлены до значений по умолчанию</string>
   <string name="revanced_settings_import_success">Импортировано %d настроек</string>
   <string name="revanced_settings_import_failure_parse">Ошибка импорта: %s</string>
+  <string name="revanced_show_menu_icons_title">Показать иконки в настройках ReVanced</string>
+  <string name="revanced_show_menu_icons_summary_on">Иконки в настройках ReVanced показаны</string>
+  <string name="revanced_show_menu_icons_summary_off">Иконки в настройках ReVanced скрыты</string>
   <string name="revanced_language_title">Язык настроек ReVanced</string>
   <string name="revanced_language_user_dialog_message">"Переводы для некоторых языков могут отсутствовать или быть неполными.
 
@@ -610,6 +612,10 @@ Second \"item\" text"</string>
   <string name="revanced_hide_player_flyout_audio_track_title">Скрыть пункт \"Звуковая дорожка\"</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_on">Пункт \"Звуковая дорожка\" в выдвижном меню плеера скрыт</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_off">Пункт \"Звуковая дорожка\" в выдвижном меню плеера показан</string>
+  <!-- 'Spoof video streams' should be the same translation used for revanced_spoof_video_streams_screen_title -->
+  <string name="revanced_hide_player_flyout_audio_track_not_available">"Пункт \"Звуковая дорожка\" в выдвижном меню плеера скрыт
+
+Для показа пункта \"Звуковая дорожка\" измените клиент \"Подмены видеопотоков\" на iOS TV"</string>
   <!-- 'Watch in VR' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_watch_in_vr_title">Скрыть пункт \"Смотреть в VR-режиме\"</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">Пункт \"Смотреть в VR-режиме\" в выдвижном меню плеера скрыт</string>
@@ -1370,7 +1376,7 @@ Second \"item\" text"</string>
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
   <string name="revanced_spoof_video_streams_screen_title">Подмена видеопотоков</string>
-  <string name="revanced_spoof_video_streams_screen_summary">Подмена видеопотоков клиента для предотвращения проблем с воспроизведением видео</string>
+  <string name="revanced_spoof_video_streams_screen_summary">Подмена клиента видеопотоков для предотвращения проблем с воспроизведением видео</string>
   <string name="revanced_spoof_video_streams_title">Подменить видеопотоки</string>
   <string name="revanced_spoof_video_streams_summary_on">Видеопотоки подменены</string>
   <string name="revanced_spoof_video_streams_summary_off">"Видеопотоки не подменены

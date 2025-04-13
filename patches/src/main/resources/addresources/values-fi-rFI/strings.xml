@@ -4,7 +4,6 @@
     All strings must have a unique path, even if the same string is declared in two different apps.
     This is because Crowdin requires temporarily flattening this file and removing the <app> and <patch> elements.
 
-
     Strings with new lines must be raw strings where they're wrapped in quotes and new lines are not encoded.
     Raw strings still requires escaping embedded double quotes but escaping embedded single quotes is optional.
 
@@ -43,6 +42,9 @@ Second \"item\" text"</string>
   <string name="revanced_settings_import_reset">Revanced-asetukset nollattiin</string>
   <string name="revanced_settings_import_success">%d asetusta tuotiin</string>
   <string name="revanced_settings_import_failure_parse">Tuonti epäonnistui: %s</string>
+  <string name="revanced_show_menu_icons_title">Näytä ReVanced-asetuskuvakkeet</string>
+  <string name="revanced_show_menu_icons_summary_on">Asetuskuvakkeet näytetään</string>
+  <string name="revanced_show_menu_icons_summary_off">Asetuskuvakkeita ei näytetä</string>
   <string name="revanced_language_title">ReVancedin kieli</string>
   <string name="revanced_language_user_dialog_message">"Joidenkin kielten käännökset saattavat puuttua tai olla puutteellisia.
 
@@ -226,6 +228,7 @@ Et saa ilmoituksia odottamattomista tapahtumista."</string>
   <string name="revanced_hide_artist_cards_title">Piilota artistikortit</string>
   <string name="revanced_hide_artist_cards_summary_on">Artistikortit on piilotettu</string>
   <string name="revanced_hide_artist_cards_summary_off">Artistikortit näytetään</string>
+  <string name="revanced_hide_ai_generated_video_summary_section_title">Piilota \"tekoälyn luoma videoyhteenveto\"</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_on">Videon yhteenveto-osio on piilotettu</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_off">Videon yhteenveto-osio näytetään</string>
   <string name="revanced_hide_attributes_section_title">Piilota Määritteet</string>
@@ -264,8 +267,10 @@ Et saa ilmoituksia odottamattomista tapahtumista."</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">Näytetään liittyvissä videoissa</string>
   <string name="revanced_comments_screen_title">Kommentit</string>
   <string name="revanced_comments_screen_summary">Piilota tai näytä kommenttiosion osia</string>
+  <string name="revanced_hide_comments_ai_chat_summary_title">Piilota tekoälyn luoma chat-yhteenveto</string>
   <string name="revanced_hide_comments_ai_chat_summary_summary_on">Chat-yhteenveto on piilotettu</string>
   <string name="revanced_hide_comments_ai_chat_summary_summary_off">Chat-yhteenveto näytetään</string>
+  <string name="revanced_hide_comments_ai_summary_title">Piilota tekoälyn luoma kommenttiyhteenveto</string>
   <string name="revanced_hide_comments_ai_summary_summary_on">Kommenttien yhteenveto on piilotettu</string>
   <string name="revanced_hide_comments_ai_summary_summary_off">Kommenttien yhteenveto näytetään</string>
   <string name="revanced_hide_comments_by_members_header_title">Piilota \"Jäsenten kommentit\" -ylätunniste</string>
@@ -607,6 +612,7 @@ Jos tämän asetuksen muuttaminen ei tule voimaan, kokeile vaihtaa Incognito-til
   <string name="revanced_hide_player_flyout_audio_track_title">Piilota Ääniraita</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_on">Ääniraitavalikko on piilotettu</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_off">Ääniraitavalikko näytetään</string>
+  <!-- 'Spoof video streams' should be the same translation used for revanced_spoof_video_streams_screen_title -->
   <!-- 'Watch in VR' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_watch_in_vr_title">Piilota Katso VR-tilassa</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">Katso VR-tilassa -valinta on piilotettu</string>
