@@ -1,11 +1,15 @@
 package app.revanced.patches.youtube.interaction.seekbar
 
 import app.revanced.patcher.fingerprint
+import app.revanced.util.containsLiteralInstruction
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstruction
+import app.revanced.util.indexOfFirstInstructionReversed
 import app.revanced.util.literal
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.iface.Method
+import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import com.android.tools.smali.dexlib2.iface.reference.StringReference
 
 internal val swipingUpGestureParentFingerprint = fingerprint {
@@ -101,14 +105,17 @@ internal val seekbarTappingFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("Z")
     parameters("L")
-    opcodes(
-        Opcode.IPUT_OBJECT,
-        Opcode.INVOKE_VIRTUAL,
-        // Insert seekbar tapping instructions here.
-        Opcode.RETURN,
-        Opcode.INVOKE_VIRTUAL,
-    )
-    literal { Integer.MAX_VALUE.toLong() }
+    custom { method, _ ->
+        method.name == "onTouchEvent"
+                && method.containsLiteralInstruction(Integer.MAX_VALUE.toLong())
+                && indexOfNewPointInstruction(method) >= 0
+    }
+}
+
+internal fun indexOfNewPointInstruction(method: Method) = method.indexOfFirstInstructionReversed {
+    val reference = getReference<MethodReference>()
+    reference?.definingClass == "Landroid/graphics/Point;"
+            && reference.name == "<init>"
 }
 
 internal val slideToSeekFingerprint = fingerprint {

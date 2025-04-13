@@ -9,6 +9,7 @@ import app.revanced.patches.shared.misc.spoof.spoofVideoStreamsPatch
 import app.revanced.patches.youtube.misc.playservice.is_19_34_or_greater
 import app.revanced.patches.youtube.misc.playservice.is_20_03_or_greater
 import app.revanced.patches.youtube.misc.playservice.is_20_10_or_greater
+import app.revanced.patches.youtube.misc.playservice.is_20_14_or_greater
 import app.revanced.patches.youtube.misc.playservice.versionCheckPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
@@ -33,7 +34,8 @@ val spoofVideoStreamsPatch = spoofVideoStreamsPatch({
 }, {
     is_19_34_or_greater
 }, {
-    is_20_10_or_greater
+    // In 20.14 the flag was merged with 20.03 start playback flag.
+    is_20_10_or_greater && !is_20_14_or_greater
 }, {
     is_20_03_or_greater
 }, {
