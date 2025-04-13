@@ -1,3 +1,10 @@
+# [5.20.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.19.1...v5.20.0-dev.1) (2025-04-13)
+
+
+### Features
+
+* Add `Set target SDK version 34` patch (Disable edge-to-edge display) ([#4780](https://github.com/ReVanced/revanced-patches/issues/4780)) ([dcf6178](https://github.com/ReVanced/revanced-patches/commit/dcf6178f19f86dd1b57d54c855b8c47b086dd33a))
+
 ## [5.19.1](https://github.com/ReVanced/revanced-patches/compare/v5.19.0...v5.19.1) (2025-04-12)
 
 
