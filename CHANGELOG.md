@@ -1,3 +1,10 @@
+# [5.20.0-dev.4](https://github.com/ReVanced/revanced-patches/compare/v5.20.0-dev.3...v5.20.0-dev.4) (2025-04-14)
+
+
+### Bug Fixes
+
+* **Spotify - Unlock Spotify Premium:** Remove premium restriction for 'Spotify Connect' ([#4782](https://github.com/ReVanced/revanced-patches/issues/4782)) ([50f5b1a](https://github.com/ReVanced/revanced-patches/commit/50f5b1ac54372542d76e87626f00ddefb54da125))
+
 # [5.20.0-dev.3](https://github.com/ReVanced/revanced-patches/compare/v5.20.0-dev.2...v5.20.0-dev.3) (2025-04-13)
 
 
