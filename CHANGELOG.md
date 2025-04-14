@@ -1,3 +1,10 @@
+# [5.20.0-dev.5](https://github.com/ReVanced/revanced-patches/compare/v5.20.0-dev.4...v5.20.0-dev.5) (2025-04-14)
+
+
+### Features
+
+* **YouTube - Swipe controls:** Add option to change volume swipe sensitivity (step size) ([#4557](https://github.com/ReVanced/revanced-patches/issues/4557)) ([8957325](https://github.com/ReVanced/revanced-patches/commit/8957325d78eb42e087c4c1ff0abedb2146aa4423))
+
 # [5.20.0-dev.4](https://github.com/ReVanced/revanced-patches/compare/v5.20.0-dev.3...v5.20.0-dev.4) (2025-04-14)
 
 
