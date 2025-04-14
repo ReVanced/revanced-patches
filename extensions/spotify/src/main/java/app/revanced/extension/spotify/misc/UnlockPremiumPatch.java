@@ -80,7 +80,8 @@ public final class UnlockPremiumPatch {
             new OverrideAttribute("streaming-rules", ""),
             // Enables premium UI in settings and removes the premium button in the nav-bar.
             new OverrideAttribute("nft-disabled", "1"),
-            // Removes Spotify Connect as a premium only feature.
+            // Enable Spotify Connect and disable other premium related UI, like buying premium.
+            // It also removes the download button.
             new OverrideAttribute("type", "premium"),
             // Enable Spotify Car Thing hardware device.
             // Device is discontinued and no longer works with the latest releases,
