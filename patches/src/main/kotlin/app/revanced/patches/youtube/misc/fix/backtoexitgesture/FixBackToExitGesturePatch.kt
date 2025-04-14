@@ -4,7 +4,6 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
-import app.revanced.util.returnLate
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
@@ -46,9 +45,5 @@ internal val fixBackToExitGesturePatch = bytecodePatch(
                 "invoke-static { p0 }, $EXTENSION_CLASS_DESCRIPTOR->onBackPressed(Landroid/app/Activity;)V"
             )
         }
-
-        // Disable the stock YouTube double back to exit.  If this flag is on,
-        // then using the back button to exit a video can sometimes cause the app to close.
-        doubleBackToExitFeatureFlagFingerprint.method.returnLate(true)
     }
 }

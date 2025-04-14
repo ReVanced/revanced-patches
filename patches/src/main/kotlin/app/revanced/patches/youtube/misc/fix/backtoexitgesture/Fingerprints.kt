@@ -3,7 +3,6 @@ package app.revanced.patches.youtube.misc.fix.backtoexitgesture
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.AccessFlags
 import app.revanced.patcher.fingerprint
-import app.revanced.util.literal
 
 internal val onBackPressedFingerprint = fingerprint {
     returns("V")
@@ -66,11 +65,4 @@ internal val recyclerViewTopScrollingParentFingerprint = fingerprint {
         Opcode.INVOKE_VIRTUAL,
         Opcode.NEW_INSTANCE,
     )
-}
-
-internal val doubleBackToExitFeatureFlagFingerprint = fingerprint {
-    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("Z")
-    parameters()
-    literal { 45385099L }
 }
