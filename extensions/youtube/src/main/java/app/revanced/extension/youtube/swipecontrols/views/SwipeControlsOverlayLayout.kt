@@ -25,7 +25,7 @@ class SwipeControlsOverlayLayout(
     private val config: SwipeControlsConfigurationProvider,
 ) : RelativeLayout(context), SwipeControlsOverlay {
 
-    constructor(context: Context) : this(context, SwipeControlsConfigurationProvider(context))
+    constructor(context: Context) : this(context, SwipeControlsConfigurationProvider())
 
     // Drawable icons for brightness and volume
     private val autoBrightnessIcon: Drawable = getDrawable("revanced_ic_sc_brightness_auto")

@@ -1,6 +1,5 @@
 package app.revanced.extension.youtube.swipecontrols
 
-import android.content.Context
 import android.graphics.Color
 import app.revanced.extension.shared.StringRef.str
 import app.revanced.extension.shared.Utils
@@ -9,12 +8,8 @@ import app.revanced.extension.youtube.shared.PlayerType
 
 /**
  * provider for configuration for volume and brightness swipe controls
- *
- * @param context the context to create in
  */
-class SwipeControlsConfigurationProvider(
-    private val context: Context,
-) {
+class SwipeControlsConfigurationProvider {
 //region swipe enable
     /**
      * should swipe controls be enabled? (global setting)
@@ -60,6 +55,23 @@ class SwipeControlsConfigurationProvider(
      */
     val swipeMagnitudeThreshold: Int
         get() = Settings.SWIPE_MAGNITUDE_THRESHOLD.get()
+
+    /**
+     * How much volume will change by single swipe.
+     * If it is set to 0, it will reset to the default value because 0 would disable swiping.
+     * */
+    val volumeSwipeSensitivity: Int
+        get() {
+            val sensitivity = Settings.SWIPE_VOLUME_SENSITIVITY.get()
+
+            if (sensitivity < 1) {
+                Settings.SWIPE_VOLUME_SENSITIVITY.resetToDefault()
+
+                return Settings.SWIPE_VOLUME_SENSITIVITY.get()
+            }
+
+            return sensitivity
+        }
 //endregion
 
 //region overlay adjustments
