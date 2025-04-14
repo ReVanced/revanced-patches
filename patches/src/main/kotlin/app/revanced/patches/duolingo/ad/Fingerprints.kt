@@ -4,7 +4,7 @@ import app.revanced.patcher.fingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal fun buildInitMonetizationFingerprint(lastParam: String) = fingerprint {
+internal val initializeMonetizationDebugSettingsFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     returns("V")
     parameters(
@@ -12,7 +12,8 @@ internal fun buildInitMonetizationFingerprint(lastParam: String) = fingerprint {
         "Z", // useDebugBilling
         "Z", // showManageSubscriptions
         "Z", // alwaysShowSuperAds
-        lastParam,
+        // matches "Lcom/duolingo/debug/FamilyQuestOverride;" or "Lcom/duolingo/data/debug/monetization/FamilyQuestOverride;"
+        "Lcom/duolingo/",
     )
     opcodes(Opcode.IPUT_BOOLEAN)
 }
