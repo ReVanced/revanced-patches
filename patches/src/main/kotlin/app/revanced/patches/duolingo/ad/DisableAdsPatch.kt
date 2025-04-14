@@ -19,8 +19,15 @@ val disableAdsPatch = bytecodePatch(
         // SharedPreferences has a debug boolean value with key "disable_ads", which maps to "DebugCategory.DISABLE_ADS".
         //
         // MonetizationDebugSettings seems to be the most general setting to work fine.
-        initializeMonetizationDebugSettingsFingerprint.method.apply {
-            val insertIndex = initializeMonetizationDebugSettingsFingerprint.patternMatch!!.startIndex
+
+        // FamilyQuestOverride package has been refactored, so check both fully-qualified names.
+        val oldFingerprint = buildInitMonetizationFingerprint("Lcom/duolingo/debug/FamilyQuestOverride;")
+        val newFingerprint =
+            buildInitMonetizationFingerprint("Lcom/duolingo/data/debug/monetization/FamilyQuestOverride;")
+        val foundFingerprint = if (newFingerprint.methodOrNull != null) newFingerprint else oldFingerprint
+
+        foundFingerprint.method.apply {
+            val insertIndex = foundFingerprint.patternMatch!!.startIndex
             val register = getInstruction<TwoRegisterInstruction>(insertIndex).registerA
 
             addInstructions(
