@@ -3,9 +3,9 @@ package app.revanced.patches.spotify.misc.fix
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.instructions
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
+import app.revanced.patcher.fingerprint
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.util.addInstructionsAtControlFlowLabel
-import app.revanced.util.indexOfFirstInstructionOrThrow
 import app.revanced.util.indexOfFirstInstructionReversedOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
@@ -37,10 +37,11 @@ val spoofPackageInfoPatch = bytecodePatch(
 
             // region Spoof installer name.
 
-            val failedToGetInstallerPackageStringIndex = getPackageInfoFingerprint.stringMatches!!.last().index
+            // Old versions of Spotify do not check the installer name.
+            fingerprint { strings("Failed to get installer package") }.matchOrNull(this) ?: return@execute
 
-            val returnInstallerNameIndex = indexOfFirstInstructionOrThrow(
-                failedToGetInstallerPackageStringIndex,
+            val returnInstallerNameIndex = indexOfFirstInstructionReversedOrThrow(
+                instructions.size,
                 Opcode.RETURN_OBJECT
             )
 
