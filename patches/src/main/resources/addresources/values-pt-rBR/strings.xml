@@ -464,6 +464,8 @@ Ajuste o volume deslizando verticalmente no lado direito da tela"</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">A opacidade do deslizar deve estar entre 0-100</string>
   <string name="revanced_swipe_threshold_title">Limiar distância no gesto</string>
   <string name="revanced_swipe_threshold_summary">Quantidade limite que o gesto irá ocorrer</string>
+  <string name="revanced_swipe_volume_sensitivity_title">Sensibilidade ao deslizar o volume</string>
+  <string name="revanced_swipe_volume_sensitivity_summary">O quanto o volume muda por deslize</string>
   <string name="revanced_swipe_show_circular_overlay_title">Mostrar sobreposição circular</string>
   <string name="revanced_swipe_show_circular_overlay_summary_on">A sobreposição circular é mostrada</string>
   <string name="revanced_swipe_show_circular_overlay_summary_off">A sobreposição horizontal é mostrada</string>

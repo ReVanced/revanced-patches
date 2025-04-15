@@ -466,6 +466,8 @@ Second \"item\" text"</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Значение затемнения панели жестов должно быть от 0 до 100</string>
   <string name="revanced_swipe_threshold_title">Порог величины жеста</string>
   <string name="revanced_swipe_threshold_summary">Минимальная амплитуда движения, распознаваемого как жест</string>
+  <string name="revanced_swipe_volume_sensitivity_title">Чувствительность свайпа для регулировки громкости</string>
+  <string name="revanced_swipe_volume_sensitivity_summary">На сколько изменяется громкость при каждом свайпе</string>
   <string name="revanced_swipe_show_circular_overlay_title">Показать круговой индикатор</string>
   <string name="revanced_swipe_show_circular_overlay_summary_on">Круговой индикатор показан</string>
   <string name="revanced_swipe_show_circular_overlay_summary_off">Горизонтальный индикатор показан</string>

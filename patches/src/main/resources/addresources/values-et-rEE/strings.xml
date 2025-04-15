@@ -466,6 +466,8 @@ Helitugevuse reguleerimiseks pühkige ekraani paremal küljel vertikaalselt"</st
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Pühkiva katte läbipaistvus peab olema vahemikus 0-100</string>
   <string name="revanced_swipe_threshold_title">Pühkimise suuruse lävi</string>
   <string name="revanced_swipe_threshold_summary">Lävi väärtus pühkimise toimimiseks</string>
+  <string name="revanced_swipe_volume_sensitivity_title">Helitugevuse libistamise tundlikkus</string>
+  <string name="revanced_swipe_volume_sensitivity_summary">Kui palju helitugevus ühe libistusega muutub</string>
   <string name="revanced_swipe_show_circular_overlay_title">Kuva ümmargune ülekattekiht</string>
   <string name="revanced_swipe_show_circular_overlay_summary_on">Ümmargune ülekattekiht on nähtav</string>
   <string name="revanced_swipe_show_circular_overlay_summary_off">Horisontaalne ülekattekiht on nähtav</string>

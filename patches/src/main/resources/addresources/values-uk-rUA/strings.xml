@@ -466,6 +466,8 @@ Second \"item\" text"</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Значення затемнення панелі жесту має бути в межах від 0 до 100</string>
   <string name="revanced_swipe_threshold_title">Поріг величини жесту</string>
   <string name="revanced_swipe_threshold_summary">Мінімальна амплітуда руху, що розпізнається як жест</string>
+  <string name="revanced_swipe_volume_sensitivity_title">Чутливість гортання гучності</string>
+  <string name="revanced_swipe_volume_sensitivity_summary">На скільки змінюється гучність за одне гортання</string>
   <string name="revanced_swipe_show_circular_overlay_title">Показувати круговий індикатор</string>
   <string name="revanced_swipe_show_circular_overlay_summary_on">Показується круговий індикатор</string>
   <string name="revanced_swipe_show_circular_overlay_summary_off">Показується горизонтальний індикатор</string>
