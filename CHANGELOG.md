@@ -1,3 +1,10 @@
+# [5.20.0-dev.7](https://github.com/ReVanced/revanced-patches/compare/v5.20.0-dev.6...v5.20.0-dev.7) (2025-04-15)
+
+
+### Bug Fixes
+
+* **Spotify:** Fix login by replacing `Spoof signature` patch with new `Spoof package info` patch ([#4794](https://github.com/ReVanced/revanced-patches/issues/4794)) ([d639151](https://github.com/ReVanced/revanced-patches/commit/d639151641352ce651037b17fb65bd58953cd51c))
+
 # [5.20.0-dev.6](https://github.com/ReVanced/revanced-patches/compare/v5.20.0-dev.5...v5.20.0-dev.6) (2025-04-15)
 
 
