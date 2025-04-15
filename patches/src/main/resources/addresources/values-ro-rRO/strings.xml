@@ -466,6 +466,8 @@ Reglați volumul glisând vertical pe partea dreaptă a ecranului"</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Opacitatea glisării trebuie să fie între 0-100</string>
   <string name="revanced_swipe_threshold_title">Pragul mărimii glisării</string>
   <string name="revanced_swipe_threshold_summary">Cantitatea de prag pentru a glisa</string>
+  <string name="revanced_swipe_volume_sensitivity_title">Sensibilitate glisare volum</string>
+  <string name="revanced_swipe_volume_sensitivity_summary">Cât de mult se modifică volumul per glisare</string>
   <string name="revanced_swipe_show_circular_overlay_title">Afișează suprapunerea circulară</string>
   <string name="revanced_swipe_show_circular_overlay_summary_on">Suprapunerea circulară este afișată</string>
   <string name="revanced_swipe_show_circular_overlay_summary_off">Suprapunerea orizontală este afișată</string>

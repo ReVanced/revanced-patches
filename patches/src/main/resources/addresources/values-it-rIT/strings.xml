@@ -466,6 +466,8 @@ Regola il volume scorrendo verticalmente sul lato destro dello schermo"</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">L\'opacità di scorrimento deve essere tra 0-100</string>
   <string name="revanced_swipe_threshold_title">Ampiezza limite della soglia di scorrimento</string>
   <string name="revanced_swipe_threshold_summary">Il limite di ampiezza entro cui deve avvenire lo scorrimento</string>
+  <string name="revanced_swipe_volume_sensitivity_title">Sensibilità allo scorrimento del volume</string>
+  <string name="revanced_swipe_volume_sensitivity_summary">La quantità di volume che cambia per scorrimento</string>
   <string name="revanced_swipe_show_circular_overlay_title">Mostra sovrapposizione circolare</string>
   <string name="revanced_swipe_show_circular_overlay_summary_on">La sovrapposizione circolare viene mostrata</string>
   <string name="revanced_swipe_show_circular_overlay_summary_off">La sovrapposizione orizzontale viene mostrata</string>

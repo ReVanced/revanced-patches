@@ -430,6 +430,8 @@ Juster lydstyrken ved at swipe lodret i højre side af skærmen"</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Gennemsigtighed for swipe skal være mellem 0-100</string>
   <string name="revanced_swipe_threshold_title">Stryg størrelse tærskel</string>
   <string name="revanced_swipe_threshold_summary">Beløbet for tærskelværdi for stryg der skal ske</string>
+  <string name="revanced_swipe_volume_sensitivity_title">Volumen strygefølsomhed</string>
+  <string name="revanced_swipe_volume_sensitivity_summary">Hvor meget lydstyrken ændres pr. strygning</string>
   <string name="revanced_swipe_show_circular_overlay_title">Vis cirkulært overlejring</string>
   <string name="revanced_swipe_show_circular_overlay_summary_on">Cirkulært overlejring vises</string>
   <string name="revanced_swipe_show_circular_overlay_summary_off">Horisontalt overlejring vises</string>

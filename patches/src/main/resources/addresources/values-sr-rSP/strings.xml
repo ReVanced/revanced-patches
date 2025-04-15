@@ -466,6 +466,8 @@ Second \"item\" text"</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Непрозирност покрета превлачења мора бити између 0 и 100</string>
   <string name="revanced_swipe_threshold_title">Праг трајања превлачења</string>
   <string name="revanced_swipe_threshold_summary">Износ прага трајања превлачења</string>
+  <string name="revanced_swipe_volume_sensitivity_title">Осетљивост покрета за јачину звука</string>
+  <string name="revanced_swipe_volume_sensitivity_summary">Колико се јачина звука мења по покрету</string>
   <string name="revanced_swipe_show_circular_overlay_title">Прикажи кружни преклоп</string>
   <string name="revanced_swipe_show_circular_overlay_summary_on">Приказан је кружни преклоп</string>
   <string name="revanced_swipe_show_circular_overlay_summary_off">Приказан је хоризонтални преклоп</string>

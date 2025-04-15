@@ -466,6 +466,8 @@ A hangerő a képernyő jobb oldalán függőlegesen húzva állítható be"</st
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">A csúsztatás átlátszóságának 0 és 100 között kell lennie</string>
   <string name="revanced_swipe_threshold_title">A csúsztatás küszöbértéke</string>
   <string name="revanced_swipe_threshold_summary">A csúsztatáshoz szükséges küszöbérték</string>
+  <string name="revanced_swipe_volume_sensitivity_title">Hangerő-görgetés érzékenysége</string>
+  <string name="revanced_swipe_volume_sensitivity_summary">Mennyit változzon a hangerő görgetésenként</string>
   <string name="revanced_swipe_show_circular_overlay_title">Kör alakú fedvény megjelenítése</string>
   <string name="revanced_swipe_show_circular_overlay_summary_on">Kör alakú fedvény megjelenik</string>
   <string name="revanced_swipe_show_circular_overlay_summary_off">Vízszintes fedvény megjelenik</string>

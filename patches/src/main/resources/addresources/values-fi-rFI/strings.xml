@@ -466,6 +466,8 @@ Säädä äänenvoimakkuutta pyyhkäisemällä pystysuoraan näytön oikealta pu
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Pyyhkäisyn läpinäkymättömyyden on oltava välillä 0–100</string>
   <string name="revanced_swipe_threshold_title">Pyyhkäisyn kynnysraja</string>
   <string name="revanced_swipe_threshold_summary">Pyyhkäisyä varten tarvittavan kynnyksen määrä</string>
+  <string name="revanced_swipe_volume_sensitivity_title">Äänenvoimakkuuden pyyhkäisyn herkkyys</string>
+  <string name="revanced_swipe_volume_sensitivity_summary">Kuinka paljon äänenvoimakkuus muuttuu pyyhkäisyä kohden</string>
   <string name="revanced_swipe_show_circular_overlay_title">Näytä pyöreä peittokuva</string>
   <string name="revanced_swipe_show_circular_overlay_summary_on">Pyöreä peittokuva näytetään</string>
   <string name="revanced_swipe_show_circular_overlay_summary_off">Vaakasuora peittokuva näytetään</string>
