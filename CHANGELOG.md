@@ -1,3 +1,10 @@
+# [5.20.0-dev.6](https://github.com/ReVanced/revanced-patches/compare/v5.20.0-dev.5...v5.20.0-dev.6) (2025-04-15)
+
+
+### Bug Fixes
+
+* **Duolingo - Hide ads:**  Support lastest app release ([#4790](https://github.com/ReVanced/revanced-patches/issues/4790)) ([215fccb](https://github.com/ReVanced/revanced-patches/commit/215fccbaf2fdd54251c46cbda106029eb304996b))
+
 # [5.20.0-dev.5](https://github.com/ReVanced/revanced-patches/compare/v5.20.0-dev.4...v5.20.0-dev.5) (2025-04-14)
 
 
