@@ -14,7 +14,7 @@ import app.revanced.util.findFreeRegister
 import app.revanced.util.findInstructionIndicesReversedOrThrow
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
-import app.revanced.util.insertFeatureFlagBooleanOverride
+import app.revanced.util.insertLiteralOverride
 import app.revanced.util.returnEarly
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
@@ -235,7 +235,7 @@ fun spoofVideoStreamsPatch(
 
         // region Fix iOS livestream current time.
 
-        hlsCurrentTimeFingerprint.method.insertFeatureFlagBooleanOverride(
+        hlsCurrentTimeFingerprint.method.insertLiteralOverride(
             HLS_CURRENT_TIME_FEATURE_FLAG,
             "$EXTENSION_CLASS_DESCRIPTOR->fixHLSCurrentTime(Z)Z"
         )
@@ -245,21 +245,21 @@ fun spoofVideoStreamsPatch(
         // region turn off stream config replacement feature flag.
 
         if (fixMediaFetchHotConfigChanges()) {
-            mediaFetchHotConfigFingerprint.method.insertFeatureFlagBooleanOverride(
+            mediaFetchHotConfigFingerprint.method.insertLiteralOverride(
                 MEDIA_FETCH_HOT_CONFIG_FEATURE_FLAG,
                 "$EXTENSION_CLASS_DESCRIPTOR->useMediaFetchHotConfigReplacement(Z)Z"
             )
         }
 
         if (fixMediaFetchHotConfigAlternativeChanges()) {
-            mediaFetchHotConfigAlternativeFingerprint.method.insertFeatureFlagBooleanOverride(
+            mediaFetchHotConfigAlternativeFingerprint.method.insertLiteralOverride(
                 MEDIA_FETCH_HOT_CONFIG_ALTERNATIVE_FEATURE_FLAG,
                 "$EXTENSION_CLASS_DESCRIPTOR->useMediaFetchHotConfigReplacement(Z)Z"
             )
         }
 
         if (fixParsePlaybackResponseFeatureFlag()) {
-            playbackStartDescriptorFeatureFlagFingerprint.method.insertFeatureFlagBooleanOverride(
+            playbackStartDescriptorFeatureFlagFingerprint.method.insertLiteralOverride(
                 PLAYBACK_START_CHECK_ENDPOINT_USED_FEATURE_FLAG,
                 "$EXTENSION_CLASS_DESCRIPTOR->usePlaybackStartFeatureFlag(Z)Z"
             )

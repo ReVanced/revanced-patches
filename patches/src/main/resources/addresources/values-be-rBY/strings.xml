@@ -466,6 +466,8 @@ Second \"item\" text"</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Непразрыстасць пракруткі павінна быць паміж 0-100</string>
   <string name="revanced_swipe_threshold_title">Парог велічыні пальцам</string>
   <string name="revanced_swipe_threshold_summary">Велічыня парогавага значэння для правядзення пальцам</string>
+  <string name="revanced_swipe_volume_sensitivity_title">Адчувальнасць правядзення для гучнасці</string>
+  <string name="revanced_swipe_volume_sensitivity_summary">Наколькі змяняецца гучнасць пры кожным правядзенні</string>
   <string name="revanced_swipe_show_circular_overlay_title">Паказваць кругавое накладанне</string>
   <string name="revanced_swipe_show_circular_overlay_summary_on">Кругавое накладанне паказваецца</string>
   <string name="revanced_swipe_show_circular_overlay_summary_off">Гарызантальнае накладанне паказваецца</string>

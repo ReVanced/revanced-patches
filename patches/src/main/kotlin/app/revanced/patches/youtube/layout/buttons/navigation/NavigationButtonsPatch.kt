@@ -18,7 +18,7 @@ import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
-import app.revanced.util.insertFeatureFlagBooleanOverride
+import app.revanced.util.insertLiteralOverride
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
@@ -119,17 +119,17 @@ val navigationButtonsPatch = bytecodePatch(
 
         // Force on/off translucent effect on status bar and navigation buttons.
         if (is_19_25_or_greater) {
-            translucentNavigationStatusBarFeatureFlagFingerprint.method.insertFeatureFlagBooleanOverride(
+            translucentNavigationStatusBarFeatureFlagFingerprint.method.insertLiteralOverride(
                 TRANSLUCENT_NAVIGATION_STATUS_BAR_FEATURE_FLAG,
                 "$EXTENSION_CLASS_DESCRIPTOR->useTranslucentNavigationStatusBar(Z)Z",
             )
 
-            translucentNavigationButtonsFeatureFlagFingerprint.method.insertFeatureFlagBooleanOverride(
+            translucentNavigationButtonsFeatureFlagFingerprint.method.insertLiteralOverride(
                 TRANSLUCENT_NAVIGATION_BUTTONS_FEATURE_FLAG,
                 "$EXTENSION_CLASS_DESCRIPTOR->useTranslucentNavigationButtons(Z)Z",
             )
 
-            translucentNavigationButtonsSystemFeatureFlagFingerprint.method.insertFeatureFlagBooleanOverride(
+            translucentNavigationButtonsSystemFeatureFlagFingerprint.method.insertLiteralOverride(
                 TRANSLUCENT_NAVIGATION_BUTTONS_SYSTEM_FEATURE_FLAG,
                 "$EXTENSION_CLASS_DESCRIPTOR->useTranslucentNavigationButtons(Z)Z",
             )
