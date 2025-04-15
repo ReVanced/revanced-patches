@@ -466,6 +466,8 @@ Coigeartaigh an toirt trí haisceartán go hingearach ar thaobh deas an scáile�
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Caithfidh léaráidí traslaithe a bheith idir 0-100</string>
   <string name="revanced_swipe_threshold_title">Tairseach méid swipe</string>
   <string name="revanced_swipe_threshold_summary">Méid an tairseach le haghaidh sruthú tarlú</string>
+  <string name="revanced_swipe_volume_sensitivity_title">Íogaireacht swipe toirte</string>
+  <string name="revanced_swipe_volume_sensitivity_summary">An méid a athraíonn an toirt in aghaidh gach swipe</string>
   <string name="revanced_swipe_show_circular_overlay_title">Taispeáin forleagan ciorclach</string>
   <string name="revanced_swipe_show_circular_overlay_summary_on">Léirítear forleagan ciorclach</string>
   <string name="revanced_swipe_show_circular_overlay_summary_off">Taispeántar forleagan cothrománach</string>

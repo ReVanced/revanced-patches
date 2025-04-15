@@ -466,6 +466,8 @@ Säädä äänenvoimakkuutta pyyhkäisemällä pystysuoraan näytön oikealta pu
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Pyyhkäisyn läpinäkymättömyyden on oltava välillä 0–100</string>
   <string name="revanced_swipe_threshold_title">Pyyhkäisyn kynnysraja</string>
   <string name="revanced_swipe_threshold_summary">Pyyhkäisyä varten tarvittavan kynnyksen määrä</string>
+  <string name="revanced_swipe_volume_sensitivity_title">Äänenvoimakkuuden pyyhkäisyn herkkyys</string>
+  <string name="revanced_swipe_volume_sensitivity_summary">Kuinka paljon äänenvoimakkuus muuttuu pyyhkäisyä kohden</string>
   <string name="revanced_swipe_show_circular_overlay_title">Näytä pyöreä peittokuva</string>
   <string name="revanced_swipe_show_circular_overlay_summary_on">Pyöreä peittokuva näytetään</string>
   <string name="revanced_swipe_show_circular_overlay_summary_off">Vaakasuora peittokuva näytetään</string>
@@ -613,6 +615,9 @@ Jos tämän asetuksen muuttaminen ei tule voimaan, kokeile vaihtaa Incognito-til
   <string name="revanced_hide_player_flyout_audio_track_summary_on">Ääniraitavalikko on piilotettu</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_off">Ääniraitavalikko näytetään</string>
   <!-- 'Spoof video streams' should be the same translation used for revanced_spoof_video_streams_screen_title -->
+  <string name="revanced_hide_player_flyout_audio_track_not_available">"Ääniraitavalikko on piilotettu
+
+Jos haluat nähdä sen, aseta \"Naamioi videovirrat\" iOS TV:ksi"</string>
   <!-- 'Watch in VR' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_watch_in_vr_title">Piilota Katso VR-tilassa</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">Katso VR-tilassa -valinta on piilotettu</string>

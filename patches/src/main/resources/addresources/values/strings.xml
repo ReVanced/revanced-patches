@@ -527,6 +527,8 @@ Adjust volume by swiping vertically on the right side of the screen"</string>
             <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Swipe opacity must be between 0-100</string>
             <string name="revanced_swipe_threshold_title">Swipe magnitude threshold</string>
             <string name="revanced_swipe_threshold_summary">The amount of threshold for swipe to occur</string>
+            <string name="revanced_swipe_volume_sensitivity_title">Volume swipe sensitivity</string>
+            <string name="revanced_swipe_volume_sensitivity_summary">How much the volume changes per swipe</string>
             <string name="revanced_swipe_show_circular_overlay_title">Show circular overlay</string>
             <string name="revanced_swipe_show_circular_overlay_summary_on">Circular overlay is shown</string>
             <string name="revanced_swipe_show_circular_overlay_summary_off">Horizontal overlay is shown</string>

@@ -47,6 +47,7 @@ private val swipeControlsResourcePatch = resourcePatch {
             TextPreference("revanced_swipe_overlay_background_opacity", inputType = InputType.NUMBER),
             TextPreference("revanced_swipe_overlay_timeout", inputType = InputType.NUMBER),
             TextPreference("revanced_swipe_threshold", inputType = InputType.NUMBER),
+            TextPreference("revanced_swipe_volume_sensitivity", inputType = InputType.NUMBER),
         )
 
         copyResources(
@@ -117,7 +118,7 @@ val swipeControlsPatch = bytecodePatch(
         // region patch to enable/disable swipe to change video.
 
         if (is_19_43_or_greater) {
-            swipeChangeVideoFingerprint.method.insertFeatureFlagBooleanOverride(
+            swipeChangeVideoFingerprint.method.insertLiteralOverride(
                 SWIPE_CHANGE_VIDEO_FEATURE_FLAG,
                 "$EXTENSION_CLASS_DESCRIPTOR->allowSwipeChangeVideo(Z)Z"
             )

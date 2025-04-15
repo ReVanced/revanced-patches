@@ -466,6 +466,8 @@ Tính năng này chỉ khả dụng cho các thiết bị cũ hơn"</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Độ mờ vuốt phải nằm trong khoảng từ 0-100</string>
   <string name="revanced_swipe_threshold_title">Độ rộng ngưỡng vuốt</string>
   <string name="revanced_swipe_threshold_summary">Độ rộng của ngưỡng vuốt để thực hiện cử chỉ vuốt</string>
+  <string name="revanced_swipe_volume_sensitivity_title">Độ nhạy vuốt âm lượng</string>
+  <string name="revanced_swipe_volume_sensitivity_summary">Mức âm lượng thay đổi trên mỗi lần vuốt</string>
   <string name="revanced_swipe_show_circular_overlay_title">Hiện lớp phủ hình tròn</string>
   <string name="revanced_swipe_show_circular_overlay_summary_on">Lớp phủ tròn được hiện</string>
   <string name="revanced_swipe_show_circular_overlay_summary_off">Lớp phủ ngang được hiện</string>

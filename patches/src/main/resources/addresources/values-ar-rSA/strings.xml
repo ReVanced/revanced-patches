@@ -466,6 +466,8 @@ Second \"item\" text"</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">يجب أن يكون تعتيم التمرير السريع بين 0-100</string>
   <string name="revanced_swipe_threshold_title">مقدار حد التمرير</string>
   <string name="revanced_swipe_threshold_summary">الحد الأدنى من التمرير قبل اكتشاف الإيماءة</string>
+  <string name="revanced_swipe_volume_sensitivity_title">حساسية إيماءة تمرير مستوى الصوت</string>
+  <string name="revanced_swipe_volume_sensitivity_summary">مقدار تغير مستوى الصوت لكل تمريرة</string>
   <string name="revanced_swipe_show_circular_overlay_title">عرض الواجهة الدائرية</string>
   <string name="revanced_swipe_show_circular_overlay_summary_on">يتم عرض التراكب الدائري</string>
   <string name="revanced_swipe_show_circular_overlay_summary_off">يتم عرض التراكب الأفقي</string>

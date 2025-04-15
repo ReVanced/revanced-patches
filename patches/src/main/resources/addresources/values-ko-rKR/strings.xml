@@ -465,6 +465,8 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">스와이프 불투명도 값은 0-100 사이여야 합니다</string>
   <string name="revanced_swipe_threshold_title">스와이프 한계치</string>
   <string name="revanced_swipe_threshold_summary">제스처 인식을 위해 얼마나 스와이프를 해야 할지를 지정할 수 있으며, 원하지 않은 제스처 인식을 방지할 수 있습니다</string>
+  <string name="revanced_swipe_volume_sensitivity_title">볼륨 스와이프 민감도</string>
+  <string name="revanced_swipe_volume_sensitivity_summary">스와이프할 때마다 볼륨이 얼마나 변경되는지를 지정할 수 있습니다</string>
   <string name="revanced_swipe_show_circular_overlay_title">원형 오버레이 표시하기</string>
   <string name="revanced_swipe_show_circular_overlay_summary_on">원형 오버레이를 표시합니다</string>
   <string name="revanced_swipe_show_circular_overlay_summary_off">바형 오버레이를 표시합니다</string>

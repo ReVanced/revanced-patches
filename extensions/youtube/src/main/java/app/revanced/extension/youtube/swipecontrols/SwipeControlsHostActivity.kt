@@ -127,7 +127,7 @@ class SwipeControlsHostActivity : Activity() {
     private fun initialize() {
         // create controllers
         printDebug { "initializing swipe controls controllers" }
-        config = SwipeControlsConfigurationProvider(this)
+        config = SwipeControlsConfigurationProvider()
         keys = VolumeKeysController(this)
         audio = createAudioController()
         screen = createScreenController()

@@ -466,6 +466,8 @@ Regulējiet skaļumu, velkot vertikāli ekrāna labajā pusē"</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Pārvilkšanas necaurredzamībai jābūt no 0 līdz 100</string>
   <string name="revanced_swipe_threshold_title">Slīdēšanas lieluma slieksnis</string>
   <string name="revanced_swipe_threshold_summary">Slieksnis, lai slīdēšana varētu notikt</string>
+  <string name="revanced_swipe_volume_sensitivity_title">Svilpes jutīgums skaļuma regulēšanai</string>
+  <string name="revanced_swipe_volume_sensitivity_summary">Cik daudz skaļums mainās ar katru vilkšanu</string>
   <string name="revanced_swipe_show_circular_overlay_title">Rādīt apļveida pārklājumu</string>
   <string name="revanced_swipe_show_circular_overlay_summary_on">Apļveida pārklājums tiek rādīts</string>
   <string name="revanced_swipe_show_circular_overlay_summary_off">Horizontālais pārklājums tiek rādīts</string>

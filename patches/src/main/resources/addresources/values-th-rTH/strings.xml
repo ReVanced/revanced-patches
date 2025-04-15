@@ -464,6 +464,8 @@ Second \"item\" text"</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">ค่าความทึบแสงของสไลด์ต้องอยู่ระหว่าง 0-100</string>
   <string name="revanced_swipe_threshold_title">เกณฑ์ขนาดของการปัด</string>
   <string name="revanced_swipe_threshold_summary">จำนวนเกณฑ์สำหรับการปัดที่จะเกิดขึ้น</string>
+  <string name="revanced_swipe_volume_sensitivity_title">ความไวในการปัดปรับระดับเสียง</string>
+  <string name="revanced_swipe_volume_sensitivity_summary">ปริมาณการเปลี่ยนแปลงระดับเสียงต่อการปัดแต่ละครั้ง</string>
   <string name="revanced_swipe_show_circular_overlay_title">แสดงภาพซ้อนทับแบบวงกลม</string>
   <string name="revanced_swipe_show_circular_overlay_summary_on">แสดงภาพซ้อนทับแบบวงกลม</string>
   <string name="revanced_swipe_show_circular_overlay_summary_off">แสดงภาพซ้อนทับแนวนอน</string>
