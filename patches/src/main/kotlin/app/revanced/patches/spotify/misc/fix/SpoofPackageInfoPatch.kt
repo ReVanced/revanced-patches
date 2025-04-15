@@ -5,6 +5,7 @@ import app.revanced.patcher.extensions.InstructionExtensions.instructions
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.util.addInstructionsAtControlFlowLabel
+import app.revanced.util.indexOfFirstInstructionOrThrow
 import app.revanced.util.indexOfFirstInstructionReversedOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
@@ -20,10 +21,10 @@ val spoofPackageInfoPatch = bytecodePatch(
         getPackageInfoFingerprint.method.apply {
             // region Spoof signature.
 
-            val failedToGetSignaturesStringMatch = getPackageInfoFingerprint.stringMatches!!.first()
+            val failedToGetSignaturesStringIndex = getPackageInfoFingerprint.stringMatches!!.first().index
 
             val concatSignaturesIndex = indexOfFirstInstructionReversedOrThrow(
-                failedToGetSignaturesStringMatch.index,
+                failedToGetSignaturesStringIndex,
                 Opcode.MOVE_RESULT_OBJECT,
             )
 
@@ -36,8 +37,10 @@ val spoofPackageInfoPatch = bytecodePatch(
 
             // region Spoof installer name.
 
-            val returnInstallerNameIndex = indexOfFirstInstructionReversedOrThrow(
-                instructions.lastIndex,
+            val failedToGetInstallerPackageStringIndex = getPackageInfoFingerprint.stringMatches!!.last().index
+
+            val returnInstallerNameIndex = indexOfFirstInstructionOrThrow(
+                failedToGetInstallerPackageStringIndex,
                 Opcode.RETURN_OBJECT
             )
 
