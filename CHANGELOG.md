@@ -1,3 +1,10 @@
+## [5.20.1-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.20.0...v5.20.1-dev.1) (2025-04-15)
+
+
+### Bug Fixes
+
+* **Spotify - Custom theme:** Support latest app target ([#4800](https://github.com/ReVanced/revanced-patches/issues/4800)) ([03d0eb2](https://github.com/ReVanced/revanced-patches/commit/03d0eb2f8c0f3e48d53bdab38d34057f2020bb65))
+
 # [5.20.0](https://github.com/ReVanced/revanced-patches/compare/v5.19.1...v5.20.0) (2025-04-15)
 
 
