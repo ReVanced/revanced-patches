@@ -36,7 +36,10 @@ val spoofPackageInfoPatch = bytecodePatch(
 
             // region Spoof installer name.
 
-            val returnInstallerNameIndex = instructions.size - 3
+            val returnInstallerNameIndex = indexOfFirstInstructionReversedOrThrow(
+                instructions.lastIndex,
+                Opcode.RETURN_OBJECT
+            )
 
             val installerNameRegister = getInstruction<OneRegisterInstruction>(returnInstallerNameIndex).registerA
             val expectedInstallerName = "com.android.vending"
