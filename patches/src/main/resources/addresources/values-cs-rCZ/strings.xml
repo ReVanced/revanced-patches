@@ -466,6 +466,8 @@ Hlasitost se upravuje svislým přejetím po pravé straně obrazovky"</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Průsvitnost tažení musí být mezi 0-100</string>
   <string name="revanced_swipe_threshold_title">Práh vynucení gesta</string>
   <string name="revanced_swipe_threshold_summary">Velikost prahu pro provedení gesta</string>
+  <string name="revanced_swipe_volume_sensitivity_title">Citlivost přejetí hlasitosti</string>
+  <string name="revanced_swipe_volume_sensitivity_summary">O kolik se změní hlasitost na jedno přejetí</string>
   <string name="revanced_swipe_show_circular_overlay_title">Zobrazit kruhovou překryvnou vrstvu</string>
   <string name="revanced_swipe_show_circular_overlay_summary_on">Zobrazuje se kruhová překryvná vrstva</string>
   <string name="revanced_swipe_show_circular_overlay_summary_off">Zobrazuje se vodorovná překryvná vrstva</string>

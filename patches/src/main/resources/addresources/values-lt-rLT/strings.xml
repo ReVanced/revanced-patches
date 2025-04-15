@@ -466,6 +466,8 @@ Reguliuokite garsumą braukdami vertikaliai dešinėje ekrano pusėje"</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Slinkties permatnumas turi būti nuo 0 iki 100</string>
   <string name="revanced_swipe_threshold_title">Slinkties dydžio slenkstis</string>
   <string name="revanced_swipe_threshold_summary">Slenkstis, reikalingas slinkčiai</string>
+  <string name="revanced_swipe_volume_sensitivity_title">Slinkimo garsumo jautrumas</string>
+  <string name="revanced_swipe_volume_sensitivity_summary">Kiek garsumas pasikeičia per braukimą</string>
   <string name="revanced_swipe_show_circular_overlay_title">Rodyti apskritą perdangą</string>
   <string name="revanced_swipe_show_circular_overlay_summary_on">Rodoma apskrita perdanga</string>
   <string name="revanced_swipe_show_circular_overlay_summary_off">Rodoma horizontali perdanga</string>

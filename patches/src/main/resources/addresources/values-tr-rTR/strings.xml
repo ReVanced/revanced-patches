@@ -466,6 +466,8 @@ Ekranın sağ tarafında dikey olarak kaydırarak sesi ayarlayın"</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Kaydırma opaklığı 0-100 arasında olmalıdır</string>
   <string name="revanced_swipe_threshold_title">Kaydırma büyüklük eşiği</string>
   <string name="revanced_swipe_threshold_summary">Kaydırma işleminin gerçekleşmesi için eşik miktarı</string>
+  <string name="revanced_swipe_volume_sensitivity_title">Ses kaydırma hassasiyeti</string>
+  <string name="revanced_swipe_volume_sensitivity_summary">Kaydırma başına sesin ne kadar değişeceği</string>
   <string name="revanced_swipe_show_circular_overlay_title">Dairesel katmanı göster</string>
   <string name="revanced_swipe_show_circular_overlay_summary_on">Dairesel katman gösteriliyor</string>
   <string name="revanced_swipe_show_circular_overlay_summary_off">Yatay katman gösteriliyor</string>

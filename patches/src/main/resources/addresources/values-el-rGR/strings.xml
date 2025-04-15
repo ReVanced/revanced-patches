@@ -468,6 +468,8 @@ Second \"item\" text"</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Η αδιαφάνεια σάρωσης πρέπει να είναι μεταξύ 0-100</string>
   <string name="revanced_swipe_threshold_title">Κατώτατο όριο μεγέθους σάρωσης</string>
   <string name="revanced_swipe_threshold_summary">Η ελάχιστη απόσταση που θα διανύσετε με το δάκτυλο σας για να είναι αναγνωρίσιμη η χειρονομία σάρωσης</string>
+  <string name="revanced_swipe_volume_sensitivity_title">Ευαισθησία σάρωσης έντασης ήχου</string>
+  <string name="revanced_swipe_volume_sensitivity_summary">Πόσο αλλάζει η ένταση ήχου ανά σάρωση</string>
   <string name="revanced_swipe_show_circular_overlay_title">Εμφάνιση κυκλικής διάταξης</string>
   <string name="revanced_swipe_show_circular_overlay_summary_on">Η διάταξη των ελέγχων σάρωσης είναι κυκλική</string>
   <string name="revanced_swipe_show_circular_overlay_summary_off">Η διάταξη των ελέγχων σάρωσης είναι οριζόντια</string>

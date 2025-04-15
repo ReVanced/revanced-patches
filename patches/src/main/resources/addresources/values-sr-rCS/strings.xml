@@ -466,6 +466,8 @@ Podesite jačinu zvuka prevlačenjem vertikalno na desnoj strani ekrana"</string
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Neprozirnost pokreta prevlačenja mora biti između 0 i 100</string>
   <string name="revanced_swipe_threshold_title">Prag trajanja prevlačenja</string>
   <string name="revanced_swipe_threshold_summary">Iznos praga trajanja prevlačenja</string>
+  <string name="revanced_swipe_volume_sensitivity_title">Osetljivost prevlačenja za jačinu zvuka</string>
+  <string name="revanced_swipe_volume_sensitivity_summary">Koliko se jačina zvuka menja po prevlačenju</string>
   <string name="revanced_swipe_show_circular_overlay_title">Prikaži kružni preklop</string>
   <string name="revanced_swipe_show_circular_overlay_summary_on">Prikazan je kružni preklop</string>
   <string name="revanced_swipe_show_circular_overlay_summary_off">Prikazan je horizontalni preklop</string>

@@ -466,6 +466,8 @@ Second \"item\" text"</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">滑动不透明度必须介于 0-100 之间</string>
   <string name="revanced_swipe_threshold_title">滑动幅度阈值</string>
   <string name="revanced_swipe_threshold_summary">防误触的滑动幅度阈值</string>
+  <string name="revanced_swipe_volume_sensitivity_title">音量滑动灵敏度</string>
+  <string name="revanced_swipe_volume_sensitivity_summary">每次滑动音量变化的幅度</string>
   <string name="revanced_swipe_show_circular_overlay_title">圆形的叠加层样式</string>
   <string name="revanced_swipe_show_circular_overlay_summary_on">提示层显示为圆形样式</string>
   <string name="revanced_swipe_show_circular_overlay_summary_off">提示层显示为水平样式</string>

@@ -466,6 +466,8 @@ MicroG-এর জন্য ব্যাটারি অপ্টিমাইজ�
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">সোয়াইপের অস্বচ্ছতা অবশ্যই 0-100 এর মধ্যে হতে হবে</string>
   <string name="revanced_swipe_threshold_title">সোয়াইপ থ্রেশহোল্ড এর মাত্রা</string>
   <string name="revanced_swipe_threshold_summary">সোয়াইপ করার থ্রেশহোল্ডের পরিমাণ</string>
+  <string name="revanced_swipe_volume_sensitivity_title">ভলিউম সোয়াইপ সংবেদনশীলতা</string>
+  <string name="revanced_swipe_volume_sensitivity_summary">প্রতি সোয়াইপে ভলিউম কতটা পরিবর্তিত হয়</string>
   <string name="revanced_swipe_show_circular_overlay_title">বৃত্তাকার ওভারলে দেখান</string>
   <string name="revanced_swipe_show_circular_overlay_summary_on">বৃত্তাকার ওভারলে দেখানো হয়েছে</string>
   <string name="revanced_swipe_show_circular_overlay_summary_off">অনুভূমিক ওভারলে দেখানো হয়েছে</string>

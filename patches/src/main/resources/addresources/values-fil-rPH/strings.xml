@@ -466,6 +466,8 @@ Ayusin ang volume sa pamamagitan ng pag-swipe nang patayo sa kanang bahagi ng sc
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Ang opacity ng swipe ay dapat nasa pagitan ng 0-100</string>
   <string name="revanced_swipe_threshold_title">I-swipe ang magnitude threshold</string>
   <string name="revanced_swipe_threshold_summary">Ang halaga ng threshold para sa pag-swipe na magaganap</string>
+  <string name="revanced_swipe_volume_sensitivity_title">Pagkasensitibo sa pag-swipe ng volume</string>
+  <string name="revanced_swipe_volume_sensitivity_summary">Gaano karami ang pagbabago ng volume sa bawat swipe</string>
   <string name="revanced_swipe_show_circular_overlay_title">Ipakita ang pabilog na overlay</string>
   <string name="revanced_swipe_show_circular_overlay_summary_on">Ipinapakita ang pabilog na overlay</string>
   <string name="revanced_swipe_show_circular_overlay_summary_off">Ipinapakita ang pahalang na overlay</string>

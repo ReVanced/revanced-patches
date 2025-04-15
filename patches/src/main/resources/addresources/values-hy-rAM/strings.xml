@@ -466,6 +466,8 @@ MicroG-ի համար մարտկոցի օպտիմալացումը անջատել�
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Սողալու անթափանցությունը պետք է լինի 0-100 միջակայքում</string>
   <string name="revanced_swipe_threshold_title">Սահմանման վերածման չափը</string>
   <string name="revanced_swipe_threshold_summary">Սահմանման վերածման չափը</string>
+  <string name="revanced_swipe_volume_sensitivity_title">Ձայնի սահեցման զգայունություն</string>
+  <string name="revanced_swipe_volume_sensitivity_summary">Թե որքան է ձայնի բարձրությունը փոխվում մեկ սահեցմամբ</string>
   <string name="revanced_swipe_show_circular_overlay_title">Ցույց տալ շրջանաձև ծածկույթը</string>
   <string name="revanced_swipe_show_circular_overlay_summary_on">Ցուցադրված է շրջանաձև ծածկույթ</string>
   <string name="revanced_swipe_show_circular_overlay_summary_off">Հորիզոնական ծածկույթը ցուցադրվում է</string>

@@ -466,6 +466,8 @@ Réglez le volume en balayant verticalement sur le côté droit de l'écran"</st
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">L\'opacité doit être comprise entre 0 et 100 pour les gestes</string>
   <string name="revanced_swipe_threshold_title">Seuil d\'intensité des balayages</string>
   <string name="revanced_swipe_threshold_summary">L\'intensité du mouvement à effectuer pour qu\'un balayage soit pris en compte</string>
+  <string name="revanced_swipe_volume_sensitivity_title">Sensibilité du geste de contrôle du volume</string>
+  <string name="revanced_swipe_volume_sensitivity_summary">Quantité de modification du volume à chaque balayage</string>
   <string name="revanced_swipe_show_circular_overlay_title">Afficher l\'overlay circulaire</string>
   <string name="revanced_swipe_show_circular_overlay_summary_on">L\'overlay circulaire est affiché</string>
   <string name="revanced_swipe_show_circular_overlay_summary_off">L\'overlay horizontal est affiché</string>
