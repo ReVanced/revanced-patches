@@ -13,6 +13,7 @@ import android.util.AttributeSet
 import android.view.HapticFeedbackConstants
 import android.view.View
 import android.widget.RelativeLayout
+import android.widget.TextView
 import app.revanced.extension.shared.Utils
 import app.revanced.extension.youtube.swipecontrols.SwipeControlsConfigurationProvider
 import app.revanced.extension.youtube.swipecontrols.misc.SwipeControlsOverlay
@@ -61,6 +62,7 @@ class SwipeControlsOverlayLayout(
     // Initialize progress bars
     private val circularProgressView: CircularProgressView
     private val horizontalProgressView: HorizontalProgressView
+    private val textProgressView: TextProgressView
 
     init {
         // Initialize circular progress bar
@@ -97,6 +99,22 @@ class SwipeControlsOverlayLayout(
             visibility = GONE // Initially hidden
         }
         addView(horizontalProgressView)
+
+        // Initialize text progress bar
+        textProgressView = TextProgressView(
+            context,
+            config.overlayBackgroundOpacity,
+            config.overlayShowOverlayMinimalStyle,
+            config.overlayProgressColor,
+            config.overlayFillBackgroundPaint,
+            config.overlayTextColor
+        ).apply {
+            layoutParams = LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT).apply {
+                addRule(CENTER_IN_PARENT, TRUE)
+            }
+            visibility = GONE
+        }
+        addView(textProgressView)
     }
 
     // Handler and callback for hiding progress bars
@@ -104,6 +122,7 @@ class SwipeControlsOverlayLayout(
     private val feedbackHideCallback = Runnable {
         circularProgressView.visibility = GONE
         horizontalProgressView.visibility = GONE
+        textProgressView.visibility = GONE
     }
 
     /**
@@ -113,11 +132,21 @@ class SwipeControlsOverlayLayout(
         feedbackHideHandler.removeCallbacks(feedbackHideCallback)
         feedbackHideHandler.postDelayed(feedbackHideCallback, config.overlayShowTimeoutMillis)
 
-        val viewToShow = if (config.isCircularProgressBar) circularProgressView else horizontalProgressView
+        // Choose which view to show based on configuration
+        val viewToShow = when {
+            config.isCircularProgressBar -> circularProgressView
+            config.isTextProgressBar -> textProgressView // New config option
+            else -> horizontalProgressView
+        }
+
+        // Hide other views
+        circularProgressView.visibility = if (viewToShow == circularProgressView) VISIBLE else GONE
+        horizontalProgressView.visibility = if (viewToShow == horizontalProgressView) VISIBLE else GONE
+        textProgressView.visibility = if (viewToShow == textProgressView) VISIBLE else GONE
+
         viewToShow.apply {
             setProgress(progress, max, value, isBrightness)
             this.icon = icon
-            visibility = VISIBLE
         }
     }
 
@@ -428,5 +457,89 @@ class HorizontalProgressView(
     override fun setProgress(value: Int, max: Int, text: String, isBrightnessMode: Boolean) {
         super.setProgress(value, max, text, isBrightnessMode)
         requestLayout()
+    }
+}
+
+/**
+ * Custom view for rendering a textual progress indicator with an icon.
+ */
+@SuppressLint("ViewConstructor")
+class TextProgressView(
+    context: Context,
+    overlayBackgroundOpacity: Int,
+    overlayShowOverlayMinimalStyle: Boolean,
+    overlayProgressColor: Int,
+    overlayFillBackgroundPaint: Int,
+    overlayTextColor: Int,
+    attrs: AttributeSet? = null,
+    defStyleAttr: Int = 0
+) : AbstractProgressView(
+    context,
+    overlayBackgroundOpacity,
+    overlayShowOverlayMinimalStyle,
+    overlayProgressColor,
+    overlayFillBackgroundPaint,
+    overlayTextColor,
+    attrs,
+    defStyleAttr
+) {
+    private val iconSize = dpToPx(context, 20f)
+    private val padding = dpToPx(context, 8f)
+    private var textWidth = 0f
+
+    init {
+        textPaint.textSize = dpToPx(context, 14f)
+        setWillNotDraw(false)
+    }
+
+    private fun calculateRequiredWidth(): Float {
+        textWidth = measureTextWidth(displayText, textPaint).toFloat()
+        return padding + iconSize + padding + textWidth + padding
+    }
+
+    override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
+        val suggestedWidth = MeasureSpec.getSize(widthMeasureSpec)
+        val requiredWidth = calculateRequiredWidth().toInt()
+        val width = min(max(100, requiredWidth), suggestedWidth)
+        val height = (iconSize + 2 * padding).toInt() // Height based on icon and padding
+        setMeasuredDimension(width, height)
+    }
+
+    override fun onDraw(canvas: Canvas) {
+        val viewWidth = width.toFloat()
+        val viewHeight = height.toFloat()
+        val cornerRadius = viewHeight / 2
+
+        // Draw rounded rectangle background
+        canvas.drawRoundRect(
+            0f, 0f, viewWidth, viewHeight,
+            cornerRadius, cornerRadius, backgroundPaint
+        )
+
+        // Draw icon
+        icon?.let {
+            val iconY = viewHeight / 2 - iconSize / 2
+            it.setBounds(
+                padding.toInt(),
+                iconY.toInt(),
+                (padding + iconSize).toInt(),
+                (iconY + iconSize).toInt()
+            )
+            it.draw(canvas)
+        }
+
+        // Draw text
+        textWidth = measureTextWidth(displayText, textPaint).toFloat()
+        val textStartX = padding + iconSize + padding
+        val textY = viewHeight / 2 + textPaint.textSize / 3
+        textPaint.textAlign = Paint.Align.LEFT
+        canvas.drawText(displayText, textStartX, textY, textPaint)
+    }
+
+    fun setContent(text: String, icon: Drawable?) {
+        this.displayText = text
+        this.icon = icon
+        requestLayout()
+        invalidate()
     }
 }

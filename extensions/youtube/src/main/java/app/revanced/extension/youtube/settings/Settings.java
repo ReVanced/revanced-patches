@@ -322,6 +322,8 @@ public class Settings extends BaseSettings {
     public static final IntegerSetting SWIPE_VOLUME_SENSITIVITY = new IntegerSetting("revanced_swipe_volume_sensitivity", 1, true, parent(SWIPE_VOLUME));
     public static final BooleanSetting SWIPE_SHOW_CIRCULAR_OVERLAY = new BooleanSetting("revanced_swipe_show_circular_overlay", FALSE, true,
             parentsAny(SWIPE_BRIGHTNESS, SWIPE_VOLUME));
+    public static final BooleanSetting SWIPE_SHOW_TEXTUAL_OVERLAY = new BooleanSetting("revanced_swipe_show_textual_overlay", FALSE, true,
+            parentsAny(SWIPE_BRIGHTNESS, SWIPE_VOLUME));
     public static final BooleanSetting SWIPE_OVERLAY_MINIMAL_STYLE = new BooleanSetting("revanced_swipe_overlay_minimal_style", FALSE, true,
             parentsAny(SWIPE_BRIGHTNESS, SWIPE_VOLUME));
     public static final IntegerSetting SWIPE_OVERLAY_OPACITY = new IntegerSetting("revanced_swipe_overlay_background_opacity", 60, true,

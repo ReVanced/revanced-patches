@@ -134,6 +134,12 @@ class SwipeControlsConfigurationProvider {
      */
     val isCircularProgressBar: Boolean
         get() = Settings.SWIPE_SHOW_CIRCULAR_OVERLAY.get()
+
+    /**
+     * A flag that determines if the progress bar should be textual.
+     */
+    val isTextProgressBar: Boolean
+        get() = Settings.SWIPE_SHOW_TEXTUAL_OVERLAY.get()
 //endregion
 
 //region behaviour
