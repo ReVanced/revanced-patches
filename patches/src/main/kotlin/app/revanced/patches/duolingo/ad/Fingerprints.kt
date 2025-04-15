@@ -12,7 +12,8 @@ internal val initializeMonetizationDebugSettingsFingerprint = fingerprint {
         "Z", // useDebugBilling
         "Z", // showManageSubscriptions
         "Z", // alwaysShowSuperAds
-        "Lcom/duolingo/debug/FamilyQuestOverride;",
+        // matches "Lcom/duolingo/debug/FamilyQuestOverride;" or "Lcom/duolingo/data/debug/monetization/FamilyQuestOverride;"
+        "Lcom/duolingo/",
     )
     opcodes(Opcode.IPUT_BOOLEAN)
 }
