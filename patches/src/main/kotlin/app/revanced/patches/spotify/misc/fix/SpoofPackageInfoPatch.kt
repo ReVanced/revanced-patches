@@ -18,14 +18,14 @@ val spoofPackageInfoPatch = bytecodePatch(
     compatibleWith("com.spotify.music")
 
     execute {
-        val packageInfoFingerprint = if (IS_SPOTIFY_LEGACY_APP_TARGET) {
+        val getPackageInfoFingerprint = if (IS_SPOTIFY_LEGACY_APP_TARGET) {
             getPackageInfoLegacyFingerprint
         } else {
             getPackageInfoFingerprint
         }
 
-        packageInfoFingerprint.method.apply {
-            val stringMatches = packageInfoFingerprint.stringMatches!!
+        getPackageInfoFingerprint.method.apply {
+            val stringMatches = getPackageInfoFingerprint.stringMatches!!
 
             // region Spoof signature.
 
@@ -46,7 +46,7 @@ val spoofPackageInfoPatch = bytecodePatch(
             // region Spoof installer name.
 
             if (IS_SPOTIFY_LEGACY_APP_TARGET) {
-                // Package installer name does not appear to be used with the legacy app target.
+                // Installer name is not used in the legacy app target.
                 return@execute
             }
 
