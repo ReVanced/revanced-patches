@@ -1,14 +1,15 @@
 package app.revanced.patches.spotify.misc.fix
 
+import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patches.spotify.misc.extension.IS_SPOTIFY_LEGACY_APP_TARGET
-import app.revanced.util.addInstructionsAtControlFlowLabel
-import app.revanced.util.indexOfFirstInstructionOrThrow
+import app.revanced.util.findInstructionIndicesReversedOrThrow
+import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionReversedOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 @Suppress("unused")
 val spoofPackageInfoPatch = bytecodePatch(
@@ -18,18 +19,11 @@ val spoofPackageInfoPatch = bytecodePatch(
     compatibleWith("com.spotify.music")
 
     execute {
-        val getPackageInfoFingerprint = if (IS_SPOTIFY_LEGACY_APP_TARGET) {
-            getPackageInfoLegacyFingerprint
-        } else {
-            getPackageInfoFingerprint
-        }
-
         getPackageInfoFingerprint.method.apply {
-            val stringMatches = getPackageInfoFingerprint.stringMatches!!
-
             // region Spoof signature.
 
-            val failedToGetSignaturesStringIndex = stringMatches.first().index
+            val failedToGetSignaturesStringIndex =
+                getPackageInfoFingerprint.stringMatches!!.first().index
 
             val concatSignaturesIndex = indexOfFirstInstructionReversedOrThrow(
                 failedToGetSignaturesStringIndex,
@@ -45,26 +39,23 @@ val spoofPackageInfoPatch = bytecodePatch(
 
             // region Spoof installer name.
 
-            if (IS_SPOTIFY_LEGACY_APP_TARGET) {
-                // Installer name is not used in the legacy app target.
-                return@execute
-            }
-
             val expectedInstallerName = "com.android.vending"
 
-            val returnInstallerNameIndex = indexOfFirstInstructionOrThrow(
-                stringMatches.last().index,
-                Opcode.RETURN_OBJECT
-            )
+            findInstructionIndicesReversedOrThrow {
+                val reference = getReference<MethodReference>()
+                reference?.name == "getInstallerPackageName" || reference?.name == "getInstallingPackageName"
+            }.forEach { index ->
+                val returnObjectIndex = index + 1
 
-            val installerNameRegister = getInstruction<OneRegisterInstruction>(
-                returnInstallerNameIndex
-            ).registerA
+                val installerPackageNameRegister = getInstruction<OneRegisterInstruction>(
+                    returnObjectIndex
+                ).registerA
 
-            addInstructionsAtControlFlowLabel(
-                returnInstallerNameIndex,
-                "const-string v$installerNameRegister, \"$expectedInstallerName\""
-            )
+                addInstruction(
+                    returnObjectIndex + 1,
+                    "const-string v$installerPackageNameRegister, \"$expectedInstallerName\""
+                )
+            }
 
             // endregion
         }
