@@ -466,6 +466,8 @@ Menyesuaikan volume dengan mengusap secara vertikal di sisi kanan layar"</string
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Opasitas geser harus antara 0-100</string>
   <string name="revanced_swipe_threshold_title">Ambang batas magnitudo usap</string>
   <string name="revanced_swipe_threshold_summary">Jumlah ambang batas untuk terjadinya usapan</string>
+  <string name="revanced_swipe_volume_sensitivity_title">Sensitivitas gesek volume</string>
+  <string name="revanced_swipe_volume_sensitivity_summary">Seberapa besar perubahan volume per gesekan</string>
   <string name="revanced_swipe_show_circular_overlay_title">Tampilkan hamparan melingkar</string>
   <string name="revanced_swipe_show_circular_overlay_summary_on">Hamparan melingkar ditampilkan</string>
   <string name="revanced_swipe_show_circular_overlay_summary_off">Hamparan horizontal ditampilkan</string>

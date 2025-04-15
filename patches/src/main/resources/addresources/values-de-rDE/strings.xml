@@ -459,6 +459,8 @@ Passen Sie die Helligkeit an, indem Sie auf der linken Seite des Bildschirms ver
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Die Wischdeckkraft muss zwischen 0 und 100 liegen</string>
   <string name="revanced_swipe_threshold_title">Wischgrößenschwelle</string>
   <string name="revanced_swipe_threshold_summary">Der Schwellenwert für Wischen</string>
+  <string name="revanced_swipe_volume_sensitivity_title">Lautstärke-Wischgestenempfindlichkeit</string>
+  <string name="revanced_swipe_volume_sensitivity_summary">Wie stark sich die Lautstärke pro Wisch ändert</string>
   <string name="revanced_swipe_show_circular_overlay_title">Kreisförmiges Overlay anzeigen</string>
   <string name="revanced_swipe_show_circular_overlay_summary_on">Kreisförmiges Overlay wird angezeigt</string>
   <string name="revanced_swipe_show_circular_overlay_summary_off">Horizontales Overlay wird angezeigt</string>

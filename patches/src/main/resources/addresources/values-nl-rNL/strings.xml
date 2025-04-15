@@ -466,6 +466,8 @@ Pas het volume aan door verticaal over de rechterkant van het scherm te vegen"</
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Dekking moet tussen 0-100 zijn</string>
   <string name="revanced_swipe_threshold_title">Drempelwaarde swipe-sterkte</string>
   <string name="revanced_swipe_threshold_summary">De hoeveelheid drempelwaarde voor swipe om te gebeuren</string>
+  <string name="revanced_swipe_volume_sensitivity_title">Gevoeligheid volumegest</string>
+  <string name="revanced_swipe_volume_sensitivity_summary">Hoeveel het volume verandert per swipe</string>
   <string name="revanced_swipe_show_circular_overlay_title">Circulaire overlay weergeven</string>
   <string name="revanced_swipe_show_circular_overlay_summary_on">Circulaire overlay wordt weergegeven</string>
   <string name="revanced_swipe_show_circular_overlay_summary_off">Horizontale overlay wordt weergegeven</string>

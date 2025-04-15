@@ -340,7 +340,7 @@ MicroG GmsCore に対する電池の最適化を無効にしても、バッテ�
   <string name="revanced_hide_keyword_content_about_whole_words_summary">キーワードを二重引用符で囲むことで、動画のタイトルやチャンネル名の単語の一部とキーワードが合致しないようにできます&lt;br&gt;&lt;br&gt;例えば、&lt;br&gt;&lt;b&gt;\"ai\"&lt;/b&gt;は、次の動画を除外します:&lt;b&gt;How does AI work?&lt;/b&gt;&lt;br&gt;しかし、次の動画は除外しません:&lt;b&gt;What does fair use mean?&lt;/b&gt;</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_hide_keyword_toast_invalid_common">キーワードを使用できません: %s</string>
-  <string name="revanced_hide_keyword_toast_invalid_common_whole_word_required">キーワード %sを使用する引用符を追加</string>
+  <string name="revanced_hide_keyword_toast_invalid_common_whole_word_required">キーワードを二重引用符で囲む必要があります: %s</string>
   <string name="revanced_hide_keyword_toast_invalid_conflicting">キーワードに矛盾する宣言があります: %s</string>
   <string name="revanced_hide_keyword_toast_invalid_length">キーワードが短すぎるため二重引用符で囲む必要があります: %s</string>
   <string name="revanced_hide_keyword_toast_invalid_broad">キーワードはすべての動画を除外します: %s</string>
@@ -402,11 +402,11 @@ MicroG GmsCore に対する電池の最適化を無効にしても、バッテ�
   <string name="revanced_share_copy_url_success">URL をクリップボードにコピーしました</string>
   <string name="revanced_share_copy_url_timestamp_success">タイムスタンプ付きの URL がコピーされました</string>
   <string name="revanced_copy_video_url_title">「動画の URL をコピー」ボタンを表示</string>
-  <string name="revanced_copy_video_url_summary_on">オーバーレイ上にボタンが表示されます。タップすると動画の URL を、長押しするとタイムスタンプ付きの URL をそれぞれコピーできます</string>
-  <string name="revanced_copy_video_url_summary_off">オーバーレイ上にボタンは表示されません</string>
+  <string name="revanced_copy_video_url_summary_on">オーバーレイにボタンが表示されます。タップすると動画の URL を、長押しするとタイムスタンプ付きの URL をそれぞれコピーできます</string>
+  <string name="revanced_copy_video_url_summary_off">オーバーレイにボタンは表示されません</string>
   <string name="revanced_copy_video_url_timestamp_title">「動画のタイムスタンプ付き URL をコピー」ボタンを表示</string>
-  <string name="revanced_copy_video_url_timestamp_summary_on">オーバーレイ上にボタンが表示されます。タップするとタイムスタンプ付きの URL を、長押しするとタイムスタンプなしの URL をそれぞれコピーできます</string>
-  <string name="revanced_copy_video_url_timestamp_summary_off">オーバーレイ上にボタンは表示されません</string>
+  <string name="revanced_copy_video_url_timestamp_summary_on">オーバーレイにボタンが表示されます。タップするとタイムスタンプ付きの URL を、長押しするとタイムスタンプなしの URL をそれぞれコピーできます</string>
+  <string name="revanced_copy_video_url_timestamp_summary_off">オーバーレイにボタンは表示されません</string>
   </patch>
   <patch id="interaction.dialog.removeViewerDiscretionDialogPatch">
   <string name="revanced_remove_viewer_discretion_dialog_title">「ご自身の責任」ダイアログを削除</string>
@@ -418,8 +418,8 @@ MicroG GmsCore に対する電池の最適化を無効にしても、バッテ�
   <string name="revanced_external_downloader_screen_title">外部ダウンロード</string>
   <string name="revanced_external_downloader_screen_summary">外部ダウンローダーの設定</string>
   <string name="revanced_external_downloader_title">外部ダウンロード ボタンを表示</string>
-  <string name="revanced_external_downloader_summary_on">オーバーレイ上に外部ダウンロード ボタンが表示されます</string>
-  <string name="revanced_external_downloader_summary_off">オーバーレイ上に外部ダウンロード ボタンは表示されません</string>
+  <string name="revanced_external_downloader_summary_on">オーバーレイに外部ダウンロード ボタンが表示されます</string>
+  <string name="revanced_external_downloader_summary_off">オーバーレイに外部ダウンロード ボタンは表示されません</string>
   <!-- 'download action button' should be translated using the same wording as the translation of 'revanced_hide_download_button_title' -->
   <string name="revanced_external_downloader_action_button_title">オフライン ボタンの動作を上書きする</string>
   <string name="revanced_external_downloader_action_button_summary_on">オフライン ボタンは外部ダウンローダーを呼び出します</string>
@@ -465,10 +465,12 @@ MicroG GmsCore に対する電池の最適化を無効にしても、バッテ�
   <string name="revanced_swipe_overlay_timeout_summary">オーバーレイが表示される時間（ミリ秒）</string>
   <string name="revanced_swipe_overlay_background_opacity_title">オーバーレイの背景の透明度</string>
   <string name="revanced_swipe_overlay_background_opacity_summary">透明度の値は 0-100 の範囲で、0 が透明です</string>
-  <string name="revanced_swipe_overlay_background_opacity_invalid_toast">透明度の値は 0-100 の間でなければなりません</string>
+  <string name="revanced_swipe_overlay_background_opacity_invalid_toast">スワイプ: 透明度の値は 0-100 でなければなりません</string>
   <string name="revanced_swipe_threshold_title">スワイプのしきい値</string>
   <string name="revanced_swipe_threshold_summary">スワイプと判定される最小の距離</string>
-  <string name="revanced_swipe_show_circular_overlay_title">オーバーレイを円形にする</string>
+  <string name="revanced_swipe_volume_sensitivity_title">音量ジェスチャーのスワイプ感度</string>
+  <string name="revanced_swipe_volume_sensitivity_summary">スワイプによる音量の変化量</string>
+  <string name="revanced_swipe_show_circular_overlay_title">円形のオーバーレイを使用する</string>
   <string name="revanced_swipe_show_circular_overlay_summary_on">円形のオーバーレイが表示されます</string>
   <string name="revanced_swipe_show_circular_overlay_summary_off">横長のオーバーレイが表示されます</string>
   <string name="revanced_swipe_overlay_minimal_style_title">オーバーレイを最小限化する</string>
@@ -631,15 +633,15 @@ MicroG GmsCore に対する電池の最適化を無効にしても、バッテ�
   <string name="revanced_hide_player_previous_next_buttons_summary_on">前の動画ボタンと次の動画ボタンは表示されません</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">前の動画ボタンと次の動画ボタンは表示されます</string>
   <string name="revanced_hide_cast_button_title">キャスト ボタンを非表示</string>
-  <string name="revanced_hide_cast_button_summary_on">オーバーレイ上にキャスト ボタンは表示されません</string>
-  <string name="revanced_hide_cast_button_summary_off">オーバーレイ上にキャスト ボタンが表示されます</string>
+  <string name="revanced_hide_cast_button_summary_on">オーバーレイにキャスト ボタンは表示されません</string>
+  <string name="revanced_hide_cast_button_summary_off">オーバーレイにキャスト ボタンが表示されます</string>
   <!-- This button does not display any text, but 'captions' should be translated using the same wording used as the translation of 'revanced_hide_player_flyout_captions_title' -->
   <string name="revanced_hide_captions_button_title">字幕ボタンを非表示</string>
-  <string name="revanced_hide_captions_button_summary_on">オーバーレイ上に字幕ボタンは表示されません</string>
-  <string name="revanced_hide_captions_button_summary_off">オーバーレイ上に字幕ボタンが表示されます</string>
+  <string name="revanced_hide_captions_button_summary_on">オーバーレイに字幕ボタンは表示されません</string>
+  <string name="revanced_hide_captions_button_summary_off">オーバーレイに字幕ボタンが表示されます</string>
   <string name="revanced_hide_autoplay_button_title">自動再生ボタンを非表示</string>
-  <string name="revanced_hide_autoplay_button_summary_on">オーバーレイ上に自動再生ボタンは表示されません</string>
-  <string name="revanced_hide_autoplay_button_summary_off">オーバーレイ上に自動再生ボタンが表示されます</string>
+  <string name="revanced_hide_autoplay_button_summary_on">オーバーレイに自動再生ボタンは表示されません</string>
+  <string name="revanced_hide_autoplay_button_summary_off">オーバーレイに自動再生ボタンが表示されます</string>
   </patch>
   <patch id="layout.hide.endscreencards.hideEndscreenCardsResourcePatch">
   <string name="revanced_hide_endscreen_cards_title">動画の終了画面を非表示</string>
@@ -695,8 +697,8 @@ MicroG GmsCore に対する電池の最適化を無効にしても、バッテ�
   <string name="revanced_hide_shorts_subscribe_button_summary_on">チャンネル登録ボタンは表示されません</string>
   <string name="revanced_hide_shorts_subscribe_button_summary_off">チャンネル登録ボタンは表示されます</string>
   <string name="revanced_hide_shorts_paused_overlay_buttons_title">一時停止中のオーバーレイ上のボタンを非表示</string>
-  <string name="revanced_hide_shorts_paused_overlay_buttons_summary_on">一時停止中のオーバーレイ上のボタンは表示されません</string>
-  <string name="revanced_hide_shorts_paused_overlay_buttons_summary_off">一時停止中のオーバーレイ上のボタンは表示されます</string>
+  <string name="revanced_hide_shorts_paused_overlay_buttons_summary_on">一時停止中のオーバーレイにボタンは表示されません</string>
+  <string name="revanced_hide_shorts_paused_overlay_buttons_summary_off">一時停止中のオーバーレイにボタンが表示されます</string>
   <string name="revanced_hide_shorts_shop_button_title">ショップ ボタンを非表示</string>
   <string name="revanced_hide_shorts_shop_button_summary_on">ショップ ボタンは表示されません</string>
   <string name="revanced_hide_shorts_shop_button_summary_off">ショップ ボタンは表示されます</string>
@@ -805,7 +807,7 @@ MicroG GmsCore に対する電池の最適化を無効にしても、バッテ�
   <patch id="layout.player.overlay.customPlayerOverlayOpacityResourcePatch">
   <string name="revanced_player_overlay_opacity_title">オーバーレイの透明度</string>
   <string name="revanced_player_overlay_opacity_summary">透明度の値は 0-100 の範囲で、0 が透明です</string>
-  <string name="revanced_player_overlay_opacity_invalid_toast">オーバーレイの透明度は 0-100 の間でなければなりません</string>
+  <string name="revanced_player_overlay_opacity_invalid_toast">プレーヤー: オーバーレイの透明度は 0-100 でなければなりません</string>
   </patch>
   <patch id="layout.returnyoutubedislike.returnYouTubeDislikePatch">
   <!-- Toast shown if network connection times out. Translations of this should not be longer than the original English or the text can be clipped and not entirely shown. -->
@@ -1201,7 +1203,7 @@ Automotive レイアウト
   <string name="revanced_miniplayer_width_dip_invalid_toast">ピクセル サイズの値は %1$s と %2$s の間でなければなりません</string>
   <string name="revanced_miniplayer_opacity_title">オーバーレイの透明度</string>
   <string name="revanced_miniplayer_opacity_summary">透明度の値は 0-100 の範囲で、0 が透明です</string>
-  <string name="revanced_miniplayer_opacity_invalid_toast">オーバーレイの透明度の値は 0-100 の間でなければなりません</string>
+  <string name="revanced_miniplayer_opacity_invalid_toast">ミニプレーヤー: オーバーレイの透明度は 0-100 でなければなりません</string>
   </patch>
   <patch id="layout.theme.themePatch">
   <string name="revanced_gradient_loading_screen_title">グラデーション読み込み画面を有効にする</string>
@@ -1324,21 +1326,21 @@ Automotive レイアウト
   <string name="revanced_remember_video_quality_last_selected_summary_on">画質の変更はすべての動画に適用されます</string>
   <string name="revanced_remember_video_quality_last_selected_summary_off">画質の変更は現在の動画にのみ適用されます</string>
   <string name="revanced_video_quality_default_wifi_title">デフォルトの画質（Wi-Fi）</string>
-  <string name="revanced_video_quality_default_mobile_title">デフォルトの画質（モバイル ネットワーク）</string>
-  <string name="revanced_remember_shorts_quality_last_selected_title">ショート動画の画質の変更を保存する</string>
+  <string name="revanced_video_quality_default_mobile_title">デフォルトの画質（携帯回線）</string>
+  <string name="revanced_remember_shorts_quality_last_selected_title">ショートの画質の変更を保存する</string>
   <string name="revanced_remember_shorts_quality_last_selected_summary_on">画質の変更はすべてのショート動画に適用されます</string>
   <string name="revanced_remember_shorts_quality_last_selected_summary_off">画質の変更は現在のショート動画にのみ適用されます</string>
-  <string name="revanced_shorts_quality_default_wifi_title">デフォルトのショート動画の画質（Wi-Fi）</string>
-  <string name="revanced_shorts_quality_default_mobile_title">デフォルトのショート動画の画質（モバイル ネットワーク）</string>
-  <string name="revanced_remember_video_quality_mobile">モバイル ネットワーク</string>
+  <string name="revanced_shorts_quality_default_wifi_title">デフォルトのショートの画質（Wi-Fi）</string>
+  <string name="revanced_shorts_quality_default_mobile_title">デフォルトのショートの画質（携帯回線）</string>
+  <string name="revanced_remember_video_quality_mobile">携帯回線</string>
   <string name="revanced_remember_video_quality_wifi">Wi-Fi</string>
-  <string name="revanced_remember_video_quality_toast">デフォルトの画質 (%1$s) を %2$s に変更しました</string>
-  <string name="revanced_remember_video_quality_toast_shorts">ショート動画の画質 (%1$s) を %2$s に変更しました</string>
+  <string name="revanced_remember_video_quality_toast">デフォルトの画質 (%1$s): %2$s</string>
+  <string name="revanced_remember_video_quality_toast_shorts">ショートの画質 (%1$s): %2$s</string>
   </patch>
   <patch id="video.speed.button.playbackSpeedButtonPatch">
   <string name="revanced_playback_speed_dialog_button_title">再生速度設定ボタンを非表示</string>
-  <string name="revanced_playback_speed_dialog_button_summary_on">オーバーレイ上に再生速度設定ボタンが表示されます</string>
-  <string name="revanced_playback_speed_dialog_button_summary_off">オーバーレイ上に再生速度設定ボタンは表示されません</string>
+  <string name="revanced_playback_speed_dialog_button_summary_on">オーバーレイに再生速度設定ボタンが表示されます</string>
+  <string name="revanced_playback_speed_dialog_button_summary_off">オーバーレイに再生速度設定ボタンは表示されません</string>
   </patch>
   <patch id="video.speed.custom.customPlaybackSpeedPatch">
   <string name="revanced_custom_speed_menu_title">カスタムした再生速度リストを使用する</string>
@@ -1357,7 +1359,7 @@ Automotive レイアウト
   <string name="revanced_remember_playback_speed_last_selected_summary_on">再生速度の変更はすべての動画に適用されます</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_off">再生速度の変更は現在の動画にのみ適用されます</string>
   <string name="revanced_playback_speed_default_title">デフォルトの再生速度</string>
-  <string name="revanced_remember_playback_speed_toast">デフォルトの再生速度を %s に変更しました</string>
+  <string name="revanced_remember_playback_speed_toast">デフォルトの再生速度: %s</string>
   </patch>
   <patch id="video.hdr.disableHdrPatch">
   <string name="revanced_disable_hdr_video_title">HDR 動画を無効にする</string>
