@@ -6,6 +6,9 @@ import com.android.tools.smali.dexlib2.AccessFlags
 
 internal val encoreThemeFingerprint = fingerprint {
     strings("Encore theme was not provided.") // Partial string match.
+    custom { method, _ ->
+        method.name == "invoke"
+    }
 }
 
 internal const val PLAYLIST_BACKGROUND_COLOR_LITERAL = 0xFF121212
