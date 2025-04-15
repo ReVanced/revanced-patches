@@ -123,23 +123,32 @@ class SwipeControlsConfigurationProvider {
     val overlayTextColor: Int
         get() = Color.WHITE
 
+    val overlayStyle: String
+        get() = Settings.SWIPE_OVERLAY_STYLE.get()
+
     /**
      * A flag that determines if the overlay should only show the icon.
      */
     val overlayShowOverlayMinimalStyle: Boolean
-        get() = Settings.SWIPE_OVERLAY_MINIMAL_STYLE.get()
+        get() = overlayStyle == "HORIZONTAL_MINIMAL_TOP" ||
+                overlayStyle == "HORIZONTAL_MINIMAL_CENTER" ||
+                overlayStyle == "CIRCULAR_MINIMAL" ||
+                overlayStyle == "VERTICAL_MINIMAL"
+
+    val overlayShowHorizontalOverlayMinimalCenterStyle: Boolean
+        get() = overlayStyle == "HORIZONTAL_MINIMAL_CENTER"
 
     /**
      * A flag that determines if the progress bar should be circular.
      */
     val isCircularProgressBar: Boolean
-        get() = Settings.SWIPE_SHOW_CIRCULAR_OVERLAY.get()
+        get() = overlayStyle == "CIRCULAR" || overlayStyle == "CIRCULAR_MINIMAL"
 
     /**
-     * A flag that determines if the progress bar should be textual.
+     * A flag that determines if the progress bar should be vertical.
      */
-    val isTextProgressBar: Boolean
-        get() = Settings.SWIPE_SHOW_TEXTUAL_OVERLAY.get()
+    val isVerticalProgressBar: Boolean
+        get() = overlayStyle == "VERTICAL" || overlayStyle == "VERTICAL_MINIMAL"
 //endregion
 
 //region behaviour

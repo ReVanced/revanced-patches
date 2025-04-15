@@ -6,6 +6,7 @@ import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMu
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.shared.misc.settings.preference.InputType
+import app.revanced.patches.shared.misc.settings.preference.ListPreference
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.shared.misc.settings.preference.TextPreference
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
@@ -42,9 +43,10 @@ private val swipeControlsResourcePatch = resourcePatch {
             SwitchPreference("revanced_swipe_haptic_feedback"),
             SwitchPreference("revanced_swipe_save_and_restore_brightness"),
             SwitchPreference("revanced_swipe_lowest_value_enable_auto_brightness"),
-            SwitchPreference("revanced_swipe_show_circular_overlay"),
-            SwitchPreference("revanced_swipe_show_circular_overlay"),
-            SwitchPreference("revanced_swipe_show_textual_overlay"),
+            ListPreference(
+                "revanced_swipe_overlay_style",
+                summaryKey = null,
+            ),
             TextPreference("revanced_swipe_overlay_background_opacity", inputType = InputType.NUMBER),
             TextPreference("revanced_swipe_overlay_timeout", inputType = InputType.NUMBER),
             TextPreference("revanced_swipe_threshold", inputType = InputType.NUMBER),
