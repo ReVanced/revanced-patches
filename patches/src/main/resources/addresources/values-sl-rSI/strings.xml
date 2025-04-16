@@ -466,6 +466,8 @@ Prilagodite glasnost s potegom navpično na desni strani zaslona"</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Prosojnost drsenja mora biti med 0 in 100</string>
   <string name="revanced_swipe_threshold_title">Prazg prag za pomikanje</string>
   <string name="revanced_swipe_threshold_summary">Vrednost praga za pomikanje</string>
+  <string name="revanced_swipe_volume_sensitivity_title">Občutljivost drsenja za glasnost</string>
+  <string name="revanced_swipe_volume_sensitivity_summary">Koliko se spremeni glasnost na poteg</string>
   <string name="revanced_swipe_show_circular_overlay_title">Pokaži krožni prekrivni element</string>
   <string name="revanced_swipe_show_circular_overlay_summary_on">Krožni prekrivni element je prikazan</string>
   <string name="revanced_swipe_show_circular_overlay_summary_off">Prikazan je vodoravni prekrivni element</string>

@@ -466,6 +466,8 @@ Justera volymen genom att svepa vertikalt på höger sida av skärmen"</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Överlagrad svepopacitet måste vara mellan 0-100</string>
   <string name="revanced_swipe_threshold_title">Svep magnitud tröskel</string>
   <string name="revanced_swipe_threshold_summary">Mängden tröskel för att svepa ska uppstå</string>
+  <string name="revanced_swipe_volume_sensitivity_title">Volym svepkänslighet</string>
+  <string name="revanced_swipe_volume_sensitivity_summary">Hur mycket volymen ändras per svep</string>
   <string name="revanced_swipe_show_circular_overlay_title">Visa cirkelformad overlay</string>
   <string name="revanced_swipe_show_circular_overlay_summary_on">Cirkelformad overlay visas</string>
   <string name="revanced_swipe_show_circular_overlay_summary_off">Horisontell overlay visas</string>

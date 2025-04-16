@@ -459,6 +459,8 @@ Upravte hlasitosť posúvaním vertikálne na pravej strane obrazovky"</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Priehľadnosť prekrytia potiahnutia musí byť medzi 0-100</string>
   <string name="revanced_swipe_threshold_title">Prahová hodnota potiahnutia</string>
   <string name="revanced_swipe_threshold_summary">Hodnota prahu, ktorý sa má vykonať potiahnutím prstom</string>
+  <string name="revanced_swipe_volume_sensitivity_title">Citlivosť posúvania hlasitosti</string>
+  <string name="revanced_swipe_volume_sensitivity_summary">Ako veľmi sa mení hlasitosť na jedno posunutie</string>
   <string name="revanced_swipe_show_circular_overlay_title">Zobraziť kruhovú vrstvu</string>
   <string name="revanced_swipe_show_circular_overlay_summary_on">Kruhová vrstva sa zobrazuje</string>
   <string name="revanced_swipe_show_circular_overlay_summary_off">Zobrazuje sa vodorovná vrstva</string>

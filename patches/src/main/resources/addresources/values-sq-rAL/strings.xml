@@ -466,6 +466,8 @@ Përshtate shkëlqimin duke rrëshqitur vertikalisht në anën e majtë të ekra
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Opaciteti i shtypjes duhet të jetë midis 0-100</string>
   <string name="revanced_swipe_threshold_title">Pragu i madhësisë së shërbimit</string>
   <string name="revanced_swipe_threshold_summary">Sasia e pragut për të ndodhur shërbimi</string>
+  <string name="revanced_swipe_volume_sensitivity_title">Ndjeshmëria e rrëshqitjes së volumit</string>
+  <string name="revanced_swipe_volume_sensitivity_summary">Sa ndryshon volumi për rrëshqitje</string>
   <string name="revanced_swipe_show_circular_overlay_title">Shfaq mbivendosjen rrethore</string>
   <string name="revanced_swipe_show_circular_overlay_summary_on">Mbivendosja rrethore është shfaqur</string>
   <string name="revanced_swipe_show_circular_overlay_summary_off">Mbivendosja horizontale është shfaqur</string>

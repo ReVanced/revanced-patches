@@ -466,6 +466,8 @@ Ajusteu el volum lliscant verticalment a la part dreta de la pantalla"</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">L\'opacitat de lliscament ha d\'estar entre 0 i 100</string>
   <string name="revanced_swipe_threshold_title">Llindar de magnitud de lliscament</string>
   <string name="revanced_swipe_threshold_summary">La quantitat de llindar per a què es produeixi el desplaçament</string>
+  <string name="revanced_swipe_volume_sensitivity_title">Sensibilitat del lliscament de volum</string>
+  <string name="revanced_swipe_volume_sensitivity_summary">Quant canvia el volum per lliscament</string>
   <string name="revanced_swipe_show_circular_overlay_title">Mostra la superposició circular</string>
   <string name="revanced_swipe_show_circular_overlay_summary_on">Es mostra la superposició circular</string>
   <string name="revanced_swipe_show_circular_overlay_summary_off">Es mostra la superposició horitzontal</string>

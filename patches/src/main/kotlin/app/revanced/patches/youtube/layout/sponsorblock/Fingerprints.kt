@@ -20,12 +20,6 @@ internal val appendTimeFingerprint = fingerprint {
         Opcode.MOVE_RESULT_OBJECT,
         Opcode.INVOKE_STATIC,
         Opcode.MOVE_RESULT,
-        Opcode.IF_NEZ,
-        Opcode.IGET_OBJECT,
-        Opcode.IGET_OBJECT,
-        Opcode.CHECK_CAST,
-        Opcode.INVOKE_VIRTUAL,
-        Opcode.RETURN_VOID,
     )
 }
 

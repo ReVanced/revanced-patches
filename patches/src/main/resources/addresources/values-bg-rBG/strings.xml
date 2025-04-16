@@ -466,6 +466,8 @@ Second \"item\" text"</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Непрозрачността на плъзгането трябва да е между 0-100</string>
   <string name="revanced_swipe_threshold_title">Праг на величината на плъзгане</string>
   <string name="revanced_swipe_threshold_summary">Праг преди да се осъществи плъзгането</string>
+  <string name="revanced_swipe_volume_sensitivity_title">Чувствителност при плъзгане за сила на звука</string>
+  <string name="revanced_swipe_volume_sensitivity_summary">Колко се променя силата на звука при всяко плъзгане</string>
   <string name="revanced_swipe_show_circular_overlay_title">Показване на кръгъл овърлей</string>
   <string name="revanced_swipe_show_circular_overlay_summary_on">Показва се кръгъл овърлей</string>
   <string name="revanced_swipe_show_circular_overlay_summary_off">Показва се хоризонтален овърлей</string>
