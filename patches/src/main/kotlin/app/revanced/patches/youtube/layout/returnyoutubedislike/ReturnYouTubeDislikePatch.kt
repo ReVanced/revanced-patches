@@ -12,6 +12,7 @@ import app.revanced.patches.youtube.misc.litho.filter.addLithoFilter
 import app.revanced.patches.youtube.misc.litho.filter.lithoFilterPatch
 import app.revanced.patches.youtube.misc.playertype.playerTypeHookPatch
 import app.revanced.patches.youtube.misc.playservice.is_19_33_or_greater
+import app.revanced.patches.youtube.misc.playservice.is_20_07_or_greater
 import app.revanced.patches.youtube.misc.playservice.is_20_10_or_greater
 import app.revanced.patches.youtube.misc.playservice.versionCheckPatch
 import app.revanced.patches.youtube.misc.settings.addSettingPreference
@@ -59,7 +60,8 @@ val returnYouTubeDislikePatch = bytecodePatch(
             "19.43.41",
             "19.47.53",
             "20.07.39",
-        ),
+            "20.12.46",
+        )
     )
 
     execute {
@@ -168,6 +170,14 @@ val returnYouTubeDislikePatch = bytecodePatch(
 
         // Filter that parses the video id from the UI
         addLithoFilter(FILTER_CLASS_DESCRIPTOR)
+
+        if (is_20_07_or_greater) {
+            // Turn off a/b flag that enables new code for creating litho spans.
+            // If enabled then the litho text span hook is never called.
+            // Target code is very obfuscated and exactly what the code does is not clear.
+            // Return late so debug patch logs if the flag is enabled.
+            textComponentFeatureFlagFingerprint.method.returnLate(false)
+        }
 
         // Player response video id is needed to search for the video ids in Shorts litho components.
         hookPlayerResponseVideoId("$FILTER_CLASS_DESCRIPTOR->newPlayerResponseVideoId(Ljava/lang/String;Z)V")
