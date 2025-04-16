@@ -26,7 +26,6 @@ internal val playerParameterBuilderFingerprint by fingerprint {
         "Z", // Appears to indicate if the video id is being opened or is currently playing.
         "Z",
         "Z",
-        "Z"
     )
     instructions(
         string("psps")
@@ -57,7 +56,9 @@ internal val playerParameterBuilder2010Fingerprint by fingerprint {
         "Z",
         "Z"
     )
-    strings("psps")
+    instructions(
+        string("psps")
+    )
 }
 
 /**
@@ -79,6 +80,7 @@ internal val playerParameterBuilder2002Fingerprint by fingerprint {
         "Ljava/lang/String;",
         "L",
         "Z", // Appears to indicate if the video id is being opened or is currently playing.
+        "Z",
         "Z",
         "Z",
     )
