@@ -109,7 +109,10 @@ class SwipeControlsConfigurationProvider {
      * The color of the progress overlay.
      */
     val overlayProgressColor: Int
-        get() = 0xBFFFFFFF.toInt()
+        get() {
+            val color = Color.parseColor(Settings.SWIPE_OVERLAY_PROGRESS_COLOR.get())
+            return (0xBF000000.toInt() or (color and 0xFFFFFF))
+        }
 
     /**
      * The color used for the background of the progress overlay fill.
@@ -124,7 +127,18 @@ class SwipeControlsConfigurationProvider {
         get() = Color.WHITE
 
     val overlayTextSize: Float
-        get() = Settings.SWIPE_OVERLAY_TEXT_SIZE.get().toFloat()
+        get() {
+            var size = Settings.SWIPE_OVERLAY_TEXT_SIZE.get().toFloat()
+
+            if (size < 1 || size > 30)
+            {
+                Utils.showToastLong(str("revanced_swipe_text_overlay_size_invalid_toast"))
+                Settings.SWIPE_OVERLAY_TEXT_SIZE.resetToDefault()
+                size = Settings.SWIPE_OVERLAY_TEXT_SIZE.get().toFloat()
+            }
+
+            return size
+        }
 
     private val overlayStyle: String
         get() = Settings.SWIPE_OVERLAY_STYLE.get()

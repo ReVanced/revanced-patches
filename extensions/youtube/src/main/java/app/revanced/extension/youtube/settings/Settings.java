@@ -326,6 +326,8 @@ public class Settings extends BaseSettings {
             parentsAny(SWIPE_BRIGHTNESS, SWIPE_VOLUME));
     public static final IntegerSetting SWIPE_OVERLAY_OPACITY = new IntegerSetting("revanced_swipe_overlay_background_opacity", 60, true,
             parentsAny(SWIPE_BRIGHTNESS, SWIPE_VOLUME));
+    public static final StringSetting SWIPE_OVERLAY_PROGRESS_COLOR = new StringSetting("revanced_swipe_overlay_progress_color", "#FFFFFF", true,
+            parentsAny(SWIPE_BRIGHTNESS, SWIPE_VOLUME));
     public static final LongSetting SWIPE_OVERLAY_TIMEOUT = new LongSetting("revanced_swipe_overlay_timeout", 500L, true,
             parentsAny(SWIPE_BRIGHTNESS, SWIPE_VOLUME));
     public static final BooleanSetting SWIPE_SAVE_AND_RESTORE_BRIGHTNESS = new BooleanSetting("revanced_swipe_save_and_restore_brightness", TRUE, true, parent(SWIPE_BRIGHTNESS));

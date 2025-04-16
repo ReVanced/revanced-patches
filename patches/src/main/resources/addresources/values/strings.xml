@@ -526,8 +526,11 @@ Adjust volume by swiping vertically on the right side of the screen"</string>
             <string name="revanced_swipe_overlay_background_opacity_title">Swipe overlay background opacity</string>
             <string name="revanced_swipe_overlay_background_opacity_summary">Opacity value between 0-100</string>
             <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Swipe opacity must be between 0-100</string>
+            <string name="revanced_swipe_overlay_progress_color_title">Custom progress overlay color</string>
+            <string name="revanced_swipe_overlay_progress_color_summary">The color of the progress overlay</string>
             <string name="revanced_swipe_text_overlay_size_title">Swipe overlay text size</string>
             <string name="revanced_swipe_text_overlay_size_summary">The text size for swipe overlay</string>
+            <string name="revanced_swipe_text_overlay_size_invalid_toast">The text size must be between 1-30</string>
             <string name="revanced_swipe_threshold_title">Swipe magnitude threshold</string>
             <string name="revanced_swipe_threshold_summary">The amount of threshold for swipe to occur</string>
             <string name="revanced_swipe_volume_sensitivity_title">Volume swipe sensitivity</string>
