@@ -112,11 +112,10 @@ class SwipeControlsConfigurationProvider {
     val overlayProgressColor: Int
         get() {
             val colorString = Settings.SWIPE_OVERLAY_PROGRESS_COLOR.get()
-            val hexColorPattern = Regex("^#[0-9A-Fa-f]{6}$|^#[0-9A-Fa-f]{8}$")
             val defaultColor = 0xBFFFFFFF.toInt()
 
             return try {
-                if (colorString.isNotEmpty() && hexColorPattern.matches(colorString)) {
+                if (colorString.isNotEmpty()) {
                     val color = Color.parseColor(colorString)
                     (0xBF000000.toInt() or (color and 0xFFFFFF))
                 } else {
