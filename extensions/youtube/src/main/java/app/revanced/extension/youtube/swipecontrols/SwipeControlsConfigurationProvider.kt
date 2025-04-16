@@ -107,11 +107,28 @@ class SwipeControlsConfigurationProvider {
 
     /**
      * The color of the progress overlay.
+     * If the color value is out of range, it resets to the default and displays a warning message.
      */
     val overlayProgressColor: Int
         get() {
-            val color = Color.parseColor(Settings.SWIPE_OVERLAY_PROGRESS_COLOR.get())
-            return (0xBF000000.toInt() or (color and 0xFFFFFF))
+            val colorString = Settings.SWIPE_OVERLAY_PROGRESS_COLOR.get()
+            val hexColorPattern = Regex("^#[0-9A-Fa-f]{6}$|^#[0-9A-Fa-f]{8}$")
+            val defaultColor = 0xBFFFFFFF.toInt()
+
+            return try {
+                if (colorString.isNotEmpty() && hexColorPattern.matches(colorString)) {
+                    val color = Color.parseColor(colorString)
+                    (0xBF000000.toInt() or (color and 0xFFFFFF))
+                } else {
+                    Utils.showToastLong(str("revanced_swipe_overlay_progress_color_invalid_toast"))
+                    Settings.SWIPE_OVERLAY_PROGRESS_COLOR.resetToDefault()
+                    defaultColor
+                }
+            } catch (e: IllegalArgumentException) {
+                Utils.showToastLong(str("revanced_swipe_overlay_progress_color_invalid_toast"))
+                Settings.SWIPE_OVERLAY_PROGRESS_COLOR.resetToDefault()
+                defaultColor
+            }
         }
 
     /**
@@ -126,6 +143,10 @@ class SwipeControlsConfigurationProvider {
     val overlayTextColor: Int
         get() = Color.WHITE
 
+    /**
+     * The size of the text in the overlay.
+     * Ensures the size is between 1 and 30 dp, resetting to default if invalid.
+     */
     val overlayTextSize: Float
         get() {
             var size = Settings.SWIPE_OVERLAY_TEXT_SIZE.get().toFloat()
@@ -140,11 +161,14 @@ class SwipeControlsConfigurationProvider {
             return size
         }
 
+    /**
+     * The style of the overlay, determining its layout and appearance.
+     */
     private val overlayStyle: String
         get() = Settings.SWIPE_OVERLAY_STYLE.get()
 
     /**
-     * A flag that determines if the overlay should only show the icon and text.
+     * A flag that determines whether the overlay uses a minimal style, showing only the icon and text.
      */
     val overlayShowOverlayMinimalStyle: Boolean
         get() = overlayStyle == "HORIZONTAL_MINIMAL_TOP" ||
@@ -152,6 +176,9 @@ class SwipeControlsConfigurationProvider {
                 overlayStyle == "CIRCULAR_MINIMAL" ||
                 overlayStyle == "VERTICAL_MINIMAL"
 
+    /**
+     * A flag that determines if the overlay uses a minimal centered horizontal style.
+     */
     val overlayShowHorizontalOverlayMinimalCenterStyle: Boolean
         get() = overlayStyle == "HORIZONTAL_MINIMAL_CENTER"
 

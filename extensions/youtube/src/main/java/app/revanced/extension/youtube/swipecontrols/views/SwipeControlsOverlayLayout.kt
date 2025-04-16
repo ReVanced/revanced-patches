@@ -29,7 +29,7 @@ fun dpToPx(context: Context, dp: Float): Float {
 }
 
 /**
- * Main overlay layout for displaying volume and brightness level with circular, horizontal, and vertical progress bars.
+ * Main overlay layout for displaying volume and brightness level with circular, horizontal and vertical progress bars.
  */
 class SwipeControlsOverlayLayout(
     context: Context,
@@ -491,7 +491,7 @@ class HorizontalProgressView(
 }
 
 /**
- * Custom view for rendering a vertical progress bar with icons and horizontal text.
+ * Custom view for rendering a vertical progress bar with icons and text.
  */
 @SuppressLint("ViewConstructor")
 class VerticalProgressView(
