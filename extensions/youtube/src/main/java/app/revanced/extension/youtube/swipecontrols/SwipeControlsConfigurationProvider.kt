@@ -148,16 +148,14 @@ class SwipeControlsConfigurationProvider {
      */
     val overlayTextSize: Float
         get() {
-            var size = Settings.SWIPE_OVERLAY_TEXT_SIZE.get().toFloat()
-
-            if (size < 1 || size > 30)
-            {
+            val size = Settings.SWIPE_OVERLAY_TEXT_SIZE.get().toFloat()
+            return if (size < 1 || size > 30) {
                 Utils.showToastLong(str("revanced_swipe_text_overlay_size_invalid_toast"))
                 Settings.SWIPE_OVERLAY_TEXT_SIZE.resetToDefault()
-                size = Settings.SWIPE_OVERLAY_TEXT_SIZE.get().toFloat()
+                Settings.SWIPE_OVERLAY_TEXT_SIZE.get().toFloat()
+            } else {
+                size
             }
-
-            return size
         }
 
     enum class SwipeOverlayStyle {

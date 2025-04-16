@@ -17,15 +17,16 @@ import app.revanced.extension.shared.StringRef.str
 import app.revanced.extension.shared.Utils
 import app.revanced.extension.youtube.swipecontrols.SwipeControlsConfigurationProvider
 import app.revanced.extension.youtube.swipecontrols.misc.SwipeControlsOverlay
+import android.content.res.Resources
 import kotlin.math.min
 import kotlin.math.max
 import kotlin.math.round
 
 /**
- * Utility function to convert dp to pixels based on device density.
+ * Extension function to convert dp to pixels based on system display density.
  */
-fun dpToPx(context: Context, dp: Float): Float {
-    return dp * context.resources.displayMetrics.density
+fun Float.toDisplayPixels(): Float {
+    return this * Resources.getSystem().displayMetrics.density
 }
 
 /**
@@ -76,7 +77,7 @@ class SwipeControlsOverlayLayout(
             config.overlayTextColor,
             config.overlayTextSize
         ).apply {
-            layoutParams = LayoutParams(dpToPx(context, 100f).toInt(), dpToPx(context, 100f).toInt()).apply {
+            layoutParams = LayoutParams(100f.toDisplayPixels().toInt(), 100f.toDisplayPixels().toInt()).apply {
                 addRule(CENTER_IN_PARENT, TRUE)
             }
             visibility = GONE // Initially hidden
@@ -95,12 +96,12 @@ class SwipeControlsOverlayLayout(
             config.overlayTextColor,
             config.overlayTextSize
         ).apply {
-            layoutParams = LayoutParams(layoutWidth, dpToPx(context, 32f).toInt()).apply {
+            layoutParams = LayoutParams(layoutWidth, 32f.toDisplayPixels().toInt()).apply {
                 addRule(CENTER_HORIZONTAL)
                 if (config.overlayShowHorizontalOverlayMinimalCenterStyle) {
                     addRule(CENTER_VERTICAL)
                 } else {
-                    topMargin = dpToPx(context, 10f).toInt()
+                    topMargin = 10f.toDisplayPixels().toInt()
                 }
             }
             visibility = GONE // Initially hidden
@@ -117,9 +118,9 @@ class SwipeControlsOverlayLayout(
             config.overlayTextColor,
             config.overlayTextSize
         ).apply {
-            layoutParams = LayoutParams(dpToPx(context, 40f).toInt(), dpToPx(context, 150f).toInt()).apply {
+            layoutParams = LayoutParams(40f.toDisplayPixels().toInt(), 150f.toDisplayPixels().toInt()).apply {
                 addRule(ALIGN_PARENT_RIGHT)
-                rightMargin = dpToPx(context, 40f).toInt()
+                rightMargin = 40f.toDisplayPixels().toInt()
                 addRule(CENTER_VERTICAL)
             }
             visibility = GONE // Initially hidden
@@ -136,9 +137,9 @@ class SwipeControlsOverlayLayout(
             config.overlayTextColor,
             config.overlayTextSize
         ).apply {
-            layoutParams = LayoutParams(dpToPx(context, 40f).toInt(), dpToPx(context, 150f).toInt()).apply {
+            layoutParams = LayoutParams(40f.toDisplayPixels().toInt(), 150f.toDisplayPixels().toInt()).apply {
                 addRule(ALIGN_PARENT_LEFT)
-                leftMargin = dpToPx(context, 40f).toInt()
+                leftMargin = 40f.toDisplayPixels().toInt()
                 addRule(CENTER_VERTICAL)
             }
             visibility = GONE // Initially hidden
@@ -227,7 +228,7 @@ abstract class AbstractProgressView(
     overlayProgressColor: Int,
     overlayFillBackgroundPaint: Int,
     private val overlayTextColor: Int,
-    protected val overlayTextSize: Float, // Added overlayTextSize
+    protected val overlayTextSize: Float,
     attrs: AttributeSet? = null,
     defStyleAttr: Int = 0
 ) : View(context, attrs, defStyleAttr) {
@@ -242,12 +243,12 @@ abstract class AbstractProgressView(
 
     // Initialize paints
     val backgroundPaint     = createPaint(overlayBackgroundOpacity,   style = Paint.Style.FILL)
-    val progressPaint       = createPaint(overlayProgressColor,       style = Paint.Style.STROKE, strokeCap = Paint.Cap.ROUND, strokeWidth = dpToPx(context, 6f))
+    val progressPaint       = createPaint(overlayProgressColor,       style = Paint.Style.STROKE, strokeCap = Paint.Cap.ROUND, strokeWidth = 6f.toDisplayPixels())
     val fillBackgroundPaint = createPaint(overlayFillBackgroundPaint, style = Paint.Style.FILL)
     val textPaint           = Paint(Paint.ANTI_ALIAS_FLAG).apply {
         color     = overlayTextColor
         textAlign = Paint.Align.CENTER
-        textSize  = dpToPx(context, overlayTextSize)
+        textSize  = overlayTextSize.toDisplayPixels()
     }
 
     // Rect for text measurement
@@ -305,8 +306,8 @@ class CircularProgressView(
     private val rectF = RectF()
 
     init {
-        progressPaint.strokeWidth = dpToPx(context, 6f)
-        fillBackgroundPaint.strokeWidth = dpToPx(context, 6f)
+        progressPaint.strokeWidth = 6f.toDisplayPixels()
+        fillBackgroundPaint.strokeWidth = 6f.toDisplayPixels()
         progressPaint.strokeCap = Paint.Cap.ROUND
         fillBackgroundPaint.strokeCap = Paint.Cap.BUTT
         progressPaint.style = Paint.Style.STROKE
@@ -317,7 +318,7 @@ class CircularProgressView(
         super.onDraw(canvas)
 
         val size = min(width, height).toFloat()
-        val inset = dpToPx(context, 6f)
+        val inset = 6f.toDisplayPixels()
         rectF.set(inset, inset, size - inset, size - inset)
 
         canvas.drawOval(rectF, fillBackgroundPaint) // Draw the outer ring.
@@ -329,12 +330,12 @@ class CircularProgressView(
 
         // Draw the icon in the center.
         icon?.let {
-            val iconSize = dpToPx(context, if (isMinimalStyle) 36f else 24f).toInt()
+            val iconSize = (if (isMinimalStyle) 36f else 24f).toDisplayPixels().toInt()
             val iconX = (width - iconSize) / 2
             val iconY = if (isMinimalStyle) {
                 (height - iconSize) / 2
             } else {
-                (height / 2) - dpToPx(context, 24f).toInt()
+                (height / 2) - 24f.toDisplayPixels().toInt()
             }
             it.setBounds(iconX, iconY, iconX + iconSize, iconY + iconSize)
             it.draw(canvas)
@@ -342,7 +343,7 @@ class CircularProgressView(
 
         // If not a minimal style mode, draw the text inside the ring.
         if (!isMinimalStyle) {
-            canvas.drawText(displayText, width / 2f, height / 2f + dpToPx(context, 20f), textPaint)
+            canvas.drawText(displayText, width / 2f, height / 2f + 20f.toDisplayPixels(), textPaint)
         }
     }
 
@@ -378,10 +379,10 @@ class HorizontalProgressView(
     defStyleAttr
 ) {
 
-    private val iconSize = dpToPx(context, 20f)
-    private val padding = dpToPx(context, 12f)
+    private val iconSize = 20f.toDisplayPixels()
+    private val padding = 12f.toDisplayPixels()
     private var textWidth = 0f
-    private val progressBarHeight = dpToPx(context, 3f)
+    private val progressBarHeight = 3f.toDisplayPixels()
     private val progressBarWidth: Float = resources.displayMetrics.widthPixels / 4f
 
     init {
@@ -431,7 +432,7 @@ class HorizontalProgressView(
         val startX = padding
         val iconEndX = startX + iconSize
 
-        val textStartX = (viewWidth - 1.5 * padding - textWidth).toFloat()
+        val textStartX = (viewWidth - 1.5f * padding - textWidth)
 
         canvas.drawRoundRect(
             0f, 0f, viewWidth, viewHeight,
@@ -516,9 +517,9 @@ class VerticalProgressView(
     defStyleAttr
 ) {
 
-    private val iconSize = dpToPx(context, 20f)
-    private val padding = dpToPx(context, 12f)
-    private val progressBarWidth = dpToPx(context, 3f)
+    private val iconSize = 20f.toDisplayPixels()
+    private val padding = 12f.toDisplayPixels()
+    private val progressBarWidth = 3f.toDisplayPixels()
     private val progressBarHeight: Float = resources.displayMetrics.widthPixels / 3f
 
     init {
