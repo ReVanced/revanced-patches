@@ -1,6 +1,7 @@
 package app.revanced.patches.youtube.layout.returnyoutubedislike
 
 import app.revanced.patcher.fingerprint
+import app.revanced.patcher.literal
 import app.revanced.patcher.string
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
@@ -134,5 +135,14 @@ internal val textComponentLookupFingerprint by fingerprint {
     parameters("L")
     instructions(
         string("…")
+    )
+}
+
+internal val textComponentFeatureFlagFingerprint by fingerprint {
+    accessFlags(AccessFlags.FINAL)
+    returns("Z")
+    parameters()
+    instructions (
+        literal(45675738L)
     )
 }
