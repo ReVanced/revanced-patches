@@ -2,6 +2,7 @@ package app.revanced.extension.youtube.swipecontrols.views
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.content.res.Resources
 import android.graphics.Canvas
 import android.graphics.Paint
 import android.graphics.Rect
@@ -17,7 +18,6 @@ import app.revanced.extension.shared.StringRef.str
 import app.revanced.extension.shared.Utils
 import app.revanced.extension.youtube.swipecontrols.SwipeControlsConfigurationProvider
 import app.revanced.extension.youtube.swipecontrols.misc.SwipeControlsOverlay
-import android.content.res.Resources
 import kotlin.math.min
 import kotlin.math.max
 import kotlin.math.round
@@ -71,7 +71,7 @@ class SwipeControlsOverlayLayout(
         circularProgressView = CircularProgressView(
             context,
             config.overlayBackgroundOpacity,
-            config.isMinimalStyle,
+            config.overlayStyle.isMinimal,
             config.overlayProgressColor,
             config.overlayFillBackgroundPaint,
             config.overlayTextColor,
@@ -90,7 +90,7 @@ class SwipeControlsOverlayLayout(
         horizontalProgressView = HorizontalProgressView(
             context,
             config.overlayBackgroundOpacity,
-            config.isMinimalStyle,
+            config.overlayStyle.isMinimal,
             config.overlayProgressColor,
             config.overlayFillBackgroundPaint,
             config.overlayTextColor,
@@ -98,7 +98,7 @@ class SwipeControlsOverlayLayout(
         ).apply {
             layoutParams = LayoutParams(layoutWidth, 32f.toDisplayPixels().toInt()).apply {
                 addRule(CENTER_HORIZONTAL)
-                if (config.overlayShowHorizontalOverlayMinimalCenterStyle) {
+                if (config.overlayStyle.isHorizontalMinimalCenter) {
                     addRule(CENTER_VERTICAL)
                 } else {
                     topMargin = 10f.toDisplayPixels().toInt()
@@ -112,7 +112,7 @@ class SwipeControlsOverlayLayout(
         verticalBrightnessProgressView = VerticalProgressView(
             context,
             config.overlayBackgroundOpacity,
-            config.isMinimalStyle,
+            config.overlayStyle.isMinimal,
             config.overlayProgressColor,
             config.overlayFillBackgroundPaint,
             config.overlayTextColor,
@@ -131,7 +131,7 @@ class SwipeControlsOverlayLayout(
         verticalVolumeProgressView = VerticalProgressView(
             context,
             config.overlayBackgroundOpacity,
-            config.isMinimalStyle,
+            config.overlayStyle.isMinimal,
             config.overlayProgressColor,
             config.overlayFillBackgroundPaint,
             config.overlayTextColor,
@@ -164,8 +164,8 @@ class SwipeControlsOverlayLayout(
         feedbackHideHandler.postDelayed(feedbackHideCallback, config.overlayShowTimeoutMillis)
 
         val viewToShow = when {
-            config.isCircularProgressBar -> circularProgressView
-            config.isVerticalProgressBar -> if (isBrightness) verticalBrightnessProgressView else verticalVolumeProgressView
+            config.overlayStyle.isCircular -> circularProgressView
+            config.overlayStyle.isVertical -> if (isBrightness) verticalBrightnessProgressView else verticalVolumeProgressView
             else -> horizontalProgressView
         }
         viewToShow.apply {
@@ -190,7 +190,7 @@ class SwipeControlsOverlayLayout(
     // Handle brightness change
     override fun onBrightnessChanged(brightness: Double) {
         if (config.shouldLowestValueEnableAutoBrightness && brightness <= 0) {
-            val displayText = if (config.isVerticalProgressBar) "А"
+            val displayText = if (config.overlayStyle.isVertical) "А"
             else str("revanced_swipe_lowest_value_enable_auto_brightness_overlay_text")
             showFeedbackView(displayText, 0, 100, autoBrightnessIcon, isBrightness = true)
         } else {
@@ -201,7 +201,7 @@ class SwipeControlsOverlayLayout(
                 brightnessValue < 75 -> highBrightnessIcon
                 else -> fullBrightnessIcon
             }
-            val displayText = if (config.isVerticalProgressBar) "$brightnessValue" else "$brightnessValue%"
+            val displayText = if (config.overlayStyle.isVertical) "$brightnessValue" else "$brightnessValue%"
             showFeedbackView(displayText, brightnessValue, 100, icon, isBrightness = true)
         }
     }
