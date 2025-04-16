@@ -1,3 +1,10 @@
+# [5.21.0-dev.3](https://github.com/ReVanced/revanced-patches/compare/v5.21.0-dev.2...v5.21.0-dev.3) (2025-04-16)
+
+
+### Features
+
+* **X / Twitter:** Support version `10.86.0-release.0` ([#4805](https://github.com/ReVanced/revanced-patches/issues/4805)) ([655b390](https://github.com/ReVanced/revanced-patches/commit/655b39043ad77efcb4380de67c3f603666e7bc49))
+
 # [5.21.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.21.0-dev.1...v5.21.0-dev.2) (2025-04-16)
 
 
