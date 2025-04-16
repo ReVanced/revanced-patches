@@ -10,13 +10,6 @@ internal val lithoThemeFingerprint = fingerprint {
     returns("V")
     parameters("Landroid/graphics/Rect;")
     opcodes(
-        Opcode.APUT,
-        Opcode.NEW_INSTANCE,
-        Opcode.INVOKE_DIRECT,
-        Opcode.IGET_OBJECT,
-        Opcode.SGET_OBJECT,
-        Opcode.INVOKE_VIRTUAL,
-        Opcode.IPUT_OBJECT,
         Opcode.IGET,
         Opcode.IF_EQZ,
         Opcode.INVOKE_VIRTUAL,
