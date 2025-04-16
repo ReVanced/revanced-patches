@@ -73,7 +73,8 @@ class SwipeControlsOverlayLayout(
             config.overlayShowOverlayMinimalStyle,
             config.overlayProgressColor,
             config.overlayFillBackgroundPaint,
-            config.overlayTextColor
+            config.overlayTextColor,
+            config.overlayTextSize
         ).apply {
             layoutParams = LayoutParams(dpToPx(context, 100f).toInt(), dpToPx(context, 100f).toInt()).apply {
                 addRule(CENTER_IN_PARENT, TRUE)
@@ -91,7 +92,8 @@ class SwipeControlsOverlayLayout(
             config.overlayShowOverlayMinimalStyle,
             config.overlayProgressColor,
             config.overlayFillBackgroundPaint,
-            config.overlayTextColor
+            config.overlayTextColor,
+            config.overlayTextSize
         ).apply {
             layoutParams = LayoutParams(layoutWidth, dpToPx(context, 32f).toInt()).apply {
                 addRule(CENTER_HORIZONTAL)
@@ -112,7 +114,8 @@ class SwipeControlsOverlayLayout(
             config.overlayShowOverlayMinimalStyle,
             config.overlayProgressColor,
             config.overlayFillBackgroundPaint,
-            config.overlayTextColor
+            config.overlayTextColor,
+            config.overlayTextSize
         ).apply {
             layoutParams = LayoutParams(dpToPx(context, 40f).toInt(), dpToPx(context, 150f).toInt()).apply {
                 addRule(ALIGN_PARENT_RIGHT)
@@ -130,7 +133,8 @@ class SwipeControlsOverlayLayout(
             config.overlayShowOverlayMinimalStyle,
             config.overlayProgressColor,
             config.overlayFillBackgroundPaint,
-            config.overlayTextColor
+            config.overlayTextColor,
+            config.overlayTextSize
         ).apply {
             layoutParams = LayoutParams(dpToPx(context, 40f).toInt(), dpToPx(context, 150f).toInt()).apply {
                 addRule(ALIGN_PARENT_LEFT)
@@ -223,6 +227,7 @@ abstract class AbstractProgressView(
     overlayProgressColor: Int,
     overlayFillBackgroundPaint: Int,
     private val overlayTextColor: Int,
+    protected val overlayTextSize: Float, // Added overlayTextSize
     attrs: AttributeSet? = null,
     defStyleAttr: Int = 0
 ) : View(context, attrs, defStyleAttr) {
@@ -242,7 +247,7 @@ abstract class AbstractProgressView(
     val textPaint           = Paint(Paint.ANTI_ALIAS_FLAG).apply {
         color     = overlayTextColor
         textAlign = Paint.Align.CENTER
-        textSize  = dpToPx(context, 14f)
+        textSize  = dpToPx(context, overlayTextSize)
     }
 
     // Rect for text measurement
@@ -283,6 +288,7 @@ class CircularProgressView(
     overlayProgressColor: Int,
     overlayFillBackgroundPaint: Int,
     overlayTextColor: Int,
+    overlayTextSize: Float,
     attrs: AttributeSet? = null,
     defStyleAttr: Int = 0
 ) : AbstractProgressView(
@@ -292,13 +298,13 @@ class CircularProgressView(
     overlayProgressColor,
     overlayFillBackgroundPaint,
     overlayTextColor,
+    overlayTextSize,
     attrs,
     defStyleAttr
 ) {
     private val rectF = RectF()
 
     init {
-        textPaint.textSize = dpToPx(context, 14f)
         progressPaint.strokeWidth = dpToPx(context, 6f)
         fillBackgroundPaint.strokeWidth = dpToPx(context, 6f)
         progressPaint.strokeCap = Paint.Cap.ROUND
@@ -357,6 +363,7 @@ class HorizontalProgressView(
     overlayProgressColor: Int,
     overlayFillBackgroundPaint: Int,
     overlayTextColor: Int,
+    overlayTextSize: Float,
     attrs: AttributeSet? = null,
     defStyleAttr: Int = 0
 ) : AbstractProgressView(
@@ -366,6 +373,7 @@ class HorizontalProgressView(
     overlayProgressColor,
     overlayFillBackgroundPaint,
     overlayTextColor,
+    overlayTextSize,
     attrs,
     defStyleAttr
 ) {
@@ -377,7 +385,6 @@ class HorizontalProgressView(
     private val progressBarWidth: Float = resources.displayMetrics.widthPixels / 4f
 
     init {
-        textPaint.textSize = dpToPx(context, 14f)
         progressPaint.strokeWidth = 0f
         progressPaint.strokeCap = Paint.Cap.BUTT
         progressPaint.style = Paint.Style.FILL
@@ -494,6 +501,7 @@ class VerticalProgressView(
     overlayProgressColor: Int,
     overlayFillBackgroundPaint: Int,
     overlayTextColor: Int,
+    overlayTextSize: Float,
     attrs: AttributeSet? = null,
     defStyleAttr: Int = 0
 ) : AbstractProgressView(
@@ -503,18 +511,17 @@ class VerticalProgressView(
     overlayProgressColor,
     overlayFillBackgroundPaint,
     overlayTextColor,
+    overlayTextSize,
     attrs,
     defStyleAttr
 ) {
 
     private val iconSize = dpToPx(context, 20f)
     private val padding = dpToPx(context, 12f)
-    private var textHeight = 0f
     private val progressBarWidth = dpToPx(context, 3f)
-    private val progressBarHeight: Float = dpToPx(context, 100f)
+    private val progressBarHeight: Float = resources.displayMetrics.widthPixels / 3f
 
     init {
-        textPaint.textSize = dpToPx(context, 14f)
         progressPaint.strokeWidth = 0f
         progressPaint.strokeCap = Paint.Cap.BUTT
         progressPaint.style = Paint.Style.FILL
@@ -526,8 +533,6 @@ class VerticalProgressView(
      * @return Required height to display all elements
      */
     private fun calculateRequiredHeight(): Float {
-        textHeight = measureTextWidth(displayText, textPaint).toFloat()
-
         return if (!overlayShowOverlayMinimalStyle) {
             padding + iconSize + padding + progressBarHeight + padding + textPaint.textSize + padding
         } else {
@@ -541,11 +546,10 @@ class VerticalProgressView(
         val suggestedWidth = MeasureSpec.getSize(widthMeasureSpec)
         val suggestedHeight = MeasureSpec.getSize(heightMeasureSpec)
 
-        val width = suggestedWidth
         val requiredHeight = calculateRequiredHeight().toInt()
         val height = min(max(100, requiredHeight), suggestedHeight)
 
-        setMeasuredDimension(width, height)
+        setMeasuredDimension(suggestedWidth, height)
     }
 
     override fun onDraw(canvas: Canvas) {
@@ -553,9 +557,6 @@ class VerticalProgressView(
 
         val viewWidth = width.toFloat()
         val viewHeight = height.toFloat()
-
-        textHeight = measureTextWidth(displayText, textPaint).toFloat()
-
         val cornerRadius = viewWidth / 2
 
         val startY = padding
@@ -586,7 +587,7 @@ class VerticalProgressView(
             canvas.drawText(displayText, textX, textStartY, textPaint)
         } else {
             val progressStartY = iconEndY + padding
-            val progressEndY = textStartY - padding - textPaint.textSize / 2
+            val progressEndY = textStartY - textPaint.textSize - padding
             val progressHeight = progressEndY - progressStartY
 
             if (progressHeight > 50) {

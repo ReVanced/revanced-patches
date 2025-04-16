@@ -123,11 +123,14 @@ class SwipeControlsConfigurationProvider {
     val overlayTextColor: Int
         get() = Color.WHITE
 
-    val overlayStyle: String
+    val overlayTextSize: Float
+        get() = Settings.SWIPE_OVERLAY_TEXT_SIZE.get().toFloat()
+
+    private val overlayStyle: String
         get() = Settings.SWIPE_OVERLAY_STYLE.get()
 
     /**
-     * A flag that determines if the overlay should only show the icon.
+     * A flag that determines if the overlay should only show the icon and text.
      */
     val overlayShowOverlayMinimalStyle: Boolean
         get() = overlayStyle == "HORIZONTAL_MINIMAL_TOP" ||
