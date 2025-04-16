@@ -161,38 +161,50 @@ class SwipeControlsConfigurationProvider {
             return size
         }
 
+    enum class SwipeOverlayStyle {
+        HORIZONTAL,
+        HORIZONTAL_MINIMAL_TOP,
+        HORIZONTAL_MINIMAL_CENTER,
+        CIRCULAR,
+        CIRCULAR_MINIMAL,
+        VERTICAL,
+        VERTICAL_MINIMAL
+    }
+
     /**
      * The style of the overlay, determining its layout and appearance.
      */
-    private val overlayStyle: String
+    private val overlayStyle: SwipeOverlayStyle
         get() = Settings.SWIPE_OVERLAY_STYLE.get()
 
     /**
-     * A flag that determines whether the overlay uses a minimal style, showing only the icon and text.
+     * A flag that determines if the overlay style is minimal.
      */
-    val overlayShowOverlayMinimalStyle: Boolean
-        get() = overlayStyle == "HORIZONTAL_MINIMAL_TOP" ||
-                overlayStyle == "HORIZONTAL_MINIMAL_CENTER" ||
-                overlayStyle == "CIRCULAR_MINIMAL" ||
-                overlayStyle == "VERTICAL_MINIMAL"
+    val isMinimalStyle: Boolean
+        get() = overlayStyle in listOf(
+            SwipeOverlayStyle.HORIZONTAL_MINIMAL_TOP,
+            SwipeOverlayStyle.HORIZONTAL_MINIMAL_CENTER,
+            SwipeOverlayStyle.CIRCULAR_MINIMAL,
+            SwipeOverlayStyle.VERTICAL_MINIMAL
+        )
 
     /**
      * A flag that determines if the overlay uses a minimal centered horizontal style.
      */
     val overlayShowHorizontalOverlayMinimalCenterStyle: Boolean
-        get() = overlayStyle == "HORIZONTAL_MINIMAL_CENTER"
+        get() = overlayStyle == SwipeOverlayStyle.HORIZONTAL_MINIMAL_CENTER
 
     /**
      * A flag that determines if the progress bar should be circular.
      */
     val isCircularProgressBar: Boolean
-        get() = overlayStyle == "CIRCULAR" || overlayStyle == "CIRCULAR_MINIMAL"
+        get() = overlayStyle in listOf(SwipeOverlayStyle.CIRCULAR, SwipeOverlayStyle.CIRCULAR_MINIMAL)
 
     /**
      * A flag that determines if the progress bar should be vertical.
      */
     val isVerticalProgressBar: Boolean
-        get() = overlayStyle == "VERTICAL" || overlayStyle == "VERTICAL_MINIMAL"
+        get() = overlayStyle in listOf(SwipeOverlayStyle.VERTICAL, SwipeOverlayStyle.VERTICAL_MINIMAL)
 //endregion
 
 //region behaviour

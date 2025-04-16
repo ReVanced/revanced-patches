@@ -70,7 +70,7 @@ class SwipeControlsOverlayLayout(
         circularProgressView = CircularProgressView(
             context,
             config.overlayBackgroundOpacity,
-            config.overlayShowOverlayMinimalStyle,
+            config.isMinimalStyle,
             config.overlayProgressColor,
             config.overlayFillBackgroundPaint,
             config.overlayTextColor,
@@ -89,7 +89,7 @@ class SwipeControlsOverlayLayout(
         horizontalProgressView = HorizontalProgressView(
             context,
             config.overlayBackgroundOpacity,
-            config.overlayShowOverlayMinimalStyle,
+            config.isMinimalStyle,
             config.overlayProgressColor,
             config.overlayFillBackgroundPaint,
             config.overlayTextColor,
@@ -111,7 +111,7 @@ class SwipeControlsOverlayLayout(
         verticalBrightnessProgressView = VerticalProgressView(
             context,
             config.overlayBackgroundOpacity,
-            config.overlayShowOverlayMinimalStyle,
+            config.isMinimalStyle,
             config.overlayProgressColor,
             config.overlayFillBackgroundPaint,
             config.overlayTextColor,
@@ -130,7 +130,7 @@ class SwipeControlsOverlayLayout(
         verticalVolumeProgressView = VerticalProgressView(
             context,
             config.overlayBackgroundOpacity,
-            config.overlayShowOverlayMinimalStyle,
+            config.isMinimalStyle,
             config.overlayProgressColor,
             config.overlayFillBackgroundPaint,
             config.overlayTextColor,
@@ -223,7 +223,7 @@ class SwipeControlsOverlayLayout(
 abstract class AbstractProgressView(
     context: Context,
     overlayBackgroundOpacity: Int,
-    protected val overlayShowOverlayMinimalStyle: Boolean,
+    protected val isMinimalStyle: Boolean,
     overlayProgressColor: Int,
     overlayFillBackgroundPaint: Int,
     private val overlayTextColor: Int,
@@ -284,7 +284,7 @@ abstract class AbstractProgressView(
 class CircularProgressView(
     context: Context,
     overlayBackgroundOpacity: Int,
-    overlayShowOverlayMinimalStyle: Boolean,
+    isMinimalStyle: Boolean,
     overlayProgressColor: Int,
     overlayFillBackgroundPaint: Int,
     overlayTextColor: Int,
@@ -294,7 +294,7 @@ class CircularProgressView(
 ) : AbstractProgressView(
     context,
     overlayBackgroundOpacity,
-    overlayShowOverlayMinimalStyle,
+    isMinimalStyle,
     overlayProgressColor,
     overlayFillBackgroundPaint,
     overlayTextColor,
@@ -329,9 +329,9 @@ class CircularProgressView(
 
         // Draw the icon in the center.
         icon?.let {
-            val iconSize = dpToPx(context, if (overlayShowOverlayMinimalStyle) 36f else 24f).toInt()
+            val iconSize = dpToPx(context, if (isMinimalStyle) 36f else 24f).toInt()
             val iconX = (width - iconSize) / 2
-            val iconY = if (overlayShowOverlayMinimalStyle) {
+            val iconY = if (isMinimalStyle) {
                 (height - iconSize) / 2
             } else {
                 (height / 2) - dpToPx(context, 24f).toInt()
@@ -341,7 +341,7 @@ class CircularProgressView(
         }
 
         // If not a minimal style mode, draw the text inside the ring.
-        if (!overlayShowOverlayMinimalStyle) {
+        if (!isMinimalStyle) {
             canvas.drawText(displayText, width / 2f, height / 2f + dpToPx(context, 20f), textPaint)
         }
     }
@@ -359,7 +359,7 @@ class CircularProgressView(
 class HorizontalProgressView(
     context: Context,
     overlayBackgroundOpacity: Int,
-    overlayShowOverlayMinimalStyle: Boolean,
+    isMinimalStyle: Boolean,
     overlayProgressColor: Int,
     overlayFillBackgroundPaint: Int,
     overlayTextColor: Int,
@@ -369,7 +369,7 @@ class HorizontalProgressView(
 ) : AbstractProgressView(
     context,
     overlayBackgroundOpacity,
-    overlayShowOverlayMinimalStyle,
+    isMinimalStyle,
     overlayProgressColor,
     overlayFillBackgroundPaint,
     overlayTextColor,
@@ -398,7 +398,7 @@ class HorizontalProgressView(
     private fun calculateRequiredWidth(): Float {
         textWidth = measureTextWidth(displayText, textPaint).toFloat()
 
-        return if (!overlayShowOverlayMinimalStyle) {
+        return if (!isMinimalStyle) {
             padding + iconSize + padding + progressBarWidth + padding + textWidth + padding
         } else {
             padding + iconSize + padding + textWidth + padding
@@ -452,7 +452,7 @@ class HorizontalProgressView(
         val textY = viewHeight / 2 + textPaint.textSize / 3
         textPaint.textAlign = Paint.Align.LEFT
 
-        if (overlayShowOverlayMinimalStyle) {
+        if (isMinimalStyle) {
             canvas.drawText(displayText, textStartX, textY, textPaint)
         } else {
             val progressStartX = iconEndX + padding
@@ -497,7 +497,7 @@ class HorizontalProgressView(
 class VerticalProgressView(
     context: Context,
     overlayBackgroundOpacity: Int,
-    overlayShowOverlayMinimalStyle: Boolean,
+    isMinimalStyle: Boolean,
     overlayProgressColor: Int,
     overlayFillBackgroundPaint: Int,
     overlayTextColor: Int,
@@ -507,7 +507,7 @@ class VerticalProgressView(
 ) : AbstractProgressView(
     context,
     overlayBackgroundOpacity,
-    overlayShowOverlayMinimalStyle,
+    isMinimalStyle,
     overlayProgressColor,
     overlayFillBackgroundPaint,
     overlayTextColor,
@@ -533,7 +533,7 @@ class VerticalProgressView(
      * @return Required height to display all elements
      */
     private fun calculateRequiredHeight(): Float {
-        return if (!overlayShowOverlayMinimalStyle) {
+        return if (!isMinimalStyle) {
             padding + iconSize + padding + progressBarHeight + padding + textPaint.textSize + padding
         } else {
             padding + iconSize + padding + textPaint.textSize + padding
@@ -583,7 +583,7 @@ class VerticalProgressView(
         val textX = viewWidth / 2
         textPaint.textAlign = Paint.Align.CENTER
 
-        if (overlayShowOverlayMinimalStyle) {
+        if (isMinimalStyle) {
             canvas.drawText(displayText, textX, textStartY, textPaint)
         } else {
             val progressStartY = iconEndY + padding
