@@ -113,22 +113,15 @@ class SwipeControlsConfigurationProvider {
      */
     val overlayProgressColor: Int
         get() {
-            val colorString = Settings.SWIPE_OVERLAY_PROGRESS_COLOR.get()
-            val defaultColor = 0xBFFFFFFF.toInt()
-
-            return try {
-                if (colorString.isNotEmpty()) {
-                    val color = Color.parseColor(colorString)
-                    (0xBF000000.toInt() or (color and 0xFFFFFF))
-                } else {
-                    Utils.showToastLong(str("revanced_swipe_overlay_progress_color_invalid_toast"))
-                    Settings.SWIPE_OVERLAY_PROGRESS_COLOR.resetToDefault()
-                    defaultColor
-                }
-            } catch (e: IllegalArgumentException) {
+            try {
+                @SuppressLint("UseKtx")
+                val color = Color.parseColor(Settings.SWIPE_OVERLAY_PROGRESS_COLOR.get())
+                return (0xBF000000.toInt() or (color and 0xFFFFFF))
+            } catch (ex: IllegalArgumentException) {
+                Logger.printDebug({ "Could not parse color" }, ex)
                 Utils.showToastLong(str("revanced_swipe_overlay_progress_color_invalid_toast"))
                 Settings.SWIPE_OVERLAY_PROGRESS_COLOR.resetToDefault()
-                defaultColor
+                return overlayProgressColor // Recursively return.
             }
         }
 
@@ -166,46 +159,47 @@ class SwipeControlsConfigurationProvider {
      * @property isCircular Indicates whether the style uses a circular progress bar.
      * @property isVertical Indicates whether the style uses a vertical progress bar.
      */
+    @Suppress("unused")
     enum class SwipeOverlayStyle(
-        val isMinimal: Boolean,
-        val isHorizontalMinimalCenter: Boolean,
-        val isCircular: Boolean,
-        val isVertical: Boolean
+        val isMinimal: Boolean = false,
+        val isHorizontalMinimalCenter: Boolean = false,
+        val isCircular: Boolean = false,
+        val isVertical: Boolean = false
     ) {
         /**
          * A full horizontal progress bar with detailed indicators.
          */
-        HORIZONTAL(false, false, false, false),
+        HORIZONTAL,
 
         /**
          * A minimal horizontal progress bar positioned at the top.
          */
-        HORIZONTAL_MINIMAL_TOP(true, false, false, false),
+        HORIZONTAL_MINIMAL_TOP(isMinimal = true),
 
         /**
          * A minimal horizontal progress bar centered vertically.
          */
-        HORIZONTAL_MINIMAL_CENTER(true, true, false, false),
+        HORIZONTAL_MINIMAL_CENTER(isMinimal = true, isHorizontalMinimalCenter = true),
 
         /**
          * A full circular progress bar with detailed indicators.
          */
-        CIRCULAR(false, false, true, false),
+        CIRCULAR(isCircular = true),
 
         /**
          * A minimal circular progress bar.
          */
-        CIRCULAR_MINIMAL(true, false, true, false),
+        CIRCULAR_MINIMAL(isMinimal = true),
 
         /**
          * A full vertical progress bar with detailed indicators.
          */
-        VERTICAL(false, false, false, true),
+        VERTICAL(isVertical = true),
 
         /**
          * A minimal vertical progress bar.
          */
-        VERTICAL_MINIMAL(true, false, false, true)
+        VERTICAL_MINIMAL(isMinimal =  true, isVertical = true)
     }
 
     /**

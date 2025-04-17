@@ -23,7 +23,7 @@ import kotlin.math.max
 import kotlin.math.round
 
 /**
- * Extension function to convert dp to pixels based on system display density.
+ * Convert dp to pixels based on system display density.
  */
 fun Float.toDisplayPixels(): Float {
     return this * Resources.getSystem().displayMetrics.density
@@ -424,10 +424,11 @@ class HorizontalProgressView(
 
         val viewWidth = width.toFloat()
         val viewHeight = height.toFloat()
+        val viewHeightHalf = viewHeight / 2
 
         textWidth = measureTextWidth(displayText, textPaint).toFloat()
 
-        val cornerRadius = viewHeight / 2
+        val cornerRadius = viewHeightHalf
 
         val startX = padding
         val iconEndX = startX + iconSize
@@ -440,7 +441,7 @@ class HorizontalProgressView(
         )
 
         icon?.let {
-            val iconY = viewHeight / 2 - iconSize / 2
+            val iconY = viewHeightHalf - iconSize / 2
             it.setBounds(
                 startX.toInt(),
                 iconY.toInt(),
@@ -450,7 +451,7 @@ class HorizontalProgressView(
             it.draw(canvas)
         }
 
-        val textY = viewHeight / 2 + textPaint.textSize / 3
+        val textY = viewHeightHalf + textPaint.textSize / 3
         textPaint.textAlign = Paint.Align.LEFT
 
         if (isMinimalStyle) {
@@ -461,26 +462,32 @@ class HorizontalProgressView(
             val progressWidth = progressEndX - progressStartX
 
             if (progressWidth > 50) {
+                val progressBarHeightHalf = progressBarHeight / 2.0f
+                val viewHeightHalfMinusProgressBarHeightHalf = viewHeightHalf - progressBarHeightHalf
+                val viewHeightHalfPlusProgressBarHeightHalf = viewHeightHalf + progressBarHeightHalf
+
                 canvas.drawRoundRect(
                     progressStartX,
-                    viewHeight / 2 - progressBarHeight / 2,
+                    viewHeightHalfMinusProgressBarHeightHalf,
                     progressEndX,
-                    viewHeight / 2 + progressBarHeight / 2,
-                    progressBarHeight / 2,
-                    progressBarHeight / 2,
+                    viewHeightHalfPlusProgressBarHeightHalf,
+                    progressBarHeightHalf,
+                    progressBarHeightHalf,
                     fillBackgroundPaint
                 )
+
                 val progressValue = (progress.toFloat() / maxProgress) * progressWidth
                 canvas.drawRoundRect(
                     progressStartX,
-                    viewHeight / 2 - progressBarHeight / 2,
+                    viewHeightHalfMinusProgressBarHeightHalf,
                     progressStartX + progressValue,
-                    viewHeight / 2 + progressBarHeight / 2,
-                    progressBarHeight / 2,
-                    progressBarHeight / 2,
+                    viewHeightHalfPlusProgressBarHeightHalf,
+                    progressBarHeightHalf,
+                    progressBarHeightHalf,
                     progressPaint
                 )
             }
+
             canvas.drawText(displayText, textStartX, textY, textPaint)
         }
     }
@@ -558,7 +565,8 @@ class VerticalProgressView(
 
         val viewWidth = width.toFloat()
         val viewHeight = height.toFloat()
-        val cornerRadius = viewWidth / 2
+        val viewWidthHalf = viewWidth / 2
+        val cornerRadius = viewWidthHalf
 
         val startY = padding
         val iconEndY = startY + iconSize
@@ -571,7 +579,7 @@ class VerticalProgressView(
         )
 
         icon?.let {
-            val iconX = viewWidth / 2 - iconSize / 2
+            val iconX = viewWidthHalf - iconSize / 2
             it.setBounds(
                 iconX.toInt(),
                 startY.toInt(),
@@ -581,34 +589,39 @@ class VerticalProgressView(
             it.draw(canvas)
         }
 
-        val textX = viewWidth / 2
+        val textX = viewWidthHalf
         textPaint.textAlign = Paint.Align.CENTER
 
         if (isMinimalStyle) {
             canvas.drawText(displayText, textX, textStartY, textPaint)
         } else {
-            val progressStartY = iconEndY + padding
+            val progressStartY = (iconEndY + padding).toFloat()
             val progressEndY = textStartY - textPaint.textSize - padding
             val progressHeight = progressEndY - progressStartY
 
             if (progressHeight > 50) {
+                val progressBarWidthHalf = progressBarWidth / 2
+                val viewHeightHalfMinusProgressBarHeightHalf = viewWidthHalf - progressBarWidthHalf
+                val viewHeightHalfPlusProgressBarHeightHalf = viewWidthHalf + progressBarWidthHalf
+
                 canvas.drawRoundRect(
-                    viewWidth / 2 - progressBarWidth / 2,
+                    viewHeightHalfMinusProgressBarHeightHalf,
                     progressStartY,
-                    viewWidth / 2 + progressBarWidth / 2,
+                    viewHeightHalfPlusProgressBarHeightHalf,
                     progressEndY,
-                    progressBarWidth / 2,
-                    progressBarWidth / 2,
+                    progressBarWidthHalf,
+                    progressBarWidthHalf,
                     fillBackgroundPaint
                 )
+
                 val progressValue = (progress.toFloat() / maxProgress) * progressHeight
                 canvas.drawRoundRect(
-                    viewWidth / 2 - progressBarWidth / 2,
+                    viewHeightHalfMinusProgressBarHeightHalf,
                     progressEndY - progressValue,
-                    viewWidth / 2 + progressBarWidth / 2,
+                    viewHeightHalfPlusProgressBarHeightHalf,
                     progressEndY,
-                    progressBarWidth / 2,
-                    progressBarWidth / 2,
+                    progressBarWidthHalf,
+                    progressBarWidthHalf,
                     progressPaint
                 )
             }
