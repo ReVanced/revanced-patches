@@ -149,13 +149,13 @@ class SwipeControlsConfigurationProvider {
      * The text size in the overlay, in density-independent pixels (dp).
      * Must be between 1 and 30 dp; resets to default and shows a toast if invalid.
      */
-    val overlayTextSize: Float
+    val overlayTextSize: Int
         get() {
-            val size = Settings.SWIPE_OVERLAY_TEXT_SIZE.get().toFloat()
+            val size = Settings.SWIPE_OVERLAY_TEXT_SIZE.get()
             return if (size < 1 || size > 30) {
                 Utils.showToastLong(str("revanced_swipe_text_overlay_size_invalid_toast"))
                 Settings.SWIPE_OVERLAY_TEXT_SIZE.resetToDefault()
-                Settings.SWIPE_OVERLAY_TEXT_SIZE.get().toFloat()
+                Settings.SWIPE_OVERLAY_TEXT_SIZE.get()
             } else {
                 size
             }

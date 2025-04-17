@@ -228,7 +228,7 @@ abstract class AbstractProgressView(
     overlayProgressColor: Int,
     overlayFillBackgroundPaint: Int,
     private val overlayTextColor: Int,
-    protected val overlayTextSize: Float,
+    protected val overlayTextSize: Int,
     attrs: AttributeSet? = null,
     defStyleAttr: Int = 0
 ) : View(context, attrs, defStyleAttr) {
@@ -248,7 +248,7 @@ abstract class AbstractProgressView(
     val textPaint           = Paint(Paint.ANTI_ALIAS_FLAG).apply {
         color     = overlayTextColor
         textAlign = Paint.Align.CENTER
-        textSize  = overlayTextSize.toDisplayPixels()
+        textSize  = overlayTextSize.toFloat().toDisplayPixels()
     }
 
     // Rect for text measurement
@@ -289,7 +289,7 @@ class CircularProgressView(
     overlayProgressColor: Int,
     overlayFillBackgroundPaint: Int,
     overlayTextColor: Int,
-    overlayTextSize: Float,
+    overlayTextSize: Int,
     attrs: AttributeSet? = null,
     defStyleAttr: Int = 0
 ) : AbstractProgressView(
@@ -364,7 +364,7 @@ class HorizontalProgressView(
     overlayProgressColor: Int,
     overlayFillBackgroundPaint: Int,
     overlayTextColor: Int,
-    overlayTextSize: Float,
+    overlayTextSize: Int,
     attrs: AttributeSet? = null,
     defStyleAttr: Int = 0
 ) : AbstractProgressView(
@@ -502,7 +502,7 @@ class VerticalProgressView(
     overlayProgressColor: Int,
     overlayFillBackgroundPaint: Int,
     overlayTextColor: Int,
-    overlayTextSize: Float,
+    overlayTextSize: Int,
     attrs: AttributeSet? = null,
     defStyleAttr: Int = 0
 ) : AbstractProgressView(
