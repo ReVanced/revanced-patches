@@ -540,9 +540,9 @@ Adjust volume by swiping vertically on the right side of the screen"</string>
             <string name="revanced_swipe_change_video_summary_off">Swiping in fullscreen mode will not change to the next/previous video</string>
         </patch>
         <patch id="layout.autocaptions.autoCaptionsPatch">
-            <string name="revanced_auto_captions_title">Disable auto captions</string>
-            <string name="revanced_auto_captions_summary_on">Auto captions are disabled</string>
-            <string name="revanced_auto_captions_summary_off">Auto captions are enabled</string>
+            <string name="revanced_disable_auto_captions_title">Disable auto captions</string>
+            <string name="revanced_disable_auto_captions_summary_on">Auto captions are disabled</string>
+            <string name="revanced_disable_auto_captions_summary_off">Auto captions are enabled</string>
         </patch>
         <patch id="layout.buttons.action.hideButtonsPatch">
             <string name="revanced_hide_buttons_screen_title">Action buttons</string>

@@ -1,3 +1,24 @@
+# [5.21.0-dev.3](https://github.com/ReVanced/revanced-patches/compare/v5.21.0-dev.2...v5.21.0-dev.3) (2025-04-16)
+
+
+### Features
+
+* **X / Twitter:** Support version `10.86.0-release.0` ([#4805](https://github.com/ReVanced/revanced-patches/issues/4805)) ([655b390](https://github.com/ReVanced/revanced-patches/commit/655b39043ad77efcb4380de67c3f603666e7bc49))
+
+# [5.21.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.21.0-dev.1...v5.21.0-dev.2) (2025-04-16)
+
+
+### Features
+
+* Add `Hide ADB status` patch ([#4585](https://github.com/ReVanced/revanced-patches/issues/4585)) ([1ea8047](https://github.com/ReVanced/revanced-patches/commit/1ea8047aefdaa358e9af8038923ac54d68a39176))
+
+# [5.21.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.20.1...v5.21.0-dev.1) (2025-04-16)
+
+
+### Features
+
+* **YouTube:** Support version `20.12.46` ([#4779](https://github.com/ReVanced/revanced-patches/issues/4779)) ([703359f](https://github.com/ReVanced/revanced-patches/commit/703359f0c16b613c204cf16cf42227b628f664fa))
+
 ## [5.20.1](https://github.com/ReVanced/revanced-patches/compare/v5.20.0...v5.20.1) (2025-04-15)
 
 

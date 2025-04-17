@@ -14,6 +14,13 @@ internal val startVideoInformerFingerprint by fingerprint {
     strings("pc")
 }
 
+internal val storyboardRendererDecoderRecommendedLevelFingerprint by fingerprint {
+    returns("V")
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
+    parameters("L")
+    strings("#-1#")
+}
+
 internal val subtitleTrackFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("Z")
@@ -28,6 +35,6 @@ internal val subtitleTrackFingerprint by fingerprint {
     )
     strings("DISABLE_CAPTIONS_OPTION")
     custom { _, classDef ->
-        classDef.endsWith("SubtitleTrack;")
+        classDef.endsWith("/SubtitleTrack;")
     }
 }
