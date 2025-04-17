@@ -1,3 +1,10 @@
+# [5.21.0-dev.4](https://github.com/ReVanced/revanced-patches/compare/v5.21.0-dev.3...v5.21.0-dev.4) (2025-04-17)
+
+
+### Bug Fixes
+
+* **YouTube - Disable auto captions:** Correctly hide captions with YT 20.12 ([5ecbe82](https://github.com/ReVanced/revanced-patches/commit/5ecbe823ed5197533328cc37f1de5cd1f048a217))
+
 # [5.21.0-dev.3](https://github.com/ReVanced/revanced-patches/compare/v5.21.0-dev.2...v5.21.0-dev.3) (2025-04-16)
 
 
