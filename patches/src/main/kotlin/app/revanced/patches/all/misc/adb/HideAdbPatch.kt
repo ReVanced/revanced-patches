@@ -46,9 +46,11 @@ val hideAdbStatusPatch = bytecodePatch(
                 val reference = instruction
                     .takeIf { it.opcode == Opcode.INVOKE_STATIC }
                     ?.getReference<MethodReference>()
-                    ?.takeIf { it.anyMethodSignatureMatches(
-                        it,
-                        SETTINGS_GLOBAL_GET_INT_OR_THROW_METHOD_REFERENCE, SETTINGS_GLOBAL_GET_INT_OR_DEFAULT_METHOD_REFERENCE)
+                    ?.takeIf {
+                        it.anyMethodSignatureMatches(it,
+                            SETTINGS_GLOBAL_GET_INT_OR_THROW_METHOD_REFERENCE,
+                            SETTINGS_GLOBAL_GET_INT_OR_DEFAULT_METHOD_REFERENCE
+                        )
                     }
                     ?: return@filterMap null
 
