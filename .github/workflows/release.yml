@@ -18,16 +18,13 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          # Make sure the release step uses its own credentials:
-          # https://github.com/cycjimmy/semantic-release-action#private-packages
-          persist-credentials: false
           fetch-depth: 0
 
       - name: Setup Java
         uses: actions/setup-java@v4
         with:
-          distribution: "temurin"
-          java-version: "17"
+          distribution: temurin
+          java-version: 17
 
       - name: Cache Gradle
         uses: burrunan/gradle-cache-action@v1
@@ -40,8 +37,8 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: "lts/*"
-          cache: 'npm'
+          node-version: lts/*
+          cache: npm
 
       - name: Install dependencies
         run: npm install
@@ -53,7 +50,14 @@ jobs:
           passphrase: ${{ secrets.GPG_PASSPHRASE }}
           fingerprint: ${{ vars.GPG_FINGERPRINT }}
 
-      - name: Release
+      - name: Semantic Release
+        uses: cycjimmy/semantic-release-action@v4
+        # id: semantic
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: npm exec semantic-release
+
+      # - name: Attest
+        # if: steps.semantic.outputs.new_release_published == 'true'
+      #   uses: actions/attest-build-provenance@v2
+      #   with:
+      #     subject-path: patches/build/libs/patches-!(*sources*|*javadoc*).rvp
