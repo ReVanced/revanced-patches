@@ -479,9 +479,9 @@ Second \"item\" text"</string>
   <string name="revanced_swipe_change_video_summary_off">Плъзването в режим на цял екран няма да превключи към следващото/предишно видео</string>
   </patch>
   <patch id="layout.autocaptions.autoCaptionsPatch">
-  <string name="revanced_auto_captions_title">Автоматични Субтитри</string>
-  <string name="revanced_auto_captions_summary_on">Автоматичните Субтитри са деактивирани</string>
-  <string name="revanced_auto_captions_summary_off">Автоматичните Субтитри са активирани</string>
+  <string name="revanced_disable_auto_captions_title">Автоматични Субтитри</string>
+  <string name="revanced_disable_auto_captions_summary_on">Автоматичните надписи са деактивирани</string>
+  <string name="revanced_disable_auto_captions_summary_off">Автоматичните надписи са активирани</string>
   </patch>
   <patch id="layout.buttons.action.hideButtonsPatch">
   <string name="revanced_hide_buttons_screen_title">Бутони за действия</string>

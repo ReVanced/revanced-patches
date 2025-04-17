@@ -479,9 +479,9 @@ Ayusin ang volume sa pamamagitan ng pag-swipe nang patayo sa kanang bahagi ng sc
   <string name="revanced_swipe_change_video_summary_off">Ang pag-swipe sa full screen ay hindi magpapalit sa susunod/nakaraang video</string>
   </patch>
   <patch id="layout.autocaptions.autoCaptionsPatch">
-  <string name="revanced_auto_captions_title">Huwag paganahin ang mga auto caption</string>
-  <string name="revanced_auto_captions_summary_on">Naka-disable ang mga auto caption</string>
-  <string name="revanced_auto_captions_summary_off">Ang mga auto caption ay pinagana</string>
+  <string name="revanced_disable_auto_captions_title">Huwag paganahin ang mga auto caption</string>
+  <string name="revanced_disable_auto_captions_summary_on">Naka-disable ang mga Auto caption</string>
+  <string name="revanced_disable_auto_captions_summary_off">Naka-enable ang mga Auto caption</string>
   </patch>
   <patch id="layout.buttons.action.hideButtonsPatch">
   <string name="revanced_hide_buttons_screen_title">Mga pindutan ng pagkilos</string>

@@ -479,9 +479,9 @@ Second \"item\" text"</string>
   <string name="revanced_swipe_change_video_summary_off">Правядзенне пальцам у рэжыме поўнага экрана не зьменіць відэа на наступнае/папярэдняе</string>
   </patch>
   <patch id="layout.autocaptions.autoCaptionsPatch">
-  <string name="revanced_auto_captions_title">Адключыць аўтаматычныя цітры</string>
-  <string name="revanced_auto_captions_summary_on">Аўтаматычныя цітры адключаны</string>
-  <string name="revanced_auto_captions_summary_off">Аўтаматычныя цітры ўключаны</string>
+  <string name="revanced_disable_auto_captions_title">Адключыць аўтаматычныя цітры</string>
+  <string name="revanced_disable_auto_captions_summary_on">Аўтаматычныя субцітры адключаны</string>
+  <string name="revanced_disable_auto_captions_summary_off">Аўтаматычныя субцітры ўключаны</string>
   </patch>
   <patch id="layout.buttons.action.hideButtonsPatch">
   <string name="revanced_hide_buttons_screen_title">Кнопкі дзеянняў</string>

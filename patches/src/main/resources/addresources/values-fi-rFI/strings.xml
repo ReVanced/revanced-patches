@@ -479,9 +479,9 @@ Säädä äänenvoimakkuutta pyyhkäisemällä pystysuoraan näytön oikealta pu
   <string name="revanced_swipe_change_video_summary_off">Pyyhkäisemällä kokoruututilassa ei siirrytä seuraavaan/edelliseen videoon</string>
   </patch>
   <patch id="layout.autocaptions.autoCaptionsPatch">
-  <string name="revanced_auto_captions_title">Poista automaattiset tekstitykset käytöstä</string>
-  <string name="revanced_auto_captions_summary_on">Automaattiset tekstitykset eivät ole käytössä</string>
-  <string name="revanced_auto_captions_summary_off">Automaattiset tekstitykset ovat käytössä</string>
+  <string name="revanced_disable_auto_captions_title">Poista automaattiset tekstitykset käytöstä</string>
+  <string name="revanced_disable_auto_captions_summary_on">Automaattiset tekstitykset eivät ole käytössä</string>
+  <string name="revanced_disable_auto_captions_summary_off">Automaattiset tekstitykset ovat käytössä</string>
   </patch>
   <patch id="layout.buttons.action.hideButtonsPatch">
   <string name="revanced_hide_buttons_screen_title">Toimintopainikkeet</string>

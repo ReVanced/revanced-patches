@@ -479,9 +479,9 @@ Përshtate shkëlqimin duke rrëshqitur vertikalisht në anën e majtë të ekra
   <string name="revanced_swipe_change_video_summary_off">Lëvizja në modalitetin në ekran të plotë nuk do të ndryshojë në videon e ardhshme/të mëparshme</string>
   </patch>
   <patch id="layout.autocaptions.autoCaptionsPatch">
-  <string name="revanced_auto_captions_title">Çaktivizo titrat automatikë</string>
-  <string name="revanced_auto_captions_summary_on">Titrat automatikë janë të çaktivizuar</string>
-  <string name="revanced_auto_captions_summary_off">Titrat automatikë janë të aktivizuar</string>
+  <string name="revanced_disable_auto_captions_title">Çaktivizo titrat automatikë</string>
+  <string name="revanced_disable_auto_captions_summary_on">Titrat automatikë janë të çaktivizuar</string>
+  <string name="revanced_disable_auto_captions_summary_off">Titrat Auto janë aktivizuar</string>
   </patch>
   <patch id="layout.buttons.action.hideButtonsPatch">
   <string name="revanced_hide_buttons_screen_title">Butonat e veprimit</string>

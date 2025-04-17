@@ -466,6 +466,8 @@ Ekranın sağ tərəfində düzünə sürüşdürərək səs səviyyəsini tənz
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Sürüşmə qeyri-şəffaflığı 0-100 arası olmalıdır</string>
   <string name="revanced_swipe_threshold_title">Sürüşdürmə böyüklük həddi</string>
   <string name="revanced_swipe_threshold_summary">Sürüşdürmənin icra edilməsi üçün son dəyər</string>
+  <string name="revanced_swipe_volume_sensitivity_title">Səs səviyyəsin sürüşdürmə təzyiqi</string>
+  <string name="revanced_swipe_volume_sensitivity_summary">Hər sürüşdürmədə səs səviyyəsi nə qədər dəyişir</string>
   <string name="revanced_swipe_show_circular_overlay_title">Dairəvi örtüyü göstər</string>
   <string name="revanced_swipe_show_circular_overlay_summary_on">Dairəvi örtük göstərilir</string>
   <string name="revanced_swipe_show_circular_overlay_summary_off">Düzünə örtük göstərilir</string>
@@ -477,9 +479,7 @@ Ekranın sağ tərəfində düzünə sürüşdürərək səs səviyyəsini tənz
   <string name="revanced_swipe_change_video_summary_off">Tam ekran rejimində sürüşdürmə növbəti/əvvəlki videoya ötürməyəcək</string>
   </patch>
   <patch id="layout.autocaptions.autoCaptionsPatch">
-  <string name="revanced_auto_captions_title">Avtomatik titrləri qeyri-aktiv et</string>
-  <string name="revanced_auto_captions_summary_on">Avtomatik titrlər qeyri-aktivdir</string>
-  <string name="revanced_auto_captions_summary_off">Avtomatik titrlər aktivdir</string>
+  <string name="revanced_disable_auto_captions_title">Avtomatik titrləri qeyri-aktiv et</string>
   </patch>
   <patch id="layout.buttons.action.hideButtonsPatch">
   <string name="revanced_hide_buttons_screen_title">Fəaliyyət düymələri</string>

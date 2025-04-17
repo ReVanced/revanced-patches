@@ -479,9 +479,9 @@ Second \"item\" text"</string>
   <string name="revanced_swipe_change_video_summary_off">Жест в полноэкранном режиме не переключает на следующее/предыдущее видео</string>
   </patch>
   <patch id="layout.autocaptions.autoCaptionsPatch">
-  <string name="revanced_auto_captions_title">Отключить автоматические субтитры</string>
-  <string name="revanced_auto_captions_summary_on">Автоматические субтитры отключены</string>
-  <string name="revanced_auto_captions_summary_off">Автоматические субтитры включены</string>
+  <string name="revanced_disable_auto_captions_title">Отключить автоматические субтитры</string>
+  <string name="revanced_disable_auto_captions_summary_on">Автоматические субтитры отключены</string>
+  <string name="revanced_disable_auto_captions_summary_off">Автоматические субтитры включены</string>
   </patch>
   <patch id="layout.buttons.action.hideButtonsPatch">
   <string name="revanced_hide_buttons_screen_title">Кнопки действий</string>

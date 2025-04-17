@@ -479,9 +479,9 @@ Tính năng này chỉ khả dụng cho các thiết bị cũ hơn"</string>
   <string name="revanced_swipe_change_video_summary_off">Vuốt trong chế độ toàn màn hình sẽ không chuyển sang video tiếp theo/trước</string>
   </patch>
   <patch id="layout.autocaptions.autoCaptionsPatch">
-  <string name="revanced_auto_captions_title">Tắt phụ đề tự động</string>
-  <string name="revanced_auto_captions_summary_on">Phụ đề tự động đã tắt</string>
-  <string name="revanced_auto_captions_summary_off">Phụ đề tự động đã bật</string>
+  <string name="revanced_disable_auto_captions_title">Tắt phụ đề tự động</string>
+  <string name="revanced_disable_auto_captions_summary_on">Phụ đề tự động đã tắt</string>
+  <string name="revanced_disable_auto_captions_summary_off">Phụ đề tự động đã bật</string>
   </patch>
   <patch id="layout.buttons.action.hideButtonsPatch">
   <string name="revanced_hide_buttons_screen_title">Các nút hành động</string>
