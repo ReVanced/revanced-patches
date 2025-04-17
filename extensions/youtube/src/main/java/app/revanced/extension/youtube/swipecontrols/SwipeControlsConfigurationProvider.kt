@@ -1,6 +1,8 @@
 package app.revanced.extension.youtube.swipecontrols
 
+import android.annotation.SuppressLint
 import android.graphics.Color
+import app.revanced.extension.shared.Logger
 import app.revanced.extension.shared.StringRef.str
 import app.revanced.extension.shared.Utils
 import app.revanced.extension.youtube.settings.Settings
@@ -68,9 +70,7 @@ class SwipeControlsConfigurationProvider {
             val sensitivity = Settings.SWIPE_VOLUME_SENSITIVITY.get()
 
             if (sensitivity < 1) {
-                Settings.SWIPE_VOLUME_SENSITIVITY.resetToDefault()
-
-                return Settings.SWIPE_VOLUME_SENSITIVITY.get()
+                return Settings.SWIPE_VOLUME_SENSITIVITY.resetToDefault()
             }
 
             return sensitivity
@@ -100,8 +100,7 @@ class SwipeControlsConfigurationProvider {
 
             if (opacity < 0 || opacity > 100) {
                 Utils.showToastLong(str("revanced_swipe_overlay_background_opacity_invalid_toast"))
-                Settings.SWIPE_OVERLAY_OPACITY.resetToDefault()
-                opacity = Settings.SWIPE_OVERLAY_OPACITY.get()
+                opacity = Settings.SWIPE_OVERLAY_OPACITY.resetToDefault()
             }
 
             opacity = opacity * 255 / 100
@@ -152,13 +151,11 @@ class SwipeControlsConfigurationProvider {
     val overlayTextSize: Int
         get() {
             val size = Settings.SWIPE_OVERLAY_TEXT_SIZE.get()
-            return if (size < 1 || size > 30) {
+            if (size < 1 || size > 30) {
                 Utils.showToastLong(str("revanced_swipe_text_overlay_size_invalid_toast"))
-                Settings.SWIPE_OVERLAY_TEXT_SIZE.resetToDefault()
-                Settings.SWIPE_OVERLAY_TEXT_SIZE.get()
-            } else {
-                size
+                return Settings.SWIPE_OVERLAY_TEXT_SIZE.resetToDefault()
             }
+            return size
         }
 
     /**
