@@ -896,7 +896,7 @@ Limitation: Dislikes may not appear in incognito mode"</string>
             <string name="revanced_ryd_compact_layout_summary_off">Like button styled for best appearance</string>
             <string name="revanced_ryd_estimated_like_title">Show estimated likes</string>
             <string name="revanced_ryd_estimated_like_summary_on">Display estimated likes for videos with disabled like counts</string>
-            <string name="revanced_ryd_estimated_like_summary_off">Estimated like counts won’t be shown</string>
+            <string name="revanced_ryd_estimated_like_summary_off">Estimated likes are not shown</string>
             <string name="revanced_ryd_toast_on_connection_error_title">Show a toast if API is not available</string>
             <string name="revanced_ryd_toast_on_connection_error_summary_on">Toast is shown if Return YouTube Dislike is not available</string>
             <string name="revanced_ryd_toast_on_connection_error_summary_off">Toast is not shown if Return YouTube Dislike is not available</string>
