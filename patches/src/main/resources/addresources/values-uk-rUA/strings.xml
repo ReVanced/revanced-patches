@@ -466,8 +466,8 @@ Second \"item\" text"</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Значення затемнення панелі жесту має бути в межах від 0 до 100</string>
   <string name="revanced_swipe_threshold_title">Поріг величини жесту</string>
   <string name="revanced_swipe_threshold_summary">Мінімальна амплітуда руху, що розпізнається як жест</string>
-  <string name="revanced_swipe_volume_sensitivity_title">Чутливість гортання гучності</string>
-  <string name="revanced_swipe_volume_sensitivity_summary">На скільки змінюється гучність за одне гортання</string>
+  <string name="revanced_swipe_volume_sensitivity_title">Чутливість жесту гучності</string>
+  <string name="revanced_swipe_volume_sensitivity_summary">Наскільки змінюється гучність проводячи пальцем по екрану</string>
   <string name="revanced_swipe_show_circular_overlay_title">Показувати круговий індикатор</string>
   <string name="revanced_swipe_show_circular_overlay_summary_on">Показується круговий індикатор</string>
   <string name="revanced_swipe_show_circular_overlay_summary_off">Показується горизонтальний індикатор</string>
@@ -479,9 +479,9 @@ Second \"item\" text"</string>
   <string name="revanced_swipe_change_video_summary_off">Проведення пальцем у повноекранному режимі не перейде до наступного/попереднього відео</string>
   </patch>
   <patch id="layout.autocaptions.autoCaptionsPatch">
-  <string name="revanced_auto_captions_title">Вимкнути автоматичні субтитри</string>
-  <string name="revanced_auto_captions_summary_on">Автоматичні субтитри вимкнено</string>
-  <string name="revanced_auto_captions_summary_off">Автоматичні субтитри ввімкнено</string>
+  <string name="revanced_disable_auto_captions_title">Вимкнути автоматичні субтитри</string>
+  <string name="revanced_disable_auto_captions_summary_on">Автоматичні субтитри вимкнено</string>
+  <string name="revanced_disable_auto_captions_summary_off">Автоматичні субтитри ввімкнено</string>
   </patch>
   <patch id="layout.buttons.action.hideButtonsPatch">
   <string name="revanced_hide_buttons_screen_title">Кнопки дій</string>

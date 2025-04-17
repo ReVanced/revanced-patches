@@ -466,8 +466,8 @@ Menyesuaikan volume dengan mengusap secara vertikal di sisi kanan layar"</string
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Opasitas geser harus antara 0-100</string>
   <string name="revanced_swipe_threshold_title">Ambang batas magnitudo usap</string>
   <string name="revanced_swipe_threshold_summary">Jumlah ambang batas untuk terjadinya usapan</string>
-  <string name="revanced_swipe_volume_sensitivity_title">Sensitivitas gesek volume</string>
-  <string name="revanced_swipe_volume_sensitivity_summary">Seberapa besar perubahan volume per gesekan</string>
+  <string name="revanced_swipe_volume_sensitivity_title">Sensitivitas volume usap</string>
+  <string name="revanced_swipe_volume_sensitivity_summary">Seberapa besar perubahan volume per usapan</string>
   <string name="revanced_swipe_show_circular_overlay_title">Tampilkan hamparan melingkar</string>
   <string name="revanced_swipe_show_circular_overlay_summary_on">Hamparan melingkar ditampilkan</string>
   <string name="revanced_swipe_show_circular_overlay_summary_off">Hamparan horizontal ditampilkan</string>
@@ -479,9 +479,9 @@ Menyesuaikan volume dengan mengusap secara vertikal di sisi kanan layar"</string
   <string name="revanced_swipe_change_video_summary_off">Mengusap dalam mode layar penuh tidak akan beralih ke video berikutnya/sebelumnya</string>
   </patch>
   <patch id="layout.autocaptions.autoCaptionsPatch">
-  <string name="revanced_auto_captions_title">Matikan teks otomatis</string>
-  <string name="revanced_auto_captions_summary_on">Teks otomatis dinonaktifkan</string>
-  <string name="revanced_auto_captions_summary_off">Teks otomatis diaktifkan</string>
+  <string name="revanced_disable_auto_captions_title">Matikan teks otomatis</string>
+  <string name="revanced_disable_auto_captions_summary_on">Takarir Auto dinonaktifkan</string>
+  <string name="revanced_disable_auto_captions_summary_off">Takarir Auto diaktifkan</string>
   </patch>
   <patch id="layout.buttons.action.hideButtonsPatch">
   <string name="revanced_hide_buttons_screen_title">Tombol tindakan</string>

@@ -479,9 +479,9 @@ Prilagodite glasnost s potegom navpično na desni strani zaslona"</string>
   <string name="revanced_swipe_change_video_summary_off">Drsenje v celozaslonskem načinu ne bo prešlo na naslednji/prejšnji videoposnetek.</string>
   </patch>
   <patch id="layout.autocaptions.autoCaptionsPatch">
-  <string name="revanced_auto_captions_title">Onemogoči samodejne podnapise</string>
-  <string name="revanced_auto_captions_summary_on">Samodejni podnapisi so onemogočeni</string>
-  <string name="revanced_auto_captions_summary_off">Samodejni podnapisi so omogočeni</string>
+  <string name="revanced_disable_auto_captions_title">Onemogoči samodejne podnapise</string>
+  <string name="revanced_disable_auto_captions_summary_on">Samodejni podnapisi so onemogočeni</string>
+  <string name="revanced_disable_auto_captions_summary_off">Samodejni napisi so omogočeni</string>
   </patch>
   <patch id="layout.buttons.action.hideButtonsPatch">
   <string name="revanced_hide_buttons_screen_title">Gumbi za dejanja</string>

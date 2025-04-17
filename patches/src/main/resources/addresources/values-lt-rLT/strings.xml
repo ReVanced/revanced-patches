@@ -479,9 +479,9 @@ Reguliuokite garsumą braukdami vertikaliai dešinėje ekrano pusėje"</string>
   <string name="revanced_swipe_change_video_summary_off">Braukimas viso ekrano režimu nepakeis į kitą/ankstesnį vaizdo įrašą</string>
   </patch>
   <patch id="layout.autocaptions.autoCaptionsPatch">
-  <string name="revanced_auto_captions_title">Išjungti automatinius antraštus</string>
-  <string name="revanced_auto_captions_summary_on">Automatiniai antraštės išjungti</string>
-  <string name="revanced_auto_captions_summary_off">Automatiniai antraštės įjungti</string>
+  <string name="revanced_disable_auto_captions_title">Išjungti automatinius antraštus</string>
+  <string name="revanced_disable_auto_captions_summary_on">Automatiniai subtitrai išjungti</string>
+  <string name="revanced_disable_auto_captions_summary_off">Automatiniai subtitrai įjungti</string>
   </patch>
   <patch id="layout.buttons.action.hideButtonsPatch">
   <string name="revanced_hide_buttons_screen_title">Veiksmo mygtukai</string>

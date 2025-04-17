@@ -479,9 +479,9 @@ Second \"item\" text"</string>
   <string name="revanced_swipe_change_video_summary_off">在全屏模式下滑动将不会切换到下一个/上一个视频</string>
   </patch>
   <patch id="layout.autocaptions.autoCaptionsPatch">
-  <string name="revanced_auto_captions_title">禁用自动字幕</string>
-  <string name="revanced_auto_captions_summary_on">自动字幕已禁用</string>
-  <string name="revanced_auto_captions_summary_off">自动字幕已启用</string>
+  <string name="revanced_disable_auto_captions_title">禁用自动字幕</string>
+  <string name="revanced_disable_auto_captions_summary_on">自动字幕已禁用</string>
+  <string name="revanced_disable_auto_captions_summary_off">自动字幕已启用</string>
   </patch>
   <patch id="layout.buttons.action.hideButtonsPatch">
   <string name="revanced_hide_buttons_screen_title">操作按钮</string>
@@ -885,8 +885,8 @@ Second \"item\" text"</string>
   <string name="revanced_sb_enable_voting_sum_on">显示片段投票按钮</string>
   <string name="revanced_sb_enable_voting_sum_off">不显示片段投票按钮</string>
   <string name="revanced_sb_square_layout">使用方形控件</string>
-  <string name="revanced_sb_square_layout_sum_on">使用方形样式的按钮和控件</string>
-  <string name="revanced_sb_square_layout_sum_off">使用圆角样式的按钮和控件</string>
+  <string name="revanced_sb_square_layout_sum_on">按钮和控件已使用方形样式</string>
+  <string name="revanced_sb_square_layout_sum_off">按钮和控件已使用圆角样式</string>
   <!-- Translations should use language similar to 'revanced_ryd_compact_layout_title' -->
   <string name="revanced_sb_enable_compact_skip_button">使用紧凑的跳过按钮</string>
   <string name="revanced_sb_enable_compact_skip_button_sum_on">跳过按钮样式为最小宽度</string>

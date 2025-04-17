@@ -479,9 +479,9 @@ Helitugevuse reguleerimiseks pühkige ekraani paremal küljel vertikaalselt"</st
   <string name="revanced_swipe_change_video_summary_off">Täisekraanrežiimis pühkimine ei vaheta järgmise/eelmise video</string>
   </patch>
   <patch id="layout.autocaptions.autoCaptionsPatch">
-  <string name="revanced_auto_captions_title">Keela automaatsed pealdised</string>
-  <string name="revanced_auto_captions_summary_on">Automaatsed pealdised on keelatud</string>
-  <string name="revanced_auto_captions_summary_off">Automaatsed pealdised on lubatud</string>
+  <string name="revanced_disable_auto_captions_title">Keela automaatsed pealdised</string>
+  <string name="revanced_disable_auto_captions_summary_on">Automaatsed subtiitrid on keelatud</string>
+  <string name="revanced_disable_auto_captions_summary_off">Automaatsed subtiitrid on lubatud</string>
   </patch>
   <patch id="layout.buttons.action.hideButtonsPatch">
   <string name="revanced_hide_buttons_screen_title">Tegevuse nupud</string>

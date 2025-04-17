@@ -479,9 +479,9 @@ Justera volymen genom att svepa vertikalt på höger sida av skärmen"</string>
   <string name="revanced_swipe_change_video_summary_off">Svepning i helskärmsläge ändrar inte till följande/föregående video</string>
   </patch>
   <patch id="layout.autocaptions.autoCaptionsPatch">
-  <string name="revanced_auto_captions_title">Inaktivera automatisk bildtext</string>
-  <string name="revanced_auto_captions_summary_on">Auto-bildtexter är inaktiverade</string>
-  <string name="revanced_auto_captions_summary_off">Automatisk bildtext är aktiverad</string>
+  <string name="revanced_disable_auto_captions_title">Inaktivera automatisk bildtext</string>
+  <string name="revanced_disable_auto_captions_summary_on">Auto bildtexter är inaktiverade</string>
+  <string name="revanced_disable_auto_captions_summary_off">Automatisk bildtext är aktiverad</string>
   </patch>
   <patch id="layout.buttons.action.hideButtonsPatch">
   <string name="revanced_hide_buttons_screen_title">Åtgärd knappar</string>

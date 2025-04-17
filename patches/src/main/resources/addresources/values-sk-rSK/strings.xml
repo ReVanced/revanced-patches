@@ -472,9 +472,9 @@ Upravte hlasitosť posúvaním vertikálne na pravej strane obrazovky"</string>
   <string name="revanced_swipe_change_video_summary_off">Potiahnutie prstom v režime celej obrazovky neprepne na predchádzajúce/nasledujúce video</string>
   </patch>
   <patch id="layout.autocaptions.autoCaptionsPatch">
-  <string name="revanced_auto_captions_title">Zakázať automatické titulky</string>
-  <string name="revanced_auto_captions_summary_on">Automatické titulky sú vypnuté</string>
-  <string name="revanced_auto_captions_summary_off">Automatické titulky sú povolené</string>
+  <string name="revanced_disable_auto_captions_title">Zakázať automatické titulky</string>
+  <string name="revanced_disable_auto_captions_summary_on">Automatické titulky sú vypnuté</string>
+  <string name="revanced_disable_auto_captions_summary_off">Automatické titulky sú zapnuté</string>
   </patch>
   <patch id="layout.buttons.action.hideButtonsPatch">
   <string name="revanced_hide_buttons_screen_title">Akčné tlačidlá</string>
