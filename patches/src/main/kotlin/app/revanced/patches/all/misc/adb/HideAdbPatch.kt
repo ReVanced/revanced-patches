@@ -10,7 +10,7 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import com.android.tools.smali.dexlib2.immutable.reference.ImmutableMethodReference
 import com.android.tools.smali.dexlib2.util.MethodUtil
 
-private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/all/hide/adb/HideAdbPatch;"
+private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/all/misc/hide/adb/HideAdbPatch;"
 
 private val SETTINGS_GLOBAL_GET_INT_OR_THROW_METHOD_REFERENCE = ImmutableMethodReference(
     "Landroid/provider/Settings\$Global;",

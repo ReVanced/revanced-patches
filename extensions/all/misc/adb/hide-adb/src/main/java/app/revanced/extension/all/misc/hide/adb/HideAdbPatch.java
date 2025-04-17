@@ -1,4 +1,4 @@
-package app.revanced.extension.all.hide.adb;
+package app.revanced.extension.all.misc.hide.adb;
 
 import android.content.ContentResolver;
 import android.provider.Settings;
