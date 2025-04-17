@@ -461,9 +461,9 @@ Second \"item\" text"</string>
   <string name="revanced_swipe_change_video_summary_off">החלקה במצב מסך מלא לא תשנה לסרטון הבא/הקודם</string>
   </patch>
   <patch id="layout.autocaptions.autoCaptionsPatch">
-  <string name="revanced_auto_captions_title">השבת כתוביות אוטומטיות</string>
-  <string name="revanced_auto_captions_summary_on">כתוביות אוטומטיות מופעלות</string>
-  <string name="revanced_auto_captions_summary_off">כתוביות אוטומטיות מושבתות</string>
+  <string name="revanced_disable_auto_captions_title">השבת כתוביות אוטומטיות</string>
+  <string name="revanced_disable_auto_captions_summary_on">כתוביות אוטומטיות מופעלות</string>
+  <string name="revanced_disable_auto_captions_summary_off">כתוביות אוטומטיות מושבתות</string>
   </patch>
   <patch id="layout.buttons.action.hideButtonsPatch">
   <string name="revanced_hide_buttons_screen_title">פעולות לחצנים</string>

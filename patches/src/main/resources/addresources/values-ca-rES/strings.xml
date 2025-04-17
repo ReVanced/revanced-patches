@@ -479,9 +479,9 @@ Ajusteu el volum lliscant verticalment a la part dreta de la pantalla"</string>
   <string name="revanced_swipe_change_video_summary_off">Lliscar en mode de pantalla completa no canviarà al vídeo següent/anterior</string>
   </patch>
   <patch id="layout.autocaptions.autoCaptionsPatch">
-  <string name="revanced_auto_captions_title">Desactiva els subtítols automàtics</string>
-  <string name="revanced_auto_captions_summary_on">Els subtítols automàtics estan desactivats</string>
-  <string name="revanced_auto_captions_summary_off">Els subtítols automàtics estan activats</string>
+  <string name="revanced_disable_auto_captions_title">Desactiva els subtítols automàtics</string>
+  <string name="revanced_disable_auto_captions_summary_on">Les subtítols Auto estan desactivats</string>
+  <string name="revanced_disable_auto_captions_summary_off">Els subtítols Auto estan habilitats</string>
   </patch>
   <patch id="layout.buttons.action.hideButtonsPatch">
   <string name="revanced_hide_buttons_screen_title">Botons d\'acció</string>

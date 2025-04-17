@@ -466,8 +466,8 @@ Second \"item\" text"</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Непрозирност покрета превлачења мора бити између 0 и 100</string>
   <string name="revanced_swipe_threshold_title">Праг трајања превлачења</string>
   <string name="revanced_swipe_threshold_summary">Износ прага трајања превлачења</string>
-  <string name="revanced_swipe_volume_sensitivity_title">Осетљивост покрета за јачину звука</string>
-  <string name="revanced_swipe_volume_sensitivity_summary">Колико се јачина звука мења по покрету</string>
+  <string name="revanced_swipe_volume_sensitivity_title">Осетљивост превлачења за јачину звука</string>
+  <string name="revanced_swipe_volume_sensitivity_summary">Колико се јачина звука мења по превлачењу</string>
   <string name="revanced_swipe_show_circular_overlay_title">Прикажи кружни преклоп</string>
   <string name="revanced_swipe_show_circular_overlay_summary_on">Приказан је кружни преклоп</string>
   <string name="revanced_swipe_show_circular_overlay_summary_off">Приказан је хоризонтални преклоп</string>
@@ -479,9 +479,9 @@ Second \"item\" text"</string>
   <string name="revanced_swipe_change_video_summary_off">Превлачење у режиму целог екрана неће променити на следећи/претходни видео</string>
   </patch>
   <patch id="layout.autocaptions.autoCaptionsPatch">
-  <string name="revanced_auto_captions_title">Онемогући аутоматске титлове</string>
-  <string name="revanced_auto_captions_summary_on">Аутоматски титлови су онемогућени</string>
-  <string name="revanced_auto_captions_summary_off">Аутоматски титлови су омогућени</string>
+  <string name="revanced_disable_auto_captions_title">Онемогући аутоматске титлове</string>
+  <string name="revanced_disable_auto_captions_summary_on">Аутоматски титлови су искључени</string>
+  <string name="revanced_disable_auto_captions_summary_off">Аутоматски титлови су укључени</string>
   </patch>
   <patch id="layout.buttons.action.hideButtonsPatch">
   <string name="revanced_hide_buttons_screen_title">Дугмад радњи</string>

@@ -479,9 +479,9 @@ Ekranın sağ tarafında dikey olarak kaydırarak sesi ayarlayın"</string>
   <string name="revanced_swipe_change_video_summary_off">Tam ekran modunda kaydırma, bir sonraki/önceki videoya geçmeyecektir</string>
   </patch>
   <patch id="layout.autocaptions.autoCaptionsPatch">
-  <string name="revanced_auto_captions_title">Otomatik altyazıları devre dışı bırak</string>
-  <string name="revanced_auto_captions_summary_on">Altyazılar kendiliğinden açılmaz</string>
-  <string name="revanced_auto_captions_summary_off">Altyazılar kendiliğinden açılabilir</string>
+  <string name="revanced_disable_auto_captions_title">Otomatik altyazıları devre dışı bırak</string>
+  <string name="revanced_disable_auto_captions_summary_on">Altyazılar kendiliğinden açılmaz</string>
+  <string name="revanced_disable_auto_captions_summary_off">Altyazılar kendiliğinden açılabilir</string>
   </patch>
   <patch id="layout.buttons.action.hideButtonsPatch">
   <string name="revanced_hide_buttons_screen_title">Eylem düğmeleri</string>

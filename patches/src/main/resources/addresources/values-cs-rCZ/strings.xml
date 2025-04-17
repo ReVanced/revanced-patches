@@ -479,9 +479,9 @@ Hlasitost se upravuje svislým přejetím po pravé straně obrazovky"</string>
   <string name="revanced_swipe_change_video_summary_off">Přejetí prstem v režimu celé obrazovky nebude video měnit na další/předchozí</string>
   </patch>
   <patch id="layout.autocaptions.autoCaptionsPatch">
-  <string name="revanced_auto_captions_title">Zakázat automatické titulky</string>
-  <string name="revanced_auto_captions_summary_on">Automatické titulky jsou zakázány</string>
-  <string name="revanced_auto_captions_summary_off">Automatické titulky jsou povoleny</string>
+  <string name="revanced_disable_auto_captions_title">Zakázat automatické titulky</string>
+  <string name="revanced_disable_auto_captions_summary_on">Automatické titulky jsou zakázány</string>
+  <string name="revanced_disable_auto_captions_summary_off">Automatické titulky jsou povoleny</string>
   </patch>
   <patch id="layout.buttons.action.hideButtonsPatch">
   <string name="revanced_hide_buttons_screen_title">Akční tlačítka</string>

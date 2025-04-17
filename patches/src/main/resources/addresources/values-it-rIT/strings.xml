@@ -479,9 +479,9 @@ Regola il volume scorrendo verticalmente sul lato destro dello schermo"</string>
   <string name="revanced_swipe_change_video_summary_off">Lo scorrimento in modalità schermo intero non cambierà al video successivo/precedente</string>
   </patch>
   <patch id="layout.autocaptions.autoCaptionsPatch">
-  <string name="revanced_auto_captions_title">Disabilita i sottotitoli automatici </string>
-  <string name="revanced_auto_captions_summary_on">I sottotitoli automatici sono disabilitati</string>
-  <string name="revanced_auto_captions_summary_off">I sottotitoli automatici sono abilitati</string>
+  <string name="revanced_disable_auto_captions_title">Disabilita i sottotitoli automatici </string>
+  <string name="revanced_disable_auto_captions_summary_on">I sottotitoli Auto sono disabilitati</string>
+  <string name="revanced_disable_auto_captions_summary_off">I sottotitoli Auto sono abilitati</string>
   </patch>
   <patch id="layout.buttons.action.hideButtonsPatch">
   <string name="revanced_hide_buttons_screen_title">Pulsanti azione</string>

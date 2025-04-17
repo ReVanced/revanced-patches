@@ -479,9 +479,9 @@ Réglez le volume en balayant verticalement sur le côté droit de l'écran"</st
   <string name="revanced_swipe_change_video_summary_off">En mode plein écran, vous ne changerez pas de vidéo en balayant l\'écran</string>
   </patch>
   <patch id="layout.autocaptions.autoCaptionsPatch">
-  <string name="revanced_auto_captions_title">Désactiver les sous-titres automatiques</string>
-  <string name="revanced_auto_captions_summary_on">Les sous-titres automatiques sont désactivés</string>
-  <string name="revanced_auto_captions_summary_off">Les sous-titres automatiques sont activés</string>
+  <string name="revanced_disable_auto_captions_title">Désactiver les sous-titres automatiques</string>
+  <string name="revanced_disable_auto_captions_summary_on">Les sous-titres automatiques sont désactivés</string>
+  <string name="revanced_disable_auto_captions_summary_off">Les sous-titres automatiques sont activés</string>
   </patch>
   <patch id="layout.buttons.action.hideButtonsPatch">
   <string name="revanced_hide_buttons_screen_title">Boutons d\'action</string>

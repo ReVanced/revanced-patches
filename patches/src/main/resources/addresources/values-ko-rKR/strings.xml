@@ -478,9 +478,9 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_swipe_change_video_summary_off">전체 화면 중앙에서 위로/아래로 스와이프하여 다음/이전 동영상으로 전환하지 않습니다</string>
   </patch>
   <patch id="layout.autocaptions.autoCaptionsPatch">
-  <string name="revanced_auto_captions_title">자동 자막 비활성화하기</string>
-  <string name="revanced_auto_captions_summary_on">자동 자막을 비활성화합니다</string>
-  <string name="revanced_auto_captions_summary_off">자동 자막을 활성화합니다</string>
+  <string name="revanced_disable_auto_captions_title">자동 자막 비활성화하기</string>
+  <string name="revanced_disable_auto_captions_summary_on">자동 자막을 비활성화합니다</string>
+  <string name="revanced_disable_auto_captions_summary_off">자동 자막을 활성화합니다</string>
   </patch>
   <patch id="layout.buttons.action.hideButtonsPatch">
   <string name="revanced_hide_buttons_screen_title">액션 버튼</string>

@@ -479,9 +479,9 @@ Podesite jačinu zvuka prevlačenjem vertikalno na desnoj strani ekrana"</string
   <string name="revanced_swipe_change_video_summary_off">Prevlačenje u režimu celog ekrana neće promeniti na sledeći/prethodni video</string>
   </patch>
   <patch id="layout.autocaptions.autoCaptionsPatch">
-  <string name="revanced_auto_captions_title">Onemogući automatske titlove</string>
-  <string name="revanced_auto_captions_summary_on">Automatski titlovi su onemogućeni</string>
-  <string name="revanced_auto_captions_summary_off">Automatična prevodioci su uključeni</string>
+  <string name="revanced_disable_auto_captions_title">Onemogući automatske titlove</string>
+  <string name="revanced_disable_auto_captions_summary_on">Automatski titlovi su onemogućeni</string>
+  <string name="revanced_disable_auto_captions_summary_off">Automatski titlovi su omogućeni</string>
   </patch>
   <patch id="layout.buttons.action.hideButtonsPatch">
   <string name="revanced_hide_buttons_screen_title">Dugmad radnji</string>

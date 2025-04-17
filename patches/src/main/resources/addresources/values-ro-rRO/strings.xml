@@ -479,9 +479,9 @@ Reglați volumul glisând vertical pe partea dreaptă a ecranului"</string>
   <string name="revanced_swipe_change_video_summary_off">Glisarea în modul pe ecran complet nu va trece la următorul/anteriorul videoclip</string>
   </patch>
   <patch id="layout.autocaptions.autoCaptionsPatch">
-  <string name="revanced_auto_captions_title">Dezactivează subtitrările automate</string>
-  <string name="revanced_auto_captions_summary_on">Legendele automate sunt dezactivate</string>
-  <string name="revanced_auto_captions_summary_off">Legenda automată este activată</string>
+  <string name="revanced_disable_auto_captions_title">Dezactivează subtitrările automate</string>
+  <string name="revanced_disable_auto_captions_summary_on">Subtitrările Auto sunt dezactivate</string>
+  <string name="revanced_disable_auto_captions_summary_off">Subtitrările Auto sunt activate</string>
   </patch>
   <patch id="layout.buttons.action.hideButtonsPatch">
   <string name="revanced_hide_buttons_screen_title">Butoane de acţiune</string>

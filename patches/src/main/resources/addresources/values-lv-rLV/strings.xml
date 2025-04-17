@@ -479,9 +479,9 @@ Regulējiet skaļumu, velkot vertikāli ekrāna labajā pusē"</string>
   <string name="revanced_swipe_change_video_summary_off">Pārvelkot pilnekrāna režīmā, nākamais/iepriekšējais videoklips netiks mainīts</string>
   </patch>
   <patch id="layout.autocaptions.autoCaptionsPatch">
-  <string name="revanced_auto_captions_title">Atslēgt automātiskos titrus</string>
-  <string name="revanced_auto_captions_summary_on">Automātiskie titri ir atslēgti</string>
-  <string name="revanced_auto_captions_summary_off">Automātiskie titri ir ieslēgti</string>
+  <string name="revanced_disable_auto_captions_title">Atslēgt automātiskos titrus</string>
+  <string name="revanced_disable_auto_captions_summary_on">Automātiskie subtitri ir atspējoti</string>
+  <string name="revanced_disable_auto_captions_summary_off">Automātiskie subtitri ir iespējoti</string>
   </patch>
   <patch id="layout.buttons.action.hideButtonsPatch">
   <string name="revanced_hide_buttons_screen_title">Darbības pogas</string>

@@ -477,9 +477,9 @@ Ajuste o volume deslizando verticalmente no lado direito da tela"</string>
   <string name="revanced_swipe_change_video_summary_off">Deslizar no modo tela cheia não mudará para o próximo/vídeo anterior</string>
   </patch>
   <patch id="layout.autocaptions.autoCaptionsPatch">
-  <string name="revanced_auto_captions_title">Desativar legendas automáticas</string>
-  <string name="revanced_auto_captions_summary_on">Legendas automáticas estão desativadas</string>
-  <string name="revanced_auto_captions_summary_off">Legendas automáticas estão ativadas</string>
+  <string name="revanced_disable_auto_captions_title">Desativar legendas automáticas</string>
+  <string name="revanced_disable_auto_captions_summary_on">Legendas automáticas estão desativadas</string>
+  <string name="revanced_disable_auto_captions_summary_off">Legendas automáticas estão ativadas</string>
   </patch>
   <patch id="layout.buttons.action.hideButtonsPatch">
   <string name="revanced_hide_buttons_screen_title">Botões de ação</string>

@@ -479,9 +479,9 @@ Dostosuj głośność, przesuwając pionowo po prawej stronie ekranu"</string>
   <string name="revanced_swipe_change_video_summary_off">Przesunięcie palcem w trybie pełnoekranowym nie spowoduje przejścia do następnego lub poprzedniego filmu</string>
   </patch>
   <patch id="layout.autocaptions.autoCaptionsPatch">
-  <string name="revanced_auto_captions_title">Automatyczne napisy</string>
-  <string name="revanced_auto_captions_summary_on">Automatyczne napisy są wyłączone</string>
-  <string name="revanced_auto_captions_summary_off">Automatyczne napisy są włączone</string>
+  <string name="revanced_disable_auto_captions_title">Automatyczne napisy</string>
+  <string name="revanced_disable_auto_captions_summary_on">Automatyczne podpisy są wyłączone</string>
+  <string name="revanced_disable_auto_captions_summary_off">Automatyczne podpisy są włączone</string>
   </patch>
   <patch id="layout.buttons.action.hideButtonsPatch">
   <string name="revanced_hide_buttons_screen_title">Przyciski akcji</string>
