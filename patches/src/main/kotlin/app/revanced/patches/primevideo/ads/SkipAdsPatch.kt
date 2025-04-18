@@ -10,16 +10,16 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 @Suppress("unused")
 val skipAdsPatch = bytecodePatch(
     name = "Skip ads",
-    description = "Automatically skip over pre-baked ads in video streams.",
+    description = "Automatically skip video stream ads.",
 ) {
-    compatibleWith("com.amazon.avod.thirdpartyclient")
+    compatibleWith("com.amazon.avod.thirdpartyclient"("3.0.403.257"))
 
     dependsOn(sharedExtensionPatch("primevideo"))
 
     // We're going to skip all the logic in ServerInsertedAdBreakState.enter(), which plays all the ad clips in this
     // ad break. Instead, we'll force the video player to seek over the entire break and reset the state machine.
     execute {
-        // Force doTrigger() access to public so we can call it from our extension
+        // Force doTrigger() access to public so we can call it from our extension.
         doTriggerFingerprint.method.accessFlags = AccessFlags.PUBLIC.value;
 
         val getPlayerIndex = enterServerInsertedAdBreakStateFingerprint.patternMatch!!.startIndex
@@ -29,7 +29,7 @@ val skipAdsPatch = bytecodePatch(
             //  move-result-object {vx}
             val playerRegister = getInstruction<OneRegisterInstruction>(getPlayerIndex + 1).registerA
 
-            // Reuse the params from the original method
+            // Reuse the params from the original method:
             //  p0 = ServerInsertedAdBreakState
             //  p1 = AdBreakTrigger
             addInstructions(

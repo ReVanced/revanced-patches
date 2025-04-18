@@ -15,8 +15,7 @@ internal val enterServerInsertedAdBreakStateFingerprint = fingerprint {
         Opcode.CONST_4
     )
     custom { method, classDef ->
-        classDef.type == "Lcom/amazon/avod/media/ads/internal/state/ServerInsertedAdBreakState;" &&
-                method.name == "enter"
+        method.name == "enter" && classDef.type == "Lcom/amazon/avod/media/ads/internal/state/ServerInsertedAdBreakState;"
     }
 }
 
@@ -29,6 +28,6 @@ internal val doTriggerFingerprint = fingerprint {
         Opcode.RETURN_VOID
     )
     custom { method, classDef ->
-        classDef.type == "Lcom/amazon/avod/fsm/StateBase;" && method.name == "doTrigger"
+        method.name == "doTrigger" && classDef.type == "Lcom/amazon/avod/fsm/StateBase;"
     }
 }
