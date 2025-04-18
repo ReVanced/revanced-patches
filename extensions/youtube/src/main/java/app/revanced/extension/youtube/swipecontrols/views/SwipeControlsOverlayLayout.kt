@@ -101,7 +101,7 @@ class SwipeControlsOverlayLayout(
                 if (config.overlayStyle.isHorizontalMinimalCenter) {
                     addRule(CENTER_VERTICAL)
                 } else {
-                    topMargin = 10f.toDisplayPixels().toInt()
+                    topMargin = 20f.toDisplayPixels().toInt()
                 }
             }
             visibility = GONE // Initially hidden
