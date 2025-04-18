@@ -832,8 +832,8 @@ Second \"item\" text"</string>
   <string name="revanced_ryd_compact_layout_summary_on">Включен компактен бутон \"Харесва ми\"</string>
   <string name="revanced_ryd_compact_layout_summary_off">Най-добър изглед на бутона за харесване</string>
   <string name="revanced_ryd_estimated_like_title">Показване на прогнозни харесвания</string>
-  <string name="revanced_ryd_estimated_like_summary_on">Показват се прогнозни харесвания</string>
-  <string name="revanced_ryd_estimated_like_summary_off">Прогнозните харесвания са скрити</string>
+  <string name="revanced_ryd_estimated_like_summary_on">Видеата с деактивирани харесвания показват прогнозен брой харесвания</string>
+  <string name="revanced_ryd_estimated_like_summary_off">Прогнозните харесвания не се показват</string>
   <string name="revanced_ryd_toast_on_connection_error_title">Показване на известие, ако API не е наличен</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_on">Показва известие, ако Return YouTube Dislike не е наличен</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_off">Не се показва известие, ако ReturnYouTube Dislike не е наличен</string>

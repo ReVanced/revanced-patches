@@ -294,12 +294,12 @@ MicroG GmsCore に対する電池の最適化を無効にしても、バッテ�
   <string name="revanced_hide_comments_thanks_button_summary_on">Thanks ボタンは表示されません</string>
   <string name="revanced_hide_comments_thanks_button_summary_off">Thanks ボタンは表示されます</string>
   <!-- https://logos.fandom.com/wiki/YouTube/Yoodles -->
-  <string name="revanced_hide_doodles_title">Youtube Doodle を非表示</string>
+  <string name="revanced_hide_doodles_title">YouTube Doodle を非表示</string>
   <string name="revanced_hide_doodles_summary_on">検索バーに Doodle は表示されません</string>
   <string name="revanced_hide_doodles_summary_off">検索バーに Doodle が表示されます</string>
-  <string name="revanced_hide_doodles_user_dialog_message">"YouTube Doodles は毎年数日表示されます。
+  <string name="revanced_hide_doodles_user_dialog_message">"YouTube Doodle は、年に数日、祝日や記念日などの特別な日に表示されます。
 
-あなたの地域で Doodle が表示されている時に、この設定がオンになっている場合、検索結果にカテゴリー バーが表示されなくなります。"</string>
+あなたの地域で Doodle が表示されているとき、この設定をオンにすると検索結果にカテゴリー バーが表示されなくなります。"</string>
   <string name="revanced_custom_filter_screen_title">カスタム フィルタ</string>
   <string name="revanced_custom_filter_screen_summary">アプリ内に表示される component を非表示にするフィルタの設定</string>
   <string name="revanced_custom_filter_title">カスタム フィルタを有効にする</string>
@@ -834,8 +834,8 @@ MicroG GmsCore に対する電池の最適化を無効にしても、バッテ�
   <string name="revanced_ryd_compact_layout_summary_on">ボタンはコンパクトに表示されます</string>
   <string name="revanced_ryd_compact_layout_summary_off">ボタンは最適なサイズで表示されます</string>
   <string name="revanced_ryd_estimated_like_title">高評価の推定値を表示</string>
-  <string name="revanced_ryd_estimated_like_summary_on">高評価が非公開の動画で推定値が表示されます</string>
-  <string name="revanced_ryd_estimated_like_summary_off">高評価が非公開の動画では数値は表示されません</string>
+  <string name="revanced_ryd_estimated_like_summary_on">高評価が無効になっている動画には、推定の「いいね」数が表示されます。</string>
+  <string name="revanced_ryd_estimated_like_summary_off">高評価の推定値は表示されません</string>
   <string name="revanced_ryd_toast_on_connection_error_title">API 利用不可時にトーストを表示</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_on">Return YouTube Dislike が利用できない場合、トースト ポップアップが表示されます</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_off">Return YouTube Dislike が利用できない場合でもトースト ポップアップは表示されません</string>
@@ -1313,9 +1313,9 @@ Automotive レイアウト
   <string name="revanced_disable_zoom_haptics_summary_off">ズームの触覚フィードバックは有効です</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
-  <string name="revanced_force_original_audio_title">オリジナルの音声トラック (言語) を強制的に使用する</string>
-  <string name="revanced_force_original_audio_summary_on">オリジナルの音声トラック (言語) が再生されます</string>
-  <string name="revanced_force_original_audio_summary_off">デフォルトの音声トラック (言語) が再生されます</string>
+  <string name="revanced_force_original_audio_title">オートダビングを無効にする</string>
+  <string name="revanced_force_original_audio_summary_on">オートダビングは無効です</string>
+  <string name="revanced_force_original_audio_summary_off">オートダビングは有効です</string>
   <!-- 'Spoof video streams' should be the same translation used for revanced_spoof_video_streams_screen_title -->
   <string name="revanced_force_original_audio_not_available">この機能を使用するには、「動画ストリームを偽装する」のクライアントを iOS TV に変更してください</string>
   </patch>
@@ -1397,9 +1397,9 @@ AVC の最大解像度は 1080p であり、Opus オーディオ コーデック
 • 一定音量は利用できません
 • 動画が 1 秒早く終了します"</string>
   <string name="revanced_spoof_video_streams_about_android_title">Android クライアントの副作用</string>
-  <string name="revanced_spoof_video_streams_about_android_summary">"• 音声トラック メニューが表示されません
-• 一定音量は利用できません
-• 「オリジナルの音声トラック (言語) を強制的に使用する」は利用できません"</string>
+  <string name="revanced_spoof_video_streams_about_android_summary">"• フライアウト メニューに「音声トラック」は表示されません
+• 「一定音量」は利用できません
+• 「オートダビングを無効にする」は利用できません"</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• AV1 コーデックは使用できません</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• キッズ向け動画は、ログアウト時またはシークレット モード時には再生されない場合があります</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_title">統計情報に表示する</string>

@@ -811,8 +811,6 @@ Second \"item\" text"</string>
   <string name="revanced_ryd_compact_layout_summary_on">לחצן אהבתי מעוצב לרוחב מינימלי</string>
   <string name="revanced_ryd_compact_layout_summary_off">לחצן אהבתי מעוצב למראה הטוב ביותר</string>
   <string name="revanced_ryd_estimated_like_title">הצג סימוני \'אהבתי\' משוערים</string>
-  <string name="revanced_ryd_estimated_like_summary_on">סימוני \'אהבתי\' משוערים מוצגים</string>
-  <string name="revanced_ryd_estimated_like_summary_off">סימוני \'אהבתי\' משוערים מוסתרים</string>
   <string name="revanced_ryd_toast_on_connection_error_title">הצג הודעה קופצת אם ה-API אינו זמין</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_on">הודעה קופצת מוצגת אם Return YouTube Dislike אינו זמין</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_off">הודעה קופצת אינה מוצגת אם Return YouTube Dislike אינו זמין</string>

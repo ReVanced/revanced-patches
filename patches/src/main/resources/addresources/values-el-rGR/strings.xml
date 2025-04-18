@@ -834,7 +834,7 @@ Second \"item\" text"</string>
   <string name="revanced_ryd_compact_layout_summary_on">Το κουμπί «Μου αρέσει» είναι διαμορφωμένο για ελάχιστο μέγεθος</string>
   <string name="revanced_ryd_compact_layout_summary_off">Το κουμπί «Μου αρέσει» είναι διαμορφωμένο για καλύτερη εμφάνιση</string>
   <string name="revanced_ryd_estimated_like_title">Εμφάνιση των εκτιμώμενων «Μου αρέσει»</string>
-  <string name="revanced_ryd_estimated_like_summary_on">Τα εκτιμώμενα «Μου αρέσει» εμφανίζονται</string>
+  <string name="revanced_ryd_estimated_like_summary_on">Τα βίντεο με απενεργοποιημένα «Μου αρέσει» εμφανίζουν έναν εκτιμώμενο αριθμό «Μου αρέσει»</string>
   <string name="revanced_ryd_estimated_like_summary_off">Τα εκτιμώμενα «Μου αρέσει» δεν εμφανίζονται</string>
   <string name="revanced_ryd_toast_on_connection_error_title">Εμφάνιση μηνύματος αν το API δεν είναι διαθέσιμο</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_on">Να εμφανίζεται μήνυμα στο κάτω μέρος της οθόνης αν το Return YouTube Dislike δεν είναι διαθέσιμο</string>

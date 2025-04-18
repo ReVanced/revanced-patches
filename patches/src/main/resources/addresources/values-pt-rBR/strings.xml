@@ -830,8 +830,8 @@ Limitação: \"Não gostei\" podem não aparecer no modo anônimo"</string>
   <string name="revanced_ryd_compact_layout_summary_on">Botão gostei estilizado para largura mínima</string>
   <string name="revanced_ryd_compact_layout_summary_off">Botão gostei estilizado para melhor aparência</string>
   <string name="revanced_ryd_estimated_like_title">Mostrar estimativa de \"gostei\"</string>
-  <string name="revanced_ryd_estimated_like_summary_on">A estimativa de \"gostei\" está visível</string>
-  <string name="revanced_ryd_estimated_like_summary_off">A estimativa de \"gostei\" está oculta</string>
+  <string name="revanced_ryd_estimated_like_summary_on">Vídeos com likes desativados mostram uma estimativa da contagem de likes</string>
+  <string name="revanced_ryd_estimated_like_summary_off">Likes estimados não são mostrados</string>
   <string name="revanced_ryd_toast_on_connection_error_title">Exibir uma notificação flutuante se a API não estiver disponível</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_on">Notificação flutuante vai ser exibida se o Return YouTube Dislike não estiver disponível</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_off">Notificação flutuante não vai ser exibida se o Return YouTube Dislike não estiver disponível</string>

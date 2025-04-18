@@ -832,8 +832,8 @@ MicroG-ի համար մարտկոցի օպտիմալացումը անջատել�
   <string name="revanced_ryd_compact_layout_summary_on">\"Like\" կոճակը  ոճավորված է  մինիմալ  մեծության համար</string>
   <string name="revanced_ryd_compact_layout_summary_off">\"Like\" կոճակը  ոճավորված է  լավագույն  հայացքի համար</string>
   <string name="revanced_ryd_estimated_like_title">Ցույց տալ մոտավոր հավանումները</string>
-  <string name="revanced_ryd_estimated_like_summary_on">Ցուցադրվում են մոտավոր հավանումները</string>
-  <string name="revanced_ryd_estimated_like_summary_off">Մոտավոր հավանումները թաքցված են</string>
+  <string name="revanced_ryd_estimated_like_summary_on">«Հավանումներն» անջատված տեսանյութերը ցույց են տալիս հավանումների մոտավոր քանակը</string>
+  <string name="revanced_ryd_estimated_like_summary_off">Մոտավոր հավանումները չեն ցուցադրվում</string>
   <string name="revanced_ryd_toast_on_connection_error_title">Ցուցադրել \"toast\", եթե API-ն  հասանելի չէ</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_on">\"Toast\"-ը  ցուցադրվում է, եթե Return YouTube Dislike-ը  հասանելի չէ</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_off">\"Toast\"-ը  չի ցուցադրվում, եթե Return YouTube Dislike-ը  հասանելի չէ</string>

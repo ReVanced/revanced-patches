@@ -832,8 +832,8 @@ Ograniczenie: Oceny negatywne mogą nie pojawiać się w trybie incognito"</stri
   <string name="revanced_ryd_compact_layout_summary_on">Przycisk łapki stylizowany dla minimalnej szerokości</string>
   <string name="revanced_ryd_compact_layout_summary_off">Przycisk łapki stylizowany dla najlepszego wyglądu</string>
   <string name="revanced_ryd_estimated_like_title">Pokaż szacunkową liczbę polubień</string>
-  <string name="revanced_ryd_estimated_like_summary_on">Szacunkowa liczba polubień jest wyświetlana</string>
-  <string name="revanced_ryd_estimated_like_summary_off">Szacunkowa liczba polubień jest ukryta</string>
+  <string name="revanced_ryd_estimated_like_summary_on">Filmy z wyłączonymi polubieniami wyświetlają szacunkową liczbę polubień</string>
+  <string name="revanced_ryd_estimated_like_summary_off">Szacunkowa liczba polubień nie jest wyświetlana</string>
   <string name="revanced_ryd_toast_on_connection_error_title">Komunikat o niedostępności API</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_on">Komunikat jest wyświetlany, jeśli Return YouTube Dislike nie jest dostępny</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_off">Komunikat nie jest wyświetlany, jeśli Return YouTube Dislike nie jest dostępny</string>

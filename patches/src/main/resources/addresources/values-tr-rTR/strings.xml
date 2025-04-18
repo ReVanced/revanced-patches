@@ -480,8 +480,8 @@ Ekranın sağ tarafında dikey olarak kaydırarak sesi ayarlayın"</string>
   </patch>
   <patch id="layout.autocaptions.autoCaptionsPatch">
   <string name="revanced_disable_auto_captions_title">Otomatik altyazıları devre dışı bırak</string>
-  <string name="revanced_disable_auto_captions_summary_on">Altyazılar kendiliğinden açılmaz</string>
-  <string name="revanced_disable_auto_captions_summary_off">Altyazılar kendiliğinden açılabilir</string>
+  <string name="revanced_disable_auto_captions_summary_on">Otomatik altyazılar devre dışı</string>
+  <string name="revanced_disable_auto_captions_summary_off">Otomatik altyazılar etkin</string>
   </patch>
   <patch id="layout.buttons.action.hideButtonsPatch">
   <string name="revanced_hide_buttons_screen_title">Eylem düğmeleri</string>
@@ -832,8 +832,8 @@ Kısıtlama: Beğenilmeme sayıları gizli modda görünmeyebilir"</string>
   <string name="revanced_ryd_compact_layout_summary_on">Beğenme düğmesi en az genişlik için biçimlendirilir</string>
   <string name="revanced_ryd_compact_layout_summary_off">Beğenme düğmesi en iyi görünüm için biçimlendirilir</string>
   <string name="revanced_ryd_estimated_like_title">Tahmini beğenileri göster</string>
-  <string name="revanced_ryd_estimated_like_summary_on">Tahmini beğeniler görünür</string>
-  <string name="revanced_ryd_estimated_like_summary_off">Tahmini beğeniler gizli</string>
+  <string name="revanced_ryd_estimated_like_summary_on">Beğenileri devre dışı bırakılan videolarda tahmini beğeni sayısı gösterilir</string>
+  <string name="revanced_ryd_estimated_like_summary_off">Tahmini beğeniler gösterilmez</string>
   <string name="revanced_ryd_toast_on_connection_error_title">API kullanılamadığında bir uyarı göster</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_on">Return YouTube Dislike kullanılamadığında uyarı gösterilir</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_off">Return YouTube Dislike kullanılamadığında uyarı gösterilmez</string>

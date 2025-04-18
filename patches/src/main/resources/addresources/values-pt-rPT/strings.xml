@@ -832,8 +832,8 @@ Limitação: As não gostos podem não aparecer no modo anônimo"</string>
   <string name="revanced_ryd_compact_layout_summary_on">Botão curtir estilizado para largura mínima</string>
   <string name="revanced_ryd_compact_layout_summary_off">Botão curtir estilizado para melhor aparência</string>
   <string name="revanced_ryd_estimated_like_title">Mostrar estimativa de \"gostos\"</string>
-  <string name="revanced_ryd_estimated_like_summary_on">As estimativas de \"gostos\" são mostradas</string>
-  <string name="revanced_ryd_estimated_like_summary_off">As estimativas de \"gostos\" estão ocultas</string>
+  <string name="revanced_ryd_estimated_like_summary_on">Vídeos com likes desativados mostram uma estimativa da contagem de likes</string>
+  <string name="revanced_ryd_estimated_like_summary_off">Likes estimados não são mostrados</string>
   <string name="revanced_ryd_toast_on_connection_error_title">Mostrar uma notificação flutuante se a API não estiver disponível</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_on">Toast é exibida se Retornar o Youtube Dislike não estiver disponível</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_off">Toast não é exibida se Retornar o YouTube Dislike não estiver disponível</string>

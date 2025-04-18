@@ -832,8 +832,8 @@ Beperking: Vind ik niet leuk verschijnen mogelijk niet in de incognitomodus"</st
   <string name="revanced_ryd_compact_layout_summary_on">\"Like\" knop met minimale breedte</string>
   <string name="revanced_ryd_compact_layout_summary_off">\"Like\" knop met beste uiterlijk</string>
   <string name="revanced_ryd_estimated_like_title">Geschatte likes weergeven</string>
-  <string name="revanced_ryd_estimated_like_summary_on">Geschatte likes worden weergegeven</string>
-  <string name="revanced_ryd_estimated_like_summary_off">Geschatte likes zijn verborgen</string>
+  <string name="revanced_ryd_estimated_like_summary_on">Video\'s met uitgeschakelde vind-ik-leuks tonen een geschat aantal vind-ik-leuks</string>
+  <string name="revanced_ryd_estimated_like_summary_off">Geschatte vind-ik-leuks worden niet getoond</string>
   <string name="revanced_ryd_toast_on_connection_error_title">Toon een \"toast\" als de API niet beschikbaar is</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_on">\"Toast\" wordt getoond als Return YouTube Dislike niet beschikbaar is</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_off">\"Toast\" wordt niet getoond als Return YouTube Dislike niet beschikbaar is</string>

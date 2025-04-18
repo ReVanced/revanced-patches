@@ -825,8 +825,8 @@ Obmedzenie: Hodnotenia Nepáči sa mi to sa nemusia zobraziť v anonymnom režim
   <string name="revanced_ryd_compact_layout_summary_on">Tlačidlo podobné štýlu pre minimálnu šírku</string>
   <string name="revanced_ryd_compact_layout_summary_off">Tlačidlo v štýle ako pre najlepší vzhľad</string>
   <string name="revanced_ryd_estimated_like_title">Zobraziť odhadované počty označení Páči sa mi to</string>
-  <string name="revanced_ryd_estimated_like_summary_on">Zobrazujú sa odhadované počty označení Páči sa mi to</string>
-  <string name="revanced_ryd_estimated_like_summary_off">Odhadované počty označení Páči sa mi to sú skryté</string>
+  <string name="revanced_ryd_estimated_like_summary_on">Videá so zakázanými hodnoteniami Páči sa mi to zobrazujú odhadovaný počet hodnotení Páči sa mi to</string>
+  <string name="revanced_ryd_estimated_like_summary_off">Odhadované hodnotenia Páči sa mi to sa nezobrazujú</string>
   <string name="revanced_ryd_toast_on_connection_error_title">Ukážte prípitok, ak API nie je k dispozícii</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_on">Ak nie je k dispozícii možnosť Vrátiť Nepáči sa mi na YouTube, zobrazí sa toast</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_off">Toast sa nezobrazuje, ak nie je k dispozícii možnosť Vrátiť Nepáči sa mi na YouTube</string>
