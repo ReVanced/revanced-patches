@@ -189,7 +189,7 @@ class SwipeControlsConfigurationProvider {
         /**
          * A minimal circular progress bar.
          */
-        CIRCULAR_MINIMAL(isMinimal = true),
+        CIRCULAR_MINIMAL(isMinimal = true, isCircular = true),
 
         /**
          * A full vertical progress bar with detailed indicators.
