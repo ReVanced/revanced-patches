@@ -479,9 +479,9 @@ Second \"item\" text"</string>
   <string name="revanced_swipe_change_video_summary_off">Превлачење у режиму целог екрана неће променити на следећи/претходни видео</string>
   </patch>
   <patch id="layout.autocaptions.autoCaptionsPatch">
-  <string name="revanced_disable_auto_captions_title">Онемогући аутоматске титлове</string>
-  <string name="revanced_disable_auto_captions_summary_on">Аутоматски титлови су искључени</string>
-  <string name="revanced_disable_auto_captions_summary_off">Аутоматски титлови су укључени</string>
+  <string name="revanced_disable_auto_captions_title">Онемогући аутоматски титл</string>
+  <string name="revanced_disable_auto_captions_summary_on">Аутоматски титл је онемогућен</string>
+  <string name="revanced_disable_auto_captions_summary_off">Аутоматски титл је омогућен</string>
   </patch>
   <patch id="layout.buttons.action.hideButtonsPatch">
   <string name="revanced_hide_buttons_screen_title">Дугмад радњи</string>
@@ -832,8 +832,8 @@ Second \"item\" text"</string>
   <string name="revanced_ryd_compact_layout_summary_on">Дугме „Свиђање” стилизовано за минималну ширину</string>
   <string name="revanced_ryd_compact_layout_summary_off">Дугме „Свиђање” стилизовано за најбољи изглед</string>
   <string name="revanced_ryd_estimated_like_title">Прикажи процењени број свиђања</string>
-  <string name="revanced_ryd_estimated_like_summary_on">Процењени број свиђања је приказан</string>
-  <string name="revanced_ryd_estimated_like_summary_off">Процењени број свиђања је скривен</string>
+  <string name="revanced_ryd_estimated_like_summary_on">Видеи са онемогућеним свиђањима приказују процењени број свиђања</string>
+  <string name="revanced_ryd_estimated_like_summary_off">Процењени број свиђања није приказан</string>
   <string name="revanced_ryd_toast_on_connection_error_title">Прикажи искачуће обавештење ако API није доступан</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_on">Искачуће обавештење је приказано, ако Return YouTube Dislike није доступан</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_off">Искачуће обавештење није приказано, ако Return YouTube Dislike није доступан</string>

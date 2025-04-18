@@ -832,8 +832,8 @@ Second \"item\" text"</string>
   <string name="revanced_ryd_compact_layout_summary_on">点赞按钮设置为最小宽度</string>
   <string name="revanced_ryd_compact_layout_summary_off">点赞按钮设置为最佳外观</string>
   <string name="revanced_ryd_estimated_like_title">显示估计的点赞数</string>
-  <string name="revanced_ryd_estimated_like_summary_on">已显示估计的点赞数</string>
-  <string name="revanced_ryd_estimated_like_summary_off">已隐藏估计的点赞数</string>
+  <string name="revanced_ryd_estimated_like_summary_on">已禁用点赞的视频会显示估计的点赞数</string>
+  <string name="revanced_ryd_estimated_like_summary_off">不显示估计的点赞数</string>
   <string name="revanced_ryd_toast_on_connection_error_title">如果 API 不可用，则显示提示</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_on">如果 Return YouTube Dislike 不可用，则显示提示</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_off">如果 Return YouTube Dislike 不可用，则不显示提示</string>

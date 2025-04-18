@@ -832,8 +832,8 @@ Kufizimi: Mospëlqimet mund të mos shfaqen në modalitetin incognito"</string>
   <string name="revanced_ryd_compact_layout_summary_on">Butoni \"Pëlqen\" i stiluar për gjerësi minimale</string>
   <string name="revanced_ryd_compact_layout_summary_off">Butoni \"Pëlqen\" i stiluar për paraqitje më të mirë</string>
   <string name="revanced_ryd_estimated_like_title">Shfaq pëlqimet e vlerësuara</string>
-  <string name="revanced_ryd_estimated_like_summary_on">Pëlqimet e vlerësuara shfaqen</string>
-  <string name="revanced_ryd_estimated_like_summary_off">Pëlqimet e vlerësuara janë fshehur</string>
+  <string name="revanced_ryd_estimated_like_summary_on">Videot me pëlqime të çaktivizuara tregojnë një numër të vlerësuar pëlqimesh</string>
+  <string name="revanced_ryd_estimated_like_summary_off">Pëlqimet e vlerësuara nuk shfaqen</string>
   <string name="revanced_ryd_toast_on_connection_error_title">Shfaq një toast nëse API nuk është në dispozicion</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_on">Toast shfaqet nëse Return YouTube Dislike nuk është në dispozicion</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_off">Toast nuk shfaqet nëse Return YouTube Dislike nuk është në dispozicion</string>

@@ -830,8 +830,8 @@ Apribojimas: nepritarimai gali būti nerodomi inkognito režimu"</string>
   <string name="revanced_ryd_compact_layout_summary_on">\"Patinka\" mygtukas suformuotas minimaliam pločiui</string>
   <string name="revanced_ryd_compact_layout_summary_off">\"Patinka\" mygtukas suformuotas geriausiam vaizdui</string>
   <string name="revanced_ryd_estimated_like_title">Rodyti numatomus patiktukus</string>
-  <string name="revanced_ryd_estimated_like_summary_on">Apytiksliai patiktukai rodomi</string>
-  <string name="revanced_ryd_estimated_like_summary_off">Apytiksliai patiktukai paslėpti</string>
+  <string name="revanced_ryd_estimated_like_summary_on">Vaizdo įrašuose, kuriuose išjungti „Patinka“, rodomas apytikslis „Patinka“ skaičius</string>
+  <string name="revanced_ryd_estimated_like_summary_off">Apytiksliai „Patinka“ nerodomi</string>
   <string name="revanced_ryd_toast_on_connection_error_title">Rodyti pranešimą, jei API nepasiekiamas</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_on">Pranešimas rodomas, jei „Return YouTube Dislike“ nepasiekiamas</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_off">Pranešimas nerodomas, jei „Return YouTube Dislike“ nepasiekiamas</string>

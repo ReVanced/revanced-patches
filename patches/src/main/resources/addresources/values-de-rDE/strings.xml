@@ -825,8 +825,8 @@ Einschränkung: Dislikes werden möglicherweise nicht im Inkognito-Modus angezei
   <string name="revanced_ryd_compact_layout_summary_on">\"Gefällt mir\" Button für minimale Breite</string>
   <string name="revanced_ryd_compact_layout_summary_off">\"Gefällt mir\" Button für das beste Aussehen</string>
   <string name="revanced_ryd_estimated_like_title">Geschätzte \"Gefällt mir\"-Angaben anzeigen</string>
-  <string name="revanced_ryd_estimated_like_summary_on">Geschätzte \"Gefällt mir\"-Angaben werden angezeigt</string>
-  <string name="revanced_ryd_estimated_like_summary_off">Geschätzte \"Gefällt mir\"-Angaben sind verborgen</string>
+  <string name="revanced_ryd_estimated_like_summary_on">Videos mit deaktivierten \"Gefällt mir\"-Angaben zeigen eine geschätzte Anzahl von \"Gefällt mir\"-Angaben</string>
+  <string name="revanced_ryd_estimated_like_summary_off">Geschätzte \"Gefällt mir\"-Angaben werden nicht angezeigt</string>
   <string name="revanced_ryd_toast_on_connection_error_title">Einen Toast anzeigen, wenn die API nicht verfügbar ist</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_on">Toast wird angezeigt, wenn YouTube-Ablehnung nicht verfügbar ist</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_off">Toast wird nicht angezeigt, wenn YouTube-Dislike nicht verfügbar ist</string>

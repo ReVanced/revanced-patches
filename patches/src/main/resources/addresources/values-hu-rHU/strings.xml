@@ -832,8 +832,8 @@ Korlátozás: A nem tetszések inkognitómódban nem jelenhetnek meg"</string>
   <string name="revanced_ryd_compact_layout_summary_on">A tetszik gomb minimális szélességre formázva</string>
   <string name="revanced_ryd_compact_layout_summary_off">A tetszik gomb a legjobb megjelenésre formázva</string>
   <string name="revanced_ryd_estimated_like_title">Becsült kedvelések mutatása</string>
-  <string name="revanced_ryd_estimated_like_summary_on">A becsült kedvelések láthatók</string>
-  <string name="revanced_ryd_estimated_like_summary_off">A becsült kedvelések rejtve vannak</string>
+  <string name="revanced_ryd_estimated_like_summary_on">A letiltott kedvelésekkel rendelkező videók a becsült kedvelések számát mutatják</string>
+  <string name="revanced_ryd_estimated_like_summary_off">A becsült kedvelések nem jelennek meg</string>
   <string name="revanced_ryd_toast_on_connection_error_title">Üzenet megjelenítése, ha az API nem elérhető</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_on">Üzenet megjelenítése, ha a Return YouTube Dislike nem elérhető</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_off">Nem jelenik meg üzenet, ha a Return YouTube Dislike nem elérhető</string>

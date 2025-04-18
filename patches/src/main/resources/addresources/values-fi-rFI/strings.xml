@@ -832,8 +832,6 @@ Rajoitus: Ei-tykkäykset eivät välttämättä näy incognito-tilassa"</string>
   <string name="revanced_ryd_compact_layout_summary_on">Tykkää-painike on muotoiltu mahdollisimman kapeaksi</string>
   <string name="revanced_ryd_compact_layout_summary_off">Tykkää-painike on muotoiltu parhaan näköiseksi</string>
   <string name="revanced_ryd_estimated_like_title">Näytä arvioidut tykkäykset</string>
-  <string name="revanced_ryd_estimated_like_summary_on">Arvioidut tykkäykset näytetään</string>
-  <string name="revanced_ryd_estimated_like_summary_off">Arvioidut tykkäykset on piilotettu</string>
   <string name="revanced_ryd_toast_on_connection_error_title">Näytä ponnahdusilmoitus, jos API ei ole käytettävissä</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_on">Ponnahdusilmoitus näytetään, jos Return YouTube Dislike ei ole käytettävissä</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_off">Ponnahdusilmoitusta ei näytetä, jos Return YouTube Dislike ei ole käytettävissä</string>

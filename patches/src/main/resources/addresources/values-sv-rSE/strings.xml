@@ -832,8 +832,8 @@ Begränsning: Ogillanden kanske inte visas i inkognitoläge"</string>
   <string name="revanced_ryd_compact_layout_summary_on">Gilla knappen stylad för minsta bredd</string>
   <string name="revanced_ryd_compact_layout_summary_off">Gilla knappen stylas för bästa utseende</string>
   <string name="revanced_ryd_estimated_like_title">Visa uppskattade gillamarkeringar</string>
-  <string name="revanced_ryd_estimated_like_summary_on">Uppskattade gillamarkeringar visas</string>
-  <string name="revanced_ryd_estimated_like_summary_off">Uppskattade gillamarkeringar är dolda</string>
+  <string name="revanced_ryd_estimated_like_summary_on">Videor med inaktiverade gillanden visar ett uppskattat antal gillanden</string>
+  <string name="revanced_ryd_estimated_like_summary_off">Uppskattade gillanden visas inte</string>
   <string name="revanced_ryd_toast_on_connection_error_title">Visa ett meddelande om API inte är tillgängligt</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_on">Visa ett meddelande om Return YouTube Dislike inte är tillgängligt</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_off">Visa inget meddelande om Return YouTube Dislike inte är tillgängligt</string>

@@ -832,8 +832,8 @@ Limitare: Este posibil ca aprecierile negative să nu apară în modul incognito
   <string name="revanced_ryd_compact_layout_summary_on">Buton de stilizat pentru lățime minimă</string>
   <string name="revanced_ryd_compact_layout_summary_off">Buton asemănător pentru cel mai bun aspect</string>
   <string name="revanced_ryd_estimated_like_title">Afișați aprecierile estimate</string>
-  <string name="revanced_ryd_estimated_like_summary_on">Aprecierile estimate sunt afișate</string>
-  <string name="revanced_ryd_estimated_like_summary_off">Aprecierile estimate sunt ascunse</string>
+  <string name="revanced_ryd_estimated_like_summary_on">Videoclipurile cu aprecieri dezactivate afișează un număr estimat de aprecieri</string>
+  <string name="revanced_ryd_estimated_like_summary_off">Aprecierile estimate nu sunt afișate</string>
   <string name="revanced_ryd_toast_on_connection_error_title">Arată un toast dacă API-ul nu este disponibil</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_on">Toast este afișat dacă Returnarea YouTube Dislike nu este disponibilă</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_off">Toast nu este afișat dacă Returnarea YouTube Dislike nu este disponibilă</string>

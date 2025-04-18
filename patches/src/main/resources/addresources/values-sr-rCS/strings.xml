@@ -479,9 +479,9 @@ Podesite jačinu zvuka prevlačenjem vertikalno na desnoj strani ekrana"</string
   <string name="revanced_swipe_change_video_summary_off">Prevlačenje u režimu celog ekrana neće promeniti na sledeći/prethodni video</string>
   </patch>
   <patch id="layout.autocaptions.autoCaptionsPatch">
-  <string name="revanced_disable_auto_captions_title">Onemogući automatske titlove</string>
-  <string name="revanced_disable_auto_captions_summary_on">Automatski titlovi su onemogućeni</string>
-  <string name="revanced_disable_auto_captions_summary_off">Automatski titlovi su omogućeni</string>
+  <string name="revanced_disable_auto_captions_title">Onemogući automatski titl</string>
+  <string name="revanced_disable_auto_captions_summary_on">Automatski titl je onemogućen</string>
+  <string name="revanced_disable_auto_captions_summary_off">Automatski titl je omogućen</string>
   </patch>
   <patch id="layout.buttons.action.hideButtonsPatch">
   <string name="revanced_hide_buttons_screen_title">Dugmad radnji</string>
@@ -832,8 +832,8 @@ Ograničenje: Nesviđanja se možda neće pojaviti u režimu bez arhiviranja"</
   <string name="revanced_ryd_compact_layout_summary_on">Dugme „Sviđanje” stilizovano za minimalnu širinu</string>
   <string name="revanced_ryd_compact_layout_summary_off">Dugme „Sviđanje” stilizovano za najbolji izgled</string>
   <string name="revanced_ryd_estimated_like_title">Prikaži procenjeni broj sviđanja</string>
-  <string name="revanced_ryd_estimated_like_summary_on">Procenjeni broj sviđanja je prikazan</string>
-  <string name="revanced_ryd_estimated_like_summary_off">Procenjeni broj sviđanja je skriven</string>
+  <string name="revanced_ryd_estimated_like_summary_on">Videi sa onemogućenim sviđanjima prikazuju procenjeni broj sviđanja</string>
+  <string name="revanced_ryd_estimated_like_summary_off">Procenjeni broj sviđanja nije prikazan</string>
   <string name="revanced_ryd_toast_on_connection_error_title">Prikaži iskačuće obaveštenje ako API nije dostupan</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_on">Iskačuće obaveštenje je prikazano, ako Return YouTube Dislike nije dostupan</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_off">Iskačuće obaveštenje nije prikazano, ako Return YouTube Dislike nije dostupan</string>
