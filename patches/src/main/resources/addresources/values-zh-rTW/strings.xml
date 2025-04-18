@@ -829,8 +829,6 @@ Second \"item\" text"</string>
   <string name="revanced_ryd_compact_layout_summary_on">「喜歡」按鈕樣式設為最小寬度</string>
   <string name="revanced_ryd_compact_layout_summary_off">「喜歡」按鈕樣式設為最佳外觀</string>
   <string name="revanced_ryd_estimated_like_title">顯示預估喜歡人數</string>
-  <string name="revanced_ryd_estimated_like_summary_on">已顯示預估喜歡人數</string>
-  <string name="revanced_ryd_estimated_like_summary_off">已隱藏預估喜歡人數</string>
   <string name="revanced_ryd_toast_on_connection_error_title">若 API 無法使用，顯示提示</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_on">如果 Return YouTube Dislike 無法使用，則顯示提示訊息</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_off">如果 Return YouTube Dislike 無法使用，則不會顯示提示訊息</string>

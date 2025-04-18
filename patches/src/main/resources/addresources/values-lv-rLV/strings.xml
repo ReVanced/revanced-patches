@@ -832,8 +832,8 @@ Ierobežojums: Nepatīk var neparādīties inkognito režīmā"</string>
   <string name="revanced_ryd_compact_layout_summary_on">Patīk poga ir stilizēta minimālam platumam</string>
   <string name="revanced_ryd_compact_layout_summary_off">Patīk poga ir stilizēta labākam izskatam</string>
   <string name="revanced_ryd_estimated_like_title">Rādīt aptuvenos \"Patīk\"</string>
-  <string name="revanced_ryd_estimated_like_summary_on">Aptuvenie \"Patīk\" tiek rādīti</string>
-  <string name="revanced_ryd_estimated_like_summary_off">Aptuvenie \"Patīk\" ir paslēpti</string>
+  <string name="revanced_ryd_estimated_like_summary_on">Videoklipi ar atspējotām atzīmēm Patīk rāda aptuveno atzīmju Patīk skaitu</string>
+  <string name="revanced_ryd_estimated_like_summary_off">Aptuvenais atzīmju Patīk skaits netiek rādīts</string>
   <string name="revanced_ryd_toast_on_connection_error_title">Rādīt paziņojumu, ja API nav pieejama</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_on">Paziņojums tiks rādīts, ja Return YouTube Dislike nav pieejams</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_off">Paziņojums netiks rādīts, ja Return YouTube Dislike nav pieejams</string>

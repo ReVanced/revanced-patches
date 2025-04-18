@@ -830,8 +830,8 @@ Second \"item\" text"</string>
   <string name="revanced_ryd_compact_layout_summary_on">ปุ่ม \"ถูกใจ\" ปรับให้มีขนาดเล็กที่สุด</string>
   <string name="revanced_ryd_compact_layout_summary_off">ปุ่ม \"ถูกใจ\" ปรับให้แสดงผลได้ดีที่สุด</string>
   <string name="revanced_ryd_estimated_like_title">แสดงจำนวนถูกใจโดยประมาณ</string>
-  <string name="revanced_ryd_estimated_like_summary_on">แสดงจำนวนถูกใจโดยประมาณ</string>
-  <string name="revanced_ryd_estimated_like_summary_off">ซ่อนจำนวนถูกใจโดยประมาณ</string>
+  <string name="revanced_ryd_estimated_like_summary_on">วิดีโอที่ปิดการถูกใจจะแสดงจำนวนการถูกใจโดยประมาณ</string>
+  <string name="revanced_ryd_estimated_like_summary_off">ไม่แสดงจำนวนการถูกใจโดยประมาณ</string>
   <string name="revanced_ryd_toast_on_connection_error_title">แสดงคำอวยพรถ้า API ไม่พร้อมใช้งาน</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_on">ข้อความแจ้งเตือนแสดงขึ้น หาก Return YouTube Dislike ไม่พร้อมใช้งาน</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_off">Toast ไม่ปรากฏขึ้นหาก ไม่สามารถใช้งาน Return YouTube Dislike</string>

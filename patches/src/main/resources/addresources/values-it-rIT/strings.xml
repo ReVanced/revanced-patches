@@ -832,8 +832,8 @@ Limitazione: i \"Non mi piace\" potrebbero non apparire in modalità incognito"<
   <string name="revanced_ryd_compact_layout_summary_on">Pulsante Mi Piace riadattato per una larghezza minima</string>
   <string name="revanced_ryd_compact_layout_summary_off">Pulsante Mi Piace riadattato per la migliore visualizzazione</string>
   <string name="revanced_ryd_estimated_like_title">Mostra \"Mi piace\" stimati</string>
-  <string name="revanced_ryd_estimated_like_summary_on">Vengono mostrati i \"Mi piace\" stimati</string>
-  <string name="revanced_ryd_estimated_like_summary_off">I \"Mi piace\" stimati sono nascosti</string>
+  <string name="revanced_ryd_estimated_like_summary_on">I video con </string>
+  <string name="revanced_ryd_estimated_like_summary_off">I \"Mi piace\" stimati non sono mostrati</string>
   <string name="revanced_ryd_toast_on_connection_error_title">Mostra un toast se l\'API non è disponibile</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_on">Una notifica è mostrata se Return YouTube Dislike non è disponibile</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_off">Nessuna notifica viene mostrata se Return YouTube Dislike non è disponibile</string>

@@ -830,8 +830,8 @@ Limitasyon: Maaaring hindi lumabas ang mga Dislike sa incognito mode"</string>
   <string name="revanced_ryd_compact_layout_summary_on">Like button na naka-istilong para sa minimum na lapad</string>
   <string name="revanced_ryd_compact_layout_summary_off">I-style na button para sa pinakamahusay na hitsura</string>
   <string name="revanced_ryd_estimated_like_title">Ipakita ang tinantyang mga gusto</string>
-  <string name="revanced_ryd_estimated_like_summary_on">Ipinapakita ang tinantyang mga gusto</string>
-  <string name="revanced_ryd_estimated_like_summary_off">Nakatago ang tinantyang mga gusto</string>
+  <string name="revanced_ryd_estimated_like_summary_on">Ipinapakita ng mga video na naka-disable ang mga like ang tinatayang bilang ng mga like</string>
+  <string name="revanced_ryd_estimated_like_summary_off">Hindi ipinapakita ang mga tinatayang like</string>
   <string name="revanced_ryd_toast_on_connection_error_title">Magpakita ng toast kung hindi available ang API</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_on">Ipapakita ang toast kung hindi available ang Return YouTube Dislike</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_off">Hindi ipinapakita ang toast kung hindi available ang Return YouTube Dislike</string>

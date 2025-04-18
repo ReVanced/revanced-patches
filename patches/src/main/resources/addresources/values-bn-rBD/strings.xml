@@ -832,8 +832,8 @@ YouTube সেটিংসে অটো প্লে পরিবর্তন �
   <string name="revanced_ryd_compact_layout_summary_on">পছন্দ বোতামটি ন্যূনতম প্রস্থের জন্য সাজানো হয়েছে</string>
   <string name="revanced_ryd_compact_layout_summary_off">পছন্দ বোতামটি সেরা চেহারার জন্য সাজানো হয়েছে</string>
   <string name="revanced_ryd_estimated_like_title">অনুমানিত লাইক দেখান</string>
-  <string name="revanced_ryd_estimated_like_summary_on">অনুমানিত লাইক দেখানো হয়েছে</string>
-  <string name="revanced_ryd_estimated_like_summary_off">অনুমানিত লাইক লুকানো হয়েছে</string>
+  <string name="revanced_ryd_estimated_like_summary_on">পছন্দগুলি অক্ষম করা ভিডিওগুলি একটি আনুমানিক পছন্দের সংখ্যা দেখায়</string>
+  <string name="revanced_ryd_estimated_like_summary_off">আনুমানিক পছন্দগুলি দেখানো হয় না</string>
   <string name="revanced_ryd_toast_on_connection_error_title">API উপলভ্য না থাকলে একটি টোস্ট দেখান</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_on">Return YouTube Dislike উপলভ্য না থাকলে টোস্ট দেখানো হবে</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_off">Return YouTube Dislike উপলভ্য না থাকলে টোস্ট দেখানো হবে না</string>

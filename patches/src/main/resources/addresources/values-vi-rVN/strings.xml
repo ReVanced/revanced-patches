@@ -832,8 +832,8 @@ Hạn chế: Số lượt không thích có thể không xuất hiện ở chế
   <string name="revanced_ryd_compact_layout_summary_on">Nút thích được thiết kế để tối ưu độ rộng</string>
   <string name="revanced_ryd_compact_layout_summary_off">Nút thích được thiết kế để tối ưu ngoại hình tốt nhất</string>
   <string name="revanced_ryd_estimated_like_title">Hiện lượt thích ước tính</string>
-  <string name="revanced_ryd_estimated_like_summary_on">Lượt thích ước tính được hiện</string>
-  <string name="revanced_ryd_estimated_like_summary_off">Đã ẩn lượt thích ước tính</string>
+  <string name="revanced_ryd_estimated_like_summary_on">Video có lượt thích bị tắt hiển thị số lượt thích ước tính</string>
+  <string name="revanced_ryd_estimated_like_summary_off">Không hiển thị lượt thích ước tính</string>
   <string name="revanced_ryd_toast_on_connection_error_title">Hiện thông báo nổi nếu API không khả dụng</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_on">Thông báo nổi được hiện nếu Return YouTube Dislike không khả dụng</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_off">Thông báo nổi không được hiện nếu Return YouTube Dislike không khả dụng</string>
