@@ -10,14 +10,27 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import com.android.tools.smali.dexlib2.immutable.reference.ImmutableMethodReference
 import com.android.tools.smali.dexlib2.util.MethodUtil
 
-private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/all/spoof/adb/SpoofAdbPatch;"
+private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/all/misc/hide/adb/HideAdbPatch;"
 
-private val SETTINGS_GLOBAL_GET_INT_METHOD_REFERENCE = ImmutableMethodReference(
+private val SETTINGS_GLOBAL_GET_INT_OR_THROW_METHOD_REFERENCE = ImmutableMethodReference(
     "Landroid/provider/Settings\$Global;",
     "getInt",
-   emptyList(),
+    listOf("Landroid/content/ContentResolver;", "Ljava/lang/String;"),
     "I"
 )
+
+private val SETTINGS_GLOBAL_GET_INT_OR_DEFAULT_METHOD_REFERENCE = ImmutableMethodReference(
+    "Landroid/provider/Settings\$Global;",
+    "getInt",
+    listOf("Landroid/content/ContentResolver;", "Ljava/lang/String;", "I"),
+    "I"
+)
+
+private fun MethodReference.anyMethodSignatureMatches(vararg anyOf: MethodReference): Boolean {
+    return anyOf.any {
+        MethodUtil.methodSignaturesMatch(it, this)
+    }
+}
 
 @Suppress("unused")
 val hideAdbStatusPatch = bytecodePatch(
@@ -33,7 +46,12 @@ val hideAdbStatusPatch = bytecodePatch(
                 val reference = instruction
                     .takeIf { it.opcode == Opcode.INVOKE_STATIC }
                     ?.getReference<MethodReference>()
-                    ?.takeIf { MethodUtil.methodSignaturesMatch(SETTINGS_GLOBAL_GET_INT_METHOD_REFERENCE, it) }
+                    ?.takeIf {
+                        it.anyMethodSignatureMatches(it,
+                            SETTINGS_GLOBAL_GET_INT_OR_THROW_METHOD_REFERENCE,
+                            SETTINGS_GLOBAL_GET_INT_OR_DEFAULT_METHOD_REFERENCE
+                        )
+                    }
                     ?: return@filterMap null
 
                 Triple(instruction as Instruction35c, instructionIndex, reference.parameterTypes)
