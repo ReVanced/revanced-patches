@@ -1,3 +1,10 @@
+# [5.21.0-dev.5](https://github.com/ReVanced/revanced-patches/compare/v5.21.0-dev.4...v5.21.0-dev.5) (2025-04-18)
+
+
+### Bug Fixes
+
+* `Hide ADB status` patch ([#4814](https://github.com/ReVanced/revanced-patches/issues/4814)) ([dc89be0](https://github.com/ReVanced/revanced-patches/commit/dc89be0e94880733f862b250d95d4848f02c594d))
+
 # [5.21.0-dev.4](https://github.com/ReVanced/revanced-patches/compare/v5.21.0-dev.3...v5.21.0-dev.4) (2025-04-17)
 
 
