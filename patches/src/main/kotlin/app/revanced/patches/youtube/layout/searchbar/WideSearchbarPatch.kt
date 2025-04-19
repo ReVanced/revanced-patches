@@ -1,5 +1,6 @@
 package app.revanced.patches.youtube.layout.searchbar
 
+import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.resourcePatch
@@ -118,7 +119,7 @@ val wideSearchbarPatch = bytecodePatch(
             }
             val register = getInstruction<OneRegisterInstruction>(inflateIndex + 1).registerA
 
-            addInstructionsAtControlFlowLabel(
+            addInstruction(
                 inflateIndex + 2,
                 "invoke-static { v$register }, $EXTENSION_CLASS_DESCRIPTOR->setActionBar(Landroid/view/View;)V"
             )
