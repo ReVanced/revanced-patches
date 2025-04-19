@@ -7,6 +7,7 @@ import static app.revanced.extension.shared.settings.Setting.migrateOldSettingTo
 import static app.revanced.extension.shared.settings.Setting.parent;
 import static app.revanced.extension.shared.settings.Setting.parentsAny;
 import static app.revanced.extension.youtube.patches.ChangeFormFactorPatch.FormFactor;
+import static app.revanced.extension.youtube.patches.ChangeStartPagePatch.ChangeStartPageTypeAvailability;
 import static app.revanced.extension.youtube.patches.ChangeStartPagePatch.StartPage;
 import static app.revanced.extension.youtube.patches.ExitFullscreenPatch.FullscreenMode;
 import static app.revanced.extension.youtube.patches.ForceOriginalAudioPatch.ForceOriginalAudioAvailability;
@@ -222,6 +223,8 @@ public class Settings extends BaseSettings {
     public static final BooleanSetting SPOOF_APP_VERSION = new BooleanSetting("revanced_spoof_app_version", FALSE, true, "revanced_spoof_app_version_user_dialog_message");
     public static final BooleanSetting WIDE_SEARCHBAR = new BooleanSetting("revanced_wide_searchbar", FALSE, true);
     public static final EnumSetting<StartPage> CHANGE_START_PAGE = new EnumSetting<>("revanced_change_start_page", StartPage.DEFAULT, true);
+    public static final BooleanSetting CHANGE_START_PAGE_ALWAYS = new BooleanSetting("revanced_change_start_page_always", FALSE, true,
+            new ChangeStartPageTypeAvailability());
     public static final StringSetting SPOOF_APP_VERSION_TARGET = new StringSetting("revanced_spoof_app_version_target", "19.01.34", true, parent(SPOOF_APP_VERSION));
     // Custom filter
     public static final BooleanSetting CUSTOM_FILTER = new BooleanSetting("revanced_custom_filter", FALSE);

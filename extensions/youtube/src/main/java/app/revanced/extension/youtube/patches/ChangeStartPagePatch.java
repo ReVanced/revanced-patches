@@ -9,6 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import app.revanced.extension.shared.Logger;
+import app.revanced.extension.shared.settings.Setting;
 import app.revanced.extension.youtube.settings.Settings;
 
 @SuppressWarnings("unused")
@@ -81,6 +82,13 @@ public final class ChangeStartPagePatch {
         }
     }
 
+    public static class ChangeStartPageTypeAvailability implements Setting.Availability {
+        @Override
+        public boolean isAvailable() {
+            return Settings.CHANGE_START_PAGE.get() != StartPage.DEFAULT;
+        }
+    }
+
     /**
      * Intent action when YouTube is cold started from the launcher.
      * <p>
@@ -93,6 +101,8 @@ public final class ChangeStartPagePatch {
 
     private static final StartPage START_PAGE = Settings.CHANGE_START_PAGE.get();
 
+    private static final boolean CHANGE_START_PAGE_ALWAYS = Settings.CHANGE_START_PAGE_ALWAYS.get();
+
     /**
      * There is an issue where the back button on the toolbar doesn't work properly.
      * As a workaround for this issue, instead of overriding the browserId multiple times, just override it once.
@@ -104,13 +114,13 @@ public final class ChangeStartPagePatch {
             return original;
         }
 
-        if (appLaunched) {
+        if (!CHANGE_START_PAGE_ALWAYS && appLaunched) {
             Logger.printDebug(() -> "Ignore override browseId as the app already launched");
             return original;
         }
         appLaunched = true;
 
-        Logger.printDebug(() -> "Changing browseId to " + START_PAGE.id);
+        Logger.printDebug(() -> "Changing browseId to: " + START_PAGE.id);
         return START_PAGE.id;
     }
 
@@ -125,14 +135,14 @@ public final class ChangeStartPagePatch {
             return;
         }
 
-        if (appLaunched) {
+        if (!CHANGE_START_PAGE_ALWAYS && appLaunched) {
             Logger.printDebug(() -> "Ignore override intent action as the app already launched");
             return;
         }
         appLaunched = true;
 
         String intentAction = START_PAGE.id;
-        Logger.printDebug(() -> "Changing intent action to " + intentAction);
+        Logger.printDebug(() -> "Changing intent action to: " + intentAction);
         intent.setAction(intentAction);
     }
 }
