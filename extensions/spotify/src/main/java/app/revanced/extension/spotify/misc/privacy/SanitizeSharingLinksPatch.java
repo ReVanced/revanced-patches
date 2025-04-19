@@ -1,10 +1,21 @@
 package app.revanced.extension.spotify.misc.privacy;
 
+import android.net.Uri;
+
 @SuppressWarnings("unused")
 public final class SanitizeSharingLinksPatch {
-    private static final String TRACKING_PARAMETER_REGEX = "(?:\\?|&)si=.+?($|&)";
-
     public static String sanitizeUrl(String url) {
-        return url.replaceFirst(TRACKING_PARAMETER_REGEX, "$1");
+        Uri uri = Uri.parse(url);
+        Uri.Builder builder = uri.buildUpon().clearQuery();
+
+        for (String paramName : uri.getQueryParameterNames()) {
+            if (!paramName.equals("si")) {
+                for (String value : uri.getQueryParameters(paramName)) {
+                    builder.appendQueryParameter(paramName, value);
+                }
+            }
+        }
+
+        return builder.build().toString();
     }
 }
