@@ -1,5 +1,11 @@
 package app.revanced.extension.youtube.patches;
 
+import android.content.res.Resources;
+import android.util.TypedValue;
+import android.view.View;
+
+import app.revanced.extension.shared.Logger;
+import app.revanced.extension.shared.Utils;
 import app.revanced.extension.youtube.settings.Settings;
 
 @SuppressWarnings("unused")
@@ -9,8 +15,34 @@ public final class WideSearchbarPatch {
 
     /**
      * Injection point.
-=    */
+     */
     public static boolean enableWideSearchbar(boolean original) {
         return WIDE_SEARCHBAR_ENABLED || original;
+    }
+
+    /**
+     * Injection point.
+     */
+    public static void setActionBar(View view) {
+        try {
+            if (!WIDE_SEARCHBAR_ENABLED) return;
+
+            View searchBarView = Utils.getChildViewByResourceName(view, "search_bar");
+
+            final int paddingLeft = searchBarView.getPaddingLeft();
+            final int paddingRight = searchBarView.getPaddingRight();
+            final int paddingTop = searchBarView.getPaddingTop();
+            final int paddingBottom = searchBarView.getPaddingBottom();
+            final int paddingStart = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP,
+                    8f, Resources.getSystem().getDisplayMetrics());
+
+            if (Utils.isRightToLeftTextLayout()) {
+                searchBarView.setPadding(paddingLeft, paddingTop, paddingStart, paddingBottom);
+            } else {
+                searchBarView.setPadding(paddingStart, paddingTop, paddingRight, paddingBottom);
+            }
+        } catch (Exception ex) {
+            Logger.printException(() -> "setActionBar failure", ex);
+        }
     }
 }

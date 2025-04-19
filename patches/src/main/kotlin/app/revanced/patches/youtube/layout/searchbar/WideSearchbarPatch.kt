@@ -16,6 +16,7 @@ import app.revanced.util.addInstructionsAtControlFlowLabel
 import app.revanced.util.findInstructionIndicesReversedOrThrow
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
+import app.revanced.util.indexOfFirstLiteralInstructionOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
@@ -26,6 +27,8 @@ private const val EXTENSION_CLASS_DESCRIPTOR =
 internal var ytWordmarkHeaderId = -1L
     private set
 internal var ytPremiumWordmarkHeaderId = -1L
+    private set
+internal var actionBarRingoId = -1L
     private set
 
 private val wideSearchbarResourcePatch = resourcePatch {
@@ -40,6 +43,11 @@ private val wideSearchbarResourcePatch = resourcePatch {
         ytPremiumWordmarkHeaderId = resourceMappings[
             "attr",
             "ytPremiumWordmarkHeader",
+        ]
+
+        actionBarRingoId = resourceMappings[
+            "layout",
+            "action_bar_ringo_background",
         ]
     }
 }
@@ -98,6 +106,22 @@ val wideSearchbarPatch = bytecodePatch(
                     )
                 }
             }
+        }
+
+        // Fix missing left padding when using wide searchbar.
+        wideSearchbarLayoutFingerprint.method.apply {
+            val layoutIndex = indexOfFirstLiteralInstructionOrThrow(actionBarRingoId)
+            val inflateIndex = indexOfFirstInstructionOrThrow(layoutIndex) {
+                val reference = getReference<MethodReference>()
+                reference?.definingClass == "Landroid/view/LayoutInflater;"
+                        && reference.name == "inflate"
+            }
+            val register = getInstruction<OneRegisterInstruction>(inflateIndex + 1).registerA
+
+            addInstructionsAtControlFlowLabel(
+                inflateIndex + 2,
+                "invoke-static { v$register }, $EXTENSION_CLASS_DESCRIPTOR->setActionBar(Landroid/view/View;)V"
+            )
         }
     }
 }
