@@ -342,9 +342,12 @@ public abstract class Setting<T> {
 
     /**
      * Identical to calling {@link #save(Object)} using {@link #defaultValue}.
+     *
+     * @return The newly saved default value.
      */
-    public void resetToDefault() {
+    public T resetToDefault() {
         save(defaultValue);
+        return defaultValue;
     }
 
     /**

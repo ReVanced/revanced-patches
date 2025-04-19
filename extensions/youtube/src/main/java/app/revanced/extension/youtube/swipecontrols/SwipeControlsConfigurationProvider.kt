@@ -1,95 +1,98 @@
 package app.revanced.extension.youtube.swipecontrols
 
+import android.annotation.SuppressLint
 import android.graphics.Color
+import app.revanced.extension.shared.Logger
 import app.revanced.extension.shared.StringRef.str
 import app.revanced.extension.shared.Utils
 import app.revanced.extension.youtube.settings.Settings
 import app.revanced.extension.youtube.shared.PlayerType
 
 /**
- * provider for configuration for volume and brightness swipe controls
+ * Provides configuration settings for volume and brightness swipe controls in the YouTube player.
+ * Manages enabling/disabling gestures, overlay appearance, and behavior preferences.
  */
 class SwipeControlsConfigurationProvider {
-//region swipe enable
+    //region swipe enable
     /**
-     * should swipe controls be enabled? (global setting)
+     * Indicates whether swipe controls are enabled globally.
+     * Returns true if either volume or brightness controls are enabled and the video is in fullscreen mode.
      */
     val enableSwipeControls: Boolean
         get() = (enableVolumeControls || enableBrightnessControl) && isFullscreenVideo
 
     /**
-     * should swipe controls for volume be enabled?
+     * Indicates whether swipe controls for adjusting volume are enabled.
      */
     val enableVolumeControls = Settings.SWIPE_VOLUME.get()
 
     /**
-     * should swipe controls for volume be enabled?
+     * Indicates whether swipe controls for adjusting brightness are enabled.
      */
     val enableBrightnessControl = Settings.SWIPE_BRIGHTNESS.get()
 
     /**
-     * is the video player currently in fullscreen mode?
+     * Checks if the video player is currently in fullscreen mode.
      */
     private val isFullscreenVideo: Boolean
         get() = PlayerType.current == PlayerType.WATCH_WHILE_FULLSCREEN
-//endregion
+    //endregion
 
-//region keys enable
+    //region keys enable
     /**
-     * should volume key controls be overwritten? (global setting)
+     * Indicates whether volume key controls should be overridden by swipe controls.
+     * Returns true if volume controls are enabled and the video is in fullscreen mode.
      */
     val overwriteVolumeKeyControls: Boolean
         get() = enableVolumeControls && isFullscreenVideo
-//endregion
+    //endregion
 
-//region gesture adjustments
+    //region gesture adjustments
     /**
-     * should press-to-swipe be enabled?
+     * Indicates whether press-to-swipe mode is enabled, requiring a press before swiping to activate controls.
      */
     val shouldEnablePressToSwipe: Boolean
         get() = Settings.SWIPE_PRESS_TO_ENGAGE.get()
 
     /**
-     * threshold for swipe detection
-     * this may be called rapidly in onScroll, so we have to load it once and then leave it constant
+     * The threshold for detecting swipe gestures, in pixels.
+     * Loaded once to ensure consistent behavior during rapid scroll events.
      */
     val swipeMagnitudeThreshold: Int
         get() = Settings.SWIPE_MAGNITUDE_THRESHOLD.get()
 
     /**
-     * How much volume will change by single swipe.
-     * If it is set to 0, it will reset to the default value because 0 would disable swiping.
-     * */
+     * The sensitivity of volume swipe gestures, determining how much volume changes per swipe.
+     * Resets to default if set to 0, as it would disable swiping.
+     */
     val volumeSwipeSensitivity: Int
         get() {
             val sensitivity = Settings.SWIPE_VOLUME_SENSITIVITY.get()
 
             if (sensitivity < 1) {
-                Settings.SWIPE_VOLUME_SENSITIVITY.resetToDefault()
-
-                return Settings.SWIPE_VOLUME_SENSITIVITY.get()
+                return Settings.SWIPE_VOLUME_SENSITIVITY.resetToDefault()
             }
 
             return sensitivity
         }
-//endregion
+    //endregion
 
-//region overlay adjustments
+    //region overlay adjustments
     /**
-     * should the overlay enable haptic feedback?
+     * Indicates whether haptic feedback should be enabled for swipe control interactions.
      */
     val shouldEnableHapticFeedback: Boolean
         get() = Settings.SWIPE_HAPTIC_FEEDBACK.get()
 
     /**
-     * how long the overlay should be shown on changes
+     * The duration in milliseconds that the overlay should remain visible after a change.
      */
     val overlayShowTimeoutMillis: Long
         get() = Settings.SWIPE_OVERLAY_TIMEOUT.get()
 
     /**
-     * Gets the opacity value (0-100%) is converted to an alpha value (0-255) for transparency.
-     * If the opacity value is out of range, it resets to the default and displays a warning message.
+     * The background opacity of the overlay, converted from a percentage (0-100) to an alpha value (0-255).
+     * Resets to default and shows a toast if the value is out of range.
      */
     val overlayBackgroundOpacity: Int
         get() {
@@ -97,8 +100,7 @@ class SwipeControlsConfigurationProvider {
 
             if (opacity < 0 || opacity > 100) {
                 Utils.showToastLong(str("revanced_swipe_overlay_background_opacity_invalid_toast"))
-                Settings.SWIPE_OVERLAY_OPACITY.resetToDefault()
-                opacity = Settings.SWIPE_OVERLAY_OPACITY.get()
+                opacity = Settings.SWIPE_OVERLAY_OPACITY.resetToDefault()
             }
 
             opacity = opacity * 255 / 100
@@ -106,55 +108,125 @@ class SwipeControlsConfigurationProvider {
         }
 
     /**
-     * The color of the progress overlay.
+     * The color of the progress bar in the overlay.
+     * Resets to default and shows a toast if the color string is invalid or empty.
      */
     val overlayProgressColor: Int
-        get() = 0xBFFFFFFF.toInt()
+        get() {
+            try {
+                @SuppressLint("UseKtx")
+                val color = Color.parseColor(Settings.SWIPE_OVERLAY_PROGRESS_COLOR.get())
+                return (0xBF000000.toInt() or (color and 0xFFFFFF))
+            } catch (ex: IllegalArgumentException) {
+                Logger.printDebug({ "Could not parse color" }, ex)
+                Utils.showToastLong(str("revanced_swipe_overlay_progress_color_invalid_toast"))
+                Settings.SWIPE_OVERLAY_PROGRESS_COLOR.resetToDefault()
+                return overlayProgressColor // Recursively return.
+            }
+        }
 
     /**
-     * The color used for the background of the progress overlay fill.
+     * The background color used for the filled portion of the progress bar in the overlay.
      */
     val overlayFillBackgroundPaint: Int
         get() = 0x80D3D3D3.toInt()
 
     /**
-     * The color used for the text and icons in the overlay.
+     * The color used for text and icons in the overlay.
      */
     val overlayTextColor: Int
         get() = Color.WHITE
 
     /**
-     * A flag that determines if the overlay should only show the icon.
+     * The text size in the overlay, in density-independent pixels (dp).
+     * Must be between 1 and 30 dp; resets to default and shows a toast if invalid.
      */
-    val overlayShowOverlayMinimalStyle: Boolean
-        get() = Settings.SWIPE_OVERLAY_MINIMAL_STYLE.get()
+    val overlayTextSize: Int
+        get() {
+            val size = Settings.SWIPE_OVERLAY_TEXT_SIZE.get()
+            if (size < 1 || size > 30) {
+                Utils.showToastLong(str("revanced_swipe_text_overlay_size_invalid_toast"))
+                return Settings.SWIPE_OVERLAY_TEXT_SIZE.resetToDefault()
+            }
+            return size
+        }
 
     /**
-     * A flag that determines if the progress bar should be circular.
+     * Defines the style of the swipe controls overlay, determining its layout and appearance.
+     *
+     * @property isMinimal Indicates whether the style is minimalistic, omitting detailed progress indicators.
+     * @property isHorizontalMinimalCenter Indicates whether the style is a minimal horizontal bar centered vertically.
+     * @property isCircular Indicates whether the style uses a circular progress bar.
+     * @property isVertical Indicates whether the style uses a vertical progress bar.
      */
-    val isCircularProgressBar: Boolean
-        get() = Settings.SWIPE_SHOW_CIRCULAR_OVERLAY.get()
-//endregion
+    @Suppress("unused")
+    enum class SwipeOverlayStyle(
+        val isMinimal: Boolean = false,
+        val isHorizontalMinimalCenter: Boolean = false,
+        val isCircular: Boolean = false,
+        val isVertical: Boolean = false
+    ) {
+        /**
+         * A full horizontal progress bar with detailed indicators.
+         */
+        HORIZONTAL,
 
-//region behaviour
+        /**
+         * A minimal horizontal progress bar positioned at the top.
+         */
+        HORIZONTAL_MINIMAL_TOP(isMinimal = true),
+
+        /**
+         * A minimal horizontal progress bar centered vertically.
+         */
+        HORIZONTAL_MINIMAL_CENTER(isMinimal = true, isHorizontalMinimalCenter = true),
+
+        /**
+         * A full circular progress bar with detailed indicators.
+         */
+        CIRCULAR(isCircular = true),
+
+        /**
+         * A minimal circular progress bar.
+         */
+        CIRCULAR_MINIMAL(isMinimal = true, isCircular = true),
+
+        /**
+         * A full vertical progress bar with detailed indicators.
+         */
+        VERTICAL(isVertical = true),
+
+        /**
+         * A minimal vertical progress bar.
+         */
+        VERTICAL_MINIMAL(isMinimal =  true, isVertical = true)
+    }
 
     /**
-     * should the brightness be saved and restored when exiting or entering fullscreen
+     * The current style of the overlay, determining its layout and appearance.
+     */
+    val overlayStyle: SwipeOverlayStyle
+        get() = Settings.SWIPE_OVERLAY_STYLE.get()
+    //endregion
+
+    //region behaviour
+    /**
+     * Indicates whether the brightness level should be saved and restored when entering or exiting fullscreen mode.
      */
     val shouldSaveAndRestoreBrightness: Boolean
         get() = Settings.SWIPE_SAVE_AND_RESTORE_BRIGHTNESS.get()
 
     /**
-     * should auto-brightness be enabled at the lowest value of the brightness gesture
+     * Indicates whether auto-brightness should be enabled when the brightness gesture reaches its lowest value.
      */
     val shouldLowestValueEnableAutoBrightness: Boolean
         get() = Settings.SWIPE_LOWEST_VALUE_ENABLE_AUTO_BRIGHTNESS.get()
 
     /**
-     * variable that stores the brightness gesture value in the settings
+     * The saved brightness value for the swipe gesture, used to restore brightness in fullscreen mode.
      */
     var savedScreenBrightnessValue: Float
         get() = Settings.SWIPE_BRIGHTNESS_VALUE.get()
         set(value) = Settings.SWIPE_BRIGHTNESS_VALUE.save(value)
-//endregion
+    //endregion
 }

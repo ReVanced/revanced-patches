@@ -54,12 +54,12 @@ public class CustomPlaybackSpeedPatch {
 
     static {
         final float holdSpeed = Settings.SPEED_TAP_AND_HOLD.get();
+
         if (holdSpeed > 0 && holdSpeed <= PLAYBACK_SPEED_MAXIMUM) {
             TAP_AND_HOLD_SPEED = holdSpeed;
         } else {
             showInvalidCustomSpeedToast();
-            Settings.SPEED_TAP_AND_HOLD.resetToDefault();
-            TAP_AND_HOLD_SPEED = Settings.SPEED_TAP_AND_HOLD.get();
+            TAP_AND_HOLD_SPEED = Settings.SPEED_TAP_AND_HOLD.resetToDefault();
         }
 
         loadCustomSpeeds();
