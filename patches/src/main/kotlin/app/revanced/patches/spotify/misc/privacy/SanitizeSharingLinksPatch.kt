@@ -17,19 +17,25 @@ val sanitizeSharingLinksPatch = bytecodePatch(
     dependsOn(sharedExtensionPatch)
 
     execute {
-        with(shareUrlToStringFingerprint) {
-            classDef.methods.first { it.name == "<init>" }.addInstructions(
+        shareUrlConstructorFingerprint.match(shareUrlToStringFingerprint.originalClassDef).method.apply {
+            addInstructions(
                 0,
                 """
                     invoke-static {p1}, $EXTENSION_CLASS_DESCRIPTOR->sanitizeUrl(Ljava/lang/String;)Ljava/lang/String;
                     
                     move-result-object p1
-                    
-                    invoke-static {p4}, $EXTENSION_CLASS_DESCRIPTOR->sanitizeUrl(Ljava/lang/String;)Ljava/lang/String;
-                    
-                    move-result-object p4
                 """
             )
+            if (parameters.count() > 3) { // sanitize fullUrl (not present in legacy app version)
+                addInstructions(
+                    0,
+                    """
+                        invoke-static {p4}, $EXTENSION_CLASS_DESCRIPTOR->sanitizeUrl(Ljava/lang/String;)Ljava/lang/String;
+                        
+                        move-result-object p4
+                    """
+                )
+            }
         }
     }
 }
