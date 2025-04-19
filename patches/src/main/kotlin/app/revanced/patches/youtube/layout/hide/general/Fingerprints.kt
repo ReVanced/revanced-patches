@@ -1,6 +1,7 @@
 package app.revanced.patches.youtube.layout.hide.general
 
 import app.revanced.patcher.fingerprint
+import app.revanced.patches.youtube.layout.searchbar.wideSearchbarLayoutFingerprint
 import app.revanced.util.literal
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
@@ -67,6 +68,9 @@ internal val showWatermarkFingerprint = fingerprint {
     parameters("L", "L")
 }
 
+/**
+ * Matches same method as [wideSearchbarLayoutFingerprint].
+ */
 internal val yoodlesImageViewFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("Landroid/view/View;")
