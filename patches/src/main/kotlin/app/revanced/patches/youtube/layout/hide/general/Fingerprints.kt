@@ -6,6 +6,7 @@ import app.revanced.patcher.methodCall
 import app.revanced.patcher.opcode
 import app.revanced.patcher.string
 import app.revanced.patches.shared.misc.mapping.resourceLiteral
+import app.revanced.patches.youtube.layout.searchbar.wideSearchbarLayoutFingerprint
 import app.revanced.util.literal
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
@@ -44,6 +45,9 @@ internal val showWatermarkFingerprint by fingerprint {
     parameters("L", "L")
 }
 
+/**
+ * Matches same method as [wideSearchbarLayoutFingerprint].
+ */
 internal val yoodlesImageViewFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("Landroid/view/View;")

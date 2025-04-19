@@ -443,9 +443,9 @@ Juster lydstyrken ved at swipe lodret i højre side af skærmen"</string>
   <string name="revanced_swipe_change_video_summary_off">Strygning i fuldskærmstilstand vil ikke ændre til den næste/forrige video</string>
   </patch>
   <patch id="layout.autocaptions.autoCaptionsPatch">
-  <string name="revanced_auto_captions_title">Deaktivér auto-billedtekster</string>
-  <string name="revanced_auto_captions_summary_on">Auto billedtekster er deaktiveret</string>
-  <string name="revanced_auto_captions_summary_off">Auto billedtekster er aktiveret</string>
+  <string name="revanced_disable_auto_captions_title">Deaktivér auto-billedtekster</string>
+  <string name="revanced_disable_auto_captions_summary_on">Automatiske billedtekster er deaktiveret</string>
+  <string name="revanced_disable_auto_captions_summary_off">Automatiske billedtekster er aktiveret</string>
   </patch>
   <patch id="layout.buttons.action.hideButtonsPatch">
   <string name="revanced_hide_buttons_screen_title">Handlingsknapper</string>
@@ -788,8 +788,8 @@ Indstillinger → Afspilning → Afspil næste video automatisk"</string>
   <string name="revanced_ryd_compact_layout_summary_on">Lideknap stylet for mindste bredde</string>
   <string name="revanced_ryd_compact_layout_summary_off">Ligesom knap stylet for bedste udseende</string>
   <string name="revanced_ryd_estimated_like_title">Vis anslåede Synes godt om</string>
-  <string name="revanced_ryd_estimated_like_summary_on">Anslåede Synes godt om vises</string>
-  <string name="revanced_ryd_estimated_like_summary_off">Anslåede Synes godt om er skjult</string>
+  <string name="revanced_ryd_estimated_like_summary_on">Videoer med deaktiverede Synes godt om viser et anslået antal Synes godt om</string>
+  <string name="revanced_ryd_estimated_like_summary_off">Anslåede Synes godt om vises ikke</string>
   <string name="revanced_ryd_toast_on_connection_error_title">Vis en toast hvis API ikke er tilgængelig</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_on">Toast vises, hvis Return YouTube Dislike ikke er tilgængelig</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_off">Toast vises ikke, hvis Return YouTube Dislike ikke er tilgængelig</string>

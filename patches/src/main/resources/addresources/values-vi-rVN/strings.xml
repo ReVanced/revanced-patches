@@ -479,9 +479,9 @@ Tính năng này chỉ khả dụng cho các thiết bị cũ hơn"</string>
   <string name="revanced_swipe_change_video_summary_off">Vuốt trong chế độ toàn màn hình sẽ không chuyển sang video tiếp theo/trước</string>
   </patch>
   <patch id="layout.autocaptions.autoCaptionsPatch">
-  <string name="revanced_auto_captions_title">Tắt phụ đề tự động</string>
-  <string name="revanced_auto_captions_summary_on">Phụ đề tự động đã tắt</string>
-  <string name="revanced_auto_captions_summary_off">Phụ đề tự động đã bật</string>
+  <string name="revanced_disable_auto_captions_title">Tắt phụ đề tự động</string>
+  <string name="revanced_disable_auto_captions_summary_on">Phụ đề tự động đã tắt</string>
+  <string name="revanced_disable_auto_captions_summary_off">Phụ đề tự động đã bật</string>
   </patch>
   <patch id="layout.buttons.action.hideButtonsPatch">
   <string name="revanced_hide_buttons_screen_title">Các nút hành động</string>
@@ -832,8 +832,8 @@ Hạn chế: Số lượt không thích có thể không xuất hiện ở chế
   <string name="revanced_ryd_compact_layout_summary_on">Nút thích được thiết kế để tối ưu độ rộng</string>
   <string name="revanced_ryd_compact_layout_summary_off">Nút thích được thiết kế để tối ưu ngoại hình tốt nhất</string>
   <string name="revanced_ryd_estimated_like_title">Hiện lượt thích ước tính</string>
-  <string name="revanced_ryd_estimated_like_summary_on">Lượt thích ước tính được hiện</string>
-  <string name="revanced_ryd_estimated_like_summary_off">Đã ẩn lượt thích ước tính</string>
+  <string name="revanced_ryd_estimated_like_summary_on">Video có lượt thích bị tắt hiển thị số lượt thích ước tính</string>
+  <string name="revanced_ryd_estimated_like_summary_off">Không hiển thị lượt thích ước tính</string>
   <string name="revanced_ryd_toast_on_connection_error_title">Hiện thông báo nổi nếu API không khả dụng</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_on">Thông báo nổi được hiện nếu Return YouTube Dislike không khả dụng</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_off">Thông báo nổi không được hiện nếu Return YouTube Dislike không khả dụng</string>

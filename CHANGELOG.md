@@ -1,3 +1,17 @@
+# [5.21.0-dev.5](https://github.com/ReVanced/revanced-patches/compare/v5.21.0-dev.4...v5.21.0-dev.5) (2025-04-18)
+
+
+### Bug Fixes
+
+* `Hide ADB status` patch ([#4814](https://github.com/ReVanced/revanced-patches/issues/4814)) ([dc89be0](https://github.com/ReVanced/revanced-patches/commit/dc89be0e94880733f862b250d95d4848f02c594d))
+
+# [5.21.0-dev.4](https://github.com/ReVanced/revanced-patches/compare/v5.21.0-dev.3...v5.21.0-dev.4) (2025-04-17)
+
+
+### Bug Fixes
+
+* **YouTube - Disable auto captions:** Correctly hide captions with YT 20.12 ([5ecbe82](https://github.com/ReVanced/revanced-patches/commit/5ecbe823ed5197533328cc37f1de5cd1f048a217))
+
 # [5.21.0-dev.3](https://github.com/ReVanced/revanced-patches/compare/v5.21.0-dev.2...v5.21.0-dev.3) (2025-04-16)
 
 

@@ -477,9 +477,9 @@ Ajuste o volume deslizando verticalmente no lado direito da tela"</string>
   <string name="revanced_swipe_change_video_summary_off">Deslizar no modo tela cheia não mudará para o próximo/vídeo anterior</string>
   </patch>
   <patch id="layout.autocaptions.autoCaptionsPatch">
-  <string name="revanced_auto_captions_title">Desativar legendas automáticas</string>
-  <string name="revanced_auto_captions_summary_on">Legendas automáticas estão desativadas</string>
-  <string name="revanced_auto_captions_summary_off">Legendas automáticas estão ativadas</string>
+  <string name="revanced_disable_auto_captions_title">Desativar legendas automáticas</string>
+  <string name="revanced_disable_auto_captions_summary_on">Legendas automáticas estão desativadas</string>
+  <string name="revanced_disable_auto_captions_summary_off">Legendas automáticas estão ativadas</string>
   </patch>
   <patch id="layout.buttons.action.hideButtonsPatch">
   <string name="revanced_hide_buttons_screen_title">Botões de ação</string>
@@ -830,8 +830,8 @@ Limitação: \"Não gostei\" podem não aparecer no modo anônimo"</string>
   <string name="revanced_ryd_compact_layout_summary_on">Botão gostei estilizado para largura mínima</string>
   <string name="revanced_ryd_compact_layout_summary_off">Botão gostei estilizado para melhor aparência</string>
   <string name="revanced_ryd_estimated_like_title">Mostrar estimativa de \"gostei\"</string>
-  <string name="revanced_ryd_estimated_like_summary_on">A estimativa de \"gostei\" está visível</string>
-  <string name="revanced_ryd_estimated_like_summary_off">A estimativa de \"gostei\" está oculta</string>
+  <string name="revanced_ryd_estimated_like_summary_on">Vídeos com likes desativados mostram uma estimativa da contagem de likes</string>
+  <string name="revanced_ryd_estimated_like_summary_off">Likes estimados não são mostrados</string>
   <string name="revanced_ryd_toast_on_connection_error_title">Exibir uma notificação flutuante se a API não estiver disponível</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_on">Notificação flutuante vai ser exibida se o Return YouTube Dislike não estiver disponível</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_off">Notificação flutuante não vai ser exibida se o Return YouTube Dislike não estiver disponível</string>

@@ -479,9 +479,9 @@ Ajusteu el volum lliscant verticalment a la part dreta de la pantalla"</string>
   <string name="revanced_swipe_change_video_summary_off">Lliscar en mode de pantalla completa no canviarà al vídeo següent/anterior</string>
   </patch>
   <patch id="layout.autocaptions.autoCaptionsPatch">
-  <string name="revanced_auto_captions_title">Desactiva els subtítols automàtics</string>
-  <string name="revanced_auto_captions_summary_on">Els subtítols automàtics estan desactivats</string>
-  <string name="revanced_auto_captions_summary_off">Els subtítols automàtics estan activats</string>
+  <string name="revanced_disable_auto_captions_title">Desactiva els subtítols automàtics</string>
+  <string name="revanced_disable_auto_captions_summary_on">Les subtítols Auto estan desactivats</string>
+  <string name="revanced_disable_auto_captions_summary_off">Els subtítols Auto estan habilitats</string>
   </patch>
   <patch id="layout.buttons.action.hideButtonsPatch">
   <string name="revanced_hide_buttons_screen_title">Botons d\'acció</string>
@@ -832,8 +832,8 @@ Limitació: és possible que els \"no m'agrada\" no apareguin en mode d'incògni
   <string name="revanced_ryd_compact_layout_summary_on">Botó \"m\'agrada\" estilitzat per a l\'amplada mínima</string>
   <string name="revanced_ryd_compact_layout_summary_off">Botó \"m\'agrada\" estilitzat per a la millor aparença</string>
   <string name="revanced_ryd_estimated_like_title">Mostra els \"m\'agrada\" estimats</string>
-  <string name="revanced_ryd_estimated_like_summary_on">Es mostren els \"m\'agrada\" estimats</string>
-  <string name="revanced_ryd_estimated_like_summary_off">S\'han amagat els \"m\'agrada\" estimats</string>
+  <string name="revanced_ryd_estimated_like_summary_on">Els vídeos amb els \"m\'agrada\" desactivats mostren un recompte de \"m\'agrada\" estimat</string>
+  <string name="revanced_ryd_estimated_like_summary_off">No es mostren els \"m\'agrada\" estimats</string>
   <string name="revanced_ryd_toast_on_connection_error_title">Mostrar una \"toast\" si l\'API no està disponible</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_on">La \"toast\" es mostra si Return YouTube Dislike no està disponible</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_off">La \"toast\" no es mostra si Return YouTube Dislike no està disponible</string>

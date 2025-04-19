@@ -479,9 +479,9 @@ Prilagodite glasnost s potegom navpično na desni strani zaslona"</string>
   <string name="revanced_swipe_change_video_summary_off">Drsenje v celozaslonskem načinu ne bo prešlo na naslednji/prejšnji videoposnetek.</string>
   </patch>
   <patch id="layout.autocaptions.autoCaptionsPatch">
-  <string name="revanced_auto_captions_title">Onemogoči samodejne podnapise</string>
-  <string name="revanced_auto_captions_summary_on">Samodejni podnapisi so onemogočeni</string>
-  <string name="revanced_auto_captions_summary_off">Samodejni podnapisi so omogočeni</string>
+  <string name="revanced_disable_auto_captions_title">Onemogoči samodejne podnapise</string>
+  <string name="revanced_disable_auto_captions_summary_on">Samodejni podnapisi so onemogočeni</string>
+  <string name="revanced_disable_auto_captions_summary_off">Samodejni napisi so omogočeni</string>
   </patch>
   <patch id="layout.buttons.action.hideButtonsPatch">
   <string name="revanced_hide_buttons_screen_title">Gumbi za dejanja</string>
@@ -832,8 +832,8 @@ Omejitev: Število »Ni mi všeč« se morda ne bo prikazalo v načinu brez bele
   <string name="revanced_ryd_compact_layout_summary_on">Gumb všečkov je oblikovan za minimalno širino</string>
   <string name="revanced_ryd_compact_layout_summary_off">Gumb všečkov je oblikovan za najboljši videz</string>
   <string name="revanced_ryd_estimated_like_title">Pokaži ocenjeno število »všečkov«</string>
-  <string name="revanced_ryd_estimated_like_summary_on">Prikaže se ocenjeno število »všečkov«</string>
-  <string name="revanced_ryd_estimated_like_summary_off">Ocenjeno število »všečkov« je skrito</string>
+  <string name="revanced_ryd_estimated_like_summary_on">Videoposnetki z onemogočenimi všečki prikazujejo ocenjeno število všečkov</string>
+  <string name="revanced_ryd_estimated_like_summary_off">Ocenjeni všečki niso prikazani</string>
   <string name="revanced_ryd_toast_on_connection_error_title">Pokaži obvestilo, če API ni na voljo</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_on">Obvestilo se prikaže, če Return YouTube Dislike ni na voljo</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_off">Obvestilo se ne prikaže, če Return YouTube Dislike ni na voljo</string>

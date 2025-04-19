@@ -479,9 +479,9 @@ Hlasitost se upravuje svislým přejetím po pravé straně obrazovky"</string>
   <string name="revanced_swipe_change_video_summary_off">Přejetí prstem v režimu celé obrazovky nebude video měnit na další/předchozí</string>
   </patch>
   <patch id="layout.autocaptions.autoCaptionsPatch">
-  <string name="revanced_auto_captions_title">Zakázat automatické titulky</string>
-  <string name="revanced_auto_captions_summary_on">Automatické titulky jsou zakázány</string>
-  <string name="revanced_auto_captions_summary_off">Automatické titulky jsou povoleny</string>
+  <string name="revanced_disable_auto_captions_title">Zakázat automatické titulky</string>
+  <string name="revanced_disable_auto_captions_summary_on">Automatické titulky jsou zakázány</string>
+  <string name="revanced_disable_auto_captions_summary_off">Automatické titulky jsou povoleny</string>
   </patch>
   <patch id="layout.buttons.action.hideButtonsPatch">
   <string name="revanced_hide_buttons_screen_title">Akční tlačítka</string>
@@ -832,8 +832,8 @@ Omezení: Počty „Nelíbí se mi“ se nemusí zobrazit v anonymním režimu"<
   <string name="revanced_ryd_compact_layout_summary_on">Tlačítko lajku stylizované pro minimální šířku</string>
   <string name="revanced_ryd_compact_layout_summary_off">Tlačítko lajku stylizované pro nejlepší vzhled</string>
   <string name="revanced_ryd_estimated_like_title">Zobrazit odhadované počty To se mi líbí</string>
-  <string name="revanced_ryd_estimated_like_summary_on">Zobrazují se odhadované počty To se mi líbí</string>
-  <string name="revanced_ryd_estimated_like_summary_off">Odhadované počty To se mi líbí jsou skryté</string>
+  <string name="revanced_ryd_estimated_like_summary_on">U videí s vypnutými hodnoceními se zobrazuje odhadovaný počet hodnocení</string>
+  <string name="revanced_ryd_estimated_like_summary_off">Odhadovaná hodnocení se nezobrazují</string>
   <string name="revanced_ryd_toast_on_connection_error_title">Zobrazit toast, pokud API není dostupné</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_on">Toast se zobrazí, pokud Return YouTube Dislike není dostupný</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_off">Toast se nezobrazí, pokud Return YouTube Dislike není dostupný</string>

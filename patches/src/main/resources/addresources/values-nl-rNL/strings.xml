@@ -479,9 +479,9 @@ Pas het volume aan door verticaal over de rechterkant van het scherm te vegen"</
   <string name="revanced_swipe_change_video_summary_off">Vegen in de modus volledig scherm weergegeven, verandert niet naar de volgende/vorige video</string>
   </patch>
   <patch id="layout.autocaptions.autoCaptionsPatch">
-  <string name="revanced_auto_captions_title">Automatische ondertitels uitschakelen</string>
-  <string name="revanced_auto_captions_summary_on">Automatische ondertitels zijn uitgeschakeld</string>
-  <string name="revanced_auto_captions_summary_off">Automatische ondertitels zijn ingeschakeld</string>
+  <string name="revanced_disable_auto_captions_title">Automatische ondertitels uitschakelen</string>
+  <string name="revanced_disable_auto_captions_summary_on">Automatische ondertiteling is uitgeschakeld</string>
+  <string name="revanced_disable_auto_captions_summary_off">Automatische ondertiteling is ingeschakeld</string>
   </patch>
   <patch id="layout.buttons.action.hideButtonsPatch">
   <string name="revanced_hide_buttons_screen_title">Actieknoppen</string>
@@ -832,8 +832,8 @@ Beperking: Vind ik niet leuk verschijnen mogelijk niet in de incognitomodus"</st
   <string name="revanced_ryd_compact_layout_summary_on">\"Like\" knop met minimale breedte</string>
   <string name="revanced_ryd_compact_layout_summary_off">\"Like\" knop met beste uiterlijk</string>
   <string name="revanced_ryd_estimated_like_title">Geschatte likes weergeven</string>
-  <string name="revanced_ryd_estimated_like_summary_on">Geschatte likes worden weergegeven</string>
-  <string name="revanced_ryd_estimated_like_summary_off">Geschatte likes zijn verborgen</string>
+  <string name="revanced_ryd_estimated_like_summary_on">Video\'s met uitgeschakelde vind-ik-leuks tonen een geschat aantal vind-ik-leuks</string>
+  <string name="revanced_ryd_estimated_like_summary_off">Geschatte vind-ik-leuks worden niet getoond</string>
   <string name="revanced_ryd_toast_on_connection_error_title">Toon een \"toast\" als de API niet beschikbaar is</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_on">\"Toast\" wordt getoond als Return YouTube Dislike niet beschikbaar is</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_off">\"Toast\" wordt niet getoond als Return YouTube Dislike niet beschikbaar is</string>

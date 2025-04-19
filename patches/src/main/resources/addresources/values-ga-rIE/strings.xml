@@ -479,9 +479,9 @@ Coigeartaigh an toirt trí haisceartán go hingearach ar thaobh deas an scáile�
   <string name="revanced_swipe_change_video_summary_off">Ní athróidh achlaigh i mód lán-scáile go dtí an físeán chéanna/arís</string>
   </patch>
   <patch id="layout.autocaptions.autoCaptionsPatch">
-  <string name="revanced_auto_captions_title">Díchumasaigh fotheidil uathoibríoch</string>
-  <string name="revanced_auto_captions_summary_on">Tá fotheidil uathoibríoch díchumasaithe</string>
-  <string name="revanced_auto_captions_summary_off">Tá fotheidil uathoibríoch cumasaithe</string>
+  <string name="revanced_disable_auto_captions_title">Díchumasaigh fotheidil uathoibríoch</string>
+  <string name="revanced_disable_auto_captions_summary_on">Tá fotheidil uathoibríocha díchumasaithe</string>
+  <string name="revanced_disable_auto_captions_summary_off">Tá fotheidil uathoibríocha cumasaithe</string>
   </patch>
   <patch id="layout.buttons.action.hideButtonsPatch">
   <string name="revanced_hide_buttons_screen_title">Cnaipí gníomh</string>
@@ -832,8 +832,8 @@ Srianadh: Bíodh easaontais gan teacht ar taispeáint sa mhodh incognito"</strin
   <string name="revanced_ryd_compact_layout_summary_on">Cosúil le cnaipe stíleáilte don leithead íosta</string>
   <string name="revanced_ryd_compact_layout_summary_off">Cosúil le cnaipe stíleáilte don chuma is fearr</string>
   <string name="revanced_ryd_estimated_like_title">Taispeáin na rudaí is maith leis</string>
-  <string name="revanced_ryd_estimated_like_summary_on">Taispeántar cosúlachtaí measta</string>
-  <string name="revanced_ryd_estimated_like_summary_off">Tá a leithéidí measta i bhfolach</string>
+  <string name="revanced_ryd_estimated_like_summary_on">Taispeánann físeáin le maith díchumasaithe comhaireamh measta maith</string>
+  <string name="revanced_ryd_estimated_like_summary_off">Ní thaispeántar maith measta</string>
   <string name="revanced_ryd_toast_on_connection_error_title">Taispeáin tósta mura bhfuil API ar fáil</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_on">Taispeántar tósta mura bhfuil Return YouTube Dislike ar fáil</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_off">Ní thaispeántar tóst mura bhfuil Return YouTube Dislike ar fáil</string>

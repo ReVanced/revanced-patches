@@ -479,9 +479,9 @@ Justera volymen genom att svepa vertikalt på höger sida av skärmen"</string>
   <string name="revanced_swipe_change_video_summary_off">Svepning i helskärmsläge ändrar inte till följande/föregående video</string>
   </patch>
   <patch id="layout.autocaptions.autoCaptionsPatch">
-  <string name="revanced_auto_captions_title">Inaktivera automatisk bildtext</string>
-  <string name="revanced_auto_captions_summary_on">Auto-bildtexter är inaktiverade</string>
-  <string name="revanced_auto_captions_summary_off">Automatisk bildtext är aktiverad</string>
+  <string name="revanced_disable_auto_captions_title">Inaktivera automatisk bildtext</string>
+  <string name="revanced_disable_auto_captions_summary_on">Auto bildtexter är inaktiverade</string>
+  <string name="revanced_disable_auto_captions_summary_off">Automatisk bildtext är aktiverad</string>
   </patch>
   <patch id="layout.buttons.action.hideButtonsPatch">
   <string name="revanced_hide_buttons_screen_title">Åtgärd knappar</string>
@@ -832,8 +832,8 @@ Begränsning: Ogillanden kanske inte visas i inkognitoläge"</string>
   <string name="revanced_ryd_compact_layout_summary_on">Gilla knappen stylad för minsta bredd</string>
   <string name="revanced_ryd_compact_layout_summary_off">Gilla knappen stylas för bästa utseende</string>
   <string name="revanced_ryd_estimated_like_title">Visa uppskattade gillamarkeringar</string>
-  <string name="revanced_ryd_estimated_like_summary_on">Uppskattade gillamarkeringar visas</string>
-  <string name="revanced_ryd_estimated_like_summary_off">Uppskattade gillamarkeringar är dolda</string>
+  <string name="revanced_ryd_estimated_like_summary_on">Videor med inaktiverade gillanden visar ett uppskattat antal gillanden</string>
+  <string name="revanced_ryd_estimated_like_summary_off">Uppskattade gillanden visas inte</string>
   <string name="revanced_ryd_toast_on_connection_error_title">Visa ett meddelande om API inte är tillgängligt</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_on">Visa ett meddelande om Return YouTube Dislike inte är tillgängligt</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_off">Visa inget meddelande om Return YouTube Dislike inte är tillgängligt</string>

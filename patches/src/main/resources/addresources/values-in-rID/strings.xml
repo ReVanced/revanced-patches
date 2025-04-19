@@ -466,8 +466,8 @@ Menyesuaikan volume dengan mengusap secara vertikal di sisi kanan layar"</string
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Opasitas geser harus antara 0-100</string>
   <string name="revanced_swipe_threshold_title">Ambang batas magnitudo usap</string>
   <string name="revanced_swipe_threshold_summary">Jumlah ambang batas untuk terjadinya usapan</string>
-  <string name="revanced_swipe_volume_sensitivity_title">Sensitivitas gesek volume</string>
-  <string name="revanced_swipe_volume_sensitivity_summary">Seberapa besar perubahan volume per gesekan</string>
+  <string name="revanced_swipe_volume_sensitivity_title">Sensitivitas volume usap</string>
+  <string name="revanced_swipe_volume_sensitivity_summary">Seberapa besar perubahan volume per usapan</string>
   <string name="revanced_swipe_show_circular_overlay_title">Tampilkan hamparan melingkar</string>
   <string name="revanced_swipe_show_circular_overlay_summary_on">Hamparan melingkar ditampilkan</string>
   <string name="revanced_swipe_show_circular_overlay_summary_off">Hamparan horizontal ditampilkan</string>
@@ -479,9 +479,9 @@ Menyesuaikan volume dengan mengusap secara vertikal di sisi kanan layar"</string
   <string name="revanced_swipe_change_video_summary_off">Mengusap dalam mode layar penuh tidak akan beralih ke video berikutnya/sebelumnya</string>
   </patch>
   <patch id="layout.autocaptions.autoCaptionsPatch">
-  <string name="revanced_auto_captions_title">Matikan teks otomatis</string>
-  <string name="revanced_auto_captions_summary_on">Teks otomatis dinonaktifkan</string>
-  <string name="revanced_auto_captions_summary_off">Teks otomatis diaktifkan</string>
+  <string name="revanced_disable_auto_captions_title">Matikan teks otomatis</string>
+  <string name="revanced_disable_auto_captions_summary_on">Teks otomatis dinonaktifkan</string>
+  <string name="revanced_disable_auto_captions_summary_off">Teks otomatis diaktifkan</string>
   </patch>
   <patch id="layout.buttons.action.hideButtonsPatch">
   <string name="revanced_hide_buttons_screen_title">Tombol tindakan</string>
@@ -832,8 +832,8 @@ Batasan: Dislike mungkin tidak muncul dalam mode penyamaran"</string>
   <string name="revanced_ryd_compact_layout_summary_on">Tombol suka ditata untuk lebar minimum</string>
   <string name="revanced_ryd_compact_layout_summary_off">Tombol suka ditata untuk tampilan terbaik</string>
   <string name="revanced_ryd_estimated_like_title">Tampilkan perkiraan suka</string>
-  <string name="revanced_ryd_estimated_like_summary_on">Perkiraan suka ditampilkan</string>
-  <string name="revanced_ryd_estimated_like_summary_off">Perkiraan suka disembunyikan</string>
+  <string name="revanced_ryd_estimated_like_summary_on">Video dengan suka yang dinonaktifkan menampilkan perkiraan jumlah suka</string>
+  <string name="revanced_ryd_estimated_like_summary_off">Perkiraan jumlah suka tidak ditampilkan</string>
   <string name="revanced_ryd_toast_on_connection_error_title">Tampilkan pesan timbul jika API tidak tersedia</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_on">Pesan timbul tidak ditampilkan jika Return YouTube Dislike tidak tersedia</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_off">Pesan timbul tidak ditampilkan jika Return YouTube Dislike tidak tersedia</string>
