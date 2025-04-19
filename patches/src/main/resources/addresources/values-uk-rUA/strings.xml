@@ -832,7 +832,7 @@ Second \"item\" text"</string>
   <string name="revanced_ryd_compact_layout_summary_on">Кнопку \"Подобається\" стилізовано під мінімальну ширину</string>
   <string name="revanced_ryd_compact_layout_summary_off">Кнопку \"Подобається\" стилізовано для кращого вигляду</string>
   <string name="revanced_ryd_estimated_like_title">Показувати приблизну кількість вподобань</string>
-  <string name="revanced_ryd_estimated_like_summary_on">Відео з вимкненими відмітками \"Подобається\" показують приблизну кількість вподобань</string>
+  <string name="revanced_ryd_estimated_like_summary_on">На відео з вимкненими відмітками \"Подобається\" показується приблизна кількість вподобань</string>
   <string name="revanced_ryd_estimated_like_summary_off">Приблизна кількість вподобань не показується</string>
   <string name="revanced_ryd_toast_on_connection_error_title">Показувати тост, якщо API не доступний</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_on">Тост показується, якщо Return YouTube Dislike не доступний</string>
