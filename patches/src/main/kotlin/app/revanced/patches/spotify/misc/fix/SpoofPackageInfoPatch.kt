@@ -23,7 +23,7 @@ val spoofPackageInfoPatch = bytecodePatch(
             // region Spoof signature.
 
             val failedToGetSignaturesStringIndex =
-                getPackageInfoFingerprint.stringMatches!!.first().index
+                getPackageInfoFingerprint.instructionMatches.first().index
 
             val concatSignaturesIndex = indexOfFirstInstructionReversedOrThrow(
                 failedToGetSignaturesStringIndex,

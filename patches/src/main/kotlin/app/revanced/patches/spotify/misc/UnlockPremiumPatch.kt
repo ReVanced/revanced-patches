@@ -64,7 +64,7 @@ val unlockPremiumPatch = bytecodePatch(
         // Add the query parameter trackRows to show popular tracks in the artist page.
         buildQueryParametersFingerprint.apply {
             val addQueryParameterConditionIndex = method.indexOfFirstInstructionReversedOrThrow(
-                stringMatches!!.first().index, Opcode.IF_EQZ
+                stringMatches.first().index, Opcode.IF_EQZ
             )
 
             method.replaceInstruction(addQueryParameterConditionIndex, "nop")
@@ -80,7 +80,7 @@ val unlockPremiumPatch = bytecodePatch(
 
         // Enable choosing a specific song/artist via Google Assistant.
         contextFromJsonFingerprint.method.apply {
-            val insertIndex = contextFromJsonFingerprint.patternMatch!!.startIndex
+            val insertIndex = contextFromJsonFingerprint.patternMatch.startIndex
             // Both the URI and URL need to be modified.
             val registerUrl = getInstruction<FiveRegisterInstruction>(insertIndex).registerC
             val registerUri = getInstruction<FiveRegisterInstruction>(insertIndex + 2).registerD
@@ -117,7 +117,7 @@ val unlockPremiumPatch = bytecodePatch(
         // Disable the "Spotify Premium" upsell experiment in context menus.
         contextMenuExperimentsFingerprint.apply {
             val moveIsEnabledIndex = method.indexOfFirstInstructionOrThrow(
-                stringMatches!!.first().index, Opcode.MOVE_RESULT
+                stringMatches.first().index, Opcode.MOVE_RESULT
             )
             val isUpsellEnabledRegister = method.getInstruction<OneRegisterInstruction>(moveIsEnabledIndex).registerA
 
@@ -136,7 +136,7 @@ val unlockPremiumPatch = bytecodePatch(
             getInstruction(emptyProtobufListGetIndex).getReference<FieldReference>()!!.definingClass
         }
 
-        val protobufListRemoveFingerprint = fingerprint {
+        val protobufListRemoveFingerprint by fingerprint {
             custom { method, classDef ->
                 method.name == "remove" && classDef.type == protobufListClassName
             }

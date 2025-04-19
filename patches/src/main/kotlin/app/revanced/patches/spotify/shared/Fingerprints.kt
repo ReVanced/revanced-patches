@@ -9,7 +9,7 @@ private const val SPOTIFY_MAIN_ACTIVITY = "Lcom/spotify/music/SpotifyMainActivit
  */
 internal const val SPOTIFY_MAIN_ACTIVITY_LEGACY = "Lcom/spotify/music/MainActivity;"
 
-internal val mainActivityOnCreateFingerprint = fingerprint {
+internal val mainActivityOnCreateFingerprint by fingerprint {
     custom { method, classDef ->
         method.name == "onCreate" && (classDef.type == SPOTIFY_MAIN_ACTIVITY
                 || classDef.type == SPOTIFY_MAIN_ACTIVITY_LEGACY)

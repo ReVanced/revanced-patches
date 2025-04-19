@@ -6,7 +6,7 @@ import app.revanced.util.containsLiteralInstruction
 import app.revanced.util.literal
 import com.android.tools.smali.dexlib2.AccessFlags
 
-internal val setWordmarkHeaderFingerprint = fingerprint {
+internal val setWordmarkHeaderFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("V")
     parameters("Landroid/widget/ImageView;")
@@ -19,7 +19,7 @@ internal val setWordmarkHeaderFingerprint = fingerprint {
 /**
  * Matches the same method as [yoodlesImageViewFingerprint].
  */
-internal val wideSearchbarLayoutFingerprint = fingerprint {
+internal val wideSearchbarLayoutFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("Landroid/view/View;")
     parameters("L", "L")

@@ -4,7 +4,7 @@ import app.revanced.patcher.fingerprint
 import app.revanced.util.containsLiteralInstruction
 import com.android.tools.smali.dexlib2.AccessFlags
 
-internal val encoreThemeFingerprint = fingerprint {
+internal val encoreThemeFingerprint by fingerprint {
     strings("Encore theme was not provided.") // Partial string match.
     custom { method, _ ->
         method.name == "invoke"
@@ -16,7 +16,7 @@ internal const val SHARE_MENU_BACKGROUND_COLOR_LITERAL = 0xFF1F1F1F
 internal const val HOME_CATEGORY_PILL_COLOR_LITERAL = 0xFF333333
 internal const val SETTINGS_HEADER_COLOR_LITERAL = 0xFF282828
 
-internal val homeCategoryPillColorsFingerprint = fingerprint{
+internal val homeCategoryPillColorsFingerprint by fingerprint{
     accessFlags(AccessFlags.STATIC, AccessFlags.CONSTRUCTOR)
     custom { method, _ ->
         method.containsLiteralInstruction(HOME_CATEGORY_PILL_COLOR_LITERAL) &&
@@ -24,7 +24,7 @@ internal val homeCategoryPillColorsFingerprint = fingerprint{
     }
 }
 
-internal val settingsHeaderColorFingerprint = fingerprint {
+internal val settingsHeaderColorFingerprint by fingerprint {
     accessFlags(AccessFlags.STATIC, AccessFlags.CONSTRUCTOR)
     custom { method, _ ->
         method.containsLiteralInstruction(SETTINGS_HEADER_COLOR_LITERAL) &&

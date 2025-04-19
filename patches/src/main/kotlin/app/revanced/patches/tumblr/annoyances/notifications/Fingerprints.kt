@@ -6,6 +6,6 @@ import app.revanced.patcher.fingerprint
 // It shows whenever you visit a certain blog for the second time and disables itself
 // if it was shown a total of 3 times (stored in app storage).
 // This targets the BlogNotifyCtaDialog.isEnabled() method to let it always return false.
-internal val isBlogNotifyEnabledFingerprint = fingerprint {
+internal val isBlogNotifyEnabledFingerprint by fingerprint {
     strings("isEnabled --> ", "blog_notify_enabled")
 }

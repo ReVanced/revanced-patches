@@ -5,7 +5,7 @@ import app.revanced.patches.spotify.misc.extension.IS_SPOTIFY_LEGACY_APP_TARGET
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal val accountAttributeFingerprint = fingerprint {
+internal val accountAttributeFingerprint by fingerprint {
     custom { _, classDef ->
         classDef.type == if (IS_SPOTIFY_LEGACY_APP_TARGET) {
             "Lcom/spotify/useraccount/v1/AccountAttribute;"
@@ -15,7 +15,7 @@ internal val accountAttributeFingerprint = fingerprint {
     }
 }
 
-internal val productStateProtoFingerprint = fingerprint {
+internal val productStateProtoFingerprint by fingerprint {
     returns("Ljava/util/Map;")
     custom { _, classDef ->
         classDef.type == if (IS_SPOTIFY_LEGACY_APP_TARGET) {
@@ -26,16 +26,16 @@ internal val productStateProtoFingerprint = fingerprint {
     }
 }
 
-internal val buildQueryParametersFingerprint = fingerprint {
+internal val buildQueryParametersFingerprint by fingerprint {
     strings("trackRows", "device_type:tablet")
 }
 
-internal val contextMenuExperimentsFingerprint = fingerprint {
+internal val contextMenuExperimentsFingerprint by fingerprint {
     parameters("L")
     strings("remove_ads_upsell_enabled")
 }
 
-internal val contextFromJsonFingerprint = fingerprint {
+internal val contextFromJsonFingerprint by fingerprint {
     opcodes(
         Opcode.INVOKE_STATIC,
         Opcode.MOVE_RESULT_OBJECT,
@@ -49,23 +49,23 @@ internal val contextFromJsonFingerprint = fingerprint {
     }
 }
 
-internal val readPlayerOptionOverridesFingerprint = fingerprint {
+internal val readPlayerOptionOverridesFingerprint by fingerprint {
     custom { methodDef, classDef ->
         methodDef.name == "readPlayerOptionOverrides" &&
                 classDef.endsWith("voiceassistants/playermodels/PreparePlayOptionsJsonAdapter;")
     }
 }
 
-internal val homeSectionFingerprint = fingerprint {
+internal val homeSectionFingerprint by fingerprint {
     custom { _, classDef -> classDef.endsWith("homeapi/proto/Section;") }
 }
 
-internal val protobufListsFingerprint = fingerprint {
+internal val protobufListsFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
     custom { method, _ -> method.name == "emptyProtobufList" }
 }
 
-internal val homeStructureFingerprint = fingerprint {
+internal val homeStructureFingerprint by fingerprint {
     opcodes(Opcode.IGET_OBJECT, Opcode.RETURN_OBJECT)
     custom { _, classDef -> classDef.endsWith("homeapi/proto/HomeStructure;") }
 }

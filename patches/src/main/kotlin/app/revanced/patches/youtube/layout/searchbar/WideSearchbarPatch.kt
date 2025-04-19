@@ -6,9 +6,8 @@ import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.resourcePatch
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
-import app.revanced.patches.shared.misc.mapping.get
+import app.revanced.patches.shared.misc.mapping.getResourceId
 import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
-import app.revanced.patches.shared.misc.mapping.resourceMappings
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
@@ -36,20 +35,20 @@ private val wideSearchbarResourcePatch = resourcePatch {
     dependsOn(resourceMappingPatch)
 
     execute {
-        ytWordmarkHeaderId = resourceMappings[
+        ytWordmarkHeaderId = getResourceId(
             "attr",
             "ytWordmarkHeader",
-        ]
+        )
 
-        ytPremiumWordmarkHeaderId = resourceMappings[
+        ytPremiumWordmarkHeaderId = getResourceId(
             "attr",
             "ytPremiumWordmarkHeader",
-        ]
+        )
 
-        actionBarRingoId = resourceMappings[
+        actionBarRingoId = getResourceId(
             "layout",
             "action_bar_ringo_background",
-        ]
+        )
     }
 }
 

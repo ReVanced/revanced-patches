@@ -1,14 +1,11 @@
 package app.revanced.patches.youtube.layout.formfactor
 
+import app.revanced.patcher.fieldAccess
 import app.revanced.patcher.fingerprint
-import app.revanced.util.getReference
-import app.revanced.util.indexOfFirstInstruction
+import app.revanced.patches.youtube.layout.formfactor.formFactorEnumConstructorFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
-import com.android.tools.smali.dexlib2.Opcode
-import com.android.tools.smali.dexlib2.iface.Method
-import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 
-internal val formFactorEnumConstructorFingerprint = fingerprint {
+internal val formFactorEnumConstructorFingerprint by fingerprint {
     accessFlags(AccessFlags.STATIC, AccessFlags.CONSTRUCTOR)
     strings(
         "UNKNOWN_FORM_FACTOR",
@@ -18,32 +15,16 @@ internal val formFactorEnumConstructorFingerprint = fingerprint {
     )
 }
 
-internal val createPlayerRequestBodyWithModelFingerprint = fingerprint {
+internal val createPlayerRequestBodyWithModelFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("L")
     parameters()
-    opcodes(Opcode.OR_INT_LIT16)
-    custom { method, _ ->
-        method.indexOfModelInstruction() >= 0 &&
-                method.indexOfReleaseInstruction() >= 0
-    }
+    instructions(
+        fieldAccess("Landroid/os/Build;", "MODEL", "Ljava/lang/String;"),
+        fieldAccess(
+            definingClass = { context -> with(context) { formFactorEnumConstructorFingerprint.originalClassDef.type } },
+            type = { "I" },
+            maxAfter = 50
+        )
+    )
 }
-
-private fun Method.indexOfModelInstruction() =
-    indexOfFirstInstruction {
-        val reference = getReference<FieldReference>()
-
-        reference?.definingClass == "Landroid/os/Build;" &&
-                reference.name == "MODEL" &&
-                reference.type == "Ljava/lang/String;"
-    }
-
-internal fun Method.indexOfReleaseInstruction(): Int =
-    indexOfFirstInstruction {
-        val reference = getReference<FieldReference>()
-
-        reference?.definingClass == "Landroid/os/Build${'$'}VERSION;" &&
-                reference.name == "RELEASE" &&
-                reference.type == "Ljava/lang/String;"
-    }
-

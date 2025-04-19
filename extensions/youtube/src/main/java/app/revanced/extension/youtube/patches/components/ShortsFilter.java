@@ -373,17 +373,6 @@ public final class ShortsFilter extends Filter {
         };
     }
 
-    /**
-     * Injection point.  Only used if patching older than 19.03.
-     * This hook may be obsolete even for old versions
-     * as they now use a litho layout like newer versions.
-     */
-    public static void hideShortsShelf(final View shortsShelfView) {
-        if (shouldHideShortsFeedItems()) {
-            Utils.hideViewByLayoutParams(shortsShelfView);
-        }
-    }
-
     public static int getSoundButtonSize(int original) {
         if (Settings.HIDE_SHORTS_SOUND_BUTTON.get()) {
             return 0;

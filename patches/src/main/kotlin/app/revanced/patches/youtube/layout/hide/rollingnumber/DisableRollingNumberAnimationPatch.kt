@@ -48,27 +48,27 @@ val disableRollingNumberAnimationPatch = bytecodePatch(
 
         // Animations are disabled by preventing an Image from being applied to the text span,
         // which prevents the animations from appearing.
+        rollingNumberTextViewAnimationUpdateFingerprint.let {
+            val blockStartIndex = it.instructionMatches.first().index
+            val blockEndIndex = it.instructionMatches.last().index + 1
+            it.method.apply {
+                val freeRegister = getInstruction<OneRegisterInstruction>(blockStartIndex).registerA
 
-        val patternMatch = rollingNumberTextViewAnimationUpdateFingerprint.patternMatch!!
-        val blockStartIndex = patternMatch.startIndex
-        val blockEndIndex = patternMatch.endIndex + 1
-        rollingNumberTextViewAnimationUpdateFingerprint.method.apply {
-            val freeRegister = getInstruction<OneRegisterInstruction>(blockStartIndex).registerA
+                // ReturnYouTubeDislike also makes changes to this same method,
+                // and must add control flow label to a noop instruction to
+                // ensure RYD patch adds its changes after the control flow label.
+                addInstructions(blockEndIndex, "nop")
 
-            // ReturnYouTubeDislike also makes changes to this same method,
-            // and must add control flow label to a noop instruction to
-            // ensure RYD patch adds its changes after the control flow label.
-            addInstructions(blockEndIndex, "nop")
-
-            addInstructionsWithLabels(
-                blockStartIndex,
-                """
+                addInstructionsWithLabels(
+                    blockStartIndex,
+                    """
                         invoke-static { }, $EXTENSION_CLASS_DESCRIPTOR->disableRollingNumberAnimations()Z
                         move-result v$freeRegister
                         if-nez v$freeRegister, :disable_animations
                     """,
-                ExternalLabel("disable_animations", getInstruction(blockEndIndex)),
-            )
+                    ExternalLabel("disable_animations", getInstruction(blockEndIndex)),
+                )
+            }
         }
     }
 }

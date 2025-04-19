@@ -3,6 +3,7 @@ package app.revanced.patches.spotify.misc.extension
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.shared.misc.extension.sharedExtensionPatch
 import app.revanced.patches.spotify.shared.SPOTIFY_MAIN_ACTIVITY_LEGACY
+import app.revanced.patches.spotify.shared.mainActivityOnCreateFingerprint
 
 /**
  * If patching a legacy 8.x target. This may also be set if patching slightly older/newer app targets,
@@ -15,7 +16,7 @@ val sharedExtensionPatch = bytecodePatch {
     dependsOn(sharedExtensionPatch("spotify", mainActivityOnCreateHook))
 
     execute {
-        IS_SPOTIFY_LEGACY_APP_TARGET = mainActivityOnCreateHook.fingerprint
+        IS_SPOTIFY_LEGACY_APP_TARGET = mainActivityOnCreateFingerprint
             .originalClassDef.type == SPOTIFY_MAIN_ACTIVITY_LEGACY
     }
 }
