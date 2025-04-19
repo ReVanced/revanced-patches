@@ -10,7 +10,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction22c
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 
 private const val EXTENSION_CLASS_DESCRIPTOR_PREFIX =
-    "Lapp/revanced/extension/all/screenshot/removerestriction/RemoveScreenshotRestrictionPatch"
+    "Lapp/revanced/extension/all/misc/screenshot/removerestriction/RemoveScreenshotRestrictionPatch"
 private const val EXTENSION_CLASS_DESCRIPTOR = "$EXTENSION_CLASS_DESCRIPTOR_PREFIX;"
 
 @Suppress("unused")

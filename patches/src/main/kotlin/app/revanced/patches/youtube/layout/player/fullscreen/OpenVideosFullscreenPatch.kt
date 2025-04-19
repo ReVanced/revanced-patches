@@ -27,6 +27,7 @@ val openVideosFullscreenPatch = bytecodePatch(
         "com.google.android.youtube"(
             "19.47.53",
             "20.07.39",
+            "20.12.46",
         )
     )
 

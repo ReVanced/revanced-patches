@@ -479,9 +479,9 @@ Second \"item\" text"</string>
   <string name="revanced_swipe_change_video_summary_off">لن يؤدي التمرير في وضع ملء الشاشة إلى التغيير للفيديو التالي/السابق</string>
   </patch>
   <patch id="layout.autocaptions.autoCaptionsPatch">
-  <string name="revanced_auto_captions_title">تعطيل التَّرْجَمَة التلقائية</string>
-  <string name="revanced_auto_captions_summary_on">تم تعطيل التَّرْجَمَة التلقائية</string>
-  <string name="revanced_auto_captions_summary_off">تم تمكين التَّرْجَمَة التلقائية</string>
+  <string name="revanced_disable_auto_captions_title">تعطيل التَّرْجَمَة التلقائية</string>
+  <string name="revanced_disable_auto_captions_summary_on">تم تعطيل التَّرْجَمَة التلقائية</string>
+  <string name="revanced_disable_auto_captions_summary_off">تم تمكين التَّرْجَمَة التلقائية</string>
   </patch>
   <patch id="layout.buttons.action.hideButtonsPatch">
   <string name="revanced_hide_buttons_screen_title">أزرار الإجراء</string>
@@ -832,8 +832,8 @@ Second \"item\" text"</string>
   <string name="revanced_ryd_compact_layout_summary_on">زر أعجبني مصمم لأدنى عرض</string>
   <string name="revanced_ryd_compact_layout_summary_off">زر أعجبني مصمم لأفضل مظهر</string>
   <string name="revanced_ryd_estimated_like_title">عرض الإعجابات المقدرة</string>
-  <string name="revanced_ryd_estimated_like_summary_on">يتم عرض الإعجابات المقدرة</string>
-  <string name="revanced_ryd_estimated_like_summary_off">تم إخفاء الإعجابات المقدرة</string>
+  <string name="revanced_ryd_estimated_like_summary_on">يتم عرض عدد تقديري للإعجابات في مقاطع الفيديو التي تم تعطيل الإعجابات فيها</string>
+  <string name="revanced_ryd_estimated_like_summary_off">لا يتم عرض عدد الإعجابات المقدرة</string>
   <string name="revanced_ryd_toast_on_connection_error_title">عرض ملاحظة إذا كان API غير متاح</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_on">يتم عرض الملاحظة في حالة عدم توفر Return YouTube Dislike</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_off">لا يتم عرض الملاحظة في حالة عدم توفر Return YouTube Dislike</string>

@@ -6,7 +6,7 @@ import app.revanced.patches.all.misc.transformation.filterMapInstruction35c
 import app.revanced.patches.all.misc.transformation.transformInstructionsPatch
 
 private const val EXTENSION_CLASS_DESCRIPTOR_PREFIX =
-    "Lapp/revanced/extension/all/connectivity/wifi/spoof/SpoofWifiPatch"
+    "Lapp/revanced/extension/all/misc/connectivity/wifi/spoof/SpoofWifiPatch"
 
 private const val EXTENSION_CLASS_DESCRIPTOR = "$EXTENSION_CLASS_DESCRIPTOR_PREFIX;"
 

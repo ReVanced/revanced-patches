@@ -466,6 +466,8 @@ Second \"item\" text"</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">滑動透明度必須介於 0 到 100 之間</string>
   <string name="revanced_swipe_threshold_title">滑動幅度臨界點</string>
   <string name="revanced_swipe_threshold_summary">滑動幅度臨界點</string>
+  <string name="revanced_swipe_volume_sensitivity_title">音量滑動靈敏度</string>
+  <string name="revanced_swipe_volume_sensitivity_summary">滑動一下音量調整的大小</string>
   <string name="revanced_swipe_show_circular_overlay_title">顯示圓形覆蓋</string>
   <string name="revanced_swipe_show_circular_overlay_summary_on">已顯示圓形覆蓋</string>
   <string name="revanced_swipe_show_circular_overlay_summary_off">已顯示水平覆蓋</string>
@@ -477,9 +479,6 @@ Second \"item\" text"</string>
   <string name="revanced_swipe_change_video_summary_off">在全螢幕模式下滑動將不會切換到下一部/上一部影片</string>
   </patch>
   <patch id="layout.autocaptions.autoCaptionsPatch">
-  <string name="revanced_auto_captions_title">停用自動產生的字幕</string>
-  <string name="revanced_auto_captions_summary_on">已停用自動產生的字幕</string>
-  <string name="revanced_auto_captions_summary_off">已啟用自動產生的字幕</string>
   </patch>
   <patch id="layout.buttons.action.hideButtonsPatch">
   <string name="revanced_hide_buttons_screen_title">動作按鈕</string>
@@ -628,7 +627,7 @@ Second \"item\" text"</string>
   <string name="revanced_hide_player_previous_next_buttons_title">隱藏「上一部」和「下一部」按鈕</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_on">已隱藏按鈕</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">已顯示按鈕</string>
-  <string name="revanced_hide_cast_button_title">隱藏「投影」按鈕</string>
+  <string name="revanced_hide_cast_button_title">隱藏「投放」按鈕</string>
   <string name="revanced_hide_cast_button_summary_on">已隱藏「投放」按鈕</string>
   <string name="revanced_hide_cast_button_summary_off">已顯示「投放」按鈕</string>
   <!-- This button does not display any text, but 'captions' should be translated using the same wording used as the translation of 'revanced_hide_player_flyout_captions_title' -->
@@ -830,8 +829,6 @@ Second \"item\" text"</string>
   <string name="revanced_ryd_compact_layout_summary_on">「喜歡」按鈕樣式設為最小寬度</string>
   <string name="revanced_ryd_compact_layout_summary_off">「喜歡」按鈕樣式設為最佳外觀</string>
   <string name="revanced_ryd_estimated_like_title">顯示預估喜歡人數</string>
-  <string name="revanced_ryd_estimated_like_summary_on">已顯示預估喜歡人數</string>
-  <string name="revanced_ryd_estimated_like_summary_off">已隱藏預估喜歡人數</string>
   <string name="revanced_ryd_toast_on_connection_error_title">若 API 無法使用，顯示提示</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_on">如果 Return YouTube Dislike 無法使用，則顯示提示訊息</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_off">如果 Return YouTube Dislike 無法使用，則不會顯示提示訊息</string>

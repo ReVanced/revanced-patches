@@ -1,3 +1,45 @@
+# [5.21.0-dev.6](https://github.com/ReVanced/revanced-patches/compare/v5.21.0-dev.5...v5.21.0-dev.6) (2025-04-19)
+
+
+### Bug Fixes
+
+* **YouTube - Wide search bar:** Do not force phone layout for tablet devices ([#4827](https://github.com/ReVanced/revanced-patches/issues/4827)) ([0cb38f9](https://github.com/ReVanced/revanced-patches/commit/0cb38f9f367a7fe742d8ca336150049181d637b6))
+
+# [5.21.0-dev.5](https://github.com/ReVanced/revanced-patches/compare/v5.21.0-dev.4...v5.21.0-dev.5) (2025-04-18)
+
+
+### Bug Fixes
+
+* `Hide ADB status` patch ([#4814](https://github.com/ReVanced/revanced-patches/issues/4814)) ([dc89be0](https://github.com/ReVanced/revanced-patches/commit/dc89be0e94880733f862b250d95d4848f02c594d))
+
+# [5.21.0-dev.4](https://github.com/ReVanced/revanced-patches/compare/v5.21.0-dev.3...v5.21.0-dev.4) (2025-04-17)
+
+
+### Bug Fixes
+
+* **YouTube - Disable auto captions:** Correctly hide captions with YT 20.12 ([5ecbe82](https://github.com/ReVanced/revanced-patches/commit/5ecbe823ed5197533328cc37f1de5cd1f048a217))
+
+# [5.21.0-dev.3](https://github.com/ReVanced/revanced-patches/compare/v5.21.0-dev.2...v5.21.0-dev.3) (2025-04-16)
+
+
+### Features
+
+* **X / Twitter:** Support version `10.86.0-release.0` ([#4805](https://github.com/ReVanced/revanced-patches/issues/4805)) ([655b390](https://github.com/ReVanced/revanced-patches/commit/655b39043ad77efcb4380de67c3f603666e7bc49))
+
+# [5.21.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.21.0-dev.1...v5.21.0-dev.2) (2025-04-16)
+
+
+### Features
+
+* Add `Hide ADB status` patch ([#4585](https://github.com/ReVanced/revanced-patches/issues/4585)) ([1ea8047](https://github.com/ReVanced/revanced-patches/commit/1ea8047aefdaa358e9af8038923ac54d68a39176))
+
+# [5.21.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.20.1...v5.21.0-dev.1) (2025-04-16)
+
+
+### Features
+
+* **YouTube:** Support version `20.12.46` ([#4779](https://github.com/ReVanced/revanced-patches/issues/4779)) ([703359f](https://github.com/ReVanced/revanced-patches/commit/703359f0c16b613c204cf16cf42227b628f664fa))
+
 ## [5.20.1](https://github.com/ReVanced/revanced-patches/compare/v5.20.0...v5.20.1) (2025-04-15)
 
 

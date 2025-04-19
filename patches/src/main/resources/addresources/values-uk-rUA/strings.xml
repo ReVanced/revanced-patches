@@ -466,8 +466,8 @@ Second \"item\" text"</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Значення затемнення панелі жесту має бути в межах від 0 до 100</string>
   <string name="revanced_swipe_threshold_title">Поріг величини жесту</string>
   <string name="revanced_swipe_threshold_summary">Мінімальна амплітуда руху, що розпізнається як жест</string>
-  <string name="revanced_swipe_volume_sensitivity_title">Чутливість гортання гучності</string>
-  <string name="revanced_swipe_volume_sensitivity_summary">На скільки змінюється гучність за одне гортання</string>
+  <string name="revanced_swipe_volume_sensitivity_title">Чутливість жесту гучності</string>
+  <string name="revanced_swipe_volume_sensitivity_summary">Наскільки змінюється гучність проводячи пальцем по екрану</string>
   <string name="revanced_swipe_show_circular_overlay_title">Показувати круговий індикатор</string>
   <string name="revanced_swipe_show_circular_overlay_summary_on">Показується круговий індикатор</string>
   <string name="revanced_swipe_show_circular_overlay_summary_off">Показується горизонтальний індикатор</string>
@@ -479,9 +479,9 @@ Second \"item\" text"</string>
   <string name="revanced_swipe_change_video_summary_off">Проведення пальцем у повноекранному режимі не перейде до наступного/попереднього відео</string>
   </patch>
   <patch id="layout.autocaptions.autoCaptionsPatch">
-  <string name="revanced_auto_captions_title">Вимкнути автоматичні субтитри</string>
-  <string name="revanced_auto_captions_summary_on">Автоматичні субтитри вимкнено</string>
-  <string name="revanced_auto_captions_summary_off">Автоматичні субтитри ввімкнено</string>
+  <string name="revanced_disable_auto_captions_title">Вимкнути автоматичні субтитри</string>
+  <string name="revanced_disable_auto_captions_summary_on">Автоматичні субтитри вимкнено</string>
+  <string name="revanced_disable_auto_captions_summary_off">Автоматичні субтитри ввімкнено</string>
   </patch>
   <patch id="layout.buttons.action.hideButtonsPatch">
   <string name="revanced_hide_buttons_screen_title">Кнопки дій</string>
@@ -832,8 +832,8 @@ Second \"item\" text"</string>
   <string name="revanced_ryd_compact_layout_summary_on">Кнопку \"Подобається\" стилізовано під мінімальну ширину</string>
   <string name="revanced_ryd_compact_layout_summary_off">Кнопку \"Подобається\" стилізовано для кращого вигляду</string>
   <string name="revanced_ryd_estimated_like_title">Показувати приблизну кількість вподобань</string>
-  <string name="revanced_ryd_estimated_like_summary_on">Приблизна кількість вподобань показується</string>
-  <string name="revanced_ryd_estimated_like_summary_off">Приблизну кількість вподобань приховано</string>
+  <string name="revanced_ryd_estimated_like_summary_on">На відео з вимкненими відмітками \"Подобається\" показується приблизна кількість вподобань</string>
+  <string name="revanced_ryd_estimated_like_summary_off">Приблизна кількість вподобань не показується</string>
   <string name="revanced_ryd_toast_on_connection_error_title">Показувати тост, якщо API не доступний</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_on">Тост показується, якщо Return YouTube Dislike не доступний</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_off">Тост не показується, якщо Return YouTube Dislike не доступний</string>

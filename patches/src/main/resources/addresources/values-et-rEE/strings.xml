@@ -479,9 +479,9 @@ Helitugevuse reguleerimiseks pühkige ekraani paremal küljel vertikaalselt"</st
   <string name="revanced_swipe_change_video_summary_off">Täisekraanrežiimis pühkimine ei vaheta järgmise/eelmise video</string>
   </patch>
   <patch id="layout.autocaptions.autoCaptionsPatch">
-  <string name="revanced_auto_captions_title">Keela automaatsed pealdised</string>
-  <string name="revanced_auto_captions_summary_on">Automaatsed pealdised on keelatud</string>
-  <string name="revanced_auto_captions_summary_off">Automaatsed pealdised on lubatud</string>
+  <string name="revanced_disable_auto_captions_title">Keela automaatsed pealdised</string>
+  <string name="revanced_disable_auto_captions_summary_on">Automaatsed subtiitrid on keelatud</string>
+  <string name="revanced_disable_auto_captions_summary_off">Automaatsed subtiitrid on lubatud</string>
   </patch>
   <patch id="layout.buttons.action.hideButtonsPatch">
   <string name="revanced_hide_buttons_screen_title">Tegevuse nupud</string>
@@ -832,8 +832,8 @@ Piirang: Ei meeldimised ei pruugi inkognito režiimis kuvada"</string>
   <string name="revanced_ryd_compact_layout_summary_on">Meeldimise nupp on stiilitud minimaalse laiusena</string>
   <string name="revanced_ryd_compact_layout_summary_off">Meeldimise nupp on stiilitud parima välimusega</string>
   <string name="revanced_ryd_estimated_like_title">Näita hinnangulisi meeldimisi</string>
-  <string name="revanced_ryd_estimated_like_summary_on">Hinnangulised meeldimised on näidatud</string>
-  <string name="revanced_ryd_estimated_like_summary_off">Hinnangulised meeldimised on peidetud</string>
+  <string name="revanced_ryd_estimated_like_summary_on">Videod, millel on keelatud meeldimised, näitavad meeldimiste arvu ligikaudset väärtust</string>
+  <string name="revanced_ryd_estimated_like_summary_off">Ligikaudsed meeldimised ei ole näidatud</string>
   <string name="revanced_ryd_toast_on_connection_error_title">Näita teadet, kui API pole saadaval</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_on">Teade näidatakse, kui Return YouTube Dislike pole saadaval</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_off">Teadet ei näidata, kui Return YouTube Dislike pole saadaval</string>

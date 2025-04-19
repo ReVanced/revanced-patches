@@ -1,6 +1,7 @@
 package app.revanced.patches.youtube.layout.hide.general
 
 import app.revanced.patcher.fingerprint
+import app.revanced.patches.youtube.layout.searchbar.wideSearchbarLayoutFingerprint
 import app.revanced.util.literal
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
@@ -16,9 +17,22 @@ internal val hideShowMoreButtonFingerprint = fingerprint {
 }
 
 /**
- * 20.07+
+ * 20.12+
  */
 internal val parseElementFromBufferFingerprint = fingerprint {
+    parameters("L", "L", "[B", "L", "L")
+    opcodes(
+        Opcode.IGET_OBJECT,
+        Opcode.INVOKE_INTERFACE,
+        Opcode.MOVE_RESULT_OBJECT,
+    )
+    strings("Failed to parse Element") // String is a partial match.
+}
+
+/**
+ * 20.07+
+ */
+internal val parseElementFromBufferLegacy2007Fingerprint = fingerprint {
     parameters("L", "L", "[B", "L", "L")
     opcodes(
         Opcode.IGET_OBJECT,
@@ -29,7 +43,10 @@ internal val parseElementFromBufferFingerprint = fingerprint {
     strings("Failed to parse Element") // String is a partial match.
 }
 
-internal val parseElementFromBufferLegacyFingerprint = fingerprint {
+/**
+ * 19.01 - 20.06
+ */
+internal val parseElementFromBufferLegacy1901Fingerprint = fingerprint {
     parameters("L", "L", "[B", "L", "L")
     opcodes(
         Opcode.IGET_OBJECT,
@@ -51,6 +68,9 @@ internal val showWatermarkFingerprint = fingerprint {
     parameters("L", "L")
 }
 
+/**
+ * Matches same method as [wideSearchbarLayoutFingerprint].
+ */
 internal val yoodlesImageViewFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("Landroid/view/View;")

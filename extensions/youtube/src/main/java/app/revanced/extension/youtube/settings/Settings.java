@@ -124,6 +124,7 @@ public class Settings extends BaseSettings {
     // Player
     public static final BooleanSetting COPY_VIDEO_URL = new BooleanSetting("revanced_copy_video_url", FALSE);
     public static final BooleanSetting COPY_VIDEO_URL_TIMESTAMP = new BooleanSetting("revanced_copy_video_url_timestamp", TRUE);
+    public static final BooleanSetting DISABLE_AUTO_CAPTIONS = new BooleanSetting("revanced_disable_auto_captions", FALSE, true);
     public static final BooleanSetting DISABLE_FULLSCREEN_AMBIENT_MODE = new BooleanSetting("revanced_disable_fullscreen_ambient_mode", TRUE, true);
     public static final BooleanSetting DISABLE_ROLLING_NUMBER_ANIMATIONS = new BooleanSetting("revanced_disable_rolling_number_animations", FALSE);
     public static final EnumSetting<FullscreenMode> EXIT_FULLSCREEN = new EnumSetting<>("revanced_exit_fullscreen", FullscreenMode.DISABLED);
@@ -294,7 +295,6 @@ public class Settings extends BaseSettings {
     // Misc
     public static final BooleanSetting ANNOUNCEMENTS = new BooleanSetting("revanced_announcements", TRUE);
     public static final IntegerSetting ANNOUNCEMENT_LAST_ID = new IntegerSetting("revanced_announcement_last_id", -1, false, false);
-    public static final BooleanSetting AUTO_CAPTIONS = new BooleanSetting("revanced_auto_captions", FALSE);
     public static final BooleanSetting AUTO_REPEAT = new BooleanSetting("revanced_auto_repeat", FALSE);
     public static final BooleanSetting BYPASS_URL_REDIRECTS = new BooleanSetting("revanced_bypass_url_redirects", TRUE);
     public static final BooleanSetting CHECK_WATCH_HISTORY_DOMAIN_NAME = new BooleanSetting("revanced_check_watch_history_domain_name", TRUE, false, false);
@@ -403,6 +403,7 @@ public class Settings extends BaseSettings {
     private static final StringSetting DEPRECATED_SEEKBAR_CUSTOM_COLOR_PRIMARY = new StringSetting("revanced_seekbar_custom_color_value", "#FF0033");
     private static final BooleanSetting DEPRECATED_DISABLE_SUGGESTED_VIDEO_END_SCREEN = new BooleanSetting("revanced_disable_suggested_video_end_screen", FALSE);
     private static final BooleanSetting DEPRECATED_RESTORE_OLD_VIDEO_QUALITY_MENU = new BooleanSetting("revanced_restore_old_video_quality_menu", TRUE);
+    private static final BooleanSetting DEPRECATED_AUTO_CAPTIONS = new BooleanSetting("revanced_auto_captions", FALSE);
 
     static {
         // region Migration
@@ -454,6 +455,11 @@ public class Settings extends BaseSettings {
         if (SPOOF_APP_VERSION_TARGET.get().compareTo(SPOOF_APP_VERSION_TARGET.defaultValue) < 0) {
             Logger.printInfo(() -> "Resetting spoof app version target");
             SPOOF_APP_VERSION_TARGET.resetToDefault();
+        }
+
+        if (!DEPRECATED_AUTO_CAPTIONS.isSetToDefault()) {
+            DISABLE_AUTO_CAPTIONS.save(true);
+            DEPRECATED_AUTO_CAPTIONS.resetToDefault();
         }
 
         // endregion

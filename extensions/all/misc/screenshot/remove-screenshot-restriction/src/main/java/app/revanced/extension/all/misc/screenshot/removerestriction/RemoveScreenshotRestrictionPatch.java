@@ -1,4 +1,4 @@
-package app.revanced.extension.all.screenshot.removerestriction;
+package app.revanced.extension.all.misc.screenshot.removerestriction;
 
 import android.view.Window;
 import android.view.WindowManager;

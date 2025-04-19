@@ -476,9 +476,9 @@ Ajusta el volumen deslizando verticalmente en el lado derecho de la pantalla"</s
   <string name="revanced_swipe_change_video_summary_off">Deslizar en modo de pantalla completa no cambiará al video siguiente/anterior</string>
   </patch>
   <patch id="layout.autocaptions.autoCaptionsPatch">
-  <string name="revanced_auto_captions_title">Desactivar auto subtítulos</string>
-  <string name="revanced_auto_captions_summary_on">Los títulos automáticos están desactivados</string>
-  <string name="revanced_auto_captions_summary_off">Los títulos automáticos están habilitados</string>
+  <string name="revanced_disable_auto_captions_title">Desactivar auto subtítulos</string>
+  <string name="revanced_disable_auto_captions_summary_on">Los subtítulos Auto están desactivados</string>
+  <string name="revanced_disable_auto_captions_summary_off">Los subtítulos Auto están activados</string>
   </patch>
   <patch id="layout.buttons.action.hideButtonsPatch">
   <string name="revanced_hide_buttons_screen_title">Botones de acción</string>
@@ -829,8 +829,8 @@ Limitación: Es posible que los Dislikes no aparezcan en el modo de incógnito"<
   <string name="revanced_ryd_compact_layout_summary_on">Botón \"Me gusta\" para el ancho mínimo</string>
   <string name="revanced_ryd_compact_layout_summary_off">Botón \"Me gusta\" para una mejor apariencia</string>
   <string name="revanced_ryd_estimated_like_title">Mostrar estimación de \"me gusta\"</string>
-  <string name="revanced_ryd_estimated_like_summary_on">Se muestra la estimación de \"me gusta\"</string>
-  <string name="revanced_ryd_estimated_like_summary_off">Se oculta la estimación de \"me gusta\"</string>
+  <string name="revanced_ryd_estimated_like_summary_on">Los vídeos con \"me gusta\" desactivados muestran un recuento estimado de \"me gusta\"</string>
+  <string name="revanced_ryd_estimated_like_summary_off">No se muestran los \"me gusta\" estimados</string>
   <string name="revanced_ryd_toast_on_connection_error_title">Mostrar un brindis si la API no está disponible</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_on">Toast se muestra si Devolución de YouTube Dislike no está disponible</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_off">Toast no se muestra si Devolución de YouTube Dislike no está disponible</string>

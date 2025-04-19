@@ -8,7 +8,9 @@ import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
-import app.revanced.patches.youtube.shared.subtitleButtonControllerFingerprint
+
+private const val EXTENSION_CLASS_DESCRIPTOR =
+    "Lapp/revanced/extension/youtube/patches/DisableAutoCaptionsPatch;"
 
 val autoCaptionsPatch = bytecodePatch(
     name = "Disable auto captions",
@@ -28,42 +30,41 @@ val autoCaptionsPatch = bytecodePatch(
             "19.43.41",
             "19.47.53",
             "20.07.39",
-        ),
+            "20.12.46",
+        )
     )
 
     execute {
         addResources("youtube", "layout.autocaptions.autoCaptionsPatch")
 
         PreferenceScreen.PLAYER.addPreferences(
-            SwitchPreference("revanced_auto_captions"),
+            SwitchPreference("revanced_disable_auto_captions"),
+        )
+
+        subtitleTrackFingerprint.method.addInstructions(
+            0,
+            """
+                invoke-static {}, $EXTENSION_CLASS_DESCRIPTOR->disableAutoCaptions()Z
+                move-result v0
+                if-eqz v0, :auto_captions_enabled
+                const/4 v0, 0x1
+                return v0
+                :auto_captions_enabled
+                nop
+            """
         )
 
         mapOf(
             startVideoInformerFingerprint to 0,
-            subtitleButtonControllerFingerprint to 1,
+            storyboardRendererDecoderRecommendedLevelFingerprint to 1
         ).forEach { (fingerprint, enabled) ->
             fingerprint.method.addInstructions(
                 0,
                 """
                     const/4 v0, 0x$enabled
-                    sput-boolean v0, Lapp/revanced/extension/youtube/patches/DisableAutoCaptionsPatch;->captionsButtonDisabled:Z
-                """,
+                    invoke-static { v0 }, $EXTENSION_CLASS_DESCRIPTOR->setCaptionsButtonStatus(Z)V
+                """
             )
         }
-
-        subtitleTrackFingerprint.method.addInstructions(
-            0,
-            """
-                invoke-static {}, Lapp/revanced/extension/youtube/patches/DisableAutoCaptionsPatch;->autoCaptionsEnabled()Z
-                move-result v0
-                if-eqz v0, :auto_captions_enabled
-                sget-boolean v0, Lapp/revanced/extension/youtube/patches/DisableAutoCaptionsPatch;->captionsButtonDisabled:Z
-                if-nez v0, :auto_captions_enabled
-                const/4 v0, 0x1
-                return v0
-                :auto_captions_enabled
-                nop
-            """,
-        )
     }
 }

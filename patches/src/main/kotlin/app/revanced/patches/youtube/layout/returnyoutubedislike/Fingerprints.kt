@@ -1,6 +1,7 @@
 package app.revanced.patches.youtube.layout.returnyoutubedislike
 
 import app.revanced.patcher.fingerprint
+import app.revanced.util.literal
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
@@ -120,4 +121,13 @@ internal val textComponentLookupFingerprint = fingerprint {
     returns("L")
     parameters("L")
     strings("…")
+}
+
+internal const val LITHO_NEW_TEXT_COMPONENT_FEATURE_FLAG = 45675738L
+
+internal val textComponentFeatureFlagFingerprint = fingerprint {
+    accessFlags(AccessFlags.FINAL)
+    returns("Z")
+    parameters()
+    literal { LITHO_NEW_TEXT_COMPONENT_FEATURE_FLAG }
 }

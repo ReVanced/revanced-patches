@@ -1,4 +1,4 @@
-package app.revanced.extension.all.connectivity.wifi.spoof;
+package app.revanced.extension.all.misc.connectivity.wifi.spoof;
 
 import android.app.PendingIntent;
 import android.content.Context;
