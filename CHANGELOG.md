@@ -1,3 +1,17 @@
+# [5.21.0-dev.7](https://github.com/ReVanced/revanced-patches/compare/v5.21.0-dev.6...v5.21.0-dev.7) (2025-04-20)
+
+
+### Bug Fixes
+
+* **YouTube - Change start page:** Add option to always override start page on app launch ([#4832](https://github.com/ReVanced/revanced-patches/issues/4832)) ([5062e24](https://github.com/ReVanced/revanced-patches/commit/5062e24433ba38eba397438e8fde32099109d3c3))
+
+# [5.21.0-dev.6](https://github.com/ReVanced/revanced-patches/compare/v5.21.0-dev.5...v5.21.0-dev.6) (2025-04-19)
+
+
+### Bug Fixes
+
+* **YouTube - Wide search bar:** Do not force phone layout for tablet devices ([#4827](https://github.com/ReVanced/revanced-patches/issues/4827)) ([0cb38f9](https://github.com/ReVanced/revanced-patches/commit/0cb38f9f367a7fe742d8ca336150049181d637b6))
+
 # [5.21.0-dev.5](https://github.com/ReVanced/revanced-patches/compare/v5.21.0-dev.4...v5.21.0-dev.5) (2025-04-18)
 
 
