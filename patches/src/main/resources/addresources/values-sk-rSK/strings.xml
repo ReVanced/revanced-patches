@@ -1097,7 +1097,7 @@ Ak sa neskôr vypne, odporúča sa vymazať údaje aplikácie, aby sa zabránilo
   <string name="revanced_spoof_app_version_target_entry_2">19.01.34 – Obnoviť staré ikony navigácie</string>
   </patch>
   <patch id="layout.startpage.changeStartPagePatch">
-  <string name="revanced_change_start_page_title">Nastaviť úvodnú stránku</string>
+  <string name="revanced_change_start_page_title">Zmeniť úvodnú stránku</string>
   <string name="revanced_change_start_page_entry_default">Predvolené</string>
   <string name="revanced_change_start_page_entry_all_subscriptions">Všetky odbery</string>
   <string name="revanced_change_start_page_entry_browse">Prehliadať kanály</string>
@@ -1122,6 +1122,11 @@ Ak sa neskôr vypne, odporúča sa vymazať údaje aplikácie, aby sa zabránilo
   <string name="revanced_change_start_page_entry_virtual_reality">Virtuálna realita</string>
   <string name="revanced_change_start_page_entry_watch_later">Pozrieť neskôr</string>
   <string name="revanced_change_start_page_entry_your_clips">Vaše klipy</string>
+  <string name="revanced_change_start_page_always_title">Vždy zmeniť úvodnú stránku</string>
+  <string name="revanced_change_start_page_always_summary_on">"Úvodná stránka sa vždy zmení
+
+Obmedzenie: Používanie tlačidla Späť na paneli s nástrojmi nemusí fungovať"</string>
+  <string name="revanced_change_start_page_always_summary_off">Úvodná stránka sa zmení iba pri spustení aplikácie</string>
   </patch>
   <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch">
   <string name="revanced_disable_resuming_shorts_player_title">Zakázať obnovenie prehrávača Shorts</string>

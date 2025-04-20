@@ -1102,7 +1102,6 @@ Sonradan qapadılarsa, UI səhvlərin önləmək üçün tətbiq məlumatların 
   <string name="revanced_spoof_app_version_target_entry_2">19.01.34 - Köhnə fəaliyyət simvolların bərpa et</string>
   </patch>
   <patch id="layout.startpage.changeStartPagePatch">
-  <string name="revanced_change_start_page_title">Başlanğıc səhifəsini təyin et</string>
   <string name="revanced_change_start_page_entry_default">İlkin</string>
   <string name="revanced_change_start_page_entry_all_subscriptions">Bütün abunəliklər</string>
   <string name="revanced_change_start_page_entry_browse">Kanallara nəzər yetir</string>

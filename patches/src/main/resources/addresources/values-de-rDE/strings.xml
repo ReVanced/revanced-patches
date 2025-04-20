@@ -1100,7 +1100,7 @@ Wenn Sie die Funktion später deaktivieren, wird empfohlen, die App-Daten zu lö
   <string name="revanced_spoof_app_version_target_entry_2">19.01.34 - Alte Navigations-Symbole wiederherstellen</string>
   </patch>
   <patch id="layout.startpage.changeStartPagePatch">
-  <string name="revanced_change_start_page_title">Startseite festlegen</string>
+  <string name="revanced_change_start_page_title">Startseite ändern</string>
   <string name="revanced_change_start_page_entry_default">Standard</string>
   <string name="revanced_change_start_page_entry_all_subscriptions">Alle Abonnements</string>
   <string name="revanced_change_start_page_entry_browse">Kanäle durchsuchen</string>
@@ -1125,6 +1125,11 @@ Wenn Sie die Funktion später deaktivieren, wird empfohlen, die App-Daten zu lö
   <string name="revanced_change_start_page_entry_virtual_reality">Virtuelle Realität</string>
   <string name="revanced_change_start_page_entry_watch_later">Später ansehen</string>
   <string name="revanced_change_start_page_entry_your_clips">Deine Clips</string>
+  <string name="revanced_change_start_page_always_title">Startseite immer ändern</string>
+  <string name="revanced_change_start_page_always_summary_on">"Die Startseite wird immer geändert.
+
+Einschränkung: Die Verwendung der Zurück-Taste auf der Symbolleiste funktioniert möglicherweise nicht."</string>
+  <string name="revanced_change_start_page_always_summary_off">Die Startseite wird nur beim Start der App geändert</string>
   </patch>
   <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch">
   <string name="revanced_disable_resuming_shorts_player_title">Fortsetzen des Shorts Players deaktivieren</string>
