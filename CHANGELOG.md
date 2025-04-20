@@ -1,3 +1,10 @@
+# [5.21.0-dev.8](https://github.com/ReVanced/revanced-patches/compare/v5.21.0-dev.7...v5.21.0-dev.8) (2025-04-20)
+
+
+### Bug Fixes
+
+* **Wide search bar:** Fix patching `19.16.39` ([433dbc3](https://github.com/ReVanced/revanced-patches/commit/433dbc3bf81823369e146035c954281e84d3a436))
+
 # [5.21.0-dev.7](https://github.com/ReVanced/revanced-patches/compare/v5.21.0-dev.6...v5.21.0-dev.7) (2025-04-20)
 
 
