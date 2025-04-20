@@ -17,7 +17,6 @@ import app.revanced.util.addInstructionsAtControlFlowLabel
 import app.revanced.util.findInstructionIndicesReversedOrThrow
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
-import app.revanced.util.indexOfFirstLiteralInstructionOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
@@ -48,7 +47,7 @@ private val wideSearchbarResourcePatch = resourcePatch {
 
         actionBarRingoId = resourceMappings[
             "layout",
-            "action_bar_ringo_background",
+            "action_bar_ringo",
         ]
     }
 }
@@ -111,18 +110,18 @@ val wideSearchbarPatch = bytecodePatch(
 
         // Fix missing left padding when using wide searchbar.
         wideSearchbarLayoutFingerprint.method.apply {
-            val layoutIndex = indexOfFirstLiteralInstructionOrThrow(actionBarRingoId)
-            val inflateIndex = indexOfFirstInstructionOrThrow(layoutIndex) {
+            findInstructionIndicesReversedOrThrow {
                 val reference = getReference<MethodReference>()
                 reference?.definingClass == "Landroid/view/LayoutInflater;"
                         && reference.name == "inflate"
-            }
-            val register = getInstruction<OneRegisterInstruction>(inflateIndex + 1).registerA
+            }.forEach { inflateIndex ->
+                val register = getInstruction<OneRegisterInstruction>(inflateIndex + 1).registerA
 
-            addInstruction(
-                inflateIndex + 2,
-                "invoke-static { v$register }, $EXTENSION_CLASS_DESCRIPTOR->setActionBar(Landroid/view/View;)V"
-            )
+                addInstruction(
+                    inflateIndex + 2,
+                    "invoke-static { v$register }, $EXTENSION_CLASS_DESCRIPTOR->setActionBar(Landroid/view/View;)V"
+                )
+            }
         }
     }
 }

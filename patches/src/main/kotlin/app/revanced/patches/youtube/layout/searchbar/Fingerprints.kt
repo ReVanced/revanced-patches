@@ -11,8 +11,8 @@ internal val setWordmarkHeaderFingerprint = fingerprint {
     returns("V")
     parameters("Landroid/widget/ImageView;")
     custom { methodDef, _ ->
-        methodDef.containsLiteralInstruction(ytWordmarkHeaderId) &&
-                methodDef.containsLiteralInstruction(ytPremiumWordmarkHeaderId)
+        methodDef.containsLiteralInstruction(ytPremiumWordmarkHeaderId) &&
+            methodDef.containsLiteralInstruction(ytWordmarkHeaderId)
     }
 }
 
