@@ -1105,7 +1105,7 @@ User id ของคุณเหมือนกับรหัสผ่าน �
   <string name="revanced_spoof_app_version_target_entry_2">19.01.34 - กู้คืนไอคอนการนำทางแบบเก่า</string>
   </patch>
   <patch id="layout.startpage.changeStartPagePatch">
-  <string name="revanced_change_start_page_title">ตั้งค่าหน้าเริ่มต้น</string>
+  <string name="revanced_change_start_page_title">เปลี่ยนหน้าเริ่มต้น</string>
   <string name="revanced_change_start_page_entry_default">ค่าเริ่มต้น</string>
   <string name="revanced_change_start_page_entry_all_subscriptions">สยงสนดการตเปนี</string>
   <string name="revanced_change_start_page_entry_browse">เรียกดูช่อง</string>
@@ -1130,6 +1130,11 @@ User id ของคุณเหมือนกับรหัสผ่าน �
   <string name="revanced_change_start_page_entry_virtual_reality">กทบทาคส์ชียอลัด</string>
   <string name="revanced_change_start_page_entry_watch_later">ดูต่อภายหลัง</string>
   <string name="revanced_change_start_page_entry_your_clips">คลิปของคุณ</string>
+  <string name="revanced_change_start_page_always_title">เปลี่ยนหน้าเริ่มต้นเสมอ</string>
+  <string name="revanced_change_start_page_always_summary_on">"หน้าเริ่มต้นมีการเปลี่ยนแปลงเสมอ
+
+ข้อจำกัด: การใช้ปุ่มย้อนกลับบนแถบเครื่องมืออาจใช้ไม่ได้"</string>
+  <string name="revanced_change_start_page_always_summary_off">หน้าเริ่มต้นจะเปลี่ยนเมื่อเริ่มแอปเท่านั้น</string>
   </patch>
   <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch">
   <string name="revanced_disable_resuming_shorts_player_title">ปิดใช้งานการกลับมาทำงานต่อของเครื่องเล่น Shorts</string>

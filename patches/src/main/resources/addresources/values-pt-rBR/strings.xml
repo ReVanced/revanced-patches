@@ -1104,7 +1104,7 @@ Se posteriormente desativado, é recomendável limpar os dados do aplicativo par
   <string name="revanced_spoof_app_version_target_entry_2">19.01.34 - Restaurar ícones de navegação antigos</string>
   </patch>
   <patch id="layout.startpage.changeStartPagePatch">
-  <string name="revanced_change_start_page_title">Definir página inicial</string>
+  <string name="revanced_change_start_page_title">Alterar página inicial</string>
   <string name="revanced_change_start_page_entry_default">Padrão</string>
   <string name="revanced_change_start_page_entry_all_subscriptions">Todas as inscrições</string>
   <string name="revanced_change_start_page_entry_browse">Explorar canais</string>
@@ -1129,6 +1129,11 @@ Se posteriormente desativado, é recomendável limpar os dados do aplicativo par
   <string name="revanced_change_start_page_entry_virtual_reality">Realidade virtual</string>
   <string name="revanced_change_start_page_entry_watch_later">Assistir mais tarde</string>
   <string name="revanced_change_start_page_entry_your_clips">Seus clipes</string>
+  <string name="revanced_change_start_page_always_title">Sempre alterar a página inicial</string>
+  <string name="revanced_change_start_page_always_summary_on">"A página inicial é sempre alterada
+
+Limitação: usar o botão Voltar na barra de ferramentas pode não funcionar"</string>
+  <string name="revanced_change_start_page_always_summary_off">A página inicial é alterada apenas na inicialização do aplicativo</string>
   </patch>
   <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch">
   <string name="revanced_disable_resuming_shorts_player_title">Desativar continuar a reproduzir Shorts</string>

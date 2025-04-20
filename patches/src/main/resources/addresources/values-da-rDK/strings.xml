@@ -1052,7 +1052,7 @@ Hvis det senere slås fra, anbefales det at rydde app-dataene for at forhindre U
   <string name="revanced_spoof_app_version_target_entry_1">19.35.36 - Gendan gamle Shorts player ikoner</string>
   </patch>
   <patch id="layout.startpage.changeStartPagePatch">
-  <string name="revanced_change_start_page_title">Indstil startside</string>
+  <string name="revanced_change_start_page_title">Skift startside</string>
   <string name="revanced_change_start_page_entry_default">Standard</string>
   <string name="revanced_change_start_page_entry_all_subscriptions">Alle abonnementer</string>
   <string name="revanced_change_start_page_entry_browse">Gennemse kanaler</string>
@@ -1077,6 +1077,11 @@ Hvis det senere slås fra, anbefales det at rydde app-dataene for at forhindre U
   <string name="revanced_change_start_page_entry_virtual_reality">Virtual Reality</string>
   <string name="revanced_change_start_page_entry_watch_later">Se senere</string>
   <string name="revanced_change_start_page_entry_your_clips">Dine klip</string>
+  <string name="revanced_change_start_page_always_title">Skift altid startside</string>
+  <string name="revanced_change_start_page_always_summary_on">"Startside ændres altid
+
+Begrænsning: Brug af tilbage-knappen på værktøjslinjen fungerer muligvis ikke"</string>
+  <string name="revanced_change_start_page_always_summary_off">Startsiden ændres kun ved appstart</string>
   </patch>
   <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch">
   <string name="revanced_disable_resuming_shorts_player_title">Deaktivér genoptagelse af Shorts spiller</string>

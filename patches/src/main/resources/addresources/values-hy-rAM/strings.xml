@@ -1107,7 +1107,7 @@ Seekbar thumbnails-ները կօգտագործեն նույն որակը, ինչ
   <string name="revanced_spoof_app_version_target_entry_2">19.01.34 - Վերականգնել հին նավիգացիոն պատկերակները</string>
   </patch>
   <patch id="layout.startpage.changeStartPagePatch">
-  <string name="revanced_change_start_page_title">Սահմանել մեկնարկային էջ</string>
+  <string name="revanced_change_start_page_title">Փոխել մեկնարկային էջը</string>
   <string name="revanced_change_start_page_entry_default">Ըստ լռելյայնի</string>
   <string name="revanced_change_start_page_entry_all_subscriptions">Բոլոր բաժանորդագրությունները</string>
   <string name="revanced_change_start_page_entry_browse">Դիտել ալիքները</string>
@@ -1132,6 +1132,11 @@ Seekbar thumbnails-ները կօգտագործեն նույն որակը, ինչ
   <string name="revanced_change_start_page_entry_virtual_reality">Վիրտուալ իրականություն</string>
   <string name="revanced_change_start_page_entry_watch_later">Դիտել հետո</string>
   <string name="revanced_change_start_page_entry_your_clips">Your clips</string>
+  <string name="revanced_change_start_page_always_title">Միշտ փոխել մեկնարկային էջը</string>
+  <string name="revanced_change_start_page_always_summary_on">"Մեկնարկային էջը միշտ փոխված է
+
+Սահմանափակում. գործիքագոտու վրա հետադարձ կոճակն օգտագործելը կարող է չաշխատել"</string>
+  <string name="revanced_change_start_page_always_summary_off">Մեկնարկային էջը փոխվում է միայն հավելվածի գործարկման ժամանակ</string>
   </patch>
   <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch">
   <string name="revanced_disable_resuming_shorts_player_title">Անջատել Shorts պլեյերի վերսկսումը</string>

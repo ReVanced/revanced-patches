@@ -1107,7 +1107,7 @@ Als het later wordt uitgeschakeld, wordt aanbevolen om de app-gegevens te wissen
   <string name="revanced_spoof_app_version_target_entry_2">19.01.34 - Herstel oude navigatie-iconen</string>
   </patch>
   <patch id="layout.startpage.changeStartPagePatch">
-  <string name="revanced_change_start_page_title">Startpagina instellen</string>
+  <string name="revanced_change_start_page_title">Startpagina wijzigen</string>
   <string name="revanced_change_start_page_entry_default">Standaard</string>
   <string name="revanced_change_start_page_entry_all_subscriptions">Alle abonnementen</string>
   <string name="revanced_change_start_page_entry_browse">Kanalen browsen</string>
@@ -1132,6 +1132,9 @@ Als het later wordt uitgeschakeld, wordt aanbevolen om de app-gegevens te wissen
   <string name="revanced_change_start_page_entry_virtual_reality">Virtuele realiteit</string>
   <string name="revanced_change_start_page_entry_watch_later">Later bekijken</string>
   <string name="revanced_change_start_page_entry_your_clips">Je clips</string>
+  <string name="revanced_change_start_page_always_title">Startpagina altijd wijzigen</string>
+  <string name="revanced_change_start_page_always_summary_on">"De startpagina wordt altijd gewijzigd\n\nBeperking: Het gebruik van de terugknop op de werkbalk werkt mogelijk niet"</string>
+  <string name="revanced_change_start_page_always_summary_off">Startpagina wordt alleen gewijzigd bij het opstarten van de app</string>
   </patch>
   <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch">
   <string name="revanced_disable_resuming_shorts_player_title">Schakel het hervatten van Shorts-speler uit</string>

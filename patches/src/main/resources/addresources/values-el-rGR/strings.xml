@@ -1108,7 +1108,7 @@ Second \"item\" text"</string>
   <string name="revanced_spoof_app_version_target_entry_2">19.01.34 - Επαναφορά παλιών εικονιδίων γραμμής πλοήγησης</string>
   </patch>
   <patch id="layout.startpage.changeStartPagePatch">
-  <string name="revanced_change_start_page_title">Αλλαγή της αρχικής σελίδας</string>
+  <string name="revanced_change_start_page_title">Αλλαγή αρχικής σελίδας</string>
   <string name="revanced_change_start_page_entry_default">Προεπιλογή</string>
   <string name="revanced_change_start_page_entry_all_subscriptions">Όλες οι εγγραφές</string>
   <string name="revanced_change_start_page_entry_browse">Περιήγηση καναλιών</string>
@@ -1133,6 +1133,11 @@ Second \"item\" text"</string>
   <string name="revanced_change_start_page_entry_virtual_reality">Εικονική Πραγματικότητα</string>
   <string name="revanced_change_start_page_entry_watch_later">Παρακολούθηση αργότερα</string>
   <string name="revanced_change_start_page_entry_your_clips">Τα κλιπ σας</string>
+  <string name="revanced_change_start_page_always_title">Να αλλάζει πάντα η αρχική σελίδα</string>
+  <string name="revanced_change_start_page_always_summary_on">"Η αρχική σελίδα αλλάζει πάντα
+
+Περιορισμός: Η χρήση του κουμπιού επιστροφής στη γραμμή εργαλείων ενδέχεται να μην λειτουργεί"</string>
+  <string name="revanced_change_start_page_always_summary_off">Η αρχική σελίδα αλλάζει μόνο κατά την εκκίνηση της εφαρμογής</string>
   </patch>
   <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch">
   <string name="revanced_disable_resuming_shorts_player_title">Απενεργοποίηση συνέχισης των Shorts</string>
