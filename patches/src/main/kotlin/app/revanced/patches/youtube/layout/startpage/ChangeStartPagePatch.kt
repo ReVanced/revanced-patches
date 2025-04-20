@@ -7,6 +7,9 @@ import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.shared.misc.settings.preference.ListPreference
+import app.revanced.patches.shared.misc.settings.preference.PreferenceCategory
+import app.revanced.patches.shared.misc.settings.preference.PreferenceScreenPreference.Sorting
+import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
@@ -43,10 +46,18 @@ val changeStartPagePatch = bytecodePatch(
         addResources("youtube", "layout.startpage.changeStartPagePatch")
 
         PreferenceScreen.GENERAL_LAYOUT.addPreferences(
-            ListPreference(
-                key = "revanced_change_start_page",
-                summaryKey = null,
-            ),
+            PreferenceCategory(
+                titleKey = null,
+                sorting = Sorting.UNSORTED,
+                tag = "app.revanced.extension.shared.settings.preference.NoTitlePreferenceCategory",
+                preferences = setOf(
+                    ListPreference(
+                        key = "revanced_change_start_page",
+                        summaryKey = null,
+                    ),
+                    SwitchPreference("revanced_change_start_page_always")
+                )
+            )
         )
 
         // Hook browseId.
