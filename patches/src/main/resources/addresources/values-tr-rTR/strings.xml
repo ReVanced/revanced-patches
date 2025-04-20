@@ -1107,7 +1107,7 @@ Daha sonra kapatılırsa, arayüz hatalarını önlemek için uygulama verilerin
   <string name="revanced_spoof_app_version_target_entry_2">19.01.34 - Eski gezinti simgelerini geri getir</string>
   </patch>
   <patch id="layout.startpage.changeStartPagePatch">
-  <string name="revanced_change_start_page_title">Başlangıç sayfasını ayarla</string>
+  <string name="revanced_change_start_page_title">Başlangıç sayfasını değiştir</string>
   <string name="revanced_change_start_page_entry_default">Varsayılan</string>
   <string name="revanced_change_start_page_entry_all_subscriptions">Tüm abonelikler</string>
   <string name="revanced_change_start_page_entry_browse">Kanallara göz at</string>
@@ -1132,6 +1132,11 @@ Daha sonra kapatılırsa, arayüz hatalarını önlemek için uygulama verilerin
   <string name="revanced_change_start_page_entry_virtual_reality">Sanal Gerçeklik</string>
   <string name="revanced_change_start_page_entry_watch_later">Daha sonra izle</string>
   <string name="revanced_change_start_page_entry_your_clips">Sizin klipleriniz</string>
+  <string name="revanced_change_start_page_always_title">Başlangıç sayfası her zaman değiştirilsin</string>
+  <string name="revanced_change_start_page_always_summary_on">"Başlangıç sayfası her zaman değiştirilir
+
+Sınırlama: Araç çubuğunda geri düğmesini kullanmak işe yaramayabilir"</string>
+  <string name="revanced_change_start_page_always_summary_off">Başlangıç sayfası yalnızca uygulama başlatılırken değiştirilir</string>
   </patch>
   <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch">
   <string name="revanced_disable_resuming_shorts_player_title">Shorts oynatıcıya devam edilmesini devre dışı bırak</string>

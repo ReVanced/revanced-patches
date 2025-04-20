@@ -1107,7 +1107,7 @@ Jeśli później zostanie wyłączony, zaleca się wyczyszczenie danych aplikacj
   <string name="revanced_spoof_app_version_target_entry_2">19.01.34 – Przywróć stare ikony nawigacji</string>
   </patch>
   <patch id="layout.startpage.changeStartPagePatch">
-  <string name="revanced_change_start_page_title">Strona startowa</string>
+  <string name="revanced_change_start_page_title">Zmień stronę startową</string>
   <string name="revanced_change_start_page_entry_default">Domyślna</string>
   <string name="revanced_change_start_page_entry_all_subscriptions">Wszystkie subskrypcje</string>
   <string name="revanced_change_start_page_entry_browse">Przeglądaj kanały</string>
@@ -1132,6 +1132,11 @@ Jeśli później zostanie wyłączony, zaleca się wyczyszczenie danych aplikacj
   <string name="revanced_change_start_page_entry_virtual_reality">Wirtualna rzeczywistość</string>
   <string name="revanced_change_start_page_entry_watch_later">Do obejrzenia</string>
   <string name="revanced_change_start_page_entry_your_clips">Twoje klipy</string>
+  <string name="revanced_change_start_page_always_title">Zawsze zmieniaj stronę startową</string>
+  <string name="revanced_change_start_page_always_summary_on">"Strona startowa jest zawsze zmieniana
+
+Ograniczenie: użycie przycisku wstecz na pasku narzędzi może nie działać"</string>
+  <string name="revanced_change_start_page_always_summary_off">Strona startowa jest zmieniana tylko przy uruchomieniu aplikacji</string>
   </patch>
   <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch">
   <string name="revanced_disable_resuming_shorts_player_title">Wznawianie odtwarzacza Shortsów</string>

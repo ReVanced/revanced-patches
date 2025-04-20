@@ -1106,7 +1106,7 @@ Second \"item\" text"</string>
   <string name="revanced_spoof_app_version_target_entry_2">19.01.34 - Враћа старе иконице навигације</string>
   </patch>
   <patch id="layout.startpage.changeStartPagePatch">
-  <string name="revanced_change_start_page_title">Полазна страница</string>
+  <string name="revanced_change_start_page_title">Промени почетну страницу</string>
   <string name="revanced_change_start_page_entry_default">Подразумевана</string>
   <string name="revanced_change_start_page_entry_all_subscriptions">Сва праћења</string>
   <string name="revanced_change_start_page_entry_browse">Претрага канала</string>
@@ -1131,6 +1131,11 @@ Second \"item\" text"</string>
   <string name="revanced_change_start_page_entry_virtual_reality">Виртуелна реалност</string>
   <string name="revanced_change_start_page_entry_watch_later">За касније</string>
   <string name="revanced_change_start_page_entry_your_clips">Ваши клипови</string>
+  <string name="revanced_change_start_page_always_title">Увек промени почетну страницу</string>
+  <string name="revanced_change_start_page_always_summary_on">"Почетна страница је увек промењена
+
+Ограничење: Коришћење дугмета за повратак на траци са алаткама можда неће радити"</string>
+  <string name="revanced_change_start_page_always_summary_off">Почетна страница се мења само при покретању апликације</string>
   </patch>
   <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch">
   <string name="revanced_disable_resuming_shorts_player_title">Онемогући наставак репродукције Shorts плејера</string>

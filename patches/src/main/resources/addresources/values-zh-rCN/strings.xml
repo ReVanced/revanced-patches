@@ -1111,7 +1111,7 @@ Second \"item\" text"</string>
   <string name="revanced_spoof_app_version_target_entry_2">19.01.34 - 还原旧的导航图标</string>
   </patch>
   <patch id="layout.startpage.changeStartPagePatch">
-  <string name="revanced_change_start_page_title">设置起始页</string>
+  <string name="revanced_change_start_page_title">更改起始页</string>
   <string name="revanced_change_start_page_entry_default">默认</string>
   <string name="revanced_change_start_page_entry_all_subscriptions">所有订阅频道</string>
   <string name="revanced_change_start_page_entry_browse">浏览频道</string>
@@ -1136,6 +1136,11 @@ Second \"item\" text"</string>
   <string name="revanced_change_start_page_entry_virtual_reality">虚拟实境</string>
   <string name="revanced_change_start_page_entry_watch_later">稍后观看</string>
   <string name="revanced_change_start_page_entry_your_clips">你的剪辑</string>
+  <string name="revanced_change_start_page_always_title">始终更改起始页</string>
+  <string name="revanced_change_start_page_always_summary_on">"起始页始终已更改
+
+限制：工具栏上的后退按钮可能无法使用"</string>
+  <string name="revanced_change_start_page_always_summary_off">起始页仅在应用启动时更改</string>
   </patch>
   <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch">
   <string name="revanced_disable_resuming_shorts_player_title">禁用恢复 Shorts 播放器</string>

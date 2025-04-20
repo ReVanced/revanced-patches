@@ -241,9 +241,9 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_hide_chapters_section_title">챕터 숨기기</string>
   <string name="revanced_hide_chapters_section_summary_on">챕터 섹션이 숨겨집니다</string>
   <string name="revanced_hide_chapters_section_summary_off">챕터 섹션이 표시됩니다</string>
-  <string name="revanced_hide_how_this_was_made_section_title">콘텐츠 생성 방식 섹션 숨기기</string>
-  <string name="revanced_hide_how_this_was_made_section_summary_on">콘텐츠 생성 방식 섹션이 숨겨집니다</string>
-  <string name="revanced_hide_how_this_was_made_section_summary_off">콘텐츠 생성 방식 섹션이 표시됩니다</string>
+  <string name="revanced_hide_how_this_was_made_section_title">이 콘텐츠가 제작된 방식 섹션 숨기기</string>
+  <string name="revanced_hide_how_this_was_made_section_summary_on">이 콘텐츠가 제작된 방식 섹션이 숨겨집니다</string>
+  <string name="revanced_hide_how_this_was_made_section_summary_off">이 콘텐츠가 제작된 방식 섹션이 표시됩니다</string>
   <string name="revanced_hide_podcast_section_title">팟캐스트 살펴보기 섹션 숨기기</string>
   <string name="revanced_hide_podcast_section_summary_on">팟캐스트 살펴보기 섹션이 숨겨집니다</string>
   <string name="revanced_hide_podcast_section_summary_off">팟캐스트 살펴보기 섹션이 표시됩니다</string>
@@ -1132,6 +1132,12 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_change_start_page_entry_virtual_reality">가상 현실</string>
   <string name="revanced_change_start_page_entry_watch_later">나중에 볼 동영상</string>
   <string name="revanced_change_start_page_entry_your_clips">내 클립</string>
+  <string name="revanced_change_start_page_always_title">앱 시작 페이지 항상 변경하기</string>
+  <string name="revanced_change_start_page_always_summary_on">"앱 시작 페이지를 항상 변경합니다
+
+알려진 문제점:
+• 툴바에서 '뒤로 가기' 버튼이 작동하지 않을 수 있습니다"</string>
+  <string name="revanced_change_start_page_always_summary_off">앱 시작 페이지를 앱 시작 시에만 변경합니다</string>
   </patch>
   <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch">
   <string name="revanced_disable_resuming_shorts_player_title">앱을 시작할 때, Shorts 플레이어 비활성화하기</string>
