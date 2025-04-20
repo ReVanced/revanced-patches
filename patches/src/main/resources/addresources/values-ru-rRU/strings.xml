@@ -1107,7 +1107,7 @@ Second \"item\" text"</string>
   <string name="revanced_spoof_app_version_target_entry_2">19.01.34 - Восстановление старых иконок панели навигации</string>
   </patch>
   <patch id="layout.startpage.changeStartPagePatch">
-  <string name="revanced_change_start_page_title">Начальная страница</string>
+  <string name="revanced_change_start_page_title">Изменить начальную страницу</string>
   <string name="revanced_change_start_page_entry_default">По умолчанию</string>
   <string name="revanced_change_start_page_entry_all_subscriptions">Все подписки</string>
   <string name="revanced_change_start_page_entry_browse">Просмотр каналов</string>
@@ -1132,6 +1132,11 @@ Second \"item\" text"</string>
   <string name="revanced_change_start_page_entry_virtual_reality">Виртуальная реальность</string>
   <string name="revanced_change_start_page_entry_watch_later">Смотреть позже</string>
   <string name="revanced_change_start_page_entry_your_clips">Ваши клипы</string>
+  <string name="revanced_change_start_page_always_title">Всегда изменять стартовую страницу</string>
+  <string name="revanced_change_start_page_always_summary_on">"Начальная страница всегда изменена
+
+Ограничение: использование кнопки \"Назад\" на панели инструментов может не работать"</string>
+  <string name="revanced_change_start_page_always_summary_off">Стартовая страница изменяется только при запуске приложения</string>
   </patch>
   <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch">
   <string name="revanced_disable_resuming_shorts_player_title">Отключить возобновление плеера Shorts</string>

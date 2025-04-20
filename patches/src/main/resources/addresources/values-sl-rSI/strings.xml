@@ -1106,7 +1106,7 @@ To bo spremenilo videz in funkcije aplikacije, vendar se lahko pojavijo neznani 
   <string name="revanced_spoof_app_version_target_entry_2">19.01.34 – Obnovi stare ikone za krmarjenje</string>
   </patch>
   <patch id="layout.startpage.changeStartPagePatch">
-  <string name="revanced_change_start_page_title">Nastavi začetno stran</string>
+  <string name="revanced_change_start_page_title">Spremeni začetno stran</string>
   <string name="revanced_change_start_page_entry_default">Privzeto</string>
   <string name="revanced_change_start_page_entry_all_subscriptions">Vse naročnine</string>
   <string name="revanced_change_start_page_entry_browse">Brskaj po kanalih</string>
@@ -1131,6 +1131,11 @@ To bo spremenilo videz in funkcije aplikacije, vendar se lahko pojavijo neznani 
   <string name="revanced_change_start_page_entry_virtual_reality">Virtualna resničnost</string>
   <string name="revanced_change_start_page_entry_watch_later">Oglej si kasneje</string>
   <string name="revanced_change_start_page_entry_your_clips">Vaši posnetki</string>
+  <string name="revanced_change_start_page_always_title">Vedno spremeni začetno stran</string>
+  <string name="revanced_change_start_page_always_summary_on">"Začetna stran je vedno spremenjena
+
+Omejitev: uporaba gumba za nazaj v orodni vrstici morda ne bo delovala"</string>
+  <string name="revanced_change_start_page_always_summary_off">Začetna stran se spremeni samo ob zagonu aplikacije</string>
   </patch>
   <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch">
   <string name="revanced_disable_resuming_shorts_player_title">Onemogoči nadaljevanje predvajalnika Shorts</string>

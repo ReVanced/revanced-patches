@@ -1106,7 +1106,7 @@ Si désactivé ultérieurement, il est recommandé d'effacer les données de l'a
   <string name="revanced_spoof_app_version_target_entry_2">19.01.34 - Restaurer les anciennes icônes de navigation</string>
   </patch>
   <patch id="layout.startpage.changeStartPagePatch">
-  <string name="revanced_change_start_page_title">Définir la page ouverte au lancement</string>
+  <string name="revanced_change_start_page_title">Modifier la page de démarrage</string>
   <string name="revanced_change_start_page_entry_default">Par défaut</string>
   <string name="revanced_change_start_page_entry_all_subscriptions">Tous les abonnements</string>
   <string name="revanced_change_start_page_entry_browse">Parcourir les chaînes</string>
@@ -1131,6 +1131,11 @@ Si désactivé ultérieurement, il est recommandé d'effacer les données de l'a
   <string name="revanced_change_start_page_entry_virtual_reality">Réalité virtuelle</string>
   <string name="revanced_change_start_page_entry_watch_later">À regarder plus tard</string>
   <string name="revanced_change_start_page_entry_your_clips">Vos clips</string>
+  <string name="revanced_change_start_page_always_title">Toujours modifier la page de démarrage</string>
+  <string name="revanced_change_start_page_always_summary_on">"La page de démarrage est toujours modifiée
+
+Limitation : l'utilisation du bouton de retour dans la barre d'outils peut ne pas fonctionner"</string>
+  <string name="revanced_change_start_page_always_summary_off">La page de démarrage est modifiée uniquement au démarrage de l\'application</string>
   </patch>
   <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch">
   <string name="revanced_disable_resuming_shorts_player_title">Désactiver la reprise du lecteur Shorts</string>

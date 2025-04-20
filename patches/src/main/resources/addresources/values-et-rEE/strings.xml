@@ -1107,7 +1107,7 @@ Kui see hiljem välja lülitatakse, on soovitatav rakenduse andmed kustutada, et
   <string name="revanced_spoof_app_version_target_entry_2">19.01.34 – Taasta vanad navigeerimisikoonid</string>
   </patch>
   <patch id="layout.startpage.changeStartPagePatch">
-  <string name="revanced_change_start_page_title">Määra algusleht</string>
+  <string name="revanced_change_start_page_title">Muuda alguslehte</string>
   <string name="revanced_change_start_page_entry_default">Vaikimisi</string>
   <string name="revanced_change_start_page_entry_all_subscriptions">Kõik tellimused</string>
   <string name="revanced_change_start_page_entry_browse">Sirvi kanaleid</string>
@@ -1132,6 +1132,11 @@ Kui see hiljem välja lülitatakse, on soovitatav rakenduse andmed kustutada, et
   <string name="revanced_change_start_page_entry_virtual_reality">Virtuaalne Reaalsus</string>
   <string name="revanced_change_start_page_entry_watch_later">Vaata hiljem</string>
   <string name="revanced_change_start_page_entry_your_clips">Teie klipid</string>
+  <string name="revanced_change_start_page_always_title">Muuda alati avalehte</string>
+  <string name="revanced_change_start_page_always_summary_on">"Alguslehte muudetakse alati
+
+Piirang: tööriistaribal tagasinupp ei pruugi töötada"</string>
+  <string name="revanced_change_start_page_always_summary_off">Avalehte muudetakse ainult rakenduse käivitamisel</string>
   </patch>
   <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch">
   <string name="revanced_disable_resuming_shorts_player_title">Keela Shortsi esitaja jätkamine</string>

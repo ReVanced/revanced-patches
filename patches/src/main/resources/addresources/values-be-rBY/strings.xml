@@ -1108,7 +1108,7 @@ Second \"item\" text"</string>
   <string name="revanced_spoof_app_version_target_entry_2">19.01.34 - Аднаўленне старых значкоў навігацыі</string>
   </patch>
   <patch id="layout.startpage.changeStartPagePatch">
-  <string name="revanced_change_start_page_title">Усталяваць стартавую старонку</string>
+  <string name="revanced_change_start_page_title">Змяніць стартавую старонку</string>
   <string name="revanced_change_start_page_entry_default">Па змаўчанні</string>
   <string name="revanced_change_start_page_entry_all_subscriptions">Усе падпіскі</string>
   <string name="revanced_change_start_page_entry_browse">Обзор каналов</string>
@@ -1133,6 +1133,11 @@ Second \"item\" text"</string>
   <string name="revanced_change_start_page_entry_virtual_reality">Віртуальная рэальнасць</string>
   <string name="revanced_change_start_page_entry_watch_later">Посмотреть позже</string>
   <string name="revanced_change_start_page_entry_your_clips">Вашыя кліпы</string>
+  <string name="revanced_change_start_page_always_title">Заўсёды змяняць стартавую старонку</string>
+  <string name="revanced_change_start_page_always_summary_on">"Стартавая старонка заўсёды зменена
+
+Абмежаванне: выкарыстанне кнопкі «Назад» на панэлі інструментаў можа не працаваць"</string>
+  <string name="revanced_change_start_page_always_summary_off">Стартавая старонка змяняецца толькі пры запуску праграмы</string>
   </patch>
   <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch">
   <string name="revanced_disable_resuming_shorts_player_title">Адключыць аднаўленне прайгравання Shorts</string>

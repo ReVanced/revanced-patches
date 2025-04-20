@@ -1105,7 +1105,7 @@ Nëse më vonë është çaktivizuar, është e rekomanduar të fshiheni të dh�
   <string name="revanced_spoof_app_version_target_entry_2">19.01.34 - Ristauro ikonave te vjetra te navigimit</string>
   </patch>
   <patch id="layout.startpage.changeStartPagePatch">
-  <string name="revanced_change_start_page_title">Vendos faqen e fillimit</string>
+  <string name="revanced_change_start_page_title">Ndrysho faqen e fillimit</string>
   <string name="revanced_change_start_page_entry_default">Paragjykja</string>
   <string name="revanced_change_start_page_entry_all_subscriptions">Të gjitha abonimet</string>
   <string name="revanced_change_start_page_entry_browse">Shfleto kanalet</string>
@@ -1130,6 +1130,11 @@ Nëse më vonë është çaktivizuar, është e rekomanduar të fshiheni të dh�
   <string name="revanced_change_start_page_entry_virtual_reality">Realiteti Virtual</string>
   <string name="revanced_change_start_page_entry_watch_later">Shiko më vonë</string>
   <string name="revanced_change_start_page_entry_your_clips">Klipët tuaj</string>
+  <string name="revanced_change_start_page_always_title">Gjithmonë ndrysho faqen e fillimit</string>
+  <string name="revanced_change_start_page_always_summary_on">"Faqja e fillimit ndryshohet gjithmonë
+
+Kufizimi: Përdorimi i butonit të kthimit në shiritin e veglave mund të mos funksionojë"</string>
+  <string name="revanced_change_start_page_always_summary_off">Faqja e fillimit ndryshohet vetëm kur nis aplikacioni</string>
   </patch>
   <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch">
   <string name="revanced_disable_resuming_shorts_player_title">Fik rifillon lojtarin Shorts</string>
