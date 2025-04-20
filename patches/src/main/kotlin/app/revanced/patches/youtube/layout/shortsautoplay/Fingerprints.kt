@@ -19,11 +19,22 @@ internal val reelEnumConstructorFingerprint by fingerprint {
     )
 }
 
+internal val reelPlaybackRepeatParentFingerprint by fingerprint {
+    returns("V")
+    parameters("Ljava/lang/String;", "J")
+    instructions(
+        string("Reels[%s] Playback Time: %d ms")
+    )
+}
+
+/**
+ * Matches class found in [reelPlaybackRepeatParentFingerprint].
+ */
 internal val reelPlaybackRepeatFingerprint by fingerprint {
     returns("V")
     parameters("L")
     instructions(
-        string("YoutubePlayerState is in throwing an Error.")
+        methodCall(smali = "Lcom/google/common/util/concurrent/ListenableFuture;->isDone()Z")
     )
 }
 

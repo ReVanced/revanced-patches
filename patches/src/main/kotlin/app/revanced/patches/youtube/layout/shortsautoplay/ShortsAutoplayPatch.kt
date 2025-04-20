@@ -89,8 +89,10 @@ val shortsAutoplayPatch = bytecodePatch(
                 """
             )
         }
-
-        reelPlaybackRepeatFingerprint.method.apply {
+        
+        reelPlaybackRepeatFingerprint.match(
+            reelPlaybackRepeatParentFingerprint.originalClassDef
+        ).method.apply {
             // The behavior enums are looked up from an ordinal value to an enum type.
             findInstructionIndicesReversedOrThrow {
                 val reference = getReference<MethodReference>()
@@ -160,9 +162,9 @@ val shortsAutoplayPatch = bytecodePatch(
                             new-instance v0, ${userActionMethodReference.definingClass}
                             const/4 v1, 0x3
                             const/4 v2, 0x0
-                            invoke-direct {v0, v1, v2, v2}, $userActionMethodReference
+                            invoke-direct { v0, v1, v2, v2 }, $userActionMethodReference
                             iget-object v3, p0, $getReelSequenceControllerReference
-                            invoke-virtual {v3, v0}, $reelSequenceControllerMethodReference
+                            invoke-virtual { v3, v0 }, $reelSequenceControllerMethodReference
                             const/4 v4, 0x0
                             return-object v4
                             :ignore
@@ -180,7 +182,7 @@ val shortsAutoplayPatch = bytecodePatch(
                         if-nez v$enumRegister, :ignore
                         return-void     # Autoplay was performed.
                         :ignore
-                        nop                        
+                        nop
                     """
                 )
             }

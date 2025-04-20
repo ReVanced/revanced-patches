@@ -3,10 +3,8 @@ package app.revanced.patches.youtube.layout.searchbar
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patcher.patch.resourcePatch
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
-import app.revanced.patches.shared.misc.mapping.getResourceId
 import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
@@ -16,41 +14,12 @@ import app.revanced.util.addInstructionsAtControlFlowLabel
 import app.revanced.util.findInstructionIndicesReversedOrThrow
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
-import app.revanced.util.indexOfFirstLiteralInstructionOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 private const val EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/youtube/patches/WideSearchbarPatch;"
-
-internal var ytWordmarkHeaderId = -1L
-    private set
-internal var ytPremiumWordmarkHeaderId = -1L
-    private set
-internal var actionBarRingoId = -1L
-    private set
-
-private val wideSearchbarResourcePatch = resourcePatch {
-    dependsOn(resourceMappingPatch)
-
-    execute {
-        ytWordmarkHeaderId = getResourceId(
-            "attr",
-            "ytWordmarkHeader",
-        )
-
-        ytPremiumWordmarkHeaderId = getResourceId(
-            "attr",
-            "ytPremiumWordmarkHeader",
-        )
-
-        actionBarRingoId = getResourceId(
-            "layout",
-            "action_bar_ringo_background",
-        )
-    }
-}
 
 val wideSearchbarPatch = bytecodePatch(
     name = "Wide search bar",
@@ -61,7 +30,7 @@ val wideSearchbarPatch = bytecodePatch(
         sharedExtensionPatch,
         settingsPatch,
         addResourcesPatch,
-        wideSearchbarResourcePatch,
+        resourceMappingPatch,
     )
 
     compatibleWith(
@@ -110,18 +79,18 @@ val wideSearchbarPatch = bytecodePatch(
 
         // Fix missing left padding when using wide searchbar.
         wideSearchbarLayoutFingerprint.method.apply {
-            val layoutIndex = indexOfFirstLiteralInstructionOrThrow(actionBarRingoId)
-            val inflateIndex = indexOfFirstInstructionOrThrow(layoutIndex) {
+            findInstructionIndicesReversedOrThrow {
                 val reference = getReference<MethodReference>()
                 reference?.definingClass == "Landroid/view/LayoutInflater;"
                         && reference.name == "inflate"
-            }
-            val register = getInstruction<OneRegisterInstruction>(inflateIndex + 1).registerA
+            }.forEach { inflateIndex ->
+                val register = getInstruction<OneRegisterInstruction>(inflateIndex + 1).registerA
 
-            addInstruction(
-                inflateIndex + 2,
-                "invoke-static { v$register }, $EXTENSION_CLASS_DESCRIPTOR->setActionBar(Landroid/view/View;)V"
-            )
+                addInstruction(
+                    inflateIndex + 2,
+                    "invoke-static { v$register }, $EXTENSION_CLASS_DESCRIPTOR->setActionBar(Landroid/view/View;)V"
+                )
+            }
         }
     }
 }

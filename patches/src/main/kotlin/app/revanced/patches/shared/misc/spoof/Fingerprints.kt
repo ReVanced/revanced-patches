@@ -37,7 +37,7 @@ internal val buildPlayerRequestURIFingerprint by fingerprint {
 
 internal val buildRequestFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
-    returns("Lorg/chromium/net/UrlRequest;")
+    returns("Lorg/chromium/net/UrlRequest") // UrlRequest; or UrlRequest$Builder;
     instructions(
         methodCall(name = "newUrlRequestBuilder")
     )
@@ -63,8 +63,17 @@ internal val buildRequestFingerprint by fingerprint {
         // Lorg/chromium/net/UrlRequest\$Callback;
         // L
 
+        // 20.16+ uses a refactored and extracted method:
+        // L
+        // Ljava/util/Map;
+        // [B
+        // L
+        // Lorg/chromium/net/UrlRequest$Callback;
+        // L
+
         val parameterTypes = methodDef.parameterTypes
-        (parameterTypes.size == 7 || parameterTypes.size == 8) &&
+        val parameterTypesSize = parameterTypes.size
+        (parameterTypesSize == 6 || parameterTypesSize == 7 || parameterTypesSize == 8) &&
             parameterTypes[1] == "Ljava/util/Map;" // URL headers.
     }
 }

@@ -105,7 +105,7 @@ public class ShortsAutoplayPatch {
 
             if (overrideBehavior != null) {
                 Logger.printDebug(() -> {
-                    String name = original == null ? "unknown (null)" : original.name();
+                    String name = (original == null ? "unknown (null)" : original.name());
                     return overrideBehavior == original
                             ? "Behavior setting is same as original. Using original: " + name
                             : "Changing Shorts repeat behavior from: " + name + " to: " + overrideBehavior.name();
