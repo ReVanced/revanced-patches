@@ -7,7 +7,6 @@ import app.revanced.patcher.extensions.InstructionExtensions.removeInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.fingerprint
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patches.spotify.misc.check.checkEnvironmentPatch
 import app.revanced.patches.spotify.misc.extension.IS_SPOTIFY_LEGACY_APP_TARGET
 import app.revanced.patches.spotify.misc.extension.sharedExtensionPatch
 import app.revanced.util.getReference
@@ -20,7 +19,6 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
-import java.util.logging.Logger
 
 private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/spotify/misc/UnlockPremiumPatch;"
 
@@ -72,9 +70,7 @@ val unlockPremiumPatch = bytecodePatch(
 
 
         if (IS_SPOTIFY_LEGACY_APP_TARGET) {
-            return@execute Logger.getLogger(this::class.java.name).warning(
-                "Patching a legacy Spotify version. Patch functionality may be limited."
-            )
+            return@execute
         }
 
 
