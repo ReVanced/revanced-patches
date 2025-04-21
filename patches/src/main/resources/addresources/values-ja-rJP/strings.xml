@@ -1161,8 +1161,8 @@ Automotive レイアウト
   </patch>
   <patch id="layout.miniplayer.miniplayerPatch">
   <string name="revanced_miniplayer_screen_title">ミニプレーヤー</string>
-  <string name="revanced_miniplayer_screen_summary">動画視聴中に [戻る] ボタンをタップ、または下にスワイプしたときに表示されるプレーヤーの設定</string>
-  <string name="revanced_miniplayer_type_title">ミニプレーヤー タイプ</string>
+  <string name="revanced_miniplayer_screen_summary">動画視聴中に [戻る] ボタンをタップ、または下にスワイプしたときに表示される小さなプレーヤーの設定</string>
+  <string name="revanced_miniplayer_type_title">ミニプレーヤーのタイプ</string>
   <string name="revanced_miniplayer_type_entry_0">無効</string>
   <string name="revanced_miniplayer_type_entry_1">デフォルト</string>
   <string name="revanced_miniplayer_type_entry_2">横長</string>
