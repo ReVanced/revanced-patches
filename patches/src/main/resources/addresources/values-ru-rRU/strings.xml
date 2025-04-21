@@ -466,8 +466,8 @@ Second \"item\" text"</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Значение затемнения панели жестов должно быть от 0 до 100</string>
   <string name="revanced_swipe_threshold_title">Порог величины жеста</string>
   <string name="revanced_swipe_threshold_summary">Минимальная амплитуда движения, распознаваемого как жест</string>
-  <string name="revanced_swipe_volume_sensitivity_title">Чувствительность свайпа для регулировки громкости</string>
-  <string name="revanced_swipe_volume_sensitivity_summary">На сколько изменяется громкость при каждом свайпе</string>
+  <string name="revanced_swipe_volume_sensitivity_title">Чувствительность жеста регулировки громкости</string>
+  <string name="revanced_swipe_volume_sensitivity_summary">Величина изменения громкости при регулировке жестом</string>
   <string name="revanced_swipe_show_circular_overlay_title">Показать круговой индикатор</string>
   <string name="revanced_swipe_show_circular_overlay_summary_on">Круговой индикатор показан</string>
   <string name="revanced_swipe_show_circular_overlay_summary_off">Горизонтальный индикатор показан</string>
@@ -832,8 +832,8 @@ Second \"item\" text"</string>
   <string name="revanced_ryd_compact_layout_summary_on">Кнопка \"Лайк\" стилизована для минимальной ширины</string>
   <string name="revanced_ryd_compact_layout_summary_off">Кнопка \"Лайк\" стилизована для лучшего внешнего вида</string>
   <string name="revanced_ryd_estimated_like_title">Показать примерное количество лайков</string>
-  <string name="revanced_ryd_estimated_like_summary_on">На видео с отключенными лайками отображается примерное количество лайков</string>
-  <string name="revanced_ryd_estimated_like_summary_off">Примерное количество лайков не отображается</string>
+  <string name="revanced_ryd_estimated_like_summary_on">Для видео с отключенными лайками показывается примерное количество лайков</string>
+  <string name="revanced_ryd_estimated_like_summary_off">Примерное количество лайков скрыто</string>
   <string name="revanced_ryd_toast_on_connection_error_title">Уведомление при недоступности API</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_on">Всплывающее уведомление при недоступности Return YouTube Dislike показано</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_off">Всплывающее уведомление при недоступности Return YouTube Dislike скрыто</string>
@@ -1132,11 +1132,11 @@ Second \"item\" text"</string>
   <string name="revanced_change_start_page_entry_virtual_reality">Виртуальная реальность</string>
   <string name="revanced_change_start_page_entry_watch_later">Смотреть позже</string>
   <string name="revanced_change_start_page_entry_your_clips">Ваши клипы</string>
-  <string name="revanced_change_start_page_always_title">Всегда изменять стартовую страницу</string>
-  <string name="revanced_change_start_page_always_summary_on">"Начальная страница всегда изменена
+  <string name="revanced_change_start_page_always_title">Всегда изменять начальную страницу</string>
+  <string name="revanced_change_start_page_always_summary_on">"Начальная страница изменяется всегда
 
 Ограничение: использование кнопки \"Назад\" на панели инструментов может не работать"</string>
-  <string name="revanced_change_start_page_always_summary_off">Стартовая страница изменяется только при запуске приложения</string>
+  <string name="revanced_change_start_page_always_summary_off">Начальная страница изменяется только при запуске приложения</string>
   </patch>
   <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch">
   <string name="revanced_disable_resuming_shorts_player_title">Отключить возобновление плеера Shorts</string>

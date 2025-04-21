@@ -479,6 +479,9 @@ Second \"item\" text"</string>
   <string name="revanced_swipe_change_video_summary_off">在全螢幕模式下滑動將不會切換到下一部/上一部影片</string>
   </patch>
   <patch id="layout.autocaptions.autoCaptionsPatch">
+  <string name="revanced_disable_auto_captions_title">停用自動產生的字幕</string>
+  <string name="revanced_disable_auto_captions_summary_on">已停用自動產生的字幕</string>
+  <string name="revanced_disable_auto_captions_summary_off">已啟用自動產生的字幕</string>
   </patch>
   <patch id="layout.buttons.action.hideButtonsPatch">
   <string name="revanced_hide_buttons_screen_title">動作按鈕</string>

@@ -1132,10 +1132,10 @@ Daha sonra kapatılırsa, arayüz hatalarını önlemek için uygulama verilerin
   <string name="revanced_change_start_page_entry_virtual_reality">Sanal Gerçeklik</string>
   <string name="revanced_change_start_page_entry_watch_later">Daha sonra izle</string>
   <string name="revanced_change_start_page_entry_your_clips">Sizin klipleriniz</string>
-  <string name="revanced_change_start_page_always_title">Başlangıç sayfası her zaman değiştirilsin</string>
+  <string name="revanced_change_start_page_always_title">Başlangıç sayfasını her zaman değiştir</string>
   <string name="revanced_change_start_page_always_summary_on">"Başlangıç sayfası her zaman değiştirilir
 
-Sınırlama: Araç çubuğunda geri düğmesini kullanmak işe yaramayabilir"</string>
+Kısıtlama: Araç çubuğundaki geri düğmesini kullanmak işe yaramayabilir"</string>
   <string name="revanced_change_start_page_always_summary_off">Başlangıç sayfası yalnızca uygulama başlatılırken değiştirilir</string>
   </patch>
   <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch">
