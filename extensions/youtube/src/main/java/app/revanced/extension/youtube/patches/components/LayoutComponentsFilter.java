@@ -211,7 +211,7 @@ public final class LayoutComponentsFilter extends Filter {
 
         compactChannelBarInnerButton = new StringFilterGroup(
                 null,
-                "|button.eml|"
+                "|button.eml"
         );
 
         joinMembershipButton = new ByteArrayFilterGroup(

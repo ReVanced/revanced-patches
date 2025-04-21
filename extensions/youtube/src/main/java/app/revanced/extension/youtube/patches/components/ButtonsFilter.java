@@ -31,7 +31,7 @@ final class ButtonsFilter extends Filter {
 
         bufferFilterPathGroup = new StringFilterGroup(
                 null,
-                "|ContainerType|button.eml|"
+                "|ContainerType|button.eml"
         );
 
         addPathCallbacks(
@@ -43,7 +43,7 @@ final class ButtonsFilter extends Filter {
                 ),
                 new StringFilterGroup(
                         Settings.HIDE_DOWNLOAD_BUTTON,
-                        "|download_button.eml|"
+                        "|download_button.eml"
                 ),
                 new StringFilterGroup(
                         Settings.HIDE_PLAYLIST_BUTTON,
@@ -51,7 +51,7 @@ final class ButtonsFilter extends Filter {
                 ),
                 new StringFilterGroup(
                         Settings.HIDE_CLIP_BUTTON,
-                        "|clip_button.eml|"
+                        "|clip_button.eml"
                 )
         );
 
