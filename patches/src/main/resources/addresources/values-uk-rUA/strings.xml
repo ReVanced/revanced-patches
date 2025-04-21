@@ -1134,7 +1134,7 @@ Second \"item\" text"</string>
   <string name="revanced_change_start_page_always_title">Завжди змінювати початкову сторінку</string>
   <string name="revanced_change_start_page_always_summary_on">"Початкова сторінка завжди змінюється
 
-Обмеження: використання кнопки «Назад» на панелі інструментів може не працювати"</string>
+Обмеження: Використання кнопки \"Назад\" на панелі інструментів може не працювати"</string>
   <string name="revanced_change_start_page_always_summary_off">Початкова сторінка змінюється лише під час запуску програми</string>
   </patch>
   <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch">

@@ -23,7 +23,7 @@ Second \"item\" text"</string>
   <patch id="misc.checks.checkEnvironmentPatch">
   <string name="revanced_check_environment_failed_title">Kiểm tra thất bại</string>
   <string name="revanced_check_environment_dialog_open_official_source_button">Mở trang web chính thức</string>
-  <string name="revanced_check_environment_dialog_ignore_button">Phớt lờ</string>
+  <string name="revanced_check_environment_dialog_ignore_button">Bỏ qua</string>
   <string name="revanced_check_environment_failed_message">&lt;h5&gt;Ứng dụng này xem ra không được vá bởi bạn.&lt;/h5&gt;&lt;br&gt;Ứng dụng này có thể không hoạt động chính xác, &lt;b&gt;gây hại hoặc thậm chí nguy hiểm khi dùng&lt;/b&gt;.&lt;br&gt;&lt;br&gt;Những lần kiểm tra này ngụ ý rằng ứng dụng được vá trước hoặc được nhận được từ ai khác;&lt;br&gt;&lt;br&gt;&lt;small&gt;%1$s&lt;/small&gt;&lt;br&gt;Cực kỳ khuyến nghị &lt;b&gt;gỡ cài đặt ứng này và tự vá&lt;/b&gt; để chắc chắn bạn dùng ứng dụng hợp lệ và an toàn.&lt;p&gt;&lt;br&gt;Nếu phớt lờ, cảnh báo này sẽ chỉ hiện hai lần.</string>
   <string name="revanced_check_environment_not_same_patching_device">Đã vá trên một thiết bị khác</string>
   <string name="revanced_check_environment_manager_not_expected_installer">Không được cài đặt bởi ReVanced Manager</string>
@@ -66,7 +66,7 @@ Second \"item\" text"</string>
   <string name="gms_core_dialog_title">Hành động cần thiết</string>
   <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"MicroG GmsCore không có quyền chạy ngầm.
 
-Hãy làm theo hướng dẫn \"Đừng tắt ứng dụng\" của điện thoại bạn và áp dụng các hướng dẫn cho cài đặt MicroG của bạn.
+Hãy làm theo hướng dẫn \"Don't kill my app\" của điện thoại bạn và áp dụng các hướng dẫn cho cài đặt MicroG của bạn.
 
 Điều này là cần thiết để ứng dụng hoạt động."</string>
   <string name="gms_core_dialog_open_website_text">Mở trang web</string>
@@ -615,9 +615,9 @@ Nếu việc thay đổi cài đặt này không có hiệu lực, hãy thử ch
   <string name="revanced_hide_player_flyout_audio_track_summary_on">Nút bản âm thanh được ẩn</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_off">Nút bản âm thanh được hiện</string>
   <!-- 'Spoof video streams' should be the same translation used for revanced_spoof_video_streams_screen_title -->
-  <string name="revanced_hide_player_flyout_audio_track_not_available">"Menu theo dõi âm thanh bị ẩn
+  <string name="revanced_hide_player_flyout_audio_track_not_available">"Trình đơn bản âm thanh bị ẩn
 
-Để hiển thị menu Theo dõi âm thanh, hãy thay đổi 'Giả mạo luồng video' thành iOS TV"</string>
+Để hiển thị Trình đơn bản âm thanh, hãy thay đổi 'Giả mạo luồng phát video trực tuyến' thành iOS TV"</string>
   <!-- 'Watch in VR' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_watch_in_vr_title">Ẩn Xem trong thực tế ảo</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">Trình đơn xem trong thực tế ảo được ẩn</string>
@@ -1397,11 +1397,11 @@ Phát lại video có thể không hoạt động"</string>
 
 AVC có độ phân giải tối đa là 1080p, bộ giải mã âm thanh Opus không khả dụng và phát lại video sẽ sử dụng nhiều dữ liệu internet hơn VP9 hoặc AV1."</string>
   <string name="revanced_spoof_video_streams_about_ios_tv_title">Tác dụng phụ của việc giả mạo iOS</string>
-  <string name="revanced_spoof_video_streams_about_ios_tv_summary">"• Phim hoặc video có trả phí không thể phát
+  <string name="revanced_spoof_video_streams_about_ios_tv_summary">"• Phim hoặc video có trả phí có thể không phát được
 • Âm lượng ổn định không khả dụng
 • Video có thể kết thúc sớm hơn 1 giây"</string>
   <string name="revanced_spoof_video_streams_about_android_title">Tác dụng phụ của việc giả mạo Android</string>
-  <string name="revanced_spoof_video_streams_about_android_summary">"• Trình đơn âm thanh bị thiếu
+  <string name="revanced_spoof_video_streams_about_android_summary">"• Trình đơn bản âm thanh bị thiếu
 • Âm lượng ổn định không khả dụng
 • Tùy chọn âm thanh gốc không khả dụng"</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Không có bộ giải mã video AV1</string>
