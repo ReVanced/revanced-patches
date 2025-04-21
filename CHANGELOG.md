@@ -1,3 +1,10 @@
+# [5.21.0-dev.9](https://github.com/ReVanced/revanced-patches/compare/v5.21.0-dev.8...v5.21.0-dev.9) (2025-04-21)
+
+
+### Bug Fixes
+
+* **YouTube - Hide video action buttons:** Hide A/B layout buttons ([4db5d3c](https://github.com/ReVanced/revanced-patches/commit/4db5d3c3d5ac04faf70cc07fb309b324d752e7e3))
+
 # [5.21.0-dev.8](https://github.com/ReVanced/revanced-patches/compare/v5.21.0-dev.7...v5.21.0-dev.8) (2025-04-20)
 
 
