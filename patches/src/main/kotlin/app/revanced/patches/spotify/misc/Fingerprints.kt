@@ -70,11 +70,13 @@ internal val homeStructureGetSectionsFingerprint = fingerprint {
     custom { _, classDef -> classDef.endsWith("homeapi/proto/HomeStructure;") }
 }
 
+internal const val PENDRAGON_JSON_FETCH_MESSAGE_REQUEST_CLASS_NAME = "FetchMessageRequest;"
 internal val pendragonJsonFetchMessageRequest = fingerprint {
     strings("nowplayingview:npv-open-mv:v1")
     custom { method, _ -> method.name == "apply" }
 }
 
+internal const val PENDRAGON_PROTO_FETCH_MESSAGELIST_REQUEST_CLASS_NAME = "FetchMessageRequest;"
 internal val pendragonProtoFetchMessageListRequest = fingerprint {
     strings("Canvas disabled")
     custom { method, _ -> method.name == "apply" }

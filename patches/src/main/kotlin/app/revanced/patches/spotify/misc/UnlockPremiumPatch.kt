@@ -204,7 +204,11 @@ val unlockPremiumPatch = bytecodePatch(
         }
 
         // Remove pendragon (pop out ads) requests.
-        pendragonJsonFetchMessageRequest.method.replaceSingleWithError("FetchMessageRequest;")
-        pendragonProtoFetchMessageListRequest.method.replaceSingleWithError("FetchMessageListRequest;")
+        pendragonJsonFetchMessageRequest.method.replaceSingleWithError(
+            PENDRAGON_JSON_FETCH_MESSAGE_REQUEST_CLASS_NAME
+        )
+        pendragonProtoFetchMessageListRequest.method.replaceSingleWithError(
+            PENDRAGON_PROTO_FETCH_MESSAGELIST_REQUEST_CLASS_NAME
+        )
     }
 }
