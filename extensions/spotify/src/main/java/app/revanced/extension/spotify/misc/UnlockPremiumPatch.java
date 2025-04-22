@@ -139,16 +139,4 @@ public final class UnlockPremiumPatch {
             Logger.printException(() -> "Remove home sections failure", ex);
         }
     }
-
-    /**
-     * Injection point. Clear pendragon (pop out ads) messages and triggers.
-     * Depends on patching protobuffer list remove method.
-     */
-    public static void clearPendragonMessagesOrTriggers(List<Object> messagesOrTriggers) {
-        try {
-            messagesOrTriggers.removeIf(messageOrTrigger -> true);
-        } catch (Exception ex) {
-            Logger.printException(() -> "Clear pendragon messages or triggers failure", ex);
-        }
-    }
 }

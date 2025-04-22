@@ -4,6 +4,7 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.removeInstruction
+import app.revanced.patcher.extensions.InstructionExtensions.removeInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.fingerprint
 import app.revanced.patcher.patch.bytecodePatch
@@ -136,7 +137,7 @@ val unlockPremiumPatch = bytecodePatch(
             }
         }
 
-        // Need to allow mutation of the list so the home ads sections and pendragon messages/triggers can be removed.
+        // Need to allow mutation of the list so the home ads sections can be removed.
         // Protobuffer list has an 'isMutable' boolean parameter that sets the mutability.
         // Forcing that always on breaks unrelated code in strange ways.
         // Instead, remove the method call that checks if the list is unmodifiable.
@@ -151,17 +152,6 @@ val unlockPremiumPatch = bytecodePatch(
             removeInstruction(invokeThrowUnmodifiableIndex)
         }
 
-        fun MutableMethod.addModifyProtobufListInstruction(methodName: String) {
-            val getListIndex = indexOfFirstInstructionOrThrow(Opcode.IGET_OBJECT)
-            val listRegister = getInstruction<TwoRegisterInstruction>(getListIndex).registerA
-
-            addInstruction(
-                getListIndex + 1,
-                "invoke-static { v$listRegister }, " +
-                        "$EXTENSION_CLASS_DESCRIPTOR->$methodName(Ljava/util/List;)V"
-            )
-        }
-
 
         // Make featureTypeCase_ accessible so we can check the home section type in the extension.
         homeSectionFingerprint.classDef.fields.first { it.name == "featureTypeCase_" }.apply {
@@ -170,22 +160,51 @@ val unlockPremiumPatch = bytecodePatch(
         }
 
         // Remove ads sections from home.
-        homeStructureGetSectionsFingerprint.method.addModifyProtobufListInstruction("removeHomeSections")
+        homeStructureGetSectionsFingerprint.method.apply {
+            val getSectionsIndex = indexOfFirstInstructionOrThrow(Opcode.IGET_OBJECT)
+            val sectionsRegister = getInstruction<TwoRegisterInstruction>(getSectionsIndex).registerA
 
-
-        val pendragonFetchMessageListReponseClassDef =
-            classBy { it.type == PENDRAGON_PROTO_FETCH_MESSAGE_LIST_RESPONSE_CLASS_NAME }!!.immutableClass
-
-        // Clear pendragon (pop out ads) messages and triggers from proto response.
-        listOf(getMessagesFingerprint, getTriggersFingerprint).forEach { fingerprint ->
-            fingerprint.match(pendragonFetchMessageListReponseClassDef)
-                .method.addModifyProtobufListInstruction("clearPendragonMessagesOrTriggers")
+            addInstruction(
+                getSectionsIndex + 1,
+                "invoke-static { v$sectionsRegister }, " +
+                        "$EXTENSION_CLASS_DESCRIPTOR->removeHomeSections(Ljava/util/List;)V"
+            )
         }
 
-        // Nullify pendragon InAppMessage from JSON response.
-        pendragonJsonFetchMessageResponseConstructorFingerprint.method.addInstruction(
-            0,
-            "const/4 p1, 0"
-        )
+
+        fun MutableMethod.replaceSingleWithError(requestClassName: String) {
+            val requestBodyConstructionIndex = indexOfFirstInstructionOrThrow {
+                val reference = getReference<MethodReference>()
+                reference?.definingClass?.endsWith(requestClassName) == true &&
+                        reference.name == "<init>"
+            }
+
+            val onErrorReturnIndex = indexOfFirstInstructionOrThrow(requestBodyConstructionIndex) {
+                getReference<MethodReference>()?.name == "onErrorReturn"
+            }
+            val onErrorReturnValueRegister = getInstruction<FiveRegisterInstruction>(onErrorReturnIndex).registerD
+
+            val onErrorReturnValueConstructionIndex =
+                indexOfFirstInstructionReversedOrThrow(onErrorReturnIndex, Opcode.MOVE_RESULT_OBJECT) + 1
+
+            // Just return the single with the error instead.
+            addInstructions(
+                onErrorReturnIndex,
+                """
+                    invoke-static {v$onErrorReturnValueRegister}, Lio/reactivex/rxjava3/core/Single;->just(Ljava/lang/Object;)Lio/reactivex/rxjava3/core/Single;
+                    move-result-object v$onErrorReturnValueRegister
+                    return-object v$onErrorReturnValueRegister
+                """
+            )
+
+            // Every instruction from the request body construction to the beginning of the error return construction.
+            // In other words, the request call and original single construction.
+            val removeCount = onErrorReturnValueConstructionIndex - requestBodyConstructionIndex
+            removeInstructions(requestBodyConstructionIndex, removeCount)
+        }
+
+        // Remove pendragon (pop out ads) requests.
+        pendragonJsonFetchMessageRequest.method.replaceSingleWithError("FetchMessageRequest;")
+        pendragonProtoFetchMessageListRequest.method.replaceSingleWithError("FetchMessageListRequest;")
     }
 }
