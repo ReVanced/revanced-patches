@@ -182,16 +182,18 @@ val unlockPremiumPatch = bytecodePatch(
             val onErrorReturnIndex = indexOfFirstInstructionOrThrow(requestBodyConstructionIndex) {
                 getReference<MethodReference>()?.name == "onErrorReturn"
             }
-            val onErrorReturnValueRegister = getInstruction<FiveRegisterInstruction>(onErrorReturnIndex).registerD
+            val onErrorReturnValueInstruction = getInstruction<FiveRegisterInstruction>(onErrorReturnIndex)
+            val onErrorReturnValueRegister = onErrorReturnValueInstruction.registerD
 
             val onErrorReturnValueConstructionIndex =
                 indexOfFirstInstructionReversedOrThrow(onErrorReturnIndex, Opcode.MOVE_RESULT_OBJECT) + 1
 
+            val singleClassName = onErrorReturnValueInstruction.getReference<MethodReference>()!!.definingClass
             // Just return the single with the error instead.
             addInstructions(
                 onErrorReturnIndex,
                 """
-                    invoke-static {v$onErrorReturnValueRegister}, Lio/reactivex/rxjava3/core/Single;->just(Ljava/lang/Object;)Lio/reactivex/rxjava3/core/Single;
+                    invoke-static { v$onErrorReturnValueRegister }, $singleClassName->just(Ljava/lang/Object;)$singleClassName
                     move-result-object v$onErrorReturnValueRegister
                     return-object v$onErrorReturnValueRegister
                 """
