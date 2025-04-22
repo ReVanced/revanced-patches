@@ -28,6 +28,11 @@ public class FeedFilterPreferenceCategory extends ConditionalPreferenceCategory 
         ));
         addPreference(new TogglePreference(
                 context,
+                "Hide TikTok Shop", "Hide TikTok shop from feed.",
+                Settings.HIDE_SHOP
+        ));
+        addPreference(new TogglePreference(
+                context,
                 "Hide livestreams", "Hide livestreams from feed.",
                 Settings.HIDE_LIVE
         ));
