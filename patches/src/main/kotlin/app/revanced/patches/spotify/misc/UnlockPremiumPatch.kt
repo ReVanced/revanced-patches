@@ -208,7 +208,7 @@ val unlockPremiumPatch = bytecodePatch(
             PENDRAGON_JSON_FETCH_MESSAGE_REQUEST_CLASS_NAME
         )
         pendragonProtoFetchMessageListRequest.method.replaceSingleWithError(
-            PENDRAGON_PROTO_FETCH_MESSAGELIST_REQUEST_CLASS_NAME
+            PENDRAGON_PROTO_FETCH_MESSAGE_LIST_REQUEST_CLASS_NAME
         )
     }
 }
