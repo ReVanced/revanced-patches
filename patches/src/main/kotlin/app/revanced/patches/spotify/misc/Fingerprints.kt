@@ -76,7 +76,7 @@ internal val pendragonJsonFetchMessageRequest = fingerprint {
     custom { method, _ -> method.name == "apply" }
 }
 
-internal const val PENDRAGON_PROTO_FETCH_MESSAGE_LIST_REQUEST_CLASS_NAME = "FetchMessageRequest;"
+internal const val PENDRAGON_PROTO_FETCH_MESSAGE_LIST_REQUEST_CLASS_NAME = "FetchMessageListRequest;"
 internal val pendragonProtoFetchMessageListRequest = fingerprint {
     strings("Canvas disabled")
     custom { method, _ -> method.name == "apply" }
