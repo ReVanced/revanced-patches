@@ -7,7 +7,7 @@ import app.revanced.patcher.extensions.InstructionExtensions.removeInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.fingerprint
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patches.spotify.misc.check.checkEnvironmentPatch
+import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patches.spotify.misc.extension.IS_SPOTIFY_LEGACY_APP_TARGET
 import app.revanced.patches.spotify.misc.extension.sharedExtensionPatch
 import app.revanced.util.getReference
@@ -49,7 +49,7 @@ val unlockPremiumPatch = bytecodePatch(
         }
 
         // Override the attributes map in the getter method.
-        productStateProtoFingerprint.method.apply {
+        productStateProtoGetMapFingerprint.method.apply {
             val getAttributesMapIndex = indexOfFirstInstructionOrThrow(Opcode.IGET_OBJECT)
             val attributesMapRegister = getInstruction<TwoRegisterInstruction>(getAttributesMapIndex).registerA
 
@@ -125,12 +125,6 @@ val unlockPremiumPatch = bytecodePatch(
         }
 
 
-        // Make featureTypeCase_ accessible so we can check the home section type in the extension.
-        homeSectionFingerprint.classDef.fields.first { it.name == "featureTypeCase_" }.apply {
-            // Add public flag and remove private.
-            accessFlags = accessFlags.or(AccessFlags.PUBLIC.value).and(AccessFlags.PRIVATE.value.inv())
-        }
-
         val protobufListClassName = with(protobufListsFingerprint.originalMethod) {
             val emptyProtobufListGetIndex = indexOfFirstInstructionOrThrow(Opcode.SGET_OBJECT)
             getInstruction(emptyProtobufListGetIndex).getReference<FieldReference>()!!.definingClass
@@ -142,7 +136,7 @@ val unlockPremiumPatch = bytecodePatch(
             }
         }
 
-        // Need to allow mutation of the list so the home ads sections can be removed.
+        // Need to allow mutation of the list so the home ads sections and pendragon messages/triggers can be removed.
         // Protobuffer list has an 'isMutable' boolean parameter that sets the mutability.
         // Forcing that always on breaks unrelated code in strange ways.
         // Instead, remove the method call that checks if the list is unmodifiable.
@@ -157,16 +151,41 @@ val unlockPremiumPatch = bytecodePatch(
             removeInstruction(invokeThrowUnmodifiableIndex)
         }
 
-        // Remove ads sections from home.
-        homeStructureFingerprint.method.apply {
-            val getSectionsIndex = indexOfFirstInstructionOrThrow(Opcode.IGET_OBJECT)
-            val sectionsRegister = getInstruction<TwoRegisterInstruction>(getSectionsIndex).registerA
+        fun MutableMethod.addModifyProtobufListInstruction(methodName: String) {
+            val getListIndex = indexOfFirstInstructionOrThrow(Opcode.IGET_OBJECT)
+            val listRegister = getInstruction<TwoRegisterInstruction>(getListIndex).registerA
 
             addInstruction(
-                getSectionsIndex + 1,
-                "invoke-static { v$sectionsRegister }, " +
-                        "$EXTENSION_CLASS_DESCRIPTOR->removeHomeSections(Ljava/util/List;)V"
+                getListIndex + 1,
+                "invoke-static { v$listRegister }, " +
+                        "$EXTENSION_CLASS_DESCRIPTOR->$methodName(Ljava/util/List;)V"
             )
         }
+
+
+        // Make featureTypeCase_ accessible so we can check the home section type in the extension.
+        homeSectionFingerprint.classDef.fields.first { it.name == "featureTypeCase_" }.apply {
+            // Add public flag and remove private.
+            accessFlags = accessFlags.or(AccessFlags.PUBLIC.value).and(AccessFlags.PRIVATE.value.inv())
+        }
+
+        // Remove ads sections from home.
+        homeStructureGetSectionsFingerprint.method.addModifyProtobufListInstruction("removeHomeSections")
+
+
+        val pendragonFetchMessageListReponseClassDef =
+            classBy { it.type == PENDRAGON_PROTO_FETCH_MESSAGE_LIST_RESPONSE_CLASS_NAME }!!.immutableClass
+
+        // Clear pendragon (pop out ads) messages and triggers from proto response.
+        listOf(getMessagesFingerprint, getTriggersFingerprint).forEach { fingerprint ->
+            fingerprint.match(pendragonFetchMessageListReponseClassDef)
+                .method.addModifyProtobufListInstruction("clearPendragonMessagesOrTriggers")
+        }
+
+        // Nullify pendragon InAppMessage from JSON response.
+        pendragonJsonFetchMessageResponseConstructorFingerprint.method.addInstruction(
+            0,
+            "const/4 p1, 0"
+        )
     }
 }

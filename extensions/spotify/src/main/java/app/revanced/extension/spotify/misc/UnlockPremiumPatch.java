@@ -130,12 +130,25 @@ public final class UnlockPremiumPatch {
 
     /**
      * Injection point. Remove ads sections from home.
+     * Depends on patching protobuffer list remove method.
      */
     public static void removeHomeSections(List<Section> sections) {
         try {
             sections.removeIf(section -> REMOVED_HOME_SECTIONS.contains(section.featureTypeCase_));
         } catch (Exception ex) {
             Logger.printException(() -> "Remove home sections failure", ex);
+        }
+    }
+
+    /**
+     * Injection point. Clear pendragon (pop out ads) messages and triggers.
+     * Depends on patching protobuffer list remove method.
+     */
+    public static void clearPendragonMessagesOrTriggers(List<Object> messagesOrTriggers) {
+        try {
+            messagesOrTriggers.removeIf(messageOrTrigger -> true);
+        } catch (Exception ex) {
+            Logger.printException(() -> "Clear pendragon messages or triggers failure", ex);
         }
     }
 }
