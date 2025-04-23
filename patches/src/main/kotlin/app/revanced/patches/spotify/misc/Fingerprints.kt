@@ -81,7 +81,7 @@ internal fun reactivexFunctionApplyWithClassInitFingerprint(className: String) =
     parameters("Ljava/lang/Object;")
     custom { method, _ -> method.name == "apply" && method.indexOfFirstInstruction {
             opcode == Opcode.NEW_INSTANCE && getReference<TypeReference>()?.type?.endsWith(className) == true
-        } != -1
+        } >= 0
     }
 }
 
