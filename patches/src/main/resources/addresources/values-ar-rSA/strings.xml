@@ -479,9 +479,9 @@ Second \"item\" text"</string>
   <string name="revanced_swipe_change_video_summary_off">لن يؤدي التمرير في وضع ملء الشاشة إلى التغيير للفيديو التالي/السابق</string>
   </patch>
   <patch id="layout.autocaptions.autoCaptionsPatch">
-  <string name="revanced_disable_auto_captions_title">تعطيل التَّرْجَمَة التلقائية</string>
-  <string name="revanced_disable_auto_captions_summary_on">تم تعطيل التَّرْجَمَة التلقائية</string>
-  <string name="revanced_disable_auto_captions_summary_off">تم تمكين التَّرْجَمَة التلقائية</string>
+  <string name="revanced_disable_auto_captions_title">تعطيل الترجمة التلقائية</string>
+  <string name="revanced_disable_auto_captions_summary_on">تم تعطيل الترجمة التلقائية</string>
+  <string name="revanced_disable_auto_captions_summary_off">تم تمكين الترجمة التلقائية</string>
   </patch>
   <patch id="layout.buttons.action.hideButtonsPatch">
   <string name="revanced_hide_buttons_screen_title">أزرار الإجراء</string>
@@ -1132,11 +1132,11 @@ Second \"item\" text"</string>
   <string name="revanced_change_start_page_entry_virtual_reality">الواقع الافتراضي</string>
   <string name="revanced_change_start_page_entry_watch_later">شاهد لاحقًا</string>
   <string name="revanced_change_start_page_entry_your_clips">فيديوهاتك</string>
-  <string name="revanced_change_start_page_always_title">تغيير الصفحة الرئيسية دائمًا</string>
+  <string name="revanced_change_start_page_always_title">تغيير صفحة البداية دائمًا</string>
   <string name="revanced_change_start_page_always_summary_on">"يتم تغيير صفحة البداية دائمًا
 
-قيود: قد لا يعمل استخدام زر الرجوع على شريط الأدوات"</string>
-  <string name="revanced_change_start_page_always_summary_off">يتم تغيير الصفحة الرئيسية فقط عند بدء تشغيل التطبيق</string>
+القيد: قد لا يعمل استخدام زر الرجوع على شريط الأدوات"</string>
+  <string name="revanced_change_start_page_always_summary_off">يتم تغيير صفحة البداية فقط عند بدء تشغيل التطبيق</string>
   </patch>
   <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch">
   <string name="revanced_disable_resuming_shorts_player_title">تعطيل استئناف مشغل Shorts</string>
