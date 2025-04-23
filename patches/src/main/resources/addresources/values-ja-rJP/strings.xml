@@ -74,7 +74,7 @@ Second \"item\" text"</string>
 
 MicroG GmsCore に対する電池の最適化を無効にしても、バッテリーの使用に悪影響を及ぼすことはありません。
 
-続行ボタンをタップして電池の最適化の設定を変更してください。"</string>
+[続行] をタップして電池の最適化の設定を変更してください。"</string>
   <string name="gms_core_dialog_continue_text">続行</string>
   </patch>
   </app>
@@ -1060,7 +1060,7 @@ MicroG GmsCore に対する電池の最適化を無効にしても、バッテ�
   <string name="revanced_sb_stats_submissions_sum">作成したセグメントを表示するには、ここをタップしてください</string>
   <string name="revanced_sb_stats_saved_zero">SponsorBlock リーダーボード</string>
   <string name="revanced_sb_stats_saved">合計で &lt;b&gt;%s&lt;/b&gt; 個のセグメントから人々を救いました</string>
-  <string name="revanced_sb_stats_saved_sum_zero">グローバルの統計と上位の貢献者を表示するには、ここをタップしてください</string>
+  <string name="revanced_sb_stats_saved_sum_zero">ここをタップすると、全体の統計とセグメント作成者のランキングが表示されます</string>
   <string name="revanced_sb_stats_saved_sum">時間にして &lt;b&gt;%s&lt;/b&gt; です。&lt;br&gt;ここをタップすると、リーダーボードが表示されます</string>
   <string name="revanced_sb_stats_self_saved">合計で &lt;b&gt;%s&lt;/b&gt; 個のセグメントをスキップしました</string>
   <string name="revanced_sb_stats_self_saved_sum">時間にして &lt;b&gt;%s&lt;/b&gt; です</string>

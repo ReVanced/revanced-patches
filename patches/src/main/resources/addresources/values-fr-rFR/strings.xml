@@ -1134,7 +1134,7 @@ Si désactivé ultérieurement, il est recommandé d'effacer les données de l'a
   <string name="revanced_change_start_page_always_title">Toujours modifier la page de démarrage</string>
   <string name="revanced_change_start_page_always_summary_on">"La page de démarrage est toujours modifiée
 
-Limitation : l'utilisation du bouton de retour dans la barre d'outils peut ne pas fonctionner"</string>
+Limitation : Il se peut que le bouton Retour dans la barre d'outils ne fonctionne pas"</string>
   <string name="revanced_change_start_page_always_summary_off">La page de démarrage est modifiée uniquement au démarrage de l\'application</string>
   </patch>
   <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch">
