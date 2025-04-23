@@ -213,10 +213,10 @@ val unlockPremiumPatch = bytecodePatch(
         }
 
         // Remove pendragon (pop up ads) requests and return the errors instead.
-        pendragonJsonFetchMessageRequest.method.replaceFetchRequestSingleWithError(
+        pendragonJsonFetchMessageRequestFingerprint.method.replaceFetchRequestSingleWithError(
             PENDRAGON_JSON_FETCH_MESSAGE_REQUEST_CLASS_NAME
         )
-        pendragonProtoFetchMessageListRequest.method.replaceFetchRequestSingleWithError(
+        pendragonProtoFetchMessageListRequestFingerprint.method.replaceFetchRequestSingleWithError(
             PENDRAGON_PROTO_FETCH_MESSAGE_LIST_REQUEST_CLASS_NAME
         )
     }
