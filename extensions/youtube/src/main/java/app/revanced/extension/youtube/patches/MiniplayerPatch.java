@@ -162,8 +162,7 @@ public final class MiniplayerPatch {
 
         if (opacity < 0 || opacity > 100) {
             Utils.showToastLong(str("revanced_miniplayer_opacity_invalid_toast"));
-            Settings.MINIPLAYER_OPACITY.resetToDefault();
-            opacity = Settings.MINIPLAYER_OPACITY.defaultValue;
+            opacity = Settings.MINIPLAYER_OPACITY.resetToDefault();
         }
 
         OPACITY_LEVEL = (opacity * 255) / 100;
