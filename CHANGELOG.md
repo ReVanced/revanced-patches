@@ -1,3 +1,10 @@
+# [5.21.0-dev.10](https://github.com/ReVanced/revanced-patches/compare/v5.21.0-dev.9...v5.21.0-dev.10) (2025-04-23)
+
+
+### Features
+
+* **YouTube - Swipe controls:** Add option for vertical progress bar ([#4811](https://github.com/ReVanced/revanced-patches/issues/4811)) ([ebee07e](https://github.com/ReVanced/revanced-patches/commit/ebee07ec3aba6fd3adbd8e0af30390e197879d89))
+
 # [5.21.0-dev.9](https://github.com/ReVanced/revanced-patches/compare/v5.21.0-dev.8...v5.21.0-dev.9) (2025-04-21)
 
 
