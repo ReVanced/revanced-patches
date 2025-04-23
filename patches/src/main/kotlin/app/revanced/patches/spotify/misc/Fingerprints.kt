@@ -86,9 +86,9 @@ internal fun reactivexFunctionApplyWithClassInitFingerprint(className: String) =
 }
 
 internal const val PENDRAGON_JSON_FETCH_MESSAGE_REQUEST_CLASS_NAME = "FetchMessageRequest;"
-internal val pendragonJsonFetchMessageRequest =
+internal val pendragonJsonFetchMessageRequestFingerprint =
     reactivexFunctionApplyWithClassInitFingerprint(PENDRAGON_JSON_FETCH_MESSAGE_REQUEST_CLASS_NAME)
 
 internal const val PENDRAGON_PROTO_FETCH_MESSAGE_LIST_REQUEST_CLASS_NAME = "FetchMessageListRequest;"
-internal val pendragonProtoFetchMessageListRequest =
+internal val pendragonProtoFetchMessageListRequestFingerprint =
     reactivexFunctionApplyWithClassInitFingerprint(PENDRAGON_PROTO_FETCH_MESSAGE_LIST_REQUEST_CLASS_NAME)
