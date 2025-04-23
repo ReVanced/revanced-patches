@@ -6,6 +6,7 @@ import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstruction
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 import com.android.tools.smali.dexlib2.iface.reference.TypeReference
 
 internal val accountAttributeFingerprint = fingerprint {
@@ -69,8 +70,11 @@ internal val homeSectionFingerprint = fingerprint {
 }
 
 internal val homeStructureGetSectionsFingerprint = fingerprint {
-    opcodes(Opcode.IGET_OBJECT, Opcode.RETURN_OBJECT)
-    custom { _, classDef -> classDef.endsWith("homeapi/proto/HomeStructure;") }
+    custom { method, classDef ->
+        classDef.endsWith("homeapi/proto/HomeStructure;") && method.indexOfFirstInstruction {
+            opcode == Opcode.IGET_OBJECT && getReference<FieldReference>()?.name == "sections_"
+        } >= 0
+    }
 }
 
 internal fun reactivexFunctionApplyWithClassInitFingerprint(className: String) = fingerprint {
