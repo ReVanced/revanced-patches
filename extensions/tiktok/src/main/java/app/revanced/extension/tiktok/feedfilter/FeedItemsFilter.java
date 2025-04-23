@@ -26,6 +26,7 @@ public final class FeedItemsFilter {
     }
 
     private static <T> void filterFeedList(List<T> list, AwemeExtractor<T> extractor) {
+        // Could be simplified with removeIf() but requires Android 7.0+ while TikTok supports 4.0+.
         Iterator<T> iterator = list.iterator();
         while (iterator.hasNext()) {
             T container = iterator.next();
