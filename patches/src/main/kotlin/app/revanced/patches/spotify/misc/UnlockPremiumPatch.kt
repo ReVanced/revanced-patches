@@ -21,6 +21,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
+import com.android.tools.smali.dexlib2.iface.reference.TypeReference
 import java.util.logging.Logger
 
 private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/spotify/misc/UnlockPremiumPatch;"
@@ -174,9 +175,7 @@ val unlockPremiumPatch = bytecodePatch(
 
         fun MutableMethod.replaceSingleWithError(requestClassName: String) {
             val requestBodyConstructionIndex = indexOfFirstInstructionOrThrow {
-                val reference = getReference<MethodReference>()
-                reference?.definingClass?.endsWith(requestClassName) == true &&
-                        reference.name == "<init>"
+                getReference<TypeReference>()?.type?.endsWith(requestClassName) == true
             }
 
             val onErrorReturnIndex = indexOfFirstInstructionOrThrow(requestBodyConstructionIndex) {

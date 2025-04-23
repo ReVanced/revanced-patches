@@ -2,8 +2,13 @@ package app.revanced.patches.spotify.misc
 
 import app.revanced.patcher.fingerprint
 import app.revanced.patches.spotify.misc.extension.IS_SPOTIFY_LEGACY_APP_TARGET
+import app.revanced.util.getReference
+import app.revanced.util.indexOfFirstInstruction
+import app.revanced.util.indexOfFirstInstructionOrThrow
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.iface.reference.MethodReference
+import com.android.tools.smali.dexlib2.iface.reference.TypeReference
 
 internal val accountAttributeFingerprint = fingerprint {
     custom { _, classDef ->
@@ -70,14 +75,20 @@ internal val homeStructureGetSectionsFingerprint = fingerprint {
     custom { _, classDef -> classDef.endsWith("homeapi/proto/HomeStructure;") }
 }
 
-internal const val PENDRAGON_JSON_FETCH_MESSAGE_REQUEST_CLASS_NAME = "FetchMessageRequest;"
-internal val pendragonJsonFetchMessageRequest = fingerprint {
-    strings("nowplayingview:npv-open-mv:v1")
-    custom { method, _ -> method.name == "apply" }
+internal fun reactivexFunctionApplyWithClassInitFingerprint(className: String) = fingerprint {
+    accessFlags(AccessFlags.PUBLIC)
+    returns("Ljava/lang/Object;")
+    parameters("Ljava/lang/Object;")
+    custom { method, _ -> method.name == "apply" && method.indexOfFirstInstruction {
+            opcode == Opcode.NEW_INSTANCE && getReference<TypeReference>()?.type?.endsWith(className) == true
+        } != -1
+    }
 }
 
+internal const val PENDRAGON_JSON_FETCH_MESSAGE_REQUEST_CLASS_NAME = "FetchMessageRequest;"
+internal val pendragonJsonFetchMessageRequest =
+    reactivexFunctionApplyWithClassInitFingerprint(PENDRAGON_JSON_FETCH_MESSAGE_REQUEST_CLASS_NAME)
+
 internal const val PENDRAGON_PROTO_FETCH_MESSAGE_LIST_REQUEST_CLASS_NAME = "FetchMessageListRequest;"
-internal val pendragonProtoFetchMessageListRequest = fingerprint {
-    strings("Canvas disabled")
-    custom { method, _ -> method.name == "apply" }
-}
+internal val pendragonProtoFetchMessageListRequest =
+    reactivexFunctionApplyWithClassInitFingerprint(PENDRAGON_PROTO_FETCH_MESSAGE_LIST_REQUEST_CLASS_NAME)
