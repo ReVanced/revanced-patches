@@ -9,6 +9,8 @@ import app.revanced.patches.tiktok.misc.settings.settingsStatusLoadFingerprint
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
+private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/tiktok/feedfilter/FeedItemsFilter;"
+
 @Suppress("unused")
 val feedFilterPatch = bytecodePatch(
     name = "Feed filter",
@@ -27,8 +29,8 @@ val feedFilterPatch = bytecodePatch(
 
     execute {
         arrayOf(
-            feedApiServiceLIZFingerprint.method to "Lapp/revanced/extension/tiktok/feedfilter/FeedItemsFilter;->filter(Lcom/ss/android/ugc/aweme/feed/model/FeedItemList;)V",
-            followFeedFingerprint.method to "Lapp/revanced/extension/tiktok/feedfilter/FeedItemsFilter;->filter(Lcom/ss/android/ugc/aweme/follow/presenter/FollowFeedList;)V"
+            feedApiServiceLIZFingerprint.method to "$EXTENSION_CLASS_DESCRIPTOR->filter(Lcom/ss/android/ugc/aweme/feed/model/FeedItemList;)V",
+            followFeedFingerprint.method to "$EXTENSION_CLASS_DESCRIPTOR->filter(Lcom/ss/android/ugc/aweme/follow/presenter/FollowFeedList;)V"
         ).forEach { (method, filterSignature) ->
             val returnInstruction = method.instructions.first { it.opcode == Opcode.RETURN_OBJECT }
             val register = (returnInstruction as OneRegisterInstruction).registerA
