@@ -173,22 +173,30 @@ val unlockPremiumPatch = bytecodePatch(
         }
 
 
-        fun MutableMethod.replaceSingleWithError(requestClassName: String) {
-            val requestBodyConstructionIndex = indexOfFirstInstructionOrThrow {
+        // Replace a fetch request that returns and maps Singles with their static onErrorReturn value.
+        fun MutableMethod.replaceFetchRequestSingleWithError(requestClassName: String) {
+            // The index of where the request class is being instantiated.
+            val requestInstantiationIndex = indexOfFirstInstructionOrThrow {
                 getReference<TypeReference>()?.type?.endsWith(requestClassName) == true
             }
 
-            val onErrorReturnIndex = indexOfFirstInstructionOrThrow(requestBodyConstructionIndex) {
+            // The index of where the onErrorReturn method is called with the error static value.
+            val onErrorReturnIndex = indexOfFirstInstructionOrThrow(requestInstantiationIndex) {
                 getReference<MethodReference>()?.name == "onErrorReturn"
             }
             val onErrorReturnValueInstruction = getInstruction<FiveRegisterInstruction>(onErrorReturnIndex)
+            val singleClassName = onErrorReturnValueInstruction.getReference<MethodReference>()!!.definingClass
+
+            // The error static value register.
             val onErrorReturnValueRegister = onErrorReturnValueInstruction.registerD
 
+            // The index where the error static value starts being constructed.
+            // Because the Singles are mapped, the error static value starts being constructed right after the first
+            // move-result-object of the map call, before the onErrorReturn method call.
             val onErrorReturnValueConstructionIndex =
                 indexOfFirstInstructionReversedOrThrow(onErrorReturnIndex, Opcode.MOVE_RESULT_OBJECT) + 1
 
-            val singleClassName = onErrorReturnValueInstruction.getReference<MethodReference>()!!.definingClass
-            // Just return the single with the error instead.
+            // Construct a new single with the error static value and return it.
             addInstructions(
                 onErrorReturnIndex,
                 """
@@ -198,17 +206,17 @@ val unlockPremiumPatch = bytecodePatch(
                 """
             )
 
-            // Every instruction from the request body construction to the beginning of the error return construction.
-            // In other words, the request call and original single construction.
-            val removeCount = onErrorReturnValueConstructionIndex - requestBodyConstructionIndex
-            removeInstructions(requestBodyConstructionIndex, removeCount)
+            // Remove every instruction from the request instantiation to right before the error static value
+            // construction.
+            val removeCount = onErrorReturnValueConstructionIndex - requestInstantiationIndex
+            removeInstructions(requestInstantiationIndex, removeCount)
         }
 
-        // Remove pendragon (pop out ads) requests.
-        pendragonJsonFetchMessageRequest.method.replaceSingleWithError(
+        // Remove pendragon (pop up ads) requests and return the errors instead.
+        pendragonJsonFetchMessageRequest.method.replaceFetchRequestSingleWithError(
             PENDRAGON_JSON_FETCH_MESSAGE_REQUEST_CLASS_NAME
         )
-        pendragonProtoFetchMessageListRequest.method.replaceSingleWithError(
+        pendragonProtoFetchMessageListRequest.method.replaceFetchRequestSingleWithError(
             PENDRAGON_PROTO_FETCH_MESSAGE_LIST_REQUEST_CLASS_NAME
         )
     }
