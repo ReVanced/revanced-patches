@@ -26,14 +26,15 @@ val feedFilterPatch = bytecodePatch(
     )
 
     execute {
-        feedApiServiceLIZFingerprint.method.apply {
-            val returnFeedItemInstruction = instructions.first { it.opcode == Opcode.RETURN_OBJECT }
-            val feedItemsRegister = (returnFeedItemInstruction as OneRegisterInstruction).registerA
-
-            addInstruction(
-                returnFeedItemInstruction.location.index,
-                "invoke-static { v$feedItemsRegister }, " +
-                    "Lapp/revanced/extension/tiktok/feedfilter/FeedItemsFilter;->filter(Lcom/ss/android/ugc/aweme/feed/model/FeedItemList;)V",
+        arrayOf(
+            feedApiServiceLIZFingerprint.method to "Lapp/revanced/extension/tiktok/feedfilter/FeedItemsFilter;->filter(Lcom/ss/android/ugc/aweme/feed/model/FeedItemList;)V",
+            followFeedFingerprint.method to "Lapp/revanced/extension/tiktok/feedfilter/FeedItemsFilter;->filter(Lcom/ss/android/ugc/aweme/follow/presenter/FollowFeedList;)V"
+        ).forEach { (method, filterSignature) ->
+            val returnInstruction = method.instructions.first { it.opcode == Opcode.RETURN_OBJECT }
+            val register = (returnInstruction as OneRegisterInstruction).registerA
+            method.addInstruction(
+                returnInstruction.location.index,
+                "invoke-static { v$register }, $filterSignature"
             )
         }
 
@@ -42,4 +43,5 @@ val feedFilterPatch = bytecodePatch(
             "invoke-static {}, Lapp/revanced/extension/tiktok/settings/SettingsStatus;->enableFeedFilter()V",
         )
     }
+
 }
