@@ -459,6 +459,7 @@ Second \"item\" text"</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_title">הפעל מחוות בהירות אוטומטית</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_on">החלקה למטה לערך הנמוך ביותר של מחוות הבהירות מפעילה בהירות אוטומטית</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_off">החלקה למטה לערך הנמוך ביותר לא מפעילה בהירות אוטומטית</string>
+  <string name="revanced_swipe_lowest_value_enable_auto_brightness_overlay_text">אוטומטי</string>
   <string name="revanced_swipe_overlay_timeout_title">פסק זמן לשכבת-על של החלקה</string>
   <string name="revanced_swipe_overlay_timeout_summary">כמות אלפיות השניה ששכבת-העל גלויה</string>
   <string name="revanced_swipe_overlay_background_opacity_title">אטימות רקע שכבת-על של החלקה</string>
@@ -468,12 +469,6 @@ Second \"item\" text"</string>
   <string name="revanced_swipe_threshold_summary">כמות הסף להתרחשות החלקה</string>
   <string name="revanced_swipe_volume_sensitivity_title">רגישות החלקה בעוצמת הקול</string>
   <string name="revanced_swipe_volume_sensitivity_summary">כמה משתנה עוצמת השמע לכל החלקה</string>
-  <string name="revanced_swipe_show_circular_overlay_title">הצג שכבת-על מעגלית</string>
-  <string name="revanced_swipe_show_circular_overlay_summary_on">שכבת-על מעגלית מוצגת</string>
-  <string name="revanced_swipe_show_circular_overlay_summary_off">שכבת-על אופקית מוצגת</string>
-  <string name="revanced_swipe_overlay_minimal_style_title">הפעל סגנון מינמלי</string>
-  <string name="revanced_swipe_overlay_minimal_style_summary_on">סגנון שכבת-על מינמלי מופעל</string>
-  <string name="revanced_swipe_overlay_minimal_style_summary_off">סגנון שכבת-על מינמלי מושבת</string>
   <string name="revanced_swipe_change_video_title">הפעל החלקה כדי לשנות סרטונים</string>
   <string name="revanced_swipe_change_video_summary_on">החלקה במצב מסך מלא תשנה לסרטון הבא/הקודם</string>
   <string name="revanced_swipe_change_video_summary_off">החלקה במצב מסך מלא לא תשנה לסרטון הבא/הקודם</string>
