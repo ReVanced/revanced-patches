@@ -181,35 +181,38 @@ val unlockPremiumPatch = bytecodePatch(
             }
 
             // The index of where the onErrorReturn method is called with the error static value.
-            val onErrorReturnIndex = indexOfFirstInstructionOrThrow(requestInstantiationIndex) {
+            val onErrorReturnCallIndex = indexOfFirstInstructionOrThrow(requestInstantiationIndex) {
                 getReference<MethodReference>()?.name == "onErrorReturn"
             }
-            val onErrorReturnValueInstruction = getInstruction<FiveRegisterInstruction>(onErrorReturnIndex)
-            val singleClassName = onErrorReturnValueInstruction.getReference<MethodReference>()!!.definingClass
+            val onErrorReturnCallInstruction = getInstruction<FiveRegisterInstruction>(onErrorReturnCallIndex)
 
             // The error static value register.
-            val onErrorReturnValueRegister = onErrorReturnValueInstruction.registerD
+            val onErrorReturnValueRegister = onErrorReturnCallInstruction.registerD
 
             // The index where the error static value starts being constructed.
             // Because the Singles are mapped, the error static value starts being constructed right after the first
             // move-result-object of the map call, before the onErrorReturn method call.
             val onErrorReturnValueConstructionIndex =
-                indexOfFirstInstructionReversedOrThrow(onErrorReturnIndex, Opcode.MOVE_RESULT_OBJECT) + 1
+                indexOfFirstInstructionReversedOrThrow(onErrorReturnCallIndex, Opcode.MOVE_RESULT_OBJECT) + 1
+
+            val singleClassName = onErrorReturnCallInstruction.getReference<MethodReference>()!!.definingClass
+            // The index where the request is firstly called, before its result is mapped to other values.
+            val requestCallIndex = indexOfFirstInstructionOrThrow(requestInstantiationIndex) {
+                getReference<MethodReference>()?.returnType == singleClassName
+            }
 
             // Construct a new single with the error static value and return it.
             addInstructions(
-                onErrorReturnIndex,
-                """
-                    invoke-static { v$onErrorReturnValueRegister }, $singleClassName->just(Ljava/lang/Object;)$singleClassName
-                    move-result-object v$onErrorReturnValueRegister
-                    return-object v$onErrorReturnValueRegister
-                """
+                onErrorReturnCallIndex,
+                "invoke-static { v$onErrorReturnValueRegister }, " +
+                        "$singleClassName->just(Ljava/lang/Object;)$singleClassName\n" +
+                "move-result-object v$onErrorReturnValueRegister\n" +
+                "return-object v$onErrorReturnValueRegister"
             )
 
-            // Remove every instruction from the request instantiation to right before the error static value
-            // construction.
-            val removeCount = onErrorReturnValueConstructionIndex - requestInstantiationIndex
-            removeInstructions(requestInstantiationIndex, removeCount)
+            // Remove every instruction from the request call to right before the error static value construction.
+            val removeCount = onErrorReturnValueConstructionIndex - requestCallIndex
+            removeInstructions(requestCallIndex, removeCount)
         }
 
         // Remove pendragon (pop up ads) requests and return the errors instead.
