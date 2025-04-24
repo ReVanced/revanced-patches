@@ -52,7 +52,7 @@ val spoofAppVersionPatch = bytecodePatch(
 
         PreferenceScreen.GENERAL_LAYOUT.addPreferences(
             // Group the switch and list preference together, since General menu is sorted by name
-            // and the preferences can be scattered apart with non English langauges.
+            // and the preferences can be scattered apart with non English languages.
             PreferenceCategory(
                 titleKey = null,
                 sorting = Sorting.UNSORTED,

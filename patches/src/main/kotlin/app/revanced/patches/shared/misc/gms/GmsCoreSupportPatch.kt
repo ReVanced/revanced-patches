@@ -52,8 +52,8 @@ fun gmsCoreSupportPatch(
     block: BytecodePatchBuilder.() -> Unit = {},
 ) = bytecodePatch(
     name = "GmsCore support",
-    description = "Allows patched Google apps to run without root and under a different package name " +
-        "by using GmsCore instead of Google Play Services.",
+    description = "Allows the app to work without root by using a different package name when patched " +
+        "using a GmsCore instead of Google Play Services.",
 ) {
     val gmsCoreVendorGroupIdOption = stringOption(
         key = "gmsCoreVendorGroupId",

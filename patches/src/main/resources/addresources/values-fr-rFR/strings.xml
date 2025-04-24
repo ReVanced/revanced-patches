@@ -459,21 +459,30 @@ Réglez le volume en balayant verticalement sur le côté droit de l'écran"</st
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_title">Activer le geste de luminosité automatique</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_on">Balayer vers le bas jusqu\'à la valeur minimum du geste de contrôle de la luminosité active la luminosité automatique</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_off">Balayer vers le bas jusqu\'à la valeur minimum n\'active pas la luminosité automatique</string>
+  <string name="revanced_swipe_lowest_value_enable_auto_brightness_overlay_text">Automatique</string>
   <string name="revanced_swipe_overlay_timeout_title">Délai avant disparition de l\'overlay des gestes</string>
   <string name="revanced_swipe_overlay_timeout_summary">La durée en millisecondes pendant laquelle l\'overlay est visible</string>
   <string name="revanced_swipe_overlay_background_opacity_title">Opacité de l\'arrière-plan de l\'overlay des gestes</string>
   <string name="revanced_swipe_overlay_background_opacity_summary">Valeur de l\'opacité entre 0 et 100</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">L\'opacité doit être comprise entre 0 et 100 pour les gestes</string>
+  <string name="revanced_swipe_overlay_progress_color_title">Couleur de la barre de progression de l\'overlay des gestes</string>
+  <string name="revanced_swipe_overlay_progress_color_summary">La couleur de la barre de progression pour les commandes de volume et de luminosité</string>
+  <string name="revanced_swipe_overlay_progress_color_invalid_toast">Couleur de barre de progression invalide</string>
+  <string name="revanced_swipe_text_overlay_size_title">Taille du texte de l\'overlay des gestes</string>
+  <string name="revanced_swipe_text_overlay_size_summary">La taille du texte de l\'overlay des gestes comprise entre 1 et 30</string>
+  <string name="revanced_swipe_text_overlay_size_invalid_toast">La taille du texte doit être comprise entre 1 et 30</string>
   <string name="revanced_swipe_threshold_title">Seuil d\'intensité des balayages</string>
   <string name="revanced_swipe_threshold_summary">L\'intensité du mouvement à effectuer pour qu\'un balayage soit pris en compte</string>
   <string name="revanced_swipe_volume_sensitivity_title">Sensibilité du geste de contrôle du volume</string>
   <string name="revanced_swipe_volume_sensitivity_summary">Quantité de modification du volume à chaque balayage</string>
-  <string name="revanced_swipe_show_circular_overlay_title">Afficher l\'overlay circulaire</string>
-  <string name="revanced_swipe_show_circular_overlay_summary_on">L\'overlay circulaire est affiché</string>
-  <string name="revanced_swipe_show_circular_overlay_summary_off">L\'overlay horizontal est affiché</string>
-  <string name="revanced_swipe_overlay_minimal_style_title">Activer le style minimaliste</string>
-  <string name="revanced_swipe_overlay_minimal_style_summary_on">Le style minimaliste d\'overlay est activé</string>
-  <string name="revanced_swipe_overlay_minimal_style_summary_off">Le style minimaliste d\'overlay est désactivé</string>
+  <string name="revanced_swipe_overlay_style_title">Style de l\'overlay des gestes</string>
+  <string name="revanced_swipe_overlay_style_entry_1">Overlay horizontal</string>
+  <string name="revanced_swipe_overlay_style_entry_2">Overlay horizontal (minimal, haut)</string>
+  <string name="revanced_swipe_overlay_style_entry_3">Overlay horizontal (minimal, centre)</string>
+  <string name="revanced_swipe_overlay_style_entry_4">Overlay circulaire</string>
+  <string name="revanced_swipe_overlay_style_entry_5">Overlay circulaire (minimal)</string>
+  <string name="revanced_swipe_overlay_style_entry_6">Overlay vertical</string>
+  <string name="revanced_swipe_overlay_style_entry_7">Overlay vertical (minimal)</string>
   <string name="revanced_swipe_change_video_title">Activer Balayer pour changer de vidéo</string>
   <string name="revanced_swipe_change_video_summary_on">En mode plein écran, vous passerez à la vidéo précédente/suivante en balayant l\'écran</string>
   <string name="revanced_swipe_change_video_summary_off">En mode plein écran, vous ne changerez pas de vidéo en balayant l\'écran</string>
@@ -1134,7 +1143,7 @@ Si désactivé ultérieurement, il est recommandé d'effacer les données de l'a
   <string name="revanced_change_start_page_always_title">Toujours modifier la page de démarrage</string>
   <string name="revanced_change_start_page_always_summary_on">"La page de démarrage est toujours modifiée
 
-Limitation : l'utilisation du bouton de retour dans la barre d'outils peut ne pas fonctionner"</string>
+Limitation : Il se peut que le bouton Retour dans la barre d'outils ne fonctionne pas"</string>
   <string name="revanced_change_start_page_always_summary_off">La page de démarrage est modifiée uniquement au démarrage de l\'application</string>
   </patch>
   <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch">

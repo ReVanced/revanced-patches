@@ -459,21 +459,30 @@ Ekranın sağ tarafında dikey olarak kaydırarak sesi ayarlayın"</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_title">Otomatik parlaklık hareketini etkinleştir</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_on">Parlaklık hareketinin en düşük değerine kaydırma otomatik parlaklığı etkinleştirir</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_off">Parlaklık hareketinin en düşük değerine kaydırma otomatik parlaklığı etkinleştirmez</string>
+  <string name="revanced_swipe_lowest_value_enable_auto_brightness_overlay_text">Oto</string>
   <string name="revanced_swipe_overlay_timeout_title">Kaydırma paneli zaman aşımı</string>
   <string name="revanced_swipe_overlay_timeout_summary">Panelin görünür olduğu milisaniye miktarı</string>
   <string name="revanced_swipe_overlay_background_opacity_title">Kaydırma paneli arka plan opaklığı</string>
   <string name="revanced_swipe_overlay_background_opacity_summary">0-100 arasında opaklık değeri</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Kaydırma opaklığı 0-100 arasında olmalıdır</string>
+  <string name="revanced_swipe_overlay_progress_color_title">Kaydırma katmanı ilerleme çubuğu rengi</string>
+  <string name="revanced_swipe_overlay_progress_color_summary">Ses ve parlaklık kontrolleri için ilerleme çubuğunun rengi</string>
+  <string name="revanced_swipe_overlay_progress_color_invalid_toast">Geçersiz ilerleme çubuğu rengi</string>
+  <string name="revanced_swipe_text_overlay_size_title">Kaydırma katmanı metin boyutu</string>
+  <string name="revanced_swipe_text_overlay_size_summary">Kaydırma katmanı için 1-30 arası metin boyutu</string>
+  <string name="revanced_swipe_text_overlay_size_invalid_toast">Metin boyutu 1-30 arasında olmalıdır</string>
   <string name="revanced_swipe_threshold_title">Kaydırma büyüklük eşiği</string>
   <string name="revanced_swipe_threshold_summary">Kaydırma işleminin gerçekleşmesi için eşik miktarı</string>
   <string name="revanced_swipe_volume_sensitivity_title">Ses kaydırma hassasiyeti</string>
   <string name="revanced_swipe_volume_sensitivity_summary">Kaydırma başına sesin ne kadar değişeceği</string>
-  <string name="revanced_swipe_show_circular_overlay_title">Dairesel katmanı göster</string>
-  <string name="revanced_swipe_show_circular_overlay_summary_on">Dairesel katman gösteriliyor</string>
-  <string name="revanced_swipe_show_circular_overlay_summary_off">Yatay katman gösteriliyor</string>
-  <string name="revanced_swipe_overlay_minimal_style_title">Minimal stili etkinleştir</string>
-  <string name="revanced_swipe_overlay_minimal_style_summary_on">Minimal katman stili etkin</string>
-  <string name="revanced_swipe_overlay_minimal_style_summary_off">Minimal katman stili devre dışı</string>
+  <string name="revanced_swipe_overlay_style_title">Kaydırma katmanı stili</string>
+  <string name="revanced_swipe_overlay_style_entry_1">Yatay katman</string>
+  <string name="revanced_swipe_overlay_style_entry_2">Yatay katman (minimal - üst)</string>
+  <string name="revanced_swipe_overlay_style_entry_3">Yatay katman (minimal - orta)</string>
+  <string name="revanced_swipe_overlay_style_entry_4">Dairesel katman</string>
+  <string name="revanced_swipe_overlay_style_entry_5">Dairesel katman (minimal)</string>
+  <string name="revanced_swipe_overlay_style_entry_6">Dikey katman</string>
+  <string name="revanced_swipe_overlay_style_entry_7">Dikey katman (minimal)</string>
   <string name="revanced_swipe_change_video_title">Kaydırarak video değiştirmeyi etkinleştir</string>
   <string name="revanced_swipe_change_video_summary_on">Tam ekran modunda kaydırma, bir sonraki/önceki videoya geçecektir</string>
   <string name="revanced_swipe_change_video_summary_off">Tam ekran modunda kaydırma, bir sonraki/önceki videoya geçmeyecektir</string>
@@ -1132,10 +1141,10 @@ Daha sonra kapatılırsa, arayüz hatalarını önlemek için uygulama verilerin
   <string name="revanced_change_start_page_entry_virtual_reality">Sanal Gerçeklik</string>
   <string name="revanced_change_start_page_entry_watch_later">Daha sonra izle</string>
   <string name="revanced_change_start_page_entry_your_clips">Sizin klipleriniz</string>
-  <string name="revanced_change_start_page_always_title">Başlangıç sayfası her zaman değiştirilsin</string>
+  <string name="revanced_change_start_page_always_title">Başlangıç sayfasını her zaman değiştir</string>
   <string name="revanced_change_start_page_always_summary_on">"Başlangıç sayfası her zaman değiştirilir
 
-Sınırlama: Araç çubuğunda geri düğmesini kullanmak işe yaramayabilir"</string>
+Kısıtlama: Araç çubuğundaki geri düğmesini kullanmak işe yaramayabilir"</string>
   <string name="revanced_change_start_page_always_summary_off">Başlangıç sayfası yalnızca uygulama başlatılırken değiştirilir</string>
   </patch>
   <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch">

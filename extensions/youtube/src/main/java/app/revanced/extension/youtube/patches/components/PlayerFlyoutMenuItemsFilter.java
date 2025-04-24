@@ -40,7 +40,7 @@ public class PlayerFlyoutMenuItemsFilter extends Filter {
 
         addPathCallbacks(
                 videoQualityMenuFooter,
-                new StringFilterGroup(null, "overflow_menu_item.eml|")
+                new StringFilterGroup(null, "overflow_menu_item.eml")
         );
 
         flyoutFilterGroupList.addAll(

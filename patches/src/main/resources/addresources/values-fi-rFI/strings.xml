@@ -459,6 +459,7 @@ Säädä äänenvoimakkuutta pyyhkäisemällä pystysuoraan näytön oikealta pu
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_title">Ota automaattisen kirkkauden ele käyttöön</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_on">Automaattinen kirkkaus otetaan käyttöön pyyhkäisemällä alhaisimpaan arvoon</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_off">Pienimpään arvoon alas pyyhkäiseminen ei ota käyttöön automaattista kirkkautta</string>
+  <string name="revanced_swipe_lowest_value_enable_auto_brightness_overlay_text">Automaattinen</string>
   <string name="revanced_swipe_overlay_timeout_title">Pyyhkäisyikkunan aikakatkaisu</string>
   <string name="revanced_swipe_overlay_timeout_summary">Kuinka monta millisekuntia ikkuna on näkyvissä</string>
   <string name="revanced_swipe_overlay_background_opacity_title">Pyyhkäisypeittokuvan taustan läpinäkymättömyys</string>
@@ -468,12 +469,6 @@ Säädä äänenvoimakkuutta pyyhkäisemällä pystysuoraan näytön oikealta pu
   <string name="revanced_swipe_threshold_summary">Pyyhkäisyä varten tarvittavan kynnyksen määrä</string>
   <string name="revanced_swipe_volume_sensitivity_title">Äänenvoimakkuuden pyyhkäisyn herkkyys</string>
   <string name="revanced_swipe_volume_sensitivity_summary">Kuinka paljon äänenvoimakkuus muuttuu pyyhkäisyä kohden</string>
-  <string name="revanced_swipe_show_circular_overlay_title">Näytä pyöreä peittokuva</string>
-  <string name="revanced_swipe_show_circular_overlay_summary_on">Pyöreä peittokuva näytetään</string>
-  <string name="revanced_swipe_show_circular_overlay_summary_off">Vaakasuora peittokuva näytetään</string>
-  <string name="revanced_swipe_overlay_minimal_style_title">Käytä minimaalista tyyliä</string>
-  <string name="revanced_swipe_overlay_minimal_style_summary_on">Minimaalinen peittokuva on käytössä</string>
-  <string name="revanced_swipe_overlay_minimal_style_summary_off">Minimaalinen peittokuva ei ole käytössä</string>
   <string name="revanced_swipe_change_video_title">Ota videon vaihto pyyhkäisemällä käyttöön</string>
   <string name="revanced_swipe_change_video_summary_on">Pyyhkäisemällä kokoruututilassa siirrytään seuraavaan/edelliseen videoon</string>
   <string name="revanced_swipe_change_video_summary_off">Pyyhkäisemällä kokoruututilassa ei siirrytä seuraavaan/edelliseen videoon</string>
@@ -832,6 +827,8 @@ Rajoitus: Ei-tykkäykset eivät välttämättä näy incognito-tilassa"</string>
   <string name="revanced_ryd_compact_layout_summary_on">Tykkää-painike on muotoiltu mahdollisimman kapeaksi</string>
   <string name="revanced_ryd_compact_layout_summary_off">Tykkää-painike on muotoiltu parhaan näköiseksi</string>
   <string name="revanced_ryd_estimated_like_title">Näytä arvioidut tykkäykset</string>
+  <string name="revanced_ryd_estimated_like_summary_on">Videot, joiden tykkäykset on poistettu käytöstä, näyttävät arvioidun tykkäysten määrän</string>
+  <string name="revanced_ryd_estimated_like_summary_off">Arvioituja tykkäyksiä ei näytetä</string>
   <string name="revanced_ryd_toast_on_connection_error_title">Näytä ponnahdusilmoitus, jos API ei ole käytettävissä</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_on">Ponnahdusilmoitus näytetään, jos Return YouTube Dislike ei ole käytettävissä</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_off">Ponnahdusilmoitusta ei näytetä, jos Return YouTube Dislike ei ole käytettävissä</string>
@@ -1105,6 +1102,7 @@ Jos tämä poistetaan myöhemmin käytöstä, on suositeltavaa tyhjentää sovel
   <string name="revanced_spoof_app_version_target_entry_2">19.01.34 - Palauta vanhat navigointikuvakkeet</string>
   </patch>
   <patch id="layout.startpage.changeStartPagePatch">
+  <string name="revanced_change_start_page_title">Vaihda aloitussivua</string>
   <string name="revanced_change_start_page_entry_default">Oletus</string>
   <string name="revanced_change_start_page_entry_all_subscriptions">Kaikki tilaukset</string>
   <string name="revanced_change_start_page_entry_browse">Selaa kanavia</string>
@@ -1129,6 +1127,11 @@ Jos tämä poistetaan myöhemmin käytöstä, on suositeltavaa tyhjentää sovel
   <string name="revanced_change_start_page_entry_virtual_reality">Virtuaalitodellisuus</string>
   <string name="revanced_change_start_page_entry_watch_later">Katso myöhemmin</string>
   <string name="revanced_change_start_page_entry_your_clips">Omat klipit</string>
+  <string name="revanced_change_start_page_always_title">Vaihda aloitussivu aina</string>
+  <string name="revanced_change_start_page_always_summary_on">"Aloitussivu vaihdetaan aina
+
+Rajoitus: Työkalupalkin takaisin-painikkeen käyttäminen ei välttämättä toimi"</string>
+  <string name="revanced_change_start_page_always_summary_off">Aloitussivu vaihdetaan vain sovelluksen käynnistyessä</string>
   </patch>
   <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch">
   <string name="revanced_disable_resuming_shorts_player_title">Poista Shorts-soittimen jatkaminen käytöstä</string>

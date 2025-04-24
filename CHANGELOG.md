@@ -1,3 +1,31 @@
+# [5.21.0-dev.11](https://github.com/ReVanced/revanced-patches/compare/v5.21.0-dev.10...v5.21.0-dev.11) (2025-04-24)
+
+
+### Bug Fixes
+
+* **GmsCore Support:** Correct the description to refer to the app being patched ([2bbcf9d](https://github.com/ReVanced/revanced-patches/commit/2bbcf9d82ca2f442572a6aa886cc611b0d56ff0a))
+
+# [5.21.0-dev.10](https://github.com/ReVanced/revanced-patches/compare/v5.21.0-dev.9...v5.21.0-dev.10) (2025-04-23)
+
+
+### Features
+
+* **YouTube - Swipe controls:** Add option for vertical progress bar ([#4811](https://github.com/ReVanced/revanced-patches/issues/4811)) ([ebee07e](https://github.com/ReVanced/revanced-patches/commit/ebee07ec3aba6fd3adbd8e0af30390e197879d89))
+
+# [5.21.0-dev.9](https://github.com/ReVanced/revanced-patches/compare/v5.21.0-dev.8...v5.21.0-dev.9) (2025-04-21)
+
+
+### Bug Fixes
+
+* **YouTube - Hide video action buttons:** Hide A/B layout buttons ([4db5d3c](https://github.com/ReVanced/revanced-patches/commit/4db5d3c3d5ac04faf70cc07fb309b324d752e7e3))
+
+# [5.21.0-dev.8](https://github.com/ReVanced/revanced-patches/compare/v5.21.0-dev.7...v5.21.0-dev.8) (2025-04-20)
+
+
+### Bug Fixes
+
+* **Wide search bar:** Fix patching `19.16.39` ([433dbc3](https://github.com/ReVanced/revanced-patches/commit/433dbc3bf81823369e146035c954281e84d3a436))
+
 # [5.21.0-dev.7](https://github.com/ReVanced/revanced-patches/compare/v5.21.0-dev.6...v5.21.0-dev.7) (2025-04-20)
 
 
