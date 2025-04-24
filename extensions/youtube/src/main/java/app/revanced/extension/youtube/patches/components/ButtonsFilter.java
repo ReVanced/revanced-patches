@@ -68,15 +68,19 @@ final class ButtonsFilter extends Filter {
                         Settings.HIDE_REMIX_BUTTON,
                         "yt_outline_youtube_shorts_plus"
                 ),
+                new ByteArrayFilterGroup(
+                        Settings.HIDE_THANKS_BUTTON,
+                        "yt_outline_dollar_sign_heart"
+                ),
+                new ByteArrayFilterGroup(
+                        Settings.HIDE_ASK_BUTTON,
+                        "yt_fill_spark"
+                ),
                 // Check for clip button both here and using a path filter,
                 // as there's a chance the path is a generic action button and won't contain 'clip_button'
                 new ByteArrayFilterGroup(
                         Settings.HIDE_CLIP_BUTTON,
                         "yt_outline_scissors"
-                ),
-                new ByteArrayFilterGroup(
-                        Settings.HIDE_THANKS_BUTTON,
-                        "yt_outline_dollar_sign_heart"
                 )
         );
     }

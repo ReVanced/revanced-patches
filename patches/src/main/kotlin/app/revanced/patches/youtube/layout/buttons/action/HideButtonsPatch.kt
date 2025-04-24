@@ -46,10 +46,11 @@ val hideButtonsPatch = resourcePatch(
                     SwitchPreference("revanced_hide_remix_button"),
                     SwitchPreference("revanced_hide_download_button"),
                     SwitchPreference("revanced_hide_thanks_button"),
+                    SwitchPreference("revanced_hide_ask_button"),
                     SwitchPreference("revanced_hide_clip_button"),
                     SwitchPreference("revanced_hide_playlist_button"),
-                ),
-            ),
+                )
+            )
         )
 
         addLithoFilter("Lapp/revanced/extension/youtube/patches/components/ButtonsFilter;")
