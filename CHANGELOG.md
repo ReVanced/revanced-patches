@@ -1,3 +1,10 @@
+# [5.21.0-dev.12](https://github.com/ReVanced/revanced-patches/compare/v5.21.0-dev.11...v5.21.0-dev.12) (2025-04-24)
+
+
+### Bug Fixes
+
+* **YouTube - Hide video action buttons:** Add option to hide 'Ask' button ([#4852](https://github.com/ReVanced/revanced-patches/issues/4852)) ([43bcf5a](https://github.com/ReVanced/revanced-patches/commit/43bcf5a098c9008cc11dc7df9680437d5effbb32))
+
 # [5.21.0-dev.11](https://github.com/ReVanced/revanced-patches/compare/v5.21.0-dev.10...v5.21.0-dev.11) (2025-04-24)
 
 
