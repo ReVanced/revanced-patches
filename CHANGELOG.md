@@ -1,3 +1,10 @@
+# [5.21.0-dev.11](https://github.com/ReVanced/revanced-patches/compare/v5.21.0-dev.10...v5.21.0-dev.11) (2025-04-24)
+
+
+### Bug Fixes
+
+* **GmsCore Support:** Correct the description to refer to the app being patched ([2bbcf9d](https://github.com/ReVanced/revanced-patches/commit/2bbcf9d82ca2f442572a6aa886cc611b0d56ff0a))
+
 # [5.21.0-dev.10](https://github.com/ReVanced/revanced-patches/compare/v5.21.0-dev.9...v5.21.0-dev.10) (2025-04-23)
 
 
