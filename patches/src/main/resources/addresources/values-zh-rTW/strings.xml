@@ -459,6 +459,7 @@ Second \"item\" text"</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_title">啟用自動亮度手勢</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_on">亮度手勢滑到最底時，啟用自動亮度</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_off">亮度手勢滑到最底時，不啟用自動亮度</string>
+  <string name="revanced_swipe_lowest_value_enable_auto_brightness_overlay_text">自動</string>
   <string name="revanced_swipe_overlay_timeout_title">滑動覆蓋顯示時間</string>
   <string name="revanced_swipe_overlay_timeout_summary">覆蓋顯示的毫秒數</string>
   <string name="revanced_swipe_overlay_background_opacity_title">滑動覆蓋背景透明度</string>
@@ -466,20 +467,16 @@ Second \"item\" text"</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">滑動透明度必須介於 0 到 100 之間</string>
   <string name="revanced_swipe_threshold_title">滑動幅度臨界點</string>
   <string name="revanced_swipe_threshold_summary">滑動幅度臨界點</string>
-  <string name="revanced_swipe_show_circular_overlay_title">顯示圓形覆蓋</string>
-  <string name="revanced_swipe_show_circular_overlay_summary_on">已顯示圓形覆蓋</string>
-  <string name="revanced_swipe_show_circular_overlay_summary_off">已顯示水平覆蓋</string>
-  <string name="revanced_swipe_overlay_minimal_style_title">啟用極簡風格</string>
-  <string name="revanced_swipe_overlay_minimal_style_summary_on">已啟用極簡覆蓋樣式</string>
-  <string name="revanced_swipe_overlay_minimal_style_summary_off">已停用極簡覆蓋樣式</string>
+  <string name="revanced_swipe_volume_sensitivity_title">音量滑動靈敏度</string>
+  <string name="revanced_swipe_volume_sensitivity_summary">滑動一下音量調整的大小</string>
   <string name="revanced_swipe_change_video_title">啟用滑動切換影片</string>
   <string name="revanced_swipe_change_video_summary_on">在全螢幕模式下滑動將切換到下一部/上一部影片</string>
   <string name="revanced_swipe_change_video_summary_off">在全螢幕模式下滑動將不會切換到下一部/上一部影片</string>
   </patch>
   <patch id="layout.autocaptions.autoCaptionsPatch">
-  <string name="revanced_auto_captions_title">停用自動產生的字幕</string>
-  <string name="revanced_auto_captions_summary_on">已停用自動產生的字幕</string>
-  <string name="revanced_auto_captions_summary_off">已啟用自動產生的字幕</string>
+  <string name="revanced_disable_auto_captions_title">停用自動產生的字幕</string>
+  <string name="revanced_disable_auto_captions_summary_on">已停用自動產生的字幕</string>
+  <string name="revanced_disable_auto_captions_summary_off">已啟用自動產生的字幕</string>
   </patch>
   <patch id="layout.buttons.action.hideButtonsPatch">
   <string name="revanced_hide_buttons_screen_title">動作按鈕</string>
@@ -511,6 +508,8 @@ Second \"item\" text"</string>
   <string name="revanced_hide_thanks_button_title">隱藏感謝</string>
   <string name="revanced_hide_thanks_button_summary_on">已隱藏「感謝」按鈕</string>
   <string name="revanced_hide_thanks_button_summary_off">已顯示「感謝」按鈕</string>
+  <!-- 'Ask' should be translated with the same localized wording that YouTube displays.
+                 Button only shows if the user ip is from specific region such as the USA or EU. -->
   <!-- 'Clip' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_clip_button_title">隱藏剪輯片段</string>
   <string name="revanced_hide_clip_button_summary_on">已隱藏「剪輯片段」按鈕</string>
@@ -628,7 +627,7 @@ Second \"item\" text"</string>
   <string name="revanced_hide_player_previous_next_buttons_title">隱藏「上一部」和「下一部」按鈕</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_on">已隱藏按鈕</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">已顯示按鈕</string>
-  <string name="revanced_hide_cast_button_title">隱藏「投影」按鈕</string>
+  <string name="revanced_hide_cast_button_title">隱藏「投放」按鈕</string>
   <string name="revanced_hide_cast_button_summary_on">已隱藏「投放」按鈕</string>
   <string name="revanced_hide_cast_button_summary_off">已顯示「投放」按鈕</string>
   <!-- This button does not display any text, but 'captions' should be translated using the same wording used as the translation of 'revanced_hide_player_flyout_captions_title' -->
@@ -830,8 +829,8 @@ Second \"item\" text"</string>
   <string name="revanced_ryd_compact_layout_summary_on">「喜歡」按鈕樣式設為最小寬度</string>
   <string name="revanced_ryd_compact_layout_summary_off">「喜歡」按鈕樣式設為最佳外觀</string>
   <string name="revanced_ryd_estimated_like_title">顯示預估喜歡人數</string>
-  <string name="revanced_ryd_estimated_like_summary_on">已顯示預估喜歡人數</string>
-  <string name="revanced_ryd_estimated_like_summary_off">已隱藏預估喜歡人數</string>
+  <string name="revanced_ryd_estimated_like_summary_on">已停用喜歡的影片會顯示預估的喜歡人數</string>
+  <string name="revanced_ryd_estimated_like_summary_off">未顯示預估喜歡人數</string>
   <string name="revanced_ryd_toast_on_connection_error_title">若 API 無法使用，顯示提示</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_on">如果 Return YouTube Dislike 無法使用，則顯示提示訊息</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_off">如果 Return YouTube Dislike 無法使用，則不會顯示提示訊息</string>
@@ -1106,7 +1105,7 @@ Second \"item\" text"</string>
   <string name="revanced_spoof_app_version_target_entry_2">19.01.34 - 還原舊版導覽圖示</string>
   </patch>
   <patch id="layout.startpage.changeStartPagePatch">
-  <string name="revanced_change_start_page_title">設定起始頁面</string>
+  <string name="revanced_change_start_page_title">變更起始頁面</string>
   <string name="revanced_change_start_page_entry_default">預設</string>
   <string name="revanced_change_start_page_entry_all_subscriptions">所有訂閱內容</string>
   <string name="revanced_change_start_page_entry_browse">瀏覽頻道</string>
@@ -1131,6 +1130,8 @@ Second \"item\" text"</string>
   <string name="revanced_change_start_page_entry_virtual_reality">虛擬實境</string>
   <string name="revanced_change_start_page_entry_watch_later">稍後觀看</string>
   <string name="revanced_change_start_page_entry_your_clips">你的剪輯</string>
+  <string name="revanced_change_start_page_always_title">一律變更起始頁面</string>
+  <string name="revanced_change_start_page_always_summary_off">起始頁面僅在應用程式啟動時變更</string>
   </patch>
   <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch">
   <string name="revanced_disable_resuming_shorts_player_title">停用 Shorts 播放器接續播放功能</string>

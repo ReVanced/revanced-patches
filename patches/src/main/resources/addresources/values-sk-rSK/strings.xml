@@ -452,29 +452,38 @@ Upravte hlasitosť posúvaním vertikálne na pravej strane obrazovky"</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_title">Povoliť gesto automatického jasu</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_on">Potiahnutím nadol na najnižšiu hodnotu gesta jasu aktivujete automatický jas</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_off">Potiahnutie prstom nadol na najnižšiu hodnotu nezapne automatický jas</string>
+  <string name="revanced_swipe_lowest_value_enable_auto_brightness_overlay_text">Automaticky</string>
   <string name="revanced_swipe_overlay_timeout_title">Časový limit prekrytia potiahnutím prstom vypršal</string>
   <string name="revanced_swipe_overlay_timeout_summary">Počet milisekúnd, počas ktorých je prekrytie viditeľné</string>
   <string name="revanced_swipe_overlay_background_opacity_title">Priehľadnosť pozadia prekrytia potiahnutia</string>
   <string name="revanced_swipe_overlay_background_opacity_summary">Hodnota priehľadnosti medzi 0-100</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Priehľadnosť prekrytia potiahnutia musí byť medzi 0-100</string>
+  <string name="revanced_swipe_overlay_progress_color_title">Farba panela priebehu prekrytia posunutím</string>
+  <string name="revanced_swipe_overlay_progress_color_summary">Farba panela priebehu pre ovládanie hlasitosti a jasu</string>
+  <string name="revanced_swipe_overlay_progress_color_invalid_toast">Neplatná farba panela priebehu</string>
+  <string name="revanced_swipe_text_overlay_size_title">Veľkosť textu prekrytia posunutím</string>
+  <string name="revanced_swipe_text_overlay_size_summary">Veľkosť textu pre prekrytie posunutím medzi 1 – 30</string>
+  <string name="revanced_swipe_text_overlay_size_invalid_toast">Veľkosť textu musí byť medzi 1 – 30</string>
   <string name="revanced_swipe_threshold_title">Prahová hodnota potiahnutia</string>
   <string name="revanced_swipe_threshold_summary">Hodnota prahu, ktorý sa má vykonať potiahnutím prstom</string>
   <string name="revanced_swipe_volume_sensitivity_title">Citlivosť posúvania hlasitosti</string>
   <string name="revanced_swipe_volume_sensitivity_summary">Ako veľmi sa mení hlasitosť na jedno posunutie</string>
-  <string name="revanced_swipe_show_circular_overlay_title">Zobraziť kruhovú vrstvu</string>
-  <string name="revanced_swipe_show_circular_overlay_summary_on">Kruhová vrstva sa zobrazuje</string>
-  <string name="revanced_swipe_show_circular_overlay_summary_off">Zobrazuje sa vodorovná vrstva</string>
-  <string name="revanced_swipe_overlay_minimal_style_title">Povoliť minimalistický štýl</string>
-  <string name="revanced_swipe_overlay_minimal_style_summary_on">Je povolený minimalistický štýl prekrytia</string>
-  <string name="revanced_swipe_overlay_minimal_style_summary_off">Minimálny štýl prekrytia je zakázaný</string>
+  <string name="revanced_swipe_overlay_style_title">Štýl prekrytia potiahnutím</string>
+  <string name="revanced_swipe_overlay_style_entry_1">Horizontálne prekrytie</string>
+  <string name="revanced_swipe_overlay_style_entry_2">Horizontálne prekrytie (minimálne – hore)</string>
+  <string name="revanced_swipe_overlay_style_entry_3">Horizontálne prekrytie (minimálne – v strede)</string>
+  <string name="revanced_swipe_overlay_style_entry_4">Kruhové prekrytie</string>
+  <string name="revanced_swipe_overlay_style_entry_5">Kruhové prekrytie (minimálne)</string>
+  <string name="revanced_swipe_overlay_style_entry_6">Vertikálne prekrytie</string>
+  <string name="revanced_swipe_overlay_style_entry_7">Vertikálne prekrytie (minimálne)</string>
   <string name="revanced_swipe_change_video_title">Potiahnite prstom a zmeňte videá</string>
   <string name="revanced_swipe_change_video_summary_on">Potiahnutie prstom v režime celej obrazovky prepne na predchádzajúce/nasledujúce video</string>
   <string name="revanced_swipe_change_video_summary_off">Potiahnutie prstom v režime celej obrazovky neprepne na predchádzajúce/nasledujúce video</string>
   </patch>
   <patch id="layout.autocaptions.autoCaptionsPatch">
-  <string name="revanced_auto_captions_title">Zakázať automatické titulky</string>
-  <string name="revanced_auto_captions_summary_on">Automatické titulky sú vypnuté</string>
-  <string name="revanced_auto_captions_summary_off">Automatické titulky sú povolené</string>
+  <string name="revanced_disable_auto_captions_title">Zakázať automatické titulky</string>
+  <string name="revanced_disable_auto_captions_summary_on">Automatické titulky sú vypnuté</string>
+  <string name="revanced_disable_auto_captions_summary_off">Automatické titulky sú zapnuté</string>
   </patch>
   <patch id="layout.buttons.action.hideButtonsPatch">
   <string name="revanced_hide_buttons_screen_title">Akčné tlačidlá</string>
@@ -506,6 +515,11 @@ Upravte hlasitosť posúvaním vertikálne na pravej strane obrazovky"</string>
   <string name="revanced_hide_thanks_button_title">Skryť Ďakujem</string>
   <string name="revanced_hide_thanks_button_summary_on">Tlačidlo poďakovania je skryté</string>
   <string name="revanced_hide_thanks_button_summary_off">Zobrazí sa tlačidlo Ďakujem</string>
+  <!-- 'Ask' should be translated with the same localized wording that YouTube displays.
+                 Button only shows if the user ip is from specific region such as the USA or EU. -->
+  <string name="revanced_hide_ask_button_title">Skryť možnosť Opýtať sa</string>
+  <string name="revanced_hide_ask_button_summary_on">Tlačidlo Opýtať sa je skryté</string>
+  <string name="revanced_hide_ask_button_summary_off">Zobrazí sa tlačidlo Opýtať sa</string>
   <!-- 'Clip' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_clip_button_title">Skryť klip</string>
   <string name="revanced_hide_clip_button_summary_on">Tlačidlo klipu je skryté</string>
@@ -825,8 +839,8 @@ Obmedzenie: Hodnotenia Nepáči sa mi to sa nemusia zobraziť v anonymnom režim
   <string name="revanced_ryd_compact_layout_summary_on">Tlačidlo podobné štýlu pre minimálnu šírku</string>
   <string name="revanced_ryd_compact_layout_summary_off">Tlačidlo v štýle ako pre najlepší vzhľad</string>
   <string name="revanced_ryd_estimated_like_title">Zobraziť odhadované počty označení Páči sa mi to</string>
-  <string name="revanced_ryd_estimated_like_summary_on">Zobrazujú sa odhadované počty označení Páči sa mi to</string>
-  <string name="revanced_ryd_estimated_like_summary_off">Odhadované počty označení Páči sa mi to sú skryté</string>
+  <string name="revanced_ryd_estimated_like_summary_on">Videá so zakázanými hodnoteniami Páči sa mi to zobrazujú odhadovaný počet hodnotení Páči sa mi to</string>
+  <string name="revanced_ryd_estimated_like_summary_off">Odhadované hodnotenia Páči sa mi to sa nezobrazujú</string>
   <string name="revanced_ryd_toast_on_connection_error_title">Ukážte prípitok, ak API nie je k dispozícii</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_on">Ak nie je k dispozícii možnosť Vrátiť Nepáči sa mi na YouTube, zobrazí sa toast</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_off">Toast sa nezobrazuje, ak nie je k dispozícii možnosť Vrátiť Nepáči sa mi na YouTube</string>
@@ -1097,7 +1111,7 @@ Ak sa neskôr vypne, odporúča sa vymazať údaje aplikácie, aby sa zabránilo
   <string name="revanced_spoof_app_version_target_entry_2">19.01.34 – Obnoviť staré ikony navigácie</string>
   </patch>
   <patch id="layout.startpage.changeStartPagePatch">
-  <string name="revanced_change_start_page_title">Nastaviť úvodnú stránku</string>
+  <string name="revanced_change_start_page_title">Zmeniť úvodnú stránku</string>
   <string name="revanced_change_start_page_entry_default">Predvolené</string>
   <string name="revanced_change_start_page_entry_all_subscriptions">Všetky odbery</string>
   <string name="revanced_change_start_page_entry_browse">Prehliadať kanály</string>
@@ -1122,6 +1136,11 @@ Ak sa neskôr vypne, odporúča sa vymazať údaje aplikácie, aby sa zabránilo
   <string name="revanced_change_start_page_entry_virtual_reality">Virtuálna realita</string>
   <string name="revanced_change_start_page_entry_watch_later">Pozrieť neskôr</string>
   <string name="revanced_change_start_page_entry_your_clips">Vaše klipy</string>
+  <string name="revanced_change_start_page_always_title">Vždy zmeniť úvodnú stránku</string>
+  <string name="revanced_change_start_page_always_summary_on">"Úvodná stránka sa vždy zmení
+
+Obmedzenie: Používanie tlačidla Späť na paneli s nástrojmi nemusí fungovať"</string>
+  <string name="revanced_change_start_page_always_summary_off">Úvodná stránka sa zmení iba pri spustení aplikácie</string>
   </patch>
   <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch">
   <string name="revanced_disable_resuming_shorts_player_title">Zakázať obnovenie prehrávača Shorts</string>

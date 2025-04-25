@@ -459,29 +459,38 @@ MicroG-ի համար մարտկոցի օպտիմալացումը անջատել�
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_title">Միացնել ավտոմատ լուսավորության ժեստը</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_on">Լուսավորության ժեստի ամենացածր արժեքին իջնելը միացնում է ավտոմատ լուսավորությունը</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_off">Լուսավորության ժեստի ամենացածր արժեքին իջնելը չի միացնում ավտոմատ լուսավորությունը</string>
+  <string name="revanced_swipe_lowest_value_enable_auto_brightness_overlay_text">Ավտո</string>
   <string name="revanced_swipe_overlay_timeout_title">Սահմանման վերածումը հետաձգելու ժամանակը</string>
   <string name="revanced_swipe_overlay_timeout_summary">Վերածման ցուցադրման տևողությունը միլիվայրկյաններով</string>
   <string name="revanced_swipe_overlay_background_opacity_title">Սողացման ծածկույթի ֆոնի անթափանցություն</string>
   <string name="revanced_swipe_overlay_background_opacity_summary">Անթափանցության արժեք 0-100 միջակայքում</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Սողալու անթափանցությունը պետք է լինի 0-100 միջակայքում</string>
+  <string name="revanced_swipe_overlay_progress_color_title">Սահեցրեք շերտի առաջընթացի սանդղակի գույնը</string>
+  <string name="revanced_swipe_overlay_progress_color_summary">Ձայնի և պայծառության կառավարման համար նախատեսված առաջընթացի սանդղակի գույնը</string>
+  <string name="revanced_swipe_overlay_progress_color_invalid_toast">Առաջընթացի սանդղակի անվավեր գույն</string>
+  <string name="revanced_swipe_text_overlay_size_title">Սահեցրեք շերտի տեքստի չափը</string>
+  <string name="revanced_swipe_text_overlay_size_summary">Սահեցրեք շերտի տեքստի չափը 1-30 միջակայքում</string>
+  <string name="revanced_swipe_text_overlay_size_invalid_toast">Տեքստի չափը պետք է լինի 1-30 միջակայքում</string>
   <string name="revanced_swipe_threshold_title">Սահմանման վերածման չափը</string>
   <string name="revanced_swipe_threshold_summary">Սահմանման վերածման չափը</string>
   <string name="revanced_swipe_volume_sensitivity_title">Ձայնի սահեցման զգայունություն</string>
   <string name="revanced_swipe_volume_sensitivity_summary">Թե որքան է ձայնի բարձրությունը փոխվում մեկ սահեցմամբ</string>
-  <string name="revanced_swipe_show_circular_overlay_title">Ցույց տալ շրջանաձև ծածկույթը</string>
-  <string name="revanced_swipe_show_circular_overlay_summary_on">Ցուցադրված է շրջանաձև ծածկույթ</string>
-  <string name="revanced_swipe_show_circular_overlay_summary_off">Հորիզոնական ծածկույթը ցուցադրվում է</string>
-  <string name="revanced_swipe_overlay_minimal_style_title">Միացնել նվազագույն ոճը</string>
-  <string name="revanced_swipe_overlay_minimal_style_summary_on">Միացված է նվազագույն վերադրման ոճը</string>
-  <string name="revanced_swipe_overlay_minimal_style_summary_off">Նվազագույն ծածկույթի ոճն անջատված է</string>
+  <string name="revanced_swipe_overlay_style_title">Սահեցրեք էկրանի ծածկույթի ոճը</string>
+  <string name="revanced_swipe_overlay_style_entry_1">Հորիզոնական ծածկույթ</string>
+  <string name="revanced_swipe_overlay_style_entry_2">Հորիզոնական ծածկույթ (նվազագույն - վերևում)</string>
+  <string name="revanced_swipe_overlay_style_entry_3">Հորիզոնական ծածկույթ (նվազագույն - կենտրոնում)</string>
+  <string name="revanced_swipe_overlay_style_entry_4">Շրջանաձև ծածկույթ</string>
+  <string name="revanced_swipe_overlay_style_entry_5">Շրջանաձև ծածկույթ (նվազագույն)</string>
+  <string name="revanced_swipe_overlay_style_entry_6">Ուղղահայաց ծածկույթ</string>
+  <string name="revanced_swipe_overlay_style_entry_7">Ուղղահայաց ծածկույթ (նվազագույն)</string>
   <string name="revanced_swipe_change_video_title">Վայրէջքով տեսանյութերը փոխելու ակտիվացում</string>
   <string name="revanced_swipe_change_video_summary_on">Լիարժեք ռեժիմով վայրէջքը կփոխվի հաջորդ / նախորդ տեսանյութին</string>
   <string name="revanced_swipe_change_video_summary_off">Լիարժեք ռեժիմով վայրէջքը չի փոխվի հաջորդ / նախորդ տեսանյութին</string>
   </patch>
   <patch id="layout.autocaptions.autoCaptionsPatch">
-  <string name="revanced_auto_captions_title">Անջատել ավտոմատ ենթագրերը</string>
-  <string name="revanced_auto_captions_summary_on">Ավտոմատ ենթագրերը անջատված են</string>
-  <string name="revanced_auto_captions_summary_off">Ավտոմատ ենթագրերը միացված են</string>
+  <string name="revanced_disable_auto_captions_title">Անջատել ավտոմատ ենթագրերը</string>
+  <string name="revanced_disable_auto_captions_summary_on">Auto ենթագրերը անջատված են</string>
+  <string name="revanced_disable_auto_captions_summary_off">Auto ենթագրերը միացված են</string>
   </patch>
   <patch id="layout.buttons.action.hideButtonsPatch">
   <string name="revanced_hide_buttons_screen_title">Գործողության կոճակներ</string>
@@ -513,6 +522,11 @@ MicroG-ի համար մարտկոցի օպտիմալացումը անջատել�
   <string name="revanced_hide_thanks_button_title">Թաքցնել Thanks</string>
   <string name="revanced_hide_thanks_button_summary_on">Thanks կոճակը թաքցված է</string>
   <string name="revanced_hide_thanks_button_summary_off">Thanks կոճակը ցուցադրվում է</string>
+  <!-- 'Ask' should be translated with the same localized wording that YouTube displays.
+                 Button only shows if the user ip is from specific region such as the USA or EU. -->
+  <string name="revanced_hide_ask_button_title">Թաքցնել հարցումը</string>
+  <string name="revanced_hide_ask_button_summary_on">Հարցման կոճակը թաքցված է</string>
+  <string name="revanced_hide_ask_button_summary_off">Հարցման կոճակը երևում է</string>
   <!-- 'Clip' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_clip_button_title">Թաքցնել Clip</string>
   <string name="revanced_hide_clip_button_summary_on">Clip կոճակը թաքցված է</string>
@@ -832,8 +846,8 @@ MicroG-ի համար մարտկոցի օպտիմալացումը անջատել�
   <string name="revanced_ryd_compact_layout_summary_on">\"Like\" կոճակը  ոճավորված է  մինիմալ  մեծության համար</string>
   <string name="revanced_ryd_compact_layout_summary_off">\"Like\" կոճակը  ոճավորված է  լավագույն  հայացքի համար</string>
   <string name="revanced_ryd_estimated_like_title">Ցույց տալ մոտավոր հավանումները</string>
-  <string name="revanced_ryd_estimated_like_summary_on">Ցուցադրվում են մոտավոր հավանումները</string>
-  <string name="revanced_ryd_estimated_like_summary_off">Մոտավոր հավանումները թաքցված են</string>
+  <string name="revanced_ryd_estimated_like_summary_on">«Հավանումներն» անջատված տեսանյութերը ցույց են տալիս հավանումների մոտավոր քանակը</string>
+  <string name="revanced_ryd_estimated_like_summary_off">Մոտավոր հավանումները չեն ցուցադրվում</string>
   <string name="revanced_ryd_toast_on_connection_error_title">Ցուցադրել \"toast\", եթե API-ն  հասանելի չէ</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_on">\"Toast\"-ը  ցուցադրվում է, եթե Return YouTube Dislike-ը  հասանելի չէ</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_off">\"Toast\"-ը  չի ցուցադրվում, եթե Return YouTube Dislike-ը  հասանելի չէ</string>
@@ -1107,7 +1121,7 @@ Seekbar thumbnails-ները կօգտագործեն նույն որակը, ինչ
   <string name="revanced_spoof_app_version_target_entry_2">19.01.34 - Վերականգնել հին նավիգացիոն պատկերակները</string>
   </patch>
   <patch id="layout.startpage.changeStartPagePatch">
-  <string name="revanced_change_start_page_title">Սահմանել մեկնարկային էջ</string>
+  <string name="revanced_change_start_page_title">Փոխել մեկնարկային էջը</string>
   <string name="revanced_change_start_page_entry_default">Ըստ լռելյայնի</string>
   <string name="revanced_change_start_page_entry_all_subscriptions">Բոլոր բաժանորդագրությունները</string>
   <string name="revanced_change_start_page_entry_browse">Դիտել ալիքները</string>
@@ -1132,6 +1146,11 @@ Seekbar thumbnails-ները կօգտագործեն նույն որակը, ինչ
   <string name="revanced_change_start_page_entry_virtual_reality">Վիրտուալ իրականություն</string>
   <string name="revanced_change_start_page_entry_watch_later">Դիտել հետո</string>
   <string name="revanced_change_start_page_entry_your_clips">Your clips</string>
+  <string name="revanced_change_start_page_always_title">Միշտ փոխել մեկնարկային էջը</string>
+  <string name="revanced_change_start_page_always_summary_on">"Մեկնարկային էջը միշտ փոխված է
+
+Սահմանափակում. գործիքագոտու վրա հետադարձ կոճակն օգտագործելը կարող է չաշխատել"</string>
+  <string name="revanced_change_start_page_always_summary_off">Մեկնարկային էջը փոխվում է միայն հավելվածի գործարկման ժամանակ</string>
   </patch>
   <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch">
   <string name="revanced_disable_resuming_shorts_player_title">Անջատել Shorts պլեյերի վերսկսումը</string>

@@ -459,29 +459,38 @@ Second \"item\" text"</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_title">Омогући покрет за аутоматску осветљеност</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_on">Превлачење надоле до најниже вредности покрета за осветљеност омогућава аутоматску осветљеност</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_off">Превлачење надоле до најниже вредности покрета за осветљеност не омогућава аутоматску осветљеност</string>
+  <string name="revanced_swipe_lowest_value_enable_auto_brightness_overlay_text">Аутоматски</string>
   <string name="revanced_swipe_overlay_timeout_title">Временско ограничење покрета превлачења</string>
   <string name="revanced_swipe_overlay_timeout_summary">Количина милисекунди у којој је покрет превлачења видљив</string>
   <string name="revanced_swipe_overlay_background_opacity_title">Непрозирност позадине покрета превлачења</string>
   <string name="revanced_swipe_overlay_background_opacity_summary">Вредност непрозирности између 0 и 100</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Непрозирност покрета превлачења мора бити између 0 и 100</string>
+  <string name="revanced_swipe_overlay_progress_color_title">Боја траке напретка покрета превлачења</string>
+  <string name="revanced_swipe_overlay_progress_color_summary">Боја траке напретка за контролу јачине звука и осветљености</string>
+  <string name="revanced_swipe_overlay_progress_color_invalid_toast">Неважећа боја траке напретка</string>
+  <string name="revanced_swipe_text_overlay_size_title">Величина текста покрета превлачења</string>
+  <string name="revanced_swipe_text_overlay_size_summary">Величина текста за покрет превлачења између 1 и 30</string>
+  <string name="revanced_swipe_text_overlay_size_invalid_toast">Величина текста мора бити између 1 и 30</string>
   <string name="revanced_swipe_threshold_title">Праг трајања превлачења</string>
   <string name="revanced_swipe_threshold_summary">Износ прага трајања превлачења</string>
-  <string name="revanced_swipe_volume_sensitivity_title">Осетљивост покрета за јачину звука</string>
-  <string name="revanced_swipe_volume_sensitivity_summary">Колико се јачина звука мења по покрету</string>
-  <string name="revanced_swipe_show_circular_overlay_title">Прикажи кружни преклоп</string>
-  <string name="revanced_swipe_show_circular_overlay_summary_on">Приказан је кружни преклоп</string>
-  <string name="revanced_swipe_show_circular_overlay_summary_off">Приказан је хоризонтални преклоп</string>
-  <string name="revanced_swipe_overlay_minimal_style_title">Омогући минимални стил</string>
-  <string name="revanced_swipe_overlay_minimal_style_summary_on">Минимални стил преклопа је омогућен</string>
-  <string name="revanced_swipe_overlay_minimal_style_summary_off">Минимални стил преклопа је онемогућен</string>
+  <string name="revanced_swipe_volume_sensitivity_title">Осетљивост превлачења за јачину звука</string>
+  <string name="revanced_swipe_volume_sensitivity_summary">Колико се јачина звука мења по превлачењу</string>
+  <string name="revanced_swipe_overlay_style_title">Стил преклопа покрета превлачења</string>
+  <string name="revanced_swipe_overlay_style_entry_1">Хоризонтални преклоп</string>
+  <string name="revanced_swipe_overlay_style_entry_2">Хоризонтални преклоп (минимални – одозго)</string>
+  <string name="revanced_swipe_overlay_style_entry_3">Хоризонтални преклоп (минимални – по центру)</string>
+  <string name="revanced_swipe_overlay_style_entry_4">Кружни преклоп</string>
+  <string name="revanced_swipe_overlay_style_entry_5">Кружни преклоп (минимални)</string>
+  <string name="revanced_swipe_overlay_style_entry_6">Вертикални преклоп</string>
+  <string name="revanced_swipe_overlay_style_entry_7">Вертикални преклоп (минимални)</string>
   <string name="revanced_swipe_change_video_title">Омогући превлачење за промену видеа</string>
   <string name="revanced_swipe_change_video_summary_on">Превлачење у режиму целог екрана ће променити на следећи/претходни видео</string>
   <string name="revanced_swipe_change_video_summary_off">Превлачење у режиму целог екрана неће променити на следећи/претходни видео</string>
   </patch>
   <patch id="layout.autocaptions.autoCaptionsPatch">
-  <string name="revanced_auto_captions_title">Онемогући аутоматске титлове</string>
-  <string name="revanced_auto_captions_summary_on">Аутоматски титлови су онемогућени</string>
-  <string name="revanced_auto_captions_summary_off">Аутоматски титлови су омогућени</string>
+  <string name="revanced_disable_auto_captions_title">Онемогући аутоматски титл</string>
+  <string name="revanced_disable_auto_captions_summary_on">Аутоматски титл је онемогућен</string>
+  <string name="revanced_disable_auto_captions_summary_off">Аутоматски титл је омогућен</string>
   </patch>
   <patch id="layout.buttons.action.hideButtonsPatch">
   <string name="revanced_hide_buttons_screen_title">Дугмад радњи</string>
@@ -513,6 +522,11 @@ Second \"item\" text"</string>
   <string name="revanced_hide_thanks_button_title">Сакриј дугме „Хвала”</string>
   <string name="revanced_hide_thanks_button_summary_on">Дугме „Хвала” је скривено</string>
   <string name="revanced_hide_thanks_button_summary_off">Дугме „Хвала” је приказано</string>
+  <!-- 'Ask' should be translated with the same localized wording that YouTube displays.
+                 Button only shows if the user ip is from specific region such as the USA or EU. -->
+  <string name="revanced_hide_ask_button_title">Сакриј „Питај”</string>
+  <string name="revanced_hide_ask_button_summary_on">Дугме „Питај” је скривено</string>
+  <string name="revanced_hide_ask_button_summary_off">Дугме „Питај” је приказано</string>
   <!-- 'Clip' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_clip_button_title">Сакриј дугме „Клип”</string>
   <string name="revanced_hide_clip_button_summary_on">Дугме „Клип” је скривено</string>
@@ -832,8 +846,8 @@ Second \"item\" text"</string>
   <string name="revanced_ryd_compact_layout_summary_on">Дугме „Свиђање” стилизовано за минималну ширину</string>
   <string name="revanced_ryd_compact_layout_summary_off">Дугме „Свиђање” стилизовано за најбољи изглед</string>
   <string name="revanced_ryd_estimated_like_title">Прикажи процењени број свиђања</string>
-  <string name="revanced_ryd_estimated_like_summary_on">Процењени број свиђања је приказан</string>
-  <string name="revanced_ryd_estimated_like_summary_off">Процењени број свиђања је скривен</string>
+  <string name="revanced_ryd_estimated_like_summary_on">Видеи са онемогућеним свиђањима приказују процењени број свиђања</string>
+  <string name="revanced_ryd_estimated_like_summary_off">Процењени број свиђања није приказан</string>
   <string name="revanced_ryd_toast_on_connection_error_title">Прикажи искачуће обавештење ако API није доступан</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_on">Искачуће обавештење је приказано, ако Return YouTube Dislike није доступан</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_off">Искачуће обавештење није приказано, ако Return YouTube Dislike није доступан</string>
@@ -1106,7 +1120,7 @@ Second \"item\" text"</string>
   <string name="revanced_spoof_app_version_target_entry_2">19.01.34 - Враћа старе иконице навигације</string>
   </patch>
   <patch id="layout.startpage.changeStartPagePatch">
-  <string name="revanced_change_start_page_title">Полазна страница</string>
+  <string name="revanced_change_start_page_title">Промена полазне странице</string>
   <string name="revanced_change_start_page_entry_default">Подразумевана</string>
   <string name="revanced_change_start_page_entry_all_subscriptions">Сва праћења</string>
   <string name="revanced_change_start_page_entry_browse">Претрага канала</string>
@@ -1131,6 +1145,11 @@ Second \"item\" text"</string>
   <string name="revanced_change_start_page_entry_virtual_reality">Виртуелна реалност</string>
   <string name="revanced_change_start_page_entry_watch_later">За касније</string>
   <string name="revanced_change_start_page_entry_your_clips">Ваши клипови</string>
+  <string name="revanced_change_start_page_always_title">Увек мењај полазну страницу</string>
+  <string name="revanced_change_start_page_always_summary_on">"Полазна страница се увек мења
+
+Ограничење: Коришћење дугмета „Назад” на траци са алаткама можда неће радити"</string>
+  <string name="revanced_change_start_page_always_summary_off">Полазна страница се мења само при покретању апликације</string>
   </patch>
   <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch">
   <string name="revanced_disable_resuming_shorts_player_title">Онемогући наставак репродукције Shorts плејера</string>

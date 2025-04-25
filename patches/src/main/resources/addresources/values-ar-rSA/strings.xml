@@ -459,29 +459,38 @@ Second \"item\" text"</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_title">تمكين إيماءة السطوع التلقائي</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_on">التمرير لأسفل إلى أدنى قيمة للسطوع يمكّن السطوع التلقائي</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_off">لا يؤدي التمرير لأسفل إلى أدنى قيمة إلى تمكين السطوع التلقائي</string>
+  <string name="revanced_swipe_lowest_value_enable_auto_brightness_overlay_text">تلقائي</string>
   <string name="revanced_swipe_overlay_timeout_title">مهلة واجهة التمرير</string>
   <string name="revanced_swipe_overlay_timeout_summary">مقدار الوقت الذي تظهر فيه واجهة التمرير بعد التغيير بجزء الثانية</string>
   <string name="revanced_swipe_overlay_background_opacity_title">تعتيم خلفية واجهة التمرير السريع</string>
   <string name="revanced_swipe_overlay_background_opacity_summary">قيمة التعتيم بين 0-100</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">يجب أن يكون تعتيم التمرير السريع بين 0-100</string>
+  <string name="revanced_swipe_overlay_progress_color_title">لون شريط تقدم واجهة التمرير</string>
+  <string name="revanced_swipe_overlay_progress_color_summary">لون شريط التقدم لعناصر التحكم في مستوى الصوت والسطوع</string>
+  <string name="revanced_swipe_overlay_progress_color_invalid_toast">لون شريط التقدم غير صالح</string>
+  <string name="revanced_swipe_text_overlay_size_title">حجم نص واجهة التمرير</string>
+  <string name="revanced_swipe_text_overlay_size_summary">حجم النص لواجهة التمرير بين 1-30</string>
+  <string name="revanced_swipe_text_overlay_size_invalid_toast">يجب أن يكون حجم النص بين 1-30</string>
   <string name="revanced_swipe_threshold_title">مقدار حد التمرير</string>
   <string name="revanced_swipe_threshold_summary">الحد الأدنى من التمرير قبل اكتشاف الإيماءة</string>
   <string name="revanced_swipe_volume_sensitivity_title">حساسية إيماءة تمرير مستوى الصوت</string>
   <string name="revanced_swipe_volume_sensitivity_summary">مقدار تغير مستوى الصوت لكل تمريرة</string>
-  <string name="revanced_swipe_show_circular_overlay_title">عرض الواجهة الدائرية</string>
-  <string name="revanced_swipe_show_circular_overlay_summary_on">يتم عرض التراكب الدائري</string>
-  <string name="revanced_swipe_show_circular_overlay_summary_off">يتم عرض التراكب الأفقي</string>
-  <string name="revanced_swipe_overlay_minimal_style_title">تمكين النمط الأدنى</string>
-  <string name="revanced_swipe_overlay_minimal_style_summary_on">تم تمكين النمط الواجهة الأدنى</string>
-  <string name="revanced_swipe_overlay_minimal_style_summary_off">تم تعطيل نمط الواجهة الأدنى</string>
+  <string name="revanced_swipe_overlay_style_title">نمط واجهة التمرير</string>
+  <string name="revanced_swipe_overlay_style_entry_1">واجهة أفقية</string>
+  <string name="revanced_swipe_overlay_style_entry_2">واجهة أفقية (الأدنى - الأعلى)</string>
+  <string name="revanced_swipe_overlay_style_entry_3">واجهة أفقية (الأدنى - المنتصف)</string>
+  <string name="revanced_swipe_overlay_style_entry_4">واجهة دائرية</string>
+  <string name="revanced_swipe_overlay_style_entry_5">واجهة دائرية (الأدنى)</string>
+  <string name="revanced_swipe_overlay_style_entry_6">واجهة عمودية</string>
+  <string name="revanced_swipe_overlay_style_entry_7">واجهة عمودية (الأدنى)</string>
   <string name="revanced_swipe_change_video_title">تمكين إيماءة التمرير لتغيير الفيديو</string>
   <string name="revanced_swipe_change_video_summary_on">سيؤدي التمرير في وضع ملء الشاشة إلى التغيير للفيديو التالي/السابق</string>
   <string name="revanced_swipe_change_video_summary_off">لن يؤدي التمرير في وضع ملء الشاشة إلى التغيير للفيديو التالي/السابق</string>
   </patch>
   <patch id="layout.autocaptions.autoCaptionsPatch">
-  <string name="revanced_auto_captions_title">تعطيل التَّرْجَمَة التلقائية</string>
-  <string name="revanced_auto_captions_summary_on">تم تعطيل التَّرْجَمَة التلقائية</string>
-  <string name="revanced_auto_captions_summary_off">تم تمكين التَّرْجَمَة التلقائية</string>
+  <string name="revanced_disable_auto_captions_title">تعطيل الترجمة التلقائية</string>
+  <string name="revanced_disable_auto_captions_summary_on">تم تعطيل الترجمة التلقائية</string>
+  <string name="revanced_disable_auto_captions_summary_off">تم تمكين الترجمة التلقائية</string>
   </patch>
   <patch id="layout.buttons.action.hideButtonsPatch">
   <string name="revanced_hide_buttons_screen_title">أزرار الإجراء</string>
@@ -513,6 +522,11 @@ Second \"item\" text"</string>
   <string name="revanced_hide_thanks_button_title">إخفاء شكرًا</string>
   <string name="revanced_hide_thanks_button_summary_on">تم إخفاء زر شكرًا</string>
   <string name="revanced_hide_thanks_button_summary_off">يتم عرض زر شكرًا</string>
+  <!-- 'Ask' should be translated with the same localized wording that YouTube displays.
+                 Button only shows if the user ip is from specific region such as the USA or EU. -->
+  <string name="revanced_hide_ask_button_title">إخفاء \"Ask\"</string>
+  <string name="revanced_hide_ask_button_summary_on">تم إخفاء زر \"Ask\"</string>
+  <string name="revanced_hide_ask_button_summary_off">يتم عرض زر \"Ask\"</string>
   <!-- 'Clip' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_clip_button_title">إخفاء المقطع</string>
   <string name="revanced_hide_clip_button_summary_on">تم إخفاء زر إنشاء مقطع</string>
@@ -832,8 +846,8 @@ Second \"item\" text"</string>
   <string name="revanced_ryd_compact_layout_summary_on">زر أعجبني مصمم لأدنى عرض</string>
   <string name="revanced_ryd_compact_layout_summary_off">زر أعجبني مصمم لأفضل مظهر</string>
   <string name="revanced_ryd_estimated_like_title">عرض الإعجابات المقدرة</string>
-  <string name="revanced_ryd_estimated_like_summary_on">يتم عرض الإعجابات المقدرة</string>
-  <string name="revanced_ryd_estimated_like_summary_off">تم إخفاء الإعجابات المقدرة</string>
+  <string name="revanced_ryd_estimated_like_summary_on">يتم عرض عدد تقديري للإعجابات في مقاطع الفيديو التي تم تعطيل الإعجابات فيها</string>
+  <string name="revanced_ryd_estimated_like_summary_off">لا يتم عرض عدد الإعجابات المقدرة</string>
   <string name="revanced_ryd_toast_on_connection_error_title">عرض ملاحظة إذا كان API غير متاح</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_on">يتم عرض الملاحظة في حالة عدم توفر Return YouTube Dislike</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_off">لا يتم عرض الملاحظة في حالة عدم توفر Return YouTube Dislike</string>
@@ -1107,7 +1121,7 @@ Second \"item\" text"</string>
   <string name="revanced_spoof_app_version_target_entry_2">19.01.34 - استعادة أيقونات التنقل القديمة</string>
   </patch>
   <patch id="layout.startpage.changeStartPagePatch">
-  <string name="revanced_change_start_page_title">تعيين صفحة البداية</string>
+  <string name="revanced_change_start_page_title">تغيير صفحة البداية</string>
   <string name="revanced_change_start_page_entry_default">الافتراضي</string>
   <string name="revanced_change_start_page_entry_all_subscriptions">كلّ الاشتراكات</string>
   <string name="revanced_change_start_page_entry_browse">تصفح القنوات</string>
@@ -1132,6 +1146,11 @@ Second \"item\" text"</string>
   <string name="revanced_change_start_page_entry_virtual_reality">الواقع الافتراضي</string>
   <string name="revanced_change_start_page_entry_watch_later">شاهد لاحقًا</string>
   <string name="revanced_change_start_page_entry_your_clips">فيديوهاتك</string>
+  <string name="revanced_change_start_page_always_title">تغيير صفحة البداية دائمًا</string>
+  <string name="revanced_change_start_page_always_summary_on">"يتم تغيير صفحة البداية دائمًا
+
+القيد: قد لا يعمل استخدام زر الرجوع على شريط الأدوات"</string>
+  <string name="revanced_change_start_page_always_summary_off">يتم تغيير صفحة البداية فقط عند بدء تشغيل التطبيق</string>
   </patch>
   <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch">
   <string name="revanced_disable_resuming_shorts_player_title">تعطيل استئناف مشغل Shorts</string>
