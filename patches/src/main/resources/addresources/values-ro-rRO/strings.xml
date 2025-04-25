@@ -459,29 +459,38 @@ Reglați volumul glisând vertical pe partea dreaptă a ecranului"</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_title">Activează gestul de luminozitate automată</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_on">Glisați în jos până la cea mai mică valoare a gestului de luminozitate activând luminozitatea automată</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_off">Glisarea în jos până la cea mai mică valoare nu activează luminozitatea automată</string>
+  <string name="revanced_swipe_lowest_value_enable_auto_brightness_overlay_text">Automat</string>
   <string name="revanced_swipe_overlay_timeout_title">Expirare suprapunere glisare</string>
   <string name="revanced_swipe_overlay_timeout_summary">Cantitatea de milisecunde suprapunerea este vizibilă</string>
   <string name="revanced_swipe_overlay_background_opacity_title">Opacitate suprapunere glisare</string>
   <string name="revanced_swipe_overlay_background_opacity_summary">Valoare opacitate între 0-100</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Opacitatea glisării trebuie să fie între 0-100</string>
+  <string name="revanced_swipe_overlay_progress_color_title">Culoare bară de progres suprapunere glisare</string>
+  <string name="revanced_swipe_overlay_progress_color_summary">Culoarea barei de progres pentru comenzile de volum și luminozitate</string>
+  <string name="revanced_swipe_overlay_progress_color_invalid_toast">Culoare nevalidă a barei de progres</string>
+  <string name="revanced_swipe_text_overlay_size_title">Dimensiune text suprapunere glisare</string>
+  <string name="revanced_swipe_text_overlay_size_summary">Dimensiunea textului pentru suprapunerea glisării între 1-30</string>
+  <string name="revanced_swipe_text_overlay_size_invalid_toast">Dimensiunea textului trebuie să fie între 1-30</string>
   <string name="revanced_swipe_threshold_title">Pragul mărimii glisării</string>
   <string name="revanced_swipe_threshold_summary">Cantitatea de prag pentru a glisa</string>
   <string name="revanced_swipe_volume_sensitivity_title">Sensibilitate glisare volum</string>
   <string name="revanced_swipe_volume_sensitivity_summary">Cât de mult se modifică volumul per glisare</string>
-  <string name="revanced_swipe_show_circular_overlay_title">Afișează suprapunerea circulară</string>
-  <string name="revanced_swipe_show_circular_overlay_summary_on">Suprapunerea circulară este afișată</string>
-  <string name="revanced_swipe_show_circular_overlay_summary_off">Suprapunerea orizontală este afișată</string>
-  <string name="revanced_swipe_overlay_minimal_style_title">Activați stilul minimal</string>
-  <string name="revanced_swipe_overlay_minimal_style_summary_on">Stilul minimal de suprapunere este activat</string>
-  <string name="revanced_swipe_overlay_minimal_style_summary_off">Stilul minim de suprapunere este dezactivat</string>
+  <string name="revanced_swipe_overlay_style_title">Stil suprapunere glisare</string>
+  <string name="revanced_swipe_overlay_style_entry_1">Suprapunere orizontală</string>
+  <string name="revanced_swipe_overlay_style_entry_2">Suprapunere orizontală (minimală - sus)</string>
+  <string name="revanced_swipe_overlay_style_entry_3">Suprapunere orizontală (minimală - centru)</string>
+  <string name="revanced_swipe_overlay_style_entry_4">Suprapunere circulară</string>
+  <string name="revanced_swipe_overlay_style_entry_5">Suprapunere circulară (minimală)</string>
+  <string name="revanced_swipe_overlay_style_entry_6">Suprapunere verticală</string>
+  <string name="revanced_swipe_overlay_style_entry_7">Suprapunere verticală (minimală)</string>
   <string name="revanced_swipe_change_video_title">Activați glisarea pentru a schimba videoclipurile</string>
   <string name="revanced_swipe_change_video_summary_on">Glisarea în modul pe ecran complet va trece la următorul/anteriorul videoclip</string>
   <string name="revanced_swipe_change_video_summary_off">Glisarea în modul pe ecran complet nu va trece la următorul/anteriorul videoclip</string>
   </patch>
   <patch id="layout.autocaptions.autoCaptionsPatch">
-  <string name="revanced_auto_captions_title">Dezactivează subtitrările automate</string>
-  <string name="revanced_auto_captions_summary_on">Legendele automate sunt dezactivate</string>
-  <string name="revanced_auto_captions_summary_off">Legenda automată este activată</string>
+  <string name="revanced_disable_auto_captions_title">Dezactivează subtitrările automate</string>
+  <string name="revanced_disable_auto_captions_summary_on">Subtitrările Auto sunt dezactivate</string>
+  <string name="revanced_disable_auto_captions_summary_off">Subtitrările Auto sunt activate</string>
   </patch>
   <patch id="layout.buttons.action.hideButtonsPatch">
   <string name="revanced_hide_buttons_screen_title">Butoane de acţiune</string>
@@ -513,6 +522,11 @@ Reglați volumul glisând vertical pe partea dreaptă a ecranului"</string>
   <string name="revanced_hide_thanks_button_title">Ascunde mulţumirile</string>
   <string name="revanced_hide_thanks_button_summary_on">Butonul de multumire este ascuns</string>
   <string name="revanced_hide_thanks_button_summary_off">Butonul de multumire este afisat</string>
+  <!-- 'Ask' should be translated with the same localized wording that YouTube displays.
+                 Button only shows if the user ip is from specific region such as the USA or EU. -->
+  <string name="revanced_hide_ask_button_title">Ascunde \"Întreabă\"</string>
+  <string name="revanced_hide_ask_button_summary_on">Butonul Întreabă este ascuns</string>
+  <string name="revanced_hide_ask_button_summary_off">Butonul Întreabă este afișat</string>
   <!-- 'Clip' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_clip_button_title">Ascunde Clip</string>
   <string name="revanced_hide_clip_button_summary_on">Butonul clip este ascuns</string>
@@ -832,8 +846,8 @@ Limitare: Este posibil ca aprecierile negative să nu apară în modul incognito
   <string name="revanced_ryd_compact_layout_summary_on">Buton de stilizat pentru lățime minimă</string>
   <string name="revanced_ryd_compact_layout_summary_off">Buton asemănător pentru cel mai bun aspect</string>
   <string name="revanced_ryd_estimated_like_title">Afișați aprecierile estimate</string>
-  <string name="revanced_ryd_estimated_like_summary_on">Aprecierile estimate sunt afișate</string>
-  <string name="revanced_ryd_estimated_like_summary_off">Aprecierile estimate sunt ascunse</string>
+  <string name="revanced_ryd_estimated_like_summary_on">Videoclipurile cu aprecieri dezactivate afișează un număr estimat de aprecieri</string>
+  <string name="revanced_ryd_estimated_like_summary_off">Aprecierile estimate nu sunt afișate</string>
   <string name="revanced_ryd_toast_on_connection_error_title">Arată un toast dacă API-ul nu este disponibil</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_on">Toast este afișat dacă Returnarea YouTube Dislike nu este disponibilă</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_off">Toast nu este afișat dacă Returnarea YouTube Dislike nu este disponibilă</string>
@@ -1106,7 +1120,7 @@ Dacă este dezactivat ulterior, se recomandă să ștergeți datele aplicației 
   <string name="revanced_spoof_app_version_target_entry_2">19.01.34 - Restaurați pictogramele de navigare vechi</string>
   </patch>
   <patch id="layout.startpage.changeStartPagePatch">
-  <string name="revanced_change_start_page_title">Setaţi pagina de start</string>
+  <string name="revanced_change_start_page_title">Schimbă pagina de start</string>
   <string name="revanced_change_start_page_entry_default">Implicit</string>
   <string name="revanced_change_start_page_entry_all_subscriptions">Toate abonamentele</string>
   <string name="revanced_change_start_page_entry_browse">Navigare canale</string>
@@ -1131,6 +1145,11 @@ Dacă este dezactivat ulterior, se recomandă să ștergeți datele aplicației 
   <string name="revanced_change_start_page_entry_virtual_reality">Realitate virtuală</string>
   <string name="revanced_change_start_page_entry_watch_later">Urmărește mai târziu</string>
   <string name="revanced_change_start_page_entry_your_clips">Clipurile tale</string>
+  <string name="revanced_change_start_page_always_title">Schimbă întotdeauna pagina de pornire</string>
+  <string name="revanced_change_start_page_always_summary_on">"Pagina de start este întotdeauna schimbată
+
+Limitare: Utilizarea butonului Înapoi de pe bara de instrumente poate să nu funcționeze"</string>
+  <string name="revanced_change_start_page_always_summary_off">Pagina de pornire este schimbată doar la pornirea aplicației</string>
   </patch>
   <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch">
   <string name="revanced_disable_resuming_shorts_player_title">Dezactivează reluarea playerului Shorts</string>

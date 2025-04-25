@@ -1,31 +1,27 @@
 package app.revanced.patches.youtube.layout.searchbar
 
 import app.revanced.patcher.fingerprint
+import app.revanced.patches.youtube.layout.hide.general.yoodlesImageViewFingerprint
+import app.revanced.util.containsLiteralInstruction
+import app.revanced.util.literal
 import com.android.tools.smali.dexlib2.AccessFlags
-import com.android.tools.smali.dexlib2.Opcode
-
-internal val createSearchSuggestionsFingerprint = fingerprint {
-    opcodes(
-        Opcode.INVOKE_STATIC,
-        Opcode.MOVE_RESULT,
-        Opcode.CONST_4,
-    )
-    strings("ss_rds")
-}
 
 internal val setWordmarkHeaderFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("V")
     parameters("Landroid/widget/ImageView;")
-    opcodes(
-        Opcode.IGET_OBJECT,
-        Opcode.INVOKE_STATIC,
-        Opcode.MOVE_RESULT,
-        Opcode.IF_NEZ,
-        Opcode.IGET_BOOLEAN,
-        Opcode.IF_EQZ,
-        Opcode.IGET_OBJECT,
-        Opcode.CONST,
-        null, // invoke-static or invoke-virtual.
-    )
+    custom { methodDef, _ ->
+        methodDef.containsLiteralInstruction(ytPremiumWordmarkHeaderId) &&
+            methodDef.containsLiteralInstruction(ytWordmarkHeaderId)
+    }
+}
+
+/**
+ * Matches the same method as [yoodlesImageViewFingerprint].
+ */
+internal val wideSearchbarLayoutFingerprint = fingerprint {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
+    returns("Landroid/view/View;")
+    parameters("L", "L")
+    literal { actionBarRingoId }
 }

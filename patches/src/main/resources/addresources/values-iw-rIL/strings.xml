@@ -42,6 +42,9 @@ Second \"item\" text"</string>
   <string name="revanced_settings_import_reset">הגדרות ReVanced אופסו לברירת מחדל</string>
   <string name="revanced_settings_import_success">%d הגדרות יובאו</string>
   <string name="revanced_settings_import_failure_parse">ייבוא נכשל: %s</string>
+  <string name="revanced_show_menu_icons_title">הצג סמלי הגדרות ReVanced</string>
+  <string name="revanced_show_menu_icons_summary_on">סמלי ההגדרות מוצגים</string>
+  <string name="revanced_show_menu_icons_summary_off">סמלי ההגדרות אינם מוצגים</string>
   <string name="revanced_language_title">שפת ReVanced</string>
   <string name="revanced_language_user_dialog_message">"תרגומים לשפות מסוימות עשויים להיות חסרים או לא שלמים.
 
@@ -225,6 +228,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_artist_cards_title">הסתר כרטיסי אמן</string>
   <string name="revanced_hide_artist_cards_summary_on">כרטיסי אמן מוסתרים</string>
   <string name="revanced_hide_artist_cards_summary_off">כרטיסי אמן מוצגים</string>
+  <string name="revanced_hide_ai_generated_video_summary_section_title">הסתר את \'סיכום הווידאו שנוצר על ידי בינה מלאכותית\'</string>
+  <string name="revanced_hide_ai_generated_video_summary_section_summary_on">מדור סיכום הסרטון מוסתר</string>
+  <string name="revanced_hide_ai_generated_video_summary_section_summary_off">מדור סיכום הסרטון מוצג</string>
   <string name="revanced_hide_attributes_section_title">הסתר מאפיינים</string>
   <string name="revanced_hide_attributes_section_summary_on">המדורים \'מקומות שמככבים בסרטון\', \'משחקים\', \'מוזיקה\', ו\'אנשים שאוזכרו\' מוסתרים</string>
   <string name="revanced_hide_attributes_section_summary_off">המדורים \'מקומות שמככבים בסרטון\', \'משחקים\', \'מוזיקה\', ו\'אנשים שאוזכרו\' מוצגים</string>
@@ -261,8 +267,12 @@ Second \"item\" text"</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">מוצג בסרטונים קשורים</string>
   <string name="revanced_comments_screen_title">תגובות</string>
   <string name="revanced_comments_screen_summary">הסתר או הצג רכיבי מדור תגובות</string>
+  <string name="revanced_hide_comments_ai_chat_summary_title">הסתר סיכום צ\'אט של בינה מלאכותית</string>
   <string name="revanced_hide_comments_ai_chat_summary_summary_on">סיכום צ\'אט מוסתר</string>
   <string name="revanced_hide_comments_ai_chat_summary_summary_off">סיכום צ\'אט מוצג</string>
+  <string name="revanced_hide_comments_ai_summary_title">הסתר סיכום תגובות AI</string>
+  <string name="revanced_hide_comments_ai_summary_summary_on">סיכום תגובות מוסתר</string>
+  <string name="revanced_hide_comments_ai_summary_summary_off">סיכום התגובות מוצג</string>
   <string name="revanced_hide_comments_by_members_header_title">הסתר כותרת \'תגובות של חברי מועדון\'</string>
   <string name="revanced_hide_comments_by_members_header_summary_on">כותרת \'תגובות של חברי מועדון\' מוסתרת</string>
   <string name="revanced_hide_comments_by_members_header_summary_off">כותרת \'תגובות של חברי מועדון\' מוצגת</string>
@@ -422,6 +432,9 @@ Second \"item\" text"</string>
   <string name="revanced_disable_precise_seeking_gesture_summary_off">מחווה מופעלת</string>
   </patch>
   <patch id="interaction.seekbar.enableSeekbarTappingPatch">
+  <string name="revanced_seekbar_tapping_title">הפעל הקשה כדי לדלג</string>
+  <string name="revanced_seekbar_tapping_summary_on">הקשה כדי לדלג מופעלת</string>
+  <string name="revanced_seekbar_tapping_summary_off">הקשה כדי לדלג מושבתת</string>
   </patch>
   <patch id="interaction.swipecontrols.swipeControlsResourcePatch">
   <string name="revanced_swipe_brightness_title">הפעל מחוות בהירות</string>
@@ -434,6 +447,9 @@ Second \"item\" text"</string>
 
 כוונן את עוצמת הקול על ידי החלקה אנכית בצד הימני של המסך"</string>
   <string name="revanced_swipe_volume_summary_off">החלקת עוצמת קול במסך מלא מושבתת</string>
+  <string name="revanced_swipe_press_to_engage_title">הפעל מחוות לחץ כדי להחליק</string>
+  <string name="revanced_swipe_press_to_engage_summary_on">לחץ כדי להחליק מופעל</string>
+  <string name="revanced_swipe_press_to_engage_summary_off">לחץ כדי להחליק מושבת</string>
   <string name="revanced_swipe_haptic_feedback_title">הפעל משוב ברטט</string>
   <string name="revanced_swipe_haptic_feedback_summary_on">משוב ברטט מופעל</string>
   <string name="revanced_swipe_haptic_feedback_summary_off">משוב ברטט מושבת</string>
@@ -443,6 +459,7 @@ Second \"item\" text"</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_title">הפעל מחוות בהירות אוטומטית</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_on">החלקה למטה לערך הנמוך ביותר של מחוות הבהירות מפעילה בהירות אוטומטית</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_off">החלקה למטה לערך הנמוך ביותר לא מפעילה בהירות אוטומטית</string>
+  <string name="revanced_swipe_lowest_value_enable_auto_brightness_overlay_text">אוטומטי</string>
   <string name="revanced_swipe_overlay_timeout_title">פסק זמן לשכבת-על של החלקה</string>
   <string name="revanced_swipe_overlay_timeout_summary">כמות אלפיות השניה ששכבת-העל גלויה</string>
   <string name="revanced_swipe_overlay_background_opacity_title">אטימות רקע שכבת-על של החלקה</string>
@@ -450,20 +467,16 @@ Second \"item\" text"</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">אטימות החלקה חייבת להיות בין 0 ל-100</string>
   <string name="revanced_swipe_threshold_title">סף גודל החלקה</string>
   <string name="revanced_swipe_threshold_summary">כמות הסף להתרחשות החלקה</string>
-  <string name="revanced_swipe_show_circular_overlay_title">הצג שכבת-על מעגלית</string>
-  <string name="revanced_swipe_show_circular_overlay_summary_on">שכבת-על מעגלית מוצגת</string>
-  <string name="revanced_swipe_show_circular_overlay_summary_off">שכבת-על אופקית מוצגת</string>
-  <string name="revanced_swipe_overlay_minimal_style_title">הפעל סגנון מינמלי</string>
-  <string name="revanced_swipe_overlay_minimal_style_summary_on">סגנון שכבת-על מינמלי מופעל</string>
-  <string name="revanced_swipe_overlay_minimal_style_summary_off">סגנון שכבת-על מינמלי מושבת</string>
+  <string name="revanced_swipe_volume_sensitivity_title">רגישות החלקה בעוצמת הקול</string>
+  <string name="revanced_swipe_volume_sensitivity_summary">כמה משתנה עוצמת השמע לכל החלקה</string>
   <string name="revanced_swipe_change_video_title">הפעל החלקה כדי לשנות סרטונים</string>
   <string name="revanced_swipe_change_video_summary_on">החלקה במצב מסך מלא תשנה לסרטון הבא/הקודם</string>
   <string name="revanced_swipe_change_video_summary_off">החלקה במצב מסך מלא לא תשנה לסרטון הבא/הקודם</string>
   </patch>
   <patch id="layout.autocaptions.autoCaptionsPatch">
-  <string name="revanced_auto_captions_title">השבת כתוביות אוטומטיות</string>
-  <string name="revanced_auto_captions_summary_on">כתוביות אוטומטיות מופעלות</string>
-  <string name="revanced_auto_captions_summary_off">כתוביות אוטומטיות מושבתות</string>
+  <string name="revanced_disable_auto_captions_title">השבת כתוביות אוטומטיות</string>
+  <string name="revanced_disable_auto_captions_summary_on">כתוביות אוטומטיות מופעלות</string>
+  <string name="revanced_disable_auto_captions_summary_off">כתוביות אוטומטיות מושבתות</string>
   </patch>
   <patch id="layout.buttons.action.hideButtonsPatch">
   <string name="revanced_hide_buttons_screen_title">פעולות לחצנים</string>
@@ -495,6 +508,8 @@ Second \"item\" text"</string>
   <string name="revanced_hide_thanks_button_title">הסתר תודה</string>
   <string name="revanced_hide_thanks_button_summary_on">לחצן תודה מוסתר</string>
   <string name="revanced_hide_thanks_button_summary_off">לחצן תודה מוצג</string>
+  <!-- 'Ask' should be translated with the same localized wording that YouTube displays.
+                 Button only shows if the user ip is from specific region such as the USA or EU. -->
   <!-- 'Clip' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_clip_button_title">הסתר קליפ</string>
   <string name="revanced_hide_clip_button_summary_on">לחצן קליפ מוסתר</string>
@@ -541,6 +556,7 @@ Second \"item\" text"</string>
   <string name="revanced_disable_translucent_status_bar_title">השבת שורת מצב שקופה</string>
   <string name="revanced_disable_translucent_status_bar_summary_on">שורת מצב אטומה</string>
   <string name="revanced_disable_translucent_status_bar_summary_off">שורת מצב אטומה או שקופה</string>
+  <string name="revanced_disable_translucent_status_bar_user_dialog_message">בחלק מהמכשירים, הפעלת תכונה זו עשויה לשנות את סרגל הניווט של המערכת לשקוף.</string>
   <string name="revanced_disable_translucent_navigation_bar_light_title">השבת סרגל בהיר שקוף</string>
   <string name="revanced_disable_translucent_navigation_bar_light_summary_on">סרגל ניווט במצב בהיר הוא אטום</string>
   <string name="revanced_disable_translucent_navigation_bar_light_summary_off">סרגל ניווט במצב בהיר הוא אטום או שקוף</string>
@@ -596,6 +612,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_on">תפריט טראק אודיו מוסתר</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_off">תפריט טראק אודיו מוצג</string>
   <!-- 'Spoof video streams' should be the same translation used for revanced_spoof_video_streams_screen_title -->
+  <string name="revanced_hide_player_flyout_audio_track_not_available">"תפריט רצועת השמע מוסתר
+
+כדי להציג את תפריט רצועת השמע, שנה את 'זיוף זרמי וידאו' ל-iOS TV"</string>
   <!-- 'Watch in VR' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_watch_in_vr_title">הסתר \'צפה ב-VR\'</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">תפריט \'צפה ב-VR\' מוסתר</string>
@@ -811,8 +830,8 @@ Second \"item\" text"</string>
   <string name="revanced_ryd_compact_layout_summary_on">לחצן אהבתי מעוצב לרוחב מינימלי</string>
   <string name="revanced_ryd_compact_layout_summary_off">לחצן אהבתי מעוצב למראה הטוב ביותר</string>
   <string name="revanced_ryd_estimated_like_title">הצג סימוני \'אהבתי\' משוערים</string>
-  <string name="revanced_ryd_estimated_like_summary_on">סימוני \'אהבתי\' משוערים מוצגים</string>
-  <string name="revanced_ryd_estimated_like_summary_off">סימוני \'אהבתי\' משוערים מוסתרים</string>
+  <string name="revanced_ryd_estimated_like_summary_on">סרטונים עם סימני לייק מושבתים מציגים ספירת לייקים משוערת</string>
+  <string name="revanced_ryd_estimated_like_summary_off">סימוני \'אהבתי\' משוערים אינם מוצגים</string>
   <string name="revanced_ryd_toast_on_connection_error_title">הצג הודעה קופצת אם ה-API אינו זמין</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_on">הודעה קופצת מוצגת אם Return YouTube Dislike אינו זמין</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_off">הודעה קופצת אינה מוצגת אם Return YouTube Dislike אינו זמין</string>
@@ -1085,7 +1104,7 @@ Second \"item\" text"</string>
   <string name="revanced_spoof_app_version_target_entry_2">19.01.34 - שחזר סמלי ניווט ישנים</string>
   </patch>
   <patch id="layout.startpage.changeStartPagePatch">
-  <string name="revanced_change_start_page_title">הגדר דף התחלה</string>
+  <string name="revanced_change_start_page_title">שנה את דף ההתחלה</string>
   <string name="revanced_change_start_page_entry_default">ברירת מחדל</string>
   <string name="revanced_change_start_page_entry_all_subscriptions">כל המינויים</string>
   <string name="revanced_change_start_page_entry_browse">עיין בערוצים</string>
@@ -1110,6 +1129,11 @@ Second \"item\" text"</string>
   <string name="revanced_change_start_page_entry_virtual_reality">מציאות מדומה</string>
   <string name="revanced_change_start_page_entry_watch_later">לצפייה בהמשך</string>
   <string name="revanced_change_start_page_entry_your_clips">הקליפים שלך</string>
+  <string name="revanced_change_start_page_always_title">לשנות תמיד את דף הפתיחה</string>
+  <string name="revanced_change_start_page_always_summary_on">"דף הפתיחה תמיד משתנה
+
+מגבלה: ייתכן שלחצן החזרה בסרגל הכלים לא יפעל"</string>
+  <string name="revanced_change_start_page_always_summary_off">דף הפתיחה משתנה רק בעת הפעלת האפליקציה</string>
   </patch>
   <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch">
   <string name="revanced_disable_resuming_shorts_player_title">השבת חידוש נגן Shorts</string>
@@ -1161,6 +1185,9 @@ Second \"item\" text"</string>
 
 מיני-נגן ניתן לגרירה מחוץ למסך לשמאל או לימין"</string>
   <string name="revanced_miniplayer_horizontal_drag_summary_off">מחוות גרירה אופקית מושבתת</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_title">הסתר לחצני שכבת-על</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">לחצני שכבת-על מוסתרים</string>
+  <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">לחצני שכבת-על מוצגים</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_legacy_title">הסתר לחצני סגירה והרחבה</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_legacy_summary_on">"הלחצנים מוסתרים
 

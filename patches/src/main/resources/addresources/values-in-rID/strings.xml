@@ -459,29 +459,38 @@ Menyesuaikan volume dengan mengusap secara vertikal di sisi kanan layar"</string
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_title">Aktifkan gerakan kecerahan otomatis</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_on">Mengusap ke bawah ke nilai terendah dari gerakan kecerahan akan menyalakan kecerahan otomatis</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_off">Mengusap ke bawah ke nilai terendah tidak mengaktifkan kecerahan otomatis</string>
+  <string name="revanced_swipe_lowest_value_enable_auto_brightness_overlay_text">Otomatis</string>
   <string name="revanced_swipe_overlay_timeout_title">Batas waktu hamparan usap</string>
   <string name="revanced_swipe_overlay_timeout_summary">Jumlah milidetik hamparan terlihat</string>
   <string name="revanced_swipe_overlay_background_opacity_title">Opasitas latar belakang hamparan geser</string>
   <string name="revanced_swipe_overlay_background_opacity_summary">Nilai opasitas antara 0-100</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Opasitas geser harus antara 0-100</string>
+  <string name="revanced_swipe_overlay_progress_color_title">Warna bilah kemajuan lapisan usap</string>
+  <string name="revanced_swipe_overlay_progress_color_summary">Warna bilah kemajuan untuk kontrol volume dan kecerahan</string>
+  <string name="revanced_swipe_overlay_progress_color_invalid_toast">Warna bilah kemajuan tidak sah</string>
+  <string name="revanced_swipe_text_overlay_size_title">Ukuran teks lapisan usap</string>
+  <string name="revanced_swipe_text_overlay_size_summary">Ukuran teks untuk lapisan usap antara 1-30</string>
+  <string name="revanced_swipe_text_overlay_size_invalid_toast">Ukuran teks harus antara 1-30</string>
   <string name="revanced_swipe_threshold_title">Ambang batas magnitudo usap</string>
   <string name="revanced_swipe_threshold_summary">Jumlah ambang batas untuk terjadinya usapan</string>
-  <string name="revanced_swipe_volume_sensitivity_title">Sensitivitas gesek volume</string>
-  <string name="revanced_swipe_volume_sensitivity_summary">Seberapa besar perubahan volume per gesekan</string>
-  <string name="revanced_swipe_show_circular_overlay_title">Tampilkan hamparan melingkar</string>
-  <string name="revanced_swipe_show_circular_overlay_summary_on">Hamparan melingkar ditampilkan</string>
-  <string name="revanced_swipe_show_circular_overlay_summary_off">Hamparan horizontal ditampilkan</string>
-  <string name="revanced_swipe_overlay_minimal_style_title">Aktifkan gaya minimal</string>
-  <string name="revanced_swipe_overlay_minimal_style_summary_on">Gaya hamparan minimal diaktifkan</string>
-  <string name="revanced_swipe_overlay_minimal_style_summary_off">Gaya hamparan minimal dinonaktifkan</string>
+  <string name="revanced_swipe_volume_sensitivity_title">Sensitivitas volume usap</string>
+  <string name="revanced_swipe_volume_sensitivity_summary">Seberapa besar perubahan volume per usapan</string>
+  <string name="revanced_swipe_overlay_style_title">Gaya hamparan usap</string>
+  <string name="revanced_swipe_overlay_style_entry_1">Hamparan horizontal</string>
+  <string name="revanced_swipe_overlay_style_entry_2">Hamparan horizontal (minimal - atas)</string>
+  <string name="revanced_swipe_overlay_style_entry_3">Hamparan horizontal (minimal - tengah)</string>
+  <string name="revanced_swipe_overlay_style_entry_4">Hamparan melingkar</string>
+  <string name="revanced_swipe_overlay_style_entry_5">Hamparan melingkar (minimal)</string>
+  <string name="revanced_swipe_overlay_style_entry_6">Hamparan vertikal</string>
+  <string name="revanced_swipe_overlay_style_entry_7">Hamparan vertikal (minimal)</string>
   <string name="revanced_swipe_change_video_title">Aktifkan usapan untuk beralih video</string>
   <string name="revanced_swipe_change_video_summary_on">Mengusap dalam mode layar penuh akan beralih ke video berikutnya/sebelumnya</string>
   <string name="revanced_swipe_change_video_summary_off">Mengusap dalam mode layar penuh tidak akan beralih ke video berikutnya/sebelumnya</string>
   </patch>
   <patch id="layout.autocaptions.autoCaptionsPatch">
-  <string name="revanced_auto_captions_title">Matikan teks otomatis</string>
-  <string name="revanced_auto_captions_summary_on">Teks otomatis dinonaktifkan</string>
-  <string name="revanced_auto_captions_summary_off">Teks otomatis diaktifkan</string>
+  <string name="revanced_disable_auto_captions_title">Matikan teks otomatis</string>
+  <string name="revanced_disable_auto_captions_summary_on">Teks otomatis dinonaktifkan</string>
+  <string name="revanced_disable_auto_captions_summary_off">Teks otomatis diaktifkan</string>
   </patch>
   <patch id="layout.buttons.action.hideButtonsPatch">
   <string name="revanced_hide_buttons_screen_title">Tombol tindakan</string>
@@ -513,6 +522,11 @@ Menyesuaikan volume dengan mengusap secara vertikal di sisi kanan layar"</string
   <string name="revanced_hide_thanks_button_title">Sembunyikan Terima kasih</string>
   <string name="revanced_hide_thanks_button_summary_on">Tombol terima kasih disembunyikan</string>
   <string name="revanced_hide_thanks_button_summary_off">Tombol terima kasih ditampilkan</string>
+  <!-- 'Ask' should be translated with the same localized wording that YouTube displays.
+                 Button only shows if the user ip is from specific region such as the USA or EU. -->
+  <string name="revanced_hide_ask_button_title">Sembunyikan Tanya</string>
+  <string name="revanced_hide_ask_button_summary_on">Tombol Tanya disembunyikan</string>
+  <string name="revanced_hide_ask_button_summary_off">Tombol Tanya ditampilkan</string>
   <!-- 'Clip' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_clip_button_title">Sembunyikan Klip</string>
   <string name="revanced_hide_clip_button_summary_on">Tombol klip disembunyikan</string>
@@ -832,8 +846,8 @@ Batasan: Dislike mungkin tidak muncul dalam mode penyamaran"</string>
   <string name="revanced_ryd_compact_layout_summary_on">Tombol suka ditata untuk lebar minimum</string>
   <string name="revanced_ryd_compact_layout_summary_off">Tombol suka ditata untuk tampilan terbaik</string>
   <string name="revanced_ryd_estimated_like_title">Tampilkan perkiraan suka</string>
-  <string name="revanced_ryd_estimated_like_summary_on">Perkiraan suka ditampilkan</string>
-  <string name="revanced_ryd_estimated_like_summary_off">Perkiraan suka disembunyikan</string>
+  <string name="revanced_ryd_estimated_like_summary_on">Video dengan suka yang dinonaktifkan menampilkan perkiraan jumlah suka</string>
+  <string name="revanced_ryd_estimated_like_summary_off">Perkiraan jumlah suka tidak ditampilkan</string>
   <string name="revanced_ryd_toast_on_connection_error_title">Tampilkan pesan timbul jika API tidak tersedia</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_on">Pesan timbul tidak ditampilkan jika Return YouTube Dislike tidak tersedia</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_off">Pesan timbul tidak ditampilkan jika Return YouTube Dislike tidak tersedia</string>
@@ -1106,7 +1120,7 @@ Jika kemudian dimatikan, disarankan untuk menghapus data aplikasi untuk mencegah
   <string name="revanced_spoof_app_version_target_entry_2">19.01.34 - Pulihkan ikon navigasi lama</string>
   </patch>
   <patch id="layout.startpage.changeStartPagePatch">
-  <string name="revanced_change_start_page_title">Tetapkan halaman awal</string>
+  <string name="revanced_change_start_page_title">Ubah halaman awal</string>
   <string name="revanced_change_start_page_entry_default">Bawaan</string>
   <string name="revanced_change_start_page_entry_all_subscriptions">Semua langganan</string>
   <string name="revanced_change_start_page_entry_browse">Jelajahi saluran</string>
@@ -1131,6 +1145,11 @@ Jika kemudian dimatikan, disarankan untuk menghapus data aplikasi untuk mencegah
   <string name="revanced_change_start_page_entry_virtual_reality">Realitas Virtual</string>
   <string name="revanced_change_start_page_entry_watch_later">Tonton nanti</string>
   <string name="revanced_change_start_page_entry_your_clips">Klip Anda</string>
+  <string name="revanced_change_start_page_always_title">Selalu ubah halaman awal</string>
+  <string name="revanced_change_start_page_always_summary_on">"Halaman awal selalu diubah
+
+Batasan: Menggunakan tombol kembali pada toolbar mungkin tidak berfungsi"</string>
+  <string name="revanced_change_start_page_always_summary_off">Halaman awal hanya diubah saat aplikasi dimulai</string>
   </patch>
   <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch">
   <string name="revanced_disable_resuming_shorts_player_title">Matikan melanjutkan pemutar video Shorts</string>

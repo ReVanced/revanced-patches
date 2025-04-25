@@ -1,20 +1,23 @@
 package app.revanced.extension.youtube.patches;
 
 import app.revanced.extension.youtube.settings.Settings;
-import app.revanced.extension.youtube.shared.ShortsPlayerState;
 
 @SuppressWarnings("unused")
 public class DisableAutoCaptionsPatch {
 
-    /**
-     * Used by injected code. Do not delete.
-     */
-    public static boolean captionsButtonDisabled;
+    private static volatile boolean captionsButtonStatus;
 
-    public static boolean autoCaptionsEnabled() {
-        return Settings.AUTO_CAPTIONS.get()
-                // Do not use auto captions for Shorts.
-                && ShortsPlayerState.isOpen();
+    /**
+     * Injection point.
+     */
+    public static boolean disableAutoCaptions() {
+        return Settings.DISABLE_AUTO_CAPTIONS.get() && !captionsButtonStatus;
     }
 
+    /**
+     * Injection point.
+     */
+    public static void setCaptionsButtonStatus(boolean status) {
+        captionsButtonStatus = status;
+    }
 }

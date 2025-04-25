@@ -459,29 +459,38 @@ Second \"item\" text"</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_title">启用自动亮度手势</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_on">滑动到最低亮度手势将启用自动亮度</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_off">滑动到最低亮度手势不启用自动亮度</string>
+  <string name="revanced_swipe_lowest_value_enable_auto_brightness_overlay_text">自动</string>
   <string name="revanced_swipe_overlay_timeout_title">滑动提示层显示时长</string>
   <string name="revanced_swipe_overlay_timeout_summary">滑动提示的显示时长（毫秒）</string>
   <string name="revanced_swipe_overlay_background_opacity_title">滑动提示层背景的不透明度</string>
   <string name="revanced_swipe_overlay_background_opacity_summary">不透明度值介于 0-100 之间</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">滑动不透明度必须介于 0-100 之间</string>
+  <string name="revanced_swipe_overlay_progress_color_title">滑动提示层进度条颜色</string>
+  <string name="revanced_swipe_overlay_progress_color_summary">音量和亮度控件的进度条颜色</string>
+  <string name="revanced_swipe_overlay_progress_color_invalid_toast">无效的进度条颜色</string>
+  <string name="revanced_swipe_text_overlay_size_title">滑动提示层文字大小</string>
+  <string name="revanced_swipe_text_overlay_size_summary">滑动提示层的文字大小，范围为 1-30</string>
+  <string name="revanced_swipe_text_overlay_size_invalid_toast">文字大小必须在 1-30 之间</string>
   <string name="revanced_swipe_threshold_title">滑动幅度阈值</string>
   <string name="revanced_swipe_threshold_summary">防误触的滑动幅度阈值</string>
   <string name="revanced_swipe_volume_sensitivity_title">音量滑动灵敏度</string>
   <string name="revanced_swipe_volume_sensitivity_summary">每次滑动音量变化的幅度</string>
-  <string name="revanced_swipe_show_circular_overlay_title">圆形的叠加层样式</string>
-  <string name="revanced_swipe_show_circular_overlay_summary_on">提示层显示为圆形样式</string>
-  <string name="revanced_swipe_show_circular_overlay_summary_off">提示层显示为水平样式</string>
-  <string name="revanced_swipe_overlay_minimal_style_title">极简提示样式</string>
-  <string name="revanced_swipe_overlay_minimal_style_summary_on">极简样式已启用</string>
-  <string name="revanced_swipe_overlay_minimal_style_summary_off">极简样式已禁用</string>
+  <string name="revanced_swipe_overlay_style_title">滑动提示层样式</string>
+  <string name="revanced_swipe_overlay_style_entry_1">水平提示层</string>
+  <string name="revanced_swipe_overlay_style_entry_2">水平提示层 (极简 - 顶部)</string>
+  <string name="revanced_swipe_overlay_style_entry_3">水平提示层 (极简 - 中心)</string>
+  <string name="revanced_swipe_overlay_style_entry_4">圆形提示层</string>
+  <string name="revanced_swipe_overlay_style_entry_5">圆形提示层 (极简)</string>
+  <string name="revanced_swipe_overlay_style_entry_6">垂直提示层</string>
+  <string name="revanced_swipe_overlay_style_entry_7">垂直提示层 (极简)</string>
   <string name="revanced_swipe_change_video_title">启用滑动切换视频</string>
   <string name="revanced_swipe_change_video_summary_on">在全屏模式下滑动将切换到下一个/上一个视频</string>
   <string name="revanced_swipe_change_video_summary_off">在全屏模式下滑动将不会切换到下一个/上一个视频</string>
   </patch>
   <patch id="layout.autocaptions.autoCaptionsPatch">
-  <string name="revanced_auto_captions_title">禁用自动字幕</string>
-  <string name="revanced_auto_captions_summary_on">自动字幕已禁用</string>
-  <string name="revanced_auto_captions_summary_off">自动字幕已启用</string>
+  <string name="revanced_disable_auto_captions_title">禁用自动字幕</string>
+  <string name="revanced_disable_auto_captions_summary_on">自动字幕已禁用</string>
+  <string name="revanced_disable_auto_captions_summary_off">自动字幕已启用</string>
   </patch>
   <patch id="layout.buttons.action.hideButtonsPatch">
   <string name="revanced_hide_buttons_screen_title">操作按钮</string>
@@ -513,6 +522,11 @@ Second \"item\" text"</string>
   <string name="revanced_hide_thanks_button_title">隐藏「感谢」按钮</string>
   <string name="revanced_hide_thanks_button_summary_on">感谢按钮已隐藏</string>
   <string name="revanced_hide_thanks_button_summary_off">感谢按钮已显示</string>
+  <!-- 'Ask' should be translated with the same localized wording that YouTube displays.
+                 Button only shows if the user ip is from specific region such as the USA or EU. -->
+  <string name="revanced_hide_ask_button_title">隐藏“提问”</string>
+  <string name="revanced_hide_ask_button_summary_on">“提问”按钮已隐藏</string>
+  <string name="revanced_hide_ask_button_summary_off">“提问”按钮已显示</string>
   <!-- 'Clip' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_clip_button_title">隐藏「剪辑」按钮</string>
   <string name="revanced_hide_clip_button_summary_on">剪辑按钮已隐藏</string>
@@ -832,8 +846,8 @@ Second \"item\" text"</string>
   <string name="revanced_ryd_compact_layout_summary_on">点赞按钮设置为最小宽度</string>
   <string name="revanced_ryd_compact_layout_summary_off">点赞按钮设置为最佳外观</string>
   <string name="revanced_ryd_estimated_like_title">显示估计的点赞数</string>
-  <string name="revanced_ryd_estimated_like_summary_on">已显示估计的点赞数</string>
-  <string name="revanced_ryd_estimated_like_summary_off">已隐藏估计的点赞数</string>
+  <string name="revanced_ryd_estimated_like_summary_on">已禁用点赞的视频会显示估计的点赞数</string>
+  <string name="revanced_ryd_estimated_like_summary_off">不显示估计的点赞数</string>
   <string name="revanced_ryd_toast_on_connection_error_title">如果 API 不可用，则显示提示</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_on">如果 Return YouTube Dislike 不可用，则显示提示</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_off">如果 Return YouTube Dislike 不可用，则不显示提示</string>
@@ -885,8 +899,8 @@ Second \"item\" text"</string>
   <string name="revanced_sb_enable_voting_sum_on">显示片段投票按钮</string>
   <string name="revanced_sb_enable_voting_sum_off">不显示片段投票按钮</string>
   <string name="revanced_sb_square_layout">使用方形控件</string>
-  <string name="revanced_sb_square_layout_sum_on">使用方形样式的按钮和控件</string>
-  <string name="revanced_sb_square_layout_sum_off">使用圆角样式的按钮和控件</string>
+  <string name="revanced_sb_square_layout_sum_on">按钮和控件已使用方形样式</string>
+  <string name="revanced_sb_square_layout_sum_off">按钮和控件已使用圆角样式</string>
   <!-- Translations should use language similar to 'revanced_ryd_compact_layout_title' -->
   <string name="revanced_sb_enable_compact_skip_button">使用紧凑的跳过按钮</string>
   <string name="revanced_sb_enable_compact_skip_button_sum_on">跳过按钮样式为最小宽度</string>
@@ -1111,7 +1125,7 @@ Second \"item\" text"</string>
   <string name="revanced_spoof_app_version_target_entry_2">19.01.34 - 还原旧的导航图标</string>
   </patch>
   <patch id="layout.startpage.changeStartPagePatch">
-  <string name="revanced_change_start_page_title">设置起始页</string>
+  <string name="revanced_change_start_page_title">更改起始页</string>
   <string name="revanced_change_start_page_entry_default">默认</string>
   <string name="revanced_change_start_page_entry_all_subscriptions">所有订阅频道</string>
   <string name="revanced_change_start_page_entry_browse">浏览频道</string>
@@ -1136,6 +1150,11 @@ Second \"item\" text"</string>
   <string name="revanced_change_start_page_entry_virtual_reality">虚拟实境</string>
   <string name="revanced_change_start_page_entry_watch_later">稍后观看</string>
   <string name="revanced_change_start_page_entry_your_clips">你的剪辑</string>
+  <string name="revanced_change_start_page_always_title">始终更改起始页</string>
+  <string name="revanced_change_start_page_always_summary_on">"起始页始终已更改
+
+限制：工具栏上的后退按钮可能无法使用"</string>
+  <string name="revanced_change_start_page_always_summary_off">起始页仅在应用启动时更改</string>
   </patch>
   <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch">
   <string name="revanced_disable_resuming_shorts_player_title">禁用恢复 Shorts 播放器</string>

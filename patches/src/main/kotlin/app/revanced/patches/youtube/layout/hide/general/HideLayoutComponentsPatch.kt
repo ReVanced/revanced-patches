@@ -21,6 +21,7 @@ import app.revanced.patches.youtube.misc.litho.filter.addLithoFilter
 import app.revanced.patches.youtube.misc.litho.filter.lithoFilterPatch
 import app.revanced.patches.youtube.misc.navigation.navigationBarHookPatch
 import app.revanced.patches.youtube.misc.playservice.is_20_07_or_greater
+import app.revanced.patches.youtube.misc.playservice.is_20_09_or_greater
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
 import app.revanced.util.findFreeRegister
@@ -43,14 +44,12 @@ var crowdfundingBoxId = -1L
     private set
 var youTubeLogo = -1L
     private set
-
 var filterBarHeightId = -1L
     private set
 var relatedChipCloudMarginId = -1L
     private set
 var barContainerHeightId = -1L
     private set
-
 var fabButtonId = -1L
     private set
 
@@ -132,7 +131,8 @@ val hideLayoutComponentsPatch = bytecodePatch(
             "19.43.41",
             "19.47.53",
             "20.07.39",
-        ),
+            "20.12.46",
+        )
     )
 
     execute {
@@ -247,8 +247,9 @@ val hideLayoutComponentsPatch = bytecodePatch(
 
         // region Mix playlists
 
-        (if (is_20_07_or_greater) parseElementFromBufferFingerprint
-        else parseElementFromBufferLegacyFingerprint).let {
+        (if (is_20_09_or_greater) parseElementFromBufferFingerprint
+        else if (is_20_07_or_greater) parseElementFromBufferLegacy2007Fingerprint
+        else parseElementFromBufferLegacy1901Fingerprint).let {
             it.method.apply {
                 val byteArrayParameter = "p3"
                 val startIndex = it.patternMatch!!.startIndex

@@ -459,29 +459,38 @@ Réglez le volume en balayant verticalement sur le côté droit de l'écran"</st
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_title">Activer le geste de luminosité automatique</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_on">Balayer vers le bas jusqu\'à la valeur minimum du geste de contrôle de la luminosité active la luminosité automatique</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_off">Balayer vers le bas jusqu\'à la valeur minimum n\'active pas la luminosité automatique</string>
+  <string name="revanced_swipe_lowest_value_enable_auto_brightness_overlay_text">Automatique</string>
   <string name="revanced_swipe_overlay_timeout_title">Délai avant disparition de l\'overlay des gestes</string>
   <string name="revanced_swipe_overlay_timeout_summary">La durée en millisecondes pendant laquelle l\'overlay est visible</string>
   <string name="revanced_swipe_overlay_background_opacity_title">Opacité de l\'arrière-plan de l\'overlay des gestes</string>
   <string name="revanced_swipe_overlay_background_opacity_summary">Valeur de l\'opacité entre 0 et 100</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">L\'opacité doit être comprise entre 0 et 100 pour les gestes</string>
+  <string name="revanced_swipe_overlay_progress_color_title">Couleur de la barre de progression de l\'overlay des gestes</string>
+  <string name="revanced_swipe_overlay_progress_color_summary">La couleur de la barre de progression pour les commandes de volume et de luminosité</string>
+  <string name="revanced_swipe_overlay_progress_color_invalid_toast">Couleur de barre de progression invalide</string>
+  <string name="revanced_swipe_text_overlay_size_title">Taille du texte de l\'overlay des gestes</string>
+  <string name="revanced_swipe_text_overlay_size_summary">La taille du texte de l\'overlay des gestes comprise entre 1 et 30</string>
+  <string name="revanced_swipe_text_overlay_size_invalid_toast">La taille du texte doit être comprise entre 1 et 30</string>
   <string name="revanced_swipe_threshold_title">Seuil d\'intensité des balayages</string>
   <string name="revanced_swipe_threshold_summary">L\'intensité du mouvement à effectuer pour qu\'un balayage soit pris en compte</string>
   <string name="revanced_swipe_volume_sensitivity_title">Sensibilité du geste de contrôle du volume</string>
   <string name="revanced_swipe_volume_sensitivity_summary">Quantité de modification du volume à chaque balayage</string>
-  <string name="revanced_swipe_show_circular_overlay_title">Afficher l\'overlay circulaire</string>
-  <string name="revanced_swipe_show_circular_overlay_summary_on">L\'overlay circulaire est affiché</string>
-  <string name="revanced_swipe_show_circular_overlay_summary_off">L\'overlay horizontal est affiché</string>
-  <string name="revanced_swipe_overlay_minimal_style_title">Activer le style minimaliste</string>
-  <string name="revanced_swipe_overlay_minimal_style_summary_on">Le style minimaliste d\'overlay est activé</string>
-  <string name="revanced_swipe_overlay_minimal_style_summary_off">Le style minimaliste d\'overlay est désactivé</string>
+  <string name="revanced_swipe_overlay_style_title">Style de l\'overlay des gestes</string>
+  <string name="revanced_swipe_overlay_style_entry_1">Overlay horizontal</string>
+  <string name="revanced_swipe_overlay_style_entry_2">Overlay horizontal (minimal, haut)</string>
+  <string name="revanced_swipe_overlay_style_entry_3">Overlay horizontal (minimal, centre)</string>
+  <string name="revanced_swipe_overlay_style_entry_4">Overlay circulaire</string>
+  <string name="revanced_swipe_overlay_style_entry_5">Overlay circulaire (minimal)</string>
+  <string name="revanced_swipe_overlay_style_entry_6">Overlay vertical</string>
+  <string name="revanced_swipe_overlay_style_entry_7">Overlay vertical (minimal)</string>
   <string name="revanced_swipe_change_video_title">Activer Balayer pour changer de vidéo</string>
   <string name="revanced_swipe_change_video_summary_on">En mode plein écran, vous passerez à la vidéo précédente/suivante en balayant l\'écran</string>
   <string name="revanced_swipe_change_video_summary_off">En mode plein écran, vous ne changerez pas de vidéo en balayant l\'écran</string>
   </patch>
   <patch id="layout.autocaptions.autoCaptionsPatch">
-  <string name="revanced_auto_captions_title">Désactiver les sous-titres automatiques</string>
-  <string name="revanced_auto_captions_summary_on">Les sous-titres automatiques sont désactivés</string>
-  <string name="revanced_auto_captions_summary_off">Les sous-titres automatiques sont activés</string>
+  <string name="revanced_disable_auto_captions_title">Désactiver les sous-titres automatiques</string>
+  <string name="revanced_disable_auto_captions_summary_on">Les sous-titres automatiques sont désactivés</string>
+  <string name="revanced_disable_auto_captions_summary_off">Les sous-titres automatiques sont activés</string>
   </patch>
   <patch id="layout.buttons.action.hideButtonsPatch">
   <string name="revanced_hide_buttons_screen_title">Boutons d\'action</string>
@@ -513,6 +522,11 @@ Réglez le volume en balayant verticalement sur le côté droit de l'écran"</st
   <string name="revanced_hide_thanks_button_title">Masquer \"Merci\"</string>
   <string name="revanced_hide_thanks_button_summary_on">Le bouton Merci est masqué</string>
   <string name="revanced_hide_thanks_button_summary_off">Le bouton Merci est affiché</string>
+  <!-- 'Ask' should be translated with the same localized wording that YouTube displays.
+                 Button only shows if the user ip is from specific region such as the USA or EU. -->
+  <string name="revanced_hide_ask_button_title">Masquer Demander</string>
+  <string name="revanced_hide_ask_button_summary_on">Le bouton Demander est masqué</string>
+  <string name="revanced_hide_ask_button_summary_off">Le bouton Demander est affiché</string>
   <!-- 'Clip' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_clip_button_title">Masquer \"Clip\"</string>
   <string name="revanced_hide_clip_button_summary_on">Le bouton Clip est masqué</string>
@@ -832,8 +846,8 @@ Limitation : Il se peut que les \"Je n'aime pas\" n'apparaissent pas en mode na
   <string name="revanced_ryd_compact_layout_summary_on">Bouton J\'aime optimisé pour minimiser la taille</string>
   <string name="revanced_ryd_compact_layout_summary_off">Bouton J\'aime optimisé pour l\'apparence</string>
   <string name="revanced_ryd_estimated_like_title">Afficher les \"J\'aime\" estimés</string>
-  <string name="revanced_ryd_estimated_like_summary_on">Les \"J\'aime\" estimés sont affichés</string>
-  <string name="revanced_ryd_estimated_like_summary_off">Les \"J\'aime\" estimés sont masqués</string>
+  <string name="revanced_ryd_estimated_like_summary_on">Un nombre estimé de \"J\'aime\" est affiché sous les vidéos où les \"J\'aime\" sont désactivés</string>
+  <string name="revanced_ryd_estimated_like_summary_off">Les \"J\'aime\" estimés ne sont pas affichés</string>
   <string name="revanced_ryd_toast_on_connection_error_title">Afficher un message toast si l\'API n\'est pas disponible</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_on">Un message toast est affiché si Return YouTube Dislike n\'est pas disponible</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_off">Aucun message toast affiché si Return YouTube Dislike n\'est pas disponible</string>
@@ -1106,7 +1120,7 @@ Si désactivé ultérieurement, il est recommandé d'effacer les données de l'a
   <string name="revanced_spoof_app_version_target_entry_2">19.01.34 - Restaurer les anciennes icônes de navigation</string>
   </patch>
   <patch id="layout.startpage.changeStartPagePatch">
-  <string name="revanced_change_start_page_title">Définir la page ouverte au lancement</string>
+  <string name="revanced_change_start_page_title">Modifier la page de démarrage</string>
   <string name="revanced_change_start_page_entry_default">Par défaut</string>
   <string name="revanced_change_start_page_entry_all_subscriptions">Tous les abonnements</string>
   <string name="revanced_change_start_page_entry_browse">Parcourir les chaînes</string>
@@ -1131,6 +1145,11 @@ Si désactivé ultérieurement, il est recommandé d'effacer les données de l'a
   <string name="revanced_change_start_page_entry_virtual_reality">Réalité virtuelle</string>
   <string name="revanced_change_start_page_entry_watch_later">À regarder plus tard</string>
   <string name="revanced_change_start_page_entry_your_clips">Vos clips</string>
+  <string name="revanced_change_start_page_always_title">Toujours modifier la page de démarrage</string>
+  <string name="revanced_change_start_page_always_summary_on">"La page de démarrage est toujours modifiée
+
+Limitation : Il se peut que le bouton Retour dans la barre d'outils ne fonctionne pas"</string>
+  <string name="revanced_change_start_page_always_summary_off">La page de démarrage est modifiée uniquement au démarrage de l\'application</string>
   </patch>
   <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch">
   <string name="revanced_disable_resuming_shorts_player_title">Désactiver la reprise du lecteur Shorts</string>

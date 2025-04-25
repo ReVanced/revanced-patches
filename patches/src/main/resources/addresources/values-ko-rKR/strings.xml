@@ -241,9 +241,9 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_hide_chapters_section_title">챕터 숨기기</string>
   <string name="revanced_hide_chapters_section_summary_on">챕터 섹션이 숨겨집니다</string>
   <string name="revanced_hide_chapters_section_summary_off">챕터 섹션이 표시됩니다</string>
-  <string name="revanced_hide_how_this_was_made_section_title">콘텐츠 생성 방식 섹션 숨기기</string>
-  <string name="revanced_hide_how_this_was_made_section_summary_on">콘텐츠 생성 방식 섹션이 숨겨집니다</string>
-  <string name="revanced_hide_how_this_was_made_section_summary_off">콘텐츠 생성 방식 섹션이 표시됩니다</string>
+  <string name="revanced_hide_how_this_was_made_section_title">이 콘텐츠가 제작된 방식 섹션 숨기기</string>
+  <string name="revanced_hide_how_this_was_made_section_summary_on">이 콘텐츠가 제작된 방식 섹션이 숨겨집니다</string>
+  <string name="revanced_hide_how_this_was_made_section_summary_off">이 콘텐츠가 제작된 방식 섹션이 표시됩니다</string>
   <string name="revanced_hide_podcast_section_title">팟캐스트 살펴보기 섹션 숨기기</string>
   <string name="revanced_hide_podcast_section_summary_on">팟캐스트 살펴보기 섹션이 숨겨집니다</string>
   <string name="revanced_hide_podcast_section_summary_off">팟캐스트 살펴보기 섹션이 표시됩니다</string>
@@ -458,29 +458,38 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_title">스와이프 제스처로 자동 밝기 활성화하기</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_on">전체 화면에서 스와이프하여 밝기가 0이 되면 자동 밝기를 활성화합니다</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_off">전체 화면에서 스와이프하여 밝기가 0이 되더라도 자동 밝기를 활성화하지 않습니다</string>
-  <string name="revanced_swipe_overlay_timeout_title">오버레이 타임아웃</string>
+  <string name="revanced_swipe_lowest_value_enable_auto_brightness_overlay_text">자동</string>
+  <string name="revanced_swipe_overlay_timeout_title">스와이프 오버레이 타임아웃</string>
   <string name="revanced_swipe_overlay_timeout_summary">오버레이가 표시되는 시간을 지정할 수 있습니다 (밀리초)</string>
   <string name="revanced_swipe_overlay_background_opacity_title">스와이프 오버레이 배경 불투명도</string>
   <string name="revanced_swipe_overlay_background_opacity_summary">스와이프 불투명도 값은 0-100 사이여야 합니다</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">스와이프 불투명도 값은 0-100 사이여야 합니다</string>
+  <string name="revanced_swipe_overlay_progress_color_title">스와이프 오버레이 진행바 색상</string>
+  <string name="revanced_swipe_overlay_progress_color_summary">볼륨 및 밝기 조절 진행바 색상의 헥스 코드를 입력하세요</string>
+  <string name="revanced_swipe_overlay_progress_color_invalid_toast">잘못된 진행바 헥스 코드입니다</string>
+  <string name="revanced_swipe_text_overlay_size_title">스와이프 오버레이 텍스트 크기</string>
+  <string name="revanced_swipe_text_overlay_size_summary">스와이프 오버레이 텍스트 크기를 지정할 수 있습니다 (1-30)</string>
+  <string name="revanced_swipe_text_overlay_size_invalid_toast">텍스트 크기는 1-30 사이여야 합니다</string>
   <string name="revanced_swipe_threshold_title">스와이프 한계치</string>
   <string name="revanced_swipe_threshold_summary">제스처 인식을 위해 얼마나 스와이프를 해야 할지를 지정할 수 있으며, 원하지 않은 제스처 인식을 방지할 수 있습니다</string>
   <string name="revanced_swipe_volume_sensitivity_title">볼륨 스와이프 민감도</string>
   <string name="revanced_swipe_volume_sensitivity_summary">스와이프할 때마다 볼륨이 얼마나 변경되는지를 지정할 수 있습니다</string>
-  <string name="revanced_swipe_show_circular_overlay_title">원형 오버레이 표시하기</string>
-  <string name="revanced_swipe_show_circular_overlay_summary_on">원형 오버레이를 표시합니다</string>
-  <string name="revanced_swipe_show_circular_overlay_summary_off">바형 오버레이를 표시합니다</string>
-  <string name="revanced_swipe_overlay_minimal_style_title">최소화된 스타일 활성화하기</string>
-  <string name="revanced_swipe_overlay_minimal_style_summary_on">최소화된 오버레이 스타일을 활성화합니다</string>
-  <string name="revanced_swipe_overlay_minimal_style_summary_off">최소화된 오버레이 스타일을 비활성화합니다</string>
+  <string name="revanced_swipe_overlay_style_title">스와이프 오버레이 스타일</string>
+  <string name="revanced_swipe_overlay_style_entry_1">바형 오버레이</string>
+  <string name="revanced_swipe_overlay_style_entry_2">가로 오버레이 (최소화 - 상단)</string>
+  <string name="revanced_swipe_overlay_style_entry_3">가로 오버레이 (최소화 - 중앙)</string>
+  <string name="revanced_swipe_overlay_style_entry_4">원형 오버레이</string>
+  <string name="revanced_swipe_overlay_style_entry_5">원형 오버레이 (최소화)</string>
+  <string name="revanced_swipe_overlay_style_entry_6">세로 오버레이</string>
+  <string name="revanced_swipe_overlay_style_entry_7">세로 오버레이 (최소화)</string>
   <string name="revanced_swipe_change_video_title">스와이프 제스처로 동영상 전환 활성화하기</string>
   <string name="revanced_swipe_change_video_summary_on">전체 화면 중앙에서 위로/아래로 스와이프하여 다음/이전 동영상으로 전환합니다</string>
   <string name="revanced_swipe_change_video_summary_off">전체 화면 중앙에서 위로/아래로 스와이프하여 다음/이전 동영상으로 전환하지 않습니다</string>
   </patch>
   <patch id="layout.autocaptions.autoCaptionsPatch">
-  <string name="revanced_auto_captions_title">자동 자막 비활성화하기</string>
-  <string name="revanced_auto_captions_summary_on">자동 자막을 비활성화합니다</string>
-  <string name="revanced_auto_captions_summary_off">자동 자막을 활성화합니다</string>
+  <string name="revanced_disable_auto_captions_title">자동 자막 비활성화하기</string>
+  <string name="revanced_disable_auto_captions_summary_on">자동 자막을 비활성화합니다</string>
+  <string name="revanced_disable_auto_captions_summary_off">자동 자막을 활성화합니다</string>
   </patch>
   <patch id="layout.buttons.action.hideButtonsPatch">
   <string name="revanced_hide_buttons_screen_title">액션 버튼</string>
@@ -512,6 +521,11 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_hide_thanks_button_title">Thanks 버튼 숨기기</string>
   <string name="revanced_hide_thanks_button_summary_on">Thanks 버튼이 숨겨집니다</string>
   <string name="revanced_hide_thanks_button_summary_off">Thanks 버튼이 표시됩니다</string>
+  <!-- 'Ask' should be translated with the same localized wording that YouTube displays.
+                 Button only shows if the user ip is from specific region such as the USA or EU. -->
+  <string name="revanced_hide_ask_button_title">요청 버튼 숨기기</string>
+  <string name="revanced_hide_ask_button_summary_on">요청 버튼이 숨겨집니다</string>
+  <string name="revanced_hide_ask_button_summary_off">요청 버튼이 표시됩니다</string>
   <!-- 'Clip' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_clip_button_title">클립 버튼 숨기기</string>
   <string name="revanced_hide_clip_button_summary_on">클립 버튼이 숨겨집니다</string>
@@ -1132,6 +1146,12 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_change_start_page_entry_virtual_reality">가상 현실</string>
   <string name="revanced_change_start_page_entry_watch_later">나중에 볼 동영상</string>
   <string name="revanced_change_start_page_entry_your_clips">내 클립</string>
+  <string name="revanced_change_start_page_always_title">앱 시작 페이지 항상 변경하기</string>
+  <string name="revanced_change_start_page_always_summary_on">"앱 시작 페이지를 항상 변경합니다
+
+알려진 문제점:
+• 툴바에서 '뒤로 가기' 버튼이 작동하지 않을 수 있습니다"</string>
+  <string name="revanced_change_start_page_always_summary_off">앱 시작 페이지를 앱 시작 시에만 변경합니다</string>
   </patch>
   <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch">
   <string name="revanced_disable_resuming_shorts_player_title">앱을 시작할 때, Shorts 플레이어 비활성화하기</string>
@@ -1217,7 +1237,7 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_seekbar_custom_color_primary_summary">사용하고 싶은 재생바 메인 색상의 헥스 코드를 입력하세요</string>
   <string name="revanced_seekbar_custom_color_accent_title">사용자 정의 재생바 보조 색상</string>
   <string name="revanced_seekbar_custom_color_accent_summary">사용하고 싶은 재생바 보조 색상의 헥스 코드를 입력하세요</string>
-  <string name="revanced_seekbar_custom_color_invalid">잘못된 재생바 색상값입니다</string>
+  <string name="revanced_seekbar_custom_color_invalid">잘못된 재생바 헥스 코드입니다</string>
   </patch>
   <patch id="layout.thumbnails.bypassImageRegionRestrictionsPatch">
   <string name="revanced_bypass_image_region_restrictions_title">이미지 표시 제한 국가 우회하기</string>

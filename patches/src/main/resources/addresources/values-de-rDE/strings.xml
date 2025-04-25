@@ -452,29 +452,38 @@ Passen Sie die Helligkeit an, indem Sie auf der linken Seite des Bildschirms ver
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_title">Auto-Helligkeit Geste aktivieren</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_on">Wische runter auf den niedrigsten Wert der Helligkeitsgeste, um die automatische Helligkeit zu aktivieren</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_off">Wenn man zum niedrigsten Wert wischt, aktiviert man die automatische Helligkeit nicht</string>
+  <string name="revanced_swipe_lowest_value_enable_auto_brightness_overlay_text">Autom</string>
   <string name="revanced_swipe_overlay_timeout_title">Wischüberlagerungs-Timeout</string>
   <string name="revanced_swipe_overlay_timeout_summary">Die Anzahl der Millisekunden, die das Overlay sichtbar ist</string>
   <string name="revanced_swipe_overlay_background_opacity_title">Bildschirmüberlagerung Deckkraft Swipe</string>
   <string name="revanced_swipe_overlay_background_opacity_summary">Deckkraftwert zwischen 0-100</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Die Wischdeckkraft muss zwischen 0 und 100 liegen</string>
+  <string name="revanced_swipe_overlay_progress_color_title">Farbe des Fortschrittsbalkens für die Wischgesten-Überlagerung</string>
+  <string name="revanced_swipe_overlay_progress_color_summary">Die Farbe des Fortschrittsbalkens für Lautstärke- und Helligkeitsregler</string>
+  <string name="revanced_swipe_overlay_progress_color_invalid_toast">Ungültige Farbe für den Fortschrittsbalken</string>
+  <string name="revanced_swipe_text_overlay_size_title">Textgröße der Wischgesten-Überlagerung</string>
+  <string name="revanced_swipe_text_overlay_size_summary">Die Textgröße für die Wischgesten-Überlagerung zwischen 1 und 30</string>
+  <string name="revanced_swipe_text_overlay_size_invalid_toast">Die Textgröße muss zwischen 1 und 30 liegen</string>
   <string name="revanced_swipe_threshold_title">Wischgrößenschwelle</string>
   <string name="revanced_swipe_threshold_summary">Der Schwellenwert für Wischen</string>
   <string name="revanced_swipe_volume_sensitivity_title">Lautstärke-Wischgestenempfindlichkeit</string>
   <string name="revanced_swipe_volume_sensitivity_summary">Wie stark sich die Lautstärke pro Wisch ändert</string>
-  <string name="revanced_swipe_show_circular_overlay_title">Kreisförmiges Overlay anzeigen</string>
-  <string name="revanced_swipe_show_circular_overlay_summary_on">Kreisförmiges Overlay wird angezeigt</string>
-  <string name="revanced_swipe_show_circular_overlay_summary_off">Horizontales Overlay wird angezeigt</string>
-  <string name="revanced_swipe_overlay_minimal_style_title">Minimalen Stil aktivieren</string>
-  <string name="revanced_swipe_overlay_minimal_style_summary_on">Minimaler Overlay-Stil ist aktiviert</string>
-  <string name="revanced_swipe_overlay_minimal_style_summary_off">Minimaler Overlay-Stil ist deaktiviert</string>
+  <string name="revanced_swipe_overlay_style_title">Design des Wisch-Overlays</string>
+  <string name="revanced_swipe_overlay_style_entry_1">Horizontales Overlay</string>
+  <string name="revanced_swipe_overlay_style_entry_2">Horizontales Overlay (minimal - oben)</string>
+  <string name="revanced_swipe_overlay_style_entry_3">Horizontales Overlay (minimal - Mitte)</string>
+  <string name="revanced_swipe_overlay_style_entry_4">Kreisförmiges Overlay</string>
+  <string name="revanced_swipe_overlay_style_entry_5">Kreisförmiges Overlay (minimal)</string>
+  <string name="revanced_swipe_overlay_style_entry_6">Vertikales Overlay</string>
+  <string name="revanced_swipe_overlay_style_entry_7">Vertikales Overlay (minimal)</string>
   <string name="revanced_swipe_change_video_title">Mit Wischen wechseln Sie zu den Videos</string>
   <string name="revanced_swipe_change_video_summary_on">Im Vollbildmodus wischen, um zum nächsten/vorherigen Video zu wechseln</string>
   <string name="revanced_swipe_change_video_summary_off">Im Vollbildmodus wischen, um nicht zum nächsten/vorherigen Video zu wechseln</string>
   </patch>
   <patch id="layout.autocaptions.autoCaptionsPatch">
-  <string name="revanced_auto_captions_title">Autounterschriften deaktivieren</string>
-  <string name="revanced_auto_captions_summary_on">Autounterschriften sind deaktiviert</string>
-  <string name="revanced_auto_captions_summary_off">Automatische Beschriftungen sind aktiviert</string>
+  <string name="revanced_disable_auto_captions_title">Autounterschriften deaktivieren</string>
+  <string name="revanced_disable_auto_captions_summary_on">Automatische Untertitel sind deaktiviert</string>
+  <string name="revanced_disable_auto_captions_summary_off">Automatische Untertitel sind aktiviert</string>
   </patch>
   <patch id="layout.buttons.action.hideButtonsPatch">
   <string name="revanced_hide_buttons_screen_title">Aktionstasten</string>
@@ -506,6 +515,11 @@ Passen Sie die Helligkeit an, indem Sie auf der linken Seite des Bildschirms ver
   <string name="revanced_hide_thanks_button_title">Dank ausblenden</string>
   <string name="revanced_hide_thanks_button_summary_on">Dankeschön-Taste ist ausgeblendet</string>
   <string name="revanced_hide_thanks_button_summary_off">Dankeschön Button wird angezeigt</string>
+  <!-- 'Ask' should be translated with the same localized wording that YouTube displays.
+                 Button only shows if the user ip is from specific region such as the USA or EU. -->
+  <string name="revanced_hide_ask_button_title">Ask ausblenden</string>
+  <string name="revanced_hide_ask_button_summary_on">Ask-Button ist ausgeblendet</string>
+  <string name="revanced_hide_ask_button_summary_off">Ask-Button wird angezeigt</string>
   <!-- 'Clip' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_clip_button_title">Clip ausblenden</string>
   <string name="revanced_hide_clip_button_summary_on">Clip-Button ist ausgeblendet</string>
@@ -825,8 +839,8 @@ Einschränkung: Dislikes werden möglicherweise nicht im Inkognito-Modus angezei
   <string name="revanced_ryd_compact_layout_summary_on">\"Gefällt mir\" Button für minimale Breite</string>
   <string name="revanced_ryd_compact_layout_summary_off">\"Gefällt mir\" Button für das beste Aussehen</string>
   <string name="revanced_ryd_estimated_like_title">Geschätzte \"Gefällt mir\"-Angaben anzeigen</string>
-  <string name="revanced_ryd_estimated_like_summary_on">Geschätzte \"Gefällt mir\"-Angaben werden angezeigt</string>
-  <string name="revanced_ryd_estimated_like_summary_off">Geschätzte \"Gefällt mir\"-Angaben sind verborgen</string>
+  <string name="revanced_ryd_estimated_like_summary_on">Videos mit deaktivierten \"Gefällt mir\"-Angaben zeigen eine geschätzte Anzahl von \"Gefällt mir\"-Angaben</string>
+  <string name="revanced_ryd_estimated_like_summary_off">Geschätzte \"Gefällt mir\"-Angaben werden nicht angezeigt</string>
   <string name="revanced_ryd_toast_on_connection_error_title">Einen Toast anzeigen, wenn die API nicht verfügbar ist</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_on">Toast wird angezeigt, wenn YouTube-Ablehnung nicht verfügbar ist</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_off">Toast wird nicht angezeigt, wenn YouTube-Dislike nicht verfügbar ist</string>
@@ -1100,7 +1114,7 @@ Wenn Sie die Funktion später deaktivieren, wird empfohlen, die App-Daten zu lö
   <string name="revanced_spoof_app_version_target_entry_2">19.01.34 - Alte Navigations-Symbole wiederherstellen</string>
   </patch>
   <patch id="layout.startpage.changeStartPagePatch">
-  <string name="revanced_change_start_page_title">Startseite festlegen</string>
+  <string name="revanced_change_start_page_title">Startseite ändern</string>
   <string name="revanced_change_start_page_entry_default">Standard</string>
   <string name="revanced_change_start_page_entry_all_subscriptions">Alle Abonnements</string>
   <string name="revanced_change_start_page_entry_browse">Kanäle durchsuchen</string>
@@ -1125,6 +1139,11 @@ Wenn Sie die Funktion später deaktivieren, wird empfohlen, die App-Daten zu lö
   <string name="revanced_change_start_page_entry_virtual_reality">Virtuelle Realität</string>
   <string name="revanced_change_start_page_entry_watch_later">Später ansehen</string>
   <string name="revanced_change_start_page_entry_your_clips">Deine Clips</string>
+  <string name="revanced_change_start_page_always_title">Startseite immer ändern</string>
+  <string name="revanced_change_start_page_always_summary_on">"Die Startseite wird immer geändert.
+
+Einschränkung: Die Verwendung der Zurück-Taste auf der Symbolleiste funktioniert möglicherweise nicht."</string>
+  <string name="revanced_change_start_page_always_summary_off">Die Startseite wird nur beim Start der App geändert</string>
   </patch>
   <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch">
   <string name="revanced_disable_resuming_shorts_player_title">Fortsetzen des Shorts Players deaktivieren</string>

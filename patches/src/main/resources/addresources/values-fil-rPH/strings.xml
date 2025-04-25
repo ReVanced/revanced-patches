@@ -459,29 +459,38 @@ Ayusin ang volume sa pamamagitan ng pag-swipe nang patayo sa kanang bahagi ng sc
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_title">I-enable ang galaw ng auto-brightness</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_on">Ang pag-swipe pababa sa pinakamababang halaga ng brightness gesture ay nagbibigay-daan sa auto-brightness</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_off">Ang pag-swipe pababa sa pinakamababang halaga ay hindi nagpapagana ng auto-brightness</string>
+  <string name="revanced_swipe_lowest_value_enable_auto_brightness_overlay_text">Awtomatik</string>
   <string name="revanced_swipe_overlay_timeout_title">Mag-swipe overlay timeout</string>
   <string name="revanced_swipe_overlay_timeout_summary">Ang dami ng millisecond na nakikita ang overlay</string>
   <string name="revanced_swipe_overlay_background_opacity_title">Transparency ng background ng swipe overlay</string>
   <string name="revanced_swipe_overlay_background_opacity_summary">Halaga ng opacity sa pagitan ng 0-100</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Ang opacity ng swipe ay dapat nasa pagitan ng 0-100</string>
+  <string name="revanced_swipe_overlay_progress_color_title">Kulay ng progress bar ng swipe overlay</string>
+  <string name="revanced_swipe_overlay_progress_color_summary">Ang kulay ng progress bar para sa mga kontrol ng volume at brightness</string>
+  <string name="revanced_swipe_overlay_progress_color_invalid_toast">Hindi wasto ang kulay ng progress bar</string>
+  <string name="revanced_swipe_text_overlay_size_title">Laki ng teksto ng swipe overlay</string>
+  <string name="revanced_swipe_text_overlay_size_summary">Ang laki ng teksto para sa swipe overlay sa pagitan ng 1-30</string>
+  <string name="revanced_swipe_text_overlay_size_invalid_toast">Ang laki ng teksto ay dapat sa pagitan ng 1-30</string>
   <string name="revanced_swipe_threshold_title">I-swipe ang magnitude threshold</string>
   <string name="revanced_swipe_threshold_summary">Ang halaga ng threshold para sa pag-swipe na magaganap</string>
   <string name="revanced_swipe_volume_sensitivity_title">Pagkasensitibo sa pag-swipe ng volume</string>
   <string name="revanced_swipe_volume_sensitivity_summary">Gaano karami ang pagbabago ng volume sa bawat swipe</string>
-  <string name="revanced_swipe_show_circular_overlay_title">Ipakita ang pabilog na overlay</string>
-  <string name="revanced_swipe_show_circular_overlay_summary_on">Ipinapakita ang pabilog na overlay</string>
-  <string name="revanced_swipe_show_circular_overlay_summary_off">Ipinapakita ang pahalang na overlay</string>
-  <string name="revanced_swipe_overlay_minimal_style_title">I-enable ang minimal na istilo</string>
-  <string name="revanced_swipe_overlay_minimal_style_summary_on">Naka-enable ang minimal na istilo ng overlay</string>
-  <string name="revanced_swipe_overlay_minimal_style_summary_off">Hindi pinagana ang minimal na istilo ng overlay</string>
+  <string name="revanced_swipe_overlay_style_title">Estilo ng swipe overlay</string>
+  <string name="revanced_swipe_overlay_style_entry_1">Pahalang na overlay</string>
+  <string name="revanced_swipe_overlay_style_entry_2">Pahalang na overlay (minimal - itaas)</string>
+  <string name="revanced_swipe_overlay_style_entry_3">Pahalang na overlay (minimal - gitna)</string>
+  <string name="revanced_swipe_overlay_style_entry_4">Pabilog na overlay</string>
+  <string name="revanced_swipe_overlay_style_entry_5">Pabilog na overlay (minimal)</string>
+  <string name="revanced_swipe_overlay_style_entry_6">Patayong overlay</string>
+  <string name="revanced_swipe_overlay_style_entry_7">Patayong overlay (minimal)</string>
   <string name="revanced_swipe_change_video_title">I-enable ang swipe para magpalit ng mga video</string>
   <string name="revanced_swipe_change_video_summary_on">Ang pag-swipe sa full screen mode ay magpapalit sa susunod/nakaraang video</string>
   <string name="revanced_swipe_change_video_summary_off">Ang pag-swipe sa full screen ay hindi magpapalit sa susunod/nakaraang video</string>
   </patch>
   <patch id="layout.autocaptions.autoCaptionsPatch">
-  <string name="revanced_auto_captions_title">Huwag paganahin ang mga auto caption</string>
-  <string name="revanced_auto_captions_summary_on">Naka-disable ang mga auto caption</string>
-  <string name="revanced_auto_captions_summary_off">Ang mga auto caption ay pinagana</string>
+  <string name="revanced_disable_auto_captions_title">Huwag paganahin ang mga auto caption</string>
+  <string name="revanced_disable_auto_captions_summary_on">Naka-disable ang mga Auto caption</string>
+  <string name="revanced_disable_auto_captions_summary_off">Naka-enable ang mga Auto caption</string>
   </patch>
   <patch id="layout.buttons.action.hideButtonsPatch">
   <string name="revanced_hide_buttons_screen_title">Mga pindutan ng pagkilos</string>
@@ -513,6 +522,11 @@ Ayusin ang volume sa pamamagitan ng pag-swipe nang patayo sa kanang bahagi ng sc
   <string name="revanced_hide_thanks_button_title">Itago Salamat</string>
   <string name="revanced_hide_thanks_button_summary_on">Nakatago ang buton ng salamat</string>
   <string name="revanced_hide_thanks_button_summary_off">Ang pindutan ng salamat ay ipinapakita</string>
+  <!-- 'Ask' should be translated with the same localized wording that YouTube displays.
+                 Button only shows if the user ip is from specific region such as the USA or EU. -->
+  <string name="revanced_hide_ask_button_title">Itago ang Tanong</string>
+  <string name="revanced_hide_ask_button_summary_on">Nakatago ang button na Tanong</string>
+  <string name="revanced_hide_ask_button_summary_off">Ipinapakita ang button na Tanong</string>
   <!-- 'Clip' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_clip_button_title">Itago ang Clip</string>
   <string name="revanced_hide_clip_button_summary_on">Nakatago ang clip button</string>
@@ -830,8 +844,8 @@ Limitasyon: Maaaring hindi lumabas ang mga Dislike sa incognito mode"</string>
   <string name="revanced_ryd_compact_layout_summary_on">Like button na naka-istilong para sa minimum na lapad</string>
   <string name="revanced_ryd_compact_layout_summary_off">I-style na button para sa pinakamahusay na hitsura</string>
   <string name="revanced_ryd_estimated_like_title">Ipakita ang tinantyang mga gusto</string>
-  <string name="revanced_ryd_estimated_like_summary_on">Ipinapakita ang tinantyang mga gusto</string>
-  <string name="revanced_ryd_estimated_like_summary_off">Nakatago ang tinantyang mga gusto</string>
+  <string name="revanced_ryd_estimated_like_summary_on">Ipinapakita ng mga video na naka-disable ang mga like ang tinatayang bilang ng mga like</string>
+  <string name="revanced_ryd_estimated_like_summary_off">Hindi ipinapakita ang mga tinatayang like</string>
   <string name="revanced_ryd_toast_on_connection_error_title">Magpakita ng toast kung hindi available ang API</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_on">Ipapakita ang toast kung hindi available ang Return YouTube Dislike</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_off">Hindi ipinapakita ang toast kung hindi available ang Return YouTube Dislike</string>
@@ -1105,7 +1119,7 @@ Kung mamaya ay patayin, inirerekumenda na i-clear ang data ng app upang maiwasan
   <string name="revanced_spoof_app_version_target_entry_2">19.01.34 - Ibalik ang mga lumang icon ng navigation</string>
   </patch>
   <patch id="layout.startpage.changeStartPagePatch">
-  <string name="revanced_change_start_page_title">Itakda ang panimulang pahina</string>
+  <string name="revanced_change_start_page_title">Baguhin ang panimulang pahina</string>
   <string name="revanced_change_start_page_entry_default">Regular</string>
   <string name="revanced_change_start_page_entry_all_subscriptions">Lahat ng mga subscription</string>
   <string name="revanced_change_start_page_entry_browse">Mag-browse ng mga channel</string>
@@ -1130,6 +1144,11 @@ Kung mamaya ay patayin, inirerekumenda na i-clear ang data ng app upang maiwasan
   <string name="revanced_change_start_page_entry_virtual_reality">Virtual Reality</string>
   <string name="revanced_change_start_page_entry_watch_later">Panoorin mamaya</string>
   <string name="revanced_change_start_page_entry_your_clips">Mga clip mo</string>
+  <string name="revanced_change_start_page_always_title">Palaging baguhin ang panimulang pahina</string>
+  <string name="revanced_change_start_page_always_summary_on">"Palaging binabago ang panimulang pahina
+
+Limitasyon: Maaaring hindi gumana ang paggamit ng back button sa toolbar"</string>
+  <string name="revanced_change_start_page_always_summary_off">Binago ang panimulang pahina sa pagbukas lang ng app</string>
   </patch>
   <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch">
   <string name="revanced_disable_resuming_shorts_player_title">Huwag paganahin ang pagpapatuloy na manlalaro ng Shorts</string>

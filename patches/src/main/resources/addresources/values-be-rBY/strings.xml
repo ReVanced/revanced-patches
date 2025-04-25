@@ -459,29 +459,38 @@ Second \"item\" text"</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_title">Уключыць жэст аўтаматычнай яркасці</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_on">Правядзіце пальцам уніз да самага нізкага значэння яркасці, каб уключыць аўтаматычную яркасць</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_off">Правядзенне пальцам уніз да самага нізкага значэння не ўключае аўтаматычную яркасць</string>
+  <string name="revanced_swipe_lowest_value_enable_auto_brightness_overlay_text">Аўто</string>
   <string name="revanced_swipe_overlay_timeout_title">Тайм-аўт накладання пальцам</string>
   <string name="revanced_swipe_overlay_timeout_summary">Працягласць бачнага накладання ў мілісекундах</string>
   <string name="revanced_swipe_overlay_background_opacity_title">Непразрыстасць фону накладкі пракруткі</string>
   <string name="revanced_swipe_overlay_background_opacity_summary">Значэнне непразрыстасці паміж 0-100</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Непразрыстасць пракруткі павінна быць паміж 0-100</string>
+  <string name="revanced_swipe_overlay_progress_color_title">Колер слупка прагрэсу накладкі правядзення</string>
+  <string name="revanced_swipe_overlay_progress_color_summary">Колер слупка прагрэсу для рэгулявання гучнасці і яркасці</string>
+  <string name="revanced_swipe_overlay_progress_color_invalid_toast">Несапраўдны колер слупка прагрэсу</string>
+  <string name="revanced_swipe_text_overlay_size_title">Памер тэксту накладкі правядзення</string>
+  <string name="revanced_swipe_text_overlay_size_summary">Памер тэксту для накладкі правядзення ад 1 да 30</string>
+  <string name="revanced_swipe_text_overlay_size_invalid_toast">Памер тэксту павінен быць у межах ад 1 да 30</string>
   <string name="revanced_swipe_threshold_title">Парог велічыні пальцам</string>
   <string name="revanced_swipe_threshold_summary">Велічыня парогавага значэння для правядзення пальцам</string>
   <string name="revanced_swipe_volume_sensitivity_title">Адчувальнасць правядзення для гучнасці</string>
   <string name="revanced_swipe_volume_sensitivity_summary">Наколькі змяняецца гучнасць пры кожным правядзенні</string>
-  <string name="revanced_swipe_show_circular_overlay_title">Паказваць кругавое накладанне</string>
-  <string name="revanced_swipe_show_circular_overlay_summary_on">Кругавое накладанне паказваецца</string>
-  <string name="revanced_swipe_show_circular_overlay_summary_off">Гарызантальнае накладанне паказваецца</string>
-  <string name="revanced_swipe_overlay_minimal_style_title">Уключыць мінімальны стыль</string>
-  <string name="revanced_swipe_overlay_minimal_style_summary_on">Уключаны мінімальны стыль накладання</string>
-  <string name="revanced_swipe_overlay_minimal_style_summary_off">Мінімальны стыль накладання выключаны</string>
+  <string name="revanced_swipe_overlay_style_title">Стыль накладкі правядзення</string>
+  <string name="revanced_swipe_overlay_style_entry_1">Гарызантальная накладка</string>
+  <string name="revanced_swipe_overlay_style_entry_2">Гарызантальная накладка (мінімальная — зверху)</string>
+  <string name="revanced_swipe_overlay_style_entry_3">Гарызантальная накладка (мінімальная — па цэнтры)</string>
+  <string name="revanced_swipe_overlay_style_entry_4">Кругавая накладка</string>
+  <string name="revanced_swipe_overlay_style_entry_5">Кругавая накладка (мінімальная)</string>
+  <string name="revanced_swipe_overlay_style_entry_6">Вертыкальная накладка</string>
+  <string name="revanced_swipe_overlay_style_entry_7">Вертыкальная накладка (мінімальная)</string>
   <string name="revanced_swipe_change_video_title">Уключыць зьмену відэа праз правядзенне пальцам</string>
   <string name="revanced_swipe_change_video_summary_on">Правядзенне пальцам у рэжыме поўнага экрана зьменіць відэа на наступнае/папярэдняе</string>
   <string name="revanced_swipe_change_video_summary_off">Правядзенне пальцам у рэжыме поўнага экрана не зьменіць відэа на наступнае/папярэдняе</string>
   </patch>
   <patch id="layout.autocaptions.autoCaptionsPatch">
-  <string name="revanced_auto_captions_title">Адключыць аўтаматычныя цітры</string>
-  <string name="revanced_auto_captions_summary_on">Аўтаматычныя цітры адключаны</string>
-  <string name="revanced_auto_captions_summary_off">Аўтаматычныя цітры ўключаны</string>
+  <string name="revanced_disable_auto_captions_title">Адключыць аўтаматычныя цітры</string>
+  <string name="revanced_disable_auto_captions_summary_on">Аўтаматычныя субцітры адключаны</string>
+  <string name="revanced_disable_auto_captions_summary_off">Аўтаматычныя субцітры ўключаны</string>
   </patch>
   <patch id="layout.buttons.action.hideButtonsPatch">
   <string name="revanced_hide_buttons_screen_title">Кнопкі дзеянняў</string>
@@ -513,6 +522,11 @@ Second \"item\" text"</string>
   <string name="revanced_hide_thanks_button_title">Схаваць Дзякуй</string>
   <string name="revanced_hide_thanks_button_summary_on">Кнопка падзякі схавана</string>
   <string name="revanced_hide_thanks_button_summary_off">Паказана кнопка падзякі</string>
+  <!-- 'Ask' should be translated with the same localized wording that YouTube displays.
+                 Button only shows if the user ip is from specific region such as the USA or EU. -->
+  <string name="revanced_hide_ask_button_title">Схаваць кнопку «Запытацца»</string>
+  <string name="revanced_hide_ask_button_summary_on">Кнопка «Запытацца» схаваная</string>
+  <string name="revanced_hide_ask_button_summary_off">Кнопка «Запытацца» паказаная</string>
   <!-- 'Clip' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_clip_button_title">Схаваць кліп</string>
   <string name="revanced_hide_clip_button_summary_on">Кнопка кліпа схавана</string>
@@ -832,8 +846,8 @@ Second \"item\" text"</string>
   <string name="revanced_ryd_compact_layout_summary_on">Кнопка \"Падабаецца\" ў стылі мінімальнай шырыні</string>
   <string name="revanced_ryd_compact_layout_summary_off">Кнопка \"Падабаецца\", аформленая для лепшага выгляду</string>
   <string name="revanced_ryd_estimated_like_title">Паказваць прыблізную колькасць падабаек</string>
-  <string name="revanced_ryd_estimated_like_summary_on">Паказана прыблізная колькасць падабаек</string>
-  <string name="revanced_ryd_estimated_like_summary_off">Прыблізная колькасць падабаек схавана</string>
+  <string name="revanced_ryd_estimated_like_summary_on">У відэа з адключанымі лайкамі паказваецца прыблізная колькасць лайкаў</string>
+  <string name="revanced_ryd_estimated_like_summary_off">Прыблізныя лайкі не паказваюцца</string>
   <string name="revanced_ryd_toast_on_connection_error_title">Паказаць тост, калі API недаступны</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_on">Тост паказваецца, калі функцыя \"Вярнуць не падабаецца YouTube\" недаступная</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_off">Тост не паказваецца, калі функцыя \"Вярнуць не падабаецца YouTube\" недаступная</string>
@@ -1108,7 +1122,7 @@ Second \"item\" text"</string>
   <string name="revanced_spoof_app_version_target_entry_2">19.01.34 - Аднаўленне старых значкоў навігацыі</string>
   </patch>
   <patch id="layout.startpage.changeStartPagePatch">
-  <string name="revanced_change_start_page_title">Усталяваць стартавую старонку</string>
+  <string name="revanced_change_start_page_title">Змяніць стартавую старонку</string>
   <string name="revanced_change_start_page_entry_default">Па змаўчанні</string>
   <string name="revanced_change_start_page_entry_all_subscriptions">Усе падпіскі</string>
   <string name="revanced_change_start_page_entry_browse">Обзор каналов</string>
@@ -1133,6 +1147,11 @@ Second \"item\" text"</string>
   <string name="revanced_change_start_page_entry_virtual_reality">Віртуальная рэальнасць</string>
   <string name="revanced_change_start_page_entry_watch_later">Посмотреть позже</string>
   <string name="revanced_change_start_page_entry_your_clips">Вашыя кліпы</string>
+  <string name="revanced_change_start_page_always_title">Заўсёды змяняць стартавую старонку</string>
+  <string name="revanced_change_start_page_always_summary_on">"Стартавая старонка заўсёды зменена
+
+Абмежаванне: выкарыстанне кнопкі «Назад» на панэлі інструментаў можа не працаваць"</string>
+  <string name="revanced_change_start_page_always_summary_off">Стартавая старонка змяняецца толькі пры запуску праграмы</string>
   </patch>
   <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch">
   <string name="revanced_disable_resuming_shorts_player_title">Адключыць аднаўленне прайгравання Shorts</string>

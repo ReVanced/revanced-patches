@@ -423,29 +423,38 @@ Juster lydstyrken ved at swipe lodret i højre side af skærmen"</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_title">Aktivér auto-lysstyrke-bevægelse</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_on">Stryg ned til den laveste værdi af lysstyrke-bevægelsen aktiverer auto-lysstyrke</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_off">Stryg ned til den laveste værdi aktiverer ikke auto-lysstyrke</string>
+  <string name="revanced_swipe_lowest_value_enable_auto_brightness_overlay_text">Automatisk</string>
   <string name="revanced_swipe_overlay_timeout_title">Stryg overlay timeout</string>
   <string name="revanced_swipe_overlay_timeout_summary">Mængden af millisekunder, overlayet er synlig</string>
   <string name="revanced_swipe_overlay_background_opacity_title">Baggrundsgennemsigtighed for swipe-overlay</string>
   <string name="revanced_swipe_overlay_background_opacity_summary">Gennemsigtighedsværdi mellem 0-100</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Gennemsigtighed for swipe skal være mellem 0-100</string>
+  <string name="revanced_swipe_overlay_progress_color_title">Farve på statuslinje for strygeoverlejring</string>
+  <string name="revanced_swipe_overlay_progress_color_summary">Farven på statuslinjen for lydstyrke- og lysstyrkeknapper</string>
+  <string name="revanced_swipe_overlay_progress_color_invalid_toast">Ugyldig farve til statuslinjen</string>
+  <string name="revanced_swipe_text_overlay_size_title">Tekststørrelse for strygeoverlejring</string>
+  <string name="revanced_swipe_text_overlay_size_summary">Tekststørrelsen for strygeoverlejring mellem 1-30</string>
+  <string name="revanced_swipe_text_overlay_size_invalid_toast">Tekststørrelsen skal være mellem 1-30</string>
   <string name="revanced_swipe_threshold_title">Stryg størrelse tærskel</string>
   <string name="revanced_swipe_threshold_summary">Beløbet for tærskelværdi for stryg der skal ske</string>
   <string name="revanced_swipe_volume_sensitivity_title">Volumen strygefølsomhed</string>
   <string name="revanced_swipe_volume_sensitivity_summary">Hvor meget lydstyrken ændres pr. strygning</string>
-  <string name="revanced_swipe_show_circular_overlay_title">Vis cirkulært overlejring</string>
-  <string name="revanced_swipe_show_circular_overlay_summary_on">Cirkulært overlejring vises</string>
-  <string name="revanced_swipe_show_circular_overlay_summary_off">Horisontalt overlejring vises</string>
-  <string name="revanced_swipe_overlay_minimal_style_title">Aktiver minimal stil</string>
-  <string name="revanced_swipe_overlay_minimal_style_summary_on">Minimal overlay-stil er aktiveret</string>
-  <string name="revanced_swipe_overlay_minimal_style_summary_off">Minimal overlejringsstil er deaktiveret</string>
+  <string name="revanced_swipe_overlay_style_title">Stil for stryge-overlay</string>
+  <string name="revanced_swipe_overlay_style_entry_1">Horisontalt overlay</string>
+  <string name="revanced_swipe_overlay_style_entry_2">Horisontalt overlay (minimal - top)</string>
+  <string name="revanced_swipe_overlay_style_entry_3">Horisontalt overlay (minimal - center)</string>
+  <string name="revanced_swipe_overlay_style_entry_4">Cirkulært overlay</string>
+  <string name="revanced_swipe_overlay_style_entry_5">Cirkulært overlay (minimal)</string>
+  <string name="revanced_swipe_overlay_style_entry_6">Vertikalt overlay</string>
+  <string name="revanced_swipe_overlay_style_entry_7">Vertikalt overlay (minimal)</string>
   <string name="revanced_swipe_change_video_title">Aktivér swipe for at skifte videoer</string>
   <string name="revanced_swipe_change_video_summary_on">Strygning i fuldskærmstilstand vil ændre til den næste/forrige video</string>
   <string name="revanced_swipe_change_video_summary_off">Strygning i fuldskærmstilstand vil ikke ændre til den næste/forrige video</string>
   </patch>
   <patch id="layout.autocaptions.autoCaptionsPatch">
-  <string name="revanced_auto_captions_title">Deaktivér auto-billedtekster</string>
-  <string name="revanced_auto_captions_summary_on">Auto billedtekster er deaktiveret</string>
-  <string name="revanced_auto_captions_summary_off">Auto billedtekster er aktiveret</string>
+  <string name="revanced_disable_auto_captions_title">Deaktivér auto-billedtekster</string>
+  <string name="revanced_disable_auto_captions_summary_on">Automatiske billedtekster er deaktiveret</string>
+  <string name="revanced_disable_auto_captions_summary_off">Automatiske billedtekster er aktiveret</string>
   </patch>
   <patch id="layout.buttons.action.hideButtonsPatch">
   <string name="revanced_hide_buttons_screen_title">Handlingsknapper</string>
@@ -476,6 +485,11 @@ Juster lydstyrken ved at swipe lodret i højre side af skærmen"</string>
   <string name="revanced_hide_thanks_button_title">Skjul Tak</string>
   <string name="revanced_hide_thanks_button_summary_on">Tak knappen er skjult</string>
   <string name="revanced_hide_thanks_button_summary_off">Tak knappen er vist</string>
+  <!-- 'Ask' should be translated with the same localized wording that YouTube displays.
+                 Button only shows if the user ip is from specific region such as the USA or EU. -->
+  <string name="revanced_hide_ask_button_title">Skjul Spørg</string>
+  <string name="revanced_hide_ask_button_summary_on">Spørg-knappen er skjult</string>
+  <string name="revanced_hide_ask_button_summary_off">Spørg-knappen vises</string>
   <!-- 'Clip' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_clip_button_title">Skjul klip</string>
   <string name="revanced_hide_clip_button_summary_on">Klip knappen er skjult</string>
@@ -788,8 +802,8 @@ Indstillinger → Afspilning → Afspil næste video automatisk"</string>
   <string name="revanced_ryd_compact_layout_summary_on">Lideknap stylet for mindste bredde</string>
   <string name="revanced_ryd_compact_layout_summary_off">Ligesom knap stylet for bedste udseende</string>
   <string name="revanced_ryd_estimated_like_title">Vis anslåede Synes godt om</string>
-  <string name="revanced_ryd_estimated_like_summary_on">Anslåede Synes godt om vises</string>
-  <string name="revanced_ryd_estimated_like_summary_off">Anslåede Synes godt om er skjult</string>
+  <string name="revanced_ryd_estimated_like_summary_on">Videoer med deaktiverede Synes godt om viser et anslået antal Synes godt om</string>
+  <string name="revanced_ryd_estimated_like_summary_off">Anslåede Synes godt om vises ikke</string>
   <string name="revanced_ryd_toast_on_connection_error_title">Vis en toast hvis API ikke er tilgængelig</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_on">Toast vises, hvis Return YouTube Dislike ikke er tilgængelig</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_off">Toast vises ikke, hvis Return YouTube Dislike ikke er tilgængelig</string>
@@ -1052,7 +1066,7 @@ Hvis det senere slås fra, anbefales det at rydde app-dataene for at forhindre U
   <string name="revanced_spoof_app_version_target_entry_1">19.35.36 - Gendan gamle Shorts player ikoner</string>
   </patch>
   <patch id="layout.startpage.changeStartPagePatch">
-  <string name="revanced_change_start_page_title">Indstil startside</string>
+  <string name="revanced_change_start_page_title">Skift startside</string>
   <string name="revanced_change_start_page_entry_default">Standard</string>
   <string name="revanced_change_start_page_entry_all_subscriptions">Alle abonnementer</string>
   <string name="revanced_change_start_page_entry_browse">Gennemse kanaler</string>
@@ -1077,6 +1091,11 @@ Hvis det senere slås fra, anbefales det at rydde app-dataene for at forhindre U
   <string name="revanced_change_start_page_entry_virtual_reality">Virtual Reality</string>
   <string name="revanced_change_start_page_entry_watch_later">Se senere</string>
   <string name="revanced_change_start_page_entry_your_clips">Dine klip</string>
+  <string name="revanced_change_start_page_always_title">Skift altid startside</string>
+  <string name="revanced_change_start_page_always_summary_on">"Startside ændres altid
+
+Begrænsning: Brug af tilbage-knappen på værktøjslinjen fungerer muligvis ikke"</string>
+  <string name="revanced_change_start_page_always_summary_off">Startsiden ændres kun ved appstart</string>
   </patch>
   <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch">
   <string name="revanced_disable_resuming_shorts_player_title">Deaktivér genoptagelse af Shorts spiller</string>
