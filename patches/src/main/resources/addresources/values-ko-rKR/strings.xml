@@ -521,6 +521,11 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_hide_thanks_button_title">Thanks 버튼 숨기기</string>
   <string name="revanced_hide_thanks_button_summary_on">Thanks 버튼이 숨겨집니다</string>
   <string name="revanced_hide_thanks_button_summary_off">Thanks 버튼이 표시됩니다</string>
+  <!-- 'Ask' should be translated with the same localized wording that YouTube displays.
+                 Button only shows if the user ip is from specific region such as the USA or EU. -->
+  <string name="revanced_hide_ask_button_title">요청 버튼 숨기기</string>
+  <string name="revanced_hide_ask_button_summary_on">요청 버튼이 숨겨집니다</string>
+  <string name="revanced_hide_ask_button_summary_off">요청 버튼이 표시됩니다</string>
   <!-- 'Clip' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_clip_button_title">클립 버튼 숨기기</string>
   <string name="revanced_hide_clip_button_summary_on">클립 버튼이 숨겨집니다</string>

@@ -522,6 +522,11 @@ Second \"item\" text"</string>
   <string name="revanced_hide_thanks_button_title">Сакриј дугме „Хвала”</string>
   <string name="revanced_hide_thanks_button_summary_on">Дугме „Хвала” је скривено</string>
   <string name="revanced_hide_thanks_button_summary_off">Дугме „Хвала” је приказано</string>
+  <!-- 'Ask' should be translated with the same localized wording that YouTube displays.
+                 Button only shows if the user ip is from specific region such as the USA or EU. -->
+  <string name="revanced_hide_ask_button_title">Сакриј „Питај”</string>
+  <string name="revanced_hide_ask_button_summary_on">Дугме „Питај” је скривено</string>
+  <string name="revanced_hide_ask_button_summary_off">Дугме „Питај” је приказано</string>
   <!-- 'Clip' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_clip_button_title">Сакриј дугме „Клип”</string>
   <string name="revanced_hide_clip_button_summary_on">Дугме „Клип” је скривено</string>

@@ -515,6 +515,11 @@ Passen Sie die Helligkeit an, indem Sie auf der linken Seite des Bildschirms ver
   <string name="revanced_hide_thanks_button_title">Dank ausblenden</string>
   <string name="revanced_hide_thanks_button_summary_on">Dankeschön-Taste ist ausgeblendet</string>
   <string name="revanced_hide_thanks_button_summary_off">Dankeschön Button wird angezeigt</string>
+  <!-- 'Ask' should be translated with the same localized wording that YouTube displays.
+                 Button only shows if the user ip is from specific region such as the USA or EU. -->
+  <string name="revanced_hide_ask_button_title">Ask ausblenden</string>
+  <string name="revanced_hide_ask_button_summary_on">Ask-Button ist ausgeblendet</string>
+  <string name="revanced_hide_ask_button_summary_off">Ask-Button wird angezeigt</string>
   <!-- 'Clip' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_clip_button_title">Clip ausblenden</string>
   <string name="revanced_hide_clip_button_summary_on">Clip-Button ist ausgeblendet</string>
