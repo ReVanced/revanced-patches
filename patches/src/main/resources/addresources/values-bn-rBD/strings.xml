@@ -522,6 +522,11 @@ MicroG-এর জন্য ব্যাটারি অপ্টিমাইজ�
   <string name="revanced_hide_thanks_button_title">ধন্যবাদ লুকান</string>
   <string name="revanced_hide_thanks_button_summary_on">ধন্যবাদ বোতাম লুকানো আছে</string>
   <string name="revanced_hide_thanks_button_summary_off">ধন্যবাদ বোতাম দেখানো হয়</string>
+  <!-- 'Ask' should be translated with the same localized wording that YouTube displays.
+                 Button only shows if the user ip is from specific region such as the USA or EU. -->
+  <string name="revanced_hide_ask_button_title">জিজ্ঞাসা লুকান</string>
+  <string name="revanced_hide_ask_button_summary_on">জিজ্ঞাসা বোতাম লুকানো আছে</string>
+  <string name="revanced_hide_ask_button_summary_off">জিজ্ঞাসা বোতাম দেখানো হয়েছে</string>
   <!-- 'Clip' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_clip_button_title">ক্লিপ লুকান</string>
   <string name="revanced_hide_clip_button_summary_on">ক্লিপ বোতাম লুকিয়ে রয়েছে</string>

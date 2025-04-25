@@ -508,6 +508,8 @@ Säädä äänenvoimakkuutta pyyhkäisemällä pystysuoraan näytön oikealta pu
   <string name="revanced_hide_thanks_button_title">Piilota Kiitos</string>
   <string name="revanced_hide_thanks_button_summary_on">Kiitos-painike on piilotettu</string>
   <string name="revanced_hide_thanks_button_summary_off">Kiitos-painike näytetään</string>
+  <!-- 'Ask' should be translated with the same localized wording that YouTube displays.
+                 Button only shows if the user ip is from specific region such as the USA or EU. -->
   <!-- 'Clip' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_clip_button_title">Piilota Klippi</string>
   <string name="revanced_hide_clip_button_summary_on">Klippi-painike on piilotettu</string>

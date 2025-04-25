@@ -522,6 +522,11 @@ Reguliuokite garsumą braukdami vertikaliai dešinėje ekrano pusėje"</string>
   <string name="revanced_hide_thanks_button_title">Slėpti Ačiū</string>
   <string name="revanced_hide_thanks_button_summary_on">Ačiū mygtukas paslėptas</string>
   <string name="revanced_hide_thanks_button_summary_off">Ačiū mygtukas rodomas</string>
+  <!-- 'Ask' should be translated with the same localized wording that YouTube displays.
+                 Button only shows if the user ip is from specific region such as the USA or EU. -->
+  <string name="revanced_hide_ask_button_title">Slėpti klausimą</string>
+  <string name="revanced_hide_ask_button_summary_on">Klausimo mygtukas yra paslėptas</string>
+  <string name="revanced_hide_ask_button_summary_off">Klausimo mygtukas rodomas</string>
   <!-- 'Clip' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_clip_button_title">Slėpti Iškarpą</string>
   <string name="revanced_hide_clip_button_summary_on">Iškarpos mygtukas paslėptas</string>

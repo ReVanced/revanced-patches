@@ -522,6 +522,11 @@ Ajusteu el volum lliscant verticalment a la part dreta de la pantalla"</string>
   <string name="revanced_hide_thanks_button_title">Amaga Gràcies</string>
   <string name="revanced_hide_thanks_button_summary_on">S\'ha amagat el botó de gràcies</string>
   <string name="revanced_hide_thanks_button_summary_off">El botó Gràcies es mostra</string>
+  <!-- 'Ask' should be translated with the same localized wording that YouTube displays.
+                 Button only shows if the user ip is from specific region such as the USA or EU. -->
+  <string name="revanced_hide_ask_button_title">Amaga la sol·licitud</string>
+  <string name="revanced_hide_ask_button_summary_on">El botó de sol·licitud està amagat</string>
+  <string name="revanced_hide_ask_button_summary_off">El botó de sol·licitud es mostra</string>
   <!-- 'Clip' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_clip_button_title">Amaga Clip</string>
   <string name="revanced_hide_clip_button_summary_on">El botó Clip s\'amaga</string>

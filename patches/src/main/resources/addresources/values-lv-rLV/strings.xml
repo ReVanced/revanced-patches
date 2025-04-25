@@ -522,6 +522,11 @@ Regulējiet skaļumu, velkot vertikāli ekrāna labajā pusē"</string>
   <string name="revanced_hide_thanks_button_title">Paslēpt Paldies</string>
   <string name="revanced_hide_thanks_button_summary_on">Paldies poga ir paslēpta</string>
   <string name="revanced_hide_thanks_button_summary_off">Paldies poga ir redzama</string>
+  <!-- 'Ask' should be translated with the same localized wording that YouTube displays.
+                 Button only shows if the user ip is from specific region such as the USA or EU. -->
+  <string name="revanced_hide_ask_button_title">Paslēpt jautājumu</string>
+  <string name="revanced_hide_ask_button_summary_on">Jautājuma poga ir paslēpta</string>
+  <string name="revanced_hide_ask_button_summary_off">Jautājuma poga ir redzama</string>
   <!-- 'Clip' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_clip_button_title">Paslēpt Izgriezt</string>
   <string name="revanced_hide_clip_button_summary_on">Izgriezt poga ir paslēpta</string>
