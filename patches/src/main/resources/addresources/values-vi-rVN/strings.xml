@@ -321,9 +321,9 @@ Nếu cài đặt này được bật và Doodle đang hiển thị tại khu v�
   <string name="revanced_hide_keyword_content_phrases_title">Từ khóa để ẩn</string>
   <!-- For localization, it is preferred, but not required, if 'LeBlanc' is replaced with a localized name or a familiar word that has upper case letters in the middle of the word.
                  This is because keywords can be in any language, and showing an example in the localized script helps convey this. -->
-  <string name="revanced_hide_keyword_content_phrases_summary">"Từ khóa và cụm từ cần ẩn, cách nhau bằng dòng mới
+  <string name="revanced_hide_keyword_content_phrases_summary">"Từ và cụm từ khóa để ẩn, cách nhau bằng dòng mới
 
-Từ khóa có thể là tên kênh hoặc bất kỳ văn bản nào hiện trong tiêu đề video
+Từ khóa có thể là tên kênh hoặc bất kỳ văn bản nào hiển thị trong tiêu đề video
 
 Từ có chữ in hoa ở giữa phải được nhập cùng với chữ viết hoa (ví dụ: iPhone, TikTok, LeBlanc)"</string>
   <string name="revanced_hide_keyword_content_about_title">Giới thiệu về bộ lọc từ khóa</string>
@@ -332,7 +332,7 @@ Từ có chữ in hoa ở giữa phải được nhập cùng với chữ viết
 Hạn chế
 • Video ngắn không thể bị ẩn theo tên kênh
 • Một số thành phần giao diện người dùng có thể không bị ẩn
-• Tìm kiếm từ khóa có thể không hiện kết quả"</string>
+• Tìm kiếm từ khóa có thể không hiển thị kết quả"</string>
   <string name="revanced_hide_keyword_content_about_whole_words_title">Khớp toàn bộ từ</string>
   <!-- Translations _must_ use a localized example.  For languages that do not use spaces between words (Chinese, Japanese, etc.) the English AI example should be used since no localized examples exist.  Or if using machine translations, or if nobody wants to think of a localized example, then the English 'ai' example should be left as-is. -->
   <string name="revanced_hide_keyword_content_about_whole_words_summary">Việc đặt từ/cụm từ cần lọc trong dấu ngoặc kép sẽ ngăn chặn các kết quả chỉ trùng một phần với tiêu đề video và tên kênh&lt;br&gt;&lt;br&gt;Ví dụ,&lt;br&gt;&lt;b&gt;\"ai\"&lt;/b&gt; sẽ ẩn video: &lt;b&gt;AI hoạt động ra sao?&lt;/b&gt;&lt;br&gt;nhưng sẽ không ẩn: &lt;b&gt;Hai lai nghĩa là gì?&lt;/b&gt;</string>
@@ -522,6 +522,11 @@ Tính năng này chỉ khả dụng cho các thiết bị cũ hơn"</string>
   <string name="revanced_hide_thanks_button_title">Ẩn Cảm ơn</string>
   <string name="revanced_hide_thanks_button_summary_on">Nút cảm ơn được ẩn</string>
   <string name="revanced_hide_thanks_button_summary_off">Nút cảm ơn được hiện</string>
+  <!-- 'Ask' should be translated with the same localized wording that YouTube displays.
+                 Button only shows if the user ip is from specific region such as the USA or EU. -->
+  <string name="revanced_hide_ask_button_title">Ẩn Hỏi</string>
+  <string name="revanced_hide_ask_button_summary_on">Nút Hỏi đã ẩn</string>
+  <string name="revanced_hide_ask_button_summary_off">Nút Hỏi đang hiện</string>
   <!-- 'Clip' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_clip_button_title">Ẩn Tạo đoạn video</string>
   <string name="revanced_hide_clip_button_summary_on">Nút tạo đoạn video được ẩn</string>

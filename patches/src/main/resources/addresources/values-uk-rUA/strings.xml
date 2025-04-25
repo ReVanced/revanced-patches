@@ -522,6 +522,11 @@ Second \"item\" text"</string>
   <string name="revanced_hide_thanks_button_title">Приховати \"Дякую\"</string>
   <string name="revanced_hide_thanks_button_summary_on">Кнопку \"Дякую\" приховано</string>
   <string name="revanced_hide_thanks_button_summary_off">Кнопка \"Дякую\" показується</string>
+  <!-- 'Ask' should be translated with the same localized wording that YouTube displays.
+                 Button only shows if the user ip is from specific region such as the USA or EU. -->
+  <string name="revanced_hide_ask_button_title">Приховати \"Запитати\"</string>
+  <string name="revanced_hide_ask_button_summary_on">Кнопку \"Запитати\" приховано</string>
+  <string name="revanced_hide_ask_button_summary_off">Кнопка \"Запитати\" показується</string>
   <!-- 'Clip' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_clip_button_title">Приховати \"Створити кліп\"</string>
   <string name="revanced_hide_clip_button_summary_on">Кнопку \"Створити кліп\" приховано</string>

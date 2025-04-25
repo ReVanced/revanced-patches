@@ -522,6 +522,11 @@ Përshtate shkëlqimin duke rrëshqitur vertikalisht në anën e majtë të ekra
   <string name="revanced_hide_thanks_button_title">Fsheh \"Faleminderit\"</string>
   <string name="revanced_hide_thanks_button_summary_on">Butoni \"Faleminderit\" është i fshehur</string>
   <string name="revanced_hide_thanks_button_summary_off">Butoni \"Faleminderit\" është i dukshëm</string>
+  <!-- 'Ask' should be translated with the same localized wording that YouTube displays.
+                 Button only shows if the user ip is from specific region such as the USA or EU. -->
+  <string name="revanced_hide_ask_button_title">Fshih Pyet</string>
+  <string name="revanced_hide_ask_button_summary_on">Butoni Pyet është i fshehur</string>
+  <string name="revanced_hide_ask_button_summary_off">Butoni Pyet shfaqet</string>
   <!-- 'Clip' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_clip_button_title">Fsheh \"Klip\"</string>
   <string name="revanced_hide_clip_button_summary_on">Butoni \"Klip\" është i fshehur</string>
