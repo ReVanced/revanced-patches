@@ -522,6 +522,11 @@ Second \"item\" text"</string>
   <string name="revanced_hide_thanks_button_title">隐藏「感谢」按钮</string>
   <string name="revanced_hide_thanks_button_summary_on">感谢按钮已隐藏</string>
   <string name="revanced_hide_thanks_button_summary_off">感谢按钮已显示</string>
+  <!-- 'Ask' should be translated with the same localized wording that YouTube displays.
+                 Button only shows if the user ip is from specific region such as the USA or EU. -->
+  <string name="revanced_hide_ask_button_title">隐藏“提问”</string>
+  <string name="revanced_hide_ask_button_summary_on">“提问”按钮已隐藏</string>
+  <string name="revanced_hide_ask_button_summary_off">“提问”按钮已显示</string>
   <!-- 'Clip' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_clip_button_title">隐藏「剪辑」按钮</string>
   <string name="revanced_hide_clip_button_summary_on">剪辑按钮已隐藏</string>

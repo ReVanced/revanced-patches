@@ -56,7 +56,6 @@ private val sponsorBlockResourcePatch = resourcePatch {
                 "revanced_sb_skip_sponsor_button.xml",
             ),
             ResourceGroup(
-                // required resource for back button, because when the base APK is used, this resource will not exist
                 "drawable",
                 "revanced_sb_adjust.xml",
                 "revanced_sb_backward.xml",
@@ -209,7 +208,7 @@ val sponsorBlockPatch = bytecodePatch(
         controlsOverlayFingerprint.match(layoutConstructorFingerprint.originalClassDef).let {
             val startIndex = it.instructionMatches.first().index
             it.method.apply {
-                val frameLayoutRegister = (getInstruction(startIndex + 2) as OneRegisterInstruction).registerA
+                val frameLayoutRegister = getInstruction<OneRegisterInstruction>(startIndex + 2).registerA
                 addInstruction(
                     startIndex + 3,
                     "invoke-static {v$frameLayoutRegister}, $EXTENSION_SPONSORBLOCK_VIEW_CONTROLLER_CLASS_DESCRIPTOR->initialize(Landroid/view/ViewGroup;)V",

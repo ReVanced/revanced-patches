@@ -519,6 +519,11 @@ Ajusta el volumen deslizando verticalmente en el lado derecho de la pantalla"</s
   <string name="revanced_hide_thanks_button_title">Ocultar Gracias</string>
   <string name="revanced_hide_thanks_button_summary_on">El botón de gracias está oculto</string>
   <string name="revanced_hide_thanks_button_summary_off">Se muestra el botón de gracias</string>
+  <!-- 'Ask' should be translated with the same localized wording that YouTube displays.
+                 Button only shows if the user ip is from specific region such as the USA or EU. -->
+  <string name="revanced_hide_ask_button_title">Ocultar pregunta</string>
+  <string name="revanced_hide_ask_button_summary_on">El botón \"Preguntar\" está oculto</string>
+  <string name="revanced_hide_ask_button_summary_off">Se muestra el botón \"Preguntar\"</string>
   <!-- 'Clip' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_clip_button_title">Ocultar Recortar</string>
   <string name="revanced_hide_clip_button_summary_on">El botón del recortar está oculto</string>

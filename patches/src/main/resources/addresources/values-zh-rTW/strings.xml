@@ -508,6 +508,8 @@ Second \"item\" text"</string>
   <string name="revanced_hide_thanks_button_title">隱藏感謝</string>
   <string name="revanced_hide_thanks_button_summary_on">已隱藏「感謝」按鈕</string>
   <string name="revanced_hide_thanks_button_summary_off">已顯示「感謝」按鈕</string>
+  <!-- 'Ask' should be translated with the same localized wording that YouTube displays.
+                 Button only shows if the user ip is from specific region such as the USA or EU. -->
   <!-- 'Clip' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_clip_button_title">隱藏剪輯片段</string>
   <string name="revanced_hide_clip_button_summary_on">已隱藏「剪輯片段」按鈕</string>

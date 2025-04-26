@@ -522,6 +522,11 @@ Podesite jačinu zvuka prevlačenjem vertikalno na desnoj strani ekrana"</string
   <string name="revanced_hide_thanks_button_title">Sakrij dugme „Hvala”</string>
   <string name="revanced_hide_thanks_button_summary_on">Dugme „Hvala” je skriveno</string>
   <string name="revanced_hide_thanks_button_summary_off">Dugme „Hvala” je prikazano</string>
+  <!-- 'Ask' should be translated with the same localized wording that YouTube displays.
+                 Button only shows if the user ip is from specific region such as the USA or EU. -->
+  <string name="revanced_hide_ask_button_title">Sakrij dugme „Pitaj”</string>
+  <string name="revanced_hide_ask_button_summary_on">Dugme „Pitaj” je skriveno</string>
+  <string name="revanced_hide_ask_button_summary_off">Dugme „Pitaj” je prikazano</string>
   <!-- 'Clip' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_clip_button_title">Sakrij dugme „Klip”</string>
   <string name="revanced_hide_clip_button_summary_on">Dugme „Klip” je skriveno</string>

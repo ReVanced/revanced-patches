@@ -522,6 +522,11 @@ MicroG-ի համար մարտկոցի օպտիմալացումը անջատել�
   <string name="revanced_hide_thanks_button_title">Թաքցնել Thanks</string>
   <string name="revanced_hide_thanks_button_summary_on">Thanks կոճակը թաքցված է</string>
   <string name="revanced_hide_thanks_button_summary_off">Thanks կոճակը ցուցադրվում է</string>
+  <!-- 'Ask' should be translated with the same localized wording that YouTube displays.
+                 Button only shows if the user ip is from specific region such as the USA or EU. -->
+  <string name="revanced_hide_ask_button_title">Թաքցնել հարցումը</string>
+  <string name="revanced_hide_ask_button_summary_on">Հարցման կոճակը թաքցված է</string>
+  <string name="revanced_hide_ask_button_summary_off">Հարցման կոճակը երևում է</string>
   <!-- 'Clip' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_clip_button_title">Թաքցնել Clip</string>
   <string name="revanced_hide_clip_button_summary_on">Clip կոճակը թաքցված է</string>

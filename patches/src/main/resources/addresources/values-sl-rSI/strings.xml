@@ -522,6 +522,11 @@ Prilagodite glasnost s potegom navpično na desni strani zaslona"</string>
   <string name="revanced_hide_thanks_button_title">Skrij Hvala</string>
   <string name="revanced_hide_thanks_button_summary_on">Gumb Hvala je skrit</string>
   <string name="revanced_hide_thanks_button_summary_off">Gumb Hvala je prikazan</string>
+  <!-- 'Ask' should be translated with the same localized wording that YouTube displays.
+                 Button only shows if the user ip is from specific region such as the USA or EU. -->
+  <string name="revanced_hide_ask_button_title">Skrij Vprašaj</string>
+  <string name="revanced_hide_ask_button_summary_on">Gumb Vprašaj je skrit</string>
+  <string name="revanced_hide_ask_button_summary_off">Gumb Vprašaj je prikazan</string>
   <!-- 'Clip' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_clip_button_title">Skrij Izrezek</string>
   <string name="revanced_hide_clip_button_summary_on">Gumb Izrezek je skrit</string>

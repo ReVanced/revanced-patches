@@ -81,33 +81,29 @@ val spoofAppVersionPatch = bytecodePatch(
          * missing image resources. As a workaround, do not set an image in the
          * toolbar when the enum name is UNKNOWN.
          */
-        toolBarButtonFingerprint.let {
-            it.method.apply {
-                val imageResourceIndex = it.instructionMatches[2].index
-                val register = getInstruction<OneRegisterInstruction>(imageResourceIndex).registerA
-                val jumpIndex = it.instructionMatches.last().index + 1
+        toolBarButtonFingerprint.apply {
+            val imageResourceIndex = instructionMatches[2].index
+            val register = method.getInstruction<OneRegisterInstruction>(imageResourceIndex).registerA
+            val jumpIndex = instructionMatches.last().index + 1
 
-                addInstructionsWithLabels(
-                    imageResourceIndex + 1,
-                    "if-eqz v$register, :ignore",
-                    ExternalLabel("ignore", getInstruction(jumpIndex))
-                )
-            }
+            method.addInstructionsWithLabels(
+                imageResourceIndex + 1,
+                "if-eqz v$register, :ignore",
+                ExternalLabel("ignore", method.getInstruction(jumpIndex))
+            )
         }
 
-        spoofAppVersionFingerprint.let {
-            it.method.apply {
-                val index = it.instructionMatches.first().index
-                val register = getInstruction<OneRegisterInstruction>(index).registerA
+        spoofAppVersionFingerprint.apply {
+            val index = instructionMatches.first().index
+            val register = method.getInstruction<OneRegisterInstruction>(index).registerA
 
-                addInstructions(
-                    index + 1,
-                    """
-                        invoke-static { v$register }, $EXTENSION_CLASS_DESCRIPTOR->getYouTubeVersionOverride(Ljava/lang/String;)Ljava/lang/String;
-                        move-result-object v$register
-                    """
-                )
-            }
+            method.addInstructions(
+                index + 1,
+                """
+                    invoke-static { v$register }, $EXTENSION_CLASS_DESCRIPTOR->getYouTubeVersionOverride(Ljava/lang/String;)Ljava/lang/String;
+                    move-result-object v$register
+                """
+            )
         }
     }
 }

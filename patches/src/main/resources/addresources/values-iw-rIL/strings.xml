@@ -508,6 +508,8 @@ Second \"item\" text"</string>
   <string name="revanced_hide_thanks_button_title">הסתר תודה</string>
   <string name="revanced_hide_thanks_button_summary_on">לחצן תודה מוסתר</string>
   <string name="revanced_hide_thanks_button_summary_off">לחצן תודה מוצג</string>
+  <!-- 'Ask' should be translated with the same localized wording that YouTube displays.
+                 Button only shows if the user ip is from specific region such as the USA or EU. -->
   <!-- 'Clip' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_clip_button_title">הסתר קליפ</string>
   <string name="revanced_hide_clip_button_summary_on">לחצן קליפ מוסתר</string>

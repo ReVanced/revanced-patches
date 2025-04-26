@@ -522,6 +522,11 @@ Ekranın sağ tərəfində düzünə sürüşdürərək səs səviyyəsini tənz
   <string name="revanced_hide_thanks_button_title">\"Təşəkkürlər\"i gizlət</string>
   <string name="revanced_hide_thanks_button_summary_on">Təşəkkür düyməsi gizlidir</string>
   <string name="revanced_hide_thanks_button_summary_off">Təşəkkür düyməsi göstərilir</string>
+  <!-- 'Ask' should be translated with the same localized wording that YouTube displays.
+                 Button only shows if the user ip is from specific region such as the USA or EU. -->
+  <string name="revanced_hide_ask_button_title">Soruş\'u Gizlət</string>
+  <string name="revanced_hide_ask_button_summary_on">Soruş düyməsi gizlidir</string>
+  <string name="revanced_hide_ask_button_summary_off">\"Soruş\" düyməsi göstərilir</string>
   <!-- 'Clip' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_clip_button_title">Kəsmə/ gizlət</string>
   <string name="revanced_hide_clip_button_summary_on">Kəsmə düyməsi gizlidir</string>
@@ -1250,7 +1255,7 @@ Bunu aktivləşdirmə, bəzi regionlarda əngəllənib silinən şəkilləri dü
   <string name="revanced_alt_thumbnail_options_entry_2">DeArrow &amp; Orijinal miniatürlər</string>
   <string name="revanced_alt_thumbnail_options_entry_3">DeArrow &amp; Kadr çəkilişlər</string>
   <string name="revanced_alt_thumbnail_options_entry_4">Kadr çəkilişləri</string>
-  <string name="revanced_alt_thumbnail_dearrow_about_summary">"DeArrow YouTube videoları üçün izdiham mənbəli miniatürlər təqdim edir. Bu miniatürlər YouTube tərəfindən təqdim edilənlərdən dəfələrlə daha uyğundur.
+  <string name="revanced_alt_thumbnail_dearrow_about_summary">"DeArrow YouTube videoları üçün çox mənbəli miniatürlər təqdim edir. Bu miniatürlər YouTube tərəfindən təqdim edilənlərdən dəfələrlə daha uyğundur.
 
 Aktivləşdirilərsə, video URL-lər API alıcısına göndəriləcək və başqa məlumat göndərilməyəcək. Videonun DeArrow miniatürləri yoxdursa, orijinal və ya hələ də çəkilişlər göstərilir.
 

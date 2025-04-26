@@ -485,6 +485,11 @@ Juster lydstyrken ved at swipe lodret i højre side af skærmen"</string>
   <string name="revanced_hide_thanks_button_title">Skjul Tak</string>
   <string name="revanced_hide_thanks_button_summary_on">Tak knappen er skjult</string>
   <string name="revanced_hide_thanks_button_summary_off">Tak knappen er vist</string>
+  <!-- 'Ask' should be translated with the same localized wording that YouTube displays.
+                 Button only shows if the user ip is from specific region such as the USA or EU. -->
+  <string name="revanced_hide_ask_button_title">Skjul Spørg</string>
+  <string name="revanced_hide_ask_button_summary_on">Spørg-knappen er skjult</string>
+  <string name="revanced_hide_ask_button_summary_off">Spørg-knappen vises</string>
   <!-- 'Clip' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_clip_button_title">Skjul klip</string>
   <string name="revanced_hide_clip_button_summary_on">Klip knappen er skjult</string>
