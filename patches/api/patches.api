@@ -642,14 +642,12 @@ public abstract class app/revanced/patches/shared/misc/settings/preference/BaseP
 	public static final field Companion Lapp/revanced/patches/shared/misc/settings/preference/BasePreference$Companion;
 	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public fun equals (Ljava/lang/Object;)Z
 	public final fun getIcon ()Ljava/lang/String;
 	public final fun getKey ()Ljava/lang/String;
 	public final fun getLayout ()Ljava/lang/String;
 	public final fun getSummaryKey ()Ljava/lang/String;
 	public final fun getTag ()Ljava/lang/String;
 	public final fun getTitleKey ()Ljava/lang/String;
-	public fun hashCode ()I
 	public fun serialize (Lorg/w3c/dom/Document;Lkotlin/jvm/functions/Function1;)Lorg/w3c/dom/Element;
 }
 
