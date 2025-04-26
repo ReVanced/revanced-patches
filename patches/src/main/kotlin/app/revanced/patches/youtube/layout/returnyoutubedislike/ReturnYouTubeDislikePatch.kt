@@ -89,7 +89,7 @@ val returnYouTubeDislikePatch = bytecodePatch(
 
         // region Hook like/dislike/remove like button clicks to send votes to the API.
 
-        mapOf(
+        arrayOf(
             likeFingerprint to Vote.LIKE,
             dislikeFingerprint to Vote.DISLIKE,
             removeLikeFingerprint to Vote.REMOVE_LIKE,

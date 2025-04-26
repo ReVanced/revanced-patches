@@ -239,7 +239,7 @@ val themePatch = bytecodePatch(
             )
         }
 
-        mapOf(
+        arrayOf(
             themeHelperLightColorFingerprint to lightThemeBackgroundColor,
             themeHelperDarkColorFingerprint to darkThemeBackgroundColor,
         ).forEach { (fingerprint, color) ->

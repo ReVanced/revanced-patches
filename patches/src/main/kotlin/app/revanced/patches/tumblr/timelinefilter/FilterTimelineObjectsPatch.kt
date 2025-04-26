@@ -47,7 +47,7 @@ val filterTimelineObjectsPatch = bytecodePatch(
             }
         }
 
-        mapOf(
+        arrayOf(
             timelineConstructorFingerprint to 1,
             postsResponseConstructorFingerprint to 2,
         ).forEach { (fingerprint, timelineObjectsRegister) ->
