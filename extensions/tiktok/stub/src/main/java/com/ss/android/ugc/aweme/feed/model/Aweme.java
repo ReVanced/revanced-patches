@@ -33,4 +33,8 @@ public class Aweme {
     public AwemeStatistics getStatistics() {
         throw new UnsupportedOperationException("Stub");
     }
+
+    public String getShareUrl() {
+        throw new UnsupportedOperationException("Stub");
+    }
 }

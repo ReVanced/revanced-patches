@@ -14,7 +14,8 @@ public final class FeedItemsFilter {
             new StoryFilter(),
             new ImageVideoFilter(),
             new ViewCountFilter(),
-            new LikeCountFilter()
+            new LikeCountFilter(),
+            new ShopFilter()
     );
 
     public static void filter(FeedItemList feedItemList) {
