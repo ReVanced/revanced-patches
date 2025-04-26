@@ -1,3 +1,16 @@
+# [5.22.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.21.0...v5.22.0-dev.1) (2025-04-26)
+
+
+### Bug Fixes
+
+* **TikTok - Feed filter:** Hide ads in following feed ([#4844](https://github.com/ReVanced/revanced-patches/issues/4844)) ([c255ac1](https://github.com/ReVanced/revanced-patches/commit/c255ac18e0b2dcf917bd0559876be5a2a81023db))
+* **YouTube - Spoof app version:** Do not hide spoof version in general settings menu ([#4861](https://github.com/ReVanced/revanced-patches/issues/4861)) ([f459c3c](https://github.com/ReVanced/revanced-patches/commit/f459c3c7fae3a1b8addf3354488dcef9f95255cc))
+
+
+### Features
+
+* **TikTok - Feed Filter:** Remove TikTok Shop from feed. ([#4851](https://github.com/ReVanced/revanced-patches/issues/4851)) ([f198bec](https://github.com/ReVanced/revanced-patches/commit/f198bece653e3e1adf083129dedb77c1d1a633d7))
+
 # [5.21.0](https://github.com/ReVanced/revanced-patches/compare/v5.20.1...v5.21.0) (2025-04-25)
 
 
