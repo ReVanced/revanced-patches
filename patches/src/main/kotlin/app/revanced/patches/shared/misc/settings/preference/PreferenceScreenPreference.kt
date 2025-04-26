@@ -40,16 +40,6 @@ open class PreferenceScreenPreference(
             }
         }
 
-    override fun hashCode(): Int {
-        var result = super.hashCode()
-        result = 31 * result + preferences.hashCode()
-        return result
-    }
-
-    override fun equals(other: Any?): Boolean {
-        return super.equals(other) && other is PreferenceCategory && preferences == other.preferences
-    }
-
     /**
      * How a PreferenceScreen should be sorted.
      */
