@@ -73,7 +73,7 @@ val spoofAppVersionPatch = bytecodePatch(
 
         PreferenceScreen.GENERAL_LAYOUT.addPreferences(
             // Group the switch and list preference together, since General menu is sorted by name
-            // and the preferences can be scattered apart with non English langauges.
+            // and the preferences can be scattered apart with non English languages.
             PreferenceCategory(
                 titleKey = null,
                 sorting = Sorting.UNSORTED,
@@ -122,16 +122,19 @@ val spoofAppVersionPatch = bytecodePatch(
             )
         }
 
-        val insertIndex = spoofAppVersionFingerprint.patternMatch!!.startIndex + 1
-        val buildOverrideNameRegister =
-            spoofAppVersionFingerprint.method.getInstruction<OneRegisterInstruction>(insertIndex - 1).registerA
+        spoofAppVersionFingerprint.let {
+            val startIndex = it.patternMatch!!.startIndex
+            it.method.apply {
+                val buildOverrideNameRegister = getInstruction<OneRegisterInstruction>(startIndex).registerA
 
-        spoofAppVersionFingerprint.method.addInstructions(
-            insertIndex,
-            """
-                invoke-static {v$buildOverrideNameRegister}, $EXTENSION_CLASS_DESCRIPTOR->getYouTubeVersionOverride(Ljava/lang/String;)Ljava/lang/String;
-                move-result-object v$buildOverrideNameRegister
-            """
-        )
+                addInstructions(
+                    startIndex + 1,
+                    """
+                        invoke-static {v$buildOverrideNameRegister}, $EXTENSION_CLASS_DESCRIPTOR->getYouTubeVersionOverride(Ljava/lang/String;)Ljava/lang/String;
+                        move-result-object v$buildOverrideNameRegister
+                    """
+                )
+            }
+        }
     }
 }
