@@ -122,19 +122,17 @@ val spoofAppVersionPatch = bytecodePatch(
             )
         }
 
-        spoofAppVersionFingerprint.let {
-            val startIndex = it.patternMatch!!.startIndex
-            it.method.apply {
-                val buildOverrideNameRegister = getInstruction<OneRegisterInstruction>(startIndex).registerA
+        spoofAppVersionFingerprint.apply {
+            val startIndex = patternMatch!!.startIndex
+            val buildOverrideNameRegister = method.getInstruction<OneRegisterInstruction>(startIndex).registerA
 
-                addInstructions(
-                    startIndex + 1,
-                    """
-                        invoke-static {v$buildOverrideNameRegister}, $EXTENSION_CLASS_DESCRIPTOR->getYouTubeVersionOverride(Ljava/lang/String;)Ljava/lang/String;
-                        move-result-object v$buildOverrideNameRegister
-                    """
-                )
-            }
+            method.addInstructions(
+                startIndex + 1,
+                """
+                    invoke-static {v$buildOverrideNameRegister}, $EXTENSION_CLASS_DESCRIPTOR->getYouTubeVersionOverride(Ljava/lang/String;)Ljava/lang/String;
+                    move-result-object v$buildOverrideNameRegister
+                """
+            )
         }
     }
 }
