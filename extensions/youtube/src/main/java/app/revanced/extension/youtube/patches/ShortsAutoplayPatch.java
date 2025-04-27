@@ -2,8 +2,6 @@ package app.revanced.extension.youtube.patches;
 
 import android.app.Activity;
 
-import androidx.annotation.Nullable;
-
 import java.lang.ref.WeakReference;
 import java.util.Objects;
 
@@ -30,15 +28,10 @@ public class ShortsAutoplayPatch {
 
         static void setYTEnumValue(Enum<?> ytBehavior) {
             for (ShortsLoopBehavior rvBehavior : values()) {
-                String ytName = ytBehavior.name();
-                if (ytName.endsWith(rvBehavior.name())) {
-                    if (rvBehavior.ytEnumValue != null) {
-                        Logger.printException(() -> "Conflicting behavior names: " + rvBehavior
-                                + " ytBehavior: " + ytName);
-                    } else {
-                        rvBehavior.ytEnumValue = ytBehavior;
-                        Logger.printDebug(() -> rvBehavior + " set to YT enum: " + ytName);
-                    }
+                if (ytBehavior.name().endsWith(rvBehavior.name())) {
+                    rvBehavior.ytEnumValue = ytBehavior;
+
+                    Logger.printDebug(() -> rvBehavior + " set to YT enum: " + ytBehavior.name());
                     return;
                 }
             }
@@ -83,9 +76,10 @@ public class ShortsAutoplayPatch {
     /**
      * Injection point.
      */
-    public static Enum<?> changeShortsRepeatBehavior(@Nullable Enum<?> original) {
+    public static Enum<?> changeShortsRepeatBehavior(Enum<?> original) {
         try {
             final boolean autoplay;
+
             if (isAppInBackgroundPiPMode()) {
                 if (!VersionCheckPatch.IS_19_34_OR_GREATER) {
                     // 19.34+ is required to set background play behavior.
@@ -113,8 +107,16 @@ public class ShortsAutoplayPatch {
 
                 return overrideBehavior;
             }
+
+            if (original == null) {
+                // Cannot return null, as null is used to indicate Short was auto played.
+                // Unpatched app replaces null with unknown enum type (appears to fix for bad api data).
+                Enum<?> unknown = ShortsLoopBehavior.UNKNOWN.ytEnumValue;
+                Logger.printDebug(() -> "Original is null, returning: " + unknown.name());
+                return unknown;
+            }
         } catch (Exception ex) {
-            Logger.printException(() -> "changeShortsRepeatBehavior failure", ex);
+            Logger.printException(() -> "changeShortsRepeatState failure", ex);
         }
 
         return original;
