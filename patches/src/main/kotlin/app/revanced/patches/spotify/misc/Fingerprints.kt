@@ -65,6 +65,10 @@ internal val protobufListsFingerprint = fingerprint {
     custom { method, _ -> method.name == "emptyProtobufList" }
 }
 
+val protobufListRemoveFingerprint = fingerprint {
+    custom { method, _ -> method.name == "remove" }
+}
+
 internal val homeSectionFingerprint = fingerprint {
     custom { _, classDef -> classDef.endsWith("homeapi/proto/Section;") }
 }
