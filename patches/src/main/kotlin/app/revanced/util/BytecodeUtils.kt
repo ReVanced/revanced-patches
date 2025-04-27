@@ -17,6 +17,7 @@ import app.revanced.patches.shared.misc.mapping.resourceMappings
 import app.revanced.util.InstructionUtils.Companion.branchOpcodes
 import app.revanced.util.InstructionUtils.Companion.returnOpcodes
 import app.revanced.util.InstructionUtils.Companion.writeOpcodes
+import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.Opcode.*
 import com.android.tools.smali.dexlib2.iface.Method
@@ -167,6 +168,15 @@ internal val Instruction.isBranchInstruction: Boolean
  */
 internal val Instruction.isReturnInstruction: Boolean
     get() = this.opcode in returnOpcodes
+
+/**
+ * Adds public [AccessFlags] and removes private and protected flags (if present).
+ */
+internal fun changeAccessFlagsToPublic(accessFlags: Int) : Int {
+    return accessFlags.or(AccessFlags.PUBLIC.value)
+        .and(AccessFlags.PRIVATE.value.inv())
+        .and(AccessFlags.PROTECTED.value.inv())
+}
 
 /**
  * Find the [MutableMethod] from a given [Method] in a [MutableClass].

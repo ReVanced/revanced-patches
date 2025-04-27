@@ -12,10 +12,10 @@ import app.revanced.patcher.util.proxy.mutableTypes.MutableClass
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patches.spotify.misc.extension.IS_SPOTIFY_LEGACY_APP_TARGET
 import app.revanced.patches.spotify.misc.extension.sharedExtensionPatch
+import app.revanced.util.changeAccessFlagsToPublic
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
 import app.revanced.util.indexOfFirstInstructionReversedOrThrow
-import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
@@ -48,7 +48,7 @@ val unlockPremiumPatch = bytecodePatch(
         fun MutableClass.makePrivateFieldPublic(fieldName: String) {
             fields.first { it.name == fieldName }.apply {
                 // Add public flag and remove private.
-                accessFlags = accessFlags.or(AccessFlags.PUBLIC.value).and(AccessFlags.PRIVATE.value.inv())
+                accessFlags = changeAccessFlagsToPublic(accessFlags)
             }
         }
 
