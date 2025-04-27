@@ -65,7 +65,7 @@ internal val protobufListsFingerprint = fingerprint {
     custom { method, _ -> method.name == "emptyProtobufList" }
 }
 
-val protobufListRemoveFingerprint = fingerprint {
+internal val protobufListRemoveFingerprint = fingerprint {
     custom { method, _ -> method.name == "remove" }
 }
 
