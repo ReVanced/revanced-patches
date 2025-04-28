@@ -1378,6 +1378,7 @@ Enabling this can unlock higher video qualities"</string>
         <patch id="misc.gms.gmsCoreSupportResourcePatch">
             <string name="microg_settings_title">GmsCore Settings</string>
             <string name="microg_settings_summary">Settings for GmsCore</string>
+            <string name="offline_no_content_body_text_not_offline_eligible">You\'re offline. If you recently changed your account login details, then uninstall and reinstall MicroG.</string>
         </patch>
         <patch id="misc.links.bypassURLRedirectsPatch">
             <string name="revanced_bypass_url_redirects_title">Bypass URL redirects</string>

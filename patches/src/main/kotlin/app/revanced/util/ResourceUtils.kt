@@ -141,8 +141,48 @@ internal fun Node.addResource(
     resource: BaseResource,
     resourceCallback: (BaseResource) -> Unit = { },
 ) {
-    appendChild(resource.serialize(ownerDocument, resourceCallback))
+    val node = resource.serialize(ownerDocument, resourceCallback)
+    val existing = findChildWithSameNameAndAttributes(node)
+
+    if (existing != null) {
+        existing.textContent = node.textContent
+    } else {
+        appendChild(node)
+    }
 }
+
+internal fun Node.findChildWithSameNameAndAttributes(other: Node): Node? {
+    val children = this.childNodes
+    for (i in 0 until children.length) {
+        val child = children.item(i)
+        if (child.nodeType == Node.ELEMENT_NODE && child.nodeName == other.nodeName) {
+            if (child.hasSameAttributesAs(other)) {
+                return child
+            }
+        }
+    }
+    return null
+}
+
+internal fun Node.hasSameAttributesAs(other: Node): Boolean {
+    val attrs1 = this.attributes
+    val attrs2 = other.attributes
+
+    if (attrs1.length != attrs2.length) {
+        return false
+    }
+
+    for (i in 0 until attrs1.length) {
+        val attr1 = attrs1.item(i)
+        val attr2 = attrs2.getNamedItem(attr1.nodeName)
+        if (attr2 == null || attr1.nodeValue != attr2.nodeValue) {
+            return false
+        }
+    }
+
+    return true
+}
+
 
 internal fun org.w3c.dom.Document.getNode(tagName: String) = this.getElementsByTagName(tagName).item(0)
 
