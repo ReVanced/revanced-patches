@@ -3,18 +3,15 @@ package app.revanced.extension.youtube.settings.preference;
 import static app.revanced.extension.shared.Utils.getResourceIdentifier;
 
 import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.app.Dialog;
 import android.graphics.Insets;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
-import android.os.Bundle;
 import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceScreen;
 import android.util.Pair;
 import android.util.TypedValue;
-import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowInsets;
