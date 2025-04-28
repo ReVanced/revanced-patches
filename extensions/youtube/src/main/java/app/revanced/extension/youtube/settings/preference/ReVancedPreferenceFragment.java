@@ -7,12 +7,15 @@ import android.app.Dialog;
 import android.graphics.Insets;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
+import android.os.Bundle;
 import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceScreen;
 import android.util.Pair;
 import android.util.TypedValue;
+import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.view.WindowInsets;
 import android.widget.TextView;
 import android.widget.Toolbar;
@@ -124,6 +127,25 @@ public class ReVancedPreferenceFragment extends AbstractPreferenceFragment {
         }
     }
 
+    @Override
+    public void onViewCreated(View view, Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        // Fix the system navigation bar color for the root screen.
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            Window window = getActivity() != null ? getActivity().getWindow() : null;
+            if (window != null) {
+                int navBarColor = ThemeHelper.getBackgroundColor();
+                window.setNavigationBarColor(navBarColor);
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O_MR1) {
+                    window.setNavigationBarContrastEnforced(true);
+                }
+            } else {
+                Logger.printDebug(() -> "Failed to get Activity window for navigation bar color");
+            }
+        }
+    }
+
     private void setPreferenceScreenToolbar(PreferenceScreen parentScreen) {
         for (int i = 0, preferenceCount = parentScreen.getPreferenceCount(); i < preferenceCount; i++) {
             Preference childPreference = parentScreen.getPreference(i);
@@ -137,6 +159,16 @@ public class ReVancedPreferenceFragment extends AbstractPreferenceFragment {
                             ViewGroup rootView = (ViewGroup) preferenceScreenDialog
                                     .findViewById(android.R.id.content)
                                     .getParent();
+
+                            // Fix the system navigation bar color.
+                            Window window = preferenceScreenDialog.getWindow();
+                            if (window != null && Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                                int navBarColor = ThemeHelper.getBackgroundColor();
+                                window.setNavigationBarColor(navBarColor);
+                                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O_MR1) {
+                                    window.setNavigationBarContrastEnforced(true);
+                                }
+                            }
 
                             // Fix edge-to-edge screen with Android 15 and YT 19.45+
                             // https://developer.android.com/develop/ui/views/layout/edge-to-edge#system-bars-insets
