@@ -110,6 +110,9 @@ public class LicenseActivityHook {
 
             createToolbar(licenseActivity, toolbarTitleResourceName);
 
+            // Apply the navigation bar color to the fragment being loaded.
+            ThemeHelper.setNavigationBarColor(licenseActivity);
+
             //noinspection deprecation
             licenseActivity.getFragmentManager()
                     .beginTransaction()
@@ -126,7 +129,7 @@ public class LicenseActivityHook {
         // This is required to fix submenu title alignment issue with Android ASOP 15+
         ViewGroup toolBarParent = activity.findViewById(
                 getResourceIdentifier("revanced_toolbar_parent", "id"));
-        ViewGroup dummyToolbar = Utils.getChildViewByResourceName(toolBarParent,"revanced_toolbar");
+        ViewGroup dummyToolbar = Utils.getChildViewByResourceName(toolBarParent, "revanced_toolbar");
         toolbarLayoutParams = dummyToolbar.getLayoutParams();
         toolBarParent.removeView(dummyToolbar);
 
@@ -149,5 +152,4 @@ public class LicenseActivityHook {
 
         toolBarParent.addView(toolbar, 0);
     }
-
 }

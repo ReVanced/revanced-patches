@@ -128,27 +128,6 @@ public class ReVancedPreferenceFragment extends AbstractPreferenceFragment {
         }
     }
 
-    @Override
-    public void onViewCreated(View view, Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-
-        // Fix the system navigation bar color for the root screen.
-        Activity activity = getActivity();
-        if (activity != null) {
-            Window window = activity.getWindow();
-            if (window != null) {
-                window.setNavigationBarColor(ThemeHelper.getBackgroundColor());
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-                    window.setNavigationBarContrastEnforced(true);
-                }
-
-                return;
-            }
-        }
-
-        Logger.printDebug(() -> "Failed to get Activity window for navigation bar color");
-    }
-
     private void setPreferenceScreenToolbar(PreferenceScreen parentScreen) {
         for (int i = 0, preferenceCount = parentScreen.getPreferenceCount(); i < preferenceCount; i++) {
             Preference childPreference = parentScreen.getPreference(i);
@@ -163,7 +142,7 @@ public class ReVancedPreferenceFragment extends AbstractPreferenceFragment {
                                     .findViewById(android.R.id.content)
                                     .getParent();
 
-                            // Fix the system navigation bar color.
+                            // Fix the system navigation bar color for submenus.
                             Window window = preferenceScreenDialog.getWindow();
                             if (window != null) {
                                 window.setNavigationBarColor(ThemeHelper.getBackgroundColor());
