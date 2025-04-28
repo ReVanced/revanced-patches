@@ -3,6 +3,7 @@ package app.revanced.extension.youtube.settings.preference;
 import static app.revanced.extension.shared.Utils.getResourceIdentifier;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.app.Dialog;
 import android.graphics.Insets;
 import android.graphics.drawable.Drawable;
@@ -132,18 +133,20 @@ public class ReVancedPreferenceFragment extends AbstractPreferenceFragment {
         super.onViewCreated(view, savedInstanceState);
 
         // Fix the system navigation bar color for the root screen.
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            Window window = getActivity() != null ? getActivity().getWindow() : null;
+        Activity activity = getActivity();
+        if (activity != null) {
+            Window window = activity.getWindow();
             if (window != null) {
-                int navBarColor = ThemeHelper.getBackgroundColor();
-                window.setNavigationBarColor(navBarColor);
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O_MR1) {
+                window.setNavigationBarColor(ThemeHelper.getBackgroundColor());
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
                     window.setNavigationBarContrastEnforced(true);
                 }
-            } else {
-                Logger.printDebug(() -> "Failed to get Activity window for navigation bar color");
+
+                return;
             }
         }
+
+        Logger.printDebug(() -> "Failed to get Activity window for navigation bar color");
     }
 
     private void setPreferenceScreenToolbar(PreferenceScreen parentScreen) {
@@ -162,10 +165,9 @@ public class ReVancedPreferenceFragment extends AbstractPreferenceFragment {
 
                             // Fix the system navigation bar color.
                             Window window = preferenceScreenDialog.getWindow();
-                            if (window != null && Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                                int navBarColor = ThemeHelper.getBackgroundColor();
-                                window.setNavigationBarColor(navBarColor);
-                                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O_MR1) {
+                            if (window != null) {
+                                window.setNavigationBarColor(ThemeHelper.getBackgroundColor());
+                                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
                                     window.setNavigationBarContrastEnforced(true);
                                 }
                             }
