@@ -13,7 +13,6 @@ import android.preference.PreferenceScreen;
 import android.util.Pair;
 import android.util.TypedValue;
 import android.view.ViewGroup;
-import android.view.Window;
 import android.view.WindowInsets;
 import android.widget.TextView;
 import android.widget.Toolbar;
@@ -140,13 +139,7 @@ public class ReVancedPreferenceFragment extends AbstractPreferenceFragment {
                                     .getParent();
 
                             // Fix the system navigation bar color for submenus.
-                            Window window = preferenceScreenDialog.getWindow();
-                            if (window != null) {
-                                window.setNavigationBarColor(ThemeHelper.getBackgroundColor());
-                                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-                                    window.setNavigationBarContrastEnforced(true);
-                                }
-                            }
+                            ThemeHelper.setNavigationBarColor(preferenceScreenDialog.getWindow());
 
                             // Fix edge-to-edge screen with Android 15 and YT 19.45+
                             // https://developer.android.com/develop/ui/views/layout/edge-to-edge#system-bars-insets

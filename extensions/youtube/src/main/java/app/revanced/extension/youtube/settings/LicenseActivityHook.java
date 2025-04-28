@@ -84,6 +84,7 @@ public class LicenseActivityHook {
     public static void initialize(Activity licenseActivity) {
         try {
             ThemeHelper.setActivityTheme(licenseActivity);
+            ThemeHelper.setNavigationBarColor(licenseActivity.getWindow());
             licenseActivity.setContentView(getResourceIdentifier(
                     "revanced_settings_with_toolbar", "layout"));
 
@@ -109,9 +110,6 @@ public class LicenseActivityHook {
             }
 
             createToolbar(licenseActivity, toolbarTitleResourceName);
-
-            // Apply the navigation bar color to the fragment being loaded.
-            ThemeHelper.setNavigationBarColor(licenseActivity);
 
             //noinspection deprecation
             licenseActivity.getFragmentManager()

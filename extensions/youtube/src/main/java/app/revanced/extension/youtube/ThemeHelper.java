@@ -110,19 +110,15 @@ public class ThemeHelper {
      * Applies the background color obtained from {@link #getBackgroundColor()} to the navigation bar.
      * For Android 10 (API 29) and above, enforces navigation bar contrast to ensure visibility.
      */
-    public static void setNavigationBarColor(Activity activity) {
-        if (activity == null) {
-            Logger.printDebug(() -> "Activity is null, cannot set navigation bar color");
+    public static void setNavigationBarColor(@Nullable Window window) {
+        if (window == null) {
+            Logger.printDebug(() -> "Cannot set navigation bar color, window is null");
             return;
         }
-        Window window = activity.getWindow();
-        if (window != null) {
-            window.setNavigationBarColor(getBackgroundColor());
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-                window.setNavigationBarContrastEnforced(true);
-            }
-        } else {
-            Logger.printDebug(() -> "Failed to get Activity window for navigation bar color");
+
+        window.setNavigationBarColor(getBackgroundColor());
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+            window.setNavigationBarContrastEnforced(true);
         }
     }
 }
