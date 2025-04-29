@@ -1299,6 +1299,9 @@ Povolením tejto možnosti môžete odomknúť vyššie kvality videa"</string>
   <string name="microg_settings_title">Nastavenia GmsCore</string>
   <string name="microg_settings_summary">Nastavenia pre GmsCore</string>
   </patch>
+  <patch id="misc.gms.accountCredentialsInvalidTextPatch">
+  <string name="microg_offline_account_login_error">Ak ste nedávno zmenili prihlasovacie údaje svojho účtu, odinštalujte a znova nainštalujte MicroG.</string>
+  </patch>
   <patch id="misc.links.bypassURLRedirectsPatch">
   <string name="revanced_bypass_url_redirects_title">Obíďte presmerovania adries URL</string>
   <string name="revanced_bypass_url_redirects_summary_on">Presmerovania URL sú obchádzané</string>

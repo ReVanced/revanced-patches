@@ -1310,6 +1310,9 @@ Mengaktifkan ini dapat membuka kualitas video yang lebih tinggi"</string>
   <string name="microg_settings_title">Pengaturan GmsCore</string>
   <string name="microg_settings_summary">Pengaturan untuk GmsCore</string>
   </patch>
+  <patch id="misc.gms.accountCredentialsInvalidTextPatch">
+  <string name="microg_offline_account_login_error">Jika Anda baru saja mengubah detail login akun Anda, hapus instalan dan instal ulang MicroG.</string>
+  </patch>
   <patch id="misc.links.bypassURLRedirectsPatch">
   <string name="revanced_bypass_url_redirects_title">Abaikan pengalihan URL</string>
   <string name="revanced_bypass_url_redirects_summary_on">Pengalihan URL diabaikan</string>

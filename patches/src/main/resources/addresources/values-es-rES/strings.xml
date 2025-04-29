@@ -1299,6 +1299,9 @@ Habilitar esto puede desbloquear calidades de vídeo más altas"</string>
   <string name="microg_settings_title">Ajustes de GmsCore</string>
   <string name="microg_settings_summary">Configuración de GmsCore</string>
   </patch>
+  <patch id="misc.gms.accountCredentialsInvalidTextPatch">
+  <string name="microg_offline_account_login_error">Si has cambiado recientemente los datos de inicio de sesión de tu cuenta, desinstala y vuelve a instalar MicroG.</string>
+  </patch>
   <patch id="misc.links.bypassURLRedirectsPatch">
   <string name="revanced_bypass_url_redirects_title">Evitar redirecciones de URL</string>
   <string name="revanced_bypass_url_redirects_summary_on">Se omiten las redirecciones de URL</string>
