@@ -15,45 +15,42 @@ import app.revanced.util.indexOfFirstLiteralInstructionOrThrow
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
-private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/youtube/patches/OfflineLoginMessagePatch;"
+private const val EXTENSION_CLASS_DESCRIPTOR =
+    "Lapp/revanced/extension/youtube/patches/AccountCredentialsInvalidTextPatch;"
 
-internal var ic_offline_no_content_upside_down_id = -1L
+internal var ic_offline_no_content_upside_down = -1L
     private set
-internal var offline_no_content_body_text_not_offline_eligible_id = -1L
+internal var offline_no_content_body_text_not_offline_eligible = -1L
     private set
 
-private val offlineLoginMessageResourcePatch = resourcePatch {
+private val accountCredentialsInvalidTextResourcePatch = resourcePatch {
     execute {
-        addResources("youtube", "misc.gms.gmsCoreSupportResourcePatch")
-
-        ic_offline_no_content_upside_down_id = resourceMappings[
+        ic_offline_no_content_upside_down = resourceMappings[
             "drawable",
             "ic_offline_no_content_upside_down"
         ]
 
-        offline_no_content_body_text_not_offline_eligible_id = resourceMappings[
+        offline_no_content_body_text_not_offline_eligible = resourceMappings[
             "string",
             "offline_no_content_body_text_not_offline_eligible"
         ]
     }
 }
 
-internal val offlineLoginMessagePatch = bytecodePatch {
+internal val accountCredentialsInvalidTextPatch = bytecodePatch {
     dependsOn(
         sharedExtensionPatch,
-        offlineLoginMessageResourcePatch,
+        accountCredentialsInvalidTextResourcePatch,
         addResourcesPatch
     )
 
     execute {
-        addResources("youtube", "misc.gms.offlineLoginMessagePatch")
+        addResources("youtube", "misc.gms.accountCredentialsInvalidTextPatch")
 
-        // If the user has recently changed their account password,
-        // the app can show "You're offline. Check your internet connection"
-        // even when the internet is available.  The actual problem is
-        // the user changed their account login or security settings
-        // and for this situation YouTube + MicroG shows an
-        // offline error message.
+        // If the user recently changed their account password,
+        // the app can show "You're offline. Check your internet connection."
+        // even when the internet is available.  For this situation
+        // YouTube + MicroG shows an offline error message.
         //
         // Change the error text to inform the user to uninstall and reinstall MicroG.
         // The user can also fix this by deleting the MicroG account but
@@ -65,7 +62,7 @@ internal val offlineLoginMessagePatch = bytecodePatch {
         ).forEach { fingerprint ->
             fingerprint.method.apply {
                 val resourceIndex = indexOfFirstLiteralInstructionOrThrow(
-                    offline_no_content_body_text_not_offline_eligible_id
+                    offline_no_content_body_text_not_offline_eligible
                 )
                 val getStringIndex = indexOfFirstInstructionOrThrow(resourceIndex) {
                     val reference = getReference<MethodReference>()

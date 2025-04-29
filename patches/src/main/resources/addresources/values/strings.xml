@@ -1379,7 +1379,7 @@ Enabling this can unlock higher video qualities"</string>
             <string name="microg_settings_title">GmsCore Settings</string>
             <string name="microg_settings_summary">Settings for GmsCore</string>
         </patch>
-        <patch id="misc.gms.offlineLoginMessagePatch">
+        <patch id="misc.gms.accountCredentialsInvalidTextPatch">
             <string name="microg_offline_account_login_error">If you recently changed your account login details, then uninstall and reinstall MicroG.</string>
         </patch>
         <patch id="misc.links.bypassURLRedirectsPatch">

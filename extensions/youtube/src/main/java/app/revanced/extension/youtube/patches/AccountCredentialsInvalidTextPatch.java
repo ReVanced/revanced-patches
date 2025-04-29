@@ -6,7 +6,7 @@ import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
 
 @SuppressWarnings("unused")
-public class OfflineLoginMessagePatch {
+public class AccountCredentialsInvalidTextPatch {
 
     /**
      * Injection point.
