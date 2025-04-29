@@ -13,6 +13,21 @@
 * **TikTok - Feed Filter:** Remove TikTok Shop from feed. ([#4851](https://github.com/Ven0m0/revanced-patches/issues/4851)) ([f198bec](https://github.com/Ven0m0/revanced-patches/commit/f198bece653e3e1adf083129dedb77c1d1a633d7))
 * **YouTube - GmsCore support:** Show troubleshooting in app text if the user recently changed their account details ([#4879](https://github.com/Ven0m0/revanced-patches/issues/4879)) ([ab4bdc8](https://github.com/Ven0m0/revanced-patches/commit/ab4bdc8a2519cee15f79bf95d89e7ea56ea464ee))
 
+# [5.22.0-dev.1](https://github.com/Ven0m0/revanced-patches/compare/v5.21.0...v5.22.0-dev.1) (2025-04-29)
+
+
+### Bug Fixes
+
+* **TikTok - Feed filter:** Hide ads in following feed ([#4844](https://github.com/Ven0m0/revanced-patches/issues/4844)) ([c255ac1](https://github.com/Ven0m0/revanced-patches/commit/c255ac18e0b2dcf917bd0559876be5a2a81023db))
+* **YouTube - Shorts autoplay:** Fix autoplay with YT 20.12 ([06b35b2](https://github.com/Ven0m0/revanced-patches/commit/06b35b2a7d7371915881e8f430c32ce15fa224de))
+* **YouTube - Spoof app version:** Do not hide spoof version in general settings menu ([#4861](https://github.com/Ven0m0/revanced-patches/issues/4861)) ([f459c3c](https://github.com/Ven0m0/revanced-patches/commit/f459c3c7fae3a1b8addf3354488dcef9f95255cc))
+
+
+### Features
+
+* **TikTok - Feed Filter:** Remove TikTok Shop from feed. ([#4851](https://github.com/Ven0m0/revanced-patches/issues/4851)) ([f198bec](https://github.com/Ven0m0/revanced-patches/commit/f198bece653e3e1adf083129dedb77c1d1a633d7))
+* **YouTube - GmsCore support:** Show troubleshooting in app text if the user recently changed their account details ([#4879](https://github.com/Ven0m0/revanced-patches/issues/4879)) ([ab4bdc8](https://github.com/Ven0m0/revanced-patches/commit/ab4bdc8a2519cee15f79bf95d89e7ea56ea464ee))
+
 # [5.22.0-dev.3](https://github.com/ReVanced/revanced-patches/compare/v5.22.0-dev.2...v5.22.0-dev.3) (2025-04-29)
 
 
