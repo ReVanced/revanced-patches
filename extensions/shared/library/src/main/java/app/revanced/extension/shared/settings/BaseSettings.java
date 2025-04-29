@@ -32,6 +32,7 @@ public class BaseSettings {
     public static final EnumSetting<AppLanguage> SPOOF_VIDEO_STREAMS_LANGUAGE = new EnumSetting<>("revanced_spoof_video_streams_language", AppLanguage.DEFAULT, new AudioStreamLanguageOverrideAvailability());
     public static final BooleanSetting SPOOF_STREAMING_DATA_STATS_FOR_NERDS = new BooleanSetting("revanced_spoof_streaming_data_stats_for_nerds", TRUE, parent(SPOOF_VIDEO_STREAMS));
     public static final BooleanSetting SPOOF_VIDEO_STREAMS_IOS_FORCE_AVC = new BooleanSetting("revanced_spoof_video_streams_ios_force_avc", FALSE, true,
+	public static final BooleanSetting ENABLE_OPUS_CODEC = new BooleanSetting("revanced_enable_opus_codec", FALSE, true);
             "revanced_spoof_video_streams_ios_force_avc_user_dialog_message", new SpoofiOSAvailability());
     // Client type must be last spoof setting due to cyclic references.
     public static final EnumSetting<ClientType> SPOOF_VIDEO_STREAMS_CLIENT_TYPE = new EnumSetting<>("revanced_spoof_video_streams_client_type", ClientType.ANDROID_UNPLUGGED, true, parent(SPOOF_VIDEO_STREAMS));

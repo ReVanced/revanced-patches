@@ -1637,3 +1637,10 @@ public final class app/revanced/util/resource/StringResource$Companion {
 	public final fun fromNode (Lorg/w3c/dom/Node;)Lapp/revanced/util/resource/StringResource;
 }
 
+public final class app/revanced/patches/shared/opus/BaseOpusCodecsPatchKt {
+	public static final fun baseOpusCodecsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
+public final class app/revanced/patches/youtube/codecs/OpusCodecPatchKt {
+	public static final fun getOpusCodecPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
