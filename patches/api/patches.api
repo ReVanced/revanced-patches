@@ -380,29 +380,12 @@ public final class app/revanced/patches/openinghours/misc/fix/crash/FixCrashPatc
 	public static final fun getFixCrashPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/pandora/ads/DisableAdsHookPatchKt {
-	public static final fun getDisableAdsHookPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+public final class app/revanced/patches/pandora/DisableAudioAdsPatchKt {
+	public static final fun getDisableAudioAdsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/pandora/misc/hook/ExtensionPatchKt {
-	public static final fun getSharedExtensionPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
-}
-
-public final class app/revanced/patches/pandora/misc/hook/HookPatchKt {
-	public static final fun hookPatch (Ljava/lang/String;Ljava/lang/String;)Lapp/revanced/patcher/patch/BytecodePatch;
-}
-
-public final class app/revanced/patches/pandora/misc/hook/JsonHook {
-	public fun <init> (Lapp/revanced/patcher/patch/BytecodePatchContext;Ljava/lang/String;)V
-}
-
-public final class app/revanced/patches/pandora/misc/hook/JsonHookPatchKt {
-	public static final fun addJsonHook (Lapp/revanced/patcher/patch/BytecodePatchContext;Lapp/revanced/patches/pandora/misc/hook/JsonHook;)V
-	public static final fun getJsonHookPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
-}
-
-public final class app/revanced/patches/pandora/skips/UnlimitedSkipsHookPatchKt {
-	public static final fun getUnlimitedSkipsHookPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+public final class app/revanced/patches/pandora/UnlimitedSkipsPatchKt {
+	public static final fun getUnlimitedSkipsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
 public final class app/revanced/patches/photomath/detection/deviceid/SpoofDeviceIdPatchKt {
