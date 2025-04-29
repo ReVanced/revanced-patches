@@ -1,3 +1,17 @@
+# [5.22.0-dev.3](https://github.com/ReVanced/revanced-patches/compare/v5.22.0-dev.2...v5.22.0-dev.3) (2025-04-29)
+
+
+### Features
+
+* **YouTube - GmsCore support:** Show troubleshooting in app text if the user recently changed their account details ([#4879](https://github.com/ReVanced/revanced-patches/issues/4879)) ([ab4bdc8](https://github.com/ReVanced/revanced-patches/commit/ab4bdc8a2519cee15f79bf95d89e7ea56ea464ee))
+
+# [5.22.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.22.0-dev.1...v5.22.0-dev.2) (2025-04-27)
+
+
+### Bug Fixes
+
+* **YouTube - Shorts autoplay:** Fix autoplay with YT 20.12 ([06b35b2](https://github.com/ReVanced/revanced-patches/commit/06b35b2a7d7371915881e8f430c32ce15fa224de))
+
 # [5.22.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.21.0...v5.22.0-dev.1) (2025-04-26)
 
 
