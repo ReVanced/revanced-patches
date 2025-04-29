@@ -20,9 +20,7 @@ import androidx.annotation.RequiresApi;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-/**
- * @noinspection unused
- */
+@SuppressWarnings("unused")
 public class GmsCoreSupport {
     private static final String PACKAGE_NAME_YOUTUBE = "com.google.android.youtube";
     private static final String PACKAGE_NAME_YOUTUBE_MUSIC = "com.google.android.apps.youtube.music";
