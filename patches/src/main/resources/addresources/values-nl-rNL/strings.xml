@@ -459,21 +459,30 @@ Pas het volume aan door verticaal over de rechterkant van het scherm te vegen"</
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_title">Automatische helderheidsbeweging inschakelen</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_on">Omlaag swipen naar de laagste waarde van de helderheidsbeweging activeert automatische helderheid</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_off">Omlaag swipen naar de laagste waarde activeert automatische helderheid niet</string>
+  <string name="revanced_swipe_lowest_value_enable_auto_brightness_overlay_text">Automatisch</string>
   <string name="revanced_swipe_overlay_timeout_title">Swipe-overlay time-out</string>
   <string name="revanced_swipe_overlay_timeout_summary">Het aantal milliseconden dat de overlay zichtbaar is</string>
   <string name="revanced_swipe_overlay_background_opacity_title">Dekking van de Swipe overlay</string>
   <string name="revanced_swipe_overlay_background_opacity_summary">Dekking tussen 0-100</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Dekking moet tussen 0-100 zijn</string>
+  <string name="revanced_swipe_overlay_progress_color_title">Kleur van voortgangsbalk voor swipe-overlay</string>
+  <string name="revanced_swipe_overlay_progress_color_summary">De kleur van de voortgangsbalk voor volume- en helderheidsbediening</string>
+  <string name="revanced_swipe_overlay_progress_color_invalid_toast">Ongeldige kleur voor de voortgangsbalk</string>
+  <string name="revanced_swipe_text_overlay_size_title">Tekengrootte swipe-overlay</string>
+  <string name="revanced_swipe_text_overlay_size_summary">De tekstgrootte voor swipe-overlay tussen 1-30</string>
+  <string name="revanced_swipe_text_overlay_size_invalid_toast">De tekstgrootte moet tussen 1-30 liggen</string>
   <string name="revanced_swipe_threshold_title">Drempelwaarde swipe-sterkte</string>
   <string name="revanced_swipe_threshold_summary">De hoeveelheid drempelwaarde voor swipe om te gebeuren</string>
   <string name="revanced_swipe_volume_sensitivity_title">Gevoeligheid volumegest</string>
   <string name="revanced_swipe_volume_sensitivity_summary">Hoeveel het volume verandert per swipe</string>
-  <string name="revanced_swipe_show_circular_overlay_title">Circulaire overlay weergeven</string>
-  <string name="revanced_swipe_show_circular_overlay_summary_on">Circulaire overlay wordt weergegeven</string>
-  <string name="revanced_swipe_show_circular_overlay_summary_off">Horizontale overlay wordt weergegeven</string>
-  <string name="revanced_swipe_overlay_minimal_style_title">Minimale stijl inschakelen</string>
-  <string name="revanced_swipe_overlay_minimal_style_summary_on">Minimale overlay-stijl is ingeschakeld</string>
-  <string name="revanced_swipe_overlay_minimal_style_summary_off">Minimale overlay-stijl is uitgeschakeld</string>
+  <string name="revanced_swipe_overlay_style_title">Swipe-overlaystijl</string>
+  <string name="revanced_swipe_overlay_style_entry_1">Horizontale overlay</string>
+  <string name="revanced_swipe_overlay_style_entry_2">Horizontale overlay (minimaal - boven)</string>
+  <string name="revanced_swipe_overlay_style_entry_3">Horizontale overlay (minimaal - midden)</string>
+  <string name="revanced_swipe_overlay_style_entry_4">Circulaire overlay</string>
+  <string name="revanced_swipe_overlay_style_entry_5">Circulaire overlay (minimaal)</string>
+  <string name="revanced_swipe_overlay_style_entry_6">Verticale overlay</string>
+  <string name="revanced_swipe_overlay_style_entry_7">Verticale overlay (minimaal)</string>
   <string name="revanced_swipe_change_video_title">Schakel vegen in om te wisselen tussen video\'s</string>
   <string name="revanced_swipe_change_video_summary_on">Vegen in de modus volledig scherm weergegeven, verandert naar de volgende/vorige video</string>
   <string name="revanced_swipe_change_video_summary_off">Vegen in de modus volledig scherm weergegeven, verandert niet naar de volgende/vorige video</string>
@@ -513,6 +522,11 @@ Pas het volume aan door verticaal over de rechterkant van het scherm te vegen"</
   <string name="revanced_hide_thanks_button_title">Bedankt verbergen</string>
   <string name="revanced_hide_thanks_button_summary_on">Bedankt-knop is verborgen</string>
   <string name="revanced_hide_thanks_button_summary_off">Bedankt-knop wordt weergegeven</string>
+  <!-- 'Ask' should be translated with the same localized wording that YouTube displays.
+                 Button only shows if the user ip is from specific region such as the USA or EU. -->
+  <string name="revanced_hide_ask_button_title">Vraag verbergen</string>
+  <string name="revanced_hide_ask_button_summary_on">Knop \"Vraag\" is verborgen</string>
+  <string name="revanced_hide_ask_button_summary_off">Knop \"Vraag\" wordt weergegeven</string>
   <!-- 'Clip' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_clip_button_title">Fragment verbergen</string>
   <string name="revanced_hide_clip_button_summary_on">Fragment knop is verborgen</string>
@@ -1107,7 +1121,7 @@ Als het later wordt uitgeschakeld, wordt aanbevolen om de app-gegevens te wissen
   <string name="revanced_spoof_app_version_target_entry_2">19.01.34 - Herstel oude navigatie-iconen</string>
   </patch>
   <patch id="layout.startpage.changeStartPagePatch">
-  <string name="revanced_change_start_page_title">Startpagina instellen</string>
+  <string name="revanced_change_start_page_title">Startpagina wijzigen</string>
   <string name="revanced_change_start_page_entry_default">Standaard</string>
   <string name="revanced_change_start_page_entry_all_subscriptions">Alle abonnementen</string>
   <string name="revanced_change_start_page_entry_browse">Kanalen browsen</string>
@@ -1132,6 +1146,9 @@ Als het later wordt uitgeschakeld, wordt aanbevolen om de app-gegevens te wissen
   <string name="revanced_change_start_page_entry_virtual_reality">Virtuele realiteit</string>
   <string name="revanced_change_start_page_entry_watch_later">Later bekijken</string>
   <string name="revanced_change_start_page_entry_your_clips">Je clips</string>
+  <string name="revanced_change_start_page_always_title">Startpagina altijd wijzigen</string>
+  <string name="revanced_change_start_page_always_summary_on">"De startpagina wordt altijd gewijzigd\n\nBeperking: Het gebruik van de terugknop op de werkbalk werkt mogelijk niet"</string>
+  <string name="revanced_change_start_page_always_summary_off">Startpagina wordt alleen gewijzigd bij het opstarten van de app</string>
   </patch>
   <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch">
   <string name="revanced_disable_resuming_shorts_player_title">Schakel het hervatten van Shorts-speler uit</string>

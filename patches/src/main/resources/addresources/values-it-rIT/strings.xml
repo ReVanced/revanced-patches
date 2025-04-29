@@ -459,21 +459,30 @@ Regola il volume scorrendo verticalmente sul lato destro dello schermo"</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_title">Attiva il gesto della luminosità automatica</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_on">Scorri verso il basso fino al valore più basso del gesto luminosità per abilitare la luminosità automatica</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_off">Scorrendo verso il basso, il valore più basso non abilita la luminosità automatica</string>
+  <string name="revanced_swipe_lowest_value_enable_auto_brightness_overlay_text">Automatico</string>
   <string name="revanced_swipe_overlay_timeout_title">Timeout sovrapposizione dello scorrimento</string>
   <string name="revanced_swipe_overlay_timeout_summary">La visibilità in millisecondi della sovrapposizione</string>
   <string name="revanced_swipe_overlay_background_opacity_title">Opacità di sfondo della sovrapposizione di scorrimento</string>
   <string name="revanced_swipe_overlay_background_opacity_summary">Valore di opacità tra 0-100</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">L\'opacità di scorrimento deve essere tra 0-100</string>
+  <string name="revanced_swipe_overlay_progress_color_title">Colore della barra di avanzamento della sovrapposizione a scorrimento</string>
+  <string name="revanced_swipe_overlay_progress_color_summary">Il colore della barra di avanzamento per i controlli di volume e luminosità</string>
+  <string name="revanced_swipe_overlay_progress_color_invalid_toast">Colore della barra di avanzamento non valido</string>
+  <string name="revanced_swipe_text_overlay_size_title">Dimensione del testo della sovrapposizione a scorrimento</string>
+  <string name="revanced_swipe_text_overlay_size_summary">La dimensione del testo per la sovrapposizione a scorrimento tra 1 e 30</string>
+  <string name="revanced_swipe_text_overlay_size_invalid_toast">La dimensione del testo deve essere compresa tra 1 e 30</string>
   <string name="revanced_swipe_threshold_title">Ampiezza limite della soglia di scorrimento</string>
   <string name="revanced_swipe_threshold_summary">Il limite di ampiezza entro cui deve avvenire lo scorrimento</string>
   <string name="revanced_swipe_volume_sensitivity_title">Sensibilità allo scorrimento del volume</string>
   <string name="revanced_swipe_volume_sensitivity_summary">La quantità di volume che cambia per scorrimento</string>
-  <string name="revanced_swipe_show_circular_overlay_title">Mostra sovrapposizione circolare</string>
-  <string name="revanced_swipe_show_circular_overlay_summary_on">La sovrapposizione circolare viene mostrata</string>
-  <string name="revanced_swipe_show_circular_overlay_summary_off">La sovrapposizione orizzontale viene mostrata</string>
-  <string name="revanced_swipe_overlay_minimal_style_title">Abilita stile minimale</string>
-  <string name="revanced_swipe_overlay_minimal_style_summary_on">Lo stile di sovrapposizione minimale è abilitato</string>
-  <string name="revanced_swipe_overlay_minimal_style_summary_off">Lo stile di sovrapposizione minimale è disabilitato</string>
+  <string name="revanced_swipe_overlay_style_title">Stile sovrapposizione a scorrimento</string>
+  <string name="revanced_swipe_overlay_style_entry_1">Sovrapposizione orizzontale</string>
+  <string name="revanced_swipe_overlay_style_entry_2">Sovrapposizione orizzontale (minima - in alto)</string>
+  <string name="revanced_swipe_overlay_style_entry_3">Sovrapposizione orizzontale (minima - al centro)</string>
+  <string name="revanced_swipe_overlay_style_entry_4">Sovrapposizione circolare</string>
+  <string name="revanced_swipe_overlay_style_entry_5">Sovrapposizione circolare (minima)</string>
+  <string name="revanced_swipe_overlay_style_entry_6">Sovrapposizione verticale</string>
+  <string name="revanced_swipe_overlay_style_entry_7">Sovrapposizione verticale (minima)</string>
   <string name="revanced_swipe_change_video_title">Attiva il gesto per cambiare video</string>
   <string name="revanced_swipe_change_video_summary_on">Lo scorrimento in modalità a schermo intero passerà al video successivo/precedente</string>
   <string name="revanced_swipe_change_video_summary_off">Lo scorrimento in modalità schermo intero non cambierà al video successivo/precedente</string>
@@ -513,6 +522,11 @@ Regola il volume scorrendo verticalmente sul lato destro dello schermo"</string>
   <string name="revanced_hide_thanks_button_title">Nascondi Grazie</string>
   <string name="revanced_hide_thanks_button_summary_on">Grazie pulsante è nascosto</string>
   <string name="revanced_hide_thanks_button_summary_off">Il pulsante Grazie è visibile</string>
+  <!-- 'Ask' should be translated with the same localized wording that YouTube displays.
+                 Button only shows if the user ip is from specific region such as the USA or EU. -->
+  <string name="revanced_hide_ask_button_title">Nascondi richiesta</string>
+  <string name="revanced_hide_ask_button_summary_on">Il pulsante Richiedi è nascosto</string>
+  <string name="revanced_hide_ask_button_summary_off">Il pulsante Richiedi è visibile</string>
   <!-- 'Clip' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_clip_button_title">Nascondi Clip</string>
   <string name="revanced_hide_clip_button_summary_on">Il pulsante Clip è nascosto</string>
@@ -1106,7 +1120,7 @@ Se in seguito verrà disattivato, si consiglia di cancellare i dati dell'app per
   <string name="revanced_spoof_app_version_target_entry_2">19.01.34 - Ripristina le vecchie icone di navigazione</string>
   </patch>
   <patch id="layout.startpage.changeStartPagePatch">
-  <string name="revanced_change_start_page_title">Imposta pagina iniziale</string>
+  <string name="revanced_change_start_page_title">Cambia pagina iniziale</string>
   <string name="revanced_change_start_page_entry_default">Predefinito</string>
   <string name="revanced_change_start_page_entry_all_subscriptions">Tutte le iscrizioni</string>
   <string name="revanced_change_start_page_entry_browse">Sfoglia canali</string>
@@ -1131,6 +1145,11 @@ Se in seguito verrà disattivato, si consiglia di cancellare i dati dell'app per
   <string name="revanced_change_start_page_entry_virtual_reality">Realtà Virtuale</string>
   <string name="revanced_change_start_page_entry_watch_later">Guarda più tardi</string>
   <string name="revanced_change_start_page_entry_your_clips">Le tue clip</string>
+  <string name="revanced_change_start_page_always_title">Cambia sempre la pagina iniziale</string>
+  <string name="revanced_change_start_page_always_summary_on">"La pagina iniziale viene sempre modificata
+
+Limitazione: l'utilizzo del pulsante Indietro sulla barra degli strumenti potrebbe non funzionare"</string>
+  <string name="revanced_change_start_page_always_summary_off">La pagina iniziale viene modificata solo all\'avvio dell\'app</string>
   </patch>
   <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch">
   <string name="revanced_disable_resuming_shorts_player_title">Disabilita la ripresa del player Shorts</string>

@@ -44,14 +44,12 @@ var crowdfundingBoxId = -1L
     private set
 var youTubeLogo = -1L
     private set
-
 var filterBarHeightId = -1L
     private set
 var relatedChipCloudMarginId = -1L
     private set
 var barContainerHeightId = -1L
     private set
-
 var fabButtonId = -1L
     private set
 

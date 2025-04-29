@@ -136,7 +136,7 @@ Gözlənilməz hallardan xəbərdar olmayacaqsınız."</string>
 • Son xəbərlər
 • İzləməyə davam et
 • Daha çox kanallar kəşf et
-• Alış-veriş
+• Mağaza
 • Təkrar izlə"</string>
   <string name="revanced_hide_horizontal_shelves_summary_off">Hissələr göstərilir</string>
   <!-- 'Join' should be translated using the same localized wording YouTube displays.
@@ -355,7 +355,7 @@ Bu xüsusiyyət yalnız köhnə cihazlar üçün mövcuddur"</string>
   <string name="revanced_hide_buttoned_ads_title">Düyməli reklamları gizlət</string>
   <string name="revanced_hide_buttoned_ads_summary_on">Düyməli reklamlar gizlədilir</string>
   <string name="revanced_hide_buttoned_ads_summary_off">Düyməli reklamlar göstərilir</string>
-  <string name="revanced_hide_paid_promotion_label_title">Ödənişli reklam etiketini gizlət</string>
+  <string name="revanced_hide_paid_promotion_label_title">Ödənişli tanıtım etiketini gizlət</string>
   <string name="revanced_hide_paid_promotion_label_summary_on">Ödənişli reklam etiketi gizlədilib</string>
   <string name="revanced_hide_paid_promotion_label_summary_off">Ödənişli reklam etiketi göstərilir</string>
   <string name="revanced_hide_self_sponsor_ads_title">Öz-sponsorlu kartları gizlət</string>
@@ -367,14 +367,14 @@ Bu xüsusiyyət yalnız köhnə cihazlar üçün mövcuddur"</string>
   <string name="revanced_hide_end_screen_store_banner_title">Son ekran mağaza etiketini gizlət</string>
   <string name="revanced_hide_end_screen_store_banner_summary_on">Mağaza etiketi gizlidir</string>
   <string name="revanced_hide_end_screen_store_banner_summary_off">Mağaza etiketi görünür</string>
-  <string name="revanced_hide_player_store_shelf_title">Oynadıcı alış-veriş bölməsin gizlət</string>
+  <string name="revanced_hide_player_store_shelf_title">Oynadıcı mağaza bölməsin gizlət</string>
   <string name="revanced_hide_player_store_shelf_summary_on">Alış-veriş rəfi gizlidir</string>
   <string name="revanced_hide_player_store_shelf_summary_off">Alış-veriş rəfi göstərilir</string>
-  <string name="revanced_hide_shopping_links_title">Video açıqlamada alış-veriş linklərin gizlə</string>
+  <string name="revanced_hide_shopping_links_title">Video təsvirdə mağaza linklərin gizlə</string>
   <string name="revanced_hide_shopping_links_summary_on">Video təsvirində alış-veriş linkləri gizlədilib</string>
   <string name="revanced_hide_shopping_links_summary_off">Video təsvirində alış-veriş linkləri görünür</string>
   <!-- 'Visit store' should be translated with the same localized wording that YouTube displays. -->
-  <string name="revanced_hide_visit_store_button_title">Kanalda \"Mağazaya ziyarət\" düyməsin gizlə</string>
+  <string name="revanced_hide_visit_store_button_title">Kanalda \"Mağazaya baxın\" düyməsin gizlə</string>
   <string name="revanced_hide_visit_store_button_summary_on">Kanal səhifəsindəki düymə gizlidir</string>
   <string name="revanced_hide_visit_store_button_summary_off">Kanal səhifəsindəki düymə görünür</string>
   <string name="revanced_hide_web_search_results_title">Veb axtarış nəticələrini gizlət</string>
@@ -459,27 +459,38 @@ Ekranın sağ tərəfində düzünə sürüşdürərək səs səviyyəsini tənz
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_title">Avto-parlaqlıq jestini aktivləşdir</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_on">Parlaqlıq ən aşağı dəyərinə sürüşdürüləndə avto-parlaqlıq aktivləşir</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_off">Parlaqlığı ən aşağı dəyərə sürüşdürəndə avto-parlaqlıq aktivləşmir</string>
+  <string name="revanced_swipe_lowest_value_enable_auto_brightness_overlay_text">Avtomatik</string>
   <string name="revanced_swipe_overlay_timeout_title">Sürüşdürmə örtüyü müddəti</string>
   <string name="revanced_swipe_overlay_timeout_summary">Örtüyün göründüyü millisaniyələrin sayı</string>
   <string name="revanced_swipe_overlay_background_opacity_title">Sürüşdürmə cildi arxa plan qeyri-şəffaflığı</string>
   <string name="revanced_swipe_overlay_background_opacity_summary">0-100 arası qeyri-şəffaflıq dəyəri</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Sürüşmə qeyri-şəffaflığı 0-100 arası olmalıdır</string>
+  <string name="revanced_swipe_overlay_progress_color_title">Sürüşdürmə örtüyü irəliləyiş cizgisi rəngi</string>
+  <string name="revanced_swipe_overlay_progress_color_summary">Səs səviyyəsinə və parlaqlığa nəzarət üçün irəliləyiş cizgisi rəngi</string>
+  <string name="revanced_swipe_overlay_progress_color_invalid_toast">Yanlış irəliləyiş cizgisi rəngi</string>
+  <string name="revanced_swipe_text_overlay_size_title">Sürüşdürmə örtüyü mətn ölçüsü</string>
+  <string name="revanced_swipe_text_overlay_size_summary">Sürüşmə üçün mətn ölçüsü 1-30 arasındadır</string>
+  <string name="revanced_swipe_text_overlay_size_invalid_toast">Mətn ölçüsü 1-30 arası olmalıdır</string>
   <string name="revanced_swipe_threshold_title">Sürüşdürmə böyüklük həddi</string>
   <string name="revanced_swipe_threshold_summary">Sürüşdürmənin icra edilməsi üçün son dəyər</string>
   <string name="revanced_swipe_volume_sensitivity_title">Səs səviyyəsin sürüşdürmə təzyiqi</string>
   <string name="revanced_swipe_volume_sensitivity_summary">Hər sürüşdürmədə səs səviyyəsi nə qədər dəyişir</string>
-  <string name="revanced_swipe_show_circular_overlay_title">Dairəvi örtüyü göstər</string>
-  <string name="revanced_swipe_show_circular_overlay_summary_on">Dairəvi örtük göstərilir</string>
-  <string name="revanced_swipe_show_circular_overlay_summary_off">Düzünə örtük göstərilir</string>
-  <string name="revanced_swipe_overlay_minimal_style_title">Ən kiçik üslubu aktivləşdir</string>
-  <string name="revanced_swipe_overlay_minimal_style_summary_on">Ən kiçik örtük üslubu aktivləşdirilib</string>
-  <string name="revanced_swipe_overlay_minimal_style_summary_off">Ən kiçik örtük üslubu qapalıdır</string>
+  <string name="revanced_swipe_overlay_style_title">Sürüşmə örtüyü üslubu</string>
+  <string name="revanced_swipe_overlay_style_entry_1">Üfüqi örtük</string>
+  <string name="revanced_swipe_overlay_style_entry_2">Üfüqi örtük (ən kiçik- yüksək)</string>
+  <string name="revanced_swipe_overlay_style_entry_3">Üfüqi örtük (ən kiçik - mərkəz)</string>
+  <string name="revanced_swipe_overlay_style_entry_4">Dairəvi örtük</string>
+  <string name="revanced_swipe_overlay_style_entry_5">Dairəvi örtük (ən kiçik)</string>
+  <string name="revanced_swipe_overlay_style_entry_6">Şaquli örtük</string>
+  <string name="revanced_swipe_overlay_style_entry_7">Şaquli örtük (ən kiçik)</string>
   <string name="revanced_swipe_change_video_title">Videoları ötürmək üçün sürüşdürməni aktiv et</string>
   <string name="revanced_swipe_change_video_summary_on">Tam ekran rejimində sürüşdürmə növbəti/əvvəlki videoya ötürəcək</string>
   <string name="revanced_swipe_change_video_summary_off">Tam ekran rejimində sürüşdürmə növbəti/əvvəlki videoya ötürməyəcək</string>
   </patch>
   <patch id="layout.autocaptions.autoCaptionsPatch">
-  <string name="revanced_disable_auto_captions_title">Avtomatik titrləri qeyri-aktiv et</string>
+  <string name="revanced_disable_auto_captions_title">Avtomatik titrləri qapat</string>
+  <string name="revanced_disable_auto_captions_summary_on">Avtomatik titrlər qapalıdır</string>
+  <string name="revanced_disable_auto_captions_summary_off">Avtomatik titrlər aktivdir</string>
   </patch>
   <patch id="layout.buttons.action.hideButtonsPatch">
   <string name="revanced_hide_buttons_screen_title">Fəaliyyət düymələri</string>
@@ -511,6 +522,11 @@ Ekranın sağ tərəfində düzünə sürüşdürərək səs səviyyəsini tənz
   <string name="revanced_hide_thanks_button_title">\"Təşəkkürlər\"i gizlət</string>
   <string name="revanced_hide_thanks_button_summary_on">Təşəkkür düyməsi gizlidir</string>
   <string name="revanced_hide_thanks_button_summary_off">Təşəkkür düyməsi göstərilir</string>
+  <!-- 'Ask' should be translated with the same localized wording that YouTube displays.
+                 Button only shows if the user ip is from specific region such as the USA or EU. -->
+  <string name="revanced_hide_ask_button_title">Soruş\'u Gizlət</string>
+  <string name="revanced_hide_ask_button_summary_on">Soruş düyməsi gizlidir</string>
+  <string name="revanced_hide_ask_button_summary_off">\"Soruş\" düyməsi göstərilir</string>
   <!-- 'Clip' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_clip_button_title">Kəsmə/ gizlət</string>
   <string name="revanced_hide_clip_button_summary_on">Kəsmə düyməsi gizlidir</string>
@@ -829,6 +845,8 @@ Məhdudiyyət: Bəyənməmələr gizli rejimdə görünməyə bilər"</string>
   <string name="revanced_ryd_compact_layout_summary_on">Daha kiçik en üçün hazırlanmış Bəyən düyməsi</string>
   <string name="revanced_ryd_compact_layout_summary_off">Ən yaxşı görünüş üçün tərtib edilmiş Bəyən düyməsi</string>
   <string name="revanced_ryd_estimated_like_title">Təxmini bəyənmələri göstər</string>
+  <string name="revanced_ryd_estimated_like_summary_on">Bəyənmələri olmayan videolar təxmini bəyənmə sayını göstərir</string>
+  <string name="revanced_ryd_estimated_like_summary_off">Təxmini bəyənmələr göstərilmir</string>
   <string name="revanced_ryd_toast_on_connection_error_title">API əlçatan deyilsə ani bildiriş göstər</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_on">Return YouTube Dislike əlçatan deyilsə ani bildiriş göstər</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_off">Return YouTube Dislike əlçatan deyilsə ani bildiriş göstərmə</string>
@@ -1102,7 +1120,7 @@ Sonradan qapadılarsa, UI səhvlərin önləmək üçün tətbiq məlumatların 
   <string name="revanced_spoof_app_version_target_entry_2">19.01.34 - Köhnə fəaliyyət simvolların bərpa et</string>
   </patch>
   <patch id="layout.startpage.changeStartPagePatch">
-  <string name="revanced_change_start_page_title">Başlanğıc səhifəsini təyin et</string>
+  <string name="revanced_change_start_page_title">Başlatma səhifəsini dəyişdir</string>
   <string name="revanced_change_start_page_entry_default">İlkin</string>
   <string name="revanced_change_start_page_entry_all_subscriptions">Bütün abunəliklər</string>
   <string name="revanced_change_start_page_entry_browse">Kanallara nəzər yetir</string>
@@ -1120,13 +1138,18 @@ Sonradan qapadılarsa, UI səhvlərin önləmək üçün tətbiq məlumatların 
   <string name="revanced_change_start_page_entry_notifications">Bildirişlər</string>
   <string name="revanced_change_start_page_entry_playlists">Pleylistlər</string>
   <string name="revanced_change_start_page_entry_search">Axtarış</string>
-  <string name="revanced_change_start_page_entry_shopping">Alış-Veriş</string>
+  <string name="revanced_change_start_page_entry_shopping">Mağaza</string>
   <string name="revanced_change_start_page_entry_sports">İdman</string>
   <string name="revanced_change_start_page_entry_subscriptions">Abunəliklər</string>
   <string name="revanced_change_start_page_entry_trending">Trendlər</string>
   <string name="revanced_change_start_page_entry_virtual_reality">Faktiki Həyat</string>
   <string name="revanced_change_start_page_entry_watch_later">Sonra izlə</string>
   <string name="revanced_change_start_page_entry_your_clips">Klipləriniz</string>
+  <string name="revanced_change_start_page_always_title"> Başlatma səhifəsini həmişə dəyişdir</string>
+  <string name="revanced_change_start_page_always_summary_on">"Başlatma səhifəsi həmişə dəyişdirilir
+
+Məhdudiyyət: Alətlər cizgisindəki geri düyməsin istifadə işləməyə bilər"</string>
+  <string name="revanced_change_start_page_always_summary_off">Başlatma səhifəsi yalnız tətbiq işə salındıqda dəyişdirilir</string>
   </patch>
   <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch">
   <string name="revanced_disable_resuming_shorts_player_title">Shorts oynadıcı başladıcını qapat</string>
@@ -1232,7 +1255,7 @@ Bunu aktivləşdirmə, bəzi regionlarda əngəllənib silinən şəkilləri dü
   <string name="revanced_alt_thumbnail_options_entry_2">DeArrow &amp; Orijinal miniatürlər</string>
   <string name="revanced_alt_thumbnail_options_entry_3">DeArrow &amp; Kadr çəkilişlər</string>
   <string name="revanced_alt_thumbnail_options_entry_4">Kadr çəkilişləri</string>
-  <string name="revanced_alt_thumbnail_dearrow_about_summary">"DeArrow YouTube videoları üçün izdiham mənbəli miniatürlər təqdim edir. Bu miniatürlər YouTube tərəfindən təqdim edilənlərdən dəfələrlə daha uyğundur.
+  <string name="revanced_alt_thumbnail_dearrow_about_summary">"DeArrow YouTube videoları üçün çox mənbəli miniatürlər təqdim edir. Bu miniatürlər YouTube tərəfindən təqdim edilənlərdən dəfələrlə daha uyğundur.
 
 Aktivləşdirilərsə, video URL-lər API alıcısına göndəriləcək və başqa məlumat göndərilməyəcək. Videonun DeArrow miniatürləri yoxdursa, orijinal və ya hələ də çəkilişlər göstərilir.
 

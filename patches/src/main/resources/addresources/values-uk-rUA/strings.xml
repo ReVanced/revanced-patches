@@ -459,21 +459,30 @@ Second \"item\" text"</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_title">Жест автояскравості</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_on">Проведення вниз до найнижчого значення яскравості вмикає автоматичну яскравість</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_off">Проведення вниз до найнижчого значення не вмикає автоматичну яскравість</string>
+  <string name="revanced_swipe_lowest_value_enable_auto_brightness_overlay_text">Авто</string>
   <string name="revanced_swipe_overlay_timeout_title">Час показу панелі жесту</string>
   <string name="revanced_swipe_overlay_timeout_summary">Скільки мілісекунд спливаюча панель при жесті буде показуватися</string>
   <string name="revanced_swipe_overlay_background_opacity_title">Затемнення фону панелі жесту</string>
   <string name="revanced_swipe_overlay_background_opacity_summary">Значення затемнення від 0 до 100</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Значення затемнення панелі жесту має бути в межах від 0 до 100</string>
+  <string name="revanced_swipe_overlay_progress_color_title">Колір смуги прогресу панелі жесту</string>
+  <string name="revanced_swipe_overlay_progress_color_summary">Колір смуги прогресу під час регулювання гучності та яскравості</string>
+  <string name="revanced_swipe_overlay_progress_color_invalid_toast">Недійсний колір смуги прогресу</string>
+  <string name="revanced_swipe_text_overlay_size_title">Розмір тексту панелі жесту</string>
+  <string name="revanced_swipe_text_overlay_size_summary">Розмір тексту панелі жесту від 1 до 30</string>
+  <string name="revanced_swipe_text_overlay_size_invalid_toast">Розмір тексту має бути від 1 до 30</string>
   <string name="revanced_swipe_threshold_title">Поріг величини жесту</string>
   <string name="revanced_swipe_threshold_summary">Мінімальна амплітуда руху, що розпізнається як жест</string>
   <string name="revanced_swipe_volume_sensitivity_title">Чутливість жесту гучності</string>
   <string name="revanced_swipe_volume_sensitivity_summary">Наскільки змінюється гучність проводячи пальцем по екрану</string>
-  <string name="revanced_swipe_show_circular_overlay_title">Показувати круговий індикатор</string>
-  <string name="revanced_swipe_show_circular_overlay_summary_on">Показується круговий індикатор</string>
-  <string name="revanced_swipe_show_circular_overlay_summary_off">Показується горизонтальний індикатор</string>
-  <string name="revanced_swipe_overlay_minimal_style_title">Увімкнути мінімалістичний стиль</string>
-  <string name="revanced_swipe_overlay_minimal_style_summary_on">Мінімалістичний стиль індикатора увімкнено</string>
-  <string name="revanced_swipe_overlay_minimal_style_summary_off">Мінімалістичний стиль індикатора вимкнено</string>
+  <string name="revanced_swipe_overlay_style_title">Стиль панелі жесту</string>
+  <string name="revanced_swipe_overlay_style_entry_1">Горизонтальний індикатор</string>
+  <string name="revanced_swipe_overlay_style_entry_2">Горизонтальний індикатор (мінімальний - зверху)</string>
+  <string name="revanced_swipe_overlay_style_entry_3">Горизонтальний індикатор (мінімальний - по центру)</string>
+  <string name="revanced_swipe_overlay_style_entry_4">Круговий індикатор</string>
+  <string name="revanced_swipe_overlay_style_entry_5">Круговий індикатор (мінімальний)</string>
+  <string name="revanced_swipe_overlay_style_entry_6">Вертикальний індикатор</string>
+  <string name="revanced_swipe_overlay_style_entry_7">Вертикальний індикатор (мінімальний)</string>
   <string name="revanced_swipe_change_video_title">Увімкнути зміну відео проведенням</string>
   <string name="revanced_swipe_change_video_summary_on">Проведення пальцем у повноекранному режимі перейде до наступного/попереднього відео</string>
   <string name="revanced_swipe_change_video_summary_off">Проведення пальцем у повноекранному режимі не перейде до наступного/попереднього відео</string>
@@ -513,6 +522,11 @@ Second \"item\" text"</string>
   <string name="revanced_hide_thanks_button_title">Приховати \"Дякую\"</string>
   <string name="revanced_hide_thanks_button_summary_on">Кнопку \"Дякую\" приховано</string>
   <string name="revanced_hide_thanks_button_summary_off">Кнопка \"Дякую\" показується</string>
+  <!-- 'Ask' should be translated with the same localized wording that YouTube displays.
+                 Button only shows if the user ip is from specific region such as the USA or EU. -->
+  <string name="revanced_hide_ask_button_title">Приховати \"Запитати\"</string>
+  <string name="revanced_hide_ask_button_summary_on">Кнопку \"Запитати\" приховано</string>
+  <string name="revanced_hide_ask_button_summary_off">Кнопка \"Запитати\" показується</string>
   <!-- 'Clip' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_clip_button_title">Приховати \"Створити кліп\"</string>
   <string name="revanced_hide_clip_button_summary_on">Кнопку \"Створити кліп\" приховано</string>
@@ -832,7 +846,7 @@ Second \"item\" text"</string>
   <string name="revanced_ryd_compact_layout_summary_on">Кнопку \"Подобається\" стилізовано під мінімальну ширину</string>
   <string name="revanced_ryd_compact_layout_summary_off">Кнопку \"Подобається\" стилізовано для кращого вигляду</string>
   <string name="revanced_ryd_estimated_like_title">Показувати приблизну кількість вподобань</string>
-  <string name="revanced_ryd_estimated_like_summary_on">Відео з вимкненими відмітками \"Подобається\" показують приблизну кількість вподобань</string>
+  <string name="revanced_ryd_estimated_like_summary_on">На відео з вимкненими відмітками \"Подобається\" показується приблизна кількість вподобань</string>
   <string name="revanced_ryd_estimated_like_summary_off">Приблизна кількість вподобань не показується</string>
   <string name="revanced_ryd_toast_on_connection_error_title">Показувати тост, якщо API не доступний</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_on">Тост показується, якщо Return YouTube Dislike не доступний</string>
@@ -1106,7 +1120,7 @@ Second \"item\" text"</string>
   <string name="revanced_spoof_app_version_target_entry_2">19.01.34 - Відновлення старих іконок панелі навігації</string>
   </patch>
   <patch id="layout.startpage.changeStartPagePatch">
-  <string name="revanced_change_start_page_title">Початкова сторінка</string>
+  <string name="revanced_change_start_page_title">Змінити початкову сторінку</string>
   <string name="revanced_change_start_page_entry_default">За замовчуванням</string>
   <string name="revanced_change_start_page_entry_all_subscriptions">Усі підписки</string>
   <string name="revanced_change_start_page_entry_browse">Усі підписки</string>
@@ -1131,6 +1145,11 @@ Second \"item\" text"</string>
   <string name="revanced_change_start_page_entry_virtual_reality">Віртуальна реальність</string>
   <string name="revanced_change_start_page_entry_watch_later">Переглянути пізніше</string>
   <string name="revanced_change_start_page_entry_your_clips">Ваші кліпи</string>
+  <string name="revanced_change_start_page_always_title">Завжди змінювати початкову сторінку</string>
+  <string name="revanced_change_start_page_always_summary_on">"Початкова сторінка завжди змінюється
+
+Обмеження: Використання кнопки \"Назад\" на панелі інструментів може не працювати"</string>
+  <string name="revanced_change_start_page_always_summary_off">Початкова сторінка змінюється лише під час запуску програми</string>
   </patch>
   <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch">
   <string name="revanced_disable_resuming_shorts_player_title">Вимкнути відновлення плеєра Shorts</string>

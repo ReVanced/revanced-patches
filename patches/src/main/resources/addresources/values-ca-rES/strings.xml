@@ -459,21 +459,30 @@ Ajusteu el volum lliscant verticalment a la part dreta de la pantalla"</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_title">Activa el gest de la brillantor automàtica</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_on">Deslizar hacia abajo hasta el valor más bajo del gesto de brillo activa el brillo automático</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_off">Deslizar hacia abajo hasta el valor más bajo no activa el brillo automático</string>
+  <string name="revanced_swipe_lowest_value_enable_auto_brightness_overlay_text">Automàtic</string>
   <string name="revanced_swipe_overlay_timeout_title">Temps límite de superposició de lliscament</string>
   <string name="revanced_swipe_overlay_timeout_summary">La quantitat de mil·lisegons que la superposició és visible</string>
   <string name="revanced_swipe_overlay_background_opacity_title">Opacitat del fons de la superposició de lliscament</string>
   <string name="revanced_swipe_overlay_background_opacity_summary">Valor d\'opacitat entre 0 i 100</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">L\'opacitat de lliscament ha d\'estar entre 0 i 100</string>
+  <string name="revanced_swipe_overlay_progress_color_title">Color de la barra de progrés de la superposició lliscant</string>
+  <string name="revanced_swipe_overlay_progress_color_summary">El color de la barra de progrés per als controls de volum i brillantor</string>
+  <string name="revanced_swipe_overlay_progress_color_invalid_toast">Color de barra de progrés no vàlid</string>
+  <string name="revanced_swipe_text_overlay_size_title">Mida del text de la superposició lliscant</string>
+  <string name="revanced_swipe_text_overlay_size_summary">La mida del text per a la superposició lliscant entre 1 i 30</string>
+  <string name="revanced_swipe_text_overlay_size_invalid_toast">La mida del text ha d\'estar entre 1 i 30</string>
   <string name="revanced_swipe_threshold_title">Llindar de magnitud de lliscament</string>
   <string name="revanced_swipe_threshold_summary">La quantitat de llindar per a què es produeixi el desplaçament</string>
   <string name="revanced_swipe_volume_sensitivity_title">Sensibilitat del lliscament de volum</string>
   <string name="revanced_swipe_volume_sensitivity_summary">Quant canvia el volum per lliscament</string>
-  <string name="revanced_swipe_show_circular_overlay_title">Mostra la superposició circular</string>
-  <string name="revanced_swipe_show_circular_overlay_summary_on">Es mostra la superposició circular</string>
-  <string name="revanced_swipe_show_circular_overlay_summary_off">Es mostra la superposició horitzontal</string>
-  <string name="revanced_swipe_overlay_minimal_style_title">Activa l\'estil minimalista</string>
-  <string name="revanced_swipe_overlay_minimal_style_summary_on">S\'ha activat l\'estil de superposició minimalista</string>
-  <string name="revanced_swipe_overlay_minimal_style_summary_off">L\'estil de superposició mínima està desactivat</string>
+  <string name="revanced_swipe_overlay_style_title">Estil de superposició de lliscament</string>
+  <string name="revanced_swipe_overlay_style_entry_1">Superposició horitzontal</string>
+  <string name="revanced_swipe_overlay_style_entry_2">Superposició horitzontal (mínima - part superior)</string>
+  <string name="revanced_swipe_overlay_style_entry_3">Superposició horitzontal (mínima - centre)</string>
+  <string name="revanced_swipe_overlay_style_entry_4">Superposició circular</string>
+  <string name="revanced_swipe_overlay_style_entry_5">Superposició circular (mínima)</string>
+  <string name="revanced_swipe_overlay_style_entry_6">Superposició vertical</string>
+  <string name="revanced_swipe_overlay_style_entry_7">Superposició vertical (mínima)</string>
   <string name="revanced_swipe_change_video_title">Activa la funció de lliscament per canviar vídeos</string>
   <string name="revanced_swipe_change_video_summary_on">Lliscar en mode de pantalla completa canviarà al vídeo següent/anterior</string>
   <string name="revanced_swipe_change_video_summary_off">Lliscar en mode de pantalla completa no canviarà al vídeo següent/anterior</string>
@@ -513,6 +522,11 @@ Ajusteu el volum lliscant verticalment a la part dreta de la pantalla"</string>
   <string name="revanced_hide_thanks_button_title">Amaga Gràcies</string>
   <string name="revanced_hide_thanks_button_summary_on">S\'ha amagat el botó de gràcies</string>
   <string name="revanced_hide_thanks_button_summary_off">El botó Gràcies es mostra</string>
+  <!-- 'Ask' should be translated with the same localized wording that YouTube displays.
+                 Button only shows if the user ip is from specific region such as the USA or EU. -->
+  <string name="revanced_hide_ask_button_title">Amaga la sol·licitud</string>
+  <string name="revanced_hide_ask_button_summary_on">El botó de sol·licitud està amagat</string>
+  <string name="revanced_hide_ask_button_summary_off">El botó de sol·licitud es mostra</string>
   <!-- 'Clip' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_clip_button_title">Amaga Clip</string>
   <string name="revanced_hide_clip_button_summary_on">El botó Clip s\'amaga</string>
@@ -1106,7 +1120,7 @@ Si després es desactiva, es recomana esborrar les dades de l'aplicació per evi
   <string name="revanced_spoof_app_version_target_entry_2">19.01.34 - Restaura les icones de navegació antigues</string>
   </patch>
   <patch id="layout.startpage.changeStartPagePatch">
-  <string name="revanced_change_start_page_title">Defineix la pàgina d\'inici</string>
+  <string name="revanced_change_start_page_title">Canvia la pàgina d\'inici</string>
   <string name="revanced_change_start_page_entry_default">Per defecte</string>
   <string name="revanced_change_start_page_entry_all_subscriptions">Totes les subscripcions</string>
   <string name="revanced_change_start_page_entry_browse">Explora canals</string>
@@ -1131,6 +1145,11 @@ Si després es desactiva, es recomana esborrar les dades de l'aplicació per evi
   <string name="revanced_change_start_page_entry_virtual_reality">Realitat virtual</string>
   <string name="revanced_change_start_page_entry_watch_later">Veure més tard</string>
   <string name="revanced_change_start_page_entry_your_clips">Els teus clips</string>
+  <string name="revanced_change_start_page_always_title">Canvia sempre la pàgina d\'inici</string>
+  <string name="revanced_change_start_page_always_summary_on">"La pàgina d'inici sempre es canvia
+
+Limitació: és possible que el botó Enrere de la barra d'eines no funcioni"</string>
+  <string name="revanced_change_start_page_always_summary_off">La pàgina d\'inici només es canvia en iniciar l\'aplicació</string>
   </patch>
   <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch">
   <string name="revanced_disable_resuming_shorts_player_title">Desactiva la represa del reproductor de Shorts</string>

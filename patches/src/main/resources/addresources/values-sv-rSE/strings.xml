@@ -459,21 +459,30 @@ Justera volymen genom att svepa vertikalt på höger sida av skärmen"</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_title">Aktivera automatisk ljusstyrkegest</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_on">Genom att svepa ner till det lägsta värdet av gesten för ljusstyrka aktiveras automatisk ljusstyrka</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_off">Att svepa ner till det lägsta värdet aktiverar inte automatisk ljusstyrka</string>
+  <string name="revanced_swipe_lowest_value_enable_auto_brightness_overlay_text">Automatiskt</string>
   <string name="revanced_swipe_overlay_timeout_title">Tidsgräns för svepöverlagring</string>
   <string name="revanced_swipe_overlay_timeout_summary">Mängden millisekunder överlappningen är synlig</string>
   <string name="revanced_swipe_overlay_background_opacity_title">Överlägg svepbakgrund opacitet</string>
   <string name="revanced_swipe_overlay_background_opacity_summary">Opacitetsvärde mellan 0-100</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Överlagrad svepopacitet måste vara mellan 0-100</string>
+  <string name="revanced_swipe_overlay_progress_color_title">Färg på förloppsindikatorn för svepöverlagring</string>
+  <string name="revanced_swipe_overlay_progress_color_summary">Färgen på förloppsindikatorn för volym- och ljusstyrkekontroller</string>
+  <string name="revanced_swipe_overlay_progress_color_invalid_toast">Ogiltig färg på förloppsindikatorn</string>
+  <string name="revanced_swipe_text_overlay_size_title">Textstorlek för svepöverlagring</string>
+  <string name="revanced_swipe_text_overlay_size_summary">Textstorleken för svepöverlagring mellan 1 och 30</string>
+  <string name="revanced_swipe_text_overlay_size_invalid_toast">Textstorleken måste vara mellan 1 och 30</string>
   <string name="revanced_swipe_threshold_title">Svep magnitud tröskel</string>
   <string name="revanced_swipe_threshold_summary">Mängden tröskel för att svepa ska uppstå</string>
   <string name="revanced_swipe_volume_sensitivity_title">Volym svepkänslighet</string>
   <string name="revanced_swipe_volume_sensitivity_summary">Hur mycket volymen ändras per svep</string>
-  <string name="revanced_swipe_show_circular_overlay_title">Visa cirkelformad overlay</string>
-  <string name="revanced_swipe_show_circular_overlay_summary_on">Cirkelformad overlay visas</string>
-  <string name="revanced_swipe_show_circular_overlay_summary_off">Horisontell overlay visas</string>
-  <string name="revanced_swipe_overlay_minimal_style_title">Aktivera minimal stil</string>
-  <string name="revanced_swipe_overlay_minimal_style_summary_on">Minimal överlagringsstil är aktiverad</string>
-  <string name="revanced_swipe_overlay_minimal_style_summary_off">Minimal overlay-stil är inaktiverad</string>
+  <string name="revanced_swipe_overlay_style_title">Svep överläggningsstil</string>
+  <string name="revanced_swipe_overlay_style_entry_1">Horisontellt överlägg</string>
+  <string name="revanced_swipe_overlay_style_entry_2">Horisontellt överlägg (minimalt - överst)</string>
+  <string name="revanced_swipe_overlay_style_entry_3">Horisontellt överlägg (minimalt - mitten)</string>
+  <string name="revanced_swipe_overlay_style_entry_4">Cirkulärt överlägg</string>
+  <string name="revanced_swipe_overlay_style_entry_5">Cirkulärt överlägg (minimalt)</string>
+  <string name="revanced_swipe_overlay_style_entry_6">Vertikalt överlägg</string>
+  <string name="revanced_swipe_overlay_style_entry_7">Vertikalt överlägg (minimalt)</string>
   <string name="revanced_swipe_change_video_title">Aktivera svepning för att byta video</string>
   <string name="revanced_swipe_change_video_summary_on">Svepning i helskärmsläge ändrar till följande/föregående video</string>
   <string name="revanced_swipe_change_video_summary_off">Svepning i helskärmsläge ändrar inte till följande/föregående video</string>
@@ -513,6 +522,11 @@ Justera volymen genom att svepa vertikalt på höger sida av skärmen"</string>
   <string name="revanced_hide_thanks_button_title">Dölj tack</string>
   <string name="revanced_hide_thanks_button_summary_on">Tack-knappen är dold</string>
   <string name="revanced_hide_thanks_button_summary_off">Tackknappen är synlig</string>
+  <!-- 'Ask' should be translated with the same localized wording that YouTube displays.
+                 Button only shows if the user ip is from specific region such as the USA or EU. -->
+  <string name="revanced_hide_ask_button_title">Dölj Fråga</string>
+  <string name="revanced_hide_ask_button_summary_on">Knappen Fråga är dold</string>
+  <string name="revanced_hide_ask_button_summary_off">Knappen Fråga är synlig</string>
   <!-- 'Clip' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_clip_button_title">Dölj klipp</string>
   <string name="revanced_hide_clip_button_summary_on">Klipp knappen är dold</string>
@@ -1106,7 +1120,7 @@ Om det senare stängs av rekommenderas det att rensa appens data för att förhi
   <string name="revanced_spoof_app_version_target_entry_2">19.01.34 - Återställ gamla navigeringsikoner</string>
   </patch>
   <patch id="layout.startpage.changeStartPagePatch">
-  <string name="revanced_change_start_page_title">Ställ in startsida</string>
+  <string name="revanced_change_start_page_title">Ändra startsida</string>
   <string name="revanced_change_start_page_entry_default">Standard</string>
   <string name="revanced_change_start_page_entry_all_subscriptions">Alla prenumerationer</string>
   <string name="revanced_change_start_page_entry_browse">Bläddra bland kanaler</string>
@@ -1131,6 +1145,11 @@ Om det senare stängs av rekommenderas det att rensa appens data för att förhi
   <string name="revanced_change_start_page_entry_virtual_reality">Virtual reality</string>
   <string name="revanced_change_start_page_entry_watch_later">Titta senare</string>
   <string name="revanced_change_start_page_entry_your_clips">Dina klipp</string>
+  <string name="revanced_change_start_page_always_title">Ändra alltid startsida</string>
+  <string name="revanced_change_start_page_always_summary_on">"Startsidan ändras alltid
+
+Begränsning: Att använda bakåtknappen i verktygsfältet kanske inte fungerar"</string>
+  <string name="revanced_change_start_page_always_summary_off">Startsidan ändras endast vid appstart</string>
   </patch>
   <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch">
   <string name="revanced_disable_resuming_shorts_player_title">Inaktivera återupptagande av Shorts spelare</string>
