@@ -43,9 +43,28 @@ import app.revanced.extension.youtube.settings.Settings;
  */
 public class ReVancedPreferenceFragment extends AbstractPreferenceFragment {
 
+    /**
+     * The main PreferenceScreen used to display the current set of preferences.
+     * This screen is manipulated during initialization and filtering to show or hide preferences.
+     */
     private PreferenceScreen preferenceScreen;
+
+    /**
+     * A copy of the original PreferenceScreen created during initialization.
+     * Used to restore the preference structure to its initial state after filtering or other modifications.
+     */
     private PreferenceScreen originalPreferenceScreen;
+
+    /**
+     * A list of top-level preferences directly attached to the main PreferenceScreen.
+     * Stored to maintain a reference to the primary preferences for easier manipulation or restoration.
+     */
     private List<Preference> topLevelPreferences;
+
+    /**
+     * A comprehensive list of all preferences, including nested ones, collected from the PreferenceScreen.
+     * Used for filtering and searching through all available preferences.
+     */
     private List<Preference> allPreferences;
 
     @SuppressLint("UseCompatLoadingForDrawables")
@@ -220,9 +239,6 @@ public class ReVancedPreferenceFragment extends AbstractPreferenceFragment {
         }
         setPreferenceScreenToolbar(targetScreen);
         Utils.sortPreferenceGroups(targetScreen);
-        sortPreferenceListMenu(Settings.CHANGE_START_PAGE);
-        sortPreferenceListMenu(Settings.SPOOF_VIDEO_STREAMS_LANGUAGE);
-        sortPreferenceListMenu(BaseSettings.REVANCED_LANGUAGE);
     }
 
     /**

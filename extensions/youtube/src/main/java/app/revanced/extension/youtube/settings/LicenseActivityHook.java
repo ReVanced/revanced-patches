@@ -150,7 +150,7 @@ public class LicenseActivityHook {
         }
         setToolbarLayoutParams(toolbar);
 
-        // Add SearchView only for ReVancedPreferenceFragment
+        // Add SearchView only for ReVancedPreferenceFragment.
         if (fragment instanceof ReVancedPreferenceFragment) {
             SearchView searchView = activity.findViewById(getResourceIdentifier("search_view", "id"));
             if (searchView != null) {
@@ -171,7 +171,7 @@ public class LicenseActivityHook {
                 Logger.printDebug(() -> "SearchView not found in layout");
             }
         } else {
-            // Remove SearchView for SponsorBlock and ReturnYouTubeDislike
+            // Remove SearchView for SponsorBlock and ReturnYouTubeDislike.
             ViewGroup searchView = activity.findViewById(getResourceIdentifier("search_view", "id"));
             if (searchView != null) {
                 ((ViewGroup) searchView.getParent()).removeView(searchView);
