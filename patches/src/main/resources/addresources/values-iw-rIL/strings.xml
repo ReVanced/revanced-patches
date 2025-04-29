@@ -1294,6 +1294,8 @@ Second \"item\" text"</string>
   <string name="microg_settings_title">הגדרות GmsCore</string>
   <string name="microg_settings_summary">הגדרות עבור GmsCore</string>
   </patch>
+  <patch id="misc.gms.accountCredentialsInvalidTextPatch">
+  </patch>
   <patch id="misc.links.bypassURLRedirectsPatch">
   <string name="revanced_bypass_url_redirects_title">עקוף הפניות מחדש של URL</string>
   <string name="revanced_bypass_url_redirects_summary_on">הפניות מחדש של URL נעקפות</string>

@@ -1310,6 +1310,9 @@ Second \"item\" text"</string>
   <string name="microg_settings_title">Ρυθμίσεις GmsCore</string>
   <string name="microg_settings_summary">Ρυθμίσεις για το MicroG GmsCore</string>
   </patch>
+  <patch id="misc.gms.accountCredentialsInvalidTextPatch">
+  <string name="microg_offline_account_login_error">Εάν αλλάξατε πρόσφατα τα στοιχεία σύνδεσης του λογαριασμού σας, απεγκαταστήστε και εγκαταστήστε ξανά το MicroG.</string>
+  </patch>
   <patch id="misc.links.bypassURLRedirectsPatch">
   <string name="revanced_bypass_url_redirects_title">Παράκαμψη ανακατευθύνσεων συνδέσμων</string>
   <string name="revanced_bypass_url_redirects_summary_on">Οι ανακατευθύνσεις συνδέσμων URL παρακάμπτονται</string>

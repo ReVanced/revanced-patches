@@ -313,14 +313,14 @@ MicroG GmsCore に対する電池の最適化を無効にしても、バッテ�
   <string name="revanced_hide_keyword_content_screen_title">キーワード フィルタ</string>
   <string name="revanced_hide_keyword_content_screen_summary">フィード、検索結果、関連動画に表示される動画をキーワードで除外するフィルタの設定</string>
   <string name="revanced_hide_keyword_content_home_title">キーワードに合致する動画をホームフィードから除外する</string>
-  <string name="revanced_hide_keyword_content_home_summary_on">キーワードに合致する動画はホームフィードに表示されません</string>
-  <string name="revanced_hide_keyword_content_home_summary_off">ホームフィードはキーワードでフィルタリングされません</string>
+  <string name="revanced_hide_keyword_content_home_summary_on">キーワードに合致する動画はホームフィードおよび関連動画に表示されません</string>
+  <string name="revanced_hide_keyword_content_home_summary_off">ホームフィードおよび関連動画はキーワードでフィルタリングされません</string>
   <string name="revanced_hide_keyword_content_search_title">キーワードに合致する動画を検索結果から除外する</string>
   <string name="revanced_hide_keyword_content_search_summary_on">キーワードに合致する動画は検索結果に表示されません</string>
   <string name="revanced_hide_keyword_content_search_summary_off">検索結果はキーワードでフィルタリングされません</string>
   <string name="revanced_hide_keyword_content_subscriptions_title">キーワードに合致する動画を登録チャンネル フィードから除外する</string>
   <string name="revanced_hide_keyword_content_subscriptions_summary_on">キーワードに合致する動画は登録チャンネル フィードに表示されません</string>
-  <string name="revanced_hide_keyword_content_subscriptions_summary_off">登録チャンネル フィードの動画はキーワードでフィルタリングされません</string>
+  <string name="revanced_hide_keyword_content_subscriptions_summary_off">登録チャンネル フィードはキーワードでフィルタリングされません</string>
   <string name="revanced_hide_keyword_content_phrases_title">キーワード</string>
   <!-- For localization, it is preferred, but not required, if 'LeBlanc' is replaced with a localized name or a familiar word that has upper case letters in the middle of the word.
                  This is because keywords can be in any language, and showing an example in the localized script helps convey this. -->
@@ -1301,7 +1301,7 @@ Automotive レイアウト
 
 より高画質な映像がアンロックされる可能性がありますが、動画のカクつき、バッテリー寿命の悪化、予期せぬ副作用が
 発生するかもしれません"</string>
-  <string name="revanced_spoof_device_dimensions_summary_off">"端末の画面サイズは偽装されていません
+  <string name="revanced_spoof_device_dimensions_summary_off">"デバイスの画面サイズは偽装されていません
 
 この機能を有効にすると、より高画質な映像がアンロックされる可能性があります"</string>
   <string name="revanced_spoof_device_dimensions_user_dialog_message">この機能を有効にすると、動画のカクつき、バッテリー寿命の悪化、および予期せぬ副作用を引き起こす可能性があります。</string>
@@ -1309,6 +1309,9 @@ Automotive レイアウト
   <patch id="misc.gms.gmsCoreSupportResourcePatch">
   <string name="microg_settings_title">GmsCore 設定</string>
   <string name="microg_settings_summary">GmsCore の設定</string>
+  </patch>
+  <patch id="misc.gms.accountCredentialsInvalidTextPatch">
+  <string name="microg_offline_account_login_error">最近アカウントのログイン情報を変更した場合は、MicroGをアンインストールして再インストールしてください。</string>
   </patch>
   <patch id="misc.links.bypassURLRedirectsPatch">
   <string name="revanced_bypass_url_redirects_title">URL リダイレクトを回避する</string>
@@ -1406,10 +1409,10 @@ Automotive レイアウト
   <string name="revanced_spoof_video_streams_client_type_title">デフォルトのクライアント</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_title">iOS クライアントで AVC (H.264) を強制的に使用する</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">ビデオ コーデックは強制的に AVC (H.264) が使用されます</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">ビデオコーデックは自動的に決定されます</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">"この機能を有効にすると、バッテリー寿命が延び、動画のカクつきが改善される可能性があります。
+  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">ビデオ コーデックは自動的に決定されます</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">"この機能を有効にすると、バッテリー寿命が延びたり、動画のカクつきが改善さたりする可能性があります。
 
-AVC の最大解像度は 1080p であり、Opus オーディオ コーデックは使用できず、動画の再生時に VP9 や AV1 より多くの通信量を使用します。"</string>
+AVC は、最大解像度が 1080p であり、Opus オーディオ コーデックが利用できず、動画再生時の通信量が VP9 や AV1 より多くなります。"</string>
   <string name="revanced_spoof_video_streams_about_ios_tv_title">iOS クライアントの副作用</string>
   <string name="revanced_spoof_video_streams_about_ios_tv_summary">"• 映画や有料動画が再生されない可能性があります
 •「 一定音量」が利用できません

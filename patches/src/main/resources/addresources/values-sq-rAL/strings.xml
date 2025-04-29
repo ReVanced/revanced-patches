@@ -1309,6 +1309,9 @@ Aktivizimi i kësaj mund të zhbllokojë cilësi më të larta video"</string>
   <string name="microg_settings_title">Cilësimet e GmsCore</string>
   <string name="microg_settings_summary">Cilësimet për GmsCore</string>
   </patch>
+  <patch id="misc.gms.accountCredentialsInvalidTextPatch">
+  <string name="microg_offline_account_login_error">Nëse së fundmi keni ndryshuar detajet e hyrjes në llogarinë tuaj, atëherë çinstaloni dhe riinstaloni MicroG.</string>
+  </patch>
   <patch id="misc.links.bypassURLRedirectsPatch">
   <string name="revanced_bypass_url_redirects_title">Anulo redirektimin e URL</string>
   <string name="revanced_bypass_url_redirects_summary_on">Redirektimet e URL janë të anuluara</string>
