@@ -172,10 +172,10 @@ internal val Instruction.isReturnInstruction: Boolean
 /**
  * Adds public [AccessFlags] and removes private and protected flags (if present).
  */
-internal fun changeAccessFlagsToPublic(accessFlags: Int) : Int {
-    return accessFlags.or(AccessFlags.PUBLIC.value)
-        .and(AccessFlags.PRIVATE.value.inv())
+internal fun Int.toPublicAccessFlags() : Int {
+    return this.or(AccessFlags.PUBLIC.value)
         .and(AccessFlags.PROTECTED.value.inv())
+        .and(AccessFlags.PRIVATE.value.inv())
 }
 
 /**
