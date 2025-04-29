@@ -1,3 +1,10 @@
+# [5.22.0-dev.3](https://github.com/ReVanced/revanced-patches/compare/v5.22.0-dev.2...v5.22.0-dev.3) (2025-04-29)
+
+
+### Features
+
+* **YouTube - GmsCore support:** Show troubleshooting in app text if the user recently changed their account details ([#4879](https://github.com/ReVanced/revanced-patches/issues/4879)) ([ab4bdc8](https://github.com/ReVanced/revanced-patches/commit/ab4bdc8a2519cee15f79bf95d89e7ea56ea464ee))
+
 # [5.22.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.22.0-dev.1...v5.22.0-dev.2) (2025-04-27)
 
 
