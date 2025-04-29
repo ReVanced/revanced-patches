@@ -68,5 +68,5 @@ private fun gmsCoreSupportResourcePatch(
         )
     },
 ) {
-    dependsOn(settingsPatch, addResourcesPatch)
+    dependsOn(settingsPatch, addResourcesPatch, accountCredentialsInvalidTextPatch)
 }
