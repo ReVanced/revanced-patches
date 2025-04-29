@@ -15,10 +15,7 @@ val disableAudioAdsPatch = bytecodePatch(
 
     execute {
         constructUserDataFingerprint.method.apply {
-            val hasAudioAdsStringIndex = constructUserDataFingerprint.stringMatches!!.find {
-                it.string == "hasAudioAds"
-            }!!.index
-
+            val hasAudioAdsStringIndex = constructUserDataFingerprint.stringMatches!!.first().index
             val moveResultIndex = indexOfFirstInstructionOrThrow(hasAudioAdsStringIndex, Opcode.MOVE_RESULT)
             val hasAudioAdsRegister = getInstruction<OneRegisterInstruction>(moveResultIndex).registerA
 

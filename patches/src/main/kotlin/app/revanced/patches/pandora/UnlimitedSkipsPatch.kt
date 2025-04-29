@@ -15,10 +15,7 @@ val unlimitedSkipsPatch = bytecodePatch(
 
     execute {
         constructUserDataFingerprint.method.apply {
-            val skipLimitBehaviorStringIndex = constructUserDataFingerprint.stringMatches!!.find {
-                it.string == "skipLimitBehavior"
-            }!!.index
-
+            val skipLimitBehaviorStringIndex = constructUserDataFingerprint.stringMatches!!.last().index
             val moveResultObjectIndex = indexOfFirstInstructionOrThrow(skipLimitBehaviorStringIndex, Opcode.MOVE_RESULT_OBJECT)
             val skipLimitBehavior = getInstruction<OneRegisterInstruction>(moveResultObjectIndex).registerA
 
