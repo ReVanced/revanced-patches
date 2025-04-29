@@ -1252,6 +1252,9 @@ Aktivering af dette kan låse op for højere videokvalitet"</string>
   <string name="microg_settings_title">GmsCore Indstillinger</string>
   <string name="microg_settings_summary">Indstillinger for GmsCore</string>
   </patch>
+  <patch id="misc.gms.accountCredentialsInvalidTextPatch">
+  <string name="microg_offline_account_login_error">Hvis du for nylig har ændret dine kontooplysninger, skal du afinstallere og geninstallere MicroG.</string>
+  </patch>
   <patch id="misc.links.bypassURLRedirectsPatch">
   <string name="revanced_bypass_url_redirects_title">Bypass URL omdirigeringer</string>
   <string name="revanced_bypass_url_redirects_summary_on">URL omdirigeringer er omgået</string>

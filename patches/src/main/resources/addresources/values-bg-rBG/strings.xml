@@ -1311,6 +1311,9 @@ Second \"item\" text"</string>
   <string name="microg_settings_title">GmsCore Настройки</string>
   <string name="microg_settings_summary">Настройки на GmsCore</string>
   </patch>
+  <patch id="misc.gms.accountCredentialsInvalidTextPatch">
+  <string name="microg_offline_account_login_error">Ако наскоро сте променили данните си за вход в профила, деинсталирайте и инсталирайте отново MicroG.</string>
+  </patch>
   <patch id="misc.links.bypassURLRedirectsPatch">
   <string name="revanced_bypass_url_redirects_title">Заобикаляне на URL пренасочване</string>
   <string name="revanced_bypass_url_redirects_summary_on">URL пренасочванията се заобикалят</string>

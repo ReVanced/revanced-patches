@@ -1311,6 +1311,9 @@ Włączenie tego może odblokować wyższe jakości wideo"</string>
   <string name="microg_settings_title">Ustawienia GmsCore</string>
   <string name="microg_settings_summary">Ustawienia GmsCore</string>
   </patch>
+  <patch id="misc.gms.accountCredentialsInvalidTextPatch">
+  <string name="microg_offline_account_login_error">Jeśli niedawno zmieniono dane logowania do konta, odinstaluj i zainstaluj ponownie MicroG.</string>
+  </patch>
   <patch id="misc.links.bypassURLRedirectsPatch">
   <string name="revanced_bypass_url_redirects_title">Omijanie przekierowań URL</string>
   <string name="revanced_bypass_url_redirects_summary_on">Przekierowanie URL jest omijane</string>

@@ -1309,6 +1309,9 @@ Ang pagpapagana nito ay maaaring magbukas ng mas mataas na kalidad ng video"</st
   <string name="microg_settings_title">Mga Setting ng GmsCore</string>
   <string name="microg_settings_summary">Mga setting para sa GmsCore</string>
   </patch>
+  <patch id="misc.gms.accountCredentialsInvalidTextPatch">
+  <string name="microg_offline_account_login_error">Kung kamakailan mo lang binago ang mga detalye sa pag-login sa iyong account, i-uninstall at muling i-install ang MicroG.</string>
+  </patch>
   <patch id="misc.links.bypassURLRedirectsPatch">
   <string name="revanced_bypass_url_redirects_title">I-bypass ang mga pag-redirect ng URL</string>
   <string name="revanced_bypass_url_redirects_summary_on">Ang mga pag-redirect ng URL ay na-bypass</string>

@@ -475,7 +475,7 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_swipe_volume_sensitivity_title">볼륨 스와이프 민감도</string>
   <string name="revanced_swipe_volume_sensitivity_summary">스와이프할 때마다 볼륨이 얼마나 변경되는지를 지정할 수 있습니다</string>
   <string name="revanced_swipe_overlay_style_title">스와이프 오버레이 스타일</string>
-  <string name="revanced_swipe_overlay_style_entry_1">바형 오버레이</string>
+  <string name="revanced_swipe_overlay_style_entry_1">가로 오버레이</string>
   <string name="revanced_swipe_overlay_style_entry_2">가로 오버레이 (최소화 - 상단)</string>
   <string name="revanced_swipe_overlay_style_entry_3">가로 오버레이 (최소화 - 중앙)</string>
   <string name="revanced_swipe_overlay_style_entry_4">원형 오버레이</string>
@@ -1313,6 +1313,9 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요"</string>
   <patch id="misc.gms.gmsCoreSupportResourcePatch">
   <string name="microg_settings_title">GmsCore 설정</string>
   <string name="microg_settings_summary">알림 수신을 위한 클라우드 메시징을 설정할 수 있습니다</string>
+  </patch>
+  <patch id="misc.gms.accountCredentialsInvalidTextPatch">
+  <string name="microg_offline_account_login_error">최근에 계정 로그인 정보를 변경했다면 MicroG를 제거하고 다시 설치하세요.</string>
   </patch>
   <patch id="misc.links.bypassURLRedirectsPatch">
   <string name="revanced_bypass_url_redirects_title">리다이렉션 없이 링크 바로 열기</string>

@@ -1310,6 +1310,9 @@ Var tikt atbloķētas augstākas video kvalitātes, taču var rasties video atsk
   <string name="microg_settings_title">GmsCore iestatījumi</string>
   <string name="microg_settings_summary">GmsCore iestatījumi</string>
   </patch>
+  <patch id="misc.gms.accountCredentialsInvalidTextPatch">
+  <string name="microg_offline_account_login_error">Ja nesen mainījāt sava konta pieteikšanās informāciju, atinstalējiet un atkārtoti instalējiet MicroG.</string>
+  </patch>
   <patch id="misc.links.bypassURLRedirectsPatch">
   <string name="revanced_bypass_url_redirects_title">Aiziet garām URL pāradresācijai</string>
   <string name="revanced_bypass_url_redirects_summary_on">URL pāradresācija tiek apiet</string>

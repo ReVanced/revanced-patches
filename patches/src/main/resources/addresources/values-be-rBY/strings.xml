@@ -1312,6 +1312,9 @@ Second \"item\" text"</string>
   <string name="microg_settings_title">Налады GmsCore</string>
   <string name="microg_settings_summary">Налады для GmsCore</string>
   </patch>
+  <patch id="misc.gms.accountCredentialsInvalidTextPatch">
+  <string name="microg_offline_account_login_error">Калі вы нядаўна змянілі даныя для ўваходу ў свой уліковы запіс, выдаліце і пераўсталюйце MicroG.</string>
+  </patch>
   <patch id="misc.links.bypassURLRedirectsPatch">
   <string name="revanced_bypass_url_redirects_title">Абыход URL-перанакіраванняў</string>
   <string name="revanced_bypass_url_redirects_summary_on">Перанакіраванне URL абыходзіць</string>
