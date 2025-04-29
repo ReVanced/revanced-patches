@@ -4,12 +4,16 @@ import static app.revanced.extension.shared.Utils.getResourceIdentifier;
 
 import android.annotation.SuppressLint;
 import android.app.Dialog;
+import android.content.Context;
 import android.graphics.Insets;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.preference.ListPreference;
 import android.preference.Preference;
+import android.preference.PreferenceCategory;
+import android.preference.PreferenceGroup;
 import android.preference.PreferenceScreen;
+import android.text.TextUtils;
 import android.util.Pair;
 import android.util.TypedValue;
 import android.view.ViewGroup;
@@ -18,7 +22,9 @@ import android.widget.TextView;
 import android.widget.Toolbar;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
@@ -36,6 +42,11 @@ import app.revanced.extension.youtube.settings.Settings;
  * @noinspection deprecation
  */
 public class ReVancedPreferenceFragment extends AbstractPreferenceFragment {
+
+    private PreferenceScreen preferenceScreen;
+    private PreferenceScreen originalPreferenceScreen;
+    private List<Preference> topLevelPreferences;
+    private List<Preference> allPreferences;
 
     @SuppressLint("UseCompatLoadingForDrawables")
     public static Drawable getBackButtonDrawable() {
@@ -96,12 +107,35 @@ public class ReVancedPreferenceFragment extends AbstractPreferenceFragment {
         listPreference.setEntryValues(sortedEntryValues);
     }
 
+    /**
+     * Initializes the preference fragment, copying the original screen to allow full restoration.
+     */
     @Override
     protected void initialize() {
         super.initialize();
 
         try {
-            setPreferenceScreenToolbar(getPreferenceScreen());
+            preferenceScreen = getPreferenceScreen();
+            if (preferenceScreen == null) {
+                Logger.printDebug(() -> "PreferenceScreen is null during initialization");
+                throw new IllegalStateException("PreferenceScreen is null");
+            }
+
+            // Store the original structure for restoration after filtering
+            originalPreferenceScreen = getPreferenceManager().createPreferenceScreen(getContext());
+            for (int i = 0; i < preferenceScreen.getPreferenceCount(); i++) {
+                originalPreferenceScreen.addPreference(preferenceScreen.getPreference(i));
+            }
+
+            topLevelPreferences = new ArrayList<>();
+            allPreferences = new ArrayList<>();
+
+            for (int i = 0; i < preferenceScreen.getPreferenceCount(); i++) {
+                topLevelPreferences.add(preferenceScreen.getPreference(i));
+            }
+
+            collectPreferences(preferenceScreen, allPreferences);
+            setPreferenceScreenToolbar(preferenceScreen);
 
             // If the preference was included, then initialize it based on the available playback speed.
             Preference preference = findPreference(Settings.PLAYBACK_SPEED_DEFAULT.key);
@@ -117,6 +151,83 @@ public class ReVancedPreferenceFragment extends AbstractPreferenceFragment {
         }
     }
 
+    /**
+     * Recursively collects all preferences from the screen.
+     */
+    private void collectPreferences(PreferenceScreen screen, List<Preference> preferences) {
+        for (int i = 0; i < screen.getPreferenceCount(); i++) {
+            Preference preference = screen.getPreference(i);
+            preferences.add(preference);
+            if (preference instanceof PreferenceScreen) {
+                collectPreferences((PreferenceScreen) preference, preferences);
+            }
+        }
+    }
+
+    /**
+     * Filters the preferences using the given query string.
+     */
+    public void filterPreferences(String query) {
+        if (preferenceScreen == null || topLevelPreferences == null || allPreferences == null || originalPreferenceScreen == null) {
+            return;
+        }
+
+        preferenceScreen.removeAll();
+        if (TextUtils.isEmpty(query)) {
+            restoreOriginalPreferences(preferenceScreen, originalPreferenceScreen);
+        } else {
+            String queryLower = query.toLowerCase();
+            Set<Preference> addedPreferences = new HashSet<>();
+            for (Preference preference : allPreferences) {
+                String title = preference.getTitle() != null ? preference.getTitle().toString().toLowerCase() : "";
+                String summary = preference.getSummary() != null ? preference.getSummary().toString().toLowerCase() : "";
+                if (title.contains(queryLower) || summary.contains(queryLower)) {
+                    addPreferenceWithParent(preference, preferenceScreen, addedPreferences);
+                }
+            }
+        }
+    }
+
+    /**
+     * Adds a preference to the target screen, preserving parent category if applicable.
+     */
+    private void addPreferenceWithParent(Preference preference, PreferenceScreen targetScreen, Set<Preference> addedPreferences) {
+        if (addedPreferences.contains(preference)) return;
+
+        PreferenceGroup parent = preference.getParent();
+        if (parent instanceof PreferenceCategory && !addedPreferences.contains(parent)) {
+            PreferenceCategory newCategory = new PreferenceCategory(targetScreen.getContext());
+            newCategory.setKey(parent.getKey());
+            newCategory.setTitle(parent.getTitle());
+            newCategory.setSummary(parent.getSummary());
+            newCategory.setIcon(parent.getIcon());
+            targetScreen.addPreference(newCategory);
+            addedPreferences.add(parent);
+            newCategory.addPreference(preference);
+        } else {
+            targetScreen.addPreference(preference);
+        }
+        addedPreferences.add(preference);
+    }
+
+    /**
+     * Restores preferences to the original state before filtering.
+     */
+    private void restoreOriginalPreferences(PreferenceScreen targetScreen, PreferenceScreen sourceScreen) {
+        targetScreen.removeAll();
+        for (int i = 0; i < sourceScreen.getPreferenceCount(); i++) {
+            targetScreen.addPreference(sourceScreen.getPreference(i));
+        }
+        setPreferenceScreenToolbar(targetScreen);
+        Utils.sortPreferenceGroups(targetScreen);
+        sortPreferenceListMenu(Settings.CHANGE_START_PAGE);
+        sortPreferenceListMenu(Settings.SPOOF_VIDEO_STREAMS_LANGUAGE);
+        sortPreferenceListMenu(BaseSettings.REVANCED_LANGUAGE);
+    }
+
+    /**
+     * Sorts a specific list preference by its entries.
+     */
     private void sortPreferenceListMenu(EnumSetting<?> setting) {
         Preference preference = findPreference(setting.key);
         if (preference instanceof ListPreference languagePreference) {
@@ -124,6 +235,9 @@ public class ReVancedPreferenceFragment extends AbstractPreferenceFragment {
         }
     }
 
+    /**
+     * Sets toolbar for all nested preference screens.
+     */
     private void setPreferenceScreenToolbar(PreferenceScreen parentScreen) {
         for (int i = 0, preferenceCount = parentScreen.getPreferenceCount(); i < preferenceCount; i++) {
             Preference childPreference = parentScreen.getPreference(i);
@@ -153,6 +267,7 @@ public class ReVancedPreferenceFragment extends AbstractPreferenceFragment {
                             toolbar.setTitle(childScreen.getTitle());
                             toolbar.setNavigationIcon(getBackButtonDrawable());
                             toolbar.setNavigationOnClickListener(view -> preferenceScreenDialog.dismiss());
+
                             final int margin = (int) TypedValue.applyDimension(
                                     TypedValue.COMPLEX_UNIT_DIP, 16, getResources().getDisplayMetrics()
                             );

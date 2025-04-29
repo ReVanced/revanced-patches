@@ -22,4 +22,7 @@
         <item name="android:windowIsTranslucent">true</item>
         <item name="android:background">@android:color/transparent</item>
     </style>
+    <style name="revanced_searchbar_cursor">
+        <item name="android:textCursorDrawable">@drawable/revanced_cursor</item>
+    </style>
 </resources>

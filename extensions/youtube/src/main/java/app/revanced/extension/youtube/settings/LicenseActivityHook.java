@@ -1,5 +1,6 @@
 package app.revanced.extension.youtube.settings;
 
+import static app.revanced.extension.shared.StringRef.str;
 import static app.revanced.extension.shared.Utils.getResourceIdentifier;
 
 import android.annotation.SuppressLint;
@@ -8,6 +9,8 @@ import android.content.Context;
 import android.preference.PreferenceFragment;
 import android.util.TypedValue;
 import android.view.ViewGroup;
+import android.view.Window;
+import android.widget.SearchView;
 import android.widget.TextView;
 import android.widget.Toolbar;
 
@@ -108,7 +111,7 @@ public class LicenseActivityHook {
                     return;
             }
 
-            createToolbar(licenseActivity, toolbarTitleResourceName);
+            createToolbar(licenseActivity, toolbarTitleResourceName, fragment);
 
             //noinspection deprecation
             licenseActivity.getFragmentManager()
@@ -121,12 +124,12 @@ public class LicenseActivityHook {
     }
 
     @SuppressLint("UseCompatLoadingForDrawables")
-    private static void createToolbar(Activity activity, String toolbarTitleResourceName) {
+    private static void createToolbar(Activity activity, String toolbarTitleResourceName, PreferenceFragment fragment) {
         // Replace dummy placeholder toolbar.
         // This is required to fix submenu title alignment issue with Android ASOP 15+
         ViewGroup toolBarParent = activity.findViewById(
                 getResourceIdentifier("revanced_toolbar_parent", "id"));
-        ViewGroup dummyToolbar = Utils.getChildViewByResourceName(toolBarParent,"revanced_toolbar");
+        ViewGroup dummyToolbar = Utils.getChildViewByResourceName(toolBarParent, "revanced_toolbar");
         toolbarLayoutParams = dummyToolbar.getLayoutParams();
         toolBarParent.removeView(dummyToolbar);
 
@@ -147,7 +150,34 @@ public class LicenseActivityHook {
         }
         setToolbarLayoutParams(toolbar);
 
+        // Add SearchView only for ReVancedPreferenceFragment
+        if (fragment instanceof ReVancedPreferenceFragment) {
+            SearchView searchView = activity.findViewById(getResourceIdentifier("search_view", "id"));
+            if (searchView != null) {
+                searchView.setQueryHint(str("revanced_search_settings"));
+                searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+                    @Override
+                    public boolean onQueryTextSubmit(String query) {
+                        return false;
+                    }
+                    @Override
+                    public boolean onQueryTextChange(String newText) {
+                        Logger.printDebug(() -> "Search query: " + newText);
+                        ((ReVancedPreferenceFragment) fragment).filterPreferences(newText);
+                        return true;
+                    }
+                });
+            } else {
+                Logger.printDebug(() -> "SearchView not found in layout");
+            }
+        } else {
+            // Remove SearchView for SponsorBlock and ReturnYouTubeDislike
+            ViewGroup searchView = activity.findViewById(getResourceIdentifier("search_view", "id"));
+            if (searchView != null) {
+                ((ViewGroup) searchView.getParent()).removeView(searchView);
+            }
+        }
+
         toolBarParent.addView(toolbar, 0);
     }
-
 }
