@@ -7,6 +7,8 @@ import com.amazon.avod.media.ads.internal.state.AdEnabledPlayerTriggerType;
 import com.amazon.avod.media.playback.VideoPlayer;
 import com.amazon.avod.media.ads.internal.state.ServerInsertedAdBreakState;
 
+import app.revanced.extension.shared.Logger;
+
 @SuppressWarnings("unused")
 public final class SkipAdsPatch {
     public static void enterServerInsertedAdBreakState(ServerInsertedAdBreakState state, AdBreakTrigger trigger, VideoPlayer player) {
