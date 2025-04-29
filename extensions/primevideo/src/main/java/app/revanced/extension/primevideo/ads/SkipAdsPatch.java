@@ -9,17 +9,17 @@ import com.amazon.avod.media.ads.internal.state.ServerInsertedAdBreakState;
 
 @SuppressWarnings("unused")
 public final class SkipAdsPatch {
-    public static void ServerInsertedAdBreakState_enter(ServerInsertedAdBreakState state, AdBreakTrigger trigger, VideoPlayer player) {
+    public static void enterServerInsertedAdBreakState(ServerInsertedAdBreakState state, AdBreakTrigger trigger, VideoPlayer player) {
         AdBreak adBreak = trigger.getBreak();
 
         if (trigger.getSeekStartPosition() != null)
-            // if scrubbing over ad, seek straight to it
+            // If scrubbing over an ad, seek straight to it.
             player.seekTo(trigger.getSeekTarget().getTotalMilliseconds());
         else
-            // if naturally entering ad, seek to end of ad break
+            // If naturally entering an ad, seek to end of the ad break.
             player.seekTo(player.getCurrentPosition() + adBreak.getDurationExcludingAux().getTotalMilliseconds());
 
-        // send "end of ads" trigger to state machine so everything doesn't get whacky
+        // Send "end of ads" trigger to state machine so everything doesn't get whacky.
         state.doTrigger(new SimpleTrigger(AdEnabledPlayerTriggerType.NO_MORE_ADS_SKIP_TRANSITION));
     }
 }

@@ -412,6 +412,10 @@ public final class app/revanced/patches/pixiv/ads/HideAdsPatchKt {
 	public static final fun getHideAdsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
+public final class app/revanced/patches/primevideo/ads/ExtensionPatchKt {
+	public static final fun getSharedExtensionPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
 public final class app/revanced/patches/primevideo/ads/SkipAdsPatchKt {
 	public static final fun getSkipAdsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
