@@ -62,4 +62,5 @@ jobs:
         if: steps.release.outputs.new_release_published == 'true'
         uses: actions/attest-build-provenance@v2
         with:
+          subject-name: 'ReVanced Patches $new_release_git_tag'
           subject-path: patches/build/libs/patches-!(*sources*|*javadoc*).rvp
