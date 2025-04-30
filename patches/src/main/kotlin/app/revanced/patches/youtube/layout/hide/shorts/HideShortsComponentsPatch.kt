@@ -17,7 +17,6 @@ import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.litho.filter.addLithoFilter
 import app.revanced.patches.youtube.misc.litho.filter.lithoFilterPatch
 import app.revanced.patches.youtube.misc.navigation.navigationBarHookPatch
-import app.revanced.patches.youtube.misc.playservice.is_19_17_or_greater
 import app.revanced.patches.youtube.misc.playservice.is_19_41_or_greater
 import app.revanced.patches.youtube.misc.playservice.versionCheckPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
@@ -185,27 +184,20 @@ val hideShortsComponentsPatch = bytecodePatch(
 
         // region Hide the sound button.
 
-        val soundButtonFingerprints = mutableListOf(shortsSoundButtonLayoutLegacyFingerprint)
-        if (is_19_17_or_greater) {
-            soundButtonFingerprints += shortsSoundButtonLayoutFingerprint
-        }
+        shortsSoundButtonOnMeasureFingerprint.method.apply {
+            val literalIndex = indexOfFirstLiteralInstructionOrThrow(reelPlayerRightPivotV2Size)
+            val pixelSizeIndex = indexOfFirstInstructionOrThrow(literalIndex) {
+                getReference<MethodReference>()?.name == "getDimensionPixelSize"
+            } + 1
+            val sizeRegister = getInstruction<OneRegisterInstruction>(pixelSizeIndex).registerA
 
-        soundButtonFingerprints.forEach { fingerprint ->
-            fingerprint.method.apply {
-                val literalIndex = indexOfFirstLiteralInstructionOrThrow(reelPlayerRightPivotV2Size)
-                val pixelSizeIndex = indexOfFirstInstructionOrThrow(literalIndex) {
-                    getReference<MethodReference>()?.name == "getDimensionPixelSize"
-                } + 1
-                val sizeRegister = getInstruction<OneRegisterInstruction>(pixelSizeIndex).registerA
-
-                addInstructions(
-                    pixelSizeIndex + 1,
-                    """
-                        invoke-static { v$sizeRegister }, $FILTER_CLASS_DESCRIPTOR->getSoundButtonSize(I)I
-                        move-result v$sizeRegister
-                    """
-                )
-            }
+            addInstructions(
+                pixelSizeIndex + 1,
+                """
+                    invoke-static { v$sizeRegister }, $FILTER_CLASS_DESCRIPTOR->getSoundButtonSize(I)I
+                    move-result v$sizeRegister
+                """
+            )
         }
 
         // endregion
