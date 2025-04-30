@@ -86,7 +86,7 @@ Second \"item\" text"</string>
   <string name="revanced_settings_screen_03_feed_title">Ροή</string>
   <string name="revanced_settings_screen_04_general_title">Γενικά</string>
   <string name="revanced_settings_screen_05_player_title">Οθόνη αναπαραγωγής</string>
-  <string name="revanced_settings_screen_07_seekbar_title">Γραμμή προόδου βίντεο</string>
+  <string name="revanced_settings_screen_07_seekbar_title">Γραμμή προόδου</string>
   <string name="revanced_settings_screen_08_swipe_controls_title">Έλεγχος με σάρωση οθόνης</string>
   <string name="revanced_settings_screen_11_misc_title">Διάφορα</string>
   <string name="revanced_settings_screen_12_video_title">Βίντεο</string>
