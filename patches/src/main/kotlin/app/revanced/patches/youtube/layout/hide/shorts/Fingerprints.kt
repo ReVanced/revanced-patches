@@ -6,7 +6,13 @@ import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
 internal val shortsSoundButtonOnMeasureFingerprint = fingerprint {
-    strings("RHS is rendered through element view for Ads")
+    accessFlags(AccessFlags.PROTECTED, AccessFlags.FINAL)
+    returns("V")
+    parameters(
+        "I",
+        "I",
+    )
+    strings("pivotButton")
     literal {
         reelPlayerRightPivotV2Size
     }

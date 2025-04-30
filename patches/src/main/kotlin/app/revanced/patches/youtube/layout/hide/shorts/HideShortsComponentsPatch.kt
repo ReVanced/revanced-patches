@@ -57,16 +57,6 @@ private val hideShortsComponentsResourcePatch = resourcePatch {
     )
 
     execute {
-        bottomBarContainer = resourceMappings[
-            "id",
-            "bottom_bar_container",
-        ]
-
-        reelPlayerRightPivotV2Size = resourceMappings[
-            "dimen",
-            "reel_player_right_pivot_v2_size",
-        ]
-
         val hideShortsAppShortcut by hideShortsAppShortcutOption
         val hideShortsWidget by hideShortsWidgetOption
 
@@ -145,6 +135,16 @@ private val hideShortsComponentsResourcePatch = resourcePatch {
                 shortsItem.parentNode.removeChild(shortsItem)
             }
         }
+
+        bottomBarContainer = resourceMappings[
+            "id",
+            "bottom_bar_container",
+        ]
+
+        reelPlayerRightPivotV2Size = resourceMappings[
+            "dimen",
+            "reel_player_right_pivot_v2_size",
+        ]
     }
 }
 
