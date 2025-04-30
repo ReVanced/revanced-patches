@@ -1310,6 +1310,9 @@ Omogočanje tega lahko odklene višje kakovosti videa"</string>
   <string name="microg_settings_title">Nastavitve GmsCore</string>
   <string name="microg_settings_summary">Nastavitve za GmsCore</string>
   </patch>
+  <patch id="misc.gms.accountCredentialsInvalidTextPatch">
+  <string name="microg_offline_account_login_error">Če ste nedavno spremenili podatke za prijavo v račun, odstranite in znova namestite MicroG.</string>
+  </patch>
   <patch id="misc.links.bypassURLRedirectsPatch">
   <string name="revanced_bypass_url_redirects_title">Obvod preusmeritev URL-jev</string>
   <string name="revanced_bypass_url_redirects_summary_on">Preusmeritve URL-jev so obvodene</string>

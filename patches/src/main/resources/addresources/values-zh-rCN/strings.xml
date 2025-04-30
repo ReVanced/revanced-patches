@@ -1315,6 +1315,9 @@ Second \"item\" text"</string>
   <string name="microg_settings_title">GmsCore 设置</string>
   <string name="microg_settings_summary">GmsCore 的设置</string>
   </patch>
+  <patch id="misc.gms.accountCredentialsInvalidTextPatch">
+  <string name="microg_offline_account_login_error">如果您最近更改了帐户登录详细信息，请卸载并重新安装 MicroG。</string>
+  </patch>
   <patch id="misc.links.bypassURLRedirectsPatch">
   <string name="revanced_bypass_url_redirects_title">绕过 URL 重定向</string>
   <string name="revanced_bypass_url_redirects_summary_on">URL 重定向将被跳过</string>

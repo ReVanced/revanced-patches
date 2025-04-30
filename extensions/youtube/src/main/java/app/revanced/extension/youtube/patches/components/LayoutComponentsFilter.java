@@ -75,7 +75,10 @@ public final class LayoutComponentsFilter extends Filter {
                 "post_base_wrapper_slim.eml",
                 "poll_post_root.eml",
                 "videos_post_root.eml",
-                "post_shelf_slim.eml"
+                "post_shelf_slim.eml",
+                "videos_post_responsive_root.eml",
+                "text_post_responsive_root.eml",
+                "poll_post_responsive_root.eml"
         );
 
         final var communityGuidelines = new StringFilterGroup(

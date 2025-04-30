@@ -1310,6 +1310,9 @@ Second \"item\" text"</string>
   <string name="microg_settings_title">Подешавања GmsCore-а</string>
   <string name="microg_settings_summary">Подешавања за GmsCore</string>
   </patch>
+  <patch id="misc.gms.accountCredentialsInvalidTextPatch">
+  <string name="microg_offline_account_login_error">Ако сте недавно променили податке за пријаву на налог, деинсталирајте и поново инсталирајте MicroG.</string>
+  </patch>
   <patch id="misc.links.bypassURLRedirectsPatch">
   <string name="revanced_bypass_url_redirects_title">Заобиђи URL преусмеравања</string>
   <string name="revanced_bypass_url_redirects_summary_on">URL преусмеравања се заобилазе</string>

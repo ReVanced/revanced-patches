@@ -6,7 +6,6 @@ import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.booleanOption
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.resourcePatch
-import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.shared.misc.mapping.getResourceId
@@ -21,9 +20,11 @@ import app.revanced.patches.youtube.misc.playservice.is_19_41_or_greater
 import app.revanced.patches.youtube.misc.playservice.versionCheckPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
-import app.revanced.util.*
-import com.android.tools.smali.dexlib2.Opcode
-import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
+import app.revanced.util.findElementByAttributeValueOrThrow
+import app.revanced.util.forEachLiteralValueInstruction
+import app.revanced.util.getReference
+import app.revanced.util.indexOfFirstInstructionOrThrow
+import app.revanced.util.indexOfFirstLiteralInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
@@ -163,15 +164,6 @@ val hideShortsComponentsPatch = bytecodePatch(
     hideShortsWidgetOption()
 
     execute {
-        // region Hide the Shorts buttons in older versions of YouTube.
-
-        // Some Shorts buttons are views, hide them by setting their visibility to GONE.
-        ShortsButtons.entries.forEach { button -> button.injectHideCall(createShortsButtonsFingerprint.method) }
-
-        // endregion
-
-        // region Hide the Shorts buttons in newer versions of YouTube.
-
         addLithoFilter(FILTER_CLASS_DESCRIPTOR)
 
         forEachLiteralValueInstruction(
@@ -188,7 +180,7 @@ val hideShortsComponentsPatch = bytecodePatch(
                 """
                     invoke-static { v$sizeRegister }, $FILTER_CLASS_DESCRIPTOR->getSoundButtonSize(I)I
                     move-result v$sizeRegister
-                """,
+                """
             )
         }
 
@@ -240,25 +232,5 @@ val hideShortsComponentsPatch = bytecodePatch(
         }
 
         // endregion
-    }
-}
-
-private enum class ShortsButtons(private val resourceName: String, private val methodName: String) {
-    LIKE("reel_dyn_like", "hideLikeButton"),
-    DISLIKE("reel_dyn_dislike", "hideDislikeButton"),
-    COMMENTS("reel_dyn_comment", "hideShortsCommentsButton"),
-    REMIX("reel_dyn_remix", "hideShortsRemixButton"),
-    SHARE("reel_dyn_share", "hideShortsShareButton");
-
-    fun injectHideCall(method: MutableMethod) {
-        val referencedIndex = method.indexOfFirstResourceIdOrThrow(resourceName)
-
-        val setIdIndex = method.indexOfFirstInstructionOrThrow(referencedIndex) {
-            opcode == Opcode.INVOKE_VIRTUAL && getReference<MethodReference>()?.name == "setId"
-        }
-
-        val viewRegister = method.getInstruction<FiveRegisterInstruction>(setIdIndex).registerC
-
-        method.injectHideViewCall(setIdIndex + 1, viewRegister, FILTER_CLASS_DESCRIPTOR, methodName)
     }
 }

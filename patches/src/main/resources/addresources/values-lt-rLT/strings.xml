@@ -1310,6 +1310,9 @@ Gali būti atrakinta aukštesnės vaizdo įrašų kokybės, bet galite patirti v
   <string name="microg_settings_title">„GmsCore“ nustatymai</string>
   <string name="microg_settings_summary">„GmsCore“ nustatymai</string>
   </patch>
+  <patch id="misc.gms.accountCredentialsInvalidTextPatch">
+  <string name="microg_offline_account_login_error">Jei neseniai pakeitėte savo paskyros prisijungimo duomenis, išdiekite ir iš naujo įdiekite „MicroG“.</string>
+  </patch>
   <patch id="misc.links.bypassURLRedirectsPatch">
   <string name="revanced_bypass_url_redirects_title">Aplenkti URL nukreipimus</string>
   <string name="revanced_bypass_url_redirects_summary_on">URL nukreipimai aplenkiami</string>
