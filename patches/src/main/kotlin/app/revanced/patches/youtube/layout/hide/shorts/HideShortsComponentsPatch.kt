@@ -6,6 +6,7 @@ import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.booleanOption
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.resourcePatch
+import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.shared.misc.mapping.get
@@ -21,11 +22,9 @@ import app.revanced.patches.youtube.misc.playservice.is_19_41_or_greater
 import app.revanced.patches.youtube.misc.playservice.versionCheckPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
-import app.revanced.util.findElementByAttributeValueOrThrow
-import app.revanced.util.getReference
-import app.revanced.util.indexOfFirstInstructionOrThrow
-import app.revanced.util.indexOfFirstLiteralInstruction
-import app.revanced.util.indexOfFirstLiteralInstructionOrThrow
+import app.revanced.util.*
+import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
@@ -182,17 +181,17 @@ val hideShortsComponentsPatch = bytecodePatch(
     execute {
         addLithoFilter(FILTER_CLASS_DESCRIPTOR)
 
-        // region Hide the sound button.
-
-        shortsSoundButtonOnMeasureFingerprint.method.apply {
-            val literalIndex = indexOfFirstLiteralInstructionOrThrow(reelPlayerRightPivotV2Size)
-            val pixelSizeIndex = indexOfFirstInstructionOrThrow(literalIndex) {
+        forEachLiteralValueInstruction(
+            reelPlayerRightPivotV2Size,
+        ) { literalInstructionIndex ->
+            val targetIndex = indexOfFirstInstructionOrThrow(literalInstructionIndex) {
                 getReference<MethodReference>()?.name == "getDimensionPixelSize"
             } + 1
-            val sizeRegister = getInstruction<OneRegisterInstruction>(pixelSizeIndex).registerA
+
+            val sizeRegister = getInstruction<OneRegisterInstruction>(targetIndex).registerA
 
             addInstructions(
-                pixelSizeIndex + 1,
+                targetIndex + 1,
                 """
                     invoke-static { v$sizeRegister }, $FILTER_CLASS_DESCRIPTOR->getSoundButtonSize(I)I
                     move-result v$sizeRegister
@@ -246,7 +245,7 @@ val hideShortsComponentsPatch = bytecodePatch(
                 """
                     invoke-static { v$heightRegister }, $FILTER_CLASS_DESCRIPTOR->getNavigationBarHeight(I)I
                     move-result v$heightRegister
-                """,
+                """
             )
         }
 
