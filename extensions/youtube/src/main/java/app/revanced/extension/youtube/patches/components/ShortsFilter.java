@@ -52,6 +52,7 @@ public final class ShortsFilter extends Filter {
     private final StringFilterGroup suggestedAction;
     private final ByteArrayFilterGroupList suggestedActionsGroupList = new ByteArrayFilterGroupList();
 
+    private final StringFilterGroup shortsActionBar;
     private final StringFilterGroup actionButton;
     private final ByteArrayFilterGroupList videoActionButtonGroupList = new ByteArrayFilterGroupList();
 
@@ -141,6 +142,16 @@ public final class ShortsFilter extends Filter {
                 "like_fountain.eml"
         );
 
+        StringFilterGroup likeButton = new StringFilterGroup(
+                Settings.HIDE_SHORTS_LIKE_BUTTON,
+                "shorts_like_button.eml"
+        );
+
+        StringFilterGroup dislikeButton = new StringFilterGroup(
+                Settings.HIDE_SHORTS_DISLIKE_BUTTON,
+                "shorts_dislike_button.eml"
+        );
+
         joinButton = new StringFilterGroup(
                 Settings.HIDE_SHORTS_JOIN_BUTTON,
                 "sponsor_button"
@@ -156,9 +167,15 @@ public final class ShortsFilter extends Filter {
                 "reel_player_disclosure.eml"
         );
 
+        shortsActionBar = new StringFilterGroup(
+                null,
+                "shorts_action_bar.eml"
+        );
+
         actionButton = new StringFilterGroup(
                 null,
-                "shorts_video_action_button.eml"
+                // Can be simply 'button.eml' or 'shorts_video_action_button.eml'
+                "button.eml"
         );
 
         suggestedAction = new StringFilterGroup(
@@ -167,27 +184,16 @@ public final class ShortsFilter extends Filter {
         );
 
         addPathCallbacks(
-                shortsCompactFeedVideoPath, suggestedAction, actionButton, joinButton, subscribeButton,
-                paidPromotionButton, pausedOverlayButtons, channelBar, fullVideoLinkLabel, videoTitle,
-                reelSoundMetadata, soundButton, infoPanel, stickers, likeFountain
+                shortsCompactFeedVideoPath, joinButton, subscribeButton, paidPromotionButton,
+                shortsActionBar, suggestedAction, pausedOverlayButtons, channelBar,
+                fullVideoLinkLabel, videoTitle, reelSoundMetadata, soundButton, infoPanel,
+                stickers, likeFountain, likeButton, dislikeButton
         );
 
         //
-        // Action buttons
+        // All other action buttons.
         //
         videoActionButtonGroupList.addAll(
-                // This also appears as the path item 'shorts_like_button.eml'
-                new ByteArrayFilterGroup(
-                        Settings.HIDE_SHORTS_LIKE_BUTTON,
-                        "reel_like_button",
-                        "reel_like_toggled_button"
-                ),
-                // This also appears as the path item 'shorts_dislike_button.eml'
-                new ByteArrayFilterGroup(
-                        Settings.HIDE_SHORTS_DISLIKE_BUTTON,
-                        "reel_dislike_button",
-                        "reel_dislike_toggled_button"
-                ),
                 new ByteArrayFilterGroup(
                         Settings.HIDE_SHORTS_COMMENTS_BUTTON,
                         "reel_comment_button"
@@ -286,9 +292,11 @@ public final class ShortsFilter extends Filter {
                 return false;
             }
 
-            // Video action buttons (like, dislike, comment, share, remix) have the same path.
-            if (matchedGroup == actionButton) {
-                if (videoActionButtonGroupList.check(protobufBufferArray).isFiltered()) {
+            // Video action buttons (comment, share, remix) have the same path.
+            // Like and dislike are separate path filters and don't require buffer searching.
+            if (matchedGroup == shortsActionBar) {
+                if (actionButton.check(path).isFiltered()
+                        && videoActionButtonGroupList.check(protobufBufferArray).isFiltered()) {
                     return super.isFiltered(identifier, path, protobufBufferArray, matchedGroup, contentType, contentIndex);
                 }
                 return false;
