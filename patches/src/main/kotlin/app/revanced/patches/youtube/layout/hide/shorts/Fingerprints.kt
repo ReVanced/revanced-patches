@@ -5,6 +5,19 @@ import app.revanced.util.literal
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
+internal val shortsSoundButtonOnMeasureFingerprint = fingerprint {
+    accessFlags(AccessFlags.PROTECTED, AccessFlags.FINAL)
+    returns("V")
+    parameters(
+        "I",
+        "I",
+    )
+    strings("pivotButton")
+    literal {
+        reelPlayerRightPivotV2Size
+    }
+}
+
 internal val legacyRenderBottomNavigationBarParentFingerprint = fingerprint {
     parameters(
         "I",
