@@ -187,7 +187,7 @@ val hideShortsComponentsPatch = bytecodePatch(
             reelPlayerRightPivotV2Size,
         ) { literalInstructionIndex ->
             // FIXME: debug code
-            if (this.parameters.count() == 3) {
+            if (this.parameters.count() != 2) {
                 println("Not apply soundbar fix to method: $this")
                 return@forEachLiteralValueInstruction
             }
