@@ -52,9 +52,9 @@ jobs:
           passphrase: ${{ secrets.GPG_PASSPHRASE }}
           fingerprint: ${{ vars.GPG_FINGERPRINT }}
 
-      - name: Semantic Release
+      - name: Release
         uses: cycjimmy/semantic-release-action@v4
-        id: semantic
+        id: release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
