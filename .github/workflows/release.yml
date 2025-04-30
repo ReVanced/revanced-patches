@@ -59,7 +59,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Attest
-        if: steps.semantic.outputs.new_release_published == 'true'
+        if: steps.release.outputs.new_release_published == 'true'
         uses: actions/attest-build-provenance@v2
         with:
           subject-path: patches/build/libs/patches-!(*sources*|*javadoc*).rvp
