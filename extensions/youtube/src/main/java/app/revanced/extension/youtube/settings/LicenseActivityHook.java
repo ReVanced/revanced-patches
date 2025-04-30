@@ -164,9 +164,7 @@ public class LicenseActivityHook {
             // Set layout params for EditText.
             ViewGroup.MarginLayoutParams searchEditTextParams = new ViewGroup.MarginLayoutParams(
                     ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-            int rightMargin = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 48,
-                    Utils.getContext().getResources().getDisplayMetrics());
-            searchEditTextParams.setMargins(0, 0, rightMargin, 0);
+            searchEditTextParams.setMargins(0, 0, 0, 0);
             searchEditText.setLayoutParams(searchEditTextParams);
 
             // Store original toolbar state.
