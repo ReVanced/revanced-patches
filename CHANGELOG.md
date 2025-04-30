@@ -1,3 +1,11 @@
+# [5.22.0-dev.4](https://github.com/ReVanced/revanced-patches/compare/v5.22.0-dev.3...v5.22.0-dev.4) (2025-04-30)
+
+
+### Bug Fixes
+
+* **YouTube - Hide layout components:** Hide new type of community posts ([#4888](https://github.com/ReVanced/revanced-patches/issues/4888)) ([f0c9c35](https://github.com/ReVanced/revanced-patches/commit/f0c9c35778ab43a99149ee5ad0ccfd8aeb09f638))
+* **YouTube - Hide Shorts components:** Hide action buttons A/B button layout ([#4889](https://github.com/ReVanced/revanced-patches/issues/4889)) ([9dcd3d3](https://github.com/ReVanced/revanced-patches/commit/9dcd3d35dddf019547ab6ce431bac7a5a8a4c291))
+
 # [5.22.0-dev.3](https://github.com/ReVanced/revanced-patches/compare/v5.22.0-dev.2...v5.22.0-dev.3) (2025-04-29)
 
 
