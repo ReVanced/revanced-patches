@@ -8,9 +8,10 @@ import android.app.Activity;
 import android.content.Context;
 import android.preference.PreferenceFragment;
 import android.util.TypedValue;
+import android.view.View;
 import android.view.ViewGroup;
-import android.view.Window;
-import android.widget.SearchView;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toolbar;
 
@@ -136,7 +137,6 @@ public class LicenseActivityHook {
         Toolbar toolbar = new Toolbar(toolBarParent.getContext());
         toolbar.setBackgroundColor(ThemeHelper.getToolbarBackgroundColor());
         toolbar.setNavigationIcon(ReVancedPreferenceFragment.getBackButtonDrawable());
-        toolbar.setNavigationOnClickListener(view -> activity.onBackPressed());
         toolbar.setTitle(getResourceIdentifier(toolbarTitleResourceName, "string"));
 
         final int margin = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 16,
@@ -150,32 +150,114 @@ public class LicenseActivityHook {
         }
         setToolbarLayoutParams(toolbar);
 
-        // Add SearchView only for ReVancedPreferenceFragment.
+        // Add Search Icon and EditText for ReVancedPreferenceFragment only.
         if (fragment instanceof ReVancedPreferenceFragment) {
-            SearchView searchView = activity.findViewById(getResourceIdentifier("search_view", "id"));
-            if (searchView != null) {
-                searchView.setQueryHint(str("revanced_search_settings"));
-                searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-                    @Override
-                    public boolean onQueryTextSubmit(String query) {
-                        return false;
-                    }
-                    @Override
-                    public boolean onQueryTextChange(String newText) {
-                        Logger.printDebug(() -> "Search query: " + newText);
-                        ((ReVancedPreferenceFragment) fragment).filterPreferences(newText);
-                        return true;
-                    }
+            // Create EditText but keep it hidden initially.
+            EditText searchEditText = new EditText(toolbar.getContext());
+            searchEditText.setId(getResourceIdentifier("search_view", "id"));
+            searchEditText.setHint(str("revanced_search_settings"));
+            searchEditText.setBackground(null);
+            searchEditText.setTextColor(ThemeHelper.getForegroundColor());
+            searchEditText.setHintTextColor(ThemeHelper.getForegroundColor() & 0x80FFFFFF); // 50% opacity
+            searchEditText.setVisibility(View.GONE);
+
+            // Set layout params for EditText.
+            ViewGroup.MarginLayoutParams searchEditTextParams = new ViewGroup.MarginLayoutParams(
+                    ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+            int rightMargin = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 48,
+                    Utils.getContext().getResources().getDisplayMetrics());
+            searchEditTextParams.setMargins(0, 0, rightMargin, 0);
+            searchEditText.setLayoutParams(searchEditTextParams);
+
+            // Store original toolbar state.
+            final int[] originalTitleMargin = {toolbar.getTitleMarginStart(), toolbar.getTitleMarginEnd()};
+            final CharSequence originalTitle = toolbar.getTitle();
+            final boolean[] isSearchActive = {false};
+
+            // Update search button icon and visibility based on text.
+            searchEditText.addTextChangedListener(new android.text.TextWatcher() {
+                @Override
+                public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+
+                @Override
+                public void onTextChanged(CharSequence s, int start, int before, int count) {
+                    boolean hasText = s != null && s.length() > 0;
+                    toolbar.getMenu().findItem(getResourceIdentifier("action_search", "id"))
+                            .setIcon(getResourceIdentifier(
+                                    ThemeHelper.isDarkTheme() ? "quantum_ic_close_white_24" : "quantum_ic_close_black_24",
+                                    "drawable"))
+                            .setVisible(hasText);
+                }
+
+                @Override
+                public void afterTextChanged(android.text.Editable s) {
+                    Logger.printDebug(() -> "Search query: " + s);
+                    ((ReVancedPreferenceFragment) fragment).filterPreferences(s.toString());
+                }
+            });
+
+            // Close EditText and restore toolbar.
+            Runnable closeSearchEditText = () -> {
+                isSearchActive[0] = false;
+                toolbar.post(() -> {
+                    toolbar.getMenu().findItem(getResourceIdentifier("action_search", "id"))
+                            .setIcon(getResourceIdentifier(
+                                    ThemeHelper.isDarkTheme() ? "yt_outline_search_white_24" : "yt_outline_search_black_24",
+                                    "drawable"))
+                            .setVisible(true);
                 });
-            } else {
-                Logger.printDebug(() -> "SearchView not found in layout");
-            }
-        } else {
-            // Remove SearchView for SponsorBlock and ReturnYouTubeDislike.
-            ViewGroup searchView = activity.findViewById(getResourceIdentifier("search_view", "id"));
-            if (searchView != null) {
-                ((ViewGroup) searchView.getParent()).removeView(searchView);
-            }
+                toolbar.setTitle(originalTitle);
+                toolbar.setTitleMarginStart(originalTitleMargin[0]);
+                toolbar.setTitleMarginEnd(originalTitleMargin[1]);
+                searchEditText.setVisibility(View.GONE);
+                searchEditText.setText("");
+                // Hide keyboard
+                InputMethodManager imm = (InputMethodManager) activity.getSystemService(Context.INPUT_METHOD_SERVICE);
+                imm.hideSoftInputFromWindow(searchEditText.getWindowToken(), 0);
+            };
+
+            // Update navigation click listener to handle EditText closing.
+            toolbar.setNavigationOnClickListener(view -> {
+                if (isSearchActive[0]) {
+                    closeSearchEditText.run();
+                } else {
+                    activity.onBackPressed();
+                }
+            });
+
+            // Add search menu to toolbar.
+            toolbar.inflateMenu(getResourceIdentifier("revanced_search_menu", "menu"));
+            toolbar.getMenu().findItem(getResourceIdentifier("action_search", "id"))
+                    .setIcon(getResourceIdentifier(
+                            ThemeHelper.isDarkTheme() ? "yt_outline_search_white_24" : "yt_outline_search_black_24",
+                            "drawable"))
+                    .setTooltipText(null); // Disable tooltip for action_search.
+
+            toolbar.setOnMenuItemClickListener(item -> {
+                if (item.getItemId() == getResourceIdentifier("action_search", "id")) {
+                    if (!isSearchActive[0]) {
+                        // Open EditText and hide search button.
+                        isSearchActive[0] = true;
+                        item.setVisible(false);
+                        toolbar.setTitle("");
+                        toolbar.setTitleMarginStart(0);
+                        toolbar.setTitleMarginEnd(0);
+                        searchEditText.setVisibility(View.VISIBLE);
+                        searchEditText.requestFocus();
+                        // Show keyboard.
+                        InputMethodManager imm = (InputMethodManager) activity.getSystemService(Context.INPUT_METHOD_SERVICE);
+                        imm.showSoftInput(searchEditText, InputMethodManager.SHOW_IMPLICIT);
+                    } else {
+                        // Clear text and hide button.
+                        searchEditText.setText("");
+                        item.setVisible(false);
+                    }
+                    return true;
+                }
+                return false;
+            });
+
+            toolbar.addView(searchEditText);
         }
 
         toolBarParent.addView(toolbar, 0);
