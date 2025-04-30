@@ -182,9 +182,16 @@ val hideShortsComponentsPatch = bytecodePatch(
     execute {
         addLithoFilter(FILTER_CLASS_DESCRIPTOR)
 
+
         forEachLiteralValueInstruction(
             reelPlayerRightPivotV2Size,
         ) { literalInstructionIndex ->
+            // FIXME: debug code
+            if (this.parameters.count() == 3) {
+                println("Not apply soundbar fix to method: $this")
+                return@forEachLiteralValueInstruction
+            }
+
             val targetIndex = indexOfFirstInstructionOrThrow(literalInstructionIndex) {
                 getReference<MethodReference>()?.name == "getDimensionPixelSize"
             } + 1
