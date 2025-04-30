@@ -1,6 +1,5 @@
 package app.revanced.extension.youtube.patches.components;
 
-import static app.revanced.extension.shared.Utils.hideViewUnderCondition;
 import static app.revanced.extension.youtube.shared.NavigationBar.NavigationButton;
 
 import android.view.View;
@@ -399,37 +398,6 @@ public final class ShortsFilter extends Filter {
 
         return original;
     }
-
-    // region Hide the buttons in older versions of YouTube. New versions use Litho.
-
-    public static void hideLikeButton(final View likeButtonView) {
-        // Cannot set the visibility to gone for like/dislike,
-        // as some other unknown YT code also sets the visibility after this hook.
-        //
-        // Setting the view to 0dp works, but that leaves a blank space where
-        // the button was (only relevant for dislikes button).
-        //
-        // Instead remove the view from the parent.
-        Utils.hideViewByRemovingFromParentUnderCondition(Settings.HIDE_SHORTS_LIKE_BUTTON, likeButtonView);
-    }
-
-    public static void hideDislikeButton(final View dislikeButtonView) {
-        Utils.hideViewByRemovingFromParentUnderCondition(Settings.HIDE_SHORTS_DISLIKE_BUTTON, dislikeButtonView);
-    }
-
-    public static void hideShortsCommentsButton(final View commentsButtonView) {
-        hideViewUnderCondition(Settings.HIDE_SHORTS_COMMENTS_BUTTON, commentsButtonView);
-    }
-
-    public static void hideShortsRemixButton(final View remixButtonView) {
-        hideViewUnderCondition(Settings.HIDE_SHORTS_REMIX_BUTTON, remixButtonView);
-    }
-
-    public static void hideShortsShareButton(final View shareButtonView) {
-        hideViewUnderCondition(Settings.HIDE_SHORTS_SHARE_BUTTON, shareButtonView);
-    }
-
-    // endregion
 
     public static void setNavigationBar(PivotBar view) {
         pivotBarRef = new WeakReference<>(view);
