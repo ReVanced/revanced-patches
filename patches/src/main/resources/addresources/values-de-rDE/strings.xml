@@ -452,21 +452,30 @@ Passen Sie die Helligkeit an, indem Sie auf der linken Seite des Bildschirms ver
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_title">Auto-Helligkeit Geste aktivieren</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_on">Wische runter auf den niedrigsten Wert der Helligkeitsgeste, um die automatische Helligkeit zu aktivieren</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_off">Wenn man zum niedrigsten Wert wischt, aktiviert man die automatische Helligkeit nicht</string>
+  <string name="revanced_swipe_lowest_value_enable_auto_brightness_overlay_text">Autom</string>
   <string name="revanced_swipe_overlay_timeout_title">Wischüberlagerungs-Timeout</string>
   <string name="revanced_swipe_overlay_timeout_summary">Die Anzahl der Millisekunden, die das Overlay sichtbar ist</string>
   <string name="revanced_swipe_overlay_background_opacity_title">Bildschirmüberlagerung Deckkraft Swipe</string>
   <string name="revanced_swipe_overlay_background_opacity_summary">Deckkraftwert zwischen 0-100</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Die Wischdeckkraft muss zwischen 0 und 100 liegen</string>
+  <string name="revanced_swipe_overlay_progress_color_title">Farbe des Fortschrittsbalkens für die Wischgesten-Überlagerung</string>
+  <string name="revanced_swipe_overlay_progress_color_summary">Die Farbe des Fortschrittsbalkens für Lautstärke- und Helligkeitsregler</string>
+  <string name="revanced_swipe_overlay_progress_color_invalid_toast">Ungültige Farbe für den Fortschrittsbalken</string>
+  <string name="revanced_swipe_text_overlay_size_title">Textgröße der Wischgesten-Überlagerung</string>
+  <string name="revanced_swipe_text_overlay_size_summary">Die Textgröße für die Wischgesten-Überlagerung zwischen 1 und 30</string>
+  <string name="revanced_swipe_text_overlay_size_invalid_toast">Die Textgröße muss zwischen 1 und 30 liegen</string>
   <string name="revanced_swipe_threshold_title">Wischgrößenschwelle</string>
   <string name="revanced_swipe_threshold_summary">Der Schwellenwert für Wischen</string>
   <string name="revanced_swipe_volume_sensitivity_title">Lautstärke-Wischgestenempfindlichkeit</string>
   <string name="revanced_swipe_volume_sensitivity_summary">Wie stark sich die Lautstärke pro Wisch ändert</string>
-  <string name="revanced_swipe_show_circular_overlay_title">Kreisförmiges Overlay anzeigen</string>
-  <string name="revanced_swipe_show_circular_overlay_summary_on">Kreisförmiges Overlay wird angezeigt</string>
-  <string name="revanced_swipe_show_circular_overlay_summary_off">Horizontales Overlay wird angezeigt</string>
-  <string name="revanced_swipe_overlay_minimal_style_title">Minimalen Stil aktivieren</string>
-  <string name="revanced_swipe_overlay_minimal_style_summary_on">Minimaler Overlay-Stil ist aktiviert</string>
-  <string name="revanced_swipe_overlay_minimal_style_summary_off">Minimaler Overlay-Stil ist deaktiviert</string>
+  <string name="revanced_swipe_overlay_style_title">Design des Wisch-Overlays</string>
+  <string name="revanced_swipe_overlay_style_entry_1">Horizontales Overlay</string>
+  <string name="revanced_swipe_overlay_style_entry_2">Horizontales Overlay (minimal - oben)</string>
+  <string name="revanced_swipe_overlay_style_entry_3">Horizontales Overlay (minimal - Mitte)</string>
+  <string name="revanced_swipe_overlay_style_entry_4">Kreisförmiges Overlay</string>
+  <string name="revanced_swipe_overlay_style_entry_5">Kreisförmiges Overlay (minimal)</string>
+  <string name="revanced_swipe_overlay_style_entry_6">Vertikales Overlay</string>
+  <string name="revanced_swipe_overlay_style_entry_7">Vertikales Overlay (minimal)</string>
   <string name="revanced_swipe_change_video_title">Mit Wischen wechseln Sie zu den Videos</string>
   <string name="revanced_swipe_change_video_summary_on">Im Vollbildmodus wischen, um zum nächsten/vorherigen Video zu wechseln</string>
   <string name="revanced_swipe_change_video_summary_off">Im Vollbildmodus wischen, um nicht zum nächsten/vorherigen Video zu wechseln</string>
@@ -506,6 +515,11 @@ Passen Sie die Helligkeit an, indem Sie auf der linken Seite des Bildschirms ver
   <string name="revanced_hide_thanks_button_title">Dank ausblenden</string>
   <string name="revanced_hide_thanks_button_summary_on">Dankeschön-Taste ist ausgeblendet</string>
   <string name="revanced_hide_thanks_button_summary_off">Dankeschön Button wird angezeigt</string>
+  <!-- 'Ask' should be translated with the same localized wording that YouTube displays.
+                 Button only shows if the user ip is from specific region such as the USA or EU. -->
+  <string name="revanced_hide_ask_button_title">Ask ausblenden</string>
+  <string name="revanced_hide_ask_button_summary_on">Ask-Button ist ausgeblendet</string>
+  <string name="revanced_hide_ask_button_summary_off">Ask-Button wird angezeigt</string>
   <!-- 'Clip' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_clip_button_title">Clip ausblenden</string>
   <string name="revanced_hide_clip_button_summary_on">Clip-Button ist ausgeblendet</string>
@@ -1289,6 +1303,9 @@ Durch Aktivieren dieser Option können höhere Videoqualitäten freigeschaltet w
   <patch id="misc.gms.gmsCoreSupportResourcePatch">
   <string name="microg_settings_title">GmsCore Einstellungen</string>
   <string name="microg_settings_summary">Einstellungen für GmsCore</string>
+  </patch>
+  <patch id="misc.gms.accountCredentialsInvalidTextPatch">
+  <string name="microg_offline_account_login_error">Wenn Sie kürzlich Ihre Kontoanmeldedaten geändert haben, deinstallieren Sie MicroG und installieren Sie es erneut.</string>
   </patch>
   <patch id="misc.links.bypassURLRedirectsPatch">
   <string name="revanced_bypass_url_redirects_title">URL-Weiterleitungen umgehen</string>

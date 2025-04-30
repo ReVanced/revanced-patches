@@ -452,21 +452,30 @@ Upravte hlasitosť posúvaním vertikálne na pravej strane obrazovky"</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_title">Povoliť gesto automatického jasu</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_on">Potiahnutím nadol na najnižšiu hodnotu gesta jasu aktivujete automatický jas</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_off">Potiahnutie prstom nadol na najnižšiu hodnotu nezapne automatický jas</string>
+  <string name="revanced_swipe_lowest_value_enable_auto_brightness_overlay_text">Automaticky</string>
   <string name="revanced_swipe_overlay_timeout_title">Časový limit prekrytia potiahnutím prstom vypršal</string>
   <string name="revanced_swipe_overlay_timeout_summary">Počet milisekúnd, počas ktorých je prekrytie viditeľné</string>
   <string name="revanced_swipe_overlay_background_opacity_title">Priehľadnosť pozadia prekrytia potiahnutia</string>
   <string name="revanced_swipe_overlay_background_opacity_summary">Hodnota priehľadnosti medzi 0-100</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Priehľadnosť prekrytia potiahnutia musí byť medzi 0-100</string>
+  <string name="revanced_swipe_overlay_progress_color_title">Farba panela priebehu prekrytia posunutím</string>
+  <string name="revanced_swipe_overlay_progress_color_summary">Farba panela priebehu pre ovládanie hlasitosti a jasu</string>
+  <string name="revanced_swipe_overlay_progress_color_invalid_toast">Neplatná farba panela priebehu</string>
+  <string name="revanced_swipe_text_overlay_size_title">Veľkosť textu prekrytia posunutím</string>
+  <string name="revanced_swipe_text_overlay_size_summary">Veľkosť textu pre prekrytie posunutím medzi 1 – 30</string>
+  <string name="revanced_swipe_text_overlay_size_invalid_toast">Veľkosť textu musí byť medzi 1 – 30</string>
   <string name="revanced_swipe_threshold_title">Prahová hodnota potiahnutia</string>
   <string name="revanced_swipe_threshold_summary">Hodnota prahu, ktorý sa má vykonať potiahnutím prstom</string>
   <string name="revanced_swipe_volume_sensitivity_title">Citlivosť posúvania hlasitosti</string>
   <string name="revanced_swipe_volume_sensitivity_summary">Ako veľmi sa mení hlasitosť na jedno posunutie</string>
-  <string name="revanced_swipe_show_circular_overlay_title">Zobraziť kruhovú vrstvu</string>
-  <string name="revanced_swipe_show_circular_overlay_summary_on">Kruhová vrstva sa zobrazuje</string>
-  <string name="revanced_swipe_show_circular_overlay_summary_off">Zobrazuje sa vodorovná vrstva</string>
-  <string name="revanced_swipe_overlay_minimal_style_title">Povoliť minimalistický štýl</string>
-  <string name="revanced_swipe_overlay_minimal_style_summary_on">Je povolený minimalistický štýl prekrytia</string>
-  <string name="revanced_swipe_overlay_minimal_style_summary_off">Minimálny štýl prekrytia je zakázaný</string>
+  <string name="revanced_swipe_overlay_style_title">Štýl prekrytia potiahnutím</string>
+  <string name="revanced_swipe_overlay_style_entry_1">Horizontálne prekrytie</string>
+  <string name="revanced_swipe_overlay_style_entry_2">Horizontálne prekrytie (minimálne – hore)</string>
+  <string name="revanced_swipe_overlay_style_entry_3">Horizontálne prekrytie (minimálne – v strede)</string>
+  <string name="revanced_swipe_overlay_style_entry_4">Kruhové prekrytie</string>
+  <string name="revanced_swipe_overlay_style_entry_5">Kruhové prekrytie (minimálne)</string>
+  <string name="revanced_swipe_overlay_style_entry_6">Vertikálne prekrytie</string>
+  <string name="revanced_swipe_overlay_style_entry_7">Vertikálne prekrytie (minimálne)</string>
   <string name="revanced_swipe_change_video_title">Potiahnite prstom a zmeňte videá</string>
   <string name="revanced_swipe_change_video_summary_on">Potiahnutie prstom v režime celej obrazovky prepne na predchádzajúce/nasledujúce video</string>
   <string name="revanced_swipe_change_video_summary_off">Potiahnutie prstom v režime celej obrazovky neprepne na predchádzajúce/nasledujúce video</string>
@@ -506,6 +515,11 @@ Upravte hlasitosť posúvaním vertikálne na pravej strane obrazovky"</string>
   <string name="revanced_hide_thanks_button_title">Skryť Ďakujem</string>
   <string name="revanced_hide_thanks_button_summary_on">Tlačidlo poďakovania je skryté</string>
   <string name="revanced_hide_thanks_button_summary_off">Zobrazí sa tlačidlo Ďakujem</string>
+  <!-- 'Ask' should be translated with the same localized wording that YouTube displays.
+                 Button only shows if the user ip is from specific region such as the USA or EU. -->
+  <string name="revanced_hide_ask_button_title">Skryť možnosť Opýtať sa</string>
+  <string name="revanced_hide_ask_button_summary_on">Tlačidlo Opýtať sa je skryté</string>
+  <string name="revanced_hide_ask_button_summary_off">Zobrazí sa tlačidlo Opýtať sa</string>
   <!-- 'Clip' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_clip_button_title">Skryť klip</string>
   <string name="revanced_hide_clip_button_summary_on">Tlačidlo klipu je skryté</string>
@@ -1284,6 +1298,9 @@ Povolením tejto možnosti môžete odomknúť vyššie kvality videa"</string>
   <patch id="misc.gms.gmsCoreSupportResourcePatch">
   <string name="microg_settings_title">Nastavenia GmsCore</string>
   <string name="microg_settings_summary">Nastavenia pre GmsCore</string>
+  </patch>
+  <patch id="misc.gms.accountCredentialsInvalidTextPatch">
+  <string name="microg_offline_account_login_error">Ak ste nedávno zmenili prihlasovacie údaje svojho účtu, odinštalujte a znova nainštalujte MicroG.</string>
   </patch>
   <patch id="misc.links.bypassURLRedirectsPatch">
   <string name="revanced_bypass_url_redirects_title">Obíďte presmerovania adries URL</string>

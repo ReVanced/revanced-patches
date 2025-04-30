@@ -25,6 +25,7 @@ import static app.revanced.extension.youtube.sponsorblock.objects.CategoryBehavi
 import static app.revanced.extension.youtube.sponsorblock.objects.CategoryBehaviour.MANUAL_SKIP;
 import static app.revanced.extension.youtube.sponsorblock.objects.CategoryBehaviour.SKIP_AUTOMATICALLY;
 import static app.revanced.extension.youtube.sponsorblock.objects.CategoryBehaviour.SKIP_AUTOMATICALLY_ONCE;
+import app.revanced.extension.youtube.swipecontrols.SwipeControlsConfigurationProvider.SwipeOverlayStyle;
 
 import android.graphics.Color;
 
@@ -198,6 +199,7 @@ public class Settings extends BaseSettings {
     public static final BooleanSetting HIDE_REPORT_BUTTON = new BooleanSetting("revanced_hide_report_button", FALSE);
     public static final BooleanSetting HIDE_SHARE_BUTTON = new BooleanSetting("revanced_hide_share_button", FALSE);
     public static final BooleanSetting HIDE_THANKS_BUTTON = new BooleanSetting("revanced_hide_thanks_button", TRUE);
+    public static final BooleanSetting HIDE_ASK_BUTTON = new BooleanSetting("revanced_hide_ask_button", FALSE);
     // Player flyout menu items
     public static final BooleanSetting HIDE_PLAYER_FLYOUT_ADDITIONAL_SETTINGS = new BooleanSetting("revanced_hide_player_flyout_additional_settings", FALSE);
     public static final BooleanSetting HIDE_PLAYER_FLYOUT_AMBIENT_MODE = new BooleanSetting("revanced_hide_player_flyout_ambient_mode", FALSE);
@@ -323,11 +325,13 @@ public class Settings extends BaseSettings {
     public static final IntegerSetting SWIPE_MAGNITUDE_THRESHOLD = new IntegerSetting("revanced_swipe_threshold", 30, true,
             parentsAny(SWIPE_BRIGHTNESS, SWIPE_VOLUME));
     public static final IntegerSetting SWIPE_VOLUME_SENSITIVITY = new IntegerSetting("revanced_swipe_volume_sensitivity", 1, true, parent(SWIPE_VOLUME));
-    public static final BooleanSetting SWIPE_SHOW_CIRCULAR_OVERLAY = new BooleanSetting("revanced_swipe_show_circular_overlay", FALSE, true,
+    public static final EnumSetting<SwipeOverlayStyle> SWIPE_OVERLAY_STYLE = new EnumSetting<>("revanced_swipe_overlay_style", SwipeOverlayStyle.HORIZONTAL,true,
             parentsAny(SWIPE_BRIGHTNESS, SWIPE_VOLUME));
-    public static final BooleanSetting SWIPE_OVERLAY_MINIMAL_STYLE = new BooleanSetting("revanced_swipe_overlay_minimal_style", FALSE, true,
+    public static final IntegerSetting SWIPE_OVERLAY_TEXT_SIZE = new IntegerSetting("revanced_swipe_text_overlay_size", 14, true,
             parentsAny(SWIPE_BRIGHTNESS, SWIPE_VOLUME));
     public static final IntegerSetting SWIPE_OVERLAY_OPACITY = new IntegerSetting("revanced_swipe_overlay_background_opacity", 60, true,
+            parentsAny(SWIPE_BRIGHTNESS, SWIPE_VOLUME));
+    public static final StringSetting SWIPE_OVERLAY_PROGRESS_COLOR = new StringSetting("revanced_swipe_overlay_progress_color", "#FFFFFF", true,
             parentsAny(SWIPE_BRIGHTNESS, SWIPE_VOLUME));
     public static final LongSetting SWIPE_OVERLAY_TIMEOUT = new LongSetting("revanced_swipe_overlay_timeout", 500L, true,
             parentsAny(SWIPE_BRIGHTNESS, SWIPE_VOLUME));

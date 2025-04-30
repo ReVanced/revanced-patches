@@ -2,6 +2,8 @@ package app.revanced.extension.youtube.patches;
 
 import android.app.Activity;
 
+import androidx.annotation.Nullable;
+
 import java.lang.ref.WeakReference;
 import java.util.Objects;
 
@@ -76,7 +78,7 @@ public class ShortsAutoplayPatch {
     /**
      * Injection point.
      */
-    public static Enum<?> changeShortsRepeatBehavior(Enum<?> original) {
+    public static Enum<?> changeShortsRepeatBehavior(@Nullable Enum<?> original) {
         try {
             final boolean autoplay;
 
@@ -98,17 +100,35 @@ public class ShortsAutoplayPatch {
                     : ShortsLoopBehavior.REPEAT;
 
             if (behavior.ytEnumValue != null) {
-                Logger.printDebug(() -> behavior.ytEnumValue == original
-                        ? "Changing Shorts repeat behavior from: " + original.name() + " to: " + behavior.ytEnumValue
-                        : "Behavior setting is same as original. Using original: " + original.name()
-                );
+                Logger.printDebug(() -> {
+                    String name = (original == null ? "unknown (null)" : original.name());
+                    return behavior == original
+                            ? "Behavior setting is same as original. Using original: " + name
+                            : "Changing Shorts repeat behavior from: " + name + " to: " + behavior.name();
+                });
 
                 return behavior.ytEnumValue;
             }
+
+            if (original == null) {
+                // Cannot return null, as null is used to indicate Short was auto played.
+                // Unpatched app replaces null with unknown enum type (appears to fix for bad api data).
+                Enum<?> unknown = ShortsLoopBehavior.UNKNOWN.ytEnumValue;
+                Logger.printDebug(() -> "Original is null, returning: " + unknown.name());
+                return unknown;
+            }
         } catch (Exception ex) {
-            Logger.printException(() -> "changeShortsRepeatState failure", ex);
+            Logger.printException(() -> "changeShortsRepeatBehavior failure", ex);
         }
 
         return original;
+    }
+
+
+    /**
+     * Injection point.
+     */
+    public static boolean isAutoPlay(Enum<?> original) {
+        return ShortsLoopBehavior.SINGLE_PLAY.ytEnumValue == original;
     }
 }

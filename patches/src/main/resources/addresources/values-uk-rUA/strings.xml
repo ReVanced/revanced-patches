@@ -459,21 +459,30 @@ Second \"item\" text"</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_title">Жест автояскравості</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_on">Проведення вниз до найнижчого значення яскравості вмикає автоматичну яскравість</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_off">Проведення вниз до найнижчого значення не вмикає автоматичну яскравість</string>
+  <string name="revanced_swipe_lowest_value_enable_auto_brightness_overlay_text">Авто</string>
   <string name="revanced_swipe_overlay_timeout_title">Час показу панелі жесту</string>
   <string name="revanced_swipe_overlay_timeout_summary">Скільки мілісекунд спливаюча панель при жесті буде показуватися</string>
   <string name="revanced_swipe_overlay_background_opacity_title">Затемнення фону панелі жесту</string>
   <string name="revanced_swipe_overlay_background_opacity_summary">Значення затемнення від 0 до 100</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Значення затемнення панелі жесту має бути в межах від 0 до 100</string>
+  <string name="revanced_swipe_overlay_progress_color_title">Колір смуги прогресу панелі жесту</string>
+  <string name="revanced_swipe_overlay_progress_color_summary">Колір смуги прогресу під час регулювання гучності та яскравості</string>
+  <string name="revanced_swipe_overlay_progress_color_invalid_toast">Недійсний колір смуги прогресу</string>
+  <string name="revanced_swipe_text_overlay_size_title">Розмір тексту панелі жесту</string>
+  <string name="revanced_swipe_text_overlay_size_summary">Розмір тексту панелі жесту від 1 до 30</string>
+  <string name="revanced_swipe_text_overlay_size_invalid_toast">Розмір тексту має бути від 1 до 30</string>
   <string name="revanced_swipe_threshold_title">Поріг величини жесту</string>
   <string name="revanced_swipe_threshold_summary">Мінімальна амплітуда руху, що розпізнається як жест</string>
   <string name="revanced_swipe_volume_sensitivity_title">Чутливість жесту гучності</string>
   <string name="revanced_swipe_volume_sensitivity_summary">Наскільки змінюється гучність проводячи пальцем по екрану</string>
-  <string name="revanced_swipe_show_circular_overlay_title">Показувати круговий індикатор</string>
-  <string name="revanced_swipe_show_circular_overlay_summary_on">Показується круговий індикатор</string>
-  <string name="revanced_swipe_show_circular_overlay_summary_off">Показується горизонтальний індикатор</string>
-  <string name="revanced_swipe_overlay_minimal_style_title">Увімкнути мінімалістичний стиль</string>
-  <string name="revanced_swipe_overlay_minimal_style_summary_on">Мінімалістичний стиль індикатора увімкнено</string>
-  <string name="revanced_swipe_overlay_minimal_style_summary_off">Мінімалістичний стиль індикатора вимкнено</string>
+  <string name="revanced_swipe_overlay_style_title">Стиль панелі жесту</string>
+  <string name="revanced_swipe_overlay_style_entry_1">Горизонтальний індикатор</string>
+  <string name="revanced_swipe_overlay_style_entry_2">Горизонтальний індикатор (мінімальний - зверху)</string>
+  <string name="revanced_swipe_overlay_style_entry_3">Горизонтальний індикатор (мінімальний - по центру)</string>
+  <string name="revanced_swipe_overlay_style_entry_4">Круговий індикатор</string>
+  <string name="revanced_swipe_overlay_style_entry_5">Круговий індикатор (мінімальний)</string>
+  <string name="revanced_swipe_overlay_style_entry_6">Вертикальний індикатор</string>
+  <string name="revanced_swipe_overlay_style_entry_7">Вертикальний індикатор (мінімальний)</string>
   <string name="revanced_swipe_change_video_title">Увімкнути зміну відео проведенням</string>
   <string name="revanced_swipe_change_video_summary_on">Проведення пальцем у повноекранному режимі перейде до наступного/попереднього відео</string>
   <string name="revanced_swipe_change_video_summary_off">Проведення пальцем у повноекранному режимі не перейде до наступного/попереднього відео</string>
@@ -513,6 +522,11 @@ Second \"item\" text"</string>
   <string name="revanced_hide_thanks_button_title">Приховати \"Дякую\"</string>
   <string name="revanced_hide_thanks_button_summary_on">Кнопку \"Дякую\" приховано</string>
   <string name="revanced_hide_thanks_button_summary_off">Кнопка \"Дякую\" показується</string>
+  <!-- 'Ask' should be translated with the same localized wording that YouTube displays.
+                 Button only shows if the user ip is from specific region such as the USA or EU. -->
+  <string name="revanced_hide_ask_button_title">Приховати \"Запитати\"</string>
+  <string name="revanced_hide_ask_button_summary_on">Кнопку \"Запитати\" приховано</string>
+  <string name="revanced_hide_ask_button_summary_off">Кнопка \"Запитати\" показується</string>
   <!-- 'Clip' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_clip_button_title">Приховати \"Створити кліп\"</string>
   <string name="revanced_hide_clip_button_summary_on">Кнопку \"Створити кліп\" приховано</string>
@@ -1295,6 +1309,9 @@ Second \"item\" text"</string>
   <patch id="misc.gms.gmsCoreSupportResourcePatch">
   <string name="microg_settings_title">Налаштування GmsCore</string>
   <string name="microg_settings_summary">Відкрити GmsCore для налаштування та входу в обліковий запис Google</string>
+  </patch>
+  <patch id="misc.gms.accountCredentialsInvalidTextPatch">
+  <string name="microg_offline_account_login_error">Якщо ви нещодавно змінили дані для входу у свій обліковий запис, видаліть і повторно встановіть MicroG.</string>
   </patch>
   <patch id="misc.links.bypassURLRedirectsPatch">
   <string name="revanced_bypass_url_redirects_title">Обхід URL переадресацій</string>

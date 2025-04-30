@@ -459,21 +459,30 @@ MicroG-এর জন্য ব্যাটারি অপ্টিমাইজ�
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_title">স্বয়ংক্রিয়-উজ্জ্বলতার অঙ্গভঙ্গি সক্রিয় করুন</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_on">উজ্জ্বলতার অঙ্গভঙ্গির সর্বনিম্ন মানে সোয়াইপ ডাউন করলে অটো-উজ্জ্বলতা সক্ষম হয়</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_off">সর্বনিম্ন মানে সোয়াইপ ডাউন করলে অটো-উজ্জ্বলতা সক্ষম হয় না</string>
+  <string name="revanced_swipe_lowest_value_enable_auto_brightness_overlay_text">স্বতস্ফূর্তভাবে</string>
   <string name="revanced_swipe_overlay_timeout_title">ওভার-লে টাইম আউট</string>
   <string name="revanced_swipe_overlay_timeout_summary">কত মিলিসেকেন্ডের জন্য ওভারলে দৃশ্যমান হবে</string>
   <string name="revanced_swipe_overlay_background_opacity_title">অস্বচ্ছতা</string>
   <string name="revanced_swipe_overlay_background_opacity_summary">0-100 এর মধ্যে অস্বচ্ছতার মান</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">সোয়াইপের অস্বচ্ছতা অবশ্যই 0-100 এর মধ্যে হতে হবে</string>
+  <string name="revanced_swipe_overlay_progress_color_title">সোয়াইপ ওভারলে প্রগ্রেস বার এর রং</string>
+  <string name="revanced_swipe_overlay_progress_color_summary">ভলিউম এবং উজ্জ্বলতা নিয়ন্ত্রণের জন্য প্রগ্রেস বার এর রং</string>
+  <string name="revanced_swipe_overlay_progress_color_invalid_toast">অবৈধ প্রগ্রেস বার রং</string>
+  <string name="revanced_swipe_text_overlay_size_title">সোয়াইপ ওভারলে টেক্সট সাইজ</string>
+  <string name="revanced_swipe_text_overlay_size_summary">সোয়াইপ ওভারলে-এর জন্য টেক্সট সাইজ ১-৩০ এর মধ্যে</string>
+  <string name="revanced_swipe_text_overlay_size_invalid_toast">টেক্সট সাইজ অবশ্যই ১-৩০ এর মধ্যে হতে হবে</string>
   <string name="revanced_swipe_threshold_title">সোয়াইপ থ্রেশহোল্ড এর মাত্রা</string>
   <string name="revanced_swipe_threshold_summary">সোয়াইপ করার থ্রেশহোল্ডের পরিমাণ</string>
   <string name="revanced_swipe_volume_sensitivity_title">ভলিউম সোয়াইপ সংবেদনশীলতা</string>
   <string name="revanced_swipe_volume_sensitivity_summary">প্রতি সোয়াইপে ভলিউম কতটা পরিবর্তিত হয়</string>
-  <string name="revanced_swipe_show_circular_overlay_title">বৃত্তাকার ওভারলে দেখান</string>
-  <string name="revanced_swipe_show_circular_overlay_summary_on">বৃত্তাকার ওভারলে দেখানো হয়েছে</string>
-  <string name="revanced_swipe_show_circular_overlay_summary_off">অনুভূমিক ওভারলে দেখানো হয়েছে</string>
-  <string name="revanced_swipe_overlay_minimal_style_title">ন্যূনতম শৈলী সক্ষম করুন</string>
-  <string name="revanced_swipe_overlay_minimal_style_summary_on">Minimal overlay style enabled করা হয়েছে</string>
-  <string name="revanced_swipe_overlay_minimal_style_summary_off">ন্যূনতম ওভারলে শৈলী নিষ্ক্রিয় করা হয়েছে</string>
+  <string name="revanced_swipe_overlay_style_title">সোয়াইপ ওভারলে শৈলী</string>
+  <string name="revanced_swipe_overlay_style_entry_1">অনুভূমিক ওভারলে</string>
+  <string name="revanced_swipe_overlay_style_entry_2">অনুভূমিক ওভারলে (ন্যূনতম - উপরে)</string>
+  <string name="revanced_swipe_overlay_style_entry_3">অনুভূমিক ওভারলে (ন্যূনতম - কেন্দ্র)</string>
+  <string name="revanced_swipe_overlay_style_entry_4">বৃত্তাকার ওভারলে</string>
+  <string name="revanced_swipe_overlay_style_entry_5">বৃত্তাকার ওভারলে (ন্যূনতম)</string>
+  <string name="revanced_swipe_overlay_style_entry_6">উল্লম্ব ওভারলে</string>
+  <string name="revanced_swipe_overlay_style_entry_7">উল্লম্ব ওভারলে (ন্যূনতম)</string>
   <string name="revanced_swipe_change_video_title">ভিডিও পরিবর্তন করতে সোয়াইপ করে সক্ষম করুন</string>
   <string name="revanced_swipe_change_video_summary_on">ফুলস্ক্রিন মোডে সোয়াইপ করলে পরবর্তী/পূর্ববর্তী ভিডিওতে পরিবর্তন হবে</string>
   <string name="revanced_swipe_change_video_summary_off">ফুলস্ক্রিন মোডে সোয়াইপ করলে পরবর্তী /পূর্ববর্তী ভিডিওতে পরিবর্তন হবে না</string>
@@ -513,6 +522,11 @@ MicroG-এর জন্য ব্যাটারি অপ্টিমাইজ�
   <string name="revanced_hide_thanks_button_title">ধন্যবাদ লুকান</string>
   <string name="revanced_hide_thanks_button_summary_on">ধন্যবাদ বোতাম লুকানো আছে</string>
   <string name="revanced_hide_thanks_button_summary_off">ধন্যবাদ বোতাম দেখানো হয়</string>
+  <!-- 'Ask' should be translated with the same localized wording that YouTube displays.
+                 Button only shows if the user ip is from specific region such as the USA or EU. -->
+  <string name="revanced_hide_ask_button_title">জিজ্ঞাসা লুকান</string>
+  <string name="revanced_hide_ask_button_summary_on">জিজ্ঞাসা বোতাম লুকানো আছে</string>
+  <string name="revanced_hide_ask_button_summary_off">জিজ্ঞাসা বোতাম দেখানো হয়েছে</string>
   <!-- 'Clip' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_clip_button_title">ক্লিপ লুকান</string>
   <string name="revanced_hide_clip_button_summary_on">ক্লিপ বোতাম লুকিয়ে রয়েছে</string>
@@ -1296,6 +1310,9 @@ DeArrow সম্পর্কে আরও জানতে এখানে ট�
   <patch id="misc.gms.gmsCoreSupportResourcePatch">
   <string name="microg_settings_title">GmsCore সেটিং</string>
   <string name="microg_settings_summary">GmsCore এর জন্য সেটিং</string>
+  </patch>
+  <patch id="misc.gms.accountCredentialsInvalidTextPatch">
+  <string name="microg_offline_account_login_error">আপনি যদি সম্প্রতি আপনার অ্যাকাউন্ট লগইন বিশদ পরিবর্তন করে থাকেন, তবে MicroG আনইনস্টল করুন এবং পুনরায় ইনস্টল করুন।</string>
   </patch>
   <patch id="misc.links.bypassURLRedirectsPatch">
   <string name="revanced_bypass_url_redirects_title">URL পুনঃনির্দেশ বাইপাস করুন</string>

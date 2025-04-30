@@ -84,6 +84,8 @@ Second \"item\" text"</string>
   <!-- 'Remix' should be translated with the same localized wording that YouTube displays. -->
   <!-- 'Download' should be translated with the same localized wording that YouTube displays. -->
   <!-- 'Thanks' should be translated with the same localized wording that YouTube displays. -->
+  <!-- 'Ask' should be translated with the same localized wording that YouTube displays.
+                 Button only shows if the user ip is from specific region such as the USA or EU. -->
   <!-- 'Clip' should be translated with the same localized wording that YouTube displays. -->
   <!-- 'Save' should be translated with the same localized wording that YouTube displays. -->
   </patch>
@@ -194,6 +196,8 @@ Second \"item\" text"</string>
   <patch id="misc.dimensions.spoof.spoofDeviceDimensionsPatch">
   </patch>
   <patch id="misc.gms.gmsCoreSupportResourcePatch">
+  </patch>
+  <patch id="misc.gms.accountCredentialsInvalidTextPatch">
   </patch>
   <patch id="misc.links.bypassURLRedirectsPatch">
   </patch>

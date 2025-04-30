@@ -2,6 +2,8 @@ package app.revanced.extension.youtube;
 
 import android.app.Activity;
 import android.graphics.Color;
+import android.os.Build;
+import android.view.Window;
 
 import androidx.annotation.Nullable;
 
@@ -101,5 +103,22 @@ public class ThemeHelper {
                 : "yt_white1";
 
         return Utils.getColorFromString(colorName);
+    }
+
+    /**
+     * Sets the system navigation bar color for the activity.
+     * Applies the background color obtained from {@link #getBackgroundColor()} to the navigation bar.
+     * For Android 10 (API 29) and above, enforces navigation bar contrast to ensure visibility.
+     */
+    public static void setNavigationBarColor(@Nullable Window window) {
+        if (window == null) {
+            Logger.printDebug(() -> "Cannot set navigation bar color, window is null");
+            return;
+        }
+
+        window.setNavigationBarColor(getBackgroundColor());
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+            window.setNavigationBarContrastEnforced(true);
+        }
     }
 }
