@@ -25,11 +25,6 @@ internal val shortsBottomBarContainerFingerprint = fingerprint {
     literal { bottomBarContainer }
 }
 
-internal val createShortsButtonsFingerprint = fingerprint {
-    returns("V")
-    literal { reelPlayerRightCellButtonHeight }
-}
-
 internal val renderBottomNavigationBarFingerprint = fingerprint {
     returns("V")
     parameters("Ljava/lang/String;")
