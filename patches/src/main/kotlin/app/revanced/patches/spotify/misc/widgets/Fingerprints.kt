@@ -6,5 +6,5 @@ import com.android.tools.smali.dexlib2.Opcode
 
 internal val canBindAppWidgetPermissionFingerprint = fingerprint {
     strings("android.permission.BIND_APPWIDGET")
-    custom { method, _ -> method.implementation != null && method.indexOfFirstInstruction(Opcode.AND_INT_LIT8) >= 0 }
+    opcodes(Opcode.AND_INT_LIT8)
 }

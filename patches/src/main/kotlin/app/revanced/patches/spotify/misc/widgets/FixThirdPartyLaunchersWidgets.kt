@@ -7,7 +7,7 @@ import app.revanced.util.returnEarly
 val fixThirdPartyLaunchersWidgets = bytecodePatch(
     name = "Fix third party launchers widgets",
     description = "Fixes Spotify widgets not working in third party launchers, like Nova Launcher.",
-    use = false,
+    use = true,
 ) {
     execute {
         // Only system app launchers are granted the BIND_APPWIDGET permission.
