@@ -1311,6 +1311,9 @@ Bunu etkinleştirmek daha yüksek video kalitelerini açabilir"</string>
   <string name="microg_settings_title">GmsCore Ayarları</string>
   <string name="microg_settings_summary">GmsCore için ayarlar</string>
   </patch>
+  <patch id="misc.gms.accountCredentialsInvalidTextPatch">
+  <string name="microg_offline_account_login_error">Yakın zamanda hesap giriş bilgilerinizi değiştirdiyseniz MicroG\'yi kaldırıp yeniden yükleyin.</string>
+  </patch>
   <patch id="misc.links.bypassURLRedirectsPatch">
   <string name="revanced_bypass_url_redirects_title">URL yönlendirmelerini atla</string>
   <string name="revanced_bypass_url_redirects_summary_on">URL yönlendirmeleri atlanıyor</string>

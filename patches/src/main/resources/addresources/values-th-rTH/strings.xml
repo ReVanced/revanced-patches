@@ -1309,6 +1309,9 @@ User id ของคุณเหมือนกับรหัสผ่าน �
   <string name="microg_settings_title">การตั้งค่า GmsCore</string>
   <string name="microg_settings_summary">การตั้งค่าสำหรับ GmsCore</string>
   </patch>
+  <patch id="misc.gms.accountCredentialsInvalidTextPatch">
+  <string name="microg_offline_account_login_error">หากคุณเพิ่งเปลี่ยนรายละเอียดการเข้าสู่ระบบบัญชีของคุณ ให้ถอนการติดตั้งและติดตั้ง MicroG ใหม่อีกครั้ง</string>
+  </patch>
   <patch id="misc.links.bypassURLRedirectsPatch">
   <string name="revanced_bypass_url_redirects_title">เลี่ยงการเปลี่ยนเส้นทาง URL</string>
   <string name="revanced_bypass_url_redirects_summary_on">การเปลี่ยนเส้นทาง URL ถูกเลี่ยง</string>

@@ -1310,6 +1310,9 @@ Att aktivera detta kan låsa upp högre videokvalitet"</string>
   <string name="microg_settings_title">GmsCore inställningar</string>
   <string name="microg_settings_summary">Inställningar för GmsCore</string>
   </patch>
+  <patch id="misc.gms.accountCredentialsInvalidTextPatch">
+  <string name="microg_offline_account_login_error">Om du nyligen har ändrat dina inloggningsuppgifter, avinstallera och installera om MicroG.</string>
+  </patch>
   <patch id="misc.links.bypassURLRedirectsPatch">
   <string name="revanced_bypass_url_redirects_title">Bypass URL omdirigerar</string>
   <string name="revanced_bypass_url_redirects_summary_on">URL-omdirigeringar förbigås</string>

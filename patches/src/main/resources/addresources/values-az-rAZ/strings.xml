@@ -524,6 +524,9 @@ Ekranın sağ tərəfində düzünə sürüşdürərək səs səviyyəsini tənz
   <string name="revanced_hide_thanks_button_summary_off">Təşəkkür düyməsi göstərilir</string>
   <!-- 'Ask' should be translated with the same localized wording that YouTube displays.
                  Button only shows if the user ip is from specific region such as the USA or EU. -->
+  <string name="revanced_hide_ask_button_title">Soruş\'u Gizlət</string>
+  <string name="revanced_hide_ask_button_summary_on">Soruş düyməsi gizlidir</string>
+  <string name="revanced_hide_ask_button_summary_off">\"Soruş\" düyməsi göstərilir</string>
   <!-- 'Clip' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_clip_button_title">Kəsmə/ gizlət</string>
   <string name="revanced_hide_clip_button_summary_on">Kəsmə düyməsi gizlidir</string>
@@ -1252,7 +1255,7 @@ Bunu aktivləşdirmə, bəzi regionlarda əngəllənib silinən şəkilləri dü
   <string name="revanced_alt_thumbnail_options_entry_2">DeArrow &amp; Orijinal miniatürlər</string>
   <string name="revanced_alt_thumbnail_options_entry_3">DeArrow &amp; Kadr çəkilişlər</string>
   <string name="revanced_alt_thumbnail_options_entry_4">Kadr çəkilişləri</string>
-  <string name="revanced_alt_thumbnail_dearrow_about_summary">"DeArrow YouTube videoları üçün izdiham mənbəli miniatürlər təqdim edir. Bu miniatürlər YouTube tərəfindən təqdim edilənlərdən dəfələrlə daha uyğundur.
+  <string name="revanced_alt_thumbnail_dearrow_about_summary">"DeArrow YouTube videoları üçün çox mənbəli miniatürlər təqdim edir. Bu miniatürlər YouTube tərəfindən təqdim edilənlərdən dəfələrlə daha uyğundur.
 
 Aktivləşdirilərsə, video URL-lər API alıcısına göndəriləcək və başqa məlumat göndərilməyəcək. Videonun DeArrow miniatürləri yoxdursa, orijinal və ya hələ də çəkilişlər göstərilir.
 
@@ -1306,6 +1309,9 @@ Bunu aktivləşdirmə daha yüksək video keyfiyyətləri əngəlin silə bilər
   <patch id="misc.gms.gmsCoreSupportResourcePatch">
   <string name="microg_settings_title">GmsCore Tənzimləmələri</string>
   <string name="microg_settings_summary">GmsCore üçün Tənzimləmələr</string>
+  </patch>
+  <patch id="misc.gms.accountCredentialsInvalidTextPatch">
+  <string name="microg_offline_account_login_error">Bu yaxınlarda hesabınıza giriş məlumatlarınızı dəyişmisinizsə, MicroG-ni silin və təkrar quraşdırın.</string>
   </patch>
   <patch id="misc.links.bypassURLRedirectsPatch">
   <string name="revanced_bypass_url_redirects_title">URL yönləndirmələrini ötür</string>
