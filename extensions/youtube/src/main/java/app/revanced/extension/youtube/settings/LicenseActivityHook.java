@@ -152,7 +152,7 @@ public class LicenseActivityHook {
 
         // Add Search Icon and EditText for ReVancedPreferenceFragment only.
         if (fragment instanceof ReVancedPreferenceFragment) {
-            new SearchTextView(activity, toolbar, (ReVancedPreferenceFragment) fragment);
+            new SearchViewManager(activity, toolbar, (ReVancedPreferenceFragment) fragment);
         }
 
         toolBarParent.addView(toolbar, 0);

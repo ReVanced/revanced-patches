@@ -6,22 +6,21 @@ import android.app.Activity;
 import android.content.Context;
 import android.graphics.Color;
 import android.graphics.drawable.GradientDrawable;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
-import android.widget.EditText;
 import android.widget.FrameLayout;
+import android.widget.SearchView;
 import android.widget.Toolbar;
 import androidx.annotation.NonNull;
 import app.revanced.extension.shared.Logger;
-import app.revanced.extension.shared.Utils;
 import app.revanced.extension.shared.StringRef;
 import app.revanced.extension.youtube.ThemeHelper;
-
 import app.revanced.extension.youtube.settings.preference.ReVancedPreferenceFragment;
 
-public class SearchTextView {
-    private final EditText searchEditText;
+public class SearchViewManager {
+    private final SearchView searchView;
     private final FrameLayout searchContainer;
     private final Toolbar toolbar;
     private final ReVancedPreferenceFragment fragment;
@@ -30,29 +29,28 @@ public class SearchTextView {
     private final int[] originalTitleMargin;
     private final CharSequence originalTitle;
 
-    public SearchTextView(@NonNull Activity activity, @NonNull Toolbar toolbar, @NonNull ReVancedPreferenceFragment fragment) {
+    public SearchViewManager(@NonNull Activity activity, @NonNull Toolbar toolbar, @NonNull ReVancedPreferenceFragment fragment) {
         this.activity = activity;
         this.toolbar = toolbar;
         this.fragment = fragment;
         this.originalTitle = toolbar.getTitle();
         this.originalTitleMargin = new int[]{toolbar.getTitleMarginStart(), toolbar.getTitleMarginEnd()};
 
-        // Initialize EditText and container
-        this.searchEditText = createSearchEditText();
-        this.searchContainer = (FrameLayout) searchEditText.getParent();
+        // Initialize SearchView from XML and wrap it in a container
+        this.searchView = activity.findViewById(getResourceIdentifier("revanced_search_view", "id"));
+        this.searchContainer = createSearchContainer();
+        setupSearchView();
         setupSearchMenu();
-        toolbar.addView(searchContainer);
+        toolbar.addView(searchContainer); // Add container to Toolbar
     }
 
-    private EditText createSearchEditText() {
+    private FrameLayout createSearchContainer() {
         Context context = toolbar.getContext();
-
-        // Create container for the search bar
         FrameLayout container = new FrameLayout(context);
-        container.setId(getResourceIdentifier("search_view", "id"));
+        container.setId(getResourceIdentifier("revanced_search_view_container", "id"));
         container.setVisibility(View.GONE);
 
-        // Set container layout params
+        // Set container layout params with reduced margins
         ViewGroup.MarginLayoutParams containerParams = new ViewGroup.MarginLayoutParams(
                 ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         int marginHorizontal = (int) (8 * context.getResources().getDisplayMetrics().density); // 8dp
@@ -60,78 +58,54 @@ public class SearchTextView {
         containerParams.setMargins(marginHorizontal, marginVertical, marginHorizontal, marginVertical);
         container.setLayoutParams(containerParams);
 
-        // Create background drawable with rounded corners
+        // Remove SearchView from its current parent and add to container
+        ViewGroup parent = (ViewGroup) searchView.getParent();
+        if (parent != null) {
+            parent.removeView(searchView);
+        }
+        container.addView(searchView);
+        return container;
+    }
+
+    private void setupSearchView() {
+        Context context = toolbar.getContext();
+
+        // Set background
+        searchView.setBackground(createBackgroundDrawable(context));
+
+        // Set up query text listener
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                Logger.printDebug(() -> "Search query: " + newText);
+                fragment.filterPreferences(newText);
+                return true;
+            }
+        });
+    }
+
+    private GradientDrawable createBackgroundDrawable(Context context) {
         GradientDrawable background = new GradientDrawable();
         background.setShape(GradientDrawable.RECTANGLE);
         background.setCornerRadius(28f * context.getResources().getDisplayMetrics().density); // 28dp corner radius
-        // Adjust background color based on theme
         int baseColor = ThemeHelper.getBackgroundColor();
         int adjustedColor = ThemeHelper.isDarkTheme()
                 ? changerColor(baseColor, 1.1111f) // Lighten for dark theme
                 : changerColor(baseColor, 0.95f);  // Darken for light theme
         background.setColor(adjustedColor);
-        container.setBackground(background);
-
-        // Add elevation for depth (like YouTube's search bar)
-        container.setElevation(2f * context.getResources().getDisplayMetrics().density); // 2dp elevation
-
-        // Create EditText
-        EditText editText = new EditText(context);
-        editText.setHint(StringRef.str("revanced_search_settings"));
-        editText.setBackground(null);
-        editText.setTextColor(ThemeHelper.getForegroundColor());
-        editText.setHintTextColor(ThemeHelper.getForegroundColor() & 0x80FFFFFF); // 50% opacity
-        editText.setTextSize(16f);
-        editText.setPadding(
-                (int) (16 * context.getResources().getDisplayMetrics().density), // 16dp left
-                (int) (10 * context.getResources().getDisplayMetrics().density), // 10dp top
-                (int) (16 * context.getResources().getDisplayMetrics().density), // 16dp right
-                (int) (10 * context.getResources().getDisplayMetrics().density)  // 10dp bottom
-        );
-
-        // Set single-line and non-wrapping properties
-        editText.setSingleLine(true);
-        editText.setHorizontallyScrolling(true);
-
-        // Set EditText layout params with vertical centering
-        FrameLayout.LayoutParams editTextParams = new FrameLayout.LayoutParams(
-                FrameLayout.LayoutParams.MATCH_PARENT, FrameLayout.LayoutParams.WRAP_CONTENT);
-        editTextParams.gravity = android.view.Gravity.CENTER_VERTICAL;
-        editText.setLayoutParams(editTextParams);
-
-        // Add EditText to container
-        container.addView(editText);
-
-        // Add TextWatcher
-        editText.addTextChangedListener(new android.text.TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                boolean hasText = s != null && s.length() > 0;
-                toolbar.getMenu().findItem(getResourceIdentifier("action_search", "id"))
-                        .setIcon(getResourceIdentifier(
-                                ThemeHelper.isDarkTheme() ? "quantum_ic_close_white_24" : "quantum_ic_close_black_24",
-                                "drawable"))
-                        .setVisible(hasText);
-            }
-
-            @Override
-            public void afterTextChanged(android.text.Editable s) {
-                Logger.printDebug(() -> "Search query: " + s);
-                fragment.filterPreferences(s.toString());
-            }
-        });
-
-        return editText;
+        return background;
     }
 
     private void setupSearchMenu() {
         // Inflate menu and set initial icon
         toolbar.inflateMenu(getResourceIdentifier("revanced_search_menu", "menu"));
-        toolbar.getMenu().findItem(getResourceIdentifier("action_search", "id"))
-                .setIcon(getResourceIdentifier(
+        MenuItem searchItem = toolbar.getMenu().findItem(getResourceIdentifier("action_search", "id"));
+        searchItem.setIcon(getResourceIdentifier(
                         ThemeHelper.isDarkTheme() ? "yt_outline_search_white_24" : "yt_outline_search_black_24",
                         "drawable"))
                 .setTooltipText(null);
@@ -166,15 +140,15 @@ public class SearchTextView {
         toolbar.setTitleMarginStart(0);
         toolbar.setTitleMarginEnd(0);
         searchContainer.setVisibility(View.VISIBLE);
-        searchEditText.requestFocus();
+        searchView.requestFocus();
 
         // Show keyboard
         InputMethodManager imm = (InputMethodManager) activity.getSystemService(Context.INPUT_METHOD_SERVICE);
-        imm.showSoftInput(searchEditText, InputMethodManager.SHOW_IMPLICIT);
+        imm.showSoftInput(searchView, InputMethodManager.SHOW_IMPLICIT);
     }
 
     private void clearSearch() {
-        searchEditText.setText("");
+        searchView.setQuery("", false);
         toolbar.getMenu().findItem(getResourceIdentifier("action_search", "id")).setVisible(false);
     }
 
@@ -191,11 +165,11 @@ public class SearchTextView {
         toolbar.setTitleMarginStart(originalTitleMargin[0]);
         toolbar.setTitleMarginEnd(originalTitleMargin[1]);
         searchContainer.setVisibility(View.GONE);
-        searchEditText.setText("");
+        searchView.setQuery("", false);
 
         // Hide keyboard
         InputMethodManager imm = (InputMethodManager) activity.getSystemService(Context.INPUT_METHOD_SERVICE);
-        imm.hideSoftInputFromWindow(searchEditText.getWindowToken(), 0);
+        imm.hideSoftInputFromWindow(searchView.getWindowToken(), 0);
     }
 
     /**
