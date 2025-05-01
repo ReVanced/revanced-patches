@@ -524,7 +524,7 @@ Podesite jačinu zvuka prevlačenjem vertikalno na desnoj strani ekrana"</string
   <string name="revanced_hide_thanks_button_summary_off">Dugme „Hvala” je prikazano</string>
   <!-- 'Ask' should be translated with the same localized wording that YouTube displays.
                  Button only shows if the user ip is from specific region such as the USA or EU. -->
-  <string name="revanced_hide_ask_button_title">Sakrij „Pitaj”</string>
+  <string name="revanced_hide_ask_button_title">Sakrij dugme „Pitaj”</string>
   <string name="revanced_hide_ask_button_summary_on">Dugme „Pitaj” je skriveno</string>
   <string name="revanced_hide_ask_button_summary_off">Dugme „Pitaj” je prikazano</string>
   <!-- 'Clip' should be translated with the same localized wording that YouTube displays. -->
@@ -1309,6 +1309,9 @@ Ako ovo omogućite, mogu biti otključani viši kvaliteti videa"</string>
   <patch id="misc.gms.gmsCoreSupportResourcePatch">
   <string name="microg_settings_title">Podešavanja GmsCorea</string>
   <string name="microg_settings_summary">Podešavanja za GmsCore</string>
+  </patch>
+  <patch id="misc.gms.accountCredentialsInvalidTextPatch">
+  <string name="microg_offline_account_login_error">Ako ste nedavno promenili podatke za prijavu na nalog, deinstalirajte i ponovo instalirajte MicroG.</string>
   </patch>
   <patch id="misc.links.bypassURLRedirectsPatch">
   <string name="revanced_bypass_url_redirects_title">Zaobiđi URL preusmeravanja</string>

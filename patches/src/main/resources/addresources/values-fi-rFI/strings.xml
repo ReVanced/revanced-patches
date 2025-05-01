@@ -1294,6 +1294,8 @@ Tämä voi avata korkealaatuisemmat videot"</string>
   <string name="microg_settings_title">GmsCore-asetukset</string>
   <string name="microg_settings_summary">GmsCoren asetukset</string>
   </patch>
+  <patch id="misc.gms.accountCredentialsInvalidTextPatch">
+  </patch>
   <patch id="misc.links.bypassURLRedirectsPatch">
   <string name="revanced_bypass_url_redirects_title">Ohita URL-osoitteen uudelleenohjaukset</string>
   <string name="revanced_bypass_url_redirects_summary_on">URL-osoitteen uudelleenohjaukset ohitetaan</string>

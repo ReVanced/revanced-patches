@@ -1311,6 +1311,9 @@ Is féidir le seo caighdeáin físeáin níos airde a dhíghlasáil"</string>
   <string name="microg_settings_title">Socruithe GmsCore</string>
   <string name="microg_settings_summary">Socruithe le haghaidh GmsCore</string>
   </patch>
+  <patch id="misc.gms.accountCredentialsInvalidTextPatch">
+  <string name="microg_offline_account_login_error">Má d’athraigh tú sonraí logála isteach do chuntais le déanaí, ansin díshuiteáil agus athshuiteáil MicroG.</string>
+  </patch>
   <patch id="misc.links.bypassURLRedirectsPatch">
   <string name="revanced_bypass_url_redirects_title">Atreoracha seachbhóthar URL</string>
   <string name="revanced_bypass_url_redirects_summary_on">Seachnaítear atreoruithe URL</string>

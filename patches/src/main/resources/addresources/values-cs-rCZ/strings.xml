@@ -1310,6 +1310,9 @@ Povolením této funkce lze odemknout vyšší kvality videa"</string>
   <string name="microg_settings_title">Nastavení GmsCore</string>
   <string name="microg_settings_summary">Nastavení pro GmsCore</string>
   </patch>
+  <patch id="misc.gms.accountCredentialsInvalidTextPatch">
+  <string name="microg_offline_account_login_error">Pokud jste nedávno změnili přihlašovací údaje svého účtu, odinstalujte a znovu nainstalujte MicroG.</string>
+  </patch>
   <patch id="misc.links.bypassURLRedirectsPatch">
   <string name="revanced_bypass_url_redirects_title">Obcházet přesměrování URL</string>
   <string name="revanced_bypass_url_redirects_summary_on">Přesměrování URL jsou obcházena</string>

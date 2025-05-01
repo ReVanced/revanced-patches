@@ -1311,6 +1311,9 @@ DeArrow সম্পর্কে আরও জানতে এখানে ট�
   <string name="microg_settings_title">GmsCore সেটিং</string>
   <string name="microg_settings_summary">GmsCore এর জন্য সেটিং</string>
   </patch>
+  <patch id="misc.gms.accountCredentialsInvalidTextPatch">
+  <string name="microg_offline_account_login_error">আপনি যদি সম্প্রতি আপনার অ্যাকাউন্ট লগইন বিশদ পরিবর্তন করে থাকেন, তবে MicroG আনইনস্টল করুন এবং পুনরায় ইনস্টল করুন।</string>
+  </patch>
   <patch id="misc.links.bypassURLRedirectsPatch">
   <string name="revanced_bypass_url_redirects_title">URL পুনঃনির্দেশ বাইপাস করুন</string>
   <string name="revanced_bypass_url_redirects_summary_on">URL পুনঃনির্দেশ বাইপাস করছে</string>

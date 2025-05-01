@@ -1311,6 +1311,9 @@ Second \"item\" text"</string>
   <string name="microg_settings_title">إعدادات GmsCore</string>
   <string name="microg_settings_summary">إعدادات لـ GmsCore</string>
   </patch>
+  <patch id="misc.gms.accountCredentialsInvalidTextPatch">
+  <string name="microg_offline_account_login_error">إذا قمت مؤخرًا بتغيير تفاصيل تسجيل الدخول إلى حسابك، فأزل تثبيت MicroG ثم أعد تثبيته.</string>
+  </patch>
   <patch id="misc.links.bypassURLRedirectsPatch">
   <string name="revanced_bypass_url_redirects_title">تجاوز إعادة توجيه URL</string>
   <string name="revanced_bypass_url_redirects_summary_on">تم تجاوز إعادة توجيه عنوان URL</string>

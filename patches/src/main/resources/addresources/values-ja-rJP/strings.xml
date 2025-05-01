@@ -29,7 +29,7 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_manager_not_expected_installer">ReVanced Manager によってインストールされていない</string>
   <string name="revanced_check_environment_not_near_patch_time">10 分以上前にパッチが適用されている</string>
   <string name="revanced_check_environment_not_near_patch_time_days">%s 日前にパッチが適用されている</string>
-  <string name="revanced_check_environment_not_near_patch_time_invalid">APK の作成日情報が破損している</string>
+  <string name="revanced_check_environment_not_near_patch_time_invalid">APK の作成日時データが破損している</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_submenu_title">設定</string>
@@ -313,14 +313,14 @@ MicroG GmsCore に対する電池の最適化を無効にしても、バッテ�
   <string name="revanced_hide_keyword_content_screen_title">キーワード フィルタ</string>
   <string name="revanced_hide_keyword_content_screen_summary">フィード、検索結果、関連動画に表示される動画をキーワードで除外するフィルタの設定</string>
   <string name="revanced_hide_keyword_content_home_title">キーワードに合致する動画をホームフィードから除外する</string>
-  <string name="revanced_hide_keyword_content_home_summary_on">キーワードに合致する動画はホームフィードに表示されません</string>
-  <string name="revanced_hide_keyword_content_home_summary_off">ホームフィードはキーワードでフィルタリングされません</string>
+  <string name="revanced_hide_keyword_content_home_summary_on">キーワードに合致する動画はホームフィードおよび関連動画に表示されません</string>
+  <string name="revanced_hide_keyword_content_home_summary_off">ホームフィードおよび関連動画はキーワードでフィルタリングされません</string>
   <string name="revanced_hide_keyword_content_search_title">キーワードに合致する動画を検索結果から除外する</string>
   <string name="revanced_hide_keyword_content_search_summary_on">キーワードに合致する動画は検索結果に表示されません</string>
   <string name="revanced_hide_keyword_content_search_summary_off">検索結果はキーワードでフィルタリングされません</string>
   <string name="revanced_hide_keyword_content_subscriptions_title">キーワードに合致する動画を登録チャンネル フィードから除外する</string>
   <string name="revanced_hide_keyword_content_subscriptions_summary_on">キーワードに合致する動画は登録チャンネル フィードに表示されません</string>
-  <string name="revanced_hide_keyword_content_subscriptions_summary_off">登録チャンネル フィードの動画はキーワードでフィルタリングされません</string>
+  <string name="revanced_hide_keyword_content_subscriptions_summary_off">登録チャンネル フィードはキーワードでフィルタリングされません</string>
   <string name="revanced_hide_keyword_content_phrases_title">キーワード</string>
   <!-- For localization, it is preferred, but not required, if 'LeBlanc' is replaced with a localized name or a familiar word that has upper case letters in the middle of the word.
                  This is because keywords can be in any language, and showing an example in the localized script helps convey this. -->
@@ -895,10 +895,10 @@ MicroG GmsCore に対する電池の最適化を無効にしても、バッテ�
   <string name="revanced_restore_old_seekbar_thumbnails_summary_off">シーク中のサムネイルはプレーヤー画面全体に表示されます</string>
   </patch>
   <patch id="layout.sponsorblock.sponsorBlockResourcePatch">
-  <string name="revanced_sb_enable_sb">SponsorBlock を有効化</string>
+  <string name="revanced_sb_enable_sb">SponsorBlock を有効にする</string>
   <string name="revanced_sb_enable_sb_sum">SponsorBlock はユーザーからの情報提供により YouTube 動画のわずらわしい部分をスキップする機能です</string>
   <string name="revanced_sb_appearance_category">外観</string>
-  <string name="revanced_sb_enable_voting">投票ボタンを表示</string>
+  <string name="revanced_sb_enable_voting">投票ボタンを表示する</string>
   <string name="revanced_sb_enable_voting_sum_on">セグメントへの投票ボタンはプレーヤー オーバーレイに表示されます</string>
   <string name="revanced_sb_enable_voting_sum_off">セグメントへの投票ボタンはプレーヤー オーバーレイに表示されません</string>
   <string name="revanced_sb_square_layout">四角ボタンを使用する</string>
@@ -909,45 +909,45 @@ MicroG GmsCore に対する電池の最適化を無効にしても、バッテ�
   <string name="revanced_sb_enable_compact_skip_button_sum_on">ボタンに「スキップ」とだけ表示されます</string>
   <string name="revanced_sb_enable_compact_skip_button_sum_off">ボタンにカテゴリー名が表示されます</string>
   <string name="revanced_sb_enable_auto_hide_skip_segment_button">スキップボタンを自動的に非表示にする</string>
-  <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_on">スキップボタンは表示された数秒後に自動的に非表示になります</string>
-  <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_off">スキップボタンはセグメントの開始から終了まで表示されます</string>
-  <string name="revanced_sb_general_skiptoast">スキップ時にトーストを表示</string>
-  <string name="revanced_sb_general_skiptoast_sum_on">セグメントが自動的にスキップされたときにトースト ポップアップが表示されます。ここをタップするとサンプルが表示されます</string>
+  <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_on">スキップボタンは、表示された数秒後に自動的に非表示になります</string>
+  <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_off">スキップボタンは、セグメントの開始から終了まで表示されます</string>
+  <string name="revanced_sb_general_skiptoast">スキップ時にトーストを表示する</string>
+  <string name="revanced_sb_general_skiptoast_sum_on">セグメントが自動的にスキップされたときに、トースト ポップアップが表示されます。ここをタップするとサンプルが表示されます</string>
   <string name="revanced_sb_general_skiptoast_sum_off">トースト ポップアップは表示されません。ここをタップするとサンプルが表示されます</string>
-  <string name="revanced_sb_general_time_without">セグメントを除いた再生時間を表示</string>
+  <string name="revanced_sb_general_time_without">セグメントを除いた再生時間を表示する</string>
   <string name="revanced_sb_general_time_without_sum_on">セグメントを除いた再生時間が、動画全体の再生時間の横に括弧付きで表示されます</string>
   <string name="revanced_sb_general_time_without_sum_off">動画全体の再生時間のみが表示されます</string>
   <string name="revanced_sb_create_segment_category">セグメントの作成</string>
   <string name="revanced_sb_enable_create_segment">セグメント作成ボタンを表示する</string>
   <string name="revanced_sb_enable_create_segment_sum_on">セグメント作成ボタンは表示されます</string>
   <string name="revanced_sb_enable_create_segment_sum_off">セグメント作成ボタンは表示されません</string>
-  <string name="revanced_sb_general_adjusting">新しいセグメントステップを調整する</string>
-  <string name="revanced_sb_general_adjusting_sum">新しいセグメントを作成する際の時間調節ボタンの移動時間 (単位: ミリ秒)</string>
+  <string name="revanced_sb_general_adjusting">セグメントの時間調整幅</string>
+  <string name="revanced_sb_general_adjusting_sum">「セグメントを作成」メニュー内の早送り / 巻き戻しボタンで移動する時間 (ミリ秒)</string>
   <string name="revanced_sb_general_adjusting_invalid">値は正の整数でなければなりません</string>
   <string name="revanced_sb_guidelines_preference_title">ガイドラインを見る</string>
   <string name="revanced_sb_guidelines_preference_sum">ガイドラインには、新しいセグメントを作成するためのルールとヒントが含まれています</string>
   <string name="revanced_sb_guidelines_popup_title">ガイドラインに従ってください</string>
-  <string name="revanced_sb_guidelines_popup_content">新しいセグメントを作成する前にSponsorBlockガイドラインを読んでください</string>
-  <string name="revanced_sb_guidelines_popup_already_read">既に読んでいます</string>
-  <string name="revanced_sb_guidelines_popup_open">見る</string>
-  <string name="revanced_sb_general">一般設定</string>
-  <string name="revanced_sb_toast_on_connection_error_title">API 利用不可時にトーストを表示</string>
-  <string name="revanced_sb_toast_on_connection_error_summary_on">SponsorBlock が利用できない場合はトースト ポップアップが表示されます</string>
-  <string name="revanced_sb_toast_on_connection_error_summary_off">SponsorBlock が利用できない場合でもトースト ポップアップは表示されません</string>
-  <string name="revanced_sb_general_skipcount">スキップ数の追跡を有効にする</string>
-  <string name="revanced_sb_general_skipcount_sum_on">SponsorBlock リーダーボードに、どれだけの時間が節約されたかを報告します。セグメントがスキップされるたびにメッセージがリーダーボードに送信されます</string>
-  <string name="revanced_sb_general_skipcount_sum_off">スキップカウント追跡が有効になっていません</string>
-  <string name="revanced_sb_general_min_duration">最小のセグメントの長さ</string>
+  <string name="revanced_sb_guidelines_popup_content">新しいセグメントを作成する前に SponsorBlock ガイドラインを読んでください</string>
+  <string name="revanced_sb_guidelines_popup_already_read">既読</string>
+  <string name="revanced_sb_guidelines_popup_open">表示</string>
+  <string name="revanced_sb_general">その他</string>
+  <string name="revanced_sb_toast_on_connection_error_title">API 利用不可時にトーストを表示する</string>
+  <string name="revanced_sb_toast_on_connection_error_summary_on">SponsorBlock が利用できない場合は、トースト ポップアップが表示されます</string>
+  <string name="revanced_sb_toast_on_connection_error_summary_off">SponsorBlock が利用できない場合でも、トースト ポップアップは表示されません</string>
+  <string name="revanced_sb_general_skipcount">スキップデータを送信する</string>
+  <string name="revanced_sb_general_skipcount_sum_on">SponsorBlock リーダーボード にスキップによって節約した時間を送信します。セグメントをスキップする度にデータを送信します</string>
+  <string name="revanced_sb_general_skipcount_sum_off">スキップデータは送信されません</string>
+  <string name="revanced_sb_general_min_duration">セグメントのしきい値</string>
   <string name="revanced_sb_general_min_duration_sum">設定値 (単位: 秒) より短いセグメントはスキップされず、プレーヤーにも表示されません</string>
   <string name="revanced_sb_general_min_duration_invalid">セグメントのしきい値が無効です</string>
   <string name="revanced_sb_general_uuid">非公開ユーザー ID</string>
   <string name="revanced_sb_general_uuid_sum">この ID は公開すべきではありません。パスワードのようなものであり、誰とも共有すべきではありません。もし誰かがこの ID を手に入れた場合、あなたになりすますことができます</string>
   <string name="revanced_sb_general_uuid_invalid">非公開ユーザー ID は 30 文字以上必要です</string>
-  <string name="revanced_sb_general_api_url">API の URL を変更</string>
-  <string name="revanced_sb_general_api_url_sum">SponsorBlockのアドレスはサーバーへの呼び出しに使用されます</string>
-  <string name="revanced_sb_api_url_reset">API の URL をリセットしました</string>
+  <string name="revanced_sb_general_api_url">API URL</string>
+  <string name="revanced_sb_general_api_url_sum">SponsorBlock がサーバーとの通信で使用するアドレス</string>
+  <string name="revanced_sb_api_url_reset">API URL をリセットしました</string>
   <string name="revanced_sb_api_url_invalid">API URL が無効です</string>
-  <string name="revanced_sb_api_url_changed">API の URL を変更しました</string>
+  <string name="revanced_sb_api_url_changed">API URL を変更しました</string>
   <string name="revanced_sb_settings_ie">設定のインポート / エクスポート</string>
   <string name="revanced_sb_settings_copy">コピー</string>
   <string name="revanced_sb_settings_ie_sum">SponsorBlock の設定を JSON 形式のテキストでインポート / エクスポートします。この JSON テキストは他のプラットフォームでも利用可能です</string>
@@ -955,7 +955,7 @@ MicroG GmsCore に対する電池の最適化を無効にしても、バッテ�
   <string name="revanced_sb_settings_import_successful">設定が正常にインポートされました</string>
   <string name="revanced_sb_settings_import_failed">インポートに失敗しました: %s</string>
   <string name="revanced_sb_settings_export_failed">エクスポートに失敗しました: %s</string>
-  <string name="revanced_sb_settings_revanced_export_user_id_warning">"設定には、SponsorBlock の非公開ユーザー ID が含まれています。このユーザー ID はパスワードのようなものであり、決して共有すべきではありません。"</string>
+  <string name="revanced_sb_settings_revanced_export_user_id_warning">"設定には、SponsorBlock の非公開ユーザー ID が含まれています。この ID はパスワードのようなものであり、決して共有すべきではありません。"</string>
   <string name="revanced_sb_settings_revanced_export_user_id_warning_dismiss">今後表示しない</string>
   <string name="revanced_sb_diff_segments">セグメントのスキップ</string>
   <string name="revanced_sb_segments_sponsor">スポンサー</string>
@@ -968,7 +968,7 @@ MicroG GmsCore に対する電池の最適化を無効にしても、バッテ�
   <string name="revanced_sb_segments_highlight_sum">動画の中で最も興味を引く場面</string>
   <string name="revanced_sb_segments_intro">幕間 / オープニング (イントロ)</string>
   <string name="revanced_sb_segments_intro_sum">実際のコンテンツを含まない間隔。一時停止、固定フレーム、繰り返しアニメーションを使用できます。情報を含むトランジションは含まれません。</string>
-  <string name="revanced_sb_segments_outro">終了画面 / クレジット (アウトロ)</string>
+  <string name="revanced_sb_segments_outro">終了画面 / クレジット（アウトロ）</string>
   <string name="revanced_sb_segments_outro_sum">クレジットまたはYouTubeのエンドカードが表示される場合、情報を持つ結論にはなりません</string>
   <string name="revanced_sb_segments_preview">予告編 / 総集編 / フック</string>
   <string name="revanced_sb_segments_preview_sum">ビデオやシリーズの他のビデオで何が起こったのかを示すクリップのコレクション 全ての情報が他の場所で繰り返されます</string>
@@ -1009,7 +1009,7 @@ MicroG GmsCore に対する電池の最適化を無効にしても、バッテ�
   <string name="revanced_sb_skipped_multiple_segments">複数のセグメントをスキップしました</string>
   <string name="revanced_sb_skip_automatically">自動的にスキップ</string>
   <string name="revanced_sb_skip_automatically_once">1 回だけ自動的にスキップ</string>
-  <string name="revanced_sb_skip_showbutton">スキップ ボタンを表示</string>
+  <string name="revanced_sb_skip_showbutton">スキップボタンを表示</string>
   <string name="revanced_sb_skip_seekbaronly">シークバーに表示</string>
   <string name="revanced_sb_skip_ignore">無効</string>
   <string name="revanced_sb_submit_failed_invalid">セグメント送信失敗: %s</string>
@@ -1024,9 +1024,9 @@ MicroG GmsCore に対する電池の最適化を無効にしても、バッテ�
   <string name="revanced_sb_sponsorblock_connection_failure_timeout">SponsorBlock は一時的に利用できません (API タイムアウト)</string>
   <string name="revanced_sb_sponsorblock_connection_failure_status">SponsorBlockは一時的に利用できません (ステータス: %d)</string>
   <string name="revanced_sb_sponsorblock_connection_failure_generic">SponsorBlockは一時的に利用できません</string>
-  <string name="revanced_sb_vote_failed_timeout">セグメントに投票できません (API タイムアウト)</string>
+  <string name="revanced_sb_vote_failed_timeout">セグメントに投票できませんでした (API タイムアウト)</string>
   <string name="revanced_sb_vote_failed_unknown_error">セグメントに投票できませんでした(ステータス: %1$d %2$s)</string>
-  <string name="revanced_sb_vote_failed_forbidden">セグメントに投票できません: %s</string>
+  <string name="revanced_sb_vote_failed_forbidden">セグメントに投票できませんでした: %s</string>
   <string name="revanced_sb_vote_upvote">高評価</string>
   <string name="revanced_sb_vote_downvote">低評価</string>
   <string name="revanced_sb_vote_category">カテゴリーの変更</string>
@@ -1083,7 +1083,7 @@ MicroG GmsCore に対する電池の最適化を無効にしても、バッテ�
   <string name="revanced_sb_color_opacity_label">透明度:</string>
   <string name="revanced_sb_color_dot_label">色:</string>
   <string name="revanced_sb_color_changed">色を変更しました</string>
-  <string name="revanced_sb_color_reset">色をリセット</string>
+  <string name="revanced_sb_color_reset">色がリセットされました</string>
   <string name="revanced_sb_color_invalid">色の値が無効です</string>
   <string name="revanced_sb_reset_color">色をリセット</string>
   <string name="revanced_sb_reset">リセット</string>
@@ -1301,7 +1301,7 @@ Automotive レイアウト
 
 より高画質な映像がアンロックされる可能性がありますが、動画のカクつき、バッテリー寿命の悪化、予期せぬ副作用が
 発生するかもしれません"</string>
-  <string name="revanced_spoof_device_dimensions_summary_off">"端末の画面サイズは偽装されていません
+  <string name="revanced_spoof_device_dimensions_summary_off">"デバイスの画面サイズは偽装されていません
 
 この機能を有効にすると、より高画質な映像がアンロックされる可能性があります"</string>
   <string name="revanced_spoof_device_dimensions_user_dialog_message">この機能を有効にすると、動画のカクつき、バッテリー寿命の悪化、および予期せぬ副作用を引き起こす可能性があります。</string>
@@ -1309,6 +1309,9 @@ Automotive レイアウト
   <patch id="misc.gms.gmsCoreSupportResourcePatch">
   <string name="microg_settings_title">GmsCore 設定</string>
   <string name="microg_settings_summary">GmsCore の設定</string>
+  </patch>
+  <patch id="misc.gms.accountCredentialsInvalidTextPatch">
+  <string name="microg_offline_account_login_error">最近アカウントのログイン情報を変更した場合は、MicroGをアンインストールして再インストールしてください。</string>
   </patch>
   <patch id="misc.links.bypassURLRedirectsPatch">
   <string name="revanced_bypass_url_redirects_title">URL リダイレクトを回避する</string>
@@ -1406,10 +1409,10 @@ Automotive レイアウト
   <string name="revanced_spoof_video_streams_client_type_title">デフォルトのクライアント</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_title">iOS クライアントで AVC (H.264) を強制的に使用する</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">ビデオ コーデックは強制的に AVC (H.264) が使用されます</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">ビデオコーデックは自動的に決定されます</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">"この機能を有効にすると、バッテリー寿命が延び、動画のカクつきが改善される可能性があります。
+  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">ビデオ コーデックは自動的に決定されます</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">"この機能を有効にすると、バッテリー寿命が延びたり、動画のカクつきが改善さたりする可能性があります。
 
-AVC の最大解像度は 1080p であり、Opus オーディオ コーデックは使用できず、動画の再生時に VP9 や AV1 より多くの通信量を使用します。"</string>
+AVC は、最大解像度が 1080p であり、Opus オーディオ コーデックが利用できず、動画再生時の通信量が VP9 や AV1 より多くなります。"</string>
   <string name="revanced_spoof_video_streams_about_ios_tv_title">iOS クライアントの副作用</string>
   <string name="revanced_spoof_video_streams_about_ios_tv_summary">"• 映画や有料動画が再生されない可能性があります
 •「 一定音量」が利用できません
