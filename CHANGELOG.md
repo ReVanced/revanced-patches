@@ -1,3 +1,10 @@
+# [5.23.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.22.0...v5.23.0-dev.1) (2025-05-02)
+
+
+### Features
+
+* **Lightroom:** Constrain patches to last working version ([efef03b](https://github.com/ReVanced/revanced-patches/commit/efef03b80da21552d0d8be6913faba64e4fb5ed1))
+
 # [5.22.0](https://github.com/ReVanced/revanced-patches/compare/v5.21.0...v5.22.0) (2025-05-01)
 
 
