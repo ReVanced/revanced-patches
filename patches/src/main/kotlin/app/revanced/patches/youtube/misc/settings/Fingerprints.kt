@@ -10,9 +10,9 @@ import com.android.tools.smali.dexlib2.Opcode
 internal val licenseActivityOnCreateFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("V")
-    parameters("L")
+    parameters("Landroid/os/Bundle;")
     custom { method, classDef ->
-        classDef.endsWith("LicenseActivity;") && method.name == "onCreate"
+        method.name == "onCreate" && classDef.endsWith("/LicenseActivity;")
     }
 }
 

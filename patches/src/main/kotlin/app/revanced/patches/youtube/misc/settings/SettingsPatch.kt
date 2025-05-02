@@ -207,14 +207,19 @@ val settingsPatch = bytecodePatch(
         // Modify the license activity and remove all existing layout code.
         // Must modify an existing activity and cannot add a new activity to the manifest,
         // as that fails for root installations.
+        licenseActivityOnCreateFingerprint.let {
+            val superClass = it.classDef.superclass
 
-        licenseActivityOnCreateFingerprint.method.addInstructions(
-            1,
-            """
-                invoke-static { p0 }, $activityHookClassDescriptor->initialize(Landroid/app/Activity;)V
-                return-void
-            """,
-        )
+            it.method.addInstructions(
+                0,
+                """
+                    # Some targets have extra instructions before the call to super method.
+                    invoke-super { p0, p1 }, $superClass->onCreate(Landroid/os/Bundle;)V
+                    invoke-static { p0 }, $activityHookClassDescriptor->initialize(Landroid/app/Activity;)V
+                    return-void
+                """
+            )
+        }
 
         // Remove other methods as they will break as the onCreate method is modified above.
         licenseActivityOnCreateFingerprint.classDef.apply {
