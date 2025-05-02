@@ -14,8 +14,13 @@ import android.widget.SearchView;
 import android.widget.Toolbar;
 import androidx.annotation.NonNull;
 import app.revanced.extension.shared.Logger;
+import app.revanced.extension.shared.settings.AppLanguage;
+import app.revanced.extension.shared.settings.BaseSettings;
 import app.revanced.extension.youtube.ThemeHelper;
 import app.revanced.extension.youtube.settings.preference.ReVancedPreferenceFragment;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
 
 public class SearchViewManager {
     private final SearchView searchView;
@@ -25,6 +30,9 @@ public class SearchViewManager {
     private final Activity activity;
     private boolean isSearchActive = false;
     private final CharSequence originalTitle;
+
+    // List of RTL languages
+    private static final Set<String> RTL_LANGUAGES = new HashSet<>(Arrays.asList("ar", "he", "fa", "ur"));
 
     public SearchViewManager(@NonNull Activity activity, @NonNull Toolbar toolbar, @NonNull ReVancedPreferenceFragment fragment) {
         this.activity = activity;
@@ -44,6 +52,15 @@ public class SearchViewManager {
 
         // Set background
         searchView.setBackground(createBackgroundDrawable(context));
+
+        // Configure RTL support based on app language
+        AppLanguage appLanguage = BaseSettings.REVANCED_LANGUAGE.get(); // Get language from ReVanced settings
+        String languageCode = appLanguage.getLanguage();
+        boolean isRtl = RTL_LANGUAGES.contains(languageCode);
+        if (isRtl) {
+            searchView.setTextDirection(View.TEXT_DIRECTION_RTL);
+            searchView.setTextAlignment(View.TEXT_ALIGNMENT_VIEW_END);
+        }
 
         // Set up query text listener
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
