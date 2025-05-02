@@ -48,9 +48,7 @@
                         android:queryBackground="@null"
                         android:queryHint="@string/revanced_search_settings"
                         android:theme="@style/revanced_searchbar_cursor"
-                        android:padding="2dp"
-                        android:layoutDirection="locale"
-                        android:textDirection="locale" />
+                        android:padding="4dp" />
 
             </FrameLayout>
 
