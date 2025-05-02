@@ -8,14 +8,12 @@ import android.graphics.Color;
 import android.graphics.drawable.GradientDrawable;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.FrameLayout;
 import android.widget.SearchView;
 import android.widget.Toolbar;
 import androidx.annotation.NonNull;
 import app.revanced.extension.shared.Logger;
-import app.revanced.extension.shared.StringRef;
 import app.revanced.extension.youtube.ThemeHelper;
 import app.revanced.extension.youtube.settings.preference.ReVancedPreferenceFragment;
 
@@ -26,7 +24,6 @@ public class SearchViewManager {
     private final ReVancedPreferenceFragment fragment;
     private final Activity activity;
     private boolean isSearchActive = false;
-    private final int[] originalTitleMargin;
     private final CharSequence originalTitle;
 
     public SearchViewManager(@NonNull Activity activity, @NonNull Toolbar toolbar, @NonNull ReVancedPreferenceFragment fragment) {
@@ -34,37 +31,12 @@ public class SearchViewManager {
         this.toolbar = toolbar;
         this.fragment = fragment;
         this.originalTitle = toolbar.getTitle();
-        this.originalTitleMargin = new int[]{toolbar.getTitleMarginStart(), toolbar.getTitleMarginEnd()};
 
-        // Initialize SearchView from XML and wrap it in a container
+        // Retrieve SearchView and container from XML.
         this.searchView = activity.findViewById(getResourceIdentifier("revanced_search_view", "id"));
-        this.searchContainer = createSearchContainer();
+        this.searchContainer = activity.findViewById(getResourceIdentifier("revanced_search_view_container", "id"));
         setupSearchView();
         setupSearchMenu();
-        toolbar.addView(searchContainer); // Add container to Toolbar
-    }
-
-    private FrameLayout createSearchContainer() {
-        Context context = toolbar.getContext();
-        FrameLayout container = new FrameLayout(context);
-        container.setId(getResourceIdentifier("revanced_search_view_container", "id"));
-        container.setVisibility(View.GONE);
-
-        // Set container layout params with reduced margins
-        ViewGroup.MarginLayoutParams containerParams = new ViewGroup.MarginLayoutParams(
-                ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-        int marginHorizontal = (int) (8 * context.getResources().getDisplayMetrics().density); // 8dp
-        int marginVertical = (int) (4 * context.getResources().getDisplayMetrics().density); // 4dp
-        containerParams.setMargins(marginHorizontal, marginVertical, marginHorizontal, marginVertical);
-        container.setLayoutParams(containerParams);
-
-        // Remove SearchView from its current parent and add to container
-        ViewGroup parent = (ViewGroup) searchView.getParent();
-        if (parent != null) {
-            parent.removeView(searchView);
-        }
-        container.addView(searchView);
-        return container;
     }
 
     private void setupSearchView() {
@@ -95,14 +67,14 @@ public class SearchViewManager {
         background.setCornerRadius(28f * context.getResources().getDisplayMetrics().density); // 28dp corner radius
         int baseColor = ThemeHelper.getBackgroundColor();
         int adjustedColor = ThemeHelper.isDarkTheme()
-                ? changerColor(baseColor, 1.1111f) // Lighten for dark theme
-                : changerColor(baseColor, 0.95f);  // Darken for light theme
+                ? changerColor(baseColor, 1.11f)  // Lighten for dark theme
+                : changerColor(baseColor, 0.95f); // Darken for light theme
         background.setColor(adjustedColor);
         return background;
     }
 
     private void setupSearchMenu() {
-        // Inflate menu and set initial icon
+        // Set menu and search icon.
         toolbar.inflateMenu(getResourceIdentifier("revanced_search_menu", "menu"));
         MenuItem searchItem = toolbar.getMenu().findItem(getResourceIdentifier("action_search", "id"));
         searchItem.setIcon(getResourceIdentifier(
@@ -110,20 +82,18 @@ public class SearchViewManager {
                         "drawable"))
                 .setTooltipText(null);
 
-        // Set menu item click listener
+        // Set menu item click listener.
         toolbar.setOnMenuItemClickListener(item -> {
             if (item.getItemId() == getResourceIdentifier("action_search", "id")) {
                 if (!isSearchActive) {
                     openSearch();
-                } else {
-                    clearSearch();
                 }
                 return true;
             }
             return false;
         });
 
-        // Set navigation click listener
+        // Set navigation click listener.
         toolbar.setNavigationOnClickListener(view -> {
             if (isSearchActive) {
                 closeSearch();
@@ -137,19 +107,12 @@ public class SearchViewManager {
         isSearchActive = true;
         toolbar.getMenu().findItem(getResourceIdentifier("action_search", "id")).setVisible(false);
         toolbar.setTitle("");
-        toolbar.setTitleMarginStart(0);
-        toolbar.setTitleMarginEnd(0);
         searchContainer.setVisibility(View.VISIBLE);
         searchView.requestFocus();
 
         // Show keyboard
         InputMethodManager imm = (InputMethodManager) activity.getSystemService(Context.INPUT_METHOD_SERVICE);
         imm.showSoftInput(searchView, InputMethodManager.SHOW_IMPLICIT);
-    }
-
-    private void clearSearch() {
-        searchView.setQuery("", false);
-        toolbar.getMenu().findItem(getResourceIdentifier("action_search", "id")).setVisible(false);
     }
 
     private void closeSearch() {
@@ -162,8 +125,6 @@ public class SearchViewManager {
                     .setVisible(true);
         });
         toolbar.setTitle(originalTitle);
-        toolbar.setTitleMarginStart(originalTitleMargin[0]);
-        toolbar.setTitleMarginEnd(originalTitleMargin[1]);
         searchContainer.setVisibility(View.GONE);
         searchView.setQuery("", false);
 

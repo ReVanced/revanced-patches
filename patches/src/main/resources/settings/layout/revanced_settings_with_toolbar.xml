@@ -1,45 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
 <merge xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+       xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:fitsSystemWindows="true"
-        android:orientation="vertical"
-        android:transitionGroup="true">
-
-        <FrameLayout
-            android:id="@+id/revanced_toolbar_parent"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/yt_white1"
-            android:elevation="0dp">
+            android:layout_height="match_parent"
+            android:fitsSystemWindows="true"
+            android:orientation="vertical"
+            android:transitionGroup="true">
 
-            <android.support.v7.widget.Toolbar
-                android:id="@+id/revanced_toolbar"
+        <!-- Parent container for Toolbar and SearchView -->
+        <FrameLayout
+                android:id="@+id/revanced_toolbar_parent"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
-                android:background="?attr/ytBrandBackgroundSolid"
-                app:navigationIcon="@drawable/yt_outline_arrow_left_black_24"
-                app:title="@string/revanced_settings_title" />
+                android:background="@color/yt_white1"
+                android:elevation="0dp">
+
+            <!-- Toolbar -->
+            <android.support.v7.widget.Toolbar
+                    android:id="@+id/revanced_toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="?attr/ytBrandBackgroundSolid"
+                    app:navigationIcon="@drawable/yt_outline_arrow_left_black_24"
+                    app:title="@string/revanced_settings_title" />
+
+            <!-- Container for SearchView -->
+            <FrameLayout
+                    android:id="@+id/revanced_search_view_container"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_vertical"
+                    android:visibility="gone">
+
+                <android.widget.SearchView
+                        android:id="@+id/revanced_search_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="56dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginTop="6dp"
+                        android:layout_marginBottom="6dp"
+                        android:layout_gravity="center_vertical"
+                        android:iconifiedByDefault="false"
+                        android:searchIcon="@null"
+                        android:queryBackground="@null"
+                        android:queryHint="@string/revanced_search_settings"
+                        android:theme="@style/revanced_searchbar_cursor"
+                        android:padding="4dp" />
+
+            </FrameLayout>
+
         </FrameLayout>
 
-        <android.widget.SearchView
-                android:id="@+id/revanced_search_view"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:iconifiedByDefault="false"
-                android:searchIcon="@null"
-                android:queryBackground="@null"
-                android:queryHint="@string/revanced_search_settings"
-                android:theme="@style/revanced_searchbar_cursor"
-                android:padding="5dp" />
-
+        <!-- Container for fragments -->
         <FrameLayout
-            android:id="@+id/revanced_settings_fragments"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+                android:id="@+id/revanced_settings_fragments"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
 
     </LinearLayout>
 </merge>
