@@ -347,7 +347,7 @@ public class Settings extends BaseSettings {
     public static final BooleanSetting RYD_SHORTS = new BooleanSetting("revanced_ryd_shorts", TRUE, parent(RYD_ENABLED));
     public static final BooleanSetting RYD_DISLIKE_PERCENTAGE = new BooleanSetting("revanced_ryd_dislike_percentage", FALSE, true, parent(RYD_ENABLED));
     public static final BooleanSetting RYD_COMPACT_LAYOUT = new BooleanSetting("revanced_ryd_compact_layout", FALSE, true, parent(RYD_ENABLED));
-    public static final BooleanSetting RYD_ESTIMATED_LIKE = new BooleanSetting("revanced_ryd_estimated_like", TRUE, parent(RYD_ENABLED));
+    public static final BooleanSetting RYD_ESTIMATED_LIKE = new BooleanSetting("revanced_ryd_estimated_like", TRUE, true, parent(RYD_ENABLED));
     public static final BooleanSetting RYD_TOAST_ON_CONNECTION_ERROR = new BooleanSetting("revanced_ryd_toast_on_connection_error", TRUE, parent(RYD_ENABLED));
 
     // SponsorBlock

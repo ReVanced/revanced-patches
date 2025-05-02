@@ -79,7 +79,6 @@ val returnYouTubeDislikePatch = bytecodePatch(
             SwitchPreference("revanced_ryd_compact_layout"),
             SwitchPreference("revanced_ryd_estimated_like"),
             SwitchPreference("revanced_ryd_toast_on_connection_error"),
-            SwitchPreference("revanced_ryd_estimated_like"),
             NonInteractivePreference(
                 key = "revanced_ryd_attribution",
                 tag = "app.revanced.extension.youtube.settings.preference.ReturnYouTubeDislikeAboutPreference",
