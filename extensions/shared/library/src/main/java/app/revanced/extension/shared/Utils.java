@@ -371,7 +371,7 @@ public class Utils {
         if (language != AppLanguage.DEFAULT) {
             // Create a new context with the desired language.
             Logger.printDebug(() -> "Using app language: " + language);
-            Configuration config = appContext.getResources().getConfiguration();
+            Configuration config = new Configuration(appContext.getResources().getConfiguration());
             config.setLocale(language.getLocale());
             context = appContext.createConfigurationContext(config);
         }
