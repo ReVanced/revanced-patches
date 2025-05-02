@@ -25,6 +25,8 @@ import static app.revanced.extension.youtube.sponsorblock.objects.CategoryBehavi
 import static app.revanced.extension.youtube.sponsorblock.objects.CategoryBehaviour.MANUAL_SKIP;
 import static app.revanced.extension.youtube.sponsorblock.objects.CategoryBehaviour.SKIP_AUTOMATICALLY;
 import static app.revanced.extension.youtube.sponsorblock.objects.CategoryBehaviour.SKIP_AUTOMATICALLY_ONCE;
+
+import app.revanced.extension.shared.settings.preference.SharedPrefCategory;
 import app.revanced.extension.youtube.swipecontrols.SwipeControlsConfigurationProvider.SwipeOverlayStyle;
 
 import android.graphics.Color;
@@ -409,13 +411,6 @@ public class Settings extends BaseSettings {
     private static final BooleanSetting DEPRECATED_DISABLE_SUGGESTED_VIDEO_END_SCREEN = new BooleanSetting("revanced_disable_suggested_video_end_screen", FALSE);
     private static final BooleanSetting DEPRECATED_RESTORE_OLD_VIDEO_QUALITY_MENU = new BooleanSetting("revanced_restore_old_video_quality_menu", TRUE);
     private static final BooleanSetting DEPRECATED_AUTO_CAPTIONS = new BooleanSetting("revanced_auto_captions", FALSE);
-    private static final BooleanSetting DEPRECATED_RYD_ENABLED = new BooleanSetting("ryd_enabled", TRUE);
-    private static final StringSetting DEPRECATED_RYD_USER_ID = new StringSetting("ryd_user_id", "");
-    private static final BooleanSetting DEPRECATED_RYD_SHORTS = new BooleanSetting("ryd_shorts", TRUE);
-    private static final BooleanSetting DEPRECATED_RYD_DISLIKE_PERCENTAGE = new BooleanSetting("ryd_dislike_percentage", FALSE);
-    private static final BooleanSetting DEPRECATED_RYD_COMPACT_LAYOUT = new BooleanSetting("ryd_compact_layout", FALSE);
-    private static final BooleanSetting DEPRECATED_RYD_ESTIMATED_LIKE = new BooleanSetting("ryd_estimated_like", TRUE);
-    private static final BooleanSetting DEPRECATED_RYD_TOAST_ON_CONNECTION_ERROR = new BooleanSetting("ryd_toast_on_connection_error", TRUE);
 
     static {
         // region Migration
@@ -425,15 +420,6 @@ public class Settings extends BaseSettings {
         migrateOldSettingToNew(DEPRECATED_DISABLE_SUGGESTED_VIDEO_END_SCREEN, HIDE_END_SCREEN_SUGGESTED_VIDEO);
         migrateOldSettingToNew(DEPRECATED_RESTORE_OLD_VIDEO_QUALITY_MENU, ADVANCED_VIDEO_QUALITY_MENU);
         migrateOldSettingToNew(DEPRECATED_AUTO_CAPTIONS, DISABLE_AUTO_CAPTIONS);
-
-        migrateOldSettingToNew(DEPRECATED_RYD_ENABLED, RYD_ENABLED);
-        migrateOldSettingToNew(DEPRECATED_RYD_USER_ID, RYD_USER_ID);
-        migrateOldSettingToNew(DEPRECATED_RYD_SHORTS, RYD_SHORTS);
-        migrateOldSettingToNew(DEPRECATED_RYD_SHORTS, RYD_SHORTS);
-        migrateOldSettingToNew(DEPRECATED_RYD_DISLIKE_PERCENTAGE, RYD_DISLIKE_PERCENTAGE);
-        migrateOldSettingToNew(DEPRECATED_RYD_COMPACT_LAYOUT, RYD_COMPACT_LAYOUT);
-        migrateOldSettingToNew(DEPRECATED_RYD_ESTIMATED_LIKE, RYD_ESTIMATED_LIKE);
-        migrateOldSettingToNew(DEPRECATED_RYD_TOAST_ON_CONNECTION_ERROR, RYD_TOAST_ON_CONNECTION_ERROR);
 
         // Migrate renamed enum.
         //noinspection deprecation
@@ -475,6 +461,16 @@ public class Settings extends BaseSettings {
             Logger.printInfo(() -> "Resetting spoof app version target");
             SPOOF_APP_VERSION_TARGET.resetToDefault();
         }
+
+        // RYD requires manually migrating old settings since the lack of
+        // a "revanced_" on the old setting causes duplicate key exceptions during export.
+        SharedPrefCategory rydPrefs = new SharedPrefCategory("ryd");
+        Setting.migrateFromOldPreferences(rydPrefs, RYD_USER_ID, "ryd_user_id");
+        Setting.migrateFromOldPreferences(rydPrefs, RYD_ENABLED, "ryd_enabled");
+        Setting.migrateFromOldPreferences(rydPrefs, RYD_DISLIKE_PERCENTAGE, "ryd_dislike_percentage");
+        Setting.migrateFromOldPreferences(rydPrefs, RYD_COMPACT_LAYOUT, "ryd_compact_layout");
+        Setting.migrateFromOldPreferences(rydPrefs, RYD_ESTIMATED_LIKE, "ryd_estimated_like");
+        Setting.migrateFromOldPreferences(rydPrefs, RYD_TOAST_ON_CONNECTION_ERROR, "ryd_toast_on_connection_error");
 
         // endregion
 
