@@ -54,12 +54,6 @@ public class ReVancedPreferenceFragment extends AbstractPreferenceFragment {
     private PreferenceScreen originalPreferenceScreen;
 
     /**
-     * A list of top-level preferences directly attached to the main PreferenceScreen.
-     * Stored to maintain a reference to the primary preferences for easier manipulation or restoration.
-     */
-    private List<Preference> topLevelPreferences;
-
-    /**
      * A comprehensive list of all preferences, including nested ones, collected from the PreferenceScreen.
      * Used for filtering and searching through all available preferences.
      */
@@ -132,27 +126,9 @@ public class ReVancedPreferenceFragment extends AbstractPreferenceFragment {
         super.initialize();
 
         try {
-            preferenceScreen = getPreferenceScreen();
-            if (preferenceScreen == null) {
-                Logger.printDebug(() -> "PreferenceScreen is null during initialization");
-                throw new IllegalStateException("PreferenceScreen is null");
-            }
-
-            // Store the original structure for restoration after filtering
-            originalPreferenceScreen = getPreferenceManager().createPreferenceScreen(getContext());
-            for (int i = 0, count = preferenceScreen.getPreferenceCount(); i < count; i++) {
-                originalPreferenceScreen.addPreference(preferenceScreen.getPreference(i));
-            }
-
-            topLevelPreferences = new ArrayList<>();
-            allPreferences = new ArrayList<>();
-
-            for (int i = 0; i < preferenceScreen.getPreferenceCount(); i++) {
-                topLevelPreferences.add(preferenceScreen.getPreference(i));
-            }
-
-            collectPreferences(preferenceScreen, allPreferences);
-            setPreferenceScreenToolbar(preferenceScreen);
+            sortPreferenceListMenu(Settings.CHANGE_START_PAGE);
+            sortPreferenceListMenu(Settings.SPOOF_VIDEO_STREAMS_LANGUAGE);
+            sortPreferenceListMenu(BaseSettings.REVANCED_LANGUAGE);
 
             // If the preference was included, then initialize it based on the available playback speed.
             Preference preference = findPreference(Settings.PLAYBACK_SPEED_DEFAULT.key);
@@ -160,9 +136,22 @@ public class ReVancedPreferenceFragment extends AbstractPreferenceFragment {
                 CustomPlaybackSpeedPatch.initializeListPreference(playbackPreference);
             }
 
-            sortPreferenceListMenu(Settings.CHANGE_START_PAGE);
-            sortPreferenceListMenu(Settings.SPOOF_VIDEO_STREAMS_LANGUAGE);
-            sortPreferenceListMenu(BaseSettings.REVANCED_LANGUAGE);
+            preferenceScreen = getPreferenceScreen();
+            if (preferenceScreen == null) {
+                throw new IllegalStateException("PreferenceScreen is null");
+            }
+            Utils.sortPreferenceGroups(preferenceScreen);
+
+            // Store the original structure for restoration after filtering.
+            originalPreferenceScreen = getPreferenceManager().createPreferenceScreen(getContext());
+            for (int i = 0, count = preferenceScreen.getPreferenceCount(); i < count; i++) {
+                originalPreferenceScreen.addPreference(preferenceScreen.getPreference(i));
+            }
+
+            allPreferences = new ArrayList<>();
+
+            collectPreferences(preferenceScreen, allPreferences);
+            setPreferenceScreenToolbar(preferenceScreen);
         } catch (Exception ex) {
             Logger.printException(() -> "initialize failure", ex);
         }
@@ -185,8 +174,7 @@ public class ReVancedPreferenceFragment extends AbstractPreferenceFragment {
      * Filters the preferences using the given query string.
      */
     public void filterPreferences(String query) {
-        if (preferenceScreen == null || topLevelPreferences == null
-                || allPreferences == null || originalPreferenceScreen == null) {
+        if (preferenceScreen == null || allPreferences == null || originalPreferenceScreen == null) {
             return;
         }
 
@@ -197,8 +185,12 @@ public class ReVancedPreferenceFragment extends AbstractPreferenceFragment {
             String queryLower = query.toLowerCase();
             Set<Preference> addedPreferences = new HashSet<>();
             for (Preference preference : allPreferences) {
-                String title = preference.getTitle() != null ? preference.getTitle().toString().toLowerCase() : "";
-                String summary = preference.getSummary() != null ? preference.getSummary().toString().toLowerCase() : "";
+                String title = preference.getTitle() != null
+                        ? preference.getTitle().toString().toLowerCase()
+                        : "";
+                String summary = preference.getSummary() != null
+                        ? preference.getSummary().toString().toLowerCase()
+                        : "";
                 if (title.contains(queryLower) || summary.contains(queryLower)) {
                     addPreferenceWithParent(preference, preferenceScreen, addedPreferences);
                 }
@@ -239,7 +231,6 @@ public class ReVancedPreferenceFragment extends AbstractPreferenceFragment {
             targetScreen.addPreference(sourceScreen.getPreference(i));
         }
         setPreferenceScreenToolbar(targetScreen);
-        Utils.sortPreferenceGroups(targetScreen);
     }
 
     /**
