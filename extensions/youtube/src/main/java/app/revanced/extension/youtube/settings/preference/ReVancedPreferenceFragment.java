@@ -4,7 +4,6 @@ import static app.revanced.extension.shared.Utils.getResourceIdentifier;
 
 import android.annotation.SuppressLint;
 import android.app.Dialog;
-import android.content.Context;
 import android.graphics.Insets;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
@@ -38,9 +37,8 @@ import app.revanced.extension.youtube.settings.Settings;
 
 /**
  * Preference fragment for ReVanced settings.
- *
- * @noinspection deprecation
  */
+@SuppressWarnings("deprecation")
 public class ReVancedPreferenceFragment extends AbstractPreferenceFragment {
 
     /**
@@ -142,7 +140,7 @@ public class ReVancedPreferenceFragment extends AbstractPreferenceFragment {
 
             // Store the original structure for restoration after filtering
             originalPreferenceScreen = getPreferenceManager().createPreferenceScreen(getContext());
-            for (int i = 0; i < preferenceScreen.getPreferenceCount(); i++) {
+            for (int i = 0, count = preferenceScreen.getPreferenceCount(); i < count; i++) {
                 originalPreferenceScreen.addPreference(preferenceScreen.getPreference(i));
             }
 
@@ -174,7 +172,7 @@ public class ReVancedPreferenceFragment extends AbstractPreferenceFragment {
      * Recursively collects all preferences from the screen.
      */
     private void collectPreferences(PreferenceScreen screen, List<Preference> preferences) {
-        for (int i = 0; i < screen.getPreferenceCount(); i++) {
+        for (int i = 0, count = screen.getPreferenceCount(); i < count; i++) {
             Preference preference = screen.getPreference(i);
             preferences.add(preference);
             if (preference instanceof PreferenceScreen) {
@@ -187,7 +185,8 @@ public class ReVancedPreferenceFragment extends AbstractPreferenceFragment {
      * Filters the preferences using the given query string.
      */
     public void filterPreferences(String query) {
-        if (preferenceScreen == null || topLevelPreferences == null || allPreferences == null || originalPreferenceScreen == null) {
+        if (preferenceScreen == null || topLevelPreferences == null
+                || allPreferences == null || originalPreferenceScreen == null) {
             return;
         }
 
@@ -210,7 +209,8 @@ public class ReVancedPreferenceFragment extends AbstractPreferenceFragment {
     /**
      * Adds a preference to the target screen, preserving parent category if applicable.
      */
-    private void addPreferenceWithParent(Preference preference, PreferenceScreen targetScreen, Set<Preference> addedPreferences) {
+    private void addPreferenceWithParent(Preference preference, PreferenceScreen targetScreen,
+                                         Set<Preference> addedPreferences) {
         if (addedPreferences.contains(preference)) return;
 
         PreferenceGroup parent = preference.getParent();
@@ -226,6 +226,7 @@ public class ReVancedPreferenceFragment extends AbstractPreferenceFragment {
         } else {
             targetScreen.addPreference(preference);
         }
+
         addedPreferences.add(preference);
     }
 
@@ -234,7 +235,7 @@ public class ReVancedPreferenceFragment extends AbstractPreferenceFragment {
      */
     private void restoreOriginalPreferences(PreferenceScreen targetScreen, PreferenceScreen sourceScreen) {
         targetScreen.removeAll();
-        for (int i = 0; i < sourceScreen.getPreferenceCount(); i++) {
+        for (int i = 0, count = sourceScreen.getPreferenceCount(); i < count; i++) {
             targetScreen.addPreference(sourceScreen.getPreference(i));
         }
         setPreferenceScreenToolbar(targetScreen);
@@ -242,7 +243,7 @@ public class ReVancedPreferenceFragment extends AbstractPreferenceFragment {
     }
 
     /**
-     * Sorts a specific list preference by its entries.
+     * Sorts a specific list preference by its entries, but retain the first entry as the first item.
      */
     private void sortPreferenceListMenu(EnumSetting<?> setting) {
         Preference preference = findPreference(setting.key);
@@ -255,7 +256,7 @@ public class ReVancedPreferenceFragment extends AbstractPreferenceFragment {
      * Sets toolbar for all nested preference screens.
      */
     private void setPreferenceScreenToolbar(PreferenceScreen parentScreen) {
-        for (int i = 0, preferenceCount = parentScreen.getPreferenceCount(); i < preferenceCount; i++) {
+        for (int i = 0, count = parentScreen.getPreferenceCount(); i < count; i++) {
             Preference childPreference = parentScreen.getPreference(i);
             if (childPreference instanceof PreferenceScreen) {
                 // Recursively set sub preferences.
