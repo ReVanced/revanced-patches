@@ -116,7 +116,7 @@ val unlockPremiumPatch = bytecodePatch(
 
             addInstruction(
                 shufflingContextCallIndex,
-                "sget-object v$registerBool, Ljava/lang/Boolean;->FALSE:Ljava/lang/Boolean;"
+                "sget-object v$boolRegister, Ljava/lang/Boolean;->FALSE:Ljava/lang/Boolean;"
             )
         }
 
