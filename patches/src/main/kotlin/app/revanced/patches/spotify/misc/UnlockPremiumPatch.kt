@@ -112,8 +112,8 @@ val unlockPremiumPatch = bytecodePatch(
             val shufflingContextCallIndex = indexOfFirstInstructionOrThrow {
                 getReference<MethodReference>()?.name == "shufflingContext"
             }
+            val boolRegister = getInstruction<FiveRegisterInstruction>(shufflingContextCallIndex).registerD
 
-            val registerBool = getInstruction<FiveRegisterInstruction>(shufflingContextCallIndex).registerD
             addInstruction(
                 shufflingContextCallIndex,
                 "sget-object v$registerBool, Ljava/lang/Boolean;->FALSE:Ljava/lang/Boolean;"
