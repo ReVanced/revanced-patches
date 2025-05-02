@@ -21,7 +21,7 @@
             <android.support.v7.widget.Toolbar
                     android:id="@+id/revanced_toolbar"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="?attr/actionBarSize"
                     android:background="?attr/ytBrandBackgroundSolid"
                     app:navigationIcon="@drawable/yt_outline_arrow_left_black_24"
                     app:title="@string/revanced_settings_title" />
@@ -48,7 +48,7 @@
                         android:queryBackground="@null"
                         android:queryHint="@string/revanced_search_settings"
                         android:theme="@style/revanced_searchbar_cursor"
-                        android:padding="4dp" />
+                        android:padding="2dp" />
 
             </FrameLayout>
 
