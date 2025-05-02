@@ -340,19 +340,17 @@ public class Settings extends BaseSettings {
     public static final BooleanSetting SWIPE_LOWEST_VALUE_ENABLE_AUTO_BRIGHTNESS = new BooleanSetting("revanced_swipe_lowest_value_enable_auto_brightness", FALSE, true, parent(SWIPE_BRIGHTNESS));
 
     // ReturnYoutubeDislike
-    public static final BooleanSetting RYD_ENABLED = new BooleanSetting("ryd_enabled", TRUE);
-    public static final StringSetting RYD_USER_ID = new StringSetting("ryd_user_id", "", false, false);
-    public static final BooleanSetting RYD_SHORTS = new BooleanSetting("ryd_shorts", TRUE, parent(RYD_ENABLED));
-    public static final BooleanSetting RYD_DISLIKE_PERCENTAGE = new BooleanSetting("ryd_dislike_percentage", FALSE, parent(RYD_ENABLED));
-    public static final BooleanSetting RYD_COMPACT_LAYOUT = new BooleanSetting("ryd_compact_layout", FALSE, parent(RYD_ENABLED));
-    public static final BooleanSetting RYD_ESTIMATED_LIKE = new BooleanSetting("ryd_estimated_like", TRUE, parent(RYD_ENABLED));
-    public static final BooleanSetting RYD_TOAST_ON_CONNECTION_ERROR = new BooleanSetting("ryd_toast_on_connection_error", TRUE, parent(RYD_ENABLED));
+    public static final BooleanSetting RYD_ENABLED = new BooleanSetting("revanced_ryd_enabled", TRUE);
+    public static final StringSetting RYD_USER_ID = new StringSetting("revanced_ryd_user_id", "", false, false);
+    public static final BooleanSetting RYD_SHORTS = new BooleanSetting("revanced_ryd_shorts", TRUE, parent(RYD_ENABLED));
+    public static final BooleanSetting RYD_DISLIKE_PERCENTAGE = new BooleanSetting("revanced_ryd_dislike_percentage", FALSE, true, parent(RYD_ENABLED));
+    public static final BooleanSetting RYD_COMPACT_LAYOUT = new BooleanSetting("revanced_ryd_compact_layout", FALSE, true, parent(RYD_ENABLED));
+    public static final BooleanSetting RYD_ESTIMATED_LIKE = new BooleanSetting("revanced_ryd_estimated_like", TRUE, parent(RYD_ENABLED));
+    public static final BooleanSetting RYD_TOAST_ON_CONNECTION_ERROR = new BooleanSetting("revanced_ryd_toast_on_connection_error", TRUE, parent(RYD_ENABLED));
 
     // SponsorBlock
     public static final BooleanSetting SB_ENABLED = new BooleanSetting("sb_enabled", TRUE);
-    /**
-     * Do not use directly, instead use {@link SponsorBlockSettings}
-     */
+    /** Do not use id setting directly. Instead use {@link SponsorBlockSettings}. */
     public static final StringSetting SB_PRIVATE_USER_ID = new StringSetting("sb_private_user_id_Do_Not_Share", "");
     public static final IntegerSetting SB_CREATE_NEW_SEGMENT_STEP = new IntegerSetting("sb_create_new_segment_step", 150, parent(SB_ENABLED));
     public static final BooleanSetting SB_VOTING_BUTTON = new BooleanSetting("sb_voting_button", FALSE, parent(SB_ENABLED));
@@ -411,17 +409,31 @@ public class Settings extends BaseSettings {
     private static final BooleanSetting DEPRECATED_DISABLE_SUGGESTED_VIDEO_END_SCREEN = new BooleanSetting("revanced_disable_suggested_video_end_screen", FALSE);
     private static final BooleanSetting DEPRECATED_RESTORE_OLD_VIDEO_QUALITY_MENU = new BooleanSetting("revanced_restore_old_video_quality_menu", TRUE);
     private static final BooleanSetting DEPRECATED_AUTO_CAPTIONS = new BooleanSetting("revanced_auto_captions", FALSE);
+    private static final BooleanSetting DEPRECATED_RYD_ENABLED = new BooleanSetting("ryd_enabled", TRUE);
+    private static final StringSetting DEPRECATED_RYD_USER_ID = new StringSetting("ryd_user_id", "");
+    private static final BooleanSetting DEPRECATED_RYD_SHORTS = new BooleanSetting("ryd_shorts", TRUE);
+    private static final BooleanSetting DEPRECATED_RYD_DISLIKE_PERCENTAGE = new BooleanSetting("ryd_dislike_percentage", FALSE);
+    private static final BooleanSetting DEPRECATED_RYD_COMPACT_LAYOUT = new BooleanSetting("ryd_compact_layout", FALSE);
+    private static final BooleanSetting DEPRECATED_RYD_ESTIMATED_LIKE = new BooleanSetting("ryd_estimated_like", TRUE);
+    private static final BooleanSetting DEPRECATED_RYD_TOAST_ON_CONNECTION_ERROR = new BooleanSetting("ryd_toast_on_connection_error", TRUE);
 
     static {
         // region Migration
 
         migrateOldSettingToNew(DEPRECATED_HIDE_PLAYER_BUTTONS, HIDE_PLAYER_PREVIOUS_NEXT_BUTTONS);
-
         migrateOldSettingToNew(DEPRECATED_HIDE_PLAYER_FLYOUT_VIDEO_QUALITY_FOOTER, HIDE_PLAYER_FLYOUT_VIDEO_QUALITY_FOOTER);
-
         migrateOldSettingToNew(DEPRECATED_DISABLE_SUGGESTED_VIDEO_END_SCREEN, HIDE_END_SCREEN_SUGGESTED_VIDEO);
-
         migrateOldSettingToNew(DEPRECATED_RESTORE_OLD_VIDEO_QUALITY_MENU, ADVANCED_VIDEO_QUALITY_MENU);
+        migrateOldSettingToNew(DEPRECATED_AUTO_CAPTIONS, DISABLE_AUTO_CAPTIONS);
+
+        migrateOldSettingToNew(DEPRECATED_RYD_ENABLED, RYD_ENABLED);
+        migrateOldSettingToNew(DEPRECATED_RYD_USER_ID, RYD_USER_ID);
+        migrateOldSettingToNew(DEPRECATED_RYD_SHORTS, RYD_SHORTS);
+        migrateOldSettingToNew(DEPRECATED_RYD_SHORTS, RYD_SHORTS);
+        migrateOldSettingToNew(DEPRECATED_RYD_DISLIKE_PERCENTAGE, RYD_DISLIKE_PERCENTAGE);
+        migrateOldSettingToNew(DEPRECATED_RYD_COMPACT_LAYOUT, RYD_COMPACT_LAYOUT);
+        migrateOldSettingToNew(DEPRECATED_RYD_ESTIMATED_LIKE, RYD_ESTIMATED_LIKE);
+        migrateOldSettingToNew(DEPRECATED_RYD_TOAST_ON_CONNECTION_ERROR, RYD_TOAST_ON_CONNECTION_ERROR);
 
         // Migrate renamed enum.
         //noinspection deprecation
@@ -462,11 +474,6 @@ public class Settings extends BaseSettings {
         if (SPOOF_APP_VERSION_TARGET.get().compareTo(SPOOF_APP_VERSION_TARGET.defaultValue) < 0) {
             Logger.printInfo(() -> "Resetting spoof app version target");
             SPOOF_APP_VERSION_TARGET.resetToDefault();
-        }
-
-        if (!DEPRECATED_AUTO_CAPTIONS.isSetToDefault()) {
-            DISABLE_AUTO_CAPTIONS.save(true);
-            DEPRECATED_AUTO_CAPTIONS.resetToDefault();
         }
 
         // endregion

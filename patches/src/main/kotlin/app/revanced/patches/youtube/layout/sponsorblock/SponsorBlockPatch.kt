@@ -45,10 +45,10 @@ private val sponsorBlockResourcePatch = resourcePatch {
 
         addSettingPreference(
             IntentPreference(
-                key = "revanced_settings_screen_10",
-                titleKey = "revanced_sb_settings_title",
+                key = "revanced_settings_screen_10_sponsorblock",
+                titleKey = "revanced_settings_screen_10_sponsorblock_title",
                 summaryKey = null,
-                icon = "@drawable/revanced_settings_screen_10_sb",
+                icon = "@drawable/revanced_settings_screen_10_sponsorblock",
                 layout = "@layout/preference_with_icon",
                 intent = newIntent("revanced_sb_settings_intent"),
             ),

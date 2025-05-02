@@ -85,8 +85,8 @@ private val settingsResourcePatch = resourcePatch {
                 "revanced_settings_screen_06_shorts.xml",
                 "revanced_settings_screen_07_seekbar.xml",
                 "revanced_settings_screen_08_swipe_controls.xml",
-                "revanced_settings_screen_09_ryd.xml",
-                "revanced_settings_screen_10_sb.xml",
+                "revanced_settings_screen_09_return_youtube_dislike.xml",
+                "revanced_settings_screen_10_sponsorblock.xml",
                 "revanced_settings_screen_11_misc.xml",
                 "revanced_settings_screen_12_video.xml",
             ),
@@ -349,9 +349,15 @@ object PreferenceScreen : BasePreferenceScreen() {
         layout = "@layout/preference_with_icon",
         sorting = Sorting.UNSORTED,
     )
+    val RETURN_YOUTUBE_DISLIKE = Screen(
+        key = "revanced_settings_screen_09_return_youtube_dislike",
+        summaryKey = null,
+        icon = "@drawable/revanced_settings_screen_09_return_youtube_dislike",
+        layout = "@layout/preference_with_icon",
+        sorting = Sorting.UNSORTED,
+    )
 
-    // RYD and SB are items 9 and 10.
-    // Menus are added in their own patch because they use an Intent and not a Screen.
+    // SB is 10. Menu is added in SB patch because it uses an Intent and not a Screen.
 
     val MISC = Screen(
         key = "revanced_settings_screen_11_misc",

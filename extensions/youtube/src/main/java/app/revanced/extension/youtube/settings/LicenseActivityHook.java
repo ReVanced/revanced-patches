@@ -1,6 +1,5 @@
 package app.revanced.extension.youtube.settings;
 
-import static app.revanced.extension.shared.StringRef.str;
 import static app.revanced.extension.shared.Utils.getResourceIdentifier;
 
 import android.annotation.SuppressLint;
@@ -8,10 +7,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.preference.PreferenceFragment;
 import android.util.TypedValue;
-import android.view.View;
 import android.view.ViewGroup;
-import android.view.inputmethod.InputMethodManager;
-import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toolbar;
 
@@ -25,7 +21,6 @@ import app.revanced.extension.youtube.ThemeHelper;
 import app.revanced.extension.youtube.patches.VersionCheckPatch;
 import app.revanced.extension.youtube.patches.spoof.SpoofAppVersionPatch;
 import app.revanced.extension.youtube.settings.preference.ReVancedPreferenceFragment;
-import app.revanced.extension.youtube.settings.preference.ReturnYouTubeDislikePreferenceFragment;
 import app.revanced.extension.youtube.settings.preference.SponsorBlockPreferenceFragment;
 
 /**
@@ -98,10 +93,6 @@ public class LicenseActivityHook {
                 case "revanced_sb_settings_intent":
                     toolbarTitleResourceName = "revanced_sb_settings_title";
                     fragment = new SponsorBlockPreferenceFragment();
-                    break;
-                case "revanced_ryd_settings_intent":
-                    toolbarTitleResourceName = "revanced_ryd_settings_title";
-                    fragment = new ReturnYouTubeDislikePreferenceFragment();
                     break;
                 case "revanced_settings_intent":
                     toolbarTitleResourceName = "revanced_settings_title";

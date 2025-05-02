@@ -18,7 +18,6 @@ import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
 import app.revanced.extension.youtube.patches.components.ReturnYouTubeDislikeFilterPatch;
 import app.revanced.extension.youtube.returnyoutubedislike.ReturnYouTubeDislike;
-import app.revanced.extension.youtube.returnyoutubedislike.requests.ReturnYouTubeDislikeApi;
 import app.revanced.extension.youtube.settings.Settings;
 import app.revanced.extension.youtube.shared.PlayerType;
 
@@ -68,13 +67,6 @@ public class ReturnYouTubeDislikePatch {
      */
     @Nullable
     private static volatile String lastPrefetchedVideoId;
-
-    public static void onRYDStatusChange(boolean rydEnabled) {
-        ReturnYouTubeDislikeApi.resetRateLimits();
-        // Must remove all values to protect against using stale data
-        // if the user enables RYD while a video is on screen.
-        clearData();
-    }
 
     private static void clearData() {
         currentVideoData = null;

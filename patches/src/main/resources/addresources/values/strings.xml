@@ -146,6 +146,7 @@ Tap the continue button and allow optimization changes."</string>
             <string name="revanced_settings_screen_06_shorts_title">Shorts</string>
             <string name="revanced_settings_screen_07_seekbar_title">Seekbar</string>
             <string name="revanced_settings_screen_08_swipe_controls_title">Swipe controls</string>
+            <string name="revanced_settings_screen_09_return_youtube_dislike_title" translatable="false">Return YouTube Dislike</string>
             <string name="revanced_settings_screen_11_misc_title">Miscellaneous</string>
             <string name="revanced_settings_screen_12_video_title">Video</string>
             <string name="revanced_restore_old_settings_menus_title">Restore old settings menus</string>
@@ -884,7 +885,6 @@ Settings → Playback → Autoplay next video"</string>
             <string name="revanced_player_overlay_opacity_invalid_toast">Player overlay opacity must be between 0-100</string>
         </patch>
         <patch id="layout.returnyoutubedislike.returnYouTubeDislikePatch">
-            <string name="revanced_ryd_settings_title" translatable="false">Return YouTube Dislike</string>
             <!-- Toast shown if network connection times out. Translations of this should not be longer than the original English or the text can be clipped and not entirely shown. -->
             <string name="revanced_ryd_failure_connection_timeout">Dislikes are temporarily not available (API timed out)</string>
             <string name="revanced_ryd_failure_connection_status_code">Dislikes are not available (status %d)</string>
@@ -894,11 +894,11 @@ Settings → Playback → Autoplay next video"</string>
             <string name="revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted">Reload video to vote using Return YouTube Dislike</string>
             <!-- Video likes have been set to hidden by the video uploader. -->
             <string name="revanced_ryd_video_likes_hidden_by_video_owner">Hidden by owner</string>
-            <string name="revanced_ryd_enable_title" translatable="false">Return YouTube Dislike</string>
-            <string name="revanced_ryd_enable_summary_on">Dislikes are shown</string>
-            <string name="revanced_ryd_enable_summary_off">Dislikes are not shown</string>
+            <string name="revanced_ryd_enabled_title" translatable="false">Return YouTube Dislike</string>
+            <string name="revanced_ryd_enabled_summary_on">Dislikes are shown</string>
+            <string name="revanced_ryd_enabled_summary_off">Dislikes are not shown</string>
             <string name="revanced_ryd_shorts_title">Show dislikes on Shorts</string>
-            <string name="revanced_ryd_shorts_summary_on_disclaimer">"Dislikes on Shorts are shown
+            <string name="revanced_ryd_shorts_summary_on">"Dislikes on Shorts are shown
 
 Limitation: Dislikes may not appear in incognito mode"</string>
             <string name="revanced_ryd_shorts_summary_off">Dislikes on Shorts are not shown</string>
@@ -915,7 +915,6 @@ Limitation: Dislikes may not appear in incognito mode"</string>
             <string name="revanced_ryd_toast_on_connection_error_title">Show a toast if API is not available</string>
             <string name="revanced_ryd_toast_on_connection_error_summary_on">Toast is shown if Return YouTube Dislike is not available</string>
             <string name="revanced_ryd_toast_on_connection_error_summary_off">Toast is not shown if Return YouTube Dislike is not available</string>
-            <string name="revanced_ryd_about">About</string>
             <string name="revanced_ryd_attribution_title" translatable="false">ReturnYouTubeDislike.com</string>
             <string name="revanced_ryd_attribution_summary">Data is provided by the Return YouTube Dislike API. Tap here to learn more</string>
             <!-- Statistic strings are shown in the settings only when ReVanced debug mode is enabled. Typical users will never see these. -->
@@ -957,7 +956,7 @@ This feature works best with a video quality of 720p or lower and when using a v
             <string name="revanced_restore_old_seekbar_thumbnails_summary_off">Seekbar thumbnails will appear in fullscreen</string>
         </patch>
         <patch id="layout.sponsorblock.sponsorBlockResourcePatch">
-            <string name="revanced_sb_settings_title" translatable="false">SponsorBlock</string>
+            <string name="revanced_settings_screen_10_sponsorblock_title" translatable="false">SponsorBlock</string>
             <string name="revanced_sb_enable_sb">Enable SponsorBlock</string>
             <string name="revanced_sb_enable_sb_sum">SponsorBlock is a crowdsourced system for skipping annoying parts of YouTube videos</string>
             <string name="revanced_sb_appearance_category">Appearance</string>
