@@ -23,7 +23,7 @@
         <item name="android:background">@android:color/transparent</item>
     </style>
     <style name="revanced_searchbar_cursor">
-        <item name="android:textCursorDrawable">@drawable/revanced_cursor</item>
+        <item name="android:textCursorDrawable">@drawable/revanced_settings_cursor</item>
         <item name="android:textSize">16sp</item>
     </style>
 </resources>

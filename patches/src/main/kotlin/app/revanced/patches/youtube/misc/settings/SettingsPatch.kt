@@ -74,7 +74,7 @@ private val settingsResourcePatch = resourcePatch {
 
         arrayOf(
             ResourceGroup("drawable",
-                "revanced_cursor.xml",
+                "revanced_settings_cursor.xml",
                 "revanced_settings_icon.xml",
                 "revanced_settings_screen_00_about.xml",
                 "revanced_settings_screen_01_ads.xml",
