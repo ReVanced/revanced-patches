@@ -41,6 +41,11 @@ import app.revanced.extension.youtube.sponsorblock.ui.SponsorBlockViewController
 @SuppressWarnings({"unused", "deprecation"})
 public class SponsorBlockPreferenceGroup extends PreferenceGroup {
 
+    /**
+     * Settings were recently imported, and the UI needs to be updated.
+     */
+    public static boolean settingsImported;
+
     private SwitchPreference sbEnabled;
     private SwitchPreference addNewSegment;
     private SwitchPreference votingEnabled;
@@ -151,7 +156,12 @@ public class SponsorBlockPreferenceGroup extends PreferenceGroup {
     protected void onAttachedToActivity() {
         try {
             super.onAttachedToActivity();
+
             if (sbEnabled != null) {
+                if (settingsImported) {
+                    settingsImported = false;
+                    updateUI();
+                }
                 return;
             }
 
