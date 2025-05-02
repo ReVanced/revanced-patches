@@ -266,7 +266,7 @@ public class ReturnYouTubeDislikePatch {
             Logger.printDebug(() -> "Adding rolling number TextView changes");
             view.setCompoundDrawablePadding(ReturnYouTubeDislike.leftSeparatorShapePaddingPixels);
             ShapeDrawable separator = ReturnYouTubeDislike.getLeftSeparatorDrawable();
-            if (Utils.isRightToLeftTextLayout()) {
+            if (Utils.isRightToLeftLocale()) {
                 view.setCompoundDrawables(null, null, separator, null);
             } else {
                 view.setCompoundDrawables(separator, null, null, null);

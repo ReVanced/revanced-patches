@@ -1,5 +1,6 @@
 package app.revanced.extension.youtube.settings;
 
+import static app.revanced.extension.shared.Utils.clamp;
 import static app.revanced.extension.shared.Utils.getResourceIdentifier;
 
 import android.app.Activity;
@@ -12,15 +13,15 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.FrameLayout;
 import android.widget.SearchView;
 import android.widget.Toolbar;
+
 import androidx.annotation.NonNull;
+
 import app.revanced.extension.shared.Logger;
+import app.revanced.extension.shared.Utils;
 import app.revanced.extension.shared.settings.AppLanguage;
 import app.revanced.extension.shared.settings.BaseSettings;
 import app.revanced.extension.youtube.ThemeHelper;
 import app.revanced.extension.youtube.settings.preference.ReVancedPreferenceFragment;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
 
 public class SearchViewManager {
     private final SearchView searchView;
@@ -30,9 +31,6 @@ public class SearchViewManager {
     private final Activity activity;
     private boolean isSearchActive = false;
     private final CharSequence originalTitle;
-
-    // List of RTL languages
-    private static final Set<String> RTL_LANGUAGES = new HashSet<>(Arrays.asList("ar", "he", "fa", "ur"));
 
     public SearchViewManager(@NonNull Activity activity, @NonNull Toolbar toolbar, @NonNull ReVancedPreferenceFragment fragment) {
         this.activity = activity;
@@ -55,9 +53,7 @@ public class SearchViewManager {
 
         // Configure RTL support based on app language
         AppLanguage appLanguage = BaseSettings.REVANCED_LANGUAGE.get(); // Get language from ReVanced settings
-        String languageCode = appLanguage.getLanguage();
-        boolean isRtl = RTL_LANGUAGES.contains(languageCode);
-        if (isRtl) {
+        if (Utils.isRightToLeftLocale(appLanguage.getLocale())) {
             searchView.setTextDirection(View.TEXT_DIRECTION_RTL);
             searchView.setTextAlignment(View.TEXT_ALIGNMENT_VIEW_END);
         }
@@ -163,17 +159,17 @@ public class SearchViewManager {
      * @return The adjusted color in ARGB format.
      */
     public static int changerColor(int color, float factor) {
-        int alpha = Color.alpha(color);
+        final int alpha = Color.alpha(color);
         int red = Color.red(color);
         int green = Color.green(color);
         int blue = Color.blue(color);
 
         if (factor > 1.0f) {
             // Lighten: Interpolate toward white (255)
-            float t = 1.0f - (1.0f / factor); // Interpolation parameter
-            red = (int) Math.round(red + (255 - red) * t);
-            green = (int) Math.round(green + (255 - green) * t);
-            blue = (int) Math.round(blue + (255 - blue) * t);
+            final float t = 1.0f - (1.0f / factor); // Interpolation parameter
+            red = Math.round(red + (255 - red) * t);
+            green = Math.round(green + (255 - green) * t);
+            blue = Math.round(blue + (255 - blue) * t);
         } else {
             // Darken or no change: Scale toward black
             red = (int) (red * factor);
@@ -182,9 +178,9 @@ public class SearchViewManager {
         }
 
         // Ensure values are within [0, 255]
-        red = Math.min(255, Math.max(0, red));
-        green = Math.min(255, Math.max(0, green));
-        blue = Math.min(255, Math.max(0, blue));
+        red = clamp(red, 0, 255);
+        green = clamp(green, 0, 255);
+        blue = clamp(blue, 0, 255);
 
         return Color.argb(alpha, red, green, blue);
     }

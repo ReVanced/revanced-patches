@@ -391,14 +391,21 @@ public class Utils {
     private static Boolean isRightToLeftTextLayout;
 
     /**
-     * If the device language uses right to left text layout (hebrew, arabic, etc)
+     * If the device language uses right to left text layout (Hebrew, Arabic, etc).
      */
-    public static boolean isRightToLeftTextLayout() {
+    public static boolean isRightToLeftLocale() {
         if (isRightToLeftTextLayout == null) {
-            String displayLanguage = Locale.getDefault().getDisplayLanguage();
-            isRightToLeftTextLayout = new Bidi(displayLanguage, Bidi.DIRECTION_DEFAULT_LEFT_TO_RIGHT).isRightToLeft();
+            isRightToLeftTextLayout = isRightToLeftLocale(Locale.getDefault());
         }
         return isRightToLeftTextLayout;
+    }
+
+    /**
+     * If the locale is right to left text layout (Hebrew, Arabic, etc).
+     */
+    public static boolean isRightToLeftLocale(Locale locale) {
+        String displayLanguage = locale.getDisplayLanguage();
+        return new Bidi(displayLanguage, Bidi.DIRECTION_DEFAULT_LEFT_TO_RIGHT).isRightToLeft();
     }
 
     /**
@@ -809,5 +816,13 @@ public class Utils {
             return Color.parseColor(colorString);
         }
         return getResourceColor(colorString);
+    }
+
+    public static int clamp(int value, int lower, int upper) {
+        return Math.max(lower, Math.min(value, upper));
+    }
+
+    public static float clamp(float value, float lower, float upper) {
+        return Math.max(lower, Math.min(value, upper));
     }
 }

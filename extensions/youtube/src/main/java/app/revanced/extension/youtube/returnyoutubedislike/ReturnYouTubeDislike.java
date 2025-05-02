@@ -280,7 +280,7 @@ public class ReturnYouTubeDislike {
     }
 
     private static @NonNull String getTextDirectionString() {
-        return Utils.isRightToLeftTextLayout()
+        return Utils.isRightToLeftLocale()
                 ? "\u200F"  // u200F = right to left character
                 : "\u200E"; // u200E = left to right character
     }
