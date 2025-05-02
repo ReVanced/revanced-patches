@@ -356,9 +356,13 @@ object PreferenceScreen : BasePreferenceScreen() {
         layout = "@layout/preference_with_icon",
         sorting = Sorting.UNSORTED,
     )
-
-    // SB is 10. Menu is added in SB patch because it uses an Intent and not a Screen.
-
+    val SPONSORBLOCK = Screen(
+        key = "revanced_settings_screen_10_sponsorblock",
+        summaryKey = null,
+        icon = "@drawable/revanced_settings_screen_10_sponsorblock",
+        layout = "@layout/preference_with_icon",
+        sorting = Sorting.UNSORTED,
+    )
     val MISC = Screen(
         key = "revanced_settings_screen_11_misc",
         summaryKey = null,

@@ -1,22 +1,28 @@
 package app.revanced.extension.youtube.settings.preference;
 
-import android.app.Activity;
+import static android.text.Html.fromHtml;
+import static app.revanced.extension.shared.StringRef.str;
+
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
-import android.os.Bundle;
 import android.preference.*;
 import android.text.Html;
 import android.text.InputType;
+import android.util.AttributeSet;
 import android.util.TypedValue;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.EditText;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
-import app.revanced.extension.shared.settings.Setting;
 import app.revanced.extension.shared.settings.preference.ResettableEditTextPreference;
 import app.revanced.extension.youtube.settings.Settings;
 import app.revanced.extension.youtube.sponsorblock.SegmentPlaybackController;
@@ -28,11 +34,12 @@ import app.revanced.extension.youtube.sponsorblock.objects.UserStats;
 import app.revanced.extension.youtube.sponsorblock.requests.SBRequester;
 import app.revanced.extension.youtube.sponsorblock.ui.SponsorBlockViewController;
 
-import static android.text.Html.fromHtml;
-import static app.revanced.extension.shared.StringRef.str;
-
-@SuppressWarnings("deprecation")
-public class SponsorBlockPreferenceFragment extends PreferenceFragment {
+/**
+ * Lots of old code that could be converted to a half dozen custom preferences,
+ * but instead it's wrapped in this group container and all logic is handled here.
+ */
+@SuppressWarnings({"unused", "deprecation"})
+public class SponsorBlockPreferenceGroup extends PreferenceGroup {
 
     private SwitchPreference sbEnabled;
     private SwitchPreference addNewSegment;
@@ -54,8 +61,29 @@ public class SponsorBlockPreferenceFragment extends PreferenceFragment {
     private PreferenceCategory statsCategory;
     private PreferenceCategory segmentCategory;
 
+    public SponsorBlockPreferenceGroup(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
+        super(context, attrs, defStyleAttr, defStyleRes);
+    }
+
+    public SponsorBlockPreferenceGroup(Context context, AttributeSet attrs, int defStyleAttr) {
+        super(context, attrs, defStyleAttr);
+    }
+
+    public SponsorBlockPreferenceGroup(Context context, AttributeSet attrs) {
+        super(context, attrs);
+    }
+
+    @Override
+    @SuppressLint("MissingSuperCall")
+    protected View onCreateView(ViewGroup parent) {
+        // Title is not shown.
+        return new View(getContext());
+    }
+
     private void updateUI() {
         try {
+            Logger.printDebug(() -> "updateUI");
+
             final boolean enabled = Settings.SB_ENABLED.get();
             if (!enabled) {
                 SponsorBlockViewController.hideAll();
@@ -120,57 +148,56 @@ public class SponsorBlockPreferenceFragment extends PreferenceFragment {
         }
     }
 
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    protected void onAttachedToActivity() {
         try {
-            Activity context = getActivity();
-            PreferenceManager manager = getPreferenceManager();
-            manager.setSharedPreferencesName(Setting.preferences.name);
-            PreferenceScreen preferenceScreen = manager.createPreferenceScreen(context);
-            setPreferenceScreen(preferenceScreen);
+            super.onAttachedToActivity();
+            if (sbEnabled != null) {
+                return;
+            }
 
+            Logger.printDebug(() -> "Creating settings preferences");
+            Context context = getContext();
             SponsorBlockSettings.initialize();
 
             sbEnabled = new SwitchPreference(context);
             sbEnabled.setTitle(str("revanced_sb_enable_sb"));
             sbEnabled.setSummary(str("revanced_sb_enable_sb_sum"));
-            preferenceScreen.addPreference(sbEnabled);
+            addPreference(sbEnabled);
             sbEnabled.setOnPreferenceChangeListener((preference1, newValue) -> {
                 Settings.SB_ENABLED.save((Boolean) newValue);
                 updateUI();
                 return true;
             });
 
-            addAppearanceCategory(context, preferenceScreen);
+            addAppearanceCategory(context);
 
             segmentCategory = new PreferenceCategory(context);
             segmentCategory.setTitle(str("revanced_sb_diff_segments"));
-            preferenceScreen.addPreference(segmentCategory);
+            addPreference(segmentCategory);
             updateSegmentCategories();
 
-            addCreateSegmentCategory(context, preferenceScreen);
+            addCreateSegmentCategory(context);
 
-            addGeneralCategory(context, preferenceScreen);
+            addGeneralCategory(context);
 
             statsCategory = new PreferenceCategory(context);
             statsCategory.setTitle(str("revanced_sb_stats"));
-            preferenceScreen.addPreference(statsCategory);
+            addPreference(statsCategory);
             fetchAndDisplayStats();
 
-            addAboutCategory(context, preferenceScreen);
+            addAboutCategory(context);
 
-            Utils.setPreferenceTitlesToMultiLineIfNeeded(preferenceScreen);
+            Utils.setPreferenceTitlesToMultiLineIfNeeded(this);
 
             updateUI();
         } catch (Exception ex) {
-            Logger.printException(() -> "onCreate failure", ex);
+            Logger.printException(() -> "onAttachedToActivity failure", ex);
         }
     }
 
-    private void addAppearanceCategory(Context context, PreferenceScreen screen) {
+    private void addAppearanceCategory(Context context) {
         PreferenceCategory category = new PreferenceCategory(context);
-        screen.addPreference(category);
+        addPreference(category);
         category.setTitle(str("revanced_sb_appearance_category"));
 
         votingEnabled = new SwitchPreference(context);
@@ -244,9 +271,9 @@ public class SponsorBlockPreferenceFragment extends PreferenceFragment {
         category.addPreference(showTimeWithoutSegments);
     }
 
-    private void addCreateSegmentCategory(Context context, PreferenceScreen screen) {
+    private void addCreateSegmentCategory(Context context) {
         PreferenceCategory category = new PreferenceCategory(context);
-        screen.addPreference(category);
+        addPreference(category);
         category.setTitle(str("revanced_sb_create_segment_category"));
 
         addNewSegment = new SwitchPreference(context);
@@ -303,9 +330,9 @@ public class SponsorBlockPreferenceFragment extends PreferenceFragment {
         category.addPreference(guidelinePreferences);
     }
 
-    private void addGeneralCategory(final Context context, PreferenceScreen screen) {
+    private void addGeneralCategory(final Context context) {
         PreferenceCategory category = new PreferenceCategory(context);
-        screen.addPreference(category);
+        addPreference(category);
         category.setTitle(str("revanced_sb_general"));
 
         toastOnConnectionError = new SwitchPreference(context);
@@ -442,18 +469,18 @@ public class SponsorBlockPreferenceFragment extends PreferenceFragment {
         try {
             segmentCategory.removeAll();
 
-            Activity activity = getActivity();
+            Context context = getContext();
             for (SegmentCategory category : SegmentCategory.categoriesWithoutUnsubmitted()) {
-                segmentCategory.addPreference(new SegmentCategoryListPreference(activity, category));
+                segmentCategory.addPreference(new SegmentCategoryListPreference(context, category));
             }
         } catch (Exception ex) {
             Logger.printException(() -> "updateSegmentCategories failure", ex);
         }
     }
 
-    private void addAboutCategory(Context context, PreferenceScreen screen) {
+    private void addAboutCategory(Context context) {
         PreferenceCategory category = new PreferenceCategory(context);
-        screen.addPreference(category);
+        addPreference(category);
         category.setTitle(str("revanced_sb_about"));
 
         {
@@ -473,7 +500,7 @@ public class SponsorBlockPreferenceFragment extends PreferenceFragment {
     private void openGuidelines() {
         Intent intent = new Intent(Intent.ACTION_VIEW);
         intent.setData(Uri.parse("https://wiki.sponsor.ajay.app/w/Guidelines"));
-        getActivity().startActivity(intent);
+        getContext().startActivity(intent);
     }
 
     private void fetchAndDisplayStats() {
@@ -485,7 +512,7 @@ public class SponsorBlockPreferenceFragment extends PreferenceFragment {
                 return;
             }
 
-            Preference loadingPlaceholderPreference = new Preference(this.getActivity());
+            Preference loadingPlaceholderPreference = new Preference(this.getContext());
             loadingPlaceholderPreference.setEnabled(false);
             statsCategory.addPreference(loadingPlaceholderPreference);
             if (Settings.SB_ENABLED.get()) {
