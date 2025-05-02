@@ -7,7 +7,7 @@ import app.revanced.patcher.patch.bytecodePatch
 val disableMandatoryLoginPatch = bytecodePatch(
     name = "Disable mandatory login",
 ) {
-    compatibleWith("com.adobe.lrmobile")
+    compatibleWith("com.adobe.lrmobile"("10.0.2"))
 
     execute {
         isLoggedInFingerprint.method.apply {
