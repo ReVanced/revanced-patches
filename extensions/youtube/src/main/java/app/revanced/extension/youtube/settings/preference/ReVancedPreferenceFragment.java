@@ -149,8 +149,6 @@ public class ReVancedPreferenceFragment extends AbstractPreferenceFragment {
             }
 
             allPreferences = new ArrayList<>();
-
-            collectPreferences(preferenceScreen, allPreferences);
             setPreferenceScreenToolbar(preferenceScreen);
         } catch (Exception ex) {
             Logger.printException(() -> "initialize failure", ex);
@@ -158,14 +156,30 @@ public class ReVancedPreferenceFragment extends AbstractPreferenceFragment {
     }
 
     /**
-     * Recursively collects all preferences from the screen.
+     * Called when the fragment starts, ensuring all preferences are collected after initialization.
      */
-    private void collectPreferences(PreferenceScreen screen, List<Preference> preferences) {
-        for (int i = 0, count = screen.getPreferenceCount(); i < count; i++) {
-            Preference preference = screen.getPreference(i);
+    @Override
+    public void onStart() {
+        super.onStart();
+        try {
+            // Update the list of all settings after initializing all groups.
+            allPreferences.clear();
+            collectPreferences(preferenceScreen, allPreferences);
+        } catch (Exception ex) {
+            Logger.printException(() -> "onStart failure", ex);
+        }
+    }
+
+    /**
+     * Recursively collects all preferences from the screen or group.
+     */
+    private void collectPreferences(PreferenceGroup group, List<Preference> preferences) {
+        for (int i = 0, count = group.getPreferenceCount(); i < count; i++) {
+            Preference preference = group.getPreference(i);
+            Logger.printDebug(() -> "Collected preference: " + preference.getKey() + ", title: " + preference.getTitle());
             preferences.add(preference);
-            if (preference instanceof PreferenceScreen) {
-                collectPreferences((PreferenceScreen) preference, preferences);
+            if (preference instanceof PreferenceGroup) {
+                collectPreferences((PreferenceGroup) preference, preferences);
             }
         }
     }
@@ -191,9 +205,20 @@ public class ReVancedPreferenceFragment extends AbstractPreferenceFragment {
                 String summary = preference.getSummary() != null
                         ? preference.getSummary().toString().toLowerCase()
                         : "";
-                if (title.contains(queryLower) || summary.contains(queryLower)) {
+                String key = preference.getKey() != null
+                        ? preference.getKey().toLowerCase()
+                        : "";
+                if (title.contains(queryLower) || summary.contains(queryLower) || key.contains(queryLower)) {
                     addPreferenceWithParent(preference, preferenceScreen, addedPreferences);
                 }
+            }
+        }
+
+        // Updating the UI for SponsorBlockPreferenceGroup.
+        for (int i = 0, count = preferenceScreen.getPreferenceCount(); i < count; i++) {
+            Preference preference = preferenceScreen.getPreference(i);
+            if (preference instanceof SponsorBlockPreferenceGroup) {
+                ((SponsorBlockPreferenceGroup) preference).updateUI();
             }
         }
     }
@@ -231,6 +256,14 @@ public class ReVancedPreferenceFragment extends AbstractPreferenceFragment {
             targetScreen.addPreference(sourceScreen.getPreference(i));
         }
         setPreferenceScreenToolbar(targetScreen);
+
+        // Updating the UI for SponsorBlockPreferenceGroup after a restore.
+        for (int i = 0, count = targetScreen.getPreferenceCount(); i < count; i++) {
+            Preference preference = targetScreen.getPreference(i);
+            if (preference instanceof SponsorBlockPreferenceGroup) {
+                ((SponsorBlockPreferenceGroup) preference).updateUI();
+            }
+        }
     }
 
     /**
