@@ -10,7 +10,6 @@ import android.os.Build;
 import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceCategory;
-import android.preference.PreferenceFragment;
 import android.preference.PreferenceGroup;
 import android.preference.PreferenceScreen;
 import android.text.TextUtils;
@@ -20,8 +19,6 @@ import android.view.ViewGroup;
 import android.view.WindowInsets;
 import android.widget.TextView;
 import android.widget.Toolbar;
-
-import androidx.annotation.Nullable;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -47,15 +44,12 @@ import app.revanced.extension.youtube.settings.Settings;
 public class ReVancedPreferenceFragment extends AbstractPreferenceFragment {
 
     private static class PreferenceSearchData {
-        @Nullable
-        final PreferenceScreen parentScreen;
         final String key;
         final String title;
         final String summary;
         final String navigationPath;
 
         PreferenceSearchData(Preference preference) {
-            parentScreen = getParentScreen(preference);
             key = Utils.removePunctuationConvertToLowercase(preference.getKey());
             title = Utils.removePunctuationConvertToLowercase(preference.getTitle());
             summary = Utils.removePunctuationConvertToLowercase(preference.getSummary());
@@ -64,20 +58,6 @@ public class ReVancedPreferenceFragment extends AbstractPreferenceFragment {
 
         boolean matchesSearchQuery(String query) {
             return title.contains(query) || summary.contains(query) || key.contains(query);
-        }
-
-        private static PreferenceScreen getParentScreen(Preference preference) {
-            while (true) {
-                preference = preference.getParent();
-
-                if (preference instanceof PreferenceScreen screen) {
-                    return screen;
-                }
-
-                if (preference == null) {
-                    return null;
-                }
-            }
         }
 
         /**
@@ -286,8 +266,7 @@ public class ReVancedPreferenceFragment extends AbstractPreferenceFragment {
             if (data.matchesSearchQuery(queryLower)) {
                 String navigationPath = data.navigationPath;
                 PreferenceCategory group = categoryMap.computeIfAbsent(navigationPath, key -> {
-                    ClickablePreferenceCategory newGroup = new ClickablePreferenceCategory(
-                            this, data.parentScreen);
+                    PreferenceCategory newGroup = new PreferenceCategory(preferenceScreen.getContext());
                     newGroup.setTitle(navigationPath);
                     preferenceScreen.addPreference(newGroup);
                     return newGroup;
@@ -362,32 +341,5 @@ public class ReVancedPreferenceFragment extends AbstractPreferenceFragment {
                 );
             }
         }
-    }
-}
-
-@SuppressWarnings("deprecation")
-class ClickablePreferenceCategory extends PreferenceCategory {
-
-    public ClickablePreferenceCategory(PreferenceFragment fragment, @Nullable PreferenceScreen subScreen) {
-        super(fragment.getContext());
-
-        if (subScreen != null) {
-            setOnPreferenceClickListener(preference -> {
-                // TODO: figure out how to restore the original screen
-                //  when navigating out of this subscreen.
-                fragment.setPreferenceScreen(subScreen);
-                return true;
-            });
-        }
-    }
-
-    @Override
-    public boolean isEnabled() {
-        return true;
-    }
-
-    @Override
-    public boolean isSelectable() {
-        return true;
     }
 }
