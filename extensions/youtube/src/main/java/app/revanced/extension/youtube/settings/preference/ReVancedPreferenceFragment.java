@@ -248,47 +248,30 @@ public class ReVancedPreferenceFragment extends AbstractPreferenceFragment {
         preferenceScreen.removeAll();
 
         if (TextUtils.isEmpty(query)) {
-            restoreOriginalPreferences(preferenceScreen, originalPreferenceScreen);
+            preferenceScreen.removeAll();
+            for (int i = 0, count = originalPreferenceScreen.getPreferenceCount(); i < count; i++) {
+                preferenceScreen.addPreference(originalPreferenceScreen.getPreference(i));
+            }
             return;
         }
 
+        // Navigation path -> Category
+        Map<String, PreferenceCategory> categoryMap = new HashMap<>(2 * allPreferences.size());
         String queryLower = query.toLowerCase(BaseSettings.REVANCED_LANGUAGE.get().getLocale());
-        Map<String, PreferenceCategory> categoryMap = new HashMap<>();
 
         for (Map.Entry<Preference, PreferenceSearchData> entry : allPreferences.entrySet()) {
             PreferenceSearchData data = entry.getValue();
+
             if (data.matchesSearchQuery(queryLower)) {
-                addPreferenceWithNavigationTitle(preferenceScreen, entry.getKey(),
-                        data.navigationPath, categoryMap);
+                String navigationPath = data.navigationPath;
+                PreferenceCategory group = categoryMap.computeIfAbsent(navigationPath, key -> {
+                    PreferenceCategory newGroup = new PreferenceCategory(preferenceScreen.getContext());
+                    newGroup.setTitle(navigationPath);
+                    preferenceScreen.addPreference(newGroup);
+                    return newGroup;
+                });
+                group.addPreference(entry.getKey());
             }
-        }
-    }
-
-    /**
-     * Adds a preference to the target screen, preserving parent category if applicable.
-     */
-    private void addPreferenceWithNavigationTitle(PreferenceScreen targetScreen,
-                                                  Preference preference,
-                                                  String navigationPath,
-                                                  Map<String, PreferenceCategory> categoryMap) {
-        PreferenceCategory group = categoryMap.computeIfAbsent(navigationPath, key -> {
-            Logger.printDebug(() -> "Creating result category: '" + navigationPath + "'");
-            PreferenceCategory newGroup = new PreferenceCategory(preference.getContext());
-            newGroup.setTitle(navigationPath);
-            targetScreen.addPreference(newGroup);
-            return newGroup;
-        });
-
-        group.addPreference(preference);
-    }
-
-    /**
-     * Restores preferences to the original state before filtering.
-     */
-    private void restoreOriginalPreferences(PreferenceScreen targetScreen, PreferenceScreen sourceScreen) {
-        targetScreen.removeAll();
-        for (int i = 0, count = sourceScreen.getPreferenceCount(); i < count; i++) {
-            targetScreen.addPreference(sourceScreen.getPreference(i));
         }
     }
 
