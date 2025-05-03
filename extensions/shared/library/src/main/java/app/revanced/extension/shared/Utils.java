@@ -408,6 +408,12 @@ public class Utils {
         return new Bidi(displayLanguage, Bidi.DIRECTION_DEFAULT_LEFT_TO_RIGHT).isRightToLeft();
     }
 
+    public static String getTextDirectionString() {
+        return isRightToLeftLocale()
+                ? "\u200F"  // u200F = right to left character
+                : "\u200E"; // u200E = left to right character
+    }
+
     /**
      * @return if the text contains at least 1 number character,
      *         including any unicode numbers such as Arabic.
