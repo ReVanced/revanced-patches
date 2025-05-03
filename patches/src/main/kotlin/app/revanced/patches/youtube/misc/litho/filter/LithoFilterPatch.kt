@@ -21,8 +21,9 @@ import app.revanced.util.indexOfFirstInstructionOrThrow
 import app.revanced.util.indexOfFirstInstructionReversedOrThrow
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
-import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
@@ -178,46 +179,64 @@ val lithoFilterPatch = bytecodePatch(
         // region Read component then store the result.
 
         readComponentIdentifierFingerprint.method.apply {
-            val insertHookIndex = indexOfFirstInstructionOrThrow {
-                opcode == Opcode.IPUT_OBJECT &&
-                    getReference<FieldReference>()?.type == "Ljava/lang/StringBuilder;"
+            val returnIndex = indexOfFirstInstructionReversedOrThrow(Opcode.RETURN_OBJECT)
+
+            val elementConfigClass = elementConfigFingerprint.originalClassDef
+            val elementConfigClassType = elementConfigClass.type
+            val elementConfigIndex = indexOfFirstInstructionReversedOrThrow(returnIndex) {
+                val reference = getReference<MethodReference>()
+                reference?.definingClass == elementConfigClassType
             }
-            val stringBuilderRegister = getInstruction<TwoRegisterInstruction>(insertHookIndex).registerA
+            val elementConfigStringBuilderField = elementConfigClass.fields.single { field ->
+                field.type == "Ljava/lang/StringBuilder;"
+            }
 
             // Identifier is saved to a field just before the string builder.
-            val identifierRegister = getInstruction<TwoRegisterInstruction>(
-                indexOfFirstInstructionReversedOrThrow(insertHookIndex) {
+            val putStringBuilderIndex = indexOfFirstInstructionOrThrow {
+                val reference = getReference<FieldReference>()
+                opcode == Opcode.IPUT_OBJECT &&
+                        reference?.definingClass == elementConfigClassType &&
+                        reference.type == "Ljava/lang/StringBuilder;"
+            }
+            val elementConfigIdentifierField = getInstruction<ReferenceInstruction>(
+                indexOfFirstInstructionReversedOrThrow(putStringBuilderIndex) {
+                    val reference = getReference<FieldReference>()
                     opcode == Opcode.IPUT_OBJECT &&
-                        getReference<FieldReference>()?.type == "Ljava/lang/String;"
-                },
-            ).registerA
+                            reference?.definingClass == elementConfigClassType &&
+                            reference.type == "Ljava/lang/String;"
+                }
+            ).getReference<FieldReference>()
 
-            val freeRegister = findFreeRegister(insertHookIndex, identifierRegister, stringBuilderRegister)
+            val elementConfigRegister = getInstruction<FiveRegisterInstruction>(elementConfigIndex).registerC
+            val identifierRegister = findFreeRegister(returnIndex, elementConfigRegister)
+            val stringBuilderRegister = findFreeRegister(returnIndex, elementConfigRegister, identifierRegister)
             val invokeFilterInstructions = """
+                iget-object v$identifierRegister, v$elementConfigRegister, $elementConfigIdentifierField
+                iget-object v$stringBuilderRegister, v$elementConfigRegister, $elementConfigStringBuilderField
                 invoke-static { v$identifierRegister, v$stringBuilderRegister }, $EXTENSION_CLASS_DESCRIPTOR->filter(Ljava/lang/String;Ljava/lang/StringBuilder;)Z
-                move-result v$freeRegister
-                if-eqz v$freeRegister, :unfiltered
+                move-result v$identifierRegister
+                if-eqz v$identifierRegister, :unfiltered
             """
 
             addInstructionsWithLabels(
-                insertHookIndex,
+                returnIndex,
                 if (is_19_18_or_greater) {
                     """
                         $invokeFilterInstructions
-                        
-                        # Return null, and the ComponentContextParserFingerprint hook 
+
+                        # Return null, and the ComponentContextParserFingerprint hook
                         # handles returning an empty component.
-                        const/4 v$freeRegister, 0x0
-                        return-object v$freeRegister
+                        const/4 v$identifierRegister, 0x0
+                        return-object v$identifierRegister
                     """
                 } else {
                     """
                         $invokeFilterInstructions
-                        
-                        ${createReturnEmptyComponentInstructions(freeRegister)}
+
+                        ${createReturnEmptyComponentInstructions(identifierRegister)}
                     """
                 },
-                ExternalLabel("unfiltered", getInstruction(insertHookIndex)),
+                ExternalLabel("unfiltered", getInstruction(returnIndex)),
             )
         }
 
