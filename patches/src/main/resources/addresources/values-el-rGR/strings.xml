@@ -86,7 +86,7 @@ Second \"item\" text"</string>
   <string name="revanced_settings_screen_03_feed_title">Ροή</string>
   <string name="revanced_settings_screen_04_general_title">Γενικά</string>
   <string name="revanced_settings_screen_05_player_title">Οθόνη αναπαραγωγής</string>
-  <string name="revanced_settings_screen_07_seekbar_title">Γραμμή προόδου βίντεο</string>
+  <string name="revanced_settings_screen_07_seekbar_title">Γραμμή προόδου</string>
   <string name="revanced_settings_screen_08_swipe_controls_title">Έλεγχος με σάρωση οθόνης</string>
   <string name="revanced_settings_screen_11_misc_title">Διάφορα</string>
   <string name="revanced_settings_screen_12_video_title">Βίντεο</string>
@@ -1309,6 +1309,9 @@ Second \"item\" text"</string>
   <patch id="misc.gms.gmsCoreSupportResourcePatch">
   <string name="microg_settings_title">Ρυθμίσεις GmsCore</string>
   <string name="microg_settings_summary">Ρυθμίσεις για το MicroG GmsCore</string>
+  </patch>
+  <patch id="misc.gms.accountCredentialsInvalidTextPatch">
+  <string name="microg_offline_account_login_error">Εάν αλλάξατε πρόσφατα τα στοιχεία σύνδεσης του λογαριασμού σας, απεγκαταστήστε και εγκαταστήστε ξανά το MicroG.</string>
   </patch>
   <patch id="misc.links.bypassURLRedirectsPatch">
   <string name="revanced_bypass_url_redirects_title">Παράκαμψη ανακατευθύνσεων συνδέσμων</string>

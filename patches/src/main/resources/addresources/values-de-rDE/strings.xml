@@ -1304,6 +1304,9 @@ Durch Aktivieren dieser Option können höhere Videoqualitäten freigeschaltet w
   <string name="microg_settings_title">GmsCore Einstellungen</string>
   <string name="microg_settings_summary">Einstellungen für GmsCore</string>
   </patch>
+  <patch id="misc.gms.accountCredentialsInvalidTextPatch">
+  <string name="microg_offline_account_login_error">Wenn Sie kürzlich Ihre Kontoanmeldedaten geändert haben, deinstallieren Sie MicroG und installieren Sie es erneut.</string>
+  </patch>
   <patch id="misc.links.bypassURLRedirectsPatch">
   <string name="revanced_bypass_url_redirects_title">URL-Weiterleitungen umgehen</string>
   <string name="revanced_bypass_url_redirects_summary_on">URL-Umleitungen werden umgangen</string>

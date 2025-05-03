@@ -1309,6 +1309,9 @@ Het inschakelen hiervan kan hogere videokwaliteiten ontgrendelen"</string>
   <string name="microg_settings_title">GmsCore-instellingen</string>
   <string name="microg_settings_summary">Instellingen voor GmsCore</string>
   </patch>
+  <patch id="misc.gms.accountCredentialsInvalidTextPatch">
+  <string name="microg_offline_account_login_error">Als u onlangs de inloggegevens van uw account hebt gewijzigd, verwijder dan MicroG en installeer het opnieuw.</string>
+  </patch>
   <patch id="misc.links.bypassURLRedirectsPatch">
   <string name="revanced_bypass_url_redirects_title">Omzeil URL-omleidingen</string>
   <string name="revanced_bypass_url_redirects_summary_on">URL-omleidingen worden omzeild</string>

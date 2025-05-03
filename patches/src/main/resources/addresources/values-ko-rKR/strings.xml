@@ -24,7 +24,7 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_failed_title">환경 검사에 실패함</string>
   <string name="revanced_check_environment_dialog_open_official_source_button">공식 홈페이지 열기</string>
   <string name="revanced_check_environment_dialog_ignore_button">닫기</string>
-  <string name="revanced_check_environment_failed_message">&lt;h5&gt;이 앱은 사용자가 패치하지 않은 것 같습니다.&lt;/h5&gt;&lt;br&gt;이 앱은 제대로 작동하지 않을 수 있으며, &lt;b&gt;사용 시 해롭거나 심지어 위험할 수도 있습니다&lt;/b&gt;.&lt;br&gt;&lt;br&gt;이러한 검사는 이 앱이 사전에 패치되었거나 다른 사람으로부터 받은 것임을 의미합니다:&lt;br&gt;&lt;br&gt;&lt;small&gt;%1$s&lt;/small&gt;&lt;br&gt;검증되고 안전한 앱을 사용하고 있는지 확인하려면 &lt;b&gt;이 앱을 제거하고 직접 패치하는 것&lt;/b&gt;을 강력히 권장합니다.&lt;p&gt;&lt;br&gt;이 경고는 두 번만 표시됩니다</string>
+  <string name="revanced_check_environment_failed_message">&lt;h5&gt;이 앱은 사용자가 패치하지 않은 것 같습니다.&lt;/h5&gt;&lt;br&gt;이 앱은 제대로 작동하지 않을 수 있으며, &lt;b&gt;사용 시 해롭거나 심지어 위험할 수도 있습니다&lt;/b&gt;.&lt;br&gt;&lt;br&gt;이러한 검사는 이 앱이 사전에 패치되었거나 다른 사람으로부터 받은 것임을 의미합니다:&lt;br&gt;&lt;br&gt;&lt;small&gt;%1$s&lt;/small&gt;&lt;br&gt;검증되고 안전한 앱을 사용하고 있는지 확인하려면 &lt;b&gt;이 앱을 제거하고 직접 패치하는 것&lt;/b&gt;을 강력히 권장합니다.&lt;p&gt;&lt;br&gt;이 경고는 두 번만 표시됩니다.</string>
   <string name="revanced_check_environment_not_same_patching_device">다른 기기에서 패치됨</string>
   <string name="revanced_check_environment_manager_not_expected_installer">ReVanced Manager에 의해 설치되지 않음</string>
   <string name="revanced_check_environment_not_near_patch_time">10분 이상 전에 패치됨</string>
@@ -46,9 +46,9 @@ Second \"item\" text"</string>
   <string name="revanced_show_menu_icons_summary_on">설정 아이콘을 표시합니다</string>
   <string name="revanced_show_menu_icons_summary_off">설정 아이콘을 표시하지 않습니다</string>
   <string name="revanced_language_title">ReVanced 언어</string>
-  <string name="revanced_language_user_dialog_message">"일부 언어의 번역이 누락되었거나 완료되지 않았을 수 있습니다
+  <string name="revanced_language_user_dialog_message">"일부 언어의 번역이 누락되었거나 완료되지 않았을 수 있습니다.
 
-새로운 언어를 번역하려면 translate.revanced.app를 방문하세요"</string>
+새로운 언어를 번역하려면 translate.revanced.app를 방문하세요."</string>
   <string name="revanced_language_DEFAULT">앱 언어</string>
   <string name="revanced_pref_import_export_title">가져오기 / 내보내기</string>
   <string name="revanced_pref_import_export_summary">ReVanced 설정을 가져오거나 내보낼 수 있습니다</string>
@@ -62,13 +62,13 @@ Second \"item\" text"</string>
   </patch>
   <patch id="misc.gms.gmsCoreSupportResourcePatch">
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
-  <string name="gms_core_toast_not_installed_message">MicroG GmsCore가 설치되어 있지 않습니다. 설치하세요</string>
+  <string name="gms_core_toast_not_installed_message">MicroG GmsCore가 설치되어 있지 않습니다. 설치하세요.</string>
   <string name="gms_core_dialog_title">필수 조치</string>
-  <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"MicroG GmsCore에 백그라운드에서 실행할 수 있는 권한이 없습니다
+  <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"MicroG GmsCore에 백그라운드에서 실행할 수 있는 권한이 없습니다.
 
-이 기기에 대한 \"Don't kill my app\" 가이드를 읽어보고, MicroG 설치 지침을 적용하세요
+이 기기에 대한 \"Don't kill my app\" 가이드를 읽어보고, MicroG 설치 지침을 적용하세요.
 
-앱이 실행하려면 이 과정이 필요합니다"</string>
+앱이 실행하려면 이 과정이 필요합니다."</string>
   <string name="gms_core_dialog_open_website_text">웹사이트 열기</string>
   <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">"MicroG GmsCore 앱 배터리 최적화를 비활성화(제한 없음)하여 앱 문제를 방지할 수 있습니다.
 
@@ -114,9 +114,9 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_debug_toast_on_error_title">ReVanced 오류 팝업 메시지 표시하기</string>
   <string name="revanced_debug_toast_on_error_summary_on">오류가 발생하면 팝업 메시지를 표시합니다</string>
   <string name="revanced_debug_toast_on_error_summary_off">오류가 발생하면 팝업 메시지를 표시하지 않습니다</string>
-  <string name="revanced_debug_toast_on_error_user_dialog_message">"오류 메시지를 비활성화하면 모든 ReVanced 오류 알림이 숨겨집니다
+  <string name="revanced_debug_toast_on_error_user_dialog_message">"오류 메시지를 비활성화하면 모든 ReVanced 오류 알림이 숨겨집니다.
 
-예상되지 않은 이벤트에 대한 알림을 받지 못할 수 있습니다"</string>
+예상되지 않은 이벤트에 대한 알림을 받지 못할 수 있습니다."</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
   <string name="revanced_hide_album_cards_title">음악 앨범 카드 숨기기</string>
@@ -299,9 +299,9 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_hide_doodles_title">YouTube Doodles 숨기기</string>
   <string name="revanced_hide_doodles_summary_on">YouTube Doodles가 숨겨집니다\n• Doodles: 기념일 로고 헤더</string>
   <string name="revanced_hide_doodles_summary_off">YouTube Doodles가 표시됩니다\n• Doodles: 기념일 로고 헤더</string>
-  <string name="revanced_hide_doodles_user_dialog_message">"YouTube Doodles는 공휴일이나 기념일 등, 그날에 맞춘 디자인으로 변경되는 왼쪽 상단의 YouTube 헤더를 말합니다
+  <string name="revanced_hide_doodles_user_dialog_message">"YouTube Doodles는 공휴일이나 기념일 등, 그날에 맞춘 디자인으로 변경되는 왼쪽 상단의 YouTube 헤더를 말합니다.
 
-현재 거주하는 지역에서 YouTube Doodles가 표시되어 있는데 이 설정이 활성화되어 있는 경우에는 검색창 아래에 표시되는 카테고리 바도 숨겨집니다"</string>
+현재 거주하는 지역에서 YouTube Doodles가 표시되어 있는데 이 설정이 활성화되어 있는 경우에는 검색창 아래에 표시되는 카테고리 바도 숨겨집니다."</string>
   <string name="revanced_custom_filter_screen_title">사용자 정의 필터</string>
   <string name="revanced_custom_filter_screen_summary">사용자 정의 필터를 사용하여 구성요소를 숨길 수 있습니다</string>
   <string name="revanced_custom_filter_title">사용자 정의 필터 활성화하기</string>
@@ -413,7 +413,7 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_remove_viewer_discretion_dialog_title">시청 경고 다이얼로그 제거하기</string>
   <string name="revanced_remove_viewer_discretion_dialog_summary_on">다음 동영상을 시청하기 전에 표시되는 시청 경고 다이얼로그를 제거합니다:\n• 연령 제한 동영상\n• 자살 또는 자해와 관련된 동영상, etc.</string>
   <string name="revanced_remove_viewer_discretion_dialog_summary_off">다음 동영상을 시청하기 전에 표시되는 시청 경고 다이얼로그를 제거하지 않습니다:\n• 연령 제한 동영상\n• 자살 또는 자해와 관련된 동영상, etc.</string>
-  <string name="revanced_remove_viewer_discretion_dialog_user_dialog_message">이 설정은 다이얼로그를 자동으로 허용하기만 하며 연령 제한(성인인증 절차)을 우회할 수 없습니다</string>
+  <string name="revanced_remove_viewer_discretion_dialog_user_dialog_message">이 설정은 다이얼로그를 자동으로 허용하기만 하며 연령 제한(성인인증 절차)을 우회할 수 없습니다.</string>
   </patch>
   <patch id="interaction.downloads.downloadsResourcePatch">
   <string name="revanced_external_downloader_screen_title">외부 다운로드</string>
@@ -475,7 +475,7 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_swipe_volume_sensitivity_title">볼륨 스와이프 민감도</string>
   <string name="revanced_swipe_volume_sensitivity_summary">스와이프할 때마다 볼륨이 얼마나 변경되는지를 지정할 수 있습니다</string>
   <string name="revanced_swipe_overlay_style_title">스와이프 오버레이 스타일</string>
-  <string name="revanced_swipe_overlay_style_entry_1">바형 오버레이</string>
+  <string name="revanced_swipe_overlay_style_entry_1">가로 오버레이</string>
   <string name="revanced_swipe_overlay_style_entry_2">가로 오버레이 (최소화 - 상단)</string>
   <string name="revanced_swipe_overlay_style_entry_3">가로 오버레이 (최소화 - 중앙)</string>
   <string name="revanced_swipe_overlay_style_entry_4">원형 오버레이</string>
@@ -564,16 +564,16 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
 알려진 문제점:
 • 동영상 광고가 강제로 숨겨집니다"</string>
   <string name="revanced_switch_create_with_notifications_button_summary_off">만들기 버튼과 알림 버튼의 위치를 교환하지 않습니다\n\n알려진 문제점:\n• 서버에서 더 많은 광고가 로드될 수 있습니다\n• Shorts 광고가 더 이상 숨겨지지 않습니다</string>
-  <string name="revanced_switch_create_with_notifications_button_user_dialog_message">"이 설정을 비활성화하면 Shorts 광고가 차단되지 않습니다
+  <string name="revanced_switch_create_with_notifications_button_user_dialog_message">"이 설정을 비활성화하면 Shorts 광고가 차단되지 않습니다.
 
-이 설정을 변경해도 적용되지 않는다면 시크릿 모드로 전환해 보세요"</string>
+이 설정을 변경해도 적용되지 않는다면 시크릿 모드로 전환해 보세요."</string>
   <string name="revanced_hide_navigation_button_labels_title">하단바 버튼 라벨 숨기기</string>
   <string name="revanced_hide_navigation_button_labels_summary_on">라벨이 숨겨집니다</string>
   <string name="revanced_hide_navigation_button_labels_summary_off">라벨이 표시됩니다</string>
   <string name="revanced_disable_translucent_status_bar_title">반투명 상태바 비활성화하기</string>
   <string name="revanced_disable_translucent_status_bar_summary_on">상태바가 불투명합니다</string>
   <string name="revanced_disable_translucent_status_bar_summary_off">상태바가 불투명하거나 반투명합니다</string>
-  <string name="revanced_disable_translucent_status_bar_user_dialog_message">일부 기기에서는 이 기능을 활성화하면 시스템 네비게이션 바가 투명하게 변경될 수 있습니다</string>
+  <string name="revanced_disable_translucent_status_bar_user_dialog_message">일부 기기에서는 이 기능을 활성화하면 시스템 네비게이션 바가 투명하게 변경될 수 있습니다.</string>
   <string name="revanced_disable_translucent_navigation_bar_light_title">밝은 반투명 하단바 비활성화하기</string>
   <string name="revanced_disable_translucent_navigation_bar_light_summary_on">밝은 테마에서 하단바가 불투명합니다</string>
   <string name="revanced_disable_translucent_navigation_bar_light_summary_off">밝은 테마에서 하단바가 불투명하거나 반투명합니다</string>
@@ -788,7 +788,7 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   </patch>
   <patch id="layout.hide.endscreensuggestion.hideEndScreenSuggestedVideoPatch">
   <string name="revanced_end_screen_suggested_video_title">최종 화면에서 다음 재생 추천 동영상 숨기기</string>
-  <string name="revanced_end_screen_suggested_video_summary_on">"자동재생이 꺼져 있으면 최종 화면에서 다음 재생 추천 동영상이 숨겨집니다.
+  <string name="revanced_end_screen_suggested_video_summary_on">"자동재생이 꺼져 있으면 최종 화면에서 다음 재생 추천 동영상이 숨겨집니다
 
 자동재생은 YouTube 설정에서 변경할 수 있습니다:
 설정 → 재생 → 다음 동영상 자동재생"</string>
@@ -883,11 +883,11 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_seekbar_thumbnails_high_quality_summary_off">일반 화질 재생바 썸네일을 활성화합니다</string>
   <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_on">전체 화면 고화질 재생바 썸네일을 활성화합니다</string>
   <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_off">전체 화면 일반 화질 재생바 썸네일을 활성화합니다</string>
-  <string name="revanced_seekbar_thumbnails_high_quality_dialog_message">"이 설정을 활성화하면 재생바 썸네일이 없는 실시간 스트림의 썸네일도 복원됩니다
+  <string name="revanced_seekbar_thumbnails_high_quality_dialog_message">"이 설정을 활성화하면 재생바 썸네일이 없는 실시간 스트림의 썸네일도 복원됩니다.
 
-재생바 썸네일에는 현재 동영상과 동일한 화질 값이 사용됩니다
+재생바 썸네일에는 현재 동영상과 동일한 화질 값이 사용됩니다.
 
-이 설정은 동영상 화질 값이 720p 이하이고 인터넷 연결 상태가 매우 빠를 때 가장 잘 작동합니다"</string>
+이 설정은 동영상 화질 값이 720p 이하이고 인터넷 연결 상태가 매우 빠를 때 가장 잘 작동합니다."</string>
   <string name="revanced_restore_old_seekbar_thumbnails_title">이전 재생바 썸네일 복원하기</string>
   <string name="revanced_restore_old_seekbar_thumbnails_summary_on">재생바 상단에서 최소화된 썸네일을 표시합니다</string>
   <string name="revanced_restore_old_seekbar_thumbnails_summary_off">플레이어에서 전체 화면으로 된 썸네일을 표시합니다</string>
@@ -1034,7 +1034,7 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <!-- A segment start and end time, such as "02:10 to 03:40" -->
   <string name="revanced_sb_vote_segment_time_to_from">%1$s ~ %2$s</string>
   <string name="revanced_sb_new_segment_choose_category">구간 카테고리를 선택하세요</string>
-  <string name="revanced_sb_new_segment_disabled_category">이 카테고리는 비활성화되어 있습니다. 제출하려면 설정에서 활성화해야 합니다</string>
+  <string name="revanced_sb_new_segment_disabled_category">이 카테고리는 비활성화되어 있습니다. 제출하려면 설정에서 활성화해야 합니다.</string>
   <string name="revanced_sb_new_segment_title">새 SponsorBlock 구간</string>
   <string name="revanced_sb_new_segment_mark_time_as_question">%s 을 구간의 시작 또는 끝으로 설정하시겠습니까?</string>
   <string name="revanced_sb_new_segment_mark_start">시작</string>
@@ -1109,11 +1109,11 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_spoof_app_version_title">앱 버전 변경하기</string>
   <string name="revanced_spoof_app_version_summary_on">앱 버전을 변경합니다</string>
   <string name="revanced_spoof_app_version_summary_off">앱 버전을 변경하지 않습니다</string>
-  <string name="revanced_spoof_app_version_user_dialog_message">"앱 버전을 YouTube 이전 앱 버전으로 변경합니다
+  <string name="revanced_spoof_app_version_user_dialog_message">"앱 버전을 YouTube 이전 앱 버전으로 변경합니다.
 
-이 경우 앱 레이아웃과 기능이 변경되지만 알려지지 않은 문제점이 발생할 수 있습니다
+이 경우 앱 레이아웃과 기능이 변경되지만 알려지지 않은 문제점이 발생할 수 있습니다.
 
-나중에 이 설정을 비활성화하면 앱 레이아웃 버그를 방지하기 위해 앱 데이터를 지우는 것이 좋습니다"</string>
+나중에 이 설정을 비활성화하면 앱 레이아웃 버그를 방지하기 위해 앱 데이터를 지우는 것이 좋습니다."</string>
   <!-- It is ideal, but not required, if the text here appears is alphabetically after the text used for 'revanced_spoof_app_version_title'.
                  This is because the 'General layout' menu uses alphabetic sorting, and it functionally works better if the spoof target selector appears below the 'Spoof app version' UI switch -->
   <string name="revanced_spoof_app_version_target_title">변경할 앱 버전</string>
@@ -1308,11 +1308,14 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요"</string>
   <string name="revanced_spoof_device_dimensions_summary_off">"기기 크기 정보를 변경하지 않습니다
 
 이 설정을 활성화하면 더 높은 화질 동영상 값을 잠금 해제할 수 있습니다"</string>
-  <string name="revanced_spoof_device_dimensions_user_dialog_message">이 설정을 활성화하면 동영상 재생이 끊기거나 배터리 수명이 단축되고 알려지지 않은 문제점이 발생할 수 있습니다</string>
+  <string name="revanced_spoof_device_dimensions_user_dialog_message">이 설정을 활성화하면 동영상 재생이 끊기거나 배터리 수명이 단축되고 알려지지 않은 문제점이 발생할 수 있습니다.</string>
   </patch>
   <patch id="misc.gms.gmsCoreSupportResourcePatch">
   <string name="microg_settings_title">GmsCore 설정</string>
   <string name="microg_settings_summary">알림 수신을 위한 클라우드 메시징을 설정할 수 있습니다</string>
+  </patch>
+  <patch id="misc.gms.accountCredentialsInvalidTextPatch">
+  <string name="microg_offline_account_login_error">최근에 계정 로그인 정보를 변경했다면 MicroG를 제거하고 다시 설치하세요.</string>
   </patch>
   <patch id="misc.links.bypassURLRedirectsPatch">
   <string name="revanced_bypass_url_redirects_title">리다이렉션 없이 링크 바로 열기</string>
@@ -1405,22 +1408,22 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요"</string>
   <string name="revanced_spoof_video_streams_summary_on">스트리밍 데이터를 변경합니다</string>
   <string name="revanced_spoof_video_streams_summary_off">"스트리밍 데이터를 변경하지 않습니다
 동영상 재생 문제가 발생할 수 있습니다"</string>
-  <string name="revanced_spoof_video_streams_user_dialog_message">이 설정을 비활성화하면 동영상 재생 문제가 발생할 수 있습니다</string>
+  <string name="revanced_spoof_video_streams_user_dialog_message">이 설정을 비활성화하면 동영상 재생 문제가 발생할 수 있습니다.</string>
   <string name="revanced_spoof_video_streams_client_type_title">기본 클라이언트</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_title">iOS AVC (H.264) 강제로 활성화하기</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">동영상 코덱을 AVC (H.264)로 강제로 활성화합니다\n\n• 일부 VP9 코덱 동영상에서 제거되었던 화질 값이 표시될 수 있습니다\n• 최대 화질 값이 1080p이므로, 초고화질 동영상을 재생할 수 없습니다\n• HDR 동영상을 재생할 수 없습니다</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">동영상 코덱을 자동으로 결정합니다\n\n• 예전에 업로드된 동영상을 재생했는데 VP9 코덱 응답을 받았을 경우, 일부 화질값이 제거되어 360p와 1080p(Premium 기능)만 선택가능할 수 있거나 화질 메뉴를 선택불가능할 수 있습니다</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">"이 설정를 활성화하면 배터리 수명이 향상되고, 동영상 재생 끊김 문제가 해결될 수 있습니다
+  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">"이 설정를 활성화하면 배터리 수명이 향상되고, 동영상 재생 끊김 문제가 해결될 수 있습니다.
 
-AVC의 최대 화질 값은 1080p이고, OPUS 코덱을 사용불가 및 HDR 동영상을 재생할 수 없으며, 동영상을 재생했을 경우에는 VP9 또는 AV1보다 더 많은 모바일 데이터를 사용되오니 주의하세요"</string>
+AVC의 최대 화질 값은 1080p이고, OPUS 코덱을 사용불가 및 HDR 동영상을 재생할 수 없으며, 동영상을 재생했을 경우에는 VP9 또는 AV1보다 더 많은 모바일 데이터를 사용되오니 주의하세요."</string>
   <string name="revanced_spoof_video_streams_about_ios_tv_title">알려진 문제점</string>
-  <string name="revanced_spoof_video_streams_about_ios_tv_summary">"• 영화 또는 유료 동영상이 재생되지 않을 수 있습니다.
+  <string name="revanced_spoof_video_streams_about_ios_tv_summary">"• 영화 또는 유료 동영상이 재생되지 않을 수 있습니다
 • 안정적인 볼륨을 사용할 수 없습니다
 • 동영상이 1초 일찍 종료될 수 있습니다"</string>
   <string name="revanced_spoof_video_streams_about_android_title">알려진 문제점</string>
   <string name="revanced_spoof_video_streams_about_android_summary">"• 오디오 트랙 메뉴가 표시되지 않습니다
 • 안정적인 볼륨을 사용할 수 없습니다
-• 원본 오디오 트랙를 강제로 활성화할 수 없습니다."</string>
+• 원본 오디오 트랙를 강제로 활성화할 수 없습니다"</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• AV1 코덱이 지원되지 않습니다</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Kids 동영상은 로그인을 하지 않았거나 시크릿 모드에서는 재생되지 않을 수 있습니다</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_title">전문 통계에서 표시하기</string>
@@ -1436,8 +1439,8 @@ AVC의 최대 화질 값은 1080p이고, OPUS 코덱을 사용불가 및 HDR 동
   <string name="revanced_block_audio_ads_summary_off">음성 광고를 차단하지 않습니다</string>
   </patch>
   <patch id="ad.embedded.embeddedAdsPatch">
-  <string name="revanced_embedded_ads_service_unavailable">%s 를 차단할 수 없기 때문에 광고가 표시될 것입니다. 설정에서 다른 광고 차단 서비스로 전환해 보세요</string>
-  <string name="revanced_embedded_ads_service_failed">%s 에서 오류가 발생했기 때문에 광고가 표시될 것입니다. 설정에서 다른 광고 차단 서비스로 전환해 보세요</string>
+  <string name="revanced_embedded_ads_service_unavailable">%s 를 차단할 수 없기 때문에 광고가 표시될 것입니다. 설정에서 다른 광고 차단 서비스로 전환해 보세요.</string>
+  <string name="revanced_embedded_ads_service_failed">%s 에서 오류가 발생했기 때문에 광고가 표시될 것입니다. 설정에서 다른 광고 차단 서비스로 전환해 보세요.</string>
   <string name="revanced_block_embedded_ads_title">광고 차단 Proxy 서버 사용하기</string>
   <string name="revanced_block_embedded_ads_entry_1">사용 안함</string>
   <string name="revanced_block_embedded_ads_entry_2">Luminous Proxy</string>

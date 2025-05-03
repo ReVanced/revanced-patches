@@ -80,6 +80,7 @@ public class LicenseActivityHook {
     public static void initialize(Activity licenseActivity) {
         try {
             ThemeHelper.setActivityTheme(licenseActivity);
+            ThemeHelper.setNavigationBarColor(licenseActivity.getWindow());
             licenseActivity.setContentView(getResourceIdentifier(
                     "revanced_settings_with_toolbar", "layout"));
 

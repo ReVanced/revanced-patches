@@ -1311,6 +1311,9 @@ Mini-player-ը կարող է գրավվել էկրանից դուրս՝ դեպի
   <string name="microg_settings_title">GmsCore  կարգավորումներ</string>
   <string name="microg_settings_summary">GmsCore-ի  կարգավորումներ</string>
   </patch>
+  <patch id="misc.gms.accountCredentialsInvalidTextPatch">
+  <string name="microg_offline_account_login_error">Եթե վերջերս փոխել եք ձեր հաշվի մուտքի տվյալները, ապա ջնջեք և նորից տեղադրեք MicroG-ն:</string>
+  </patch>
   <patch id="misc.links.bypassURLRedirectsPatch">
   <string name="revanced_bypass_url_redirects_title">URL-ի  վերահղումների  հնարավորությունը  անջատել</string>
   <string name="revanced_bypass_url_redirects_summary_on">URL-ի  վերահղումները  անջատված են</string>
