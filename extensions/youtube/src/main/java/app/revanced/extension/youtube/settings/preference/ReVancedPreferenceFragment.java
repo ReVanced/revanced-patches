@@ -188,9 +188,6 @@ public class ReVancedPreferenceFragment extends AbstractPreferenceFragment {
             }
 
             preferenceScreen = getPreferenceScreen();
-            if (preferenceScreen == null) {
-                throw new IllegalStateException("PreferenceScreen is null");
-            }
             Utils.sortPreferenceGroups(preferenceScreen);
 
             // Store the original structure for restoration after filtering.
@@ -257,7 +254,7 @@ public class ReVancedPreferenceFragment extends AbstractPreferenceFragment {
         }
 
         // Navigation path -> Category
-        Map<String, PreferenceCategory> categoryMap = new HashMap<>(2 * allPreferences.size());
+        Map<String, PreferenceCategory> categoryMap = new HashMap<>(50);
         String queryLower = query.toLowerCase(BaseSettings.REVANCED_LANGUAGE.get().getLocale());
 
         for (Map.Entry<Preference, PreferenceSearchData> entry : allPreferences.entrySet()) {
