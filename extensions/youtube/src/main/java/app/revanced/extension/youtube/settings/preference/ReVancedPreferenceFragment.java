@@ -212,14 +212,6 @@ public class ReVancedPreferenceFragment extends AbstractPreferenceFragment {
                 }
             }
         }
-
-        // Updating the UI for SponsorBlockPreferenceGroup.
-        for (int i = 0, count = preferenceScreen.getPreferenceCount(); i < count; i++) {
-            Preference preference = preferenceScreen.getPreference(i);
-            if (preference instanceof SponsorBlockPreferenceGroup) {
-                ((SponsorBlockPreferenceGroup) preference).updateUI();
-            }
-        }
     }
 
     /**
@@ -255,14 +247,6 @@ public class ReVancedPreferenceFragment extends AbstractPreferenceFragment {
             targetScreen.addPreference(sourceScreen.getPreference(i));
         }
         setPreferenceScreenToolbar(targetScreen);
-
-        // Updating the UI for SponsorBlockPreferenceGroup after a restore.
-        for (int i = 0, count = targetScreen.getPreferenceCount(); i < count; i++) {
-            Preference preference = targetScreen.getPreference(i);
-            if (preference instanceof SponsorBlockPreferenceGroup) {
-                ((SponsorBlockPreferenceGroup) preference).updateUI();
-            }
-        }
     }
 
     /**

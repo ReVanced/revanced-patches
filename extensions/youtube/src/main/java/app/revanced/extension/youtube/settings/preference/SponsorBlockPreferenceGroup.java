@@ -85,7 +85,7 @@ public class SponsorBlockPreferenceGroup extends PreferenceGroup {
         return new View(getContext());
     }
 
-    public void updateUI() {
+    private void updateUI() {
         try {
             Logger.printDebug(() -> "updateUI");
 
