@@ -464,13 +464,13 @@ public class Settings extends BaseSettings {
 
         // RYD requires manually migrating old settings since the lack of
         // a "revanced_" on the old setting causes duplicate key exceptions during export.
-        SharedPrefCategory rydPrefs = new SharedPrefCategory("ryd");
-        Setting.migrateFromOldPreferences(rydPrefs, RYD_USER_ID, "ryd_user_id");
-        Setting.migrateFromOldPreferences(rydPrefs, RYD_ENABLED, "ryd_enabled");
-        Setting.migrateFromOldPreferences(rydPrefs, RYD_DISLIKE_PERCENTAGE, "ryd_dislike_percentage");
-        Setting.migrateFromOldPreferences(rydPrefs, RYD_COMPACT_LAYOUT, "ryd_compact_layout");
-        Setting.migrateFromOldPreferences(rydPrefs, RYD_ESTIMATED_LIKE, "ryd_estimated_like");
-        Setting.migrateFromOldPreferences(rydPrefs, RYD_TOAST_ON_CONNECTION_ERROR, "ryd_toast_on_connection_error");
+        SharedPrefCategory revancedPrefs = Setting.preferences;
+        Setting.migrateFromOldPreferences(revancedPrefs, RYD_USER_ID, "ryd_user_id");
+        Setting.migrateFromOldPreferences(revancedPrefs, RYD_ENABLED, "ryd_enabled");
+        Setting.migrateFromOldPreferences(revancedPrefs, RYD_DISLIKE_PERCENTAGE, "ryd_dislike_percentage");
+        Setting.migrateFromOldPreferences(revancedPrefs, RYD_COMPACT_LAYOUT, "ryd_compact_layout");
+        Setting.migrateFromOldPreferences(revancedPrefs, RYD_ESTIMATED_LIKE, "ryd_estimated_like");
+        Setting.migrateFromOldPreferences(revancedPrefs, RYD_TOAST_ON_CONNECTION_ERROR, "ryd_toast_on_connection_error");
 
         // endregion
 
