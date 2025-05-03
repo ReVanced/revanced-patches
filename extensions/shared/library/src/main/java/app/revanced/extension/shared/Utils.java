@@ -707,7 +707,8 @@ public class Utils {
      */
     public static String removePunctuationConvertToLowercase(@Nullable CharSequence original) {
         if (original == null) return "";
-        return punctuationPattern.matcher(original).replaceAll("").toLowerCase();
+        return punctuationPattern.matcher(original).replaceAll("")
+                .toLowerCase(BaseSettings.REVANCED_LANGUAGE.get().getLocale());
     }
 
     /**

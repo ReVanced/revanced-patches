@@ -22,10 +22,9 @@ import android.widget.Toolbar;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
-import java.util.Locale;
 import java.util.Map;
-import java.util.WeakHashMap;
 
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
@@ -44,6 +43,54 @@ import app.revanced.extension.youtube.settings.Settings;
 @SuppressWarnings("deprecation")
 public class ReVancedPreferenceFragment extends AbstractPreferenceFragment {
 
+    private static class PreferenceSearchData {
+        final String key;
+        final String title;
+        final String summary;
+        final String navigationPath;
+
+        PreferenceSearchData(Preference preference) {
+            key = Utils.removePunctuationConvertToLowercase(preference.getKey());
+            title = Utils.removePunctuationConvertToLowercase(preference.getTitle());
+            summary = Utils.removePunctuationConvertToLowercase(preference.getSummary());
+            navigationPath = getPreferenceNavigationString(preference);
+        }
+
+        boolean matchesSearchQuery(String query) {
+            return title.contains(query) || summary.contains(query) || key.contains(query);
+        }
+
+        /**
+         * @return The navigation path for the given preference, such as "Player > Action buttons".
+         */
+        private static String getPreferenceNavigationString(Preference preference) {
+            StringBuilder path = new StringBuilder();
+
+            while (true) {
+                preference = preference.getParent();
+
+                if (preference == null) {
+                    if (path.length() > 0) {
+                        path.insert(0, Utils.getTextDirectionString());
+                    }
+                    return path.toString();
+                }
+
+                if (!(preference instanceof NoTitlePreferenceCategory)
+                        && !(preference instanceof SponsorBlockPreferenceGroup)) {
+                    CharSequence title = preference.getTitle();
+                    if (title != null && title.length() > 0) {
+                        if (path.length() > 0) {
+                            path.insert(0, " > ");
+                        }
+
+                        path.insert(0, title);
+                    }
+                }
+            }
+        }
+    }
+
     /**
      * The main PreferenceScreen used to display the current set of preferences.
      * This screen is manipulated during initialization and filtering to show or hide preferences.
@@ -60,9 +107,7 @@ public class ReVancedPreferenceFragment extends AbstractPreferenceFragment {
      * A comprehensive list of all preferences, including nested ones, collected from the PreferenceScreen.
      * Used for filtering and searching through all available preferences.
      */
-    private final List<Preference> allPreferences = new ArrayList<>();
-
-    private final Map<Preference, String> preferenceNavigationPaths = new WeakHashMap<>();
+    private final Map<Preference, PreferenceSearchData> allPreferences = new LinkedHashMap<>();
 
     @SuppressLint("UseCompatLoadingForDrawables")
     public static Drawable getBackButtonDrawable() {
@@ -124,36 +169,6 @@ public class ReVancedPreferenceFragment extends AbstractPreferenceFragment {
     }
 
     /**
-     * @return The navigation path for the given preference, such as "Player > Action buttons".
-     */
-    private static String getPreferenceNavigationString(Preference preference) {
-        StringBuilder path = new StringBuilder();
-
-        while (true) {
-            preference = preference.getParent();
-
-            if (preference == null) {
-                if (path.length() > 0) {
-                    path.insert(0, Utils.getTextDirectionString());
-                }
-                return path.toString();
-            }
-
-            if (!(preference instanceof NoTitlePreferenceCategory)
-                    && !(preference instanceof SponsorBlockPreferenceGroup)) {
-                CharSequence title = preference.getTitle();
-                if (title != null && title.length() > 0) {
-                    if (path.length() > 0) {
-                        path.insert(0, " > ");
-                    }
-
-                    path.insert(0, title);
-                }
-            }
-        }
-    }
-
-    /**
      * Initializes the preference fragment, copying the original screen to allow full restoration.
      */
     @Override
@@ -202,7 +217,7 @@ public class ReVancedPreferenceFragment extends AbstractPreferenceFragment {
             allPreferences.clear();
             // Do not show root menu preferences in search results.
             // Instead search for everything that's not shown when search is not active.
-            collectPreferences(preferenceScreen, allPreferences, 1, 0);
+            collectPreferences(preferenceScreen, 1, 0);
         } catch (Exception ex) {
             Logger.printException(() -> "onStart failure", ex);
         }
@@ -213,17 +228,15 @@ public class ReVancedPreferenceFragment extends AbstractPreferenceFragment {
      * @param includeDepth Menu depth to start including preferences.
      *                     A value of 0 adds all preferences.
      */
-    private void collectPreferences(PreferenceGroup group, List<Preference> preferences,
-                                    int includeDepth, int currentDepth) {
+    private void collectPreferences(PreferenceGroup group, int includeDepth, int currentDepth) {
         for (int i = 0, count = group.getPreferenceCount(); i < count; i++) {
             Preference preference = group.getPreference(i);
             if (preference instanceof PreferenceGroup subGroup) {
-                collectPreferences(subGroup, preferences, includeDepth, currentDepth + 1);
+                collectPreferences(subGroup, includeDepth, currentDepth + 1);
             }
 
             if (includeDepth <= currentDepth && !(preference instanceof PreferenceCategory)) {
-                preferences.add(preference);
-                preferenceNavigationPaths.put(preference, getPreferenceNavigationString(preference));
+                allPreferences.put(preference, new PreferenceSearchData(preference));
             }
         }
     }
@@ -232,28 +245,21 @@ public class ReVancedPreferenceFragment extends AbstractPreferenceFragment {
      * Filters the preferences using the given query string.
      */
     public void filterPreferences(String query) {
-        if (preferenceScreen == null || originalPreferenceScreen == null) {
-            Logger.printException(() -> "Screens are null"); // Should never happen.
+        preferenceScreen.removeAll();
+
+        if (TextUtils.isEmpty(query)) {
+            restoreOriginalPreferences(preferenceScreen, originalPreferenceScreen);
             return;
         }
 
-        preferenceScreen.removeAll();
-        if (TextUtils.isEmpty(query)) {
-            restoreOriginalPreferences(preferenceScreen, originalPreferenceScreen);
-        } else {
-            Locale settingsLocale = BaseSettings.REVANCED_LANGUAGE.get().getLocale();
-            String queryLower = query.toLowerCase(settingsLocale);
-            Map<String, PreferenceCategory> categoryMap = new HashMap<>();
+        String queryLower = query.toLowerCase(BaseSettings.REVANCED_LANGUAGE.get().getLocale());
+        Map<String, PreferenceCategory> categoryMap = new HashMap<>();
 
-            for (Preference preference : allPreferences) {
-                CharSequence title = preference.getTitle();
-                CharSequence summary = preference.getSummary();
-                CharSequence key = preference.getKey();
-                if (title != null && title.toString().toLowerCase(settingsLocale).contains(queryLower)
-                        || summary != null && summary.toString().toLowerCase(settingsLocale).contains(queryLower)
-                        || key != null && key.toString().toLowerCase(settingsLocale).contains(queryLower)) {
-                    addPreferenceWithNavigationTitle(preferenceScreen, preference, categoryMap);
-                }
+        for (Map.Entry<Preference, PreferenceSearchData> entry : allPreferences.entrySet()) {
+            PreferenceSearchData data = entry.getValue();
+            if (data.matchesSearchQuery(queryLower)) {
+                addPreferenceWithNavigationTitle(preferenceScreen, entry.getKey(),
+                        data.navigationPath, categoryMap);
             }
         }
     }
@@ -261,13 +267,14 @@ public class ReVancedPreferenceFragment extends AbstractPreferenceFragment {
     /**
      * Adds a preference to the target screen, preserving parent category if applicable.
      */
-    private void addPreferenceWithNavigationTitle(PreferenceScreen targetScreen, Preference preference,
+    private void addPreferenceWithNavigationTitle(PreferenceScreen targetScreen,
+                                                  Preference preference,
+                                                  String navigationPath,
                                                   Map<String, PreferenceCategory> categoryMap) {
-        String navigationString = preferenceNavigationPaths.get(preference);
-        PreferenceCategory group = categoryMap.computeIfAbsent(navigationString, key -> {
-            Logger.printDebug(() -> "Creating result category: '" + navigationString + "'");
+        PreferenceCategory group = categoryMap.computeIfAbsent(navigationPath, key -> {
+            Logger.printDebug(() -> "Creating result category: '" + navigationPath + "'");
             PreferenceCategory newGroup = new PreferenceCategory(preference.getContext());
-            newGroup.setTitle(navigationString);
+            newGroup.setTitle(navigationPath);
             targetScreen.addPreference(newGroup);
             return newGroup;
         });
