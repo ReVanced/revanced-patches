@@ -1,4 +1,4 @@
-package app.revanced.extension.youtube.settings.preference;
+package app.revanced.extension.youtube.returnyoutubedislike.ui;
 
 import android.content.Context;
 import android.content.Intent;

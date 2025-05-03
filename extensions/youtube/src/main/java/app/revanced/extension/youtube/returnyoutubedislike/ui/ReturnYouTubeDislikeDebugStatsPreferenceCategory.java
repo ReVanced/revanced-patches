@@ -1,4 +1,4 @@
-package app.revanced.extension.youtube.settings.preference;
+package app.revanced.extension.youtube.returnyoutubedislike.ui;
 
 import static app.revanced.extension.shared.StringRef.str;
 

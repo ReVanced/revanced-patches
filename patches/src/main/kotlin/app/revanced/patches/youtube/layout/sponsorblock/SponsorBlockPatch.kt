@@ -12,6 +12,7 @@ import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
+import app.revanced.patches.shared.misc.settings.preference.NonInteractivePreference
 import app.revanced.patches.shared.misc.settings.preference.PreferenceCategory
 import app.revanced.patches.shared.misc.settings.preference.PreferenceScreenPreference
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
@@ -50,7 +51,24 @@ private val sponsorBlockResourcePatch = resourcePatch {
                 key = "revanced_settings_screen_10_sponsorblock",
                 sorting = PreferenceScreenPreference.Sorting.UNSORTED,
                 preferences = emptySet(), // Preferences are added by custom class at runtime.
-                tag = "app.revanced.extension.youtube.settings.preference.SponsorBlockPreferenceGroup"
+                tag = "app.revanced.extension.youtube.sponsorblock.ui.SponsorBlockPreferenceGroup"
+            ),
+            PreferenceCategory(
+                key = "revanced_sb_stats",
+                sorting = PreferenceScreenPreference.Sorting.UNSORTED,
+                preferences = emptySet(), // Preferences are added by custom class at runtime.
+                tag = "app.revanced.extension.youtube.sponsorblock.ui.SponsorBlockStatsPreferenceCategory"
+            ),
+            PreferenceCategory(
+                key = "revanced_sb_about",
+                sorting = PreferenceScreenPreference.Sorting.UNSORTED,
+                preferences = setOf(
+                    NonInteractivePreference(
+                        key = "revanced_sb_about_api",
+                        tag = "app.revanced.extension.youtube.sponsorblock.ui.SponsorBlockAboutPreference",
+                        selectable = true,
+                    )
+                )
             )
         )
 

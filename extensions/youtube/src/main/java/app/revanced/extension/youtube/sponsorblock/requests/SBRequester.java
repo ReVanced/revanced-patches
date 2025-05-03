@@ -47,6 +47,9 @@ public class SBRequester {
      */
     private static final int HTTP_STATUS_CODE_SUCCESS = 200;
 
+    @Nullable
+    private static volatile UserStats lastFetchedStats;
+
     private SBRequester() {
     }
 
@@ -252,9 +255,17 @@ public class SBRequester {
     public static UserStats retrieveUserStats() {
         Utils.verifyOffMainThread();
         try {
-            UserStats stats = new UserStats(getJSONObject(SBRoutes.GET_USER_STATS, SponsorBlockSettings.getSBPrivateUserID()));
-            Logger.printDebug(() -> "user stats: " + stats);
-            return stats;
+            UserStats stats = lastFetchedStats;
+            if (stats != null && !stats.isExpired()) {
+                return stats;
+            }
+
+            String privateUserID = SponsorBlockSettings.getSBPrivateUserID();
+            UserStats fetchedStats = new UserStats(privateUserID,
+                    getJSONObject(SBRoutes.GET_USER_STATS, privateUserID));
+            Logger.printDebug(() -> "user stats: " + fetchedStats);
+            lastFetchedStats = fetchedStats;
+            return fetchedStats;
         } catch (IOException ex) {
             Logger.printInfo(() -> "failed to retrieve user stats", ex); // info level, do not show a toast
         } catch (Exception ex) {

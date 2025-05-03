@@ -81,14 +81,14 @@ val returnYouTubeDislikePatch = bytecodePatch(
             SwitchPreference("revanced_ryd_toast_on_connection_error"),
             NonInteractivePreference(
                 key = "revanced_ryd_attribution",
-                tag = "app.revanced.extension.youtube.settings.preference.ReturnYouTubeDislikeAboutPreference",
+                tag = "app.revanced.extension.youtube.returnyoutubedislike.ui.ReturnYouTubeDislikeAboutPreference",
                 selectable = true,
             ),
             PreferenceCategory(
                 key = "revanced_ryd_statistics_category",
                 sorting = PreferenceScreenPreference.Sorting.UNSORTED,
                 preferences = emptySet(), // Preferences are added by custom class at runtime.
-                tag = "app.revanced.extension.youtube.settings.preference.ReturnYouTubeDislikeDebugStatsPreferenceCategory"
+                tag = "app.revanced.extension.youtube.returnyoutubedislike.ui.ReturnYouTubeDislikeDebugStatsPreferenceCategory"
             )
         )
 
