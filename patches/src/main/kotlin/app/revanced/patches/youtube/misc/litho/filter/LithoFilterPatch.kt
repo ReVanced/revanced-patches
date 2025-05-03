@@ -10,11 +10,13 @@ import app.revanced.patcher.extensions.InstructionExtensions.removeInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.util.smali.ExternalLabel
+import app.revanced.patches.youtube.layout.returnyoutubedislike.conversionContextFingerprint
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.playservice.is_19_18_or_greater
 import app.revanced.patches.youtube.misc.playservice.is_19_25_or_greater
 import app.revanced.patches.youtube.misc.playservice.is_20_05_or_greater
 import app.revanced.patches.youtube.misc.playservice.versionCheckPatch
+import app.revanced.util.addInstructionsAtControlFlowLabel
 import app.revanced.util.findFreeRegister
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
@@ -210,34 +212,52 @@ val lithoFilterPatch = bytecodePatch(
             val elementConfigRegister = getInstruction<FiveRegisterInstruction>(elementConfigIndex).registerC
             val identifierRegister = findFreeRegister(returnIndex, elementConfigRegister)
             val stringBuilderRegister = findFreeRegister(returnIndex, elementConfigRegister, identifierRegister)
+            val freeRegister = findFreeRegister(returnIndex, elementConfigRegister, identifierRegister, stringBuilderRegister)
             val invokeFilterInstructions = """
                 iget-object v$identifierRegister, v$elementConfigRegister, $elementConfigIdentifierField
                 iget-object v$stringBuilderRegister, v$elementConfigRegister, $elementConfigStringBuilderField
                 invoke-static { v$identifierRegister, v$stringBuilderRegister }, $EXTENSION_CLASS_DESCRIPTOR->filter(Ljava/lang/String;Ljava/lang/StringBuilder;)Z
-                move-result v$identifierRegister
-                if-eqz v$identifierRegister, :unfiltered
+                move-result v$freeRegister
+                if-eqz v$freeRegister, :unfiltered
             """
 
-            addInstructionsWithLabels(
-                returnIndex,
-                if (is_19_18_or_greater) {
+            if (is_19_18_or_greater) {
+                addInstructionsAtControlFlowLabel(
+                    returnIndex,
                     """
                         $invokeFilterInstructions
 
                         # Return null, and the ComponentContextParserFingerprint hook
                         # handles returning an empty component.
-                        const/4 v$identifierRegister, 0x0
-                        return-object v$identifierRegister
+                        const/4 v$freeRegister, 0x0
+                        return-object v$freeRegister
+                        
+                        :unfiltered
+                        nop
                     """
-                } else {
+                )
+            } else {
+                val elementConfigMethod = conversionContextFingerprint.originalClassDef.methods
+                    .single { method ->
+                        !AccessFlags.STATIC.isSet(method.accessFlags) && method.returnType == elementConfigClassType
+                    }
+
+                addInstructionsAtControlFlowLabel(
+                    returnIndex,
                     """
+                        move-object/from16 v$elementConfigRegister, p2 
+                        invoke-virtual { v$elementConfigRegister }, $elementConfigMethod
+                        move-result-object v$elementConfigRegister
+                        
                         $invokeFilterInstructions
 
                         ${createReturnEmptyComponentInstructions(identifierRegister)}
+                        
+                        :unfiltered
+                        nop
                     """
-                },
-                ExternalLabel("unfiltered", getInstruction(returnIndex)),
-            )
+                )
+            }
         }
 
         // endregion
