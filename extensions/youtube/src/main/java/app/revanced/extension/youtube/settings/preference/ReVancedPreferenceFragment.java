@@ -176,7 +176,6 @@ public class ReVancedPreferenceFragment extends AbstractPreferenceFragment {
     private void collectPreferences(PreferenceGroup group, List<Preference> preferences) {
         for (int i = 0, count = group.getPreferenceCount(); i < count; i++) {
             Preference preference = group.getPreference(i);
-            Logger.printDebug(() -> "Collected preference: " + preference.getKey() + ", title: " + preference.getTitle());
             preferences.add(preference);
             if (preference instanceof PreferenceGroup) {
                 collectPreferences((PreferenceGroup) preference, preferences);
