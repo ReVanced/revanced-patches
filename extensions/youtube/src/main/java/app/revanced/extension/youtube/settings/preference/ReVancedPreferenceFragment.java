@@ -104,8 +104,9 @@ public class ReVancedPreferenceFragment extends AbstractPreferenceFragment {
     private PreferenceScreen originalPreferenceScreen;
 
     /**
-     * A comprehensive list of all preferences, including nested ones, collected from the PreferenceScreen.
-     * Used for filtering and searching through all available preferences.
+     * Used for searching preferences.  A Collection of all preferences including nested preferences.
+     * Root preferences are excluded (no need to search what's on the root screen),
+     * but their sub preferences are included.
      */
     private final Map<Preference, PreferenceSearchData> allPreferences = new LinkedHashMap<>();
 
