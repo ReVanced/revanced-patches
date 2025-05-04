@@ -191,14 +191,6 @@ public class ReVancedPreferenceFragment extends AbstractPreferenceFragment {
             preferenceScreen = getPreferenceScreen();
             Utils.sortPreferenceGroups(preferenceScreen);
 
-            if (!allPreferences.isEmpty()) {
-                Logger.printException(() -> "Preferences already initialized");
-                allPreferences.clear();
-            }
-            // Do not show root menu preferences in search results.
-            // Instead search for everything that's not shown when search is not active.
-            collectPreferences(preferenceScreen, 1, 0);
-
             // Store the original structure for restoration after filtering.
             originalPreferenceScreen = getPreferenceManager().createPreferenceScreen(getContext());
             for (int i = 0, count = preferenceScreen.getPreferenceCount(); i < count; i++) {
@@ -208,6 +200,27 @@ public class ReVancedPreferenceFragment extends AbstractPreferenceFragment {
             setPreferenceScreenToolbar(preferenceScreen);
         } catch (Exception ex) {
             Logger.printException(() -> "initialize failure", ex);
+        }
+    }
+
+    /**
+     * Called when the fragment starts, ensuring all preferences are collected after initialization.
+     */
+    @Override
+    public void onStart() {
+        super.onStart();
+        try {
+            if (allPreferences.isEmpty()) {
+                // Must collect preferences on start and not in initialize since
+                // legacy SB settings are not loaded yet.
+                Logger.printDebug(() -> "Collecting preferences to search");
+
+                // Do not show root menu preferences in search results.
+                // Instead search for everything that's not shown when search is not active.
+                collectPreferences(preferenceScreen, 1, 0);
+            }
+        } catch (Exception ex) {
+            Logger.printException(() -> "onStart failure", ex);
         }
     }
 
