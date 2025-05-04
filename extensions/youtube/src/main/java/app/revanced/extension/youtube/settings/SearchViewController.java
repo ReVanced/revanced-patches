@@ -18,6 +18,7 @@ import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
 import app.revanced.extension.shared.settings.AppLanguage;
 import app.revanced.extension.shared.settings.BaseSettings;
+import app.revanced.extension.shared.StringRef;
 import app.revanced.extension.youtube.ThemeHelper;
 import app.revanced.extension.youtube.settings.preference.ReVancedPreferenceFragment;
 
@@ -93,8 +94,11 @@ public class SearchViewController {
         searchView = activity.findViewById(getResourceIdentifier("revanced_search_view", "id"));
         searchContainer = activity.findViewById(getResourceIdentifier("revanced_search_view_container", "id"));
 
-        // Set background
+        // Set background.
         searchView.setBackground(createBackgroundDrawable(toolbar.getContext()));
+
+        // Set query hint.
+        searchView.setQueryHint(StringRef.str("revanced_search_settings"));
 
         // Configure RTL support based on app language
         AppLanguage appLanguage = BaseSettings.REVANCED_LANGUAGE.get(); // Get language from ReVanced settings
@@ -103,7 +107,7 @@ public class SearchViewController {
             searchView.setTextAlignment(View.TEXT_ALIGNMENT_VIEW_END);
         }
 
-        // Set up query text listener
+        // Set up query text listener.
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
