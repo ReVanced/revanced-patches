@@ -45,6 +45,10 @@ internal val readComponentIdentifierFingerprint = fingerprint {
     strings("Number of bits must be positive")
 }
 
+internal val elementConfigFingerprint = fingerprint {
+    strings(" enableDroppedFrameLogging", " elementDepthInTree")
+}
+
 internal val emptyComponentFingerprint = fingerprint {
     accessFlags(AccessFlags.PRIVATE, AccessFlags.CONSTRUCTOR)
     parameters()
