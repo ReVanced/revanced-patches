@@ -51,9 +51,9 @@ public class ReVancedPreferenceFragment extends AbstractPreferenceFragment {
         final String navigationPath;
 
         PreferenceSearchData(Preference preference) {
-            key = Utils.removePunctuationConvertToLowercase(preference.getKey());
-            title = Utils.removePunctuationConvertToLowercase(preference.getTitle());
-            summary = Utils.removePunctuationConvertToLowercase(preference.getSummary());
+            key = Utils.removePunctuationToLowercase(preference.getKey());
+            title = Utils.removePunctuationToLowercase(preference.getTitle());
+            summary = Utils.removePunctuationToLowercase(preference.getSummary());
             navigationPath = getPreferenceNavigationString(preference);
         }
 
@@ -191,6 +191,14 @@ public class ReVancedPreferenceFragment extends AbstractPreferenceFragment {
             preferenceScreen = getPreferenceScreen();
             Utils.sortPreferenceGroups(preferenceScreen);
 
+            if (!allPreferences.isEmpty()) {
+                Logger.printException(() -> "Preferences already initialized");
+                allPreferences.clear();
+            }
+            // Do not show root menu preferences in search results.
+            // Instead search for everything that's not shown when search is not active.
+            collectPreferences(preferenceScreen, 1, 0);
+
             // Store the original structure for restoration after filtering.
             originalPreferenceScreen = getPreferenceManager().createPreferenceScreen(getContext());
             for (int i = 0, count = preferenceScreen.getPreferenceCount(); i < count; i++) {
@@ -200,25 +208,6 @@ public class ReVancedPreferenceFragment extends AbstractPreferenceFragment {
             setPreferenceScreenToolbar(preferenceScreen);
         } catch (Exception ex) {
             Logger.printException(() -> "initialize failure", ex);
-        }
-    }
-
-    /**
-     * Called when the fragment starts, ensuring all preferences are collected after initialization.
-     */
-    @Override
-    public void onStart() {
-        super.onStart();
-        try {
-            // Update the list of all settings after initializing all groups.
-            Logger.printDebug(() -> "Collecting preferences to search");
-
-            allPreferences.clear();
-            // Do not show root menu preferences in search results.
-            // Instead search for everything that's not shown when search is not active.
-            collectPreferences(preferenceScreen, 1, 0);
-        } catch (Exception ex) {
-            Logger.printException(() -> "onStart failure", ex);
         }
     }
 
@@ -247,7 +236,6 @@ public class ReVancedPreferenceFragment extends AbstractPreferenceFragment {
         preferenceScreen.removeAll();
 
         if (TextUtils.isEmpty(query)) {
-            preferenceScreen.removeAll();
             for (int i = 0, count = originalPreferenceScreen.getPreferenceCount(); i < count; i++) {
                 preferenceScreen.addPreference(originalPreferenceScreen.getPreference(i));
             }
@@ -256,7 +244,7 @@ public class ReVancedPreferenceFragment extends AbstractPreferenceFragment {
 
         // Navigation path -> Category
         Map<String, PreferenceCategory> categoryMap = new HashMap<>(50);
-        String queryLower = query.toLowerCase(BaseSettings.REVANCED_LANGUAGE.get().getLocale());
+        String queryLower = Utils.removePunctuationToLowercase(query);
 
         for (Map.Entry<Preference, PreferenceSearchData> entry : allPreferences.entrySet()) {
             PreferenceSearchData data = entry.getValue();

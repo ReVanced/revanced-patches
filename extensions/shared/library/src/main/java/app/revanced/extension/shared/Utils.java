@@ -705,7 +705,7 @@ public class Utils {
     /**
      * Strips all punctuation and converts to lower case.  A null parameter returns an empty string.
      */
-    public static String removePunctuationConvertToLowercase(@Nullable CharSequence original) {
+    public static String removePunctuationToLowercase(@Nullable CharSequence original) {
         if (original == null) return "";
         return punctuationPattern.matcher(original).replaceAll("")
                 .toLowerCase(BaseSettings.REVANCED_LANGUAGE.get().getLocale());
@@ -740,7 +740,7 @@ public class Utils {
             final String sortValue;
             switch (preferenceSort) {
                 case BY_TITLE:
-                    sortValue = removePunctuationConvertToLowercase(preference.getTitle());
+                    sortValue = removePunctuationToLowercase(preference.getTitle());
                     break;
                 case BY_KEY:
                     sortValue = preference.getKey();
