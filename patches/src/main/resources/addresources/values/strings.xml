@@ -957,28 +957,29 @@ This feature works best with a video quality of 720p or lower and when using a v
         </patch>
         <patch id="layout.sponsorblock.sponsorBlockResourcePatch">
             <string name="revanced_settings_screen_10_sponsorblock_title" translatable="false">SponsorBlock</string>
-            <string name="revanced_sb_enable_sb">Enable SponsorBlock</string>
-            <string name="revanced_sb_enable_sb_sum">SponsorBlock is a crowdsourced system for skipping annoying parts of YouTube videos</string>
-            <string name="revanced_sb_appearance_category">Appearance</string>
-            <string name="revanced_sb_enable_voting">Show voting button</string>
-            <string name="revanced_sb_enable_voting_sum_on">Segment voting button is shown</string>
-            <string name="revanced_sb_enable_voting_sum_off">Segment voting button is not shown</string>
-            <string name="revanced_sb_square_layout">Use square layout</string>
-            <string name="revanced_sb_square_layout_sum_on">Buttons and controls are square</string>
-            <string name="revanced_sb_square_layout_sum_off">Buttons and controls are rounded</string>
+            <string name="revanced_sb_enabled_title" translatable="false">SponsorBlock</string>
+            <string name="revanced_sb_enabled_summary_on">SponsorBlock is a crowdsourced system for skipping annoying parts of YouTube videos</string>
+            <string name="revanced_sb_enabled_summary_off">SponsorBlock is disabled</string>
+            <string name="revanced_sb_appearance_category_title">Appearance</string>
+            <string name="revanced_sb_voting_button_title">Show voting button</string>
+            <string name="revanced_sb_voting_button_summary_on">Segment voting button is shown</string>
+            <string name="revanced_sb_voting_button_summary_off">Segment voting button is not shown</string>
             <!-- Translations should use language similar to 'revanced_ryd_compact_layout_title' -->
-            <string name="revanced_sb_enable_compact_skip_button">Use compact Skip button</string>
-            <string name="revanced_sb_enable_compact_skip_button_sum_on">Skip button styled for minimum width</string>
-            <string name="revanced_sb_enable_compact_skip_button_sum_off">Skip button styled for best appearance</string>
-            <string name="revanced_sb_enable_auto_hide_skip_segment_button">Automatically hide Skip button</string>
-            <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_on">Skip button hides after a few seconds</string>
-            <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_off">Skip button is shown for the entire segment</string>
-            <string name="revanced_sb_general_skiptoast">Show a toast when skipping</string>
-            <string name="revanced_sb_general_skiptoast_sum_on">Toast is shown when a segment is automatically skipped. Tap here to see an example</string>
-            <string name="revanced_sb_general_skiptoast_sum_off">Toast is not shown. Tap here to see an example</string>
-            <string name="revanced_sb_general_time_without">Show video length without segments</string>
-            <string name="revanced_sb_general_time_without_sum_on">Video length minus all segments, shown in parentheses next to the full video length</string>
-            <string name="revanced_sb_general_time_without_sum_off">Full video length shown</string>
+            <string name="revanced_sb_compact_skip_button_title">Use compact Skip button</string>
+            <string name="revanced_sb_compact_skip_button_summary_on">Skip button styled for minimum width</string>
+            <string name="revanced_sb_compact_skip_button_summary_off">Skip button styled for best appearance</string>
+            <string name="revanced_sb_square_layout_title">Use square layout</string>
+            <string name="revanced_sb_square_layout_summary_on">Buttons and controls are square</string>
+            <string name="revanced_sb_square_layout_summary_off">Buttons and controls are rounded</string>
+            <string name="revanced_sb_auto_hide_skip_button_title">Automatically hide Skip button</string>
+            <string name="revanced_sb_auto_hide_skip_button_summary_on">Skip button hides after a few seconds</string>
+            <string name="revanced_sb_auto_hide_skip_button_summary_off">Skip button is shown for the entire segment</string>
+            <string name="revanced_sb_toast_on_skip_title">Show a toast when skipping</string>
+            <string name="revanced_sb_toast_on_skip_summary_on">Toast is shown when a segment is automatically skipped. Tap here to see an example</string>
+            <string name="revanced_sb_toast_on_skip_summary_off">Toast is not shown. Tap here to see an example</string>
+            <string name="revanced_sb_video_length_without_segments_title">Show video length without segments</string>
+            <string name="revanced_sb_video_length_without_segments_summary_on">Video length minus all segments, shown in parentheses next to the full video length</string>
+            <string name="revanced_sb_video_length_without_segments_summary_off">Full video length shown</string>
             <string name="revanced_sb_create_segment_category">Creating new segments</string>
             <string name="revanced_sb_enable_create_segment">Show Create new segment button</string>
             <string name="revanced_sb_enable_create_segment_sum_on">Create new segment button is shown</string>

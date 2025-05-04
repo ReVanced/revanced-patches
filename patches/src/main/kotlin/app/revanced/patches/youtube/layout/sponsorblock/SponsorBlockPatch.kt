@@ -15,6 +15,7 @@ import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
 import app.revanced.patches.shared.misc.settings.preference.NonInteractivePreference
 import app.revanced.patches.shared.misc.settings.preference.PreferenceCategory
 import app.revanced.patches.shared.misc.settings.preference.PreferenceScreenPreference
+import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.playercontrols.*
 import app.revanced.patches.youtube.misc.playertype.playerTypeHookPatch
@@ -32,6 +33,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.*
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import com.android.tools.smali.dexlib2.iface.reference.StringReference
+import jdk.internal.org.jline.keymap.KeyMap.key
 
 private val sponsorBlockResourcePatch = resourcePatch {
     dependsOn(
@@ -44,14 +46,35 @@ private val sponsorBlockResourcePatch = resourcePatch {
     execute {
         addResources("youtube", "layout.sponsorblock.sponsorBlockResourcePatch")
 
+        // SponsorBlock settings use old legacy keys that lack "revanced_" prefix.
+        // This should be migrated to use a prefix, but until
+        // all the old legacy UI code is migrated keep this as-is.
+        fun createSwitchWithLegacyKey(key: String) = SwitchPreference(
+            key = key.substring("revanced_".length),
+            titleKey = key + "_title",
+            summaryOnKey = key + "_summary_on",
+            summaryOffKey = key + "_summary_off"
+        )
+
         PreferenceScreen.SPONSORBLOCK.addPreferences(
-            // SB setting is old code with lots of custom preferences and updating behavior.
-            // Added as a preference group and not a fragment so the preferences are searchable.
+            createSwitchWithLegacyKey("revanced_sb_enabled"),
             PreferenceCategory(
+                key = "revanced_sb_appearance_category",
+                sorting = PreferenceScreenPreference.Sorting.UNSORTED,
+                preferences = setOf(
+                    createSwitchWithLegacyKey("revanced_sb_voting_button"),
+                    createSwitchWithLegacyKey("revanced_sb_auto_hide_skip_button"),
+                    createSwitchWithLegacyKey("revanced_sb_compact_skip_button"),
+                    createSwitchWithLegacyKey("revanced_sb_square_layout"),
+                    createSwitchWithLegacyKey("revanced_sb_toast_on_skip"),
+                    createSwitchWithLegacyKey("revanced_sb_video_length_without_segments")
+                )
+            ),
+            PreferenceCategory( // TODO: Migrate these legacy settings to individual custom preferences.
                 key = "revanced_settings_screen_10_sponsorblock",
                 sorting = PreferenceScreenPreference.Sorting.UNSORTED,
                 preferences = emptySet(), // Preferences are added by custom class at runtime.
-                tag = "app.revanced.extension.youtube.sponsorblock.ui.SponsorBlockPreferenceGroup"
+                tag = "app.revanced.extension.youtube.sponsorblock.ui.SponsorBlockLegacySettingsGroup"
             ),
             PreferenceCategory(
                 key = "revanced_sb_stats",
@@ -66,7 +89,7 @@ private val sponsorBlockResourcePatch = resourcePatch {
                     NonInteractivePreference(
                         key = "revanced_sb_about_api",
                         tag = "app.revanced.extension.youtube.sponsorblock.ui.SponsorBlockAboutPreference",
-                        selectable = true,
+                        selectable = true
                     )
                 )
             )
