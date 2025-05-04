@@ -157,7 +157,7 @@ val lithoFilterPatch = bytecodePatch(
         componentContextParserFingerprint.classDef.fields.add(lithoFilterResultField)
 
         // Returns an empty component instead of the original component.
-        fun createReturnEmptyComponentInstructions(free: Int): String = """
+        fun returnEmptyComponentInstructions(free: Int): String = """
             move-object/from16 v$free, p0
             iget-boolean v$free, v$free, $lithoFilterResultField
             if-eqz v$free, :unfiltered
@@ -181,7 +181,7 @@ val lithoFilterPatch = bytecodePatch(
 
                     addInstructionsAtControlFlowLabel(
                         index,
-                        createReturnEmptyComponentInstructions(free)
+                        returnEmptyComponentInstructions(free)
                     )
                 }
             }
@@ -261,7 +261,7 @@ val lithoFilterPatch = bytecodePatch(
                         
                         $invokeFilterInstructions
 
-                        ${createReturnEmptyComponentInstructions(freeRegister)}
+                        ${returnEmptyComponentInstructions(freeRegister)}
                     """
                 )
             }
