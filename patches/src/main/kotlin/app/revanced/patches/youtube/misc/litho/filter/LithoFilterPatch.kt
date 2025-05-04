@@ -7,6 +7,7 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.removeInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
+import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableField.Companion.toMutable
 import app.revanced.patches.youtube.layout.returnyoutubedislike.conversionContextFingerprint
@@ -20,6 +21,7 @@ import app.revanced.util.findFreeRegister
 import app.revanced.util.findInstructionIndicesReversedOrThrow
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
+import app.revanced.util.indexOfFirstInstructionReversed
 import app.revanced.util.indexOfFirstInstructionReversedOrThrow
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
@@ -57,10 +59,13 @@ val lithoFilterPatch = bytecodePatch(
      * The buffer is a large byte array that represents the component tree.
      * This byte array is searched for strings that indicate the current component.
      *
-     * The following pseudocode shows how the patch works:
+     * All modifications done here must allow all the original code to still execute
+     * even when filtering, otherwise memory leaks or poor app performance may occur.
+     *
+     * The following pseudocode shows how this patch works:
      *
      * class SomeOtherClass {
-     *    // Called before ComponentContextParser.parseBytesToComponentContext method.
+     *    // Called before ComponentContextParser.readComponentIdentifier(...) method.
      *    public void someOtherMethod(ByteBuffer byteBuffer) {
      *        ExtensionClass.setProtoBuffer(byteBuffer); // Inserted by this patch.
      *        ...
@@ -70,29 +75,32 @@ val lithoFilterPatch = bytecodePatch(
      * When patching 19.16:
      *
      * class ComponentContextParser {
-     *    public ComponentContext ReadComponentIdentifierFingerprint(...) {
+     *    public Component readComponentIdentifier(...) {
      *        ...
-     *        if (extensionClass.filter(identifier, pathBuilder)); // Inserted by this patch.
+     *        if (extensionClass.filter(identifier, pathBuilder)) { // Inserted by this patch.
      *            return emptyComponent;
-     *        ...
+     *        }
+     *        return originalUnpatchedComponent;
      *    }
      * }
      *
      * When patching 19.18 and later:
      *
      * class ComponentContextParser {
-     *    public ComponentContext parseBytesToComponentContext(...) {
+     *    public ComponentIdentifierObj readComponentIdentifier(...) {
      *        ...
-     *        if (this.patch_isFiltered); // Inserted by this patch.
-     *            return emptyComponent;
+     *        if (extensionClass.filter(identifier, pathBuilder)) { // Inserted by this patch.
+     *            this.patch_isFiltered = true;
+     *        }
      *        ...
      *    }
      *
-     *    public ComponentIdentifierObj readComponentIdentifier(...) {
+     *    public Component parseBytesToComponentContext(...) {
      *        ...
-     *        if (extensionClass.filter(identifier, pathBuilder)); // Inserted by this patch.
-     *            this.patch_isFiltered = true;
-     *        ...
+     *        if (this.patch_isFiltered) { // Inserted by this patch.
+     *            return emptyComponent;
+     *        }
+     *        return originalUnpatchedComponent;
      *    }
      * }
      */
@@ -119,7 +127,7 @@ val lithoFilterPatch = bytecodePatch(
 
         protobufBufferReferenceFingerprint.method.addInstruction(
             0,
-            " invoke-static { p2 }, $EXTENSION_CLASS_DESCRIPTOR->setProtoBuffer(Ljava/nio/ByteBuffer;)V",
+            "invoke-static { p2 }, $EXTENSION_CLASS_DESCRIPTOR->setProtoBuffer(Ljava/nio/ByteBuffer;)V",
         )
 
         // endregion
@@ -185,6 +193,9 @@ val lithoFilterPatch = bytecodePatch(
 
         readComponentIdentifierFingerprint.method.apply {
             val returnIndex = indexOfFirstInstructionReversedOrThrow(Opcode.RETURN_OBJECT)
+            if (indexOfFirstInstructionReversed(returnIndex - 1, Opcode.RETURN_OBJECT) >= 0) {
+                throw PatchException("Found multiple return indexes") // Patch needs an update.
+            }
 
             val elementConfigClass = elementConfigFingerprint.originalClassDef
             val elementConfigClassType = elementConfigClass.type
@@ -212,11 +223,14 @@ val lithoFilterPatch = bytecodePatch(
                 }
             ).getReference<FieldReference>()
 
+            // Could use some of these free registers multiple times, but this is inserting at a
+            // return instruction so there is always multiple 4-bit registers available.
             val elementConfigRegister = getInstruction<FiveRegisterInstruction>(elementConfigIndex).registerC
             val identifierRegister = findFreeRegister(returnIndex, elementConfigRegister)
             val stringBuilderRegister = findFreeRegister(returnIndex, elementConfigRegister, identifierRegister)
-            val freeRegister = findFreeRegister(returnIndex, elementConfigRegister, identifierRegister, stringBuilderRegister)
-            val thisRegister = findFreeRegister(returnIndex, elementConfigRegister, identifierRegister, stringBuilderRegister, freeRegister)
+            val thisRegister = findFreeRegister(returnIndex, elementConfigRegister, identifierRegister, stringBuilderRegister)
+            val freeRegister = findFreeRegister(returnIndex, elementConfigRegister, identifierRegister, stringBuilderRegister, thisRegister)
+
             val invokeFilterInstructions = """
                 iget-object v$identifierRegister, v$elementConfigRegister, $elementConfigIdentifierField
                 iget-object v$stringBuilderRegister, v$elementConfigRegister, $elementConfigStringBuilderField
@@ -240,13 +254,14 @@ val lithoFilterPatch = bytecodePatch(
                 addInstructionsAtControlFlowLabel(
                     returnIndex,
                     """
+                        # Element config is a method on a parameter.
                         move-object/from16 v$elementConfigRegister, p2 
                         invoke-virtual { v$elementConfigRegister }, $elementConfigMethod
                         move-result-object v$elementConfigRegister
                         
                         $invokeFilterInstructions
 
-                        ${createReturnEmptyComponentInstructions(identifierRegister)}
+                        ${createReturnEmptyComponentInstructions(freeRegister)}
                     """
                 )
             }
