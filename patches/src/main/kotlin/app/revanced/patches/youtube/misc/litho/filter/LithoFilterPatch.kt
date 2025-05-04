@@ -4,12 +4,11 @@ package app.revanced.patches.youtube.misc.litho.filter
 
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.removeInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patcher.util.smali.ExternalLabel
+import app.revanced.patcher.util.proxy.mutableTypes.MutableField.Companion.toMutable
 import app.revanced.patches.youtube.layout.returnyoutubedislike.conversionContextFingerprint
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.playservice.is_19_18_or_greater
@@ -18,6 +17,7 @@ import app.revanced.patches.youtube.misc.playservice.is_20_05_or_greater
 import app.revanced.patches.youtube.misc.playservice.versionCheckPatch
 import app.revanced.util.addInstructionsAtControlFlowLabel
 import app.revanced.util.findFreeRegister
+import app.revanced.util.findInstructionIndicesReversedOrThrow
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
 import app.revanced.util.indexOfFirstInstructionReversedOrThrow
@@ -28,6 +28,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
+import com.android.tools.smali.dexlib2.immutable.ImmutableField
 
 lateinit var addLithoFilter: (String) -> Unit
     private set
@@ -66,7 +67,7 @@ val lithoFilterPatch = bytecodePatch(
      *   }
      * }
      *
-     * When patching 19.17 and earlier:
+     * When patching 19.16:
      *
      * class ComponentContextParser {
      *    public ComponentContext ReadComponentIdentifierFingerprint(...) {
@@ -82,7 +83,7 @@ val lithoFilterPatch = bytecodePatch(
      * class ComponentContextParser {
      *    public ComponentContext parseBytesToComponentContext(...) {
      *        ...
-     *        if (ReadComponentIdentifierFingerprint() == null); // Inserted by this patch.
+     *        if (this.patch_isFiltered); // Inserted by this patch.
      *            return emptyComponent;
      *        ...
      *    }
@@ -90,7 +91,7 @@ val lithoFilterPatch = bytecodePatch(
      *    public ComponentIdentifierObj readComponentIdentifier(...) {
      *        ...
      *        if (extensionClass.filter(identifier, pathBuilder)); // Inserted by this patch.
-     *            return null;
+     *            this.patch_isFiltered = true;
      *        ...
      *    }
      * }
@@ -125,7 +126,6 @@ val lithoFilterPatch = bytecodePatch(
 
         // region Hook the method that parses bytes into a ComponentContext.
 
-        val readComponentMethod = readComponentIdentifierFingerprint.originalMethod
         // Get the only static method in the class.
         val builderMethodDescriptor = emptyComponentFingerprint.classDef.methods.first { method ->
             AccessFlags.STATIC.isSet(method.accessFlags)
@@ -135,44 +135,47 @@ val lithoFilterPatch = bytecodePatch(
             builderMethodDescriptor.returnType == classDef.type
         }!!.immutableClass.fields.single()
 
+        // Add a field to store the result of the filtering. This allows checking the field
+        // just before returning so the original code always runs the same when filtering occurs.
+        val lithoFilterResultField = ImmutableField(
+            componentContextParserFingerprint.classDef.type,
+            "patch_isFiltered",
+            "Z",
+            AccessFlags.PRIVATE.value,
+            null,
+            null,
+            null,
+        ).toMutable()
+        componentContextParserFingerprint.classDef.fields.add(lithoFilterResultField)
+
         // Returns an empty component instead of the original component.
-        fun createReturnEmptyComponentInstructions(register: Int): String =
-            """
-                move-object/from16 v$register, p1
-                invoke-static { v$register }, $builderMethodDescriptor
-                move-result-object v$register
-                iget-object v$register, v$register, $emptyComponentField
-                return-object v$register
-            """
+        fun createReturnEmptyComponentInstructions(free: Int): String = """
+            move-object/from16 v$free, p0
+            iget-boolean v$free, v$free, $lithoFilterResultField
+            if-eqz v$free, :unfiltered
+            
+            move-object/from16 v$free, p1
+            invoke-static { v$free }, $builderMethodDescriptor
+            move-result-object v$free
+            iget-object v$free, v$free, $emptyComponentField
+            return-object v$free
+            
+            :unfiltered
+            nop
+        """
 
         componentContextParserFingerprint.method.apply {
             // 19.18 and later require patching 2 methods instead of one.
             // Otherwise the modifications done here are the same for all targets.
             if (is_19_18_or_greater) {
-                // Get the method name of the ReadComponentIdentifierFingerprint call.
-                val readComponentMethodCallIndex = indexOfFirstInstructionOrThrow {
-                    val reference = getReference<MethodReference>()
-                    reference?.definingClass == readComponentMethod.definingClass &&
-                        reference.name == readComponentMethod.name
+                findInstructionIndicesReversedOrThrow(Opcode.RETURN_OBJECT).forEach { index ->
+                    val free = findFreeRegister(index)
+
+                    addInstructionsAtControlFlowLabel(
+                        index,
+                        createReturnEmptyComponentInstructions(free)
+                    )
                 }
-
-                // Result of read component, and also a free register.
-                val register = getInstruction<OneRegisterInstruction>(readComponentMethodCallIndex + 1).registerA
-
-                // Insert after 'move-result-object'
-                val insertHookIndex = readComponentMethodCallIndex + 2
-
-                // Return an EmptyComponent instead of the original component if the filterState method returns true.
-                addInstructionsWithLabels(
-                    insertHookIndex,
-                    """
-                        if-nez v$register, :unfiltered
-
-                        # Component was filtered in ReadComponentIdentifierFingerprint hook
-                        ${createReturnEmptyComponentInstructions(register)}
-                    """,
-                    ExternalLabel("unfiltered", getInstruction(insertHookIndex)),
-                )
             }
         }
 
@@ -213,28 +216,20 @@ val lithoFilterPatch = bytecodePatch(
             val identifierRegister = findFreeRegister(returnIndex, elementConfigRegister)
             val stringBuilderRegister = findFreeRegister(returnIndex, elementConfigRegister, identifierRegister)
             val freeRegister = findFreeRegister(returnIndex, elementConfigRegister, identifierRegister, stringBuilderRegister)
+            val thisRegister = findFreeRegister(returnIndex, elementConfigRegister, identifierRegister, stringBuilderRegister, freeRegister)
             val invokeFilterInstructions = """
                 iget-object v$identifierRegister, v$elementConfigRegister, $elementConfigIdentifierField
                 iget-object v$stringBuilderRegister, v$elementConfigRegister, $elementConfigStringBuilderField
                 invoke-static { v$identifierRegister, v$stringBuilderRegister }, $EXTENSION_CLASS_DESCRIPTOR->filter(Ljava/lang/String;Ljava/lang/StringBuilder;)Z
                 move-result v$freeRegister
-                if-eqz v$freeRegister, :unfiltered
+                move-object/from16 v$thisRegister, p0
+                iput-boolean v$freeRegister, v$thisRegister, $lithoFilterResultField
             """
 
             if (is_19_18_or_greater) {
                 addInstructionsAtControlFlowLabel(
                     returnIndex,
-                    """
-                        $invokeFilterInstructions
-
-                        # Return null, and the ComponentContextParserFingerprint hook
-                        # handles returning an empty component.
-                        const/4 v$freeRegister, 0x0
-                        return-object v$freeRegister
-                        
-                        :unfiltered
-                        nop
-                    """
+                    invokeFilterInstructions
                 )
             } else {
                 val elementConfigMethod = conversionContextFingerprint.originalClassDef.methods
@@ -252,9 +247,6 @@ val lithoFilterPatch = bytecodePatch(
                         $invokeFilterInstructions
 
                         ${createReturnEmptyComponentInstructions(identifierRegister)}
-                        
-                        :unfiltered
-                        nop
                     """
                 )
             }
