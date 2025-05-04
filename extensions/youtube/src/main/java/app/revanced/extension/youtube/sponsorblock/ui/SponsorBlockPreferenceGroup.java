@@ -31,15 +31,22 @@ import app.revanced.extension.youtube.sponsorblock.objects.SegmentCategoryListPr
  * but instead it's wrapped in this group container and all logic is handled here.
  */
 @SuppressWarnings({"unused", "deprecation"})
-public class SponsorBlockLegacySettingsGroup extends PreferenceGroup {
+public class SponsorBlockPreferenceGroup extends PreferenceGroup {
 
     /**
      * Settings were recently imported, and the UI needs to be updated.
      */
     public static boolean settingsImported;
 
+    private SwitchPreference sbEnabled;
     private SwitchPreference addNewSegment;
+    private SwitchPreference votingEnabled;
+    private SwitchPreference autoHideSkipSegmentButton;
+    private SwitchPreference compactSkipButton;
+    private SwitchPreference squareLayout;
+    private SwitchPreference showSkipToast;
     private SwitchPreference trackSkips;
+    private SwitchPreference showTimeWithoutSegments;
     private SwitchPreference toastOnConnectionError;
 
     private ResettableEditTextPreference newSegmentStep;
@@ -50,15 +57,15 @@ public class SponsorBlockLegacySettingsGroup extends PreferenceGroup {
 
     private PreferenceCategory segmentCategory;
 
-    public SponsorBlockLegacySettingsGroup(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
+    public SponsorBlockPreferenceGroup(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
     }
 
-    public SponsorBlockLegacySettingsGroup(Context context, AttributeSet attrs, int defStyleAttr) {
+    public SponsorBlockPreferenceGroup(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
     }
 
-    public SponsorBlockLegacySettingsGroup(Context context, AttributeSet attrs) {
+    public SponsorBlockPreferenceGroup(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
 
@@ -84,14 +91,34 @@ public class SponsorBlockLegacySettingsGroup extends PreferenceGroup {
 
             SponsorBlockViewController.updateLayout();
 
+            sbEnabled.setChecked(enabled);
+
             addNewSegment.setChecked(Settings.SB_CREATE_NEW_SEGMENT.get());
             addNewSegment.setEnabled(enabled);
+
+            votingEnabled.setChecked(Settings.SB_VOTING_BUTTON.get());
+            votingEnabled.setEnabled(enabled);
+
+            autoHideSkipSegmentButton.setEnabled(enabled);
+            autoHideSkipSegmentButton.setChecked(Settings.SB_AUTO_HIDE_SKIP_BUTTON.get());
+
+            compactSkipButton.setChecked(Settings.SB_COMPACT_SKIP_BUTTON.get());
+            compactSkipButton.setEnabled(enabled);
+
+            squareLayout.setChecked(Settings.SB_SQUARE_LAYOUT.get());
+            squareLayout.setEnabled(enabled);
+
+            showSkipToast.setChecked(Settings.SB_TOAST_ON_SKIP.get());
+            showSkipToast.setEnabled(enabled);
 
             toastOnConnectionError.setChecked(Settings.SB_TOAST_ON_CONNECTION_ERROR.get());
             toastOnConnectionError.setEnabled(enabled);
 
             trackSkips.setChecked(Settings.SB_TRACK_SKIP_COUNT.get());
             trackSkips.setEnabled(enabled);
+
+            showTimeWithoutSegments.setChecked(Settings.SB_VIDEO_LENGTH_WITHOUT_SEGMENTS.get());
+            showTimeWithoutSegments.setEnabled(enabled);
 
             newSegmentStep.setText((Settings.SB_CREATE_NEW_SEGMENT_STEP.get()).toString());
             newSegmentStep.setEnabled(enabled);
@@ -120,7 +147,7 @@ public class SponsorBlockLegacySettingsGroup extends PreferenceGroup {
         try {
             super.onAttachedToActivity();
 
-            if (addNewSegment != null) {
+            if (sbEnabled != null) {
                 if (settingsImported) {
                     settingsImported = false;
                     updateUI();
@@ -131,6 +158,18 @@ public class SponsorBlockLegacySettingsGroup extends PreferenceGroup {
             Logger.printDebug(() -> "Creating settings preferences");
             Context context = getContext();
             SponsorBlockSettings.initialize();
+
+            sbEnabled = new SwitchPreference(context);
+            sbEnabled.setTitle(str("revanced_sb_enable_sb"));
+            sbEnabled.setSummary(str("revanced_sb_enable_sb_sum"));
+            addPreference(sbEnabled);
+            sbEnabled.setOnPreferenceChangeListener((preference1, newValue) -> {
+                Settings.SB_ENABLED.save((Boolean) newValue);
+                updateUI();
+                return true;
+            });
+
+            addAppearanceCategory(context);
 
             segmentCategory = new PreferenceCategory(context);
             segmentCategory.setTitle(str("revanced_sb_diff_segments"));
@@ -147,6 +186,82 @@ public class SponsorBlockLegacySettingsGroup extends PreferenceGroup {
         } catch (Exception ex) {
             Logger.printException(() -> "onAttachedToActivity failure", ex);
         }
+    }
+
+    private void addAppearanceCategory(Context context) {
+        PreferenceCategory category = new PreferenceCategory(context);
+        addPreference(category);
+        category.setTitle(str("revanced_sb_appearance_category"));
+
+        votingEnabled = new SwitchPreference(context);
+        votingEnabled.setTitle(str("revanced_sb_enable_voting"));
+        votingEnabled.setSummaryOn(str("revanced_sb_enable_voting_sum_on"));
+        votingEnabled.setSummaryOff(str("revanced_sb_enable_voting_sum_off"));
+        category.addPreference(votingEnabled);
+        votingEnabled.setOnPreferenceChangeListener((preference1, newValue) -> {
+            Settings.SB_VOTING_BUTTON.save((Boolean) newValue);
+            updateUI();
+            return true;
+        });
+
+        autoHideSkipSegmentButton = new SwitchPreference(context);
+        autoHideSkipSegmentButton.setTitle(str("revanced_sb_enable_auto_hide_skip_segment_button"));
+        autoHideSkipSegmentButton.setSummaryOn(str("revanced_sb_enable_auto_hide_skip_segment_button_sum_on"));
+        autoHideSkipSegmentButton.setSummaryOff(str("revanced_sb_enable_auto_hide_skip_segment_button_sum_off"));
+        category.addPreference(autoHideSkipSegmentButton);
+        autoHideSkipSegmentButton.setOnPreferenceChangeListener((preference1, newValue) -> {
+            Settings.SB_AUTO_HIDE_SKIP_BUTTON.save((Boolean) newValue);
+            updateUI();
+            return true;
+        });
+
+        compactSkipButton = new SwitchPreference(context);
+        compactSkipButton.setTitle(str("revanced_sb_enable_compact_skip_button"));
+        compactSkipButton.setSummaryOn(str("revanced_sb_enable_compact_skip_button_sum_on"));
+        compactSkipButton.setSummaryOff(str("revanced_sb_enable_compact_skip_button_sum_off"));
+        category.addPreference(compactSkipButton);
+        compactSkipButton.setOnPreferenceChangeListener((preference1, newValue) -> {
+            Settings.SB_COMPACT_SKIP_BUTTON.save((Boolean) newValue);
+            updateUI();
+            return true;
+        });
+
+        squareLayout = new SwitchPreference(context);
+        squareLayout.setTitle(str("revanced_sb_square_layout"));
+        squareLayout.setSummaryOn(str("revanced_sb_square_layout_sum_on"));
+        squareLayout.setSummaryOff(str("revanced_sb_square_layout_sum_off"));
+        category.addPreference(squareLayout);
+        squareLayout.setOnPreferenceChangeListener((preference1, newValue) -> {
+            Settings.SB_SQUARE_LAYOUT.save((Boolean) newValue);
+            updateUI();
+            return true;
+        });
+
+        showSkipToast = new SwitchPreference(context);
+        showSkipToast.setTitle(str("revanced_sb_general_skiptoast"));
+        showSkipToast.setSummaryOn(str("revanced_sb_general_skiptoast_sum_on"));
+        showSkipToast.setSummaryOff(str("revanced_sb_general_skiptoast_sum_off"));
+        showSkipToast.setOnPreferenceClickListener(preference1 -> {
+            Utils.showToastShort(str("revanced_sb_skipped_sponsor"));
+            return false;
+        });
+        showSkipToast.setOnPreferenceChangeListener((preference1, newValue) -> {
+            Settings.SB_TOAST_ON_SKIP.save((Boolean) newValue);
+            updateUI();
+            return true;
+        });
+        category.addPreference(showSkipToast);
+
+        showTimeWithoutSegments = new SwitchPreference(context);
+        showTimeWithoutSegments.setTitle(str("revanced_sb_general_time_without"));
+        showTimeWithoutSegments.setSummaryOn(str("revanced_sb_general_time_without_sum_on"));
+        showTimeWithoutSegments.setSummaryOff(str("revanced_sb_general_time_without_sum_off"));
+        showTimeWithoutSegments.setOnPreferenceChangeListener((preference1, newValue) -> {
+            Settings.SB_VIDEO_LENGTH_WITHOUT_SEGMENTS.save((Boolean) newValue);
+            updateUI();
+            return true;
+        });
+        category.addPreference(showTimeWithoutSegments);
     }
 
     private void addCreateSegmentCategory(Context context) {

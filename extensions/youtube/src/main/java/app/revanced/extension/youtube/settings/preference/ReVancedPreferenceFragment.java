@@ -36,7 +36,7 @@ import app.revanced.extension.youtube.ThemeHelper;
 import app.revanced.extension.youtube.patches.playback.speed.CustomPlaybackSpeedPatch;
 import app.revanced.extension.youtube.settings.LicenseActivityHook;
 import app.revanced.extension.youtube.settings.Settings;
-import app.revanced.extension.youtube.sponsorblock.ui.SponsorBlockLegacySettingsGroup;
+import app.revanced.extension.youtube.sponsorblock.ui.SponsorBlockPreferenceGroup;
 
 /**
  * Preference fragment for ReVanced settings.
@@ -78,7 +78,7 @@ public class ReVancedPreferenceFragment extends AbstractPreferenceFragment {
                 }
 
                 if (!(preference instanceof NoTitlePreferenceCategory)
-                        && !(preference instanceof SponsorBlockLegacySettingsGroup)) {
+                        && !(preference instanceof SponsorBlockPreferenceGroup)) {
                     CharSequence title = preference.getTitle();
                     if (title != null && title.length() > 0) {
                         if (path.length() > 0) {
