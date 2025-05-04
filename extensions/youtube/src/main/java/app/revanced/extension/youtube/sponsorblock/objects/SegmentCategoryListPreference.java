@@ -55,7 +55,7 @@ public class SegmentCategoryListPreference extends ListPreference {
                 : CategoryBehaviour.getBehaviorKeyValues());
         setSummary(category.description.toString());
 
-        updateTitleFromCategory();
+        updateUI();
     }
 
     @Override
@@ -202,7 +202,7 @@ public class SegmentCategoryListPreference extends ListPreference {
             builder.setNeutralButton(str("revanced_sb_reset_color"), (dialog, which) -> {
                 try {
                     category.resetColorAndOpacity();
-                    updateTitleFromCategory();
+                    updateUI();
                     Utils.showToastShort(str("revanced_sb_color_reset"));
                 } catch (Exception ex) {
                     Logger.printException(() -> "setNeutralButton failure", ex);
@@ -240,7 +240,7 @@ public class SegmentCategoryListPreference extends ListPreference {
                     Utils.showToastShort(str("revanced_sb_color_invalid"));
                 }
 
-                updateTitleFromCategory();
+                updateUI();
             }
         } catch (Exception ex) {
             Logger.printException(() -> "onDialogClosed failure", ex);
@@ -251,7 +251,7 @@ public class SegmentCategoryListPreference extends ListPreference {
         categoryColor = applyOpacityToColor(categoryColor, categoryOpacity);
     }
 
-    private void updateTitleFromCategory() {
+    public void updateUI() {
         categoryColor = category.getColorNoOpacity();
         categoryOpacity = category.getOpacity();
         applyOpacityToCategoryColor();
