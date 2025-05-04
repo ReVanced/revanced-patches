@@ -7,12 +7,9 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.removeInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
-import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patcher.util.proxy.mutableTypes.MutableField.Companion.toMutable
 import app.revanced.patches.youtube.layout.returnyoutubedislike.conversionContextFingerprint
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
-import app.revanced.patches.youtube.misc.playservice.is_19_18_or_greater
 import app.revanced.patches.youtube.misc.playservice.is_19_25_or_greater
 import app.revanced.patches.youtube.misc.playservice.is_20_05_or_greater
 import app.revanced.patches.youtube.misc.playservice.versionCheckPatch
@@ -21,16 +18,12 @@ import app.revanced.util.findFreeRegister
 import app.revanced.util.findInstructionIndicesReversedOrThrow
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
-import app.revanced.util.indexOfFirstInstructionReversed
-import app.revanced.util.indexOfFirstInstructionReversedOrThrow
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
-import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
-import com.android.tools.smali.dexlib2.immutable.ImmutableField
 
 lateinit var addLithoFilter: (String) -> Unit
     private set
@@ -72,35 +65,20 @@ val lithoFilterPatch = bytecodePatch(
      *   }
      * }
      *
-     * When patching 19.16:
-     *
      * class ComponentContextParser {
      *    public Component readComponentIdentifier(...) {
      *        ...
-     *        if (extensionClass.filter(identifier, pathBuilder)) { // Inserted by this patch.
+     *
+     *        // Checks if the component should be filtered.
+     *        // Sets a thread local with the filtering result.
+     *        extensionClass.filter(identifier, pathBuilder);  // Inserted by this patch.
+     *
+     *        ...
+     *
+     *        if (extensionClass.shouldFilter()) {  // Inserted by this patch.
      *            return emptyComponent;
      *        }
-     *        return originalUnpatchedComponent;
-     *    }
-     * }
-     *
-     * When patching 19.18 and later:
-     *
-     * class ComponentContextParser {
-     *    public ComponentIdentifierObj readComponentIdentifier(...) {
-     *        ...
-     *        if (extensionClass.filter(identifier, pathBuilder)) { // Inserted by this patch.
-     *            this.patch_isFiltered = true;
-     *        }
-     *        ...
-     *    }
-     *
-     *    public Component parseBytesToComponentContext(...) {
-     *        ...
-     *        if (this.patch_isFiltered) { // Inserted by this patch.
-     *            return emptyComponent;
-     *        }
-     *        return originalUnpatchedComponent;
+     *        return originalUnpatchedComponent; // Original code.
      *    }
      * }
      */
@@ -134,134 +112,91 @@ val lithoFilterPatch = bytecodePatch(
 
         // region Hook the method that parses bytes into a ComponentContext.
 
-        // Get the only static method in the class.
-        val builderMethodDescriptor = emptyComponentFingerprint.classDef.methods.first { method ->
-            AccessFlags.STATIC.isSet(method.accessFlags)
-        }
-        // Only one field.
-        val emptyComponentField = classBy { classDef ->
-            builderMethodDescriptor.returnType == classDef.type
-        }!!.immutableClass.fields.single()
-
-        // Add a field to store the result of the filtering. This allows checking the field
-        // just before returning so the original code always runs the same when filtering occurs.
-        val lithoFilterResultField = ImmutableField(
-            componentContextParserFingerprint.classDef.type,
-            "patch_isFiltered",
-            "Z",
-            AccessFlags.PRIVATE.value,
-            null,
-            null,
-            null,
-        ).toMutable()
-        componentContextParserFingerprint.classDef.fields.add(lithoFilterResultField)
-
-        // Returns an empty component instead of the original component.
-        fun returnEmptyComponentInstructions(free: Int): String = """
-            move-object/from16 v$free, p0
-            iget-boolean v$free, v$free, $lithoFilterResultField
-            if-eqz v$free, :unfiltered
-            
-            move-object/from16 v$free, p1
-            invoke-static { v$free }, $builderMethodDescriptor
-            move-result-object v$free
-            iget-object v$free, v$free, $emptyComponentField
-            return-object v$free
-            
-            :unfiltered
-            nop
-        """
-
+        // Allow the method to run to completion, and override the
+        // return value with an empty component if it should be filtered.
+        // It is important to allow the original code to always run to completion,
+        // otherwise memory leaks and poor app performance can occur.
+        //
+        // The extension filtering result needs to be saved off somewhere, but cannot
+        // save to a class field since the target class is called by multiple threads.
+        // It would be great if there was a way to change the register count of the
+        // method implementation and save the result to a high register to later use
+        // in the method, but there is no simple way to do that.
+        // Instead save the extension filter result to a thread local and check the
+        // filtering result at each method return index.
         componentContextParserFingerprint.method.apply {
-            // 19.18 and later require patching 2 methods instead of one.
-            // Otherwise the modifications done here are the same for all targets.
-            if (is_19_18_or_greater) {
-                findInstructionIndicesReversedOrThrow(Opcode.RETURN_OBJECT).forEach { index ->
-                    val free = findFreeRegister(index)
+            val conversionContextClass = conversionContextFingerprint.originalClassDef
 
-                    addInstructionsAtControlFlowLabel(
-                        index,
-                        returnEmptyComponentInstructions(free)
-                    )
-                }
-            }
-        }
-
-        // endregion
-
-        // region Read component then store the result.
-
-        readComponentIdentifierFingerprint.method.apply {
-            val returnIndex = indexOfFirstInstructionReversedOrThrow(Opcode.RETURN_OBJECT)
-            if (indexOfFirstInstructionReversed(returnIndex - 1, Opcode.RETURN_OBJECT) >= 0) {
-                throw PatchException("Found multiple return indexes") // Patch needs an update.
-            }
-
-            val elementConfigClass = elementConfigFingerprint.originalClassDef
-            val elementConfigClassType = elementConfigClass.type
-            val elementConfigIndex = indexOfFirstInstructionReversedOrThrow(returnIndex) {
-                val reference = getReference<MethodReference>()
-                reference?.definingClass == elementConfigClassType
-            }
-            val elementConfigStringBuilderField = elementConfigClass.fields.single { field ->
-                field.type == "Ljava/lang/StringBuilder;"
-            }
-
-            // Identifier is saved to a field just before the string builder.
-            val putStringBuilderIndex = indexOfFirstInstructionOrThrow {
-                val reference = getReference<FieldReference>()
-                opcode == Opcode.IPUT_OBJECT &&
-                        reference?.definingClass == elementConfigClassType &&
-                        reference.type == "Ljava/lang/StringBuilder;"
-            }
-            val elementConfigIdentifierField = getInstruction<ReferenceInstruction>(
-                indexOfFirstInstructionReversedOrThrow(putStringBuilderIndex) {
+            // String field for the litho identifier.
+            val conversionContextResulFieldIdentifer = elementTreeComponentFingerprint.method.let {
+                // First get object in the method.
+                val index = it.indexOfFirstInstructionOrThrow {
                     val reference = getReference<FieldReference>()
-                    opcode == Opcode.IPUT_OBJECT &&
-                            reference?.definingClass == elementConfigClassType &&
-                            reference.type == "Ljava/lang/String;"
+                    reference?.definingClass == conversionContextClass.type
+                            && reference.type == "Ljava/lang/String;"
                 }
-            ).getReference<FieldReference>()
+                it.getInstruction<ReferenceInstruction>(index).getReference<FieldReference>()
+            }
 
-            // Could use some of these free registers multiple times, but this is inserting at a
-            // return instruction so there is always multiple 4-bit registers available.
-            val elementConfigRegister = getInstruction<FiveRegisterInstruction>(elementConfigIndex).registerC
-            val identifierRegister = findFreeRegister(returnIndex, elementConfigRegister)
-            val stringBuilderRegister = findFreeRegister(returnIndex, elementConfigRegister, identifierRegister)
-            val thisRegister = findFreeRegister(returnIndex, elementConfigRegister, identifierRegister, stringBuilderRegister)
-            val freeRegister = findFreeRegister(returnIndex, elementConfigRegister, identifierRegister, stringBuilderRegister, thisRegister)
+            // StringBuilder field for the litho path.
+            val conversionContextFieldBuilder = conversionContextClass.fields
+                .single { field -> field.type == "Ljava/lang/StringBuilder;" }
 
-            val invokeFilterInstructions = """
-                iget-object v$identifierRegister, v$elementConfigRegister, $elementConfigIdentifierField
-                iget-object v$stringBuilderRegister, v$elementConfigRegister, $elementConfigStringBuilderField
-                invoke-static { v$identifierRegister, v$stringBuilderRegister }, $EXTENSION_CLASS_DESCRIPTOR->filter(Ljava/lang/String;Ljava/lang/StringBuilder;)Z
-                move-result v$freeRegister
-                move-object/from16 v$thisRegister, p0
-                iput-boolean v$freeRegister, v$thisRegister, $lithoFilterResultField
-            """
+            val conversionContextResultIndex = indexOfFirstInstructionOrThrow {
+                val reference = getReference<MethodReference>()
+                reference?.returnType == conversionContextClass.type
+            } + 1
 
-            if (is_19_18_or_greater) {
-                addInstructionsAtControlFlowLabel(
-                    returnIndex,
-                    invokeFilterInstructions
-                )
-            } else {
-                val elementConfigMethod = conversionContextFingerprint.originalClassDef.methods
-                    .single { method ->
-                        !AccessFlags.STATIC.isSet(method.accessFlags) && method.returnType == elementConfigClassType
-                    }
+            val conversionContextResultRegister = getInstruction<OneRegisterInstruction>(
+                conversionContextResultIndex
+            ).registerA
+
+            val identifierRegister = findFreeRegister(
+                conversionContextResultIndex, conversionContextResultRegister
+            )
+            val stringBuilderRegister = findFreeRegister(
+                conversionContextResultIndex, conversionContextResultRegister, identifierRegister
+            )
+
+            // Check if the component should be filtered, and save the result to a thread local.
+            addInstructionsAtControlFlowLabel(
+                conversionContextResultIndex + 1,
+                """
+                    iget-object v$identifierRegister, v$conversionContextResultRegister, $conversionContextResulFieldIdentifer
+                    iget-object v$stringBuilderRegister, v$conversionContextResultRegister, $conversionContextFieldBuilder
+                    invoke-static { v$identifierRegister, v$stringBuilderRegister }, $EXTENSION_CLASS_DESCRIPTOR->filter(Ljava/lang/String;Ljava/lang/StringBuilder;)V
+                """
+            )
+
+            // Get the only static method in the class.
+            val builderMethodDescriptor = emptyComponentFingerprint.classDef.methods.first {
+                method -> AccessFlags.STATIC.isSet(method.accessFlags)
+            }
+            // Only one field.
+            val emptyComponentField = classBy { classDef ->
+                builderMethodDescriptor.returnType == classDef.type
+            }!!.immutableClass.fields.single()
+
+            // Check at each return value if the component is filtered,
+            // and return an empty component if filtering is needed.
+            findInstructionIndicesReversedOrThrow(Opcode.RETURN_OBJECT).forEach { returnIndex ->
+                val freeRegister = findFreeRegister(returnIndex)
 
                 addInstructionsAtControlFlowLabel(
                     returnIndex,
                     """
-                        # Element config is a method on a parameter.
-                        move-object/from16 v$elementConfigRegister, p2 
-                        invoke-virtual { v$elementConfigRegister }, $elementConfigMethod
-                        move-result-object v$elementConfigRegister
-                        
-                        $invokeFilterInstructions
-
-                        ${returnEmptyComponentInstructions(freeRegister)}
+                        invoke-static { }, $EXTENSION_CLASS_DESCRIPTOR->shouldFilter()Z
+                        move-result v$freeRegister
+                        if-eqz v$freeRegister, :unfiltered
+        
+                        move-object/from16 v$freeRegister, p1
+                        invoke-static { v$freeRegister }, $builderMethodDescriptor
+                        move-result-object v$freeRegister
+                        iget-object v$freeRegister, v$freeRegister, $emptyComponentField
+                        return-object v$freeRegister
+        
+                        :unfiltered
+                        nop    
                     """
                 )
             }

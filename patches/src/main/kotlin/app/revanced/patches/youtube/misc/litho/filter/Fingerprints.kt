@@ -5,10 +5,6 @@ import app.revanced.util.literal
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-/**
- * In 19.17 and earlier, this resolves to the same method as [readComponentIdentifierFingerprint].
- * In 19.18+ this resolves to a different method.
- */
 internal val componentContextParserFingerprint = fingerprint {
     strings(
         "TreeNode result must be set.",
@@ -37,16 +33,10 @@ internal val protobufBufferReferenceFingerprint = fingerprint {
     )
 }
 
-/**
-* In 19.17 and earlier, this resolves to the same method as [componentContextParserFingerprint].
-* In 19.18+ this resolves to a different method.
-*/
-internal val readComponentIdentifierFingerprint = fingerprint {
-    strings("Number of bits must be positive")
-}
-
-internal val elementConfigFingerprint = fingerprint {
-    strings(" enableDroppedFrameLogging", " elementDepthInTree")
+internal val elementTreeComponentFingerprint = fingerprint {
+    returns("L")
+    opcodes(Opcode.IGET_OBJECT)
+    strings("Element tree missing id in debug mode.")
 }
 
 internal val emptyComponentFingerprint = fingerprint {
