@@ -385,7 +385,7 @@ public final class app/revanced/patches/pandora/ads/DisableAudioAdsPatchKt {
 }
 
 public final class app/revanced/patches/pandora/misc/EnableUnlimitedSkipsPatchKt {
-	public static final fun getUnlimitedSkipsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+	public static final fun getEnableUnlimitedSkipsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
 public final class app/revanced/patches/photomath/detection/deviceid/SpoofDeviceIdPatchKt {

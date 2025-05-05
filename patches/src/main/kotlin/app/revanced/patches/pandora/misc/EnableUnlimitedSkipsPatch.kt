@@ -9,7 +9,7 @@ import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Suppress("unused")
-val unlimitedSkipsPatch = bytecodePatch(
+val enableUnlimitedSkipsPatch = bytecodePatch(
     name = "Enable unlimited skips",
 ) {
     compatibleWith("com.pandora.android")
