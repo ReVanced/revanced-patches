@@ -1,4 +1,4 @@
-package app.revanced.patches.pandora
+package app.revanced.patches.pandora.shared
 
 import app.revanced.patcher.fingerprint
 

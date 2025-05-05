@@ -1,15 +1,16 @@
-package app.revanced.patches.pandora
+package app.revanced.patches.pandora.misc
 
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.patches.pandora.shared.constructUserDataFingerprint
 import app.revanced.util.indexOfFirstInstructionOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Suppress("unused")
 val unlimitedSkipsPatch = bytecodePatch(
-    name = "Unlimited skips",
+    name = "Enable unlimited skips",
 ) {
     compatibleWith("com.pandora.android")
 
