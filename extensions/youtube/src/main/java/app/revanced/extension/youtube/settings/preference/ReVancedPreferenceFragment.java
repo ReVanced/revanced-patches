@@ -232,7 +232,8 @@ public class ReVancedPreferenceFragment extends AbstractPreferenceFragment {
     private void collectPreferences(PreferenceGroup group, int includeDepth, int currentDepth) {
         for (int i = 0, count = group.getPreferenceCount(); i < count; i++) {
             Preference preference = group.getPreference(i);
-            if (includeDepth <= currentDepth && !(preference instanceof PreferenceCategory)) {
+            if (includeDepth <= currentDepth && !(preference instanceof PreferenceCategory)
+                    && !(preference instanceof SponsorBlockPreferenceGroup)) {
                 allPreferences.put(preference, new PreferenceSearchData(preference));
             }
 
