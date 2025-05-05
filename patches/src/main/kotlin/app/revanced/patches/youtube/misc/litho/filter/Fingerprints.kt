@@ -6,15 +6,21 @@ import app.revanced.patcher.string
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-/**
- * In 19.17 and earlier, this resolves to the same method as [readComponentIdentifierFingerprint].
- * In 19.18+ this resolves to a different method.
- */
 internal val componentContextParserFingerprint by fingerprint {
     instructions(
         string("TreeNode result must be set."),
         // String changed slightly in 20.03+
         string("it was removed due to duplicate converter bindings.", partialMatch = true)
+    )
+}
+
+/**
+ * Resolves to the class found in [componentContextParserFingerprint].
+ * When patching 19.16 this fingerprint matches the same method as [componentContextParserFingerprint].
+ */
+internal val componentContextSubParserFingerprint by fingerprint {
+    instructions(
+        string("Number of bits must be positive")
     )
 }
 
@@ -34,16 +40,6 @@ internal val protobufBufferReferenceFingerprint by fingerprint {
         Opcode.INVOKE_VIRTUAL,
         Opcode.MOVE_RESULT,
         Opcode.SUB_INT_2ADDR,
-    )
-}
-
-/**
-* In 19.17 and earlier, this resolves to the same method as [componentContextParserFingerprint].
-* In 19.18+ this resolves to a different method.
-*/
-internal val readComponentIdentifierFingerprint by fingerprint {
-    instructions(
-        string("Number of bits must be positive")
     )
 }
 

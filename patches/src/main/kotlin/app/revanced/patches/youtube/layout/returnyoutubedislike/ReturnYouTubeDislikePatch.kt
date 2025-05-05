@@ -18,6 +18,7 @@ import app.revanced.patches.youtube.misc.playservice.versionCheckPatch
 import app.revanced.patches.youtube.misc.settings.addSettingPreference
 import app.revanced.patches.youtube.misc.settings.newIntent
 import app.revanced.patches.youtube.misc.settings.settingsPatch
+import app.revanced.patches.youtube.shared.conversionContextFingerprintToString
 import app.revanced.patches.youtube.shared.rollingNumberTextViewAnimationUpdateFingerprint
 import app.revanced.patches.youtube.video.videoid.hookPlayerResponseVideoId
 import app.revanced.patches.youtube.video.videoid.hookVideoId
@@ -113,12 +114,11 @@ val returnYouTubeDislikePatch = bytecodePatch(
 
         // Find the field name of the conversion context.
         val conversionContextField = textComponentConstructorFingerprint.originalClassDef.fields.find {
-            it.type == conversionContextFingerprint.originalClassDef.type
+            it.type == conversionContextFingerprintToString.originalClassDef.type
         } ?: throw PatchException("Could not find conversion context field")
 
-        textComponentLookupFingerprint.match(
-            textComponentConstructorFingerprint.originalClassDef
-        ).method.apply {
+        textComponentLookupFingerprint.match(textComponentConstructorFingerprint.originalClassDef)
+            .method.apply {
             // Find the instruction for creating the text data object.
             val textDataClassType = textComponentDataFingerprint.originalClassDef.type
 
@@ -194,11 +194,9 @@ val returnYouTubeDislikePatch = bytecodePatch(
             val charSequenceFieldReference =
                 getInstruction<ReferenceInstruction>(dislikesIndex).reference
 
-            val registerCount = implementation!!.registerCount
+            val conversionContextRegister = implementation!!.registerCount - parameters.size + 1
 
-            // This register is being overwritten, so it is free to use.
-            val freeRegister = registerCount - 1
-            val conversionContextRegister = registerCount - parameters.size + 1
+            val freeRegister = findFreeRegister(insertIndex, charSequenceInstanceRegister, conversionContextRegister)
 
             addInstructions(
                 insertIndex,

@@ -9,6 +9,21 @@ import app.revanced.patcher.string
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
+internal val conversionContextFingerprintToString by fingerprint {
+    parameters()
+    strings(
+        "ConversionContext{containerInternal=",
+        ", widthConstraint=",
+        ", heightConstraint=",
+        ", templateLoggerFactory=",
+        ", rootDisposableContainer=",
+        ", identifierProperty="
+    )
+    custom { method, _ ->
+        method.name == "toString"
+    }
+}
+
 internal val autoRepeatFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("V")
