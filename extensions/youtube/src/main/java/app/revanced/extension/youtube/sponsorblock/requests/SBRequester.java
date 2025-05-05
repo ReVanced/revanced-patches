@@ -184,6 +184,8 @@ public class SBRequester {
             Utils.showToastLong(str("revanced_sb_submit_failed_unknown_error", 0, ex.getMessage()));
         } catch (Exception ex) {
             Logger.printException(() -> "failed to submit segments", ex); // Should never happen.
+        } finally {
+            lastFetchedStats = null; // Fetch updated stats if needed.
         }
     }
 

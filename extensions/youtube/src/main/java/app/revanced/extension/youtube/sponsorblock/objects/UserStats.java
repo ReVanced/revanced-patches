@@ -14,7 +14,7 @@ public class UserStats {
     /**
      * How long to cache user stats objects.
      */
-    private static final long STATS_EXPIRATION_MILLISECONDS = 5 * 60 * 1000; // 5 minutes.
+    private static final long STATS_EXPIRATION_MILLISECONDS = 60 * 60 * 1000; // 60 minutes.
 
     private final String privateUserId;
     public final String publicUserId;
