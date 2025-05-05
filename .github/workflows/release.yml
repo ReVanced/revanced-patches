@@ -63,4 +63,4 @@ jobs:
         uses: actions/attest-build-provenance@v2
         with:
           subject-name: 'ReVanced Patches ${{ steps.release.outputs.new_release_git_tag }}'
-          subject-path: patches/build/libs/patches-!(*sources*|*javadoc*).rvp
+          subject-path: patches/build/libs/patches-*.rvp
