@@ -5,7 +5,6 @@ import app.revanced.util.literal
 import com.android.tools.smali.dexlib2.AccessFlags
 
 internal val shareCopyUrlFingerprint = fingerprint {
-    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("Ljava/lang/Object;")
     parameters("Ljava/lang/Object;")
     strings("clipboard", "Spotify Link")
@@ -15,7 +14,6 @@ internal val shareCopyUrlFingerprint = fingerprint {
 }
 
 internal val shareCopyUrlLegacyFingerprint = fingerprint {
-    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("Ljava/lang/Object;")
     parameters("Ljava/lang/Object;")
     strings("clipboard", "createNewSession failed")
@@ -24,7 +22,7 @@ internal val shareCopyUrlLegacyFingerprint = fingerprint {
     }
 }
 
-internal val androidShareSheetUrlFormatterFingerprint = fingerprint {
+internal val formatAndroidShareSheetUrlFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
     returns("Ljava/lang/String;")
     parameters("L", "Ljava/lang/String;")
@@ -33,7 +31,7 @@ internal val androidShareSheetUrlFormatterFingerprint = fingerprint {
     }
 }
 
-internal val androidShareSheetUrlFormatterLegacyFingerprint = fingerprint {
+internal val formatAndroidShareSheetUrlLegacyFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC)
     returns("Ljava/lang/String;")
     parameters("Lcom/spotify/share/social/sharedata/ShareData;", "Ljava/lang/String;")

@@ -34,14 +34,13 @@ val sanitizeSharingLinksPatch = bytecodePatch(
         }
 
         copyFingerprint.method.apply {
-            val index = indexOfFirstInstructionOrThrow {
+            val newPlainTextInvokeIndex = indexOfFirstInstructionOrThrow {
                 getReference<MethodReference>()?.name == "newPlainText"
-
             }
-            val register = getInstruction<FiveRegisterInstruction>(index).registerD
+            val register = getInstruction<FiveRegisterInstruction>(newPlainTextInvokeIndex).registerD
 
             addInstructions(
-                index,
+                newPlainTextInvokeIndex,
                 """
                     invoke-static { v$register }, $extensionMethodDescriptor
                     move-result-object v$register
@@ -53,10 +52,10 @@ val sanitizeSharingLinksPatch = bytecodePatch(
         val shareUrlParameter : String
         val shareSheetFingerprint : Fingerprint
         if (IS_SPOTIFY_LEGACY_APP_TARGET) {
-            shareSheetFingerprint = androidShareSheetUrlFormatterLegacyFingerprint
+            shareSheetFingerprint = formatAndroidShareSheetUrlLegacyFingerprint
             shareUrlParameter = "p2"
         } else {
-            shareSheetFingerprint = androidShareSheetUrlFormatterFingerprint
+            shareSheetFingerprint = formatAndroidShareSheetUrlFingerprint
             shareUrlParameter = "p1"
         }
 

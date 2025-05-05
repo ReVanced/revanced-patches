@@ -19,6 +19,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
+import java.util.logging.Logger
 
 private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/spotify/misc/UnlockPremiumPatch;"
 
@@ -40,6 +41,12 @@ val unlockPremiumPatch = bytecodePatch(
     )
 
     execute {
+        if (IS_SPOTIFY_LEGACY_APP_TARGET) {
+            Logger.getLogger(this::class.java.name).warning(
+                "Patching a legacy Spotify version. Patch functionality may be limited."
+            )
+        }
+
         // Make _value accessible so that it can be overridden in the extension.
         accountAttributeFingerprint.classDef.fields.first { it.name == "value_" }.apply {
             // Add public flag and remove private.
