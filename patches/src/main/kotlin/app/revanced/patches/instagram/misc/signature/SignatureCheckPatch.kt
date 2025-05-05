@@ -24,15 +24,15 @@ val signatureCheckPatch = bytecodePatch(
         // Get the method it calls, and use it to replace the method called by the launcher.
         val safeMethod = onReceiveNotificationFingerprint.let { it ->
             navigate(it.method)
-                .to(it.patternMatch!!.startIndex) // navigate into invoke-static
-                .to { instr -> instr.opcode == Opcode.INVOKE_VIRTUAL } // navigate to first invoke-virtual
+                .to(it.patternMatch!!.startIndex)
+                .to { instr -> instr.opcode == Opcode.INVOKE_VIRTUAL }
                 .original()
         }
 
         launcherFingerprint.let {
             navigate(it.method)
-                .to(it.patternMatch!!.startIndex) // navigate into invoke-static
-                .stop() // patch this method
+                .to(it.patternMatch!!.startIndex)
+                .stop()
         }.apply {
             val targetIndex = indexOfFirstInstruction(Opcode.INVOKE_VIRTUAL)
             val origReg = getInstruction<FiveRegisterInstruction>(targetIndex).registerD
