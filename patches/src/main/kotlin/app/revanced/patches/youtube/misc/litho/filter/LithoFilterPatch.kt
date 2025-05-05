@@ -8,11 +8,11 @@ import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.removeInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patches.youtube.layout.returnyoutubedislike.conversionContextFingerprint
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.playservice.is_19_25_or_greater
 import app.revanced.patches.youtube.misc.playservice.is_20_05_or_greater
 import app.revanced.patches.youtube.misc.playservice.versionCheckPatch
+import app.revanced.patches.youtube.shared.conversionContextFingerprint
 import app.revanced.util.addInstructionsAtControlFlowLabel
 import app.revanced.util.findFreeRegister
 import app.revanced.util.findInstructionIndicesReversedOrThrow
@@ -128,7 +128,7 @@ val lithoFilterPatch = bytecodePatch(
             val conversionContextClass = conversionContextFingerprint.originalClassDef
 
             // String field for the litho identifier.
-            val treeDebugIdentifierField = elementTreeComponentFingerprint.method.let {
+            val conversionContextIdentifierField = converterTreeDebugFingerprint.method.let {
                 // First get object in the method.
                 val index = it.indexOfFirstInstructionOrThrow {
                     val reference = getReference<FieldReference>()
@@ -139,7 +139,7 @@ val lithoFilterPatch = bytecodePatch(
             }
 
             // StringBuilder field for the litho path.
-            val conversionContextStringBuilderField = conversionContextClass.fields
+            val conversionContextPathBuilderField = conversionContextClass.fields
                 .single { field -> field.type == "Ljava/lang/StringBuilder;" }
 
             val conversionContextResultIndex = indexOfFirstInstructionOrThrow {
@@ -162,8 +162,8 @@ val lithoFilterPatch = bytecodePatch(
             addInstructionsAtControlFlowLabel(
                 conversionContextResultIndex + 1,
                 """
-                    iget-object v$identifierRegister, v$conversionContextResultRegister, $treeDebugIdentifierField
-                    iget-object v$stringBuilderRegister, v$conversionContextResultRegister, $conversionContextStringBuilderField
+                    iget-object v$identifierRegister, v$conversionContextResultRegister, $conversionContextIdentifierField
+                    iget-object v$stringBuilderRegister, v$conversionContextResultRegister, $conversionContextPathBuilderField
                     invoke-static { v$identifierRegister, v$stringBuilderRegister }, $EXTENSION_CLASS_DESCRIPTOR->filter(Ljava/lang/String;Ljava/lang/StringBuilder;)V
                 """
             )

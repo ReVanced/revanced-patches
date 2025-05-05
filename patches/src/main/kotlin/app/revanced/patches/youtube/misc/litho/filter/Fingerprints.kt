@@ -33,7 +33,7 @@ internal val protobufBufferReferenceFingerprint = fingerprint {
     )
 }
 
-internal val elementTreeComponentFingerprint = fingerprint {
+internal val converterTreeDebugFingerprint = fingerprint {
     returns("L")
     opcodes(Opcode.IGET_OBJECT)
     strings("Element tree missing id in debug mode.")
