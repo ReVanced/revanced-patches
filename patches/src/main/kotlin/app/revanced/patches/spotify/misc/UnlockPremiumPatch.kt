@@ -45,7 +45,7 @@ val unlockPremiumPatch = bytecodePatch(
     )
 
     execute {
-        fun MutableClass.makePrivateFieldPublic(fieldName: String) {
+        fun MutableClass.publicizeField(fieldName: String) {
             fields.first { it.name == fieldName }.apply {
                 // Add public and remove private flag.
                 accessFlags = accessFlags.toPublicAccessFlags()
@@ -53,7 +53,7 @@ val unlockPremiumPatch = bytecodePatch(
         }
 
         // Make _value accessible so that it can be overridden in the extension.
-        accountAttributeFingerprint.classDef.makePrivateFieldPublic("value_")
+        accountAttributeFingerprint.classDef.publicizeField("value_")
 
         // Override the attributes map in the getter method.
         productStateProtoGetMapFingerprint.method.apply {
@@ -157,7 +157,7 @@ val unlockPremiumPatch = bytecodePatch(
 
 
         // Make featureTypeCase_ accessible so we can check the home section type in the extension.
-        homeSectionFingerprint.classDef.makePrivateFieldPublic("featureTypeCase_")
+        homeSectionFingerprint.classDef.publicizeField("featureTypeCase_")
 
         // Remove ads sections from home.
         homeStructureGetSectionsFingerprint.method.apply {
