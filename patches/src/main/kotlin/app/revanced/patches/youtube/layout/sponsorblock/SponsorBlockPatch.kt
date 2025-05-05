@@ -15,7 +15,6 @@ import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
 import app.revanced.patches.shared.misc.settings.preference.NonInteractivePreference
 import app.revanced.patches.shared.misc.settings.preference.PreferenceCategory
 import app.revanced.patches.shared.misc.settings.preference.PreferenceScreenPreference
-import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.playercontrols.*
 import app.revanced.patches.youtube.misc.playertype.playerTypeHookPatch
@@ -46,30 +45,13 @@ private val sponsorBlockResourcePatch = resourcePatch {
         addResources("youtube", "layout.sponsorblock.sponsorBlockResourcePatch")
 
         PreferenceScreen.SPONSORBLOCK.addPreferences(
-            SwitchPreference("revanced_sb_enabled"),
+            // SB setting is old code with lots of custom preferences and updating behavior.
+            // Added as a preference group and not a fragment so the preferences are searchable.
             PreferenceCategory(
-                key = "revanced_sb_appearance_category",
-                sorting = PreferenceScreenPreference.Sorting.UNSORTED,
-                preferences = setOf(
-                    SwitchPreference("revanced_sb_voting_button"),
-                    SwitchPreference("revanced_sb_auto_hide_skip_button"),
-                    SwitchPreference("revanced_sb_compact_skip_button"),
-                    SwitchPreference("revanced_sb_square_layout"),
-                    SwitchPreference("revanced_sb_toast_on_skip"),
-                    SwitchPreference("revanced_sb_video_length_without_segments")
-                )
-            ),
-            PreferenceCategory(
-                key = "revanced_sb_diff_segments",
+                key = "revanced_settings_screen_10_sponsorblock",
                 sorting = PreferenceScreenPreference.Sorting.UNSORTED,
                 preferences = emptySet(), // Preferences are added by custom class at runtime.
-                tag = "app.revanced.extension.youtube.sponsorblock.ui.SponsorBlockSegmentPreferenceCategory"
-            ),
-            PreferenceCategory(
-                key = "revanced_sb_general",
-                sorting = PreferenceScreenPreference.Sorting.UNSORTED,
-                preferences = emptySet(), // Preferences are added by custom class at runtime.
-                tag = "app.revanced.extension.youtube.sponsorblock.ui.SponsorBlockGeneralSettingsPreferenceCategory"
+                tag = "app.revanced.extension.youtube.sponsorblock.ui.SponsorBlockPreferenceGroup"
             ),
             PreferenceCategory(
                 key = "revanced_sb_stats",
@@ -84,7 +66,7 @@ private val sponsorBlockResourcePatch = resourcePatch {
                     NonInteractivePreference(
                         key = "revanced_sb_about_api",
                         tag = "app.revanced.extension.youtube.sponsorblock.ui.SponsorBlockAboutPreference",
-                        selectable = true
+                        selectable = true,
                     )
                 )
             )
@@ -163,7 +145,7 @@ val sponsorBlockPatch = bytecodePatch(
 
         hookBackgroundPlayVideoId(
             EXTENSION_SEGMENT_PLAYBACK_CONTROLLER_CLASS_DESCRIPTOR +
-                    "->setCurrentVideoId(Ljava/lang/String;)V",
+                "->setCurrentVideoId(Ljava/lang/String;)V",
         )
 
         // Seekbar drawing
@@ -174,7 +156,7 @@ val sponsorBlockPatch = bytecodePatch(
             addInstruction(
                 moveRectangleToRegisterIndex + 1,
                 "invoke-static/range { p0 .. p0 }, " +
-                        "$EXTENSION_SEGMENT_PLAYBACK_CONTROLLER_CLASS_DESCRIPTOR->setSponsorBarRect(Ljava/lang/Object;)V",
+                    "$EXTENSION_SEGMENT_PLAYBACK_CONTROLLER_CLASS_DESCRIPTOR->setSponsorBarRect(Ljava/lang/Object;)V",
             )
 
             // Set the thickness of the segment.
@@ -185,7 +167,7 @@ val sponsorBlockPatch = bytecodePatch(
             addInstruction(
                 thicknessIndex + 2,
                 "invoke-static { v$thicknessRegister }, " +
-                        "$EXTENSION_SEGMENT_PLAYBACK_CONTROLLER_CLASS_DESCRIPTOR->setSponsorBarThickness(I)V",
+                    "$EXTENSION_SEGMENT_PLAYBACK_CONTROLLER_CLASS_DESCRIPTOR->setSponsorBarThickness(I)V",
             )
 
             // Find the drawCircle call and draw the segment before it.
@@ -199,8 +181,8 @@ val sponsorBlockPatch = bytecodePatch(
             addInstruction(
                 drawCircleIndex,
                 "invoke-static { v$canvasInstanceRegister, v$centerYRegister }, " +
-                        "$EXTENSION_SEGMENT_PLAYBACK_CONTROLLER_CLASS_DESCRIPTOR->" +
-                        "drawSponsorTimeBars(Landroid/graphics/Canvas;F)V",
+                    "$EXTENSION_SEGMENT_PLAYBACK_CONTROLLER_CLASS_DESCRIPTOR->" +
+                    "drawSponsorTimeBars(Landroid/graphics/Canvas;F)V",
             )
         }
 

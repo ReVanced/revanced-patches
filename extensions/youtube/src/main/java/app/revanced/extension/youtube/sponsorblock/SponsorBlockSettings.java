@@ -18,7 +18,7 @@ import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
 import app.revanced.extension.shared.settings.Setting;
 import app.revanced.extension.youtube.settings.Settings;
-import app.revanced.extension.youtube.sponsorblock.ui.SponsorBlockGeneralSettingsPreferenceCategory;
+import app.revanced.extension.youtube.sponsorblock.ui.SponsorBlockPreferenceGroup;
 import app.revanced.extension.youtube.sponsorblock.objects.CategoryBehaviour;
 import app.revanced.extension.youtube.sponsorblock.objects.SegmentCategory;
 
@@ -32,7 +32,7 @@ public class SponsorBlockSettings {
         @Override
         public void settingsImported(@Nullable Context context) {
             SegmentCategory.loadAllCategoriesFromSettings();
-            SponsorBlockGeneralSettingsPreferenceCategory.settingsImported = true;
+            SponsorBlockPreferenceGroup.settingsImported = true;
         }
         @Override
         public void settingsExported(@Nullable Context context) {

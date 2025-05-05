@@ -957,32 +957,72 @@ This feature works best with a video quality of 720p or lower and when using a v
         </patch>
         <patch id="layout.sponsorblock.sponsorBlockResourcePatch">
             <string name="revanced_settings_screen_10_sponsorblock_title" translatable="false">SponsorBlock</string>
-            <string name="revanced_sb_enabled_title" translatable="false">SponsorBlock</string>
-            <string name="revanced_sb_enabled_summary_on">SponsorBlock is a crowdsourced system for skipping annoying parts of YouTube videos</string>
-            <string name="revanced_sb_enabled_summary_off">SponsorBlock is disabled</string>
-            <!-- Appearance category -->
-            <string name="revanced_sb_appearance_category_title">Appearance</string>
-            <string name="revanced_sb_voting_button_title">Show voting button</string>
-            <string name="revanced_sb_voting_button_summary_on">Segment voting button is shown</string>
-            <string name="revanced_sb_voting_button_summary_off">Segment voting button is not shown</string>
-            <string name="revanced_sb_auto_hide_skip_button_title">Automatically hide Skip button</string>
-            <string name="revanced_sb_auto_hide_skip_button_summary_on">Skip button hides after a few seconds</string>
-            <string name="revanced_sb_auto_hide_skip_button_summary_off">Skip button is shown for the entire segment</string>
+            <string name="revanced_sb_enable_sb">Enable SponsorBlock</string>
+            <string name="revanced_sb_enable_sb_sum">SponsorBlock is a crowdsourced system for skipping annoying parts of YouTube videos</string>
+            <string name="revanced_sb_appearance_category">Appearance</string>
+            <string name="revanced_sb_enable_voting">Show voting button</string>
+            <string name="revanced_sb_enable_voting_sum_on">Segment voting button is shown</string>
+            <string name="revanced_sb_enable_voting_sum_off">Segment voting button is not shown</string>
+            <string name="revanced_sb_square_layout">Use square layout</string>
+            <string name="revanced_sb_square_layout_sum_on">Buttons and controls are square</string>
+            <string name="revanced_sb_square_layout_sum_off">Buttons and controls are rounded</string>
             <!-- Translations should use language similar to 'revanced_ryd_compact_layout_title' -->
-            <string name="revanced_sb_compact_skip_button_title">Use compact Skip button</string>
-            <string name="revanced_sb_compact_skip_button_summary_on">Skip button styled for minimum width</string>
-            <string name="revanced_sb_compact_skip_button_summary_off">Skip button styled for best appearance</string>
-            <string name="revanced_sb_square_layout_title">Use square layout</string>
-            <string name="revanced_sb_square_layout_summary_on">Buttons and controls are square</string>
-            <string name="revanced_sb_square_layout_summary_off">Buttons and controls are rounded</string>
-            <string name="revanced_sb_toast_on_skip_title">Show a toast when skipping</string>
-            <string name="revanced_sb_toast_on_skip_summary_on">Toast is shown when a segment is automatically skipped. Tap here to see an example</string>
-            <string name="revanced_sb_toast_on_skip_summary_off">Toast is not shown. Tap here to see an example</string>
-            <string name="revanced_sb_video_length_without_segments_title">Show video length without segments</string>
-            <string name="revanced_sb_video_length_without_segments_summary_on">Video length minus all segments, shown in parentheses next to the full video length</string>
-            <string name="revanced_sb_video_length_without_segments_summary_off">Full video length shown</string>
-            <!-- Change segment behavior category -->
-            <string name="revanced_sb_diff_segments_title">Change segment behavior</string>
+            <string name="revanced_sb_enable_compact_skip_button">Use compact Skip button</string>
+            <string name="revanced_sb_enable_compact_skip_button_sum_on">Skip button styled for minimum width</string>
+            <string name="revanced_sb_enable_compact_skip_button_sum_off">Skip button styled for best appearance</string>
+            <string name="revanced_sb_enable_auto_hide_skip_segment_button">Automatically hide Skip button</string>
+            <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_on">Skip button hides after a few seconds</string>
+            <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_off">Skip button is shown for the entire segment</string>
+            <string name="revanced_sb_general_skiptoast">Show a toast when skipping</string>
+            <string name="revanced_sb_general_skiptoast_sum_on">Toast is shown when a segment is automatically skipped. Tap here to see an example</string>
+            <string name="revanced_sb_general_skiptoast_sum_off">Toast is not shown. Tap here to see an example</string>
+            <string name="revanced_sb_general_time_without">Show video length without segments</string>
+            <string name="revanced_sb_general_time_without_sum_on">Video length minus all segments, shown in parentheses next to the full video length</string>
+            <string name="revanced_sb_general_time_without_sum_off">Full video length shown</string>
+            <string name="revanced_sb_create_segment_category">Creating new segments</string>
+            <string name="revanced_sb_enable_create_segment">Show Create new segment button</string>
+            <string name="revanced_sb_enable_create_segment_sum_on">Create new segment button is shown</string>
+            <string name="revanced_sb_enable_create_segment_sum_off">Create new segment button is not shown</string>
+            <string name="revanced_sb_general_adjusting">Adjust new segment step</string>
+            <string name="revanced_sb_general_adjusting_sum">Number of milliseconds the time adjustment buttons move when creating new segments</string>
+            <string name="revanced_sb_general_adjusting_invalid">Value must be a positive number</string>
+            <string name="revanced_sb_guidelines_preference_title">View guidelines</string>
+            <string name="revanced_sb_guidelines_preference_sum">Guidelines contain rules and tips for creating new segments</string>
+            <string name="revanced_sb_guidelines_popup_title">Follow the guidelines</string>
+            <string name="revanced_sb_guidelines_popup_content">Read the SponsorBlock guidelines before creating new segments</string>
+            <string name="revanced_sb_guidelines_popup_already_read">Already read</string>
+            <string name="revanced_sb_guidelines_popup_open">Show me</string>
+            <string name="revanced_sb_general">General</string>
+            <string name="revanced_sb_toast_on_connection_error_title">Show a toast if API is not available</string>
+            <string name="revanced_sb_toast_on_connection_error_summary_on">Toast is shown if SponsorBlock is not available</string>
+            <string name="revanced_sb_toast_on_connection_error_summary_off">Toast is not shown if SponsorBlock is not available</string>
+            <string name="revanced_sb_general_skipcount">Enable skip count tracking</string>
+            <string name="revanced_sb_general_skipcount_sum_on">Lets the SponsorBlock leaderboard know how much time is saved. A message is sent to the leaderboard each time a segment is skipped</string>
+            <string name="revanced_sb_general_skipcount_sum_off">Skip count tracking is not enabled</string>
+            <string name="revanced_sb_general_min_duration">Minimum segment duration</string>
+            <string name="revanced_sb_general_min_duration_sum">Segments shorter than this value (in seconds) will not be shown or skipped</string>
+            <string name="revanced_sb_general_min_duration_invalid">Invalid time duration</string>
+            <string name="revanced_sb_general_uuid">Your private user id</string>
+            <string name="revanced_sb_general_uuid_sum">This should be kept private. This is like a password and should not be shared with anyone. If someone has this, they can impersonate you</string>
+            <string name="revanced_sb_general_uuid_invalid">Private user id must be at least 30 characters long</string>
+            <string name="revanced_sb_general_api_url">Change API URL</string>
+            <string name="revanced_sb_general_api_url_sum">The address SponsorBlock uses to make calls to the server</string>
+            <string name="revanced_sb_api_url_reset">API URL reset</string>
+            <string name="revanced_sb_api_url_invalid">API URL is invalid</string>
+            <string name="revanced_sb_api_url_changed">API URL changed</string>
+            <string name="revanced_sb_settings_ie">Import / Export settings</string>
+            <string name="revanced_sb_settings_copy">Copy</string>
+            <string name="revanced_sb_settings_ie_sum">Your SponsorBlock JSON configuration that can be imported / exported to ReVanced and other SponsorBlock platforms</string>
+            <string name="revanced_sb_settings_ie_sum_warning">Your SponsorBlock JSON configuration that can be imported / exported to ReVanced and other SponsorBlock platforms. This includes your private user id. Be sure to share this wisely</string>
+            <string name="revanced_sb_settings_import_successful">Settings imported successfully</string>
+            <string name="revanced_sb_settings_import_failed">Failed to import: %s</string>
+            <string name="revanced_sb_settings_export_failed">Failed to export: %s</string>
+            <string name="revanced_sb_settings_revanced_export_user_id_warning">"Your settings contain a private SponsorBlock userid.
+
+Your user id is like a password and it should never be shared.
+"</string>
+            <string name="revanced_sb_settings_revanced_export_user_id_warning_dismiss">Do not show again</string>
+            <string name="revanced_sb_diff_segments">Change segment behavior</string>
             <string name="revanced_sb_segments_sponsor">Sponsor</string>
             <string name="revanced_sb_segments_sponsor_sum">Paid promotion, paid referrals and direct advertisements. Not for self-promotion or free shout-outs to causes/creators/websites/products they like</string>
             <string name="revanced_sb_segments_selfpromo">Unpaid / Self Promotion</string>
@@ -1001,78 +1041,6 @@ This feature works best with a video quality of 720p or lower and when using a v
             <string name="revanced_sb_segments_filler_sum">Tangential scenes added only for filler or humor that are not required to understand the main content of the video. Does not include segments providing context or background details</string>
             <string name="revanced_sb_segments_nomusic">Music: Non-Music Section</string>
             <string name="revanced_sb_segments_nomusic_sum">Only for use in music videos. Sections of music videos without music, that aren\'t already covered by another category</string>
-            <!-- Creating new segments category -->
-            <string name="revanced_sb_create_segment_category_title">Creating new segments</string>
-            <string name="revanced_sb_enable_create_segment_title">Show Create new segment button</string>
-            <string name="revanced_sb_enable_create_segment_summary_on">Create new segment button is shown</string>
-            <string name="revanced_sb_enable_create_segment_summary_off">Create new segment button is not shown</string>
-            <string name="revanced_sb_general_adjusting_title">Adjust new segment step</string>
-            <string name="revanced_sb_general_adjusting_summary">Number of milliseconds the time adjustment buttons move when creating new segments</string>
-            <string name="revanced_sb_general_adjusting_invalid">Value must be a positive number</string>
-            <string name="revanced_sb_guidelines_preference_title">View guidelines</string>
-            <string name="revanced_sb_guidelines_preference_summary">Guidelines contain rules and tips for creating new segments</string>
-            <string name="revanced_sb_guidelines_popup_title">Follow the guidelines</string>
-            <string name="revanced_sb_guidelines_popup_content">Read the SponsorBlock guidelines before creating new segments</string>
-            <string name="revanced_sb_guidelines_popup_already_read">Already read</string>
-            <string name="revanced_sb_guidelines_popup_open">Show me</string>
-            <!-- General category -->
-            <string name="revanced_sb_general_title">General</string>
-            <string name="revanced_sb_toast_on_connection_error_title">Show a toast if API is not available</string>
-            <string name="revanced_sb_toast_on_connection_error_summary_on">Toast is shown if SponsorBlock is not available</string>
-            <string name="revanced_sb_toast_on_connection_error_summary_off">Toast is not shown if SponsorBlock is not available</string>
-            <string name="revanced_sb_general_skip_count_title">Enable skip count tracking</string>
-            <string name="revanced_sb_general_skip_count_summary_on">Lets the SponsorBlock leaderboard know how much time is saved. A message is sent to the leaderboard each time a segment is skipped</string>
-            <string name="revanced_sb_general_skip_count_summary_off">Skip count tracking is not enabled</string>
-            <string name="revanced_sb_general_min_duration_title">Minimum segment duration</string>
-            <string name="revanced_sb_general_min_duration_summary">Segments shorter than this value (in seconds) will not be shown or skipped</string>
-            <string name="revanced_sb_general_min_duration_invalid">Invalid time duration</string>
-            <string name="revanced_sb_general_uuid_title">Your private user id</string>
-            <string name="revanced_sb_general_uuid_summary">This should be kept private. This is like a password and should not be shared with anyone. If someone has this, they can impersonate you</string>
-            <string name="revanced_sb_general_uuid_invalid">Private user id must be at least 30 characters long</string>
-            <string name="revanced_sb_general_api_url_title">Change API URL</string>
-            <string name="revanced_sb_general_api_url_summary">The address SponsorBlock uses to make calls to the server</string>
-            <string name="revanced_sb_api_url_reset">API URL reset</string>
-            <string name="revanced_sb_api_url_invalid">API URL is invalid</string>
-            <string name="revanced_sb_api_url_changed">API URL changed</string>
-            <string name="revanced_sb_settings_ie_title">Import / Export settings</string>
-            <string name="revanced_sb_settings_ie_summary">Your SponsorBlock JSON configuration that can be imported / exported to ReVanced and other SponsorBlock platforms</string>
-            <string name="revanced_sb_settings_ie_summary_warning">Your SponsorBlock JSON configuration that can be imported / exported to ReVanced and other SponsorBlock platforms. This includes your private user id. Be sure to share this wisely</string>
-            <string name="revanced_sb_settings_copy">Copy</string>
-            <string name="revanced_sb_settings_import_successful">Settings imported successfully</string>
-            <string name="revanced_sb_settings_import_failed">Failed to import: %s</string>
-            <string name="revanced_sb_settings_export_failed">Failed to export: %s</string>
-            <string name="revanced_sb_settings_revanced_export_user_id_warning">"Your settings contain a private SponsorBlock userid.
-
-Your user id is like a password and it should never be shared.
-"</string>
-            <string name="revanced_sb_settings_revanced_export_user_id_warning_dismiss">Do not show again</string>
-            <!-- Stats category -->
-            <string name="revanced_sb_stats_title">Stats</string>
-            <!-- Shown in the settings preferences, and translations can be any text length. -->
-            <string name="revanced_sb_stats_connection_failure">Stats are temporarily not available (API is down)</string>
-            <string name="revanced_sb_stats_loading">Loading...</string>
-            <string name="revanced_sb_stats_sb_disabled">SponsorBlock is disabled</string>
-            <string name="revanced_sb_stats_username">Your username: &lt;b>%s&lt;/b></string>
-            <string name="revanced_sb_stats_username_change">Tap here to change your username</string>
-            <string name="revanced_sb_stats_username_change_unknown_error">Unable to change username: Status: %1$d %2$s</string>
-            <string name="revanced_sb_stats_username_changed">Username successfully changed</string>
-            <string name="revanced_sb_stats_reputation">Your reputation is &lt;b>%.2f&lt;/b></string>
-            <string name="revanced_sb_stats_submissions">You\'ve created &lt;b>%s&lt;/b> segments</string>
-            <string name="revanced_sb_stats_submissions_sum">Tap here to view your segments</string>
-            <string name="revanced_sb_stats_saved_zero">SponsorBlock leaderboard</string>
-            <string name="revanced_sb_stats_saved">You\'ve saved people from &lt;b>%s&lt;/b> segments</string>
-            <string name="revanced_sb_stats_saved_sum_zero">Tap here to see the global stats and top contributors</string>
-            <string name="revanced_sb_stats_saved_sum">That\'s &lt;b>%s&lt;/b> of their lives.&lt;br>Tap here to see the leaderboard</string>
-            <string name="revanced_sb_stats_self_saved">You\'ve skipped &lt;b>%s&lt;/b> segments</string>
-            <string name="revanced_sb_stats_self_saved_sum">That\'s &lt;b>%s&lt;/b></string>
-            <string name="revanced_sb_stats_self_saved_reset_title">Reset skipped segments counter?</string>
-            <string name="revanced_sb_stats_saved_hour_format">%1$s hours %2$s minutes</string>
-            <string name="revanced_sb_stats_saved_minute_format">%1$s minutes %2$s seconds</string>
-            <string name="revanced_sb_stats_saved_second_format">%s seconds</string>
-            <!-- About category -->
-            <string name="revanced_sb_about_title">About</string>
-            <string name="revanced_sb_about_api_title" translatable="false">sponsor.ajay.app</string>
-            <string name="revanced_sb_about_api_summary">Data is provided by the SponsorBlock API. Tap here to learn more and see downloads for other platforms</string>
             <string name="revanced_sb_skip_button_compact">Skip</string>
             <string name="revanced_sb_skip_button_compact_highlight">Highlight</string>
             <string name="revanced_sb_skip_button_sponsor">Skip sponsor</string>
@@ -1155,6 +1123,28 @@ Ready to submit?"</string>
             <string name="revanced_sb_new_segment_edit_by_hand_title">Edit timing of segment manually</string>
             <string name="revanced_sb_new_segment_edit_by_hand_content">Do you want to edit the timing for the start or end of the segment?</string>
             <string name="revanced_sb_new_segment_edit_by_hand_parse_error">Invalid time given</string>
+            <string name="revanced_sb_stats_title">Stats</string>
+            <!-- Shown in the settings preferences, and translations can be any text length. -->
+            <string name="revanced_sb_stats_connection_failure">Stats are temporarily not available (API is down)</string>
+            <string name="revanced_sb_stats_loading">Loading...</string>
+            <string name="revanced_sb_stats_sb_disabled">SponsorBlock is disabled</string>
+            <string name="revanced_sb_stats_username">Your username: &lt;b>%s&lt;/b></string>
+            <string name="revanced_sb_stats_username_change">Tap here to change your username</string>
+            <string name="revanced_sb_stats_username_change_unknown_error">Unable to change username: Status: %1$d %2$s</string>
+            <string name="revanced_sb_stats_username_changed">Username successfully changed</string>
+            <string name="revanced_sb_stats_reputation">Your reputation is &lt;b>%.2f&lt;/b></string>
+            <string name="revanced_sb_stats_submissions">You\'ve created &lt;b>%s&lt;/b> segments</string>
+            <string name="revanced_sb_stats_submissions_sum">Tap here to view your segments</string>
+            <string name="revanced_sb_stats_saved_zero">SponsorBlock leaderboard</string>
+            <string name="revanced_sb_stats_saved">You\'ve saved people from &lt;b>%s&lt;/b> segments</string>
+            <string name="revanced_sb_stats_saved_sum_zero">Tap here to see the global stats and top contributors</string>
+            <string name="revanced_sb_stats_saved_sum">That\'s &lt;b>%s&lt;/b> of their lives.&lt;br>Tap here to see the leaderboard</string>
+            <string name="revanced_sb_stats_self_saved">You\'ve skipped &lt;b>%s&lt;/b> segments</string>
+            <string name="revanced_sb_stats_self_saved_sum">That\'s &lt;b>%s&lt;/b></string>
+            <string name="revanced_sb_stats_self_saved_reset_title">Reset skipped segments counter?</string>
+            <string name="revanced_sb_stats_saved_hour_format">%1$s hours %2$s minutes</string>
+            <string name="revanced_sb_stats_saved_minute_format">%1$s minutes %2$s seconds</string>
+            <string name="revanced_sb_stats_saved_second_format">%s seconds</string>
             <string name="revanced_sb_color_opacity_label">Opacity:</string>
             <string name="revanced_sb_color_dot_label">Color:</string>
             <string name="revanced_sb_color_changed">Color changed</string>
@@ -1162,6 +1152,9 @@ Ready to submit?"</string>
             <string name="revanced_sb_color_invalid">Invalid color code</string>
             <string name="revanced_sb_reset_color">Reset color</string>
             <string name="revanced_sb_reset">Reset</string>
+            <string name="revanced_sb_about_title">About</string>
+            <string name="revanced_sb_about_api_title" translatable="false">sponsor.ajay.app</string>
+            <string name="revanced_sb_about_api_summary">Data is provided by the SponsorBlock API. Tap here to learn more and see downloads for other platforms</string>
         </patch>
         <patch id="layout.formfactor.changeFormFactorPatch">
             <string name="revanced_change_form_factor_title">Layout form factor</string>
