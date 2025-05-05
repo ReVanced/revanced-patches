@@ -58,7 +58,7 @@ val lithoFilterPatch = bytecodePatch(
      * The following pseudocode shows how this patch works:
      *
      * class SomeOtherClass {
-     *    // Called before ComponentContextParser.readComponentIdentifier(...) method.
+     *    // Called before ComponentContextParser.parseComponent() method.
      *    public void someOtherMethod(ByteBuffer byteBuffer) {
      *        ExtensionClass.setProtoBuffer(byteBuffer); // Inserted by this patch.
      *        ...
@@ -66,7 +66,7 @@ val lithoFilterPatch = bytecodePatch(
      * }
      *
      * class ComponentContextParser {
-     *    public Component readComponentIdentifier(...) {
+     *    public Component parseComponent() {
      *        ...
      *
      *        // Checks if the component should be filtered.
@@ -93,7 +93,7 @@ val lithoFilterPatch = bytecodePatch(
                     2,
                     """
                         new-instance v1, $classDescriptor
-                        invoke-direct {v1}, $classDescriptor-><init>()V
+                        invoke-direct { v1 }, $classDescriptor-><init>()V
                         const/16 v2, ${filterCount++}
                         aput-object v1, v0, v2
                     """,
@@ -128,7 +128,7 @@ val lithoFilterPatch = bytecodePatch(
             val conversionContextClass = conversionContextFingerprint.originalClassDef
 
             // String field for the litho identifier.
-            val conversionContextResulFieldIdentifer = elementTreeComponentFingerprint.method.let {
+            val treeDebugIdentifierField = elementTreeComponentFingerprint.method.let {
                 // First get object in the method.
                 val index = it.indexOfFirstInstructionOrThrow {
                     val reference = getReference<FieldReference>()
@@ -139,7 +139,7 @@ val lithoFilterPatch = bytecodePatch(
             }
 
             // StringBuilder field for the litho path.
-            val conversionContextFieldBuilder = conversionContextClass.fields
+            val conversionContextStringBuilderField = conversionContextClass.fields
                 .single { field -> field.type == "Ljava/lang/StringBuilder;" }
 
             val conversionContextResultIndex = indexOfFirstInstructionOrThrow {
@@ -162,19 +162,19 @@ val lithoFilterPatch = bytecodePatch(
             addInstructionsAtControlFlowLabel(
                 conversionContextResultIndex + 1,
                 """
-                    iget-object v$identifierRegister, v$conversionContextResultRegister, $conversionContextResulFieldIdentifer
-                    iget-object v$stringBuilderRegister, v$conversionContextResultRegister, $conversionContextFieldBuilder
+                    iget-object v$identifierRegister, v$conversionContextResultRegister, $treeDebugIdentifierField
+                    iget-object v$stringBuilderRegister, v$conversionContextResultRegister, $conversionContextStringBuilderField
                     invoke-static { v$identifierRegister, v$stringBuilderRegister }, $EXTENSION_CLASS_DESCRIPTOR->filter(Ljava/lang/String;Ljava/lang/StringBuilder;)V
                 """
             )
 
             // Get the only static method in the class.
-            val builderMethodDescriptor = emptyComponentFingerprint.classDef.methods.first {
+            val builderMethodDescriptor = emptyComponentFingerprint.classDef.methods.single {
                 method -> AccessFlags.STATIC.isSet(method.accessFlags)
             }
             // Only one field.
             val emptyComponentField = classBy { classDef ->
-                builderMethodDescriptor.returnType == classDef.type
+                classDef.type == builderMethodDescriptor.returnType
             }!!.immutableClass.fields.single()
 
             // Check at each return value if the component is filtered,
