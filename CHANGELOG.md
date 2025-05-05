@@ -1,3 +1,10 @@
+# [5.23.0-dev.3](https://github.com/ReVanced/revanced-patches/compare/v5.23.0-dev.2...v5.23.0-dev.3) (2025-05-05)
+
+
+### Bug Fixes
+
+* **YouTube:** Simplify litho filtering patch ([#4910](https://github.com/ReVanced/revanced-patches/issues/4910)) ([bd53955](https://github.com/ReVanced/revanced-patches/commit/bd53955df738bb7b819eb91a3e776e9d2ca5c74a))
+
 # [5.23.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.23.0-dev.1...v5.23.0-dev.2) (2025-05-04)
 
 
