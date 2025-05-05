@@ -3,7 +3,7 @@ package app.revanced.patches.primevideo.ads
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patches.shared.misc.extension.sharedExtensionPatch
+import app.revanced.patches.primevideo.misc.extension.sharedExtensionPatch
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
