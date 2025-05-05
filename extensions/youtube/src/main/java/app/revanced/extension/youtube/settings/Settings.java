@@ -351,57 +351,62 @@ public class Settings extends BaseSettings {
     public static final BooleanSetting RYD_TOAST_ON_CONNECTION_ERROR = new BooleanSetting("revanced_ryd_toast_on_connection_error", TRUE, parent(RYD_ENABLED));
 
     // SponsorBlock
-    public static final BooleanSetting SB_ENABLED = new BooleanSetting("sb_enabled", TRUE);
     /** Do not use id setting directly. Instead use {@link SponsorBlockSettings}. */
-    public static final StringSetting SB_PRIVATE_USER_ID = new StringSetting("sb_private_user_id_Do_Not_Share", "");
-    public static final IntegerSetting SB_CREATE_NEW_SEGMENT_STEP = new IntegerSetting("sb_create_new_segment_step", 150, parent(SB_ENABLED));
-    public static final BooleanSetting SB_VOTING_BUTTON = new BooleanSetting("sb_voting_button", FALSE, parent(SB_ENABLED));
-    public static final BooleanSetting SB_CREATE_NEW_SEGMENT = new BooleanSetting("sb_create_new_segment", FALSE, parent(SB_ENABLED));
-    public static final BooleanSetting SB_SQUARE_LAYOUT = new BooleanSetting("sb_square_layout", FALSE, parent(SB_ENABLED));
-    public static final BooleanSetting SB_COMPACT_SKIP_BUTTON = new BooleanSetting("sb_compact_skip_button", FALSE, parent(SB_ENABLED));
-    public static final BooleanSetting SB_AUTO_HIDE_SKIP_BUTTON = new BooleanSetting("sb_auto_hide_skip_button", TRUE, parent(SB_ENABLED));
-    public static final BooleanSetting SB_TOAST_ON_SKIP = new BooleanSetting("sb_toast_on_skip", TRUE, parent(SB_ENABLED));
-    public static final BooleanSetting SB_TOAST_ON_CONNECTION_ERROR = new BooleanSetting("sb_toast_on_connection_error", TRUE, parent(SB_ENABLED));
-    public static final BooleanSetting SB_TRACK_SKIP_COUNT = new BooleanSetting("sb_track_skip_count", TRUE, parent(SB_ENABLED));
-    public static final FloatSetting SB_SEGMENT_MIN_DURATION = new FloatSetting("sb_min_segment_duration", 0F, parent(SB_ENABLED));
-    public static final BooleanSetting SB_VIDEO_LENGTH_WITHOUT_SEGMENTS = new BooleanSetting("sb_video_length_without_segments", FALSE, parent(SB_ENABLED));
-    public static final StringSetting SB_API_URL = new StringSetting("sb_api_url", "https://sponsor.ajay.app");
-    public static final BooleanSetting SB_USER_IS_VIP = new BooleanSetting("sb_user_is_vip", FALSE);
-    public static final IntegerSetting SB_LOCAL_TIME_SAVED_NUMBER_SEGMENTS = new IntegerSetting("sb_local_time_saved_number_segments", 0);
-    public static final LongSetting SB_LOCAL_TIME_SAVED_MILLISECONDS = new LongSetting("sb_local_time_saved_milliseconds", 0L);
-    public static final LongSetting SB_LAST_VIP_CHECK = new LongSetting("sb_last_vip_check", 0L, false, false);
-    public static final BooleanSetting SB_HIDE_EXPORT_WARNING = new BooleanSetting("sb_hide_export_warning", FALSE, false, false);
-    public static final BooleanSetting SB_SEEN_GUIDELINES = new BooleanSetting("sb_seen_guidelines", FALSE, false, false);
-    public static final StringSetting SB_CATEGORY_SPONSOR = new StringSetting("sb_sponsor", SKIP_AUTOMATICALLY_ONCE.reVancedKeyValue);
-    public static final StringSetting SB_CATEGORY_SPONSOR_COLOR = new StringSetting("sb_sponsor_color", "#00D400");
-    public static final FloatSetting  SB_CATEGORY_SPONSOR_OPACITY = new FloatSetting("sb_sponsor_opacity", 0.8f);
-    public static final StringSetting SB_CATEGORY_SELF_PROMO = new StringSetting("sb_selfpromo", MANUAL_SKIP.reVancedKeyValue);
-    public static final StringSetting SB_CATEGORY_SELF_PROMO_COLOR = new StringSetting("sb_selfpromo_color", "#FFFF00");
-    public static final FloatSetting  SB_CATEGORY_SELF_PROMO_OPACITY = new FloatSetting("sb_selfpromo_opacity", 0.8f);
-    public static final StringSetting SB_CATEGORY_INTERACTION = new StringSetting("sb_interaction", MANUAL_SKIP.reVancedKeyValue);
-    public static final StringSetting SB_CATEGORY_INTERACTION_COLOR = new StringSetting("sb_interaction_color", "#CC00FF");
-    public static final FloatSetting  SB_CATEGORY_INTERACTION_OPACITY = new FloatSetting("sb_interaction_opacity", 0.8f);
-    public static final StringSetting SB_CATEGORY_HIGHLIGHT = new StringSetting("sb_highlight", MANUAL_SKIP.reVancedKeyValue);
-    public static final StringSetting SB_CATEGORY_HIGHLIGHT_COLOR = new StringSetting("sb_highlight_color", "#FF1684");
-    public static final FloatSetting  SB_CATEGORY_HIGHLIGHT_OPACITY = new FloatSetting("sb_highlight_opacity", 0.8f);
-    public static final StringSetting SB_CATEGORY_INTRO = new StringSetting("sb_intro", MANUAL_SKIP.reVancedKeyValue);
-    public static final StringSetting SB_CATEGORY_INTRO_COLOR = new StringSetting("sb_intro_color", "#00FFFF");
-    public static final FloatSetting  SB_CATEGORY_INTRO_OPACITY = new FloatSetting("sb_intro_opacity", 0.8f);
-    public static final StringSetting SB_CATEGORY_OUTRO = new StringSetting("sb_outro", MANUAL_SKIP.reVancedKeyValue);
-    public static final StringSetting SB_CATEGORY_OUTRO_COLOR = new StringSetting("sb_outro_color", "#0202ED");
-    public static final FloatSetting  SB_CATEGORY_OUTRO_OPACITY = new FloatSetting("sb_outro_opacity", 0.8f);
-    public static final StringSetting SB_CATEGORY_PREVIEW = new StringSetting("sb_preview", IGNORE.reVancedKeyValue);
-    public static final StringSetting SB_CATEGORY_PREVIEW_COLOR = new StringSetting("sb_preview_color", "#008FD6");
-    public static final FloatSetting  SB_CATEGORY_PREVIEW_OPACITY = new FloatSetting("sb_preview_opacity", 0.8f);
-    public static final StringSetting SB_CATEGORY_FILLER = new StringSetting("sb_filler", IGNORE.reVancedKeyValue);
-    public static final StringSetting SB_CATEGORY_FILLER_COLOR = new StringSetting("sb_filler_color", "#7300FF");
-    public static final FloatSetting  SB_CATEGORY_FILLER_OPACITY = new FloatSetting("sb_filler_opacity", 0.8f);
-    public static final StringSetting SB_CATEGORY_MUSIC_OFFTOPIC = new StringSetting("sb_music_offtopic", MANUAL_SKIP.reVancedKeyValue);
-    public static final StringSetting SB_CATEGORY_MUSIC_OFFTOPIC_COLOR = new StringSetting("sb_music_offtopic_color", "#FF9900");
-    public static final FloatSetting  SB_CATEGORY_MUSIC_OFFTOPIC_OPACITY = new FloatSetting("sb_music_offtopic_opacity", 0.8f);
-    public static final StringSetting SB_CATEGORY_UNSUBMITTED = new StringSetting("sb_unsubmitted", SKIP_AUTOMATICALLY.reVancedKeyValue);
-    public static final StringSetting SB_CATEGORY_UNSUBMITTED_COLOR = new StringSetting("sb_unsubmitted_color", "#FFFFFF");
-    public static final FloatSetting  SB_CATEGORY_UNSUBMITTED_OPACITY = new FloatSetting("sb_unsubmitted_opacity", 1.0f);
+    public static final BooleanSetting SB_ENABLED = new BooleanSetting("revanced_sb_enabled", TRUE);
+    // Appearance category
+    public static final BooleanSetting SB_VOTING_BUTTON = new BooleanSetting("revanced_sb_voting_button", FALSE, parent(SB_ENABLED));
+    public static final BooleanSetting SB_AUTO_HIDE_SKIP_BUTTON = new BooleanSetting("revanced_sb_auto_hide_skip_button", TRUE, parent(SB_ENABLED));
+    public static final BooleanSetting SB_COMPACT_SKIP_BUTTON = new BooleanSetting("revanced_sb_compact_skip_button", FALSE, parent(SB_ENABLED));
+    public static final BooleanSetting SB_SQUARE_LAYOUT = new BooleanSetting("revanced_sb_square_layout", FALSE, parent(SB_ENABLED));
+    public static final BooleanSetting SB_TOAST_ON_SKIP = new BooleanSetting("revanced_sb_toast_on_skip", TRUE, parent(SB_ENABLED));
+    public static final BooleanSetting SB_VIDEO_LENGTH_WITHOUT_SEGMENTS = new BooleanSetting("revanced_sb_video_length_without_segments", FALSE, parent(SB_ENABLED));
+    // Creating new segments category
+    public static final BooleanSetting SB_CREATE_NEW_SEGMENT = new BooleanSetting("revanced_sb_create_new_segment", FALSE, parent(SB_ENABLED));
+    public static final IntegerSetting SB_CREATE_NEW_SEGMENT_STEP = new IntegerSetting("revanced_sb_create_new_segment_step", 150, parent(SB_ENABLED));
+    public static final BooleanSetting SB_SEEN_GUIDELINES = new BooleanSetting("revanced_sb_seen_guidelines", FALSE, false, false);
+    // General category
+    public static final BooleanSetting SB_TOAST_ON_CONNECTION_ERROR = new BooleanSetting("revanced_sb_toast_on_connection_error", TRUE, parent(SB_ENABLED));
+    public static final BooleanSetting SB_TRACK_SKIP_COUNT = new BooleanSetting("revanced_sb_track_skip_count", TRUE, parent(SB_ENABLED));
+    public static final FloatSetting SB_SEGMENT_MIN_DURATION = new FloatSetting("revanced_sb_min_segment_duration", 0F, parent(SB_ENABLED));
+    public static final StringSetting SB_PRIVATE_USER_ID = new StringSetting("revanced_sb_private_user_id_Do_Not_Share", "");
+    public static final BooleanSetting SB_USER_IS_VIP = new BooleanSetting("revanced_sb_user_is_vip", FALSE);
+    public static final LongSetting SB_LAST_VIP_CHECK = new LongSetting("revanced_sb_last_vip_check", 0L, false, false);
+    public static final StringSetting SB_API_URL = new StringSetting("revanced_sb_api_url", "https://sponsor.ajay.app");
+    public static final BooleanSetting SB_HIDE_EXPORT_WARNING = new BooleanSetting("revanced_sb_hide_export_warning", FALSE, false, false);
+    // Stats category
+    public static final IntegerSetting SB_LOCAL_TIME_SAVED_NUMBER_SEGMENTS = new IntegerSetting("revanced_sb_local_time_saved_number_segments", 0);
+    public static final LongSetting SB_LOCAL_TIME_SAVED_MILLISECONDS = new LongSetting("revanced_sb_local_time_saved_milliseconds", 0L);
+    // Other
+    public static final StringSetting SB_CATEGORY_SPONSOR = new StringSetting("revanced_sb_sponsor", SKIP_AUTOMATICALLY_ONCE.reVancedKeyValue);
+    public static final StringSetting SB_CATEGORY_SPONSOR_COLOR = new StringSetting("revanced_sb_sponsor_color", "#00D400");
+    public static final FloatSetting  SB_CATEGORY_SPONSOR_OPACITY = new FloatSetting("revanced_sb_sponsor_opacity", 0.8f);
+    public static final StringSetting SB_CATEGORY_SELF_PROMO = new StringSetting("revanced_sb_selfpromo", MANUAL_SKIP.reVancedKeyValue);
+    public static final StringSetting SB_CATEGORY_SELF_PROMO_COLOR = new StringSetting("revanced_sb_selfpromo_color", "#FFFF00");
+    public static final FloatSetting  SB_CATEGORY_SELF_PROMO_OPACITY = new FloatSetting("revanced_sb_selfpromo_opacity", 0.8f);
+    public static final StringSetting SB_CATEGORY_INTERACTION = new StringSetting("revanced_sb_interaction", MANUAL_SKIP.reVancedKeyValue);
+    public static final StringSetting SB_CATEGORY_INTERACTION_COLOR = new StringSetting("revanced_sb_interaction_color", "#CC00FF");
+    public static final FloatSetting  SB_CATEGORY_INTERACTION_OPACITY = new FloatSetting("revanced_sb_interaction_opacity", 0.8f);
+    public static final StringSetting SB_CATEGORY_HIGHLIGHT = new StringSetting("revanced_sb_highlight", MANUAL_SKIP.reVancedKeyValue);
+    public static final StringSetting SB_CATEGORY_HIGHLIGHT_COLOR = new StringSetting("revanced_sb_highlight_color", "#FF1684");
+    public static final FloatSetting  SB_CATEGORY_HIGHLIGHT_OPACITY = new FloatSetting("revanced_sb_highlight_opacity", 0.8f);
+    public static final StringSetting SB_CATEGORY_INTRO = new StringSetting("revanced_sb_intro", MANUAL_SKIP.reVancedKeyValue);
+    public static final StringSetting SB_CATEGORY_INTRO_COLOR = new StringSetting("revanced_sb_intro_color", "#00FFFF");
+    public static final FloatSetting  SB_CATEGORY_INTRO_OPACITY = new FloatSetting("revanced_sb_intro_opacity", 0.8f);
+    public static final StringSetting SB_CATEGORY_OUTRO = new StringSetting("revanced_sb_outro", MANUAL_SKIP.reVancedKeyValue);
+    public static final StringSetting SB_CATEGORY_OUTRO_COLOR = new StringSetting("revanced_sb_outro_color", "#0202ED");
+    public static final FloatSetting  SB_CATEGORY_OUTRO_OPACITY = new FloatSetting("revanced_sb_outro_opacity", 0.8f);
+    public static final StringSetting SB_CATEGORY_PREVIEW = new StringSetting("revanced_sb_preview", IGNORE.reVancedKeyValue);
+    public static final StringSetting SB_CATEGORY_PREVIEW_COLOR = new StringSetting("revanced_sb_preview_color", "#008FD6");
+    public static final FloatSetting  SB_CATEGORY_PREVIEW_OPACITY = new FloatSetting("revanced_sb_preview_opacity", 0.8f);
+    public static final StringSetting SB_CATEGORY_FILLER = new StringSetting("revanced_sb_filler", IGNORE.reVancedKeyValue);
+    public static final StringSetting SB_CATEGORY_FILLER_COLOR = new StringSetting("revanced_sb_filler_color", "#7300FF");
+    public static final FloatSetting  SB_CATEGORY_FILLER_OPACITY = new FloatSetting("revanced_sb_filler_opacity", 0.8f);
+    public static final StringSetting SB_CATEGORY_MUSIC_OFFTOPIC = new StringSetting("revanced_sb_music_offtopic", MANUAL_SKIP.reVancedKeyValue);
+    public static final StringSetting SB_CATEGORY_MUSIC_OFFTOPIC_COLOR = new StringSetting("revanced_sb_music_offtopic_color", "#FF9900");
+    public static final FloatSetting  SB_CATEGORY_MUSIC_OFFTOPIC_OPACITY = new FloatSetting("revanced_sb_music_offtopic_opacity", 0.8f);
+    public static final StringSetting SB_CATEGORY_UNSUBMITTED = new StringSetting("revanced_sb_unsubmitted", SKIP_AUTOMATICALLY.reVancedKeyValue);
+    public static final StringSetting SB_CATEGORY_UNSUBMITTED_COLOR = new StringSetting("revanced_sb_unsubmitted_color", "#FFFFFF");
+    public static final FloatSetting  SB_CATEGORY_UNSUBMITTED_OPACITY = new FloatSetting("revanced_sb_unsubmitted_opacity", 1.0f);
 
     // Deprecated migrations
     private static final BooleanSetting DEPRECATED_HIDE_PLAYER_BUTTONS = new BooleanSetting("revanced_hide_player_buttons", FALSE, true);
@@ -462,7 +467,7 @@ public class Settings extends BaseSettings {
             SPOOF_APP_VERSION_TARGET.resetToDefault();
         }
 
-        // RYD requires manually migrating old settings since the lack of
+        // RYD and SB requires manually migrating old settings since the lack of
         // a "revanced_" on the old setting causes duplicate key exceptions during export.
         SharedPrefCategory revancedPrefs = Setting.preferences;
         Setting.migrateFromOldPreferences(revancedPrefs, RYD_USER_ID, "ryd_user_id");
@@ -471,6 +476,57 @@ public class Settings extends BaseSettings {
         Setting.migrateFromOldPreferences(revancedPrefs, RYD_COMPACT_LAYOUT, "ryd_compact_layout");
         Setting.migrateFromOldPreferences(revancedPrefs, RYD_ESTIMATED_LIKE, "ryd_estimated_like");
         Setting.migrateFromOldPreferences(revancedPrefs, RYD_TOAST_ON_CONNECTION_ERROR, "ryd_toast_on_connection_error");
+
+        Setting.migrateFromOldPreferences(revancedPrefs, SB_ENABLED, "sb_enabled");
+        Setting.migrateFromOldPreferences(revancedPrefs, SB_PRIVATE_USER_ID, "sb_private_user_id_Do_Not_Share");
+        Setting.migrateFromOldPreferences(revancedPrefs, SB_CREATE_NEW_SEGMENT_STEP, "sb_create_new_segment_step");
+        Setting.migrateFromOldPreferences(revancedPrefs, SB_VOTING_BUTTON, "sb_voting_button");
+        Setting.migrateFromOldPreferences(revancedPrefs, SB_CREATE_NEW_SEGMENT, "sb_create_new_segment");
+        Setting.migrateFromOldPreferences(revancedPrefs, SB_SQUARE_LAYOUT, "sb_square_layout");
+        Setting.migrateFromOldPreferences(revancedPrefs, SB_COMPACT_SKIP_BUTTON, "sb_compact_skip_button");
+        Setting.migrateFromOldPreferences(revancedPrefs, SB_AUTO_HIDE_SKIP_BUTTON, "sb_auto_hide_skip_button");
+        Setting.migrateFromOldPreferences(revancedPrefs, SB_TOAST_ON_SKIP, "sb_toast_on_skip");
+        Setting.migrateFromOldPreferences(revancedPrefs, SB_TOAST_ON_CONNECTION_ERROR, "sb_toast_on_connection_error");
+        Setting.migrateFromOldPreferences(revancedPrefs, SB_TRACK_SKIP_COUNT, "sb_track_skip_count");
+        Setting.migrateFromOldPreferences(revancedPrefs, SB_SEGMENT_MIN_DURATION, "sb_min_segment_duration");
+        Setting.migrateFromOldPreferences(revancedPrefs, SB_VIDEO_LENGTH_WITHOUT_SEGMENTS, "sb_video_length_without_segments");
+        Setting.migrateFromOldPreferences(revancedPrefs, SB_API_URL, "sb_api_url");
+        Setting.migrateFromOldPreferences(revancedPrefs, SB_USER_IS_VIP, "sb_user_is_vip");
+        Setting.migrateFromOldPreferences(revancedPrefs, SB_LOCAL_TIME_SAVED_NUMBER_SEGMENTS, "sb_local_time_saved_number_segments");
+        Setting.migrateFromOldPreferences(revancedPrefs, SB_LOCAL_TIME_SAVED_MILLISECONDS, "sb_local_time_saved_milliseconds");
+        Setting.migrateFromOldPreferences(revancedPrefs, SB_LAST_VIP_CHECK, "sb_last_vip_check");
+        Setting.migrateFromOldPreferences(revancedPrefs, SB_HIDE_EXPORT_WARNING, "sb_hide_export_warning");
+        Setting.migrateFromOldPreferences(revancedPrefs, SB_SEEN_GUIDELINES, "sb_seen_guidelines");
+        Setting.migrateFromOldPreferences(revancedPrefs, SB_CATEGORY_SPONSOR, "sb_sponsor");
+        Setting.migrateFromOldPreferences(revancedPrefs, SB_CATEGORY_SPONSOR_COLOR, "sb_sponsor_color");
+        Setting.migrateFromOldPreferences(revancedPrefs, SB_CATEGORY_SPONSOR_OPACITY, "sb_sponsor_opacity");
+        Setting.migrateFromOldPreferences(revancedPrefs, SB_CATEGORY_SELF_PROMO, "sb_selfpromo");
+        Setting.migrateFromOldPreferences(revancedPrefs, SB_CATEGORY_SELF_PROMO_COLOR, "sb_selfpromo_color");
+        Setting.migrateFromOldPreferences(revancedPrefs, SB_CATEGORY_SELF_PROMO_OPACITY, "sb_selfpromo_opacity");
+        Setting.migrateFromOldPreferences(revancedPrefs, SB_CATEGORY_INTERACTION, "sb_interaction");
+        Setting.migrateFromOldPreferences(revancedPrefs, SB_CATEGORY_INTERACTION_COLOR, "sb_interaction_color");
+        Setting.migrateFromOldPreferences(revancedPrefs, SB_CATEGORY_INTERACTION_OPACITY, "sb_interaction_opacity");
+        Setting.migrateFromOldPreferences(revancedPrefs, SB_CATEGORY_HIGHLIGHT, "sb_highlight");
+        Setting.migrateFromOldPreferences(revancedPrefs, SB_CATEGORY_HIGHLIGHT_COLOR, "sb_highlight_color");
+        Setting.migrateFromOldPreferences(revancedPrefs, SB_CATEGORY_HIGHLIGHT_OPACITY, "sb_highlight_opacity");
+        Setting.migrateFromOldPreferences(revancedPrefs, SB_CATEGORY_INTRO, "sb_intro");
+        Setting.migrateFromOldPreferences(revancedPrefs, SB_CATEGORY_INTRO_COLOR, "sb_intro_color");
+        Setting.migrateFromOldPreferences(revancedPrefs, SB_CATEGORY_INTRO_OPACITY, "sb_intro_opacity");
+        Setting.migrateFromOldPreferences(revancedPrefs, SB_CATEGORY_OUTRO, "sb_outro");
+        Setting.migrateFromOldPreferences(revancedPrefs, SB_CATEGORY_OUTRO_COLOR, "sb_outro_color");
+        Setting.migrateFromOldPreferences(revancedPrefs, SB_CATEGORY_OUTRO_OPACITY, "sb_outro_opacity");
+        Setting.migrateFromOldPreferences(revancedPrefs, SB_CATEGORY_PREVIEW, "sb_preview");
+        Setting.migrateFromOldPreferences(revancedPrefs, SB_CATEGORY_PREVIEW_COLOR, "sb_preview_color");
+        Setting.migrateFromOldPreferences(revancedPrefs, SB_CATEGORY_PREVIEW_OPACITY, "sb_preview_opacity");
+        Setting.migrateFromOldPreferences(revancedPrefs, SB_CATEGORY_FILLER, "sb_filler");
+        Setting.migrateFromOldPreferences(revancedPrefs, SB_CATEGORY_FILLER_COLOR, "sb_filler_color");
+        Setting.migrateFromOldPreferences(revancedPrefs, SB_CATEGORY_FILLER_OPACITY, "sb_filler_opacity");
+        Setting.migrateFromOldPreferences(revancedPrefs, SB_CATEGORY_MUSIC_OFFTOPIC, "sb_music_offtopic");
+        Setting.migrateFromOldPreferences(revancedPrefs, SB_CATEGORY_MUSIC_OFFTOPIC_COLOR, "sb_music_offtopic_color");
+        Setting.migrateFromOldPreferences(revancedPrefs, SB_CATEGORY_MUSIC_OFFTOPIC_OPACITY, "sb_music_offtopic_opacity");
+        Setting.migrateFromOldPreferences(revancedPrefs, SB_CATEGORY_UNSUBMITTED, "sb_unsubmitted");
+        Setting.migrateFromOldPreferences(revancedPrefs, SB_CATEGORY_UNSUBMITTED_COLOR, "sb_unsubmitted_color");
+        Setting.migrateFromOldPreferences(revancedPrefs, SB_CATEGORY_UNSUBMITTED_OPACITY, "sb_unsubmitted_opacity");
 
         // endregion
 
