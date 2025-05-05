@@ -1,20 +1,14 @@
 package app.revanced.extension.youtube.sponsorblock.ui;
 
 import android.content.Context;
-import android.content.Intent;
-import android.net.Uri;
-import android.preference.Preference;
 import android.util.AttributeSet;
 
-@SuppressWarnings({"unused", "deprecation"})
-public class SponsorBlockAboutPreference extends Preference {
+import app.revanced.extension.youtube.settings.preference.UrlLinkPreference;
+
+@SuppressWarnings("unused")
+public class SponsorBlockAboutPreference extends UrlLinkPreference {
     {
-        setOnPreferenceClickListener(pref -> {
-            Intent i = new Intent(Intent.ACTION_VIEW);
-            i.setData(Uri.parse("https://sponsor.ajay.app"));
-            pref.getContext().startActivity(i);
-            return false;
-        });
+        externalUrl = "https://sponsor.ajay.app";
     }
 
     public SponsorBlockAboutPreference(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {

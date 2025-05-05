@@ -1,23 +1,17 @@
 package app.revanced.extension.youtube.returnyoutubedislike.ui;
 
 import android.content.Context;
-import android.content.Intent;
-import android.net.Uri;
-import android.preference.Preference;
 import android.util.AttributeSet;
+
+import app.revanced.extension.youtube.settings.preference.UrlLinkPreference;
 
 /**
  * Allows tapping the RYD about preference to open the website.
  */
-@SuppressWarnings({"unused", "deprecation"})
-public class ReturnYouTubeDislikeAboutPreference extends Preference {
+@SuppressWarnings("unused")
+public class ReturnYouTubeDislikeAboutPreference extends UrlLinkPreference {
     {
-        setOnPreferenceClickListener(pref -> {
-            Intent i = new Intent(Intent.ACTION_VIEW);
-            i.setData(Uri.parse("https://returnyoutubedislike.com"));
-            pref.getContext().startActivity(i);
-            return false;
-        });
+        externalUrl = "https://returnyoutubedislike.com";
     }
 
     public ReturnYouTubeDislikeAboutPreference(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {

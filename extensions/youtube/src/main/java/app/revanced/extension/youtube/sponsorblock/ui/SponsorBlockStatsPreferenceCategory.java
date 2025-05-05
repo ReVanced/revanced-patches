@@ -26,9 +26,10 @@ import app.revanced.extension.youtube.sponsorblock.requests.SBRequester;
 /**
  * User skip stats.
  *
- * None of the preferences here show up in search results because stat preferences are added
- * after inflating, but that's ok because there's no good reason to show stats in search
- * when the user can navigate to the SB settings much faster than typing a search query.
+ * None of the preferences here show up in search results because
+ * a category cannot be added to another category for the search results.
+ * Additionally the stats must load remotely on a background thread which means the
+ * preferences are not available to collect for search when the settings first load.
  */
 @SuppressWarnings({"unused", "deprecation"})
 public class SponsorBlockStatsPreferenceCategory extends PreferenceCategory {
@@ -55,7 +56,7 @@ public class SponsorBlockStatsPreferenceCategory extends PreferenceCategory {
             removeAll();
 
             if (!SponsorBlockSettings.userHasSBPrivateId()) {
-                // User has never voted or created any segments.  No stats to show.
+                // User has never voted or created any segments. Only local stats exist.
                 addLocalUserStats();
                 return;
             }
@@ -93,9 +94,8 @@ public class SponsorBlockStatsPreferenceCategory extends PreferenceCategory {
 
             if (stats.totalSegmentCountIncludingIgnored > 0) {
                 // If user has not created any segments, there's no reason to set a username.
-                EditTextPreference preference = new ResettableEditTextPreference(context);
-                addPreference(preference);
                 String userName = stats.userName;
+                EditTextPreference preference = new ResettableEditTextPreference(context);
                 preference.setTitle(fromHtml(str("revanced_sb_stats_username", userName)));
                 preference.setSummary(str("revanced_sb_stats_username_change"));
                 preference.setText(userName);
@@ -116,12 +116,12 @@ public class SponsorBlockStatsPreferenceCategory extends PreferenceCategory {
                     });
                     return true;
                 });
+                addPreference(preference);
             }
 
             {
-                // number of segment submissions (does not include ignored segments)
+                // Number of segment submissions (does not include ignored segments).
                 Preference preference = new Preference(context);
-                addPreference(preference);
                 String formatted = SponsorBlockUtils.getNumberOfSkipsString(stats.segmentCount);
                 preference.setTitle(fromHtml(str("revanced_sb_stats_submissions", formatted)));
                 preference.setSummary(str("revanced_sb_stats_submissions_sum"));
@@ -135,11 +135,12 @@ public class SponsorBlockStatsPreferenceCategory extends PreferenceCategory {
                         return true;
                     });
                 }
+                addPreference(preference);
             }
 
             {
-                // "user reputation".  Usually not useful, since it appears most users have zero reputation.
-                // But if there is a reputation, then show it here
+                // "user reputation".  Usually not useful since it appears most users have zero reputation.
+                // But if there is a reputation then show it here.
                 Preference preference = new Preference(context);
                 preference.setTitle(fromHtml(str("revanced_sb_stats_reputation", stats.reputation)));
                 preference.setSelectable(false);
@@ -149,9 +150,8 @@ public class SponsorBlockStatsPreferenceCategory extends PreferenceCategory {
             }
 
             {
-                // time saved for other users
+                // Time saved for other users.
                 Preference preference = new Preference(context);
-                addPreference(preference);
 
                 String stats_saved;
                 String stats_saved_sum;
@@ -161,7 +161,8 @@ public class SponsorBlockStatsPreferenceCategory extends PreferenceCategory {
                 } else {
                     stats_saved = str("revanced_sb_stats_saved",
                             SponsorBlockUtils.getNumberOfSkipsString(stats.viewCount));
-                    stats_saved_sum = str("revanced_sb_stats_saved_sum", SponsorBlockUtils.getTimeSavedString((long) (60 * stats.minutesSaved)));
+                    stats_saved_sum = str("revanced_sb_stats_saved_sum",
+                            SponsorBlockUtils.getTimeSavedString((long) (60 * stats.minutesSaved)));
                 }
                 preference.setTitle(fromHtml(stats_saved));
                 preference.setSummary(fromHtml(stats_saved_sum));
@@ -171,6 +172,7 @@ public class SponsorBlockStatsPreferenceCategory extends PreferenceCategory {
                     preference1.getContext().startActivity(i);
                     return false;
                 });
+                addPreference(preference);
             }
         } catch (Exception ex) {
             Logger.printException(() -> "addUserStats failure", ex);
@@ -178,17 +180,19 @@ public class SponsorBlockStatsPreferenceCategory extends PreferenceCategory {
     }
 
     private void addLocalUserStats() {
-        // time the user saved by using SB
+        // Time the user saved by using SB.
         Preference preference = new Preference(getContext());
-        addPreference(preference);
-
         Runnable updateStatsSelfSaved = () -> {
-            String formatted = SponsorBlockUtils.getNumberOfSkipsString(Settings.SB_LOCAL_TIME_SAVED_NUMBER_SEGMENTS.get());
+            String formatted = SponsorBlockUtils.getNumberOfSkipsString(
+                    Settings.SB_LOCAL_TIME_SAVED_NUMBER_SEGMENTS.get());
             preference.setTitle(fromHtml(str("revanced_sb_stats_self_saved", formatted)));
-            String formattedSaved = SponsorBlockUtils.getTimeSavedString(Settings.SB_LOCAL_TIME_SAVED_MILLISECONDS.get() / 1000);
+
+            String formattedSaved = SponsorBlockUtils.getTimeSavedString(
+                    Settings.SB_LOCAL_TIME_SAVED_MILLISECONDS.get() / 1000);
             preference.setSummary(fromHtml(str("revanced_sb_stats_self_saved_sum", formattedSaved)));
         };
         updateStatsSelfSaved.run();
+
         preference.setOnPreferenceClickListener(preference1 -> {
             new AlertDialog.Builder(preference1.getContext())
                     .setTitle(str("revanced_sb_stats_self_saved_reset_title"))
@@ -200,5 +204,7 @@ public class SponsorBlockStatsPreferenceCategory extends PreferenceCategory {
                     .setNegativeButton(android.R.string.no, null).show();
             return true;
         });
+
+        addPreference(preference);
     }
 }
