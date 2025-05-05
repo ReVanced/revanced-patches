@@ -35,8 +35,8 @@ val sanitizeSharingLinksPatch = bytecodePatch(
 
         copyFingerprint.method.apply {
             val index = indexOfFirstInstructionOrThrow {
-                val reference = getReference<MethodReference>()
-                reference?.name == "newPlainText"
+                getReference<MethodReference>()?.name == "newPlainText"
+
             }
             val register = getInstruction<FiveRegisterInstruction>(index).registerD
 
