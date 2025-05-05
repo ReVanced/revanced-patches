@@ -12,12 +12,13 @@ import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.playservice.is_19_25_or_greater
 import app.revanced.patches.youtube.misc.playservice.is_20_05_or_greater
 import app.revanced.patches.youtube.misc.playservice.versionCheckPatch
-import app.revanced.patches.youtube.shared.conversionContextFingerprint
+import app.revanced.patches.youtube.shared.conversionContextFingerprintToString
 import app.revanced.util.addInstructionsAtControlFlowLabel
 import app.revanced.util.findFreeRegister
 import app.revanced.util.findInstructionIndicesReversedOrThrow
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
+import app.revanced.util.indexOfFirstInstructionReversedOrThrow
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
@@ -124,18 +125,22 @@ val lithoFilterPatch = bytecodePatch(
         // in the method, but there is no simple way to do that.
         // Instead save the extension filter result to a thread local and check the
         // filtering result at each method return index.
+        // String field for the litho identifier.
         componentContextParserFingerprint.method.apply {
-            val conversionContextClass = conversionContextFingerprint.originalClassDef
+            val conversionContextClass = conversionContextFingerprintToString.originalClassDef
 
-            // String field for the litho identifier.
-            val conversionContextIdentifierField = converterTreeDebugFingerprint.method.let {
-                // First get object in the method.
-                val index = it.indexOfFirstInstructionOrThrow {
+            val conversionContextIdentifierField = componentContextSubParserFingerprint.match(
+                componentContextParserFingerprint.originalClassDef
+            ).let {
+                // Identifier field is loaded just before the string declaration.
+                val index = it.method.indexOfFirstInstructionReversedOrThrow(
+                    it.stringMatches!!.first().index
+                ) {
                     val reference = getReference<FieldReference>()
                     reference?.definingClass == conversionContextClass.type
                             && reference.type == "Ljava/lang/String;"
                 }
-                it.getInstruction<ReferenceInstruction>(index).getReference<FieldReference>()
+                it.method.getInstruction<ReferenceInstruction>(index).getReference<FieldReference>()
             }
 
             // StringBuilder field for the litho path.

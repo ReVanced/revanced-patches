@@ -13,6 +13,16 @@ internal val componentContextParserFingerprint = fingerprint {
     )
 }
 
+/**
+ * Resolves to the class found in [componentContextParserFingerprint].
+ * When patching 19.16 this fingerprint matches the same method as [componentContextParserFingerprint].
+ */
+internal val componentContextSubParserFingerprint = fingerprint {
+    strings(
+        "Number of bits must be positive"
+    )
+}
+
 internal val lithoFilterFingerprint = fingerprint {
     accessFlags(AccessFlags.STATIC, AccessFlags.CONSTRUCTOR)
     returns("V")
@@ -31,12 +41,6 @@ internal val protobufBufferReferenceFingerprint = fingerprint {
         Opcode.MOVE_RESULT,
         Opcode.SUB_INT_2ADDR,
     )
-}
-
-internal val converterTreeDebugFingerprint = fingerprint {
-    returns("L")
-    opcodes(Opcode.IGET_OBJECT)
-    strings("Element tree missing id in debug mode.")
 }
 
 internal val emptyComponentFingerprint = fingerprint {
