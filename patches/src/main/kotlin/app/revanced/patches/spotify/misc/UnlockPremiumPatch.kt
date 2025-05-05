@@ -41,12 +41,6 @@ val unlockPremiumPatch = bytecodePatch(
     )
 
     execute {
-        if (IS_SPOTIFY_LEGACY_APP_TARGET) {
-            Logger.getLogger(this::class.java.name).warning(
-                "Patching a legacy Spotify version. Patch functionality may be limited."
-            )
-        }
-
         // Make _value accessible so that it can be overridden in the extension.
         accountAttributeFingerprint.classDef.fields.first { it.name == "value_" }.apply {
             // Add public flag and remove private.
@@ -77,6 +71,9 @@ val unlockPremiumPatch = bytecodePatch(
 
 
         if (IS_SPOTIFY_LEGACY_APP_TARGET) {
+            Logger.getLogger(this::class.java.name).warning(
+                "Patching a legacy Spotify version. Patch functionality may be limited."
+            )
             return@execute
         }
 
