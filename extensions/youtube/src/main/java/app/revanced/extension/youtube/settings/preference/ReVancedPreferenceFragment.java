@@ -22,7 +22,6 @@ import android.widget.Toolbar;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -109,7 +108,7 @@ public class ReVancedPreferenceFragment extends AbstractPreferenceFragment {
      * Root preferences are excluded (no need to search what's on the root screen),
      * but their sub preferences are included.
      */
-    private final Map<Preference, PreferenceSearchData> allPreferences = new LinkedHashMap<>();
+    private final List<Pair<Preference, PreferenceSearchData>> allPreferences = new ArrayList<>();
 
     @SuppressLint("UseCompatLoadingForDrawables")
     public static Drawable getBackButtonDrawable() {
@@ -121,10 +120,10 @@ public class ReVancedPreferenceFragment extends AbstractPreferenceFragment {
     }
 
     /**
-     * Sorts a preference list by menu entries, but preserves the first value as the first entry.
-     *
-     * @noinspection SameParameterValue
+     * Sorts a preference list by menu entries,
+     * but preserves the first N entries in their current position.
      */
+    @SuppressWarnings("SameParameterValue")
     private static void sortListPreferenceByValues(ListPreference listPreference, int firstEntriesToPreserve) {
         CharSequence[] entries = listPreference.getEntries();
         CharSequence[] entryValues = listPreference.getEntryValues();
@@ -234,7 +233,7 @@ public class ReVancedPreferenceFragment extends AbstractPreferenceFragment {
             Preference preference = group.getPreference(i);
             if (includeDepth <= currentDepth && !(preference instanceof PreferenceCategory)
                     && !(preference instanceof SponsorBlockPreferenceGroup)) {
-                allPreferences.put(preference, new PreferenceSearchData(preference));
+                allPreferences.add(new Pair<>(preference, new PreferenceSearchData(preference)));
             }
 
             if (preference instanceof PreferenceGroup subGroup) {
@@ -260,8 +259,8 @@ public class ReVancedPreferenceFragment extends AbstractPreferenceFragment {
         Map<String, PreferenceCategory> categoryMap = new HashMap<>(50);
         String queryLower = Utils.removePunctuationToLowercase(query);
 
-        for (Map.Entry<Preference, PreferenceSearchData> entry : allPreferences.entrySet()) {
-            PreferenceSearchData data = entry.getValue();
+        for (Pair<Preference, PreferenceSearchData> entry : allPreferences) {
+            PreferenceSearchData data = entry.second;
 
             if (data.matchesSearchQuery(queryLower)) {
                 String navigationPath = data.navigationPath;
@@ -271,7 +270,7 @@ public class ReVancedPreferenceFragment extends AbstractPreferenceFragment {
                     preferenceScreen.addPreference(newGroup);
                     return newGroup;
                 });
-                group.addPreference(entry.getKey());
+                group.addPreference(entry.first);
             }
         }
     }

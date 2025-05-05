@@ -26,6 +26,7 @@ import app.revanced.patches.youtube.video.videoid.hookPlayerResponseVideoId
 import app.revanced.patches.youtube.video.videoid.hookVideoId
 import app.revanced.patches.youtube.video.videoid.videoIdPatch
 import app.revanced.util.addInstructionsAtControlFlowLabel
+import app.revanced.util.findFreeRegister
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
 import app.revanced.util.returnLate
