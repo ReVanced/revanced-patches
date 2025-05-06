@@ -459,21 +459,30 @@ Coigeartaigh an toirt trí haisceartán go hingearach ar thaobh deas an scáile�
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_title">Cumasaigh gotha uathoibríoch</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_on">Cumasaíonn scioradh síos go dtí an luach is ísle den chomhartha gile uathoibríoch</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_off">Ní chumasaíonn uathoibríoch a tharraingt síos go dtí an luach is ísle</string>
+  <string name="revanced_swipe_lowest_value_enable_auto_brightness_overlay_text">Uathoibríoch</string>
   <string name="revanced_swipe_overlay_timeout_title">Amach forleagtha Swipe</string>
   <string name="revanced_swipe_overlay_timeout_summary">Tá méid na milleasoicind an forleagan le feiceáil</string>
   <string name="revanced_swipe_overlay_background_opacity_title">Réabhlóid thrasláiteachta na gcúlra léaráidí</string>
   <string name="revanced_swipe_overlay_background_opacity_summary">Luach léaráidí idir 0-100</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Caithfidh léaráidí traslaithe a bheith idir 0-100</string>
+  <string name="revanced_swipe_overlay_progress_color_title">Dath an bharra dul chun cinn forleagain swipe</string>
+  <string name="revanced_swipe_overlay_progress_color_summary">Dath an bharra dul chun cinn le haghaidh rialuithe toirte agus gile</string>
+  <string name="revanced_swipe_overlay_progress_color_invalid_toast">Dath barra dul chun cinn neamhbhailí</string>
+  <string name="revanced_swipe_text_overlay_size_title">Méid téacs an fhorleagain swipe</string>
+  <string name="revanced_swipe_text_overlay_size_summary">Méid téacs an fhorleagain swipe idir 1-30</string>
+  <string name="revanced_swipe_text_overlay_size_invalid_toast">Caithfidh an méid téacs a bheith idir 1-30</string>
   <string name="revanced_swipe_threshold_title">Tairseach méid swipe</string>
   <string name="revanced_swipe_threshold_summary">Méid an tairseach le haghaidh sruthú tarlú</string>
   <string name="revanced_swipe_volume_sensitivity_title">Íogaireacht swipe toirte</string>
   <string name="revanced_swipe_volume_sensitivity_summary">An méid a athraíonn an toirt in aghaidh gach swipe</string>
-  <string name="revanced_swipe_show_circular_overlay_title">Taispeáin forleagan ciorclach</string>
-  <string name="revanced_swipe_show_circular_overlay_summary_on">Léirítear forleagan ciorclach</string>
-  <string name="revanced_swipe_show_circular_overlay_summary_off">Taispeántar forleagan cothrománach</string>
-  <string name="revanced_swipe_overlay_minimal_style_title">Cumasaigh stíl íosta</string>
-  <string name="revanced_swipe_overlay_minimal_style_summary_on">Tá stíl íosta forleagain cumasaithe</string>
-  <string name="revanced_swipe_overlay_minimal_style_summary_off">Tá an stíl fhorleagan íosta díchumasaithe</string>
+  <string name="revanced_swipe_overlay_style_title">Stíl forleagain swipe</string>
+  <string name="revanced_swipe_overlay_style_entry_1">Forleagan cothrománach</string>
+  <string name="revanced_swipe_overlay_style_entry_2">Forleagan cothrománach (íosta - barr)</string>
+  <string name="revanced_swipe_overlay_style_entry_3">Forleagan cothrománach (íosta - lár)</string>
+  <string name="revanced_swipe_overlay_style_entry_4">Forleagan ciorclach</string>
+  <string name="revanced_swipe_overlay_style_entry_5">Forleagan ciorclach (íosta)</string>
+  <string name="revanced_swipe_overlay_style_entry_6">Forleagan ingearach</string>
+  <string name="revanced_swipe_overlay_style_entry_7">Forleagan ingearach (íosta)</string>
   <string name="revanced_swipe_change_video_title">Cumasaigh swipe chun físeáin a athrú</string>
   <string name="revanced_swipe_change_video_summary_on">Achlaigh i mód lán-scáile chun athrú go dtí an físeán chéanna/arís</string>
   <string name="revanced_swipe_change_video_summary_off">Ní athróidh achlaigh i mód lán-scáile go dtí an físeán chéanna/arís</string>
@@ -513,6 +522,11 @@ Coigeartaigh an toirt trí haisceartán go hingearach ar thaobh deas an scáile�
   <string name="revanced_hide_thanks_button_title">Folaigh Go raibh maith agat</string>
   <string name="revanced_hide_thanks_button_summary_on">Tá cnaipe buíochas i bhfolach</string>
   <string name="revanced_hide_thanks_button_summary_off">Taispeántar cnaipe buíochas</string>
+  <!-- 'Ask' should be translated with the same localized wording that YouTube displays.
+                 Button only shows if the user ip is from specific region such as the USA or EU. -->
+  <string name="revanced_hide_ask_button_title">Folaigh Fiafraigh</string>
+  <string name="revanced_hide_ask_button_summary_on">Tá cnaipe Fiafraigh i bhfolach</string>
+  <string name="revanced_hide_ask_button_summary_off">Taispeántar cnaipe Fiafraigh</string>
   <!-- 'Clip' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_clip_button_title">Folaigh Gearrthóg</string>
   <string name="revanced_hide_clip_button_summary_on">Tá an cnaipe gearrthóg i bhfolach</string>
@@ -1296,6 +1310,9 @@ Is féidir le seo caighdeáin físeáin níos airde a dhíghlasáil"</string>
   <patch id="misc.gms.gmsCoreSupportResourcePatch">
   <string name="microg_settings_title">Socruithe GmsCore</string>
   <string name="microg_settings_summary">Socruithe le haghaidh GmsCore</string>
+  </patch>
+  <patch id="misc.gms.accountCredentialsInvalidTextPatch">
+  <string name="microg_offline_account_login_error">Má d’athraigh tú sonraí logála isteach do chuntais le déanaí, ansin díshuiteáil agus athshuiteáil MicroG.</string>
   </patch>
   <patch id="misc.links.bypassURLRedirectsPatch">
   <string name="revanced_bypass_url_redirects_title">Atreoracha seachbhóthar URL</string>

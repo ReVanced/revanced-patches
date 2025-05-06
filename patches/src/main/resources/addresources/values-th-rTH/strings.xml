@@ -457,21 +457,30 @@ Second \"item\" text"</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_title">เปิดใช้งานท่าทางความสว่างอัตโนมัติ</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_on">การปัดลงไปที่ค่าต่ำสุดของท่าทางความสว่างจะเปิดใช้งานความสว่างอัตโนมัติ</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_off">การปัดลงไปที่ค่าต่ำสุดจะไม่เปิดใช้งานความสว่างอัตโนมัติ</string>
+  <string name="revanced_swipe_lowest_value_enable_auto_brightness_overlay_text">อัตโนมัติ</string>
   <string name="revanced_swipe_overlay_timeout_title">เวลาหมดอายุของการแสดงทับการปัด</string>
   <string name="revanced_swipe_overlay_timeout_summary">จำนวนมิลลิวินาทีที่การแสดงทับจะมองเห็น</string>
   <string name="revanced_swipe_overlay_background_opacity_title">ความทึบแสงพื้นหลังของสไลด์โอเวอร์เลย์</string>
   <string name="revanced_swipe_overlay_background_opacity_summary">ค่าความทึบแสงระหว่าง 0-100</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">ค่าความทึบแสงของสไลด์ต้องอยู่ระหว่าง 0-100</string>
+  <string name="revanced_swipe_overlay_progress_color_title">สีของแถบความคืบหน้าของการปัด</string>
+  <string name="revanced_swipe_overlay_progress_color_summary">สีของแถบความคืบหน้าสำหรับการควบคุมระดับเสียงและความสว่าง</string>
+  <string name="revanced_swipe_overlay_progress_color_invalid_toast">สีของแถบความคืบหน้าไม่ถูกต้อง</string>
+  <string name="revanced_swipe_text_overlay_size_title">ขนาดข้อความของการปัด</string>
+  <string name="revanced_swipe_text_overlay_size_summary">ขนาดข้อความสำหรับการปัดระหว่าง 1-30</string>
+  <string name="revanced_swipe_text_overlay_size_invalid_toast">ขนาดข้อความต้องอยู่ระหว่าง 1-30</string>
   <string name="revanced_swipe_threshold_title">เกณฑ์ขนาดของการปัด</string>
   <string name="revanced_swipe_threshold_summary">จำนวนเกณฑ์สำหรับการปัดที่จะเกิดขึ้น</string>
   <string name="revanced_swipe_volume_sensitivity_title">ความไวในการปัดปรับระดับเสียง</string>
   <string name="revanced_swipe_volume_sensitivity_summary">ปริมาณการเปลี่ยนแปลงระดับเสียงต่อการปัดแต่ละครั้ง</string>
-  <string name="revanced_swipe_show_circular_overlay_title">แสดงภาพซ้อนทับแบบวงกลม</string>
-  <string name="revanced_swipe_show_circular_overlay_summary_on">แสดงภาพซ้อนทับแบบวงกลม</string>
-  <string name="revanced_swipe_show_circular_overlay_summary_off">แสดงภาพซ้อนทับแนวนอน</string>
-  <string name="revanced_swipe_overlay_minimal_style_title">เปิดใช้งานรูปแบบมินิมอล</string>
-  <string name="revanced_swipe_overlay_minimal_style_summary_on">เปิดใช้งานรูปแบบโอเวอร์เลย์มินิมอล</string>
-  <string name="revanced_swipe_overlay_minimal_style_summary_off">ปิดใช้งานรูปแบบภาพซ้อนทับแบบมินิมอล</string>
+  <string name="revanced_swipe_overlay_style_title">รูปแบบโอเวอร์เลย์การปัด</string>
+  <string name="revanced_swipe_overlay_style_entry_1">โอเวอร์เลย์แนวนอน</string>
+  <string name="revanced_swipe_overlay_style_entry_2">โอเวอร์เลย์แนวนอน (มินิมอล - ด้านบน)</string>
+  <string name="revanced_swipe_overlay_style_entry_3">โอเวอร์เลย์แนวนอน (มินิมอล - ตรงกลาง)</string>
+  <string name="revanced_swipe_overlay_style_entry_4">โอเวอร์เลย์แบบวงกลม</string>
+  <string name="revanced_swipe_overlay_style_entry_5">โอเวอร์เลย์แบบวงกลม (มินิมอล)</string>
+  <string name="revanced_swipe_overlay_style_entry_6">โอเวอร์เลย์แนวตั้ง</string>
+  <string name="revanced_swipe_overlay_style_entry_7">โอเวอร์เลย์แนวตั้ง (มินิมอล)</string>
   <string name="revanced_swipe_change_video_title">เปิดใช้การปัดเพื่อเปลี่ยนวิดีโอ</string>
   <string name="revanced_swipe_change_video_summary_on">การปัดในโหมดเต็มหน้าจอจะเปลี่ยนไปเป็นวิดีโอถัดไป/ก่อนหน้า</string>
   <string name="revanced_swipe_change_video_summary_off">การปัดในโหมดเต็มหน้าจอจะไม่เปลี่ยนเป็นวิดีโอถัดไป/ก่อนหน้า</string>
@@ -511,6 +520,11 @@ Second \"item\" text"</string>
   <string name="revanced_hide_thanks_button_title">ซ่อนขอบคุณ</string>
   <string name="revanced_hide_thanks_button_summary_on">ปุ่มขอบคุณถูกซ่อน</string>
   <string name="revanced_hide_thanks_button_summary_off">ปุ่มขอบคุณถูกแสดง</string>
+  <!-- 'Ask' should be translated with the same localized wording that YouTube displays.
+                 Button only shows if the user ip is from specific region such as the USA or EU. -->
+  <string name="revanced_hide_ask_button_title">ซ่อนปุ่มถาม</string>
+  <string name="revanced_hide_ask_button_summary_on">ปุ่มถามถูกซ่อนอยู่</string>
+  <string name="revanced_hide_ask_button_summary_off">ปุ่มถามแสดงอยู่</string>
   <!-- 'Clip' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_clip_button_title">ซ่อนคลิป</string>
   <string name="revanced_hide_clip_button_summary_on">ปุ่มคลิปถูกซ่อน</string>
@@ -1294,6 +1308,9 @@ User id ของคุณเหมือนกับรหัสผ่าน �
   <patch id="misc.gms.gmsCoreSupportResourcePatch">
   <string name="microg_settings_title">การตั้งค่า GmsCore</string>
   <string name="microg_settings_summary">การตั้งค่าสำหรับ GmsCore</string>
+  </patch>
+  <patch id="misc.gms.accountCredentialsInvalidTextPatch">
+  <string name="microg_offline_account_login_error">หากคุณเพิ่งเปลี่ยนรายละเอียดการเข้าสู่ระบบบัญชีของคุณ ให้ถอนการติดตั้งและติดตั้ง MicroG ใหม่อีกครั้ง</string>
   </patch>
   <patch id="misc.links.bypassURLRedirectsPatch">
   <string name="revanced_bypass_url_redirects_title">เลี่ยงการเปลี่ยนเส้นทาง URL</string>

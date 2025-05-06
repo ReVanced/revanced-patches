@@ -459,21 +459,30 @@ Hlasitost se upravuje svislým přejetím po pravé straně obrazovky"</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_title">Povolit gesto pro automatický jas</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_on">Přejetím dolů na nejnižší hodnotu gesta pro jas aktivujete automatický jas</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_off">Přejetím dolů na nejnižší hodnotu neaktivujete automatický jas</string>
+  <string name="revanced_swipe_lowest_value_enable_auto_brightness_overlay_text">Automaticky</string>
   <string name="revanced_swipe_overlay_timeout_title">Timeout překrytí gesta</string>
   <string name="revanced_swipe_overlay_timeout_summary">Doba v milisekundách, po kterou je překrytí viditelné</string>
   <string name="revanced_swipe_overlay_background_opacity_title">Průsvitnost pozadí překrytí tažením</string>
   <string name="revanced_swipe_overlay_background_opacity_summary">Hodnota průsvitnosti mezi 0-100</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Průsvitnost tažení musí být mezi 0-100</string>
+  <string name="revanced_swipe_overlay_progress_color_title">Barva ukazatele průběhu překrytí přejetím</string>
+  <string name="revanced_swipe_overlay_progress_color_summary">Barva ukazatele průběhu pro ovládání hlasitosti a jasu</string>
+  <string name="revanced_swipe_overlay_progress_color_invalid_toast">Neplatná barva ukazatele průběhu</string>
+  <string name="revanced_swipe_text_overlay_size_title">Velikost textu překrytí přejetím</string>
+  <string name="revanced_swipe_text_overlay_size_summary">Velikost textu překrytí přejetím mezi 1–30</string>
+  <string name="revanced_swipe_text_overlay_size_invalid_toast">Velikost textu musí být mezi 1–30</string>
   <string name="revanced_swipe_threshold_title">Práh vynucení gesta</string>
   <string name="revanced_swipe_threshold_summary">Velikost prahu pro provedení gesta</string>
   <string name="revanced_swipe_volume_sensitivity_title">Citlivost přejetí hlasitosti</string>
   <string name="revanced_swipe_volume_sensitivity_summary">O kolik se změní hlasitost na jedno přejetí</string>
-  <string name="revanced_swipe_show_circular_overlay_title">Zobrazit kruhovou překryvnou vrstvu</string>
-  <string name="revanced_swipe_show_circular_overlay_summary_on">Zobrazuje se kruhová překryvná vrstva</string>
-  <string name="revanced_swipe_show_circular_overlay_summary_off">Zobrazuje se vodorovná překryvná vrstva</string>
-  <string name="revanced_swipe_overlay_minimal_style_title">Povolit minimální styl</string>
-  <string name="revanced_swipe_overlay_minimal_style_summary_on">Minimální styl překrytí je povolen</string>
-  <string name="revanced_swipe_overlay_minimal_style_summary_off">Minimální styl překryvné vrstvy je zakázán</string>
+  <string name="revanced_swipe_overlay_style_title">Styl překrytí přejetím</string>
+  <string name="revanced_swipe_overlay_style_entry_1">Vodorovné překrytí</string>
+  <string name="revanced_swipe_overlay_style_entry_2">Vodorovné překrytí (minimalistické – nahoře)</string>
+  <string name="revanced_swipe_overlay_style_entry_3">Vodorovné překrytí (minimalistické – uprostřed)</string>
+  <string name="revanced_swipe_overlay_style_entry_4">Kruhové překrytí</string>
+  <string name="revanced_swipe_overlay_style_entry_5">Kruhové překrytí (minimalistické)</string>
+  <string name="revanced_swipe_overlay_style_entry_6">Svislé překrytí</string>
+  <string name="revanced_swipe_overlay_style_entry_7">Svislé překrytí (minimalistické)</string>
   <string name="revanced_swipe_change_video_title">Povolit přejetí prstem pro změnu videa</string>
   <string name="revanced_swipe_change_video_summary_on">Přejetí prstem v režimu celé obrazovky změní video na další/předchozí</string>
   <string name="revanced_swipe_change_video_summary_off">Přejetí prstem v režimu celé obrazovky nebude video měnit na další/předchozí</string>
@@ -513,6 +522,11 @@ Hlasitost se upravuje svislým přejetím po pravé straně obrazovky"</string>
   <string name="revanced_hide_thanks_button_title">Skrýt Poděkování</string>
   <string name="revanced_hide_thanks_button_summary_on">Tlačítko Poděkování je skryto</string>
   <string name="revanced_hide_thanks_button_summary_off">Tlačítko Poděkování je zobrazeno</string>
+  <!-- 'Ask' should be translated with the same localized wording that YouTube displays.
+                 Button only shows if the user ip is from specific region such as the USA or EU. -->
+  <string name="revanced_hide_ask_button_title">Skrýt Zeptat se</string>
+  <string name="revanced_hide_ask_button_summary_on">Tlačítko Zeptat se je skryté</string>
+  <string name="revanced_hide_ask_button_summary_off">Tlačítko Zeptat se je zobrazeno</string>
   <!-- 'Clip' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_clip_button_title">Skrýt Klip</string>
   <string name="revanced_hide_clip_button_summary_on">Tlačítko Klip je skryto</string>
@@ -1295,6 +1309,9 @@ Povolením této funkce lze odemknout vyšší kvality videa"</string>
   <patch id="misc.gms.gmsCoreSupportResourcePatch">
   <string name="microg_settings_title">Nastavení GmsCore</string>
   <string name="microg_settings_summary">Nastavení pro GmsCore</string>
+  </patch>
+  <patch id="misc.gms.accountCredentialsInvalidTextPatch">
+  <string name="microg_offline_account_login_error">Pokud jste nedávno změnili přihlašovací údaje svého účtu, odinstalujte a znovu nainstalujte MicroG.</string>
   </patch>
   <patch id="misc.links.bypassURLRedirectsPatch">
   <string name="revanced_bypass_url_redirects_title">Obcházet přesměrování URL</string>

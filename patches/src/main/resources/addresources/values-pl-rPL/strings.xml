@@ -459,21 +459,30 @@ Dostosuj głośność, przesuwając pionowo po prawej stronie ekranu"</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_title">Gest automatycznej jasności</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_on">Przesunięcie w dół do najniższej wartości gestu jasności włącza automatyczną jasność</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_off">Przesunięcie w dół do najniższej wartości nie włącza automatycznej jasności</string>
+  <string name="revanced_swipe_lowest_value_enable_auto_brightness_overlay_text">Automatycznie</string>
   <string name="revanced_swipe_overlay_timeout_title">Limit czasu widoczności nakładki</string>
   <string name="revanced_swipe_overlay_timeout_summary">Liczba milisekund, przez które nakładka jest widoczna</string>
   <string name="revanced_swipe_overlay_background_opacity_title">Przejrzystość tła nakładki przesuwania</string>
   <string name="revanced_swipe_overlay_background_opacity_summary">Wartość przezroczystości od 0 do 100</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Przezroczystość przesuwania musi być między 0 a 100</string>
+  <string name="revanced_swipe_overlay_progress_color_title">Kolor paska postępu nakładki przesunięcia</string>
+  <string name="revanced_swipe_overlay_progress_color_summary">Kolor paska postępu dla regulacji głośności i jasności</string>
+  <string name="revanced_swipe_overlay_progress_color_invalid_toast">Nieprawidłowy kolor paska postępu</string>
+  <string name="revanced_swipe_text_overlay_size_title">Rozmiar tekstu nakładki przesuwania</string>
+  <string name="revanced_swipe_text_overlay_size_summary">Rozmiar tekstu dla nakładki przesunięcia między 1-30</string>
+  <string name="revanced_swipe_text_overlay_size_invalid_toast">Rozmiar tekstu musi mieścić się w przedziale 1-30</string>
   <string name="revanced_swipe_threshold_title">Minimalna długość przesunięcia</string>
   <string name="revanced_swipe_threshold_summary">Wartość wymagana do wykonania gestu przesunięcia</string>
   <string name="revanced_swipe_volume_sensitivity_title">Czułość przesunięcia głośności</string>
   <string name="revanced_swipe_volume_sensitivity_summary">O ile zmienia się głośność na przesunięcie</string>
-  <string name="revanced_swipe_show_circular_overlay_title">Pokaż okrągłą nakładkę</string>
-  <string name="revanced_swipe_show_circular_overlay_summary_on">Wyświetlana jest okrągła nakładka</string>
-  <string name="revanced_swipe_show_circular_overlay_summary_off">Wyświetlana jest pozioma nakładka</string>
-  <string name="revanced_swipe_overlay_minimal_style_title">Włącz minimalny styl</string>
-  <string name="revanced_swipe_overlay_minimal_style_summary_on">Minimalny styl nakładki jest włączony</string>
-  <string name="revanced_swipe_overlay_minimal_style_summary_off">Minimalny styl nakładki jest wyłączony</string>
+  <string name="revanced_swipe_overlay_style_title">Styl nakładki przesuwania</string>
+  <string name="revanced_swipe_overlay_style_entry_1">Nakładka pozioma</string>
+  <string name="revanced_swipe_overlay_style_entry_2">Nakładka pozioma (minimalna - góra)</string>
+  <string name="revanced_swipe_overlay_style_entry_3">Nakładka pozioma (minimalna - środek)</string>
+  <string name="revanced_swipe_overlay_style_entry_4">Nakładka okrągła</string>
+  <string name="revanced_swipe_overlay_style_entry_5">Nakładka okrągła (minimalna)</string>
+  <string name="revanced_swipe_overlay_style_entry_6">Nakładka pionowa</string>
+  <string name="revanced_swipe_overlay_style_entry_7">Nakładka pionowa (minimalna)</string>
   <string name="revanced_swipe_change_video_title">Włącz przesuwanie palcem, aby zmienić filmy</string>
   <string name="revanced_swipe_change_video_summary_on">Przesunięcie palcem w trybie pełnoekranowym spowoduje przejście do następnego lub poprzedniego filmu</string>
   <string name="revanced_swipe_change_video_summary_off">Przesunięcie palcem w trybie pełnoekranowym nie spowoduje przejścia do następnego lub poprzedniego filmu</string>
@@ -513,6 +522,11 @@ Dostosuj głośność, przesuwając pionowo po prawej stronie ekranu"</string>
   <string name="revanced_hide_thanks_button_title">Przycisk od dziękowania</string>
   <string name="revanced_hide_thanks_button_summary_on">Przycisk od dziękowania jest ukryty</string>
   <string name="revanced_hide_thanks_button_summary_off">Przycisk od dziękowania jest widoczny</string>
+  <!-- 'Ask' should be translated with the same localized wording that YouTube displays.
+                 Button only shows if the user ip is from specific region such as the USA or EU. -->
+  <string name="revanced_hide_ask_button_title">Ukryj Zapytaj</string>
+  <string name="revanced_hide_ask_button_summary_on">Przycisk Zapytaj jest ukryty</string>
+  <string name="revanced_hide_ask_button_summary_off">Przycisk Zapytaj jest widoczny</string>
   <!-- 'Clip' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_clip_button_title">Przycisk od klipów</string>
   <string name="revanced_hide_clip_button_summary_on">Przycisk tworzenia klipów jest ukryty</string>
@@ -1296,6 +1310,9 @@ Włączenie tego może odblokować wyższe jakości wideo"</string>
   <patch id="misc.gms.gmsCoreSupportResourcePatch">
   <string name="microg_settings_title">Ustawienia GmsCore</string>
   <string name="microg_settings_summary">Ustawienia GmsCore</string>
+  </patch>
+  <patch id="misc.gms.accountCredentialsInvalidTextPatch">
+  <string name="microg_offline_account_login_error">Jeśli niedawno zmieniono dane logowania do konta, odinstaluj i zainstaluj ponownie MicroG.</string>
   </patch>
   <patch id="misc.links.bypassURLRedirectsPatch">
   <string name="revanced_bypass_url_redirects_title">Omijanie przekierowań URL</string>

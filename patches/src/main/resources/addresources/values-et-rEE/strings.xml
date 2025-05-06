@@ -459,21 +459,30 @@ Helitugevuse reguleerimiseks pühkige ekraani paremal küljel vertikaalselt"</st
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_title">Luba automaatse heleduse žest</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_on">Pühkige alla heleduse žesti madalaima väärtuseni, et lubada automaatne heleduse</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_off">Pühkimine alla madalaima väärtuseni ei luba automaatset heleduse</string>
+  <string name="revanced_swipe_lowest_value_enable_auto_brightness_overlay_text">Auto</string>
   <string name="revanced_swipe_overlay_timeout_title">Pühkimise katte aegumisaeg</string>
   <string name="revanced_swipe_overlay_timeout_summary">Katte näitamise millisekundite arv</string>
   <string name="revanced_swipe_overlay_background_opacity_title">Pühkiva katte tausta läbipaistvus</string>
   <string name="revanced_swipe_overlay_background_opacity_summary">Läbipaistvuse väärtus vahemikus 0-100</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Pühkiva katte läbipaistvus peab olema vahemikus 0-100</string>
+  <string name="revanced_swipe_overlay_progress_color_title">Liigutamise ülekatte edenemisriba värv</string>
+  <string name="revanced_swipe_overlay_progress_color_summary">Helitugevuse ja heleduse juhtnuppude edenemisriba värv</string>
+  <string name="revanced_swipe_overlay_progress_color_invalid_toast">Vigane edenemisriba värv</string>
+  <string name="revanced_swipe_text_overlay_size_title">Liigutamise ülekatte teksti suurus</string>
+  <string name="revanced_swipe_text_overlay_size_summary">Liigutamise ülekatte teksti suurus vahemikus 1–30</string>
+  <string name="revanced_swipe_text_overlay_size_invalid_toast">Teksti suurus peab olema vahemikus 1–30</string>
   <string name="revanced_swipe_threshold_title">Pühkimise suuruse lävi</string>
   <string name="revanced_swipe_threshold_summary">Lävi väärtus pühkimise toimimiseks</string>
   <string name="revanced_swipe_volume_sensitivity_title">Helitugevuse libistamise tundlikkus</string>
   <string name="revanced_swipe_volume_sensitivity_summary">Kui palju helitugevus ühe libistusega muutub</string>
-  <string name="revanced_swipe_show_circular_overlay_title">Kuva ümmargune ülekattekiht</string>
-  <string name="revanced_swipe_show_circular_overlay_summary_on">Ümmargune ülekattekiht on nähtav</string>
-  <string name="revanced_swipe_show_circular_overlay_summary_off">Horisontaalne ülekattekiht on nähtav</string>
-  <string name="revanced_swipe_overlay_minimal_style_title">Luba minimaalne stiil</string>
-  <string name="revanced_swipe_overlay_minimal_style_summary_on">Minimaalne kattekihi stiil on lubatud</string>
-  <string name="revanced_swipe_overlay_minimal_style_summary_off">Minimaalne ülekattekihi stiil on keelatud</string>
+  <string name="revanced_swipe_overlay_style_title">Nipsa ülekattestiil</string>
+  <string name="revanced_swipe_overlay_style_entry_1">Horisontaalne ülekate</string>
+  <string name="revanced_swipe_overlay_style_entry_2">Horisontaalne ülekate (minimaalne – üleval)</string>
+  <string name="revanced_swipe_overlay_style_entry_3">Horisontaalne ülekate (minimaalne – keskel)</string>
+  <string name="revanced_swipe_overlay_style_entry_4">Ümmargune ülekate</string>
+  <string name="revanced_swipe_overlay_style_entry_5">Ümmargune ülekate (minimaalne)</string>
+  <string name="revanced_swipe_overlay_style_entry_6">Vertikaalne ülekate</string>
+  <string name="revanced_swipe_overlay_style_entry_7">Vertikaalne ülekate (minimaalne)</string>
   <string name="revanced_swipe_change_video_title">Luba pühkimine videote vahetamiseks</string>
   <string name="revanced_swipe_change_video_summary_on">Täisekraanrežiimis pühkimine vahetab järgmise/eelmise video</string>
   <string name="revanced_swipe_change_video_summary_off">Täisekraanrežiimis pühkimine ei vaheta järgmise/eelmise video</string>
@@ -513,6 +522,11 @@ Helitugevuse reguleerimiseks pühkige ekraani paremal küljel vertikaalselt"</st
   <string name="revanced_hide_thanks_button_title">Peida Tänan</string>
   <string name="revanced_hide_thanks_button_summary_on">Tänan nupp on peidetud</string>
   <string name="revanced_hide_thanks_button_summary_off">Tänan nupp on nähtav</string>
+  <!-- 'Ask' should be translated with the same localized wording that YouTube displays.
+                 Button only shows if the user ip is from specific region such as the USA or EU. -->
+  <string name="revanced_hide_ask_button_title">Peida küsi</string>
+  <string name="revanced_hide_ask_button_summary_on">Küsi nupp on peidetud</string>
+  <string name="revanced_hide_ask_button_summary_off">Küsi nupp on nähtav</string>
   <!-- 'Clip' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_clip_button_title">Peida Lõik</string>
   <string name="revanced_hide_clip_button_summary_on">Lõigu nupp on peidetud</string>
@@ -1296,6 +1310,9 @@ Selle lubamine võib avada kõrgema video kvaliteedi"</string>
   <patch id="misc.gms.gmsCoreSupportResourcePatch">
   <string name="microg_settings_title">GmsCore seaded</string>
   <string name="microg_settings_summary">GmsCore seaded</string>
+  </patch>
+  <patch id="misc.gms.accountCredentialsInvalidTextPatch">
+  <string name="microg_offline_account_login_error">Kui sa hiljuti muutsid oma konto sisselogimisandmeid, siis eemalda ja installeeri MicroG uuesti.</string>
   </patch>
   <patch id="misc.links.bypassURLRedirectsPatch">
   <string name="revanced_bypass_url_redirects_title">Ümbersuunamiste URL-id mööda minna</string>

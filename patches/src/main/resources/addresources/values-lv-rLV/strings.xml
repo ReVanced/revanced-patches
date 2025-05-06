@@ -459,21 +459,30 @@ Regulējiet skaļumu, velkot vertikāli ekrāna labajā pusē"</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_title">Ieslēgt automātiskā spilgtuma žestu</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_on">Slīdot uz leju līdz spilgtuma žesta zemākajai vērtībai, tiek ieslēgts automātiskais spilgtums</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_off">Slīdot uz leju līdz zemākajai vērtībai, netiek ieslēgts automātiskais spilgtums</string>
+  <string name="revanced_swipe_lowest_value_enable_auto_brightness_overlay_text">Automātiski</string>
   <string name="revanced_swipe_overlay_timeout_title">Slīdēšanas pārklājuma laika izbeigšanās</string>
   <string name="revanced_swipe_overlay_timeout_summary">Milisekundes, ko pārklājums ir redzams</string>
   <string name="revanced_swipe_overlay_background_opacity_title">Pārvilkšanas pārklājuma fona necaurredzamība</string>
   <string name="revanced_swipe_overlay_background_opacity_summary">Necaurredzamības vērtība no 0 līdz 100</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Pārvilkšanas necaurredzamībai jābūt no 0 līdz 100</string>
+  <string name="revanced_swipe_overlay_progress_color_title">Pārvelciet pārklājuma progresa joslas krāsu</string>
+  <string name="revanced_swipe_overlay_progress_color_summary">Skaļuma un spilgtuma vadīklu progresa joslas krāsa</string>
+  <string name="revanced_swipe_overlay_progress_color_invalid_toast">Nederīga progresa joslas krāsa</string>
+  <string name="revanced_swipe_text_overlay_size_title">Pārvelciet pārklājuma teksta lielumu</string>
+  <string name="revanced_swipe_text_overlay_size_summary">Pārvelciet pārklājuma teksta lielumu starp 1–30</string>
+  <string name="revanced_swipe_text_overlay_size_invalid_toast">Teksta lielumam jābūt starp 1–30</string>
   <string name="revanced_swipe_threshold_title">Slīdēšanas lieluma slieksnis</string>
   <string name="revanced_swipe_threshold_summary">Slieksnis, lai slīdēšana varētu notikt</string>
   <string name="revanced_swipe_volume_sensitivity_title">Svilpes jutīgums skaļuma regulēšanai</string>
   <string name="revanced_swipe_volume_sensitivity_summary">Cik daudz skaļums mainās ar katru vilkšanu</string>
-  <string name="revanced_swipe_show_circular_overlay_title">Rādīt apļveida pārklājumu</string>
-  <string name="revanced_swipe_show_circular_overlay_summary_on">Apļveida pārklājums tiek rādīts</string>
-  <string name="revanced_swipe_show_circular_overlay_summary_off">Horizontālais pārklājums tiek rādīts</string>
-  <string name="revanced_swipe_overlay_minimal_style_title">Iespējot minimālo stilu</string>
-  <string name="revanced_swipe_overlay_minimal_style_summary_on">Minimālais pārklājuma stils ir iespējots</string>
-  <string name="revanced_swipe_overlay_minimal_style_summary_off">Minimālais pārklājuma stils ir atspējots</string>
+  <string name="revanced_swipe_overlay_style_title">Pārvelciet pārklājuma stilu</string>
+  <string name="revanced_swipe_overlay_style_entry_1">Horizontāls pārklājums</string>
+  <string name="revanced_swipe_overlay_style_entry_2">Horizontāls pārklājums (minimāls – augšā)</string>
+  <string name="revanced_swipe_overlay_style_entry_3">Horizontāls pārklājums (minimāls – centrā)</string>
+  <string name="revanced_swipe_overlay_style_entry_4">Apļveida pārklājums</string>
+  <string name="revanced_swipe_overlay_style_entry_5">Apļveida pārklājums (minimāls)</string>
+  <string name="revanced_swipe_overlay_style_entry_6">Vertikāls pārklājums</string>
+  <string name="revanced_swipe_overlay_style_entry_7">Vertikāls pārklājums (minimāls)</string>
   <string name="revanced_swipe_change_video_title">Iespējot pārvilkšanu, lai mainītu videoklipus</string>
   <string name="revanced_swipe_change_video_summary_on">Pārvelkot pilnekrāna režīmā, tiks mainīts nākamais/iepriekšējais videoklips</string>
   <string name="revanced_swipe_change_video_summary_off">Pārvelkot pilnekrāna režīmā, nākamais/iepriekšējais videoklips netiks mainīts</string>
@@ -513,6 +522,11 @@ Regulējiet skaļumu, velkot vertikāli ekrāna labajā pusē"</string>
   <string name="revanced_hide_thanks_button_title">Paslēpt Paldies</string>
   <string name="revanced_hide_thanks_button_summary_on">Paldies poga ir paslēpta</string>
   <string name="revanced_hide_thanks_button_summary_off">Paldies poga ir redzama</string>
+  <!-- 'Ask' should be translated with the same localized wording that YouTube displays.
+                 Button only shows if the user ip is from specific region such as the USA or EU. -->
+  <string name="revanced_hide_ask_button_title">Paslēpt jautājumu</string>
+  <string name="revanced_hide_ask_button_summary_on">Jautājuma poga ir paslēpta</string>
+  <string name="revanced_hide_ask_button_summary_off">Jautājuma poga ir redzama</string>
   <!-- 'Clip' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_clip_button_title">Paslēpt Izgriezt</string>
   <string name="revanced_hide_clip_button_summary_on">Izgriezt poga ir paslēpta</string>
@@ -1295,6 +1309,9 @@ Var tikt atbloķētas augstākas video kvalitātes, taču var rasties video atsk
   <patch id="misc.gms.gmsCoreSupportResourcePatch">
   <string name="microg_settings_title">GmsCore iestatījumi</string>
   <string name="microg_settings_summary">GmsCore iestatījumi</string>
+  </patch>
+  <patch id="misc.gms.accountCredentialsInvalidTextPatch">
+  <string name="microg_offline_account_login_error">Ja nesen mainījāt sava konta pieteikšanās informāciju, atinstalējiet un atkārtoti instalējiet MicroG.</string>
   </patch>
   <patch id="misc.links.bypassURLRedirectsPatch">
   <string name="revanced_bypass_url_redirects_title">Aiziet garām URL pāradresācijai</string>

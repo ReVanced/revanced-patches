@@ -138,6 +138,9 @@ public class ReVancedPreferenceFragment extends AbstractPreferenceFragment {
                                     .findViewById(android.R.id.content)
                                     .getParent();
 
+                            // Fix the system navigation bar color for submenus.
+                            ThemeHelper.setNavigationBarColor(preferenceScreenDialog.getWindow());
+
                             // Fix edge-to-edge screen with Android 15 and YT 19.45+
                             // https://developer.android.com/develop/ui/views/layout/edge-to-edge#system-bars-insets
                             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {

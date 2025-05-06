@@ -459,21 +459,30 @@ Përshtate shkëlqimin duke rrëshqitur vertikalisht në anën e majtë të ekra
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_title">Aktivizo lëvizjen \"ndriçim automatik\"</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_on">Shërbimi \"ndriçim automatik\" aktivizohet duke shëruar poshtë në vlerën më të ulët të lëvizjes së ndriçimit</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_off">Shërbimi \"ndriçim automatik\" nuk aktivizohet duke shëruar poshtë në vlerën më të ulët</string>
+  <string name="revanced_swipe_lowest_value_enable_auto_brightness_overlay_text">Automatik</string>
   <string name="revanced_swipe_overlay_timeout_title">Koha e daljes së mbivendosjes së shërbimit</string>
   <string name="revanced_swipe_overlay_timeout_summary">Sasia e milisekondave që mbivendosja është e dukshme</string>
   <string name="revanced_swipe_overlay_background_opacity_title">Opasiteti i sfondit mbivendosës shtypëse</string>
   <string name="revanced_swipe_overlay_background_opacity_summary">Vlera e opacitetit midis 0-100</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Opaciteti i shtypjes duhet të jetë midis 0-100</string>
+  <string name="revanced_swipe_overlay_progress_color_title">Ngjyra e shiritit të progresit të mbivendosjes së rrëshqitjes</string>
+  <string name="revanced_swipe_overlay_progress_color_summary">Ngjyra e shiritit të progresit për kontrollet e volumit dhe të ndriçimit</string>
+  <string name="revanced_swipe_overlay_progress_color_invalid_toast">Ngjyrë e pavlefshme e shiritit të progresit</string>
+  <string name="revanced_swipe_text_overlay_size_title">Madhësia e tekstit të mbivendosjes së rrëshqitjes</string>
+  <string name="revanced_swipe_text_overlay_size_summary">Madhësia e tekstit për mbivendosjen e rrëshqitjes midis 1-30</string>
+  <string name="revanced_swipe_text_overlay_size_invalid_toast">Madhësia e tekstit duhet të jetë midis 1-30</string>
   <string name="revanced_swipe_threshold_title">Pragu i madhësisë së shërbimit</string>
   <string name="revanced_swipe_threshold_summary">Sasia e pragut për të ndodhur shërbimi</string>
   <string name="revanced_swipe_volume_sensitivity_title">Ndjeshmëria e rrëshqitjes së volumit</string>
   <string name="revanced_swipe_volume_sensitivity_summary">Sa ndryshon volumi për rrëshqitje</string>
-  <string name="revanced_swipe_show_circular_overlay_title">Shfaq mbivendosjen rrethore</string>
-  <string name="revanced_swipe_show_circular_overlay_summary_on">Mbivendosja rrethore është shfaqur</string>
-  <string name="revanced_swipe_show_circular_overlay_summary_off">Mbivendosja horizontale është shfaqur</string>
-  <string name="revanced_swipe_overlay_minimal_style_title">Aktivizo stilin minimal</string>
-  <string name="revanced_swipe_overlay_minimal_style_summary_on">Stili minimal i shtresës është aktivizuar</string>
-  <string name="revanced_swipe_overlay_minimal_style_summary_off">Stili minimal i mbivendosjes është çaktivizuar</string>
+  <string name="revanced_swipe_overlay_style_title">Stili i mbivendosjes me rrëshqitje</string>
+  <string name="revanced_swipe_overlay_style_entry_1">Mbivendosje horizontale</string>
+  <string name="revanced_swipe_overlay_style_entry_2">Mbivendosje horizontale (minimale - lart)</string>
+  <string name="revanced_swipe_overlay_style_entry_3">Mbivendosje horizontale (minimale - qendër)</string>
+  <string name="revanced_swipe_overlay_style_entry_4">Mbivendosje rrethore</string>
+  <string name="revanced_swipe_overlay_style_entry_5">Mbivendosje rrethore (minimale)</string>
+  <string name="revanced_swipe_overlay_style_entry_6">Mbivendosje vertikale</string>
+  <string name="revanced_swipe_overlay_style_entry_7">Mbivendosje vertikale (minimale)</string>
   <string name="revanced_swipe_change_video_title">Aktivizoni lëshimin për të ndryshuar videot</string>
   <string name="revanced_swipe_change_video_summary_on">Lëvizja në modalitetin në ekran të plotë do të ndryshojë në videon e ardhshme/të mëparshme</string>
   <string name="revanced_swipe_change_video_summary_off">Lëvizja në modalitetin në ekran të plotë nuk do të ndryshojë në videon e ardhshme/të mëparshme</string>
@@ -513,6 +522,11 @@ Përshtate shkëlqimin duke rrëshqitur vertikalisht në anën e majtë të ekra
   <string name="revanced_hide_thanks_button_title">Fsheh \"Faleminderit\"</string>
   <string name="revanced_hide_thanks_button_summary_on">Butoni \"Faleminderit\" është i fshehur</string>
   <string name="revanced_hide_thanks_button_summary_off">Butoni \"Faleminderit\" është i dukshëm</string>
+  <!-- 'Ask' should be translated with the same localized wording that YouTube displays.
+                 Button only shows if the user ip is from specific region such as the USA or EU. -->
+  <string name="revanced_hide_ask_button_title">Fshih Pyet</string>
+  <string name="revanced_hide_ask_button_summary_on">Butoni Pyet është i fshehur</string>
+  <string name="revanced_hide_ask_button_summary_off">Butoni Pyet shfaqet</string>
   <!-- 'Clip' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_clip_button_title">Fsheh \"Klip\"</string>
   <string name="revanced_hide_clip_button_summary_on">Butoni \"Klip\" është i fshehur</string>
@@ -1294,6 +1308,9 @@ Aktivizimi i kësaj mund të zhbllokojë cilësi më të larta video"</string>
   <patch id="misc.gms.gmsCoreSupportResourcePatch">
   <string name="microg_settings_title">Cilësimet e GmsCore</string>
   <string name="microg_settings_summary">Cilësimet për GmsCore</string>
+  </patch>
+  <patch id="misc.gms.accountCredentialsInvalidTextPatch">
+  <string name="microg_offline_account_login_error">Nëse së fundmi keni ndryshuar detajet e hyrjes në llogarinë tuaj, atëherë çinstaloni dhe riinstaloni MicroG.</string>
   </patch>
   <patch id="misc.links.bypassURLRedirectsPatch">
   <string name="revanced_bypass_url_redirects_title">Anulo redirektimin e URL</string>

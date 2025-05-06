@@ -1,3 +1,119 @@
+# [5.23.0-dev.3](https://github.com/ReVanced/revanced-patches/compare/v5.23.0-dev.2...v5.23.0-dev.3) (2025-05-05)
+
+
+### Bug Fixes
+
+* **YouTube:** Simplify litho filtering patch ([#4910](https://github.com/ReVanced/revanced-patches/issues/4910)) ([bd53955](https://github.com/ReVanced/revanced-patches/commit/bd53955df738bb7b819eb91a3e776e9d2ca5c74a))
+
+# [5.23.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.23.0-dev.1...v5.23.0-dev.2) (2025-05-04)
+
+
+### Bug Fixes
+
+* **YouTube:** Improve litho filtering performance ([#4904](https://github.com/ReVanced/revanced-patches/issues/4904)) ([7b43986](https://github.com/ReVanced/revanced-patches/commit/7b43986871a68e5cb43331d2fb2fdb9ef67438ad))
+
+# [5.23.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.22.0...v5.23.0-dev.1) (2025-05-02)
+
+
+### Features
+
+* **Lightroom:** Constrain patches to last working version ([efef03b](https://github.com/ReVanced/revanced-patches/commit/efef03b80da21552d0d8be6913faba64e4fb5ed1))
+
+# [5.22.0](https://github.com/ReVanced/revanced-patches/compare/v5.21.0...v5.22.0) (2025-05-01)
+
+
+### Bug Fixes
+
+* **TikTok - Feed filter:** Hide ads in following feed ([#4844](https://github.com/ReVanced/revanced-patches/issues/4844)) ([c255ac1](https://github.com/ReVanced/revanced-patches/commit/c255ac18e0b2dcf917bd0559876be5a2a81023db))
+* **YouTube - Hide layout components:** Hide new type of community posts ([#4888](https://github.com/ReVanced/revanced-patches/issues/4888)) ([f0c9c35](https://github.com/ReVanced/revanced-patches/commit/f0c9c35778ab43a99149ee5ad0ccfd8aeb09f638))
+* **YouTube - Hide Shorts components:** Hide action buttons A/B button layout ([#4889](https://github.com/ReVanced/revanced-patches/issues/4889)) ([9dcd3d3](https://github.com/ReVanced/revanced-patches/commit/9dcd3d35dddf019547ab6ce431bac7a5a8a4c291))
+* **YouTube - Shorts autoplay:** Fix autoplay with YT 20.12 ([06b35b2](https://github.com/ReVanced/revanced-patches/commit/06b35b2a7d7371915881e8f430c32ce15fa224de))
+* **YouTube - Spoof app version:** Do not hide spoof version in general settings menu ([#4861](https://github.com/ReVanced/revanced-patches/issues/4861)) ([f459c3c](https://github.com/ReVanced/revanced-patches/commit/f459c3c7fae3a1b8addf3354488dcef9f95255cc))
+
+
+### Features
+
+* **TikTok - Feed Filter:** Remove TikTok Shop from feed. ([#4851](https://github.com/ReVanced/revanced-patches/issues/4851)) ([f198bec](https://github.com/ReVanced/revanced-patches/commit/f198bece653e3e1adf083129dedb77c1d1a633d7))
+* **YouTube - GmsCore support:** Show troubleshooting in app text if the user recently changed their account details ([#4879](https://github.com/ReVanced/revanced-patches/issues/4879)) ([ab4bdc8](https://github.com/ReVanced/revanced-patches/commit/ab4bdc8a2519cee15f79bf95d89e7ea56ea464ee))
+
+# [5.22.0-dev.4](https://github.com/ReVanced/revanced-patches/compare/v5.22.0-dev.3...v5.22.0-dev.4) (2025-04-30)
+
+
+### Bug Fixes
+
+* **YouTube - Hide layout components:** Hide new type of community posts ([#4888](https://github.com/ReVanced/revanced-patches/issues/4888)) ([f0c9c35](https://github.com/ReVanced/revanced-patches/commit/f0c9c35778ab43a99149ee5ad0ccfd8aeb09f638))
+* **YouTube - Hide Shorts components:** Hide action buttons A/B button layout ([#4889](https://github.com/ReVanced/revanced-patches/issues/4889)) ([9dcd3d3](https://github.com/ReVanced/revanced-patches/commit/9dcd3d35dddf019547ab6ce431bac7a5a8a4c291))
+
+# [5.22.0-dev.3](https://github.com/ReVanced/revanced-patches/compare/v5.22.0-dev.2...v5.22.0-dev.3) (2025-04-29)
+
+
+### Features
+
+* **YouTube - GmsCore support:** Show troubleshooting in app text if the user recently changed their account details ([#4879](https://github.com/ReVanced/revanced-patches/issues/4879)) ([ab4bdc8](https://github.com/ReVanced/revanced-patches/commit/ab4bdc8a2519cee15f79bf95d89e7ea56ea464ee))
+
+# [5.22.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.22.0-dev.1...v5.22.0-dev.2) (2025-04-27)
+
+
+### Bug Fixes
+
+* **YouTube - Shorts autoplay:** Fix autoplay with YT 20.12 ([06b35b2](https://github.com/ReVanced/revanced-patches/commit/06b35b2a7d7371915881e8f430c32ce15fa224de))
+
+# [5.22.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.21.0...v5.22.0-dev.1) (2025-04-26)
+
+
+### Bug Fixes
+
+* **TikTok - Feed filter:** Hide ads in following feed ([#4844](https://github.com/ReVanced/revanced-patches/issues/4844)) ([c255ac1](https://github.com/ReVanced/revanced-patches/commit/c255ac18e0b2dcf917bd0559876be5a2a81023db))
+* **YouTube - Spoof app version:** Do not hide spoof version in general settings menu ([#4861](https://github.com/ReVanced/revanced-patches/issues/4861)) ([f459c3c](https://github.com/ReVanced/revanced-patches/commit/f459c3c7fae3a1b8addf3354488dcef9f95255cc))
+
+
+### Features
+
+* **TikTok - Feed Filter:** Remove TikTok Shop from feed. ([#4851](https://github.com/ReVanced/revanced-patches/issues/4851)) ([f198bec](https://github.com/ReVanced/revanced-patches/commit/f198bece653e3e1adf083129dedb77c1d1a633d7))
+
+# [5.21.0](https://github.com/ReVanced/revanced-patches/compare/v5.20.1...v5.21.0) (2025-04-25)
+
+
+### Bug Fixes
+
+* `Hide ADB status` patch ([#4814](https://github.com/ReVanced/revanced-patches/issues/4814)) ([dc89be0](https://github.com/ReVanced/revanced-patches/commit/dc89be0e94880733f862b250d95d4848f02c594d))
+* **GmsCore Support:** Correct the description to refer to the app being patched ([2bbcf9d](https://github.com/ReVanced/revanced-patches/commit/2bbcf9d82ca2f442572a6aa886cc611b0d56ff0a))
+* **Wide search bar:** Fix patching `19.16.39` ([433dbc3](https://github.com/ReVanced/revanced-patches/commit/433dbc3bf81823369e146035c954281e84d3a436))
+* **YouTube - Change start page:** Add option to always override start page on app launch ([#4832](https://github.com/ReVanced/revanced-patches/issues/4832)) ([5062e24](https://github.com/ReVanced/revanced-patches/commit/5062e24433ba38eba397438e8fde32099109d3c3))
+* **YouTube - Disable auto captions:** Correctly hide captions with YT 20.12 ([5ecbe82](https://github.com/ReVanced/revanced-patches/commit/5ecbe823ed5197533328cc37f1de5cd1f048a217))
+* **YouTube - Hide video action buttons:** Add option to hide 'Ask' button ([#4852](https://github.com/ReVanced/revanced-patches/issues/4852)) ([43bcf5a](https://github.com/ReVanced/revanced-patches/commit/43bcf5a098c9008cc11dc7df9680437d5effbb32))
+* **YouTube - Hide video action buttons:** Hide A/B layout buttons ([4db5d3c](https://github.com/ReVanced/revanced-patches/commit/4db5d3c3d5ac04faf70cc07fb309b324d752e7e3))
+* **YouTube - Wide search bar:** Do not force phone layout for tablet devices ([#4827](https://github.com/ReVanced/revanced-patches/issues/4827)) ([0cb38f9](https://github.com/ReVanced/revanced-patches/commit/0cb38f9f367a7fe742d8ca336150049181d637b6))
+
+
+### Features
+
+* Add `Hide ADB status` patch ([#4585](https://github.com/ReVanced/revanced-patches/issues/4585)) ([1ea8047](https://github.com/ReVanced/revanced-patches/commit/1ea8047aefdaa358e9af8038923ac54d68a39176))
+* **X / Twitter:** Support version `10.86.0-release.0` ([#4805](https://github.com/ReVanced/revanced-patches/issues/4805)) ([655b390](https://github.com/ReVanced/revanced-patches/commit/655b39043ad77efcb4380de67c3f603666e7bc49))
+* **YouTube - Swipe controls:** Add option for vertical progress bar ([#4811](https://github.com/ReVanced/revanced-patches/issues/4811)) ([ebee07e](https://github.com/ReVanced/revanced-patches/commit/ebee07ec3aba6fd3adbd8e0af30390e197879d89))
+* **YouTube:** Support version `20.12.46` ([#4779](https://github.com/ReVanced/revanced-patches/issues/4779)) ([703359f](https://github.com/ReVanced/revanced-patches/commit/703359f0c16b613c204cf16cf42227b628f664fa))
+
+# [5.21.0-dev.12](https://github.com/ReVanced/revanced-patches/compare/v5.21.0-dev.11...v5.21.0-dev.12) (2025-04-24)
+
+
+### Bug Fixes
+
+* **YouTube - Hide video action buttons:** Add option to hide 'Ask' button ([#4852](https://github.com/ReVanced/revanced-patches/issues/4852)) ([43bcf5a](https://github.com/ReVanced/revanced-patches/commit/43bcf5a098c9008cc11dc7df9680437d5effbb32))
+
+# [5.21.0-dev.11](https://github.com/ReVanced/revanced-patches/compare/v5.21.0-dev.10...v5.21.0-dev.11) (2025-04-24)
+
+
+### Bug Fixes
+
+* **GmsCore Support:** Correct the description to refer to the app being patched ([2bbcf9d](https://github.com/ReVanced/revanced-patches/commit/2bbcf9d82ca2f442572a6aa886cc611b0d56ff0a))
+
+# [5.21.0-dev.10](https://github.com/ReVanced/revanced-patches/compare/v5.21.0-dev.9...v5.21.0-dev.10) (2025-04-23)
+
+
+### Features
+
+* **YouTube - Swipe controls:** Add option for vertical progress bar ([#4811](https://github.com/ReVanced/revanced-patches/issues/4811)) ([ebee07e](https://github.com/ReVanced/revanced-patches/commit/ebee07ec3aba6fd3adbd8e0af30390e197879d89))
+
 # [5.21.0-dev.9](https://github.com/ReVanced/revanced-patches/compare/v5.21.0-dev.8...v5.21.0-dev.9) (2025-04-21)
 
 

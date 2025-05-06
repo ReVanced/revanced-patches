@@ -51,26 +51,6 @@ abstract class BasePreference(
             layout?.let { setAttribute("android:layout", layout) }
         }
 
-    override fun hashCode(): Int {
-        var result = key?.hashCode() ?: 0
-        result = 31 * result + titleKey.hashCode()
-        result = 31 * result + tag.hashCode()
-        return result
-    }
-
-    override fun equals(other: Any?): Boolean {
-        if (this === other) return true
-        if (javaClass != other?.javaClass) return false
-
-        other as BasePreference
-
-        if (key != other.key) return false
-        if (titleKey != other.titleKey) return false
-        if (tag != other.tag) return false
-
-        return true
-    }
-
     companion object {
         fun Element.addSummary(summaryKey: String, summaryType: SummaryType = SummaryType.DEFAULT) =
             setAttribute("android:${summaryType.type}", "@string/$summaryKey")

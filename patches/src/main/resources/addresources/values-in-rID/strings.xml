@@ -459,21 +459,30 @@ Menyesuaikan volume dengan mengusap secara vertikal di sisi kanan layar"</string
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_title">Aktifkan gerakan kecerahan otomatis</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_on">Mengusap ke bawah ke nilai terendah dari gerakan kecerahan akan menyalakan kecerahan otomatis</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_off">Mengusap ke bawah ke nilai terendah tidak mengaktifkan kecerahan otomatis</string>
+  <string name="revanced_swipe_lowest_value_enable_auto_brightness_overlay_text">Otomatis</string>
   <string name="revanced_swipe_overlay_timeout_title">Batas waktu hamparan usap</string>
   <string name="revanced_swipe_overlay_timeout_summary">Jumlah milidetik hamparan terlihat</string>
   <string name="revanced_swipe_overlay_background_opacity_title">Opasitas latar belakang hamparan geser</string>
   <string name="revanced_swipe_overlay_background_opacity_summary">Nilai opasitas antara 0-100</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Opasitas geser harus antara 0-100</string>
+  <string name="revanced_swipe_overlay_progress_color_title">Warna bilah kemajuan lapisan usap</string>
+  <string name="revanced_swipe_overlay_progress_color_summary">Warna bilah kemajuan untuk kontrol volume dan kecerahan</string>
+  <string name="revanced_swipe_overlay_progress_color_invalid_toast">Warna bilah kemajuan tidak sah</string>
+  <string name="revanced_swipe_text_overlay_size_title">Ukuran teks lapisan usap</string>
+  <string name="revanced_swipe_text_overlay_size_summary">Ukuran teks untuk lapisan usap antara 1-30</string>
+  <string name="revanced_swipe_text_overlay_size_invalid_toast">Ukuran teks harus antara 1-30</string>
   <string name="revanced_swipe_threshold_title">Ambang batas magnitudo usap</string>
   <string name="revanced_swipe_threshold_summary">Jumlah ambang batas untuk terjadinya usapan</string>
   <string name="revanced_swipe_volume_sensitivity_title">Sensitivitas volume usap</string>
   <string name="revanced_swipe_volume_sensitivity_summary">Seberapa besar perubahan volume per usapan</string>
-  <string name="revanced_swipe_show_circular_overlay_title">Tampilkan hamparan melingkar</string>
-  <string name="revanced_swipe_show_circular_overlay_summary_on">Hamparan melingkar ditampilkan</string>
-  <string name="revanced_swipe_show_circular_overlay_summary_off">Hamparan horizontal ditampilkan</string>
-  <string name="revanced_swipe_overlay_minimal_style_title">Aktifkan gaya minimal</string>
-  <string name="revanced_swipe_overlay_minimal_style_summary_on">Gaya hamparan minimal diaktifkan</string>
-  <string name="revanced_swipe_overlay_minimal_style_summary_off">Gaya hamparan minimal dinonaktifkan</string>
+  <string name="revanced_swipe_overlay_style_title">Gaya hamparan usap</string>
+  <string name="revanced_swipe_overlay_style_entry_1">Hamparan horizontal</string>
+  <string name="revanced_swipe_overlay_style_entry_2">Hamparan horizontal (minimal - atas)</string>
+  <string name="revanced_swipe_overlay_style_entry_3">Hamparan horizontal (minimal - tengah)</string>
+  <string name="revanced_swipe_overlay_style_entry_4">Hamparan melingkar</string>
+  <string name="revanced_swipe_overlay_style_entry_5">Hamparan melingkar (minimal)</string>
+  <string name="revanced_swipe_overlay_style_entry_6">Hamparan vertikal</string>
+  <string name="revanced_swipe_overlay_style_entry_7">Hamparan vertikal (minimal)</string>
   <string name="revanced_swipe_change_video_title">Aktifkan usapan untuk beralih video</string>
   <string name="revanced_swipe_change_video_summary_on">Mengusap dalam mode layar penuh akan beralih ke video berikutnya/sebelumnya</string>
   <string name="revanced_swipe_change_video_summary_off">Mengusap dalam mode layar penuh tidak akan beralih ke video berikutnya/sebelumnya</string>
@@ -513,6 +522,11 @@ Menyesuaikan volume dengan mengusap secara vertikal di sisi kanan layar"</string
   <string name="revanced_hide_thanks_button_title">Sembunyikan Terima kasih</string>
   <string name="revanced_hide_thanks_button_summary_on">Tombol terima kasih disembunyikan</string>
   <string name="revanced_hide_thanks_button_summary_off">Tombol terima kasih ditampilkan</string>
+  <!-- 'Ask' should be translated with the same localized wording that YouTube displays.
+                 Button only shows if the user ip is from specific region such as the USA or EU. -->
+  <string name="revanced_hide_ask_button_title">Sembunyikan Tanya</string>
+  <string name="revanced_hide_ask_button_summary_on">Tombol Tanya disembunyikan</string>
+  <string name="revanced_hide_ask_button_summary_off">Tombol Tanya ditampilkan</string>
   <!-- 'Clip' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_clip_button_title">Sembunyikan Klip</string>
   <string name="revanced_hide_clip_button_summary_on">Tombol klip disembunyikan</string>
@@ -1295,6 +1309,9 @@ Mengaktifkan ini dapat membuka kualitas video yang lebih tinggi"</string>
   <patch id="misc.gms.gmsCoreSupportResourcePatch">
   <string name="microg_settings_title">Pengaturan GmsCore</string>
   <string name="microg_settings_summary">Pengaturan untuk GmsCore</string>
+  </patch>
+  <patch id="misc.gms.accountCredentialsInvalidTextPatch">
+  <string name="microg_offline_account_login_error">Jika Anda baru saja mengubah detail login akun Anda, hapus pemasangan dan ulangi memasang MicroG.</string>
   </patch>
   <patch id="misc.links.bypassURLRedirectsPatch">
   <string name="revanced_bypass_url_redirects_title">Abaikan pengalihan URL</string>

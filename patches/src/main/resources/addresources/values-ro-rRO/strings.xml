@@ -459,21 +459,30 @@ Reglați volumul glisând vertical pe partea dreaptă a ecranului"</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_title">Activează gestul de luminozitate automată</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_on">Glisați în jos până la cea mai mică valoare a gestului de luminozitate activând luminozitatea automată</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_off">Glisarea în jos până la cea mai mică valoare nu activează luminozitatea automată</string>
+  <string name="revanced_swipe_lowest_value_enable_auto_brightness_overlay_text">Automat</string>
   <string name="revanced_swipe_overlay_timeout_title">Expirare suprapunere glisare</string>
   <string name="revanced_swipe_overlay_timeout_summary">Cantitatea de milisecunde suprapunerea este vizibilă</string>
   <string name="revanced_swipe_overlay_background_opacity_title">Opacitate suprapunere glisare</string>
   <string name="revanced_swipe_overlay_background_opacity_summary">Valoare opacitate între 0-100</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Opacitatea glisării trebuie să fie între 0-100</string>
+  <string name="revanced_swipe_overlay_progress_color_title">Culoare bară de progres suprapunere glisare</string>
+  <string name="revanced_swipe_overlay_progress_color_summary">Culoarea barei de progres pentru comenzile de volum și luminozitate</string>
+  <string name="revanced_swipe_overlay_progress_color_invalid_toast">Culoare nevalidă a barei de progres</string>
+  <string name="revanced_swipe_text_overlay_size_title">Dimensiune text suprapunere glisare</string>
+  <string name="revanced_swipe_text_overlay_size_summary">Dimensiunea textului pentru suprapunerea glisării între 1-30</string>
+  <string name="revanced_swipe_text_overlay_size_invalid_toast">Dimensiunea textului trebuie să fie între 1-30</string>
   <string name="revanced_swipe_threshold_title">Pragul mărimii glisării</string>
   <string name="revanced_swipe_threshold_summary">Cantitatea de prag pentru a glisa</string>
   <string name="revanced_swipe_volume_sensitivity_title">Sensibilitate glisare volum</string>
   <string name="revanced_swipe_volume_sensitivity_summary">Cât de mult se modifică volumul per glisare</string>
-  <string name="revanced_swipe_show_circular_overlay_title">Afișează suprapunerea circulară</string>
-  <string name="revanced_swipe_show_circular_overlay_summary_on">Suprapunerea circulară este afișată</string>
-  <string name="revanced_swipe_show_circular_overlay_summary_off">Suprapunerea orizontală este afișată</string>
-  <string name="revanced_swipe_overlay_minimal_style_title">Activați stilul minimal</string>
-  <string name="revanced_swipe_overlay_minimal_style_summary_on">Stilul minimal de suprapunere este activat</string>
-  <string name="revanced_swipe_overlay_minimal_style_summary_off">Stilul minim de suprapunere este dezactivat</string>
+  <string name="revanced_swipe_overlay_style_title">Stil suprapunere glisare</string>
+  <string name="revanced_swipe_overlay_style_entry_1">Suprapunere orizontală</string>
+  <string name="revanced_swipe_overlay_style_entry_2">Suprapunere orizontală (minimală - sus)</string>
+  <string name="revanced_swipe_overlay_style_entry_3">Suprapunere orizontală (minimală - centru)</string>
+  <string name="revanced_swipe_overlay_style_entry_4">Suprapunere circulară</string>
+  <string name="revanced_swipe_overlay_style_entry_5">Suprapunere circulară (minimală)</string>
+  <string name="revanced_swipe_overlay_style_entry_6">Suprapunere verticală</string>
+  <string name="revanced_swipe_overlay_style_entry_7">Suprapunere verticală (minimală)</string>
   <string name="revanced_swipe_change_video_title">Activați glisarea pentru a schimba videoclipurile</string>
   <string name="revanced_swipe_change_video_summary_on">Glisarea în modul pe ecran complet va trece la următorul/anteriorul videoclip</string>
   <string name="revanced_swipe_change_video_summary_off">Glisarea în modul pe ecran complet nu va trece la următorul/anteriorul videoclip</string>
@@ -513,6 +522,11 @@ Reglați volumul glisând vertical pe partea dreaptă a ecranului"</string>
   <string name="revanced_hide_thanks_button_title">Ascunde mulţumirile</string>
   <string name="revanced_hide_thanks_button_summary_on">Butonul de multumire este ascuns</string>
   <string name="revanced_hide_thanks_button_summary_off">Butonul de multumire este afisat</string>
+  <!-- 'Ask' should be translated with the same localized wording that YouTube displays.
+                 Button only shows if the user ip is from specific region such as the USA or EU. -->
+  <string name="revanced_hide_ask_button_title">Ascunde \"Întreabă\"</string>
+  <string name="revanced_hide_ask_button_summary_on">Butonul Întreabă este ascuns</string>
+  <string name="revanced_hide_ask_button_summary_off">Butonul Întreabă este afișat</string>
   <!-- 'Clip' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_clip_button_title">Ascunde Clip</string>
   <string name="revanced_hide_clip_button_summary_on">Butonul clip este ascuns</string>
@@ -1295,6 +1309,9 @@ Activarea acestei opțiuni poate debloca calități video mai mari"</string>
   <patch id="misc.gms.gmsCoreSupportResourcePatch">
   <string name="microg_settings_title">Setări GmsCore</string>
   <string name="microg_settings_summary">Setări pentru GmsCore</string>
+  </patch>
+  <patch id="misc.gms.accountCredentialsInvalidTextPatch">
+  <string name="microg_offline_account_login_error">Dacă ți-ai schimbat recent detaliile de conectare la cont, dezinstalează și reinstalează MicroG.</string>
   </patch>
   <patch id="misc.links.bypassURLRedirectsPatch">
   <string name="revanced_bypass_url_redirects_title">Ignoră redirecționările adreselor URL</string>

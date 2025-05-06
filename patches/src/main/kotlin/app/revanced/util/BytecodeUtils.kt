@@ -11,6 +11,7 @@ import app.revanced.patcher.patch.BytecodePatchContext
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.util.proxy.mutableTypes.MutableClass
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
+import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.shared.misc.mapping.get
 import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
 import app.revanced.patches.shared.misc.mapping.resourceMappings
@@ -217,6 +218,26 @@ fun MutableMethod.injectHideViewCall(
     "invoke-static { v$viewRegister }, $classDescriptor->$targetMethod(Landroid/view/View;)V",
 )
 
+
+/**
+ * Inserts instructions at a given index, using the existing control flow label at that index.
+ * Inserted instructions can have it's own control flow labels as well.
+ *
+ * Effectively this changes the code from:
+ * :label
+ * (original code)
+ *
+ * Into:
+ * :label
+ * (patch code)
+ * (original code)
+ */
+// TODO: delete this on next major version bump.
+fun MutableMethod.addInstructionsAtControlFlowLabel(
+    insertIndex: Int,
+    instructions: String
+) = addInstructionsAtControlFlowLabel(insertIndex, instructions, *arrayOf<ExternalLabel>())
+
 /**
  * Inserts instructions at a given index, using the existing control flow label at that index.
  * Inserted instructions can have it's own control flow labels as well.
@@ -233,13 +254,14 @@ fun MutableMethod.injectHideViewCall(
 fun MutableMethod.addInstructionsAtControlFlowLabel(
     insertIndex: Int,
     instructions: String,
+    vararg externalLabels: ExternalLabel
 ) {
     // Duplicate original instruction and add to +1 index.
     addInstruction(insertIndex + 1, getInstruction(insertIndex))
 
     // Add patch code at same index as duplicated instruction,
     // so it uses the original instruction control flow label.
-    addInstructionsWithLabels(insertIndex + 1, instructions)
+    addInstructionsWithLabels(insertIndex + 1, instructions, *externalLabels)
 
     // Remove original non duplicated instruction.
     removeInstruction(insertIndex)

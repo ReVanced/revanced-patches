@@ -459,21 +459,30 @@ Ajuste o volume deslizando verticalmente no lado direito da tela"</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_title">Ativar gesto de brilho automático</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_on">Deslizando para baixo até o menor valor do gesto de brilho, habilite o brilho automático</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_off">Deslizando para baixo até o menor valor não habilita o brilho automático</string>
+  <string name="revanced_swipe_lowest_value_enable_auto_brightness_overlay_text">Automático</string>
   <string name="revanced_swipe_overlay_timeout_title">Tempo limite de sobreposição</string>
   <string name="revanced_swipe_overlay_timeout_summary">A quantidade de milissegundos que a sobreposição é visível</string>
   <string name="revanced_swipe_overlay_background_opacity_title">Opacidade do plano de fundo da sobreposição de deslizar</string>
   <string name="revanced_swipe_overlay_background_opacity_summary">Valor de opacidade entre 0-100</string>
   <string name="revanced_swipe_overlay_background_opacity_invalid_toast">A opacidade do deslizar deve estar entre 0-100</string>
+  <string name="revanced_swipe_overlay_progress_color_title">Cor da barra de progresso da sobreposição de deslize</string>
+  <string name="revanced_swipe_overlay_progress_color_summary">A cor da barra de progresso para os controles de volume e brilho</string>
+  <string name="revanced_swipe_overlay_progress_color_invalid_toast">Cor da barra de progresso inválida</string>
+  <string name="revanced_swipe_text_overlay_size_title">Tamanho do texto da sobreposição de deslize</string>
+  <string name="revanced_swipe_text_overlay_size_summary">O tamanho do texto para a sobreposição de deslize entre 1 e 30</string>
+  <string name="revanced_swipe_text_overlay_size_invalid_toast">O tamanho do texto deve estar entre 1 e 30</string>
   <string name="revanced_swipe_threshold_title">Limite de magnitude</string>
   <string name="revanced_swipe_threshold_summary">A quantidade limite para deslizar irá ocorrer</string>
   <string name="revanced_swipe_volume_sensitivity_title">Sensibilidade ao deslizar o volume</string>
   <string name="revanced_swipe_volume_sensitivity_summary">O quanto o volume muda por deslize</string>
-  <string name="revanced_swipe_show_circular_overlay_title">Mostrar sobreposição circular</string>
-  <string name="revanced_swipe_show_circular_overlay_summary_on">A sobreposição circular é mostrada</string>
-  <string name="revanced_swipe_show_circular_overlay_summary_off">A sobreposição horizontal é mostrada</string>
-  <string name="revanced_swipe_overlay_minimal_style_title">Ativar estilo mínimo</string>
-  <string name="revanced_swipe_overlay_minimal_style_summary_on">O estilo de sobreposição mínimo está ativado</string>
-  <string name="revanced_swipe_overlay_minimal_style_summary_off">O estilo de sobreposição mínima está desativado</string>
+  <string name="revanced_swipe_overlay_style_title">Estilo de sobreposição de deslize</string>
+  <string name="revanced_swipe_overlay_style_entry_1">Sobreposição horizontal</string>
+  <string name="revanced_swipe_overlay_style_entry_2">Sobreposição horizontal (mínima - superior)</string>
+  <string name="revanced_swipe_overlay_style_entry_3">Sobreposição horizontal (mínima - centro)</string>
+  <string name="revanced_swipe_overlay_style_entry_4">Sobreposição circular</string>
+  <string name="revanced_swipe_overlay_style_entry_5">Sobreposição circular (mínima)</string>
+  <string name="revanced_swipe_overlay_style_entry_6">Sobreposição vertical</string>
+  <string name="revanced_swipe_overlay_style_entry_7">Sobreposição vertical (mínima)</string>
   <string name="revanced_swipe_change_video_title">Ativar deslizar para mudar de vídeo</string>
   <string name="revanced_swipe_change_video_summary_on">Deslizar no modo de ecrã inteiro mudará para o vídeo seguinte/anterior</string>
   <string name="revanced_swipe_change_video_summary_off">Deslizar no modo de ecrã inteiro não mudará para o vídeo seguinte/anterior</string>
@@ -513,6 +522,11 @@ Ajuste o volume deslizando verticalmente no lado direito da tela"</string>
   <string name="revanced_hide_thanks_button_title">Esconder Obrigado</string>
   <string name="revanced_hide_thanks_button_summary_on">O botão de agradecimento está escondido</string>
   <string name="revanced_hide_thanks_button_summary_off">O botão Obrigado é visível</string>
+  <!-- 'Ask' should be translated with the same localized wording that YouTube displays.
+                 Button only shows if the user ip is from specific region such as the USA or EU. -->
+  <string name="revanced_hide_ask_button_title">Ocultar Perguntar</string>
+  <string name="revanced_hide_ask_button_summary_on">O botão Perguntar está oculto</string>
+  <string name="revanced_hide_ask_button_summary_off">O botão Perguntar está visível</string>
   <!-- 'Clip' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_clip_button_title">Esconder clipe</string>
   <string name="revanced_hide_clip_button_summary_on">O botão do clipe está escondido</string>
@@ -1296,6 +1310,9 @@ Bật tính năng này có thể mở khóa chất lượng video cao hơn"</str
   <patch id="misc.gms.gmsCoreSupportResourcePatch">
   <string name="microg_settings_title">Configurações do GmsCore</string>
   <string name="microg_settings_summary">Configurações para GmsCore</string>
+  </patch>
+  <patch id="misc.gms.accountCredentialsInvalidTextPatch">
+  <string name="microg_offline_account_login_error">Se você alterou recentemente os detalhes de login da sua conta, desinstale e reinstale o MicroG.</string>
   </patch>
   <patch id="misc.links.bypassURLRedirectsPatch">
   <string name="revanced_bypass_url_redirects_title">Ignorar redirecionamentos de URL</string>

@@ -84,6 +84,7 @@ public class LicenseActivityHook {
     public static void initialize(Activity licenseActivity) {
         try {
             ThemeHelper.setActivityTheme(licenseActivity);
+            ThemeHelper.setNavigationBarColor(licenseActivity.getWindow());
             licenseActivity.setContentView(getResourceIdentifier(
                     "revanced_settings_with_toolbar", "layout"));
 
@@ -126,7 +127,7 @@ public class LicenseActivityHook {
         // This is required to fix submenu title alignment issue with Android ASOP 15+
         ViewGroup toolBarParent = activity.findViewById(
                 getResourceIdentifier("revanced_toolbar_parent", "id"));
-        ViewGroup dummyToolbar = Utils.getChildViewByResourceName(toolBarParent,"revanced_toolbar");
+        ViewGroup dummyToolbar = Utils.getChildViewByResourceName(toolBarParent, "revanced_toolbar");
         toolbarLayoutParams = dummyToolbar.getLayoutParams();
         toolBarParent.removeView(dummyToolbar);
 
@@ -149,5 +150,4 @@ public class LicenseActivityHook {
 
         toolBarParent.addView(toolbar, 0);
     }
-
 }

@@ -459,21 +459,30 @@ Säädä äänenvoimakkuutta pyyhkäisemällä pystysuoraan näytön oikealta pu
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_title">Ota automaattisen kirkkauden ele käyttöön</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_on">Automaattinen kirkkaus otetaan käyttöön pyyhkäisemällä alhaisimpaan arvoon</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_off">Pienimpään arvoon alas pyyhkäiseminen ei ota käyttöön automaattista kirkkautta</string>
-  <string name="revanced_swipe_overlay_timeout_title">Pyyhkäisyikkunan aikakatkaisu</string>
+  <string name="revanced_swipe_lowest_value_enable_auto_brightness_overlay_text">Automaattinen</string>
+  <string name="revanced_swipe_overlay_timeout_title">Pyyhkäisypeittokuvan aikakatkaisu</string>
   <string name="revanced_swipe_overlay_timeout_summary">Kuinka monta millisekuntia ikkuna on näkyvissä</string>
   <string name="revanced_swipe_overlay_background_opacity_title">Pyyhkäisypeittokuvan taustan läpinäkymättömyys</string>
   <string name="revanced_swipe_overlay_background_opacity_summary">Läpinäkymättömyysarvo 0–100 välillä</string>
-  <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Pyyhkäisyn läpinäkymättömyyden on oltava välillä 0–100</string>
+  <string name="revanced_swipe_overlay_background_opacity_invalid_toast">Pyyhkäisypeittokuvan läpinäkymättömyyden tulee olla 0–100 välillä</string>
+  <string name="revanced_swipe_overlay_progress_color_title">Pyyhkäisypeittokuvan edistymispalkin väri</string>
+  <string name="revanced_swipe_overlay_progress_color_summary">Äänenvoimakkuuden ja kirkkauden säätimien edistymispalkin väri</string>
+  <string name="revanced_swipe_overlay_progress_color_invalid_toast">Virheellinen edistymispalkin väri</string>
+  <string name="revanced_swipe_text_overlay_size_title">Pyyhkäisypeittokuvan tekstin koko</string>
+  <string name="revanced_swipe_text_overlay_size_summary">Pyyhkäisypeittokuvan tekstin koko 1–30 välillä</string>
+  <string name="revanced_swipe_text_overlay_size_invalid_toast">Tekstin koon tulee olla 1–30 välillä</string>
   <string name="revanced_swipe_threshold_title">Pyyhkäisyn kynnysraja</string>
   <string name="revanced_swipe_threshold_summary">Pyyhkäisyä varten tarvittavan kynnyksen määrä</string>
   <string name="revanced_swipe_volume_sensitivity_title">Äänenvoimakkuuden pyyhkäisyn herkkyys</string>
   <string name="revanced_swipe_volume_sensitivity_summary">Kuinka paljon äänenvoimakkuus muuttuu pyyhkäisyä kohden</string>
-  <string name="revanced_swipe_show_circular_overlay_title">Näytä pyöreä peittokuva</string>
-  <string name="revanced_swipe_show_circular_overlay_summary_on">Pyöreä peittokuva näytetään</string>
-  <string name="revanced_swipe_show_circular_overlay_summary_off">Vaakasuora peittokuva näytetään</string>
-  <string name="revanced_swipe_overlay_minimal_style_title">Käytä minimaalista tyyliä</string>
-  <string name="revanced_swipe_overlay_minimal_style_summary_on">Minimaalinen peittokuva on käytössä</string>
-  <string name="revanced_swipe_overlay_minimal_style_summary_off">Minimaalinen peittokuva ei ole käytössä</string>
+  <string name="revanced_swipe_overlay_style_title">Pyyhkäisypeittokuvan tyyli</string>
+  <string name="revanced_swipe_overlay_style_entry_1">Vaakasuuntainen peittokuva</string>
+  <string name="revanced_swipe_overlay_style_entry_2">Vaakasuuntainen peittokuva (minimaalinen – ylhäällä)</string>
+  <string name="revanced_swipe_overlay_style_entry_3">Vaakasuuntainen peittokuva (minimaalinen – keskellä)</string>
+  <string name="revanced_swipe_overlay_style_entry_4">Pyöreä peittokuva</string>
+  <string name="revanced_swipe_overlay_style_entry_5">Pyöreä peittokuva (minimaalinen)</string>
+  <string name="revanced_swipe_overlay_style_entry_6">Pystysuuntainen peittokuva</string>
+  <string name="revanced_swipe_overlay_style_entry_7">Pystysuuntainen peittokuva (minimaalinen)</string>
   <string name="revanced_swipe_change_video_title">Ota videon vaihto pyyhkäisemällä käyttöön</string>
   <string name="revanced_swipe_change_video_summary_on">Pyyhkäisemällä kokoruututilassa siirrytään seuraavaan/edelliseen videoon</string>
   <string name="revanced_swipe_change_video_summary_off">Pyyhkäisemällä kokoruututilassa ei siirrytä seuraavaan/edelliseen videoon</string>
@@ -513,6 +522,8 @@ Säädä äänenvoimakkuutta pyyhkäisemällä pystysuoraan näytön oikealta pu
   <string name="revanced_hide_thanks_button_title">Piilota Kiitos</string>
   <string name="revanced_hide_thanks_button_summary_on">Kiitos-painike on piilotettu</string>
   <string name="revanced_hide_thanks_button_summary_off">Kiitos-painike näytetään</string>
+  <!-- 'Ask' should be translated with the same localized wording that YouTube displays.
+                 Button only shows if the user ip is from specific region such as the USA or EU. -->
   <!-- 'Clip' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_clip_button_title">Piilota Klippi</string>
   <string name="revanced_hide_clip_button_summary_on">Klippi-painike on piilotettu</string>
@@ -805,7 +816,7 @@ Asetukset → Toisto → Toista seuraava video automaattisesti"</string>
   <patch id="layout.player.overlay.customPlayerOverlayOpacityResourcePatch">
   <string name="revanced_player_overlay_opacity_title">Soittimen peittokuvan läpinäkymättömyys</string>
   <string name="revanced_player_overlay_opacity_summary">Läpinäkymättömyysarvo välillä 0–100, jossa 0 on läpinäkyvä</string>
-  <string name="revanced_player_overlay_opacity_invalid_toast">Soittimen peittokuvan läpinäkymättömyyden on oltava välillä 0–100</string>
+  <string name="revanced_player_overlay_opacity_invalid_toast">Soittimen peittokuvan läpinäkymättömyyden tulee olla 0–100 välillä</string>
   </patch>
   <patch id="layout.returnyoutubedislike.returnYouTubeDislikePatch">
   <!-- Toast shown if network connection times out. Translations of this should not be longer than the original English or the text can be clipped and not entirely shown. -->
@@ -906,7 +917,7 @@ Tämä ominaisuus toimii parhaiten, kun videon laatu on 720p tai alhaisempi ja k
   <string name="revanced_sb_enable_create_segment_sum_off">Luo uusi osio -painiketta ei näytetä</string>
   <string name="revanced_sb_general_adjusting">Uuden osion ajoituksen säätö</string>
   <string name="revanced_sb_general_adjusting_sum">Kuinka monta millisekuntia ajansäätöpainikkeet liikkuvat uusia osioita luotaessa</string>
-  <string name="revanced_sb_general_adjusting_invalid">Arvon on oltava positiivinen luku</string>
+  <string name="revanced_sb_general_adjusting_invalid">Arvon tulee olla positiivinen luku</string>
   <string name="revanced_sb_guidelines_preference_title">Näytä ohjeet</string>
   <string name="revanced_sb_guidelines_preference_sum">Ohjeet sisältävät sääntöjä ja vinkkejä uusien osioiden luomiseen</string>
   <string name="revanced_sb_guidelines_popup_title">Noudata ohjeita</string>
@@ -1204,10 +1215,10 @@ Pyyhkäise laajentaaksesi tai sulkeaksesi"</string>
   <string name="revanced_miniplayer_hide_rewind_forward_summary_off">Eteenpäin ja taaksepäin näytetään</string>
   <string name="revanced_miniplayer_width_dip_title">Aloituskoko</string>
   <string name="revanced_miniplayer_width_dip_summary">Alkuperäinen näyttökoko pikseleinä</string>
-  <string name="revanced_miniplayer_width_dip_invalid_toast">Pikselikoon on oltava välillä %1$s ja %2$s</string>
+  <string name="revanced_miniplayer_width_dip_invalid_toast">Pikselikoon tulee olla %1$s ja %2$s välillä</string>
   <string name="revanced_miniplayer_opacity_title">Peittokuvan läpinäkymättömyys</string>
   <string name="revanced_miniplayer_opacity_summary">Läpinäkymättömyysarvo välillä 0–100, jossa 0 on läpinäkyvä</string>
-  <string name="revanced_miniplayer_opacity_invalid_toast">Minisoittimen peittokuvan läpinäkymättömyyden on oltava välillä 0–100</string>
+  <string name="revanced_miniplayer_opacity_invalid_toast">Minisoittimen peittokuvan läpinäkymättömyyden tulee olla 0–100 välillä</string>
   </patch>
   <patch id="layout.theme.themePatch">
   <string name="revanced_gradient_loading_screen_title">Ota liukuvärillinen latausruutu käyttöön</string>
@@ -1297,6 +1308,9 @@ Tämä voi avata korkealaatuisemmat videot"</string>
   <string name="microg_settings_title">GmsCore-asetukset</string>
   <string name="microg_settings_summary">GmsCoren asetukset</string>
   </patch>
+  <patch id="misc.gms.accountCredentialsInvalidTextPatch">
+  <string name="microg_offline_account_login_error">Jos olet äskettäin muuttanut tilisi kirjautumistietoja, poista ja asenna MicroG uudelleen.</string>
+  </patch>
   <patch id="misc.links.bypassURLRedirectsPatch">
   <string name="revanced_bypass_url_redirects_title">Ohita URL-osoitteen uudelleenohjaukset</string>
   <string name="revanced_bypass_url_redirects_summary_on">URL-osoitteen uudelleenohjaukset ohitetaan</string>
@@ -1353,7 +1367,7 @@ Tämä voi avata korkealaatuisemmat videot"</string>
   <string name="revanced_custom_speed_menu_summary_off">Omaa nopeusvalikkoa ei näytetä</string>
   <string name="revanced_custom_playback_speeds_title">Omat toistonopeudet</string>
   <string name="revanced_custom_playback_speeds_summary">Lisää tai muuta omia toistonopeuksia</string>
-  <string name="revanced_custom_playback_speeds_invalid">Omien nopeuksien on oltava alle %s</string>
+  <string name="revanced_custom_playback_speeds_invalid">Omien nopeuksien tulee olla alle %s</string>
   <string name="revanced_custom_playback_speeds_parse_exception">Virheelliset omat toistonopeudet</string>
   <string name="revanced_custom_playback_speeds_auto">Automaattinen</string>
   <string name="revanced_speed_tap_and_hold_title">Oma napauta ja pidä pohjassa -nopeus</string>

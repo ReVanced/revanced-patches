@@ -5,10 +5,6 @@ import app.revanced.util.literal
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-/**
- * In 19.17 and earlier, this resolves to the same method as [readComponentIdentifierFingerprint].
- * In 19.18+ this resolves to a different method.
- */
 internal val componentContextParserFingerprint = fingerprint {
     strings(
         "TreeNode result must be set.",
@@ -17,11 +13,21 @@ internal val componentContextParserFingerprint = fingerprint {
     )
 }
 
+/**
+ * Resolves to the class found in [componentContextParserFingerprint].
+ * When patching 19.16 this fingerprint matches the same method as [componentContextParserFingerprint].
+ */
+internal val componentContextSubParserFingerprint = fingerprint {
+    strings(
+        "Number of bits must be positive"
+    )
+}
+
 internal val lithoFilterFingerprint = fingerprint {
     accessFlags(AccessFlags.STATIC, AccessFlags.CONSTRUCTOR)
     returns("V")
     custom { _, classDef ->
-        classDef.endsWith("LithoFilterPatch;")
+        classDef.endsWith("/LithoFilterPatch;")
     }
 }
 
@@ -35,14 +41,6 @@ internal val protobufBufferReferenceFingerprint = fingerprint {
         Opcode.MOVE_RESULT,
         Opcode.SUB_INT_2ADDR,
     )
-}
-
-/**
-* In 19.17 and earlier, this resolves to the same method as [componentContextParserFingerprint].
-* In 19.18+ this resolves to a different method.
-*/
-internal val readComponentIdentifierFingerprint = fingerprint {
-    strings("Number of bits must be positive")
 }
 
 internal val emptyComponentFingerprint = fingerprint {
