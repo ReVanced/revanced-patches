@@ -7,7 +7,7 @@ import app.revanced.patcher.patch.bytecodePatch
 val unlockPremiumPatch = bytecodePatch(
     name = "Unlock premium",
 ) {
-    compatibleWith("com.adobe.lrmobile")
+    compatibleWith("com.adobe.lrmobile"("10.0.2"))
 
     execute {
         // Set hasPremium = true.
