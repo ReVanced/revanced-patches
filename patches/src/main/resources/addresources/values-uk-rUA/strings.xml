@@ -1311,7 +1311,7 @@ Second \"item\" text"</string>
   <string name="microg_settings_summary">Відкрити GmsCore для налаштування та входу в обліковий запис Google</string>
   </patch>
   <patch id="misc.gms.accountCredentialsInvalidTextPatch">
-  <string name="microg_offline_account_login_error">Якщо ви нещодавно змінили дані для входу у свій обліковий запис, видаліть і повторно встановіть MicroG.</string>
+  <string name="microg_offline_account_login_error">Якщо Ви нещодавно змінили дані для входу у свій обліковий запис, видаліть і повторно встановіть MicroG.</string>
   </patch>
   <patch id="misc.links.bypassURLRedirectsPatch">
   <string name="revanced_bypass_url_redirects_title">Обхід URL переадресацій</string>
