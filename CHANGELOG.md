@@ -1,3 +1,10 @@
+# [5.23.0-dev.4](https://github.com/ReVanced/revanced-patches/compare/v5.23.0-dev.3...v5.23.0-dev.4) (2025-05-06)
+
+
+### Features
+
+* **Spotify:** Add `Sanitize sharing links` patch ([#4829](https://github.com/ReVanced/revanced-patches/issues/4829)) ([2e3511d](https://github.com/ReVanced/revanced-patches/commit/2e3511d03c8198bbdb9336888df038a33fb3ab8c))
+
 # [5.23.0-dev.3](https://github.com/ReVanced/revanced-patches/compare/v5.23.0-dev.2...v5.23.0-dev.3) (2025-05-05)
 
 
