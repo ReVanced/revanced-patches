@@ -1,3 +1,10 @@
+# [5.23.0-dev.6](https://github.com/ReVanced/revanced-patches/compare/v5.23.0-dev.5...v5.23.0-dev.6) (2025-05-06)
+
+
+### Bug Fixes
+
+* Correct incorrect fingerprint ([c3bab89](https://github.com/ReVanced/revanced-patches/commit/c3bab89fc4189e38c10eee0caa36289de7e29dfa))
+
 # [5.23.0-dev.5](https://github.com/ReVanced/revanced-patches/compare/v5.23.0-dev.4...v5.23.0-dev.5) (2025-05-06)
 
 
