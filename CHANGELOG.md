@@ -1,3 +1,16 @@
+# [5.23.0-dev.5](https://github.com/ReVanced/revanced-patches/compare/v5.23.0-dev.4...v5.23.0-dev.5) (2025-05-06)
+
+
+### Bug Fixes
+
+* **Spotify - Unlock Spotify Premium:** Remove pop up premium ads ([#4842](https://github.com/ReVanced/revanced-patches/issues/4842)) ([00aa200](https://github.com/ReVanced/revanced-patches/commit/00aa2000ba2eef15a0dd827c2bd84c2e85c412e0))
+
+
+### Features
+
+* **Pandora:** Add `Disable audio ads` and `Unlimited skips` patch ([#4841](https://github.com/ReVanced/revanced-patches/issues/4841)) ([0cf7a4c](https://github.com/ReVanced/revanced-patches/commit/0cf7a4c6be615ed0a52a6bacf87592f5f43ff575))
+* **Prime Video:** Add `Skip ads` patch ([#4824](https://github.com/ReVanced/revanced-patches/issues/4824)) ([bb672c4](https://github.com/ReVanced/revanced-patches/commit/bb672c4674ddc201b8b2648c3906cfc31ef43f10))
+
 # [5.23.0-dev.4](https://github.com/ReVanced/revanced-patches/compare/v5.23.0-dev.3...v5.23.0-dev.4) (2025-05-06)
 
 
