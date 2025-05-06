@@ -64,7 +64,7 @@ Second \"item\" text"</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="gms_core_toast_not_installed_message">MicroG GmsCore がインストールされていません。インストールしてください。</string>
   <string name="gms_core_dialog_title">必ず実行してください</string>
-  <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"MicroG GmsCore はバックグラウンドで実行するための権限を持っていません。
+  <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"MicroG GmsCore はバックグラウンドで動くための権限を持っていません。
 
 下記ウェブサイト「Don't kill my app」の携帯電話メーカー別のガイドに従い、MicroG GmsCore に対するデバイスの設定を変更してください。
 
@@ -80,7 +80,7 @@ MicroG GmsCore に対する電池の最適化を無効にしても、バッテ�
   </app>
   <app id="youtube">
   <patch id="misc.settings.settingsPatch">
-  <string name="revanced_settings_screen_00_about_title">このアプリについて</string>
+  <string name="revanced_settings_screen_00_about_title">ReVanced について</string>
   <string name="revanced_settings_screen_01_ads_title">広告</string>
   <string name="revanced_settings_screen_02_alt_thumbnails_title">代替サムネイル</string>
   <string name="revanced_settings_screen_03_feed_title">フィード</string>
@@ -854,7 +854,7 @@ MicroG GmsCore に対する電池の最適化を無効にしても、バッテ�
   <string name="revanced_ryd_toast_on_connection_error_title">API 利用不可時にトーストを表示</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_on">Return YouTube Dislike が利用できない場合、トースト ポップアップが表示されます</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_off">Return YouTube Dislike が利用できない場合でもトースト ポップアップは表示されません</string>
-  <string name="revanced_ryd_about">このアプリについて</string>
+  <string name="revanced_ryd_about">Return YouTube Dislike について</string>
   <string name="revanced_ryd_attribution_summary">このデータはReturn YouTube Dislike APIによって提供されています。詳細はここをタップしてください</string>
   <!-- Statistic strings are shown in the settings only when ReVanced debug mode is enabled. Typical users will never see these. -->
   <string name="revanced_ryd_statistics_category_title">このデバイスでのReturnYouTubeDislike API 統計情報</string>
@@ -1087,7 +1087,7 @@ MicroG GmsCore に対する電池の最適化を無効にしても、バッテ�
   <string name="revanced_sb_color_invalid">色の値が無効です</string>
   <string name="revanced_sb_reset_color">色をリセット</string>
   <string name="revanced_sb_reset">リセット</string>
-  <string name="revanced_sb_about">このアプリについて</string>
+  <string name="revanced_sb_about">SponsorBlock について</string>
   <string name="revanced_sb_about_api_sum">SponsorBlock APIによって提供されるデータです。詳細はこちらをタップしてください。</string>
   </patch>
   <patch id="layout.formfactor.changeFormFactorPatch">
@@ -1311,7 +1311,7 @@ Automotive レイアウト
   <string name="microg_settings_summary">GmsCore の設定</string>
   </patch>
   <patch id="misc.gms.accountCredentialsInvalidTextPatch">
-  <string name="microg_offline_account_login_error">最近アカウントのログイン情報を変更した場合は、MicroGをアンインストールして再インストールしてください。</string>
+  <string name="microg_offline_account_login_error">最近アカウントのログイン情報を変更した場合は、MicroG をアンインストールして再インストールしてください。</string>
   </patch>
   <patch id="misc.links.bypassURLRedirectsPatch">
   <string name="revanced_bypass_url_redirects_title">URL リダイレクトを回避する</string>
