@@ -380,6 +380,14 @@ public final class app/revanced/patches/openinghours/misc/fix/crash/FixCrashPatc
 	public static final fun getFixCrashPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
+public final class app/revanced/patches/pandora/ads/DisableAudioAdsPatchKt {
+	public static final fun getDisableAudioAdsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
+public final class app/revanced/patches/pandora/misc/EnableUnlimitedSkipsPatchKt {
+	public static final fun getEnableUnlimitedSkipsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
 public final class app/revanced/patches/photomath/detection/deviceid/SpoofDeviceIdPatchKt {
 	public static final fun getGetDeviceIdPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
