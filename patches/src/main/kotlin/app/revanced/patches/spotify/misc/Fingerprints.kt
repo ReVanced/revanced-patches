@@ -82,7 +82,6 @@ internal val homeStructureGetSectionsFingerprint = fingerprint {
 }
 
 internal fun reactivexFunctionApplyWithClassInitFingerprint(className: String) = fingerprint {
-    accessFlags(AccessFlags.PUBLIC)
     returns("Ljava/lang/Object;")
     parameters("Ljava/lang/Object;")
     custom { method, _ -> method.name == "apply" && method.indexOfFirstInstruction {
