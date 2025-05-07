@@ -78,7 +78,7 @@ val spoofSimPatch = bytecodePatch(
                         while (!patches.isEmpty()) {
                             val (index, replacement) = patches.removeLast()
 
-                            val resultReg = getInstruction<OneRegisterInstruction>(index + 1).registerA
+                            val resultRegister = getInstruction<OneRegisterInstruction>(index + 1).registerA
                             val extensionMethodDescriptor = "Lapp/revanced/extension/tiktok/spoof/sim/SpoofSimPatch;" +
                                     "->$replacement(Ljava/lang/String;)Ljava/lang/String;"
 
@@ -86,8 +86,8 @@ val spoofSimPatch = bytecodePatch(
                             addInstructions(
                                 index + 2,
                                 """
-                                    invoke-static { v$resultReg }, $extensionMethodDescriptor
-                                    move-result-object v$resultReg
+                                    invoke-static { v$resultRegister }, $extensionMethodDescriptor
+                                    move-result-object v$resultRegister
                                 """,
                             )
                         }
