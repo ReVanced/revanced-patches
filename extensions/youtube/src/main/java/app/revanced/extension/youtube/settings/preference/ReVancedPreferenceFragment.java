@@ -12,6 +12,7 @@ import android.preference.Preference;
 import android.preference.PreferenceCategory;
 import android.preference.PreferenceGroup;
 import android.preference.PreferenceScreen;
+import android.preference.SwitchPreference;
 import android.text.TextUtils;
 import android.util.Pair;
 import android.util.TypedValue;
@@ -19,6 +20,9 @@ import android.view.ViewGroup;
 import android.view.WindowInsets;
 import android.widget.TextView;
 import android.widget.Toolbar;
+
+import androidx.annotation.CallSuper;
+import androidx.annotation.Nullable;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -43,23 +47,7 @@ import app.revanced.extension.youtube.sponsorblock.ui.SponsorBlockPreferenceGrou
 @SuppressWarnings("deprecation")
 public class ReVancedPreferenceFragment extends AbstractPreferenceFragment {
 
-    private static class PreferenceSearchData {
-        final String key;
-        final String title;
-        final String summary;
-        final String navigationPath;
-
-        PreferenceSearchData(Preference preference) {
-            key = Utils.removePunctuationToLowercase(preference.getKey());
-            title = Utils.removePunctuationToLowercase(preference.getTitle());
-            summary = Utils.removePunctuationToLowercase(preference.getSummary());
-            navigationPath = getPreferenceNavigationString(preference);
-        }
-
-        boolean matchesSearchQuery(String query) {
-            return title.contains(query) || summary.contains(query) || key.contains(query);
-        }
-
+    private abstract static class AbstractPreferenceSearchData<T extends Preference> {
         /**
          * @return The navigation path for the given preference, such as "Player > Action buttons".
          */
@@ -89,6 +77,131 @@ public class ReVancedPreferenceFragment extends AbstractPreferenceFragment {
                 }
             }
         }
+
+        final T preference;
+        final String key;
+        @Nullable
+        CharSequence originalTitle;
+        @Nullable
+        String searchTitle;
+
+        final String navigationPath;
+
+        AbstractPreferenceSearchData(T pref) {
+            preference = pref;
+            key = Utils.removePunctuationToLowercase(preference.getKey());
+            navigationPath = getPreferenceNavigationString(preference);
+            updateSearchTitleSummaryIfNeeded();
+        }
+
+        void updateSearchTitleSummaryIfNeeded() {
+            CharSequence title = preference.getTitle();
+            if (originalTitle != title) { // Check using reference equality.
+                originalTitle = title;
+                searchTitle = Utils.removePunctuationToLowercase(title);
+            }
+        }
+
+        boolean matchesSearchQuery(String query) {
+            updateSearchTitleSummaryIfNeeded();
+
+            return key.contains(query)
+                    || searchTitle != null && searchTitle.contains(query);
+        }
+    }
+
+    /**
+     * Regular preference type that only uses the base preference summary.
+     * Should only be used if a more specific data class does not exist.
+     */
+    private static class PreferenceSearchData extends AbstractPreferenceSearchData<Preference> {
+        @Nullable
+        CharSequence originalSummary;
+        @Nullable
+        String searchSummary;
+
+        PreferenceSearchData(Preference pref) {
+            super(pref);
+        }
+
+        @CallSuper
+        void updateSearchTitleSummaryIfNeeded() {
+            super.updateSearchTitleSummaryIfNeeded();
+
+            CharSequence summary = preference.getSummary();
+            if (originalSummary != summary) {
+                originalSummary = summary;
+                searchSummary = Utils.removePunctuationToLowercase(summary);
+            }
+        }
+
+        @CallSuper
+        boolean matchesSearchQuery(String query) {
+            return super.matchesSearchQuery(query)
+                    || searchSummary != null && searchSummary.contains(query);
+        }
+    }
+
+    private static class SwitchPreferenceSearchData extends AbstractPreferenceSearchData<SwitchPreference> {
+        @Nullable
+        CharSequence originalSummaryOn, originalSummaryOff;
+        @Nullable
+        String searchSummaryOn, searchSummaryOff;
+
+        SwitchPreferenceSearchData(SwitchPreference pref) {
+            super(pref);
+        }
+
+        void updateSearchTitleSummaryIfNeeded() {
+            super.updateSearchTitleSummaryIfNeeded();
+
+            CharSequence summaryOn = preference.getSummaryOn();
+            if (originalSummaryOn != summaryOn) {
+                originalSummaryOn = summaryOn;
+                searchSummaryOn = Utils.removePunctuationToLowercase(summaryOn);
+            }
+
+            CharSequence summaryOff = preference.getSummaryOn();
+            if (originalSummaryOff != summaryOff) {
+                originalSummaryOff = summaryOff;
+                searchSummaryOff = Utils.removePunctuationToLowercase(summaryOff);
+            }
+        }
+
+        boolean matchesSearchQuery(String query) {
+            return super.matchesSearchQuery(query)
+                    || searchSummaryOn != null && searchSummaryOn.contains(query)
+                    || searchSummaryOff != null && searchSummaryOff.contains(query);
+        }
+    }
+
+    private static class ListPreferenceSearchData extends AbstractPreferenceSearchData<ListPreference> {
+        CharSequence[] originalEntries;
+        String searchEntries;
+
+        ListPreferenceSearchData(ListPreference pref) {
+            super(pref);
+        }
+
+        void updateSearchTitleSummaryIfNeeded() {
+            super.updateSearchTitleSummaryIfNeeded();
+
+            CharSequence[] entries = preference.getEntries();
+            if (originalEntries != entries) {
+                originalEntries = entries;
+                StringBuilder builder = new StringBuilder();
+                for (CharSequence entry : entries) {
+                    builder.append(entry);
+                    builder.append(' ');
+                }
+                searchEntries = Utils.removePunctuationToLowercase(builder.toString());
+            }
+        }
+
+        boolean matchesSearchQuery(String query) {
+            return super.matchesSearchQuery(query)
+                    || searchEntries.contains(query);
+        }
     }
 
     /**
@@ -108,7 +221,7 @@ public class ReVancedPreferenceFragment extends AbstractPreferenceFragment {
      * Root preferences are excluded (no need to search what's on the root screen),
      * but their sub preferences are included.
      */
-    private final List<Pair<Preference, PreferenceSearchData>> allPreferences = new ArrayList<>();
+    private final List<AbstractPreferenceSearchData<?>> allPreferences = new ArrayList<>();
 
     @SuppressLint("UseCompatLoadingForDrawables")
     public static Drawable getBackButtonDrawable() {
@@ -233,7 +346,17 @@ public class ReVancedPreferenceFragment extends AbstractPreferenceFragment {
             Preference preference = group.getPreference(i);
             if (includeDepth <= currentDepth && !(preference instanceof PreferenceCategory)
                     && !(preference instanceof SponsorBlockPreferenceGroup)) {
-                allPreferences.add(new Pair<>(preference, new PreferenceSearchData(preference)));
+
+                AbstractPreferenceSearchData<?> data;
+                if (preference instanceof SwitchPreference switchPref) {
+                    data = new SwitchPreferenceSearchData(switchPref);
+                } else if (preference instanceof ListPreference listPref) {
+                    data = new ListPreferenceSearchData(listPref);
+                } else {
+                    data = new PreferenceSearchData(preference);
+                }
+
+                allPreferences.add(data);
             }
 
             if (preference instanceof PreferenceGroup subGroup) {
@@ -255,13 +378,13 @@ public class ReVancedPreferenceFragment extends AbstractPreferenceFragment {
             return;
         }
 
+        final long start = System.currentTimeMillis();
+
         // Navigation path -> Category
         Map<String, PreferenceCategory> categoryMap = new HashMap<>(50);
         String queryLower = Utils.removePunctuationToLowercase(query);
 
-        for (Pair<Preference, PreferenceSearchData> entry : allPreferences) {
-            PreferenceSearchData data = entry.second;
-
+        for (AbstractPreferenceSearchData<?> data : allPreferences) {
             if (data.matchesSearchQuery(queryLower)) {
                 String navigationPath = data.navigationPath;
                 PreferenceCategory group = categoryMap.computeIfAbsent(navigationPath, key -> {
@@ -270,9 +393,11 @@ public class ReVancedPreferenceFragment extends AbstractPreferenceFragment {
                     preferenceScreen.addPreference(newGroup);
                     return newGroup;
                 });
-                group.addPreference(entry.first);
+                group.addPreference(data.preference);
             }
         }
+
+        Logger.printDebug(() -> "Filtered preferences in: " + (System.currentTimeMillis() - start) + "ms");
     }
 
     /**
