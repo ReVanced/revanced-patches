@@ -1,7 +1,6 @@
 package app.revanced.patches.tiktok.feedfilter
 
 import app.revanced.patcher.fingerprint
-import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
 internal val feedApiServiceLIZFingerprint = fingerprint {
