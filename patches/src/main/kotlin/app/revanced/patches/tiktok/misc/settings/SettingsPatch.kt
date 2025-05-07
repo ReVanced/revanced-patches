@@ -51,13 +51,5 @@ val settingsPatch = bytecodePatch(
                 ExternalLabel("skip_opening_revanced_settings", instructionAfterInvokeSuper),
             )
         }
-
-        privacyVMOnClickFingerprint.method.addInstructions(
-            0,
-            """
-                invoke-static {}, $EXTENSION_CLASS_DESCRIPTOR->startSettingsActivity()V
-                return-void
-            """
-        )
     }
 }
