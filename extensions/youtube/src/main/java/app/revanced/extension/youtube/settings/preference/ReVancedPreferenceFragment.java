@@ -378,8 +378,6 @@ public class ReVancedPreferenceFragment extends AbstractPreferenceFragment {
             return;
         }
 
-        final long start = System.currentTimeMillis();
-
         // Navigation path -> Category
         Map<String, PreferenceCategory> categoryMap = new HashMap<>(50);
         String queryLower = Utils.removePunctuationToLowercase(query);
@@ -396,8 +394,6 @@ public class ReVancedPreferenceFragment extends AbstractPreferenceFragment {
                 group.addPreference(data.preference);
             }
         }
-
-        Logger.printDebug(() -> "Filtered preferences in: " + (System.currentTimeMillis() - start) + "ms");
     }
 
     /**
