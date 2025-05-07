@@ -28,6 +28,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
@@ -80,20 +81,20 @@ public class ReVancedPreferenceFragment extends AbstractPreferenceFragment {
 
         final T preference;
         final String key;
+        final String navigationPath;
+
         @Nullable
         CharSequence originalTitle;
         @Nullable
         String searchTitle;
 
-        final String navigationPath;
-
         AbstractPreferenceSearchData(T pref) {
             preference = pref;
-            key = Utils.removePunctuationToLowercase(preference.getKey());
-            navigationPath = getPreferenceNavigationString(preference);
-            updateSearchTitleSummaryIfNeeded();
+            key = Utils.removePunctuationToLowercase(pref.getKey());
+            navigationPath = getPreferenceNavigationString(pref);
         }
 
+        @CallSuper
         void updateSearchTitleSummaryIfNeeded() {
             CharSequence title = preference.getTitle();
             if (originalTitle != title) { // Check using reference equality.
@@ -102,6 +103,7 @@ public class ReVancedPreferenceFragment extends AbstractPreferenceFragment {
             }
         }
 
+        @CallSuper
         boolean matchesSearchQuery(String query) {
             updateSearchTitleSummaryIfNeeded();
 
@@ -124,7 +126,6 @@ public class ReVancedPreferenceFragment extends AbstractPreferenceFragment {
             super(pref);
         }
 
-        @CallSuper
         void updateSearchTitleSummaryIfNeeded() {
             super.updateSearchTitleSummaryIfNeeded();
 
@@ -135,7 +136,6 @@ public class ReVancedPreferenceFragment extends AbstractPreferenceFragment {
             }
         }
 
-        @CallSuper
         boolean matchesSearchQuery(String query) {
             return super.matchesSearchQuery(query)
                     || searchSummary != null && searchSummary.contains(query);
@@ -191,8 +191,7 @@ public class ReVancedPreferenceFragment extends AbstractPreferenceFragment {
                 originalEntries = entries;
                 StringBuilder builder = new StringBuilder();
                 for (CharSequence entry : entries) {
-                    builder.append(entry);
-                    builder.append(' ');
+                    builder.append(entry).append(' ');
                 }
                 searchEntries = Utils.removePunctuationToLowercase(builder.toString());
             }
