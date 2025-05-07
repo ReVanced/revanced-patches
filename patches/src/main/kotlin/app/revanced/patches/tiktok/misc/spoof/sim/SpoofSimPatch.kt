@@ -86,7 +86,7 @@ val spoofSimPatch = bytecodePatch(
                             addInstructions(
                                 index + 2,
                                 """
-                                    invoke-static {v$resultReg}, $extensionMethodDescriptor
+                                    invoke-static { v$resultReg }, $extensionMethodDescriptor
                                     move-result-object v$resultReg
                                 """,
                             )

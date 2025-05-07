@@ -33,8 +33,3 @@ internal val settingsEntryInfoFingerprint = fingerprint {
         ", icon=",
     )
 }
-
-internal val privacyVMOnClickFingerprint = fingerprint {
-    strings("//privacy/setting", "enter_privacy_setting")
-    custom { _, classDef -> classDef.type.endsWith("/PrivacyVM;") }
-}

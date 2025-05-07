@@ -68,7 +68,7 @@ public class AdPersonalizationActivityHook {
         return true;
     }
 
-    public static void startSettingsActivity() {
+    private static void startSettingsActivity() {
         Context appContext = Utils.getContext();
         if (appContext != null) {
             Intent intent = new Intent(appContext, AdPersonalizationActivity.class);
