@@ -18,10 +18,16 @@ public final class FeedItemsFilter {
             new ShopFilter()
     );
 
+    /**
+     * Injection point.
+     */
     public static void filter(FeedItemList feedItemList) {
         filterFeedList(feedItemList.items, item -> item);
     }
 
+    /**
+     * Injection point.
+     */
     public static void filter(FollowFeedList followFeedList) {
         filterFeedList(followFeedList.mItems, feed -> (feed != null) ? feed.aweme : null);
     }

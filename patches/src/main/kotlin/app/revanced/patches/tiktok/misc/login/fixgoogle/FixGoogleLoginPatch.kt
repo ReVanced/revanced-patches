@@ -1,7 +1,7 @@
 package app.revanced.patches.tiktok.misc.login.fixgoogle
 
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.util.returnEarly
 
 @Suppress("unused")
 val fixGoogleLoginPatch = bytecodePatch(
@@ -17,14 +17,6 @@ val fixGoogleLoginPatch = bytecodePatch(
         listOf(
             googleOneTapAuthAvailableFingerprint.method,
             googleAuthAvailableFingerprint.method,
-        ).forEach { method ->
-            method.addInstructions(
-                0,
-                """
-                    const/4 v0, 0x0
-                    return v0
-                """,
-            )
-        }
+        ).forEach { method -> method.returnEarly(false) }
     }
 }

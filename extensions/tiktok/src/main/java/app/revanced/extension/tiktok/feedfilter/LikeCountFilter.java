@@ -7,7 +7,6 @@ import app.revanced.extension.tiktok.Utils;
 import app.revanced.extension.tiktok.settings.Settings;
 
 public final class LikeCountFilter implements IFilter {
-
     final long minLike;
     final long maxLike;
 

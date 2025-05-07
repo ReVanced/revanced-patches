@@ -20,8 +20,8 @@ import java.lang.reflect.InvocationTargetException;
  * <p>
  * This class is responsible for injecting our own fragment by replacing the AdPersonalizationActivity.
  *
- * @noinspection unused
  */
+@SuppressWarnings("unused")
 public class AdPersonalizationActivityHook {
     public static Object createSettingsEntry(String entryClazzName, String entryInfoClazzName) {
         try {
@@ -68,7 +68,7 @@ public class AdPersonalizationActivityHook {
         return true;
     }
 
-    private static void startSettingsActivity() {
+    public static void startSettingsActivity() {
         Context appContext = Utils.getContext();
         if (appContext != null) {
             Intent intent = new Intent(appContext, AdPersonalizationActivity.class);

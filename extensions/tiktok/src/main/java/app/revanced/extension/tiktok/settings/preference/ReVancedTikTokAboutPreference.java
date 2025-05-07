@@ -11,7 +11,6 @@ import app.revanced.extension.tiktok.Utils;
 
 @SuppressWarnings("deprecation")
 public class ReVancedTikTokAboutPreference extends ReVancedAboutPreference {
-
     /**
      * Because resources cannot be added to TikTok,
      * these strings are copied from the shared strings.xml file.

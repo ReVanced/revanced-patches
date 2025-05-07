@@ -19,4 +19,3 @@ public abstract class ConditionalPreferenceCategory extends PreferenceCategory {
 
     public abstract void addPreferences(Context context);
 }
-

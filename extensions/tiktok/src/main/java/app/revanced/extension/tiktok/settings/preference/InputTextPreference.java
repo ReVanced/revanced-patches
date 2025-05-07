@@ -9,7 +9,6 @@ import app.revanced.extension.tiktok.Utils;
 
 @SuppressWarnings("deprecation")
 public class InputTextPreference extends EditTextPreference {
-
     public InputTextPreference(Context context, String title, String summary, StringSetting setting) {
         super(context);
         setTitle(title);
