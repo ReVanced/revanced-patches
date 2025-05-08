@@ -12,7 +12,7 @@ val disableLicenseCheckPatch = bytecodePatch(
     compatibleWith("com.drinkplusplus.angulus"("5.0.20"))
 
     execute {
-        // Set first parameter (responseCode) to 0.
+        // Set first parameter (responseCode) to 0 (success status).
         processLicenseResponseFingerprint.method.addInstruction(0, "const/4 p1, 0x0")
 
         // Short-circuit the license response validation.
