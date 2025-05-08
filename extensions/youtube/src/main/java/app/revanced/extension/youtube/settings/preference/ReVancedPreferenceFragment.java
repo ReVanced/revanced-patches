@@ -6,6 +6,7 @@ import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.graphics.Insets;
 import android.graphics.drawable.Drawable;
+import android.graphics.Typeface;
 import android.os.Build;
 import android.preference.ListPreference;
 import android.preference.Preference;
@@ -13,7 +14,10 @@ import android.preference.PreferenceCategory;
 import android.preference.PreferenceGroup;
 import android.preference.PreferenceScreen;
 import android.preference.SwitchPreference;
+import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
+import android.text.style.StyleSpan;
+import android.text.style.UnderlineSpan;
 import android.util.Pair;
 import android.util.TypedValue;
 import android.view.ViewGroup;
@@ -30,6 +34,8 @@ import java.util.Deque;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
@@ -139,6 +145,9 @@ public class ReVancedPreferenceFragment extends AbstractPreferenceFragment {
         }
     }
 
+    /**
+     * Switch preference type that uses summaryOn and summaryOff.
+     */
     private static class SwitchPreferenceSearchData extends AbstractPreferenceSearchData<SwitchPreference> {
         @Nullable
         CharSequence originalSummaryOn, originalSummaryOff;
@@ -158,7 +167,7 @@ public class ReVancedPreferenceFragment extends AbstractPreferenceFragment {
                 searchSummaryOn = Utils.removePunctuationToLowercase(summaryOn);
             }
 
-            CharSequence summaryOff = preference.getSummaryOn();
+            CharSequence summaryOff = preference.getSummaryOff();
             if (originalSummaryOff != summaryOff) {
                 originalSummaryOff = summaryOff;
                 searchSummaryOff = Utils.removePunctuationToLowercase(summaryOff);
@@ -172,6 +181,9 @@ public class ReVancedPreferenceFragment extends AbstractPreferenceFragment {
         }
     }
 
+    /**
+     * List preference type that uses entries.
+     */
     private static class ListPreferenceSearchData extends AbstractPreferenceSearchData<ListPreference> {
         CharSequence[] originalEntries;
         String searchEntries;
@@ -209,7 +221,7 @@ public class ReVancedPreferenceFragment extends AbstractPreferenceFragment {
     private PreferenceScreen originalPreferenceScreen;
 
     /**
-     * Used for searching preferences.  A Collection of all preferences including nested preferences.
+     * Used for searching preferences. A Collection of all preferences including nested preferences.
      * Root preferences are excluded (no need to search what's on the root screen),
      * but their sub preferences are included.
      */
@@ -358,14 +370,27 @@ public class ReVancedPreferenceFragment extends AbstractPreferenceFragment {
     }
 
     /**
-     * Filters the preferences using the given query string.
+     * Filters the preferences using the given query string and applies bold highlighting.
      */
     public void filterPreferences(String query) {
         preferenceScreen.removeAll();
 
         if (TextUtils.isEmpty(query)) {
+            // Restore original preferences and their titles/summaries/entries
             for (int i = 0, count = originalPreferenceScreen.getPreferenceCount(); i < count; i++) {
                 preferenceScreen.addPreference(originalPreferenceScreen.getPreference(i));
+            }
+            for (AbstractPreferenceSearchData<?> data : allPreferences) {
+                data.updateSearchDataIfNeeded();
+                data.preference.setTitle(data.originalTitle);
+                if (data instanceof PreferenceSearchData prefData) {
+                    prefData.preference.setSummary(prefData.originalSummary);
+                } else if (data instanceof SwitchPreferenceSearchData switchData) {
+                    switchData.preference.setSummaryOn(switchData.originalSummaryOn);
+                    switchData.preference.setSummaryOff(switchData.originalSummaryOff);
+                } else if (data instanceof ListPreferenceSearchData listData) {
+                    listData.preference.setEntries(listData.originalEntries);
+                }
             }
             return;
         }
@@ -384,9 +409,68 @@ public class ReVancedPreferenceFragment extends AbstractPreferenceFragment {
                     return newGroup;
                 });
 
-                group.addPreference(data.preference);
+                Preference preference = data.preference;
+                String titleText = data.originalTitle != null ? data.originalTitle.toString() : "";
+                preference.setTitle(highlightSearchQuery(titleText, query));
+
+                if (data instanceof PreferenceSearchData prefData) {
+                    String summaryText = prefData.originalSummary != null ? prefData.originalSummary.toString() : "";
+                    preference.setSummary(highlightSearchQuery(summaryText, query));
+                } else if (data instanceof SwitchPreferenceSearchData switchData) {
+                    String summaryOnText = switchData.originalSummaryOn != null ? switchData.originalSummaryOn.toString() : "";
+                    String summaryOffText = switchData.originalSummaryOff != null ? switchData.originalSummaryOff.toString() : "";
+                    switchData.preference.setSummaryOn(highlightSearchQuery(summaryOnText, query));
+                    switchData.preference.setSummaryOff(highlightSearchQuery(summaryOffText, query));
+                } else if (data instanceof ListPreferenceSearchData listData) {
+                    CharSequence[] originalEntries = listData.originalEntries;
+                    if (originalEntries != null) {
+                        CharSequence[] highlightedEntries = new CharSequence[originalEntries.length];
+                        for (int i = 0; i < originalEntries.length; i++) {
+                            highlightedEntries[i] = highlightSearchQuery(originalEntries[i].toString(), query);
+                        }
+                        listData.preference.setEntries(highlightedEntries);
+                    }
+                }
+
+                group.addPreference(preference);
             }
         }
+    }
+
+    /**
+     * Highlights the search query in the given text by applying bold and underline style spans.
+     * @param text The original text to process.
+     * @param query The search query to highlight.
+     * @return The text with highlighted query matches as a SpannableStringBuilder.
+     */
+    private CharSequence highlightSearchQuery(String text, String query) {
+        if (TextUtils.isEmpty(text) || TextUtils.isEmpty(query)) {
+            return text;
+        }
+
+        SpannableStringBuilder spannable = new SpannableStringBuilder(text);
+        String queryLower = Utils.removePunctuationToLowercase(query);
+        Pattern pattern = Pattern.compile(Pattern.quote(queryLower), Pattern.CASE_INSENSITIVE);
+        Matcher matcher = pattern.matcher(text.toLowerCase());
+
+        while (matcher.find()) {
+            int start = matcher.start();
+            int end = matcher.end();
+            spannable.setSpan(
+                    new StyleSpan(Typeface.BOLD),
+                    start,
+                    end,
+                    SpannableStringBuilder.SPAN_EXCLUSIVE_EXCLUSIVE
+            );
+            spannable.setSpan(
+                    new UnderlineSpan(),
+                    start,
+                    end,
+                    SpannableStringBuilder.SPAN_EXCLUSIVE_EXCLUSIVE
+            );
+        }
+
+        return spannable;
     }
 
     /**

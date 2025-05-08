@@ -38,7 +38,7 @@ public class SearchViewController {
      * The alpha channel remains unchanged.
      *
      * @param color  The input color to adjust, in ARGB format.
-     * @param factor The adjustment factor. Use values > 1.0f to lighten (e.g., 1.1111f for slight lightening)
+     * @param factor The adjustment factor. Use values > 1.0f to lighten (e.g., 1.11f for slight lightening)
      *               or values <= 1.0f to darken (e.g., 0.95f for slight darkening).
      * @return The adjusted color in ARGB format.
      */
@@ -100,7 +100,7 @@ public class SearchViewController {
         // Set query hint.
         searchView.setQueryHint(StringRef.str("revanced_search_settings"));
 
-        // Configure RTL support based on app language
+        // Configure RTL support based on app language.
         AppLanguage appLanguage = BaseSettings.REVANCED_LANGUAGE.get(); // Get language from ReVanced settings
         if (Utils.isRightToLeftLocale(appLanguage.getLocale())) {
             searchView.setTextDirection(View.TEXT_DIRECTION_RTL);
