@@ -24,7 +24,9 @@ import android.widget.Toolbar;
 import androidx.annotation.CallSuper;
 import androidx.annotation.Nullable;
 
+import java.util.ArrayDeque;
 import java.util.ArrayList;
+import java.util.Deque;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -52,27 +54,23 @@ public class ReVancedPreferenceFragment extends AbstractPreferenceFragment {
          * @return The navigation path for the given preference, such as "Player > Action buttons".
          */
         private static String getPreferenceNavigationString(Preference preference) {
-            StringBuilder path = new StringBuilder();
+            Deque<CharSequence> pathElements = new ArrayDeque<>();
 
             while (true) {
                 preference = preference.getParent();
 
                 if (preference == null) {
-                    if (path.length() > 0) {
-                        path.insert(0, Utils.getTextDirectionString());
+                    if (pathElements.isEmpty()) {
+                        return "";
                     }
-                    return path.toString();
+                    return Utils.getTextDirectionString() + String.join(" > ", pathElements);
                 }
 
                 if (!(preference instanceof NoTitlePreferenceCategory)
                         && !(preference instanceof SponsorBlockPreferenceGroup)) {
                     CharSequence title = preference.getTitle();
                     if (title != null && title.length() > 0) {
-                        if (path.length() > 0) {
-                            path.insert(0, " > ");
-                        }
-
-                        path.insert(0, title);
+                        pathElements.addFirst(title);
                     }
                 }
             }
@@ -188,11 +186,7 @@ public class ReVancedPreferenceFragment extends AbstractPreferenceFragment {
             CharSequence[] entries = preference.getEntries();
             if (originalEntries != entries) {
                 originalEntries = entries;
-                StringBuilder builder = new StringBuilder();
-                for (CharSequence entry : entries) {
-                    builder.append(entry).append(' ');
-                }
-                searchEntries = Utils.removePunctuationToLowercase(builder.toString());
+                searchEntries = Utils.removePunctuationToLowercase(String.join(" ", entries));
             }
         }
 
@@ -245,11 +239,11 @@ public class ReVancedPreferenceFragment extends AbstractPreferenceFragment {
             throw new IllegalStateException();
         }
 
-        List<Pair<String, String>> firstPairs = new ArrayList<>(firstEntriesToPreserve);
-        List<Pair<String, String>> pairsToSort = new ArrayList<>(entrySize);
+        List<Pair<CharSequence, CharSequence>> firstPairs = new ArrayList<>(firstEntriesToPreserve);
+        List<Pair<CharSequence, CharSequence>> pairsToSort = new ArrayList<>(entrySize);
 
         for (int i = 0; i < entrySize; i++) {
-            Pair<String, String> pair = new Pair<>(entries[i].toString(), entryValues[i].toString());
+            Pair<CharSequence, CharSequence> pair = new Pair<>(entries[i], entryValues[i]);
             if (i < firstEntriesToPreserve) {
                 firstPairs.add(pair);
             } else {
@@ -258,19 +252,19 @@ public class ReVancedPreferenceFragment extends AbstractPreferenceFragment {
         }
 
         pairsToSort.sort((pair1, pair2)
-                -> pair1.first.compareToIgnoreCase(pair2.first));
+                -> pair1.first.toString().compareToIgnoreCase(pair2.first.toString()));
 
         CharSequence[] sortedEntries = new CharSequence[entrySize];
         CharSequence[] sortedEntryValues = new CharSequence[entrySize];
 
         int i = 0;
-        for (Pair<String, String> pair : firstPairs) {
+        for (Pair<CharSequence, CharSequence> pair : firstPairs) {
             sortedEntries[i] = pair.first;
             sortedEntryValues[i] = pair.second;
             i++;
         }
 
-        for (Pair<String, String> pair : pairsToSort) {
+        for (Pair<CharSequence, CharSequence> pair : pairsToSort) {
             sortedEntries[i] = pair.first;
             sortedEntryValues[i] = pair.second;
             i++;
@@ -389,6 +383,7 @@ public class ReVancedPreferenceFragment extends AbstractPreferenceFragment {
                     preferenceScreen.addPreference(newGroup);
                     return newGroup;
                 });
+
                 group.addPreference(data.preference);
             }
         }
