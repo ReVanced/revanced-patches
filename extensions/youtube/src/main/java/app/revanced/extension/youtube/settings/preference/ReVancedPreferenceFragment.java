@@ -92,7 +92,7 @@ public class ReVancedPreferenceFragment extends AbstractPreferenceFragment {
         }
 
         @CallSuper
-        void updateSearchTitleSummaryIfNeeded() {
+        void updateSearchDataIfNeeded() {
             CharSequence title = preference.getTitle();
             if (originalTitle != title) { // Check using reference equality.
                 originalTitle = title;
@@ -102,7 +102,7 @@ public class ReVancedPreferenceFragment extends AbstractPreferenceFragment {
 
         @CallSuper
         boolean matchesSearchQuery(String query) {
-            updateSearchTitleSummaryIfNeeded();
+            updateSearchDataIfNeeded();
 
             return key.contains(query)
                     || searchTitle != null && searchTitle.contains(query);
@@ -123,8 +123,8 @@ public class ReVancedPreferenceFragment extends AbstractPreferenceFragment {
             super(pref);
         }
 
-        void updateSearchTitleSummaryIfNeeded() {
-            super.updateSearchTitleSummaryIfNeeded();
+        void updateSearchDataIfNeeded() {
+            super.updateSearchDataIfNeeded();
 
             CharSequence summary = preference.getSummary();
             if (originalSummary != summary) {
@@ -149,8 +149,8 @@ public class ReVancedPreferenceFragment extends AbstractPreferenceFragment {
             super(pref);
         }
 
-        void updateSearchTitleSummaryIfNeeded() {
-            super.updateSearchTitleSummaryIfNeeded();
+        void updateSearchDataIfNeeded() {
+            super.updateSearchDataIfNeeded();
 
             CharSequence summaryOn = preference.getSummaryOn();
             if (originalSummaryOn != summaryOn) {
@@ -180,8 +180,8 @@ public class ReVancedPreferenceFragment extends AbstractPreferenceFragment {
             super(pref);
         }
 
-        void updateSearchTitleSummaryIfNeeded() {
-            super.updateSearchTitleSummaryIfNeeded();
+        void updateSearchDataIfNeeded() {
+            super.updateSearchDataIfNeeded();
 
             CharSequence[] entries = preference.getEntries();
             if (originalEntries != entries) {
