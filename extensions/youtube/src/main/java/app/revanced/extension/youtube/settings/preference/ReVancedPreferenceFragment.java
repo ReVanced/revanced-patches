@@ -130,6 +130,11 @@ public class ReVancedPreferenceFragment extends AbstractPreferenceFragment {
 
         @CallSuper
         void updateSearchDataIfNeeded() {
+            if (highlightingApplied) {
+                // Must clear, otherwise old highlighting is still applied.
+                clearHighlighting();
+            }
+
             CharSequence title = preference.getTitle();
             if (originalTitle != title) { // Check using reference equality.
                 originalTitle = title;
@@ -139,11 +144,6 @@ public class ReVancedPreferenceFragment extends AbstractPreferenceFragment {
 
         @CallSuper
         boolean matchesSearchQuery(String query) {
-            if (highlightingApplied) {
-                // Must clear before searching, otherwise old highlighting is still applied.
-                clearHighlighting();
-            }
-
             updateSearchDataIfNeeded();
 
             return key.contains(query)
@@ -158,8 +158,10 @@ public class ReVancedPreferenceFragment extends AbstractPreferenceFragment {
 
         @CallSuper
         void clearHighlighting() {
-            preference.setTitle(originalTitle);
-            highlightingApplied = false;
+            if (highlightingApplied) {
+                preference.setTitle(originalTitle);
+                highlightingApplied = false;
+            }
         }
     }
 
