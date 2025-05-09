@@ -502,8 +502,7 @@ public class ReVancedPreferenceFragment extends AbstractPreferenceFragment {
         Map<String, PreferenceCategory> categoryMap = new HashMap<>();
         String queryLower = Utils.removePunctuationToLowercase(query);
 
-        Pattern queryPattern = Pattern.compile(Pattern.quote(Utils.removePunctuationToLowercase(query)),
-                Pattern.CASE_INSENSITIVE);
+        Pattern queryPattern = Pattern.compile(Pattern.quote(Utils.removePunctuationToLowercase(query)));
 
         for (AbstractPreferenceSearchData<?> data : allPreferences) {
             if (data.matchesSearchQuery(queryLower)) {
