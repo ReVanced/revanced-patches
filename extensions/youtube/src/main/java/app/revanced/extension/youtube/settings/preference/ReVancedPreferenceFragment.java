@@ -74,11 +74,6 @@ public class ReVancedPreferenceFragment extends AbstractPreferenceFragment {
      */
     private final List<AbstractPreferenceSearchData<?>> allPreferences = new ArrayList<>();
 
-    /**
-     * Used to navigate to a PreferenceScreen when a search result category is clicked.
-     */
-    private final Deque<PreferenceScreen> searchNavigationStack = new ArrayDeque<>();
-
     @SuppressLint("UseCompatLoadingForDrawables")
     public static Drawable getBackButtonDrawable() {
         final int backButtonResource = getResourceIdentifier(ThemeHelper.isDarkTheme()
@@ -192,21 +187,6 @@ public class ReVancedPreferenceFragment extends AbstractPreferenceFragment {
         }
     }
 
-    public void navigateToScreen(PreferenceScreen subScreen) {
-        searchNavigationStack.push(preferenceScreen);
-
-        setPreferenceScreen(subScreen);
-    }
-
-    public void toolbarBackButtonPressed() {
-        if (searchNavigationStack.isEmpty()) {
-            getActivity().onBackPressed();
-            return;
-        }
-
-        setPreferenceScreen(searchNavigationStack.pop());
-    }
-
     /**
      * Recursively collects all preferences from the screen or group.
      * @param includeDepth Menu depth to start including preferences.
@@ -256,7 +236,7 @@ public class ReVancedPreferenceFragment extends AbstractPreferenceFragment {
         }
 
         // Navigation path -> Category
-        Map<String, ClickablePreferenceCategory> categoryMap = new HashMap<>();
+        Map<String, PreferenceCategory> categoryMap = new HashMap<>();
         String queryLower = Utils.removePunctuationToLowercase(query);
 
         Pattern queryPattern = Pattern.compile(Pattern.quote(Utils.removePunctuationToLowercase(query)),
@@ -267,8 +247,8 @@ public class ReVancedPreferenceFragment extends AbstractPreferenceFragment {
                 data.applyHighlighting(queryLower, queryPattern);
 
                 String navigationPath = data.navigationPath;
-                ClickablePreferenceCategory group = categoryMap.computeIfAbsent(navigationPath, key -> {
-                    ClickablePreferenceCategory newGroup = new ClickablePreferenceCategory(this, data.parentScreen);
+                PreferenceCategory group = categoryMap.computeIfAbsent(navigationPath, key -> {
+                    PreferenceCategory newGroup = new PreferenceCategory(preferenceScreen.getContext());
                     newGroup.setTitle(navigationPath);
                     preferenceScreen.addPreference(newGroup);
                     return newGroup;
@@ -421,21 +401,6 @@ class AbstractPreferenceSearchData<T extends Preference> {
         return spannable;
     }
 
-    private static PreferenceScreen getParentScreen(Preference preference) {
-        while (true) {
-            preference = preference.getParent();
-
-            if (preference instanceof PreferenceScreen screen) {
-                return screen;
-            }
-
-            if (preference == null) {
-                return null;
-            }
-        }
-    }
-
-    final PreferenceScreen parentScreen;
     final T preference;
     final String key;
     final String navigationPath;
@@ -447,7 +412,6 @@ class AbstractPreferenceSearchData<T extends Preference> {
     String searchTitle;
 
     AbstractPreferenceSearchData(T pref) {
-        parentScreen = getParentScreen(pref);
         preference = pref;
         key = Utils.removePunctuationToLowercase(pref.getKey());
         navigationPath = getPreferenceNavigationString(pref);
@@ -638,30 +602,3 @@ class ListPreferenceSearchData extends AbstractPreferenceSearchData<ListPreferen
         preference.setEntries(originalEntries);
     }
 }
-
-@SuppressWarnings("deprecation")
-class ClickablePreferenceCategory extends PreferenceCategory {
-
-    public ClickablePreferenceCategory(ReVancedPreferenceFragment fragment,
-                                       @Nullable PreferenceScreen subScreen) {
-        super(fragment.getContext());
-
-        if (subScreen != null) {
-            setOnPreferenceClickListener(preference -> {
-                fragment.navigateToScreen(subScreen);
-                return true;
-            });
-        }
-    }
-
-    @Override
-    public boolean isEnabled() {
-        return true;
-    }
-
-    @Override
-    public boolean isSelectable() {
-        return true;
-    }
-}
-
