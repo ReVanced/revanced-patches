@@ -1,5 +1,6 @@
 package app.revanced.extension.youtube.settings.preference;
 
+import static app.revanced.extension.shared.StringRef.str;
 import static app.revanced.extension.shared.Utils.getResourceIdentifier;
 
 import android.annotation.SuppressLint;
@@ -41,7 +42,6 @@ import app.revanced.extension.shared.settings.BaseSettings;
 import app.revanced.extension.shared.settings.EnumSetting;
 import app.revanced.extension.shared.settings.preference.AbstractPreferenceFragment;
 import app.revanced.extension.shared.settings.preference.NoTitlePreferenceCategory;
-import app.revanced.extension.shared.StringRef;
 import app.revanced.extension.youtube.ThemeHelper;
 import app.revanced.extension.youtube.patches.playback.speed.CustomPlaybackSpeedPatch;
 import app.revanced.extension.youtube.settings.LicenseActivityHook;
@@ -520,13 +520,13 @@ public class ReVancedPreferenceFragment extends AbstractPreferenceFragment {
             }
         }
 
-        // Add placeholder if no preferences were added
+        // Show 'No results found' if search results are empty.
         if (categoryMap.isEmpty()) {
             Preference noResultsPreference = new Preference(preferenceScreen.getContext());
-            noResultsPreference.setTitle(String.format(StringRef.str("revanced_search_settings_no_results_title"), query));
-            noResultsPreference.setSummary(StringRef.str("revanced_search_settings_no_results_summary"));
+            noResultsPreference.setTitle(str("revanced_search_settings_no_results_title", query));
+            noResultsPreference.setSummary(str("revanced_search_settings_no_results_summary"));
             noResultsPreference.setSelectable(false);
-            // Set icon for the placeholder preference
+            // Set icon for the placeholder preference.
             noResultsPreference.setIcon(getResourceIdentifier(
                     ThemeHelper.isDarkTheme() ? "yt_outline_search_white_24" : "yt_outline_search_black_24",
                     "drawable"));
