@@ -115,6 +115,7 @@ public class ReVancedPreferenceFragment extends AbstractPreferenceFragment {
         final T preference;
         final String key;
         final String navigationPath;
+        boolean highlightingApplied;
 
         @Nullable
         CharSequence originalTitle;
@@ -138,7 +139,7 @@ public class ReVancedPreferenceFragment extends AbstractPreferenceFragment {
 
         @CallSuper
         boolean matchesSearchQuery(String query) {
-            if (searchTitle != null) {
+            if (highlightingApplied) {
                 // Must clear before searching, otherwise old highlighting is still applied.
                 clearHighlighting();
             }
@@ -152,11 +153,13 @@ public class ReVancedPreferenceFragment extends AbstractPreferenceFragment {
         @CallSuper
         void applyHighlighting(String query, Pattern queryPattern) {
             preference.setTitle(highlightSearchQuery(originalTitle, queryPattern));
+            highlightingApplied = true;
         }
 
         @CallSuper
         void clearHighlighting() {
             preference.setTitle(originalTitle);
+            highlightingApplied = false;
         }
     }
 
@@ -185,10 +188,6 @@ public class ReVancedPreferenceFragment extends AbstractPreferenceFragment {
         }
 
         boolean matchesSearchQuery(String query) {
-            if (searchSummary != null) {
-                clearHighlighting();
-            }
-
             return super.matchesSearchQuery(query)
                     || searchSummary != null && searchSummary.contains(query);
         }
@@ -222,10 +221,6 @@ public class ReVancedPreferenceFragment extends AbstractPreferenceFragment {
         }
 
         void updateSearchDataIfNeeded() {
-            if (originalSummaryOn != null || originalSummaryOff != null) {
-                clearHighlighting();
-            }
-
             super.updateSearchDataIfNeeded();
 
             CharSequence summaryOn = preference.getSummaryOn();
@@ -288,10 +283,6 @@ public class ReVancedPreferenceFragment extends AbstractPreferenceFragment {
         }
 
         boolean matchesSearchQuery(String query) {
-            if (searchEntries != null) {
-                clearHighlighting();
-            }
-
             return super.matchesSearchQuery(query)
                     || searchEntries != null && searchEntries.contains(query);
         }
@@ -502,7 +493,8 @@ public class ReVancedPreferenceFragment extends AbstractPreferenceFragment {
         Map<String, PreferenceCategory> categoryMap = new HashMap<>();
         String queryLower = Utils.removePunctuationToLowercase(query);
 
-        Pattern queryPattern = Pattern.compile(Pattern.quote(Utils.removePunctuationToLowercase(query)));
+        Pattern queryPattern = Pattern.compile(Pattern.quote(Utils.removePunctuationToLowercase(query)),
+                Pattern.CASE_INSENSITIVE);
 
         for (AbstractPreferenceSearchData<?> data : allPreferences) {
             if (data.matchesSearchQuery(queryLower)) {
