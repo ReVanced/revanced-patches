@@ -6,7 +6,6 @@ import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.graphics.Insets;
 import android.graphics.drawable.Drawable;
-import android.graphics.Typeface;
 import android.os.Build;
 import android.preference.ListPreference;
 import android.preference.Preference;
@@ -82,6 +81,37 @@ public class ReVancedPreferenceFragment extends AbstractPreferenceFragment {
             }
         }
 
+        /**
+         * Highlights the search query in the given text by applying bold and underline style spans.
+         * @param text The original text to process.
+         * @param queryPattern The search query to highlight.
+         * @return The text with highlighted query matches as a SpannableStringBuilder.
+         */
+        static CharSequence highlightSearchQuery(CharSequence text, Pattern queryPattern) {
+            if (TextUtils.isEmpty(text)) {
+                return text;
+            }
+
+            final int baseColor = ThemeHelper.getBackgroundColor();
+            final int adjustedColor = ThemeHelper.isDarkTheme()
+                    ? ThemeHelper.adjustColorBrightness(baseColor, 1.10f)  // Lighten for dark theme
+                    : ThemeHelper.adjustColorBrightness(baseColor, 0.90f); // Darken for light theme
+
+            SpannableStringBuilder spannable = new SpannableStringBuilder(text);
+            Matcher matcher = queryPattern.matcher(text);
+
+            while (matcher.find()) {
+                spannable.setSpan(
+                        new BackgroundColorSpan(adjustedColor), // Highlight color
+                        matcher.start(),
+                        matcher.end(),
+                        SpannableStringBuilder.SPAN_EXCLUSIVE_EXCLUSIVE
+                );
+            }
+
+            return spannable;
+        }
+
         final T preference;
         final String key;
         final String navigationPath;
@@ -108,10 +138,25 @@ public class ReVancedPreferenceFragment extends AbstractPreferenceFragment {
 
         @CallSuper
         boolean matchesSearchQuery(String query) {
+            if (searchTitle != null) {
+                // Must clear before searching, otherwise old highlighting is still applied.
+                clearHighlighting();
+            }
+
             updateSearchDataIfNeeded();
 
             return key.contains(query)
                     || searchTitle != null && searchTitle.contains(query);
+        }
+
+        @CallSuper
+        void applyHighlighting(String query, Pattern queryPattern) {
+            preference.setTitle(highlightSearchQuery(originalTitle, queryPattern));
+        }
+
+        @CallSuper
+        void clearHighlighting() {
+            preference.setTitle(originalTitle);
         }
     }
 
@@ -140,8 +185,26 @@ public class ReVancedPreferenceFragment extends AbstractPreferenceFragment {
         }
 
         boolean matchesSearchQuery(String query) {
+            if (searchSummary != null) {
+                clearHighlighting();
+            }
+
             return super.matchesSearchQuery(query)
                     || searchSummary != null && searchSummary.contains(query);
+        }
+
+        @Override
+        void applyHighlighting(String query, Pattern queryPattern) {
+            super.applyHighlighting(query, queryPattern);
+
+            preference.setSummary(highlightSearchQuery(originalSummary, queryPattern));
+        }
+
+        @CallSuper
+        void clearHighlighting() {
+            super.clearHighlighting();
+
+            preference.setSummary(originalSummary);
         }
     }
 
@@ -159,6 +222,10 @@ public class ReVancedPreferenceFragment extends AbstractPreferenceFragment {
         }
 
         void updateSearchDataIfNeeded() {
+            if (originalSummaryOn != null || originalSummaryOff != null) {
+                clearHighlighting();
+            }
+
             super.updateSearchDataIfNeeded();
 
             CharSequence summaryOn = preference.getSummaryOn();
@@ -179,13 +246,31 @@ public class ReVancedPreferenceFragment extends AbstractPreferenceFragment {
                     || searchSummaryOn != null && searchSummaryOn.contains(query)
                     || searchSummaryOff != null && searchSummaryOff.contains(query);
         }
+
+        @Override
+        void applyHighlighting(String query, Pattern queryPattern) {
+            super.applyHighlighting(query, queryPattern);
+
+            preference.setSummaryOn(highlightSearchQuery(originalSummaryOn, queryPattern));
+            preference.setSummaryOff(highlightSearchQuery(originalSummaryOff, queryPattern));
+        }
+
+        @CallSuper
+        void clearHighlighting() {
+            super.clearHighlighting();
+
+            preference.setSummaryOn(originalSummaryOn);
+            preference.setSummaryOff(originalSummaryOff);
+        }
     }
 
     /**
      * List preference type that uses entries.
      */
     private static class ListPreferenceSearchData extends AbstractPreferenceSearchData<ListPreference> {
+        @Nullable
         CharSequence[] originalEntries;
+        @Nullable
         String searchEntries;
 
         ListPreferenceSearchData(ListPreference pref) {
@@ -203,8 +288,33 @@ public class ReVancedPreferenceFragment extends AbstractPreferenceFragment {
         }
 
         boolean matchesSearchQuery(String query) {
+            if (searchEntries != null) {
+                clearHighlighting();
+            }
+
             return super.matchesSearchQuery(query)
-                    || searchEntries.contains(query);
+                    || searchEntries != null && searchEntries.contains(query);
+        }
+
+        @Override
+        void applyHighlighting(String query, Pattern queryPattern) {
+            super.applyHighlighting(query, queryPattern);
+
+            if (originalEntries != null) {
+                final int length = originalEntries.length;
+                CharSequence[] highlightedEntries = new CharSequence[length];
+                for (int i = 0; i < length; i++) {
+                    highlightedEntries[i] = highlightSearchQuery(originalEntries[i], queryPattern);
+                }
+                preference.setEntries(highlightedEntries);
+            }
+        }
+
+        @CallSuper
+        void clearHighlighting() {
+            super.clearHighlighting();
+
+            preference.setEntries(originalEntries);
         }
     }
 
@@ -380,33 +490,25 @@ public class ReVancedPreferenceFragment extends AbstractPreferenceFragment {
             for (int i = 0, count = originalPreferenceScreen.getPreferenceCount(); i < count; i++) {
                 preferenceScreen.addPreference(originalPreferenceScreen.getPreference(i));
             }
+
             for (AbstractPreferenceSearchData<?> data : allPreferences) {
-                data.updateSearchDataIfNeeded();
-                data.preference.setTitle(removeSpans(data.originalTitle));
-                if (data instanceof PreferenceSearchData prefData) {
-                    prefData.preference.setSummary(removeSpans(prefData.originalSummary));
-                } else if (data instanceof SwitchPreferenceSearchData switchData) {
-                    switchData.preference.setSummaryOn(removeSpans(switchData.originalSummaryOn));
-                    switchData.preference.setSummaryOff(removeSpans(switchData.originalSummaryOff));
-                } else if (data instanceof ListPreferenceSearchData listData) {
-                    if (listData.originalEntries != null) {
-                        CharSequence[] cleanEntries = new CharSequence[listData.originalEntries.length];
-                        for (int i = 0; i < listData.originalEntries.length; i++) {
-                            cleanEntries[i] = removeSpans(listData.originalEntries[i]);
-                        }
-                        listData.preference.setEntries(cleanEntries);
-                    }
-                }
+                data.clearHighlighting();
             }
+
             return;
         }
 
         // Navigation path -> Category
-        Map<String, PreferenceCategory> categoryMap = new HashMap<>(50);
+        Map<String, PreferenceCategory> categoryMap = new HashMap<>();
         String queryLower = Utils.removePunctuationToLowercase(query);
+
+        Pattern queryPattern = Pattern.compile(Pattern.quote(Utils.removePunctuationToLowercase(query)),
+                Pattern.CASE_INSENSITIVE);
 
         for (AbstractPreferenceSearchData<?> data : allPreferences) {
             if (data.matchesSearchQuery(queryLower)) {
+                data.applyHighlighting(queryLower, queryPattern);
+
                 String navigationPath = data.navigationPath;
                 PreferenceCategory group = categoryMap.computeIfAbsent(navigationPath, key -> {
                     PreferenceCategory newGroup = new PreferenceCategory(preferenceScreen.getContext());
@@ -414,31 +516,7 @@ public class ReVancedPreferenceFragment extends AbstractPreferenceFragment {
                     preferenceScreen.addPreference(newGroup);
                     return newGroup;
                 });
-
-                Preference preference = data.preference;
-                String titleText = data.originalTitle != null ? data.originalTitle.toString() : "";
-                preference.setTitle(highlightSearchQuery(titleText, query));
-
-                if (data instanceof PreferenceSearchData prefData) {
-                    String summaryText = prefData.originalSummary != null ? prefData.originalSummary.toString() : "";
-                    preference.setSummary(highlightSearchQuery(summaryText, query));
-                } else if (data instanceof SwitchPreferenceSearchData switchData) {
-                    String summaryOnText = switchData.originalSummaryOn != null ? switchData.originalSummaryOn.toString() : "";
-                    String summaryOffText = switchData.originalSummaryOff != null ? switchData.originalSummaryOff.toString() : "";
-                    switchData.preference.setSummaryOn(highlightSearchQuery(summaryOnText, query));
-                    switchData.preference.setSummaryOff(highlightSearchQuery(summaryOffText, query));
-                } else if (data instanceof ListPreferenceSearchData listData) {
-                    CharSequence[] originalEntries = listData.originalEntries;
-                    if (originalEntries != null) {
-                        CharSequence[] highlightedEntries = new CharSequence[originalEntries.length];
-                        for (int i = 0; i < originalEntries.length; i++) {
-                            highlightedEntries[i] = highlightSearchQuery(originalEntries[i].toString(), query);
-                        }
-                        listData.preference.setEntries(highlightedEntries);
-                    }
-                }
-
-                group.addPreference(preference);
+                group.addPreference(data.preference);
             }
         }
 
@@ -454,52 +532,6 @@ public class ReVancedPreferenceFragment extends AbstractPreferenceFragment {
                     "drawable"));
             preferenceScreen.addPreference(noResultsPreference);
         }
-    }
-
-    /**
-     * Highlights the search query in the given text by applying bold and underline style spans.
-     * @param text The original text to process.
-     * @param query The search query to highlight.
-     * @return The text with highlighted query matches as a SpannableStringBuilder.
-     */
-    private CharSequence highlightSearchQuery(String text, String query) {
-        if (TextUtils.isEmpty(text) || TextUtils.isEmpty(query)) {
-            return text;
-        }
-
-        SpannableStringBuilder spannable = new SpannableStringBuilder(text);
-        String queryLower = Utils.removePunctuationToLowercase(query);
-        Pattern pattern = Pattern.compile(Pattern.quote(queryLower), Pattern.CASE_INSENSITIVE);
-        Matcher matcher = pattern.matcher(text.toLowerCase());
-
-        while (matcher.find()) {
-            int start = matcher.start();
-            int end = matcher.end();
-            int baseColor = ThemeHelper.getBackgroundColor();
-            int adjustedColor = ThemeHelper.isDarkTheme()
-                    ? ThemeHelper.adjustColorBrightness(baseColor, 1.10f)  // Lighten for dark theme
-                    : ThemeHelper.adjustColorBrightness(baseColor, 0.90f); // Darken for light theme
-            spannable.setSpan(
-                    new BackgroundColorSpan(adjustedColor), // Highlight color
-                    start,
-                    end,
-                    SpannableStringBuilder.SPAN_EXCLUSIVE_EXCLUSIVE
-            );
-        }
-
-        return spannable;
-    }
-
-    private CharSequence removeSpans(CharSequence text) {
-        if (text instanceof SpannableStringBuilder) {
-            SpannableStringBuilder spannable = (SpannableStringBuilder) text;
-            Object[] spans = spannable.getSpans(0, spannable.length(), Object.class);
-            for (Object span : spans) {
-                spannable.removeSpan(span);
-            }
-            return spannable.toString();
-        }
-        return text;
     }
 
     /**
