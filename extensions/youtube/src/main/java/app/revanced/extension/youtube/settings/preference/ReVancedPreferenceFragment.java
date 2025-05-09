@@ -16,8 +16,7 @@ import android.preference.PreferenceScreen;
 import android.preference.SwitchPreference;
 import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
-import android.text.style.StyleSpan;
-import android.text.style.UnderlineSpan;
+import android.text.style.BackgroundColorSpan;
 import android.util.Pair;
 import android.util.TypedValue;
 import android.view.ViewGroup;
@@ -382,14 +381,20 @@ public class ReVancedPreferenceFragment extends AbstractPreferenceFragment {
             }
             for (AbstractPreferenceSearchData<?> data : allPreferences) {
                 data.updateSearchDataIfNeeded();
-                data.preference.setTitle(data.originalTitle);
+                data.preference.setTitle(removeSpans(data.originalTitle));
                 if (data instanceof PreferenceSearchData prefData) {
-                    prefData.preference.setSummary(prefData.originalSummary);
+                    prefData.preference.setSummary(removeSpans(prefData.originalSummary));
                 } else if (data instanceof SwitchPreferenceSearchData switchData) {
-                    switchData.preference.setSummaryOn(switchData.originalSummaryOn);
-                    switchData.preference.setSummaryOff(switchData.originalSummaryOff);
+                    switchData.preference.setSummaryOn(removeSpans(switchData.originalSummaryOn));
+                    switchData.preference.setSummaryOff(removeSpans(switchData.originalSummaryOff));
                 } else if (data instanceof ListPreferenceSearchData listData) {
-                    listData.preference.setEntries(listData.originalEntries);
+                    if (listData.originalEntries != null) {
+                        CharSequence[] cleanEntries = new CharSequence[listData.originalEntries.length];
+                        for (int i = 0; i < listData.originalEntries.length; i++) {
+                            cleanEntries[i] = removeSpans(listData.originalEntries[i]);
+                        }
+                        listData.preference.setEntries(cleanEntries);
+                    }
                 }
             }
             return;
@@ -456,14 +461,12 @@ public class ReVancedPreferenceFragment extends AbstractPreferenceFragment {
         while (matcher.find()) {
             int start = matcher.start();
             int end = matcher.end();
+            int baseColor = ThemeHelper.getBackgroundColor();
+            int adjustedColor = ThemeHelper.isDarkTheme()
+                    ? ThemeHelper.adjustColorBrightness(baseColor, 1.10f)  // Lighten for dark theme
+                    : ThemeHelper.adjustColorBrightness(baseColor, 0.90f); // Darken for light theme
             spannable.setSpan(
-                    new StyleSpan(Typeface.BOLD),
-                    start,
-                    end,
-                    SpannableStringBuilder.SPAN_EXCLUSIVE_EXCLUSIVE
-            );
-            spannable.setSpan(
-                    new UnderlineSpan(),
+                    new BackgroundColorSpan(adjustedColor), // Highlight color
                     start,
                     end,
                     SpannableStringBuilder.SPAN_EXCLUSIVE_EXCLUSIVE
@@ -471,6 +474,18 @@ public class ReVancedPreferenceFragment extends AbstractPreferenceFragment {
         }
 
         return spannable;
+    }
+
+    private CharSequence removeSpans(CharSequence text) {
+        if (text instanceof SpannableStringBuilder) {
+            SpannableStringBuilder spannable = (SpannableStringBuilder) text;
+            Object[] spans = spannable.getSpans(0, spannable.length(), Object.class);
+            for (Object span : spans) {
+                spannable.removeSpan(span);
+            }
+            return spannable.toString();
+        }
+        return text;
     }
 
     /**
