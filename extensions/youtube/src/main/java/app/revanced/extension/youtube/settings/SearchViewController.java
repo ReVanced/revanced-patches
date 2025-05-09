@@ -22,6 +22,7 @@ import android.widget.Toolbar;
 import androidx.annotation.NonNull;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Iterator;
 import java.util.LinkedHashSet;
 import java.util.Set;
@@ -38,6 +39,10 @@ import app.revanced.extension.youtube.settings.preference.ReVancedPreferenceFrag
  */
 @SuppressWarnings({"deprecated", "DiscouragedApi"})
 public class SearchViewController {
+    private static final String PREFS_NAME = "revanced_search_history";
+    private static final String KEY_SEARCH_HISTORY = "search_history";
+    private static final int MAX_HISTORY_SIZE = 20;
+
     private final SearchView searchView;
     private final FrameLayout searchContainer;
     private final Toolbar toolbar;
@@ -45,9 +50,7 @@ public class SearchViewController {
     private boolean isSearchActive;
     private final CharSequence originalTitle;
     private final SharedPreferences searchHistoryPrefs;
-    private static final String PREFS_NAME = "revanced_search_history";
-    private static final String KEY_SEARCH_HISTORY = "search_history";
-    private static final int MAX_HISTORY_SIZE = 3;
+    private final Set<String> searchHistory;
 
     /**
      * Creates a background drawable for the SearchView with rounded corners.
@@ -86,6 +89,8 @@ public class SearchViewController {
         this.toolbar = toolbar;
         this.originalTitle = toolbar.getTitle();
         this.searchHistoryPrefs = activity.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
+        this.searchHistory = new LinkedHashSet<>(searchHistoryPrefs.getStringSet(
+                KEY_SEARCH_HISTORY, Collections.emptySet()));
 
         // Retrieve SearchView and container from XML.
         searchView = activity.findViewById(getResourceIdentifier("revanced_search_view", "id"));
@@ -174,12 +179,10 @@ public class SearchViewController {
      */
     private void setupSearchHistory() {
         AutoCompleteTextView autoCompleteTextView = searchView.findViewById(
-                searchView.getContext().getResources().getIdentifier("android:id/search_src_text", null, null));
+                searchView.getContext().getResources().getIdentifier(
+                        "android:id/search_src_text", null, null));
         if (autoCompleteTextView != null) {
-            SearchHistoryAdapter adapter = new SearchHistoryAdapter(
-                    activity,
-                    getSearchHistory()
-            );
+            SearchHistoryAdapter adapter = new SearchHistoryAdapter(activity, searchHistory);
             autoCompleteTextView.setAdapter(adapter);
             autoCompleteTextView.setThreshold(1); // Show suggestions after 1 character
             autoCompleteTextView.setLongClickable(true);
@@ -187,35 +190,25 @@ public class SearchViewController {
     }
 
     /**
-     * Retrieves the search history from SharedPreferences.
-     * @return Set of search history entries, up to MAX_HISTORY_SIZE.
-     */
-    private Set<String> getSearchHistory() {
-        return searchHistoryPrefs.getStringSet(KEY_SEARCH_HISTORY, new LinkedHashSet<>());
-    }
-
-    /**
      * Saves a search query to the search history.
      * @param query The search query to save.
      */
     private void saveSearchQuery(String query) {
-        Set<String> historySet = getSearchHistory();
-        historySet.remove(query); // Remove if already exists to update position
-        historySet.add(query); // Add to the end (most recent)
+        searchHistory.remove(query); // Remove if already exists to update position.
+        searchHistory.add(query); // Add to the end (most recent).
 
-        // Keep only the last MAX_HISTORY_SIZE entries
-        Iterator<String> iterator = historySet.iterator();
-        while (historySet.size() > MAX_HISTORY_SIZE) {
-            iterator.next();
+        // Keep only the last few entries.
+        while (searchHistory.size() > MAX_HISTORY_SIZE) {
+            Iterator<String> iterator = searchHistory.iterator();
+            String next = iterator.next();
+            Logger.printDebug(() -> "Removing search history query: " + next);
             iterator.remove();
         }
 
-        // Save to SharedPreferences
-        searchHistoryPrefs.edit()
-                .putStringSet(KEY_SEARCH_HISTORY, historySet)
-                .apply();
+        Logger.printDebug(() -> "Updated search history: " + searchHistory);
 
-        // Update suggestions
+        saveSearchHistoryToPreferences();
+
         updateSearchHistoryAdapter();
     }
 
@@ -224,16 +217,20 @@ public class SearchViewController {
      * @param query The search query to remove.
      */
     private void removeSearchQuery(String query) {
-        Set<String> historySet = getSearchHistory();
-        historySet.remove(query);
+        searchHistory.remove(query);
 
-        // Save to SharedPreferences
-        searchHistoryPrefs.edit()
-                .putStringSet(KEY_SEARCH_HISTORY, historySet)
-                .apply();
+        saveSearchHistoryToPreferences();
 
-        // Update suggestions
         updateSearchHistoryAdapter();
+    }
+
+    /**
+     * Save the search history to the shared preferences.
+     */
+    private void saveSearchHistoryToPreferences() {
+        searchHistoryPrefs.edit()
+                .putStringSet(KEY_SEARCH_HISTORY, searchHistory)
+                .apply();
     }
 
     /**
@@ -245,7 +242,7 @@ public class SearchViewController {
         if (autoCompleteTextView != null) {
             SearchHistoryAdapter adapter = (SearchHistoryAdapter) autoCompleteTextView.getAdapter();
             adapter.clear();
-            adapter.addAll(getSearchHistory());
+            adapter.addAll(searchHistory);
             adapter.notifyDataSetChanged();
         }
     }
@@ -260,7 +257,7 @@ public class SearchViewController {
         searchContainer.setVisibility(View.VISIBLE);
         searchView.requestFocus();
 
-        // Show keyboard
+        // Show keyboard.
         InputMethodManager imm = (InputMethodManager) activity.getSystemService(Context.INPUT_METHOD_SERVICE);
         imm.showSoftInput(searchView, InputMethodManager.SHOW_IMPLICIT);
     }
@@ -281,7 +278,7 @@ public class SearchViewController {
         searchContainer.setVisibility(View.GONE);
         searchView.setQuery("", false);
 
-        // Hide keyboard
+        // Hide keyboard.
         InputMethodManager imm = (InputMethodManager) activity.getSystemService(Context.INPUT_METHOD_SERVICE);
         imm.hideSoftInputFromWindow(searchView.getWindowToken(), 0);
     }
@@ -302,23 +299,23 @@ public class SearchViewController {
                         "revanced_search_suggestion_item", "layout"), null);
             }
 
-            // Apply rounded corners programmatically
+            // Apply rounded corners programmatically.
             convertView.setBackground(createSuggestionBackgroundDrawable(getContext()));
             String query = getItem(position);
 
-            // Set query text
+            // Set query text.
             TextView textView = convertView.findViewById(getResourceIdentifier(
                     "suggestion_text", "id"));
             if (textView != null) {
                 textView.setText(query);
             }
 
-            // Set click listener for inserting query into SearchView
+            // Set click listener for inserting query into SearchView.
             convertView.setOnClickListener(v -> {
                 searchView.setQuery(query, true); // Insert selected query and submit
             });
 
-            // Set long click listener for deletion confirmation
+            // Set long click listener for deletion confirmation.
             convertView.setOnLongClickListener(v -> {
                 new AlertDialog.Builder(activity)
                         .setTitle(str("revanced_search_settings_user_dialog_title"))
