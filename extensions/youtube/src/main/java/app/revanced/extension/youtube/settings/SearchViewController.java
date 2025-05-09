@@ -192,7 +192,7 @@ public class SearchViewController {
                 if (isSearchActive) {
                     closeSearch();
                 } else {
-                    activity.onBackPressed();
+                    fragment.toolbarBackButtonPressed();
                 }
             } catch (Exception ex) {
                 Logger.printException(() -> "navigation click failure", ex);
