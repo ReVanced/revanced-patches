@@ -216,13 +216,13 @@ public class ReVancedPreferenceFragment extends AbstractPreferenceFragment {
     }
 
     /**
-     * Filters the preferences using the given query string and applies bold highlighting.
+     * Filters the preferences using the given query string and applies highlighting.
      */
     public void filterPreferences(String query) {
         preferenceScreen.removeAll();
 
         if (TextUtils.isEmpty(query)) {
-            // Restore original preferences and their titles/summaries/entries
+            // Restore original preferences and their titles/summaries/entries.
             for (int i = 0, count = originalPreferenceScreen.getPreferenceCount(); i < count; i++) {
                 preferenceScreen.addPreference(originalPreferenceScreen.getPreference(i));
             }
@@ -369,7 +369,7 @@ class AbstractPreferenceSearchData<T extends Preference> {
     }
 
     /**
-     * Highlights the search query in the given text by applying bold and underline style spans.
+     * Highlights the search query in the given text by applying color span.
      * @param text The original text to process.
      * @param queryPattern The search query to highlight.
      * @return The text with highlighted query matches as a SpannableStringBuilder.
@@ -381,15 +381,15 @@ class AbstractPreferenceSearchData<T extends Preference> {
 
         final int baseColor = ThemeHelper.getBackgroundColor();
         final int adjustedColor = ThemeHelper.isDarkTheme()
-                ? ThemeHelper.adjustColorBrightness(baseColor, 1.20f)  // Lighten for dark theme
-                : ThemeHelper.adjustColorBrightness(baseColor, 0.95f); // Darken for light theme
+                ? ThemeHelper.adjustColorBrightness(baseColor, 1.20f)  // Lighten for dark theme.
+                : ThemeHelper.adjustColorBrightness(baseColor, 0.95f); // Darken for light theme.
 
         SpannableStringBuilder spannable = new SpannableStringBuilder(text);
         Matcher matcher = queryPattern.matcher(text);
 
         while (matcher.find()) {
             spannable.setSpan(
-                    new BackgroundColorSpan(adjustedColor), // Highlight color
+                    new BackgroundColorSpan(adjustedColor), // Highlight color.
                     matcher.start(),
                     matcher.end(),
                     SpannableStringBuilder.SPAN_EXCLUSIVE_EXCLUSIVE
@@ -600,4 +600,3 @@ class ListPreferenceSearchData extends AbstractPreferenceSearchData<ListPreferen
         preference.setEntries(originalEntries);
     }
 }
-

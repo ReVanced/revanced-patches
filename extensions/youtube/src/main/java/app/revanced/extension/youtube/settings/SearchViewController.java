@@ -41,7 +41,7 @@ import app.revanced.extension.youtube.settings.preference.ReVancedPreferenceFrag
 public class SearchViewController {
     private static final String PREFS_NAME = "revanced_search_history";
     private static final String KEY_SEARCH_HISTORY = "search_history";
-    private static final int MAX_HISTORY_SIZE = 20;
+    private static final int MAX_HISTORY_SIZE = 3;
 
     private final SearchView searchView;
     private final FrameLayout searchContainer;
@@ -51,6 +51,9 @@ public class SearchViewController {
     private final CharSequence originalTitle;
     private final SharedPreferences searchHistoryPrefs;
     private final Set<String> searchHistory;
+    private final AutoCompleteTextView autoCompleteTextView;
+    // Flag to disable the history dropdown list.
+    private final boolean disableAutoCompleteDropdown;
 
     /**
      * Creates a background drawable for the SearchView with rounded corners.
@@ -58,11 +61,11 @@ public class SearchViewController {
     private static GradientDrawable createBackgroundDrawable(Context context) {
         GradientDrawable background = new GradientDrawable();
         background.setShape(GradientDrawable.RECTANGLE);
-        background.setCornerRadius(28f * context.getResources().getDisplayMetrics().density); // 28dp corner radius
+        background.setCornerRadius(28f * context.getResources().getDisplayMetrics().density); // 28dp corner radius.
         int baseColor = ThemeHelper.getBackgroundColor();
         int adjustedColor = ThemeHelper.isDarkTheme()
-                ? ThemeHelper.adjustColorBrightness(baseColor, 1.11f)  // Lighten for dark theme
-                : ThemeHelper.adjustColorBrightness(baseColor, 0.95f); // Darken for light theme
+                ? ThemeHelper.adjustColorBrightness(baseColor, 1.11f)  // Lighten for dark theme.
+                : ThemeHelper.adjustColorBrightness(baseColor, 0.95f); // Darken for light theme.
         background.setColor(adjustedColor);
         return background;
     }
@@ -73,7 +76,7 @@ public class SearchViewController {
     private static GradientDrawable createSuggestionBackgroundDrawable(Context context) {
         GradientDrawable background = new GradientDrawable();
         background.setShape(GradientDrawable.RECTANGLE);
-        background.setCornerRadius(8f * context.getResources().getDisplayMetrics().density); // 8dp corner radius
+        background.setCornerRadius(8f * context.getResources().getDisplayMetrics().density); // 8dp corner radius.
         return background;
     }
 
@@ -91,12 +94,18 @@ public class SearchViewController {
         this.searchHistoryPrefs = activity.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
         this.searchHistory = new LinkedHashSet<>(searchHistoryPrefs.getStringSet(
                 KEY_SEARCH_HISTORY, Collections.emptySet()));
+        this.disableAutoCompleteDropdown = Settings.DISABLE_SETTINGS_SEARCH_HISTORY.get();
 
         // Retrieve SearchView and container from XML.
         searchView = activity.findViewById(getResourceIdentifier(
                 "revanced_search_view", "id"));
         searchContainer = activity.findViewById(getResourceIdentifier(
                 "revanced_search_view_container", "id"));
+
+        // Initialize AutoCompleteTextView.
+        autoCompleteTextView = searchView.findViewById(
+                searchView.getContext().getResources().getIdentifier(
+                        "android:id/search_src_text", null, null));
 
         // Set background and query hint.
         searchView.setBackground(createBackgroundDrawable(toolbar.getContext()));
@@ -110,7 +119,9 @@ public class SearchViewController {
         }
 
         // Set up search history suggestions.
-        setupSearchHistory();
+        if (!disableAutoCompleteDropdown) {
+            setupSearchHistory();
+        }
 
         // Set up query text listener.
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
@@ -120,6 +131,10 @@ public class SearchViewController {
                     String queryTrimmed = query.trim();
                     if (!queryTrimmed.isEmpty()) {
                         saveSearchQuery(queryTrimmed);
+                    }
+                    // Hide suggestions on submit.
+                    if (!disableAutoCompleteDropdown && autoCompleteTextView != null) {
+                        autoCompleteTextView.dismissDropDown();
                     }
                 } catch (Exception ex) {
                     Logger.printException(() -> "onQueryTextSubmit failure", ex);
@@ -132,6 +147,15 @@ public class SearchViewController {
                 try {
                     Logger.printDebug(() -> "Search query: " + newText);
                     fragment.filterPreferences(newText);
+                    // Prevent suggestions from showing during text input.
+                    if (!disableAutoCompleteDropdown && autoCompleteTextView != null) {
+                        if (newText.length() > 0) {
+                            autoCompleteTextView.dismissDropDown();
+                            autoCompleteTextView.setThreshold(Integer.MAX_VALUE); // Disable autocomplete suggestions.
+                        } else {
+                            autoCompleteTextView.setThreshold(1); // Re-enable for empty input.
+                        }
+                    }
                 } catch (Exception ex) {
                     Logger.printException(() -> "onQueryTextChange failure", ex);
                 }
@@ -183,14 +207,18 @@ public class SearchViewController {
      * Sets up the search history suggestions for the SearchView with custom adapter.
      */
     private void setupSearchHistory() {
-        AutoCompleteTextView autoCompleteTextView = searchView.findViewById(
-                searchView.getContext().getResources().getIdentifier(
-                        "android:id/search_src_text", null, null));
         if (autoCompleteTextView != null) {
             SearchHistoryAdapter adapter = new SearchHistoryAdapter(activity, searchHistory);
             autoCompleteTextView.setAdapter(adapter);
-            autoCompleteTextView.setThreshold(1); // Show suggestions after 1 character
+            autoCompleteTextView.setThreshold(1); // Initial threshold for empty input.
             autoCompleteTextView.setLongClickable(true);
+
+            // Show suggestions only when search bar is active and query is empty.
+            autoCompleteTextView.setOnFocusChangeListener((v, hasFocus) -> {
+                if (hasFocus && isSearchActive && autoCompleteTextView.getText().length() == 0) {
+                    autoCompleteTextView.showDropDown();
+                }
+            });
         }
     }
 
@@ -199,6 +227,9 @@ public class SearchViewController {
      * @param query The search query to save.
      */
     private void saveSearchQuery(String query) {
+        if (disableAutoCompleteDropdown) {
+            return;
+        }
         searchHistory.remove(query); // Remove if already exists to update position.
         searchHistory.add(query); // Add to the end (most recent).
 
@@ -220,6 +251,9 @@ public class SearchViewController {
      * @param query The search query to remove.
      */
     private void removeSearchQuery(String query) {
+        if (disableAutoCompleteDropdown) {
+            return;
+        }
         searchHistory.remove(query);
 
         saveSearchHistoryToPreferences();
@@ -231,6 +265,9 @@ public class SearchViewController {
      * Save the search history to the shared preferences.
      */
     private void saveSearchHistoryToPreferences() {
+        if (disableAutoCompleteDropdown) {
+            return;
+        }
         Logger.printDebug(() -> "Saving search history: " + searchHistory);
 
         searchHistoryPrefs.edit()
@@ -242,11 +279,11 @@ public class SearchViewController {
      * Updates the search history adapter with the latest history.
      */
     private void updateSearchHistoryAdapter() {
-        AutoCompleteTextView autoCompleteTextView = searchView.findViewById(searchView.getContext()
-                .getResources().getIdentifier(
-                        "android:id/search_src_text", null, null));
-        if (autoCompleteTextView != null) {
-            SearchHistoryAdapter adapter = (SearchHistoryAdapter) autoCompleteTextView.getAdapter();
+        if (disableAutoCompleteDropdown || autoCompleteTextView == null) {
+            return;
+        }
+        SearchHistoryAdapter adapter = (SearchHistoryAdapter) autoCompleteTextView.getAdapter();
+        if (adapter != null) {
             adapter.clear();
             adapter.addAll(searchHistory);
             adapter.notifyDataSetChanged();
@@ -267,6 +304,15 @@ public class SearchViewController {
         // Show keyboard.
         InputMethodManager imm = (InputMethodManager) activity.getSystemService(Context.INPUT_METHOD_SERVICE);
         imm.showSoftInput(searchView, InputMethodManager.SHOW_IMPLICIT);
+
+        // Show suggestions with a slight delay.
+        if (!disableAutoCompleteDropdown && autoCompleteTextView != null && autoCompleteTextView.getText().length() == 0) {
+            searchView.postDelayed(() -> {
+                if (isSearchActive && autoCompleteTextView.getText().length() == 0) {
+                    autoCompleteTextView.showDropDown();
+                }
+            }, 100); // 100ms delay to ensure focus is stable.
+        }
     }
 
     /**
@@ -274,14 +320,13 @@ public class SearchViewController {
      */
     private void closeSearch() {
         isSearchActive = false;
-        toolbar.post(() -> toolbar.getMenu().findItem(getResourceIdentifier(
+        toolbar.getMenu().findItem(getResourceIdentifier(
                         "action_search", "id"))
                 .setIcon(getResourceIdentifier(ThemeHelper.isDarkTheme()
                                 ? "yt_outline_search_white_24"
                                 : "yt_outline_search_black_24",
                         "drawable")
-                ).setVisible(true)
-        );
+                ).setVisible(true);
         toolbar.setTitle(originalTitle);
         searchContainer.setVisibility(View.GONE);
         searchView.setQuery("", false);
@@ -320,7 +365,7 @@ public class SearchViewController {
 
             // Set click listener for inserting query into SearchView.
             convertView.setOnClickListener(v -> {
-                searchView.setQuery(query, true); // Insert selected query and submit
+                searchView.setQuery(query, true); // Insert selected query and submit.
             });
 
             // Set long click listener for deletion confirmation.
