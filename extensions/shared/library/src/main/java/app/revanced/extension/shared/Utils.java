@@ -391,7 +391,11 @@ public class Utils {
     private static Boolean isRightToLeftTextLayout;
 
     /**
-     * If the device language uses right to left text layout (Hebrew, Arabic, etc).
+     * @return If the device language uses right to left text layout (Hebrew, Arabic, etc).
+     *         If this should match any ReVanced language override then instead use
+     *         {@link #isRightToLeftLocale(Locale)} with {@link BaseSettings#REVANCED_LANGUAGE}.
+     *         This is the default locale of the device, which may differ if
+     *         {@link BaseSettings#REVANCED_LANGUAGE} is set to a different language.
      */
     public static boolean isRightToLeftLocale() {
         if (isRightToLeftTextLayout == null) {
@@ -401,17 +405,31 @@ public class Utils {
     }
 
     /**
-     * If the locale is right to left text layout (Hebrew, Arabic, etc).
+     * @return If the locale uses right to left text layout (Hebrew, Arabic, etc).
      */
     public static boolean isRightToLeftLocale(Locale locale) {
         String displayLanguage = locale.getDisplayLanguage();
         return new Bidi(displayLanguage, Bidi.DIRECTION_DEFAULT_LEFT_TO_RIGHT).isRightToLeft();
     }
 
+    /**
+     * @return A UTF8 string containing a left-to-right or right-to-left
+     *         character of the device locale. If this should match any ReVanced language
+     *         override then instead use {@link #getTextDirectionString(Locale)} with
+     *         {@link BaseSettings#REVANCED_LANGUAGE}.
+     */
     public static String getTextDirectionString() {
-        return isRightToLeftLocale()
-                ? "\u200F"  // u200F = right to left character
-                : "\u200E"; // u200E = left to right character
+        return  getTextDirectionString(isRightToLeftLocale());
+    }
+
+    public static String getTextDirectionString(Locale locale) {
+        return getTextDirectionString(isRightToLeftLocale(locale));
+    }
+
+    private static String getTextDirectionString(boolean isRightToLeft) {
+        return isRightToLeft
+                ? "\u200F"  // u200F = right to left character.
+                : "\u200E"; // u200E = left to right character.
     }
 
     /**

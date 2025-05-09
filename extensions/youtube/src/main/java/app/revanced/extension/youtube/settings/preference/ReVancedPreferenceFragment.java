@@ -32,6 +32,7 @@ import java.util.ArrayList;
 import java.util.Deque;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -355,7 +356,8 @@ class AbstractPreferenceSearchData<T extends Preference> {
                 if (pathElements.isEmpty()) {
                     return "";
                 }
-                return Utils.getTextDirectionString() + String.join(" > ", pathElements);
+                Locale locale = BaseSettings.REVANCED_LANGUAGE.get().getLocale();
+                return Utils.getTextDirectionString(locale) + String.join(" > ", pathElements);
             }
 
             if (!(preference instanceof NoTitlePreferenceCategory)
