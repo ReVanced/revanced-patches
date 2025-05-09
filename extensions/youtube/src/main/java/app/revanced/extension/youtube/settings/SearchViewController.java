@@ -41,7 +41,7 @@ import app.revanced.extension.youtube.settings.preference.ReVancedPreferenceFrag
 public class SearchViewController {
     private static final String PREFS_NAME = "revanced_search_history";
     private static final String KEY_SEARCH_HISTORY = "search_history";
-    private static final int MAX_HISTORY_SIZE = 3;
+    private static final int MAX_HISTORY_SIZE = 5;
 
     private final SearchView searchView;
     private final FrameLayout searchContainer;
