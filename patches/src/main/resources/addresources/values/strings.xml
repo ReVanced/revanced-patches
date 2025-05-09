@@ -36,6 +36,8 @@ Second \"item\" text"</string>
             <string name="revanced_search_settings">Search settings</string>
             <string name="revanced_search_settings_no_results_title">No results found for \'%s\'</string>
             <string name="revanced_search_settings_no_results_summary">Try another keyword</string>
+            <string name="revanced_search_settings_user_dialog_title">Confirm Deletion</string>
+            <string name="revanced_search_settings_user_dialog_message">Are you sure you want to delete this search query?</string>
             <string name="revanced_settings_confirm_user_dialog_title">Do you wish to proceed?</string>
             <string name="revanced_settings_reset">Reset</string>
             <string name="revanced_settings_restart_title">Refresh and restart</string>
