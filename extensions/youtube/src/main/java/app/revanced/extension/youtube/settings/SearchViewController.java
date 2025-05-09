@@ -14,16 +14,15 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.FrameLayout;
-import android.widget.SearchView;
-import android.widget.Toolbar;
 import android.widget.LinearLayout;
+import android.widget.SearchView;
 import android.widget.TextView;
+import android.widget.Toolbar;
 
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
 import app.revanced.extension.shared.settings.AppLanguage;
 import app.revanced.extension.shared.settings.BaseSettings;
-import app.revanced.extension.shared.StringRef;
 import app.revanced.extension.youtube.ThemeHelper;
 import app.revanced.extension.youtube.settings.preference.ReVancedPreferenceFragment;
 
@@ -172,12 +171,11 @@ public class SearchViewController {
         if (autoCompleteTextView != null) {
             SearchHistoryAdapter adapter = new SearchHistoryAdapter(
                     activity,
-                    getSearchHistory(),
-                    this::removeSearchQuery,
-                    searchView
+                    getSearchHistory()
             );
             autoCompleteTextView.setAdapter(adapter);
             autoCompleteTextView.setThreshold(1); // Show suggestions after 1 character
+            autoCompleteTextView.setLongClickable(true);
         }
     }
 
@@ -282,18 +280,14 @@ public class SearchViewController {
     }
 
     /**
-     * Custom ArrayAdapter for search history with click and long press handling.
+     * Custom ArrayAdapter for search history.
      */
-    private static class SearchHistoryAdapter extends ArrayAdapter<String> {
+    private class SearchHistoryAdapter extends ArrayAdapter<String> {
         private final ArrayList<String> history;
-        private final java.util.function.Consumer<String> onDeleteClick;
-        private final SearchView searchView;
 
-        public SearchHistoryAdapter(Context context, ArrayList<String> history, java.util.function.Consumer<String> onDeleteClick, SearchView searchView) {
+        public SearchHistoryAdapter(Context context, ArrayList<String> history) {
             super(context, 0, history);
             this.history = history;
-            this.onDeleteClick = onDeleteClick;
-            this.searchView = searchView;
         }
 
         @Override
@@ -304,31 +298,30 @@ public class SearchViewController {
 
             // Apply rounded corners programmatically
             convertView.setBackground(createSuggestionBackgroundDrawable(getContext()));
-
             String query = getItem(position);
 
             // Set query text
             TextView textView = convertView.findViewById(getResourceIdentifier("suggestion_text", "id"));
             if (textView != null) {
                 textView.setText(query);
-
-                // Set click listener for inserting query into SearchView
-                textView.setOnClickListener(v -> {
-                    searchView.setQuery(query, true); // Insert selected query and submit
-                });
-
-                // Set long click listener for deletion confirmation
-                textView.setOnLongClickListener(v -> {
-                    new AlertDialog.Builder(getContext())
-                            .setTitle(str("revanced_search_settings_user_dialog_title"))
-                            .setMessage(str("revanced_search_settings_user_dialog_message"))
-                            .setIconAttribute(android.R.attr.alertDialogIcon)
-                            .setPositiveButton(android.R.string.ok, (dialog, which) -> onDeleteClick.accept(query))
-                            .setNegativeButton(android.R.string.cancel, null)
-                            .show();
-                    return true;
-                });
             }
+
+            // Set click listener for inserting query into SearchView
+            convertView.setOnClickListener(v -> {
+                searchView.setQuery(query, true); // Insert selected query and submit
+            });
+
+            // Set long click listener for deletion confirmation
+            convertView.setOnLongClickListener(v -> {
+                new AlertDialog.Builder(activity)
+                        .setTitle(str("revanced_search_settings_user_dialog_title"))
+                        .setMessage(str("revanced_search_settings_user_dialog_message"))
+                        .setIconAttribute(android.R.attr.alertDialogIcon)
+                        .setPositiveButton(android.R.string.ok, (dialog, which) -> removeSearchQuery(query))
+                        .setNegativeButton(android.R.string.cancel, null)
+                        .show();
+                return true;
+            });
 
             return convertView;
         }
