@@ -93,15 +93,17 @@ public class SearchViewController {
                 KEY_SEARCH_HISTORY, Collections.emptySet()));
 
         // Retrieve SearchView and container from XML.
-        searchView = activity.findViewById(getResourceIdentifier("revanced_search_view", "id"));
-        searchContainer = activity.findViewById(getResourceIdentifier("revanced_search_view_container", "id"));
+        searchView = activity.findViewById(getResourceIdentifier(
+                "revanced_search_view", "id"));
+        searchContainer = activity.findViewById(getResourceIdentifier(
+                "revanced_search_view_container", "id"));
 
         // Set background and query hint.
         searchView.setBackground(createBackgroundDrawable(toolbar.getContext()));
         searchView.setQueryHint(str("revanced_search_settings"));
 
         // Configure RTL support based on app language.
-        AppLanguage appLanguage = BaseSettings.REVANCED_LANGUAGE.get(); // Get language from ReVanced settings
+        AppLanguage appLanguage = BaseSettings.REVANCED_LANGUAGE.get();
         if (Utils.isRightToLeftLocale(appLanguage.getLocale())) {
             searchView.setTextDirection(View.TEXT_DIRECTION_RTL);
             searchView.setTextAlignment(View.TEXT_ALIGNMENT_VIEW_END);
@@ -138,17 +140,20 @@ public class SearchViewController {
         });
 
         // Set menu and search icon.
-        toolbar.inflateMenu(getResourceIdentifier("revanced_search_menu", "menu"));
-        MenuItem searchItem = toolbar.getMenu().findItem(getResourceIdentifier("action_search", "id"));
-        searchItem.setIcon(getResourceIdentifier(
-                        ThemeHelper.isDarkTheme() ? "yt_outline_search_white_24" : "yt_outline_search_black_24",
-                        "drawable"))
-                .setTooltipText(null);
+        toolbar.inflateMenu(getResourceIdentifier(
+                "revanced_search_menu", "menu"));
+        MenuItem searchItem = toolbar.getMenu().findItem(getResourceIdentifier(
+                "action_search", "id"));
+        searchItem.setIcon(getResourceIdentifier(ThemeHelper.isDarkTheme()
+                                ? "yt_outline_search_white_24"
+                                : "yt_outline_search_black_24",
+                        "drawable")).setTooltipText(null);
 
         // Set menu item click listener.
         toolbar.setOnMenuItemClickListener(item -> {
             try {
-                if (item.getItemId() == getResourceIdentifier("action_search", "id")) {
+                if (item.getItemId() == getResourceIdentifier(
+                        "action_search", "id")) {
                     if (!isSearchActive) {
                         openSearch();
                     }
@@ -205,8 +210,6 @@ public class SearchViewController {
             iterator.remove();
         }
 
-        Logger.printDebug(() -> "Updated search history: " + searchHistory);
-
         saveSearchHistoryToPreferences();
 
         updateSearchHistoryAdapter();
@@ -228,6 +231,8 @@ public class SearchViewController {
      * Save the search history to the shared preferences.
      */
     private void saveSearchHistoryToPreferences() {
+        Logger.printDebug(() -> "Saving search history: " + searchHistory);
+
         searchHistoryPrefs.edit()
                 .putStringSet(KEY_SEARCH_HISTORY, searchHistory)
                 .apply();
@@ -238,7 +243,8 @@ public class SearchViewController {
      */
     private void updateSearchHistoryAdapter() {
         AutoCompleteTextView autoCompleteTextView = searchView.findViewById(searchView.getContext()
-                .getResources().getIdentifier("android:id/search_src_text", null, null));
+                .getResources().getIdentifier(
+                        "android:id/search_src_text", null, null));
         if (autoCompleteTextView != null) {
             SearchHistoryAdapter adapter = (SearchHistoryAdapter) autoCompleteTextView.getAdapter();
             adapter.clear();
@@ -252,7 +258,8 @@ public class SearchViewController {
      */
     private void openSearch() {
         isSearchActive = true;
-        toolbar.getMenu().findItem(getResourceIdentifier("action_search", "id")).setVisible(false);
+        toolbar.getMenu().findItem(getResourceIdentifier(
+                "action_search", "id")).setVisible(false);
         toolbar.setTitle("");
         searchContainer.setVisibility(View.VISIBLE);
         searchView.requestFocus();
@@ -267,13 +274,14 @@ public class SearchViewController {
      */
     private void closeSearch() {
         isSearchActive = false;
-        toolbar.post(() -> {
-            toolbar.getMenu().findItem(getResourceIdentifier("action_search", "id"))
-                    .setIcon(getResourceIdentifier(
-                            ThemeHelper.isDarkTheme() ? "yt_outline_search_white_24" : "yt_outline_search_black_24",
-                            "drawable"))
-                    .setVisible(true);
-        });
+        toolbar.post(() -> toolbar.getMenu().findItem(getResourceIdentifier(
+                        "action_search", "id"))
+                .setIcon(getResourceIdentifier(ThemeHelper.isDarkTheme()
+                                ? "yt_outline_search_white_24"
+                                : "yt_outline_search_black_24",
+                        "drawable")
+                ).setVisible(true)
+        );
         toolbar.setTitle(originalTitle);
         searchContainer.setVisibility(View.GONE);
         searchView.setQuery("", false);

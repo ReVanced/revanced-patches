@@ -263,7 +263,8 @@ public class ReVancedPreferenceFragment extends AbstractPreferenceFragment {
             noResultsPreference.setSummary(str("revanced_search_settings_no_results_summary"));
             noResultsPreference.setSelectable(false);
             // Set icon for the placeholder preference.
-            noResultsPreference.setLayoutResource(getResourceIdentifier("revanced_preference_with_icon_no_search_result", "layout"));
+            noResultsPreference.setLayoutResource(getResourceIdentifier(
+                    "revanced_preference_with_icon_no_search_result", "layout"));
             noResultsPreference.setIcon(getResourceIdentifier(
                     ThemeHelper.isDarkTheme() ? "yt_outline_search_white_24" : "yt_outline_search_black_24",
                     "drawable"));
