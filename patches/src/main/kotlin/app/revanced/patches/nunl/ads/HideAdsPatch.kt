@@ -5,6 +5,8 @@ import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.removeInstructions
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.shared.misc.extension.sharedExtensionPatch
+import app.revanced.util.indexOfFirstInstructionOrThrow
+import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Suppress("unused")
@@ -19,7 +21,8 @@ val hideAdsPatch = bytecodePatch(
     execute {
         // Disable video pre-roll ads.
         // Whenever the app tries to define the advertising config for JWPlayer, don't set the advertising config and directly return.
-        jwPlayerConfigFingerprint.method.removeInstructions(1)
+        val iputInstructionIndex = jwPlayerConfigFingerprint.method.indexOfFirstInstructionOrThrow(Opcode.IPUT_OBJECT)
+        jwPlayerConfigFingerprint.method.removeInstructions(iputInstructionIndex, 1)
 
         // Filter injected content from API calls out of lists.
         arrayOf(screenMapperFingerprint, nextPageRepositoryImplFingerprint).forEach {
