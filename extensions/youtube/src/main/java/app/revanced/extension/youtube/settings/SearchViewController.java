@@ -19,6 +19,13 @@ import android.widget.SearchView;
 import android.widget.TextView;
 import android.widget.Toolbar;
 
+import androidx.annotation.NonNull;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.LinkedHashSet;
+import java.util.Set;
+
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
 import app.revanced.extension.shared.settings.AppLanguage;
@@ -26,19 +33,15 @@ import app.revanced.extension.shared.settings.BaseSettings;
 import app.revanced.extension.youtube.ThemeHelper;
 import app.revanced.extension.youtube.settings.preference.ReVancedPreferenceFragment;
 
-import java.util.ArrayList;
-import java.util.LinkedHashSet;
-import java.util.Set;
-
 /**
  * Controller for managing the search view in ReVanced settings.
  */
+@SuppressWarnings({"deprecated", "DiscouragedApi"})
 public class SearchViewController {
     private final SearchView searchView;
     private final FrameLayout searchContainer;
     private final Toolbar toolbar;
     private final Activity activity;
-    private final ReVancedPreferenceFragment fragment;
     private boolean isSearchActive;
     private final CharSequence originalTitle;
     private final SharedPreferences searchHistoryPrefs;
@@ -81,7 +84,6 @@ public class SearchViewController {
     private SearchViewController(Activity activity, Toolbar toolbar, ReVancedPreferenceFragment fragment) {
         this.activity = activity;
         this.toolbar = toolbar;
-        this.fragment = fragment;
         this.originalTitle = toolbar.getTitle();
         this.searchHistoryPrefs = activity.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
 
@@ -107,8 +109,13 @@ public class SearchViewController {
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
-                if (!query.trim().isEmpty()) {
-                    saveSearchQuery(query.trim());
+                try {
+                    String queryTrimmed = query.trim();
+                    if (!queryTrimmed.isEmpty()) {
+                        saveSearchQuery(queryTrimmed);
+                    }
+                } catch (Exception ex) {
+                    Logger.printException(() -> "onQueryTextSubmit failure", ex);
                 }
                 return false;
             }
@@ -181,11 +188,10 @@ public class SearchViewController {
 
     /**
      * Retrieves the search history from SharedPreferences.
-     * @return List of search history entries, up to MAX_HISTORY_SIZE.
+     * @return Set of search history entries, up to MAX_HISTORY_SIZE.
      */
-    private ArrayList<String> getSearchHistory() {
-        Set<String> historySet = searchHistoryPrefs.getStringSet(KEY_SEARCH_HISTORY, new LinkedHashSet<>());
-        return new ArrayList<>(historySet);
+    private Set<String> getSearchHistory() {
+        return searchHistoryPrefs.getStringSet(KEY_SEARCH_HISTORY, new LinkedHashSet<>());
     }
 
     /**
@@ -193,14 +199,15 @@ public class SearchViewController {
      * @param query The search query to save.
      */
     private void saveSearchQuery(String query) {
-        LinkedHashSet<String> historySet = new LinkedHashSet<>(getSearchHistory());
+        Set<String> historySet = getSearchHistory();
         historySet.remove(query); // Remove if already exists to update position
         historySet.add(query); // Add to the end (most recent)
 
         // Keep only the last MAX_HISTORY_SIZE entries
+        Iterator<String> iterator = historySet.iterator();
         while (historySet.size() > MAX_HISTORY_SIZE) {
-            String first = historySet.iterator().next();
-            historySet.remove(first);
+            iterator.next();
+            iterator.remove();
         }
 
         // Save to SharedPreferences
@@ -217,7 +224,7 @@ public class SearchViewController {
      * @param query The search query to remove.
      */
     private void removeSearchQuery(String query) {
-        LinkedHashSet<String> historySet = new LinkedHashSet<>(getSearchHistory());
+        Set<String> historySet = getSearchHistory();
         historySet.remove(query);
 
         // Save to SharedPreferences
@@ -233,8 +240,8 @@ public class SearchViewController {
      * Updates the search history adapter with the latest history.
      */
     private void updateSearchHistoryAdapter() {
-        AutoCompleteTextView autoCompleteTextView = searchView.findViewById(
-                searchView.getContext().getResources().getIdentifier("android:id/search_src_text", null, null));
+        AutoCompleteTextView autoCompleteTextView = searchView.findViewById(searchView.getContext()
+                .getResources().getIdentifier("android:id/search_src_text", null, null));
         if (autoCompleteTextView != null) {
             SearchHistoryAdapter adapter = (SearchHistoryAdapter) autoCompleteTextView.getAdapter();
             adapter.clear();
@@ -283,17 +290,16 @@ public class SearchViewController {
      * Custom ArrayAdapter for search history.
      */
     private class SearchHistoryAdapter extends ArrayAdapter<String> {
-        private final ArrayList<String> history;
-
-        public SearchHistoryAdapter(Context context, ArrayList<String> history) {
-            super(context, 0, history);
-            this.history = history;
+        public SearchHistoryAdapter(Context context, Set<String> history) {
+            super(context, 0, new ArrayList<>(history));
         }
 
+        @NonNull
         @Override
-        public View getView(int position, View convertView, android.view.ViewGroup parent) {
+        public View getView(int position, View convertView, @NonNull android.view.ViewGroup parent) {
             if (convertView == null) {
-                convertView = LinearLayout.inflate(getContext(), getResourceIdentifier("revanced_search_suggestion_item", "layout"), null);
+                convertView = LinearLayout.inflate(getContext(), getResourceIdentifier(
+                        "revanced_search_suggestion_item", "layout"), null);
             }
 
             // Apply rounded corners programmatically
@@ -301,7 +307,8 @@ public class SearchViewController {
             String query = getItem(position);
 
             // Set query text
-            TextView textView = convertView.findViewById(getResourceIdentifier("suggestion_text", "id"));
+            TextView textView = convertView.findViewById(getResourceIdentifier(
+                    "suggestion_text", "id"));
             if (textView != null) {
                 textView.setText(query);
             }
