@@ -156,9 +156,9 @@ Tap the continue button and allow optimization changes."</string>
             <string name="revanced_restore_old_settings_menus_title">Restore old settings menus</string>
             <string name="revanced_restore_old_settings_menus_summary_on">Old settings menus are shown</string>
             <string name="revanced_restore_old_settings_menus_summary_off">Old settings menus are not shown</string>
-            <string name="revanced_disable_settings_search_history_title">Disable settings search history</string>
-            <string name="revanced_disable_settings_search_history_summary_on">Settings search history are shown</string>
-            <string name="revanced_disable_settings_search_history_summary_off">Settings search history not shown</string>
+            <string name="revanced_settings_search_history_title">Show settings search history</string>
+            <string name="revanced_settings_search_history_summary_on">Settings search history is shown</string>
+            <string name="revanced_settings_search_history_summary_off">Settings search history is not shown</string>
         </patch>
         <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
             <string name="revanced_shorts_disable_background_playback_title">Disable Shorts background play</string>

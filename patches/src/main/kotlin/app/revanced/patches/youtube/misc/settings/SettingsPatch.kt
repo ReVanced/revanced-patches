@@ -193,10 +193,7 @@ val settingsPatch = bytecodePatch(
         }
 
         PreferenceScreen.GENERAL_LAYOUT.addPreferences(
-            SwitchPreference("revanced_disable_settings_search_history")
-        )
-
-        PreferenceScreen.GENERAL_LAYOUT.addPreferences(
+            SwitchPreference("revanced_settings_search_history"),
             SwitchPreference("revanced_show_menu_icons")
         )
 

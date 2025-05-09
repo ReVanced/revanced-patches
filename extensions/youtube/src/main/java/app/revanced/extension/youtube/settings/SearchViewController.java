@@ -52,8 +52,7 @@ public class SearchViewController {
     private final SharedPreferences searchHistoryPrefs;
     private final Set<String> searchHistory;
     private final AutoCompleteTextView autoCompleteTextView;
-    // Flag to disable the history dropdown list.
-    private final boolean disableAutoCompleteDropdown;
+    private final boolean showSettingsSearchHistory;
 
     /**
      * Creates a background drawable for the SearchView with rounded corners.
@@ -61,7 +60,7 @@ public class SearchViewController {
     private static GradientDrawable createBackgroundDrawable(Context context) {
         GradientDrawable background = new GradientDrawable();
         background.setShape(GradientDrawable.RECTANGLE);
-        background.setCornerRadius(28f * context.getResources().getDisplayMetrics().density); // 28dp corner radius.
+        background.setCornerRadius(28 * context.getResources().getDisplayMetrics().density); // 28dp corner radius.
         int baseColor = ThemeHelper.getBackgroundColor();
         int adjustedColor = ThemeHelper.isDarkTheme()
                 ? ThemeHelper.adjustColorBrightness(baseColor, 1.11f)  // Lighten for dark theme.
@@ -76,7 +75,7 @@ public class SearchViewController {
     private static GradientDrawable createSuggestionBackgroundDrawable(Context context) {
         GradientDrawable background = new GradientDrawable();
         background.setShape(GradientDrawable.RECTANGLE);
-        background.setCornerRadius(8f * context.getResources().getDisplayMetrics().density); // 8dp corner radius.
+        background.setCornerRadius(8 * context.getResources().getDisplayMetrics().density); // 8dp corner radius.
         return background;
     }
 
@@ -94,7 +93,7 @@ public class SearchViewController {
         this.searchHistoryPrefs = activity.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
         this.searchHistory = new LinkedHashSet<>(searchHistoryPrefs.getStringSet(
                 KEY_SEARCH_HISTORY, Collections.emptySet()));
-        this.disableAutoCompleteDropdown = Settings.DISABLE_SETTINGS_SEARCH_HISTORY.get();
+        this.showSettingsSearchHistory = Settings.SETTINGS_SEARCH_HISTORY.get();
 
         // Retrieve SearchView and container from XML.
         searchView = activity.findViewById(getResourceIdentifier(
@@ -119,7 +118,7 @@ public class SearchViewController {
         }
 
         // Set up search history suggestions.
-        if (!disableAutoCompleteDropdown) {
+        if (showSettingsSearchHistory) {
             setupSearchHistory();
         }
 
@@ -133,7 +132,7 @@ public class SearchViewController {
                         saveSearchQuery(queryTrimmed);
                     }
                     // Hide suggestions on submit.
-                    if (!disableAutoCompleteDropdown && autoCompleteTextView != null) {
+                    if (showSettingsSearchHistory && autoCompleteTextView != null) {
                         autoCompleteTextView.dismissDropDown();
                     }
                 } catch (Exception ex) {
@@ -148,8 +147,8 @@ public class SearchViewController {
                     Logger.printDebug(() -> "Search query: " + newText);
                     fragment.filterPreferences(newText);
                     // Prevent suggestions from showing during text input.
-                    if (!disableAutoCompleteDropdown && autoCompleteTextView != null) {
-                        if (newText.length() > 0) {
+                    if (showSettingsSearchHistory && autoCompleteTextView != null) {
+                        if (!newText.isEmpty()) {
                             autoCompleteTextView.dismissDropDown();
                             autoCompleteTextView.setThreshold(Integer.MAX_VALUE); // Disable autocomplete suggestions.
                         } else {
@@ -164,10 +163,9 @@ public class SearchViewController {
         });
 
         // Set menu and search icon.
-        toolbar.inflateMenu(getResourceIdentifier(
-                "revanced_search_menu", "menu"));
-        MenuItem searchItem = toolbar.getMenu().findItem(getResourceIdentifier(
-                "action_search", "id"));
+        final int actionSearchId = getResourceIdentifier("action_search", "id");
+        toolbar.inflateMenu(getResourceIdentifier("revanced_search_menu", "menu"));
+        MenuItem searchItem = toolbar.getMenu().findItem(actionSearchId);
         searchItem.setIcon(getResourceIdentifier(ThemeHelper.isDarkTheme()
                                 ? "yt_outline_search_white_24"
                                 : "yt_outline_search_black_24",
@@ -176,8 +174,7 @@ public class SearchViewController {
         // Set menu item click listener.
         toolbar.setOnMenuItemClickListener(item -> {
             try {
-                if (item.getItemId() == getResourceIdentifier(
-                        "action_search", "id")) {
+                if (item.getItemId() == actionSearchId) {
                     if (!isSearchActive) {
                         openSearch();
                     }
@@ -227,7 +224,7 @@ public class SearchViewController {
      * @param query The search query to save.
      */
     private void saveSearchQuery(String query) {
-        if (disableAutoCompleteDropdown) {
+        if (!showSettingsSearchHistory) {
             return;
         }
         searchHistory.remove(query); // Remove if already exists to update position.
@@ -251,7 +248,7 @@ public class SearchViewController {
      * @param query The search query to remove.
      */
     private void removeSearchQuery(String query) {
-        if (disableAutoCompleteDropdown) {
+        if (!!showSettingsSearchHistory) {
             return;
         }
         searchHistory.remove(query);
@@ -265,7 +262,7 @@ public class SearchViewController {
      * Save the search history to the shared preferences.
      */
     private void saveSearchHistoryToPreferences() {
-        if (disableAutoCompleteDropdown) {
+        if (!showSettingsSearchHistory) {
             return;
         }
         Logger.printDebug(() -> "Saving search history: " + searchHistory);
@@ -279,7 +276,7 @@ public class SearchViewController {
      * Updates the search history adapter with the latest history.
      */
     private void updateSearchHistoryAdapter() {
-        if (disableAutoCompleteDropdown || autoCompleteTextView == null) {
+        if (!showSettingsSearchHistory || autoCompleteTextView == null) {
             return;
         }
         SearchHistoryAdapter adapter = (SearchHistoryAdapter) autoCompleteTextView.getAdapter();
@@ -306,7 +303,7 @@ public class SearchViewController {
         imm.showSoftInput(searchView, InputMethodManager.SHOW_IMPLICIT);
 
         // Show suggestions with a slight delay.
-        if (!disableAutoCompleteDropdown && autoCompleteTextView != null && autoCompleteTextView.getText().length() == 0) {
+        if (showSettingsSearchHistory && autoCompleteTextView != null && autoCompleteTextView.getText().length() == 0) {
             searchView.postDelayed(() -> {
                 if (isSearchActive && autoCompleteTextView.getText().length() == 0) {
                     autoCompleteTextView.showDropDown();
