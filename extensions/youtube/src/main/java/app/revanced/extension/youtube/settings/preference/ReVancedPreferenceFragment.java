@@ -95,7 +95,7 @@ public class ReVancedPreferenceFragment extends AbstractPreferenceFragment {
             final int baseColor = ThemeHelper.getBackgroundColor();
             final int adjustedColor = ThemeHelper.isDarkTheme()
                     ? ThemeHelper.adjustColorBrightness(baseColor, 1.10f)  // Lighten for dark theme
-                    : ThemeHelper.adjustColorBrightness(baseColor, 0.90f); // Darken for light theme
+                    : ThemeHelper.adjustColorBrightness(baseColor, 0.95f); // Darken for light theme
 
             SpannableStringBuilder spannable = new SpannableStringBuilder(text);
             Matcher matcher = queryPattern.matcher(text);
