@@ -90,7 +90,9 @@ private val settingsResourcePatch = resourcePatch {
                 "revanced_settings_screen_11_misc.xml",
                 "revanced_settings_screen_12_video.xml",
             ),
-            ResourceGroup("layout", "revanced_settings_with_toolbar.xml"),
+            ResourceGroup("layout",
+                "revanced_settings_with_toolbar.xml",
+                "preference_with_icon_no_search_result.xml"),
             ResourceGroup("menu", "revanced_search_menu.xml")
         ).forEach { resourceGroup ->
             copyResources("settings", resourceGroup)
