@@ -8,16 +8,19 @@ import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.resourcePatch
 import app.revanced.patcher.util.Document
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
-import app.revanced.patches.shared.misc.mapping.getResourceId
 import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.playservice.is_19_25_or_greater
 import app.revanced.patches.youtube.misc.playservice.is_19_35_or_greater
-import app.revanced.util.*
+import app.revanced.patches.youtube.misc.playservice.is_20_19_or_greater
+import app.revanced.util.copyXmlNode
+import app.revanced.util.findElementByAttributeValue
+import app.revanced.util.findElementByAttributeValueOrThrow
+import app.revanced.util.indexOfFirstInstructionOrThrow
+import app.revanced.util.inputStreamFromBundledResource
+import app.revanced.util.returnEarly
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
-import com.android.tools.smali.dexlib2.iface.reference.MethodReference
-import com.android.tools.smali.dexlib2.iface.reference.TypeReference
 import org.w3c.dom.Node
 
 /**
@@ -272,7 +275,9 @@ val playerControlsPatch = bytecodePatch(
         // is active, but what it does is not entirely clear.
         //
         // For now force this a/b feature off as it breaks the top player buttons.
-        if (is_19_25_or_greater) {
+        //
+        // Flag appears to be removed in 20.19
+        if (is_19_25_or_greater && !is_20_19_or_greater) {
             playerTopControlsExperimentalLayoutFeatureFlagFingerprint.method.apply {
                 val index = indexOfFirstInstructionOrThrow(Opcode.MOVE_RESULT_OBJECT)
                 val register = getInstruction<OneRegisterInstruction>(index).registerA
