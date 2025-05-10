@@ -1,3 +1,44 @@
+# [5.23.0-dev.7](https://github.com/ReVanced/revanced-patches/compare/v5.23.0-dev.6...v5.23.0-dev.7) (2025-05-06)
+
+
+### Bug Fixes
+
+* Fix incorrect fingerprints ([#4917](https://github.com/ReVanced/revanced-patches/issues/4917)) ([49ca329](https://github.com/ReVanced/revanced-patches/commit/49ca3290a726cdba7bc9b62ffcd8d46e6f04778e))
+
+# [5.23.0-dev.6](https://github.com/ReVanced/revanced-patches/compare/v5.23.0-dev.5...v5.23.0-dev.6) (2025-05-06)
+
+
+### Bug Fixes
+
+* Correct incorrect fingerprint ([c3bab89](https://github.com/ReVanced/revanced-patches/commit/c3bab89fc4189e38c10eee0caa36289de7e29dfa))
+
+# [5.23.0-dev.5](https://github.com/ReVanced/revanced-patches/compare/v5.23.0-dev.4...v5.23.0-dev.5) (2025-05-06)
+
+
+### Bug Fixes
+
+* **Spotify - Unlock Spotify Premium:** Remove pop up premium ads ([#4842](https://github.com/ReVanced/revanced-patches/issues/4842)) ([00aa200](https://github.com/ReVanced/revanced-patches/commit/00aa2000ba2eef15a0dd827c2bd84c2e85c412e0))
+
+
+### Features
+
+* **Pandora:** Add `Disable audio ads` and `Unlimited skips` patch ([#4841](https://github.com/ReVanced/revanced-patches/issues/4841)) ([0cf7a4c](https://github.com/ReVanced/revanced-patches/commit/0cf7a4c6be615ed0a52a6bacf87592f5f43ff575))
+* **Prime Video:** Add `Skip ads` patch ([#4824](https://github.com/ReVanced/revanced-patches/issues/4824)) ([bb672c4](https://github.com/ReVanced/revanced-patches/commit/bb672c4674ddc201b8b2648c3906cfc31ef43f10))
+
+# [5.23.0-dev.4](https://github.com/ReVanced/revanced-patches/compare/v5.23.0-dev.3...v5.23.0-dev.4) (2025-05-06)
+
+
+### Features
+
+* **Spotify:** Add `Sanitize sharing links` patch ([#4829](https://github.com/ReVanced/revanced-patches/issues/4829)) ([2e3511d](https://github.com/ReVanced/revanced-patches/commit/2e3511d03c8198bbdb9336888df038a33fb3ab8c))
+
+# [5.23.0-dev.3](https://github.com/ReVanced/revanced-patches/compare/v5.23.0-dev.2...v5.23.0-dev.3) (2025-05-05)
+
+
+### Bug Fixes
+
+* **YouTube:** Simplify litho filtering patch ([#4910](https://github.com/ReVanced/revanced-patches/issues/4910)) ([bd53955](https://github.com/ReVanced/revanced-patches/commit/bd53955df738bb7b819eb91a3e776e9d2ca5c74a))
+
 # [5.23.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.23.0-dev.1...v5.23.0-dev.2) (2025-05-04)
 
 

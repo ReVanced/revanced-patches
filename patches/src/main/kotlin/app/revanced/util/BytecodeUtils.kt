@@ -17,6 +17,7 @@ import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
 import app.revanced.util.InstructionUtils.Companion.branchOpcodes
 import app.revanced.util.InstructionUtils.Companion.returnOpcodes
 import app.revanced.util.InstructionUtils.Companion.writeOpcodes
+import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.Opcode.*
 import com.android.tools.smali.dexlib2.iface.Method
@@ -167,6 +168,15 @@ internal val Instruction.isBranchInstruction: Boolean
  */
 internal val Instruction.isReturnInstruction: Boolean
     get() = this.opcode in returnOpcodes
+
+/**
+ * Adds public [AccessFlags] and removes private and protected flags (if present).
+ */
+internal fun Int.toPublicAccessFlags() : Int {
+    return this.or(AccessFlags.PUBLIC.value)
+        .and(AccessFlags.PROTECTED.value.inv())
+        .and(AccessFlags.PRIVATE.value.inv())
+}
 
 /**
  * Find the [MutableMethod] from a given [Method] in a [MutableClass].
@@ -493,7 +503,7 @@ fun Method.indexOfFirstInstruction(startIndex: Int = 0, targetOpcode: Opcode): I
  * @see indexOfFirstInstructionOrThrow
  */
 fun Method.indexOfFirstInstruction(startIndex: Int = 0, filter: Instruction.() -> Boolean): Int {
-    var instructions = this.implementation!!.instructions
+    var instructions = this.implementation?.instructions ?: return -1
     if (startIndex != 0) {
         instructions = instructions.drop(startIndex)
     }
@@ -559,7 +569,7 @@ fun Method.indexOfFirstInstructionReversed(startIndex: Int? = null, targetOpcode
  * @see indexOfFirstInstructionReversedOrThrow
  */
 fun Method.indexOfFirstInstructionReversed(startIndex: Int? = null, filter: Instruction.() -> Boolean): Int {
-    var instructions = this.implementation!!.instructions
+    var instructions = this.implementation?.instructions ?: return -1
     if (startIndex != null) {
         instructions = instructions.take(startIndex + 1)
     }

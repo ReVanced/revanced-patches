@@ -4,22 +4,25 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.removeInstruction
+import app.revanced.patcher.extensions.InstructionExtensions.removeInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
-import app.revanced.patcher.fingerprint
+import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patches.spotify.misc.check.checkEnvironmentPatch
+import app.revanced.patcher.util.proxy.mutableTypes.MutableClass
+import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patches.spotify.misc.extension.IS_SPOTIFY_LEGACY_APP_TARGET
 import app.revanced.patches.spotify.misc.extension.sharedExtensionPatch
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
 import app.revanced.util.indexOfFirstInstructionReversedOrThrow
-import com.android.tools.smali.dexlib2.AccessFlags
+import app.revanced.util.toPublicAccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
+import com.android.tools.smali.dexlib2.iface.reference.TypeReference
 import java.util.logging.Logger
 
 private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/spotify/misc/UnlockPremiumPatch;"
@@ -42,14 +45,18 @@ val unlockPremiumPatch = bytecodePatch(
     )
 
     execute {
-        // Make _value accessible so that it can be overridden in the extension.
-        accountAttributeFingerprint.classDef.fields.first { it.name == "value_" }.apply {
-            // Add public flag and remove private.
-            accessFlags = accessFlags.or(AccessFlags.PUBLIC.value).and(AccessFlags.PRIVATE.value.inv())
+        fun MutableClass.publicizeField(fieldName: String) {
+            fields.first { it.name == fieldName }.apply {
+                // Add public and remove private flag.
+                accessFlags = accessFlags.toPublicAccessFlags()
+            }
         }
 
+        // Make _value accessible so that it can be overridden in the extension.
+        accountAttributeFingerprint.classDef.publicizeField("value_")
+
         // Override the attributes map in the getter method.
-        productStateProtoFingerprint.method.apply {
+        productStateProtoGetMapFingerprint.method.apply {
             val getAttributesMapIndex = indexOfFirstInstructionOrThrow(Opcode.IGET_OBJECT)
             val attributesMapRegister = getInstruction<TwoRegisterInstruction>(getAttributesMapIndex).registerA
 
@@ -62,19 +69,20 @@ val unlockPremiumPatch = bytecodePatch(
 
 
         // Add the query parameter trackRows to show popular tracks in the artist page.
-        buildQueryParametersFingerprint.apply {
-            val addQueryParameterConditionIndex = method.indexOfFirstInstructionReversedOrThrow(
-                stringMatches.first().index, Opcode.IF_EQZ
+        buildQueryParametersFingerprint.method.apply {
+            val addQueryParameterConditionIndex = indexOfFirstInstructionReversedOrThrow(
+                buildQueryParametersFingerprint.stringMatches.first().index, Opcode.IF_EQZ
             )
 
-            method.replaceInstruction(addQueryParameterConditionIndex, "nop")
+            replaceInstruction(addQueryParameterConditionIndex, "nop")
         }
 
 
         if (IS_SPOTIFY_LEGACY_APP_TARGET) {
-            return@execute Logger.getLogger(this::class.java.name).warning(
+            Logger.getLogger(this::class.java.name).warning(
                 "Patching a legacy Spotify version. Patch functionality may be limited."
             )
+            return@execute
         }
 
 
@@ -105,48 +113,39 @@ val unlockPremiumPatch = bytecodePatch(
             val shufflingContextCallIndex = indexOfFirstInstructionOrThrow {
                 getReference<MethodReference>()?.name == "shufflingContext"
             }
+            val boolRegister = getInstruction<FiveRegisterInstruction>(shufflingContextCallIndex).registerD
 
-            val registerBool = getInstruction<FiveRegisterInstruction>(shufflingContextCallIndex).registerD
             addInstruction(
                 shufflingContextCallIndex,
-                "sget-object v$registerBool, Ljava/lang/Boolean;->FALSE:Ljava/lang/Boolean;"
+                "sget-object v$boolRegister, Ljava/lang/Boolean;->FALSE:Ljava/lang/Boolean;"
             )
         }
 
 
         // Disable the "Spotify Premium" upsell experiment in context menus.
-        contextMenuExperimentsFingerprint.apply {
-            val moveIsEnabledIndex = method.indexOfFirstInstructionOrThrow(
-                stringMatches.first().index, Opcode.MOVE_RESULT
+        contextMenuExperimentsFingerprint.method.apply {
+            val moveIsEnabledIndex = indexOfFirstInstructionOrThrow(
+                contextMenuExperimentsFingerprint.stringMatches.first().index, Opcode.MOVE_RESULT
             )
-            val isUpsellEnabledRegister = method.getInstruction<OneRegisterInstruction>(moveIsEnabledIndex).registerA
+            val isUpsellEnabledRegister = getInstruction<OneRegisterInstruction>(moveIsEnabledIndex).registerA
 
-            method.replaceInstruction(moveIsEnabledIndex, "const/4 v$isUpsellEnabledRegister, 0")
+            replaceInstruction(moveIsEnabledIndex, "const/4 v$isUpsellEnabledRegister, 0")
         }
 
 
-        // Make featureTypeCase_ accessible so we can check the home section type in the extension.
-        homeSectionFingerprint.classDef.fields.first { it.name == "featureTypeCase_" }.apply {
-            // Add public flag and remove private.
-            accessFlags = accessFlags.or(AccessFlags.PUBLIC.value).and(AccessFlags.PRIVATE.value.inv())
-        }
-
-        val protobufListClassName = with(protobufListsFingerprint.originalMethod) {
+        val protobufListClassDef = with(protobufListsFingerprint.originalMethod) {
             val emptyProtobufListGetIndex = indexOfFirstInstructionOrThrow(Opcode.SGET_OBJECT)
-            getInstruction(emptyProtobufListGetIndex).getReference<FieldReference>()!!.definingClass
-        }
+            // Find the protobuffer list class using the definingClass which contains the empty list static value.
+            val classType = getInstruction(emptyProtobufListGetIndex).getReference<FieldReference>()!!.definingClass
 
-        val protobufListRemoveFingerprint by fingerprint {
-            custom { method, classDef ->
-                method.name == "remove" && classDef.type == protobufListClassName
-            }
+            classes.find { it.type == classType } ?: throw PatchException("Could not find protobuffer list class.")
         }
 
         // Need to allow mutation of the list so the home ads sections can be removed.
         // Protobuffer list has an 'isMutable' boolean parameter that sets the mutability.
         // Forcing that always on breaks unrelated code in strange ways.
         // Instead, remove the method call that checks if the list is unmodifiable.
-        protobufListRemoveFingerprint.method.apply {
+        protobufListRemoveFingerprint.match(protobufListClassDef).method.apply {
             val invokeThrowUnmodifiableIndex = indexOfFirstInstructionOrThrow {
                 val reference = getReference<MethodReference>()
                 opcode == Opcode.INVOKE_VIRTUAL &&
@@ -157,8 +156,12 @@ val unlockPremiumPatch = bytecodePatch(
             removeInstruction(invokeThrowUnmodifiableIndex)
         }
 
+
+        // Make featureTypeCase_ accessible so we can check the home section type in the extension.
+        homeSectionFingerprint.classDef.publicizeField("featureTypeCase_")
+
         // Remove ads sections from home.
-        homeStructureFingerprint.method.apply {
+        homeStructureGetSectionsFingerprint.method.apply {
             val getSectionsIndex = indexOfFirstInstructionOrThrow(Opcode.IGET_OBJECT)
             val sectionsRegister = getInstruction<TwoRegisterInstruction>(getSectionsIndex).registerA
 
@@ -168,5 +171,56 @@ val unlockPremiumPatch = bytecodePatch(
                         "$EXTENSION_CLASS_DESCRIPTOR->removeHomeSections(Ljava/util/List;)V"
             )
         }
+
+
+        // Replace a fetch request that returns and maps Singles with their static onErrorReturn value.
+        fun MutableMethod.replaceFetchRequestSingleWithError(requestClassName: String) {
+            // The index of where the request class is being instantiated.
+            val requestInstantiationIndex = indexOfFirstInstructionOrThrow {
+                getReference<TypeReference>()?.type?.endsWith(requestClassName) == true
+            }
+
+            // The index of where the onErrorReturn method is called with the error static value.
+            val onErrorReturnCallIndex = indexOfFirstInstructionOrThrow(requestInstantiationIndex) {
+                getReference<MethodReference>()?.name == "onErrorReturn"
+            }
+            val onErrorReturnCallInstruction = getInstruction<FiveRegisterInstruction>(onErrorReturnCallIndex)
+
+            // The error static value register.
+            val onErrorReturnValueRegister = onErrorReturnCallInstruction.registerD
+
+            // The index where the error static value starts being constructed.
+            // Because the Singles are mapped, the error static value starts being constructed right after the first
+            // move-result-object of the map call, before the onErrorReturn method call.
+            val onErrorReturnValueConstructionIndex =
+                indexOfFirstInstructionReversedOrThrow(onErrorReturnCallIndex, Opcode.MOVE_RESULT_OBJECT) + 1
+
+            val singleClassName = onErrorReturnCallInstruction.getReference<MethodReference>()!!.definingClass
+            // The index where the request is firstly called, before its result is mapped to other values.
+            val requestCallIndex = indexOfFirstInstructionOrThrow(requestInstantiationIndex) {
+                getReference<MethodReference>()?.returnType == singleClassName
+            }
+
+            // Construct a new single with the error static value and return it.
+            addInstructions(
+                onErrorReturnCallIndex,
+                "invoke-static { v$onErrorReturnValueRegister }, " +
+                        "$singleClassName->just(Ljava/lang/Object;)$singleClassName\n" +
+                "move-result-object v$onErrorReturnValueRegister\n" +
+                "return-object v$onErrorReturnValueRegister"
+            )
+
+            // Remove every instruction from the request call to right before the error static value construction.
+            val removeCount = onErrorReturnValueConstructionIndex - requestCallIndex
+            removeInstructions(requestCallIndex, removeCount)
+        }
+
+        // Remove pendragon (pop up ads) requests and return the errors instead.
+        pendragonJsonFetchMessageRequestFingerprint.method.replaceFetchRequestSingleWithError(
+            PENDRAGON_JSON_FETCH_MESSAGE_REQUEST_CLASS_NAME
+        )
+        pendragonProtoFetchMessageListRequestFingerprint.method.replaceFetchRequestSingleWithError(
+            PENDRAGON_PROTO_FETCH_MESSAGE_LIST_REQUEST_CLASS_NAME
+        )
     }
 }
