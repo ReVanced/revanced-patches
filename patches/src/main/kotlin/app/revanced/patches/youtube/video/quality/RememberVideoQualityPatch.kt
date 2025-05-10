@@ -88,11 +88,9 @@ val rememberVideoQualityPatch = bytecodePatch {
             val setQualityByIndexMethodClassFieldReference =
                 getSetQualityByIndexMethodClassFieldReference as FieldReference
 
-            val setQualityByIndexMethodClass = classes
-                .find { classDef -> classDef.type == setQualityByIndexMethodClassFieldReference.type }!!
-
             // Get the name of the setQualityByIndex method.
-            val setQualityByIndexMethod = setQualityByIndexMethodClass.methods
+            val setQualityByIndexMethod = classBy(setQualityByIndexMethodClassFieldReference.type)
+                .methods
                 .find { method -> method.parameterTypes.first() == "I" }
                 ?: throw PatchException("Could not find setQualityByIndex method")
 
@@ -131,7 +129,7 @@ val rememberVideoQualityPatch = bytecodePatch {
 
         // Remember video quality if not using old layout menu.
         newVideoQualityChangedFingerprint.method.apply {
-            val index = newVideoQualityChangedFingerprint.patternMatch!!.startIndex
+            val index = newVideoQualityChangedFingerprint.instructionMatches[3].index
             val qualityRegister = getInstruction<TwoRegisterInstruction>(index).registerA
 
             addInstruction(

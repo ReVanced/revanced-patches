@@ -14,7 +14,7 @@ val removeMetaAITabPatch = bytecodePatch(
 
     execute {
         createTabConfigurationFingerprint.let {
-            val moveResultIndex = it.patternMatch!!.startIndex + 1
+            val moveResultIndex = it.instructionMatches.first().index + 1
             val enabledRegister = it.method.getInstruction<OneRegisterInstruction>(moveResultIndex).registerA
             it.method.replaceInstruction(
                 moveResultIndex,

@@ -7,13 +7,10 @@ import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.instructions
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patcher.patch.resourcePatch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableField.Companion.toMutable
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
-import app.revanced.patches.shared.misc.mapping.get
 import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
-import app.revanced.patches.shared.misc.mapping.resourceMappings
 import app.revanced.patches.shared.misc.settings.preference.InputType
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.shared.misc.settings.preference.TextPreference
@@ -29,30 +26,13 @@ import app.revanced.patches.youtube.misc.settings.settingsPatch
 import app.revanced.patches.youtube.video.speed.settingsMenuVideoSpeedGroup
 import app.revanced.util.*
 import com.android.tools.smali.dexlib2.AccessFlags
-import com.android.tools.smali.dexlib2.iface.instruction.NarrowLiteralInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
-import com.android.tools.smali.dexlib2.iface.reference.FieldReference
-import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import com.android.tools.smali.dexlib2.immutable.ImmutableField
-
-internal var speedUnavailableId = -1L
-    private set
-
-private val customPlaybackSpeedResourcePatch = resourcePatch {
-    dependsOn(resourceMappingPatch)
-
-    execute {
-        speedUnavailableId = resourceMappings[
-            "string",
-            "varispeed_unavailable_message",
-        ]
-    }
-}
 
 private const val FILTER_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/youtube/patches/components/PlaybackSpeedMenuFilterPatch;"
 
-private const val EXTENSION_CLASS_DESCRIPTOR =
+internal const val EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/youtube/patches/playback/speed/CustomPlaybackSpeedPatch;"
 
 internal val customPlaybackSpeedPatch = bytecodePatch(
@@ -65,7 +45,6 @@ internal val customPlaybackSpeedPatch = bytecodePatch(
         lithoFilterPatch,
         versionCheckPatch,
         recyclerViewTreeHookPatch,
-        customPlaybackSpeedResourcePatch
     )
 
     execute {
@@ -88,35 +67,33 @@ internal val customPlaybackSpeedPatch = bytecodePatch(
         }
 
         // Replace the speeds float array with custom speeds.
-        speedArrayGeneratorFingerprint.method.apply {
-            val sizeCallIndex = indexOfFirstInstructionOrThrow { getReference<MethodReference>()?.name == "size" }
-            val sizeCallResultRegister = getInstruction<OneRegisterInstruction>(sizeCallIndex + 1).registerA
+        speedArrayGeneratorFingerprint.let {
+            val matches = it.instructionMatches
+            it.method.apply {
+                val playbackSpeedsArrayType = "$EXTENSION_CLASS_DESCRIPTOR->customPlaybackSpeeds:[F"
+                // Apply changes from last index to first to preserve indexes.
 
-            replaceInstruction(sizeCallIndex + 1, "const/4 v$sizeCallResultRegister, 0x0")
+                val originalArrayFetchIndex = matches[5].index
+                val originalArrayFetchDestination = matches[5].getInstruction<OneRegisterInstruction>().registerA
+                replaceInstruction(
+                    originalArrayFetchIndex,
+                    "sget-object v$originalArrayFetchDestination, $playbackSpeedsArrayType"
+                )
 
-            val arrayLengthConstIndex = indexOfFirstLiteralInstructionOrThrow(7)
-            val arrayLengthConstDestination = getInstruction<OneRegisterInstruction>(arrayLengthConstIndex).registerA
-            val playbackSpeedsArrayType = "$EXTENSION_CLASS_DESCRIPTOR->customPlaybackSpeeds:[F"
+                val arrayLengthConstDestination = matches[3].getInstruction<OneRegisterInstruction>().registerA
+                val newArrayIndex = matches[4].index
+                addInstructions(
+                    newArrayIndex,
+                    """
+                        sget-object v$arrayLengthConstDestination, $playbackSpeedsArrayType
+                        array-length v$arrayLengthConstDestination, v$arrayLengthConstDestination
+                    """
+                )
 
-            addInstructions(
-                arrayLengthConstIndex + 1,
-                """
-                    sget-object v$arrayLengthConstDestination, $playbackSpeedsArrayType
-                    array-length v$arrayLengthConstDestination, v$arrayLengthConstDestination
-                """,
-            )
-
-            val originalArrayFetchIndex = indexOfFirstInstructionOrThrow {
-                val reference = getReference<FieldReference>()
-                reference?.type == "[F" && reference.definingClass.endsWith("/PlayerConfigModel;")
+                val sizeCallIndex = matches[0].index + 1
+                val sizeCallResultRegister = getInstruction<OneRegisterInstruction>(sizeCallIndex).registerA
+                replaceInstruction(sizeCallIndex, "const/4 v$sizeCallResultRegister, 0x0")
             }
-            val originalArrayFetchDestination =
-                getInstruction<OneRegisterInstruction>(originalArrayFetchIndex).registerA
-
-            replaceInstruction(
-                originalArrayFetchIndex,
-                "sget-object v$originalArrayFetchDestination, $playbackSpeedsArrayType",
-            )
         }
 
         // Override the min/max speeds that can be used.
@@ -188,9 +165,7 @@ internal val customPlaybackSpeedPatch = bytecodePatch(
 
         if (is_19_25_or_greater) {
             disableFastForwardNoticeFingerprint.method.apply {
-                val index = indexOfFirstInstructionOrThrow {
-                    (this as? NarrowLiteralInstruction)?.narrowLiteral == 2.0f.toRawBits()
-                }
+                val index = indexOfFirstLiteralInstruction(2.0f)
                 val register = getInstruction<OneRegisterInstruction>(index).registerA
 
                 addInstructions(

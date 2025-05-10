@@ -134,7 +134,7 @@ val lithoFilterPatch = bytecodePatch(
             ).let {
                 // Identifier field is loaded just before the string declaration.
                 val index = it.method.indexOfFirstInstructionReversedOrThrow(
-                    it.stringMatches!!.first().index
+                    it.instructionMatches.first().index
                 ) {
                     val reference = getReference<FieldReference>()
                     reference?.definingClass == conversionContextClass.type
@@ -178,9 +178,9 @@ val lithoFilterPatch = bytecodePatch(
                 method -> AccessFlags.STATIC.isSet(method.accessFlags)
             }
             // Only one field.
-            val emptyComponentField = classBy { classDef ->
-                classDef.type == builderMethodDescriptor.returnType
-            }!!.immutableClass.fields.single()
+            val emptyComponentField = classBy {
+                it.type == builderMethodDescriptor.returnType
+            }.fields.single()
 
             // Check at each return value if the component is filtered,
             // and return an empty component if filtering is needed.

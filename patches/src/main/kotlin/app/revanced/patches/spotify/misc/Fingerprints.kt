@@ -9,7 +9,7 @@ import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 import com.android.tools.smali.dexlib2.iface.reference.TypeReference
 
-internal val accountAttributeFingerprint = fingerprint {
+internal val accountAttributeFingerprint by fingerprint {
     custom { _, classDef ->
         classDef.type == if (IS_SPOTIFY_LEGACY_APP_TARGET) {
             "Lcom/spotify/useraccount/v1/AccountAttribute;"
@@ -19,7 +19,7 @@ internal val accountAttributeFingerprint = fingerprint {
     }
 }
 
-internal val productStateProtoGetMapFingerprint = fingerprint {
+internal val productStateProtoGetMapFingerprint by fingerprint {
     returns("Ljava/util/Map;")
     custom { _, classDef ->
         classDef.type == if (IS_SPOTIFY_LEGACY_APP_TARGET) {
@@ -30,16 +30,16 @@ internal val productStateProtoGetMapFingerprint = fingerprint {
     }
 }
 
-internal val buildQueryParametersFingerprint = fingerprint {
+internal val buildQueryParametersFingerprint by fingerprint {
     strings("trackRows", "device_type:tablet")
 }
 
-internal val contextMenuExperimentsFingerprint = fingerprint {
+internal val contextMenuExperimentsFingerprint by fingerprint {
     parameters("L")
     strings("remove_ads_upsell_enabled")
 }
 
-internal val contextFromJsonFingerprint = fingerprint {
+internal val contextFromJsonFingerprint by fingerprint {
     opcodes(
         Opcode.INVOKE_STATIC,
         Opcode.MOVE_RESULT_OBJECT,
@@ -53,27 +53,28 @@ internal val contextFromJsonFingerprint = fingerprint {
     }
 }
 
-internal val readPlayerOptionOverridesFingerprint = fingerprint {
+internal val readPlayerOptionOverridesFingerprint by fingerprint {
     custom { methodDef, classDef ->
         methodDef.name == "readPlayerOptionOverrides" &&
                 classDef.endsWith("voiceassistants/playermodels/PreparePlayOptionsJsonAdapter;")
     }
 }
 
-internal val protobufListsFingerprint = fingerprint {
+internal val homeSectionFingerprint by fingerprint {
+    custom { _, classDef -> classDef.endsWith("homeapi/proto/Section;") }
+}
+
+internal val protobufListsFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
     custom { method, _ -> method.name == "emptyProtobufList" }
 }
 
-internal val protobufListRemoveFingerprint = fingerprint {
-    custom { method, _ -> method.name == "remove" }
+internal val homeStructureFingerprint by fingerprint {
+    opcodes(Opcode.IGET_OBJECT, Opcode.RETURN_OBJECT)
+    custom { _, classDef -> classDef.endsWith("homeapi/proto/HomeStructure;") }
 }
 
-internal val homeSectionFingerprint = fingerprint {
-    custom { _, classDef -> classDef.endsWith("homeapi/proto/Section;") }
-}
-
-internal val homeStructureGetSectionsFingerprint = fingerprint {
+internal val homeStructureGetSectionsFingerprint by fingerprint {
     custom { method, classDef ->
         classDef.endsWith("homeapi/proto/HomeStructure;") && method.indexOfFirstInstruction {
             opcode == Opcode.IGET_OBJECT && getReference<FieldReference>()?.name == "sections_"
@@ -91,9 +92,9 @@ internal fun reactivexFunctionApplyWithClassInitFingerprint(className: String) =
 }
 
 internal const val PENDRAGON_JSON_FETCH_MESSAGE_REQUEST_CLASS_NAME = "FetchMessageRequest;"
-internal val pendragonJsonFetchMessageRequestFingerprint =
+internal val pendragonJsonFetchMessageRequestFingerprint by
     reactivexFunctionApplyWithClassInitFingerprint(PENDRAGON_JSON_FETCH_MESSAGE_REQUEST_CLASS_NAME)
 
 internal const val PENDRAGON_PROTO_FETCH_MESSAGE_LIST_REQUEST_CLASS_NAME = "FetchMessageListRequest;"
-internal val pendragonProtoFetchMessageListRequestFingerprint =
+internal val pendragonProtoFetchMessageListRequestFingerprint by
     reactivexFunctionApplyWithClassInitFingerprint(PENDRAGON_PROTO_FETCH_MESSAGE_LIST_REQUEST_CLASS_NAME)

@@ -201,16 +201,16 @@ public final class SeekbarColorPatch {
             }
 
             if (BaseSettings.DEBUG.get() && (!json.contains(originalPrimary) || !json.contains(originalAccent))) {
-                String jsonFinal = json;
-                Logger.printException(() -> "Could not replace launch animation colors: " + jsonFinal);
+                Logger.printException(() -> "Could not replace launch animation colors: " + json);
             }
 
             Logger.printDebug(() -> "Replacing Lottie animation JSON");
-            json = json.replace(originalPrimary, replacementPrimary);
-            json = json.replace(originalAccent, replacementAccent);
+            String replacementJson = json
+                    .replace(originalPrimary, replacementPrimary)
+                    .replace(originalAccent, replacementAccent);
 
             // cacheKey is not needed since the animation will not be reused.
-            view.patch_setAnimation(new ByteArrayInputStream(json.getBytes()), null);
+            view.patch_setAnimation(new ByteArrayInputStream(replacementJson.getBytes()), null);
         } catch (Exception ex) {
             Logger.printException(() -> "setSplashAnimationLottie failure", ex);
         }
