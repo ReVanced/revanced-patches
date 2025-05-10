@@ -855,6 +855,11 @@ Autoplay can be changed in YouTube settings:
 Settings → Playback → Autoplay next video"</string>
             <string name="revanced_end_screen_suggested_video_summary_off">End screen suggested video is shown</string>
         </patch>
+        <patch id="layout.hide.relatedvideooverlay.hideRelatedVideoOverlayPatch">
+            <string name="revanced_related_video_overlay_title">Hide related video overlay in fullscreen</string>
+            <string name="revanced_related_video_overlay_summary_on">Related video overlay is hidden</string>
+            <string name="revanced_related_video_overlay_summary_off">Related video overlay is shown</string>
+        </patch>
         <patch id="layout.hide.time.hideTimestampPatch">
             <string name="revanced_hide_timestamp_title">Hide video timestamp</string>
             <string name="revanced_hide_timestamp_summary_on">Timestamp is hidden</string>
