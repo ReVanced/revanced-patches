@@ -248,7 +248,7 @@ public class SearchViewController {
      * @param query The search query to remove.
      */
     private void removeSearchQuery(String query) {
-        if (!!showSettingsSearchHistory) {
+        if (!showSettingsSearchHistory) {
             return;
         }
         searchHistory.remove(query);
