@@ -24,6 +24,7 @@ import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Deque;
+import java.util.LinkedList;
 import java.util.List;
 
 import app.revanced.extension.shared.Logger;
@@ -88,7 +89,7 @@ public class SearchViewController {
         this.toolbar = toolbar;
         this.originalTitle = toolbar.getTitle();
         this.showSettingsSearchHistory = Settings.SETTINGS_SEARCH_HISTORY.get();
-        this.searchHistory = new ArrayDeque<>();
+        this.searchHistory = new LinkedList<>();
         StringSetting searchEntries = Settings.SETTINGS_SEARCH_ENTRIES;
         if (showSettingsSearchHistory) {
             String entries = searchEntries.get();
