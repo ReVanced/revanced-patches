@@ -25,6 +25,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.LinkedHashSet;
+import java.util.List;
 import java.util.Set;
 
 import app.revanced.extension.shared.Logger;
@@ -248,9 +249,6 @@ public class SearchViewController {
      * @param query The search query to remove.
      */
     private void removeSearchQuery(String query) {
-        if (!showSettingsSearchHistory) {
-            return;
-        }
         searchHistory.remove(query);
 
         saveSearchHistoryToPreferences();
@@ -262,9 +260,6 @@ public class SearchViewController {
      * Save the search history to the shared preferences.
      */
     private void saveSearchHistoryToPreferences() {
-        if (!showSettingsSearchHistory) {
-            return;
-        }
         Logger.printDebug(() -> "Saving search history: " + searchHistory);
 
         searchHistoryPrefs.edit()
@@ -276,13 +271,16 @@ public class SearchViewController {
      * Updates the search history adapter with the latest history.
      */
     private void updateSearchHistoryAdapter() {
-        if (!showSettingsSearchHistory || autoCompleteTextView == null) {
+        if (autoCompleteTextView == null) {
             return;
         }
         SearchHistoryAdapter adapter = (SearchHistoryAdapter) autoCompleteTextView.getAdapter();
         if (adapter != null) {
             adapter.clear();
-            adapter.addAll(searchHistory);
+            List<String> historyEntries = new ArrayList<>(searchHistory);
+            // Show most recent searches first.
+            Collections.reverse(historyEntries);
+            adapter.addAll(historyEntries);
             adapter.notifyDataSetChanged();
         }
     }
