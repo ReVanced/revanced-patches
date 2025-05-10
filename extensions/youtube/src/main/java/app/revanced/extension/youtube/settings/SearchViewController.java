@@ -88,16 +88,16 @@ public class SearchViewController {
         this.toolbar = toolbar;
         this.originalTitle = toolbar.getTitle();
         this.showSettingsSearchHistory = Settings.SETTINGS_SEARCH_HISTORY.get();
-        this.searchHistory = new ArrayDeque<>(MAX_HISTORY_SIZE);
+        this.searchHistory = new ArrayDeque<>();
         StringSetting searchEntries = Settings.SETTINGS_SEARCH_ENTRIES;
-        if (!showSettingsSearchHistory) {
-            // Clear old saved history if the user turns off the feature.
-            searchEntries.resetToDefault();
-        } else {
+        if (showSettingsSearchHistory) {
             String entries = searchEntries.get();
             if (!entries.isBlank()) {
                 searchHistory.addAll(Arrays.asList(entries.split("\n")));
             }
+        } else {
+            // Clear old saved history if the user turns off the feature.
+            searchEntries.resetToDefault();
         }
 
         // Retrieve SearchView and container from XML.
