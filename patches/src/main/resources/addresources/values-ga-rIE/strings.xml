@@ -114,9 +114,9 @@ Brúigh an cnaipe leanúnaí agus ligean athruithe optúimíochta."</string>
   <string name="revanced_debug_toast_on_error_title">Taispeáin tósta ar earráid ReVanced</string>
   <string name="revanced_debug_toast_on_error_summary_on">Taispeántar toast má tharlaíonn earráid</string>
   <string name="revanced_debug_toast_on_error_summary_off">Ní thaispeántar toast má tharlaíonn earráid</string>
-  <string name="revanced_debug_toast_on_error_user_dialog_message">"Díchumasaíonn an rogha toasts earráide fógraí earráide ReVanced go léir.
+  <string name="revanced_debug_toast_on_error_user_dialog_message">"Má mhúchtar tóstaí earráide, folaítear gach fógra earráide ReVanced.
 
-Ní bheidh a fhios agat faoi aon imeachtaí neamhghnácha."</string>
+Ní chuirfear ar an eolas thú faoi aon imeachtaí gan choinne."</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
   <string name="revanced_hide_album_cards_title">Folaigh cártaí albam</string>
@@ -205,11 +205,11 @@ Ní bheidh a fhios agat faoi aon imeachtaí neamhghnácha."</string>
   <string name="revanced_hide_medical_panels_summary_on">Tá painéil leighis i bhfolach</string>
   <string name="revanced_hide_medical_panels_summary_off">Taispeántar painéil leighis</string>
   <string name="revanced_hide_channel_bar_title">Folaigh barra cainéal</string>
-  <string name="revanced_hide_channel_bar_summary_on">Tá barra cainéal i bhfolach</string>
-  <string name="revanced_hide_channel_bar_summary_off">Taispeántar barra cainéal</string>
-  <string name="revanced_hide_playables_title">Folaigh Rudaí Inimeartha</string>
-  <string name="revanced_hide_playables_summary_on">Tá rudaí inimeartha i bhfolach</string>
-  <string name="revanced_hide_playables_summary_off">Taispeántar rudaí inimeartha</string>
+  <string name="revanced_hide_channel_bar_summary_on">Tá an barra Cainéal i bhfolach</string>
+  <string name="revanced_hide_channel_bar_summary_off">Taispeántar barra an chainéil</string>
+  <string name="revanced_hide_playables_title">Folaigh na heilimintí inseinnte</string>
+  <string name="revanced_hide_playables_summary_on">Tá na heilimintí inseinnte i bhfolach</string>
+  <string name="revanced_hide_playables_summary_off">Taispeántar na heilimintí inseinnte</string>
   <string name="revanced_hide_quick_actions_title">Folaigh gníomhartha gasta i lánscáileán</string>
   <string name="revanced_hide_quick_actions_summary_on">Tá gníomhartha gasta i bhfolach</string>
   <string name="revanced_hide_quick_actions_summary_off">Taispeántar gníomhartha tapa</string>

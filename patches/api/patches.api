@@ -380,6 +380,14 @@ public final class app/revanced/patches/openinghours/misc/fix/crash/FixCrashPatc
 	public static final fun getFixCrashPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
+public final class app/revanced/patches/pandora/ads/DisableAudioAdsPatchKt {
+	public static final fun getDisableAudioAdsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
+public final class app/revanced/patches/pandora/misc/EnableUnlimitedSkipsPatchKt {
+	public static final fun getEnableUnlimitedSkipsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
 public final class app/revanced/patches/photomath/detection/deviceid/SpoofDeviceIdPatchKt {
 	public static final fun getGetDeviceIdPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
@@ -410,6 +418,14 @@ public final class app/revanced/patches/piccomafr/tracking/DisableTrackingPatchK
 
 public final class app/revanced/patches/pixiv/ads/HideAdsPatchKt {
 	public static final fun getHideAdsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
+public final class app/revanced/patches/primevideo/ads/SkipAdsPatchKt {
+	public static final fun getSkipAdsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
+public final class app/revanced/patches/primevideo/misc/extension/ExtensionPatchKt {
+	public static final fun getSharedExtensionPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
 public final class app/revanced/patches/protonmail/signature/RemoveSentFromSignaturePatchKt {
@@ -850,6 +866,10 @@ public final class app/revanced/patches/spotify/misc/fix/SpoofPackageInfoPatchKt
 
 public final class app/revanced/patches/spotify/misc/fix/SpoofSignaturePatchKt {
 	public static final fun getSpoofSignaturePatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
+public final class app/revanced/patches/spotify/misc/privacy/SanitizeSharingLinksPatchKt {
+	public static final fun getSanitizeSharingLinksPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
 public final class app/revanced/patches/spotify/navbar/PremiumNavbarTabPatchKt {
@@ -1534,6 +1554,7 @@ public final class app/revanced/patches/yuka/misc/unlockpremium/UnlockPremiumPat
 
 public final class app/revanced/util/BytecodeUtilsKt {
 	public static final fun addInstructionsAtControlFlowLabel (Lapp/revanced/patcher/util/proxy/mutableTypes/MutableMethod;ILjava/lang/String;)V
+	public static final fun addInstructionsAtControlFlowLabel (Lapp/revanced/patcher/util/proxy/mutableTypes/MutableMethod;ILjava/lang/String;[Lapp/revanced/patcher/util/smali/ExternalLabel;)V
 	public static final fun containsLiteralInstruction (Lcom/android/tools/smali/dexlib2/iface/Method;D)Z
 	public static final fun containsLiteralInstruction (Lcom/android/tools/smali/dexlib2/iface/Method;F)Z
 	public static final fun containsLiteralInstruction (Lcom/android/tools/smali/dexlib2/iface/Method;J)Z

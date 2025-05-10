@@ -130,6 +130,7 @@ public final class UnlockPremiumPatch {
 
     /**
      * Injection point. Remove ads sections from home.
+     * Depends on patching protobuffer list remove method.
      */
     public static void removeHomeSections(List<Section> sections) {
         try {
