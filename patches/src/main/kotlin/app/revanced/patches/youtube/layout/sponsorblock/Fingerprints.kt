@@ -1,5 +1,6 @@
 package app.revanced.patches.youtube.layout.sponsorblock
 
+import app.revanced.patcher.checkCast
 import app.revanced.patcher.fingerprint
 import app.revanced.patcher.methodCall
 import app.revanced.patcher.opcode
@@ -28,17 +29,9 @@ internal val controlsOverlayFingerprint by fingerprint {
     returns("V")
     accessFlags(AccessFlags.PRIVATE, AccessFlags.FINAL)
     parameters()
-    opcodes(
-        Opcode.INVOKE_VIRTUAL,
-        Opcode.MOVE_RESULT_OBJECT,
-        Opcode.CHECK_CAST, // R.id.inset_overlay_view_layout
-        Opcode.IPUT_OBJECT,
-        Opcode.INVOKE_VIRTUAL,
-        Opcode.CONST,
-        Opcode.INVOKE_VIRTUAL,
-        Opcode.MOVE_RESULT_OBJECT,
-        Opcode.CHECK_CAST,
-        Opcode.NEW_INSTANCE,
+    instructions(
+        resourceLiteral("id", "inset_overlay_view_layout"),
+        checkCast("Landroid/widget/FrameLayout;", maxAfter = 20)
     )
 }
 

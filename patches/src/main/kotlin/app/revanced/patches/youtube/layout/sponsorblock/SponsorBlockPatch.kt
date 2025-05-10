@@ -206,11 +206,11 @@ val sponsorBlockPatch = bytecodePatch(
 
         // Initialize the SponsorBlock view.
         controlsOverlayFingerprint.match(layoutConstructorFingerprint.originalClassDef).let {
-            val startIndex = it.instructionMatches.first().index
+            val checkCastIndex = it.instructionMatches.last().index
             it.method.apply {
-                val frameLayoutRegister = getInstruction<OneRegisterInstruction>(startIndex + 2).registerA
+                val frameLayoutRegister = getInstruction<OneRegisterInstruction>(checkCastIndex).registerA
                 addInstruction(
-                    startIndex + 3,
+                    checkCastIndex + 1,
                     "invoke-static {v$frameLayoutRegister}, $EXTENSION_SPONSORBLOCK_VIEW_CONTROLLER_CLASS_DESCRIPTOR->initialize(Landroid/view/ViewGroup;)V",
                 )
             }

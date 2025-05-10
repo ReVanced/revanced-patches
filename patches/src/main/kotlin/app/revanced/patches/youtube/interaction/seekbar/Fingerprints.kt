@@ -8,6 +8,7 @@ import app.revanced.patcher.newInstance
 import app.revanced.patcher.opcode
 import app.revanced.patches.youtube.misc.playservice.is_19_34_or_greater
 import app.revanced.patches.youtube.misc.playservice.is_19_47_or_greater
+import app.revanced.patches.youtube.misc.playservice.is_20_19_or_greater
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstruction
 import app.revanced.util.literal
@@ -79,11 +80,12 @@ internal val disableFastForwardNoticeFingerprint by fingerprint {
     )
     custom { method, _ ->
         // Code is found in different methods with different strings.
-        val findSearchLandingKey = is_19_34_or_greater && !is_19_47_or_greater
+        val findSearchLandingKey = (is_19_34_or_greater && !is_19_47_or_greater) || is_20_19_or_greater
 
         method.name == "run" && method.indexOfFirstInstruction {
             val string = getReference<StringReference>()?.string
-            string == "Failed to easy seek haptics vibrate." || (findSearchLandingKey && string == "search_landing_cache_key")
+            string == "Failed to easy seek haptics vibrate."
+                    || (findSearchLandingKey && string == "search_landing_cache_key")
         } >= 0
     }
 }

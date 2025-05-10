@@ -52,7 +52,6 @@ internal val playerSeekbarHandle1ColorFingerprint by fingerprint {
 
 internal val playerSeekbarHandle2ColorFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
-    parameters("Landroid/content/Context;")
     instructions(
         resourceLiteral("color", "inline_time_bar_live_seekable_range"),
         resourceLiteral("attr", "ytStaticBrandRed"),
