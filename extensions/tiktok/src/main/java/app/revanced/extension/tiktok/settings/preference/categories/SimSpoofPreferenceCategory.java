@@ -14,7 +14,6 @@ public class SimSpoofPreferenceCategory extends ConditionalPreferenceCategory {
         setTitle("Bypass regional restriction");
     }
 
-
     @Override
     public boolean getSettingsStatus() {
         return SettingsStatus.simSpoofEnabled;
