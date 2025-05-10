@@ -60,21 +60,21 @@ internal val readPlayerOptionOverridesFingerprint by fingerprint {
     }
 }
 
-internal val homeSectionFingerprint = fingerprint {
+internal val homeSectionFingerprint by fingerprint {
     custom { _, classDef -> classDef.endsWith("homeapi/proto/Section;") }
 }
 
-internal val protobufListsFingerprint = fingerprint {
+internal val protobufListsFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
     custom { method, _ -> method.name == "emptyProtobufList" }
 }
 
-internal val homeStructureFingerprint = fingerprint {
+internal val homeStructureFingerprint by fingerprint {
     opcodes(Opcode.IGET_OBJECT, Opcode.RETURN_OBJECT)
     custom { _, classDef -> classDef.endsWith("homeapi/proto/HomeStructure;") }
 }
 
-internal val homeStructureGetSectionsFingerprint = fingerprint {
+internal val homeStructureGetSectionsFingerprint by fingerprint {
     custom { method, classDef ->
         classDef.endsWith("homeapi/proto/HomeStructure;") && method.indexOfFirstInstruction {
             opcode == Opcode.IGET_OBJECT && getReference<FieldReference>()?.name == "sections_"
@@ -92,9 +92,9 @@ internal fun reactivexFunctionApplyWithClassInitFingerprint(className: String) =
 }
 
 internal const val PENDRAGON_JSON_FETCH_MESSAGE_REQUEST_CLASS_NAME = "FetchMessageRequest;"
-internal val pendragonJsonFetchMessageRequestFingerprint =
+internal val pendragonJsonFetchMessageRequestFingerprint by
     reactivexFunctionApplyWithClassInitFingerprint(PENDRAGON_JSON_FETCH_MESSAGE_REQUEST_CLASS_NAME)
 
 internal const val PENDRAGON_PROTO_FETCH_MESSAGE_LIST_REQUEST_CLASS_NAME = "FetchMessageListRequest;"
-internal val pendragonProtoFetchMessageListRequestFingerprint =
+internal val pendragonProtoFetchMessageListRequestFingerprint by
     reactivexFunctionApplyWithClassInitFingerprint(PENDRAGON_PROTO_FETCH_MESSAGE_LIST_REQUEST_CLASS_NAME)

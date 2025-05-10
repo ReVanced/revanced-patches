@@ -6,7 +6,7 @@ import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.removeInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.removeInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
-import app.revanced.patcher.patch.PatchException
+import app.revanced.patcher.fingerprint
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableClass
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
@@ -138,7 +138,13 @@ val unlockPremiumPatch = bytecodePatch(
             // Find the protobuffer list class using the definingClass which contains the empty list static value.
             val classType = getInstruction(emptyProtobufListGetIndex).getReference<FieldReference>()!!.definingClass
 
-            classes.find { it.type == classType } ?: throw PatchException("Could not find protobuffer list class.")
+            classBy { it.type == classType }
+        }
+
+        val protobufListRemoveFingerprint by fingerprint {
+            custom { method, classDef ->
+                method.name == "remove" && classDef.type == protobufListClassDef.type
+            }
         }
 
         // Need to allow mutation of the list so the home ads sections can be removed.
