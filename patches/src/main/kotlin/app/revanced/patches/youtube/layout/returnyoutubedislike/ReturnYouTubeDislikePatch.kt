@@ -18,6 +18,7 @@ import app.revanced.patches.youtube.misc.playservice.versionCheckPatch
 import app.revanced.patches.youtube.misc.settings.addSettingPreference
 import app.revanced.patches.youtube.misc.settings.newIntent
 import app.revanced.patches.youtube.misc.settings.settingsPatch
+import app.revanced.patches.youtube.shared.conversionContextFingerprintToString
 import app.revanced.patches.youtube.shared.rollingNumberTextViewAnimationUpdateFingerprint
 import app.revanced.patches.youtube.video.videoid.hookPlayerResponseVideoId
 import app.revanced.patches.youtube.video.videoid.hookVideoId
@@ -113,11 +114,11 @@ val returnYouTubeDislikePatch = bytecodePatch(
         // This hook handles all situations, as it's where the created Spans are stored and later reused.
         // Find the field name of the conversion context.
         val conversionContextField = textComponentConstructorFingerprint.originalClassDef.fields.find {
-            it.type == conversionContextFingerprint.originalClassDef.type
+            it.type == conversionContextFingerprintToString.originalClassDef.type
         } ?: throw PatchException("Could not find conversion context field")
 
         textComponentLookupFingerprint.match(textComponentConstructorFingerprint.originalClassDef)
-        textComponentLookupFingerprint.method.apply {
+            .method.apply {
             // Find the instruction for creating the text data object.
             val textDataClassType = textComponentDataFingerprint.originalClassDef.type
 
@@ -160,12 +161,12 @@ val returnYouTubeDislikePatch = bytecodePatch(
             addInstructionsAtControlFlowLabel(
                 insertIndex,
                 """
-                        # Copy conversion context
-                        move-object/from16 v$tempRegister, p0
-                        iget-object v$tempRegister, v$tempRegister, $conversionContextField
-                        invoke-static { v$tempRegister, v$charSequenceRegister }, $EXTENSION_CLASS_DESCRIPTOR->onLithoTextLoaded(Ljava/lang/Object;Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
-                        move-result-object v$charSequenceRegister
-                    """,
+                    # Copy conversion context
+                    move-object/from16 v$tempRegister, p0
+                    iget-object v$tempRegister, v$tempRegister, $conversionContextField
+                    invoke-static { v$tempRegister, v$charSequenceRegister }, $EXTENSION_CLASS_DESCRIPTOR->onLithoTextLoaded(Ljava/lang/Object;Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
+                    move-result-object v$charSequenceRegister
+                """
             )
         }
 
@@ -201,11 +202,9 @@ val returnYouTubeDislikePatch = bytecodePatch(
             val charSequenceFieldReference =
                 getInstruction<ReferenceInstruction>(dislikesIndex).reference
 
-            val registerCount = implementation!!.registerCount
+            val conversionContextRegister = implementation!!.registerCount - parameters.size + 1
 
-            // This register is being overwritten, so it is free to use.
-            val freeRegister = registerCount - 1
-            val conversionContextRegister = registerCount - parameters.size + 1
+            val freeRegister = findFreeRegister(insertIndex, charSequenceInstanceRegister, conversionContextRegister)
 
             addInstructions(
                 insertIndex,

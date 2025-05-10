@@ -5,18 +5,6 @@ import app.revanced.util.literal
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal val conversionContextFingerprint = fingerprint {
-    returns("Ljava/lang/String;")
-    parameters()
-    strings(
-        ", widthConstraint=",
-        ", heightConstraint=",
-        ", templateLoggerFactory=",
-        ", rootDisposableContainer=",
-        "ConversionContext{containerInternal=",
-    )
-}
-
 internal val dislikeFingerprint = fingerprint {
     returns("V")
     strings("like/dislike")

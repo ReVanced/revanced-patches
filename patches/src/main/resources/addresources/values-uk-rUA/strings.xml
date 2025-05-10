@@ -495,12 +495,12 @@ Second \"item\" text"</string>
   <patch id="layout.buttons.action.hideButtonsPatch">
   <string name="revanced_hide_buttons_screen_title">Кнопки дій</string>
   <string name="revanced_hide_buttons_screen_summary">Приховати або показувати кнопки дій під відео</string>
-  <string name="revanced_disable_like_subscribe_glow_title">Вимкнути відблиск кнопок \"Подобається\" та \"Підписати\"</string>
-  <string name="revanced_disable_like_subscribe_glow_summary_on">Кнопки \"Подобається\" та \"Підписатися\" не відблискуватимуть при згадуванні</string>
-  <string name="revanced_disable_like_subscribe_glow_summary_off">Кнопки \"Подобається\" та \"Підписатися\" не відблискуватимуть при згадуванні</string>
-  <string name="revanced_hide_like_dislike_button_title">Приховати \"Подобається\" та \"Не подобається\"</string>
-  <string name="revanced_hide_like_dislike_button_summary_on">Кнопки \"Подобається\" та \"Не подобається\" приховано</string>
-  <string name="revanced_hide_like_dislike_button_summary_off">Кнопки \"Подобається\" та \"Не подобається\" показуються</string>
+  <string name="revanced_disable_like_subscribe_glow_title">Вимкнути блимання кнопок \"Лайк\" та \"Підписатися\"</string>
+  <string name="revanced_disable_like_subscribe_glow_summary_on">Кнопки \"Лайк\" та \"Підписатися\" не будуть блимати при згадуванні</string>
+  <string name="revanced_disable_like_subscribe_glow_summary_off">Кнопки \"Лайк\" та \"Підписатися\" не будуть блимати при згадуванні</string>
+  <string name="revanced_hide_like_dislike_button_title">Приховати \"Лайк\" та \"Дизлайк\"</string>
+  <string name="revanced_hide_like_dislike_button_summary_on">Кнопки \"Лайк\" та \"Дизлайк\" приховано</string>
+  <string name="revanced_hide_like_dislike_button_summary_off">Кнопки \"Лайк\" та \"Дизлайк\" показуються</string>
   <!-- 'Share' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_share_button_title">Приховати \"Поділитися\"</string>
   <string name="revanced_hide_share_button_summary_on">Кнопку \"Поділитися\" приховано</string>
@@ -745,14 +745,14 @@ Second \"item\" text"</string>
   <string name="revanced_hide_shorts_stickers_summary_on">Стікери приховано</string>
   <string name="revanced_hide_shorts_stickers_summary_off">Стікери показуються</string>
   <string name="revanced_hide_shorts_like_fountain_title">Приховати анімацію фонтану</string>
-  <string name="revanced_hide_shorts_like_fountain_summary_on">Анімацію фонтану біля кнопки \"Подобається\" приховано</string>
-  <string name="revanced_hide_shorts_like_fountain_summary_off">Анімація фонтану біля кнопки \"Подобається\" показується</string>
-  <string name="revanced_hide_shorts_like_button_title">Приховати \"Подобається\"</string>
-  <string name="revanced_hide_shorts_like_button_summary_on">Кнопку \"Подобається\" приховано</string>
-  <string name="revanced_hide_shorts_like_button_summary_off">Кнопка \"Подобається\" показується</string>
-  <string name="revanced_hide_shorts_dislike_button_title">Приховати \"Не подобається\"</string>
-  <string name="revanced_hide_shorts_dislike_button_summary_on">Кнопку \"Не подобається\" приховано</string>
-  <string name="revanced_hide_shorts_dislike_button_summary_off">Кнопка \"Не подобається\" показується</string>
+  <string name="revanced_hide_shorts_like_fountain_summary_on">Анімацію фонтану біля кнопки \"Лайк\" приховано</string>
+  <string name="revanced_hide_shorts_like_fountain_summary_off">Анімація фонтану біля кнопки \"Лайк\" показується</string>
+  <string name="revanced_hide_shorts_like_button_title">Приховати \"Лайк\"</string>
+  <string name="revanced_hide_shorts_like_button_summary_on">Кнопку \"Лайк\" приховано</string>
+  <string name="revanced_hide_shorts_like_button_summary_off">Кнопка \"Лайк\" показується</string>
+  <string name="revanced_hide_shorts_dislike_button_title">Приховати \"Дизлайк\"</string>
+  <string name="revanced_hide_shorts_dislike_button_summary_on">Кнопку \"Дизлайк\" приховано</string>
+  <string name="revanced_hide_shorts_dislike_button_summary_off">Кнопка \"Дизлайк\" показується</string>
   <string name="revanced_hide_shorts_comments_button_title">Приховати  \"Коментарі\"</string>
   <string name="revanced_hide_shorts_comments_button_summary_on">Кнопку \"Коментарі\" приховано</string>
   <string name="revanced_hide_shorts_comments_button_summary_off">Кнопка \"Коментарі\" показується</string>
@@ -823,43 +823,43 @@ Second \"item\" text"</string>
   </patch>
   <patch id="layout.returnyoutubedislike.returnYouTubeDislikePatch">
   <!-- Toast shown if network connection times out. Translations of this should not be longer than the original English or the text can be clipped and not entirely shown. -->
-  <string name="revanced_ryd_failure_connection_timeout">Відмітки \"Не подобається\" тимчасово недоступні (тайм-аут API)</string>
-  <string name="revanced_ryd_failure_connection_status_code">Відмітки \"Не подобається\" недоступні (статус %d)</string>
-  <string name="revanced_ryd_failure_client_rate_limit_requested">Відмітки \"Не подобається\" недоступні (ліміт клієнтів API)</string>
-  <string name="revanced_ryd_failure_generic">Відмітки \"Не подобається\" недоступні (%s)</string>
+  <string name="revanced_ryd_failure_connection_timeout">Дизлайки тимчасово недоступні (тайм-аут API)</string>
+  <string name="revanced_ryd_failure_connection_status_code">Дизлайки недоступні (статус %d)</string>
+  <string name="revanced_ryd_failure_client_rate_limit_requested">Дизлайки недоступні (ліміт клієнтів API)</string>
+  <string name="revanced_ryd_failure_generic">Дизлайки недоступні (%s)</string>
   <!-- Toast shown if the user enables RYD while a video is opened, and then tries to vote for the video. -->
-  <string name="revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted">Оновіть відео, щоб проголосувати за допомогою ReturnYouTubeDislike</string>
+  <string name="revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted">Оновіть відео, щоб проголосувати за допомогою Return YouTube Dislike</string>
   <!-- Video likes have been set to hidden by the video uploader. -->
   <string name="revanced_ryd_video_likes_hidden_by_video_owner">Приховано власником</string>
-  <string name="revanced_ryd_enable_summary_on">Відмітки \"Не подобається\" показуються</string>
-  <string name="revanced_ryd_enable_summary_off">Відмітки \"Не подобається\" не показуються</string>
-  <string name="revanced_ryd_shorts_title">Відмітки \"Не подобається\" в Shorts</string>
-  <string name="revanced_ryd_shorts_summary_on_disclaimer">"Відмітки \"Не подобається\" в Shorts показуються
+  <string name="revanced_ryd_enable_summary_on">Дизлайки показуються</string>
+  <string name="revanced_ryd_enable_summary_off">Дизлайки не показуються</string>
+  <string name="revanced_ryd_shorts_title">Показувати дизлайки в Shorts</string>
+  <string name="revanced_ryd_shorts_summary_on_disclaimer">"Дизлайки в Shorts показуються
 
-Обмеження: Відмітки \"Не подобається\" не можуть показуватися в анонімному режимі"</string>
-  <string name="revanced_ryd_shorts_summary_off">Відмітки \"Не подобається\" в Shorts не показуються</string>
-  <string name="revanced_ryd_dislike_percentage_title">Відмітки \"Не подобається\" у відсотках</string>
-  <string name="revanced_ryd_dislike_percentage_summary_on">Відмітки \"Не подобається\" показуються у відсотках</string>
-  <string name="revanced_ryd_dislike_percentage_summary_off">Відмітки \"Не подобається\" показуються як число</string>
+Обмеження: Дизлайки не можуть показуватися в анонімному режимі"</string>
+  <string name="revanced_ryd_shorts_summary_off">Дизлайки в Shorts не показуються</string>
+  <string name="revanced_ryd_dislike_percentage_title">Дизлайки у відсотках</string>
+  <string name="revanced_ryd_dislike_percentage_summary_on">Дизлайки показуються у відсотках</string>
+  <string name="revanced_ryd_dislike_percentage_summary_off">Дизлайки показуються як число</string>
   <!-- Translations should use language similar to 'revanced_sb_enable_compact_skip_button' -->
-  <string name="revanced_ryd_compact_layout_title">Компактна кнопка \"Подобається\"</string>
-  <string name="revanced_ryd_compact_layout_summary_on">Кнопку \"Подобається\" стилізовано під мінімальну ширину</string>
-  <string name="revanced_ryd_compact_layout_summary_off">Кнопку \"Подобається\" стилізовано для кращого вигляду</string>
-  <string name="revanced_ryd_estimated_like_title">Показувати приблизну кількість вподобань</string>
-  <string name="revanced_ryd_estimated_like_summary_on">На відео з вимкненими відмітками \"Подобається\" показується приблизна кількість вподобань</string>
-  <string name="revanced_ryd_estimated_like_summary_off">Приблизна кількість вподобань не показується</string>
+  <string name="revanced_ryd_compact_layout_title">Компактна кнопка \"Лайк\"</string>
+  <string name="revanced_ryd_compact_layout_summary_on">Кнопку \"Лайк\" стилізовано під мінімальну ширину</string>
+  <string name="revanced_ryd_compact_layout_summary_off">Кнопку \"Лайк\" стилізовано для кращого вигляду</string>
+  <string name="revanced_ryd_estimated_like_title">Показувати приблизну кількість лайків</string>
+  <string name="revanced_ryd_estimated_like_summary_on">Для відео з вимкненими лайками показується приблизна кількість лайків</string>
+  <string name="revanced_ryd_estimated_like_summary_off">Приблизна кількість лайків не показується</string>
   <string name="revanced_ryd_toast_on_connection_error_title">Показувати тост, якщо API не доступний</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_on">Тост показується, якщо Return YouTube Dislike не доступний</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_off">Тост не показується, якщо Return YouTube Dislike не доступний</string>
   <string name="revanced_ryd_about">Про інтеграцію</string>
-  <string name="revanced_ryd_attribution_summary">Дані надаються Return YouTube Dislike API. Натисніть тут, щоб дізнатися більше</string>
+  <string name="revanced_ryd_attribution_summary">Дані надаються через API Return YouTube Dislike. Натисніть тут, щоб дізнатися більше</string>
   <!-- Statistic strings are shown in the settings only when ReVanced debug mode is enabled. Typical users will never see these. -->
-  <string name="revanced_ryd_statistics_category_title">Статистика ReturnYouTubeDislike API цього пристрою</string>
+  <string name="revanced_ryd_statistics_category_title">Статистика API ReturnYouTubeDislike цього пристрою</string>
   <string name="revanced_ryd_statistics_getFetchCallResponseTimeAverage_title">Час відповіді API, середній</string>
   <string name="revanced_ryd_statistics_getFetchCallResponseTimeMin_title">Час відповіді API, мінімальний</string>
   <string name="revanced_ryd_statistics_getFetchCallResponseTimeMax_title">Час відповіді API, максимальний</string>
   <string name="revanced_ryd_statistics_getFetchCallResponseTimeLast_title">Час відповіді API, останнє відео</string>
-  <string name="revanced_ryd_statistics_getFetchCallResponseTimeLast_rate_limit_summary">Відмітки \"Не подобається\" тимчасово недоступні - діє обмеження швидкості клієнта API</string>
+  <string name="revanced_ryd_statistics_getFetchCallResponseTimeLast_rate_limit_summary">Дизлайки тимчасово недоступні - діє обмеження швидкості для клієнта API</string>
   <string name="revanced_ryd_statistics_getFetchCallCount_title">Отримання голосів API, кількість запитів</string>
   <string name="revanced_ryd_statistics_getFetchCallCount_zero_summary">Мережевих запитів не здійснено </string>
   <string name="revanced_ryd_statistics_getFetchCallCount_non_zero_summary">Здійснено %d мережевих запитів</string>
@@ -948,13 +948,13 @@ Second \"item\" text"</string>
   <string name="revanced_sb_settings_ie">Імпорт / Експорт налаштувань</string>
   <string name="revanced_sb_settings_copy">Копіювати</string>
   <string name="revanced_sb_settings_ie_sum">Ваші налаштування SponsorBlock, які можуть бути імпортовані чи експортовані у ReVanced та до інших платформ SponsorBlock</string>
-  <string name="revanced_sb_settings_ie_sum_warning">Ваші налаштування SponsorBlock, які можуть бути імпортовані чи експортовані у ReVanced та до інших платформ SponsorBlock. Вони також містять Ваш особистий ідентифікатор користувача. Діліться ним розумно</string>
+  <string name="revanced_sb_settings_ie_sum_warning">Ваші налаштування SponsorBlock, які можуть бути імпортовані чи експортовані у ReVanced та до інших платформ SponsorBlock. Вони також містять Ваш особистий ідентифікатор користувача. Діліться ними розумно</string>
   <string name="revanced_sb_settings_import_successful">Налаштування успішно імпортовано</string>
   <string name="revanced_sb_settings_import_failed">Не вдалося імпортувати: %s</string>
   <string name="revanced_sb_settings_export_failed">Не вдалося експортувати: %s</string>
-  <string name="revanced_sb_settings_revanced_export_user_id_warning">"Ваші налаштування містять особистий ID користувача SponsorBlock.
+  <string name="revanced_sb_settings_revanced_export_user_id_warning">"Ваші налаштування містять особистий ідентифікатор користувача SponsorBlock.
 
-Ваш ID користувача це як пароль і його не можна поширювати."</string>
+Ваш ідентифікатор користувача це як пароль і його не можна поширювати."</string>
   <string name="revanced_sb_settings_revanced_export_user_id_warning_dismiss">Більше не показувати</string>
   <string name="revanced_sb_diff_segments">Змінити поведінку сегмента</string>
   <string name="revanced_sb_segments_sponsor">Спонсор</string>
@@ -1020,10 +1020,10 @@ Second \"item\" text"</string>
 Він вже існує"</string>
   <string name="revanced_sb_submit_succeeded">Сегмент успішно надіслано</string>
   <!-- Toast shown if network connection times out. Translations of this should not be longer than the original English or the text can be clipped and not entirely shown. -->
-  <string name="revanced_sb_sponsorblock_connection_failure_timeout">SponsorBlock тимчасово недоступний (закінчився час API)</string>
+  <string name="revanced_sb_sponsorblock_connection_failure_timeout">SponsorBlock тимчасово недоступний (тайм-аут API)</string>
   <string name="revanced_sb_sponsorblock_connection_failure_status">SponsorBlock тимчасово недоступний (статус %d)</string>
   <string name="revanced_sb_sponsorblock_connection_failure_generic">SponsorBlock тимчасово не доступний</string>
-  <string name="revanced_sb_vote_failed_timeout">Не вдалося проголосувати за сегмент (закінчився час API)</string>
+  <string name="revanced_sb_vote_failed_timeout">Не вдалося проголосувати за сегмент (тайм-аут API)</string>
   <string name="revanced_sb_vote_failed_unknown_error">Не вдалося проголосувати за сегмент (статус: %1$d %2$s)</string>
   <string name="revanced_sb_vote_failed_forbidden">Не вдалося проголосувати за сегмент: %s</string>
   <string name="revanced_sb_vote_upvote">Проголосувати \"за\"</string>
@@ -1087,7 +1087,7 @@ Second \"item\" text"</string>
   <string name="revanced_sb_reset_color">Скинути колір</string>
   <string name="revanced_sb_reset">Скинути</string>
   <string name="revanced_sb_about">Про інтеграцію</string>
-  <string name="revanced_sb_about_api_sum">Дані надаються SponsorBlock API. Натисніть тут, щоб дізнатися більше та побачити завантаження для інших платформ</string>
+  <string name="revanced_sb_about_api_sum">Дані надаються через API SponsorBlock. Натисніть тут, щоб дізнатися більше та побачити завантаження для інших платформ</string>
   </patch>
   <patch id="layout.formfactor.changeFormFactorPatch">
   <string name="revanced_change_form_factor_title">Макет інтерфейсу</string>
@@ -1311,7 +1311,7 @@ Second \"item\" text"</string>
   <string name="microg_settings_summary">Відкрити GmsCore для налаштування та входу в обліковий запис Google</string>
   </patch>
   <patch id="misc.gms.accountCredentialsInvalidTextPatch">
-  <string name="microg_offline_account_login_error">Якщо ви нещодавно змінили дані для входу у свій обліковий запис, видаліть і повторно встановіть MicroG.</string>
+  <string name="microg_offline_account_login_error">Якщо Ви нещодавно змінили дані для входу у свій обліковий запис, видаліть і повторно встановіть MicroG.</string>
   </patch>
   <patch id="misc.links.bypassURLRedirectsPatch">
   <string name="revanced_bypass_url_redirects_title">Обхід URL переадресацій</string>
