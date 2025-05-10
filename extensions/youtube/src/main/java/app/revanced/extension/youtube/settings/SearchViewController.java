@@ -20,8 +20,10 @@ import android.widget.Toolbar;
 
 import androidx.annotation.NonNull;
 
+import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Deque;
 import java.util.List;
 
 import app.revanced.extension.shared.Logger;
@@ -45,7 +47,7 @@ public class SearchViewController {
     private final Activity activity;
     private boolean isSearchActive;
     private final CharSequence originalTitle;
-    private final List<String> searchHistory;
+    private final Deque<String> searchHistory;
     private final AutoCompleteTextView autoCompleteTextView;
     private final boolean showSettingsSearchHistory;
 
@@ -86,7 +88,7 @@ public class SearchViewController {
         this.toolbar = toolbar;
         this.originalTitle = toolbar.getTitle();
         this.showSettingsSearchHistory = Settings.SETTINGS_SEARCH_HISTORY.get();
-        this.searchHistory = new ArrayList<>();
+        this.searchHistory = new ArrayDeque<>(MAX_HISTORY_SIZE);
         StringSetting searchEntries = Settings.SETTINGS_SEARCH_ENTRIES;
         if (!showSettingsSearchHistory) {
             // Clear old saved history if the user turns off the feature.
@@ -208,7 +210,7 @@ public class SearchViewController {
      */
     private void setupSearchHistory() {
         if (autoCompleteTextView != null) {
-            SearchHistoryAdapter adapter = new SearchHistoryAdapter(activity, searchHistory);
+            SearchHistoryAdapter adapter = new SearchHistoryAdapter(activity, new ArrayList<>(searchHistory));
             autoCompleteTextView.setAdapter(adapter);
             autoCompleteTextView.setThreshold(1); // Initial threshold for empty input.
             autoCompleteTextView.setLongClickable(true);
@@ -231,13 +233,12 @@ public class SearchViewController {
             return;
         }
         searchHistory.remove(query); // Remove if already exists to update position.
-        searchHistory.add(0, query); // Add to the most recent.
+        searchHistory.addFirst(query); // Add to the most recent.
 
         // Remove extra old entries.
         while (searchHistory.size() > MAX_HISTORY_SIZE) {
-            final int lastIndex = searchHistory.size() - 1;
-            Logger.printDebug(() -> "Removing search history query: " + searchHistory.get(lastIndex));
-            searchHistory.remove(lastIndex);
+            String last = searchHistory.removeLast();
+            Logger.printDebug(() -> "Removing search history query: " + last);
         }
 
         saveSearchHistory();
