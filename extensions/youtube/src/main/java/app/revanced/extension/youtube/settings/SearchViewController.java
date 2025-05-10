@@ -6,7 +6,6 @@ import static app.revanced.extension.shared.Utils.getResourceIdentifier;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
-import android.content.SharedPreferences;
 import android.graphics.drawable.GradientDrawable;
 import android.view.MenuItem;
 import android.view.View;
@@ -22,16 +21,14 @@ import android.widget.Toolbar;
 import androidx.annotation.NonNull;
 
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Iterator;
-import java.util.LinkedHashSet;
+import java.util.Arrays;
 import java.util.List;
-import java.util.Set;
 
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
 import app.revanced.extension.shared.settings.AppLanguage;
 import app.revanced.extension.shared.settings.BaseSettings;
+import app.revanced.extension.shared.settings.StringSetting;
 import app.revanced.extension.youtube.ThemeHelper;
 import app.revanced.extension.youtube.settings.preference.ReVancedPreferenceFragment;
 
@@ -40,8 +37,6 @@ import app.revanced.extension.youtube.settings.preference.ReVancedPreferenceFrag
  */
 @SuppressWarnings({"deprecated", "DiscouragedApi"})
 public class SearchViewController {
-    private static final String PREFS_NAME = "revanced_search_history";
-    private static final String KEY_SEARCH_HISTORY = "search_history";
     private static final int MAX_HISTORY_SIZE = 5;
 
     private final SearchView searchView;
@@ -50,8 +45,7 @@ public class SearchViewController {
     private final Activity activity;
     private boolean isSearchActive;
     private final CharSequence originalTitle;
-    private final SharedPreferences searchHistoryPrefs;
-    private final Set<String> searchHistory;
+    private final List<String> searchHistory;
     private final AutoCompleteTextView autoCompleteTextView;
     private final boolean showSettingsSearchHistory;
 
@@ -91,10 +85,18 @@ public class SearchViewController {
         this.activity = activity;
         this.toolbar = toolbar;
         this.originalTitle = toolbar.getTitle();
-        this.searchHistoryPrefs = activity.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
-        this.searchHistory = new LinkedHashSet<>(searchHistoryPrefs.getStringSet(
-                KEY_SEARCH_HISTORY, Collections.emptySet()));
         this.showSettingsSearchHistory = Settings.SETTINGS_SEARCH_HISTORY.get();
+        this.searchHistory = new ArrayList<>();
+        StringSetting searchEntries = Settings.SETTINGS_SEARCH_ENTRIES;
+        if (!showSettingsSearchHistory) {
+            // Clear old saved history if the user turns off the feature.
+            searchEntries.resetToDefault();
+        } else {
+            String entries = searchEntries.get();
+            if (!entries.isBlank()) {
+                searchHistory.addAll(Arrays.asList(entries.split("\n")));
+            }
+        }
 
         // Retrieve SearchView and container from XML.
         searchView = activity.findViewById(getResourceIdentifier(
@@ -229,17 +231,16 @@ public class SearchViewController {
             return;
         }
         searchHistory.remove(query); // Remove if already exists to update position.
-        searchHistory.add(query); // Add to the end (most recent).
+        searchHistory.add(0, query); // Add to the most recent.
 
-        // Keep only the last few entries.
+        // Remove extra old entries.
         while (searchHistory.size() > MAX_HISTORY_SIZE) {
-            Iterator<String> iterator = searchHistory.iterator();
-            String next = iterator.next();
-            Logger.printDebug(() -> "Removing search history query: " + next);
-            iterator.remove();
+            final int lastIndex = searchHistory.size() - 1;
+            Logger.printDebug(() -> "Removing search history query: " + searchHistory.get(lastIndex));
+            searchHistory.remove(lastIndex);
         }
 
-        saveSearchHistoryToPreferences();
+        saveSearchHistory();
 
         updateSearchHistoryAdapter();
     }
@@ -251,7 +252,7 @@ public class SearchViewController {
     private void removeSearchQuery(String query) {
         searchHistory.remove(query);
 
-        saveSearchHistoryToPreferences();
+        saveSearchHistory();
 
         updateSearchHistoryAdapter();
     }
@@ -259,12 +260,12 @@ public class SearchViewController {
     /**
      * Save the search history to the shared preferences.
      */
-    private void saveSearchHistoryToPreferences() {
+    private void saveSearchHistory() {
         Logger.printDebug(() -> "Saving search history: " + searchHistory);
 
-        searchHistoryPrefs.edit()
-                .putStringSet(KEY_SEARCH_HISTORY, searchHistory)
-                .apply();
+        Settings.SETTINGS_SEARCH_ENTRIES.save(
+                String.join("\n", searchHistory)
+        );
     }
 
     /**
@@ -274,13 +275,11 @@ public class SearchViewController {
         if (autoCompleteTextView == null) {
             return;
         }
+
         SearchHistoryAdapter adapter = (SearchHistoryAdapter) autoCompleteTextView.getAdapter();
         if (adapter != null) {
             adapter.clear();
-            List<String> historyEntries = new ArrayList<>(searchHistory);
-            // Show most recent searches first.
-            Collections.reverse(historyEntries);
-            adapter.addAll(historyEntries);
+            adapter.addAll(searchHistory);
             adapter.notifyDataSetChanged();
         }
     }
@@ -335,8 +334,8 @@ public class SearchViewController {
      * Custom ArrayAdapter for search history.
      */
     private class SearchHistoryAdapter extends ArrayAdapter<String> {
-        public SearchHistoryAdapter(Context context, Set<String> history) {
-            super(context, 0, new ArrayList<>(history));
+        public SearchHistoryAdapter(Context context, List<String> history) {
+            super(context, 0, history);
         }
 
         @NonNull
