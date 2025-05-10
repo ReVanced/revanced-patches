@@ -66,19 +66,19 @@ val hideRelatedVideoOverlayPatch = bytecodePatch(
             SwitchPreference("revanced_hide_related_video_overlay")
         )
 
-        relatedEndScreenResultsFingerprint.classDef.methods.find { method ->
-            method.parameterTypes == listOf("I", "Z", "I") }
-            ?.apply {
-                addInstructionsWithLabels(
-                    0,
-                    """
-                        invoke-static {}, $EXTENSION_CLASS_DESCRIPTOR->hideRelatedVideoOverlay()Z
-                        move-result v0
-                        if-eqz v0, :show
-                        return-void
-                    """,
-                    ExternalLabel("show", getInstruction(0))
-                )
-            } ?: throw PatchException("Could not find target method with parameters (I, Z, I)")
+        relatedEndScreenResultsFingerprint.match(
+            relatedEndScreenResultsParentFingerprint.originalClassDef
+        ).method.apply {
+            addInstructionsWithLabels(
+                0,
+                """
+                    invoke-static {}, $EXTENSION_CLASS_DESCRIPTOR->hideRelatedVideoOverlay()Z
+                    move-result v0
+                    if-eqz v0, :show
+                    return-void
+                """,
+                ExternalLabel("show", getInstruction(0))
+            )
+        } ?: throw PatchException("Could not find target method with parameters (I, Z, I)")
     }
 }
