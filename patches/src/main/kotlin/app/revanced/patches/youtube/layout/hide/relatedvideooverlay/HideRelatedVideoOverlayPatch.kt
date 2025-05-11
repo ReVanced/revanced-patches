@@ -79,6 +79,6 @@ val hideRelatedVideoOverlayPatch = bytecodePatch(
                 """,
                 ExternalLabel("show", getInstruction(0))
             )
-        } ?: throw PatchException("Could not find target method with parameters (I, Z, I)")
+        }
     }
 }
