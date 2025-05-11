@@ -9,7 +9,10 @@ internal val isValidSignatureClassFingerprint = fingerprint {
 }
 
 internal val isValidSignatureMethodFingerprint = fingerprint {
-    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     parameters("L", "Z")
     returns("Z")
+    custom { method, _ -> method.indexOfFirstInstruction {
+            getReference<MethodReference>()?.name == "keySet"
+        } >= 0
+    }
 }
