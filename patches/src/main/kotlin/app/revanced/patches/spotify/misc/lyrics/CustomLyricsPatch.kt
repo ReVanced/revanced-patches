@@ -4,6 +4,7 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.instructions
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
+import app.revanced.patcher.fingerprint
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.stringOption
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
@@ -14,6 +15,9 @@ import com.android.tools.smali.dexlib2.builder.instruction.BuilderInstruction35c
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
 import com.android.tools.smali.dexlib2.immutable.reference.ImmutableMethodReference
+import java.net.InetAddress
+import java.net.UnknownHostException
+import java.util.logging.Logger
 
 
 @Suppress("unused")
@@ -23,20 +27,29 @@ val customLyricsPatch = bytecodePatch(
 ) {
     compatibleWith("com.spotify.music")
 
-    var lyricsUrlHost by stringOption(
+    val lyricsUrlHost by stringOption(
         key = "lyricsProviderUrl",
         title = "Lyrics provider URL/hostname",
-        description = "The URL or the hostname to a custom lyrics provider, " +
-                "such as SpotifyMobileLyricsAPI: https://github.com/Natoune/SpotifyMobileLyricsAPI.",
-        required = true
-    )
-
-    execute {
-        lyricsUrlHost = lyricsUrlHost!!
+        description = "The URL or the hostname to a custom lyrics provider.",
+        required = true,
+        default = "lyrics.natanchiodi.fr"
+    ) {
+        val host = it!!
             .removePrefix("http://")
             .removePrefix("https://")
             .substringBefore("/")
 
+        try {
+            InetAddress.getByName(host)
+        } catch (e: UnknownHostException) {
+            Logger.getLogger(this::class.java.name).warning(
+                "Host $host did not resolve to any domain."
+            )
+        }
+        true
+    }
+
+    execute {
         var patchedClientMethod: ImmutableMethod?
 
         clientBuilderFingerprint.apply {
@@ -73,10 +86,20 @@ val customLyricsPatch = bytecodePatch(
         }
 
         /**
+         * This method is where the HTTP client for lyrics is defined.
+         * This patch will replace this HTTP client with a patched HTTP client for the required custom lyrics host.
+         */
+        val lyricsHttpClientDefinitionFingerprint = fingerprint {
+            returns(clientBuilderFingerprint.originalMethod.returnType)
+            parameters()
+            opcodes(Opcode.CHECK_CAST)
+        }
+
+        /**
          * Adjust the lyrics HTTP builder method name to the method defined above.
          * In this way the copied method is called rather than the stock one, returning the patched HTTP builder.
          */
-        executeFingerprint.method.apply {
+        lyricsHttpClientDefinitionFingerprint.method.apply {
             val getLyricsClientIndex = indexOfFirstInstructionReversedOrThrow(
                 Opcode.INVOKE_STATIC
             )
