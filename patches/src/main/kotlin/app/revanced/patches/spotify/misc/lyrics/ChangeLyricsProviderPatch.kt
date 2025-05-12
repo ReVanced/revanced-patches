@@ -37,9 +37,6 @@ val changeLyricsProviderPatch = bytecodePatch(
         try {
             host = URI(it!!).host ?: it
         } catch (e: URISyntaxException) {
-            Logger.getLogger(this::class.java.name).severe(
-                "\"$it\" is not a valid URL."
-            )
             return@stringOption false
         }
 
