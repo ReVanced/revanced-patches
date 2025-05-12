@@ -6,12 +6,14 @@ import app.revanced.patcher.fingerprint
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.stringOption
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
+import app.revanced.patches.spotify.misc.extension.IS_SPOTIFY_LEGACY_APP_TARGET
 import app.revanced.util.indexOfFirstInstructionReversedOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.builder.instruction.BuilderInstruction35c
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.immutable.reference.ImmutableMethodReference
 import java.net.InetAddress
+import java.net.URI
 import java.net.UnknownHostException
 import java.util.logging.Logger
 
@@ -30,22 +32,26 @@ val changeLyricsProviderPatch = bytecodePatch(
         required = true,
         default = "lyrics.natanchiodi.fr"
     ) {
-        val host = it!!
-            .removePrefix("http://")
-            .removePrefix("https://")
-            .substringBefore("/")
+        val host = URI(it!!).host ?: it
 
         try {
             InetAddress.getByName(host)
         } catch (e: UnknownHostException) {
             Logger.getLogger(this::class.java.name).warning(
-                "Host $host did not resolve to any domain."
+                "Host \"$host\" did not resolve to any domain."
             )
         }
         true
     }
 
     execute {
+        if(IS_SPOTIFY_LEGACY_APP_TARGET) {
+            Logger.getLogger(this::class.java.name).severe(
+                "Change lyrics provider patch is not supported for this target version."
+            )
+            return@execute
+        }
+
         //region Create a patched HTTP client for the requested URL
 
         val urlAssignmentIndex = clientBuilderFingerprint.stringMatches!!.first().index
