@@ -14,6 +14,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.immutable.reference.ImmutableMethodReference
 import java.net.InetAddress
 import java.net.URI
+import java.net.URISyntaxException
 import java.net.UnknownHostException
 import java.util.logging.Logger
 
@@ -32,7 +33,15 @@ val changeLyricsProviderPatch = bytecodePatch(
         required = true,
         default = "lyrics.natanchiodi.fr"
     ) {
-        val host = URI(it!!).host ?: it
+        val host: String?
+        try {
+            host = URI(it!!).host ?: it
+        } catch (e: URISyntaxException) {
+            Logger.getLogger(this::class.java.name).severe(
+                "\"$it\" is not a valid URL."
+            )
+            return@stringOption false
+        }
 
         try {
             InetAddress.getByName(host)
