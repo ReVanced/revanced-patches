@@ -868,8 +868,8 @@ public final class app/revanced/patches/spotify/misc/fix/SpoofSignaturePatchKt {
 	public static final fun getSpoofSignaturePatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/spotify/misc/lyrics/CustomLyricsPatchKt {
-	public static final fun getCustomLyricsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+public final class app/revanced/patches/spotify/misc/lyrics/ChangeLyricsProviderPatchKt {
+	public static final fun getChangeLyricsProviderPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
 public final class app/revanced/patches/spotify/misc/privacy/SanitizeSharingLinksPatchKt {
