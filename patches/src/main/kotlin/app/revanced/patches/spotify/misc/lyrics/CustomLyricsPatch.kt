@@ -67,8 +67,10 @@ val customLyricsPatch = bytecodePatch(
                 MutableMethodImplementation(6),
             )
 
+            val urlAssignmentIndex = stringMatches!!.first().index
+
             val urlRegister = method.getInstruction<OneRegisterInstruction>(
-                stringMatches!!.first().index,
+                urlAssignmentIndex,
             ).registerA
 
             /**
@@ -79,7 +81,7 @@ val customLyricsPatch = bytecodePatch(
                     addInstructions(method.instructions)
 
                     replaceInstruction(
-                        stringMatches!!.first().index,
+                        urlAssignmentIndex,
                         "const-string v$urlRegister, \"$lyricsUrlHost\"")
                 }
             )
