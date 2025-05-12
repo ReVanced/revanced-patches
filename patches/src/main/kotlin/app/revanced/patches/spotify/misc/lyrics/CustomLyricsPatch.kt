@@ -39,34 +39,34 @@ val customLyricsPatch = bytecodePatch(
 
         var patchedClientMethod: ImmutableMethod?
 
-        clientBuilderFingerprint.method.apply {
+        clientBuilderFingerprint.apply {
             /**
              * Copy the method definition of the HTTP client builder for a valid hostname.
              */
             patchedClientMethod = ImmutableMethod(
-                definingClass,
+                method.definingClass,
                 "getCustomLyricsProviderClient",
-                parameters,
-                returnType,
-                accessFlags,
+                method.parameters,
+                method.returnType,
+                method.accessFlags,
                 null,
                 null,
                 MutableMethodImplementation(6),
             )
 
-            val urlRegister = getInstruction<OneRegisterInstruction>(
-                clientBuilderFingerprint.stringMatches!!.first().index,
+            val urlRegister = method.getInstruction<OneRegisterInstruction>(
+                stringMatches!!.first().index,
             ).registerA
 
             /**
              * Copy the instructions into the new method and replace the assigned hostname with our host.
              */
-            clientBuilderFingerprint.classDef.methods.add(
+            classDef.methods.add(
                 patchedClientMethod!!.toMutable().apply {
-                    addInstructions(clientBuilderFingerprint.method.instructions)
+                    addInstructions(method.instructions)
 
                     replaceInstruction(
-                        clientBuilderFingerprint.stringMatches!!.first().index,
+                        stringMatches!!.first().index,
                         "const-string v$urlRegister, \"$lyricsUrlHost\"")
                 }
             )
