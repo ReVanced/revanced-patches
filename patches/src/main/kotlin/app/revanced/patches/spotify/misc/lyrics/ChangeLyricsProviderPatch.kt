@@ -89,11 +89,7 @@ val changeLyricsProviderPatch = bytecodePatch(
                     getReference<MethodReference>() == httpClientBuilderFingerprint.originalMethod
                 } >= 0
             }
-        }
-
-        // region Conditionally use the modified HTTP client builder method when the client is used for the lyrics API.
-
-        lyricsHttpClientDefinitionFingerprint.method.apply {
+        }.method.apply {
             val getLyricsClientIndex = indexOfFirstInstructionOrThrow() {
                 getReference<MethodReference>() == httpClientBuilderFingerprint.originalMethod
             }
