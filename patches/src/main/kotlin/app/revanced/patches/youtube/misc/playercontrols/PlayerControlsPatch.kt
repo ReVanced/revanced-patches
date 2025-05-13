@@ -266,7 +266,7 @@ val playerControlsPatch = bytecodePatch(
             playerBottomControlsExploderFeatureFlagFingerprint.method.returnEarly()
         }
 
-        // A/B test of new top overlay controls. Two different layouts can be used:
+        // A/B test of different top overlay controls. Two different layouts can be used:
         // youtube_cf_navigation_improvement_controls_layout.xml
         // youtube_cf_minimal_impact_controls_layout.xml
         //
@@ -276,19 +276,13 @@ val playerControlsPatch = bytecodePatch(
         //
         // For now force this a/b feature off as it breaks the top player buttons.
         //
-        // Flag appears to be removed in 20.19
+        // Edit: Flag appears to be removed in 20.19
         if (is_19_25_or_greater && !is_20_19_or_greater) {
             playerTopControlsExperimentalLayoutFeatureFlagFingerprint.method.apply {
                 val index = indexOfFirstInstructionOrThrow(Opcode.MOVE_RESULT_OBJECT)
                 val register = getInstruction<OneRegisterInstruction>(index).registerA
 
-                addInstructions(
-                    index + 1,
-                    """
-                        invoke-static { v$register }, $EXTENSION_CLASS_DESCRIPTOR->getPlayerTopControlsLayoutResourceName(Ljava/lang/String;)Ljava/lang/String;
-                        move-result-object v$register
-                    """,
-                )
+                addInstruction(index + 1, "const-string v$register, \"default\"")
             }
         }
     }
