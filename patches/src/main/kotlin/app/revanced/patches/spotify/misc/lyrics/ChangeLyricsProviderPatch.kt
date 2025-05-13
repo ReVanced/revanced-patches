@@ -100,10 +100,7 @@ val changeLyricsProviderPatch = bytecodePatch(
 
             val getLyricsHttpClientInstruction = getInstruction<BuilderInstruction35c>(getLyricsHttpClientIndex)
 
-            /**
-             * Adjust the lyrics HTTP builder method name to the method defined above.
-             * In this way the copied method is called rather than the stock one, returning the patched HTTP builder.
-             */
+            // Call the modified method.
             replaceInstruction(
                 getLyricsClientIndex,
                 BuilderInstruction35c(
@@ -116,7 +113,7 @@ val changeLyricsProviderPatch = bytecodePatch(
                     getLyricsClientInstruction.registerG,
                     ImmutableMethodReference(
                         patchedHttpClientBuilderMethod.definingClass,
-                        patchedHttpClientBuilderMethod.name, // This is the only difference to the original method.
+                        patchedHttpClientBuilderMethod.name, // Only difference to the original method.
                         patchedHttpClientBuilderMethod.parameters,
                         patchedHttpClientBuilderMethod.returnType
                     )
