@@ -80,12 +80,7 @@ val changeLyricsProviderPatch = bytecodePatch(
 
         //endregion
 
-        /**
-         * The method where the HTTP client for lyrics is defined.
-         *
-         * This patch will replace this HTTP client with a patched HTTP client for the required
-         * custom lyrics host. This new method is only used for the lyrics request and nowhere else.
-         */
+        // Replace the call to the HTTP client builder method used exclusively for lyrics by the modified one.
         val lyricsHttpClientDefinitionFingerprint = fingerprint {
             returns(httpClientBuilderFingerprint.originalMethod.returnType)
             parameters()
