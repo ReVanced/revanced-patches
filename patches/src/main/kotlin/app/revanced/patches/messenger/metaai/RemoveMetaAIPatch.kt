@@ -6,7 +6,7 @@ import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.messenger.misc.extension.sharedExtensionPatch
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
-internal const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/messenger/metaai/RemoveMetaAIPatch;"
+private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/messenger/metaai/RemoveMetaAIPatch;"
 
 @Suppress("unused")
 val removeMetaAIPatch = bytecodePatch(
