@@ -6,7 +6,6 @@ import app.revanced.patcher.fingerprint
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.stringOption
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
-import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
 import app.revanced.patches.spotify.misc.extension.IS_SPOTIFY_LEGACY_APP_TARGET
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstruction
@@ -91,7 +90,7 @@ val changeLyricsProviderPatch = bytecodePatch(
                 } >= 0
             }
         }.method.apply {
-            val getLyricsClientIndex = indexOfFirstInstructionOrThrow() {
+            val getLyricsHttpClientIndex = indexOfFirstInstructionOrThrow() {
                 getReference<MethodReference>() == httpClientBuilderFingerprint.originalMethod
             }
 
@@ -99,15 +98,15 @@ val changeLyricsProviderPatch = bytecodePatch(
 
             // Call the modified method.
             replaceInstruction(
-                getLyricsClientIndex,
+                getLyricsHttpClientIndex,
                 BuilderInstruction35c(
                     Opcode.INVOKE_STATIC,
-                    getLyricsClientInstruction.registerCount,
-                    getLyricsClientInstruction.registerC,
-                    getLyricsClientInstruction.registerD,
-                    getLyricsClientInstruction.registerE,
-                    getLyricsClientInstruction.registerF,
-                    getLyricsClientInstruction.registerG,
+                    getLyricsHttpClientInstruction.registerCount,
+                    getLyricsHttpClientInstruction.registerC,
+                    getLyricsHttpClientInstruction.registerD,
+                    getLyricsHttpClientInstruction.registerE,
+                    getLyricsHttpClientInstruction.registerF,
+                    getLyricsHttpClientInstruction.registerG,
                     ImmutableMethodReference(
                         patchedHttpClientBuilderMethod.definingClass,
                         patchedHttpClientBuilderMethod.name, // Only difference to the original method.
