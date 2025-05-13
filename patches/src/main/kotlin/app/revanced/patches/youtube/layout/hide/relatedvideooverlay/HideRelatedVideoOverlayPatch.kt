@@ -15,7 +15,7 @@ import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
 import app.revanced.patcher.util.smali.ExternalLabel
 
-var appRelatedEndScreenResults = -1L
+internal var appRelatedEndScreenResults = -1L
     private set
 
 private val hideRelatedVideoOverlayResourcePatch = resourcePatch {
