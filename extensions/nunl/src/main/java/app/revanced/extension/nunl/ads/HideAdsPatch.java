@@ -82,7 +82,7 @@ public class HideAdsPatch {
 
                 // Filter HeaderBlock with known ads until next HeaderBlock.
                 if (currentBlock instanceof HeaderBlock headerBlock) {
-                    StyledText headerText = headerBlock.component20();
+                    StyledText headerText = headerBlock.getTitle();
                     if (headerText != null) {
                         skipFullHeader = false;
                         for (String blockedHeaderBlock : blockedHeaderBlocks) {

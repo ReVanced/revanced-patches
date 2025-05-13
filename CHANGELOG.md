@@ -1,3 +1,10 @@
+# [5.24.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.23.0...v5.24.0-dev.1) (2025-05-12)
+
+
+### Features
+
+* **NU.nl:** Support version `11.3.0` ([#4925](https://github.com/ReVanced/revanced-patches/issues/4925)) ([bedde60](https://github.com/ReVanced/revanced-patches/commit/bedde60fc1a52b0fd491174b3b5b887435eb621a))
+
 # [5.23.0](https://github.com/ReVanced/revanced-patches/compare/v5.22.0...v5.23.0) (2025-05-10)
 
 

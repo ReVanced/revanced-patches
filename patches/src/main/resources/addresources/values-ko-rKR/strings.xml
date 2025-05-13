@@ -55,7 +55,7 @@ Second \"item\" text"</string>
   <!-- Settings about dialog. -->
   <string name="revanced_settings_about_links_body">ReVanced Patches &lt;i&gt;%s&lt;/i&gt;&lt;br&gt;버전을 사용 중입니다</string>
   <string name="revanced_settings_about_links_dev_header">알림</string>
-  <string name="revanced_settings_about_links_dev_body">개발자 버전이므로&lt;br&gt;알려지지 않은 문제점이&lt;br&gt;발생할 수 있습니다</string>
+  <string name="revanced_settings_about_links_dev_body">Pre-Release 버전이므로&lt;br&gt;알려지지 않은 문제점이&lt;br&gt;발생할 수 있습니다</string>
   <string name="revanced_settings_about_links_header">공식 링크</string>
   <!-- NOTE: the about strings above are duplicated in the TikTok about screen code,
                  and changes made here must also be made there. -->
@@ -975,7 +975,7 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_sb_segments_filler">주제와 관련 없는 구간</string>
   <string name="revanced_sb_segments_filler_sum">전반적인 동영상의 주제를 이해하는 데 필요 없는 내용을 포함하고 있습니다</string>
   <string name="revanced_sb_segments_nomusic">음악이 아닌 구간</string>
-  <string name="revanced_sb_segments_nomusic_sum">뮤직 비디오에서 음악이 아닌 구간이 해당됩니다</string>
+  <string name="revanced_sb_segments_nomusic_sum">음악 동영상에서 음악이 아닌 구간이 해당됩니다</string>
   <string name="revanced_sb_skip_button_compact">건너뛰기</string>
   <string name="revanced_sb_skip_button_compact_highlight">하이라이트</string>
   <string name="revanced_sb_skip_button_sponsor">스폰서 광고 건너뛰기</string>
