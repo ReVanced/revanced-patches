@@ -2,4 +2,4 @@ package app.revanced.patches.messenger.misc.extension
 
 import app.revanced.patches.shared.misc.extension.sharedExtensionPatch
 
-val sharedExtensionPatch = sharedExtensionPatch("messenger")
+val sharedExtensionPatch = sharedExtensionPatch("messenger", mainActivityOnCreateHook)

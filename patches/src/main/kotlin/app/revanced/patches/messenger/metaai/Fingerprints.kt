@@ -1,6 +1,5 @@
 package app.revanced.patches.messenger.metaai
 
-
 import com.android.tools.smali.dexlib2.Opcode
 import app.revanced.patcher.fingerprint
 
