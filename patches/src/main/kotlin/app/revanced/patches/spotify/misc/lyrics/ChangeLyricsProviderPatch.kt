@@ -61,7 +61,6 @@ val changeLyricsProviderPatch = bytecodePatch(
             return@execute
         }
 
-
         //region Create a patched HTTP client for the requested URL
 
         // Copy the method definition of the HTTP client builder for a valid hostname.
