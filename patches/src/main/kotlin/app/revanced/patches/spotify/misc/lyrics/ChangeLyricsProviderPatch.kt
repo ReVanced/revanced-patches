@@ -5,7 +5,6 @@ import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.fingerprint
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.stringOption
-import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
 import app.revanced.patches.spotify.misc.extension.IS_SPOTIFY_LEGACY_APP_TARGET
 import app.revanced.util.getReference
@@ -64,29 +63,21 @@ val changeLyricsProviderPatch = bytecodePatch(
         // region Create a modified copy of the HTTP client builder method with the custom lyrics provider URL.
 
         // Copy the method definition of the HTTP client builder for a valid hostname.
-        val patchedHttpClientBuilderMethod : MutableMethod
-
-        httpClientBuilderFingerprint.apply {
+        val patchedHttpClientBuilderMethod = with(httpClientBuilderFingerprint) {
             val urlAssignmentIndex = stringMatches!!.first().index
-
             val urlRegister = method.getInstruction<OneRegisterInstruction>(
                 urlAssignmentIndex,
             ).registerA
 
-            patchedHttpClientBuilderMethod = method.toMutable().apply {
+            method.toMutable().apply {
                 name = "patch_getCustomLyricsProviderHttpClient"
-
                 replaceInstruction(
                     urlAssignmentIndex,
                     "const-string v$urlRegister, \"$lyricsProviderUrl\""
                 )
+                classDef.methods.add(this)
             }
-
-            classDef.methods.add(
-                patchedHttpClientBuilderMethod
-            )
         }
-
 
         //endregion
 
