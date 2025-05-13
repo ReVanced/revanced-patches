@@ -911,7 +911,7 @@ fun MutableMethod.returnLate(value: Double) {
 private fun MutableMethod.overrideReturnValue(value: String, returnLate: Boolean) {
     val instructions = when (returnType.first()) {
         // If return type is an object, always return null.
-        'L' -> {
+        'L', '[' -> {
             """
                 const/4 v0, 0x0
                 return-object v0
