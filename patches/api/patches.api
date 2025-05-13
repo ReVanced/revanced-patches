@@ -144,10 +144,6 @@ public final class app/revanced/patches/angulus/ads/RemoveAdsPatchKt {
 	public static final fun getAngulusPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/angulus/misc/license/DisableLicenseCheckPatchKt {
-	public static final fun getDisableLicenseCheckPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
-}
-
 public final class app/revanced/patches/backdrops/misc/pro/ProUnlockPatchKt {
 	public static final fun getProUnlockPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
@@ -650,6 +646,10 @@ public final class app/revanced/patches/shared/misc/mapping/ResourceMappingPatch
 	public static final fun get (Ljava/util/List;Ljava/lang/String;Ljava/lang/String;)J
 	public static final fun getResourceMappingPatch ()Lapp/revanced/patcher/patch/ResourcePatch;
 	public static final fun getResourceMappings ()Ljava/util/List;
+}
+
+public final class app/revanced/patches/shared/misc/pairip/license/DisableLicenseCheckPatchKt {
+	public static final fun getDisableLicenseCheckPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
 public final class app/revanced/patches/shared/misc/settings/SettingsPatchKt {

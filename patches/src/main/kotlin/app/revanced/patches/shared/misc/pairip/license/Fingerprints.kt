@@ -1,4 +1,4 @@
-package app.revanced.patches.angulus.misc.license
+package app.revanced.patches.shared.misc.pairip.license
 
 import app.revanced.patcher.fingerprint
 
