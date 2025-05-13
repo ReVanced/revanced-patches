@@ -1,3 +1,29 @@
+# [5.24.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.23.0...v5.24.0-dev.1) (2025-05-12)
+
+
+### Features
+
+* **NU.nl:** Support version `11.3.0` ([#4925](https://github.com/ReVanced/revanced-patches/issues/4925)) ([bedde60](https://github.com/ReVanced/revanced-patches/commit/bedde60fc1a52b0fd491174b3b5b887435eb621a))
+
+# [5.23.0](https://github.com/ReVanced/revanced-patches/compare/v5.22.0...v5.23.0) (2025-05-10)
+
+
+### Bug Fixes
+
+* Correct incorrect fingerprint ([c3bab89](https://github.com/ReVanced/revanced-patches/commit/c3bab89fc4189e38c10eee0caa36289de7e29dfa))
+* Fix incorrect fingerprints ([#4917](https://github.com/ReVanced/revanced-patches/issues/4917)) ([49ca329](https://github.com/ReVanced/revanced-patches/commit/49ca3290a726cdba7bc9b62ffcd8d46e6f04778e))
+* **Spotify - Unlock Spotify Premium:** Remove pop up premium ads ([#4842](https://github.com/ReVanced/revanced-patches/issues/4842)) ([00aa200](https://github.com/ReVanced/revanced-patches/commit/00aa2000ba2eef15a0dd827c2bd84c2e85c412e0))
+* **YouTube:** Improve litho filtering performance ([#4904](https://github.com/ReVanced/revanced-patches/issues/4904)) ([7b43986](https://github.com/ReVanced/revanced-patches/commit/7b43986871a68e5cb43331d2fb2fdb9ef67438ad))
+* **YouTube:** Simplify litho filtering patch ([#4910](https://github.com/ReVanced/revanced-patches/issues/4910)) ([bd53955](https://github.com/ReVanced/revanced-patches/commit/bd53955df738bb7b819eb91a3e776e9d2ca5c74a))
+
+
+### Features
+
+* **Lightroom:** Constrain patches to last working version ([efef03b](https://github.com/ReVanced/revanced-patches/commit/efef03b80da21552d0d8be6913faba64e4fb5ed1))
+* **Pandora:** Add `Disable audio ads` and `Unlimited skips` patch ([#4841](https://github.com/ReVanced/revanced-patches/issues/4841)) ([0cf7a4c](https://github.com/ReVanced/revanced-patches/commit/0cf7a4c6be615ed0a52a6bacf87592f5f43ff575))
+* **Prime Video:** Add `Skip ads` patch ([#4824](https://github.com/ReVanced/revanced-patches/issues/4824)) ([bb672c4](https://github.com/ReVanced/revanced-patches/commit/bb672c4674ddc201b8b2648c3906cfc31ef43f10))
+* **Spotify:** Add `Sanitize sharing links` patch ([#4829](https://github.com/ReVanced/revanced-patches/issues/4829)) ([2e3511d](https://github.com/ReVanced/revanced-patches/commit/2e3511d03c8198bbdb9336888df038a33fb3ab8c))
+
 # [5.23.0-dev.7](https://github.com/ReVanced/revanced-patches/compare/v5.23.0-dev.6...v5.23.0-dev.7) (2025-05-06)
 
 

@@ -4,10 +4,10 @@ import app.revanced.patcher.fingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal val jwUtilCreateAdvertisementFingerprint by fingerprint {
-    accessFlags(AccessFlags.PRIVATE, AccessFlags.STATIC)
+internal val jwPlayerConfigFingerprint by fingerprint {
+    accessFlags(AccessFlags.PUBLIC)
     custom { methodDef, classDef ->
-        classDef.type == "Lnl/sanomamedia/android/nu/video/util/JWUtil;" && methodDef.name == "createAdvertising"
+        classDef.type == "Lcom/jwplayer/pub/api/configuration/PlayerConfig${'$'}Builder;" && methodDef.name == "advertisingConfig"
     }
 }
 
