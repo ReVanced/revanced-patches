@@ -106,7 +106,7 @@ val changeLyricsProviderPatch = bytecodePatch(
             }
         }
 
-        //region Use the patched HTTP client for lyrics request
+        // region Conditionally use the modified HTTP client builder method when the client is used for the lyrics API.
 
         lyricsHttpClientDefinitionFingerprint.method.apply {
             val getLyricsClientIndex = indexOfFirstInstructionOrThrow() {
