@@ -2,7 +2,6 @@ package app.revanced.patches.messenger.metaai
 
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
-import app.revanced.patcher.extensions.InstructionExtensions.instructions
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.messenger.misc.extension.sharedExtensionPatch
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
@@ -20,7 +19,7 @@ val removeMetaAIPatch = bytecodePatch(
 
     execute {
         getMobileConfigBoolFingerprint.method.apply {
-            val returnIndex = instructions.lastIndex
+            val returnIndex = getMobileConfigBoolFingerprint.patternMatch!!.startIndex
             val returnRegister = getInstruction<OneRegisterInstruction>(returnIndex).registerA
 
             addInstructions(
