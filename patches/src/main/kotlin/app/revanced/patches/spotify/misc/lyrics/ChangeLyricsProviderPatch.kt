@@ -37,9 +37,8 @@ val changeLyricsProviderPatch = bytecodePatch(
         required = true,
         default = "lyrics.natanchiodi.fr"
     ) {
-        val host: String?
-        try {
-            host = URI(it!!).host ?: it
+        val host = try {
+            URI(it!!).host ?: it
         } catch (e: URISyntaxException) {
             return@stringOption false
         }
