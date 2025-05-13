@@ -98,9 +98,7 @@ val changeLyricsProviderPatch = bytecodePatch(
                 getReference<MethodReference>() == httpClientBuilderFingerprint.originalMethod
             }
 
-            val getLyricsClientInstruction = getInstruction<BuilderInstruction35c>(
-                getLyricsClientIndex
-            )
+            val getLyricsHttpClientInstruction = getInstruction<BuilderInstruction35c>(getLyricsHttpClientIndex)
 
             /**
              * Adjust the lyrics HTTP builder method name to the method defined above.
