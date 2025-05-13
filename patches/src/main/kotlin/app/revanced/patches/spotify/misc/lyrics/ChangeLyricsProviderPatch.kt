@@ -5,6 +5,7 @@ import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.fingerprint
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.stringOption
+import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
 import app.revanced.patches.spotify.misc.extension.IS_SPOTIFY_LEGACY_APP_TARGET
 import app.revanced.util.getReference
@@ -68,7 +69,7 @@ val changeLyricsProviderPatch = bytecodePatch(
                 urlAssignmentIndex,
             ).registerA
 
-            method.toMutable().apply {
+            MutableMethod(method).apply {
                 name = "patch_getCustomLyricsProviderHttpClient"
                 replaceInstruction(
                     urlAssignmentIndex,
