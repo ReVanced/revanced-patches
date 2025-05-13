@@ -32,7 +32,7 @@ val changeLyricsProviderPatch = bytecodePatch(
     val lyricsProviderHost by stringOption(
         key = "lyricsProviderHost",
         title = "Lyrics provider host",
-        description = "The domain name or ip address of a custom lyrics provider.",
+        description = "The domain name or IP address of a custom lyrics provider.",
         required = true,
         default = "lyrics.natanchiodi.fr"
     ) {
