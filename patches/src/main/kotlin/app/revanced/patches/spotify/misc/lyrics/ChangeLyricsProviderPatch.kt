@@ -61,7 +61,7 @@ val changeLyricsProviderPatch = bytecodePatch(
             return@execute
         }
 
-        //region Create a patched HTTP client for the requested URL
+        // region Create a modified copy of the HTTP client builder method with the custom lyrics provider URL.
 
         // Copy the method definition of the HTTP client builder for a valid hostname.
         val patchedClientMethod : MutableMethod
