@@ -742,10 +742,12 @@ private const val RETURN_TYPE_MISMATCH = "Mismatch between override type and Met
 /**
  * Overrides the first instruction of a method with a constant `Boolean` return value.
  * None of the method code will ever execute.
+ *
+ * Calling with the default parameter returns a false-y value for `Object` and `Array` types.
  */
 fun MutableMethod.returnEarly(value: Boolean = false) {
     val returnType = returnType.first();
-    check(returnType == 'Z' || (!value && (returnType == 'V' || returnType == 'L'))) { RETURN_TYPE_MISMATCH }
+    check(returnType == 'Z' || (!value && (returnType in setOf('V', 'L', '[')))) { RETURN_TYPE_MISMATCH }
     overrideReturnValue(value.toHexString(), false)
 }
 
@@ -816,13 +818,15 @@ fun MutableMethod.returnEarly(value: Double) {
  * Overrides all return statements with a constant `Boolean` value.
  * All method code is executed the same as unpatched.
  *
+ * Calling with the default parameter returns a false-y value for `Object` and `Array` types.
+ *
  * @see returnEarly
  */
 fun MutableMethod.returnLate(value: Boolean = false) {
     val returnType = returnType.first();
     if (returnType == 'V')
         error("Cannot return late for Method of void type")
-    check(returnType == 'Z' || (!value && returnType == 'L')) { RETURN_TYPE_MISMATCH }
+    check(returnType == 'Z' || (!value && returnType in setOf('L', '['))) { RETURN_TYPE_MISMATCH }
 
     overrideReturnValue(value.toHexString(), true)
 }
