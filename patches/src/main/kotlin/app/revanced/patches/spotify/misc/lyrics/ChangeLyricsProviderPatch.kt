@@ -81,7 +81,7 @@ val changeLyricsProviderPatch = bytecodePatch(
         //endregion
 
         // Replace the call to the HTTP client builder method used exclusively for lyrics by the modified one.
-        val buildLyricsHttpClientFingerprint = fingerprint {
+        fingerprint {
             returns(httpClientBuilderFingerprint.originalMethod.returnType)
             parameters()
             custom { method, _ ->
