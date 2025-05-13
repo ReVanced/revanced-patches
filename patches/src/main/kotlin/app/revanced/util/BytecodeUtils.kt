@@ -737,53 +737,80 @@ fun BytecodePatchContext.forEachLiteralValueInstruction(
     }
 }
 
+private const val RETURN_TYPE_MISMATCH = "Mismatch between override type and Method return type"
+
 /**
  * Overrides the first instruction of a method with a constant `Boolean` return value.
  * None of the method code will ever execute.
  */
-internal fun MutableMethod.returnEarly(value: Boolean = false) = overrideReturnValue(value.toHexString(), false)
+fun MutableMethod.returnEarly(value: Boolean = false) {
+    val returnType = returnType.first();
+    check(returnType == 'Z' || (!value && (returnType == 'V' || returnType == 'L'))) { RETURN_TYPE_MISMATCH }
+    overrideReturnValue(value.toHexString(), false)
+}
 
 /**
  * Overrides the first instruction of a method with a constant `Byte` return value.
  * None of the method code will ever execute.
  */
-internal fun MutableMethod.returnEarly(value: Byte) = overrideReturnValue(value.toHexString(), false)
+fun MutableMethod.returnEarly(value: Byte) {
+    check(returnType.first() == 'B') { RETURN_TYPE_MISMATCH }
+    overrideReturnValue(value.toString(), false)
+}
 
 /**
  * Overrides the first instruction of a method with a constant `Short` return value.
  * None of the method code will ever execute.
  */
-internal fun MutableMethod.returnEarly(value: Short) = overrideReturnValue(value.toHexString(), false)
+fun MutableMethod.returnEarly(value: Short) {
+    check(returnType.first() == 'S') { RETURN_TYPE_MISMATCH }
+    overrideReturnValue(value.toString(), false)
+}
 
 /**
  * Overrides the first instruction of a method with a constant `Char` return value.
  * None of the method code will ever execute.
  */
-internal fun MutableMethod.returnEarly(value: Char) = overrideReturnValue(value.toHexString(), false)
+fun MutableMethod.returnEarly(value: Char) {
+    check(returnType.first() == 'C') { RETURN_TYPE_MISMATCH }
+    overrideReturnValue(value.code.toString(), false)
+}
 
 /**
  * Overrides the first instruction of a method with a constant `Int` return value.
  * None of the method code will ever execute.
  */
-internal fun MutableMethod.returnEarly(value: Int) = overrideReturnValue(value.toHexString(), false)
+fun MutableMethod.returnEarly(value: Int) {
+    check(returnType.first() == 'I') { RETURN_TYPE_MISMATCH }
+    overrideReturnValue(value.toString(), false)
+}
 
 /**
  * Overrides the first instruction of a method with a constant `Long` return value.
  * None of the method code will ever execute.
  */
-internal fun MutableMethod.returnEarly(value: Long) = overrideReturnValue(value.toHexString(), false)
+fun MutableMethod.returnEarly(value: Long) {
+    check(returnType.first() == 'J') { RETURN_TYPE_MISMATCH }
+    overrideReturnValue(value.toString(), false)
+}
 
 /**
  * Overrides the first instruction of a method with a constant `Float` return value.
  * None of the method code will ever execute.
  */
-internal fun MutableMethod.returnEarly(value: Float) = overrideReturnValue(value.toHexString(), false)
+fun MutableMethod.returnEarly(value: Float) {
+    check(returnType.first() == 'F') { RETURN_TYPE_MISMATCH }
+    overrideReturnValue(value.toString(), false)
+}
 
 /**
  * Overrides the first instruction of a method with a constant `Double` return value.
  * None of the method code will ever execute.
  */
-internal fun MutableMethod.returnEarly(value: Double) = overrideReturnValue(value.toHexString(), false)
+fun MutableMethod.returnEarly(value: Double) {
+    check(returnType.first() == 'J') { RETURN_TYPE_MISMATCH }
+    overrideReturnValue(value.toString(), false)
+}
 
 /**
  * Overrides all return statements with a constant `Boolean` value.
@@ -791,7 +818,14 @@ internal fun MutableMethod.returnEarly(value: Double) = overrideReturnValue(valu
  *
  * @see returnEarly
  */
-internal fun MutableMethod.returnLate(value: Boolean = false) = overrideReturnValue(value.toHexString(), true)
+fun MutableMethod.returnLate(value: Boolean = false) {
+    val returnType = returnType.first();
+    if (returnType == 'V')
+        error("Cannot return late for Method of void type")
+    check(returnType == 'Z' || (!value && returnType == 'L')) { RETURN_TYPE_MISMATCH }
+
+    overrideReturnValue(value.toHexString(), true)
+}
 
 /**
  * Overrides all return statements with a constant `Byte` value.
@@ -799,7 +833,10 @@ internal fun MutableMethod.returnLate(value: Boolean = false) = overrideReturnVa
  *
  * @see returnEarly
  */
-internal fun MutableMethod.returnLate(value: Byte) = overrideReturnValue(value.toHexString(), true)
+fun MutableMethod.returnLate(value: Byte) {
+    check(returnType.first() == 'B') { RETURN_TYPE_MISMATCH }
+    overrideReturnValue(value.toString(), true)
+}
 
 /**
  * Overrides all return statements with a constant `Short` value.
@@ -807,7 +844,10 @@ internal fun MutableMethod.returnLate(value: Byte) = overrideReturnValue(value.t
  *
  * @see returnEarly
  */
-internal fun MutableMethod.returnLate(value: Short) = overrideReturnValue(value.toHexString(), true)
+fun MutableMethod.returnLate(value: Short) {
+    check(returnType.first() == 'S') { RETURN_TYPE_MISMATCH }
+    overrideReturnValue(value.toString(), true)
+}
 
 /**
  * Overrides all return statements with a constant `Char` value.
@@ -815,7 +855,10 @@ internal fun MutableMethod.returnLate(value: Short) = overrideReturnValue(value.
  *
  * @see returnEarly
  */
-internal fun MutableMethod.returnLate(value: Char) = overrideReturnValue(value.toHexString(), true)
+fun MutableMethod.returnLate(value: Char) {
+    check(returnType.first() == 'C') { RETURN_TYPE_MISMATCH }
+    overrideReturnValue(value.code.toString(), true)
+}
 
 /**
  * Overrides all return statements with a constant `Int` value.
@@ -823,7 +866,10 @@ internal fun MutableMethod.returnLate(value: Char) = overrideReturnValue(value.t
  *
  * @see returnEarly
  */
-internal fun MutableMethod.returnLate(value: Int) = overrideReturnValue(value.toHexString(), true)
+fun MutableMethod.returnLate(value: Int) {
+    check(returnType.first() == 'I') { RETURN_TYPE_MISMATCH }
+    overrideReturnValue(value.toString(), true)
+}
 
 /**
  * Overrides all return statements with a constant `Long` value.
@@ -831,7 +877,10 @@ internal fun MutableMethod.returnLate(value: Int) = overrideReturnValue(value.to
  *
  * @see returnEarly
  */
-internal fun MutableMethod.returnLate(value: Long) = overrideReturnValue(value.toHexString(), true)
+fun MutableMethod.returnLate(value: Long) {
+    check(returnType.first() == 'J') { RETURN_TYPE_MISMATCH }
+    overrideReturnValue(value.toString(), true)
+}
 
 /**
  * Overrides all return statements with a constant `Float` value.
@@ -839,7 +888,10 @@ internal fun MutableMethod.returnLate(value: Long) = overrideReturnValue(value.t
  *
  * @see returnEarly
  */
-internal fun MutableMethod.returnLate(value: Float) = overrideReturnValue(value.toHexString(), true)
+fun MutableMethod.returnLate(value: Float) {
+    check(returnType.first() == 'F') { RETURN_TYPE_MISMATCH }
+    overrideReturnValue(value.toString(), true)
+}
 
 /**
  * Overrides all return statements with a constant `Double` value.
@@ -847,7 +899,10 @@ internal fun MutableMethod.returnLate(value: Float) = overrideReturnValue(value.
  *
  * @see returnEarly
  */
-internal fun MutableMethod.returnLate(value: Double) = overrideReturnValue(value.toHexString(), true)
+fun MutableMethod.returnLate(value: Double) {
+    check(returnType.first() == 'D') { RETURN_TYPE_MISMATCH }
+    overrideReturnValue(value.toString(), true)
+}
 
 private fun MutableMethod.overrideReturnValue(value: String, returnLate: Boolean) {
     val instructions = when (returnType.first()) {
@@ -860,7 +915,6 @@ private fun MutableMethod.overrideReturnValue(value: String, returnLate: Boolean
         }
 
         'V' -> {
-            if (returnLate) throw IllegalArgumentException("Cannot return late for method of void type")
             "return-void"
         }
 
@@ -888,7 +942,7 @@ private fun MutableMethod.overrideReturnValue(value: String, returnLate: Boolean
         'J', 'D' -> {
             """
                 const-wide v0, $value
-                return v0
+                return-wide v0
             """
         }
 
