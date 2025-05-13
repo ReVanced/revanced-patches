@@ -111,9 +111,9 @@ val changeLyricsProviderPatch = bytecodePatch(
         //region Use the patched HTTP client for lyrics request
 
         lyricsHttpClientDefinitionFingerprint.method.apply {
-            val getLyricsClientIndex = indexOfFirstInstructionOrThrow(
-                Opcode.INVOKE_STATIC
-            )
+            val getLyricsClientIndex = indexOfFirstInstructionOrThrow() {
+                getReference<MethodReference>() == clientBuilderFingerprint.originalMethod
+            }
 
             val getLyricsClientInstruction = getInstruction<BuilderInstruction35c>(
                 getLyricsClientIndex
