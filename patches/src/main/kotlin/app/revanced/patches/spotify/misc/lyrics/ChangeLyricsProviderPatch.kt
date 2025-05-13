@@ -62,7 +62,6 @@ val changeLyricsProviderPatch = bytecodePatch(
 
         // region Create a modified copy of the HTTP client builder method with the custom lyrics provider URL.
 
-        // Copy the method definition of the HTTP client builder for a valid hostname.
         val patchedHttpClientBuilderMethod = with(httpClientBuilderFingerprint) {
             val urlAssignmentIndex = stringMatches!!.first().index
             val urlRegister = method.getInstruction<OneRegisterInstruction>(
