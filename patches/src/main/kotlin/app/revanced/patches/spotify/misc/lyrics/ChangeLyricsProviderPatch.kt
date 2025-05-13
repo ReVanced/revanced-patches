@@ -36,12 +36,17 @@ val changeLyricsProviderPatch = bytecodePatch(
         required = true,
         default = "lyrics.natanchiodi.fr"
     ) {
+        // Fix bad data if the user enters a URL (https://whatever.com/path).
         val host = try {
             URI(it!!).host ?: it
         } catch (e: URISyntaxException) {
             return@stringOption false
         }
 
+        // Do a courtesy check if the the host can be resolved.
+        // If it does not resolve, then print a warning but use the host anyway.
+        // Unresolvable hosts should not be rejected, since the patching environment
+        // may not allow network connections or the network may be down.
         try {
             InetAddress.getByName(host)
         } catch (e: UnknownHostException) {
