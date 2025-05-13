@@ -7,10 +7,12 @@ import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.stringOption
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
 import app.revanced.patches.spotify.misc.extension.IS_SPOTIFY_LEGACY_APP_TARGET
+import app.revanced.util.indexOfFirstInstructionReversed
 import app.revanced.util.indexOfFirstInstructionReversedOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.builder.instruction.BuilderInstruction35c
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import com.android.tools.smali.dexlib2.immutable.reference.ImmutableMethodReference
 import java.net.InetAddress
 import java.net.URI
@@ -89,7 +91,19 @@ val changeLyricsProviderPatch = bytecodePatch(
         val lyricsHttpClientDefinitionFingerprint = fingerprint {
             returns(clientBuilderFingerprint.originalMethod.returnType)
             parameters()
-            opcodes(Opcode.CHECK_CAST)
+            custom { method, _ ->
+                val lastInvokeIndex = method.indexOfFirstInstructionReversed(
+                    Opcode.INVOKE_STATIC
+                )
+                if(lastInvokeIndex == -1) {
+                    return@custom false
+                }
+                val lastInvokeMethodReference = method.toMutable().getInstruction<BuilderInstruction35c>(
+                    lastInvokeIndex
+                ).reference as MethodReference
+
+                return@custom lastInvokeMethodReference == clientBuilderFingerprint.originalMethod
+            }
         }
 
         //region Use the patched HTTP client for lyrics request
