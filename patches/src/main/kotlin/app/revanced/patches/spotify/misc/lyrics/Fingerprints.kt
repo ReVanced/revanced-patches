@@ -5,7 +5,7 @@ import app.revanced.patcher.fingerprint
 /**
  * This method builds and returns an HTTP client for a hardcoded host (declared in this method).
  */
-internal val clientBuilderFingerprint = fingerprint {
+internal val httpClientBuilderFingerprint = fingerprint {
     parameters(
         "Lokhttp3/OkHttpClient;",
         "Lcom/fasterxml/jackson/databind/ObjectMapper;",

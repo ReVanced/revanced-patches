@@ -66,14 +66,14 @@ val changeLyricsProviderPatch = bytecodePatch(
         // Copy the method definition of the HTTP client builder for a valid hostname.
         val patchedHttpClientBuilderMethod : MutableMethod
 
-        clientBuilderFingerprint.apply {
+        httpClientBuilderFingerprint.apply {
             val urlAssignmentIndex = stringMatches!!.first().index
 
             val urlRegister = method.getInstruction<OneRegisterInstruction>(
                 urlAssignmentIndex,
             ).registerA
 
-            patchedClientMethod = method.toMutable().apply {
+            patchedHttpClientBuilderMethod = method.toMutable().apply {
                 name = "patch_getCustomLyricsProviderHttpClient"
 
                 replaceInstruction(
@@ -83,7 +83,7 @@ val changeLyricsProviderPatch = bytecodePatch(
             }
 
             classDef.methods.add(
-                patchedClientMethod
+                patchedHttpClientBuilderMethod
             )
         }
 
@@ -97,11 +97,11 @@ val changeLyricsProviderPatch = bytecodePatch(
          * custom lyrics host. This new method is only used for the lyrics request and nowhere else.
          */
         val lyricsHttpClientDefinitionFingerprint = fingerprint {
-            returns(clientBuilderFingerprint.originalMethod.returnType)
+            returns(httpClientBuilderFingerprint.originalMethod.returnType)
             parameters()
             custom { method, _ ->
                 method.indexOfFirstInstruction {
-                    getReference<MethodReference>() == clientBuilderFingerprint.originalMethod
+                    getReference<MethodReference>() == httpClientBuilderFingerprint.originalMethod
                 } >= 0
             }
         }
@@ -110,7 +110,7 @@ val changeLyricsProviderPatch = bytecodePatch(
 
         lyricsHttpClientDefinitionFingerprint.method.apply {
             val getLyricsClientIndex = indexOfFirstInstructionOrThrow() {
-                getReference<MethodReference>() == clientBuilderFingerprint.originalMethod
+                getReference<MethodReference>() == httpClientBuilderFingerprint.originalMethod
             }
 
             val getLyricsClientInstruction = getInstruction<BuilderInstruction35c>(
@@ -132,10 +132,10 @@ val changeLyricsProviderPatch = bytecodePatch(
                     getLyricsClientInstruction.registerF,
                     getLyricsClientInstruction.registerG,
                     ImmutableMethodReference(
-                        patchedClientMethod.definingClass,
-                        patchedClientMethod.name, // This is the only difference to the original method.
-                        patchedClientMethod.parameters,
-                        patchedClientMethod.returnType
+                        patchedHttpClientBuilderMethod.definingClass,
+                        patchedHttpClientBuilderMethod.name, // This is the only difference to the original method.
+                        patchedHttpClientBuilderMethod.parameters,
+                        patchedHttpClientBuilderMethod.returnType
                     )
                 )
             )
