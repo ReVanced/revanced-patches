@@ -1,6 +1,7 @@
 package app.revanced.extension.shared;
 
 import static app.revanced.extension.shared.StringRef.str;
+import static app.revanced.extension.shared.requests.Route.Method.GET;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
@@ -15,10 +16,16 @@ import android.os.Build;
 import android.os.PowerManager;
 import android.provider.Settings;
 
+import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 
+import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.Locale;
+
+import app.revanced.extension.shared.requests.Requester;
+import app.revanced.extension.shared.requests.Route;
 
 @SuppressWarnings("unused")
 public class GmsCoreSupport {
@@ -29,10 +36,24 @@ public class GmsCoreSupport {
             = getGmsCoreVendorGroupId() + ".android.gms";
     private static final Uri GMS_CORE_PROVIDER
             = Uri.parse("content://" + getGmsCoreVendorGroupId() + ".android.gsf.gservices/prefix");
-    private static final String DONT_KILL_MY_APP_LINK
-            = "https://dontkillmyapp.com";
+    private static final String DONT_KILL_MY_APP_URL
+            = "https://dontkillmyapp.com/";
+    private static final Route DONT_KILL_MY_APP_MANUFACTURER_API
+            = new Route(GET, "/api/v2/{manufacturer}.json");
+    private static final String DONT_KILL_MY_APP_NAME_PARAMETER
+            = "?app=MicroG";
+    private static final String BUILD_MANUFACTURER
+            = Build.MANUFACTURER.toLowerCase(Locale.ROOT).replace(" ", "-");
+
+    /**
+     * If a manufacturer specific page exists on DoNotKillMyApp.
+     */
+    @Nullable
+    private static volatile Boolean DONT_KILL_MY_APP_MANUFACTURER_SUPPORTED;
 
     private static void open(String queryOrLink) {
+        Logger.printInfo(() -> "Opening link: " + queryOrLink);
+
         Intent intent;
         try {
             // Check if queryOrLink is a valid URL.
@@ -122,11 +143,12 @@ public class GmsCoreSupport {
             try (var client = context.getContentResolver().acquireContentProviderClient(GMS_CORE_PROVIDER)) {
                 if (client == null) {
                     Logger.printInfo(() -> "GmsCore is not running in the background");
+                    checkIfDoNotKillMyAppSupportsManufacturer();
 
                     showBatteryOptimizationDialog(context,
                             "gms_core_dialog_not_whitelisted_not_allowed_in_background_message",
                             "gms_core_dialog_open_website_text",
-                            (dialog, id) -> open(DONT_KILL_MY_APP_LINK));
+                            (dialog, id) -> openDoNotKillMyApp());
                 }
             }
         } catch (Exception ex) {
@@ -139,6 +161,48 @@ public class GmsCoreSupport {
         Intent intent = new Intent(Settings.ACTION_REQUEST_IGNORE_BATTERY_OPTIMIZATIONS);
         intent.setData(Uri.fromParts("package", GMS_CORE_PACKAGE_NAME, null));
         activity.startActivityForResult(intent, 0);
+    }
+
+    private static void checkIfDoNotKillMyAppSupportsManufacturer() {
+        Utils.runOnBackgroundThread(() -> {
+            try {
+                final long start = System.currentTimeMillis();
+                HttpURLConnection connection = Requester.getConnectionFromRoute(
+                        DONT_KILL_MY_APP_URL, DONT_KILL_MY_APP_MANUFACTURER_API, BUILD_MANUFACTURER);
+                connection.setConnectTimeout(5000);
+                connection.setReadTimeout(5000);
+
+                final boolean supported = connection.getResponseCode() == 200;
+                Logger.printInfo(() -> "Manufacturer is " + (supported ? "" : "NOT ")
+                        + "listed on DoNotKillMyApp: '" + BUILD_MANUFACTURER
+                        + "' fetch took: " + (System.currentTimeMillis() - start) + "ms");
+                DONT_KILL_MY_APP_MANUFACTURER_SUPPORTED = supported;
+            } catch (Exception ex) {
+                Logger.printInfo(() -> "Could not check if manufacturer is listed on DoNotKillMyApp: "
+                        + BUILD_MANUFACTURER, ex);
+                DONT_KILL_MY_APP_MANUFACTURER_SUPPORTED = false;
+            }
+        });
+    }
+
+    private static void openDoNotKillMyApp() {
+        final Boolean manufacturerSupported = DONT_KILL_MY_APP_MANUFACTURER_SUPPORTED;
+
+        String manufacturerPageToOpen;
+        if (manufacturerSupported == null) {
+            // Fetch has not completed yet. Only happens on extremely slow internet connections
+            // and the user spends less than 1 second reading what's on screen.
+            // Instead of waiting for the fetch (which may timeout),
+            // open the website without a vendor.
+            manufacturerPageToOpen = "";
+        } else if (manufacturerSupported) {
+            manufacturerPageToOpen = BUILD_MANUFACTURER;
+        } else {
+            // No manufacturer specific page exists. Open the general page.
+            manufacturerPageToOpen = "general";
+        }
+
+        open(DONT_KILL_MY_APP_URL + manufacturerPageToOpen + DONT_KILL_MY_APP_NAME_PARAMETER);
     }
 
     /**
