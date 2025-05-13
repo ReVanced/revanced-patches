@@ -46,7 +46,7 @@ public class GmsCoreSupport {
             = Build.MANUFACTURER.toLowerCase(Locale.ROOT).replace(" ", "-");
 
     /**
-     * If a manufacturer specific page exists on DoNotKillMyApp.
+     * If a manufacturer specific page exists on DontKillMyApp.
      */
     @Nullable
     private static volatile Boolean DONT_KILL_MY_APP_MANUFACTURER_SUPPORTED;
@@ -143,12 +143,12 @@ public class GmsCoreSupport {
             try (var client = context.getContentResolver().acquireContentProviderClient(GMS_CORE_PROVIDER)) {
                 if (client == null) {
                     Logger.printInfo(() -> "GmsCore is not running in the background");
-                    checkIfDoNotKillMyAppSupportsManufacturer();
+                    checkIfDontKillMyAppSupportsManufacturer();
 
                     showBatteryOptimizationDialog(context,
                             "gms_core_dialog_not_whitelisted_not_allowed_in_background_message",
                             "gms_core_dialog_open_website_text",
-                            (dialog, id) -> openDoNotKillMyApp());
+                            (dialog, id) -> openDontKillMyApp());
                 }
             }
         } catch (Exception ex) {
@@ -163,7 +163,7 @@ public class GmsCoreSupport {
         activity.startActivityForResult(intent, 0);
     }
 
-    private static void checkIfDoNotKillMyAppSupportsManufacturer() {
+    private static void checkIfDontKillMyAppSupportsManufacturer() {
         Utils.runOnBackgroundThread(() -> {
             try {
                 final long start = System.currentTimeMillis();
@@ -174,18 +174,18 @@ public class GmsCoreSupport {
 
                 final boolean supported = connection.getResponseCode() == 200;
                 Logger.printInfo(() -> "Manufacturer is " + (supported ? "" : "NOT ")
-                        + "listed on DoNotKillMyApp: '" + BUILD_MANUFACTURER
+                        + "listed on DontKillMyApp: '" + BUILD_MANUFACTURER
                         + "' fetch took: " + (System.currentTimeMillis() - start) + "ms");
                 DONT_KILL_MY_APP_MANUFACTURER_SUPPORTED = supported;
             } catch (Exception ex) {
-                Logger.printInfo(() -> "Could not check if manufacturer is listed on DoNotKillMyApp: "
+                Logger.printInfo(() -> "Could not check if manufacturer is listed on DontKillMyApp: "
                         + BUILD_MANUFACTURER, ex);
                 DONT_KILL_MY_APP_MANUFACTURER_SUPPORTED = false;
             }
         });
     }
 
-    private static void openDoNotKillMyApp() {
+    private static void openDontKillMyApp() {
         final Boolean manufacturerSupported = DONT_KILL_MY_APP_MANUFACTURER_SUPPORTED;
 
         String manufacturerPageToOpen;
