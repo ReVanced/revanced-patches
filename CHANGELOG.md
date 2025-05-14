@@ -1,3 +1,10 @@
+# [5.24.0-dev.3](https://github.com/ReVanced/revanced-patches/compare/v5.24.0-dev.2...v5.24.0-dev.3) (2025-05-14)
+
+
+### Bug Fixes
+
+* **YouTube - Hide layout components:** Fix `Hide video recommendation labels` ([#4956](https://github.com/ReVanced/revanced-patches/issues/4956)) ([ae05ac3](https://github.com/ReVanced/revanced-patches/commit/ae05ac38151ebd3197953af97ca0dd847a04cc2d))
+
 # [5.24.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.24.0-dev.1...v5.24.0-dev.2) (2025-05-14)
 
 
