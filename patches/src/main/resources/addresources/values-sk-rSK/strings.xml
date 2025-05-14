@@ -787,6 +787,11 @@ Automatické prehrávanie je možné zmeniť v nastaveniach YouTube:
 Nastavenia → Prehrávanie → Automatické prehrávanie ďalšieho videa"</string>
   <string name="revanced_end_screen_suggested_video_summary_off">Navrhované video na konci obrazovky sa zobrazuje</string>
   </patch>
+  <patch id="layout.hide.relatedvideooverlay.hideRelatedVideoOverlayPatch">
+  <string name="revanced_hide_related_video_overlay_title">Skryť prekrytie súvisiaceho videa v režime celej obrazovky</string>
+  <string name="revanced_hide_related_video_overlay_summary_on">Prekrytie súvisiaceho videa je skryté</string>
+  <string name="revanced_hide_related_video_overlay_summary_off">Prekrytie súvisiaceho videa sa zobrazuje</string>
+  </patch>
   <patch id="layout.hide.time.hideTimestampPatch">
   <string name="revanced_hide_timestamp_title">Skryť časovú pečiatku videa</string>
   <string name="revanced_hide_timestamp_summary_on">Časová pečiatka je skrytá</string>

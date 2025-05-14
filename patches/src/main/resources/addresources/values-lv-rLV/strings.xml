@@ -794,6 +794,11 @@ Automātisko atskaņošanu var mainīt YouTube iestatījumos:
 Iestatījumi → Atskaņošana → Automātiski atskaņot nākamo video"</string>
   <string name="revanced_end_screen_suggested_video_summary_off">Ieteiktais video beigu ekrānā ir redzams</string>
   </patch>
+  <patch id="layout.hide.relatedvideooverlay.hideRelatedVideoOverlayPatch">
+  <string name="revanced_hide_related_video_overlay_title">Slēpt saistīto video pārklājumu pilnekrāna režīmā</string>
+  <string name="revanced_hide_related_video_overlay_summary_on">Saistīto video pārklājums ir paslēpts</string>
+  <string name="revanced_hide_related_video_overlay_summary_off">Saistīto video pārklājums ir redzams</string>
+  </patch>
   <patch id="layout.hide.time.hideTimestampPatch">
   <string name="revanced_hide_timestamp_title">Paslēpt video laika zīmi</string>
   <string name="revanced_hide_timestamp_summary_on">Laika zīme ir paslēpta</string>
