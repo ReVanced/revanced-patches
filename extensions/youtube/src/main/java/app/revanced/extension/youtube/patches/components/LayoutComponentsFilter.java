@@ -232,7 +232,7 @@ public final class LayoutComponentsFilter extends Filter {
                 "mixed_content_shelf"
         );
 
-        searchResultRecommendationLabels = new StringFilterGroup(
+        final var searchResultRecommendationLabels = new StringFilterGroup(
                 Settings.HIDE_SEARCH_RESULT_RECOMMENDATION_LABELS,
                 "endorsement_header_footer.eml"
         );
