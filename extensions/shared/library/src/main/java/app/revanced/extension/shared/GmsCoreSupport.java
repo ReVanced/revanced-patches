@@ -107,7 +107,7 @@ public class GmsCoreSupport {
 
                 // Do not exit. If the app exits before launch completes (and without
                 // opening another activity), then on some devices such as Pixel phone Android 10
-                // no toast will be shown and the app will continually be relaunched
+                // no toast will be shown and the app will continually relaunch
                 // with the appearance of a hung app.
             }
 
@@ -174,13 +174,13 @@ public class GmsCoreSupport {
 
                 final boolean supported = connection.getResponseCode() == 200;
                 Logger.printInfo(() -> "Manufacturer is " + (supported ? "" : "NOT ")
-                        + "listed on DontKillMyApp: '" + BUILD_MANUFACTURER
-                        + "' fetch took: " + (System.currentTimeMillis() - start) + "ms");
+                        + "listed on DontKillMyApp: " + BUILD_MANUFACTURER
+                        + " fetch took: " + (System.currentTimeMillis() - start) + "ms");
                 DONT_KILL_MY_APP_MANUFACTURER_SUPPORTED = supported;
             } catch (Exception ex) {
                 Logger.printInfo(() -> "Could not check if manufacturer is listed on DontKillMyApp: "
                         + BUILD_MANUFACTURER, ex);
-                DONT_KILL_MY_APP_MANUFACTURER_SUPPORTED = false;
+                DONT_KILL_MY_APP_MANUFACTURER_SUPPORTED = null;
             }
         });
     }
