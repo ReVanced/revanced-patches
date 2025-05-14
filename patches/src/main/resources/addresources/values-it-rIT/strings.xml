@@ -794,6 +794,11 @@ L'autoplay può essere modificato nelle impostazioni di YouTube:
 Impostazioni → Riproduzione → Riproduzione automatica video successivo"</string>
   <string name="revanced_end_screen_suggested_video_summary_off">Il video suggerito nella schermata finale è mostrato</string>
   </patch>
+  <patch id="layout.hide.relatedvideooverlay.hideRelatedVideoOverlayPatch">
+  <string name="revanced_hide_related_video_overlay_title">Nascondi la sovrapposizione dei video correlati a schermo intero</string>
+  <string name="revanced_hide_related_video_overlay_summary_on">La sovrapposizione dei video correlati è nascosta</string>
+  <string name="revanced_hide_related_video_overlay_summary_off">La sovrapposizione dei video correlati è visualizzata</string>
+  </patch>
   <patch id="layout.hide.time.hideTimestampPatch">
   <string name="revanced_hide_timestamp_title">Nascondi timestamp video</string>
   <string name="revanced_hide_timestamp_summary_on">Il timestamp è nascosto</string>

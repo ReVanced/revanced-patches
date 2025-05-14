@@ -794,6 +794,11 @@ La reproducció automàtica es pot canviar a la configuració de YouTube:
 Configuració → Reproducció → Reprodueix el vídeo següent automàticament"</string>
   <string name="revanced_end_screen_suggested_video_summary_off">Es mostra el vídeo suggerit de la pantalla final</string>
   </patch>
+  <patch id="layout.hide.relatedvideooverlay.hideRelatedVideoOverlayPatch">
+  <string name="revanced_hide_related_video_overlay_title">Amaga la superposició de vídeos relacionats a pantalla completa</string>
+  <string name="revanced_hide_related_video_overlay_summary_on">La superposició de vídeos relacionats està amagada</string>
+  <string name="revanced_hide_related_video_overlay_summary_off">Es mostra la superposició de vídeos relacionats</string>
+  </patch>
   <patch id="layout.hide.time.hideTimestampPatch">
   <string name="revanced_hide_timestamp_title">Amagar segell de temps del vídeo</string>
   <string name="revanced_hide_timestamp_summary_on">El segell de temps està ocult</string>

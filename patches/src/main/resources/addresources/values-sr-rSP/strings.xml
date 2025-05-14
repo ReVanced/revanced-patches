@@ -794,6 +794,11 @@ Second \"item\" text"</string>
 Подешавања → Репродукција → Аутоматски пусти следећи видео"</string>
   <string name="revanced_end_screen_suggested_video_summary_off">Предложени видео на завршном екрану је приказан</string>
   </patch>
+  <patch id="layout.hide.relatedvideooverlay.hideRelatedVideoOverlayPatch">
+  <string name="revanced_hide_related_video_overlay_title">Сакриј преклапање сродних видео снимака у режиму целог екрана</string>
+  <string name="revanced_hide_related_video_overlay_summary_on">Преклапање сродних видео снимака је сакривено</string>
+  <string name="revanced_hide_related_video_overlay_summary_off">Преклапање сродних видео снимака је приказано</string>
+  </patch>
   <patch id="layout.hide.time.hideTimestampPatch">
   <string name="revanced_hide_timestamp_title">Сакриј временску ознаку видеа</string>
   <string name="revanced_hide_timestamp_summary_on">Временска ознака видеа је скривена</string>

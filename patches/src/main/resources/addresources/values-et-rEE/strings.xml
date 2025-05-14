@@ -794,6 +794,11 @@ Automaatesitust saab muuta YouTube'i seadetes:
 Seaded → Taasesitus → Esita järgmine video automaatselt"</string>
   <string name="revanced_end_screen_suggested_video_summary_off">Lõpuekraani soovitatud video on näidatud</string>
   </patch>
+  <patch id="layout.hide.relatedvideooverlay.hideRelatedVideoOverlayPatch">
+  <string name="revanced_hide_related_video_overlay_title">Peida seotud video ülekatte täisekraanil</string>
+  <string name="revanced_hide_related_video_overlay_summary_on">Seotud video ülekatte on peidetud</string>
+  <string name="revanced_hide_related_video_overlay_summary_off">Seotud video ülekatte on näidatud</string>
+  </patch>
   <patch id="layout.hide.time.hideTimestampPatch">
   <string name="revanced_hide_timestamp_title">Peida video ajamärk</string>
   <string name="revanced_hide_timestamp_summary_on">Ajamärk on peidetud</string>

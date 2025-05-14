@@ -154,6 +154,8 @@ Second \"item\" text"</string>
   </patch>
   <patch id="layout.hide.endscreensuggestion.hideEndScreenSuggestedVideoPatch">
   </patch>
+  <patch id="layout.hide.relatedvideooverlay.hideRelatedVideoOverlayPatch">
+  </patch>
   <patch id="layout.hide.time.hideTimestampPatch">
   </patch>
   <patch id="layout.panels.popup.playerPopupPanelsPatch">

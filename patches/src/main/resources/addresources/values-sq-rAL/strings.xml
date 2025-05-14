@@ -794,6 +794,11 @@ Luajtja automatike mund të ndryshohet në cilësimet e YouTube:
 Cilësimet → Luajtja → Luaj automatikisht videon tjetër"</string>
   <string name="revanced_end_screen_suggested_video_summary_off">Videoja e sugjeruar në ekranin fundor shfaqet</string>
   </patch>
+  <patch id="layout.hide.relatedvideooverlay.hideRelatedVideoOverlayPatch">
+  <string name="revanced_hide_related_video_overlay_title">Fshih mbivendosjen e videos së lidhur në ekran të plotë</string>
+  <string name="revanced_hide_related_video_overlay_summary_on">Mbivendosja e videos së lidhur është fshehur</string>
+  <string name="revanced_hide_related_video_overlay_summary_off">Mbivendosja e videos së lidhur shfaqet</string>
+  </patch>
   <patch id="layout.hide.time.hideTimestampPatch">
   <string name="revanced_hide_timestamp_title">Fsheh vulën e kohës së videos</string>
   <string name="revanced_hide_timestamp_summary_on">Vula e kohës është e fshehur</string>

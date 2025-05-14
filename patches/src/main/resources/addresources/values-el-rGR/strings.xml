@@ -796,6 +796,11 @@ Second \"item\" text"</string>
 Ρυθμίσεις → Αναπαραγωγή→ Αυτόματη αναπαραγωγή επόμενου βίντεο"</string>
   <string name="revanced_end_screen_suggested_video_summary_off">Εμφανίζεται</string>
   </patch>
+  <patch id="layout.hide.relatedvideooverlay.hideRelatedVideoOverlayPatch">
+  <string name="revanced_hide_related_video_overlay_title">Απόκρυψη επικάλυψης σχετικού βίντεο σε πλήρη οθόνη</string>
+  <string name="revanced_hide_related_video_overlay_summary_on">Η επικάλυψη σχετικού βίντεο είναι κρυφή</string>
+  <string name="revanced_hide_related_video_overlay_summary_off">Εμφανίζεται η επικάλυψη σχετικού βίντεο</string>
+  </patch>
   <patch id="layout.hide.time.hideTimestampPatch">
   <string name="revanced_hide_timestamp_title">Χρονική πρόοδος βίντεο</string>
   <string name="revanced_hide_timestamp_summary_on">Κρυμμένη</string>

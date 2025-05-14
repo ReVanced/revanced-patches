@@ -794,6 +794,11 @@ Samodejno predvajanje lahko spremenite v nastavitvah YouTube:
 Nastavitve → Predvajanje → Samodejno predvajanje naslednjega videoposnetka"</string>
   <string name="revanced_end_screen_suggested_video_summary_off">Predlagani videoposnetek na koncu zaslona je prikazan</string>
   </patch>
+  <patch id="layout.hide.relatedvideooverlay.hideRelatedVideoOverlayPatch">
+  <string name="revanced_hide_related_video_overlay_title">Skrij prekrivni element s sorodnim videoposnetkom v celozaslonskem načinu</string>
+  <string name="revanced_hide_related_video_overlay_summary_on">Prekrivni element s sorodnim videoposnetkom je skrit</string>
+  <string name="revanced_hide_related_video_overlay_summary_off">Prekrivni element s sorodnim videoposnetkom je prikazan</string>
+  </patch>
   <patch id="layout.hide.time.hideTimestampPatch">
   <string name="revanced_hide_timestamp_title">Skrij časovni žig videoposnetka</string>
   <string name="revanced_hide_timestamp_summary_on">Časovni žig je skrit</string>

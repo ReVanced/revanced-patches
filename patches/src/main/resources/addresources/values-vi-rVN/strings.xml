@@ -267,9 +267,9 @@ Bạn sẽ không được thông báo về bất kỳ sự kiện bất ngờ n
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">Đã hiện trong video liên quan</string>
   <string name="revanced_comments_screen_title">Bình luận</string>
   <string name="revanced_comments_screen_summary">Ẩn hoặc hiện các thành phần bình luận</string>
-  <string name="revanced_hide_comments_ai_chat_summary_title">Ẩn Tóm tắt Trò chuyện AI</string>
-  <string name="revanced_hide_comments_ai_chat_summary_summary_on">Tóm tắt trò chuyện đã bị ẩn</string>
-  <string name="revanced_hide_comments_ai_chat_summary_summary_off">Tóm tắt trò chuyện được hiển thị</string>
+  <string name="revanced_hide_comments_ai_chat_summary_title">Ẩn Tóm tắt cuộc trò chuyện AI</string>
+  <string name="revanced_hide_comments_ai_chat_summary_summary_on">Tóm tắt cuộc trò chuyện đã bị ẩn</string>
+  <string name="revanced_hide_comments_ai_chat_summary_summary_off">Tóm tắt cuộc trò chuyện được hiển thị</string>
   <string name="revanced_hide_comments_ai_summary_title">Ẩn tóm tắt Bình luận AI</string>
   <string name="revanced_hide_comments_ai_summary_summary_on">Tóm tắt bình luận đã bị ẩn</string>
   <string name="revanced_hide_comments_ai_summary_summary_off">Tóm tắt bình luận được hiển thị</string>
@@ -689,17 +689,17 @@ Nếu việc thay đổi cài đặt này không có hiệu lực, hãy thử ch
   <!-- 'home' should be translated using the same localized wording YouTube displays for the home tab. -->
   <string name="revanced_hide_shorts_home_title">Ẩn Shorts trong thẻ trang chủ</string>
   <string name="revanced_hide_shorts_home_summary_on">Ẩn trong thẻ trang chủ và video liên quan</string>
-  <string name="revanced_hide_shorts_home_summary_off">Hiện trong thẻ trang chủ và video liên quan</string>
+  <string name="revanced_hide_shorts_home_summary_off">Hiển thi trong thẻ trang chủ và video liên quan</string>
   <!-- 'subscription' should be translated using the same localized wording YouTube displays for the subscription tab. -->
   <string name="revanced_hide_shorts_subscriptions_title">Ẩn Shorts trong thẻ kênh đăng ký</string>
   <string name="revanced_hide_shorts_subscriptions_summary_on">Bị ẩn trong thẻ kênh đăng ký</string>
-  <string name="revanced_hide_shorts_subscriptions_summary_off">Được hiện trong nguồn đăng ký</string>
+  <string name="revanced_hide_shorts_subscriptions_summary_off">Được hiển thị trong nguồn đăng ký</string>
   <string name="revanced_hide_shorts_search_title">Ẩn Shorts trong kết quả tìm kiếm</string>
   <string name="revanced_hide_shorts_search_summary_on">Bị ẩn trong kết quả tìm kiếm</string>
-  <string name="revanced_hide_shorts_search_summary_off">Được hiện trong kết quả tìm kiếm</string>
+  <string name="revanced_hide_shorts_search_summary_off">Được hiển thị trong kết quả tìm kiếm</string>
   <string name="revanced_hide_shorts_history_title">Ẩn Shorts trong lịch sử xem</string>
   <string name="revanced_hide_shorts_history_summary_on">Đã ẩn trong lịch sử xem</string>
-  <string name="revanced_hide_shorts_history_summary_off">Đã hiện trong lịch sử xem</string>
+  <string name="revanced_hide_shorts_history_summary_off">Đã hiển thị trong lịch sử xem</string>
   <!-- 'join' should be translated using the same localized wording YouTube displays for the button. -->
   <string name="revanced_hide_shorts_join_button_title">Ẩn nút Tham gia</string>
   <string name="revanced_hide_shorts_join_button_summary_on">Nút tham gia đã bị ẩn</string>
@@ -732,7 +732,7 @@ Nếu việc thay đổi cài đặt này không có hiệu lực, hãy thử ch
   <string name="revanced_hide_shorts_upcoming_button_title">Ẩn nút Sắp diễn ra</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_on">Nút sắp diễn ra đã bị ẩn</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_off">Nút sắp diễn ra được hiển thị</string>
-  <string name="revanced_hide_shorts_green_screen_button_title">Ẩn nút Màn hình xanh</string>
+  <string name="revanced_hide_shorts_green_screen_button_title">Ẩn nút Phông xanh</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_on">Nút phông xanh đã bị ẩn</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_off">Nút phông xanh được hiển thị</string>
   <string name="revanced_hide_shorts_hashtag_button_title">Ẩn nút hashtag</string>
@@ -793,6 +793,11 @@ Nếu việc thay đổi cài đặt này không có hiệu lực, hãy thử ch
 Có thể thay đổi Tự động phát trong phần cài đặt YouTube:
 Cài đặt → Phát → Tự động phát video tiếp theo"</string>
   <string name="revanced_end_screen_suggested_video_summary_off">Video được đề xuất ở màn hình kết thúc được hiển thị</string>
+  </patch>
+  <patch id="layout.hide.relatedvideooverlay.hideRelatedVideoOverlayPatch">
+  <string name="revanced_hide_related_video_overlay_title">Ẩn lớp phủ video liên quan ở chế độ toàn màn hình</string>
+  <string name="revanced_hide_related_video_overlay_summary_on">Lớp phủ video liên quan đã bị ẩn</string>
+  <string name="revanced_hide_related_video_overlay_summary_off">Lớp phủ video liên quan được hiển thị</string>
   </patch>
   <patch id="layout.hide.time.hideTimestampPatch">
   <string name="revanced_hide_timestamp_title">Ẩn dấu thời gian video</string>

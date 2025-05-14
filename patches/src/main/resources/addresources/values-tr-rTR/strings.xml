@@ -794,6 +794,11 @@ Otomatik oynatma YouTube ayarlarından değiştirilebilir:
 Ayarlar → Oynatma → Sonraki videoyu otomatik oynat"</string>
   <string name="revanced_end_screen_suggested_video_summary_off">Bitiş ekranı önerilen videosu gösteriliyor</string>
   </patch>
+  <patch id="layout.hide.relatedvideooverlay.hideRelatedVideoOverlayPatch">
+  <string name="revanced_hide_related_video_overlay_title">Tam ekranda alakalı video yer paylaşımını gizle</string>
+  <string name="revanced_hide_related_video_overlay_summary_on">Alâkalı video yer paylaşımı gizli</string>
+  <string name="revanced_hide_related_video_overlay_summary_off">Alâkalı video yer paylaşımı gösteriliyor</string>
+  </patch>
   <patch id="layout.hide.time.hideTimestampPatch">
   <string name="revanced_hide_timestamp_title">Video zaman damgasını gizle</string>
   <string name="revanced_hide_timestamp_summary_on">Video zaman damgası gizli</string>

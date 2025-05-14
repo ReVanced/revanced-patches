@@ -794,6 +794,11 @@ La lecture automatique peut être modifiée dans les paramètres de YouTube :
 Paramètres → Lecture → Lecture automatique de la vidéo suivante"</string>
   <string name="revanced_end_screen_suggested_video_summary_off">L\'écran de fin suggérant une vidéo est affiché</string>
   </patch>
+  <patch id="layout.hide.relatedvideooverlay.hideRelatedVideoOverlayPatch">
+  <string name="revanced_hide_related_video_overlay_title">Masquer l\'overlay de vidéos similaires en plein écran</string>
+  <string name="revanced_hide_related_video_overlay_summary_on">L\'overlay de vidéos similaires est masqué</string>
+  <string name="revanced_hide_related_video_overlay_summary_off">L\'overlay de vidéos similaires est affiché</string>
+  </patch>
   <patch id="layout.hide.time.hideTimestampPatch">
   <string name="revanced_hide_timestamp_title">Masquer le temps écoulé et la durée totale</string>
   <string name="revanced_hide_timestamp_summary_on">Le temps écoulé et la durée totale sont masqués</string>

@@ -794,6 +794,11 @@ Autoplej se može promeniti u podešavanjima YouTubea:
 Podešavanja → Reprodukcija → Automatski pusti sledeći video"</string>
   <string name="revanced_end_screen_suggested_video_summary_off">Predloženi video na završnom ekranu je prikazan</string>
   </patch>
+  <patch id="layout.hide.relatedvideooverlay.hideRelatedVideoOverlayPatch">
+  <string name="revanced_hide_related_video_overlay_title">Sakrij preklapanje srodnog video snimka u režimu celog ekrana</string>
+  <string name="revanced_hide_related_video_overlay_summary_on">Preklapanje srodnog video snimka je sakriveno</string>
+  <string name="revanced_hide_related_video_overlay_summary_off">Preklapanje srodnog video snimka je prikazano</string>
+  </patch>
   <patch id="layout.hide.time.hideTimestampPatch">
   <string name="revanced_hide_timestamp_title">Sakrij vremensku oznaku videa</string>
   <string name="revanced_hide_timestamp_summary_on">Vremenska oznaka videa je skrivena</string>

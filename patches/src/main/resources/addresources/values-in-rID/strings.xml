@@ -794,6 +794,11 @@ Pemutaran otomatis dapat diubah di pengaturan YouTube:
 Pengaturan → Pemutaran → Putar otomatis video berikutnya"</string>
   <string name="revanced_end_screen_suggested_video_summary_off">Video yang disarankan di layar akhir ditampilkan</string>
   </patch>
+  <patch id="layout.hide.relatedvideooverlay.hideRelatedVideoOverlayPatch">
+  <string name="revanced_hide_related_video_overlay_title">Sembunyikan overlay video terkait dalam layar penuh</string>
+  <string name="revanced_hide_related_video_overlay_summary_on">Overlay video terkait disembunyikan</string>
+  <string name="revanced_hide_related_video_overlay_summary_off">Overlay video terkait ditampilkan</string>
+  </patch>
   <patch id="layout.hide.time.hideTimestampPatch">
   <string name="revanced_hide_timestamp_title">Sembunyikan timestamp video</string>
   <string name="revanced_hide_timestamp_summary_on">Timestamp disembunyikan</string>
