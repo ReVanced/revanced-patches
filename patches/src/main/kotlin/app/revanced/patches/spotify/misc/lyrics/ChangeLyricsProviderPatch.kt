@@ -43,10 +43,11 @@ val changeLyricsProviderPatch = bytecodePatch(
             return@stringOption false
         }
 
-        // Do a courtesy check if the the host can be resolved.
-        // If it does not resolve, then print a warning but use the host anyway.
-        // Unresolvable hosts should not be rejected, since the patching environment
-        // may not allow network connections or the network may be down.
+        /* Do a courtesy check if the host can be resolved.
+        * If it does not resolve, then print a warning but use the host anyway.
+        * Unresolvable hosts should not be rejected, since the patching environment
+        * may not allow network connections or the network may be down.
+        */
         try {
             InetAddress.getByName(host)
         } catch (e: UnknownHostException) {
@@ -85,7 +86,7 @@ val changeLyricsProviderPatch = bytecodePatch(
 
         //endregion
 
-        // Replace the call to the HTTP client builder method used exclusively for lyrics by the modified one.
+        // region Replace the call to the HTTP client builder method used exclusively for lyrics by the modified one.
         fingerprint {
             returns(httpClientBuilderFingerprint.originalMethod.returnType)
             parameters()
