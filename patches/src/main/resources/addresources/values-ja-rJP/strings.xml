@@ -797,6 +797,11 @@ MicroG GmsCore に対する電池の最適化を無効にしても、バッテ�
 設定 → 再生 → 次の動画を自動再生"</string>
   <string name="revanced_end_screen_suggested_video_summary_off">「関連動画」は、再生終了時にプレーヤー画面に表示されます</string>
   </patch>
+  <patch id="layout.hide.relatedvideooverlay.hideRelatedVideoOverlayPatch">
+  <string name="revanced_hide_related_video_overlay_title">フルスクリーンで関連動画のオーバーレイを非表示にする</string>
+  <string name="revanced_hide_related_video_overlay_summary_on">関連動画のオーバーレイは非表示になっています</string>
+  <string name="revanced_hide_related_video_overlay_summary_off">関連動画のオーバーレイが表示されています</string>
+  </patch>
   <patch id="layout.hide.time.hideTimestampPatch">
   <string name="revanced_hide_timestamp_title">タイムスタンプを非表示</string>
   <string name="revanced_hide_timestamp_summary_on">タイムスタンプは表示されません</string>

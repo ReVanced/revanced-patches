@@ -794,6 +794,11 @@ Is féidir an uathshein a athrú i socruithe YouTube:
 Socruithe → Athsheinm → Uathshein físeán eile"</string>
   <string name="revanced_end_screen_suggested_video_summary_off">Taispeántar físeán molta deireadh scáileáin</string>
   </patch>
+  <patch id="layout.hide.relatedvideooverlay.hideRelatedVideoOverlayPatch">
+  <string name="revanced_hide_related_video_overlay_title">Folaigh forleagan físeáin ghaolmhair i mód lánscáileáin</string>
+  <string name="revanced_hide_related_video_overlay_summary_on">Tá forleagan físeáin ghaolmhair i bhfolach</string>
+  <string name="revanced_hide_related_video_overlay_summary_off">Taispeántar forleagan físeáin ghaolmhair</string>
+  </patch>
   <patch id="layout.hide.time.hideTimestampPatch">
   <string name="revanced_hide_timestamp_title">Folaigh stampa ama an fhíseáin</string>
   <string name="revanced_hide_timestamp_summary_on">Tá stampa ama i bhfolach</string>

@@ -793,6 +793,11 @@ Audio trek seçimin göstərmək üçün \"Video axınları saxtalaşdır\"ı iO
 Avtomatik oynatma YouTube ayarlarında dəyişdirilə bilər: Ayarlar → Oxunuş → Növbəti videonu avtomatik oxudun"</string>
   <string name="revanced_end_screen_suggested_video_summary_off">Son ekranda bildirilən video göstərilir</string>
   </patch>
+  <patch id="layout.hide.relatedvideooverlay.hideRelatedVideoOverlayPatch">
+  <string name="revanced_hide_related_video_overlay_title">Əlaqəli video örtüyünü tam ekranda gizlət</string>
+  <string name="revanced_hide_related_video_overlay_summary_on">Əlaqəli video örtüyü gizlədilib</string>
+  <string name="revanced_hide_related_video_overlay_summary_off">Əlaqəli video örtüyü göstərilir</string>
+  </patch>
   <patch id="layout.hide.time.hideTimestampPatch">
   <string name="revanced_hide_timestamp_title">Video vaxt möhürünü gizlət</string>
   <string name="revanced_hide_timestamp_summary_on">Vaxt möhürü gizlidir</string>

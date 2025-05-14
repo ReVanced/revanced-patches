@@ -794,6 +794,11 @@ A reprodução automática pode ser alterada nas configurações do YouTube:
 Configurações → Reprodução → Reproduzir o próximo vídeo automaticamente"</string>
   <string name="revanced_end_screen_suggested_video_summary_off">O vídeo sugerido na tela final é exibido</string>
   </patch>
+  <patch id="layout.hide.relatedvideooverlay.hideRelatedVideoOverlayPatch">
+  <string name="revanced_hide_related_video_overlay_title">Ocultar a sobreposição de vídeos relacionados em tela cheia</string>
+  <string name="revanced_hide_related_video_overlay_summary_on">A sobreposição de vídeos relacionados está oculta</string>
+  <string name="revanced_hide_related_video_overlay_summary_off">A sobreposição de vídeos relacionados é mostrada</string>
+  </patch>
   <patch id="layout.hide.time.hideTimestampPatch">
   <string name="revanced_hide_timestamp_title">Esconder timestamp do vídeo</string>
   <string name="revanced_hide_timestamp_summary_on">Timestamp está escondido</string>

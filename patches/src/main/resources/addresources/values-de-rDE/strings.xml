@@ -787,6 +787,11 @@ Die automatische Wiedergabe kann in den YouTube-Einstellungen geändert werden:
 Einstellungen → Wiedergabe → Nächstes Video automatisch abspielen"</string>
   <string name="revanced_end_screen_suggested_video_summary_off">Das vorgeschlagene Video auf dem Endbildschirm wird angezeigt</string>
   </patch>
+  <patch id="layout.hide.relatedvideooverlay.hideRelatedVideoOverlayPatch">
+  <string name="revanced_hide_related_video_overlay_title">Zugehöriges Video-Overlay im Vollbildmodus ausblenden</string>
+  <string name="revanced_hide_related_video_overlay_summary_on">Zugehöriges Video-Overlay ist ausgeblendet</string>
+  <string name="revanced_hide_related_video_overlay_summary_off">Zugehöriges Video-Overlay wird angezeigt</string>
+  </patch>
   <patch id="layout.hide.time.hideTimestampPatch">
   <string name="revanced_hide_timestamp_title">Verstecke Video-Zeitstempel</string>
   <string name="revanced_hide_timestamp_summary_on">Zeitstempel ist ausgeblendet</string>

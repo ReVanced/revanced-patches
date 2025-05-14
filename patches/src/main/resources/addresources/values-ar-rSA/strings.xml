@@ -794,6 +794,11 @@ Second \"item\" text"</string>
 الإعدادات ← التشغيل ← تشغيل الفيديو التالي تلقائيًا"</string>
   <string name="revanced_end_screen_suggested_video_summary_off">يتم عرض الفيديو المقترح في شاشة النهاية</string>
   </patch>
+  <patch id="layout.hide.relatedvideooverlay.hideRelatedVideoOverlayPatch">
+  <string name="revanced_hide_related_video_overlay_title">إخفاء واجهة الفيديوهات ذات الصلة في وضع ملء الشاشة</string>
+  <string name="revanced_hide_related_video_overlay_summary_on">تم إخفاء واجهة الفيديوهات ذات الصلة</string>
+  <string name="revanced_hide_related_video_overlay_summary_off">يتم عرض واجهة الفيديوهات ذات الصلة</string>
+  </patch>
   <patch id="layout.hide.time.hideTimestampPatch">
   <string name="revanced_hide_timestamp_title">إخفاء الطابع الزمني للفيديو</string>
   <string name="revanced_hide_timestamp_summary_on">تم إخفاء الطابع الزمني</string>

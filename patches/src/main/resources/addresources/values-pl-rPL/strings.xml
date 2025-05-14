@@ -794,6 +794,11 @@ Automatyczne odtwarzanie można zmienić w ustawieniach YouTube:
 Ustawienia → Odtwarzanie → Autoodtwarzanie następnego filmu"</string>
   <string name="revanced_end_screen_suggested_video_summary_off">Sugerowane wideo na ekranie końcowym jest wyświetlane</string>
   </patch>
+  <patch id="layout.hide.relatedvideooverlay.hideRelatedVideoOverlayPatch">
+  <string name="revanced_hide_related_video_overlay_title">Ukryj nakładkę powiązanych filmów w trybie pełnoekranowym</string>
+  <string name="revanced_hide_related_video_overlay_summary_on">Nakładka powiązanych filmów jest ukryta</string>
+  <string name="revanced_hide_related_video_overlay_summary_off">Wyświetlana jest nakładka powiązanych filmów</string>
+  </patch>
   <patch id="layout.hide.time.hideTimestampPatch">
   <string name="revanced_hide_timestamp_title">Znacznik czasu filmu</string>
   <string name="revanced_hide_timestamp_summary_on">Znacznik czasu jest ukryty</string>

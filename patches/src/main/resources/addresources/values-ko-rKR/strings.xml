@@ -794,6 +794,11 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
 설정 → 재생 → 다음 동영상 자동재생"</string>
   <string name="revanced_end_screen_suggested_video_summary_off">최종 화면에서 다음 재생 추천 동영상이 표시됩니다</string>
   </patch>
+  <patch id="layout.hide.relatedvideooverlay.hideRelatedVideoOverlayPatch">
+  <string name="revanced_hide_related_video_overlay_title">전체 화면에서 관련 동영상 오버레이 숨기기</string>
+  <string name="revanced_hide_related_video_overlay_summary_on">관련 동영상 오버레이가 숨겨집니다</string>
+  <string name="revanced_hide_related_video_overlay_summary_off">관련 동영상 오버레이가 표시됩니다</string>
+  </patch>
   <patch id="layout.hide.time.hideTimestampPatch">
   <string name="revanced_hide_timestamp_title">동영상 타임스탬프 숨기기</string>
   <string name="revanced_hide_timestamp_summary_on">타임스탬프가 숨겨집니다</string>

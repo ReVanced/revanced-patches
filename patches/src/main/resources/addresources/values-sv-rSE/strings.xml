@@ -794,6 +794,11 @@ Automatisk uppspelning kan ändras i YouTube-inställningarna:
 Inställningar → Uppspelning → Spela upp nästa video automatiskt"</string>
   <string name="revanced_end_screen_suggested_video_summary_off">Föreslagen video på slutskärmen visas</string>
   </patch>
+  <patch id="layout.hide.relatedvideooverlay.hideRelatedVideoOverlayPatch">
+  <string name="revanced_hide_related_video_overlay_title">Dölj relaterad video-overlay i helskärm</string>
+  <string name="revanced_hide_related_video_overlay_summary_on">Relaterad video-overlay är dold</string>
+  <string name="revanced_hide_related_video_overlay_summary_off">Relaterad video-overlay visas</string>
+  </patch>
   <patch id="layout.hide.time.hideTimestampPatch">
   <string name="revanced_hide_timestamp_title">Dölj videotidsstämpel</string>
   <string name="revanced_hide_timestamp_summary_on">Tidsstämpel är dold</string>

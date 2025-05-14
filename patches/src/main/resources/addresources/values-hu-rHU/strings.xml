@@ -794,6 +794,11 @@ Az automatikus lejátszás a YouTube beállításaiban módosítható:
 Beállítások → Lejátszás → Következő videó automatikus lejátszása"</string>
   <string name="revanced_end_screen_suggested_video_summary_off">A befejező képernyőn lévő javasolt videó látható</string>
   </patch>
+  <patch id="layout.hide.relatedvideooverlay.hideRelatedVideoOverlayPatch">
+  <string name="revanced_hide_related_video_overlay_title">Kapcsolódó videó fedőréteg elrejtése teljes képernyőn</string>
+  <string name="revanced_hide_related_video_overlay_summary_on">A kapcsolódó videó fedőréteg rejtve van</string>
+  <string name="revanced_hide_related_video_overlay_summary_off">A kapcsolódó videó fedőréteg látható</string>
+  </patch>
   <patch id="layout.hide.time.hideTimestampPatch">
   <string name="revanced_hide_timestamp_title">Videó időbélyegzőjének elrejtése</string>
   <string name="revanced_hide_timestamp_summary_on">Az időbélyegző elrejtve</string>
