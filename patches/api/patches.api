@@ -1220,6 +1220,10 @@ public final class app/revanced/patches/youtube/layout/hide/player/flyoutmenupan
 	public static final fun getHidePlayerFlyoutMenuPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
+public final class app/revanced/patches/youtube/layout/hide/relatedvideooverlay/HideRelatedVideoOverlayPatchKt {
+	public static final fun getHideRelatedVideoOverlayPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
 public final class app/revanced/patches/youtube/layout/hide/rollingnumber/DisableRollingNumberAnimationPatchKt {
 	public static final fun getDisableRollingNumberAnimationPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
