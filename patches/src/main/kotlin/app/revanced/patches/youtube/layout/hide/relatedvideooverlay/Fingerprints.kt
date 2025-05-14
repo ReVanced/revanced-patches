@@ -14,5 +14,5 @@ internal val relatedEndScreenResultsFingerprint = fingerprint {
         "I",
         "Z",
         "I",
-        )
+    )
 }
