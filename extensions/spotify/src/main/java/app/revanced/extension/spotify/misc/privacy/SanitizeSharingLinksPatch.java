@@ -14,7 +14,8 @@ public final class SanitizeSharingLinksPatch {
      */
     private static final List<String> SHARE_PARAMETERS_TO_REMOVE = List.of(
             "si", // Share tracking parameter.
-            "utm_source" // Share source, such as "copy-link".
+            "utm_source", // Share source, such as "copy-link".
+            "pi" // Share after edit.
     );
 
     /**
