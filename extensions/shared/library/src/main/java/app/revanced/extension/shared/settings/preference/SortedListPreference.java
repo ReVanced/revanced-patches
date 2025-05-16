@@ -6,8 +6,11 @@ import android.util.AttributeSet;
 import android.util.Pair;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
+import java.util.SortedMap;
+import java.util.TreeMap;
+
+import app.revanced.extension.shared.Utils;
 
 /**
  * PreferenceList that sorts itself.
@@ -42,32 +45,29 @@ public class SortedListPreference extends ListPreference {
             throw new IllegalStateException();
         }
 
-        List<Pair<CharSequence, CharSequence>> firstPairs = new ArrayList<>(firstEntriesToPreserve);
-        List<Pair<CharSequence, CharSequence>> pairsToSort = new ArrayList<>(entrySize);
+        List<Pair<CharSequence, CharSequence>> firstEntries = new ArrayList<>(firstEntriesToPreserve);
+        SortedMap<String, Pair<CharSequence, CharSequence>> lastEntries = new TreeMap<>();
 
         for (int i = 0; i < entrySize; i++) {
             Pair<CharSequence, CharSequence> pair = new Pair<>(entries[i], entryValues[i]);
             if (i < firstEntriesToPreserve) {
-                firstPairs.add(pair);
+                firstEntries.add(pair);
             } else {
-                pairsToSort.add(pair);
+                lastEntries.put(Utils.removePunctuationToLowercase(pair.first), pair);
             }
         }
-
-        Collections.sort(pairsToSort, (pair1, pair2)
-                -> pair1.first.toString().compareToIgnoreCase(pair2.first.toString()));
 
         CharSequence[] sortedEntries = new CharSequence[entrySize];
         CharSequence[] sortedEntryValues = new CharSequence[entrySize];
 
         int i = 0;
-        for (Pair<CharSequence, CharSequence> pair : firstPairs) {
+        for (Pair<CharSequence, CharSequence> pair : firstEntries) {
             sortedEntries[i] = pair.first;
             sortedEntryValues[i] = pair.second;
             i++;
         }
 
-        for (Pair<CharSequence, CharSequence> pair : pairsToSort) {
+        for (Pair<CharSequence, CharSequence> pair : lastEntries.values()) {
             sortedEntries[i] = pair.first;
             sortedEntryValues[i] = pair.second;
             i++;
