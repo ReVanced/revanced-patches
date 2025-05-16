@@ -515,9 +515,14 @@ class ListPreferenceSearchData extends AbstractPreferenceSearchData<ListPreferen
         if (originalEntries != null) {
             final int length = originalEntries.length;
             CharSequence[] highlightedEntries = new CharSequence[length];
+
             for (int i = 0; i < length; i++) {
                 highlightedEntries[i] = highlightSearchQuery(originalEntries[i], queryPattern);
+
+                // Cannot highlight the summary text, because ListPreference uses
+                // the toString() of the summary CharSequence which strips away all formatting.
             }
+
             preference.setEntries(highlightedEntries);
         }
     }
