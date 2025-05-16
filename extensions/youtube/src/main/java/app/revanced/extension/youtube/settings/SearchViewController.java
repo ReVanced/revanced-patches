@@ -113,7 +113,7 @@ public class SearchViewController {
 
         // Set background and query hint.
         searchView.setBackground(createBackgroundDrawable(toolbar.getContext()));
-        searchView.setQueryHint(str("revanced_settings_search"));
+        searchView.setQueryHint(str("revanced_settings_search_hint"));
 
         // Configure RTL support based on app language.
         AppLanguage appLanguage = BaseSettings.REVANCED_LANGUAGE.get();
