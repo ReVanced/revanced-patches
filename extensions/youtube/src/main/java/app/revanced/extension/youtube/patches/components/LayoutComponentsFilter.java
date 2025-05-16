@@ -236,6 +236,11 @@ public final class LayoutComponentsFilter extends Filter {
                 "endorsement_header_footer.eml"
         );
 
+       final var ticketShelf = new ByteArrayFilterGroup(
+                Settings.HIDE_TICKET_SHELF,
+                "ticket"
+        );
+
         horizontalShelves = new StringFilterGroup(
                 Settings.HIDE_HORIZONTAL_SHELVES,
                 "horizontal_video_shelf.eml",
@@ -275,6 +280,9 @@ public final class LayoutComponentsFilter extends Filter {
                 forYouShelf,
                 horizontalShelves
         );
+
+        addIdentifierCallbacks(
+                ticketShelf);
     }
 
     @Override
@@ -315,7 +323,7 @@ public final class LayoutComponentsFilter extends Filter {
         }
 
         if (matchedGroup == horizontalShelves) {
-            if (contentIndex == 0 && hideShelves()) {
+            if (contentIndex == 0 && (hideShelves() || ticketShelf.check(protobufBufferArray).isFiltered())) {
                 return super.isFiltered(path, identifier, protobufBufferArray, matchedGroup, contentType, contentIndex);
             }
 
