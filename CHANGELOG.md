@@ -1,3 +1,10 @@
+# [5.24.0-dev.4](https://github.com/ReVanced/revanced-patches/compare/v5.24.0-dev.3...v5.24.0-dev.4) (2025-05-16)
+
+
+### Features
+
+* **Spotify:** Add `Fix third party launchers widgets` patch ([#4893](https://github.com/ReVanced/revanced-patches/issues/4893)) ([23bfdc9](https://github.com/ReVanced/revanced-patches/commit/23bfdc98fbbcc8ecf0ffbf8704f58dd2272e4af2))
+
 # [5.24.0-dev.3](https://github.com/ReVanced/revanced-patches/compare/v5.24.0-dev.2...v5.24.0-dev.3) (2025-05-14)
 
 
