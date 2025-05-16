@@ -432,6 +432,10 @@ public final class app/revanced/patches/primevideo/misc/extension/ExtensionPatch
 	public static final fun getSharedExtensionPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
+public final class app/revanced/patches/protonmail/account/ChangeFreeAccountsLimitKt {
+	public static final fun getChangeFreeAccountsLimit ()Lapp/revanced/patcher/patch/ResourcePatch;
+}
+
 public final class app/revanced/patches/protonmail/signature/RemoveSentFromSignaturePatchKt {
 	public static final fun getRemoveSentFromSignaturePatch ()Lapp/revanced/patcher/patch/ResourcePatch;
 }
