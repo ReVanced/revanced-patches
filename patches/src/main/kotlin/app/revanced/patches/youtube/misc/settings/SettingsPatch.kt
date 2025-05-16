@@ -207,7 +207,8 @@ val settingsPatch = bytecodePatch(
             ),
             ListPreference(
                 key = "revanced_language",
-                summaryKey = null
+                summaryKey = null,
+                tag = "app.revanced.extension.shared.settings.preference.SortedListPreference"
             )
         )
 

@@ -17,7 +17,6 @@ import android.preference.SwitchPreference;
 import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
 import android.text.style.BackgroundColorSpan;
-import android.util.Pair;
 import android.util.TypedValue;
 import android.view.ViewGroup;
 import android.view.WindowInsets;
@@ -40,13 +39,10 @@ import java.util.regex.Pattern;
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
 import app.revanced.extension.shared.settings.BaseSettings;
-import app.revanced.extension.shared.settings.EnumSetting;
 import app.revanced.extension.shared.settings.preference.AbstractPreferenceFragment;
 import app.revanced.extension.shared.settings.preference.NoTitlePreferenceCategory;
 import app.revanced.extension.youtube.ThemeHelper;
-import app.revanced.extension.youtube.patches.playback.speed.CustomPlaybackSpeedPatch;
 import app.revanced.extension.youtube.settings.LicenseActivityHook;
-import app.revanced.extension.youtube.settings.Settings;
 import app.revanced.extension.youtube.sponsorblock.ui.SponsorBlockPreferenceGroup;
 
 /**
@@ -84,56 +80,6 @@ public class ReVancedPreferenceFragment extends AbstractPreferenceFragment {
     }
 
     /**
-     * Sorts a preference list by menu entries,
-     * but preserves the first N entries in their current position.
-     */
-    @SuppressWarnings("SameParameterValue")
-    private static void sortListPreferenceByValues(ListPreference listPreference, int firstEntriesToPreserve) {
-        CharSequence[] entries = listPreference.getEntries();
-        CharSequence[] entryValues = listPreference.getEntryValues();
-        final int entrySize = entries.length;
-
-        if (entrySize != entryValues.length) {
-            // Xml array declaration has a missing/extra entry.
-            throw new IllegalStateException();
-        }
-
-        List<Pair<CharSequence, CharSequence>> firstPairs = new ArrayList<>(firstEntriesToPreserve);
-        List<Pair<CharSequence, CharSequence>> pairsToSort = new ArrayList<>(entrySize);
-
-        for (int i = 0; i < entrySize; i++) {
-            Pair<CharSequence, CharSequence> pair = new Pair<>(entries[i], entryValues[i]);
-            if (i < firstEntriesToPreserve) {
-                firstPairs.add(pair);
-            } else {
-                pairsToSort.add(pair);
-            }
-        }
-
-        pairsToSort.sort((pair1, pair2)
-                -> pair1.first.toString().compareToIgnoreCase(pair2.first.toString()));
-
-        CharSequence[] sortedEntries = new CharSequence[entrySize];
-        CharSequence[] sortedEntryValues = new CharSequence[entrySize];
-
-        int i = 0;
-        for (Pair<CharSequence, CharSequence> pair : firstPairs) {
-            sortedEntries[i] = pair.first;
-            sortedEntryValues[i] = pair.second;
-            i++;
-        }
-
-        for (Pair<CharSequence, CharSequence> pair : pairsToSort) {
-            sortedEntries[i] = pair.first;
-            sortedEntryValues[i] = pair.second;
-            i++;
-        }
-
-        listPreference.setEntries(sortedEntries);
-        listPreference.setEntryValues(sortedEntryValues);
-    }
-
-    /**
      * Initializes the preference fragment, copying the original screen to allow full restoration.
      */
     @Override
@@ -141,16 +87,6 @@ public class ReVancedPreferenceFragment extends AbstractPreferenceFragment {
         super.initialize();
 
         try {
-            sortPreferenceListMenu(Settings.CHANGE_START_PAGE);
-            sortPreferenceListMenu(Settings.SPOOF_VIDEO_STREAMS_LANGUAGE);
-            sortPreferenceListMenu(BaseSettings.REVANCED_LANGUAGE);
-
-            // If the preference was included, then initialize it based on the available playback speed.
-            Preference preference = findPreference(Settings.PLAYBACK_SPEED_DEFAULT.key);
-            if (preference instanceof ListPreference playbackPreference) {
-                CustomPlaybackSpeedPatch.initializeListPreference(playbackPreference);
-            }
-
             preferenceScreen = getPreferenceScreen();
             Utils.sortPreferenceGroups(preferenceScreen);
 
@@ -270,16 +206,6 @@ public class ReVancedPreferenceFragment extends AbstractPreferenceFragment {
                     ThemeHelper.isDarkTheme() ? "yt_outline_search_white_24" : "yt_outline_search_black_24",
                     "drawable"));
             preferenceScreen.addPreference(noResultsPreference);
-        }
-    }
-
-    /**
-     * Sorts a specific list preference by its entries, but retain the first entry as the first item.
-     */
-    private void sortPreferenceListMenu(EnumSetting<?> setting) {
-        Preference preference = findPreference(setting.key);
-        if (preference instanceof ListPreference languagePreference) {
-            sortListPreferenceByValues(languagePreference, 1);
         }
     }
 
