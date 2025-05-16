@@ -791,6 +791,11 @@ Automaattista toistoa voidaan muuttaa YouTube-asetuksissa:
 Asetukset → Toisto → Toista seuraava video automaattisesti"</string>
   <string name="revanced_end_screen_suggested_video_summary_off">Loppunäytön ehdotettu video näytetään</string>
   </patch>
+  <patch id="layout.hide.relatedvideooverlay.hideRelatedVideoOverlayPatch">
+  <string name="revanced_hide_related_video_overlay_title">Piilota liittyvien videoiden peittokuva kokoruututilassa</string>
+  <string name="revanced_hide_related_video_overlay_summary_on">Liittyvien videoiden peittokuva on piilotettu</string>
+  <string name="revanced_hide_related_video_overlay_summary_off">Liittyvien videoiden peittokuva näytetään</string>
+  </patch>
   <patch id="layout.hide.time.hideTimestampPatch">
   <string name="revanced_hide_timestamp_title">Piilota videon aikaleima</string>
   <string name="revanced_hide_timestamp_summary_on">Aikaleima on piilotettu</string>

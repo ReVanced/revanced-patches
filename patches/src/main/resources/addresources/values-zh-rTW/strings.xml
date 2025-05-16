@@ -782,6 +782,8 @@ Second \"item\" text"</string>
 設定 → 播放 → 自動播放下一個影片"</string>
   <string name="revanced_end_screen_suggested_video_summary_off">已顯示片尾推薦影片</string>
   </patch>
+  <patch id="layout.hide.relatedvideooverlay.hideRelatedVideoOverlayPatch">
+  </patch>
   <patch id="layout.hide.time.hideTimestampPatch">
   <string name="revanced_hide_timestamp_title">隱藏影片時間戳記</string>
   <string name="revanced_hide_timestamp_summary_on">已隱藏時間戳記</string>

@@ -794,6 +794,11 @@ YouTube সেটিংসে অটো প্লে পরিবর্তন �
 সেটিংস → প্লেব্যাক → অটো প্লে পরবর্তী ভিডিও"</string>
   <string name="revanced_end_screen_suggested_video_summary_off">শেষ স্ক্রীনে প্রস্তাবিত ভিডিও দেখানো হয়েছে</string>
   </patch>
+  <patch id="layout.hide.relatedvideooverlay.hideRelatedVideoOverlayPatch">
+  <string name="revanced_hide_related_video_overlay_title">পূর্ণ-স্ক্রীনে সম্পর্কিত ভিডিও ওভারলে লুকান</string>
+  <string name="revanced_hide_related_video_overlay_summary_on">সম্পর্কিত ভিডিও ওভারলে লুকানো আছে</string>
+  <string name="revanced_hide_related_video_overlay_summary_off">সম্পর্কিত ভিডিও ওভারলে দেখানো হয়েছে</string>
+  </patch>
   <patch id="layout.hide.time.hideTimestampPatch">
   <string name="revanced_hide_timestamp_title">ভিডিওর সময়স্ট্যাম্প লুকান</string>
   <string name="revanced_hide_timestamp_summary_on">সময়স্ট্যাম্প লুকিয়ে রয়েছে</string>

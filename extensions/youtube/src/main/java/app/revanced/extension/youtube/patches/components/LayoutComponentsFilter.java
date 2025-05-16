@@ -34,8 +34,6 @@ public final class LayoutComponentsFilter extends Filter {
     private final StringFilterGroup notifyMe;
     private final StringFilterGroup singleItemInformationPanel;
     private final StringFilterGroup expandableMetadata;
-    private final ByteArrayFilterGroup searchResultRecommendations;
-    private final StringFilterGroup searchResultVideo;
     private final StringFilterGroup compactChannelBarInner;
     private final StringFilterGroup compactChannelBarInnerButton;
     private final ByteArrayFilterGroup joinMembershipButton;
@@ -233,19 +231,9 @@ public final class LayoutComponentsFilter extends Filter {
                 "mixed_content_shelf"
         );
 
-        final var ticketShelf = new StringFilterGroup(
-                Settings.HIDE_TICKET_SHELF,
-                "ticket.eml"
-        );
-
-        searchResultVideo = new StringFilterGroup(
-                Settings.HIDE_SEARCH_RESULT_RECOMMENDATIONS,
-                "search_video_with_context.eml"
-        );
-
-        searchResultRecommendations = new ByteArrayFilterGroup(
-                Settings.HIDE_SEARCH_RESULT_RECOMMENDATIONS,
-                "endorsement_header_footer"
+        final var searchResultRecommendationLabels = new StringFilterGroup(
+                Settings.HIDE_SEARCH_RESULT_RECOMMENDATION_LABELS,
+                "endorsement_header_footer.eml"
         );
 
         horizontalShelves = new StringFilterGroup(
@@ -263,7 +251,7 @@ public final class LayoutComponentsFilter extends Filter {
                 compactChannelBar,
                 communityPosts,
                 paidPromotion,
-                searchResultVideo,
+                searchResultRecommendationLabels,
                 latestPosts,
                 channelWatermark,
                 communityGuidelines,
@@ -283,7 +271,6 @@ public final class LayoutComponentsFilter extends Filter {
                 artistCard,
                 timedReactions,
                 imageShelf,
-                ticketShelf,
                 channelMemberShelf,
                 forYouShelf,
                 horizontalShelves
@@ -303,13 +290,6 @@ public final class LayoutComponentsFilter extends Filter {
                 return super.isFiltered(identifier, path, protobufBufferArray, matchedGroup, contentType, contentIndex);
             }
 
-            return false;
-        }
-
-        if (matchedGroup == searchResultVideo) {
-            if (searchResultRecommendations.check(protobufBufferArray).isFiltered()) {
-                return super.isFiltered(identifier, path, protobufBufferArray, matchedGroup, contentType, contentIndex);
-            }
             return false;
         }
 

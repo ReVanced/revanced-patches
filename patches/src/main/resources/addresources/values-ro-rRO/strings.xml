@@ -794,6 +794,11 @@ Redarea automată poate fi modificată în setările YouTube:
 Setări → Redare → Redare automată videoclipul următor"</string>
   <string name="revanced_end_screen_suggested_video_summary_off">Videoclipul sugerat de pe ecranul final este afișat</string>
   </patch>
+  <patch id="layout.hide.relatedvideooverlay.hideRelatedVideoOverlayPatch">
+  <string name="revanced_hide_related_video_overlay_title">Ascunde suprapunerea video asociată în ecran complet</string>
+  <string name="revanced_hide_related_video_overlay_summary_on">Suprapunerea video asociată este ascunsă</string>
+  <string name="revanced_hide_related_video_overlay_summary_off">Suprapunerea video asociată este afișată</string>
+  </patch>
   <patch id="layout.hide.time.hideTimestampPatch">
   <string name="revanced_hide_timestamp_title">Ascunde marcajul temporal video</string>
   <string name="revanced_hide_timestamp_summary_on">Marcajul de timp este ascuns</string>

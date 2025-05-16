@@ -757,6 +757,11 @@ Automatisk afspilning kan ændres i YouTube-indstillinger:
 Indstillinger → Afspilning → Afspil næste video automatisk"</string>
   <string name="revanced_end_screen_suggested_video_summary_off">Foreslået video på slutskærmen vises</string>
   </patch>
+  <patch id="layout.hide.relatedvideooverlay.hideRelatedVideoOverlayPatch">
+  <string name="revanced_hide_related_video_overlay_title">Skjul relateret video-overlay i fuldskærm</string>
+  <string name="revanced_hide_related_video_overlay_summary_on">Relateret video-overlay er skjult</string>
+  <string name="revanced_hide_related_video_overlay_summary_off">Relateret video-overlay vises</string>
+  </patch>
   <patch id="layout.hide.time.hideTimestampPatch">
   <string name="revanced_hide_timestamp_title">Skjul tidsstempel på video</string>
   <string name="revanced_hide_timestamp_summary_on">Tidsstempel er skjult</string>
