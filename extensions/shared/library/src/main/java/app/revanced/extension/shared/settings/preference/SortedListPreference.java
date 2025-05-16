@@ -28,10 +28,13 @@ public class SortedListPreference extends ListPreference {
      * Sorts the list entries, but preserves the first N entries in their current position.
      */
     protected void sortEntryAndValues() {
-        final int firstEntriesToPreserve = getFirstEntriesToPreserve();
-
         CharSequence[] entries = getEntries();
         CharSequence[] entryValues = getEntryValues();
+        if (entries == null || entryValues == null) {
+            return;
+        }
+
+        final int firstEntriesToPreserve = getFirstEntriesToPreserve();
         final int entrySize = entries.length;
 
         if (entrySize != entryValues.length) {
