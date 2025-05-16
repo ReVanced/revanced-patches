@@ -224,6 +224,7 @@ val hideLayoutComponentsPatch = bytecodePatch(
             SwitchPreference("revanced_hide_playables"),
             SwitchPreference("revanced_hide_search_result_recommendations"),
             SwitchPreference("revanced_hide_show_more_button"),
+            SwitchPreference("revanced_hide_ticket_shelf"),
             SwitchPreference("revanced_hide_doodles"),
         )
 

@@ -219,6 +219,9 @@ You will not be notified of any unexpected events."</string>
             <string name="revanced_hide_show_more_button_title">Hide \'Show more\' button</string>
             <string name="revanced_hide_show_more_button_summary_on">Button is hidden</string>
             <string name="revanced_hide_show_more_button_summary_off">Button is shown</string>
+            <string name="revanced_hide_ticket_shelf_title">Hide ticket shelf</string>
+            <string name="revanced_hide_ticket_shelf_summary_on">Ticket shelf is hidden</string>
+            <string name="revanced_hide_ticket_shelf_summary_off">Ticket shelf is shown</string>
             <string name="revanced_hide_timed_reactions_title">Hide timed reactions</string>
             <string name="revanced_hide_timed_reactions_summary_on">Timed reactions are hidden</string>
             <string name="revanced_hide_timed_reactions_summary_off">Timed reactions are shown</string>

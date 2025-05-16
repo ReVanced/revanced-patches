@@ -233,6 +233,11 @@ public final class LayoutComponentsFilter extends Filter {
                 "mixed_content_shelf"
         );
 
+        final var ticketShelf = new StringFilterGroup(
+                Settings.HIDE_TICKET_SHELF,
+                "ticket.eml"
+        );
+
         searchResultVideo = new StringFilterGroup(
                 Settings.HIDE_SEARCH_RESULT_RECOMMENDATIONS,
                 "search_video_with_context.eml"
@@ -278,6 +283,7 @@ public final class LayoutComponentsFilter extends Filter {
                 artistCard,
                 timedReactions,
                 imageShelf,
+                ticketShelf,
                 channelMemberShelf,
                 forYouShelf,
                 horizontalShelves
