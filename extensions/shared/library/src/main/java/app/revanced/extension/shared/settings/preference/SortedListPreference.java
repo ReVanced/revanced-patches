@@ -28,9 +28,9 @@ import app.revanced.extension.shared.Utils;
 public class SortedListPreference extends ListPreference {
 
     /**
-     * Sorts the list entries, but preserves the first N entries in their current position.
+     * Sorts the current list entries.
      */
-    protected void sortEntryAndValues() {
+    public void sortEntryAndValues() {
         CharSequence[] entries = getEntries();
         CharSequence[] entryValues = getEntryValues();
         if (entries == null || entryValues == null) {
@@ -79,18 +79,6 @@ public class SortedListPreference extends ListPreference {
 
     protected int getFirstEntriesToPreserve() {
         return 1;
-    }
-
-    /**
-     * If changing both entry and values and the number of entries/values
-     * differs from what is currently set, then first set the values by calling
-     * {@link #setEntryValues(CharSequence[])} before calling this method.
-     */
-    @Override
-    public void setEntries(CharSequence[] entries) {
-        super.setEntries(entries);
-
-        sortEntryAndValues();
     }
 
     public SortedListPreference(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {

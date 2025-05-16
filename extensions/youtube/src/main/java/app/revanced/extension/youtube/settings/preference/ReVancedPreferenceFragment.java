@@ -311,13 +311,14 @@ class AbstractPreferenceSearchData<T extends Preference> {
         final int adjustedColor = ThemeHelper.isDarkTheme()
                 ? ThemeHelper.adjustColorBrightness(baseColor, 1.20f)  // Lighten for dark theme.
                 : ThemeHelper.adjustColorBrightness(baseColor, 0.95f); // Darken for light theme.
+        BackgroundColorSpan highlightSpan = new BackgroundColorSpan(adjustedColor);
 
         SpannableStringBuilder spannable = new SpannableStringBuilder(text);
         Matcher matcher = queryPattern.matcher(text);
 
         while (matcher.find()) {
             spannable.setSpan(
-                    new BackgroundColorSpan(adjustedColor), // Highlight color.
+                    highlightSpan,
                     matcher.start(),
                     matcher.end(),
                     SpannableStringBuilder.SPAN_EXCLUSIVE_EXCLUSIVE
