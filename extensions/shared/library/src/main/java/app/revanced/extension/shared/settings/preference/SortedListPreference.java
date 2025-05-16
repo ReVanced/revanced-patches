@@ -78,6 +78,18 @@ public class SortedListPreference extends ListPreference {
         return 1;
     }
 
+    /**
+     * If changing both entry and values and the number of entries/values
+     * differs from what is currently set, then first set the values by calling
+     * {@link #setEntryValues(CharSequence[])} before calling this method.
+     */
+    @Override
+    public void setEntries(CharSequence[] entries) {
+        super.setEntries(entries);
+
+        sortEntryAndValues();
+    }
+
     public SortedListPreference(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
 
