@@ -260,8 +260,8 @@ public class ReVancedPreferenceFragment extends AbstractPreferenceFragment {
         // Show 'No results found' if search results are empty.
         if (categoryMap.isEmpty()) {
             Preference noResultsPreference = new Preference(preferenceScreen.getContext());
-            noResultsPreference.setTitle(str("revanced_search_settings_no_results_title", query));
-            noResultsPreference.setSummary(str("revanced_search_settings_no_results_summary"));
+            noResultsPreference.setTitle(str("revanced_settings_search_no_results_title", query));
+            noResultsPreference.setSummary(str("revanced_settings_search_no_results_summary"));
             noResultsPreference.setSelectable(false);
             // Set icon for the placeholder preference.
             noResultsPreference.setLayoutResource(getResourceIdentifier(

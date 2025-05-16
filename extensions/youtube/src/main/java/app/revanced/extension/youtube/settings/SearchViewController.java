@@ -20,7 +20,6 @@ import android.widget.Toolbar;
 
 import androidx.annotation.NonNull;
 
-import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Deque;
@@ -114,7 +113,7 @@ public class SearchViewController {
 
         // Set background and query hint.
         searchView.setBackground(createBackgroundDrawable(toolbar.getContext()));
-        searchView.setQueryHint(str("revanced_search_settings"));
+        searchView.setQueryHint(str("revanced_settings_search"));
 
         // Configure RTL support based on app language.
         AppLanguage appLanguage = BaseSettings.REVANCED_LANGUAGE.get();
@@ -367,10 +366,10 @@ public class SearchViewController {
             // Set long click listener for deletion confirmation.
             convertView.setOnLongClickListener(v -> {
                 new AlertDialog.Builder(activity)
-                        .setTitle(str("revanced_search_settings_user_dialog_title"))
-                        .setMessage(str("revanced_search_settings_user_dialog_message"))
-                        .setIconAttribute(android.R.attr.alertDialogIcon)
-                        .setPositiveButton(android.R.string.ok, (dialog, which) -> removeSearchQuery(query))
+                        .setTitle(query)
+                        .setMessage(str("revanced_settings_search_remove_message"))
+                        .setPositiveButton(android.R.string.ok,
+                                (dialog, which) -> removeSearchQuery(query))
                         .setNegativeButton(android.R.string.cancel, null)
                         .show();
                 return true;

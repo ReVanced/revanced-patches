@@ -33,11 +33,6 @@ Second \"item\" text"</string>
         <patch id="misc.settings.settingsResourcePatch">
             <string name="revanced_settings_submenu_title">Settings</string>
             <string name="revanced_settings_title" translatable="false">ReVanced</string>
-            <string name="revanced_search_settings">Search settings</string>
-            <string name="revanced_search_settings_no_results_title">No results found for \'%s\'</string>
-            <string name="revanced_search_settings_no_results_summary">Try another keyword</string>
-            <string name="revanced_search_settings_user_dialog_title">Confirm Deletion</string>
-            <string name="revanced_search_settings_user_dialog_message">Are you sure you want to delete this search query?</string>
             <string name="revanced_settings_confirm_user_dialog_title">Do you wish to proceed?</string>
             <string name="revanced_settings_reset">Reset</string>
             <string name="revanced_settings_restart_title">Refresh and restart</string>
@@ -47,6 +42,10 @@ Second \"item\" text"</string>
             <string name="revanced_settings_import_reset">ReVanced settings reset to default</string>
             <string name="revanced_settings_import_success">Imported %d settings</string>
             <string name="revanced_settings_import_failure_parse">Import failed: %s</string>
+            <string name="revanced_settings_search">Search settings</string>
+            <string name="revanced_settings_search_no_results_title">No results found for \'%s\'</string>
+            <string name="revanced_settings_search_no_results_summary">Try another keyword</string>
+            <string name="revanced_settings_search_remove_message">Remove from search history?</string>
             <string name="revanced_show_menu_icons_title">Show ReVanced setting icons</string>
             <string name="revanced_show_menu_icons_summary_on">Setting icons are shown</string>
             <string name="revanced_show_menu_icons_summary_off">Setting icons are not shown</string>
