@@ -238,6 +238,9 @@ Jūs netiksit informēts par neparedzētiem notikumiem."</string>
   <string name="revanced_hide_ai_generated_video_summary_section_title">Paslēpt \"AI ģenerēta video kopsavilkums\"</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_on">Video kopsavilkuma sadaļa ir paslēpta</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_off">Video kopsavilkuma sadaļa ir rādīta</string>
+  <string name="revanced_hide_ask_section_title">Slēpt Jautāt</string>
+  <string name="revanced_hide_ask_section_summary_on">Jautājumu sadaļa ir paslēpta</string>
+  <string name="revanced_hide_ask_section_summary_off">Jautājumu sadaļa ir redzama</string>
   <string name="revanced_hide_attributes_section_title">Paslēpt atribūtus</string>
   <string name="revanced_hide_attributes_section_summary_on">Piedāvātās vietas, spēles, mūzika un pieminētie cilvēki ir paslēpti</string>
   <string name="revanced_hide_attributes_section_summary_off">Piedāvātās vietas, spēles, mūzika un pieminētie cilvēki ir redzami</string>

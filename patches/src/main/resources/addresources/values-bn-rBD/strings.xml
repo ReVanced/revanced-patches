@@ -238,6 +238,9 @@ MicroG-এর জন্য ব্যাটারি অপ্টিমাইজ�
   <string name="revanced_hide_ai_generated_video_summary_section_title">\'AI-জেনারেটেড ভিডিও সারসংক্ষেপ\' লুকান</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_on">ভিডিও সারসংক্ষেপ বিভাগ লুকানো আছে</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_off">ভিডিও সারসংক্ষেপ বিভাগ দেখানো হয়েছে</string>
+  <string name="revanced_hide_ask_section_title">জিজ্ঞাসা লুকান</string>
+  <string name="revanced_hide_ask_section_summary_on">জিজ্ঞাসা বিভাগ লুকানো আছে</string>
+  <string name="revanced_hide_ask_section_summary_off">জিজ্ঞাসা বিভাগ দেখানো হয়েছে</string>
   <string name="revanced_hide_attributes_section_title">বৈশিষ্ট্যাবলী লুকান</string>
   <string name="revanced_hide_attributes_section_summary_on">বৈশিষ্ট্যযুক্ত স্থান, গেমস, সঙ্গীত, এবং উল্লিখিত ব্যক্তি বিভাগগুলি লুকানো আছে</string>
   <string name="revanced_hide_attributes_section_summary_off">বৈশিষ্ট্যযুক্ত স্থান, গেমস, সঙ্গীত, এবং উল্লিখিত ব্যক্তি বিভাগগুলি দেখানো হয়েছে</string>

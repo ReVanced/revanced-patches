@@ -42,9 +42,8 @@ Second \"item\" text"</string>
   <string name="revanced_settings_import_reset">Налаштування ReVanced скинуто до стандартних</string>
   <string name="revanced_settings_import_success">Імпортовано %d налаштувань</string>
   <string name="revanced_settings_import_failure_parse">Не вдалося імпортувати: %s</string>
-  <string name="revanced_settings_search_hint">Параметри пошуку</string>
-  <string name="revanced_settings_search_no_results_title">За запитом 
- 					\'%s\' нічого не знайдено</string>
+  <string name="revanced_settings_search_hint">Пошук налаштувань</string>
+  <string name="revanced_settings_search_no_results_title">За запитом \'%s\' нічого не знайдено</string>
   <string name="revanced_settings_search_no_results_summary">Спробуйте інше ключове слово</string>
   <string name="revanced_settings_search_remove_message">Видалити з історії пошуку?</string>
   <string name="revanced_show_menu_icons_title">Показувати іконки в налаштуваннях ReVanced</string>
@@ -99,8 +98,8 @@ Second \"item\" text"</string>
   <string name="revanced_restore_old_settings_menus_summary_on">Показується старе меню налаштувань</string>
   <string name="revanced_restore_old_settings_menus_summary_off">Показується нове меню налаштувань</string>
   <string name="revanced_settings_search_history_title">Показувати історію пошуку налаштувань</string>
-  <string name="revanced_settings_search_history_summary_on">Історію пошуку налаштувань показано</string>
-  <string name="revanced_settings_search_history_summary_off">Історію пошуку в налаштуваннях не показано</string>
+  <string name="revanced_settings_search_history_summary_on">Історія пошуку налаштувань показується</string>
+  <string name="revanced_settings_search_history_summary_off">Історія пошуку налаштувань не показується</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
   <string name="revanced_shorts_disable_background_playback_title">Вимкнути фонове відтворення Shorts</string>
@@ -240,6 +239,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_ai_generated_video_summary_section_title">Приховати секцію \"Короткий переказ від ШІ\"</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_on">Секцію \"Короткий переказ\" приховано</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_off">Секція \"Короткий переказ\" показується</string>
+  <string name="revanced_hide_ask_section_title">Приховати \"Запитати\"</string>
+  <string name="revanced_hide_ask_section_summary_on">Розділ \"Запитати\" приховано</string>
+  <string name="revanced_hide_ask_section_summary_off">Розділ \"Запитати\" показується</string>
   <string name="revanced_hide_attributes_section_title">Приховати секції атрибутів</string>
   <string name="revanced_hide_attributes_section_summary_on">Секції \"Місця на відео\", \"Ігри\", \"Музика\" та \"Люди, згадані у відео\" приховано</string>
   <string name="revanced_hide_attributes_section_summary_off">Секції \"Місця на відео\", \"Ігри\", \"Музика\" та \"Люди, згадані у відео\" показуються</string>

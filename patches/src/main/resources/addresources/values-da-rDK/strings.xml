@@ -43,8 +43,7 @@ Second \"item\" text"</string>
   <string name="revanced_settings_import_success">%d indstillinger importeret</string>
   <string name="revanced_settings_import_failure_parse">Import mislykkedes: %s</string>
   <string name="revanced_settings_search_hint">Søg i indstillinger</string>
-  <string name="revanced_settings_search_no_results_title">Ingen resultater fundet for 
-\'%s\'</string>
+  <string name="revanced_settings_search_no_results_title">Ingen resultater fundet for \'%s\'</string>
   <string name="revanced_settings_search_no_results_summary">Prøv et andet søgeord</string>
   <string name="revanced_settings_search_remove_message">Fjern fra søgehistorik?</string>
   <string name="revanced_show_menu_icons_title">Vis ReVanced-indstillingsikoner</string>
@@ -234,6 +233,9 @@ Du modtager ikke notifikationer om uventede hændelser."</string>
   <string name="revanced_hide_ai_generated_video_summary_section_title">Skjul \"AI-genereret videooversigt\"</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_on">Videooversigtssektionen er skjult</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_off">Videooversigtssektionen vises</string>
+  <string name="revanced_hide_ask_section_title">Skjul Spørg</string>
+  <string name="revanced_hide_ask_section_summary_on">Spørgsmål sektionen er skjult</string>
+  <string name="revanced_hide_ask_section_summary_off">Spørgsmål sektionen vises</string>
   <string name="revanced_hide_chapters_section_summary_on">Kapitler sektion er skjult</string>
   <string name="revanced_hide_chapters_section_summary_off">Kapitel afsnit er vist</string>
   <string name="revanced_hide_info_cards_section_summary_on">Info-kort sektion er skjult</string>

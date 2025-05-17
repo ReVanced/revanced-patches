@@ -242,6 +242,9 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_hide_ai_generated_video_summary_section_title">AI 생성 동영상 요약 섹션 숨기기</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_on">AI 생성 동영상 요약 섹션이 숨겨집니다</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_off">AI 생성 동영상 요약 섹션이 표시됩니다</string>
+  <string name="revanced_hide_ask_section_title">요청 버튼 숨기기</string>
+  <string name="revanced_hide_ask_section_summary_on">요청 섹션이 숨겨집니다</string>
+  <string name="revanced_hide_ask_section_summary_off">요청 섹션이 표시됩니다</string>
   <string name="revanced_hide_attributes_section_title">속성 섹션 숨기기</string>
   <string name="revanced_hide_attributes_section_summary_on">게임, 음악, 동영상 속 장소 그리고 언급된 인물 섹션이 숨겨집니다</string>
   <string name="revanced_hide_attributes_section_summary_off">게임, 음악, 동영상 속 장소 그리고 언급된 인물 섹션이 표시됩니다</string>
