@@ -169,6 +169,9 @@ Ne boste obveščeni o nobenih nepričakovanih dogodkih."</string>
   <string name="revanced_hide_show_more_button_title">Skrij gumb \"Prikaži več\"</string>
   <string name="revanced_hide_show_more_button_summary_on">Gumb je skrit</string>
   <string name="revanced_hide_show_more_button_summary_off">Gumb je prikazan</string>
+  <string name="revanced_hide_ticket_shelf_title">Skrij polico za vstopnice</string>
+  <string name="revanced_hide_ticket_shelf_summary_on">Polica za vstopnice je skrita</string>
+  <string name="revanced_hide_ticket_shelf_summary_off">Polica za vstopnice je prikazana</string>
   <string name="revanced_hide_timed_reactions_title">Skrij časovno usklajene reakcije</string>
   <string name="revanced_hide_timed_reactions_summary_on">Časovno usklajene reakcije so skrite</string>
   <string name="revanced_hide_timed_reactions_summary_off">Časovno usklajene reakcije so prikazane</string>

@@ -169,6 +169,9 @@ Ju nuk do të njoftoheni për ndonjë ngjarje të papritur."</string>
   <string name="revanced_hide_show_more_button_title">Fshih butonin \"Trego më shumë\"</string>
   <string name="revanced_hide_show_more_button_summary_on">Butoni është i fshehur</string>
   <string name="revanced_hide_show_more_button_summary_off">Butoni është i dukshëm</string>
+  <string name="revanced_hide_ticket_shelf_title">Fshih raftin e biletave</string>
+  <string name="revanced_hide_ticket_shelf_summary_on">Rafti i biletave është i fshehur</string>
+  <string name="revanced_hide_ticket_shelf_summary_off">Rafti i biletave është i dukshëm</string>
   <string name="revanced_hide_timed_reactions_title">Fshih reagimet e kohës</string>
   <string name="revanced_hide_timed_reactions_summary_on">Reagimet e kohës janë të fshehura</string>
   <string name="revanced_hide_timed_reactions_summary_off">Reagimet e kohës janë të dukshme</string>

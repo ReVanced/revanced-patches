@@ -172,6 +172,9 @@ MicroG GmsCore に対する電池の最適化を無効にしても、バッテ�
   <string name="revanced_hide_show_more_button_title">「もっと見る」ボタンを非表示</string>
   <string name="revanced_hide_show_more_button_summary_on">「もっと見る」ボタンは表示されません</string>
   <string name="revanced_hide_show_more_button_summary_off">「もっと見る」ボタンは表示されます</string>
+  <string name="revanced_hide_ticket_shelf_title">チケット欄を非表示</string>
+  <string name="revanced_hide_ticket_shelf_summary_on">チケット欄は表示されません</string>
+  <string name="revanced_hide_ticket_shelf_summary_off">チケット欄は表示されます</string>
   <string name="revanced_hide_timed_reactions_title">Timed Reaction を非表示</string>
   <string name="revanced_hide_timed_reactions_summary_on">Timed Reaction とチャット欄のハートマーク アイコンは表示されません</string>
   <string name="revanced_hide_timed_reactions_summary_off">Timed Reaction とチャット欄のハートマー ク アイコンは表示されます</string>

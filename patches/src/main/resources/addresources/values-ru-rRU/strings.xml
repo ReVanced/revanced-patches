@@ -169,6 +169,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_show_more_button_title">Скрыть кнопку \"Показать еще\"</string>
   <string name="revanced_hide_show_more_button_summary_on">Кнопка \"Показать еще\" в результатах поиска скрыта</string>
   <string name="revanced_hide_show_more_button_summary_off">Кнопка \"Показать еще\" в результатах поиска показана</string>
+  <string name="revanced_hide_ticket_shelf_title">Скрыть секцию билетов</string>
+  <string name="revanced_hide_ticket_shelf_summary_on">Секция билетов скрыта</string>
+  <string name="revanced_hide_ticket_shelf_summary_off">Секция билетов показана</string>
   <string name="revanced_hide_timed_reactions_title">Скрыть временные реакции</string>
   <string name="revanced_hide_timed_reactions_summary_on">Временные реакции в комментариях и живом чате скрыты</string>
   <string name="revanced_hide_timed_reactions_summary_off">Временные реакции в комментариях и живом чате показаны</string>

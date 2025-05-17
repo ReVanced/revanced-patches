@@ -165,6 +165,9 @@ Sie werden nicht über unerwartete Ereignisse informiert."</string>
   <string name="revanced_hide_show_more_button_title">\'Mehr anzeigen\' Button ausblenden</string>
   <string name="revanced_hide_show_more_button_summary_on">Button ist ausgeblendet</string>
   <string name="revanced_hide_show_more_button_summary_off">Button wird angezeigt</string>
+  <string name="revanced_hide_ticket_shelf_title">Ticket-Reihe ausblenden</string>
+  <string name="revanced_hide_ticket_shelf_summary_on">Ticket-Reihe ist ausgeblendet</string>
+  <string name="revanced_hide_ticket_shelf_summary_off">Ticket-Reihe wird angezeigt</string>
   <string name="revanced_hide_timed_reactions_title">Zeitliche Reaktionen ausblenden</string>
   <string name="revanced_hide_timed_reactions_summary_on">Zeitgesteuerte Reaktionen sind ausgeblendet</string>
   <string name="revanced_hide_timed_reactions_summary_off">Zeitgesteuerte Reaktionen werden angezeigt</string>

@@ -169,6 +169,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_show_more_button_title">Сакриј дугме „Прикажи још”</string>
   <string name="revanced_hide_show_more_button_summary_on">Дугме „Прикажи још” је скривено</string>
   <string name="revanced_hide_show_more_button_summary_off">Дугме „Прикажи још” је приказано</string>
+  <string name="revanced_hide_ticket_shelf_title">Сакриј полицу са улазницама</string>
+  <string name="revanced_hide_ticket_shelf_summary_on">Полица са улазницама је сакривена</string>
+  <string name="revanced_hide_ticket_shelf_summary_off">Полица са улазницама је приказана</string>
   <string name="revanced_hide_timed_reactions_title">Сакриј временске реакције</string>
   <string name="revanced_hide_timed_reactions_summary_on">Временске реакције су скривене</string>
   <string name="revanced_hide_timed_reactions_summary_off">Временске реакције су приказане</string>

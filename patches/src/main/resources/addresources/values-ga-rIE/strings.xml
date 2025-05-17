@@ -169,6 +169,9 @@ Ní chuirfear ar an eolas thú faoi aon imeachtaí gan choinne."</string>
   <string name="revanced_hide_show_more_button_title">Folaigh cnaipe \'Taispeáin tuilleadh\'</string>
   <string name="revanced_hide_show_more_button_summary_on">Tá an cnaipe i bhfolach</string>
   <string name="revanced_hide_show_more_button_summary_off">Taispeántar an cnaipe</string>
+  <string name="revanced_hide_ticket_shelf_title">Folaigh an seilf ticéad</string>
+  <string name="revanced_hide_ticket_shelf_summary_on">Tá an seilf ticéad i bhfolach</string>
+  <string name="revanced_hide_ticket_shelf_summary_off">Taispeántar an seilf ticéad</string>
   <string name="revanced_hide_timed_reactions_title">Folaigh frithghníomhartha ama</string>
   <string name="revanced_hide_timed_reactions_summary_on">Tá frithghníomhartha ama i bhfolach</string>
   <string name="revanced_hide_timed_reactions_summary_off">Taispeántar frithghníomhartha ama</string>

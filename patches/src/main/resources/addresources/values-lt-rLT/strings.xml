@@ -169,6 +169,9 @@ Apie netikėtus įvykius nebus pranešta."</string>
   <string name="revanced_hide_show_more_button_title">Slėpti mygtuką \"Rodyti daugiau\"</string>
   <string name="revanced_hide_show_more_button_summary_on">Mygtukas yra paslėptas</string>
   <string name="revanced_hide_show_more_button_summary_off">Mygtukas yra rodomas</string>
+  <string name="revanced_hide_ticket_shelf_title">Slėpti bilietų lentyną</string>
+  <string name="revanced_hide_ticket_shelf_summary_on">Bilietų lentyna yra paslėpta</string>
+  <string name="revanced_hide_ticket_shelf_summary_off">Bilietų lentyna yra rodoma</string>
   <string name="revanced_hide_timed_reactions_title">Slėpti laiku įvykusias reakcijas</string>
   <string name="revanced_hide_timed_reactions_summary_on">Laiku įvykusios reakcijos yra paslėptos</string>
   <string name="revanced_hide_timed_reactions_summary_off">Laiku įvykusios reakcijos yra rodomos</string>
