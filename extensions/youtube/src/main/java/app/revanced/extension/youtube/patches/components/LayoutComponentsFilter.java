@@ -280,9 +280,6 @@ public final class LayoutComponentsFilter extends Filter {
                 forYouShelf,
                 horizontalShelves
         );
-
-        addIdentifierCallbacks(
-                ticketShelf);
     }
 
     @Override
