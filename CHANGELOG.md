@@ -1,3 +1,15 @@
+# [5.24.0-dev.5](https://github.com/ReVanced/revanced-patches/compare/v5.24.0-dev.4...v5.24.0-dev.5) (2025-05-17)
+
+
+### Bug Fixes
+
+* **Spotify - Fix third party launchers widgets:** Add missing compatibility annotation ([0493f80](https://github.com/ReVanced/revanced-patches/commit/0493f8035b26b90c5f8e42be2e2a5ce73d8685a5))
+
+
+### Features
+
+* **YouTube - Settings:** Add ability to search in settings ([#4881](https://github.com/ReVanced/revanced-patches/issues/4881)) ([aca8b20](https://github.com/ReVanced/revanced-patches/commit/aca8b207c15f254bcc9ad94bc7dfb895f21d4058))
+
 # [5.24.0-dev.4](https://github.com/ReVanced/revanced-patches/compare/v5.24.0-dev.3...v5.24.0-dev.4) (2025-05-16)
 
 
