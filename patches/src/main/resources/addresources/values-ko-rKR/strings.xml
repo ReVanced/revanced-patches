@@ -42,10 +42,10 @@ Second \"item\" text"</string>
   <string name="revanced_settings_import_reset">ReVanced 설정을 기본값으로 초기화합니다</string>
   <string name="revanced_settings_import_success">%d 설정을 가져왔습니다</string>
   <string name="revanced_settings_import_failure_parse">설정을 가져올 수 없습니다: %s</string>
-  <string name="revanced_settings_search_hint">검색 설정</string>
-  <string name="revanced_settings_search_no_results_title">\'%s\'에 대한 결과가 없습니다.</string>
-  <string name="revanced_settings_search_no_results_summary">다른 키워드 시도</string>
-  <string name="revanced_settings_search_remove_message">검색 기록에서 삭제하시겠습니까?</string>
+  <string name="revanced_settings_search_hint">설정 검색</string>
+  <string name="revanced_settings_search_no_results_title">\'%s\'에 대한 검색 결과가 없습니다</string>
+  <string name="revanced_settings_search_no_results_summary">다른 키워드를 사용해 보세요</string>
+  <string name="revanced_settings_search_remove_message">검색 기록에서 제거하시겠습니까?</string>
   <string name="revanced_show_menu_icons_title">ReVanced 설정 아이콘 표시하기</string>
   <string name="revanced_show_menu_icons_summary_on">설정 아이콘을 표시합니다</string>
   <string name="revanced_show_menu_icons_summary_off">설정 아이콘을 표시하지 않습니다</string>
@@ -97,9 +97,9 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_restore_old_settings_menus_title">이전 설정 메뉴 복원하기</string>
   <string name="revanced_restore_old_settings_menus_summary_on">이전 설정 메뉴를 표시합니다</string>
   <string name="revanced_restore_old_settings_menus_summary_off">이전 설정 메뉴를 표시하지 않습니다</string>
-  <string name="revanced_settings_search_history_title">설정 검색 기록 보기</string>
-  <string name="revanced_settings_search_history_summary_on">설정 검색 기록이 표시됨</string>
-  <string name="revanced_settings_search_history_summary_off">설정 검색 기록이 표시되지 않음</string>
+  <string name="revanced_settings_search_history_title">설정 검색 기록 표시하기</string>
+  <string name="revanced_settings_search_history_summary_on">설정 검색 기록이 표시됩니다</string>
+  <string name="revanced_settings_search_history_summary_off">설정 검색 기록이 표시되지 않습니다</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
   <string name="revanced_shorts_disable_background_playback_title">Shorts 백그라운드 재생 비활성화하기</string>
@@ -173,9 +173,9 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_hide_show_more_button_title">\'자세히 보기\' 버튼 숨기기</string>
   <string name="revanced_hide_show_more_button_summary_on">\'자세히 보기\' 버튼이 숨겨집니다</string>
   <string name="revanced_hide_show_more_button_summary_off">\'자세히 보기\' 버튼이 표시됩니다</string>
-  <string name="revanced_hide_ticket_shelf_title">티켓 선반 숨기기</string>
-  <string name="revanced_hide_ticket_shelf_summary_on">티켓 선반이 숨겨집니다</string>
-  <string name="revanced_hide_ticket_shelf_summary_off">티켓 선반이 표시됩니다</string>
+  <string name="revanced_hide_ticket_shelf_title">콘서트 티켓 선반 숨기기</string>
+  <string name="revanced_hide_ticket_shelf_summary_on">콘서트 티켓 선반이 숨겨집니다\n• 일부 국가에서는 아직 서비스가 제공되지 않습니다</string>
+  <string name="revanced_hide_ticket_shelf_summary_off">콘서트 티켓 선반이 표시됩니다\n• 일부 국가에서는 아직 서비스가 제공되지 않습니다</string>
   <string name="revanced_hide_timed_reactions_title">실시간 이모티콘 리액션 숨기기</string>
   <string name="revanced_hide_timed_reactions_summary_on">실시간 이모티콘 리액션이 숨겨집니다</string>
   <string name="revanced_hide_timed_reactions_summary_off">실시간 이모티콘 리액션이 표시됩니다</string>
@@ -424,8 +424,8 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   </patch>
   <patch id="interaction.dialog.removeViewerDiscretionDialogPatch">
   <string name="revanced_remove_viewer_discretion_dialog_title">시청 경고 다이얼로그 제거하기</string>
-  <string name="revanced_remove_viewer_discretion_dialog_summary_on">다음 동영상을 시청하기 전에 표시되는 시청 경고 다이얼로그를 제거합니다:\n• 연령 제한 동영상\n• 자살 또는 자해와 관련된 동영상, etc.</string>
-  <string name="revanced_remove_viewer_discretion_dialog_summary_off">다음 동영상을 시청하기 전에 표시되는 시청 경고 다이얼로그를 제거하지 않습니다:\n• 연령 제한 동영상\n• 자살 또는 자해와 관련된 동영상, etc.</string>
+  <string name="revanced_remove_viewer_discretion_dialog_summary_on">다음 동영상을 시청하기 전에 표시되는 시청 경고 다이얼로그를 제거합니다\n• 연령 제한 동영상\n• 자살 또는 자해와 관련된 동영상, etc.</string>
+  <string name="revanced_remove_viewer_discretion_dialog_summary_off">다음 동영상을 시청하기 전에 표시되는 시청 경고 다이얼로그를 제거하지 않습니다\n• 연령 제한 동영상\n• 자살 또는 자해와 관련된 동영상, etc.</string>
   <string name="revanced_remove_viewer_discretion_dialog_user_dialog_message">이 설정은 다이얼로그를 자동으로 허용하기만 하며 연령 제한(성인인증 절차)을 우회할 수 없습니다.</string>
   </patch>
   <patch id="interaction.downloads.downloadsResourcePatch">
