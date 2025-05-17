@@ -91,6 +91,7 @@ private val settingsResourcePatch = resourcePatch {
                 "revanced_settings_screen_12_video.xml",
             ),
             ResourceGroup("layout",
+                "revanced_color_picker.xml",
                 "revanced_preference_with_icon_no_search_result.xml",
                 "revanced_search_suggestion_item.xml",
                 "revanced_settings_with_toolbar.xml"),

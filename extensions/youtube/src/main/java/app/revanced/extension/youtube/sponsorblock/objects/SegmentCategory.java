@@ -9,6 +9,7 @@ import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.TextUtils;
 import android.text.style.ForegroundColorSpan;
+import android.text.style.RelativeSizeSpan;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -310,7 +311,12 @@ public enum SegmentCategory {
     }
 
     public static SpannableString getCategoryColorDot(int color) {
-        return getCategoryColorDotSpan("", color);
+        SpannableString dotSpan = new SpannableString('⬤' + "");
+        dotSpan.setSpan(new ForegroundColorSpan(color), 0, 1,
+                Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+        dotSpan.setSpan(new RelativeSizeSpan(1.5f), 0, 1,
+                Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+        return dotSpan;
     }
 
     public SpannableString getCategoryColorDot() {
