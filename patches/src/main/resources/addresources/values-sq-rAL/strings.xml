@@ -42,6 +42,10 @@ Second \"item\" text"</string>
   <string name="revanced_settings_import_reset">Cilësimet e ReVanced u rivendosën në cilësimet e parazgjedhura</string>
   <string name="revanced_settings_import_success">Importuan %d cilësime</string>
   <string name="revanced_settings_import_failure_parse">Importimi dështoi: %s</string>
+  <string name="revanced_settings_search_hint">Kërko cilësimet</string>
+  <string name="revanced_settings_search_no_results_title">Nuk u gjet asnjë rezultat për \'%s\'</string>
+  <string name="revanced_settings_search_no_results_summary">Provo një fjalë kyçe tjetër</string>
+  <string name="revanced_settings_search_remove_message">Hiq nga historiku i kërkimit?</string>
   <string name="revanced_show_menu_icons_title">Shfaq ikonat e cilësimeve të ReVanced</string>
   <string name="revanced_show_menu_icons_summary_on">Ikonat e cilësimeve shfaqen</string>
   <string name="revanced_show_menu_icons_summary_off">Ikonat e cilësimeve nuk shfaqen</string>
@@ -93,6 +97,9 @@ Prekni butonin vazhdo dhe lejoni ndryshimet e optimizimit."</string>
   <string name="revanced_restore_old_settings_menus_title">Rikthe menutë e vjetër të konfigurimeve</string>
   <string name="revanced_restore_old_settings_menus_summary_on">Menutë e vjetër të cilësimeve shfaqen</string>
   <string name="revanced_restore_old_settings_menus_summary_off">Menutë e vjetër të cilësimeve nuk shfaqen</string>
+  <string name="revanced_settings_search_history_title">Shfaq historikun e kërkimeve të cilësimeve</string>
+  <string name="revanced_settings_search_history_summary_on">Historiku i kërkimeve të cilësimeve është shfaqur</string>
+  <string name="revanced_settings_search_history_summary_off">Historia e kërkimit të cilësimeve nuk shfaqet</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
   <string name="revanced_shorts_disable_background_playback_title">Çaktivizo luajtjen në sfond të Shorts</string>
@@ -153,10 +160,10 @@ Ju nuk do të njoftoheni për ndonjë ngjarje të papritur."</string>
   <string name="revanced_hide_notify_me_button_title">Fshih butonin \"Njoftomë\"</string>
   <string name="revanced_hide_notify_me_button_summary_on">Butoni është i fshehur</string>
   <string name="revanced_hide_notify_me_button_summary_off">Butoni është i dukshëm</string>
-  <!-- 'People also watched' should be translated using the same localized wording YouTube displays. -->
-  <string name="revanced_hide_search_result_recommendations_title">Fshih etiketën \'Njerëzit shikuan gjithashtu\'</string>
-  <string name="revanced_hide_search_result_recommendations_summary_on">Etiketa është e fshehur</string>
-  <string name="revanced_hide_search_result_recommendations_summary_off">Etiketa është e shfaqur</string>
+  <!-- 'People also watched' and 'You might also like' should be translated using the same localized wording YouTube displays. -->
+  <string name="revanced_hide_search_result_recommendation_labels_title">Fshih etiketat e rekomandimit të videos</string>
+  <string name="revanced_hide_search_result_recommendation_labels_summary_on">Etiketat \"Edhe të tjerë e shikuan\" dhe \"Mund të të pëlqejë gjithashtu\" janë fshehur</string>
+  <string name="revanced_hide_search_result_recommendation_labels_summary_off">Etiketat \"Edhe të tjerë e shikuan\" dhe \"Mund të të pëlqejë gjithashtu\" janë shfaqur</string>
   <!-- 'Show more' should be translated with the same localized wording that YouTube displays.
                   This button usually appears when searching for a YT creator. -->
   <string name="revanced_hide_show_more_button_title">Fshih butonin \"Trego më shumë\"</string>
@@ -836,10 +843,10 @@ Cilësimet → Luajtja → Luaj automatikisht videon tjetër"</string>
   <string name="revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted">Rikarkoni videon për të votuar duke përdorur Return YouTube Dislike</string>
   <!-- Video likes have been set to hidden by the video uploader. -->
   <string name="revanced_ryd_video_likes_hidden_by_video_owner">Fshehur nga pronari</string>
-  <string name="revanced_ryd_enable_summary_on">\"Nuk më pëlqen\" janë të dukshme</string>
-  <string name="revanced_ryd_enable_summary_off">\"Nuk më pëlqen\" nuk janë të dukshme</string>
+  <string name="revanced_ryd_enabled_summary_on">\"Nuk më pëlqen\" janë të dukshme</string>
+  <string name="revanced_ryd_enabled_summary_off">\"Nuk më pëlqen\" nuk janë të dukshme</string>
   <string name="revanced_ryd_shorts_title">Shfaq \"Nuk më pëlqen\" në Shorts</string>
-  <string name="revanced_ryd_shorts_summary_on_disclaimer">"Mospëlqimet në Shorts janë të shfaqura
+  <string name="revanced_ryd_shorts_summary_on">"Mospëlqimet në Shorts janë të shfaqura
 
 Kufizimi: Mospëlqimet mund të mos shfaqen në modalitetin incognito"</string>
   <string name="revanced_ryd_shorts_summary_off">Mospëlqimet në Shorts nuk janë të shfaqura</string>
@@ -856,7 +863,6 @@ Kufizimi: Mospëlqimet mund të mos shfaqen në modalitetin incognito"</string>
   <string name="revanced_ryd_toast_on_connection_error_title">Shfaq një toast nëse API nuk është në dispozicion</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_on">Toast shfaqet nëse Return YouTube Dislike nuk është në dispozicion</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_off">Toast nuk shfaqet nëse Return YouTube Dislike nuk është në dispozicion</string>
-  <string name="revanced_ryd_about">Rreth</string>
   <string name="revanced_ryd_attribution_summary">Të dhënat ofrohen nga Return YouTube Dislike API. Prekni këtu për të mësuar më shumë</string>
   <!-- Statistic strings are shown in the settings only when ReVanced debug mode is enabled. Typical users will never see these. -->
   <string name="revanced_ryd_statistics_category_title">Statistikat e ReturnYouTubeDislike API të këtij pajisje</string>
@@ -1061,7 +1067,7 @@ Gati per te dhene?"</string>
   <string name="revanced_sb_new_segment_edit_by_hand_title">Redakto kohën e segmentit manualisht</string>
   <string name="revanced_sb_new_segment_edit_by_hand_content">Dëshironi të redaktoni kohën për fillimin ose fundin e segmentit?</string>
   <string name="revanced_sb_new_segment_edit_by_hand_parse_error">Kohë e pavlefshme e dhënë</string>
-  <string name="revanced_sb_stats">Statistikat</string>
+  <string name="revanced_sb_stats_title">Statistikat</string>
   <!-- Shown in the settings preferences, and translations can be any text length. -->
   <string name="revanced_sb_stats_connection_failure">Statistikat aktualisht nuk janë të disponueshme (API nuk funksionon)</string>
   <string name="revanced_sb_stats_loading">Po ngarkohet...</string>
@@ -1090,8 +1096,8 @@ Gati per te dhene?"</string>
   <string name="revanced_sb_color_invalid">Kod ngjyre i pavlefshëm</string>
   <string name="revanced_sb_reset_color">Rikthe ngjyrën</string>
   <string name="revanced_sb_reset">Rikthe</string>
-  <string name="revanced_sb_about">Rreth</string>
-  <string name="revanced_sb_about_api_sum">Të dhënat janë siguruar nga API e SponsorBlock. Prekni këtu për të mësuar më shumë dhe për të parë shkarkimet për platformat e tjera</string>
+  <string name="revanced_sb_about_title">Rreth</string>
+  <string name="revanced_sb_about_api_summary">Të dhënat janë siguruar nga API e SponsorBlock. Prekni këtu për të mësuar më shumë dhe për të parë shkarkimet për platformat e tjera</string>
   </patch>
   <patch id="layout.formfactor.changeFormFactorPatch">
   <string name="revanced_change_form_factor_title">Faktor i formularit të shtrirjes</string>

@@ -42,6 +42,10 @@ Second \"item\" text"</string>
   <string name="revanced_settings_import_reset">A ReVanced beállítások visszaállnak az alapértelmezettre</string>
   <string name="revanced_settings_import_success">%d beállítás importálva</string>
   <string name="revanced_settings_import_failure_parse">Sikertelen importálás: %s</string>
+  <string name="revanced_settings_search_hint">Beállítások keresése</string>
+  <string name="revanced_settings_search_no_results_title">Nincs találat erre: „%s”</string>
+  <string name="revanced_settings_search_no_results_summary">Próbáljon ki egy másik kulcsszót</string>
+  <string name="revanced_settings_search_remove_message">Eltávolítja a keresési előzményekből?</string>
   <string name="revanced_show_menu_icons_title">ReVanced beállításikonok megjelenítése</string>
   <string name="revanced_show_menu_icons_summary_on">A beállításikonok láthatók</string>
   <string name="revanced_show_menu_icons_summary_off">A beállítások ikonjai nem jelennek meg</string>
@@ -93,6 +97,9 @@ Kattintson a folytatás gombra, és engedélyezze az optimalizálási módosít�
   <string name="revanced_restore_old_settings_menus_title">Régi beállítási menük visszaállítása</string>
   <string name="revanced_restore_old_settings_menus_summary_on">A régi beállítások menüpontok megjelennek</string>
   <string name="revanced_restore_old_settings_menus_summary_off">A régi beállítások menüpontok nem jelennek meg</string>
+  <string name="revanced_settings_search_history_title">Beállítások keresési előzményeinek megjelenítése</string>
+  <string name="revanced_settings_search_history_summary_on">A beállítások keresési előzményei láthatók</string>
+  <string name="revanced_settings_search_history_summary_off">A beállítások keresési előzményei nincsenek megjelenítve</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
   <string name="revanced_shorts_disable_background_playback_title">A Shorts háttérben történő lejátszásának letiltása</string>
@@ -153,10 +160,10 @@ Nem fog értesülni semmilyen váratlan eseményről."</string>
   <string name="revanced_hide_notify_me_button_title">\"Értesítést kérek\" gomb elrejtése</string>
   <string name="revanced_hide_notify_me_button_summary_on">A gomb el van rejtve</string>
   <string name="revanced_hide_notify_me_button_summary_off">A gomb megjelenik</string>
-  <!-- 'People also watched' should be translated using the same localized wording YouTube displays. -->
-  <string name="revanced_hide_search_result_recommendations_title">A(z) „Mások is megnézték” felirat elrejtése</string>
-  <string name="revanced_hide_search_result_recommendations_summary_on">A címke rejtett</string>
-  <string name="revanced_hide_search_result_recommendations_summary_off">A címke látható</string>
+  <!-- 'People also watched' and 'You might also like' should be translated using the same localized wording YouTube displays. -->
+  <string name="revanced_hide_search_result_recommendation_labels_title">Videóajánló címkék elrejtése</string>
+  <string name="revanced_hide_search_result_recommendation_labels_summary_on">A „Nézők emellett ezt is megnézték” és a „Neked is tetszhet” címkék rejtve vannak</string>
+  <string name="revanced_hide_search_result_recommendation_labels_summary_off">A „Nézők emellett ezt is megnézték” és a „Neked is tetszhet” címkék láthatók</string>
   <!-- 'Show more' should be translated with the same localized wording that YouTube displays.
                   This button usually appears when searching for a YT creator. -->
   <string name="revanced_hide_show_more_button_title">\'Továbbiak megjelenítése\' gomb elrejtése</string>
@@ -836,10 +843,10 @@ Beállítások → Lejátszás → Következő videó automatikus lejátszása"<
   <string name="revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted">Töltse újra a videót a Return YouTube Dislike-hoz</string>
   <!-- Video likes have been set to hidden by the video uploader. -->
   <string name="revanced_ryd_video_likes_hidden_by_video_owner">A tulajdonos elrejtette</string>
-  <string name="revanced_ryd_enable_summary_on">A nem tetszések megjelennek</string>
-  <string name="revanced_ryd_enable_summary_off">A nem tetszések nem jelennek meg</string>
+  <string name="revanced_ryd_enabled_summary_on">A nem tetszések megjelennek</string>
+  <string name="revanced_ryd_enabled_summary_off">A nem tetszések nem jelennek meg</string>
   <string name="revanced_ryd_shorts_title">A nem tetszések megjelenítése a Shorts videóknál</string>
-  <string name="revanced_ryd_shorts_summary_on_disclaimer">"A nem tetszések a Shorts-on láthatók
+  <string name="revanced_ryd_shorts_summary_on">"A nem tetszések a Shorts-on láthatók
 
 Korlátozás: A nem tetszések inkognitómódban nem jelenhetnek meg"</string>
   <string name="revanced_ryd_shorts_summary_off">A nem tetszések a Shorts-on nem láthatók</string>
@@ -856,7 +863,6 @@ Korlátozás: A nem tetszések inkognitómódban nem jelenhetnek meg"</string>
   <string name="revanced_ryd_toast_on_connection_error_title">Üzenet megjelenítése, ha az API nem elérhető</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_on">Üzenet megjelenítése, ha a Return YouTube Dislike nem elérhető</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_off">Nem jelenik meg üzenet, ha a Return YouTube Dislike nem elérhető</string>
-  <string name="revanced_ryd_about">Rólunk</string>
   <string name="revanced_ryd_attribution_summary">Az adatokat a Return YouTube Dislike API biztosítja. További információért koppintson ide</string>
   <!-- Statistic strings are shown in the settings only when ReVanced debug mode is enabled. Typical users will never see these. -->
   <string name="revanced_ryd_statistics_category_title">ReturnYouTubeDislike API statisztika az eszközön</string>
@@ -1062,7 +1068,7 @@ Készen állsz a beküldésre?"</string>
   <string name="revanced_sb_new_segment_edit_by_hand_title">A szakasz időzítésének kézi beállítása</string>
   <string name="revanced_sb_new_segment_edit_by_hand_content">Akarja szerkeszteni a rész kezdetének vagy végének időzítését?</string>
   <string name="revanced_sb_new_segment_edit_by_hand_parse_error">Érvénytelen idő van megadva</string>
-  <string name="revanced_sb_stats">Statisztikák</string>
+  <string name="revanced_sb_stats_title">Statisztikák</string>
   <!-- Shown in the settings preferences, and translations can be any text length. -->
   <string name="revanced_sb_stats_connection_failure">A statisztikák átmenetileg nem érhetők el (az API nem működik)</string>
   <string name="revanced_sb_stats_loading">Betöltés...</string>
@@ -1091,8 +1097,8 @@ Készen állsz a beküldésre?"</string>
   <string name="revanced_sb_color_invalid">Érvénytelen színkód</string>
   <string name="revanced_sb_reset_color">Színek visszaállítása</string>
   <string name="revanced_sb_reset">Visszaállítás</string>
-  <string name="revanced_sb_about">Rólunk</string>
-  <string name="revanced_sb_about_api_sum">Az adatokat a SponsorBlock API biztosítja. Koppintson ide, ha többet szeretne megtudni és megtekintené a letöltéseket más platformokra</string>
+  <string name="revanced_sb_about_title">Rólunk</string>
+  <string name="revanced_sb_about_api_summary">Az adatokat a SponsorBlock API biztosítja. Koppintson ide, ha többet szeretne megtudni és megtekintené a letöltéseket más platformokra</string>
   </patch>
   <patch id="layout.formfactor.changeFormFactorPatch">
   <string name="revanced_change_form_factor_title">Elrendezési űrlap faktor</string>

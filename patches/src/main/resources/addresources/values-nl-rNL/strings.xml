@@ -42,6 +42,10 @@ Second \"item\" text"</string>
   <string name="revanced_settings_import_reset">ReVanced-instellingen zijn teruggezet naar de standaardinstellingen</string>
   <string name="revanced_settings_import_success">%d instellingen geïmporteerd</string>
   <string name="revanced_settings_import_failure_parse">Importeren mislukt: %s</string>
+  <string name="revanced_settings_search_hint">Zoekinstellingen</string>
+  <string name="revanced_settings_search_no_results_title">Geen resultaten gevonden voor \", %s\"</string>
+  <string name="revanced_settings_search_no_results_summary">Probeer een ander trefwoord</string>
+  <string name="revanced_settings_search_remove_message">Verwijderen uit zoekgeschiedenis?</string>
   <string name="revanced_show_menu_icons_title">Pictogrammen voor ReVanced-instellingen weergeven</string>
   <string name="revanced_show_menu_icons_summary_on">Instellingspictogrammen worden weergegeven</string>
   <string name="revanced_show_menu_icons_summary_off">Pictogrammen voor instellingen worden niet weergegeven</string>
@@ -93,6 +97,9 @@ Tik op de knop Doorgaan en sta wijzigingen in de optimalisatie toe."</string>
   <string name="revanced_restore_old_settings_menus_title">Oude instellingenmenu\'s herstellen</string>
   <string name="revanced_restore_old_settings_menus_summary_on">Oude instellingenmenu\'s worden getoond</string>
   <string name="revanced_restore_old_settings_menus_summary_off">Oude instellingenmenu\'s worden niet getoond</string>
+  <string name="revanced_settings_search_history_title">Zoekgeschiedenis instellingen weergeven</string>
+  <string name="revanced_settings_search_history_summary_on">Zoekgeschiedenis instellingen wordt weergegeven</string>
+  <string name="revanced_settings_search_history_summary_off">De zoekgeschiedenis van de instellingen wordt niet weergegeven</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
   <string name="revanced_shorts_disable_background_playback_title">Shorts-achtergrondafspelen uitschakelen</string>
@@ -153,10 +160,10 @@ U wordt niet op de hoogte gesteld van onverwachte gebeurtenissen."</string>
   <string name="revanced_hide_notify_me_button_title">\'Herinnering sturen\' knop verbergen</string>
   <string name="revanced_hide_notify_me_button_summary_on">De knop is verborgen</string>
   <string name="revanced_hide_notify_me_button_summary_off">Knop wordt weergegeven</string>
-  <!-- 'People also watched' should be translated using the same localized wording YouTube displays. -->
-  <string name="revanced_hide_search_result_recommendations_title">Label \'Kijkers bekeken ook\' verbergen</string>
-  <string name="revanced_hide_search_result_recommendations_summary_on">Label is verborgen</string>
-  <string name="revanced_hide_search_result_recommendations_summary_off">Label wordt weergegeven</string>
+  <!-- 'People also watched' and 'You might also like' should be translated using the same localized wording YouTube displays. -->
+  <string name="revanced_hide_search_result_recommendation_labels_title">Videolabellessen met aanbevelingen verbergen</string>
+  <string name="revanced_hide_search_result_recommendation_labels_summary_on">De labels \'Mensen keken ook\' en \'Misschien vind je dit ook leuk\' zijn verborgen</string>
+  <string name="revanced_hide_search_result_recommendation_labels_summary_off">De labels \'Mensen keken ook\' en \'Misschien vind je dit ook leuk\' worden weergegeven</string>
   <!-- 'Show more' should be translated with the same localized wording that YouTube displays.
                   This button usually appears when searching for a YT creator. -->
   <string name="revanced_hide_show_more_button_title">Verberg knop \'Meer weergeven\'</string>
@@ -836,10 +843,10 @@ Instellingen → Afspelen → Volgende video automatisch afspelen"</string>
   <string name="revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted">Herlaad video om te stemmen via Return YouTube Dislike</string>
   <!-- Video likes have been set to hidden by the video uploader. -->
   <string name="revanced_ryd_video_likes_hidden_by_video_owner">Verborgen door eigenaar</string>
-  <string name="revanced_ryd_enable_summary_on">\"Dislikes\" worden weergegeven</string>
-  <string name="revanced_ryd_enable_summary_off">\"Dislikes\" worden niet weergegeven</string>
+  <string name="revanced_ryd_enabled_summary_on">\"Dislikes\" worden weergegeven</string>
+  <string name="revanced_ryd_enabled_summary_off">\"Dislikes\" worden niet weergegeven</string>
   <string name="revanced_ryd_shorts_title">Toon onlikes op Shorts</string>
-  <string name="revanced_ryd_shorts_summary_on_disclaimer">"Vind ik niet leuk op Shorts worden weergegeven
+  <string name="revanced_ryd_shorts_summary_on">"Vind ik niet leuk op Shorts worden weergegeven
 
 Beperking: Vind ik niet leuk verschijnen mogelijk niet in de incognitomodus"</string>
   <string name="revanced_ryd_shorts_summary_off">Vind ik niet leuk op Shorts worden niet weergegeven</string>
@@ -856,7 +863,6 @@ Beperking: Vind ik niet leuk verschijnen mogelijk niet in de incognitomodus"</st
   <string name="revanced_ryd_toast_on_connection_error_title">Toon een \"toast\" als de API niet beschikbaar is</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_on">\"Toast\" wordt getoond als Return YouTube Dislike niet beschikbaar is</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_off">\"Toast\" wordt niet getoond als Return YouTube Dislike niet beschikbaar is</string>
-  <string name="revanced_ryd_about">Over</string>
   <string name="revanced_ryd_attribution_summary">Data wordt aangeleverd door de Return YouTube Dislike API. Tik hier voor meer informatie</string>
   <!-- Statistic strings are shown in the settings only when ReVanced debug mode is enabled. Typical users will never see these. -->
   <string name="revanced_ryd_statistics_category_title">ReturnYouTubeDislike API-statistieken van dit apparaat</string>
@@ -1063,7 +1069,7 @@ Klaar om in te dienen?"</string>
   <string name="revanced_sb_new_segment_edit_by_hand_title">Bewerk timing van segment handmatig</string>
   <string name="revanced_sb_new_segment_edit_by_hand_content">Wil je de timing van het begin of einde van het segment bewerken?</string>
   <string name="revanced_sb_new_segment_edit_by_hand_parse_error">Ongeldige tijd opgegeven</string>
-  <string name="revanced_sb_stats">Statistieken</string>
+  <string name="revanced_sb_stats_title">Statistieken</string>
   <!-- Shown in the settings preferences, and translations can be any text length. -->
   <string name="revanced_sb_stats_connection_failure">Statistieken zijn tijdelijk niet beschikbaar (API is down)</string>
   <string name="revanced_sb_stats_loading">Bezig met laden...</string>
@@ -1092,8 +1098,8 @@ Klaar om in te dienen?"</string>
   <string name="revanced_sb_color_invalid">Ongeldige kleurcode</string>
   <string name="revanced_sb_reset_color">Kleur resetten</string>
   <string name="revanced_sb_reset">Herstellen naar standaard</string>
-  <string name="revanced_sb_about">Over</string>
-  <string name="revanced_sb_about_api_sum">Gegevens worden geleverd door de SponsorBlock API. Tik hier om meer te weten te komen en downloads te bekijken voor andere platforms</string>
+  <string name="revanced_sb_about_title">Over</string>
+  <string name="revanced_sb_about_api_summary">Gegevens worden geleverd door de SponsorBlock API. Tik hier om meer te weten te komen en downloads te bekijken voor andere platforms</string>
   </patch>
   <patch id="layout.formfactor.changeFormFactorPatch">
   <string name="revanced_change_form_factor_title">Indelingsvormfactor</string>

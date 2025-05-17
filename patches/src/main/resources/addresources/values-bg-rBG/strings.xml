@@ -42,6 +42,10 @@ Second \"item\" text"</string>
   <string name="revanced_settings_import_reset">Настройките на ReVanced бяха нулирани</string>
   <string name="revanced_settings_import_success">Следните настройки бяха импортирани успешно: %d</string>
   <string name="revanced_settings_import_failure_parse">Импортирането беше неуспешно: %s</string>
+  <string name="revanced_settings_search_hint">Търсене на настройки</string>
+  <string name="revanced_settings_search_no_results_title">Няма намерени резултати за \",%s\"</string>
+  <string name="revanced_settings_search_no_results_summary">Опитайте друга ключова дума</string>
+  <string name="revanced_settings_search_remove_message">Премахване от историята на търсенията?</string>
   <string name="revanced_show_menu_icons_title">Показване на иконите на настройките на ReVanced</string>
   <string name="revanced_show_menu_icons_summary_on">Иконите на настройките се показват</string>
   <string name="revanced_show_menu_icons_summary_off">Иконите на настройките не се показват</string>
@@ -93,6 +97,9 @@ Second \"item\" text"</string>
   <string name="revanced_restore_old_settings_menus_title">Възстановяване на старите менюта за настройки</string>
   <string name="revanced_restore_old_settings_menus_summary_on">Старите менюта с настройки се показват</string>
   <string name="revanced_restore_old_settings_menus_summary_off">Старите менюта с настройки не се показват</string>
+  <string name="revanced_settings_search_history_title">Показване на историята на търсенията в настройките</string>
+  <string name="revanced_settings_search_history_summary_on">Историята на търсенията в настройките е показана</string>
+  <string name="revanced_settings_search_history_summary_off">Историята на търсенията в настройките не се показва</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
   <string name="revanced_shorts_disable_background_playback_title">Възпроизвеждане на  Shorts в фонов режим</string>
@@ -153,10 +160,10 @@ Second \"item\" text"</string>
   <string name="revanced_hide_notify_me_button_title">Скриване на бутона \"Уведоми ме\"</string>
   <string name="revanced_hide_notify_me_button_summary_on">Бутона \"Уведоми ме\" е скрит</string>
   <string name="revanced_hide_notify_me_button_summary_off">Бутона \"Уведоми ме\" се показва</string>
-  <!-- 'People also watched' should be translated using the same localized wording YouTube displays. -->
-  <string name="revanced_hide_search_result_recommendations_title">Скриване на етикета \"Хората също гледаха\"</string>
-  <string name="revanced_hide_search_result_recommendations_summary_on">Етикетът е скрит</string>
-  <string name="revanced_hide_search_result_recommendations_summary_off">Етикетът е показан</string>
+  <!-- 'People also watched' and 'You might also like' should be translated using the same localized wording YouTube displays. -->
+  <string name="revanced_hide_search_result_recommendation_labels_title">Скриване на етикетите с видео препоръки</string>
+  <string name="revanced_hide_search_result_recommendation_labels_summary_on">Етикетите „Други потребители също гледаха“ и „Може също да харесате“ са скрити</string>
+  <string name="revanced_hide_search_result_recommendation_labels_summary_off">Етикетите „Други потребители също гледаха“ и „Може също да харесате“ са показани</string>
   <!-- 'Show more' should be translated with the same localized wording that YouTube displays.
                   This button usually appears when searching for a YT creator. -->
   <string name="revanced_hide_show_more_button_title">Скриване на бутона \"Покажи още\"</string>
@@ -836,10 +843,10 @@ Second \"item\" text"</string>
   <string name="revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted">Презареди видеото за гласуване с ReturnYouTubeDislike</string>
   <!-- Video likes have been set to hidden by the video uploader. -->
   <string name="revanced_ryd_video_likes_hidden_by_video_owner">Скрито от собственика</string>
-  <string name="revanced_ryd_enable_summary_on">Нехаресванията се показват</string>
-  <string name="revanced_ryd_enable_summary_off">Нехаресванията не се показват</string>
+  <string name="revanced_ryd_enabled_summary_on">Нехаресванията се показват</string>
+  <string name="revanced_ryd_enabled_summary_off">Нехаресванията не се показват</string>
   <string name="revanced_ryd_shorts_title">Пок. нехаресвания в кратките клипове</string>
-  <string name="revanced_ryd_shorts_summary_on_disclaimer">"Нехаресванията на Shorts са показани
+  <string name="revanced_ryd_shorts_summary_on">"Нехаресванията на Shorts са показани
 
 Ограничение: Нехаресванията може да не се показват в режим инкогнито"</string>
   <string name="revanced_ryd_shorts_summary_off">Нехаресванията на Shorts не са показани</string>
@@ -856,7 +863,6 @@ Second \"item\" text"</string>
   <string name="revanced_ryd_toast_on_connection_error_title">Показване на известие, ако API не е наличен</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_on">Показва известие, ако Return YouTube Dislike не е наличен</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_off">Не се показва известие, ако ReturnYouTube Dislike не е наличен</string>
-  <string name="revanced_ryd_about">За програмата</string>
   <string name="revanced_ryd_attribution_summary">Данните за нехаресване са от Return YouTube Dislike API. Докоснете за да научите повече</string>
   <!-- Statistic strings are shown in the settings only when ReVanced debug mode is enabled. Typical users will never see these. -->
   <string name="revanced_ryd_statistics_category_title">Статистика Return YouTube Dislike API на това устройство</string>
@@ -1063,7 +1069,7 @@ Second \"item\" text"</string>
   <string name="revanced_sb_new_segment_edit_by_hand_title">Ръчно редактиране на времената на частта</string>
   <string name="revanced_sb_new_segment_edit_by_hand_content">Желаете ли да редактирате времената за начало или край на частта?</string>
   <string name="revanced_sb_new_segment_edit_by_hand_parse_error">Зададено е невалидно време</string>
-  <string name="revanced_sb_stats">Статистика</string>
+  <string name="revanced_sb_stats_title">Статистика</string>
   <!-- Shown in the settings preferences, and translations can be any text length. -->
   <string name="revanced_sb_stats_connection_failure">Статистиките временно не са налични (API не работи)</string>
   <string name="revanced_sb_stats_loading">Зареждане...</string>
@@ -1092,8 +1098,8 @@ Second \"item\" text"</string>
   <string name="revanced_sb_color_invalid">Невалидна стойност за цвета</string>
   <string name="revanced_sb_reset_color">Възстановяване на цвят</string>
   <string name="revanced_sb_reset">Възстанови</string>
-  <string name="revanced_sb_about">За програмата</string>
-  <string name="revanced_sb_about_api_sum">Данните са предоставени от SponsorBlock API. Докоснете тук за повече информация и изтеглияния</string>
+  <string name="revanced_sb_about_title">За програмата</string>
+  <string name="revanced_sb_about_api_summary">Данните са предоставени от SponsorBlock API. Докоснете тук за повече информация и изтеглияния</string>
   </patch>
   <patch id="layout.formfactor.changeFormFactorPatch">
   <string name="revanced_change_form_factor_title">Формат на екрана /Таблет, Телфон, .../</string>

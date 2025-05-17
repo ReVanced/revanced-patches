@@ -42,6 +42,10 @@ Second \"item\" text"</string>
   <string name="revanced_settings_import_reset">Cài đặt ReVanced đặt lại thành mặc định</string>
   <string name="revanced_settings_import_success">Đã nhập cài đặt %d</string>
   <string name="revanced_settings_import_failure_parse">Nhập thất bại: %s</string>
+  <string name="revanced_settings_search_hint">Cài đặt tìm kiếm</string>
+  <string name="revanced_settings_search_no_results_title">Không tìm thấy kết quả nào cho \'%s\'</string>
+  <string name="revanced_settings_search_no_results_summary">Thử một từ khóa khác</string>
+  <string name="revanced_settings_search_remove_message">Xóa khỏi lịch sử tìm kiếm?</string>
   <string name="revanced_show_menu_icons_title">Hiện biểu tượng cài đặt ReVanced</string>
   <string name="revanced_show_menu_icons_summary_on">Các biểu tượng cài đặt được hiển thị</string>
   <string name="revanced_show_menu_icons_summary_off">Các biểu tượng cài đặt không được hiển thị</string>
@@ -93,6 +97,9 @@ Nhấn nút tiếp tục và cho phép thay đổi lựa chọn tối ưu hóa."
   <string name="revanced_restore_old_settings_menus_title">Khôi phục trình đơn cài đặt cũ</string>
   <string name="revanced_restore_old_settings_menus_summary_on">Các trình đơn cài đặt cũ được hiển thị</string>
   <string name="revanced_restore_old_settings_menus_summary_off">Các trình đơn cài đặt cũ không được hiển thị</string>
+  <string name="revanced_settings_search_history_title">Hiển thị lịch sử tìm kiếm trong cài đặt</string>
+  <string name="revanced_settings_search_history_summary_on">Đã hiển thị lịch sử tìm kiếm trong cài đặt</string>
+  <string name="revanced_settings_search_history_summary_off">Không hiển thị lịch sử tìm kiếm trong phần cài đặt</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
   <string name="revanced_shorts_disable_background_playback_title">Tắt phát nền cho Shorts</string>
@@ -153,10 +160,10 @@ Bạn sẽ không được thông báo về bất kỳ sự kiện bất ngờ n
   <string name="revanced_hide_notify_me_button_title">Ẩn nút \'Thông báo cho tôi\'</string>
   <string name="revanced_hide_notify_me_button_summary_on">Nút đã bị ẩn</string>
   <string name="revanced_hide_notify_me_button_summary_off">Nút được hiển thị</string>
-  <!-- 'People also watched' should be translated using the same localized wording YouTube displays. -->
-  <string name="revanced_hide_search_result_recommendations_title">Ẩn nhãn \'Mọi người cũng đã xem\'</string>
-  <string name="revanced_hide_search_result_recommendations_summary_on">Nhãn đã bị ẩn</string>
-  <string name="revanced_hide_search_result_recommendations_summary_off">Nhãn được hiển thị</string>
+  <!-- 'People also watched' and 'You might also like' should be translated using the same localized wording YouTube displays. -->
+  <string name="revanced_hide_search_result_recommendation_labels_title">Ẩn nhãn video đề xuất</string>
+  <string name="revanced_hide_search_result_recommendation_labels_summary_on">Nhãn “Mọi người cũng xem” và “Bạn cũng có thể thích” đã bị ẩn</string>
+  <string name="revanced_hide_search_result_recommendation_labels_summary_off">Nhãn “Mọi người cũng xem” và “Bạn cũng có thể thích” được hiển thị</string>
   <!-- 'Show more' should be translated with the same localized wording that YouTube displays.
                   This button usually appears when searching for a YT creator. -->
   <string name="revanced_hide_show_more_button_title">Ẩn nút \'Hiện thêm\'</string>
@@ -836,10 +843,10 @@ Cài đặt → Phát → Tự động phát video tiếp theo"</string>
   <string name="revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted">Tải lại video để bình chọn bằng Return YouTube Dislike</string>
   <!-- Video likes have been set to hidden by the video uploader. -->
   <string name="revanced_ryd_video_likes_hidden_by_video_owner">Bị ẩn bởi chủ sở hữu</string>
-  <string name="revanced_ryd_enable_summary_on">Số lượt không thích được hiển thị</string>
-  <string name="revanced_ryd_enable_summary_off">Số lượt không thích không được hiển thị</string>
+  <string name="revanced_ryd_enabled_summary_on">Số lượt không thích được hiển thị</string>
+  <string name="revanced_ryd_enabled_summary_off">Số lượt không thích không được hiển thị</string>
   <string name="revanced_ryd_shorts_title">Hiện số lượt không thích trong Shorts</string>
-  <string name="revanced_ryd_shorts_summary_on_disclaimer">"Số lượt không thích trên Shorts được hiển thị
+  <string name="revanced_ryd_shorts_summary_on">"Số lượt không thích trên Shorts được hiển thị
 
 Hạn chế: Số lượt không thích có thể không xuất hiện ở chế độ ẩn danh"</string>
   <string name="revanced_ryd_shorts_summary_off">Số lượt không thích trên Shorts không được hiển thị</string>
@@ -856,7 +863,6 @@ Hạn chế: Số lượt không thích có thể không xuất hiện ở chế
   <string name="revanced_ryd_toast_on_connection_error_title">Hiện thông báo nổi nếu API không khả dụng</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_on">Thông báo nổi được hiển thị nếu Return YouTube Dislike không khả dụng</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_off">Thông báo nổi không được hiển thị nếu Return YouTube Dislike không khả dụng</string>
-  <string name="revanced_ryd_about">Giới thiệu</string>
   <string name="revanced_ryd_attribution_summary">Dữ liệu được cung cấp bởi API Return YouTube Dislike. Nhấn vào đây để tìm hiểu thêm</string>
   <!-- Statistic strings are shown in the settings only when ReVanced debug mode is enabled. Typical users will never see these. -->
   <string name="revanced_ryd_statistics_category_title">Thống kê API ReturnYouTubeDislike của thiết bị này</string>
@@ -1062,7 +1068,7 @@ Bạn đã sẵn sàng gửi?"</string>
   <string name="revanced_sb_new_segment_edit_by_hand_title">Chỉnh sửa thời gian của phân đoạn theo cách thủ công</string>
   <string name="revanced_sb_new_segment_edit_by_hand_content">Bạn có muốn thay đổi thời gian bắt đầu hoặc kết thúc của phân đoạn không?</string>
   <string name="revanced_sb_new_segment_edit_by_hand_parse_error">Thời gian đã đặt không hợp lệ</string>
-  <string name="revanced_sb_stats">Thống kê</string>
+  <string name="revanced_sb_stats_title">Thống kê</string>
   <!-- Shown in the settings preferences, and translations can be any text length. -->
   <string name="revanced_sb_stats_connection_failure">Số liệu thống kê tạm thời không khả dụng (API ngừng hoạt động)</string>
   <string name="revanced_sb_stats_loading">Đang tải...</string>
@@ -1091,8 +1097,8 @@ Bạn đã sẵn sàng gửi?"</string>
   <string name="revanced_sb_color_invalid">Mã màu không hợp lệ</string>
   <string name="revanced_sb_reset_color">Đặt lại màu</string>
   <string name="revanced_sb_reset">Đặt lại</string>
-  <string name="revanced_sb_about">Giới thiệu</string>
-  <string name="revanced_sb_about_api_sum">Dữ liệu được cung cấp bởi API SponsorBlock. Nhấn vào đây để tìm hiểu thêm và xem các bản tải cho các nền tảng khác</string>
+  <string name="revanced_sb_about_title">Giới thiệu</string>
+  <string name="revanced_sb_about_api_summary">Dữ liệu được cung cấp bởi API SponsorBlock. Nhấn vào đây để tìm hiểu thêm và xem các bản tải cho các nền tảng khác</string>
   </patch>
   <patch id="layout.formfactor.changeFormFactorPatch">
   <string name="revanced_change_form_factor_title">Bố cục dạng yếu tố</string>
