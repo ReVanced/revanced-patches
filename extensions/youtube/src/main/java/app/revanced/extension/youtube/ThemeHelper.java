@@ -1,10 +1,18 @@
 package app.revanced.extension.youtube;
 
+import static app.revanced.extension.shared.Utils.clamp;
+
 import android.app.Activity;
+import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.Paint;
+import android.graphics.RectF;
 import android.os.Build;
+import android.text.style.ReplacementSpan;
+import android.text.TextPaint;
 import android.view.Window;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import app.revanced.extension.shared.Logger;
@@ -120,5 +128,44 @@ public class ThemeHelper {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
             window.setNavigationBarContrastEnforced(true);
         }
+    }
+
+    /**
+     * Adjusts the brightness of a color by lightening or darkening it based on the given factor.
+     * <p>
+     * If the factor is greater than 1, the color is lightened by interpolating toward white (#FFFFFF).
+     * If the factor is less than or equal to 1, the color is darkened by scaling its RGB components toward black (#000000).
+     * The alpha channel remains unchanged.
+     *
+     * @param color  The input color to adjust, in ARGB format.
+     * @param factor The adjustment factor. Use values > 1.0f to lighten (e.g., 1.11f for slight lightening)
+     *               or values <= 1.0f to darken (e.g., 0.95f for slight darkening).
+     * @return The adjusted color in ARGB format.
+     */
+    public static int adjustColorBrightness(int color, float factor) {
+        final int alpha = Color.alpha(color);
+        int red = Color.red(color);
+        int green = Color.green(color);
+        int blue = Color.blue(color);
+
+        if (factor > 1.0f) {
+            // Lighten: Interpolate toward white (255)
+            final float t = 1.0f - (1.0f / factor); // Interpolation parameter
+            red = Math.round(red + (255 - red) * t);
+            green = Math.round(green + (255 - green) * t);
+            blue = Math.round(blue + (255 - blue) * t);
+        } else {
+            // Darken or no change: Scale toward black
+            red = (int) (red * factor);
+            green = (int) (green * factor);
+            blue = (int) (blue * factor);
+        }
+
+        // Ensure values are within [0, 255]
+        red = clamp(red, 0, 255);
+        green = clamp(green, 0, 255);
+        blue = clamp(blue, 0, 255);
+
+        return Color.argb(alpha, red, green, blue);
     }
 }
