@@ -88,22 +88,15 @@ final class CommentsFilter extends Filter {
         if (matchedGroup == commentComposer) {
             // To completely hide the emoji buttons (and leave no empty space), the timestamp button is
             // also hidden because the buffer is exactly the same and there's no way selectively hide.
-            if (contentIndex == 0
+            return contentIndex == 0
                     && path.endsWith(TIMESTAMP_OR_EMOJI_BUTTONS_ENDS_WITH_PATH)
-                    && emojiPickerBufferGroup.check(protobufBufferArray).isFiltered()) {
-                return super.isFiltered(identifier, path, protobufBufferArray, matchedGroup, contentType, contentIndex);
-            }
-
-            return false;
+                    && emojiPickerBufferGroup.check(protobufBufferArray).isFiltered();
         }
 
         if (matchedGroup == filterChipBar) {
-            if (aiCommentsSummary.check(protobufBufferArray).isFiltered()) {
-                return super.isFiltered(identifier, path, protobufBufferArray, matchedGroup, contentType, contentIndex);
-            }
-            return false;
+            return aiCommentsSummary.check(protobufBufferArray).isFiltered();
         }
 
-        return super.isFiltered(identifier, path, protobufBufferArray, matchedGroup, contentType, contentIndex);
+        return true;
     }
 }
