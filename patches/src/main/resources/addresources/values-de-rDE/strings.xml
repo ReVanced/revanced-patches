@@ -42,6 +42,10 @@ Second \"item\" text"</string>
   <string name="revanced_settings_import_reset">ReVanced-Einstellungen auf Standardwerte zurückgesetzt</string>
   <string name="revanced_settings_import_success">%d Einstellungen importiert</string>
   <string name="revanced_settings_import_failure_parse">Import fehlgeschlagen: %s</string>
+  <string name="revanced_settings_search_hint">Sucheinstellungen</string>
+  <string name="revanced_settings_search_no_results_title">Keine Ergebnisse für „%s“ gefunden</string>
+  <string name="revanced_settings_search_no_results_summary">Versuchen Sie ein anderes Schlüsselwort</string>
+  <string name="revanced_settings_search_remove_message">Aus Suchverlauf entfernen?</string>
   <string name="revanced_show_menu_icons_title">ReVanced-Einstellungssymbole anzeigen</string>
   <string name="revanced_show_menu_icons_summary_on">Einstellungssymbole werden angezeigt</string>
   <string name="revanced_show_menu_icons_summary_off">Einstellungssymbole werden nicht angezeigt</string>
@@ -89,6 +93,9 @@ Tippen Sie auf die Schaltfläche \"Fortfahren\" und erlauben Sie die Optimierung
   <string name="revanced_restore_old_settings_menus_title">Alte Einstellungsmenüs wiederherstellen</string>
   <string name="revanced_restore_old_settings_menus_summary_on">Alte Einstellungsmenüs werden angezeigt</string>
   <string name="revanced_restore_old_settings_menus_summary_off">Alte Einstellungsmenüs werden nicht angezeigt</string>
+  <string name="revanced_settings_search_history_title">Suchverlauf der Einstellungen anzeigen</string>
+  <string name="revanced_settings_search_history_summary_on">Suchverlauf der Einstellungen wird angezeigt</string>
+  <string name="revanced_settings_search_history_summary_off">Der Suchverlauf der Einstellungen wird nicht angezeigt</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
   <string name="revanced_shorts_disable_background_playback_title">Shorts-Hintergrundwiedergabe deaktivieren</string>
@@ -149,10 +156,10 @@ Sie werden nicht über unerwartete Ereignisse informiert."</string>
   <string name="revanced_hide_notify_me_button_title">\'Benachrichtigungen\' Button ausblenden</string>
   <string name="revanced_hide_notify_me_button_summary_on">Button ist ausgeblendet</string>
   <string name="revanced_hide_notify_me_button_summary_off">Button wird angezeigt</string>
-  <!-- 'People also watched' should be translated using the same localized wording YouTube displays. -->
-  <string name="revanced_hide_search_result_recommendations_title">\'Leute haben auch angeschaut\'-Label ausblenden</string>
-  <string name="revanced_hide_search_result_recommendations_summary_on">Label ist ausgeblendet</string>
-  <string name="revanced_hide_search_result_recommendations_summary_off">Label wird angezeigt</string>
+  <!-- 'People also watched' and 'You might also like' should be translated using the same localized wording YouTube displays. -->
+  <string name="revanced_hide_search_result_recommendation_labels_title">Videovorschlag-Labels ausblenden</string>
+  <string name="revanced_hide_search_result_recommendation_labels_summary_on">Die Labels „Nutzer haben sich auch angesehen“ und „Ihnen könnte auch gefallen“ sind ausgeblendet</string>
+  <string name="revanced_hide_search_result_recommendation_labels_summary_off">Die Labels „Nutzer haben sich auch angesehen“ und „Ihnen könnte auch gefallen“ werden angezeigt</string>
   <!-- 'Show more' should be translated with the same localized wording that YouTube displays.
                   This button usually appears when searching for a YT creator. -->
   <string name="revanced_hide_show_more_button_title">\'Mehr anzeigen\' Button ausblenden</string>
@@ -829,10 +836,10 @@ Einstellungen → Wiedergabe → Nächstes Video automatisch abspielen"</string>
   <string name="revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted">Video neu laden, um mit Return YouTube Dislike abzustimmen</string>
   <!-- Video likes have been set to hidden by the video uploader. -->
   <string name="revanced_ryd_video_likes_hidden_by_video_owner">Vom Eigentümer verborgen</string>
-  <string name="revanced_ryd_enable_summary_on">Dislikes werden angezeigt</string>
-  <string name="revanced_ryd_enable_summary_off">Dislikes werden nicht angezeigt</string>
+  <string name="revanced_ryd_enabled_summary_on">Dislikes werden angezeigt</string>
+  <string name="revanced_ryd_enabled_summary_off">Dislikes werden nicht angezeigt</string>
   <string name="revanced_ryd_shorts_title">Dislikes auf Shorts anzeigen</string>
-  <string name="revanced_ryd_shorts_summary_on_disclaimer">"Dislikes für Shorts werden angezeigt
+  <string name="revanced_ryd_shorts_summary_on">"Dislikes für Shorts werden angezeigt
 
 Einschränkung: Dislikes werden möglicherweise nicht im Inkognito-Modus angezeigt"</string>
   <string name="revanced_ryd_shorts_summary_off">Dislikes für Shorts werden nicht angezeigt</string>
@@ -849,7 +856,6 @@ Einschränkung: Dislikes werden möglicherweise nicht im Inkognito-Modus angezei
   <string name="revanced_ryd_toast_on_connection_error_title">Einen Toast anzeigen, wenn die API nicht verfügbar ist</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_on">Toast wird angezeigt, wenn YouTube-Ablehnung nicht verfügbar ist</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_off">Toast wird nicht angezeigt, wenn YouTube-Dislike nicht verfügbar ist</string>
-  <string name="revanced_ryd_about">Über</string>
   <string name="revanced_ryd_attribution_summary">Daten werden von der YouTube Dislike API zurückgegeben. Tippe hier, um mehr zu erfahren</string>
   <!-- Statistic strings are shown in the settings only when ReVanced debug mode is enabled. Typical users will never see these. -->
   <string name="revanced_ryd_statistics_category_title">Gibt die API-Statistiken dieses Geräts zurück</string>
@@ -1056,7 +1062,7 @@ Bereit zum Einreichen?"</string>
   <string name="revanced_sb_new_segment_edit_by_hand_title">Timing des Segments manuell bearbeiten</string>
   <string name="revanced_sb_new_segment_edit_by_hand_content">Möchtest du den Zeitpunkt für den Anfang oder das Ende des Segments bearbeiten?</string>
   <string name="revanced_sb_new_segment_edit_by_hand_parse_error">Ungültige Zeit angegeben</string>
-  <string name="revanced_sb_stats">Statistiken</string>
+  <string name="revanced_sb_stats_title">Statistiken</string>
   <!-- Shown in the settings preferences, and translations can be any text length. -->
   <string name="revanced_sb_stats_connection_failure">Statistiken sind vorübergehend nicht verfügbar (API ist ausgefallen)</string>
   <string name="revanced_sb_stats_loading">Lädt...</string>
@@ -1085,8 +1091,8 @@ Bereit zum Einreichen?"</string>
   <string name="revanced_sb_color_invalid">Ungültiger Farbcode</string>
   <string name="revanced_sb_reset_color">Farbe zurücksetzen</string>
   <string name="revanced_sb_reset">Zurücksetzen</string>
-  <string name="revanced_sb_about">Über</string>
-  <string name="revanced_sb_about_api_sum">Daten werden von der SponsorBlock API bereitgestellt. Tippe hier, um mehr zu erfahren und Downloads für andere Plattformen zu sehen</string>
+  <string name="revanced_sb_about_title">Über</string>
+  <string name="revanced_sb_about_api_summary">Daten werden von der SponsorBlock API bereitgestellt. Tippe hier, um mehr zu erfahren und Downloads für andere Plattformen zu sehen</string>
   </patch>
   <patch id="layout.formfactor.changeFormFactorPatch">
   <string name="revanced_change_form_factor_title">Anordnungsformfactor</string>

@@ -153,10 +153,7 @@ Et saa ilmoituksia odottamattomista tapahtumista."</string>
   <string name="revanced_hide_notify_me_button_title">Piilota \"Ilmoita minulle\" -painike</string>
   <string name="revanced_hide_notify_me_button_summary_on">Painike on piilotettu</string>
   <string name="revanced_hide_notify_me_button_summary_off">Painike näytetään</string>
-  <!-- 'People also watched' should be translated using the same localized wording YouTube displays. -->
-  <string name="revanced_hide_search_result_recommendations_title">Piilota \'\"Ihmiset katselivat myös\" -tunniste</string>
-  <string name="revanced_hide_search_result_recommendations_summary_on">Tunniste on piilotettu</string>
-  <string name="revanced_hide_search_result_recommendations_summary_off">Tunniste näytetään</string>
+  <!-- 'People also watched' and 'You might also like' should be translated using the same localized wording YouTube displays. -->
   <!-- 'Show more' should be translated with the same localized wording that YouTube displays.
                   This button usually appears when searching for a YT creator. -->
   <string name="revanced_hide_show_more_button_title">Piilota \"Näytä lisää\" -painike</string>
@@ -833,10 +830,10 @@ Asetukset → Toisto → Toista seuraava video automaattisesti"</string>
   <string name="revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted">Lataa video uudelleen äänestääksesi Return YouTube Dislikellä</string>
   <!-- Video likes have been set to hidden by the video uploader. -->
   <string name="revanced_ryd_video_likes_hidden_by_video_owner">Omistajan piilottama</string>
-  <string name="revanced_ryd_enable_summary_on">Ei-tykkäykset näytetään</string>
-  <string name="revanced_ryd_enable_summary_off">Ei-tykkäyksiä ei näytetä</string>
+  <string name="revanced_ryd_enabled_summary_on">Ei-tykkäykset näytetään</string>
+  <string name="revanced_ryd_enabled_summary_off">Ei-tykkäyksiä ei näytetä</string>
   <string name="revanced_ryd_shorts_title">Näytä ei-tykkykset Shortseissa</string>
-  <string name="revanced_ryd_shorts_summary_on_disclaimer">"Ei-tykkäykset näytetään Shortseissa
+  <string name="revanced_ryd_shorts_summary_on">"Ei-tykkäykset näytetään Shortseissa
 
 Rajoitus: Ei-tykkäykset eivät välttämättä näy incognito-tilassa"</string>
   <string name="revanced_ryd_shorts_summary_off">Ei-tykkäyksiä ei näytetä Shortseissa</string>
@@ -853,7 +850,6 @@ Rajoitus: Ei-tykkäykset eivät välttämättä näy incognito-tilassa"</string>
   <string name="revanced_ryd_toast_on_connection_error_title">Näytä ponnahdusilmoitus, jos API ei ole käytettävissä</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_on">Ponnahdusilmoitus näytetään, jos Return YouTube Dislike ei ole käytettävissä</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_off">Ponnahdusilmoitusta ei näytetä, jos Return YouTube Dislike ei ole käytettävissä</string>
-  <string name="revanced_ryd_about">Tietoja</string>
   <string name="revanced_ryd_attribution_summary">Tiedot ovat peräisin Return YouTube Disliken API:sta. Napauta tästä lukeaksesi lisää</string>
   <!-- Statistic strings are shown in the settings only when ReVanced debug mode is enabled. Typical users will never see these. -->
   <string name="revanced_ryd_statistics_category_title">Tämän laitteen ReturnYouTubeDislike API -tilastot</string>
@@ -1060,7 +1056,7 @@ Oletko valmis lähettämään?"</string>
   <string name="revanced_sb_new_segment_edit_by_hand_title">Muokkaa osion ajoitusta manuaalisesti</string>
   <string name="revanced_sb_new_segment_edit_by_hand_content">Haluatko muokata osion alku- vai loppuaikaa?</string>
   <string name="revanced_sb_new_segment_edit_by_hand_parse_error">Annettu aika on virheellinen</string>
-  <string name="revanced_sb_stats">Tilastot</string>
+  <string name="revanced_sb_stats_title">Tilastot</string>
   <!-- Shown in the settings preferences, and translations can be any text length. -->
   <string name="revanced_sb_stats_connection_failure">Tilastot eivät tilapäisesti saatavilla (API ei ole käytettävissä)</string>
   <string name="revanced_sb_stats_loading">Ladataan...</string>
@@ -1089,8 +1085,8 @@ Oletko valmis lähettämään?"</string>
   <string name="revanced_sb_color_invalid">Virheellinen värikoodi</string>
   <string name="revanced_sb_reset_color">Nollaa väri</string>
   <string name="revanced_sb_reset">Nollaa</string>
-  <string name="revanced_sb_about">Tietoja</string>
-  <string name="revanced_sb_about_api_sum">Tiedot tarjoaa SponsorBlock API. Napauta tätä saadaksesi lisätietoja ja nähdäksesi lataukset muille alustoille</string>
+  <string name="revanced_sb_about_title">Tietoja</string>
+  <string name="revanced_sb_about_api_summary">Tiedot tarjoaa SponsorBlock API. Napauta tätä saadaksesi lisätietoja ja nähdäksesi lataukset muille alustoille</string>
   </patch>
   <patch id="layout.formfactor.changeFormFactorPatch">
   <string name="revanced_change_form_factor_title">Ulkoasun asettelu</string>

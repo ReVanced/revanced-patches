@@ -42,6 +42,10 @@ Second \"item\" text"</string>
   <string name="revanced_settings_import_reset">إعادة تعيين إعدادات ReVanced إلى الوضع الافتراضي</string>
   <string name="revanced_settings_import_success">تم استيراد %d إعدادات</string>
   <string name="revanced_settings_import_failure_parse">فشل الاستيراد: %s</string>
+  <string name="revanced_settings_search_hint">إعدادات البحث</string>
+  <string name="revanced_settings_search_no_results_title">لم يتم العثور على نتائج لـ \".%s\"</string>
+  <string name="revanced_settings_search_no_results_summary">جرّب كلمة مفتاحية أخرى</string>
+  <string name="revanced_settings_search_remove_message">إزالة من سجل البحث؟</string>
   <string name="revanced_show_menu_icons_title">عرض أيقونات إعدادات ReVanced</string>
   <string name="revanced_show_menu_icons_summary_on">يتم عرض أيقونات الإعدادات</string>
   <string name="revanced_show_menu_icons_summary_off">لا يتم عرض أيقونات الإعدادات</string>
@@ -93,6 +97,9 @@ Second \"item\" text"</string>
   <string name="revanced_restore_old_settings_menus_title">استعادة قوائم الإعدادات القديمة</string>
   <string name="revanced_restore_old_settings_menus_summary_on">يتم عرض قوائم الإعدادات القديمة</string>
   <string name="revanced_restore_old_settings_menus_summary_off">لا يتم عرض قوائم الإعدادات القديمة</string>
+  <string name="revanced_settings_search_history_title">إظهار سجل البحث في الإعدادات</string>
+  <string name="revanced_settings_search_history_summary_on">سجل البحث في الإعدادات معروض</string>
+  <string name="revanced_settings_search_history_summary_off">لم يتم عرض سجل البحث في الإعدادات</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
   <string name="revanced_shorts_disable_background_playback_title">تعطيل تشغيل فيديوهات Shorts في الخلفية</string>
@@ -153,10 +160,10 @@ Second \"item\" text"</string>
   <string name="revanced_hide_notify_me_button_title">إخفاء زر \'تنبيهي\'</string>
   <string name="revanced_hide_notify_me_button_summary_on">تم إخفاء الزر</string>
   <string name="revanced_hide_notify_me_button_summary_off">يتم عرض الزر</string>
-  <!-- 'People also watched' should be translated using the same localized wording YouTube displays. -->
-  <string name="revanced_hide_search_result_recommendations_title">إخفاء علامة \'الأشخاص الذين شاهدوا أيضًا\'</string>
-  <string name="revanced_hide_search_result_recommendations_summary_on">تم إخفاء العلامة</string>
-  <string name="revanced_hide_search_result_recommendations_summary_off">يتم عرض العلامة</string>
+  <!-- 'People also watched' and 'You might also like' should be translated using the same localized wording YouTube displays. -->
+  <string name="revanced_hide_search_result_recommendation_labels_title">إخفاء علامات اقتراحات الفيديو</string>
+  <string name="revanced_hide_search_result_recommendation_labels_summary_on">تم إخفاء علامات \'اقتراحات للمشاهدة\' و\'قد يعجبك أيضًا\'</string>
+  <string name="revanced_hide_search_result_recommendation_labels_summary_off">يتم عرض علامات \'اقتراحات للمشاهدة\' و\'قد يعجبك أيضًا\'</string>
   <!-- 'Show more' should be translated with the same localized wording that YouTube displays.
                   This button usually appears when searching for a YT creator. -->
   <string name="revanced_hide_show_more_button_title">إخفاء زر \'عرض المزيد\'</string>
@@ -836,10 +843,10 @@ Second \"item\" text"</string>
   <string name="revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted">أعد تحميل الفيديو للتصويت بـ Return YouTube Dislike</string>
   <!-- Video likes have been set to hidden by the video uploader. -->
   <string name="revanced_ryd_video_likes_hidden_by_video_owner">مخفي بواسطة المالك</string>
-  <string name="revanced_ryd_enable_summary_on">يتم عرض لم يعجبني</string>
-  <string name="revanced_ryd_enable_summary_off">لا يتم عرض لم يعجبني</string>
+  <string name="revanced_ryd_enabled_summary_on">يتم عرض لم يعجبني</string>
+  <string name="revanced_ryd_enabled_summary_off">لا يتم عرض لم يعجبني</string>
   <string name="revanced_ryd_shorts_title">عرض لم يعجني في فيديوهات Shorts</string>
-  <string name="revanced_ryd_shorts_summary_on_disclaimer">"يتم عرض مرات عدم الإعجاب في فيديوهات Shorts
+  <string name="revanced_ryd_shorts_summary_on">"يتم عرض مرات عدم الإعجاب في فيديوهات Shorts
 
 التقييد: قد لا تظهر مرات عدم الإعجاب في وضع التصفح المتخفي"</string>
   <string name="revanced_ryd_shorts_summary_off">لا يتم عرض مرات عدم الإعجاب في فيديوهات Shorts</string>
@@ -856,7 +863,6 @@ Second \"item\" text"</string>
   <string name="revanced_ryd_toast_on_connection_error_title">عرض ملاحظة إذا كان API غير متاح</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_on">يتم عرض الملاحظة في حالة عدم توفر Return YouTube Dislike</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_off">لا يتم عرض الملاحظة في حالة عدم توفر Return YouTube Dislike</string>
-  <string name="revanced_ryd_about">لمحة</string>
   <string name="revanced_ryd_attribution_summary">يتم توفير البيانات بواسطة the Return YouTube Dislike API. اضغط هنا لمعرفة المزيد</string>
   <!-- Statistic strings are shown in the settings only when ReVanced debug mode is enabled. Typical users will never see these. -->
   <string name="revanced_ryd_statistics_category_title">ReturnYouTubeDislike API إحصائيات هذا الجهاز</string>
@@ -1063,7 +1069,7 @@ Second \"item\" text"</string>
   <string name="revanced_sb_new_segment_edit_by_hand_title">تعديل توقيت المقطع يدويًا</string>
   <string name="revanced_sb_new_segment_edit_by_hand_content">هل تود تعديل التوقيت لبداية أو نهاية المقطع؟</string>
   <string name="revanced_sb_new_segment_edit_by_hand_parse_error">الوقت المحدد غير صحيح</string>
-  <string name="revanced_sb_stats">إحصائيات</string>
+  <string name="revanced_sb_stats_title">إحصائيات</string>
   <!-- Shown in the settings preferences, and translations can be any text length. -->
   <string name="revanced_sb_stats_connection_failure">الإحصائيات غير متوفرة مؤقتًا (الواجهة غير متوفرة)</string>
   <string name="revanced_sb_stats_loading">جارٍ التحميل...</string>
@@ -1092,8 +1098,8 @@ Second \"item\" text"</string>
   <string name="revanced_sb_color_invalid">رمز اللون غير صالح</string>
   <string name="revanced_sb_reset_color">إعادة تعيين اللون</string>
   <string name="revanced_sb_reset">إعادة التعيين</string>
-  <string name="revanced_sb_about">لمحة</string>
-  <string name="revanced_sb_about_api_sum">يتم توفير البيانات بواسطة SponsorBlock API. انقر هنا لمعرفة المزيد ومشاهدة التنزيلات لمنصات أخرى</string>
+  <string name="revanced_sb_about_title">لمحة</string>
+  <string name="revanced_sb_about_api_summary">يتم توفير البيانات بواسطة SponsorBlock API. انقر هنا لمعرفة المزيد ومشاهدة التنزيلات لمنصات أخرى</string>
   </patch>
   <patch id="layout.formfactor.changeFormFactorPatch">
   <string name="revanced_change_form_factor_title">شكل نموذج التخطيط</string>

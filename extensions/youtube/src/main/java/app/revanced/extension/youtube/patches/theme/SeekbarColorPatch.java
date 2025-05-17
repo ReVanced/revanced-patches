@@ -1,6 +1,7 @@
 package app.revanced.extension.youtube.patches.theme;
 
 import static app.revanced.extension.shared.StringRef.str;
+import static app.revanced.extension.shared.Utils.clamp;
 
 import android.content.res.Resources;
 import android.graphics.Color;
@@ -377,15 +378,5 @@ public final class SeekbarColorPatch {
             Logger.printException(() -> "getSeekbarColorValue failure", ex);
             return originalColor;
         }
-    }
-
-    /** @noinspection SameParameterValue */
-    private static int clamp(int value, int lower, int upper) {
-        return Math.max(lower, Math.min(value, upper));
-    }
-
-    /** @noinspection SameParameterValue */
-    private static float clamp(float value, float lower, float upper) {
-        return Math.max(lower, Math.min(value, upper));
     }
 }
