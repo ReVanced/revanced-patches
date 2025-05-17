@@ -238,6 +238,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_ai_generated_video_summary_section_title">إخفاء \'ملخص الفيديو الذي تم إنشاؤه بواسطة الذكاء الاصطناعي\'</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_on">تم إخفاء قسم ملخص الفيديو</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_off">يتم عرض قسم ملخص الفيديو</string>
+  <string name="revanced_hide_ask_section_title">إخفاء \"Ask\"</string>
+  <string name="revanced_hide_ask_section_summary_on">تم إخفاء قسم \"Ask\"</string>
+  <string name="revanced_hide_ask_section_summary_off">يتم عرض قسم \"Ask\"</string>
   <string name="revanced_hide_attributes_section_title">إخفاء الصفات</string>
   <string name="revanced_hide_attributes_section_summary_on">تم إخفاء أقسام الأماكن المميزة، الألعاب، الموسيقى والأشخاص المذكورون</string>
   <string name="revanced_hide_attributes_section_summary_off">يتم عرض أقسام الأماكن المميزة، الألعاب، الموسيقى والأشخاص المذكورون</string>

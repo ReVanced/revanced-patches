@@ -238,6 +238,9 @@ Ne boste obveščeni o nobenih nepričakovanih dogodkih."</string>
   <string name="revanced_hide_ai_generated_video_summary_section_title">Skrij »Povzetek videoposnetka, ustvarjenega z umetno inteligenco«</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_on">Razdelek s povzetkom videoposnetka je skrit</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_off">Razdelek s povzetkom videoposnetka je prikazan</string>
+  <string name="revanced_hide_ask_section_title">Skrij Vprašaj</string>
+  <string name="revanced_hide_ask_section_summary_on">Razdelek »Vprašaj« je skrit</string>
+  <string name="revanced_hide_ask_section_summary_off">Razdelek »Vprašaj« je prikazan</string>
   <string name="revanced_hide_attributes_section_title">Skrij atribute</string>
   <string name="revanced_hide_attributes_section_summary_on">Razdelki s priporočenimi kraji, igrami, glasbo in omenjenimi osebami so skriti</string>
   <string name="revanced_hide_attributes_section_summary_off">Razdelki s priporočenimi kraji, igrami, glasbo in omenjenimi osebami so prikazani</string>

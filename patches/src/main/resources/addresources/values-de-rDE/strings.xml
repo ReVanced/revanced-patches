@@ -234,6 +234,9 @@ Sie werden nicht über unerwartete Ereignisse informiert."</string>
   <string name="revanced_hide_ai_generated_video_summary_section_title">\'KI-generierte Videozusammenfassung\' ausblenden</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_on">Videozusammenfassungsbereich ist ausgeblendet</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_off">Videozusammenfassungsbereich wird angezeigt</string>
+  <string name="revanced_hide_ask_section_title">Ask ausblenden</string>
+  <string name="revanced_hide_ask_section_summary_on">Ask Abschnitt ist ausgeblendet</string>
+  <string name="revanced_hide_ask_section_summary_off">Ask Abschnitt wird angezeigt</string>
   <string name="revanced_hide_attributes_section_title">Attribute ausblenden</string>
   <string name="revanced_hide_attributes_section_summary_on">Empfohlene Orte, Spiele, Musik und Erwähnungen von Personen sind ausgeblendet</string>
   <string name="revanced_hide_attributes_section_summary_off">Empfohlene Orte, Spiele, Musik und Erwähnungen von Personen werden angezeigt</string>

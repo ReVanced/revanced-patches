@@ -238,6 +238,9 @@ No se t'informarà de cap esdeveniment inesperat."</string>
   <string name="revanced_hide_ai_generated_video_summary_section_title">Amaga «Resum de vídeo generat per IA»</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_on">S\'ha amagat la secció de resum del vídeo</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_off">Es mostra la secció de resum del vídeo</string>
+  <string name="revanced_hide_ask_section_title">Amaga la secció «Pregunta»</string>
+  <string name="revanced_hide_ask_section_summary_on">La secció «Pregunta» està amagada</string>
+  <string name="revanced_hide_ask_section_summary_off">La secció «Pregunta» es mostra</string>
   <string name="revanced_hide_attributes_section_title">Amaga els atributs</string>
   <string name="revanced_hide_attributes_section_summary_on">Les seccions Llocs destacats, Jocs, Música i Persones esmentades s\'amaguen</string>
   <string name="revanced_hide_attributes_section_summary_off">Les seccions Llocs destacats, Jocs, Música i Persones esmentades es mostren</string>

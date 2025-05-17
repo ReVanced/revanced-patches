@@ -238,6 +238,9 @@ Hindi ka aabisuhan ng anumang hindi inaasahang mga kaganapan."</string>
   <string name="revanced_hide_ai_generated_video_summary_section_title">Itago ang \'Buod ng video na binuo ng AI\'</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_on">Nakatago ang seksyon ng buod ng video</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_off">Ipinapakita ang seksyon ng buod ng video</string>
+  <string name="revanced_hide_ask_section_title">Itago ang Magtanong</string>
+  <string name="revanced_hide_ask_section_summary_on">Nakatago ang seksyon ng Magtanong</string>
+  <string name="revanced_hide_ask_section_summary_off">Ipinapakita ang seksyon ng Magtanong</string>
   <string name="revanced_hide_attributes_section_title">Itago ang Mga Katangian</string>
   <string name="revanced_hide_attributes_section_summary_on">Nakatago ang mga seksyon ng Mga itinatampok na lugar, Mga Laro, Musika, at Mga taong binanggit</string>
   <string name="revanced_hide_attributes_section_summary_off">Ipinapakita ang mga seksyon ng Mga itinatampok na lugar, Mga Laro, Musika, at Mga taong binanggit</string>

@@ -42,6 +42,8 @@ Second \"item\" text"</string>
   <string name="revanced_settings_import_reset">將 ReVanced 設定重設為預設值</string>
   <string name="revanced_settings_import_success">已匯入 %d 個設定</string>
   <string name="revanced_settings_import_failure_parse">無法匯入：%s</string>
+  <string name="revanced_settings_search_hint">搜尋設定</string>
+  <string name="revanced_settings_search_remove_message">要從搜尋記錄中移除嗎？</string>
   <string name="revanced_show_menu_icons_title">顯示 ReVanced 設定圖示</string>
   <string name="revanced_show_menu_icons_summary_on">已顯示設定圖示</string>
   <string name="revanced_show_menu_icons_summary_off">未顯示設定圖示</string>
@@ -93,6 +95,9 @@ Second \"item\" text"</string>
   <string name="revanced_restore_old_settings_menus_title">還原舊版設定選單</string>
   <string name="revanced_restore_old_settings_menus_summary_on">已顯示舊版設定選單</string>
   <string name="revanced_restore_old_settings_menus_summary_off">不顯示舊版設定選單</string>
+  <string name="revanced_settings_search_history_title">顯示設定搜尋記錄</string>
+  <string name="revanced_settings_search_history_summary_on">顯示設定搜尋記錄</string>
+  <string name="revanced_settings_search_history_summary_off">不顯示設定搜尋記錄</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
   <string name="revanced_shorts_disable_background_playback_title">停用背景播放 Shorts</string>
@@ -228,6 +233,7 @@ Second \"item\" text"</string>
   <string name="revanced_hide_ai_generated_video_summary_section_title">隱藏「AI 產生的影片摘要」</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_on">已隱藏影片摘要區塊</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_off">已顯示影片摘要區塊</string>
+  <string name="revanced_hide_ask_section_title">隱藏詢問</string>
   <string name="revanced_hide_attributes_section_title">隱藏屬性</string>
   <string name="revanced_hide_attributes_section_summary_on">已隱藏精選地點、遊戲、音樂和提及的人區塊</string>
   <string name="revanced_hide_attributes_section_summary_off">已顯示精選地點、遊戲、音樂和提及的人區塊</string>

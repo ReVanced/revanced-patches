@@ -238,6 +238,9 @@ U wordt niet op de hoogte gesteld van onverwachte gebeurtenissen."</string>
   <string name="revanced_hide_ai_generated_video_summary_section_title">\'AI-gegenereerde videosamenvatting\' verbergen</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_on">Transcriptgedeelte is verborgen</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_off">Videobeschrijvingssectie is zichtbaar</string>
+  <string name="revanced_hide_ask_section_title">Vraag verbergen</string>
+  <string name="revanced_hide_ask_section_summary_on">Vraaggedeelte is verborgen</string>
+  <string name="revanced_hide_ask_section_summary_off">Vraaggedeelte wordt weergegeven</string>
   <string name="revanced_hide_attributes_section_title">Kenmerken verbergen</string>
   <string name="revanced_hide_attributes_section_summary_on">Specifieke plaatsen, Games, Muziek en Mensen genoemd secties zijn verborgen</string>
   <string name="revanced_hide_attributes_section_summary_off">Specifieke plaatsen, Games, Muziek en Mensen genoemd secties worden weergegeven</string>

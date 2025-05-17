@@ -238,6 +238,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_ai_generated_video_summary_section_title">Сакриј „Резиме видеа који је генерисала вештачка интелигенција”</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_on">Одељак „Резиме видеа” је скривен</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_off">Одељак „Резиме видеа” је приказан</string>
+  <string name="revanced_hide_ask_section_title">Сакриј дугме „Питај”</string>
+  <string name="revanced_hide_ask_section_summary_on">Одељак „Питај“ је скривен</string>
+  <string name="revanced_hide_ask_section_summary_off">Одељак „Питај“ је приказан</string>
   <string name="revanced_hide_attributes_section_title">Сакриј атрибуте</string>
   <string name="revanced_hide_attributes_section_summary_on">Одељци „Истакнута места”, „Игре”, „Музика” и „Поменути људи” су скривени</string>
   <string name="revanced_hide_attributes_section_summary_off">Одељци „Истакнута места”, „Игре”, „Музика” и „Поменути људи” су приказани</string>

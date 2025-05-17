@@ -238,6 +238,9 @@ Beklenmedik olaylar hakkında bilgilendirilmeyeceksiniz."</string>
   <string name="revanced_hide_ai_generated_video_summary_section_title">\'Yapay zeka tarafından oluşturulan video özeti\'ni gizle</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_on">Video özeti bölümü gizli</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_off">Video özeti bölümü görünür</string>
+  <string name="revanced_hide_ask_section_title">\'Sor\'u gizle</string>
+  <string name="revanced_hide_ask_section_summary_on">Sor bölümü gizli</string>
+  <string name="revanced_hide_ask_section_summary_off">Sor bölümü görünür</string>
   <string name="revanced_hide_attributes_section_title">Nitelikleri gizle</string>
   <string name="revanced_hide_attributes_section_summary_on">Öne çıkan yerler, Oyunlar, Müzik ve Bahsedilen kişiler bölümleri gizli</string>
   <string name="revanced_hide_attributes_section_summary_off">Öne çıkan yerler, Oyunlar, Müzik ve Bahsedilen kişiler bölümleri görünür</string>

@@ -238,6 +238,9 @@ Nem fog értesülni semmilyen váratlan eseményről."</string>
   <string name="revanced_hide_ai_generated_video_summary_section_title">„AI-generált videó összefoglaló” elrejtése</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_on">A videó összefoglaló szekció rejtve</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_off">A videó összefoglaló szekció látható</string>
+  <string name="revanced_hide_ask_section_title">Kérdezés elrejtése</string>
+  <string name="revanced_hide_ask_section_summary_on">A kérdezés szakasz el van rejtve</string>
+  <string name="revanced_hide_ask_section_summary_off">A kérdezés szakasz megjelenik</string>
   <string name="revanced_hide_attributes_section_title">Attribútumok elrejtése</string>
   <string name="revanced_hide_attributes_section_summary_on">A kiemelt helyek, játékok, zene és említett személyek szakaszai rejtettek</string>
   <string name="revanced_hide_attributes_section_summary_off">A kiemelt helyek, játékok, zene és említett személyek szakaszai láthatók</string>

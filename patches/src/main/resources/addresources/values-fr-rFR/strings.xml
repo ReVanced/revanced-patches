@@ -238,6 +238,9 @@ Vous ne serez pas informé des événements inattendus."</string>
   <string name="revanced_hide_ai_generated_video_summary_section_title">Masquer \"Résumé de la vidéo généré par IA\"</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_on">La section du résumé de la vidéo est masquée</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_off">La section du résumé de la vidéo est affichée</string>
+  <string name="revanced_hide_ask_section_title">Masquer la section \"Demander\"</string>
+  <string name="revanced_hide_ask_section_summary_on">La section \"Demander\" est masquée</string>
+  <string name="revanced_hide_ask_section_summary_off">La section \"Demander\" est affichée</string>
   <string name="revanced_hide_attributes_section_title">Masquer les attributions</string>
   <string name="revanced_hide_attributes_section_summary_on">Les sections Lieux mentionnés, Jeux, Musique et Personnes mentionnées sont masquées</string>
   <string name="revanced_hide_attributes_section_summary_off">Les sections Lieux mentionnés, Jeux, Musique et Personnes mentionnées sont affichées</string>

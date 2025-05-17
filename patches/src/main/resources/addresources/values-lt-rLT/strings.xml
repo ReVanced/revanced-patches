@@ -238,6 +238,9 @@ Apie netikėtus įvykius nebus pranešta."</string>
   <string name="revanced_hide_ai_generated_video_summary_section_title">Slėpti „AI sukurtos vaizdo įrašo santraukos“</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_on">Vaizdo įrašo santraukos skyrius yra paslėptas</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_off">Vaizdo įrašo santraukos skyrius yra rodomas</string>
+  <string name="revanced_hide_ask_section_title">Slėpti \"Klausti\"</string>
+  <string name="revanced_hide_ask_section_summary_on">Skyrius „Klausti“ yra paslėptas</string>
+  <string name="revanced_hide_ask_section_summary_off">Skyrius „Klausti“ yra rodomas</string>
   <string name="revanced_hide_attributes_section_title">Slėpti atributus</string>
   <string name="revanced_hide_attributes_section_summary_on">Teminių vietų, žaidimų, muzikos ir minimų žmonių skyriai yra paslėpti</string>
   <string name="revanced_hide_attributes_section_summary_off">Teminių vietų, žaidimų, muzikos ir minimų žmonių skyriai yra rodomi</string>

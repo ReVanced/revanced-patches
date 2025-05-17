@@ -238,6 +238,9 @@ Bạn sẽ không được thông báo về bất kỳ sự kiện bất ngờ n
   <string name="revanced_hide_ai_generated_video_summary_section_title">Ẩn \'Bản tóm tắt video do AI tạo\'</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_on">Phần tóm tắt video đã bị ẩn</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_off">Phần tóm tắt video được hiển thị</string>
+  <string name="revanced_hide_ask_section_title">Ẩn Hỏi</string>
+  <string name="revanced_hide_ask_section_summary_on">Phần Hỏi đã bị ẩn</string>
+  <string name="revanced_hide_ask_section_summary_off">Phần Hỏi được hiển thị</string>
   <string name="revanced_hide_attributes_section_title">Ẩn Thuộc tính</string>
   <string name="revanced_hide_attributes_section_summary_on">Phần Địa điểm nổi bật, Trò chơi, Âm nhạc và Người được đề cập đã bị ẩn</string>
   <string name="revanced_hide_attributes_section_summary_off">Phần Địa điểm nổi bật, Trò chơi, Âm nhạc và Người được đề cập được hiển thị</string>

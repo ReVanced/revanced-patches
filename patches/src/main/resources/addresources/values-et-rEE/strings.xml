@@ -238,6 +238,9 @@ Teid ei teavitata ühestki ootamatust sündmusest."</string>
   <string name="revanced_hide_ai_generated_video_summary_section_title">Peida „AI-ga loodud video kokkuvõte”</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_on">Video kokkuvõtte osa on peidetud</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_off">Video kokkuvõtte osa on näidatud</string>
+  <string name="revanced_hide_ask_section_title">Peida küsi</string>
+  <string name="revanced_hide_ask_section_summary_on">Küsi osa on peidetud</string>
+  <string name="revanced_hide_ask_section_summary_off">Küsi osa on nähtav</string>
   <string name="revanced_hide_attributes_section_title">Peida atribuudid</string>
   <string name="revanced_hide_attributes_section_summary_on">Esiletõstetud kohad, mängud, muusika ja inimeste mainimise jaotised on peidetud</string>
   <string name="revanced_hide_attributes_section_summary_off">Esiletõstetud kohad, mängud, muusika ja inimeste mainimise jaotised on kuvatud</string>

@@ -238,6 +238,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_ai_generated_video_summary_section_title">Схаваць «Зводку відэа, згенэраваную штучным інтэлектам»</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_on">Раздзел зводкі відэа схаваны</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_off">Раздзел зводкі відэа паказаны</string>
+  <string name="revanced_hide_ask_section_title">Схаваць «Спытаць»</string>
+  <string name="revanced_hide_ask_section_summary_on">Раздзел «Спытаць» схаваны</string>
+  <string name="revanced_hide_ask_section_summary_off">Раздзел «Спытаць» паказаны</string>
   <string name="revanced_hide_attributes_section_title">Схаваць атрыбуты</string>
   <string name="revanced_hide_attributes_section_summary_on">Раздзелы «Папулярныя месцы», «Гульні», «Музыка» і «Людзі, якіх згадвалі» схаваныя</string>
   <string name="revanced_hide_attributes_section_summary_off">Раздзелы «Папулярныя месцы», «Гульні», «Музыка» і «Людзі, якіх згадвалі» паказаныя</string>
