@@ -238,6 +238,9 @@ MicroG-ի համար մարտկոցի օպտիմալացումը անջատել�
   <string name="revanced_hide_ai_generated_video_summary_section_title">Թաքցնել «AI-ով ստեղծված տեսանյութի ամփոփումը»</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_on">Տեսանյութի ամփոփման բաժինը թաքցված է</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_off">Տեսանյութի ամփոփման բաժինը ցուցադրվում է</string>
+  <string name="revanced_hide_ask_section_title">Թաքցնել հարցումը</string>
+  <string name="revanced_hide_ask_section_summary_on">Հարցումների բաժինը թաքցված է</string>
+  <string name="revanced_hide_ask_section_summary_off">Հարցումների բաժինը ցուցադրվում է</string>
   <string name="revanced_hide_attributes_section_title">Թաքցնել հատկանիշները</string>
   <string name="revanced_hide_attributes_section_summary_on">Առաջարկվող վայրերը, խաղերը, երաժշտությունը և նշված անձանց բաժինները թաքցված են</string>
   <string name="revanced_hide_attributes_section_summary_off">Առաջարկվող վայրերը, խաղերը, երաժշտությունը և նշված անձանց բաժինները ցուցադրվում են</string>

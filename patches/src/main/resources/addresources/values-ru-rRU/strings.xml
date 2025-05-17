@@ -238,6 +238,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_ai_generated_video_summary_section_title">Скрыть секцию AI-резюме видео</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_on">Секция AI-резюме видео в описании видео скрыта</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_off">Секция AI-резюме видео в описании видео показана</string>
+  <string name="revanced_hide_ask_section_title">Скрыть кнопку \"Спросить\"</string>
+  <string name="revanced_hide_ask_section_summary_on">Раздел \"Спросить\" скрыт</string>
+  <string name="revanced_hide_ask_section_summary_off">Раздел \"Спросить\" показан</string>
   <string name="revanced_hide_attributes_section_title">Скрыть раздел атрибутов</string>
   <string name="revanced_hide_attributes_section_summary_on">Разделы \"Упомянутые или показанные места\", \"Игры\", \"Музыка\" и \"Люди, которых упоминали\" скрыты</string>
   <string name="revanced_hide_attributes_section_summary_off">Разделы \"Упомянутые или показанные места\", \"Игры\", \"Музыка\" и \"Люди, которых упоминали\" показаны</string>

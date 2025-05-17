@@ -238,6 +238,9 @@ Du kommer inte att bli meddelad om oväntade händelser."</string>
   <string name="revanced_hide_ai_generated_video_summary_section_title">Dölj \"AI-genererad videosammanfattning\"</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_on">Videoöversiktssektionen är dold</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_off">Videoöversiktssektionen visas</string>
+  <string name="revanced_hide_ask_section_title">Dölj Fråga</string>
+  <string name="revanced_hide_ask_section_summary_on">Fråga-avsnittet är dolt</string>
+  <string name="revanced_hide_ask_section_summary_off">Fråga-avsnittet visas</string>
   <string name="revanced_hide_attributes_section_title">Dölj attribut</string>
   <string name="revanced_hide_attributes_section_summary_on">Avsnitten Utvalda platser, Spel, Musik och Personer som nämns är dolda</string>
   <string name="revanced_hide_attributes_section_summary_off">Avsnitten Utvalda platser, Spel, Musik och Personer som nämns visas</string>

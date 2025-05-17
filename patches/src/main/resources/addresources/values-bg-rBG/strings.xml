@@ -238,6 +238,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_ai_generated_video_summary_section_title">Скриване на \"AI-генерирано видео резюме\"</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_on">Скрит е разделът с видео резюме</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_off">Показва се разделът с видео резюме</string>
+  <string name="revanced_hide_ask_section_title">Скриване на „Попитай“</string>
+  <string name="revanced_hide_ask_section_summary_on">Скрит раздел „Попитай“</string>
+  <string name="revanced_hide_ask_section_summary_off">Показване на раздел „Попитай“</string>
   <string name="revanced_hide_attributes_section_title">Скриване на атрибути</string>
   <string name="revanced_hide_attributes_section_summary_on">Секциите \"Препоръчани места\", \"Игри\", \"Музика\" и \"Споменати хора\" са скрити</string>
   <string name="revanced_hide_attributes_section_summary_off">Секциите \"Препоръчани места\", \"Игри\", \"Музика\" и \"Споменати хора\" са показани</string>

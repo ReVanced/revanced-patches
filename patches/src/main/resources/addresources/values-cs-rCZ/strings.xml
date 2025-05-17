@@ -238,6 +238,9 @@ Nebudete informováni o žádné neočekávané události."</string>
   <string name="revanced_hide_ai_generated_video_summary_section_title">Skrýt „Souhrn videa generovaný pomocí AI“</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_on">Sekce se souhrnem videa je skrytá</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_off">Sekce se souhrnem videa je zobrazena</string>
+  <string name="revanced_hide_ask_section_title">Skrýt sekci Zeptat se</string>
+  <string name="revanced_hide_ask_section_summary_on">Sekce Zeptat se je skrytá</string>
+  <string name="revanced_hide_ask_section_summary_off">Sekce Zeptat se je zobrazena</string>
   <string name="revanced_hide_attributes_section_title">Skrýt atributy</string>
   <string name="revanced_hide_attributes_section_summary_on">Sekce Doporučená místa, Hry, Hudba a Zmínění lidé jsou skryté</string>
   <string name="revanced_hide_attributes_section_summary_off">Sekce Doporučená místa, Hry, Hudba a Zmínění lidé jsou zobrazené</string>

@@ -238,6 +238,9 @@ Ní chuirfear ar an eolas thú faoi aon imeachtaí gan choinne."</string>
   <string name="revanced_hide_ai_generated_video_summary_section_title">Folaigh \'Achoimre físeáin arna giniúint ag AI\'</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_on">Tá an chuid achoimre físeáin i bhfolach</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_off">Taispeántar an chuid achoimre físeáin</string>
+  <string name="revanced_hide_ask_section_title">Folaigh Fiafraigh</string>
+  <string name="revanced_hide_ask_section_summary_on">Tá rannóg na Fiafraí i bhfolach</string>
+  <string name="revanced_hide_ask_section_summary_off">Taispeántar rannóg na Fiafraí</string>
   <string name="revanced_hide_attributes_section_title">Folaigh Tréithe</string>
   <string name="revanced_hide_attributes_section_summary_on">Tá ailt d\'áiteanna sonracha, Cluichí, Ceol agus Daoine a luaitear i bhfolach</string>
   <string name="revanced_hide_attributes_section_summary_off">Taispeántar ailt d\'áiteanna sonracha, Cluichí, Ceol agus Daoine a luaitear</string>

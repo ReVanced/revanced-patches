@@ -238,6 +238,9 @@ Nećete biti obavešteni ni o kakvim neočekivanim događajima."</string>
   <string name="revanced_hide_ai_generated_video_summary_section_title">Sakrij „Rezime videa koji je generisala veštačka inteligencija”</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_on">Odeljak „Rezime videa” je skriven</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_off">Odeljak „Rezime videa” je prikazan</string>
+  <string name="revanced_hide_ask_section_title">Sakrij dugme „Pitaj”</string>
+  <string name="revanced_hide_ask_section_summary_on">Odeljak „Pitaj” je skriven</string>
+  <string name="revanced_hide_ask_section_summary_off">Odeljak „Pitaj” je prikazan</string>
   <string name="revanced_hide_attributes_section_title">Sakrij atribute</string>
   <string name="revanced_hide_attributes_section_summary_on">Odeljci „Istaknuta mesta”, „Igre”, „Muzika” i „Pomenuti ljudi” su skriveni</string>
   <string name="revanced_hide_attributes_section_summary_off">Odeljci „Istaknuta mesta”, „Igre”, „Muzika” i „Pomenuti ljudi” su prikazani</string>

@@ -238,6 +238,9 @@ Anda tidak akan diberi tahu tentang kejadian yang tidak terduga."</string>
   <string name="revanced_hide_ai_generated_video_summary_section_title">Sembunyikan \'Ringkasan video yang dibuat AI\'</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_on">Bagian ringkasan video disembunyikan</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_off">Bagian ringkasan video ditampilkan</string>
+  <string name="revanced_hide_ask_section_title">Sembunyikan Tanya</string>
+  <string name="revanced_hide_ask_section_summary_on">Bagian Tanya disembunyikan</string>
+  <string name="revanced_hide_ask_section_summary_off">Bagian Tanya ditampilkan</string>
   <string name="revanced_hide_attributes_section_title">Sembunyikan Atribut</string>
   <string name="revanced_hide_attributes_section_summary_on">Bagian tempat Unggulan, Game, Musik, dan disebutkan Orang disembunyikan</string>
   <string name="revanced_hide_attributes_section_summary_off">Bagian tempat Unggulan, Game, Musik, dan disebutkan Orang ditampilkan</string>

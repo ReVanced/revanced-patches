@@ -238,6 +238,9 @@ Non sarai notificato di eventi imprevisti."</string>
   <string name="revanced_hide_ai_generated_video_summary_section_title">Nascondi \"Riepilogo video generato dall\'AI\"</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_on">La sezione del riepilogo video è nascosta</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_off">La sezione del riepilogo video è visibile</string>
+  <string name="revanced_hide_ask_section_title">Nascondi \"Chiedi\"</string>
+  <string name="revanced_hide_ask_section_summary_on">La sezione \"Chiedi\" è nascosta</string>
+  <string name="revanced_hide_ask_section_summary_off">La sezione \"Chiedi\" è visibile</string>
   <string name="revanced_hide_attributes_section_title">Nascondi Attributi</string>
   <string name="revanced_hide_attributes_section_summary_on">Le sezioni Luoghi in evidenza, Giochi, Musica e Persone menzionate sono nascoste</string>
   <string name="revanced_hide_attributes_section_summary_off">Le sezioni Luoghi in evidenza, Giochi, Musica e Persone menzionate sono visibili</string>

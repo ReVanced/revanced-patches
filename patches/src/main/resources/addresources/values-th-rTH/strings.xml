@@ -238,6 +238,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_ai_generated_video_summary_section_title">ซ่อน \",สรุปวิดีโอที่สร้างโดย AI\"</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_on">ส่วนสรุปวิดีโอถูกซ่อน</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_off">ส่วนสรุปวิดีโอปรากฏ</string>
+  <string name="revanced_hide_ask_section_title">ซ่อน Ask</string>
+  <string name="revanced_hide_ask_section_summary_on">ส่วน Ask ถูกซ่อนไว้</string>
+  <string name="revanced_hide_ask_section_summary_off">ส่วน Ask ถูกแสดง</string>
   <string name="revanced_hide_attributes_section_title">ซ่อนแอตทริบิวต์</string>
   <string name="revanced_hide_attributes_section_summary_on">ส่วนสถานที่แนะนำ, เกม, เพลง และบุคคลที่กล่าวถึงถูกซ่อน</string>
   <string name="revanced_hide_attributes_section_summary_off">ส่วนสถานที่แนะนำ, เกม, เพลง และบุคคลที่กล่าวถึงแสดงอยู่</string>

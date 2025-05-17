@@ -240,6 +240,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_ai_generated_video_summary_section_title">Σύνοψη βίντεο που δημιουργήθηκε από AI</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_on">Κρυμμένη</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_off">Εμφανίζεται</string>
+  <string name="revanced_hide_ask_section_title">Κουμπί «Ερώτηση»</string>
+  <string name="revanced_hide_ask_section_summary_on">Η ενότητα \"Ρωτήστε\" είναι κρυφή</string>
+  <string name="revanced_hide_ask_section_summary_off">Η ενότητα \"Ρωτήστε\" εμφανίζεται</string>
   <string name="revanced_hide_attributes_section_title">Ενότητα ιδιοτήτων</string>
   <string name="revanced_hide_attributes_section_summary_on">Κρυμμένη.\n\nΑφορά τις ιδιότητες: Επιλεγμένα μέρη, Παιχνίδια, Μουσική, και «Οι χρήστες ανέφεραν»</string>
   <string name="revanced_hide_attributes_section_summary_off">Εμφανίζεται.\n\nΑφορά τις ιδιότητες: Επιλεγμένα μέρη, Παιχνίδια, Μουσική, και «Οι χρήστες ανέφεραν»</string>
