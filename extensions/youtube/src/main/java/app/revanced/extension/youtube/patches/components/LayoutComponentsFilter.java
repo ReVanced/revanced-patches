@@ -38,6 +38,7 @@ public final class LayoutComponentsFilter extends Filter {
     private final StringFilterGroup compactChannelBarInnerButton;
     private final ByteArrayFilterGroup joinMembershipButton;
     private final StringFilterGroup horizontalShelves;
+    private final ByteArrayFilterGroup ticketShelf;
 
     public LayoutComponentsFilter() {
         exceptions.addPatterns(
@@ -244,6 +245,11 @@ public final class LayoutComponentsFilter extends Filter {
                 "horizontal_tile_shelf.eml"
         );
 
+        ticketShelf = new ByteArrayFilterGroup(
+                Settings.HIDE_TICKET_SHELF,
+                "ticket"
+        );
+
         addPathCallbacks(
                 expandableMetadata,
                 inFeedSurvey,
@@ -305,7 +311,7 @@ public final class LayoutComponentsFilter extends Filter {
         }
 
         if (matchedGroup == horizontalShelves) {
-            return contentIndex == 0 && hideShelves();
+            return contentIndex == 0 && (hideShelves() || ticketShelf.check(protobufBufferArray).isFiltered());
         }
 
         return true;
