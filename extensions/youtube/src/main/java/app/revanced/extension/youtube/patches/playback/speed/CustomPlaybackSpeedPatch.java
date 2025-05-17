@@ -1,15 +1,11 @@
 package app.revanced.extension.youtube.patches.playback.speed;
 
-import static app.revanced.extension.shared.StringRef.sf;
 import static app.revanced.extension.shared.StringRef.str;
 
-import android.preference.ListPreference;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewParent;
-
-import androidx.annotation.NonNull;
 
 import java.util.Arrays;
 
@@ -20,8 +16,6 @@ import app.revanced.extension.youtube.settings.Settings;
 
 @SuppressWarnings("unused")
 public class CustomPlaybackSpeedPatch {
-
-    private static final float PLAYBACK_SPEED_AUTO = Settings.PLAYBACK_SPEED_DEFAULT.defaultValue;
 
     /**
      * Maximum playback speed, exclusive value.  Custom speeds must be less than this value.
@@ -46,11 +40,6 @@ public class CustomPlaybackSpeedPatch {
      * The last time the old playback menu was forcefully called.
      */
     private static long lastTimeOldPlaybackMenuInvoked;
-
-    /**
-     * PreferenceList entries and values, of all available playback speeds.
-     */
-    private static String[] preferenceListEntries, preferenceListEntryValues;
 
     static {
         final float holdSpeed = Settings.SPEED_TAP_AND_HOLD.get();
@@ -115,33 +104,6 @@ public class CustomPlaybackSpeedPatch {
             if (arrayValue == value) return true;
         }
         return false;
-    }
-
-    /**
-     * Initialize a settings preference list with the available playback speeds.
-     */
-    @SuppressWarnings("deprecation")
-    public static void initializeListPreference(ListPreference preference) {
-        if (preferenceListEntries == null) {
-            final int numberOfEntries = customPlaybackSpeeds.length + 1;
-            preferenceListEntries = new String[numberOfEntries];
-            preferenceListEntryValues = new String[numberOfEntries];
-
-            // Auto speed (same behavior as unpatched).
-            preferenceListEntries[0] = sf("revanced_custom_playback_speeds_auto").toString();
-            preferenceListEntryValues[0] = String.valueOf(PLAYBACK_SPEED_AUTO);
-
-            int i = 1;
-            for (float speed : customPlaybackSpeeds) {
-                String speedString = String.valueOf(speed);
-                preferenceListEntries[i] = speedString + "x";
-                preferenceListEntryValues[i] = speedString;
-                i++;
-            }
-        }
-
-        preference.setEntries(preferenceListEntries);
-        preference.setEntryValues(preferenceListEntryValues);
     }
 
     /**

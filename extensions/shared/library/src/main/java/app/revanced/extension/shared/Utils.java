@@ -371,7 +371,7 @@ public class Utils {
         if (language != AppLanguage.DEFAULT) {
             // Create a new context with the desired language.
             Logger.printDebug(() -> "Using app language: " + language);
-            Configuration config = appContext.getResources().getConfiguration();
+            Configuration config = new Configuration(appContext.getResources().getConfiguration());
             config.setLocale(language.getLocale());
             context = appContext.createConfigurationContext(config);
         }
@@ -391,14 +391,45 @@ public class Utils {
     private static Boolean isRightToLeftTextLayout;
 
     /**
-     * If the device language uses right to left text layout (hebrew, arabic, etc)
+     * @return If the device language uses right to left text layout (Hebrew, Arabic, etc).
+     *         If this should match any ReVanced language override then instead use
+     *         {@link #isRightToLeftLocale(Locale)} with {@link BaseSettings#REVANCED_LANGUAGE}.
+     *         This is the default locale of the device, which may differ if
+     *         {@link BaseSettings#REVANCED_LANGUAGE} is set to a different language.
      */
-    public static boolean isRightToLeftTextLayout() {
+    public static boolean isRightToLeftLocale() {
         if (isRightToLeftTextLayout == null) {
-            String displayLanguage = Locale.getDefault().getDisplayLanguage();
-            isRightToLeftTextLayout = new Bidi(displayLanguage, Bidi.DIRECTION_DEFAULT_LEFT_TO_RIGHT).isRightToLeft();
+            isRightToLeftTextLayout = isRightToLeftLocale(Locale.getDefault());
         }
         return isRightToLeftTextLayout;
+    }
+
+    /**
+     * @return If the locale uses right to left text layout (Hebrew, Arabic, etc).
+     */
+    public static boolean isRightToLeftLocale(Locale locale) {
+        String displayLanguage = locale.getDisplayLanguage();
+        return new Bidi(displayLanguage, Bidi.DIRECTION_DEFAULT_LEFT_TO_RIGHT).isRightToLeft();
+    }
+
+    /**
+     * @return A UTF8 string containing a left-to-right or right-to-left
+     *         character of the device locale. If this should match any ReVanced language
+     *         override then instead use {@link #getTextDirectionString(Locale)} with
+     *         {@link BaseSettings#REVANCED_LANGUAGE}.
+     */
+    public static String getTextDirectionString() {
+        return  getTextDirectionString(isRightToLeftLocale());
+    }
+
+    public static String getTextDirectionString(Locale locale) {
+        return getTextDirectionString(isRightToLeftLocale(locale));
+    }
+
+    private static String getTextDirectionString(boolean isRightToLeft) {
+        return isRightToLeft
+                ? "\u200F"  // u200F = right to left character.
+                : "\u200E"; // u200E = left to right character.
     }
 
     /**
@@ -692,9 +723,10 @@ public class Utils {
     /**
      * Strips all punctuation and converts to lower case.  A null parameter returns an empty string.
      */
-    public static String removePunctuationConvertToLowercase(@Nullable CharSequence original) {
+    public static String removePunctuationToLowercase(@Nullable CharSequence original) {
         if (original == null) return "";
-        return punctuationPattern.matcher(original).replaceAll("").toLowerCase();
+        return punctuationPattern.matcher(original).replaceAll("")
+                .toLowerCase(BaseSettings.REVANCED_LANGUAGE.get().getLocale());
     }
 
     /**
@@ -726,7 +758,7 @@ public class Utils {
             final String sortValue;
             switch (preferenceSort) {
                 case BY_TITLE:
-                    sortValue = removePunctuationConvertToLowercase(preference.getTitle());
+                    sortValue = removePunctuationToLowercase(preference.getTitle());
                     break;
                 case BY_KEY:
                     sortValue = preference.getKey();
@@ -809,5 +841,13 @@ public class Utils {
             return Color.parseColor(colorString);
         }
         return getResourceColor(colorString);
+    }
+
+    public static int clamp(int value, int lower, int upper) {
+        return Math.max(lower, Math.min(value, upper));
+    }
+
+    public static float clamp(float value, float lower, float upper) {
+        return Math.max(lower, Math.min(value, upper));
     }
 }
