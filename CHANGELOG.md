@@ -1,3 +1,10 @@
+# [5.24.0-dev.6](https://github.com/ReVanced/revanced-patches/compare/v5.24.0-dev.5...v5.24.0-dev.6) (2025-05-17)
+
+
+### Features
+
+* **YouTube - Hide description components:** Add `Hide Ask` ([#4972](https://github.com/ReVanced/revanced-patches/issues/4972)) ([ebc94a5](https://github.com/ReVanced/revanced-patches/commit/ebc94a5da6214b67399c9c01515689bd4b20547c))
+
 # [5.24.0-dev.5](https://github.com/ReVanced/revanced-patches/compare/v5.24.0-dev.4...v5.24.0-dev.5) (2025-05-17)
 
 
