@@ -288,6 +288,9 @@ You will not be notified of any unexpected events."</string>
             <string name="revanced_hide_ai_generated_video_summary_section_title">Hide \'AI-generated video summary\'</string>
             <string name="revanced_hide_ai_generated_video_summary_section_summary_on">Video summary section is hidden</string>
             <string name="revanced_hide_ai_generated_video_summary_section_summary_off">Video summary section is shown</string>
+            <string name="revanced_hide_ask_section_title">Hide Ask</string>
+            <string name="revanced_hide_ask_section_summary_on">Ask section is hidden</string>
+            <string name="revanced_hide_ask_section_summary_off">Ask section is shown</string>
             <string name="revanced_hide_attributes_section_title">Hide Attributes</string>
             <string name="revanced_hide_attributes_section_summary_on">Featured places, Games, Music, and People mentioned sections are hidden</string>
             <string name="revanced_hide_attributes_section_summary_off">Featured places, Games, Music, and People mentioned sections are shown</string>
