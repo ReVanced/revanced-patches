@@ -169,6 +169,9 @@ Nebudete informováni o žádné neočekávané události."</string>
   <string name="revanced_hide_show_more_button_title">Skrýt tlačítko „Zobrazit více“</string>
   <string name="revanced_hide_show_more_button_summary_on">Tlačítko je skryto</string>
   <string name="revanced_hide_show_more_button_summary_off">Tlačítko je zobrazeno</string>
+  <string name="revanced_hide_ticket_shelf_title">Skrýt panel Vstupenek</string>
+  <string name="revanced_hide_ticket_shelf_summary_on">Panel Vstupenek je skrytý</string>
+  <string name="revanced_hide_ticket_shelf_summary_off">Panel Vstupenek je zobrazen</string>
   <string name="revanced_hide_timed_reactions_title">Skrýt reakce zobrazené po čase</string>
   <string name="revanced_hide_timed_reactions_summary_on">Reakce zobrazené po čase jsou skryty</string>
   <string name="revanced_hide_timed_reactions_summary_off">Reakce se zobrazují po čase</string>

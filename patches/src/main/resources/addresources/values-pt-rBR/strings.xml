@@ -167,6 +167,9 @@ Você não será notificado sobre nenhum evento inesperado."</string>
   <string name="revanced_hide_show_more_button_title">Ocultar botão \'Mostrar mais\'</string>
   <string name="revanced_hide_show_more_button_summary_on">Botão está oculto</string>
   <string name="revanced_hide_show_more_button_summary_off">O botão é mostrado</string>
+  <string name="revanced_hide_ticket_shelf_title">Ocultar seção de ingressos</string>
+  <string name="revanced_hide_ticket_shelf_summary_on">Seção de ingressos oculta</string>
+  <string name="revanced_hide_ticket_shelf_summary_off">Seção de ingressos exibida</string>
   <string name="revanced_hide_timed_reactions_title">Ocultar reações cronometradas</string>
   <string name="revanced_hide_timed_reactions_summary_on">Reações cronometradas estão ocultas</string>
   <string name="revanced_hide_timed_reactions_summary_off">Reações cronometradas não estão ocultas</string>

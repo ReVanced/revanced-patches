@@ -169,6 +169,9 @@ Du kommer inte att bli meddelad om oväntade händelser."</string>
   <string name="revanced_hide_show_more_button_title">Dölj knappen \"Visa mer\"</string>
   <string name="revanced_hide_show_more_button_summary_on">Knappen är dold</string>
   <string name="revanced_hide_show_more_button_summary_off">Knappen är synlig</string>
+  <string name="revanced_hide_ticket_shelf_title">Dölj biljettpanelen</string>
+  <string name="revanced_hide_ticket_shelf_summary_on">Biljettpanelen är dold</string>
+  <string name="revanced_hide_ticket_shelf_summary_off">Biljettpanelen visas</string>
   <string name="revanced_hide_timed_reactions_title">Dölj tidsinställda reaktioner</string>
   <string name="revanced_hide_timed_reactions_summary_on">Tidsinställda reaktioner är dolda</string>
   <string name="revanced_hide_timed_reactions_summary_off">Tidsinställda reaktioner är synliga</string>

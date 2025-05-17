@@ -169,6 +169,9 @@ Hindi ka aabisuhan ng anumang hindi inaasahang mga kaganapan."</string>
   <string name="revanced_hide_show_more_button_title">Itago ang button na \"Ipakita ang higit pa\"</string>
   <string name="revanced_hide_show_more_button_summary_on">Nakatago ang button</string>
   <string name="revanced_hide_show_more_button_summary_off">Ang pindutan ay ipinapakita</string>
+  <string name="revanced_hide_ticket_shelf_title">Itago ang shelf ng ticket</string>
+  <string name="revanced_hide_ticket_shelf_summary_on">Nakatago ang ticket shelf</string>
+  <string name="revanced_hide_ticket_shelf_summary_off">Ipinapakita ang ticket shelf</string>
   <string name="revanced_hide_timed_reactions_title">Itago ang mga naka-time na reaksyon</string>
   <string name="revanced_hide_timed_reactions_summary_on">Nakatago ang mga naka-time na reaksyon</string>
   <string name="revanced_hide_timed_reactions_summary_off">Ang mga naka-time na reaksyon ay ipinapakita</string>

@@ -167,6 +167,9 @@ Du modtager ikke notifikationer om uventede hændelser."</string>
   <string name="revanced_hide_show_more_button_title">Skjul knappen \'Vis mere\'</string>
   <string name="revanced_hide_show_more_button_summary_on">Knappen er skjult</string>
   <string name="revanced_hide_show_more_button_summary_off">Knappen er vist</string>
+  <string name="revanced_hide_ticket_shelf_title">Skjul billetreolen</string>
+  <string name="revanced_hide_ticket_shelf_summary_on">Billetreolen er skjult</string>
+  <string name="revanced_hide_ticket_shelf_summary_off">Billetreolen vises</string>
   <string name="revanced_hide_timed_reactions_title">Skjul tidsreaktioner</string>
   <string name="revanced_hide_timed_reactions_summary_on">Tidsreaktioner skjules</string>
   <string name="revanced_hide_timed_reactions_summary_off">Tidsreaktioner vises</string>

@@ -166,6 +166,9 @@ Desactivar las optimizaciones de batería para MicroG no afectará negativamente
   <string name="revanced_hide_show_more_button_title">Ocultar botón \'Mostrar más\'</string>
   <string name="revanced_hide_show_more_button_summary_on">Botón oculto</string>
   <string name="revanced_hide_show_more_button_summary_off">Se muestra el botón</string>
+  <string name="revanced_hide_ticket_shelf_title">Ocultar estante de boletos</string>
+  <string name="revanced_hide_ticket_shelf_summary_on">El estante de boletos está oculto</string>
+  <string name="revanced_hide_ticket_shelf_summary_off">El estante de boletos está visible</string>
   <string name="revanced_hide_timed_reactions_title">Ocultar reacciones temporizadas</string>
   <string name="revanced_hide_timed_reactions_summary_on">Las reacciones temporizadas están ocultas</string>
   <string name="revanced_hide_timed_reactions_summary_off">Se muestran reacciones temporizadas</string>

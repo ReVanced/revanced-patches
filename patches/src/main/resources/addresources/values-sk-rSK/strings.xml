@@ -167,6 +167,9 @@ Nebudete informovaní o žiadnych nepredvídaných udalostiach."</string>
   <string name="revanced_hide_show_more_button_title">Skryť tlačidlo \"Zobraziť viac\"</string>
   <string name="revanced_hide_show_more_button_summary_on">Tlačidlo je skryté</string>
   <string name="revanced_hide_show_more_button_summary_off">Tlačidlo je zobrazené</string>
+  <string name="revanced_hide_ticket_shelf_title">Skryť panel lístkov</string>
+  <string name="revanced_hide_ticket_shelf_summary_on">Panel lístkov je skrytý</string>
+  <string name="revanced_hide_ticket_shelf_summary_off">Je zobrazený panel lístkov</string>
   <string name="revanced_hide_timed_reactions_title">Skryť načasované reakcie</string>
   <string name="revanced_hide_timed_reactions_summary_on">Časované reakcie sú skryté</string>
   <string name="revanced_hide_timed_reactions_summary_off">Sú zobrazené načasované reakcie</string>

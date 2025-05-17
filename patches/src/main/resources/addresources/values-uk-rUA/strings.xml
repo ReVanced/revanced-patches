@@ -170,6 +170,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_show_more_button_title">Приховати кнопку \"Показати більше\"</string>
   <string name="revanced_hide_show_more_button_summary_on">Кнопку \"Показати більше\" приховано</string>
   <string name="revanced_hide_show_more_button_summary_off">Кнопка \"Показати більше\" показується</string>
+  <string name="revanced_hide_ticket_shelf_title">Приховати полицю квитків</string>
+  <string name="revanced_hide_ticket_shelf_summary_on">Полицю квитків приховано</string>
+  <string name="revanced_hide_ticket_shelf_summary_off">Полиця квитків показується</string>
   <string name="revanced_hide_timed_reactions_title">Приховати тимчасові реакції</string>
   <string name="revanced_hide_timed_reactions_summary_on">Тимчасові реакції приховано</string>
   <string name="revanced_hide_timed_reactions_summary_off">Тимчасові реакції показуються</string>
@@ -240,8 +243,8 @@ Second \"item\" text"</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_on">Секцію \"Короткий переказ\" приховано</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_off">Секція \"Короткий переказ\" показується</string>
   <string name="revanced_hide_ask_section_title">Приховати \"Запитати\"</string>
-  <string name="revanced_hide_ask_section_summary_on">Розділ \"Запитати\" приховано</string>
-  <string name="revanced_hide_ask_section_summary_off">Розділ \"Запитати\" показується</string>
+  <string name="revanced_hide_ask_section_summary_on">Секцію \"Запитати\" приховано</string>
+  <string name="revanced_hide_ask_section_summary_off">Секція \"Запитати\" показується</string>
   <string name="revanced_hide_attributes_section_title">Приховати секції атрибутів</string>
   <string name="revanced_hide_attributes_section_summary_on">Секції \"Місця на відео\", \"Ігри\", \"Музика\" та \"Люди, згадані у відео\" приховано</string>
   <string name="revanced_hide_attributes_section_summary_off">Секції \"Місця на відео\", \"Ігри\", \"Музика\" та \"Люди, згадані у відео\" показуються</string>

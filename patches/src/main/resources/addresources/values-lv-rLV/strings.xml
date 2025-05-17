@@ -169,6 +169,9 @@ Jūs netiksit informēts par neparedzētiem notikumiem."</string>
   <string name="revanced_hide_show_more_button_title">Paslēpt \"Rādīt vairāk\" pogu</string>
   <string name="revanced_hide_show_more_button_summary_on">Poga ir paslēpta</string>
   <string name="revanced_hide_show_more_button_summary_off">Poga ir redzama</string>
+  <string name="revanced_hide_ticket_shelf_title">Paslēpt biļešu plauktu</string>
+  <string name="revanced_hide_ticket_shelf_summary_on">Biļešu plaukts ir paslēpts</string>
+  <string name="revanced_hide_ticket_shelf_summary_off">Biļešu plaukts ir redzams</string>
   <string name="revanced_hide_timed_reactions_title">Paslēpt laika reakcijas</string>
   <string name="revanced_hide_timed_reactions_summary_on">Laika reakcijas ir paslēptas</string>
   <string name="revanced_hide_timed_reactions_summary_off">Laika reakcijas ir redzamas</string>

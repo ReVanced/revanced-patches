@@ -173,6 +173,9 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_hide_show_more_button_title">\'자세히 보기\' 버튼 숨기기</string>
   <string name="revanced_hide_show_more_button_summary_on">\'자세히 보기\' 버튼이 숨겨집니다</string>
   <string name="revanced_hide_show_more_button_summary_off">\'자세히 보기\' 버튼이 표시됩니다</string>
+  <string name="revanced_hide_ticket_shelf_title">티켓 선반 숨기기</string>
+  <string name="revanced_hide_ticket_shelf_summary_on">티켓 선반이 숨겨집니다</string>
+  <string name="revanced_hide_ticket_shelf_summary_off">티켓 선반이 표시됩니다</string>
   <string name="revanced_hide_timed_reactions_title">실시간 이모티콘 리액션 숨기기</string>
   <string name="revanced_hide_timed_reactions_summary_on">실시간 이모티콘 리액션이 숨겨집니다</string>
   <string name="revanced_hide_timed_reactions_summary_off">실시간 이모티콘 리액션이 표시됩니다</string>

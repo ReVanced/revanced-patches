@@ -171,6 +171,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_show_more_button_title">Κουμπί «Εμφάνιση περισσότερων»</string>
   <string name="revanced_hide_show_more_button_summary_on">Κρυμμένο</string>
   <string name="revanced_hide_show_more_button_summary_off">Εμφανίζεται</string>
+  <string name="revanced_hide_ticket_shelf_title">Απόκρυψη ραφιού εισιτηρίων</string>
+  <string name="revanced_hide_ticket_shelf_summary_on">Το ράφι εισιτηρίων είναι κρυφό</string>
+  <string name="revanced_hide_ticket_shelf_summary_off">Το ράφι εισιτηρίων εμφανίζεται</string>
   <string name="revanced_hide_timed_reactions_title">Συγχρονισμένες αντιδράσεις</string>
   <string name="revanced_hide_timed_reactions_summary_on">Κρυμμένες</string>
   <string name="revanced_hide_timed_reactions_summary_off">Εμφανίζονται</string>
