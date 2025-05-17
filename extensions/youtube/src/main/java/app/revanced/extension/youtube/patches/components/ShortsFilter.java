@@ -278,27 +278,18 @@ public final class ShortsFilter extends Filter {
         if (contentType == FilterContentType.PATH) {
             if (matchedGroup == subscribeButton || matchedGroup == joinButton || matchedGroup == paidPromotionButton) {
                 // Selectively filter to avoid false positive filtering of other subscribe/join buttons.
-                if (path.startsWith(REEL_CHANNEL_BAR_PATH) || path.startsWith(REEL_METAPANEL_PATH)) {
-                    return super.isFiltered(identifier, path, protobufBufferArray, matchedGroup, contentType, contentIndex);
-                }
-                return false;
+                return path.startsWith(REEL_CHANNEL_BAR_PATH) || path.startsWith(REEL_METAPANEL_PATH);
             }
 
             if (matchedGroup == shortsCompactFeedVideoPath) {
-                if (shouldHideShortsFeedItems() && shortsCompactFeedVideoBuffer.check(protobufBufferArray).isFiltered()) {
-                    return super.isFiltered(identifier, path, protobufBufferArray, matchedGroup, contentType, contentIndex);
-                }
-                return false;
+                return shouldHideShortsFeedItems() && shortsCompactFeedVideoBuffer.check(protobufBufferArray).isFiltered();
             }
 
             // Video action buttons (comment, share, remix) have the same path.
             // Like and dislike are separate path filters and don't require buffer searching.
             if (matchedGroup == shortsActionBar) {
-                if (actionButton.check(path).isFiltered()
-                        && videoActionButtonGroupList.check(protobufBufferArray).isFiltered()) {
-                    return super.isFiltered(identifier, path, protobufBufferArray, matchedGroup, contentType, contentIndex);
-                }
-                return false;
+                return actionButton.check(path).isFiltered()
+                        && videoActionButtonGroupList.check(protobufBufferArray).isFiltered();
             }
 
             if (matchedGroup == suggestedAction) {
@@ -306,28 +297,23 @@ public final class ShortsFilter extends Filter {
                 // This has a secondary effect of hiding all new un-identified actions
                 // under the assumption that the user wants all suggestions hidden.
                 if (isEverySuggestedActionFilterEnabled()) {
-                    return super.isFiltered(path, identifier, protobufBufferArray, matchedGroup, contentType, contentIndex);
+                    return true;
                 }
 
-                if (suggestedActionsGroupList.check(protobufBufferArray).isFiltered()) {
-                    return super.isFiltered(identifier, path, protobufBufferArray, matchedGroup, contentType, contentIndex);
-                }
-                return false;
+                return suggestedActionsGroupList.check(protobufBufferArray).isFiltered();
             }
 
-        } else {
-            // Feed/search identifier components.
-            if (matchedGroup == shelfHeader) {
-                // Because the header is used in watch history and possibly other places, check for the index,
-                // which is 0 when the shelf header is used for Shorts.
-                if (contentIndex != 0) return false;
-            }
-
-            if (!shouldHideShortsFeedItems()) return false;
+            return true;
         }
 
-        // Super class handles logging.
-        return super.isFiltered(identifier, path, protobufBufferArray, matchedGroup, contentType, contentIndex);
+        // Feed/search identifier components.
+        if (matchedGroup == shelfHeader) {
+            // Because the header is used in watch history and possibly other places, check for the index,
+            // which is 0 when the shelf header is used for Shorts.
+            if (contentIndex != 0) return false;
+        }
+
+        return shouldHideShortsFeedItems();
     }
 
     private static boolean shouldHideShortsFeedItems() {

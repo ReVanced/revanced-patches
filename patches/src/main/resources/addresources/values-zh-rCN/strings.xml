@@ -42,6 +42,10 @@ Second \"item\" text"</string>
   <string name="revanced_settings_import_reset">ReVanced 设置重置为默认</string>
   <string name="revanced_settings_import_success">导入 %d 个设置</string>
   <string name="revanced_settings_import_failure_parse">导入失败：%s</string>
+  <string name="revanced_settings_search_hint">搜索设置</string>
+  <string name="revanced_settings_search_no_results_title">未找到“%s”的结果</string>
+  <string name="revanced_settings_search_no_results_summary">尝试其他关键字</string>
+  <string name="revanced_settings_search_remove_message">从搜索历史记录中删除？</string>
   <string name="revanced_show_menu_icons_title">显示ReVanced设置图标</string>
   <string name="revanced_show_menu_icons_summary_on">设置图标已显示</string>
   <string name="revanced_show_menu_icons_summary_off">未显示设置图标</string>
@@ -93,6 +97,9 @@ Second \"item\" text"</string>
   <string name="revanced_restore_old_settings_menus_title">恢复旧设置菜单</string>
   <string name="revanced_restore_old_settings_menus_summary_on">显示旧设置菜单</string>
   <string name="revanced_restore_old_settings_menus_summary_off">不显示旧设置菜单</string>
+  <string name="revanced_settings_search_history_title">显示设置搜索历史记录</string>
+  <string name="revanced_settings_search_history_summary_on">设置搜索历史记录已显示</string>
+  <string name="revanced_settings_search_history_summary_off">不显示设置搜索历史记录</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
   <string name="revanced_shorts_disable_background_playback_title">禁用 Shorts 后台播放</string>
@@ -153,10 +160,10 @@ Second \"item\" text"</string>
   <string name="revanced_hide_notify_me_button_title">隐藏「通知我」按钮</string>
   <string name="revanced_hide_notify_me_button_summary_on">按钮已隐藏</string>
   <string name="revanced_hide_notify_me_button_summary_off">按钮已显示</string>
-  <!-- 'People also watched' should be translated using the same localized wording YouTube displays. -->
-  <string name="revanced_hide_search_result_recommendations_title">隐藏“大家也在看”标签</string>
-  <string name="revanced_hide_search_result_recommendations_summary_on">标签已隐藏</string>
-  <string name="revanced_hide_search_result_recommendations_summary_off">标签已显示</string>
+  <!-- 'People also watched' and 'You might also like' should be translated using the same localized wording YouTube displays. -->
+  <string name="revanced_hide_search_result_recommendation_labels_title">隐藏视频推荐标签</string>
+  <string name="revanced_hide_search_result_recommendation_labels_summary_on">“人们还观看过”和“您可能也喜欢”标签已隐藏</string>
+  <string name="revanced_hide_search_result_recommendation_labels_summary_off">“人们还观看过”和“您可能也喜欢”标签已显示</string>
   <!-- 'Show more' should be translated with the same localized wording that YouTube displays.
                   This button usually appears when searching for a YT creator. -->
   <string name="revanced_hide_show_more_button_title">隐藏「显示更多」按钮</string>
@@ -836,10 +843,10 @@ Second \"item\" text"</string>
   <string name="revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted">重新加载视频，使用 Return YouTube Dislike 投票</string>
   <!-- Video likes have been set to hidden by the video uploader. -->
   <string name="revanced_ryd_video_likes_hidden_by_video_owner">所有者已隐藏</string>
-  <string name="revanced_ryd_enable_summary_on">点踩数已显示</string>
-  <string name="revanced_ryd_enable_summary_off">点踩数已隐藏</string>
+  <string name="revanced_ryd_enabled_summary_on">点踩数已显示</string>
+  <string name="revanced_ryd_enabled_summary_off">点踩数已隐藏</string>
   <string name="revanced_ryd_shorts_title">在 Shorts 上显示点踩数</string>
-  <string name="revanced_ryd_shorts_summary_on_disclaimer">"Shorts 上显示“不喜欢”
+  <string name="revanced_ryd_shorts_summary_on">"Shorts 上显示“不喜欢”
 
 限制：在隐身模式下可能不显示“不喜欢”"</string>
   <string name="revanced_ryd_shorts_summary_off">Shorts 上不显示“不喜欢”</string>
@@ -856,7 +863,6 @@ Second \"item\" text"</string>
   <string name="revanced_ryd_toast_on_connection_error_title">如果 API 不可用，则显示提示</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_on">如果 Return YouTube Dislike 不可用，则显示提示</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_off">如果 Return YouTube Dislike 不可用，则不显示提示</string>
-  <string name="revanced_ryd_about">关于</string>
   <string name="revanced_ryd_attribution_summary">数据由 Return YouTube Dislike API 提供。点击此处了解更多</string>
   <!-- Statistic strings are shown in the settings only when ReVanced debug mode is enabled. Typical users will never see these. -->
   <string name="revanced_ryd_statistics_category_title">ReturnYouTubeDislike API 设备统计信息</string>
@@ -1067,7 +1073,7 @@ Second \"item\" text"</string>
   <string name="revanced_sb_new_segment_edit_by_hand_title">手动编辑线段时间</string>
   <string name="revanced_sb_new_segment_edit_by_hand_content">您想要编辑片段开始或结束的时间吗？</string>
   <string name="revanced_sb_new_segment_edit_by_hand_parse_error">给定的时间无效</string>
-  <string name="revanced_sb_stats">统计</string>
+  <string name="revanced_sb_stats_title">统计</string>
   <!-- Shown in the settings preferences, and translations can be any text length. -->
   <string name="revanced_sb_stats_connection_failure">统计信息暂时不可用（API 已关闭）</string>
   <string name="revanced_sb_stats_loading">正在加载…</string>
@@ -1096,8 +1102,8 @@ Second \"item\" text"</string>
   <string name="revanced_sb_color_invalid">无效的颜色代码</string>
   <string name="revanced_sb_reset_color">重置颜色</string>
   <string name="revanced_sb_reset">重置</string>
-  <string name="revanced_sb_about">关于</string>
-  <string name="revanced_sb_about_api_sum">数据由 SponsorBlock API 提供。点击这里了解更多信息并查看其他平台的下载内容</string>
+  <string name="revanced_sb_about_title">关于</string>
+  <string name="revanced_sb_about_api_summary">数据由 SponsorBlock API 提供。点击这里了解更多信息并查看其他平台的下载内容</string>
   </patch>
   <patch id="layout.formfactor.changeFormFactorPatch">
   <string name="revanced_change_form_factor_title">设备外形尺寸</string>
