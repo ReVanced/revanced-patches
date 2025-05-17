@@ -778,6 +778,8 @@ Second \"item\" text"</string>
 הגדרות ← הפעלה ← הפעלה אוטומטית של הסרטון הבא"</string>
   <string name="revanced_end_screen_suggested_video_summary_off">סרטון מוצע של מסך סיום מוצג</string>
   </patch>
+  <patch id="layout.hide.relatedvideooverlay.hideRelatedVideoOverlayPatch">
+  </patch>
   <patch id="layout.hide.time.hideTimestampPatch">
   <string name="revanced_hide_timestamp_title">הסתר חותמת זמן של סרטון</string>
   <string name="revanced_hide_timestamp_summary_on">חותמת זמן מוסתרת</string>

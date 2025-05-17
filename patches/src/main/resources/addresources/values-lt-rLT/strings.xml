@@ -792,6 +792,11 @@ Automatinį paleidimą galima pakeisti „YouTube“ nustatymuose:
 Nustatymai → Atkūrimas → Automatiškai leisti kitą vaizdo įrašą"</string>
   <string name="revanced_end_screen_suggested_video_summary_off">Pabaigos ekrane siūlomas vaizdo įrašas rodomas</string>
   </patch>
+  <patch id="layout.hide.relatedvideooverlay.hideRelatedVideoOverlayPatch">
+  <string name="revanced_hide_related_video_overlay_title">Slėpti susijusio vaizdo įrašo perdangą per visą ekraną</string>
+  <string name="revanced_hide_related_video_overlay_summary_on">Susijusio vaizdo įrašo perdanga paslėpta</string>
+  <string name="revanced_hide_related_video_overlay_summary_off">Rodoma susijusio vaizdo įrašo perdanga</string>
+  </patch>
   <patch id="layout.hide.time.hideTimestampPatch">
   <string name="revanced_hide_timestamp_title">Slėpti vaizdo įrašo laiko žymę</string>
   <string name="revanced_hide_timestamp_summary_on">Laiko žymė paslėpta</string>

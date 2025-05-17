@@ -235,7 +235,7 @@ public class ReturnYouTubeDislike {
         final boolean compactLayout = Settings.RYD_COMPACT_LAYOUT.get();
 
         if (!compactLayout) {
-            String leftSeparatorString = getTextDirectionString();
+            String leftSeparatorString = Utils.getTextDirectionString();
             final Spannable leftSeparatorSpan;
             if (isRollingNumber) {
                 leftSeparatorSpan = new SpannableString(leftSeparatorString);
@@ -278,12 +278,6 @@ public class ReturnYouTubeDislike {
         builder.append(newSpannableWithDislikes(oldSpannable, voteData));
 
         return new SpannableString(builder);
-    }
-
-    private static @NonNull String getTextDirectionString() {
-        return Utils.isRightToLeftTextLayout()
-                ? "\u200F"  // u200F = right to left character
-                : "\u200E"; // u200E = left to right character
     }
 
     /**

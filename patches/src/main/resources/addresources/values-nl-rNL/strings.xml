@@ -794,6 +794,11 @@ Automatisch afspelen kan worden gewijzigd in de YouTube-instellingen:
 Instellingen → Afspelen → Volgende video automatisch afspelen"</string>
   <string name="revanced_end_screen_suggested_video_summary_off">Voorgestelde video op eindscherm wordt getoond</string>
   </patch>
+  <patch id="layout.hide.relatedvideooverlay.hideRelatedVideoOverlayPatch">
+  <string name="revanced_hide_related_video_overlay_title">Verberg gerelateerde video-overlay in volledig scherm</string>
+  <string name="revanced_hide_related_video_overlay_summary_on">Gerelateerde video-overlay is verborgen</string>
+  <string name="revanced_hide_related_video_overlay_summary_off">Gerelateerde video-overlay wordt weergegeven</string>
+  </patch>
   <patch id="layout.hide.time.hideTimestampPatch">
   <string name="revanced_hide_timestamp_title">Verberg de videotijd</string>
   <string name="revanced_hide_timestamp_summary_on">De tijd is verborgen</string>

@@ -137,7 +137,8 @@ Second \"item\" text"</string>
 • Продовжити перегляд
 • Переглянути більше каналів
 • Покупки
-• Дивитися знову"</string>
+• Дивитися знову
+• Найдоречніші"</string>
   <string name="revanced_hide_horizontal_shelves_summary_off">Горизонтальні полиці показуються</string>
   <!-- 'Join' should be translated using the same localized wording YouTube displays.
                  This appears in the video player for certain videos. -->
@@ -793,6 +794,11 @@ Second \"item\" text"</string>
 Автоматичне відтворення можна змінити в налаштуваннях YouTube:
 Налаштування → Відтворення → Автовідтворення наступного відео"</string>
   <string name="revanced_end_screen_suggested_video_summary_off">Пропоноване відео на кінцевому екрані показується</string>
+  </patch>
+  <patch id="layout.hide.relatedvideooverlay.hideRelatedVideoOverlayPatch">
+  <string name="revanced_hide_related_video_overlay_title">Приховати пов’язані відео в повноекранному режимі</string>
+  <string name="revanced_hide_related_video_overlay_summary_on">Пов’язані відео під час проведення пальцем вверх у повноекранному режимі приховано</string>
+  <string name="revanced_hide_related_video_overlay_summary_off">Пов’язані відео під час проведення пальцем вверх у повноекранному режимі показуються</string>
   </patch>
   <patch id="layout.hide.time.hideTimestampPatch">
   <string name="revanced_hide_timestamp_title">Приховати мітку часу відео</string>

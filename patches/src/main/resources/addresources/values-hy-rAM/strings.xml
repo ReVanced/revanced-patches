@@ -794,6 +794,11 @@ MicroG-ի համար մարտկոցի օպտիմալացումը անջատել�
 Կարգավորումներ → Վերարտադրում → Ավտոմատ նվագարկել հաջորդ տեսանյութը"</string>
   <string name="revanced_end_screen_suggested_video_summary_off">Վերջնական էկրանին առաջարկվող տեսանյութը ցուցադրվում է</string>
   </patch>
+  <patch id="layout.hide.relatedvideooverlay.hideRelatedVideoOverlayPatch">
+  <string name="revanced_hide_related_video_overlay_title">Թաքցնել կապակցված տեսանյութի վահանակը լիաէկրան ռեժիմում</string>
+  <string name="revanced_hide_related_video_overlay_summary_on">Կապակցված տեսանյութի վահանակը թաքցված է</string>
+  <string name="revanced_hide_related_video_overlay_summary_off">Կապակցված տեսանյութի վահանակը ցուցադրվում է</string>
+  </patch>
   <patch id="layout.hide.time.hideTimestampPatch">
   <string name="revanced_hide_timestamp_title">Թաքցնել տեսանյութի ժամանակային կետը</string>
   <string name="revanced_hide_timestamp_summary_on">Ժամանակային կետը թաքցված է</string>

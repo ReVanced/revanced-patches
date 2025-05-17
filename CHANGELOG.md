@@ -1,3 +1,25 @@
+# [5.24.0-dev.4](https://github.com/ReVanced/revanced-patches/compare/v5.24.0-dev.3...v5.24.0-dev.4) (2025-05-16)
+
+
+### Features
+
+* **Spotify:** Add `Fix third party launchers widgets` patch ([#4893](https://github.com/ReVanced/revanced-patches/issues/4893)) ([23bfdc9](https://github.com/ReVanced/revanced-patches/commit/23bfdc98fbbcc8ecf0ffbf8704f58dd2272e4af2))
+
+# [5.24.0-dev.3](https://github.com/ReVanced/revanced-patches/compare/v5.24.0-dev.2...v5.24.0-dev.3) (2025-05-14)
+
+
+### Bug Fixes
+
+* **YouTube - Hide layout components:** Fix `Hide video recommendation labels` ([#4956](https://github.com/ReVanced/revanced-patches/issues/4956)) ([ae05ac3](https://github.com/ReVanced/revanced-patches/commit/ae05ac38151ebd3197953af97ca0dd847a04cc2d))
+
+# [5.24.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.24.0-dev.1...v5.24.0-dev.2) (2025-05-14)
+
+
+### Features
+
+* **GmsCore support:** Open vendor specific DontKillMyApp if available ([#4952](https://github.com/ReVanced/revanced-patches/issues/4952)) ([b89927a](https://github.com/ReVanced/revanced-patches/commit/b89927a10e3b909a3c37fbb75c16a7abbce44560))
+* **YouTube - Hide player components:** Hide related video overlay in fullscreen ([#4938](https://github.com/ReVanced/revanced-patches/issues/4938)) ([ac9be97](https://github.com/ReVanced/revanced-patches/commit/ac9be9760c9965e54df196b227a310d64ead4bf5))
+
 # [5.24.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.23.0...v5.24.0-dev.1) (2025-05-12)
 
 

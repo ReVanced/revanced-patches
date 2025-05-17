@@ -794,6 +794,11 @@ Second \"item\" text"</string>
 设置 → 播放 → 自动播放下一个视频"</string>
   <string name="revanced_end_screen_suggested_video_summary_off">显示片尾画面推荐视频</string>
   </patch>
+  <patch id="layout.hide.relatedvideooverlay.hideRelatedVideoOverlayPatch">
+  <string name="revanced_hide_related_video_overlay_title">在全屏模式下隐藏相关视频叠加层</string>
+  <string name="revanced_hide_related_video_overlay_summary_on">相关视频叠加层已隐藏</string>
+  <string name="revanced_hide_related_video_overlay_summary_off">相关视频叠加层已显示</string>
+  </patch>
   <patch id="layout.hide.time.hideTimestampPatch">
   <string name="revanced_hide_timestamp_title">隐藏视频时间戳</string>
   <string name="revanced_hide_timestamp_summary_on">时间戳已隐藏</string>
