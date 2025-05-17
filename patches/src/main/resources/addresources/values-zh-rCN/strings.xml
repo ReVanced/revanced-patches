@@ -169,6 +169,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_show_more_button_title">隐藏「显示更多」按钮</string>
   <string name="revanced_hide_show_more_button_summary_on">按钮已隐藏</string>
   <string name="revanced_hide_show_more_button_summary_off">按钮已显示</string>
+  <string name="revanced_hide_ticket_shelf_title">隐藏票券架</string>
+  <string name="revanced_hide_ticket_shelf_summary_on">票券架已隐藏</string>
+  <string name="revanced_hide_ticket_shelf_summary_off">票券架已显示</string>
   <string name="revanced_hide_timed_reactions_title">隐藏限时反应</string>
   <string name="revanced_hide_timed_reactions_summary_on">定时表情反应已隐藏</string>
   <string name="revanced_hide_timed_reactions_summary_off">定时表情反应已显示</string>

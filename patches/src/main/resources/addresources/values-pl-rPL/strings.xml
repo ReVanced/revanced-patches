@@ -169,6 +169,9 @@ Nie będziesz informowany o żadnych nieoczekiwanych zdarzeniach."</string>
   <string name="revanced_hide_show_more_button_title">Ukryj przycisk \'Pokaż więcej\'</string>
   <string name="revanced_hide_show_more_button_summary_on">Przycisk jest ukryty</string>
   <string name="revanced_hide_show_more_button_summary_off">Przycisk jest widoczny</string>
+  <string name="revanced_hide_ticket_shelf_title">Ukryj pasek z biletami</string>
+  <string name="revanced_hide_ticket_shelf_summary_on">Pasek z biletami jest ukryty</string>
+  <string name="revanced_hide_ticket_shelf_summary_off">Pasek z biletami jest widoczny</string>
   <string name="revanced_hide_timed_reactions_title">Ukryj reakcje czasowe</string>
   <string name="revanced_hide_timed_reactions_summary_on">Reakcje czasowe są ukryte</string>
   <string name="revanced_hide_timed_reactions_summary_off">Reakcje czasowe są widoczne</string>

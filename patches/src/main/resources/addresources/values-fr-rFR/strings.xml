@@ -169,6 +169,9 @@ Vous ne serez pas informé des événements inattendus."</string>
   <string name="revanced_hide_show_more_button_title">Masquer le bouton Afficher plus</string>
   <string name="revanced_hide_show_more_button_summary_on">Le bouton est masqué</string>
   <string name="revanced_hide_show_more_button_summary_off">Le bouton est affiché</string>
+  <string name="revanced_hide_ticket_shelf_title">Masquer le rayon de billets</string>
+  <string name="revanced_hide_ticket_shelf_summary_on">Le rayon de billets est masqué</string>
+  <string name="revanced_hide_ticket_shelf_summary_off">Le rayon de billets est affiché</string>
   <string name="revanced_hide_timed_reactions_title">Masquer les réactions minutées</string>
   <string name="revanced_hide_timed_reactions_summary_on">Les réactions minutées sont masquées</string>
   <string name="revanced_hide_timed_reactions_summary_off">Les réactions minutées sont affichées</string>

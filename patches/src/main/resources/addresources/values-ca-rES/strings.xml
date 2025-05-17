@@ -169,6 +169,9 @@ No se t'informarà de cap esdeveniment inesperat."</string>
   <string name="revanced_hide_show_more_button_title">Amaga el botó \'Mostra més\'</string>
   <string name="revanced_hide_show_more_button_summary_on">El botó està amagat</string>
   <string name="revanced_hide_show_more_button_summary_off">El botó es mostra</string>
+  <string name="revanced_hide_ticket_shelf_title">Amaga la secció de tiquets</string>
+  <string name="revanced_hide_ticket_shelf_summary_on">La secció de tiquets està amagada</string>
+  <string name="revanced_hide_ticket_shelf_summary_off">La secció de tiquets es mostra</string>
   <string name="revanced_hide_timed_reactions_title">Amaga les reaccions temporitzades</string>
   <string name="revanced_hide_timed_reactions_summary_on">S\'han amagat les reaccions temporitzades</string>
   <string name="revanced_hide_timed_reactions_summary_off">Es mostren les reaccions temporitzades</string>

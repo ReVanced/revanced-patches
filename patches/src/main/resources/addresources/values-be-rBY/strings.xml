@@ -169,6 +169,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_show_more_button_title">Схаваць кнопку \"Паказаць больш\"</string>
   <string name="revanced_hide_show_more_button_summary_on">Кнопка схавана</string>
   <string name="revanced_hide_show_more_button_summary_off">Паказана кнопка</string>
+  <string name="revanced_hide_ticket_shelf_title">Схаваць паліцу білетаў</string>
+  <string name="revanced_hide_ticket_shelf_summary_on">Паліца білетаў схавана</string>
+  <string name="revanced_hide_ticket_shelf_summary_off">Паліца білетаў паказана</string>
   <string name="revanced_hide_timed_reactions_title">Схаваць рэакцыі па часе</string>
   <string name="revanced_hide_timed_reactions_summary_on">Часовыя рэакцыі схаваныя</string>
   <string name="revanced_hide_timed_reactions_summary_off">Паказваюцца рэакцыі па часе</string>
