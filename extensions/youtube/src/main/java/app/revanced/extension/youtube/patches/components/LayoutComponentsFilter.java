@@ -38,6 +38,7 @@ public final class LayoutComponentsFilter extends Filter {
     private final StringFilterGroup compactChannelBarInnerButton;
     private final ByteArrayFilterGroup joinMembershipButton;
     private final StringFilterGroup horizontalShelves;
+    private final ByteArrayFilterGroup ticketShelf;
 
     public LayoutComponentsFilter() {
         exceptions.addPatterns(
@@ -236,17 +237,17 @@ public final class LayoutComponentsFilter extends Filter {
                 "endorsement_header_footer.eml"
         );
 
-       final var ticketShelf = new ByteArrayFilterGroup(
-                Settings.HIDE_TICKET_SHELF,
-                "ticket"
-        );
-
         horizontalShelves = new StringFilterGroup(
                 Settings.HIDE_HORIZONTAL_SHELVES,
                 "horizontal_video_shelf.eml",
                 "horizontal_shelf.eml",
                 "horizontal_shelf_inline.eml",
                 "horizontal_tile_shelf.eml"
+        );
+
+        ticketShelf = new ByteArrayFilterGroup(
+                Settings.HIDE_TICKET_SHELF,
+                "ticket"
         );
 
         addPathCallbacks(
