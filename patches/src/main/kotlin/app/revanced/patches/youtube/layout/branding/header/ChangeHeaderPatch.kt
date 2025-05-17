@@ -19,15 +19,15 @@ private const val PREMIUM_HEADER_OPTION = "premium*header"
 private const val REVANCED_HEADER_OPTION = "revanced*"
 private const val REVANCED_BORDERLESS_HEADER_OPTION = "revanced*borderless"
 
-private val targetResourceDirectoryNames = mapOf(
+private val targetResourceDirectoryNames = arrayOf(
     "xxxhdpi" to "512px x 192px",
     "xxhdpi" to "387px x 144px",
     "xhdpi" to "258px x 96px",
     "hdpi" to "194px x 72px",
     "mdpi" to "129px x 48px",
-).map { (dpi, dim) ->
+).associate { (dpi, dim) ->
     "drawable-$dpi" to dim
-}.toMap()
+}
 
 private val variants = arrayOf("light", "dark")
 

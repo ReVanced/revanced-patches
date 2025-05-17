@@ -3,12 +3,9 @@ package app.revanced.patches.youtube.layout.searchbar
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patcher.patch.resourcePatch
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
-import app.revanced.patches.shared.misc.mapping.get
 import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
-import app.revanced.patches.shared.misc.mapping.resourceMappings
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
@@ -24,34 +21,6 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 private const val EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/youtube/patches/WideSearchbarPatch;"
 
-internal var ytWordmarkHeaderId = -1L
-    private set
-internal var ytPremiumWordmarkHeaderId = -1L
-    private set
-internal var actionBarRingoId = -1L
-    private set
-
-private val wideSearchbarResourcePatch = resourcePatch {
-    dependsOn(resourceMappingPatch)
-
-    execute {
-        ytWordmarkHeaderId = resourceMappings[
-            "attr",
-            "ytWordmarkHeader",
-        ]
-
-        ytPremiumWordmarkHeaderId = resourceMappings[
-            "attr",
-            "ytPremiumWordmarkHeader",
-        ]
-
-        actionBarRingoId = resourceMappings[
-            "layout",
-            "action_bar_ringo",
-        ]
-    }
-}
-
 val wideSearchbarPatch = bytecodePatch(
     name = "Wide search bar",
     description = "Adds an option to replace the search icon with a wide search bar. " +
@@ -61,7 +30,7 @@ val wideSearchbarPatch = bytecodePatch(
         sharedExtensionPatch,
         settingsPatch,
         addResourcesPatch,
-        wideSearchbarResourcePatch,
+        resourceMappingPatch,
     )
 
     compatibleWith(

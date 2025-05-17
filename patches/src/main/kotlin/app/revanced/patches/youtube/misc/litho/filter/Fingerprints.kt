@@ -1,15 +1,16 @@
 package app.revanced.patches.youtube.misc.litho.filter
 
 import app.revanced.patcher.fingerprint
-import app.revanced.util.literal
+import app.revanced.patcher.literal
+import app.revanced.patcher.string
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal val componentContextParserFingerprint = fingerprint {
-    strings(
-        "TreeNode result must be set.",
-        // String is a partial match and changed slightly in 20.03+
-        "it was removed due to duplicate converter bindings."
+internal val componentContextParserFingerprint by fingerprint {
+    instructions(
+        string("TreeNode result must be set."),
+        // String changed slightly in 20.03+
+        string("it was removed due to duplicate converter bindings.", partialMatch = true)
     )
 }
 
@@ -17,21 +18,20 @@ internal val componentContextParserFingerprint = fingerprint {
  * Resolves to the class found in [componentContextParserFingerprint].
  * When patching 19.16 this fingerprint matches the same method as [componentContextParserFingerprint].
  */
-internal val componentContextSubParserFingerprint = fingerprint {
-    strings(
-        "Number of bits must be positive"
+internal val componentContextSubParserFingerprint by fingerprint {
+    instructions(
+        string("Number of bits must be positive")
     )
 }
 
-internal val lithoFilterFingerprint = fingerprint {
+internal val lithoFilterFingerprint by fingerprint {
     accessFlags(AccessFlags.STATIC, AccessFlags.CONSTRUCTOR)
-    returns("V")
     custom { _, classDef ->
         classDef.endsWith("/LithoFilterPatch;")
     }
 }
 
-internal val protobufBufferReferenceFingerprint = fingerprint {
+internal val protobufBufferReferenceFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("V")
     parameters("I", "Ljava/nio/ByteBuffer;")
@@ -43,25 +43,31 @@ internal val protobufBufferReferenceFingerprint = fingerprint {
     )
 }
 
-internal val emptyComponentFingerprint = fingerprint {
+internal val emptyComponentFingerprint by fingerprint {
     accessFlags(AccessFlags.PRIVATE, AccessFlags.CONSTRUCTOR)
     parameters()
-    strings("EmptyComponent")
+    instructions(
+        string("EmptyComponent")
+    )
     custom { _, classDef ->
         classDef.methods.filter { AccessFlags.STATIC.isSet(it.accessFlags) }.size == 1
     }
 }
 
-internal val lithoComponentNameUpbFeatureFlagFingerprint = fingerprint {
+internal val lithoComponentNameUpbFeatureFlagFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("Z")
     parameters()
-    literal { 45631264L }
+    instructions(
+        literal(45631264L)
+    )
 }
 
-internal val lithoConverterBufferUpbFeatureFlagFingerprint = fingerprint {
+internal val lithoConverterBufferUpbFeatureFlagFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
     returns("L")
     parameters("L")
-    literal { 45419603L }
+    instructions(
+        literal(45419603L)
+    )
 }

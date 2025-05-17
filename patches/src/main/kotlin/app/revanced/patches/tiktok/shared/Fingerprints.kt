@@ -4,7 +4,7 @@ import app.revanced.patcher.fingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal val getEnterFromFingerprint = fingerprint {
+internal val getEnterFromFingerprint by fingerprint {
     returns("Ljava/lang/String;")
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     parameters("Z")
@@ -22,7 +22,7 @@ internal val getEnterFromFingerprint = fingerprint {
     }
 }
 
-internal val onRenderFirstFrameFingerprint = fingerprint {
+internal val onRenderFirstFrameFingerprint by fingerprint {
     strings("method_enable_viewpager_preload_duration")
     custom { _, classDef ->
         classDef.endsWith("/BaseListFragmentPanel;")

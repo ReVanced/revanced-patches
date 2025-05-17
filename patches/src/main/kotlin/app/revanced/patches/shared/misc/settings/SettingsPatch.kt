@@ -6,7 +6,6 @@ import app.revanced.patches.all.misc.resources.addResource
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.shared.misc.settings.preference.BasePreference
-import app.revanced.patches.shared.misc.settings.preference.IntentPreference
 import app.revanced.patches.shared.misc.settings.preference.PreferenceCategory
 import app.revanced.patches.shared.misc.settings.preference.PreferenceScreenPreference
 import app.revanced.util.ResourceGroup
@@ -14,13 +13,6 @@ import app.revanced.util.copyResources
 import app.revanced.util.getNode
 import app.revanced.util.insertFirst
 import org.w3c.dom.Node
-
-// TODO: Delete this on next major version bump.
-@Deprecated("Use non deprecated settings patch function")
-fun settingsPatch (
-    rootPreference: Pair<IntentPreference, String>,
-    preferences: Set<BasePreference>,
-) = settingsPatch(listOf(rootPreference), preferences)
 
 /**
  * A resource patch that adds settings to a settings fragment.
@@ -89,8 +81,7 @@ fun settingsPatch (
 
                 if (preference is PreferenceCategory) {
                     removeIconsAndLayout(preference.preferences)
-                }
-                if (preference is PreferenceScreenPreference) {
+                } else if (preference is PreferenceScreenPreference) {
                     removeIconsAndLayout(preference.preferences)
                 }
             }
