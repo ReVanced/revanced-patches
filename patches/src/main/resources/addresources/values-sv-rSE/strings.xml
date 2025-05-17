@@ -42,6 +42,10 @@ Second \"item\" text"</string>
   <string name="revanced_settings_import_reset">ReVanced-inställningarna återställda till standard</string>
   <string name="revanced_settings_import_success">Importerade %d inställningar</string>
   <string name="revanced_settings_import_failure_parse">Importen misslyckades: %s</string>
+  <string name="revanced_settings_search_hint">Sökinställningar</string>
+  <string name="revanced_settings_search_no_results_title">Inga resultat hittades för \"%s\"</string>
+  <string name="revanced_settings_search_no_results_summary">Försök med ett annat sökord</string>
+  <string name="revanced_settings_search_remove_message">Ta bort från sökhistoriken?</string>
   <string name="revanced_show_menu_icons_title">Visa ikoner för ReVanced-inställningar</string>
   <string name="revanced_show_menu_icons_summary_on">Inställningsikoner visas</string>
   <string name="revanced_show_menu_icons_summary_off">Ikoner för inställningar visas inte</string>
@@ -93,6 +97,9 @@ Tryck på Fortsätt-knappen och tillåt optimeringsändringar."</string>
   <string name="revanced_restore_old_settings_menus_title">Återställ gamla inställningsmenyer</string>
   <string name="revanced_restore_old_settings_menus_summary_on">Gamla inställningsmenyer visas</string>
   <string name="revanced_restore_old_settings_menus_summary_off">Gamla inställningsmenyer visas inte</string>
+  <string name="revanced_settings_search_history_title">Visa sökhistorik för inställningar</string>
+  <string name="revanced_settings_search_history_summary_on">Sökhistorik för inställningar visas</string>
+  <string name="revanced_settings_search_history_summary_off">Sökhistoriken för inställningar visas inte</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
   <string name="revanced_shorts_disable_background_playback_title">Inaktivera Shorts bakgrundsuppspelning</string>
@@ -153,10 +160,10 @@ Du kommer inte att bli meddelad om oväntade händelser."</string>
   <string name="revanced_hide_notify_me_button_title">Dölj knappen \'Meddela mig\'</string>
   <string name="revanced_hide_notify_me_button_summary_on">Knappen är dold</string>
   <string name="revanced_hide_notify_me_button_summary_off">Knappen är synlig</string>
-  <!-- 'People also watched' should be translated using the same localized wording YouTube displays. -->
-  <string name="revanced_hide_search_result_recommendations_title">Dölj etiketten \"Folk tittade även på\"</string>
-  <string name="revanced_hide_search_result_recommendations_summary_on">Etiketten är dold</string>
-  <string name="revanced_hide_search_result_recommendations_summary_off">Etiketten visas</string>
+  <!-- 'People also watched' and 'You might also like' should be translated using the same localized wording YouTube displays. -->
+  <string name="revanced_hide_search_result_recommendation_labels_title">Dölj etiketter för videorekommendationer</string>
+  <string name="revanced_hide_search_result_recommendation_labels_summary_on">Etiketterna \"Folk tittade även på\" och \"Du kanske också gillar\" är dolda</string>
+  <string name="revanced_hide_search_result_recommendation_labels_summary_off">Etiketterna \"Folk tittade även på\" och \"Du kanske också gillar\" visas</string>
   <!-- 'Show more' should be translated with the same localized wording that YouTube displays.
                   This button usually appears when searching for a YT creator. -->
   <string name="revanced_hide_show_more_button_title">Dölj knappen \"Visa mer\"</string>
@@ -231,6 +238,9 @@ Du kommer inte att bli meddelad om oväntade händelser."</string>
   <string name="revanced_hide_ai_generated_video_summary_section_title">Dölj \"AI-genererad videosammanfattning\"</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_on">Videoöversiktssektionen är dold</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_off">Videoöversiktssektionen visas</string>
+  <string name="revanced_hide_ask_section_title">Dölj Fråga</string>
+  <string name="revanced_hide_ask_section_summary_on">Fråga-avsnittet är dolt</string>
+  <string name="revanced_hide_ask_section_summary_off">Fråga-avsnittet visas</string>
   <string name="revanced_hide_attributes_section_title">Dölj attribut</string>
   <string name="revanced_hide_attributes_section_summary_on">Avsnitten Utvalda platser, Spel, Musik och Personer som nämns är dolda</string>
   <string name="revanced_hide_attributes_section_summary_off">Avsnitten Utvalda platser, Spel, Musik och Personer som nämns visas</string>
@@ -794,6 +804,11 @@ Automatisk uppspelning kan ändras i YouTube-inställningarna:
 Inställningar → Uppspelning → Spela upp nästa video automatiskt"</string>
   <string name="revanced_end_screen_suggested_video_summary_off">Föreslagen video på slutskärmen visas</string>
   </patch>
+  <patch id="layout.hide.relatedvideooverlay.hideRelatedVideoOverlayPatch">
+  <string name="revanced_hide_related_video_overlay_title">Dölj relaterad video-overlay i helskärm</string>
+  <string name="revanced_hide_related_video_overlay_summary_on">Relaterad video-overlay är dold</string>
+  <string name="revanced_hide_related_video_overlay_summary_off">Relaterad video-overlay visas</string>
+  </patch>
   <patch id="layout.hide.time.hideTimestampPatch">
   <string name="revanced_hide_timestamp_title">Dölj videotidsstämpel</string>
   <string name="revanced_hide_timestamp_summary_on">Tidsstämpel är dold</string>
@@ -831,10 +846,10 @@ Inställningar → Uppspelning → Spela upp nästa video automatiskt"</string>
   <string name="revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted">Ladda om video för att rösta med Return YouTube Dislike</string>
   <!-- Video likes have been set to hidden by the video uploader. -->
   <string name="revanced_ryd_video_likes_hidden_by_video_owner">Dold av ägaren</string>
-  <string name="revanced_ryd_enable_summary_on">Ogilla är synliga</string>
-  <string name="revanced_ryd_enable_summary_off">Ogilla visas inte</string>
+  <string name="revanced_ryd_enabled_summary_on">Ogilla är synliga</string>
+  <string name="revanced_ryd_enabled_summary_off">Ogilla visas inte</string>
   <string name="revanced_ryd_shorts_title">Visa ogillande på Shorts</string>
-  <string name="revanced_ryd_shorts_summary_on_disclaimer">"Ogillanden visas på Shorts
+  <string name="revanced_ryd_shorts_summary_on">"Ogillanden visas på Shorts
 
 Begränsning: Ogillanden kanske inte visas i inkognitoläge"</string>
   <string name="revanced_ryd_shorts_summary_off">Ogillanden på Shorts visas inte</string>
@@ -851,7 +866,6 @@ Begränsning: Ogillanden kanske inte visas i inkognitoläge"</string>
   <string name="revanced_ryd_toast_on_connection_error_title">Visa ett meddelande om API inte är tillgängligt</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_on">Visa ett meddelande om Return YouTube Dislike inte är tillgängligt</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_off">Visa inget meddelande om Return YouTube Dislike inte är tillgängligt</string>
-  <string name="revanced_ryd_about">Om</string>
   <string name="revanced_ryd_attribution_summary">Data tillhandahålls av Return YouTube Tycker inte om API. Tryck här för att läsa mer</string>
   <!-- Statistic strings are shown in the settings only when ReVanced debug mode is enabled. Typical users will never see these. -->
   <string name="revanced_ryd_statistics_category_title">ReturnYouTubeDislike API-statistik för denna enhet</string>
@@ -1057,7 +1071,7 @@ Redo att skicka in?"</string>
   <string name="revanced_sb_new_segment_edit_by_hand_title">Redigera tid för segment manuellt</string>
   <string name="revanced_sb_new_segment_edit_by_hand_content">Vill du ändra tidpunkten för starten eller slutet av segmentet?</string>
   <string name="revanced_sb_new_segment_edit_by_hand_parse_error">Ogiltig tid angiven</string>
-  <string name="revanced_sb_stats">Statistik</string>
+  <string name="revanced_sb_stats_title">Statistik</string>
   <!-- Shown in the settings preferences, and translations can be any text length. -->
   <string name="revanced_sb_stats_connection_failure">Statistik är tillfälligt inte tillgänglig (API är nere)</string>
   <string name="revanced_sb_stats_loading">Laddar...</string>
@@ -1086,8 +1100,8 @@ Redo att skicka in?"</string>
   <string name="revanced_sb_color_invalid">Ogiltig färgkod</string>
   <string name="revanced_sb_reset_color">Återställ färg</string>
   <string name="revanced_sb_reset">Återställ</string>
-  <string name="revanced_sb_about">Om</string>
-  <string name="revanced_sb_about_api_sum">Data tillhandahålls av SponsorBlock API. Tryck här för att läsa mer och se nedladdningar för andra plattformar</string>
+  <string name="revanced_sb_about_title">Om</string>
+  <string name="revanced_sb_about_api_summary">Data tillhandahålls av SponsorBlock API. Tryck här för att läsa mer och se nedladdningar för andra plattformar</string>
   </patch>
   <patch id="layout.formfactor.changeFormFactorPatch">
   <string name="revanced_change_form_factor_title">Formulärformfaktor</string>

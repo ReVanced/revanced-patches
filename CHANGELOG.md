@@ -1,3 +1,58 @@
+# [5.24.0-dev.7](https://github.com/ReVanced/revanced-patches/compare/v5.24.0-dev.6...v5.24.0-dev.7) (2025-05-17)
+
+
+### Features
+
+* **YouTube - Hide layout components:** Add `Hide ticket shelf` ([#4969](https://github.com/ReVanced/revanced-patches/issues/4969)) ([6436af7](https://github.com/ReVanced/revanced-patches/commit/6436af7e77c77d2034dfceba8bc51132ad7632be))
+
+# [5.24.0-dev.6](https://github.com/ReVanced/revanced-patches/compare/v5.24.0-dev.5...v5.24.0-dev.6) (2025-05-17)
+
+
+### Features
+
+* **YouTube - Hide description components:** Add `Hide Ask` ([#4972](https://github.com/ReVanced/revanced-patches/issues/4972)) ([ebc94a5](https://github.com/ReVanced/revanced-patches/commit/ebc94a5da6214b67399c9c01515689bd4b20547c))
+
+# [5.24.0-dev.5](https://github.com/ReVanced/revanced-patches/compare/v5.24.0-dev.4...v5.24.0-dev.5) (2025-05-17)
+
+
+### Bug Fixes
+
+* **Spotify - Fix third party launchers widgets:** Add missing compatibility annotation ([0493f80](https://github.com/ReVanced/revanced-patches/commit/0493f8035b26b90c5f8e42be2e2a5ce73d8685a5))
+
+
+### Features
+
+* **YouTube - Settings:** Add ability to search in settings ([#4881](https://github.com/ReVanced/revanced-patches/issues/4881)) ([aca8b20](https://github.com/ReVanced/revanced-patches/commit/aca8b207c15f254bcc9ad94bc7dfb895f21d4058))
+
+# [5.24.0-dev.4](https://github.com/ReVanced/revanced-patches/compare/v5.24.0-dev.3...v5.24.0-dev.4) (2025-05-16)
+
+
+### Features
+
+* **Spotify:** Add `Fix third party launchers widgets` patch ([#4893](https://github.com/ReVanced/revanced-patches/issues/4893)) ([23bfdc9](https://github.com/ReVanced/revanced-patches/commit/23bfdc98fbbcc8ecf0ffbf8704f58dd2272e4af2))
+
+# [5.24.0-dev.3](https://github.com/ReVanced/revanced-patches/compare/v5.24.0-dev.2...v5.24.0-dev.3) (2025-05-14)
+
+
+### Bug Fixes
+
+* **YouTube - Hide layout components:** Fix `Hide video recommendation labels` ([#4956](https://github.com/ReVanced/revanced-patches/issues/4956)) ([ae05ac3](https://github.com/ReVanced/revanced-patches/commit/ae05ac38151ebd3197953af97ca0dd847a04cc2d))
+
+# [5.24.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.24.0-dev.1...v5.24.0-dev.2) (2025-05-14)
+
+
+### Features
+
+* **GmsCore support:** Open vendor specific DontKillMyApp if available ([#4952](https://github.com/ReVanced/revanced-patches/issues/4952)) ([b89927a](https://github.com/ReVanced/revanced-patches/commit/b89927a10e3b909a3c37fbb75c16a7abbce44560))
+* **YouTube - Hide player components:** Hide related video overlay in fullscreen ([#4938](https://github.com/ReVanced/revanced-patches/issues/4938)) ([ac9be97](https://github.com/ReVanced/revanced-patches/commit/ac9be9760c9965e54df196b227a310d64ead4bf5))
+
+# [5.24.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.23.0...v5.24.0-dev.1) (2025-05-12)
+
+
+### Features
+
+* **NU.nl:** Support version `11.3.0` ([#4925](https://github.com/ReVanced/revanced-patches/issues/4925)) ([bedde60](https://github.com/ReVanced/revanced-patches/commit/bedde60fc1a52b0fd491174b3b5b887435eb621a))
+
 # [5.23.0](https://github.com/ReVanced/revanced-patches/compare/v5.22.0...v5.23.0) (2025-05-10)
 
 

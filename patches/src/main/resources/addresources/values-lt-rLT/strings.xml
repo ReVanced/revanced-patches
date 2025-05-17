@@ -42,6 +42,10 @@ Second \"item\" text"</string>
   <string name="revanced_settings_import_reset">ReVanced nustatymai atstatyti į numatytuosius</string>
   <string name="revanced_settings_import_success">Importuota %d nustatymų</string>
   <string name="revanced_settings_import_failure_parse">Importavimas nepavyko: %s</string>
+  <string name="revanced_settings_search_hint">Ieškoti nustatymų</string>
+  <string name="revanced_settings_search_no_results_title">Nerasta rezultatų pagal „%s“</string>
+  <string name="revanced_settings_search_no_results_summary">Bandykite kitą raktinį žodį</string>
+  <string name="revanced_settings_search_remove_message">Pašalinti iš paieškos istorijos?</string>
   <string name="revanced_show_menu_icons_title">Rodyti „ReVanced“ nustatymų piktogramas</string>
   <string name="revanced_show_menu_icons_summary_on">Nustatymų piktogramos yra rodomos</string>
   <string name="revanced_show_menu_icons_summary_off">Nenurodomos nustatymų piktogramos</string>
@@ -93,6 +97,9 @@ Palieskite mygtuką Tęsti ir leiskite optimizavimo pakeitimus."</string>
   <string name="revanced_restore_old_settings_menus_title">Atkurti senus nustatymų meniu</string>
   <string name="revanced_restore_old_settings_menus_summary_on">Rodomi seni nustatymų meniu</string>
   <string name="revanced_restore_old_settings_menus_summary_off">Seni nustatymų meniu nerodomi</string>
+  <string name="revanced_settings_search_history_title">Rodyti nustatymų paieškos istoriją</string>
+  <string name="revanced_settings_search_history_summary_on">Nustatymų paieškos istorija rodoma</string>
+  <string name="revanced_settings_search_history_summary_off">Nustatymų paieškos istorija nerodoma</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
   <string name="revanced_shorts_disable_background_playback_title">Išjungti \"Shorts\" foninį atkūrimą</string>
@@ -153,10 +160,10 @@ Apie netikėtus įvykius nebus pranešta."</string>
   <string name="revanced_hide_notify_me_button_title">Slėpti mygtuką \"Pranešti man\"</string>
   <string name="revanced_hide_notify_me_button_summary_on">Mygtukas yra paslėptas</string>
   <string name="revanced_hide_notify_me_button_summary_off">Mygtukas yra rodomas</string>
-  <!-- 'People also watched' should be translated using the same localized wording YouTube displays. -->
-  <string name="revanced_hide_search_result_recommendations_title">Slėpti etiketę „Žiūrintys taip pat žiūrėjo“</string>
-  <string name="revanced_hide_search_result_recommendations_summary_on">Etiketė paslėpta</string>
-  <string name="revanced_hide_search_result_recommendations_summary_off">Etiketė rodoma</string>
+  <!-- 'People also watched' and 'You might also like' should be translated using the same localized wording YouTube displays. -->
+  <string name="revanced_hide_search_result_recommendation_labels_title">Slėpti vaizdo įrašo rekomendacijų etiketes</string>
+  <string name="revanced_hide_search_result_recommendation_labels_summary_on">Paslėptos etiketės „Žmonės taip pat žiūrėjo“ ir „Jums taip pat gali patikti“</string>
+  <string name="revanced_hide_search_result_recommendation_labels_summary_off">Rodomos etiketės „Žmonės taip pat žiūrėjo“ ir „Jums taip pat gali patikti“</string>
   <!-- 'Show more' should be translated with the same localized wording that YouTube displays.
                   This button usually appears when searching for a YT creator. -->
   <string name="revanced_hide_show_more_button_title">Slėpti mygtuką \"Rodyti daugiau\"</string>
@@ -231,6 +238,9 @@ Apie netikėtus įvykius nebus pranešta."</string>
   <string name="revanced_hide_ai_generated_video_summary_section_title">Slėpti „AI sukurtos vaizdo įrašo santraukos“</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_on">Vaizdo įrašo santraukos skyrius yra paslėptas</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_off">Vaizdo įrašo santraukos skyrius yra rodomas</string>
+  <string name="revanced_hide_ask_section_title">Slėpti \"Klausti\"</string>
+  <string name="revanced_hide_ask_section_summary_on">Skyrius „Klausti“ yra paslėptas</string>
+  <string name="revanced_hide_ask_section_summary_off">Skyrius „Klausti“ yra rodomas</string>
   <string name="revanced_hide_attributes_section_title">Slėpti atributus</string>
   <string name="revanced_hide_attributes_section_summary_on">Teminių vietų, žaidimų, muzikos ir minimų žmonių skyriai yra paslėpti</string>
   <string name="revanced_hide_attributes_section_summary_off">Teminių vietų, žaidimų, muzikos ir minimų žmonių skyriai yra rodomi</string>
@@ -792,6 +802,11 @@ Automatinį paleidimą galima pakeisti „YouTube“ nustatymuose:
 Nustatymai → Atkūrimas → Automatiškai leisti kitą vaizdo įrašą"</string>
   <string name="revanced_end_screen_suggested_video_summary_off">Pabaigos ekrane siūlomas vaizdo įrašas rodomas</string>
   </patch>
+  <patch id="layout.hide.relatedvideooverlay.hideRelatedVideoOverlayPatch">
+  <string name="revanced_hide_related_video_overlay_title">Slėpti susijusio vaizdo įrašo perdangą per visą ekraną</string>
+  <string name="revanced_hide_related_video_overlay_summary_on">Susijusio vaizdo įrašo perdanga paslėpta</string>
+  <string name="revanced_hide_related_video_overlay_summary_off">Rodoma susijusio vaizdo įrašo perdanga</string>
+  </patch>
   <patch id="layout.hide.time.hideTimestampPatch">
   <string name="revanced_hide_timestamp_title">Slėpti vaizdo įrašo laiko žymę</string>
   <string name="revanced_hide_timestamp_summary_on">Laiko žymė paslėpta</string>
@@ -829,10 +844,10 @@ Nustatymai → Atkūrimas → Automatiškai leisti kitą vaizdo įrašą"</strin
   <string name="revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted">Perkraukite vaizdo įrašą, kad balsuotumėte naudodami „Return YouTube Dislike“</string>
   <!-- Video likes have been set to hidden by the video uploader. -->
   <string name="revanced_ryd_video_likes_hidden_by_video_owner">Paslėpta savininko</string>
-  <string name="revanced_ryd_enable_summary_on">\"Nepatinka\" rodomi</string>
-  <string name="revanced_ryd_enable_summary_off">\"Nepatinka\" nerodomi</string>
+  <string name="revanced_ryd_enabled_summary_on">\"Nepatinka\" rodomi</string>
+  <string name="revanced_ryd_enabled_summary_off">\"Nepatinka\" nerodomi</string>
   <string name="revanced_ryd_shorts_title">Rodyti \"Nepatinka\" Shorts</string>
-  <string name="revanced_ryd_shorts_summary_on_disclaimer">"Nepritarimai „Shorts“ rodomi
+  <string name="revanced_ryd_shorts_summary_on">"Nepritarimai „Shorts“ rodomi
 
 Apribojimas: nepritarimai gali būti nerodomi inkognito režimu"</string>
   <string name="revanced_ryd_shorts_summary_off">Nepritarimai „Shorts“ nerodomi</string>
@@ -849,7 +864,6 @@ Apribojimas: nepritarimai gali būti nerodomi inkognito režimu"</string>
   <string name="revanced_ryd_toast_on_connection_error_title">Rodyti pranešimą, jei API nepasiekiamas</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_on">Pranešimas rodomas, jei „Return YouTube Dislike“ nepasiekiamas</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_off">Pranešimas nerodomas, jei „Return YouTube Dislike“ nepasiekiamas</string>
-  <string name="revanced_ryd_about">Apie</string>
   <string name="revanced_ryd_attribution_summary">Duomenys pateikiami „Return YouTube Dislike“ API. Bakstelėkite čia, norėdami sužinoti daugiau</string>
   <!-- Statistic strings are shown in the settings only when ReVanced debug mode is enabled. Typical users will never see these. -->
   <string name="revanced_ryd_statistics_category_title">„ReturnYouTubeDislike“ API statistika šioje įrenginyje</string>
@@ -1057,7 +1071,7 @@ Ar paruošta pateikti?"</string>
   <string name="revanced_sb_new_segment_edit_by_hand_title">Rankiniu būdu redaguoti segmento laiką</string>
   <string name="revanced_sb_new_segment_edit_by_hand_content">Ar norite redaguoti segmento pradžios ar pabaigos laiką?</string>
   <string name="revanced_sb_new_segment_edit_by_hand_parse_error">Nurodytas neteisingas laikas</string>
-  <string name="revanced_sb_stats">Statistika</string>
+  <string name="revanced_sb_stats_title">Statistika</string>
   <!-- Shown in the settings preferences, and translations can be any text length. -->
   <string name="revanced_sb_stats_connection_failure">Statistika laikinai nepasiekiama (API neveikia)</string>
   <string name="revanced_sb_stats_loading">Kraunama...</string>
@@ -1086,8 +1100,8 @@ Ar paruošta pateikti?"</string>
   <string name="revanced_sb_color_invalid">Netinkamas spalvos kodas</string>
   <string name="revanced_sb_reset_color">Atstatyti spalvą</string>
   <string name="revanced_sb_reset">Atstatyti</string>
-  <string name="revanced_sb_about">Apie</string>
-  <string name="revanced_sb_about_api_sum">Duomenys pateikiami per \"SponsorBlock\" API. Bakstelėkite čia, kad sužinotumėte daugiau ir pamatytumėte atsisiuntimus kitoms platformoms</string>
+  <string name="revanced_sb_about_title">Apie</string>
+  <string name="revanced_sb_about_api_summary">Duomenys pateikiami per \"SponsorBlock\" API. Bakstelėkite čia, kad sužinotumėte daugiau ir pamatytumėte atsisiuntimus kitoms platformoms</string>
   </patch>
   <patch id="layout.formfactor.changeFormFactorPatch">
   <string name="revanced_change_form_factor_title">Išdėstymas: formos faktorius</string>

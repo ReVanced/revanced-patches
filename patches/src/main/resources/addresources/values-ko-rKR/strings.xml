@@ -42,6 +42,10 @@ Second \"item\" text"</string>
   <string name="revanced_settings_import_reset">ReVanced 설정을 기본값으로 초기화합니다</string>
   <string name="revanced_settings_import_success">%d 설정을 가져왔습니다</string>
   <string name="revanced_settings_import_failure_parse">설정을 가져올 수 없습니다: %s</string>
+  <string name="revanced_settings_search_hint">검색 설정</string>
+  <string name="revanced_settings_search_no_results_title">\'%s\'에 대한 결과가 없습니다.</string>
+  <string name="revanced_settings_search_no_results_summary">다른 키워드 시도</string>
+  <string name="revanced_settings_search_remove_message">검색 기록에서 삭제하시겠습니까?</string>
   <string name="revanced_show_menu_icons_title">ReVanced 설정 아이콘 표시하기</string>
   <string name="revanced_show_menu_icons_summary_on">설정 아이콘을 표시합니다</string>
   <string name="revanced_show_menu_icons_summary_off">설정 아이콘을 표시하지 않습니다</string>
@@ -55,7 +59,7 @@ Second \"item\" text"</string>
   <!-- Settings about dialog. -->
   <string name="revanced_settings_about_links_body">ReVanced Patches &lt;i&gt;%s&lt;/i&gt;&lt;br&gt;버전을 사용 중입니다</string>
   <string name="revanced_settings_about_links_dev_header">알림</string>
-  <string name="revanced_settings_about_links_dev_body">개발자 버전이므로&lt;br&gt;알려지지 않은 문제점이&lt;br&gt;발생할 수 있습니다</string>
+  <string name="revanced_settings_about_links_dev_body">Pre-Release 버전이므로&lt;br&gt;알려지지 않은 문제점이&lt;br&gt;발생할 수 있습니다</string>
   <string name="revanced_settings_about_links_header">공식 링크</string>
   <!-- NOTE: the about strings above are duplicated in the TikTok about screen code,
                  and changes made here must also be made there. -->
@@ -93,6 +97,9 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_restore_old_settings_menus_title">이전 설정 메뉴 복원하기</string>
   <string name="revanced_restore_old_settings_menus_summary_on">이전 설정 메뉴를 표시합니다</string>
   <string name="revanced_restore_old_settings_menus_summary_off">이전 설정 메뉴를 표시하지 않습니다</string>
+  <string name="revanced_settings_search_history_title">설정 검색 기록 보기</string>
+  <string name="revanced_settings_search_history_summary_on">설정 검색 기록이 표시됨</string>
+  <string name="revanced_settings_search_history_summary_off">설정 검색 기록이 표시되지 않음</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
   <string name="revanced_shorts_disable_background_playback_title">Shorts 백그라운드 재생 비활성화하기</string>
@@ -157,10 +164,10 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_hide_notify_me_button_title">\'알림 받기\' 버튼 숨기기</string>
   <string name="revanced_hide_notify_me_button_summary_on">\'알림 받기\' 버튼이 숨겨집니다</string>
   <string name="revanced_hide_notify_me_button_summary_off">\'알림 받기\' 버튼이 표시됩니다</string>
-  <!-- 'People also watched' should be translated using the same localized wording YouTube displays. -->
-  <string name="revanced_hide_search_result_recommendations_title">\'시청자가 이 동영상도 시청함\' 라벨 숨기기</string>
-  <string name="revanced_hide_search_result_recommendations_summary_on">라벨이 숨겨집니다</string>
-  <string name="revanced_hide_search_result_recommendations_summary_off">라벨이 표시됩니다</string>
+  <!-- 'People also watched' and 'You might also like' should be translated using the same localized wording YouTube displays. -->
+  <string name="revanced_hide_search_result_recommendation_labels_title">동영상 추천 라벨 숨기기</string>
+  <string name="revanced_hide_search_result_recommendation_labels_summary_on">다음 동영상 추천 라벨이 숨겨집니다\n• 시청자가 이 동영상도 시청함\n• 내가 좋아할 만한 동영상</string>
+  <string name="revanced_hide_search_result_recommendation_labels_summary_off">다음 동영상 추천 라벨이 표시됩니다\n• 시청자가 이 동영상도 시청함\n• 내가 좋아할 만한 동영상</string>
   <!-- 'Show more' should be translated with the same localized wording that YouTube displays.
                   This button usually appears when searching for a YT creator. -->
   <string name="revanced_hide_show_more_button_title">\'자세히 보기\' 버튼 숨기기</string>
@@ -235,6 +242,9 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_hide_ai_generated_video_summary_section_title">AI 생성 동영상 요약 섹션 숨기기</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_on">AI 생성 동영상 요약 섹션이 숨겨집니다</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_off">AI 생성 동영상 요약 섹션이 표시됩니다</string>
+  <string name="revanced_hide_ask_section_title">요청 버튼 숨기기</string>
+  <string name="revanced_hide_ask_section_summary_on">요청 섹션이 숨겨집니다</string>
+  <string name="revanced_hide_ask_section_summary_off">요청 섹션이 표시됩니다</string>
   <string name="revanced_hide_attributes_section_title">속성 섹션 숨기기</string>
   <string name="revanced_hide_attributes_section_summary_on">게임, 음악, 동영상 속 장소 그리고 언급된 인물 섹션이 숨겨집니다</string>
   <string name="revanced_hide_attributes_section_summary_off">게임, 음악, 동영상 속 장소 그리고 언급된 인물 섹션이 표시됩니다</string>
@@ -794,6 +804,11 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
 설정 → 재생 → 다음 동영상 자동재생"</string>
   <string name="revanced_end_screen_suggested_video_summary_off">최종 화면에서 다음 재생 추천 동영상이 표시됩니다</string>
   </patch>
+  <patch id="layout.hide.relatedvideooverlay.hideRelatedVideoOverlayPatch">
+  <string name="revanced_hide_related_video_overlay_title">전체 화면에서 관련 동영상 오버레이 숨기기</string>
+  <string name="revanced_hide_related_video_overlay_summary_on">관련 동영상 오버레이가 숨겨집니다</string>
+  <string name="revanced_hide_related_video_overlay_summary_off">관련 동영상 오버레이가 표시됩니다</string>
+  </patch>
   <patch id="layout.hide.time.hideTimestampPatch">
   <string name="revanced_hide_timestamp_title">동영상 타임스탬프 숨기기</string>
   <string name="revanced_hide_timestamp_summary_on">타임스탬프가 숨겨집니다</string>
@@ -831,10 +846,10 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted">ReturnYouTubeDislike를 사용하여 투표하려면 동영상을 다시 로드하세요</string>
   <!-- Video likes have been set to hidden by the video uploader. -->
   <string name="revanced_ryd_video_likes_hidden_by_video_owner">소유자에 의해 숨겨짐</string>
-  <string name="revanced_ryd_enable_summary_on">싫어요 수를 표시합니다</string>
-  <string name="revanced_ryd_enable_summary_off">싫어요 수를 표시하지 않습니다</string>
+  <string name="revanced_ryd_enabled_summary_on">싫어요 수를 표시합니다</string>
+  <string name="revanced_ryd_enabled_summary_off">싫어요 수를 표시하지 않습니다</string>
   <string name="revanced_ryd_shorts_title">Shorts에서 싫어요 수 표시하기</string>
-  <string name="revanced_ryd_shorts_summary_on_disclaimer">"Shorts에서 싫어요 수를 표시합니다
+  <string name="revanced_ryd_shorts_summary_on">"Shorts에서 싫어요 수를 표시합니다
 
 알려진 문제점:
 • 사용자가 로그인을 하지 않았거나 시크릿 모드에서는 싫어요 수가 표시되지 않을 수 있습니다"</string>
@@ -852,7 +867,6 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_ryd_toast_on_connection_error_title">API를 사용할 수 없을 때, 팝업 메시지 표시하기</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_on">ReturnYouTubeDislike를 사용할 수 없을 때, 팝업 메시지를 표시합니다</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_off">ReturnYouTubeDislike를 사용할 수 없을 때, 팝업 메시지를 표시하지 않습니다</string>
-  <string name="revanced_ryd_about">정보</string>
   <string name="revanced_ryd_attribution_summary">싫어요 수의 데이터는 Return YouTube Dislike API에 의해 제공됩니다. 자세한 내용을 보려면 여기를 누르세요</string>
   <!-- Statistic strings are shown in the settings only when ReVanced debug mode is enabled. Typical users will never see these. -->
   <string name="revanced_ryd_statistics_category_title">이 기기의 ReturnYouTubeDislike API 사용 통계</string>
@@ -975,7 +989,7 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_sb_segments_filler">주제와 관련 없는 구간</string>
   <string name="revanced_sb_segments_filler_sum">전반적인 동영상의 주제를 이해하는 데 필요 없는 내용을 포함하고 있습니다</string>
   <string name="revanced_sb_segments_nomusic">음악이 아닌 구간</string>
-  <string name="revanced_sb_segments_nomusic_sum">뮤직 비디오에서 음악이 아닌 구간이 해당됩니다</string>
+  <string name="revanced_sb_segments_nomusic_sum">음악 동영상에서 음악이 아닌 구간이 해당됩니다</string>
   <string name="revanced_sb_skip_button_compact">건너뛰기</string>
   <string name="revanced_sb_skip_button_compact_highlight">하이라이트</string>
   <string name="revanced_sb_skip_button_sponsor">스폰서 광고 건너뛰기</string>
@@ -1058,7 +1072,7 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_sb_new_segment_edit_by_hand_title">직접 시간 구간 편집하기</string>
   <string name="revanced_sb_new_segment_edit_by_hand_content">구간의 시작이나 끝을 편집하시겠습니까?</string>
   <string name="revanced_sb_new_segment_edit_by_hand_parse_error">잘못된 시간 형식입니다</string>
-  <string name="revanced_sb_stats">기록</string>
+  <string name="revanced_sb_stats_title">기록</string>
   <!-- Shown in the settings preferences, and translations can be any text length. -->
   <string name="revanced_sb_stats_connection_failure">기록을 일시적으로 가져올 수 없습니다 (응답 시간 초과)</string>
   <string name="revanced_sb_stats_loading">불러오는 중 ...</string>
@@ -1087,8 +1101,8 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_sb_color_invalid">잘못된 헥스 코드입니다</string>
   <string name="revanced_sb_reset_color">색상 초기화</string>
   <string name="revanced_sb_reset">초기화</string>
-  <string name="revanced_sb_about">정보</string>
-  <string name="revanced_sb_about_api_sum">건너뛸 구간의 데이터는 SponsorBlock API에 의해 제공됩니다. 자세한 내용을 보려면 여기를 누르세요</string>
+  <string name="revanced_sb_about_title">정보</string>
+  <string name="revanced_sb_about_api_summary">건너뛸 구간의 데이터는 SponsorBlock API에 의해 제공됩니다. 자세한 내용을 보려면 여기를 누르세요</string>
   </patch>
   <patch id="layout.formfactor.changeFormFactorPatch">
   <string name="revanced_change_form_factor_title">레이아웃 폼 팩터 변경하기</string>

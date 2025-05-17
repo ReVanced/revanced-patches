@@ -42,6 +42,10 @@ Second \"item\" text"</string>
   <string name="revanced_settings_import_reset">ReVanced ayarları varsayılanlara sıfırlandı</string>
   <string name="revanced_settings_import_success">%d ayar içe aktarıldı</string>
   <string name="revanced_settings_import_failure_parse">İçe aktarılamadı: %s</string>
+  <string name="revanced_settings_search_hint">Arama ayarları</string>
+  <string name="revanced_settings_search_no_results_title">\'%s\' için sonuç bulunamadı</string>
+  <string name="revanced_settings_search_no_results_summary">Başka bir anahtar kelime deneyin</string>
+  <string name="revanced_settings_search_remove_message">Arama geçmişinden kaldırılsın mı?</string>
   <string name="revanced_show_menu_icons_title">ReVanced ayar simgelerini göster</string>
   <string name="revanced_show_menu_icons_summary_on">Ayar simgeleri gösteriliyor</string>
   <string name="revanced_show_menu_icons_summary_off">Ayar simgeleri gösterilmiyor</string>
@@ -93,6 +97,9 @@ Devam düğmesine dokunun ve optimizasyon değişikliklerine izin verin."</strin
   <string name="revanced_restore_old_settings_menus_title">Eski ayarlar menülerini geri getir</string>
   <string name="revanced_restore_old_settings_menus_summary_on">Eski ayarlar menüleri gösteriliyor</string>
   <string name="revanced_restore_old_settings_menus_summary_off">Eski ayarlar menüleri gösterilmiyor</string>
+  <string name="revanced_settings_search_history_title">Ayarlar arama geçmişini göster</string>
+  <string name="revanced_settings_search_history_summary_on">Ayarlar arama geçmişi gösteriliyor</string>
+  <string name="revanced_settings_search_history_summary_off">Ayarlar arama geçmişi gösterilmiyor</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
   <string name="revanced_shorts_disable_background_playback_title">Shorts\'un arka planda oynatılmasını devre dışı bırak</string>
@@ -153,10 +160,10 @@ Beklenmedik olaylar hakkında bilgilendirilmeyeceksiniz."</string>
   <string name="revanced_hide_notify_me_button_title">\'Hatırlatma oluştur\' düğmesini gizle</string>
   <string name="revanced_hide_notify_me_button_summary_on">Düğme gizli</string>
   <string name="revanced_hide_notify_me_button_summary_off">Düğme görünür</string>
-  <!-- 'People also watched' should be translated using the same localized wording YouTube displays. -->
-  <string name="revanced_hide_search_result_recommendations_title">\'İnsanlar şunu da izledi\' etiketini gizle</string>
-  <string name="revanced_hide_search_result_recommendations_summary_on">Etiket gizli</string>
-  <string name="revanced_hide_search_result_recommendations_summary_off">Etiket görünür</string>
+  <!-- 'People also watched' and 'You might also like' should be translated using the same localized wording YouTube displays. -->
+  <string name="revanced_hide_search_result_recommendation_labels_title">Video öneri etiketlerini gizle</string>
+  <string name="revanced_hide_search_result_recommendation_labels_summary_on">\"İnsanların İzlediği Diğer Videolar\" ve \"Şunlar da Hoşunuza Gidebilir\" etiketleri gizli</string>
+  <string name="revanced_hide_search_result_recommendation_labels_summary_off">\"İnsanların İzlediği Diğer Videolar\" ve \"Şunlar da Hoşunuza Gidebilir\" etiketleri görünür</string>
   <!-- 'Show more' should be translated with the same localized wording that YouTube displays.
                   This button usually appears when searching for a YT creator. -->
   <string name="revanced_hide_show_more_button_title">\'Daha fazla göster\' düğmesini gizle</string>
@@ -231,6 +238,9 @@ Beklenmedik olaylar hakkında bilgilendirilmeyeceksiniz."</string>
   <string name="revanced_hide_ai_generated_video_summary_section_title">\'Yapay zeka tarafından oluşturulan video özeti\'ni gizle</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_on">Video özeti bölümü gizli</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_off">Video özeti bölümü görünür</string>
+  <string name="revanced_hide_ask_section_title">\'Sor\'u gizle</string>
+  <string name="revanced_hide_ask_section_summary_on">Sor bölümü gizli</string>
+  <string name="revanced_hide_ask_section_summary_off">Sor bölümü görünür</string>
   <string name="revanced_hide_attributes_section_title">Nitelikleri gizle</string>
   <string name="revanced_hide_attributes_section_summary_on">Öne çıkan yerler, Oyunlar, Müzik ve Bahsedilen kişiler bölümleri gizli</string>
   <string name="revanced_hide_attributes_section_summary_off">Öne çıkan yerler, Oyunlar, Müzik ve Bahsedilen kişiler bölümleri görünür</string>
@@ -794,6 +804,11 @@ Otomatik oynatma YouTube ayarlarından değiştirilebilir:
 Ayarlar → Oynatma → Sonraki videoyu otomatik oynat"</string>
   <string name="revanced_end_screen_suggested_video_summary_off">Bitiş ekranı önerilen videosu gösteriliyor</string>
   </patch>
+  <patch id="layout.hide.relatedvideooverlay.hideRelatedVideoOverlayPatch">
+  <string name="revanced_hide_related_video_overlay_title">Tam ekranda alâkalı video panelini gizle</string>
+  <string name="revanced_hide_related_video_overlay_summary_on">Alâkalı video paneli gizli</string>
+  <string name="revanced_hide_related_video_overlay_summary_off">Alâkalı video paneli görünür</string>
+  </patch>
   <patch id="layout.hide.time.hideTimestampPatch">
   <string name="revanced_hide_timestamp_title">Video zaman damgasını gizle</string>
   <string name="revanced_hide_timestamp_summary_on">Video zaman damgası gizli</string>
@@ -831,10 +846,10 @@ Ayarlar → Oynatma → Sonraki videoyu otomatik oynat"</string>
   <string name="revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted">Return YouTube Dislike ile oylamak için videoyu yenileyin</string>
   <!-- Video likes have been set to hidden by the video uploader. -->
   <string name="revanced_ryd_video_likes_hidden_by_video_owner">Sahibi tarafından gizlendi</string>
-  <string name="revanced_ryd_enable_summary_on">Beğenilmeme sayıları gösteriliyor</string>
-  <string name="revanced_ryd_enable_summary_off">Beğenilmeme sayıları gösterilmiyor</string>
+  <string name="revanced_ryd_enabled_summary_on">Beğenilmeme sayıları gösteriliyor</string>
+  <string name="revanced_ryd_enabled_summary_off">Beğenilmeme sayıları gösterilmiyor</string>
   <string name="revanced_ryd_shorts_title">Shorts\'ta beğenilmeme sayılarını göster</string>
-  <string name="revanced_ryd_shorts_summary_on_disclaimer">"Shorts'ta beğenilmeme sayıları gösteriliyor
+  <string name="revanced_ryd_shorts_summary_on">"Shorts'ta beğenilmeme sayıları gösteriliyor
 
 Kısıtlama: Beğenilmeme sayıları gizli modda görünmeyebilir"</string>
   <string name="revanced_ryd_shorts_summary_off">Shorts\'ta beğenilmeme sayıları gösterilmiyor</string>
@@ -851,7 +866,6 @@ Kısıtlama: Beğenilmeme sayıları gizli modda görünmeyebilir"</string>
   <string name="revanced_ryd_toast_on_connection_error_title">API kullanılamadığında bir uyarı göster</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_on">Return YouTube Dislike kullanılamadığında uyarı gösterilir</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_off">Return YouTube Dislike kullanılamadığında uyarı gösterilmez</string>
-  <string name="revanced_ryd_about">Hakkında</string>
   <string name="revanced_ryd_attribution_summary">Veri, Return YouTube Dislike API\'sinden sağlanır. Daha fazla bilgi için dokunun</string>
   <!-- Statistic strings are shown in the settings only when ReVanced debug mode is enabled. Typical users will never see these. -->
   <string name="revanced_ryd_statistics_category_title">Bu cihazın ReturnYouTubeDislike API istatistikleri</string>
@@ -1058,7 +1072,7 @@ Göndermeye hazır mısınız?"</string>
   <string name="revanced_sb_new_segment_edit_by_hand_title">Kısmın zamanlamasını el ile ayarlayın</string>
   <string name="revanced_sb_new_segment_edit_by_hand_content">Kısmın başlangıcını mı, bitişini mi düzenlemek istiyorsunuz?</string>
   <string name="revanced_sb_new_segment_edit_by_hand_parse_error">Geçersiz süre girildi</string>
-  <string name="revanced_sb_stats">İstatistikler</string>
+  <string name="revanced_sb_stats_title">İstatistikler</string>
   <!-- Shown in the settings preferences, and translations can be any text length. -->
   <string name="revanced_sb_stats_connection_failure">İstatistikler geçici olarak kullanılamıyor (API kapalı)</string>
   <string name="revanced_sb_stats_loading">Yükleniyor...</string>
@@ -1087,8 +1101,8 @@ Göndermeye hazır mısınız?"</string>
   <string name="revanced_sb_color_invalid">Geçersiz renk kodu</string>
   <string name="revanced_sb_reset_color">Rengi sıfırla</string>
   <string name="revanced_sb_reset">Sıfırla</string>
-  <string name="revanced_sb_about">Hakkında</string>
-  <string name="revanced_sb_about_api_sum">Veri, SponsorBlock API\'sinden sağlanır. Daha fazla bilgi ve diğer platformlar için indirmeleri görmek için dokunun</string>
+  <string name="revanced_sb_about_title">Hakkında</string>
+  <string name="revanced_sb_about_api_summary">Veri, SponsorBlock API\'sinden sağlanır. Daha fazla bilgi ve diğer platformlar için indirmeleri görmek için dokunun</string>
   </patch>
   <patch id="layout.formfactor.changeFormFactorPatch">
   <string name="revanced_change_form_factor_title">Düzen form faktörü</string>

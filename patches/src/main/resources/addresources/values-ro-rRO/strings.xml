@@ -42,6 +42,10 @@ Second \"item\" text"</string>
   <string name="revanced_settings_import_reset">Setările ReVanced au fost resetate la valorile implicite</string>
   <string name="revanced_settings_import_success">Au fost importate %d setări</string>
   <string name="revanced_settings_import_failure_parse">Importare eșuată: %s</string>
+  <string name="revanced_settings_search_hint">Caută în setări</string>
+  <string name="revanced_settings_search_no_results_title">Nu s-au găsit rezultate pentru „%s”</string>
+  <string name="revanced_settings_search_no_results_summary">Încearcă un alt cuvânt cheie</string>
+  <string name="revanced_settings_search_remove_message">Eliminați din istoricul căutărilor?</string>
   <string name="revanced_show_menu_icons_title">Afișați pictogramele de setări ReVanced</string>
   <string name="revanced_show_menu_icons_summary_on">Pictogramele de setări sunt afișate</string>
   <string name="revanced_show_menu_icons_summary_off">Pictogramele setărilor nu sunt afișate</string>
@@ -93,6 +97,9 @@ Apăsați butonul continuare și permiteți modificările de optimizare."</strin
   <string name="revanced_restore_old_settings_menus_title">Restaurare meniuri setări vechi</string>
   <string name="revanced_restore_old_settings_menus_summary_on">Meniurile de setări vechi sunt afișate</string>
   <string name="revanced_restore_old_settings_menus_summary_off">Meniurile de setări vechi nu sunt afișate</string>
+  <string name="revanced_settings_search_history_title">Afișează istoricul căutărilor în setări</string>
+  <string name="revanced_settings_search_history_summary_on">Se afișează istoricul căutărilor în setări</string>
+  <string name="revanced_settings_search_history_summary_off">Istoricul căutărilor în setări nu este afișat</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
   <string name="revanced_shorts_disable_background_playback_title">Dezactivează redarea în fundal a Shorts</string>
@@ -153,10 +160,10 @@ Nu veți fi notificat de niciun eveniment neașteptat."</string>
   <string name="revanced_hide_notify_me_button_title">Ascunde butonul \'Notifică-mă\'</string>
   <string name="revanced_hide_notify_me_button_summary_on">Butonul este ascuns</string>
   <string name="revanced_hide_notify_me_button_summary_off">Butonul este afișat</string>
-  <!-- 'People also watched' should be translated using the same localized wording YouTube displays. -->
-  <string name="revanced_hide_search_result_recommendations_title">Ascunde eticheta „Persoanele au mai urmărit și”</string>
-  <string name="revanced_hide_search_result_recommendations_summary_on">Eticheta este ascunsă</string>
-  <string name="revanced_hide_search_result_recommendations_summary_off">Eticheta este afișată</string>
+  <!-- 'People also watched' and 'You might also like' should be translated using the same localized wording YouTube displays. -->
+  <string name="revanced_hide_search_result_recommendation_labels_title">Ascunde etichetele de recomandare video</string>
+  <string name="revanced_hide_search_result_recommendation_labels_summary_on">Etichetele „Alții au mai urmărit” și „S-ar putea să-ți placă și” sunt ascunse</string>
+  <string name="revanced_hide_search_result_recommendation_labels_summary_off">Etichetele „Alții au mai urmărit” și „S-ar putea să-ți placă și” sunt afișate</string>
   <!-- 'Show more' should be translated with the same localized wording that YouTube displays.
                   This button usually appears when searching for a YT creator. -->
   <string name="revanced_hide_show_more_button_title">Ascunderea butonului „Afișează mai multe”</string>
@@ -231,6 +238,9 @@ Nu veți fi notificat de niciun eveniment neașteptat."</string>
   <string name="revanced_hide_ai_generated_video_summary_section_title">Ascundeți \"Rezumat video generat de AI\"</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_on">Secțiunea de rezumat video este ascunsă</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_off">Secțiunea de rezumat video este afișată</string>
+  <string name="revanced_hide_ask_section_title">Ascunde Întreabă</string>
+  <string name="revanced_hide_ask_section_summary_on">Secțiunea Întreabă este ascunsă</string>
+  <string name="revanced_hide_ask_section_summary_off">Secțiunea Întreabă este afișată</string>
   <string name="revanced_hide_attributes_section_title">Ascunde Atributele</string>
   <string name="revanced_hide_attributes_section_summary_on">Secțiunile Locuri recomandate, Jocuri, Muzică și Persoane menționate sunt ascunse</string>
   <string name="revanced_hide_attributes_section_summary_off">Secțiunile Locuri recomandate, Jocuri, Muzică și Persoane menționate sunt afișate</string>
@@ -794,6 +804,11 @@ Redarea automată poate fi modificată în setările YouTube:
 Setări → Redare → Redare automată videoclipul următor"</string>
   <string name="revanced_end_screen_suggested_video_summary_off">Videoclipul sugerat de pe ecranul final este afișat</string>
   </patch>
+  <patch id="layout.hide.relatedvideooverlay.hideRelatedVideoOverlayPatch">
+  <string name="revanced_hide_related_video_overlay_title">Ascunde suprapunerea video asociată în ecran complet</string>
+  <string name="revanced_hide_related_video_overlay_summary_on">Suprapunerea video asociată este ascunsă</string>
+  <string name="revanced_hide_related_video_overlay_summary_off">Suprapunerea video asociată este afișată</string>
+  </patch>
   <patch id="layout.hide.time.hideTimestampPatch">
   <string name="revanced_hide_timestamp_title">Ascunde marcajul temporal video</string>
   <string name="revanced_hide_timestamp_summary_on">Marcajul de timp este ascuns</string>
@@ -831,10 +846,10 @@ Setări → Redare → Redare automată videoclipul următor"</string>
   <string name="revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted">Reîncarcă videoclipul pentru a vota folosind Returnare YouTube Dislike</string>
   <!-- Video likes have been set to hidden by the video uploader. -->
   <string name="revanced_ryd_video_likes_hidden_by_video_owner">Ascuns de proprietar</string>
-  <string name="revanced_ryd_enable_summary_on">Dislike-urile sunt afișate</string>
-  <string name="revanced_ryd_enable_summary_off">Dislike-urile nu sunt afișate</string>
+  <string name="revanced_ryd_enabled_summary_on">Dislike-urile sunt afișate</string>
+  <string name="revanced_ryd_enabled_summary_off">Dislike-urile nu sunt afișate</string>
   <string name="revanced_ryd_shorts_title">Arată displace pe scurtmetraje</string>
-  <string name="revanced_ryd_shorts_summary_on_disclaimer">"Aprecierile negative pe Shorts sunt afișate
+  <string name="revanced_ryd_shorts_summary_on">"Aprecierile negative pe Shorts sunt afișate
 
 Limitare: Este posibil ca aprecierile negative să nu apară în modul incognito"</string>
   <string name="revanced_ryd_shorts_summary_off">Aprecierile negative pe Shorts nu sunt afișate</string>
@@ -851,7 +866,6 @@ Limitare: Este posibil ca aprecierile negative să nu apară în modul incognito
   <string name="revanced_ryd_toast_on_connection_error_title">Arată un toast dacă API-ul nu este disponibil</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_on">Toast este afișat dacă Returnarea YouTube Dislike nu este disponibilă</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_off">Toast nu este afișat dacă Returnarea YouTube Dislike nu este disponibilă</string>
-  <string name="revanced_ryd_about">Despre</string>
   <string name="revanced_ryd_attribution_summary">Datele sunt furnizate de API-ul Returnare YouTube Dislike. Atinge aici pentru a afla mai multe</string>
   <!-- Statistic strings are shown in the settings only when ReVanced debug mode is enabled. Typical users will never see these. -->
   <string name="revanced_ryd_statistics_category_title">ReturnYouTubeDislike statistici API ale acestui dispozitiv</string>
@@ -1057,7 +1071,7 @@ Ești gata să trimiți?"</string>
   <string name="revanced_sb_new_segment_edit_by_hand_title">Editați sincronizarea segmentului manual</string>
   <string name="revanced_sb_new_segment_edit_by_hand_content">Doriți să editați sincronizarea pentru începutul sau sfârșitul segmentului?</string>
   <string name="revanced_sb_new_segment_edit_by_hand_parse_error">Oră nevalidă dată</string>
-  <string name="revanced_sb_stats">Statistici</string>
+  <string name="revanced_sb_stats_title">Statistici</string>
   <!-- Shown in the settings preferences, and translations can be any text length. -->
   <string name="revanced_sb_stats_connection_failure">Statisticile nu sunt disponibile temporar (API este defect)</string>
   <string name="revanced_sb_stats_loading">Se încarcă...</string>
@@ -1086,8 +1100,8 @@ Ești gata să trimiți?"</string>
   <string name="revanced_sb_color_invalid">Cod culoare nevalid</string>
   <string name="revanced_sb_reset_color">Resetare culoare</string>
   <string name="revanced_sb_reset">Resetează</string>
-  <string name="revanced_sb_about">Despre</string>
-  <string name="revanced_sb_about_api_sum">Datele sunt furnizate de API-ul SponsorBlock. Apasă aici pentru a afla mai multe și a vedea descărcările pentru alte platforme</string>
+  <string name="revanced_sb_about_title">Despre</string>
+  <string name="revanced_sb_about_api_summary">Datele sunt furnizate de API-ul SponsorBlock. Apasă aici pentru a afla mai multe și a vedea descărcările pentru alte platforme</string>
   </patch>
   <patch id="layout.formfactor.changeFormFactorPatch">
   <string name="revanced_change_form_factor_title">Formatul aspectului formularului</string>

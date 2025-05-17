@@ -576,7 +576,7 @@ final class KeywordContentFilter extends Filter {
         MutableReference<String> matchRef = new MutableReference<>();
         if (bufferSearch.matches(protobufBufferArray, matchRef)) {
             updateStats(true, matchRef.value);
-            return super.isFiltered(identifier, path, protobufBufferArray, matchedGroup, contentType, contentIndex);
+            return true;
         }
 
         updateStats(false, null);

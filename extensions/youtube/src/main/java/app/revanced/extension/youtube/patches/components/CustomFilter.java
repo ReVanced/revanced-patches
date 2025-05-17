@@ -153,9 +153,11 @@ final class CustomFilter extends Filter {
         if (custom.startsWith && contentIndex != 0) {
             return false;
         }
-        if (custom.bufferSearch != null && !custom.bufferSearch.matches(protobufBufferArray)) {
-            return false;
+
+        if (custom.bufferSearch == null) {
+            return true; // No buffer filter, only path filtering.
         }
-        return super.isFiltered(identifier, path, protobufBufferArray, matchedGroup, contentType, contentIndex);
+
+        return custom.bufferSearch.matches(protobufBufferArray);
     }
 }
