@@ -29,17 +29,17 @@ public class SortedListPreference extends ListPreference {
 
     /**
      * Sorts the current list entries.
+     *
+     * @param firstEntriesToPreserve The number of entries to preserve in their original position.
      */
-    public void sortEntryAndValues() {
+    public void sortEntryAndValues(int firstEntriesToPreserve) {
         CharSequence[] entries = getEntries();
         CharSequence[] entryValues = getEntryValues();
         if (entries == null || entryValues == null) {
             return;
         }
 
-        final int firstEntriesToPreserve = getFirstEntriesToPreserve();
         final int entrySize = entries.length;
-
         if (entrySize != entryValues.length) {
             // Xml array declaration has a missing/extra entry.
             throw new IllegalStateException();
@@ -84,24 +84,24 @@ public class SortedListPreference extends ListPreference {
     public SortedListPreference(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
 
-        sortEntryAndValues();
+        sortEntryAndValues(getFirstEntriesToPreserve());
     }
 
     public SortedListPreference(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
 
-        sortEntryAndValues();
+        sortEntryAndValues(getFirstEntriesToPreserve());
     }
 
     public SortedListPreference(Context context, AttributeSet attrs) {
         super(context, attrs);
 
-        sortEntryAndValues();
+        sortEntryAndValues(getFirstEntriesToPreserve());
     }
 
     public SortedListPreference(Context context) {
         super(context);
 
-        sortEntryAndValues();
+        sortEntryAndValues(getFirstEntriesToPreserve());
     }
 }
